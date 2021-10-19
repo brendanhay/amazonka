@@ -47,12 +47,12 @@
 </span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-48"></span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newGetDevice' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621679385251"><span id="local-6989586621679385252"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDevice"><span class="annot"><a href="Network.AWS.AlexaBusiness.GetDevice.html#GetDevice"><span class="hs-identifier hs-var">GetDevice</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDevice%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.GetDevice.html#GetDevice%27"><span class="hs-identifier hs-var">GetDevice'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679385610"><span id="local-6989586621679385611"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDevice"><span class="annot"><a href="Network.AWS.AlexaBusiness.GetDevice.html#GetDevice"><span class="hs-identifier hs-var">GetDevice</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDevice%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.GetDevice.html#GetDevice%27"><span class="hs-identifier hs-var">GetDevice'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the device for which to request details. Required.</span><span>
 </span><span id="line-52"></span><span>    </span><span id="%24sel%3AdeviceArn%3AGetDevice%27"><span class="annot"><span class="annottext">GetDevice -&gt; Maybe Text
 </span><a href="Network.AWS.AlexaBusiness.GetDevice.html#%24sel%3AdeviceArn%3AGetDevice%27"><span class="hs-identifier hs-var hs-var">deviceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679385245"><span id="local-6989586621679385247"><span class="annot"><span class="annottext">GetDevice -&gt; GetDevice -&gt; Bool
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679385604"><span id="local-6989586621679385606"><span class="annot"><span class="annottext">GetDevice -&gt; GetDevice -&gt; Bool
 (GetDevice -&gt; GetDevice -&gt; Bool)
 -&gt; (GetDevice -&gt; GetDevice -&gt; Bool) -&gt; Eq GetDevice
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -60,7 +60,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetDevice -&gt; GetDevice -&gt; Bool
 == :: GetDevice -&gt; GetDevice -&gt; Bool
 $c== :: GetDevice -&gt; GetDevice -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679385236"><span id="local-6989586621679385238"><span id="local-6989586621679385240"><span id="local-6989586621679385242"><span class="annot"><span class="annottext">ReadPrec [GetDevice]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679385595"><span id="local-6989586621679385597"><span id="local-6989586621679385599"><span id="local-6989586621679385601"><span class="annot"><span class="annottext">ReadPrec [GetDevice]
 ReadPrec GetDevice
 Int -&gt; ReadS GetDevice
 ReadS [GetDevice]
@@ -80,7 +80,7 @@ readList :: ReadS [GetDevice]
 $creadList :: ReadS [GetDevice]
 readsPrec :: Int -&gt; ReadS GetDevice
 $creadsPrec :: Int -&gt; ReadS GetDevice
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679385229"><span id="local-6989586621679385231"><span id="local-6989586621679385233"><span class="annot"><span class="annottext">Int -&gt; GetDevice -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679385588"><span id="local-6989586621679385590"><span id="local-6989586621679385592"><span class="annot"><span class="annottext">Int -&gt; GetDevice -&gt; ShowS
 [GetDevice] -&gt; ShowS
 GetDevice -&gt; String
 (Int -&gt; GetDevice -&gt; ShowS)
@@ -131,25 +131,25 @@ forall a. Maybe a
 -&gt; (GetDevice -&gt; Maybe Text -&gt; GetDevice)
 -&gt; Lens GetDevice GetDevice (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetDevice.html#GetDevice%27"><span class="hs-identifier hs-type">GetDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679385222"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetDevice.html#GetDevice%27"><span class="hs-identifier hs-type">GetDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679385581"><span class="annot"><span class="annottext">Maybe Text
 deviceArn :: Maybe Text
 $sel:deviceArn:GetDevice' :: GetDevice -&gt; Maybe Text
-</span><a href="#local-6989586621679385222"><span class="hs-identifier hs-var hs-var">deviceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679385222"><span class="hs-identifier hs-var">deviceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679385221"><span class="annot"><span class="annottext">s :: GetDevice
-</span><a href="#local-6989586621679385221"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetDevice.html#GetDevice%27"><span class="hs-identifier hs-type">GetDevice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679385220"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679385220"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDevice
-</span><a href="#local-6989586621679385221"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceArn:GetDevice' :: Maybe Text
+</span><a href="#local-6989586621679385581"><span class="hs-identifier hs-var hs-var">deviceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679385581"><span class="hs-identifier hs-var">deviceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679385580"><span class="annot"><span class="annottext">s :: GetDevice
+</span><a href="#local-6989586621679385580"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetDevice.html#GetDevice%27"><span class="hs-identifier hs-type">GetDevice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679385579"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679385579"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDevice
+</span><a href="#local-6989586621679385580"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceArn:GetDevice' :: Maybe Text
 </span><a href="Network.AWS.AlexaBusiness.GetDevice.html#%24sel%3AdeviceArn%3AGetDevice%27"><span class="hs-identifier hs-var">deviceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679385220"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetDevice.html#GetDevice"><span class="hs-identifier hs-type">GetDevice</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679385579"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetDevice.html#GetDevice"><span class="hs-identifier hs-type">GetDevice</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetDevice.html#GetDevice"><span class="hs-identifier hs-type">GetDevice</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-75"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetDevice.html#GetDevice"><span class="hs-identifier hs-type">GetDevice</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetDevice.html#GetDeviceResponse"><span class="hs-identifier hs-type">GetDeviceResponse</span></a></span><span>
-</span><span id="line-76"></span><span>  </span><span id="local-6989586621679385216"><span class="annot"><span class="annottext">request :: GetDevice -&gt; Request GetDevice
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679385575"><span class="annot"><span class="annottext">request :: GetDevice -&gt; Request GetDevice
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetDevice -&gt; Request GetDevice
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.AlexaBusiness.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621679385212"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679385571"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetDevice
 -&gt; ClientResponse ClientBody
@@ -173,10 +173,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-79"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679385209"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679385209"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679385208"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679385208"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679385207"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679385207"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-79"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679385568"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679385568"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679385567"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679385567"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679385566"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679385566"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-80"></span><span>          </span><span class="annot"><span class="annottext">Maybe Device -&gt; Int -&gt; GetDeviceResponse
 </span><a href="Network.AWS.AlexaBusiness.GetDevice.html#GetDeviceResponse%27"><span class="hs-identifier hs-var">GetDeviceResponse'</span></a></span><span>
 </span><span id="line-81"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Device -&gt; Int -&gt; GetDeviceResponse)
@@ -184,7 +184,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; GetDeviceResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679385207"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Device)
+</span><a href="#local-6989586621679385566"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Device)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Device&quot;</span></span><span class="hs-special">)</span><span>
@@ -196,15 +196,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679385209"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679385568"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679385199"><span id="local-6989586621679385201"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetDevice.html#GetDevice"><span class="hs-identifier hs-type">GetDevice</span></a></span></span></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679385558"><span id="local-6989586621679385560"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetDevice.html#GetDevice"><span class="hs-identifier hs-type">GetDevice</span></a></span></span></span><span>
 </span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679385196"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetDevice.html#GetDevice"><span class="hs-identifier hs-type">GetDevice</span></a></span></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679385555"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetDevice.html#GetDevice"><span class="hs-identifier hs-type">GetDevice</span></a></span></span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetDevice.html#GetDevice"><span class="hs-identifier hs-type">GetDevice</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621679385192"><span class="annot"><span class="annottext">toHeaders :: GetDevice -&gt; ResponseHeaders
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679385551"><span class="annot"><span class="annottext">toHeaders :: GetDevice -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-91"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetDevice -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -229,12 +229,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-99"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-100"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679385182"><span id="local-6989586621679385184"><span id="local-6989586621679385186"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetDevice.html#GetDevice"><span class="hs-identifier hs-type">GetDevice</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679385180"><span class="annot"><span class="annottext">toJSON :: GetDevice -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetDevice.html#GetDevice%27"><span class="hs-identifier hs-type">GetDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679385178"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679385541"><span id="local-6989586621679385543"><span id="local-6989586621679385545"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetDevice.html#GetDevice"><span class="hs-identifier hs-type">GetDevice</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679385539"><span class="annot"><span class="annottext">toJSON :: GetDevice -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetDevice.html#GetDevice%27"><span class="hs-identifier hs-type">GetDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679385537"><span class="annot"><span class="annottext">Maybe Text
 deviceArn :: Maybe Text
 $sel:deviceArn:GetDevice' :: GetDevice -&gt; Maybe Text
-</span><a href="#local-6989586621679385178"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679385537"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -246,18 +246,18 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679385178"><span class="hs-identifier hs-var">deviceArn</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679385537"><span class="hs-identifier hs-var">deviceArn</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetDevice.html#GetDevice"><span class="hs-identifier hs-type">GetDevice</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679385172"><span class="annot"><span class="annottext">toPath :: GetDevice -&gt; ByteString
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679385531"><span class="annot"><span class="annottext">toPath :: GetDevice -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetDevice -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetDevice.html#GetDevice"><span class="hs-identifier hs-type">GetDevice</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679385168"><span class="annot"><span class="annottext">toQuery :: GetDevice -&gt; QueryString
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679385527"><span class="annot"><span class="annottext">toQuery :: GetDevice -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetDevice -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -265,7 +265,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-comment">-- | /See:/ 'newGetDeviceResponse' smart constructor.</span><span>
-</span><span id="line-116"></span><span id="local-6989586621679385165"><span id="local-6989586621679385166"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDeviceResponse"><span class="annot"><a href="Network.AWS.AlexaBusiness.GetDevice.html#GetDeviceResponse"><span class="hs-identifier hs-var">GetDeviceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDeviceResponse%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.GetDevice.html#GetDeviceResponse%27"><span class="hs-identifier hs-var">GetDeviceResponse'</span></a></span></span><span>
+</span><span id="line-116"></span><span id="local-6989586621679385524"><span id="local-6989586621679385525"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDeviceResponse"><span class="annot"><a href="Network.AWS.AlexaBusiness.GetDevice.html#GetDeviceResponse"><span class="hs-identifier hs-var">GetDeviceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDeviceResponse%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.GetDevice.html#GetDeviceResponse%27"><span class="hs-identifier hs-var">GetDeviceResponse'</span></a></span></span><span>
 </span><span id="line-117"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The details of the device requested. Required.</span><span>
 </span><span id="line-118"></span><span>    </span><span id="%24sel%3Adevice%3AGetDeviceResponse%27"><span class="annot"><span class="annottext">GetDeviceResponse -&gt; Maybe Device
 </span><a href="Network.AWS.AlexaBusiness.GetDevice.html#%24sel%3Adevice%3AGetDeviceResponse%27"><span class="hs-identifier hs-var hs-var">device</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Device.html#Device"><span class="hs-identifier hs-type">Device</span></a></span><span class="hs-special">,</span><span>
@@ -273,7 +273,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-120"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetDeviceResponse%27"><span class="annot"><span class="annottext">GetDeviceResponse -&gt; Int
 </span><a href="Network.AWS.AlexaBusiness.GetDevice.html#%24sel%3AhttpStatus%3AGetDeviceResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-121"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-122"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679385159"><span id="local-6989586621679385161"><span class="annot"><span class="annottext">GetDeviceResponse -&gt; GetDeviceResponse -&gt; Bool
+</span><span id="line-122"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679385518"><span id="local-6989586621679385520"><span class="annot"><span class="annottext">GetDeviceResponse -&gt; GetDeviceResponse -&gt; Bool
 (GetDeviceResponse -&gt; GetDeviceResponse -&gt; Bool)
 -&gt; (GetDeviceResponse -&gt; GetDeviceResponse -&gt; Bool)
 -&gt; Eq GetDeviceResponse
@@ -282,7 +282,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetDeviceResponse -&gt; GetDeviceResponse -&gt; Bool
 == :: GetDeviceResponse -&gt; GetDeviceResponse -&gt; Bool
 $c== :: GetDeviceResponse -&gt; GetDeviceResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679385151"><span id="local-6989586621679385153"><span id="local-6989586621679385155"><span id="local-6989586621679385157"><span class="annot"><span class="annottext">ReadPrec [GetDeviceResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679385510"><span id="local-6989586621679385512"><span id="local-6989586621679385514"><span id="local-6989586621679385516"><span class="annot"><span class="annottext">ReadPrec [GetDeviceResponse]
 ReadPrec GetDeviceResponse
 Int -&gt; ReadS GetDeviceResponse
 ReadS [GetDeviceResponse]
@@ -302,7 +302,7 @@ readList :: ReadS [GetDeviceResponse]
 $creadList :: ReadS [GetDeviceResponse]
 readsPrec :: Int -&gt; ReadS GetDeviceResponse
 $creadsPrec :: Int -&gt; ReadS GetDeviceResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679385145"><span id="local-6989586621679385147"><span id="local-6989586621679385149"><span class="annot"><span class="annottext">Int -&gt; GetDeviceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679385504"><span id="local-6989586621679385506"><span id="local-6989586621679385508"><span class="annot"><span class="annottext">Int -&gt; GetDeviceResponse -&gt; ShowS
 [GetDeviceResponse] -&gt; ShowS
 GetDeviceResponse -&gt; String
 (Int -&gt; GetDeviceResponse -&gt; ShowS)
@@ -344,8 +344,8 @@ $cfrom :: forall x. GetDeviceResponse -&gt; Rep GetDeviceResponse x
 </span><span id="line-137"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-138"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetDevice.html#GetDeviceResponse"><span class="hs-identifier hs-type">GetDeviceResponse</span></a></span><span>
 </span><span id="line-139"></span><span id="newGetDeviceResponse"><span class="annot"><span class="annottext">newGetDeviceResponse :: Int -&gt; GetDeviceResponse
-</span><a href="Network.AWS.AlexaBusiness.GetDevice.html#newGetDeviceResponse"><span class="hs-identifier hs-var hs-var">newGetDeviceResponse</span></a></span></span><span> </span><span id="local-6989586621679385142"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679385142"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AlexaBusiness.GetDevice.html#newGetDeviceResponse"><span class="hs-identifier hs-var hs-var">newGetDeviceResponse</span></a></span></span><span> </span><span id="local-6989586621679385501"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679385501"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-140"></span><span>  </span><span class="annot"><span class="annottext">GetDeviceResponse' :: Maybe Device -&gt; Int -&gt; GetDeviceResponse
 </span><a href="Network.AWS.AlexaBusiness.GetDevice.html#GetDeviceResponse%27"><span class="hs-identifier hs-type">GetDeviceResponse'</span></a></span><span>
 </span><span id="line-141"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:device:GetDeviceResponse' :: Maybe Device
@@ -354,7 +354,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetDeviceResponse' :: Int
 </span><a href="Network.AWS.AlexaBusiness.GetDevice.html#%24sel%3AhttpStatus%3AGetDeviceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679385142"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679385501"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-143"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-comment">-- | The details of the device requested. Required.</span><span>
@@ -366,16 +366,16 @@ forall a. Maybe a
 -&gt; Lens
      GetDeviceResponse GetDeviceResponse (Maybe Device) (Maybe Device)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetDevice.html#GetDeviceResponse%27"><span class="hs-identifier hs-type">GetDeviceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679385141"><span class="annot"><span class="annottext">Maybe Device
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetDevice.html#GetDeviceResponse%27"><span class="hs-identifier hs-type">GetDeviceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679385500"><span class="annot"><span class="annottext">Maybe Device
 device :: Maybe Device
 $sel:device:GetDeviceResponse' :: GetDeviceResponse -&gt; Maybe Device
-</span><a href="#local-6989586621679385141"><span class="hs-identifier hs-var hs-var">device</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Device
-</span><a href="#local-6989586621679385141"><span class="hs-identifier hs-var">device</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679385140"><span class="annot"><span class="annottext">s :: GetDeviceResponse
-</span><a href="#local-6989586621679385140"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetDevice.html#GetDeviceResponse%27"><span class="hs-identifier hs-type">GetDeviceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679385139"><span class="annot"><span class="annottext">Maybe Device
-</span><a href="#local-6989586621679385139"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDeviceResponse
-</span><a href="#local-6989586621679385140"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:device:GetDeviceResponse' :: Maybe Device
+</span><a href="#local-6989586621679385500"><span class="hs-identifier hs-var hs-var">device</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Device
+</span><a href="#local-6989586621679385500"><span class="hs-identifier hs-var">device</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679385499"><span class="annot"><span class="annottext">s :: GetDeviceResponse
+</span><a href="#local-6989586621679385499"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetDevice.html#GetDeviceResponse%27"><span class="hs-identifier hs-type">GetDeviceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679385498"><span class="annot"><span class="annottext">Maybe Device
+</span><a href="#local-6989586621679385498"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDeviceResponse
+</span><a href="#local-6989586621679385499"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:device:GetDeviceResponse' :: Maybe Device
 </span><a href="Network.AWS.AlexaBusiness.GetDevice.html#%24sel%3Adevice%3AGetDeviceResponse%27"><span class="hs-identifier hs-var">device</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Device
-</span><a href="#local-6989586621679385139"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetDevice.html#GetDeviceResponse"><span class="hs-identifier hs-type">GetDeviceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679385498"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetDevice.html#GetDeviceResponse"><span class="hs-identifier hs-type">GetDeviceResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-150"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetDevice.html#getDeviceResponse_httpStatus"><span class="hs-identifier hs-type">getDeviceResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetDevice.html#GetDeviceResponse"><span class="hs-identifier hs-type">GetDeviceResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -384,16 +384,16 @@ $sel:device:GetDeviceResponse' :: GetDeviceResponse -&gt; Maybe Device
 -&gt; (GetDeviceResponse -&gt; Int -&gt; GetDeviceResponse)
 -&gt; Lens GetDeviceResponse GetDeviceResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetDevice.html#GetDeviceResponse%27"><span class="hs-identifier hs-type">GetDeviceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679385138"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetDevice.html#GetDeviceResponse%27"><span class="hs-identifier hs-type">GetDeviceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679385497"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetDeviceResponse' :: GetDeviceResponse -&gt; Int
-</span><a href="#local-6989586621679385138"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679385138"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679385137"><span class="annot"><span class="annottext">s :: GetDeviceResponse
-</span><a href="#local-6989586621679385137"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetDevice.html#GetDeviceResponse%27"><span class="hs-identifier hs-type">GetDeviceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679385136"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679385136"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDeviceResponse
-</span><a href="#local-6989586621679385137"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetDeviceResponse' :: Int
+</span><a href="#local-6989586621679385497"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679385497"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679385496"><span class="annot"><span class="annottext">s :: GetDeviceResponse
+</span><a href="#local-6989586621679385496"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetDevice.html#GetDeviceResponse%27"><span class="hs-identifier hs-type">GetDeviceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679385495"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679385495"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDeviceResponse
+</span><a href="#local-6989586621679385496"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetDeviceResponse' :: Int
 </span><a href="Network.AWS.AlexaBusiness.GetDevice.html#%24sel%3AhttpStatus%3AGetDeviceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679385136"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetDevice.html#GetDeviceResponse"><span class="hs-identifier hs-type">GetDeviceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679385495"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetDevice.html#GetDeviceResponse"><span class="hs-identifier hs-type">GetDeviceResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-152"></span><span>
-</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679385134"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetDevice.html#GetDeviceResponse"><span class="hs-identifier hs-type">GetDeviceResponse</span></a></span></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679385493"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetDevice.html#GetDeviceResponse"><span class="hs-identifier hs-type">GetDeviceResponse</span></a></span></span><span>
 </span><span id="line-154"></span></pre></body></html>

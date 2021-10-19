@@ -27,9 +27,9 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Used to associate a configuration set with a dedicated IP pool.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newDeliveryOptions' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679331840"><span id="local-6989586621679331841"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeliveryOptions"><span class="annot"><a href="Network.AWS.SESv2.Types.DeliveryOptions.html#DeliveryOptions"><span class="hs-identifier hs-var">DeliveryOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeliveryOptions%27"><span class="annot"><a href="Network.AWS.SESv2.Types.DeliveryOptions.html#DeliveryOptions%27"><span class="hs-identifier hs-var">DeliveryOptions'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the dedicated IP pool that you want to associate with the</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- configuration set.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679334356"><span id="local-6989586621679334357"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeliveryOptions"><span class="annot"><a href="Network.AWS.SESv2.Types.DeliveryOptions.html#DeliveryOptions"><span class="hs-identifier hs-var">DeliveryOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeliveryOptions%27"><span class="annot"><a href="Network.AWS.SESv2.Types.DeliveryOptions.html#DeliveryOptions%27"><span class="hs-identifier hs-var">DeliveryOptions'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the dedicated IP pool to associate with the configuration</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- set.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AsendingPoolName%3ADeliveryOptions%27"><span class="annot"><span class="annottext">DeliveryOptions -&gt; Maybe Text
 </span><a href="Network.AWS.SESv2.Types.DeliveryOptions.html#%24sel%3AsendingPoolName%3ADeliveryOptions%27"><span class="hs-identifier hs-var hs-var">sendingPoolName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | Specifies whether messages that use the configuration set are required</span><span>
@@ -40,7 +40,7 @@
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3AtlsPolicy%3ADeliveryOptions%27"><span class="annot"><span class="annottext">DeliveryOptions -&gt; Maybe TlsPolicy
 </span><a href="Network.AWS.SESv2.Types.DeliveryOptions.html#%24sel%3AtlsPolicy%3ADeliveryOptions%27"><span class="hs-identifier hs-var hs-var">tlsPolicy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.TlsPolicy.html#TlsPolicy"><span class="hs-identifier hs-type">TlsPolicy</span></a></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679331833"><span id="local-6989586621679331835"><span class="annot"><span class="annottext">DeliveryOptions -&gt; DeliveryOptions -&gt; Bool
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679334349"><span id="local-6989586621679334351"><span class="annot"><span class="annottext">DeliveryOptions -&gt; DeliveryOptions -&gt; Bool
 (DeliveryOptions -&gt; DeliveryOptions -&gt; Bool)
 -&gt; (DeliveryOptions -&gt; DeliveryOptions -&gt; Bool)
 -&gt; Eq DeliveryOptions
@@ -49,7 +49,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeliveryOptions -&gt; DeliveryOptions -&gt; Bool
 == :: DeliveryOptions -&gt; DeliveryOptions -&gt; Bool
 $c== :: DeliveryOptions -&gt; DeliveryOptions -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679331824"><span id="local-6989586621679331826"><span id="local-6989586621679331828"><span id="local-6989586621679331830"><span class="annot"><span class="annottext">ReadPrec [DeliveryOptions]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679334340"><span id="local-6989586621679334342"><span id="local-6989586621679334344"><span id="local-6989586621679334346"><span class="annot"><span class="annottext">ReadPrec [DeliveryOptions]
 ReadPrec DeliveryOptions
 Int -&gt; ReadS DeliveryOptions
 ReadS [DeliveryOptions]
@@ -69,7 +69,7 @@ readList :: ReadS [DeliveryOptions]
 $creadList :: ReadS [DeliveryOptions]
 readsPrec :: Int -&gt; ReadS DeliveryOptions
 $creadsPrec :: Int -&gt; ReadS DeliveryOptions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679331817"><span id="local-6989586621679331819"><span id="local-6989586621679331821"><span class="annot"><span class="annottext">Int -&gt; DeliveryOptions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679334333"><span id="local-6989586621679334335"><span id="local-6989586621679334337"><span class="annot"><span class="annottext">Int -&gt; DeliveryOptions -&gt; ShowS
 [DeliveryOptions] -&gt; ShowS
 DeliveryOptions -&gt; String
 (Int -&gt; DeliveryOptions -&gt; ShowS)
@@ -103,8 +103,8 @@ $cfrom :: forall x. DeliveryOptions -&gt; Rep DeliveryOptions x
 </span><span id="line-48"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
-</span><span id="line-51"></span><span class="hs-comment">-- 'sendingPoolName', 'deliveryOptions_sendingPoolName' - The name of the dedicated IP pool that you want to associate with the</span><span>
-</span><span id="line-52"></span><span class="hs-comment">-- configuration set.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'sendingPoolName', 'deliveryOptions_sendingPoolName' - The name of the dedicated IP pool to associate with the configuration</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- set.</span><span>
 </span><span id="line-53"></span><span class="hs-comment">--</span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- 'tlsPolicy', 'deliveryOptions_tlsPolicy' - Specifies whether messages that use the configuration set are required</span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- to use Transport Layer Security (TLS). If the value is @Require@,</span><span>
@@ -127,8 +127,8 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-65"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- | The name of the dedicated IP pool that you want to associate with the</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- configuration set.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- | The name of the dedicated IP pool to associate with the configuration</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- set.</span><span>
 </span><span id="line-69"></span><span class="annot"><a href="Network.AWS.SESv2.Types.DeliveryOptions.html#deliveryOptions_sendingPoolName"><span class="hs-identifier hs-type">deliveryOptions_sendingPoolName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.DeliveryOptions.html#DeliveryOptions"><span class="hs-identifier hs-type">DeliveryOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
 </span><span id="line-70"></span><span id="deliveryOptions_sendingPoolName"><span class="annot"><span class="annottext">deliveryOptions_sendingPoolName :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; DeliveryOptions -&gt; f DeliveryOptions
@@ -136,16 +136,16 @@ forall a. Maybe a
 -&gt; (DeliveryOptions -&gt; Maybe Text -&gt; DeliveryOptions)
 -&gt; Lens DeliveryOptions DeliveryOptions (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.DeliveryOptions.html#DeliveryOptions%27"><span class="hs-identifier hs-type">DeliveryOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331808"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.DeliveryOptions.html#DeliveryOptions%27"><span class="hs-identifier hs-type">DeliveryOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679334324"><span class="annot"><span class="annottext">Maybe Text
 sendingPoolName :: Maybe Text
 $sel:sendingPoolName:DeliveryOptions' :: DeliveryOptions -&gt; Maybe Text
-</span><a href="#local-6989586621679331808"><span class="hs-identifier hs-var hs-var">sendingPoolName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679331808"><span class="hs-identifier hs-var">sendingPoolName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331807"><span class="annot"><span class="annottext">s :: DeliveryOptions
-</span><a href="#local-6989586621679331807"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.DeliveryOptions.html#DeliveryOptions%27"><span class="hs-identifier hs-type">DeliveryOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331806"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679331806"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeliveryOptions
-</span><a href="#local-6989586621679331807"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sendingPoolName:DeliveryOptions' :: Maybe Text
+</span><a href="#local-6989586621679334324"><span class="hs-identifier hs-var hs-var">sendingPoolName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679334324"><span class="hs-identifier hs-var">sendingPoolName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679334323"><span class="annot"><span class="annottext">s :: DeliveryOptions
+</span><a href="#local-6989586621679334323"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.DeliveryOptions.html#DeliveryOptions%27"><span class="hs-identifier hs-type">DeliveryOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679334322"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679334322"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeliveryOptions
+</span><a href="#local-6989586621679334323"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sendingPoolName:DeliveryOptions' :: Maybe Text
 </span><a href="Network.AWS.SESv2.Types.DeliveryOptions.html#%24sel%3AsendingPoolName%3ADeliveryOptions%27"><span class="hs-identifier hs-var">sendingPoolName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679331806"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.DeliveryOptions.html#DeliveryOptions"><span class="hs-identifier hs-type">DeliveryOptions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679334322"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.DeliveryOptions.html#DeliveryOptions"><span class="hs-identifier hs-type">DeliveryOptions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- | Specifies whether messages that use the configuration set are required</span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- to use Transport Layer Security (TLS). If the value is @Require@,</span><span>
@@ -160,19 +160,19 @@ $sel:sendingPoolName:DeliveryOptions' :: DeliveryOptions -&gt; Maybe Text
 -&gt; Lens
      DeliveryOptions DeliveryOptions (Maybe TlsPolicy) (Maybe TlsPolicy)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.DeliveryOptions.html#DeliveryOptions%27"><span class="hs-identifier hs-type">DeliveryOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331804"><span class="annot"><span class="annottext">Maybe TlsPolicy
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.DeliveryOptions.html#DeliveryOptions%27"><span class="hs-identifier hs-type">DeliveryOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679334320"><span class="annot"><span class="annottext">Maybe TlsPolicy
 tlsPolicy :: Maybe TlsPolicy
 $sel:tlsPolicy:DeliveryOptions' :: DeliveryOptions -&gt; Maybe TlsPolicy
-</span><a href="#local-6989586621679331804"><span class="hs-identifier hs-var hs-var">tlsPolicy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TlsPolicy
-</span><a href="#local-6989586621679331804"><span class="hs-identifier hs-var">tlsPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331803"><span class="annot"><span class="annottext">s :: DeliveryOptions
-</span><a href="#local-6989586621679331803"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.DeliveryOptions.html#DeliveryOptions%27"><span class="hs-identifier hs-type">DeliveryOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331802"><span class="annot"><span class="annottext">Maybe TlsPolicy
-</span><a href="#local-6989586621679331802"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeliveryOptions
-</span><a href="#local-6989586621679331803"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tlsPolicy:DeliveryOptions' :: Maybe TlsPolicy
+</span><a href="#local-6989586621679334320"><span class="hs-identifier hs-var hs-var">tlsPolicy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TlsPolicy
+</span><a href="#local-6989586621679334320"><span class="hs-identifier hs-var">tlsPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679334319"><span class="annot"><span class="annottext">s :: DeliveryOptions
+</span><a href="#local-6989586621679334319"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.DeliveryOptions.html#DeliveryOptions%27"><span class="hs-identifier hs-type">DeliveryOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679334318"><span class="annot"><span class="annottext">Maybe TlsPolicy
+</span><a href="#local-6989586621679334318"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeliveryOptions
+</span><a href="#local-6989586621679334319"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tlsPolicy:DeliveryOptions' :: Maybe TlsPolicy
 </span><a href="Network.AWS.SESv2.Types.DeliveryOptions.html#%24sel%3AtlsPolicy%3ADeliveryOptions%27"><span class="hs-identifier hs-var">tlsPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TlsPolicy
-</span><a href="#local-6989586621679331802"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.DeliveryOptions.html#DeliveryOptions"><span class="hs-identifier hs-type">DeliveryOptions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679334318"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.DeliveryOptions.html#DeliveryOptions"><span class="hs-identifier hs-type">DeliveryOptions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679331799"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.DeliveryOptions.html#DeliveryOptions"><span class="hs-identifier hs-type">DeliveryOptions</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679331797"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DeliveryOptions
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679334315"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.DeliveryOptions.html#DeliveryOptions"><span class="hs-identifier hs-type">DeliveryOptions</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679334313"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DeliveryOptions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser DeliveryOptions)
@@ -182,8 +182,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;DeliveryOptions&quot;</span></span><span>
-</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679331794"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679331794"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679334310"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679334310"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-85"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe TlsPolicy -&gt; DeliveryOptions
 </span><a href="Network.AWS.SESv2.Types.DeliveryOptions.html#DeliveryOptions%27"><span class="hs-identifier hs-var">DeliveryOptions'</span></a></span><span>
 </span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe TlsPolicy -&gt; DeliveryOptions)
@@ -191,7 +191,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe TlsPolicy -&gt; DeliveryOptions)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679331794"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679334310"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SendingPoolName&quot;</span></span><span class="hs-special">)</span><span>
@@ -199,25 +199,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe TlsPolicy) -&gt; Parser DeliveryOptions
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679331794"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TlsPolicy)
+</span><a href="#local-6989586621679334310"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TlsPolicy)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TlsPolicy&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679331788"><span id="local-6989586621679331790"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.DeliveryOptions.html#DeliveryOptions"><span class="hs-identifier hs-type">DeliveryOptions</span></a></span></span></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679334304"><span id="local-6989586621679334306"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.DeliveryOptions.html#DeliveryOptions"><span class="hs-identifier hs-type">DeliveryOptions</span></a></span></span></span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679331785"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.DeliveryOptions.html#DeliveryOptions"><span class="hs-identifier hs-type">DeliveryOptions</span></a></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679334301"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.DeliveryOptions.html#DeliveryOptions"><span class="hs-identifier hs-type">DeliveryOptions</span></a></span></span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679331777"><span id="local-6989586621679331779"><span id="local-6989586621679331781"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.DeliveryOptions.html#DeliveryOptions"><span class="hs-identifier hs-type">DeliveryOptions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679331775"><span class="annot"><span class="annottext">toJSON :: DeliveryOptions -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.DeliveryOptions.html#DeliveryOptions%27"><span class="hs-identifier hs-type">DeliveryOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331772"><span id="local-6989586621679331773"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679334293"><span id="local-6989586621679334295"><span id="local-6989586621679334297"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.DeliveryOptions.html#DeliveryOptions"><span class="hs-identifier hs-type">DeliveryOptions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679334291"><span class="annot"><span class="annottext">toJSON :: DeliveryOptions -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.DeliveryOptions.html#DeliveryOptions%27"><span class="hs-identifier hs-type">DeliveryOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679334288"><span id="local-6989586621679334289"><span class="annot"><span class="annottext">Maybe Text
 Maybe TlsPolicy
 tlsPolicy :: Maybe TlsPolicy
 sendingPoolName :: Maybe Text
 $sel:tlsPolicy:DeliveryOptions' :: DeliveryOptions -&gt; Maybe TlsPolicy
 $sel:sendingPoolName:DeliveryOptions' :: DeliveryOptions -&gt; Maybe Text
-</span><a href="#local-6989586621679331772"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679334288"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -230,14 +230,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-99"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679331773"><span class="hs-identifier hs-var">sendingPoolName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679334289"><span class="hs-identifier hs-var">sendingPoolName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-100"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TlsPolicy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TlsPolicy -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(TlsPolicy -&gt; Pair) -&gt; Maybe TlsPolicy -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TlsPolicy
-</span><a href="#local-6989586621679331772"><span class="hs-identifier hs-var">tlsPolicy</span></a></span><span>
+</span><a href="#local-6989586621679334288"><span class="hs-identifier hs-var">tlsPolicy</span></a></span><span>
 </span><span id="line-101"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-102"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span></pre></body></html>

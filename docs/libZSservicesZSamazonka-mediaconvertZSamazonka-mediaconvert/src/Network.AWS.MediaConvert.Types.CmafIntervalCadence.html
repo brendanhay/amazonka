@@ -34,13 +34,13 @@
 </span><span id="line-34"></span><span class="hs-comment">-- the output (matching the GOP cadence). If set to FOLLOW_CUSTOM,</span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- MediaConvert generates thumbnails according to the interval you specify</span><span>
 </span><span id="line-36"></span><span class="hs-comment">-- in thumbnailInterval.</span><span>
-</span><span id="line-37"></span><span id="local-6989586621679943361"><span id="local-6989586621679943362"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CmafIntervalCadence"><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafIntervalCadence.html#CmafIntervalCadence"><span class="hs-identifier hs-var">CmafIntervalCadence</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CmafIntervalCadence%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafIntervalCadence.html#CmafIntervalCadence%27"><span class="hs-identifier hs-var">CmafIntervalCadence'</span></a></span></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679947984"><span id="local-6989586621679947985"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CmafIntervalCadence"><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafIntervalCadence.html#CmafIntervalCadence"><span class="hs-identifier hs-var">CmafIntervalCadence</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CmafIntervalCadence%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafIntervalCadence.html#CmafIntervalCadence%27"><span class="hs-identifier hs-var">CmafIntervalCadence'</span></a></span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCmafIntervalCadence"><span class="annot"><span class="annottext">CmafIntervalCadence -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.CmafIntervalCadence.html#fromCmafIntervalCadence"><span class="hs-identifier hs-var hs-var">fromCmafIntervalCadence</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679943353"><span id="local-6989586621679943355"><span id="local-6989586621679943357"><span class="annot"><span class="annottext">Int -&gt; CmafIntervalCadence -&gt; ShowS
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679947976"><span id="local-6989586621679947978"><span id="local-6989586621679947980"><span class="annot"><span class="annottext">Int -&gt; CmafIntervalCadence -&gt; ShowS
 [CmafIntervalCadence] -&gt; ShowS
 CmafIntervalCadence -&gt; String
 (Int -&gt; CmafIntervalCadence -&gt; ShowS)
@@ -56,7 +56,7 @@ $cshow :: CmafIntervalCadence -&gt; String
 showsPrec :: Int -&gt; CmafIntervalCadence -&gt; ShowS
 $cshowsPrec :: Int -&gt; CmafIntervalCadence -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679943344"><span id="local-6989586621679943346"><span id="local-6989586621679943348"><span id="local-6989586621679943350"><span class="annot"><span class="annottext">ReadPrec [CmafIntervalCadence]
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679947967"><span id="local-6989586621679947969"><span id="local-6989586621679947971"><span id="local-6989586621679947973"><span class="annot"><span class="annottext">ReadPrec [CmafIntervalCadence]
 ReadPrec CmafIntervalCadence
 Int -&gt; ReadS CmafIntervalCadence
 ReadS [CmafIntervalCadence]
@@ -77,7 +77,7 @@ $creadList :: ReadS [CmafIntervalCadence]
 readsPrec :: Int -&gt; ReadS CmafIntervalCadence
 $creadsPrec :: Int -&gt; ReadS CmafIntervalCadence
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679943339"><span id="local-6989586621679943341"><span class="annot"><span class="annottext">CmafIntervalCadence -&gt; CmafIntervalCadence -&gt; Bool
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679947962"><span id="local-6989586621679947964"><span class="annot"><span class="annottext">CmafIntervalCadence -&gt; CmafIntervalCadence -&gt; Bool
 (CmafIntervalCadence -&gt; CmafIntervalCadence -&gt; Bool)
 -&gt; (CmafIntervalCadence -&gt; CmafIntervalCadence -&gt; Bool)
 -&gt; Eq CmafIntervalCadence
@@ -87,7 +87,7 @@ $c/= :: CmafIntervalCadence -&gt; CmafIntervalCadence -&gt; Bool
 == :: CmafIntervalCadence -&gt; CmafIntervalCadence -&gt; Bool
 $c== :: CmafIntervalCadence -&gt; CmafIntervalCadence -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679943323"><span id="local-6989586621679943325"><span id="local-6989586621679943327"><span id="local-6989586621679943329"><span id="local-6989586621679943331"><span id="local-6989586621679943333"><span id="local-6989586621679943335"><span class="annot"><span class="annottext">Eq CmafIntervalCadence
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679947946"><span id="local-6989586621679947948"><span id="local-6989586621679947950"><span id="local-6989586621679947952"><span id="local-6989586621679947954"><span id="local-6989586621679947956"><span id="local-6989586621679947958"><span class="annot"><span class="annottext">Eq CmafIntervalCadence
 Eq CmafIntervalCadence
 -&gt; (CmafIntervalCadence -&gt; CmafIntervalCadence -&gt; Ordering)
 -&gt; (CmafIntervalCadence -&gt; CmafIntervalCadence -&gt; Bool)
@@ -140,7 +140,7 @@ $cfrom :: forall x. CmafIntervalCadence -&gt; Rep CmafIntervalCadence x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679943315"><span id="local-6989586621679943317"><span class="annot"><span class="annottext">Int -&gt; CmafIntervalCadence -&gt; Int
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679947938"><span id="local-6989586621679947940"><span class="annot"><span class="annottext">Int -&gt; CmafIntervalCadence -&gt; Int
 CmafIntervalCadence -&gt; Int
 (Int -&gt; CmafIntervalCadence -&gt; Int)
 -&gt; (CmafIntervalCadence -&gt; Int) -&gt; Hashable CmafIntervalCadence
@@ -150,53 +150,53 @@ $chash :: CmafIntervalCadence -&gt; Int
 hashWithSalt :: Int -&gt; CmafIntervalCadence -&gt; Int
 $chashWithSalt :: Int -&gt; CmafIntervalCadence -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679943312"><span class="annot"><span class="annottext">CmafIntervalCadence -&gt; ()
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679947935"><span class="annot"><span class="annottext">CmafIntervalCadence -&gt; ()
 (CmafIntervalCadence -&gt; ()) -&gt; NFData CmafIntervalCadence
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: CmafIntervalCadence -&gt; ()
 $crnf :: CmafIntervalCadence -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679943309"><span class="annot"><span class="annottext">Text -&gt; Either String CmafIntervalCadence
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679947932"><span class="annot"><span class="annottext">Text -&gt; Either String CmafIntervalCadence
 (Text -&gt; Either String CmafIntervalCadence)
 -&gt; FromText CmafIntervalCadence
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String CmafIntervalCadence
 $cfromText :: Text -&gt; Either String CmafIntervalCadence
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679943306"><span class="annot"><span class="annottext">CmafIntervalCadence -&gt; Text
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679947929"><span class="annot"><span class="annottext">CmafIntervalCadence -&gt; Text
 (CmafIntervalCadence -&gt; Text) -&gt; ToText CmafIntervalCadence
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: CmafIntervalCadence -&gt; Text
 $ctoText :: CmafIntervalCadence -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679943303"><span class="annot"><span class="annottext">CmafIntervalCadence -&gt; ByteString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679947926"><span class="annot"><span class="annottext">CmafIntervalCadence -&gt; ByteString
 (CmafIntervalCadence -&gt; ByteString)
 -&gt; ToByteString CmafIntervalCadence
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: CmafIntervalCadence -&gt; ByteString
 $ctoBS :: CmafIntervalCadence -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679943300"><span class="annot"><span class="annottext">CmafIntervalCadence -&gt; ByteStringBuilder
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679947923"><span class="annot"><span class="annottext">CmafIntervalCadence -&gt; ByteStringBuilder
 (CmafIntervalCadence -&gt; ByteStringBuilder)
 -&gt; ToLog CmafIntervalCadence
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: CmafIntervalCadence -&gt; ByteStringBuilder
 $cbuild :: CmafIntervalCadence -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679943297"><span class="annot"><span class="annottext">HeaderName -&gt; CmafIntervalCadence -&gt; [Header]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679947920"><span class="annot"><span class="annottext">HeaderName -&gt; CmafIntervalCadence -&gt; [Header]
 (HeaderName -&gt; CmafIntervalCadence -&gt; [Header])
 -&gt; ToHeader CmafIntervalCadence
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; CmafIntervalCadence -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; CmafIntervalCadence -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679943294"><span class="annot"><span class="annottext">CmafIntervalCadence -&gt; QueryString
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679947917"><span class="annot"><span class="annottext">CmafIntervalCadence -&gt; QueryString
 (CmafIntervalCadence -&gt; QueryString) -&gt; ToQuery CmafIntervalCadence
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: CmafIntervalCadence -&gt; QueryString
 $ctoQuery :: CmafIntervalCadence -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679943289"><span id="local-6989586621679943291"><span class="annot"><span class="annottext">Value -&gt; Parser [CmafIntervalCadence]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679947912"><span id="local-6989586621679947914"><span class="annot"><span class="annottext">Value -&gt; Parser [CmafIntervalCadence]
 Value -&gt; Parser CmafIntervalCadence
 (Value -&gt; Parser CmafIntervalCadence)
 -&gt; (Value -&gt; Parser [CmafIntervalCadence])
@@ -208,7 +208,7 @@ $cparseJSONList :: Value -&gt; Parser [CmafIntervalCadence]
 parseJSON :: Value -&gt; Parser CmafIntervalCadence
 $cparseJSON :: Value -&gt; Parser CmafIntervalCadence
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679943284"><span id="local-6989586621679943286"><span class="annot"><span class="annottext">FromJSONKeyFunction [CmafIntervalCadence]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679947907"><span id="local-6989586621679947909"><span class="annot"><span class="annottext">FromJSONKeyFunction [CmafIntervalCadence]
 FromJSONKeyFunction CmafIntervalCadence
 FromJSONKeyFunction CmafIntervalCadence
 -&gt; FromJSONKeyFunction [CmafIntervalCadence]
@@ -220,7 +220,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [CmafIntervalCadence]
 fromJSONKey :: FromJSONKeyFunction CmafIntervalCadence
 $cfromJSONKey :: FromJSONKeyFunction CmafIntervalCadence
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679943275"><span id="local-6989586621679943277"><span id="local-6989586621679943279"><span id="local-6989586621679943281"><span class="annot"><span class="annottext">[CmafIntervalCadence] -&gt; Encoding
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679947898"><span id="local-6989586621679947900"><span id="local-6989586621679947902"><span id="local-6989586621679947904"><span class="annot"><span class="annottext">[CmafIntervalCadence] -&gt; Encoding
 [CmafIntervalCadence] -&gt; Value
 CmafIntervalCadence -&gt; Encoding
 CmafIntervalCadence -&gt; Value
@@ -244,7 +244,7 @@ $ctoEncoding :: CmafIntervalCadence -&gt; Encoding
 toJSON :: CmafIntervalCadence -&gt; Value
 $ctoJSON :: CmafIntervalCadence -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679943270"><span id="local-6989586621679943272"><span class="annot"><span class="annottext">ToJSONKeyFunction [CmafIntervalCadence]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679947893"><span id="local-6989586621679947895"><span class="annot"><span class="annottext">ToJSONKeyFunction [CmafIntervalCadence]
 ToJSONKeyFunction CmafIntervalCadence
 ToJSONKeyFunction CmafIntervalCadence
 -&gt; ToJSONKeyFunction [CmafIntervalCadence]
@@ -256,14 +256,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [CmafIntervalCadence]
 toJSONKey :: ToJSONKeyFunction CmafIntervalCadence
 $ctoJSONKey :: ToJSONKeyFunction CmafIntervalCadence
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679943267"><span class="annot"><span class="annottext">[Node] -&gt; Either String CmafIntervalCadence
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679947890"><span class="annot"><span class="annottext">[Node] -&gt; Either String CmafIntervalCadence
 ([Node] -&gt; Either String CmafIntervalCadence)
 -&gt; FromXML CmafIntervalCadence
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String CmafIntervalCadence
 $cparseXML :: [Node] -&gt; Either String CmafIntervalCadence
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679943264"><span class="annot"><span class="annottext">CmafIntervalCadence -&gt; XML
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679947887"><span class="annot"><span class="annottext">CmafIntervalCadence -&gt; XML
 (CmafIntervalCadence -&gt; XML) -&gt; ToXML CmafIntervalCadence
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: CmafIntervalCadence -&gt; XML

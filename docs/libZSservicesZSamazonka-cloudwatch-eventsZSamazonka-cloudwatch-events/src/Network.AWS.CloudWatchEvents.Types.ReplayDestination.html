@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | A @ReplayDestination@ object that contains details about a replay.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newReplayDestination' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679305101"><span id="local-6989586621679305102"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReplayDestination"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ReplayDestination.html#ReplayDestination"><span class="hs-identifier hs-var">ReplayDestination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReplayDestination%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ReplayDestination.html#ReplayDestination%27"><span class="hs-identifier hs-var">ReplayDestination'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679305287"><span id="local-6989586621679305288"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReplayDestination"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ReplayDestination.html#ReplayDestination"><span class="hs-identifier hs-var">ReplayDestination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReplayDestination%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ReplayDestination.html#ReplayDestination%27"><span class="hs-identifier hs-var">ReplayDestination'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of ARNs for rules to replay events to.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AfilterArns%3AReplayDestination%27"><span class="annot"><span class="annottext">ReplayDestination -&gt; Maybe [Text]
 </span><a href="Network.AWS.CloudWatchEvents.Types.ReplayDestination.html#%24sel%3AfilterArns%3AReplayDestination%27"><span class="hs-identifier hs-var hs-var">filterArns</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -35,7 +35,7 @@
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Aarn%3AReplayDestination%27"><span class="annot"><span class="annottext">ReplayDestination -&gt; Text
 </span><a href="Network.AWS.CloudWatchEvents.Types.ReplayDestination.html#%24sel%3Aarn%3AReplayDestination%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679305094"><span id="local-6989586621679305096"><span class="annot"><span class="annottext">ReplayDestination -&gt; ReplayDestination -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679305280"><span id="local-6989586621679305282"><span class="annot"><span class="annottext">ReplayDestination -&gt; ReplayDestination -&gt; Bool
 (ReplayDestination -&gt; ReplayDestination -&gt; Bool)
 -&gt; (ReplayDestination -&gt; ReplayDestination -&gt; Bool)
 -&gt; Eq ReplayDestination
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ReplayDestination -&gt; ReplayDestination -&gt; Bool
 == :: ReplayDestination -&gt; ReplayDestination -&gt; Bool
 $c== :: ReplayDestination -&gt; ReplayDestination -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679305085"><span id="local-6989586621679305087"><span id="local-6989586621679305089"><span id="local-6989586621679305091"><span class="annot"><span class="annottext">ReadPrec [ReplayDestination]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679305271"><span id="local-6989586621679305273"><span id="local-6989586621679305275"><span id="local-6989586621679305277"><span class="annot"><span class="annottext">ReadPrec [ReplayDestination]
 ReadPrec ReplayDestination
 Int -&gt; ReadS ReplayDestination
 ReadS [ReplayDestination]
@@ -64,7 +64,7 @@ readList :: ReadS [ReplayDestination]
 $creadList :: ReadS [ReplayDestination]
 readsPrec :: Int -&gt; ReadS ReplayDestination
 $creadsPrec :: Int -&gt; ReadS ReplayDestination
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679305078"><span id="local-6989586621679305080"><span id="local-6989586621679305082"><span class="annot"><span class="annottext">Int -&gt; ReplayDestination -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679305264"><span id="local-6989586621679305266"><span id="local-6989586621679305268"><span class="annot"><span class="annottext">Int -&gt; ReplayDestination -&gt; ShowS
 [ReplayDestination] -&gt; ShowS
 ReplayDestination -&gt; String
 (Int -&gt; ReplayDestination -&gt; ShowS)
@@ -107,8 +107,8 @@ $cfrom :: forall x. ReplayDestination -&gt; Rep ReplayDestination x
 </span><span id="line-52"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-53"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ReplayDestination.html#ReplayDestination"><span class="hs-identifier hs-type">ReplayDestination</span></a></span><span>
 </span><span id="line-54"></span><span id="newReplayDestination"><span class="annot"><span class="annottext">newReplayDestination :: Text -&gt; ReplayDestination
-</span><a href="Network.AWS.CloudWatchEvents.Types.ReplayDestination.html#newReplayDestination"><span class="hs-identifier hs-var hs-var">newReplayDestination</span></a></span></span><span> </span><span id="local-6989586621679305072"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679305072"><span class="hs-identifier hs-var">pArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudWatchEvents.Types.ReplayDestination.html#newReplayDestination"><span class="hs-identifier hs-var hs-var">newReplayDestination</span></a></span></span><span> </span><span id="local-6989586621679305258"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679305258"><span class="hs-identifier hs-var">pArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">ReplayDestination' :: Maybe [Text] -&gt; Text -&gt; ReplayDestination
 </span><a href="Network.AWS.CloudWatchEvents.Types.ReplayDestination.html#ReplayDestination%27"><span class="hs-identifier hs-type">ReplayDestination'</span></a></span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:filterArns:ReplayDestination' :: Maybe [Text]
@@ -117,7 +117,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:ReplayDestination' :: Text
 </span><a href="Network.AWS.CloudWatchEvents.Types.ReplayDestination.html#%24sel%3Aarn%3AReplayDestination%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679305072"><span class="hs-identifier hs-var">pArn_</span></a></span><span>
+</span><a href="#local-6989586621679305258"><span class="hs-identifier hs-var">pArn_</span></a></span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- | A list of ARNs for rules to replay events to.</span><span>
@@ -129,16 +129,16 @@ forall a. Maybe a
 -&gt; Lens
      ReplayDestination ReplayDestination (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ReplayDestination.html#ReplayDestination%27"><span class="hs-identifier hs-type">ReplayDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305068"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ReplayDestination.html#ReplayDestination%27"><span class="hs-identifier hs-type">ReplayDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305254"><span class="annot"><span class="annottext">Maybe [Text]
 filterArns :: Maybe [Text]
 $sel:filterArns:ReplayDestination' :: ReplayDestination -&gt; Maybe [Text]
-</span><a href="#local-6989586621679305068"><span class="hs-identifier hs-var hs-var">filterArns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679305068"><span class="hs-identifier hs-var">filterArns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305067"><span class="annot"><span class="annottext">s :: ReplayDestination
-</span><a href="#local-6989586621679305067"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ReplayDestination.html#ReplayDestination%27"><span class="hs-identifier hs-type">ReplayDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305066"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679305066"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplayDestination
-</span><a href="#local-6989586621679305067"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filterArns:ReplayDestination' :: Maybe [Text]
+</span><a href="#local-6989586621679305254"><span class="hs-identifier hs-var hs-var">filterArns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679305254"><span class="hs-identifier hs-var">filterArns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305253"><span class="annot"><span class="annottext">s :: ReplayDestination
+</span><a href="#local-6989586621679305253"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ReplayDestination.html#ReplayDestination%27"><span class="hs-identifier hs-type">ReplayDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305252"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679305252"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplayDestination
+</span><a href="#local-6989586621679305253"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filterArns:ReplayDestination' :: Maybe [Text]
 </span><a href="Network.AWS.CloudWatchEvents.Types.ReplayDestination.html#%24sel%3AfilterArns%3AReplayDestination%27"><span class="hs-identifier hs-var">filterArns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679305066"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ReplayDestination.html#ReplayDestination"><span class="hs-identifier hs-type">ReplayDestination</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679305252"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ReplayDestination.html#ReplayDestination"><span class="hs-identifier hs-type">ReplayDestination</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; ReplayDestination -&gt; f ReplayDestination)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -152,8 +152,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- | The ARN of the event bus to replay event to. You can replay events only</span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- to the event bus specified to create the archive.</span><span>
@@ -163,19 +163,19 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (ReplayDestination -&gt; Text -&gt; ReplayDestination)
 -&gt; Lens ReplayDestination ReplayDestination Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ReplayDestination.html#ReplayDestination%27"><span class="hs-identifier hs-type">ReplayDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305061"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ReplayDestination.html#ReplayDestination%27"><span class="hs-identifier hs-type">ReplayDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305247"><span class="annot"><span class="annottext">Text
 arn :: Text
 $sel:arn:ReplayDestination' :: ReplayDestination -&gt; Text
-</span><a href="#local-6989586621679305061"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679305061"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305060"><span class="annot"><span class="annottext">s :: ReplayDestination
-</span><a href="#local-6989586621679305060"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ReplayDestination.html#ReplayDestination%27"><span class="hs-identifier hs-type">ReplayDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305059"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679305059"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplayDestination
-</span><a href="#local-6989586621679305060"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:ReplayDestination' :: Text
+</span><a href="#local-6989586621679305247"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679305247"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305246"><span class="annot"><span class="annottext">s :: ReplayDestination
+</span><a href="#local-6989586621679305246"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ReplayDestination.html#ReplayDestination%27"><span class="hs-identifier hs-type">ReplayDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305245"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679305245"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplayDestination
+</span><a href="#local-6989586621679305246"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:ReplayDestination' :: Text
 </span><a href="Network.AWS.CloudWatchEvents.Types.ReplayDestination.html#%24sel%3Aarn%3AReplayDestination%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679305059"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ReplayDestination.html#ReplayDestination"><span class="hs-identifier hs-type">ReplayDestination</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679305245"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ReplayDestination.html#ReplayDestination"><span class="hs-identifier hs-type">ReplayDestination</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679305056"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ReplayDestination.html#ReplayDestination"><span class="hs-identifier hs-type">ReplayDestination</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621679305054"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ReplayDestination
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679305242"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ReplayDestination.html#ReplayDestination"><span class="hs-identifier hs-type">ReplayDestination</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679305240"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ReplayDestination
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ReplayDestination)
@@ -185,15 +185,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ReplayDestination&quot;</span></span><span>
-</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679305051"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679305051"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679305237"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679305237"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-74"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; Text -&gt; ReplayDestination
 </span><a href="Network.AWS.CloudWatchEvents.Types.ReplayDestination.html#ReplayDestination%27"><span class="hs-identifier hs-var">ReplayDestination'</span></a></span><span>
 </span><span id="line-75"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; Text -&gt; ReplayDestination)
 -&gt; Parser (Maybe [Text]) -&gt; Parser (Text -&gt; ReplayDestination)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679305051"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679305237"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FilterArns&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
@@ -206,25 +206,25 @@ forall a. Monoid a =&gt; a
 -&gt; Parser Text -&gt; Parser ReplayDestination
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679305051"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679305237"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Arn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679305043"><span id="local-6989586621679305045"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ReplayDestination.html#ReplayDestination"><span class="hs-identifier hs-type">ReplayDestination</span></a></span></span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679305229"><span id="local-6989586621679305231"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ReplayDestination.html#ReplayDestination"><span class="hs-identifier hs-type">ReplayDestination</span></a></span></span></span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679305040"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ReplayDestination.html#ReplayDestination"><span class="hs-identifier hs-type">ReplayDestination</span></a></span></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679305226"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ReplayDestination.html#ReplayDestination"><span class="hs-identifier hs-type">ReplayDestination</span></a></span></span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679305032"><span id="local-6989586621679305034"><span id="local-6989586621679305036"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ReplayDestination.html#ReplayDestination"><span class="hs-identifier hs-type">ReplayDestination</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679305030"><span class="annot"><span class="annottext">toJSON :: ReplayDestination -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ReplayDestination.html#ReplayDestination%27"><span class="hs-identifier hs-type">ReplayDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305027"><span id="local-6989586621679305028"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679305218"><span id="local-6989586621679305220"><span id="local-6989586621679305222"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ReplayDestination.html#ReplayDestination"><span class="hs-identifier hs-type">ReplayDestination</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679305216"><span class="annot"><span class="annottext">toJSON :: ReplayDestination -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ReplayDestination.html#ReplayDestination%27"><span class="hs-identifier hs-type">ReplayDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305213"><span id="local-6989586621679305214"><span class="annot"><span class="annottext">Maybe [Text]
 Text
 arn :: Text
 filterArns :: Maybe [Text]
 $sel:arn:ReplayDestination' :: ReplayDestination -&gt; Text
 $sel:filterArns:ReplayDestination' :: ReplayDestination -&gt; Maybe [Text]
-</span><a href="#local-6989586621679305027"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679305213"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -236,14 +236,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679305028"><span class="hs-identifier hs-var">filterArns</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679305214"><span class="hs-identifier hs-var">filterArns</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Arn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679305027"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679305213"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-90"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span></pre></body></html>

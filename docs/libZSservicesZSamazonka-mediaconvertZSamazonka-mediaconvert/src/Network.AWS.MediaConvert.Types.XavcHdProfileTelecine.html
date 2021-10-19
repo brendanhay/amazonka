@@ -34,13 +34,13 @@
 </span><span id="line-34"></span><span class="hs-comment">-- 23.976, choose Hard (HARD). Otherwise, keep the default value None</span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- (NONE). For more information, see</span><span>
 </span><span id="line-36"></span><span class="hs-comment">-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/working-with-telecine-and-inverse-telecine.html.</span><span>
-</span><span id="line-37"></span><span id="local-6989586621680015515"><span id="local-6989586621680015516"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="XavcHdProfileTelecine"><span class="annot"><a href="Network.AWS.MediaConvert.Types.XavcHdProfileTelecine.html#XavcHdProfileTelecine"><span class="hs-identifier hs-var">XavcHdProfileTelecine</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="XavcHdProfileTelecine%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.XavcHdProfileTelecine.html#XavcHdProfileTelecine%27"><span class="hs-identifier hs-var">XavcHdProfileTelecine'</span></a></span></span><span>
+</span><span id="line-37"></span><span id="local-6989586621680020451"><span id="local-6989586621680020452"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="XavcHdProfileTelecine"><span class="annot"><a href="Network.AWS.MediaConvert.Types.XavcHdProfileTelecine.html#XavcHdProfileTelecine"><span class="hs-identifier hs-var">XavcHdProfileTelecine</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="XavcHdProfileTelecine%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.XavcHdProfileTelecine.html#XavcHdProfileTelecine%27"><span class="hs-identifier hs-var">XavcHdProfileTelecine'</span></a></span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromXavcHdProfileTelecine"><span class="annot"><span class="annottext">XavcHdProfileTelecine -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.XavcHdProfileTelecine.html#fromXavcHdProfileTelecine"><span class="hs-identifier hs-var hs-var">fromXavcHdProfileTelecine</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680015507"><span id="local-6989586621680015509"><span id="local-6989586621680015511"><span class="annot"><span class="annottext">Int -&gt; XavcHdProfileTelecine -&gt; ShowS
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680020443"><span id="local-6989586621680020445"><span id="local-6989586621680020447"><span class="annot"><span class="annottext">Int -&gt; XavcHdProfileTelecine -&gt; ShowS
 [XavcHdProfileTelecine] -&gt; ShowS
 XavcHdProfileTelecine -&gt; String
 (Int -&gt; XavcHdProfileTelecine -&gt; ShowS)
@@ -56,7 +56,7 @@ $cshow :: XavcHdProfileTelecine -&gt; String
 showsPrec :: Int -&gt; XavcHdProfileTelecine -&gt; ShowS
 $cshowsPrec :: Int -&gt; XavcHdProfileTelecine -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621680015498"><span id="local-6989586621680015500"><span id="local-6989586621680015502"><span id="local-6989586621680015504"><span class="annot"><span class="annottext">ReadPrec [XavcHdProfileTelecine]
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621680020434"><span id="local-6989586621680020436"><span id="local-6989586621680020438"><span id="local-6989586621680020440"><span class="annot"><span class="annottext">ReadPrec [XavcHdProfileTelecine]
 ReadPrec XavcHdProfileTelecine
 Int -&gt; ReadS XavcHdProfileTelecine
 ReadS [XavcHdProfileTelecine]
@@ -77,7 +77,7 @@ $creadList :: ReadS [XavcHdProfileTelecine]
 readsPrec :: Int -&gt; ReadS XavcHdProfileTelecine
 $creadsPrec :: Int -&gt; ReadS XavcHdProfileTelecine
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621680015493"><span id="local-6989586621680015495"><span class="annot"><span class="annottext">XavcHdProfileTelecine -&gt; XavcHdProfileTelecine -&gt; Bool
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621680020429"><span id="local-6989586621680020431"><span class="annot"><span class="annottext">XavcHdProfileTelecine -&gt; XavcHdProfileTelecine -&gt; Bool
 (XavcHdProfileTelecine -&gt; XavcHdProfileTelecine -&gt; Bool)
 -&gt; (XavcHdProfileTelecine -&gt; XavcHdProfileTelecine -&gt; Bool)
 -&gt; Eq XavcHdProfileTelecine
@@ -87,7 +87,7 @@ $c/= :: XavcHdProfileTelecine -&gt; XavcHdProfileTelecine -&gt; Bool
 == :: XavcHdProfileTelecine -&gt; XavcHdProfileTelecine -&gt; Bool
 $c== :: XavcHdProfileTelecine -&gt; XavcHdProfileTelecine -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621680015477"><span id="local-6989586621680015479"><span id="local-6989586621680015481"><span id="local-6989586621680015483"><span id="local-6989586621680015485"><span id="local-6989586621680015487"><span id="local-6989586621680015489"><span class="annot"><span class="annottext">Eq XavcHdProfileTelecine
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621680020413"><span id="local-6989586621680020415"><span id="local-6989586621680020417"><span id="local-6989586621680020419"><span id="local-6989586621680020421"><span id="local-6989586621680020423"><span id="local-6989586621680020425"><span class="annot"><span class="annottext">Eq XavcHdProfileTelecine
 Eq XavcHdProfileTelecine
 -&gt; (XavcHdProfileTelecine -&gt; XavcHdProfileTelecine -&gt; Ordering)
 -&gt; (XavcHdProfileTelecine -&gt; XavcHdProfileTelecine -&gt; Bool)
@@ -145,7 +145,7 @@ $cfrom :: forall x. XavcHdProfileTelecine -&gt; Rep XavcHdProfileTelecine x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680015469"><span id="local-6989586621680015471"><span class="annot"><span class="annottext">Int -&gt; XavcHdProfileTelecine -&gt; Int
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680020405"><span id="local-6989586621680020407"><span class="annot"><span class="annottext">Int -&gt; XavcHdProfileTelecine -&gt; Int
 XavcHdProfileTelecine -&gt; Int
 (Int -&gt; XavcHdProfileTelecine -&gt; Int)
 -&gt; (XavcHdProfileTelecine -&gt; Int) -&gt; Hashable XavcHdProfileTelecine
@@ -155,54 +155,54 @@ $chash :: XavcHdProfileTelecine -&gt; Int
 hashWithSalt :: Int -&gt; XavcHdProfileTelecine -&gt; Int
 $chashWithSalt :: Int -&gt; XavcHdProfileTelecine -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621680015466"><span class="annot"><span class="annottext">XavcHdProfileTelecine -&gt; ()
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680020402"><span class="annot"><span class="annottext">XavcHdProfileTelecine -&gt; ()
 (XavcHdProfileTelecine -&gt; ()) -&gt; NFData XavcHdProfileTelecine
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: XavcHdProfileTelecine -&gt; ()
 $crnf :: XavcHdProfileTelecine -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621680015463"><span class="annot"><span class="annottext">Text -&gt; Either String XavcHdProfileTelecine
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680020399"><span class="annot"><span class="annottext">Text -&gt; Either String XavcHdProfileTelecine
 (Text -&gt; Either String XavcHdProfileTelecine)
 -&gt; FromText XavcHdProfileTelecine
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String XavcHdProfileTelecine
 $cfromText :: Text -&gt; Either String XavcHdProfileTelecine
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621680015460"><span class="annot"><span class="annottext">XavcHdProfileTelecine -&gt; Text
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680020396"><span class="annot"><span class="annottext">XavcHdProfileTelecine -&gt; Text
 (XavcHdProfileTelecine -&gt; Text) -&gt; ToText XavcHdProfileTelecine
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: XavcHdProfileTelecine -&gt; Text
 $ctoText :: XavcHdProfileTelecine -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621680015457"><span class="annot"><span class="annottext">XavcHdProfileTelecine -&gt; ByteString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680020393"><span class="annot"><span class="annottext">XavcHdProfileTelecine -&gt; ByteString
 (XavcHdProfileTelecine -&gt; ByteString)
 -&gt; ToByteString XavcHdProfileTelecine
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: XavcHdProfileTelecine -&gt; ByteString
 $ctoBS :: XavcHdProfileTelecine -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621680015454"><span class="annot"><span class="annottext">XavcHdProfileTelecine -&gt; ByteStringBuilder
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680020390"><span class="annot"><span class="annottext">XavcHdProfileTelecine -&gt; ByteStringBuilder
 (XavcHdProfileTelecine -&gt; ByteStringBuilder)
 -&gt; ToLog XavcHdProfileTelecine
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: XavcHdProfileTelecine -&gt; ByteStringBuilder
 $cbuild :: XavcHdProfileTelecine -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621680015451"><span class="annot"><span class="annottext">HeaderName -&gt; XavcHdProfileTelecine -&gt; [Header]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680020387"><span class="annot"><span class="annottext">HeaderName -&gt; XavcHdProfileTelecine -&gt; [Header]
 (HeaderName -&gt; XavcHdProfileTelecine -&gt; [Header])
 -&gt; ToHeader XavcHdProfileTelecine
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; XavcHdProfileTelecine -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; XavcHdProfileTelecine -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680015448"><span class="annot"><span class="annottext">XavcHdProfileTelecine -&gt; QueryString
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680020384"><span class="annot"><span class="annottext">XavcHdProfileTelecine -&gt; QueryString
 (XavcHdProfileTelecine -&gt; QueryString)
 -&gt; ToQuery XavcHdProfileTelecine
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: XavcHdProfileTelecine -&gt; QueryString
 $ctoQuery :: XavcHdProfileTelecine -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621680015443"><span id="local-6989586621680015445"><span class="annot"><span class="annottext">Value -&gt; Parser [XavcHdProfileTelecine]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680020379"><span id="local-6989586621680020381"><span class="annot"><span class="annottext">Value -&gt; Parser [XavcHdProfileTelecine]
 Value -&gt; Parser XavcHdProfileTelecine
 (Value -&gt; Parser XavcHdProfileTelecine)
 -&gt; (Value -&gt; Parser [XavcHdProfileTelecine])
@@ -214,7 +214,7 @@ $cparseJSONList :: Value -&gt; Parser [XavcHdProfileTelecine]
 parseJSON :: Value -&gt; Parser XavcHdProfileTelecine
 $cparseJSON :: Value -&gt; Parser XavcHdProfileTelecine
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621680015438"><span id="local-6989586621680015440"><span class="annot"><span class="annottext">FromJSONKeyFunction [XavcHdProfileTelecine]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680020374"><span id="local-6989586621680020376"><span class="annot"><span class="annottext">FromJSONKeyFunction [XavcHdProfileTelecine]
 FromJSONKeyFunction XavcHdProfileTelecine
 FromJSONKeyFunction XavcHdProfileTelecine
 -&gt; FromJSONKeyFunction [XavcHdProfileTelecine]
@@ -226,7 +226,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [XavcHdProfileTelecine]
 fromJSONKey :: FromJSONKeyFunction XavcHdProfileTelecine
 $cfromJSONKey :: FromJSONKeyFunction XavcHdProfileTelecine
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621680015429"><span id="local-6989586621680015431"><span id="local-6989586621680015433"><span id="local-6989586621680015435"><span class="annot"><span class="annottext">[XavcHdProfileTelecine] -&gt; Encoding
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621680020365"><span id="local-6989586621680020367"><span id="local-6989586621680020369"><span id="local-6989586621680020371"><span class="annot"><span class="annottext">[XavcHdProfileTelecine] -&gt; Encoding
 [XavcHdProfileTelecine] -&gt; Value
 XavcHdProfileTelecine -&gt; Encoding
 XavcHdProfileTelecine -&gt; Value
@@ -250,7 +250,7 @@ $ctoEncoding :: XavcHdProfileTelecine -&gt; Encoding
 toJSON :: XavcHdProfileTelecine -&gt; Value
 $ctoJSON :: XavcHdProfileTelecine -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621680015424"><span id="local-6989586621680015426"><span class="annot"><span class="annottext">ToJSONKeyFunction [XavcHdProfileTelecine]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621680020360"><span id="local-6989586621680020362"><span class="annot"><span class="annottext">ToJSONKeyFunction [XavcHdProfileTelecine]
 ToJSONKeyFunction XavcHdProfileTelecine
 ToJSONKeyFunction XavcHdProfileTelecine
 -&gt; ToJSONKeyFunction [XavcHdProfileTelecine]
@@ -262,14 +262,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [XavcHdProfileTelecine]
 toJSONKey :: ToJSONKeyFunction XavcHdProfileTelecine
 $ctoJSONKey :: ToJSONKeyFunction XavcHdProfileTelecine
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621680015421"><span class="annot"><span class="annottext">[Node] -&gt; Either String XavcHdProfileTelecine
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621680020357"><span class="annot"><span class="annottext">[Node] -&gt; Either String XavcHdProfileTelecine
 ([Node] -&gt; Either String XavcHdProfileTelecine)
 -&gt; FromXML XavcHdProfileTelecine
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String XavcHdProfileTelecine
 $cparseXML :: [Node] -&gt; Either String XavcHdProfileTelecine
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621680015418"><span class="annot"><span class="annottext">XavcHdProfileTelecine -&gt; XML
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621680020354"><span class="annot"><span class="annottext">XavcHdProfileTelecine -&gt; XML
 (XavcHdProfileTelecine -&gt; XML) -&gt; ToXML XavcHdProfileTelecine
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: XavcHdProfileTelecine -&gt; XML

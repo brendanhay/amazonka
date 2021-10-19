@@ -28,31 +28,31 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Provides information that defines a Redis target endpoint.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newRedisSettings' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679439210"><span id="local-6989586621679439211"></span></span><span class="hs-keyword">data</span><span> </span><span id="RedisSettings"><span class="annot"><a href="Network.AWS.DMS.Types.RedisSettings.html#RedisSettings"><span class="hs-identifier hs-var">RedisSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RedisSettings%27"><span class="annot"><a href="Network.AWS.DMS.Types.RedisSettings.html#RedisSettings%27"><span class="hs-identifier hs-var">RedisSettings'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) for the certificate authority (CA) that</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- DMS uses to connect to your Redis target endpoint.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AsslCaCertificateArn%3ARedisSettings%27"><span class="annot"><span class="annottext">RedisSettings -&gt; Maybe Text
-</span><a href="Network.AWS.DMS.Types.RedisSettings.html#%24sel%3AsslCaCertificateArn%3ARedisSettings%27"><span class="hs-identifier hs-var hs-var">sslCaCertificateArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The password provided with the @auth-role@ and @auth-token@ options of</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- the @AuthType@ setting for a Redis target endpoint.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AauthPassword%3ARedisSettings%27"><span class="annot"><span class="annottext">RedisSettings -&gt; Maybe (Sensitive Text)
-</span><a href="Network.AWS.DMS.Types.RedisSettings.html#%24sel%3AauthPassword%3ARedisSettings%27"><span class="hs-identifier hs-var hs-var">authPassword</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The connection to a Redis target endpoint using Transport Layer Security</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- (TLS). Valid values include @plaintext@ and @ssl-encryption@. The</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- default is @ssl-encryption@. The @ssl-encryption@ option makes an</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- encrypted connection. Optionally, you can identify an Amazon Resource</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- Name (ARN) for an SSL certificate authority (CA) using the</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- @SslCaCertificateArn @setting. If an ARN isn\'t given for a CA, DMS uses</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- the Amazon root CA.</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- The @plaintext@ option doesn\'t provide Transport Layer Security (TLS)</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- encryption for traffic between endpoint and database.</span><span>
-</span><span id="line-48"></span><span>    </span><span id="%24sel%3AsslSecurityProtocol%3ARedisSettings%27"><span class="annot"><span class="annottext">RedisSettings -&gt; Maybe SslSecurityProtocolValue
+</span><span id="line-31"></span><span id="local-6989586621679439492"><span id="local-6989586621679439493"></span></span><span class="hs-keyword">data</span><span> </span><span id="RedisSettings"><span class="annot"><a href="Network.AWS.DMS.Types.RedisSettings.html#RedisSettings"><span class="hs-identifier hs-var">RedisSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RedisSettings%27"><span class="annot"><a href="Network.AWS.DMS.Types.RedisSettings.html#RedisSettings%27"><span class="hs-identifier hs-var">RedisSettings'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The connection to a Redis target endpoint using Transport Layer Security</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- (TLS). Valid values include @plaintext@ and @ssl-encryption@. The</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- default is @ssl-encryption@. The @ssl-encryption@ option makes an</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- encrypted connection. Optionally, you can identify an Amazon Resource</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- Name (ARN) for an SSL certificate authority (CA) using the</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- @SslCaCertificateArn @setting. If an ARN isn\'t given for a CA, DMS uses</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- the Amazon root CA.</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- The @plaintext@ option doesn\'t provide Transport Layer Security (TLS)</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- encryption for traffic between endpoint and database.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AsslSecurityProtocol%3ARedisSettings%27"><span class="annot"><span class="annottext">RedisSettings -&gt; Maybe SslSecurityProtocolValue
 </span><a href="Network.AWS.DMS.Types.RedisSettings.html#%24sel%3AsslSecurityProtocol%3ARedisSettings%27"><span class="hs-identifier hs-var hs-var">sslSecurityProtocol</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.SslSecurityProtocolValue.html#SslSecurityProtocolValue"><span class="hs-identifier hs-type">SslSecurityProtocolValue</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The user name provided with the @auth-role@ option of the @AuthType@</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- setting for a Redis target endpoint.</span><span>
-</span><span id="line-51"></span><span>    </span><span id="%24sel%3AauthUserName%3ARedisSettings%27"><span class="annot"><span class="annottext">RedisSettings -&gt; Maybe Text
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The user name provided with the @auth-role@ option of the @AuthType@</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- setting for a Redis target endpoint.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AauthUserName%3ARedisSettings%27"><span class="annot"><span class="annottext">RedisSettings -&gt; Maybe Text
 </span><a href="Network.AWS.DMS.Types.RedisSettings.html#%24sel%3AauthUserName%3ARedisSettings%27"><span class="hs-identifier hs-var hs-var">authUserName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) for the certificate authority (CA) that</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- DMS uses to connect to your Redis target endpoint.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AsslCaCertificateArn%3ARedisSettings%27"><span class="annot"><span class="annottext">RedisSettings -&gt; Maybe Text
+</span><a href="Network.AWS.DMS.Types.RedisSettings.html#%24sel%3AsslCaCertificateArn%3ARedisSettings%27"><span class="hs-identifier hs-var hs-var">sslCaCertificateArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The password provided with the @auth-role@ and @auth-token@ options of</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- the @AuthType@ setting for a Redis target endpoint.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AauthPassword%3ARedisSettings%27"><span class="annot"><span class="annottext">RedisSettings -&gt; Maybe (Sensitive Text)
+</span><a href="Network.AWS.DMS.Types.RedisSettings.html#%24sel%3AauthPassword%3ARedisSettings%27"><span class="hs-identifier hs-var hs-var">authPassword</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The type of authentication to perform when connecting to a Redis target.</span><span>
 </span><span id="line-53"></span><span>    </span><span class="hs-comment">-- Options include @none@, @auth-token@, and @auth-role@. The @auth-token@</span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-comment">-- option requires an @AuthPassword@ value to be provided. The @auth-role@</span><span>
@@ -66,7 +66,7 @@
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3Aport%3ARedisSettings%27"><span class="annot"><span class="annottext">RedisSettings -&gt; Int
 </span><a href="Network.AWS.DMS.Types.RedisSettings.html#%24sel%3Aport%3ARedisSettings%27"><span class="hs-identifier hs-var hs-var">port</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679439198"><span id="local-6989586621679439200"><span class="annot"><span class="annottext">RedisSettings -&gt; RedisSettings -&gt; Bool
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679439480"><span id="local-6989586621679439482"><span class="annot"><span class="annottext">RedisSettings -&gt; RedisSettings -&gt; Bool
 (RedisSettings -&gt; RedisSettings -&gt; Bool)
 -&gt; (RedisSettings -&gt; RedisSettings -&gt; Bool) -&gt; Eq RedisSettings
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -74,7 +74,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RedisSettings -&gt; RedisSettings -&gt; Bool
 == :: RedisSettings -&gt; RedisSettings -&gt; Bool
 $c== :: RedisSettings -&gt; RedisSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679439191"><span id="local-6989586621679439193"><span id="local-6989586621679439195"><span class="annot"><span class="annottext">Int -&gt; RedisSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679439473"><span id="local-6989586621679439475"><span id="local-6989586621679439477"><span class="annot"><span class="annottext">Int -&gt; RedisSettings -&gt; ShowS
 [RedisSettings] -&gt; ShowS
 RedisSettings -&gt; String
 (Int -&gt; RedisSettings -&gt; ShowS)
@@ -108,25 +108,25 @@ $cfrom :: forall x. RedisSettings -&gt; Rep RedisSettings x
 </span><span id="line-69"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-71"></span><span class="hs-comment">--</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- 'sslCaCertificateArn', 'redisSettings_sslCaCertificateArn' - The Amazon Resource Name (ARN) for the certificate authority (CA) that</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- DMS uses to connect to your Redis target endpoint.</span><span>
-</span><span id="line-74"></span><span class="hs-comment">--</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- 'authPassword', 'redisSettings_authPassword' - The password provided with the @auth-role@ and @auth-token@ options of</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- the @AuthType@ setting for a Redis target endpoint.</span><span>
-</span><span id="line-77"></span><span class="hs-comment">--</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- 'sslSecurityProtocol', 'redisSettings_sslSecurityProtocol' - The connection to a Redis target endpoint using Transport Layer Security</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- (TLS). Valid values include @plaintext@ and @ssl-encryption@. The</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- default is @ssl-encryption@. The @ssl-encryption@ option makes an</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- encrypted connection. Optionally, you can identify an Amazon Resource</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- Name (ARN) for an SSL certificate authority (CA) using the</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- @SslCaCertificateArn @setting. If an ARN isn\'t given for a CA, DMS uses</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- the Amazon root CA.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'sslSecurityProtocol', 'redisSettings_sslSecurityProtocol' - The connection to a Redis target endpoint using Transport Layer Security</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- (TLS). Valid values include @plaintext@ and @ssl-encryption@. The</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- default is @ssl-encryption@. The @ssl-encryption@ option makes an</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- encrypted connection. Optionally, you can identify an Amazon Resource</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- Name (ARN) for an SSL certificate authority (CA) using the</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- @SslCaCertificateArn @setting. If an ARN isn\'t given for a CA, DMS uses</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- the Amazon root CA.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- The @plaintext@ option doesn\'t provide Transport Layer Security (TLS)</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- encryption for traffic between endpoint and database.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'authUserName', 'redisSettings_authUserName' - The user name provided with the @auth-role@ option of the @AuthType@</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- setting for a Redis target endpoint.</span><span>
 </span><span id="line-85"></span><span class="hs-comment">--</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- The @plaintext@ option doesn\'t provide Transport Layer Security (TLS)</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- encryption for traffic between endpoint and database.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'sslCaCertificateArn', 'redisSettings_sslCaCertificateArn' - The Amazon Resource Name (ARN) for the certificate authority (CA) that</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- DMS uses to connect to your Redis target endpoint.</span><span>
 </span><span id="line-88"></span><span class="hs-comment">--</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- 'authUserName', 'redisSettings_authUserName' - The user name provided with the @auth-role@ option of the @AuthType@</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- setting for a Redis target endpoint.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'authPassword', 'redisSettings_authPassword' - The password provided with the @auth-role@ and @auth-token@ options of</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- the @AuthType@ setting for a Redis target endpoint.</span><span>
 </span><span id="line-91"></span><span class="hs-comment">--</span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- 'authType', 'redisSettings_authType' - The type of authentication to perform when connecting to a Redis target.</span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- Options include @none@, @auth-token@, and @auth-role@. The @auth-token@</span><span>
@@ -143,33 +143,33 @@ $cfrom :: forall x. RedisSettings -&gt; Rep RedisSettings x
 </span><span id="line-104"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-105"></span><span>  </span><span class="annot"><a href="Network.AWS.DMS.Types.RedisSettings.html#RedisSettings"><span class="hs-identifier hs-type">RedisSettings</span></a></span><span>
 </span><span id="line-106"></span><span id="newRedisSettings"><span class="annot"><span class="annottext">newRedisSettings :: Text -&gt; Int -&gt; RedisSettings
-</span><a href="Network.AWS.DMS.Types.RedisSettings.html#newRedisSettings"><span class="hs-identifier hs-var hs-var">newRedisSettings</span></a></span></span><span> </span><span id="local-6989586621679439185"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679439185"><span class="hs-identifier hs-var">pServerName_</span></a></span></span><span> </span><span id="local-6989586621679439184"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679439184"><span class="hs-identifier hs-var">pPort_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-107"></span><span>  </span><span class="annot"><span class="annottext">RedisSettings' :: Maybe Text
--&gt; Maybe (Sensitive Text)
--&gt; Maybe SslSecurityProtocolValue
+</span><a href="Network.AWS.DMS.Types.RedisSettings.html#newRedisSettings"><span class="hs-identifier hs-var hs-var">newRedisSettings</span></a></span></span><span> </span><span id="local-6989586621679439467"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679439467"><span class="hs-identifier hs-var">pServerName_</span></a></span></span><span> </span><span id="local-6989586621679439466"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679439466"><span class="hs-identifier hs-var">pPort_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>  </span><span class="annot"><span class="annottext">RedisSettings' :: Maybe SslSecurityProtocolValue
 -&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (Sensitive Text)
 -&gt; Maybe RedisAuthTypeValue
 -&gt; Text
 -&gt; Int
 -&gt; RedisSettings
 </span><a href="Network.AWS.DMS.Types.RedisSettings.html#RedisSettings%27"><span class="hs-identifier hs-type">RedisSettings'</span></a></span><span>
-</span><span id="line-108"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sslCaCertificateArn:RedisSettings' :: Maybe Text
-</span><a href="Network.AWS.DMS.Types.RedisSettings.html#%24sel%3AsslCaCertificateArn%3ARedisSettings%27"><span class="hs-identifier hs-var">sslCaCertificateArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-109"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-108"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sslSecurityProtocol:RedisSettings' :: Maybe SslSecurityProtocolValue
+</span><a href="Network.AWS.DMS.Types.RedisSettings.html#%24sel%3AsslSecurityProtocol%3ARedisSettings%27"><span class="hs-identifier hs-var">sslSecurityProtocol</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>        </span><span class="annot"><span class="annottext">Maybe SslSecurityProtocolValue
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:authPassword:RedisSettings' :: Maybe (Sensitive Text)
-</span><a href="Network.AWS.DMS.Types.RedisSettings.html#%24sel%3AauthPassword%3ARedisSettings%27"><span class="hs-identifier hs-var">authPassword</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:sslSecurityProtocol:RedisSettings' :: Maybe SslSecurityProtocolValue
-</span><a href="Network.AWS.DMS.Types.RedisSettings.html#%24sel%3AsslSecurityProtocol%3ARedisSettings%27"><span class="hs-identifier hs-var">sslSecurityProtocol</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SslSecurityProtocolValue
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:authUserName:RedisSettings' :: Maybe Text
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:authUserName:RedisSettings' :: Maybe Text
 </span><a href="Network.AWS.DMS.Types.RedisSettings.html#%24sel%3AauthUserName%3ARedisSettings%27"><span class="hs-identifier hs-var">authUserName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:sslCaCertificateArn:RedisSettings' :: Maybe Text
+</span><a href="Network.AWS.DMS.Types.RedisSettings.html#%24sel%3AsslCaCertificateArn%3ARedisSettings%27"><span class="hs-identifier hs-var">sslCaCertificateArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:authPassword:RedisSettings' :: Maybe (Sensitive Text)
+</span><a href="Network.AWS.DMS.Types.RedisSettings.html#%24sel%3AauthPassword%3ARedisSettings%27"><span class="hs-identifier hs-var">authPassword</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:authType:RedisSettings' :: Maybe RedisAuthTypeValue
@@ -178,35 +178,88 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:serverName:RedisSettings' :: Text
 </span><a href="Network.AWS.DMS.Types.RedisSettings.html#%24sel%3AserverName%3ARedisSettings%27"><span class="hs-identifier hs-var">serverName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679439185"><span class="hs-identifier hs-var">pServerName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679439467"><span class="hs-identifier hs-var">pServerName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:port:RedisSettings' :: Int
 </span><a href="Network.AWS.DMS.Types.RedisSettings.html#%24sel%3Aport%3ARedisSettings%27"><span class="hs-identifier hs-var">port</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679439184"><span class="hs-identifier hs-var">pPort_</span></a></span><span>
+</span><a href="#local-6989586621679439466"><span class="hs-identifier hs-var">pPort_</span></a></span><span>
 </span><span id="line-116"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) for the certificate authority (CA) that</span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- DMS uses to connect to your Redis target endpoint.</span><span>
-</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.DMS.Types.RedisSettings.html#redisSettings_sslCaCertificateArn"><span class="hs-identifier hs-type">redisSettings_sslCaCertificateArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.RedisSettings.html#RedisSettings"><span class="hs-identifier hs-type">RedisSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-121"></span><span id="redisSettings_sslCaCertificateArn"><span class="annot"><span class="annottext">redisSettings_sslCaCertificateArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; RedisSettings -&gt; f RedisSettings
+</span><span id="line-118"></span><span class="hs-comment">-- | The connection to a Redis target endpoint using Transport Layer Security</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- (TLS). Valid values include @plaintext@ and @ssl-encryption@. The</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- default is @ssl-encryption@. The @ssl-encryption@ option makes an</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- encrypted connection. Optionally, you can identify an Amazon Resource</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- Name (ARN) for an SSL certificate authority (CA) using the</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- @SslCaCertificateArn @setting. If an ARN isn\'t given for a CA, DMS uses</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- the Amazon root CA.</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- The @plaintext@ option doesn\'t provide Transport Layer Security (TLS)</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- encryption for traffic between endpoint and database.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Network.AWS.DMS.Types.RedisSettings.html#redisSettings_sslSecurityProtocol"><span class="hs-identifier hs-type">redisSettings_sslSecurityProtocol</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.RedisSettings.html#RedisSettings"><span class="hs-identifier hs-type">RedisSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.SslSecurityProtocolValue.html#SslSecurityProtocolValue"><span class="hs-identifier hs-type">SslSecurityProtocolValue</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span id="redisSettings_sslSecurityProtocol"><span class="annot"><span class="annottext">redisSettings_sslSecurityProtocol :: (Maybe SslSecurityProtocolValue
+ -&gt; f (Maybe SslSecurityProtocolValue))
+-&gt; RedisSettings -&gt; f RedisSettings
+</span><a href="Network.AWS.DMS.Types.RedisSettings.html#redisSettings_sslSecurityProtocol"><span class="hs-identifier hs-var hs-var">redisSettings_sslSecurityProtocol</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RedisSettings -&gt; Maybe SslSecurityProtocolValue)
+-&gt; (RedisSettings
+    -&gt; Maybe SslSecurityProtocolValue -&gt; RedisSettings)
+-&gt; Lens
+     RedisSettings
+     RedisSettings
+     (Maybe SslSecurityProtocolValue)
+     (Maybe SslSecurityProtocolValue)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.RedisSettings.html#RedisSettings%27"><span class="hs-identifier hs-type">RedisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439462"><span class="annot"><span class="annottext">Maybe SslSecurityProtocolValue
+sslSecurityProtocol :: Maybe SslSecurityProtocolValue
+$sel:sslSecurityProtocol:RedisSettings' :: RedisSettings -&gt; Maybe SslSecurityProtocolValue
+</span><a href="#local-6989586621679439462"><span class="hs-identifier hs-var hs-var">sslSecurityProtocol</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SslSecurityProtocolValue
+</span><a href="#local-6989586621679439462"><span class="hs-identifier hs-var">sslSecurityProtocol</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679439461"><span class="annot"><span class="annottext">s :: RedisSettings
+</span><a href="#local-6989586621679439461"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.RedisSettings.html#RedisSettings%27"><span class="hs-identifier hs-type">RedisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679439460"><span class="annot"><span class="annottext">Maybe SslSecurityProtocolValue
+</span><a href="#local-6989586621679439460"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RedisSettings
+</span><a href="#local-6989586621679439461"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sslSecurityProtocol:RedisSettings' :: Maybe SslSecurityProtocolValue
+</span><a href="Network.AWS.DMS.Types.RedisSettings.html#%24sel%3AsslSecurityProtocol%3ARedisSettings%27"><span class="hs-identifier hs-var">sslSecurityProtocol</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SslSecurityProtocolValue
+</span><a href="#local-6989586621679439460"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.RedisSettings.html#RedisSettings"><span class="hs-identifier hs-type">RedisSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | The user name provided with the @auth-role@ option of the @AuthType@</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- setting for a Redis target endpoint.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.DMS.Types.RedisSettings.html#redisSettings_authUserName"><span class="hs-identifier hs-type">redisSettings_authUserName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.RedisSettings.html#RedisSettings"><span class="hs-identifier hs-type">RedisSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span id="redisSettings_authUserName"><span class="annot"><span class="annottext">redisSettings_authUserName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; RedisSettings -&gt; f RedisSettings
+</span><a href="Network.AWS.DMS.Types.RedisSettings.html#redisSettings_authUserName"><span class="hs-identifier hs-var hs-var">redisSettings_authUserName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RedisSettings -&gt; Maybe Text)
+-&gt; (RedisSettings -&gt; Maybe Text -&gt; RedisSettings)
+-&gt; Lens RedisSettings RedisSettings (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.RedisSettings.html#RedisSettings%27"><span class="hs-identifier hs-type">RedisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439458"><span class="annot"><span class="annottext">Maybe Text
+authUserName :: Maybe Text
+$sel:authUserName:RedisSettings' :: RedisSettings -&gt; Maybe Text
+</span><a href="#local-6989586621679439458"><span class="hs-identifier hs-var hs-var">authUserName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679439458"><span class="hs-identifier hs-var">authUserName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679439457"><span class="annot"><span class="annottext">s :: RedisSettings
+</span><a href="#local-6989586621679439457"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.RedisSettings.html#RedisSettings%27"><span class="hs-identifier hs-type">RedisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679439456"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679439456"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RedisSettings
+</span><a href="#local-6989586621679439457"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authUserName:RedisSettings' :: Maybe Text
+</span><a href="Network.AWS.DMS.Types.RedisSettings.html#%24sel%3AauthUserName%3ARedisSettings%27"><span class="hs-identifier hs-var">authUserName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679439456"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.RedisSettings.html#RedisSettings"><span class="hs-identifier hs-type">RedisSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) for the certificate authority (CA) that</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- DMS uses to connect to your Redis target endpoint.</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Network.AWS.DMS.Types.RedisSettings.html#redisSettings_sslCaCertificateArn"><span class="hs-identifier hs-type">redisSettings_sslCaCertificateArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.RedisSettings.html#RedisSettings"><span class="hs-identifier hs-type">RedisSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span id="redisSettings_sslCaCertificateArn"><span class="annot"><span class="annottext">redisSettings_sslCaCertificateArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; RedisSettings -&gt; f RedisSettings
 </span><a href="Network.AWS.DMS.Types.RedisSettings.html#redisSettings_sslCaCertificateArn"><span class="hs-identifier hs-var hs-var">redisSettings_sslCaCertificateArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RedisSettings -&gt; Maybe Text)
 -&gt; (RedisSettings -&gt; Maybe Text -&gt; RedisSettings)
 -&gt; Lens RedisSettings RedisSettings (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.RedisSettings.html#RedisSettings%27"><span class="hs-identifier hs-type">RedisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439180"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.RedisSettings.html#RedisSettings%27"><span class="hs-identifier hs-type">RedisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439454"><span class="annot"><span class="annottext">Maybe Text
 sslCaCertificateArn :: Maybe Text
 $sel:sslCaCertificateArn:RedisSettings' :: RedisSettings -&gt; Maybe Text
-</span><a href="#local-6989586621679439180"><span class="hs-identifier hs-var hs-var">sslCaCertificateArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679439180"><span class="hs-identifier hs-var">sslCaCertificateArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679439179"><span class="annot"><span class="annottext">s :: RedisSettings
-</span><a href="#local-6989586621679439179"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.RedisSettings.html#RedisSettings%27"><span class="hs-identifier hs-type">RedisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679439178"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679439178"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RedisSettings
-</span><a href="#local-6989586621679439179"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sslCaCertificateArn:RedisSettings' :: Maybe Text
+</span><a href="#local-6989586621679439454"><span class="hs-identifier hs-var hs-var">sslCaCertificateArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679439454"><span class="hs-identifier hs-var">sslCaCertificateArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679439453"><span class="annot"><span class="annottext">s :: RedisSettings
+</span><a href="#local-6989586621679439453"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.RedisSettings.html#RedisSettings%27"><span class="hs-identifier hs-type">RedisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679439452"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679439452"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RedisSettings
+</span><a href="#local-6989586621679439453"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sslCaCertificateArn:RedisSettings' :: Maybe Text
 </span><a href="Network.AWS.DMS.Types.RedisSettings.html#%24sel%3AsslCaCertificateArn%3ARedisSettings%27"><span class="hs-identifier hs-var">sslCaCertificateArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679439178"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.RedisSettings.html#RedisSettings"><span class="hs-identifier hs-type">RedisSettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- | The password provided with the @auth-role@ and @auth-token@ options of</span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- the @AuthType@ setting for a Redis target endpoint.</span><span>
-</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.DMS.Types.RedisSettings.html#redisSettings_authPassword"><span class="hs-identifier hs-type">redisSettings_authPassword</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.RedisSettings.html#RedisSettings"><span class="hs-identifier hs-type">RedisSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-126"></span><span id="redisSettings_authPassword"><span class="annot"><span class="annottext">redisSettings_authPassword :: (Maybe Text -&gt; f (Maybe Text)) -&gt; RedisSettings -&gt; f RedisSettings
+</span><a href="#local-6989586621679439452"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.RedisSettings.html#RedisSettings"><span class="hs-identifier hs-type">RedisSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | The password provided with the @auth-role@ and @auth-token@ options of</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- the @AuthType@ setting for a Redis target endpoint.</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Network.AWS.DMS.Types.RedisSettings.html#redisSettings_authPassword"><span class="hs-identifier hs-type">redisSettings_authPassword</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.RedisSettings.html#RedisSettings"><span class="hs-identifier hs-type">RedisSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span id="redisSettings_authPassword"><span class="annot"><span class="annottext">redisSettings_authPassword :: (Maybe Text -&gt; f (Maybe Text)) -&gt; RedisSettings -&gt; f RedisSettings
 </span><a href="Network.AWS.DMS.Types.RedisSettings.html#redisSettings_authPassword"><span class="hs-identifier hs-var hs-var">redisSettings_authPassword</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RedisSettings -&gt; Maybe (Sensitive Text))
 -&gt; (RedisSettings -&gt; Maybe (Sensitive Text) -&gt; RedisSettings)
 -&gt; Lens
@@ -215,16 +268,16 @@ $sel:sslCaCertificateArn:RedisSettings' :: RedisSettings -&gt; Maybe Text
      (Maybe (Sensitive Text))
      (Maybe (Sensitive Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.RedisSettings.html#RedisSettings%27"><span class="hs-identifier hs-type">RedisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439176"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.RedisSettings.html#RedisSettings%27"><span class="hs-identifier hs-type">RedisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439450"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 authPassword :: Maybe (Sensitive Text)
 $sel:authPassword:RedisSettings' :: RedisSettings -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679439176"><span class="hs-identifier hs-var hs-var">authPassword</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679439176"><span class="hs-identifier hs-var">authPassword</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679439175"><span class="annot"><span class="annottext">s :: RedisSettings
-</span><a href="#local-6989586621679439175"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.RedisSettings.html#RedisSettings%27"><span class="hs-identifier hs-type">RedisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679439174"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679439174"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RedisSettings
-</span><a href="#local-6989586621679439175"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authPassword:RedisSettings' :: Maybe (Sensitive Text)
+</span><a href="#local-6989586621679439450"><span class="hs-identifier hs-var hs-var">authPassword</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679439450"><span class="hs-identifier hs-var">authPassword</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679439449"><span class="annot"><span class="annottext">s :: RedisSettings
+</span><a href="#local-6989586621679439449"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.RedisSettings.html#RedisSettings%27"><span class="hs-identifier hs-type">RedisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679439448"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679439448"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RedisSettings
+</span><a href="#local-6989586621679439449"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authPassword:RedisSettings' :: Maybe (Sensitive Text)
 </span><a href="Network.AWS.DMS.Types.RedisSettings.html#%24sel%3AauthPassword%3ARedisSettings%27"><span class="hs-identifier hs-var">authPassword</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679439174"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.RedisSettings.html#RedisSettings"><span class="hs-identifier hs-type">RedisSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+</span><a href="#local-6989586621679439448"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.RedisSettings.html#RedisSettings"><span class="hs-identifier hs-type">RedisSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
  -&gt; RedisSettings -&gt; f RedisSettings)
 -&gt; ((Maybe Text -&gt; f (Maybe Text))
     -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
@@ -244,59 +297,6 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
 forall a. Iso' (Sensitive a) a
 </span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
-</span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- | The connection to a Redis target endpoint using Transport Layer Security</span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- (TLS). Valid values include @plaintext@ and @ssl-encryption@. The</span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- default is @ssl-encryption@. The @ssl-encryption@ option makes an</span><span>
-</span><span id="line-131"></span><span class="hs-comment">-- encrypted connection. Optionally, you can identify an Amazon Resource</span><span>
-</span><span id="line-132"></span><span class="hs-comment">-- Name (ARN) for an SSL certificate authority (CA) using the</span><span>
-</span><span id="line-133"></span><span class="hs-comment">-- @SslCaCertificateArn @setting. If an ARN isn\'t given for a CA, DMS uses</span><span>
-</span><span id="line-134"></span><span class="hs-comment">-- the Amazon root CA.</span><span>
-</span><span id="line-135"></span><span class="hs-comment">--</span><span>
-</span><span id="line-136"></span><span class="hs-comment">-- The @plaintext@ option doesn\'t provide Transport Layer Security (TLS)</span><span>
-</span><span id="line-137"></span><span class="hs-comment">-- encryption for traffic between endpoint and database.</span><span>
-</span><span id="line-138"></span><span class="annot"><a href="Network.AWS.DMS.Types.RedisSettings.html#redisSettings_sslSecurityProtocol"><span class="hs-identifier hs-type">redisSettings_sslSecurityProtocol</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.RedisSettings.html#RedisSettings"><span class="hs-identifier hs-type">RedisSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.SslSecurityProtocolValue.html#SslSecurityProtocolValue"><span class="hs-identifier hs-type">SslSecurityProtocolValue</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-139"></span><span id="redisSettings_sslSecurityProtocol"><span class="annot"><span class="annottext">redisSettings_sslSecurityProtocol :: (Maybe SslSecurityProtocolValue
- -&gt; f (Maybe SslSecurityProtocolValue))
--&gt; RedisSettings -&gt; f RedisSettings
-</span><a href="Network.AWS.DMS.Types.RedisSettings.html#redisSettings_sslSecurityProtocol"><span class="hs-identifier hs-var hs-var">redisSettings_sslSecurityProtocol</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RedisSettings -&gt; Maybe SslSecurityProtocolValue)
--&gt; (RedisSettings
-    -&gt; Maybe SslSecurityProtocolValue -&gt; RedisSettings)
--&gt; Lens
-     RedisSettings
-     RedisSettings
-     (Maybe SslSecurityProtocolValue)
-     (Maybe SslSecurityProtocolValue)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.RedisSettings.html#RedisSettings%27"><span class="hs-identifier hs-type">RedisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439169"><span class="annot"><span class="annottext">Maybe SslSecurityProtocolValue
-sslSecurityProtocol :: Maybe SslSecurityProtocolValue
-$sel:sslSecurityProtocol:RedisSettings' :: RedisSettings -&gt; Maybe SslSecurityProtocolValue
-</span><a href="#local-6989586621679439169"><span class="hs-identifier hs-var hs-var">sslSecurityProtocol</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SslSecurityProtocolValue
-</span><a href="#local-6989586621679439169"><span class="hs-identifier hs-var">sslSecurityProtocol</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679439168"><span class="annot"><span class="annottext">s :: RedisSettings
-</span><a href="#local-6989586621679439168"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.RedisSettings.html#RedisSettings%27"><span class="hs-identifier hs-type">RedisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679439167"><span class="annot"><span class="annottext">Maybe SslSecurityProtocolValue
-</span><a href="#local-6989586621679439167"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RedisSettings
-</span><a href="#local-6989586621679439168"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sslSecurityProtocol:RedisSettings' :: Maybe SslSecurityProtocolValue
-</span><a href="Network.AWS.DMS.Types.RedisSettings.html#%24sel%3AsslSecurityProtocol%3ARedisSettings%27"><span class="hs-identifier hs-var">sslSecurityProtocol</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SslSecurityProtocolValue
-</span><a href="#local-6989586621679439167"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.RedisSettings.html#RedisSettings"><span class="hs-identifier hs-type">RedisSettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-140"></span><span>
-</span><span id="line-141"></span><span class="hs-comment">-- | The user name provided with the @auth-role@ option of the @AuthType@</span><span>
-</span><span id="line-142"></span><span class="hs-comment">-- setting for a Redis target endpoint.</span><span>
-</span><span id="line-143"></span><span class="annot"><a href="Network.AWS.DMS.Types.RedisSettings.html#redisSettings_authUserName"><span class="hs-identifier hs-type">redisSettings_authUserName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.RedisSettings.html#RedisSettings"><span class="hs-identifier hs-type">RedisSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-144"></span><span id="redisSettings_authUserName"><span class="annot"><span class="annottext">redisSettings_authUserName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; RedisSettings -&gt; f RedisSettings
-</span><a href="Network.AWS.DMS.Types.RedisSettings.html#redisSettings_authUserName"><span class="hs-identifier hs-var hs-var">redisSettings_authUserName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RedisSettings -&gt; Maybe Text)
--&gt; (RedisSettings -&gt; Maybe Text -&gt; RedisSettings)
--&gt; Lens RedisSettings RedisSettings (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.RedisSettings.html#RedisSettings%27"><span class="hs-identifier hs-type">RedisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439165"><span class="annot"><span class="annottext">Maybe Text
-authUserName :: Maybe Text
-$sel:authUserName:RedisSettings' :: RedisSettings -&gt; Maybe Text
-</span><a href="#local-6989586621679439165"><span class="hs-identifier hs-var hs-var">authUserName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679439165"><span class="hs-identifier hs-var">authUserName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679439164"><span class="annot"><span class="annottext">s :: RedisSettings
-</span><a href="#local-6989586621679439164"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.RedisSettings.html#RedisSettings%27"><span class="hs-identifier hs-type">RedisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679439163"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679439163"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RedisSettings
-</span><a href="#local-6989586621679439164"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authUserName:RedisSettings' :: Maybe Text
-</span><a href="Network.AWS.DMS.Types.RedisSettings.html#%24sel%3AauthUserName%3ARedisSettings%27"><span class="hs-identifier hs-var">authUserName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679439163"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.RedisSettings.html#RedisSettings"><span class="hs-identifier hs-type">RedisSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-comment">-- | The type of authentication to perform when connecting to a Redis target.</span><span>
 </span><span id="line-147"></span><span class="hs-comment">-- Options include @none@, @auth-token@, and @auth-role@. The @auth-token@</span><span>
@@ -313,16 +313,16 @@ $sel:authUserName:RedisSettings' :: RedisSettings -&gt; Maybe Text
      (Maybe RedisAuthTypeValue)
      (Maybe RedisAuthTypeValue)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.RedisSettings.html#RedisSettings%27"><span class="hs-identifier hs-type">RedisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439161"><span class="annot"><span class="annottext">Maybe RedisAuthTypeValue
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.RedisSettings.html#RedisSettings%27"><span class="hs-identifier hs-type">RedisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439443"><span class="annot"><span class="annottext">Maybe RedisAuthTypeValue
 authType :: Maybe RedisAuthTypeValue
 $sel:authType:RedisSettings' :: RedisSettings -&gt; Maybe RedisAuthTypeValue
-</span><a href="#local-6989586621679439161"><span class="hs-identifier hs-var hs-var">authType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RedisAuthTypeValue
-</span><a href="#local-6989586621679439161"><span class="hs-identifier hs-var">authType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679439160"><span class="annot"><span class="annottext">s :: RedisSettings
-</span><a href="#local-6989586621679439160"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.RedisSettings.html#RedisSettings%27"><span class="hs-identifier hs-type">RedisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679439159"><span class="annot"><span class="annottext">Maybe RedisAuthTypeValue
-</span><a href="#local-6989586621679439159"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RedisSettings
-</span><a href="#local-6989586621679439160"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authType:RedisSettings' :: Maybe RedisAuthTypeValue
+</span><a href="#local-6989586621679439443"><span class="hs-identifier hs-var hs-var">authType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RedisAuthTypeValue
+</span><a href="#local-6989586621679439443"><span class="hs-identifier hs-var">authType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679439442"><span class="annot"><span class="annottext">s :: RedisSettings
+</span><a href="#local-6989586621679439442"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.RedisSettings.html#RedisSettings%27"><span class="hs-identifier hs-type">RedisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679439441"><span class="annot"><span class="annottext">Maybe RedisAuthTypeValue
+</span><a href="#local-6989586621679439441"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RedisSettings
+</span><a href="#local-6989586621679439442"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authType:RedisSettings' :: Maybe RedisAuthTypeValue
 </span><a href="Network.AWS.DMS.Types.RedisSettings.html#%24sel%3AauthType%3ARedisSettings%27"><span class="hs-identifier hs-var">authType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RedisAuthTypeValue
-</span><a href="#local-6989586621679439159"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.RedisSettings.html#RedisSettings"><span class="hs-identifier hs-type">RedisSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679439441"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.RedisSettings.html#RedisSettings"><span class="hs-identifier hs-type">RedisSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-152"></span><span>
 </span><span id="line-153"></span><span class="hs-comment">-- | Fully qualified domain name of the endpoint.</span><span>
 </span><span id="line-154"></span><span class="annot"><a href="Network.AWS.DMS.Types.RedisSettings.html#redisSettings_serverName"><span class="hs-identifier hs-type">redisSettings_serverName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.RedisSettings.html#RedisSettings"><span class="hs-identifier hs-type">RedisSettings</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -331,16 +331,16 @@ $sel:authType:RedisSettings' :: RedisSettings -&gt; Maybe RedisAuthTypeValue
 -&gt; (RedisSettings -&gt; Text -&gt; RedisSettings)
 -&gt; Lens RedisSettings RedisSettings Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.RedisSettings.html#RedisSettings%27"><span class="hs-identifier hs-type">RedisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439157"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.RedisSettings.html#RedisSettings%27"><span class="hs-identifier hs-type">RedisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439439"><span class="annot"><span class="annottext">Text
 serverName :: Text
 $sel:serverName:RedisSettings' :: RedisSettings -&gt; Text
-</span><a href="#local-6989586621679439157"><span class="hs-identifier hs-var hs-var">serverName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679439157"><span class="hs-identifier hs-var">serverName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679439156"><span class="annot"><span class="annottext">s :: RedisSettings
-</span><a href="#local-6989586621679439156"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.RedisSettings.html#RedisSettings%27"><span class="hs-identifier hs-type">RedisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679439155"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679439155"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RedisSettings
-</span><a href="#local-6989586621679439156"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serverName:RedisSettings' :: Text
+</span><a href="#local-6989586621679439439"><span class="hs-identifier hs-var hs-var">serverName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679439439"><span class="hs-identifier hs-var">serverName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679439438"><span class="annot"><span class="annottext">s :: RedisSettings
+</span><a href="#local-6989586621679439438"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.RedisSettings.html#RedisSettings%27"><span class="hs-identifier hs-type">RedisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679439437"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679439437"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RedisSettings
+</span><a href="#local-6989586621679439438"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serverName:RedisSettings' :: Text
 </span><a href="Network.AWS.DMS.Types.RedisSettings.html#%24sel%3AserverName%3ARedisSettings%27"><span class="hs-identifier hs-var">serverName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679439155"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.RedisSettings.html#RedisSettings"><span class="hs-identifier hs-type">RedisSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679439437"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.RedisSettings.html#RedisSettings"><span class="hs-identifier hs-type">RedisSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-comment">-- | Transmission Control Protocol (TCP) port for the endpoint.</span><span>
 </span><span id="line-158"></span><span class="annot"><a href="Network.AWS.DMS.Types.RedisSettings.html#redisSettings_port"><span class="hs-identifier hs-type">redisSettings_port</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.RedisSettings.html#RedisSettings"><span class="hs-identifier hs-type">RedisSettings</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -349,19 +349,19 @@ $sel:serverName:RedisSettings' :: RedisSettings -&gt; Text
 -&gt; (RedisSettings -&gt; Int -&gt; RedisSettings)
 -&gt; Lens RedisSettings RedisSettings Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.RedisSettings.html#RedisSettings%27"><span class="hs-identifier hs-type">RedisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439153"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.RedisSettings.html#RedisSettings%27"><span class="hs-identifier hs-type">RedisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439435"><span class="annot"><span class="annottext">Int
 port :: Int
 $sel:port:RedisSettings' :: RedisSettings -&gt; Int
-</span><a href="#local-6989586621679439153"><span class="hs-identifier hs-var hs-var">port</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679439153"><span class="hs-identifier hs-var">port</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679439152"><span class="annot"><span class="annottext">s :: RedisSettings
-</span><a href="#local-6989586621679439152"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.RedisSettings.html#RedisSettings%27"><span class="hs-identifier hs-type">RedisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679439151"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679439151"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RedisSettings
-</span><a href="#local-6989586621679439152"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:port:RedisSettings' :: Int
+</span><a href="#local-6989586621679439435"><span class="hs-identifier hs-var hs-var">port</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679439435"><span class="hs-identifier hs-var">port</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679439434"><span class="annot"><span class="annottext">s :: RedisSettings
+</span><a href="#local-6989586621679439434"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.RedisSettings.html#RedisSettings%27"><span class="hs-identifier hs-type">RedisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679439433"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679439433"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RedisSettings
+</span><a href="#local-6989586621679439434"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:port:RedisSettings' :: Int
 </span><a href="Network.AWS.DMS.Types.RedisSettings.html#%24sel%3Aport%3ARedisSettings%27"><span class="hs-identifier hs-var">port</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679439151"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.RedisSettings.html#RedisSettings"><span class="hs-identifier hs-type">RedisSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679439433"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.RedisSettings.html#RedisSettings"><span class="hs-identifier hs-type">RedisSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-160"></span><span>
-</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679439148"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.RedisSettings.html#RedisSettings"><span class="hs-identifier hs-type">RedisSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-162"></span><span>  </span><span id="local-6989586621679439146"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RedisSettings
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679439430"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.RedisSettings.html#RedisSettings"><span class="hs-identifier hs-type">RedisSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679439428"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RedisSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-163"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser RedisSettings)
@@ -371,97 +371,97 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-164"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;RedisSettings&quot;</span></span><span>
-</span><span id="line-165"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679439143"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679439143"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-166"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe (Sensitive Text)
--&gt; Maybe SslSecurityProtocolValue
+</span><span id="line-165"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679439425"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679439425"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-166"></span><span>          </span><span class="annot"><span class="annottext">Maybe SslSecurityProtocolValue
 -&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (Sensitive Text)
 -&gt; Maybe RedisAuthTypeValue
 -&gt; Text
 -&gt; Int
 -&gt; RedisSettings
 </span><a href="Network.AWS.DMS.Types.RedisSettings.html#RedisSettings%27"><span class="hs-identifier hs-var">RedisSettings'</span></a></span><span>
-</span><span id="line-167"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe (Sensitive Text)
- -&gt; Maybe SslSecurityProtocolValue
+</span><span id="line-167"></span><span>            </span><span class="annot"><span class="annottext">(Maybe SslSecurityProtocolValue
  -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe (Sensitive Text)
  -&gt; Maybe RedisAuthTypeValue
  -&gt; Text
  -&gt; Int
  -&gt; RedisSettings)
--&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe SslSecurityProtocolValue)
 -&gt; Parser
-     (Maybe (Sensitive Text)
-      -&gt; Maybe SslSecurityProtocolValue
+     (Maybe Text
       -&gt; Maybe Text
+      -&gt; Maybe (Sensitive Text)
       -&gt; Maybe RedisAuthTypeValue
       -&gt; Text
       -&gt; Int
       -&gt; RedisSettings)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679439143"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679439425"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SslSecurityProtocolValue)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;SslCaCertificateArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;SslSecurityProtocol&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe (Sensitive Text)
-   -&gt; Maybe SslSecurityProtocolValue
+  (Maybe Text
    -&gt; Maybe Text
+   -&gt; Maybe (Sensitive Text)
    -&gt; Maybe RedisAuthTypeValue
    -&gt; Text
    -&gt; Int
    -&gt; RedisSettings)
--&gt; Parser (Maybe (Sensitive Text))
+-&gt; Parser (Maybe Text)
 -&gt; Parser
-     (Maybe SslSecurityProtocolValue
-      -&gt; Maybe Text
+     (Maybe Text
+      -&gt; Maybe (Sensitive Text)
       -&gt; Maybe RedisAuthTypeValue
       -&gt; Text
       -&gt; Int
       -&gt; RedisSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679439143"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive Text))
+</span><a href="#local-6989586621679439425"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;AuthPassword&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;AuthUserName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-169"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe SslSecurityProtocolValue
-   -&gt; Maybe Text
+  (Maybe Text
+   -&gt; Maybe (Sensitive Text)
    -&gt; Maybe RedisAuthTypeValue
    -&gt; Text
    -&gt; Int
    -&gt; RedisSettings)
--&gt; Parser (Maybe SslSecurityProtocolValue)
+-&gt; Parser (Maybe Text)
 -&gt; Parser
-     (Maybe Text
+     (Maybe (Sensitive Text)
       -&gt; Maybe RedisAuthTypeValue -&gt; Text -&gt; Int -&gt; RedisSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679439143"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SslSecurityProtocolValue)
+</span><a href="#local-6989586621679439425"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;SslSecurityProtocol&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;SslCaCertificateArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
+  (Maybe (Sensitive Text)
    -&gt; Maybe RedisAuthTypeValue -&gt; Text -&gt; Int -&gt; RedisSettings)
--&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe (Sensitive Text))
 -&gt; Parser
      (Maybe RedisAuthTypeValue -&gt; Text -&gt; Int -&gt; RedisSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679439143"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679439425"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive Text))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;AuthUserName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;AuthPassword&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-171"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe RedisAuthTypeValue -&gt; Text -&gt; Int -&gt; RedisSettings)
 -&gt; Parser (Maybe RedisAuthTypeValue)
 -&gt; Parser (Text -&gt; Int -&gt; RedisSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679439143"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RedisAuthTypeValue)
+</span><a href="#local-6989586621679439425"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RedisAuthTypeValue)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AuthType&quot;</span></span><span class="hs-special">)</span><span>
@@ -469,26 +469,26 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Text -&gt; Parser (Int -&gt; RedisSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679439143"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679439425"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ServerName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-173"></span><span>            </span><span class="annot"><span class="annottext">Parser (Int -&gt; RedisSettings) -&gt; Parser Int -&gt; Parser RedisSettings
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679439143"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Int
+</span><a href="#local-6989586621679439425"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Int
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Port&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-175"></span><span>
-</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679439136"><span id="local-6989586621679439138"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.RedisSettings.html#RedisSettings"><span class="hs-identifier hs-type">RedisSettings</span></a></span></span></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679439418"><span id="local-6989586621679439420"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.RedisSettings.html#RedisSettings"><span class="hs-identifier hs-type">RedisSettings</span></a></span></span></span><span>
 </span><span id="line-177"></span><span>
-</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679439133"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.RedisSettings.html#RedisSettings"><span class="hs-identifier hs-type">RedisSettings</span></a></span></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679439415"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.RedisSettings.html#RedisSettings"><span class="hs-identifier hs-type">RedisSettings</span></a></span></span><span>
 </span><span id="line-179"></span><span>
-</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679439125"><span id="local-6989586621679439127"><span id="local-6989586621679439129"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.RedisSettings.html#RedisSettings"><span class="hs-identifier hs-type">RedisSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-181"></span><span>  </span><span id="local-6989586621679439123"><span class="annot"><span class="annottext">toJSON :: RedisSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.RedisSettings.html#RedisSettings%27"><span class="hs-identifier hs-type">RedisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439115"><span id="local-6989586621679439116"><span id="local-6989586621679439117"><span id="local-6989586621679439118"><span id="local-6989586621679439119"><span id="local-6989586621679439120"><span id="local-6989586621679439121"><span class="annot"><span class="annottext">Int
+</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679439407"><span id="local-6989586621679439409"><span id="local-6989586621679439411"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.RedisSettings.html#RedisSettings"><span class="hs-identifier hs-type">RedisSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679439405"><span class="annot"><span class="annottext">toJSON :: RedisSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.RedisSettings.html#RedisSettings%27"><span class="hs-identifier hs-type">RedisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439397"><span id="local-6989586621679439398"><span id="local-6989586621679439399"><span id="local-6989586621679439400"><span id="local-6989586621679439401"><span id="local-6989586621679439402"><span id="local-6989586621679439403"><span class="annot"><span class="annottext">Int
 Maybe Text
 Maybe (Sensitive Text)
 Maybe RedisAuthTypeValue
@@ -497,54 +497,54 @@ Text
 port :: Int
 serverName :: Text
 authType :: Maybe RedisAuthTypeValue
-authUserName :: Maybe Text
-sslSecurityProtocol :: Maybe SslSecurityProtocolValue
 authPassword :: Maybe (Sensitive Text)
 sslCaCertificateArn :: Maybe Text
+authUserName :: Maybe Text
+sslSecurityProtocol :: Maybe SslSecurityProtocolValue
 $sel:port:RedisSettings' :: RedisSettings -&gt; Int
 $sel:serverName:RedisSettings' :: RedisSettings -&gt; Text
 $sel:authType:RedisSettings' :: RedisSettings -&gt; Maybe RedisAuthTypeValue
-$sel:authUserName:RedisSettings' :: RedisSettings -&gt; Maybe Text
-$sel:sslSecurityProtocol:RedisSettings' :: RedisSettings -&gt; Maybe SslSecurityProtocolValue
 $sel:authPassword:RedisSettings' :: RedisSettings -&gt; Maybe (Sensitive Text)
 $sel:sslCaCertificateArn:RedisSettings' :: RedisSettings -&gt; Maybe Text
-</span><a href="#local-6989586621679439115"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:authUserName:RedisSettings' :: RedisSettings -&gt; Maybe Text
+$sel:sslSecurityProtocol:RedisSettings' :: RedisSettings -&gt; Maybe SslSecurityProtocolValue
+</span><a href="#local-6989586621679439397"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-182"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-183"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-184"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;SslCaCertificateArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-185"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679439121"><span class="hs-identifier hs-var">sslCaCertificateArn</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-186"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;AuthPassword&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Sensitive Text -&gt; Pair) -&gt; Maybe (Sensitive Text) -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679439120"><span class="hs-identifier hs-var">authPassword</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-187"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SslSecurityProtocol&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SslSecurityProtocolValue -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-188"></span><span>              </span><span class="annot"><span class="annottext">(SslSecurityProtocolValue -&gt; Pair)
+</span><span id="line-185"></span><span>              </span><span class="annot"><span class="annottext">(SslSecurityProtocolValue -&gt; Pair)
 -&gt; Maybe SslSecurityProtocolValue -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SslSecurityProtocolValue
-</span><a href="#local-6989586621679439119"><span class="hs-identifier hs-var">sslSecurityProtocol</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-189"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679439403"><span class="hs-identifier hs-var">sslSecurityProtocol</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AuthUserName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679439118"><span class="hs-identifier hs-var">authUserName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679439402"><span class="hs-identifier hs-var">authUserName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SslCaCertificateArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679439401"><span class="hs-identifier hs-var">sslCaCertificateArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AuthPassword&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Sensitive Text -&gt; Pair) -&gt; Maybe (Sensitive Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679439400"><span class="hs-identifier hs-var">authPassword</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-190"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AuthType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; RedisAuthTypeValue -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -552,21 +552,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe RedisAuthTypeValue -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe RedisAuthTypeValue
-</span><a href="#local-6989586621679439117"><span class="hs-identifier hs-var">authType</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679439399"><span class="hs-identifier hs-var">authType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-191"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ServerName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679439116"><span class="hs-identifier hs-var">serverName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679439398"><span class="hs-identifier hs-var">serverName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-192"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Port&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679439115"><span class="hs-identifier hs-var">port</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679439397"><span class="hs-identifier hs-var">port</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-193"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-194"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-195"></span></pre></body></html>

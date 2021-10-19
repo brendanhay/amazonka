@@ -49,13 +49,13 @@
 </span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newRestoreBackup' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679175336"><span id="local-6989586621679175337"></span></span><span class="hs-keyword">data</span><span> </span><span id="RestoreBackup"><span class="annot"><a href="Network.AWS.CloudHSMv2.RestoreBackup.html#RestoreBackup"><span class="hs-identifier hs-var">RestoreBackup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RestoreBackup%27"><span class="annot"><a href="Network.AWS.CloudHSMv2.RestoreBackup.html#RestoreBackup%27"><span class="hs-identifier hs-var">RestoreBackup'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679175405"><span id="local-6989586621679175406"></span></span><span class="hs-keyword">data</span><span> </span><span id="RestoreBackup"><span class="annot"><a href="Network.AWS.CloudHSMv2.RestoreBackup.html#RestoreBackup"><span class="hs-identifier hs-var">RestoreBackup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RestoreBackup%27"><span class="annot"><a href="Network.AWS.CloudHSMv2.RestoreBackup.html#RestoreBackup%27"><span class="hs-identifier hs-var">RestoreBackup'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the backup to be restored. To find the ID of a backup, use the</span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-comment">-- DescribeBackups operation.</span><span>
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3AbackupId%3ARestoreBackup%27"><span class="annot"><span class="annottext">RestoreBackup -&gt; Text
 </span><a href="Network.AWS.CloudHSMv2.RestoreBackup.html#%24sel%3AbackupId%3ARestoreBackup%27"><span class="hs-identifier hs-var hs-var">backupId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679175330"><span id="local-6989586621679175332"><span class="annot"><span class="annottext">RestoreBackup -&gt; RestoreBackup -&gt; Bool
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679175399"><span id="local-6989586621679175401"><span class="annot"><span class="annottext">RestoreBackup -&gt; RestoreBackup -&gt; Bool
 (RestoreBackup -&gt; RestoreBackup -&gt; Bool)
 -&gt; (RestoreBackup -&gt; RestoreBackup -&gt; Bool) -&gt; Eq RestoreBackup
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -63,7 +63,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RestoreBackup -&gt; RestoreBackup -&gt; Bool
 == :: RestoreBackup -&gt; RestoreBackup -&gt; Bool
 $c== :: RestoreBackup -&gt; RestoreBackup -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175321"><span id="local-6989586621679175323"><span id="local-6989586621679175325"><span id="local-6989586621679175327"><span class="annot"><span class="annottext">ReadPrec [RestoreBackup]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175390"><span id="local-6989586621679175392"><span id="local-6989586621679175394"><span id="local-6989586621679175396"><span class="annot"><span class="annottext">ReadPrec [RestoreBackup]
 ReadPrec RestoreBackup
 Int -&gt; ReadS RestoreBackup
 ReadS [RestoreBackup]
@@ -83,7 +83,7 @@ readList :: ReadS [RestoreBackup]
 $creadList :: ReadS [RestoreBackup]
 readsPrec :: Int -&gt; ReadS RestoreBackup
 $creadsPrec :: Int -&gt; ReadS RestoreBackup
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175314"><span id="local-6989586621679175316"><span id="local-6989586621679175318"><span class="annot"><span class="annottext">Int -&gt; RestoreBackup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175383"><span id="local-6989586621679175385"><span id="local-6989586621679175387"><span class="annot"><span class="annottext">Int -&gt; RestoreBackup -&gt; ShowS
 [RestoreBackup] -&gt; ShowS
 RestoreBackup -&gt; String
 (Int -&gt; RestoreBackup -&gt; ShowS)
@@ -124,12 +124,12 @@ $cfrom :: forall x. RestoreBackup -&gt; Rep RestoreBackup x
 </span><span id="line-71"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudHSMv2.RestoreBackup.html#RestoreBackup"><span class="hs-identifier hs-type">RestoreBackup</span></a></span><span>
 </span><span id="line-73"></span><span id="newRestoreBackup"><span class="annot"><span class="annottext">newRestoreBackup :: Text -&gt; RestoreBackup
-</span><a href="Network.AWS.CloudHSMv2.RestoreBackup.html#newRestoreBackup"><span class="hs-identifier hs-var hs-var">newRestoreBackup</span></a></span></span><span> </span><span id="local-6989586621679175309"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175309"><span class="hs-identifier hs-var">pBackupId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudHSMv2.RestoreBackup.html#newRestoreBackup"><span class="hs-identifier hs-var hs-var">newRestoreBackup</span></a></span></span><span> </span><span id="local-6989586621679175378"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175378"><span class="hs-identifier hs-var">pBackupId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>  </span><span class="annot"><span class="annottext">RestoreBackup' :: Text -&gt; RestoreBackup
 </span><a href="Network.AWS.CloudHSMv2.RestoreBackup.html#RestoreBackup%27"><span class="hs-identifier hs-type">RestoreBackup'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:backupId:RestoreBackup' :: Text
 </span><a href="Network.AWS.CloudHSMv2.RestoreBackup.html#%24sel%3AbackupId%3ARestoreBackup%27"><span class="hs-identifier hs-var">backupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175309"><span class="hs-identifier hs-var">pBackupId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679175378"><span class="hs-identifier hs-var">pBackupId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- | The ID of the backup to be restored. To find the ID of a backup, use the</span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- DescribeBackups operation.</span><span>
@@ -139,27 +139,27 @@ $cfrom :: forall x. RestoreBackup -&gt; Rep RestoreBackup x
 -&gt; (RestoreBackup -&gt; Text -&gt; RestoreBackup)
 -&gt; Lens RestoreBackup RestoreBackup Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSMv2.RestoreBackup.html#RestoreBackup%27"><span class="hs-identifier hs-type">RestoreBackup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175306"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSMv2.RestoreBackup.html#RestoreBackup%27"><span class="hs-identifier hs-type">RestoreBackup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175375"><span class="annot"><span class="annottext">Text
 backupId :: Text
 $sel:backupId:RestoreBackup' :: RestoreBackup -&gt; Text
-</span><a href="#local-6989586621679175306"><span class="hs-identifier hs-var hs-var">backupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175306"><span class="hs-identifier hs-var">backupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175305"><span class="annot"><span class="annottext">s :: RestoreBackup
-</span><a href="#local-6989586621679175305"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSMv2.RestoreBackup.html#RestoreBackup%27"><span class="hs-identifier hs-type">RestoreBackup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175304"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175304"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreBackup
-</span><a href="#local-6989586621679175305"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:backupId:RestoreBackup' :: Text
+</span><a href="#local-6989586621679175375"><span class="hs-identifier hs-var hs-var">backupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175375"><span class="hs-identifier hs-var">backupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175374"><span class="annot"><span class="annottext">s :: RestoreBackup
+</span><a href="#local-6989586621679175374"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSMv2.RestoreBackup.html#RestoreBackup%27"><span class="hs-identifier hs-type">RestoreBackup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175373"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175373"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreBackup
+</span><a href="#local-6989586621679175374"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:backupId:RestoreBackup' :: Text
 </span><a href="Network.AWS.CloudHSMv2.RestoreBackup.html#%24sel%3AbackupId%3ARestoreBackup%27"><span class="hs-identifier hs-var">backupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175304"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.RestoreBackup.html#RestoreBackup"><span class="hs-identifier hs-type">RestoreBackup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679175373"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.RestoreBackup.html#RestoreBackup"><span class="hs-identifier hs-type">RestoreBackup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.RestoreBackup.html#RestoreBackup"><span class="hs-identifier hs-type">RestoreBackup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-82"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-83"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.RestoreBackup.html#RestoreBackup"><span class="hs-identifier hs-type">RestoreBackup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudHSMv2.RestoreBackup.html#RestoreBackupResponse"><span class="hs-identifier hs-type">RestoreBackupResponse</span></a></span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679175300"><span class="annot"><span class="annottext">request :: RestoreBackup -&gt; Request RestoreBackup
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679175369"><span class="annot"><span class="annottext">request :: RestoreBackup -&gt; Request RestoreBackup
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; RestoreBackup -&gt; Request RestoreBackup
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudHSMv2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679175296"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679175365"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy RestoreBackup
 -&gt; ClientResponse ClientBody
@@ -183,10 +183,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679175293"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679175293"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679175292"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679175292"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679175291"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679175291"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679175362"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679175362"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679175361"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679175361"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679175360"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679175360"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-89"></span><span>          </span><span class="annot"><span class="annottext">Maybe Backup -&gt; Int -&gt; RestoreBackupResponse
 </span><a href="Network.AWS.CloudHSMv2.RestoreBackup.html#RestoreBackupResponse%27"><span class="hs-identifier hs-var">RestoreBackupResponse'</span></a></span><span>
 </span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Backup -&gt; Int -&gt; RestoreBackupResponse)
@@ -194,7 +194,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; RestoreBackupResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679175291"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Backup)
+</span><a href="#local-6989586621679175360"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Backup)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Backup&quot;</span></span><span class="hs-special">)</span><span>
@@ -206,15 +206,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679175293"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679175362"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175283"><span id="local-6989586621679175285"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.RestoreBackup.html#RestoreBackup"><span class="hs-identifier hs-type">RestoreBackup</span></a></span></span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175352"><span id="local-6989586621679175354"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.RestoreBackup.html#RestoreBackup"><span class="hs-identifier hs-type">RestoreBackup</span></a></span></span></span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175280"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.RestoreBackup.html#RestoreBackup"><span class="hs-identifier hs-type">RestoreBackup</span></a></span></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175349"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.RestoreBackup.html#RestoreBackup"><span class="hs-identifier hs-type">RestoreBackup</span></a></span></span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.RestoreBackup.html#RestoreBackup"><span class="hs-identifier hs-type">RestoreBackup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679175276"><span class="annot"><span class="annottext">toHeaders :: RestoreBackup -&gt; ResponseHeaders
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679175345"><span class="annot"><span class="annottext">toHeaders :: RestoreBackup -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; RestoreBackup -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -241,12 +241,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-110"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175266"><span id="local-6989586621679175268"><span id="local-6989586621679175270"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.RestoreBackup.html#RestoreBackup"><span class="hs-identifier hs-type">RestoreBackup</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679175264"><span class="annot"><span class="annottext">toJSON :: RestoreBackup -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.RestoreBackup.html#RestoreBackup%27"><span class="hs-identifier hs-type">RestoreBackup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175262"><span class="annot"><span class="annottext">Text
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175335"><span id="local-6989586621679175337"><span id="local-6989586621679175339"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.RestoreBackup.html#RestoreBackup"><span class="hs-identifier hs-type">RestoreBackup</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679175333"><span class="annot"><span class="annottext">toJSON :: RestoreBackup -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.RestoreBackup.html#RestoreBackup%27"><span class="hs-identifier hs-type">RestoreBackup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175331"><span class="annot"><span class="annottext">Text
 backupId :: Text
 $sel:backupId:RestoreBackup' :: RestoreBackup -&gt; Text
-</span><a href="#local-6989586621679175262"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679175331"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -258,18 +258,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;BackupId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175262"><span class="hs-identifier hs-var">backupId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679175331"><span class="hs-identifier hs-var">backupId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.RestoreBackup.html#RestoreBackup"><span class="hs-identifier hs-type">RestoreBackup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679175256"><span class="annot"><span class="annottext">toPath :: RestoreBackup -&gt; ByteString
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679175325"><span class="annot"><span class="annottext">toPath :: RestoreBackup -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; RestoreBackup -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.RestoreBackup.html#RestoreBackup"><span class="hs-identifier hs-type">RestoreBackup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679175252"><span class="annot"><span class="annottext">toQuery :: RestoreBackup -&gt; QueryString
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679175321"><span class="annot"><span class="annottext">toQuery :: RestoreBackup -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; RestoreBackup -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -277,7 +277,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-comment">-- | /See:/ 'newRestoreBackupResponse' smart constructor.</span><span>
-</span><span id="line-127"></span><span id="local-6989586621679175249"><span id="local-6989586621679175250"></span></span><span class="hs-keyword">data</span><span> </span><span id="RestoreBackupResponse"><span class="annot"><a href="Network.AWS.CloudHSMv2.RestoreBackup.html#RestoreBackupResponse"><span class="hs-identifier hs-var">RestoreBackupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RestoreBackupResponse%27"><span class="annot"><a href="Network.AWS.CloudHSMv2.RestoreBackup.html#RestoreBackupResponse%27"><span class="hs-identifier hs-var">RestoreBackupResponse'</span></a></span></span><span>
+</span><span id="line-127"></span><span id="local-6989586621679175318"><span id="local-6989586621679175319"></span></span><span class="hs-keyword">data</span><span> </span><span id="RestoreBackupResponse"><span class="annot"><a href="Network.AWS.CloudHSMv2.RestoreBackup.html#RestoreBackupResponse"><span class="hs-identifier hs-var">RestoreBackupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RestoreBackupResponse%27"><span class="annot"><a href="Network.AWS.CloudHSMv2.RestoreBackup.html#RestoreBackupResponse%27"><span class="hs-identifier hs-var">RestoreBackupResponse'</span></a></span></span><span>
 </span><span id="line-128"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information on the @Backup@ object created.</span><span>
 </span><span id="line-129"></span><span>    </span><span id="%24sel%3Abackup%3ARestoreBackupResponse%27"><span class="annot"><span class="annottext">RestoreBackupResponse -&gt; Maybe Backup
 </span><a href="Network.AWS.CloudHSMv2.RestoreBackup.html#%24sel%3Abackup%3ARestoreBackupResponse%27"><span class="hs-identifier hs-var hs-var">backup</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup"><span class="hs-identifier hs-type">Backup</span></a></span><span class="hs-special">,</span><span>
@@ -285,7 +285,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-131"></span><span>    </span><span id="%24sel%3AhttpStatus%3ARestoreBackupResponse%27"><span class="annot"><span class="annottext">RestoreBackupResponse -&gt; Int
 </span><a href="Network.AWS.CloudHSMv2.RestoreBackup.html#%24sel%3AhttpStatus%3ARestoreBackupResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-132"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-133"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679175243"><span id="local-6989586621679175245"><span class="annot"><span class="annottext">RestoreBackupResponse -&gt; RestoreBackupResponse -&gt; Bool
+</span><span id="line-133"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679175312"><span id="local-6989586621679175314"><span class="annot"><span class="annottext">RestoreBackupResponse -&gt; RestoreBackupResponse -&gt; Bool
 (RestoreBackupResponse -&gt; RestoreBackupResponse -&gt; Bool)
 -&gt; (RestoreBackupResponse -&gt; RestoreBackupResponse -&gt; Bool)
 -&gt; Eq RestoreBackupResponse
@@ -294,7 +294,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RestoreBackupResponse -&gt; RestoreBackupResponse -&gt; Bool
 == :: RestoreBackupResponse -&gt; RestoreBackupResponse -&gt; Bool
 $c== :: RestoreBackupResponse -&gt; RestoreBackupResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175235"><span id="local-6989586621679175237"><span id="local-6989586621679175239"><span id="local-6989586621679175241"><span class="annot"><span class="annottext">ReadPrec [RestoreBackupResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175304"><span id="local-6989586621679175306"><span id="local-6989586621679175308"><span id="local-6989586621679175310"><span class="annot"><span class="annottext">ReadPrec [RestoreBackupResponse]
 ReadPrec RestoreBackupResponse
 Int -&gt; ReadS RestoreBackupResponse
 ReadS [RestoreBackupResponse]
@@ -314,7 +314,7 @@ readList :: ReadS [RestoreBackupResponse]
 $creadList :: ReadS [RestoreBackupResponse]
 readsPrec :: Int -&gt; ReadS RestoreBackupResponse
 $creadsPrec :: Int -&gt; ReadS RestoreBackupResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175229"><span id="local-6989586621679175231"><span id="local-6989586621679175233"><span class="annot"><span class="annottext">Int -&gt; RestoreBackupResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175298"><span id="local-6989586621679175300"><span id="local-6989586621679175302"><span class="annot"><span class="annottext">Int -&gt; RestoreBackupResponse -&gt; ShowS
 [RestoreBackupResponse] -&gt; ShowS
 RestoreBackupResponse -&gt; String
 (Int -&gt; RestoreBackupResponse -&gt; ShowS)
@@ -356,8 +356,8 @@ $cfrom :: forall x. RestoreBackupResponse -&gt; Rep RestoreBackupResponse x
 </span><span id="line-148"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-149"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudHSMv2.RestoreBackup.html#RestoreBackupResponse"><span class="hs-identifier hs-type">RestoreBackupResponse</span></a></span><span>
 </span><span id="line-150"></span><span id="newRestoreBackupResponse"><span class="annot"><span class="annottext">newRestoreBackupResponse :: Int -&gt; RestoreBackupResponse
-</span><a href="Network.AWS.CloudHSMv2.RestoreBackup.html#newRestoreBackupResponse"><span class="hs-identifier hs-var hs-var">newRestoreBackupResponse</span></a></span></span><span> </span><span id="local-6989586621679175226"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679175226"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudHSMv2.RestoreBackup.html#newRestoreBackupResponse"><span class="hs-identifier hs-var hs-var">newRestoreBackupResponse</span></a></span></span><span> </span><span id="local-6989586621679175295"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679175295"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-151"></span><span>  </span><span class="annot"><span class="annottext">RestoreBackupResponse' :: Maybe Backup -&gt; Int -&gt; RestoreBackupResponse
 </span><a href="Network.AWS.CloudHSMv2.RestoreBackup.html#RestoreBackupResponse%27"><span class="hs-identifier hs-type">RestoreBackupResponse'</span></a></span><span>
 </span><span id="line-152"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:backup:RestoreBackupResponse' :: Maybe Backup
@@ -366,7 +366,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-153"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:RestoreBackupResponse' :: Int
 </span><a href="Network.AWS.CloudHSMv2.RestoreBackup.html#%24sel%3AhttpStatus%3ARestoreBackupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679175226"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679175295"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-154"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-155"></span><span>
 </span><span id="line-156"></span><span class="hs-comment">-- | Information on the @Backup@ object created.</span><span>
@@ -381,16 +381,16 @@ forall a. Maybe a
      (Maybe Backup)
      (Maybe Backup)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSMv2.RestoreBackup.html#RestoreBackupResponse%27"><span class="hs-identifier hs-type">RestoreBackupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175225"><span class="annot"><span class="annottext">Maybe Backup
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSMv2.RestoreBackup.html#RestoreBackupResponse%27"><span class="hs-identifier hs-type">RestoreBackupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175294"><span class="annot"><span class="annottext">Maybe Backup
 backup :: Maybe Backup
 $sel:backup:RestoreBackupResponse' :: RestoreBackupResponse -&gt; Maybe Backup
-</span><a href="#local-6989586621679175225"><span class="hs-identifier hs-var hs-var">backup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Backup
-</span><a href="#local-6989586621679175225"><span class="hs-identifier hs-var">backup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175224"><span class="annot"><span class="annottext">s :: RestoreBackupResponse
-</span><a href="#local-6989586621679175224"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSMv2.RestoreBackup.html#RestoreBackupResponse%27"><span class="hs-identifier hs-type">RestoreBackupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175223"><span class="annot"><span class="annottext">Maybe Backup
-</span><a href="#local-6989586621679175223"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreBackupResponse
-</span><a href="#local-6989586621679175224"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:backup:RestoreBackupResponse' :: Maybe Backup
+</span><a href="#local-6989586621679175294"><span class="hs-identifier hs-var hs-var">backup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Backup
+</span><a href="#local-6989586621679175294"><span class="hs-identifier hs-var">backup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175293"><span class="annot"><span class="annottext">s :: RestoreBackupResponse
+</span><a href="#local-6989586621679175293"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSMv2.RestoreBackup.html#RestoreBackupResponse%27"><span class="hs-identifier hs-type">RestoreBackupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175292"><span class="annot"><span class="annottext">Maybe Backup
+</span><a href="#local-6989586621679175292"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreBackupResponse
+</span><a href="#local-6989586621679175293"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:backup:RestoreBackupResponse' :: Maybe Backup
 </span><a href="Network.AWS.CloudHSMv2.RestoreBackup.html#%24sel%3Abackup%3ARestoreBackupResponse%27"><span class="hs-identifier hs-var">backup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Backup
-</span><a href="#local-6989586621679175223"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.RestoreBackup.html#RestoreBackupResponse"><span class="hs-identifier hs-type">RestoreBackupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679175292"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.RestoreBackup.html#RestoreBackupResponse"><span class="hs-identifier hs-type">RestoreBackupResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span><span>
 </span><span id="line-160"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-161"></span><span class="annot"><a href="Network.AWS.CloudHSMv2.RestoreBackup.html#restoreBackupResponse_httpStatus"><span class="hs-identifier hs-type">restoreBackupResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.RestoreBackup.html#RestoreBackupResponse"><span class="hs-identifier hs-type">RestoreBackupResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -399,16 +399,16 @@ $sel:backup:RestoreBackupResponse' :: RestoreBackupResponse -&gt; Maybe Backup
 -&gt; (RestoreBackupResponse -&gt; Int -&gt; RestoreBackupResponse)
 -&gt; Lens RestoreBackupResponse RestoreBackupResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSMv2.RestoreBackup.html#RestoreBackupResponse%27"><span class="hs-identifier hs-type">RestoreBackupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175222"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSMv2.RestoreBackup.html#RestoreBackupResponse%27"><span class="hs-identifier hs-type">RestoreBackupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175291"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:RestoreBackupResponse' :: RestoreBackupResponse -&gt; Int
-</span><a href="#local-6989586621679175222"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679175222"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175221"><span class="annot"><span class="annottext">s :: RestoreBackupResponse
-</span><a href="#local-6989586621679175221"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSMv2.RestoreBackup.html#RestoreBackupResponse%27"><span class="hs-identifier hs-type">RestoreBackupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175220"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679175220"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreBackupResponse
-</span><a href="#local-6989586621679175221"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RestoreBackupResponse' :: Int
+</span><a href="#local-6989586621679175291"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679175291"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175290"><span class="annot"><span class="annottext">s :: RestoreBackupResponse
+</span><a href="#local-6989586621679175290"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSMv2.RestoreBackup.html#RestoreBackupResponse%27"><span class="hs-identifier hs-type">RestoreBackupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175289"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679175289"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreBackupResponse
+</span><a href="#local-6989586621679175290"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RestoreBackupResponse' :: Int
 </span><a href="Network.AWS.CloudHSMv2.RestoreBackup.html#%24sel%3AhttpStatus%3ARestoreBackupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679175220"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.RestoreBackup.html#RestoreBackupResponse"><span class="hs-identifier hs-type">RestoreBackupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679175289"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.RestoreBackup.html#RestoreBackupResponse"><span class="hs-identifier hs-type">RestoreBackupResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>
-</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175218"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.RestoreBackup.html#RestoreBackupResponse"><span class="hs-identifier hs-type">RestoreBackupResponse</span></a></span></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175287"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.RestoreBackup.html#RestoreBackupResponse"><span class="hs-identifier hs-type">RestoreBackupResponse</span></a></span></span><span>
 </span><span id="line-165"></span></pre></body></html>

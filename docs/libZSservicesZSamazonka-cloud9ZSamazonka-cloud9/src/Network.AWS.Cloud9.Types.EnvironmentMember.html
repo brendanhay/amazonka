@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- environment.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newEnvironmentMember' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679167558"><span id="local-6989586621679167559"></span></span><span class="hs-keyword">data</span><span> </span><span id="EnvironmentMember"><span class="annot"><a href="Network.AWS.Cloud9.Types.EnvironmentMember.html#EnvironmentMember"><span class="hs-identifier hs-var">EnvironmentMember</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EnvironmentMember%27"><span class="annot"><a href="Network.AWS.Cloud9.Types.EnvironmentMember.html#EnvironmentMember%27"><span class="hs-identifier hs-var">EnvironmentMember'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679167594"><span id="local-6989586621679167595"></span></span><span class="hs-keyword">data</span><span> </span><span id="EnvironmentMember"><span class="annot"><a href="Network.AWS.Cloud9.Types.EnvironmentMember.html#EnvironmentMember"><span class="hs-identifier hs-var">EnvironmentMember</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EnvironmentMember%27"><span class="annot"><a href="Network.AWS.Cloud9.Types.EnvironmentMember.html#EnvironmentMember%27"><span class="hs-identifier hs-var">EnvironmentMember'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The time, expressed in epoch time format, when the environment member</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- last opened the environment.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AlastAccess%3AEnvironmentMember%27"><span class="annot"><span class="annottext">EnvironmentMember -&gt; Maybe POSIX
@@ -54,7 +54,7 @@
 </span><span id="line-50"></span><span>    </span><span id="%24sel%3AenvironmentId%3AEnvironmentMember%27"><span class="annot"><span class="annottext">EnvironmentMember -&gt; Text
 </span><a href="Network.AWS.Cloud9.Types.EnvironmentMember.html#%24sel%3AenvironmentId%3AEnvironmentMember%27"><span class="hs-identifier hs-var hs-var">environmentId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679167548"><span id="local-6989586621679167550"><span class="annot"><span class="annottext">EnvironmentMember -&gt; EnvironmentMember -&gt; Bool
+</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679167584"><span id="local-6989586621679167586"><span class="annot"><span class="annottext">EnvironmentMember -&gt; EnvironmentMember -&gt; Bool
 (EnvironmentMember -&gt; EnvironmentMember -&gt; Bool)
 -&gt; (EnvironmentMember -&gt; EnvironmentMember -&gt; Bool)
 -&gt; Eq EnvironmentMember
@@ -63,7 +63,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: EnvironmentMember -&gt; EnvironmentMember -&gt; Bool
 == :: EnvironmentMember -&gt; EnvironmentMember -&gt; Bool
 $c== :: EnvironmentMember -&gt; EnvironmentMember -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679167539"><span id="local-6989586621679167541"><span id="local-6989586621679167543"><span id="local-6989586621679167545"><span class="annot"><span class="annottext">ReadPrec [EnvironmentMember]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679167575"><span id="local-6989586621679167577"><span id="local-6989586621679167579"><span id="local-6989586621679167581"><span class="annot"><span class="annottext">ReadPrec [EnvironmentMember]
 ReadPrec EnvironmentMember
 Int -&gt; ReadS EnvironmentMember
 ReadS [EnvironmentMember]
@@ -83,7 +83,7 @@ readList :: ReadS [EnvironmentMember]
 $creadList :: ReadS [EnvironmentMember]
 readsPrec :: Int -&gt; ReadS EnvironmentMember
 $creadsPrec :: Int -&gt; ReadS EnvironmentMember
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679167532"><span id="local-6989586621679167534"><span id="local-6989586621679167536"><span class="annot"><span class="annottext">Int -&gt; EnvironmentMember -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679167568"><span id="local-6989586621679167570"><span id="local-6989586621679167572"><span class="annot"><span class="annottext">Int -&gt; EnvironmentMember -&gt; ShowS
 [EnvironmentMember] -&gt; ShowS
 EnvironmentMember -&gt; String
 (Int -&gt; EnvironmentMember -&gt; ShowS)
@@ -147,14 +147,14 @@ $cfrom :: forall x. EnvironmentMember -&gt; Rep EnvironmentMember x
 </span><span id="line-89"></span><span>  </span><span class="annot"><a href="Network.AWS.Cloud9.Types.EnvironmentMember.html#EnvironmentMember"><span class="hs-identifier hs-type">EnvironmentMember</span></a></span><span>
 </span><span id="line-90"></span><span id="newEnvironmentMember"><span class="annot"><span class="annottext">newEnvironmentMember :: Permissions -&gt; Text -&gt; Text -&gt; Text -&gt; EnvironmentMember
 </span><a href="Network.AWS.Cloud9.Types.EnvironmentMember.html#newEnvironmentMember"><span class="hs-identifier hs-var hs-var">newEnvironmentMember</span></a></span></span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679167526"><span class="annot"><span class="annottext">Permissions
-</span><a href="#local-6989586621679167526"><span class="hs-identifier hs-var">pPermissions_</span></a></span></span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679167525"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679167525"><span class="hs-identifier hs-var">pUserId_</span></a></span></span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679167524"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679167524"><span class="hs-identifier hs-var">pUserArn_</span></a></span></span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679167523"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679167523"><span class="hs-identifier hs-var">pEnvironmentId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679167562"><span class="annot"><span class="annottext">Permissions
+</span><a href="#local-6989586621679167562"><span class="hs-identifier hs-var">pPermissions_</span></a></span></span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679167561"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679167561"><span class="hs-identifier hs-var">pUserId_</span></a></span></span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679167560"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679167560"><span class="hs-identifier hs-var">pUserArn_</span></a></span></span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679167559"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679167559"><span class="hs-identifier hs-var">pEnvironmentId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">EnvironmentMember' :: Maybe POSIX
 -&gt; Permissions -&gt; Text -&gt; Text -&gt; Text -&gt; EnvironmentMember
 </span><a href="Network.AWS.Cloud9.Types.EnvironmentMember.html#EnvironmentMember%27"><span class="hs-identifier hs-type">EnvironmentMember'</span></a></span><span>
@@ -164,16 +164,16 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-97"></span><span>        </span><span class="annot"><span class="annottext">$sel:permissions:EnvironmentMember' :: Permissions
 </span><a href="Network.AWS.Cloud9.Types.EnvironmentMember.html#%24sel%3Apermissions%3AEnvironmentMember%27"><span class="hs-identifier hs-var">permissions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Permissions
-</span><a href="#local-6989586621679167526"><span class="hs-identifier hs-var">pPermissions_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679167562"><span class="hs-identifier hs-var">pPermissions_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-98"></span><span>        </span><span class="annot"><span class="annottext">$sel:userId:EnvironmentMember' :: Text
 </span><a href="Network.AWS.Cloud9.Types.EnvironmentMember.html#%24sel%3AuserId%3AEnvironmentMember%27"><span class="hs-identifier hs-var">userId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679167525"><span class="hs-identifier hs-var">pUserId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679167561"><span class="hs-identifier hs-var">pUserId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-99"></span><span>        </span><span class="annot"><span class="annottext">$sel:userArn:EnvironmentMember' :: Text
 </span><a href="Network.AWS.Cloud9.Types.EnvironmentMember.html#%24sel%3AuserArn%3AEnvironmentMember%27"><span class="hs-identifier hs-var">userArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679167524"><span class="hs-identifier hs-var">pUserArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679167560"><span class="hs-identifier hs-var">pUserArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-100"></span><span>        </span><span class="annot"><span class="annottext">$sel:environmentId:EnvironmentMember' :: Text
 </span><a href="Network.AWS.Cloud9.Types.EnvironmentMember.html#%24sel%3AenvironmentId%3AEnvironmentMember%27"><span class="hs-identifier hs-var">environmentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679167523"><span class="hs-identifier hs-var">pEnvironmentId_</span></a></span><span>
+</span><a href="#local-6989586621679167559"><span class="hs-identifier hs-var">pEnvironmentId_</span></a></span><span>
 </span><span id="line-101"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-comment">-- | The time, expressed in epoch time format, when the environment member</span><span>
@@ -186,16 +186,16 @@ forall a. Maybe a
 -&gt; Lens
      EnvironmentMember EnvironmentMember (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Cloud9.Types.EnvironmentMember.html#EnvironmentMember%27"><span class="hs-identifier hs-type">EnvironmentMember'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679167519"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Cloud9.Types.EnvironmentMember.html#EnvironmentMember%27"><span class="hs-identifier hs-type">EnvironmentMember'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679167555"><span class="annot"><span class="annottext">Maybe POSIX
 lastAccess :: Maybe POSIX
 $sel:lastAccess:EnvironmentMember' :: EnvironmentMember -&gt; Maybe POSIX
-</span><a href="#local-6989586621679167519"><span class="hs-identifier hs-var hs-var">lastAccess</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679167519"><span class="hs-identifier hs-var">lastAccess</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679167518"><span class="annot"><span class="annottext">s :: EnvironmentMember
-</span><a href="#local-6989586621679167518"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Cloud9.Types.EnvironmentMember.html#EnvironmentMember%27"><span class="hs-identifier hs-type">EnvironmentMember'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679167517"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679167517"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnvironmentMember
-</span><a href="#local-6989586621679167518"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastAccess:EnvironmentMember' :: Maybe POSIX
+</span><a href="#local-6989586621679167555"><span class="hs-identifier hs-var hs-var">lastAccess</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679167555"><span class="hs-identifier hs-var">lastAccess</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679167554"><span class="annot"><span class="annottext">s :: EnvironmentMember
+</span><a href="#local-6989586621679167554"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Cloud9.Types.EnvironmentMember.html#EnvironmentMember%27"><span class="hs-identifier hs-type">EnvironmentMember'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679167553"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679167553"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnvironmentMember
+</span><a href="#local-6989586621679167554"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastAccess:EnvironmentMember' :: Maybe POSIX
 </span><a href="Network.AWS.Cloud9.Types.EnvironmentMember.html#%24sel%3AlastAccess%3AEnvironmentMember%27"><span class="hs-identifier hs-var">lastAccess</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679167517"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Cloud9.Types.EnvironmentMember.html#EnvironmentMember"><span class="hs-identifier hs-type">EnvironmentMember</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679167553"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Cloud9.Types.EnvironmentMember.html#EnvironmentMember"><span class="hs-identifier hs-type">EnvironmentMember</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; EnvironmentMember -&gt; f EnvironmentMember)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -227,16 +227,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; (EnvironmentMember -&gt; Permissions -&gt; EnvironmentMember)
 -&gt; Lens EnvironmentMember EnvironmentMember Permissions Permissions
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Cloud9.Types.EnvironmentMember.html#EnvironmentMember%27"><span class="hs-identifier hs-type">EnvironmentMember'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679167512"><span class="annot"><span class="annottext">Permissions
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Cloud9.Types.EnvironmentMember.html#EnvironmentMember%27"><span class="hs-identifier hs-type">EnvironmentMember'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679167548"><span class="annot"><span class="annottext">Permissions
 permissions :: Permissions
 $sel:permissions:EnvironmentMember' :: EnvironmentMember -&gt; Permissions
-</span><a href="#local-6989586621679167512"><span class="hs-identifier hs-var hs-var">permissions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Permissions
-</span><a href="#local-6989586621679167512"><span class="hs-identifier hs-var">permissions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679167511"><span class="annot"><span class="annottext">s :: EnvironmentMember
-</span><a href="#local-6989586621679167511"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Cloud9.Types.EnvironmentMember.html#EnvironmentMember%27"><span class="hs-identifier hs-type">EnvironmentMember'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679167510"><span class="annot"><span class="annottext">Permissions
-</span><a href="#local-6989586621679167510"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnvironmentMember
-</span><a href="#local-6989586621679167511"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:permissions:EnvironmentMember' :: Permissions
+</span><a href="#local-6989586621679167548"><span class="hs-identifier hs-var hs-var">permissions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Permissions
+</span><a href="#local-6989586621679167548"><span class="hs-identifier hs-var">permissions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679167547"><span class="annot"><span class="annottext">s :: EnvironmentMember
+</span><a href="#local-6989586621679167547"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Cloud9.Types.EnvironmentMember.html#EnvironmentMember%27"><span class="hs-identifier hs-type">EnvironmentMember'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679167546"><span class="annot"><span class="annottext">Permissions
+</span><a href="#local-6989586621679167546"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnvironmentMember
+</span><a href="#local-6989586621679167547"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:permissions:EnvironmentMember' :: Permissions
 </span><a href="Network.AWS.Cloud9.Types.EnvironmentMember.html#%24sel%3Apermissions%3AEnvironmentMember%27"><span class="hs-identifier hs-var">permissions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Permissions
-</span><a href="#local-6989586621679167510"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Cloud9.Types.EnvironmentMember.html#EnvironmentMember"><span class="hs-identifier hs-type">EnvironmentMember</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679167546"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Cloud9.Types.EnvironmentMember.html#EnvironmentMember"><span class="hs-identifier hs-type">EnvironmentMember</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- | The user ID in Identity and Access Management (IAM) of the environment</span><span>
 </span><span id="line-120"></span><span class="hs-comment">-- member.</span><span>
@@ -246,16 +246,16 @@ $sel:permissions:EnvironmentMember' :: EnvironmentMember -&gt; Permissions
 -&gt; (EnvironmentMember -&gt; Text -&gt; EnvironmentMember)
 -&gt; Lens EnvironmentMember EnvironmentMember Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Cloud9.Types.EnvironmentMember.html#EnvironmentMember%27"><span class="hs-identifier hs-type">EnvironmentMember'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679167508"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Cloud9.Types.EnvironmentMember.html#EnvironmentMember%27"><span class="hs-identifier hs-type">EnvironmentMember'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679167544"><span class="annot"><span class="annottext">Text
 userId :: Text
 $sel:userId:EnvironmentMember' :: EnvironmentMember -&gt; Text
-</span><a href="#local-6989586621679167508"><span class="hs-identifier hs-var hs-var">userId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679167508"><span class="hs-identifier hs-var">userId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679167507"><span class="annot"><span class="annottext">s :: EnvironmentMember
-</span><a href="#local-6989586621679167507"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Cloud9.Types.EnvironmentMember.html#EnvironmentMember%27"><span class="hs-identifier hs-type">EnvironmentMember'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679167506"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679167506"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnvironmentMember
-</span><a href="#local-6989586621679167507"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userId:EnvironmentMember' :: Text
+</span><a href="#local-6989586621679167544"><span class="hs-identifier hs-var hs-var">userId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679167544"><span class="hs-identifier hs-var">userId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679167543"><span class="annot"><span class="annottext">s :: EnvironmentMember
+</span><a href="#local-6989586621679167543"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Cloud9.Types.EnvironmentMember.html#EnvironmentMember%27"><span class="hs-identifier hs-type">EnvironmentMember'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679167542"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679167542"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnvironmentMember
+</span><a href="#local-6989586621679167543"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userId:EnvironmentMember' :: Text
 </span><a href="Network.AWS.Cloud9.Types.EnvironmentMember.html#%24sel%3AuserId%3AEnvironmentMember%27"><span class="hs-identifier hs-var">userId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679167506"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Cloud9.Types.EnvironmentMember.html#EnvironmentMember"><span class="hs-identifier hs-type">EnvironmentMember</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679167542"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Cloud9.Types.EnvironmentMember.html#EnvironmentMember"><span class="hs-identifier hs-type">EnvironmentMember</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the environment member.</span><span>
 </span><span id="line-125"></span><span class="annot"><a href="Network.AWS.Cloud9.Types.EnvironmentMember.html#environmentMember_userArn"><span class="hs-identifier hs-type">environmentMember_userArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Cloud9.Types.EnvironmentMember.html#EnvironmentMember"><span class="hs-identifier hs-type">EnvironmentMember</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -264,16 +264,16 @@ $sel:userId:EnvironmentMember' :: EnvironmentMember -&gt; Text
 -&gt; (EnvironmentMember -&gt; Text -&gt; EnvironmentMember)
 -&gt; Lens EnvironmentMember EnvironmentMember Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Cloud9.Types.EnvironmentMember.html#EnvironmentMember%27"><span class="hs-identifier hs-type">EnvironmentMember'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679167504"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Cloud9.Types.EnvironmentMember.html#EnvironmentMember%27"><span class="hs-identifier hs-type">EnvironmentMember'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679167540"><span class="annot"><span class="annottext">Text
 userArn :: Text
 $sel:userArn:EnvironmentMember' :: EnvironmentMember -&gt; Text
-</span><a href="#local-6989586621679167504"><span class="hs-identifier hs-var hs-var">userArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679167504"><span class="hs-identifier hs-var">userArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679167503"><span class="annot"><span class="annottext">s :: EnvironmentMember
-</span><a href="#local-6989586621679167503"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Cloud9.Types.EnvironmentMember.html#EnvironmentMember%27"><span class="hs-identifier hs-type">EnvironmentMember'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679167502"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679167502"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnvironmentMember
-</span><a href="#local-6989586621679167503"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userArn:EnvironmentMember' :: Text
+</span><a href="#local-6989586621679167540"><span class="hs-identifier hs-var hs-var">userArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679167540"><span class="hs-identifier hs-var">userArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679167539"><span class="annot"><span class="annottext">s :: EnvironmentMember
+</span><a href="#local-6989586621679167539"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Cloud9.Types.EnvironmentMember.html#EnvironmentMember%27"><span class="hs-identifier hs-type">EnvironmentMember'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679167538"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679167538"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnvironmentMember
+</span><a href="#local-6989586621679167539"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userArn:EnvironmentMember' :: Text
 </span><a href="Network.AWS.Cloud9.Types.EnvironmentMember.html#%24sel%3AuserArn%3AEnvironmentMember%27"><span class="hs-identifier hs-var">userArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679167502"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Cloud9.Types.EnvironmentMember.html#EnvironmentMember"><span class="hs-identifier hs-type">EnvironmentMember</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679167538"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Cloud9.Types.EnvironmentMember.html#EnvironmentMember"><span class="hs-identifier hs-type">EnvironmentMember</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-comment">-- | The ID of the environment for the environment member.</span><span>
 </span><span id="line-129"></span><span class="annot"><a href="Network.AWS.Cloud9.Types.EnvironmentMember.html#environmentMember_environmentId"><span class="hs-identifier hs-type">environmentMember_environmentId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Cloud9.Types.EnvironmentMember.html#EnvironmentMember"><span class="hs-identifier hs-type">EnvironmentMember</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -282,19 +282,19 @@ $sel:userArn:EnvironmentMember' :: EnvironmentMember -&gt; Text
 -&gt; (EnvironmentMember -&gt; Text -&gt; EnvironmentMember)
 -&gt; Lens EnvironmentMember EnvironmentMember Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Cloud9.Types.EnvironmentMember.html#EnvironmentMember%27"><span class="hs-identifier hs-type">EnvironmentMember'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679167500"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Cloud9.Types.EnvironmentMember.html#EnvironmentMember%27"><span class="hs-identifier hs-type">EnvironmentMember'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679167536"><span class="annot"><span class="annottext">Text
 environmentId :: Text
 $sel:environmentId:EnvironmentMember' :: EnvironmentMember -&gt; Text
-</span><a href="#local-6989586621679167500"><span class="hs-identifier hs-var hs-var">environmentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679167500"><span class="hs-identifier hs-var">environmentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679167499"><span class="annot"><span class="annottext">s :: EnvironmentMember
-</span><a href="#local-6989586621679167499"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Cloud9.Types.EnvironmentMember.html#EnvironmentMember%27"><span class="hs-identifier hs-type">EnvironmentMember'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679167498"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679167498"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnvironmentMember
-</span><a href="#local-6989586621679167499"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:environmentId:EnvironmentMember' :: Text
+</span><a href="#local-6989586621679167536"><span class="hs-identifier hs-var hs-var">environmentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679167536"><span class="hs-identifier hs-var">environmentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679167535"><span class="annot"><span class="annottext">s :: EnvironmentMember
+</span><a href="#local-6989586621679167535"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Cloud9.Types.EnvironmentMember.html#EnvironmentMember%27"><span class="hs-identifier hs-type">EnvironmentMember'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679167534"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679167534"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnvironmentMember
+</span><a href="#local-6989586621679167535"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:environmentId:EnvironmentMember' :: Text
 </span><a href="Network.AWS.Cloud9.Types.EnvironmentMember.html#%24sel%3AenvironmentId%3AEnvironmentMember%27"><span class="hs-identifier hs-var">environmentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679167498"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Cloud9.Types.EnvironmentMember.html#EnvironmentMember"><span class="hs-identifier hs-type">EnvironmentMember</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679167534"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Cloud9.Types.EnvironmentMember.html#EnvironmentMember"><span class="hs-identifier hs-type">EnvironmentMember</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>
-</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679167495"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Cloud9.Types.EnvironmentMember.html#EnvironmentMember"><span class="hs-identifier hs-type">EnvironmentMember</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679167493"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EnvironmentMember
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679167531"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Cloud9.Types.EnvironmentMember.html#EnvironmentMember"><span class="hs-identifier hs-type">EnvironmentMember</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679167529"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EnvironmentMember
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser EnvironmentMember)
@@ -304,8 +304,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-135"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;EnvironmentMember&quot;</span></span><span>
-</span><span id="line-136"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679167490"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679167490"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679167526"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679167526"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-137"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
 -&gt; Permissions -&gt; Text -&gt; Text -&gt; Text -&gt; EnvironmentMember
 </span><a href="Network.AWS.Cloud9.Types.EnvironmentMember.html#EnvironmentMember%27"><span class="hs-identifier hs-var">EnvironmentMember'</span></a></span><span>
@@ -316,7 +316,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
      (Permissions -&gt; Text -&gt; Text -&gt; Text -&gt; EnvironmentMember)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679167490"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679167526"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;lastAccess&quot;</span></span><span class="hs-special">)</span><span>
@@ -325,7 +325,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Text -&gt; Text -&gt; Text -&gt; EnvironmentMember)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679167490"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Permissions
+</span><a href="#local-6989586621679167526"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Permissions
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;permissions&quot;</span></span><span class="hs-special">)</span><span>
@@ -333,7 +333,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser (Text -&gt; Text -&gt; EnvironmentMember)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679167490"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679167526"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;userId&quot;</span></span><span class="hs-special">)</span><span>
@@ -341,7 +341,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser (Text -&gt; EnvironmentMember)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679167490"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679167526"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;userArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -349,13 +349,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser EnvironmentMember
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679167490"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679167526"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;environmentId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>
-</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679167483"><span id="local-6989586621679167485"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Cloud9.Types.EnvironmentMember.html#EnvironmentMember"><span class="hs-identifier hs-type">EnvironmentMember</span></a></span></span></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679167519"><span id="local-6989586621679167521"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Cloud9.Types.EnvironmentMember.html#EnvironmentMember"><span class="hs-identifier hs-type">EnvironmentMember</span></a></span></span></span><span>
 </span><span id="line-146"></span><span>
-</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679167480"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Cloud9.Types.EnvironmentMember.html#EnvironmentMember"><span class="hs-identifier hs-type">EnvironmentMember</span></a></span></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679167516"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Cloud9.Types.EnvironmentMember.html#EnvironmentMember"><span class="hs-identifier hs-type">EnvironmentMember</span></a></span></span><span>
 </span><span id="line-148"></span></pre></body></html>

@@ -31,23 +31,23 @@
 </span><span id="line-31"></span><span class="hs-comment">-- specified.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newLifecycleRuleFilter' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679555545"><span id="local-6989586621679555546"></span></span><span class="hs-keyword">data</span><span> </span><span id="LifecycleRuleFilter"><span class="annot"><a href="Network.AWS.S3.Types.LifecycleRuleFilter.html#LifecycleRuleFilter"><span class="hs-identifier hs-var">LifecycleRuleFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LifecycleRuleFilter%27"><span class="annot"><a href="Network.AWS.S3.Types.LifecycleRuleFilter.html#LifecycleRuleFilter%27"><span class="hs-identifier hs-var">LifecycleRuleFilter'</span></a></span></span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Prefix identifying one or more objects to which the rule applies.</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- Replacement must be made for object keys containing special characters</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- (such as carriage returns) when using XML requests. For more</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- information, see</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints XML related object key constraints&gt;.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3Aprefix%3ALifecycleRuleFilter%27"><span class="annot"><span class="annottext">LifecycleRuleFilter -&gt; Maybe Text
+</span><span id="line-34"></span><span id="local-6989586621679556191"><span id="local-6989586621679556192"></span></span><span class="hs-keyword">data</span><span> </span><span id="LifecycleRuleFilter"><span class="annot"><a href="Network.AWS.S3.Types.LifecycleRuleFilter.html#LifecycleRuleFilter"><span class="hs-identifier hs-var">LifecycleRuleFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LifecycleRuleFilter%27"><span class="annot"><a href="Network.AWS.S3.Types.LifecycleRuleFilter.html#LifecycleRuleFilter%27"><span class="hs-identifier hs-var">LifecycleRuleFilter'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | This tag must exist in the object\'s tag set in order for the rule to</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- apply.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Atag%3ALifecycleRuleFilter%27"><span class="annot"><span class="annottext">LifecycleRuleFilter -&gt; Maybe Tag
+</span><a href="Network.AWS.S3.Types.LifecycleRuleFilter.html#%24sel%3Atag%3ALifecycleRuleFilter%27"><span class="hs-identifier hs-var hs-var">tag</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | Prefix identifying one or more objects to which the rule applies.</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- Replacement must be made for object keys containing special characters</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- (such as carriage returns) when using XML requests. For more</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints XML related object key constraints&gt;.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3Aprefix%3ALifecycleRuleFilter%27"><span class="annot"><span class="annottext">LifecycleRuleFilter -&gt; Maybe Text
 </span><a href="Network.AWS.S3.Types.LifecycleRuleFilter.html#%24sel%3Aprefix%3ALifecycleRuleFilter%27"><span class="hs-identifier hs-var hs-var">prefix</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3Aand%3ALifecycleRuleFilter%27"><span class="annot"><span class="annottext">LifecycleRuleFilter -&gt; Maybe LifecycleRuleAndOperator
-</span><a href="Network.AWS.S3.Types.LifecycleRuleFilter.html#%24sel%3Aand%3ALifecycleRuleFilter%27"><span class="hs-identifier hs-var hs-var">and</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleRuleAndOperator.html#LifecycleRuleAndOperator"><span class="hs-identifier hs-type">LifecycleRuleAndOperator</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | This tag must exist in the object\'s tag set in order for the rule to</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- apply.</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3Atag%3ALifecycleRuleFilter%27"><span class="annot"><span class="annottext">LifecycleRuleFilter -&gt; Maybe Tag
-</span><a href="Network.AWS.S3.Types.LifecycleRuleFilter.html#%24sel%3Atag%3ALifecycleRuleFilter%27"><span class="hs-identifier hs-var hs-var">tag</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3Aand%3ALifecycleRuleFilter%27"><span class="annot"><span class="annottext">LifecycleRuleFilter -&gt; Maybe LifecycleRuleAndOperator
+</span><a href="Network.AWS.S3.Types.LifecycleRuleFilter.html#%24sel%3Aand%3ALifecycleRuleFilter%27"><span class="hs-identifier hs-var hs-var">and</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleRuleAndOperator.html#LifecycleRuleAndOperator"><span class="hs-identifier hs-type">LifecycleRuleAndOperator</span></a></span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679555537"><span id="local-6989586621679555539"><span class="annot"><span class="annottext">LifecycleRuleFilter -&gt; LifecycleRuleFilter -&gt; Bool
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679556183"><span id="local-6989586621679556185"><span class="annot"><span class="annottext">LifecycleRuleFilter -&gt; LifecycleRuleFilter -&gt; Bool
 (LifecycleRuleFilter -&gt; LifecycleRuleFilter -&gt; Bool)
 -&gt; (LifecycleRuleFilter -&gt; LifecycleRuleFilter -&gt; Bool)
 -&gt; Eq LifecycleRuleFilter
@@ -56,7 +56,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: LifecycleRuleFilter -&gt; LifecycleRuleFilter -&gt; Bool
 == :: LifecycleRuleFilter -&gt; LifecycleRuleFilter -&gt; Bool
 $c== :: LifecycleRuleFilter -&gt; LifecycleRuleFilter -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679555528"><span id="local-6989586621679555530"><span id="local-6989586621679555532"><span id="local-6989586621679555534"><span class="annot"><span class="annottext">ReadPrec [LifecycleRuleFilter]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679556174"><span id="local-6989586621679556176"><span id="local-6989586621679556178"><span id="local-6989586621679556180"><span class="annot"><span class="annottext">ReadPrec [LifecycleRuleFilter]
 ReadPrec LifecycleRuleFilter
 Int -&gt; ReadS LifecycleRuleFilter
 ReadS [LifecycleRuleFilter]
@@ -76,7 +76,7 @@ readList :: ReadS [LifecycleRuleFilter]
 $creadList :: ReadS [LifecycleRuleFilter]
 readsPrec :: Int -&gt; ReadS LifecycleRuleFilter
 $creadsPrec :: Int -&gt; ReadS LifecycleRuleFilter
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679555521"><span id="local-6989586621679555523"><span id="local-6989586621679555525"><span class="annot"><span class="annottext">Int -&gt; LifecycleRuleFilter -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679556167"><span id="local-6989586621679556169"><span id="local-6989586621679556171"><span class="annot"><span class="annottext">Int -&gt; LifecycleRuleFilter -&gt; ShowS
 [LifecycleRuleFilter] -&gt; ShowS
 LifecycleRuleFilter -&gt; String
 (Int -&gt; LifecycleRuleFilter -&gt; ShowS)
@@ -110,68 +110,89 @@ $cfrom :: forall x. LifecycleRuleFilter -&gt; Rep LifecycleRuleFilter x
 </span><span id="line-54"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-56"></span><span class="hs-comment">--</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- 'prefix', 'lifecycleRuleFilter_prefix' - Prefix identifying one or more objects to which the rule applies.</span><span>
-</span><span id="line-58"></span><span class="hs-comment">--</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- Replacement must be made for object keys containing special characters</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- (such as carriage returns) when using XML requests. For more</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- information, see</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints XML related object key constraints&gt;.</span><span>
-</span><span id="line-63"></span><span class="hs-comment">--</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- 'and', 'lifecycleRuleFilter_and' - Undocumented member.</span><span>
-</span><span id="line-65"></span><span class="hs-comment">--</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- 'tag', 'lifecycleRuleFilter_tag' - This tag must exist in the object\'s tag set in order for the rule to</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- apply.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'tag', 'lifecycleRuleFilter_tag' - This tag must exist in the object\'s tag set in order for the rule to</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- apply.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'prefix', 'lifecycleRuleFilter_prefix' - Prefix identifying one or more objects to which the rule applies.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Replacement must be made for object keys containing special characters</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- (such as carriage returns) when using XML requests. For more</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints XML related object key constraints&gt;.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'and', 'lifecycleRuleFilter_and' - Undocumented member.</span><span>
 </span><span id="line-68"></span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleRuleFilter.html#newLifecycleRuleFilter"><span class="hs-identifier hs-type">newLifecycleRuleFilter</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleRuleFilter.html#LifecycleRuleFilter"><span class="hs-identifier hs-type">LifecycleRuleFilter</span></a></span><span>
 </span><span id="line-70"></span><span id="newLifecycleRuleFilter"><span class="annot"><span class="annottext">newLifecycleRuleFilter :: LifecycleRuleFilter
 </span><a href="Network.AWS.S3.Types.LifecycleRuleFilter.html#newLifecycleRuleFilter"><span class="hs-identifier hs-var hs-var">newLifecycleRuleFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-71"></span><span>  </span><span class="annot"><span class="annottext">LifecycleRuleFilter' :: Maybe Text
+</span><span id="line-71"></span><span>  </span><span class="annot"><span class="annottext">LifecycleRuleFilter' :: Maybe Tag
+-&gt; Maybe Text
 -&gt; Maybe LifecycleRuleAndOperator
--&gt; Maybe Tag
 -&gt; LifecycleRuleFilter
 </span><a href="Network.AWS.S3.Types.LifecycleRuleFilter.html#LifecycleRuleFilter%27"><span class="hs-identifier hs-type">LifecycleRuleFilter'</span></a></span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:prefix:LifecycleRuleFilter' :: Maybe Text
+</span><span id="line-72"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tag:LifecycleRuleFilter' :: Maybe Tag
+</span><a href="Network.AWS.S3.Types.LifecycleRuleFilter.html#%24sel%3Atag%3ALifecycleRuleFilter%27"><span class="hs-identifier hs-var">tag</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Tag
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:prefix:LifecycleRuleFilter' :: Maybe Text
 </span><a href="Network.AWS.S3.Types.LifecycleRuleFilter.html#%24sel%3Aprefix%3ALifecycleRuleFilter%27"><span class="hs-identifier hs-var">prefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:and:LifecycleRuleFilter' :: Maybe LifecycleRuleAndOperator
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:and:LifecycleRuleFilter' :: Maybe LifecycleRuleAndOperator
 </span><a href="Network.AWS.S3.Types.LifecycleRuleFilter.html#%24sel%3Aand%3ALifecycleRuleFilter%27"><span class="hs-identifier hs-var">and</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LifecycleRuleAndOperator
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:tag:LifecycleRuleFilter' :: Maybe Tag
-</span><a href="Network.AWS.S3.Types.LifecycleRuleFilter.html#%24sel%3Atag%3ALifecycleRuleFilter%27"><span class="hs-identifier hs-var">tag</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Tag
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-75"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- | Prefix identifying one or more objects to which the rule applies.</span><span>
-</span><span id="line-78"></span><span class="hs-comment">--</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- Replacement must be made for object keys containing special characters</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- (such as carriage returns) when using XML requests. For more</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- information, see</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints XML related object key constraints&gt;.</span><span>
-</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleRuleFilter.html#lifecycleRuleFilter_prefix"><span class="hs-identifier hs-type">lifecycleRuleFilter_prefix</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleRuleFilter.html#LifecycleRuleFilter"><span class="hs-identifier hs-type">LifecycleRuleFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-84"></span><span id="lifecycleRuleFilter_prefix"><span class="annot"><span class="annottext">lifecycleRuleFilter_prefix :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-77"></span><span class="hs-comment">-- | This tag must exist in the object\'s tag set in order for the rule to</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- apply.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleRuleFilter.html#lifecycleRuleFilter_tag"><span class="hs-identifier hs-type">lifecycleRuleFilter_tag</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleRuleFilter.html#LifecycleRuleFilter"><span class="hs-identifier hs-type">LifecycleRuleFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span id="lifecycleRuleFilter_tag"><span class="annot"><span class="annottext">lifecycleRuleFilter_tag :: (Maybe Tag -&gt; f (Maybe Tag))
+-&gt; LifecycleRuleFilter -&gt; f LifecycleRuleFilter
+</span><a href="Network.AWS.S3.Types.LifecycleRuleFilter.html#lifecycleRuleFilter_tag"><span class="hs-identifier hs-var hs-var">lifecycleRuleFilter_tag</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LifecycleRuleFilter -&gt; Maybe Tag)
+-&gt; (LifecycleRuleFilter -&gt; Maybe Tag -&gt; LifecycleRuleFilter)
+-&gt; Lens
+     LifecycleRuleFilter LifecycleRuleFilter (Maybe Tag) (Maybe Tag)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleRuleFilter.html#LifecycleRuleFilter%27"><span class="hs-identifier hs-type">LifecycleRuleFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679556158"><span class="annot"><span class="annottext">Maybe Tag
+tag :: Maybe Tag
+$sel:tag:LifecycleRuleFilter' :: LifecycleRuleFilter -&gt; Maybe Tag
+</span><a href="#local-6989586621679556158"><span class="hs-identifier hs-var hs-var">tag</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Tag
+</span><a href="#local-6989586621679556158"><span class="hs-identifier hs-var">tag</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679556157"><span class="annot"><span class="annottext">s :: LifecycleRuleFilter
+</span><a href="#local-6989586621679556157"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleRuleFilter.html#LifecycleRuleFilter%27"><span class="hs-identifier hs-type">LifecycleRuleFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679556156"><span class="annot"><span class="annottext">Maybe Tag
+</span><a href="#local-6989586621679556156"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LifecycleRuleFilter
+</span><a href="#local-6989586621679556157"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tag:LifecycleRuleFilter' :: Maybe Tag
+</span><a href="Network.AWS.S3.Types.LifecycleRuleFilter.html#%24sel%3Atag%3ALifecycleRuleFilter%27"><span class="hs-identifier hs-var">tag</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Tag
+</span><a href="#local-6989586621679556156"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleRuleFilter.html#LifecycleRuleFilter"><span class="hs-identifier hs-type">LifecycleRuleFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | Prefix identifying one or more objects to which the rule applies.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- Replacement must be made for object keys containing special characters</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- (such as carriage returns) when using XML requests. For more</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints XML related object key constraints&gt;.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleRuleFilter.html#lifecycleRuleFilter_prefix"><span class="hs-identifier hs-type">lifecycleRuleFilter_prefix</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleRuleFilter.html#LifecycleRuleFilter"><span class="hs-identifier hs-type">LifecycleRuleFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span id="lifecycleRuleFilter_prefix"><span class="annot"><span class="annottext">lifecycleRuleFilter_prefix :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; LifecycleRuleFilter -&gt; f LifecycleRuleFilter
 </span><a href="Network.AWS.S3.Types.LifecycleRuleFilter.html#lifecycleRuleFilter_prefix"><span class="hs-identifier hs-var hs-var">lifecycleRuleFilter_prefix</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LifecycleRuleFilter -&gt; Maybe Text)
 -&gt; (LifecycleRuleFilter -&gt; Maybe Text -&gt; LifecycleRuleFilter)
 -&gt; Lens
      LifecycleRuleFilter LifecycleRuleFilter (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleRuleFilter.html#LifecycleRuleFilter%27"><span class="hs-identifier hs-type">LifecycleRuleFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679555512"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleRuleFilter.html#LifecycleRuleFilter%27"><span class="hs-identifier hs-type">LifecycleRuleFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679556154"><span class="annot"><span class="annottext">Maybe Text
 prefix :: Maybe Text
 $sel:prefix:LifecycleRuleFilter' :: LifecycleRuleFilter -&gt; Maybe Text
-</span><a href="#local-6989586621679555512"><span class="hs-identifier hs-var hs-var">prefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679555512"><span class="hs-identifier hs-var">prefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679555511"><span class="annot"><span class="annottext">s :: LifecycleRuleFilter
-</span><a href="#local-6989586621679555511"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleRuleFilter.html#LifecycleRuleFilter%27"><span class="hs-identifier hs-type">LifecycleRuleFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679555510"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679555510"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LifecycleRuleFilter
-</span><a href="#local-6989586621679555511"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:prefix:LifecycleRuleFilter' :: Maybe Text
+</span><a href="#local-6989586621679556154"><span class="hs-identifier hs-var hs-var">prefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679556154"><span class="hs-identifier hs-var">prefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679556153"><span class="annot"><span class="annottext">s :: LifecycleRuleFilter
+</span><a href="#local-6989586621679556153"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleRuleFilter.html#LifecycleRuleFilter%27"><span class="hs-identifier hs-type">LifecycleRuleFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679556152"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679556152"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LifecycleRuleFilter
+</span><a href="#local-6989586621679556153"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:prefix:LifecycleRuleFilter' :: Maybe Text
 </span><a href="Network.AWS.S3.Types.LifecycleRuleFilter.html#%24sel%3Aprefix%3ALifecycleRuleFilter%27"><span class="hs-identifier hs-var">prefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679555510"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleRuleFilter.html#LifecycleRuleFilter"><span class="hs-identifier hs-type">LifecycleRuleFilter</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- | Undocumented member.</span><span>
-</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleRuleFilter.html#lifecycleRuleFilter_and"><span class="hs-identifier hs-type">lifecycleRuleFilter_and</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleRuleFilter.html#LifecycleRuleFilter"><span class="hs-identifier hs-type">LifecycleRuleFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleRuleAndOperator.html#LifecycleRuleAndOperator"><span class="hs-identifier hs-type">LifecycleRuleAndOperator</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-88"></span><span id="lifecycleRuleFilter_and"><span class="annot"><span class="annottext">lifecycleRuleFilter_and :: (Maybe LifecycleRuleAndOperator
+</span><a href="#local-6989586621679556152"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleRuleFilter.html#LifecycleRuleFilter"><span class="hs-identifier hs-type">LifecycleRuleFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleRuleFilter.html#lifecycleRuleFilter_and"><span class="hs-identifier hs-type">lifecycleRuleFilter_and</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleRuleFilter.html#LifecycleRuleFilter"><span class="hs-identifier hs-type">LifecycleRuleFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleRuleAndOperator.html#LifecycleRuleAndOperator"><span class="hs-identifier hs-type">LifecycleRuleAndOperator</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span id="lifecycleRuleFilter_and"><span class="annot"><span class="annottext">lifecycleRuleFilter_and :: (Maybe LifecycleRuleAndOperator
  -&gt; f (Maybe LifecycleRuleAndOperator))
 -&gt; LifecycleRuleFilter -&gt; f LifecycleRuleFilter
 </span><a href="Network.AWS.S3.Types.LifecycleRuleFilter.html#lifecycleRuleFilter_and"><span class="hs-identifier hs-var hs-var">lifecycleRuleFilter_and</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LifecycleRuleFilter -&gt; Maybe LifecycleRuleAndOperator)
@@ -183,116 +204,98 @@ $sel:prefix:LifecycleRuleFilter' :: LifecycleRuleFilter -&gt; Maybe Text
      (Maybe LifecycleRuleAndOperator)
      (Maybe LifecycleRuleAndOperator)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleRuleFilter.html#LifecycleRuleFilter%27"><span class="hs-identifier hs-type">LifecycleRuleFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679555508"><span class="annot"><span class="annottext">Maybe LifecycleRuleAndOperator
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleRuleFilter.html#LifecycleRuleFilter%27"><span class="hs-identifier hs-type">LifecycleRuleFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679556150"><span class="annot"><span class="annottext">Maybe LifecycleRuleAndOperator
 and :: Maybe LifecycleRuleAndOperator
 $sel:and:LifecycleRuleFilter' :: LifecycleRuleFilter -&gt; Maybe LifecycleRuleAndOperator
-</span><a href="#local-6989586621679555508"><span class="hs-identifier hs-var hs-var">and</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LifecycleRuleAndOperator
-</span><a href="#local-6989586621679555508"><span class="hs-identifier hs-var">and</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679555507"><span class="annot"><span class="annottext">s :: LifecycleRuleFilter
-</span><a href="#local-6989586621679555507"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleRuleFilter.html#LifecycleRuleFilter%27"><span class="hs-identifier hs-type">LifecycleRuleFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679555506"><span class="annot"><span class="annottext">Maybe LifecycleRuleAndOperator
-</span><a href="#local-6989586621679555506"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LifecycleRuleFilter
-</span><a href="#local-6989586621679555507"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:and:LifecycleRuleFilter' :: Maybe LifecycleRuleAndOperator
+</span><a href="#local-6989586621679556150"><span class="hs-identifier hs-var hs-var">and</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LifecycleRuleAndOperator
+</span><a href="#local-6989586621679556150"><span class="hs-identifier hs-var">and</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679556149"><span class="annot"><span class="annottext">s :: LifecycleRuleFilter
+</span><a href="#local-6989586621679556149"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleRuleFilter.html#LifecycleRuleFilter%27"><span class="hs-identifier hs-type">LifecycleRuleFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679556148"><span class="annot"><span class="annottext">Maybe LifecycleRuleAndOperator
+</span><a href="#local-6989586621679556148"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LifecycleRuleFilter
+</span><a href="#local-6989586621679556149"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:and:LifecycleRuleFilter' :: Maybe LifecycleRuleAndOperator
 </span><a href="Network.AWS.S3.Types.LifecycleRuleFilter.html#%24sel%3Aand%3ALifecycleRuleFilter%27"><span class="hs-identifier hs-var">and</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LifecycleRuleAndOperator
-</span><a href="#local-6989586621679555506"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleRuleFilter.html#LifecycleRuleFilter"><span class="hs-identifier hs-type">LifecycleRuleFilter</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- | This tag must exist in the object\'s tag set in order for the rule to</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- apply.</span><span>
-</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleRuleFilter.html#lifecycleRuleFilter_tag"><span class="hs-identifier hs-type">lifecycleRuleFilter_tag</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleRuleFilter.html#LifecycleRuleFilter"><span class="hs-identifier hs-type">LifecycleRuleFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-93"></span><span id="lifecycleRuleFilter_tag"><span class="annot"><span class="annottext">lifecycleRuleFilter_tag :: (Maybe Tag -&gt; f (Maybe Tag))
--&gt; LifecycleRuleFilter -&gt; f LifecycleRuleFilter
-</span><a href="Network.AWS.S3.Types.LifecycleRuleFilter.html#lifecycleRuleFilter_tag"><span class="hs-identifier hs-var hs-var">lifecycleRuleFilter_tag</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LifecycleRuleFilter -&gt; Maybe Tag)
--&gt; (LifecycleRuleFilter -&gt; Maybe Tag -&gt; LifecycleRuleFilter)
--&gt; Lens
-     LifecycleRuleFilter LifecycleRuleFilter (Maybe Tag) (Maybe Tag)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleRuleFilter.html#LifecycleRuleFilter%27"><span class="hs-identifier hs-type">LifecycleRuleFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679555504"><span class="annot"><span class="annottext">Maybe Tag
-tag :: Maybe Tag
-$sel:tag:LifecycleRuleFilter' :: LifecycleRuleFilter -&gt; Maybe Tag
-</span><a href="#local-6989586621679555504"><span class="hs-identifier hs-var hs-var">tag</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Tag
-</span><a href="#local-6989586621679555504"><span class="hs-identifier hs-var">tag</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679555503"><span class="annot"><span class="annottext">s :: LifecycleRuleFilter
-</span><a href="#local-6989586621679555503"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleRuleFilter.html#LifecycleRuleFilter%27"><span class="hs-identifier hs-type">LifecycleRuleFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679555502"><span class="annot"><span class="annottext">Maybe Tag
-</span><a href="#local-6989586621679555502"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LifecycleRuleFilter
-</span><a href="#local-6989586621679555503"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tag:LifecycleRuleFilter' :: Maybe Tag
-</span><a href="Network.AWS.S3.Types.LifecycleRuleFilter.html#%24sel%3Atag%3ALifecycleRuleFilter%27"><span class="hs-identifier hs-var">tag</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Tag
-</span><a href="#local-6989586621679555502"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleRuleFilter.html#LifecycleRuleFilter"><span class="hs-identifier hs-type">LifecycleRuleFilter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679556148"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleRuleFilter.html#LifecycleRuleFilter"><span class="hs-identifier hs-type">LifecycleRuleFilter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleRuleFilter.html#LifecycleRuleFilter"><span class="hs-identifier hs-type">LifecycleRuleFilter</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679555499"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String LifecycleRuleFilter
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679555497"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679555497"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679556145"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String LifecycleRuleFilter
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679556143"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679556143"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">Maybe Tag
+-&gt; Maybe Text
 -&gt; Maybe LifecycleRuleAndOperator
--&gt; Maybe Tag
 -&gt; LifecycleRuleFilter
 </span><a href="Network.AWS.S3.Types.LifecycleRuleFilter.html#LifecycleRuleFilter%27"><span class="hs-identifier hs-var">LifecycleRuleFilter'</span></a></span><span>
-</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Tag
+ -&gt; Maybe Text
  -&gt; Maybe LifecycleRuleAndOperator
- -&gt; Maybe Tag
  -&gt; LifecycleRuleFilter)
--&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Tag)
 -&gt; Either
      String
-     (Maybe LifecycleRuleAndOperator
-      -&gt; Maybe Tag -&gt; LifecycleRuleFilter)
+     (Maybe Text
+      -&gt; Maybe LifecycleRuleAndOperator -&gt; LifecycleRuleFilter)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679555497"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Prefix&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe LifecycleRuleAndOperator
-   -&gt; Maybe Tag -&gt; LifecycleRuleFilter)
--&gt; Either String (Maybe LifecycleRuleAndOperator)
--&gt; Either String (Maybe Tag -&gt; LifecycleRuleFilter)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679555497"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe LifecycleRuleAndOperator)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;And&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Tag -&gt; LifecycleRuleFilter)
--&gt; Either String (Maybe Tag) -&gt; Either String LifecycleRuleFilter
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679555497"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Tag)
+</span><a href="#local-6989586621679556143"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Tag)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Tag&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe LifecycleRuleAndOperator -&gt; LifecycleRuleFilter)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe LifecycleRuleAndOperator -&gt; LifecycleRuleFilter)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679556143"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Prefix&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String (Maybe LifecycleRuleAndOperator -&gt; LifecycleRuleFilter)
+-&gt; Either String (Maybe LifecycleRuleAndOperator)
+-&gt; Either String LifecycleRuleFilter
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679556143"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe LifecycleRuleAndOperator)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;And&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679555491"><span id="local-6989586621679555493"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleRuleFilter.html#LifecycleRuleFilter"><span class="hs-identifier hs-type">LifecycleRuleFilter</span></a></span></span></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679556137"><span id="local-6989586621679556139"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleRuleFilter.html#LifecycleRuleFilter"><span class="hs-identifier hs-type">LifecycleRuleFilter</span></a></span></span></span><span>
 </span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679555488"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleRuleFilter.html#LifecycleRuleFilter"><span class="hs-identifier hs-type">LifecycleRuleFilter</span></a></span></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679556134"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleRuleFilter.html#LifecycleRuleFilter"><span class="hs-identifier hs-type">LifecycleRuleFilter</span></a></span></span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleRuleFilter.html#LifecycleRuleFilter"><span class="hs-identifier hs-type">LifecycleRuleFilter</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679555484"><span class="annot"><span class="annottext">toXML :: LifecycleRuleFilter -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleRuleFilter.html#LifecycleRuleFilter%27"><span class="hs-identifier hs-type">LifecycleRuleFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679555480"><span id="local-6989586621679555481"><span id="local-6989586621679555482"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679556130"><span class="annot"><span class="annottext">toXML :: LifecycleRuleFilter -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.LifecycleRuleFilter.html#LifecycleRuleFilter%27"><span class="hs-identifier hs-type">LifecycleRuleFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679556126"><span id="local-6989586621679556127"><span id="local-6989586621679556128"><span class="annot"><span class="annottext">Maybe Text
 Maybe Tag
 Maybe LifecycleRuleAndOperator
-tag :: Maybe Tag
 and :: Maybe LifecycleRuleAndOperator
 prefix :: Maybe Text
-$sel:tag:LifecycleRuleFilter' :: LifecycleRuleFilter -&gt; Maybe Tag
+tag :: Maybe Tag
 $sel:and:LifecycleRuleFilter' :: LifecycleRuleFilter -&gt; Maybe LifecycleRuleAndOperator
 $sel:prefix:LifecycleRuleFilter' :: LifecycleRuleFilter -&gt; Maybe Text
-</span><a href="#local-6989586621679555480"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:tag:LifecycleRuleFilter' :: LifecycleRuleFilter -&gt; Maybe Tag
+</span><a href="#local-6989586621679556126"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Name
-</span><span class="hs-string">&quot;Prefix&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Text -&gt; XML
-forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
-</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679555482"><span class="hs-identifier hs-var">prefix</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-110"></span><span>        </span><span class="annot"><span class="annottext">Name
-</span><span class="hs-string">&quot;And&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe LifecycleRuleAndOperator -&gt; XML
-forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
-</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe LifecycleRuleAndOperator
-</span><a href="#local-6989586621679555481"><span class="hs-identifier hs-var">and</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-111"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;Tag&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Tag -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Tag
-</span><a href="#local-6989586621679555480"><span class="hs-identifier hs-var">tag</span></a></span><span>
+</span><a href="#local-6989586621679556128"><span class="hs-identifier hs-var">tag</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;Prefix&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Text -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679556127"><span class="hs-identifier hs-var">prefix</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;And&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe LifecycleRuleAndOperator -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe LifecycleRuleAndOperator
+</span><a href="#local-6989586621679556126"><span class="hs-identifier hs-var">and</span></a></span><span>
 </span><span id="line-112"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-113"></span></pre></body></html>

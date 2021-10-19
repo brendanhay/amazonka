@@ -30,33 +30,33 @@
 </span><span id="line-30"></span><span class="hs-comment">-- synced by dataset, and a dataset can hold up to 1MB of key-value pairs.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newDataset' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679173914"><span id="local-6989586621679173915"></span></span><span class="hs-keyword">data</span><span> </span><span id="Dataset"><span class="annot"><a href="Network.AWS.CognitoSync.Types.Dataset.html#Dataset"><span class="hs-identifier hs-var">Dataset</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Dataset%27"><span class="annot"><a href="Network.AWS.CognitoSync.Types.Dataset.html#Dataset%27"><span class="hs-identifier hs-var">Dataset'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679173953"><span id="local-6989586621679173954"></span></span><span class="hs-keyword">data</span><span> </span><span id="Dataset"><span class="annot"><a href="Network.AWS.CognitoSync.Types.Dataset.html#Dataset"><span class="hs-identifier hs-var">Dataset</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Dataset%27"><span class="annot"><a href="Network.AWS.CognitoSync.Types.Dataset.html#Dataset%27"><span class="hs-identifier hs-var">Dataset'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Date when the dataset was last modified.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AlastModifiedDate%3ADataset%27"><span class="annot"><span class="annottext">Dataset -&gt; Maybe POSIX
 </span><a href="Network.AWS.CognitoSync.Types.Dataset.html#%24sel%3AlastModifiedDate%3ADataset%27"><span class="hs-identifier hs-var hs-var">lastModifiedDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Number of records in this dataset.</span><span>
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3AnumRecords%3ADataset%27"><span class="annot"><span class="annottext">Dataset -&gt; Maybe Integer
 </span><a href="Network.AWS.CognitoSync.Types.Dataset.html#%24sel%3AnumRecords%3ADataset%27"><span class="hs-identifier hs-var hs-var">numRecords</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | Date on which the dataset was created.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3AcreationDate%3ADataset%27"><span class="annot"><span class="annottext">Dataset -&gt; Maybe POSIX
-</span><a href="Network.AWS.CognitoSync.Types.Dataset.html#%24sel%3AcreationDate%3ADataset%27"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | Total size in bytes of the records in this dataset.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3AdataStorage%3ADataset%27"><span class="annot"><span class="annottext">Dataset -&gt; Maybe Integer
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | Total size in bytes of the records in this dataset.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AdataStorage%3ADataset%27"><span class="annot"><span class="annottext">Dataset -&gt; Maybe Integer
 </span><a href="Network.AWS.CognitoSync.Types.Dataset.html#%24sel%3AdataStorage%3ADataset%27"><span class="hs-identifier hs-var hs-var">dataStorage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | A name-spaced GUID (for example,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- Cognito. GUID generation is unique within a region.</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3AidentityId%3ADataset%27"><span class="annot"><span class="annottext">Dataset -&gt; Maybe Text
-</span><a href="Network.AWS.CognitoSync.Types.Dataset.html#%24sel%3AidentityId%3ADataset%27"><span class="hs-identifier hs-var hs-var">identityId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The device that made the last change to this dataset.</span><span>
-</span><span id="line-47"></span><span>    </span><span id="%24sel%3AlastModifiedBy%3ADataset%27"><span class="annot"><span class="annottext">Dataset -&gt; Maybe Text
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- \'_\' (underscore), \'-\' (dash), and \'.\' (dot).</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AdatasetName%3ADataset%27"><span class="annot"><span class="annottext">Dataset -&gt; Maybe Text
+</span><a href="Network.AWS.CognitoSync.Types.Dataset.html#%24sel%3AdatasetName%3ADataset%27"><span class="hs-identifier hs-var hs-var">datasetName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | Date on which the dataset was created.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AcreationDate%3ADataset%27"><span class="annot"><span class="annottext">Dataset -&gt; Maybe POSIX
+</span><a href="Network.AWS.CognitoSync.Types.Dataset.html#%24sel%3AcreationDate%3ADataset%27"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The device that made the last change to this dataset.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AlastModifiedBy%3ADataset%27"><span class="annot"><span class="annottext">Dataset -&gt; Maybe Text
 </span><a href="Network.AWS.CognitoSync.Types.Dataset.html#%24sel%3AlastModifiedBy%3ADataset%27"><span class="hs-identifier hs-var hs-var">lastModifiedBy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9,</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- \'_\' (underscore), \'-\' (dash), and \'.\' (dot).</span><span>
-</span><span id="line-50"></span><span>    </span><span id="%24sel%3AdatasetName%3ADataset%27"><span class="annot"><span class="annottext">Dataset -&gt; Maybe Text
-</span><a href="Network.AWS.CognitoSync.Types.Dataset.html#%24sel%3AdatasetName%3ADataset%27"><span class="hs-identifier hs-var hs-var">datasetName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | A name-spaced GUID (for example,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- Cognito. GUID generation is unique within a region.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AidentityId%3ADataset%27"><span class="annot"><span class="annottext">Dataset -&gt; Maybe Text
+</span><a href="Network.AWS.CognitoSync.Types.Dataset.html#%24sel%3AidentityId%3ADataset%27"><span class="hs-identifier hs-var hs-var">identityId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679173902"><span id="local-6989586621679173904"><span class="annot"><span class="annottext">Dataset -&gt; Dataset -&gt; Bool
+</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679173941"><span id="local-6989586621679173943"><span class="annot"><span class="annottext">Dataset -&gt; Dataset -&gt; Bool
 (Dataset -&gt; Dataset -&gt; Bool)
 -&gt; (Dataset -&gt; Dataset -&gt; Bool) -&gt; Eq Dataset
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -64,7 +64,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Dataset -&gt; Dataset -&gt; Bool
 == :: Dataset -&gt; Dataset -&gt; Bool
 $c== :: Dataset -&gt; Dataset -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679173893"><span id="local-6989586621679173895"><span id="local-6989586621679173897"><span id="local-6989586621679173899"><span class="annot"><span class="annottext">ReadPrec [Dataset]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679173932"><span id="local-6989586621679173934"><span id="local-6989586621679173936"><span id="local-6989586621679173938"><span class="annot"><span class="annottext">ReadPrec [Dataset]
 ReadPrec Dataset
 Int -&gt; ReadS Dataset
 ReadS [Dataset]
@@ -84,7 +84,7 @@ readList :: ReadS [Dataset]
 $creadList :: ReadS [Dataset]
 readsPrec :: Int -&gt; ReadS Dataset
 $creadsPrec :: Int -&gt; ReadS Dataset
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679173886"><span id="local-6989586621679173888"><span id="local-6989586621679173890"><span class="annot"><span class="annottext">Int -&gt; Dataset -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679173925"><span id="local-6989586621679173927"><span id="local-6989586621679173929"><span class="annot"><span class="annottext">Int -&gt; Dataset -&gt; ShowS
 [Dataset] -&gt; ShowS
 Dataset -&gt; String
 (Int -&gt; Dataset -&gt; ShowS)
@@ -119,27 +119,27 @@ $cfrom :: forall x. Dataset -&gt; Rep Dataset x
 </span><span id="line-63"></span><span class="hs-comment">--</span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- 'numRecords', 'dataset_numRecords' - Number of records in this dataset.</span><span>
 </span><span id="line-65"></span><span class="hs-comment">--</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- 'creationDate', 'dataset_creationDate' - Date on which the dataset was created.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'dataStorage', 'dataset_dataStorage' - Total size in bytes of the records in this dataset.</span><span>
 </span><span id="line-67"></span><span class="hs-comment">--</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- 'dataStorage', 'dataset_dataStorage' - Total size in bytes of the records in this dataset.</span><span>
-</span><span id="line-69"></span><span class="hs-comment">--</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- 'identityId', 'dataset_identityId' - A name-spaced GUID (for example,</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- Cognito. GUID generation is unique within a region.</span><span>
-</span><span id="line-73"></span><span class="hs-comment">--</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- 'lastModifiedBy', 'dataset_lastModifiedBy' - The device that made the last change to this dataset.</span><span>
-</span><span id="line-75"></span><span class="hs-comment">--</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- 'datasetName', 'dataset_datasetName' - A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9,</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- \'_\' (underscore), \'-\' (dash), and \'.\' (dot).</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'datasetName', 'dataset_datasetName' - A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9,</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- \'_\' (underscore), \'-\' (dash), and \'.\' (dot).</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'creationDate', 'dataset_creationDate' - Date on which the dataset was created.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'lastModifiedBy', 'dataset_lastModifiedBy' - The device that made the last change to this dataset.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'identityId', 'dataset_identityId' - A name-spaced GUID (for example,</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- Cognito. GUID generation is unique within a region.</span><span>
 </span><span id="line-78"></span><span class="annot"><a href="Network.AWS.CognitoSync.Types.Dataset.html#newDataset"><span class="hs-identifier hs-type">newDataset</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoSync.Types.Dataset.html#Dataset"><span class="hs-identifier hs-type">Dataset</span></a></span><span>
 </span><span id="line-80"></span><span id="newDataset"><span class="annot"><span class="annottext">newDataset :: Dataset
 </span><a href="Network.AWS.CognitoSync.Types.Dataset.html#newDataset"><span class="hs-identifier hs-var hs-var">newDataset</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>  </span><span class="annot"><span class="annottext">Dataset' :: Maybe POSIX
 -&gt; Maybe Integer
--&gt; Maybe POSIX
 -&gt; Maybe Integer
 -&gt; Maybe Text
+-&gt; Maybe POSIX
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Dataset
@@ -152,24 +152,24 @@ forall a. Maybe a
 </span><a href="Network.AWS.CognitoSync.Types.Dataset.html#%24sel%3AnumRecords%3ADataset%27"><span class="hs-identifier hs-var">numRecords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:creationDate:Dataset' :: Maybe POSIX
-</span><a href="Network.AWS.CognitoSync.Types.Dataset.html#%24sel%3AcreationDate%3ADataset%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:dataStorage:Dataset' :: Maybe Integer
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:dataStorage:Dataset' :: Maybe Integer
 </span><a href="Network.AWS.CognitoSync.Types.Dataset.html#%24sel%3AdataStorage%3ADataset%27"><span class="hs-identifier hs-var">dataStorage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:identityId:Dataset' :: Maybe Text
-</span><a href="Network.AWS.CognitoSync.Types.Dataset.html#%24sel%3AidentityId%3ADataset%27"><span class="hs-identifier hs-var">identityId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:datasetName:Dataset' :: Maybe Text
+</span><a href="Network.AWS.CognitoSync.Types.Dataset.html#%24sel%3AdatasetName%3ADataset%27"><span class="hs-identifier hs-var">datasetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:creationDate:Dataset' :: Maybe POSIX
+</span><a href="Network.AWS.CognitoSync.Types.Dataset.html#%24sel%3AcreationDate%3ADataset%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastModifiedBy:Dataset' :: Maybe Text
 </span><a href="Network.AWS.CognitoSync.Types.Dataset.html#%24sel%3AlastModifiedBy%3ADataset%27"><span class="hs-identifier hs-var">lastModifiedBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:datasetName:Dataset' :: Maybe Text
-</span><a href="Network.AWS.CognitoSync.Types.Dataset.html#%24sel%3AdatasetName%3ADataset%27"><span class="hs-identifier hs-var">datasetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:identityId:Dataset' :: Maybe Text
+</span><a href="Network.AWS.CognitoSync.Types.Dataset.html#%24sel%3AidentityId%3ADataset%27"><span class="hs-identifier hs-var">identityId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-89"></span><span>    </span><span class="hs-special">}</span><span>
@@ -181,16 +181,16 @@ forall a. Maybe a
 -&gt; (Dataset -&gt; Maybe POSIX -&gt; Dataset)
 -&gt; Lens Dataset Dataset (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoSync.Types.Dataset.html#Dataset%27"><span class="hs-identifier hs-type">Dataset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679173877"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoSync.Types.Dataset.html#Dataset%27"><span class="hs-identifier hs-type">Dataset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679173916"><span class="annot"><span class="annottext">Maybe POSIX
 lastModifiedDate :: Maybe POSIX
 $sel:lastModifiedDate:Dataset' :: Dataset -&gt; Maybe POSIX
-</span><a href="#local-6989586621679173877"><span class="hs-identifier hs-var hs-var">lastModifiedDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679173877"><span class="hs-identifier hs-var">lastModifiedDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679173876"><span class="annot"><span class="annottext">s :: Dataset
-</span><a href="#local-6989586621679173876"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoSync.Types.Dataset.html#Dataset%27"><span class="hs-identifier hs-type">Dataset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679173875"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679173875"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Dataset
-</span><a href="#local-6989586621679173876"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedDate:Dataset' :: Maybe POSIX
+</span><a href="#local-6989586621679173916"><span class="hs-identifier hs-var hs-var">lastModifiedDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679173916"><span class="hs-identifier hs-var">lastModifiedDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679173915"><span class="annot"><span class="annottext">s :: Dataset
+</span><a href="#local-6989586621679173915"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoSync.Types.Dataset.html#Dataset%27"><span class="hs-identifier hs-type">Dataset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679173914"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679173914"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Dataset
+</span><a href="#local-6989586621679173915"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedDate:Dataset' :: Maybe POSIX
 </span><a href="Network.AWS.CognitoSync.Types.Dataset.html#%24sel%3AlastModifiedDate%3ADataset%27"><span class="hs-identifier hs-var">lastModifiedDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679173875"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.Types.Dataset.html#Dataset"><span class="hs-identifier hs-type">Dataset</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Dataset -&gt; f Dataset)
+</span><a href="#local-6989586621679173914"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.Types.Dataset.html#Dataset"><span class="hs-identifier hs-type">Dataset</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Dataset -&gt; f Dataset)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
 -&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -213,34 +213,71 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; (Dataset -&gt; Maybe Integer -&gt; Dataset)
 -&gt; Lens Dataset Dataset (Maybe Integer) (Maybe Integer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoSync.Types.Dataset.html#Dataset%27"><span class="hs-identifier hs-type">Dataset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679173870"><span class="annot"><span class="annottext">Maybe Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoSync.Types.Dataset.html#Dataset%27"><span class="hs-identifier hs-type">Dataset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679173909"><span class="annot"><span class="annottext">Maybe Integer
 numRecords :: Maybe Integer
 $sel:numRecords:Dataset' :: Dataset -&gt; Maybe Integer
-</span><a href="#local-6989586621679173870"><span class="hs-identifier hs-var hs-var">numRecords</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679173870"><span class="hs-identifier hs-var">numRecords</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679173869"><span class="annot"><span class="annottext">s :: Dataset
-</span><a href="#local-6989586621679173869"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoSync.Types.Dataset.html#Dataset%27"><span class="hs-identifier hs-type">Dataset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679173868"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679173868"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Dataset
-</span><a href="#local-6989586621679173869"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numRecords:Dataset' :: Maybe Integer
+</span><a href="#local-6989586621679173909"><span class="hs-identifier hs-var hs-var">numRecords</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679173909"><span class="hs-identifier hs-var">numRecords</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679173908"><span class="annot"><span class="annottext">s :: Dataset
+</span><a href="#local-6989586621679173908"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoSync.Types.Dataset.html#Dataset%27"><span class="hs-identifier hs-type">Dataset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679173907"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679173907"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Dataset
+</span><a href="#local-6989586621679173908"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numRecords:Dataset' :: Maybe Integer
 </span><a href="Network.AWS.CognitoSync.Types.Dataset.html#%24sel%3AnumRecords%3ADataset%27"><span class="hs-identifier hs-var">numRecords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679173868"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.Types.Dataset.html#Dataset"><span class="hs-identifier hs-type">Dataset</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679173907"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.Types.Dataset.html#Dataset"><span class="hs-identifier hs-type">Dataset</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- | Date on which the dataset was created.</span><span>
-</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.CognitoSync.Types.Dataset.html#dataset_creationDate"><span class="hs-identifier hs-type">dataset_creationDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.Types.Dataset.html#Dataset"><span class="hs-identifier hs-type">Dataset</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-101"></span><span id="dataset_creationDate"><span class="annot"><span class="annottext">dataset_creationDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Dataset -&gt; f Dataset
+</span><span id="line-99"></span><span class="hs-comment">-- | Total size in bytes of the records in this dataset.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.CognitoSync.Types.Dataset.html#dataset_dataStorage"><span class="hs-identifier hs-type">dataset_dataStorage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.Types.Dataset.html#Dataset"><span class="hs-identifier hs-type">Dataset</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="dataset_dataStorage"><span class="annot"><span class="annottext">dataset_dataStorage :: (Maybe Integer -&gt; f (Maybe Integer)) -&gt; Dataset -&gt; f Dataset
+</span><a href="Network.AWS.CognitoSync.Types.Dataset.html#dataset_dataStorage"><span class="hs-identifier hs-var hs-var">dataset_dataStorage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Dataset -&gt; Maybe Integer)
+-&gt; (Dataset -&gt; Maybe Integer -&gt; Dataset)
+-&gt; Lens Dataset Dataset (Maybe Integer) (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoSync.Types.Dataset.html#Dataset%27"><span class="hs-identifier hs-type">Dataset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679173905"><span class="annot"><span class="annottext">Maybe Integer
+dataStorage :: Maybe Integer
+$sel:dataStorage:Dataset' :: Dataset -&gt; Maybe Integer
+</span><a href="#local-6989586621679173905"><span class="hs-identifier hs-var hs-var">dataStorage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679173905"><span class="hs-identifier hs-var">dataStorage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679173904"><span class="annot"><span class="annottext">s :: Dataset
+</span><a href="#local-6989586621679173904"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoSync.Types.Dataset.html#Dataset%27"><span class="hs-identifier hs-type">Dataset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679173903"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679173903"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Dataset
+</span><a href="#local-6989586621679173904"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataStorage:Dataset' :: Maybe Integer
+</span><a href="Network.AWS.CognitoSync.Types.Dataset.html#%24sel%3AdataStorage%3ADataset%27"><span class="hs-identifier hs-var">dataStorage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679173903"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.Types.Dataset.html#Dataset"><span class="hs-identifier hs-type">Dataset</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9,</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- \'_\' (underscore), \'-\' (dash), and \'.\' (dot).</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.CognitoSync.Types.Dataset.html#dataset_datasetName"><span class="hs-identifier hs-type">dataset_datasetName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.Types.Dataset.html#Dataset"><span class="hs-identifier hs-type">Dataset</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span id="dataset_datasetName"><span class="annot"><span class="annottext">dataset_datasetName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Dataset -&gt; f Dataset
+</span><a href="Network.AWS.CognitoSync.Types.Dataset.html#dataset_datasetName"><span class="hs-identifier hs-var hs-var">dataset_datasetName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Dataset -&gt; Maybe Text)
+-&gt; (Dataset -&gt; Maybe Text -&gt; Dataset)
+-&gt; Lens Dataset Dataset (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoSync.Types.Dataset.html#Dataset%27"><span class="hs-identifier hs-type">Dataset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679173901"><span class="annot"><span class="annottext">Maybe Text
+datasetName :: Maybe Text
+$sel:datasetName:Dataset' :: Dataset -&gt; Maybe Text
+</span><a href="#local-6989586621679173901"><span class="hs-identifier hs-var hs-var">datasetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679173901"><span class="hs-identifier hs-var">datasetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679173900"><span class="annot"><span class="annottext">s :: Dataset
+</span><a href="#local-6989586621679173900"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoSync.Types.Dataset.html#Dataset%27"><span class="hs-identifier hs-type">Dataset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679173899"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679173899"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Dataset
+</span><a href="#local-6989586621679173900"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:datasetName:Dataset' :: Maybe Text
+</span><a href="Network.AWS.CognitoSync.Types.Dataset.html#%24sel%3AdatasetName%3ADataset%27"><span class="hs-identifier hs-var">datasetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679173899"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.Types.Dataset.html#Dataset"><span class="hs-identifier hs-type">Dataset</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | Date on which the dataset was created.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.CognitoSync.Types.Dataset.html#dataset_creationDate"><span class="hs-identifier hs-type">dataset_creationDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.Types.Dataset.html#Dataset"><span class="hs-identifier hs-type">Dataset</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="dataset_creationDate"><span class="annot"><span class="annottext">dataset_creationDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Dataset -&gt; f Dataset
 </span><a href="Network.AWS.CognitoSync.Types.Dataset.html#dataset_creationDate"><span class="hs-identifier hs-var hs-var">dataset_creationDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Dataset -&gt; Maybe POSIX)
 -&gt; (Dataset -&gt; Maybe POSIX -&gt; Dataset)
 -&gt; Lens Dataset Dataset (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoSync.Types.Dataset.html#Dataset%27"><span class="hs-identifier hs-type">Dataset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679173866"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoSync.Types.Dataset.html#Dataset%27"><span class="hs-identifier hs-type">Dataset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679173897"><span class="annot"><span class="annottext">Maybe POSIX
 creationDate :: Maybe POSIX
 $sel:creationDate:Dataset' :: Dataset -&gt; Maybe POSIX
-</span><a href="#local-6989586621679173866"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679173866"><span class="hs-identifier hs-var">creationDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679173865"><span class="annot"><span class="annottext">s :: Dataset
-</span><a href="#local-6989586621679173865"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoSync.Types.Dataset.html#Dataset%27"><span class="hs-identifier hs-type">Dataset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679173864"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679173864"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Dataset
-</span><a href="#local-6989586621679173865"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationDate:Dataset' :: Maybe POSIX
+</span><a href="#local-6989586621679173897"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679173897"><span class="hs-identifier hs-var">creationDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679173896"><span class="annot"><span class="annottext">s :: Dataset
+</span><a href="#local-6989586621679173896"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoSync.Types.Dataset.html#Dataset%27"><span class="hs-identifier hs-type">Dataset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679173895"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679173895"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Dataset
+</span><a href="#local-6989586621679173896"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationDate:Dataset' :: Maybe POSIX
 </span><a href="Network.AWS.CognitoSync.Types.Dataset.html#%24sel%3AcreationDate%3ADataset%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679173864"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.Types.Dataset.html#Dataset"><span class="hs-identifier hs-type">Dataset</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Dataset -&gt; f Dataset)
+</span><a href="#local-6989586621679173895"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.Types.Dataset.html#Dataset"><span class="hs-identifier hs-type">Dataset</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Dataset -&gt; f Dataset)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
 -&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -255,188 +292,149 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- | Total size in bytes of the records in this dataset.</span><span>
-</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.CognitoSync.Types.Dataset.html#dataset_dataStorage"><span class="hs-identifier hs-type">dataset_dataStorage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.Types.Dataset.html#Dataset"><span class="hs-identifier hs-type">Dataset</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
-</span><span id="line-105"></span><span id="dataset_dataStorage"><span class="annot"><span class="annottext">dataset_dataStorage :: (Maybe Integer -&gt; f (Maybe Integer)) -&gt; Dataset -&gt; f Dataset
-</span><a href="Network.AWS.CognitoSync.Types.Dataset.html#dataset_dataStorage"><span class="hs-identifier hs-var hs-var">dataset_dataStorage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Dataset -&gt; Maybe Integer)
--&gt; (Dataset -&gt; Maybe Integer -&gt; Dataset)
--&gt; Lens Dataset Dataset (Maybe Integer) (Maybe Integer)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoSync.Types.Dataset.html#Dataset%27"><span class="hs-identifier hs-type">Dataset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679173862"><span class="annot"><span class="annottext">Maybe Integer
-dataStorage :: Maybe Integer
-$sel:dataStorage:Dataset' :: Dataset -&gt; Maybe Integer
-</span><a href="#local-6989586621679173862"><span class="hs-identifier hs-var hs-var">dataStorage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679173862"><span class="hs-identifier hs-var">dataStorage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679173861"><span class="annot"><span class="annottext">s :: Dataset
-</span><a href="#local-6989586621679173861"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoSync.Types.Dataset.html#Dataset%27"><span class="hs-identifier hs-type">Dataset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679173860"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679173860"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Dataset
-</span><a href="#local-6989586621679173861"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataStorage:Dataset' :: Maybe Integer
-</span><a href="Network.AWS.CognitoSync.Types.Dataset.html#%24sel%3AdataStorage%3ADataset%27"><span class="hs-identifier hs-var">dataStorage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679173860"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.Types.Dataset.html#Dataset"><span class="hs-identifier hs-type">Dataset</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- | A name-spaced GUID (for example,</span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon</span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- Cognito. GUID generation is unique within a region.</span><span>
-</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.CognitoSync.Types.Dataset.html#dataset_identityId"><span class="hs-identifier hs-type">dataset_identityId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.Types.Dataset.html#Dataset"><span class="hs-identifier hs-type">Dataset</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-111"></span><span id="dataset_identityId"><span class="annot"><span class="annottext">dataset_identityId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Dataset -&gt; f Dataset
-</span><a href="Network.AWS.CognitoSync.Types.Dataset.html#dataset_identityId"><span class="hs-identifier hs-var hs-var">dataset_identityId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Dataset -&gt; Maybe Text)
--&gt; (Dataset -&gt; Maybe Text -&gt; Dataset)
--&gt; Lens Dataset Dataset (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoSync.Types.Dataset.html#Dataset%27"><span class="hs-identifier hs-type">Dataset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679173858"><span class="annot"><span class="annottext">Maybe Text
-identityId :: Maybe Text
-$sel:identityId:Dataset' :: Dataset -&gt; Maybe Text
-</span><a href="#local-6989586621679173858"><span class="hs-identifier hs-var hs-var">identityId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679173858"><span class="hs-identifier hs-var">identityId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679173857"><span class="annot"><span class="annottext">s :: Dataset
-</span><a href="#local-6989586621679173857"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoSync.Types.Dataset.html#Dataset%27"><span class="hs-identifier hs-type">Dataset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679173856"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679173856"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Dataset
-</span><a href="#local-6989586621679173857"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identityId:Dataset' :: Maybe Text
-</span><a href="Network.AWS.CognitoSync.Types.Dataset.html#%24sel%3AidentityId%3ADataset%27"><span class="hs-identifier hs-var">identityId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679173856"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.Types.Dataset.html#Dataset"><span class="hs-identifier hs-type">Dataset</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- | The device that made the last change to this dataset.</span><span>
-</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.CognitoSync.Types.Dataset.html#dataset_lastModifiedBy"><span class="hs-identifier hs-type">dataset_lastModifiedBy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.Types.Dataset.html#Dataset"><span class="hs-identifier hs-type">Dataset</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-115"></span><span id="dataset_lastModifiedBy"><span class="annot"><span class="annottext">dataset_lastModifiedBy :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Dataset -&gt; f Dataset
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | The device that made the last change to this dataset.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.CognitoSync.Types.Dataset.html#dataset_lastModifiedBy"><span class="hs-identifier hs-type">dataset_lastModifiedBy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.Types.Dataset.html#Dataset"><span class="hs-identifier hs-type">Dataset</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span id="dataset_lastModifiedBy"><span class="annot"><span class="annottext">dataset_lastModifiedBy :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Dataset -&gt; f Dataset
 </span><a href="Network.AWS.CognitoSync.Types.Dataset.html#dataset_lastModifiedBy"><span class="hs-identifier hs-var hs-var">dataset_lastModifiedBy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Dataset -&gt; Maybe Text)
 -&gt; (Dataset -&gt; Maybe Text -&gt; Dataset)
 -&gt; Lens Dataset Dataset (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoSync.Types.Dataset.html#Dataset%27"><span class="hs-identifier hs-type">Dataset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679173854"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoSync.Types.Dataset.html#Dataset%27"><span class="hs-identifier hs-type">Dataset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679173893"><span class="annot"><span class="annottext">Maybe Text
 lastModifiedBy :: Maybe Text
 $sel:lastModifiedBy:Dataset' :: Dataset -&gt; Maybe Text
-</span><a href="#local-6989586621679173854"><span class="hs-identifier hs-var hs-var">lastModifiedBy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679173854"><span class="hs-identifier hs-var">lastModifiedBy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679173853"><span class="annot"><span class="annottext">s :: Dataset
-</span><a href="#local-6989586621679173853"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoSync.Types.Dataset.html#Dataset%27"><span class="hs-identifier hs-type">Dataset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679173852"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679173852"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Dataset
-</span><a href="#local-6989586621679173853"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedBy:Dataset' :: Maybe Text
+</span><a href="#local-6989586621679173893"><span class="hs-identifier hs-var hs-var">lastModifiedBy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679173893"><span class="hs-identifier hs-var">lastModifiedBy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679173892"><span class="annot"><span class="annottext">s :: Dataset
+</span><a href="#local-6989586621679173892"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoSync.Types.Dataset.html#Dataset%27"><span class="hs-identifier hs-type">Dataset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679173891"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679173891"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Dataset
+</span><a href="#local-6989586621679173892"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedBy:Dataset' :: Maybe Text
 </span><a href="Network.AWS.CognitoSync.Types.Dataset.html#%24sel%3AlastModifiedBy%3ADataset%27"><span class="hs-identifier hs-var">lastModifiedBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679173852"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.Types.Dataset.html#Dataset"><span class="hs-identifier hs-type">Dataset</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-comment">-- | A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9,</span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- \'_\' (underscore), \'-\' (dash), and \'.\' (dot).</span><span>
-</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.CognitoSync.Types.Dataset.html#dataset_datasetName"><span class="hs-identifier hs-type">dataset_datasetName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.Types.Dataset.html#Dataset"><span class="hs-identifier hs-type">Dataset</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-120"></span><span id="dataset_datasetName"><span class="annot"><span class="annottext">dataset_datasetName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Dataset -&gt; f Dataset
-</span><a href="Network.AWS.CognitoSync.Types.Dataset.html#dataset_datasetName"><span class="hs-identifier hs-var hs-var">dataset_datasetName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Dataset -&gt; Maybe Text)
+</span><a href="#local-6989586621679173891"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.Types.Dataset.html#Dataset"><span class="hs-identifier hs-type">Dataset</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | A name-spaced GUID (for example,</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- Cognito. GUID generation is unique within a region.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.CognitoSync.Types.Dataset.html#dataset_identityId"><span class="hs-identifier hs-type">dataset_identityId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.Types.Dataset.html#Dataset"><span class="hs-identifier hs-type">Dataset</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span id="dataset_identityId"><span class="annot"><span class="annottext">dataset_identityId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Dataset -&gt; f Dataset
+</span><a href="Network.AWS.CognitoSync.Types.Dataset.html#dataset_identityId"><span class="hs-identifier hs-var hs-var">dataset_identityId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Dataset -&gt; Maybe Text)
 -&gt; (Dataset -&gt; Maybe Text -&gt; Dataset)
 -&gt; Lens Dataset Dataset (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoSync.Types.Dataset.html#Dataset%27"><span class="hs-identifier hs-type">Dataset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679173850"><span class="annot"><span class="annottext">Maybe Text
-datasetName :: Maybe Text
-$sel:datasetName:Dataset' :: Dataset -&gt; Maybe Text
-</span><a href="#local-6989586621679173850"><span class="hs-identifier hs-var hs-var">datasetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679173850"><span class="hs-identifier hs-var">datasetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679173849"><span class="annot"><span class="annottext">s :: Dataset
-</span><a href="#local-6989586621679173849"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoSync.Types.Dataset.html#Dataset%27"><span class="hs-identifier hs-type">Dataset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679173848"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679173848"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Dataset
-</span><a href="#local-6989586621679173849"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:datasetName:Dataset' :: Maybe Text
-</span><a href="Network.AWS.CognitoSync.Types.Dataset.html#%24sel%3AdatasetName%3ADataset%27"><span class="hs-identifier hs-var">datasetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679173848"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.Types.Dataset.html#Dataset"><span class="hs-identifier hs-type">Dataset</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoSync.Types.Dataset.html#Dataset%27"><span class="hs-identifier hs-type">Dataset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679173889"><span class="annot"><span class="annottext">Maybe Text
+identityId :: Maybe Text
+$sel:identityId:Dataset' :: Dataset -&gt; Maybe Text
+</span><a href="#local-6989586621679173889"><span class="hs-identifier hs-var hs-var">identityId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679173889"><span class="hs-identifier hs-var">identityId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679173888"><span class="annot"><span class="annottext">s :: Dataset
+</span><a href="#local-6989586621679173888"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoSync.Types.Dataset.html#Dataset%27"><span class="hs-identifier hs-type">Dataset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679173887"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679173887"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Dataset
+</span><a href="#local-6989586621679173888"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identityId:Dataset' :: Maybe Text
+</span><a href="Network.AWS.CognitoSync.Types.Dataset.html#%24sel%3AidentityId%3ADataset%27"><span class="hs-identifier hs-var">identityId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679173887"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.Types.Dataset.html#Dataset"><span class="hs-identifier hs-type">Dataset</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679173845"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.Types.Dataset.html#Dataset"><span class="hs-identifier hs-type">Dataset</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679173843"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Dataset
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679173884"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.Types.Dataset.html#Dataset"><span class="hs-identifier hs-type">Dataset</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679173882"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Dataset
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Dataset) -&gt; Value -&gt; Parser Dataset
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Dataset&quot;</span></span><span>
-</span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679173840"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679173840"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679173879"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679173879"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-127"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
 -&gt; Maybe Integer
--&gt; Maybe POSIX
 -&gt; Maybe Integer
 -&gt; Maybe Text
+-&gt; Maybe POSIX
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Dataset
 </span><a href="Network.AWS.CognitoSync.Types.Dataset.html#Dataset%27"><span class="hs-identifier hs-var">Dataset'</span></a></span><span>
 </span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
  -&gt; Maybe Integer
- -&gt; Maybe POSIX
  -&gt; Maybe Integer
  -&gt; Maybe Text
+ -&gt; Maybe POSIX
  -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Dataset)
 -&gt; Parser (Maybe POSIX)
 -&gt; Parser
      (Maybe Integer
-      -&gt; Maybe POSIX
       -&gt; Maybe Integer
       -&gt; Maybe Text
+      -&gt; Maybe POSIX
       -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Dataset)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679173840"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679173879"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LastModifiedDate&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Integer
-   -&gt; Maybe POSIX
    -&gt; Maybe Integer
    -&gt; Maybe Text
+   -&gt; Maybe POSIX
    -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Dataset)
 -&gt; Parser (Maybe Integer)
 -&gt; Parser
-     (Maybe POSIX
-      -&gt; Maybe Integer
+     (Maybe Integer
       -&gt; Maybe Text
+      -&gt; Maybe POSIX
       -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Dataset)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679173840"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+</span><a href="#local-6989586621679173879"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NumRecords&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe POSIX
-   -&gt; Maybe Integer
+  (Maybe Integer
    -&gt; Maybe Text
+   -&gt; Maybe POSIX
    -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Dataset)
--&gt; Parser (Maybe POSIX)
--&gt; Parser
-     (Maybe Integer
-      -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Dataset)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679173840"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;CreationDate&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Integer
-   -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Dataset)
 -&gt; Parser (Maybe Integer)
--&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Dataset)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe POSIX -&gt; Maybe Text -&gt; Maybe Text -&gt; Dataset)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679173840"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+</span><a href="#local-6989586621679173879"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DataStorage&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Dataset)
+</span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; Maybe POSIX -&gt; Maybe Text -&gt; Maybe Text -&gt; Dataset)
 -&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe POSIX -&gt; Maybe Text -&gt; Maybe Text -&gt; Dataset)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679173879"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DatasetName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; Maybe Text -&gt; Maybe Text -&gt; Dataset)
+-&gt; Parser (Maybe POSIX)
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Dataset)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679173840"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679173879"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;IdentityId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;CreationDate&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Dataset)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; Dataset)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679173840"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679173879"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LastModifiedBy&quot;</span></span><span class="hs-special">)</span><span>
@@ -444,13 +442,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser Dataset
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679173840"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679173879"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;DatasetName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;IdentityId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>
-</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679173834"><span id="local-6989586621679173836"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.Types.Dataset.html#Dataset"><span class="hs-identifier hs-type">Dataset</span></a></span></span></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679173873"><span id="local-6989586621679173875"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.Types.Dataset.html#Dataset"><span class="hs-identifier hs-type">Dataset</span></a></span></span></span><span>
 </span><span id="line-138"></span><span>
-</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679173831"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.Types.Dataset.html#Dataset"><span class="hs-identifier hs-type">Dataset</span></a></span></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679173870"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.Types.Dataset.html#Dataset"><span class="hs-identifier hs-type">Dataset</span></a></span></span><span>
 </span><span id="line-140"></span></pre></body></html>

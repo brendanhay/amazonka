@@ -26,12 +26,12 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Describes a trigger.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newTrigger' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679307970"><span id="local-6989586621679307971"></span></span><span class="hs-keyword">data</span><span> </span><span id="Trigger"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Trigger.html#Trigger"><span class="hs-identifier hs-var">Trigger</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Trigger%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Trigger.html#Trigger%27"><span class="hs-identifier hs-var">Trigger'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679308266"><span id="local-6989586621679308267"></span></span><span class="hs-keyword">data</span><span> </span><span id="Trigger"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Trigger.html#Trigger"><span class="hs-identifier hs-var">Trigger</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Trigger%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Trigger.html#Trigger%27"><span class="hs-identifier hs-var">Trigger'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the trigger.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3Aname%3ATrigger%27"><span class="annot"><span class="annottext">Trigger -&gt; Maybe Text
 </span><a href="Network.AWS.ElasticBeanstalk.Types.Trigger.html#%24sel%3Aname%3ATrigger%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679307964"><span id="local-6989586621679307966"><span class="annot"><span class="annottext">Trigger -&gt; Trigger -&gt; Bool
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679308260"><span id="local-6989586621679308262"><span class="annot"><span class="annottext">Trigger -&gt; Trigger -&gt; Bool
 (Trigger -&gt; Trigger -&gt; Bool)
 -&gt; (Trigger -&gt; Trigger -&gt; Bool) -&gt; Eq Trigger
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -39,7 +39,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Trigger -&gt; Trigger -&gt; Bool
 == :: Trigger -&gt; Trigger -&gt; Bool
 $c== :: Trigger -&gt; Trigger -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307955"><span id="local-6989586621679307957"><span id="local-6989586621679307959"><span id="local-6989586621679307961"><span class="annot"><span class="annottext">ReadPrec [Trigger]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679308251"><span id="local-6989586621679308253"><span id="local-6989586621679308255"><span id="local-6989586621679308257"><span class="annot"><span class="annottext">ReadPrec [Trigger]
 ReadPrec Trigger
 Int -&gt; ReadS Trigger
 ReadS [Trigger]
@@ -59,7 +59,7 @@ readList :: ReadS [Trigger]
 $creadList :: ReadS [Trigger]
 readsPrec :: Int -&gt; ReadS Trigger
 $creadsPrec :: Int -&gt; ReadS Trigger
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307948"><span id="local-6989586621679307950"><span id="local-6989586621679307952"><span class="annot"><span class="annottext">Int -&gt; Trigger -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679308244"><span id="local-6989586621679308246"><span id="local-6989586621679308248"><span class="annot"><span class="annottext">Int -&gt; Trigger -&gt; ShowS
 [Trigger] -&gt; ShowS
 Trigger -&gt; String
 (Int -&gt; Trigger -&gt; ShowS)
@@ -107,31 +107,31 @@ forall a. Maybe a
 -&gt; (Trigger -&gt; Maybe Text -&gt; Trigger)
 -&gt; Lens Trigger Trigger (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Trigger.html#Trigger%27"><span class="hs-identifier hs-type">Trigger'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307939"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Trigger.html#Trigger%27"><span class="hs-identifier hs-type">Trigger'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308235"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 $sel:name:Trigger' :: Trigger -&gt; Maybe Text
-</span><a href="#local-6989586621679307939"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679307939"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307938"><span class="annot"><span class="annottext">s :: Trigger
-</span><a href="#local-6989586621679307938"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Trigger.html#Trigger%27"><span class="hs-identifier hs-type">Trigger'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307937"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679307937"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Trigger
-</span><a href="#local-6989586621679307938"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Trigger' :: Maybe Text
+</span><a href="#local-6989586621679308235"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679308235"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679308234"><span class="annot"><span class="annottext">s :: Trigger
+</span><a href="#local-6989586621679308234"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Trigger.html#Trigger%27"><span class="hs-identifier hs-type">Trigger'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679308233"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679308233"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Trigger
+</span><a href="#local-6989586621679308234"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Trigger' :: Maybe Text
 </span><a href="Network.AWS.ElasticBeanstalk.Types.Trigger.html#%24sel%3Aname%3ATrigger%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679307937"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Trigger.html#Trigger"><span class="hs-identifier hs-type">Trigger</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679308233"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Trigger.html#Trigger"><span class="hs-identifier hs-type">Trigger</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-51"></span><span>
 </span><span id="line-52"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Trigger.html#Trigger"><span class="hs-identifier hs-type">Trigger</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-53"></span><span>  </span><span id="local-6989586621679307934"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Trigger
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679307932"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679307932"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Trigger
+</span><span id="line-53"></span><span>  </span><span id="local-6989586621679308230"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Trigger
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679308228"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679308228"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Trigger
 </span><a href="Network.AWS.ElasticBeanstalk.Types.Trigger.html#Trigger%27"><span class="hs-identifier hs-var">Trigger'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Trigger)
 -&gt; Either String (Maybe Text) -&gt; Either String Trigger
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679307932"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679308228"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-54"></span><span>
-</span><span id="line-55"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307926"><span id="local-6989586621679307928"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Trigger.html#Trigger"><span class="hs-identifier hs-type">Trigger</span></a></span></span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679308222"><span id="local-6989586621679308224"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Trigger.html#Trigger"><span class="hs-identifier hs-type">Trigger</span></a></span></span></span><span>
 </span><span id="line-56"></span><span>
-</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307923"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Trigger.html#Trigger"><span class="hs-identifier hs-type">Trigger</span></a></span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679308219"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Trigger.html#Trigger"><span class="hs-identifier hs-type">Trigger</span></a></span></span><span>
 </span><span id="line-58"></span></pre></body></html>

@@ -45,7 +45,7 @@
 </span><span id="line-45"></span><span class="hs-comment">-- @OriginRequestPolicy@.</span><span>
 </span><span id="line-46"></span><span class="hs-comment">--</span><span>
 </span><span id="line-47"></span><span class="hs-comment">-- /See:/ 'newCachePolicy' smart constructor.</span><span>
-</span><span id="line-48"></span><span id="local-6989586621679400294"><span id="local-6989586621679400295"></span></span><span class="hs-keyword">data</span><span> </span><span id="CachePolicy"><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicy.html#CachePolicy"><span class="hs-identifier hs-var">CachePolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CachePolicy%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicy.html#CachePolicy%27"><span class="hs-identifier hs-var">CachePolicy'</span></a></span></span><span>
+</span><span id="line-48"></span><span id="local-6989586621679400552"><span id="local-6989586621679400553"></span></span><span class="hs-keyword">data</span><span> </span><span id="CachePolicy"><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicy.html#CachePolicy"><span class="hs-identifier hs-var">CachePolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CachePolicy%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicy.html#CachePolicy%27"><span class="hs-identifier hs-var">CachePolicy'</span></a></span></span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique identifier for the cache policy.</span><span>
 </span><span id="line-50"></span><span>    </span><span id="%24sel%3Aid%3ACachePolicy%27"><span class="annot"><span class="annottext">CachePolicy -&gt; Text
 </span><a href="Network.AWS.CloudFront.Types.CachePolicy.html#%24sel%3Aid%3ACachePolicy%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -56,7 +56,7 @@
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3AcachePolicyConfig%3ACachePolicy%27"><span class="annot"><span class="annottext">CachePolicy -&gt; CachePolicyConfig
 </span><a href="Network.AWS.CloudFront.Types.CachePolicy.html#%24sel%3AcachePolicyConfig%3ACachePolicy%27"><span class="hs-identifier hs-var hs-var">cachePolicyConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicyConfig.html#CachePolicyConfig"><span class="hs-identifier hs-type">CachePolicyConfig</span></a></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679400286"><span id="local-6989586621679400288"><span class="annot"><span class="annottext">CachePolicy -&gt; CachePolicy -&gt; Bool
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679400544"><span id="local-6989586621679400546"><span class="annot"><span class="annottext">CachePolicy -&gt; CachePolicy -&gt; Bool
 (CachePolicy -&gt; CachePolicy -&gt; Bool)
 -&gt; (CachePolicy -&gt; CachePolicy -&gt; Bool) -&gt; Eq CachePolicy
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -64,7 +64,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CachePolicy -&gt; CachePolicy -&gt; Bool
 == :: CachePolicy -&gt; CachePolicy -&gt; Bool
 $c== :: CachePolicy -&gt; CachePolicy -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679400277"><span id="local-6989586621679400279"><span id="local-6989586621679400281"><span id="local-6989586621679400283"><span class="annot"><span class="annottext">ReadPrec [CachePolicy]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679400535"><span id="local-6989586621679400537"><span id="local-6989586621679400539"><span id="local-6989586621679400541"><span class="annot"><span class="annottext">ReadPrec [CachePolicy]
 ReadPrec CachePolicy
 Int -&gt; ReadS CachePolicy
 ReadS [CachePolicy]
@@ -84,7 +84,7 @@ readList :: ReadS [CachePolicy]
 $creadList :: ReadS [CachePolicy]
 readsPrec :: Int -&gt; ReadS CachePolicy
 $creadsPrec :: Int -&gt; ReadS CachePolicy
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679400270"><span id="local-6989586621679400272"><span id="local-6989586621679400274"><span class="annot"><span class="annottext">Int -&gt; CachePolicy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679400528"><span id="local-6989586621679400530"><span id="local-6989586621679400532"><span class="annot"><span class="annottext">Int -&gt; CachePolicy -&gt; ShowS
 [CachePolicy] -&gt; ShowS
 CachePolicy -&gt; String
 (Int -&gt; CachePolicy -&gt; ShowS)
@@ -133,17 +133,17 @@ $cfrom :: forall x. CachePolicy -&gt; Rep CachePolicy x
 </span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicy.html#CachePolicy"><span class="hs-identifier hs-type">CachePolicy</span></a></span><span>
 </span><span id="line-79"></span><span id="newCachePolicy"><span class="annot"><span class="annottext">newCachePolicy :: Text -&gt; UTCTime -&gt; CachePolicyConfig -&gt; CachePolicy
 </span><a href="Network.AWS.CloudFront.Types.CachePolicy.html#newCachePolicy"><span class="hs-identifier hs-var hs-var">newCachePolicy</span></a></span></span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679400264"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679400264"><span class="hs-identifier hs-var">pId_</span></a></span></span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679400263"><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679400263"><span class="hs-identifier hs-var">pLastModifiedTime_</span></a></span></span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679400262"><span class="annot"><span class="annottext">CachePolicyConfig
-</span><a href="#local-6989586621679400262"><span class="hs-identifier hs-var">pCachePolicyConfig_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679400522"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679400522"><span class="hs-identifier hs-var">pId_</span></a></span></span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679400521"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679400521"><span class="hs-identifier hs-var">pLastModifiedTime_</span></a></span></span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679400520"><span class="annot"><span class="annottext">CachePolicyConfig
+</span><a href="#local-6989586621679400520"><span class="hs-identifier hs-var">pCachePolicyConfig_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">CachePolicy' :: Text -&gt; ISO8601 -&gt; CachePolicyConfig -&gt; CachePolicy
 </span><a href="Network.AWS.CloudFront.Types.CachePolicy.html#CachePolicy%27"><span class="hs-identifier hs-type">CachePolicy'</span></a></span><span>
 </span><span id="line-84"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:id:CachePolicy' :: Text
 </span><a href="Network.AWS.CloudFront.Types.CachePolicy.html#%24sel%3Aid%3ACachePolicy%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679400264"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679400522"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-85"></span><span>        </span><span class="annot"><span class="annottext">$sel:lastModifiedTime:CachePolicy' :: ISO8601
 </span><a href="Network.AWS.CloudFront.Types.CachePolicy.html#%24sel%3AlastModifiedTime%3ACachePolicy%27"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>          </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime)
@@ -154,10 +154,10 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; UTCTime -&gt; ISO8601
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679400263"><span class="hs-identifier hs-var">pLastModifiedTime_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679400521"><span class="hs-identifier hs-var">pLastModifiedTime_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-87"></span><span>        </span><span class="annot"><span class="annottext">$sel:cachePolicyConfig:CachePolicy' :: CachePolicyConfig
 </span><a href="Network.AWS.CloudFront.Types.CachePolicy.html#%24sel%3AcachePolicyConfig%3ACachePolicy%27"><span class="hs-identifier hs-var">cachePolicyConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CachePolicyConfig
-</span><a href="#local-6989586621679400262"><span class="hs-identifier hs-var">pCachePolicyConfig_</span></a></span><span>
+</span><a href="#local-6989586621679400520"><span class="hs-identifier hs-var">pCachePolicyConfig_</span></a></span><span>
 </span><span id="line-88"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- | The unique identifier for the cache policy.</span><span>
@@ -167,16 +167,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; (CachePolicy -&gt; Text -&gt; CachePolicy)
 -&gt; Lens CachePolicy CachePolicy Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicy.html#CachePolicy%27"><span class="hs-identifier hs-type">CachePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679400256"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicy.html#CachePolicy%27"><span class="hs-identifier hs-type">CachePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679400514"><span class="annot"><span class="annottext">Text
 id :: Text
 $sel:id:CachePolicy' :: CachePolicy -&gt; Text
-</span><a href="#local-6989586621679400256"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679400256"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679400255"><span class="annot"><span class="annottext">s :: CachePolicy
-</span><a href="#local-6989586621679400255"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicy.html#CachePolicy%27"><span class="hs-identifier hs-type">CachePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679400254"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679400254"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CachePolicy
-</span><a href="#local-6989586621679400255"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:CachePolicy' :: Text
+</span><a href="#local-6989586621679400514"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679400514"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679400513"><span class="annot"><span class="annottext">s :: CachePolicy
+</span><a href="#local-6989586621679400513"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicy.html#CachePolicy%27"><span class="hs-identifier hs-type">CachePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679400512"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679400512"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CachePolicy
+</span><a href="#local-6989586621679400513"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:CachePolicy' :: Text
 </span><a href="Network.AWS.CloudFront.Types.CachePolicy.html#%24sel%3Aid%3ACachePolicy%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679400254"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicy.html#CachePolicy"><span class="hs-identifier hs-type">CachePolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679400512"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicy.html#CachePolicy"><span class="hs-identifier hs-type">CachePolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- | The date and time when the cache policy was last modified.</span><span>
 </span><span id="line-95"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicy.html#cachePolicy_lastModifiedTime"><span class="hs-identifier hs-type">cachePolicy_lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicy.html#CachePolicy"><span class="hs-identifier hs-type">CachePolicy</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
@@ -185,16 +185,16 @@ $sel:id:CachePolicy' :: CachePolicy -&gt; Text
 -&gt; (CachePolicy -&gt; ISO8601 -&gt; CachePolicy)
 -&gt; Lens CachePolicy CachePolicy ISO8601 ISO8601
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicy.html#CachePolicy%27"><span class="hs-identifier hs-type">CachePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679400252"><span class="annot"><span class="annottext">ISO8601
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicy.html#CachePolicy%27"><span class="hs-identifier hs-type">CachePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679400510"><span class="annot"><span class="annottext">ISO8601
 lastModifiedTime :: ISO8601
 $sel:lastModifiedTime:CachePolicy' :: CachePolicy -&gt; ISO8601
-</span><a href="#local-6989586621679400252"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ISO8601
-</span><a href="#local-6989586621679400252"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679400251"><span class="annot"><span class="annottext">s :: CachePolicy
-</span><a href="#local-6989586621679400251"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicy.html#CachePolicy%27"><span class="hs-identifier hs-type">CachePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679400250"><span class="annot"><span class="annottext">ISO8601
-</span><a href="#local-6989586621679400250"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CachePolicy
-</span><a href="#local-6989586621679400251"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedTime:CachePolicy' :: ISO8601
+</span><a href="#local-6989586621679400510"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ISO8601
+</span><a href="#local-6989586621679400510"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679400509"><span class="annot"><span class="annottext">s :: CachePolicy
+</span><a href="#local-6989586621679400509"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicy.html#CachePolicy%27"><span class="hs-identifier hs-type">CachePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679400508"><span class="annot"><span class="annottext">ISO8601
+</span><a href="#local-6989586621679400508"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CachePolicy
+</span><a href="#local-6989586621679400509"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedTime:CachePolicy' :: ISO8601
 </span><a href="Network.AWS.CloudFront.Types.CachePolicy.html#%24sel%3AlastModifiedTime%3ACachePolicy%27"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ISO8601
-</span><a href="#local-6989586621679400250"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicy.html#CachePolicy"><span class="hs-identifier hs-type">CachePolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((ISO8601 -&gt; f ISO8601) -&gt; CachePolicy -&gt; f CachePolicy)
+</span><a href="#local-6989586621679400508"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicy.html#CachePolicy"><span class="hs-identifier hs-type">CachePolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((ISO8601 -&gt; f ISO8601) -&gt; CachePolicy -&gt; f CachePolicy)
 -&gt; ((UTCTime -&gt; f UTCTime) -&gt; ISO8601 -&gt; f ISO8601)
 -&gt; (UTCTime -&gt; f UTCTime)
 -&gt; CachePolicy
@@ -212,21 +212,21 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; (CachePolicy -&gt; CachePolicyConfig -&gt; CachePolicy)
 -&gt; Lens CachePolicy CachePolicy CachePolicyConfig CachePolicyConfig
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicy.html#CachePolicy%27"><span class="hs-identifier hs-type">CachePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679400247"><span class="annot"><span class="annottext">CachePolicyConfig
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicy.html#CachePolicy%27"><span class="hs-identifier hs-type">CachePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679400505"><span class="annot"><span class="annottext">CachePolicyConfig
 cachePolicyConfig :: CachePolicyConfig
 $sel:cachePolicyConfig:CachePolicy' :: CachePolicy -&gt; CachePolicyConfig
-</span><a href="#local-6989586621679400247"><span class="hs-identifier hs-var hs-var">cachePolicyConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CachePolicyConfig
-</span><a href="#local-6989586621679400247"><span class="hs-identifier hs-var">cachePolicyConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679400246"><span class="annot"><span class="annottext">s :: CachePolicy
-</span><a href="#local-6989586621679400246"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicy.html#CachePolicy%27"><span class="hs-identifier hs-type">CachePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679400245"><span class="annot"><span class="annottext">CachePolicyConfig
-</span><a href="#local-6989586621679400245"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CachePolicy
-</span><a href="#local-6989586621679400246"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cachePolicyConfig:CachePolicy' :: CachePolicyConfig
+</span><a href="#local-6989586621679400505"><span class="hs-identifier hs-var hs-var">cachePolicyConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CachePolicyConfig
+</span><a href="#local-6989586621679400505"><span class="hs-identifier hs-var">cachePolicyConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679400504"><span class="annot"><span class="annottext">s :: CachePolicy
+</span><a href="#local-6989586621679400504"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicy.html#CachePolicy%27"><span class="hs-identifier hs-type">CachePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679400503"><span class="annot"><span class="annottext">CachePolicyConfig
+</span><a href="#local-6989586621679400503"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CachePolicy
+</span><a href="#local-6989586621679400504"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cachePolicyConfig:CachePolicy' :: CachePolicyConfig
 </span><a href="Network.AWS.CloudFront.Types.CachePolicy.html#%24sel%3AcachePolicyConfig%3ACachePolicy%27"><span class="hs-identifier hs-var">cachePolicyConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CachePolicyConfig
-</span><a href="#local-6989586621679400245"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicy.html#CachePolicy"><span class="hs-identifier hs-type">CachePolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679400503"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicy.html#CachePolicy"><span class="hs-identifier hs-type">CachePolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicy.html#CachePolicy"><span class="hs-identifier hs-type">CachePolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679400242"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String CachePolicy
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679400240"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679400240"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679400500"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String CachePolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679400498"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679400498"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">Text -&gt; ISO8601 -&gt; CachePolicyConfig -&gt; CachePolicy
 </span><a href="Network.AWS.CloudFront.Types.CachePolicy.html#CachePolicy%27"><span class="hs-identifier hs-var">CachePolicy'</span></a></span><span>
 </span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">(Text -&gt; ISO8601 -&gt; CachePolicyConfig -&gt; CachePolicy)
@@ -234,7 +234,7 @@ $sel:cachePolicyConfig:CachePolicy' :: CachePolicy -&gt; CachePolicyConfig
 -&gt; Either String (ISO8601 -&gt; CachePolicyConfig -&gt; CachePolicy)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679400240"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679400498"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
@@ -243,7 +243,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String (CachePolicyConfig -&gt; CachePolicy)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679400240"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String ISO8601
+</span><a href="#local-6989586621679400498"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String ISO8601
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LastModifiedTime&quot;</span></span><span class="hs-special">)</span><span>
@@ -251,12 +251,12 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String CachePolicyConfig -&gt; Either String CachePolicy
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679400240"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String CachePolicyConfig
+</span><a href="#local-6989586621679400498"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String CachePolicyConfig
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CachePolicyConfig&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679400234"><span id="local-6989586621679400236"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicy.html#CachePolicy"><span class="hs-identifier hs-type">CachePolicy</span></a></span></span></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679400492"><span id="local-6989586621679400494"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicy.html#CachePolicy"><span class="hs-identifier hs-type">CachePolicy</span></a></span></span></span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679400231"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicy.html#CachePolicy"><span class="hs-identifier hs-type">CachePolicy</span></a></span></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679400489"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicy.html#CachePolicy"><span class="hs-identifier hs-type">CachePolicy</span></a></span></span><span>
 </span><span id="line-112"></span></pre></body></html>

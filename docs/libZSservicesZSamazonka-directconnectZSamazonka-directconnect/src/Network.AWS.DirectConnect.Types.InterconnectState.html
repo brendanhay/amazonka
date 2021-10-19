@@ -34,13 +34,13 @@
 </span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-36"></span><span>
-</span><span id="line-37"></span><span id="local-6989586621679279976"><span id="local-6989586621679279977"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InterconnectState"><span class="annot"><a href="Network.AWS.DirectConnect.Types.InterconnectState.html#InterconnectState"><span class="hs-identifier hs-var">InterconnectState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InterconnectState%27"><span class="annot"><a href="Network.AWS.DirectConnect.Types.InterconnectState.html#InterconnectState%27"><span class="hs-identifier hs-var">InterconnectState'</span></a></span></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679280199"><span id="local-6989586621679280200"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InterconnectState"><span class="annot"><a href="Network.AWS.DirectConnect.Types.InterconnectState.html#InterconnectState"><span class="hs-identifier hs-var">InterconnectState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InterconnectState%27"><span class="annot"><a href="Network.AWS.DirectConnect.Types.InterconnectState.html#InterconnectState%27"><span class="hs-identifier hs-var">InterconnectState'</span></a></span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromInterconnectState"><span class="annot"><span class="annottext">InterconnectState -&gt; Text
 </span><a href="Network.AWS.DirectConnect.Types.InterconnectState.html#fromInterconnectState"><span class="hs-identifier hs-var hs-var">fromInterconnectState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679279968"><span id="local-6989586621679279970"><span id="local-6989586621679279972"><span class="annot"><span class="annottext">Int -&gt; InterconnectState -&gt; ShowS
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679280191"><span id="local-6989586621679280193"><span id="local-6989586621679280195"><span class="annot"><span class="annottext">Int -&gt; InterconnectState -&gt; ShowS
 [InterconnectState] -&gt; ShowS
 InterconnectState -&gt; String
 (Int -&gt; InterconnectState -&gt; ShowS)
@@ -56,7 +56,7 @@ $cshow :: InterconnectState -&gt; String
 showsPrec :: Int -&gt; InterconnectState -&gt; ShowS
 $cshowsPrec :: Int -&gt; InterconnectState -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679279959"><span id="local-6989586621679279961"><span id="local-6989586621679279963"><span id="local-6989586621679279965"><span class="annot"><span class="annottext">ReadPrec [InterconnectState]
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679280182"><span id="local-6989586621679280184"><span id="local-6989586621679280186"><span id="local-6989586621679280188"><span class="annot"><span class="annottext">ReadPrec [InterconnectState]
 ReadPrec InterconnectState
 Int -&gt; ReadS InterconnectState
 ReadS [InterconnectState]
@@ -77,7 +77,7 @@ $creadList :: ReadS [InterconnectState]
 readsPrec :: Int -&gt; ReadS InterconnectState
 $creadsPrec :: Int -&gt; ReadS InterconnectState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679279954"><span id="local-6989586621679279956"><span class="annot"><span class="annottext">InterconnectState -&gt; InterconnectState -&gt; Bool
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679280177"><span id="local-6989586621679280179"><span class="annot"><span class="annottext">InterconnectState -&gt; InterconnectState -&gt; Bool
 (InterconnectState -&gt; InterconnectState -&gt; Bool)
 -&gt; (InterconnectState -&gt; InterconnectState -&gt; Bool)
 -&gt; Eq InterconnectState
@@ -87,7 +87,7 @@ $c/= :: InterconnectState -&gt; InterconnectState -&gt; Bool
 == :: InterconnectState -&gt; InterconnectState -&gt; Bool
 $c== :: InterconnectState -&gt; InterconnectState -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679279938"><span id="local-6989586621679279940"><span id="local-6989586621679279942"><span id="local-6989586621679279944"><span id="local-6989586621679279946"><span id="local-6989586621679279948"><span id="local-6989586621679279950"><span class="annot"><span class="annottext">Eq InterconnectState
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679280161"><span id="local-6989586621679280163"><span id="local-6989586621679280165"><span id="local-6989586621679280167"><span id="local-6989586621679280169"><span id="local-6989586621679280171"><span id="local-6989586621679280173"><span class="annot"><span class="annottext">Eq InterconnectState
 Eq InterconnectState
 -&gt; (InterconnectState -&gt; InterconnectState -&gt; Ordering)
 -&gt; (InterconnectState -&gt; InterconnectState -&gt; Bool)
@@ -138,7 +138,7 @@ $cfrom :: forall x. InterconnectState -&gt; Rep InterconnectState x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679279930"><span id="local-6989586621679279932"><span class="annot"><span class="annottext">Int -&gt; InterconnectState -&gt; Int
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679280153"><span id="local-6989586621679280155"><span class="annot"><span class="annottext">Int -&gt; InterconnectState -&gt; Int
 InterconnectState -&gt; Int
 (Int -&gt; InterconnectState -&gt; Int)
 -&gt; (InterconnectState -&gt; Int) -&gt; Hashable InterconnectState
@@ -148,51 +148,51 @@ $chash :: InterconnectState -&gt; Int
 hashWithSalt :: Int -&gt; InterconnectState -&gt; Int
 $chashWithSalt :: Int -&gt; InterconnectState -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679279927"><span class="annot"><span class="annottext">InterconnectState -&gt; ()
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679280150"><span class="annot"><span class="annottext">InterconnectState -&gt; ()
 (InterconnectState -&gt; ()) -&gt; NFData InterconnectState
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: InterconnectState -&gt; ()
 $crnf :: InterconnectState -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679279924"><span class="annot"><span class="annottext">Text -&gt; Either String InterconnectState
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679280147"><span class="annot"><span class="annottext">Text -&gt; Either String InterconnectState
 (Text -&gt; Either String InterconnectState)
 -&gt; FromText InterconnectState
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String InterconnectState
 $cfromText :: Text -&gt; Either String InterconnectState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679279921"><span class="annot"><span class="annottext">InterconnectState -&gt; Text
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679280144"><span class="annot"><span class="annottext">InterconnectState -&gt; Text
 (InterconnectState -&gt; Text) -&gt; ToText InterconnectState
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: InterconnectState -&gt; Text
 $ctoText :: InterconnectState -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679279918"><span class="annot"><span class="annottext">InterconnectState -&gt; ByteString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679280141"><span class="annot"><span class="annottext">InterconnectState -&gt; ByteString
 (InterconnectState -&gt; ByteString) -&gt; ToByteString InterconnectState
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: InterconnectState -&gt; ByteString
 $ctoBS :: InterconnectState -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679279915"><span class="annot"><span class="annottext">InterconnectState -&gt; ByteStringBuilder
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679280138"><span class="annot"><span class="annottext">InterconnectState -&gt; ByteStringBuilder
 (InterconnectState -&gt; ByteStringBuilder) -&gt; ToLog InterconnectState
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: InterconnectState -&gt; ByteStringBuilder
 $cbuild :: InterconnectState -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679279912"><span class="annot"><span class="annottext">HeaderName -&gt; InterconnectState -&gt; [Header]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679280135"><span class="annot"><span class="annottext">HeaderName -&gt; InterconnectState -&gt; [Header]
 (HeaderName -&gt; InterconnectState -&gt; [Header])
 -&gt; ToHeader InterconnectState
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; InterconnectState -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; InterconnectState -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679279909"><span class="annot"><span class="annottext">InterconnectState -&gt; QueryString
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679280132"><span class="annot"><span class="annottext">InterconnectState -&gt; QueryString
 (InterconnectState -&gt; QueryString) -&gt; ToQuery InterconnectState
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: InterconnectState -&gt; QueryString
 $ctoQuery :: InterconnectState -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679279904"><span id="local-6989586621679279906"><span class="annot"><span class="annottext">Value -&gt; Parser [InterconnectState]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679280127"><span id="local-6989586621679280129"><span class="annot"><span class="annottext">Value -&gt; Parser [InterconnectState]
 Value -&gt; Parser InterconnectState
 (Value -&gt; Parser InterconnectState)
 -&gt; (Value -&gt; Parser [InterconnectState])
@@ -204,7 +204,7 @@ $cparseJSONList :: Value -&gt; Parser [InterconnectState]
 parseJSON :: Value -&gt; Parser InterconnectState
 $cparseJSON :: Value -&gt; Parser InterconnectState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679279899"><span id="local-6989586621679279901"><span class="annot"><span class="annottext">FromJSONKeyFunction [InterconnectState]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679280122"><span id="local-6989586621679280124"><span class="annot"><span class="annottext">FromJSONKeyFunction [InterconnectState]
 FromJSONKeyFunction InterconnectState
 FromJSONKeyFunction InterconnectState
 -&gt; FromJSONKeyFunction [InterconnectState]
@@ -216,7 +216,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [InterconnectState]
 fromJSONKey :: FromJSONKeyFunction InterconnectState
 $cfromJSONKey :: FromJSONKeyFunction InterconnectState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679279890"><span id="local-6989586621679279892"><span id="local-6989586621679279894"><span id="local-6989586621679279896"><span class="annot"><span class="annottext">[InterconnectState] -&gt; Encoding
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679280113"><span id="local-6989586621679280115"><span id="local-6989586621679280117"><span id="local-6989586621679280119"><span class="annot"><span class="annottext">[InterconnectState] -&gt; Encoding
 [InterconnectState] -&gt; Value
 InterconnectState -&gt; Encoding
 InterconnectState -&gt; Value
@@ -240,7 +240,7 @@ $ctoEncoding :: InterconnectState -&gt; Encoding
 toJSON :: InterconnectState -&gt; Value
 $ctoJSON :: InterconnectState -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679279885"><span id="local-6989586621679279887"><span class="annot"><span class="annottext">ToJSONKeyFunction [InterconnectState]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679280108"><span id="local-6989586621679280110"><span class="annot"><span class="annottext">ToJSONKeyFunction [InterconnectState]
 ToJSONKeyFunction InterconnectState
 ToJSONKeyFunction InterconnectState
 -&gt; ToJSONKeyFunction [InterconnectState]
@@ -252,14 +252,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [InterconnectState]
 toJSONKey :: ToJSONKeyFunction InterconnectState
 $ctoJSONKey :: ToJSONKeyFunction InterconnectState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679279882"><span class="annot"><span class="annottext">[Node] -&gt; Either String InterconnectState
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679280105"><span class="annot"><span class="annottext">[Node] -&gt; Either String InterconnectState
 ([Node] -&gt; Either String InterconnectState)
 -&gt; FromXML InterconnectState
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String InterconnectState
 $cparseXML :: [Node] -&gt; Either String InterconnectState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679279879"><span class="annot"><span class="annottext">InterconnectState -&gt; XML
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679280102"><span class="annot"><span class="annottext">InterconnectState -&gt; XML
 (InterconnectState -&gt; XML) -&gt; ToXML InterconnectState
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: InterconnectState -&gt; XML

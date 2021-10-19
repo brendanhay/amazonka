@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- ES destination.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newElasticsearchBufferingHints' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679256087"><span id="local-6989586621679256088"></span></span><span class="hs-keyword">data</span><span> </span><span id="ElasticsearchBufferingHints"><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchBufferingHints.html#ElasticsearchBufferingHints"><span class="hs-identifier hs-var">ElasticsearchBufferingHints</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ElasticsearchBufferingHints%27"><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchBufferingHints.html#ElasticsearchBufferingHints%27"><span class="hs-identifier hs-var">ElasticsearchBufferingHints'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679270309"><span id="local-6989586621679270310"></span></span><span class="hs-keyword">data</span><span> </span><span id="ElasticsearchBufferingHints"><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchBufferingHints.html#ElasticsearchBufferingHints"><span class="hs-identifier hs-var">ElasticsearchBufferingHints</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ElasticsearchBufferingHints%27"><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchBufferingHints.html#ElasticsearchBufferingHints%27"><span class="hs-identifier hs-var">ElasticsearchBufferingHints'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Buffer incoming data to the specified size, in MBs, before delivering it</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- to the destination. The default value is 5.</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -43,7 +43,7 @@
 </span><span id="line-42"></span><span>    </span><span id="%24sel%3AintervalInSeconds%3AElasticsearchBufferingHints%27"><span class="annot"><span class="annottext">ElasticsearchBufferingHints -&gt; Maybe Natural
 </span><a href="Network.AWS.Firehose.Types.ElasticsearchBufferingHints.html#%24sel%3AintervalInSeconds%3AElasticsearchBufferingHints%27"><span class="hs-identifier hs-var hs-var">intervalInSeconds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679256080"><span id="local-6989586621679256082"><span class="annot"><span class="annottext">ElasticsearchBufferingHints -&gt; ElasticsearchBufferingHints -&gt; Bool
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679270302"><span id="local-6989586621679270304"><span class="annot"><span class="annottext">ElasticsearchBufferingHints -&gt; ElasticsearchBufferingHints -&gt; Bool
 (ElasticsearchBufferingHints
  -&gt; ElasticsearchBufferingHints -&gt; Bool)
 -&gt; (ElasticsearchBufferingHints
@@ -54,7 +54,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ElasticsearchBufferingHints -&gt; ElasticsearchBufferingHints -&gt; Bool
 == :: ElasticsearchBufferingHints -&gt; ElasticsearchBufferingHints -&gt; Bool
 $c== :: ElasticsearchBufferingHints -&gt; ElasticsearchBufferingHints -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256071"><span id="local-6989586621679256073"><span id="local-6989586621679256075"><span id="local-6989586621679256077"><span class="annot"><span class="annottext">ReadPrec [ElasticsearchBufferingHints]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270293"><span id="local-6989586621679270295"><span id="local-6989586621679270297"><span id="local-6989586621679270299"><span class="annot"><span class="annottext">ReadPrec [ElasticsearchBufferingHints]
 ReadPrec ElasticsearchBufferingHints
 Int -&gt; ReadS ElasticsearchBufferingHints
 ReadS [ElasticsearchBufferingHints]
@@ -74,7 +74,7 @@ readList :: ReadS [ElasticsearchBufferingHints]
 $creadList :: ReadS [ElasticsearchBufferingHints]
 readsPrec :: Int -&gt; ReadS ElasticsearchBufferingHints
 $creadsPrec :: Int -&gt; ReadS ElasticsearchBufferingHints
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256064"><span id="local-6989586621679256066"><span id="local-6989586621679256068"><span class="annot"><span class="annottext">Int -&gt; ElasticsearchBufferingHints -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270286"><span id="local-6989586621679270288"><span id="local-6989586621679270290"><span class="annot"><span class="annottext">Int -&gt; ElasticsearchBufferingHints -&gt; ShowS
 [ElasticsearchBufferingHints] -&gt; ShowS
 ElasticsearchBufferingHints -&gt; String
 (Int -&gt; ElasticsearchBufferingHints -&gt; ShowS)
@@ -161,16 +161,16 @@ forall a. Maybe a
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchBufferingHints.html#ElasticsearchBufferingHints%27"><span class="hs-identifier hs-type">ElasticsearchBufferingHints'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256055"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchBufferingHints.html#ElasticsearchBufferingHints%27"><span class="hs-identifier hs-type">ElasticsearchBufferingHints'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270277"><span class="annot"><span class="annottext">Maybe Natural
 sizeInMBs :: Maybe Natural
 $sel:sizeInMBs:ElasticsearchBufferingHints' :: ElasticsearchBufferingHints -&gt; Maybe Natural
-</span><a href="#local-6989586621679256055"><span class="hs-identifier hs-var hs-var">sizeInMBs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679256055"><span class="hs-identifier hs-var">sizeInMBs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256054"><span class="annot"><span class="annottext">s :: ElasticsearchBufferingHints
-</span><a href="#local-6989586621679256054"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchBufferingHints.html#ElasticsearchBufferingHints%27"><span class="hs-identifier hs-type">ElasticsearchBufferingHints'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256053"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679256053"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ElasticsearchBufferingHints
-</span><a href="#local-6989586621679256054"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sizeInMBs:ElasticsearchBufferingHints' :: Maybe Natural
+</span><a href="#local-6989586621679270277"><span class="hs-identifier hs-var hs-var">sizeInMBs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679270277"><span class="hs-identifier hs-var">sizeInMBs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270276"><span class="annot"><span class="annottext">s :: ElasticsearchBufferingHints
+</span><a href="#local-6989586621679270276"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchBufferingHints.html#ElasticsearchBufferingHints%27"><span class="hs-identifier hs-type">ElasticsearchBufferingHints'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270275"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679270275"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ElasticsearchBufferingHints
+</span><a href="#local-6989586621679270276"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sizeInMBs:ElasticsearchBufferingHints' :: Maybe Natural
 </span><a href="Network.AWS.Firehose.Types.ElasticsearchBufferingHints.html#%24sel%3AsizeInMBs%3AElasticsearchBufferingHints%27"><span class="hs-identifier hs-var">sizeInMBs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679256053"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchBufferingHints.html#ElasticsearchBufferingHints"><span class="hs-identifier hs-type">ElasticsearchBufferingHints</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679270275"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchBufferingHints.html#ElasticsearchBufferingHints"><span class="hs-identifier hs-type">ElasticsearchBufferingHints</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- | Buffer incoming data for the specified period of time, in seconds,</span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- before delivering it to the destination. The default value is 300 (5</span><span>
@@ -187,19 +187,19 @@ $sel:sizeInMBs:ElasticsearchBufferingHints' :: ElasticsearchBufferingHints -&gt;
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchBufferingHints.html#ElasticsearchBufferingHints%27"><span class="hs-identifier hs-type">ElasticsearchBufferingHints'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256051"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchBufferingHints.html#ElasticsearchBufferingHints%27"><span class="hs-identifier hs-type">ElasticsearchBufferingHints'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270273"><span class="annot"><span class="annottext">Maybe Natural
 intervalInSeconds :: Maybe Natural
 $sel:intervalInSeconds:ElasticsearchBufferingHints' :: ElasticsearchBufferingHints -&gt; Maybe Natural
-</span><a href="#local-6989586621679256051"><span class="hs-identifier hs-var hs-var">intervalInSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679256051"><span class="hs-identifier hs-var">intervalInSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256050"><span class="annot"><span class="annottext">s :: ElasticsearchBufferingHints
-</span><a href="#local-6989586621679256050"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchBufferingHints.html#ElasticsearchBufferingHints%27"><span class="hs-identifier hs-type">ElasticsearchBufferingHints'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256049"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679256049"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ElasticsearchBufferingHints
-</span><a href="#local-6989586621679256050"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:intervalInSeconds:ElasticsearchBufferingHints' :: Maybe Natural
+</span><a href="#local-6989586621679270273"><span class="hs-identifier hs-var hs-var">intervalInSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679270273"><span class="hs-identifier hs-var">intervalInSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270272"><span class="annot"><span class="annottext">s :: ElasticsearchBufferingHints
+</span><a href="#local-6989586621679270272"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchBufferingHints.html#ElasticsearchBufferingHints%27"><span class="hs-identifier hs-type">ElasticsearchBufferingHints'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270271"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679270271"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ElasticsearchBufferingHints
+</span><a href="#local-6989586621679270272"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:intervalInSeconds:ElasticsearchBufferingHints' :: Maybe Natural
 </span><a href="Network.AWS.Firehose.Types.ElasticsearchBufferingHints.html#%24sel%3AintervalInSeconds%3AElasticsearchBufferingHints%27"><span class="hs-identifier hs-var">intervalInSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679256049"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchBufferingHints.html#ElasticsearchBufferingHints"><span class="hs-identifier hs-type">ElasticsearchBufferingHints</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679270271"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchBufferingHints.html#ElasticsearchBufferingHints"><span class="hs-identifier hs-type">ElasticsearchBufferingHints</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256046"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchBufferingHints.html#ElasticsearchBufferingHints"><span class="hs-identifier hs-type">ElasticsearchBufferingHints</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679256044"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ElasticsearchBufferingHints
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270268"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchBufferingHints.html#ElasticsearchBufferingHints"><span class="hs-identifier hs-type">ElasticsearchBufferingHints</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679270266"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ElasticsearchBufferingHints
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ElasticsearchBufferingHints)
@@ -209,8 +209,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ElasticsearchBufferingHints&quot;</span></span><span>
-</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679256041"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679256041"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679270263"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679270263"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-95"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural -&gt; Maybe Natural -&gt; ElasticsearchBufferingHints
 </span><a href="Network.AWS.Firehose.Types.ElasticsearchBufferingHints.html#ElasticsearchBufferingHints%27"><span class="hs-identifier hs-var">ElasticsearchBufferingHints'</span></a></span><span>
 </span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Natural -&gt; Maybe Natural -&gt; ElasticsearchBufferingHints)
@@ -218,7 +218,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Natural -&gt; ElasticsearchBufferingHints)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679256041"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679270263"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SizeInMBs&quot;</span></span><span class="hs-special">)</span><span>
@@ -226,24 +226,24 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Natural) -&gt; Parser ElasticsearchBufferingHints
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679256041"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679270263"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IntervalInSeconds&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256035"><span id="local-6989586621679256037"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchBufferingHints.html#ElasticsearchBufferingHints"><span class="hs-identifier hs-type">ElasticsearchBufferingHints</span></a></span></span></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270257"><span id="local-6989586621679270259"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchBufferingHints.html#ElasticsearchBufferingHints"><span class="hs-identifier hs-type">ElasticsearchBufferingHints</span></a></span></span></span><span>
 </span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256032"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchBufferingHints.html#ElasticsearchBufferingHints"><span class="hs-identifier hs-type">ElasticsearchBufferingHints</span></a></span></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270254"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchBufferingHints.html#ElasticsearchBufferingHints"><span class="hs-identifier hs-type">ElasticsearchBufferingHints</span></a></span></span><span>
 </span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256024"><span id="local-6989586621679256026"><span id="local-6989586621679256028"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchBufferingHints.html#ElasticsearchBufferingHints"><span class="hs-identifier hs-type">ElasticsearchBufferingHints</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679256022"><span class="annot"><span class="annottext">toJSON :: ElasticsearchBufferingHints -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchBufferingHints.html#ElasticsearchBufferingHints%27"><span class="hs-identifier hs-type">ElasticsearchBufferingHints'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256019"><span id="local-6989586621679256020"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270246"><span id="local-6989586621679270248"><span id="local-6989586621679270250"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchBufferingHints.html#ElasticsearchBufferingHints"><span class="hs-identifier hs-type">ElasticsearchBufferingHints</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679270244"><span class="annot"><span class="annottext">toJSON :: ElasticsearchBufferingHints -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchBufferingHints.html#ElasticsearchBufferingHints%27"><span class="hs-identifier hs-type">ElasticsearchBufferingHints'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270241"><span id="local-6989586621679270242"><span class="annot"><span class="annottext">Maybe Natural
 intervalInSeconds :: Maybe Natural
 sizeInMBs :: Maybe Natural
 $sel:intervalInSeconds:ElasticsearchBufferingHints' :: ElasticsearchBufferingHints -&gt; Maybe Natural
 $sel:sizeInMBs:ElasticsearchBufferingHints' :: ElasticsearchBufferingHints -&gt; Maybe Natural
-</span><a href="#local-6989586621679256019"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679270241"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -255,7 +255,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679256020"><span class="hs-identifier hs-var">sizeInMBs</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679270242"><span class="hs-identifier hs-var">sizeInMBs</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-109"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IntervalInSeconds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -263,7 +263,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-110"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679256019"><span class="hs-identifier hs-var">intervalInSeconds</span></a></span><span>
+</span><a href="#local-6989586621679270241"><span class="hs-identifier hs-var">intervalInSeconds</span></a></span><span>
 </span><span id="line-111"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span></pre></body></html>

@@ -31,27 +31,27 @@
 </span><span id="line-31"></span><span class="hs-comment">-- time period.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newBudgetPerformanceHistory' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679209661"><span id="local-6989586621679209662"></span></span><span class="hs-keyword">data</span><span> </span><span id="BudgetPerformanceHistory"><span class="annot"><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#BudgetPerformanceHistory"><span class="hs-identifier hs-var">BudgetPerformanceHistory</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BudgetPerformanceHistory%27"><span class="annot"><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#BudgetPerformanceHistory%27"><span class="hs-identifier hs-var">BudgetPerformanceHistory'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679209766"><span id="local-6989586621679209767"></span></span><span class="hs-keyword">data</span><span> </span><span id="BudgetPerformanceHistory"><span class="annot"><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#BudgetPerformanceHistory"><span class="hs-identifier hs-var">BudgetPerformanceHistory</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BudgetPerformanceHistory%27"><span class="annot"><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#BudgetPerformanceHistory%27"><span class="hs-identifier hs-var">BudgetPerformanceHistory'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of amounts of cost or usage that you created budgets for,</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- compared to your actual costs or usage.</span><span>
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3AbudgetedAndActualAmountsList%3ABudgetPerformanceHistory%27"><span class="annot"><span class="annottext">BudgetPerformanceHistory -&gt; Maybe [BudgetedAndActualAmounts]
 </span><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#%24sel%3AbudgetedAndActualAmountsList%3ABudgetPerformanceHistory%27"><span class="hs-identifier hs-var hs-var">budgetedAndActualAmountsList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Budgets.Types.BudgetedAndActualAmounts.html#BudgetedAndActualAmounts"><span class="hs-identifier hs-type">BudgetedAndActualAmounts</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3AtimeUnit%3ABudgetPerformanceHistory%27"><span class="annot"><span class="annottext">BudgetPerformanceHistory -&gt; Maybe TimeUnit
 </span><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#%24sel%3AtimeUnit%3ABudgetPerformanceHistory%27"><span class="hs-identifier hs-var hs-var">timeUnit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.TimeUnit.html#TimeUnit"><span class="hs-identifier hs-type">TimeUnit</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The history of the cost filters for a budget during the specified time</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- period.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3AcostFilters%3ABudgetPerformanceHistory%27"><span class="annot"><span class="annottext">BudgetPerformanceHistory -&gt; Maybe (HashMap Text [Text])
-</span><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#%24sel%3AcostFilters%3ABudgetPerformanceHistory%27"><span class="hs-identifier hs-var hs-var">costFilters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The history of the cost types for a budget during the specified time</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- period.</span><span>
-</span><span id="line-44"></span><span>    </span><span id="%24sel%3AcostTypes%3ABudgetPerformanceHistory%27"><span class="annot"><span class="annottext">BudgetPerformanceHistory -&gt; Maybe CostTypes
-</span><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#%24sel%3AcostTypes%3ABudgetPerformanceHistory%27"><span class="hs-identifier hs-var hs-var">costTypes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.CostTypes.html#CostTypes"><span class="hs-identifier hs-type">CostTypes</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3AbudgetType%3ABudgetPerformanceHistory%27"><span class="annot"><span class="annottext">BudgetPerformanceHistory -&gt; Maybe BudgetType
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AbudgetName%3ABudgetPerformanceHistory%27"><span class="annot"><span class="annottext">BudgetPerformanceHistory -&gt; Maybe Text
+</span><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#%24sel%3AbudgetName%3ABudgetPerformanceHistory%27"><span class="hs-identifier hs-var hs-var">budgetName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AbudgetType%3ABudgetPerformanceHistory%27"><span class="annot"><span class="annottext">BudgetPerformanceHistory -&gt; Maybe BudgetType
 </span><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#%24sel%3AbudgetType%3ABudgetPerformanceHistory%27"><span class="hs-identifier hs-var hs-var">budgetType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.BudgetType.html#BudgetType"><span class="hs-identifier hs-type">BudgetType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span id="%24sel%3AbudgetName%3ABudgetPerformanceHistory%27"><span class="annot"><span class="annottext">BudgetPerformanceHistory -&gt; Maybe Text
-</span><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#%24sel%3AbudgetName%3ABudgetPerformanceHistory%27"><span class="hs-identifier hs-var hs-var">budgetName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The history of the cost types for a budget during the specified time</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- period.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AcostTypes%3ABudgetPerformanceHistory%27"><span class="annot"><span class="annottext">BudgetPerformanceHistory -&gt; Maybe CostTypes
+</span><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#%24sel%3AcostTypes%3ABudgetPerformanceHistory%27"><span class="hs-identifier hs-var hs-var">costTypes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.CostTypes.html#CostTypes"><span class="hs-identifier hs-type">CostTypes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The history of the cost filters for a budget during the specified time</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- period.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AcostFilters%3ABudgetPerformanceHistory%27"><span class="annot"><span class="annottext">BudgetPerformanceHistory -&gt; Maybe (HashMap Text [Text])
+</span><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#%24sel%3AcostFilters%3ABudgetPerformanceHistory%27"><span class="hs-identifier hs-var hs-var">costFilters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679209650"><span id="local-6989586621679209652"><span class="annot"><span class="annottext">BudgetPerformanceHistory -&gt; BudgetPerformanceHistory -&gt; Bool
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679209755"><span id="local-6989586621679209757"><span class="annot"><span class="annottext">BudgetPerformanceHistory -&gt; BudgetPerformanceHistory -&gt; Bool
 (BudgetPerformanceHistory -&gt; BudgetPerformanceHistory -&gt; Bool)
 -&gt; (BudgetPerformanceHistory -&gt; BudgetPerformanceHistory -&gt; Bool)
 -&gt; Eq BudgetPerformanceHistory
@@ -60,7 +60,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: BudgetPerformanceHistory -&gt; BudgetPerformanceHistory -&gt; Bool
 == :: BudgetPerformanceHistory -&gt; BudgetPerformanceHistory -&gt; Bool
 $c== :: BudgetPerformanceHistory -&gt; BudgetPerformanceHistory -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209641"><span id="local-6989586621679209643"><span id="local-6989586621679209645"><span id="local-6989586621679209647"><span class="annot"><span class="annottext">ReadPrec [BudgetPerformanceHistory]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209746"><span id="local-6989586621679209748"><span id="local-6989586621679209750"><span id="local-6989586621679209752"><span class="annot"><span class="annottext">ReadPrec [BudgetPerformanceHistory]
 ReadPrec BudgetPerformanceHistory
 Int -&gt; ReadS BudgetPerformanceHistory
 ReadS [BudgetPerformanceHistory]
@@ -80,7 +80,7 @@ readList :: ReadS [BudgetPerformanceHistory]
 $creadList :: ReadS [BudgetPerformanceHistory]
 readsPrec :: Int -&gt; ReadS BudgetPerformanceHistory
 $creadsPrec :: Int -&gt; ReadS BudgetPerformanceHistory
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209634"><span id="local-6989586621679209636"><span id="local-6989586621679209638"><span class="annot"><span class="annottext">Int -&gt; BudgetPerformanceHistory -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209739"><span id="local-6989586621679209741"><span id="local-6989586621679209743"><span class="annot"><span class="annottext">Int -&gt; BudgetPerformanceHistory -&gt; ShowS
 [BudgetPerformanceHistory] -&gt; ShowS
 BudgetPerformanceHistory -&gt; String
 (Int -&gt; BudgetPerformanceHistory -&gt; ShowS)
@@ -125,25 +125,25 @@ BudgetPerformanceHistory -&gt; Rep BudgetPerformanceHistory x
 </span><span id="line-60"></span><span class="hs-comment">--</span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- 'timeUnit', 'budgetPerformanceHistory_timeUnit' - Undocumented member.</span><span>
 </span><span id="line-62"></span><span class="hs-comment">--</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- 'costFilters', 'budgetPerformanceHistory_costFilters' - The history of the cost filters for a budget during the specified time</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- period.</span><span>
-</span><span id="line-65"></span><span class="hs-comment">--</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- 'costTypes', 'budgetPerformanceHistory_costTypes' - The history of the cost types for a budget during the specified time</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- period.</span><span>
-</span><span id="line-68"></span><span class="hs-comment">--</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- 'budgetType', 'budgetPerformanceHistory_budgetType' - Undocumented member.</span><span>
-</span><span id="line-70"></span><span class="hs-comment">--</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- 'budgetName', 'budgetPerformanceHistory_budgetName' - Undocumented member.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'budgetName', 'budgetPerformanceHistory_budgetName' - Undocumented member.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'budgetType', 'budgetPerformanceHistory_budgetType' - Undocumented member.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'costTypes', 'budgetPerformanceHistory_costTypes' - The history of the cost types for a budget during the specified time</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- period.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'costFilters', 'budgetPerformanceHistory_costFilters' - The history of the cost filters for a budget during the specified time</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- period.</span><span>
 </span><span id="line-72"></span><span class="annot"><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#newBudgetPerformanceHistory"><span class="hs-identifier hs-type">newBudgetPerformanceHistory</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#BudgetPerformanceHistory"><span class="hs-identifier hs-type">BudgetPerformanceHistory</span></a></span><span>
 </span><span id="line-74"></span><span id="newBudgetPerformanceHistory"><span class="annot"><span class="annottext">newBudgetPerformanceHistory :: BudgetPerformanceHistory
 </span><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#newBudgetPerformanceHistory"><span class="hs-identifier hs-var hs-var">newBudgetPerformanceHistory</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>  </span><span class="annot"><span class="annottext">BudgetPerformanceHistory' :: Maybe [BudgetedAndActualAmounts]
 -&gt; Maybe TimeUnit
--&gt; Maybe (HashMap Text [Text])
--&gt; Maybe CostTypes
--&gt; Maybe BudgetType
 -&gt; Maybe Text
+-&gt; Maybe BudgetType
+-&gt; Maybe CostTypes
+-&gt; Maybe (HashMap Text [Text])
 -&gt; BudgetPerformanceHistory
 </span><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#BudgetPerformanceHistory%27"><span class="hs-identifier hs-type">BudgetPerformanceHistory'</span></a></span><span>
 </span><span id="line-76"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:budgetedAndActualAmountsList:BudgetPerformanceHistory' :: Maybe [BudgetedAndActualAmounts]
@@ -155,20 +155,20 @@ forall a. Maybe a
 </span><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#%24sel%3AtimeUnit%3ABudgetPerformanceHistory%27"><span class="hs-identifier hs-var">timeUnit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TimeUnit
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:costFilters:BudgetPerformanceHistory' :: Maybe (HashMap Text [Text])
-</span><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#%24sel%3AcostFilters%3ABudgetPerformanceHistory%27"><span class="hs-identifier hs-var">costFilters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:budgetName:BudgetPerformanceHistory' :: Maybe Text
+</span><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#%24sel%3AbudgetName%3ABudgetPerformanceHistory%27"><span class="hs-identifier hs-var">budgetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:costTypes:BudgetPerformanceHistory' :: Maybe CostTypes
-</span><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#%24sel%3AcostTypes%3ABudgetPerformanceHistory%27"><span class="hs-identifier hs-var">costTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CostTypes
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:budgetType:BudgetPerformanceHistory' :: Maybe BudgetType
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:budgetType:BudgetPerformanceHistory' :: Maybe BudgetType
 </span><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#%24sel%3AbudgetType%3ABudgetPerformanceHistory%27"><span class="hs-identifier hs-var">budgetType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BudgetType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:budgetName:BudgetPerformanceHistory' :: Maybe Text
-</span><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#%24sel%3AbudgetName%3ABudgetPerformanceHistory%27"><span class="hs-identifier hs-var">budgetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:costTypes:BudgetPerformanceHistory' :: Maybe CostTypes
+</span><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#%24sel%3AcostTypes%3ABudgetPerformanceHistory%27"><span class="hs-identifier hs-var">costTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CostTypes
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:costFilters:BudgetPerformanceHistory' :: Maybe (HashMap Text [Text])
+</span><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#%24sel%3AcostFilters%3ABudgetPerformanceHistory%27"><span class="hs-identifier hs-var">costFilters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-83"></span><span>    </span><span class="hs-special">}</span><span>
@@ -188,16 +188,16 @@ forall a. Maybe a
      (Maybe [BudgetedAndActualAmounts])
      (Maybe [BudgetedAndActualAmounts])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#BudgetPerformanceHistory%27"><span class="hs-identifier hs-type">BudgetPerformanceHistory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209625"><span class="annot"><span class="annottext">Maybe [BudgetedAndActualAmounts]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#BudgetPerformanceHistory%27"><span class="hs-identifier hs-type">BudgetPerformanceHistory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209730"><span class="annot"><span class="annottext">Maybe [BudgetedAndActualAmounts]
 budgetedAndActualAmountsList :: Maybe [BudgetedAndActualAmounts]
 $sel:budgetedAndActualAmountsList:BudgetPerformanceHistory' :: BudgetPerformanceHistory -&gt; Maybe [BudgetedAndActualAmounts]
-</span><a href="#local-6989586621679209625"><span class="hs-identifier hs-var hs-var">budgetedAndActualAmountsList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [BudgetedAndActualAmounts]
-</span><a href="#local-6989586621679209625"><span class="hs-identifier hs-var">budgetedAndActualAmountsList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209624"><span class="annot"><span class="annottext">s :: BudgetPerformanceHistory
-</span><a href="#local-6989586621679209624"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#BudgetPerformanceHistory%27"><span class="hs-identifier hs-type">BudgetPerformanceHistory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209623"><span class="annot"><span class="annottext">Maybe [BudgetedAndActualAmounts]
-</span><a href="#local-6989586621679209623"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BudgetPerformanceHistory
-</span><a href="#local-6989586621679209624"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:budgetedAndActualAmountsList:BudgetPerformanceHistory' :: Maybe [BudgetedAndActualAmounts]
+</span><a href="#local-6989586621679209730"><span class="hs-identifier hs-var hs-var">budgetedAndActualAmountsList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [BudgetedAndActualAmounts]
+</span><a href="#local-6989586621679209730"><span class="hs-identifier hs-var">budgetedAndActualAmountsList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209729"><span class="annot"><span class="annottext">s :: BudgetPerformanceHistory
+</span><a href="#local-6989586621679209729"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#BudgetPerformanceHistory%27"><span class="hs-identifier hs-type">BudgetPerformanceHistory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209728"><span class="annot"><span class="annottext">Maybe [BudgetedAndActualAmounts]
+</span><a href="#local-6989586621679209728"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BudgetPerformanceHistory
+</span><a href="#local-6989586621679209729"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:budgetedAndActualAmountsList:BudgetPerformanceHistory' :: Maybe [BudgetedAndActualAmounts]
 </span><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#%24sel%3AbudgetedAndActualAmountsList%3ABudgetPerformanceHistory%27"><span class="hs-identifier hs-var">budgetedAndActualAmountsList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [BudgetedAndActualAmounts]
-</span><a href="#local-6989586621679209623"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#BudgetPerformanceHistory"><span class="hs-identifier hs-type">BudgetPerformanceHistory</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [BudgetedAndActualAmounts]
+</span><a href="#local-6989586621679209728"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#BudgetPerformanceHistory"><span class="hs-identifier hs-type">BudgetPerformanceHistory</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [BudgetedAndActualAmounts]
   -&gt; f (Maybe [BudgetedAndActualAmounts]))
  -&gt; BudgetPerformanceHistory -&gt; f BudgetPerformanceHistory)
 -&gt; ((Maybe [BudgetedAndActualAmounts]
@@ -227,8 +227,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [BudgetedAndActualAmounts]
   [BudgetedAndActualAmounts]
   [BudgetedAndActualAmounts]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- | Undocumented member.</span><span>
 </span><span id="line-91"></span><span class="annot"><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#budgetPerformanceHistory_timeUnit"><span class="hs-identifier hs-type">budgetPerformanceHistory_timeUnit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#BudgetPerformanceHistory"><span class="hs-identifier hs-type">BudgetPerformanceHistory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.TimeUnit.html#TimeUnit"><span class="hs-identifier hs-type">TimeUnit</span></a></span><span class="hs-special">)</span><span>
@@ -243,21 +243,94 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe TimeUnit)
      (Maybe TimeUnit)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#BudgetPerformanceHistory%27"><span class="hs-identifier hs-type">BudgetPerformanceHistory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209618"><span class="annot"><span class="annottext">Maybe TimeUnit
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#BudgetPerformanceHistory%27"><span class="hs-identifier hs-type">BudgetPerformanceHistory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209723"><span class="annot"><span class="annottext">Maybe TimeUnit
 timeUnit :: Maybe TimeUnit
 $sel:timeUnit:BudgetPerformanceHistory' :: BudgetPerformanceHistory -&gt; Maybe TimeUnit
-</span><a href="#local-6989586621679209618"><span class="hs-identifier hs-var hs-var">timeUnit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TimeUnit
-</span><a href="#local-6989586621679209618"><span class="hs-identifier hs-var">timeUnit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209617"><span class="annot"><span class="annottext">s :: BudgetPerformanceHistory
-</span><a href="#local-6989586621679209617"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#BudgetPerformanceHistory%27"><span class="hs-identifier hs-type">BudgetPerformanceHistory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209616"><span class="annot"><span class="annottext">Maybe TimeUnit
-</span><a href="#local-6989586621679209616"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BudgetPerformanceHistory
-</span><a href="#local-6989586621679209617"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timeUnit:BudgetPerformanceHistory' :: Maybe TimeUnit
+</span><a href="#local-6989586621679209723"><span class="hs-identifier hs-var hs-var">timeUnit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TimeUnit
+</span><a href="#local-6989586621679209723"><span class="hs-identifier hs-var">timeUnit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209722"><span class="annot"><span class="annottext">s :: BudgetPerformanceHistory
+</span><a href="#local-6989586621679209722"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#BudgetPerformanceHistory%27"><span class="hs-identifier hs-type">BudgetPerformanceHistory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209721"><span class="annot"><span class="annottext">Maybe TimeUnit
+</span><a href="#local-6989586621679209721"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BudgetPerformanceHistory
+</span><a href="#local-6989586621679209722"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timeUnit:BudgetPerformanceHistory' :: Maybe TimeUnit
 </span><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#%24sel%3AtimeUnit%3ABudgetPerformanceHistory%27"><span class="hs-identifier hs-var">timeUnit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TimeUnit
-</span><a href="#local-6989586621679209616"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#BudgetPerformanceHistory"><span class="hs-identifier hs-type">BudgetPerformanceHistory</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679209721"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#BudgetPerformanceHistory"><span class="hs-identifier hs-type">BudgetPerformanceHistory</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- | The history of the cost filters for a budget during the specified time</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- period.</span><span>
-</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#budgetPerformanceHistory_costFilters"><span class="hs-identifier hs-type">budgetPerformanceHistory_costFilters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#BudgetPerformanceHistory"><span class="hs-identifier hs-type">BudgetPerformanceHistory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-97"></span><span id="budgetPerformanceHistory_costFilters"><span class="annot"><span class="annottext">budgetPerformanceHistory_costFilters :: (Maybe (HashMap Text [Text]) -&gt; f (Maybe (HashMap Text [Text])))
+</span><span id="line-94"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#budgetPerformanceHistory_budgetName"><span class="hs-identifier hs-type">budgetPerformanceHistory_budgetName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#BudgetPerformanceHistory"><span class="hs-identifier hs-type">BudgetPerformanceHistory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="budgetPerformanceHistory_budgetName"><span class="annot"><span class="annottext">budgetPerformanceHistory_budgetName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; BudgetPerformanceHistory -&gt; f BudgetPerformanceHistory
+</span><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#budgetPerformanceHistory_budgetName"><span class="hs-identifier hs-var hs-var">budgetPerformanceHistory_budgetName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BudgetPerformanceHistory -&gt; Maybe Text)
+-&gt; (BudgetPerformanceHistory
+    -&gt; Maybe Text -&gt; BudgetPerformanceHistory)
+-&gt; Lens
+     BudgetPerformanceHistory
+     BudgetPerformanceHistory
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#BudgetPerformanceHistory%27"><span class="hs-identifier hs-type">BudgetPerformanceHistory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209719"><span class="annot"><span class="annottext">Maybe Text
+budgetName :: Maybe Text
+$sel:budgetName:BudgetPerformanceHistory' :: BudgetPerformanceHistory -&gt; Maybe Text
+</span><a href="#local-6989586621679209719"><span class="hs-identifier hs-var hs-var">budgetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679209719"><span class="hs-identifier hs-var">budgetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209718"><span class="annot"><span class="annottext">s :: BudgetPerformanceHistory
+</span><a href="#local-6989586621679209718"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#BudgetPerformanceHistory%27"><span class="hs-identifier hs-type">BudgetPerformanceHistory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209717"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679209717"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BudgetPerformanceHistory
+</span><a href="#local-6989586621679209718"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:budgetName:BudgetPerformanceHistory' :: Maybe Text
+</span><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#%24sel%3AbudgetName%3ABudgetPerformanceHistory%27"><span class="hs-identifier hs-var">budgetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679209717"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#BudgetPerformanceHistory"><span class="hs-identifier hs-type">BudgetPerformanceHistory</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#budgetPerformanceHistory_budgetType"><span class="hs-identifier hs-type">budgetPerformanceHistory_budgetType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#BudgetPerformanceHistory"><span class="hs-identifier hs-type">BudgetPerformanceHistory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.BudgetType.html#BudgetType"><span class="hs-identifier hs-type">BudgetType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="budgetPerformanceHistory_budgetType"><span class="annot"><span class="annottext">budgetPerformanceHistory_budgetType :: (Maybe BudgetType -&gt; f (Maybe BudgetType))
+-&gt; BudgetPerformanceHistory -&gt; f BudgetPerformanceHistory
+</span><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#budgetPerformanceHistory_budgetType"><span class="hs-identifier hs-var hs-var">budgetPerformanceHistory_budgetType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BudgetPerformanceHistory -&gt; Maybe BudgetType)
+-&gt; (BudgetPerformanceHistory
+    -&gt; Maybe BudgetType -&gt; BudgetPerformanceHistory)
+-&gt; Lens
+     BudgetPerformanceHistory
+     BudgetPerformanceHistory
+     (Maybe BudgetType)
+     (Maybe BudgetType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#BudgetPerformanceHistory%27"><span class="hs-identifier hs-type">BudgetPerformanceHistory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209715"><span class="annot"><span class="annottext">Maybe BudgetType
+budgetType :: Maybe BudgetType
+$sel:budgetType:BudgetPerformanceHistory' :: BudgetPerformanceHistory -&gt; Maybe BudgetType
+</span><a href="#local-6989586621679209715"><span class="hs-identifier hs-var hs-var">budgetType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BudgetType
+</span><a href="#local-6989586621679209715"><span class="hs-identifier hs-var">budgetType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209714"><span class="annot"><span class="annottext">s :: BudgetPerformanceHistory
+</span><a href="#local-6989586621679209714"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#BudgetPerformanceHistory%27"><span class="hs-identifier hs-type">BudgetPerformanceHistory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209713"><span class="annot"><span class="annottext">Maybe BudgetType
+</span><a href="#local-6989586621679209713"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BudgetPerformanceHistory
+</span><a href="#local-6989586621679209714"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:budgetType:BudgetPerformanceHistory' :: Maybe BudgetType
+</span><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#%24sel%3AbudgetType%3ABudgetPerformanceHistory%27"><span class="hs-identifier hs-var">budgetType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BudgetType
+</span><a href="#local-6989586621679209713"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#BudgetPerformanceHistory"><span class="hs-identifier hs-type">BudgetPerformanceHistory</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | The history of the cost types for a budget during the specified time</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- period.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#budgetPerformanceHistory_costTypes"><span class="hs-identifier hs-type">budgetPerformanceHistory_costTypes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#BudgetPerformanceHistory"><span class="hs-identifier hs-type">BudgetPerformanceHistory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.CostTypes.html#CostTypes"><span class="hs-identifier hs-type">CostTypes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="budgetPerformanceHistory_costTypes"><span class="annot"><span class="annottext">budgetPerformanceHistory_costTypes :: (Maybe CostTypes -&gt; f (Maybe CostTypes))
+-&gt; BudgetPerformanceHistory -&gt; f BudgetPerformanceHistory
+</span><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#budgetPerformanceHistory_costTypes"><span class="hs-identifier hs-var hs-var">budgetPerformanceHistory_costTypes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BudgetPerformanceHistory -&gt; Maybe CostTypes)
+-&gt; (BudgetPerformanceHistory
+    -&gt; Maybe CostTypes -&gt; BudgetPerformanceHistory)
+-&gt; Lens
+     BudgetPerformanceHistory
+     BudgetPerformanceHistory
+     (Maybe CostTypes)
+     (Maybe CostTypes)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#BudgetPerformanceHistory%27"><span class="hs-identifier hs-type">BudgetPerformanceHistory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209711"><span class="annot"><span class="annottext">Maybe CostTypes
+costTypes :: Maybe CostTypes
+$sel:costTypes:BudgetPerformanceHistory' :: BudgetPerformanceHistory -&gt; Maybe CostTypes
+</span><a href="#local-6989586621679209711"><span class="hs-identifier hs-var hs-var">costTypes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CostTypes
+</span><a href="#local-6989586621679209711"><span class="hs-identifier hs-var">costTypes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209710"><span class="annot"><span class="annottext">s :: BudgetPerformanceHistory
+</span><a href="#local-6989586621679209710"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#BudgetPerformanceHistory%27"><span class="hs-identifier hs-type">BudgetPerformanceHistory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209709"><span class="annot"><span class="annottext">Maybe CostTypes
+</span><a href="#local-6989586621679209709"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BudgetPerformanceHistory
+</span><a href="#local-6989586621679209710"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:costTypes:BudgetPerformanceHistory' :: Maybe CostTypes
+</span><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#%24sel%3AcostTypes%3ABudgetPerformanceHistory%27"><span class="hs-identifier hs-var">costTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CostTypes
+</span><a href="#local-6989586621679209709"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#BudgetPerformanceHistory"><span class="hs-identifier hs-type">BudgetPerformanceHistory</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | The history of the cost filters for a budget during the specified time</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- period.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#budgetPerformanceHistory_costFilters"><span class="hs-identifier hs-type">budgetPerformanceHistory_costFilters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#BudgetPerformanceHistory"><span class="hs-identifier hs-type">BudgetPerformanceHistory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="budgetPerformanceHistory_costFilters"><span class="annot"><span class="annottext">budgetPerformanceHistory_costFilters :: (Maybe (HashMap Text [Text]) -&gt; f (Maybe (HashMap Text [Text])))
 -&gt; BudgetPerformanceHistory -&gt; f BudgetPerformanceHistory
 </span><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#budgetPerformanceHistory_costFilters"><span class="hs-identifier hs-var hs-var">budgetPerformanceHistory_costFilters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BudgetPerformanceHistory -&gt; Maybe (HashMap Text [Text]))
 -&gt; (BudgetPerformanceHistory
@@ -268,16 +341,16 @@ $sel:timeUnit:BudgetPerformanceHistory' :: BudgetPerformanceHistory -&gt; Maybe 
      (Maybe (HashMap Text [Text]))
      (Maybe (HashMap Text [Text]))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#BudgetPerformanceHistory%27"><span class="hs-identifier hs-type">BudgetPerformanceHistory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209614"><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#BudgetPerformanceHistory%27"><span class="hs-identifier hs-type">BudgetPerformanceHistory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209707"><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
 costFilters :: Maybe (HashMap Text [Text])
 $sel:costFilters:BudgetPerformanceHistory' :: BudgetPerformanceHistory -&gt; Maybe (HashMap Text [Text])
-</span><a href="#local-6989586621679209614"><span class="hs-identifier hs-var hs-var">costFilters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
-</span><a href="#local-6989586621679209614"><span class="hs-identifier hs-var">costFilters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209613"><span class="annot"><span class="annottext">s :: BudgetPerformanceHistory
-</span><a href="#local-6989586621679209613"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#BudgetPerformanceHistory%27"><span class="hs-identifier hs-type">BudgetPerformanceHistory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209612"><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
-</span><a href="#local-6989586621679209612"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BudgetPerformanceHistory
-</span><a href="#local-6989586621679209613"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:costFilters:BudgetPerformanceHistory' :: Maybe (HashMap Text [Text])
+</span><a href="#local-6989586621679209707"><span class="hs-identifier hs-var hs-var">costFilters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
+</span><a href="#local-6989586621679209707"><span class="hs-identifier hs-var">costFilters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209706"><span class="annot"><span class="annottext">s :: BudgetPerformanceHistory
+</span><a href="#local-6989586621679209706"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#BudgetPerformanceHistory%27"><span class="hs-identifier hs-type">BudgetPerformanceHistory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209705"><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
+</span><a href="#local-6989586621679209705"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BudgetPerformanceHistory
+</span><a href="#local-6989586621679209706"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:costFilters:BudgetPerformanceHistory' :: Maybe (HashMap Text [Text])
 </span><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#%24sel%3AcostFilters%3ABudgetPerformanceHistory%27"><span class="hs-identifier hs-var">costFilters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
-</span><a href="#local-6989586621679209612"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#BudgetPerformanceHistory"><span class="hs-identifier hs-type">BudgetPerformanceHistory</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text [Text]) -&gt; f (Maybe (HashMap Text [Text])))
+</span><a href="#local-6989586621679209705"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#BudgetPerformanceHistory"><span class="hs-identifier hs-type">BudgetPerformanceHistory</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text [Text]) -&gt; f (Maybe (HashMap Text [Text])))
  -&gt; BudgetPerformanceHistory -&gt; f BudgetPerformanceHistory)
 -&gt; ((Maybe (HashMap Text [Text])
      -&gt; f (Maybe (HashMap Text [Text])))
@@ -304,84 +377,11 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (HashMap Text [Text])
   (HashMap Text [Text])
   (HashMap Text [Text])
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- | The history of the cost types for a budget during the specified time</span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- period.</span><span>
-</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#budgetPerformanceHistory_costTypes"><span class="hs-identifier hs-type">budgetPerformanceHistory_costTypes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#BudgetPerformanceHistory"><span class="hs-identifier hs-type">BudgetPerformanceHistory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.CostTypes.html#CostTypes"><span class="hs-identifier hs-type">CostTypes</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-102"></span><span id="budgetPerformanceHistory_costTypes"><span class="annot"><span class="annottext">budgetPerformanceHistory_costTypes :: (Maybe CostTypes -&gt; f (Maybe CostTypes))
--&gt; BudgetPerformanceHistory -&gt; f BudgetPerformanceHistory
-</span><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#budgetPerformanceHistory_costTypes"><span class="hs-identifier hs-var hs-var">budgetPerformanceHistory_costTypes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BudgetPerformanceHistory -&gt; Maybe CostTypes)
--&gt; (BudgetPerformanceHistory
-    -&gt; Maybe CostTypes -&gt; BudgetPerformanceHistory)
--&gt; Lens
-     BudgetPerformanceHistory
-     BudgetPerformanceHistory
-     (Maybe CostTypes)
-     (Maybe CostTypes)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#BudgetPerformanceHistory%27"><span class="hs-identifier hs-type">BudgetPerformanceHistory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209610"><span class="annot"><span class="annottext">Maybe CostTypes
-costTypes :: Maybe CostTypes
-$sel:costTypes:BudgetPerformanceHistory' :: BudgetPerformanceHistory -&gt; Maybe CostTypes
-</span><a href="#local-6989586621679209610"><span class="hs-identifier hs-var hs-var">costTypes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CostTypes
-</span><a href="#local-6989586621679209610"><span class="hs-identifier hs-var">costTypes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209609"><span class="annot"><span class="annottext">s :: BudgetPerformanceHistory
-</span><a href="#local-6989586621679209609"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#BudgetPerformanceHistory%27"><span class="hs-identifier hs-type">BudgetPerformanceHistory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209608"><span class="annot"><span class="annottext">Maybe CostTypes
-</span><a href="#local-6989586621679209608"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BudgetPerformanceHistory
-</span><a href="#local-6989586621679209609"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:costTypes:BudgetPerformanceHistory' :: Maybe CostTypes
-</span><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#%24sel%3AcostTypes%3ABudgetPerformanceHistory%27"><span class="hs-identifier hs-var">costTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CostTypes
-</span><a href="#local-6989586621679209608"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#BudgetPerformanceHistory"><span class="hs-identifier hs-type">BudgetPerformanceHistory</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- | Undocumented member.</span><span>
-</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#budgetPerformanceHistory_budgetType"><span class="hs-identifier hs-type">budgetPerformanceHistory_budgetType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#BudgetPerformanceHistory"><span class="hs-identifier hs-type">BudgetPerformanceHistory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.BudgetType.html#BudgetType"><span class="hs-identifier hs-type">BudgetType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-106"></span><span id="budgetPerformanceHistory_budgetType"><span class="annot"><span class="annottext">budgetPerformanceHistory_budgetType :: (Maybe BudgetType -&gt; f (Maybe BudgetType))
--&gt; BudgetPerformanceHistory -&gt; f BudgetPerformanceHistory
-</span><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#budgetPerformanceHistory_budgetType"><span class="hs-identifier hs-var hs-var">budgetPerformanceHistory_budgetType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BudgetPerformanceHistory -&gt; Maybe BudgetType)
--&gt; (BudgetPerformanceHistory
-    -&gt; Maybe BudgetType -&gt; BudgetPerformanceHistory)
--&gt; Lens
-     BudgetPerformanceHistory
-     BudgetPerformanceHistory
-     (Maybe BudgetType)
-     (Maybe BudgetType)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#BudgetPerformanceHistory%27"><span class="hs-identifier hs-type">BudgetPerformanceHistory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209606"><span class="annot"><span class="annottext">Maybe BudgetType
-budgetType :: Maybe BudgetType
-$sel:budgetType:BudgetPerformanceHistory' :: BudgetPerformanceHistory -&gt; Maybe BudgetType
-</span><a href="#local-6989586621679209606"><span class="hs-identifier hs-var hs-var">budgetType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BudgetType
-</span><a href="#local-6989586621679209606"><span class="hs-identifier hs-var">budgetType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209605"><span class="annot"><span class="annottext">s :: BudgetPerformanceHistory
-</span><a href="#local-6989586621679209605"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#BudgetPerformanceHistory%27"><span class="hs-identifier hs-type">BudgetPerformanceHistory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209604"><span class="annot"><span class="annottext">Maybe BudgetType
-</span><a href="#local-6989586621679209604"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BudgetPerformanceHistory
-</span><a href="#local-6989586621679209605"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:budgetType:BudgetPerformanceHistory' :: Maybe BudgetType
-</span><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#%24sel%3AbudgetType%3ABudgetPerformanceHistory%27"><span class="hs-identifier hs-var">budgetType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BudgetType
-</span><a href="#local-6989586621679209604"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#BudgetPerformanceHistory"><span class="hs-identifier hs-type">BudgetPerformanceHistory</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- | Undocumented member.</span><span>
-</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#budgetPerformanceHistory_budgetName"><span class="hs-identifier hs-type">budgetPerformanceHistory_budgetName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#BudgetPerformanceHistory"><span class="hs-identifier hs-type">BudgetPerformanceHistory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-110"></span><span id="budgetPerformanceHistory_budgetName"><span class="annot"><span class="annottext">budgetPerformanceHistory_budgetName :: (Maybe Text -&gt; f (Maybe Text))
--&gt; BudgetPerformanceHistory -&gt; f BudgetPerformanceHistory
-</span><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#budgetPerformanceHistory_budgetName"><span class="hs-identifier hs-var hs-var">budgetPerformanceHistory_budgetName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BudgetPerformanceHistory -&gt; Maybe Text)
--&gt; (BudgetPerformanceHistory
-    -&gt; Maybe Text -&gt; BudgetPerformanceHistory)
--&gt; Lens
-     BudgetPerformanceHistory
-     BudgetPerformanceHistory
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#BudgetPerformanceHistory%27"><span class="hs-identifier hs-type">BudgetPerformanceHistory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209602"><span class="annot"><span class="annottext">Maybe Text
-budgetName :: Maybe Text
-$sel:budgetName:BudgetPerformanceHistory' :: BudgetPerformanceHistory -&gt; Maybe Text
-</span><a href="#local-6989586621679209602"><span class="hs-identifier hs-var hs-var">budgetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679209602"><span class="hs-identifier hs-var">budgetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209601"><span class="annot"><span class="annottext">s :: BudgetPerformanceHistory
-</span><a href="#local-6989586621679209601"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#BudgetPerformanceHistory%27"><span class="hs-identifier hs-type">BudgetPerformanceHistory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209600"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679209600"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BudgetPerformanceHistory
-</span><a href="#local-6989586621679209601"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:budgetName:BudgetPerformanceHistory' :: Maybe Text
-</span><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#%24sel%3AbudgetName%3ABudgetPerformanceHistory%27"><span class="hs-identifier hs-var">budgetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679209600"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#BudgetPerformanceHistory"><span class="hs-identifier hs-type">BudgetPerformanceHistory</span></a></span><span class="hs-special">)</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209597"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#BudgetPerformanceHistory"><span class="hs-identifier hs-type">BudgetPerformanceHistory</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679209595"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BudgetPerformanceHistory
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209702"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#BudgetPerformanceHistory"><span class="hs-identifier hs-type">BudgetPerformanceHistory</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679209700"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BudgetPerformanceHistory
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser BudgetPerformanceHistory)
@@ -391,34 +391,34 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;BudgetPerformanceHistory&quot;</span></span><span>
-</span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679209592"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679209592"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679209697"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679209697"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-117"></span><span>          </span><span class="annot"><span class="annottext">Maybe [BudgetedAndActualAmounts]
 -&gt; Maybe TimeUnit
--&gt; Maybe (HashMap Text [Text])
--&gt; Maybe CostTypes
--&gt; Maybe BudgetType
 -&gt; Maybe Text
+-&gt; Maybe BudgetType
+-&gt; Maybe CostTypes
+-&gt; Maybe (HashMap Text [Text])
 -&gt; BudgetPerformanceHistory
 </span><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#BudgetPerformanceHistory%27"><span class="hs-identifier hs-var">BudgetPerformanceHistory'</span></a></span><span>
 </span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [BudgetedAndActualAmounts]
  -&gt; Maybe TimeUnit
- -&gt; Maybe (HashMap Text [Text])
- -&gt; Maybe CostTypes
- -&gt; Maybe BudgetType
  -&gt; Maybe Text
+ -&gt; Maybe BudgetType
+ -&gt; Maybe CostTypes
+ -&gt; Maybe (HashMap Text [Text])
  -&gt; BudgetPerformanceHistory)
 -&gt; Parser (Maybe [BudgetedAndActualAmounts])
 -&gt; Parser
      (Maybe TimeUnit
-      -&gt; Maybe (HashMap Text [Text])
-      -&gt; Maybe CostTypes
-      -&gt; Maybe BudgetType
       -&gt; Maybe Text
+      -&gt; Maybe BudgetType
+      -&gt; Maybe CostTypes
+      -&gt; Maybe (HashMap Text [Text])
       -&gt; BudgetPerformanceHistory)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679209592"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [BudgetedAndActualAmounts]))
+</span><a href="#local-6989586621679209697"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [BudgetedAndActualAmounts]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BudgetedAndActualAmountsList&quot;</span></span><span>
@@ -432,37 +432,74 @@ forall a. Monoid a =&gt; a
 </span><span id="line-120"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe TimeUnit
-   -&gt; Maybe (HashMap Text [Text])
-   -&gt; Maybe CostTypes
-   -&gt; Maybe BudgetType
    -&gt; Maybe Text
+   -&gt; Maybe BudgetType
+   -&gt; Maybe CostTypes
+   -&gt; Maybe (HashMap Text [Text])
    -&gt; BudgetPerformanceHistory)
 -&gt; Parser (Maybe TimeUnit)
 -&gt; Parser
-     (Maybe (HashMap Text [Text])
-      -&gt; Maybe CostTypes
+     (Maybe Text
       -&gt; Maybe BudgetType
-      -&gt; Maybe Text
+      -&gt; Maybe CostTypes
+      -&gt; Maybe (HashMap Text [Text])
       -&gt; BudgetPerformanceHistory)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679209592"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TimeUnit)
+</span><a href="#local-6989586621679209697"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TimeUnit)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TimeUnit&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe (HashMap Text [Text])
-   -&gt; Maybe CostTypes
+  (Maybe Text
    -&gt; Maybe BudgetType
-   -&gt; Maybe Text
+   -&gt; Maybe CostTypes
+   -&gt; Maybe (HashMap Text [Text])
    -&gt; BudgetPerformanceHistory)
--&gt; Parser (Maybe (HashMap Text [Text]))
+-&gt; Parser (Maybe Text)
 -&gt; Parser
-     (Maybe CostTypes
-      -&gt; Maybe BudgetType -&gt; Maybe Text -&gt; BudgetPerformanceHistory)
+     (Maybe BudgetType
+      -&gt; Maybe CostTypes
+      -&gt; Maybe (HashMap Text [Text])
+      -&gt; BudgetPerformanceHistory)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679209592"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text [Text])))
+</span><a href="#local-6989586621679209697"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BudgetName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe BudgetType
+   -&gt; Maybe CostTypes
+   -&gt; Maybe (HashMap Text [Text])
+   -&gt; BudgetPerformanceHistory)
+-&gt; Parser (Maybe BudgetType)
+-&gt; Parser
+     (Maybe CostTypes
+      -&gt; Maybe (HashMap Text [Text]) -&gt; BudgetPerformanceHistory)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679209697"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe BudgetType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BudgetType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe CostTypes
+   -&gt; Maybe (HashMap Text [Text]) -&gt; BudgetPerformanceHistory)
+-&gt; Parser (Maybe CostTypes)
+-&gt; Parser (Maybe (HashMap Text [Text]) -&gt; BudgetPerformanceHistory)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679209697"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CostTypes)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CostTypes&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe (HashMap Text [Text]) -&gt; BudgetPerformanceHistory)
+-&gt; Parser (Maybe (HashMap Text [Text]))
+-&gt; Parser BudgetPerformanceHistory
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679209697"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text [Text])))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CostFilters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text [Text])))
@@ -472,38 +509,9 @@ forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe CostTypes
-   -&gt; Maybe BudgetType -&gt; Maybe Text -&gt; BudgetPerformanceHistory)
--&gt; Parser (Maybe CostTypes)
--&gt; Parser
-     (Maybe BudgetType -&gt; Maybe Text -&gt; BudgetPerformanceHistory)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679209592"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CostTypes)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;CostTypes&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe BudgetType -&gt; Maybe Text -&gt; BudgetPerformanceHistory)
--&gt; Parser (Maybe BudgetType)
--&gt; Parser (Maybe Text -&gt; BudgetPerformanceHistory)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679209592"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe BudgetType)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;BudgetType&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; BudgetPerformanceHistory)
--&gt; Parser (Maybe Text) -&gt; Parser BudgetPerformanceHistory
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679209592"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;BudgetName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209585"><span id="local-6989586621679209587"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#BudgetPerformanceHistory"><span class="hs-identifier hs-type">BudgetPerformanceHistory</span></a></span></span></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209690"><span id="local-6989586621679209692"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#BudgetPerformanceHistory"><span class="hs-identifier hs-type">BudgetPerformanceHistory</span></a></span></span></span><span>
 </span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209582"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#BudgetPerformanceHistory"><span class="hs-identifier hs-type">BudgetPerformanceHistory</span></a></span></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209687"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.BudgetPerformanceHistory.html#BudgetPerformanceHistory"><span class="hs-identifier hs-type">BudgetPerformanceHistory</span></a></span></span><span>
 </span><span id="line-131"></span></pre></body></html>

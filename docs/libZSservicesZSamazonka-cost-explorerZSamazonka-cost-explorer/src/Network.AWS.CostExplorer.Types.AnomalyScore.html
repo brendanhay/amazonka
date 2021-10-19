@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- anomalous.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newAnomalyScore' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679325704"><span id="local-6989586621679325705"></span></span><span class="hs-keyword">data</span><span> </span><span id="AnomalyScore"><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalyScore.html#AnomalyScore"><span class="hs-identifier hs-var">AnomalyScore</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AnomalyScore%27"><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalyScore.html#AnomalyScore%27"><span class="hs-identifier hs-var">AnomalyScore'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679326029"><span id="local-6989586621679326030"></span></span><span class="hs-keyword">data</span><span> </span><span id="AnomalyScore"><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalyScore.html#AnomalyScore"><span class="hs-identifier hs-var">AnomalyScore</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AnomalyScore%27"><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalyScore.html#AnomalyScore%27"><span class="hs-identifier hs-var">AnomalyScore'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The maximum score that\'s observed during the @AnomalyDateInterval@.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AmaxScore%3AAnomalyScore%27"><span class="annot"><span class="annottext">AnomalyScore -&gt; Double
 </span><a href="Network.AWS.CostExplorer.Types.AnomalyScore.html#%24sel%3AmaxScore%3AAnomalyScore%27"><span class="hs-identifier hs-var hs-var">maxScore</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
@@ -35,7 +35,7 @@
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AcurrentScore%3AAnomalyScore%27"><span class="annot"><span class="annottext">AnomalyScore -&gt; Double
 </span><a href="Network.AWS.CostExplorer.Types.AnomalyScore.html#%24sel%3AcurrentScore%3AAnomalyScore%27"><span class="hs-identifier hs-var hs-var">currentScore</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679325697"><span id="local-6989586621679325699"><span class="annot"><span class="annottext">AnomalyScore -&gt; AnomalyScore -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679326022"><span id="local-6989586621679326024"><span class="annot"><span class="annottext">AnomalyScore -&gt; AnomalyScore -&gt; Bool
 (AnomalyScore -&gt; AnomalyScore -&gt; Bool)
 -&gt; (AnomalyScore -&gt; AnomalyScore -&gt; Bool) -&gt; Eq AnomalyScore
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AnomalyScore -&gt; AnomalyScore -&gt; Bool
 == :: AnomalyScore -&gt; AnomalyScore -&gt; Bool
 $c== :: AnomalyScore -&gt; AnomalyScore -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679325688"><span id="local-6989586621679325690"><span id="local-6989586621679325692"><span id="local-6989586621679325694"><span class="annot"><span class="annottext">ReadPrec [AnomalyScore]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326013"><span id="local-6989586621679326015"><span id="local-6989586621679326017"><span id="local-6989586621679326019"><span class="annot"><span class="annottext">ReadPrec [AnomalyScore]
 ReadPrec AnomalyScore
 Int -&gt; ReadS AnomalyScore
 ReadS [AnomalyScore]
@@ -63,7 +63,7 @@ readList :: ReadS [AnomalyScore]
 $creadList :: ReadS [AnomalyScore]
 readsPrec :: Int -&gt; ReadS AnomalyScore
 $creadsPrec :: Int -&gt; ReadS AnomalyScore
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679325681"><span id="local-6989586621679325683"><span id="local-6989586621679325685"><span class="annot"><span class="annottext">Int -&gt; AnomalyScore -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326006"><span id="local-6989586621679326008"><span id="local-6989586621679326010"><span class="annot"><span class="annottext">Int -&gt; AnomalyScore -&gt; ShowS
 [AnomalyScore] -&gt; ShowS
 AnomalyScore -&gt; String
 (Int -&gt; AnomalyScore -&gt; ShowS)
@@ -107,17 +107,17 @@ $cfrom :: forall x. AnomalyScore -&gt; Rep AnomalyScore x
 </span><span id="line-53"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-54"></span><span>  </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalyScore.html#AnomalyScore"><span class="hs-identifier hs-type">AnomalyScore</span></a></span><span>
 </span><span id="line-55"></span><span id="newAnomalyScore"><span class="annot"><span class="annottext">newAnomalyScore :: Double -&gt; Double -&gt; AnomalyScore
-</span><a href="Network.AWS.CostExplorer.Types.AnomalyScore.html#newAnomalyScore"><span class="hs-identifier hs-var hs-var">newAnomalyScore</span></a></span></span><span> </span><span id="local-6989586621679325675"><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679325675"><span class="hs-identifier hs-var">pMaxScore_</span></a></span></span><span> </span><span id="local-6989586621679325674"><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679325674"><span class="hs-identifier hs-var">pCurrentScore_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CostExplorer.Types.AnomalyScore.html#newAnomalyScore"><span class="hs-identifier hs-var hs-var">newAnomalyScore</span></a></span></span><span> </span><span id="local-6989586621679326000"><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679326000"><span class="hs-identifier hs-var">pMaxScore_</span></a></span></span><span> </span><span id="local-6989586621679325999"><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679325999"><span class="hs-identifier hs-var">pCurrentScore_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-56"></span><span>  </span><span class="annot"><span class="annottext">AnomalyScore' :: Double -&gt; Double -&gt; AnomalyScore
 </span><a href="Network.AWS.CostExplorer.Types.AnomalyScore.html#AnomalyScore%27"><span class="hs-identifier hs-type">AnomalyScore'</span></a></span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:maxScore:AnomalyScore' :: Double
 </span><a href="Network.AWS.CostExplorer.Types.AnomalyScore.html#%24sel%3AmaxScore%3AAnomalyScore%27"><span class="hs-identifier hs-var">maxScore</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679325675"><span class="hs-identifier hs-var">pMaxScore_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679326000"><span class="hs-identifier hs-var">pMaxScore_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:currentScore:AnomalyScore' :: Double
 </span><a href="Network.AWS.CostExplorer.Types.AnomalyScore.html#%24sel%3AcurrentScore%3AAnomalyScore%27"><span class="hs-identifier hs-var">currentScore</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679325674"><span class="hs-identifier hs-var">pCurrentScore_</span></a></span><span>
+</span><a href="#local-6989586621679325999"><span class="hs-identifier hs-var">pCurrentScore_</span></a></span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- | The maximum score that\'s observed during the @AnomalyDateInterval@.</span><span>
@@ -127,16 +127,16 @@ $cfrom :: forall x. AnomalyScore -&gt; Rep AnomalyScore x
 -&gt; (AnomalyScore -&gt; Double -&gt; AnomalyScore)
 -&gt; Lens AnomalyScore AnomalyScore Double Double
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalyScore.html#AnomalyScore%27"><span class="hs-identifier hs-type">AnomalyScore'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679325670"><span class="annot"><span class="annottext">Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalyScore.html#AnomalyScore%27"><span class="hs-identifier hs-type">AnomalyScore'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679325995"><span class="annot"><span class="annottext">Double
 maxScore :: Double
 $sel:maxScore:AnomalyScore' :: AnomalyScore -&gt; Double
-</span><a href="#local-6989586621679325670"><span class="hs-identifier hs-var hs-var">maxScore</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679325670"><span class="hs-identifier hs-var">maxScore</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679325669"><span class="annot"><span class="annottext">s :: AnomalyScore
-</span><a href="#local-6989586621679325669"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalyScore.html#AnomalyScore%27"><span class="hs-identifier hs-type">AnomalyScore'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679325668"><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679325668"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnomalyScore
-</span><a href="#local-6989586621679325669"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxScore:AnomalyScore' :: Double
+</span><a href="#local-6989586621679325995"><span class="hs-identifier hs-var hs-var">maxScore</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679325995"><span class="hs-identifier hs-var">maxScore</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679325994"><span class="annot"><span class="annottext">s :: AnomalyScore
+</span><a href="#local-6989586621679325994"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalyScore.html#AnomalyScore%27"><span class="hs-identifier hs-type">AnomalyScore'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679325993"><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679325993"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnomalyScore
+</span><a href="#local-6989586621679325994"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxScore:AnomalyScore' :: Double
 </span><a href="Network.AWS.CostExplorer.Types.AnomalyScore.html#%24sel%3AmaxScore%3AAnomalyScore%27"><span class="hs-identifier hs-var">maxScore</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679325668"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalyScore.html#AnomalyScore"><span class="hs-identifier hs-type">AnomalyScore</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679325993"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalyScore.html#AnomalyScore"><span class="hs-identifier hs-type">AnomalyScore</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- | The last observed score.</span><span>
 </span><span id="line-66"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalyScore.html#anomalyScore_currentScore"><span class="hs-identifier hs-type">anomalyScore_currentScore</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalyScore.html#AnomalyScore"><span class="hs-identifier hs-type">AnomalyScore</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span>
@@ -145,19 +145,19 @@ $sel:maxScore:AnomalyScore' :: AnomalyScore -&gt; Double
 -&gt; (AnomalyScore -&gt; Double -&gt; AnomalyScore)
 -&gt; Lens AnomalyScore AnomalyScore Double Double
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalyScore.html#AnomalyScore%27"><span class="hs-identifier hs-type">AnomalyScore'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679325666"><span class="annot"><span class="annottext">Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalyScore.html#AnomalyScore%27"><span class="hs-identifier hs-type">AnomalyScore'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679325991"><span class="annot"><span class="annottext">Double
 currentScore :: Double
 $sel:currentScore:AnomalyScore' :: AnomalyScore -&gt; Double
-</span><a href="#local-6989586621679325666"><span class="hs-identifier hs-var hs-var">currentScore</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679325666"><span class="hs-identifier hs-var">currentScore</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679325665"><span class="annot"><span class="annottext">s :: AnomalyScore
-</span><a href="#local-6989586621679325665"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalyScore.html#AnomalyScore%27"><span class="hs-identifier hs-type">AnomalyScore'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679325664"><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679325664"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnomalyScore
-</span><a href="#local-6989586621679325665"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:currentScore:AnomalyScore' :: Double
+</span><a href="#local-6989586621679325991"><span class="hs-identifier hs-var hs-var">currentScore</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679325991"><span class="hs-identifier hs-var">currentScore</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679325990"><span class="annot"><span class="annottext">s :: AnomalyScore
+</span><a href="#local-6989586621679325990"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalyScore.html#AnomalyScore%27"><span class="hs-identifier hs-type">AnomalyScore'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679325989"><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679325989"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnomalyScore
+</span><a href="#local-6989586621679325990"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:currentScore:AnomalyScore' :: Double
 </span><a href="Network.AWS.CostExplorer.Types.AnomalyScore.html#%24sel%3AcurrentScore%3AAnomalyScore%27"><span class="hs-identifier hs-var">currentScore</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679325664"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalyScore.html#AnomalyScore"><span class="hs-identifier hs-type">AnomalyScore</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679325989"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalyScore.html#AnomalyScore"><span class="hs-identifier hs-type">AnomalyScore</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679325661"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalyScore.html#AnomalyScore"><span class="hs-identifier hs-type">AnomalyScore</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621679325659"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AnomalyScore
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679325986"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalyScore.html#AnomalyScore"><span class="hs-identifier hs-type">AnomalyScore</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679325984"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AnomalyScore
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AnomalyScore) -&gt; Value -&gt; Parser AnomalyScore
@@ -165,15 +165,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AnomalyScore&quot;</span></span><span>
-</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679325656"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679325656"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679325981"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679325981"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-74"></span><span>          </span><span class="annot"><span class="annottext">Double -&gt; Double -&gt; AnomalyScore
 </span><a href="Network.AWS.CostExplorer.Types.AnomalyScore.html#AnomalyScore%27"><span class="hs-identifier hs-var">AnomalyScore'</span></a></span><span>
 </span><span id="line-75"></span><span>            </span><span class="annot"><span class="annottext">(Double -&gt; Double -&gt; AnomalyScore)
 -&gt; Parser Double -&gt; Parser (Double -&gt; AnomalyScore)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679325656"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Double
+</span><a href="#local-6989586621679325981"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Double
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxScore&quot;</span></span><span class="hs-special">)</span><span>
@@ -181,13 +181,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Double -&gt; Parser AnomalyScore
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679325656"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Double
+</span><a href="#local-6989586621679325981"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Double
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CurrentScore&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679325650"><span id="local-6989586621679325652"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalyScore.html#AnomalyScore"><span class="hs-identifier hs-type">AnomalyScore</span></a></span></span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679325975"><span id="local-6989586621679325977"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalyScore.html#AnomalyScore"><span class="hs-identifier hs-type">AnomalyScore</span></a></span></span></span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679325647"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalyScore.html#AnomalyScore"><span class="hs-identifier hs-type">AnomalyScore</span></a></span></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679325972"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalyScore.html#AnomalyScore"><span class="hs-identifier hs-type">AnomalyScore</span></a></span></span><span>
 </span><span id="line-82"></span></pre></body></html>

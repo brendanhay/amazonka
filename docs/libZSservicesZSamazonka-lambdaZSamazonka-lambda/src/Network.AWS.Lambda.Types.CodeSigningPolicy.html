@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679289197"><span id="local-6989586621679289198"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CodeSigningPolicy"><span class="annot"><a href="Network.AWS.Lambda.Types.CodeSigningPolicy.html#CodeSigningPolicy"><span class="hs-identifier hs-var">CodeSigningPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CodeSigningPolicy%27"><span class="annot"><a href="Network.AWS.Lambda.Types.CodeSigningPolicy.html#CodeSigningPolicy%27"><span class="hs-identifier hs-var">CodeSigningPolicy'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679294035"><span id="local-6989586621679294036"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CodeSigningPolicy"><span class="annot"><a href="Network.AWS.Lambda.Types.CodeSigningPolicy.html#CodeSigningPolicy"><span class="hs-identifier hs-var">CodeSigningPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CodeSigningPolicy%27"><span class="annot"><a href="Network.AWS.Lambda.Types.CodeSigningPolicy.html#CodeSigningPolicy%27"><span class="hs-identifier hs-var">CodeSigningPolicy'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCodeSigningPolicy"><span class="annot"><span class="annottext">CodeSigningPolicy -&gt; Text
 </span><a href="Network.AWS.Lambda.Types.CodeSigningPolicy.html#fromCodeSigningPolicy"><span class="hs-identifier hs-var hs-var">fromCodeSigningPolicy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679289189"><span id="local-6989586621679289191"><span id="local-6989586621679289193"><span class="annot"><span class="annottext">Int -&gt; CodeSigningPolicy -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679294027"><span id="local-6989586621679294029"><span id="local-6989586621679294031"><span class="annot"><span class="annottext">Int -&gt; CodeSigningPolicy -&gt; ShowS
 [CodeSigningPolicy] -&gt; ShowS
 CodeSigningPolicy -&gt; String
 (Int -&gt; CodeSigningPolicy -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: CodeSigningPolicy -&gt; String
 showsPrec :: Int -&gt; CodeSigningPolicy -&gt; ShowS
 $cshowsPrec :: Int -&gt; CodeSigningPolicy -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679289180"><span id="local-6989586621679289182"><span id="local-6989586621679289184"><span id="local-6989586621679289186"><span class="annot"><span class="annottext">ReadPrec [CodeSigningPolicy]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679294018"><span id="local-6989586621679294020"><span id="local-6989586621679294022"><span id="local-6989586621679294024"><span class="annot"><span class="annottext">ReadPrec [CodeSigningPolicy]
 ReadPrec CodeSigningPolicy
 Int -&gt; ReadS CodeSigningPolicy
 ReadS [CodeSigningPolicy]
@@ -72,7 +72,7 @@ $creadList :: ReadS [CodeSigningPolicy]
 readsPrec :: Int -&gt; ReadS CodeSigningPolicy
 $creadsPrec :: Int -&gt; ReadS CodeSigningPolicy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679289175"><span id="local-6989586621679289177"><span class="annot"><span class="annottext">CodeSigningPolicy -&gt; CodeSigningPolicy -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679294013"><span id="local-6989586621679294015"><span class="annot"><span class="annottext">CodeSigningPolicy -&gt; CodeSigningPolicy -&gt; Bool
 (CodeSigningPolicy -&gt; CodeSigningPolicy -&gt; Bool)
 -&gt; (CodeSigningPolicy -&gt; CodeSigningPolicy -&gt; Bool)
 -&gt; Eq CodeSigningPolicy
@@ -82,7 +82,7 @@ $c/= :: CodeSigningPolicy -&gt; CodeSigningPolicy -&gt; Bool
 == :: CodeSigningPolicy -&gt; CodeSigningPolicy -&gt; Bool
 $c== :: CodeSigningPolicy -&gt; CodeSigningPolicy -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679289159"><span id="local-6989586621679289161"><span id="local-6989586621679289163"><span id="local-6989586621679289165"><span id="local-6989586621679289167"><span id="local-6989586621679289169"><span id="local-6989586621679289171"><span class="annot"><span class="annottext">Eq CodeSigningPolicy
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679293997"><span id="local-6989586621679293999"><span id="local-6989586621679294001"><span id="local-6989586621679294003"><span id="local-6989586621679294005"><span id="local-6989586621679294007"><span id="local-6989586621679294009"><span class="annot"><span class="annottext">Eq CodeSigningPolicy
 Eq CodeSigningPolicy
 -&gt; (CodeSigningPolicy -&gt; CodeSigningPolicy -&gt; Ordering)
 -&gt; (CodeSigningPolicy -&gt; CodeSigningPolicy -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. CodeSigningPolicy -&gt; Rep CodeSigningPolicy x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679289151"><span id="local-6989586621679289153"><span class="annot"><span class="annottext">Int -&gt; CodeSigningPolicy -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679293989"><span id="local-6989586621679293991"><span class="annot"><span class="annottext">Int -&gt; CodeSigningPolicy -&gt; Int
 CodeSigningPolicy -&gt; Int
 (Int -&gt; CodeSigningPolicy -&gt; Int)
 -&gt; (CodeSigningPolicy -&gt; Int) -&gt; Hashable CodeSigningPolicy
@@ -143,51 +143,51 @@ $chash :: CodeSigningPolicy -&gt; Int
 hashWithSalt :: Int -&gt; CodeSigningPolicy -&gt; Int
 $chashWithSalt :: Int -&gt; CodeSigningPolicy -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679289148"><span class="annot"><span class="annottext">CodeSigningPolicy -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679293986"><span class="annot"><span class="annottext">CodeSigningPolicy -&gt; ()
 (CodeSigningPolicy -&gt; ()) -&gt; NFData CodeSigningPolicy
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: CodeSigningPolicy -&gt; ()
 $crnf :: CodeSigningPolicy -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679289145"><span class="annot"><span class="annottext">Text -&gt; Either String CodeSigningPolicy
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679293983"><span class="annot"><span class="annottext">Text -&gt; Either String CodeSigningPolicy
 (Text -&gt; Either String CodeSigningPolicy)
 -&gt; FromText CodeSigningPolicy
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String CodeSigningPolicy
 $cfromText :: Text -&gt; Either String CodeSigningPolicy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679289142"><span class="annot"><span class="annottext">CodeSigningPolicy -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679293980"><span class="annot"><span class="annottext">CodeSigningPolicy -&gt; Text
 (CodeSigningPolicy -&gt; Text) -&gt; ToText CodeSigningPolicy
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: CodeSigningPolicy -&gt; Text
 $ctoText :: CodeSigningPolicy -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679289139"><span class="annot"><span class="annottext">CodeSigningPolicy -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679293977"><span class="annot"><span class="annottext">CodeSigningPolicy -&gt; ByteString
 (CodeSigningPolicy -&gt; ByteString) -&gt; ToByteString CodeSigningPolicy
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: CodeSigningPolicy -&gt; ByteString
 $ctoBS :: CodeSigningPolicy -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679289136"><span class="annot"><span class="annottext">CodeSigningPolicy -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679293974"><span class="annot"><span class="annottext">CodeSigningPolicy -&gt; ByteStringBuilder
 (CodeSigningPolicy -&gt; ByteStringBuilder) -&gt; ToLog CodeSigningPolicy
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: CodeSigningPolicy -&gt; ByteStringBuilder
 $cbuild :: CodeSigningPolicy -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679289133"><span class="annot"><span class="annottext">HeaderName -&gt; CodeSigningPolicy -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679293971"><span class="annot"><span class="annottext">HeaderName -&gt; CodeSigningPolicy -&gt; [Header]
 (HeaderName -&gt; CodeSigningPolicy -&gt; [Header])
 -&gt; ToHeader CodeSigningPolicy
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; CodeSigningPolicy -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; CodeSigningPolicy -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679289130"><span class="annot"><span class="annottext">CodeSigningPolicy -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679293968"><span class="annot"><span class="annottext">CodeSigningPolicy -&gt; QueryString
 (CodeSigningPolicy -&gt; QueryString) -&gt; ToQuery CodeSigningPolicy
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: CodeSigningPolicy -&gt; QueryString
 $ctoQuery :: CodeSigningPolicy -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679289125"><span id="local-6989586621679289127"><span class="annot"><span class="annottext">Value -&gt; Parser [CodeSigningPolicy]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679293963"><span id="local-6989586621679293965"><span class="annot"><span class="annottext">Value -&gt; Parser [CodeSigningPolicy]
 Value -&gt; Parser CodeSigningPolicy
 (Value -&gt; Parser CodeSigningPolicy)
 -&gt; (Value -&gt; Parser [CodeSigningPolicy])
@@ -199,7 +199,7 @@ $cparseJSONList :: Value -&gt; Parser [CodeSigningPolicy]
 parseJSON :: Value -&gt; Parser CodeSigningPolicy
 $cparseJSON :: Value -&gt; Parser CodeSigningPolicy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679289120"><span id="local-6989586621679289122"><span class="annot"><span class="annottext">FromJSONKeyFunction [CodeSigningPolicy]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679293958"><span id="local-6989586621679293960"><span class="annot"><span class="annottext">FromJSONKeyFunction [CodeSigningPolicy]
 FromJSONKeyFunction CodeSigningPolicy
 FromJSONKeyFunction CodeSigningPolicy
 -&gt; FromJSONKeyFunction [CodeSigningPolicy]
@@ -211,7 +211,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [CodeSigningPolicy]
 fromJSONKey :: FromJSONKeyFunction CodeSigningPolicy
 $cfromJSONKey :: FromJSONKeyFunction CodeSigningPolicy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679289111"><span id="local-6989586621679289113"><span id="local-6989586621679289115"><span id="local-6989586621679289117"><span class="annot"><span class="annottext">[CodeSigningPolicy] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679293949"><span id="local-6989586621679293951"><span id="local-6989586621679293953"><span id="local-6989586621679293955"><span class="annot"><span class="annottext">[CodeSigningPolicy] -&gt; Encoding
 [CodeSigningPolicy] -&gt; Value
 CodeSigningPolicy -&gt; Encoding
 CodeSigningPolicy -&gt; Value
@@ -235,7 +235,7 @@ $ctoEncoding :: CodeSigningPolicy -&gt; Encoding
 toJSON :: CodeSigningPolicy -&gt; Value
 $ctoJSON :: CodeSigningPolicy -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679289106"><span id="local-6989586621679289108"><span class="annot"><span class="annottext">ToJSONKeyFunction [CodeSigningPolicy]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679293944"><span id="local-6989586621679293946"><span class="annot"><span class="annottext">ToJSONKeyFunction [CodeSigningPolicy]
 ToJSONKeyFunction CodeSigningPolicy
 ToJSONKeyFunction CodeSigningPolicy
 -&gt; ToJSONKeyFunction [CodeSigningPolicy]
@@ -247,14 +247,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [CodeSigningPolicy]
 toJSONKey :: ToJSONKeyFunction CodeSigningPolicy
 $ctoJSONKey :: ToJSONKeyFunction CodeSigningPolicy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679289103"><span class="annot"><span class="annottext">[Node] -&gt; Either String CodeSigningPolicy
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679293941"><span class="annot"><span class="annottext">[Node] -&gt; Either String CodeSigningPolicy
 ([Node] -&gt; Either String CodeSigningPolicy)
 -&gt; FromXML CodeSigningPolicy
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String CodeSigningPolicy
 $cparseXML :: [Node] -&gt; Either String CodeSigningPolicy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679289100"><span class="annot"><span class="annottext">CodeSigningPolicy -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679293938"><span class="annot"><span class="annottext">CodeSigningPolicy -&gt; XML
 (CodeSigningPolicy -&gt; XML) -&gt; ToXML CodeSigningPolicy
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: CodeSigningPolicy -&gt; XML

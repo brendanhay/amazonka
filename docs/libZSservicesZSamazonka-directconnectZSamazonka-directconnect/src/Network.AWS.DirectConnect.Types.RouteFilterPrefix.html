@@ -27,13 +27,13 @@
 </span><span id="line-27"></span><span class="hs-comment">-- through Border Gateway Protocol (BGP) over a public virtual interface.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newRouteFilterPrefix' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679280819"><span id="local-6989586621679280820"></span></span><span class="hs-keyword">data</span><span> </span><span id="RouteFilterPrefix"><span class="annot"><a href="Network.AWS.DirectConnect.Types.RouteFilterPrefix.html#RouteFilterPrefix"><span class="hs-identifier hs-var">RouteFilterPrefix</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RouteFilterPrefix%27"><span class="annot"><a href="Network.AWS.DirectConnect.Types.RouteFilterPrefix.html#RouteFilterPrefix%27"><span class="hs-identifier hs-var">RouteFilterPrefix'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679281043"><span id="local-6989586621679281044"></span></span><span class="hs-keyword">data</span><span> </span><span id="RouteFilterPrefix"><span class="annot"><a href="Network.AWS.DirectConnect.Types.RouteFilterPrefix.html#RouteFilterPrefix"><span class="hs-identifier hs-var">RouteFilterPrefix</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RouteFilterPrefix%27"><span class="annot"><a href="Network.AWS.DirectConnect.Types.RouteFilterPrefix.html#RouteFilterPrefix%27"><span class="hs-identifier hs-var">RouteFilterPrefix'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The CIDR block for the advertised route. Separate multiple routes using</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- commas. An IPv6 CIDR must use \/64 or shorter.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Acidr%3ARouteFilterPrefix%27"><span class="annot"><span class="annottext">RouteFilterPrefix -&gt; Maybe Text
 </span><a href="Network.AWS.DirectConnect.Types.RouteFilterPrefix.html#%24sel%3Acidr%3ARouteFilterPrefix%27"><span class="hs-identifier hs-var hs-var">cidr</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679280813"><span id="local-6989586621679280815"><span class="annot"><span class="annottext">RouteFilterPrefix -&gt; RouteFilterPrefix -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679281037"><span id="local-6989586621679281039"><span class="annot"><span class="annottext">RouteFilterPrefix -&gt; RouteFilterPrefix -&gt; Bool
 (RouteFilterPrefix -&gt; RouteFilterPrefix -&gt; Bool)
 -&gt; (RouteFilterPrefix -&gt; RouteFilterPrefix -&gt; Bool)
 -&gt; Eq RouteFilterPrefix
@@ -42,7 +42,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RouteFilterPrefix -&gt; RouteFilterPrefix -&gt; Bool
 == :: RouteFilterPrefix -&gt; RouteFilterPrefix -&gt; Bool
 $c== :: RouteFilterPrefix -&gt; RouteFilterPrefix -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679280804"><span id="local-6989586621679280806"><span id="local-6989586621679280808"><span id="local-6989586621679280810"><span class="annot"><span class="annottext">ReadPrec [RouteFilterPrefix]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679281028"><span id="local-6989586621679281030"><span id="local-6989586621679281032"><span id="local-6989586621679281034"><span class="annot"><span class="annottext">ReadPrec [RouteFilterPrefix]
 ReadPrec RouteFilterPrefix
 Int -&gt; ReadS RouteFilterPrefix
 ReadS [RouteFilterPrefix]
@@ -62,7 +62,7 @@ readList :: ReadS [RouteFilterPrefix]
 $creadList :: ReadS [RouteFilterPrefix]
 readsPrec :: Int -&gt; ReadS RouteFilterPrefix
 $creadsPrec :: Int -&gt; ReadS RouteFilterPrefix
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679280797"><span id="local-6989586621679280799"><span id="local-6989586621679280801"><span class="annot"><span class="annottext">Int -&gt; RouteFilterPrefix -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679281021"><span id="local-6989586621679281023"><span id="local-6989586621679281025"><span class="annot"><span class="annottext">Int -&gt; RouteFilterPrefix -&gt; ShowS
 [RouteFilterPrefix] -&gt; ShowS
 RouteFilterPrefix -&gt; String
 (Int -&gt; RouteFilterPrefix -&gt; ShowS)
@@ -118,19 +118,19 @@ forall a. Maybe a
 -&gt; Lens
      RouteFilterPrefix RouteFilterPrefix (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.RouteFilterPrefix.html#RouteFilterPrefix%27"><span class="hs-identifier hs-type">RouteFilterPrefix'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280788"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.RouteFilterPrefix.html#RouteFilterPrefix%27"><span class="hs-identifier hs-type">RouteFilterPrefix'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281012"><span class="annot"><span class="annottext">Maybe Text
 cidr :: Maybe Text
 $sel:cidr:RouteFilterPrefix' :: RouteFilterPrefix -&gt; Maybe Text
-</span><a href="#local-6989586621679280788"><span class="hs-identifier hs-var hs-var">cidr</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679280788"><span class="hs-identifier hs-var">cidr</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280787"><span class="annot"><span class="annottext">s :: RouteFilterPrefix
-</span><a href="#local-6989586621679280787"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.RouteFilterPrefix.html#RouteFilterPrefix%27"><span class="hs-identifier hs-type">RouteFilterPrefix'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280786"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679280786"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RouteFilterPrefix
-</span><a href="#local-6989586621679280787"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cidr:RouteFilterPrefix' :: Maybe Text
+</span><a href="#local-6989586621679281012"><span class="hs-identifier hs-var hs-var">cidr</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679281012"><span class="hs-identifier hs-var">cidr</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281011"><span class="annot"><span class="annottext">s :: RouteFilterPrefix
+</span><a href="#local-6989586621679281011"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.RouteFilterPrefix.html#RouteFilterPrefix%27"><span class="hs-identifier hs-type">RouteFilterPrefix'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281010"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679281010"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RouteFilterPrefix
+</span><a href="#local-6989586621679281011"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cidr:RouteFilterPrefix' :: Maybe Text
 </span><a href="Network.AWS.DirectConnect.Types.RouteFilterPrefix.html#%24sel%3Acidr%3ARouteFilterPrefix%27"><span class="hs-identifier hs-var">cidr</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679280786"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.RouteFilterPrefix.html#RouteFilterPrefix"><span class="hs-identifier hs-type">RouteFilterPrefix</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679281010"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.RouteFilterPrefix.html#RouteFilterPrefix"><span class="hs-identifier hs-type">RouteFilterPrefix</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-56"></span><span>
-</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679280783"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.RouteFilterPrefix.html#RouteFilterPrefix"><span class="hs-identifier hs-type">RouteFilterPrefix</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-58"></span><span>  </span><span id="local-6989586621679280781"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RouteFilterPrefix
+</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679281007"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.RouteFilterPrefix.html#RouteFilterPrefix"><span class="hs-identifier hs-type">RouteFilterPrefix</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-58"></span><span>  </span><span id="local-6989586621679281005"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RouteFilterPrefix
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-59"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser RouteFilterPrefix)
@@ -140,29 +140,29 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;RouteFilterPrefix&quot;</span></span><span>
-</span><span id="line-61"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679280778"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679280778"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-61"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679281002"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679281002"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-62"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; RouteFilterPrefix
 </span><a href="Network.AWS.DirectConnect.Types.RouteFilterPrefix.html#RouteFilterPrefix%27"><span class="hs-identifier hs-var">RouteFilterPrefix'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; RouteFilterPrefix)
 -&gt; Parser (Maybe Text) -&gt; Parser RouteFilterPrefix
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679280778"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679281002"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;cidr&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679280772"><span id="local-6989586621679280774"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.RouteFilterPrefix.html#RouteFilterPrefix"><span class="hs-identifier hs-type">RouteFilterPrefix</span></a></span></span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679280996"><span id="local-6989586621679280998"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.RouteFilterPrefix.html#RouteFilterPrefix"><span class="hs-identifier hs-type">RouteFilterPrefix</span></a></span></span></span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679280769"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.RouteFilterPrefix.html#RouteFilterPrefix"><span class="hs-identifier hs-type">RouteFilterPrefix</span></a></span></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679280993"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.RouteFilterPrefix.html#RouteFilterPrefix"><span class="hs-identifier hs-type">RouteFilterPrefix</span></a></span></span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679280761"><span id="local-6989586621679280763"><span id="local-6989586621679280765"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.RouteFilterPrefix.html#RouteFilterPrefix"><span class="hs-identifier hs-type">RouteFilterPrefix</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621679280759"><span class="annot"><span class="annottext">toJSON :: RouteFilterPrefix -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.RouteFilterPrefix.html#RouteFilterPrefix%27"><span class="hs-identifier hs-type">RouteFilterPrefix'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280757"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679280985"><span id="local-6989586621679280987"><span id="local-6989586621679280989"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.RouteFilterPrefix.html#RouteFilterPrefix"><span class="hs-identifier hs-type">RouteFilterPrefix</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679280983"><span class="annot"><span class="annottext">toJSON :: RouteFilterPrefix -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.RouteFilterPrefix.html#RouteFilterPrefix%27"><span class="hs-identifier hs-type">RouteFilterPrefix'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280981"><span class="annot"><span class="annottext">Maybe Text
 cidr :: Maybe Text
 $sel:cidr:RouteFilterPrefix' :: RouteFilterPrefix -&gt; Maybe Text
-</span><a href="#local-6989586621679280757"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679280981"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -174,6 +174,6 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679280757"><span class="hs-identifier hs-var">cidr</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679280981"><span class="hs-identifier hs-var">cidr</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-74"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span></pre></body></html>

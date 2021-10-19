@@ -35,13 +35,13 @@
 </span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-37"></span><span>
-</span><span id="line-38"></span><span id="local-6989586621679366127"><span id="local-6989586621679366128"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ClusterStateChangeReasonCode"><span class="annot"><a href="Network.AWS.EMR.Types.ClusterStateChangeReasonCode.html#ClusterStateChangeReasonCode"><span class="hs-identifier hs-var">ClusterStateChangeReasonCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ClusterStateChangeReasonCode%27"><span class="annot"><a href="Network.AWS.EMR.Types.ClusterStateChangeReasonCode.html#ClusterStateChangeReasonCode%27"><span class="hs-identifier hs-var">ClusterStateChangeReasonCode'</span></a></span></span><span>
+</span><span id="line-38"></span><span id="local-6989586621679366472"><span id="local-6989586621679366473"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ClusterStateChangeReasonCode"><span class="annot"><a href="Network.AWS.EMR.Types.ClusterStateChangeReasonCode.html#ClusterStateChangeReasonCode"><span class="hs-identifier hs-var">ClusterStateChangeReasonCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ClusterStateChangeReasonCode%27"><span class="annot"><a href="Network.AWS.EMR.Types.ClusterStateChangeReasonCode.html#ClusterStateChangeReasonCode%27"><span class="hs-identifier hs-var">ClusterStateChangeReasonCode'</span></a></span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromClusterStateChangeReasonCode"><span class="annot"><span class="annottext">ClusterStateChangeReasonCode -&gt; Text
 </span><a href="Network.AWS.EMR.Types.ClusterStateChangeReasonCode.html#fromClusterStateChangeReasonCode"><span class="hs-identifier hs-var hs-var">fromClusterStateChangeReasonCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-40"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679366119"><span id="local-6989586621679366121"><span id="local-6989586621679366123"><span class="annot"><span class="annottext">Int -&gt; ClusterStateChangeReasonCode -&gt; ShowS
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679366464"><span id="local-6989586621679366466"><span id="local-6989586621679366468"><span class="annot"><span class="annottext">Int -&gt; ClusterStateChangeReasonCode -&gt; ShowS
 [ClusterStateChangeReasonCode] -&gt; ShowS
 ClusterStateChangeReasonCode -&gt; String
 (Int -&gt; ClusterStateChangeReasonCode -&gt; ShowS)
@@ -57,7 +57,7 @@ $cshow :: ClusterStateChangeReasonCode -&gt; String
 showsPrec :: Int -&gt; ClusterStateChangeReasonCode -&gt; ShowS
 $cshowsPrec :: Int -&gt; ClusterStateChangeReasonCode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679366110"><span id="local-6989586621679366112"><span id="local-6989586621679366114"><span id="local-6989586621679366116"><span class="annot"><span class="annottext">ReadPrec [ClusterStateChangeReasonCode]
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679366455"><span id="local-6989586621679366457"><span id="local-6989586621679366459"><span id="local-6989586621679366461"><span class="annot"><span class="annottext">ReadPrec [ClusterStateChangeReasonCode]
 ReadPrec ClusterStateChangeReasonCode
 Int -&gt; ReadS ClusterStateChangeReasonCode
 ReadS [ClusterStateChangeReasonCode]
@@ -78,7 +78,7 @@ $creadList :: ReadS [ClusterStateChangeReasonCode]
 readsPrec :: Int -&gt; ReadS ClusterStateChangeReasonCode
 $creadsPrec :: Int -&gt; ReadS ClusterStateChangeReasonCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679366105"><span id="local-6989586621679366107"><span class="annot"><span class="annottext">ClusterStateChangeReasonCode
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679366450"><span id="local-6989586621679366452"><span class="annot"><span class="annottext">ClusterStateChangeReasonCode
 -&gt; ClusterStateChangeReasonCode -&gt; Bool
 (ClusterStateChangeReasonCode
  -&gt; ClusterStateChangeReasonCode -&gt; Bool)
@@ -95,7 +95,7 @@ $c/= :: ClusterStateChangeReasonCode
 $c== :: ClusterStateChangeReasonCode
 -&gt; ClusterStateChangeReasonCode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679366089"><span id="local-6989586621679366091"><span id="local-6989586621679366093"><span id="local-6989586621679366095"><span id="local-6989586621679366097"><span id="local-6989586621679366099"><span id="local-6989586621679366101"><span class="annot"><span class="annottext">Eq ClusterStateChangeReasonCode
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679366434"><span id="local-6989586621679366436"><span id="local-6989586621679366438"><span id="local-6989586621679366440"><span id="local-6989586621679366442"><span id="local-6989586621679366444"><span id="local-6989586621679366446"><span class="annot"><span class="annottext">Eq ClusterStateChangeReasonCode
 Eq ClusterStateChangeReasonCode
 -&gt; (ClusterStateChangeReasonCode
     -&gt; ClusterStateChangeReasonCode -&gt; Ordering)
@@ -176,7 +176,7 @@ ClusterStateChangeReasonCode -&gt; Rep ClusterStateChangeReasonCode x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-48"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679366081"><span id="local-6989586621679366083"><span class="annot"><span class="annottext">Int -&gt; ClusterStateChangeReasonCode -&gt; Int
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679366426"><span id="local-6989586621679366428"><span class="annot"><span class="annottext">Int -&gt; ClusterStateChangeReasonCode -&gt; Int
 ClusterStateChangeReasonCode -&gt; Int
 (Int -&gt; ClusterStateChangeReasonCode -&gt; Int)
 -&gt; (ClusterStateChangeReasonCode -&gt; Int)
@@ -187,56 +187,56 @@ $chash :: ClusterStateChangeReasonCode -&gt; Int
 hashWithSalt :: Int -&gt; ClusterStateChangeReasonCode -&gt; Int
 $chashWithSalt :: Int -&gt; ClusterStateChangeReasonCode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679366078"><span class="annot"><span class="annottext">ClusterStateChangeReasonCode -&gt; ()
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679366423"><span class="annot"><span class="annottext">ClusterStateChangeReasonCode -&gt; ()
 (ClusterStateChangeReasonCode -&gt; ())
 -&gt; NFData ClusterStateChangeReasonCode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ClusterStateChangeReasonCode -&gt; ()
 $crnf :: ClusterStateChangeReasonCode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679366075"><span class="annot"><span class="annottext">Text -&gt; Either String ClusterStateChangeReasonCode
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679366420"><span class="annot"><span class="annottext">Text -&gt; Either String ClusterStateChangeReasonCode
 (Text -&gt; Either String ClusterStateChangeReasonCode)
 -&gt; FromText ClusterStateChangeReasonCode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ClusterStateChangeReasonCode
 $cfromText :: Text -&gt; Either String ClusterStateChangeReasonCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679366072"><span class="annot"><span class="annottext">ClusterStateChangeReasonCode -&gt; Text
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679366417"><span class="annot"><span class="annottext">ClusterStateChangeReasonCode -&gt; Text
 (ClusterStateChangeReasonCode -&gt; Text)
 -&gt; ToText ClusterStateChangeReasonCode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ClusterStateChangeReasonCode -&gt; Text
 $ctoText :: ClusterStateChangeReasonCode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679366069"><span class="annot"><span class="annottext">ClusterStateChangeReasonCode -&gt; ByteString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679366414"><span class="annot"><span class="annottext">ClusterStateChangeReasonCode -&gt; ByteString
 (ClusterStateChangeReasonCode -&gt; ByteString)
 -&gt; ToByteString ClusterStateChangeReasonCode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ClusterStateChangeReasonCode -&gt; ByteString
 $ctoBS :: ClusterStateChangeReasonCode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679366066"><span class="annot"><span class="annottext">ClusterStateChangeReasonCode -&gt; ByteStringBuilder
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679366411"><span class="annot"><span class="annottext">ClusterStateChangeReasonCode -&gt; ByteStringBuilder
 (ClusterStateChangeReasonCode -&gt; ByteStringBuilder)
 -&gt; ToLog ClusterStateChangeReasonCode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ClusterStateChangeReasonCode -&gt; ByteStringBuilder
 $cbuild :: ClusterStateChangeReasonCode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679366063"><span class="annot"><span class="annottext">HeaderName -&gt; ClusterStateChangeReasonCode -&gt; [Header]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679366408"><span class="annot"><span class="annottext">HeaderName -&gt; ClusterStateChangeReasonCode -&gt; [Header]
 (HeaderName -&gt; ClusterStateChangeReasonCode -&gt; [Header])
 -&gt; ToHeader ClusterStateChangeReasonCode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ClusterStateChangeReasonCode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ClusterStateChangeReasonCode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679366060"><span class="annot"><span class="annottext">ClusterStateChangeReasonCode -&gt; QueryString
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679366405"><span class="annot"><span class="annottext">ClusterStateChangeReasonCode -&gt; QueryString
 (ClusterStateChangeReasonCode -&gt; QueryString)
 -&gt; ToQuery ClusterStateChangeReasonCode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ClusterStateChangeReasonCode -&gt; QueryString
 $ctoQuery :: ClusterStateChangeReasonCode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679366055"><span id="local-6989586621679366057"><span class="annot"><span class="annottext">Value -&gt; Parser [ClusterStateChangeReasonCode]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679366400"><span id="local-6989586621679366402"><span class="annot"><span class="annottext">Value -&gt; Parser [ClusterStateChangeReasonCode]
 Value -&gt; Parser ClusterStateChangeReasonCode
 (Value -&gt; Parser ClusterStateChangeReasonCode)
 -&gt; (Value -&gt; Parser [ClusterStateChangeReasonCode])
@@ -248,7 +248,7 @@ $cparseJSONList :: Value -&gt; Parser [ClusterStateChangeReasonCode]
 parseJSON :: Value -&gt; Parser ClusterStateChangeReasonCode
 $cparseJSON :: Value -&gt; Parser ClusterStateChangeReasonCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679366050"><span id="local-6989586621679366052"><span class="annot"><span class="annottext">FromJSONKeyFunction [ClusterStateChangeReasonCode]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679366395"><span id="local-6989586621679366397"><span class="annot"><span class="annottext">FromJSONKeyFunction [ClusterStateChangeReasonCode]
 FromJSONKeyFunction ClusterStateChangeReasonCode
 FromJSONKeyFunction ClusterStateChangeReasonCode
 -&gt; FromJSONKeyFunction [ClusterStateChangeReasonCode]
@@ -260,7 +260,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ClusterStateChangeReasonCode]
 fromJSONKey :: FromJSONKeyFunction ClusterStateChangeReasonCode
 $cfromJSONKey :: FromJSONKeyFunction ClusterStateChangeReasonCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679366041"><span id="local-6989586621679366043"><span id="local-6989586621679366045"><span id="local-6989586621679366047"><span class="annot"><span class="annottext">[ClusterStateChangeReasonCode] -&gt; Encoding
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679366386"><span id="local-6989586621679366388"><span id="local-6989586621679366390"><span id="local-6989586621679366392"><span class="annot"><span class="annottext">[ClusterStateChangeReasonCode] -&gt; Encoding
 [ClusterStateChangeReasonCode] -&gt; Value
 ClusterStateChangeReasonCode -&gt; Encoding
 ClusterStateChangeReasonCode -&gt; Value
@@ -284,7 +284,7 @@ $ctoEncoding :: ClusterStateChangeReasonCode -&gt; Encoding
 toJSON :: ClusterStateChangeReasonCode -&gt; Value
 $ctoJSON :: ClusterStateChangeReasonCode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679366036"><span id="local-6989586621679366038"><span class="annot"><span class="annottext">ToJSONKeyFunction [ClusterStateChangeReasonCode]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679366381"><span id="local-6989586621679366383"><span class="annot"><span class="annottext">ToJSONKeyFunction [ClusterStateChangeReasonCode]
 ToJSONKeyFunction ClusterStateChangeReasonCode
 ToJSONKeyFunction ClusterStateChangeReasonCode
 -&gt; ToJSONKeyFunction [ClusterStateChangeReasonCode]
@@ -296,14 +296,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ClusterStateChangeReasonCode]
 toJSONKey :: ToJSONKeyFunction ClusterStateChangeReasonCode
 $ctoJSONKey :: ToJSONKeyFunction ClusterStateChangeReasonCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679366033"><span class="annot"><span class="annottext">[Node] -&gt; Either String ClusterStateChangeReasonCode
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679366378"><span class="annot"><span class="annottext">[Node] -&gt; Either String ClusterStateChangeReasonCode
 ([Node] -&gt; Either String ClusterStateChangeReasonCode)
 -&gt; FromXML ClusterStateChangeReasonCode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ClusterStateChangeReasonCode
 $cparseXML :: [Node] -&gt; Either String ClusterStateChangeReasonCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679366030"><span class="annot"><span class="annottext">ClusterStateChangeReasonCode -&gt; XML
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679366375"><span class="annot"><span class="annottext">ClusterStateChangeReasonCode -&gt; XML
 (ClusterStateChangeReasonCode -&gt; XML)
 -&gt; ToXML ClusterStateChangeReasonCode
 forall a. (a -&gt; XML) -&gt; ToXML a

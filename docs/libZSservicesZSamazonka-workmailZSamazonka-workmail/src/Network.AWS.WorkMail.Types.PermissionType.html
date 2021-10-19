@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679260531"><span id="local-6989586621679260532"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PermissionType"><span class="annot"><a href="Network.AWS.WorkMail.Types.PermissionType.html#PermissionType"><span class="hs-identifier hs-var">PermissionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PermissionType%27"><span class="annot"><a href="Network.AWS.WorkMail.Types.PermissionType.html#PermissionType%27"><span class="hs-identifier hs-var">PermissionType'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679281256"><span id="local-6989586621679281257"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PermissionType"><span class="annot"><a href="Network.AWS.WorkMail.Types.PermissionType.html#PermissionType"><span class="hs-identifier hs-var">PermissionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PermissionType%27"><span class="annot"><a href="Network.AWS.WorkMail.Types.PermissionType.html#PermissionType%27"><span class="hs-identifier hs-var">PermissionType'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromPermissionType"><span class="annot"><span class="annottext">PermissionType -&gt; Text
 </span><a href="Network.AWS.WorkMail.Types.PermissionType.html#fromPermissionType"><span class="hs-identifier hs-var hs-var">fromPermissionType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679260523"><span id="local-6989586621679260525"><span id="local-6989586621679260527"><span class="annot"><span class="annottext">Int -&gt; PermissionType -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679281248"><span id="local-6989586621679281250"><span id="local-6989586621679281252"><span class="annot"><span class="annottext">Int -&gt; PermissionType -&gt; ShowS
 [PermissionType] -&gt; ShowS
 PermissionType -&gt; String
 (Int -&gt; PermissionType -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: PermissionType -&gt; String
 showsPrec :: Int -&gt; PermissionType -&gt; ShowS
 $cshowsPrec :: Int -&gt; PermissionType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679260514"><span id="local-6989586621679260516"><span id="local-6989586621679260518"><span id="local-6989586621679260520"><span class="annot"><span class="annottext">ReadPrec [PermissionType]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679281239"><span id="local-6989586621679281241"><span id="local-6989586621679281243"><span id="local-6989586621679281245"><span class="annot"><span class="annottext">ReadPrec [PermissionType]
 ReadPrec PermissionType
 Int -&gt; ReadS PermissionType
 ReadS [PermissionType]
@@ -73,7 +73,7 @@ $creadList :: ReadS [PermissionType]
 readsPrec :: Int -&gt; ReadS PermissionType
 $creadsPrec :: Int -&gt; ReadS PermissionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679260509"><span id="local-6989586621679260511"><span class="annot"><span class="annottext">PermissionType -&gt; PermissionType -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679281234"><span id="local-6989586621679281236"><span class="annot"><span class="annottext">PermissionType -&gt; PermissionType -&gt; Bool
 (PermissionType -&gt; PermissionType -&gt; Bool)
 -&gt; (PermissionType -&gt; PermissionType -&gt; Bool) -&gt; Eq PermissionType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ $c/= :: PermissionType -&gt; PermissionType -&gt; Bool
 == :: PermissionType -&gt; PermissionType -&gt; Bool
 $c== :: PermissionType -&gt; PermissionType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679260493"><span id="local-6989586621679260495"><span id="local-6989586621679260497"><span id="local-6989586621679260499"><span id="local-6989586621679260501"><span id="local-6989586621679260503"><span id="local-6989586621679260505"><span class="annot"><span class="annottext">Eq PermissionType
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679281218"><span id="local-6989586621679281220"><span id="local-6989586621679281222"><span id="local-6989586621679281224"><span id="local-6989586621679281226"><span id="local-6989586621679281228"><span id="local-6989586621679281230"><span class="annot"><span class="annottext">Eq PermissionType
 Eq PermissionType
 -&gt; (PermissionType -&gt; PermissionType -&gt; Ordering)
 -&gt; (PermissionType -&gt; PermissionType -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. PermissionType -&gt; Rep PermissionType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679260485"><span id="local-6989586621679260487"><span class="annot"><span class="annottext">Int -&gt; PermissionType -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679281210"><span id="local-6989586621679281212"><span class="annot"><span class="annottext">Int -&gt; PermissionType -&gt; Int
 PermissionType -&gt; Int
 (Int -&gt; PermissionType -&gt; Int)
 -&gt; (PermissionType -&gt; Int) -&gt; Hashable PermissionType
@@ -143,50 +143,50 @@ $chash :: PermissionType -&gt; Int
 hashWithSalt :: Int -&gt; PermissionType -&gt; Int
 $chashWithSalt :: Int -&gt; PermissionType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679260482"><span class="annot"><span class="annottext">PermissionType -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679281207"><span class="annot"><span class="annottext">PermissionType -&gt; ()
 (PermissionType -&gt; ()) -&gt; NFData PermissionType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: PermissionType -&gt; ()
 $crnf :: PermissionType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679260479"><span class="annot"><span class="annottext">Text -&gt; Either String PermissionType
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679281204"><span class="annot"><span class="annottext">Text -&gt; Either String PermissionType
 (Text -&gt; Either String PermissionType) -&gt; FromText PermissionType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String PermissionType
 $cfromText :: Text -&gt; Either String PermissionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679260476"><span class="annot"><span class="annottext">PermissionType -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679281201"><span class="annot"><span class="annottext">PermissionType -&gt; Text
 (PermissionType -&gt; Text) -&gt; ToText PermissionType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: PermissionType -&gt; Text
 $ctoText :: PermissionType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679260473"><span class="annot"><span class="annottext">PermissionType -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679281198"><span class="annot"><span class="annottext">PermissionType -&gt; ByteString
 (PermissionType -&gt; ByteString) -&gt; ToByteString PermissionType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: PermissionType -&gt; ByteString
 $ctoBS :: PermissionType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679260470"><span class="annot"><span class="annottext">PermissionType -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679281195"><span class="annot"><span class="annottext">PermissionType -&gt; ByteStringBuilder
 (PermissionType -&gt; ByteStringBuilder) -&gt; ToLog PermissionType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: PermissionType -&gt; ByteStringBuilder
 $cbuild :: PermissionType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679260467"><span class="annot"><span class="annottext">HeaderName -&gt; PermissionType -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679281192"><span class="annot"><span class="annottext">HeaderName -&gt; PermissionType -&gt; [Header]
 (HeaderName -&gt; PermissionType -&gt; [Header])
 -&gt; ToHeader PermissionType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; PermissionType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; PermissionType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679260464"><span class="annot"><span class="annottext">PermissionType -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679281189"><span class="annot"><span class="annottext">PermissionType -&gt; QueryString
 (PermissionType -&gt; QueryString) -&gt; ToQuery PermissionType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: PermissionType -&gt; QueryString
 $ctoQuery :: PermissionType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679260459"><span id="local-6989586621679260461"><span class="annot"><span class="annottext">Value -&gt; Parser [PermissionType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679281184"><span id="local-6989586621679281186"><span class="annot"><span class="annottext">Value -&gt; Parser [PermissionType]
 Value -&gt; Parser PermissionType
 (Value -&gt; Parser PermissionType)
 -&gt; (Value -&gt; Parser [PermissionType]) -&gt; FromJSON PermissionType
@@ -197,7 +197,7 @@ $cparseJSONList :: Value -&gt; Parser [PermissionType]
 parseJSON :: Value -&gt; Parser PermissionType
 $cparseJSON :: Value -&gt; Parser PermissionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679260454"><span id="local-6989586621679260456"><span class="annot"><span class="annottext">FromJSONKeyFunction [PermissionType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679281179"><span id="local-6989586621679281181"><span class="annot"><span class="annottext">FromJSONKeyFunction [PermissionType]
 FromJSONKeyFunction PermissionType
 FromJSONKeyFunction PermissionType
 -&gt; FromJSONKeyFunction [PermissionType]
@@ -209,7 +209,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [PermissionType]
 fromJSONKey :: FromJSONKeyFunction PermissionType
 $cfromJSONKey :: FromJSONKeyFunction PermissionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679260445"><span id="local-6989586621679260447"><span id="local-6989586621679260449"><span id="local-6989586621679260451"><span class="annot"><span class="annottext">[PermissionType] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679281170"><span id="local-6989586621679281172"><span id="local-6989586621679281174"><span id="local-6989586621679281176"><span class="annot"><span class="annottext">[PermissionType] -&gt; Encoding
 [PermissionType] -&gt; Value
 PermissionType -&gt; Encoding
 PermissionType -&gt; Value
@@ -233,7 +233,7 @@ $ctoEncoding :: PermissionType -&gt; Encoding
 toJSON :: PermissionType -&gt; Value
 $ctoJSON :: PermissionType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679260440"><span id="local-6989586621679260442"><span class="annot"><span class="annottext">ToJSONKeyFunction [PermissionType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679281165"><span id="local-6989586621679281167"><span class="annot"><span class="annottext">ToJSONKeyFunction [PermissionType]
 ToJSONKeyFunction PermissionType
 ToJSONKeyFunction PermissionType
 -&gt; ToJSONKeyFunction [PermissionType] -&gt; ToJSONKey PermissionType
@@ -244,13 +244,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [PermissionType]
 toJSONKey :: ToJSONKeyFunction PermissionType
 $ctoJSONKey :: ToJSONKeyFunction PermissionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679260437"><span class="annot"><span class="annottext">[Node] -&gt; Either String PermissionType
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679281162"><span class="annot"><span class="annottext">[Node] -&gt; Either String PermissionType
 ([Node] -&gt; Either String PermissionType) -&gt; FromXML PermissionType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String PermissionType
 $cparseXML :: [Node] -&gt; Either String PermissionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679260434"><span class="annot"><span class="annottext">PermissionType -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679281159"><span class="annot"><span class="annottext">PermissionType -&gt; XML
 (PermissionType -&gt; XML) -&gt; ToXML PermissionType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: PermissionType -&gt; XML

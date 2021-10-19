@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621680288297"><span id="local-6989586621680288298"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AppNetworkAccessType"><span class="annot"><a href="Network.AWS.SageMaker.Types.AppNetworkAccessType.html#AppNetworkAccessType"><span class="hs-identifier hs-var">AppNetworkAccessType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AppNetworkAccessType%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.AppNetworkAccessType.html#AppNetworkAccessType%27"><span class="hs-identifier hs-var">AppNetworkAccessType'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621680289653"><span id="local-6989586621680289654"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AppNetworkAccessType"><span class="annot"><a href="Network.AWS.SageMaker.Types.AppNetworkAccessType.html#AppNetworkAccessType"><span class="hs-identifier hs-var">AppNetworkAccessType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AppNetworkAccessType%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.AppNetworkAccessType.html#AppNetworkAccessType%27"><span class="hs-identifier hs-var">AppNetworkAccessType'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAppNetworkAccessType"><span class="annot"><span class="annottext">AppNetworkAccessType -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.AppNetworkAccessType.html#fromAppNetworkAccessType"><span class="hs-identifier hs-var hs-var">fromAppNetworkAccessType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680288289"><span id="local-6989586621680288291"><span id="local-6989586621680288293"><span class="annot"><span class="annottext">Int -&gt; AppNetworkAccessType -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680289645"><span id="local-6989586621680289647"><span id="local-6989586621680289649"><span class="annot"><span class="annottext">Int -&gt; AppNetworkAccessType -&gt; ShowS
 [AppNetworkAccessType] -&gt; ShowS
 AppNetworkAccessType -&gt; String
 (Int -&gt; AppNetworkAccessType -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: AppNetworkAccessType -&gt; String
 showsPrec :: Int -&gt; AppNetworkAccessType -&gt; ShowS
 $cshowsPrec :: Int -&gt; AppNetworkAccessType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621680288280"><span id="local-6989586621680288282"><span id="local-6989586621680288284"><span id="local-6989586621680288286"><span class="annot"><span class="annottext">ReadPrec [AppNetworkAccessType]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621680289636"><span id="local-6989586621680289638"><span id="local-6989586621680289640"><span id="local-6989586621680289642"><span class="annot"><span class="annottext">ReadPrec [AppNetworkAccessType]
 ReadPrec AppNetworkAccessType
 Int -&gt; ReadS AppNetworkAccessType
 ReadS [AppNetworkAccessType]
@@ -72,7 +72,7 @@ $creadList :: ReadS [AppNetworkAccessType]
 readsPrec :: Int -&gt; ReadS AppNetworkAccessType
 $creadsPrec :: Int -&gt; ReadS AppNetworkAccessType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621680288275"><span id="local-6989586621680288277"><span class="annot"><span class="annottext">AppNetworkAccessType -&gt; AppNetworkAccessType -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621680289631"><span id="local-6989586621680289633"><span class="annot"><span class="annottext">AppNetworkAccessType -&gt; AppNetworkAccessType -&gt; Bool
 (AppNetworkAccessType -&gt; AppNetworkAccessType -&gt; Bool)
 -&gt; (AppNetworkAccessType -&gt; AppNetworkAccessType -&gt; Bool)
 -&gt; Eq AppNetworkAccessType
@@ -82,7 +82,7 @@ $c/= :: AppNetworkAccessType -&gt; AppNetworkAccessType -&gt; Bool
 == :: AppNetworkAccessType -&gt; AppNetworkAccessType -&gt; Bool
 $c== :: AppNetworkAccessType -&gt; AppNetworkAccessType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621680288259"><span id="local-6989586621680288261"><span id="local-6989586621680288263"><span id="local-6989586621680288265"><span id="local-6989586621680288267"><span id="local-6989586621680288269"><span id="local-6989586621680288271"><span class="annot"><span class="annottext">Eq AppNetworkAccessType
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621680289615"><span id="local-6989586621680289617"><span id="local-6989586621680289619"><span id="local-6989586621680289621"><span id="local-6989586621680289623"><span id="local-6989586621680289625"><span id="local-6989586621680289627"><span class="annot"><span class="annottext">Eq AppNetworkAccessType
 Eq AppNetworkAccessType
 -&gt; (AppNetworkAccessType -&gt; AppNetworkAccessType -&gt; Ordering)
 -&gt; (AppNetworkAccessType -&gt; AppNetworkAccessType -&gt; Bool)
@@ -140,7 +140,7 @@ $cfrom :: forall x. AppNetworkAccessType -&gt; Rep AppNetworkAccessType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680288251"><span id="local-6989586621680288253"><span class="annot"><span class="annottext">Int -&gt; AppNetworkAccessType -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680289607"><span id="local-6989586621680289609"><span class="annot"><span class="annottext">Int -&gt; AppNetworkAccessType -&gt; Int
 AppNetworkAccessType -&gt; Int
 (Int -&gt; AppNetworkAccessType -&gt; Int)
 -&gt; (AppNetworkAccessType -&gt; Int) -&gt; Hashable AppNetworkAccessType
@@ -150,54 +150,54 @@ $chash :: AppNetworkAccessType -&gt; Int
 hashWithSalt :: Int -&gt; AppNetworkAccessType -&gt; Int
 $chashWithSalt :: Int -&gt; AppNetworkAccessType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621680288248"><span class="annot"><span class="annottext">AppNetworkAccessType -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621680289604"><span class="annot"><span class="annottext">AppNetworkAccessType -&gt; ()
 (AppNetworkAccessType -&gt; ()) -&gt; NFData AppNetworkAccessType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AppNetworkAccessType -&gt; ()
 $crnf :: AppNetworkAccessType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621680288245"><span class="annot"><span class="annottext">Text -&gt; Either String AppNetworkAccessType
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621680289601"><span class="annot"><span class="annottext">Text -&gt; Either String AppNetworkAccessType
 (Text -&gt; Either String AppNetworkAccessType)
 -&gt; FromText AppNetworkAccessType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AppNetworkAccessType
 $cfromText :: Text -&gt; Either String AppNetworkAccessType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621680288242"><span class="annot"><span class="annottext">AppNetworkAccessType -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621680289598"><span class="annot"><span class="annottext">AppNetworkAccessType -&gt; Text
 (AppNetworkAccessType -&gt; Text) -&gt; ToText AppNetworkAccessType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AppNetworkAccessType -&gt; Text
 $ctoText :: AppNetworkAccessType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621680288239"><span class="annot"><span class="annottext">AppNetworkAccessType -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680289595"><span class="annot"><span class="annottext">AppNetworkAccessType -&gt; ByteString
 (AppNetworkAccessType -&gt; ByteString)
 -&gt; ToByteString AppNetworkAccessType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AppNetworkAccessType -&gt; ByteString
 $ctoBS :: AppNetworkAccessType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621680288236"><span class="annot"><span class="annottext">AppNetworkAccessType -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680289592"><span class="annot"><span class="annottext">AppNetworkAccessType -&gt; ByteStringBuilder
 (AppNetworkAccessType -&gt; ByteStringBuilder)
 -&gt; ToLog AppNetworkAccessType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AppNetworkAccessType -&gt; ByteStringBuilder
 $cbuild :: AppNetworkAccessType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621680288233"><span class="annot"><span class="annottext">HeaderName -&gt; AppNetworkAccessType -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680289589"><span class="annot"><span class="annottext">HeaderName -&gt; AppNetworkAccessType -&gt; [Header]
 (HeaderName -&gt; AppNetworkAccessType -&gt; [Header])
 -&gt; ToHeader AppNetworkAccessType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AppNetworkAccessType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AppNetworkAccessType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621680288230"><span class="annot"><span class="annottext">AppNetworkAccessType -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680289586"><span class="annot"><span class="annottext">AppNetworkAccessType -&gt; QueryString
 (AppNetworkAccessType -&gt; QueryString)
 -&gt; ToQuery AppNetworkAccessType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AppNetworkAccessType -&gt; QueryString
 $ctoQuery :: AppNetworkAccessType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621680288225"><span id="local-6989586621680288227"><span class="annot"><span class="annottext">Value -&gt; Parser [AppNetworkAccessType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680289581"><span id="local-6989586621680289583"><span class="annot"><span class="annottext">Value -&gt; Parser [AppNetworkAccessType]
 Value -&gt; Parser AppNetworkAccessType
 (Value -&gt; Parser AppNetworkAccessType)
 -&gt; (Value -&gt; Parser [AppNetworkAccessType])
@@ -209,7 +209,7 @@ $cparseJSONList :: Value -&gt; Parser [AppNetworkAccessType]
 parseJSON :: Value -&gt; Parser AppNetworkAccessType
 $cparseJSON :: Value -&gt; Parser AppNetworkAccessType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621680288220"><span id="local-6989586621680288222"><span class="annot"><span class="annottext">FromJSONKeyFunction [AppNetworkAccessType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680289576"><span id="local-6989586621680289578"><span class="annot"><span class="annottext">FromJSONKeyFunction [AppNetworkAccessType]
 FromJSONKeyFunction AppNetworkAccessType
 FromJSONKeyFunction AppNetworkAccessType
 -&gt; FromJSONKeyFunction [AppNetworkAccessType]
@@ -221,7 +221,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AppNetworkAccessType]
 fromJSONKey :: FromJSONKeyFunction AppNetworkAccessType
 $cfromJSONKey :: FromJSONKeyFunction AppNetworkAccessType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621680288211"><span id="local-6989586621680288213"><span id="local-6989586621680288215"><span id="local-6989586621680288217"><span class="annot"><span class="annottext">[AppNetworkAccessType] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680289567"><span id="local-6989586621680289569"><span id="local-6989586621680289571"><span id="local-6989586621680289573"><span class="annot"><span class="annottext">[AppNetworkAccessType] -&gt; Encoding
 [AppNetworkAccessType] -&gt; Value
 AppNetworkAccessType -&gt; Encoding
 AppNetworkAccessType -&gt; Value
@@ -245,7 +245,7 @@ $ctoEncoding :: AppNetworkAccessType -&gt; Encoding
 toJSON :: AppNetworkAccessType -&gt; Value
 $ctoJSON :: AppNetworkAccessType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621680288206"><span id="local-6989586621680288208"><span class="annot"><span class="annottext">ToJSONKeyFunction [AppNetworkAccessType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680289562"><span id="local-6989586621680289564"><span class="annot"><span class="annottext">ToJSONKeyFunction [AppNetworkAccessType]
 ToJSONKeyFunction AppNetworkAccessType
 ToJSONKeyFunction AppNetworkAccessType
 -&gt; ToJSONKeyFunction [AppNetworkAccessType]
@@ -257,14 +257,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AppNetworkAccessType]
 toJSONKey :: ToJSONKeyFunction AppNetworkAccessType
 $ctoJSONKey :: ToJSONKeyFunction AppNetworkAccessType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680288203"><span class="annot"><span class="annottext">[Node] -&gt; Either String AppNetworkAccessType
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680289559"><span class="annot"><span class="annottext">[Node] -&gt; Either String AppNetworkAccessType
 ([Node] -&gt; Either String AppNetworkAccessType)
 -&gt; FromXML AppNetworkAccessType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AppNetworkAccessType
 $cparseXML :: [Node] -&gt; Either String AppNetworkAccessType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621680288200"><span class="annot"><span class="annottext">AppNetworkAccessType -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680289556"><span class="annot"><span class="annottext">AppNetworkAccessType -&gt; XML
 (AppNetworkAccessType -&gt; XML) -&gt; ToXML AppNetworkAccessType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: AppNetworkAccessType -&gt; XML

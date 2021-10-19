@@ -75,14 +75,14 @@
 </span><span id="line-75"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- | /See:/ 'newGetPolicy' smart constructor.</span><span>
-</span><span id="line-78"></span><span id="local-6989586621679215825"><span id="local-6989586621679215826"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetPolicy"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetPolicy.html#GetPolicy"><span class="hs-identifier hs-var">GetPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetPolicy%27"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetPolicy.html#GetPolicy%27"><span class="hs-identifier hs-var">GetPolicy'</span></a></span></span><span>
+</span><span id="line-78"></span><span id="local-6989586621679215894"><span id="local-6989586621679215895"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetPolicy"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetPolicy.html#GetPolicy"><span class="hs-identifier hs-var">GetPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetPolicy%27"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetPolicy.html#GetPolicy%27"><span class="hs-identifier hs-var">GetPolicy'</span></a></span></span><span>
 </span><span id="line-79"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Number (ARN) of the private CA that will have its</span><span>
 </span><span id="line-80"></span><span>    </span><span class="hs-comment">-- policy retrieved. You can find the CA\'s ARN by calling the</span><span>
 </span><span id="line-81"></span><span>    </span><span class="hs-comment">-- ListCertificateAuthorities action.</span><span>
 </span><span id="line-82"></span><span>    </span><span id="%24sel%3AresourceArn%3AGetPolicy%27"><span class="annot"><span class="annottext">GetPolicy -&gt; Text
 </span><a href="Network.AWS.CertificateManagerPCA.GetPolicy.html#%24sel%3AresourceArn%3AGetPolicy%27"><span class="hs-identifier hs-var hs-var">resourceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-83"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-84"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679215819"><span id="local-6989586621679215821"><span class="annot"><span class="annottext">GetPolicy -&gt; GetPolicy -&gt; Bool
+</span><span id="line-84"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679215888"><span id="local-6989586621679215890"><span class="annot"><span class="annottext">GetPolicy -&gt; GetPolicy -&gt; Bool
 (GetPolicy -&gt; GetPolicy -&gt; Bool)
 -&gt; (GetPolicy -&gt; GetPolicy -&gt; Bool) -&gt; Eq GetPolicy
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -90,7 +90,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetPolicy -&gt; GetPolicy -&gt; Bool
 == :: GetPolicy -&gt; GetPolicy -&gt; Bool
 $c== :: GetPolicy -&gt; GetPolicy -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215810"><span id="local-6989586621679215812"><span id="local-6989586621679215814"><span id="local-6989586621679215816"><span class="annot"><span class="annottext">ReadPrec [GetPolicy]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215879"><span id="local-6989586621679215881"><span id="local-6989586621679215883"><span id="local-6989586621679215885"><span class="annot"><span class="annottext">ReadPrec [GetPolicy]
 ReadPrec GetPolicy
 Int -&gt; ReadS GetPolicy
 ReadS [GetPolicy]
@@ -110,7 +110,7 @@ readList :: ReadS [GetPolicy]
 $creadList :: ReadS [GetPolicy]
 readsPrec :: Int -&gt; ReadS GetPolicy
 $creadsPrec :: Int -&gt; ReadS GetPolicy
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215803"><span id="local-6989586621679215805"><span id="local-6989586621679215807"><span class="annot"><span class="annottext">Int -&gt; GetPolicy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215872"><span id="local-6989586621679215874"><span id="local-6989586621679215876"><span class="annot"><span class="annottext">Int -&gt; GetPolicy -&gt; ShowS
 [GetPolicy] -&gt; ShowS
 GetPolicy -&gt; String
 (Int -&gt; GetPolicy -&gt; ShowS)
@@ -151,12 +151,12 @@ $cfrom :: forall x. GetPolicy -&gt; Rep GetPolicy x
 </span><span id="line-99"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-100"></span><span>  </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetPolicy.html#GetPolicy"><span class="hs-identifier hs-type">GetPolicy</span></a></span><span>
 </span><span id="line-101"></span><span id="newGetPolicy"><span class="annot"><span class="annottext">newGetPolicy :: Text -&gt; GetPolicy
-</span><a href="Network.AWS.CertificateManagerPCA.GetPolicy.html#newGetPolicy"><span class="hs-identifier hs-var hs-var">newGetPolicy</span></a></span></span><span> </span><span id="local-6989586621679215798"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679215798"><span class="hs-identifier hs-var">pResourceArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CertificateManagerPCA.GetPolicy.html#newGetPolicy"><span class="hs-identifier hs-var hs-var">newGetPolicy</span></a></span></span><span> </span><span id="local-6989586621679215867"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679215867"><span class="hs-identifier hs-var">pResourceArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>  </span><span class="annot"><span class="annottext">GetPolicy' :: Text -&gt; GetPolicy
 </span><a href="Network.AWS.CertificateManagerPCA.GetPolicy.html#GetPolicy%27"><span class="hs-identifier hs-type">GetPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceArn:GetPolicy' :: Text
 </span><a href="Network.AWS.CertificateManagerPCA.GetPolicy.html#%24sel%3AresourceArn%3AGetPolicy%27"><span class="hs-identifier hs-var">resourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679215798"><span class="hs-identifier hs-var">pResourceArn_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679215867"><span class="hs-identifier hs-var">pResourceArn_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- | The Amazon Resource Number (ARN) of the private CA that will have its</span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- policy retrieved. You can find the CA\'s ARN by calling the</span><span>
@@ -167,25 +167,25 @@ $cfrom :: forall x. GetPolicy -&gt; Rep GetPolicy x
 -&gt; (GetPolicy -&gt; Text -&gt; GetPolicy)
 -&gt; Lens GetPolicy GetPolicy Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetPolicy.html#GetPolicy%27"><span class="hs-identifier hs-type">GetPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215795"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetPolicy.html#GetPolicy%27"><span class="hs-identifier hs-type">GetPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215864"><span class="annot"><span class="annottext">Text
 resourceArn :: Text
 $sel:resourceArn:GetPolicy' :: GetPolicy -&gt; Text
-</span><a href="#local-6989586621679215795"><span class="hs-identifier hs-var hs-var">resourceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679215795"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215794"><span class="annot"><span class="annottext">s :: GetPolicy
-</span><a href="#local-6989586621679215794"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetPolicy.html#GetPolicy%27"><span class="hs-identifier hs-type">GetPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215793"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679215793"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPolicy
-</span><a href="#local-6989586621679215794"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceArn:GetPolicy' :: Text
+</span><a href="#local-6989586621679215864"><span class="hs-identifier hs-var hs-var">resourceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679215864"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215863"><span class="annot"><span class="annottext">s :: GetPolicy
+</span><a href="#local-6989586621679215863"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetPolicy.html#GetPolicy%27"><span class="hs-identifier hs-type">GetPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215862"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679215862"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPolicy
+</span><a href="#local-6989586621679215863"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceArn:GetPolicy' :: Text
 </span><a href="Network.AWS.CertificateManagerPCA.GetPolicy.html#%24sel%3AresourceArn%3AGetPolicy%27"><span class="hs-identifier hs-var">resourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679215793"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetPolicy.html#GetPolicy"><span class="hs-identifier hs-type">GetPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679215862"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetPolicy.html#GetPolicy"><span class="hs-identifier hs-type">GetPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetPolicy.html#GetPolicy"><span class="hs-identifier hs-type">GetPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-111"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetPolicy.html#GetPolicy"><span class="hs-identifier hs-type">GetPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetPolicy.html#GetPolicyResponse"><span class="hs-identifier hs-type">GetPolicyResponse</span></a></span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679215789"><span class="annot"><span class="annottext">request :: GetPolicy -&gt; Request GetPolicy
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679215858"><span class="annot"><span class="annottext">request :: GetPolicy -&gt; Request GetPolicy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetPolicy -&gt; Request GetPolicy
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CertificateManagerPCA.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679215785"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679215854"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetPolicy
 -&gt; ClientResponse ClientBody
@@ -209,10 +209,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-115"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679215782"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679215782"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679215781"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679215781"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679215780"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679215780"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679215851"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679215851"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679215850"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679215850"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679215849"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679215849"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-116"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; GetPolicyResponse
 </span><a href="Network.AWS.CertificateManagerPCA.GetPolicy.html#GetPolicyResponse%27"><span class="hs-identifier hs-var">GetPolicyResponse'</span></a></span><span>
 </span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; GetPolicyResponse)
@@ -220,7 +220,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; GetPolicyResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679215780"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679215849"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Policy&quot;</span></span><span class="hs-special">)</span><span>
@@ -232,15 +232,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679215782"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679215851"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215772"><span id="local-6989586621679215774"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetPolicy.html#GetPolicy"><span class="hs-identifier hs-type">GetPolicy</span></a></span></span></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215841"><span id="local-6989586621679215843"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetPolicy.html#GetPolicy"><span class="hs-identifier hs-type">GetPolicy</span></a></span></span></span><span>
 </span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215769"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetPolicy.html#GetPolicy"><span class="hs-identifier hs-type">GetPolicy</span></a></span></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215838"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetPolicy.html#GetPolicy"><span class="hs-identifier hs-type">GetPolicy</span></a></span></span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetPolicy.html#GetPolicy"><span class="hs-identifier hs-type">GetPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679215765"><span class="annot"><span class="annottext">toHeaders :: GetPolicy -&gt; ResponseHeaders
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679215834"><span class="annot"><span class="annottext">toHeaders :: GetPolicy -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-127"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetPolicy -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -265,12 +265,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-135"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
-</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215755"><span id="local-6989586621679215757"><span id="local-6989586621679215759"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetPolicy.html#GetPolicy"><span class="hs-identifier hs-type">GetPolicy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679215753"><span class="annot"><span class="annottext">toJSON :: GetPolicy -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetPolicy.html#GetPolicy%27"><span class="hs-identifier hs-type">GetPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215751"><span class="annot"><span class="annottext">Text
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215824"><span id="local-6989586621679215826"><span id="local-6989586621679215828"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetPolicy.html#GetPolicy"><span class="hs-identifier hs-type">GetPolicy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679215822"><span class="annot"><span class="annottext">toJSON :: GetPolicy -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetPolicy.html#GetPolicy%27"><span class="hs-identifier hs-type">GetPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215820"><span class="annot"><span class="annottext">Text
 resourceArn :: Text
 $sel:resourceArn:GetPolicy' :: GetPolicy -&gt; Text
-</span><a href="#local-6989586621679215751"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679215820"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-140"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-141"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -282,18 +282,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ResourceArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679215751"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679215820"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-143"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetPolicy.html#GetPolicy"><span class="hs-identifier hs-type">GetPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-146"></span><span>  </span><span id="local-6989586621679215745"><span class="annot"><span class="annottext">toPath :: GetPolicy -&gt; ByteString
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679215814"><span class="annot"><span class="annottext">toPath :: GetPolicy -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetPolicy -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetPolicy.html#GetPolicy"><span class="hs-identifier hs-type">GetPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-149"></span><span>  </span><span id="local-6989586621679215741"><span class="annot"><span class="annottext">toQuery :: GetPolicy -&gt; QueryString
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679215810"><span class="annot"><span class="annottext">toQuery :: GetPolicy -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetPolicy -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -301,7 +301,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-comment">-- | /See:/ 'newGetPolicyResponse' smart constructor.</span><span>
-</span><span id="line-152"></span><span id="local-6989586621679215738"><span id="local-6989586621679215739"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetPolicyResponse"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetPolicy.html#GetPolicyResponse"><span class="hs-identifier hs-var">GetPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetPolicyResponse%27"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetPolicy.html#GetPolicyResponse%27"><span class="hs-identifier hs-var">GetPolicyResponse'</span></a></span></span><span>
+</span><span id="line-152"></span><span id="local-6989586621679215807"><span id="local-6989586621679215808"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetPolicyResponse"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetPolicy.html#GetPolicyResponse"><span class="hs-identifier hs-var">GetPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetPolicyResponse%27"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetPolicy.html#GetPolicyResponse%27"><span class="hs-identifier hs-var">GetPolicyResponse'</span></a></span></span><span>
 </span><span id="line-153"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The policy attached to the private CA as a JSON document.</span><span>
 </span><span id="line-154"></span><span>    </span><span id="%24sel%3Apolicy%3AGetPolicyResponse%27"><span class="annot"><span class="annottext">GetPolicyResponse -&gt; Maybe Text
 </span><a href="Network.AWS.CertificateManagerPCA.GetPolicy.html#%24sel%3Apolicy%3AGetPolicyResponse%27"><span class="hs-identifier hs-var hs-var">policy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -309,7 +309,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-156"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetPolicyResponse%27"><span class="annot"><span class="annottext">GetPolicyResponse -&gt; Int
 </span><a href="Network.AWS.CertificateManagerPCA.GetPolicy.html#%24sel%3AhttpStatus%3AGetPolicyResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-157"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-158"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679215732"><span id="local-6989586621679215734"><span class="annot"><span class="annottext">GetPolicyResponse -&gt; GetPolicyResponse -&gt; Bool
+</span><span id="line-158"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679215801"><span id="local-6989586621679215803"><span class="annot"><span class="annottext">GetPolicyResponse -&gt; GetPolicyResponse -&gt; Bool
 (GetPolicyResponse -&gt; GetPolicyResponse -&gt; Bool)
 -&gt; (GetPolicyResponse -&gt; GetPolicyResponse -&gt; Bool)
 -&gt; Eq GetPolicyResponse
@@ -318,7 +318,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetPolicyResponse -&gt; GetPolicyResponse -&gt; Bool
 == :: GetPolicyResponse -&gt; GetPolicyResponse -&gt; Bool
 $c== :: GetPolicyResponse -&gt; GetPolicyResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215724"><span id="local-6989586621679215726"><span id="local-6989586621679215728"><span id="local-6989586621679215730"><span class="annot"><span class="annottext">ReadPrec [GetPolicyResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215793"><span id="local-6989586621679215795"><span id="local-6989586621679215797"><span id="local-6989586621679215799"><span class="annot"><span class="annottext">ReadPrec [GetPolicyResponse]
 ReadPrec GetPolicyResponse
 Int -&gt; ReadS GetPolicyResponse
 ReadS [GetPolicyResponse]
@@ -338,7 +338,7 @@ readList :: ReadS [GetPolicyResponse]
 $creadList :: ReadS [GetPolicyResponse]
 readsPrec :: Int -&gt; ReadS GetPolicyResponse
 $creadsPrec :: Int -&gt; ReadS GetPolicyResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215718"><span id="local-6989586621679215720"><span id="local-6989586621679215722"><span class="annot"><span class="annottext">Int -&gt; GetPolicyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215787"><span id="local-6989586621679215789"><span id="local-6989586621679215791"><span class="annot"><span class="annottext">Int -&gt; GetPolicyResponse -&gt; ShowS
 [GetPolicyResponse] -&gt; ShowS
 GetPolicyResponse -&gt; String
 (Int -&gt; GetPolicyResponse -&gt; ShowS)
@@ -380,8 +380,8 @@ $cfrom :: forall x. GetPolicyResponse -&gt; Rep GetPolicyResponse x
 </span><span id="line-173"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-174"></span><span>  </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetPolicy.html#GetPolicyResponse"><span class="hs-identifier hs-type">GetPolicyResponse</span></a></span><span>
 </span><span id="line-175"></span><span id="newGetPolicyResponse"><span class="annot"><span class="annottext">newGetPolicyResponse :: Int -&gt; GetPolicyResponse
-</span><a href="Network.AWS.CertificateManagerPCA.GetPolicy.html#newGetPolicyResponse"><span class="hs-identifier hs-var hs-var">newGetPolicyResponse</span></a></span></span><span> </span><span id="local-6989586621679215715"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679215715"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CertificateManagerPCA.GetPolicy.html#newGetPolicyResponse"><span class="hs-identifier hs-var hs-var">newGetPolicyResponse</span></a></span></span><span> </span><span id="local-6989586621679215784"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679215784"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-176"></span><span>  </span><span class="annot"><span class="annottext">GetPolicyResponse' :: Maybe Text -&gt; Int -&gt; GetPolicyResponse
 </span><a href="Network.AWS.CertificateManagerPCA.GetPolicy.html#GetPolicyResponse%27"><span class="hs-identifier hs-type">GetPolicyResponse'</span></a></span><span>
 </span><span id="line-177"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:policy:GetPolicyResponse' :: Maybe Text
@@ -390,7 +390,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-178"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetPolicyResponse' :: Int
 </span><a href="Network.AWS.CertificateManagerPCA.GetPolicy.html#%24sel%3AhttpStatus%3AGetPolicyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679215715"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679215784"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-179"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-180"></span><span>
 </span><span id="line-181"></span><span class="hs-comment">-- | The policy attached to the private CA as a JSON document.</span><span>
@@ -402,16 +402,16 @@ forall a. Maybe a
 -&gt; Lens
      GetPolicyResponse GetPolicyResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetPolicy.html#GetPolicyResponse%27"><span class="hs-identifier hs-type">GetPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215714"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetPolicy.html#GetPolicyResponse%27"><span class="hs-identifier hs-type">GetPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215783"><span class="annot"><span class="annottext">Maybe Text
 policy :: Maybe Text
 $sel:policy:GetPolicyResponse' :: GetPolicyResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679215714"><span class="hs-identifier hs-var hs-var">policy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679215714"><span class="hs-identifier hs-var">policy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215713"><span class="annot"><span class="annottext">s :: GetPolicyResponse
-</span><a href="#local-6989586621679215713"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetPolicy.html#GetPolicyResponse%27"><span class="hs-identifier hs-type">GetPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215712"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679215712"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPolicyResponse
-</span><a href="#local-6989586621679215713"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policy:GetPolicyResponse' :: Maybe Text
+</span><a href="#local-6989586621679215783"><span class="hs-identifier hs-var hs-var">policy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679215783"><span class="hs-identifier hs-var">policy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215782"><span class="annot"><span class="annottext">s :: GetPolicyResponse
+</span><a href="#local-6989586621679215782"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetPolicy.html#GetPolicyResponse%27"><span class="hs-identifier hs-type">GetPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215781"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679215781"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPolicyResponse
+</span><a href="#local-6989586621679215782"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policy:GetPolicyResponse' :: Maybe Text
 </span><a href="Network.AWS.CertificateManagerPCA.GetPolicy.html#%24sel%3Apolicy%3AGetPolicyResponse%27"><span class="hs-identifier hs-var">policy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679215712"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetPolicy.html#GetPolicyResponse"><span class="hs-identifier hs-type">GetPolicyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679215781"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetPolicy.html#GetPolicyResponse"><span class="hs-identifier hs-type">GetPolicyResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-184"></span><span>
 </span><span id="line-185"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-186"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetPolicy.html#getPolicyResponse_httpStatus"><span class="hs-identifier hs-type">getPolicyResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetPolicy.html#GetPolicyResponse"><span class="hs-identifier hs-type">GetPolicyResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -420,16 +420,16 @@ $sel:policy:GetPolicyResponse' :: GetPolicyResponse -&gt; Maybe Text
 -&gt; (GetPolicyResponse -&gt; Int -&gt; GetPolicyResponse)
 -&gt; Lens GetPolicyResponse GetPolicyResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetPolicy.html#GetPolicyResponse%27"><span class="hs-identifier hs-type">GetPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215711"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetPolicy.html#GetPolicyResponse%27"><span class="hs-identifier hs-type">GetPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215780"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetPolicyResponse' :: GetPolicyResponse -&gt; Int
-</span><a href="#local-6989586621679215711"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679215711"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215710"><span class="annot"><span class="annottext">s :: GetPolicyResponse
-</span><a href="#local-6989586621679215710"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetPolicy.html#GetPolicyResponse%27"><span class="hs-identifier hs-type">GetPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215709"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679215709"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPolicyResponse
-</span><a href="#local-6989586621679215710"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetPolicyResponse' :: Int
+</span><a href="#local-6989586621679215780"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679215780"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215779"><span class="annot"><span class="annottext">s :: GetPolicyResponse
+</span><a href="#local-6989586621679215779"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetPolicy.html#GetPolicyResponse%27"><span class="hs-identifier hs-type">GetPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215778"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679215778"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPolicyResponse
+</span><a href="#local-6989586621679215779"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetPolicyResponse' :: Int
 </span><a href="Network.AWS.CertificateManagerPCA.GetPolicy.html#%24sel%3AhttpStatus%3AGetPolicyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679215709"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetPolicy.html#GetPolicyResponse"><span class="hs-identifier hs-type">GetPolicyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679215778"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetPolicy.html#GetPolicyResponse"><span class="hs-identifier hs-type">GetPolicyResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-188"></span><span>
-</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215707"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetPolicy.html#GetPolicyResponse"><span class="hs-identifier hs-type">GetPolicyResponse</span></a></span></span><span>
+</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215776"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetPolicy.html#GetPolicyResponse"><span class="hs-identifier hs-type">GetPolicyResponse</span></a></span></span><span>
 </span><span id="line-190"></span></pre></body></html>

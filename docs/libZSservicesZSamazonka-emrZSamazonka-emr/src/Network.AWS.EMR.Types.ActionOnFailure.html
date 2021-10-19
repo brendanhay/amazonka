@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621679364258"><span id="local-6989586621679364259"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ActionOnFailure"><span class="annot"><a href="Network.AWS.EMR.Types.ActionOnFailure.html#ActionOnFailure"><span class="hs-identifier hs-var">ActionOnFailure</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ActionOnFailure%27"><span class="annot"><a href="Network.AWS.EMR.Types.ActionOnFailure.html#ActionOnFailure%27"><span class="hs-identifier hs-var">ActionOnFailure'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679364602"><span id="local-6989586621679364603"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ActionOnFailure"><span class="annot"><a href="Network.AWS.EMR.Types.ActionOnFailure.html#ActionOnFailure"><span class="hs-identifier hs-var">ActionOnFailure</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ActionOnFailure%27"><span class="annot"><a href="Network.AWS.EMR.Types.ActionOnFailure.html#ActionOnFailure%27"><span class="hs-identifier hs-var">ActionOnFailure'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromActionOnFailure"><span class="annot"><span class="annottext">ActionOnFailure -&gt; Text
 </span><a href="Network.AWS.EMR.Types.ActionOnFailure.html#fromActionOnFailure"><span class="hs-identifier hs-var hs-var">fromActionOnFailure</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679364250"><span id="local-6989586621679364252"><span id="local-6989586621679364254"><span class="annot"><span class="annottext">Int -&gt; ActionOnFailure -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679364594"><span id="local-6989586621679364596"><span id="local-6989586621679364598"><span class="annot"><span class="annottext">Int -&gt; ActionOnFailure -&gt; ShowS
 [ActionOnFailure] -&gt; ShowS
 ActionOnFailure -&gt; String
 (Int -&gt; ActionOnFailure -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: ActionOnFailure -&gt; String
 showsPrec :: Int -&gt; ActionOnFailure -&gt; ShowS
 $cshowsPrec :: Int -&gt; ActionOnFailure -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679364241"><span id="local-6989586621679364243"><span id="local-6989586621679364245"><span id="local-6989586621679364247"><span class="annot"><span class="annottext">ReadPrec [ActionOnFailure]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679364585"><span id="local-6989586621679364587"><span id="local-6989586621679364589"><span id="local-6989586621679364591"><span class="annot"><span class="annottext">ReadPrec [ActionOnFailure]
 ReadPrec ActionOnFailure
 Int -&gt; ReadS ActionOnFailure
 ReadS [ActionOnFailure]
@@ -74,7 +74,7 @@ $creadList :: ReadS [ActionOnFailure]
 readsPrec :: Int -&gt; ReadS ActionOnFailure
 $creadsPrec :: Int -&gt; ReadS ActionOnFailure
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679364236"><span id="local-6989586621679364238"><span class="annot"><span class="annottext">ActionOnFailure -&gt; ActionOnFailure -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679364580"><span id="local-6989586621679364582"><span class="annot"><span class="annottext">ActionOnFailure -&gt; ActionOnFailure -&gt; Bool
 (ActionOnFailure -&gt; ActionOnFailure -&gt; Bool)
 -&gt; (ActionOnFailure -&gt; ActionOnFailure -&gt; Bool)
 -&gt; Eq ActionOnFailure
@@ -84,7 +84,7 @@ $c/= :: ActionOnFailure -&gt; ActionOnFailure -&gt; Bool
 == :: ActionOnFailure -&gt; ActionOnFailure -&gt; Bool
 $c== :: ActionOnFailure -&gt; ActionOnFailure -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679364220"><span id="local-6989586621679364222"><span id="local-6989586621679364224"><span id="local-6989586621679364226"><span id="local-6989586621679364228"><span id="local-6989586621679364230"><span id="local-6989586621679364232"><span class="annot"><span class="annottext">Eq ActionOnFailure
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679364564"><span id="local-6989586621679364566"><span id="local-6989586621679364568"><span id="local-6989586621679364570"><span id="local-6989586621679364572"><span id="local-6989586621679364574"><span id="local-6989586621679364576"><span class="annot"><span class="annottext">Eq ActionOnFailure
 Eq ActionOnFailure
 -&gt; (ActionOnFailure -&gt; ActionOnFailure -&gt; Ordering)
 -&gt; (ActionOnFailure -&gt; ActionOnFailure -&gt; Bool)
@@ -135,7 +135,7 @@ $cfrom :: forall x. ActionOnFailure -&gt; Rep ActionOnFailure x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679364212"><span id="local-6989586621679364214"><span class="annot"><span class="annottext">Int -&gt; ActionOnFailure -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679364556"><span id="local-6989586621679364558"><span class="annot"><span class="annottext">Int -&gt; ActionOnFailure -&gt; Int
 ActionOnFailure -&gt; Int
 (Int -&gt; ActionOnFailure -&gt; Int)
 -&gt; (ActionOnFailure -&gt; Int) -&gt; Hashable ActionOnFailure
@@ -145,50 +145,50 @@ $chash :: ActionOnFailure -&gt; Int
 hashWithSalt :: Int -&gt; ActionOnFailure -&gt; Int
 $chashWithSalt :: Int -&gt; ActionOnFailure -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679364209"><span class="annot"><span class="annottext">ActionOnFailure -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679364553"><span class="annot"><span class="annottext">ActionOnFailure -&gt; ()
 (ActionOnFailure -&gt; ()) -&gt; NFData ActionOnFailure
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ActionOnFailure -&gt; ()
 $crnf :: ActionOnFailure -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679364206"><span class="annot"><span class="annottext">Text -&gt; Either String ActionOnFailure
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679364550"><span class="annot"><span class="annottext">Text -&gt; Either String ActionOnFailure
 (Text -&gt; Either String ActionOnFailure) -&gt; FromText ActionOnFailure
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ActionOnFailure
 $cfromText :: Text -&gt; Either String ActionOnFailure
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679364203"><span class="annot"><span class="annottext">ActionOnFailure -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679364547"><span class="annot"><span class="annottext">ActionOnFailure -&gt; Text
 (ActionOnFailure -&gt; Text) -&gt; ToText ActionOnFailure
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ActionOnFailure -&gt; Text
 $ctoText :: ActionOnFailure -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679364200"><span class="annot"><span class="annottext">ActionOnFailure -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679364544"><span class="annot"><span class="annottext">ActionOnFailure -&gt; ByteString
 (ActionOnFailure -&gt; ByteString) -&gt; ToByteString ActionOnFailure
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ActionOnFailure -&gt; ByteString
 $ctoBS :: ActionOnFailure -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679364197"><span class="annot"><span class="annottext">ActionOnFailure -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679364541"><span class="annot"><span class="annottext">ActionOnFailure -&gt; ByteStringBuilder
 (ActionOnFailure -&gt; ByteStringBuilder) -&gt; ToLog ActionOnFailure
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ActionOnFailure -&gt; ByteStringBuilder
 $cbuild :: ActionOnFailure -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679364194"><span class="annot"><span class="annottext">HeaderName -&gt; ActionOnFailure -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679364538"><span class="annot"><span class="annottext">HeaderName -&gt; ActionOnFailure -&gt; [Header]
 (HeaderName -&gt; ActionOnFailure -&gt; [Header])
 -&gt; ToHeader ActionOnFailure
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ActionOnFailure -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ActionOnFailure -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679364191"><span class="annot"><span class="annottext">ActionOnFailure -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679364535"><span class="annot"><span class="annottext">ActionOnFailure -&gt; QueryString
 (ActionOnFailure -&gt; QueryString) -&gt; ToQuery ActionOnFailure
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ActionOnFailure -&gt; QueryString
 $ctoQuery :: ActionOnFailure -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679364186"><span id="local-6989586621679364188"><span class="annot"><span class="annottext">Value -&gt; Parser [ActionOnFailure]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679364530"><span id="local-6989586621679364532"><span class="annot"><span class="annottext">Value -&gt; Parser [ActionOnFailure]
 Value -&gt; Parser ActionOnFailure
 (Value -&gt; Parser ActionOnFailure)
 -&gt; (Value -&gt; Parser [ActionOnFailure]) -&gt; FromJSON ActionOnFailure
@@ -199,7 +199,7 @@ $cparseJSONList :: Value -&gt; Parser [ActionOnFailure]
 parseJSON :: Value -&gt; Parser ActionOnFailure
 $cparseJSON :: Value -&gt; Parser ActionOnFailure
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679364181"><span id="local-6989586621679364183"><span class="annot"><span class="annottext">FromJSONKeyFunction [ActionOnFailure]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679364525"><span id="local-6989586621679364527"><span class="annot"><span class="annottext">FromJSONKeyFunction [ActionOnFailure]
 FromJSONKeyFunction ActionOnFailure
 FromJSONKeyFunction ActionOnFailure
 -&gt; FromJSONKeyFunction [ActionOnFailure]
@@ -211,7 +211,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ActionOnFailure]
 fromJSONKey :: FromJSONKeyFunction ActionOnFailure
 $cfromJSONKey :: FromJSONKeyFunction ActionOnFailure
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679364172"><span id="local-6989586621679364174"><span id="local-6989586621679364176"><span id="local-6989586621679364178"><span class="annot"><span class="annottext">[ActionOnFailure] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679364516"><span id="local-6989586621679364518"><span id="local-6989586621679364520"><span id="local-6989586621679364522"><span class="annot"><span class="annottext">[ActionOnFailure] -&gt; Encoding
 [ActionOnFailure] -&gt; Value
 ActionOnFailure -&gt; Encoding
 ActionOnFailure -&gt; Value
@@ -235,7 +235,7 @@ $ctoEncoding :: ActionOnFailure -&gt; Encoding
 toJSON :: ActionOnFailure -&gt; Value
 $ctoJSON :: ActionOnFailure -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679364167"><span id="local-6989586621679364169"><span class="annot"><span class="annottext">ToJSONKeyFunction [ActionOnFailure]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679364511"><span id="local-6989586621679364513"><span class="annot"><span class="annottext">ToJSONKeyFunction [ActionOnFailure]
 ToJSONKeyFunction ActionOnFailure
 ToJSONKeyFunction ActionOnFailure
 -&gt; ToJSONKeyFunction [ActionOnFailure] -&gt; ToJSONKey ActionOnFailure
@@ -246,14 +246,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ActionOnFailure]
 toJSONKey :: ToJSONKeyFunction ActionOnFailure
 $ctoJSONKey :: ToJSONKeyFunction ActionOnFailure
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679364164"><span class="annot"><span class="annottext">[Node] -&gt; Either String ActionOnFailure
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679364508"><span class="annot"><span class="annottext">[Node] -&gt; Either String ActionOnFailure
 ([Node] -&gt; Either String ActionOnFailure)
 -&gt; FromXML ActionOnFailure
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ActionOnFailure
 $cparseXML :: [Node] -&gt; Either String ActionOnFailure
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679364161"><span class="annot"><span class="annottext">ActionOnFailure -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679364505"><span class="annot"><span class="annottext">ActionOnFailure -&gt; XML
 (ActionOnFailure -&gt; XML) -&gt; ToXML ActionOnFailure
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ActionOnFailure -&gt; XML

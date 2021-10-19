@@ -73,10 +73,10 @@
 </span><span id="line-73"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#newGetMetricData"><span class="hs-identifier">newGetMetricData</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-76"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#getMetricData_nextToken"><span class="hs-identifier">getMetricData_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-77"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#getMetricData_scanBy"><span class="hs-identifier">getMetricData_scanBy</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-78"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#getMetricData_labelOptions"><span class="hs-identifier">getMetricData_labelOptions</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-79"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#getMetricData_maxDatapoints"><span class="hs-identifier">getMetricData_maxDatapoints</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#getMetricData_maxDatapoints"><span class="hs-identifier">getMetricData_maxDatapoints</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#getMetricData_labelOptions"><span class="hs-identifier">getMetricData_labelOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#getMetricData_nextToken"><span class="hs-identifier">getMetricData_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#getMetricData_scanBy"><span class="hs-identifier">getMetricData_scanBy</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-80"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#getMetricData_metricDataQueries"><span class="hs-identifier">getMetricData_metricDataQueries</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-81"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#getMetricData_startTime"><span class="hs-identifier">getMetricData_startTime</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-82"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#getMetricData_endTime"><span class="hs-identifier">getMetricData_endTime</span></a></span><span class="hs-special">,</span><span>
@@ -86,8 +86,8 @@
 </span><span id="line-86"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#newGetMetricDataResponse"><span class="hs-identifier">newGetMetricDataResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-89"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#getMetricDataResponse_nextToken"><span class="hs-identifier">getMetricDataResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-90"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#getMetricDataResponse_metricDataResults"><span class="hs-identifier">getMetricDataResponse_metricDataResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#getMetricDataResponse_metricDataResults"><span class="hs-identifier">getMetricDataResponse_metricDataResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#getMetricDataResponse_nextToken"><span class="hs-identifier">getMetricDataResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-91"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#getMetricDataResponse_messages"><span class="hs-identifier">getMetricDataResponse_messages</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-92"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#getMetricDataResponse_httpStatus"><span class="hs-identifier">getMetricDataResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-93"></span><span>  </span><span class="hs-special">)</span><span>
@@ -101,26 +101,26 @@
 </span><span id="line-101"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-comment">-- | /See:/ 'newGetMetricData' smart constructor.</span><span>
-</span><span id="line-104"></span><span id="local-6989586621679263108"><span id="local-6989586621679263109"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetMetricData"><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricData"><span class="hs-identifier hs-var">GetMetricData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetMetricData%27"><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricData%27"><span class="hs-identifier hs-var">GetMetricData'</span></a></span></span><span>
-</span><span id="line-105"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Include this value, if it was returned by the previous @GetMetricData@</span><span>
-</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- operation, to get the next set of data points.</span><span>
-</span><span id="line-107"></span><span>    </span><span id="%24sel%3AnextToken%3AGetMetricData%27"><span class="annot"><span class="annottext">GetMetricData -&gt; Maybe Text
-</span><a href="Network.AWS.CloudWatch.GetMetricData.html#%24sel%3AnextToken%3AGetMetricData%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- | The order in which data points should be returned. @TimestampDescending@</span><span>
-</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- returns the newest data first and paginates when the @MaxDatapoints@</span><span>
-</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- limit is reached. @TimestampAscending@ returns the oldest data first and</span><span>
-</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- paginates when the @MaxDatapoints@ limit is reached.</span><span>
-</span><span id="line-112"></span><span>    </span><span id="%24sel%3AscanBy%3AGetMetricData%27"><span class="annot"><span class="annottext">GetMetricData -&gt; Maybe ScanBy
-</span><a href="Network.AWS.CloudWatch.GetMetricData.html#%24sel%3AscanBy%3AGetMetricData%27"><span class="hs-identifier hs-var hs-var">scanBy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.ScanBy.html#ScanBy"><span class="hs-identifier hs-type">ScanBy</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- | This structure includes the @Timezone@ parameter, which you can use to</span><span>
-</span><span id="line-114"></span><span>    </span><span class="hs-comment">-- specify your time zone so that the labels of returned data display the</span><span>
-</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- correct time for your time zone.</span><span>
-</span><span id="line-116"></span><span>    </span><span id="%24sel%3AlabelOptions%3AGetMetricData%27"><span class="annot"><span class="annottext">GetMetricData -&gt; Maybe LabelOptions
-</span><a href="Network.AWS.CloudWatch.GetMetricData.html#%24sel%3AlabelOptions%3AGetMetricData%27"><span class="hs-identifier hs-var hs-var">labelOptions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.LabelOptions.html#LabelOptions"><span class="hs-identifier hs-type">LabelOptions</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-117"></span><span>    </span><span class="hs-comment">-- | The maximum number of data points the request should return before</span><span>
-</span><span id="line-118"></span><span>    </span><span class="hs-comment">-- paginating. If you omit this, the default of 100,800 is used.</span><span>
-</span><span id="line-119"></span><span>    </span><span id="%24sel%3AmaxDatapoints%3AGetMetricData%27"><span class="annot"><span class="annottext">GetMetricData -&gt; Maybe Int
+</span><span id="line-104"></span><span id="local-6989586621679263469"><span id="local-6989586621679263470"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetMetricData"><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricData"><span class="hs-identifier hs-var">GetMetricData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetMetricData%27"><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricData%27"><span class="hs-identifier hs-var">GetMetricData'</span></a></span></span><span>
+</span><span id="line-105"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The maximum number of data points the request should return before</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- paginating. If you omit this, the default of 100,800 is used.</span><span>
+</span><span id="line-107"></span><span>    </span><span id="%24sel%3AmaxDatapoints%3AGetMetricData%27"><span class="annot"><span class="annottext">GetMetricData -&gt; Maybe Int
 </span><a href="Network.AWS.CloudWatch.GetMetricData.html#%24sel%3AmaxDatapoints%3AGetMetricData%27"><span class="hs-identifier hs-var hs-var">maxDatapoints</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- | This structure includes the @Timezone@ parameter, which you can use to</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- specify your time zone so that the labels of returned data display the</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- correct time for your time zone.</span><span>
+</span><span id="line-111"></span><span>    </span><span id="%24sel%3AlabelOptions%3AGetMetricData%27"><span class="annot"><span class="annottext">GetMetricData -&gt; Maybe LabelOptions
+</span><a href="Network.AWS.CloudWatch.GetMetricData.html#%24sel%3AlabelOptions%3AGetMetricData%27"><span class="hs-identifier hs-var hs-var">labelOptions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.LabelOptions.html#LabelOptions"><span class="hs-identifier hs-type">LabelOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- | Include this value, if it was returned by the previous @GetMetricData@</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- operation, to get the next set of data points.</span><span>
+</span><span id="line-114"></span><span>    </span><span id="%24sel%3AnextToken%3AGetMetricData%27"><span class="annot"><span class="annottext">GetMetricData -&gt; Maybe Text
+</span><a href="Network.AWS.CloudWatch.GetMetricData.html#%24sel%3AnextToken%3AGetMetricData%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- | The order in which data points should be returned. @TimestampDescending@</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">-- returns the newest data first and paginates when the @MaxDatapoints@</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">-- limit is reached. @TimestampAscending@ returns the oldest data first and</span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-comment">-- paginates when the @MaxDatapoints@ limit is reached.</span><span>
+</span><span id="line-119"></span><span>    </span><span id="%24sel%3AscanBy%3AGetMetricData%27"><span class="annot"><span class="annottext">GetMetricData -&gt; Maybe ScanBy
+</span><a href="Network.AWS.CloudWatch.GetMetricData.html#%24sel%3AscanBy%3AGetMetricData%27"><span class="hs-identifier hs-var hs-var">scanBy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.ScanBy.html#ScanBy"><span class="hs-identifier hs-type">ScanBy</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-120"></span><span>    </span><span class="hs-comment">-- | The metric queries to be returned. A single @GetMetricData@ call can</span><span>
 </span><span id="line-121"></span><span>    </span><span class="hs-comment">-- include as many as 500 @MetricDataQuery@ structures. Each of these</span><span>
 </span><span id="line-122"></span><span>    </span><span class="hs-comment">-- structures can specify either a metric to retrieve, or a math expression</span><span>
@@ -174,7 +174,7 @@
 </span><span id="line-168"></span><span>    </span><span id="%24sel%3AendTime%3AGetMetricData%27"><span class="annot"><span class="annottext">GetMetricData -&gt; ISO8601
 </span><a href="Network.AWS.CloudWatch.GetMetricData.html#%24sel%3AendTime%3AGetMetricData%27"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span>
 </span><span id="line-169"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-170"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679263096"><span id="local-6989586621679263098"><span class="annot"><span class="annottext">GetMetricData -&gt; GetMetricData -&gt; Bool
+</span><span id="line-170"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679263457"><span id="local-6989586621679263459"><span class="annot"><span class="annottext">GetMetricData -&gt; GetMetricData -&gt; Bool
 (GetMetricData -&gt; GetMetricData -&gt; Bool)
 -&gt; (GetMetricData -&gt; GetMetricData -&gt; Bool) -&gt; Eq GetMetricData
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -182,7 +182,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetMetricData -&gt; GetMetricData -&gt; Bool
 == :: GetMetricData -&gt; GetMetricData -&gt; Bool
 $c== :: GetMetricData -&gt; GetMetricData -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679263087"><span id="local-6989586621679263089"><span id="local-6989586621679263091"><span id="local-6989586621679263093"><span class="annot"><span class="annottext">ReadPrec [GetMetricData]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679263448"><span id="local-6989586621679263450"><span id="local-6989586621679263452"><span id="local-6989586621679263454"><span class="annot"><span class="annottext">ReadPrec [GetMetricData]
 ReadPrec GetMetricData
 Int -&gt; ReadS GetMetricData
 ReadS [GetMetricData]
@@ -202,7 +202,7 @@ readList :: ReadS [GetMetricData]
 $creadList :: ReadS [GetMetricData]
 readsPrec :: Int -&gt; ReadS GetMetricData
 $creadsPrec :: Int -&gt; ReadS GetMetricData
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679263080"><span id="local-6989586621679263082"><span id="local-6989586621679263084"><span class="annot"><span class="annottext">Int -&gt; GetMetricData -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679263441"><span id="local-6989586621679263443"><span id="local-6989586621679263445"><span class="annot"><span class="annottext">Int -&gt; GetMetricData -&gt; ShowS
 [GetMetricData] -&gt; ShowS
 GetMetricData -&gt; String
 (Int -&gt; GetMetricData -&gt; ShowS)
@@ -236,20 +236,20 @@ $cfrom :: forall x. GetMetricData -&gt; Rep GetMetricData x
 </span><span id="line-177"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-178"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-179"></span><span class="hs-comment">--</span><span>
-</span><span id="line-180"></span><span class="hs-comment">-- 'nextToken', 'getMetricData_nextToken' - Include this value, if it was returned by the previous @GetMetricData@</span><span>
-</span><span id="line-181"></span><span class="hs-comment">-- operation, to get the next set of data points.</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- 'maxDatapoints', 'getMetricData_maxDatapoints' - The maximum number of data points the request should return before</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- paginating. If you omit this, the default of 100,800 is used.</span><span>
 </span><span id="line-182"></span><span class="hs-comment">--</span><span>
-</span><span id="line-183"></span><span class="hs-comment">-- 'scanBy', 'getMetricData_scanBy' - The order in which data points should be returned. @TimestampDescending@</span><span>
-</span><span id="line-184"></span><span class="hs-comment">-- returns the newest data first and paginates when the @MaxDatapoints@</span><span>
-</span><span id="line-185"></span><span class="hs-comment">-- limit is reached. @TimestampAscending@ returns the oldest data first and</span><span>
-</span><span id="line-186"></span><span class="hs-comment">-- paginates when the @MaxDatapoints@ limit is reached.</span><span>
-</span><span id="line-187"></span><span class="hs-comment">--</span><span>
-</span><span id="line-188"></span><span class="hs-comment">-- 'labelOptions', 'getMetricData_labelOptions' - This structure includes the @Timezone@ parameter, which you can use to</span><span>
-</span><span id="line-189"></span><span class="hs-comment">-- specify your time zone so that the labels of returned data display the</span><span>
-</span><span id="line-190"></span><span class="hs-comment">-- correct time for your time zone.</span><span>
-</span><span id="line-191"></span><span class="hs-comment">--</span><span>
-</span><span id="line-192"></span><span class="hs-comment">-- 'maxDatapoints', 'getMetricData_maxDatapoints' - The maximum number of data points the request should return before</span><span>
-</span><span id="line-193"></span><span class="hs-comment">-- paginating. If you omit this, the default of 100,800 is used.</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- 'labelOptions', 'getMetricData_labelOptions' - This structure includes the @Timezone@ parameter, which you can use to</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- specify your time zone so that the labels of returned data display the</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- correct time for your time zone.</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- 'nextToken', 'getMetricData_nextToken' - Include this value, if it was returned by the previous @GetMetricData@</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- operation, to get the next set of data points.</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- 'scanBy', 'getMetricData_scanBy' - The order in which data points should be returned. @TimestampDescending@</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- returns the newest data first and paginates when the @MaxDatapoints@</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- limit is reached. @TimestampAscending@ returns the oldest data first and</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- paginates when the @MaxDatapoints@ limit is reached.</span><span>
 </span><span id="line-194"></span><span class="hs-comment">--</span><span>
 </span><span id="line-195"></span><span class="hs-comment">-- 'metricDataQueries', 'getMetricData_metricDataQueries' - The metric queries to be returned. A single @GetMetricData@ call can</span><span>
 </span><span id="line-196"></span><span class="hs-comment">-- include as many as 500 @MetricDataQuery@ structures. Each of these</span><span>
@@ -306,32 +306,32 @@ $cfrom :: forall x. GetMetricData -&gt; Rep GetMetricData x
 </span><span id="line-247"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-248"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricData"><span class="hs-identifier hs-type">GetMetricData</span></a></span><span>
 </span><span id="line-249"></span><span id="newGetMetricData"><span class="annot"><span class="annottext">newGetMetricData :: UTCTime -&gt; UTCTime -&gt; GetMetricData
-</span><a href="Network.AWS.CloudWatch.GetMetricData.html#newGetMetricData"><span class="hs-identifier hs-var hs-var">newGetMetricData</span></a></span></span><span> </span><span id="local-6989586621679263075"><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679263075"><span class="hs-identifier hs-var">pStartTime_</span></a></span></span><span> </span><span id="local-6989586621679263074"><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679263074"><span class="hs-identifier hs-var">pEndTime_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-250"></span><span>  </span><span class="annot"><span class="annottext">GetMetricData' :: Maybe Text
--&gt; Maybe ScanBy
+</span><a href="Network.AWS.CloudWatch.GetMetricData.html#newGetMetricData"><span class="hs-identifier hs-var hs-var">newGetMetricData</span></a></span></span><span> </span><span id="local-6989586621679263436"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679263436"><span class="hs-identifier hs-var">pStartTime_</span></a></span></span><span> </span><span id="local-6989586621679263435"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679263435"><span class="hs-identifier hs-var">pEndTime_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-250"></span><span>  </span><span class="annot"><span class="annottext">GetMetricData' :: Maybe Int
 -&gt; Maybe LabelOptions
--&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe ScanBy
 -&gt; [MetricDataQuery]
 -&gt; ISO8601
 -&gt; ISO8601
 -&gt; GetMetricData
 </span><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricData%27"><span class="hs-identifier hs-type">GetMetricData'</span></a></span><span>
-</span><span id="line-251"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:GetMetricData' :: Maybe Text
-</span><a href="Network.AWS.CloudWatch.GetMetricData.html#%24sel%3AnextToken%3AGetMetricData%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-251"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:maxDatapoints:GetMetricData' :: Maybe Int
+</span><a href="Network.AWS.CloudWatch.GetMetricData.html#%24sel%3AmaxDatapoints%3AGetMetricData%27"><span class="hs-identifier hs-var">maxDatapoints</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-252"></span><span>      </span><span class="annot"><span class="annottext">$sel:scanBy:GetMetricData' :: Maybe ScanBy
-</span><a href="Network.AWS.CloudWatch.GetMetricData.html#%24sel%3AscanBy%3AGetMetricData%27"><span class="hs-identifier hs-var">scanBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ScanBy
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-253"></span><span>      </span><span class="annot"><span class="annottext">$sel:labelOptions:GetMetricData' :: Maybe LabelOptions
+</span><span id="line-252"></span><span>      </span><span class="annot"><span class="annottext">$sel:labelOptions:GetMetricData' :: Maybe LabelOptions
 </span><a href="Network.AWS.CloudWatch.GetMetricData.html#%24sel%3AlabelOptions%3AGetMetricData%27"><span class="hs-identifier hs-var">labelOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LabelOptions
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-254"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxDatapoints:GetMetricData' :: Maybe Int
-</span><a href="Network.AWS.CloudWatch.GetMetricData.html#%24sel%3AmaxDatapoints%3AGetMetricData%27"><span class="hs-identifier hs-var">maxDatapoints</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-253"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:GetMetricData' :: Maybe Text
+</span><a href="Network.AWS.CloudWatch.GetMetricData.html#%24sel%3AnextToken%3AGetMetricData%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-254"></span><span>      </span><span class="annot"><span class="annottext">$sel:scanBy:GetMetricData' :: Maybe ScanBy
+</span><a href="Network.AWS.CloudWatch.GetMetricData.html#%24sel%3AscanBy%3AGetMetricData%27"><span class="hs-identifier hs-var">scanBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ScanBy
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-255"></span><span>      </span><span class="annot"><span class="annottext">$sel:metricDataQueries:GetMetricData' :: [MetricDataQuery]
@@ -347,7 +347,7 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; UTCTime -&gt; ISO8601
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679263075"><span class="hs-identifier hs-var">pStartTime_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679263436"><span class="hs-identifier hs-var">pStartTime_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-257"></span><span>      </span><span class="annot"><span class="annottext">$sel:endTime:GetMetricData' :: ISO8601
 </span><a href="Network.AWS.CloudWatch.GetMetricData.html#%24sel%3AendTime%3AGetMetricData%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime)
 -&gt; Tagged ISO8601 (Identity ISO8601)
@@ -357,55 +357,33 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; UTCTime -&gt; ISO8601
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679263074"><span class="hs-identifier hs-var">pEndTime_</span></a></span><span>
+</span><a href="#local-6989586621679263435"><span class="hs-identifier hs-var">pEndTime_</span></a></span><span>
 </span><span id="line-258"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-259"></span><span>
-</span><span id="line-260"></span><span class="hs-comment">-- | Include this value, if it was returned by the previous @GetMetricData@</span><span>
-</span><span id="line-261"></span><span class="hs-comment">-- operation, to get the next set of data points.</span><span>
-</span><span id="line-262"></span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#getMetricData_nextToken"><span class="hs-identifier hs-type">getMetricData_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricData"><span class="hs-identifier hs-type">GetMetricData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-263"></span><span id="getMetricData_nextToken"><span class="annot"><span class="annottext">getMetricData_nextToken :: (Maybe Text -&gt; f (Maybe Text)) -&gt; GetMetricData -&gt; f GetMetricData
-</span><a href="Network.AWS.CloudWatch.GetMetricData.html#getMetricData_nextToken"><span class="hs-identifier hs-var hs-var">getMetricData_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetMetricData -&gt; Maybe Text)
--&gt; (GetMetricData -&gt; Maybe Text -&gt; GetMetricData)
--&gt; Lens GetMetricData GetMetricData (Maybe Text) (Maybe Text)
+</span><span id="line-260"></span><span class="hs-comment">-- | The maximum number of data points the request should return before</span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- paginating. If you omit this, the default of 100,800 is used.</span><span>
+</span><span id="line-262"></span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#getMetricData_maxDatapoints"><span class="hs-identifier hs-type">getMetricData_maxDatapoints</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricData"><span class="hs-identifier hs-type">GetMetricData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-263"></span><span id="getMetricData_maxDatapoints"><span class="annot"><span class="annottext">getMetricData_maxDatapoints :: (Maybe Int -&gt; f (Maybe Int)) -&gt; GetMetricData -&gt; f GetMetricData
+</span><a href="Network.AWS.CloudWatch.GetMetricData.html#getMetricData_maxDatapoints"><span class="hs-identifier hs-var hs-var">getMetricData_maxDatapoints</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetMetricData -&gt; Maybe Int)
+-&gt; (GetMetricData -&gt; Maybe Int -&gt; GetMetricData)
+-&gt; Lens GetMetricData GetMetricData (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricData%27"><span class="hs-identifier hs-type">GetMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263070"><span class="annot"><span class="annottext">Maybe Text
-nextToken :: Maybe Text
-$sel:nextToken:GetMetricData' :: GetMetricData -&gt; Maybe Text
-</span><a href="#local-6989586621679263070"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679263070"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263069"><span class="annot"><span class="annottext">s :: GetMetricData
-</span><a href="#local-6989586621679263069"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricData%27"><span class="hs-identifier hs-type">GetMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263068"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679263068"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMetricData
-</span><a href="#local-6989586621679263069"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetMetricData' :: Maybe Text
-</span><a href="Network.AWS.CloudWatch.GetMetricData.html#%24sel%3AnextToken%3AGetMetricData%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679263068"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricData"><span class="hs-identifier hs-type">GetMetricData</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricData%27"><span class="hs-identifier hs-type">GetMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263431"><span class="annot"><span class="annottext">Maybe Int
+maxDatapoints :: Maybe Int
+$sel:maxDatapoints:GetMetricData' :: GetMetricData -&gt; Maybe Int
+</span><a href="#local-6989586621679263431"><span class="hs-identifier hs-var hs-var">maxDatapoints</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679263431"><span class="hs-identifier hs-var">maxDatapoints</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263430"><span class="annot"><span class="annottext">s :: GetMetricData
+</span><a href="#local-6989586621679263430"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricData%27"><span class="hs-identifier hs-type">GetMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263429"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679263429"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMetricData
+</span><a href="#local-6989586621679263430"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxDatapoints:GetMetricData' :: Maybe Int
+</span><a href="Network.AWS.CloudWatch.GetMetricData.html#%24sel%3AmaxDatapoints%3AGetMetricData%27"><span class="hs-identifier hs-var">maxDatapoints</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679263429"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricData"><span class="hs-identifier hs-type">GetMetricData</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-264"></span><span>
-</span><span id="line-265"></span><span class="hs-comment">-- | The order in which data points should be returned. @TimestampDescending@</span><span>
-</span><span id="line-266"></span><span class="hs-comment">-- returns the newest data first and paginates when the @MaxDatapoints@</span><span>
-</span><span id="line-267"></span><span class="hs-comment">-- limit is reached. @TimestampAscending@ returns the oldest data first and</span><span>
-</span><span id="line-268"></span><span class="hs-comment">-- paginates when the @MaxDatapoints@ limit is reached.</span><span>
-</span><span id="line-269"></span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#getMetricData_scanBy"><span class="hs-identifier hs-type">getMetricData_scanBy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricData"><span class="hs-identifier hs-type">GetMetricData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.ScanBy.html#ScanBy"><span class="hs-identifier hs-type">ScanBy</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-270"></span><span id="getMetricData_scanBy"><span class="annot"><span class="annottext">getMetricData_scanBy :: (Maybe ScanBy -&gt; f (Maybe ScanBy))
--&gt; GetMetricData -&gt; f GetMetricData
-</span><a href="Network.AWS.CloudWatch.GetMetricData.html#getMetricData_scanBy"><span class="hs-identifier hs-var hs-var">getMetricData_scanBy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetMetricData -&gt; Maybe ScanBy)
--&gt; (GetMetricData -&gt; Maybe ScanBy -&gt; GetMetricData)
--&gt; Lens GetMetricData GetMetricData (Maybe ScanBy) (Maybe ScanBy)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricData%27"><span class="hs-identifier hs-type">GetMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263067"><span class="annot"><span class="annottext">Maybe ScanBy
-scanBy :: Maybe ScanBy
-$sel:scanBy:GetMetricData' :: GetMetricData -&gt; Maybe ScanBy
-</span><a href="#local-6989586621679263067"><span class="hs-identifier hs-var hs-var">scanBy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ScanBy
-</span><a href="#local-6989586621679263067"><span class="hs-identifier hs-var">scanBy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263066"><span class="annot"><span class="annottext">s :: GetMetricData
-</span><a href="#local-6989586621679263066"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricData%27"><span class="hs-identifier hs-type">GetMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263065"><span class="annot"><span class="annottext">Maybe ScanBy
-</span><a href="#local-6989586621679263065"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMetricData
-</span><a href="#local-6989586621679263066"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scanBy:GetMetricData' :: Maybe ScanBy
-</span><a href="Network.AWS.CloudWatch.GetMetricData.html#%24sel%3AscanBy%3AGetMetricData%27"><span class="hs-identifier hs-var">scanBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ScanBy
-</span><a href="#local-6989586621679263065"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricData"><span class="hs-identifier hs-type">GetMetricData</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-271"></span><span>
-</span><span id="line-272"></span><span class="hs-comment">-- | This structure includes the @Timezone@ parameter, which you can use to</span><span>
-</span><span id="line-273"></span><span class="hs-comment">-- specify your time zone so that the labels of returned data display the</span><span>
-</span><span id="line-274"></span><span class="hs-comment">-- correct time for your time zone.</span><span>
-</span><span id="line-275"></span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#getMetricData_labelOptions"><span class="hs-identifier hs-type">getMetricData_labelOptions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricData"><span class="hs-identifier hs-type">GetMetricData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.LabelOptions.html#LabelOptions"><span class="hs-identifier hs-type">LabelOptions</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-276"></span><span id="getMetricData_labelOptions"><span class="annot"><span class="annottext">getMetricData_labelOptions :: (Maybe LabelOptions -&gt; f (Maybe LabelOptions))
+</span><span id="line-265"></span><span class="hs-comment">-- | This structure includes the @Timezone@ parameter, which you can use to</span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- specify your time zone so that the labels of returned data display the</span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- correct time for your time zone.</span><span>
+</span><span id="line-268"></span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#getMetricData_labelOptions"><span class="hs-identifier hs-type">getMetricData_labelOptions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricData"><span class="hs-identifier hs-type">GetMetricData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.LabelOptions.html#LabelOptions"><span class="hs-identifier hs-type">LabelOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-269"></span><span id="getMetricData_labelOptions"><span class="annot"><span class="annottext">getMetricData_labelOptions :: (Maybe LabelOptions -&gt; f (Maybe LabelOptions))
 -&gt; GetMetricData -&gt; f GetMetricData
 </span><a href="Network.AWS.CloudWatch.GetMetricData.html#getMetricData_labelOptions"><span class="hs-identifier hs-var hs-var">getMetricData_labelOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetMetricData -&gt; Maybe LabelOptions)
 -&gt; (GetMetricData -&gt; Maybe LabelOptions -&gt; GetMetricData)
@@ -415,35 +393,57 @@ $sel:scanBy:GetMetricData' :: GetMetricData -&gt; Maybe ScanBy
      (Maybe LabelOptions)
      (Maybe LabelOptions)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricData%27"><span class="hs-identifier hs-type">GetMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263064"><span class="annot"><span class="annottext">Maybe LabelOptions
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricData%27"><span class="hs-identifier hs-type">GetMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263428"><span class="annot"><span class="annottext">Maybe LabelOptions
 labelOptions :: Maybe LabelOptions
 $sel:labelOptions:GetMetricData' :: GetMetricData -&gt; Maybe LabelOptions
-</span><a href="#local-6989586621679263064"><span class="hs-identifier hs-var hs-var">labelOptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LabelOptions
-</span><a href="#local-6989586621679263064"><span class="hs-identifier hs-var">labelOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263063"><span class="annot"><span class="annottext">s :: GetMetricData
-</span><a href="#local-6989586621679263063"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricData%27"><span class="hs-identifier hs-type">GetMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263062"><span class="annot"><span class="annottext">Maybe LabelOptions
-</span><a href="#local-6989586621679263062"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMetricData
-</span><a href="#local-6989586621679263063"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:labelOptions:GetMetricData' :: Maybe LabelOptions
+</span><a href="#local-6989586621679263428"><span class="hs-identifier hs-var hs-var">labelOptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LabelOptions
+</span><a href="#local-6989586621679263428"><span class="hs-identifier hs-var">labelOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263427"><span class="annot"><span class="annottext">s :: GetMetricData
+</span><a href="#local-6989586621679263427"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricData%27"><span class="hs-identifier hs-type">GetMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263426"><span class="annot"><span class="annottext">Maybe LabelOptions
+</span><a href="#local-6989586621679263426"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMetricData
+</span><a href="#local-6989586621679263427"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:labelOptions:GetMetricData' :: Maybe LabelOptions
 </span><a href="Network.AWS.CloudWatch.GetMetricData.html#%24sel%3AlabelOptions%3AGetMetricData%27"><span class="hs-identifier hs-var">labelOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LabelOptions
-</span><a href="#local-6989586621679263062"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricData"><span class="hs-identifier hs-type">GetMetricData</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-277"></span><span>
-</span><span id="line-278"></span><span class="hs-comment">-- | The maximum number of data points the request should return before</span><span>
-</span><span id="line-279"></span><span class="hs-comment">-- paginating. If you omit this, the default of 100,800 is used.</span><span>
-</span><span id="line-280"></span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#getMetricData_maxDatapoints"><span class="hs-identifier hs-type">getMetricData_maxDatapoints</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricData"><span class="hs-identifier hs-type">GetMetricData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-281"></span><span id="getMetricData_maxDatapoints"><span class="annot"><span class="annottext">getMetricData_maxDatapoints :: (Maybe Int -&gt; f (Maybe Int)) -&gt; GetMetricData -&gt; f GetMetricData
-</span><a href="Network.AWS.CloudWatch.GetMetricData.html#getMetricData_maxDatapoints"><span class="hs-identifier hs-var hs-var">getMetricData_maxDatapoints</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetMetricData -&gt; Maybe Int)
--&gt; (GetMetricData -&gt; Maybe Int -&gt; GetMetricData)
--&gt; Lens GetMetricData GetMetricData (Maybe Int) (Maybe Int)
+</span><a href="#local-6989586621679263426"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricData"><span class="hs-identifier hs-type">GetMetricData</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-270"></span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- | Include this value, if it was returned by the previous @GetMetricData@</span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- operation, to get the next set of data points.</span><span>
+</span><span id="line-273"></span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#getMetricData_nextToken"><span class="hs-identifier hs-type">getMetricData_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricData"><span class="hs-identifier hs-type">GetMetricData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-274"></span><span id="getMetricData_nextToken"><span class="annot"><span class="annottext">getMetricData_nextToken :: (Maybe Text -&gt; f (Maybe Text)) -&gt; GetMetricData -&gt; f GetMetricData
+</span><a href="Network.AWS.CloudWatch.GetMetricData.html#getMetricData_nextToken"><span class="hs-identifier hs-var hs-var">getMetricData_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetMetricData -&gt; Maybe Text)
+-&gt; (GetMetricData -&gt; Maybe Text -&gt; GetMetricData)
+-&gt; Lens GetMetricData GetMetricData (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricData%27"><span class="hs-identifier hs-type">GetMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263061"><span class="annot"><span class="annottext">Maybe Int
-maxDatapoints :: Maybe Int
-$sel:maxDatapoints:GetMetricData' :: GetMetricData -&gt; Maybe Int
-</span><a href="#local-6989586621679263061"><span class="hs-identifier hs-var hs-var">maxDatapoints</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679263061"><span class="hs-identifier hs-var">maxDatapoints</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263060"><span class="annot"><span class="annottext">s :: GetMetricData
-</span><a href="#local-6989586621679263060"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricData%27"><span class="hs-identifier hs-type">GetMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263059"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679263059"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMetricData
-</span><a href="#local-6989586621679263060"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxDatapoints:GetMetricData' :: Maybe Int
-</span><a href="Network.AWS.CloudWatch.GetMetricData.html#%24sel%3AmaxDatapoints%3AGetMetricData%27"><span class="hs-identifier hs-var">maxDatapoints</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679263059"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricData"><span class="hs-identifier hs-type">GetMetricData</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricData%27"><span class="hs-identifier hs-type">GetMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263425"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:GetMetricData' :: GetMetricData -&gt; Maybe Text
+</span><a href="#local-6989586621679263425"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263425"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263424"><span class="annot"><span class="annottext">s :: GetMetricData
+</span><a href="#local-6989586621679263424"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricData%27"><span class="hs-identifier hs-type">GetMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263423"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263423"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMetricData
+</span><a href="#local-6989586621679263424"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetMetricData' :: Maybe Text
+</span><a href="Network.AWS.CloudWatch.GetMetricData.html#%24sel%3AnextToken%3AGetMetricData%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263423"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricData"><span class="hs-identifier hs-type">GetMetricData</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-275"></span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- | The order in which data points should be returned. @TimestampDescending@</span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- returns the newest data first and paginates when the @MaxDatapoints@</span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- limit is reached. @TimestampAscending@ returns the oldest data first and</span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- paginates when the @MaxDatapoints@ limit is reached.</span><span>
+</span><span id="line-280"></span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#getMetricData_scanBy"><span class="hs-identifier hs-type">getMetricData_scanBy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricData"><span class="hs-identifier hs-type">GetMetricData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.ScanBy.html#ScanBy"><span class="hs-identifier hs-type">ScanBy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-281"></span><span id="getMetricData_scanBy"><span class="annot"><span class="annottext">getMetricData_scanBy :: (Maybe ScanBy -&gt; f (Maybe ScanBy))
+-&gt; GetMetricData -&gt; f GetMetricData
+</span><a href="Network.AWS.CloudWatch.GetMetricData.html#getMetricData_scanBy"><span class="hs-identifier hs-var hs-var">getMetricData_scanBy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetMetricData -&gt; Maybe ScanBy)
+-&gt; (GetMetricData -&gt; Maybe ScanBy -&gt; GetMetricData)
+-&gt; Lens GetMetricData GetMetricData (Maybe ScanBy) (Maybe ScanBy)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricData%27"><span class="hs-identifier hs-type">GetMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263422"><span class="annot"><span class="annottext">Maybe ScanBy
+scanBy :: Maybe ScanBy
+$sel:scanBy:GetMetricData' :: GetMetricData -&gt; Maybe ScanBy
+</span><a href="#local-6989586621679263422"><span class="hs-identifier hs-var hs-var">scanBy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ScanBy
+</span><a href="#local-6989586621679263422"><span class="hs-identifier hs-var">scanBy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263421"><span class="annot"><span class="annottext">s :: GetMetricData
+</span><a href="#local-6989586621679263421"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricData%27"><span class="hs-identifier hs-type">GetMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263420"><span class="annot"><span class="annottext">Maybe ScanBy
+</span><a href="#local-6989586621679263420"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMetricData
+</span><a href="#local-6989586621679263421"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scanBy:GetMetricData' :: Maybe ScanBy
+</span><a href="Network.AWS.CloudWatch.GetMetricData.html#%24sel%3AscanBy%3AGetMetricData%27"><span class="hs-identifier hs-var">scanBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ScanBy
+</span><a href="#local-6989586621679263420"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricData"><span class="hs-identifier hs-type">GetMetricData</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-282"></span><span>
 </span><span id="line-283"></span><span class="hs-comment">-- | The metric queries to be returned. A single @GetMetricData@ call can</span><span>
 </span><span id="line-284"></span><span class="hs-comment">-- include as many as 500 @MetricDataQuery@ structures. Each of these</span><span>
@@ -457,16 +457,16 @@ $sel:maxDatapoints:GetMetricData' :: GetMetricData -&gt; Maybe Int
 -&gt; Lens
      GetMetricData GetMetricData [MetricDataQuery] [MetricDataQuery]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricData%27"><span class="hs-identifier hs-type">GetMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263058"><span class="annot"><span class="annottext">[MetricDataQuery]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricData%27"><span class="hs-identifier hs-type">GetMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263419"><span class="annot"><span class="annottext">[MetricDataQuery]
 metricDataQueries :: [MetricDataQuery]
 $sel:metricDataQueries:GetMetricData' :: GetMetricData -&gt; [MetricDataQuery]
-</span><a href="#local-6989586621679263058"><span class="hs-identifier hs-var hs-var">metricDataQueries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[MetricDataQuery]
-</span><a href="#local-6989586621679263058"><span class="hs-identifier hs-var">metricDataQueries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263057"><span class="annot"><span class="annottext">s :: GetMetricData
-</span><a href="#local-6989586621679263057"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricData%27"><span class="hs-identifier hs-type">GetMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263056"><span class="annot"><span class="annottext">[MetricDataQuery]
-</span><a href="#local-6989586621679263056"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMetricData
-</span><a href="#local-6989586621679263057"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricDataQueries:GetMetricData' :: [MetricDataQuery]
+</span><a href="#local-6989586621679263419"><span class="hs-identifier hs-var hs-var">metricDataQueries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[MetricDataQuery]
+</span><a href="#local-6989586621679263419"><span class="hs-identifier hs-var">metricDataQueries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263418"><span class="annot"><span class="annottext">s :: GetMetricData
+</span><a href="#local-6989586621679263418"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricData%27"><span class="hs-identifier hs-type">GetMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263417"><span class="annot"><span class="annottext">[MetricDataQuery]
+</span><a href="#local-6989586621679263417"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMetricData
+</span><a href="#local-6989586621679263418"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricDataQueries:GetMetricData' :: [MetricDataQuery]
 </span><a href="Network.AWS.CloudWatch.GetMetricData.html#%24sel%3AmetricDataQueries%3AGetMetricData%27"><span class="hs-identifier hs-var">metricDataQueries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[MetricDataQuery]
-</span><a href="#local-6989586621679263056"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricData"><span class="hs-identifier hs-type">GetMetricData</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([MetricDataQuery] -&gt; f [MetricDataQuery])
+</span><a href="#local-6989586621679263417"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricData"><span class="hs-identifier hs-type">GetMetricData</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([MetricDataQuery] -&gt; f [MetricDataQuery])
  -&gt; GetMetricData -&gt; f GetMetricData)
 -&gt; (([MetricDataQuery] -&gt; f [MetricDataQuery])
     -&gt; [MetricDataQuery] -&gt; f [MetricDataQuery])
@@ -476,8 +476,8 @@ $sel:metricDataQueries:GetMetricData' :: GetMetricData -&gt; [MetricDataQuery]
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([MetricDataQuery] -&gt; f [MetricDataQuery])
 -&gt; [MetricDataQuery] -&gt; f [MetricDataQuery]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-289"></span><span>
 </span><span id="line-290"></span><span class="hs-comment">-- | The time stamp indicating the earliest data to be returned.</span><span>
 </span><span id="line-291"></span><span class="hs-comment">--</span><span>
@@ -517,16 +517,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (GetMetricData -&gt; ISO8601 -&gt; GetMetricData)
 -&gt; Lens GetMetricData GetMetricData ISO8601 ISO8601
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricData%27"><span class="hs-identifier hs-type">GetMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263053"><span class="annot"><span class="annottext">ISO8601
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricData%27"><span class="hs-identifier hs-type">GetMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263414"><span class="annot"><span class="annottext">ISO8601
 startTime :: ISO8601
 $sel:startTime:GetMetricData' :: GetMetricData -&gt; ISO8601
-</span><a href="#local-6989586621679263053"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ISO8601
-</span><a href="#local-6989586621679263053"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263052"><span class="annot"><span class="annottext">s :: GetMetricData
-</span><a href="#local-6989586621679263052"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricData%27"><span class="hs-identifier hs-type">GetMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263051"><span class="annot"><span class="annottext">ISO8601
-</span><a href="#local-6989586621679263051"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMetricData
-</span><a href="#local-6989586621679263052"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:GetMetricData' :: ISO8601
+</span><a href="#local-6989586621679263414"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ISO8601
+</span><a href="#local-6989586621679263414"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263413"><span class="annot"><span class="annottext">s :: GetMetricData
+</span><a href="#local-6989586621679263413"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricData%27"><span class="hs-identifier hs-type">GetMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263412"><span class="annot"><span class="annottext">ISO8601
+</span><a href="#local-6989586621679263412"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMetricData
+</span><a href="#local-6989586621679263413"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:GetMetricData' :: ISO8601
 </span><a href="Network.AWS.CloudWatch.GetMetricData.html#%24sel%3AstartTime%3AGetMetricData%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ISO8601
-</span><a href="#local-6989586621679263051"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricData"><span class="hs-identifier hs-type">GetMetricData</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((ISO8601 -&gt; f ISO8601) -&gt; GetMetricData -&gt; f GetMetricData)
+</span><a href="#local-6989586621679263412"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricData"><span class="hs-identifier hs-type">GetMetricData</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((ISO8601 -&gt; f ISO8601) -&gt; GetMetricData -&gt; f GetMetricData)
 -&gt; ((UTCTime -&gt; f UTCTime) -&gt; ISO8601 -&gt; f ISO8601)
 -&gt; (UTCTime -&gt; f UTCTime)
 -&gt; GetMetricData
@@ -552,16 +552,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; (GetMetricData -&gt; ISO8601 -&gt; GetMetricData)
 -&gt; Lens GetMetricData GetMetricData ISO8601 ISO8601
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricData%27"><span class="hs-identifier hs-type">GetMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263050"><span class="annot"><span class="annottext">ISO8601
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricData%27"><span class="hs-identifier hs-type">GetMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263411"><span class="annot"><span class="annottext">ISO8601
 endTime :: ISO8601
 $sel:endTime:GetMetricData' :: GetMetricData -&gt; ISO8601
-</span><a href="#local-6989586621679263050"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ISO8601
-</span><a href="#local-6989586621679263050"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263049"><span class="annot"><span class="annottext">s :: GetMetricData
-</span><a href="#local-6989586621679263049"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricData%27"><span class="hs-identifier hs-type">GetMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263048"><span class="annot"><span class="annottext">ISO8601
-</span><a href="#local-6989586621679263048"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMetricData
-</span><a href="#local-6989586621679263049"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endTime:GetMetricData' :: ISO8601
+</span><a href="#local-6989586621679263411"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ISO8601
+</span><a href="#local-6989586621679263411"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263410"><span class="annot"><span class="annottext">s :: GetMetricData
+</span><a href="#local-6989586621679263410"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricData%27"><span class="hs-identifier hs-type">GetMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263409"><span class="annot"><span class="annottext">ISO8601
+</span><a href="#local-6989586621679263409"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMetricData
+</span><a href="#local-6989586621679263410"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endTime:GetMetricData' :: ISO8601
 </span><a href="Network.AWS.CloudWatch.GetMetricData.html#%24sel%3AendTime%3AGetMetricData%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ISO8601
-</span><a href="#local-6989586621679263048"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricData"><span class="hs-identifier hs-type">GetMetricData</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((ISO8601 -&gt; f ISO8601) -&gt; GetMetricData -&gt; f GetMetricData)
+</span><a href="#local-6989586621679263409"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricData"><span class="hs-identifier hs-type">GetMetricData</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((ISO8601 -&gt; f ISO8601) -&gt; GetMetricData -&gt; f GetMetricData)
 -&gt; ((UTCTime -&gt; f UTCTime) -&gt; ISO8601 -&gt; f ISO8601)
 -&gt; (UTCTime -&gt; f UTCTime)
 -&gt; GetMetricData
@@ -572,16 +572,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-337"></span><span>
 </span><span id="line-338"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricData"><span class="hs-identifier hs-type">GetMetricData</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-339"></span><span>  </span><span id="local-6989586621679263044"><span class="annot"><span class="annottext">page :: GetMetricData -&gt; AWSResponse GetMetricData -&gt; Maybe GetMetricData
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679263042"><span class="annot"><span class="annottext">GetMetricData
-</span><a href="#local-6989586621679263042"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679263041"><span class="annot"><span class="annottext">AWSResponse GetMetricData
-</span><a href="#local-6989586621679263041"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-339"></span><span>  </span><span id="local-6989586621679263405"><span class="annot"><span class="annottext">page :: GetMetricData -&gt; AWSResponse GetMetricData -&gt; Maybe GetMetricData
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679263403"><span class="annot"><span class="annottext">GetMetricData
+</span><a href="#local-6989586621679263403"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679263402"><span class="annot"><span class="annottext">AWSResponse GetMetricData
+</span><a href="#local-6989586621679263402"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-340"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-341"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse GetMetricData
 GetMetricDataResponse
-</span><a href="#local-6989586621679263041"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679263402"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-342"></span><span>            </span><span class="annot"><span class="annottext">GetMetricDataResponse
 -&gt; Getting (First Text) GetMetricDataResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -609,7 +609,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-346"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse GetMetricData
 GetMetricDataResponse
-</span><a href="#local-6989586621679263041"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679263402"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-347"></span><span>            </span><span class="annot"><span class="annottext">GetMetricDataResponse
 -&gt; Getting
      (First [MetricDataResult]) GetMetricDataResponse [MetricDataResult]
@@ -647,7 +647,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-352"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse GetMetricData
 GetMetricDataResponse
-</span><a href="#local-6989586621679263041"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679263402"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-353"></span><span>            </span><span class="annot"><span class="annottext">GetMetricDataResponse
 -&gt; Getting
      (First [MessageData]) GetMetricDataResponse [MessageData]
@@ -686,7 +686,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-358"></span><span>        </span><span class="annot"><span class="annottext">GetMetricData
-</span><a href="#local-6989586621679263042"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679263403"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-359"></span><span>          </span><span class="annot"><span class="annottext">GetMetricData -&gt; (GetMetricData -&gt; GetMetricData) -&gt; GetMetricData
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
@@ -699,7 +699,7 @@ Lens GetMetricData GetMetricData (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse GetMetricData
 GetMetricDataResponse
-</span><a href="#local-6989586621679263041"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679263402"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-361"></span><span>          </span><span class="annot"><span class="annottext">GetMetricDataResponse
 -&gt; Getting (First Text) GetMetricDataResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -723,12 +723,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-364"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-365"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricData"><span class="hs-identifier hs-type">GetMetricData</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-366"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricDataResponse"><span class="hs-identifier hs-type">GetMetricDataResponse</span></a></span><span>
-</span><span id="line-367"></span><span>  </span><span id="local-6989586621679263032"><span class="annot"><span class="annottext">request :: GetMetricData -&gt; Request GetMetricData
+</span><span id="line-367"></span><span>  </span><span id="local-6989586621679263393"><span class="annot"><span class="annottext">request :: GetMetricData -&gt; Request GetMetricData
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetMetricData -&gt; Request GetMetricData
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudWatch.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-368"></span><span>  </span><span id="local-6989586621679263028"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-368"></span><span>  </span><span id="local-6989586621679263389"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetMetricData
 -&gt; ClientResponse ClientBody
@@ -757,51 +757,37 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-370"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;GetMetricDataResult&quot;</span></span><span>
-</span><span id="line-371"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679263025"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679263025"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679263024"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679263024"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679263023"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679263023"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-372"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe [MetricDataResult]
+</span><span id="line-371"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679263386"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679263386"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679263385"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679263385"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679263384"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679263384"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-372"></span><span>          </span><span class="annot"><span class="annottext">Maybe [MetricDataResult]
+-&gt; Maybe Text
 -&gt; Maybe [MessageData]
 -&gt; Int
 -&gt; GetMetricDataResponse
 </span><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricDataResponse%27"><span class="hs-identifier hs-var">GetMetricDataResponse'</span></a></span><span>
-</span><span id="line-373"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe [MetricDataResult]
+</span><span id="line-373"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [MetricDataResult]
+ -&gt; Maybe Text
  -&gt; Maybe [MessageData]
  -&gt; Int
  -&gt; GetMetricDataResponse)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String
-     (Maybe [MetricDataResult]
-      -&gt; Maybe [MessageData] -&gt; Int -&gt; GetMetricDataResponse)
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679263023"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-374"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe [MetricDataResult]
-   -&gt; Maybe [MessageData] -&gt; Int -&gt; GetMetricDataResponse)
 -&gt; Either String (Maybe [MetricDataResult])
 -&gt; Either
-     String (Maybe [MessageData] -&gt; Int -&gt; GetMetricDataResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679263023"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+     String
+     (Maybe Text -&gt; Maybe [MessageData] -&gt; Int -&gt; GetMetricDataResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679263384"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MetricDataResults&quot;</span></span><span>
-</span><span id="line-375"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+</span><span id="line-374"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
 forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-376"></span><span>                            </span><span class="annot"><span class="annottext">Either String [Node]
+</span><span id="line-375"></span><span>                            </span><span class="annot"><span class="annottext">Either String [Node]
 -&gt; ([Node] -&gt; Either String (Maybe [MetricDataResult]))
 -&gt; Either String (Maybe [MetricDataResult])
 forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
@@ -814,13 +800,25 @@ Applicative f =&gt;
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;member&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-377"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-376"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-377"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text -&gt; Maybe [MessageData] -&gt; Int -&gt; GetMetricDataResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe [MessageData] -&gt; Int -&gt; GetMetricDataResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679263384"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-378"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe [MessageData] -&gt; Int -&gt; GetMetricDataResponse)
 -&gt; Either String (Maybe [MessageData])
 -&gt; Either String (Int -&gt; GetMetricDataResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679263023"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679263384"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Messages&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -850,15 +848,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679263025"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679263386"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-382"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-383"></span><span>
-</span><span id="line-384"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679263012"><span id="local-6989586621679263014"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricData"><span class="hs-identifier hs-type">GetMetricData</span></a></span></span></span><span>
+</span><span id="line-384"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679263373"><span id="local-6989586621679263375"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricData"><span class="hs-identifier hs-type">GetMetricData</span></a></span></span></span><span>
 </span><span id="line-385"></span><span>
-</span><span id="line-386"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679263009"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricData"><span class="hs-identifier hs-type">GetMetricData</span></a></span></span><span>
+</span><span id="line-386"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679263370"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricData"><span class="hs-identifier hs-type">GetMetricData</span></a></span></span><span>
 </span><span id="line-387"></span><span>
 </span><span id="line-388"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricData"><span class="hs-identifier hs-type">GetMetricData</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-389"></span><span>  </span><span id="local-6989586621679263005"><span class="annot"><span class="annottext">toHeaders :: GetMetricData -&gt; ResponseHeaders
+</span><span id="line-389"></span><span>  </span><span id="local-6989586621679263366"><span class="annot"><span class="annottext">toHeaders :: GetMetricData -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetMetricData -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -866,15 +864,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-390"></span><span>
 </span><span id="line-391"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricData"><span class="hs-identifier hs-type">GetMetricData</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-392"></span><span>  </span><span id="local-6989586621679263000"><span class="annot"><span class="annottext">toPath :: GetMetricData -&gt; ByteString
+</span><span id="line-392"></span><span>  </span><span id="local-6989586621679263361"><span class="annot"><span class="annottext">toPath :: GetMetricData -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetMetricData -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-393"></span><span>
 </span><span id="line-394"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricData"><span class="hs-identifier hs-type">GetMetricData</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-395"></span><span>  </span><span id="local-6989586621679262996"><span class="annot"><span class="annottext">toQuery :: GetMetricData -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricData%27"><span class="hs-identifier hs-type">GetMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262988"><span id="local-6989586621679262989"><span id="local-6989586621679262990"><span id="local-6989586621679262991"><span id="local-6989586621679262992"><span id="local-6989586621679262993"><span id="local-6989586621679262994"><span class="annot"><span class="annottext">[MetricDataQuery]
+</span><span id="line-395"></span><span>  </span><span id="local-6989586621679263357"><span class="annot"><span class="annottext">toQuery :: GetMetricData -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricData%27"><span class="hs-identifier hs-type">GetMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263349"><span id="local-6989586621679263350"><span id="local-6989586621679263351"><span id="local-6989586621679263352"><span id="local-6989586621679263353"><span id="local-6989586621679263354"><span id="local-6989586621679263355"><span class="annot"><span class="annottext">[MetricDataQuery]
 Maybe Int
 Maybe Text
 Maybe LabelOptions
@@ -883,18 +881,18 @@ ISO8601
 endTime :: ISO8601
 startTime :: ISO8601
 metricDataQueries :: [MetricDataQuery]
-maxDatapoints :: Maybe Int
-labelOptions :: Maybe LabelOptions
 scanBy :: Maybe ScanBy
 nextToken :: Maybe Text
+labelOptions :: Maybe LabelOptions
+maxDatapoints :: Maybe Int
 $sel:endTime:GetMetricData' :: GetMetricData -&gt; ISO8601
 $sel:startTime:GetMetricData' :: GetMetricData -&gt; ISO8601
 $sel:metricDataQueries:GetMetricData' :: GetMetricData -&gt; [MetricDataQuery]
-$sel:maxDatapoints:GetMetricData' :: GetMetricData -&gt; Maybe Int
-$sel:labelOptions:GetMetricData' :: GetMetricData -&gt; Maybe LabelOptions
 $sel:scanBy:GetMetricData' :: GetMetricData -&gt; Maybe ScanBy
 $sel:nextToken:GetMetricData' :: GetMetricData -&gt; Maybe Text
-</span><a href="#local-6989586621679262988"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:labelOptions:GetMetricData' :: GetMetricData -&gt; Maybe LabelOptions
+$sel:maxDatapoints:GetMetricData' :: GetMetricData -&gt; Maybe Int
+</span><a href="#local-6989586621679263349"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-396"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -911,25 +909,25 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;2010-08-01&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-401"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679262994"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-402"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;ScanBy&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe ScanBy -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe ScanBy
-</span><a href="#local-6989586621679262993"><span class="hs-identifier hs-var">scanBy</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-403"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;LabelOptions&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe LabelOptions -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe LabelOptions
-</span><a href="#local-6989586621679262992"><span class="hs-identifier hs-var">labelOptions</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-404"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;MaxDatapoints&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679262991"><span class="hs-identifier hs-var">maxDatapoints</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679263355"><span class="hs-identifier hs-var">maxDatapoints</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-402"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;LabelOptions&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe LabelOptions -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe LabelOptions
+</span><a href="#local-6989586621679263354"><span class="hs-identifier hs-var">labelOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-403"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263353"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-404"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ScanBy&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe ScanBy -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe ScanBy
+</span><a href="#local-6989586621679263352"><span class="hs-identifier hs-var">scanBy</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-405"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;MetricDataQueries&quot;</span></span><span>
 </span><span id="line-406"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
@@ -940,28 +938,28 @@ forall a.
 ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">[MetricDataQuery]
-</span><a href="#local-6989586621679262990"><span class="hs-identifier hs-var">metricDataQueries</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679263351"><span class="hs-identifier hs-var">metricDataQueries</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-407"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;StartTime&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ISO8601 -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">ISO8601
-</span><a href="#local-6989586621679262989"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679263350"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-408"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;EndTime&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ISO8601 -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">ISO8601
-</span><a href="#local-6989586621679262988"><span class="hs-identifier hs-var">endTime</span></a></span><span>
+</span><a href="#local-6989586621679263349"><span class="hs-identifier hs-var">endTime</span></a></span><span>
 </span><span id="line-409"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-410"></span><span>
 </span><span id="line-411"></span><span class="hs-comment">-- | /See:/ 'newGetMetricDataResponse' smart constructor.</span><span>
-</span><span id="line-412"></span><span id="local-6989586621679262984"><span id="local-6989586621679262985"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetMetricDataResponse"><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricDataResponse"><span class="hs-identifier hs-var">GetMetricDataResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetMetricDataResponse%27"><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricDataResponse%27"><span class="hs-identifier hs-var">GetMetricDataResponse'</span></a></span></span><span>
-</span><span id="line-413"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A token that marks the next batch of returned results.</span><span>
-</span><span id="line-414"></span><span>    </span><span id="%24sel%3AnextToken%3AGetMetricDataResponse%27"><span class="annot"><span class="annottext">GetMetricDataResponse -&gt; Maybe Text
-</span><a href="Network.AWS.CloudWatch.GetMetricData.html#%24sel%3AnextToken%3AGetMetricDataResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-415"></span><span>    </span><span class="hs-comment">-- | The metrics that are returned, including the metric name, namespace, and</span><span>
-</span><span id="line-416"></span><span>    </span><span class="hs-comment">-- dimensions.</span><span>
-</span><span id="line-417"></span><span>    </span><span id="%24sel%3AmetricDataResults%3AGetMetricDataResponse%27"><span class="annot"><span class="annottext">GetMetricDataResponse -&gt; Maybe [MetricDataResult]
+</span><span id="line-412"></span><span id="local-6989586621679263345"><span id="local-6989586621679263346"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetMetricDataResponse"><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricDataResponse"><span class="hs-identifier hs-var">GetMetricDataResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetMetricDataResponse%27"><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricDataResponse%27"><span class="hs-identifier hs-var">GetMetricDataResponse'</span></a></span></span><span>
+</span><span id="line-413"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The metrics that are returned, including the metric name, namespace, and</span><span>
+</span><span id="line-414"></span><span>    </span><span class="hs-comment">-- dimensions.</span><span>
+</span><span id="line-415"></span><span>    </span><span id="%24sel%3AmetricDataResults%3AGetMetricDataResponse%27"><span class="annot"><span class="annottext">GetMetricDataResponse -&gt; Maybe [MetricDataResult]
 </span><a href="Network.AWS.CloudWatch.GetMetricData.html#%24sel%3AmetricDataResults%3AGetMetricDataResponse%27"><span class="hs-identifier hs-var hs-var">metricDataResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricDataResult.html#MetricDataResult"><span class="hs-identifier hs-type">MetricDataResult</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-416"></span><span>    </span><span class="hs-comment">-- | A token that marks the next batch of returned results.</span><span>
+</span><span id="line-417"></span><span>    </span><span id="%24sel%3AnextToken%3AGetMetricDataResponse%27"><span class="annot"><span class="annottext">GetMetricDataResponse -&gt; Maybe Text
+</span><a href="Network.AWS.CloudWatch.GetMetricData.html#%24sel%3AnextToken%3AGetMetricDataResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-418"></span><span>    </span><span class="hs-comment">-- | Contains a message about this @GetMetricData@ operation, if the</span><span>
 </span><span id="line-419"></span><span>    </span><span class="hs-comment">-- operation results in such a message. An example of a message that might</span><span>
 </span><span id="line-420"></span><span>    </span><span class="hs-comment">-- be returned is @Maximum number of allowed metrics exceeded@. If there is</span><span>
@@ -977,7 +975,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-429"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetMetricDataResponse%27"><span class="annot"><span class="annottext">GetMetricDataResponse -&gt; Int
 </span><a href="Network.AWS.CloudWatch.GetMetricData.html#%24sel%3AhttpStatus%3AGetMetricDataResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-430"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-431"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679262976"><span id="local-6989586621679262978"><span class="annot"><span class="annottext">GetMetricDataResponse -&gt; GetMetricDataResponse -&gt; Bool
+</span><span id="line-431"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679263337"><span id="local-6989586621679263339"><span class="annot"><span class="annottext">GetMetricDataResponse -&gt; GetMetricDataResponse -&gt; Bool
 (GetMetricDataResponse -&gt; GetMetricDataResponse -&gt; Bool)
 -&gt; (GetMetricDataResponse -&gt; GetMetricDataResponse -&gt; Bool)
 -&gt; Eq GetMetricDataResponse
@@ -986,7 +984,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetMetricDataResponse -&gt; GetMetricDataResponse -&gt; Bool
 == :: GetMetricDataResponse -&gt; GetMetricDataResponse -&gt; Bool
 $c== :: GetMetricDataResponse -&gt; GetMetricDataResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679262968"><span id="local-6989586621679262970"><span id="local-6989586621679262972"><span id="local-6989586621679262974"><span class="annot"><span class="annottext">ReadPrec [GetMetricDataResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679263329"><span id="local-6989586621679263331"><span id="local-6989586621679263333"><span id="local-6989586621679263335"><span class="annot"><span class="annottext">ReadPrec [GetMetricDataResponse]
 ReadPrec GetMetricDataResponse
 Int -&gt; ReadS GetMetricDataResponse
 ReadS [GetMetricDataResponse]
@@ -1006,7 +1004,7 @@ readList :: ReadS [GetMetricDataResponse]
 $creadList :: ReadS [GetMetricDataResponse]
 readsPrec :: Int -&gt; ReadS GetMetricDataResponse
 $creadsPrec :: Int -&gt; ReadS GetMetricDataResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679262962"><span id="local-6989586621679262964"><span id="local-6989586621679262966"><span class="annot"><span class="annottext">Int -&gt; GetMetricDataResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679263323"><span id="local-6989586621679263325"><span id="local-6989586621679263327"><span class="annot"><span class="annottext">Int -&gt; GetMetricDataResponse -&gt; ShowS
 [GetMetricDataResponse] -&gt; ShowS
 GetMetricDataResponse -&gt; String
 (Int -&gt; GetMetricDataResponse -&gt; ShowS)
@@ -1040,10 +1038,10 @@ $cfrom :: forall x. GetMetricDataResponse -&gt; Rep GetMetricDataResponse x
 </span><span id="line-438"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-439"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-440"></span><span class="hs-comment">--</span><span>
-</span><span id="line-441"></span><span class="hs-comment">-- 'nextToken', 'getMetricDataResponse_nextToken' - A token that marks the next batch of returned results.</span><span>
-</span><span id="line-442"></span><span class="hs-comment">--</span><span>
-</span><span id="line-443"></span><span class="hs-comment">-- 'metricDataResults', 'getMetricDataResponse_metricDataResults' - The metrics that are returned, including the metric name, namespace, and</span><span>
-</span><span id="line-444"></span><span class="hs-comment">-- dimensions.</span><span>
+</span><span id="line-441"></span><span class="hs-comment">-- 'metricDataResults', 'getMetricDataResponse_metricDataResults' - The metrics that are returned, including the metric name, namespace, and</span><span>
+</span><span id="line-442"></span><span class="hs-comment">-- dimensions.</span><span>
+</span><span id="line-443"></span><span class="hs-comment">--</span><span>
+</span><span id="line-444"></span><span class="hs-comment">-- 'nextToken', 'getMetricDataResponse_nextToken' - A token that marks the next batch of returned results.</span><span>
 </span><span id="line-445"></span><span class="hs-comment">--</span><span>
 </span><span id="line-446"></span><span class="hs-comment">-- 'messages', 'getMetricDataResponse_messages' - Contains a message about this @GetMetricData@ operation, if the</span><span>
 </span><span id="line-447"></span><span class="hs-comment">-- operation results in such a message. An example of a message that might</span><span>
@@ -1061,70 +1059,52 @@ $cfrom :: forall x. GetMetricDataResponse -&gt; Rep GetMetricDataResponse x
 </span><span id="line-459"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-460"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricDataResponse"><span class="hs-identifier hs-type">GetMetricDataResponse</span></a></span><span>
 </span><span id="line-461"></span><span id="newGetMetricDataResponse"><span class="annot"><span class="annottext">newGetMetricDataResponse :: Int -&gt; GetMetricDataResponse
-</span><a href="Network.AWS.CloudWatch.GetMetricData.html#newGetMetricDataResponse"><span class="hs-identifier hs-var hs-var">newGetMetricDataResponse</span></a></span></span><span> </span><span id="local-6989586621679262959"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679262959"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-462"></span><span>  </span><span class="annot"><span class="annottext">GetMetricDataResponse' :: Maybe Text
--&gt; Maybe [MetricDataResult]
+</span><a href="Network.AWS.CloudWatch.GetMetricData.html#newGetMetricDataResponse"><span class="hs-identifier hs-var hs-var">newGetMetricDataResponse</span></a></span></span><span> </span><span id="local-6989586621679263320"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679263320"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-462"></span><span>  </span><span class="annot"><span class="annottext">GetMetricDataResponse' :: Maybe [MetricDataResult]
+-&gt; Maybe Text
 -&gt; Maybe [MessageData]
 -&gt; Int
 -&gt; GetMetricDataResponse
 </span><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricDataResponse%27"><span class="hs-identifier hs-type">GetMetricDataResponse'</span></a></span><span>
-</span><span id="line-463"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:GetMetricDataResponse' :: Maybe Text
+</span><span id="line-463"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:metricDataResults:GetMetricDataResponse' :: Maybe [MetricDataResult]
+</span><a href="Network.AWS.CloudWatch.GetMetricData.html#%24sel%3AmetricDataResults%3AGetMetricDataResponse%27"><span class="hs-identifier hs-var">metricDataResults</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-464"></span><span>        </span><span class="annot"><span class="annottext">Maybe [MetricDataResult]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-465"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:GetMetricDataResponse' :: Maybe Text
 </span><a href="Network.AWS.CloudWatch.GetMetricData.html#%24sel%3AnextToken%3AGetMetricDataResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-464"></span><span>      </span><span class="annot"><span class="annottext">$sel:metricDataResults:GetMetricDataResponse' :: Maybe [MetricDataResult]
-</span><a href="Network.AWS.CloudWatch.GetMetricData.html#%24sel%3AmetricDataResults%3AGetMetricDataResponse%27"><span class="hs-identifier hs-var">metricDataResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [MetricDataResult]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-465"></span><span>      </span><span class="annot"><span class="annottext">$sel:messages:GetMetricDataResponse' :: Maybe [MessageData]
+</span><span id="line-466"></span><span>      </span><span class="annot"><span class="annottext">$sel:messages:GetMetricDataResponse' :: Maybe [MessageData]
 </span><a href="Network.AWS.CloudWatch.GetMetricData.html#%24sel%3Amessages%3AGetMetricDataResponse%27"><span class="hs-identifier hs-var">messages</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [MessageData]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-466"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetMetricDataResponse' :: Int
+</span><span id="line-467"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetMetricDataResponse' :: Int
 </span><a href="Network.AWS.CloudWatch.GetMetricData.html#%24sel%3AhttpStatus%3AGetMetricDataResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679262959"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
-</span><span id="line-467"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-468"></span><span>
-</span><span id="line-469"></span><span class="hs-comment">-- | A token that marks the next batch of returned results.</span><span>
-</span><span id="line-470"></span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#getMetricDataResponse_nextToken"><span class="hs-identifier hs-type">getMetricDataResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricDataResponse"><span class="hs-identifier hs-type">GetMetricDataResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-471"></span><span id="getMetricDataResponse_nextToken"><span class="annot"><span class="annottext">getMetricDataResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; GetMetricDataResponse -&gt; f GetMetricDataResponse
-</span><a href="Network.AWS.CloudWatch.GetMetricData.html#getMetricDataResponse_nextToken"><span class="hs-identifier hs-var hs-var">getMetricDataResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetMetricDataResponse -&gt; Maybe Text)
--&gt; (GetMetricDataResponse -&gt; Maybe Text -&gt; GetMetricDataResponse)
--&gt; Lens' GetMetricDataResponse (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricDataResponse%27"><span class="hs-identifier hs-type">GetMetricDataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262958"><span class="annot"><span class="annottext">Maybe Text
-nextToken :: Maybe Text
-$sel:nextToken:GetMetricDataResponse' :: GetMetricDataResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679262958"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679262958"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262957"><span class="annot"><span class="annottext">s :: GetMetricDataResponse
-</span><a href="#local-6989586621679262957"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricDataResponse%27"><span class="hs-identifier hs-type">GetMetricDataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262956"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679262956"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMetricDataResponse
-</span><a href="#local-6989586621679262957"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetMetricDataResponse' :: Maybe Text
-</span><a href="Network.AWS.CloudWatch.GetMetricData.html#%24sel%3AnextToken%3AGetMetricDataResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679262956"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricDataResponse"><span class="hs-identifier hs-type">GetMetricDataResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-472"></span><span>
-</span><span id="line-473"></span><span class="hs-comment">-- | The metrics that are returned, including the metric name, namespace, and</span><span>
-</span><span id="line-474"></span><span class="hs-comment">-- dimensions.</span><span>
-</span><span id="line-475"></span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#getMetricDataResponse_metricDataResults"><span class="hs-identifier hs-type">getMetricDataResponse_metricDataResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricDataResponse"><span class="hs-identifier hs-type">GetMetricDataResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricDataResult.html#MetricDataResult"><span class="hs-identifier hs-type">MetricDataResult</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-476"></span><span id="getMetricDataResponse_metricDataResults"><span class="annot"><span class="annottext">getMetricDataResponse_metricDataResults :: (Maybe [MetricDataResult] -&gt; f (Maybe [MetricDataResult]))
+</span><a href="#local-6989586621679263320"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-468"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-469"></span><span>
+</span><span id="line-470"></span><span class="hs-comment">-- | The metrics that are returned, including the metric name, namespace, and</span><span>
+</span><span id="line-471"></span><span class="hs-comment">-- dimensions.</span><span>
+</span><span id="line-472"></span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#getMetricDataResponse_metricDataResults"><span class="hs-identifier hs-type">getMetricDataResponse_metricDataResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricDataResponse"><span class="hs-identifier hs-type">GetMetricDataResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricDataResult.html#MetricDataResult"><span class="hs-identifier hs-type">MetricDataResult</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-473"></span><span id="getMetricDataResponse_metricDataResults"><span class="annot"><span class="annottext">getMetricDataResponse_metricDataResults :: (Maybe [MetricDataResult] -&gt; f (Maybe [MetricDataResult]))
 -&gt; GetMetricDataResponse -&gt; f GetMetricDataResponse
 </span><a href="Network.AWS.CloudWatch.GetMetricData.html#getMetricDataResponse_metricDataResults"><span class="hs-identifier hs-var hs-var">getMetricDataResponse_metricDataResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetMetricDataResponse -&gt; Maybe [MetricDataResult])
 -&gt; (GetMetricDataResponse
     -&gt; Maybe [MetricDataResult] -&gt; GetMetricDataResponse)
 -&gt; Lens' GetMetricDataResponse (Maybe [MetricDataResult])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricDataResponse%27"><span class="hs-identifier hs-type">GetMetricDataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262955"><span class="annot"><span class="annottext">Maybe [MetricDataResult]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricDataResponse%27"><span class="hs-identifier hs-type">GetMetricDataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263319"><span class="annot"><span class="annottext">Maybe [MetricDataResult]
 metricDataResults :: Maybe [MetricDataResult]
 $sel:metricDataResults:GetMetricDataResponse' :: GetMetricDataResponse -&gt; Maybe [MetricDataResult]
-</span><a href="#local-6989586621679262955"><span class="hs-identifier hs-var hs-var">metricDataResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [MetricDataResult]
-</span><a href="#local-6989586621679262955"><span class="hs-identifier hs-var">metricDataResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262954"><span class="annot"><span class="annottext">s :: GetMetricDataResponse
-</span><a href="#local-6989586621679262954"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricDataResponse%27"><span class="hs-identifier hs-type">GetMetricDataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262953"><span class="annot"><span class="annottext">Maybe [MetricDataResult]
-</span><a href="#local-6989586621679262953"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMetricDataResponse
-</span><a href="#local-6989586621679262954"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricDataResults:GetMetricDataResponse' :: Maybe [MetricDataResult]
+</span><a href="#local-6989586621679263319"><span class="hs-identifier hs-var hs-var">metricDataResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [MetricDataResult]
+</span><a href="#local-6989586621679263319"><span class="hs-identifier hs-var">metricDataResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263318"><span class="annot"><span class="annottext">s :: GetMetricDataResponse
+</span><a href="#local-6989586621679263318"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricDataResponse%27"><span class="hs-identifier hs-type">GetMetricDataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263317"><span class="annot"><span class="annottext">Maybe [MetricDataResult]
+</span><a href="#local-6989586621679263317"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMetricDataResponse
+</span><a href="#local-6989586621679263318"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricDataResults:GetMetricDataResponse' :: Maybe [MetricDataResult]
 </span><a href="Network.AWS.CloudWatch.GetMetricData.html#%24sel%3AmetricDataResults%3AGetMetricDataResponse%27"><span class="hs-identifier hs-var">metricDataResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [MetricDataResult]
-</span><a href="#local-6989586621679262953"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricDataResponse"><span class="hs-identifier hs-type">GetMetricDataResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [MetricDataResult] -&gt; f (Maybe [MetricDataResult]))
+</span><a href="#local-6989586621679263317"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricDataResponse"><span class="hs-identifier hs-type">GetMetricDataResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [MetricDataResult] -&gt; f (Maybe [MetricDataResult]))
  -&gt; GetMetricDataResponse -&gt; f GetMetricDataResponse)
 -&gt; ((Maybe [MetricDataResult] -&gt; f (Maybe [MetricDataResult]))
     -&gt; Maybe [MetricDataResult] -&gt; f (Maybe [MetricDataResult]))
@@ -1150,36 +1130,55 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [MetricDataResult]
   [MetricDataResult]
   [MetricDataResult]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-477"></span><span>
-</span><span id="line-478"></span><span class="hs-comment">-- | Contains a message about this @GetMetricData@ operation, if the</span><span>
-</span><span id="line-479"></span><span class="hs-comment">-- operation results in such a message. An example of a message that might</span><span>
-</span><span id="line-480"></span><span class="hs-comment">-- be returned is @Maximum number of allowed metrics exceeded@. If there is</span><span>
-</span><span id="line-481"></span><span class="hs-comment">-- a message, as much of the operation as possible is still executed.</span><span>
-</span><span id="line-482"></span><span class="hs-comment">--</span><span>
-</span><span id="line-483"></span><span class="hs-comment">-- A message appears here only if it is related to the global</span><span>
-</span><span id="line-484"></span><span class="hs-comment">-- @GetMetricData@ operation. Any message about a specific metric returned</span><span>
-</span><span id="line-485"></span><span class="hs-comment">-- by the operation appears in the @MetricDataResult@ object returned for</span><span>
-</span><span id="line-486"></span><span class="hs-comment">-- that metric.</span><span>
-</span><span id="line-487"></span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#getMetricDataResponse_messages"><span class="hs-identifier hs-type">getMetricDataResponse_messages</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricDataResponse"><span class="hs-identifier hs-type">GetMetricDataResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MessageData.html#MessageData"><span class="hs-identifier hs-type">MessageData</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-488"></span><span id="getMetricDataResponse_messages"><span class="annot"><span class="annottext">getMetricDataResponse_messages :: (Maybe [MessageData] -&gt; f (Maybe [MessageData]))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-474"></span><span>
+</span><span id="line-475"></span><span class="hs-comment">-- | A token that marks the next batch of returned results.</span><span>
+</span><span id="line-476"></span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#getMetricDataResponse_nextToken"><span class="hs-identifier hs-type">getMetricDataResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricDataResponse"><span class="hs-identifier hs-type">GetMetricDataResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-477"></span><span id="getMetricDataResponse_nextToken"><span class="annot"><span class="annottext">getMetricDataResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetMetricDataResponse -&gt; f GetMetricDataResponse
+</span><a href="Network.AWS.CloudWatch.GetMetricData.html#getMetricDataResponse_nextToken"><span class="hs-identifier hs-var hs-var">getMetricDataResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetMetricDataResponse -&gt; Maybe Text)
+-&gt; (GetMetricDataResponse -&gt; Maybe Text -&gt; GetMetricDataResponse)
+-&gt; Lens' GetMetricDataResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricDataResponse%27"><span class="hs-identifier hs-type">GetMetricDataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263315"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:GetMetricDataResponse' :: GetMetricDataResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679263315"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263315"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263314"><span class="annot"><span class="annottext">s :: GetMetricDataResponse
+</span><a href="#local-6989586621679263314"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricDataResponse%27"><span class="hs-identifier hs-type">GetMetricDataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263313"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263313"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMetricDataResponse
+</span><a href="#local-6989586621679263314"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetMetricDataResponse' :: Maybe Text
+</span><a href="Network.AWS.CloudWatch.GetMetricData.html#%24sel%3AnextToken%3AGetMetricDataResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263313"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricDataResponse"><span class="hs-identifier hs-type">GetMetricDataResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-478"></span><span>
+</span><span id="line-479"></span><span class="hs-comment">-- | Contains a message about this @GetMetricData@ operation, if the</span><span>
+</span><span id="line-480"></span><span class="hs-comment">-- operation results in such a message. An example of a message that might</span><span>
+</span><span id="line-481"></span><span class="hs-comment">-- be returned is @Maximum number of allowed metrics exceeded@. If there is</span><span>
+</span><span id="line-482"></span><span class="hs-comment">-- a message, as much of the operation as possible is still executed.</span><span>
+</span><span id="line-483"></span><span class="hs-comment">--</span><span>
+</span><span id="line-484"></span><span class="hs-comment">-- A message appears here only if it is related to the global</span><span>
+</span><span id="line-485"></span><span class="hs-comment">-- @GetMetricData@ operation. Any message about a specific metric returned</span><span>
+</span><span id="line-486"></span><span class="hs-comment">-- by the operation appears in the @MetricDataResult@ object returned for</span><span>
+</span><span id="line-487"></span><span class="hs-comment">-- that metric.</span><span>
+</span><span id="line-488"></span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#getMetricDataResponse_messages"><span class="hs-identifier hs-type">getMetricDataResponse_messages</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricDataResponse"><span class="hs-identifier hs-type">GetMetricDataResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MessageData.html#MessageData"><span class="hs-identifier hs-type">MessageData</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-489"></span><span id="getMetricDataResponse_messages"><span class="annot"><span class="annottext">getMetricDataResponse_messages :: (Maybe [MessageData] -&gt; f (Maybe [MessageData]))
 -&gt; GetMetricDataResponse -&gt; f GetMetricDataResponse
 </span><a href="Network.AWS.CloudWatch.GetMetricData.html#getMetricDataResponse_messages"><span class="hs-identifier hs-var hs-var">getMetricDataResponse_messages</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetMetricDataResponse -&gt; Maybe [MessageData])
 -&gt; (GetMetricDataResponse
     -&gt; Maybe [MessageData] -&gt; GetMetricDataResponse)
 -&gt; Lens' GetMetricDataResponse (Maybe [MessageData])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricDataResponse%27"><span class="hs-identifier hs-type">GetMetricDataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262951"><span class="annot"><span class="annottext">Maybe [MessageData]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricDataResponse%27"><span class="hs-identifier hs-type">GetMetricDataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263312"><span class="annot"><span class="annottext">Maybe [MessageData]
 messages :: Maybe [MessageData]
 $sel:messages:GetMetricDataResponse' :: GetMetricDataResponse -&gt; Maybe [MessageData]
-</span><a href="#local-6989586621679262951"><span class="hs-identifier hs-var hs-var">messages</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [MessageData]
-</span><a href="#local-6989586621679262951"><span class="hs-identifier hs-var">messages</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262950"><span class="annot"><span class="annottext">s :: GetMetricDataResponse
-</span><a href="#local-6989586621679262950"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricDataResponse%27"><span class="hs-identifier hs-type">GetMetricDataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262949"><span class="annot"><span class="annottext">Maybe [MessageData]
-</span><a href="#local-6989586621679262949"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMetricDataResponse
-</span><a href="#local-6989586621679262950"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:messages:GetMetricDataResponse' :: Maybe [MessageData]
+</span><a href="#local-6989586621679263312"><span class="hs-identifier hs-var hs-var">messages</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [MessageData]
+</span><a href="#local-6989586621679263312"><span class="hs-identifier hs-var">messages</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263311"><span class="annot"><span class="annottext">s :: GetMetricDataResponse
+</span><a href="#local-6989586621679263311"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricDataResponse%27"><span class="hs-identifier hs-type">GetMetricDataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263310"><span class="annot"><span class="annottext">Maybe [MessageData]
+</span><a href="#local-6989586621679263310"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMetricDataResponse
+</span><a href="#local-6989586621679263311"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:messages:GetMetricDataResponse' :: Maybe [MessageData]
 </span><a href="Network.AWS.CloudWatch.GetMetricData.html#%24sel%3Amessages%3AGetMetricDataResponse%27"><span class="hs-identifier hs-var">messages</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [MessageData]
-</span><a href="#local-6989586621679262949"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricDataResponse"><span class="hs-identifier hs-type">GetMetricDataResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [MessageData] -&gt; f (Maybe [MessageData]))
+</span><a href="#local-6989586621679263310"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricDataResponse"><span class="hs-identifier hs-type">GetMetricDataResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [MessageData] -&gt; f (Maybe [MessageData]))
  -&gt; GetMetricDataResponse -&gt; f GetMetricDataResponse)
 -&gt; ((Maybe [MessageData] -&gt; f (Maybe [MessageData]))
     -&gt; Maybe [MessageData] -&gt; f (Maybe [MessageData]))
@@ -1197,26 +1196,26 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [MessageData] [MessageData] [MessageData] [MessageData]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-489"></span><span>
-</span><span id="line-490"></span><span class="hs-comment">-- | The response's http status code.</span><span>
-</span><span id="line-491"></span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#getMetricDataResponse_httpStatus"><span class="hs-identifier hs-type">getMetricDataResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricDataResponse"><span class="hs-identifier hs-type">GetMetricDataResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
-</span><span id="line-492"></span><span id="getMetricDataResponse_httpStatus"><span class="annot"><span class="annottext">getMetricDataResponse_httpStatus :: (Int -&gt; f Int) -&gt; GetMetricDataResponse -&gt; f GetMetricDataResponse
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-490"></span><span>
+</span><span id="line-491"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-492"></span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#getMetricDataResponse_httpStatus"><span class="hs-identifier hs-type">getMetricDataResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricDataResponse"><span class="hs-identifier hs-type">GetMetricDataResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-493"></span><span id="getMetricDataResponse_httpStatus"><span class="annot"><span class="annottext">getMetricDataResponse_httpStatus :: (Int -&gt; f Int) -&gt; GetMetricDataResponse -&gt; f GetMetricDataResponse
 </span><a href="Network.AWS.CloudWatch.GetMetricData.html#getMetricDataResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getMetricDataResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetMetricDataResponse -&gt; Int)
 -&gt; (GetMetricDataResponse -&gt; Int -&gt; GetMetricDataResponse)
 -&gt; Lens GetMetricDataResponse GetMetricDataResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricDataResponse%27"><span class="hs-identifier hs-type">GetMetricDataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262948"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricDataResponse%27"><span class="hs-identifier hs-type">GetMetricDataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263309"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetMetricDataResponse' :: GetMetricDataResponse -&gt; Int
-</span><a href="#local-6989586621679262948"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679262948"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262947"><span class="annot"><span class="annottext">s :: GetMetricDataResponse
-</span><a href="#local-6989586621679262947"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricDataResponse%27"><span class="hs-identifier hs-type">GetMetricDataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262946"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679262946"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMetricDataResponse
-</span><a href="#local-6989586621679262947"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetMetricDataResponse' :: Int
+</span><a href="#local-6989586621679263309"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679263309"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263308"><span class="annot"><span class="annottext">s :: GetMetricDataResponse
+</span><a href="#local-6989586621679263308"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricDataResponse%27"><span class="hs-identifier hs-type">GetMetricDataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263307"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679263307"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMetricDataResponse
+</span><a href="#local-6989586621679263308"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetMetricDataResponse' :: Int
 </span><a href="Network.AWS.CloudWatch.GetMetricData.html#%24sel%3AhttpStatus%3AGetMetricDataResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679262946"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricDataResponse"><span class="hs-identifier hs-type">GetMetricDataResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-493"></span><span>
-</span><span id="line-494"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262944"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricDataResponse"><span class="hs-identifier hs-type">GetMetricDataResponse</span></a></span></span><span>
-</span><span id="line-495"></span></pre></body></html>
+</span><a href="#local-6989586621679263307"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricDataResponse"><span class="hs-identifier hs-type">GetMetricDataResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-494"></span><span>
+</span><span id="line-495"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679263305"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricData.html#GetMetricDataResponse"><span class="hs-identifier hs-type">GetMetricDataResponse</span></a></span></span><span>
+</span><span id="line-496"></span></pre></body></html>

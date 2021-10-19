@@ -28,42 +28,42 @@
 </span><span id="line-28"></span><span class="hs-comment">-- ADVANCED</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newCmafImageBasedTrickPlaySettings' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679943517"><span id="local-6989586621679943518"></span></span><span class="hs-keyword">data</span><span> </span><span id="CmafImageBasedTrickPlaySettings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#CmafImageBasedTrickPlaySettings"><span class="hs-identifier hs-var">CmafImageBasedTrickPlaySettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CmafImageBasedTrickPlaySettings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#CmafImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-var">CmafImageBasedTrickPlaySettings'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The cadence MediaConvert follows for generating thumbnails. If set to</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- FOLLOW_IFRAME, MediaConvert generates thumbnails for each IDR frame in</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- the output (matching the GOP cadence). If set to FOLLOW_CUSTOM,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- MediaConvert generates thumbnails according to the interval you specify</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- in thumbnailInterval.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AintervalCadence%3ACmafImageBasedTrickPlaySettings%27"><span class="annot"><span class="annottext">CmafImageBasedTrickPlaySettings -&gt; Maybe CmafIntervalCadence
-</span><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#%24sel%3AintervalCadence%3ACmafImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-var hs-var">intervalCadence</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafIntervalCadence.html#CmafIntervalCadence"><span class="hs-identifier hs-type">CmafIntervalCadence</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | Enter the interval, in seconds, that MediaConvert uses to generate</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- thumbnails. If the interval you enter doesn\'t align with the output</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- frame rate, MediaConvert automatically rounds the interval to align with</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- the output frame rate. For example, if the output frame rate is 29.97</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- frames per second and you enter 5, MediaConvert uses a 150 frame</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- interval to generate thumbnails.</span><span>
-</span><span id="line-44"></span><span>    </span><span id="%24sel%3AthumbnailInterval%3ACmafImageBasedTrickPlaySettings%27"><span class="annot"><span class="annottext">CmafImageBasedTrickPlaySettings -&gt; Maybe Double
-</span><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#%24sel%3AthumbnailInterval%3ACmafImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-var hs-var">thumbnailInterval</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | Number of thumbnails in each column of a tile image. Set a value between</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- 2 and 2048. Must be divisible by 2.</span><span>
-</span><span id="line-47"></span><span>    </span><span id="%24sel%3AtileHeight%3ACmafImageBasedTrickPlaySettings%27"><span class="annot"><span class="annottext">CmafImageBasedTrickPlaySettings -&gt; Maybe Natural
-</span><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#%24sel%3AtileHeight%3ACmafImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-var hs-var">tileHeight</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | Height of each thumbnail within each tile image, in pixels. Leave blank</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- to maintain aspect ratio with thumbnail width. If following the aspect</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- ratio would lead to a total tile height greater than 4096, then the job</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- will be rejected. Must be divisible by 2.</span><span>
-</span><span id="line-52"></span><span>    </span><span id="%24sel%3AthumbnailHeight%3ACmafImageBasedTrickPlaySettings%27"><span class="annot"><span class="annottext">CmafImageBasedTrickPlaySettings -&gt; Maybe Natural
+</span><span id="line-31"></span><span id="local-6989586621679948140"><span id="local-6989586621679948141"></span></span><span class="hs-keyword">data</span><span> </span><span id="CmafImageBasedTrickPlaySettings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#CmafImageBasedTrickPlaySettings"><span class="hs-identifier hs-var">CmafImageBasedTrickPlaySettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CmafImageBasedTrickPlaySettings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#CmafImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-var">CmafImageBasedTrickPlaySettings'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Number of thumbnails in each row of a tile image. Set a value between 1</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- and 512.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AtileWidth%3ACmafImageBasedTrickPlaySettings%27"><span class="annot"><span class="annottext">CmafImageBasedTrickPlaySettings -&gt; Maybe Natural
+</span><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#%24sel%3AtileWidth%3ACmafImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-var hs-var">tileWidth</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Height of each thumbnail within each tile image, in pixels. Leave blank</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- to maintain aspect ratio with thumbnail width. If following the aspect</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- ratio would lead to a total tile height greater than 4096, then the job</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- will be rejected. Must be divisible by 2.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AthumbnailHeight%3ACmafImageBasedTrickPlaySettings%27"><span class="annot"><span class="annottext">CmafImageBasedTrickPlaySettings -&gt; Maybe Natural
 </span><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#%24sel%3AthumbnailHeight%3ACmafImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-var hs-var">thumbnailHeight</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | Width of each thumbnail within each tile image, in pixels. Default is</span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- 312. Must be divisible by 8.</span><span>
-</span><span id="line-55"></span><span>    </span><span id="%24sel%3AthumbnailWidth%3ACmafImageBasedTrickPlaySettings%27"><span class="annot"><span class="annottext">CmafImageBasedTrickPlaySettings -&gt; Maybe Natural
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The cadence MediaConvert follows for generating thumbnails. If set to</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- FOLLOW_IFRAME, MediaConvert generates thumbnails for each IDR frame in</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- the output (matching the GOP cadence). If set to FOLLOW_CUSTOM,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- MediaConvert generates thumbnails according to the interval you specify</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- in thumbnailInterval.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AintervalCadence%3ACmafImageBasedTrickPlaySettings%27"><span class="annot"><span class="annottext">CmafImageBasedTrickPlaySettings -&gt; Maybe CmafIntervalCadence
+</span><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#%24sel%3AintervalCadence%3ACmafImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-var hs-var">intervalCadence</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafIntervalCadence.html#CmafIntervalCadence"><span class="hs-identifier hs-type">CmafIntervalCadence</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | Width of each thumbnail within each tile image, in pixels. Default is</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- 312. Must be divisible by 8.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AthumbnailWidth%3ACmafImageBasedTrickPlaySettings%27"><span class="annot"><span class="annottext">CmafImageBasedTrickPlaySettings -&gt; Maybe Natural
 </span><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#%24sel%3AthumbnailWidth%3ACmafImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-var hs-var">thumbnailWidth</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | Number of thumbnails in each row of a tile image. Set a value between 1</span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- and 512.</span><span>
-</span><span id="line-58"></span><span>    </span><span id="%24sel%3AtileWidth%3ACmafImageBasedTrickPlaySettings%27"><span class="annot"><span class="annottext">CmafImageBasedTrickPlaySettings -&gt; Maybe Natural
-</span><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#%24sel%3AtileWidth%3ACmafImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-var hs-var">tileWidth</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | Enter the interval, in seconds, that MediaConvert uses to generate</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- thumbnails. If the interval you enter doesn\'t align with the output</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- frame rate, MediaConvert automatically rounds the interval to align with</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- the output frame rate. For example, if the output frame rate is 29.97</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- frames per second and you enter 5, MediaConvert uses a 150 frame</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- interval to generate thumbnails.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AthumbnailInterval%3ACmafImageBasedTrickPlaySettings%27"><span class="annot"><span class="annottext">CmafImageBasedTrickPlaySettings -&gt; Maybe Double
+</span><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#%24sel%3AthumbnailInterval%3ACmafImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-var hs-var">thumbnailInterval</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | Number of thumbnails in each column of a tile image. Set a value between</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- 2 and 2048. Must be divisible by 2.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AtileHeight%3ACmafImageBasedTrickPlaySettings%27"><span class="annot"><span class="annottext">CmafImageBasedTrickPlaySettings -&gt; Maybe Natural
+</span><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#%24sel%3AtileHeight%3ACmafImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-var hs-var">tileHeight</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679943506"><span id="local-6989586621679943508"><span class="annot"><span class="annottext">CmafImageBasedTrickPlaySettings
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679948129"><span id="local-6989586621679948131"><span class="annot"><span class="annottext">CmafImageBasedTrickPlaySettings
 -&gt; CmafImageBasedTrickPlaySettings -&gt; Bool
 (CmafImageBasedTrickPlaySettings
  -&gt; CmafImageBasedTrickPlaySettings -&gt; Bool)
@@ -79,7 +79,7 @@ $c/= :: CmafImageBasedTrickPlaySettings
 -&gt; CmafImageBasedTrickPlaySettings -&gt; Bool
 $c== :: CmafImageBasedTrickPlaySettings
 -&gt; CmafImageBasedTrickPlaySettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679943497"><span id="local-6989586621679943499"><span id="local-6989586621679943501"><span id="local-6989586621679943503"><span class="annot"><span class="annottext">ReadPrec [CmafImageBasedTrickPlaySettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679948120"><span id="local-6989586621679948122"><span id="local-6989586621679948124"><span id="local-6989586621679948126"><span class="annot"><span class="annottext">ReadPrec [CmafImageBasedTrickPlaySettings]
 ReadPrec CmafImageBasedTrickPlaySettings
 Int -&gt; ReadS CmafImageBasedTrickPlaySettings
 ReadS [CmafImageBasedTrickPlaySettings]
@@ -99,7 +99,7 @@ readList :: ReadS [CmafImageBasedTrickPlaySettings]
 $creadList :: ReadS [CmafImageBasedTrickPlaySettings]
 readsPrec :: Int -&gt; ReadS CmafImageBasedTrickPlaySettings
 $creadsPrec :: Int -&gt; ReadS CmafImageBasedTrickPlaySettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679943490"><span id="local-6989586621679943492"><span id="local-6989586621679943494"><span class="annot"><span class="annottext">Int -&gt; CmafImageBasedTrickPlaySettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679948113"><span id="local-6989586621679948115"><span id="local-6989586621679948117"><span class="annot"><span class="annottext">Int -&gt; CmafImageBasedTrickPlaySettings -&gt; ShowS
 [CmafImageBasedTrickPlaySettings] -&gt; ShowS
 CmafImageBasedTrickPlaySettings -&gt; String
 (Int -&gt; CmafImageBasedTrickPlaySettings -&gt; ShowS)
@@ -145,214 +145,75 @@ CmafImageBasedTrickPlaySettings
 </span><span id="line-67"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-69"></span><span class="hs-comment">--</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- 'intervalCadence', 'cmafImageBasedTrickPlaySettings_intervalCadence' - The cadence MediaConvert follows for generating thumbnails. If set to</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- FOLLOW_IFRAME, MediaConvert generates thumbnails for each IDR frame in</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- the output (matching the GOP cadence). If set to FOLLOW_CUSTOM,</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- MediaConvert generates thumbnails according to the interval you specify</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- in thumbnailInterval.</span><span>
-</span><span id="line-75"></span><span class="hs-comment">--</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- 'thumbnailInterval', 'cmafImageBasedTrickPlaySettings_thumbnailInterval' - Enter the interval, in seconds, that MediaConvert uses to generate</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- thumbnails. If the interval you enter doesn\'t align with the output</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- frame rate, MediaConvert automatically rounds the interval to align with</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- the output frame rate. For example, if the output frame rate is 29.97</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- frames per second and you enter 5, MediaConvert uses a 150 frame</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- interval to generate thumbnails.</span><span>
-</span><span id="line-82"></span><span class="hs-comment">--</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- 'tileHeight', 'cmafImageBasedTrickPlaySettings_tileHeight' - Number of thumbnails in each column of a tile image. Set a value between</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- 2 and 2048. Must be divisible by 2.</span><span>
-</span><span id="line-85"></span><span class="hs-comment">--</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- 'thumbnailHeight', 'cmafImageBasedTrickPlaySettings_thumbnailHeight' - Height of each thumbnail within each tile image, in pixels. Leave blank</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- to maintain aspect ratio with thumbnail width. If following the aspect</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- ratio would lead to a total tile height greater than 4096, then the job</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- will be rejected. Must be divisible by 2.</span><span>
-</span><span id="line-90"></span><span class="hs-comment">--</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- 'thumbnailWidth', 'cmafImageBasedTrickPlaySettings_thumbnailWidth' - Width of each thumbnail within each tile image, in pixels. Default is</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- 312. Must be divisible by 8.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'tileWidth', 'cmafImageBasedTrickPlaySettings_tileWidth' - Number of thumbnails in each row of a tile image. Set a value between 1</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- and 512.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'thumbnailHeight', 'cmafImageBasedTrickPlaySettings_thumbnailHeight' - Height of each thumbnail within each tile image, in pixels. Leave blank</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- to maintain aspect ratio with thumbnail width. If following the aspect</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- ratio would lead to a total tile height greater than 4096, then the job</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- will be rejected. Must be divisible by 2.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'intervalCadence', 'cmafImageBasedTrickPlaySettings_intervalCadence' - The cadence MediaConvert follows for generating thumbnails. If set to</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- FOLLOW_IFRAME, MediaConvert generates thumbnails for each IDR frame in</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- the output (matching the GOP cadence). If set to FOLLOW_CUSTOM,</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- MediaConvert generates thumbnails according to the interval you specify</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- in thumbnailInterval.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'thumbnailWidth', 'cmafImageBasedTrickPlaySettings_thumbnailWidth' - Width of each thumbnail within each tile image, in pixels. Default is</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 312. Must be divisible by 8.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'thumbnailInterval', 'cmafImageBasedTrickPlaySettings_thumbnailInterval' - Enter the interval, in seconds, that MediaConvert uses to generate</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- thumbnails. If the interval you enter doesn\'t align with the output</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- frame rate, MediaConvert automatically rounds the interval to align with</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- the output frame rate. For example, if the output frame rate is 29.97</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- frames per second and you enter 5, MediaConvert uses a 150 frame</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- interval to generate thumbnails.</span><span>
 </span><span id="line-93"></span><span class="hs-comment">--</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- 'tileWidth', 'cmafImageBasedTrickPlaySettings_tileWidth' - Number of thumbnails in each row of a tile image. Set a value between 1</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- and 512.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'tileHeight', 'cmafImageBasedTrickPlaySettings_tileHeight' - Number of thumbnails in each column of a tile image. Set a value between</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 2 and 2048. Must be divisible by 2.</span><span>
 </span><span id="line-96"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#newCmafImageBasedTrickPlaySettings"><span class="hs-identifier hs-type">newCmafImageBasedTrickPlaySettings</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-97"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#CmafImageBasedTrickPlaySettings"><span class="hs-identifier hs-type">CmafImageBasedTrickPlaySettings</span></a></span><span>
 </span><span id="line-98"></span><span id="newCmafImageBasedTrickPlaySettings"><span class="annot"><span class="annottext">newCmafImageBasedTrickPlaySettings :: CmafImageBasedTrickPlaySettings
 </span><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#newCmafImageBasedTrickPlaySettings"><span class="hs-identifier hs-var hs-var">newCmafImageBasedTrickPlaySettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-99"></span><span>  </span><span class="annot"><span class="annottext">CmafImageBasedTrickPlaySettings' :: Maybe CmafIntervalCadence
+</span><span id="line-99"></span><span>  </span><span class="annot"><span class="annottext">CmafImageBasedTrickPlaySettings' :: Maybe Natural
+-&gt; Maybe Natural
+-&gt; Maybe CmafIntervalCadence
+-&gt; Maybe Natural
 -&gt; Maybe Double
--&gt; Maybe Natural
--&gt; Maybe Natural
--&gt; Maybe Natural
 -&gt; Maybe Natural
 -&gt; CmafImageBasedTrickPlaySettings
 </span><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#CmafImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-type">CmafImageBasedTrickPlaySettings'</span></a></span><span>
-</span><span id="line-100"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:intervalCadence:CmafImageBasedTrickPlaySettings' :: Maybe CmafIntervalCadence
-</span><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#%24sel%3AintervalCadence%3ACmafImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-var">intervalCadence</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-101"></span><span>        </span><span class="annot"><span class="annottext">Maybe CmafIntervalCadence
+</span><span id="line-100"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tileWidth:CmafImageBasedTrickPlaySettings' :: Maybe Natural
+</span><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#%24sel%3AtileWidth%3ACmafImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-var">tileWidth</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>        </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:thumbnailInterval:CmafImageBasedTrickPlaySettings' :: Maybe Double
-</span><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#%24sel%3AthumbnailInterval%3ACmafImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-var">thumbnailInterval</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:tileHeight:CmafImageBasedTrickPlaySettings' :: Maybe Natural
-</span><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#%24sel%3AtileHeight%3ACmafImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-var">tileHeight</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:thumbnailHeight:CmafImageBasedTrickPlaySettings' :: Maybe Natural
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:thumbnailHeight:CmafImageBasedTrickPlaySettings' :: Maybe Natural
 </span><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#%24sel%3AthumbnailHeight%3ACmafImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-var">thumbnailHeight</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:thumbnailWidth:CmafImageBasedTrickPlaySettings' :: Maybe Natural
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:intervalCadence:CmafImageBasedTrickPlaySettings' :: Maybe CmafIntervalCadence
+</span><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#%24sel%3AintervalCadence%3ACmafImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-var">intervalCadence</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CmafIntervalCadence
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:thumbnailWidth:CmafImageBasedTrickPlaySettings' :: Maybe Natural
 </span><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#%24sel%3AthumbnailWidth%3ACmafImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-var">thumbnailWidth</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:tileWidth:CmafImageBasedTrickPlaySettings' :: Maybe Natural
-</span><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#%24sel%3AtileWidth%3ACmafImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-var">tileWidth</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:thumbnailInterval:CmafImageBasedTrickPlaySettings' :: Maybe Double
+</span><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#%24sel%3AthumbnailInterval%3ACmafImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-var">thumbnailInterval</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:tileHeight:CmafImageBasedTrickPlaySettings' :: Maybe Natural
+</span><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#%24sel%3AtileHeight%3ACmafImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-var">tileHeight</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-107"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- | The cadence MediaConvert follows for generating thumbnails. If set to</span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- FOLLOW_IFRAME, MediaConvert generates thumbnails for each IDR frame in</span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- the output (matching the GOP cadence). If set to FOLLOW_CUSTOM,</span><span>
-</span><span id="line-112"></span><span class="hs-comment">-- MediaConvert generates thumbnails according to the interval you specify</span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- in thumbnailInterval.</span><span>
-</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#cmafImageBasedTrickPlaySettings_intervalCadence"><span class="hs-identifier hs-type">cmafImageBasedTrickPlaySettings_intervalCadence</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#CmafImageBasedTrickPlaySettings"><span class="hs-identifier hs-type">CmafImageBasedTrickPlaySettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafIntervalCadence.html#CmafIntervalCadence"><span class="hs-identifier hs-type">CmafIntervalCadence</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-115"></span><span id="cmafImageBasedTrickPlaySettings_intervalCadence"><span class="annot"><span class="annottext">cmafImageBasedTrickPlaySettings_intervalCadence :: (Maybe CmafIntervalCadence -&gt; f (Maybe CmafIntervalCadence))
--&gt; CmafImageBasedTrickPlaySettings
--&gt; f CmafImageBasedTrickPlaySettings
-</span><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#cmafImageBasedTrickPlaySettings_intervalCadence"><span class="hs-identifier hs-var hs-var">cmafImageBasedTrickPlaySettings_intervalCadence</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CmafImageBasedTrickPlaySettings -&gt; Maybe CmafIntervalCadence)
--&gt; (CmafImageBasedTrickPlaySettings
-    -&gt; Maybe CmafIntervalCadence -&gt; CmafImageBasedTrickPlaySettings)
--&gt; Lens
-     CmafImageBasedTrickPlaySettings
-     CmafImageBasedTrickPlaySettings
-     (Maybe CmafIntervalCadence)
-     (Maybe CmafIntervalCadence)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#CmafImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-type">CmafImageBasedTrickPlaySettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679943481"><span class="annot"><span class="annottext">Maybe CmafIntervalCadence
-intervalCadence :: Maybe CmafIntervalCadence
-$sel:intervalCadence:CmafImageBasedTrickPlaySettings' :: CmafImageBasedTrickPlaySettings -&gt; Maybe CmafIntervalCadence
-</span><a href="#local-6989586621679943481"><span class="hs-identifier hs-var hs-var">intervalCadence</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CmafIntervalCadence
-</span><a href="#local-6989586621679943481"><span class="hs-identifier hs-var">intervalCadence</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679943480"><span class="annot"><span class="annottext">s :: CmafImageBasedTrickPlaySettings
-</span><a href="#local-6989586621679943480"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#CmafImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-type">CmafImageBasedTrickPlaySettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679943479"><span class="annot"><span class="annottext">Maybe CmafIntervalCadence
-</span><a href="#local-6989586621679943479"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CmafImageBasedTrickPlaySettings
-</span><a href="#local-6989586621679943480"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:intervalCadence:CmafImageBasedTrickPlaySettings' :: Maybe CmafIntervalCadence
-</span><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#%24sel%3AintervalCadence%3ACmafImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-var">intervalCadence</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CmafIntervalCadence
-</span><a href="#local-6989586621679943479"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#CmafImageBasedTrickPlaySettings"><span class="hs-identifier hs-type">CmafImageBasedTrickPlaySettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-comment">-- | Enter the interval, in seconds, that MediaConvert uses to generate</span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- thumbnails. If the interval you enter doesn\'t align with the output</span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- frame rate, MediaConvert automatically rounds the interval to align with</span><span>
-</span><span id="line-120"></span><span class="hs-comment">-- the output frame rate. For example, if the output frame rate is 29.97</span><span>
-</span><span id="line-121"></span><span class="hs-comment">-- frames per second and you enter 5, MediaConvert uses a 150 frame</span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- interval to generate thumbnails.</span><span>
-</span><span id="line-123"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#cmafImageBasedTrickPlaySettings_thumbnailInterval"><span class="hs-identifier hs-type">cmafImageBasedTrickPlaySettings_thumbnailInterval</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#CmafImageBasedTrickPlaySettings"><span class="hs-identifier hs-type">CmafImageBasedTrickPlaySettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
-</span><span id="line-124"></span><span id="cmafImageBasedTrickPlaySettings_thumbnailInterval"><span class="annot"><span class="annottext">cmafImageBasedTrickPlaySettings_thumbnailInterval :: (Maybe Double -&gt; f (Maybe Double))
--&gt; CmafImageBasedTrickPlaySettings
--&gt; f CmafImageBasedTrickPlaySettings
-</span><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#cmafImageBasedTrickPlaySettings_thumbnailInterval"><span class="hs-identifier hs-var hs-var">cmafImageBasedTrickPlaySettings_thumbnailInterval</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CmafImageBasedTrickPlaySettings -&gt; Maybe Double)
--&gt; (CmafImageBasedTrickPlaySettings
-    -&gt; Maybe Double -&gt; CmafImageBasedTrickPlaySettings)
--&gt; Lens
-     CmafImageBasedTrickPlaySettings
-     CmafImageBasedTrickPlaySettings
-     (Maybe Double)
-     (Maybe Double)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#CmafImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-type">CmafImageBasedTrickPlaySettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679943477"><span class="annot"><span class="annottext">Maybe Double
-thumbnailInterval :: Maybe Double
-$sel:thumbnailInterval:CmafImageBasedTrickPlaySettings' :: CmafImageBasedTrickPlaySettings -&gt; Maybe Double
-</span><a href="#local-6989586621679943477"><span class="hs-identifier hs-var hs-var">thumbnailInterval</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679943477"><span class="hs-identifier hs-var">thumbnailInterval</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679943476"><span class="annot"><span class="annottext">s :: CmafImageBasedTrickPlaySettings
-</span><a href="#local-6989586621679943476"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#CmafImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-type">CmafImageBasedTrickPlaySettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679943475"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679943475"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CmafImageBasedTrickPlaySettings
-</span><a href="#local-6989586621679943476"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:thumbnailInterval:CmafImageBasedTrickPlaySettings' :: Maybe Double
-</span><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#%24sel%3AthumbnailInterval%3ACmafImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-var">thumbnailInterval</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679943475"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#CmafImageBasedTrickPlaySettings"><span class="hs-identifier hs-type">CmafImageBasedTrickPlaySettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- | Number of thumbnails in each column of a tile image. Set a value between</span><span>
-</span><span id="line-127"></span><span class="hs-comment">-- 2 and 2048. Must be divisible by 2.</span><span>
-</span><span id="line-128"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#cmafImageBasedTrickPlaySettings_tileHeight"><span class="hs-identifier hs-type">cmafImageBasedTrickPlaySettings_tileHeight</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#CmafImageBasedTrickPlaySettings"><span class="hs-identifier hs-type">CmafImageBasedTrickPlaySettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-129"></span><span id="cmafImageBasedTrickPlaySettings_tileHeight"><span class="annot"><span class="annottext">cmafImageBasedTrickPlaySettings_tileHeight :: (Maybe Natural -&gt; f (Maybe Natural))
--&gt; CmafImageBasedTrickPlaySettings
--&gt; f CmafImageBasedTrickPlaySettings
-</span><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#cmafImageBasedTrickPlaySettings_tileHeight"><span class="hs-identifier hs-var hs-var">cmafImageBasedTrickPlaySettings_tileHeight</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CmafImageBasedTrickPlaySettings -&gt; Maybe Natural)
--&gt; (CmafImageBasedTrickPlaySettings
-    -&gt; Maybe Natural -&gt; CmafImageBasedTrickPlaySettings)
--&gt; Lens
-     CmafImageBasedTrickPlaySettings
-     CmafImageBasedTrickPlaySettings
-     (Maybe Natural)
-     (Maybe Natural)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#CmafImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-type">CmafImageBasedTrickPlaySettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679943473"><span class="annot"><span class="annottext">Maybe Natural
-tileHeight :: Maybe Natural
-$sel:tileHeight:CmafImageBasedTrickPlaySettings' :: CmafImageBasedTrickPlaySettings -&gt; Maybe Natural
-</span><a href="#local-6989586621679943473"><span class="hs-identifier hs-var hs-var">tileHeight</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679943473"><span class="hs-identifier hs-var">tileHeight</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679943472"><span class="annot"><span class="annottext">s :: CmafImageBasedTrickPlaySettings
-</span><a href="#local-6989586621679943472"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#CmafImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-type">CmafImageBasedTrickPlaySettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679943471"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679943471"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CmafImageBasedTrickPlaySettings
-</span><a href="#local-6989586621679943472"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tileHeight:CmafImageBasedTrickPlaySettings' :: Maybe Natural
-</span><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#%24sel%3AtileHeight%3ACmafImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-var">tileHeight</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679943471"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#CmafImageBasedTrickPlaySettings"><span class="hs-identifier hs-type">CmafImageBasedTrickPlaySettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-130"></span><span>
-</span><span id="line-131"></span><span class="hs-comment">-- | Height of each thumbnail within each tile image, in pixels. Leave blank</span><span>
-</span><span id="line-132"></span><span class="hs-comment">-- to maintain aspect ratio with thumbnail width. If following the aspect</span><span>
-</span><span id="line-133"></span><span class="hs-comment">-- ratio would lead to a total tile height greater than 4096, then the job</span><span>
-</span><span id="line-134"></span><span class="hs-comment">-- will be rejected. Must be divisible by 2.</span><span>
-</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#cmafImageBasedTrickPlaySettings_thumbnailHeight"><span class="hs-identifier hs-type">cmafImageBasedTrickPlaySettings_thumbnailHeight</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#CmafImageBasedTrickPlaySettings"><span class="hs-identifier hs-type">CmafImageBasedTrickPlaySettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-136"></span><span id="cmafImageBasedTrickPlaySettings_thumbnailHeight"><span class="annot"><span class="annottext">cmafImageBasedTrickPlaySettings_thumbnailHeight :: (Maybe Natural -&gt; f (Maybe Natural))
--&gt; CmafImageBasedTrickPlaySettings
--&gt; f CmafImageBasedTrickPlaySettings
-</span><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#cmafImageBasedTrickPlaySettings_thumbnailHeight"><span class="hs-identifier hs-var hs-var">cmafImageBasedTrickPlaySettings_thumbnailHeight</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CmafImageBasedTrickPlaySettings -&gt; Maybe Natural)
--&gt; (CmafImageBasedTrickPlaySettings
-    -&gt; Maybe Natural -&gt; CmafImageBasedTrickPlaySettings)
--&gt; Lens
-     CmafImageBasedTrickPlaySettings
-     CmafImageBasedTrickPlaySettings
-     (Maybe Natural)
-     (Maybe Natural)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#CmafImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-type">CmafImageBasedTrickPlaySettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679943469"><span class="annot"><span class="annottext">Maybe Natural
-thumbnailHeight :: Maybe Natural
-$sel:thumbnailHeight:CmafImageBasedTrickPlaySettings' :: CmafImageBasedTrickPlaySettings -&gt; Maybe Natural
-</span><a href="#local-6989586621679943469"><span class="hs-identifier hs-var hs-var">thumbnailHeight</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679943469"><span class="hs-identifier hs-var">thumbnailHeight</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679943468"><span class="annot"><span class="annottext">s :: CmafImageBasedTrickPlaySettings
-</span><a href="#local-6989586621679943468"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#CmafImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-type">CmafImageBasedTrickPlaySettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679943467"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679943467"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CmafImageBasedTrickPlaySettings
-</span><a href="#local-6989586621679943468"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:thumbnailHeight:CmafImageBasedTrickPlaySettings' :: Maybe Natural
-</span><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#%24sel%3AthumbnailHeight%3ACmafImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-var">thumbnailHeight</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679943467"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#CmafImageBasedTrickPlaySettings"><span class="hs-identifier hs-type">CmafImageBasedTrickPlaySettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-137"></span><span>
-</span><span id="line-138"></span><span class="hs-comment">-- | Width of each thumbnail within each tile image, in pixels. Default is</span><span>
-</span><span id="line-139"></span><span class="hs-comment">-- 312. Must be divisible by 8.</span><span>
-</span><span id="line-140"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#cmafImageBasedTrickPlaySettings_thumbnailWidth"><span class="hs-identifier hs-type">cmafImageBasedTrickPlaySettings_thumbnailWidth</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#CmafImageBasedTrickPlaySettings"><span class="hs-identifier hs-type">CmafImageBasedTrickPlaySettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-141"></span><span id="cmafImageBasedTrickPlaySettings_thumbnailWidth"><span class="annot"><span class="annottext">cmafImageBasedTrickPlaySettings_thumbnailWidth :: (Maybe Natural -&gt; f (Maybe Natural))
--&gt; CmafImageBasedTrickPlaySettings
--&gt; f CmafImageBasedTrickPlaySettings
-</span><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#cmafImageBasedTrickPlaySettings_thumbnailWidth"><span class="hs-identifier hs-var hs-var">cmafImageBasedTrickPlaySettings_thumbnailWidth</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CmafImageBasedTrickPlaySettings -&gt; Maybe Natural)
--&gt; (CmafImageBasedTrickPlaySettings
-    -&gt; Maybe Natural -&gt; CmafImageBasedTrickPlaySettings)
--&gt; Lens
-     CmafImageBasedTrickPlaySettings
-     CmafImageBasedTrickPlaySettings
-     (Maybe Natural)
-     (Maybe Natural)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#CmafImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-type">CmafImageBasedTrickPlaySettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679943465"><span class="annot"><span class="annottext">Maybe Natural
-thumbnailWidth :: Maybe Natural
-$sel:thumbnailWidth:CmafImageBasedTrickPlaySettings' :: CmafImageBasedTrickPlaySettings -&gt; Maybe Natural
-</span><a href="#local-6989586621679943465"><span class="hs-identifier hs-var hs-var">thumbnailWidth</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679943465"><span class="hs-identifier hs-var">thumbnailWidth</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679943464"><span class="annot"><span class="annottext">s :: CmafImageBasedTrickPlaySettings
-</span><a href="#local-6989586621679943464"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#CmafImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-type">CmafImageBasedTrickPlaySettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679943463"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679943463"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CmafImageBasedTrickPlaySettings
-</span><a href="#local-6989586621679943464"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:thumbnailWidth:CmafImageBasedTrickPlaySettings' :: Maybe Natural
-</span><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#%24sel%3AthumbnailWidth%3ACmafImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-var">thumbnailWidth</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679943463"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#CmafImageBasedTrickPlaySettings"><span class="hs-identifier hs-type">CmafImageBasedTrickPlaySettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-142"></span><span>
-</span><span id="line-143"></span><span class="hs-comment">-- | Number of thumbnails in each row of a tile image. Set a value between 1</span><span>
-</span><span id="line-144"></span><span class="hs-comment">-- and 512.</span><span>
-</span><span id="line-145"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#cmafImageBasedTrickPlaySettings_tileWidth"><span class="hs-identifier hs-type">cmafImageBasedTrickPlaySettings_tileWidth</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#CmafImageBasedTrickPlaySettings"><span class="hs-identifier hs-type">CmafImageBasedTrickPlaySettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-146"></span><span id="cmafImageBasedTrickPlaySettings_tileWidth"><span class="annot"><span class="annottext">cmafImageBasedTrickPlaySettings_tileWidth :: (Maybe Natural -&gt; f (Maybe Natural))
+</span><span id="line-109"></span><span class="hs-comment">-- | Number of thumbnails in each row of a tile image. Set a value between 1</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- and 512.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#cmafImageBasedTrickPlaySettings_tileWidth"><span class="hs-identifier hs-type">cmafImageBasedTrickPlaySettings_tileWidth</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#CmafImageBasedTrickPlaySettings"><span class="hs-identifier hs-type">CmafImageBasedTrickPlaySettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="cmafImageBasedTrickPlaySettings_tileWidth"><span class="annot"><span class="annottext">cmafImageBasedTrickPlaySettings_tileWidth :: (Maybe Natural -&gt; f (Maybe Natural))
 -&gt; CmafImageBasedTrickPlaySettings
 -&gt; f CmafImageBasedTrickPlaySettings
 </span><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#cmafImageBasedTrickPlaySettings_tileWidth"><span class="hs-identifier hs-var hs-var">cmafImageBasedTrickPlaySettings_tileWidth</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CmafImageBasedTrickPlaySettings -&gt; Maybe Natural)
@@ -364,22 +225,161 @@ $sel:thumbnailWidth:CmafImageBasedTrickPlaySettings' :: CmafImageBasedTrickPlayS
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#CmafImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-type">CmafImageBasedTrickPlaySettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679943461"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#CmafImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-type">CmafImageBasedTrickPlaySettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679948104"><span class="annot"><span class="annottext">Maybe Natural
 tileWidth :: Maybe Natural
 $sel:tileWidth:CmafImageBasedTrickPlaySettings' :: CmafImageBasedTrickPlaySettings -&gt; Maybe Natural
-</span><a href="#local-6989586621679943461"><span class="hs-identifier hs-var hs-var">tileWidth</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679943461"><span class="hs-identifier hs-var">tileWidth</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679943460"><span class="annot"><span class="annottext">s :: CmafImageBasedTrickPlaySettings
-</span><a href="#local-6989586621679943460"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#CmafImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-type">CmafImageBasedTrickPlaySettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679943459"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679943459"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CmafImageBasedTrickPlaySettings
-</span><a href="#local-6989586621679943460"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tileWidth:CmafImageBasedTrickPlaySettings' :: Maybe Natural
+</span><a href="#local-6989586621679948104"><span class="hs-identifier hs-var hs-var">tileWidth</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679948104"><span class="hs-identifier hs-var">tileWidth</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679948103"><span class="annot"><span class="annottext">s :: CmafImageBasedTrickPlaySettings
+</span><a href="#local-6989586621679948103"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#CmafImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-type">CmafImageBasedTrickPlaySettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679948102"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679948102"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CmafImageBasedTrickPlaySettings
+</span><a href="#local-6989586621679948103"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tileWidth:CmafImageBasedTrickPlaySettings' :: Maybe Natural
 </span><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#%24sel%3AtileWidth%3ACmafImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-var">tileWidth</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679943459"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#CmafImageBasedTrickPlaySettings"><span class="hs-identifier hs-type">CmafImageBasedTrickPlaySettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679948102"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#CmafImageBasedTrickPlaySettings"><span class="hs-identifier hs-type">CmafImageBasedTrickPlaySettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | Height of each thumbnail within each tile image, in pixels. Leave blank</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- to maintain aspect ratio with thumbnail width. If following the aspect</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- ratio would lead to a total tile height greater than 4096, then the job</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- will be rejected. Must be divisible by 2.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#cmafImageBasedTrickPlaySettings_thumbnailHeight"><span class="hs-identifier hs-type">cmafImageBasedTrickPlaySettings_thumbnailHeight</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#CmafImageBasedTrickPlaySettings"><span class="hs-identifier hs-type">CmafImageBasedTrickPlaySettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span id="cmafImageBasedTrickPlaySettings_thumbnailHeight"><span class="annot"><span class="annottext">cmafImageBasedTrickPlaySettings_thumbnailHeight :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; CmafImageBasedTrickPlaySettings
+-&gt; f CmafImageBasedTrickPlaySettings
+</span><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#cmafImageBasedTrickPlaySettings_thumbnailHeight"><span class="hs-identifier hs-var hs-var">cmafImageBasedTrickPlaySettings_thumbnailHeight</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CmafImageBasedTrickPlaySettings -&gt; Maybe Natural)
+-&gt; (CmafImageBasedTrickPlaySettings
+    -&gt; Maybe Natural -&gt; CmafImageBasedTrickPlaySettings)
+-&gt; Lens
+     CmafImageBasedTrickPlaySettings
+     CmafImageBasedTrickPlaySettings
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#CmafImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-type">CmafImageBasedTrickPlaySettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679948100"><span class="annot"><span class="annottext">Maybe Natural
+thumbnailHeight :: Maybe Natural
+$sel:thumbnailHeight:CmafImageBasedTrickPlaySettings' :: CmafImageBasedTrickPlaySettings -&gt; Maybe Natural
+</span><a href="#local-6989586621679948100"><span class="hs-identifier hs-var hs-var">thumbnailHeight</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679948100"><span class="hs-identifier hs-var">thumbnailHeight</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679948099"><span class="annot"><span class="annottext">s :: CmafImageBasedTrickPlaySettings
+</span><a href="#local-6989586621679948099"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#CmafImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-type">CmafImageBasedTrickPlaySettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679948098"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679948098"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CmafImageBasedTrickPlaySettings
+</span><a href="#local-6989586621679948099"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:thumbnailHeight:CmafImageBasedTrickPlaySettings' :: Maybe Natural
+</span><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#%24sel%3AthumbnailHeight%3ACmafImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-var">thumbnailHeight</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679948098"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#CmafImageBasedTrickPlaySettings"><span class="hs-identifier hs-type">CmafImageBasedTrickPlaySettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | The cadence MediaConvert follows for generating thumbnails. If set to</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- FOLLOW_IFRAME, MediaConvert generates thumbnails for each IDR frame in</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- the output (matching the GOP cadence). If set to FOLLOW_CUSTOM,</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- MediaConvert generates thumbnails according to the interval you specify</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- in thumbnailInterval.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#cmafImageBasedTrickPlaySettings_intervalCadence"><span class="hs-identifier hs-type">cmafImageBasedTrickPlaySettings_intervalCadence</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#CmafImageBasedTrickPlaySettings"><span class="hs-identifier hs-type">CmafImageBasedTrickPlaySettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafIntervalCadence.html#CmafIntervalCadence"><span class="hs-identifier hs-type">CmafIntervalCadence</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span id="cmafImageBasedTrickPlaySettings_intervalCadence"><span class="annot"><span class="annottext">cmafImageBasedTrickPlaySettings_intervalCadence :: (Maybe CmafIntervalCadence -&gt; f (Maybe CmafIntervalCadence))
+-&gt; CmafImageBasedTrickPlaySettings
+-&gt; f CmafImageBasedTrickPlaySettings
+</span><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#cmafImageBasedTrickPlaySettings_intervalCadence"><span class="hs-identifier hs-var hs-var">cmafImageBasedTrickPlaySettings_intervalCadence</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CmafImageBasedTrickPlaySettings -&gt; Maybe CmafIntervalCadence)
+-&gt; (CmafImageBasedTrickPlaySettings
+    -&gt; Maybe CmafIntervalCadence -&gt; CmafImageBasedTrickPlaySettings)
+-&gt; Lens
+     CmafImageBasedTrickPlaySettings
+     CmafImageBasedTrickPlaySettings
+     (Maybe CmafIntervalCadence)
+     (Maybe CmafIntervalCadence)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#CmafImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-type">CmafImageBasedTrickPlaySettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679948096"><span class="annot"><span class="annottext">Maybe CmafIntervalCadence
+intervalCadence :: Maybe CmafIntervalCadence
+$sel:intervalCadence:CmafImageBasedTrickPlaySettings' :: CmafImageBasedTrickPlaySettings -&gt; Maybe CmafIntervalCadence
+</span><a href="#local-6989586621679948096"><span class="hs-identifier hs-var hs-var">intervalCadence</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CmafIntervalCadence
+</span><a href="#local-6989586621679948096"><span class="hs-identifier hs-var">intervalCadence</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679948095"><span class="annot"><span class="annottext">s :: CmafImageBasedTrickPlaySettings
+</span><a href="#local-6989586621679948095"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#CmafImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-type">CmafImageBasedTrickPlaySettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679948094"><span class="annot"><span class="annottext">Maybe CmafIntervalCadence
+</span><a href="#local-6989586621679948094"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CmafImageBasedTrickPlaySettings
+</span><a href="#local-6989586621679948095"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:intervalCadence:CmafImageBasedTrickPlaySettings' :: Maybe CmafIntervalCadence
+</span><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#%24sel%3AintervalCadence%3ACmafImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-var">intervalCadence</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CmafIntervalCadence
+</span><a href="#local-6989586621679948094"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#CmafImageBasedTrickPlaySettings"><span class="hs-identifier hs-type">CmafImageBasedTrickPlaySettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | Width of each thumbnail within each tile image, in pixels. Default is</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- 312. Must be divisible by 8.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#cmafImageBasedTrickPlaySettings_thumbnailWidth"><span class="hs-identifier hs-type">cmafImageBasedTrickPlaySettings_thumbnailWidth</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#CmafImageBasedTrickPlaySettings"><span class="hs-identifier hs-type">CmafImageBasedTrickPlaySettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span id="cmafImageBasedTrickPlaySettings_thumbnailWidth"><span class="annot"><span class="annottext">cmafImageBasedTrickPlaySettings_thumbnailWidth :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; CmafImageBasedTrickPlaySettings
+-&gt; f CmafImageBasedTrickPlaySettings
+</span><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#cmafImageBasedTrickPlaySettings_thumbnailWidth"><span class="hs-identifier hs-var hs-var">cmafImageBasedTrickPlaySettings_thumbnailWidth</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CmafImageBasedTrickPlaySettings -&gt; Maybe Natural)
+-&gt; (CmafImageBasedTrickPlaySettings
+    -&gt; Maybe Natural -&gt; CmafImageBasedTrickPlaySettings)
+-&gt; Lens
+     CmafImageBasedTrickPlaySettings
+     CmafImageBasedTrickPlaySettings
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#CmafImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-type">CmafImageBasedTrickPlaySettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679948092"><span class="annot"><span class="annottext">Maybe Natural
+thumbnailWidth :: Maybe Natural
+$sel:thumbnailWidth:CmafImageBasedTrickPlaySettings' :: CmafImageBasedTrickPlaySettings -&gt; Maybe Natural
+</span><a href="#local-6989586621679948092"><span class="hs-identifier hs-var hs-var">thumbnailWidth</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679948092"><span class="hs-identifier hs-var">thumbnailWidth</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679948091"><span class="annot"><span class="annottext">s :: CmafImageBasedTrickPlaySettings
+</span><a href="#local-6989586621679948091"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#CmafImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-type">CmafImageBasedTrickPlaySettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679948090"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679948090"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CmafImageBasedTrickPlaySettings
+</span><a href="#local-6989586621679948091"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:thumbnailWidth:CmafImageBasedTrickPlaySettings' :: Maybe Natural
+</span><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#%24sel%3AthumbnailWidth%3ACmafImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-var">thumbnailWidth</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679948090"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#CmafImageBasedTrickPlaySettings"><span class="hs-identifier hs-type">CmafImageBasedTrickPlaySettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | Enter the interval, in seconds, that MediaConvert uses to generate</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- thumbnails. If the interval you enter doesn\'t align with the output</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- frame rate, MediaConvert automatically rounds the interval to align with</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- the output frame rate. For example, if the output frame rate is 29.97</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- frames per second and you enter 5, MediaConvert uses a 150 frame</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- interval to generate thumbnails.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#cmafImageBasedTrickPlaySettings_thumbnailInterval"><span class="hs-identifier hs-type">cmafImageBasedTrickPlaySettings_thumbnailInterval</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#CmafImageBasedTrickPlaySettings"><span class="hs-identifier hs-type">CmafImageBasedTrickPlaySettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span id="cmafImageBasedTrickPlaySettings_thumbnailInterval"><span class="annot"><span class="annottext">cmafImageBasedTrickPlaySettings_thumbnailInterval :: (Maybe Double -&gt; f (Maybe Double))
+-&gt; CmafImageBasedTrickPlaySettings
+-&gt; f CmafImageBasedTrickPlaySettings
+</span><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#cmafImageBasedTrickPlaySettings_thumbnailInterval"><span class="hs-identifier hs-var hs-var">cmafImageBasedTrickPlaySettings_thumbnailInterval</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CmafImageBasedTrickPlaySettings -&gt; Maybe Double)
+-&gt; (CmafImageBasedTrickPlaySettings
+    -&gt; Maybe Double -&gt; CmafImageBasedTrickPlaySettings)
+-&gt; Lens
+     CmafImageBasedTrickPlaySettings
+     CmafImageBasedTrickPlaySettings
+     (Maybe Double)
+     (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#CmafImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-type">CmafImageBasedTrickPlaySettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679948088"><span class="annot"><span class="annottext">Maybe Double
+thumbnailInterval :: Maybe Double
+$sel:thumbnailInterval:CmafImageBasedTrickPlaySettings' :: CmafImageBasedTrickPlaySettings -&gt; Maybe Double
+</span><a href="#local-6989586621679948088"><span class="hs-identifier hs-var hs-var">thumbnailInterval</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679948088"><span class="hs-identifier hs-var">thumbnailInterval</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679948087"><span class="annot"><span class="annottext">s :: CmafImageBasedTrickPlaySettings
+</span><a href="#local-6989586621679948087"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#CmafImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-type">CmafImageBasedTrickPlaySettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679948086"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679948086"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CmafImageBasedTrickPlaySettings
+</span><a href="#local-6989586621679948087"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:thumbnailInterval:CmafImageBasedTrickPlaySettings' :: Maybe Double
+</span><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#%24sel%3AthumbnailInterval%3ACmafImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-var">thumbnailInterval</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679948086"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#CmafImageBasedTrickPlaySettings"><span class="hs-identifier hs-type">CmafImageBasedTrickPlaySettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- | Number of thumbnails in each column of a tile image. Set a value between</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- 2 and 2048. Must be divisible by 2.</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#cmafImageBasedTrickPlaySettings_tileHeight"><span class="hs-identifier hs-type">cmafImageBasedTrickPlaySettings_tileHeight</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#CmafImageBasedTrickPlaySettings"><span class="hs-identifier hs-type">CmafImageBasedTrickPlaySettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span id="cmafImageBasedTrickPlaySettings_tileHeight"><span class="annot"><span class="annottext">cmafImageBasedTrickPlaySettings_tileHeight :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; CmafImageBasedTrickPlaySettings
+-&gt; f CmafImageBasedTrickPlaySettings
+</span><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#cmafImageBasedTrickPlaySettings_tileHeight"><span class="hs-identifier hs-var hs-var">cmafImageBasedTrickPlaySettings_tileHeight</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CmafImageBasedTrickPlaySettings -&gt; Maybe Natural)
+-&gt; (CmafImageBasedTrickPlaySettings
+    -&gt; Maybe Natural -&gt; CmafImageBasedTrickPlaySettings)
+-&gt; Lens
+     CmafImageBasedTrickPlaySettings
+     CmafImageBasedTrickPlaySettings
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#CmafImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-type">CmafImageBasedTrickPlaySettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679948084"><span class="annot"><span class="annottext">Maybe Natural
+tileHeight :: Maybe Natural
+$sel:tileHeight:CmafImageBasedTrickPlaySettings' :: CmafImageBasedTrickPlaySettings -&gt; Maybe Natural
+</span><a href="#local-6989586621679948084"><span class="hs-identifier hs-var hs-var">tileHeight</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679948084"><span class="hs-identifier hs-var">tileHeight</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679948083"><span class="annot"><span class="annottext">s :: CmafImageBasedTrickPlaySettings
+</span><a href="#local-6989586621679948083"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#CmafImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-type">CmafImageBasedTrickPlaySettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679948082"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679948082"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CmafImageBasedTrickPlaySettings
+</span><a href="#local-6989586621679948083"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tileHeight:CmafImageBasedTrickPlaySettings' :: Maybe Natural
+</span><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#%24sel%3AtileHeight%3ACmafImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-var">tileHeight</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679948082"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#CmafImageBasedTrickPlaySettings"><span class="hs-identifier hs-type">CmafImageBasedTrickPlaySettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-149"></span><span>  </span><span id="local-6989586621679943456"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679948079"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
 </span><span id="line-150"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#CmafImageBasedTrickPlaySettings"><span class="hs-identifier hs-type">CmafImageBasedTrickPlaySettings</span></a></span></span><span>
 </span><span id="line-151"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-152"></span><span>  </span><span id="local-6989586621679943454"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CmafImageBasedTrickPlaySettings
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679948077"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CmafImageBasedTrickPlaySettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-153"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser CmafImageBasedTrickPlaySettings)
@@ -389,187 +389,187 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-154"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;CmafImageBasedTrickPlaySettings&quot;</span></span><span>
-</span><span id="line-155"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679943451"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679943451"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-156"></span><span>          </span><span class="annot"><span class="annottext">Maybe CmafIntervalCadence
+</span><span id="line-155"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679948074"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679948074"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-156"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural
+-&gt; Maybe Natural
+-&gt; Maybe CmafIntervalCadence
+-&gt; Maybe Natural
 -&gt; Maybe Double
--&gt; Maybe Natural
--&gt; Maybe Natural
--&gt; Maybe Natural
 -&gt; Maybe Natural
 -&gt; CmafImageBasedTrickPlaySettings
 </span><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#CmafImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-var">CmafImageBasedTrickPlaySettings'</span></a></span><span>
-</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">(Maybe CmafIntervalCadence
+</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Natural
+ -&gt; Maybe Natural
+ -&gt; Maybe CmafIntervalCadence
+ -&gt; Maybe Natural
  -&gt; Maybe Double
  -&gt; Maybe Natural
- -&gt; Maybe Natural
- -&gt; Maybe Natural
- -&gt; Maybe Natural
  -&gt; CmafImageBasedTrickPlaySettings)
--&gt; Parser (Maybe CmafIntervalCadence)
+-&gt; Parser (Maybe Natural)
 -&gt; Parser
-     (Maybe Double
+     (Maybe Natural
+      -&gt; Maybe CmafIntervalCadence
       -&gt; Maybe Natural
-      -&gt; Maybe Natural
-      -&gt; Maybe Natural
+      -&gt; Maybe Double
       -&gt; Maybe Natural
       -&gt; CmafImageBasedTrickPlaySettings)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679943451"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CmafIntervalCadence)
+</span><a href="#local-6989586621679948074"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;intervalCadence&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;tileWidth&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Double
-   -&gt; Maybe Natural
-   -&gt; Maybe Natural
-   -&gt; Maybe Natural
-   -&gt; Maybe Natural
-   -&gt; CmafImageBasedTrickPlaySettings)
--&gt; Parser (Maybe Double)
--&gt; Parser
-     (Maybe Natural
-      -&gt; Maybe Natural
-      -&gt; Maybe Natural
-      -&gt; Maybe Natural
-      -&gt; CmafImageBasedTrickPlaySettings)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679943451"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;thumbnailInterval&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Natural
+   -&gt; Maybe CmafIntervalCadence
    -&gt; Maybe Natural
-   -&gt; Maybe Natural
+   -&gt; Maybe Double
    -&gt; Maybe Natural
    -&gt; CmafImageBasedTrickPlaySettings)
 -&gt; Parser (Maybe Natural)
 -&gt; Parser
-     (Maybe Natural
+     (Maybe CmafIntervalCadence
       -&gt; Maybe Natural
+      -&gt; Maybe Double
       -&gt; Maybe Natural
       -&gt; CmafImageBasedTrickPlaySettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679943451"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;tileHeight&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Natural
-   -&gt; Maybe Natural
-   -&gt; Maybe Natural
-   -&gt; CmafImageBasedTrickPlaySettings)
--&gt; Parser (Maybe Natural)
--&gt; Parser
-     (Maybe Natural -&gt; Maybe Natural -&gt; CmafImageBasedTrickPlaySettings)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679943451"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679948074"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;thumbnailHeight&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Natural -&gt; Maybe Natural -&gt; CmafImageBasedTrickPlaySettings)
--&gt; Parser (Maybe Natural)
--&gt; Parser (Maybe Natural -&gt; CmafImageBasedTrickPlaySettings)
+</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe CmafIntervalCadence
+   -&gt; Maybe Natural
+   -&gt; Maybe Double
+   -&gt; Maybe Natural
+   -&gt; CmafImageBasedTrickPlaySettings)
+-&gt; Parser (Maybe CmafIntervalCadence)
+-&gt; Parser
+     (Maybe Natural
+      -&gt; Maybe Double
+      -&gt; Maybe Natural
+      -&gt; CmafImageBasedTrickPlaySettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679943451"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679948074"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CmafIntervalCadence)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;intervalCadence&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural
+   -&gt; Maybe Double
+   -&gt; Maybe Natural
+   -&gt; CmafImageBasedTrickPlaySettings)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Maybe Double -&gt; Maybe Natural -&gt; CmafImageBasedTrickPlaySettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679948074"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;thumbnailWidth&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Double -&gt; Maybe Natural -&gt; CmafImageBasedTrickPlaySettings)
+-&gt; Parser (Maybe Double)
+-&gt; Parser (Maybe Natural -&gt; CmafImageBasedTrickPlaySettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679948074"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;thumbnailInterval&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Natural -&gt; CmafImageBasedTrickPlaySettings)
 -&gt; Parser (Maybe Natural) -&gt; Parser CmafImageBasedTrickPlaySettings
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679943451"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679948074"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;tileWidth&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;tileHeight&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-164"></span><span>
 </span><span id="line-165"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-166"></span><span>  </span><span id="local-6989586621679943445"><span id="local-6989586621679943447"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679948068"><span id="local-6989586621679948070"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-167"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#CmafImageBasedTrickPlaySettings"><span class="hs-identifier hs-type">CmafImageBasedTrickPlaySettings</span></a></span></span></span><span>
 </span><span id="line-168"></span><span>
 </span><span id="line-169"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-170"></span><span>  </span><span id="local-6989586621679943442"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679948065"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-171"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#CmafImageBasedTrickPlaySettings"><span class="hs-identifier hs-type">CmafImageBasedTrickPlaySettings</span></a></span></span><span>
 </span><span id="line-172"></span><span>
-</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679943434"><span id="local-6989586621679943436"><span id="local-6989586621679943438"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#CmafImageBasedTrickPlaySettings"><span class="hs-identifier hs-type">CmafImageBasedTrickPlaySettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-174"></span><span>  </span><span id="local-6989586621679943432"><span class="annot"><span class="annottext">toJSON :: CmafImageBasedTrickPlaySettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#CmafImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-type">CmafImageBasedTrickPlaySettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679943425"><span id="local-6989586621679943426"><span id="local-6989586621679943427"><span id="local-6989586621679943428"><span id="local-6989586621679943429"><span id="local-6989586621679943430"><span class="annot"><span class="annottext">Maybe Double
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679948057"><span id="local-6989586621679948059"><span id="local-6989586621679948061"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#CmafImageBasedTrickPlaySettings"><span class="hs-identifier hs-type">CmafImageBasedTrickPlaySettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-174"></span><span>  </span><span id="local-6989586621679948055"><span class="annot"><span class="annottext">toJSON :: CmafImageBasedTrickPlaySettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings.html#CmafImageBasedTrickPlaySettings%27"><span class="hs-identifier hs-type">CmafImageBasedTrickPlaySettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679948048"><span id="local-6989586621679948049"><span id="local-6989586621679948050"><span id="local-6989586621679948051"><span id="local-6989586621679948052"><span id="local-6989586621679948053"><span class="annot"><span class="annottext">Maybe Double
 Maybe Natural
 Maybe CmafIntervalCadence
-tileWidth :: Maybe Natural
-thumbnailWidth :: Maybe Natural
-thumbnailHeight :: Maybe Natural
 tileHeight :: Maybe Natural
 thumbnailInterval :: Maybe Double
+thumbnailWidth :: Maybe Natural
 intervalCadence :: Maybe CmafIntervalCadence
-$sel:tileWidth:CmafImageBasedTrickPlaySettings' :: CmafImageBasedTrickPlaySettings -&gt; Maybe Natural
-$sel:thumbnailWidth:CmafImageBasedTrickPlaySettings' :: CmafImageBasedTrickPlaySettings -&gt; Maybe Natural
-$sel:thumbnailHeight:CmafImageBasedTrickPlaySettings' :: CmafImageBasedTrickPlaySettings -&gt; Maybe Natural
+thumbnailHeight :: Maybe Natural
+tileWidth :: Maybe Natural
 $sel:tileHeight:CmafImageBasedTrickPlaySettings' :: CmafImageBasedTrickPlaySettings -&gt; Maybe Natural
 $sel:thumbnailInterval:CmafImageBasedTrickPlaySettings' :: CmafImageBasedTrickPlaySettings -&gt; Maybe Double
+$sel:thumbnailWidth:CmafImageBasedTrickPlaySettings' :: CmafImageBasedTrickPlaySettings -&gt; Maybe Natural
 $sel:intervalCadence:CmafImageBasedTrickPlaySettings' :: CmafImageBasedTrickPlaySettings -&gt; Maybe CmafIntervalCadence
-</span><a href="#local-6989586621679943425"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:thumbnailHeight:CmafImageBasedTrickPlaySettings' :: CmafImageBasedTrickPlaySettings -&gt; Maybe Natural
+$sel:tileWidth:CmafImageBasedTrickPlaySettings' :: CmafImageBasedTrickPlaySettings -&gt; Maybe Natural
+</span><a href="#local-6989586621679948048"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-175"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-176"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-177"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;intervalCadence&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CmafIntervalCadence -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-178"></span><span>              </span><span class="annot"><span class="annottext">(CmafIntervalCadence -&gt; Pair)
--&gt; Maybe CmafIntervalCadence -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CmafIntervalCadence
-</span><a href="#local-6989586621679943430"><span class="hs-identifier hs-var">intervalCadence</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-179"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;thumbnailInterval&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Double -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-180"></span><span>              </span><span class="annot"><span class="annottext">(Double -&gt; Pair) -&gt; Maybe Double -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679943429"><span class="hs-identifier hs-var">thumbnailInterval</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-181"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;tileHeight&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679943428"><span class="hs-identifier hs-var">tileHeight</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-182"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;thumbnailHeight&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-183"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679943427"><span class="hs-identifier hs-var">thumbnailHeight</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-184"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;thumbnailWidth&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-185"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679943426"><span class="hs-identifier hs-var">thumbnailWidth</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-186"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;tileWidth&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679943425"><span class="hs-identifier hs-var">tileWidth</span></a></span><span>
+</span><a href="#local-6989586621679948053"><span class="hs-identifier hs-var">tileWidth</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;thumbnailHeight&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679948052"><span class="hs-identifier hs-var">thumbnailHeight</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;intervalCadence&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CmafIntervalCadence -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>              </span><span class="annot"><span class="annottext">(CmafIntervalCadence -&gt; Pair)
+-&gt; Maybe CmafIntervalCadence -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CmafIntervalCadence
+</span><a href="#local-6989586621679948051"><span class="hs-identifier hs-var">intervalCadence</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;thumbnailWidth&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679948050"><span class="hs-identifier hs-var">thumbnailWidth</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;thumbnailInterval&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Double -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>              </span><span class="annot"><span class="annottext">(Double -&gt; Pair) -&gt; Maybe Double -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679948049"><span class="hs-identifier hs-var">thumbnailInterval</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tileHeight&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679948048"><span class="hs-identifier hs-var">tileHeight</span></a></span><span>
 </span><span id="line-187"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-188"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-189"></span></pre></body></html>

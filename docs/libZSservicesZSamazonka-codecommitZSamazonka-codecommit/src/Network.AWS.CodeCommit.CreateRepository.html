@@ -51,7 +51,7 @@
 </span><span id="line-51"></span><span class="hs-comment">-- | Represents the input of a create repository operation.</span><span>
 </span><span id="line-52"></span><span class="hs-comment">--</span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- /See:/ 'newCreateRepository' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679369994"><span id="local-6989586621679369995"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateRepository"><span class="annot"><a href="Network.AWS.CodeCommit.CreateRepository.html#CreateRepository"><span class="hs-identifier hs-var">CreateRepository</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateRepository%27"><span class="annot"><a href="Network.AWS.CodeCommit.CreateRepository.html#CreateRepository%27"><span class="hs-identifier hs-var">CreateRepository'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679370303"><span id="local-6989586621679370304"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateRepository"><span class="annot"><a href="Network.AWS.CodeCommit.CreateRepository.html#CreateRepository"><span class="hs-identifier hs-var">CreateRepository</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateRepository%27"><span class="annot"><a href="Network.AWS.CodeCommit.CreateRepository.html#CreateRepository%27"><span class="hs-identifier hs-var">CreateRepository'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A comment or description about the new repository.</span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">-- The description field for a repository accepts all HTML characters and</span><span>
@@ -76,7 +76,7 @@
 </span><span id="line-74"></span><span>    </span><span id="%24sel%3ArepositoryName%3ACreateRepository%27"><span class="annot"><span class="annottext">CreateRepository -&gt; Text
 </span><a href="Network.AWS.CodeCommit.CreateRepository.html#%24sel%3ArepositoryName%3ACreateRepository%27"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-75"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-76"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679369986"><span id="local-6989586621679369988"><span class="annot"><span class="annottext">CreateRepository -&gt; CreateRepository -&gt; Bool
+</span><span id="line-76"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679370295"><span id="local-6989586621679370297"><span class="annot"><span class="annottext">CreateRepository -&gt; CreateRepository -&gt; Bool
 (CreateRepository -&gt; CreateRepository -&gt; Bool)
 -&gt; (CreateRepository -&gt; CreateRepository -&gt; Bool)
 -&gt; Eq CreateRepository
@@ -85,7 +85,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateRepository -&gt; CreateRepository -&gt; Bool
 == :: CreateRepository -&gt; CreateRepository -&gt; Bool
 $c== :: CreateRepository -&gt; CreateRepository -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679369977"><span id="local-6989586621679369979"><span id="local-6989586621679369981"><span id="local-6989586621679369983"><span class="annot"><span class="annottext">ReadPrec [CreateRepository]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679370286"><span id="local-6989586621679370288"><span id="local-6989586621679370290"><span id="local-6989586621679370292"><span class="annot"><span class="annottext">ReadPrec [CreateRepository]
 ReadPrec CreateRepository
 Int -&gt; ReadS CreateRepository
 ReadS [CreateRepository]
@@ -105,7 +105,7 @@ readList :: ReadS [CreateRepository]
 $creadList :: ReadS [CreateRepository]
 readsPrec :: Int -&gt; ReadS CreateRepository
 $creadsPrec :: Int -&gt; ReadS CreateRepository
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679369970"><span id="local-6989586621679369972"><span id="local-6989586621679369974"><span class="annot"><span class="annottext">Int -&gt; CreateRepository -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679370279"><span id="local-6989586621679370281"><span id="local-6989586621679370283"><span class="annot"><span class="annottext">Int -&gt; CreateRepository -&gt; ShowS
 [CreateRepository] -&gt; ShowS
 CreateRepository -&gt; String
 (Int -&gt; CreateRepository -&gt; ShowS)
@@ -163,8 +163,8 @@ $cfrom :: forall x. CreateRepository -&gt; Rep CreateRepository x
 </span><span id="line-107"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-108"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeCommit.CreateRepository.html#CreateRepository"><span class="hs-identifier hs-type">CreateRepository</span></a></span><span>
 </span><span id="line-109"></span><span id="newCreateRepository"><span class="annot"><span class="annottext">newCreateRepository :: Text -&gt; CreateRepository
-</span><a href="Network.AWS.CodeCommit.CreateRepository.html#newCreateRepository"><span class="hs-identifier hs-var hs-var">newCreateRepository</span></a></span></span><span> </span><span id="local-6989586621679369965"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679369965"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodeCommit.CreateRepository.html#newCreateRepository"><span class="hs-identifier hs-var hs-var">newCreateRepository</span></a></span></span><span> </span><span id="local-6989586621679370274"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679370274"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-110"></span><span>  </span><span class="annot"><span class="annottext">CreateRepository' :: Maybe Text -&gt; Maybe (HashMap Text Text) -&gt; Text -&gt; CreateRepository
 </span><a href="Network.AWS.CodeCommit.CreateRepository.html#CreateRepository%27"><span class="hs-identifier hs-type">CreateRepository'</span></a></span><span>
 </span><span id="line-111"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:repositoryDescription:CreateRepository' :: Maybe Text
@@ -178,7 +178,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:repositoryName:CreateRepository' :: Text
 </span><a href="Network.AWS.CodeCommit.CreateRepository.html#%24sel%3ArepositoryName%3ACreateRepository%27"><span class="hs-identifier hs-var">repositoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679369965"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span><span>
+</span><a href="#local-6989586621679370274"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span><span>
 </span><span id="line-115"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-comment">-- | A comment or description about the new repository.</span><span>
@@ -196,16 +196,16 @@ forall a. Maybe a
 -&gt; (CreateRepository -&gt; Maybe Text -&gt; CreateRepository)
 -&gt; Lens CreateRepository CreateRepository (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.CreateRepository.html#CreateRepository%27"><span class="hs-identifier hs-type">CreateRepository'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369962"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.CreateRepository.html#CreateRepository%27"><span class="hs-identifier hs-type">CreateRepository'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370271"><span class="annot"><span class="annottext">Maybe Text
 repositoryDescription :: Maybe Text
 $sel:repositoryDescription:CreateRepository' :: CreateRepository -&gt; Maybe Text
-</span><a href="#local-6989586621679369962"><span class="hs-identifier hs-var hs-var">repositoryDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679369962"><span class="hs-identifier hs-var">repositoryDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369961"><span class="annot"><span class="annottext">s :: CreateRepository
-</span><a href="#local-6989586621679369961"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.CreateRepository.html#CreateRepository%27"><span class="hs-identifier hs-type">CreateRepository'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369960"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679369960"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRepository
-</span><a href="#local-6989586621679369961"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoryDescription:CreateRepository' :: Maybe Text
+</span><a href="#local-6989586621679370271"><span class="hs-identifier hs-var hs-var">repositoryDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679370271"><span class="hs-identifier hs-var">repositoryDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370270"><span class="annot"><span class="annottext">s :: CreateRepository
+</span><a href="#local-6989586621679370270"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.CreateRepository.html#CreateRepository%27"><span class="hs-identifier hs-type">CreateRepository'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370269"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679370269"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRepository
+</span><a href="#local-6989586621679370270"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoryDescription:CreateRepository' :: Maybe Text
 </span><a href="Network.AWS.CodeCommit.CreateRepository.html#%24sel%3ArepositoryDescription%3ACreateRepository%27"><span class="hs-identifier hs-var">repositoryDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679369960"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.CreateRepository.html#CreateRepository"><span class="hs-identifier hs-type">CreateRepository</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679370269"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.CreateRepository.html#CreateRepository"><span class="hs-identifier hs-type">CreateRepository</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-comment">-- | One or more tag key-value pairs to use when tagging this repository.</span><span>
 </span><span id="line-129"></span><span class="annot"><a href="Network.AWS.CodeCommit.CreateRepository.html#createRepository_tags"><span class="hs-identifier hs-type">createRepository_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.CreateRepository.html#CreateRepository"><span class="hs-identifier hs-type">CreateRepository</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
@@ -220,16 +220,16 @@ $sel:repositoryDescription:CreateRepository' :: CreateRepository -&gt; Maybe Tex
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.CreateRepository.html#CreateRepository%27"><span class="hs-identifier hs-type">CreateRepository'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369959"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.CreateRepository.html#CreateRepository%27"><span class="hs-identifier hs-type">CreateRepository'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370268"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 tags :: Maybe (HashMap Text Text)
 $sel:tags:CreateRepository' :: CreateRepository -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679369959"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679369959"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369958"><span class="annot"><span class="annottext">s :: CreateRepository
-</span><a href="#local-6989586621679369958"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.CreateRepository.html#CreateRepository%27"><span class="hs-identifier hs-type">CreateRepository'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369957"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679369957"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRepository
-</span><a href="#local-6989586621679369958"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateRepository' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679370268"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679370268"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370267"><span class="annot"><span class="annottext">s :: CreateRepository
+</span><a href="#local-6989586621679370267"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.CreateRepository.html#CreateRepository%27"><span class="hs-identifier hs-type">CreateRepository'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370266"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679370266"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRepository
+</span><a href="#local-6989586621679370267"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateRepository' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.CodeCommit.CreateRepository.html#%24sel%3Atags%3ACreateRepository%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679369957"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.CreateRepository.html#CreateRepository"><span class="hs-identifier hs-type">CreateRepository</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679370266"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.CreateRepository.html#CreateRepository"><span class="hs-identifier hs-type">CreateRepository</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; CreateRepository -&gt; f CreateRepository)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -255,8 +255,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (HashMap Text Text)
   (HashMap Text Text)
   (HashMap Text Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-comment">-- | The name of the new repository to be created.</span><span>
 </span><span id="line-133"></span><span class="hs-comment">--</span><span>
@@ -272,27 +272,27 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (CreateRepository -&gt; Text -&gt; CreateRepository)
 -&gt; Lens CreateRepository CreateRepository Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.CreateRepository.html#CreateRepository%27"><span class="hs-identifier hs-type">CreateRepository'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369953"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.CreateRepository.html#CreateRepository%27"><span class="hs-identifier hs-type">CreateRepository'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370262"><span class="annot"><span class="annottext">Text
 repositoryName :: Text
 $sel:repositoryName:CreateRepository' :: CreateRepository -&gt; Text
-</span><a href="#local-6989586621679369953"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679369953"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369952"><span class="annot"><span class="annottext">s :: CreateRepository
-</span><a href="#local-6989586621679369952"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.CreateRepository.html#CreateRepository%27"><span class="hs-identifier hs-type">CreateRepository'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369951"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679369951"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRepository
-</span><a href="#local-6989586621679369952"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoryName:CreateRepository' :: Text
+</span><a href="#local-6989586621679370262"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679370262"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370261"><span class="annot"><span class="annottext">s :: CreateRepository
+</span><a href="#local-6989586621679370261"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.CreateRepository.html#CreateRepository%27"><span class="hs-identifier hs-type">CreateRepository'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370260"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679370260"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRepository
+</span><a href="#local-6989586621679370261"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoryName:CreateRepository' :: Text
 </span><a href="Network.AWS.CodeCommit.CreateRepository.html#%24sel%3ArepositoryName%3ACreateRepository%27"><span class="hs-identifier hs-var">repositoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679369951"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.CreateRepository.html#CreateRepository"><span class="hs-identifier hs-type">CreateRepository</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679370260"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.CreateRepository.html#CreateRepository"><span class="hs-identifier hs-type">CreateRepository</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.CreateRepository.html#CreateRepository"><span class="hs-identifier hs-type">CreateRepository</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-144"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-145"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.CreateRepository.html#CreateRepository"><span class="hs-identifier hs-type">CreateRepository</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-146"></span><span>      </span><span class="annot"><a href="Network.AWS.CodeCommit.CreateRepository.html#CreateRepositoryResponse"><span class="hs-identifier hs-type">CreateRepositoryResponse</span></a></span><span>
-</span><span id="line-147"></span><span>  </span><span id="local-6989586621679369947"><span class="annot"><span class="annottext">request :: CreateRepository -&gt; Request CreateRepository
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679370256"><span class="annot"><span class="annottext">request :: CreateRepository -&gt; Request CreateRepository
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateRepository -&gt; Request CreateRepository
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CodeCommit.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-148"></span><span>  </span><span id="local-6989586621679369943"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679370252"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateRepository
 -&gt; ClientResponse ClientBody
@@ -316,10 +316,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-150"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679369940"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679369940"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679369939"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679369939"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679369938"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679369938"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-150"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679370249"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679370249"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679370248"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679370248"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679370247"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679370247"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-151"></span><span>          </span><span class="annot"><span class="annottext">Maybe RepositoryMetadata -&gt; Int -&gt; CreateRepositoryResponse
 </span><a href="Network.AWS.CodeCommit.CreateRepository.html#CreateRepositoryResponse%27"><span class="hs-identifier hs-var">CreateRepositoryResponse'</span></a></span><span>
 </span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">(Maybe RepositoryMetadata -&gt; Int -&gt; CreateRepositoryResponse)
@@ -327,7 +327,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; CreateRepositoryResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679369938"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe RepositoryMetadata)
+</span><a href="#local-6989586621679370247"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe RepositoryMetadata)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;repositoryMetadata&quot;</span></span><span class="hs-special">)</span><span>
@@ -339,15 +339,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679369940"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679370249"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>
-</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369930"><span id="local-6989586621679369932"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.CreateRepository.html#CreateRepository"><span class="hs-identifier hs-type">CreateRepository</span></a></span></span></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370239"><span id="local-6989586621679370241"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.CreateRepository.html#CreateRepository"><span class="hs-identifier hs-type">CreateRepository</span></a></span></span></span><span>
 </span><span id="line-157"></span><span>
-</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369927"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.CreateRepository.html#CreateRepository"><span class="hs-identifier hs-type">CreateRepository</span></a></span></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370236"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.CreateRepository.html#CreateRepository"><span class="hs-identifier hs-type">CreateRepository</span></a></span></span><span>
 </span><span id="line-159"></span><span>
 </span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.CreateRepository.html#CreateRepository"><span class="hs-identifier hs-type">CreateRepository</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-161"></span><span>  </span><span id="local-6989586621679369923"><span class="annot"><span class="annottext">toHeaders :: CreateRepository -&gt; ResponseHeaders
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679370232"><span class="annot"><span class="annottext">toHeaders :: CreateRepository -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-162"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateRepository -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -374,9 +374,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-172"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-173"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>
-</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369913"><span id="local-6989586621679369915"><span id="local-6989586621679369917"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.CreateRepository.html#CreateRepository"><span class="hs-identifier hs-type">CreateRepository</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-176"></span><span>  </span><span id="local-6989586621679369911"><span class="annot"><span class="annottext">toJSON :: CreateRepository -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.CreateRepository.html#CreateRepository%27"><span class="hs-identifier hs-type">CreateRepository'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369907"><span id="local-6989586621679369908"><span id="local-6989586621679369909"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370222"><span id="local-6989586621679370224"><span id="local-6989586621679370226"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.CreateRepository.html#CreateRepository"><span class="hs-identifier hs-type">CreateRepository</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679370220"><span class="annot"><span class="annottext">toJSON :: CreateRepository -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.CreateRepository.html#CreateRepository%27"><span class="hs-identifier hs-type">CreateRepository'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370216"><span id="local-6989586621679370217"><span id="local-6989586621679370218"><span class="annot"><span class="annottext">Maybe Text
 Maybe (HashMap Text Text)
 Text
 repositoryName :: Text
@@ -385,7 +385,7 @@ repositoryDescription :: Maybe Text
 $sel:repositoryName:CreateRepository' :: CreateRepository -&gt; Text
 $sel:tags:CreateRepository' :: CreateRepository -&gt; Maybe (HashMap Text Text)
 $sel:repositoryDescription:CreateRepository' :: CreateRepository -&gt; Maybe Text
-</span><a href="#local-6989586621679369907"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679370216"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-177"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-178"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -398,7 +398,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-180"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679369909"><span class="hs-identifier hs-var">repositoryDescription</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679370218"><span class="hs-identifier hs-var">repositoryDescription</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-181"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -406,7 +406,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679369908"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679370217"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-182"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -414,19 +414,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;repositoryName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679369907"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679370216"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-184"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-185"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-186"></span><span>
 </span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.CreateRepository.html#CreateRepository"><span class="hs-identifier hs-type">CreateRepository</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-188"></span><span>  </span><span id="local-6989586621679369901"><span class="annot"><span class="annottext">toPath :: CreateRepository -&gt; ByteString
+</span><span id="line-188"></span><span>  </span><span id="local-6989586621679370210"><span class="annot"><span class="annottext">toPath :: CreateRepository -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateRepository -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-189"></span><span>
 </span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.CreateRepository.html#CreateRepository"><span class="hs-identifier hs-type">CreateRepository</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-191"></span><span>  </span><span id="local-6989586621679369897"><span class="annot"><span class="annottext">toQuery :: CreateRepository -&gt; QueryString
+</span><span id="line-191"></span><span>  </span><span id="local-6989586621679370206"><span class="annot"><span class="annottext">toQuery :: CreateRepository -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateRepository -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -436,7 +436,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-193"></span><span class="hs-comment">-- | Represents the output of a create repository operation.</span><span>
 </span><span id="line-194"></span><span class="hs-comment">--</span><span>
 </span><span id="line-195"></span><span class="hs-comment">-- /See:/ 'newCreateRepositoryResponse' smart constructor.</span><span>
-</span><span id="line-196"></span><span id="local-6989586621679369894"><span id="local-6989586621679369895"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateRepositoryResponse"><span class="annot"><a href="Network.AWS.CodeCommit.CreateRepository.html#CreateRepositoryResponse"><span class="hs-identifier hs-var">CreateRepositoryResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateRepositoryResponse%27"><span class="annot"><a href="Network.AWS.CodeCommit.CreateRepository.html#CreateRepositoryResponse%27"><span class="hs-identifier hs-var">CreateRepositoryResponse'</span></a></span></span><span>
+</span><span id="line-196"></span><span id="local-6989586621679370203"><span id="local-6989586621679370204"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateRepositoryResponse"><span class="annot"><a href="Network.AWS.CodeCommit.CreateRepository.html#CreateRepositoryResponse"><span class="hs-identifier hs-var">CreateRepositoryResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateRepositoryResponse%27"><span class="annot"><a href="Network.AWS.CodeCommit.CreateRepository.html#CreateRepositoryResponse%27"><span class="hs-identifier hs-var">CreateRepositoryResponse'</span></a></span></span><span>
 </span><span id="line-197"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the newly created repository.</span><span>
 </span><span id="line-198"></span><span>    </span><span id="%24sel%3ArepositoryMetadata%3ACreateRepositoryResponse%27"><span class="annot"><span class="annottext">CreateRepositoryResponse -&gt; Maybe RepositoryMetadata
 </span><a href="Network.AWS.CodeCommit.CreateRepository.html#%24sel%3ArepositoryMetadata%3ACreateRepositoryResponse%27"><span class="hs-identifier hs-var hs-var">repositoryMetadata</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.RepositoryMetadata.html#RepositoryMetadata"><span class="hs-identifier hs-type">RepositoryMetadata</span></a></span><span class="hs-special">,</span><span>
@@ -444,7 +444,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-200"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateRepositoryResponse%27"><span class="annot"><span class="annottext">CreateRepositoryResponse -&gt; Int
 </span><a href="Network.AWS.CodeCommit.CreateRepository.html#%24sel%3AhttpStatus%3ACreateRepositoryResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-201"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-202"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679369888"><span id="local-6989586621679369890"><span class="annot"><span class="annottext">CreateRepositoryResponse -&gt; CreateRepositoryResponse -&gt; Bool
+</span><span id="line-202"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679370197"><span id="local-6989586621679370199"><span class="annot"><span class="annottext">CreateRepositoryResponse -&gt; CreateRepositoryResponse -&gt; Bool
 (CreateRepositoryResponse -&gt; CreateRepositoryResponse -&gt; Bool)
 -&gt; (CreateRepositoryResponse -&gt; CreateRepositoryResponse -&gt; Bool)
 -&gt; Eq CreateRepositoryResponse
@@ -453,7 +453,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateRepositoryResponse -&gt; CreateRepositoryResponse -&gt; Bool
 == :: CreateRepositoryResponse -&gt; CreateRepositoryResponse -&gt; Bool
 $c== :: CreateRepositoryResponse -&gt; CreateRepositoryResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679369880"><span id="local-6989586621679369882"><span id="local-6989586621679369884"><span id="local-6989586621679369886"><span class="annot"><span class="annottext">ReadPrec [CreateRepositoryResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679370189"><span id="local-6989586621679370191"><span id="local-6989586621679370193"><span id="local-6989586621679370195"><span class="annot"><span class="annottext">ReadPrec [CreateRepositoryResponse]
 ReadPrec CreateRepositoryResponse
 Int -&gt; ReadS CreateRepositoryResponse
 ReadS [CreateRepositoryResponse]
@@ -473,7 +473,7 @@ readList :: ReadS [CreateRepositoryResponse]
 $creadList :: ReadS [CreateRepositoryResponse]
 readsPrec :: Int -&gt; ReadS CreateRepositoryResponse
 $creadsPrec :: Int -&gt; ReadS CreateRepositoryResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679369874"><span id="local-6989586621679369876"><span id="local-6989586621679369878"><span class="annot"><span class="annottext">Int -&gt; CreateRepositoryResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679370183"><span id="local-6989586621679370185"><span id="local-6989586621679370187"><span class="annot"><span class="annottext">Int -&gt; CreateRepositoryResponse -&gt; ShowS
 [CreateRepositoryResponse] -&gt; ShowS
 CreateRepositoryResponse -&gt; String
 (Int -&gt; CreateRepositoryResponse -&gt; ShowS)
@@ -521,8 +521,8 @@ CreateRepositoryResponse -&gt; Rep CreateRepositoryResponse x
 </span><span id="line-217"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-218"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeCommit.CreateRepository.html#CreateRepositoryResponse"><span class="hs-identifier hs-type">CreateRepositoryResponse</span></a></span><span>
 </span><span id="line-219"></span><span id="newCreateRepositoryResponse"><span class="annot"><span class="annottext">newCreateRepositoryResponse :: Int -&gt; CreateRepositoryResponse
-</span><a href="Network.AWS.CodeCommit.CreateRepository.html#newCreateRepositoryResponse"><span class="hs-identifier hs-var hs-var">newCreateRepositoryResponse</span></a></span></span><span> </span><span id="local-6989586621679369871"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679369871"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodeCommit.CreateRepository.html#newCreateRepositoryResponse"><span class="hs-identifier hs-var hs-var">newCreateRepositoryResponse</span></a></span></span><span> </span><span id="local-6989586621679370180"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679370180"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-220"></span><span>  </span><span class="annot"><span class="annottext">CreateRepositoryResponse' :: Maybe RepositoryMetadata -&gt; Int -&gt; CreateRepositoryResponse
 </span><a href="Network.AWS.CodeCommit.CreateRepository.html#CreateRepositoryResponse%27"><span class="hs-identifier hs-type">CreateRepositoryResponse'</span></a></span><span>
 </span><span id="line-221"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:repositoryMetadata:CreateRepositoryResponse' :: Maybe RepositoryMetadata
@@ -532,7 +532,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-223"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateRepositoryResponse' :: Int
 </span><a href="Network.AWS.CodeCommit.CreateRepository.html#%24sel%3AhttpStatus%3ACreateRepositoryResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679369871"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679370180"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-224"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-225"></span><span>
 </span><span id="line-226"></span><span class="hs-comment">-- | Information about the newly created repository.</span><span>
@@ -548,16 +548,16 @@ forall a. Maybe a
      (Maybe RepositoryMetadata)
      (Maybe RepositoryMetadata)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.CreateRepository.html#CreateRepositoryResponse%27"><span class="hs-identifier hs-type">CreateRepositoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369870"><span class="annot"><span class="annottext">Maybe RepositoryMetadata
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.CreateRepository.html#CreateRepositoryResponse%27"><span class="hs-identifier hs-type">CreateRepositoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370179"><span class="annot"><span class="annottext">Maybe RepositoryMetadata
 repositoryMetadata :: Maybe RepositoryMetadata
 $sel:repositoryMetadata:CreateRepositoryResponse' :: CreateRepositoryResponse -&gt; Maybe RepositoryMetadata
-</span><a href="#local-6989586621679369870"><span class="hs-identifier hs-var hs-var">repositoryMetadata</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RepositoryMetadata
-</span><a href="#local-6989586621679369870"><span class="hs-identifier hs-var">repositoryMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369869"><span class="annot"><span class="annottext">s :: CreateRepositoryResponse
-</span><a href="#local-6989586621679369869"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.CreateRepository.html#CreateRepositoryResponse%27"><span class="hs-identifier hs-type">CreateRepositoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369868"><span class="annot"><span class="annottext">Maybe RepositoryMetadata
-</span><a href="#local-6989586621679369868"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRepositoryResponse
-</span><a href="#local-6989586621679369869"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoryMetadata:CreateRepositoryResponse' :: Maybe RepositoryMetadata
+</span><a href="#local-6989586621679370179"><span class="hs-identifier hs-var hs-var">repositoryMetadata</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RepositoryMetadata
+</span><a href="#local-6989586621679370179"><span class="hs-identifier hs-var">repositoryMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370178"><span class="annot"><span class="annottext">s :: CreateRepositoryResponse
+</span><a href="#local-6989586621679370178"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.CreateRepository.html#CreateRepositoryResponse%27"><span class="hs-identifier hs-type">CreateRepositoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370177"><span class="annot"><span class="annottext">Maybe RepositoryMetadata
+</span><a href="#local-6989586621679370177"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRepositoryResponse
+</span><a href="#local-6989586621679370178"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoryMetadata:CreateRepositoryResponse' :: Maybe RepositoryMetadata
 </span><a href="Network.AWS.CodeCommit.CreateRepository.html#%24sel%3ArepositoryMetadata%3ACreateRepositoryResponse%27"><span class="hs-identifier hs-var">repositoryMetadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RepositoryMetadata
-</span><a href="#local-6989586621679369868"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.CreateRepository.html#CreateRepositoryResponse"><span class="hs-identifier hs-type">CreateRepositoryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679370177"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.CreateRepository.html#CreateRepositoryResponse"><span class="hs-identifier hs-type">CreateRepositoryResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-229"></span><span>
 </span><span id="line-230"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-231"></span><span class="annot"><a href="Network.AWS.CodeCommit.CreateRepository.html#createRepositoryResponse_httpStatus"><span class="hs-identifier hs-type">createRepositoryResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.CreateRepository.html#CreateRepositoryResponse"><span class="hs-identifier hs-type">CreateRepositoryResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -567,16 +567,16 @@ $sel:repositoryMetadata:CreateRepositoryResponse' :: CreateRepositoryResponse -&
 -&gt; (CreateRepositoryResponse -&gt; Int -&gt; CreateRepositoryResponse)
 -&gt; Lens CreateRepositoryResponse CreateRepositoryResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.CreateRepository.html#CreateRepositoryResponse%27"><span class="hs-identifier hs-type">CreateRepositoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369867"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.CreateRepository.html#CreateRepositoryResponse%27"><span class="hs-identifier hs-type">CreateRepositoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370176"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateRepositoryResponse' :: CreateRepositoryResponse -&gt; Int
-</span><a href="#local-6989586621679369867"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679369867"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369866"><span class="annot"><span class="annottext">s :: CreateRepositoryResponse
-</span><a href="#local-6989586621679369866"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.CreateRepository.html#CreateRepositoryResponse%27"><span class="hs-identifier hs-type">CreateRepositoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369865"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679369865"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRepositoryResponse
-</span><a href="#local-6989586621679369866"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateRepositoryResponse' :: Int
+</span><a href="#local-6989586621679370176"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679370176"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370175"><span class="annot"><span class="annottext">s :: CreateRepositoryResponse
+</span><a href="#local-6989586621679370175"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.CreateRepository.html#CreateRepositoryResponse%27"><span class="hs-identifier hs-type">CreateRepositoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370174"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679370174"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRepositoryResponse
+</span><a href="#local-6989586621679370175"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateRepositoryResponse' :: Int
 </span><a href="Network.AWS.CodeCommit.CreateRepository.html#%24sel%3AhttpStatus%3ACreateRepositoryResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679369865"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.CreateRepository.html#CreateRepositoryResponse"><span class="hs-identifier hs-type">CreateRepositoryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679370174"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.CreateRepository.html#CreateRepositoryResponse"><span class="hs-identifier hs-type">CreateRepositoryResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-233"></span><span>
-</span><span id="line-234"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369863"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.CreateRepository.html#CreateRepositoryResponse"><span class="hs-identifier hs-type">CreateRepositoryResponse</span></a></span></span><span>
+</span><span id="line-234"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370172"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.CreateRepository.html#CreateRepositoryResponse"><span class="hs-identifier hs-type">CreateRepositoryResponse</span></a></span></span><span>
 </span><span id="line-235"></span></pre></body></html>

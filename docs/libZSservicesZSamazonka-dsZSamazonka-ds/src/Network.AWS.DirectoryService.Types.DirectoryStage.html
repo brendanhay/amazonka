@@ -38,13 +38,13 @@
 </span><span id="line-38"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-39"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-40"></span><span>
-</span><span id="line-41"></span><span id="local-6989586621679295599"><span id="local-6989586621679295600"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DirectoryStage"><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryStage.html#DirectoryStage"><span class="hs-identifier hs-var">DirectoryStage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DirectoryStage%27"><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryStage.html#DirectoryStage%27"><span class="hs-identifier hs-var">DirectoryStage'</span></a></span></span><span>
+</span><span id="line-41"></span><span id="local-6989586621679295789"><span id="local-6989586621679295790"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DirectoryStage"><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryStage.html#DirectoryStage"><span class="hs-identifier hs-var">DirectoryStage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DirectoryStage%27"><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryStage.html#DirectoryStage%27"><span class="hs-identifier hs-var">DirectoryStage'</span></a></span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDirectoryStage"><span class="annot"><span class="annottext">DirectoryStage -&gt; Text
 </span><a href="Network.AWS.DirectoryService.Types.DirectoryStage.html#fromDirectoryStage"><span class="hs-identifier hs-var hs-var">fromDirectoryStage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-43"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679295591"><span id="local-6989586621679295593"><span id="local-6989586621679295595"><span class="annot"><span class="annottext">Int -&gt; DirectoryStage -&gt; ShowS
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679295781"><span id="local-6989586621679295783"><span id="local-6989586621679295785"><span class="annot"><span class="annottext">Int -&gt; DirectoryStage -&gt; ShowS
 [DirectoryStage] -&gt; ShowS
 DirectoryStage -&gt; String
 (Int -&gt; DirectoryStage -&gt; ShowS)
@@ -60,7 +60,7 @@ $cshow :: DirectoryStage -&gt; String
 showsPrec :: Int -&gt; DirectoryStage -&gt; ShowS
 $cshowsPrec :: Int -&gt; DirectoryStage -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679295582"><span id="local-6989586621679295584"><span id="local-6989586621679295586"><span id="local-6989586621679295588"><span class="annot"><span class="annottext">ReadPrec [DirectoryStage]
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679295772"><span id="local-6989586621679295774"><span id="local-6989586621679295776"><span id="local-6989586621679295778"><span class="annot"><span class="annottext">ReadPrec [DirectoryStage]
 ReadPrec DirectoryStage
 Int -&gt; ReadS DirectoryStage
 ReadS [DirectoryStage]
@@ -81,7 +81,7 @@ $creadList :: ReadS [DirectoryStage]
 readsPrec :: Int -&gt; ReadS DirectoryStage
 $creadsPrec :: Int -&gt; ReadS DirectoryStage
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679295577"><span id="local-6989586621679295579"><span class="annot"><span class="annottext">DirectoryStage -&gt; DirectoryStage -&gt; Bool
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679295767"><span id="local-6989586621679295769"><span class="annot"><span class="annottext">DirectoryStage -&gt; DirectoryStage -&gt; Bool
 (DirectoryStage -&gt; DirectoryStage -&gt; Bool)
 -&gt; (DirectoryStage -&gt; DirectoryStage -&gt; Bool) -&gt; Eq DirectoryStage
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -90,7 +90,7 @@ $c/= :: DirectoryStage -&gt; DirectoryStage -&gt; Bool
 == :: DirectoryStage -&gt; DirectoryStage -&gt; Bool
 $c== :: DirectoryStage -&gt; DirectoryStage -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679295561"><span id="local-6989586621679295563"><span id="local-6989586621679295565"><span id="local-6989586621679295567"><span id="local-6989586621679295569"><span id="local-6989586621679295571"><span id="local-6989586621679295573"><span class="annot"><span class="annottext">Eq DirectoryStage
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679295751"><span id="local-6989586621679295753"><span id="local-6989586621679295755"><span id="local-6989586621679295757"><span id="local-6989586621679295759"><span id="local-6989586621679295761"><span id="local-6989586621679295763"><span class="annot"><span class="annottext">Eq DirectoryStage
 Eq DirectoryStage
 -&gt; (DirectoryStage -&gt; DirectoryStage -&gt; Ordering)
 -&gt; (DirectoryStage -&gt; DirectoryStage -&gt; Bool)
@@ -141,7 +141,7 @@ $cfrom :: forall x. DirectoryStage -&gt; Rep DirectoryStage x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-51"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679295553"><span id="local-6989586621679295555"><span class="annot"><span class="annottext">Int -&gt; DirectoryStage -&gt; Int
+</span><span id="line-53"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679295743"><span id="local-6989586621679295745"><span class="annot"><span class="annottext">Int -&gt; DirectoryStage -&gt; Int
 DirectoryStage -&gt; Int
 (Int -&gt; DirectoryStage -&gt; Int)
 -&gt; (DirectoryStage -&gt; Int) -&gt; Hashable DirectoryStage
@@ -151,50 +151,50 @@ $chash :: DirectoryStage -&gt; Int
 hashWithSalt :: Int -&gt; DirectoryStage -&gt; Int
 $chashWithSalt :: Int -&gt; DirectoryStage -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679295550"><span class="annot"><span class="annottext">DirectoryStage -&gt; ()
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679295740"><span class="annot"><span class="annottext">DirectoryStage -&gt; ()
 (DirectoryStage -&gt; ()) -&gt; NFData DirectoryStage
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: DirectoryStage -&gt; ()
 $crnf :: DirectoryStage -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679295547"><span class="annot"><span class="annottext">Text -&gt; Either String DirectoryStage
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679295737"><span class="annot"><span class="annottext">Text -&gt; Either String DirectoryStage
 (Text -&gt; Either String DirectoryStage) -&gt; FromText DirectoryStage
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String DirectoryStage
 $cfromText :: Text -&gt; Either String DirectoryStage
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679295544"><span class="annot"><span class="annottext">DirectoryStage -&gt; Text
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679295734"><span class="annot"><span class="annottext">DirectoryStage -&gt; Text
 (DirectoryStage -&gt; Text) -&gt; ToText DirectoryStage
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: DirectoryStage -&gt; Text
 $ctoText :: DirectoryStage -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679295541"><span class="annot"><span class="annottext">DirectoryStage -&gt; ByteString
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679295731"><span class="annot"><span class="annottext">DirectoryStage -&gt; ByteString
 (DirectoryStage -&gt; ByteString) -&gt; ToByteString DirectoryStage
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: DirectoryStage -&gt; ByteString
 $ctoBS :: DirectoryStage -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679295538"><span class="annot"><span class="annottext">DirectoryStage -&gt; ByteStringBuilder
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679295728"><span class="annot"><span class="annottext">DirectoryStage -&gt; ByteStringBuilder
 (DirectoryStage -&gt; ByteStringBuilder) -&gt; ToLog DirectoryStage
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: DirectoryStage -&gt; ByteStringBuilder
 $cbuild :: DirectoryStage -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679295535"><span class="annot"><span class="annottext">HeaderName -&gt; DirectoryStage -&gt; [Header]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679295725"><span class="annot"><span class="annottext">HeaderName -&gt; DirectoryStage -&gt; [Header]
 (HeaderName -&gt; DirectoryStage -&gt; [Header])
 -&gt; ToHeader DirectoryStage
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; DirectoryStage -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; DirectoryStage -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679295532"><span class="annot"><span class="annottext">DirectoryStage -&gt; QueryString
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679295722"><span class="annot"><span class="annottext">DirectoryStage -&gt; QueryString
 (DirectoryStage -&gt; QueryString) -&gt; ToQuery DirectoryStage
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: DirectoryStage -&gt; QueryString
 $ctoQuery :: DirectoryStage -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679295527"><span id="local-6989586621679295529"><span class="annot"><span class="annottext">Value -&gt; Parser [DirectoryStage]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679295717"><span id="local-6989586621679295719"><span class="annot"><span class="annottext">Value -&gt; Parser [DirectoryStage]
 Value -&gt; Parser DirectoryStage
 (Value -&gt; Parser DirectoryStage)
 -&gt; (Value -&gt; Parser [DirectoryStage]) -&gt; FromJSON DirectoryStage
@@ -205,7 +205,7 @@ $cparseJSONList :: Value -&gt; Parser [DirectoryStage]
 parseJSON :: Value -&gt; Parser DirectoryStage
 $cparseJSON :: Value -&gt; Parser DirectoryStage
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679295522"><span id="local-6989586621679295524"><span class="annot"><span class="annottext">FromJSONKeyFunction [DirectoryStage]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679295712"><span id="local-6989586621679295714"><span class="annot"><span class="annottext">FromJSONKeyFunction [DirectoryStage]
 FromJSONKeyFunction DirectoryStage
 FromJSONKeyFunction DirectoryStage
 -&gt; FromJSONKeyFunction [DirectoryStage]
@@ -217,7 +217,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [DirectoryStage]
 fromJSONKey :: FromJSONKeyFunction DirectoryStage
 $cfromJSONKey :: FromJSONKeyFunction DirectoryStage
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679295513"><span id="local-6989586621679295515"><span id="local-6989586621679295517"><span id="local-6989586621679295519"><span class="annot"><span class="annottext">[DirectoryStage] -&gt; Encoding
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679295703"><span id="local-6989586621679295705"><span id="local-6989586621679295707"><span id="local-6989586621679295709"><span class="annot"><span class="annottext">[DirectoryStage] -&gt; Encoding
 [DirectoryStage] -&gt; Value
 DirectoryStage -&gt; Encoding
 DirectoryStage -&gt; Value
@@ -241,7 +241,7 @@ $ctoEncoding :: DirectoryStage -&gt; Encoding
 toJSON :: DirectoryStage -&gt; Value
 $ctoJSON :: DirectoryStage -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679295508"><span id="local-6989586621679295510"><span class="annot"><span class="annottext">ToJSONKeyFunction [DirectoryStage]
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679295698"><span id="local-6989586621679295700"><span class="annot"><span class="annottext">ToJSONKeyFunction [DirectoryStage]
 ToJSONKeyFunction DirectoryStage
 ToJSONKeyFunction DirectoryStage
 -&gt; ToJSONKeyFunction [DirectoryStage] -&gt; ToJSONKey DirectoryStage
@@ -252,13 +252,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [DirectoryStage]
 toJSONKey :: ToJSONKeyFunction DirectoryStage
 $ctoJSONKey :: ToJSONKeyFunction DirectoryStage
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679295505"><span class="annot"><span class="annottext">[Node] -&gt; Either String DirectoryStage
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679295695"><span class="annot"><span class="annottext">[Node] -&gt; Either String DirectoryStage
 ([Node] -&gt; Either String DirectoryStage) -&gt; FromXML DirectoryStage
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String DirectoryStage
 $cparseXML :: [Node] -&gt; Either String DirectoryStage
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679295502"><span class="annot"><span class="annottext">DirectoryStage -&gt; XML
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679295692"><span class="annot"><span class="annottext">DirectoryStage -&gt; XML
 (DirectoryStage -&gt; XML) -&gt; ToXML DirectoryStage
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: DirectoryStage -&gt; XML

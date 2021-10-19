@@ -27,25 +27,25 @@
 </span><span id="line-27"></span><span class="hs-comment">-- is entitled to for the product.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newEntitlementValue' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679139240"><span id="local-6989586621679139241"></span></span><span class="hs-keyword">data</span><span> </span><span id="EntitlementValue"><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.html#EntitlementValue"><span class="hs-identifier hs-var">EntitlementValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EntitlementValue%27"><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.html#EntitlementValue%27"><span class="hs-identifier hs-var">EntitlementValue'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The DoubleValue field will be populated with a double value when the</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- entitlement is a double type. Otherwise, the field will not be set.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AdoubleValue%3AEntitlementValue%27"><span class="annot"><span class="annottext">EntitlementValue -&gt; Maybe Double
+</span><span id="line-30"></span><span id="local-6989586621679139249"><span id="local-6989586621679139250"></span></span><span class="hs-keyword">data</span><span> </span><span id="EntitlementValue"><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.html#EntitlementValue"><span class="hs-identifier hs-var">EntitlementValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EntitlementValue%27"><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.html#EntitlementValue%27"><span class="hs-identifier hs-var">EntitlementValue'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The IntegerValue field will be populated with an integer value when the</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- entitlement is an integer type. Otherwise, the field will not be set.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AintegerValue%3AEntitlementValue%27"><span class="annot"><span class="annottext">EntitlementValue -&gt; Maybe Int
+</span><a href="Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.html#%24sel%3AintegerValue%3AEntitlementValue%27"><span class="hs-identifier hs-var hs-var">integerValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The DoubleValue field will be populated with a double value when the</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- entitlement is a double type. Otherwise, the field will not be set.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AdoubleValue%3AEntitlementValue%27"><span class="annot"><span class="annottext">EntitlementValue -&gt; Maybe Double
 </span><a href="Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.html#%24sel%3AdoubleValue%3AEntitlementValue%27"><span class="hs-identifier hs-var hs-var">doubleValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The StringValue field will be populated with a string value when the</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- entitlement is a string type. Otherwise, the field will not be set.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AstringValue%3AEntitlementValue%27"><span class="annot"><span class="annottext">EntitlementValue -&gt; Maybe Text
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The StringValue field will be populated with a string value when the</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- entitlement is a string type. Otherwise, the field will not be set.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AstringValue%3AEntitlementValue%27"><span class="annot"><span class="annottext">EntitlementValue -&gt; Maybe Text
 </span><a href="Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.html#%24sel%3AstringValue%3AEntitlementValue%27"><span class="hs-identifier hs-var hs-var">stringValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The BooleanValue field will be populated with a boolean value when the</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- entitlement is a boolean type. Otherwise, the field will not be set.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3AbooleanValue%3AEntitlementValue%27"><span class="annot"><span class="annottext">EntitlementValue -&gt; Maybe Bool
-</span><a href="Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.html#%24sel%3AbooleanValue%3AEntitlementValue%27"><span class="hs-identifier hs-var hs-var">booleanValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The IntegerValue field will be populated with an integer value when the</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- entitlement is an integer type. Otherwise, the field will not be set.</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3AintegerValue%3AEntitlementValue%27"><span class="annot"><span class="annottext">EntitlementValue -&gt; Maybe Int
-</span><a href="Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.html#%24sel%3AintegerValue%3AEntitlementValue%27"><span class="hs-identifier hs-var hs-var">integerValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The BooleanValue field will be populated with a boolean value when the</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- entitlement is a boolean type. Otherwise, the field will not be set.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AbooleanValue%3AEntitlementValue%27"><span class="annot"><span class="annottext">EntitlementValue -&gt; Maybe Bool
+</span><a href="Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.html#%24sel%3AbooleanValue%3AEntitlementValue%27"><span class="hs-identifier hs-var hs-var">booleanValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679139231"><span id="local-6989586621679139233"><span class="annot"><span class="annottext">EntitlementValue -&gt; EntitlementValue -&gt; Bool
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679139240"><span id="local-6989586621679139242"><span class="annot"><span class="annottext">EntitlementValue -&gt; EntitlementValue -&gt; Bool
 (EntitlementValue -&gt; EntitlementValue -&gt; Bool)
 -&gt; (EntitlementValue -&gt; EntitlementValue -&gt; Bool)
 -&gt; Eq EntitlementValue
@@ -54,7 +54,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: EntitlementValue -&gt; EntitlementValue -&gt; Bool
 == :: EntitlementValue -&gt; EntitlementValue -&gt; Bool
 $c== :: EntitlementValue -&gt; EntitlementValue -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679139222"><span id="local-6989586621679139224"><span id="local-6989586621679139226"><span id="local-6989586621679139228"><span class="annot"><span class="annottext">ReadPrec [EntitlementValue]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679139231"><span id="local-6989586621679139233"><span id="local-6989586621679139235"><span id="local-6989586621679139237"><span class="annot"><span class="annottext">ReadPrec [EntitlementValue]
 ReadPrec EntitlementValue
 Int -&gt; ReadS EntitlementValue
 ReadS [EntitlementValue]
@@ -74,7 +74,7 @@ readList :: ReadS [EntitlementValue]
 $creadList :: ReadS [EntitlementValue]
 readsPrec :: Int -&gt; ReadS EntitlementValue
 $creadsPrec :: Int -&gt; ReadS EntitlementValue
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679139215"><span id="local-6989586621679139217"><span id="local-6989586621679139219"><span class="annot"><span class="annottext">Int -&gt; EntitlementValue -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679139224"><span id="local-6989586621679139226"><span id="local-6989586621679139228"><span class="annot"><span class="annottext">Int -&gt; EntitlementValue -&gt; ShowS
 [EntitlementValue] -&gt; ShowS
 EntitlementValue -&gt; String
 (Int -&gt; EntitlementValue -&gt; ShowS)
@@ -108,125 +108,125 @@ $cfrom :: forall x. EntitlementValue -&gt; Rep EntitlementValue x
 </span><span id="line-51"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-53"></span><span class="hs-comment">--</span><span>
-</span><span id="line-54"></span><span class="hs-comment">-- 'doubleValue', 'entitlementValue_doubleValue' - The DoubleValue field will be populated with a double value when the</span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- entitlement is a double type. Otherwise, the field will not be set.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'integerValue', 'entitlementValue_integerValue' - The IntegerValue field will be populated with an integer value when the</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- entitlement is an integer type. Otherwise, the field will not be set.</span><span>
 </span><span id="line-56"></span><span class="hs-comment">--</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- 'stringValue', 'entitlementValue_stringValue' - The StringValue field will be populated with a string value when the</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- entitlement is a string type. Otherwise, the field will not be set.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'doubleValue', 'entitlementValue_doubleValue' - The DoubleValue field will be populated with a double value when the</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- entitlement is a double type. Otherwise, the field will not be set.</span><span>
 </span><span id="line-59"></span><span class="hs-comment">--</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- 'booleanValue', 'entitlementValue_booleanValue' - The BooleanValue field will be populated with a boolean value when the</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- entitlement is a boolean type. Otherwise, the field will not be set.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'stringValue', 'entitlementValue_stringValue' - The StringValue field will be populated with a string value when the</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- entitlement is a string type. Otherwise, the field will not be set.</span><span>
 </span><span id="line-62"></span><span class="hs-comment">--</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- 'integerValue', 'entitlementValue_integerValue' - The IntegerValue field will be populated with an integer value when the</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- entitlement is an integer type. Otherwise, the field will not be set.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'booleanValue', 'entitlementValue_booleanValue' - The BooleanValue field will be populated with a boolean value when the</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- entitlement is a boolean type. Otherwise, the field will not be set.</span><span>
 </span><span id="line-65"></span><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.html#newEntitlementValue"><span class="hs-identifier hs-type">newEntitlementValue</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-66"></span><span>  </span><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.html#EntitlementValue"><span class="hs-identifier hs-type">EntitlementValue</span></a></span><span>
 </span><span id="line-67"></span><span id="newEntitlementValue"><span class="annot"><span class="annottext">newEntitlementValue :: EntitlementValue
 </span><a href="Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.html#newEntitlementValue"><span class="hs-identifier hs-var hs-var">newEntitlementValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-68"></span><span>  </span><span class="annot"><span class="annottext">EntitlementValue' :: Maybe Double
--&gt; Maybe Text -&gt; Maybe Bool -&gt; Maybe Int -&gt; EntitlementValue
+</span><span id="line-68"></span><span>  </span><span class="annot"><span class="annottext">EntitlementValue' :: Maybe Int
+-&gt; Maybe Double -&gt; Maybe Text -&gt; Maybe Bool -&gt; EntitlementValue
 </span><a href="Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.html#EntitlementValue%27"><span class="hs-identifier hs-type">EntitlementValue'</span></a></span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:doubleValue:EntitlementValue' :: Maybe Double
+</span><span id="line-69"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:integerValue:EntitlementValue' :: Maybe Int
+</span><a href="Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.html#%24sel%3AintegerValue%3AEntitlementValue%27"><span class="hs-identifier hs-var">integerValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:doubleValue:EntitlementValue' :: Maybe Double
 </span><a href="Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.html#%24sel%3AdoubleValue%3AEntitlementValue%27"><span class="hs-identifier hs-var">doubleValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:stringValue:EntitlementValue' :: Maybe Text
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:stringValue:EntitlementValue' :: Maybe Text
 </span><a href="Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.html#%24sel%3AstringValue%3AEntitlementValue%27"><span class="hs-identifier hs-var">stringValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:booleanValue:EntitlementValue' :: Maybe Bool
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:booleanValue:EntitlementValue' :: Maybe Bool
 </span><a href="Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.html#%24sel%3AbooleanValue%3AEntitlementValue%27"><span class="hs-identifier hs-var">booleanValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:integerValue:EntitlementValue' :: Maybe Int
-</span><a href="Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.html#%24sel%3AintegerValue%3AEntitlementValue%27"><span class="hs-identifier hs-var">integerValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-73"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- | The DoubleValue field will be populated with a double value when the</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- entitlement is a double type. Otherwise, the field will not be set.</span><span>
-</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.html#entitlementValue_doubleValue"><span class="hs-identifier hs-type">entitlementValue_doubleValue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.html#EntitlementValue"><span class="hs-identifier hs-type">EntitlementValue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
-</span><span id="line-78"></span><span id="entitlementValue_doubleValue"><span class="annot"><span class="annottext">entitlementValue_doubleValue :: (Maybe Double -&gt; f (Maybe Double))
+</span><span id="line-75"></span><span class="hs-comment">-- | The IntegerValue field will be populated with an integer value when the</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- entitlement is an integer type. Otherwise, the field will not be set.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.html#entitlementValue_integerValue"><span class="hs-identifier hs-type">entitlementValue_integerValue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.html#EntitlementValue"><span class="hs-identifier hs-type">EntitlementValue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span id="entitlementValue_integerValue"><span class="annot"><span class="annottext">entitlementValue_integerValue :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; EntitlementValue -&gt; f EntitlementValue
+</span><a href="Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.html#entitlementValue_integerValue"><span class="hs-identifier hs-var hs-var">entitlementValue_integerValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EntitlementValue -&gt; Maybe Int)
+-&gt; (EntitlementValue -&gt; Maybe Int -&gt; EntitlementValue)
+-&gt; Lens EntitlementValue EntitlementValue (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.html#EntitlementValue%27"><span class="hs-identifier hs-type">EntitlementValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679139215"><span class="annot"><span class="annottext">Maybe Int
+integerValue :: Maybe Int
+$sel:integerValue:EntitlementValue' :: EntitlementValue -&gt; Maybe Int
+</span><a href="#local-6989586621679139215"><span class="hs-identifier hs-var hs-var">integerValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679139215"><span class="hs-identifier hs-var">integerValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679139214"><span class="annot"><span class="annottext">s :: EntitlementValue
+</span><a href="#local-6989586621679139214"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.html#EntitlementValue%27"><span class="hs-identifier hs-type">EntitlementValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679139213"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679139213"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EntitlementValue
+</span><a href="#local-6989586621679139214"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:integerValue:EntitlementValue' :: Maybe Int
+</span><a href="Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.html#%24sel%3AintegerValue%3AEntitlementValue%27"><span class="hs-identifier hs-var">integerValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679139213"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.html#EntitlementValue"><span class="hs-identifier hs-type">EntitlementValue</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | The DoubleValue field will be populated with a double value when the</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- entitlement is a double type. Otherwise, the field will not be set.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.html#entitlementValue_doubleValue"><span class="hs-identifier hs-type">entitlementValue_doubleValue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.html#EntitlementValue"><span class="hs-identifier hs-type">EntitlementValue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="entitlementValue_doubleValue"><span class="annot"><span class="annottext">entitlementValue_doubleValue :: (Maybe Double -&gt; f (Maybe Double))
 -&gt; EntitlementValue -&gt; f EntitlementValue
 </span><a href="Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.html#entitlementValue_doubleValue"><span class="hs-identifier hs-var hs-var">entitlementValue_doubleValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EntitlementValue -&gt; Maybe Double)
 -&gt; (EntitlementValue -&gt; Maybe Double -&gt; EntitlementValue)
 -&gt; Lens
      EntitlementValue EntitlementValue (Maybe Double) (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.html#EntitlementValue%27"><span class="hs-identifier hs-type">EntitlementValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679139206"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.html#EntitlementValue%27"><span class="hs-identifier hs-type">EntitlementValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679139211"><span class="annot"><span class="annottext">Maybe Double
 doubleValue :: Maybe Double
 $sel:doubleValue:EntitlementValue' :: EntitlementValue -&gt; Maybe Double
-</span><a href="#local-6989586621679139206"><span class="hs-identifier hs-var hs-var">doubleValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679139206"><span class="hs-identifier hs-var">doubleValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679139205"><span class="annot"><span class="annottext">s :: EntitlementValue
-</span><a href="#local-6989586621679139205"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.html#EntitlementValue%27"><span class="hs-identifier hs-type">EntitlementValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679139204"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679139204"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EntitlementValue
-</span><a href="#local-6989586621679139205"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:doubleValue:EntitlementValue' :: Maybe Double
+</span><a href="#local-6989586621679139211"><span class="hs-identifier hs-var hs-var">doubleValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679139211"><span class="hs-identifier hs-var">doubleValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679139210"><span class="annot"><span class="annottext">s :: EntitlementValue
+</span><a href="#local-6989586621679139210"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.html#EntitlementValue%27"><span class="hs-identifier hs-type">EntitlementValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679139209"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679139209"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EntitlementValue
+</span><a href="#local-6989586621679139210"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:doubleValue:EntitlementValue' :: Maybe Double
 </span><a href="Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.html#%24sel%3AdoubleValue%3AEntitlementValue%27"><span class="hs-identifier hs-var">doubleValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679139204"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.html#EntitlementValue"><span class="hs-identifier hs-type">EntitlementValue</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- | The StringValue field will be populated with a string value when the</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- entitlement is a string type. Otherwise, the field will not be set.</span><span>
-</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.html#entitlementValue_stringValue"><span class="hs-identifier hs-type">entitlementValue_stringValue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.html#EntitlementValue"><span class="hs-identifier hs-type">EntitlementValue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-83"></span><span id="entitlementValue_stringValue"><span class="annot"><span class="annottext">entitlementValue_stringValue :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621679139209"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.html#EntitlementValue"><span class="hs-identifier hs-type">EntitlementValue</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The StringValue field will be populated with a string value when the</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- entitlement is a string type. Otherwise, the field will not be set.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.html#entitlementValue_stringValue"><span class="hs-identifier hs-type">entitlementValue_stringValue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.html#EntitlementValue"><span class="hs-identifier hs-type">EntitlementValue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="entitlementValue_stringValue"><span class="annot"><span class="annottext">entitlementValue_stringValue :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; EntitlementValue -&gt; f EntitlementValue
 </span><a href="Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.html#entitlementValue_stringValue"><span class="hs-identifier hs-var hs-var">entitlementValue_stringValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EntitlementValue -&gt; Maybe Text)
 -&gt; (EntitlementValue -&gt; Maybe Text -&gt; EntitlementValue)
 -&gt; Lens EntitlementValue EntitlementValue (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.html#EntitlementValue%27"><span class="hs-identifier hs-type">EntitlementValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679139202"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.html#EntitlementValue%27"><span class="hs-identifier hs-type">EntitlementValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679139207"><span class="annot"><span class="annottext">Maybe Text
 stringValue :: Maybe Text
 $sel:stringValue:EntitlementValue' :: EntitlementValue -&gt; Maybe Text
-</span><a href="#local-6989586621679139202"><span class="hs-identifier hs-var hs-var">stringValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679139202"><span class="hs-identifier hs-var">stringValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679139201"><span class="annot"><span class="annottext">s :: EntitlementValue
-</span><a href="#local-6989586621679139201"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.html#EntitlementValue%27"><span class="hs-identifier hs-type">EntitlementValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679139200"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679139200"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EntitlementValue
-</span><a href="#local-6989586621679139201"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stringValue:EntitlementValue' :: Maybe Text
+</span><a href="#local-6989586621679139207"><span class="hs-identifier hs-var hs-var">stringValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679139207"><span class="hs-identifier hs-var">stringValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679139206"><span class="annot"><span class="annottext">s :: EntitlementValue
+</span><a href="#local-6989586621679139206"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.html#EntitlementValue%27"><span class="hs-identifier hs-type">EntitlementValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679139205"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679139205"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EntitlementValue
+</span><a href="#local-6989586621679139206"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stringValue:EntitlementValue' :: Maybe Text
 </span><a href="Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.html#%24sel%3AstringValue%3AEntitlementValue%27"><span class="hs-identifier hs-var">stringValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679139200"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.html#EntitlementValue"><span class="hs-identifier hs-type">EntitlementValue</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- | The BooleanValue field will be populated with a boolean value when the</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- entitlement is a boolean type. Otherwise, the field will not be set.</span><span>
-</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.html#entitlementValue_booleanValue"><span class="hs-identifier hs-type">entitlementValue_booleanValue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.html#EntitlementValue"><span class="hs-identifier hs-type">EntitlementValue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-88"></span><span id="entitlementValue_booleanValue"><span class="annot"><span class="annottext">entitlementValue_booleanValue :: (Maybe Bool -&gt; f (Maybe Bool))
+</span><a href="#local-6989586621679139205"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.html#EntitlementValue"><span class="hs-identifier hs-type">EntitlementValue</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The BooleanValue field will be populated with a boolean value when the</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- entitlement is a boolean type. Otherwise, the field will not be set.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.html#entitlementValue_booleanValue"><span class="hs-identifier hs-type">entitlementValue_booleanValue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.html#EntitlementValue"><span class="hs-identifier hs-type">EntitlementValue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span id="entitlementValue_booleanValue"><span class="annot"><span class="annottext">entitlementValue_booleanValue :: (Maybe Bool -&gt; f (Maybe Bool))
 -&gt; EntitlementValue -&gt; f EntitlementValue
 </span><a href="Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.html#entitlementValue_booleanValue"><span class="hs-identifier hs-var hs-var">entitlementValue_booleanValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EntitlementValue -&gt; Maybe Bool)
 -&gt; (EntitlementValue -&gt; Maybe Bool -&gt; EntitlementValue)
 -&gt; Lens EntitlementValue EntitlementValue (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.html#EntitlementValue%27"><span class="hs-identifier hs-type">EntitlementValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679139198"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.html#EntitlementValue%27"><span class="hs-identifier hs-type">EntitlementValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679139203"><span class="annot"><span class="annottext">Maybe Bool
 booleanValue :: Maybe Bool
 $sel:booleanValue:EntitlementValue' :: EntitlementValue -&gt; Maybe Bool
-</span><a href="#local-6989586621679139198"><span class="hs-identifier hs-var hs-var">booleanValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679139198"><span class="hs-identifier hs-var">booleanValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679139197"><span class="annot"><span class="annottext">s :: EntitlementValue
-</span><a href="#local-6989586621679139197"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.html#EntitlementValue%27"><span class="hs-identifier hs-type">EntitlementValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679139196"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679139196"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EntitlementValue
-</span><a href="#local-6989586621679139197"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:booleanValue:EntitlementValue' :: Maybe Bool
+</span><a href="#local-6989586621679139203"><span class="hs-identifier hs-var hs-var">booleanValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679139203"><span class="hs-identifier hs-var">booleanValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679139202"><span class="annot"><span class="annottext">s :: EntitlementValue
+</span><a href="#local-6989586621679139202"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.html#EntitlementValue%27"><span class="hs-identifier hs-type">EntitlementValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679139201"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679139201"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EntitlementValue
+</span><a href="#local-6989586621679139202"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:booleanValue:EntitlementValue' :: Maybe Bool
 </span><a href="Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.html#%24sel%3AbooleanValue%3AEntitlementValue%27"><span class="hs-identifier hs-var">booleanValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679139196"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.html#EntitlementValue"><span class="hs-identifier hs-type">EntitlementValue</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- | The IntegerValue field will be populated with an integer value when the</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- entitlement is an integer type. Otherwise, the field will not be set.</span><span>
-</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.html#entitlementValue_integerValue"><span class="hs-identifier hs-type">entitlementValue_integerValue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.html#EntitlementValue"><span class="hs-identifier hs-type">EntitlementValue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-93"></span><span id="entitlementValue_integerValue"><span class="annot"><span class="annottext">entitlementValue_integerValue :: (Maybe Int -&gt; f (Maybe Int))
--&gt; EntitlementValue -&gt; f EntitlementValue
-</span><a href="Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.html#entitlementValue_integerValue"><span class="hs-identifier hs-var hs-var">entitlementValue_integerValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EntitlementValue -&gt; Maybe Int)
--&gt; (EntitlementValue -&gt; Maybe Int -&gt; EntitlementValue)
--&gt; Lens EntitlementValue EntitlementValue (Maybe Int) (Maybe Int)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.html#EntitlementValue%27"><span class="hs-identifier hs-type">EntitlementValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679139194"><span class="annot"><span class="annottext">Maybe Int
-integerValue :: Maybe Int
-$sel:integerValue:EntitlementValue' :: EntitlementValue -&gt; Maybe Int
-</span><a href="#local-6989586621679139194"><span class="hs-identifier hs-var hs-var">integerValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679139194"><span class="hs-identifier hs-var">integerValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679139193"><span class="annot"><span class="annottext">s :: EntitlementValue
-</span><a href="#local-6989586621679139193"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.html#EntitlementValue%27"><span class="hs-identifier hs-type">EntitlementValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679139192"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679139192"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EntitlementValue
-</span><a href="#local-6989586621679139193"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:integerValue:EntitlementValue' :: Maybe Int
-</span><a href="Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.html#%24sel%3AintegerValue%3AEntitlementValue%27"><span class="hs-identifier hs-var">integerValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679139192"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.html#EntitlementValue"><span class="hs-identifier hs-type">EntitlementValue</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679139201"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.html#EntitlementValue"><span class="hs-identifier hs-type">EntitlementValue</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679139189"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.html#EntitlementValue"><span class="hs-identifier hs-type">EntitlementValue</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679139187"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EntitlementValue
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679139198"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.html#EntitlementValue"><span class="hs-identifier hs-type">EntitlementValue</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679139196"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EntitlementValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser EntitlementValue)
@@ -236,50 +236,51 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;EntitlementValue&quot;</span></span><span>
-</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679139184"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679139184"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-100"></span><span>          </span><span class="annot"><span class="annottext">Maybe Double
--&gt; Maybe Text -&gt; Maybe Bool -&gt; Maybe Int -&gt; EntitlementValue
+</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679139193"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679139193"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int
+-&gt; Maybe Double -&gt; Maybe Text -&gt; Maybe Bool -&gt; EntitlementValue
 </span><a href="Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.html#EntitlementValue%27"><span class="hs-identifier hs-var">EntitlementValue'</span></a></span><span>
-</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Double
- -&gt; Maybe Text -&gt; Maybe Bool -&gt; Maybe Int -&gt; EntitlementValue)
--&gt; Parser (Maybe Double)
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Int
+ -&gt; Maybe Double -&gt; Maybe Text -&gt; Maybe Bool -&gt; EntitlementValue)
+-&gt; Parser (Maybe Int)
 -&gt; Parser
-     (Maybe Text -&gt; Maybe Bool -&gt; Maybe Int -&gt; EntitlementValue)
+     (Maybe Double -&gt; Maybe Text -&gt; Maybe Bool -&gt; EntitlementValue)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679139184"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;DoubleValue&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Bool -&gt; Maybe Int -&gt; EntitlementValue)
--&gt; Parser (Maybe Text)
--&gt; Parser (Maybe Bool -&gt; Maybe Int -&gt; EntitlementValue)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679139184"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;StringValue&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Bool -&gt; Maybe Int -&gt; EntitlementValue)
--&gt; Parser (Maybe Bool) -&gt; Parser (Maybe Int -&gt; EntitlementValue)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679139184"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;BooleanValue&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Int -&gt; EntitlementValue)
--&gt; Parser (Maybe Int) -&gt; Parser EntitlementValue
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679139184"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679139193"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IntegerValue&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Double -&gt; Maybe Text -&gt; Maybe Bool -&gt; EntitlementValue)
+-&gt; Parser (Maybe Double)
+-&gt; Parser (Maybe Text -&gt; Maybe Bool -&gt; EntitlementValue)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679139193"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DoubleValue&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Bool -&gt; EntitlementValue)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe Bool -&gt; EntitlementValue)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679139193"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StringValue&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Bool -&gt; EntitlementValue)
+-&gt; Parser (Maybe Bool) -&gt; Parser EntitlementValue
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679139193"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BooleanValue&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679139178"><span id="local-6989586621679139180"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.html#EntitlementValue"><span class="hs-identifier hs-type">EntitlementValue</span></a></span></span></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679139187"><span id="local-6989586621679139189"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.html#EntitlementValue"><span class="hs-identifier hs-type">EntitlementValue</span></a></span></span></span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679139175"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.html#EntitlementValue"><span class="hs-identifier hs-type">EntitlementValue</span></a></span></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679139184"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.html#EntitlementValue"><span class="hs-identifier hs-type">EntitlementValue</span></a></span></span><span>
 </span><span id="line-110"></span></pre></body></html>

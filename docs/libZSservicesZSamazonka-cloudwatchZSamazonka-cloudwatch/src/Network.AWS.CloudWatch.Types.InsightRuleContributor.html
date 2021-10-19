@@ -35,7 +35,7 @@
 </span><span id="line-35"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetInsightRuleReport.html GetInsightRuleReport&gt;.</span><span>
 </span><span id="line-36"></span><span class="hs-comment">--</span><span>
 </span><span id="line-37"></span><span class="hs-comment">-- /See:/ 'newInsightRuleContributor' smart constructor.</span><span>
-</span><span id="line-38"></span><span id="local-6989586621679254327"><span id="local-6989586621679254328"></span></span><span class="hs-keyword">data</span><span> </span><span id="InsightRuleContributor"><span class="annot"><a href="Network.AWS.CloudWatch.Types.InsightRuleContributor.html#InsightRuleContributor"><span class="hs-identifier hs-var">InsightRuleContributor</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InsightRuleContributor%27"><span class="annot"><a href="Network.AWS.CloudWatch.Types.InsightRuleContributor.html#InsightRuleContributor%27"><span class="hs-identifier hs-var">InsightRuleContributor'</span></a></span></span><span>
+</span><span id="line-38"></span><span id="local-6989586621679254652"><span id="local-6989586621679254653"></span></span><span class="hs-keyword">data</span><span> </span><span id="InsightRuleContributor"><span class="annot"><a href="Network.AWS.CloudWatch.Types.InsightRuleContributor.html#InsightRuleContributor"><span class="hs-identifier hs-var">InsightRuleContributor</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InsightRuleContributor%27"><span class="annot"><a href="Network.AWS.CloudWatch.Types.InsightRuleContributor.html#InsightRuleContributor%27"><span class="hs-identifier hs-var">InsightRuleContributor'</span></a></span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | One of the log entry field keywords that is used to define contributors</span><span>
 </span><span id="line-40"></span><span>    </span><span class="hs-comment">-- for this rule.</span><span>
 </span><span id="line-41"></span><span>    </span><span id="%24sel%3Akeys%3AInsightRuleContributor%27"><span class="annot"><span class="annottext">InsightRuleContributor -&gt; [Text]
@@ -49,7 +49,7 @@
 </span><span id="line-47"></span><span>    </span><span id="%24sel%3Adatapoints%3AInsightRuleContributor%27"><span class="annot"><span class="annottext">InsightRuleContributor -&gt; [InsightRuleContributorDatapoint]
 </span><a href="Network.AWS.CloudWatch.Types.InsightRuleContributor.html#%24sel%3Adatapoints%3AInsightRuleContributor%27"><span class="hs-identifier hs-var hs-var">datapoints</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.InsightRuleContributorDatapoint.html#InsightRuleContributorDatapoint"><span class="hs-identifier hs-type">InsightRuleContributorDatapoint</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679254319"><span id="local-6989586621679254321"><span class="annot"><span class="annottext">InsightRuleContributor -&gt; InsightRuleContributor -&gt; Bool
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679254644"><span id="local-6989586621679254646"><span class="annot"><span class="annottext">InsightRuleContributor -&gt; InsightRuleContributor -&gt; Bool
 (InsightRuleContributor -&gt; InsightRuleContributor -&gt; Bool)
 -&gt; (InsightRuleContributor -&gt; InsightRuleContributor -&gt; Bool)
 -&gt; Eq InsightRuleContributor
@@ -58,7 +58,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: InsightRuleContributor -&gt; InsightRuleContributor -&gt; Bool
 == :: InsightRuleContributor -&gt; InsightRuleContributor -&gt; Bool
 $c== :: InsightRuleContributor -&gt; InsightRuleContributor -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679254310"><span id="local-6989586621679254312"><span id="local-6989586621679254314"><span id="local-6989586621679254316"><span class="annot"><span class="annottext">ReadPrec [InsightRuleContributor]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679254635"><span id="local-6989586621679254637"><span id="local-6989586621679254639"><span id="local-6989586621679254641"><span class="annot"><span class="annottext">ReadPrec [InsightRuleContributor]
 ReadPrec InsightRuleContributor
 Int -&gt; ReadS InsightRuleContributor
 ReadS [InsightRuleContributor]
@@ -78,7 +78,7 @@ readList :: ReadS [InsightRuleContributor]
 $creadList :: ReadS [InsightRuleContributor]
 readsPrec :: Int -&gt; ReadS InsightRuleContributor
 $creadsPrec :: Int -&gt; ReadS InsightRuleContributor
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679254303"><span id="local-6989586621679254305"><span id="local-6989586621679254307"><span class="annot"><span class="annottext">Int -&gt; InsightRuleContributor -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679254628"><span id="local-6989586621679254630"><span id="local-6989586621679254632"><span class="annot"><span class="annottext">Int -&gt; InsightRuleContributor -&gt; ShowS
 [InsightRuleContributor] -&gt; ShowS
 InsightRuleContributor -&gt; String
 (Int -&gt; InsightRuleContributor -&gt; ShowS)
@@ -126,8 +126,8 @@ $cfrom :: forall x. InsightRuleContributor -&gt; Rep InsightRuleContributor x
 </span><span id="line-69"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.InsightRuleContributor.html#InsightRuleContributor"><span class="hs-identifier hs-type">InsightRuleContributor</span></a></span><span>
 </span><span id="line-71"></span><span id="newInsightRuleContributor"><span class="annot"><span class="annottext">newInsightRuleContributor :: Double -&gt; InsightRuleContributor
-</span><a href="Network.AWS.CloudWatch.Types.InsightRuleContributor.html#newInsightRuleContributor"><span class="hs-identifier hs-var hs-var">newInsightRuleContributor</span></a></span></span><span> </span><span id="local-6989586621679254297"><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679254297"><span class="hs-identifier hs-var">pApproximateAggregateValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudWatch.Types.InsightRuleContributor.html#newInsightRuleContributor"><span class="hs-identifier hs-var hs-var">newInsightRuleContributor</span></a></span></span><span> </span><span id="local-6989586621679254622"><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679254622"><span class="hs-identifier hs-var">pApproximateAggregateValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>  </span><span class="annot"><span class="annottext">InsightRuleContributor' :: [Text]
 -&gt; Double
 -&gt; [InsightRuleContributorDatapoint]
@@ -140,7 +140,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:approximateAggregateValue:InsightRuleContributor' :: Double
 </span><a href="Network.AWS.CloudWatch.Types.InsightRuleContributor.html#%24sel%3AapproximateAggregateValue%3AInsightRuleContributor%27"><span class="hs-identifier hs-var">approximateAggregateValue</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>        </span><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679254297"><span class="hs-identifier hs-var">pApproximateAggregateValue_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679254622"><span class="hs-identifier hs-var">pApproximateAggregateValue_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:datapoints:InsightRuleContributor' :: [InsightRuleContributorDatapoint]
 </span><a href="Network.AWS.CloudWatch.Types.InsightRuleContributor.html#%24sel%3Adatapoints%3AInsightRuleContributor%27"><span class="hs-identifier hs-var">datapoints</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[InsightRuleContributorDatapoint]
 forall a. Monoid a =&gt; a
@@ -156,16 +156,16 @@ forall a. Monoid a =&gt; a
 -&gt; (InsightRuleContributor -&gt; [Text] -&gt; InsightRuleContributor)
 -&gt; Lens InsightRuleContributor InsightRuleContributor [Text] [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.InsightRuleContributor.html#InsightRuleContributor%27"><span class="hs-identifier hs-type">InsightRuleContributor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254293"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.InsightRuleContributor.html#InsightRuleContributor%27"><span class="hs-identifier hs-type">InsightRuleContributor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254618"><span class="annot"><span class="annottext">[Text]
 keys :: [Text]
 $sel:keys:InsightRuleContributor' :: InsightRuleContributor -&gt; [Text]
-</span><a href="#local-6989586621679254293"><span class="hs-identifier hs-var hs-var">keys</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679254293"><span class="hs-identifier hs-var">keys</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254292"><span class="annot"><span class="annottext">s :: InsightRuleContributor
-</span><a href="#local-6989586621679254292"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.InsightRuleContributor.html#InsightRuleContributor%27"><span class="hs-identifier hs-type">InsightRuleContributor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254291"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679254291"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InsightRuleContributor
-</span><a href="#local-6989586621679254292"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keys:InsightRuleContributor' :: [Text]
+</span><a href="#local-6989586621679254618"><span class="hs-identifier hs-var hs-var">keys</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679254618"><span class="hs-identifier hs-var">keys</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254617"><span class="annot"><span class="annottext">s :: InsightRuleContributor
+</span><a href="#local-6989586621679254617"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.InsightRuleContributor.html#InsightRuleContributor%27"><span class="hs-identifier hs-type">InsightRuleContributor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254616"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679254616"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InsightRuleContributor
+</span><a href="#local-6989586621679254617"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keys:InsightRuleContributor' :: [Text]
 </span><a href="Network.AWS.CloudWatch.Types.InsightRuleContributor.html#%24sel%3Akeys%3AInsightRuleContributor%27"><span class="hs-identifier hs-var">keys</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679254291"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.InsightRuleContributor.html#InsightRuleContributor"><span class="hs-identifier hs-type">InsightRuleContributor</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+</span><a href="#local-6989586621679254616"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.InsightRuleContributor.html#InsightRuleContributor"><span class="hs-identifier hs-type">InsightRuleContributor</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
  -&gt; InsightRuleContributor -&gt; f InsightRuleContributor)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
@@ -173,8 +173,8 @@ $sel:keys:InsightRuleContributor' :: InsightRuleContributor -&gt; [Text]
 -&gt; f InsightRuleContributor
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- | An approximation of the aggregate value that comes from this</span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- contributor.</span><span>
@@ -185,16 +185,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (InsightRuleContributor -&gt; Double -&gt; InsightRuleContributor)
 -&gt; Lens InsightRuleContributor InsightRuleContributor Double Double
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.InsightRuleContributor.html#InsightRuleContributor%27"><span class="hs-identifier hs-type">InsightRuleContributor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254287"><span class="annot"><span class="annottext">Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.InsightRuleContributor.html#InsightRuleContributor%27"><span class="hs-identifier hs-type">InsightRuleContributor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254612"><span class="annot"><span class="annottext">Double
 approximateAggregateValue :: Double
 $sel:approximateAggregateValue:InsightRuleContributor' :: InsightRuleContributor -&gt; Double
-</span><a href="#local-6989586621679254287"><span class="hs-identifier hs-var hs-var">approximateAggregateValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679254287"><span class="hs-identifier hs-var">approximateAggregateValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254286"><span class="annot"><span class="annottext">s :: InsightRuleContributor
-</span><a href="#local-6989586621679254286"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.InsightRuleContributor.html#InsightRuleContributor%27"><span class="hs-identifier hs-type">InsightRuleContributor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254285"><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679254285"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InsightRuleContributor
-</span><a href="#local-6989586621679254286"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:approximateAggregateValue:InsightRuleContributor' :: Double
+</span><a href="#local-6989586621679254612"><span class="hs-identifier hs-var hs-var">approximateAggregateValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679254612"><span class="hs-identifier hs-var">approximateAggregateValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254611"><span class="annot"><span class="annottext">s :: InsightRuleContributor
+</span><a href="#local-6989586621679254611"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.InsightRuleContributor.html#InsightRuleContributor%27"><span class="hs-identifier hs-type">InsightRuleContributor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254610"><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679254610"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InsightRuleContributor
+</span><a href="#local-6989586621679254611"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:approximateAggregateValue:InsightRuleContributor' :: Double
 </span><a href="Network.AWS.CloudWatch.Types.InsightRuleContributor.html#%24sel%3AapproximateAggregateValue%3AInsightRuleContributor%27"><span class="hs-identifier hs-var">approximateAggregateValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679254285"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.InsightRuleContributor.html#InsightRuleContributor"><span class="hs-identifier hs-type">InsightRuleContributor</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679254610"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.InsightRuleContributor.html#InsightRuleContributor"><span class="hs-identifier hs-type">InsightRuleContributor</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- | An array of the data points where this contributor is present. Only the</span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- data points when this contributor appeared are included in the array.</span><span>
@@ -211,16 +211,16 @@ $sel:approximateAggregateValue:InsightRuleContributor' :: InsightRuleContributor
      [InsightRuleContributorDatapoint]
      [InsightRuleContributorDatapoint]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.InsightRuleContributor.html#InsightRuleContributor%27"><span class="hs-identifier hs-type">InsightRuleContributor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254283"><span class="annot"><span class="annottext">[InsightRuleContributorDatapoint]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.InsightRuleContributor.html#InsightRuleContributor%27"><span class="hs-identifier hs-type">InsightRuleContributor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254608"><span class="annot"><span class="annottext">[InsightRuleContributorDatapoint]
 datapoints :: [InsightRuleContributorDatapoint]
 $sel:datapoints:InsightRuleContributor' :: InsightRuleContributor -&gt; [InsightRuleContributorDatapoint]
-</span><a href="#local-6989586621679254283"><span class="hs-identifier hs-var hs-var">datapoints</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[InsightRuleContributorDatapoint]
-</span><a href="#local-6989586621679254283"><span class="hs-identifier hs-var">datapoints</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254282"><span class="annot"><span class="annottext">s :: InsightRuleContributor
-</span><a href="#local-6989586621679254282"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.InsightRuleContributor.html#InsightRuleContributor%27"><span class="hs-identifier hs-type">InsightRuleContributor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254281"><span class="annot"><span class="annottext">[InsightRuleContributorDatapoint]
-</span><a href="#local-6989586621679254281"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InsightRuleContributor
-</span><a href="#local-6989586621679254282"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:datapoints:InsightRuleContributor' :: [InsightRuleContributorDatapoint]
+</span><a href="#local-6989586621679254608"><span class="hs-identifier hs-var hs-var">datapoints</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[InsightRuleContributorDatapoint]
+</span><a href="#local-6989586621679254608"><span class="hs-identifier hs-var">datapoints</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254607"><span class="annot"><span class="annottext">s :: InsightRuleContributor
+</span><a href="#local-6989586621679254607"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.InsightRuleContributor.html#InsightRuleContributor%27"><span class="hs-identifier hs-type">InsightRuleContributor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254606"><span class="annot"><span class="annottext">[InsightRuleContributorDatapoint]
+</span><a href="#local-6989586621679254606"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InsightRuleContributor
+</span><a href="#local-6989586621679254607"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:datapoints:InsightRuleContributor' :: [InsightRuleContributorDatapoint]
 </span><a href="Network.AWS.CloudWatch.Types.InsightRuleContributor.html#%24sel%3Adatapoints%3AInsightRuleContributor%27"><span class="hs-identifier hs-var">datapoints</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[InsightRuleContributorDatapoint]
-</span><a href="#local-6989586621679254281"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.InsightRuleContributor.html#InsightRuleContributor"><span class="hs-identifier hs-type">InsightRuleContributor</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([InsightRuleContributorDatapoint]
+</span><a href="#local-6989586621679254606"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.InsightRuleContributor.html#InsightRuleContributor"><span class="hs-identifier hs-type">InsightRuleContributor</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([InsightRuleContributorDatapoint]
   -&gt; f [InsightRuleContributorDatapoint])
  -&gt; InsightRuleContributor -&gt; f InsightRuleContributor)
 -&gt; (([InsightRuleContributorDatapoint]
@@ -236,13 +236,13 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
  -&gt; f [InsightRuleContributorDatapoint])
 -&gt; [InsightRuleContributorDatapoint]
 -&gt; f [InsightRuleContributorDatapoint]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.InsightRuleContributor.html#InsightRuleContributor"><span class="hs-identifier hs-type">InsightRuleContributor</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679254278"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String InsightRuleContributor
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679254276"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679254276"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679254603"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String InsightRuleContributor
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679254601"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679254601"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">[Text]
 -&gt; Double
 -&gt; [InsightRuleContributorDatapoint]
@@ -259,7 +259,7 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
       -&gt; [InsightRuleContributorDatapoint] -&gt; InsightRuleContributor)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679254276"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679254601"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Keys&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -285,7 +285,7 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
      ([InsightRuleContributorDatapoint] -&gt; InsightRuleContributor)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679254276"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Double
+</span><a href="#local-6989586621679254601"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Double
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ApproximateAggregateValue&quot;</span></span><span class="hs-special">)</span><span>
@@ -296,7 +296,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String InsightRuleContributor
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679254276"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679254601"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Datapoints&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -314,7 +314,7 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-string">&quot;member&quot;</span></span><span>
 </span><span id="line-103"></span><span>                  </span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254267"><span id="local-6989586621679254269"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.InsightRuleContributor.html#InsightRuleContributor"><span class="hs-identifier hs-type">InsightRuleContributor</span></a></span></span></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254592"><span id="local-6989586621679254594"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.InsightRuleContributor.html#InsightRuleContributor"><span class="hs-identifier hs-type">InsightRuleContributor</span></a></span></span></span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254264"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.InsightRuleContributor.html#InsightRuleContributor"><span class="hs-identifier hs-type">InsightRuleContributor</span></a></span></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254589"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.InsightRuleContributor.html#InsightRuleContributor"><span class="hs-identifier hs-type">InsightRuleContributor</span></a></span></span><span>
 </span><span id="line-108"></span></pre></body></html>

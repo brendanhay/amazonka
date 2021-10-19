@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Represents the verification attributes of a single identity.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newIdentityVerificationAttributes' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679276392"><span id="local-6989586621679276393"></span></span><span class="hs-keyword">data</span><span> </span><span id="IdentityVerificationAttributes"><span class="annot"><a href="Network.AWS.SES.Types.IdentityVerificationAttributes.html#IdentityVerificationAttributes"><span class="hs-identifier hs-var">IdentityVerificationAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IdentityVerificationAttributes%27"><span class="annot"><a href="Network.AWS.SES.Types.IdentityVerificationAttributes.html#IdentityVerificationAttributes%27"><span class="hs-identifier hs-var">IdentityVerificationAttributes'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679276591"><span id="local-6989586621679276592"></span></span><span class="hs-keyword">data</span><span> </span><span id="IdentityVerificationAttributes"><span class="annot"><a href="Network.AWS.SES.Types.IdentityVerificationAttributes.html#IdentityVerificationAttributes"><span class="hs-identifier hs-var">IdentityVerificationAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IdentityVerificationAttributes%27"><span class="annot"><a href="Network.AWS.SES.Types.IdentityVerificationAttributes.html#IdentityVerificationAttributes%27"><span class="hs-identifier hs-var">IdentityVerificationAttributes'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The verification token for a domain identity. Null for email address</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- identities.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AverificationToken%3AIdentityVerificationAttributes%27"><span class="annot"><span class="annottext">IdentityVerificationAttributes -&gt; Maybe Text
@@ -37,7 +37,7 @@
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3AverificationStatus%3AIdentityVerificationAttributes%27"><span class="annot"><span class="annottext">IdentityVerificationAttributes -&gt; VerificationStatus
 </span><a href="Network.AWS.SES.Types.IdentityVerificationAttributes.html#%24sel%3AverificationStatus%3AIdentityVerificationAttributes%27"><span class="hs-identifier hs-var hs-var">verificationStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.VerificationStatus.html#VerificationStatus"><span class="hs-identifier hs-type">VerificationStatus</span></a></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679276385"><span id="local-6989586621679276387"><span class="annot"><span class="annottext">IdentityVerificationAttributes
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679276584"><span id="local-6989586621679276586"><span class="annot"><span class="annottext">IdentityVerificationAttributes
 -&gt; IdentityVerificationAttributes -&gt; Bool
 (IdentityVerificationAttributes
  -&gt; IdentityVerificationAttributes -&gt; Bool)
@@ -53,7 +53,7 @@ $c/= :: IdentityVerificationAttributes
 -&gt; IdentityVerificationAttributes -&gt; Bool
 $c== :: IdentityVerificationAttributes
 -&gt; IdentityVerificationAttributes -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679276376"><span id="local-6989586621679276378"><span id="local-6989586621679276380"><span id="local-6989586621679276382"><span class="annot"><span class="annottext">ReadPrec [IdentityVerificationAttributes]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679276575"><span id="local-6989586621679276577"><span id="local-6989586621679276579"><span id="local-6989586621679276581"><span class="annot"><span class="annottext">ReadPrec [IdentityVerificationAttributes]
 ReadPrec IdentityVerificationAttributes
 Int -&gt; ReadS IdentityVerificationAttributes
 ReadS [IdentityVerificationAttributes]
@@ -73,7 +73,7 @@ readList :: ReadS [IdentityVerificationAttributes]
 $creadList :: ReadS [IdentityVerificationAttributes]
 readsPrec :: Int -&gt; ReadS IdentityVerificationAttributes
 $creadsPrec :: Int -&gt; ReadS IdentityVerificationAttributes
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679276369"><span id="local-6989586621679276371"><span id="local-6989586621679276373"><span class="annot"><span class="annottext">Int -&gt; IdentityVerificationAttributes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679276568"><span id="local-6989586621679276570"><span id="local-6989586621679276572"><span class="annot"><span class="annottext">Int -&gt; IdentityVerificationAttributes -&gt; ShowS
 [IdentityVerificationAttributes] -&gt; ShowS
 IdentityVerificationAttributes -&gt; String
 (Int -&gt; IdentityVerificationAttributes -&gt; ShowS)
@@ -130,8 +130,8 @@ IdentityVerificationAttributes
 </span><span id="line-56"></span><span>  </span><span class="annot"><a href="Network.AWS.SES.Types.IdentityVerificationAttributes.html#IdentityVerificationAttributes"><span class="hs-identifier hs-type">IdentityVerificationAttributes</span></a></span><span>
 </span><span id="line-57"></span><span id="newIdentityVerificationAttributes"><span class="annot"><span class="annottext">newIdentityVerificationAttributes :: VerificationStatus -&gt; IdentityVerificationAttributes
 </span><a href="Network.AWS.SES.Types.IdentityVerificationAttributes.html#newIdentityVerificationAttributes"><span class="hs-identifier hs-var hs-var">newIdentityVerificationAttributes</span></a></span></span><span>
-</span><span id="line-58"></span><span>  </span><span id="local-6989586621679276363"><span class="annot"><span class="annottext">VerificationStatus
-</span><a href="#local-6989586621679276363"><span class="hs-identifier hs-var">pVerificationStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-58"></span><span>  </span><span id="local-6989586621679276562"><span class="annot"><span class="annottext">VerificationStatus
+</span><a href="#local-6989586621679276562"><span class="hs-identifier hs-var">pVerificationStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-59"></span><span>    </span><span class="annot"><span class="annottext">IdentityVerificationAttributes' :: Maybe Text -&gt; VerificationStatus -&gt; IdentityVerificationAttributes
 </span><a href="Network.AWS.SES.Types.IdentityVerificationAttributes.html#IdentityVerificationAttributes%27"><span class="hs-identifier hs-type">IdentityVerificationAttributes'</span></a></span><span>
 </span><span id="line-60"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:verificationToken:IdentityVerificationAttributes' :: Maybe Text
@@ -141,7 +141,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-62"></span><span>        </span><span class="annot"><span class="annottext">$sel:verificationStatus:IdentityVerificationAttributes' :: VerificationStatus
 </span><a href="Network.AWS.SES.Types.IdentityVerificationAttributes.html#%24sel%3AverificationStatus%3AIdentityVerificationAttributes%27"><span class="hs-identifier hs-var">verificationStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">VerificationStatus
-</span><a href="#local-6989586621679276363"><span class="hs-identifier hs-var">pVerificationStatus_</span></a></span><span>
+</span><a href="#local-6989586621679276562"><span class="hs-identifier hs-var">pVerificationStatus_</span></a></span><span>
 </span><span id="line-63"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-64"></span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- | The verification token for a domain identity. Null for email address</span><span>
@@ -159,16 +159,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.IdentityVerificationAttributes.html#IdentityVerificationAttributes%27"><span class="hs-identifier hs-type">IdentityVerificationAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276359"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.IdentityVerificationAttributes.html#IdentityVerificationAttributes%27"><span class="hs-identifier hs-type">IdentityVerificationAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276558"><span class="annot"><span class="annottext">Maybe Text
 verificationToken :: Maybe Text
 $sel:verificationToken:IdentityVerificationAttributes' :: IdentityVerificationAttributes -&gt; Maybe Text
-</span><a href="#local-6989586621679276359"><span class="hs-identifier hs-var hs-var">verificationToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679276359"><span class="hs-identifier hs-var">verificationToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276358"><span class="annot"><span class="annottext">s :: IdentityVerificationAttributes
-</span><a href="#local-6989586621679276358"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.IdentityVerificationAttributes.html#IdentityVerificationAttributes%27"><span class="hs-identifier hs-type">IdentityVerificationAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276357"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679276357"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IdentityVerificationAttributes
-</span><a href="#local-6989586621679276358"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:verificationToken:IdentityVerificationAttributes' :: Maybe Text
+</span><a href="#local-6989586621679276558"><span class="hs-identifier hs-var hs-var">verificationToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679276558"><span class="hs-identifier hs-var">verificationToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276557"><span class="annot"><span class="annottext">s :: IdentityVerificationAttributes
+</span><a href="#local-6989586621679276557"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.IdentityVerificationAttributes.html#IdentityVerificationAttributes%27"><span class="hs-identifier hs-type">IdentityVerificationAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276556"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679276556"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IdentityVerificationAttributes
+</span><a href="#local-6989586621679276557"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:verificationToken:IdentityVerificationAttributes' :: Maybe Text
 </span><a href="Network.AWS.SES.Types.IdentityVerificationAttributes.html#%24sel%3AverificationToken%3AIdentityVerificationAttributes%27"><span class="hs-identifier hs-var">verificationToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679276357"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.IdentityVerificationAttributes.html#IdentityVerificationAttributes"><span class="hs-identifier hs-type">IdentityVerificationAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679276556"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.IdentityVerificationAttributes.html#IdentityVerificationAttributes"><span class="hs-identifier hs-type">IdentityVerificationAttributes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-69"></span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- | The verification status of the identity: \&quot;Pending\&quot;, \&quot;Success\&quot;,</span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- \&quot;Failed\&quot;, or \&quot;TemporaryFailure\&quot;.</span><span>
@@ -185,21 +185,21 @@ $sel:verificationToken:IdentityVerificationAttributes' :: IdentityVerificationAt
      VerificationStatus
      VerificationStatus
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.IdentityVerificationAttributes.html#IdentityVerificationAttributes%27"><span class="hs-identifier hs-type">IdentityVerificationAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276355"><span class="annot"><span class="annottext">VerificationStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.IdentityVerificationAttributes.html#IdentityVerificationAttributes%27"><span class="hs-identifier hs-type">IdentityVerificationAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276554"><span class="annot"><span class="annottext">VerificationStatus
 verificationStatus :: VerificationStatus
 $sel:verificationStatus:IdentityVerificationAttributes' :: IdentityVerificationAttributes -&gt; VerificationStatus
-</span><a href="#local-6989586621679276355"><span class="hs-identifier hs-var hs-var">verificationStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VerificationStatus
-</span><a href="#local-6989586621679276355"><span class="hs-identifier hs-var">verificationStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276354"><span class="annot"><span class="annottext">s :: IdentityVerificationAttributes
-</span><a href="#local-6989586621679276354"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.IdentityVerificationAttributes.html#IdentityVerificationAttributes%27"><span class="hs-identifier hs-type">IdentityVerificationAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276353"><span class="annot"><span class="annottext">VerificationStatus
-</span><a href="#local-6989586621679276353"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IdentityVerificationAttributes
-</span><a href="#local-6989586621679276354"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:verificationStatus:IdentityVerificationAttributes' :: VerificationStatus
+</span><a href="#local-6989586621679276554"><span class="hs-identifier hs-var hs-var">verificationStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VerificationStatus
+</span><a href="#local-6989586621679276554"><span class="hs-identifier hs-var">verificationStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276553"><span class="annot"><span class="annottext">s :: IdentityVerificationAttributes
+</span><a href="#local-6989586621679276553"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.IdentityVerificationAttributes.html#IdentityVerificationAttributes%27"><span class="hs-identifier hs-type">IdentityVerificationAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276552"><span class="annot"><span class="annottext">VerificationStatus
+</span><a href="#local-6989586621679276552"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IdentityVerificationAttributes
+</span><a href="#local-6989586621679276553"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:verificationStatus:IdentityVerificationAttributes' :: VerificationStatus
 </span><a href="Network.AWS.SES.Types.IdentityVerificationAttributes.html#%24sel%3AverificationStatus%3AIdentityVerificationAttributes%27"><span class="hs-identifier hs-var">verificationStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">VerificationStatus
-</span><a href="#local-6989586621679276353"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.IdentityVerificationAttributes.html#IdentityVerificationAttributes"><span class="hs-identifier hs-type">IdentityVerificationAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679276552"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.IdentityVerificationAttributes.html#IdentityVerificationAttributes"><span class="hs-identifier hs-type">IdentityVerificationAttributes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.IdentityVerificationAttributes.html#IdentityVerificationAttributes"><span class="hs-identifier hs-type">IdentityVerificationAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-76"></span><span>  </span><span id="local-6989586621679276350"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String IdentityVerificationAttributes
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679276348"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679276348"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679276549"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String IdentityVerificationAttributes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679276547"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679276547"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; VerificationStatus -&gt; IdentityVerificationAttributes
 </span><a href="Network.AWS.SES.Types.IdentityVerificationAttributes.html#IdentityVerificationAttributes%27"><span class="hs-identifier hs-var">IdentityVerificationAttributes'</span></a></span><span>
 </span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
@@ -209,7 +209,7 @@ $sel:verificationStatus:IdentityVerificationAttributes' :: IdentityVerificationA
      String (VerificationStatus -&gt; IdentityVerificationAttributes)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679276348"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679276547"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;VerificationToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -219,16 +219,16 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String IdentityVerificationAttributes
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679276348"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String VerificationStatus
+</span><a href="#local-6989586621679276547"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String VerificationStatus
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;VerificationStatus&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679276341"><span id="local-6989586621679276343"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679276540"><span id="local-6989586621679276542"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-83"></span><span>    </span><span class="annot"><a href="Network.AWS.SES.Types.IdentityVerificationAttributes.html#IdentityVerificationAttributes"><span class="hs-identifier hs-type">IdentityVerificationAttributes</span></a></span></span></span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679276338"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679276537"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-87"></span><span>    </span><span class="annot"><a href="Network.AWS.SES.Types.IdentityVerificationAttributes.html#IdentityVerificationAttributes"><span class="hs-identifier hs-type">IdentityVerificationAttributes</span></a></span></span><span>
 </span><span id="line-88"></span></pre></body></html>

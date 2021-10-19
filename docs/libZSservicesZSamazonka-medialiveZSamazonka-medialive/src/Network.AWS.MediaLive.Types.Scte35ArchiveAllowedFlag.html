@@ -33,13 +33,13 @@
 </span><span id="line-33"></span><span class="hs-comment">-- ARCHIVE_NOT_ALLOWED corresponds to 0 (false) in the SCTE-35</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- specification. If you include one of the \&quot;restriction\&quot; flags then you</span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- must include all four of them.</span><span>
-</span><span id="line-36"></span><span id="local-6989586621679910362"><span id="local-6989586621679910363"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Scte35ArchiveAllowedFlag"><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35ArchiveAllowedFlag.html#Scte35ArchiveAllowedFlag"><span class="hs-identifier hs-var">Scte35ArchiveAllowedFlag</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Scte35ArchiveAllowedFlag%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35ArchiveAllowedFlag.html#Scte35ArchiveAllowedFlag%27"><span class="hs-identifier hs-var">Scte35ArchiveAllowedFlag'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679917862"><span id="local-6989586621679917863"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Scte35ArchiveAllowedFlag"><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35ArchiveAllowedFlag.html#Scte35ArchiveAllowedFlag"><span class="hs-identifier hs-var">Scte35ArchiveAllowedFlag</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Scte35ArchiveAllowedFlag%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35ArchiveAllowedFlag.html#Scte35ArchiveAllowedFlag%27"><span class="hs-identifier hs-var">Scte35ArchiveAllowedFlag'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromScte35ArchiveAllowedFlag"><span class="annot"><span class="annottext">Scte35ArchiveAllowedFlag -&gt; Text
 </span><a href="Network.AWS.MediaLive.Types.Scte35ArchiveAllowedFlag.html#fromScte35ArchiveAllowedFlag"><span class="hs-identifier hs-var hs-var">fromScte35ArchiveAllowedFlag</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679910354"><span id="local-6989586621679910356"><span id="local-6989586621679910358"><span class="annot"><span class="annottext">Int -&gt; Scte35ArchiveAllowedFlag -&gt; ShowS
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679917854"><span id="local-6989586621679917856"><span id="local-6989586621679917858"><span class="annot"><span class="annottext">Int -&gt; Scte35ArchiveAllowedFlag -&gt; ShowS
 [Scte35ArchiveAllowedFlag] -&gt; ShowS
 Scte35ArchiveAllowedFlag -&gt; String
 (Int -&gt; Scte35ArchiveAllowedFlag -&gt; ShowS)
@@ -55,7 +55,7 @@ $cshow :: Scte35ArchiveAllowedFlag -&gt; String
 showsPrec :: Int -&gt; Scte35ArchiveAllowedFlag -&gt; ShowS
 $cshowsPrec :: Int -&gt; Scte35ArchiveAllowedFlag -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679910345"><span id="local-6989586621679910347"><span id="local-6989586621679910349"><span id="local-6989586621679910351"><span class="annot"><span class="annottext">ReadPrec [Scte35ArchiveAllowedFlag]
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679917845"><span id="local-6989586621679917847"><span id="local-6989586621679917849"><span id="local-6989586621679917851"><span class="annot"><span class="annottext">ReadPrec [Scte35ArchiveAllowedFlag]
 ReadPrec Scte35ArchiveAllowedFlag
 Int -&gt; ReadS Scte35ArchiveAllowedFlag
 ReadS [Scte35ArchiveAllowedFlag]
@@ -76,7 +76,7 @@ $creadList :: ReadS [Scte35ArchiveAllowedFlag]
 readsPrec :: Int -&gt; ReadS Scte35ArchiveAllowedFlag
 $creadsPrec :: Int -&gt; ReadS Scte35ArchiveAllowedFlag
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679910340"><span id="local-6989586621679910342"><span class="annot"><span class="annottext">Scte35ArchiveAllowedFlag -&gt; Scte35ArchiveAllowedFlag -&gt; Bool
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679917840"><span id="local-6989586621679917842"><span class="annot"><span class="annottext">Scte35ArchiveAllowedFlag -&gt; Scte35ArchiveAllowedFlag -&gt; Bool
 (Scte35ArchiveAllowedFlag -&gt; Scte35ArchiveAllowedFlag -&gt; Bool)
 -&gt; (Scte35ArchiveAllowedFlag -&gt; Scte35ArchiveAllowedFlag -&gt; Bool)
 -&gt; Eq Scte35ArchiveAllowedFlag
@@ -86,7 +86,7 @@ $c/= :: Scte35ArchiveAllowedFlag -&gt; Scte35ArchiveAllowedFlag -&gt; Bool
 == :: Scte35ArchiveAllowedFlag -&gt; Scte35ArchiveAllowedFlag -&gt; Bool
 $c== :: Scte35ArchiveAllowedFlag -&gt; Scte35ArchiveAllowedFlag -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679910324"><span id="local-6989586621679910326"><span id="local-6989586621679910328"><span id="local-6989586621679910330"><span id="local-6989586621679910332"><span id="local-6989586621679910334"><span id="local-6989586621679910336"><span class="annot"><span class="annottext">Eq Scte35ArchiveAllowedFlag
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679917824"><span id="local-6989586621679917826"><span id="local-6989586621679917828"><span id="local-6989586621679917830"><span id="local-6989586621679917832"><span id="local-6989586621679917834"><span id="local-6989586621679917836"><span class="annot"><span class="annottext">Eq Scte35ArchiveAllowedFlag
 Eq Scte35ArchiveAllowedFlag
 -&gt; (Scte35ArchiveAllowedFlag
     -&gt; Scte35ArchiveAllowedFlag -&gt; Ordering)
@@ -151,7 +151,7 @@ Scte35ArchiveAllowedFlag -&gt; Rep Scte35ArchiveAllowedFlag x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679910316"><span id="local-6989586621679910318"><span class="annot"><span class="annottext">Int -&gt; Scte35ArchiveAllowedFlag -&gt; Int
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679917816"><span id="local-6989586621679917818"><span class="annot"><span class="annottext">Int -&gt; Scte35ArchiveAllowedFlag -&gt; Int
 Scte35ArchiveAllowedFlag -&gt; Int
 (Int -&gt; Scte35ArchiveAllowedFlag -&gt; Int)
 -&gt; (Scte35ArchiveAllowedFlag -&gt; Int)
@@ -162,55 +162,55 @@ $chash :: Scte35ArchiveAllowedFlag -&gt; Int
 hashWithSalt :: Int -&gt; Scte35ArchiveAllowedFlag -&gt; Int
 $chashWithSalt :: Int -&gt; Scte35ArchiveAllowedFlag -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679910313"><span class="annot"><span class="annottext">Scte35ArchiveAllowedFlag -&gt; ()
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679917813"><span class="annot"><span class="annottext">Scte35ArchiveAllowedFlag -&gt; ()
 (Scte35ArchiveAllowedFlag -&gt; ()) -&gt; NFData Scte35ArchiveAllowedFlag
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: Scte35ArchiveAllowedFlag -&gt; ()
 $crnf :: Scte35ArchiveAllowedFlag -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679910310"><span class="annot"><span class="annottext">Text -&gt; Either String Scte35ArchiveAllowedFlag
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679917810"><span class="annot"><span class="annottext">Text -&gt; Either String Scte35ArchiveAllowedFlag
 (Text -&gt; Either String Scte35ArchiveAllowedFlag)
 -&gt; FromText Scte35ArchiveAllowedFlag
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String Scte35ArchiveAllowedFlag
 $cfromText :: Text -&gt; Either String Scte35ArchiveAllowedFlag
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679910307"><span class="annot"><span class="annottext">Scte35ArchiveAllowedFlag -&gt; Text
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679917807"><span class="annot"><span class="annottext">Scte35ArchiveAllowedFlag -&gt; Text
 (Scte35ArchiveAllowedFlag -&gt; Text)
 -&gt; ToText Scte35ArchiveAllowedFlag
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: Scte35ArchiveAllowedFlag -&gt; Text
 $ctoText :: Scte35ArchiveAllowedFlag -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679910304"><span class="annot"><span class="annottext">Scte35ArchiveAllowedFlag -&gt; ByteString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679917804"><span class="annot"><span class="annottext">Scte35ArchiveAllowedFlag -&gt; ByteString
 (Scte35ArchiveAllowedFlag -&gt; ByteString)
 -&gt; ToByteString Scte35ArchiveAllowedFlag
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: Scte35ArchiveAllowedFlag -&gt; ByteString
 $ctoBS :: Scte35ArchiveAllowedFlag -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679910301"><span class="annot"><span class="annottext">Scte35ArchiveAllowedFlag -&gt; ByteStringBuilder
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679917801"><span class="annot"><span class="annottext">Scte35ArchiveAllowedFlag -&gt; ByteStringBuilder
 (Scte35ArchiveAllowedFlag -&gt; ByteStringBuilder)
 -&gt; ToLog Scte35ArchiveAllowedFlag
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: Scte35ArchiveAllowedFlag -&gt; ByteStringBuilder
 $cbuild :: Scte35ArchiveAllowedFlag -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679910298"><span class="annot"><span class="annottext">HeaderName -&gt; Scte35ArchiveAllowedFlag -&gt; [Header]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679917798"><span class="annot"><span class="annottext">HeaderName -&gt; Scte35ArchiveAllowedFlag -&gt; [Header]
 (HeaderName -&gt; Scte35ArchiveAllowedFlag -&gt; [Header])
 -&gt; ToHeader Scte35ArchiveAllowedFlag
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; Scte35ArchiveAllowedFlag -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; Scte35ArchiveAllowedFlag -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679910295"><span class="annot"><span class="annottext">Scte35ArchiveAllowedFlag -&gt; QueryString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679917795"><span class="annot"><span class="annottext">Scte35ArchiveAllowedFlag -&gt; QueryString
 (Scte35ArchiveAllowedFlag -&gt; QueryString)
 -&gt; ToQuery Scte35ArchiveAllowedFlag
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: Scte35ArchiveAllowedFlag -&gt; QueryString
 $ctoQuery :: Scte35ArchiveAllowedFlag -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679910290"><span id="local-6989586621679910292"><span class="annot"><span class="annottext">Value -&gt; Parser [Scte35ArchiveAllowedFlag]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679917790"><span id="local-6989586621679917792"><span class="annot"><span class="annottext">Value -&gt; Parser [Scte35ArchiveAllowedFlag]
 Value -&gt; Parser Scte35ArchiveAllowedFlag
 (Value -&gt; Parser Scte35ArchiveAllowedFlag)
 -&gt; (Value -&gt; Parser [Scte35ArchiveAllowedFlag])
@@ -222,7 +222,7 @@ $cparseJSONList :: Value -&gt; Parser [Scte35ArchiveAllowedFlag]
 parseJSON :: Value -&gt; Parser Scte35ArchiveAllowedFlag
 $cparseJSON :: Value -&gt; Parser Scte35ArchiveAllowedFlag
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679910285"><span id="local-6989586621679910287"><span class="annot"><span class="annottext">FromJSONKeyFunction [Scte35ArchiveAllowedFlag]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679917785"><span id="local-6989586621679917787"><span class="annot"><span class="annottext">FromJSONKeyFunction [Scte35ArchiveAllowedFlag]
 FromJSONKeyFunction Scte35ArchiveAllowedFlag
 FromJSONKeyFunction Scte35ArchiveAllowedFlag
 -&gt; FromJSONKeyFunction [Scte35ArchiveAllowedFlag]
@@ -234,7 +234,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [Scte35ArchiveAllowedFlag]
 fromJSONKey :: FromJSONKeyFunction Scte35ArchiveAllowedFlag
 $cfromJSONKey :: FromJSONKeyFunction Scte35ArchiveAllowedFlag
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679910276"><span id="local-6989586621679910278"><span id="local-6989586621679910280"><span id="local-6989586621679910282"><span class="annot"><span class="annottext">[Scte35ArchiveAllowedFlag] -&gt; Encoding
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679917776"><span id="local-6989586621679917778"><span id="local-6989586621679917780"><span id="local-6989586621679917782"><span class="annot"><span class="annottext">[Scte35ArchiveAllowedFlag] -&gt; Encoding
 [Scte35ArchiveAllowedFlag] -&gt; Value
 Scte35ArchiveAllowedFlag -&gt; Encoding
 Scte35ArchiveAllowedFlag -&gt; Value
@@ -258,7 +258,7 @@ $ctoEncoding :: Scte35ArchiveAllowedFlag -&gt; Encoding
 toJSON :: Scte35ArchiveAllowedFlag -&gt; Value
 $ctoJSON :: Scte35ArchiveAllowedFlag -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679910271"><span id="local-6989586621679910273"><span class="annot"><span class="annottext">ToJSONKeyFunction [Scte35ArchiveAllowedFlag]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679917771"><span id="local-6989586621679917773"><span class="annot"><span class="annottext">ToJSONKeyFunction [Scte35ArchiveAllowedFlag]
 ToJSONKeyFunction Scte35ArchiveAllowedFlag
 ToJSONKeyFunction Scte35ArchiveAllowedFlag
 -&gt; ToJSONKeyFunction [Scte35ArchiveAllowedFlag]
@@ -270,14 +270,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [Scte35ArchiveAllowedFlag]
 toJSONKey :: ToJSONKeyFunction Scte35ArchiveAllowedFlag
 $ctoJSONKey :: ToJSONKeyFunction Scte35ArchiveAllowedFlag
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679910268"><span class="annot"><span class="annottext">[Node] -&gt; Either String Scte35ArchiveAllowedFlag
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679917768"><span class="annot"><span class="annottext">[Node] -&gt; Either String Scte35ArchiveAllowedFlag
 ([Node] -&gt; Either String Scte35ArchiveAllowedFlag)
 -&gt; FromXML Scte35ArchiveAllowedFlag
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String Scte35ArchiveAllowedFlag
 $cparseXML :: [Node] -&gt; Either String Scte35ArchiveAllowedFlag
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679910265"><span class="annot"><span class="annottext">Scte35ArchiveAllowedFlag -&gt; XML
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679917765"><span class="annot"><span class="annottext">Scte35ArchiveAllowedFlag -&gt; XML
 (Scte35ArchiveAllowedFlag -&gt; XML) -&gt; ToXML Scte35ArchiveAllowedFlag
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: Scte35ArchiveAllowedFlag -&gt; XML

@@ -31,8 +31,8 @@
 </span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#newUpdateRoleAlias"><span class="hs-identifier">newUpdateRoleAlias</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-32"></span><span>
 </span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#updateRoleAlias_roleArn"><span class="hs-identifier">updateRoleAlias_roleArn</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#updateRoleAlias_credentialDurationSeconds"><span class="hs-identifier">updateRoleAlias_credentialDurationSeconds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#updateRoleAlias_credentialDurationSeconds"><span class="hs-identifier">updateRoleAlias_credentialDurationSeconds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#updateRoleAlias_roleArn"><span class="hs-identifier">updateRoleAlias_roleArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#updateRoleAlias_roleAlias"><span class="hs-identifier">updateRoleAlias_roleAlias</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-37"></span><span>
 </span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
@@ -54,18 +54,18 @@
 </span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-55"></span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newUpdateRoleAlias' smart constructor.</span><span>
-</span><span id="line-57"></span><span id="local-6989586621679860615"><span id="local-6989586621679860616"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateRoleAlias"><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAlias"><span class="hs-identifier hs-var">UpdateRoleAlias</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateRoleAlias%27"><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAlias%27"><span class="hs-identifier hs-var">UpdateRoleAlias'</span></a></span></span><span>
-</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The role ARN.</span><span>
-</span><span id="line-59"></span><span>    </span><span id="%24sel%3AroleArn%3AUpdateRoleAlias%27"><span class="annot"><span class="annottext">UpdateRoleAlias -&gt; Maybe Text
-</span><a href="Network.AWS.IoT.UpdateRoleAlias.html#%24sel%3AroleArn%3AUpdateRoleAlias%27"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The number of seconds the credential will be valid.</span><span>
-</span><span id="line-61"></span><span>    </span><span id="%24sel%3AcredentialDurationSeconds%3AUpdateRoleAlias%27"><span class="annot"><span class="annottext">UpdateRoleAlias -&gt; Maybe Natural
+</span><span id="line-57"></span><span id="local-6989586621679861632"><span id="local-6989586621679861633"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateRoleAlias"><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAlias"><span class="hs-identifier hs-var">UpdateRoleAlias</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateRoleAlias%27"><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAlias%27"><span class="hs-identifier hs-var">UpdateRoleAlias'</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of seconds the credential will be valid.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AcredentialDurationSeconds%3AUpdateRoleAlias%27"><span class="annot"><span class="annottext">UpdateRoleAlias -&gt; Maybe Natural
 </span><a href="Network.AWS.IoT.UpdateRoleAlias.html#%24sel%3AcredentialDurationSeconds%3AUpdateRoleAlias%27"><span class="hs-identifier hs-var hs-var">credentialDurationSeconds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The role ARN.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AroleArn%3AUpdateRoleAlias%27"><span class="annot"><span class="annottext">UpdateRoleAlias -&gt; Maybe Text
+</span><a href="Network.AWS.IoT.UpdateRoleAlias.html#%24sel%3AroleArn%3AUpdateRoleAlias%27"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The role alias to update.</span><span>
 </span><span id="line-63"></span><span>    </span><span id="%24sel%3AroleAlias%3AUpdateRoleAlias%27"><span class="annot"><span class="annottext">UpdateRoleAlias -&gt; Text
 </span><a href="Network.AWS.IoT.UpdateRoleAlias.html#%24sel%3AroleAlias%3AUpdateRoleAlias%27"><span class="hs-identifier hs-var hs-var">roleAlias</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679860607"><span id="local-6989586621679860609"><span class="annot"><span class="annottext">UpdateRoleAlias -&gt; UpdateRoleAlias -&gt; Bool
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679861624"><span id="local-6989586621679861626"><span class="annot"><span class="annottext">UpdateRoleAlias -&gt; UpdateRoleAlias -&gt; Bool
 (UpdateRoleAlias -&gt; UpdateRoleAlias -&gt; Bool)
 -&gt; (UpdateRoleAlias -&gt; UpdateRoleAlias -&gt; Bool)
 -&gt; Eq UpdateRoleAlias
@@ -74,7 +74,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateRoleAlias -&gt; UpdateRoleAlias -&gt; Bool
 == :: UpdateRoleAlias -&gt; UpdateRoleAlias -&gt; Bool
 $c== :: UpdateRoleAlias -&gt; UpdateRoleAlias -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679860598"><span id="local-6989586621679860600"><span id="local-6989586621679860602"><span id="local-6989586621679860604"><span class="annot"><span class="annottext">ReadPrec [UpdateRoleAlias]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679861615"><span id="local-6989586621679861617"><span id="local-6989586621679861619"><span id="local-6989586621679861621"><span class="annot"><span class="annottext">ReadPrec [UpdateRoleAlias]
 ReadPrec UpdateRoleAlias
 Int -&gt; ReadS UpdateRoleAlias
 ReadS [UpdateRoleAlias]
@@ -94,7 +94,7 @@ readList :: ReadS [UpdateRoleAlias]
 $creadList :: ReadS [UpdateRoleAlias]
 readsPrec :: Int -&gt; ReadS UpdateRoleAlias
 $creadsPrec :: Int -&gt; ReadS UpdateRoleAlias
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679860591"><span id="local-6989586621679860593"><span id="local-6989586621679860595"><span class="annot"><span class="annottext">Int -&gt; UpdateRoleAlias -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679861608"><span id="local-6989586621679861610"><span id="local-6989586621679861612"><span class="annot"><span class="annottext">Int -&gt; UpdateRoleAlias -&gt; ShowS
 [UpdateRoleAlias] -&gt; ShowS
 UpdateRoleAlias -&gt; String
 (Int -&gt; UpdateRoleAlias -&gt; ShowS)
@@ -128,9 +128,9 @@ $cfrom :: forall x. UpdateRoleAlias -&gt; Rep UpdateRoleAlias x
 </span><span id="line-72"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-74"></span><span class="hs-comment">--</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- 'roleArn', 'updateRoleAlias_roleArn' - The role ARN.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'credentialDurationSeconds', 'updateRoleAlias_credentialDurationSeconds' - The number of seconds the credential will be valid.</span><span>
 </span><span id="line-76"></span><span class="hs-comment">--</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- 'credentialDurationSeconds', 'updateRoleAlias_credentialDurationSeconds' - The number of seconds the credential will be valid.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'roleArn', 'updateRoleAlias_roleArn' - The role ARN.</span><span>
 </span><span id="line-78"></span><span class="hs-comment">--</span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- 'roleAlias', 'updateRoleAlias_roleAlias' - The role alias to update.</span><span>
 </span><span id="line-80"></span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#newUpdateRoleAlias"><span class="hs-identifier hs-type">newUpdateRoleAlias</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -138,96 +138,97 @@ $cfrom :: forall x. UpdateRoleAlias -&gt; Rep UpdateRoleAlias x
 </span><span id="line-82"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAlias"><span class="hs-identifier hs-type">UpdateRoleAlias</span></a></span><span>
 </span><span id="line-84"></span><span id="newUpdateRoleAlias"><span class="annot"><span class="annottext">newUpdateRoleAlias :: Text -&gt; UpdateRoleAlias
-</span><a href="Network.AWS.IoT.UpdateRoleAlias.html#newUpdateRoleAlias"><span class="hs-identifier hs-var hs-var">newUpdateRoleAlias</span></a></span></span><span> </span><span id="local-6989586621679860586"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679860586"><span class="hs-identifier hs-var">pRoleAlias_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-85"></span><span>  </span><span class="annot"><span class="annottext">UpdateRoleAlias' :: Maybe Text -&gt; Maybe Natural -&gt; Text -&gt; UpdateRoleAlias
+</span><a href="Network.AWS.IoT.UpdateRoleAlias.html#newUpdateRoleAlias"><span class="hs-identifier hs-var hs-var">newUpdateRoleAlias</span></a></span></span><span> </span><span id="local-6989586621679861603"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679861603"><span class="hs-identifier hs-var">pRoleAlias_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><span class="annottext">UpdateRoleAlias' :: Maybe Natural -&gt; Maybe Text -&gt; Text -&gt; UpdateRoleAlias
 </span><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAlias%27"><span class="hs-identifier hs-type">UpdateRoleAlias'</span></a></span><span>
-</span><span id="line-86"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:roleArn:UpdateRoleAlias' :: Maybe Text
+</span><span id="line-86"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:credentialDurationSeconds:UpdateRoleAlias' :: Maybe Natural
+</span><a href="Network.AWS.IoT.UpdateRoleAlias.html#%24sel%3AcredentialDurationSeconds%3AUpdateRoleAlias%27"><span class="hs-identifier hs-var">credentialDurationSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>        </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:roleArn:UpdateRoleAlias' :: Maybe Text
 </span><a href="Network.AWS.IoT.UpdateRoleAlias.html#%24sel%3AroleArn%3AUpdateRoleAlias%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:credentialDurationSeconds:UpdateRoleAlias' :: Maybe Natural
-</span><a href="Network.AWS.IoT.UpdateRoleAlias.html#%24sel%3AcredentialDurationSeconds%3AUpdateRoleAlias%27"><span class="hs-identifier hs-var">credentialDurationSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:roleAlias:UpdateRoleAlias' :: Text
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:roleAlias:UpdateRoleAlias' :: Text
 </span><a href="Network.AWS.IoT.UpdateRoleAlias.html#%24sel%3AroleAlias%3AUpdateRoleAlias%27"><span class="hs-identifier hs-var">roleAlias</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679860586"><span class="hs-identifier hs-var">pRoleAlias_</span></a></span><span>
-</span><span id="line-89"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- | The role ARN.</span><span>
-</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#updateRoleAlias_roleArn"><span class="hs-identifier hs-type">updateRoleAlias_roleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAlias"><span class="hs-identifier hs-type">UpdateRoleAlias</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-93"></span><span id="updateRoleAlias_roleArn"><span class="annot"><span class="annottext">updateRoleAlias_roleArn :: (Maybe Text -&gt; f (Maybe Text))
--&gt; UpdateRoleAlias -&gt; f UpdateRoleAlias
-</span><a href="Network.AWS.IoT.UpdateRoleAlias.html#updateRoleAlias_roleArn"><span class="hs-identifier hs-var hs-var">updateRoleAlias_roleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRoleAlias -&gt; Maybe Text)
--&gt; (UpdateRoleAlias -&gt; Maybe Text -&gt; UpdateRoleAlias)
--&gt; Lens UpdateRoleAlias UpdateRoleAlias (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAlias%27"><span class="hs-identifier hs-type">UpdateRoleAlias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679860583"><span class="annot"><span class="annottext">Maybe Text
-roleArn :: Maybe Text
-$sel:roleArn:UpdateRoleAlias' :: UpdateRoleAlias -&gt; Maybe Text
-</span><a href="#local-6989586621679860583"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679860583"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679860582"><span class="annot"><span class="annottext">s :: UpdateRoleAlias
-</span><a href="#local-6989586621679860582"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAlias%27"><span class="hs-identifier hs-type">UpdateRoleAlias'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679860581"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679860581"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRoleAlias
-</span><a href="#local-6989586621679860582"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:UpdateRoleAlias' :: Maybe Text
-</span><a href="Network.AWS.IoT.UpdateRoleAlias.html#%24sel%3AroleArn%3AUpdateRoleAlias%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679860581"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAlias"><span class="hs-identifier hs-type">UpdateRoleAlias</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- | The number of seconds the credential will be valid.</span><span>
-</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#updateRoleAlias_credentialDurationSeconds"><span class="hs-identifier hs-type">updateRoleAlias_credentialDurationSeconds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAlias"><span class="hs-identifier hs-type">UpdateRoleAlias</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-97"></span><span id="updateRoleAlias_credentialDurationSeconds"><span class="annot"><span class="annottext">updateRoleAlias_credentialDurationSeconds :: (Maybe Natural -&gt; f (Maybe Natural))
+</span><a href="#local-6989586621679861603"><span class="hs-identifier hs-var">pRoleAlias_</span></a></span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | The number of seconds the credential will be valid.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#updateRoleAlias_credentialDurationSeconds"><span class="hs-identifier hs-type">updateRoleAlias_credentialDurationSeconds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAlias"><span class="hs-identifier hs-type">UpdateRoleAlias</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span id="updateRoleAlias_credentialDurationSeconds"><span class="annot"><span class="annottext">updateRoleAlias_credentialDurationSeconds :: (Maybe Natural -&gt; f (Maybe Natural))
 -&gt; UpdateRoleAlias -&gt; f UpdateRoleAlias
 </span><a href="Network.AWS.IoT.UpdateRoleAlias.html#updateRoleAlias_credentialDurationSeconds"><span class="hs-identifier hs-var hs-var">updateRoleAlias_credentialDurationSeconds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRoleAlias -&gt; Maybe Natural)
 -&gt; (UpdateRoleAlias -&gt; Maybe Natural -&gt; UpdateRoleAlias)
 -&gt; Lens
      UpdateRoleAlias UpdateRoleAlias (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAlias%27"><span class="hs-identifier hs-type">UpdateRoleAlias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679860580"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAlias%27"><span class="hs-identifier hs-type">UpdateRoleAlias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679861600"><span class="annot"><span class="annottext">Maybe Natural
 credentialDurationSeconds :: Maybe Natural
 $sel:credentialDurationSeconds:UpdateRoleAlias' :: UpdateRoleAlias -&gt; Maybe Natural
-</span><a href="#local-6989586621679860580"><span class="hs-identifier hs-var hs-var">credentialDurationSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679860580"><span class="hs-identifier hs-var">credentialDurationSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679860579"><span class="annot"><span class="annottext">s :: UpdateRoleAlias
-</span><a href="#local-6989586621679860579"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAlias%27"><span class="hs-identifier hs-type">UpdateRoleAlias'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679860578"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679860578"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRoleAlias
-</span><a href="#local-6989586621679860579"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:credentialDurationSeconds:UpdateRoleAlias' :: Maybe Natural
+</span><a href="#local-6989586621679861600"><span class="hs-identifier hs-var hs-var">credentialDurationSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679861600"><span class="hs-identifier hs-var">credentialDurationSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679861599"><span class="annot"><span class="annottext">s :: UpdateRoleAlias
+</span><a href="#local-6989586621679861599"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAlias%27"><span class="hs-identifier hs-type">UpdateRoleAlias'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679861598"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679861598"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRoleAlias
+</span><a href="#local-6989586621679861599"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:credentialDurationSeconds:UpdateRoleAlias' :: Maybe Natural
 </span><a href="Network.AWS.IoT.UpdateRoleAlias.html#%24sel%3AcredentialDurationSeconds%3AUpdateRoleAlias%27"><span class="hs-identifier hs-var">credentialDurationSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679860578"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAlias"><span class="hs-identifier hs-type">UpdateRoleAlias</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- | The role alias to update.</span><span>
-</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#updateRoleAlias_roleAlias"><span class="hs-identifier hs-type">updateRoleAlias_roleAlias</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAlias"><span class="hs-identifier hs-type">UpdateRoleAlias</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
-</span><span id="line-101"></span><span id="updateRoleAlias_roleAlias"><span class="annot"><span class="annottext">updateRoleAlias_roleAlias :: (Text -&gt; f Text) -&gt; UpdateRoleAlias -&gt; f UpdateRoleAlias
+</span><a href="#local-6989586621679861598"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAlias"><span class="hs-identifier hs-type">UpdateRoleAlias</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | The role ARN.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#updateRoleAlias_roleArn"><span class="hs-identifier hs-type">updateRoleAlias_roleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAlias"><span class="hs-identifier hs-type">UpdateRoleAlias</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="updateRoleAlias_roleArn"><span class="annot"><span class="annottext">updateRoleAlias_roleArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateRoleAlias -&gt; f UpdateRoleAlias
+</span><a href="Network.AWS.IoT.UpdateRoleAlias.html#updateRoleAlias_roleArn"><span class="hs-identifier hs-var hs-var">updateRoleAlias_roleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRoleAlias -&gt; Maybe Text)
+-&gt; (UpdateRoleAlias -&gt; Maybe Text -&gt; UpdateRoleAlias)
+-&gt; Lens UpdateRoleAlias UpdateRoleAlias (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAlias%27"><span class="hs-identifier hs-type">UpdateRoleAlias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679861597"><span class="annot"><span class="annottext">Maybe Text
+roleArn :: Maybe Text
+$sel:roleArn:UpdateRoleAlias' :: UpdateRoleAlias -&gt; Maybe Text
+</span><a href="#local-6989586621679861597"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679861597"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679861596"><span class="annot"><span class="annottext">s :: UpdateRoleAlias
+</span><a href="#local-6989586621679861596"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAlias%27"><span class="hs-identifier hs-type">UpdateRoleAlias'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679861595"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679861595"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRoleAlias
+</span><a href="#local-6989586621679861596"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:UpdateRoleAlias' :: Maybe Text
+</span><a href="Network.AWS.IoT.UpdateRoleAlias.html#%24sel%3AroleArn%3AUpdateRoleAlias%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679861595"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAlias"><span class="hs-identifier hs-type">UpdateRoleAlias</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | The role alias to update.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#updateRoleAlias_roleAlias"><span class="hs-identifier hs-type">updateRoleAlias_roleAlias</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAlias"><span class="hs-identifier hs-type">UpdateRoleAlias</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-102"></span><span id="updateRoleAlias_roleAlias"><span class="annot"><span class="annottext">updateRoleAlias_roleAlias :: (Text -&gt; f Text) -&gt; UpdateRoleAlias -&gt; f UpdateRoleAlias
 </span><a href="Network.AWS.IoT.UpdateRoleAlias.html#updateRoleAlias_roleAlias"><span class="hs-identifier hs-var hs-var">updateRoleAlias_roleAlias</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRoleAlias -&gt; Text)
 -&gt; (UpdateRoleAlias -&gt; Text -&gt; UpdateRoleAlias)
 -&gt; Lens UpdateRoleAlias UpdateRoleAlias Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAlias%27"><span class="hs-identifier hs-type">UpdateRoleAlias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679860577"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAlias%27"><span class="hs-identifier hs-type">UpdateRoleAlias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679861594"><span class="annot"><span class="annottext">Text
 roleAlias :: Text
 $sel:roleAlias:UpdateRoleAlias' :: UpdateRoleAlias -&gt; Text
-</span><a href="#local-6989586621679860577"><span class="hs-identifier hs-var hs-var">roleAlias</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679860577"><span class="hs-identifier hs-var">roleAlias</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679860576"><span class="annot"><span class="annottext">s :: UpdateRoleAlias
-</span><a href="#local-6989586621679860576"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAlias%27"><span class="hs-identifier hs-type">UpdateRoleAlias'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679860575"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679860575"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRoleAlias
-</span><a href="#local-6989586621679860576"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleAlias:UpdateRoleAlias' :: Text
+</span><a href="#local-6989586621679861594"><span class="hs-identifier hs-var hs-var">roleAlias</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679861594"><span class="hs-identifier hs-var">roleAlias</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679861593"><span class="annot"><span class="annottext">s :: UpdateRoleAlias
+</span><a href="#local-6989586621679861593"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAlias%27"><span class="hs-identifier hs-type">UpdateRoleAlias'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679861592"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679861592"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRoleAlias
+</span><a href="#local-6989586621679861593"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleAlias:UpdateRoleAlias' :: Text
 </span><a href="Network.AWS.IoT.UpdateRoleAlias.html#%24sel%3AroleAlias%3AUpdateRoleAlias%27"><span class="hs-identifier hs-var">roleAlias</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679860575"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAlias"><span class="hs-identifier hs-type">UpdateRoleAlias</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAlias"><span class="hs-identifier hs-type">UpdateRoleAlias</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-104"></span><span>  </span><span class="hs-keyword">type</span><span>
-</span><span id="line-105"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAlias"><span class="hs-identifier hs-type">UpdateRoleAlias</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-106"></span><span>      </span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAliasResponse"><span class="hs-identifier hs-type">UpdateRoleAliasResponse</span></a></span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679860571"><span class="annot"><span class="annottext">request :: UpdateRoleAlias -&gt; Request UpdateRoleAlias
+</span><a href="#local-6989586621679861592"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAlias"><span class="hs-identifier hs-type">UpdateRoleAlias</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAlias"><span class="hs-identifier hs-type">UpdateRoleAlias</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-105"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-106"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAlias"><span class="hs-identifier hs-type">UpdateRoleAlias</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAliasResponse"><span class="hs-identifier hs-type">UpdateRoleAliasResponse</span></a></span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679861588"><span class="annot"><span class="annottext">request :: UpdateRoleAlias -&gt; Request UpdateRoleAlias
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateRoleAlias -&gt; Request UpdateRoleAlias
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IoT.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679860567"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679861584"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateRoleAlias
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse UpdateRoleAlias)))
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">(Int
+</span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">(Int
  -&gt; ResponseHeaders
  -&gt; Object
  -&gt; Either String (AWSResponse UpdateRoleAlias))
@@ -245,31 +246,31 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679860564"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679860564"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679860563"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679860563"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679860562"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679860562"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-111"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Int -&gt; UpdateRoleAliasResponse
+</span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679861581"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679861581"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679861580"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679861580"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679861579"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679861579"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-112"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Int -&gt; UpdateRoleAliasResponse
 </span><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAliasResponse%27"><span class="hs-identifier hs-var">UpdateRoleAliasResponse'</span></a></span><span>
-</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Int -&gt; UpdateRoleAliasResponse)
+</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Int -&gt; UpdateRoleAliasResponse)
 -&gt; Either String (Maybe Text)
 -&gt; Either String (Maybe Text -&gt; Int -&gt; UpdateRoleAliasResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679860562"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679861579"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;roleAliasArn&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; UpdateRoleAliasResponse)
+</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; UpdateRoleAliasResponse)
 -&gt; Either String (Maybe Text)
 -&gt; Either String (Int -&gt; UpdateRoleAliasResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679860562"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679861579"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;roleAlias&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; UpdateRoleAliasResponse)
+</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; UpdateRoleAliasResponse)
 -&gt; Either String Int -&gt; Either String UpdateRoleAliasResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
@@ -277,98 +278,98 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679860564"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-115"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679860554"><span id="local-6989586621679860556"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAlias"><span class="hs-identifier hs-type">UpdateRoleAlias</span></a></span></span></span><span>
-</span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679860551"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAlias"><span class="hs-identifier hs-type">UpdateRoleAlias</span></a></span></span><span>
-</span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAlias"><span class="hs-identifier hs-type">UpdateRoleAlias</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679860547"><span class="annot"><span class="annottext">toHeaders :: UpdateRoleAlias -&gt; ResponseHeaders
+</span><a href="#local-6989586621679861581"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679861571"><span id="local-6989586621679861573"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAlias"><span class="hs-identifier hs-type">UpdateRoleAlias</span></a></span></span></span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679861568"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAlias"><span class="hs-identifier hs-type">UpdateRoleAlias</span></a></span></span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAlias"><span class="hs-identifier hs-type">UpdateRoleAlias</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679861564"><span class="annot"><span class="annottext">toHeaders :: UpdateRoleAlias -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateRoleAlias -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679860538"><span id="local-6989586621679860540"><span id="local-6989586621679860542"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAlias"><span class="hs-identifier hs-type">UpdateRoleAlias</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679860536"><span class="annot"><span class="annottext">toJSON :: UpdateRoleAlias -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAlias%27"><span class="hs-identifier hs-type">UpdateRoleAlias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679860532"><span id="local-6989586621679860533"><span id="local-6989586621679860534"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679861555"><span id="local-6989586621679861557"><span id="local-6989586621679861559"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAlias"><span class="hs-identifier hs-type">UpdateRoleAlias</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679861553"><span class="annot"><span class="annottext">toJSON :: UpdateRoleAlias -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAlias%27"><span class="hs-identifier hs-type">UpdateRoleAlias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679861549"><span id="local-6989586621679861550"><span id="local-6989586621679861551"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Text
 roleAlias :: Text
-credentialDurationSeconds :: Maybe Natural
 roleArn :: Maybe Text
+credentialDurationSeconds :: Maybe Natural
 $sel:roleAlias:UpdateRoleAlias' :: UpdateRoleAlias -&gt; Text
-$sel:credentialDurationSeconds:UpdateRoleAlias' :: UpdateRoleAlias -&gt; Maybe Natural
 $sel:roleArn:UpdateRoleAlias' :: UpdateRoleAlias -&gt; Maybe Text
-</span><a href="#local-6989586621679860532"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-126"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+$sel:credentialDurationSeconds:UpdateRoleAlias' :: UpdateRoleAlias -&gt; Maybe Natural
+</span><a href="#local-6989586621679861549"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-127"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
-</span><span id="line-127"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+</span><span id="line-128"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
-</span><span id="line-128"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;roleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679860534"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-129"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span id="line-129"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;credentialDurationSeconds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679860533"><span class="hs-identifier hs-var">credentialDurationSeconds</span></a></span><span>
-</span><span id="line-131"></span><span>          </span><span class="hs-special">]</span><span>
-</span><span id="line-132"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-133"></span><span>
-</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAlias"><span class="hs-identifier hs-type">UpdateRoleAlias</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679860526"><span class="annot"><span class="annottext">toPath :: UpdateRoleAlias -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAlias%27"><span class="hs-identifier hs-type">UpdateRoleAlias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679860522"><span id="local-6989586621679860523"><span id="local-6989586621679860524"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679861551"><span class="hs-identifier hs-var">credentialDurationSeconds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;roleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679861550"><span class="hs-identifier hs-var">roleArn</span></a></span><span>
+</span><span id="line-132"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-133"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAlias"><span class="hs-identifier hs-type">UpdateRoleAlias</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679861543"><span class="annot"><span class="annottext">toPath :: UpdateRoleAlias -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAlias%27"><span class="hs-identifier hs-type">UpdateRoleAlias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679861539"><span id="local-6989586621679861540"><span id="local-6989586621679861541"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Text
 roleAlias :: Text
-credentialDurationSeconds :: Maybe Natural
 roleArn :: Maybe Text
+credentialDurationSeconds :: Maybe Natural
 $sel:roleAlias:UpdateRoleAlias' :: UpdateRoleAlias -&gt; Text
-$sel:credentialDurationSeconds:UpdateRoleAlias' :: UpdateRoleAlias -&gt; Maybe Natural
 $sel:roleArn:UpdateRoleAlias' :: UpdateRoleAlias -&gt; Maybe Text
-</span><a href="#local-6989586621679860522"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-136"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+$sel:credentialDurationSeconds:UpdateRoleAlias' :: UpdateRoleAlias -&gt; Maybe Natural
+</span><a href="#local-6989586621679861539"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-137"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
-</span><span id="line-137"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span id="line-138"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/role-aliases/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679860522"><span class="hs-identifier hs-var">roleAlias</span></a></span><span class="hs-special">]</span><span>
-</span><span id="line-138"></span><span>
-</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAlias"><span class="hs-identifier hs-type">UpdateRoleAlias</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679860518"><span class="annot"><span class="annottext">toQuery :: UpdateRoleAlias -&gt; QueryString
+</span><a href="#local-6989586621679861539"><span class="hs-identifier hs-var">roleAlias</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAlias"><span class="hs-identifier hs-type">UpdateRoleAlias</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679861535"><span class="annot"><span class="annottext">toQuery :: UpdateRoleAlias -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateRoleAlias -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-comment">-- | /See:/ 'newUpdateRoleAliasResponse' smart constructor.</span><span>
-</span><span id="line-143"></span><span id="local-6989586621679860515"><span id="local-6989586621679860516"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateRoleAliasResponse"><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAliasResponse"><span class="hs-identifier hs-var">UpdateRoleAliasResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateRoleAliasResponse%27"><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAliasResponse%27"><span class="hs-identifier hs-var">UpdateRoleAliasResponse'</span></a></span></span><span>
-</span><span id="line-144"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The role alias ARN.</span><span>
-</span><span id="line-145"></span><span>    </span><span id="%24sel%3AroleAliasArn%3AUpdateRoleAliasResponse%27"><span class="annot"><span class="annottext">UpdateRoleAliasResponse -&gt; Maybe Text
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- | /See:/ 'newUpdateRoleAliasResponse' smart constructor.</span><span>
+</span><span id="line-144"></span><span id="local-6989586621679861532"><span id="local-6989586621679861533"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateRoleAliasResponse"><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAliasResponse"><span class="hs-identifier hs-var">UpdateRoleAliasResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateRoleAliasResponse%27"><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAliasResponse%27"><span class="hs-identifier hs-var">UpdateRoleAliasResponse'</span></a></span></span><span>
+</span><span id="line-145"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The role alias ARN.</span><span>
+</span><span id="line-146"></span><span>    </span><span id="%24sel%3AroleAliasArn%3AUpdateRoleAliasResponse%27"><span class="annot"><span class="annottext">UpdateRoleAliasResponse -&gt; Maybe Text
 </span><a href="Network.AWS.IoT.UpdateRoleAlias.html#%24sel%3AroleAliasArn%3AUpdateRoleAliasResponse%27"><span class="hs-identifier hs-var hs-var">roleAliasArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-146"></span><span>    </span><span class="hs-comment">-- | The role alias.</span><span>
-</span><span id="line-147"></span><span>    </span><span id="%24sel%3AroleAlias%3AUpdateRoleAliasResponse%27"><span class="annot"><span class="annottext">UpdateRoleAliasResponse -&gt; Maybe Text
+</span><span id="line-147"></span><span>    </span><span class="hs-comment">-- | The role alias.</span><span>
+</span><span id="line-148"></span><span>    </span><span id="%24sel%3AroleAlias%3AUpdateRoleAliasResponse%27"><span class="annot"><span class="annottext">UpdateRoleAliasResponse -&gt; Maybe Text
 </span><a href="Network.AWS.IoT.UpdateRoleAlias.html#%24sel%3AroleAlias%3AUpdateRoleAliasResponse%27"><span class="hs-identifier hs-var hs-var">roleAlias</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-148"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
-</span><span id="line-149"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateRoleAliasResponse%27"><span class="annot"><span class="annottext">UpdateRoleAliasResponse -&gt; Int
+</span><span id="line-149"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-150"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateRoleAliasResponse%27"><span class="annot"><span class="annottext">UpdateRoleAliasResponse -&gt; Int
 </span><a href="Network.AWS.IoT.UpdateRoleAlias.html#%24sel%3AhttpStatus%3AUpdateRoleAliasResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
-</span><span id="line-150"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-151"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679860508"><span id="local-6989586621679860510"><span class="annot"><span class="annottext">UpdateRoleAliasResponse -&gt; UpdateRoleAliasResponse -&gt; Bool
+</span><span id="line-151"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-152"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679861525"><span id="local-6989586621679861527"><span class="annot"><span class="annottext">UpdateRoleAliasResponse -&gt; UpdateRoleAliasResponse -&gt; Bool
 (UpdateRoleAliasResponse -&gt; UpdateRoleAliasResponse -&gt; Bool)
 -&gt; (UpdateRoleAliasResponse -&gt; UpdateRoleAliasResponse -&gt; Bool)
 -&gt; Eq UpdateRoleAliasResponse
@@ -377,7 +378,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateRoleAliasResponse -&gt; UpdateRoleAliasResponse -&gt; Bool
 == :: UpdateRoleAliasResponse -&gt; UpdateRoleAliasResponse -&gt; Bool
 $c== :: UpdateRoleAliasResponse -&gt; UpdateRoleAliasResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679860500"><span id="local-6989586621679860502"><span id="local-6989586621679860504"><span id="local-6989586621679860506"><span class="annot"><span class="annottext">ReadPrec [UpdateRoleAliasResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679861517"><span id="local-6989586621679861519"><span id="local-6989586621679861521"><span id="local-6989586621679861523"><span class="annot"><span class="annottext">ReadPrec [UpdateRoleAliasResponse]
 ReadPrec UpdateRoleAliasResponse
 Int -&gt; ReadS UpdateRoleAliasResponse
 ReadS [UpdateRoleAliasResponse]
@@ -397,7 +398,7 @@ readList :: ReadS [UpdateRoleAliasResponse]
 $creadList :: ReadS [UpdateRoleAliasResponse]
 readsPrec :: Int -&gt; ReadS UpdateRoleAliasResponse
 $creadsPrec :: Int -&gt; ReadS UpdateRoleAliasResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679860494"><span id="local-6989586621679860496"><span id="local-6989586621679860498"><span class="annot"><span class="annottext">Int -&gt; UpdateRoleAliasResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679861511"><span id="local-6989586621679861513"><span id="local-6989586621679861515"><span class="annot"><span class="annottext">Int -&gt; UpdateRoleAliasResponse -&gt; ShowS
 [UpdateRoleAliasResponse] -&gt; ShowS
 UpdateRoleAliasResponse -&gt; String
 (Int -&gt; UpdateRoleAliasResponse -&gt; ShowS)
@@ -424,46 +425,46 @@ forall a.
 $cto :: forall x. Rep UpdateRoleAliasResponse x -&gt; UpdateRoleAliasResponse
 $cfrom :: forall x. UpdateRoleAliasResponse -&gt; Rep UpdateRoleAliasResponse x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
-</span><span id="line-152"></span><span>
-</span><span id="line-153"></span><span class="hs-comment">-- |</span><span>
-</span><span id="line-154"></span><span class="hs-comment">-- Create a value of 'UpdateRoleAliasResponse' with all optional fields omitted.</span><span>
-</span><span id="line-155"></span><span class="hs-comment">--</span><span>
-</span><span id="line-156"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
-</span><span id="line-157"></span><span class="hs-comment">--</span><span>
-</span><span id="line-158"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
-</span><span id="line-159"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
-</span><span id="line-160"></span><span class="hs-comment">--</span><span>
-</span><span id="line-161"></span><span class="hs-comment">-- 'roleAliasArn', 'updateRoleAliasResponse_roleAliasArn' - The role alias ARN.</span><span>
-</span><span id="line-162"></span><span class="hs-comment">--</span><span>
-</span><span id="line-163"></span><span class="hs-comment">-- 'roleAlias', 'updateRoleAliasResponse_roleAlias' - The role alias.</span><span>
-</span><span id="line-164"></span><span class="hs-comment">--</span><span>
-</span><span id="line-165"></span><span class="hs-comment">-- 'httpStatus', 'updateRoleAliasResponse_httpStatus' - The response's http status code.</span><span>
-</span><span id="line-166"></span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#newUpdateRoleAliasResponse"><span class="hs-identifier hs-type">newUpdateRoleAliasResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
-</span><span id="line-167"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
-</span><span id="line-168"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-169"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAliasResponse"><span class="hs-identifier hs-type">UpdateRoleAliasResponse</span></a></span><span>
-</span><span id="line-170"></span><span id="newUpdateRoleAliasResponse"><span class="annot"><span class="annottext">newUpdateRoleAliasResponse :: Int -&gt; UpdateRoleAliasResponse
-</span><a href="Network.AWS.IoT.UpdateRoleAlias.html#newUpdateRoleAliasResponse"><span class="hs-identifier hs-var hs-var">newUpdateRoleAliasResponse</span></a></span></span><span> </span><span id="local-6989586621679860491"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679860491"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-171"></span><span>  </span><span class="annot"><span class="annottext">UpdateRoleAliasResponse' :: Maybe Text -&gt; Maybe Text -&gt; Int -&gt; UpdateRoleAliasResponse
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- Create a value of 'UpdateRoleAliasResponse' with all optional fields omitted.</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- 'roleAliasArn', 'updateRoleAliasResponse_roleAliasArn' - The role alias ARN.</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- 'roleAlias', 'updateRoleAliasResponse_roleAlias' - The role alias.</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- 'httpStatus', 'updateRoleAliasResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-167"></span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#newUpdateRoleAliasResponse"><span class="hs-identifier hs-type">newUpdateRoleAliasResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-168"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-169"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-170"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAliasResponse"><span class="hs-identifier hs-type">UpdateRoleAliasResponse</span></a></span><span>
+</span><span id="line-171"></span><span id="newUpdateRoleAliasResponse"><span class="annot"><span class="annottext">newUpdateRoleAliasResponse :: Int -&gt; UpdateRoleAliasResponse
+</span><a href="Network.AWS.IoT.UpdateRoleAlias.html#newUpdateRoleAliasResponse"><span class="hs-identifier hs-var hs-var">newUpdateRoleAliasResponse</span></a></span></span><span> </span><span id="local-6989586621679861508"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679861508"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-172"></span><span>  </span><span class="annot"><span class="annottext">UpdateRoleAliasResponse' :: Maybe Text -&gt; Maybe Text -&gt; Int -&gt; UpdateRoleAliasResponse
 </span><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAliasResponse%27"><span class="hs-identifier hs-type">UpdateRoleAliasResponse'</span></a></span><span>
-</span><span id="line-172"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:roleAliasArn:UpdateRoleAliasResponse' :: Maybe Text
+</span><span id="line-173"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:roleAliasArn:UpdateRoleAliasResponse' :: Maybe Text
 </span><a href="Network.AWS.IoT.UpdateRoleAlias.html#%24sel%3AroleAliasArn%3AUpdateRoleAliasResponse%27"><span class="hs-identifier hs-var">roleAliasArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-173"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-174"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-174"></span><span>      </span><span class="annot"><span class="annottext">$sel:roleAlias:UpdateRoleAliasResponse' :: Maybe Text
+</span><span id="line-175"></span><span>      </span><span class="annot"><span class="annottext">$sel:roleAlias:UpdateRoleAliasResponse' :: Maybe Text
 </span><a href="Network.AWS.IoT.UpdateRoleAlias.html#%24sel%3AroleAlias%3AUpdateRoleAliasResponse%27"><span class="hs-identifier hs-var">roleAlias</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-175"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateRoleAliasResponse' :: Int
+</span><span id="line-176"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateRoleAliasResponse' :: Int
 </span><a href="Network.AWS.IoT.UpdateRoleAlias.html#%24sel%3AhttpStatus%3AUpdateRoleAliasResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679860491"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
-</span><span id="line-176"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-177"></span><span>
-</span><span id="line-178"></span><span class="hs-comment">-- | The role alias ARN.</span><span>
-</span><span id="line-179"></span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#updateRoleAliasResponse_roleAliasArn"><span class="hs-identifier hs-type">updateRoleAliasResponse_roleAliasArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAliasResponse"><span class="hs-identifier hs-type">UpdateRoleAliasResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-180"></span><span id="updateRoleAliasResponse_roleAliasArn"><span class="annot"><span class="annottext">updateRoleAliasResponse_roleAliasArn :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621679861508"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-177"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- | The role alias ARN.</span><span>
+</span><span id="line-180"></span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#updateRoleAliasResponse_roleAliasArn"><span class="hs-identifier hs-type">updateRoleAliasResponse_roleAliasArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAliasResponse"><span class="hs-identifier hs-type">UpdateRoleAliasResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span id="updateRoleAliasResponse_roleAliasArn"><span class="annot"><span class="annottext">updateRoleAliasResponse_roleAliasArn :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; UpdateRoleAliasResponse -&gt; f UpdateRoleAliasResponse
 </span><a href="Network.AWS.IoT.UpdateRoleAlias.html#updateRoleAliasResponse_roleAliasArn"><span class="hs-identifier hs-var hs-var">updateRoleAliasResponse_roleAliasArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRoleAliasResponse -&gt; Maybe Text)
 -&gt; (UpdateRoleAliasResponse
@@ -474,20 +475,20 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAliasResponse%27"><span class="hs-identifier hs-type">UpdateRoleAliasResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679860490"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAliasResponse%27"><span class="hs-identifier hs-type">UpdateRoleAliasResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679861507"><span class="annot"><span class="annottext">Maybe Text
 roleAliasArn :: Maybe Text
 $sel:roleAliasArn:UpdateRoleAliasResponse' :: UpdateRoleAliasResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679860490"><span class="hs-identifier hs-var hs-var">roleAliasArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679860490"><span class="hs-identifier hs-var">roleAliasArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679860489"><span class="annot"><span class="annottext">s :: UpdateRoleAliasResponse
-</span><a href="#local-6989586621679860489"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAliasResponse%27"><span class="hs-identifier hs-type">UpdateRoleAliasResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679860488"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679860488"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRoleAliasResponse
-</span><a href="#local-6989586621679860489"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleAliasArn:UpdateRoleAliasResponse' :: Maybe Text
+</span><a href="#local-6989586621679861507"><span class="hs-identifier hs-var hs-var">roleAliasArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679861507"><span class="hs-identifier hs-var">roleAliasArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679861506"><span class="annot"><span class="annottext">s :: UpdateRoleAliasResponse
+</span><a href="#local-6989586621679861506"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAliasResponse%27"><span class="hs-identifier hs-type">UpdateRoleAliasResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679861505"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679861505"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRoleAliasResponse
+</span><a href="#local-6989586621679861506"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleAliasArn:UpdateRoleAliasResponse' :: Maybe Text
 </span><a href="Network.AWS.IoT.UpdateRoleAlias.html#%24sel%3AroleAliasArn%3AUpdateRoleAliasResponse%27"><span class="hs-identifier hs-var">roleAliasArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679860488"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAliasResponse"><span class="hs-identifier hs-type">UpdateRoleAliasResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-181"></span><span>
-</span><span id="line-182"></span><span class="hs-comment">-- | The role alias.</span><span>
-</span><span id="line-183"></span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#updateRoleAliasResponse_roleAlias"><span class="hs-identifier hs-type">updateRoleAliasResponse_roleAlias</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAliasResponse"><span class="hs-identifier hs-type">UpdateRoleAliasResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-184"></span><span id="updateRoleAliasResponse_roleAlias"><span class="annot"><span class="annottext">updateRoleAliasResponse_roleAlias :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621679861505"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAliasResponse"><span class="hs-identifier hs-type">UpdateRoleAliasResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- | The role alias.</span><span>
+</span><span id="line-184"></span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#updateRoleAliasResponse_roleAlias"><span class="hs-identifier hs-type">updateRoleAliasResponse_roleAlias</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAliasResponse"><span class="hs-identifier hs-type">UpdateRoleAliasResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span id="updateRoleAliasResponse_roleAlias"><span class="annot"><span class="annottext">updateRoleAliasResponse_roleAlias :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; UpdateRoleAliasResponse -&gt; f UpdateRoleAliasResponse
 </span><a href="Network.AWS.IoT.UpdateRoleAlias.html#updateRoleAliasResponse_roleAlias"><span class="hs-identifier hs-var hs-var">updateRoleAliasResponse_roleAlias</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRoleAliasResponse -&gt; Maybe Text)
 -&gt; (UpdateRoleAliasResponse
@@ -498,35 +499,35 @@ $sel:roleAliasArn:UpdateRoleAliasResponse' :: UpdateRoleAliasResponse -&gt; Mayb
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAliasResponse%27"><span class="hs-identifier hs-type">UpdateRoleAliasResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679860487"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAliasResponse%27"><span class="hs-identifier hs-type">UpdateRoleAliasResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679861504"><span class="annot"><span class="annottext">Maybe Text
 roleAlias :: Maybe Text
 $sel:roleAlias:UpdateRoleAliasResponse' :: UpdateRoleAliasResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679860487"><span class="hs-identifier hs-var hs-var">roleAlias</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679860487"><span class="hs-identifier hs-var">roleAlias</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679860486"><span class="annot"><span class="annottext">s :: UpdateRoleAliasResponse
-</span><a href="#local-6989586621679860486"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAliasResponse%27"><span class="hs-identifier hs-type">UpdateRoleAliasResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679860485"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679860485"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRoleAliasResponse
-</span><a href="#local-6989586621679860486"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleAlias:UpdateRoleAliasResponse' :: Maybe Text
+</span><a href="#local-6989586621679861504"><span class="hs-identifier hs-var hs-var">roleAlias</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679861504"><span class="hs-identifier hs-var">roleAlias</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679861503"><span class="annot"><span class="annottext">s :: UpdateRoleAliasResponse
+</span><a href="#local-6989586621679861503"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAliasResponse%27"><span class="hs-identifier hs-type">UpdateRoleAliasResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679861502"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679861502"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRoleAliasResponse
+</span><a href="#local-6989586621679861503"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleAlias:UpdateRoleAliasResponse' :: Maybe Text
 </span><a href="Network.AWS.IoT.UpdateRoleAlias.html#%24sel%3AroleAlias%3AUpdateRoleAliasResponse%27"><span class="hs-identifier hs-var">roleAlias</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679860485"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAliasResponse"><span class="hs-identifier hs-type">UpdateRoleAliasResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-185"></span><span>
-</span><span id="line-186"></span><span class="hs-comment">-- | The response's http status code.</span><span>
-</span><span id="line-187"></span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#updateRoleAliasResponse_httpStatus"><span class="hs-identifier hs-type">updateRoleAliasResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAliasResponse"><span class="hs-identifier hs-type">UpdateRoleAliasResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
-</span><span id="line-188"></span><span id="updateRoleAliasResponse_httpStatus"><span class="annot"><span class="annottext">updateRoleAliasResponse_httpStatus :: (Int -&gt; f Int)
+</span><a href="#local-6989586621679861502"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAliasResponse"><span class="hs-identifier hs-type">UpdateRoleAliasResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-188"></span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#updateRoleAliasResponse_httpStatus"><span class="hs-identifier hs-type">updateRoleAliasResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAliasResponse"><span class="hs-identifier hs-type">UpdateRoleAliasResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-189"></span><span id="updateRoleAliasResponse_httpStatus"><span class="annot"><span class="annottext">updateRoleAliasResponse_httpStatus :: (Int -&gt; f Int)
 -&gt; UpdateRoleAliasResponse -&gt; f UpdateRoleAliasResponse
 </span><a href="Network.AWS.IoT.UpdateRoleAlias.html#updateRoleAliasResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateRoleAliasResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRoleAliasResponse -&gt; Int)
 -&gt; (UpdateRoleAliasResponse -&gt; Int -&gt; UpdateRoleAliasResponse)
 -&gt; Lens UpdateRoleAliasResponse UpdateRoleAliasResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAliasResponse%27"><span class="hs-identifier hs-type">UpdateRoleAliasResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679860484"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAliasResponse%27"><span class="hs-identifier hs-type">UpdateRoleAliasResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679861501"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:UpdateRoleAliasResponse' :: UpdateRoleAliasResponse -&gt; Int
-</span><a href="#local-6989586621679860484"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679860484"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679860483"><span class="annot"><span class="annottext">s :: UpdateRoleAliasResponse
-</span><a href="#local-6989586621679860483"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAliasResponse%27"><span class="hs-identifier hs-type">UpdateRoleAliasResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679860482"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679860482"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRoleAliasResponse
-</span><a href="#local-6989586621679860483"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateRoleAliasResponse' :: Int
+</span><a href="#local-6989586621679861501"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679861501"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679861500"><span class="annot"><span class="annottext">s :: UpdateRoleAliasResponse
+</span><a href="#local-6989586621679861500"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAliasResponse%27"><span class="hs-identifier hs-type">UpdateRoleAliasResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679861499"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679861499"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRoleAliasResponse
+</span><a href="#local-6989586621679861500"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateRoleAliasResponse' :: Int
 </span><a href="Network.AWS.IoT.UpdateRoleAlias.html#%24sel%3AhttpStatus%3AUpdateRoleAliasResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679860482"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAliasResponse"><span class="hs-identifier hs-type">UpdateRoleAliasResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-189"></span><span>
-</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679860480"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAliasResponse"><span class="hs-identifier hs-type">UpdateRoleAliasResponse</span></a></span></span><span>
-</span><span id="line-191"></span></pre></body></html>
+</span><a href="#local-6989586621679861499"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAliasResponse"><span class="hs-identifier hs-type">UpdateRoleAliasResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679861497"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateRoleAlias.html#UpdateRoleAliasResponse"><span class="hs-identifier hs-type">UpdateRoleAliasResponse</span></a></span></span><span>
+</span><span id="line-192"></span></pre></body></html>

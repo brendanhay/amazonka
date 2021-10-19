@@ -28,9 +28,9 @@
 </span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#newCreateFunctionDefinitionVersion"><span class="hs-identifier">newCreateFunctionDefinitionVersion</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-29"></span><span>
 </span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#createFunctionDefinitionVersion_functions"><span class="hs-identifier">createFunctionDefinitionVersion_functions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#createFunctionDefinitionVersion_amznClientToken"><span class="hs-identifier">createFunctionDefinitionVersion_amznClientToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#createFunctionDefinitionVersion_defaultConfig"><span class="hs-identifier">createFunctionDefinitionVersion_defaultConfig</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#createFunctionDefinitionVersion_amznClientToken"><span class="hs-identifier">createFunctionDefinitionVersion_amznClientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#createFunctionDefinitionVersion_functions"><span class="hs-identifier">createFunctionDefinitionVersion_functions</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#createFunctionDefinitionVersion_functionDefinitionId"><span class="hs-identifier">createFunctionDefinitionVersion_functionDefinitionId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-35"></span><span>
 </span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
@@ -38,10 +38,10 @@
 </span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#newCreateFunctionDefinitionVersionResponse"><span class="hs-identifier">newCreateFunctionDefinitionVersionResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-39"></span><span>
 </span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#createFunctionDefinitionVersionResponse_creationTimestamp"><span class="hs-identifier">createFunctionDefinitionVersionResponse_creationTimestamp</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#createFunctionDefinitionVersionResponse_arn"><span class="hs-identifier">createFunctionDefinitionVersionResponse_arn</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#createFunctionDefinitionVersionResponse_id"><span class="hs-identifier">createFunctionDefinitionVersionResponse_id</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#createFunctionDefinitionVersionResponse_version"><span class="hs-identifier">createFunctionDefinitionVersionResponse_version</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#createFunctionDefinitionVersionResponse_arn"><span class="hs-identifier">createFunctionDefinitionVersionResponse_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#createFunctionDefinitionVersionResponse_creationTimestamp"><span class="hs-identifier">createFunctionDefinitionVersionResponse_creationTimestamp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#createFunctionDefinitionVersionResponse_version"><span class="hs-identifier">createFunctionDefinitionVersionResponse_version</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#createFunctionDefinitionVersionResponse_id"><span class="hs-identifier">createFunctionDefinitionVersionResponse_id</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#createFunctionDefinitionVersionResponse_httpStatus"><span class="hs-identifier">createFunctionDefinitionVersionResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span class="hs-keyword">where</span><span>
@@ -56,23 +56,23 @@
 </span><span id="line-56"></span><span class="hs-comment">-- | Information needed to create a function definition version.</span><span>
 </span><span id="line-57"></span><span class="hs-comment">--</span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- /See:/ 'newCreateFunctionDefinitionVersion' smart constructor.</span><span>
-</span><span id="line-59"></span><span id="local-6989586621679365298"><span id="local-6989586621679365299"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateFunctionDefinitionVersion"><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersion"><span class="hs-identifier hs-var">CreateFunctionDefinitionVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateFunctionDefinitionVersion%27"><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersion%27"><span class="hs-identifier hs-var">CreateFunctionDefinitionVersion'</span></a></span></span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of Lambda functions in this function definition version.</span><span>
-</span><span id="line-61"></span><span>    </span><span id="%24sel%3Afunctions%3ACreateFunctionDefinitionVersion%27"><span class="annot"><span class="annottext">CreateFunctionDefinitionVersion -&gt; Maybe [Function]
-</span><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#%24sel%3Afunctions%3ACreateFunctionDefinitionVersion%27"><span class="hs-identifier hs-var hs-var">functions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Greengrass.Types.Function.html#Function"><span class="hs-identifier hs-type">Function</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span id="local-6989586621679365602"><span id="local-6989586621679365603"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateFunctionDefinitionVersion"><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersion"><span class="hs-identifier hs-var">CreateFunctionDefinitionVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateFunctionDefinitionVersion%27"><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersion%27"><span class="hs-identifier hs-var">CreateFunctionDefinitionVersion'</span></a></span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A client token used to correlate requests and responses.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AamznClientToken%3ACreateFunctionDefinitionVersion%27"><span class="annot"><span class="annottext">CreateFunctionDefinitionVersion -&gt; Maybe Text
+</span><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#%24sel%3AamznClientToken%3ACreateFunctionDefinitionVersion%27"><span class="hs-identifier hs-var hs-var">amznClientToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The default configuration that applies to all Lambda functions in this</span><span>
 </span><span id="line-63"></span><span>    </span><span class="hs-comment">-- function definition version. Individual Lambda functions can override</span><span>
 </span><span id="line-64"></span><span>    </span><span class="hs-comment">-- these settings.</span><span>
 </span><span id="line-65"></span><span>    </span><span id="%24sel%3AdefaultConfig%3ACreateFunctionDefinitionVersion%27"><span class="annot"><span class="annottext">CreateFunctionDefinitionVersion -&gt; Maybe FunctionDefaultConfig
 </span><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#%24sel%3AdefaultConfig%3ACreateFunctionDefinitionVersion%27"><span class="hs-identifier hs-var hs-var">defaultConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.FunctionDefaultConfig.html#FunctionDefaultConfig"><span class="hs-identifier hs-type">FunctionDefaultConfig</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | A client token used to correlate requests and responses.</span><span>
-</span><span id="line-67"></span><span>    </span><span id="%24sel%3AamznClientToken%3ACreateFunctionDefinitionVersion%27"><span class="annot"><span class="annottext">CreateFunctionDefinitionVersion -&gt; Maybe Text
-</span><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#%24sel%3AamznClientToken%3ACreateFunctionDefinitionVersion%27"><span class="hs-identifier hs-var hs-var">amznClientToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | A list of Lambda functions in this function definition version.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3Afunctions%3ACreateFunctionDefinitionVersion%27"><span class="annot"><span class="annottext">CreateFunctionDefinitionVersion -&gt; Maybe [Function]
+</span><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#%24sel%3Afunctions%3ACreateFunctionDefinitionVersion%27"><span class="hs-identifier hs-var hs-var">functions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Greengrass.Types.Function.html#Function"><span class="hs-identifier hs-type">Function</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
 </span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | The ID of the Lambda function definition.</span><span>
 </span><span id="line-69"></span><span>    </span><span id="%24sel%3AfunctionDefinitionId%3ACreateFunctionDefinitionVersion%27"><span class="annot"><span class="annottext">CreateFunctionDefinitionVersion -&gt; Text
 </span><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#%24sel%3AfunctionDefinitionId%3ACreateFunctionDefinitionVersion%27"><span class="hs-identifier hs-var hs-var">functionDefinitionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-70"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679365289"><span id="local-6989586621679365291"><span class="annot"><span class="annottext">CreateFunctionDefinitionVersion
+</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679365593"><span id="local-6989586621679365595"><span class="annot"><span class="annottext">CreateFunctionDefinitionVersion
 -&gt; CreateFunctionDefinitionVersion -&gt; Bool
 (CreateFunctionDefinitionVersion
  -&gt; CreateFunctionDefinitionVersion -&gt; Bool)
@@ -88,7 +88,7 @@ $c/= :: CreateFunctionDefinitionVersion
 -&gt; CreateFunctionDefinitionVersion -&gt; Bool
 $c== :: CreateFunctionDefinitionVersion
 -&gt; CreateFunctionDefinitionVersion -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679365280"><span id="local-6989586621679365282"><span id="local-6989586621679365284"><span id="local-6989586621679365286"><span class="annot"><span class="annottext">ReadPrec [CreateFunctionDefinitionVersion]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679365584"><span id="local-6989586621679365586"><span id="local-6989586621679365588"><span id="local-6989586621679365590"><span class="annot"><span class="annottext">ReadPrec [CreateFunctionDefinitionVersion]
 ReadPrec CreateFunctionDefinitionVersion
 Int -&gt; ReadS CreateFunctionDefinitionVersion
 ReadS [CreateFunctionDefinitionVersion]
@@ -108,7 +108,7 @@ readList :: ReadS [CreateFunctionDefinitionVersion]
 $creadList :: ReadS [CreateFunctionDefinitionVersion]
 readsPrec :: Int -&gt; ReadS CreateFunctionDefinitionVersion
 $creadsPrec :: Int -&gt; ReadS CreateFunctionDefinitionVersion
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679365273"><span id="local-6989586621679365275"><span id="local-6989586621679365277"><span class="annot"><span class="annottext">Int -&gt; CreateFunctionDefinitionVersion -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679365577"><span id="local-6989586621679365579"><span id="local-6989586621679365581"><span class="annot"><span class="annottext">Int -&gt; CreateFunctionDefinitionVersion -&gt; ShowS
 [CreateFunctionDefinitionVersion] -&gt; ShowS
 CreateFunctionDefinitionVersion -&gt; String
 (Int -&gt; CreateFunctionDefinitionVersion -&gt; ShowS)
@@ -154,13 +154,13 @@ CreateFunctionDefinitionVersion
 </span><span id="line-78"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-80"></span><span class="hs-comment">--</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- 'functions', 'createFunctionDefinitionVersion_functions' - A list of Lambda functions in this function definition version.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'amznClientToken', 'createFunctionDefinitionVersion_amznClientToken' - A client token used to correlate requests and responses.</span><span>
 </span><span id="line-82"></span><span class="hs-comment">--</span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- 'defaultConfig', 'createFunctionDefinitionVersion_defaultConfig' - The default configuration that applies to all Lambda functions in this</span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- function definition version. Individual Lambda functions can override</span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- these settings.</span><span>
 </span><span id="line-86"></span><span class="hs-comment">--</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- 'amznClientToken', 'createFunctionDefinitionVersion_amznClientToken' - A client token used to correlate requests and responses.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'functions', 'createFunctionDefinitionVersion_functions' - A list of Lambda functions in this function definition version.</span><span>
 </span><span id="line-88"></span><span class="hs-comment">--</span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- 'functionDefinitionId', 'createFunctionDefinitionVersion_functionDefinitionId' - The ID of the Lambda function definition.</span><span>
 </span><span id="line-90"></span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#newCreateFunctionDefinitionVersion"><span class="hs-identifier hs-type">newCreateFunctionDefinitionVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -169,36 +169,88 @@ CreateFunctionDefinitionVersion
 </span><span id="line-93"></span><span>  </span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersion"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersion</span></a></span><span>
 </span><span id="line-94"></span><span id="newCreateFunctionDefinitionVersion"><span class="annot"><span class="annottext">newCreateFunctionDefinitionVersion :: Text -&gt; CreateFunctionDefinitionVersion
 </span><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#newCreateFunctionDefinitionVersion"><span class="hs-identifier hs-var hs-var">newCreateFunctionDefinitionVersion</span></a></span></span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679365268"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679365268"><span class="hs-identifier hs-var">pFunctionDefinitionId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">CreateFunctionDefinitionVersion' :: Maybe [Function]
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679365572"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679365572"><span class="hs-identifier hs-var">pFunctionDefinitionId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">CreateFunctionDefinitionVersion' :: Maybe Text
 -&gt; Maybe FunctionDefaultConfig
--&gt; Maybe Text
+-&gt; Maybe [Function]
 -&gt; Text
 -&gt; CreateFunctionDefinitionVersion
 </span><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersion%27"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersion'</span></a></span><span>
-</span><span id="line-97"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:functions:CreateFunctionDefinitionVersion' :: Maybe [Function]
-</span><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#%24sel%3Afunctions%3ACreateFunctionDefinitionVersion%27"><span class="hs-identifier hs-var">functions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-98"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Function]
+</span><span id="line-97"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:amznClientToken:CreateFunctionDefinitionVersion' :: Maybe Text
+</span><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#%24sel%3AamznClientToken%3ACreateFunctionDefinitionVersion%27"><span class="hs-identifier hs-var">amznClientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-99"></span><span>        </span><span class="annot"><span class="annottext">$sel:defaultConfig:CreateFunctionDefinitionVersion' :: Maybe FunctionDefaultConfig
 </span><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#%24sel%3AdefaultConfig%3ACreateFunctionDefinitionVersion%27"><span class="hs-identifier hs-var">defaultConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FunctionDefaultConfig
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-100"></span><span>        </span><span class="annot"><span class="annottext">$sel:amznClientToken:CreateFunctionDefinitionVersion' :: Maybe Text
-</span><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#%24sel%3AamznClientToken%3ACreateFunctionDefinitionVersion%27"><span class="hs-identifier hs-var">amznClientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-100"></span><span>        </span><span class="annot"><span class="annottext">$sel:functions:CreateFunctionDefinitionVersion' :: Maybe [Function]
+</span><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#%24sel%3Afunctions%3ACreateFunctionDefinitionVersion%27"><span class="hs-identifier hs-var">functions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Function]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-101"></span><span>        </span><span class="annot"><span class="annottext">$sel:functionDefinitionId:CreateFunctionDefinitionVersion' :: Text
 </span><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#%24sel%3AfunctionDefinitionId%3ACreateFunctionDefinitionVersion%27"><span class="hs-identifier hs-var">functionDefinitionId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679365268"><span class="hs-identifier hs-var">pFunctionDefinitionId_</span></a></span><span>
+</span><a href="#local-6989586621679365572"><span class="hs-identifier hs-var">pFunctionDefinitionId_</span></a></span><span>
 </span><span id="line-103"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- | A list of Lambda functions in this function definition version.</span><span>
-</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#createFunctionDefinitionVersion_functions"><span class="hs-identifier hs-type">createFunctionDefinitionVersion_functions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersion"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Greengrass.Types.Function.html#Function"><span class="hs-identifier hs-type">Function</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-107"></span><span id="createFunctionDefinitionVersion_functions"><span class="annot"><span class="annottext">createFunctionDefinitionVersion_functions :: (Maybe [Function] -&gt; f (Maybe [Function]))
+</span><span id="line-105"></span><span class="hs-comment">-- | A client token used to correlate requests and responses.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#createFunctionDefinitionVersion_amznClientToken"><span class="hs-identifier hs-type">createFunctionDefinitionVersion_amznClientToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersion"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span id="createFunctionDefinitionVersion_amznClientToken"><span class="annot"><span class="annottext">createFunctionDefinitionVersion_amznClientToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateFunctionDefinitionVersion
+-&gt; f CreateFunctionDefinitionVersion
+</span><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#createFunctionDefinitionVersion_amznClientToken"><span class="hs-identifier hs-var hs-var">createFunctionDefinitionVersion_amznClientToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateFunctionDefinitionVersion -&gt; Maybe Text)
+-&gt; (CreateFunctionDefinitionVersion
+    -&gt; Maybe Text -&gt; CreateFunctionDefinitionVersion)
+-&gt; Lens
+     CreateFunctionDefinitionVersion
+     CreateFunctionDefinitionVersion
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersion%27"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365569"><span class="annot"><span class="annottext">Maybe Text
+amznClientToken :: Maybe Text
+$sel:amznClientToken:CreateFunctionDefinitionVersion' :: CreateFunctionDefinitionVersion -&gt; Maybe Text
+</span><a href="#local-6989586621679365569"><span class="hs-identifier hs-var hs-var">amznClientToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679365569"><span class="hs-identifier hs-var">amznClientToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365568"><span class="annot"><span class="annottext">s :: CreateFunctionDefinitionVersion
+</span><a href="#local-6989586621679365568"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersion%27"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365567"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679365567"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateFunctionDefinitionVersion
+</span><a href="#local-6989586621679365568"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:amznClientToken:CreateFunctionDefinitionVersion' :: Maybe Text
+</span><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#%24sel%3AamznClientToken%3ACreateFunctionDefinitionVersion%27"><span class="hs-identifier hs-var">amznClientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679365567"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersion"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | The default configuration that applies to all Lambda functions in this</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- function definition version. Individual Lambda functions can override</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- these settings.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#createFunctionDefinitionVersion_defaultConfig"><span class="hs-identifier hs-type">createFunctionDefinitionVersion_defaultConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersion"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.FunctionDefaultConfig.html#FunctionDefaultConfig"><span class="hs-identifier hs-type">FunctionDefaultConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="createFunctionDefinitionVersion_defaultConfig"><span class="annot"><span class="annottext">createFunctionDefinitionVersion_defaultConfig :: (Maybe FunctionDefaultConfig -&gt; f (Maybe FunctionDefaultConfig))
+-&gt; CreateFunctionDefinitionVersion
+-&gt; f CreateFunctionDefinitionVersion
+</span><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#createFunctionDefinitionVersion_defaultConfig"><span class="hs-identifier hs-var hs-var">createFunctionDefinitionVersion_defaultConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateFunctionDefinitionVersion -&gt; Maybe FunctionDefaultConfig)
+-&gt; (CreateFunctionDefinitionVersion
+    -&gt; Maybe FunctionDefaultConfig -&gt; CreateFunctionDefinitionVersion)
+-&gt; Lens
+     CreateFunctionDefinitionVersion
+     CreateFunctionDefinitionVersion
+     (Maybe FunctionDefaultConfig)
+     (Maybe FunctionDefaultConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersion%27"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365566"><span class="annot"><span class="annottext">Maybe FunctionDefaultConfig
+defaultConfig :: Maybe FunctionDefaultConfig
+$sel:defaultConfig:CreateFunctionDefinitionVersion' :: CreateFunctionDefinitionVersion -&gt; Maybe FunctionDefaultConfig
+</span><a href="#local-6989586621679365566"><span class="hs-identifier hs-var hs-var">defaultConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FunctionDefaultConfig
+</span><a href="#local-6989586621679365566"><span class="hs-identifier hs-var">defaultConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365565"><span class="annot"><span class="annottext">s :: CreateFunctionDefinitionVersion
+</span><a href="#local-6989586621679365565"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersion%27"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365564"><span class="annot"><span class="annottext">Maybe FunctionDefaultConfig
+</span><a href="#local-6989586621679365564"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateFunctionDefinitionVersion
+</span><a href="#local-6989586621679365565"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultConfig:CreateFunctionDefinitionVersion' :: Maybe FunctionDefaultConfig
+</span><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#%24sel%3AdefaultConfig%3ACreateFunctionDefinitionVersion%27"><span class="hs-identifier hs-var">defaultConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FunctionDefaultConfig
+</span><a href="#local-6989586621679365564"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersion"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | A list of Lambda functions in this function definition version.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#createFunctionDefinitionVersion_functions"><span class="hs-identifier hs-type">createFunctionDefinitionVersion_functions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersion"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Greengrass.Types.Function.html#Function"><span class="hs-identifier hs-type">Function</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span id="createFunctionDefinitionVersion_functions"><span class="annot"><span class="annottext">createFunctionDefinitionVersion_functions :: (Maybe [Function] -&gt; f (Maybe [Function]))
 -&gt; CreateFunctionDefinitionVersion
 -&gt; f CreateFunctionDefinitionVersion
 </span><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#createFunctionDefinitionVersion_functions"><span class="hs-identifier hs-var hs-var">createFunctionDefinitionVersion_functions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateFunctionDefinitionVersion -&gt; Maybe [Function])
@@ -210,16 +262,16 @@ forall a. Maybe a
      (Maybe [Function])
      (Maybe [Function])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersion%27"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365265"><span class="annot"><span class="annottext">Maybe [Function]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersion%27"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365563"><span class="annot"><span class="annottext">Maybe [Function]
 functions :: Maybe [Function]
 $sel:functions:CreateFunctionDefinitionVersion' :: CreateFunctionDefinitionVersion -&gt; Maybe [Function]
-</span><a href="#local-6989586621679365265"><span class="hs-identifier hs-var hs-var">functions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Function]
-</span><a href="#local-6989586621679365265"><span class="hs-identifier hs-var">functions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365264"><span class="annot"><span class="annottext">s :: CreateFunctionDefinitionVersion
-</span><a href="#local-6989586621679365264"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersion%27"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365263"><span class="annot"><span class="annottext">Maybe [Function]
-</span><a href="#local-6989586621679365263"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateFunctionDefinitionVersion
-</span><a href="#local-6989586621679365264"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:functions:CreateFunctionDefinitionVersion' :: Maybe [Function]
+</span><a href="#local-6989586621679365563"><span class="hs-identifier hs-var hs-var">functions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Function]
+</span><a href="#local-6989586621679365563"><span class="hs-identifier hs-var">functions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365562"><span class="annot"><span class="annottext">s :: CreateFunctionDefinitionVersion
+</span><a href="#local-6989586621679365562"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersion%27"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365561"><span class="annot"><span class="annottext">Maybe [Function]
+</span><a href="#local-6989586621679365561"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateFunctionDefinitionVersion
+</span><a href="#local-6989586621679365562"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:functions:CreateFunctionDefinitionVersion' :: Maybe [Function]
 </span><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#%24sel%3Afunctions%3ACreateFunctionDefinitionVersion%27"><span class="hs-identifier hs-var">functions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Function]
-</span><a href="#local-6989586621679365263"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersion"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Function] -&gt; f (Maybe [Function]))
+</span><a href="#local-6989586621679365561"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersion"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Function] -&gt; f (Maybe [Function]))
  -&gt; CreateFunctionDefinitionVersion
  -&gt; f CreateFunctionDefinitionVersion)
 -&gt; ((Maybe [Function] -&gt; f (Maybe [Function]))
@@ -238,60 +290,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Function] [Function] [Function] [Function]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- | The default configuration that applies to all Lambda functions in this</span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- function definition version. Individual Lambda functions can override</span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- these settings.</span><span>
-</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#createFunctionDefinitionVersion_defaultConfig"><span class="hs-identifier hs-type">createFunctionDefinitionVersion_defaultConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersion"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.FunctionDefaultConfig.html#FunctionDefaultConfig"><span class="hs-identifier hs-type">FunctionDefaultConfig</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-113"></span><span id="createFunctionDefinitionVersion_defaultConfig"><span class="annot"><span class="annottext">createFunctionDefinitionVersion_defaultConfig :: (Maybe FunctionDefaultConfig -&gt; f (Maybe FunctionDefaultConfig))
--&gt; CreateFunctionDefinitionVersion
--&gt; f CreateFunctionDefinitionVersion
-</span><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#createFunctionDefinitionVersion_defaultConfig"><span class="hs-identifier hs-var hs-var">createFunctionDefinitionVersion_defaultConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateFunctionDefinitionVersion -&gt; Maybe FunctionDefaultConfig)
--&gt; (CreateFunctionDefinitionVersion
-    -&gt; Maybe FunctionDefaultConfig -&gt; CreateFunctionDefinitionVersion)
--&gt; Lens
-     CreateFunctionDefinitionVersion
-     CreateFunctionDefinitionVersion
-     (Maybe FunctionDefaultConfig)
-     (Maybe FunctionDefaultConfig)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersion%27"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365259"><span class="annot"><span class="annottext">Maybe FunctionDefaultConfig
-defaultConfig :: Maybe FunctionDefaultConfig
-$sel:defaultConfig:CreateFunctionDefinitionVersion' :: CreateFunctionDefinitionVersion -&gt; Maybe FunctionDefaultConfig
-</span><a href="#local-6989586621679365259"><span class="hs-identifier hs-var hs-var">defaultConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FunctionDefaultConfig
-</span><a href="#local-6989586621679365259"><span class="hs-identifier hs-var">defaultConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365258"><span class="annot"><span class="annottext">s :: CreateFunctionDefinitionVersion
-</span><a href="#local-6989586621679365258"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersion%27"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365257"><span class="annot"><span class="annottext">Maybe FunctionDefaultConfig
-</span><a href="#local-6989586621679365257"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateFunctionDefinitionVersion
-</span><a href="#local-6989586621679365258"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultConfig:CreateFunctionDefinitionVersion' :: Maybe FunctionDefaultConfig
-</span><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#%24sel%3AdefaultConfig%3ACreateFunctionDefinitionVersion%27"><span class="hs-identifier hs-var">defaultConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FunctionDefaultConfig
-</span><a href="#local-6989586621679365257"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersion"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersion</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- | A client token used to correlate requests and responses.</span><span>
-</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#createFunctionDefinitionVersion_amznClientToken"><span class="hs-identifier hs-type">createFunctionDefinitionVersion_amznClientToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersion"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-117"></span><span id="createFunctionDefinitionVersion_amznClientToken"><span class="annot"><span class="annottext">createFunctionDefinitionVersion_amznClientToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; CreateFunctionDefinitionVersion
--&gt; f CreateFunctionDefinitionVersion
-</span><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#createFunctionDefinitionVersion_amznClientToken"><span class="hs-identifier hs-var hs-var">createFunctionDefinitionVersion_amznClientToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateFunctionDefinitionVersion -&gt; Maybe Text)
--&gt; (CreateFunctionDefinitionVersion
-    -&gt; Maybe Text -&gt; CreateFunctionDefinitionVersion)
--&gt; Lens
-     CreateFunctionDefinitionVersion
-     CreateFunctionDefinitionVersion
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersion%27"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365256"><span class="annot"><span class="annottext">Maybe Text
-amznClientToken :: Maybe Text
-$sel:amznClientToken:CreateFunctionDefinitionVersion' :: CreateFunctionDefinitionVersion -&gt; Maybe Text
-</span><a href="#local-6989586621679365256"><span class="hs-identifier hs-var hs-var">amznClientToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679365256"><span class="hs-identifier hs-var">amznClientToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365255"><span class="annot"><span class="annottext">s :: CreateFunctionDefinitionVersion
-</span><a href="#local-6989586621679365255"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersion%27"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365254"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679365254"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateFunctionDefinitionVersion
-</span><a href="#local-6989586621679365255"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:amznClientToken:CreateFunctionDefinitionVersion' :: Maybe Text
-</span><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#%24sel%3AamznClientToken%3ACreateFunctionDefinitionVersion%27"><span class="hs-identifier hs-var">amznClientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679365254"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersion"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersion</span></a></span><span class="hs-special">)</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- | The ID of the Lambda function definition.</span><span>
 </span><span id="line-120"></span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#createFunctionDefinitionVersion_functionDefinitionId"><span class="hs-identifier hs-type">createFunctionDefinitionVersion_functionDefinitionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersion"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersion</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -307,16 +307,16 @@ $sel:amznClientToken:CreateFunctionDefinitionVersion' :: CreateFunctionDefinitio
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersion%27"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365253"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersion%27"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365557"><span class="annot"><span class="annottext">Text
 functionDefinitionId :: Text
 $sel:functionDefinitionId:CreateFunctionDefinitionVersion' :: CreateFunctionDefinitionVersion -&gt; Text
-</span><a href="#local-6989586621679365253"><span class="hs-identifier hs-var hs-var">functionDefinitionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679365253"><span class="hs-identifier hs-var">functionDefinitionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365252"><span class="annot"><span class="annottext">s :: CreateFunctionDefinitionVersion
-</span><a href="#local-6989586621679365252"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersion%27"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365251"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679365251"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateFunctionDefinitionVersion
-</span><a href="#local-6989586621679365252"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:functionDefinitionId:CreateFunctionDefinitionVersion' :: Text
+</span><a href="#local-6989586621679365557"><span class="hs-identifier hs-var hs-var">functionDefinitionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679365557"><span class="hs-identifier hs-var">functionDefinitionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365556"><span class="annot"><span class="annottext">s :: CreateFunctionDefinitionVersion
+</span><a href="#local-6989586621679365556"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersion%27"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365555"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679365555"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateFunctionDefinitionVersion
+</span><a href="#local-6989586621679365556"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:functionDefinitionId:CreateFunctionDefinitionVersion' :: Text
 </span><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#%24sel%3AfunctionDefinitionId%3ACreateFunctionDefinitionVersion%27"><span class="hs-identifier hs-var">functionDefinitionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679365251"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersion"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersion</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679365555"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersion"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersion</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-124"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
@@ -325,7 +325,7 @@ $sel:functionDefinitionId:CreateFunctionDefinitionVersion' :: CreateFunctionDefi
 </span><span id="line-127"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-128"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersion"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-129"></span><span>      </span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersionResponse"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersionResponse</span></a></span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679365247"><span class="annot"><span class="annottext">request :: CreateFunctionDefinitionVersion
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679365551"><span class="annot"><span class="annottext">request :: CreateFunctionDefinitionVersion
 -&gt; Request CreateFunctionDefinitionVersion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; CreateFunctionDefinitionVersion
@@ -333,7 +333,7 @@ $sel:functionDefinitionId:CreateFunctionDefinitionVersion' :: CreateFunctionDefi
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Greengrass.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679365243"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679365547"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateFunctionDefinitionVersion
 -&gt; ClientResponse ClientBody
@@ -361,10 +361,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-133"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679365240"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679365240"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679365239"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679365239"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679365238"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679365238"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-133"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679365544"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679365544"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679365543"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679365543"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679365542"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679365542"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-134"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -388,10 +388,10 @@ MonadResource m =&gt;
       -&gt; CreateFunctionDefinitionVersionResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679365238"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679365542"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;CreationTimestamp&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;Arn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
   (Maybe Text
@@ -406,10 +406,10 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
       -&gt; Maybe Text -&gt; Int -&gt; CreateFunctionDefinitionVersionResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679365238"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679365542"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;CreationTimestamp&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
   (Maybe Text
@@ -420,10 +420,10 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
      (Maybe Text -&gt; Int -&gt; CreateFunctionDefinitionVersionResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679365238"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679365542"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;Version&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
   (Maybe Text -&gt; Int -&gt; CreateFunctionDefinitionVersionResponse)
@@ -431,10 +431,10 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; CreateFunctionDefinitionVersionResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679365238"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679365542"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Version&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateFunctionDefinitionVersionResponse)
 -&gt; Either String Int
 -&gt; Either String CreateFunctionDefinitionVersionResponse
@@ -444,35 +444,35 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679365240"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679365544"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679365230"><span id="local-6989586621679365232"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679365534"><span id="local-6989586621679365536"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-144"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersion"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersion</span></a></span></span></span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-147"></span><span>  </span><span id="local-6989586621679365227"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679365531"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-148"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersion"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersion</span></a></span></span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-151"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
 </span><span id="line-152"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersion"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersion</span></a></span><span>
 </span><span id="line-153"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-154"></span><span>  </span><span id="local-6989586621679365223"><span class="annot"><span class="annottext">toHeaders :: CreateFunctionDefinitionVersion -&gt; ResponseHeaders
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersion%27"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365218"><span id="local-6989586621679365219"><span id="local-6989586621679365220"><span id="local-6989586621679365221"><span class="annot"><span class="annottext">Maybe [Function]
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679365527"><span class="annot"><span class="annottext">toHeaders :: CreateFunctionDefinitionVersion -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersion%27"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365522"><span id="local-6989586621679365523"><span id="local-6989586621679365524"><span id="local-6989586621679365525"><span class="annot"><span class="annottext">Maybe [Function]
 Maybe Text
 Maybe FunctionDefaultConfig
 Text
 functionDefinitionId :: Text
-amznClientToken :: Maybe Text
-defaultConfig :: Maybe FunctionDefaultConfig
 functions :: Maybe [Function]
+defaultConfig :: Maybe FunctionDefaultConfig
+amznClientToken :: Maybe Text
 $sel:functionDefinitionId:CreateFunctionDefinitionVersion' :: CreateFunctionDefinitionVersion -&gt; Text
-$sel:amznClientToken:CreateFunctionDefinitionVersion' :: CreateFunctionDefinitionVersion -&gt; Maybe Text
-$sel:defaultConfig:CreateFunctionDefinitionVersion' :: CreateFunctionDefinitionVersion -&gt; Maybe FunctionDefaultConfig
 $sel:functions:CreateFunctionDefinitionVersion' :: CreateFunctionDefinitionVersion -&gt; Maybe [Function]
-</span><a href="#local-6989586621679365218"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:defaultConfig:CreateFunctionDefinitionVersion' :: CreateFunctionDefinitionVersion -&gt; Maybe FunctionDefaultConfig
+$sel:amznClientToken:CreateFunctionDefinitionVersion' :: CreateFunctionDefinitionVersion -&gt; Maybe Text
+</span><a href="#local-6989586621679365522"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-155"></span><span>    </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -480,7 +480,7 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;X-Amzn-Client-Token&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; ResponseHeaders
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679365219"><span class="hs-identifier hs-var">amznClientToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679365525"><span class="hs-identifier hs-var">amznClientToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-157"></span><span>        </span><span class="annot"><span class="annottext">HeaderName
 </span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
 </span><span id="line-158"></span><span>          </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
@@ -489,59 +489,59 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-160"></span><span>
-</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679365210"><span id="local-6989586621679365212"><span id="local-6989586621679365214"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersion"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersion</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-162"></span><span>  </span><span id="local-6989586621679365208"><span class="annot"><span class="annottext">toJSON :: CreateFunctionDefinitionVersion -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersion%27"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365203"><span id="local-6989586621679365204"><span id="local-6989586621679365205"><span id="local-6989586621679365206"><span class="annot"><span class="annottext">Maybe [Function]
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679365514"><span id="local-6989586621679365516"><span id="local-6989586621679365518"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersion"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersion</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679365512"><span class="annot"><span class="annottext">toJSON :: CreateFunctionDefinitionVersion -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersion%27"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365507"><span id="local-6989586621679365508"><span id="local-6989586621679365509"><span id="local-6989586621679365510"><span class="annot"><span class="annottext">Maybe [Function]
 Maybe Text
 Maybe FunctionDefaultConfig
 Text
 functionDefinitionId :: Text
-amznClientToken :: Maybe Text
-defaultConfig :: Maybe FunctionDefaultConfig
 functions :: Maybe [Function]
+defaultConfig :: Maybe FunctionDefaultConfig
+amznClientToken :: Maybe Text
 $sel:functionDefinitionId:CreateFunctionDefinitionVersion' :: CreateFunctionDefinitionVersion -&gt; Text
-$sel:amznClientToken:CreateFunctionDefinitionVersion' :: CreateFunctionDefinitionVersion -&gt; Maybe Text
-$sel:defaultConfig:CreateFunctionDefinitionVersion' :: CreateFunctionDefinitionVersion -&gt; Maybe FunctionDefaultConfig
 $sel:functions:CreateFunctionDefinitionVersion' :: CreateFunctionDefinitionVersion -&gt; Maybe [Function]
-</span><a href="#local-6989586621679365203"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:defaultConfig:CreateFunctionDefinitionVersion' :: CreateFunctionDefinitionVersion -&gt; Maybe FunctionDefaultConfig
+$sel:amznClientToken:CreateFunctionDefinitionVersion' :: CreateFunctionDefinitionVersion -&gt; Maybe Text
+</span><a href="#local-6989586621679365507"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-163"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-164"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-165"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Functions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Function] -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Function] -&gt; Pair) -&gt; Maybe [Function] -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Function]
-</span><a href="#local-6989586621679365206"><span class="hs-identifier hs-var">functions</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-166"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DefaultConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; FunctionDefaultConfig -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(FunctionDefaultConfig -&gt; Pair)
 -&gt; Maybe FunctionDefaultConfig -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe FunctionDefaultConfig
-</span><a href="#local-6989586621679365205"><span class="hs-identifier hs-var">defaultConfig</span></a></span><span>
+</span><a href="#local-6989586621679365509"><span class="hs-identifier hs-var">defaultConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Functions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Function] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Function] -&gt; Pair) -&gt; Maybe [Function] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Function]
+</span><a href="#local-6989586621679365508"><span class="hs-identifier hs-var">functions</span></a></span><span>
 </span><span id="line-167"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-168"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-169"></span><span>
 </span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersion"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-171"></span><span>  </span><span id="local-6989586621679365197"><span class="annot"><span class="annottext">toPath :: CreateFunctionDefinitionVersion -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersion%27"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365192"><span id="local-6989586621679365193"><span id="local-6989586621679365194"><span id="local-6989586621679365195"><span class="annot"><span class="annottext">Maybe [Function]
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621679365501"><span class="annot"><span class="annottext">toPath :: CreateFunctionDefinitionVersion -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersion%27"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365496"><span id="local-6989586621679365497"><span id="local-6989586621679365498"><span id="local-6989586621679365499"><span class="annot"><span class="annottext">Maybe [Function]
 Maybe Text
 Maybe FunctionDefaultConfig
 Text
 functionDefinitionId :: Text
-amznClientToken :: Maybe Text
-defaultConfig :: Maybe FunctionDefaultConfig
 functions :: Maybe [Function]
+defaultConfig :: Maybe FunctionDefaultConfig
+amznClientToken :: Maybe Text
 $sel:functionDefinitionId:CreateFunctionDefinitionVersion' :: CreateFunctionDefinitionVersion -&gt; Text
-$sel:amznClientToken:CreateFunctionDefinitionVersion' :: CreateFunctionDefinitionVersion -&gt; Maybe Text
-$sel:defaultConfig:CreateFunctionDefinitionVersion' :: CreateFunctionDefinitionVersion -&gt; Maybe FunctionDefaultConfig
 $sel:functions:CreateFunctionDefinitionVersion' :: CreateFunctionDefinitionVersion -&gt; Maybe [Function]
-</span><a href="#local-6989586621679365192"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:defaultConfig:CreateFunctionDefinitionVersion' :: CreateFunctionDefinitionVersion -&gt; Maybe FunctionDefaultConfig
+$sel:amznClientToken:CreateFunctionDefinitionVersion' :: CreateFunctionDefinitionVersion -&gt; Maybe Text
+</span><a href="#local-6989586621679365496"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-172"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -550,13 +550,13 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-174"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679365192"><span class="hs-identifier hs-var">functionDefinitionId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679365496"><span class="hs-identifier hs-var">functionDefinitionId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-175"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/versions&quot;</span></span><span>
 </span><span id="line-176"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-177"></span><span>
 </span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersion"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-179"></span><span>  </span><span id="local-6989586621679365188"><span class="annot"><span class="annottext">toQuery :: CreateFunctionDefinitionVersion -&gt; QueryString
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679365492"><span class="annot"><span class="annottext">toQuery :: CreateFunctionDefinitionVersion -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateFunctionDefinitionVersion -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -564,24 +564,24 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-180"></span><span>
 </span><span id="line-181"></span><span class="hs-comment">-- | /See:/ 'newCreateFunctionDefinitionVersionResponse' smart constructor.</span><span>
-</span><span id="line-182"></span><span id="local-6989586621679365184"><span id="local-6989586621679365185"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateFunctionDefinitionVersionResponse"><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersionResponse"><span class="hs-identifier hs-var">CreateFunctionDefinitionVersionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateFunctionDefinitionVersionResponse%27"><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersionResponse%27"><span class="hs-identifier hs-var">CreateFunctionDefinitionVersionResponse'</span></a></span></span><span>
-</span><span id="line-183"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The time, in milliseconds since the epoch, when the version was created.</span><span>
-</span><span id="line-184"></span><span>    </span><span id="%24sel%3AcreationTimestamp%3ACreateFunctionDefinitionVersionResponse%27"><span class="annot"><span class="annottext">CreateFunctionDefinitionVersionResponse -&gt; Maybe Text
-</span><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#%24sel%3AcreationTimestamp%3ACreateFunctionDefinitionVersionResponse%27"><span class="hs-identifier hs-var hs-var">creationTimestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-185"></span><span>    </span><span class="hs-comment">-- | The ARN of the version.</span><span>
-</span><span id="line-186"></span><span>    </span><span id="%24sel%3Aarn%3ACreateFunctionDefinitionVersionResponse%27"><span class="annot"><span class="annottext">CreateFunctionDefinitionVersionResponse -&gt; Maybe Text
+</span><span id="line-182"></span><span id="local-6989586621679365488"><span id="local-6989586621679365489"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateFunctionDefinitionVersionResponse"><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersionResponse"><span class="hs-identifier hs-var">CreateFunctionDefinitionVersionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateFunctionDefinitionVersionResponse%27"><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersionResponse%27"><span class="hs-identifier hs-var">CreateFunctionDefinitionVersionResponse'</span></a></span></span><span>
+</span><span id="line-183"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the version.</span><span>
+</span><span id="line-184"></span><span>    </span><span id="%24sel%3Aarn%3ACreateFunctionDefinitionVersionResponse%27"><span class="annot"><span class="annottext">CreateFunctionDefinitionVersionResponse -&gt; Maybe Text
 </span><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#%24sel%3Aarn%3ACreateFunctionDefinitionVersionResponse%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-187"></span><span>    </span><span class="hs-comment">-- | The ID of the parent definition that the version is associated with.</span><span>
-</span><span id="line-188"></span><span>    </span><span id="%24sel%3Aid%3ACreateFunctionDefinitionVersionResponse%27"><span class="annot"><span class="annottext">CreateFunctionDefinitionVersionResponse -&gt; Maybe Text
-</span><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#%24sel%3Aid%3ACreateFunctionDefinitionVersionResponse%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-189"></span><span>    </span><span class="hs-comment">-- | The ID of the version.</span><span>
-</span><span id="line-190"></span><span>    </span><span id="%24sel%3Aversion%3ACreateFunctionDefinitionVersionResponse%27"><span class="annot"><span class="annottext">CreateFunctionDefinitionVersionResponse -&gt; Maybe Text
+</span><span id="line-185"></span><span>    </span><span class="hs-comment">-- | The time, in milliseconds since the epoch, when the version was created.</span><span>
+</span><span id="line-186"></span><span>    </span><span id="%24sel%3AcreationTimestamp%3ACreateFunctionDefinitionVersionResponse%27"><span class="annot"><span class="annottext">CreateFunctionDefinitionVersionResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#%24sel%3AcreationTimestamp%3ACreateFunctionDefinitionVersionResponse%27"><span class="hs-identifier hs-var hs-var">creationTimestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>    </span><span class="hs-comment">-- | The ID of the version.</span><span>
+</span><span id="line-188"></span><span>    </span><span id="%24sel%3Aversion%3ACreateFunctionDefinitionVersionResponse%27"><span class="annot"><span class="annottext">CreateFunctionDefinitionVersionResponse -&gt; Maybe Text
 </span><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#%24sel%3Aversion%3ACreateFunctionDefinitionVersionResponse%27"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>    </span><span class="hs-comment">-- | The ID of the parent definition that the version is associated with.</span><span>
+</span><span id="line-190"></span><span>    </span><span id="%24sel%3Aid%3ACreateFunctionDefinitionVersionResponse%27"><span class="annot"><span class="annottext">CreateFunctionDefinitionVersionResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#%24sel%3Aid%3ACreateFunctionDefinitionVersionResponse%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-191"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-192"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateFunctionDefinitionVersionResponse%27"><span class="annot"><span class="annottext">CreateFunctionDefinitionVersionResponse -&gt; Int
 </span><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#%24sel%3AhttpStatus%3ACreateFunctionDefinitionVersionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-193"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-194"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679365175"><span id="local-6989586621679365177"><span class="annot"><span class="annottext">CreateFunctionDefinitionVersionResponse
+</span><span id="line-194"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679365479"><span id="local-6989586621679365481"><span class="annot"><span class="annottext">CreateFunctionDefinitionVersionResponse
 -&gt; CreateFunctionDefinitionVersionResponse -&gt; Bool
 (CreateFunctionDefinitionVersionResponse
  -&gt; CreateFunctionDefinitionVersionResponse -&gt; Bool)
@@ -597,7 +597,7 @@ $c/= :: CreateFunctionDefinitionVersionResponse
 -&gt; CreateFunctionDefinitionVersionResponse -&gt; Bool
 $c== :: CreateFunctionDefinitionVersionResponse
 -&gt; CreateFunctionDefinitionVersionResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679365167"><span id="local-6989586621679365169"><span id="local-6989586621679365171"><span id="local-6989586621679365173"><span class="annot"><span class="annottext">ReadPrec [CreateFunctionDefinitionVersionResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679365471"><span id="local-6989586621679365473"><span id="local-6989586621679365475"><span id="local-6989586621679365477"><span class="annot"><span class="annottext">ReadPrec [CreateFunctionDefinitionVersionResponse]
 ReadPrec CreateFunctionDefinitionVersionResponse
 Int -&gt; ReadS CreateFunctionDefinitionVersionResponse
 ReadS [CreateFunctionDefinitionVersionResponse]
@@ -617,7 +617,7 @@ readList :: ReadS [CreateFunctionDefinitionVersionResponse]
 $creadList :: ReadS [CreateFunctionDefinitionVersionResponse]
 readsPrec :: Int -&gt; ReadS CreateFunctionDefinitionVersionResponse
 $creadsPrec :: Int -&gt; ReadS CreateFunctionDefinitionVersionResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679365161"><span id="local-6989586621679365163"><span id="local-6989586621679365165"><span class="annot"><span class="annottext">Int -&gt; CreateFunctionDefinitionVersionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679365465"><span id="local-6989586621679365467"><span id="local-6989586621679365469"><span class="annot"><span class="annottext">Int -&gt; CreateFunctionDefinitionVersionResponse -&gt; ShowS
 [CreateFunctionDefinitionVersionResponse] -&gt; ShowS
 CreateFunctionDefinitionVersionResponse -&gt; String
 (Int -&gt; CreateFunctionDefinitionVersionResponse -&gt; ShowS)
@@ -663,13 +663,13 @@ CreateFunctionDefinitionVersionResponse
 </span><span id="line-201"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-202"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-203"></span><span class="hs-comment">--</span><span>
-</span><span id="line-204"></span><span class="hs-comment">-- 'creationTimestamp', 'createFunctionDefinitionVersionResponse_creationTimestamp' - The time, in milliseconds since the epoch, when the version was created.</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- 'arn', 'createFunctionDefinitionVersionResponse_arn' - The ARN of the version.</span><span>
 </span><span id="line-205"></span><span class="hs-comment">--</span><span>
-</span><span id="line-206"></span><span class="hs-comment">-- 'arn', 'createFunctionDefinitionVersionResponse_arn' - The ARN of the version.</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- 'creationTimestamp', 'createFunctionDefinitionVersionResponse_creationTimestamp' - The time, in milliseconds since the epoch, when the version was created.</span><span>
 </span><span id="line-207"></span><span class="hs-comment">--</span><span>
-</span><span id="line-208"></span><span class="hs-comment">-- 'id', 'createFunctionDefinitionVersionResponse_id' - The ID of the parent definition that the version is associated with.</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- 'version', 'createFunctionDefinitionVersionResponse_version' - The ID of the version.</span><span>
 </span><span id="line-209"></span><span class="hs-comment">--</span><span>
-</span><span id="line-210"></span><span class="hs-comment">-- 'version', 'createFunctionDefinitionVersionResponse_version' - The ID of the version.</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- 'id', 'createFunctionDefinitionVersionResponse_id' - The ID of the parent definition that the version is associated with.</span><span>
 </span><span id="line-211"></span><span class="hs-comment">--</span><span>
 </span><span id="line-212"></span><span class="hs-comment">-- 'httpStatus', 'createFunctionDefinitionVersionResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-213"></span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#newCreateFunctionDefinitionVersionResponse"><span class="hs-identifier hs-type">newCreateFunctionDefinitionVersionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -678,8 +678,8 @@ CreateFunctionDefinitionVersionResponse
 </span><span id="line-216"></span><span>  </span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersionResponse"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersionResponse</span></a></span><span>
 </span><span id="line-217"></span><span id="newCreateFunctionDefinitionVersionResponse"><span class="annot"><span class="annottext">newCreateFunctionDefinitionVersionResponse :: Int -&gt; CreateFunctionDefinitionVersionResponse
 </span><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#newCreateFunctionDefinitionVersionResponse"><span class="hs-identifier hs-var hs-var">newCreateFunctionDefinitionVersionResponse</span></a></span></span><span>
-</span><span id="line-218"></span><span>  </span><span id="local-6989586621679365158"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679365158"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-218"></span><span>  </span><span id="local-6989586621679365462"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679365462"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-219"></span><span>    </span><span class="annot"><span class="annottext">CreateFunctionDefinitionVersionResponse' :: Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -687,56 +687,32 @@ CreateFunctionDefinitionVersionResponse
 -&gt; Int
 -&gt; CreateFunctionDefinitionVersionResponse
 </span><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersionResponse%27"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersionResponse'</span></a></span><span>
-</span><span id="line-220"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:creationTimestamp:CreateFunctionDefinitionVersionResponse' :: Maybe Text
-</span><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#%24sel%3AcreationTimestamp%3ACreateFunctionDefinitionVersionResponse%27"><span class="hs-identifier hs-var">creationTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-220"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:arn:CreateFunctionDefinitionVersionResponse' :: Maybe Text
+</span><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#%24sel%3Aarn%3ACreateFunctionDefinitionVersionResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-221"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-222"></span><span>        </span><span class="annot"><span class="annottext">$sel:arn:CreateFunctionDefinitionVersionResponse' :: Maybe Text
-</span><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#%24sel%3Aarn%3ACreateFunctionDefinitionVersionResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-223"></span><span>        </span><span class="annot"><span class="annottext">$sel:id:CreateFunctionDefinitionVersionResponse' :: Maybe Text
-</span><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#%24sel%3Aid%3ACreateFunctionDefinitionVersionResponse%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-222"></span><span>        </span><span class="annot"><span class="annottext">$sel:creationTimestamp:CreateFunctionDefinitionVersionResponse' :: Maybe Text
+</span><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#%24sel%3AcreationTimestamp%3ACreateFunctionDefinitionVersionResponse%27"><span class="hs-identifier hs-var">creationTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-223"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-224"></span><span>        </span><span class="annot"><span class="annottext">$sel:version:CreateFunctionDefinitionVersionResponse' :: Maybe Text
 </span><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#%24sel%3Aversion%3ACreateFunctionDefinitionVersionResponse%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-225"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateFunctionDefinitionVersionResponse' :: Int
+</span><span id="line-225"></span><span>        </span><span class="annot"><span class="annottext">$sel:id:CreateFunctionDefinitionVersionResponse' :: Maybe Text
+</span><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#%24sel%3Aid%3ACreateFunctionDefinitionVersionResponse%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-226"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateFunctionDefinitionVersionResponse' :: Int
 </span><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#%24sel%3AhttpStatus%3ACreateFunctionDefinitionVersionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679365158"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
-</span><span id="line-226"></span><span>      </span><span class="hs-special">}</span><span>
-</span><span id="line-227"></span><span>
-</span><span id="line-228"></span><span class="hs-comment">-- | The time, in milliseconds since the epoch, when the version was created.</span><span>
-</span><span id="line-229"></span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#createFunctionDefinitionVersionResponse_creationTimestamp"><span class="hs-identifier hs-type">createFunctionDefinitionVersionResponse_creationTimestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersionResponse"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-230"></span><span id="createFunctionDefinitionVersionResponse_creationTimestamp"><span class="annot"><span class="annottext">createFunctionDefinitionVersionResponse_creationTimestamp :: (Maybe Text -&gt; f (Maybe Text))
--&gt; CreateFunctionDefinitionVersionResponse
--&gt; f CreateFunctionDefinitionVersionResponse
-</span><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#createFunctionDefinitionVersionResponse_creationTimestamp"><span class="hs-identifier hs-var hs-var">createFunctionDefinitionVersionResponse_creationTimestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateFunctionDefinitionVersionResponse -&gt; Maybe Text)
--&gt; (CreateFunctionDefinitionVersionResponse
-    -&gt; Maybe Text -&gt; CreateFunctionDefinitionVersionResponse)
--&gt; Lens
-     CreateFunctionDefinitionVersionResponse
-     CreateFunctionDefinitionVersionResponse
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersionResponse%27"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365157"><span class="annot"><span class="annottext">Maybe Text
-creationTimestamp :: Maybe Text
-$sel:creationTimestamp:CreateFunctionDefinitionVersionResponse' :: CreateFunctionDefinitionVersionResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679365157"><span class="hs-identifier hs-var hs-var">creationTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679365157"><span class="hs-identifier hs-var">creationTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365156"><span class="annot"><span class="annottext">s :: CreateFunctionDefinitionVersionResponse
-</span><a href="#local-6989586621679365156"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersionResponse%27"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365155"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679365155"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateFunctionDefinitionVersionResponse
-</span><a href="#local-6989586621679365156"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTimestamp:CreateFunctionDefinitionVersionResponse' :: Maybe Text
-</span><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#%24sel%3AcreationTimestamp%3ACreateFunctionDefinitionVersionResponse%27"><span class="hs-identifier hs-var">creationTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679365155"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersionResponse"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersionResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-231"></span><span>
-</span><span id="line-232"></span><span class="hs-comment">-- | The ARN of the version.</span><span>
-</span><span id="line-233"></span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#createFunctionDefinitionVersionResponse_arn"><span class="hs-identifier hs-type">createFunctionDefinitionVersionResponse_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersionResponse"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-234"></span><span id="createFunctionDefinitionVersionResponse_arn"><span class="annot"><span class="annottext">createFunctionDefinitionVersionResponse_arn :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621679365462"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-227"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-228"></span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- | The ARN of the version.</span><span>
+</span><span id="line-230"></span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#createFunctionDefinitionVersionResponse_arn"><span class="hs-identifier hs-type">createFunctionDefinitionVersionResponse_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersionResponse"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span id="createFunctionDefinitionVersionResponse_arn"><span class="annot"><span class="annottext">createFunctionDefinitionVersionResponse_arn :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; CreateFunctionDefinitionVersionResponse
 -&gt; f CreateFunctionDefinitionVersionResponse
 </span><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#createFunctionDefinitionVersionResponse_arn"><span class="hs-identifier hs-var hs-var">createFunctionDefinitionVersionResponse_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateFunctionDefinitionVersionResponse -&gt; Maybe Text)
@@ -748,23 +724,23 @@ $sel:creationTimestamp:CreateFunctionDefinitionVersionResponse' :: CreateFunctio
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersionResponse%27"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365154"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersionResponse%27"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365461"><span class="annot"><span class="annottext">Maybe Text
 arn :: Maybe Text
 $sel:arn:CreateFunctionDefinitionVersionResponse' :: CreateFunctionDefinitionVersionResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679365154"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679365154"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365153"><span class="annot"><span class="annottext">s :: CreateFunctionDefinitionVersionResponse
-</span><a href="#local-6989586621679365153"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersionResponse%27"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365152"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679365152"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateFunctionDefinitionVersionResponse
-</span><a href="#local-6989586621679365153"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:CreateFunctionDefinitionVersionResponse' :: Maybe Text
+</span><a href="#local-6989586621679365461"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679365461"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365460"><span class="annot"><span class="annottext">s :: CreateFunctionDefinitionVersionResponse
+</span><a href="#local-6989586621679365460"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersionResponse%27"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365459"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679365459"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateFunctionDefinitionVersionResponse
+</span><a href="#local-6989586621679365460"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:CreateFunctionDefinitionVersionResponse' :: Maybe Text
 </span><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#%24sel%3Aarn%3ACreateFunctionDefinitionVersionResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679365152"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersionResponse"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersionResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-235"></span><span>
-</span><span id="line-236"></span><span class="hs-comment">-- | The ID of the parent definition that the version is associated with.</span><span>
-</span><span id="line-237"></span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#createFunctionDefinitionVersionResponse_id"><span class="hs-identifier hs-type">createFunctionDefinitionVersionResponse_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersionResponse"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-238"></span><span id="createFunctionDefinitionVersionResponse_id"><span class="annot"><span class="annottext">createFunctionDefinitionVersionResponse_id :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621679365459"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersionResponse"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- | The time, in milliseconds since the epoch, when the version was created.</span><span>
+</span><span id="line-234"></span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#createFunctionDefinitionVersionResponse_creationTimestamp"><span class="hs-identifier hs-type">createFunctionDefinitionVersionResponse_creationTimestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersionResponse"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span id="createFunctionDefinitionVersionResponse_creationTimestamp"><span class="annot"><span class="annottext">createFunctionDefinitionVersionResponse_creationTimestamp :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; CreateFunctionDefinitionVersionResponse
 -&gt; f CreateFunctionDefinitionVersionResponse
-</span><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#createFunctionDefinitionVersionResponse_id"><span class="hs-identifier hs-var hs-var">createFunctionDefinitionVersionResponse_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateFunctionDefinitionVersionResponse -&gt; Maybe Text)
+</span><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#createFunctionDefinitionVersionResponse_creationTimestamp"><span class="hs-identifier hs-var hs-var">createFunctionDefinitionVersionResponse_creationTimestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateFunctionDefinitionVersionResponse -&gt; Maybe Text)
 -&gt; (CreateFunctionDefinitionVersionResponse
     -&gt; Maybe Text -&gt; CreateFunctionDefinitionVersionResponse)
 -&gt; Lens
@@ -773,20 +749,20 @@ $sel:arn:CreateFunctionDefinitionVersionResponse' :: CreateFunctionDefinitionVer
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersionResponse%27"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365151"><span class="annot"><span class="annottext">Maybe Text
-id :: Maybe Text
-$sel:id:CreateFunctionDefinitionVersionResponse' :: CreateFunctionDefinitionVersionResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679365151"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679365151"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365150"><span class="annot"><span class="annottext">s :: CreateFunctionDefinitionVersionResponse
-</span><a href="#local-6989586621679365150"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersionResponse%27"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365149"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679365149"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateFunctionDefinitionVersionResponse
-</span><a href="#local-6989586621679365150"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:CreateFunctionDefinitionVersionResponse' :: Maybe Text
-</span><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#%24sel%3Aid%3ACreateFunctionDefinitionVersionResponse%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679365149"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersionResponse"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersionResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-239"></span><span>
-</span><span id="line-240"></span><span class="hs-comment">-- | The ID of the version.</span><span>
-</span><span id="line-241"></span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#createFunctionDefinitionVersionResponse_version"><span class="hs-identifier hs-type">createFunctionDefinitionVersionResponse_version</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersionResponse"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-242"></span><span id="createFunctionDefinitionVersionResponse_version"><span class="annot"><span class="annottext">createFunctionDefinitionVersionResponse_version :: (Maybe Text -&gt; f (Maybe Text))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersionResponse%27"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365458"><span class="annot"><span class="annottext">Maybe Text
+creationTimestamp :: Maybe Text
+$sel:creationTimestamp:CreateFunctionDefinitionVersionResponse' :: CreateFunctionDefinitionVersionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679365458"><span class="hs-identifier hs-var hs-var">creationTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679365458"><span class="hs-identifier hs-var">creationTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365457"><span class="annot"><span class="annottext">s :: CreateFunctionDefinitionVersionResponse
+</span><a href="#local-6989586621679365457"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersionResponse%27"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365456"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679365456"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateFunctionDefinitionVersionResponse
+</span><a href="#local-6989586621679365457"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTimestamp:CreateFunctionDefinitionVersionResponse' :: Maybe Text
+</span><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#%24sel%3AcreationTimestamp%3ACreateFunctionDefinitionVersionResponse%27"><span class="hs-identifier hs-var">creationTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679365456"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersionResponse"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- | The ID of the version.</span><span>
+</span><span id="line-238"></span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#createFunctionDefinitionVersionResponse_version"><span class="hs-identifier hs-type">createFunctionDefinitionVersionResponse_version</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersionResponse"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-239"></span><span id="createFunctionDefinitionVersionResponse_version"><span class="annot"><span class="annottext">createFunctionDefinitionVersionResponse_version :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; CreateFunctionDefinitionVersionResponse
 -&gt; f CreateFunctionDefinitionVersionResponse
 </span><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#createFunctionDefinitionVersionResponse_version"><span class="hs-identifier hs-var hs-var">createFunctionDefinitionVersionResponse_version</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateFunctionDefinitionVersionResponse -&gt; Maybe Text)
@@ -798,20 +774,45 @@ $sel:id:CreateFunctionDefinitionVersionResponse' :: CreateFunctionDefinitionVers
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersionResponse%27"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365148"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersionResponse%27"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365455"><span class="annot"><span class="annottext">Maybe Text
 version :: Maybe Text
 $sel:version:CreateFunctionDefinitionVersionResponse' :: CreateFunctionDefinitionVersionResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679365148"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679365148"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365147"><span class="annot"><span class="annottext">s :: CreateFunctionDefinitionVersionResponse
-</span><a href="#local-6989586621679365147"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersionResponse%27"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365146"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679365146"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateFunctionDefinitionVersionResponse
-</span><a href="#local-6989586621679365147"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:CreateFunctionDefinitionVersionResponse' :: Maybe Text
+</span><a href="#local-6989586621679365455"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679365455"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365454"><span class="annot"><span class="annottext">s :: CreateFunctionDefinitionVersionResponse
+</span><a href="#local-6989586621679365454"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersionResponse%27"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365453"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679365453"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateFunctionDefinitionVersionResponse
+</span><a href="#local-6989586621679365454"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:CreateFunctionDefinitionVersionResponse' :: Maybe Text
 </span><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#%24sel%3Aversion%3ACreateFunctionDefinitionVersionResponse%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679365146"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersionResponse"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersionResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-243"></span><span>
-</span><span id="line-244"></span><span class="hs-comment">-- | The response's http status code.</span><span>
-</span><span id="line-245"></span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#createFunctionDefinitionVersionResponse_httpStatus"><span class="hs-identifier hs-type">createFunctionDefinitionVersionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersionResponse"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
-</span><span id="line-246"></span><span id="createFunctionDefinitionVersionResponse_httpStatus"><span class="annot"><span class="annottext">createFunctionDefinitionVersionResponse_httpStatus :: (Int -&gt; f Int)
+</span><a href="#local-6989586621679365453"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersionResponse"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- | The ID of the parent definition that the version is associated with.</span><span>
+</span><span id="line-242"></span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#createFunctionDefinitionVersionResponse_id"><span class="hs-identifier hs-type">createFunctionDefinitionVersionResponse_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersionResponse"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-243"></span><span id="createFunctionDefinitionVersionResponse_id"><span class="annot"><span class="annottext">createFunctionDefinitionVersionResponse_id :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateFunctionDefinitionVersionResponse
+-&gt; f CreateFunctionDefinitionVersionResponse
+</span><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#createFunctionDefinitionVersionResponse_id"><span class="hs-identifier hs-var hs-var">createFunctionDefinitionVersionResponse_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateFunctionDefinitionVersionResponse -&gt; Maybe Text)
+-&gt; (CreateFunctionDefinitionVersionResponse
+    -&gt; Maybe Text -&gt; CreateFunctionDefinitionVersionResponse)
+-&gt; Lens
+     CreateFunctionDefinitionVersionResponse
+     CreateFunctionDefinitionVersionResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersionResponse%27"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365452"><span class="annot"><span class="annottext">Maybe Text
+id :: Maybe Text
+$sel:id:CreateFunctionDefinitionVersionResponse' :: CreateFunctionDefinitionVersionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679365452"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679365452"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365451"><span class="annot"><span class="annottext">s :: CreateFunctionDefinitionVersionResponse
+</span><a href="#local-6989586621679365451"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersionResponse%27"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365450"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679365450"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateFunctionDefinitionVersionResponse
+</span><a href="#local-6989586621679365451"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:CreateFunctionDefinitionVersionResponse' :: Maybe Text
+</span><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#%24sel%3Aid%3ACreateFunctionDefinitionVersionResponse%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679365450"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersionResponse"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-244"></span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-246"></span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#createFunctionDefinitionVersionResponse_httpStatus"><span class="hs-identifier hs-type">createFunctionDefinitionVersionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersionResponse"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-247"></span><span id="createFunctionDefinitionVersionResponse_httpStatus"><span class="annot"><span class="annottext">createFunctionDefinitionVersionResponse_httpStatus :: (Int -&gt; f Int)
 -&gt; CreateFunctionDefinitionVersionResponse
 -&gt; f CreateFunctionDefinitionVersionResponse
 </span><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#createFunctionDefinitionVersionResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createFunctionDefinitionVersionResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateFunctionDefinitionVersionResponse -&gt; Int)
@@ -823,18 +824,18 @@ $sel:version:CreateFunctionDefinitionVersionResponse' :: CreateFunctionDefinitio
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersionResponse%27"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365145"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersionResponse%27"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365449"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateFunctionDefinitionVersionResponse' :: CreateFunctionDefinitionVersionResponse -&gt; Int
-</span><a href="#local-6989586621679365145"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679365145"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365144"><span class="annot"><span class="annottext">s :: CreateFunctionDefinitionVersionResponse
-</span><a href="#local-6989586621679365144"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersionResponse%27"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365143"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679365143"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateFunctionDefinitionVersionResponse
-</span><a href="#local-6989586621679365144"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateFunctionDefinitionVersionResponse' :: Int
+</span><a href="#local-6989586621679365449"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679365449"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365448"><span class="annot"><span class="annottext">s :: CreateFunctionDefinitionVersionResponse
+</span><a href="#local-6989586621679365448"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersionResponse%27"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365447"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679365447"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateFunctionDefinitionVersionResponse
+</span><a href="#local-6989586621679365448"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateFunctionDefinitionVersionResponse' :: Int
 </span><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#%24sel%3AhttpStatus%3ACreateFunctionDefinitionVersionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679365143"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersionResponse"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersionResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-247"></span><span>
-</span><span id="line-248"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-249"></span><span>  </span><span id="local-6989586621679365141"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
-</span><span id="line-250"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersionResponse"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersionResponse</span></a></span></span><span>
-</span><span id="line-251"></span></pre></body></html>
+</span><a href="#local-6989586621679365447"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersionResponse"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-248"></span><span>
+</span><span id="line-249"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-250"></span><span>  </span><span id="local-6989586621679365445"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-251"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.CreateFunctionDefinitionVersion.html#CreateFunctionDefinitionVersionResponse"><span class="hs-identifier hs-type">CreateFunctionDefinitionVersionResponse</span></a></span></span><span>
+</span><span id="line-252"></span></pre></body></html>

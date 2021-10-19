@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | A count of documents that meets a specific aggregation criteria.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newBucket' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679778558"><span id="local-6989586621679778559"></span></span><span class="hs-keyword">data</span><span> </span><span id="Bucket"><span class="annot"><a href="Network.AWS.IoT.Types.Bucket.html#Bucket"><span class="hs-identifier hs-var">Bucket</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Bucket%27"><span class="annot"><a href="Network.AWS.IoT.Types.Bucket.html#Bucket%27"><span class="hs-identifier hs-var">Bucket'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679779408"><span id="local-6989586621679779409"></span></span><span class="hs-keyword">data</span><span> </span><span id="Bucket"><span class="annot"><a href="Network.AWS.IoT.Types.Bucket.html#Bucket"><span class="hs-identifier hs-var">Bucket</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Bucket%27"><span class="annot"><a href="Network.AWS.IoT.Types.Bucket.html#Bucket%27"><span class="hs-identifier hs-var">Bucket'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The value counted for the particular bucket.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AkeyValue%3ABucket%27"><span class="annot"><span class="annottext">Bucket -&gt; Maybe Text
 </span><a href="Network.AWS.IoT.Types.Bucket.html#%24sel%3AkeyValue%3ABucket%27"><span class="hs-identifier hs-var hs-var">keyValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -35,7 +35,7 @@
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Acount%3ABucket%27"><span class="annot"><span class="annottext">Bucket -&gt; Maybe Int
 </span><a href="Network.AWS.IoT.Types.Bucket.html#%24sel%3Acount%3ABucket%27"><span class="hs-identifier hs-var hs-var">count</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679778551"><span id="local-6989586621679778553"><span class="annot"><span class="annottext">Bucket -&gt; Bucket -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679779401"><span id="local-6989586621679779403"><span class="annot"><span class="annottext">Bucket -&gt; Bucket -&gt; Bool
 (Bucket -&gt; Bucket -&gt; Bool)
 -&gt; (Bucket -&gt; Bucket -&gt; Bool) -&gt; Eq Bucket
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Bucket -&gt; Bucket -&gt; Bool
 == :: Bucket -&gt; Bucket -&gt; Bool
 $c== :: Bucket -&gt; Bucket -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679778542"><span id="local-6989586621679778544"><span id="local-6989586621679778546"><span id="local-6989586621679778548"><span class="annot"><span class="annottext">ReadPrec [Bucket]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679779392"><span id="local-6989586621679779394"><span id="local-6989586621679779396"><span id="local-6989586621679779398"><span class="annot"><span class="annottext">ReadPrec [Bucket]
 ReadPrec Bucket
 Int -&gt; ReadS Bucket
 ReadS [Bucket]
@@ -63,7 +63,7 @@ readList :: ReadS [Bucket]
 $creadList :: ReadS [Bucket]
 readsPrec :: Int -&gt; ReadS Bucket
 $creadsPrec :: Int -&gt; ReadS Bucket
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679778535"><span id="local-6989586621679778537"><span id="local-6989586621679778539"><span class="annot"><span class="annottext">Int -&gt; Bucket -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679779385"><span id="local-6989586621679779387"><span id="local-6989586621679779389"><span class="annot"><span class="annottext">Int -&gt; Bucket -&gt; ShowS
 [Bucket] -&gt; ShowS
 Bucket -&gt; String
 (Int -&gt; Bucket -&gt; ShowS)
@@ -121,16 +121,16 @@ forall a. Maybe a
 -&gt; (Bucket -&gt; Maybe Text -&gt; Bucket)
 -&gt; Lens Bucket Bucket (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.Bucket.html#Bucket%27"><span class="hs-identifier hs-type">Bucket'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679778526"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.Bucket.html#Bucket%27"><span class="hs-identifier hs-type">Bucket'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679779376"><span class="annot"><span class="annottext">Maybe Text
 keyValue :: Maybe Text
 $sel:keyValue:Bucket' :: Bucket -&gt; Maybe Text
-</span><a href="#local-6989586621679778526"><span class="hs-identifier hs-var hs-var">keyValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679778526"><span class="hs-identifier hs-var">keyValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679778525"><span class="annot"><span class="annottext">s :: Bucket
-</span><a href="#local-6989586621679778525"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.Bucket.html#Bucket%27"><span class="hs-identifier hs-type">Bucket'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679778524"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679778524"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bucket
-</span><a href="#local-6989586621679778525"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyValue:Bucket' :: Maybe Text
+</span><a href="#local-6989586621679779376"><span class="hs-identifier hs-var hs-var">keyValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679779376"><span class="hs-identifier hs-var">keyValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679779375"><span class="annot"><span class="annottext">s :: Bucket
+</span><a href="#local-6989586621679779375"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.Bucket.html#Bucket%27"><span class="hs-identifier hs-type">Bucket'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679779374"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679779374"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bucket
+</span><a href="#local-6989586621679779375"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyValue:Bucket' :: Maybe Text
 </span><a href="Network.AWS.IoT.Types.Bucket.html#%24sel%3AkeyValue%3ABucket%27"><span class="hs-identifier hs-var">keyValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679778524"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Bucket.html#Bucket"><span class="hs-identifier hs-type">Bucket</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679779374"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Bucket.html#Bucket"><span class="hs-identifier hs-type">Bucket</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- | The number of documents that have the value counted for the particular</span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- bucket.</span><span>
@@ -140,47 +140,47 @@ $sel:keyValue:Bucket' :: Bucket -&gt; Maybe Text
 -&gt; (Bucket -&gt; Maybe Int -&gt; Bucket)
 -&gt; Lens Bucket Bucket (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.Bucket.html#Bucket%27"><span class="hs-identifier hs-type">Bucket'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679778522"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.Bucket.html#Bucket%27"><span class="hs-identifier hs-type">Bucket'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679779372"><span class="annot"><span class="annottext">Maybe Int
 count :: Maybe Int
 $sel:count:Bucket' :: Bucket -&gt; Maybe Int
-</span><a href="#local-6989586621679778522"><span class="hs-identifier hs-var hs-var">count</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679778522"><span class="hs-identifier hs-var">count</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679778521"><span class="annot"><span class="annottext">s :: Bucket
-</span><a href="#local-6989586621679778521"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.Bucket.html#Bucket%27"><span class="hs-identifier hs-type">Bucket'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679778520"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679778520"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bucket
-</span><a href="#local-6989586621679778521"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:count:Bucket' :: Maybe Int
+</span><a href="#local-6989586621679779372"><span class="hs-identifier hs-var hs-var">count</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679779372"><span class="hs-identifier hs-var">count</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679779371"><span class="annot"><span class="annottext">s :: Bucket
+</span><a href="#local-6989586621679779371"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.Bucket.html#Bucket%27"><span class="hs-identifier hs-type">Bucket'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679779370"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679779370"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bucket
+</span><a href="#local-6989586621679779371"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:count:Bucket' :: Maybe Int
 </span><a href="Network.AWS.IoT.Types.Bucket.html#%24sel%3Acount%3ABucket%27"><span class="hs-identifier hs-var">count</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679778520"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Bucket.html#Bucket"><span class="hs-identifier hs-type">Bucket</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679779370"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Bucket.html#Bucket"><span class="hs-identifier hs-type">Bucket</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679778517"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Bucket.html#Bucket"><span class="hs-identifier hs-type">Bucket</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-68"></span><span>  </span><span id="local-6989586621679778515"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Bucket
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679779367"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Bucket.html#Bucket"><span class="hs-identifier hs-type">Bucket</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621679779365"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Bucket
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-69"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Bucket) -&gt; Value -&gt; Parser Bucket
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Bucket&quot;</span></span><span>
-</span><span id="line-71"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679778512"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679778512"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-71"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679779362"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679779362"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-72"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Int -&gt; Bucket
 </span><a href="Network.AWS.IoT.Types.Bucket.html#Bucket%27"><span class="hs-identifier hs-var">Bucket'</span></a></span><span>
 </span><span id="line-73"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Int -&gt; Bucket)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Int -&gt; Bucket)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679778512"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679779362"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;keyValue&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Int -&gt; Bucket) -&gt; Parser (Maybe Int) -&gt; Parser Bucket
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679778512"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679779362"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;count&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679778506"><span id="local-6989586621679778508"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Bucket.html#Bucket"><span class="hs-identifier hs-type">Bucket</span></a></span></span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679779356"><span id="local-6989586621679779358"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Bucket.html#Bucket"><span class="hs-identifier hs-type">Bucket</span></a></span></span></span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679778503"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Bucket.html#Bucket"><span class="hs-identifier hs-type">Bucket</span></a></span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679779353"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Bucket.html#Bucket"><span class="hs-identifier hs-type">Bucket</span></a></span></span><span>
 </span><span id="line-80"></span></pre></body></html>

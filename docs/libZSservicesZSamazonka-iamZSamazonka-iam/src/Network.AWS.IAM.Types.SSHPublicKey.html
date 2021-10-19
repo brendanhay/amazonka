@@ -30,7 +30,7 @@
 </span><span id="line-30"></span><span class="hs-comment">-- UploadSSHPublicKey operations.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newSSHPublicKey' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679431000"><span id="local-6989586621679431001"></span></span><span class="hs-keyword">data</span><span> </span><span id="SSHPublicKey"><span class="annot"><a href="Network.AWS.IAM.Types.SSHPublicKey.html#SSHPublicKey"><span class="hs-identifier hs-var">SSHPublicKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SSHPublicKey%27"><span class="annot"><a href="Network.AWS.IAM.Types.SSHPublicKey.html#SSHPublicKey%27"><span class="hs-identifier hs-var">SSHPublicKey'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679431515"><span id="local-6989586621679431516"></span></span><span class="hs-keyword">data</span><span> </span><span id="SSHPublicKey"><span class="annot"><a href="Network.AWS.IAM.Types.SSHPublicKey.html#SSHPublicKey"><span class="hs-identifier hs-var">SSHPublicKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SSHPublicKey%27"><span class="annot"><a href="Network.AWS.IAM.Types.SSHPublicKey.html#SSHPublicKey%27"><span class="hs-identifier hs-var">SSHPublicKey'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The date and time, in</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- &lt;http://www.iso.org/iso/iso8601 ISO 8601 date-time format&gt;, when the SSH</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- public key was uploaded.</span><span>
@@ -54,7 +54,7 @@
 </span><span id="line-49"></span><span>    </span><span id="%24sel%3Astatus%3ASSHPublicKey%27"><span class="annot"><span class="annottext">SSHPublicKey -&gt; StatusType
 </span><a href="Network.AWS.IAM.Types.SSHPublicKey.html#%24sel%3Astatus%3ASSHPublicKey%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.StatusType.html#StatusType"><span class="hs-identifier hs-type">StatusType</span></a></span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679430989"><span id="local-6989586621679430991"><span class="annot"><span class="annottext">SSHPublicKey -&gt; SSHPublicKey -&gt; Bool
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679431504"><span id="local-6989586621679431506"><span class="annot"><span class="annottext">SSHPublicKey -&gt; SSHPublicKey -&gt; Bool
 (SSHPublicKey -&gt; SSHPublicKey -&gt; Bool)
 -&gt; (SSHPublicKey -&gt; SSHPublicKey -&gt; Bool) -&gt; Eq SSHPublicKey
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -62,7 +62,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SSHPublicKey -&gt; SSHPublicKey -&gt; Bool
 == :: SSHPublicKey -&gt; SSHPublicKey -&gt; Bool
 $c== :: SSHPublicKey -&gt; SSHPublicKey -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679430980"><span id="local-6989586621679430982"><span id="local-6989586621679430984"><span id="local-6989586621679430986"><span class="annot"><span class="annottext">ReadPrec [SSHPublicKey]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679431495"><span id="local-6989586621679431497"><span id="local-6989586621679431499"><span id="local-6989586621679431501"><span class="annot"><span class="annottext">ReadPrec [SSHPublicKey]
 ReadPrec SSHPublicKey
 Int -&gt; ReadS SSHPublicKey
 ReadS [SSHPublicKey]
@@ -82,7 +82,7 @@ readList :: ReadS [SSHPublicKey]
 $creadList :: ReadS [SSHPublicKey]
 readsPrec :: Int -&gt; ReadS SSHPublicKey
 $creadsPrec :: Int -&gt; ReadS SSHPublicKey
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679430973"><span id="local-6989586621679430975"><span id="local-6989586621679430977"><span class="annot"><span class="annottext">Int -&gt; SSHPublicKey -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679431488"><span id="local-6989586621679431490"><span id="local-6989586621679431492"><span class="annot"><span class="annottext">Int -&gt; SSHPublicKey -&gt; ShowS
 [SSHPublicKey] -&gt; ShowS
 SSHPublicKey -&gt; String
 (Int -&gt; SSHPublicKey -&gt; ShowS)
@@ -145,16 +145,16 @@ $cfrom :: forall x. SSHPublicKey -&gt; Rep SSHPublicKey x
 </span><span id="line-87"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.Types.SSHPublicKey.html#SSHPublicKey"><span class="hs-identifier hs-type">SSHPublicKey</span></a></span><span>
 </span><span id="line-88"></span><span id="newSSHPublicKey"><span class="annot"><span class="annottext">newSSHPublicKey :: Text -&gt; Text -&gt; Text -&gt; Text -&gt; StatusType -&gt; SSHPublicKey
 </span><a href="Network.AWS.IAM.Types.SSHPublicKey.html#newSSHPublicKey"><span class="hs-identifier hs-var hs-var">newSSHPublicKey</span></a></span></span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621679430967"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679430967"><span class="hs-identifier hs-var">pUserName_</span></a></span></span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621679430966"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679430966"><span class="hs-identifier hs-var">pSSHPublicKeyId_</span></a></span></span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679430965"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679430965"><span class="hs-identifier hs-var">pFingerprint_</span></a></span></span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679430964"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679430964"><span class="hs-identifier hs-var">pSSHPublicKeyBody_</span></a></span></span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679430963"><span class="annot"><span class="annottext">StatusType
-</span><a href="#local-6989586621679430963"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679431482"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679431482"><span class="hs-identifier hs-var">pUserName_</span></a></span></span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679431481"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679431481"><span class="hs-identifier hs-var">pSSHPublicKeyId_</span></a></span></span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679431480"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679431480"><span class="hs-identifier hs-var">pFingerprint_</span></a></span></span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679431479"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679431479"><span class="hs-identifier hs-var">pSSHPublicKeyBody_</span></a></span></span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679431478"><span class="annot"><span class="annottext">StatusType
+</span><a href="#local-6989586621679431478"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">SSHPublicKey' :: Maybe ISO8601
 -&gt; Text -&gt; Text -&gt; Text -&gt; Text -&gt; StatusType -&gt; SSHPublicKey
 </span><a href="Network.AWS.IAM.Types.SSHPublicKey.html#SSHPublicKey%27"><span class="hs-identifier hs-type">SSHPublicKey'</span></a></span><span>
@@ -164,19 +164,19 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-96"></span><span>        </span><span class="annot"><span class="annottext">$sel:userName:SSHPublicKey' :: Text
 </span><a href="Network.AWS.IAM.Types.SSHPublicKey.html#%24sel%3AuserName%3ASSHPublicKey%27"><span class="hs-identifier hs-var">userName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679430967"><span class="hs-identifier hs-var">pUserName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679431482"><span class="hs-identifier hs-var">pUserName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-97"></span><span>        </span><span class="annot"><span class="annottext">$sel:sSHPublicKeyId:SSHPublicKey' :: Text
 </span><a href="Network.AWS.IAM.Types.SSHPublicKey.html#%24sel%3AsSHPublicKeyId%3ASSHPublicKey%27"><span class="hs-identifier hs-var">sSHPublicKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679430966"><span class="hs-identifier hs-var">pSSHPublicKeyId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679431481"><span class="hs-identifier hs-var">pSSHPublicKeyId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-98"></span><span>        </span><span class="annot"><span class="annottext">$sel:fingerprint:SSHPublicKey' :: Text
 </span><a href="Network.AWS.IAM.Types.SSHPublicKey.html#%24sel%3Afingerprint%3ASSHPublicKey%27"><span class="hs-identifier hs-var">fingerprint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679430965"><span class="hs-identifier hs-var">pFingerprint_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679431480"><span class="hs-identifier hs-var">pFingerprint_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-99"></span><span>        </span><span class="annot"><span class="annottext">$sel:sSHPublicKeyBody:SSHPublicKey' :: Text
 </span><a href="Network.AWS.IAM.Types.SSHPublicKey.html#%24sel%3AsSHPublicKeyBody%3ASSHPublicKey%27"><span class="hs-identifier hs-var">sSHPublicKeyBody</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679430964"><span class="hs-identifier hs-var">pSSHPublicKeyBody_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679431479"><span class="hs-identifier hs-var">pSSHPublicKeyBody_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-100"></span><span>        </span><span class="annot"><span class="annottext">$sel:status:SSHPublicKey' :: StatusType
 </span><a href="Network.AWS.IAM.Types.SSHPublicKey.html#%24sel%3Astatus%3ASSHPublicKey%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">StatusType
-</span><a href="#local-6989586621679430963"><span class="hs-identifier hs-var">pStatus_</span></a></span><span>
+</span><a href="#local-6989586621679431478"><span class="hs-identifier hs-var">pStatus_</span></a></span><span>
 </span><span id="line-101"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-comment">-- | The date and time, in</span><span>
@@ -189,16 +189,16 @@ forall a. Maybe a
 -&gt; (SSHPublicKey -&gt; Maybe ISO8601 -&gt; SSHPublicKey)
 -&gt; Lens SSHPublicKey SSHPublicKey (Maybe ISO8601) (Maybe ISO8601)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.SSHPublicKey.html#SSHPublicKey%27"><span class="hs-identifier hs-type">SSHPublicKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430959"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.SSHPublicKey.html#SSHPublicKey%27"><span class="hs-identifier hs-type">SSHPublicKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679431474"><span class="annot"><span class="annottext">Maybe ISO8601
 uploadDate :: Maybe ISO8601
 $sel:uploadDate:SSHPublicKey' :: SSHPublicKey -&gt; Maybe ISO8601
-</span><a href="#local-6989586621679430959"><span class="hs-identifier hs-var hs-var">uploadDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679430959"><span class="hs-identifier hs-var">uploadDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430958"><span class="annot"><span class="annottext">s :: SSHPublicKey
-</span><a href="#local-6989586621679430958"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.SSHPublicKey.html#SSHPublicKey%27"><span class="hs-identifier hs-type">SSHPublicKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430957"><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679430957"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SSHPublicKey
-</span><a href="#local-6989586621679430958"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:uploadDate:SSHPublicKey' :: Maybe ISO8601
+</span><a href="#local-6989586621679431474"><span class="hs-identifier hs-var hs-var">uploadDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679431474"><span class="hs-identifier hs-var">uploadDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679431473"><span class="annot"><span class="annottext">s :: SSHPublicKey
+</span><a href="#local-6989586621679431473"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.SSHPublicKey.html#SSHPublicKey%27"><span class="hs-identifier hs-type">SSHPublicKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679431472"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679431472"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SSHPublicKey
+</span><a href="#local-6989586621679431473"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:uploadDate:SSHPublicKey' :: Maybe ISO8601
 </span><a href="Network.AWS.IAM.Types.SSHPublicKey.html#%24sel%3AuploadDate%3ASSHPublicKey%27"><span class="hs-identifier hs-var">uploadDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679430957"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.SSHPublicKey.html#SSHPublicKey"><span class="hs-identifier hs-type">SSHPublicKey</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+</span><a href="#local-6989586621679431472"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.SSHPublicKey.html#SSHPublicKey"><span class="hs-identifier hs-type">SSHPublicKey</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
  -&gt; SSHPublicKey -&gt; f SSHPublicKey)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
@@ -223,16 +223,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; (SSHPublicKey -&gt; Text -&gt; SSHPublicKey)
 -&gt; Lens SSHPublicKey SSHPublicKey Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.SSHPublicKey.html#SSHPublicKey%27"><span class="hs-identifier hs-type">SSHPublicKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430952"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.SSHPublicKey.html#SSHPublicKey%27"><span class="hs-identifier hs-type">SSHPublicKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679431467"><span class="annot"><span class="annottext">Text
 userName :: Text
 $sel:userName:SSHPublicKey' :: SSHPublicKey -&gt; Text
-</span><a href="#local-6989586621679430952"><span class="hs-identifier hs-var hs-var">userName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679430952"><span class="hs-identifier hs-var">userName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430951"><span class="annot"><span class="annottext">s :: SSHPublicKey
-</span><a href="#local-6989586621679430951"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.SSHPublicKey.html#SSHPublicKey%27"><span class="hs-identifier hs-type">SSHPublicKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430950"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679430950"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SSHPublicKey
-</span><a href="#local-6989586621679430951"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userName:SSHPublicKey' :: Text
+</span><a href="#local-6989586621679431467"><span class="hs-identifier hs-var hs-var">userName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679431467"><span class="hs-identifier hs-var">userName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679431466"><span class="annot"><span class="annottext">s :: SSHPublicKey
+</span><a href="#local-6989586621679431466"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.SSHPublicKey.html#SSHPublicKey%27"><span class="hs-identifier hs-type">SSHPublicKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679431465"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679431465"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SSHPublicKey
+</span><a href="#local-6989586621679431466"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userName:SSHPublicKey' :: Text
 </span><a href="Network.AWS.IAM.Types.SSHPublicKey.html#%24sel%3AuserName%3ASSHPublicKey%27"><span class="hs-identifier hs-var">userName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679430950"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.SSHPublicKey.html#SSHPublicKey"><span class="hs-identifier hs-type">SSHPublicKey</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679431465"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.SSHPublicKey.html#SSHPublicKey"><span class="hs-identifier hs-type">SSHPublicKey</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-comment">-- | The unique identifier for the SSH public key.</span><span>
 </span><span id="line-114"></span><span class="annot"><a href="Network.AWS.IAM.Types.SSHPublicKey.html#sSHPublicKey_sSHPublicKeyId"><span class="hs-identifier hs-type">sSHPublicKey_sSHPublicKeyId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.SSHPublicKey.html#SSHPublicKey"><span class="hs-identifier hs-type">SSHPublicKey</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -241,16 +241,16 @@ $sel:userName:SSHPublicKey' :: SSHPublicKey -&gt; Text
 -&gt; (SSHPublicKey -&gt; Text -&gt; SSHPublicKey)
 -&gt; Lens SSHPublicKey SSHPublicKey Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.SSHPublicKey.html#SSHPublicKey%27"><span class="hs-identifier hs-type">SSHPublicKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430948"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.SSHPublicKey.html#SSHPublicKey%27"><span class="hs-identifier hs-type">SSHPublicKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679431463"><span class="annot"><span class="annottext">Text
 sSHPublicKeyId :: Text
 $sel:sSHPublicKeyId:SSHPublicKey' :: SSHPublicKey -&gt; Text
-</span><a href="#local-6989586621679430948"><span class="hs-identifier hs-var hs-var">sSHPublicKeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679430948"><span class="hs-identifier hs-var">sSHPublicKeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430947"><span class="annot"><span class="annottext">s :: SSHPublicKey
-</span><a href="#local-6989586621679430947"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.SSHPublicKey.html#SSHPublicKey%27"><span class="hs-identifier hs-type">SSHPublicKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430946"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679430946"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SSHPublicKey
-</span><a href="#local-6989586621679430947"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sSHPublicKeyId:SSHPublicKey' :: Text
+</span><a href="#local-6989586621679431463"><span class="hs-identifier hs-var hs-var">sSHPublicKeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679431463"><span class="hs-identifier hs-var">sSHPublicKeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679431462"><span class="annot"><span class="annottext">s :: SSHPublicKey
+</span><a href="#local-6989586621679431462"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.SSHPublicKey.html#SSHPublicKey%27"><span class="hs-identifier hs-type">SSHPublicKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679431461"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679431461"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SSHPublicKey
+</span><a href="#local-6989586621679431462"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sSHPublicKeyId:SSHPublicKey' :: Text
 </span><a href="Network.AWS.IAM.Types.SSHPublicKey.html#%24sel%3AsSHPublicKeyId%3ASSHPublicKey%27"><span class="hs-identifier hs-var">sSHPublicKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679430946"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.SSHPublicKey.html#SSHPublicKey"><span class="hs-identifier hs-type">SSHPublicKey</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679431461"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.SSHPublicKey.html#SSHPublicKey"><span class="hs-identifier hs-type">SSHPublicKey</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-comment">-- | The MD5 message digest of the SSH public key.</span><span>
 </span><span id="line-118"></span><span class="annot"><a href="Network.AWS.IAM.Types.SSHPublicKey.html#sSHPublicKey_fingerprint"><span class="hs-identifier hs-type">sSHPublicKey_fingerprint</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.SSHPublicKey.html#SSHPublicKey"><span class="hs-identifier hs-type">SSHPublicKey</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -259,16 +259,16 @@ $sel:sSHPublicKeyId:SSHPublicKey' :: SSHPublicKey -&gt; Text
 -&gt; (SSHPublicKey -&gt; Text -&gt; SSHPublicKey)
 -&gt; Lens SSHPublicKey SSHPublicKey Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.SSHPublicKey.html#SSHPublicKey%27"><span class="hs-identifier hs-type">SSHPublicKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430944"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.SSHPublicKey.html#SSHPublicKey%27"><span class="hs-identifier hs-type">SSHPublicKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679431459"><span class="annot"><span class="annottext">Text
 fingerprint :: Text
 $sel:fingerprint:SSHPublicKey' :: SSHPublicKey -&gt; Text
-</span><a href="#local-6989586621679430944"><span class="hs-identifier hs-var hs-var">fingerprint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679430944"><span class="hs-identifier hs-var">fingerprint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430943"><span class="annot"><span class="annottext">s :: SSHPublicKey
-</span><a href="#local-6989586621679430943"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.SSHPublicKey.html#SSHPublicKey%27"><span class="hs-identifier hs-type">SSHPublicKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430942"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679430942"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SSHPublicKey
-</span><a href="#local-6989586621679430943"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fingerprint:SSHPublicKey' :: Text
+</span><a href="#local-6989586621679431459"><span class="hs-identifier hs-var hs-var">fingerprint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679431459"><span class="hs-identifier hs-var">fingerprint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679431458"><span class="annot"><span class="annottext">s :: SSHPublicKey
+</span><a href="#local-6989586621679431458"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.SSHPublicKey.html#SSHPublicKey%27"><span class="hs-identifier hs-type">SSHPublicKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679431457"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679431457"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SSHPublicKey
+</span><a href="#local-6989586621679431458"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fingerprint:SSHPublicKey' :: Text
 </span><a href="Network.AWS.IAM.Types.SSHPublicKey.html#%24sel%3Afingerprint%3ASSHPublicKey%27"><span class="hs-identifier hs-var">fingerprint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679430942"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.SSHPublicKey.html#SSHPublicKey"><span class="hs-identifier hs-type">SSHPublicKey</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679431457"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.SSHPublicKey.html#SSHPublicKey"><span class="hs-identifier hs-type">SSHPublicKey</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-comment">-- | The SSH public key.</span><span>
 </span><span id="line-122"></span><span class="annot"><a href="Network.AWS.IAM.Types.SSHPublicKey.html#sSHPublicKey_sSHPublicKeyBody"><span class="hs-identifier hs-type">sSHPublicKey_sSHPublicKeyBody</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.SSHPublicKey.html#SSHPublicKey"><span class="hs-identifier hs-type">SSHPublicKey</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -277,16 +277,16 @@ $sel:fingerprint:SSHPublicKey' :: SSHPublicKey -&gt; Text
 -&gt; (SSHPublicKey -&gt; Text -&gt; SSHPublicKey)
 -&gt; Lens SSHPublicKey SSHPublicKey Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.SSHPublicKey.html#SSHPublicKey%27"><span class="hs-identifier hs-type">SSHPublicKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430940"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.SSHPublicKey.html#SSHPublicKey%27"><span class="hs-identifier hs-type">SSHPublicKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679431455"><span class="annot"><span class="annottext">Text
 sSHPublicKeyBody :: Text
 $sel:sSHPublicKeyBody:SSHPublicKey' :: SSHPublicKey -&gt; Text
-</span><a href="#local-6989586621679430940"><span class="hs-identifier hs-var hs-var">sSHPublicKeyBody</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679430940"><span class="hs-identifier hs-var">sSHPublicKeyBody</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430939"><span class="annot"><span class="annottext">s :: SSHPublicKey
-</span><a href="#local-6989586621679430939"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.SSHPublicKey.html#SSHPublicKey%27"><span class="hs-identifier hs-type">SSHPublicKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430938"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679430938"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SSHPublicKey
-</span><a href="#local-6989586621679430939"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sSHPublicKeyBody:SSHPublicKey' :: Text
+</span><a href="#local-6989586621679431455"><span class="hs-identifier hs-var hs-var">sSHPublicKeyBody</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679431455"><span class="hs-identifier hs-var">sSHPublicKeyBody</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679431454"><span class="annot"><span class="annottext">s :: SSHPublicKey
+</span><a href="#local-6989586621679431454"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.SSHPublicKey.html#SSHPublicKey%27"><span class="hs-identifier hs-type">SSHPublicKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679431453"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679431453"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SSHPublicKey
+</span><a href="#local-6989586621679431454"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sSHPublicKeyBody:SSHPublicKey' :: Text
 </span><a href="Network.AWS.IAM.Types.SSHPublicKey.html#%24sel%3AsSHPublicKeyBody%3ASSHPublicKey%27"><span class="hs-identifier hs-var">sSHPublicKeyBody</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679430938"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.SSHPublicKey.html#SSHPublicKey"><span class="hs-identifier hs-type">SSHPublicKey</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679431453"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.SSHPublicKey.html#SSHPublicKey"><span class="hs-identifier hs-type">SSHPublicKey</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-comment">-- | The status of the SSH public key. @Active@ means that the key can be</span><span>
 </span><span id="line-126"></span><span class="hs-comment">-- used for authentication with an CodeCommit repository. @Inactive@ means</span><span>
@@ -297,21 +297,21 @@ $sel:sSHPublicKeyBody:SSHPublicKey' :: SSHPublicKey -&gt; Text
 -&gt; (SSHPublicKey -&gt; StatusType -&gt; SSHPublicKey)
 -&gt; Lens SSHPublicKey SSHPublicKey StatusType StatusType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.SSHPublicKey.html#SSHPublicKey%27"><span class="hs-identifier hs-type">SSHPublicKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430936"><span class="annot"><span class="annottext">StatusType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.SSHPublicKey.html#SSHPublicKey%27"><span class="hs-identifier hs-type">SSHPublicKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679431451"><span class="annot"><span class="annottext">StatusType
 status :: StatusType
 $sel:status:SSHPublicKey' :: SSHPublicKey -&gt; StatusType
-</span><a href="#local-6989586621679430936"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StatusType
-</span><a href="#local-6989586621679430936"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430935"><span class="annot"><span class="annottext">s :: SSHPublicKey
-</span><a href="#local-6989586621679430935"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.SSHPublicKey.html#SSHPublicKey%27"><span class="hs-identifier hs-type">SSHPublicKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430934"><span class="annot"><span class="annottext">StatusType
-</span><a href="#local-6989586621679430934"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SSHPublicKey
-</span><a href="#local-6989586621679430935"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:SSHPublicKey' :: StatusType
+</span><a href="#local-6989586621679431451"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StatusType
+</span><a href="#local-6989586621679431451"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679431450"><span class="annot"><span class="annottext">s :: SSHPublicKey
+</span><a href="#local-6989586621679431450"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.SSHPublicKey.html#SSHPublicKey%27"><span class="hs-identifier hs-type">SSHPublicKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679431449"><span class="annot"><span class="annottext">StatusType
+</span><a href="#local-6989586621679431449"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SSHPublicKey
+</span><a href="#local-6989586621679431450"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:SSHPublicKey' :: StatusType
 </span><a href="Network.AWS.IAM.Types.SSHPublicKey.html#%24sel%3Astatus%3ASSHPublicKey%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">StatusType
-</span><a href="#local-6989586621679430934"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.SSHPublicKey.html#SSHPublicKey"><span class="hs-identifier hs-type">SSHPublicKey</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679431449"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.SSHPublicKey.html#SSHPublicKey"><span class="hs-identifier hs-type">SSHPublicKey</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>
 </span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.SSHPublicKey.html#SSHPublicKey"><span class="hs-identifier hs-type">SSHPublicKey</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-132"></span><span>  </span><span id="local-6989586621679430931"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String SSHPublicKey
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679430929"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679430929"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679431446"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String SSHPublicKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679431444"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679431444"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-133"></span><span>    </span><span class="annot"><span class="annottext">Maybe ISO8601
 -&gt; Text -&gt; Text -&gt; Text -&gt; Text -&gt; StatusType -&gt; SSHPublicKey
 </span><a href="Network.AWS.IAM.Types.SSHPublicKey.html#SSHPublicKey%27"><span class="hs-identifier hs-var">SSHPublicKey'</span></a></span><span>
@@ -322,7 +322,7 @@ $sel:status:SSHPublicKey' :: SSHPublicKey -&gt; StatusType
      String (Text -&gt; Text -&gt; Text -&gt; Text -&gt; StatusType -&gt; SSHPublicKey)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679430929"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+</span><a href="#local-6989586621679431444"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;UploadDate&quot;</span></span><span class="hs-special">)</span><span>
@@ -333,7 +333,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
      String (Text -&gt; Text -&gt; Text -&gt; StatusType -&gt; SSHPublicKey)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679430929"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679431444"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;UserName&quot;</span></span><span class="hs-special">)</span><span>
@@ -342,7 +342,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String (Text -&gt; Text -&gt; StatusType -&gt; SSHPublicKey)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679430929"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679431444"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SSHPublicKeyId&quot;</span></span><span class="hs-special">)</span><span>
@@ -351,7 +351,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String (Text -&gt; StatusType -&gt; SSHPublicKey)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679430929"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679431444"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Fingerprint&quot;</span></span><span class="hs-special">)</span><span>
@@ -359,7 +359,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String Text -&gt; Either String (StatusType -&gt; SSHPublicKey)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679430929"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679431444"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SSHPublicKeyBody&quot;</span></span><span class="hs-special">)</span><span>
@@ -367,12 +367,12 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String StatusType -&gt; Either String SSHPublicKey
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679430929"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String StatusType
+</span><a href="#local-6989586621679431444"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String StatusType
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>
-</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679430922"><span id="local-6989586621679430924"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.SSHPublicKey.html#SSHPublicKey"><span class="hs-identifier hs-type">SSHPublicKey</span></a></span></span></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679431437"><span id="local-6989586621679431439"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.SSHPublicKey.html#SSHPublicKey"><span class="hs-identifier hs-type">SSHPublicKey</span></a></span></span></span><span>
 </span><span id="line-142"></span><span>
-</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679430919"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.SSHPublicKey.html#SSHPublicKey"><span class="hs-identifier hs-type">SSHPublicKey</span></a></span></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679431434"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.SSHPublicKey.html#SSHPublicKey"><span class="hs-identifier hs-type">SSHPublicKey</span></a></span></span><span>
 </span><span id="line-144"></span></pre></body></html>

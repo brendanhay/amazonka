@@ -26,20 +26,20 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Status of the cache parameter group.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newCacheParameterGroupStatus' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679397980"><span id="local-6989586621679397981"></span></span><span class="hs-keyword">data</span><span> </span><span id="CacheParameterGroupStatus"><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheParameterGroupStatus.html#CacheParameterGroupStatus"><span class="hs-identifier hs-var">CacheParameterGroupStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CacheParameterGroupStatus%27"><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheParameterGroupStatus.html#CacheParameterGroupStatus%27"><span class="hs-identifier hs-var">CacheParameterGroupStatus'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679398495"><span id="local-6989586621679398496"></span></span><span class="hs-keyword">data</span><span> </span><span id="CacheParameterGroupStatus"><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheParameterGroupStatus.html#CacheParameterGroupStatus"><span class="hs-identifier hs-var">CacheParameterGroupStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CacheParameterGroupStatus%27"><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheParameterGroupStatus.html#CacheParameterGroupStatus%27"><span class="hs-identifier hs-var">CacheParameterGroupStatus'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the cache parameter group.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AcacheParameterGroupName%3ACacheParameterGroupStatus%27"><span class="annot"><span class="annottext">CacheParameterGroupStatus -&gt; Maybe Text
 </span><a href="Network.AWS.ElastiCache.Types.CacheParameterGroupStatus.html#%24sel%3AcacheParameterGroupName%3ACacheParameterGroupStatus%27"><span class="hs-identifier hs-var hs-var">cacheParameterGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The status of parameter updates.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AparameterApplyStatus%3ACacheParameterGroupStatus%27"><span class="annot"><span class="annottext">CacheParameterGroupStatus -&gt; Maybe Text
-</span><a href="Network.AWS.ElastiCache.Types.CacheParameterGroupStatus.html#%24sel%3AparameterApplyStatus%3ACacheParameterGroupStatus%27"><span class="hs-identifier hs-var hs-var">parameterApplyStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | A list of the cache node IDs which need to be rebooted for parameter</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- changes to be applied. A node ID is a numeric identifier (0001, 0002,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- etc.).</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AcacheNodeIdsToReboot%3ACacheParameterGroupStatus%27"><span class="annot"><span class="annottext">CacheParameterGroupStatus -&gt; Maybe [Text]
-</span><a href="Network.AWS.ElastiCache.Types.CacheParameterGroupStatus.html#%24sel%3AcacheNodeIdsToReboot%3ACacheParameterGroupStatus%27"><span class="hs-identifier hs-var hs-var">cacheNodeIdsToReboot</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | A list of the cache node IDs which need to be rebooted for parameter</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- changes to be applied. A node ID is a numeric identifier (0001, 0002,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- etc.).</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AcacheNodeIdsToReboot%3ACacheParameterGroupStatus%27"><span class="annot"><span class="annottext">CacheParameterGroupStatus -&gt; Maybe [Text]
+</span><a href="Network.AWS.ElastiCache.Types.CacheParameterGroupStatus.html#%24sel%3AcacheNodeIdsToReboot%3ACacheParameterGroupStatus%27"><span class="hs-identifier hs-var hs-var">cacheNodeIdsToReboot</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The status of parameter updates.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AparameterApplyStatus%3ACacheParameterGroupStatus%27"><span class="annot"><span class="annottext">CacheParameterGroupStatus -&gt; Maybe Text
+</span><a href="Network.AWS.ElastiCache.Types.CacheParameterGroupStatus.html#%24sel%3AparameterApplyStatus%3ACacheParameterGroupStatus%27"><span class="hs-identifier hs-var hs-var">parameterApplyStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679397972"><span id="local-6989586621679397974"><span class="annot"><span class="annottext">CacheParameterGroupStatus -&gt; CacheParameterGroupStatus -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679398487"><span id="local-6989586621679398489"><span class="annot"><span class="annottext">CacheParameterGroupStatus -&gt; CacheParameterGroupStatus -&gt; Bool
 (CacheParameterGroupStatus -&gt; CacheParameterGroupStatus -&gt; Bool)
 -&gt; (CacheParameterGroupStatus -&gt; CacheParameterGroupStatus -&gt; Bool)
 -&gt; Eq CacheParameterGroupStatus
@@ -48,7 +48,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CacheParameterGroupStatus -&gt; CacheParameterGroupStatus -&gt; Bool
 == :: CacheParameterGroupStatus -&gt; CacheParameterGroupStatus -&gt; Bool
 $c== :: CacheParameterGroupStatus -&gt; CacheParameterGroupStatus -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679397963"><span id="local-6989586621679397965"><span id="local-6989586621679397967"><span id="local-6989586621679397969"><span class="annot"><span class="annottext">ReadPrec [CacheParameterGroupStatus]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679398478"><span id="local-6989586621679398480"><span id="local-6989586621679398482"><span id="local-6989586621679398484"><span class="annot"><span class="annottext">ReadPrec [CacheParameterGroupStatus]
 ReadPrec CacheParameterGroupStatus
 Int -&gt; ReadS CacheParameterGroupStatus
 ReadS [CacheParameterGroupStatus]
@@ -68,7 +68,7 @@ readList :: ReadS [CacheParameterGroupStatus]
 $creadList :: ReadS [CacheParameterGroupStatus]
 readsPrec :: Int -&gt; ReadS CacheParameterGroupStatus
 $creadsPrec :: Int -&gt; ReadS CacheParameterGroupStatus
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679397956"><span id="local-6989586621679397958"><span id="local-6989586621679397960"><span class="annot"><span class="annottext">Int -&gt; CacheParameterGroupStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679398471"><span id="local-6989586621679398473"><span id="local-6989586621679398475"><span class="annot"><span class="annottext">Int -&gt; CacheParameterGroupStatus -&gt; ShowS
 [CacheParameterGroupStatus] -&gt; ShowS
 CacheParameterGroupStatus -&gt; String
 (Int -&gt; CacheParameterGroupStatus -&gt; ShowS)
@@ -110,29 +110,29 @@ CacheParameterGroupStatus -&gt; Rep CacheParameterGroupStatus x
 </span><span id="line-48"></span><span class="hs-comment">--</span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- 'cacheParameterGroupName', 'cacheParameterGroupStatus_cacheParameterGroupName' - The name of the cache parameter group.</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
-</span><span id="line-51"></span><span class="hs-comment">-- 'parameterApplyStatus', 'cacheParameterGroupStatus_parameterApplyStatus' - The status of parameter updates.</span><span>
-</span><span id="line-52"></span><span class="hs-comment">--</span><span>
-</span><span id="line-53"></span><span class="hs-comment">-- 'cacheNodeIdsToReboot', 'cacheParameterGroupStatus_cacheNodeIdsToReboot' - A list of the cache node IDs which need to be rebooted for parameter</span><span>
-</span><span id="line-54"></span><span class="hs-comment">-- changes to be applied. A node ID is a numeric identifier (0001, 0002,</span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- etc.).</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'cacheNodeIdsToReboot', 'cacheParameterGroupStatus_cacheNodeIdsToReboot' - A list of the cache node IDs which need to be rebooted for parameter</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- changes to be applied. A node ID is a numeric identifier (0001, 0002,</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- etc.).</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'parameterApplyStatus', 'cacheParameterGroupStatus_parameterApplyStatus' - The status of parameter updates.</span><span>
 </span><span id="line-56"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheParameterGroupStatus.html#newCacheParameterGroupStatus"><span class="hs-identifier hs-type">newCacheParameterGroupStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-57"></span><span>  </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheParameterGroupStatus.html#CacheParameterGroupStatus"><span class="hs-identifier hs-type">CacheParameterGroupStatus</span></a></span><span>
 </span><span id="line-58"></span><span id="newCacheParameterGroupStatus"><span class="annot"><span class="annottext">newCacheParameterGroupStatus :: CacheParameterGroupStatus
 </span><a href="Network.AWS.ElastiCache.Types.CacheParameterGroupStatus.html#newCacheParameterGroupStatus"><span class="hs-identifier hs-var hs-var">newCacheParameterGroupStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-59"></span><span>  </span><span class="annot"><span class="annottext">CacheParameterGroupStatus' :: Maybe Text
--&gt; Maybe Text -&gt; Maybe [Text] -&gt; CacheParameterGroupStatus
+-&gt; Maybe [Text] -&gt; Maybe Text -&gt; CacheParameterGroupStatus
 </span><a href="Network.AWS.ElastiCache.Types.CacheParameterGroupStatus.html#CacheParameterGroupStatus%27"><span class="hs-identifier hs-type">CacheParameterGroupStatus'</span></a></span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:cacheParameterGroupName:CacheParameterGroupStatus' :: Maybe Text
 </span><a href="Network.AWS.ElastiCache.Types.CacheParameterGroupStatus.html#%24sel%3AcacheParameterGroupName%3ACacheParameterGroupStatus%27"><span class="hs-identifier hs-var">cacheParameterGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-61"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:parameterApplyStatus:CacheParameterGroupStatus' :: Maybe Text
-</span><a href="Network.AWS.ElastiCache.Types.CacheParameterGroupStatus.html#%24sel%3AparameterApplyStatus%3ACacheParameterGroupStatus%27"><span class="hs-identifier hs-var">parameterApplyStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:cacheNodeIdsToReboot:CacheParameterGroupStatus' :: Maybe [Text]
+</span><a href="Network.AWS.ElastiCache.Types.CacheParameterGroupStatus.html#%24sel%3AcacheNodeIdsToReboot%3ACacheParameterGroupStatus%27"><span class="hs-identifier hs-var">cacheNodeIdsToReboot</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:cacheNodeIdsToReboot:CacheParameterGroupStatus' :: Maybe [Text]
-</span><a href="Network.AWS.ElastiCache.Types.CacheParameterGroupStatus.html#%24sel%3AcacheNodeIdsToReboot%3ACacheParameterGroupStatus%27"><span class="hs-identifier hs-var">cacheNodeIdsToReboot</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:parameterApplyStatus:CacheParameterGroupStatus' :: Maybe Text
+</span><a href="Network.AWS.ElastiCache.Types.CacheParameterGroupStatus.html#%24sel%3AparameterApplyStatus%3ACacheParameterGroupStatus%27"><span class="hs-identifier hs-var">parameterApplyStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-64"></span><span>    </span><span class="hs-special">}</span><span>
@@ -150,46 +150,22 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheParameterGroupStatus.html#CacheParameterGroupStatus%27"><span class="hs-identifier hs-type">CacheParameterGroupStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397947"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheParameterGroupStatus.html#CacheParameterGroupStatus%27"><span class="hs-identifier hs-type">CacheParameterGroupStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679398462"><span class="annot"><span class="annottext">Maybe Text
 cacheParameterGroupName :: Maybe Text
 $sel:cacheParameterGroupName:CacheParameterGroupStatus' :: CacheParameterGroupStatus -&gt; Maybe Text
-</span><a href="#local-6989586621679397947"><span class="hs-identifier hs-var hs-var">cacheParameterGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679397947"><span class="hs-identifier hs-var">cacheParameterGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397946"><span class="annot"><span class="annottext">s :: CacheParameterGroupStatus
-</span><a href="#local-6989586621679397946"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheParameterGroupStatus.html#CacheParameterGroupStatus%27"><span class="hs-identifier hs-type">CacheParameterGroupStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397945"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679397945"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheParameterGroupStatus
-</span><a href="#local-6989586621679397946"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cacheParameterGroupName:CacheParameterGroupStatus' :: Maybe Text
+</span><a href="#local-6989586621679398462"><span class="hs-identifier hs-var hs-var">cacheParameterGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679398462"><span class="hs-identifier hs-var">cacheParameterGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679398461"><span class="annot"><span class="annottext">s :: CacheParameterGroupStatus
+</span><a href="#local-6989586621679398461"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheParameterGroupStatus.html#CacheParameterGroupStatus%27"><span class="hs-identifier hs-type">CacheParameterGroupStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679398460"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679398460"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheParameterGroupStatus
+</span><a href="#local-6989586621679398461"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cacheParameterGroupName:CacheParameterGroupStatus' :: Maybe Text
 </span><a href="Network.AWS.ElastiCache.Types.CacheParameterGroupStatus.html#%24sel%3AcacheParameterGroupName%3ACacheParameterGroupStatus%27"><span class="hs-identifier hs-var">cacheParameterGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679397945"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheParameterGroupStatus.html#CacheParameterGroupStatus"><span class="hs-identifier hs-type">CacheParameterGroupStatus</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679398460"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheParameterGroupStatus.html#CacheParameterGroupStatus"><span class="hs-identifier hs-type">CacheParameterGroupStatus</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- | The status of parameter updates.</span><span>
-</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheParameterGroupStatus.html#cacheParameterGroupStatus_parameterApplyStatus"><span class="hs-identifier hs-type">cacheParameterGroupStatus_parameterApplyStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheParameterGroupStatus.html#CacheParameterGroupStatus"><span class="hs-identifier hs-type">CacheParameterGroupStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-72"></span><span id="cacheParameterGroupStatus_parameterApplyStatus"><span class="annot"><span class="annottext">cacheParameterGroupStatus_parameterApplyStatus :: (Maybe Text -&gt; f (Maybe Text))
--&gt; CacheParameterGroupStatus -&gt; f CacheParameterGroupStatus
-</span><a href="Network.AWS.ElastiCache.Types.CacheParameterGroupStatus.html#cacheParameterGroupStatus_parameterApplyStatus"><span class="hs-identifier hs-var hs-var">cacheParameterGroupStatus_parameterApplyStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CacheParameterGroupStatus -&gt; Maybe Text)
--&gt; (CacheParameterGroupStatus
-    -&gt; Maybe Text -&gt; CacheParameterGroupStatus)
--&gt; Lens
-     CacheParameterGroupStatus
-     CacheParameterGroupStatus
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheParameterGroupStatus.html#CacheParameterGroupStatus%27"><span class="hs-identifier hs-type">CacheParameterGroupStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397943"><span class="annot"><span class="annottext">Maybe Text
-parameterApplyStatus :: Maybe Text
-$sel:parameterApplyStatus:CacheParameterGroupStatus' :: CacheParameterGroupStatus -&gt; Maybe Text
-</span><a href="#local-6989586621679397943"><span class="hs-identifier hs-var hs-var">parameterApplyStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679397943"><span class="hs-identifier hs-var">parameterApplyStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397942"><span class="annot"><span class="annottext">s :: CacheParameterGroupStatus
-</span><a href="#local-6989586621679397942"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheParameterGroupStatus.html#CacheParameterGroupStatus%27"><span class="hs-identifier hs-type">CacheParameterGroupStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397941"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679397941"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheParameterGroupStatus
-</span><a href="#local-6989586621679397942"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameterApplyStatus:CacheParameterGroupStatus' :: Maybe Text
-</span><a href="Network.AWS.ElastiCache.Types.CacheParameterGroupStatus.html#%24sel%3AparameterApplyStatus%3ACacheParameterGroupStatus%27"><span class="hs-identifier hs-var">parameterApplyStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679397941"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheParameterGroupStatus.html#CacheParameterGroupStatus"><span class="hs-identifier hs-type">CacheParameterGroupStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- | A list of the cache node IDs which need to be rebooted for parameter</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- changes to be applied. A node ID is a numeric identifier (0001, 0002,</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- etc.).</span><span>
-</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheParameterGroupStatus.html#cacheParameterGroupStatus_cacheNodeIdsToReboot"><span class="hs-identifier hs-type">cacheParameterGroupStatus_cacheNodeIdsToReboot</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheParameterGroupStatus.html#CacheParameterGroupStatus"><span class="hs-identifier hs-type">CacheParameterGroupStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-78"></span><span id="cacheParameterGroupStatus_cacheNodeIdsToReboot"><span class="annot"><span class="annottext">cacheParameterGroupStatus_cacheNodeIdsToReboot :: (Maybe [Text] -&gt; f (Maybe [Text]))
+</span><span id="line-70"></span><span class="hs-comment">-- | A list of the cache node IDs which need to be rebooted for parameter</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- changes to be applied. A node ID is a numeric identifier (0001, 0002,</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- etc.).</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheParameterGroupStatus.html#cacheParameterGroupStatus_cacheNodeIdsToReboot"><span class="hs-identifier hs-type">cacheParameterGroupStatus_cacheNodeIdsToReboot</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheParameterGroupStatus.html#CacheParameterGroupStatus"><span class="hs-identifier hs-type">CacheParameterGroupStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span id="cacheParameterGroupStatus_cacheNodeIdsToReboot"><span class="annot"><span class="annottext">cacheParameterGroupStatus_cacheNodeIdsToReboot :: (Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; CacheParameterGroupStatus -&gt; f CacheParameterGroupStatus
 </span><a href="Network.AWS.ElastiCache.Types.CacheParameterGroupStatus.html#cacheParameterGroupStatus_cacheNodeIdsToReboot"><span class="hs-identifier hs-var hs-var">cacheParameterGroupStatus_cacheNodeIdsToReboot</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CacheParameterGroupStatus -&gt; Maybe [Text])
 -&gt; (CacheParameterGroupStatus
@@ -200,16 +176,16 @@ $sel:parameterApplyStatus:CacheParameterGroupStatus' :: CacheParameterGroupStatu
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheParameterGroupStatus.html#CacheParameterGroupStatus%27"><span class="hs-identifier hs-type">CacheParameterGroupStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397939"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheParameterGroupStatus.html#CacheParameterGroupStatus%27"><span class="hs-identifier hs-type">CacheParameterGroupStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679398458"><span class="annot"><span class="annottext">Maybe [Text]
 cacheNodeIdsToReboot :: Maybe [Text]
 $sel:cacheNodeIdsToReboot:CacheParameterGroupStatus' :: CacheParameterGroupStatus -&gt; Maybe [Text]
-</span><a href="#local-6989586621679397939"><span class="hs-identifier hs-var hs-var">cacheNodeIdsToReboot</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679397939"><span class="hs-identifier hs-var">cacheNodeIdsToReboot</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397938"><span class="annot"><span class="annottext">s :: CacheParameterGroupStatus
-</span><a href="#local-6989586621679397938"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheParameterGroupStatus.html#CacheParameterGroupStatus%27"><span class="hs-identifier hs-type">CacheParameterGroupStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397937"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679397937"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheParameterGroupStatus
-</span><a href="#local-6989586621679397938"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cacheNodeIdsToReboot:CacheParameterGroupStatus' :: Maybe [Text]
+</span><a href="#local-6989586621679398458"><span class="hs-identifier hs-var hs-var">cacheNodeIdsToReboot</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679398458"><span class="hs-identifier hs-var">cacheNodeIdsToReboot</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679398457"><span class="annot"><span class="annottext">s :: CacheParameterGroupStatus
+</span><a href="#local-6989586621679398457"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheParameterGroupStatus.html#CacheParameterGroupStatus%27"><span class="hs-identifier hs-type">CacheParameterGroupStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679398456"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679398456"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheParameterGroupStatus
+</span><a href="#local-6989586621679398457"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cacheNodeIdsToReboot:CacheParameterGroupStatus' :: Maybe [Text]
 </span><a href="Network.AWS.ElastiCache.Types.CacheParameterGroupStatus.html#%24sel%3AcacheNodeIdsToReboot%3ACacheParameterGroupStatus%27"><span class="hs-identifier hs-var">cacheNodeIdsToReboot</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679397937"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheParameterGroupStatus.html#CacheParameterGroupStatus"><span class="hs-identifier hs-type">CacheParameterGroupStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679398456"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheParameterGroupStatus.html#CacheParameterGroupStatus"><span class="hs-identifier hs-type">CacheParameterGroupStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; CacheParameterGroupStatus -&gt; f CacheParameterGroupStatus)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -223,52 +199,67 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | The status of parameter updates.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheParameterGroupStatus.html#cacheParameterGroupStatus_parameterApplyStatus"><span class="hs-identifier hs-type">cacheParameterGroupStatus_parameterApplyStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheParameterGroupStatus.html#CacheParameterGroupStatus"><span class="hs-identifier hs-type">CacheParameterGroupStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span id="cacheParameterGroupStatus_parameterApplyStatus"><span class="annot"><span class="annottext">cacheParameterGroupStatus_parameterApplyStatus :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CacheParameterGroupStatus -&gt; f CacheParameterGroupStatus
+</span><a href="Network.AWS.ElastiCache.Types.CacheParameterGroupStatus.html#cacheParameterGroupStatus_parameterApplyStatus"><span class="hs-identifier hs-var hs-var">cacheParameterGroupStatus_parameterApplyStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CacheParameterGroupStatus -&gt; Maybe Text)
+-&gt; (CacheParameterGroupStatus
+    -&gt; Maybe Text -&gt; CacheParameterGroupStatus)
+-&gt; Lens
+     CacheParameterGroupStatus
+     CacheParameterGroupStatus
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheParameterGroupStatus.html#CacheParameterGroupStatus%27"><span class="hs-identifier hs-type">CacheParameterGroupStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679398451"><span class="annot"><span class="annottext">Maybe Text
+parameterApplyStatus :: Maybe Text
+$sel:parameterApplyStatus:CacheParameterGroupStatus' :: CacheParameterGroupStatus -&gt; Maybe Text
+</span><a href="#local-6989586621679398451"><span class="hs-identifier hs-var hs-var">parameterApplyStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679398451"><span class="hs-identifier hs-var">parameterApplyStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679398450"><span class="annot"><span class="annottext">s :: CacheParameterGroupStatus
+</span><a href="#local-6989586621679398450"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheParameterGroupStatus.html#CacheParameterGroupStatus%27"><span class="hs-identifier hs-type">CacheParameterGroupStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679398449"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679398449"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheParameterGroupStatus
+</span><a href="#local-6989586621679398450"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameterApplyStatus:CacheParameterGroupStatus' :: Maybe Text
+</span><a href="Network.AWS.ElastiCache.Types.CacheParameterGroupStatus.html#%24sel%3AparameterApplyStatus%3ACacheParameterGroupStatus%27"><span class="hs-identifier hs-var">parameterApplyStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679398449"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheParameterGroupStatus.html#CacheParameterGroupStatus"><span class="hs-identifier hs-type">CacheParameterGroupStatus</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheParameterGroupStatus.html#CacheParameterGroupStatus"><span class="hs-identifier hs-type">CacheParameterGroupStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679397931"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String CacheParameterGroupStatus
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679397929"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679397929"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679398446"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String CacheParameterGroupStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679398444"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679398444"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe Text -&gt; Maybe [Text] -&gt; CacheParameterGroupStatus
+-&gt; Maybe [Text] -&gt; Maybe Text -&gt; CacheParameterGroupStatus
 </span><a href="Network.AWS.ElastiCache.Types.CacheParameterGroupStatus.html#CacheParameterGroupStatus%27"><span class="hs-identifier hs-var">CacheParameterGroupStatus'</span></a></span><span>
 </span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe Text -&gt; Maybe [Text] -&gt; CacheParameterGroupStatus)
+ -&gt; Maybe [Text] -&gt; Maybe Text -&gt; CacheParameterGroupStatus)
 -&gt; Either String (Maybe Text)
 -&gt; Either
-     String (Maybe Text -&gt; Maybe [Text] -&gt; CacheParameterGroupStatus)
+     String (Maybe [Text] -&gt; Maybe Text -&gt; CacheParameterGroupStatus)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679397929"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679398444"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CacheParameterGroupName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String (Maybe Text -&gt; Maybe [Text] -&gt; CacheParameterGroupStatus)
--&gt; Either String (Maybe Text)
--&gt; Either String (Maybe [Text] -&gt; CacheParameterGroupStatus)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679397929"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ParameterApplyStatus&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe [Text] -&gt; CacheParameterGroupStatus)
+  String (Maybe [Text] -&gt; Maybe Text -&gt; CacheParameterGroupStatus)
 -&gt; Either String (Maybe [Text])
--&gt; Either String CacheParameterGroupStatus
+-&gt; Either String (Maybe Text -&gt; CacheParameterGroupStatus)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679397929"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679398444"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CacheNodeIdsToReboot&quot;</span></span><span>
-</span><span id="line-86"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+</span><span id="line-85"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
 forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-87"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+</span><span id="line-86"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
 -&gt; ([Node] -&gt; Either String (Maybe [Text]))
 -&gt; Either String (Maybe [Text])
 forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
@@ -281,9 +272,18 @@ Applicative f =&gt;
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CacheNodeId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-88"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; CacheParameterGroupStatus)
+-&gt; Either String (Maybe Text)
+-&gt; Either String CacheParameterGroupStatus
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679398444"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ParameterApplyStatus&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397920"><span id="local-6989586621679397922"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheParameterGroupStatus.html#CacheParameterGroupStatus"><span class="hs-identifier hs-type">CacheParameterGroupStatus</span></a></span></span></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679398435"><span id="local-6989586621679398437"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheParameterGroupStatus.html#CacheParameterGroupStatus"><span class="hs-identifier hs-type">CacheParameterGroupStatus</span></a></span></span></span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397917"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheParameterGroupStatus.html#CacheParameterGroupStatus"><span class="hs-identifier hs-type">CacheParameterGroupStatus</span></a></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679398432"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheParameterGroupStatus.html#CacheParameterGroupStatus"><span class="hs-identifier hs-type">CacheParameterGroupStatus</span></a></span></span><span>
 </span><span id="line-93"></span></pre></body></html>

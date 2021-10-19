@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-30"></span><span>
-</span><span id="line-31"></span><span id="local-6989586621679377104"><span id="local-6989586621679377105"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="StepStateChangeReasonCode"><span class="annot"><a href="Network.AWS.EMR.Types.StepStateChangeReasonCode.html#StepStateChangeReasonCode"><span class="hs-identifier hs-var">StepStateChangeReasonCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StepStateChangeReasonCode%27"><span class="annot"><a href="Network.AWS.EMR.Types.StepStateChangeReasonCode.html#StepStateChangeReasonCode%27"><span class="hs-identifier hs-var">StepStateChangeReasonCode'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679377460"><span id="local-6989586621679377461"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="StepStateChangeReasonCode"><span class="annot"><a href="Network.AWS.EMR.Types.StepStateChangeReasonCode.html#StepStateChangeReasonCode"><span class="hs-identifier hs-var">StepStateChangeReasonCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StepStateChangeReasonCode%27"><span class="annot"><a href="Network.AWS.EMR.Types.StepStateChangeReasonCode.html#StepStateChangeReasonCode%27"><span class="hs-identifier hs-var">StepStateChangeReasonCode'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromStepStateChangeReasonCode"><span class="annot"><span class="annottext">StepStateChangeReasonCode -&gt; Text
 </span><a href="Network.AWS.EMR.Types.StepStateChangeReasonCode.html#fromStepStateChangeReasonCode"><span class="hs-identifier hs-var hs-var">fromStepStateChangeReasonCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679377096"><span id="local-6989586621679377098"><span id="local-6989586621679377100"><span class="annot"><span class="annottext">Int -&gt; StepStateChangeReasonCode -&gt; ShowS
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679377452"><span id="local-6989586621679377454"><span id="local-6989586621679377456"><span class="annot"><span class="annottext">Int -&gt; StepStateChangeReasonCode -&gt; ShowS
 [StepStateChangeReasonCode] -&gt; ShowS
 StepStateChangeReasonCode -&gt; String
 (Int -&gt; StepStateChangeReasonCode -&gt; ShowS)
@@ -50,7 +50,7 @@ $cshow :: StepStateChangeReasonCode -&gt; String
 showsPrec :: Int -&gt; StepStateChangeReasonCode -&gt; ShowS
 $cshowsPrec :: Int -&gt; StepStateChangeReasonCode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>      </span><span id="local-6989586621679377087"><span id="local-6989586621679377089"><span id="local-6989586621679377091"><span id="local-6989586621679377093"><span class="annot"><span class="annottext">ReadPrec [StepStateChangeReasonCode]
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679377443"><span id="local-6989586621679377445"><span id="local-6989586621679377447"><span id="local-6989586621679377449"><span class="annot"><span class="annottext">ReadPrec [StepStateChangeReasonCode]
 ReadPrec StepStateChangeReasonCode
 Int -&gt; ReadS StepStateChangeReasonCode
 ReadS [StepStateChangeReasonCode]
@@ -71,7 +71,7 @@ $creadList :: ReadS [StepStateChangeReasonCode]
 readsPrec :: Int -&gt; ReadS StepStateChangeReasonCode
 $creadsPrec :: Int -&gt; ReadS StepStateChangeReasonCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679377082"><span id="local-6989586621679377084"><span class="annot"><span class="annottext">StepStateChangeReasonCode -&gt; StepStateChangeReasonCode -&gt; Bool
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679377438"><span id="local-6989586621679377440"><span class="annot"><span class="annottext">StepStateChangeReasonCode -&gt; StepStateChangeReasonCode -&gt; Bool
 (StepStateChangeReasonCode -&gt; StepStateChangeReasonCode -&gt; Bool)
 -&gt; (StepStateChangeReasonCode -&gt; StepStateChangeReasonCode -&gt; Bool)
 -&gt; Eq StepStateChangeReasonCode
@@ -81,7 +81,7 @@ $c/= :: StepStateChangeReasonCode -&gt; StepStateChangeReasonCode -&gt; Bool
 == :: StepStateChangeReasonCode -&gt; StepStateChangeReasonCode -&gt; Bool
 $c== :: StepStateChangeReasonCode -&gt; StepStateChangeReasonCode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679377066"><span id="local-6989586621679377068"><span id="local-6989586621679377070"><span id="local-6989586621679377072"><span id="local-6989586621679377074"><span id="local-6989586621679377076"><span id="local-6989586621679377078"><span class="annot"><span class="annottext">Eq StepStateChangeReasonCode
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679377422"><span id="local-6989586621679377424"><span id="local-6989586621679377426"><span id="local-6989586621679377428"><span id="local-6989586621679377430"><span id="local-6989586621679377432"><span id="local-6989586621679377434"><span class="annot"><span class="annottext">Eq StepStateChangeReasonCode
 Eq StepStateChangeReasonCode
 -&gt; (StepStateChangeReasonCode
     -&gt; StepStateChangeReasonCode -&gt; Ordering)
@@ -146,7 +146,7 @@ StepStateChangeReasonCode -&gt; Rep StepStateChangeReasonCode x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679377058"><span id="local-6989586621679377060"><span class="annot"><span class="annottext">Int -&gt; StepStateChangeReasonCode -&gt; Int
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679377414"><span id="local-6989586621679377416"><span class="annot"><span class="annottext">Int -&gt; StepStateChangeReasonCode -&gt; Int
 StepStateChangeReasonCode -&gt; Int
 (Int -&gt; StepStateChangeReasonCode -&gt; Int)
 -&gt; (StepStateChangeReasonCode -&gt; Int)
@@ -157,56 +157,56 @@ $chash :: StepStateChangeReasonCode -&gt; Int
 hashWithSalt :: Int -&gt; StepStateChangeReasonCode -&gt; Int
 $chashWithSalt :: Int -&gt; StepStateChangeReasonCode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679377055"><span class="annot"><span class="annottext">StepStateChangeReasonCode -&gt; ()
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679377411"><span class="annot"><span class="annottext">StepStateChangeReasonCode -&gt; ()
 (StepStateChangeReasonCode -&gt; ())
 -&gt; NFData StepStateChangeReasonCode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: StepStateChangeReasonCode -&gt; ()
 $crnf :: StepStateChangeReasonCode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679377052"><span class="annot"><span class="annottext">Text -&gt; Either String StepStateChangeReasonCode
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679377408"><span class="annot"><span class="annottext">Text -&gt; Either String StepStateChangeReasonCode
 (Text -&gt; Either String StepStateChangeReasonCode)
 -&gt; FromText StepStateChangeReasonCode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String StepStateChangeReasonCode
 $cfromText :: Text -&gt; Either String StepStateChangeReasonCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679377049"><span class="annot"><span class="annottext">StepStateChangeReasonCode -&gt; Text
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679377405"><span class="annot"><span class="annottext">StepStateChangeReasonCode -&gt; Text
 (StepStateChangeReasonCode -&gt; Text)
 -&gt; ToText StepStateChangeReasonCode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: StepStateChangeReasonCode -&gt; Text
 $ctoText :: StepStateChangeReasonCode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679377046"><span class="annot"><span class="annottext">StepStateChangeReasonCode -&gt; ByteString
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679377402"><span class="annot"><span class="annottext">StepStateChangeReasonCode -&gt; ByteString
 (StepStateChangeReasonCode -&gt; ByteString)
 -&gt; ToByteString StepStateChangeReasonCode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: StepStateChangeReasonCode -&gt; ByteString
 $ctoBS :: StepStateChangeReasonCode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679377043"><span class="annot"><span class="annottext">StepStateChangeReasonCode -&gt; ByteStringBuilder
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679377399"><span class="annot"><span class="annottext">StepStateChangeReasonCode -&gt; ByteStringBuilder
 (StepStateChangeReasonCode -&gt; ByteStringBuilder)
 -&gt; ToLog StepStateChangeReasonCode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: StepStateChangeReasonCode -&gt; ByteStringBuilder
 $cbuild :: StepStateChangeReasonCode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679377040"><span class="annot"><span class="annottext">HeaderName -&gt; StepStateChangeReasonCode -&gt; [Header]
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679377396"><span class="annot"><span class="annottext">HeaderName -&gt; StepStateChangeReasonCode -&gt; [Header]
 (HeaderName -&gt; StepStateChangeReasonCode -&gt; [Header])
 -&gt; ToHeader StepStateChangeReasonCode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; StepStateChangeReasonCode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; StepStateChangeReasonCode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679377037"><span class="annot"><span class="annottext">StepStateChangeReasonCode -&gt; QueryString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679377393"><span class="annot"><span class="annottext">StepStateChangeReasonCode -&gt; QueryString
 (StepStateChangeReasonCode -&gt; QueryString)
 -&gt; ToQuery StepStateChangeReasonCode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: StepStateChangeReasonCode -&gt; QueryString
 $ctoQuery :: StepStateChangeReasonCode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679377032"><span id="local-6989586621679377034"><span class="annot"><span class="annottext">Value -&gt; Parser [StepStateChangeReasonCode]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679377388"><span id="local-6989586621679377390"><span class="annot"><span class="annottext">Value -&gt; Parser [StepStateChangeReasonCode]
 Value -&gt; Parser StepStateChangeReasonCode
 (Value -&gt; Parser StepStateChangeReasonCode)
 -&gt; (Value -&gt; Parser [StepStateChangeReasonCode])
@@ -218,7 +218,7 @@ $cparseJSONList :: Value -&gt; Parser [StepStateChangeReasonCode]
 parseJSON :: Value -&gt; Parser StepStateChangeReasonCode
 $cparseJSON :: Value -&gt; Parser StepStateChangeReasonCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679377027"><span id="local-6989586621679377029"><span class="annot"><span class="annottext">FromJSONKeyFunction [StepStateChangeReasonCode]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679377383"><span id="local-6989586621679377385"><span class="annot"><span class="annottext">FromJSONKeyFunction [StepStateChangeReasonCode]
 FromJSONKeyFunction StepStateChangeReasonCode
 FromJSONKeyFunction StepStateChangeReasonCode
 -&gt; FromJSONKeyFunction [StepStateChangeReasonCode]
@@ -230,7 +230,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [StepStateChangeReasonCode]
 fromJSONKey :: FromJSONKeyFunction StepStateChangeReasonCode
 $cfromJSONKey :: FromJSONKeyFunction StepStateChangeReasonCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679377018"><span id="local-6989586621679377020"><span id="local-6989586621679377022"><span id="local-6989586621679377024"><span class="annot"><span class="annottext">[StepStateChangeReasonCode] -&gt; Encoding
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679377374"><span id="local-6989586621679377376"><span id="local-6989586621679377378"><span id="local-6989586621679377380"><span class="annot"><span class="annottext">[StepStateChangeReasonCode] -&gt; Encoding
 [StepStateChangeReasonCode] -&gt; Value
 StepStateChangeReasonCode -&gt; Encoding
 StepStateChangeReasonCode -&gt; Value
@@ -254,7 +254,7 @@ $ctoEncoding :: StepStateChangeReasonCode -&gt; Encoding
 toJSON :: StepStateChangeReasonCode -&gt; Value
 $ctoJSON :: StepStateChangeReasonCode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679377013"><span id="local-6989586621679377015"><span class="annot"><span class="annottext">ToJSONKeyFunction [StepStateChangeReasonCode]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679377369"><span id="local-6989586621679377371"><span class="annot"><span class="annottext">ToJSONKeyFunction [StepStateChangeReasonCode]
 ToJSONKeyFunction StepStateChangeReasonCode
 ToJSONKeyFunction StepStateChangeReasonCode
 -&gt; ToJSONKeyFunction [StepStateChangeReasonCode]
@@ -266,14 +266,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [StepStateChangeReasonCode]
 toJSONKey :: ToJSONKeyFunction StepStateChangeReasonCode
 $ctoJSONKey :: ToJSONKeyFunction StepStateChangeReasonCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679377010"><span class="annot"><span class="annottext">[Node] -&gt; Either String StepStateChangeReasonCode
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679377366"><span class="annot"><span class="annottext">[Node] -&gt; Either String StepStateChangeReasonCode
 ([Node] -&gt; Either String StepStateChangeReasonCode)
 -&gt; FromXML StepStateChangeReasonCode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String StepStateChangeReasonCode
 $cparseXML :: [Node] -&gt; Either String StepStateChangeReasonCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679377007"><span class="annot"><span class="annottext">StepStateChangeReasonCode -&gt; XML
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679377363"><span class="annot"><span class="annottext">StepStateChangeReasonCode -&gt; XML
 (StepStateChangeReasonCode -&gt; XML)
 -&gt; ToXML StepStateChangeReasonCode
 forall a. (a -&gt; XML) -&gt; ToXML a

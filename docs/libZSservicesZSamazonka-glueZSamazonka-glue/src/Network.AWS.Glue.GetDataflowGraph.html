@@ -34,8 +34,8 @@
 </span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.GetDataflowGraph.html#newGetDataflowGraphResponse"><span class="hs-identifier">newGetDataflowGraphResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-35"></span><span>
 </span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.GetDataflowGraph.html#getDataflowGraphResponse_dagNodes"><span class="hs-identifier">getDataflowGraphResponse_dagNodes</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.GetDataflowGraph.html#getDataflowGraphResponse_dagEdges"><span class="hs-identifier">getDataflowGraphResponse_dagEdges</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.GetDataflowGraph.html#getDataflowGraphResponse_dagEdges"><span class="hs-identifier">getDataflowGraphResponse_dagEdges</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.GetDataflowGraph.html#getDataflowGraphResponse_dagNodes"><span class="hs-identifier">getDataflowGraphResponse_dagNodes</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.GetDataflowGraph.html#getDataflowGraphResponse_httpStatus"><span class="hs-identifier">getDataflowGraphResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-41"></span><span class="hs-keyword">where</span><span>
@@ -48,12 +48,12 @@
 </span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-49"></span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newGetDataflowGraph' smart constructor.</span><span>
-</span><span id="line-51"></span><span id="local-6989586621679727076"><span id="local-6989586621679727077"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDataflowGraph"><span class="annot"><a href="Network.AWS.Glue.GetDataflowGraph.html#GetDataflowGraph"><span class="hs-identifier hs-var">GetDataflowGraph</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDataflowGraph%27"><span class="annot"><a href="Network.AWS.Glue.GetDataflowGraph.html#GetDataflowGraph%27"><span class="hs-identifier hs-var">GetDataflowGraph'</span></a></span></span><span>
+</span><span id="line-51"></span><span id="local-6989586621679728853"><span id="local-6989586621679728854"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDataflowGraph"><span class="annot"><a href="Network.AWS.Glue.GetDataflowGraph.html#GetDataflowGraph"><span class="hs-identifier hs-var">GetDataflowGraph</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDataflowGraph%27"><span class="annot"><a href="Network.AWS.Glue.GetDataflowGraph.html#GetDataflowGraph%27"><span class="hs-identifier hs-var">GetDataflowGraph'</span></a></span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Python script to transform.</span><span>
 </span><span id="line-53"></span><span>    </span><span id="%24sel%3ApythonScript%3AGetDataflowGraph%27"><span class="annot"><span class="annottext">GetDataflowGraph -&gt; Maybe Text
 </span><a href="Network.AWS.Glue.GetDataflowGraph.html#%24sel%3ApythonScript%3AGetDataflowGraph%27"><span class="hs-identifier hs-var hs-var">pythonScript</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679727070"><span id="local-6989586621679727072"><span class="annot"><span class="annottext">GetDataflowGraph -&gt; GetDataflowGraph -&gt; Bool
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679728847"><span id="local-6989586621679728849"><span class="annot"><span class="annottext">GetDataflowGraph -&gt; GetDataflowGraph -&gt; Bool
 (GetDataflowGraph -&gt; GetDataflowGraph -&gt; Bool)
 -&gt; (GetDataflowGraph -&gt; GetDataflowGraph -&gt; Bool)
 -&gt; Eq GetDataflowGraph
@@ -62,7 +62,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetDataflowGraph -&gt; GetDataflowGraph -&gt; Bool
 == :: GetDataflowGraph -&gt; GetDataflowGraph -&gt; Bool
 $c== :: GetDataflowGraph -&gt; GetDataflowGraph -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679727061"><span id="local-6989586621679727063"><span id="local-6989586621679727065"><span id="local-6989586621679727067"><span class="annot"><span class="annottext">ReadPrec [GetDataflowGraph]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679728838"><span id="local-6989586621679728840"><span id="local-6989586621679728842"><span id="local-6989586621679728844"><span class="annot"><span class="annottext">ReadPrec [GetDataflowGraph]
 ReadPrec GetDataflowGraph
 Int -&gt; ReadS GetDataflowGraph
 ReadS [GetDataflowGraph]
@@ -82,7 +82,7 @@ readList :: ReadS [GetDataflowGraph]
 $creadList :: ReadS [GetDataflowGraph]
 readsPrec :: Int -&gt; ReadS GetDataflowGraph
 $creadsPrec :: Int -&gt; ReadS GetDataflowGraph
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679727054"><span id="local-6989586621679727056"><span id="local-6989586621679727058"><span class="annot"><span class="annottext">Int -&gt; GetDataflowGraph -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679728831"><span id="local-6989586621679728833"><span id="local-6989586621679728835"><span class="annot"><span class="annottext">Int -&gt; GetDataflowGraph -&gt; ShowS
 [GetDataflowGraph] -&gt; ShowS
 GetDataflowGraph -&gt; String
 (Int -&gt; GetDataflowGraph -&gt; ShowS)
@@ -135,27 +135,27 @@ forall a. Maybe a
 -&gt; (GetDataflowGraph -&gt; Maybe Text -&gt; GetDataflowGraph)
 -&gt; Lens GetDataflowGraph GetDataflowGraph (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetDataflowGraph.html#GetDataflowGraph%27"><span class="hs-identifier hs-type">GetDataflowGraph'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679727047"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetDataflowGraph.html#GetDataflowGraph%27"><span class="hs-identifier hs-type">GetDataflowGraph'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679728824"><span class="annot"><span class="annottext">Maybe Text
 pythonScript :: Maybe Text
 $sel:pythonScript:GetDataflowGraph' :: GetDataflowGraph -&gt; Maybe Text
-</span><a href="#local-6989586621679727047"><span class="hs-identifier hs-var hs-var">pythonScript</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679727047"><span class="hs-identifier hs-var">pythonScript</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679727046"><span class="annot"><span class="annottext">s :: GetDataflowGraph
-</span><a href="#local-6989586621679727046"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetDataflowGraph.html#GetDataflowGraph%27"><span class="hs-identifier hs-type">GetDataflowGraph'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679727045"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679727045"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDataflowGraph
-</span><a href="#local-6989586621679727046"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pythonScript:GetDataflowGraph' :: Maybe Text
+</span><a href="#local-6989586621679728824"><span class="hs-identifier hs-var hs-var">pythonScript</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679728824"><span class="hs-identifier hs-var">pythonScript</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679728823"><span class="annot"><span class="annottext">s :: GetDataflowGraph
+</span><a href="#local-6989586621679728823"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetDataflowGraph.html#GetDataflowGraph%27"><span class="hs-identifier hs-type">GetDataflowGraph'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679728822"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679728822"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDataflowGraph
+</span><a href="#local-6989586621679728823"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pythonScript:GetDataflowGraph' :: Maybe Text
 </span><a href="Network.AWS.Glue.GetDataflowGraph.html#%24sel%3ApythonScript%3AGetDataflowGraph%27"><span class="hs-identifier hs-var">pythonScript</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679727045"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetDataflowGraph.html#GetDataflowGraph"><span class="hs-identifier hs-type">GetDataflowGraph</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679728822"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetDataflowGraph.html#GetDataflowGraph"><span class="hs-identifier hs-type">GetDataflowGraph</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetDataflowGraph.html#GetDataflowGraph"><span class="hs-identifier hs-type">GetDataflowGraph</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-76"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-77"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetDataflowGraph.html#GetDataflowGraph"><span class="hs-identifier hs-type">GetDataflowGraph</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>      </span><span class="annot"><a href="Network.AWS.Glue.GetDataflowGraph.html#GetDataflowGraphResponse"><span class="hs-identifier hs-type">GetDataflowGraphResponse</span></a></span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679727041"><span class="annot"><span class="annottext">request :: GetDataflowGraph -&gt; Request GetDataflowGraph
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679728818"><span class="annot"><span class="annottext">request :: GetDataflowGraph -&gt; Request GetDataflowGraph
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetDataflowGraph -&gt; Request GetDataflowGraph
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Glue.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679727037"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679728814"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetDataflowGraph
 -&gt; ClientResponse ClientBody
@@ -179,42 +179,42 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679727034"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679727034"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679727033"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679727033"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679727032"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679727032"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-83"></span><span>          </span><span class="annot"><span class="annottext">Maybe [CodeGenNode]
--&gt; Maybe [CodeGenEdge] -&gt; Int -&gt; GetDataflowGraphResponse
+</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679728811"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679728811"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679728810"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679728810"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679728809"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679728809"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>          </span><span class="annot"><span class="annottext">Maybe [CodeGenEdge]
+-&gt; Maybe [CodeGenNode] -&gt; Int -&gt; GetDataflowGraphResponse
 </span><a href="Network.AWS.Glue.GetDataflowGraph.html#GetDataflowGraphResponse%27"><span class="hs-identifier hs-var">GetDataflowGraphResponse'</span></a></span><span>
-</span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [CodeGenNode]
- -&gt; Maybe [CodeGenEdge] -&gt; Int -&gt; GetDataflowGraphResponse)
--&gt; Either String (Maybe [CodeGenNode])
+</span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [CodeGenEdge]
+ -&gt; Maybe [CodeGenNode] -&gt; Int -&gt; GetDataflowGraphResponse)
+-&gt; Either String (Maybe [CodeGenEdge])
 -&gt; Either
-     String (Maybe [CodeGenEdge] -&gt; Int -&gt; GetDataflowGraphResponse)
+     String (Maybe [CodeGenNode] -&gt; Int -&gt; GetDataflowGraphResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679727032"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [CodeGenNode]))
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;DagNodes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [CodeGenNode]))
--&gt; Maybe [CodeGenNode] -&gt; Either String (Maybe [CodeGenNode])
-forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
-</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [CodeGenNode]
-forall a. Monoid a =&gt; a
-</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String (Maybe [CodeGenEdge] -&gt; Int -&gt; GetDataflowGraphResponse)
--&gt; Either String (Maybe [CodeGenEdge])
--&gt; Either String (Int -&gt; GetDataflowGraphResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679727032"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [CodeGenEdge]))
+</span><a href="#local-6989586621679728809"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [CodeGenEdge]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DagEdges&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [CodeGenEdge]))
 -&gt; Maybe [CodeGenEdge] -&gt; Either String (Maybe [CodeGenEdge])
 forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [CodeGenEdge]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe [CodeGenNode] -&gt; Int -&gt; GetDataflowGraphResponse)
+-&gt; Either String (Maybe [CodeGenNode])
+-&gt; Either String (Int -&gt; GetDataflowGraphResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679728809"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [CodeGenNode]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DagNodes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [CodeGenNode]))
+-&gt; Maybe [CodeGenNode] -&gt; Either String (Maybe [CodeGenNode])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [CodeGenNode]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetDataflowGraphResponse)
@@ -225,15 +225,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679727034"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679728811"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679727023"><span id="local-6989586621679727025"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetDataflowGraph.html#GetDataflowGraph"><span class="hs-identifier hs-type">GetDataflowGraph</span></a></span></span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679728800"><span id="local-6989586621679728802"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetDataflowGraph.html#GetDataflowGraph"><span class="hs-identifier hs-type">GetDataflowGraph</span></a></span></span></span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679727020"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetDataflowGraph.html#GetDataflowGraph"><span class="hs-identifier hs-type">GetDataflowGraph</span></a></span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679728797"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetDataflowGraph.html#GetDataflowGraph"><span class="hs-identifier hs-type">GetDataflowGraph</span></a></span></span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetDataflowGraph.html#GetDataflowGraph"><span class="hs-identifier hs-type">GetDataflowGraph</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679727016"><span class="annot"><span class="annottext">toHeaders :: GetDataflowGraph -&gt; ResponseHeaders
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679728793"><span class="annot"><span class="annottext">toHeaders :: GetDataflowGraph -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetDataflowGraph -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -258,12 +258,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-103"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679727006"><span id="local-6989586621679727008"><span id="local-6989586621679727010"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetDataflowGraph.html#GetDataflowGraph"><span class="hs-identifier hs-type">GetDataflowGraph</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679727004"><span class="annot"><span class="annottext">toJSON :: GetDataflowGraph -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetDataflowGraph.html#GetDataflowGraph%27"><span class="hs-identifier hs-type">GetDataflowGraph'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679727002"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679728783"><span id="local-6989586621679728785"><span id="local-6989586621679728787"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetDataflowGraph.html#GetDataflowGraph"><span class="hs-identifier hs-type">GetDataflowGraph</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679728781"><span class="annot"><span class="annottext">toJSON :: GetDataflowGraph -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetDataflowGraph.html#GetDataflowGraph%27"><span class="hs-identifier hs-type">GetDataflowGraph'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679728779"><span class="annot"><span class="annottext">Maybe Text
 pythonScript :: Maybe Text
 $sel:pythonScript:GetDataflowGraph' :: GetDataflowGraph -&gt; Maybe Text
-</span><a href="#local-6989586621679727002"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679728779"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -275,18 +275,18 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679727002"><span class="hs-identifier hs-var">pythonScript</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679728779"><span class="hs-identifier hs-var">pythonScript</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetDataflowGraph.html#GetDataflowGraph"><span class="hs-identifier hs-type">GetDataflowGraph</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679726996"><span class="annot"><span class="annottext">toPath :: GetDataflowGraph -&gt; ByteString
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679728773"><span class="annot"><span class="annottext">toPath :: GetDataflowGraph -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetDataflowGraph -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetDataflowGraph.html#GetDataflowGraph"><span class="hs-identifier hs-type">GetDataflowGraph</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679726992"><span class="annot"><span class="annottext">toQuery :: GetDataflowGraph -&gt; QueryString
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679728769"><span class="annot"><span class="annottext">toQuery :: GetDataflowGraph -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetDataflowGraph -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -294,18 +294,18 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- | /See:/ 'newGetDataflowGraphResponse' smart constructor.</span><span>
-</span><span id="line-120"></span><span id="local-6989586621679726989"><span id="local-6989586621679726990"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDataflowGraphResponse"><span class="annot"><a href="Network.AWS.Glue.GetDataflowGraph.html#GetDataflowGraphResponse"><span class="hs-identifier hs-var">GetDataflowGraphResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDataflowGraphResponse%27"><span class="annot"><a href="Network.AWS.Glue.GetDataflowGraph.html#GetDataflowGraphResponse%27"><span class="hs-identifier hs-var">GetDataflowGraphResponse'</span></a></span></span><span>
-</span><span id="line-121"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of the nodes in the resulting DAG.</span><span>
-</span><span id="line-122"></span><span>    </span><span id="%24sel%3AdagNodes%3AGetDataflowGraphResponse%27"><span class="annot"><span class="annottext">GetDataflowGraphResponse -&gt; Maybe [CodeGenNode]
-</span><a href="Network.AWS.Glue.GetDataflowGraph.html#%24sel%3AdagNodes%3AGetDataflowGraphResponse%27"><span class="hs-identifier hs-var hs-var">dagNodes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.CodeGenNode.html#CodeGenNode"><span class="hs-identifier hs-type">CodeGenNode</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-123"></span><span>    </span><span class="hs-comment">-- | A list of the edges in the resulting DAG.</span><span>
-</span><span id="line-124"></span><span>    </span><span id="%24sel%3AdagEdges%3AGetDataflowGraphResponse%27"><span class="annot"><span class="annottext">GetDataflowGraphResponse -&gt; Maybe [CodeGenEdge]
+</span><span id="line-120"></span><span id="local-6989586621679728766"><span id="local-6989586621679728767"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDataflowGraphResponse"><span class="annot"><a href="Network.AWS.Glue.GetDataflowGraph.html#GetDataflowGraphResponse"><span class="hs-identifier hs-var">GetDataflowGraphResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDataflowGraphResponse%27"><span class="annot"><a href="Network.AWS.Glue.GetDataflowGraph.html#GetDataflowGraphResponse%27"><span class="hs-identifier hs-var">GetDataflowGraphResponse'</span></a></span></span><span>
+</span><span id="line-121"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of the edges in the resulting DAG.</span><span>
+</span><span id="line-122"></span><span>    </span><span id="%24sel%3AdagEdges%3AGetDataflowGraphResponse%27"><span class="annot"><span class="annottext">GetDataflowGraphResponse -&gt; Maybe [CodeGenEdge]
 </span><a href="Network.AWS.Glue.GetDataflowGraph.html#%24sel%3AdagEdges%3AGetDataflowGraphResponse%27"><span class="hs-identifier hs-var hs-var">dagEdges</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.CodeGenEdge.html#CodeGenEdge"><span class="hs-identifier hs-type">CodeGenEdge</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">-- | A list of the nodes in the resulting DAG.</span><span>
+</span><span id="line-124"></span><span>    </span><span id="%24sel%3AdagNodes%3AGetDataflowGraphResponse%27"><span class="annot"><span class="annottext">GetDataflowGraphResponse -&gt; Maybe [CodeGenNode]
+</span><a href="Network.AWS.Glue.GetDataflowGraph.html#%24sel%3AdagNodes%3AGetDataflowGraphResponse%27"><span class="hs-identifier hs-var hs-var">dagNodes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.CodeGenNode.html#CodeGenNode"><span class="hs-identifier hs-type">CodeGenNode</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
 </span><span id="line-125"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-126"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetDataflowGraphResponse%27"><span class="annot"><span class="annottext">GetDataflowGraphResponse -&gt; Int
 </span><a href="Network.AWS.Glue.GetDataflowGraph.html#%24sel%3AhttpStatus%3AGetDataflowGraphResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-127"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-128"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679726982"><span id="local-6989586621679726984"><span class="annot"><span class="annottext">GetDataflowGraphResponse -&gt; GetDataflowGraphResponse -&gt; Bool
+</span><span id="line-128"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679728759"><span id="local-6989586621679728761"><span class="annot"><span class="annottext">GetDataflowGraphResponse -&gt; GetDataflowGraphResponse -&gt; Bool
 (GetDataflowGraphResponse -&gt; GetDataflowGraphResponse -&gt; Bool)
 -&gt; (GetDataflowGraphResponse -&gt; GetDataflowGraphResponse -&gt; Bool)
 -&gt; Eq GetDataflowGraphResponse
@@ -314,7 +314,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetDataflowGraphResponse -&gt; GetDataflowGraphResponse -&gt; Bool
 == :: GetDataflowGraphResponse -&gt; GetDataflowGraphResponse -&gt; Bool
 $c== :: GetDataflowGraphResponse -&gt; GetDataflowGraphResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679726974"><span id="local-6989586621679726976"><span id="local-6989586621679726978"><span id="local-6989586621679726980"><span class="annot"><span class="annottext">ReadPrec [GetDataflowGraphResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679728751"><span id="local-6989586621679728753"><span id="local-6989586621679728755"><span id="local-6989586621679728757"><span class="annot"><span class="annottext">ReadPrec [GetDataflowGraphResponse]
 ReadPrec GetDataflowGraphResponse
 Int -&gt; ReadS GetDataflowGraphResponse
 ReadS [GetDataflowGraphResponse]
@@ -334,7 +334,7 @@ readList :: ReadS [GetDataflowGraphResponse]
 $creadList :: ReadS [GetDataflowGraphResponse]
 readsPrec :: Int -&gt; ReadS GetDataflowGraphResponse
 $creadsPrec :: Int -&gt; ReadS GetDataflowGraphResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679726968"><span id="local-6989586621679726970"><span id="local-6989586621679726972"><span class="annot"><span class="annottext">Int -&gt; GetDataflowGraphResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679728745"><span id="local-6989586621679728747"><span id="local-6989586621679728749"><span class="annot"><span class="annottext">Int -&gt; GetDataflowGraphResponse -&gt; ShowS
 [GetDataflowGraphResponse] -&gt; ShowS
 GetDataflowGraphResponse -&gt; String
 (Int -&gt; GetDataflowGraphResponse -&gt; ShowS)
@@ -374,9 +374,9 @@ GetDataflowGraphResponse -&gt; Rep GetDataflowGraphResponse x
 </span><span id="line-135"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-136"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-137"></span><span class="hs-comment">--</span><span>
-</span><span id="line-138"></span><span class="hs-comment">-- 'dagNodes', 'getDataflowGraphResponse_dagNodes' - A list of the nodes in the resulting DAG.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- 'dagEdges', 'getDataflowGraphResponse_dagEdges' - A list of the edges in the resulting DAG.</span><span>
 </span><span id="line-139"></span><span class="hs-comment">--</span><span>
-</span><span id="line-140"></span><span class="hs-comment">-- 'dagEdges', 'getDataflowGraphResponse_dagEdges' - A list of the edges in the resulting DAG.</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- 'dagNodes', 'getDataflowGraphResponse_dagNodes' - A list of the nodes in the resulting DAG.</span><span>
 </span><span id="line-141"></span><span class="hs-comment">--</span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- 'httpStatus', 'getDataflowGraphResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-143"></span><span class="annot"><a href="Network.AWS.Glue.GetDataflowGraph.html#newGetDataflowGraphResponse"><span class="hs-identifier hs-type">newGetDataflowGraphResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -384,71 +384,28 @@ GetDataflowGraphResponse -&gt; Rep GetDataflowGraphResponse x
 </span><span id="line-145"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-146"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.GetDataflowGraph.html#GetDataflowGraphResponse"><span class="hs-identifier hs-type">GetDataflowGraphResponse</span></a></span><span>
 </span><span id="line-147"></span><span id="newGetDataflowGraphResponse"><span class="annot"><span class="annottext">newGetDataflowGraphResponse :: Int -&gt; GetDataflowGraphResponse
-</span><a href="Network.AWS.Glue.GetDataflowGraph.html#newGetDataflowGraphResponse"><span class="hs-identifier hs-var hs-var">newGetDataflowGraphResponse</span></a></span></span><span> </span><span id="local-6989586621679726965"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679726965"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-148"></span><span>  </span><span class="annot"><span class="annottext">GetDataflowGraphResponse' :: Maybe [CodeGenNode]
--&gt; Maybe [CodeGenEdge] -&gt; Int -&gt; GetDataflowGraphResponse
+</span><a href="Network.AWS.Glue.GetDataflowGraph.html#newGetDataflowGraphResponse"><span class="hs-identifier hs-var hs-var">newGetDataflowGraphResponse</span></a></span></span><span> </span><span id="local-6989586621679728742"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679728742"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-148"></span><span>  </span><span class="annot"><span class="annottext">GetDataflowGraphResponse' :: Maybe [CodeGenEdge]
+-&gt; Maybe [CodeGenNode] -&gt; Int -&gt; GetDataflowGraphResponse
 </span><a href="Network.AWS.Glue.GetDataflowGraph.html#GetDataflowGraphResponse%27"><span class="hs-identifier hs-type">GetDataflowGraphResponse'</span></a></span><span>
-</span><span id="line-149"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dagNodes:GetDataflowGraphResponse' :: Maybe [CodeGenNode]
-</span><a href="Network.AWS.Glue.GetDataflowGraph.html#%24sel%3AdagNodes%3AGetDataflowGraphResponse%27"><span class="hs-identifier hs-var">dagNodes</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-150"></span><span>        </span><span class="annot"><span class="annottext">Maybe [CodeGenNode]
+</span><span id="line-149"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dagEdges:GetDataflowGraphResponse' :: Maybe [CodeGenEdge]
+</span><a href="Network.AWS.Glue.GetDataflowGraph.html#%24sel%3AdagEdges%3AGetDataflowGraphResponse%27"><span class="hs-identifier hs-var">dagEdges</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-150"></span><span>        </span><span class="annot"><span class="annottext">Maybe [CodeGenEdge]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-151"></span><span>      </span><span class="annot"><span class="annottext">$sel:dagEdges:GetDataflowGraphResponse' :: Maybe [CodeGenEdge]
-</span><a href="Network.AWS.Glue.GetDataflowGraph.html#%24sel%3AdagEdges%3AGetDataflowGraphResponse%27"><span class="hs-identifier hs-var">dagEdges</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CodeGenEdge]
+</span><span id="line-151"></span><span>      </span><span class="annot"><span class="annottext">$sel:dagNodes:GetDataflowGraphResponse' :: Maybe [CodeGenNode]
+</span><a href="Network.AWS.Glue.GetDataflowGraph.html#%24sel%3AdagNodes%3AGetDataflowGraphResponse%27"><span class="hs-identifier hs-var">dagNodes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CodeGenNode]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-152"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetDataflowGraphResponse' :: Int
 </span><a href="Network.AWS.Glue.GetDataflowGraph.html#%24sel%3AhttpStatus%3AGetDataflowGraphResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679726965"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679728742"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-153"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-154"></span><span>
-</span><span id="line-155"></span><span class="hs-comment">-- | A list of the nodes in the resulting DAG.</span><span>
-</span><span id="line-156"></span><span class="annot"><a href="Network.AWS.Glue.GetDataflowGraph.html#getDataflowGraphResponse_dagNodes"><span class="hs-identifier hs-type">getDataflowGraphResponse_dagNodes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetDataflowGraph.html#GetDataflowGraphResponse"><span class="hs-identifier hs-type">GetDataflowGraphResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.CodeGenNode.html#CodeGenNode"><span class="hs-identifier hs-type">CodeGenNode</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-157"></span><span id="getDataflowGraphResponse_dagNodes"><span class="annot"><span class="annottext">getDataflowGraphResponse_dagNodes :: (Maybe [CodeGenNode] -&gt; f (Maybe [CodeGenNode]))
--&gt; GetDataflowGraphResponse -&gt; f GetDataflowGraphResponse
-</span><a href="Network.AWS.Glue.GetDataflowGraph.html#getDataflowGraphResponse_dagNodes"><span class="hs-identifier hs-var hs-var">getDataflowGraphResponse_dagNodes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDataflowGraphResponse -&gt; Maybe [CodeGenNode])
--&gt; (GetDataflowGraphResponse
-    -&gt; Maybe [CodeGenNode] -&gt; GetDataflowGraphResponse)
--&gt; Lens
-     GetDataflowGraphResponse
-     GetDataflowGraphResponse
-     (Maybe [CodeGenNode])
-     (Maybe [CodeGenNode])
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetDataflowGraph.html#GetDataflowGraphResponse%27"><span class="hs-identifier hs-type">GetDataflowGraphResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679726964"><span class="annot"><span class="annottext">Maybe [CodeGenNode]
-dagNodes :: Maybe [CodeGenNode]
-$sel:dagNodes:GetDataflowGraphResponse' :: GetDataflowGraphResponse -&gt; Maybe [CodeGenNode]
-</span><a href="#local-6989586621679726964"><span class="hs-identifier hs-var hs-var">dagNodes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CodeGenNode]
-</span><a href="#local-6989586621679726964"><span class="hs-identifier hs-var">dagNodes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679726963"><span class="annot"><span class="annottext">s :: GetDataflowGraphResponse
-</span><a href="#local-6989586621679726963"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetDataflowGraph.html#GetDataflowGraphResponse%27"><span class="hs-identifier hs-type">GetDataflowGraphResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679726962"><span class="annot"><span class="annottext">Maybe [CodeGenNode]
-</span><a href="#local-6989586621679726962"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDataflowGraphResponse
-</span><a href="#local-6989586621679726963"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dagNodes:GetDataflowGraphResponse' :: Maybe [CodeGenNode]
-</span><a href="Network.AWS.Glue.GetDataflowGraph.html#%24sel%3AdagNodes%3AGetDataflowGraphResponse%27"><span class="hs-identifier hs-var">dagNodes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CodeGenNode]
-</span><a href="#local-6989586621679726962"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetDataflowGraph.html#GetDataflowGraphResponse"><span class="hs-identifier hs-type">GetDataflowGraphResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CodeGenNode] -&gt; f (Maybe [CodeGenNode]))
- -&gt; GetDataflowGraphResponse -&gt; f GetDataflowGraphResponse)
--&gt; ((Maybe [CodeGenNode] -&gt; f (Maybe [CodeGenNode]))
-    -&gt; Maybe [CodeGenNode] -&gt; f (Maybe [CodeGenNode]))
--&gt; (Maybe [CodeGenNode] -&gt; f (Maybe [CodeGenNode]))
--&gt; GetDataflowGraphResponse
--&gt; f GetDataflowGraphResponse
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [CodeGenNode] [CodeGenNode] [CodeGenNode] [CodeGenNode]
--&gt; Iso
-     (Maybe [CodeGenNode])
-     (Maybe [CodeGenNode])
-     (Maybe [CodeGenNode])
-     (Maybe [CodeGenNode])
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [CodeGenNode] [CodeGenNode] [CodeGenNode] [CodeGenNode]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-158"></span><span>
-</span><span id="line-159"></span><span class="hs-comment">-- | A list of the edges in the resulting DAG.</span><span>
-</span><span id="line-160"></span><span class="annot"><a href="Network.AWS.Glue.GetDataflowGraph.html#getDataflowGraphResponse_dagEdges"><span class="hs-identifier hs-type">getDataflowGraphResponse_dagEdges</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetDataflowGraph.html#GetDataflowGraphResponse"><span class="hs-identifier hs-type">GetDataflowGraphResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.CodeGenEdge.html#CodeGenEdge"><span class="hs-identifier hs-type">CodeGenEdge</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-161"></span><span id="getDataflowGraphResponse_dagEdges"><span class="annot"><span class="annottext">getDataflowGraphResponse_dagEdges :: (Maybe [CodeGenEdge] -&gt; f (Maybe [CodeGenEdge]))
+</span><span id="line-155"></span><span class="hs-comment">-- | A list of the edges in the resulting DAG.</span><span>
+</span><span id="line-156"></span><span class="annot"><a href="Network.AWS.Glue.GetDataflowGraph.html#getDataflowGraphResponse_dagEdges"><span class="hs-identifier hs-type">getDataflowGraphResponse_dagEdges</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetDataflowGraph.html#GetDataflowGraphResponse"><span class="hs-identifier hs-type">GetDataflowGraphResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.CodeGenEdge.html#CodeGenEdge"><span class="hs-identifier hs-type">CodeGenEdge</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span id="getDataflowGraphResponse_dagEdges"><span class="annot"><span class="annottext">getDataflowGraphResponse_dagEdges :: (Maybe [CodeGenEdge] -&gt; f (Maybe [CodeGenEdge]))
 -&gt; GetDataflowGraphResponse -&gt; f GetDataflowGraphResponse
 </span><a href="Network.AWS.Glue.GetDataflowGraph.html#getDataflowGraphResponse_dagEdges"><span class="hs-identifier hs-var hs-var">getDataflowGraphResponse_dagEdges</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDataflowGraphResponse -&gt; Maybe [CodeGenEdge])
 -&gt; (GetDataflowGraphResponse
@@ -459,16 +416,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe [CodeGenEdge])
      (Maybe [CodeGenEdge])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetDataflowGraph.html#GetDataflowGraphResponse%27"><span class="hs-identifier hs-type">GetDataflowGraphResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679726958"><span class="annot"><span class="annottext">Maybe [CodeGenEdge]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetDataflowGraph.html#GetDataflowGraphResponse%27"><span class="hs-identifier hs-type">GetDataflowGraphResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679728741"><span class="annot"><span class="annottext">Maybe [CodeGenEdge]
 dagEdges :: Maybe [CodeGenEdge]
 $sel:dagEdges:GetDataflowGraphResponse' :: GetDataflowGraphResponse -&gt; Maybe [CodeGenEdge]
-</span><a href="#local-6989586621679726958"><span class="hs-identifier hs-var hs-var">dagEdges</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CodeGenEdge]
-</span><a href="#local-6989586621679726958"><span class="hs-identifier hs-var">dagEdges</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679726957"><span class="annot"><span class="annottext">s :: GetDataflowGraphResponse
-</span><a href="#local-6989586621679726957"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetDataflowGraph.html#GetDataflowGraphResponse%27"><span class="hs-identifier hs-type">GetDataflowGraphResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679726956"><span class="annot"><span class="annottext">Maybe [CodeGenEdge]
-</span><a href="#local-6989586621679726956"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDataflowGraphResponse
-</span><a href="#local-6989586621679726957"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dagEdges:GetDataflowGraphResponse' :: Maybe [CodeGenEdge]
+</span><a href="#local-6989586621679728741"><span class="hs-identifier hs-var hs-var">dagEdges</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CodeGenEdge]
+</span><a href="#local-6989586621679728741"><span class="hs-identifier hs-var">dagEdges</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679728740"><span class="annot"><span class="annottext">s :: GetDataflowGraphResponse
+</span><a href="#local-6989586621679728740"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetDataflowGraph.html#GetDataflowGraphResponse%27"><span class="hs-identifier hs-type">GetDataflowGraphResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679728739"><span class="annot"><span class="annottext">Maybe [CodeGenEdge]
+</span><a href="#local-6989586621679728739"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDataflowGraphResponse
+</span><a href="#local-6989586621679728740"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dagEdges:GetDataflowGraphResponse' :: Maybe [CodeGenEdge]
 </span><a href="Network.AWS.Glue.GetDataflowGraph.html#%24sel%3AdagEdges%3AGetDataflowGraphResponse%27"><span class="hs-identifier hs-var">dagEdges</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CodeGenEdge]
-</span><a href="#local-6989586621679726956"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetDataflowGraph.html#GetDataflowGraphResponse"><span class="hs-identifier hs-type">GetDataflowGraphResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CodeGenEdge] -&gt; f (Maybe [CodeGenEdge]))
+</span><a href="#local-6989586621679728739"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetDataflowGraph.html#GetDataflowGraphResponse"><span class="hs-identifier hs-type">GetDataflowGraphResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CodeGenEdge] -&gt; f (Maybe [CodeGenEdge]))
  -&gt; GetDataflowGraphResponse -&gt; f GetDataflowGraphResponse)
 -&gt; ((Maybe [CodeGenEdge] -&gt; f (Maybe [CodeGenEdge]))
     -&gt; Maybe [CodeGenEdge] -&gt; f (Maybe [CodeGenEdge]))
@@ -486,8 +443,51 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [CodeGenEdge] [CodeGenEdge] [CodeGenEdge] [CodeGenEdge]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- | A list of the nodes in the resulting DAG.</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Network.AWS.Glue.GetDataflowGraph.html#getDataflowGraphResponse_dagNodes"><span class="hs-identifier hs-type">getDataflowGraphResponse_dagNodes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetDataflowGraph.html#GetDataflowGraphResponse"><span class="hs-identifier hs-type">GetDataflowGraphResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.CodeGenNode.html#CodeGenNode"><span class="hs-identifier hs-type">CodeGenNode</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span id="getDataflowGraphResponse_dagNodes"><span class="annot"><span class="annottext">getDataflowGraphResponse_dagNodes :: (Maybe [CodeGenNode] -&gt; f (Maybe [CodeGenNode]))
+-&gt; GetDataflowGraphResponse -&gt; f GetDataflowGraphResponse
+</span><a href="Network.AWS.Glue.GetDataflowGraph.html#getDataflowGraphResponse_dagNodes"><span class="hs-identifier hs-var hs-var">getDataflowGraphResponse_dagNodes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDataflowGraphResponse -&gt; Maybe [CodeGenNode])
+-&gt; (GetDataflowGraphResponse
+    -&gt; Maybe [CodeGenNode] -&gt; GetDataflowGraphResponse)
+-&gt; Lens
+     GetDataflowGraphResponse
+     GetDataflowGraphResponse
+     (Maybe [CodeGenNode])
+     (Maybe [CodeGenNode])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetDataflowGraph.html#GetDataflowGraphResponse%27"><span class="hs-identifier hs-type">GetDataflowGraphResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679728735"><span class="annot"><span class="annottext">Maybe [CodeGenNode]
+dagNodes :: Maybe [CodeGenNode]
+$sel:dagNodes:GetDataflowGraphResponse' :: GetDataflowGraphResponse -&gt; Maybe [CodeGenNode]
+</span><a href="#local-6989586621679728735"><span class="hs-identifier hs-var hs-var">dagNodes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CodeGenNode]
+</span><a href="#local-6989586621679728735"><span class="hs-identifier hs-var">dagNodes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679728734"><span class="annot"><span class="annottext">s :: GetDataflowGraphResponse
+</span><a href="#local-6989586621679728734"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetDataflowGraph.html#GetDataflowGraphResponse%27"><span class="hs-identifier hs-type">GetDataflowGraphResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679728733"><span class="annot"><span class="annottext">Maybe [CodeGenNode]
+</span><a href="#local-6989586621679728733"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDataflowGraphResponse
+</span><a href="#local-6989586621679728734"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dagNodes:GetDataflowGraphResponse' :: Maybe [CodeGenNode]
+</span><a href="Network.AWS.Glue.GetDataflowGraph.html#%24sel%3AdagNodes%3AGetDataflowGraphResponse%27"><span class="hs-identifier hs-var">dagNodes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CodeGenNode]
+</span><a href="#local-6989586621679728733"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetDataflowGraph.html#GetDataflowGraphResponse"><span class="hs-identifier hs-type">GetDataflowGraphResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CodeGenNode] -&gt; f (Maybe [CodeGenNode]))
+ -&gt; GetDataflowGraphResponse -&gt; f GetDataflowGraphResponse)
+-&gt; ((Maybe [CodeGenNode] -&gt; f (Maybe [CodeGenNode]))
+    -&gt; Maybe [CodeGenNode] -&gt; f (Maybe [CodeGenNode]))
+-&gt; (Maybe [CodeGenNode] -&gt; f (Maybe [CodeGenNode]))
+-&gt; GetDataflowGraphResponse
+-&gt; f GetDataflowGraphResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [CodeGenNode] [CodeGenNode] [CodeGenNode] [CodeGenNode]
+-&gt; Iso
+     (Maybe [CodeGenNode])
+     (Maybe [CodeGenNode])
+     (Maybe [CodeGenNode])
+     (Maybe [CodeGenNode])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [CodeGenNode] [CodeGenNode] [CodeGenNode] [CodeGenNode]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-162"></span><span>
 </span><span id="line-163"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-164"></span><span class="annot"><a href="Network.AWS.Glue.GetDataflowGraph.html#getDataflowGraphResponse_httpStatus"><span class="hs-identifier hs-type">getDataflowGraphResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetDataflowGraph.html#GetDataflowGraphResponse"><span class="hs-identifier hs-type">GetDataflowGraphResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -497,16 +497,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (GetDataflowGraphResponse -&gt; Int -&gt; GetDataflowGraphResponse)
 -&gt; Lens GetDataflowGraphResponse GetDataflowGraphResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetDataflowGraph.html#GetDataflowGraphResponse%27"><span class="hs-identifier hs-type">GetDataflowGraphResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679726955"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetDataflowGraph.html#GetDataflowGraphResponse%27"><span class="hs-identifier hs-type">GetDataflowGraphResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679728732"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetDataflowGraphResponse' :: GetDataflowGraphResponse -&gt; Int
-</span><a href="#local-6989586621679726955"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679726955"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679726954"><span class="annot"><span class="annottext">s :: GetDataflowGraphResponse
-</span><a href="#local-6989586621679726954"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetDataflowGraph.html#GetDataflowGraphResponse%27"><span class="hs-identifier hs-type">GetDataflowGraphResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679726953"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679726953"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDataflowGraphResponse
-</span><a href="#local-6989586621679726954"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetDataflowGraphResponse' :: Int
+</span><a href="#local-6989586621679728732"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679728732"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679728731"><span class="annot"><span class="annottext">s :: GetDataflowGraphResponse
+</span><a href="#local-6989586621679728731"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetDataflowGraph.html#GetDataflowGraphResponse%27"><span class="hs-identifier hs-type">GetDataflowGraphResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679728730"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679728730"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDataflowGraphResponse
+</span><a href="#local-6989586621679728731"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetDataflowGraphResponse' :: Int
 </span><a href="Network.AWS.Glue.GetDataflowGraph.html#%24sel%3AhttpStatus%3AGetDataflowGraphResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679726953"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetDataflowGraph.html#GetDataflowGraphResponse"><span class="hs-identifier hs-type">GetDataflowGraphResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679728730"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetDataflowGraph.html#GetDataflowGraphResponse"><span class="hs-identifier hs-type">GetDataflowGraphResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-166"></span><span>
-</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679726951"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetDataflowGraph.html#GetDataflowGraphResponse"><span class="hs-identifier hs-type">GetDataflowGraphResponse</span></a></span></span><span>
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679728728"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetDataflowGraph.html#GetDataflowGraphResponse"><span class="hs-identifier hs-type">GetDataflowGraphResponse</span></a></span></span><span>
 </span><span id="line-168"></span></pre></body></html>

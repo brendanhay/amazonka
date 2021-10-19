@@ -39,13 +39,13 @@
 </span><span id="line-39"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-40"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-41"></span><span>
-</span><span id="line-42"></span><span id="local-6989586621679787082"><span id="local-6989586621679787083"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AutomationExecutionFilterKey"><span class="annot"><a href="Network.AWS.SSM.Types.AutomationExecutionFilterKey.html#AutomationExecutionFilterKey"><span class="hs-identifier hs-var">AutomationExecutionFilterKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AutomationExecutionFilterKey%27"><span class="annot"><a href="Network.AWS.SSM.Types.AutomationExecutionFilterKey.html#AutomationExecutionFilterKey%27"><span class="hs-identifier hs-var">AutomationExecutionFilterKey'</span></a></span></span><span>
+</span><span id="line-42"></span><span id="local-6989586621679788701"><span id="local-6989586621679788702"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AutomationExecutionFilterKey"><span class="annot"><a href="Network.AWS.SSM.Types.AutomationExecutionFilterKey.html#AutomationExecutionFilterKey"><span class="hs-identifier hs-var">AutomationExecutionFilterKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AutomationExecutionFilterKey%27"><span class="annot"><a href="Network.AWS.SSM.Types.AutomationExecutionFilterKey.html#AutomationExecutionFilterKey%27"><span class="hs-identifier hs-var">AutomationExecutionFilterKey'</span></a></span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAutomationExecutionFilterKey"><span class="annot"><span class="annottext">AutomationExecutionFilterKey -&gt; Text
 </span><a href="Network.AWS.SSM.Types.AutomationExecutionFilterKey.html#fromAutomationExecutionFilterKey"><span class="hs-identifier hs-var hs-var">fromAutomationExecutionFilterKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-44"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679787074"><span id="local-6989586621679787076"><span id="local-6989586621679787078"><span class="annot"><span class="annottext">Int -&gt; AutomationExecutionFilterKey -&gt; ShowS
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679788693"><span id="local-6989586621679788695"><span id="local-6989586621679788697"><span class="annot"><span class="annottext">Int -&gt; AutomationExecutionFilterKey -&gt; ShowS
 [AutomationExecutionFilterKey] -&gt; ShowS
 AutomationExecutionFilterKey -&gt; String
 (Int -&gt; AutomationExecutionFilterKey -&gt; ShowS)
@@ -61,7 +61,7 @@ $cshow :: AutomationExecutionFilterKey -&gt; String
 showsPrec :: Int -&gt; AutomationExecutionFilterKey -&gt; ShowS
 $cshowsPrec :: Int -&gt; AutomationExecutionFilterKey -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679787065"><span id="local-6989586621679787067"><span id="local-6989586621679787069"><span id="local-6989586621679787071"><span class="annot"><span class="annottext">ReadPrec [AutomationExecutionFilterKey]
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679788684"><span id="local-6989586621679788686"><span id="local-6989586621679788688"><span id="local-6989586621679788690"><span class="annot"><span class="annottext">ReadPrec [AutomationExecutionFilterKey]
 ReadPrec AutomationExecutionFilterKey
 Int -&gt; ReadS AutomationExecutionFilterKey
 ReadS [AutomationExecutionFilterKey]
@@ -82,7 +82,7 @@ $creadList :: ReadS [AutomationExecutionFilterKey]
 readsPrec :: Int -&gt; ReadS AutomationExecutionFilterKey
 $creadsPrec :: Int -&gt; ReadS AutomationExecutionFilterKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679787060"><span id="local-6989586621679787062"><span class="annot"><span class="annottext">AutomationExecutionFilterKey
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679788679"><span id="local-6989586621679788681"><span class="annot"><span class="annottext">AutomationExecutionFilterKey
 -&gt; AutomationExecutionFilterKey -&gt; Bool
 (AutomationExecutionFilterKey
  -&gt; AutomationExecutionFilterKey -&gt; Bool)
@@ -99,7 +99,7 @@ $c/= :: AutomationExecutionFilterKey
 $c== :: AutomationExecutionFilterKey
 -&gt; AutomationExecutionFilterKey -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679787044"><span id="local-6989586621679787046"><span id="local-6989586621679787048"><span id="local-6989586621679787050"><span id="local-6989586621679787052"><span id="local-6989586621679787054"><span id="local-6989586621679787056"><span class="annot"><span class="annottext">Eq AutomationExecutionFilterKey
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679788663"><span id="local-6989586621679788665"><span id="local-6989586621679788667"><span id="local-6989586621679788669"><span id="local-6989586621679788671"><span id="local-6989586621679788673"><span id="local-6989586621679788675"><span class="annot"><span class="annottext">Eq AutomationExecutionFilterKey
 Eq AutomationExecutionFilterKey
 -&gt; (AutomationExecutionFilterKey
     -&gt; AutomationExecutionFilterKey -&gt; Ordering)
@@ -180,7 +180,7 @@ AutomationExecutionFilterKey -&gt; Rep AutomationExecutionFilterKey x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-52"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679787036"><span id="local-6989586621679787038"><span class="annot"><span class="annottext">Int -&gt; AutomationExecutionFilterKey -&gt; Int
+</span><span id="line-54"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679788655"><span id="local-6989586621679788657"><span class="annot"><span class="annottext">Int -&gt; AutomationExecutionFilterKey -&gt; Int
 AutomationExecutionFilterKey -&gt; Int
 (Int -&gt; AutomationExecutionFilterKey -&gt; Int)
 -&gt; (AutomationExecutionFilterKey -&gt; Int)
@@ -191,56 +191,56 @@ $chash :: AutomationExecutionFilterKey -&gt; Int
 hashWithSalt :: Int -&gt; AutomationExecutionFilterKey -&gt; Int
 $chashWithSalt :: Int -&gt; AutomationExecutionFilterKey -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679787033"><span class="annot"><span class="annottext">AutomationExecutionFilterKey -&gt; ()
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679788652"><span class="annot"><span class="annottext">AutomationExecutionFilterKey -&gt; ()
 (AutomationExecutionFilterKey -&gt; ())
 -&gt; NFData AutomationExecutionFilterKey
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AutomationExecutionFilterKey -&gt; ()
 $crnf :: AutomationExecutionFilterKey -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679787030"><span class="annot"><span class="annottext">Text -&gt; Either String AutomationExecutionFilterKey
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679788649"><span class="annot"><span class="annottext">Text -&gt; Either String AutomationExecutionFilterKey
 (Text -&gt; Either String AutomationExecutionFilterKey)
 -&gt; FromText AutomationExecutionFilterKey
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AutomationExecutionFilterKey
 $cfromText :: Text -&gt; Either String AutomationExecutionFilterKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679787027"><span class="annot"><span class="annottext">AutomationExecutionFilterKey -&gt; Text
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679788646"><span class="annot"><span class="annottext">AutomationExecutionFilterKey -&gt; Text
 (AutomationExecutionFilterKey -&gt; Text)
 -&gt; ToText AutomationExecutionFilterKey
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AutomationExecutionFilterKey -&gt; Text
 $ctoText :: AutomationExecutionFilterKey -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679787024"><span class="annot"><span class="annottext">AutomationExecutionFilterKey -&gt; ByteString
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679788643"><span class="annot"><span class="annottext">AutomationExecutionFilterKey -&gt; ByteString
 (AutomationExecutionFilterKey -&gt; ByteString)
 -&gt; ToByteString AutomationExecutionFilterKey
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AutomationExecutionFilterKey -&gt; ByteString
 $ctoBS :: AutomationExecutionFilterKey -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679787021"><span class="annot"><span class="annottext">AutomationExecutionFilterKey -&gt; ByteStringBuilder
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679788640"><span class="annot"><span class="annottext">AutomationExecutionFilterKey -&gt; ByteStringBuilder
 (AutomationExecutionFilterKey -&gt; ByteStringBuilder)
 -&gt; ToLog AutomationExecutionFilterKey
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AutomationExecutionFilterKey -&gt; ByteStringBuilder
 $cbuild :: AutomationExecutionFilterKey -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679787018"><span class="annot"><span class="annottext">HeaderName -&gt; AutomationExecutionFilterKey -&gt; [Header]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679788637"><span class="annot"><span class="annottext">HeaderName -&gt; AutomationExecutionFilterKey -&gt; [Header]
 (HeaderName -&gt; AutomationExecutionFilterKey -&gt; [Header])
 -&gt; ToHeader AutomationExecutionFilterKey
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AutomationExecutionFilterKey -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AutomationExecutionFilterKey -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679787015"><span class="annot"><span class="annottext">AutomationExecutionFilterKey -&gt; QueryString
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679788634"><span class="annot"><span class="annottext">AutomationExecutionFilterKey -&gt; QueryString
 (AutomationExecutionFilterKey -&gt; QueryString)
 -&gt; ToQuery AutomationExecutionFilterKey
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AutomationExecutionFilterKey -&gt; QueryString
 $ctoQuery :: AutomationExecutionFilterKey -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679787010"><span id="local-6989586621679787012"><span class="annot"><span class="annottext">Value -&gt; Parser [AutomationExecutionFilterKey]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679788629"><span id="local-6989586621679788631"><span class="annot"><span class="annottext">Value -&gt; Parser [AutomationExecutionFilterKey]
 Value -&gt; Parser AutomationExecutionFilterKey
 (Value -&gt; Parser AutomationExecutionFilterKey)
 -&gt; (Value -&gt; Parser [AutomationExecutionFilterKey])
@@ -252,7 +252,7 @@ $cparseJSONList :: Value -&gt; Parser [AutomationExecutionFilterKey]
 parseJSON :: Value -&gt; Parser AutomationExecutionFilterKey
 $cparseJSON :: Value -&gt; Parser AutomationExecutionFilterKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679787005"><span id="local-6989586621679787007"><span class="annot"><span class="annottext">FromJSONKeyFunction [AutomationExecutionFilterKey]
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679788624"><span id="local-6989586621679788626"><span class="annot"><span class="annottext">FromJSONKeyFunction [AutomationExecutionFilterKey]
 FromJSONKeyFunction AutomationExecutionFilterKey
 FromJSONKeyFunction AutomationExecutionFilterKey
 -&gt; FromJSONKeyFunction [AutomationExecutionFilterKey]
@@ -264,7 +264,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AutomationExecutionFilterKey]
 fromJSONKey :: FromJSONKeyFunction AutomationExecutionFilterKey
 $cfromJSONKey :: FromJSONKeyFunction AutomationExecutionFilterKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679786996"><span id="local-6989586621679786998"><span id="local-6989586621679787000"><span id="local-6989586621679787002"><span class="annot"><span class="annottext">[AutomationExecutionFilterKey] -&gt; Encoding
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679788615"><span id="local-6989586621679788617"><span id="local-6989586621679788619"><span id="local-6989586621679788621"><span class="annot"><span class="annottext">[AutomationExecutionFilterKey] -&gt; Encoding
 [AutomationExecutionFilterKey] -&gt; Value
 AutomationExecutionFilterKey -&gt; Encoding
 AutomationExecutionFilterKey -&gt; Value
@@ -288,7 +288,7 @@ $ctoEncoding :: AutomationExecutionFilterKey -&gt; Encoding
 toJSON :: AutomationExecutionFilterKey -&gt; Value
 $ctoJSON :: AutomationExecutionFilterKey -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679786991"><span id="local-6989586621679786993"><span class="annot"><span class="annottext">ToJSONKeyFunction [AutomationExecutionFilterKey]
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679788610"><span id="local-6989586621679788612"><span class="annot"><span class="annottext">ToJSONKeyFunction [AutomationExecutionFilterKey]
 ToJSONKeyFunction AutomationExecutionFilterKey
 ToJSONKeyFunction AutomationExecutionFilterKey
 -&gt; ToJSONKeyFunction [AutomationExecutionFilterKey]
@@ -300,14 +300,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AutomationExecutionFilterKey]
 toJSONKey :: ToJSONKeyFunction AutomationExecutionFilterKey
 $ctoJSONKey :: ToJSONKeyFunction AutomationExecutionFilterKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679786988"><span class="annot"><span class="annottext">[Node] -&gt; Either String AutomationExecutionFilterKey
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679788607"><span class="annot"><span class="annottext">[Node] -&gt; Either String AutomationExecutionFilterKey
 ([Node] -&gt; Either String AutomationExecutionFilterKey)
 -&gt; FromXML AutomationExecutionFilterKey
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AutomationExecutionFilterKey
 $cparseXML :: [Node] -&gt; Either String AutomationExecutionFilterKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621679786985"><span class="annot"><span class="annottext">AutomationExecutionFilterKey -&gt; XML
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679788604"><span class="annot"><span class="annottext">AutomationExecutionFilterKey -&gt; XML
 (AutomationExecutionFilterKey -&gt; XML)
 -&gt; ToXML AutomationExecutionFilterKey
 forall a. (a -&gt; XML) -&gt; ToXML a

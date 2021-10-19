@@ -672,11 +672,11 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;OpsWorks&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-639"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceRetry:Service :: Retry
 </span><span class="hs-identifier hs-var">Core._serviceRetry</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Retry
-</span><a href="#local-6989586621679381032"><span class="hs-identifier hs-var">retry</span></a></span><span>
+</span><a href="#local-6989586621679381435"><span class="hs-identifier hs-var">retry</span></a></span><span>
 </span><span id="line-640"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-641"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-642"></span><span>    </span><span id="local-6989586621679381032"><span class="annot"><span class="annottext">retry :: Retry
-</span><a href="#local-6989586621679381032"><span class="hs-identifier hs-var hs-var">retry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-642"></span><span>    </span><span id="local-6989586621679381435"><span class="annot"><span class="annottext">retry :: Retry
+</span><a href="#local-6989586621679381435"><span class="hs-identifier hs-var hs-var">retry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-643"></span><span>      </span><span class="annot"><span class="annottext">Exponential :: Double -&gt; Int -&gt; Int -&gt; (ServiceError -&gt; Maybe Text) -&gt; Retry
 </span><span class="hs-identifier hs-type">Core.Exponential</span></span><span>
 </span><span id="line-644"></span><span>        </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_retryBase:Exponential :: Double
@@ -691,11 +691,11 @@ forall a. a -&gt; Maybe a
 </span><span id="line-647"></span><span>          </span><span class="annot"><span class="annottext">$sel:_retryCheck:Exponential :: ServiceError -&gt; Maybe Text
 </span><span class="hs-identifier hs-var">Core._retryCheck</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ServiceError -&gt; Maybe Text
 forall a. IsString a =&gt; ServiceError -&gt; Maybe a
-</span><a href="#local-6989586621679381026"><span class="hs-identifier hs-var">check</span></a></span><span>
+</span><a href="#local-6989586621679381429"><span class="hs-identifier hs-var">check</span></a></span><span>
 </span><span id="line-648"></span><span>        </span><span class="hs-special">}</span><span>
-</span><span id="line-649"></span><span>    </span><span id="local-6989586621679381026"><span class="annot"><span class="annottext">check :: ServiceError -&gt; Maybe a
-</span><a href="#local-6989586621679381026"><span class="hs-identifier hs-var hs-var">check</span></a></span></span><span> </span><span id="local-6989586621679381025"><span class="annot"><span class="annottext">ServiceError
-</span><a href="#local-6989586621679381025"><span class="hs-identifier hs-var">e</span></a></span></span><span>
+</span><span id="line-649"></span><span>    </span><span id="local-6989586621679381429"><span class="annot"><span class="annottext">check :: ServiceError -&gt; Maybe a
+</span><a href="#local-6989586621679381429"><span class="hs-identifier hs-var hs-var">check</span></a></span></span><span> </span><span id="local-6989586621679381428"><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679381428"><span class="hs-identifier hs-var">e</span></a></span></span><span>
 </span><span id="line-650"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
 forall s a. Getting Any s a -&gt; s -&gt; Bool
 </span><span class="hs-identifier hs-var">Lens.has</span></span><span>
@@ -717,7 +717,7 @@ Int -&gt; Optic' p f ServiceError ServiceError
 </span><span class="hs-number">400</span></span><span>
 </span><span id="line-653"></span><span>          </span><span class="hs-special">)</span><span>
 </span><span id="line-654"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
-</span><a href="#local-6989586621679381025"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679381428"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-655"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
@@ -730,7 +730,7 @@ forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
 Int -&gt; Optic' p f ServiceError ServiceError
 </span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
 </span><span class="hs-number">429</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
-</span><a href="#local-6989586621679381025"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679381428"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-657"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
@@ -756,7 +756,7 @@ Int -&gt; Optic' p f ServiceError ServiceError
 </span><span class="hs-number">400</span></span><span>
 </span><span id="line-661"></span><span>          </span><span class="hs-special">)</span><span>
 </span><span id="line-662"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
-</span><a href="#local-6989586621679381025"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679381428"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-663"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
@@ -782,7 +782,7 @@ Int -&gt; Optic' p f ServiceError ServiceError
 </span><span class="hs-number">400</span></span><span>
 </span><span id="line-667"></span><span>          </span><span class="hs-special">)</span><span>
 </span><span id="line-668"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
-</span><a href="#local-6989586621679381025"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679381428"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-669"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
@@ -809,7 +809,7 @@ Int -&gt; Optic' p f ServiceError ServiceError
 </span><span class="hs-number">400</span></span><span>
 </span><span id="line-674"></span><span>          </span><span class="hs-special">)</span><span>
 </span><span id="line-675"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
-</span><a href="#local-6989586621679381025"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679381428"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-676"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
@@ -822,7 +822,7 @@ forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
 Int -&gt; Optic' p f ServiceError ServiceError
 </span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
 </span><span class="hs-number">504</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
-</span><a href="#local-6989586621679381025"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679381428"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-678"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
@@ -848,7 +848,7 @@ Int -&gt; Optic' p f ServiceError ServiceError
 </span><span class="hs-number">400</span></span><span>
 </span><span id="line-682"></span><span>          </span><span class="hs-special">)</span><span>
 </span><span id="line-683"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
-</span><a href="#local-6989586621679381025"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679381428"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-684"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
@@ -861,7 +861,7 @@ forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
 Int -&gt; Optic' p f ServiceError ServiceError
 </span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
 </span><span class="hs-number">502</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
-</span><a href="#local-6989586621679381025"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679381428"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-686"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
@@ -874,7 +874,7 @@ forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
 Int -&gt; Optic' p f ServiceError ServiceError
 </span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
 </span><span class="hs-number">503</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
-</span><a href="#local-6989586621679381025"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679381428"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-688"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
@@ -887,7 +887,7 @@ forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
 Int -&gt; Optic' p f ServiceError ServiceError
 </span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
 </span><span class="hs-number">500</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
-</span><a href="#local-6989586621679381025"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679381428"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-690"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
@@ -900,7 +900,7 @@ forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
 Int -&gt; Optic' p f ServiceError ServiceError
 </span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
 </span><span class="hs-number">509</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
-</span><a href="#local-6989586621679381025"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679381428"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-692"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
@@ -911,7 +911,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-694"></span><span>
 </span><span id="line-695"></span><span class="hs-comment">-- | Indicates that a request was not valid.</span><span>
-</span><span id="line-696"></span><span id="local-6989586621679381020"><span class="annot"><a href="Network.AWS.OpsWorks.Types.html#_ValidationException"><span class="hs-identifier hs-type">_ValidationException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679381020"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679381020"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-696"></span><span id="local-6989586621679381423"><span class="annot"><a href="Network.AWS.OpsWorks.Types.html#_ValidationException"><span class="hs-identifier hs-type">_ValidationException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679381423"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679381423"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
 </span><span id="line-697"></span><span id="_ValidationException"><span class="annot"><span class="annottext">_ValidationException :: Getting (First ServiceError) a ServiceError
 </span><a href="Network.AWS.OpsWorks.Types.html#_ValidationException"><span class="hs-identifier hs-var hs-var">_ValidationException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-698"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
@@ -925,7 +925,7 @@ Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
 </span><span class="hs-string">&quot;ValidationException&quot;</span></span><span>
 </span><span id="line-701"></span><span>
 </span><span id="line-702"></span><span class="hs-comment">-- | Indicates that a resource was not found.</span><span>
-</span><span id="line-703"></span><span id="local-6989586621679381018"><span class="annot"><a href="Network.AWS.OpsWorks.Types.html#_ResourceNotFoundException"><span class="hs-identifier hs-type">_ResourceNotFoundException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679381018"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679381018"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-703"></span><span id="local-6989586621679381421"><span class="annot"><a href="Network.AWS.OpsWorks.Types.html#_ResourceNotFoundException"><span class="hs-identifier hs-type">_ResourceNotFoundException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679381421"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679381421"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
 </span><span id="line-704"></span><span id="_ResourceNotFoundException"><span class="annot"><span class="annottext">_ResourceNotFoundException :: Getting (First ServiceError) a ServiceError
 </span><a href="Network.AWS.OpsWorks.Types.html#_ResourceNotFoundException"><span class="hs-identifier hs-var hs-var">_ResourceNotFoundException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-705"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError

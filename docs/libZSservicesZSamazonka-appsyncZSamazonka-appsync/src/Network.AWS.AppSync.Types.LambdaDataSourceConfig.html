@@ -26,12 +26,12 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Describes an Amazon Web Services Lambda data source configuration.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newLambdaDataSourceConfig' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679250084"><span id="local-6989586621679250085"></span></span><span class="hs-keyword">data</span><span> </span><span id="LambdaDataSourceConfig"><span class="annot"><a href="Network.AWS.AppSync.Types.LambdaDataSourceConfig.html#LambdaDataSourceConfig"><span class="hs-identifier hs-var">LambdaDataSourceConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LambdaDataSourceConfig%27"><span class="annot"><a href="Network.AWS.AppSync.Types.LambdaDataSourceConfig.html#LambdaDataSourceConfig%27"><span class="hs-identifier hs-var">LambdaDataSourceConfig'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679250160"><span id="local-6989586621679250161"></span></span><span class="hs-keyword">data</span><span> </span><span id="LambdaDataSourceConfig"><span class="annot"><a href="Network.AWS.AppSync.Types.LambdaDataSourceConfig.html#LambdaDataSourceConfig"><span class="hs-identifier hs-var">LambdaDataSourceConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LambdaDataSourceConfig%27"><span class="annot"><a href="Network.AWS.AppSync.Types.LambdaDataSourceConfig.html#LambdaDataSourceConfig%27"><span class="hs-identifier hs-var">LambdaDataSourceConfig'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN for the Lambda function.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AlambdaFunctionArn%3ALambdaDataSourceConfig%27"><span class="annot"><span class="annottext">LambdaDataSourceConfig -&gt; Text
 </span><a href="Network.AWS.AppSync.Types.LambdaDataSourceConfig.html#%24sel%3AlambdaFunctionArn%3ALambdaDataSourceConfig%27"><span class="hs-identifier hs-var hs-var">lambdaFunctionArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679250078"><span id="local-6989586621679250080"><span class="annot"><span class="annottext">LambdaDataSourceConfig -&gt; LambdaDataSourceConfig -&gt; Bool
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679250154"><span id="local-6989586621679250156"><span class="annot"><span class="annottext">LambdaDataSourceConfig -&gt; LambdaDataSourceConfig -&gt; Bool
 (LambdaDataSourceConfig -&gt; LambdaDataSourceConfig -&gt; Bool)
 -&gt; (LambdaDataSourceConfig -&gt; LambdaDataSourceConfig -&gt; Bool)
 -&gt; Eq LambdaDataSourceConfig
@@ -40,7 +40,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: LambdaDataSourceConfig -&gt; LambdaDataSourceConfig -&gt; Bool
 == :: LambdaDataSourceConfig -&gt; LambdaDataSourceConfig -&gt; Bool
 $c== :: LambdaDataSourceConfig -&gt; LambdaDataSourceConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250069"><span id="local-6989586621679250071"><span id="local-6989586621679250073"><span id="local-6989586621679250075"><span class="annot"><span class="annottext">ReadPrec [LambdaDataSourceConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250145"><span id="local-6989586621679250147"><span id="local-6989586621679250149"><span id="local-6989586621679250151"><span class="annot"><span class="annottext">ReadPrec [LambdaDataSourceConfig]
 ReadPrec LambdaDataSourceConfig
 Int -&gt; ReadS LambdaDataSourceConfig
 ReadS [LambdaDataSourceConfig]
@@ -60,7 +60,7 @@ readList :: ReadS [LambdaDataSourceConfig]
 $creadList :: ReadS [LambdaDataSourceConfig]
 readsPrec :: Int -&gt; ReadS LambdaDataSourceConfig
 $creadsPrec :: Int -&gt; ReadS LambdaDataSourceConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250062"><span id="local-6989586621679250064"><span id="local-6989586621679250066"><span class="annot"><span class="annottext">Int -&gt; LambdaDataSourceConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250138"><span id="local-6989586621679250140"><span id="local-6989586621679250142"><span class="annot"><span class="annottext">Int -&gt; LambdaDataSourceConfig -&gt; ShowS
 [LambdaDataSourceConfig] -&gt; ShowS
 LambdaDataSourceConfig -&gt; String
 (Int -&gt; LambdaDataSourceConfig -&gt; ShowS)
@@ -101,14 +101,14 @@ $cfrom :: forall x. LambdaDataSourceConfig -&gt; Rep LambdaDataSourceConfig x
 </span><span id="line-46"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-47"></span><span>  </span><span class="annot"><a href="Network.AWS.AppSync.Types.LambdaDataSourceConfig.html#LambdaDataSourceConfig"><span class="hs-identifier hs-type">LambdaDataSourceConfig</span></a></span><span>
 </span><span id="line-48"></span><span id="newLambdaDataSourceConfig"><span class="annot"><span class="annottext">newLambdaDataSourceConfig :: Text -&gt; LambdaDataSourceConfig
-</span><a href="Network.AWS.AppSync.Types.LambdaDataSourceConfig.html#newLambdaDataSourceConfig"><span class="hs-identifier hs-var hs-var">newLambdaDataSourceConfig</span></a></span></span><span> </span><span id="local-6989586621679250056"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679250056"><span class="hs-identifier hs-var">pLambdaFunctionArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AppSync.Types.LambdaDataSourceConfig.html#newLambdaDataSourceConfig"><span class="hs-identifier hs-var hs-var">newLambdaDataSourceConfig</span></a></span></span><span> </span><span id="local-6989586621679250132"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679250132"><span class="hs-identifier hs-var">pLambdaFunctionArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-49"></span><span>  </span><span class="annot"><span class="annottext">LambdaDataSourceConfig' :: Text -&gt; LambdaDataSourceConfig
 </span><a href="Network.AWS.AppSync.Types.LambdaDataSourceConfig.html#LambdaDataSourceConfig%27"><span class="hs-identifier hs-type">LambdaDataSourceConfig'</span></a></span><span>
 </span><span id="line-50"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:lambdaFunctionArn:LambdaDataSourceConfig' :: Text
 </span><a href="Network.AWS.AppSync.Types.LambdaDataSourceConfig.html#%24sel%3AlambdaFunctionArn%3ALambdaDataSourceConfig%27"><span class="hs-identifier hs-var">lambdaFunctionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-51"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679250056"><span class="hs-identifier hs-var">pLambdaFunctionArn_</span></a></span><span>
+</span><a href="#local-6989586621679250132"><span class="hs-identifier hs-var">pLambdaFunctionArn_</span></a></span><span>
 </span><span id="line-52"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- | The ARN for the Lambda function.</span><span>
@@ -119,19 +119,19 @@ $cfrom :: forall x. LambdaDataSourceConfig -&gt; Rep LambdaDataSourceConfig x
 -&gt; (LambdaDataSourceConfig -&gt; Text -&gt; LambdaDataSourceConfig)
 -&gt; Lens LambdaDataSourceConfig LambdaDataSourceConfig Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.Types.LambdaDataSourceConfig.html#LambdaDataSourceConfig%27"><span class="hs-identifier hs-type">LambdaDataSourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250052"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.Types.LambdaDataSourceConfig.html#LambdaDataSourceConfig%27"><span class="hs-identifier hs-type">LambdaDataSourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250128"><span class="annot"><span class="annottext">Text
 lambdaFunctionArn :: Text
 $sel:lambdaFunctionArn:LambdaDataSourceConfig' :: LambdaDataSourceConfig -&gt; Text
-</span><a href="#local-6989586621679250052"><span class="hs-identifier hs-var hs-var">lambdaFunctionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679250052"><span class="hs-identifier hs-var">lambdaFunctionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250051"><span class="annot"><span class="annottext">s :: LambdaDataSourceConfig
-</span><a href="#local-6989586621679250051"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.Types.LambdaDataSourceConfig.html#LambdaDataSourceConfig%27"><span class="hs-identifier hs-type">LambdaDataSourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250050"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679250050"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaDataSourceConfig
-</span><a href="#local-6989586621679250051"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lambdaFunctionArn:LambdaDataSourceConfig' :: Text
+</span><a href="#local-6989586621679250128"><span class="hs-identifier hs-var hs-var">lambdaFunctionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679250128"><span class="hs-identifier hs-var">lambdaFunctionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250127"><span class="annot"><span class="annottext">s :: LambdaDataSourceConfig
+</span><a href="#local-6989586621679250127"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.Types.LambdaDataSourceConfig.html#LambdaDataSourceConfig%27"><span class="hs-identifier hs-type">LambdaDataSourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250126"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679250126"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaDataSourceConfig
+</span><a href="#local-6989586621679250127"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lambdaFunctionArn:LambdaDataSourceConfig' :: Text
 </span><a href="Network.AWS.AppSync.Types.LambdaDataSourceConfig.html#%24sel%3AlambdaFunctionArn%3ALambdaDataSourceConfig%27"><span class="hs-identifier hs-var">lambdaFunctionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679250050"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.LambdaDataSourceConfig.html#LambdaDataSourceConfig"><span class="hs-identifier hs-type">LambdaDataSourceConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679250126"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.LambdaDataSourceConfig.html#LambdaDataSourceConfig"><span class="hs-identifier hs-type">LambdaDataSourceConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-57"></span><span>
-</span><span id="line-58"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250047"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.LambdaDataSourceConfig.html#LambdaDataSourceConfig"><span class="hs-identifier hs-type">LambdaDataSourceConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-59"></span><span>  </span><span id="local-6989586621679250045"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LambdaDataSourceConfig
+</span><span id="line-58"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250123"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.LambdaDataSourceConfig.html#LambdaDataSourceConfig"><span class="hs-identifier hs-type">LambdaDataSourceConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-59"></span><span>  </span><span id="local-6989586621679250121"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LambdaDataSourceConfig
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-60"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser LambdaDataSourceConfig)
@@ -141,30 +141,30 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;LambdaDataSourceConfig&quot;</span></span><span>
-</span><span id="line-62"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679250042"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679250042"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-62"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679250118"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679250118"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-63"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; LambdaDataSourceConfig
 </span><a href="Network.AWS.AppSync.Types.LambdaDataSourceConfig.html#LambdaDataSourceConfig%27"><span class="hs-identifier hs-var">LambdaDataSourceConfig'</span></a></span><span>
 </span><span id="line-64"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; LambdaDataSourceConfig)
 -&gt; Parser Text -&gt; Parser LambdaDataSourceConfig
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679250042"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679250118"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;lambdaFunctionArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250036"><span id="local-6989586621679250038"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.LambdaDataSourceConfig.html#LambdaDataSourceConfig"><span class="hs-identifier hs-type">LambdaDataSourceConfig</span></a></span></span></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250112"><span id="local-6989586621679250114"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.LambdaDataSourceConfig.html#LambdaDataSourceConfig"><span class="hs-identifier hs-type">LambdaDataSourceConfig</span></a></span></span></span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250033"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.LambdaDataSourceConfig.html#LambdaDataSourceConfig"><span class="hs-identifier hs-type">LambdaDataSourceConfig</span></a></span></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250109"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.LambdaDataSourceConfig.html#LambdaDataSourceConfig"><span class="hs-identifier hs-type">LambdaDataSourceConfig</span></a></span></span><span>
 </span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250025"><span id="local-6989586621679250027"><span id="local-6989586621679250029"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.LambdaDataSourceConfig.html#LambdaDataSourceConfig"><span class="hs-identifier hs-type">LambdaDataSourceConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-72"></span><span>  </span><span id="local-6989586621679250023"><span class="annot"><span class="annottext">toJSON :: LambdaDataSourceConfig -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.LambdaDataSourceConfig.html#LambdaDataSourceConfig%27"><span class="hs-identifier hs-type">LambdaDataSourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250021"><span class="annot"><span class="annottext">Text
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250101"><span id="local-6989586621679250103"><span id="local-6989586621679250105"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.LambdaDataSourceConfig.html#LambdaDataSourceConfig"><span class="hs-identifier hs-type">LambdaDataSourceConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621679250099"><span class="annot"><span class="annottext">toJSON :: LambdaDataSourceConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.LambdaDataSourceConfig.html#LambdaDataSourceConfig%27"><span class="hs-identifier hs-type">LambdaDataSourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250097"><span class="annot"><span class="annottext">Text
 lambdaFunctionArn :: Text
 $sel:lambdaFunctionArn:LambdaDataSourceConfig' :: LambdaDataSourceConfig -&gt; Text
-</span><a href="#local-6989586621679250021"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679250097"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-73"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-74"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -177,7 +177,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;lambdaFunctionArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679250021"><span class="hs-identifier hs-var">lambdaFunctionArn</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679250097"><span class="hs-identifier hs-var">lambdaFunctionArn</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-78"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span></pre></body></html>

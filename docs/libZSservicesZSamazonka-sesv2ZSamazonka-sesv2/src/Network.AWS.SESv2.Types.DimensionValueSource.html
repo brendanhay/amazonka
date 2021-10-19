@@ -31,18 +31,18 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- | The location where the Amazon SES API v2 finds the value of a dimension</span><span>
-</span><span id="line-34"></span><span class="hs-comment">-- to publish to Amazon CloudWatch. If you want to use the message tags</span><span>
-</span><span id="line-35"></span><span class="hs-comment">-- that you specify using an @X-SES-MESSAGE-TAGS@ header or a parameter to</span><span>
-</span><span id="line-36"></span><span class="hs-comment">-- the @SendEmail@ or @SendRawEmail@ API, choose @messageTag@. If you want</span><span>
-</span><span id="line-37"></span><span class="hs-comment">-- to use your own email headers, choose @emailHeader@. If you want to use</span><span>
-</span><span id="line-38"></span><span class="hs-comment">-- link tags, choose @linkTags@.</span><span>
-</span><span id="line-39"></span><span id="local-6989586621679324206"><span id="local-6989586621679324207"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DimensionValueSource"><span class="annot"><a href="Network.AWS.SESv2.Types.DimensionValueSource.html#DimensionValueSource"><span class="hs-identifier hs-var">DimensionValueSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DimensionValueSource%27"><span class="annot"><a href="Network.AWS.SESv2.Types.DimensionValueSource.html#DimensionValueSource%27"><span class="hs-identifier hs-var">DimensionValueSource'</span></a></span></span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- to publish to Amazon CloudWatch. To use the message tags that you</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- specify using an @X-SES-MESSAGE-TAGS@ header or a parameter to the</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- @SendEmail@ or @SendRawEmail@ API, choose @messageTag@. To use your own</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- email headers, choose @emailHeader@. To use link tags, choose</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- @linkTags@.</span><span>
+</span><span id="line-39"></span><span id="local-6989586621679326506"><span id="local-6989586621679326507"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DimensionValueSource"><span class="annot"><a href="Network.AWS.SESv2.Types.DimensionValueSource.html#DimensionValueSource"><span class="hs-identifier hs-var">DimensionValueSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DimensionValueSource%27"><span class="annot"><a href="Network.AWS.SESv2.Types.DimensionValueSource.html#DimensionValueSource%27"><span class="hs-identifier hs-var">DimensionValueSource'</span></a></span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDimensionValueSource"><span class="annot"><span class="annottext">DimensionValueSource -&gt; Text
 </span><a href="Network.AWS.SESv2.Types.DimensionValueSource.html#fromDimensionValueSource"><span class="hs-identifier hs-var hs-var">fromDimensionValueSource</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-41"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679324198"><span id="local-6989586621679324200"><span id="local-6989586621679324202"><span class="annot"><span class="annottext">Int -&gt; DimensionValueSource -&gt; ShowS
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679326498"><span id="local-6989586621679326500"><span id="local-6989586621679326502"><span class="annot"><span class="annottext">Int -&gt; DimensionValueSource -&gt; ShowS
 [DimensionValueSource] -&gt; ShowS
 DimensionValueSource -&gt; String
 (Int -&gt; DimensionValueSource -&gt; ShowS)
@@ -58,7 +58,7 @@ $cshow :: DimensionValueSource -&gt; String
 showsPrec :: Int -&gt; DimensionValueSource -&gt; ShowS
 $cshowsPrec :: Int -&gt; DimensionValueSource -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679324189"><span id="local-6989586621679324191"><span id="local-6989586621679324193"><span id="local-6989586621679324195"><span class="annot"><span class="annottext">ReadPrec [DimensionValueSource]
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679326489"><span id="local-6989586621679326491"><span id="local-6989586621679326493"><span id="local-6989586621679326495"><span class="annot"><span class="annottext">ReadPrec [DimensionValueSource]
 ReadPrec DimensionValueSource
 Int -&gt; ReadS DimensionValueSource
 ReadS [DimensionValueSource]
@@ -79,7 +79,7 @@ $creadList :: ReadS [DimensionValueSource]
 readsPrec :: Int -&gt; ReadS DimensionValueSource
 $creadsPrec :: Int -&gt; ReadS DimensionValueSource
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679324184"><span id="local-6989586621679324186"><span class="annot"><span class="annottext">DimensionValueSource -&gt; DimensionValueSource -&gt; Bool
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679326484"><span id="local-6989586621679326486"><span class="annot"><span class="annottext">DimensionValueSource -&gt; DimensionValueSource -&gt; Bool
 (DimensionValueSource -&gt; DimensionValueSource -&gt; Bool)
 -&gt; (DimensionValueSource -&gt; DimensionValueSource -&gt; Bool)
 -&gt; Eq DimensionValueSource
@@ -89,7 +89,7 @@ $c/= :: DimensionValueSource -&gt; DimensionValueSource -&gt; Bool
 == :: DimensionValueSource -&gt; DimensionValueSource -&gt; Bool
 $c== :: DimensionValueSource -&gt; DimensionValueSource -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679324168"><span id="local-6989586621679324170"><span id="local-6989586621679324172"><span id="local-6989586621679324174"><span id="local-6989586621679324176"><span id="local-6989586621679324178"><span id="local-6989586621679324180"><span class="annot"><span class="annottext">Eq DimensionValueSource
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679326468"><span id="local-6989586621679326470"><span id="local-6989586621679326472"><span id="local-6989586621679326474"><span id="local-6989586621679326476"><span id="local-6989586621679326478"><span id="local-6989586621679326480"><span class="annot"><span class="annottext">Eq DimensionValueSource
 Eq DimensionValueSource
 -&gt; (DimensionValueSource -&gt; DimensionValueSource -&gt; Ordering)
 -&gt; (DimensionValueSource -&gt; DimensionValueSource -&gt; Bool)
@@ -147,7 +147,7 @@ $cfrom :: forall x. DimensionValueSource -&gt; Rep DimensionValueSource x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-49"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679324160"><span id="local-6989586621679324162"><span class="annot"><span class="annottext">Int -&gt; DimensionValueSource -&gt; Int
+</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679326460"><span id="local-6989586621679326462"><span class="annot"><span class="annottext">Int -&gt; DimensionValueSource -&gt; Int
 DimensionValueSource -&gt; Int
 (Int -&gt; DimensionValueSource -&gt; Int)
 -&gt; (DimensionValueSource -&gt; Int) -&gt; Hashable DimensionValueSource
@@ -157,54 +157,54 @@ $chash :: DimensionValueSource -&gt; Int
 hashWithSalt :: Int -&gt; DimensionValueSource -&gt; Int
 $chashWithSalt :: Int -&gt; DimensionValueSource -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679324157"><span class="annot"><span class="annottext">DimensionValueSource -&gt; ()
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679326457"><span class="annot"><span class="annottext">DimensionValueSource -&gt; ()
 (DimensionValueSource -&gt; ()) -&gt; NFData DimensionValueSource
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: DimensionValueSource -&gt; ()
 $crnf :: DimensionValueSource -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679324154"><span class="annot"><span class="annottext">Text -&gt; Either String DimensionValueSource
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679326454"><span class="annot"><span class="annottext">Text -&gt; Either String DimensionValueSource
 (Text -&gt; Either String DimensionValueSource)
 -&gt; FromText DimensionValueSource
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String DimensionValueSource
 $cfromText :: Text -&gt; Either String DimensionValueSource
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679324151"><span class="annot"><span class="annottext">DimensionValueSource -&gt; Text
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679326451"><span class="annot"><span class="annottext">DimensionValueSource -&gt; Text
 (DimensionValueSource -&gt; Text) -&gt; ToText DimensionValueSource
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: DimensionValueSource -&gt; Text
 $ctoText :: DimensionValueSource -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679324148"><span class="annot"><span class="annottext">DimensionValueSource -&gt; ByteString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679326448"><span class="annot"><span class="annottext">DimensionValueSource -&gt; ByteString
 (DimensionValueSource -&gt; ByteString)
 -&gt; ToByteString DimensionValueSource
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: DimensionValueSource -&gt; ByteString
 $ctoBS :: DimensionValueSource -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679324145"><span class="annot"><span class="annottext">DimensionValueSource -&gt; ByteStringBuilder
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679326445"><span class="annot"><span class="annottext">DimensionValueSource -&gt; ByteStringBuilder
 (DimensionValueSource -&gt; ByteStringBuilder)
 -&gt; ToLog DimensionValueSource
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: DimensionValueSource -&gt; ByteStringBuilder
 $cbuild :: DimensionValueSource -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679324142"><span class="annot"><span class="annottext">HeaderName -&gt; DimensionValueSource -&gt; [Header]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679326442"><span class="annot"><span class="annottext">HeaderName -&gt; DimensionValueSource -&gt; [Header]
 (HeaderName -&gt; DimensionValueSource -&gt; [Header])
 -&gt; ToHeader DimensionValueSource
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; DimensionValueSource -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; DimensionValueSource -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679324139"><span class="annot"><span class="annottext">DimensionValueSource -&gt; QueryString
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679326439"><span class="annot"><span class="annottext">DimensionValueSource -&gt; QueryString
 (DimensionValueSource -&gt; QueryString)
 -&gt; ToQuery DimensionValueSource
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: DimensionValueSource -&gt; QueryString
 $ctoQuery :: DimensionValueSource -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679324134"><span id="local-6989586621679324136"><span class="annot"><span class="annottext">Value -&gt; Parser [DimensionValueSource]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679326434"><span id="local-6989586621679326436"><span class="annot"><span class="annottext">Value -&gt; Parser [DimensionValueSource]
 Value -&gt; Parser DimensionValueSource
 (Value -&gt; Parser DimensionValueSource)
 -&gt; (Value -&gt; Parser [DimensionValueSource])
@@ -216,7 +216,7 @@ $cparseJSONList :: Value -&gt; Parser [DimensionValueSource]
 parseJSON :: Value -&gt; Parser DimensionValueSource
 $cparseJSON :: Value -&gt; Parser DimensionValueSource
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679324129"><span id="local-6989586621679324131"><span class="annot"><span class="annottext">FromJSONKeyFunction [DimensionValueSource]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679326429"><span id="local-6989586621679326431"><span class="annot"><span class="annottext">FromJSONKeyFunction [DimensionValueSource]
 FromJSONKeyFunction DimensionValueSource
 FromJSONKeyFunction DimensionValueSource
 -&gt; FromJSONKeyFunction [DimensionValueSource]
@@ -228,7 +228,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [DimensionValueSource]
 fromJSONKey :: FromJSONKeyFunction DimensionValueSource
 $cfromJSONKey :: FromJSONKeyFunction DimensionValueSource
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679324120"><span id="local-6989586621679324122"><span id="local-6989586621679324124"><span id="local-6989586621679324126"><span class="annot"><span class="annottext">[DimensionValueSource] -&gt; Encoding
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679326420"><span id="local-6989586621679326422"><span id="local-6989586621679326424"><span id="local-6989586621679326426"><span class="annot"><span class="annottext">[DimensionValueSource] -&gt; Encoding
 [DimensionValueSource] -&gt; Value
 DimensionValueSource -&gt; Encoding
 DimensionValueSource -&gt; Value
@@ -252,7 +252,7 @@ $ctoEncoding :: DimensionValueSource -&gt; Encoding
 toJSON :: DimensionValueSource -&gt; Value
 $ctoJSON :: DimensionValueSource -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679324115"><span id="local-6989586621679324117"><span class="annot"><span class="annottext">ToJSONKeyFunction [DimensionValueSource]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679326415"><span id="local-6989586621679326417"><span class="annot"><span class="annottext">ToJSONKeyFunction [DimensionValueSource]
 ToJSONKeyFunction DimensionValueSource
 ToJSONKeyFunction DimensionValueSource
 -&gt; ToJSONKeyFunction [DimensionValueSource]
@@ -264,14 +264,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [DimensionValueSource]
 toJSONKey :: ToJSONKeyFunction DimensionValueSource
 $ctoJSONKey :: ToJSONKeyFunction DimensionValueSource
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679324112"><span class="annot"><span class="annottext">[Node] -&gt; Either String DimensionValueSource
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679326412"><span class="annot"><span class="annottext">[Node] -&gt; Either String DimensionValueSource
 ([Node] -&gt; Either String DimensionValueSource)
 -&gt; FromXML DimensionValueSource
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String DimensionValueSource
 $cparseXML :: [Node] -&gt; Either String DimensionValueSource
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679324109"><span class="annot"><span class="annottext">DimensionValueSource -&gt; XML
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679326409"><span class="annot"><span class="annottext">DimensionValueSource -&gt; XML
 (DimensionValueSource -&gt; XML) -&gt; ToXML DimensionValueSource
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: DimensionValueSource -&gt; XML

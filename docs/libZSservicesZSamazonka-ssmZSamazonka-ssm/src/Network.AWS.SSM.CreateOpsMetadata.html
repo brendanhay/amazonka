@@ -51,7 +51,7 @@
 </span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.html"><span class="hs-identifier">Network.AWS.SSM.Types</span></a></span><span>
 </span><span id="line-52"></span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newCreateOpsMetadata' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679851327"><span id="local-6989586621679851328"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateOpsMetadata"><span class="annot"><a href="Network.AWS.SSM.CreateOpsMetadata.html#CreateOpsMetadata"><span class="hs-identifier hs-var">CreateOpsMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateOpsMetadata%27"><span class="annot"><a href="Network.AWS.SSM.CreateOpsMetadata.html#CreateOpsMetadata%27"><span class="hs-identifier hs-var">CreateOpsMetadata'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679853151"><span id="local-6989586621679853152"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateOpsMetadata"><span class="annot"><a href="Network.AWS.SSM.CreateOpsMetadata.html#CreateOpsMetadata"><span class="hs-identifier hs-var">CreateOpsMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateOpsMetadata%27"><span class="annot"><a href="Network.AWS.SSM.CreateOpsMetadata.html#CreateOpsMetadata%27"><span class="hs-identifier hs-var">CreateOpsMetadata'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Metadata for a new Application Manager application.</span><span>
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3Ametadata%3ACreateOpsMetadata%27"><span class="annot"><span class="annottext">CreateOpsMetadata -&gt; Maybe (HashMap Text MetadataValue)
 </span><a href="Network.AWS.SSM.CreateOpsMetadata.html#%24sel%3Ametadata%3ACreateOpsMetadata%27"><span class="hs-identifier hs-var hs-var">metadata</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MetadataValue.html#MetadataValue"><span class="hs-identifier hs-type">MetadataValue</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -71,7 +71,7 @@
 </span><span id="line-69"></span><span>    </span><span id="%24sel%3AresourceId%3ACreateOpsMetadata%27"><span class="annot"><span class="annottext">CreateOpsMetadata -&gt; Text
 </span><a href="Network.AWS.SSM.CreateOpsMetadata.html#%24sel%3AresourceId%3ACreateOpsMetadata%27"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-70"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679851319"><span id="local-6989586621679851321"><span class="annot"><span class="annottext">CreateOpsMetadata -&gt; CreateOpsMetadata -&gt; Bool
+</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679853143"><span id="local-6989586621679853145"><span class="annot"><span class="annottext">CreateOpsMetadata -&gt; CreateOpsMetadata -&gt; Bool
 (CreateOpsMetadata -&gt; CreateOpsMetadata -&gt; Bool)
 -&gt; (CreateOpsMetadata -&gt; CreateOpsMetadata -&gt; Bool)
 -&gt; Eq CreateOpsMetadata
@@ -80,7 +80,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateOpsMetadata -&gt; CreateOpsMetadata -&gt; Bool
 == :: CreateOpsMetadata -&gt; CreateOpsMetadata -&gt; Bool
 $c== :: CreateOpsMetadata -&gt; CreateOpsMetadata -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679851310"><span id="local-6989586621679851312"><span id="local-6989586621679851314"><span id="local-6989586621679851316"><span class="annot"><span class="annottext">ReadPrec [CreateOpsMetadata]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679853134"><span id="local-6989586621679853136"><span id="local-6989586621679853138"><span id="local-6989586621679853140"><span class="annot"><span class="annottext">ReadPrec [CreateOpsMetadata]
 ReadPrec CreateOpsMetadata
 Int -&gt; ReadS CreateOpsMetadata
 ReadS [CreateOpsMetadata]
@@ -100,7 +100,7 @@ readList :: ReadS [CreateOpsMetadata]
 $creadList :: ReadS [CreateOpsMetadata]
 readsPrec :: Int -&gt; ReadS CreateOpsMetadata
 $creadsPrec :: Int -&gt; ReadS CreateOpsMetadata
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679851303"><span id="local-6989586621679851305"><span id="local-6989586621679851307"><span class="annot"><span class="annottext">Int -&gt; CreateOpsMetadata -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679853127"><span id="local-6989586621679853129"><span id="local-6989586621679853131"><span class="annot"><span class="annottext">Int -&gt; CreateOpsMetadata -&gt; ShowS
 [CreateOpsMetadata] -&gt; ShowS
 CreateOpsMetadata -&gt; String
 (Int -&gt; CreateOpsMetadata -&gt; ShowS)
@@ -153,8 +153,8 @@ $cfrom :: forall x. CreateOpsMetadata -&gt; Rep CreateOpsMetadata x
 </span><span id="line-97"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-98"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.CreateOpsMetadata.html#CreateOpsMetadata"><span class="hs-identifier hs-type">CreateOpsMetadata</span></a></span><span>
 </span><span id="line-99"></span><span id="newCreateOpsMetadata"><span class="annot"><span class="annottext">newCreateOpsMetadata :: Text -&gt; CreateOpsMetadata
-</span><a href="Network.AWS.SSM.CreateOpsMetadata.html#newCreateOpsMetadata"><span class="hs-identifier hs-var hs-var">newCreateOpsMetadata</span></a></span></span><span> </span><span id="local-6989586621679851298"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679851298"><span class="hs-identifier hs-var">pResourceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SSM.CreateOpsMetadata.html#newCreateOpsMetadata"><span class="hs-identifier hs-var hs-var">newCreateOpsMetadata</span></a></span></span><span> </span><span id="local-6989586621679853122"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679853122"><span class="hs-identifier hs-var">pResourceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-100"></span><span>  </span><span class="annot"><span class="annottext">CreateOpsMetadata' :: Maybe (HashMap Text MetadataValue)
 -&gt; Maybe [Tag] -&gt; Text -&gt; CreateOpsMetadata
 </span><a href="Network.AWS.SSM.CreateOpsMetadata.html#CreateOpsMetadata%27"><span class="hs-identifier hs-type">CreateOpsMetadata'</span></a></span><span>
@@ -168,7 +168,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceId:CreateOpsMetadata' :: Text
 </span><a href="Network.AWS.SSM.CreateOpsMetadata.html#%24sel%3AresourceId%3ACreateOpsMetadata%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679851298"><span class="hs-identifier hs-var">pResourceId_</span></a></span><span>
+</span><a href="#local-6989586621679853122"><span class="hs-identifier hs-var">pResourceId_</span></a></span><span>
 </span><span id="line-104"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- | Metadata for a new Application Manager application.</span><span>
@@ -185,16 +185,16 @@ forall a. Maybe a
      (Maybe (HashMap Text MetadataValue))
      (Maybe (HashMap Text MetadataValue))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.CreateOpsMetadata.html#CreateOpsMetadata%27"><span class="hs-identifier hs-type">CreateOpsMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679851295"><span class="annot"><span class="annottext">Maybe (HashMap Text MetadataValue)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.CreateOpsMetadata.html#CreateOpsMetadata%27"><span class="hs-identifier hs-type">CreateOpsMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679853119"><span class="annot"><span class="annottext">Maybe (HashMap Text MetadataValue)
 metadata :: Maybe (HashMap Text MetadataValue)
 $sel:metadata:CreateOpsMetadata' :: CreateOpsMetadata -&gt; Maybe (HashMap Text MetadataValue)
-</span><a href="#local-6989586621679851295"><span class="hs-identifier hs-var hs-var">metadata</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text MetadataValue)
-</span><a href="#local-6989586621679851295"><span class="hs-identifier hs-var">metadata</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679851294"><span class="annot"><span class="annottext">s :: CreateOpsMetadata
-</span><a href="#local-6989586621679851294"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.CreateOpsMetadata.html#CreateOpsMetadata%27"><span class="hs-identifier hs-type">CreateOpsMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679851293"><span class="annot"><span class="annottext">Maybe (HashMap Text MetadataValue)
-</span><a href="#local-6989586621679851293"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateOpsMetadata
-</span><a href="#local-6989586621679851294"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metadata:CreateOpsMetadata' :: Maybe (HashMap Text MetadataValue)
+</span><a href="#local-6989586621679853119"><span class="hs-identifier hs-var hs-var">metadata</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text MetadataValue)
+</span><a href="#local-6989586621679853119"><span class="hs-identifier hs-var">metadata</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679853118"><span class="annot"><span class="annottext">s :: CreateOpsMetadata
+</span><a href="#local-6989586621679853118"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.CreateOpsMetadata.html#CreateOpsMetadata%27"><span class="hs-identifier hs-type">CreateOpsMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679853117"><span class="annot"><span class="annottext">Maybe (HashMap Text MetadataValue)
+</span><a href="#local-6989586621679853117"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateOpsMetadata
+</span><a href="#local-6989586621679853118"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metadata:CreateOpsMetadata' :: Maybe (HashMap Text MetadataValue)
 </span><a href="Network.AWS.SSM.CreateOpsMetadata.html#%24sel%3Ametadata%3ACreateOpsMetadata%27"><span class="hs-identifier hs-var">metadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text MetadataValue)
-</span><a href="#local-6989586621679851293"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateOpsMetadata.html#CreateOpsMetadata"><span class="hs-identifier hs-type">CreateOpsMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text MetadataValue)
+</span><a href="#local-6989586621679853117"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateOpsMetadata.html#CreateOpsMetadata"><span class="hs-identifier hs-type">CreateOpsMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text MetadataValue)
   -&gt; f (Maybe (HashMap Text MetadataValue)))
  -&gt; CreateOpsMetadata -&gt; f CreateOpsMetadata)
 -&gt; ((Maybe (HashMap Text MetadataValue)
@@ -224,8 +224,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (HashMap Text MetadataValue)
   (HashMap Text MetadataValue)
   (HashMap Text MetadataValue)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-comment">-- | Optional metadata that you assign to a resource. You can specify a</span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- maximum of five tags for an OpsMetadata object. Tags enable you to</span><span>
@@ -245,16 +245,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; Lens
      CreateOpsMetadata CreateOpsMetadata (Maybe [Tag]) (Maybe [Tag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.CreateOpsMetadata.html#CreateOpsMetadata%27"><span class="hs-identifier hs-type">CreateOpsMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679851289"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.CreateOpsMetadata.html#CreateOpsMetadata%27"><span class="hs-identifier hs-type">CreateOpsMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679853113"><span class="annot"><span class="annottext">Maybe [Tag]
 tags :: Maybe [Tag]
 $sel:tags:CreateOpsMetadata' :: CreateOpsMetadata -&gt; Maybe [Tag]
-</span><a href="#local-6989586621679851289"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679851289"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679851288"><span class="annot"><span class="annottext">s :: CreateOpsMetadata
-</span><a href="#local-6989586621679851288"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.CreateOpsMetadata.html#CreateOpsMetadata%27"><span class="hs-identifier hs-type">CreateOpsMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679851287"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679851287"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateOpsMetadata
-</span><a href="#local-6989586621679851288"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateOpsMetadata' :: Maybe [Tag]
+</span><a href="#local-6989586621679853113"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679853113"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679853112"><span class="annot"><span class="annottext">s :: CreateOpsMetadata
+</span><a href="#local-6989586621679853112"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.CreateOpsMetadata.html#CreateOpsMetadata%27"><span class="hs-identifier hs-type">CreateOpsMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679853111"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679853111"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateOpsMetadata
+</span><a href="#local-6989586621679853112"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateOpsMetadata' :: Maybe [Tag]
 </span><a href="Network.AWS.SSM.CreateOpsMetadata.html#%24sel%3Atags%3ACreateOpsMetadata%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679851287"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateOpsMetadata.html#CreateOpsMetadata"><span class="hs-identifier hs-type">CreateOpsMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+</span><a href="#local-6989586621679853111"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateOpsMetadata.html#CreateOpsMetadata"><span class="hs-identifier hs-type">CreateOpsMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
  -&gt; CreateOpsMetadata -&gt; f CreateOpsMetadata)
 -&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
     -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
@@ -268,8 +268,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-comment">-- | A resource ID for a new Application Manager application.</span><span>
 </span><span id="line-124"></span><span class="annot"><a href="Network.AWS.SSM.CreateOpsMetadata.html#createOpsMetadata_resourceId"><span class="hs-identifier hs-type">createOpsMetadata_resourceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateOpsMetadata.html#CreateOpsMetadata"><span class="hs-identifier hs-type">CreateOpsMetadata</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -278,27 +278,27 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (CreateOpsMetadata -&gt; Text -&gt; CreateOpsMetadata)
 -&gt; Lens CreateOpsMetadata CreateOpsMetadata Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.CreateOpsMetadata.html#CreateOpsMetadata%27"><span class="hs-identifier hs-type">CreateOpsMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679851286"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.CreateOpsMetadata.html#CreateOpsMetadata%27"><span class="hs-identifier hs-type">CreateOpsMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679853110"><span class="annot"><span class="annottext">Text
 resourceId :: Text
 $sel:resourceId:CreateOpsMetadata' :: CreateOpsMetadata -&gt; Text
-</span><a href="#local-6989586621679851286"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679851286"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679851285"><span class="annot"><span class="annottext">s :: CreateOpsMetadata
-</span><a href="#local-6989586621679851285"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.CreateOpsMetadata.html#CreateOpsMetadata%27"><span class="hs-identifier hs-type">CreateOpsMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679851284"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679851284"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateOpsMetadata
-</span><a href="#local-6989586621679851285"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceId:CreateOpsMetadata' :: Text
+</span><a href="#local-6989586621679853110"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679853110"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679853109"><span class="annot"><span class="annottext">s :: CreateOpsMetadata
+</span><a href="#local-6989586621679853109"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.CreateOpsMetadata.html#CreateOpsMetadata%27"><span class="hs-identifier hs-type">CreateOpsMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679853108"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679853108"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateOpsMetadata
+</span><a href="#local-6989586621679853109"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceId:CreateOpsMetadata' :: Text
 </span><a href="Network.AWS.SSM.CreateOpsMetadata.html#%24sel%3AresourceId%3ACreateOpsMetadata%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679851284"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateOpsMetadata.html#CreateOpsMetadata"><span class="hs-identifier hs-type">CreateOpsMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679853108"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateOpsMetadata.html#CreateOpsMetadata"><span class="hs-identifier hs-type">CreateOpsMetadata</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateOpsMetadata.html#CreateOpsMetadata"><span class="hs-identifier hs-type">CreateOpsMetadata</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-128"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-129"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateOpsMetadata.html#CreateOpsMetadata"><span class="hs-identifier hs-type">CreateOpsMetadata</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-130"></span><span>      </span><span class="annot"><a href="Network.AWS.SSM.CreateOpsMetadata.html#CreateOpsMetadataResponse"><span class="hs-identifier hs-type">CreateOpsMetadataResponse</span></a></span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679851280"><span class="annot"><span class="annottext">request :: CreateOpsMetadata -&gt; Request CreateOpsMetadata
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679853104"><span class="annot"><span class="annottext">request :: CreateOpsMetadata -&gt; Request CreateOpsMetadata
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateOpsMetadata -&gt; Request CreateOpsMetadata
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SSM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-132"></span><span>  </span><span id="local-6989586621679851276"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679853100"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateOpsMetadata
 -&gt; ClientResponse ClientBody
@@ -324,10 +324,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-134"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679851273"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679851273"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679851272"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679851272"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679851271"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679851271"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-134"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679853097"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679853097"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679853096"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679853096"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679853095"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679853095"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-135"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; CreateOpsMetadataResponse
 </span><a href="Network.AWS.SSM.CreateOpsMetadata.html#CreateOpsMetadataResponse%27"><span class="hs-identifier hs-var">CreateOpsMetadataResponse'</span></a></span><span>
 </span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; CreateOpsMetadataResponse)
@@ -335,7 +335,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; CreateOpsMetadataResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679851271"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679853095"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;OpsMetadataArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -347,15 +347,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679851273"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679853097"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>
-</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679851263"><span id="local-6989586621679851265"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateOpsMetadata.html#CreateOpsMetadata"><span class="hs-identifier hs-type">CreateOpsMetadata</span></a></span></span></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679853087"><span id="local-6989586621679853089"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateOpsMetadata.html#CreateOpsMetadata"><span class="hs-identifier hs-type">CreateOpsMetadata</span></a></span></span></span><span>
 </span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679851260"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateOpsMetadata.html#CreateOpsMetadata"><span class="hs-identifier hs-type">CreateOpsMetadata</span></a></span></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679853084"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateOpsMetadata.html#CreateOpsMetadata"><span class="hs-identifier hs-type">CreateOpsMetadata</span></a></span></span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateOpsMetadata.html#CreateOpsMetadata"><span class="hs-identifier hs-type">CreateOpsMetadata</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621679851256"><span class="annot"><span class="annottext">toHeaders :: CreateOpsMetadata -&gt; ResponseHeaders
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679853080"><span class="annot"><span class="annottext">toHeaders :: CreateOpsMetadata -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-146"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateOpsMetadata -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -382,9 +382,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-156"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-157"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>
-</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679851246"><span id="local-6989586621679851248"><span id="local-6989586621679851250"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateOpsMetadata.html#CreateOpsMetadata"><span class="hs-identifier hs-type">CreateOpsMetadata</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-160"></span><span>  </span><span id="local-6989586621679851244"><span class="annot"><span class="annottext">toJSON :: CreateOpsMetadata -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateOpsMetadata.html#CreateOpsMetadata%27"><span class="hs-identifier hs-type">CreateOpsMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679851240"><span id="local-6989586621679851241"><span id="local-6989586621679851242"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679853070"><span id="local-6989586621679853072"><span id="local-6989586621679853074"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateOpsMetadata.html#CreateOpsMetadata"><span class="hs-identifier hs-type">CreateOpsMetadata</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679853068"><span class="annot"><span class="annottext">toJSON :: CreateOpsMetadata -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateOpsMetadata.html#CreateOpsMetadata%27"><span class="hs-identifier hs-type">CreateOpsMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679853064"><span id="local-6989586621679853065"><span id="local-6989586621679853066"><span class="annot"><span class="annottext">Maybe [Tag]
 Maybe (HashMap Text MetadataValue)
 Text
 resourceId :: Text
@@ -393,7 +393,7 @@ metadata :: Maybe (HashMap Text MetadataValue)
 $sel:resourceId:CreateOpsMetadata' :: CreateOpsMetadata -&gt; Text
 $sel:tags:CreateOpsMetadata' :: CreateOpsMetadata -&gt; Maybe [Tag]
 $sel:metadata:CreateOpsMetadata' :: CreateOpsMetadata -&gt; Maybe (HashMap Text MetadataValue)
-</span><a href="#local-6989586621679851240"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679853064"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-161"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-162"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -406,33 +406,33 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text MetadataValue) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text MetadataValue)
-</span><a href="#local-6989586621679851242"><span class="hs-identifier hs-var">metadata</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679853066"><span class="hs-identifier hs-var">metadata</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-164"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679851241"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679853065"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-165"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ResourceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679851240"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679853064"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-166"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-167"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>
 </span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateOpsMetadata.html#CreateOpsMetadata"><span class="hs-identifier hs-type">CreateOpsMetadata</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-170"></span><span>  </span><span id="local-6989586621679851234"><span class="annot"><span class="annottext">toPath :: CreateOpsMetadata -&gt; ByteString
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679853058"><span class="annot"><span class="annottext">toPath :: CreateOpsMetadata -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateOpsMetadata -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-171"></span><span>
 </span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateOpsMetadata.html#CreateOpsMetadata"><span class="hs-identifier hs-type">CreateOpsMetadata</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-173"></span><span>  </span><span id="local-6989586621679851230"><span class="annot"><span class="annottext">toQuery :: CreateOpsMetadata -&gt; QueryString
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679853054"><span class="annot"><span class="annottext">toQuery :: CreateOpsMetadata -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateOpsMetadata -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -440,7 +440,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-174"></span><span>
 </span><span id="line-175"></span><span class="hs-comment">-- | /See:/ 'newCreateOpsMetadataResponse' smart constructor.</span><span>
-</span><span id="line-176"></span><span id="local-6989586621679851227"><span id="local-6989586621679851228"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateOpsMetadataResponse"><span class="annot"><a href="Network.AWS.SSM.CreateOpsMetadata.html#CreateOpsMetadataResponse"><span class="hs-identifier hs-var">CreateOpsMetadataResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateOpsMetadataResponse%27"><span class="annot"><a href="Network.AWS.SSM.CreateOpsMetadata.html#CreateOpsMetadataResponse%27"><span class="hs-identifier hs-var">CreateOpsMetadataResponse'</span></a></span></span><span>
+</span><span id="line-176"></span><span id="local-6989586621679853051"><span id="local-6989586621679853052"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateOpsMetadataResponse"><span class="annot"><a href="Network.AWS.SSM.CreateOpsMetadata.html#CreateOpsMetadataResponse"><span class="hs-identifier hs-var">CreateOpsMetadataResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateOpsMetadataResponse%27"><span class="annot"><a href="Network.AWS.SSM.CreateOpsMetadata.html#CreateOpsMetadataResponse%27"><span class="hs-identifier hs-var">CreateOpsMetadataResponse'</span></a></span></span><span>
 </span><span id="line-177"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the OpsMetadata Object or blob created</span><span>
 </span><span id="line-178"></span><span>    </span><span class="hs-comment">-- by the call.</span><span>
 </span><span id="line-179"></span><span>    </span><span id="%24sel%3AopsMetadataArn%3ACreateOpsMetadataResponse%27"><span class="annot"><span class="annottext">CreateOpsMetadataResponse -&gt; Maybe Text
@@ -449,7 +449,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-181"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateOpsMetadataResponse%27"><span class="annot"><span class="annottext">CreateOpsMetadataResponse -&gt; Int
 </span><a href="Network.AWS.SSM.CreateOpsMetadata.html#%24sel%3AhttpStatus%3ACreateOpsMetadataResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-182"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-183"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679851221"><span id="local-6989586621679851223"><span class="annot"><span class="annottext">CreateOpsMetadataResponse -&gt; CreateOpsMetadataResponse -&gt; Bool
+</span><span id="line-183"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679853045"><span id="local-6989586621679853047"><span class="annot"><span class="annottext">CreateOpsMetadataResponse -&gt; CreateOpsMetadataResponse -&gt; Bool
 (CreateOpsMetadataResponse -&gt; CreateOpsMetadataResponse -&gt; Bool)
 -&gt; (CreateOpsMetadataResponse -&gt; CreateOpsMetadataResponse -&gt; Bool)
 -&gt; Eq CreateOpsMetadataResponse
@@ -458,7 +458,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateOpsMetadataResponse -&gt; CreateOpsMetadataResponse -&gt; Bool
 == :: CreateOpsMetadataResponse -&gt; CreateOpsMetadataResponse -&gt; Bool
 $c== :: CreateOpsMetadataResponse -&gt; CreateOpsMetadataResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679851213"><span id="local-6989586621679851215"><span id="local-6989586621679851217"><span id="local-6989586621679851219"><span class="annot"><span class="annottext">ReadPrec [CreateOpsMetadataResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679853037"><span id="local-6989586621679853039"><span id="local-6989586621679853041"><span id="local-6989586621679853043"><span class="annot"><span class="annottext">ReadPrec [CreateOpsMetadataResponse]
 ReadPrec CreateOpsMetadataResponse
 Int -&gt; ReadS CreateOpsMetadataResponse
 ReadS [CreateOpsMetadataResponse]
@@ -478,7 +478,7 @@ readList :: ReadS [CreateOpsMetadataResponse]
 $creadList :: ReadS [CreateOpsMetadataResponse]
 readsPrec :: Int -&gt; ReadS CreateOpsMetadataResponse
 $creadsPrec :: Int -&gt; ReadS CreateOpsMetadataResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679851207"><span id="local-6989586621679851209"><span id="local-6989586621679851211"><span class="annot"><span class="annottext">Int -&gt; CreateOpsMetadataResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679853031"><span id="local-6989586621679853033"><span id="local-6989586621679853035"><span class="annot"><span class="annottext">Int -&gt; CreateOpsMetadataResponse -&gt; ShowS
 [CreateOpsMetadataResponse] -&gt; ShowS
 CreateOpsMetadataResponse -&gt; String
 (Int -&gt; CreateOpsMetadataResponse -&gt; ShowS)
@@ -527,8 +527,8 @@ CreateOpsMetadataResponse -&gt; Rep CreateOpsMetadataResponse x
 </span><span id="line-199"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-200"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.CreateOpsMetadata.html#CreateOpsMetadataResponse"><span class="hs-identifier hs-type">CreateOpsMetadataResponse</span></a></span><span>
 </span><span id="line-201"></span><span id="newCreateOpsMetadataResponse"><span class="annot"><span class="annottext">newCreateOpsMetadataResponse :: Int -&gt; CreateOpsMetadataResponse
-</span><a href="Network.AWS.SSM.CreateOpsMetadata.html#newCreateOpsMetadataResponse"><span class="hs-identifier hs-var hs-var">newCreateOpsMetadataResponse</span></a></span></span><span> </span><span id="local-6989586621679851204"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679851204"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SSM.CreateOpsMetadata.html#newCreateOpsMetadataResponse"><span class="hs-identifier hs-var hs-var">newCreateOpsMetadataResponse</span></a></span></span><span> </span><span id="local-6989586621679853028"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679853028"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-202"></span><span>  </span><span class="annot"><span class="annottext">CreateOpsMetadataResponse' :: Maybe Text -&gt; Int -&gt; CreateOpsMetadataResponse
 </span><a href="Network.AWS.SSM.CreateOpsMetadata.html#CreateOpsMetadataResponse%27"><span class="hs-identifier hs-type">CreateOpsMetadataResponse'</span></a></span><span>
 </span><span id="line-203"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:opsMetadataArn:CreateOpsMetadataResponse' :: Maybe Text
@@ -538,7 +538,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-205"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateOpsMetadataResponse' :: Int
 </span><a href="Network.AWS.SSM.CreateOpsMetadata.html#%24sel%3AhttpStatus%3ACreateOpsMetadataResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679851204"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679853028"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-206"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-207"></span><span>
 </span><span id="line-208"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the OpsMetadata Object or blob created</span><span>
@@ -555,16 +555,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.CreateOpsMetadata.html#CreateOpsMetadataResponse%27"><span class="hs-identifier hs-type">CreateOpsMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679851203"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.CreateOpsMetadata.html#CreateOpsMetadataResponse%27"><span class="hs-identifier hs-type">CreateOpsMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679853027"><span class="annot"><span class="annottext">Maybe Text
 opsMetadataArn :: Maybe Text
 $sel:opsMetadataArn:CreateOpsMetadataResponse' :: CreateOpsMetadataResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679851203"><span class="hs-identifier hs-var hs-var">opsMetadataArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679851203"><span class="hs-identifier hs-var">opsMetadataArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679851202"><span class="annot"><span class="annottext">s :: CreateOpsMetadataResponse
-</span><a href="#local-6989586621679851202"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.CreateOpsMetadata.html#CreateOpsMetadataResponse%27"><span class="hs-identifier hs-type">CreateOpsMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679851201"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679851201"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateOpsMetadataResponse
-</span><a href="#local-6989586621679851202"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:opsMetadataArn:CreateOpsMetadataResponse' :: Maybe Text
+</span><a href="#local-6989586621679853027"><span class="hs-identifier hs-var hs-var">opsMetadataArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679853027"><span class="hs-identifier hs-var">opsMetadataArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679853026"><span class="annot"><span class="annottext">s :: CreateOpsMetadataResponse
+</span><a href="#local-6989586621679853026"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.CreateOpsMetadata.html#CreateOpsMetadataResponse%27"><span class="hs-identifier hs-type">CreateOpsMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679853025"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679853025"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateOpsMetadataResponse
+</span><a href="#local-6989586621679853026"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:opsMetadataArn:CreateOpsMetadataResponse' :: Maybe Text
 </span><a href="Network.AWS.SSM.CreateOpsMetadata.html#%24sel%3AopsMetadataArn%3ACreateOpsMetadataResponse%27"><span class="hs-identifier hs-var">opsMetadataArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679851201"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateOpsMetadata.html#CreateOpsMetadataResponse"><span class="hs-identifier hs-type">CreateOpsMetadataResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679853025"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateOpsMetadata.html#CreateOpsMetadataResponse"><span class="hs-identifier hs-type">CreateOpsMetadataResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-212"></span><span>
 </span><span id="line-213"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-214"></span><span class="annot"><a href="Network.AWS.SSM.CreateOpsMetadata.html#createOpsMetadataResponse_httpStatus"><span class="hs-identifier hs-type">createOpsMetadataResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateOpsMetadata.html#CreateOpsMetadataResponse"><span class="hs-identifier hs-type">CreateOpsMetadataResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -574,16 +574,16 @@ $sel:opsMetadataArn:CreateOpsMetadataResponse' :: CreateOpsMetadataResponse -&gt
 -&gt; (CreateOpsMetadataResponse -&gt; Int -&gt; CreateOpsMetadataResponse)
 -&gt; Lens CreateOpsMetadataResponse CreateOpsMetadataResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.CreateOpsMetadata.html#CreateOpsMetadataResponse%27"><span class="hs-identifier hs-type">CreateOpsMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679851200"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.CreateOpsMetadata.html#CreateOpsMetadataResponse%27"><span class="hs-identifier hs-type">CreateOpsMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679853024"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateOpsMetadataResponse' :: CreateOpsMetadataResponse -&gt; Int
-</span><a href="#local-6989586621679851200"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679851200"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679851199"><span class="annot"><span class="annottext">s :: CreateOpsMetadataResponse
-</span><a href="#local-6989586621679851199"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.CreateOpsMetadata.html#CreateOpsMetadataResponse%27"><span class="hs-identifier hs-type">CreateOpsMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679851198"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679851198"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateOpsMetadataResponse
-</span><a href="#local-6989586621679851199"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateOpsMetadataResponse' :: Int
+</span><a href="#local-6989586621679853024"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679853024"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679853023"><span class="annot"><span class="annottext">s :: CreateOpsMetadataResponse
+</span><a href="#local-6989586621679853023"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.CreateOpsMetadata.html#CreateOpsMetadataResponse%27"><span class="hs-identifier hs-type">CreateOpsMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679853022"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679853022"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateOpsMetadataResponse
+</span><a href="#local-6989586621679853023"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateOpsMetadataResponse' :: Int
 </span><a href="Network.AWS.SSM.CreateOpsMetadata.html#%24sel%3AhttpStatus%3ACreateOpsMetadataResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679851198"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateOpsMetadata.html#CreateOpsMetadataResponse"><span class="hs-identifier hs-type">CreateOpsMetadataResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679853022"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateOpsMetadata.html#CreateOpsMetadataResponse"><span class="hs-identifier hs-type">CreateOpsMetadataResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-216"></span><span>
-</span><span id="line-217"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679851196"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateOpsMetadata.html#CreateOpsMetadataResponse"><span class="hs-identifier hs-type">CreateOpsMetadataResponse</span></a></span></span><span>
+</span><span id="line-217"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679853020"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateOpsMetadata.html#CreateOpsMetadataResponse"><span class="hs-identifier hs-type">CreateOpsMetadataResponse</span></a></span></span><span>
 </span><span id="line-218"></span></pre></body></html>

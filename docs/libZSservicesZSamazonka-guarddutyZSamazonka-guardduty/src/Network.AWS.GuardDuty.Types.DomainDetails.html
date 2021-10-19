@@ -26,12 +26,12 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Contains information about the domain.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newDomainDetails' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679295418"><span id="local-6989586621679295419"></span></span><span class="hs-keyword">data</span><span> </span><span id="DomainDetails"><span class="annot"><a href="Network.AWS.GuardDuty.Types.DomainDetails.html#DomainDetails"><span class="hs-identifier hs-var">DomainDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DomainDetails%27"><span class="annot"><a href="Network.AWS.GuardDuty.Types.DomainDetails.html#DomainDetails%27"><span class="hs-identifier hs-var">DomainDetails'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679295701"><span id="local-6989586621679295702"></span></span><span class="hs-keyword">data</span><span> </span><span id="DomainDetails"><span class="annot"><a href="Network.AWS.GuardDuty.Types.DomainDetails.html#DomainDetails"><span class="hs-identifier hs-var">DomainDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DomainDetails%27"><span class="annot"><a href="Network.AWS.GuardDuty.Types.DomainDetails.html#DomainDetails%27"><span class="hs-identifier hs-var">DomainDetails'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The domain information for the AWS API call.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3Adomain%3ADomainDetails%27"><span class="annot"><span class="annottext">DomainDetails -&gt; Maybe Text
 </span><a href="Network.AWS.GuardDuty.Types.DomainDetails.html#%24sel%3Adomain%3ADomainDetails%27"><span class="hs-identifier hs-var hs-var">domain</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679295412"><span id="local-6989586621679295414"><span class="annot"><span class="annottext">DomainDetails -&gt; DomainDetails -&gt; Bool
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679295695"><span id="local-6989586621679295697"><span class="annot"><span class="annottext">DomainDetails -&gt; DomainDetails -&gt; Bool
 (DomainDetails -&gt; DomainDetails -&gt; Bool)
 -&gt; (DomainDetails -&gt; DomainDetails -&gt; Bool) -&gt; Eq DomainDetails
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -39,7 +39,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DomainDetails -&gt; DomainDetails -&gt; Bool
 == :: DomainDetails -&gt; DomainDetails -&gt; Bool
 $c== :: DomainDetails -&gt; DomainDetails -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679295403"><span id="local-6989586621679295405"><span id="local-6989586621679295407"><span id="local-6989586621679295409"><span class="annot"><span class="annottext">ReadPrec [DomainDetails]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679295686"><span id="local-6989586621679295688"><span id="local-6989586621679295690"><span id="local-6989586621679295692"><span class="annot"><span class="annottext">ReadPrec [DomainDetails]
 ReadPrec DomainDetails
 Int -&gt; ReadS DomainDetails
 ReadS [DomainDetails]
@@ -59,7 +59,7 @@ readList :: ReadS [DomainDetails]
 $creadList :: ReadS [DomainDetails]
 readsPrec :: Int -&gt; ReadS DomainDetails
 $creadsPrec :: Int -&gt; ReadS DomainDetails
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679295396"><span id="local-6989586621679295398"><span id="local-6989586621679295400"><span class="annot"><span class="annottext">Int -&gt; DomainDetails -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679295679"><span id="local-6989586621679295681"><span id="local-6989586621679295683"><span class="annot"><span class="annottext">Int -&gt; DomainDetails -&gt; ShowS
 [DomainDetails] -&gt; ShowS
 DomainDetails -&gt; String
 (Int -&gt; DomainDetails -&gt; ShowS)
@@ -111,19 +111,19 @@ forall a. Maybe a
 -&gt; (DomainDetails -&gt; Maybe Text -&gt; DomainDetails)
 -&gt; Lens DomainDetails DomainDetails (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DomainDetails.html#DomainDetails%27"><span class="hs-identifier hs-type">DomainDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295387"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DomainDetails.html#DomainDetails%27"><span class="hs-identifier hs-type">DomainDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295670"><span class="annot"><span class="annottext">Maybe Text
 domain :: Maybe Text
 $sel:domain:DomainDetails' :: DomainDetails -&gt; Maybe Text
-</span><a href="#local-6989586621679295387"><span class="hs-identifier hs-var hs-var">domain</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679295387"><span class="hs-identifier hs-var">domain</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295386"><span class="annot"><span class="annottext">s :: DomainDetails
-</span><a href="#local-6989586621679295386"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DomainDetails.html#DomainDetails%27"><span class="hs-identifier hs-type">DomainDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295385"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679295385"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainDetails
-</span><a href="#local-6989586621679295386"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domain:DomainDetails' :: Maybe Text
+</span><a href="#local-6989586621679295670"><span class="hs-identifier hs-var hs-var">domain</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679295670"><span class="hs-identifier hs-var">domain</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295669"><span class="annot"><span class="annottext">s :: DomainDetails
+</span><a href="#local-6989586621679295669"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DomainDetails.html#DomainDetails%27"><span class="hs-identifier hs-type">DomainDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295668"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679295668"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainDetails
+</span><a href="#local-6989586621679295669"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domain:DomainDetails' :: Maybe Text
 </span><a href="Network.AWS.GuardDuty.Types.DomainDetails.html#%24sel%3Adomain%3ADomainDetails%27"><span class="hs-identifier hs-var">domain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679295385"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DomainDetails.html#DomainDetails"><span class="hs-identifier hs-type">DomainDetails</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679295668"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DomainDetails.html#DomainDetails"><span class="hs-identifier hs-type">DomainDetails</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-52"></span><span>
-</span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295382"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DomainDetails.html#DomainDetails"><span class="hs-identifier hs-type">DomainDetails</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-54"></span><span>  </span><span id="local-6989586621679295380"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DomainDetails
+</span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295665"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DomainDetails.html#DomainDetails"><span class="hs-identifier hs-type">DomainDetails</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-54"></span><span>  </span><span id="local-6989586621679295663"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DomainDetails
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser DomainDetails)
@@ -133,20 +133,20 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;DomainDetails&quot;</span></span><span>
-</span><span id="line-57"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679295377"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679295377"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-57"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679295660"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679295660"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-58"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; DomainDetails
 </span><a href="Network.AWS.GuardDuty.Types.DomainDetails.html#DomainDetails%27"><span class="hs-identifier hs-var">DomainDetails'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; DomainDetails)
 -&gt; Parser (Maybe Text) -&gt; Parser DomainDetails
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679295377"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679295660"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;domain&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-59"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295371"><span id="local-6989586621679295373"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DomainDetails.html#DomainDetails"><span class="hs-identifier hs-type">DomainDetails</span></a></span></span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295654"><span id="local-6989586621679295656"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DomainDetails.html#DomainDetails"><span class="hs-identifier hs-type">DomainDetails</span></a></span></span></span><span>
 </span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295368"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DomainDetails.html#DomainDetails"><span class="hs-identifier hs-type">DomainDetails</span></a></span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295651"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DomainDetails.html#DomainDetails"><span class="hs-identifier hs-type">DomainDetails</span></a></span></span><span>
 </span><span id="line-64"></span></pre></body></html>

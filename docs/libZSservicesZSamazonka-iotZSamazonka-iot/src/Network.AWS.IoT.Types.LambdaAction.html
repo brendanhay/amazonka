@@ -26,12 +26,12 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Describes an action to invoke a Lambda function.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newLambdaAction' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679788162"><span id="local-6989586621679788163"></span></span><span class="hs-keyword">data</span><span> </span><span id="LambdaAction"><span class="annot"><a href="Network.AWS.IoT.Types.LambdaAction.html#LambdaAction"><span class="hs-identifier hs-var">LambdaAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LambdaAction%27"><span class="annot"><a href="Network.AWS.IoT.Types.LambdaAction.html#LambdaAction%27"><span class="hs-identifier hs-var">LambdaAction'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679789020"><span id="local-6989586621679789021"></span></span><span class="hs-keyword">data</span><span> </span><span id="LambdaAction"><span class="annot"><a href="Network.AWS.IoT.Types.LambdaAction.html#LambdaAction"><span class="hs-identifier hs-var">LambdaAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LambdaAction%27"><span class="annot"><a href="Network.AWS.IoT.Types.LambdaAction.html#LambdaAction%27"><span class="hs-identifier hs-var">LambdaAction'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the Lambda function.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AfunctionArn%3ALambdaAction%27"><span class="annot"><span class="annottext">LambdaAction -&gt; Text
 </span><a href="Network.AWS.IoT.Types.LambdaAction.html#%24sel%3AfunctionArn%3ALambdaAction%27"><span class="hs-identifier hs-var hs-var">functionArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679788156"><span id="local-6989586621679788158"><span class="annot"><span class="annottext">LambdaAction -&gt; LambdaAction -&gt; Bool
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679789014"><span id="local-6989586621679789016"><span class="annot"><span class="annottext">LambdaAction -&gt; LambdaAction -&gt; Bool
 (LambdaAction -&gt; LambdaAction -&gt; Bool)
 -&gt; (LambdaAction -&gt; LambdaAction -&gt; Bool) -&gt; Eq LambdaAction
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -39,7 +39,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: LambdaAction -&gt; LambdaAction -&gt; Bool
 == :: LambdaAction -&gt; LambdaAction -&gt; Bool
 $c== :: LambdaAction -&gt; LambdaAction -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679788147"><span id="local-6989586621679788149"><span id="local-6989586621679788151"><span id="local-6989586621679788153"><span class="annot"><span class="annottext">ReadPrec [LambdaAction]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679789005"><span id="local-6989586621679789007"><span id="local-6989586621679789009"><span id="local-6989586621679789011"><span class="annot"><span class="annottext">ReadPrec [LambdaAction]
 ReadPrec LambdaAction
 Int -&gt; ReadS LambdaAction
 ReadS [LambdaAction]
@@ -59,7 +59,7 @@ readList :: ReadS [LambdaAction]
 $creadList :: ReadS [LambdaAction]
 readsPrec :: Int -&gt; ReadS LambdaAction
 $creadsPrec :: Int -&gt; ReadS LambdaAction
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679788140"><span id="local-6989586621679788142"><span id="local-6989586621679788144"><span class="annot"><span class="annottext">Int -&gt; LambdaAction -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679788998"><span id="local-6989586621679789000"><span id="local-6989586621679789002"><span class="annot"><span class="annottext">Int -&gt; LambdaAction -&gt; ShowS
 [LambdaAction] -&gt; ShowS
 LambdaAction -&gt; String
 (Int -&gt; LambdaAction -&gt; ShowS)
@@ -99,12 +99,12 @@ $cfrom :: forall x. LambdaAction -&gt; Rep LambdaAction x
 </span><span id="line-46"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-47"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.Types.LambdaAction.html#LambdaAction"><span class="hs-identifier hs-type">LambdaAction</span></a></span><span>
 </span><span id="line-48"></span><span id="newLambdaAction"><span class="annot"><span class="annottext">newLambdaAction :: Text -&gt; LambdaAction
-</span><a href="Network.AWS.IoT.Types.LambdaAction.html#newLambdaAction"><span class="hs-identifier hs-var hs-var">newLambdaAction</span></a></span></span><span> </span><span id="local-6989586621679788134"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679788134"><span class="hs-identifier hs-var">pFunctionArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.Types.LambdaAction.html#newLambdaAction"><span class="hs-identifier hs-var hs-var">newLambdaAction</span></a></span></span><span> </span><span id="local-6989586621679788992"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679788992"><span class="hs-identifier hs-var">pFunctionArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-49"></span><span>  </span><span class="annot"><span class="annottext">LambdaAction' :: Text -&gt; LambdaAction
 </span><a href="Network.AWS.IoT.Types.LambdaAction.html#LambdaAction%27"><span class="hs-identifier hs-type">LambdaAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:functionArn:LambdaAction' :: Text
 </span><a href="Network.AWS.IoT.Types.LambdaAction.html#%24sel%3AfunctionArn%3ALambdaAction%27"><span class="hs-identifier hs-var">functionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679788134"><span class="hs-identifier hs-var">pFunctionArn_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679788992"><span class="hs-identifier hs-var">pFunctionArn_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | The ARN of the Lambda function.</span><span>
 </span><span id="line-52"></span><span class="annot"><a href="Network.AWS.IoT.Types.LambdaAction.html#lambdaAction_functionArn"><span class="hs-identifier hs-type">lambdaAction_functionArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.LambdaAction.html#LambdaAction"><span class="hs-identifier hs-type">LambdaAction</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -113,19 +113,19 @@ $cfrom :: forall x. LambdaAction -&gt; Rep LambdaAction x
 -&gt; (LambdaAction -&gt; Text -&gt; LambdaAction)
 -&gt; Lens LambdaAction LambdaAction Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.LambdaAction.html#LambdaAction%27"><span class="hs-identifier hs-type">LambdaAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679788130"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.LambdaAction.html#LambdaAction%27"><span class="hs-identifier hs-type">LambdaAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679788988"><span class="annot"><span class="annottext">Text
 functionArn :: Text
 $sel:functionArn:LambdaAction' :: LambdaAction -&gt; Text
-</span><a href="#local-6989586621679788130"><span class="hs-identifier hs-var hs-var">functionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679788130"><span class="hs-identifier hs-var">functionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679788129"><span class="annot"><span class="annottext">s :: LambdaAction
-</span><a href="#local-6989586621679788129"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.LambdaAction.html#LambdaAction%27"><span class="hs-identifier hs-type">LambdaAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679788128"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679788128"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaAction
-</span><a href="#local-6989586621679788129"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:functionArn:LambdaAction' :: Text
+</span><a href="#local-6989586621679788988"><span class="hs-identifier hs-var hs-var">functionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679788988"><span class="hs-identifier hs-var">functionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679788987"><span class="annot"><span class="annottext">s :: LambdaAction
+</span><a href="#local-6989586621679788987"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.LambdaAction.html#LambdaAction%27"><span class="hs-identifier hs-type">LambdaAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679788986"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679788986"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaAction
+</span><a href="#local-6989586621679788987"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:functionArn:LambdaAction' :: Text
 </span><a href="Network.AWS.IoT.Types.LambdaAction.html#%24sel%3AfunctionArn%3ALambdaAction%27"><span class="hs-identifier hs-var">functionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679788128"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.LambdaAction.html#LambdaAction"><span class="hs-identifier hs-type">LambdaAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679788986"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.LambdaAction.html#LambdaAction"><span class="hs-identifier hs-type">LambdaAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-54"></span><span>
-</span><span id="line-55"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679788125"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.LambdaAction.html#LambdaAction"><span class="hs-identifier hs-type">LambdaAction</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-56"></span><span>  </span><span id="local-6989586621679788123"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LambdaAction
+</span><span id="line-55"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679788983"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.LambdaAction.html#LambdaAction"><span class="hs-identifier hs-type">LambdaAction</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-56"></span><span>  </span><span id="local-6989586621679788981"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LambdaAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-57"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser LambdaAction) -&gt; Value -&gt; Parser LambdaAction
@@ -133,28 +133,28 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;LambdaAction&quot;</span></span><span>
-</span><span id="line-59"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679788120"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679788120"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-59"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679788978"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679788978"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-60"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; LambdaAction
 </span><a href="Network.AWS.IoT.Types.LambdaAction.html#LambdaAction%27"><span class="hs-identifier hs-var">LambdaAction'</span></a></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; LambdaAction) -&gt; Parser Text -&gt; Parser LambdaAction
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679788120"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679788978"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;functionArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679788114"><span id="local-6989586621679788116"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.LambdaAction.html#LambdaAction"><span class="hs-identifier hs-type">LambdaAction</span></a></span></span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679788972"><span id="local-6989586621679788974"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.LambdaAction.html#LambdaAction"><span class="hs-identifier hs-type">LambdaAction</span></a></span></span></span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679788111"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.LambdaAction.html#LambdaAction"><span class="hs-identifier hs-type">LambdaAction</span></a></span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679788969"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.LambdaAction.html#LambdaAction"><span class="hs-identifier hs-type">LambdaAction</span></a></span></span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679788103"><span id="local-6989586621679788105"><span id="local-6989586621679788107"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.LambdaAction.html#LambdaAction"><span class="hs-identifier hs-type">LambdaAction</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-68"></span><span>  </span><span id="local-6989586621679788101"><span class="annot"><span class="annottext">toJSON :: LambdaAction -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.LambdaAction.html#LambdaAction%27"><span class="hs-identifier hs-type">LambdaAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679788099"><span class="annot"><span class="annottext">Text
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679788961"><span id="local-6989586621679788963"><span id="local-6989586621679788965"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.LambdaAction.html#LambdaAction"><span class="hs-identifier hs-type">LambdaAction</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621679788959"><span class="annot"><span class="annottext">toJSON :: LambdaAction -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.LambdaAction.html#LambdaAction%27"><span class="hs-identifier hs-type">LambdaAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679788957"><span class="annot"><span class="annottext">Text
 functionArn :: Text
 $sel:functionArn:LambdaAction' :: LambdaAction -&gt; Text
-</span><a href="#local-6989586621679788099"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679788957"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-69"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -166,6 +166,6 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;functionArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679788099"><span class="hs-identifier hs-var">functionArn</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679788957"><span class="hs-identifier hs-var">functionArn</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-72"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span></pre></body></html>

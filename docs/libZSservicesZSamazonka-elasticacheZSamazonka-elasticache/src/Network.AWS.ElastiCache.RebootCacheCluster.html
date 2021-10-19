@@ -68,7 +68,7 @@
 </span><span id="line-68"></span><span class="hs-comment">-- | Represents the input of a @RebootCacheCluster@ operation.</span><span>
 </span><span id="line-69"></span><span class="hs-comment">--</span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- /See:/ 'newRebootCacheCluster' smart constructor.</span><span>
-</span><span id="line-71"></span><span id="local-6989586621679410801"><span id="local-6989586621679410802"></span></span><span class="hs-keyword">data</span><span> </span><span id="RebootCacheCluster"><span class="annot"><a href="Network.AWS.ElastiCache.RebootCacheCluster.html#RebootCacheCluster"><span class="hs-identifier hs-var">RebootCacheCluster</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RebootCacheCluster%27"><span class="annot"><a href="Network.AWS.ElastiCache.RebootCacheCluster.html#RebootCacheCluster%27"><span class="hs-identifier hs-var">RebootCacheCluster'</span></a></span></span><span>
+</span><span id="line-71"></span><span id="local-6989586621679411355"><span id="local-6989586621679411356"></span></span><span class="hs-keyword">data</span><span> </span><span id="RebootCacheCluster"><span class="annot"><a href="Network.AWS.ElastiCache.RebootCacheCluster.html#RebootCacheCluster"><span class="hs-identifier hs-var">RebootCacheCluster</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RebootCacheCluster%27"><span class="annot"><a href="Network.AWS.ElastiCache.RebootCacheCluster.html#RebootCacheCluster%27"><span class="hs-identifier hs-var">RebootCacheCluster'</span></a></span></span><span>
 </span><span id="line-72"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The cluster identifier. This parameter is stored as a lowercase string.</span><span>
 </span><span id="line-73"></span><span>    </span><span id="%24sel%3AcacheClusterId%3ARebootCacheCluster%27"><span class="annot"><span class="annottext">RebootCacheCluster -&gt; Text
 </span><a href="Network.AWS.ElastiCache.RebootCacheCluster.html#%24sel%3AcacheClusterId%3ARebootCacheCluster%27"><span class="hs-identifier hs-var hs-var">cacheClusterId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -78,7 +78,7 @@
 </span><span id="line-77"></span><span>    </span><span id="%24sel%3AcacheNodeIdsToReboot%3ARebootCacheCluster%27"><span class="annot"><span class="annottext">RebootCacheCluster -&gt; [Text]
 </span><a href="Network.AWS.ElastiCache.RebootCacheCluster.html#%24sel%3AcacheNodeIdsToReboot%3ARebootCacheCluster%27"><span class="hs-identifier hs-var hs-var">cacheNodeIdsToReboot</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-78"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-79"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679410794"><span id="local-6989586621679410796"><span class="annot"><span class="annottext">RebootCacheCluster -&gt; RebootCacheCluster -&gt; Bool
+</span><span id="line-79"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679411348"><span id="local-6989586621679411350"><span class="annot"><span class="annottext">RebootCacheCluster -&gt; RebootCacheCluster -&gt; Bool
 (RebootCacheCluster -&gt; RebootCacheCluster -&gt; Bool)
 -&gt; (RebootCacheCluster -&gt; RebootCacheCluster -&gt; Bool)
 -&gt; Eq RebootCacheCluster
@@ -87,7 +87,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RebootCacheCluster -&gt; RebootCacheCluster -&gt; Bool
 == :: RebootCacheCluster -&gt; RebootCacheCluster -&gt; Bool
 $c== :: RebootCacheCluster -&gt; RebootCacheCluster -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679410785"><span id="local-6989586621679410787"><span id="local-6989586621679410789"><span id="local-6989586621679410791"><span class="annot"><span class="annottext">ReadPrec [RebootCacheCluster]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679411339"><span id="local-6989586621679411341"><span id="local-6989586621679411343"><span id="local-6989586621679411345"><span class="annot"><span class="annottext">ReadPrec [RebootCacheCluster]
 ReadPrec RebootCacheCluster
 Int -&gt; ReadS RebootCacheCluster
 ReadS [RebootCacheCluster]
@@ -107,7 +107,7 @@ readList :: ReadS [RebootCacheCluster]
 $creadList :: ReadS [RebootCacheCluster]
 readsPrec :: Int -&gt; ReadS RebootCacheCluster
 $creadsPrec :: Int -&gt; ReadS RebootCacheCluster
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679410778"><span id="local-6989586621679410780"><span id="local-6989586621679410782"><span class="annot"><span class="annottext">Int -&gt; RebootCacheCluster -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679411332"><span id="local-6989586621679411334"><span id="local-6989586621679411336"><span class="annot"><span class="annottext">Int -&gt; RebootCacheCluster -&gt; ShowS
 [RebootCacheCluster] -&gt; ShowS
 RebootCacheCluster -&gt; String
 (Int -&gt; RebootCacheCluster -&gt; ShowS)
@@ -151,14 +151,14 @@ $cfrom :: forall x. RebootCacheCluster -&gt; Rep RebootCacheCluster x
 </span><span id="line-96"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-97"></span><span>  </span><span class="annot"><a href="Network.AWS.ElastiCache.RebootCacheCluster.html#RebootCacheCluster"><span class="hs-identifier hs-type">RebootCacheCluster</span></a></span><span>
 </span><span id="line-98"></span><span id="newRebootCacheCluster"><span class="annot"><span class="annottext">newRebootCacheCluster :: Text -&gt; RebootCacheCluster
-</span><a href="Network.AWS.ElastiCache.RebootCacheCluster.html#newRebootCacheCluster"><span class="hs-identifier hs-var hs-var">newRebootCacheCluster</span></a></span></span><span> </span><span id="local-6989586621679410773"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679410773"><span class="hs-identifier hs-var">pCacheClusterId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ElastiCache.RebootCacheCluster.html#newRebootCacheCluster"><span class="hs-identifier hs-var hs-var">newRebootCacheCluster</span></a></span></span><span> </span><span id="local-6989586621679411327"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679411327"><span class="hs-identifier hs-var">pCacheClusterId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>  </span><span class="annot"><span class="annottext">RebootCacheCluster' :: Text -&gt; [Text] -&gt; RebootCacheCluster
 </span><a href="Network.AWS.ElastiCache.RebootCacheCluster.html#RebootCacheCluster%27"><span class="hs-identifier hs-type">RebootCacheCluster'</span></a></span><span>
 </span><span id="line-100"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:cacheClusterId:RebootCacheCluster' :: Text
 </span><a href="Network.AWS.ElastiCache.RebootCacheCluster.html#%24sel%3AcacheClusterId%3ARebootCacheCluster%27"><span class="hs-identifier hs-var">cacheClusterId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-101"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679410773"><span class="hs-identifier hs-var">pCacheClusterId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679411327"><span class="hs-identifier hs-var">pCacheClusterId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:cacheNodeIdsToReboot:RebootCacheCluster' :: [Text]
 </span><a href="Network.AWS.ElastiCache.RebootCacheCluster.html#%24sel%3AcacheNodeIdsToReboot%3ARebootCacheCluster%27"><span class="hs-identifier hs-var">cacheNodeIdsToReboot</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
 forall a. Monoid a =&gt; a
@@ -172,16 +172,16 @@ forall a. Monoid a =&gt; a
 -&gt; (RebootCacheCluster -&gt; Text -&gt; RebootCacheCluster)
 -&gt; Lens RebootCacheCluster RebootCacheCluster Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.RebootCacheCluster.html#RebootCacheCluster%27"><span class="hs-identifier hs-type">RebootCacheCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679410770"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.RebootCacheCluster.html#RebootCacheCluster%27"><span class="hs-identifier hs-type">RebootCacheCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679411324"><span class="annot"><span class="annottext">Text
 cacheClusterId :: Text
 $sel:cacheClusterId:RebootCacheCluster' :: RebootCacheCluster -&gt; Text
-</span><a href="#local-6989586621679410770"><span class="hs-identifier hs-var hs-var">cacheClusterId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679410770"><span class="hs-identifier hs-var">cacheClusterId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679410769"><span class="annot"><span class="annottext">s :: RebootCacheCluster
-</span><a href="#local-6989586621679410769"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.RebootCacheCluster.html#RebootCacheCluster%27"><span class="hs-identifier hs-type">RebootCacheCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679410768"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679410768"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RebootCacheCluster
-</span><a href="#local-6989586621679410769"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cacheClusterId:RebootCacheCluster' :: Text
+</span><a href="#local-6989586621679411324"><span class="hs-identifier hs-var hs-var">cacheClusterId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679411324"><span class="hs-identifier hs-var">cacheClusterId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679411323"><span class="annot"><span class="annottext">s :: RebootCacheCluster
+</span><a href="#local-6989586621679411323"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.RebootCacheCluster.html#RebootCacheCluster%27"><span class="hs-identifier hs-type">RebootCacheCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679411322"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679411322"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RebootCacheCluster
+</span><a href="#local-6989586621679411323"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cacheClusterId:RebootCacheCluster' :: Text
 </span><a href="Network.AWS.ElastiCache.RebootCacheCluster.html#%24sel%3AcacheClusterId%3ARebootCacheCluster%27"><span class="hs-identifier hs-var">cacheClusterId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679410768"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.RebootCacheCluster.html#RebootCacheCluster"><span class="hs-identifier hs-type">RebootCacheCluster</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679411322"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.RebootCacheCluster.html#RebootCacheCluster"><span class="hs-identifier hs-type">RebootCacheCluster</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- | A list of cache node IDs to reboot. A node ID is a numeric identifier</span><span>
 </span><span id="line-110"></span><span class="hs-comment">-- (0001, 0002, etc.). To reboot an entire cluster, specify all of the</span><span>
@@ -192,16 +192,16 @@ $sel:cacheClusterId:RebootCacheCluster' :: RebootCacheCluster -&gt; Text
 -&gt; (RebootCacheCluster -&gt; [Text] -&gt; RebootCacheCluster)
 -&gt; Lens RebootCacheCluster RebootCacheCluster [Text] [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.RebootCacheCluster.html#RebootCacheCluster%27"><span class="hs-identifier hs-type">RebootCacheCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679410767"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.RebootCacheCluster.html#RebootCacheCluster%27"><span class="hs-identifier hs-type">RebootCacheCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679411321"><span class="annot"><span class="annottext">[Text]
 cacheNodeIdsToReboot :: [Text]
 $sel:cacheNodeIdsToReboot:RebootCacheCluster' :: RebootCacheCluster -&gt; [Text]
-</span><a href="#local-6989586621679410767"><span class="hs-identifier hs-var hs-var">cacheNodeIdsToReboot</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679410767"><span class="hs-identifier hs-var">cacheNodeIdsToReboot</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679410766"><span class="annot"><span class="annottext">s :: RebootCacheCluster
-</span><a href="#local-6989586621679410766"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.RebootCacheCluster.html#RebootCacheCluster%27"><span class="hs-identifier hs-type">RebootCacheCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679410765"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679410765"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RebootCacheCluster
-</span><a href="#local-6989586621679410766"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cacheNodeIdsToReboot:RebootCacheCluster' :: [Text]
+</span><a href="#local-6989586621679411321"><span class="hs-identifier hs-var hs-var">cacheNodeIdsToReboot</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679411321"><span class="hs-identifier hs-var">cacheNodeIdsToReboot</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679411320"><span class="annot"><span class="annottext">s :: RebootCacheCluster
+</span><a href="#local-6989586621679411320"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.RebootCacheCluster.html#RebootCacheCluster%27"><span class="hs-identifier hs-type">RebootCacheCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679411319"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679411319"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RebootCacheCluster
+</span><a href="#local-6989586621679411320"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cacheNodeIdsToReboot:RebootCacheCluster' :: [Text]
 </span><a href="Network.AWS.ElastiCache.RebootCacheCluster.html#%24sel%3AcacheNodeIdsToReboot%3ARebootCacheCluster%27"><span class="hs-identifier hs-var">cacheNodeIdsToReboot</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679410765"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.RebootCacheCluster.html#RebootCacheCluster"><span class="hs-identifier hs-type">RebootCacheCluster</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+</span><a href="#local-6989586621679411319"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.RebootCacheCluster.html#RebootCacheCluster"><span class="hs-identifier hs-type">RebootCacheCluster</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
  -&gt; RebootCacheCluster -&gt; f RebootCacheCluster)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
@@ -209,19 +209,19 @@ $sel:cacheNodeIdsToReboot:RebootCacheCluster' :: RebootCacheCluster -&gt; [Text]
 -&gt; f RebootCacheCluster
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.RebootCacheCluster.html#RebootCacheCluster"><span class="hs-identifier hs-type">RebootCacheCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-116"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-117"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.RebootCacheCluster.html#RebootCacheCluster"><span class="hs-identifier hs-type">RebootCacheCluster</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>      </span><span class="annot"><a href="Network.AWS.ElastiCache.RebootCacheCluster.html#RebootCacheClusterResponse"><span class="hs-identifier hs-type">RebootCacheClusterResponse</span></a></span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679410759"><span class="annot"><span class="annottext">request :: RebootCacheCluster -&gt; Request RebootCacheCluster
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679411313"><span class="annot"><span class="annottext">request :: RebootCacheCluster -&gt; Request RebootCacheCluster
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; RebootCacheCluster -&gt; Request RebootCacheCluster
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.ElastiCache.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679410755"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679411309"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy RebootCacheCluster
 -&gt; ClientResponse ClientBody
@@ -252,10 +252,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RebootCacheClusterResult&quot;</span></span><span>
-</span><span id="line-123"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679410752"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679410752"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679410751"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679410751"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679410750"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679410750"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679411306"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679411306"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679411305"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679411305"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679411304"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679411304"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-124"></span><span>          </span><span class="annot"><span class="annottext">Maybe CacheCluster -&gt; Int -&gt; RebootCacheClusterResponse
 </span><a href="Network.AWS.ElastiCache.RebootCacheCluster.html#RebootCacheClusterResponse%27"><span class="hs-identifier hs-var">RebootCacheClusterResponse'</span></a></span><span>
 </span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">(Maybe CacheCluster -&gt; Int -&gt; RebootCacheClusterResponse)
@@ -263,7 +263,7 @@ Text
 -&gt; Either String (Int -&gt; RebootCacheClusterResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679410750"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe CacheCluster)
+</span><a href="#local-6989586621679411304"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe CacheCluster)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CacheCluster&quot;</span></span><span class="hs-special">)</span><span>
@@ -275,15 +275,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679410752"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679411306"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679410742"><span id="local-6989586621679410744"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.RebootCacheCluster.html#RebootCacheCluster"><span class="hs-identifier hs-type">RebootCacheCluster</span></a></span></span></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679411296"><span id="local-6989586621679411298"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.RebootCacheCluster.html#RebootCacheCluster"><span class="hs-identifier hs-type">RebootCacheCluster</span></a></span></span></span><span>
 </span><span id="line-130"></span><span>
-</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679410739"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.RebootCacheCluster.html#RebootCacheCluster"><span class="hs-identifier hs-type">RebootCacheCluster</span></a></span></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679411293"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.RebootCacheCluster.html#RebootCacheCluster"><span class="hs-identifier hs-type">RebootCacheCluster</span></a></span></span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.RebootCacheCluster.html#RebootCacheCluster"><span class="hs-identifier hs-type">RebootCacheCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679410735"><span class="annot"><span class="annottext">toHeaders :: RebootCacheCluster -&gt; ResponseHeaders
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679411289"><span class="annot"><span class="annottext">toHeaders :: RebootCacheCluster -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; RebootCacheCluster -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -291,21 +291,21 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.RebootCacheCluster.html#RebootCacheCluster"><span class="hs-identifier hs-type">RebootCacheCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679410730"><span class="annot"><span class="annottext">toPath :: RebootCacheCluster -&gt; ByteString
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679411284"><span class="annot"><span class="annottext">toPath :: RebootCacheCluster -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; RebootCacheCluster -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.RebootCacheCluster.html#RebootCacheCluster"><span class="hs-identifier hs-type">RebootCacheCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679410726"><span class="annot"><span class="annottext">toQuery :: RebootCacheCluster -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.RebootCacheCluster.html#RebootCacheCluster%27"><span class="hs-identifier hs-type">RebootCacheCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679410723"><span id="local-6989586621679410724"><span class="annot"><span class="annottext">[Text]
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679411280"><span class="annot"><span class="annottext">toQuery :: RebootCacheCluster -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.RebootCacheCluster.html#RebootCacheCluster%27"><span class="hs-identifier hs-type">RebootCacheCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679411277"><span id="local-6989586621679411278"><span class="annot"><span class="annottext">[Text]
 Text
 cacheNodeIdsToReboot :: [Text]
 cacheClusterId :: Text
 $sel:cacheNodeIdsToReboot:RebootCacheCluster' :: RebootCacheCluster -&gt; [Text]
 $sel:cacheClusterId:RebootCacheCluster' :: RebootCacheCluster -&gt; Text
-</span><a href="#local-6989586621679410723"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679411277"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-141"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -325,7 +325,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;CacheClusterId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679410724"><span class="hs-identifier hs-var">cacheClusterId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679411278"><span class="hs-identifier hs-var">cacheClusterId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-147"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;CacheNodeIdsToReboot&quot;</span></span><span>
 </span><span id="line-148"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
@@ -336,18 +336,18 @@ forall a.
 ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;CacheNodeId&quot;</span></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679410723"><span class="hs-identifier hs-var">cacheNodeIdsToReboot</span></a></span><span>
+</span><a href="#local-6989586621679411277"><span class="hs-identifier hs-var">cacheNodeIdsToReboot</span></a></span><span>
 </span><span id="line-149"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-comment">-- | /See:/ 'newRebootCacheClusterResponse' smart constructor.</span><span>
-</span><span id="line-152"></span><span id="local-6989586621679410719"><span id="local-6989586621679410720"></span></span><span class="hs-keyword">data</span><span> </span><span id="RebootCacheClusterResponse"><span class="annot"><a href="Network.AWS.ElastiCache.RebootCacheCluster.html#RebootCacheClusterResponse"><span class="hs-identifier hs-var">RebootCacheClusterResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RebootCacheClusterResponse%27"><span class="annot"><a href="Network.AWS.ElastiCache.RebootCacheCluster.html#RebootCacheClusterResponse%27"><span class="hs-identifier hs-var">RebootCacheClusterResponse'</span></a></span></span><span>
+</span><span id="line-152"></span><span id="local-6989586621679411273"><span id="local-6989586621679411274"></span></span><span class="hs-keyword">data</span><span> </span><span id="RebootCacheClusterResponse"><span class="annot"><a href="Network.AWS.ElastiCache.RebootCacheCluster.html#RebootCacheClusterResponse"><span class="hs-identifier hs-var">RebootCacheClusterResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RebootCacheClusterResponse%27"><span class="annot"><a href="Network.AWS.ElastiCache.RebootCacheCluster.html#RebootCacheClusterResponse%27"><span class="hs-identifier hs-var">RebootCacheClusterResponse'</span></a></span></span><span>
 </span><span id="line-153"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AcacheCluster%3ARebootCacheClusterResponse%27"><span class="annot"><span class="annottext">RebootCacheClusterResponse -&gt; Maybe CacheCluster
 </span><a href="Network.AWS.ElastiCache.RebootCacheCluster.html#%24sel%3AcacheCluster%3ARebootCacheClusterResponse%27"><span class="hs-identifier hs-var hs-var">cacheCluster</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheCluster.html#CacheCluster"><span class="hs-identifier hs-type">CacheCluster</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-154"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-155"></span><span>    </span><span id="%24sel%3AhttpStatus%3ARebootCacheClusterResponse%27"><span class="annot"><span class="annottext">RebootCacheClusterResponse -&gt; Int
 </span><a href="Network.AWS.ElastiCache.RebootCacheCluster.html#%24sel%3AhttpStatus%3ARebootCacheClusterResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-156"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-157"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679410713"><span id="local-6989586621679410715"><span class="annot"><span class="annottext">RebootCacheClusterResponse -&gt; RebootCacheClusterResponse -&gt; Bool
+</span><span id="line-157"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679411267"><span id="local-6989586621679411269"><span class="annot"><span class="annottext">RebootCacheClusterResponse -&gt; RebootCacheClusterResponse -&gt; Bool
 (RebootCacheClusterResponse -&gt; RebootCacheClusterResponse -&gt; Bool)
 -&gt; (RebootCacheClusterResponse
     -&gt; RebootCacheClusterResponse -&gt; Bool)
@@ -357,7 +357,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RebootCacheClusterResponse -&gt; RebootCacheClusterResponse -&gt; Bool
 == :: RebootCacheClusterResponse -&gt; RebootCacheClusterResponse -&gt; Bool
 $c== :: RebootCacheClusterResponse -&gt; RebootCacheClusterResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679410705"><span id="local-6989586621679410707"><span id="local-6989586621679410709"><span id="local-6989586621679410711"><span class="annot"><span class="annottext">ReadPrec [RebootCacheClusterResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679411259"><span id="local-6989586621679411261"><span id="local-6989586621679411263"><span id="local-6989586621679411265"><span class="annot"><span class="annottext">ReadPrec [RebootCacheClusterResponse]
 ReadPrec RebootCacheClusterResponse
 Int -&gt; ReadS RebootCacheClusterResponse
 ReadS [RebootCacheClusterResponse]
@@ -377,7 +377,7 @@ readList :: ReadS [RebootCacheClusterResponse]
 $creadList :: ReadS [RebootCacheClusterResponse]
 readsPrec :: Int -&gt; ReadS RebootCacheClusterResponse
 $creadsPrec :: Int -&gt; ReadS RebootCacheClusterResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679410699"><span id="local-6989586621679410701"><span id="local-6989586621679410703"><span class="annot"><span class="annottext">Int -&gt; RebootCacheClusterResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679411253"><span id="local-6989586621679411255"><span id="local-6989586621679411257"><span class="annot"><span class="annottext">Int -&gt; RebootCacheClusterResponse -&gt; ShowS
 [RebootCacheClusterResponse] -&gt; ShowS
 RebootCacheClusterResponse -&gt; String
 (Int -&gt; RebootCacheClusterResponse -&gt; ShowS)
@@ -425,8 +425,8 @@ RebootCacheClusterResponse -&gt; Rep RebootCacheClusterResponse x
 </span><span id="line-172"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-173"></span><span>  </span><span class="annot"><a href="Network.AWS.ElastiCache.RebootCacheCluster.html#RebootCacheClusterResponse"><span class="hs-identifier hs-type">RebootCacheClusterResponse</span></a></span><span>
 </span><span id="line-174"></span><span id="newRebootCacheClusterResponse"><span class="annot"><span class="annottext">newRebootCacheClusterResponse :: Int -&gt; RebootCacheClusterResponse
-</span><a href="Network.AWS.ElastiCache.RebootCacheCluster.html#newRebootCacheClusterResponse"><span class="hs-identifier hs-var hs-var">newRebootCacheClusterResponse</span></a></span></span><span> </span><span id="local-6989586621679410696"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679410696"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ElastiCache.RebootCacheCluster.html#newRebootCacheClusterResponse"><span class="hs-identifier hs-var hs-var">newRebootCacheClusterResponse</span></a></span></span><span> </span><span id="local-6989586621679411250"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679411250"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-175"></span><span>  </span><span class="annot"><span class="annottext">RebootCacheClusterResponse' :: Maybe CacheCluster -&gt; Int -&gt; RebootCacheClusterResponse
 </span><a href="Network.AWS.ElastiCache.RebootCacheCluster.html#RebootCacheClusterResponse%27"><span class="hs-identifier hs-type">RebootCacheClusterResponse'</span></a></span><span>
 </span><span id="line-176"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:cacheCluster:RebootCacheClusterResponse' :: Maybe CacheCluster
@@ -436,7 +436,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-178"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:RebootCacheClusterResponse' :: Int
 </span><a href="Network.AWS.ElastiCache.RebootCacheCluster.html#%24sel%3AhttpStatus%3ARebootCacheClusterResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679410696"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679411250"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-179"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-180"></span><span>
 </span><span id="line-181"></span><span class="hs-comment">-- | Undocumented member.</span><span>
@@ -452,16 +452,16 @@ forall a. Maybe a
      (Maybe CacheCluster)
      (Maybe CacheCluster)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.RebootCacheCluster.html#RebootCacheClusterResponse%27"><span class="hs-identifier hs-type">RebootCacheClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679410695"><span class="annot"><span class="annottext">Maybe CacheCluster
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.RebootCacheCluster.html#RebootCacheClusterResponse%27"><span class="hs-identifier hs-type">RebootCacheClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679411249"><span class="annot"><span class="annottext">Maybe CacheCluster
 cacheCluster :: Maybe CacheCluster
 $sel:cacheCluster:RebootCacheClusterResponse' :: RebootCacheClusterResponse -&gt; Maybe CacheCluster
-</span><a href="#local-6989586621679410695"><span class="hs-identifier hs-var hs-var">cacheCluster</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CacheCluster
-</span><a href="#local-6989586621679410695"><span class="hs-identifier hs-var">cacheCluster</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679410694"><span class="annot"><span class="annottext">s :: RebootCacheClusterResponse
-</span><a href="#local-6989586621679410694"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.RebootCacheCluster.html#RebootCacheClusterResponse%27"><span class="hs-identifier hs-type">RebootCacheClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679410693"><span class="annot"><span class="annottext">Maybe CacheCluster
-</span><a href="#local-6989586621679410693"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RebootCacheClusterResponse
-</span><a href="#local-6989586621679410694"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cacheCluster:RebootCacheClusterResponse' :: Maybe CacheCluster
+</span><a href="#local-6989586621679411249"><span class="hs-identifier hs-var hs-var">cacheCluster</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CacheCluster
+</span><a href="#local-6989586621679411249"><span class="hs-identifier hs-var">cacheCluster</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679411248"><span class="annot"><span class="annottext">s :: RebootCacheClusterResponse
+</span><a href="#local-6989586621679411248"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.RebootCacheCluster.html#RebootCacheClusterResponse%27"><span class="hs-identifier hs-type">RebootCacheClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679411247"><span class="annot"><span class="annottext">Maybe CacheCluster
+</span><a href="#local-6989586621679411247"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RebootCacheClusterResponse
+</span><a href="#local-6989586621679411248"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cacheCluster:RebootCacheClusterResponse' :: Maybe CacheCluster
 </span><a href="Network.AWS.ElastiCache.RebootCacheCluster.html#%24sel%3AcacheCluster%3ARebootCacheClusterResponse%27"><span class="hs-identifier hs-var">cacheCluster</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CacheCluster
-</span><a href="#local-6989586621679410693"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.RebootCacheCluster.html#RebootCacheClusterResponse"><span class="hs-identifier hs-type">RebootCacheClusterResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679411247"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.RebootCacheCluster.html#RebootCacheClusterResponse"><span class="hs-identifier hs-type">RebootCacheClusterResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-184"></span><span>
 </span><span id="line-185"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-186"></span><span class="annot"><a href="Network.AWS.ElastiCache.RebootCacheCluster.html#rebootCacheClusterResponse_httpStatus"><span class="hs-identifier hs-type">rebootCacheClusterResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.RebootCacheCluster.html#RebootCacheClusterResponse"><span class="hs-identifier hs-type">RebootCacheClusterResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -473,16 +473,16 @@ $sel:cacheCluster:RebootCacheClusterResponse' :: RebootCacheClusterResponse -&gt
 -&gt; Lens
      RebootCacheClusterResponse RebootCacheClusterResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.RebootCacheCluster.html#RebootCacheClusterResponse%27"><span class="hs-identifier hs-type">RebootCacheClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679410692"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.RebootCacheCluster.html#RebootCacheClusterResponse%27"><span class="hs-identifier hs-type">RebootCacheClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679411246"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:RebootCacheClusterResponse' :: RebootCacheClusterResponse -&gt; Int
-</span><a href="#local-6989586621679410692"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679410692"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679410691"><span class="annot"><span class="annottext">s :: RebootCacheClusterResponse
-</span><a href="#local-6989586621679410691"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.RebootCacheCluster.html#RebootCacheClusterResponse%27"><span class="hs-identifier hs-type">RebootCacheClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679410690"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679410690"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RebootCacheClusterResponse
-</span><a href="#local-6989586621679410691"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RebootCacheClusterResponse' :: Int
+</span><a href="#local-6989586621679411246"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679411246"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679411245"><span class="annot"><span class="annottext">s :: RebootCacheClusterResponse
+</span><a href="#local-6989586621679411245"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.RebootCacheCluster.html#RebootCacheClusterResponse%27"><span class="hs-identifier hs-type">RebootCacheClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679411244"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679411244"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RebootCacheClusterResponse
+</span><a href="#local-6989586621679411245"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RebootCacheClusterResponse' :: Int
 </span><a href="Network.AWS.ElastiCache.RebootCacheCluster.html#%24sel%3AhttpStatus%3ARebootCacheClusterResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679410690"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.RebootCacheCluster.html#RebootCacheClusterResponse"><span class="hs-identifier hs-type">RebootCacheClusterResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679411244"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.RebootCacheCluster.html#RebootCacheClusterResponse"><span class="hs-identifier hs-type">RebootCacheClusterResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-188"></span><span>
-</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679410688"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.RebootCacheCluster.html#RebootCacheClusterResponse"><span class="hs-identifier hs-type">RebootCacheClusterResponse</span></a></span></span><span>
+</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679411242"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.RebootCacheCluster.html#RebootCacheClusterResponse"><span class="hs-identifier hs-type">RebootCacheClusterResponse</span></a></span></span><span>
 </span><span id="line-190"></span></pre></body></html>

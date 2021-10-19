@@ -34,13 +34,13 @@
 </span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-36"></span><span>
-</span><span id="line-37"></span><span id="local-6989586621679811750"><span id="local-6989586621679811751"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ResourceTypeForTagging"><span class="annot"><a href="Network.AWS.SSM.Types.ResourceTypeForTagging.html#ResourceTypeForTagging"><span class="hs-identifier hs-var">ResourceTypeForTagging</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResourceTypeForTagging%27"><span class="annot"><a href="Network.AWS.SSM.Types.ResourceTypeForTagging.html#ResourceTypeForTagging%27"><span class="hs-identifier hs-var">ResourceTypeForTagging'</span></a></span></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679813447"><span id="local-6989586621679813448"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ResourceTypeForTagging"><span class="annot"><a href="Network.AWS.SSM.Types.ResourceTypeForTagging.html#ResourceTypeForTagging"><span class="hs-identifier hs-var">ResourceTypeForTagging</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResourceTypeForTagging%27"><span class="annot"><a href="Network.AWS.SSM.Types.ResourceTypeForTagging.html#ResourceTypeForTagging%27"><span class="hs-identifier hs-var">ResourceTypeForTagging'</span></a></span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromResourceTypeForTagging"><span class="annot"><span class="annottext">ResourceTypeForTagging -&gt; Text
 </span><a href="Network.AWS.SSM.Types.ResourceTypeForTagging.html#fromResourceTypeForTagging"><span class="hs-identifier hs-var hs-var">fromResourceTypeForTagging</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679811742"><span id="local-6989586621679811744"><span id="local-6989586621679811746"><span class="annot"><span class="annottext">Int -&gt; ResourceTypeForTagging -&gt; ShowS
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679813439"><span id="local-6989586621679813441"><span id="local-6989586621679813443"><span class="annot"><span class="annottext">Int -&gt; ResourceTypeForTagging -&gt; ShowS
 [ResourceTypeForTagging] -&gt; ShowS
 ResourceTypeForTagging -&gt; String
 (Int -&gt; ResourceTypeForTagging -&gt; ShowS)
@@ -56,7 +56,7 @@ $cshow :: ResourceTypeForTagging -&gt; String
 showsPrec :: Int -&gt; ResourceTypeForTagging -&gt; ShowS
 $cshowsPrec :: Int -&gt; ResourceTypeForTagging -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679811733"><span id="local-6989586621679811735"><span id="local-6989586621679811737"><span id="local-6989586621679811739"><span class="annot"><span class="annottext">ReadPrec [ResourceTypeForTagging]
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679813430"><span id="local-6989586621679813432"><span id="local-6989586621679813434"><span id="local-6989586621679813436"><span class="annot"><span class="annottext">ReadPrec [ResourceTypeForTagging]
 ReadPrec ResourceTypeForTagging
 Int -&gt; ReadS ResourceTypeForTagging
 ReadS [ResourceTypeForTagging]
@@ -77,7 +77,7 @@ $creadList :: ReadS [ResourceTypeForTagging]
 readsPrec :: Int -&gt; ReadS ResourceTypeForTagging
 $creadsPrec :: Int -&gt; ReadS ResourceTypeForTagging
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679811728"><span id="local-6989586621679811730"><span class="annot"><span class="annottext">ResourceTypeForTagging -&gt; ResourceTypeForTagging -&gt; Bool
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679813425"><span id="local-6989586621679813427"><span class="annot"><span class="annottext">ResourceTypeForTagging -&gt; ResourceTypeForTagging -&gt; Bool
 (ResourceTypeForTagging -&gt; ResourceTypeForTagging -&gt; Bool)
 -&gt; (ResourceTypeForTagging -&gt; ResourceTypeForTagging -&gt; Bool)
 -&gt; Eq ResourceTypeForTagging
@@ -87,7 +87,7 @@ $c/= :: ResourceTypeForTagging -&gt; ResourceTypeForTagging -&gt; Bool
 == :: ResourceTypeForTagging -&gt; ResourceTypeForTagging -&gt; Bool
 $c== :: ResourceTypeForTagging -&gt; ResourceTypeForTagging -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679811712"><span id="local-6989586621679811714"><span id="local-6989586621679811716"><span id="local-6989586621679811718"><span id="local-6989586621679811720"><span id="local-6989586621679811722"><span id="local-6989586621679811724"><span class="annot"><span class="annottext">Eq ResourceTypeForTagging
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679813409"><span id="local-6989586621679813411"><span id="local-6989586621679813413"><span id="local-6989586621679813415"><span id="local-6989586621679813417"><span id="local-6989586621679813419"><span id="local-6989586621679813421"><span class="annot"><span class="annottext">Eq ResourceTypeForTagging
 Eq ResourceTypeForTagging
 -&gt; (ResourceTypeForTagging -&gt; ResourceTypeForTagging -&gt; Ordering)
 -&gt; (ResourceTypeForTagging -&gt; ResourceTypeForTagging -&gt; Bool)
@@ -146,7 +146,7 @@ $cfrom :: forall x. ResourceTypeForTagging -&gt; Rep ResourceTypeForTagging x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679811704"><span id="local-6989586621679811706"><span class="annot"><span class="annottext">Int -&gt; ResourceTypeForTagging -&gt; Int
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679813401"><span id="local-6989586621679813403"><span class="annot"><span class="annottext">Int -&gt; ResourceTypeForTagging -&gt; Int
 ResourceTypeForTagging -&gt; Int
 (Int -&gt; ResourceTypeForTagging -&gt; Int)
 -&gt; (ResourceTypeForTagging -&gt; Int)
@@ -157,54 +157,54 @@ $chash :: ResourceTypeForTagging -&gt; Int
 hashWithSalt :: Int -&gt; ResourceTypeForTagging -&gt; Int
 $chashWithSalt :: Int -&gt; ResourceTypeForTagging -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679811701"><span class="annot"><span class="annottext">ResourceTypeForTagging -&gt; ()
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679813398"><span class="annot"><span class="annottext">ResourceTypeForTagging -&gt; ()
 (ResourceTypeForTagging -&gt; ()) -&gt; NFData ResourceTypeForTagging
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ResourceTypeForTagging -&gt; ()
 $crnf :: ResourceTypeForTagging -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679811698"><span class="annot"><span class="annottext">Text -&gt; Either String ResourceTypeForTagging
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679813395"><span class="annot"><span class="annottext">Text -&gt; Either String ResourceTypeForTagging
 (Text -&gt; Either String ResourceTypeForTagging)
 -&gt; FromText ResourceTypeForTagging
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ResourceTypeForTagging
 $cfromText :: Text -&gt; Either String ResourceTypeForTagging
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679811695"><span class="annot"><span class="annottext">ResourceTypeForTagging -&gt; Text
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679813392"><span class="annot"><span class="annottext">ResourceTypeForTagging -&gt; Text
 (ResourceTypeForTagging -&gt; Text) -&gt; ToText ResourceTypeForTagging
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ResourceTypeForTagging -&gt; Text
 $ctoText :: ResourceTypeForTagging -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679811692"><span class="annot"><span class="annottext">ResourceTypeForTagging -&gt; ByteString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679813389"><span class="annot"><span class="annottext">ResourceTypeForTagging -&gt; ByteString
 (ResourceTypeForTagging -&gt; ByteString)
 -&gt; ToByteString ResourceTypeForTagging
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ResourceTypeForTagging -&gt; ByteString
 $ctoBS :: ResourceTypeForTagging -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679811689"><span class="annot"><span class="annottext">ResourceTypeForTagging -&gt; ByteStringBuilder
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679813386"><span class="annot"><span class="annottext">ResourceTypeForTagging -&gt; ByteStringBuilder
 (ResourceTypeForTagging -&gt; ByteStringBuilder)
 -&gt; ToLog ResourceTypeForTagging
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ResourceTypeForTagging -&gt; ByteStringBuilder
 $cbuild :: ResourceTypeForTagging -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679811686"><span class="annot"><span class="annottext">HeaderName -&gt; ResourceTypeForTagging -&gt; [Header]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679813383"><span class="annot"><span class="annottext">HeaderName -&gt; ResourceTypeForTagging -&gt; [Header]
 (HeaderName -&gt; ResourceTypeForTagging -&gt; [Header])
 -&gt; ToHeader ResourceTypeForTagging
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ResourceTypeForTagging -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ResourceTypeForTagging -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679811683"><span class="annot"><span class="annottext">ResourceTypeForTagging -&gt; QueryString
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679813380"><span class="annot"><span class="annottext">ResourceTypeForTagging -&gt; QueryString
 (ResourceTypeForTagging -&gt; QueryString)
 -&gt; ToQuery ResourceTypeForTagging
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ResourceTypeForTagging -&gt; QueryString
 $ctoQuery :: ResourceTypeForTagging -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679811678"><span id="local-6989586621679811680"><span class="annot"><span class="annottext">Value -&gt; Parser [ResourceTypeForTagging]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679813375"><span id="local-6989586621679813377"><span class="annot"><span class="annottext">Value -&gt; Parser [ResourceTypeForTagging]
 Value -&gt; Parser ResourceTypeForTagging
 (Value -&gt; Parser ResourceTypeForTagging)
 -&gt; (Value -&gt; Parser [ResourceTypeForTagging])
@@ -216,7 +216,7 @@ $cparseJSONList :: Value -&gt; Parser [ResourceTypeForTagging]
 parseJSON :: Value -&gt; Parser ResourceTypeForTagging
 $cparseJSON :: Value -&gt; Parser ResourceTypeForTagging
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679811673"><span id="local-6989586621679811675"><span class="annot"><span class="annottext">FromJSONKeyFunction [ResourceTypeForTagging]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679813370"><span id="local-6989586621679813372"><span class="annot"><span class="annottext">FromJSONKeyFunction [ResourceTypeForTagging]
 FromJSONKeyFunction ResourceTypeForTagging
 FromJSONKeyFunction ResourceTypeForTagging
 -&gt; FromJSONKeyFunction [ResourceTypeForTagging]
@@ -228,7 +228,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ResourceTypeForTagging]
 fromJSONKey :: FromJSONKeyFunction ResourceTypeForTagging
 $cfromJSONKey :: FromJSONKeyFunction ResourceTypeForTagging
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679811664"><span id="local-6989586621679811666"><span id="local-6989586621679811668"><span id="local-6989586621679811670"><span class="annot"><span class="annottext">[ResourceTypeForTagging] -&gt; Encoding
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679813361"><span id="local-6989586621679813363"><span id="local-6989586621679813365"><span id="local-6989586621679813367"><span class="annot"><span class="annottext">[ResourceTypeForTagging] -&gt; Encoding
 [ResourceTypeForTagging] -&gt; Value
 ResourceTypeForTagging -&gt; Encoding
 ResourceTypeForTagging -&gt; Value
@@ -252,7 +252,7 @@ $ctoEncoding :: ResourceTypeForTagging -&gt; Encoding
 toJSON :: ResourceTypeForTagging -&gt; Value
 $ctoJSON :: ResourceTypeForTagging -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679811659"><span id="local-6989586621679811661"><span class="annot"><span class="annottext">ToJSONKeyFunction [ResourceTypeForTagging]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679813356"><span id="local-6989586621679813358"><span class="annot"><span class="annottext">ToJSONKeyFunction [ResourceTypeForTagging]
 ToJSONKeyFunction ResourceTypeForTagging
 ToJSONKeyFunction ResourceTypeForTagging
 -&gt; ToJSONKeyFunction [ResourceTypeForTagging]
@@ -264,14 +264,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ResourceTypeForTagging]
 toJSONKey :: ToJSONKeyFunction ResourceTypeForTagging
 $ctoJSONKey :: ToJSONKeyFunction ResourceTypeForTagging
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679811656"><span class="annot"><span class="annottext">[Node] -&gt; Either String ResourceTypeForTagging
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679813353"><span class="annot"><span class="annottext">[Node] -&gt; Either String ResourceTypeForTagging
 ([Node] -&gt; Either String ResourceTypeForTagging)
 -&gt; FromXML ResourceTypeForTagging
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ResourceTypeForTagging
 $cparseXML :: [Node] -&gt; Either String ResourceTypeForTagging
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679811653"><span class="annot"><span class="annottext">ResourceTypeForTagging -&gt; XML
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679813350"><span class="annot"><span class="annottext">ResourceTypeForTagging -&gt; XML
 (ResourceTypeForTagging -&gt; XML) -&gt; ToXML ResourceTypeForTagging
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ResourceTypeForTagging -&gt; XML

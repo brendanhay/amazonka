@@ -26,21 +26,21 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | An endpoint for ingesting source content for a Channel.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newIngestEndpoint' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679235315"><span id="local-6989586621679235316"></span></span><span class="hs-keyword">data</span><span> </span><span id="IngestEndpoint"><span class="annot"><a href="Network.AWS.MediaPackage.Types.IngestEndpoint.html#IngestEndpoint"><span class="hs-identifier hs-var">IngestEndpoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IngestEndpoint%27"><span class="annot"><a href="Network.AWS.MediaPackage.Types.IngestEndpoint.html#IngestEndpoint%27"><span class="hs-identifier hs-var">IngestEndpoint'</span></a></span></span><span>
-</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The system generated unique identifier for the IngestEndpoint</span><span>
-</span><span id="line-31"></span><span>    </span><span id="%24sel%3Aid%3AIngestEndpoint%27"><span class="annot"><span class="annottext">IngestEndpoint -&gt; Maybe Text
-</span><a href="Network.AWS.MediaPackage.Types.IngestEndpoint.html#%24sel%3Aid%3AIngestEndpoint%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The system generated password for ingest authentication.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3Apassword%3AIngestEndpoint%27"><span class="annot"><span class="annottext">IngestEndpoint -&gt; Maybe Text
-</span><a href="Network.AWS.MediaPackage.Types.IngestEndpoint.html#%24sel%3Apassword%3AIngestEndpoint%27"><span class="hs-identifier hs-var hs-var">password</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The system generated username for ingest authentication.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3Ausername%3AIngestEndpoint%27"><span class="annot"><span class="annottext">IngestEndpoint -&gt; Maybe Text
+</span><span id="line-29"></span><span id="local-6989586621679235439"><span id="local-6989586621679235440"></span></span><span class="hs-keyword">data</span><span> </span><span id="IngestEndpoint"><span class="annot"><a href="Network.AWS.MediaPackage.Types.IngestEndpoint.html#IngestEndpoint"><span class="hs-identifier hs-var">IngestEndpoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IngestEndpoint%27"><span class="annot"><a href="Network.AWS.MediaPackage.Types.IngestEndpoint.html#IngestEndpoint%27"><span class="hs-identifier hs-var">IngestEndpoint'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ingest URL to which the source stream should be sent.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3Aurl%3AIngestEndpoint%27"><span class="annot"><span class="annottext">IngestEndpoint -&gt; Maybe Text
+</span><a href="Network.AWS.MediaPackage.Types.IngestEndpoint.html#%24sel%3Aurl%3AIngestEndpoint%27"><span class="hs-identifier hs-var hs-var">url</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The system generated username for ingest authentication.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Ausername%3AIngestEndpoint%27"><span class="annot"><span class="annottext">IngestEndpoint -&gt; Maybe Text
 </span><a href="Network.AWS.MediaPackage.Types.IngestEndpoint.html#%24sel%3Ausername%3AIngestEndpoint%27"><span class="hs-identifier hs-var hs-var">username</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The ingest URL to which the source stream should be sent.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3Aurl%3AIngestEndpoint%27"><span class="annot"><span class="annottext">IngestEndpoint -&gt; Maybe Text
-</span><a href="Network.AWS.MediaPackage.Types.IngestEndpoint.html#%24sel%3Aurl%3AIngestEndpoint%27"><span class="hs-identifier hs-var hs-var">url</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The system generated password for ingest authentication.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Apassword%3AIngestEndpoint%27"><span class="annot"><span class="annottext">IngestEndpoint -&gt; Maybe Text
+</span><a href="Network.AWS.MediaPackage.Types.IngestEndpoint.html#%24sel%3Apassword%3AIngestEndpoint%27"><span class="hs-identifier hs-var hs-var">password</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The system generated unique identifier for the IngestEndpoint</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Aid%3AIngestEndpoint%27"><span class="annot"><span class="annottext">IngestEndpoint -&gt; Maybe Text
+</span><a href="Network.AWS.MediaPackage.Types.IngestEndpoint.html#%24sel%3Aid%3AIngestEndpoint%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679235306"><span id="local-6989586621679235308"><span class="annot"><span class="annottext">IngestEndpoint -&gt; IngestEndpoint -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679235430"><span id="local-6989586621679235432"><span class="annot"><span class="annottext">IngestEndpoint -&gt; IngestEndpoint -&gt; Bool
 (IngestEndpoint -&gt; IngestEndpoint -&gt; Bool)
 -&gt; (IngestEndpoint -&gt; IngestEndpoint -&gt; Bool) -&gt; Eq IngestEndpoint
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -48,7 +48,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: IngestEndpoint -&gt; IngestEndpoint -&gt; Bool
 == :: IngestEndpoint -&gt; IngestEndpoint -&gt; Bool
 $c== :: IngestEndpoint -&gt; IngestEndpoint -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679235297"><span id="local-6989586621679235299"><span id="local-6989586621679235301"><span id="local-6989586621679235303"><span class="annot"><span class="annottext">ReadPrec [IngestEndpoint]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679235421"><span id="local-6989586621679235423"><span id="local-6989586621679235425"><span id="local-6989586621679235427"><span class="annot"><span class="annottext">ReadPrec [IngestEndpoint]
 ReadPrec IngestEndpoint
 Int -&gt; ReadS IngestEndpoint
 ReadS [IngestEndpoint]
@@ -68,7 +68,7 @@ readList :: ReadS [IngestEndpoint]
 $creadList :: ReadS [IngestEndpoint]
 readsPrec :: Int -&gt; ReadS IngestEndpoint
 $creadsPrec :: Int -&gt; ReadS IngestEndpoint
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679235290"><span id="local-6989586621679235292"><span id="local-6989586621679235294"><span class="annot"><span class="annottext">Int -&gt; IngestEndpoint -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679235414"><span id="local-6989586621679235416"><span id="local-6989586621679235418"><span class="annot"><span class="annottext">Int -&gt; IngestEndpoint -&gt; ShowS
 [IngestEndpoint] -&gt; ShowS
 IngestEndpoint -&gt; String
 (Int -&gt; IngestEndpoint -&gt; ShowS)
@@ -102,13 +102,13 @@ $cfrom :: forall x. IngestEndpoint -&gt; Rep IngestEndpoint x
 </span><span id="line-46"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-47"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-48"></span><span class="hs-comment">--</span><span>
-</span><span id="line-49"></span><span class="hs-comment">-- 'id', 'ingestEndpoint_id' - The system generated unique identifier for the IngestEndpoint</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'url', 'ingestEndpoint_url' - The ingest URL to which the source stream should be sent.</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
-</span><span id="line-51"></span><span class="hs-comment">-- 'password', 'ingestEndpoint_password' - The system generated password for ingest authentication.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'username', 'ingestEndpoint_username' - The system generated username for ingest authentication.</span><span>
 </span><span id="line-52"></span><span class="hs-comment">--</span><span>
-</span><span id="line-53"></span><span class="hs-comment">-- 'username', 'ingestEndpoint_username' - The system generated username for ingest authentication.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'password', 'ingestEndpoint_password' - The system generated password for ingest authentication.</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- 'url', 'ingestEndpoint_url' - The ingest URL to which the source stream should be sent.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'id', 'ingestEndpoint_id' - The system generated unique identifier for the IngestEndpoint</span><span>
 </span><span id="line-56"></span><span class="annot"><a href="Network.AWS.MediaPackage.Types.IngestEndpoint.html#newIngestEndpoint"><span class="hs-identifier hs-type">newIngestEndpoint</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-57"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.IngestEndpoint.html#IngestEndpoint"><span class="hs-identifier hs-type">IngestEndpoint</span></a></span><span>
 </span><span id="line-58"></span><span id="newIngestEndpoint"><span class="annot"><span class="annottext">newIngestEndpoint :: IngestEndpoint
@@ -116,102 +116,102 @@ $cfrom :: forall x. IngestEndpoint -&gt; Rep IngestEndpoint x
 </span><span id="line-59"></span><span>  </span><span class="annot"><span class="annottext">IngestEndpoint' :: Maybe Text
 -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; IngestEndpoint
 </span><a href="Network.AWS.MediaPackage.Types.IngestEndpoint.html#IngestEndpoint%27"><span class="hs-identifier hs-type">IngestEndpoint'</span></a></span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:id:IngestEndpoint' :: Maybe Text
-</span><a href="Network.AWS.MediaPackage.Types.IngestEndpoint.html#%24sel%3Aid%3AIngestEndpoint%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-60"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:url:IngestEndpoint' :: Maybe Text
+</span><a href="Network.AWS.MediaPackage.Types.IngestEndpoint.html#%24sel%3Aurl%3AIngestEndpoint%27"><span class="hs-identifier hs-var">url</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:password:IngestEndpoint' :: Maybe Text
-</span><a href="Network.AWS.MediaPackage.Types.IngestEndpoint.html#%24sel%3Apassword%3AIngestEndpoint%27"><span class="hs-identifier hs-var">password</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:username:IngestEndpoint' :: Maybe Text
+</span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:username:IngestEndpoint' :: Maybe Text
 </span><a href="Network.AWS.MediaPackage.Types.IngestEndpoint.html#%24sel%3Ausername%3AIngestEndpoint%27"><span class="hs-identifier hs-var">username</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:url:IngestEndpoint' :: Maybe Text
-</span><a href="Network.AWS.MediaPackage.Types.IngestEndpoint.html#%24sel%3Aurl%3AIngestEndpoint%27"><span class="hs-identifier hs-var">url</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:password:IngestEndpoint' :: Maybe Text
+</span><a href="Network.AWS.MediaPackage.Types.IngestEndpoint.html#%24sel%3Apassword%3AIngestEndpoint%27"><span class="hs-identifier hs-var">password</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:IngestEndpoint' :: Maybe Text
+</span><a href="Network.AWS.MediaPackage.Types.IngestEndpoint.html#%24sel%3Aid%3AIngestEndpoint%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-64"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- | The system generated unique identifier for the IngestEndpoint</span><span>
-</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.MediaPackage.Types.IngestEndpoint.html#ingestEndpoint_id"><span class="hs-identifier hs-type">ingestEndpoint_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.IngestEndpoint.html#IngestEndpoint"><span class="hs-identifier hs-type">IngestEndpoint</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-68"></span><span id="ingestEndpoint_id"><span class="annot"><span class="annottext">ingestEndpoint_id :: (Maybe Text -&gt; f (Maybe Text))
--&gt; IngestEndpoint -&gt; f IngestEndpoint
-</span><a href="Network.AWS.MediaPackage.Types.IngestEndpoint.html#ingestEndpoint_id"><span class="hs-identifier hs-var hs-var">ingestEndpoint_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(IngestEndpoint -&gt; Maybe Text)
--&gt; (IngestEndpoint -&gt; Maybe Text -&gt; IngestEndpoint)
--&gt; Lens IngestEndpoint IngestEndpoint (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.IngestEndpoint.html#IngestEndpoint%27"><span class="hs-identifier hs-type">IngestEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679235281"><span class="annot"><span class="annottext">Maybe Text
-id :: Maybe Text
-$sel:id:IngestEndpoint' :: IngestEndpoint -&gt; Maybe Text
-</span><a href="#local-6989586621679235281"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679235281"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679235280"><span class="annot"><span class="annottext">s :: IngestEndpoint
-</span><a href="#local-6989586621679235280"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.IngestEndpoint.html#IngestEndpoint%27"><span class="hs-identifier hs-type">IngestEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679235279"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679235279"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IngestEndpoint
-</span><a href="#local-6989586621679235280"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:IngestEndpoint' :: Maybe Text
-</span><a href="Network.AWS.MediaPackage.Types.IngestEndpoint.html#%24sel%3Aid%3AIngestEndpoint%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679235279"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.IngestEndpoint.html#IngestEndpoint"><span class="hs-identifier hs-type">IngestEndpoint</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- | The system generated password for ingest authentication.</span><span>
-</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.MediaPackage.Types.IngestEndpoint.html#ingestEndpoint_password"><span class="hs-identifier hs-type">ingestEndpoint_password</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.IngestEndpoint.html#IngestEndpoint"><span class="hs-identifier hs-type">IngestEndpoint</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-72"></span><span id="ingestEndpoint_password"><span class="annot"><span class="annottext">ingestEndpoint_password :: (Maybe Text -&gt; f (Maybe Text))
--&gt; IngestEndpoint -&gt; f IngestEndpoint
-</span><a href="Network.AWS.MediaPackage.Types.IngestEndpoint.html#ingestEndpoint_password"><span class="hs-identifier hs-var hs-var">ingestEndpoint_password</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(IngestEndpoint -&gt; Maybe Text)
--&gt; (IngestEndpoint -&gt; Maybe Text -&gt; IngestEndpoint)
--&gt; Lens IngestEndpoint IngestEndpoint (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.IngestEndpoint.html#IngestEndpoint%27"><span class="hs-identifier hs-type">IngestEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679235277"><span class="annot"><span class="annottext">Maybe Text
-password :: Maybe Text
-$sel:password:IngestEndpoint' :: IngestEndpoint -&gt; Maybe Text
-</span><a href="#local-6989586621679235277"><span class="hs-identifier hs-var hs-var">password</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679235277"><span class="hs-identifier hs-var">password</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679235276"><span class="annot"><span class="annottext">s :: IngestEndpoint
-</span><a href="#local-6989586621679235276"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.IngestEndpoint.html#IngestEndpoint%27"><span class="hs-identifier hs-type">IngestEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679235275"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679235275"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IngestEndpoint
-</span><a href="#local-6989586621679235276"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:password:IngestEndpoint' :: Maybe Text
-</span><a href="Network.AWS.MediaPackage.Types.IngestEndpoint.html#%24sel%3Apassword%3AIngestEndpoint%27"><span class="hs-identifier hs-var">password</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679235275"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.IngestEndpoint.html#IngestEndpoint"><span class="hs-identifier hs-type">IngestEndpoint</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- | The system generated username for ingest authentication.</span><span>
-</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.MediaPackage.Types.IngestEndpoint.html#ingestEndpoint_username"><span class="hs-identifier hs-type">ingestEndpoint_username</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.IngestEndpoint.html#IngestEndpoint"><span class="hs-identifier hs-type">IngestEndpoint</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-76"></span><span id="ingestEndpoint_username"><span class="annot"><span class="annottext">ingestEndpoint_username :: (Maybe Text -&gt; f (Maybe Text))
--&gt; IngestEndpoint -&gt; f IngestEndpoint
-</span><a href="Network.AWS.MediaPackage.Types.IngestEndpoint.html#ingestEndpoint_username"><span class="hs-identifier hs-var hs-var">ingestEndpoint_username</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(IngestEndpoint -&gt; Maybe Text)
--&gt; (IngestEndpoint -&gt; Maybe Text -&gt; IngestEndpoint)
--&gt; Lens IngestEndpoint IngestEndpoint (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.IngestEndpoint.html#IngestEndpoint%27"><span class="hs-identifier hs-type">IngestEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679235273"><span class="annot"><span class="annottext">Maybe Text
-username :: Maybe Text
-$sel:username:IngestEndpoint' :: IngestEndpoint -&gt; Maybe Text
-</span><a href="#local-6989586621679235273"><span class="hs-identifier hs-var hs-var">username</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679235273"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679235272"><span class="annot"><span class="annottext">s :: IngestEndpoint
-</span><a href="#local-6989586621679235272"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.IngestEndpoint.html#IngestEndpoint%27"><span class="hs-identifier hs-type">IngestEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679235271"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679235271"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IngestEndpoint
-</span><a href="#local-6989586621679235272"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:username:IngestEndpoint' :: Maybe Text
-</span><a href="Network.AWS.MediaPackage.Types.IngestEndpoint.html#%24sel%3Ausername%3AIngestEndpoint%27"><span class="hs-identifier hs-var">username</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679235271"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.IngestEndpoint.html#IngestEndpoint"><span class="hs-identifier hs-type">IngestEndpoint</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- | The ingest URL to which the source stream should be sent.</span><span>
-</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.MediaPackage.Types.IngestEndpoint.html#ingestEndpoint_url"><span class="hs-identifier hs-type">ingestEndpoint_url</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.IngestEndpoint.html#IngestEndpoint"><span class="hs-identifier hs-type">IngestEndpoint</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-80"></span><span id="ingestEndpoint_url"><span class="annot"><span class="annottext">ingestEndpoint_url :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-66"></span><span class="hs-comment">-- | The ingest URL to which the source stream should be sent.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.MediaPackage.Types.IngestEndpoint.html#ingestEndpoint_url"><span class="hs-identifier hs-type">ingestEndpoint_url</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.IngestEndpoint.html#IngestEndpoint"><span class="hs-identifier hs-type">IngestEndpoint</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span id="ingestEndpoint_url"><span class="annot"><span class="annottext">ingestEndpoint_url :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; IngestEndpoint -&gt; f IngestEndpoint
 </span><a href="Network.AWS.MediaPackage.Types.IngestEndpoint.html#ingestEndpoint_url"><span class="hs-identifier hs-var hs-var">ingestEndpoint_url</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(IngestEndpoint -&gt; Maybe Text)
 -&gt; (IngestEndpoint -&gt; Maybe Text -&gt; IngestEndpoint)
 -&gt; Lens IngestEndpoint IngestEndpoint (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.IngestEndpoint.html#IngestEndpoint%27"><span class="hs-identifier hs-type">IngestEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679235269"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.IngestEndpoint.html#IngestEndpoint%27"><span class="hs-identifier hs-type">IngestEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679235405"><span class="annot"><span class="annottext">Maybe Text
 url :: Maybe Text
 $sel:url:IngestEndpoint' :: IngestEndpoint -&gt; Maybe Text
-</span><a href="#local-6989586621679235269"><span class="hs-identifier hs-var hs-var">url</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679235269"><span class="hs-identifier hs-var">url</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679235268"><span class="annot"><span class="annottext">s :: IngestEndpoint
-</span><a href="#local-6989586621679235268"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.IngestEndpoint.html#IngestEndpoint%27"><span class="hs-identifier hs-type">IngestEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679235267"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679235267"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IngestEndpoint
-</span><a href="#local-6989586621679235268"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:url:IngestEndpoint' :: Maybe Text
+</span><a href="#local-6989586621679235405"><span class="hs-identifier hs-var hs-var">url</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235405"><span class="hs-identifier hs-var">url</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679235404"><span class="annot"><span class="annottext">s :: IngestEndpoint
+</span><a href="#local-6989586621679235404"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.IngestEndpoint.html#IngestEndpoint%27"><span class="hs-identifier hs-type">IngestEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679235403"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235403"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IngestEndpoint
+</span><a href="#local-6989586621679235404"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:url:IngestEndpoint' :: Maybe Text
 </span><a href="Network.AWS.MediaPackage.Types.IngestEndpoint.html#%24sel%3Aurl%3AIngestEndpoint%27"><span class="hs-identifier hs-var">url</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679235267"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.IngestEndpoint.html#IngestEndpoint"><span class="hs-identifier hs-type">IngestEndpoint</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679235403"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.IngestEndpoint.html#IngestEndpoint"><span class="hs-identifier hs-type">IngestEndpoint</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- | The system generated username for ingest authentication.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.MediaPackage.Types.IngestEndpoint.html#ingestEndpoint_username"><span class="hs-identifier hs-type">ingestEndpoint_username</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.IngestEndpoint.html#IngestEndpoint"><span class="hs-identifier hs-type">IngestEndpoint</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span id="ingestEndpoint_username"><span class="annot"><span class="annottext">ingestEndpoint_username :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; IngestEndpoint -&gt; f IngestEndpoint
+</span><a href="Network.AWS.MediaPackage.Types.IngestEndpoint.html#ingestEndpoint_username"><span class="hs-identifier hs-var hs-var">ingestEndpoint_username</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(IngestEndpoint -&gt; Maybe Text)
+-&gt; (IngestEndpoint -&gt; Maybe Text -&gt; IngestEndpoint)
+-&gt; Lens IngestEndpoint IngestEndpoint (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.IngestEndpoint.html#IngestEndpoint%27"><span class="hs-identifier hs-type">IngestEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679235401"><span class="annot"><span class="annottext">Maybe Text
+username :: Maybe Text
+$sel:username:IngestEndpoint' :: IngestEndpoint -&gt; Maybe Text
+</span><a href="#local-6989586621679235401"><span class="hs-identifier hs-var hs-var">username</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235401"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679235400"><span class="annot"><span class="annottext">s :: IngestEndpoint
+</span><a href="#local-6989586621679235400"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.IngestEndpoint.html#IngestEndpoint%27"><span class="hs-identifier hs-type">IngestEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679235399"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235399"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IngestEndpoint
+</span><a href="#local-6989586621679235400"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:username:IngestEndpoint' :: Maybe Text
+</span><a href="Network.AWS.MediaPackage.Types.IngestEndpoint.html#%24sel%3Ausername%3AIngestEndpoint%27"><span class="hs-identifier hs-var">username</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235399"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.IngestEndpoint.html#IngestEndpoint"><span class="hs-identifier hs-type">IngestEndpoint</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- | The system generated password for ingest authentication.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.MediaPackage.Types.IngestEndpoint.html#ingestEndpoint_password"><span class="hs-identifier hs-type">ingestEndpoint_password</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.IngestEndpoint.html#IngestEndpoint"><span class="hs-identifier hs-type">IngestEndpoint</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span id="ingestEndpoint_password"><span class="annot"><span class="annottext">ingestEndpoint_password :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; IngestEndpoint -&gt; f IngestEndpoint
+</span><a href="Network.AWS.MediaPackage.Types.IngestEndpoint.html#ingestEndpoint_password"><span class="hs-identifier hs-var hs-var">ingestEndpoint_password</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(IngestEndpoint -&gt; Maybe Text)
+-&gt; (IngestEndpoint -&gt; Maybe Text -&gt; IngestEndpoint)
+-&gt; Lens IngestEndpoint IngestEndpoint (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.IngestEndpoint.html#IngestEndpoint%27"><span class="hs-identifier hs-type">IngestEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679235397"><span class="annot"><span class="annottext">Maybe Text
+password :: Maybe Text
+$sel:password:IngestEndpoint' :: IngestEndpoint -&gt; Maybe Text
+</span><a href="#local-6989586621679235397"><span class="hs-identifier hs-var hs-var">password</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235397"><span class="hs-identifier hs-var">password</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679235396"><span class="annot"><span class="annottext">s :: IngestEndpoint
+</span><a href="#local-6989586621679235396"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.IngestEndpoint.html#IngestEndpoint%27"><span class="hs-identifier hs-type">IngestEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679235395"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235395"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IngestEndpoint
+</span><a href="#local-6989586621679235396"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:password:IngestEndpoint' :: Maybe Text
+</span><a href="Network.AWS.MediaPackage.Types.IngestEndpoint.html#%24sel%3Apassword%3AIngestEndpoint%27"><span class="hs-identifier hs-var">password</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235395"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.IngestEndpoint.html#IngestEndpoint"><span class="hs-identifier hs-type">IngestEndpoint</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | The system generated unique identifier for the IngestEndpoint</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.MediaPackage.Types.IngestEndpoint.html#ingestEndpoint_id"><span class="hs-identifier hs-type">ingestEndpoint_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.IngestEndpoint.html#IngestEndpoint"><span class="hs-identifier hs-type">IngestEndpoint</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span id="ingestEndpoint_id"><span class="annot"><span class="annottext">ingestEndpoint_id :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; IngestEndpoint -&gt; f IngestEndpoint
+</span><a href="Network.AWS.MediaPackage.Types.IngestEndpoint.html#ingestEndpoint_id"><span class="hs-identifier hs-var hs-var">ingestEndpoint_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(IngestEndpoint -&gt; Maybe Text)
+-&gt; (IngestEndpoint -&gt; Maybe Text -&gt; IngestEndpoint)
+-&gt; Lens IngestEndpoint IngestEndpoint (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.IngestEndpoint.html#IngestEndpoint%27"><span class="hs-identifier hs-type">IngestEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679235393"><span class="annot"><span class="annottext">Maybe Text
+id :: Maybe Text
+$sel:id:IngestEndpoint' :: IngestEndpoint -&gt; Maybe Text
+</span><a href="#local-6989586621679235393"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235393"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679235392"><span class="annot"><span class="annottext">s :: IngestEndpoint
+</span><a href="#local-6989586621679235392"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.IngestEndpoint.html#IngestEndpoint%27"><span class="hs-identifier hs-type">IngestEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679235391"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235391"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IngestEndpoint
+</span><a href="#local-6989586621679235392"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:IngestEndpoint' :: Maybe Text
+</span><a href="Network.AWS.MediaPackage.Types.IngestEndpoint.html#%24sel%3Aid%3AIngestEndpoint%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235391"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.IngestEndpoint.html#IngestEndpoint"><span class="hs-identifier hs-type">IngestEndpoint</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679235264"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.IngestEndpoint.html#IngestEndpoint"><span class="hs-identifier hs-type">IngestEndpoint</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679235262"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser IngestEndpoint
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679235388"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.IngestEndpoint.html#IngestEndpoint"><span class="hs-identifier hs-type">IngestEndpoint</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679235386"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser IngestEndpoint
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser IngestEndpoint)
@@ -221,8 +221,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;IngestEndpoint&quot;</span></span><span>
-</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679235259"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679235259"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679235383"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679235383"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-87"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; IngestEndpoint
 </span><a href="Network.AWS.MediaPackage.Types.IngestEndpoint.html#IngestEndpoint%27"><span class="hs-identifier hs-var">IngestEndpoint'</span></a></span><span>
@@ -233,38 +233,38 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
      (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; IngestEndpoint)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679235259"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679235383"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;url&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; IngestEndpoint)
 -&gt; Parser (Maybe Text)
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; IngestEndpoint)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679235259"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679235383"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;password&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;username&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; IngestEndpoint)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; IngestEndpoint)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679235259"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679235383"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;username&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;password&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; IngestEndpoint)
 -&gt; Parser (Maybe Text) -&gt; Parser IngestEndpoint
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679235259"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679235383"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;url&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;id&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679235253"><span id="local-6989586621679235255"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.IngestEndpoint.html#IngestEndpoint"><span class="hs-identifier hs-type">IngestEndpoint</span></a></span></span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679235377"><span id="local-6989586621679235379"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.IngestEndpoint.html#IngestEndpoint"><span class="hs-identifier hs-type">IngestEndpoint</span></a></span></span></span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679235250"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.IngestEndpoint.html#IngestEndpoint"><span class="hs-identifier hs-type">IngestEndpoint</span></a></span></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679235374"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.IngestEndpoint.html#IngestEndpoint"><span class="hs-identifier hs-type">IngestEndpoint</span></a></span></span><span>
 </span><span id="line-97"></span></pre></body></html>

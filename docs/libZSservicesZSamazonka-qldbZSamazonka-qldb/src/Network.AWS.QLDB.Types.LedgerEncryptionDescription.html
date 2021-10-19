@@ -34,7 +34,7 @@
 </span><span id="line-34"></span><span class="hs-comment">-- in the /Amazon QLDB Developer Guide/.</span><span>
 </span><span id="line-35"></span><span class="hs-comment">--</span><span>
 </span><span id="line-36"></span><span class="hs-comment">-- /See:/ 'newLedgerEncryptionDescription' smart constructor.</span><span>
-</span><span id="line-37"></span><span id="local-6989586621679182236"><span id="local-6989586621679182237"></span></span><span class="hs-keyword">data</span><span> </span><span id="LedgerEncryptionDescription"><span class="annot"><a href="Network.AWS.QLDB.Types.LedgerEncryptionDescription.html#LedgerEncryptionDescription"><span class="hs-identifier hs-var">LedgerEncryptionDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LedgerEncryptionDescription%27"><span class="annot"><a href="Network.AWS.QLDB.Types.LedgerEncryptionDescription.html#LedgerEncryptionDescription%27"><span class="hs-identifier hs-var">LedgerEncryptionDescription'</span></a></span></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679182273"><span id="local-6989586621679182274"></span></span><span class="hs-keyword">data</span><span> </span><span id="LedgerEncryptionDescription"><span class="annot"><a href="Network.AWS.QLDB.Types.LedgerEncryptionDescription.html#LedgerEncryptionDescription"><span class="hs-identifier hs-var">LedgerEncryptionDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LedgerEncryptionDescription%27"><span class="annot"><a href="Network.AWS.QLDB.Types.LedgerEncryptionDescription.html#LedgerEncryptionDescription%27"><span class="hs-identifier hs-var">LedgerEncryptionDescription'</span></a></span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The date and time, in epoch time format, when the KMS key first became</span><span>
 </span><span id="line-39"></span><span>    </span><span class="hs-comment">-- inaccessible, in the case of an error. (Epoch time format is the number</span><span>
 </span><span id="line-40"></span><span>    </span><span class="hs-comment">-- of seconds that have elapsed since 12:00:00 AM January 1, 1970 UTC.)</span><span>
@@ -75,7 +75,7 @@
 </span><span id="line-73"></span><span>    </span><span id="%24sel%3AencryptionStatus%3ALedgerEncryptionDescription%27"><span class="annot"><span class="annottext">LedgerEncryptionDescription -&gt; EncryptionStatus
 </span><a href="Network.AWS.QLDB.Types.LedgerEncryptionDescription.html#%24sel%3AencryptionStatus%3ALedgerEncryptionDescription%27"><span class="hs-identifier hs-var hs-var">encryptionStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.EncryptionStatus.html#EncryptionStatus"><span class="hs-identifier hs-type">EncryptionStatus</span></a></span><span>
 </span><span id="line-74"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-75"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679182228"><span id="local-6989586621679182230"><span class="annot"><span class="annottext">LedgerEncryptionDescription -&gt; LedgerEncryptionDescription -&gt; Bool
+</span><span id="line-75"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679182265"><span id="local-6989586621679182267"><span class="annot"><span class="annottext">LedgerEncryptionDescription -&gt; LedgerEncryptionDescription -&gt; Bool
 (LedgerEncryptionDescription
  -&gt; LedgerEncryptionDescription -&gt; Bool)
 -&gt; (LedgerEncryptionDescription
@@ -86,7 +86,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: LedgerEncryptionDescription -&gt; LedgerEncryptionDescription -&gt; Bool
 == :: LedgerEncryptionDescription -&gt; LedgerEncryptionDescription -&gt; Bool
 $c== :: LedgerEncryptionDescription -&gt; LedgerEncryptionDescription -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679182219"><span id="local-6989586621679182221"><span id="local-6989586621679182223"><span id="local-6989586621679182225"><span class="annot"><span class="annottext">ReadPrec [LedgerEncryptionDescription]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679182256"><span id="local-6989586621679182258"><span id="local-6989586621679182260"><span id="local-6989586621679182262"><span class="annot"><span class="annottext">ReadPrec [LedgerEncryptionDescription]
 ReadPrec LedgerEncryptionDescription
 Int -&gt; ReadS LedgerEncryptionDescription
 ReadS [LedgerEncryptionDescription]
@@ -106,7 +106,7 @@ readList :: ReadS [LedgerEncryptionDescription]
 $creadList :: ReadS [LedgerEncryptionDescription]
 readsPrec :: Int -&gt; ReadS LedgerEncryptionDescription
 $creadsPrec :: Int -&gt; ReadS LedgerEncryptionDescription
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679182212"><span id="local-6989586621679182214"><span id="local-6989586621679182216"><span class="annot"><span class="annottext">Int -&gt; LedgerEncryptionDescription -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679182249"><span id="local-6989586621679182251"><span id="local-6989586621679182253"><span class="annot"><span class="annottext">Int -&gt; LedgerEncryptionDescription -&gt; ShowS
 [LedgerEncryptionDescription] -&gt; ShowS
 LedgerEncryptionDescription -&gt; String
 (Int -&gt; LedgerEncryptionDescription -&gt; ShowS)
@@ -189,10 +189,10 @@ LedgerEncryptionDescription -&gt; Rep LedgerEncryptionDescription x
 </span><span id="line-125"></span><span>  </span><span class="annot"><a href="Network.AWS.QLDB.Types.LedgerEncryptionDescription.html#LedgerEncryptionDescription"><span class="hs-identifier hs-type">LedgerEncryptionDescription</span></a></span><span>
 </span><span id="line-126"></span><span id="newLedgerEncryptionDescription"><span class="annot"><span class="annottext">newLedgerEncryptionDescription :: Text -&gt; EncryptionStatus -&gt; LedgerEncryptionDescription
 </span><a href="Network.AWS.QLDB.Types.LedgerEncryptionDescription.html#newLedgerEncryptionDescription"><span class="hs-identifier hs-var hs-var">newLedgerEncryptionDescription</span></a></span></span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679182206"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679182206"><span class="hs-identifier hs-var">pKmsKeyArn_</span></a></span></span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679182205"><span class="annot"><span class="annottext">EncryptionStatus
-</span><a href="#local-6989586621679182205"><span class="hs-identifier hs-var">pEncryptionStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679182243"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679182243"><span class="hs-identifier hs-var">pKmsKeyArn_</span></a></span></span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679182242"><span class="annot"><span class="annottext">EncryptionStatus
+</span><a href="#local-6989586621679182242"><span class="hs-identifier hs-var">pEncryptionStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">LedgerEncryptionDescription' :: Maybe POSIX
 -&gt; Text -&gt; EncryptionStatus -&gt; LedgerEncryptionDescription
 </span><a href="Network.AWS.QLDB.Types.LedgerEncryptionDescription.html#LedgerEncryptionDescription%27"><span class="hs-identifier hs-type">LedgerEncryptionDescription'</span></a></span><span>
@@ -203,10 +203,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-132"></span><span>        </span><span class="annot"><span class="annottext">$sel:kmsKeyArn:LedgerEncryptionDescription' :: Text
 </span><a href="Network.AWS.QLDB.Types.LedgerEncryptionDescription.html#%24sel%3AkmsKeyArn%3ALedgerEncryptionDescription%27"><span class="hs-identifier hs-var">kmsKeyArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679182206"><span class="hs-identifier hs-var">pKmsKeyArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679182243"><span class="hs-identifier hs-var">pKmsKeyArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-133"></span><span>        </span><span class="annot"><span class="annottext">$sel:encryptionStatus:LedgerEncryptionDescription' :: EncryptionStatus
 </span><a href="Network.AWS.QLDB.Types.LedgerEncryptionDescription.html#%24sel%3AencryptionStatus%3ALedgerEncryptionDescription%27"><span class="hs-identifier hs-var">encryptionStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">EncryptionStatus
-</span><a href="#local-6989586621679182205"><span class="hs-identifier hs-var">pEncryptionStatus_</span></a></span><span>
+</span><a href="#local-6989586621679182242"><span class="hs-identifier hs-var">pEncryptionStatus_</span></a></span><span>
 </span><span id="line-134"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-comment">-- | The date and time, in epoch time format, when the KMS key first became</span><span>
@@ -226,16 +226,16 @@ forall a. Maybe a
      (Maybe POSIX)
      (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.Types.LedgerEncryptionDescription.html#LedgerEncryptionDescription%27"><span class="hs-identifier hs-type">LedgerEncryptionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182201"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.Types.LedgerEncryptionDescription.html#LedgerEncryptionDescription%27"><span class="hs-identifier hs-type">LedgerEncryptionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182238"><span class="annot"><span class="annottext">Maybe POSIX
 inaccessibleKmsKeyDateTime :: Maybe POSIX
 $sel:inaccessibleKmsKeyDateTime:LedgerEncryptionDescription' :: LedgerEncryptionDescription -&gt; Maybe POSIX
-</span><a href="#local-6989586621679182201"><span class="hs-identifier hs-var hs-var">inaccessibleKmsKeyDateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679182201"><span class="hs-identifier hs-var">inaccessibleKmsKeyDateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679182200"><span class="annot"><span class="annottext">s :: LedgerEncryptionDescription
-</span><a href="#local-6989586621679182200"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.Types.LedgerEncryptionDescription.html#LedgerEncryptionDescription%27"><span class="hs-identifier hs-type">LedgerEncryptionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679182199"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679182199"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LedgerEncryptionDescription
-</span><a href="#local-6989586621679182200"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inaccessibleKmsKeyDateTime:LedgerEncryptionDescription' :: Maybe POSIX
+</span><a href="#local-6989586621679182238"><span class="hs-identifier hs-var hs-var">inaccessibleKmsKeyDateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679182238"><span class="hs-identifier hs-var">inaccessibleKmsKeyDateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679182237"><span class="annot"><span class="annottext">s :: LedgerEncryptionDescription
+</span><a href="#local-6989586621679182237"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.Types.LedgerEncryptionDescription.html#LedgerEncryptionDescription%27"><span class="hs-identifier hs-type">LedgerEncryptionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679182236"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679182236"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LedgerEncryptionDescription
+</span><a href="#local-6989586621679182237"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inaccessibleKmsKeyDateTime:LedgerEncryptionDescription' :: Maybe POSIX
 </span><a href="Network.AWS.QLDB.Types.LedgerEncryptionDescription.html#%24sel%3AinaccessibleKmsKeyDateTime%3ALedgerEncryptionDescription%27"><span class="hs-identifier hs-var">inaccessibleKmsKeyDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679182199"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.LedgerEncryptionDescription.html#LedgerEncryptionDescription"><span class="hs-identifier hs-type">LedgerEncryptionDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679182236"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.LedgerEncryptionDescription.html#LedgerEncryptionDescription"><span class="hs-identifier hs-type">LedgerEncryptionDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; LedgerEncryptionDescription -&gt; f LedgerEncryptionDescription)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -264,16 +264,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; Lens
      LedgerEncryptionDescription LedgerEncryptionDescription Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.Types.LedgerEncryptionDescription.html#LedgerEncryptionDescription%27"><span class="hs-identifier hs-type">LedgerEncryptionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182194"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.Types.LedgerEncryptionDescription.html#LedgerEncryptionDescription%27"><span class="hs-identifier hs-type">LedgerEncryptionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182231"><span class="annot"><span class="annottext">Text
 kmsKeyArn :: Text
 $sel:kmsKeyArn:LedgerEncryptionDescription' :: LedgerEncryptionDescription -&gt; Text
-</span><a href="#local-6989586621679182194"><span class="hs-identifier hs-var hs-var">kmsKeyArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679182194"><span class="hs-identifier hs-var">kmsKeyArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679182193"><span class="annot"><span class="annottext">s :: LedgerEncryptionDescription
-</span><a href="#local-6989586621679182193"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.Types.LedgerEncryptionDescription.html#LedgerEncryptionDescription%27"><span class="hs-identifier hs-type">LedgerEncryptionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679182192"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679182192"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LedgerEncryptionDescription
-</span><a href="#local-6989586621679182193"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kmsKeyArn:LedgerEncryptionDescription' :: Text
+</span><a href="#local-6989586621679182231"><span class="hs-identifier hs-var hs-var">kmsKeyArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679182231"><span class="hs-identifier hs-var">kmsKeyArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679182230"><span class="annot"><span class="annottext">s :: LedgerEncryptionDescription
+</span><a href="#local-6989586621679182230"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.Types.LedgerEncryptionDescription.html#LedgerEncryptionDescription%27"><span class="hs-identifier hs-type">LedgerEncryptionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679182229"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679182229"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LedgerEncryptionDescription
+</span><a href="#local-6989586621679182230"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kmsKeyArn:LedgerEncryptionDescription' :: Text
 </span><a href="Network.AWS.QLDB.Types.LedgerEncryptionDescription.html#%24sel%3AkmsKeyArn%3ALedgerEncryptionDescription%27"><span class="hs-identifier hs-var">kmsKeyArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679182192"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.LedgerEncryptionDescription.html#LedgerEncryptionDescription"><span class="hs-identifier hs-type">LedgerEncryptionDescription</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679182229"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.LedgerEncryptionDescription.html#LedgerEncryptionDescription"><span class="hs-identifier hs-type">LedgerEncryptionDescription</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-comment">-- | The current state of encryption at rest for the ledger. This can be one</span><span>
 </span><span id="line-151"></span><span class="hs-comment">-- of the following values:</span><span>
@@ -312,19 +312,19 @@ $sel:kmsKeyArn:LedgerEncryptionDescription' :: LedgerEncryptionDescription -&gt;
      EncryptionStatus
      EncryptionStatus
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.Types.LedgerEncryptionDescription.html#LedgerEncryptionDescription%27"><span class="hs-identifier hs-type">LedgerEncryptionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182190"><span class="annot"><span class="annottext">EncryptionStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.Types.LedgerEncryptionDescription.html#LedgerEncryptionDescription%27"><span class="hs-identifier hs-type">LedgerEncryptionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182227"><span class="annot"><span class="annottext">EncryptionStatus
 encryptionStatus :: EncryptionStatus
 $sel:encryptionStatus:LedgerEncryptionDescription' :: LedgerEncryptionDescription -&gt; EncryptionStatus
-</span><a href="#local-6989586621679182190"><span class="hs-identifier hs-var hs-var">encryptionStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EncryptionStatus
-</span><a href="#local-6989586621679182190"><span class="hs-identifier hs-var">encryptionStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679182189"><span class="annot"><span class="annottext">s :: LedgerEncryptionDescription
-</span><a href="#local-6989586621679182189"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.Types.LedgerEncryptionDescription.html#LedgerEncryptionDescription%27"><span class="hs-identifier hs-type">LedgerEncryptionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679182188"><span class="annot"><span class="annottext">EncryptionStatus
-</span><a href="#local-6989586621679182188"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LedgerEncryptionDescription
-</span><a href="#local-6989586621679182189"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryptionStatus:LedgerEncryptionDescription' :: EncryptionStatus
+</span><a href="#local-6989586621679182227"><span class="hs-identifier hs-var hs-var">encryptionStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EncryptionStatus
+</span><a href="#local-6989586621679182227"><span class="hs-identifier hs-var">encryptionStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679182226"><span class="annot"><span class="annottext">s :: LedgerEncryptionDescription
+</span><a href="#local-6989586621679182226"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.Types.LedgerEncryptionDescription.html#LedgerEncryptionDescription%27"><span class="hs-identifier hs-type">LedgerEncryptionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679182225"><span class="annot"><span class="annottext">EncryptionStatus
+</span><a href="#local-6989586621679182225"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LedgerEncryptionDescription
+</span><a href="#local-6989586621679182226"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryptionStatus:LedgerEncryptionDescription' :: EncryptionStatus
 </span><a href="Network.AWS.QLDB.Types.LedgerEncryptionDescription.html#%24sel%3AencryptionStatus%3ALedgerEncryptionDescription%27"><span class="hs-identifier hs-var">encryptionStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">EncryptionStatus
-</span><a href="#local-6989586621679182188"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.LedgerEncryptionDescription.html#LedgerEncryptionDescription"><span class="hs-identifier hs-type">LedgerEncryptionDescription</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679182225"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.LedgerEncryptionDescription.html#LedgerEncryptionDescription"><span class="hs-identifier hs-type">LedgerEncryptionDescription</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-177"></span><span>
-</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679182185"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.LedgerEncryptionDescription.html#LedgerEncryptionDescription"><span class="hs-identifier hs-type">LedgerEncryptionDescription</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-179"></span><span>  </span><span id="local-6989586621679182183"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LedgerEncryptionDescription
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679182222"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.LedgerEncryptionDescription.html#LedgerEncryptionDescription"><span class="hs-identifier hs-type">LedgerEncryptionDescription</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679182220"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LedgerEncryptionDescription
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-180"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser LedgerEncryptionDescription)
@@ -334,8 +334,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-181"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;LedgerEncryptionDescription&quot;</span></span><span>
-</span><span id="line-182"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679182180"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679182180"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-182"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679182217"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679182217"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-183"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
 -&gt; Text -&gt; EncryptionStatus -&gt; LedgerEncryptionDescription
 </span><a href="Network.AWS.QLDB.Types.LedgerEncryptionDescription.html#LedgerEncryptionDescription%27"><span class="hs-identifier hs-var">LedgerEncryptionDescription'</span></a></span><span>
@@ -345,7 +345,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Text -&gt; EncryptionStatus -&gt; LedgerEncryptionDescription)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679182180"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679182217"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;InaccessibleKmsKeyDateTime&quot;</span></span><span class="hs-special">)</span><span>
@@ -354,7 +354,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (EncryptionStatus -&gt; LedgerEncryptionDescription)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679182180"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679182217"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;KmsKeyArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -362,13 +362,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser EncryptionStatus -&gt; Parser LedgerEncryptionDescription
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679182180"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser EncryptionStatus
+</span><a href="#local-6989586621679182217"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser EncryptionStatus
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EncryptionStatus&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-187"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-188"></span><span>
-</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679182173"><span id="local-6989586621679182175"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.LedgerEncryptionDescription.html#LedgerEncryptionDescription"><span class="hs-identifier hs-type">LedgerEncryptionDescription</span></a></span></span></span><span>
+</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679182210"><span id="local-6989586621679182212"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.LedgerEncryptionDescription.html#LedgerEncryptionDescription"><span class="hs-identifier hs-type">LedgerEncryptionDescription</span></a></span></span></span><span>
 </span><span id="line-190"></span><span>
-</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679182170"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.LedgerEncryptionDescription.html#LedgerEncryptionDescription"><span class="hs-identifier hs-type">LedgerEncryptionDescription</span></a></span></span><span>
+</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679182207"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.LedgerEncryptionDescription.html#LedgerEncryptionDescription"><span class="hs-identifier hs-type">LedgerEncryptionDescription</span></a></span></span><span>
 </span><span id="line-192"></span></pre></body></html>

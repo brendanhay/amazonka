@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | The result of the query.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newOpsEntity' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679800525"><span id="local-6989586621679800526"></span></span><span class="hs-keyword">data</span><span> </span><span id="OpsEntity"><span class="annot"><a href="Network.AWS.SSM.Types.OpsEntity.html#OpsEntity"><span class="hs-identifier hs-var">OpsEntity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OpsEntity%27"><span class="annot"><a href="Network.AWS.SSM.Types.OpsEntity.html#OpsEntity%27"><span class="hs-identifier hs-var">OpsEntity'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679802181"><span id="local-6989586621679802182"></span></span><span class="hs-keyword">data</span><span> </span><span id="OpsEntity"><span class="annot"><a href="Network.AWS.SSM.Types.OpsEntity.html#OpsEntity"><span class="hs-identifier hs-var">OpsEntity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OpsEntity%27"><span class="annot"><a href="Network.AWS.SSM.Types.OpsEntity.html#OpsEntity%27"><span class="hs-identifier hs-var">OpsEntity'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The data returned by the query.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Adata%27%3AOpsEntity%27"><span class="annot"><span class="annottext">OpsEntity -&gt; Maybe (HashMap Text OpsEntityItem)
 </span><a href="Network.AWS.SSM.Types.OpsEntity.html#%24sel%3Adata%27%3AOpsEntity%27"><span class="hs-identifier hs-var hs-var">data'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsEntityItem.html#OpsEntityItem"><span class="hs-identifier hs-type">OpsEntityItem</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -35,7 +35,7 @@
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Aid%3AOpsEntity%27"><span class="annot"><span class="annottext">OpsEntity -&gt; Maybe Text
 </span><a href="Network.AWS.SSM.Types.OpsEntity.html#%24sel%3Aid%3AOpsEntity%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679800518"><span id="local-6989586621679800520"><span class="annot"><span class="annottext">OpsEntity -&gt; OpsEntity -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679802174"><span id="local-6989586621679802176"><span class="annot"><span class="annottext">OpsEntity -&gt; OpsEntity -&gt; Bool
 (OpsEntity -&gt; OpsEntity -&gt; Bool)
 -&gt; (OpsEntity -&gt; OpsEntity -&gt; Bool) -&gt; Eq OpsEntity
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: OpsEntity -&gt; OpsEntity -&gt; Bool
 == :: OpsEntity -&gt; OpsEntity -&gt; Bool
 $c== :: OpsEntity -&gt; OpsEntity -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679800509"><span id="local-6989586621679800511"><span id="local-6989586621679800513"><span id="local-6989586621679800515"><span class="annot"><span class="annottext">ReadPrec [OpsEntity]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679802165"><span id="local-6989586621679802167"><span id="local-6989586621679802169"><span id="local-6989586621679802171"><span class="annot"><span class="annottext">ReadPrec [OpsEntity]
 ReadPrec OpsEntity
 Int -&gt; ReadS OpsEntity
 ReadS [OpsEntity]
@@ -63,7 +63,7 @@ readList :: ReadS [OpsEntity]
 $creadList :: ReadS [OpsEntity]
 readsPrec :: Int -&gt; ReadS OpsEntity
 $creadsPrec :: Int -&gt; ReadS OpsEntity
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679800502"><span id="local-6989586621679800504"><span id="local-6989586621679800506"><span class="annot"><span class="annottext">Int -&gt; OpsEntity -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679802158"><span id="local-6989586621679802160"><span id="local-6989586621679802162"><span class="annot"><span class="annottext">Int -&gt; OpsEntity -&gt; ShowS
 [OpsEntity] -&gt; ShowS
 OpsEntity -&gt; String
 (Int -&gt; OpsEntity -&gt; ShowS)
@@ -128,16 +128,16 @@ forall a. Maybe a
      (Maybe (HashMap Text OpsEntityItem))
      (Maybe (HashMap Text OpsEntityItem))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.OpsEntity.html#OpsEntity%27"><span class="hs-identifier hs-type">OpsEntity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679800493"><span class="annot"><span class="annottext">Maybe (HashMap Text OpsEntityItem)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.OpsEntity.html#OpsEntity%27"><span class="hs-identifier hs-type">OpsEntity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679802149"><span class="annot"><span class="annottext">Maybe (HashMap Text OpsEntityItem)
 data' :: Maybe (HashMap Text OpsEntityItem)
 $sel:data':OpsEntity' :: OpsEntity -&gt; Maybe (HashMap Text OpsEntityItem)
-</span><a href="#local-6989586621679800493"><span class="hs-identifier hs-var hs-var">data'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text OpsEntityItem)
-</span><a href="#local-6989586621679800493"><span class="hs-identifier hs-var">data'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679800492"><span class="annot"><span class="annottext">s :: OpsEntity
-</span><a href="#local-6989586621679800492"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.OpsEntity.html#OpsEntity%27"><span class="hs-identifier hs-type">OpsEntity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679800491"><span class="annot"><span class="annottext">Maybe (HashMap Text OpsEntityItem)
-</span><a href="#local-6989586621679800491"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OpsEntity
-</span><a href="#local-6989586621679800492"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:data':OpsEntity' :: Maybe (HashMap Text OpsEntityItem)
+</span><a href="#local-6989586621679802149"><span class="hs-identifier hs-var hs-var">data'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text OpsEntityItem)
+</span><a href="#local-6989586621679802149"><span class="hs-identifier hs-var">data'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679802148"><span class="annot"><span class="annottext">s :: OpsEntity
+</span><a href="#local-6989586621679802148"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.OpsEntity.html#OpsEntity%27"><span class="hs-identifier hs-type">OpsEntity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679802147"><span class="annot"><span class="annottext">Maybe (HashMap Text OpsEntityItem)
+</span><a href="#local-6989586621679802147"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OpsEntity
+</span><a href="#local-6989586621679802148"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:data':OpsEntity' :: Maybe (HashMap Text OpsEntityItem)
 </span><a href="Network.AWS.SSM.Types.OpsEntity.html#%24sel%3Adata%27%3AOpsEntity%27"><span class="hs-identifier hs-var">data'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text OpsEntityItem)
-</span><a href="#local-6989586621679800491"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsEntity.html#OpsEntity"><span class="hs-identifier hs-type">OpsEntity</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text OpsEntityItem)
+</span><a href="#local-6989586621679802147"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsEntity.html#OpsEntity"><span class="hs-identifier hs-type">OpsEntity</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text OpsEntityItem)
   -&gt; f (Maybe (HashMap Text OpsEntityItem)))
  -&gt; OpsEntity -&gt; f OpsEntity)
 -&gt; ((Maybe (HashMap Text OpsEntityItem)
@@ -167,8 +167,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (HashMap Text OpsEntityItem)
   (HashMap Text OpsEntityItem)
   (HashMap Text OpsEntityItem)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- | The query ID.</span><span>
 </span><span id="line-62"></span><span class="annot"><a href="Network.AWS.SSM.Types.OpsEntity.html#opsEntity_id"><span class="hs-identifier hs-type">opsEntity_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsEntity.html#OpsEntity"><span class="hs-identifier hs-type">OpsEntity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -177,27 +177,27 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (OpsEntity -&gt; Maybe Text -&gt; OpsEntity)
 -&gt; Lens OpsEntity OpsEntity (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.OpsEntity.html#OpsEntity%27"><span class="hs-identifier hs-type">OpsEntity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679800486"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.OpsEntity.html#OpsEntity%27"><span class="hs-identifier hs-type">OpsEntity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679802142"><span class="annot"><span class="annottext">Maybe Text
 id :: Maybe Text
 $sel:id:OpsEntity' :: OpsEntity -&gt; Maybe Text
-</span><a href="#local-6989586621679800486"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679800486"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679800485"><span class="annot"><span class="annottext">s :: OpsEntity
-</span><a href="#local-6989586621679800485"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.OpsEntity.html#OpsEntity%27"><span class="hs-identifier hs-type">OpsEntity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679800484"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679800484"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OpsEntity
-</span><a href="#local-6989586621679800485"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:OpsEntity' :: Maybe Text
+</span><a href="#local-6989586621679802142"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679802142"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679802141"><span class="annot"><span class="annottext">s :: OpsEntity
+</span><a href="#local-6989586621679802141"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.OpsEntity.html#OpsEntity%27"><span class="hs-identifier hs-type">OpsEntity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679802140"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679802140"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OpsEntity
+</span><a href="#local-6989586621679802141"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:OpsEntity' :: Maybe Text
 </span><a href="Network.AWS.SSM.Types.OpsEntity.html#%24sel%3Aid%3AOpsEntity%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679800484"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsEntity.html#OpsEntity"><span class="hs-identifier hs-type">OpsEntity</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679802140"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsEntity.html#OpsEntity"><span class="hs-identifier hs-type">OpsEntity</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679800481"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsEntity.html#OpsEntity"><span class="hs-identifier hs-type">OpsEntity</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-66"></span><span>  </span><span id="local-6989586621679800479"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser OpsEntity
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679802137"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsEntity.html#OpsEntity"><span class="hs-identifier hs-type">OpsEntity</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679802135"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser OpsEntity
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser OpsEntity) -&gt; Value -&gt; Parser OpsEntity
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;OpsEntity&quot;</span></span><span>
-</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679800476"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679800476"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679802132"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679802132"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-70"></span><span>          </span><span class="annot"><span class="annottext">Maybe (HashMap Text OpsEntityItem) -&gt; Maybe Text -&gt; OpsEntity
 </span><a href="Network.AWS.SSM.Types.OpsEntity.html#OpsEntity%27"><span class="hs-identifier hs-var">OpsEntity'</span></a></span><span>
 </span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (HashMap Text OpsEntityItem) -&gt; Maybe Text -&gt; OpsEntity)
@@ -205,7 +205,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; OpsEntity)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679800476"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679802132"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text OpsEntityItem)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -220,13 +220,13 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe Text) -&gt; Parser OpsEntity
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679800476"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679802132"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679800469"><span id="local-6989586621679800471"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsEntity.html#OpsEntity"><span class="hs-identifier hs-type">OpsEntity</span></a></span></span></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679802125"><span id="local-6989586621679802127"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsEntity.html#OpsEntity"><span class="hs-identifier hs-type">OpsEntity</span></a></span></span></span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679800466"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsEntity.html#OpsEntity"><span class="hs-identifier hs-type">OpsEntity</span></a></span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679802122"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsEntity.html#OpsEntity"><span class="hs-identifier hs-type">OpsEntity</span></a></span></span><span>
 </span><span id="line-78"></span></pre></body></html>

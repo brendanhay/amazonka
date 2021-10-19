@@ -27,10 +27,10 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Details for a group without metadata.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newGroupSummary' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679252327"><span id="local-6989586621679252328"></span></span><span class="hs-keyword">data</span><span> </span><span id="GroupSummary"><span class="annot"><a href="Network.AWS.XRay.Types.GroupSummary.html#GroupSummary"><span class="hs-identifier hs-var">GroupSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GroupSummary%27"><span class="annot"><a href="Network.AWS.XRay.Types.GroupSummary.html#GroupSummary%27"><span class="hs-identifier hs-var">GroupSummary'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique case-sensitive name of the group.</span><span>
-</span><span id="line-32"></span><span>    </span><span id="%24sel%3AgroupName%3AGroupSummary%27"><span class="annot"><span class="annottext">GroupSummary -&gt; Maybe Text
-</span><a href="Network.AWS.XRay.Types.GroupSummary.html#%24sel%3AgroupName%3AGroupSummary%27"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679252599"><span id="local-6989586621679252600"></span></span><span class="hs-keyword">data</span><span> </span><span id="GroupSummary"><span class="annot"><a href="Network.AWS.XRay.Types.GroupSummary.html#GroupSummary"><span class="hs-identifier hs-var">GroupSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GroupSummary%27"><span class="annot"><a href="Network.AWS.XRay.Types.GroupSummary.html#GroupSummary%27"><span class="hs-identifier hs-var">GroupSummary'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The filter expression defining the parameters to include traces.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AfilterExpression%3AGroupSummary%27"><span class="annot"><span class="annottext">GroupSummary -&gt; Maybe Text
+</span><a href="Network.AWS.XRay.Types.GroupSummary.html#%24sel%3AfilterExpression%3AGroupSummary%27"><span class="hs-identifier hs-var hs-var">filterExpression</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The structure containing configurations related to insights.</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- -   The InsightsEnabled boolean can be set to true to enable insights</span><span>
@@ -41,14 +41,14 @@
 </span><span id="line-40"></span><span>    </span><span class="hs-comment">--     with InsightsEnabled set to true.</span><span>
 </span><span id="line-41"></span><span>    </span><span id="%24sel%3AinsightsConfiguration%3AGroupSummary%27"><span class="annot"><span class="annottext">GroupSummary -&gt; Maybe InsightsConfiguration
 </span><a href="Network.AWS.XRay.Types.GroupSummary.html#%24sel%3AinsightsConfiguration%3AGroupSummary%27"><span class="hs-identifier hs-var hs-var">insightsConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.InsightsConfiguration.html#InsightsConfiguration"><span class="hs-identifier hs-type">InsightsConfiguration</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The filter expression defining the parameters to include traces.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3AfilterExpression%3AGroupSummary%27"><span class="annot"><span class="annottext">GroupSummary -&gt; Maybe Text
-</span><a href="Network.AWS.XRay.Types.GroupSummary.html#%24sel%3AfilterExpression%3AGroupSummary%27"><span class="hs-identifier hs-var hs-var">filterExpression</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The ARN of the group generated based on the GroupName.</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3AgroupARN%3AGroupSummary%27"><span class="annot"><span class="annottext">GroupSummary -&gt; Maybe Text
-</span><a href="Network.AWS.XRay.Types.GroupSummary.html#%24sel%3AgroupARN%3AGroupSummary%27"><span class="hs-identifier hs-var hs-var">groupARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The ARN of the group generated based on the GroupName.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AgroupARN%3AGroupSummary%27"><span class="annot"><span class="annottext">GroupSummary -&gt; Maybe Text
+</span><a href="Network.AWS.XRay.Types.GroupSummary.html#%24sel%3AgroupARN%3AGroupSummary%27"><span class="hs-identifier hs-var hs-var">groupARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The unique case-sensitive name of the group.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AgroupName%3AGroupSummary%27"><span class="annot"><span class="annottext">GroupSummary -&gt; Maybe Text
+</span><a href="Network.AWS.XRay.Types.GroupSummary.html#%24sel%3AgroupName%3AGroupSummary%27"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679252318"><span id="local-6989586621679252320"><span class="annot"><span class="annottext">GroupSummary -&gt; GroupSummary -&gt; Bool
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679252590"><span id="local-6989586621679252592"><span class="annot"><span class="annottext">GroupSummary -&gt; GroupSummary -&gt; Bool
 (GroupSummary -&gt; GroupSummary -&gt; Bool)
 -&gt; (GroupSummary -&gt; GroupSummary -&gt; Bool) -&gt; Eq GroupSummary
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -56,7 +56,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GroupSummary -&gt; GroupSummary -&gt; Bool
 == :: GroupSummary -&gt; GroupSummary -&gt; Bool
 $c== :: GroupSummary -&gt; GroupSummary -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252309"><span id="local-6989586621679252311"><span id="local-6989586621679252313"><span id="local-6989586621679252315"><span class="annot"><span class="annottext">ReadPrec [GroupSummary]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252581"><span id="local-6989586621679252583"><span id="local-6989586621679252585"><span id="local-6989586621679252587"><span class="annot"><span class="annottext">ReadPrec [GroupSummary]
 ReadPrec GroupSummary
 Int -&gt; ReadS GroupSummary
 ReadS [GroupSummary]
@@ -76,7 +76,7 @@ readList :: ReadS [GroupSummary]
 $creadList :: ReadS [GroupSummary]
 readsPrec :: Int -&gt; ReadS GroupSummary
 $creadsPrec :: Int -&gt; ReadS GroupSummary
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252302"><span id="local-6989586621679252304"><span id="local-6989586621679252306"><span class="annot"><span class="annottext">Int -&gt; GroupSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252574"><span id="local-6989586621679252576"><span id="local-6989586621679252578"><span class="annot"><span class="annottext">Int -&gt; GroupSummary -&gt; ShowS
 [GroupSummary] -&gt; ShowS
 GroupSummary -&gt; String
 (Int -&gt; GroupSummary -&gt; ShowS)
@@ -110,7 +110,7 @@ $cfrom :: forall x. GroupSummary -&gt; Rep GroupSummary x
 </span><span id="line-54"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-56"></span><span class="hs-comment">--</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- 'groupName', 'groupSummary_groupName' - The unique case-sensitive name of the group.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'filterExpression', 'groupSummary_filterExpression' - The filter expression defining the parameters to include traces.</span><span>
 </span><span id="line-58"></span><span class="hs-comment">--</span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- 'insightsConfiguration', 'groupSummary_insightsConfiguration' - The structure containing configurations related to insights.</span><span>
 </span><span id="line-60"></span><span class="hs-comment">--</span><span>
@@ -121,9 +121,9 @@ $cfrom :: forall x. GroupSummary -&gt; Rep GroupSummary x
 </span><span id="line-65"></span><span class="hs-comment">--     insights notifications. Notifications can only be enabled on a group</span><span>
 </span><span id="line-66"></span><span class="hs-comment">--     with InsightsEnabled set to true.</span><span>
 </span><span id="line-67"></span><span class="hs-comment">--</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- 'filterExpression', 'groupSummary_filterExpression' - The filter expression defining the parameters to include traces.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'groupARN', 'groupSummary_groupARN' - The ARN of the group generated based on the GroupName.</span><span>
 </span><span id="line-69"></span><span class="hs-comment">--</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- 'groupARN', 'groupSummary_groupARN' - The ARN of the group generated based on the GroupName.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'groupName', 'groupSummary_groupName' - The unique case-sensitive name of the group.</span><span>
 </span><span id="line-71"></span><span class="annot"><a href="Network.AWS.XRay.Types.GroupSummary.html#newGroupSummary"><span class="hs-identifier hs-type">newGroupSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.XRay.Types.GroupSummary.html#GroupSummary"><span class="hs-identifier hs-type">GroupSummary</span></a></span><span>
 </span><span id="line-73"></span><span id="newGroupSummary"><span class="annot"><span class="annottext">newGroupSummary :: GroupSummary
@@ -134,41 +134,41 @@ $cfrom :: forall x. GroupSummary -&gt; Rep GroupSummary x
 -&gt; Maybe Text
 -&gt; GroupSummary
 </span><a href="Network.AWS.XRay.Types.GroupSummary.html#GroupSummary%27"><span class="hs-identifier hs-type">GroupSummary'</span></a></span><span>
-</span><span id="line-75"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:groupName:GroupSummary' :: Maybe Text
-</span><a href="Network.AWS.XRay.Types.GroupSummary.html#%24sel%3AgroupName%3AGroupSummary%27"><span class="hs-identifier hs-var">groupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-75"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:filterExpression:GroupSummary' :: Maybe Text
+</span><a href="Network.AWS.XRay.Types.GroupSummary.html#%24sel%3AfilterExpression%3AGroupSummary%27"><span class="hs-identifier hs-var">filterExpression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:insightsConfiguration:GroupSummary' :: Maybe InsightsConfiguration
 </span><a href="Network.AWS.XRay.Types.GroupSummary.html#%24sel%3AinsightsConfiguration%3AGroupSummary%27"><span class="hs-identifier hs-var">insightsConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InsightsConfiguration
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:filterExpression:GroupSummary' :: Maybe Text
-</span><a href="Network.AWS.XRay.Types.GroupSummary.html#%24sel%3AfilterExpression%3AGroupSummary%27"><span class="hs-identifier hs-var">filterExpression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:groupARN:GroupSummary' :: Maybe Text
+</span><a href="Network.AWS.XRay.Types.GroupSummary.html#%24sel%3AgroupARN%3AGroupSummary%27"><span class="hs-identifier hs-var">groupARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:groupARN:GroupSummary' :: Maybe Text
-</span><a href="Network.AWS.XRay.Types.GroupSummary.html#%24sel%3AgroupARN%3AGroupSummary%27"><span class="hs-identifier hs-var">groupARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:groupName:GroupSummary' :: Maybe Text
+</span><a href="Network.AWS.XRay.Types.GroupSummary.html#%24sel%3AgroupName%3AGroupSummary%27"><span class="hs-identifier hs-var">groupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-79"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- | The unique case-sensitive name of the group.</span><span>
-</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.XRay.Types.GroupSummary.html#groupSummary_groupName"><span class="hs-identifier hs-type">groupSummary_groupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.GroupSummary.html#GroupSummary"><span class="hs-identifier hs-type">GroupSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-83"></span><span id="groupSummary_groupName"><span class="annot"><span class="annottext">groupSummary_groupName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; GroupSummary -&gt; f GroupSummary
-</span><a href="Network.AWS.XRay.Types.GroupSummary.html#groupSummary_groupName"><span class="hs-identifier hs-var hs-var">groupSummary_groupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GroupSummary -&gt; Maybe Text)
+</span><span id="line-81"></span><span class="hs-comment">-- | The filter expression defining the parameters to include traces.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.XRay.Types.GroupSummary.html#groupSummary_filterExpression"><span class="hs-identifier hs-type">groupSummary_filterExpression</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.GroupSummary.html#GroupSummary"><span class="hs-identifier hs-type">GroupSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="groupSummary_filterExpression"><span class="annot"><span class="annottext">groupSummary_filterExpression :: (Maybe Text -&gt; f (Maybe Text)) -&gt; GroupSummary -&gt; f GroupSummary
+</span><a href="Network.AWS.XRay.Types.GroupSummary.html#groupSummary_filterExpression"><span class="hs-identifier hs-var hs-var">groupSummary_filterExpression</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GroupSummary -&gt; Maybe Text)
 -&gt; (GroupSummary -&gt; Maybe Text -&gt; GroupSummary)
 -&gt; Lens GroupSummary GroupSummary (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.GroupSummary.html#GroupSummary%27"><span class="hs-identifier hs-type">GroupSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252293"><span class="annot"><span class="annottext">Maybe Text
-groupName :: Maybe Text
-$sel:groupName:GroupSummary' :: GroupSummary -&gt; Maybe Text
-</span><a href="#local-6989586621679252293"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679252293"><span class="hs-identifier hs-var">groupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252292"><span class="annot"><span class="annottext">s :: GroupSummary
-</span><a href="#local-6989586621679252292"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.GroupSummary.html#GroupSummary%27"><span class="hs-identifier hs-type">GroupSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252291"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679252291"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GroupSummary
-</span><a href="#local-6989586621679252292"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupName:GroupSummary' :: Maybe Text
-</span><a href="Network.AWS.XRay.Types.GroupSummary.html#%24sel%3AgroupName%3AGroupSummary%27"><span class="hs-identifier hs-var">groupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679252291"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.GroupSummary.html#GroupSummary"><span class="hs-identifier hs-type">GroupSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.GroupSummary.html#GroupSummary%27"><span class="hs-identifier hs-type">GroupSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252565"><span class="annot"><span class="annottext">Maybe Text
+filterExpression :: Maybe Text
+$sel:filterExpression:GroupSummary' :: GroupSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679252565"><span class="hs-identifier hs-var hs-var">filterExpression</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679252565"><span class="hs-identifier hs-var">filterExpression</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252564"><span class="annot"><span class="annottext">s :: GroupSummary
+</span><a href="#local-6989586621679252564"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.GroupSummary.html#GroupSummary%27"><span class="hs-identifier hs-type">GroupSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252563"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679252563"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GroupSummary
+</span><a href="#local-6989586621679252564"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filterExpression:GroupSummary' :: Maybe Text
+</span><a href="Network.AWS.XRay.Types.GroupSummary.html#%24sel%3AfilterExpression%3AGroupSummary%27"><span class="hs-identifier hs-var">filterExpression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679252563"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.GroupSummary.html#GroupSummary"><span class="hs-identifier hs-type">GroupSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- | The structure containing configurations related to insights.</span><span>
 </span><span id="line-86"></span><span class="hs-comment">--</span><span>
@@ -189,55 +189,55 @@ $sel:groupName:GroupSummary' :: GroupSummary -&gt; Maybe Text
      (Maybe InsightsConfiguration)
      (Maybe InsightsConfiguration)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.GroupSummary.html#GroupSummary%27"><span class="hs-identifier hs-type">GroupSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252289"><span class="annot"><span class="annottext">Maybe InsightsConfiguration
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.GroupSummary.html#GroupSummary%27"><span class="hs-identifier hs-type">GroupSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252561"><span class="annot"><span class="annottext">Maybe InsightsConfiguration
 insightsConfiguration :: Maybe InsightsConfiguration
 $sel:insightsConfiguration:GroupSummary' :: GroupSummary -&gt; Maybe InsightsConfiguration
-</span><a href="#local-6989586621679252289"><span class="hs-identifier hs-var hs-var">insightsConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InsightsConfiguration
-</span><a href="#local-6989586621679252289"><span class="hs-identifier hs-var">insightsConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252288"><span class="annot"><span class="annottext">s :: GroupSummary
-</span><a href="#local-6989586621679252288"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.GroupSummary.html#GroupSummary%27"><span class="hs-identifier hs-type">GroupSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252287"><span class="annot"><span class="annottext">Maybe InsightsConfiguration
-</span><a href="#local-6989586621679252287"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GroupSummary
-</span><a href="#local-6989586621679252288"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:insightsConfiguration:GroupSummary' :: Maybe InsightsConfiguration
+</span><a href="#local-6989586621679252561"><span class="hs-identifier hs-var hs-var">insightsConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InsightsConfiguration
+</span><a href="#local-6989586621679252561"><span class="hs-identifier hs-var">insightsConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252560"><span class="annot"><span class="annottext">s :: GroupSummary
+</span><a href="#local-6989586621679252560"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.GroupSummary.html#GroupSummary%27"><span class="hs-identifier hs-type">GroupSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252559"><span class="annot"><span class="annottext">Maybe InsightsConfiguration
+</span><a href="#local-6989586621679252559"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GroupSummary
+</span><a href="#local-6989586621679252560"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:insightsConfiguration:GroupSummary' :: Maybe InsightsConfiguration
 </span><a href="Network.AWS.XRay.Types.GroupSummary.html#%24sel%3AinsightsConfiguration%3AGroupSummary%27"><span class="hs-identifier hs-var">insightsConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InsightsConfiguration
-</span><a href="#local-6989586621679252287"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.GroupSummary.html#GroupSummary"><span class="hs-identifier hs-type">GroupSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679252559"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.GroupSummary.html#GroupSummary"><span class="hs-identifier hs-type">GroupSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- | The filter expression defining the parameters to include traces.</span><span>
-</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.XRay.Types.GroupSummary.html#groupSummary_filterExpression"><span class="hs-identifier hs-type">groupSummary_filterExpression</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.GroupSummary.html#GroupSummary"><span class="hs-identifier hs-type">GroupSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-98"></span><span id="groupSummary_filterExpression"><span class="annot"><span class="annottext">groupSummary_filterExpression :: (Maybe Text -&gt; f (Maybe Text)) -&gt; GroupSummary -&gt; f GroupSummary
-</span><a href="Network.AWS.XRay.Types.GroupSummary.html#groupSummary_filterExpression"><span class="hs-identifier hs-var hs-var">groupSummary_filterExpression</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GroupSummary -&gt; Maybe Text)
--&gt; (GroupSummary -&gt; Maybe Text -&gt; GroupSummary)
--&gt; Lens GroupSummary GroupSummary (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.GroupSummary.html#GroupSummary%27"><span class="hs-identifier hs-type">GroupSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252285"><span class="annot"><span class="annottext">Maybe Text
-filterExpression :: Maybe Text
-$sel:filterExpression:GroupSummary' :: GroupSummary -&gt; Maybe Text
-</span><a href="#local-6989586621679252285"><span class="hs-identifier hs-var hs-var">filterExpression</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679252285"><span class="hs-identifier hs-var">filterExpression</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252284"><span class="annot"><span class="annottext">s :: GroupSummary
-</span><a href="#local-6989586621679252284"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.GroupSummary.html#GroupSummary%27"><span class="hs-identifier hs-type">GroupSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252283"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679252283"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GroupSummary
-</span><a href="#local-6989586621679252284"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filterExpression:GroupSummary' :: Maybe Text
-</span><a href="Network.AWS.XRay.Types.GroupSummary.html#%24sel%3AfilterExpression%3AGroupSummary%27"><span class="hs-identifier hs-var">filterExpression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679252283"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.GroupSummary.html#GroupSummary"><span class="hs-identifier hs-type">GroupSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- | The ARN of the group generated based on the GroupName.</span><span>
-</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.XRay.Types.GroupSummary.html#groupSummary_groupARN"><span class="hs-identifier hs-type">groupSummary_groupARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.GroupSummary.html#GroupSummary"><span class="hs-identifier hs-type">GroupSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-102"></span><span id="groupSummary_groupARN"><span class="annot"><span class="annottext">groupSummary_groupARN :: (Maybe Text -&gt; f (Maybe Text)) -&gt; GroupSummary -&gt; f GroupSummary
+</span><span id="line-96"></span><span class="hs-comment">-- | The ARN of the group generated based on the GroupName.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.XRay.Types.GroupSummary.html#groupSummary_groupARN"><span class="hs-identifier hs-type">groupSummary_groupARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.GroupSummary.html#GroupSummary"><span class="hs-identifier hs-type">GroupSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="groupSummary_groupARN"><span class="annot"><span class="annottext">groupSummary_groupARN :: (Maybe Text -&gt; f (Maybe Text)) -&gt; GroupSummary -&gt; f GroupSummary
 </span><a href="Network.AWS.XRay.Types.GroupSummary.html#groupSummary_groupARN"><span class="hs-identifier hs-var hs-var">groupSummary_groupARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GroupSummary -&gt; Maybe Text)
 -&gt; (GroupSummary -&gt; Maybe Text -&gt; GroupSummary)
 -&gt; Lens GroupSummary GroupSummary (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.GroupSummary.html#GroupSummary%27"><span class="hs-identifier hs-type">GroupSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252281"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.GroupSummary.html#GroupSummary%27"><span class="hs-identifier hs-type">GroupSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252557"><span class="annot"><span class="annottext">Maybe Text
 groupARN :: Maybe Text
 $sel:groupARN:GroupSummary' :: GroupSummary -&gt; Maybe Text
-</span><a href="#local-6989586621679252281"><span class="hs-identifier hs-var hs-var">groupARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679252281"><span class="hs-identifier hs-var">groupARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252280"><span class="annot"><span class="annottext">s :: GroupSummary
-</span><a href="#local-6989586621679252280"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.GroupSummary.html#GroupSummary%27"><span class="hs-identifier hs-type">GroupSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252279"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679252279"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GroupSummary
-</span><a href="#local-6989586621679252280"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupARN:GroupSummary' :: Maybe Text
+</span><a href="#local-6989586621679252557"><span class="hs-identifier hs-var hs-var">groupARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679252557"><span class="hs-identifier hs-var">groupARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252556"><span class="annot"><span class="annottext">s :: GroupSummary
+</span><a href="#local-6989586621679252556"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.GroupSummary.html#GroupSummary%27"><span class="hs-identifier hs-type">GroupSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252555"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679252555"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GroupSummary
+</span><a href="#local-6989586621679252556"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupARN:GroupSummary' :: Maybe Text
 </span><a href="Network.AWS.XRay.Types.GroupSummary.html#%24sel%3AgroupARN%3AGroupSummary%27"><span class="hs-identifier hs-var">groupARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679252279"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.GroupSummary.html#GroupSummary"><span class="hs-identifier hs-type">GroupSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679252555"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.GroupSummary.html#GroupSummary"><span class="hs-identifier hs-type">GroupSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | The unique case-sensitive name of the group.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.XRay.Types.GroupSummary.html#groupSummary_groupName"><span class="hs-identifier hs-type">groupSummary_groupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.GroupSummary.html#GroupSummary"><span class="hs-identifier hs-type">GroupSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span id="groupSummary_groupName"><span class="annot"><span class="annottext">groupSummary_groupName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; GroupSummary -&gt; f GroupSummary
+</span><a href="Network.AWS.XRay.Types.GroupSummary.html#groupSummary_groupName"><span class="hs-identifier hs-var hs-var">groupSummary_groupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GroupSummary -&gt; Maybe Text)
+-&gt; (GroupSummary -&gt; Maybe Text -&gt; GroupSummary)
+-&gt; Lens GroupSummary GroupSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.GroupSummary.html#GroupSummary%27"><span class="hs-identifier hs-type">GroupSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252553"><span class="annot"><span class="annottext">Maybe Text
+groupName :: Maybe Text
+$sel:groupName:GroupSummary' :: GroupSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679252553"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679252553"><span class="hs-identifier hs-var">groupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252552"><span class="annot"><span class="annottext">s :: GroupSummary
+</span><a href="#local-6989586621679252552"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.GroupSummary.html#GroupSummary%27"><span class="hs-identifier hs-type">GroupSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252551"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679252551"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GroupSummary
+</span><a href="#local-6989586621679252552"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupName:GroupSummary' :: Maybe Text
+</span><a href="Network.AWS.XRay.Types.GroupSummary.html#%24sel%3AgroupName%3AGroupSummary%27"><span class="hs-identifier hs-var">groupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679252551"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.GroupSummary.html#GroupSummary"><span class="hs-identifier hs-type">GroupSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252276"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.GroupSummary.html#GroupSummary"><span class="hs-identifier hs-type">GroupSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679252274"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser GroupSummary
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252548"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.GroupSummary.html#GroupSummary"><span class="hs-identifier hs-type">GroupSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679252546"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser GroupSummary
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser GroupSummary) -&gt; Value -&gt; Parser GroupSummary
@@ -245,8 +245,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;GroupSummary&quot;</span></span><span>
-</span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679252271"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679252271"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679252543"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679252543"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-109"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe InsightsConfiguration
 -&gt; Maybe Text
@@ -264,10 +264,10 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Maybe Text -&gt; Maybe Text -&gt; GroupSummary)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679252271"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679252543"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;GroupName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;FilterExpression&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe InsightsConfiguration
    -&gt; Maybe Text -&gt; Maybe Text -&gt; GroupSummary)
@@ -275,7 +275,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; GroupSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679252271"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InsightsConfiguration)
+</span><a href="#local-6989586621679252543"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InsightsConfiguration)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;InsightsConfiguration&quot;</span></span><span class="hs-special">)</span><span>
@@ -283,21 +283,21 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; GroupSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679252271"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679252543"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;FilterExpression&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;GroupARN&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; GroupSummary)
 -&gt; Parser (Maybe Text) -&gt; Parser GroupSummary
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679252271"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679252543"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;GroupARN&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;GroupName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252265"><span id="local-6989586621679252267"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.GroupSummary.html#GroupSummary"><span class="hs-identifier hs-type">GroupSummary</span></a></span></span></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252537"><span id="local-6989586621679252539"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.GroupSummary.html#GroupSummary"><span class="hs-identifier hs-type">GroupSummary</span></a></span></span></span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252262"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.GroupSummary.html#GroupSummary"><span class="hs-identifier hs-type">GroupSummary</span></a></span></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252534"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.GroupSummary.html#GroupSummary"><span class="hs-identifier hs-type">GroupSummary</span></a></span></span><span>
 </span><span id="line-119"></span></pre></body></html>

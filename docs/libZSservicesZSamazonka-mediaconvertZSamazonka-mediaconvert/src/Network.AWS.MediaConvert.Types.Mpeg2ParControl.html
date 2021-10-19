@@ -37,13 +37,13 @@
 </span><span id="line-37"></span><span class="hs-comment">-- job specification, choose SPECIFIED. When you choose SPECIFIED for this</span><span>
 </span><span id="line-38"></span><span class="hs-comment">-- setting, you must also specify values for the parNumerator and</span><span>
 </span><span id="line-39"></span><span class="hs-comment">-- parDenominator settings.</span><span>
-</span><span id="line-40"></span><span id="local-6989586621679987519"><span id="local-6989586621679987520"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Mpeg2ParControl"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mpeg2ParControl.html#Mpeg2ParControl"><span class="hs-identifier hs-var">Mpeg2ParControl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Mpeg2ParControl%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mpeg2ParControl.html#Mpeg2ParControl%27"><span class="hs-identifier hs-var">Mpeg2ParControl'</span></a></span></span><span>
+</span><span id="line-40"></span><span id="local-6989586621679992309"><span id="local-6989586621679992310"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Mpeg2ParControl"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mpeg2ParControl.html#Mpeg2ParControl"><span class="hs-identifier hs-var">Mpeg2ParControl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Mpeg2ParControl%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mpeg2ParControl.html#Mpeg2ParControl%27"><span class="hs-identifier hs-var">Mpeg2ParControl'</span></a></span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMpeg2ParControl"><span class="annot"><span class="annottext">Mpeg2ParControl -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.Mpeg2ParControl.html#fromMpeg2ParControl"><span class="hs-identifier hs-var hs-var">fromMpeg2ParControl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-42"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679987511"><span id="local-6989586621679987513"><span id="local-6989586621679987515"><span class="annot"><span class="annottext">Int -&gt; Mpeg2ParControl -&gt; ShowS
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679992301"><span id="local-6989586621679992303"><span id="local-6989586621679992305"><span class="annot"><span class="annottext">Int -&gt; Mpeg2ParControl -&gt; ShowS
 [Mpeg2ParControl] -&gt; ShowS
 Mpeg2ParControl -&gt; String
 (Int -&gt; Mpeg2ParControl -&gt; ShowS)
@@ -59,7 +59,7 @@ $cshow :: Mpeg2ParControl -&gt; String
 showsPrec :: Int -&gt; Mpeg2ParControl -&gt; ShowS
 $cshowsPrec :: Int -&gt; Mpeg2ParControl -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679987502"><span id="local-6989586621679987504"><span id="local-6989586621679987506"><span id="local-6989586621679987508"><span class="annot"><span class="annottext">ReadPrec [Mpeg2ParControl]
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679992292"><span id="local-6989586621679992294"><span id="local-6989586621679992296"><span id="local-6989586621679992298"><span class="annot"><span class="annottext">ReadPrec [Mpeg2ParControl]
 ReadPrec Mpeg2ParControl
 Int -&gt; ReadS Mpeg2ParControl
 ReadS [Mpeg2ParControl]
@@ -80,7 +80,7 @@ $creadList :: ReadS [Mpeg2ParControl]
 readsPrec :: Int -&gt; ReadS Mpeg2ParControl
 $creadsPrec :: Int -&gt; ReadS Mpeg2ParControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679987497"><span id="local-6989586621679987499"><span class="annot"><span class="annottext">Mpeg2ParControl -&gt; Mpeg2ParControl -&gt; Bool
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679992287"><span id="local-6989586621679992289"><span class="annot"><span class="annottext">Mpeg2ParControl -&gt; Mpeg2ParControl -&gt; Bool
 (Mpeg2ParControl -&gt; Mpeg2ParControl -&gt; Bool)
 -&gt; (Mpeg2ParControl -&gt; Mpeg2ParControl -&gt; Bool)
 -&gt; Eq Mpeg2ParControl
@@ -90,7 +90,7 @@ $c/= :: Mpeg2ParControl -&gt; Mpeg2ParControl -&gt; Bool
 == :: Mpeg2ParControl -&gt; Mpeg2ParControl -&gt; Bool
 $c== :: Mpeg2ParControl -&gt; Mpeg2ParControl -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679987481"><span id="local-6989586621679987483"><span id="local-6989586621679987485"><span id="local-6989586621679987487"><span id="local-6989586621679987489"><span id="local-6989586621679987491"><span id="local-6989586621679987493"><span class="annot"><span class="annottext">Eq Mpeg2ParControl
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679992271"><span id="local-6989586621679992273"><span id="local-6989586621679992275"><span id="local-6989586621679992277"><span id="local-6989586621679992279"><span id="local-6989586621679992281"><span id="local-6989586621679992283"><span class="annot"><span class="annottext">Eq Mpeg2ParControl
 Eq Mpeg2ParControl
 -&gt; (Mpeg2ParControl -&gt; Mpeg2ParControl -&gt; Ordering)
 -&gt; (Mpeg2ParControl -&gt; Mpeg2ParControl -&gt; Bool)
@@ -141,7 +141,7 @@ $cfrom :: forall x. Mpeg2ParControl -&gt; Rep Mpeg2ParControl x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-50"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679987473"><span id="local-6989586621679987475"><span class="annot"><span class="annottext">Int -&gt; Mpeg2ParControl -&gt; Int
+</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679992263"><span id="local-6989586621679992265"><span class="annot"><span class="annottext">Int -&gt; Mpeg2ParControl -&gt; Int
 Mpeg2ParControl -&gt; Int
 (Int -&gt; Mpeg2ParControl -&gt; Int)
 -&gt; (Mpeg2ParControl -&gt; Int) -&gt; Hashable Mpeg2ParControl
@@ -151,50 +151,50 @@ $chash :: Mpeg2ParControl -&gt; Int
 hashWithSalt :: Int -&gt; Mpeg2ParControl -&gt; Int
 $chashWithSalt :: Int -&gt; Mpeg2ParControl -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679987470"><span class="annot"><span class="annottext">Mpeg2ParControl -&gt; ()
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679992260"><span class="annot"><span class="annottext">Mpeg2ParControl -&gt; ()
 (Mpeg2ParControl -&gt; ()) -&gt; NFData Mpeg2ParControl
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: Mpeg2ParControl -&gt; ()
 $crnf :: Mpeg2ParControl -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679987467"><span class="annot"><span class="annottext">Text -&gt; Either String Mpeg2ParControl
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679992257"><span class="annot"><span class="annottext">Text -&gt; Either String Mpeg2ParControl
 (Text -&gt; Either String Mpeg2ParControl) -&gt; FromText Mpeg2ParControl
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String Mpeg2ParControl
 $cfromText :: Text -&gt; Either String Mpeg2ParControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679987464"><span class="annot"><span class="annottext">Mpeg2ParControl -&gt; Text
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679992254"><span class="annot"><span class="annottext">Mpeg2ParControl -&gt; Text
 (Mpeg2ParControl -&gt; Text) -&gt; ToText Mpeg2ParControl
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: Mpeg2ParControl -&gt; Text
 $ctoText :: Mpeg2ParControl -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679987461"><span class="annot"><span class="annottext">Mpeg2ParControl -&gt; ByteString
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679992251"><span class="annot"><span class="annottext">Mpeg2ParControl -&gt; ByteString
 (Mpeg2ParControl -&gt; ByteString) -&gt; ToByteString Mpeg2ParControl
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: Mpeg2ParControl -&gt; ByteString
 $ctoBS :: Mpeg2ParControl -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679987458"><span class="annot"><span class="annottext">Mpeg2ParControl -&gt; ByteStringBuilder
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679992248"><span class="annot"><span class="annottext">Mpeg2ParControl -&gt; ByteStringBuilder
 (Mpeg2ParControl -&gt; ByteStringBuilder) -&gt; ToLog Mpeg2ParControl
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: Mpeg2ParControl -&gt; ByteStringBuilder
 $cbuild :: Mpeg2ParControl -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679987455"><span class="annot"><span class="annottext">HeaderName -&gt; Mpeg2ParControl -&gt; [Header]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679992245"><span class="annot"><span class="annottext">HeaderName -&gt; Mpeg2ParControl -&gt; [Header]
 (HeaderName -&gt; Mpeg2ParControl -&gt; [Header])
 -&gt; ToHeader Mpeg2ParControl
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; Mpeg2ParControl -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; Mpeg2ParControl -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679987452"><span class="annot"><span class="annottext">Mpeg2ParControl -&gt; QueryString
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679992242"><span class="annot"><span class="annottext">Mpeg2ParControl -&gt; QueryString
 (Mpeg2ParControl -&gt; QueryString) -&gt; ToQuery Mpeg2ParControl
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: Mpeg2ParControl -&gt; QueryString
 $ctoQuery :: Mpeg2ParControl -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679987447"><span id="local-6989586621679987449"><span class="annot"><span class="annottext">Value -&gt; Parser [Mpeg2ParControl]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679992237"><span id="local-6989586621679992239"><span class="annot"><span class="annottext">Value -&gt; Parser [Mpeg2ParControl]
 Value -&gt; Parser Mpeg2ParControl
 (Value -&gt; Parser Mpeg2ParControl)
 -&gt; (Value -&gt; Parser [Mpeg2ParControl]) -&gt; FromJSON Mpeg2ParControl
@@ -205,7 +205,7 @@ $cparseJSONList :: Value -&gt; Parser [Mpeg2ParControl]
 parseJSON :: Value -&gt; Parser Mpeg2ParControl
 $cparseJSON :: Value -&gt; Parser Mpeg2ParControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679987442"><span id="local-6989586621679987444"><span class="annot"><span class="annottext">FromJSONKeyFunction [Mpeg2ParControl]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679992232"><span id="local-6989586621679992234"><span class="annot"><span class="annottext">FromJSONKeyFunction [Mpeg2ParControl]
 FromJSONKeyFunction Mpeg2ParControl
 FromJSONKeyFunction Mpeg2ParControl
 -&gt; FromJSONKeyFunction [Mpeg2ParControl]
@@ -217,7 +217,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [Mpeg2ParControl]
 fromJSONKey :: FromJSONKeyFunction Mpeg2ParControl
 $cfromJSONKey :: FromJSONKeyFunction Mpeg2ParControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679987433"><span id="local-6989586621679987435"><span id="local-6989586621679987437"><span id="local-6989586621679987439"><span class="annot"><span class="annottext">[Mpeg2ParControl] -&gt; Encoding
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679992223"><span id="local-6989586621679992225"><span id="local-6989586621679992227"><span id="local-6989586621679992229"><span class="annot"><span class="annottext">[Mpeg2ParControl] -&gt; Encoding
 [Mpeg2ParControl] -&gt; Value
 Mpeg2ParControl -&gt; Encoding
 Mpeg2ParControl -&gt; Value
@@ -241,7 +241,7 @@ $ctoEncoding :: Mpeg2ParControl -&gt; Encoding
 toJSON :: Mpeg2ParControl -&gt; Value
 $ctoJSON :: Mpeg2ParControl -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679987428"><span id="local-6989586621679987430"><span class="annot"><span class="annottext">ToJSONKeyFunction [Mpeg2ParControl]
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679992218"><span id="local-6989586621679992220"><span class="annot"><span class="annottext">ToJSONKeyFunction [Mpeg2ParControl]
 ToJSONKeyFunction Mpeg2ParControl
 ToJSONKeyFunction Mpeg2ParControl
 -&gt; ToJSONKeyFunction [Mpeg2ParControl] -&gt; ToJSONKey Mpeg2ParControl
@@ -252,14 +252,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [Mpeg2ParControl]
 toJSONKey :: ToJSONKeyFunction Mpeg2ParControl
 $ctoJSONKey :: ToJSONKeyFunction Mpeg2ParControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679987425"><span class="annot"><span class="annottext">[Node] -&gt; Either String Mpeg2ParControl
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679992215"><span class="annot"><span class="annottext">[Node] -&gt; Either String Mpeg2ParControl
 ([Node] -&gt; Either String Mpeg2ParControl)
 -&gt; FromXML Mpeg2ParControl
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String Mpeg2ParControl
 $cparseXML :: [Node] -&gt; Either String Mpeg2ParControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679987422"><span class="annot"><span class="annottext">Mpeg2ParControl -&gt; XML
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679992212"><span class="annot"><span class="annottext">Mpeg2ParControl -&gt; XML
 (Mpeg2ParControl -&gt; XML) -&gt; ToXML Mpeg2ParControl
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: Mpeg2ParControl -&gt; XML

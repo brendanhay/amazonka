@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Specifies one or more sets of channel messages.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newChannelMessages' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679252163"><span id="local-6989586621679252164"></span></span><span class="hs-keyword">data</span><span> </span><span id="ChannelMessages"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelMessages.html#ChannelMessages"><span class="hs-identifier hs-var">ChannelMessages</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ChannelMessages%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelMessages.html#ChannelMessages%27"><span class="hs-identifier hs-var">ChannelMessages'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679252364"><span id="local-6989586621679252365"></span></span><span class="hs-keyword">data</span><span> </span><span id="ChannelMessages"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelMessages.html#ChannelMessages"><span class="hs-identifier hs-var">ChannelMessages</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ChannelMessages%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelMessages.html#ChannelMessages%27"><span class="hs-identifier hs-var">ChannelMessages'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies one or more keys that identify the Amazon Simple Storage</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- Service (Amazon S3) objects that save your channel messages.</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -37,7 +37,7 @@
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3As3Paths%3AChannelMessages%27"><span class="annot"><span class="annottext">ChannelMessages -&gt; Maybe (NonEmpty Text)
 </span><a href="Network.AWS.IoTAnalytics.Types.ChannelMessages.html#%24sel%3As3Paths%3AChannelMessages%27"><span class="hs-identifier hs-var hs-var">s3Paths</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679252157"><span id="local-6989586621679252159"><span class="annot"><span class="annottext">ChannelMessages -&gt; ChannelMessages -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679252358"><span id="local-6989586621679252360"><span class="annot"><span class="annottext">ChannelMessages -&gt; ChannelMessages -&gt; Bool
 (ChannelMessages -&gt; ChannelMessages -&gt; Bool)
 -&gt; (ChannelMessages -&gt; ChannelMessages -&gt; Bool)
 -&gt; Eq ChannelMessages
@@ -46,7 +46,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ChannelMessages -&gt; ChannelMessages -&gt; Bool
 == :: ChannelMessages -&gt; ChannelMessages -&gt; Bool
 $c== :: ChannelMessages -&gt; ChannelMessages -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252148"><span id="local-6989586621679252150"><span id="local-6989586621679252152"><span id="local-6989586621679252154"><span class="annot"><span class="annottext">ReadPrec [ChannelMessages]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252349"><span id="local-6989586621679252351"><span id="local-6989586621679252353"><span id="local-6989586621679252355"><span class="annot"><span class="annottext">ReadPrec [ChannelMessages]
 ReadPrec ChannelMessages
 Int -&gt; ReadS ChannelMessages
 ReadS [ChannelMessages]
@@ -66,7 +66,7 @@ readList :: ReadS [ChannelMessages]
 $creadList :: ReadS [ChannelMessages]
 readsPrec :: Int -&gt; ReadS ChannelMessages
 $creadsPrec :: Int -&gt; ReadS ChannelMessages
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252141"><span id="local-6989586621679252143"><span id="local-6989586621679252145"><span class="annot"><span class="annottext">Int -&gt; ChannelMessages -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252342"><span id="local-6989586621679252344"><span id="local-6989586621679252346"><span class="annot"><span class="annottext">Int -&gt; ChannelMessages -&gt; ShowS
 [ChannelMessages] -&gt; ShowS
 ChannelMessages -&gt; String
 (Int -&gt; ChannelMessages -&gt; ShowS)
@@ -135,16 +135,16 @@ forall a. Maybe a
      (Maybe (NonEmpty Text))
      (Maybe (NonEmpty Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelMessages.html#ChannelMessages%27"><span class="hs-identifier hs-type">ChannelMessages'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252132"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelMessages.html#ChannelMessages%27"><span class="hs-identifier hs-type">ChannelMessages'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252333"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
 s3Paths :: Maybe (NonEmpty Text)
 $sel:s3Paths:ChannelMessages' :: ChannelMessages -&gt; Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679252132"><span class="hs-identifier hs-var hs-var">s3Paths</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679252132"><span class="hs-identifier hs-var">s3Paths</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252131"><span class="annot"><span class="annottext">s :: ChannelMessages
-</span><a href="#local-6989586621679252131"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelMessages.html#ChannelMessages%27"><span class="hs-identifier hs-type">ChannelMessages'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252130"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679252130"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChannelMessages
-</span><a href="#local-6989586621679252131"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Paths:ChannelMessages' :: Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679252333"><span class="hs-identifier hs-var hs-var">s3Paths</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679252333"><span class="hs-identifier hs-var">s3Paths</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252332"><span class="annot"><span class="annottext">s :: ChannelMessages
+</span><a href="#local-6989586621679252332"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelMessages.html#ChannelMessages%27"><span class="hs-identifier hs-type">ChannelMessages'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252331"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679252331"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChannelMessages
+</span><a href="#local-6989586621679252332"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Paths:ChannelMessages' :: Maybe (NonEmpty Text)
 </span><a href="Network.AWS.IoTAnalytics.Types.ChannelMessages.html#%24sel%3As3Paths%3AChannelMessages%27"><span class="hs-identifier hs-var">s3Paths</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679252130"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelMessages.html#ChannelMessages"><span class="hs-identifier hs-type">ChannelMessages</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+</span><a href="#local-6989586621679252331"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelMessages.html#ChannelMessages"><span class="hs-identifier hs-type">ChannelMessages</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
  -&gt; ChannelMessages -&gt; f ChannelMessages)
 -&gt; ((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
     -&gt; Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
@@ -164,19 +164,19 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
   (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252123"><span id="local-6989586621679252125"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelMessages.html#ChannelMessages"><span class="hs-identifier hs-type">ChannelMessages</span></a></span></span></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252324"><span id="local-6989586621679252326"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelMessages.html#ChannelMessages"><span class="hs-identifier hs-type">ChannelMessages</span></a></span></span></span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252120"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelMessages.html#ChannelMessages"><span class="hs-identifier hs-type">ChannelMessages</span></a></span></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252321"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelMessages.html#ChannelMessages"><span class="hs-identifier hs-type">ChannelMessages</span></a></span></span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252112"><span id="local-6989586621679252114"><span id="local-6989586621679252116"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelMessages.html#ChannelMessages"><span class="hs-identifier hs-type">ChannelMessages</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-76"></span><span>  </span><span id="local-6989586621679252110"><span class="annot"><span class="annottext">toJSON :: ChannelMessages -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelMessages.html#ChannelMessages%27"><span class="hs-identifier hs-type">ChannelMessages'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252108"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252313"><span id="local-6989586621679252315"><span id="local-6989586621679252317"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelMessages.html#ChannelMessages"><span class="hs-identifier hs-type">ChannelMessages</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679252311"><span class="annot"><span class="annottext">toJSON :: ChannelMessages -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelMessages.html#ChannelMessages%27"><span class="hs-identifier hs-type">ChannelMessages'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252309"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
 s3Paths :: Maybe (NonEmpty Text)
 $sel:s3Paths:ChannelMessages' :: ChannelMessages -&gt; Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679252108"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679252309"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -188,6 +188,6 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; Pair) -&gt; Maybe (NonEmpty Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679252108"><span class="hs-identifier hs-var">s3Paths</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679252309"><span class="hs-identifier hs-var">s3Paths</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-80"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span></pre></body></html>

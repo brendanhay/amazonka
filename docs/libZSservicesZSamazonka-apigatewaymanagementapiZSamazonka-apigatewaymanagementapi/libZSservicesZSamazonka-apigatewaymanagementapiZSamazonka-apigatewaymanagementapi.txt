@@ -2,7 +2,7 @@
 -- See Hoogle, http://www.haskell.org/hoogle/
 
 @package libZSservicesZSamazonka-apigatewaymanagementapiZSamazonka-apigatewaymanagementapi
-@version 1.6.1
+@version 2.0
 
 
 module Network.AWS.APIGatewayManagementAPI.Types.Identity
@@ -54,14 +54,14 @@ module Network.AWS.APIGatewayManagementAPI.Types
 --   SDK configuration.
 defaultService :: Service
 
--- | The connection with the provided id no longer exists.
-_GoneException :: AsError a => Getting (First ServiceError) a ServiceError
-
 -- | The data has exceeded the maximum size allowed.
 _PayloadTooLargeException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | The caller is not authorized to invoke this operation.
 _ForbiddenException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | The connection with the provided id no longer exists.
+_GoneException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | The client is sending more than the allowed number of requests per
 --   unit of time or the WebSocket client side buffer is full.
@@ -191,14 +191,14 @@ getConnection_connectionId :: Lens' GetConnection Text
 
 -- | <i>See:</i> <a>newGetConnectionResponse</a> smart constructor.
 data GetConnectionResponse
-GetConnectionResponse' :: Maybe Identity -> Maybe POSIX -> Maybe POSIX -> Int -> GetConnectionResponse
-[$sel:identity:GetConnectionResponse'] :: GetConnectionResponse -> Maybe Identity
-
--- | The time in ISO 8601 format for when the connection was last active.
-[$sel:lastActiveAt:GetConnectionResponse'] :: GetConnectionResponse -> Maybe POSIX
+GetConnectionResponse' :: Maybe POSIX -> Maybe POSIX -> Maybe Identity -> Int -> GetConnectionResponse
 
 -- | The time in ISO 8601 format for when the connection was established.
 [$sel:connectedAt:GetConnectionResponse'] :: GetConnectionResponse -> Maybe POSIX
+
+-- | The time in ISO 8601 format for when the connection was last active.
+[$sel:lastActiveAt:GetConnectionResponse'] :: GetConnectionResponse -> Maybe POSIX
+[$sel:identity:GetConnectionResponse'] :: GetConnectionResponse -> Maybe Identity
 
 -- | The response's http status code.
 [$sel:httpStatus:GetConnectionResponse'] :: GetConnectionResponse -> Int
@@ -212,30 +212,30 @@ GetConnectionResponse' :: Maybe Identity -> Maybe POSIX -> Maybe POSIX -> Int ->
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:identity:GetConnectionResponse'</a>,
---   <a>getConnectionResponse_identity</a> - Undocumented member.
+--   <a>$sel:connectedAt:GetConnectionResponse'</a>,
+--   <a>getConnectionResponse_connectedAt</a> - The time in ISO 8601 format
+--   for when the connection was established.
 --   
 --   <a>$sel:lastActiveAt:GetConnectionResponse'</a>,
 --   <a>getConnectionResponse_lastActiveAt</a> - The time in ISO 8601
 --   format for when the connection was last active.
 --   
---   <a>$sel:connectedAt:GetConnectionResponse'</a>,
---   <a>getConnectionResponse_connectedAt</a> - The time in ISO 8601 format
---   for when the connection was established.
+--   <a>$sel:identity:GetConnectionResponse'</a>,
+--   <a>getConnectionResponse_identity</a> - Undocumented member.
 --   
 --   <a>$sel:httpStatus:GetConnectionResponse'</a>,
 --   <a>getConnectionResponse_httpStatus</a> - The response's http status
 --   code.
 newGetConnectionResponse :: Int -> GetConnectionResponse
 
--- | Undocumented member.
-getConnectionResponse_identity :: Lens' GetConnectionResponse (Maybe Identity)
+-- | The time in ISO 8601 format for when the connection was established.
+getConnectionResponse_connectedAt :: Lens' GetConnectionResponse (Maybe UTCTime)
 
 -- | The time in ISO 8601 format for when the connection was last active.
 getConnectionResponse_lastActiveAt :: Lens' GetConnectionResponse (Maybe UTCTime)
 
--- | The time in ISO 8601 format for when the connection was established.
-getConnectionResponse_connectedAt :: Lens' GetConnectionResponse (Maybe UTCTime)
+-- | Undocumented member.
+getConnectionResponse_identity :: Lens' GetConnectionResponse (Maybe Identity)
 
 -- | The response's http status code.
 getConnectionResponse_httpStatus :: Lens' GetConnectionResponse Int
@@ -312,26 +312,26 @@ module Network.AWS.APIGatewayManagementAPI.Lens
 -- | Undocumented member.
 deleteConnection_connectionId :: Lens' DeleteConnection Text
 
+-- | Undocumented member.
+getConnection_connectionId :: Lens' GetConnection Text
+
+-- | The time in ISO 8601 format for when the connection was established.
+getConnectionResponse_connectedAt :: Lens' GetConnectionResponse (Maybe UTCTime)
+
+-- | The time in ISO 8601 format for when the connection was last active.
+getConnectionResponse_lastActiveAt :: Lens' GetConnectionResponse (Maybe UTCTime)
+
+-- | Undocumented member.
+getConnectionResponse_identity :: Lens' GetConnectionResponse (Maybe Identity)
+
+-- | The response's http status code.
+getConnectionResponse_httpStatus :: Lens' GetConnectionResponse Int
+
 -- | The identifier of the connection that a specific client is using.
 postToConnection_connectionId :: Lens' PostToConnection Text
 
 -- | The data to be sent to the client specified by its connection id.
 postToConnection_data :: Lens' PostToConnection ByteString
-
--- | Undocumented member.
-getConnection_connectionId :: Lens' GetConnection Text
-
--- | Undocumented member.
-getConnectionResponse_identity :: Lens' GetConnectionResponse (Maybe Identity)
-
--- | The time in ISO 8601 format for when the connection was last active.
-getConnectionResponse_lastActiveAt :: Lens' GetConnectionResponse (Maybe UTCTime)
-
--- | The time in ISO 8601 format for when the connection was established.
-getConnectionResponse_connectedAt :: Lens' GetConnectionResponse (Maybe UTCTime)
-
--- | The response's http status code.
-getConnectionResponse_httpStatus :: Lens' GetConnectionResponse Int
 
 -- | The source IP address of the TCP connection making the request to API
 --   Gateway.
@@ -360,14 +360,14 @@ module Network.AWS.APIGatewayManagementAPI
 --   SDK configuration.
 defaultService :: Service
 
--- | The connection with the provided id no longer exists.
-_GoneException :: AsError a => Getting (First ServiceError) a ServiceError
-
 -- | The data has exceeded the maximum size allowed.
 _PayloadTooLargeException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | The caller is not authorized to invoke this operation.
 _ForbiddenException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | The connection with the provided id no longer exists.
+_GoneException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | The client is sending more than the allowed number of requests per
 --   unit of time or the WebSocket client side buffer is full.
@@ -401,6 +401,52 @@ DeleteConnectionResponse' :: DeleteConnectionResponse
 --   fields.
 newDeleteConnectionResponse :: DeleteConnectionResponse
 
+-- | <i>See:</i> <a>newGetConnection</a> smart constructor.
+data GetConnection
+GetConnection' :: Text -> GetConnection
+
+-- | Create a value of <a>GetConnection</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:connectionId:GetConnection'</a>,
+--   <a>getConnection_connectionId</a> - Undocumented member.
+newGetConnection :: Text -> GetConnection
+
+-- | <i>See:</i> <a>newGetConnectionResponse</a> smart constructor.
+data GetConnectionResponse
+GetConnectionResponse' :: Maybe POSIX -> Maybe POSIX -> Maybe Identity -> Int -> GetConnectionResponse
+
+-- | Create a value of <a>GetConnectionResponse</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:connectedAt:GetConnectionResponse'</a>,
+--   <a>getConnectionResponse_connectedAt</a> - The time in ISO 8601 format
+--   for when the connection was established.
+--   
+--   <a>$sel:lastActiveAt:GetConnectionResponse'</a>,
+--   <a>getConnectionResponse_lastActiveAt</a> - The time in ISO 8601
+--   format for when the connection was last active.
+--   
+--   <a>$sel:identity:GetConnectionResponse'</a>,
+--   <a>getConnectionResponse_identity</a> - Undocumented member.
+--   
+--   <a>$sel:httpStatus:GetConnectionResponse'</a>,
+--   <a>getConnectionResponse_httpStatus</a> - The response's http status
+--   code.
+newGetConnectionResponse :: Int -> GetConnectionResponse
+
 -- | <i>See:</i> <a>newPostToConnection</a> smart constructor.
 data PostToConnection
 PostToConnection' :: Text -> ByteString -> PostToConnection
@@ -432,52 +478,6 @@ PostToConnectionResponse' :: PostToConnectionResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newPostToConnectionResponse :: PostToConnectionResponse
-
--- | <i>See:</i> <a>newGetConnection</a> smart constructor.
-data GetConnection
-GetConnection' :: Text -> GetConnection
-
--- | Create a value of <a>GetConnection</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:connectionId:GetConnection'</a>,
---   <a>getConnection_connectionId</a> - Undocumented member.
-newGetConnection :: Text -> GetConnection
-
--- | <i>See:</i> <a>newGetConnectionResponse</a> smart constructor.
-data GetConnectionResponse
-GetConnectionResponse' :: Maybe Identity -> Maybe POSIX -> Maybe POSIX -> Int -> GetConnectionResponse
-
--- | Create a value of <a>GetConnectionResponse</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:identity:GetConnectionResponse'</a>,
---   <a>getConnectionResponse_identity</a> - Undocumented member.
---   
---   <a>$sel:lastActiveAt:GetConnectionResponse'</a>,
---   <a>getConnectionResponse_lastActiveAt</a> - The time in ISO 8601
---   format for when the connection was last active.
---   
---   <a>$sel:connectedAt:GetConnectionResponse'</a>,
---   <a>getConnectionResponse_connectedAt</a> - The time in ISO 8601 format
---   for when the connection was established.
---   
---   <a>$sel:httpStatus:GetConnectionResponse'</a>,
---   <a>getConnectionResponse_httpStatus</a> - The response's http status
---   code.
-newGetConnectionResponse :: Int -> GetConnectionResponse
 
 -- | <i>See:</i> <a>newIdentity</a> smart constructor.
 data Identity

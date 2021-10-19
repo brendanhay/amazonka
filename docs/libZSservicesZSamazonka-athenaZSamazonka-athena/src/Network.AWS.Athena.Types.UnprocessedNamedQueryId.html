@@ -26,20 +26,20 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Information about a named query ID that could not be processed.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newUnprocessedNamedQueryId' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679219077"><span id="local-6989586621679219078"></span></span><span class="hs-keyword">data</span><span> </span><span id="UnprocessedNamedQueryId"><span class="annot"><a href="Network.AWS.Athena.Types.UnprocessedNamedQueryId.html#UnprocessedNamedQueryId"><span class="hs-identifier hs-var">UnprocessedNamedQueryId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UnprocessedNamedQueryId%27"><span class="annot"><a href="Network.AWS.Athena.Types.UnprocessedNamedQueryId.html#UnprocessedNamedQueryId%27"><span class="hs-identifier hs-var">UnprocessedNamedQueryId'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679219241"><span id="local-6989586621679219242"></span></span><span class="hs-keyword">data</span><span> </span><span id="UnprocessedNamedQueryId"><span class="annot"><a href="Network.AWS.Athena.Types.UnprocessedNamedQueryId.html#UnprocessedNamedQueryId"><span class="hs-identifier hs-var">UnprocessedNamedQueryId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UnprocessedNamedQueryId%27"><span class="annot"><a href="Network.AWS.Athena.Types.UnprocessedNamedQueryId.html#UnprocessedNamedQueryId%27"><span class="hs-identifier hs-var">UnprocessedNamedQueryId'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique identifier of the named query.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AnamedQueryId%3AUnprocessedNamedQueryId%27"><span class="annot"><span class="annottext">UnprocessedNamedQueryId -&gt; Maybe Text
 </span><a href="Network.AWS.Athena.Types.UnprocessedNamedQueryId.html#%24sel%3AnamedQueryId%3AUnprocessedNamedQueryId%27"><span class="hs-identifier hs-var hs-var">namedQueryId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The error message returned when the processing request for the named</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- query failed, if applicable.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AerrorMessage%3AUnprocessedNamedQueryId%27"><span class="annot"><span class="annottext">UnprocessedNamedQueryId -&gt; Maybe Text
-</span><a href="Network.AWS.Athena.Types.UnprocessedNamedQueryId.html#%24sel%3AerrorMessage%3AUnprocessedNamedQueryId%27"><span class="hs-identifier hs-var hs-var">errorMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The error code returned when the processing request for the named query</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- failed, if applicable.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AerrorCode%3AUnprocessedNamedQueryId%27"><span class="annot"><span class="annottext">UnprocessedNamedQueryId -&gt; Maybe Text
-</span><a href="Network.AWS.Athena.Types.UnprocessedNamedQueryId.html#%24sel%3AerrorCode%3AUnprocessedNamedQueryId%27"><span class="hs-identifier hs-var hs-var">errorCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The error code returned when the processing request for the named query</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- failed, if applicable.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AerrorCode%3AUnprocessedNamedQueryId%27"><span class="annot"><span class="annottext">UnprocessedNamedQueryId -&gt; Maybe Text
+</span><a href="Network.AWS.Athena.Types.UnprocessedNamedQueryId.html#%24sel%3AerrorCode%3AUnprocessedNamedQueryId%27"><span class="hs-identifier hs-var hs-var">errorCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The error message returned when the processing request for the named</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- query failed, if applicable.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AerrorMessage%3AUnprocessedNamedQueryId%27"><span class="annot"><span class="annottext">UnprocessedNamedQueryId -&gt; Maybe Text
+</span><a href="Network.AWS.Athena.Types.UnprocessedNamedQueryId.html#%24sel%3AerrorMessage%3AUnprocessedNamedQueryId%27"><span class="hs-identifier hs-var hs-var">errorMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679219069"><span id="local-6989586621679219071"><span class="annot"><span class="annottext">UnprocessedNamedQueryId -&gt; UnprocessedNamedQueryId -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679219233"><span id="local-6989586621679219235"><span class="annot"><span class="annottext">UnprocessedNamedQueryId -&gt; UnprocessedNamedQueryId -&gt; Bool
 (UnprocessedNamedQueryId -&gt; UnprocessedNamedQueryId -&gt; Bool)
 -&gt; (UnprocessedNamedQueryId -&gt; UnprocessedNamedQueryId -&gt; Bool)
 -&gt; Eq UnprocessedNamedQueryId
@@ -48,7 +48,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UnprocessedNamedQueryId -&gt; UnprocessedNamedQueryId -&gt; Bool
 == :: UnprocessedNamedQueryId -&gt; UnprocessedNamedQueryId -&gt; Bool
 $c== :: UnprocessedNamedQueryId -&gt; UnprocessedNamedQueryId -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679219060"><span id="local-6989586621679219062"><span id="local-6989586621679219064"><span id="local-6989586621679219066"><span class="annot"><span class="annottext">ReadPrec [UnprocessedNamedQueryId]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679219224"><span id="local-6989586621679219226"><span id="local-6989586621679219228"><span id="local-6989586621679219230"><span class="annot"><span class="annottext">ReadPrec [UnprocessedNamedQueryId]
 ReadPrec UnprocessedNamedQueryId
 Int -&gt; ReadS UnprocessedNamedQueryId
 ReadS [UnprocessedNamedQueryId]
@@ -68,7 +68,7 @@ readList :: ReadS [UnprocessedNamedQueryId]
 $creadList :: ReadS [UnprocessedNamedQueryId]
 readsPrec :: Int -&gt; ReadS UnprocessedNamedQueryId
 $creadsPrec :: Int -&gt; ReadS UnprocessedNamedQueryId
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679219053"><span id="local-6989586621679219055"><span id="local-6989586621679219057"><span class="annot"><span class="annottext">Int -&gt; UnprocessedNamedQueryId -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679219217"><span id="local-6989586621679219219"><span id="local-6989586621679219221"><span class="annot"><span class="annottext">Int -&gt; UnprocessedNamedQueryId -&gt; ShowS
 [UnprocessedNamedQueryId] -&gt; ShowS
 UnprocessedNamedQueryId -&gt; String
 (Int -&gt; UnprocessedNamedQueryId -&gt; ShowS)
@@ -106,11 +106,11 @@ $cfrom :: forall x. UnprocessedNamedQueryId -&gt; Rep UnprocessedNamedQueryId x
 </span><span id="line-48"></span><span class="hs-comment">--</span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- 'namedQueryId', 'unprocessedNamedQueryId_namedQueryId' - The unique identifier of the named query.</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
-</span><span id="line-51"></span><span class="hs-comment">-- 'errorMessage', 'unprocessedNamedQueryId_errorMessage' - The error message returned when the processing request for the named</span><span>
-</span><span id="line-52"></span><span class="hs-comment">-- query failed, if applicable.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'errorCode', 'unprocessedNamedQueryId_errorCode' - The error code returned when the processing request for the named query</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- failed, if applicable.</span><span>
 </span><span id="line-53"></span><span class="hs-comment">--</span><span>
-</span><span id="line-54"></span><span class="hs-comment">-- 'errorCode', 'unprocessedNamedQueryId_errorCode' - The error code returned when the processing request for the named query</span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- failed, if applicable.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'errorMessage', 'unprocessedNamedQueryId_errorMessage' - The error message returned when the processing request for the named</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- query failed, if applicable.</span><span>
 </span><span id="line-56"></span><span class="annot"><a href="Network.AWS.Athena.Types.UnprocessedNamedQueryId.html#newUnprocessedNamedQueryId"><span class="hs-identifier hs-type">newUnprocessedNamedQueryId</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-57"></span><span>  </span><span class="annot"><a href="Network.AWS.Athena.Types.UnprocessedNamedQueryId.html#UnprocessedNamedQueryId"><span class="hs-identifier hs-type">UnprocessedNamedQueryId</span></a></span><span>
 </span><span id="line-58"></span><span id="newUnprocessedNamedQueryId"><span class="annot"><span class="annottext">newUnprocessedNamedQueryId :: UnprocessedNamedQueryId
@@ -122,12 +122,12 @@ $cfrom :: forall x. UnprocessedNamedQueryId -&gt; Rep UnprocessedNamedQueryId x
 </span><span id="line-61"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:errorMessage:UnprocessedNamedQueryId' :: Maybe Text
-</span><a href="Network.AWS.Athena.Types.UnprocessedNamedQueryId.html#%24sel%3AerrorMessage%3AUnprocessedNamedQueryId%27"><span class="hs-identifier hs-var">errorMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:errorCode:UnprocessedNamedQueryId' :: Maybe Text
+</span><a href="Network.AWS.Athena.Types.UnprocessedNamedQueryId.html#%24sel%3AerrorCode%3AUnprocessedNamedQueryId%27"><span class="hs-identifier hs-var">errorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:errorCode:UnprocessedNamedQueryId' :: Maybe Text
-</span><a href="Network.AWS.Athena.Types.UnprocessedNamedQueryId.html#%24sel%3AerrorCode%3AUnprocessedNamedQueryId%27"><span class="hs-identifier hs-var">errorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:errorMessage:UnprocessedNamedQueryId' :: Maybe Text
+</span><a href="Network.AWS.Athena.Types.UnprocessedNamedQueryId.html#%24sel%3AerrorMessage%3AUnprocessedNamedQueryId%27"><span class="hs-identifier hs-var">errorMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-64"></span><span>    </span><span class="hs-special">}</span><span>
@@ -145,46 +145,21 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.UnprocessedNamedQueryId.html#UnprocessedNamedQueryId%27"><span class="hs-identifier hs-type">UnprocessedNamedQueryId'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679219044"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.UnprocessedNamedQueryId.html#UnprocessedNamedQueryId%27"><span class="hs-identifier hs-type">UnprocessedNamedQueryId'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679219208"><span class="annot"><span class="annottext">Maybe Text
 namedQueryId :: Maybe Text
 $sel:namedQueryId:UnprocessedNamedQueryId' :: UnprocessedNamedQueryId -&gt; Maybe Text
-</span><a href="#local-6989586621679219044"><span class="hs-identifier hs-var hs-var">namedQueryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679219044"><span class="hs-identifier hs-var">namedQueryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679219043"><span class="annot"><span class="annottext">s :: UnprocessedNamedQueryId
-</span><a href="#local-6989586621679219043"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.UnprocessedNamedQueryId.html#UnprocessedNamedQueryId%27"><span class="hs-identifier hs-type">UnprocessedNamedQueryId'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679219042"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679219042"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UnprocessedNamedQueryId
-</span><a href="#local-6989586621679219043"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:namedQueryId:UnprocessedNamedQueryId' :: Maybe Text
+</span><a href="#local-6989586621679219208"><span class="hs-identifier hs-var hs-var">namedQueryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679219208"><span class="hs-identifier hs-var">namedQueryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679219207"><span class="annot"><span class="annottext">s :: UnprocessedNamedQueryId
+</span><a href="#local-6989586621679219207"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.UnprocessedNamedQueryId.html#UnprocessedNamedQueryId%27"><span class="hs-identifier hs-type">UnprocessedNamedQueryId'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679219206"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679219206"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UnprocessedNamedQueryId
+</span><a href="#local-6989586621679219207"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:namedQueryId:UnprocessedNamedQueryId' :: Maybe Text
 </span><a href="Network.AWS.Athena.Types.UnprocessedNamedQueryId.html#%24sel%3AnamedQueryId%3AUnprocessedNamedQueryId%27"><span class="hs-identifier hs-var">namedQueryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679219042"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.UnprocessedNamedQueryId.html#UnprocessedNamedQueryId"><span class="hs-identifier hs-type">UnprocessedNamedQueryId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679219206"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.UnprocessedNamedQueryId.html#UnprocessedNamedQueryId"><span class="hs-identifier hs-type">UnprocessedNamedQueryId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- | The error message returned when the processing request for the named</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- query failed, if applicable.</span><span>
-</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.Athena.Types.UnprocessedNamedQueryId.html#unprocessedNamedQueryId_errorMessage"><span class="hs-identifier hs-type">unprocessedNamedQueryId_errorMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.UnprocessedNamedQueryId.html#UnprocessedNamedQueryId"><span class="hs-identifier hs-type">UnprocessedNamedQueryId</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-73"></span><span id="unprocessedNamedQueryId_errorMessage"><span class="annot"><span class="annottext">unprocessedNamedQueryId_errorMessage :: (Maybe Text -&gt; f (Maybe Text))
--&gt; UnprocessedNamedQueryId -&gt; f UnprocessedNamedQueryId
-</span><a href="Network.AWS.Athena.Types.UnprocessedNamedQueryId.html#unprocessedNamedQueryId_errorMessage"><span class="hs-identifier hs-var hs-var">unprocessedNamedQueryId_errorMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UnprocessedNamedQueryId -&gt; Maybe Text)
--&gt; (UnprocessedNamedQueryId
-    -&gt; Maybe Text -&gt; UnprocessedNamedQueryId)
--&gt; Lens
-     UnprocessedNamedQueryId
-     UnprocessedNamedQueryId
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.UnprocessedNamedQueryId.html#UnprocessedNamedQueryId%27"><span class="hs-identifier hs-type">UnprocessedNamedQueryId'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679219040"><span class="annot"><span class="annottext">Maybe Text
-errorMessage :: Maybe Text
-$sel:errorMessage:UnprocessedNamedQueryId' :: UnprocessedNamedQueryId -&gt; Maybe Text
-</span><a href="#local-6989586621679219040"><span class="hs-identifier hs-var hs-var">errorMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679219040"><span class="hs-identifier hs-var">errorMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679219039"><span class="annot"><span class="annottext">s :: UnprocessedNamedQueryId
-</span><a href="#local-6989586621679219039"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.UnprocessedNamedQueryId.html#UnprocessedNamedQueryId%27"><span class="hs-identifier hs-type">UnprocessedNamedQueryId'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679219038"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679219038"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UnprocessedNamedQueryId
-</span><a href="#local-6989586621679219039"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorMessage:UnprocessedNamedQueryId' :: Maybe Text
-</span><a href="Network.AWS.Athena.Types.UnprocessedNamedQueryId.html#%24sel%3AerrorMessage%3AUnprocessedNamedQueryId%27"><span class="hs-identifier hs-var">errorMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679219038"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.UnprocessedNamedQueryId.html#UnprocessedNamedQueryId"><span class="hs-identifier hs-type">UnprocessedNamedQueryId</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- | The error code returned when the processing request for the named query</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- failed, if applicable.</span><span>
-</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.Athena.Types.UnprocessedNamedQueryId.html#unprocessedNamedQueryId_errorCode"><span class="hs-identifier hs-type">unprocessedNamedQueryId_errorCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.UnprocessedNamedQueryId.html#UnprocessedNamedQueryId"><span class="hs-identifier hs-type">UnprocessedNamedQueryId</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-78"></span><span id="unprocessedNamedQueryId_errorCode"><span class="annot"><span class="annottext">unprocessedNamedQueryId_errorCode :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-70"></span><span class="hs-comment">-- | The error code returned when the processing request for the named query</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- failed, if applicable.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.Athena.Types.UnprocessedNamedQueryId.html#unprocessedNamedQueryId_errorCode"><span class="hs-identifier hs-type">unprocessedNamedQueryId_errorCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.UnprocessedNamedQueryId.html#UnprocessedNamedQueryId"><span class="hs-identifier hs-type">UnprocessedNamedQueryId</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span id="unprocessedNamedQueryId_errorCode"><span class="annot"><span class="annottext">unprocessedNamedQueryId_errorCode :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; UnprocessedNamedQueryId -&gt; f UnprocessedNamedQueryId
 </span><a href="Network.AWS.Athena.Types.UnprocessedNamedQueryId.html#unprocessedNamedQueryId_errorCode"><span class="hs-identifier hs-var hs-var">unprocessedNamedQueryId_errorCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UnprocessedNamedQueryId -&gt; Maybe Text)
 -&gt; (UnprocessedNamedQueryId
@@ -195,19 +170,44 @@ $sel:errorMessage:UnprocessedNamedQueryId' :: UnprocessedNamedQueryId -&gt; Mayb
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.UnprocessedNamedQueryId.html#UnprocessedNamedQueryId%27"><span class="hs-identifier hs-type">UnprocessedNamedQueryId'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679219036"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.UnprocessedNamedQueryId.html#UnprocessedNamedQueryId%27"><span class="hs-identifier hs-type">UnprocessedNamedQueryId'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679219204"><span class="annot"><span class="annottext">Maybe Text
 errorCode :: Maybe Text
 $sel:errorCode:UnprocessedNamedQueryId' :: UnprocessedNamedQueryId -&gt; Maybe Text
-</span><a href="#local-6989586621679219036"><span class="hs-identifier hs-var hs-var">errorCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679219036"><span class="hs-identifier hs-var">errorCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679219035"><span class="annot"><span class="annottext">s :: UnprocessedNamedQueryId
-</span><a href="#local-6989586621679219035"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.UnprocessedNamedQueryId.html#UnprocessedNamedQueryId%27"><span class="hs-identifier hs-type">UnprocessedNamedQueryId'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679219034"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679219034"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UnprocessedNamedQueryId
-</span><a href="#local-6989586621679219035"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorCode:UnprocessedNamedQueryId' :: Maybe Text
+</span><a href="#local-6989586621679219204"><span class="hs-identifier hs-var hs-var">errorCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679219204"><span class="hs-identifier hs-var">errorCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679219203"><span class="annot"><span class="annottext">s :: UnprocessedNamedQueryId
+</span><a href="#local-6989586621679219203"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.UnprocessedNamedQueryId.html#UnprocessedNamedQueryId%27"><span class="hs-identifier hs-type">UnprocessedNamedQueryId'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679219202"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679219202"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UnprocessedNamedQueryId
+</span><a href="#local-6989586621679219203"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorCode:UnprocessedNamedQueryId' :: Maybe Text
 </span><a href="Network.AWS.Athena.Types.UnprocessedNamedQueryId.html#%24sel%3AerrorCode%3AUnprocessedNamedQueryId%27"><span class="hs-identifier hs-var">errorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679219034"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.UnprocessedNamedQueryId.html#UnprocessedNamedQueryId"><span class="hs-identifier hs-type">UnprocessedNamedQueryId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679219202"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.UnprocessedNamedQueryId.html#UnprocessedNamedQueryId"><span class="hs-identifier hs-type">UnprocessedNamedQueryId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- | The error message returned when the processing request for the named</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- query failed, if applicable.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.Athena.Types.UnprocessedNamedQueryId.html#unprocessedNamedQueryId_errorMessage"><span class="hs-identifier hs-type">unprocessedNamedQueryId_errorMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.UnprocessedNamedQueryId.html#UnprocessedNamedQueryId"><span class="hs-identifier hs-type">UnprocessedNamedQueryId</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span id="unprocessedNamedQueryId_errorMessage"><span class="annot"><span class="annottext">unprocessedNamedQueryId_errorMessage :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UnprocessedNamedQueryId -&gt; f UnprocessedNamedQueryId
+</span><a href="Network.AWS.Athena.Types.UnprocessedNamedQueryId.html#unprocessedNamedQueryId_errorMessage"><span class="hs-identifier hs-var hs-var">unprocessedNamedQueryId_errorMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UnprocessedNamedQueryId -&gt; Maybe Text)
+-&gt; (UnprocessedNamedQueryId
+    -&gt; Maybe Text -&gt; UnprocessedNamedQueryId)
+-&gt; Lens
+     UnprocessedNamedQueryId
+     UnprocessedNamedQueryId
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.UnprocessedNamedQueryId.html#UnprocessedNamedQueryId%27"><span class="hs-identifier hs-type">UnprocessedNamedQueryId'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679219200"><span class="annot"><span class="annottext">Maybe Text
+errorMessage :: Maybe Text
+$sel:errorMessage:UnprocessedNamedQueryId' :: UnprocessedNamedQueryId -&gt; Maybe Text
+</span><a href="#local-6989586621679219200"><span class="hs-identifier hs-var hs-var">errorMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679219200"><span class="hs-identifier hs-var">errorMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679219199"><span class="annot"><span class="annottext">s :: UnprocessedNamedQueryId
+</span><a href="#local-6989586621679219199"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.UnprocessedNamedQueryId.html#UnprocessedNamedQueryId%27"><span class="hs-identifier hs-type">UnprocessedNamedQueryId'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679219198"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679219198"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UnprocessedNamedQueryId
+</span><a href="#local-6989586621679219199"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorMessage:UnprocessedNamedQueryId' :: Maybe Text
+</span><a href="Network.AWS.Athena.Types.UnprocessedNamedQueryId.html#%24sel%3AerrorMessage%3AUnprocessedNamedQueryId%27"><span class="hs-identifier hs-var">errorMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679219198"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.UnprocessedNamedQueryId.html#UnprocessedNamedQueryId"><span class="hs-identifier hs-type">UnprocessedNamedQueryId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679219031"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.UnprocessedNamedQueryId.html#UnprocessedNamedQueryId"><span class="hs-identifier hs-type">UnprocessedNamedQueryId</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679219029"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser UnprocessedNamedQueryId
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679219195"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.UnprocessedNamedQueryId.html#UnprocessedNamedQueryId"><span class="hs-identifier hs-type">UnprocessedNamedQueryId</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679219193"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser UnprocessedNamedQueryId
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser UnprocessedNamedQueryId)
@@ -217,8 +217,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;UnprocessedNamedQueryId&quot;</span></span><span>
-</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679219026"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679219026"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679219190"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679219190"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-85"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; UnprocessedNamedQueryId
 </span><a href="Network.AWS.Athena.Types.UnprocessedNamedQueryId.html#UnprocessedNamedQueryId%27"><span class="hs-identifier hs-var">UnprocessedNamedQueryId'</span></a></span><span>
 </span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; UnprocessedNamedQueryId)
@@ -226,7 +226,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; UnprocessedNamedQueryId)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679219026"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679219190"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NamedQueryId&quot;</span></span><span class="hs-special">)</span><span>
@@ -235,21 +235,21 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; UnprocessedNamedQueryId)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679219026"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679219190"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ErrorMessage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;ErrorCode&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; UnprocessedNamedQueryId)
 -&gt; Parser (Maybe Text) -&gt; Parser UnprocessedNamedQueryId
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679219026"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679219190"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ErrorCode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;ErrorMessage&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679219020"><span id="local-6989586621679219022"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.UnprocessedNamedQueryId.html#UnprocessedNamedQueryId"><span class="hs-identifier hs-type">UnprocessedNamedQueryId</span></a></span></span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679219184"><span id="local-6989586621679219186"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.UnprocessedNamedQueryId.html#UnprocessedNamedQueryId"><span class="hs-identifier hs-type">UnprocessedNamedQueryId</span></a></span></span></span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679219017"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.UnprocessedNamedQueryId.html#UnprocessedNamedQueryId"><span class="hs-identifier hs-type">UnprocessedNamedQueryId</span></a></span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679219181"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.UnprocessedNamedQueryId.html#UnprocessedNamedQueryId"><span class="hs-identifier hs-type">UnprocessedNamedQueryId</span></a></span></span><span>
 </span><span id="line-94"></span></pre></body></html>

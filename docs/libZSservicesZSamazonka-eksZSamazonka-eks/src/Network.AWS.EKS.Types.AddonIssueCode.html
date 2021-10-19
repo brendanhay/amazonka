@@ -35,13 +35,13 @@
 </span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-37"></span><span>
-</span><span id="line-38"></span><span id="local-6989586621679262868"><span id="local-6989586621679262869"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AddonIssueCode"><span class="annot"><a href="Network.AWS.EKS.Types.AddonIssueCode.html#AddonIssueCode"><span class="hs-identifier hs-var">AddonIssueCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddonIssueCode%27"><span class="annot"><a href="Network.AWS.EKS.Types.AddonIssueCode.html#AddonIssueCode%27"><span class="hs-identifier hs-var">AddonIssueCode'</span></a></span></span><span>
+</span><span id="line-38"></span><span id="local-6989586621679263113"><span id="local-6989586621679263114"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AddonIssueCode"><span class="annot"><a href="Network.AWS.EKS.Types.AddonIssueCode.html#AddonIssueCode"><span class="hs-identifier hs-var">AddonIssueCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddonIssueCode%27"><span class="annot"><a href="Network.AWS.EKS.Types.AddonIssueCode.html#AddonIssueCode%27"><span class="hs-identifier hs-var">AddonIssueCode'</span></a></span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAddonIssueCode"><span class="annot"><span class="annottext">AddonIssueCode -&gt; Text
 </span><a href="Network.AWS.EKS.Types.AddonIssueCode.html#fromAddonIssueCode"><span class="hs-identifier hs-var hs-var">fromAddonIssueCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-40"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679262860"><span id="local-6989586621679262862"><span id="local-6989586621679262864"><span class="annot"><span class="annottext">Int -&gt; AddonIssueCode -&gt; ShowS
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679263105"><span id="local-6989586621679263107"><span id="local-6989586621679263109"><span class="annot"><span class="annottext">Int -&gt; AddonIssueCode -&gt; ShowS
 [AddonIssueCode] -&gt; ShowS
 AddonIssueCode -&gt; String
 (Int -&gt; AddonIssueCode -&gt; ShowS)
@@ -57,7 +57,7 @@ $cshow :: AddonIssueCode -&gt; String
 showsPrec :: Int -&gt; AddonIssueCode -&gt; ShowS
 $cshowsPrec :: Int -&gt; AddonIssueCode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679262851"><span id="local-6989586621679262853"><span id="local-6989586621679262855"><span id="local-6989586621679262857"><span class="annot"><span class="annottext">ReadPrec [AddonIssueCode]
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679263096"><span id="local-6989586621679263098"><span id="local-6989586621679263100"><span id="local-6989586621679263102"><span class="annot"><span class="annottext">ReadPrec [AddonIssueCode]
 ReadPrec AddonIssueCode
 Int -&gt; ReadS AddonIssueCode
 ReadS [AddonIssueCode]
@@ -78,7 +78,7 @@ $creadList :: ReadS [AddonIssueCode]
 readsPrec :: Int -&gt; ReadS AddonIssueCode
 $creadsPrec :: Int -&gt; ReadS AddonIssueCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679262846"><span id="local-6989586621679262848"><span class="annot"><span class="annottext">AddonIssueCode -&gt; AddonIssueCode -&gt; Bool
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679263091"><span id="local-6989586621679263093"><span class="annot"><span class="annottext">AddonIssueCode -&gt; AddonIssueCode -&gt; Bool
 (AddonIssueCode -&gt; AddonIssueCode -&gt; Bool)
 -&gt; (AddonIssueCode -&gt; AddonIssueCode -&gt; Bool) -&gt; Eq AddonIssueCode
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -87,7 +87,7 @@ $c/= :: AddonIssueCode -&gt; AddonIssueCode -&gt; Bool
 == :: AddonIssueCode -&gt; AddonIssueCode -&gt; Bool
 $c== :: AddonIssueCode -&gt; AddonIssueCode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679262830"><span id="local-6989586621679262832"><span id="local-6989586621679262834"><span id="local-6989586621679262836"><span id="local-6989586621679262838"><span id="local-6989586621679262840"><span id="local-6989586621679262842"><span class="annot"><span class="annottext">Eq AddonIssueCode
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679263075"><span id="local-6989586621679263077"><span id="local-6989586621679263079"><span id="local-6989586621679263081"><span id="local-6989586621679263083"><span id="local-6989586621679263085"><span id="local-6989586621679263087"><span class="annot"><span class="annottext">Eq AddonIssueCode
 Eq AddonIssueCode
 -&gt; (AddonIssueCode -&gt; AddonIssueCode -&gt; Ordering)
 -&gt; (AddonIssueCode -&gt; AddonIssueCode -&gt; Bool)
@@ -138,7 +138,7 @@ $cfrom :: forall x. AddonIssueCode -&gt; Rep AddonIssueCode x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-48"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679262822"><span id="local-6989586621679262824"><span class="annot"><span class="annottext">Int -&gt; AddonIssueCode -&gt; Int
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679263067"><span id="local-6989586621679263069"><span class="annot"><span class="annottext">Int -&gt; AddonIssueCode -&gt; Int
 AddonIssueCode -&gt; Int
 (Int -&gt; AddonIssueCode -&gt; Int)
 -&gt; (AddonIssueCode -&gt; Int) -&gt; Hashable AddonIssueCode
@@ -148,50 +148,50 @@ $chash :: AddonIssueCode -&gt; Int
 hashWithSalt :: Int -&gt; AddonIssueCode -&gt; Int
 $chashWithSalt :: Int -&gt; AddonIssueCode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679262819"><span class="annot"><span class="annottext">AddonIssueCode -&gt; ()
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679263064"><span class="annot"><span class="annottext">AddonIssueCode -&gt; ()
 (AddonIssueCode -&gt; ()) -&gt; NFData AddonIssueCode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AddonIssueCode -&gt; ()
 $crnf :: AddonIssueCode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679262816"><span class="annot"><span class="annottext">Text -&gt; Either String AddonIssueCode
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679263061"><span class="annot"><span class="annottext">Text -&gt; Either String AddonIssueCode
 (Text -&gt; Either String AddonIssueCode) -&gt; FromText AddonIssueCode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AddonIssueCode
 $cfromText :: Text -&gt; Either String AddonIssueCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679262813"><span class="annot"><span class="annottext">AddonIssueCode -&gt; Text
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679263058"><span class="annot"><span class="annottext">AddonIssueCode -&gt; Text
 (AddonIssueCode -&gt; Text) -&gt; ToText AddonIssueCode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AddonIssueCode -&gt; Text
 $ctoText :: AddonIssueCode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679262810"><span class="annot"><span class="annottext">AddonIssueCode -&gt; ByteString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679263055"><span class="annot"><span class="annottext">AddonIssueCode -&gt; ByteString
 (AddonIssueCode -&gt; ByteString) -&gt; ToByteString AddonIssueCode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AddonIssueCode -&gt; ByteString
 $ctoBS :: AddonIssueCode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679262807"><span class="annot"><span class="annottext">AddonIssueCode -&gt; ByteStringBuilder
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679263052"><span class="annot"><span class="annottext">AddonIssueCode -&gt; ByteStringBuilder
 (AddonIssueCode -&gt; ByteStringBuilder) -&gt; ToLog AddonIssueCode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AddonIssueCode -&gt; ByteStringBuilder
 $cbuild :: AddonIssueCode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679262804"><span class="annot"><span class="annottext">HeaderName -&gt; AddonIssueCode -&gt; [Header]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679263049"><span class="annot"><span class="annottext">HeaderName -&gt; AddonIssueCode -&gt; [Header]
 (HeaderName -&gt; AddonIssueCode -&gt; [Header])
 -&gt; ToHeader AddonIssueCode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AddonIssueCode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AddonIssueCode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679262801"><span class="annot"><span class="annottext">AddonIssueCode -&gt; QueryString
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679263046"><span class="annot"><span class="annottext">AddonIssueCode -&gt; QueryString
 (AddonIssueCode -&gt; QueryString) -&gt; ToQuery AddonIssueCode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AddonIssueCode -&gt; QueryString
 $ctoQuery :: AddonIssueCode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679262796"><span id="local-6989586621679262798"><span class="annot"><span class="annottext">Value -&gt; Parser [AddonIssueCode]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679263041"><span id="local-6989586621679263043"><span class="annot"><span class="annottext">Value -&gt; Parser [AddonIssueCode]
 Value -&gt; Parser AddonIssueCode
 (Value -&gt; Parser AddonIssueCode)
 -&gt; (Value -&gt; Parser [AddonIssueCode]) -&gt; FromJSON AddonIssueCode
@@ -202,7 +202,7 @@ $cparseJSONList :: Value -&gt; Parser [AddonIssueCode]
 parseJSON :: Value -&gt; Parser AddonIssueCode
 $cparseJSON :: Value -&gt; Parser AddonIssueCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679262791"><span id="local-6989586621679262793"><span class="annot"><span class="annottext">FromJSONKeyFunction [AddonIssueCode]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679263036"><span id="local-6989586621679263038"><span class="annot"><span class="annottext">FromJSONKeyFunction [AddonIssueCode]
 FromJSONKeyFunction AddonIssueCode
 FromJSONKeyFunction AddonIssueCode
 -&gt; FromJSONKeyFunction [AddonIssueCode]
@@ -214,7 +214,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AddonIssueCode]
 fromJSONKey :: FromJSONKeyFunction AddonIssueCode
 $cfromJSONKey :: FromJSONKeyFunction AddonIssueCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679262782"><span id="local-6989586621679262784"><span id="local-6989586621679262786"><span id="local-6989586621679262788"><span class="annot"><span class="annottext">[AddonIssueCode] -&gt; Encoding
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679263027"><span id="local-6989586621679263029"><span id="local-6989586621679263031"><span id="local-6989586621679263033"><span class="annot"><span class="annottext">[AddonIssueCode] -&gt; Encoding
 [AddonIssueCode] -&gt; Value
 AddonIssueCode -&gt; Encoding
 AddonIssueCode -&gt; Value
@@ -238,7 +238,7 @@ $ctoEncoding :: AddonIssueCode -&gt; Encoding
 toJSON :: AddonIssueCode -&gt; Value
 $ctoJSON :: AddonIssueCode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679262777"><span id="local-6989586621679262779"><span class="annot"><span class="annottext">ToJSONKeyFunction [AddonIssueCode]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679263022"><span id="local-6989586621679263024"><span class="annot"><span class="annottext">ToJSONKeyFunction [AddonIssueCode]
 ToJSONKeyFunction AddonIssueCode
 ToJSONKeyFunction AddonIssueCode
 -&gt; ToJSONKeyFunction [AddonIssueCode] -&gt; ToJSONKey AddonIssueCode
@@ -249,13 +249,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AddonIssueCode]
 toJSONKey :: ToJSONKeyFunction AddonIssueCode
 $ctoJSONKey :: ToJSONKeyFunction AddonIssueCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679262774"><span class="annot"><span class="annottext">[Node] -&gt; Either String AddonIssueCode
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679263019"><span class="annot"><span class="annottext">[Node] -&gt; Either String AddonIssueCode
 ([Node] -&gt; Either String AddonIssueCode) -&gt; FromXML AddonIssueCode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AddonIssueCode
 $cparseXML :: [Node] -&gt; Either String AddonIssueCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679262771"><span class="annot"><span class="annottext">AddonIssueCode -&gt; XML
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679263016"><span class="annot"><span class="annottext">AddonIssueCode -&gt; XML
 (AddonIssueCode -&gt; XML) -&gt; ToXML AddonIssueCode
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: AddonIssueCode -&gt; XML

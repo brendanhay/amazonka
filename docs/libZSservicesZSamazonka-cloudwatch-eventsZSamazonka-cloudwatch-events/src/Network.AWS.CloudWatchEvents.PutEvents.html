@@ -49,14 +49,14 @@
 </span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newPutEvents' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679310757"><span id="local-6989586621679310758"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutEvents"><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutEvents.html#PutEvents"><span class="hs-identifier hs-var">PutEvents</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutEvents%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutEvents.html#PutEvents%27"><span class="hs-identifier hs-var">PutEvents'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679310956"><span id="local-6989586621679310957"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutEvents"><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutEvents.html#PutEvents"><span class="hs-identifier hs-var">PutEvents</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutEvents%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutEvents.html#PutEvents%27"><span class="hs-identifier hs-var">PutEvents'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The entry that defines an event in your system. You can specify several</span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-comment">-- parameters for the entry such as the source and type of the event,</span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-comment">-- resources associated with the event, and so on.</span><span>
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3Aentries%3APutEvents%27"><span class="annot"><span class="annottext">PutEvents -&gt; NonEmpty PutEventsRequestEntry
 </span><a href="Network.AWS.CloudWatchEvents.PutEvents.html#%24sel%3Aentries%3APutEvents%27"><span class="hs-identifier hs-var hs-var">entries</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.PutEventsRequestEntry.html#PutEventsRequestEntry"><span class="hs-identifier hs-type">PutEventsRequestEntry</span></a></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679310751"><span id="local-6989586621679310753"><span class="annot"><span class="annottext">PutEvents -&gt; PutEvents -&gt; Bool
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679310950"><span id="local-6989586621679310952"><span class="annot"><span class="annottext">PutEvents -&gt; PutEvents -&gt; Bool
 (PutEvents -&gt; PutEvents -&gt; Bool)
 -&gt; (PutEvents -&gt; PutEvents -&gt; Bool) -&gt; Eq PutEvents
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -64,7 +64,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutEvents -&gt; PutEvents -&gt; Bool
 == :: PutEvents -&gt; PutEvents -&gt; Bool
 $c== :: PutEvents -&gt; PutEvents -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310742"><span id="local-6989586621679310744"><span id="local-6989586621679310746"><span id="local-6989586621679310748"><span class="annot"><span class="annottext">ReadPrec [PutEvents]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310941"><span id="local-6989586621679310943"><span id="local-6989586621679310945"><span id="local-6989586621679310947"><span class="annot"><span class="annottext">ReadPrec [PutEvents]
 ReadPrec PutEvents
 Int -&gt; ReadS PutEvents
 ReadS [PutEvents]
@@ -84,7 +84,7 @@ readList :: ReadS [PutEvents]
 $creadList :: ReadS [PutEvents]
 readsPrec :: Int -&gt; ReadS PutEvents
 $creadsPrec :: Int -&gt; ReadS PutEvents
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310735"><span id="local-6989586621679310737"><span id="local-6989586621679310739"><span class="annot"><span class="annottext">Int -&gt; PutEvents -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310934"><span id="local-6989586621679310936"><span id="local-6989586621679310938"><span class="annot"><span class="annottext">Int -&gt; PutEvents -&gt; ShowS
 [PutEvents] -&gt; ShowS
 PutEvents -&gt; String
 (Int -&gt; PutEvents -&gt; ShowS)
@@ -125,8 +125,8 @@ $cfrom :: forall x. PutEvents -&gt; Rep PutEvents x
 </span><span id="line-73"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.PutEventsRequestEntry.html#PutEventsRequestEntry"><span class="hs-identifier hs-type">PutEventsRequestEntry</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutEvents.html#PutEvents"><span class="hs-identifier hs-type">PutEvents</span></a></span><span>
 </span><span id="line-75"></span><span id="newPutEvents"><span class="annot"><span class="annottext">newPutEvents :: NonEmpty PutEventsRequestEntry -&gt; PutEvents
-</span><a href="Network.AWS.CloudWatchEvents.PutEvents.html#newPutEvents"><span class="hs-identifier hs-var hs-var">newPutEvents</span></a></span></span><span> </span><span id="local-6989586621679310730"><span class="annot"><span class="annottext">NonEmpty PutEventsRequestEntry
-</span><a href="#local-6989586621679310730"><span class="hs-identifier hs-var">pEntries_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudWatchEvents.PutEvents.html#newPutEvents"><span class="hs-identifier hs-var hs-var">newPutEvents</span></a></span></span><span> </span><span id="local-6989586621679310929"><span class="annot"><span class="annottext">NonEmpty PutEventsRequestEntry
+</span><a href="#local-6989586621679310929"><span class="hs-identifier hs-var">pEntries_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>  </span><span class="annot"><span class="annottext">PutEvents' :: NonEmpty PutEventsRequestEntry -&gt; PutEvents
 </span><a href="Network.AWS.CloudWatchEvents.PutEvents.html#PutEvents%27"><span class="hs-identifier hs-type">PutEvents'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:entries:PutEvents' :: NonEmpty PutEventsRequestEntry
 </span><a href="Network.AWS.CloudWatchEvents.PutEvents.html#%24sel%3Aentries%3APutEvents%27"><span class="hs-identifier hs-var">entries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged
@@ -135,8 +135,8 @@ $cfrom :: forall x. PutEvents -&gt; Rep PutEvents x
 -&gt; Tagged
      (NonEmpty PutEventsRequestEntry)
      (Identity (NonEmpty PutEventsRequestEntry))
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span> </span><span class="annot"><span class="annottext">(Tagged
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span> </span><span class="annot"><span class="annottext">(Tagged
    (NonEmpty PutEventsRequestEntry)
    (Identity (NonEmpty PutEventsRequestEntry))
  -&gt; Tagged
@@ -145,7 +145,7 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; NonEmpty PutEventsRequestEntry -&gt; NonEmpty PutEventsRequestEntry
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty PutEventsRequestEntry
-</span><a href="#local-6989586621679310730"><span class="hs-identifier hs-var">pEntries_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679310929"><span class="hs-identifier hs-var">pEntries_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- | The entry that defines an event in your system. You can specify several</span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- parameters for the entry such as the source and type of the event,</span><span>
@@ -162,16 +162,16 @@ forall t b. AReview t b -&gt; b -&gt; t
      (NonEmpty PutEventsRequestEntry)
      (NonEmpty PutEventsRequestEntry)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutEvents.html#PutEvents%27"><span class="hs-identifier hs-type">PutEvents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310725"><span class="annot"><span class="annottext">NonEmpty PutEventsRequestEntry
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutEvents.html#PutEvents%27"><span class="hs-identifier hs-type">PutEvents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310924"><span class="annot"><span class="annottext">NonEmpty PutEventsRequestEntry
 entries :: NonEmpty PutEventsRequestEntry
 $sel:entries:PutEvents' :: PutEvents -&gt; NonEmpty PutEventsRequestEntry
-</span><a href="#local-6989586621679310725"><span class="hs-identifier hs-var hs-var">entries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty PutEventsRequestEntry
-</span><a href="#local-6989586621679310725"><span class="hs-identifier hs-var">entries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310724"><span class="annot"><span class="annottext">s :: PutEvents
-</span><a href="#local-6989586621679310724"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutEvents.html#PutEvents%27"><span class="hs-identifier hs-type">PutEvents'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310723"><span class="annot"><span class="annottext">NonEmpty PutEventsRequestEntry
-</span><a href="#local-6989586621679310723"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutEvents
-</span><a href="#local-6989586621679310724"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:entries:PutEvents' :: NonEmpty PutEventsRequestEntry
+</span><a href="#local-6989586621679310924"><span class="hs-identifier hs-var hs-var">entries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty PutEventsRequestEntry
+</span><a href="#local-6989586621679310924"><span class="hs-identifier hs-var">entries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310923"><span class="annot"><span class="annottext">s :: PutEvents
+</span><a href="#local-6989586621679310923"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutEvents.html#PutEvents%27"><span class="hs-identifier hs-type">PutEvents'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310922"><span class="annot"><span class="annottext">NonEmpty PutEventsRequestEntry
+</span><a href="#local-6989586621679310922"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutEvents
+</span><a href="#local-6989586621679310923"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:entries:PutEvents' :: NonEmpty PutEventsRequestEntry
 </span><a href="Network.AWS.CloudWatchEvents.PutEvents.html#%24sel%3Aentries%3APutEvents%27"><span class="hs-identifier hs-var">entries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty PutEventsRequestEntry
-</span><a href="#local-6989586621679310723"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutEvents.html#PutEvents"><span class="hs-identifier hs-type">PutEvents</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty PutEventsRequestEntry
+</span><a href="#local-6989586621679310922"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutEvents.html#PutEvents"><span class="hs-identifier hs-type">PutEvents</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty PutEventsRequestEntry
   -&gt; f (NonEmpty PutEventsRequestEntry))
  -&gt; PutEvents -&gt; f PutEvents)
 -&gt; ((NonEmpty PutEventsRequestEntry
@@ -187,17 +187,17 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
  -&gt; f (NonEmpty PutEventsRequestEntry))
 -&gt; NonEmpty PutEventsRequestEntry
 -&gt; f (NonEmpty PutEventsRequestEntry)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutEvents.html#PutEvents"><span class="hs-identifier hs-type">PutEvents</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-85"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutEvents.html#PutEvents"><span class="hs-identifier hs-type">PutEvents</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutEvents.html#PutEventsResponse"><span class="hs-identifier hs-type">PutEventsResponse</span></a></span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679310718"><span class="annot"><span class="annottext">request :: PutEvents -&gt; Request PutEvents
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679310917"><span class="annot"><span class="annottext">request :: PutEvents -&gt; Request PutEvents
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; PutEvents -&gt; Request PutEvents
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudWatchEvents.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679310714"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679310913"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy PutEvents
 -&gt; ClientResponse ClientBody
@@ -221,10 +221,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679310711"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679310711"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679310710"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679310710"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679310709"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679310709"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679310910"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679310910"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679310909"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679310909"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679310908"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679310908"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-90"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int
 -&gt; Maybe [PutEventsResultEntry] -&gt; Int -&gt; PutEventsResponse
 </span><a href="Network.AWS.CloudWatchEvents.PutEvents.html#PutEventsResponse%27"><span class="hs-identifier hs-var">PutEventsResponse'</span></a></span><span>
@@ -235,7 +235,7 @@ MonadResource m =&gt;
      String (Maybe [PutEventsResultEntry] -&gt; Int -&gt; PutEventsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679310709"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Int)
+</span><a href="#local-6989586621679310908"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FailedEntryCount&quot;</span></span><span class="hs-special">)</span><span>
@@ -245,7 +245,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; PutEventsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679310709"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679310908"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Either String (Maybe (Maybe [PutEventsResultEntry]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -264,15 +264,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679310711"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679310910"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310700"><span id="local-6989586621679310702"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutEvents.html#PutEvents"><span class="hs-identifier hs-type">PutEvents</span></a></span></span></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310899"><span id="local-6989586621679310901"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutEvents.html#PutEvents"><span class="hs-identifier hs-type">PutEvents</span></a></span></span></span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310697"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutEvents.html#PutEvents"><span class="hs-identifier hs-type">PutEvents</span></a></span></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310896"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutEvents.html#PutEvents"><span class="hs-identifier hs-type">PutEvents</span></a></span></span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutEvents.html#PutEvents"><span class="hs-identifier hs-type">PutEvents</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679310693"><span class="annot"><span class="annottext">toHeaders :: PutEvents -&gt; ResponseHeaders
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679310892"><span class="annot"><span class="annottext">toHeaders :: PutEvents -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; PutEvents -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -297,12 +297,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-110"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310683"><span id="local-6989586621679310685"><span id="local-6989586621679310687"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutEvents.html#PutEvents"><span class="hs-identifier hs-type">PutEvents</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679310681"><span class="annot"><span class="annottext">toJSON :: PutEvents -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutEvents.html#PutEvents%27"><span class="hs-identifier hs-type">PutEvents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310679"><span class="annot"><span class="annottext">NonEmpty PutEventsRequestEntry
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310882"><span id="local-6989586621679310884"><span id="local-6989586621679310886"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutEvents.html#PutEvents"><span class="hs-identifier hs-type">PutEvents</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679310880"><span class="annot"><span class="annottext">toJSON :: PutEvents -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutEvents.html#PutEvents%27"><span class="hs-identifier hs-type">PutEvents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310878"><span class="annot"><span class="annottext">NonEmpty PutEventsRequestEntry
 entries :: NonEmpty PutEventsRequestEntry
 $sel:entries:PutEvents' :: PutEvents -&gt; NonEmpty PutEventsRequestEntry
-</span><a href="#local-6989586621679310679"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679310878"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -314,18 +314,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Entries&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty PutEventsRequestEntry -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty PutEventsRequestEntry
-</span><a href="#local-6989586621679310679"><span class="hs-identifier hs-var">entries</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679310878"><span class="hs-identifier hs-var">entries</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutEvents.html#PutEvents"><span class="hs-identifier hs-type">PutEvents</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679310673"><span class="annot"><span class="annottext">toPath :: PutEvents -&gt; ByteString
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679310872"><span class="annot"><span class="annottext">toPath :: PutEvents -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; PutEvents -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutEvents.html#PutEvents"><span class="hs-identifier hs-type">PutEvents</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679310669"><span class="annot"><span class="annottext">toQuery :: PutEvents -&gt; QueryString
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679310868"><span class="annot"><span class="annottext">toQuery :: PutEvents -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; PutEvents -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -333,7 +333,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-comment">-- | /See:/ 'newPutEventsResponse' smart constructor.</span><span>
-</span><span id="line-127"></span><span id="local-6989586621679310666"><span id="local-6989586621679310667"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutEventsResponse"><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutEvents.html#PutEventsResponse"><span class="hs-identifier hs-var">PutEventsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutEventsResponse%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutEvents.html#PutEventsResponse%27"><span class="hs-identifier hs-var">PutEventsResponse'</span></a></span></span><span>
+</span><span id="line-127"></span><span id="local-6989586621679310865"><span id="local-6989586621679310866"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutEventsResponse"><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutEvents.html#PutEventsResponse"><span class="hs-identifier hs-var">PutEventsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutEventsResponse%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutEvents.html#PutEventsResponse%27"><span class="hs-identifier hs-var">PutEventsResponse'</span></a></span></span><span>
 </span><span id="line-128"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of failed entries.</span><span>
 </span><span id="line-129"></span><span>    </span><span id="%24sel%3AfailedEntryCount%3APutEventsResponse%27"><span class="annot"><span class="annottext">PutEventsResponse -&gt; Maybe Int
 </span><a href="Network.AWS.CloudWatchEvents.PutEvents.html#%24sel%3AfailedEntryCount%3APutEventsResponse%27"><span class="hs-identifier hs-var hs-var">failedEntryCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -347,7 +347,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-136"></span><span>    </span><span id="%24sel%3AhttpStatus%3APutEventsResponse%27"><span class="annot"><span class="annottext">PutEventsResponse -&gt; Int
 </span><a href="Network.AWS.CloudWatchEvents.PutEvents.html#%24sel%3AhttpStatus%3APutEventsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-137"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-138"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679310659"><span id="local-6989586621679310661"><span class="annot"><span class="annottext">PutEventsResponse -&gt; PutEventsResponse -&gt; Bool
+</span><span id="line-138"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679310858"><span id="local-6989586621679310860"><span class="annot"><span class="annottext">PutEventsResponse -&gt; PutEventsResponse -&gt; Bool
 (PutEventsResponse -&gt; PutEventsResponse -&gt; Bool)
 -&gt; (PutEventsResponse -&gt; PutEventsResponse -&gt; Bool)
 -&gt; Eq PutEventsResponse
@@ -356,7 +356,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutEventsResponse -&gt; PutEventsResponse -&gt; Bool
 == :: PutEventsResponse -&gt; PutEventsResponse -&gt; Bool
 $c== :: PutEventsResponse -&gt; PutEventsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310651"><span id="local-6989586621679310653"><span id="local-6989586621679310655"><span id="local-6989586621679310657"><span class="annot"><span class="annottext">ReadPrec [PutEventsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310850"><span id="local-6989586621679310852"><span id="local-6989586621679310854"><span id="local-6989586621679310856"><span class="annot"><span class="annottext">ReadPrec [PutEventsResponse]
 ReadPrec PutEventsResponse
 Int -&gt; ReadS PutEventsResponse
 ReadS [PutEventsResponse]
@@ -376,7 +376,7 @@ readList :: ReadS [PutEventsResponse]
 $creadList :: ReadS [PutEventsResponse]
 readsPrec :: Int -&gt; ReadS PutEventsResponse
 $creadsPrec :: Int -&gt; ReadS PutEventsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310645"><span id="local-6989586621679310647"><span id="local-6989586621679310649"><span class="annot"><span class="annottext">Int -&gt; PutEventsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310844"><span id="local-6989586621679310846"><span id="local-6989586621679310848"><span class="annot"><span class="annottext">Int -&gt; PutEventsResponse -&gt; ShowS
 [PutEventsResponse] -&gt; ShowS
 PutEventsResponse -&gt; String
 (Int -&gt; PutEventsResponse -&gt; ShowS)
@@ -423,8 +423,8 @@ $cfrom :: forall x. PutEventsResponse -&gt; Rep PutEventsResponse x
 </span><span id="line-158"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-159"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutEvents.html#PutEventsResponse"><span class="hs-identifier hs-type">PutEventsResponse</span></a></span><span>
 </span><span id="line-160"></span><span id="newPutEventsResponse"><span class="annot"><span class="annottext">newPutEventsResponse :: Int -&gt; PutEventsResponse
-</span><a href="Network.AWS.CloudWatchEvents.PutEvents.html#newPutEventsResponse"><span class="hs-identifier hs-var hs-var">newPutEventsResponse</span></a></span></span><span> </span><span id="local-6989586621679310642"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679310642"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudWatchEvents.PutEvents.html#newPutEventsResponse"><span class="hs-identifier hs-var hs-var">newPutEventsResponse</span></a></span></span><span> </span><span id="local-6989586621679310841"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679310841"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-161"></span><span>  </span><span class="annot"><span class="annottext">PutEventsResponse' :: Maybe Int
 -&gt; Maybe [PutEventsResultEntry] -&gt; Int -&gt; PutEventsResponse
 </span><a href="Network.AWS.CloudWatchEvents.PutEvents.html#PutEventsResponse%27"><span class="hs-identifier hs-type">PutEventsResponse'</span></a></span><span>
@@ -439,7 +439,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-165"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:PutEventsResponse' :: Int
 </span><a href="Network.AWS.CloudWatchEvents.PutEvents.html#%24sel%3AhttpStatus%3APutEventsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679310642"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679310841"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-166"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-167"></span><span>
 </span><span id="line-168"></span><span class="hs-comment">-- | The number of failed entries.</span><span>
@@ -450,16 +450,16 @@ forall a. Maybe a
 -&gt; (PutEventsResponse -&gt; Maybe Int -&gt; PutEventsResponse)
 -&gt; Lens PutEventsResponse PutEventsResponse (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutEvents.html#PutEventsResponse%27"><span class="hs-identifier hs-type">PutEventsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310641"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutEvents.html#PutEventsResponse%27"><span class="hs-identifier hs-type">PutEventsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310840"><span class="annot"><span class="annottext">Maybe Int
 failedEntryCount :: Maybe Int
 $sel:failedEntryCount:PutEventsResponse' :: PutEventsResponse -&gt; Maybe Int
-</span><a href="#local-6989586621679310641"><span class="hs-identifier hs-var hs-var">failedEntryCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679310641"><span class="hs-identifier hs-var">failedEntryCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310640"><span class="annot"><span class="annottext">s :: PutEventsResponse
-</span><a href="#local-6989586621679310640"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutEvents.html#PutEventsResponse%27"><span class="hs-identifier hs-type">PutEventsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310639"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679310639"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutEventsResponse
-</span><a href="#local-6989586621679310640"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failedEntryCount:PutEventsResponse' :: Maybe Int
+</span><a href="#local-6989586621679310840"><span class="hs-identifier hs-var hs-var">failedEntryCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679310840"><span class="hs-identifier hs-var">failedEntryCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310839"><span class="annot"><span class="annottext">s :: PutEventsResponse
+</span><a href="#local-6989586621679310839"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutEvents.html#PutEventsResponse%27"><span class="hs-identifier hs-type">PutEventsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310838"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679310838"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutEventsResponse
+</span><a href="#local-6989586621679310839"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failedEntryCount:PutEventsResponse' :: Maybe Int
 </span><a href="Network.AWS.CloudWatchEvents.PutEvents.html#%24sel%3AfailedEntryCount%3APutEventsResponse%27"><span class="hs-identifier hs-var">failedEntryCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679310639"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutEvents.html#PutEventsResponse"><span class="hs-identifier hs-type">PutEventsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679310838"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutEvents.html#PutEventsResponse"><span class="hs-identifier hs-type">PutEventsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-171"></span><span>
 </span><span id="line-172"></span><span class="hs-comment">-- | The successfully and unsuccessfully ingested events results. If the</span><span>
 </span><span id="line-173"></span><span class="hs-comment">-- ingestion was successful, the entry has the event ID in it. Otherwise,</span><span>
@@ -477,16 +477,16 @@ $sel:failedEntryCount:PutEventsResponse' :: PutEventsResponse -&gt; Maybe Int
      (Maybe [PutEventsResultEntry])
      (Maybe [PutEventsResultEntry])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutEvents.html#PutEventsResponse%27"><span class="hs-identifier hs-type">PutEventsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310638"><span class="annot"><span class="annottext">Maybe [PutEventsResultEntry]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutEvents.html#PutEventsResponse%27"><span class="hs-identifier hs-type">PutEventsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310837"><span class="annot"><span class="annottext">Maybe [PutEventsResultEntry]
 entries :: Maybe [PutEventsResultEntry]
 $sel:entries:PutEventsResponse' :: PutEventsResponse -&gt; Maybe [PutEventsResultEntry]
-</span><a href="#local-6989586621679310638"><span class="hs-identifier hs-var hs-var">entries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PutEventsResultEntry]
-</span><a href="#local-6989586621679310638"><span class="hs-identifier hs-var">entries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310637"><span class="annot"><span class="annottext">s :: PutEventsResponse
-</span><a href="#local-6989586621679310637"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutEvents.html#PutEventsResponse%27"><span class="hs-identifier hs-type">PutEventsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310636"><span class="annot"><span class="annottext">Maybe [PutEventsResultEntry]
-</span><a href="#local-6989586621679310636"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutEventsResponse
-</span><a href="#local-6989586621679310637"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:entries:PutEventsResponse' :: Maybe [PutEventsResultEntry]
+</span><a href="#local-6989586621679310837"><span class="hs-identifier hs-var hs-var">entries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PutEventsResultEntry]
+</span><a href="#local-6989586621679310837"><span class="hs-identifier hs-var">entries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310836"><span class="annot"><span class="annottext">s :: PutEventsResponse
+</span><a href="#local-6989586621679310836"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutEvents.html#PutEventsResponse%27"><span class="hs-identifier hs-type">PutEventsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310835"><span class="annot"><span class="annottext">Maybe [PutEventsResultEntry]
+</span><a href="#local-6989586621679310835"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutEventsResponse
+</span><a href="#local-6989586621679310836"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:entries:PutEventsResponse' :: Maybe [PutEventsResultEntry]
 </span><a href="Network.AWS.CloudWatchEvents.PutEvents.html#%24sel%3Aentries%3APutEventsResponse%27"><span class="hs-identifier hs-var">entries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PutEventsResultEntry]
-</span><a href="#local-6989586621679310636"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutEvents.html#PutEventsResponse"><span class="hs-identifier hs-type">PutEventsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PutEventsResultEntry] -&gt; f (Maybe [PutEventsResultEntry]))
+</span><a href="#local-6989586621679310835"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutEvents.html#PutEventsResponse"><span class="hs-identifier hs-type">PutEventsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PutEventsResultEntry] -&gt; f (Maybe [PutEventsResultEntry]))
  -&gt; PutEventsResponse -&gt; f PutEventsResponse)
 -&gt; ((Maybe [PutEventsResultEntry]
      -&gt; f (Maybe [PutEventsResultEntry]))
@@ -515,8 +515,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [PutEventsResultEntry]
   [PutEventsResultEntry]
   [PutEventsResultEntry]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-178"></span><span>
 </span><span id="line-179"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-180"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutEvents.html#putEventsResponse_httpStatus"><span class="hs-identifier hs-type">putEventsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutEvents.html#PutEventsResponse"><span class="hs-identifier hs-type">PutEventsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -525,16 +525,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (PutEventsResponse -&gt; Int -&gt; PutEventsResponse)
 -&gt; Lens PutEventsResponse PutEventsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutEvents.html#PutEventsResponse%27"><span class="hs-identifier hs-type">PutEventsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310634"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutEvents.html#PutEventsResponse%27"><span class="hs-identifier hs-type">PutEventsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310833"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:PutEventsResponse' :: PutEventsResponse -&gt; Int
-</span><a href="#local-6989586621679310634"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679310634"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310633"><span class="annot"><span class="annottext">s :: PutEventsResponse
-</span><a href="#local-6989586621679310633"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutEvents.html#PutEventsResponse%27"><span class="hs-identifier hs-type">PutEventsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310632"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679310632"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutEventsResponse
-</span><a href="#local-6989586621679310633"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutEventsResponse' :: Int
+</span><a href="#local-6989586621679310833"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679310833"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310832"><span class="annot"><span class="annottext">s :: PutEventsResponse
+</span><a href="#local-6989586621679310832"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutEvents.html#PutEventsResponse%27"><span class="hs-identifier hs-type">PutEventsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310831"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679310831"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutEventsResponse
+</span><a href="#local-6989586621679310832"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutEventsResponse' :: Int
 </span><a href="Network.AWS.CloudWatchEvents.PutEvents.html#%24sel%3AhttpStatus%3APutEventsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679310632"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutEvents.html#PutEventsResponse"><span class="hs-identifier hs-type">PutEventsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679310831"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutEvents.html#PutEventsResponse"><span class="hs-identifier hs-type">PutEventsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-182"></span><span>
-</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310630"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutEvents.html#PutEventsResponse"><span class="hs-identifier hs-type">PutEventsResponse</span></a></span></span><span>
+</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310829"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutEvents.html#PutEventsResponse"><span class="hs-identifier hs-type">PutEventsResponse</span></a></span></span><span>
 </span><span id="line-184"></span></pre></body></html>

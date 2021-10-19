@@ -2,7 +2,7 @@
 -- See Hoogle, http://www.haskell.org/hoogle/
 
 @package libZSservicesZSamazonka-marketplace-analyticsZSamazonka-marketplace-analytics
-@version 1.6.1
+@version 2.0
 
 
 module Network.AWS.MarketplaceAnalytics.Types.DataSetType
@@ -143,7 +143,11 @@ module Network.AWS.MarketplaceAnalytics.StartSupportDataExport
 --   
 --   <i>See:</i> <a>newStartSupportDataExport</a> smart constructor.
 data StartSupportDataExport
-StartSupportDataExport' :: Maybe Text -> Maybe (HashMap Text Text) -> SupportDataSetType -> POSIX -> Text -> Text -> Text -> StartSupportDataExport
+StartSupportDataExport' :: Maybe (HashMap Text Text) -> Maybe Text -> SupportDataSetType -> POSIX -> Text -> Text -> Text -> StartSupportDataExport
+
+-- | (Optional) Key-value pairs which will be returned, unmodified, in the
+--   Amazon SNS notification message and the data set metadata file.
+[$sel:customerDefinedValues:StartSupportDataExport'] :: StartSupportDataExport -> Maybe (HashMap Text Text)
 
 -- | (Optional) The desired S3 prefix for the published data set, similar
 --   to a directory path in standard file systems. For example, if given
@@ -153,10 +157,6 @@ StartSupportDataExport' :: Maybe Text -> Maybe (HashMap Text Text) -> SupportDat
 --   directory structure does not exist, it will be created. If no prefix
 --   is provided, the data set will be published to the S3 bucket root.
 [$sel:destinationS3Prefix:StartSupportDataExport'] :: StartSupportDataExport -> Maybe Text
-
--- | (Optional) Key-value pairs which will be returned, unmodified, in the
---   Amazon SNS notification message and the data set metadata file.
-[$sel:customerDefinedValues:StartSupportDataExport'] :: StartSupportDataExport -> Maybe (HashMap Text Text)
 
 -- | Specifies the data set type to be written to the output csv file. The
 --   data set types customer_support_contacts_data and
@@ -202,6 +202,11 @@ StartSupportDataExport' :: Maybe Text -> Maybe (HashMap Text Text) -> SupportDat
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
+--   <a>$sel:customerDefinedValues:StartSupportDataExport'</a>,
+--   <a>startSupportDataExport_customerDefinedValues</a> - (Optional)
+--   Key-value pairs which will be returned, unmodified, in the Amazon SNS
+--   notification message and the data set metadata file.
+--   
 --   <a>$sel:destinationS3Prefix:StartSupportDataExport'</a>,
 --   <a>startSupportDataExport_destinationS3Prefix</a> - (Optional) The
 --   desired S3 prefix for the published data set, similar to a directory
@@ -211,11 +216,6 @@ StartSupportDataExport' :: Maybe Text -> Maybe (HashMap Text Text) -> SupportDat
 --   "s3://mybucket/myprefix/mydatasets/outputfile". If the prefix
 --   directory structure does not exist, it will be created. If no prefix
 --   is provided, the data set will be published to the S3 bucket root.
---   
---   <a>$sel:customerDefinedValues:StartSupportDataExport'</a>,
---   <a>startSupportDataExport_customerDefinedValues</a> - (Optional)
---   Key-value pairs which will be returned, unmodified, in the Amazon SNS
---   notification message and the data set metadata file.
 --   
 --   <a>$sel:dataSetType:StartSupportDataExport'</a>,
 --   <a>startSupportDataExport_dataSetType</a> - Specifies the data set
@@ -257,6 +257,10 @@ StartSupportDataExport' :: Maybe Text -> Maybe (HashMap Text Text) -> SupportDat
 --   published or if an error has occurred.
 newStartSupportDataExport :: SupportDataSetType -> UTCTime -> Text -> Text -> Text -> StartSupportDataExport
 
+-- | (Optional) Key-value pairs which will be returned, unmodified, in the
+--   Amazon SNS notification message and the data set metadata file.
+startSupportDataExport_customerDefinedValues :: Lens' StartSupportDataExport (Maybe (HashMap Text Text))
+
 -- | (Optional) The desired S3 prefix for the published data set, similar
 --   to a directory path in standard file systems. For example, if given
 --   the bucket name "mybucket" and the prefix "myprefix/mydatasets", the
@@ -265,10 +269,6 @@ newStartSupportDataExport :: SupportDataSetType -> UTCTime -> Text -> Text -> Te
 --   directory structure does not exist, it will be created. If no prefix
 --   is provided, the data set will be published to the S3 bucket root.
 startSupportDataExport_destinationS3Prefix :: Lens' StartSupportDataExport (Maybe Text)
-
--- | (Optional) Key-value pairs which will be returned, unmodified, in the
---   Amazon SNS notification message and the data set metadata file.
-startSupportDataExport_customerDefinedValues :: Lens' StartSupportDataExport (Maybe (HashMap Text Text))
 
 -- | Specifies the data set type to be written to the output csv file. The
 --   data set types customer_support_contacts_data and
@@ -383,7 +383,13 @@ module Network.AWS.MarketplaceAnalytics.GenerateDataSet
 --   
 --   <i>See:</i> <a>newGenerateDataSet</a> smart constructor.
 data GenerateDataSet
-GenerateDataSet' :: Maybe Text -> Maybe (HashMap Text Text) -> DataSetType -> POSIX -> Text -> Text -> Text -> GenerateDataSet
+GenerateDataSet' :: Maybe (HashMap Text Text) -> Maybe Text -> DataSetType -> POSIX -> Text -> Text -> Text -> GenerateDataSet
+
+-- | (Optional) Key-value pairs which will be returned, unmodified, in the
+--   Amazon SNS notification message and the data set metadata file. These
+--   key-value pairs can be used to correlated responses with tracking
+--   information from other systems.
+[$sel:customerDefinedValues:GenerateDataSet'] :: GenerateDataSet -> Maybe (HashMap Text Text)
 
 -- | (Optional) The desired S3 prefix for the published data set, similar
 --   to a directory path in standard file systems. For example, if given
@@ -393,12 +399,6 @@ GenerateDataSet' :: Maybe Text -> Maybe (HashMap Text Text) -> DataSetType -> PO
 --   directory structure does not exist, it will be created. If no prefix
 --   is provided, the data set will be published to the S3 bucket root.
 [$sel:destinationS3Prefix:GenerateDataSet'] :: GenerateDataSet -> Maybe Text
-
--- | (Optional) Key-value pairs which will be returned, unmodified, in the
---   Amazon SNS notification message and the data set metadata file. These
---   key-value pairs can be used to correlated responses with tracking
---   information from other systems.
-[$sel:customerDefinedValues:GenerateDataSet'] :: GenerateDataSet -> Maybe (HashMap Text Text)
 
 -- | The desired data set type.
 --   
@@ -494,6 +494,13 @@ GenerateDataSet' :: Maybe Text -> Maybe (HashMap Text Text) -> DataSetType -> PO
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
+--   <a>$sel:customerDefinedValues:GenerateDataSet'</a>,
+--   <a>generateDataSet_customerDefinedValues</a> - (Optional) Key-value
+--   pairs which will be returned, unmodified, in the Amazon SNS
+--   notification message and the data set metadata file. These key-value
+--   pairs can be used to correlated responses with tracking information
+--   from other systems.
+--   
 --   <a>$sel:destinationS3Prefix:GenerateDataSet'</a>,
 --   <a>generateDataSet_destinationS3Prefix</a> - (Optional) The desired S3
 --   prefix for the published data set, similar to a directory path in
@@ -503,13 +510,6 @@ GenerateDataSet' :: Maybe Text -> Maybe (HashMap Text Text) -> DataSetType -> PO
 --   "s3://mybucket/myprefix/mydatasets/outputfile". If the prefix
 --   directory structure does not exist, it will be created. If no prefix
 --   is provided, the data set will be published to the S3 bucket root.
---   
---   <a>$sel:customerDefinedValues:GenerateDataSet'</a>,
---   <a>generateDataSet_customerDefinedValues</a> - (Optional) Key-value
---   pairs which will be returned, unmodified, in the Amazon SNS
---   notification message and the data set metadata file. These key-value
---   pairs can be used to correlated responses with tracking information
---   from other systems.
 --   
 --   <a>$sel:dataSetType:GenerateDataSet'</a>,
 --   <a>generateDataSet_dataSetType</a> - The desired data set type.
@@ -601,6 +601,12 @@ GenerateDataSet' :: Maybe Text -> Maybe (HashMap Text Text) -> DataSetType -> PO
 --   published or if an error has occurred.
 newGenerateDataSet :: DataSetType -> UTCTime -> Text -> Text -> Text -> GenerateDataSet
 
+-- | (Optional) Key-value pairs which will be returned, unmodified, in the
+--   Amazon SNS notification message and the data set metadata file. These
+--   key-value pairs can be used to correlated responses with tracking
+--   information from other systems.
+generateDataSet_customerDefinedValues :: Lens' GenerateDataSet (Maybe (HashMap Text Text))
+
 -- | (Optional) The desired S3 prefix for the published data set, similar
 --   to a directory path in standard file systems. For example, if given
 --   the bucket name "mybucket" and the prefix "myprefix/mydatasets", the
@@ -609,12 +615,6 @@ newGenerateDataSet :: DataSetType -> UTCTime -> Text -> Text -> Text -> Generate
 --   directory structure does not exist, it will be created. If no prefix
 --   is provided, the data set will be published to the S3 bucket root.
 generateDataSet_destinationS3Prefix :: Lens' GenerateDataSet (Maybe Text)
-
--- | (Optional) Key-value pairs which will be returned, unmodified, in the
---   Amazon SNS notification message and the data set metadata file. These
---   key-value pairs can be used to correlated responses with tracking
---   information from other systems.
-generateDataSet_customerDefinedValues :: Lens' GenerateDataSet (Maybe (HashMap Text Text))
 
 -- | The desired data set type.
 --   
@@ -762,6 +762,10 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.MarketplaceAnalytics.Generat
 
 module Network.AWS.MarketplaceAnalytics.Lens
 
+-- | (Optional) Key-value pairs which will be returned, unmodified, in the
+--   Amazon SNS notification message and the data set metadata file.
+startSupportDataExport_customerDefinedValues :: Lens' StartSupportDataExport (Maybe (HashMap Text Text))
+
 -- | (Optional) The desired S3 prefix for the published data set, similar
 --   to a directory path in standard file systems. For example, if given
 --   the bucket name "mybucket" and the prefix "myprefix/mydatasets", the
@@ -770,10 +774,6 @@ module Network.AWS.MarketplaceAnalytics.Lens
 --   directory structure does not exist, it will be created. If no prefix
 --   is provided, the data set will be published to the S3 bucket root.
 startSupportDataExport_destinationS3Prefix :: Lens' StartSupportDataExport (Maybe Text)
-
--- | (Optional) Key-value pairs which will be returned, unmodified, in the
---   Amazon SNS notification message and the data set metadata file.
-startSupportDataExport_customerDefinedValues :: Lens' StartSupportDataExport (Maybe (HashMap Text Text))
 
 -- | Specifies the data set type to be written to the output csv file. The
 --   data set types customer_support_contacts_data and
@@ -818,6 +818,12 @@ startSupportDataExportResponse_dataSetRequestId :: Lens' StartSupportDataExportR
 -- | The response's http status code.
 startSupportDataExportResponse_httpStatus :: Lens' StartSupportDataExportResponse Int
 
+-- | (Optional) Key-value pairs which will be returned, unmodified, in the
+--   Amazon SNS notification message and the data set metadata file. These
+--   key-value pairs can be used to correlated responses with tracking
+--   information from other systems.
+generateDataSet_customerDefinedValues :: Lens' GenerateDataSet (Maybe (HashMap Text Text))
+
 -- | (Optional) The desired S3 prefix for the published data set, similar
 --   to a directory path in standard file systems. For example, if given
 --   the bucket name "mybucket" and the prefix "myprefix/mydatasets", the
@@ -826,12 +832,6 @@ startSupportDataExportResponse_httpStatus :: Lens' StartSupportDataExportRespons
 --   directory structure does not exist, it will be created. If no prefix
 --   is provided, the data set will be published to the S3 bucket root.
 generateDataSet_destinationS3Prefix :: Lens' GenerateDataSet (Maybe Text)
-
--- | (Optional) Key-value pairs which will be returned, unmodified, in the
---   Amazon SNS notification message and the data set metadata file. These
---   key-value pairs can be used to correlated responses with tracking
---   information from other systems.
-generateDataSet_customerDefinedValues :: Lens' GenerateDataSet (Maybe (HashMap Text Text))
 
 -- | The desired data set type.
 --   
@@ -947,7 +947,7 @@ _MarketplaceCommerceAnalyticsException :: AsError a => Getting (First ServiceErr
 --   
 --   <i>See:</i> <a>newStartSupportDataExport</a> smart constructor.
 data StartSupportDataExport
-StartSupportDataExport' :: Maybe Text -> Maybe (HashMap Text Text) -> SupportDataSetType -> POSIX -> Text -> Text -> Text -> StartSupportDataExport
+StartSupportDataExport' :: Maybe (HashMap Text Text) -> Maybe Text -> SupportDataSetType -> POSIX -> Text -> Text -> Text -> StartSupportDataExport
 
 -- | Create a value of <a>StartSupportDataExport</a> with all optional
 --   fields omitted.
@@ -958,6 +958,11 @@ StartSupportDataExport' :: Maybe Text -> Maybe (HashMap Text Text) -> SupportDat
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
+--   <a>$sel:customerDefinedValues:StartSupportDataExport'</a>,
+--   <a>startSupportDataExport_customerDefinedValues</a> - (Optional)
+--   Key-value pairs which will be returned, unmodified, in the Amazon SNS
+--   notification message and the data set metadata file.
+--   
 --   <a>$sel:destinationS3Prefix:StartSupportDataExport'</a>,
 --   <a>startSupportDataExport_destinationS3Prefix</a> - (Optional) The
 --   desired S3 prefix for the published data set, similar to a directory
@@ -967,11 +972,6 @@ StartSupportDataExport' :: Maybe Text -> Maybe (HashMap Text Text) -> SupportDat
 --   "s3://mybucket/myprefix/mydatasets/outputfile". If the prefix
 --   directory structure does not exist, it will be created. If no prefix
 --   is provided, the data set will be published to the S3 bucket root.
---   
---   <a>$sel:customerDefinedValues:StartSupportDataExport'</a>,
---   <a>startSupportDataExport_customerDefinedValues</a> - (Optional)
---   Key-value pairs which will be returned, unmodified, in the Amazon SNS
---   notification message and the data set metadata file.
 --   
 --   <a>$sel:dataSetType:StartSupportDataExport'</a>,
 --   <a>startSupportDataExport_dataSetType</a> - Specifies the data set
@@ -1044,7 +1044,7 @@ newStartSupportDataExportResponse :: Int -> StartSupportDataExportResponse
 --   
 --   <i>See:</i> <a>newGenerateDataSet</a> smart constructor.
 data GenerateDataSet
-GenerateDataSet' :: Maybe Text -> Maybe (HashMap Text Text) -> DataSetType -> POSIX -> Text -> Text -> Text -> GenerateDataSet
+GenerateDataSet' :: Maybe (HashMap Text Text) -> Maybe Text -> DataSetType -> POSIX -> Text -> Text -> Text -> GenerateDataSet
 
 -- | Create a value of <a>GenerateDataSet</a> with all optional fields
 --   omitted.
@@ -1055,6 +1055,13 @@ GenerateDataSet' :: Maybe Text -> Maybe (HashMap Text Text) -> DataSetType -> PO
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
+--   <a>$sel:customerDefinedValues:GenerateDataSet'</a>,
+--   <a>generateDataSet_customerDefinedValues</a> - (Optional) Key-value
+--   pairs which will be returned, unmodified, in the Amazon SNS
+--   notification message and the data set metadata file. These key-value
+--   pairs can be used to correlated responses with tracking information
+--   from other systems.
+--   
 --   <a>$sel:destinationS3Prefix:GenerateDataSet'</a>,
 --   <a>generateDataSet_destinationS3Prefix</a> - (Optional) The desired S3
 --   prefix for the published data set, similar to a directory path in
@@ -1064,13 +1071,6 @@ GenerateDataSet' :: Maybe Text -> Maybe (HashMap Text Text) -> DataSetType -> PO
 --   "s3://mybucket/myprefix/mydatasets/outputfile". If the prefix
 --   directory structure does not exist, it will be created. If no prefix
 --   is provided, the data set will be published to the S3 bucket root.
---   
---   <a>$sel:customerDefinedValues:GenerateDataSet'</a>,
---   <a>generateDataSet_customerDefinedValues</a> - (Optional) Key-value
---   pairs which will be returned, unmodified, in the Amazon SNS
---   notification message and the data set metadata file. These key-value
---   pairs can be used to correlated responses with tracking information
---   from other systems.
 --   
 --   <a>$sel:dataSetType:GenerateDataSet'</a>,
 --   <a>generateDataSet_dataSetType</a> - The desired data set type.

@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621681091815"><span id="local-6989586621681091816"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="LocationType"><span class="annot"><a href="Network.AWS.EC2.Types.LocationType.html#LocationType"><span class="hs-identifier hs-var">LocationType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LocationType%27"><span class="annot"><a href="Network.AWS.EC2.Types.LocationType.html#LocationType%27"><span class="hs-identifier hs-var">LocationType'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621681126507"><span id="local-6989586621681126508"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="LocationType"><span class="annot"><a href="Network.AWS.EC2.Types.LocationType.html#LocationType"><span class="hs-identifier hs-var">LocationType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LocationType%27"><span class="annot"><a href="Network.AWS.EC2.Types.LocationType.html#LocationType%27"><span class="hs-identifier hs-var">LocationType'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromLocationType"><span class="annot"><span class="annottext">LocationType -&gt; Text
 </span><a href="Network.AWS.EC2.Types.LocationType.html#fromLocationType"><span class="hs-identifier hs-var hs-var">fromLocationType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681091807"><span id="local-6989586621681091809"><span id="local-6989586621681091811"><span class="annot"><span class="annottext">Int -&gt; LocationType -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681126499"><span id="local-6989586621681126501"><span id="local-6989586621681126503"><span class="annot"><span class="annottext">Int -&gt; LocationType -&gt; ShowS
 [LocationType] -&gt; ShowS
 LocationType -&gt; String
 (Int -&gt; LocationType -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: LocationType -&gt; String
 showsPrec :: Int -&gt; LocationType -&gt; ShowS
 $cshowsPrec :: Int -&gt; LocationType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621681091798"><span id="local-6989586621681091800"><span id="local-6989586621681091802"><span id="local-6989586621681091804"><span class="annot"><span class="annottext">ReadPrec [LocationType]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621681126490"><span id="local-6989586621681126492"><span id="local-6989586621681126494"><span id="local-6989586621681126496"><span class="annot"><span class="annottext">ReadPrec [LocationType]
 ReadPrec LocationType
 Int -&gt; ReadS LocationType
 ReadS [LocationType]
@@ -74,7 +74,7 @@ $creadList :: ReadS [LocationType]
 readsPrec :: Int -&gt; ReadS LocationType
 $creadsPrec :: Int -&gt; ReadS LocationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621681091793"><span id="local-6989586621681091795"><span class="annot"><span class="annottext">LocationType -&gt; LocationType -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681126485"><span id="local-6989586621681126487"><span class="annot"><span class="annottext">LocationType -&gt; LocationType -&gt; Bool
 (LocationType -&gt; LocationType -&gt; Bool)
 -&gt; (LocationType -&gt; LocationType -&gt; Bool) -&gt; Eq LocationType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -83,7 +83,7 @@ $c/= :: LocationType -&gt; LocationType -&gt; Bool
 == :: LocationType -&gt; LocationType -&gt; Bool
 $c== :: LocationType -&gt; LocationType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621681091777"><span id="local-6989586621681091779"><span id="local-6989586621681091781"><span id="local-6989586621681091783"><span id="local-6989586621681091785"><span id="local-6989586621681091787"><span id="local-6989586621681091789"><span class="annot"><span class="annottext">Eq LocationType
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621681126469"><span id="local-6989586621681126471"><span id="local-6989586621681126473"><span id="local-6989586621681126475"><span id="local-6989586621681126477"><span id="local-6989586621681126479"><span id="local-6989586621681126481"><span class="annot"><span class="annottext">Eq LocationType
 Eq LocationType
 -&gt; (LocationType -&gt; LocationType -&gt; Ordering)
 -&gt; (LocationType -&gt; LocationType -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. LocationType -&gt; Rep LocationType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681091769"><span id="local-6989586621681091771"><span class="annot"><span class="annottext">Int -&gt; LocationType -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681126461"><span id="local-6989586621681126463"><span class="annot"><span class="annottext">Int -&gt; LocationType -&gt; Int
 LocationType -&gt; Int
 (Int -&gt; LocationType -&gt; Int)
 -&gt; (LocationType -&gt; Int) -&gt; Hashable LocationType
@@ -144,49 +144,49 @@ $chash :: LocationType -&gt; Int
 hashWithSalt :: Int -&gt; LocationType -&gt; Int
 $chashWithSalt :: Int -&gt; LocationType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621681091766"><span class="annot"><span class="annottext">LocationType -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681126458"><span class="annot"><span class="annottext">LocationType -&gt; ()
 (LocationType -&gt; ()) -&gt; NFData LocationType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: LocationType -&gt; ()
 $crnf :: LocationType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621681091763"><span class="annot"><span class="annottext">Text -&gt; Either String LocationType
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681126455"><span class="annot"><span class="annottext">Text -&gt; Either String LocationType
 (Text -&gt; Either String LocationType) -&gt; FromText LocationType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String LocationType
 $cfromText :: Text -&gt; Either String LocationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681091760"><span class="annot"><span class="annottext">LocationType -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681126452"><span class="annot"><span class="annottext">LocationType -&gt; Text
 (LocationType -&gt; Text) -&gt; ToText LocationType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: LocationType -&gt; Text
 $ctoText :: LocationType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681091757"><span class="annot"><span class="annottext">LocationType -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681126449"><span class="annot"><span class="annottext">LocationType -&gt; ByteString
 (LocationType -&gt; ByteString) -&gt; ToByteString LocationType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: LocationType -&gt; ByteString
 $ctoBS :: LocationType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681091754"><span class="annot"><span class="annottext">LocationType -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681126446"><span class="annot"><span class="annottext">LocationType -&gt; ByteStringBuilder
 (LocationType -&gt; ByteStringBuilder) -&gt; ToLog LocationType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: LocationType -&gt; ByteStringBuilder
 $cbuild :: LocationType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681091751"><span class="annot"><span class="annottext">HeaderName -&gt; LocationType -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681126443"><span class="annot"><span class="annottext">HeaderName -&gt; LocationType -&gt; [Header]
 (HeaderName -&gt; LocationType -&gt; [Header]) -&gt; ToHeader LocationType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; LocationType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; LocationType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681091748"><span class="annot"><span class="annottext">LocationType -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681126440"><span class="annot"><span class="annottext">LocationType -&gt; QueryString
 (LocationType -&gt; QueryString) -&gt; ToQuery LocationType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: LocationType -&gt; QueryString
 $ctoQuery :: LocationType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681091743"><span id="local-6989586621681091745"><span class="annot"><span class="annottext">Value -&gt; Parser [LocationType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681126435"><span id="local-6989586621681126437"><span class="annot"><span class="annottext">Value -&gt; Parser [LocationType]
 Value -&gt; Parser LocationType
 (Value -&gt; Parser LocationType)
 -&gt; (Value -&gt; Parser [LocationType]) -&gt; FromJSON LocationType
@@ -197,7 +197,7 @@ $cparseJSONList :: Value -&gt; Parser [LocationType]
 parseJSON :: Value -&gt; Parser LocationType
 $cparseJSON :: Value -&gt; Parser LocationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681091738"><span id="local-6989586621681091740"><span class="annot"><span class="annottext">FromJSONKeyFunction [LocationType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681126430"><span id="local-6989586621681126432"><span class="annot"><span class="annottext">FromJSONKeyFunction [LocationType]
 FromJSONKeyFunction LocationType
 FromJSONKeyFunction LocationType
 -&gt; FromJSONKeyFunction [LocationType] -&gt; FromJSONKey LocationType
@@ -208,7 +208,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [LocationType]
 fromJSONKey :: FromJSONKeyFunction LocationType
 $cfromJSONKey :: FromJSONKeyFunction LocationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681091729"><span id="local-6989586621681091731"><span id="local-6989586621681091733"><span id="local-6989586621681091735"><span class="annot"><span class="annottext">[LocationType] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681126421"><span id="local-6989586621681126423"><span id="local-6989586621681126425"><span id="local-6989586621681126427"><span class="annot"><span class="annottext">[LocationType] -&gt; Encoding
 [LocationType] -&gt; Value
 LocationType -&gt; Encoding
 LocationType -&gt; Value
@@ -232,7 +232,7 @@ $ctoEncoding :: LocationType -&gt; Encoding
 toJSON :: LocationType -&gt; Value
 $ctoJSON :: LocationType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681091724"><span id="local-6989586621681091726"><span class="annot"><span class="annottext">ToJSONKeyFunction [LocationType]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681126416"><span id="local-6989586621681126418"><span class="annot"><span class="annottext">ToJSONKeyFunction [LocationType]
 ToJSONKeyFunction LocationType
 ToJSONKeyFunction LocationType
 -&gt; ToJSONKeyFunction [LocationType] -&gt; ToJSONKey LocationType
@@ -243,13 +243,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [LocationType]
 toJSONKey :: ToJSONKeyFunction LocationType
 $ctoJSONKey :: ToJSONKeyFunction LocationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621681091721"><span class="annot"><span class="annottext">[Node] -&gt; Either String LocationType
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681126413"><span class="annot"><span class="annottext">[Node] -&gt; Either String LocationType
 ([Node] -&gt; Either String LocationType) -&gt; FromXML LocationType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String LocationType
 $cparseXML :: [Node] -&gt; Either String LocationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621681091718"><span class="annot"><span class="annottext">LocationType -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621681126410"><span class="annot"><span class="annottext">LocationType -&gt; XML
 (LocationType -&gt; XML) -&gt; ToXML LocationType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: LocationType -&gt; XML

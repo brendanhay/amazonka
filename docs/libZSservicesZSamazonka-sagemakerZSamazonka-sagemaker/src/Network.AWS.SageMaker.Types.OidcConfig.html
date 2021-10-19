@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Use this parameter to configure your OIDC Identity Provider (IdP).</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newOidcConfig' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621680324299"><span id="local-6989586621680324300"></span></span><span class="hs-keyword">data</span><span> </span><span id="OidcConfig"><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcConfig.html#OidcConfig"><span class="hs-identifier hs-var">OidcConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OidcConfig%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcConfig.html#OidcConfig%27"><span class="hs-identifier hs-var">OidcConfig'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621680325690"><span id="local-6989586621680325691"></span></span><span class="hs-keyword">data</span><span> </span><span id="OidcConfig"><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcConfig.html#OidcConfig"><span class="hs-identifier hs-var">OidcConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OidcConfig%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcConfig.html#OidcConfig%27"><span class="hs-identifier hs-var">OidcConfig'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The OIDC IdP client ID used to configure your private workforce.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AclientId%3AOidcConfig%27"><span class="annot"><span class="annottext">OidcConfig -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.OidcConfig.html#%24sel%3AclientId%3AOidcConfig%27"><span class="hs-identifier hs-var hs-var">clientId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -55,7 +55,7 @@
 </span><span id="line-48"></span><span>    </span><span id="%24sel%3AjwksUri%3AOidcConfig%27"><span class="annot"><span class="annottext">OidcConfig -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.OidcConfig.html#%24sel%3AjwksUri%3AOidcConfig%27"><span class="hs-identifier hs-var hs-var">jwksUri</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680324286"><span id="local-6989586621680324288"><span class="annot"><span class="annottext">OidcConfig -&gt; OidcConfig -&gt; Bool
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680325677"><span id="local-6989586621680325679"><span class="annot"><span class="annottext">OidcConfig -&gt; OidcConfig -&gt; Bool
 (OidcConfig -&gt; OidcConfig -&gt; Bool)
 -&gt; (OidcConfig -&gt; OidcConfig -&gt; Bool) -&gt; Eq OidcConfig
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -63,7 +63,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: OidcConfig -&gt; OidcConfig -&gt; Bool
 == :: OidcConfig -&gt; OidcConfig -&gt; Bool
 $c== :: OidcConfig -&gt; OidcConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680324279"><span id="local-6989586621680324281"><span id="local-6989586621680324283"><span class="annot"><span class="annottext">Int -&gt; OidcConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680325670"><span id="local-6989586621680325672"><span id="local-6989586621680325674"><span class="annot"><span class="annottext">Int -&gt; OidcConfig -&gt; ShowS
 [OidcConfig] -&gt; ShowS
 OidcConfig -&gt; String
 (Int -&gt; OidcConfig -&gt; ShowS)
@@ -142,22 +142,22 @@ $cfrom :: forall x. OidcConfig -&gt; Rep OidcConfig x
 -&gt; Text
 -&gt; OidcConfig
 </span><a href="Network.AWS.SageMaker.Types.OidcConfig.html#newOidcConfig"><span class="hs-identifier hs-var hs-var">newOidcConfig</span></a></span></span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621680324273"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680324273"><span class="hs-identifier hs-var">pClientId_</span></a></span></span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621680324272"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680324272"><span class="hs-identifier hs-var">pClientSecret_</span></a></span></span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621680324271"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680324271"><span class="hs-identifier hs-var">pIssuer_</span></a></span></span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621680324270"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680324270"><span class="hs-identifier hs-var">pAuthorizationEndpoint_</span></a></span></span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621680324269"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680324269"><span class="hs-identifier hs-var">pTokenEndpoint_</span></a></span></span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621680324268"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680324268"><span class="hs-identifier hs-var">pUserInfoEndpoint_</span></a></span></span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621680324267"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680324267"><span class="hs-identifier hs-var">pLogoutEndpoint_</span></a></span></span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621680324266"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680324266"><span class="hs-identifier hs-var">pJwksUri_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621680325664"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680325664"><span class="hs-identifier hs-var">pClientId_</span></a></span></span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621680325663"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680325663"><span class="hs-identifier hs-var">pClientSecret_</span></a></span></span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621680325662"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680325662"><span class="hs-identifier hs-var">pIssuer_</span></a></span></span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621680325661"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680325661"><span class="hs-identifier hs-var">pAuthorizationEndpoint_</span></a></span></span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621680325660"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680325660"><span class="hs-identifier hs-var">pTokenEndpoint_</span></a></span></span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621680325659"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680325659"><span class="hs-identifier hs-var">pUserInfoEndpoint_</span></a></span></span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621680325658"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680325658"><span class="hs-identifier hs-var">pLogoutEndpoint_</span></a></span></span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621680325657"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680325657"><span class="hs-identifier hs-var">pJwksUri_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">OidcConfig' :: Text
 -&gt; Sensitive Text
 -&gt; Text
@@ -170,7 +170,7 @@ $cfrom :: forall x. OidcConfig -&gt; Rep OidcConfig x
 </span><a href="Network.AWS.SageMaker.Types.OidcConfig.html#OidcConfig%27"><span class="hs-identifier hs-type">OidcConfig'</span></a></span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:clientId:OidcConfig' :: Text
 </span><a href="Network.AWS.SageMaker.Types.OidcConfig.html#%24sel%3AclientId%3AOidcConfig%27"><span class="hs-identifier hs-var">clientId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680324273"><span class="hs-identifier hs-var">pClientId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680325664"><span class="hs-identifier hs-var">pClientId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-107"></span><span>        </span><span class="annot"><span class="annottext">$sel:clientSecret:OidcConfig' :: Sensitive Text
 </span><a href="Network.AWS.SageMaker.Types.OidcConfig.html#%24sel%3AclientSecret%3AOidcConfig%27"><span class="hs-identifier hs-var">clientSecret</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged Text (Identity Text)
 -&gt; Tagged (Sensitive Text) (Identity (Sensitive Text))
@@ -180,25 +180,25 @@ forall a. Iso' (Sensitive a) a
 -&gt; Text -&gt; Sensitive Text
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680324272"><span class="hs-identifier hs-var">pClientSecret_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680325663"><span class="hs-identifier hs-var">pClientSecret_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-108"></span><span>        </span><span class="annot"><span class="annottext">$sel:issuer:OidcConfig' :: Text
 </span><a href="Network.AWS.SageMaker.Types.OidcConfig.html#%24sel%3Aissuer%3AOidcConfig%27"><span class="hs-identifier hs-var">issuer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680324271"><span class="hs-identifier hs-var">pIssuer_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680325662"><span class="hs-identifier hs-var">pIssuer_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-109"></span><span>        </span><span class="annot"><span class="annottext">$sel:authorizationEndpoint:OidcConfig' :: Text
 </span><a href="Network.AWS.SageMaker.Types.OidcConfig.html#%24sel%3AauthorizationEndpoint%3AOidcConfig%27"><span class="hs-identifier hs-var">authorizationEndpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680324270"><span class="hs-identifier hs-var">pAuthorizationEndpoint_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680325661"><span class="hs-identifier hs-var">pAuthorizationEndpoint_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-110"></span><span>        </span><span class="annot"><span class="annottext">$sel:tokenEndpoint:OidcConfig' :: Text
 </span><a href="Network.AWS.SageMaker.Types.OidcConfig.html#%24sel%3AtokenEndpoint%3AOidcConfig%27"><span class="hs-identifier hs-var">tokenEndpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680324269"><span class="hs-identifier hs-var">pTokenEndpoint_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680325660"><span class="hs-identifier hs-var">pTokenEndpoint_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-111"></span><span>        </span><span class="annot"><span class="annottext">$sel:userInfoEndpoint:OidcConfig' :: Text
 </span><a href="Network.AWS.SageMaker.Types.OidcConfig.html#%24sel%3AuserInfoEndpoint%3AOidcConfig%27"><span class="hs-identifier hs-var">userInfoEndpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680324268"><span class="hs-identifier hs-var">pUserInfoEndpoint_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680325659"><span class="hs-identifier hs-var">pUserInfoEndpoint_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-112"></span><span>        </span><span class="annot"><span class="annottext">$sel:logoutEndpoint:OidcConfig' :: Text
 </span><a href="Network.AWS.SageMaker.Types.OidcConfig.html#%24sel%3AlogoutEndpoint%3AOidcConfig%27"><span class="hs-identifier hs-var">logoutEndpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680324267"><span class="hs-identifier hs-var">pLogoutEndpoint_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680325658"><span class="hs-identifier hs-var">pLogoutEndpoint_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-113"></span><span>        </span><span class="annot"><span class="annottext">$sel:jwksUri:OidcConfig' :: Text
 </span><a href="Network.AWS.SageMaker.Types.OidcConfig.html#%24sel%3AjwksUri%3AOidcConfig%27"><span class="hs-identifier hs-var">jwksUri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680324266"><span class="hs-identifier hs-var">pJwksUri_</span></a></span><span>
+</span><a href="#local-6989586621680325657"><span class="hs-identifier hs-var">pJwksUri_</span></a></span><span>
 </span><span id="line-114"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-comment">-- | The OIDC IdP client ID used to configure your private workforce.</span><span>
@@ -208,16 +208,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; (OidcConfig -&gt; Text -&gt; OidcConfig)
 -&gt; Lens OidcConfig OidcConfig Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcConfig.html#OidcConfig%27"><span class="hs-identifier hs-type">OidcConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680324260"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcConfig.html#OidcConfig%27"><span class="hs-identifier hs-type">OidcConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680325651"><span class="annot"><span class="annottext">Text
 clientId :: Text
 $sel:clientId:OidcConfig' :: OidcConfig -&gt; Text
-</span><a href="#local-6989586621680324260"><span class="hs-identifier hs-var hs-var">clientId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680324260"><span class="hs-identifier hs-var">clientId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680324259"><span class="annot"><span class="annottext">s :: OidcConfig
-</span><a href="#local-6989586621680324259"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcConfig.html#OidcConfig%27"><span class="hs-identifier hs-type">OidcConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680324258"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680324258"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OidcConfig
-</span><a href="#local-6989586621680324259"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientId:OidcConfig' :: Text
+</span><a href="#local-6989586621680325651"><span class="hs-identifier hs-var hs-var">clientId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680325651"><span class="hs-identifier hs-var">clientId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680325650"><span class="annot"><span class="annottext">s :: OidcConfig
+</span><a href="#local-6989586621680325650"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcConfig.html#OidcConfig%27"><span class="hs-identifier hs-type">OidcConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680325649"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680325649"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OidcConfig
+</span><a href="#local-6989586621680325650"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientId:OidcConfig' :: Text
 </span><a href="Network.AWS.SageMaker.Types.OidcConfig.html#%24sel%3AclientId%3AOidcConfig%27"><span class="hs-identifier hs-var">clientId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680324258"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcConfig.html#OidcConfig"><span class="hs-identifier hs-type">OidcConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680325649"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcConfig.html#OidcConfig"><span class="hs-identifier hs-type">OidcConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-comment">-- | The OIDC IdP client secret used to configure your private workforce.</span><span>
 </span><span id="line-121"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcConfig.html#oidcConfig_clientSecret"><span class="hs-identifier hs-type">oidcConfig_clientSecret</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcConfig.html#OidcConfig"><span class="hs-identifier hs-type">OidcConfig</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -226,16 +226,16 @@ $sel:clientId:OidcConfig' :: OidcConfig -&gt; Text
 -&gt; (OidcConfig -&gt; Sensitive Text -&gt; OidcConfig)
 -&gt; Lens OidcConfig OidcConfig (Sensitive Text) (Sensitive Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcConfig.html#OidcConfig%27"><span class="hs-identifier hs-type">OidcConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680324256"><span class="annot"><span class="annottext">Sensitive Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcConfig.html#OidcConfig%27"><span class="hs-identifier hs-type">OidcConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680325647"><span class="annot"><span class="annottext">Sensitive Text
 clientSecret :: Sensitive Text
 $sel:clientSecret:OidcConfig' :: OidcConfig -&gt; Sensitive Text
-</span><a href="#local-6989586621680324256"><span class="hs-identifier hs-var hs-var">clientSecret</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621680324256"><span class="hs-identifier hs-var">clientSecret</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680324255"><span class="annot"><span class="annottext">s :: OidcConfig
-</span><a href="#local-6989586621680324255"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcConfig.html#OidcConfig%27"><span class="hs-identifier hs-type">OidcConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680324254"><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621680324254"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OidcConfig
-</span><a href="#local-6989586621680324255"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientSecret:OidcConfig' :: Sensitive Text
+</span><a href="#local-6989586621680325647"><span class="hs-identifier hs-var hs-var">clientSecret</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621680325647"><span class="hs-identifier hs-var">clientSecret</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680325646"><span class="annot"><span class="annottext">s :: OidcConfig
+</span><a href="#local-6989586621680325646"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcConfig.html#OidcConfig%27"><span class="hs-identifier hs-type">OidcConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680325645"><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621680325645"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OidcConfig
+</span><a href="#local-6989586621680325646"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientSecret:OidcConfig' :: Sensitive Text
 </span><a href="Network.AWS.SageMaker.Types.OidcConfig.html#%24sel%3AclientSecret%3AOidcConfig%27"><span class="hs-identifier hs-var">clientSecret</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621680324254"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcConfig.html#OidcConfig"><span class="hs-identifier hs-type">OidcConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
+</span><a href="#local-6989586621680325645"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcConfig.html#OidcConfig"><span class="hs-identifier hs-type">OidcConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
  -&gt; OidcConfig -&gt; f OidcConfig)
 -&gt; ((Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text))
 -&gt; (Text -&gt; f Text)
@@ -253,16 +253,16 @@ forall a. Iso' (Sensitive a) a
 -&gt; (OidcConfig -&gt; Text -&gt; OidcConfig)
 -&gt; Lens OidcConfig OidcConfig Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcConfig.html#OidcConfig%27"><span class="hs-identifier hs-type">OidcConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680324251"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcConfig.html#OidcConfig%27"><span class="hs-identifier hs-type">OidcConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680325642"><span class="annot"><span class="annottext">Text
 issuer :: Text
 $sel:issuer:OidcConfig' :: OidcConfig -&gt; Text
-</span><a href="#local-6989586621680324251"><span class="hs-identifier hs-var hs-var">issuer</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680324251"><span class="hs-identifier hs-var">issuer</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680324250"><span class="annot"><span class="annottext">s :: OidcConfig
-</span><a href="#local-6989586621680324250"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcConfig.html#OidcConfig%27"><span class="hs-identifier hs-type">OidcConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680324249"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680324249"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OidcConfig
-</span><a href="#local-6989586621680324250"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:issuer:OidcConfig' :: Text
+</span><a href="#local-6989586621680325642"><span class="hs-identifier hs-var hs-var">issuer</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680325642"><span class="hs-identifier hs-var">issuer</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680325641"><span class="annot"><span class="annottext">s :: OidcConfig
+</span><a href="#local-6989586621680325641"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcConfig.html#OidcConfig%27"><span class="hs-identifier hs-type">OidcConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680325640"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680325640"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OidcConfig
+</span><a href="#local-6989586621680325641"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:issuer:OidcConfig' :: Text
 </span><a href="Network.AWS.SageMaker.Types.OidcConfig.html#%24sel%3Aissuer%3AOidcConfig%27"><span class="hs-identifier hs-var">issuer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680324249"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcConfig.html#OidcConfig"><span class="hs-identifier hs-type">OidcConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680325640"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcConfig.html#OidcConfig"><span class="hs-identifier hs-type">OidcConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-comment">-- | The OIDC IdP authorization endpoint used to configure your private</span><span>
 </span><span id="line-129"></span><span class="hs-comment">-- workforce.</span><span>
@@ -272,16 +272,16 @@ $sel:issuer:OidcConfig' :: OidcConfig -&gt; Text
 -&gt; (OidcConfig -&gt; Text -&gt; OidcConfig)
 -&gt; Lens OidcConfig OidcConfig Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcConfig.html#OidcConfig%27"><span class="hs-identifier hs-type">OidcConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680324247"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcConfig.html#OidcConfig%27"><span class="hs-identifier hs-type">OidcConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680325638"><span class="annot"><span class="annottext">Text
 authorizationEndpoint :: Text
 $sel:authorizationEndpoint:OidcConfig' :: OidcConfig -&gt; Text
-</span><a href="#local-6989586621680324247"><span class="hs-identifier hs-var hs-var">authorizationEndpoint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680324247"><span class="hs-identifier hs-var">authorizationEndpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680324246"><span class="annot"><span class="annottext">s :: OidcConfig
-</span><a href="#local-6989586621680324246"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcConfig.html#OidcConfig%27"><span class="hs-identifier hs-type">OidcConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680324245"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680324245"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OidcConfig
-</span><a href="#local-6989586621680324246"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authorizationEndpoint:OidcConfig' :: Text
+</span><a href="#local-6989586621680325638"><span class="hs-identifier hs-var hs-var">authorizationEndpoint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680325638"><span class="hs-identifier hs-var">authorizationEndpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680325637"><span class="annot"><span class="annottext">s :: OidcConfig
+</span><a href="#local-6989586621680325637"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcConfig.html#OidcConfig%27"><span class="hs-identifier hs-type">OidcConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680325636"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680325636"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OidcConfig
+</span><a href="#local-6989586621680325637"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authorizationEndpoint:OidcConfig' :: Text
 </span><a href="Network.AWS.SageMaker.Types.OidcConfig.html#%24sel%3AauthorizationEndpoint%3AOidcConfig%27"><span class="hs-identifier hs-var">authorizationEndpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680324245"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcConfig.html#OidcConfig"><span class="hs-identifier hs-type">OidcConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680325636"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcConfig.html#OidcConfig"><span class="hs-identifier hs-type">OidcConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-comment">-- | The OIDC IdP token endpoint used to configure your private workforce.</span><span>
 </span><span id="line-134"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcConfig.html#oidcConfig_tokenEndpoint"><span class="hs-identifier hs-type">oidcConfig_tokenEndpoint</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcConfig.html#OidcConfig"><span class="hs-identifier hs-type">OidcConfig</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -290,16 +290,16 @@ $sel:authorizationEndpoint:OidcConfig' :: OidcConfig -&gt; Text
 -&gt; (OidcConfig -&gt; Text -&gt; OidcConfig)
 -&gt; Lens OidcConfig OidcConfig Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcConfig.html#OidcConfig%27"><span class="hs-identifier hs-type">OidcConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680324243"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcConfig.html#OidcConfig%27"><span class="hs-identifier hs-type">OidcConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680325634"><span class="annot"><span class="annottext">Text
 tokenEndpoint :: Text
 $sel:tokenEndpoint:OidcConfig' :: OidcConfig -&gt; Text
-</span><a href="#local-6989586621680324243"><span class="hs-identifier hs-var hs-var">tokenEndpoint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680324243"><span class="hs-identifier hs-var">tokenEndpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680324242"><span class="annot"><span class="annottext">s :: OidcConfig
-</span><a href="#local-6989586621680324242"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcConfig.html#OidcConfig%27"><span class="hs-identifier hs-type">OidcConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680324241"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680324241"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OidcConfig
-</span><a href="#local-6989586621680324242"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tokenEndpoint:OidcConfig' :: Text
+</span><a href="#local-6989586621680325634"><span class="hs-identifier hs-var hs-var">tokenEndpoint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680325634"><span class="hs-identifier hs-var">tokenEndpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680325633"><span class="annot"><span class="annottext">s :: OidcConfig
+</span><a href="#local-6989586621680325633"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcConfig.html#OidcConfig%27"><span class="hs-identifier hs-type">OidcConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680325632"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680325632"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OidcConfig
+</span><a href="#local-6989586621680325633"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tokenEndpoint:OidcConfig' :: Text
 </span><a href="Network.AWS.SageMaker.Types.OidcConfig.html#%24sel%3AtokenEndpoint%3AOidcConfig%27"><span class="hs-identifier hs-var">tokenEndpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680324241"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcConfig.html#OidcConfig"><span class="hs-identifier hs-type">OidcConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680325632"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcConfig.html#OidcConfig"><span class="hs-identifier hs-type">OidcConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-comment">-- | The OIDC IdP user information endpoint used to configure your private</span><span>
 </span><span id="line-138"></span><span class="hs-comment">-- workforce.</span><span>
@@ -309,16 +309,16 @@ $sel:tokenEndpoint:OidcConfig' :: OidcConfig -&gt; Text
 -&gt; (OidcConfig -&gt; Text -&gt; OidcConfig)
 -&gt; Lens OidcConfig OidcConfig Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcConfig.html#OidcConfig%27"><span class="hs-identifier hs-type">OidcConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680324239"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcConfig.html#OidcConfig%27"><span class="hs-identifier hs-type">OidcConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680325630"><span class="annot"><span class="annottext">Text
 userInfoEndpoint :: Text
 $sel:userInfoEndpoint:OidcConfig' :: OidcConfig -&gt; Text
-</span><a href="#local-6989586621680324239"><span class="hs-identifier hs-var hs-var">userInfoEndpoint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680324239"><span class="hs-identifier hs-var">userInfoEndpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680324238"><span class="annot"><span class="annottext">s :: OidcConfig
-</span><a href="#local-6989586621680324238"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcConfig.html#OidcConfig%27"><span class="hs-identifier hs-type">OidcConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680324237"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680324237"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OidcConfig
-</span><a href="#local-6989586621680324238"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userInfoEndpoint:OidcConfig' :: Text
+</span><a href="#local-6989586621680325630"><span class="hs-identifier hs-var hs-var">userInfoEndpoint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680325630"><span class="hs-identifier hs-var">userInfoEndpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680325629"><span class="annot"><span class="annottext">s :: OidcConfig
+</span><a href="#local-6989586621680325629"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcConfig.html#OidcConfig%27"><span class="hs-identifier hs-type">OidcConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680325628"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680325628"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OidcConfig
+</span><a href="#local-6989586621680325629"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userInfoEndpoint:OidcConfig' :: Text
 </span><a href="Network.AWS.SageMaker.Types.OidcConfig.html#%24sel%3AuserInfoEndpoint%3AOidcConfig%27"><span class="hs-identifier hs-var">userInfoEndpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680324237"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcConfig.html#OidcConfig"><span class="hs-identifier hs-type">OidcConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680325628"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcConfig.html#OidcConfig"><span class="hs-identifier hs-type">OidcConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- | The OIDC IdP logout endpoint used to configure your private workforce.</span><span>
 </span><span id="line-143"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcConfig.html#oidcConfig_logoutEndpoint"><span class="hs-identifier hs-type">oidcConfig_logoutEndpoint</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcConfig.html#OidcConfig"><span class="hs-identifier hs-type">OidcConfig</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -327,16 +327,16 @@ $sel:userInfoEndpoint:OidcConfig' :: OidcConfig -&gt; Text
 -&gt; (OidcConfig -&gt; Text -&gt; OidcConfig)
 -&gt; Lens OidcConfig OidcConfig Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcConfig.html#OidcConfig%27"><span class="hs-identifier hs-type">OidcConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680324235"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcConfig.html#OidcConfig%27"><span class="hs-identifier hs-type">OidcConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680325626"><span class="annot"><span class="annottext">Text
 logoutEndpoint :: Text
 $sel:logoutEndpoint:OidcConfig' :: OidcConfig -&gt; Text
-</span><a href="#local-6989586621680324235"><span class="hs-identifier hs-var hs-var">logoutEndpoint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680324235"><span class="hs-identifier hs-var">logoutEndpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680324234"><span class="annot"><span class="annottext">s :: OidcConfig
-</span><a href="#local-6989586621680324234"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcConfig.html#OidcConfig%27"><span class="hs-identifier hs-type">OidcConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680324233"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680324233"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OidcConfig
-</span><a href="#local-6989586621680324234"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logoutEndpoint:OidcConfig' :: Text
+</span><a href="#local-6989586621680325626"><span class="hs-identifier hs-var hs-var">logoutEndpoint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680325626"><span class="hs-identifier hs-var">logoutEndpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680325625"><span class="annot"><span class="annottext">s :: OidcConfig
+</span><a href="#local-6989586621680325625"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcConfig.html#OidcConfig%27"><span class="hs-identifier hs-type">OidcConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680325624"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680325624"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OidcConfig
+</span><a href="#local-6989586621680325625"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logoutEndpoint:OidcConfig' :: Text
 </span><a href="Network.AWS.SageMaker.Types.OidcConfig.html#%24sel%3AlogoutEndpoint%3AOidcConfig%27"><span class="hs-identifier hs-var">logoutEndpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680324233"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcConfig.html#OidcConfig"><span class="hs-identifier hs-type">OidcConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680325624"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcConfig.html#OidcConfig"><span class="hs-identifier hs-type">OidcConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-comment">-- | The OIDC IdP JSON Web Key Set (Jwks) URI used to configure your private</span><span>
 </span><span id="line-147"></span><span class="hs-comment">-- workforce.</span><span>
@@ -346,24 +346,24 @@ $sel:logoutEndpoint:OidcConfig' :: OidcConfig -&gt; Text
 -&gt; (OidcConfig -&gt; Text -&gt; OidcConfig)
 -&gt; Lens OidcConfig OidcConfig Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcConfig.html#OidcConfig%27"><span class="hs-identifier hs-type">OidcConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680324231"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcConfig.html#OidcConfig%27"><span class="hs-identifier hs-type">OidcConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680325622"><span class="annot"><span class="annottext">Text
 jwksUri :: Text
 $sel:jwksUri:OidcConfig' :: OidcConfig -&gt; Text
-</span><a href="#local-6989586621680324231"><span class="hs-identifier hs-var hs-var">jwksUri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680324231"><span class="hs-identifier hs-var">jwksUri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680324230"><span class="annot"><span class="annottext">s :: OidcConfig
-</span><a href="#local-6989586621680324230"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcConfig.html#OidcConfig%27"><span class="hs-identifier hs-type">OidcConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680324229"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680324229"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OidcConfig
-</span><a href="#local-6989586621680324230"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jwksUri:OidcConfig' :: Text
+</span><a href="#local-6989586621680325622"><span class="hs-identifier hs-var hs-var">jwksUri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680325622"><span class="hs-identifier hs-var">jwksUri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680325621"><span class="annot"><span class="annottext">s :: OidcConfig
+</span><a href="#local-6989586621680325621"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcConfig.html#OidcConfig%27"><span class="hs-identifier hs-type">OidcConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680325620"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680325620"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OidcConfig
+</span><a href="#local-6989586621680325621"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jwksUri:OidcConfig' :: Text
 </span><a href="Network.AWS.SageMaker.Types.OidcConfig.html#%24sel%3AjwksUri%3AOidcConfig%27"><span class="hs-identifier hs-var">jwksUri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680324229"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcConfig.html#OidcConfig"><span class="hs-identifier hs-type">OidcConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680325620"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcConfig.html#OidcConfig"><span class="hs-identifier hs-type">OidcConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>
-</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680324225"><span id="local-6989586621680324227"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcConfig.html#OidcConfig"><span class="hs-identifier hs-type">OidcConfig</span></a></span></span></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680325616"><span id="local-6989586621680325618"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcConfig.html#OidcConfig"><span class="hs-identifier hs-type">OidcConfig</span></a></span></span></span><span>
 </span><span id="line-152"></span><span>
-</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680324222"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcConfig.html#OidcConfig"><span class="hs-identifier hs-type">OidcConfig</span></a></span></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680325613"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcConfig.html#OidcConfig"><span class="hs-identifier hs-type">OidcConfig</span></a></span></span><span>
 </span><span id="line-154"></span><span>
-</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680324214"><span id="local-6989586621680324216"><span id="local-6989586621680324218"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcConfig.html#OidcConfig"><span class="hs-identifier hs-type">OidcConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-156"></span><span>  </span><span id="local-6989586621680324212"><span class="annot"><span class="annottext">toJSON :: OidcConfig -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcConfig.html#OidcConfig%27"><span class="hs-identifier hs-type">OidcConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680324203"><span id="local-6989586621680324204"><span id="local-6989586621680324205"><span id="local-6989586621680324206"><span id="local-6989586621680324207"><span id="local-6989586621680324208"><span id="local-6989586621680324209"><span id="local-6989586621680324210"><span class="annot"><span class="annottext">Text
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680325605"><span id="local-6989586621680325607"><span id="local-6989586621680325609"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcConfig.html#OidcConfig"><span class="hs-identifier hs-type">OidcConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621680325603"><span class="annot"><span class="annottext">toJSON :: OidcConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcConfig.html#OidcConfig%27"><span class="hs-identifier hs-type">OidcConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680325594"><span id="local-6989586621680325595"><span id="local-6989586621680325596"><span id="local-6989586621680325597"><span id="local-6989586621680325598"><span id="local-6989586621680325599"><span id="local-6989586621680325600"><span id="local-6989586621680325601"><span class="annot"><span class="annottext">Text
 Sensitive Text
 jwksUri :: Text
 logoutEndpoint :: Text
@@ -381,7 +381,7 @@ $sel:authorizationEndpoint:OidcConfig' :: OidcConfig -&gt; Text
 $sel:issuer:OidcConfig' :: OidcConfig -&gt; Text
 $sel:clientSecret:OidcConfig' :: OidcConfig -&gt; Sensitive Text
 $sel:clientId:OidcConfig' :: OidcConfig -&gt; Text
-</span><a href="#local-6989586621680324203"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680325594"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-157"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-158"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -393,21 +393,21 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ClientId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680324210"><span class="hs-identifier hs-var">clientId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680325601"><span class="hs-identifier hs-var">clientId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ClientSecret&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621680324209"><span class="hs-identifier hs-var">clientSecret</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680325600"><span class="hs-identifier hs-var">clientSecret</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Issuer&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680324208"><span class="hs-identifier hs-var">issuer</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680325599"><span class="hs-identifier hs-var">issuer</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -416,7 +416,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-164"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680324207"><span class="hs-identifier hs-var">authorizationEndpoint</span></a></span><span>
+</span><a href="#local-6989586621680325598"><span class="hs-identifier hs-var">authorizationEndpoint</span></a></span><span>
 </span><span id="line-165"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-166"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
@@ -424,7 +424,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;TokenEndpoint&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680324206"><span class="hs-identifier hs-var">tokenEndpoint</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680325597"><span class="hs-identifier hs-var">tokenEndpoint</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-167"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -432,7 +432,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;UserInfoEndpoint&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680324205"><span class="hs-identifier hs-var">userInfoEndpoint</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680325596"><span class="hs-identifier hs-var">userInfoEndpoint</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-169"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -440,14 +440,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;LogoutEndpoint&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680324204"><span class="hs-identifier hs-var">logoutEndpoint</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680325595"><span class="hs-identifier hs-var">logoutEndpoint</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-171"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;JwksUri&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680324203"><span class="hs-identifier hs-var">jwksUri</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680325594"><span class="hs-identifier hs-var">jwksUri</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-172"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-173"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span></pre></body></html>

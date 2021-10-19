@@ -49,7 +49,7 @@
 </span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newGetCampaign' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679632565"><span id="local-6989586621679632566"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetCampaign"><span class="annot"><a href="Network.AWS.Pinpoint.GetCampaign.html#GetCampaign"><span class="hs-identifier hs-var">GetCampaign</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetCampaign%27"><span class="annot"><a href="Network.AWS.Pinpoint.GetCampaign.html#GetCampaign%27"><span class="hs-identifier hs-var">GetCampaign'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679633094"><span id="local-6989586621679633095"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetCampaign"><span class="annot"><a href="Network.AWS.Pinpoint.GetCampaign.html#GetCampaign"><span class="hs-identifier hs-var">GetCampaign</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetCampaign%27"><span class="annot"><a href="Network.AWS.Pinpoint.GetCampaign.html#GetCampaign%27"><span class="hs-identifier hs-var">GetCampaign'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique identifier for the campaign.</span><span>
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3AcampaignId%3AGetCampaign%27"><span class="annot"><span class="annottext">GetCampaign -&gt; Text
 </span><a href="Network.AWS.Pinpoint.GetCampaign.html#%24sel%3AcampaignId%3AGetCampaign%27"><span class="hs-identifier hs-var hs-var">campaignId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -58,7 +58,7 @@
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3AapplicationId%3AGetCampaign%27"><span class="annot"><span class="annottext">GetCampaign -&gt; Text
 </span><a href="Network.AWS.Pinpoint.GetCampaign.html#%24sel%3AapplicationId%3AGetCampaign%27"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679632558"><span id="local-6989586621679632560"><span class="annot"><span class="annottext">GetCampaign -&gt; GetCampaign -&gt; Bool
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679633087"><span id="local-6989586621679633089"><span class="annot"><span class="annottext">GetCampaign -&gt; GetCampaign -&gt; Bool
 (GetCampaign -&gt; GetCampaign -&gt; Bool)
 -&gt; (GetCampaign -&gt; GetCampaign -&gt; Bool) -&gt; Eq GetCampaign
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -66,7 +66,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetCampaign -&gt; GetCampaign -&gt; Bool
 == :: GetCampaign -&gt; GetCampaign -&gt; Bool
 $c== :: GetCampaign -&gt; GetCampaign -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679632549"><span id="local-6989586621679632551"><span id="local-6989586621679632553"><span id="local-6989586621679632555"><span class="annot"><span class="annottext">ReadPrec [GetCampaign]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679633078"><span id="local-6989586621679633080"><span id="local-6989586621679633082"><span id="local-6989586621679633084"><span class="annot"><span class="annottext">ReadPrec [GetCampaign]
 ReadPrec GetCampaign
 Int -&gt; ReadS GetCampaign
 ReadS [GetCampaign]
@@ -86,7 +86,7 @@ readList :: ReadS [GetCampaign]
 $creadList :: ReadS [GetCampaign]
 readsPrec :: Int -&gt; ReadS GetCampaign
 $creadsPrec :: Int -&gt; ReadS GetCampaign
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679632542"><span id="local-6989586621679632544"><span id="local-6989586621679632546"><span class="annot"><span class="annottext">Int -&gt; GetCampaign -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679633071"><span id="local-6989586621679633073"><span id="local-6989586621679633075"><span class="annot"><span class="annottext">Int -&gt; GetCampaign -&gt; ShowS
 [GetCampaign] -&gt; ShowS
 GetCampaign -&gt; String
 (Int -&gt; GetCampaign -&gt; ShowS)
@@ -131,17 +131,17 @@ $cfrom :: forall x. GetCampaign -&gt; Rep GetCampaign x
 </span><span id="line-77"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.GetCampaign.html#GetCampaign"><span class="hs-identifier hs-type">GetCampaign</span></a></span><span>
 </span><span id="line-79"></span><span id="newGetCampaign"><span class="annot"><span class="annottext">newGetCampaign :: Text -&gt; Text -&gt; GetCampaign
-</span><a href="Network.AWS.Pinpoint.GetCampaign.html#newGetCampaign"><span class="hs-identifier hs-var hs-var">newGetCampaign</span></a></span></span><span> </span><span id="local-6989586621679632537"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679632537"><span class="hs-identifier hs-var">pCampaignId_</span></a></span></span><span> </span><span id="local-6989586621679632536"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679632536"><span class="hs-identifier hs-var">pApplicationId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Pinpoint.GetCampaign.html#newGetCampaign"><span class="hs-identifier hs-var hs-var">newGetCampaign</span></a></span></span><span> </span><span id="local-6989586621679633066"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679633066"><span class="hs-identifier hs-var">pCampaignId_</span></a></span></span><span> </span><span id="local-6989586621679633065"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679633065"><span class="hs-identifier hs-var">pApplicationId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">GetCampaign' :: Text -&gt; Text -&gt; GetCampaign
 </span><a href="Network.AWS.Pinpoint.GetCampaign.html#GetCampaign%27"><span class="hs-identifier hs-type">GetCampaign'</span></a></span><span>
 </span><span id="line-81"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:campaignId:GetCampaign' :: Text
 </span><a href="Network.AWS.Pinpoint.GetCampaign.html#%24sel%3AcampaignId%3AGetCampaign%27"><span class="hs-identifier hs-var">campaignId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679632537"><span class="hs-identifier hs-var">pCampaignId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679633066"><span class="hs-identifier hs-var">pCampaignId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:applicationId:GetCampaign' :: Text
 </span><a href="Network.AWS.Pinpoint.GetCampaign.html#%24sel%3AapplicationId%3AGetCampaign%27"><span class="hs-identifier hs-var">applicationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679632536"><span class="hs-identifier hs-var">pApplicationId_</span></a></span><span>
+</span><a href="#local-6989586621679633065"><span class="hs-identifier hs-var">pApplicationId_</span></a></span><span>
 </span><span id="line-83"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- | The unique identifier for the campaign.</span><span>
@@ -151,16 +151,16 @@ $cfrom :: forall x. GetCampaign -&gt; Rep GetCampaign x
 -&gt; (GetCampaign -&gt; Text -&gt; GetCampaign)
 -&gt; Lens GetCampaign GetCampaign Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.GetCampaign.html#GetCampaign%27"><span class="hs-identifier hs-type">GetCampaign'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679632533"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.GetCampaign.html#GetCampaign%27"><span class="hs-identifier hs-type">GetCampaign'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679633062"><span class="annot"><span class="annottext">Text
 campaignId :: Text
 $sel:campaignId:GetCampaign' :: GetCampaign -&gt; Text
-</span><a href="#local-6989586621679632533"><span class="hs-identifier hs-var hs-var">campaignId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679632533"><span class="hs-identifier hs-var">campaignId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679632532"><span class="annot"><span class="annottext">s :: GetCampaign
-</span><a href="#local-6989586621679632532"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.GetCampaign.html#GetCampaign%27"><span class="hs-identifier hs-type">GetCampaign'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679632531"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679632531"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCampaign
-</span><a href="#local-6989586621679632532"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:campaignId:GetCampaign' :: Text
+</span><a href="#local-6989586621679633062"><span class="hs-identifier hs-var hs-var">campaignId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679633062"><span class="hs-identifier hs-var">campaignId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679633061"><span class="annot"><span class="annottext">s :: GetCampaign
+</span><a href="#local-6989586621679633061"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.GetCampaign.html#GetCampaign%27"><span class="hs-identifier hs-type">GetCampaign'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679633060"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679633060"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCampaign
+</span><a href="#local-6989586621679633061"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:campaignId:GetCampaign' :: Text
 </span><a href="Network.AWS.Pinpoint.GetCampaign.html#%24sel%3AcampaignId%3AGetCampaign%27"><span class="hs-identifier hs-var">campaignId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679632531"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetCampaign.html#GetCampaign"><span class="hs-identifier hs-type">GetCampaign</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679633060"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetCampaign.html#GetCampaign"><span class="hs-identifier hs-type">GetCampaign</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- | The unique identifier for the application. This identifier is displayed</span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- as the __Project ID__ on the Amazon Pinpoint console.</span><span>
@@ -170,25 +170,25 @@ $sel:campaignId:GetCampaign' :: GetCampaign -&gt; Text
 -&gt; (GetCampaign -&gt; Text -&gt; GetCampaign)
 -&gt; Lens GetCampaign GetCampaign Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.GetCampaign.html#GetCampaign%27"><span class="hs-identifier hs-type">GetCampaign'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679632530"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.GetCampaign.html#GetCampaign%27"><span class="hs-identifier hs-type">GetCampaign'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679633059"><span class="annot"><span class="annottext">Text
 applicationId :: Text
 $sel:applicationId:GetCampaign' :: GetCampaign -&gt; Text
-</span><a href="#local-6989586621679632530"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679632530"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679632529"><span class="annot"><span class="annottext">s :: GetCampaign
-</span><a href="#local-6989586621679632529"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.GetCampaign.html#GetCampaign%27"><span class="hs-identifier hs-type">GetCampaign'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679632528"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679632528"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCampaign
-</span><a href="#local-6989586621679632529"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationId:GetCampaign' :: Text
+</span><a href="#local-6989586621679633059"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679633059"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679633058"><span class="annot"><span class="annottext">s :: GetCampaign
+</span><a href="#local-6989586621679633058"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.GetCampaign.html#GetCampaign%27"><span class="hs-identifier hs-type">GetCampaign'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679633057"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679633057"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCampaign
+</span><a href="#local-6989586621679633058"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationId:GetCampaign' :: Text
 </span><a href="Network.AWS.Pinpoint.GetCampaign.html#%24sel%3AapplicationId%3AGetCampaign%27"><span class="hs-identifier hs-var">applicationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679632528"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetCampaign.html#GetCampaign"><span class="hs-identifier hs-type">GetCampaign</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679633057"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetCampaign.html#GetCampaign"><span class="hs-identifier hs-type">GetCampaign</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetCampaign.html#GetCampaign"><span class="hs-identifier hs-type">GetCampaign</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-95"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetCampaign.html#GetCampaign"><span class="hs-identifier hs-type">GetCampaign</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetCampaign.html#GetCampaignResponse"><span class="hs-identifier hs-type">GetCampaignResponse</span></a></span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679632524"><span class="annot"><span class="annottext">request :: GetCampaign -&gt; Request GetCampaign
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679633053"><span class="annot"><span class="annottext">request :: GetCampaign -&gt; Request GetCampaign
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetCampaign -&gt; Request GetCampaign
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Pinpoint.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679632520"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679633049"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetCampaign
 -&gt; ClientResponse ClientBody
@@ -212,10 +212,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679632517"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679632517"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679632516"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679632516"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679632515"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679632515"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679633046"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679633046"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679633045"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679633045"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679633044"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679633044"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-100"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; CampaignResponse -&gt; GetCampaignResponse
 </span><a href="Network.AWS.Pinpoint.GetCampaign.html#GetCampaignResponse%27"><span class="hs-identifier hs-var">GetCampaignResponse'</span></a></span><span>
 </span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; CampaignResponse -&gt; GetCampaignResponse)
@@ -227,7 +227,7 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679632517"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679633046"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Either String (CampaignResponse -&gt; GetCampaignResponse)
 -&gt; Either String CampaignResponse
 -&gt; Either String GetCampaignResponse
@@ -235,15 +235,15 @@ forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Either String CampaignResponse
 forall a. FromJSON a =&gt; Object -&gt; Either String a
 </span><span class="hs-identifier hs-var">Core.eitherParseJSON</span></span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679632515"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679633044"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679632507"><span id="local-6989586621679632509"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetCampaign.html#GetCampaign"><span class="hs-identifier hs-type">GetCampaign</span></a></span></span></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679633036"><span id="local-6989586621679633038"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetCampaign.html#GetCampaign"><span class="hs-identifier hs-type">GetCampaign</span></a></span></span></span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679632504"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetCampaign.html#GetCampaign"><span class="hs-identifier hs-type">GetCampaign</span></a></span></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679633033"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetCampaign.html#GetCampaign"><span class="hs-identifier hs-type">GetCampaign</span></a></span></span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetCampaign.html#GetCampaign"><span class="hs-identifier hs-type">GetCampaign</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679632500"><span class="annot"><span class="annottext">toHeaders :: GetCampaign -&gt; ResponseHeaders
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679633029"><span class="annot"><span class="annottext">toHeaders :: GetCampaign -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetCampaign -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -263,13 +263,13 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetCampaign.html#GetCampaign"><span class="hs-identifier hs-type">GetCampaign</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679632494"><span class="annot"><span class="annottext">toPath :: GetCampaign -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetCampaign.html#GetCampaign%27"><span class="hs-identifier hs-type">GetCampaign'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679632491"><span id="local-6989586621679632492"><span class="annot"><span class="annottext">Text
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679633023"><span class="annot"><span class="annottext">toPath :: GetCampaign -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetCampaign.html#GetCampaign%27"><span class="hs-identifier hs-type">GetCampaign'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679633020"><span id="local-6989586621679633021"><span class="annot"><span class="annottext">Text
 applicationId :: Text
 campaignId :: Text
 $sel:applicationId:GetCampaign' :: GetCampaign -&gt; Text
 $sel:campaignId:GetCampaign' :: GetCampaign -&gt; Text
-</span><a href="#local-6989586621679632491"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679633020"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -278,17 +278,17 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-124"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679632491"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679633020"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-125"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/campaigns/&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-126"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679632492"><span class="hs-identifier hs-var">campaignId</span></a></span><span>
+</span><a href="#local-6989586621679633021"><span class="hs-identifier hs-var">campaignId</span></a></span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetCampaign.html#GetCampaign"><span class="hs-identifier hs-type">GetCampaign</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679632487"><span class="annot"><span class="annottext">toQuery :: GetCampaign -&gt; QueryString
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679633016"><span class="annot"><span class="annottext">toQuery :: GetCampaign -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetCampaign -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -296,14 +296,14 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-comment">-- | /See:/ 'newGetCampaignResponse' smart constructor.</span><span>
-</span><span id="line-133"></span><span id="local-6989586621679632484"><span id="local-6989586621679632485"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetCampaignResponse"><span class="annot"><a href="Network.AWS.Pinpoint.GetCampaign.html#GetCampaignResponse"><span class="hs-identifier hs-var">GetCampaignResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetCampaignResponse%27"><span class="annot"><a href="Network.AWS.Pinpoint.GetCampaign.html#GetCampaignResponse%27"><span class="hs-identifier hs-var">GetCampaignResponse'</span></a></span></span><span>
+</span><span id="line-133"></span><span id="local-6989586621679633013"><span id="local-6989586621679633014"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetCampaignResponse"><span class="annot"><a href="Network.AWS.Pinpoint.GetCampaign.html#GetCampaignResponse"><span class="hs-identifier hs-var">GetCampaignResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetCampaignResponse%27"><span class="annot"><a href="Network.AWS.Pinpoint.GetCampaign.html#GetCampaignResponse%27"><span class="hs-identifier hs-var">GetCampaignResponse'</span></a></span></span><span>
 </span><span id="line-134"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-135"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetCampaignResponse%27"><span class="annot"><span class="annottext">GetCampaignResponse -&gt; Int
 </span><a href="Network.AWS.Pinpoint.GetCampaign.html#%24sel%3AhttpStatus%3AGetCampaignResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
 </span><span id="line-136"></span><span>    </span><span id="%24sel%3AcampaignResponse%3AGetCampaignResponse%27"><span class="annot"><span class="annottext">GetCampaignResponse -&gt; CampaignResponse
 </span><a href="Network.AWS.Pinpoint.GetCampaign.html#%24sel%3AcampaignResponse%3AGetCampaignResponse%27"><span class="hs-identifier hs-var hs-var">campaignResponse</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignResponse.html#CampaignResponse"><span class="hs-identifier hs-type">CampaignResponse</span></a></span><span>
 </span><span id="line-137"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-138"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679632478"><span id="local-6989586621679632480"><span class="annot"><span class="annottext">GetCampaignResponse -&gt; GetCampaignResponse -&gt; Bool
+</span><span id="line-138"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679633007"><span id="local-6989586621679633009"><span class="annot"><span class="annottext">GetCampaignResponse -&gt; GetCampaignResponse -&gt; Bool
 (GetCampaignResponse -&gt; GetCampaignResponse -&gt; Bool)
 -&gt; (GetCampaignResponse -&gt; GetCampaignResponse -&gt; Bool)
 -&gt; Eq GetCampaignResponse
@@ -312,7 +312,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetCampaignResponse -&gt; GetCampaignResponse -&gt; Bool
 == :: GetCampaignResponse -&gt; GetCampaignResponse -&gt; Bool
 $c== :: GetCampaignResponse -&gt; GetCampaignResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679632470"><span id="local-6989586621679632472"><span id="local-6989586621679632474"><span id="local-6989586621679632476"><span class="annot"><span class="annottext">ReadPrec [GetCampaignResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679632999"><span id="local-6989586621679633001"><span id="local-6989586621679633003"><span id="local-6989586621679633005"><span class="annot"><span class="annottext">ReadPrec [GetCampaignResponse]
 ReadPrec GetCampaignResponse
 Int -&gt; ReadS GetCampaignResponse
 ReadS [GetCampaignResponse]
@@ -332,7 +332,7 @@ readList :: ReadS [GetCampaignResponse]
 $creadList :: ReadS [GetCampaignResponse]
 readsPrec :: Int -&gt; ReadS GetCampaignResponse
 $creadsPrec :: Int -&gt; ReadS GetCampaignResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679632464"><span id="local-6989586621679632466"><span id="local-6989586621679632468"><span class="annot"><span class="annottext">Int -&gt; GetCampaignResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679632993"><span id="local-6989586621679632995"><span id="local-6989586621679632997"><span class="annot"><span class="annottext">Int -&gt; GetCampaignResponse -&gt; ShowS
 [GetCampaignResponse] -&gt; ShowS
 GetCampaignResponse -&gt; String
 (Int -&gt; GetCampaignResponse -&gt; ShowS)
@@ -377,18 +377,18 @@ $cfrom :: forall x. GetCampaignResponse -&gt; Rep GetCampaignResponse x
 </span><span id="line-156"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.GetCampaign.html#GetCampaignResponse"><span class="hs-identifier hs-type">GetCampaignResponse</span></a></span><span>
 </span><span id="line-157"></span><span id="newGetCampaignResponse"><span class="annot"><span class="annottext">newGetCampaignResponse :: Int -&gt; CampaignResponse -&gt; GetCampaignResponse
 </span><a href="Network.AWS.Pinpoint.GetCampaign.html#newGetCampaignResponse"><span class="hs-identifier hs-var hs-var">newGetCampaignResponse</span></a></span></span><span>
-</span><span id="line-158"></span><span>  </span><span id="local-6989586621679632461"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679632461"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
-</span><span id="line-159"></span><span>  </span><span id="local-6989586621679632460"><span class="annot"><span class="annottext">CampaignResponse
-</span><a href="#local-6989586621679632460"><span class="hs-identifier hs-var">pCampaignResponse_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679632990"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679632990"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679632989"><span class="annot"><span class="annottext">CampaignResponse
+</span><a href="#local-6989586621679632989"><span class="hs-identifier hs-var">pCampaignResponse_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-160"></span><span>    </span><span class="annot"><span class="annottext">GetCampaignResponse' :: Int -&gt; CampaignResponse -&gt; GetCampaignResponse
 </span><a href="Network.AWS.Pinpoint.GetCampaign.html#GetCampaignResponse%27"><span class="hs-identifier hs-type">GetCampaignResponse'</span></a></span><span>
 </span><span id="line-161"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:GetCampaignResponse' :: Int
 </span><a href="Network.AWS.Pinpoint.GetCampaign.html#%24sel%3AhttpStatus%3AGetCampaignResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679632461"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679632990"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-162"></span><span>        </span><span class="annot"><span class="annottext">$sel:campaignResponse:GetCampaignResponse' :: CampaignResponse
 </span><a href="Network.AWS.Pinpoint.GetCampaign.html#%24sel%3AcampaignResponse%3AGetCampaignResponse%27"><span class="hs-identifier hs-var">campaignResponse</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CampaignResponse
-</span><a href="#local-6989586621679632460"><span class="hs-identifier hs-var">pCampaignResponse_</span></a></span><span>
+</span><a href="#local-6989586621679632989"><span class="hs-identifier hs-var">pCampaignResponse_</span></a></span><span>
 </span><span id="line-163"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-164"></span><span>
 </span><span id="line-165"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -398,16 +398,16 @@ $cfrom :: forall x. GetCampaignResponse -&gt; Rep GetCampaignResponse x
 -&gt; (GetCampaignResponse -&gt; Int -&gt; GetCampaignResponse)
 -&gt; Lens GetCampaignResponse GetCampaignResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.GetCampaign.html#GetCampaignResponse%27"><span class="hs-identifier hs-type">GetCampaignResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679632459"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.GetCampaign.html#GetCampaignResponse%27"><span class="hs-identifier hs-type">GetCampaignResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679632988"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetCampaignResponse' :: GetCampaignResponse -&gt; Int
-</span><a href="#local-6989586621679632459"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679632459"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679632458"><span class="annot"><span class="annottext">s :: GetCampaignResponse
-</span><a href="#local-6989586621679632458"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.GetCampaign.html#GetCampaignResponse%27"><span class="hs-identifier hs-type">GetCampaignResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679632457"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679632457"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCampaignResponse
-</span><a href="#local-6989586621679632458"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetCampaignResponse' :: Int
+</span><a href="#local-6989586621679632988"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679632988"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679632987"><span class="annot"><span class="annottext">s :: GetCampaignResponse
+</span><a href="#local-6989586621679632987"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.GetCampaign.html#GetCampaignResponse%27"><span class="hs-identifier hs-type">GetCampaignResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679632986"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679632986"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCampaignResponse
+</span><a href="#local-6989586621679632987"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetCampaignResponse' :: Int
 </span><a href="Network.AWS.Pinpoint.GetCampaign.html#%24sel%3AhttpStatus%3AGetCampaignResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679632457"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetCampaign.html#GetCampaignResponse"><span class="hs-identifier hs-type">GetCampaignResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679632986"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetCampaign.html#GetCampaignResponse"><span class="hs-identifier hs-type">GetCampaignResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>
 </span><span id="line-169"></span><span class="hs-comment">-- | Undocumented member.</span><span>
 </span><span id="line-170"></span><span class="annot"><a href="Network.AWS.Pinpoint.GetCampaign.html#getCampaignResponse_campaignResponse"><span class="hs-identifier hs-type">getCampaignResponse_campaignResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetCampaign.html#GetCampaignResponse"><span class="hs-identifier hs-type">GetCampaignResponse</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignResponse.html#CampaignResponse"><span class="hs-identifier hs-type">CampaignResponse</span></a></span><span>
@@ -421,16 +421,16 @@ $sel:httpStatus:GetCampaignResponse' :: GetCampaignResponse -&gt; Int
      CampaignResponse
      CampaignResponse
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.GetCampaign.html#GetCampaignResponse%27"><span class="hs-identifier hs-type">GetCampaignResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679632456"><span class="annot"><span class="annottext">CampaignResponse
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.GetCampaign.html#GetCampaignResponse%27"><span class="hs-identifier hs-type">GetCampaignResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679632985"><span class="annot"><span class="annottext">CampaignResponse
 campaignResponse :: CampaignResponse
 $sel:campaignResponse:GetCampaignResponse' :: GetCampaignResponse -&gt; CampaignResponse
-</span><a href="#local-6989586621679632456"><span class="hs-identifier hs-var hs-var">campaignResponse</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CampaignResponse
-</span><a href="#local-6989586621679632456"><span class="hs-identifier hs-var">campaignResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679632455"><span class="annot"><span class="annottext">s :: GetCampaignResponse
-</span><a href="#local-6989586621679632455"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.GetCampaign.html#GetCampaignResponse%27"><span class="hs-identifier hs-type">GetCampaignResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679632454"><span class="annot"><span class="annottext">CampaignResponse
-</span><a href="#local-6989586621679632454"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCampaignResponse
-</span><a href="#local-6989586621679632455"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:campaignResponse:GetCampaignResponse' :: CampaignResponse
+</span><a href="#local-6989586621679632985"><span class="hs-identifier hs-var hs-var">campaignResponse</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CampaignResponse
+</span><a href="#local-6989586621679632985"><span class="hs-identifier hs-var">campaignResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679632984"><span class="annot"><span class="annottext">s :: GetCampaignResponse
+</span><a href="#local-6989586621679632984"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.GetCampaign.html#GetCampaignResponse%27"><span class="hs-identifier hs-type">GetCampaignResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679632983"><span class="annot"><span class="annottext">CampaignResponse
+</span><a href="#local-6989586621679632983"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCampaignResponse
+</span><a href="#local-6989586621679632984"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:campaignResponse:GetCampaignResponse' :: CampaignResponse
 </span><a href="Network.AWS.Pinpoint.GetCampaign.html#%24sel%3AcampaignResponse%3AGetCampaignResponse%27"><span class="hs-identifier hs-var">campaignResponse</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CampaignResponse
-</span><a href="#local-6989586621679632454"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetCampaign.html#GetCampaignResponse"><span class="hs-identifier hs-type">GetCampaignResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679632983"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetCampaign.html#GetCampaignResponse"><span class="hs-identifier hs-type">GetCampaignResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-172"></span><span>
-</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679632452"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetCampaign.html#GetCampaignResponse"><span class="hs-identifier hs-type">GetCampaignResponse</span></a></span></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679632981"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetCampaign.html#GetCampaignResponse"><span class="hs-identifier hs-type">GetCampaignResponse</span></a></span></span><span>
 </span><span id="line-174"></span></pre></body></html>

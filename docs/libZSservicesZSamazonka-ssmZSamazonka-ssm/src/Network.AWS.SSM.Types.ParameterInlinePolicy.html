@@ -26,23 +26,23 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | One or more policies assigned to a parameter.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newParameterInlinePolicy' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679804323"><span id="local-6989586621679804324"></span></span><span class="hs-keyword">data</span><span> </span><span id="ParameterInlinePolicy"><span class="annot"><a href="Network.AWS.SSM.Types.ParameterInlinePolicy.html#ParameterInlinePolicy"><span class="hs-identifier hs-var">ParameterInlinePolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ParameterInlinePolicy%27"><span class="annot"><a href="Network.AWS.SSM.Types.ParameterInlinePolicy.html#ParameterInlinePolicy%27"><span class="hs-identifier hs-var">ParameterInlinePolicy'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679805993"><span id="local-6989586621679805994"></span></span><span class="hs-keyword">data</span><span> </span><span id="ParameterInlinePolicy"><span class="annot"><a href="Network.AWS.SSM.Types.ParameterInlinePolicy.html#ParameterInlinePolicy"><span class="hs-identifier hs-var">ParameterInlinePolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ParameterInlinePolicy%27"><span class="annot"><a href="Network.AWS.SSM.Types.ParameterInlinePolicy.html#ParameterInlinePolicy%27"><span class="hs-identifier hs-var">ParameterInlinePolicy'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type of policy. Parameter Store, a capablility of Amazon Web</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- Services Systems Manager, supports the following policy types:</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- Expiration, ExpirationNotification, and NoChangeNotification.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3ApolicyType%3AParameterInlinePolicy%27"><span class="annot"><span class="annottext">ParameterInlinePolicy -&gt; Maybe Text
 </span><a href="Network.AWS.SSM.Types.ParameterInlinePolicy.html#%24sel%3ApolicyType%3AParameterInlinePolicy%27"><span class="hs-identifier hs-var hs-var">policyType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The JSON text of the policy.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3ApolicyText%3AParameterInlinePolicy%27"><span class="annot"><span class="annottext">ParameterInlinePolicy -&gt; Maybe Text
-</span><a href="Network.AWS.SSM.Types.ParameterInlinePolicy.html#%24sel%3ApolicyText%3AParameterInlinePolicy%27"><span class="hs-identifier hs-var hs-var">policyText</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The status of the policy. Policies report the following statuses:</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- Pending (the policy hasn\'t been enforced or applied yet), Finished (the</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- policy was applied), Failed (the policy wasn\'t applied), or InProgress</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- (the policy is being applied now).</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3ApolicyStatus%3AParameterInlinePolicy%27"><span class="annot"><span class="annottext">ParameterInlinePolicy -&gt; Maybe Text
-</span><a href="Network.AWS.SSM.Types.ParameterInlinePolicy.html#%24sel%3ApolicyStatus%3AParameterInlinePolicy%27"><span class="hs-identifier hs-var hs-var">policyStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The status of the policy. Policies report the following statuses:</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- Pending (the policy hasn\'t been enforced or applied yet), Finished (the</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- policy was applied), Failed (the policy wasn\'t applied), or InProgress</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- (the policy is being applied now).</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3ApolicyStatus%3AParameterInlinePolicy%27"><span class="annot"><span class="annottext">ParameterInlinePolicy -&gt; Maybe Text
+</span><a href="Network.AWS.SSM.Types.ParameterInlinePolicy.html#%24sel%3ApolicyStatus%3AParameterInlinePolicy%27"><span class="hs-identifier hs-var hs-var">policyStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The JSON text of the policy.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3ApolicyText%3AParameterInlinePolicy%27"><span class="annot"><span class="annottext">ParameterInlinePolicy -&gt; Maybe Text
+</span><a href="Network.AWS.SSM.Types.ParameterInlinePolicy.html#%24sel%3ApolicyText%3AParameterInlinePolicy%27"><span class="hs-identifier hs-var hs-var">policyText</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679804315"><span id="local-6989586621679804317"><span class="annot"><span class="annottext">ParameterInlinePolicy -&gt; ParameterInlinePolicy -&gt; Bool
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679805985"><span id="local-6989586621679805987"><span class="annot"><span class="annottext">ParameterInlinePolicy -&gt; ParameterInlinePolicy -&gt; Bool
 (ParameterInlinePolicy -&gt; ParameterInlinePolicy -&gt; Bool)
 -&gt; (ParameterInlinePolicy -&gt; ParameterInlinePolicy -&gt; Bool)
 -&gt; Eq ParameterInlinePolicy
@@ -51,7 +51,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ParameterInlinePolicy -&gt; ParameterInlinePolicy -&gt; Bool
 == :: ParameterInlinePolicy -&gt; ParameterInlinePolicy -&gt; Bool
 $c== :: ParameterInlinePolicy -&gt; ParameterInlinePolicy -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679804306"><span id="local-6989586621679804308"><span id="local-6989586621679804310"><span id="local-6989586621679804312"><span class="annot"><span class="annottext">ReadPrec [ParameterInlinePolicy]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679805976"><span id="local-6989586621679805978"><span id="local-6989586621679805980"><span id="local-6989586621679805982"><span class="annot"><span class="annottext">ReadPrec [ParameterInlinePolicy]
 ReadPrec ParameterInlinePolicy
 Int -&gt; ReadS ParameterInlinePolicy
 ReadS [ParameterInlinePolicy]
@@ -71,7 +71,7 @@ readList :: ReadS [ParameterInlinePolicy]
 $creadList :: ReadS [ParameterInlinePolicy]
 readsPrec :: Int -&gt; ReadS ParameterInlinePolicy
 $creadsPrec :: Int -&gt; ReadS ParameterInlinePolicy
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679804299"><span id="local-6989586621679804301"><span id="local-6989586621679804303"><span class="annot"><span class="annottext">Int -&gt; ParameterInlinePolicy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679805969"><span id="local-6989586621679805971"><span id="local-6989586621679805973"><span class="annot"><span class="annottext">Int -&gt; ParameterInlinePolicy -&gt; ShowS
 [ParameterInlinePolicy] -&gt; ShowS
 ParameterInlinePolicy -&gt; String
 (Int -&gt; ParameterInlinePolicy -&gt; ShowS)
@@ -109,12 +109,12 @@ $cfrom :: forall x. ParameterInlinePolicy -&gt; Rep ParameterInlinePolicy x
 </span><span id="line-53"></span><span class="hs-comment">-- Services Systems Manager, supports the following policy types:</span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- Expiration, ExpirationNotification, and NoChangeNotification.</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- 'policyText', 'parameterInlinePolicy_policyText' - The JSON text of the policy.</span><span>
-</span><span id="line-57"></span><span class="hs-comment">--</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- 'policyStatus', 'parameterInlinePolicy_policyStatus' - The status of the policy. Policies report the following statuses:</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- Pending (the policy hasn\'t been enforced or applied yet), Finished (the</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- policy was applied), Failed (the policy wasn\'t applied), or InProgress</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- (the policy is being applied now).</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'policyStatus', 'parameterInlinePolicy_policyStatus' - The status of the policy. Policies report the following statuses:</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- Pending (the policy hasn\'t been enforced or applied yet), Finished (the</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- policy was applied), Failed (the policy wasn\'t applied), or InProgress</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- (the policy is being applied now).</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'policyText', 'parameterInlinePolicy_policyText' - The JSON text of the policy.</span><span>
 </span><span id="line-62"></span><span class="annot"><a href="Network.AWS.SSM.Types.ParameterInlinePolicy.html#newParameterInlinePolicy"><span class="hs-identifier hs-type">newParameterInlinePolicy</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-63"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.Types.ParameterInlinePolicy.html#ParameterInlinePolicy"><span class="hs-identifier hs-type">ParameterInlinePolicy</span></a></span><span>
 </span><span id="line-64"></span><span id="newParameterInlinePolicy"><span class="annot"><span class="annottext">newParameterInlinePolicy :: ParameterInlinePolicy
@@ -126,12 +126,12 @@ $cfrom :: forall x. ParameterInlinePolicy -&gt; Rep ParameterInlinePolicy x
 </span><span id="line-67"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:policyText:ParameterInlinePolicy' :: Maybe Text
-</span><a href="Network.AWS.SSM.Types.ParameterInlinePolicy.html#%24sel%3ApolicyText%3AParameterInlinePolicy%27"><span class="hs-identifier hs-var">policyText</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:policyStatus:ParameterInlinePolicy' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.ParameterInlinePolicy.html#%24sel%3ApolicyStatus%3AParameterInlinePolicy%27"><span class="hs-identifier hs-var">policyStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:policyStatus:ParameterInlinePolicy' :: Maybe Text
-</span><a href="Network.AWS.SSM.Types.ParameterInlinePolicy.html#%24sel%3ApolicyStatus%3AParameterInlinePolicy%27"><span class="hs-identifier hs-var">policyStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:policyText:ParameterInlinePolicy' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.ParameterInlinePolicy.html#%24sel%3ApolicyText%3AParameterInlinePolicy%27"><span class="hs-identifier hs-var">policyText</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-70"></span><span>    </span><span class="hs-special">}</span><span>
@@ -150,46 +150,23 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.ParameterInlinePolicy.html#ParameterInlinePolicy%27"><span class="hs-identifier hs-type">ParameterInlinePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679804290"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.ParameterInlinePolicy.html#ParameterInlinePolicy%27"><span class="hs-identifier hs-type">ParameterInlinePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679805960"><span class="annot"><span class="annottext">Maybe Text
 policyType :: Maybe Text
 $sel:policyType:ParameterInlinePolicy' :: ParameterInlinePolicy -&gt; Maybe Text
-</span><a href="#local-6989586621679804290"><span class="hs-identifier hs-var hs-var">policyType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679804290"><span class="hs-identifier hs-var">policyType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679804289"><span class="annot"><span class="annottext">s :: ParameterInlinePolicy
-</span><a href="#local-6989586621679804289"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.ParameterInlinePolicy.html#ParameterInlinePolicy%27"><span class="hs-identifier hs-type">ParameterInlinePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679804288"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679804288"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ParameterInlinePolicy
-</span><a href="#local-6989586621679804289"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyType:ParameterInlinePolicy' :: Maybe Text
+</span><a href="#local-6989586621679805960"><span class="hs-identifier hs-var hs-var">policyType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679805960"><span class="hs-identifier hs-var">policyType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679805959"><span class="annot"><span class="annottext">s :: ParameterInlinePolicy
+</span><a href="#local-6989586621679805959"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.ParameterInlinePolicy.html#ParameterInlinePolicy%27"><span class="hs-identifier hs-type">ParameterInlinePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679805958"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679805958"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ParameterInlinePolicy
+</span><a href="#local-6989586621679805959"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyType:ParameterInlinePolicy' :: Maybe Text
 </span><a href="Network.AWS.SSM.Types.ParameterInlinePolicy.html#%24sel%3ApolicyType%3AParameterInlinePolicy%27"><span class="hs-identifier hs-var">policyType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679804288"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ParameterInlinePolicy.html#ParameterInlinePolicy"><span class="hs-identifier hs-type">ParameterInlinePolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679805958"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ParameterInlinePolicy.html#ParameterInlinePolicy"><span class="hs-identifier hs-type">ParameterInlinePolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- | The JSON text of the policy.</span><span>
-</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.SSM.Types.ParameterInlinePolicy.html#parameterInlinePolicy_policyText"><span class="hs-identifier hs-type">parameterInlinePolicy_policyText</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ParameterInlinePolicy.html#ParameterInlinePolicy"><span class="hs-identifier hs-type">ParameterInlinePolicy</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-80"></span><span id="parameterInlinePolicy_policyText"><span class="annot"><span class="annottext">parameterInlinePolicy_policyText :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ParameterInlinePolicy -&gt; f ParameterInlinePolicy
-</span><a href="Network.AWS.SSM.Types.ParameterInlinePolicy.html#parameterInlinePolicy_policyText"><span class="hs-identifier hs-var hs-var">parameterInlinePolicy_policyText</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ParameterInlinePolicy -&gt; Maybe Text)
--&gt; (ParameterInlinePolicy -&gt; Maybe Text -&gt; ParameterInlinePolicy)
--&gt; Lens
-     ParameterInlinePolicy
-     ParameterInlinePolicy
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.ParameterInlinePolicy.html#ParameterInlinePolicy%27"><span class="hs-identifier hs-type">ParameterInlinePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679804286"><span class="annot"><span class="annottext">Maybe Text
-policyText :: Maybe Text
-$sel:policyText:ParameterInlinePolicy' :: ParameterInlinePolicy -&gt; Maybe Text
-</span><a href="#local-6989586621679804286"><span class="hs-identifier hs-var hs-var">policyText</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679804286"><span class="hs-identifier hs-var">policyText</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679804285"><span class="annot"><span class="annottext">s :: ParameterInlinePolicy
-</span><a href="#local-6989586621679804285"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.ParameterInlinePolicy.html#ParameterInlinePolicy%27"><span class="hs-identifier hs-type">ParameterInlinePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679804284"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679804284"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ParameterInlinePolicy
-</span><a href="#local-6989586621679804285"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyText:ParameterInlinePolicy' :: Maybe Text
-</span><a href="Network.AWS.SSM.Types.ParameterInlinePolicy.html#%24sel%3ApolicyText%3AParameterInlinePolicy%27"><span class="hs-identifier hs-var">policyText</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679804284"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ParameterInlinePolicy.html#ParameterInlinePolicy"><span class="hs-identifier hs-type">ParameterInlinePolicy</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- | The status of the policy. Policies report the following statuses:</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- Pending (the policy hasn\'t been enforced or applied yet), Finished (the</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- policy was applied), Failed (the policy wasn\'t applied), or InProgress</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- (the policy is being applied now).</span><span>
-</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.SSM.Types.ParameterInlinePolicy.html#parameterInlinePolicy_policyStatus"><span class="hs-identifier hs-type">parameterInlinePolicy_policyStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ParameterInlinePolicy.html#ParameterInlinePolicy"><span class="hs-identifier hs-type">ParameterInlinePolicy</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-87"></span><span id="parameterInlinePolicy_policyStatus"><span class="annot"><span class="annottext">parameterInlinePolicy_policyStatus :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-78"></span><span class="hs-comment">-- | The status of the policy. Policies report the following statuses:</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- Pending (the policy hasn\'t been enforced or applied yet), Finished (the</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- policy was applied), Failed (the policy wasn\'t applied), or InProgress</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- (the policy is being applied now).</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.SSM.Types.ParameterInlinePolicy.html#parameterInlinePolicy_policyStatus"><span class="hs-identifier hs-type">parameterInlinePolicy_policyStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ParameterInlinePolicy.html#ParameterInlinePolicy"><span class="hs-identifier hs-type">ParameterInlinePolicy</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="parameterInlinePolicy_policyStatus"><span class="annot"><span class="annottext">parameterInlinePolicy_policyStatus :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ParameterInlinePolicy -&gt; f ParameterInlinePolicy
 </span><a href="Network.AWS.SSM.Types.ParameterInlinePolicy.html#parameterInlinePolicy_policyStatus"><span class="hs-identifier hs-var hs-var">parameterInlinePolicy_policyStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ParameterInlinePolicy -&gt; Maybe Text)
 -&gt; (ParameterInlinePolicy -&gt; Maybe Text -&gt; ParameterInlinePolicy)
@@ -199,19 +176,42 @@ $sel:policyText:ParameterInlinePolicy' :: ParameterInlinePolicy -&gt; Maybe Text
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.ParameterInlinePolicy.html#ParameterInlinePolicy%27"><span class="hs-identifier hs-type">ParameterInlinePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679804282"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.ParameterInlinePolicy.html#ParameterInlinePolicy%27"><span class="hs-identifier hs-type">ParameterInlinePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679805956"><span class="annot"><span class="annottext">Maybe Text
 policyStatus :: Maybe Text
 $sel:policyStatus:ParameterInlinePolicy' :: ParameterInlinePolicy -&gt; Maybe Text
-</span><a href="#local-6989586621679804282"><span class="hs-identifier hs-var hs-var">policyStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679804282"><span class="hs-identifier hs-var">policyStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679804281"><span class="annot"><span class="annottext">s :: ParameterInlinePolicy
-</span><a href="#local-6989586621679804281"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.ParameterInlinePolicy.html#ParameterInlinePolicy%27"><span class="hs-identifier hs-type">ParameterInlinePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679804280"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679804280"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ParameterInlinePolicy
-</span><a href="#local-6989586621679804281"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyStatus:ParameterInlinePolicy' :: Maybe Text
+</span><a href="#local-6989586621679805956"><span class="hs-identifier hs-var hs-var">policyStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679805956"><span class="hs-identifier hs-var">policyStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679805955"><span class="annot"><span class="annottext">s :: ParameterInlinePolicy
+</span><a href="#local-6989586621679805955"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.ParameterInlinePolicy.html#ParameterInlinePolicy%27"><span class="hs-identifier hs-type">ParameterInlinePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679805954"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679805954"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ParameterInlinePolicy
+</span><a href="#local-6989586621679805955"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyStatus:ParameterInlinePolicy' :: Maybe Text
 </span><a href="Network.AWS.SSM.Types.ParameterInlinePolicy.html#%24sel%3ApolicyStatus%3AParameterInlinePolicy%27"><span class="hs-identifier hs-var">policyStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679804280"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ParameterInlinePolicy.html#ParameterInlinePolicy"><span class="hs-identifier hs-type">ParameterInlinePolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679805954"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ParameterInlinePolicy.html#ParameterInlinePolicy"><span class="hs-identifier hs-type">ParameterInlinePolicy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The JSON text of the policy.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.SSM.Types.ParameterInlinePolicy.html#parameterInlinePolicy_policyText"><span class="hs-identifier hs-type">parameterInlinePolicy_policyText</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ParameterInlinePolicy.html#ParameterInlinePolicy"><span class="hs-identifier hs-type">ParameterInlinePolicy</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span id="parameterInlinePolicy_policyText"><span class="annot"><span class="annottext">parameterInlinePolicy_policyText :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ParameterInlinePolicy -&gt; f ParameterInlinePolicy
+</span><a href="Network.AWS.SSM.Types.ParameterInlinePolicy.html#parameterInlinePolicy_policyText"><span class="hs-identifier hs-var hs-var">parameterInlinePolicy_policyText</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ParameterInlinePolicy -&gt; Maybe Text)
+-&gt; (ParameterInlinePolicy -&gt; Maybe Text -&gt; ParameterInlinePolicy)
+-&gt; Lens
+     ParameterInlinePolicy
+     ParameterInlinePolicy
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.ParameterInlinePolicy.html#ParameterInlinePolicy%27"><span class="hs-identifier hs-type">ParameterInlinePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679805952"><span class="annot"><span class="annottext">Maybe Text
+policyText :: Maybe Text
+$sel:policyText:ParameterInlinePolicy' :: ParameterInlinePolicy -&gt; Maybe Text
+</span><a href="#local-6989586621679805952"><span class="hs-identifier hs-var hs-var">policyText</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679805952"><span class="hs-identifier hs-var">policyText</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679805951"><span class="annot"><span class="annottext">s :: ParameterInlinePolicy
+</span><a href="#local-6989586621679805951"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.ParameterInlinePolicy.html#ParameterInlinePolicy%27"><span class="hs-identifier hs-type">ParameterInlinePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679805950"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679805950"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ParameterInlinePolicy
+</span><a href="#local-6989586621679805951"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyText:ParameterInlinePolicy' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.ParameterInlinePolicy.html#%24sel%3ApolicyText%3AParameterInlinePolicy%27"><span class="hs-identifier hs-var">policyText</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679805950"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ParameterInlinePolicy.html#ParameterInlinePolicy"><span class="hs-identifier hs-type">ParameterInlinePolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679804277"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ParameterInlinePolicy.html#ParameterInlinePolicy"><span class="hs-identifier hs-type">ParameterInlinePolicy</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621679804275"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ParameterInlinePolicy
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679805947"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ParameterInlinePolicy.html#ParameterInlinePolicy"><span class="hs-identifier hs-type">ParameterInlinePolicy</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679805945"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ParameterInlinePolicy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-91"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ParameterInlinePolicy)
@@ -221,8 +221,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ParameterInlinePolicy&quot;</span></span><span>
-</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679804272"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679804272"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679805942"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679805942"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-94"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; ParameterInlinePolicy
 </span><a href="Network.AWS.SSM.Types.ParameterInlinePolicy.html#ParameterInlinePolicy%27"><span class="hs-identifier hs-var">ParameterInlinePolicy'</span></a></span><span>
 </span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; ParameterInlinePolicy)
@@ -230,7 +230,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; ParameterInlinePolicy)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679804272"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679805942"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PolicyType&quot;</span></span><span class="hs-special">)</span><span>
@@ -239,21 +239,21 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; ParameterInlinePolicy)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679804272"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679805942"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;PolicyText&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;PolicyStatus&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; ParameterInlinePolicy)
 -&gt; Parser (Maybe Text) -&gt; Parser ParameterInlinePolicy
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679804272"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679805942"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;PolicyStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;PolicyText&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679804266"><span id="local-6989586621679804268"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ParameterInlinePolicy.html#ParameterInlinePolicy"><span class="hs-identifier hs-type">ParameterInlinePolicy</span></a></span></span></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679805936"><span id="local-6989586621679805938"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ParameterInlinePolicy.html#ParameterInlinePolicy"><span class="hs-identifier hs-type">ParameterInlinePolicy</span></a></span></span></span><span>
 </span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679804263"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ParameterInlinePolicy.html#ParameterInlinePolicy"><span class="hs-identifier hs-type">ParameterInlinePolicy</span></a></span></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679805933"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ParameterInlinePolicy.html#ParameterInlinePolicy"><span class="hs-identifier hs-type">ParameterInlinePolicy</span></a></span></span><span>
 </span><span id="line-103"></span></pre></body></html>

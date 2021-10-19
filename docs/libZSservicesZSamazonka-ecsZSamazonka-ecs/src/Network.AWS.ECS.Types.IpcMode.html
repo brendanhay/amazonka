@@ -30,10 +30,10 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679453850"><span id="local-6989586621679453851"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="IpcMode"><span class="annot"><a href="Network.AWS.ECS.Types.IpcMode.html#IpcMode"><span class="hs-identifier hs-var">IpcMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IpcMode%27"><span class="annot"><a href="Network.AWS.ECS.Types.IpcMode.html#IpcMode%27"><span class="hs-identifier hs-var">IpcMode'</span></a></span></span><span> </span><span class="hs-special">{</span><span id="fromIpcMode"><span class="annot"><span class="annottext">IpcMode -&gt; Text
+</span><span id="line-33"></span><span id="local-6989586621679454565"><span id="local-6989586621679454566"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="IpcMode"><span class="annot"><a href="Network.AWS.ECS.Types.IpcMode.html#IpcMode"><span class="hs-identifier hs-var">IpcMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IpcMode%27"><span class="annot"><a href="Network.AWS.ECS.Types.IpcMode.html#IpcMode%27"><span class="hs-identifier hs-var">IpcMode'</span></a></span></span><span> </span><span class="hs-special">{</span><span id="fromIpcMode"><span class="annot"><span class="annottext">IpcMode -&gt; Text
 </span><a href="Network.AWS.ECS.Types.IpcMode.html#fromIpcMode"><span class="hs-identifier hs-var hs-var">fromIpcMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span class="hs-special">}</span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679453842"><span id="local-6989586621679453844"><span id="local-6989586621679453846"><span class="annot"><span class="annottext">Int -&gt; IpcMode -&gt; ShowS
+</span><span id="line-35"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679454557"><span id="local-6989586621679454559"><span id="local-6989586621679454561"><span class="annot"><span class="annottext">Int -&gt; IpcMode -&gt; ShowS
 [IpcMode] -&gt; ShowS
 IpcMode -&gt; String
 (Int -&gt; IpcMode -&gt; ShowS)
@@ -47,7 +47,7 @@ $cshow :: IpcMode -&gt; String
 showsPrec :: Int -&gt; IpcMode -&gt; ShowS
 $cshowsPrec :: Int -&gt; IpcMode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>      </span><span id="local-6989586621679453833"><span id="local-6989586621679453835"><span id="local-6989586621679453837"><span id="local-6989586621679453839"><span class="annot"><span class="annottext">ReadPrec [IpcMode]
+</span><span id="line-36"></span><span>      </span><span id="local-6989586621679454548"><span id="local-6989586621679454550"><span id="local-6989586621679454552"><span id="local-6989586621679454554"><span class="annot"><span class="annottext">ReadPrec [IpcMode]
 ReadPrec IpcMode
 Int -&gt; ReadS IpcMode
 ReadS [IpcMode]
@@ -68,7 +68,7 @@ $creadList :: ReadS [IpcMode]
 readsPrec :: Int -&gt; ReadS IpcMode
 $creadsPrec :: Int -&gt; ReadS IpcMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>      </span><span id="local-6989586621679453828"><span id="local-6989586621679453830"><span class="annot"><span class="annottext">IpcMode -&gt; IpcMode -&gt; Bool
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679454543"><span id="local-6989586621679454545"><span class="annot"><span class="annottext">IpcMode -&gt; IpcMode -&gt; Bool
 (IpcMode -&gt; IpcMode -&gt; Bool)
 -&gt; (IpcMode -&gt; IpcMode -&gt; Bool) -&gt; Eq IpcMode
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -77,7 +77,7 @@ $c/= :: IpcMode -&gt; IpcMode -&gt; Bool
 == :: IpcMode -&gt; IpcMode -&gt; Bool
 $c== :: IpcMode -&gt; IpcMode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679453812"><span id="local-6989586621679453814"><span id="local-6989586621679453816"><span id="local-6989586621679453818"><span id="local-6989586621679453820"><span id="local-6989586621679453822"><span id="local-6989586621679453824"><span class="annot"><span class="annottext">Eq IpcMode
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679454527"><span id="local-6989586621679454529"><span id="local-6989586621679454531"><span id="local-6989586621679454533"><span id="local-6989586621679454535"><span id="local-6989586621679454537"><span id="local-6989586621679454539"><span class="annot"><span class="annottext">Eq IpcMode
 Eq IpcMode
 -&gt; (IpcMode -&gt; IpcMode -&gt; Ordering)
 -&gt; (IpcMode -&gt; IpcMode -&gt; Bool)
@@ -127,7 +127,7 @@ $cfrom :: forall x. IpcMode -&gt; Rep IpcMode x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-40"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679453804"><span id="local-6989586621679453806"><span class="annot"><span class="annottext">Int -&gt; IpcMode -&gt; Int
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679454519"><span id="local-6989586621679454521"><span class="annot"><span class="annottext">Int -&gt; IpcMode -&gt; Int
 IpcMode -&gt; Int
 (Int -&gt; IpcMode -&gt; Int) -&gt; (IpcMode -&gt; Int) -&gt; Hashable IpcMode
 forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
@@ -136,49 +136,49 @@ $chash :: IpcMode -&gt; Int
 hashWithSalt :: Int -&gt; IpcMode -&gt; Int
 $chashWithSalt :: Int -&gt; IpcMode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679453801"><span class="annot"><span class="annottext">IpcMode -&gt; ()
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679454516"><span class="annot"><span class="annottext">IpcMode -&gt; ()
 (IpcMode -&gt; ()) -&gt; NFData IpcMode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: IpcMode -&gt; ()
 $crnf :: IpcMode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679453798"><span class="annot"><span class="annottext">Text -&gt; Either String IpcMode
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679454513"><span class="annot"><span class="annottext">Text -&gt; Either String IpcMode
 (Text -&gt; Either String IpcMode) -&gt; FromText IpcMode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String IpcMode
 $cfromText :: Text -&gt; Either String IpcMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679453795"><span class="annot"><span class="annottext">IpcMode -&gt; Text
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679454510"><span class="annot"><span class="annottext">IpcMode -&gt; Text
 (IpcMode -&gt; Text) -&gt; ToText IpcMode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: IpcMode -&gt; Text
 $ctoText :: IpcMode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679453792"><span class="annot"><span class="annottext">IpcMode -&gt; ByteString
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679454507"><span class="annot"><span class="annottext">IpcMode -&gt; ByteString
 (IpcMode -&gt; ByteString) -&gt; ToByteString IpcMode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: IpcMode -&gt; ByteString
 $ctoBS :: IpcMode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679453789"><span class="annot"><span class="annottext">IpcMode -&gt; ByteStringBuilder
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679454504"><span class="annot"><span class="annottext">IpcMode -&gt; ByteStringBuilder
 (IpcMode -&gt; ByteStringBuilder) -&gt; ToLog IpcMode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: IpcMode -&gt; ByteStringBuilder
 $cbuild :: IpcMode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679453786"><span class="annot"><span class="annottext">HeaderName -&gt; IpcMode -&gt; [Header]
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679454501"><span class="annot"><span class="annottext">HeaderName -&gt; IpcMode -&gt; [Header]
 (HeaderName -&gt; IpcMode -&gt; [Header]) -&gt; ToHeader IpcMode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; IpcMode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; IpcMode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679453783"><span class="annot"><span class="annottext">IpcMode -&gt; QueryString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679454498"><span class="annot"><span class="annottext">IpcMode -&gt; QueryString
 (IpcMode -&gt; QueryString) -&gt; ToQuery IpcMode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: IpcMode -&gt; QueryString
 $ctoQuery :: IpcMode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679453778"><span id="local-6989586621679453780"><span class="annot"><span class="annottext">Value -&gt; Parser [IpcMode]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679454493"><span id="local-6989586621679454495"><span class="annot"><span class="annottext">Value -&gt; Parser [IpcMode]
 Value -&gt; Parser IpcMode
 (Value -&gt; Parser IpcMode)
 -&gt; (Value -&gt; Parser [IpcMode]) -&gt; FromJSON IpcMode
@@ -189,7 +189,7 @@ $cparseJSONList :: Value -&gt; Parser [IpcMode]
 parseJSON :: Value -&gt; Parser IpcMode
 $cparseJSON :: Value -&gt; Parser IpcMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679453773"><span id="local-6989586621679453775"><span class="annot"><span class="annottext">FromJSONKeyFunction [IpcMode]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679454488"><span id="local-6989586621679454490"><span class="annot"><span class="annottext">FromJSONKeyFunction [IpcMode]
 FromJSONKeyFunction IpcMode
 FromJSONKeyFunction IpcMode
 -&gt; FromJSONKeyFunction [IpcMode] -&gt; FromJSONKey IpcMode
@@ -200,7 +200,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [IpcMode]
 fromJSONKey :: FromJSONKeyFunction IpcMode
 $cfromJSONKey :: FromJSONKeyFunction IpcMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679453764"><span id="local-6989586621679453766"><span id="local-6989586621679453768"><span id="local-6989586621679453770"><span class="annot"><span class="annottext">[IpcMode] -&gt; Encoding
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679454479"><span id="local-6989586621679454481"><span id="local-6989586621679454483"><span id="local-6989586621679454485"><span class="annot"><span class="annottext">[IpcMode] -&gt; Encoding
 [IpcMode] -&gt; Value
 IpcMode -&gt; Encoding
 IpcMode -&gt; Value
@@ -224,7 +224,7 @@ $ctoEncoding :: IpcMode -&gt; Encoding
 toJSON :: IpcMode -&gt; Value
 $ctoJSON :: IpcMode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679453759"><span id="local-6989586621679453761"><span class="annot"><span class="annottext">ToJSONKeyFunction [IpcMode]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679454474"><span id="local-6989586621679454476"><span class="annot"><span class="annottext">ToJSONKeyFunction [IpcMode]
 ToJSONKeyFunction IpcMode
 ToJSONKeyFunction IpcMode
 -&gt; ToJSONKeyFunction [IpcMode] -&gt; ToJSONKey IpcMode
@@ -235,13 +235,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [IpcMode]
 toJSONKey :: ToJSONKeyFunction IpcMode
 $ctoJSONKey :: ToJSONKeyFunction IpcMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679453756"><span class="annot"><span class="annottext">[Node] -&gt; Either String IpcMode
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679454471"><span class="annot"><span class="annottext">[Node] -&gt; Either String IpcMode
 ([Node] -&gt; Either String IpcMode) -&gt; FromXML IpcMode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String IpcMode
 $cparseXML :: [Node] -&gt; Either String IpcMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679453753"><span class="annot"><span class="annottext">IpcMode -&gt; XML
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679454468"><span class="annot"><span class="annottext">IpcMode -&gt; XML
 (IpcMode -&gt; XML) -&gt; ToXML IpcMode
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: IpcMode -&gt; XML

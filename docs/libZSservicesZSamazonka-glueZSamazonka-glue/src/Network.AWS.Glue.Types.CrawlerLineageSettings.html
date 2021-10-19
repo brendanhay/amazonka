@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679681182"><span id="local-6989586621679681183"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CrawlerLineageSettings"><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerLineageSettings.html#CrawlerLineageSettings"><span class="hs-identifier hs-var">CrawlerLineageSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CrawlerLineageSettings%27"><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerLineageSettings.html#CrawlerLineageSettings%27"><span class="hs-identifier hs-var">CrawlerLineageSettings'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679682828"><span id="local-6989586621679682829"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CrawlerLineageSettings"><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerLineageSettings.html#CrawlerLineageSettings"><span class="hs-identifier hs-var">CrawlerLineageSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CrawlerLineageSettings%27"><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerLineageSettings.html#CrawlerLineageSettings%27"><span class="hs-identifier hs-var">CrawlerLineageSettings'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCrawlerLineageSettings"><span class="annot"><span class="annottext">CrawlerLineageSettings -&gt; Text
 </span><a href="Network.AWS.Glue.Types.CrawlerLineageSettings.html#fromCrawlerLineageSettings"><span class="hs-identifier hs-var hs-var">fromCrawlerLineageSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679681174"><span id="local-6989586621679681176"><span id="local-6989586621679681178"><span class="annot"><span class="annottext">Int -&gt; CrawlerLineageSettings -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679682820"><span id="local-6989586621679682822"><span id="local-6989586621679682824"><span class="annot"><span class="annottext">Int -&gt; CrawlerLineageSettings -&gt; ShowS
 [CrawlerLineageSettings] -&gt; ShowS
 CrawlerLineageSettings -&gt; String
 (Int -&gt; CrawlerLineageSettings -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: CrawlerLineageSettings -&gt; String
 showsPrec :: Int -&gt; CrawlerLineageSettings -&gt; ShowS
 $cshowsPrec :: Int -&gt; CrawlerLineageSettings -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679681165"><span id="local-6989586621679681167"><span id="local-6989586621679681169"><span id="local-6989586621679681171"><span class="annot"><span class="annottext">ReadPrec [CrawlerLineageSettings]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679682811"><span id="local-6989586621679682813"><span id="local-6989586621679682815"><span id="local-6989586621679682817"><span class="annot"><span class="annottext">ReadPrec [CrawlerLineageSettings]
 ReadPrec CrawlerLineageSettings
 Int -&gt; ReadS CrawlerLineageSettings
 ReadS [CrawlerLineageSettings]
@@ -72,7 +72,7 @@ $creadList :: ReadS [CrawlerLineageSettings]
 readsPrec :: Int -&gt; ReadS CrawlerLineageSettings
 $creadsPrec :: Int -&gt; ReadS CrawlerLineageSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679681160"><span id="local-6989586621679681162"><span class="annot"><span class="annottext">CrawlerLineageSettings -&gt; CrawlerLineageSettings -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679682806"><span id="local-6989586621679682808"><span class="annot"><span class="annottext">CrawlerLineageSettings -&gt; CrawlerLineageSettings -&gt; Bool
 (CrawlerLineageSettings -&gt; CrawlerLineageSettings -&gt; Bool)
 -&gt; (CrawlerLineageSettings -&gt; CrawlerLineageSettings -&gt; Bool)
 -&gt; Eq CrawlerLineageSettings
@@ -82,7 +82,7 @@ $c/= :: CrawlerLineageSettings -&gt; CrawlerLineageSettings -&gt; Bool
 == :: CrawlerLineageSettings -&gt; CrawlerLineageSettings -&gt; Bool
 $c== :: CrawlerLineageSettings -&gt; CrawlerLineageSettings -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679681144"><span id="local-6989586621679681146"><span id="local-6989586621679681148"><span id="local-6989586621679681150"><span id="local-6989586621679681152"><span id="local-6989586621679681154"><span id="local-6989586621679681156"><span class="annot"><span class="annottext">Eq CrawlerLineageSettings
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679682790"><span id="local-6989586621679682792"><span id="local-6989586621679682794"><span id="local-6989586621679682796"><span id="local-6989586621679682798"><span id="local-6989586621679682800"><span id="local-6989586621679682802"><span class="annot"><span class="annottext">Eq CrawlerLineageSettings
 Eq CrawlerLineageSettings
 -&gt; (CrawlerLineageSettings -&gt; CrawlerLineageSettings -&gt; Ordering)
 -&gt; (CrawlerLineageSettings -&gt; CrawlerLineageSettings -&gt; Bool)
@@ -141,7 +141,7 @@ $cfrom :: forall x. CrawlerLineageSettings -&gt; Rep CrawlerLineageSettings x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679681136"><span id="local-6989586621679681138"><span class="annot"><span class="annottext">Int -&gt; CrawlerLineageSettings -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679682782"><span id="local-6989586621679682784"><span class="annot"><span class="annottext">Int -&gt; CrawlerLineageSettings -&gt; Int
 CrawlerLineageSettings -&gt; Int
 (Int -&gt; CrawlerLineageSettings -&gt; Int)
 -&gt; (CrawlerLineageSettings -&gt; Int)
@@ -152,54 +152,54 @@ $chash :: CrawlerLineageSettings -&gt; Int
 hashWithSalt :: Int -&gt; CrawlerLineageSettings -&gt; Int
 $chashWithSalt :: Int -&gt; CrawlerLineageSettings -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679681133"><span class="annot"><span class="annottext">CrawlerLineageSettings -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679682779"><span class="annot"><span class="annottext">CrawlerLineageSettings -&gt; ()
 (CrawlerLineageSettings -&gt; ()) -&gt; NFData CrawlerLineageSettings
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: CrawlerLineageSettings -&gt; ()
 $crnf :: CrawlerLineageSettings -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679681130"><span class="annot"><span class="annottext">Text -&gt; Either String CrawlerLineageSettings
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679682776"><span class="annot"><span class="annottext">Text -&gt; Either String CrawlerLineageSettings
 (Text -&gt; Either String CrawlerLineageSettings)
 -&gt; FromText CrawlerLineageSettings
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String CrawlerLineageSettings
 $cfromText :: Text -&gt; Either String CrawlerLineageSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679681127"><span class="annot"><span class="annottext">CrawlerLineageSettings -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679682773"><span class="annot"><span class="annottext">CrawlerLineageSettings -&gt; Text
 (CrawlerLineageSettings -&gt; Text) -&gt; ToText CrawlerLineageSettings
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: CrawlerLineageSettings -&gt; Text
 $ctoText :: CrawlerLineageSettings -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679681124"><span class="annot"><span class="annottext">CrawlerLineageSettings -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679682770"><span class="annot"><span class="annottext">CrawlerLineageSettings -&gt; ByteString
 (CrawlerLineageSettings -&gt; ByteString)
 -&gt; ToByteString CrawlerLineageSettings
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: CrawlerLineageSettings -&gt; ByteString
 $ctoBS :: CrawlerLineageSettings -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679681121"><span class="annot"><span class="annottext">CrawlerLineageSettings -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679682767"><span class="annot"><span class="annottext">CrawlerLineageSettings -&gt; ByteStringBuilder
 (CrawlerLineageSettings -&gt; ByteStringBuilder)
 -&gt; ToLog CrawlerLineageSettings
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: CrawlerLineageSettings -&gt; ByteStringBuilder
 $cbuild :: CrawlerLineageSettings -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679681118"><span class="annot"><span class="annottext">HeaderName -&gt; CrawlerLineageSettings -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679682764"><span class="annot"><span class="annottext">HeaderName -&gt; CrawlerLineageSettings -&gt; [Header]
 (HeaderName -&gt; CrawlerLineageSettings -&gt; [Header])
 -&gt; ToHeader CrawlerLineageSettings
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; CrawlerLineageSettings -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; CrawlerLineageSettings -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679681115"><span class="annot"><span class="annottext">CrawlerLineageSettings -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679682761"><span class="annot"><span class="annottext">CrawlerLineageSettings -&gt; QueryString
 (CrawlerLineageSettings -&gt; QueryString)
 -&gt; ToQuery CrawlerLineageSettings
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: CrawlerLineageSettings -&gt; QueryString
 $ctoQuery :: CrawlerLineageSettings -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679681110"><span id="local-6989586621679681112"><span class="annot"><span class="annottext">Value -&gt; Parser [CrawlerLineageSettings]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679682756"><span id="local-6989586621679682758"><span class="annot"><span class="annottext">Value -&gt; Parser [CrawlerLineageSettings]
 Value -&gt; Parser CrawlerLineageSettings
 (Value -&gt; Parser CrawlerLineageSettings)
 -&gt; (Value -&gt; Parser [CrawlerLineageSettings])
@@ -211,7 +211,7 @@ $cparseJSONList :: Value -&gt; Parser [CrawlerLineageSettings]
 parseJSON :: Value -&gt; Parser CrawlerLineageSettings
 $cparseJSON :: Value -&gt; Parser CrawlerLineageSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679681105"><span id="local-6989586621679681107"><span class="annot"><span class="annottext">FromJSONKeyFunction [CrawlerLineageSettings]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679682751"><span id="local-6989586621679682753"><span class="annot"><span class="annottext">FromJSONKeyFunction [CrawlerLineageSettings]
 FromJSONKeyFunction CrawlerLineageSettings
 FromJSONKeyFunction CrawlerLineageSettings
 -&gt; FromJSONKeyFunction [CrawlerLineageSettings]
@@ -223,7 +223,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [CrawlerLineageSettings]
 fromJSONKey :: FromJSONKeyFunction CrawlerLineageSettings
 $cfromJSONKey :: FromJSONKeyFunction CrawlerLineageSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679681096"><span id="local-6989586621679681098"><span id="local-6989586621679681100"><span id="local-6989586621679681102"><span class="annot"><span class="annottext">[CrawlerLineageSettings] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679682742"><span id="local-6989586621679682744"><span id="local-6989586621679682746"><span id="local-6989586621679682748"><span class="annot"><span class="annottext">[CrawlerLineageSettings] -&gt; Encoding
 [CrawlerLineageSettings] -&gt; Value
 CrawlerLineageSettings -&gt; Encoding
 CrawlerLineageSettings -&gt; Value
@@ -247,7 +247,7 @@ $ctoEncoding :: CrawlerLineageSettings -&gt; Encoding
 toJSON :: CrawlerLineageSettings -&gt; Value
 $ctoJSON :: CrawlerLineageSettings -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679681091"><span id="local-6989586621679681093"><span class="annot"><span class="annottext">ToJSONKeyFunction [CrawlerLineageSettings]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679682737"><span id="local-6989586621679682739"><span class="annot"><span class="annottext">ToJSONKeyFunction [CrawlerLineageSettings]
 ToJSONKeyFunction CrawlerLineageSettings
 ToJSONKeyFunction CrawlerLineageSettings
 -&gt; ToJSONKeyFunction [CrawlerLineageSettings]
@@ -259,14 +259,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [CrawlerLineageSettings]
 toJSONKey :: ToJSONKeyFunction CrawlerLineageSettings
 $ctoJSONKey :: ToJSONKeyFunction CrawlerLineageSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679681088"><span class="annot"><span class="annottext">[Node] -&gt; Either String CrawlerLineageSettings
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679682734"><span class="annot"><span class="annottext">[Node] -&gt; Either String CrawlerLineageSettings
 ([Node] -&gt; Either String CrawlerLineageSettings)
 -&gt; FromXML CrawlerLineageSettings
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String CrawlerLineageSettings
 $cparseXML :: [Node] -&gt; Either String CrawlerLineageSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679681085"><span class="annot"><span class="annottext">CrawlerLineageSettings -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679682731"><span class="annot"><span class="annottext">CrawlerLineageSettings -&gt; XML
 (CrawlerLineageSettings -&gt; XML) -&gt; ToXML CrawlerLineageSettings
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: CrawlerLineageSettings -&gt; XML

@@ -33,49 +33,49 @@
 </span><span id="line-33"></span><span class="hs-comment">-- | Details of the input device.</span><span>
 </span><span id="line-34"></span><span class="hs-comment">--</span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- /See:/ 'newInputDeviceSummary' smart constructor.</span><span>
-</span><span id="line-36"></span><span id="local-6989586621679887027"><span id="local-6989586621679887028"></span></span><span class="hs-keyword">data</span><span> </span><span id="InputDeviceSummary"><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary"><span class="hs-identifier hs-var">InputDeviceSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InputDeviceSummary%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary%27"><span class="hs-identifier hs-var">InputDeviceSummary'</span></a></span></span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Settings that describe an input device that is type UHD.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AuhdDeviceSettings%3AInputDeviceSummary%27"><span class="annot"><span class="annottext">InputDeviceSummary -&gt; Maybe InputDeviceUhdSettings
-</span><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#%24sel%3AuhdDeviceSettings%3AInputDeviceSummary%27"><span class="hs-identifier hs-var hs-var">uhdDeviceSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceUhdSettings.html#InputDeviceUhdSettings"><span class="hs-identifier hs-type">InputDeviceUhdSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span id="local-6989586621679893691"><span id="local-6989586621679893692"></span></span><span class="hs-keyword">data</span><span> </span><span id="InputDeviceSummary"><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary"><span class="hs-identifier hs-var">InputDeviceSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InputDeviceSummary%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary%27"><span class="hs-identifier hs-var">InputDeviceSummary'</span></a></span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique ARN of the input device.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Aarn%3AInputDeviceSummary%27"><span class="annot"><span class="annottext">InputDeviceSummary -&gt; Maybe Text
+</span><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#%24sel%3Aarn%3AInputDeviceSummary%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The network MAC address of the input device.</span><span>
 </span><span id="line-40"></span><span>    </span><span id="%24sel%3AmacAddress%3AInputDeviceSummary%27"><span class="annot"><span class="annottext">InputDeviceSummary -&gt; Maybe Text
 </span><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#%24sel%3AmacAddress%3AInputDeviceSummary%27"><span class="hs-identifier hs-var hs-var">macAddress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | Settings that describe an input device that is type HD.</span><span>
 </span><span id="line-42"></span><span>    </span><span id="%24sel%3AhdDeviceSettings%3AInputDeviceSummary%27"><span class="annot"><span class="annottext">InputDeviceSummary -&gt; Maybe InputDeviceHdSettings
 </span><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#%24sel%3AhdDeviceSettings%3AInputDeviceSummary%27"><span class="hs-identifier hs-var hs-var">hdDeviceSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceHdSettings.html#InputDeviceHdSettings"><span class="hs-identifier hs-type">InputDeviceHdSettings</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The state of the connection between the input device and AWS.</span><span>
-</span><span id="line-44"></span><span>    </span><span id="%24sel%3AconnectionState%3AInputDeviceSummary%27"><span class="annot"><span class="annottext">InputDeviceSummary -&gt; Maybe InputDeviceConnectionState
-</span><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#%24sel%3AconnectionState%3AInputDeviceSummary%27"><span class="hs-identifier hs-var hs-var">connectionState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceConnectionState.html#InputDeviceConnectionState"><span class="hs-identifier hs-type">InputDeviceConnectionState</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | Network settings for the input device.</span><span>
-</span><span id="line-46"></span><span>    </span><span id="%24sel%3AnetworkSettings%3AInputDeviceSummary%27"><span class="annot"><span class="annottext">InputDeviceSummary -&gt; Maybe InputDeviceNetworkSettings
-</span><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#%24sel%3AnetworkSettings%3AInputDeviceSummary%27"><span class="hs-identifier hs-var hs-var">networkSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceNetworkSettings.html#InputDeviceNetworkSettings"><span class="hs-identifier hs-type">InputDeviceNetworkSettings</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The status of software on the input device.</span><span>
-</span><span id="line-48"></span><span>    </span><span id="%24sel%3AdeviceUpdateStatus%3AInputDeviceSummary%27"><span class="annot"><span class="annottext">InputDeviceSummary -&gt; Maybe DeviceUpdateStatus
-</span><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#%24sel%3AdeviceUpdateStatus%3AInputDeviceSummary%27"><span class="hs-identifier hs-var hs-var">deviceUpdateStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.DeviceUpdateStatus.html#DeviceUpdateStatus"><span class="hs-identifier hs-type">DeviceUpdateStatus</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The unique ARN of the input device.</span><span>
-</span><span id="line-50"></span><span>    </span><span id="%24sel%3Aarn%3AInputDeviceSummary%27"><span class="annot"><span class="annottext">InputDeviceSummary -&gt; Maybe Text
-</span><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#%24sel%3Aarn%3AInputDeviceSummary%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The unique ID of the input device.</span><span>
-</span><span id="line-52"></span><span>    </span><span id="%24sel%3Aid%3AInputDeviceSummary%27"><span class="annot"><span class="annottext">InputDeviceSummary -&gt; Maybe Text
-</span><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#%24sel%3Aid%3AInputDeviceSummary%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | A name that you specify for the input device.</span><span>
-</span><span id="line-54"></span><span>    </span><span id="%24sel%3Aname%3AInputDeviceSummary%27"><span class="annot"><span class="annottext">InputDeviceSummary -&gt; Maybe Text
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | Settings that describe an input device that is type UHD.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AuhdDeviceSettings%3AInputDeviceSummary%27"><span class="annot"><span class="annottext">InputDeviceSummary -&gt; Maybe InputDeviceUhdSettings
+</span><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#%24sel%3AuhdDeviceSettings%3AInputDeviceSummary%27"><span class="hs-identifier hs-var hs-var">uhdDeviceSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceUhdSettings.html#InputDeviceUhdSettings"><span class="hs-identifier hs-type">InputDeviceUhdSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | A name that you specify for the input device.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3Aname%3AInputDeviceSummary%27"><span class="annot"><span class="annottext">InputDeviceSummary -&gt; Maybe Text
 </span><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#%24sel%3Aname%3AInputDeviceSummary%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The unique serial number of the input device.</span><span>
-</span><span id="line-56"></span><span>    </span><span id="%24sel%3AserialNumber%3AInputDeviceSummary%27"><span class="annot"><span class="annottext">InputDeviceSummary -&gt; Maybe Text
-</span><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#%24sel%3AserialNumber%3AInputDeviceSummary%27"><span class="hs-identifier hs-var hs-var">serialNumber</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The unique ID of the input device.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3Aid%3AInputDeviceSummary%27"><span class="annot"><span class="annottext">InputDeviceSummary -&gt; Maybe Text
+</span><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#%24sel%3Aid%3AInputDeviceSummary%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The status of software on the input device.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AdeviceUpdateStatus%3AInputDeviceSummary%27"><span class="annot"><span class="annottext">InputDeviceSummary -&gt; Maybe DeviceUpdateStatus
+</span><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#%24sel%3AdeviceUpdateStatus%3AInputDeviceSummary%27"><span class="hs-identifier hs-var hs-var">deviceUpdateStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.DeviceUpdateStatus.html#DeviceUpdateStatus"><span class="hs-identifier hs-type">DeviceUpdateStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The status of the action to synchronize the device configuration. If you</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- change the configuration of the input device (for example, the maximum</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- bitrate), MediaLive sends the new data to the device. The device might</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- not update itself immediately. SYNCED means the device has updated its</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- configuration. SYNCING means that it has not updated its configuration.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AdeviceSettingsSyncState%3AInputDeviceSummary%27"><span class="annot"><span class="annottext">InputDeviceSummary -&gt; Maybe DeviceSettingsSyncState
+</span><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#%24sel%3AdeviceSettingsSyncState%3AInputDeviceSummary%27"><span class="hs-identifier hs-var hs-var">deviceSettingsSyncState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.DeviceSettingsSyncState.html#DeviceSettingsSyncState"><span class="hs-identifier hs-type">DeviceSettingsSyncState</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The type of the input device.</span><span>
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3Atype%27%3AInputDeviceSummary%27"><span class="annot"><span class="annottext">InputDeviceSummary -&gt; Maybe InputDeviceType
 </span><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#%24sel%3Atype%27%3AInputDeviceSummary%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceType.html#InputDeviceType"><span class="hs-identifier hs-type">InputDeviceType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The status of the action to synchronize the device configuration. If you</span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- change the configuration of the input device (for example, the maximum</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- bitrate), MediaLive sends the new data to the device. The device might</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- not update itself immediately. SYNCED means the device has updated its</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- configuration. SYNCING means that it has not updated its configuration.</span><span>
-</span><span id="line-64"></span><span>    </span><span id="%24sel%3AdeviceSettingsSyncState%3AInputDeviceSummary%27"><span class="annot"><span class="annottext">InputDeviceSummary -&gt; Maybe DeviceSettingsSyncState
-</span><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#%24sel%3AdeviceSettingsSyncState%3AInputDeviceSummary%27"><span class="hs-identifier hs-var hs-var">deviceSettingsSyncState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.DeviceSettingsSyncState.html#DeviceSettingsSyncState"><span class="hs-identifier hs-type">DeviceSettingsSyncState</span></a></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The unique serial number of the input device.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AserialNumber%3AInputDeviceSummary%27"><span class="annot"><span class="annottext">InputDeviceSummary -&gt; Maybe Text
+</span><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#%24sel%3AserialNumber%3AInputDeviceSummary%27"><span class="hs-identifier hs-var hs-var">serialNumber</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | Network settings for the input device.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AnetworkSettings%3AInputDeviceSummary%27"><span class="annot"><span class="annottext">InputDeviceSummary -&gt; Maybe InputDeviceNetworkSettings
+</span><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#%24sel%3AnetworkSettings%3AInputDeviceSummary%27"><span class="hs-identifier hs-var hs-var">networkSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceNetworkSettings.html#InputDeviceNetworkSettings"><span class="hs-identifier hs-type">InputDeviceNetworkSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The state of the connection between the input device and AWS.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AconnectionState%3AInputDeviceSummary%27"><span class="annot"><span class="annottext">InputDeviceSummary -&gt; Maybe InputDeviceConnectionState
+</span><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#%24sel%3AconnectionState%3AInputDeviceSummary%27"><span class="hs-identifier hs-var hs-var">connectionState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceConnectionState.html#InputDeviceConnectionState"><span class="hs-identifier hs-type">InputDeviceConnectionState</span></a></span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679887010"><span id="local-6989586621679887012"><span class="annot"><span class="annottext">InputDeviceSummary -&gt; InputDeviceSummary -&gt; Bool
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679893674"><span id="local-6989586621679893676"><span class="annot"><span class="annottext">InputDeviceSummary -&gt; InputDeviceSummary -&gt; Bool
 (InputDeviceSummary -&gt; InputDeviceSummary -&gt; Bool)
 -&gt; (InputDeviceSummary -&gt; InputDeviceSummary -&gt; Bool)
 -&gt; Eq InputDeviceSummary
@@ -84,7 +84,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: InputDeviceSummary -&gt; InputDeviceSummary -&gt; Bool
 == :: InputDeviceSummary -&gt; InputDeviceSummary -&gt; Bool
 $c== :: InputDeviceSummary -&gt; InputDeviceSummary -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679887001"><span id="local-6989586621679887003"><span id="local-6989586621679887005"><span id="local-6989586621679887007"><span class="annot"><span class="annottext">ReadPrec [InputDeviceSummary]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679893665"><span id="local-6989586621679893667"><span id="local-6989586621679893669"><span id="local-6989586621679893671"><span class="annot"><span class="annottext">ReadPrec [InputDeviceSummary]
 ReadPrec InputDeviceSummary
 Int -&gt; ReadS InputDeviceSummary
 ReadS [InputDeviceSummary]
@@ -104,7 +104,7 @@ readList :: ReadS [InputDeviceSummary]
 $creadList :: ReadS [InputDeviceSummary]
 readsPrec :: Int -&gt; ReadS InputDeviceSummary
 $creadsPrec :: Int -&gt; ReadS InputDeviceSummary
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679886994"><span id="local-6989586621679886996"><span id="local-6989586621679886998"><span class="annot"><span class="annottext">Int -&gt; InputDeviceSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679893658"><span id="local-6989586621679893660"><span id="local-6989586621679893662"><span class="annot"><span class="annottext">Int -&gt; InputDeviceSummary -&gt; ShowS
 [InputDeviceSummary] -&gt; ShowS
 InputDeviceSummary -&gt; String
 (Int -&gt; InputDeviceSummary -&gt; ShowS)
@@ -138,149 +138,144 @@ $cfrom :: forall x. InputDeviceSummary -&gt; Rep InputDeviceSummary x
 </span><span id="line-73"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-75"></span><span class="hs-comment">--</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- 'uhdDeviceSettings', 'inputDeviceSummary_uhdDeviceSettings' - Settings that describe an input device that is type UHD.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'arn', 'inputDeviceSummary_arn' - The unique ARN of the input device.</span><span>
 </span><span id="line-77"></span><span class="hs-comment">--</span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- 'macAddress', 'inputDeviceSummary_macAddress' - The network MAC address of the input device.</span><span>
 </span><span id="line-79"></span><span class="hs-comment">--</span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- 'hdDeviceSettings', 'inputDeviceSummary_hdDeviceSettings' - Settings that describe an input device that is type HD.</span><span>
 </span><span id="line-81"></span><span class="hs-comment">--</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- 'connectionState', 'inputDeviceSummary_connectionState' - The state of the connection between the input device and AWS.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'uhdDeviceSettings', 'inputDeviceSummary_uhdDeviceSettings' - Settings that describe an input device that is type UHD.</span><span>
 </span><span id="line-83"></span><span class="hs-comment">--</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- 'networkSettings', 'inputDeviceSummary_networkSettings' - Network settings for the input device.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'name', 'inputDeviceSummary_name' - A name that you specify for the input device.</span><span>
 </span><span id="line-85"></span><span class="hs-comment">--</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- 'deviceUpdateStatus', 'inputDeviceSummary_deviceUpdateStatus' - The status of software on the input device.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'id', 'inputDeviceSummary_id' - The unique ID of the input device.</span><span>
 </span><span id="line-87"></span><span class="hs-comment">--</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- 'arn', 'inputDeviceSummary_arn' - The unique ARN of the input device.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'deviceUpdateStatus', 'inputDeviceSummary_deviceUpdateStatus' - The status of software on the input device.</span><span>
 </span><span id="line-89"></span><span class="hs-comment">--</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- 'id', 'inputDeviceSummary_id' - The unique ID of the input device.</span><span>
-</span><span id="line-91"></span><span class="hs-comment">--</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- 'name', 'inputDeviceSummary_name' - A name that you specify for the input device.</span><span>
-</span><span id="line-93"></span><span class="hs-comment">--</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- 'serialNumber', 'inputDeviceSummary_serialNumber' - The unique serial number of the input device.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'deviceSettingsSyncState', 'inputDeviceSummary_deviceSettingsSyncState' - The status of the action to synchronize the device configuration. If you</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- change the configuration of the input device (for example, the maximum</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- bitrate), MediaLive sends the new data to the device. The device might</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- not update itself immediately. SYNCED means the device has updated its</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- configuration. SYNCING means that it has not updated its configuration.</span><span>
 </span><span id="line-95"></span><span class="hs-comment">--</span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- 'type'', 'inputDeviceSummary_type' - The type of the input device.</span><span>
 </span><span id="line-97"></span><span class="hs-comment">--</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- 'deviceSettingsSyncState', 'inputDeviceSummary_deviceSettingsSyncState' - The status of the action to synchronize the device configuration. If you</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- change the configuration of the input device (for example, the maximum</span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- bitrate), MediaLive sends the new data to the device. The device might</span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- not update itself immediately. SYNCED means the device has updated its</span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- configuration. SYNCING means that it has not updated its configuration.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'serialNumber', 'inputDeviceSummary_serialNumber' - The unique serial number of the input device.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'networkSettings', 'inputDeviceSummary_networkSettings' - Network settings for the input device.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'connectionState', 'inputDeviceSummary_connectionState' - The state of the connection between the input device and AWS.</span><span>
 </span><span id="line-103"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#newInputDeviceSummary"><span class="hs-identifier hs-type">newInputDeviceSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-104"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary"><span class="hs-identifier hs-type">InputDeviceSummary</span></a></span><span>
 </span><span id="line-105"></span><span id="newInputDeviceSummary"><span class="annot"><span class="annottext">newInputDeviceSummary :: InputDeviceSummary
 </span><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#newInputDeviceSummary"><span class="hs-identifier hs-var hs-var">newInputDeviceSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-106"></span><span>  </span><span class="annot"><span class="annottext">InputDeviceSummary' :: Maybe InputDeviceUhdSettings
+</span><span id="line-106"></span><span>  </span><span class="annot"><span class="annottext">InputDeviceSummary' :: Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe InputDeviceHdSettings
--&gt; Maybe InputDeviceConnectionState
--&gt; Maybe InputDeviceNetworkSettings
+-&gt; Maybe InputDeviceUhdSettings
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe DeviceUpdateStatus
--&gt; Maybe Text
--&gt; Maybe Text
--&gt; Maybe Text
--&gt; Maybe Text
--&gt; Maybe InputDeviceType
 -&gt; Maybe DeviceSettingsSyncState
+-&gt; Maybe InputDeviceType
+-&gt; Maybe Text
+-&gt; Maybe InputDeviceNetworkSettings
+-&gt; Maybe InputDeviceConnectionState
 -&gt; InputDeviceSummary
 </span><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary%27"><span class="hs-identifier hs-type">InputDeviceSummary'</span></a></span><span>
-</span><span id="line-107"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:uhdDeviceSettings:InputDeviceSummary' :: Maybe InputDeviceUhdSettings
-</span><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#%24sel%3AuhdDeviceSettings%3AInputDeviceSummary%27"><span class="hs-identifier hs-var">uhdDeviceSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-108"></span><span>        </span><span class="annot"><span class="annottext">Maybe InputDeviceUhdSettings
+</span><span id="line-107"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:arn:InputDeviceSummary' :: Maybe Text
+</span><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#%24sel%3Aarn%3AInputDeviceSummary%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:macAddress:InputDeviceSummary' :: Maybe Text
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:macAddress:InputDeviceSummary' :: Maybe Text
 </span><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#%24sel%3AmacAddress%3AInputDeviceSummary%27"><span class="hs-identifier hs-var">macAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:hdDeviceSettings:InputDeviceSummary' :: Maybe InputDeviceHdSettings
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:hdDeviceSettings:InputDeviceSummary' :: Maybe InputDeviceHdSettings
 </span><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#%24sel%3AhdDeviceSettings%3AInputDeviceSummary%27"><span class="hs-identifier hs-var">hdDeviceSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputDeviceHdSettings
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:connectionState:InputDeviceSummary' :: Maybe InputDeviceConnectionState
-</span><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#%24sel%3AconnectionState%3AInputDeviceSummary%27"><span class="hs-identifier hs-var">connectionState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputDeviceConnectionState
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:uhdDeviceSettings:InputDeviceSummary' :: Maybe InputDeviceUhdSettings
+</span><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#%24sel%3AuhdDeviceSettings%3AInputDeviceSummary%27"><span class="hs-identifier hs-var">uhdDeviceSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputDeviceUhdSettings
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:networkSettings:InputDeviceSummary' :: Maybe InputDeviceNetworkSettings
-</span><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#%24sel%3AnetworkSettings%3AInputDeviceSummary%27"><span class="hs-identifier hs-var">networkSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputDeviceNetworkSettings
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:InputDeviceSummary' :: Maybe Text
+</span><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#%24sel%3Aname%3AInputDeviceSummary%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:InputDeviceSummary' :: Maybe Text
+</span><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#%24sel%3Aid%3AInputDeviceSummary%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:deviceUpdateStatus:InputDeviceSummary' :: Maybe DeviceUpdateStatus
 </span><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#%24sel%3AdeviceUpdateStatus%3AInputDeviceSummary%27"><span class="hs-identifier hs-var">deviceUpdateStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeviceUpdateStatus
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:InputDeviceSummary' :: Maybe Text
-</span><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#%24sel%3Aarn%3AInputDeviceSummary%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:deviceSettingsSyncState:InputDeviceSummary' :: Maybe DeviceSettingsSyncState
+</span><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#%24sel%3AdeviceSettingsSyncState%3AInputDeviceSummary%27"><span class="hs-identifier hs-var">deviceSettingsSyncState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeviceSettingsSyncState
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:InputDeviceSummary' :: Maybe Text
-</span><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#%24sel%3Aid%3AInputDeviceSummary%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:InputDeviceSummary' :: Maybe Text
-</span><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#%24sel%3Aname%3AInputDeviceSummary%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:serialNumber:InputDeviceSummary' :: Maybe Text
-</span><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#%24sel%3AserialNumber%3AInputDeviceSummary%27"><span class="hs-identifier hs-var">serialNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':InputDeviceSummary' :: Maybe InputDeviceType
+</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':InputDeviceSummary' :: Maybe InputDeviceType
 </span><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#%24sel%3Atype%27%3AInputDeviceSummary%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputDeviceType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">$sel:deviceSettingsSyncState:InputDeviceSummary' :: Maybe DeviceSettingsSyncState
-</span><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#%24sel%3AdeviceSettingsSyncState%3AInputDeviceSummary%27"><span class="hs-identifier hs-var">deviceSettingsSyncState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeviceSettingsSyncState
+</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:serialNumber:InputDeviceSummary' :: Maybe Text
+</span><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#%24sel%3AserialNumber%3AInputDeviceSummary%27"><span class="hs-identifier hs-var">serialNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:networkSettings:InputDeviceSummary' :: Maybe InputDeviceNetworkSettings
+</span><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#%24sel%3AnetworkSettings%3AInputDeviceSummary%27"><span class="hs-identifier hs-var">networkSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputDeviceNetworkSettings
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:connectionState:InputDeviceSummary' :: Maybe InputDeviceConnectionState
+</span><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#%24sel%3AconnectionState%3AInputDeviceSummary%27"><span class="hs-identifier hs-var">connectionState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputDeviceConnectionState
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-120"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- | Settings that describe an input device that is type UHD.</span><span>
-</span><span id="line-123"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#inputDeviceSummary_uhdDeviceSettings"><span class="hs-identifier hs-type">inputDeviceSummary_uhdDeviceSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary"><span class="hs-identifier hs-type">InputDeviceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceUhdSettings.html#InputDeviceUhdSettings"><span class="hs-identifier hs-type">InputDeviceUhdSettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-124"></span><span id="inputDeviceSummary_uhdDeviceSettings"><span class="annot"><span class="annottext">inputDeviceSummary_uhdDeviceSettings :: (Maybe InputDeviceUhdSettings -&gt; f (Maybe InputDeviceUhdSettings))
+</span><span id="line-119"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | The unique ARN of the input device.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#inputDeviceSummary_arn"><span class="hs-identifier hs-type">inputDeviceSummary_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary"><span class="hs-identifier hs-type">InputDeviceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span id="inputDeviceSummary_arn"><span class="annot"><span class="annottext">inputDeviceSummary_arn :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; InputDeviceSummary -&gt; f InputDeviceSummary
-</span><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#inputDeviceSummary_uhdDeviceSettings"><span class="hs-identifier hs-var hs-var">inputDeviceSummary_uhdDeviceSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InputDeviceSummary -&gt; Maybe InputDeviceUhdSettings)
--&gt; (InputDeviceSummary
-    -&gt; Maybe InputDeviceUhdSettings -&gt; InputDeviceSummary)
+</span><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#inputDeviceSummary_arn"><span class="hs-identifier hs-var hs-var">inputDeviceSummary_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InputDeviceSummary -&gt; Maybe Text)
+-&gt; (InputDeviceSummary -&gt; Maybe Text -&gt; InputDeviceSummary)
 -&gt; Lens
-     InputDeviceSummary
-     InputDeviceSummary
-     (Maybe InputDeviceUhdSettings)
-     (Maybe InputDeviceUhdSettings)
+     InputDeviceSummary InputDeviceSummary (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary%27"><span class="hs-identifier hs-type">InputDeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679886985"><span class="annot"><span class="annottext">Maybe InputDeviceUhdSettings
-uhdDeviceSettings :: Maybe InputDeviceUhdSettings
-$sel:uhdDeviceSettings:InputDeviceSummary' :: InputDeviceSummary -&gt; Maybe InputDeviceUhdSettings
-</span><a href="#local-6989586621679886985"><span class="hs-identifier hs-var hs-var">uhdDeviceSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputDeviceUhdSettings
-</span><a href="#local-6989586621679886985"><span class="hs-identifier hs-var">uhdDeviceSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679886984"><span class="annot"><span class="annottext">s :: InputDeviceSummary
-</span><a href="#local-6989586621679886984"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary%27"><span class="hs-identifier hs-type">InputDeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679886983"><span class="annot"><span class="annottext">Maybe InputDeviceUhdSettings
-</span><a href="#local-6989586621679886983"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputDeviceSummary
-</span><a href="#local-6989586621679886984"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:uhdDeviceSettings:InputDeviceSummary' :: Maybe InputDeviceUhdSettings
-</span><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#%24sel%3AuhdDeviceSettings%3AInputDeviceSummary%27"><span class="hs-identifier hs-var">uhdDeviceSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputDeviceUhdSettings
-</span><a href="#local-6989586621679886983"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary"><span class="hs-identifier hs-type">InputDeviceSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- | The network MAC address of the input device.</span><span>
-</span><span id="line-127"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#inputDeviceSummary_macAddress"><span class="hs-identifier hs-type">inputDeviceSummary_macAddress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary"><span class="hs-identifier hs-type">InputDeviceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-128"></span><span id="inputDeviceSummary_macAddress"><span class="annot"><span class="annottext">inputDeviceSummary_macAddress :: (Maybe Text -&gt; f (Maybe Text))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary%27"><span class="hs-identifier hs-type">InputDeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679893649"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:InputDeviceSummary' :: InputDeviceSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679893649"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679893649"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679893648"><span class="annot"><span class="annottext">s :: InputDeviceSummary
+</span><a href="#local-6989586621679893648"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary%27"><span class="hs-identifier hs-type">InputDeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679893647"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679893647"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputDeviceSummary
+</span><a href="#local-6989586621679893648"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:InputDeviceSummary' :: Maybe Text
+</span><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#%24sel%3Aarn%3AInputDeviceSummary%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679893647"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary"><span class="hs-identifier hs-type">InputDeviceSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | The network MAC address of the input device.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#inputDeviceSummary_macAddress"><span class="hs-identifier hs-type">inputDeviceSummary_macAddress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary"><span class="hs-identifier hs-type">InputDeviceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span id="inputDeviceSummary_macAddress"><span class="annot"><span class="annottext">inputDeviceSummary_macAddress :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; InputDeviceSummary -&gt; f InputDeviceSummary
 </span><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#inputDeviceSummary_macAddress"><span class="hs-identifier hs-var hs-var">inputDeviceSummary_macAddress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InputDeviceSummary -&gt; Maybe Text)
 -&gt; (InputDeviceSummary -&gt; Maybe Text -&gt; InputDeviceSummary)
 -&gt; Lens
      InputDeviceSummary InputDeviceSummary (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary%27"><span class="hs-identifier hs-type">InputDeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679886981"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary%27"><span class="hs-identifier hs-type">InputDeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679893645"><span class="annot"><span class="annottext">Maybe Text
 macAddress :: Maybe Text
 $sel:macAddress:InputDeviceSummary' :: InputDeviceSummary -&gt; Maybe Text
-</span><a href="#local-6989586621679886981"><span class="hs-identifier hs-var hs-var">macAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679886981"><span class="hs-identifier hs-var">macAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679886980"><span class="annot"><span class="annottext">s :: InputDeviceSummary
-</span><a href="#local-6989586621679886980"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary%27"><span class="hs-identifier hs-type">InputDeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679886979"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679886979"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputDeviceSummary
-</span><a href="#local-6989586621679886980"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:macAddress:InputDeviceSummary' :: Maybe Text
+</span><a href="#local-6989586621679893645"><span class="hs-identifier hs-var hs-var">macAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679893645"><span class="hs-identifier hs-var">macAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679893644"><span class="annot"><span class="annottext">s :: InputDeviceSummary
+</span><a href="#local-6989586621679893644"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary%27"><span class="hs-identifier hs-type">InputDeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679893643"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679893643"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputDeviceSummary
+</span><a href="#local-6989586621679893644"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:macAddress:InputDeviceSummary' :: Maybe Text
 </span><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#%24sel%3AmacAddress%3AInputDeviceSummary%27"><span class="hs-identifier hs-var">macAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679886979"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary"><span class="hs-identifier hs-type">InputDeviceSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- | Settings that describe an input device that is type HD.</span><span>
-</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#inputDeviceSummary_hdDeviceSettings"><span class="hs-identifier hs-type">inputDeviceSummary_hdDeviceSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary"><span class="hs-identifier hs-type">InputDeviceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceHdSettings.html#InputDeviceHdSettings"><span class="hs-identifier hs-type">InputDeviceHdSettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-132"></span><span id="inputDeviceSummary_hdDeviceSettings"><span class="annot"><span class="annottext">inputDeviceSummary_hdDeviceSettings :: (Maybe InputDeviceHdSettings -&gt; f (Maybe InputDeviceHdSettings))
+</span><a href="#local-6989586621679893643"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary"><span class="hs-identifier hs-type">InputDeviceSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | Settings that describe an input device that is type HD.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#inputDeviceSummary_hdDeviceSettings"><span class="hs-identifier hs-type">inputDeviceSummary_hdDeviceSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary"><span class="hs-identifier hs-type">InputDeviceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceHdSettings.html#InputDeviceHdSettings"><span class="hs-identifier hs-type">InputDeviceHdSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span id="inputDeviceSummary_hdDeviceSettings"><span class="annot"><span class="annottext">inputDeviceSummary_hdDeviceSettings :: (Maybe InputDeviceHdSettings -&gt; f (Maybe InputDeviceHdSettings))
 -&gt; InputDeviceSummary -&gt; f InputDeviceSummary
 </span><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#inputDeviceSummary_hdDeviceSettings"><span class="hs-identifier hs-var hs-var">inputDeviceSummary_hdDeviceSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InputDeviceSummary -&gt; Maybe InputDeviceHdSettings)
 -&gt; (InputDeviceSummary
@@ -291,70 +286,84 @@ $sel:macAddress:InputDeviceSummary' :: InputDeviceSummary -&gt; Maybe Text
      (Maybe InputDeviceHdSettings)
      (Maybe InputDeviceHdSettings)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary%27"><span class="hs-identifier hs-type">InputDeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679886977"><span class="annot"><span class="annottext">Maybe InputDeviceHdSettings
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary%27"><span class="hs-identifier hs-type">InputDeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679893641"><span class="annot"><span class="annottext">Maybe InputDeviceHdSettings
 hdDeviceSettings :: Maybe InputDeviceHdSettings
 $sel:hdDeviceSettings:InputDeviceSummary' :: InputDeviceSummary -&gt; Maybe InputDeviceHdSettings
-</span><a href="#local-6989586621679886977"><span class="hs-identifier hs-var hs-var">hdDeviceSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputDeviceHdSettings
-</span><a href="#local-6989586621679886977"><span class="hs-identifier hs-var">hdDeviceSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679886976"><span class="annot"><span class="annottext">s :: InputDeviceSummary
-</span><a href="#local-6989586621679886976"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary%27"><span class="hs-identifier hs-type">InputDeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679886975"><span class="annot"><span class="annottext">Maybe InputDeviceHdSettings
-</span><a href="#local-6989586621679886975"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputDeviceSummary
-</span><a href="#local-6989586621679886976"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hdDeviceSettings:InputDeviceSummary' :: Maybe InputDeviceHdSettings
+</span><a href="#local-6989586621679893641"><span class="hs-identifier hs-var hs-var">hdDeviceSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputDeviceHdSettings
+</span><a href="#local-6989586621679893641"><span class="hs-identifier hs-var">hdDeviceSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679893640"><span class="annot"><span class="annottext">s :: InputDeviceSummary
+</span><a href="#local-6989586621679893640"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary%27"><span class="hs-identifier hs-type">InputDeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679893639"><span class="annot"><span class="annottext">Maybe InputDeviceHdSettings
+</span><a href="#local-6989586621679893639"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputDeviceSummary
+</span><a href="#local-6989586621679893640"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hdDeviceSettings:InputDeviceSummary' :: Maybe InputDeviceHdSettings
 </span><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#%24sel%3AhdDeviceSettings%3AInputDeviceSummary%27"><span class="hs-identifier hs-var">hdDeviceSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputDeviceHdSettings
-</span><a href="#local-6989586621679886975"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary"><span class="hs-identifier hs-type">InputDeviceSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-133"></span><span>
-</span><span id="line-134"></span><span class="hs-comment">-- | The state of the connection between the input device and AWS.</span><span>
-</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#inputDeviceSummary_connectionState"><span class="hs-identifier hs-type">inputDeviceSummary_connectionState</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary"><span class="hs-identifier hs-type">InputDeviceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceConnectionState.html#InputDeviceConnectionState"><span class="hs-identifier hs-type">InputDeviceConnectionState</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-136"></span><span id="inputDeviceSummary_connectionState"><span class="annot"><span class="annottext">inputDeviceSummary_connectionState :: (Maybe InputDeviceConnectionState
- -&gt; f (Maybe InputDeviceConnectionState))
+</span><a href="#local-6989586621679893639"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary"><span class="hs-identifier hs-type">InputDeviceSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | Settings that describe an input device that is type UHD.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#inputDeviceSummary_uhdDeviceSettings"><span class="hs-identifier hs-type">inputDeviceSummary_uhdDeviceSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary"><span class="hs-identifier hs-type">InputDeviceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceUhdSettings.html#InputDeviceUhdSettings"><span class="hs-identifier hs-type">InputDeviceUhdSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span id="inputDeviceSummary_uhdDeviceSettings"><span class="annot"><span class="annottext">inputDeviceSummary_uhdDeviceSettings :: (Maybe InputDeviceUhdSettings -&gt; f (Maybe InputDeviceUhdSettings))
 -&gt; InputDeviceSummary -&gt; f InputDeviceSummary
-</span><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#inputDeviceSummary_connectionState"><span class="hs-identifier hs-var hs-var">inputDeviceSummary_connectionState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InputDeviceSummary -&gt; Maybe InputDeviceConnectionState)
+</span><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#inputDeviceSummary_uhdDeviceSettings"><span class="hs-identifier hs-var hs-var">inputDeviceSummary_uhdDeviceSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InputDeviceSummary -&gt; Maybe InputDeviceUhdSettings)
 -&gt; (InputDeviceSummary
-    -&gt; Maybe InputDeviceConnectionState -&gt; InputDeviceSummary)
+    -&gt; Maybe InputDeviceUhdSettings -&gt; InputDeviceSummary)
 -&gt; Lens
      InputDeviceSummary
      InputDeviceSummary
-     (Maybe InputDeviceConnectionState)
-     (Maybe InputDeviceConnectionState)
+     (Maybe InputDeviceUhdSettings)
+     (Maybe InputDeviceUhdSettings)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary%27"><span class="hs-identifier hs-type">InputDeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679886973"><span class="annot"><span class="annottext">Maybe InputDeviceConnectionState
-connectionState :: Maybe InputDeviceConnectionState
-$sel:connectionState:InputDeviceSummary' :: InputDeviceSummary -&gt; Maybe InputDeviceConnectionState
-</span><a href="#local-6989586621679886973"><span class="hs-identifier hs-var hs-var">connectionState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputDeviceConnectionState
-</span><a href="#local-6989586621679886973"><span class="hs-identifier hs-var">connectionState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679886972"><span class="annot"><span class="annottext">s :: InputDeviceSummary
-</span><a href="#local-6989586621679886972"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary%27"><span class="hs-identifier hs-type">InputDeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679886971"><span class="annot"><span class="annottext">Maybe InputDeviceConnectionState
-</span><a href="#local-6989586621679886971"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputDeviceSummary
-</span><a href="#local-6989586621679886972"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionState:InputDeviceSummary' :: Maybe InputDeviceConnectionState
-</span><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#%24sel%3AconnectionState%3AInputDeviceSummary%27"><span class="hs-identifier hs-var">connectionState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputDeviceConnectionState
-</span><a href="#local-6989586621679886971"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary"><span class="hs-identifier hs-type">InputDeviceSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-137"></span><span>
-</span><span id="line-138"></span><span class="hs-comment">-- | Network settings for the input device.</span><span>
-</span><span id="line-139"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#inputDeviceSummary_networkSettings"><span class="hs-identifier hs-type">inputDeviceSummary_networkSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary"><span class="hs-identifier hs-type">InputDeviceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceNetworkSettings.html#InputDeviceNetworkSettings"><span class="hs-identifier hs-type">InputDeviceNetworkSettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-140"></span><span id="inputDeviceSummary_networkSettings"><span class="annot"><span class="annottext">inputDeviceSummary_networkSettings :: (Maybe InputDeviceNetworkSettings
- -&gt; f (Maybe InputDeviceNetworkSettings))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary%27"><span class="hs-identifier hs-type">InputDeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679893637"><span class="annot"><span class="annottext">Maybe InputDeviceUhdSettings
+uhdDeviceSettings :: Maybe InputDeviceUhdSettings
+$sel:uhdDeviceSettings:InputDeviceSummary' :: InputDeviceSummary -&gt; Maybe InputDeviceUhdSettings
+</span><a href="#local-6989586621679893637"><span class="hs-identifier hs-var hs-var">uhdDeviceSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputDeviceUhdSettings
+</span><a href="#local-6989586621679893637"><span class="hs-identifier hs-var">uhdDeviceSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679893636"><span class="annot"><span class="annottext">s :: InputDeviceSummary
+</span><a href="#local-6989586621679893636"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary%27"><span class="hs-identifier hs-type">InputDeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679893635"><span class="annot"><span class="annottext">Maybe InputDeviceUhdSettings
+</span><a href="#local-6989586621679893635"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputDeviceSummary
+</span><a href="#local-6989586621679893636"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:uhdDeviceSettings:InputDeviceSummary' :: Maybe InputDeviceUhdSettings
+</span><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#%24sel%3AuhdDeviceSettings%3AInputDeviceSummary%27"><span class="hs-identifier hs-var">uhdDeviceSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputDeviceUhdSettings
+</span><a href="#local-6989586621679893635"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary"><span class="hs-identifier hs-type">InputDeviceSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | A name that you specify for the input device.</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#inputDeviceSummary_name"><span class="hs-identifier hs-type">inputDeviceSummary_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary"><span class="hs-identifier hs-type">InputDeviceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span id="inputDeviceSummary_name"><span class="annot"><span class="annottext">inputDeviceSummary_name :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; InputDeviceSummary -&gt; f InputDeviceSummary
-</span><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#inputDeviceSummary_networkSettings"><span class="hs-identifier hs-var hs-var">inputDeviceSummary_networkSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InputDeviceSummary -&gt; Maybe InputDeviceNetworkSettings)
--&gt; (InputDeviceSummary
-    -&gt; Maybe InputDeviceNetworkSettings -&gt; InputDeviceSummary)
+</span><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#inputDeviceSummary_name"><span class="hs-identifier hs-var hs-var">inputDeviceSummary_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InputDeviceSummary -&gt; Maybe Text)
+-&gt; (InputDeviceSummary -&gt; Maybe Text -&gt; InputDeviceSummary)
 -&gt; Lens
-     InputDeviceSummary
-     InputDeviceSummary
-     (Maybe InputDeviceNetworkSettings)
-     (Maybe InputDeviceNetworkSettings)
+     InputDeviceSummary InputDeviceSummary (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary%27"><span class="hs-identifier hs-type">InputDeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679886969"><span class="annot"><span class="annottext">Maybe InputDeviceNetworkSettings
-networkSettings :: Maybe InputDeviceNetworkSettings
-$sel:networkSettings:InputDeviceSummary' :: InputDeviceSummary -&gt; Maybe InputDeviceNetworkSettings
-</span><a href="#local-6989586621679886969"><span class="hs-identifier hs-var hs-var">networkSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputDeviceNetworkSettings
-</span><a href="#local-6989586621679886969"><span class="hs-identifier hs-var">networkSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679886968"><span class="annot"><span class="annottext">s :: InputDeviceSummary
-</span><a href="#local-6989586621679886968"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary%27"><span class="hs-identifier hs-type">InputDeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679886967"><span class="annot"><span class="annottext">Maybe InputDeviceNetworkSettings
-</span><a href="#local-6989586621679886967"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputDeviceSummary
-</span><a href="#local-6989586621679886968"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkSettings:InputDeviceSummary' :: Maybe InputDeviceNetworkSettings
-</span><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#%24sel%3AnetworkSettings%3AInputDeviceSummary%27"><span class="hs-identifier hs-var">networkSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputDeviceNetworkSettings
-</span><a href="#local-6989586621679886967"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary"><span class="hs-identifier hs-type">InputDeviceSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-comment">-- | The status of software on the input device.</span><span>
-</span><span id="line-143"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#inputDeviceSummary_deviceUpdateStatus"><span class="hs-identifier hs-type">inputDeviceSummary_deviceUpdateStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary"><span class="hs-identifier hs-type">InputDeviceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.DeviceUpdateStatus.html#DeviceUpdateStatus"><span class="hs-identifier hs-type">DeviceUpdateStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-144"></span><span id="inputDeviceSummary_deviceUpdateStatus"><span class="annot"><span class="annottext">inputDeviceSummary_deviceUpdateStatus :: (Maybe DeviceUpdateStatus -&gt; f (Maybe DeviceUpdateStatus))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary%27"><span class="hs-identifier hs-type">InputDeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679893633"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:InputDeviceSummary' :: InputDeviceSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679893633"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679893633"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679893632"><span class="annot"><span class="annottext">s :: InputDeviceSummary
+</span><a href="#local-6989586621679893632"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary%27"><span class="hs-identifier hs-type">InputDeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679893631"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679893631"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputDeviceSummary
+</span><a href="#local-6989586621679893632"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:InputDeviceSummary' :: Maybe Text
+</span><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#%24sel%3Aname%3AInputDeviceSummary%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679893631"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary"><span class="hs-identifier hs-type">InputDeviceSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | The unique ID of the input device.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#inputDeviceSummary_id"><span class="hs-identifier hs-type">inputDeviceSummary_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary"><span class="hs-identifier hs-type">InputDeviceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span id="inputDeviceSummary_id"><span class="annot"><span class="annottext">inputDeviceSummary_id :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InputDeviceSummary -&gt; f InputDeviceSummary
+</span><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#inputDeviceSummary_id"><span class="hs-identifier hs-var hs-var">inputDeviceSummary_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InputDeviceSummary -&gt; Maybe Text)
+-&gt; (InputDeviceSummary -&gt; Maybe Text -&gt; InputDeviceSummary)
+-&gt; Lens
+     InputDeviceSummary InputDeviceSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary%27"><span class="hs-identifier hs-type">InputDeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679893629"><span class="annot"><span class="annottext">Maybe Text
+id :: Maybe Text
+$sel:id:InputDeviceSummary' :: InputDeviceSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679893629"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679893629"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679893628"><span class="annot"><span class="annottext">s :: InputDeviceSummary
+</span><a href="#local-6989586621679893628"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary%27"><span class="hs-identifier hs-type">InputDeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679893627"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679893627"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputDeviceSummary
+</span><a href="#local-6989586621679893628"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:InputDeviceSummary' :: Maybe Text
+</span><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#%24sel%3Aid%3AInputDeviceSummary%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679893627"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary"><span class="hs-identifier hs-type">InputDeviceSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | The status of software on the input device.</span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#inputDeviceSummary_deviceUpdateStatus"><span class="hs-identifier hs-type">inputDeviceSummary_deviceUpdateStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary"><span class="hs-identifier hs-type">InputDeviceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.DeviceUpdateStatus.html#DeviceUpdateStatus"><span class="hs-identifier hs-type">DeviceUpdateStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span id="inputDeviceSummary_deviceUpdateStatus"><span class="annot"><span class="annottext">inputDeviceSummary_deviceUpdateStatus :: (Maybe DeviceUpdateStatus -&gt; f (Maybe DeviceUpdateStatus))
 -&gt; InputDeviceSummary -&gt; f InputDeviceSummary
 </span><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#inputDeviceSummary_deviceUpdateStatus"><span class="hs-identifier hs-var hs-var">inputDeviceSummary_deviceUpdateStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InputDeviceSummary -&gt; Maybe DeviceUpdateStatus)
 -&gt; (InputDeviceSummary
@@ -365,128 +374,24 @@ $sel:networkSettings:InputDeviceSummary' :: InputDeviceSummary -&gt; Maybe Input
      (Maybe DeviceUpdateStatus)
      (Maybe DeviceUpdateStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary%27"><span class="hs-identifier hs-type">InputDeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679886965"><span class="annot"><span class="annottext">Maybe DeviceUpdateStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary%27"><span class="hs-identifier hs-type">InputDeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679893625"><span class="annot"><span class="annottext">Maybe DeviceUpdateStatus
 deviceUpdateStatus :: Maybe DeviceUpdateStatus
 $sel:deviceUpdateStatus:InputDeviceSummary' :: InputDeviceSummary -&gt; Maybe DeviceUpdateStatus
-</span><a href="#local-6989586621679886965"><span class="hs-identifier hs-var hs-var">deviceUpdateStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DeviceUpdateStatus
-</span><a href="#local-6989586621679886965"><span class="hs-identifier hs-var">deviceUpdateStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679886964"><span class="annot"><span class="annottext">s :: InputDeviceSummary
-</span><a href="#local-6989586621679886964"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary%27"><span class="hs-identifier hs-type">InputDeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679886963"><span class="annot"><span class="annottext">Maybe DeviceUpdateStatus
-</span><a href="#local-6989586621679886963"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputDeviceSummary
-</span><a href="#local-6989586621679886964"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceUpdateStatus:InputDeviceSummary' :: Maybe DeviceUpdateStatus
+</span><a href="#local-6989586621679893625"><span class="hs-identifier hs-var hs-var">deviceUpdateStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DeviceUpdateStatus
+</span><a href="#local-6989586621679893625"><span class="hs-identifier hs-var">deviceUpdateStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679893624"><span class="annot"><span class="annottext">s :: InputDeviceSummary
+</span><a href="#local-6989586621679893624"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary%27"><span class="hs-identifier hs-type">InputDeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679893623"><span class="annot"><span class="annottext">Maybe DeviceUpdateStatus
+</span><a href="#local-6989586621679893623"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputDeviceSummary
+</span><a href="#local-6989586621679893624"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceUpdateStatus:InputDeviceSummary' :: Maybe DeviceUpdateStatus
 </span><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#%24sel%3AdeviceUpdateStatus%3AInputDeviceSummary%27"><span class="hs-identifier hs-var">deviceUpdateStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeviceUpdateStatus
-</span><a href="#local-6989586621679886963"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary"><span class="hs-identifier hs-type">InputDeviceSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-145"></span><span>
-</span><span id="line-146"></span><span class="hs-comment">-- | The unique ARN of the input device.</span><span>
-</span><span id="line-147"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#inputDeviceSummary_arn"><span class="hs-identifier hs-type">inputDeviceSummary_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary"><span class="hs-identifier hs-type">InputDeviceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-148"></span><span id="inputDeviceSummary_arn"><span class="annot"><span class="annottext">inputDeviceSummary_arn :: (Maybe Text -&gt; f (Maybe Text))
--&gt; InputDeviceSummary -&gt; f InputDeviceSummary
-</span><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#inputDeviceSummary_arn"><span class="hs-identifier hs-var hs-var">inputDeviceSummary_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InputDeviceSummary -&gt; Maybe Text)
--&gt; (InputDeviceSummary -&gt; Maybe Text -&gt; InputDeviceSummary)
--&gt; Lens
-     InputDeviceSummary InputDeviceSummary (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary%27"><span class="hs-identifier hs-type">InputDeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679886961"><span class="annot"><span class="annottext">Maybe Text
-arn :: Maybe Text
-$sel:arn:InputDeviceSummary' :: InputDeviceSummary -&gt; Maybe Text
-</span><a href="#local-6989586621679886961"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679886961"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679886960"><span class="annot"><span class="annottext">s :: InputDeviceSummary
-</span><a href="#local-6989586621679886960"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary%27"><span class="hs-identifier hs-type">InputDeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679886959"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679886959"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputDeviceSummary
-</span><a href="#local-6989586621679886960"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:InputDeviceSummary' :: Maybe Text
-</span><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#%24sel%3Aarn%3AInputDeviceSummary%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679886959"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary"><span class="hs-identifier hs-type">InputDeviceSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-149"></span><span>
-</span><span id="line-150"></span><span class="hs-comment">-- | The unique ID of the input device.</span><span>
-</span><span id="line-151"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#inputDeviceSummary_id"><span class="hs-identifier hs-type">inputDeviceSummary_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary"><span class="hs-identifier hs-type">InputDeviceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-152"></span><span id="inputDeviceSummary_id"><span class="annot"><span class="annottext">inputDeviceSummary_id :: (Maybe Text -&gt; f (Maybe Text))
--&gt; InputDeviceSummary -&gt; f InputDeviceSummary
-</span><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#inputDeviceSummary_id"><span class="hs-identifier hs-var hs-var">inputDeviceSummary_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InputDeviceSummary -&gt; Maybe Text)
--&gt; (InputDeviceSummary -&gt; Maybe Text -&gt; InputDeviceSummary)
--&gt; Lens
-     InputDeviceSummary InputDeviceSummary (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary%27"><span class="hs-identifier hs-type">InputDeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679886957"><span class="annot"><span class="annottext">Maybe Text
-id :: Maybe Text
-$sel:id:InputDeviceSummary' :: InputDeviceSummary -&gt; Maybe Text
-</span><a href="#local-6989586621679886957"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679886957"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679886956"><span class="annot"><span class="annottext">s :: InputDeviceSummary
-</span><a href="#local-6989586621679886956"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary%27"><span class="hs-identifier hs-type">InputDeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679886955"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679886955"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputDeviceSummary
-</span><a href="#local-6989586621679886956"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:InputDeviceSummary' :: Maybe Text
-</span><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#%24sel%3Aid%3AInputDeviceSummary%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679886955"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary"><span class="hs-identifier hs-type">InputDeviceSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-153"></span><span>
-</span><span id="line-154"></span><span class="hs-comment">-- | A name that you specify for the input device.</span><span>
-</span><span id="line-155"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#inputDeviceSummary_name"><span class="hs-identifier hs-type">inputDeviceSummary_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary"><span class="hs-identifier hs-type">InputDeviceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-156"></span><span id="inputDeviceSummary_name"><span class="annot"><span class="annottext">inputDeviceSummary_name :: (Maybe Text -&gt; f (Maybe Text))
--&gt; InputDeviceSummary -&gt; f InputDeviceSummary
-</span><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#inputDeviceSummary_name"><span class="hs-identifier hs-var hs-var">inputDeviceSummary_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InputDeviceSummary -&gt; Maybe Text)
--&gt; (InputDeviceSummary -&gt; Maybe Text -&gt; InputDeviceSummary)
--&gt; Lens
-     InputDeviceSummary InputDeviceSummary (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary%27"><span class="hs-identifier hs-type">InputDeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679886953"><span class="annot"><span class="annottext">Maybe Text
-name :: Maybe Text
-$sel:name:InputDeviceSummary' :: InputDeviceSummary -&gt; Maybe Text
-</span><a href="#local-6989586621679886953"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679886953"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679886952"><span class="annot"><span class="annottext">s :: InputDeviceSummary
-</span><a href="#local-6989586621679886952"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary%27"><span class="hs-identifier hs-type">InputDeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679886951"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679886951"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputDeviceSummary
-</span><a href="#local-6989586621679886952"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:InputDeviceSummary' :: Maybe Text
-</span><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#%24sel%3Aname%3AInputDeviceSummary%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679886951"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary"><span class="hs-identifier hs-type">InputDeviceSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-157"></span><span>
-</span><span id="line-158"></span><span class="hs-comment">-- | The unique serial number of the input device.</span><span>
-</span><span id="line-159"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#inputDeviceSummary_serialNumber"><span class="hs-identifier hs-type">inputDeviceSummary_serialNumber</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary"><span class="hs-identifier hs-type">InputDeviceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-160"></span><span id="inputDeviceSummary_serialNumber"><span class="annot"><span class="annottext">inputDeviceSummary_serialNumber :: (Maybe Text -&gt; f (Maybe Text))
--&gt; InputDeviceSummary -&gt; f InputDeviceSummary
-</span><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#inputDeviceSummary_serialNumber"><span class="hs-identifier hs-var hs-var">inputDeviceSummary_serialNumber</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InputDeviceSummary -&gt; Maybe Text)
--&gt; (InputDeviceSummary -&gt; Maybe Text -&gt; InputDeviceSummary)
--&gt; Lens
-     InputDeviceSummary InputDeviceSummary (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary%27"><span class="hs-identifier hs-type">InputDeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679886949"><span class="annot"><span class="annottext">Maybe Text
-serialNumber :: Maybe Text
-$sel:serialNumber:InputDeviceSummary' :: InputDeviceSummary -&gt; Maybe Text
-</span><a href="#local-6989586621679886949"><span class="hs-identifier hs-var hs-var">serialNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679886949"><span class="hs-identifier hs-var">serialNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679886948"><span class="annot"><span class="annottext">s :: InputDeviceSummary
-</span><a href="#local-6989586621679886948"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary%27"><span class="hs-identifier hs-type">InputDeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679886947"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679886947"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputDeviceSummary
-</span><a href="#local-6989586621679886948"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serialNumber:InputDeviceSummary' :: Maybe Text
-</span><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#%24sel%3AserialNumber%3AInputDeviceSummary%27"><span class="hs-identifier hs-var">serialNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679886947"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary"><span class="hs-identifier hs-type">InputDeviceSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-161"></span><span>
-</span><span id="line-162"></span><span class="hs-comment">-- | The type of the input device.</span><span>
-</span><span id="line-163"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#inputDeviceSummary_type"><span class="hs-identifier hs-type">inputDeviceSummary_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary"><span class="hs-identifier hs-type">InputDeviceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceType.html#InputDeviceType"><span class="hs-identifier hs-type">InputDeviceType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-164"></span><span id="inputDeviceSummary_type"><span class="annot"><span class="annottext">inputDeviceSummary_type :: (Maybe InputDeviceType -&gt; f (Maybe InputDeviceType))
--&gt; InputDeviceSummary -&gt; f InputDeviceSummary
-</span><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#inputDeviceSummary_type"><span class="hs-identifier hs-var hs-var">inputDeviceSummary_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InputDeviceSummary -&gt; Maybe InputDeviceType)
--&gt; (InputDeviceSummary
-    -&gt; Maybe InputDeviceType -&gt; InputDeviceSummary)
--&gt; Lens
-     InputDeviceSummary
-     InputDeviceSummary
-     (Maybe InputDeviceType)
-     (Maybe InputDeviceType)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary%27"><span class="hs-identifier hs-type">InputDeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679886945"><span class="annot"><span class="annottext">Maybe InputDeviceType
-type' :: Maybe InputDeviceType
-$sel:type':InputDeviceSummary' :: InputDeviceSummary -&gt; Maybe InputDeviceType
-</span><a href="#local-6989586621679886945"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputDeviceType
-</span><a href="#local-6989586621679886945"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679886944"><span class="annot"><span class="annottext">s :: InputDeviceSummary
-</span><a href="#local-6989586621679886944"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary%27"><span class="hs-identifier hs-type">InputDeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679886943"><span class="annot"><span class="annottext">Maybe InputDeviceType
-</span><a href="#local-6989586621679886943"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputDeviceSummary
-</span><a href="#local-6989586621679886944"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':InputDeviceSummary' :: Maybe InputDeviceType
-</span><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#%24sel%3Atype%27%3AInputDeviceSummary%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputDeviceType
-</span><a href="#local-6989586621679886943"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary"><span class="hs-identifier hs-type">InputDeviceSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-165"></span><span>
-</span><span id="line-166"></span><span class="hs-comment">-- | The status of the action to synchronize the device configuration. If you</span><span>
-</span><span id="line-167"></span><span class="hs-comment">-- change the configuration of the input device (for example, the maximum</span><span>
-</span><span id="line-168"></span><span class="hs-comment">-- bitrate), MediaLive sends the new data to the device. The device might</span><span>
-</span><span id="line-169"></span><span class="hs-comment">-- not update itself immediately. SYNCED means the device has updated its</span><span>
-</span><span id="line-170"></span><span class="hs-comment">-- configuration. SYNCING means that it has not updated its configuration.</span><span>
-</span><span id="line-171"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#inputDeviceSummary_deviceSettingsSyncState"><span class="hs-identifier hs-type">inputDeviceSummary_deviceSettingsSyncState</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary"><span class="hs-identifier hs-type">InputDeviceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.DeviceSettingsSyncState.html#DeviceSettingsSyncState"><span class="hs-identifier hs-type">DeviceSettingsSyncState</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-172"></span><span id="inputDeviceSummary_deviceSettingsSyncState"><span class="annot"><span class="annottext">inputDeviceSummary_deviceSettingsSyncState :: (Maybe DeviceSettingsSyncState
+</span><a href="#local-6989586621679893623"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary"><span class="hs-identifier hs-type">InputDeviceSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- | The status of the action to synchronize the device configuration. If you</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- change the configuration of the input device (for example, the maximum</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- bitrate), MediaLive sends the new data to the device. The device might</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- not update itself immediately. SYNCED means the device has updated its</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- configuration. SYNCING means that it has not updated its configuration.</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#inputDeviceSummary_deviceSettingsSyncState"><span class="hs-identifier hs-type">inputDeviceSummary_deviceSettingsSyncState</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary"><span class="hs-identifier hs-type">InputDeviceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.DeviceSettingsSyncState.html#DeviceSettingsSyncState"><span class="hs-identifier hs-type">DeviceSettingsSyncState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span id="inputDeviceSummary_deviceSettingsSyncState"><span class="annot"><span class="annottext">inputDeviceSummary_deviceSettingsSyncState :: (Maybe DeviceSettingsSyncState
  -&gt; f (Maybe DeviceSettingsSyncState))
 -&gt; InputDeviceSummary -&gt; f InputDeviceSummary
 </span><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#inputDeviceSummary_deviceSettingsSyncState"><span class="hs-identifier hs-var hs-var">inputDeviceSummary_deviceSettingsSyncState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InputDeviceSummary -&gt; Maybe DeviceSettingsSyncState)
@@ -498,315 +403,409 @@ $sel:type':InputDeviceSummary' :: InputDeviceSummary -&gt; Maybe InputDeviceType
      (Maybe DeviceSettingsSyncState)
      (Maybe DeviceSettingsSyncState)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary%27"><span class="hs-identifier hs-type">InputDeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679886941"><span class="annot"><span class="annottext">Maybe DeviceSettingsSyncState
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary%27"><span class="hs-identifier hs-type">InputDeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679893621"><span class="annot"><span class="annottext">Maybe DeviceSettingsSyncState
 deviceSettingsSyncState :: Maybe DeviceSettingsSyncState
 $sel:deviceSettingsSyncState:InputDeviceSummary' :: InputDeviceSummary -&gt; Maybe DeviceSettingsSyncState
-</span><a href="#local-6989586621679886941"><span class="hs-identifier hs-var hs-var">deviceSettingsSyncState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DeviceSettingsSyncState
-</span><a href="#local-6989586621679886941"><span class="hs-identifier hs-var">deviceSettingsSyncState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679886940"><span class="annot"><span class="annottext">s :: InputDeviceSummary
-</span><a href="#local-6989586621679886940"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary%27"><span class="hs-identifier hs-type">InputDeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679886939"><span class="annot"><span class="annottext">Maybe DeviceSettingsSyncState
-</span><a href="#local-6989586621679886939"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputDeviceSummary
-</span><a href="#local-6989586621679886940"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceSettingsSyncState:InputDeviceSummary' :: Maybe DeviceSettingsSyncState
+</span><a href="#local-6989586621679893621"><span class="hs-identifier hs-var hs-var">deviceSettingsSyncState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DeviceSettingsSyncState
+</span><a href="#local-6989586621679893621"><span class="hs-identifier hs-var">deviceSettingsSyncState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679893620"><span class="annot"><span class="annottext">s :: InputDeviceSummary
+</span><a href="#local-6989586621679893620"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary%27"><span class="hs-identifier hs-type">InputDeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679893619"><span class="annot"><span class="annottext">Maybe DeviceSettingsSyncState
+</span><a href="#local-6989586621679893619"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputDeviceSummary
+</span><a href="#local-6989586621679893620"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceSettingsSyncState:InputDeviceSummary' :: Maybe DeviceSettingsSyncState
 </span><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#%24sel%3AdeviceSettingsSyncState%3AInputDeviceSummary%27"><span class="hs-identifier hs-var">deviceSettingsSyncState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeviceSettingsSyncState
-</span><a href="#local-6989586621679886939"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary"><span class="hs-identifier hs-type">InputDeviceSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-173"></span><span>
-</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679886936"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary"><span class="hs-identifier hs-type">InputDeviceSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-175"></span><span>  </span><span id="local-6989586621679886934"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InputDeviceSummary
+</span><a href="#local-6989586621679893619"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary"><span class="hs-identifier hs-type">InputDeviceSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- | The type of the input device.</span><span>
+</span><span id="line-158"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#inputDeviceSummary_type"><span class="hs-identifier hs-type">inputDeviceSummary_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary"><span class="hs-identifier hs-type">InputDeviceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceType.html#InputDeviceType"><span class="hs-identifier hs-type">InputDeviceType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span id="inputDeviceSummary_type"><span class="annot"><span class="annottext">inputDeviceSummary_type :: (Maybe InputDeviceType -&gt; f (Maybe InputDeviceType))
+-&gt; InputDeviceSummary -&gt; f InputDeviceSummary
+</span><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#inputDeviceSummary_type"><span class="hs-identifier hs-var hs-var">inputDeviceSummary_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InputDeviceSummary -&gt; Maybe InputDeviceType)
+-&gt; (InputDeviceSummary
+    -&gt; Maybe InputDeviceType -&gt; InputDeviceSummary)
+-&gt; Lens
+     InputDeviceSummary
+     InputDeviceSummary
+     (Maybe InputDeviceType)
+     (Maybe InputDeviceType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary%27"><span class="hs-identifier hs-type">InputDeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679893617"><span class="annot"><span class="annottext">Maybe InputDeviceType
+type' :: Maybe InputDeviceType
+$sel:type':InputDeviceSummary' :: InputDeviceSummary -&gt; Maybe InputDeviceType
+</span><a href="#local-6989586621679893617"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputDeviceType
+</span><a href="#local-6989586621679893617"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679893616"><span class="annot"><span class="annottext">s :: InputDeviceSummary
+</span><a href="#local-6989586621679893616"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary%27"><span class="hs-identifier hs-type">InputDeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679893615"><span class="annot"><span class="annottext">Maybe InputDeviceType
+</span><a href="#local-6989586621679893615"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputDeviceSummary
+</span><a href="#local-6989586621679893616"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':InputDeviceSummary' :: Maybe InputDeviceType
+</span><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#%24sel%3Atype%27%3AInputDeviceSummary%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputDeviceType
+</span><a href="#local-6989586621679893615"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary"><span class="hs-identifier hs-type">InputDeviceSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- | The unique serial number of the input device.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#inputDeviceSummary_serialNumber"><span class="hs-identifier hs-type">inputDeviceSummary_serialNumber</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary"><span class="hs-identifier hs-type">InputDeviceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span id="inputDeviceSummary_serialNumber"><span class="annot"><span class="annottext">inputDeviceSummary_serialNumber :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InputDeviceSummary -&gt; f InputDeviceSummary
+</span><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#inputDeviceSummary_serialNumber"><span class="hs-identifier hs-var hs-var">inputDeviceSummary_serialNumber</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InputDeviceSummary -&gt; Maybe Text)
+-&gt; (InputDeviceSummary -&gt; Maybe Text -&gt; InputDeviceSummary)
+-&gt; Lens
+     InputDeviceSummary InputDeviceSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary%27"><span class="hs-identifier hs-type">InputDeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679893613"><span class="annot"><span class="annottext">Maybe Text
+serialNumber :: Maybe Text
+$sel:serialNumber:InputDeviceSummary' :: InputDeviceSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679893613"><span class="hs-identifier hs-var hs-var">serialNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679893613"><span class="hs-identifier hs-var">serialNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679893612"><span class="annot"><span class="annottext">s :: InputDeviceSummary
+</span><a href="#local-6989586621679893612"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary%27"><span class="hs-identifier hs-type">InputDeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679893611"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679893611"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputDeviceSummary
+</span><a href="#local-6989586621679893612"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serialNumber:InputDeviceSummary' :: Maybe Text
+</span><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#%24sel%3AserialNumber%3AInputDeviceSummary%27"><span class="hs-identifier hs-var">serialNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679893611"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary"><span class="hs-identifier hs-type">InputDeviceSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- | Network settings for the input device.</span><span>
+</span><span id="line-166"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#inputDeviceSummary_networkSettings"><span class="hs-identifier hs-type">inputDeviceSummary_networkSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary"><span class="hs-identifier hs-type">InputDeviceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceNetworkSettings.html#InputDeviceNetworkSettings"><span class="hs-identifier hs-type">InputDeviceNetworkSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span id="inputDeviceSummary_networkSettings"><span class="annot"><span class="annottext">inputDeviceSummary_networkSettings :: (Maybe InputDeviceNetworkSettings
+ -&gt; f (Maybe InputDeviceNetworkSettings))
+-&gt; InputDeviceSummary -&gt; f InputDeviceSummary
+</span><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#inputDeviceSummary_networkSettings"><span class="hs-identifier hs-var hs-var">inputDeviceSummary_networkSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InputDeviceSummary -&gt; Maybe InputDeviceNetworkSettings)
+-&gt; (InputDeviceSummary
+    -&gt; Maybe InputDeviceNetworkSettings -&gt; InputDeviceSummary)
+-&gt; Lens
+     InputDeviceSummary
+     InputDeviceSummary
+     (Maybe InputDeviceNetworkSettings)
+     (Maybe InputDeviceNetworkSettings)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary%27"><span class="hs-identifier hs-type">InputDeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679893609"><span class="annot"><span class="annottext">Maybe InputDeviceNetworkSettings
+networkSettings :: Maybe InputDeviceNetworkSettings
+$sel:networkSettings:InputDeviceSummary' :: InputDeviceSummary -&gt; Maybe InputDeviceNetworkSettings
+</span><a href="#local-6989586621679893609"><span class="hs-identifier hs-var hs-var">networkSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputDeviceNetworkSettings
+</span><a href="#local-6989586621679893609"><span class="hs-identifier hs-var">networkSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679893608"><span class="annot"><span class="annottext">s :: InputDeviceSummary
+</span><a href="#local-6989586621679893608"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary%27"><span class="hs-identifier hs-type">InputDeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679893607"><span class="annot"><span class="annottext">Maybe InputDeviceNetworkSettings
+</span><a href="#local-6989586621679893607"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputDeviceSummary
+</span><a href="#local-6989586621679893608"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkSettings:InputDeviceSummary' :: Maybe InputDeviceNetworkSettings
+</span><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#%24sel%3AnetworkSettings%3AInputDeviceSummary%27"><span class="hs-identifier hs-var">networkSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputDeviceNetworkSettings
+</span><a href="#local-6989586621679893607"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary"><span class="hs-identifier hs-type">InputDeviceSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- | The state of the connection between the input device and AWS.</span><span>
+</span><span id="line-170"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#inputDeviceSummary_connectionState"><span class="hs-identifier hs-type">inputDeviceSummary_connectionState</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary"><span class="hs-identifier hs-type">InputDeviceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceConnectionState.html#InputDeviceConnectionState"><span class="hs-identifier hs-type">InputDeviceConnectionState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span id="inputDeviceSummary_connectionState"><span class="annot"><span class="annottext">inputDeviceSummary_connectionState :: (Maybe InputDeviceConnectionState
+ -&gt; f (Maybe InputDeviceConnectionState))
+-&gt; InputDeviceSummary -&gt; f InputDeviceSummary
+</span><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#inputDeviceSummary_connectionState"><span class="hs-identifier hs-var hs-var">inputDeviceSummary_connectionState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InputDeviceSummary -&gt; Maybe InputDeviceConnectionState)
+-&gt; (InputDeviceSummary
+    -&gt; Maybe InputDeviceConnectionState -&gt; InputDeviceSummary)
+-&gt; Lens
+     InputDeviceSummary
+     InputDeviceSummary
+     (Maybe InputDeviceConnectionState)
+     (Maybe InputDeviceConnectionState)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary%27"><span class="hs-identifier hs-type">InputDeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679893605"><span class="annot"><span class="annottext">Maybe InputDeviceConnectionState
+connectionState :: Maybe InputDeviceConnectionState
+$sel:connectionState:InputDeviceSummary' :: InputDeviceSummary -&gt; Maybe InputDeviceConnectionState
+</span><a href="#local-6989586621679893605"><span class="hs-identifier hs-var hs-var">connectionState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputDeviceConnectionState
+</span><a href="#local-6989586621679893605"><span class="hs-identifier hs-var">connectionState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679893604"><span class="annot"><span class="annottext">s :: InputDeviceSummary
+</span><a href="#local-6989586621679893604"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary%27"><span class="hs-identifier hs-type">InputDeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679893603"><span class="annot"><span class="annottext">Maybe InputDeviceConnectionState
+</span><a href="#local-6989586621679893603"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputDeviceSummary
+</span><a href="#local-6989586621679893604"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionState:InputDeviceSummary' :: Maybe InputDeviceConnectionState
+</span><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#%24sel%3AconnectionState%3AInputDeviceSummary%27"><span class="hs-identifier hs-var">connectionState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputDeviceConnectionState
+</span><a href="#local-6989586621679893603"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary"><span class="hs-identifier hs-type">InputDeviceSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679893600"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary"><span class="hs-identifier hs-type">InputDeviceSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-174"></span><span>  </span><span id="local-6989586621679893598"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InputDeviceSummary
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-176"></span><span>    </span><span class="annot"><span class="annottext">String
+</span><span id="line-175"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser InputDeviceSummary)
 -&gt; Value
 -&gt; Parser InputDeviceSummary
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
-</span><span id="line-177"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span id="line-176"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;InputDeviceSummary&quot;</span></span><span>
-</span><span id="line-178"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679886931"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679886931"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-179"></span><span>          </span><span class="annot"><span class="annottext">Maybe InputDeviceUhdSettings
+</span><span id="line-177"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679893595"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679893595"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-178"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe InputDeviceHdSettings
--&gt; Maybe InputDeviceConnectionState
--&gt; Maybe InputDeviceNetworkSettings
+-&gt; Maybe InputDeviceUhdSettings
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe DeviceUpdateStatus
--&gt; Maybe Text
--&gt; Maybe Text
--&gt; Maybe Text
--&gt; Maybe Text
--&gt; Maybe InputDeviceType
 -&gt; Maybe DeviceSettingsSyncState
+-&gt; Maybe InputDeviceType
+-&gt; Maybe Text
+-&gt; Maybe InputDeviceNetworkSettings
+-&gt; Maybe InputDeviceConnectionState
 -&gt; InputDeviceSummary
 </span><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary%27"><span class="hs-identifier hs-var">InputDeviceSummary'</span></a></span><span>
-</span><span id="line-180"></span><span>            </span><span class="annot"><span class="annottext">(Maybe InputDeviceUhdSettings
+</span><span id="line-179"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe InputDeviceHdSettings
- -&gt; Maybe InputDeviceConnectionState
- -&gt; Maybe InputDeviceNetworkSettings
+ -&gt; Maybe InputDeviceUhdSettings
+ -&gt; Maybe Text
+ -&gt; Maybe Text
  -&gt; Maybe DeviceUpdateStatus
- -&gt; Maybe Text
- -&gt; Maybe Text
- -&gt; Maybe Text
- -&gt; Maybe Text
- -&gt; Maybe InputDeviceType
  -&gt; Maybe DeviceSettingsSyncState
+ -&gt; Maybe InputDeviceType
+ -&gt; Maybe Text
+ -&gt; Maybe InputDeviceNetworkSettings
+ -&gt; Maybe InputDeviceConnectionState
  -&gt; InputDeviceSummary)
--&gt; Parser (Maybe InputDeviceUhdSettings)
+-&gt; Parser (Maybe Text)
 -&gt; Parser
      (Maybe Text
       -&gt; Maybe InputDeviceHdSettings
-      -&gt; Maybe InputDeviceConnectionState
-      -&gt; Maybe InputDeviceNetworkSettings
+      -&gt; Maybe InputDeviceUhdSettings
+      -&gt; Maybe Text
+      -&gt; Maybe Text
       -&gt; Maybe DeviceUpdateStatus
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe InputDeviceType
       -&gt; Maybe DeviceSettingsSyncState
+      -&gt; Maybe InputDeviceType
+      -&gt; Maybe Text
+      -&gt; Maybe InputDeviceNetworkSettings
+      -&gt; Maybe InputDeviceConnectionState
       -&gt; InputDeviceSummary)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679886931"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InputDeviceUhdSettings)
+</span><a href="#local-6989586621679893595"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;uhdDeviceSettings&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-181"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span class="hs-string">&quot;arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
    -&gt; Maybe InputDeviceHdSettings
-   -&gt; Maybe InputDeviceConnectionState
-   -&gt; Maybe InputDeviceNetworkSettings
+   -&gt; Maybe InputDeviceUhdSettings
+   -&gt; Maybe Text
+   -&gt; Maybe Text
    -&gt; Maybe DeviceUpdateStatus
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe InputDeviceType
    -&gt; Maybe DeviceSettingsSyncState
+   -&gt; Maybe InputDeviceType
+   -&gt; Maybe Text
+   -&gt; Maybe InputDeviceNetworkSettings
+   -&gt; Maybe InputDeviceConnectionState
    -&gt; InputDeviceSummary)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
      (Maybe InputDeviceHdSettings
-      -&gt; Maybe InputDeviceConnectionState
-      -&gt; Maybe InputDeviceNetworkSettings
+      -&gt; Maybe InputDeviceUhdSettings
+      -&gt; Maybe Text
+      -&gt; Maybe Text
       -&gt; Maybe DeviceUpdateStatus
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe InputDeviceType
       -&gt; Maybe DeviceSettingsSyncState
+      -&gt; Maybe InputDeviceType
+      -&gt; Maybe Text
+      -&gt; Maybe InputDeviceNetworkSettings
+      -&gt; Maybe InputDeviceConnectionState
       -&gt; InputDeviceSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679886931"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679893595"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;macAddress&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-182"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span id="line-181"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe InputDeviceHdSettings
-   -&gt; Maybe InputDeviceConnectionState
-   -&gt; Maybe InputDeviceNetworkSettings
+   -&gt; Maybe InputDeviceUhdSettings
+   -&gt; Maybe Text
+   -&gt; Maybe Text
    -&gt; Maybe DeviceUpdateStatus
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe InputDeviceType
    -&gt; Maybe DeviceSettingsSyncState
+   -&gt; Maybe InputDeviceType
+   -&gt; Maybe Text
+   -&gt; Maybe InputDeviceNetworkSettings
+   -&gt; Maybe InputDeviceConnectionState
    -&gt; InputDeviceSummary)
 -&gt; Parser (Maybe InputDeviceHdSettings)
 -&gt; Parser
-     (Maybe InputDeviceConnectionState
-      -&gt; Maybe InputDeviceNetworkSettings
+     (Maybe InputDeviceUhdSettings
+      -&gt; Maybe Text
+      -&gt; Maybe Text
       -&gt; Maybe DeviceUpdateStatus
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe InputDeviceType
       -&gt; Maybe DeviceSettingsSyncState
+      -&gt; Maybe InputDeviceType
+      -&gt; Maybe Text
+      -&gt; Maybe InputDeviceNetworkSettings
+      -&gt; Maybe InputDeviceConnectionState
       -&gt; InputDeviceSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679886931"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InputDeviceHdSettings)
+</span><a href="#local-6989586621679893595"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InputDeviceHdSettings)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;hdDeviceSettings&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-183"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe InputDeviceConnectionState
+</span><span id="line-182"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe InputDeviceUhdSettings
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe DeviceUpdateStatus
+   -&gt; Maybe DeviceSettingsSyncState
+   -&gt; Maybe InputDeviceType
+   -&gt; Maybe Text
    -&gt; Maybe InputDeviceNetworkSettings
-   -&gt; Maybe DeviceUpdateStatus
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe InputDeviceType
-   -&gt; Maybe DeviceSettingsSyncState
+   -&gt; Maybe InputDeviceConnectionState
    -&gt; InputDeviceSummary)
--&gt; Parser (Maybe InputDeviceConnectionState)
--&gt; Parser
-     (Maybe InputDeviceNetworkSettings
-      -&gt; Maybe DeviceUpdateStatus
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe InputDeviceType
-      -&gt; Maybe DeviceSettingsSyncState
-      -&gt; InputDeviceSummary)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679886931"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InputDeviceConnectionState)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;connectionState&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-184"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe InputDeviceNetworkSettings
-   -&gt; Maybe DeviceUpdateStatus
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe InputDeviceType
-   -&gt; Maybe DeviceSettingsSyncState
-   -&gt; InputDeviceSummary)
--&gt; Parser (Maybe InputDeviceNetworkSettings)
--&gt; Parser
-     (Maybe DeviceUpdateStatus
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe InputDeviceType
-      -&gt; Maybe DeviceSettingsSyncState
-      -&gt; InputDeviceSummary)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679886931"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InputDeviceNetworkSettings)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;networkSettings&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-185"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe DeviceUpdateStatus
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe InputDeviceType
-   -&gt; Maybe DeviceSettingsSyncState
-   -&gt; InputDeviceSummary)
--&gt; Parser (Maybe DeviceUpdateStatus)
+-&gt; Parser (Maybe InputDeviceUhdSettings)
 -&gt; Parser
      (Maybe Text
       -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe InputDeviceType
+      -&gt; Maybe DeviceUpdateStatus
       -&gt; Maybe DeviceSettingsSyncState
+      -&gt; Maybe InputDeviceType
+      -&gt; Maybe Text
+      -&gt; Maybe InputDeviceNetworkSettings
+      -&gt; Maybe InputDeviceConnectionState
       -&gt; InputDeviceSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679886931"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DeviceUpdateStatus)
+</span><a href="#local-6989586621679893595"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InputDeviceUhdSettings)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;uhdDeviceSettings&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe DeviceUpdateStatus
+   -&gt; Maybe DeviceSettingsSyncState
+   -&gt; Maybe InputDeviceType
+   -&gt; Maybe Text
+   -&gt; Maybe InputDeviceNetworkSettings
+   -&gt; Maybe InputDeviceConnectionState
+   -&gt; InputDeviceSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe DeviceUpdateStatus
+      -&gt; Maybe DeviceSettingsSyncState
+      -&gt; Maybe InputDeviceType
+      -&gt; Maybe Text
+      -&gt; Maybe InputDeviceNetworkSettings
+      -&gt; Maybe InputDeviceConnectionState
+      -&gt; InputDeviceSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679893595"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe DeviceUpdateStatus
+   -&gt; Maybe DeviceSettingsSyncState
+   -&gt; Maybe InputDeviceType
+   -&gt; Maybe Text
+   -&gt; Maybe InputDeviceNetworkSettings
+   -&gt; Maybe InputDeviceConnectionState
+   -&gt; InputDeviceSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe DeviceUpdateStatus
+      -&gt; Maybe DeviceSettingsSyncState
+      -&gt; Maybe InputDeviceType
+      -&gt; Maybe Text
+      -&gt; Maybe InputDeviceNetworkSettings
+      -&gt; Maybe InputDeviceConnectionState
+      -&gt; InputDeviceSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679893595"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe DeviceUpdateStatus
+   -&gt; Maybe DeviceSettingsSyncState
+   -&gt; Maybe InputDeviceType
+   -&gt; Maybe Text
+   -&gt; Maybe InputDeviceNetworkSettings
+   -&gt; Maybe InputDeviceConnectionState
+   -&gt; InputDeviceSummary)
+-&gt; Parser (Maybe DeviceUpdateStatus)
+-&gt; Parser
+     (Maybe DeviceSettingsSyncState
+      -&gt; Maybe InputDeviceType
+      -&gt; Maybe Text
+      -&gt; Maybe InputDeviceNetworkSettings
+      -&gt; Maybe InputDeviceConnectionState
+      -&gt; InputDeviceSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679893595"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DeviceUpdateStatus)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;deviceUpdateStatus&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-186"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
+  (Maybe DeviceSettingsSyncState
    -&gt; Maybe InputDeviceType
-   -&gt; Maybe DeviceSettingsSyncState
-   -&gt; InputDeviceSummary)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe InputDeviceType
-      -&gt; Maybe DeviceSettingsSyncState
-      -&gt; InputDeviceSummary)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679886931"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;arn&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-187"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
    -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe InputDeviceType
-   -&gt; Maybe DeviceSettingsSyncState
+   -&gt; Maybe InputDeviceNetworkSettings
+   -&gt; Maybe InputDeviceConnectionState
    -&gt; InputDeviceSummary)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe InputDeviceType
-      -&gt; Maybe DeviceSettingsSyncState
-      -&gt; InputDeviceSummary)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679886931"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;id&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-188"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe InputDeviceType
-   -&gt; Maybe DeviceSettingsSyncState
-   -&gt; InputDeviceSummary)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe InputDeviceType
-      -&gt; Maybe DeviceSettingsSyncState
-      -&gt; InputDeviceSummary)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679886931"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-189"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe InputDeviceType
-   -&gt; Maybe DeviceSettingsSyncState
-   -&gt; InputDeviceSummary)
--&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe DeviceSettingsSyncState)
 -&gt; Parser
      (Maybe InputDeviceType
-      -&gt; Maybe DeviceSettingsSyncState -&gt; InputDeviceSummary)
+      -&gt; Maybe Text
+      -&gt; Maybe InputDeviceNetworkSettings
+      -&gt; Maybe InputDeviceConnectionState
+      -&gt; InputDeviceSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679886931"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;serialNumber&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-190"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe InputDeviceType
-   -&gt; Maybe DeviceSettingsSyncState -&gt; InputDeviceSummary)
--&gt; Parser (Maybe InputDeviceType)
--&gt; Parser (Maybe DeviceSettingsSyncState -&gt; InputDeviceSummary)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679886931"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InputDeviceType)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;type&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-191"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe DeviceSettingsSyncState -&gt; InputDeviceSummary)
--&gt; Parser (Maybe DeviceSettingsSyncState)
--&gt; Parser InputDeviceSummary
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679886931"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DeviceSettingsSyncState)
+</span><a href="#local-6989586621679893595"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DeviceSettingsSyncState)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;deviceSettingsSyncState&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-192"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-193"></span><span>
-</span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679886925"><span id="local-6989586621679886927"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary"><span class="hs-identifier hs-type">InputDeviceSummary</span></a></span></span></span><span>
-</span><span id="line-195"></span><span>
-</span><span id="line-196"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679886922"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary"><span class="hs-identifier hs-type">InputDeviceSummary</span></a></span></span><span>
-</span><span id="line-197"></span></pre></body></html>
+</span><span id="line-187"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe InputDeviceType
+   -&gt; Maybe Text
+   -&gt; Maybe InputDeviceNetworkSettings
+   -&gt; Maybe InputDeviceConnectionState
+   -&gt; InputDeviceSummary)
+-&gt; Parser (Maybe InputDeviceType)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe InputDeviceNetworkSettings
+      -&gt; Maybe InputDeviceConnectionState
+      -&gt; InputDeviceSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679893595"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InputDeviceType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;type&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe InputDeviceNetworkSettings
+   -&gt; Maybe InputDeviceConnectionState
+   -&gt; InputDeviceSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe InputDeviceNetworkSettings
+      -&gt; Maybe InputDeviceConnectionState -&gt; InputDeviceSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679893595"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;serialNumber&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe InputDeviceNetworkSettings
+   -&gt; Maybe InputDeviceConnectionState -&gt; InputDeviceSummary)
+-&gt; Parser (Maybe InputDeviceNetworkSettings)
+-&gt; Parser (Maybe InputDeviceConnectionState -&gt; InputDeviceSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679893595"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InputDeviceNetworkSettings)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;networkSettings&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe InputDeviceConnectionState -&gt; InputDeviceSummary)
+-&gt; Parser (Maybe InputDeviceConnectionState)
+-&gt; Parser InputDeviceSummary
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679893595"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InputDeviceConnectionState)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;connectionState&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679893589"><span id="local-6989586621679893591"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary"><span class="hs-identifier hs-type">InputDeviceSummary</span></a></span></span></span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679893586"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary"><span class="hs-identifier hs-type">InputDeviceSummary</span></a></span></span><span>
+</span><span id="line-196"></span></pre></body></html>

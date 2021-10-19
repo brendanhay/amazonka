@@ -28,15 +28,15 @@
 </span><span id="line-28"></span><span class="hs-comment">-- according to resource type.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newNonCompliantSummary' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679814507"><span id="local-6989586621679814508"></span></span><span class="hs-keyword">data</span><span> </span><span id="NonCompliantSummary"><span class="annot"><a href="Network.AWS.SSM.Types.NonCompliantSummary.html#NonCompliantSummary"><span class="hs-identifier hs-var">NonCompliantSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NonCompliantSummary%27"><span class="annot"><a href="Network.AWS.SSM.Types.NonCompliantSummary.html#NonCompliantSummary%27"><span class="hs-identifier hs-var">NonCompliantSummary'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A summary of the non-compliance severity by compliance type</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AseveritySummary%3ANonCompliantSummary%27"><span class="annot"><span class="annottext">NonCompliantSummary -&gt; Maybe SeveritySummary
-</span><a href="Network.AWS.SSM.Types.NonCompliantSummary.html#%24sel%3AseveritySummary%3ANonCompliantSummary%27"><span class="hs-identifier hs-var hs-var">severitySummary</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.SeveritySummary.html#SeveritySummary"><span class="hs-identifier hs-type">SeveritySummary</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The total number of compliance items that aren\'t compliant.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AnonCompliantCount%3ANonCompliantSummary%27"><span class="annot"><span class="annottext">NonCompliantSummary -&gt; Maybe Int
-</span><a href="Network.AWS.SSM.Types.NonCompliantSummary.html#%24sel%3AnonCompliantCount%3ANonCompliantSummary%27"><span class="hs-identifier hs-var hs-var">nonCompliantCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679816207"><span id="local-6989586621679816208"></span></span><span class="hs-keyword">data</span><span> </span><span id="NonCompliantSummary"><span class="annot"><a href="Network.AWS.SSM.Types.NonCompliantSummary.html#NonCompliantSummary"><span class="hs-identifier hs-var">NonCompliantSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NonCompliantSummary%27"><span class="annot"><a href="Network.AWS.SSM.Types.NonCompliantSummary.html#NonCompliantSummary%27"><span class="hs-identifier hs-var">NonCompliantSummary'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The total number of compliance items that aren\'t compliant.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AnonCompliantCount%3ANonCompliantSummary%27"><span class="annot"><span class="annottext">NonCompliantSummary -&gt; Maybe Int
+</span><a href="Network.AWS.SSM.Types.NonCompliantSummary.html#%24sel%3AnonCompliantCount%3ANonCompliantSummary%27"><span class="hs-identifier hs-var hs-var">nonCompliantCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | A summary of the non-compliance severity by compliance type</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AseveritySummary%3ANonCompliantSummary%27"><span class="annot"><span class="annottext">NonCompliantSummary -&gt; Maybe SeveritySummary
+</span><a href="Network.AWS.SSM.Types.NonCompliantSummary.html#%24sel%3AseveritySummary%3ANonCompliantSummary%27"><span class="hs-identifier hs-var hs-var">severitySummary</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.SeveritySummary.html#SeveritySummary"><span class="hs-identifier hs-type">SeveritySummary</span></a></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679814500"><span id="local-6989586621679814502"><span class="annot"><span class="annottext">NonCompliantSummary -&gt; NonCompliantSummary -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679816200"><span id="local-6989586621679816202"><span class="annot"><span class="annottext">NonCompliantSummary -&gt; NonCompliantSummary -&gt; Bool
 (NonCompliantSummary -&gt; NonCompliantSummary -&gt; Bool)
 -&gt; (NonCompliantSummary -&gt; NonCompliantSummary -&gt; Bool)
 -&gt; Eq NonCompliantSummary
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: NonCompliantSummary -&gt; NonCompliantSummary -&gt; Bool
 == :: NonCompliantSummary -&gt; NonCompliantSummary -&gt; Bool
 $c== :: NonCompliantSummary -&gt; NonCompliantSummary -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679814491"><span id="local-6989586621679814493"><span id="local-6989586621679814495"><span id="local-6989586621679814497"><span class="annot"><span class="annottext">ReadPrec [NonCompliantSummary]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679816191"><span id="local-6989586621679816193"><span id="local-6989586621679816195"><span id="local-6989586621679816197"><span class="annot"><span class="annottext">ReadPrec [NonCompliantSummary]
 ReadPrec NonCompliantSummary
 Int -&gt; ReadS NonCompliantSummary
 ReadS [NonCompliantSummary]
@@ -65,7 +65,7 @@ readList :: ReadS [NonCompliantSummary]
 $creadList :: ReadS [NonCompliantSummary]
 readsPrec :: Int -&gt; ReadS NonCompliantSummary
 $creadsPrec :: Int -&gt; ReadS NonCompliantSummary
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679814484"><span id="local-6989586621679814486"><span id="local-6989586621679814488"><span class="annot"><span class="annottext">Int -&gt; NonCompliantSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679816184"><span id="local-6989586621679816186"><span id="local-6989586621679816188"><span class="annot"><span class="annottext">Int -&gt; NonCompliantSummary -&gt; ShowS
 [NonCompliantSummary] -&gt; ShowS
 NonCompliantSummary -&gt; String
 (Int -&gt; NonCompliantSummary -&gt; ShowS)
@@ -99,29 +99,49 @@ $cfrom :: forall x. NonCompliantSummary -&gt; Rep NonCompliantSummary x
 </span><span id="line-44"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-45"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-46"></span><span class="hs-comment">--</span><span>
-</span><span id="line-47"></span><span class="hs-comment">-- 'severitySummary', 'nonCompliantSummary_severitySummary' - A summary of the non-compliance severity by compliance type</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'nonCompliantCount', 'nonCompliantSummary_nonCompliantCount' - The total number of compliance items that aren\'t compliant.</span><span>
 </span><span id="line-48"></span><span class="hs-comment">--</span><span>
-</span><span id="line-49"></span><span class="hs-comment">-- 'nonCompliantCount', 'nonCompliantSummary_nonCompliantCount' - The total number of compliance items that aren\'t compliant.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'severitySummary', 'nonCompliantSummary_severitySummary' - A summary of the non-compliance severity by compliance type</span><span>
 </span><span id="line-50"></span><span class="annot"><a href="Network.AWS.SSM.Types.NonCompliantSummary.html#newNonCompliantSummary"><span class="hs-identifier hs-type">newNonCompliantSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-51"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.Types.NonCompliantSummary.html#NonCompliantSummary"><span class="hs-identifier hs-type">NonCompliantSummary</span></a></span><span>
 </span><span id="line-52"></span><span id="newNonCompliantSummary"><span class="annot"><span class="annottext">newNonCompliantSummary :: NonCompliantSummary
 </span><a href="Network.AWS.SSM.Types.NonCompliantSummary.html#newNonCompliantSummary"><span class="hs-identifier hs-var hs-var">newNonCompliantSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-53"></span><span>  </span><span class="annot"><span class="annottext">NonCompliantSummary' :: Maybe SeveritySummary -&gt; Maybe Int -&gt; NonCompliantSummary
+</span><span id="line-53"></span><span>  </span><span class="annot"><span class="annottext">NonCompliantSummary' :: Maybe Int -&gt; Maybe SeveritySummary -&gt; NonCompliantSummary
 </span><a href="Network.AWS.SSM.Types.NonCompliantSummary.html#NonCompliantSummary%27"><span class="hs-identifier hs-type">NonCompliantSummary'</span></a></span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:severitySummary:NonCompliantSummary' :: Maybe SeveritySummary
-</span><a href="Network.AWS.SSM.Types.NonCompliantSummary.html#%24sel%3AseveritySummary%3ANonCompliantSummary%27"><span class="hs-identifier hs-var">severitySummary</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-55"></span><span>        </span><span class="annot"><span class="annottext">Maybe SeveritySummary
+</span><span id="line-54"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nonCompliantCount:NonCompliantSummary' :: Maybe Int
+</span><a href="Network.AWS.SSM.Types.NonCompliantSummary.html#%24sel%3AnonCompliantCount%3ANonCompliantSummary%27"><span class="hs-identifier hs-var">nonCompliantCount</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-55"></span><span>        </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">$sel:nonCompliantCount:NonCompliantSummary' :: Maybe Int
-</span><a href="Network.AWS.SSM.Types.NonCompliantSummary.html#%24sel%3AnonCompliantCount%3ANonCompliantSummary%27"><span class="hs-identifier hs-var">nonCompliantCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">$sel:severitySummary:NonCompliantSummary' :: Maybe SeveritySummary
+</span><a href="Network.AWS.SSM.Types.NonCompliantSummary.html#%24sel%3AseveritySummary%3ANonCompliantSummary%27"><span class="hs-identifier hs-var">severitySummary</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SeveritySummary
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-58"></span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- | A summary of the non-compliance severity by compliance type</span><span>
-</span><span id="line-60"></span><span class="annot"><a href="Network.AWS.SSM.Types.NonCompliantSummary.html#nonCompliantSummary_severitySummary"><span class="hs-identifier hs-type">nonCompliantSummary_severitySummary</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.NonCompliantSummary.html#NonCompliantSummary"><span class="hs-identifier hs-type">NonCompliantSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.SeveritySummary.html#SeveritySummary"><span class="hs-identifier hs-type">SeveritySummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-61"></span><span id="nonCompliantSummary_severitySummary"><span class="annot"><span class="annottext">nonCompliantSummary_severitySummary :: (Maybe SeveritySummary -&gt; f (Maybe SeveritySummary))
+</span><span id="line-59"></span><span class="hs-comment">-- | The total number of compliance items that aren\'t compliant.</span><span>
+</span><span id="line-60"></span><span class="annot"><a href="Network.AWS.SSM.Types.NonCompliantSummary.html#nonCompliantSummary_nonCompliantCount"><span class="hs-identifier hs-type">nonCompliantSummary_nonCompliantCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.NonCompliantSummary.html#NonCompliantSummary"><span class="hs-identifier hs-type">NonCompliantSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span id="nonCompliantSummary_nonCompliantCount"><span class="annot"><span class="annottext">nonCompliantSummary_nonCompliantCount :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; NonCompliantSummary -&gt; f NonCompliantSummary
+</span><a href="Network.AWS.SSM.Types.NonCompliantSummary.html#nonCompliantSummary_nonCompliantCount"><span class="hs-identifier hs-var hs-var">nonCompliantSummary_nonCompliantCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NonCompliantSummary -&gt; Maybe Int)
+-&gt; (NonCompliantSummary -&gt; Maybe Int -&gt; NonCompliantSummary)
+-&gt; Lens
+     NonCompliantSummary NonCompliantSummary (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.NonCompliantSummary.html#NonCompliantSummary%27"><span class="hs-identifier hs-type">NonCompliantSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679816175"><span class="annot"><span class="annottext">Maybe Int
+nonCompliantCount :: Maybe Int
+$sel:nonCompliantCount:NonCompliantSummary' :: NonCompliantSummary -&gt; Maybe Int
+</span><a href="#local-6989586621679816175"><span class="hs-identifier hs-var hs-var">nonCompliantCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679816175"><span class="hs-identifier hs-var">nonCompliantCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679816174"><span class="annot"><span class="annottext">s :: NonCompliantSummary
+</span><a href="#local-6989586621679816174"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.NonCompliantSummary.html#NonCompliantSummary%27"><span class="hs-identifier hs-type">NonCompliantSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679816173"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679816173"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonCompliantSummary
+</span><a href="#local-6989586621679816174"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nonCompliantCount:NonCompliantSummary' :: Maybe Int
+</span><a href="Network.AWS.SSM.Types.NonCompliantSummary.html#%24sel%3AnonCompliantCount%3ANonCompliantSummary%27"><span class="hs-identifier hs-var">nonCompliantCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679816173"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.NonCompliantSummary.html#NonCompliantSummary"><span class="hs-identifier hs-type">NonCompliantSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- | A summary of the non-compliance severity by compliance type</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.SSM.Types.NonCompliantSummary.html#nonCompliantSummary_severitySummary"><span class="hs-identifier hs-type">nonCompliantSummary_severitySummary</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.NonCompliantSummary.html#NonCompliantSummary"><span class="hs-identifier hs-type">NonCompliantSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.SeveritySummary.html#SeveritySummary"><span class="hs-identifier hs-type">SeveritySummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span id="nonCompliantSummary_severitySummary"><span class="annot"><span class="annottext">nonCompliantSummary_severitySummary :: (Maybe SeveritySummary -&gt; f (Maybe SeveritySummary))
 -&gt; NonCompliantSummary -&gt; f NonCompliantSummary
 </span><a href="Network.AWS.SSM.Types.NonCompliantSummary.html#nonCompliantSummary_severitySummary"><span class="hs-identifier hs-var hs-var">nonCompliantSummary_severitySummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NonCompliantSummary -&gt; Maybe SeveritySummary)
 -&gt; (NonCompliantSummary
@@ -132,39 +152,19 @@ forall a. Maybe a
      (Maybe SeveritySummary)
      (Maybe SeveritySummary)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.NonCompliantSummary.html#NonCompliantSummary%27"><span class="hs-identifier hs-type">NonCompliantSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679814475"><span class="annot"><span class="annottext">Maybe SeveritySummary
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.NonCompliantSummary.html#NonCompliantSummary%27"><span class="hs-identifier hs-type">NonCompliantSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679816171"><span class="annot"><span class="annottext">Maybe SeveritySummary
 severitySummary :: Maybe SeveritySummary
 $sel:severitySummary:NonCompliantSummary' :: NonCompliantSummary -&gt; Maybe SeveritySummary
-</span><a href="#local-6989586621679814475"><span class="hs-identifier hs-var hs-var">severitySummary</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SeveritySummary
-</span><a href="#local-6989586621679814475"><span class="hs-identifier hs-var">severitySummary</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679814474"><span class="annot"><span class="annottext">s :: NonCompliantSummary
-</span><a href="#local-6989586621679814474"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.NonCompliantSummary.html#NonCompliantSummary%27"><span class="hs-identifier hs-type">NonCompliantSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679814473"><span class="annot"><span class="annottext">Maybe SeveritySummary
-</span><a href="#local-6989586621679814473"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonCompliantSummary
-</span><a href="#local-6989586621679814474"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:severitySummary:NonCompliantSummary' :: Maybe SeveritySummary
+</span><a href="#local-6989586621679816171"><span class="hs-identifier hs-var hs-var">severitySummary</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SeveritySummary
+</span><a href="#local-6989586621679816171"><span class="hs-identifier hs-var">severitySummary</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679816170"><span class="annot"><span class="annottext">s :: NonCompliantSummary
+</span><a href="#local-6989586621679816170"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.NonCompliantSummary.html#NonCompliantSummary%27"><span class="hs-identifier hs-type">NonCompliantSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679816169"><span class="annot"><span class="annottext">Maybe SeveritySummary
+</span><a href="#local-6989586621679816169"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonCompliantSummary
+</span><a href="#local-6989586621679816170"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:severitySummary:NonCompliantSummary' :: Maybe SeveritySummary
 </span><a href="Network.AWS.SSM.Types.NonCompliantSummary.html#%24sel%3AseveritySummary%3ANonCompliantSummary%27"><span class="hs-identifier hs-var">severitySummary</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SeveritySummary
-</span><a href="#local-6989586621679814473"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.NonCompliantSummary.html#NonCompliantSummary"><span class="hs-identifier hs-type">NonCompliantSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- | The total number of compliance items that aren\'t compliant.</span><span>
-</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.SSM.Types.NonCompliantSummary.html#nonCompliantSummary_nonCompliantCount"><span class="hs-identifier hs-type">nonCompliantSummary_nonCompliantCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.NonCompliantSummary.html#NonCompliantSummary"><span class="hs-identifier hs-type">NonCompliantSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-65"></span><span id="nonCompliantSummary_nonCompliantCount"><span class="annot"><span class="annottext">nonCompliantSummary_nonCompliantCount :: (Maybe Int -&gt; f (Maybe Int))
--&gt; NonCompliantSummary -&gt; f NonCompliantSummary
-</span><a href="Network.AWS.SSM.Types.NonCompliantSummary.html#nonCompliantSummary_nonCompliantCount"><span class="hs-identifier hs-var hs-var">nonCompliantSummary_nonCompliantCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NonCompliantSummary -&gt; Maybe Int)
--&gt; (NonCompliantSummary -&gt; Maybe Int -&gt; NonCompliantSummary)
--&gt; Lens
-     NonCompliantSummary NonCompliantSummary (Maybe Int) (Maybe Int)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.NonCompliantSummary.html#NonCompliantSummary%27"><span class="hs-identifier hs-type">NonCompliantSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679814471"><span class="annot"><span class="annottext">Maybe Int
-nonCompliantCount :: Maybe Int
-$sel:nonCompliantCount:NonCompliantSummary' :: NonCompliantSummary -&gt; Maybe Int
-</span><a href="#local-6989586621679814471"><span class="hs-identifier hs-var hs-var">nonCompliantCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679814471"><span class="hs-identifier hs-var">nonCompliantCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679814470"><span class="annot"><span class="annottext">s :: NonCompliantSummary
-</span><a href="#local-6989586621679814470"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.NonCompliantSummary.html#NonCompliantSummary%27"><span class="hs-identifier hs-type">NonCompliantSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679814469"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679814469"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonCompliantSummary
-</span><a href="#local-6989586621679814470"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nonCompliantCount:NonCompliantSummary' :: Maybe Int
-</span><a href="Network.AWS.SSM.Types.NonCompliantSummary.html#%24sel%3AnonCompliantCount%3ANonCompliantSummary%27"><span class="hs-identifier hs-var">nonCompliantCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679814469"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.NonCompliantSummary.html#NonCompliantSummary"><span class="hs-identifier hs-type">NonCompliantSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679816169"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.NonCompliantSummary.html#NonCompliantSummary"><span class="hs-identifier hs-type">NonCompliantSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679814466"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.NonCompliantSummary.html#NonCompliantSummary"><span class="hs-identifier hs-type">NonCompliantSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-68"></span><span>  </span><span id="local-6989586621679814464"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser NonCompliantSummary
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679816166"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.NonCompliantSummary.html#NonCompliantSummary"><span class="hs-identifier hs-type">NonCompliantSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621679816164"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser NonCompliantSummary
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-69"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser NonCompliantSummary)
@@ -174,30 +174,30 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;NonCompliantSummary&quot;</span></span><span>
-</span><span id="line-71"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679814461"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679814461"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-72"></span><span>          </span><span class="annot"><span class="annottext">Maybe SeveritySummary -&gt; Maybe Int -&gt; NonCompliantSummary
+</span><span id="line-71"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679816161"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679816161"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-72"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int -&gt; Maybe SeveritySummary -&gt; NonCompliantSummary
 </span><a href="Network.AWS.SSM.Types.NonCompliantSummary.html#NonCompliantSummary%27"><span class="hs-identifier hs-var">NonCompliantSummary'</span></a></span><span>
-</span><span id="line-73"></span><span>            </span><span class="annot"><span class="annottext">(Maybe SeveritySummary -&gt; Maybe Int -&gt; NonCompliantSummary)
--&gt; Parser (Maybe SeveritySummary)
--&gt; Parser (Maybe Int -&gt; NonCompliantSummary)
+</span><span id="line-73"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Int -&gt; Maybe SeveritySummary -&gt; NonCompliantSummary)
+-&gt; Parser (Maybe Int)
+-&gt; Parser (Maybe SeveritySummary -&gt; NonCompliantSummary)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679814461"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SeveritySummary)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;SeveritySummary&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-74"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Int -&gt; NonCompliantSummary)
--&gt; Parser (Maybe Int) -&gt; Parser NonCompliantSummary
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679814461"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679816161"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NonCompliantCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe SeveritySummary -&gt; NonCompliantSummary)
+-&gt; Parser (Maybe SeveritySummary) -&gt; Parser NonCompliantSummary
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679816161"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SeveritySummary)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SeveritySummary&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679814455"><span id="local-6989586621679814457"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.NonCompliantSummary.html#NonCompliantSummary"><span class="hs-identifier hs-type">NonCompliantSummary</span></a></span></span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679816155"><span id="local-6989586621679816157"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.NonCompliantSummary.html#NonCompliantSummary"><span class="hs-identifier hs-type">NonCompliantSummary</span></a></span></span></span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679814452"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.NonCompliantSummary.html#NonCompliantSummary"><span class="hs-identifier hs-type">NonCompliantSummary</span></a></span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679816152"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.NonCompliantSummary.html#NonCompliantSummary"><span class="hs-identifier hs-type">NonCompliantSummary</span></a></span></span><span>
 </span><span id="line-80"></span></pre></body></html>

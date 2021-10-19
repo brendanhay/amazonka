@@ -30,10 +30,10 @@
 </span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#newDescribeDBProxyTargetGroups"><span class="hs-identifier">newDescribeDBProxyTargetGroups</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-31"></span><span>
 </span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#describeDBProxyTargetGroups_targetGroupName"><span class="hs-identifier">describeDBProxyTargetGroups_targetGroupName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#describeDBProxyTargetGroups_filters"><span class="hs-identifier">describeDBProxyTargetGroups_filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#describeDBProxyTargetGroups_filters"><span class="hs-identifier">describeDBProxyTargetGroups_filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#describeDBProxyTargetGroups_marker"><span class="hs-identifier">describeDBProxyTargetGroups_marker</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#describeDBProxyTargetGroups_maxRecords"><span class="hs-identifier">describeDBProxyTargetGroups_maxRecords</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#describeDBProxyTargetGroups_marker"><span class="hs-identifier">describeDBProxyTargetGroups_marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#describeDBProxyTargetGroups_targetGroupName"><span class="hs-identifier">describeDBProxyTargetGroups_targetGroupName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#describeDBProxyTargetGroups_dbProxyName"><span class="hs-identifier">describeDBProxyTargetGroups_dbProxyName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-38"></span><span>
 </span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
@@ -41,8 +41,8 @@
 </span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#newDescribeDBProxyTargetGroupsResponse"><span class="hs-identifier">newDescribeDBProxyTargetGroupsResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-42"></span><span>
 </span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#describeDBProxyTargetGroupsResponse_targetGroups"><span class="hs-identifier">describeDBProxyTargetGroupsResponse_targetGroups</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#describeDBProxyTargetGroupsResponse_marker"><span class="hs-identifier">describeDBProxyTargetGroupsResponse_marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#describeDBProxyTargetGroupsResponse_marker"><span class="hs-identifier">describeDBProxyTargetGroupsResponse_marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#describeDBProxyTargetGroupsResponse_targetGroups"><span class="hs-identifier">describeDBProxyTargetGroupsResponse_targetGroups</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#describeDBProxyTargetGroupsResponse_httpStatus"><span class="hs-identifier">describeDBProxyTargetGroupsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-48"></span><span class="hs-keyword">where</span><span>
@@ -55,33 +55,33 @@
 </span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newDescribeDBProxyTargetGroups' smart constructor.</span><span>
-</span><span id="line-58"></span><span id="local-6989586621679790590"><span id="local-6989586621679790591"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeDBProxyTargetGroups"><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroups"><span class="hs-identifier hs-var">DescribeDBProxyTargetGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeDBProxyTargetGroups%27"><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroups%27"><span class="hs-identifier hs-var">DescribeDBProxyTargetGroups'</span></a></span></span><span>
-</span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier of the @DBProxyTargetGroup@ to describe.</span><span>
-</span><span id="line-60"></span><span>    </span><span id="%24sel%3AtargetGroupName%3ADescribeDBProxyTargetGroups%27"><span class="annot"><span class="annottext">DescribeDBProxyTargetGroups -&gt; Maybe Text
-</span><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#%24sel%3AtargetGroupName%3ADescribeDBProxyTargetGroups%27"><span class="hs-identifier hs-var hs-var">targetGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | This parameter is not currently supported.</span><span>
-</span><span id="line-62"></span><span>    </span><span id="%24sel%3Afilters%3ADescribeDBProxyTargetGroups%27"><span class="annot"><span class="annottext">DescribeDBProxyTargetGroups -&gt; Maybe [Filter]
+</span><span id="line-58"></span><span id="local-6989586621679791726"><span id="local-6989586621679791727"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeDBProxyTargetGroups"><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroups"><span class="hs-identifier hs-var">DescribeDBProxyTargetGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeDBProxyTargetGroups%27"><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroups%27"><span class="hs-identifier hs-var">DescribeDBProxyTargetGroups'</span></a></span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | This parameter is not currently supported.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3Afilters%3ADescribeDBProxyTargetGroups%27"><span class="annot"><span class="annottext">DescribeDBProxyTargetGroups -&gt; Maybe [Filter]
 </span><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#%24sel%3Afilters%3ADescribeDBProxyTargetGroups%27"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.RDS.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The maximum number of records to include in the response. If more</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- records exist than the specified @MaxRecords@ value, a pagination token</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- called a marker is included in the response so that the remaining</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- results can be retrieved.</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- Default: 100</span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- Constraints: Minimum 20, maximum 100.</span><span>
-</span><span id="line-71"></span><span>    </span><span id="%24sel%3AmaxRecords%3ADescribeDBProxyTargetGroups%27"><span class="annot"><span class="annottext">DescribeDBProxyTargetGroups -&gt; Maybe Natural
-</span><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#%24sel%3AmaxRecords%3ADescribeDBProxyTargetGroups%27"><span class="hs-identifier hs-var hs-var">maxRecords</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | An optional pagination token provided by a previous request. If this</span><span>
-</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- parameter is specified, the response includes only records beyond the</span><span>
-</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- marker, up to the value specified by @MaxRecords@.</span><span>
-</span><span id="line-75"></span><span>    </span><span id="%24sel%3Amarker%3ADescribeDBProxyTargetGroups%27"><span class="annot"><span class="annottext">DescribeDBProxyTargetGroups -&gt; Maybe Text
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | An optional pagination token provided by a previous request. If this</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- parameter is specified, the response includes only records beyond the</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- marker, up to the value specified by @MaxRecords@.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3Amarker%3ADescribeDBProxyTargetGroups%27"><span class="annot"><span class="annottext">DescribeDBProxyTargetGroups -&gt; Maybe Text
 </span><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#%24sel%3Amarker%3ADescribeDBProxyTargetGroups%27"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The maximum number of records to include in the response. If more</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- records exist than the specified @MaxRecords@ value, a pagination token</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- called a marker is included in the response so that the remaining</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- results can be retrieved.</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- Default: 100</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- Constraints: Minimum 20, maximum 100.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3AmaxRecords%3ADescribeDBProxyTargetGroups%27"><span class="annot"><span class="annottext">DescribeDBProxyTargetGroups -&gt; Maybe Natural
+</span><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#%24sel%3AmaxRecords%3ADescribeDBProxyTargetGroups%27"><span class="hs-identifier hs-var hs-var">maxRecords</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | The identifier of the @DBProxyTargetGroup@ to describe.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3AtargetGroupName%3ADescribeDBProxyTargetGroups%27"><span class="annot"><span class="annottext">DescribeDBProxyTargetGroups -&gt; Maybe Text
+</span><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#%24sel%3AtargetGroupName%3ADescribeDBProxyTargetGroups%27"><span class="hs-identifier hs-var hs-var">targetGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | The identifier of the @DBProxy@ associated with the target group.</span><span>
 </span><span id="line-77"></span><span>    </span><span id="%24sel%3AdbProxyName%3ADescribeDBProxyTargetGroups%27"><span class="annot"><span class="annottext">DescribeDBProxyTargetGroups -&gt; Text
 </span><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#%24sel%3AdbProxyName%3ADescribeDBProxyTargetGroups%27"><span class="hs-identifier hs-var hs-var">dbProxyName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-78"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-79"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679790580"><span id="local-6989586621679790582"><span class="annot"><span class="annottext">DescribeDBProxyTargetGroups -&gt; DescribeDBProxyTargetGroups -&gt; Bool
+</span><span id="line-79"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679791716"><span id="local-6989586621679791718"><span class="annot"><span class="annottext">DescribeDBProxyTargetGroups -&gt; DescribeDBProxyTargetGroups -&gt; Bool
 (DescribeDBProxyTargetGroups
  -&gt; DescribeDBProxyTargetGroups -&gt; Bool)
 -&gt; (DescribeDBProxyTargetGroups
@@ -92,7 +92,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeDBProxyTargetGroups -&gt; DescribeDBProxyTargetGroups -&gt; Bool
 == :: DescribeDBProxyTargetGroups -&gt; DescribeDBProxyTargetGroups -&gt; Bool
 $c== :: DescribeDBProxyTargetGroups -&gt; DescribeDBProxyTargetGroups -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679790571"><span id="local-6989586621679790573"><span id="local-6989586621679790575"><span id="local-6989586621679790577"><span class="annot"><span class="annottext">ReadPrec [DescribeDBProxyTargetGroups]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679791707"><span id="local-6989586621679791709"><span id="local-6989586621679791711"><span id="local-6989586621679791713"><span class="annot"><span class="annottext">ReadPrec [DescribeDBProxyTargetGroups]
 ReadPrec DescribeDBProxyTargetGroups
 Int -&gt; ReadS DescribeDBProxyTargetGroups
 ReadS [DescribeDBProxyTargetGroups]
@@ -112,7 +112,7 @@ readList :: ReadS [DescribeDBProxyTargetGroups]
 $creadList :: ReadS [DescribeDBProxyTargetGroups]
 readsPrec :: Int -&gt; ReadS DescribeDBProxyTargetGroups
 $creadsPrec :: Int -&gt; ReadS DescribeDBProxyTargetGroups
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679790564"><span id="local-6989586621679790566"><span id="local-6989586621679790568"><span class="annot"><span class="annottext">Int -&gt; DescribeDBProxyTargetGroups -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679791700"><span id="local-6989586621679791702"><span id="local-6989586621679791704"><span class="annot"><span class="annottext">Int -&gt; DescribeDBProxyTargetGroups -&gt; ShowS
 [DescribeDBProxyTargetGroups] -&gt; ShowS
 DescribeDBProxyTargetGroups -&gt; String
 (Int -&gt; DescribeDBProxyTargetGroups -&gt; ShowS)
@@ -152,22 +152,22 @@ DescribeDBProxyTargetGroups -&gt; Rep DescribeDBProxyTargetGroups x
 </span><span id="line-86"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-88"></span><span class="hs-comment">--</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- 'targetGroupName', 'describeDBProxyTargetGroups_targetGroupName' - The identifier of the @DBProxyTargetGroup@ to describe.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'filters', 'describeDBProxyTargetGroups_filters' - This parameter is not currently supported.</span><span>
 </span><span id="line-90"></span><span class="hs-comment">--</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- 'filters', 'describeDBProxyTargetGroups_filters' - This parameter is not currently supported.</span><span>
-</span><span id="line-92"></span><span class="hs-comment">--</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- 'maxRecords', 'describeDBProxyTargetGroups_maxRecords' - The maximum number of records to include in the response. If more</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- records exist than the specified @MaxRecords@ value, a pagination token</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- called a marker is included in the response so that the remaining</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- results can be retrieved.</span><span>
-</span><span id="line-97"></span><span class="hs-comment">--</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- Default: 100</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'marker', 'describeDBProxyTargetGroups_marker' - An optional pagination token provided by a previous request. If this</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- parameter is specified, the response includes only records beyond the</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- marker, up to the value specified by @MaxRecords@.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'maxRecords', 'describeDBProxyTargetGroups_maxRecords' - The maximum number of records to include in the response. If more</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- records exist than the specified @MaxRecords@ value, a pagination token</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- called a marker is included in the response so that the remaining</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- results can be retrieved.</span><span>
 </span><span id="line-99"></span><span class="hs-comment">--</span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- Constraints: Minimum 20, maximum 100.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- Default: 100</span><span>
 </span><span id="line-101"></span><span class="hs-comment">--</span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- 'marker', 'describeDBProxyTargetGroups_marker' - An optional pagination token provided by a previous request. If this</span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- parameter is specified, the response includes only records beyond the</span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- marker, up to the value specified by @MaxRecords@.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- Constraints: Minimum 20, maximum 100.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- 'targetGroupName', 'describeDBProxyTargetGroups_targetGroupName' - The identifier of the @DBProxyTargetGroup@ to describe.</span><span>
 </span><span id="line-105"></span><span class="hs-comment">--</span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- 'dbProxyName', 'describeDBProxyTargetGroups_dbProxyName' - The identifier of the @DBProxy@ associated with the target group.</span><span>
 </span><span id="line-107"></span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#newDescribeDBProxyTargetGroups"><span class="hs-identifier hs-type">newDescribeDBProxyTargetGroups</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -175,64 +175,40 @@ DescribeDBProxyTargetGroups -&gt; Rep DescribeDBProxyTargetGroups x
 </span><span id="line-109"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-110"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroups"><span class="hs-identifier hs-type">DescribeDBProxyTargetGroups</span></a></span><span>
 </span><span id="line-111"></span><span id="newDescribeDBProxyTargetGroups"><span class="annot"><span class="annottext">newDescribeDBProxyTargetGroups :: Text -&gt; DescribeDBProxyTargetGroups
-</span><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#newDescribeDBProxyTargetGroups"><span class="hs-identifier hs-var hs-var">newDescribeDBProxyTargetGroups</span></a></span></span><span> </span><span id="local-6989586621679790559"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679790559"><span class="hs-identifier hs-var">pDBProxyName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-112"></span><span>  </span><span class="annot"><span class="annottext">DescribeDBProxyTargetGroups' :: Maybe Text
--&gt; Maybe [Filter]
+</span><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#newDescribeDBProxyTargetGroups"><span class="hs-identifier hs-var hs-var">newDescribeDBProxyTargetGroups</span></a></span></span><span> </span><span id="local-6989586621679791695"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679791695"><span class="hs-identifier hs-var">pDBProxyName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>  </span><span class="annot"><span class="annottext">DescribeDBProxyTargetGroups' :: Maybe [Filter]
+-&gt; Maybe Text
 -&gt; Maybe Natural
 -&gt; Maybe Text
 -&gt; Text
 -&gt; DescribeDBProxyTargetGroups
 </span><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroups%27"><span class="hs-identifier hs-type">DescribeDBProxyTargetGroups'</span></a></span><span>
-</span><span id="line-113"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:targetGroupName:DescribeDBProxyTargetGroups' :: Maybe Text
-</span><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#%24sel%3AtargetGroupName%3ADescribeDBProxyTargetGroups%27"><span class="hs-identifier hs-var">targetGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-114"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-113"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:filters:DescribeDBProxyTargetGroups' :: Maybe [Filter]
+</span><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#%24sel%3Afilters%3ADescribeDBProxyTargetGroups%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-114"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Filter]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:filters:DescribeDBProxyTargetGroups' :: Maybe [Filter]
-</span><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#%24sel%3Afilters%3ADescribeDBProxyTargetGroups%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:marker:DescribeDBProxyTargetGroups' :: Maybe Text
+</span><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#%24sel%3Amarker%3ADescribeDBProxyTargetGroups%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxRecords:DescribeDBProxyTargetGroups' :: Maybe Natural
 </span><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#%24sel%3AmaxRecords%3ADescribeDBProxyTargetGroups%27"><span class="hs-identifier hs-var">maxRecords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:marker:DescribeDBProxyTargetGroups' :: Maybe Text
-</span><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#%24sel%3Amarker%3ADescribeDBProxyTargetGroups%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:targetGroupName:DescribeDBProxyTargetGroups' :: Maybe Text
+</span><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#%24sel%3AtargetGroupName%3ADescribeDBProxyTargetGroups%27"><span class="hs-identifier hs-var">targetGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:dbProxyName:DescribeDBProxyTargetGroups' :: Text
 </span><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#%24sel%3AdbProxyName%3ADescribeDBProxyTargetGroups%27"><span class="hs-identifier hs-var">dbProxyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679790559"><span class="hs-identifier hs-var">pDBProxyName_</span></a></span><span>
+</span><a href="#local-6989586621679791695"><span class="hs-identifier hs-var">pDBProxyName_</span></a></span><span>
 </span><span id="line-119"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-comment">-- | The identifier of the @DBProxyTargetGroup@ to describe.</span><span>
-</span><span id="line-122"></span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#describeDBProxyTargetGroups_targetGroupName"><span class="hs-identifier hs-type">describeDBProxyTargetGroups_targetGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroups"><span class="hs-identifier hs-type">DescribeDBProxyTargetGroups</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-123"></span><span id="describeDBProxyTargetGroups_targetGroupName"><span class="annot"><span class="annottext">describeDBProxyTargetGroups_targetGroupName :: (Maybe Text -&gt; f (Maybe Text))
--&gt; DescribeDBProxyTargetGroups -&gt; f DescribeDBProxyTargetGroups
-</span><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#describeDBProxyTargetGroups_targetGroupName"><span class="hs-identifier hs-var hs-var">describeDBProxyTargetGroups_targetGroupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeDBProxyTargetGroups -&gt; Maybe Text)
--&gt; (DescribeDBProxyTargetGroups
-    -&gt; Maybe Text -&gt; DescribeDBProxyTargetGroups)
--&gt; Lens
-     DescribeDBProxyTargetGroups
-     DescribeDBProxyTargetGroups
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroups%27"><span class="hs-identifier hs-type">DescribeDBProxyTargetGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679790557"><span class="annot"><span class="annottext">Maybe Text
-targetGroupName :: Maybe Text
-$sel:targetGroupName:DescribeDBProxyTargetGroups' :: DescribeDBProxyTargetGroups -&gt; Maybe Text
-</span><a href="#local-6989586621679790557"><span class="hs-identifier hs-var hs-var">targetGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679790557"><span class="hs-identifier hs-var">targetGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679790556"><span class="annot"><span class="annottext">s :: DescribeDBProxyTargetGroups
-</span><a href="#local-6989586621679790556"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroups%27"><span class="hs-identifier hs-type">DescribeDBProxyTargetGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679790555"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679790555"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDBProxyTargetGroups
-</span><a href="#local-6989586621679790556"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetGroupName:DescribeDBProxyTargetGroups' :: Maybe Text
-</span><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#%24sel%3AtargetGroupName%3ADescribeDBProxyTargetGroups%27"><span class="hs-identifier hs-var">targetGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679790555"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroups"><span class="hs-identifier hs-type">DescribeDBProxyTargetGroups</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-comment">-- | This parameter is not currently supported.</span><span>
-</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#describeDBProxyTargetGroups_filters"><span class="hs-identifier hs-type">describeDBProxyTargetGroups_filters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroups"><span class="hs-identifier hs-type">DescribeDBProxyTargetGroups</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.RDS.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-127"></span><span id="describeDBProxyTargetGroups_filters"><span class="annot"><span class="annottext">describeDBProxyTargetGroups_filters :: (Maybe [Filter] -&gt; f (Maybe [Filter]))
+</span><span id="line-121"></span><span class="hs-comment">-- | This parameter is not currently supported.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#describeDBProxyTargetGroups_filters"><span class="hs-identifier hs-type">describeDBProxyTargetGroups_filters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroups"><span class="hs-identifier hs-type">DescribeDBProxyTargetGroups</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.RDS.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span id="describeDBProxyTargetGroups_filters"><span class="annot"><span class="annottext">describeDBProxyTargetGroups_filters :: (Maybe [Filter] -&gt; f (Maybe [Filter]))
 -&gt; DescribeDBProxyTargetGroups -&gt; f DescribeDBProxyTargetGroups
 </span><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#describeDBProxyTargetGroups_filters"><span class="hs-identifier hs-var hs-var">describeDBProxyTargetGroups_filters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeDBProxyTargetGroups -&gt; Maybe [Filter])
 -&gt; (DescribeDBProxyTargetGroups
@@ -243,16 +219,16 @@ $sel:targetGroupName:DescribeDBProxyTargetGroups' :: DescribeDBProxyTargetGroups
      (Maybe [Filter])
      (Maybe [Filter])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroups%27"><span class="hs-identifier hs-type">DescribeDBProxyTargetGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679790554"><span class="annot"><span class="annottext">Maybe [Filter]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroups%27"><span class="hs-identifier hs-type">DescribeDBProxyTargetGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679791693"><span class="annot"><span class="annottext">Maybe [Filter]
 filters :: Maybe [Filter]
 $sel:filters:DescribeDBProxyTargetGroups' :: DescribeDBProxyTargetGroups -&gt; Maybe [Filter]
-</span><a href="#local-6989586621679790554"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621679790554"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679790553"><span class="annot"><span class="annottext">s :: DescribeDBProxyTargetGroups
-</span><a href="#local-6989586621679790553"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroups%27"><span class="hs-identifier hs-type">DescribeDBProxyTargetGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679790552"><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621679790552"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDBProxyTargetGroups
-</span><a href="#local-6989586621679790553"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:DescribeDBProxyTargetGroups' :: Maybe [Filter]
+</span><a href="#local-6989586621679791693"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621679791693"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679791692"><span class="annot"><span class="annottext">s :: DescribeDBProxyTargetGroups
+</span><a href="#local-6989586621679791692"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroups%27"><span class="hs-identifier hs-type">DescribeDBProxyTargetGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679791691"><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621679791691"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDBProxyTargetGroups
+</span><a href="#local-6989586621679791692"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:DescribeDBProxyTargetGroups' :: Maybe [Filter]
 </span><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#%24sel%3Afilters%3ADescribeDBProxyTargetGroups%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621679790552"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroups"><span class="hs-identifier hs-type">DescribeDBProxyTargetGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Filter] -&gt; f (Maybe [Filter]))
+</span><a href="#local-6989586621679791691"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroups"><span class="hs-identifier hs-type">DescribeDBProxyTargetGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Filter] -&gt; f (Maybe [Filter]))
  -&gt; DescribeDBProxyTargetGroups -&gt; f DescribeDBProxyTargetGroups)
 -&gt; ((Maybe [Filter] -&gt; f (Maybe [Filter]))
     -&gt; Maybe [Filter] -&gt; f (Maybe [Filter]))
@@ -267,45 +243,14 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Filter] [Filter] [Filter] [Filter]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- | The maximum number of records to include in the response. If more</span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- records exist than the specified @MaxRecords@ value, a pagination token</span><span>
-</span><span id="line-131"></span><span class="hs-comment">-- called a marker is included in the response so that the remaining</span><span>
-</span><span id="line-132"></span><span class="hs-comment">-- results can be retrieved.</span><span>
-</span><span id="line-133"></span><span class="hs-comment">--</span><span>
-</span><span id="line-134"></span><span class="hs-comment">-- Default: 100</span><span>
-</span><span id="line-135"></span><span class="hs-comment">--</span><span>
-</span><span id="line-136"></span><span class="hs-comment">-- Constraints: Minimum 20, maximum 100.</span><span>
-</span><span id="line-137"></span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#describeDBProxyTargetGroups_maxRecords"><span class="hs-identifier hs-type">describeDBProxyTargetGroups_maxRecords</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroups"><span class="hs-identifier hs-type">DescribeDBProxyTargetGroups</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-138"></span><span id="describeDBProxyTargetGroups_maxRecords"><span class="annot"><span class="annottext">describeDBProxyTargetGroups_maxRecords :: (Maybe Natural -&gt; f (Maybe Natural))
--&gt; DescribeDBProxyTargetGroups -&gt; f DescribeDBProxyTargetGroups
-</span><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#describeDBProxyTargetGroups_maxRecords"><span class="hs-identifier hs-var hs-var">describeDBProxyTargetGroups_maxRecords</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeDBProxyTargetGroups -&gt; Maybe Natural)
--&gt; (DescribeDBProxyTargetGroups
-    -&gt; Maybe Natural -&gt; DescribeDBProxyTargetGroups)
--&gt; Lens
-     DescribeDBProxyTargetGroups
-     DescribeDBProxyTargetGroups
-     (Maybe Natural)
-     (Maybe Natural)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroups%27"><span class="hs-identifier hs-type">DescribeDBProxyTargetGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679790548"><span class="annot"><span class="annottext">Maybe Natural
-maxRecords :: Maybe Natural
-$sel:maxRecords:DescribeDBProxyTargetGroups' :: DescribeDBProxyTargetGroups -&gt; Maybe Natural
-</span><a href="#local-6989586621679790548"><span class="hs-identifier hs-var hs-var">maxRecords</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679790548"><span class="hs-identifier hs-var">maxRecords</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679790547"><span class="annot"><span class="annottext">s :: DescribeDBProxyTargetGroups
-</span><a href="#local-6989586621679790547"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroups%27"><span class="hs-identifier hs-type">DescribeDBProxyTargetGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679790546"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679790546"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDBProxyTargetGroups
-</span><a href="#local-6989586621679790547"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxRecords:DescribeDBProxyTargetGroups' :: Maybe Natural
-</span><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#%24sel%3AmaxRecords%3ADescribeDBProxyTargetGroups%27"><span class="hs-identifier hs-var">maxRecords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679790546"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroups"><span class="hs-identifier hs-type">DescribeDBProxyTargetGroups</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-139"></span><span>
-</span><span id="line-140"></span><span class="hs-comment">-- | An optional pagination token provided by a previous request. If this</span><span>
-</span><span id="line-141"></span><span class="hs-comment">-- parameter is specified, the response includes only records beyond the</span><span>
-</span><span id="line-142"></span><span class="hs-comment">-- marker, up to the value specified by @MaxRecords@.</span><span>
-</span><span id="line-143"></span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#describeDBProxyTargetGroups_marker"><span class="hs-identifier hs-type">describeDBProxyTargetGroups_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroups"><span class="hs-identifier hs-type">DescribeDBProxyTargetGroups</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-144"></span><span id="describeDBProxyTargetGroups_marker"><span class="annot"><span class="annottext">describeDBProxyTargetGroups_marker :: (Maybe Text -&gt; f (Maybe Text))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | An optional pagination token provided by a previous request. If this</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- parameter is specified, the response includes only records beyond the</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- marker, up to the value specified by @MaxRecords@.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#describeDBProxyTargetGroups_marker"><span class="hs-identifier hs-type">describeDBProxyTargetGroups_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroups"><span class="hs-identifier hs-type">DescribeDBProxyTargetGroups</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span id="describeDBProxyTargetGroups_marker"><span class="annot"><span class="annottext">describeDBProxyTargetGroups_marker :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; DescribeDBProxyTargetGroups -&gt; f DescribeDBProxyTargetGroups
 </span><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#describeDBProxyTargetGroups_marker"><span class="hs-identifier hs-var hs-var">describeDBProxyTargetGroups_marker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeDBProxyTargetGroups -&gt; Maybe Text)
 -&gt; (DescribeDBProxyTargetGroups
@@ -316,16 +261,71 @@ $sel:maxRecords:DescribeDBProxyTargetGroups' :: DescribeDBProxyTargetGroups -&gt
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroups%27"><span class="hs-identifier hs-type">DescribeDBProxyTargetGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679790545"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroups%27"><span class="hs-identifier hs-type">DescribeDBProxyTargetGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679791687"><span class="annot"><span class="annottext">Maybe Text
 marker :: Maybe Text
 $sel:marker:DescribeDBProxyTargetGroups' :: DescribeDBProxyTargetGroups -&gt; Maybe Text
-</span><a href="#local-6989586621679790545"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679790545"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679790544"><span class="annot"><span class="annottext">s :: DescribeDBProxyTargetGroups
-</span><a href="#local-6989586621679790544"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroups%27"><span class="hs-identifier hs-type">DescribeDBProxyTargetGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679790543"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679790543"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDBProxyTargetGroups
-</span><a href="#local-6989586621679790544"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeDBProxyTargetGroups' :: Maybe Text
+</span><a href="#local-6989586621679791687"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679791687"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679791686"><span class="annot"><span class="annottext">s :: DescribeDBProxyTargetGroups
+</span><a href="#local-6989586621679791686"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroups%27"><span class="hs-identifier hs-type">DescribeDBProxyTargetGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679791685"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679791685"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDBProxyTargetGroups
+</span><a href="#local-6989586621679791686"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeDBProxyTargetGroups' :: Maybe Text
 </span><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#%24sel%3Amarker%3ADescribeDBProxyTargetGroups%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679790543"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroups"><span class="hs-identifier hs-type">DescribeDBProxyTargetGroups</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679791685"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroups"><span class="hs-identifier hs-type">DescribeDBProxyTargetGroups</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | The maximum number of records to include in the response. If more</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- records exist than the specified @MaxRecords@ value, a pagination token</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- called a marker is included in the response so that the remaining</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- results can be retrieved.</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- Default: 100</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- Constraints: Minimum 20, maximum 100.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#describeDBProxyTargetGroups_maxRecords"><span class="hs-identifier hs-type">describeDBProxyTargetGroups_maxRecords</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroups"><span class="hs-identifier hs-type">DescribeDBProxyTargetGroups</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span id="describeDBProxyTargetGroups_maxRecords"><span class="annot"><span class="annottext">describeDBProxyTargetGroups_maxRecords :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; DescribeDBProxyTargetGroups -&gt; f DescribeDBProxyTargetGroups
+</span><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#describeDBProxyTargetGroups_maxRecords"><span class="hs-identifier hs-var hs-var">describeDBProxyTargetGroups_maxRecords</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeDBProxyTargetGroups -&gt; Maybe Natural)
+-&gt; (DescribeDBProxyTargetGroups
+    -&gt; Maybe Natural -&gt; DescribeDBProxyTargetGroups)
+-&gt; Lens
+     DescribeDBProxyTargetGroups
+     DescribeDBProxyTargetGroups
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroups%27"><span class="hs-identifier hs-type">DescribeDBProxyTargetGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679791684"><span class="annot"><span class="annottext">Maybe Natural
+maxRecords :: Maybe Natural
+$sel:maxRecords:DescribeDBProxyTargetGroups' :: DescribeDBProxyTargetGroups -&gt; Maybe Natural
+</span><a href="#local-6989586621679791684"><span class="hs-identifier hs-var hs-var">maxRecords</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679791684"><span class="hs-identifier hs-var">maxRecords</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679791683"><span class="annot"><span class="annottext">s :: DescribeDBProxyTargetGroups
+</span><a href="#local-6989586621679791683"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroups%27"><span class="hs-identifier hs-type">DescribeDBProxyTargetGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679791682"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679791682"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDBProxyTargetGroups
+</span><a href="#local-6989586621679791683"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxRecords:DescribeDBProxyTargetGroups' :: Maybe Natural
+</span><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#%24sel%3AmaxRecords%3ADescribeDBProxyTargetGroups%27"><span class="hs-identifier hs-var">maxRecords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679791682"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroups"><span class="hs-identifier hs-type">DescribeDBProxyTargetGroups</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- | The identifier of the @DBProxyTargetGroup@ to describe.</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#describeDBProxyTargetGroups_targetGroupName"><span class="hs-identifier hs-type">describeDBProxyTargetGroups_targetGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroups"><span class="hs-identifier hs-type">DescribeDBProxyTargetGroups</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span id="describeDBProxyTargetGroups_targetGroupName"><span class="annot"><span class="annottext">describeDBProxyTargetGroups_targetGroupName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeDBProxyTargetGroups -&gt; f DescribeDBProxyTargetGroups
+</span><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#describeDBProxyTargetGroups_targetGroupName"><span class="hs-identifier hs-var hs-var">describeDBProxyTargetGroups_targetGroupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeDBProxyTargetGroups -&gt; Maybe Text)
+-&gt; (DescribeDBProxyTargetGroups
+    -&gt; Maybe Text -&gt; DescribeDBProxyTargetGroups)
+-&gt; Lens
+     DescribeDBProxyTargetGroups
+     DescribeDBProxyTargetGroups
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroups%27"><span class="hs-identifier hs-type">DescribeDBProxyTargetGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679791681"><span class="annot"><span class="annottext">Maybe Text
+targetGroupName :: Maybe Text
+$sel:targetGroupName:DescribeDBProxyTargetGroups' :: DescribeDBProxyTargetGroups -&gt; Maybe Text
+</span><a href="#local-6989586621679791681"><span class="hs-identifier hs-var hs-var">targetGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679791681"><span class="hs-identifier hs-var">targetGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679791680"><span class="annot"><span class="annottext">s :: DescribeDBProxyTargetGroups
+</span><a href="#local-6989586621679791680"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroups%27"><span class="hs-identifier hs-type">DescribeDBProxyTargetGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679791679"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679791679"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDBProxyTargetGroups
+</span><a href="#local-6989586621679791680"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetGroupName:DescribeDBProxyTargetGroups' :: Maybe Text
+</span><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#%24sel%3AtargetGroupName%3ADescribeDBProxyTargetGroups%27"><span class="hs-identifier hs-var">targetGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679791679"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroups"><span class="hs-identifier hs-type">DescribeDBProxyTargetGroups</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-comment">-- | The identifier of the @DBProxy@ associated with the target group.</span><span>
 </span><span id="line-147"></span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#describeDBProxyTargetGroups_dbProxyName"><span class="hs-identifier hs-type">describeDBProxyTargetGroups_dbProxyName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroups"><span class="hs-identifier hs-type">DescribeDBProxyTargetGroups</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -337,30 +337,30 @@ $sel:marker:DescribeDBProxyTargetGroups' :: DescribeDBProxyTargetGroups -&gt; Ma
 -&gt; Lens
      DescribeDBProxyTargetGroups DescribeDBProxyTargetGroups Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroups%27"><span class="hs-identifier hs-type">DescribeDBProxyTargetGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679790542"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroups%27"><span class="hs-identifier hs-type">DescribeDBProxyTargetGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679791678"><span class="annot"><span class="annottext">Text
 dbProxyName :: Text
 $sel:dbProxyName:DescribeDBProxyTargetGroups' :: DescribeDBProxyTargetGroups -&gt; Text
-</span><a href="#local-6989586621679790542"><span class="hs-identifier hs-var hs-var">dbProxyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679790542"><span class="hs-identifier hs-var">dbProxyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679790541"><span class="annot"><span class="annottext">s :: DescribeDBProxyTargetGroups
-</span><a href="#local-6989586621679790541"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroups%27"><span class="hs-identifier hs-type">DescribeDBProxyTargetGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679790540"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679790540"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDBProxyTargetGroups
-</span><a href="#local-6989586621679790541"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbProxyName:DescribeDBProxyTargetGroups' :: Text
+</span><a href="#local-6989586621679791678"><span class="hs-identifier hs-var hs-var">dbProxyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679791678"><span class="hs-identifier hs-var">dbProxyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679791677"><span class="annot"><span class="annottext">s :: DescribeDBProxyTargetGroups
+</span><a href="#local-6989586621679791677"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroups%27"><span class="hs-identifier hs-type">DescribeDBProxyTargetGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679791676"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679791676"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDBProxyTargetGroups
+</span><a href="#local-6989586621679791677"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbProxyName:DescribeDBProxyTargetGroups' :: Text
 </span><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#%24sel%3AdbProxyName%3ADescribeDBProxyTargetGroups%27"><span class="hs-identifier hs-var">dbProxyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679790540"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroups"><span class="hs-identifier hs-type">DescribeDBProxyTargetGroups</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679791676"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroups"><span class="hs-identifier hs-type">DescribeDBProxyTargetGroups</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroups"><span class="hs-identifier hs-type">DescribeDBProxyTargetGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-151"></span><span>  </span><span id="local-6989586621679790536"><span class="annot"><span class="annottext">page :: DescribeDBProxyTargetGroups
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679791672"><span class="annot"><span class="annottext">page :: DescribeDBProxyTargetGroups
 -&gt; AWSResponse DescribeDBProxyTargetGroups
 -&gt; Maybe DescribeDBProxyTargetGroups
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679790534"><span class="annot"><span class="annottext">DescribeDBProxyTargetGroups
-</span><a href="#local-6989586621679790534"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679790533"><span class="annot"><span class="annottext">AWSResponse DescribeDBProxyTargetGroups
-</span><a href="#local-6989586621679790533"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679791670"><span class="annot"><span class="annottext">DescribeDBProxyTargetGroups
+</span><a href="#local-6989586621679791670"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679791669"><span class="annot"><span class="annottext">AWSResponse DescribeDBProxyTargetGroups
+</span><a href="#local-6989586621679791669"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-152"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-153"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeDBProxyTargetGroups
 DescribeDBProxyTargetGroupsResponse
-</span><a href="#local-6989586621679790533"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679791669"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">DescribeDBProxyTargetGroupsResponse
 -&gt; Getting (First Text) DescribeDBProxyTargetGroupsResponse Text
 -&gt; Maybe Text
@@ -390,7 +390,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-159"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeDBProxyTargetGroups
 DescribeDBProxyTargetGroupsResponse
-</span><a href="#local-6989586621679790533"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679791669"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">DescribeDBProxyTargetGroupsResponse
 -&gt; Getting
      (First [DBProxyTargetGroup])
@@ -439,7 +439,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-166"></span><span>        </span><span class="annot"><span class="annottext">DescribeDBProxyTargetGroups
-</span><a href="#local-6989586621679790534"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679791670"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-167"></span><span>          </span><span class="annot"><span class="annottext">DescribeDBProxyTargetGroups
 -&gt; (DescribeDBProxyTargetGroups -&gt; DescribeDBProxyTargetGroups)
 -&gt; DescribeDBProxyTargetGroups
@@ -462,7 +462,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeDBProxyTargetGroups
 DescribeDBProxyTargetGroupsResponse
-</span><a href="#local-6989586621679790533"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679791669"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-169"></span><span>          </span><span class="annot"><span class="annottext">DescribeDBProxyTargetGroupsResponse
 -&gt; Getting (First Text) DescribeDBProxyTargetGroupsResponse Text
 -&gt; Maybe Text
@@ -488,14 +488,14 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-173"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-174"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroups"><span class="hs-identifier hs-type">DescribeDBProxyTargetGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-175"></span><span>      </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroupsResponse"><span class="hs-identifier hs-type">DescribeDBProxyTargetGroupsResponse</span></a></span><span>
-</span><span id="line-176"></span><span>  </span><span id="local-6989586621679790524"><span class="annot"><span class="annottext">request :: DescribeDBProxyTargetGroups -&gt; Request DescribeDBProxyTargetGroups
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679791660"><span class="annot"><span class="annottext">request :: DescribeDBProxyTargetGroups -&gt; Request DescribeDBProxyTargetGroups
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DescribeDBProxyTargetGroups
 -&gt; Request DescribeDBProxyTargetGroups
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.RDS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-177"></span><span>  </span><span id="local-6989586621679790520"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621679791656"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeDBProxyTargetGroups
 -&gt; ClientResponse ClientBody
@@ -526,21 +526,39 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-179"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DescribeDBProxyTargetGroupsResult&quot;</span></span><span>
-</span><span id="line-180"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679790517"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679790517"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679790516"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679790516"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679790515"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679790515"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-181"></span><span>          </span><span class="annot"><span class="annottext">Maybe [DBProxyTargetGroup]
--&gt; Maybe Text -&gt; Int -&gt; DescribeDBProxyTargetGroupsResponse
+</span><span id="line-180"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679791653"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679791653"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679791652"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679791652"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679791651"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679791651"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-181"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [DBProxyTargetGroup]
+-&gt; Int
+-&gt; DescribeDBProxyTargetGroupsResponse
 </span><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroupsResponse%27"><span class="hs-identifier hs-var">DescribeDBProxyTargetGroupsResponse'</span></a></span><span>
-</span><span id="line-182"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [DBProxyTargetGroup]
- -&gt; Maybe Text -&gt; Int -&gt; DescribeDBProxyTargetGroupsResponse)
--&gt; Either String (Maybe [DBProxyTargetGroup])
+</span><span id="line-182"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [DBProxyTargetGroup]
+ -&gt; Int
+ -&gt; DescribeDBProxyTargetGroupsResponse)
+-&gt; Either String (Maybe Text)
 -&gt; Either
-     String (Maybe Text -&gt; Int -&gt; DescribeDBProxyTargetGroupsResponse)
+     String
+     (Maybe [DBProxyTargetGroup]
+      -&gt; Int -&gt; DescribeDBProxyTargetGroupsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679790515"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679791651"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Marker&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [DBProxyTargetGroup]
+   -&gt; Int -&gt; DescribeDBProxyTargetGroupsResponse)
+-&gt; Either String (Maybe [DBProxyTargetGroup])
+-&gt; Either String (Int -&gt; DescribeDBProxyTargetGroupsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679791651"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TargetGroups&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -548,7 +566,7 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-183"></span><span>                            </span><span class="annot"><span class="annottext">Either String [Node]
+</span><span id="line-184"></span><span>                            </span><span class="annot"><span class="annottext">Either String [Node]
 -&gt; ([Node] -&gt; Either String (Maybe [DBProxyTargetGroup]))
 -&gt; Either String (Maybe [DBProxyTargetGroup])
 forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
@@ -561,17 +579,7 @@ Applicative f =&gt;
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;member&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-184"></span><span>                        </span><span class="hs-special">)</span><span>
-</span><span id="line-185"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String (Maybe Text -&gt; Int -&gt; DescribeDBProxyTargetGroupsResponse)
--&gt; Either String (Maybe Text)
--&gt; Either String (Int -&gt; DescribeDBProxyTargetGroupsResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679790515"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Marker&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-186"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeDBProxyTargetGroupsResponse)
 -&gt; Either String Int
 -&gt; Either String DescribeDBProxyTargetGroupsResponse
@@ -581,15 +589,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679790517"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679791653"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-187"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-188"></span><span>
-</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679790504"><span id="local-6989586621679790506"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroups"><span class="hs-identifier hs-type">DescribeDBProxyTargetGroups</span></a></span></span></span><span>
+</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679791640"><span id="local-6989586621679791642"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroups"><span class="hs-identifier hs-type">DescribeDBProxyTargetGroups</span></a></span></span></span><span>
 </span><span id="line-190"></span><span>
-</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679790501"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroups"><span class="hs-identifier hs-type">DescribeDBProxyTargetGroups</span></a></span></span><span>
+</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679791637"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroups"><span class="hs-identifier hs-type">DescribeDBProxyTargetGroups</span></a></span></span><span>
 </span><span id="line-192"></span><span>
 </span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroups"><span class="hs-identifier hs-type">DescribeDBProxyTargetGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-194"></span><span>  </span><span id="local-6989586621679790497"><span class="annot"><span class="annottext">toHeaders :: DescribeDBProxyTargetGroups -&gt; ResponseHeaders
+</span><span id="line-194"></span><span>  </span><span id="local-6989586621679791633"><span class="annot"><span class="annottext">toHeaders :: DescribeDBProxyTargetGroups -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeDBProxyTargetGroups -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -597,29 +605,29 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-195"></span><span>
 </span><span id="line-196"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroups"><span class="hs-identifier hs-type">DescribeDBProxyTargetGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-197"></span><span>  </span><span id="local-6989586621679790492"><span class="annot"><span class="annottext">toPath :: DescribeDBProxyTargetGroups -&gt; ByteString
+</span><span id="line-197"></span><span>  </span><span id="local-6989586621679791628"><span class="annot"><span class="annottext">toPath :: DescribeDBProxyTargetGroups -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeDBProxyTargetGroups -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-198"></span><span>
 </span><span id="line-199"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroups"><span class="hs-identifier hs-type">DescribeDBProxyTargetGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-200"></span><span>  </span><span id="local-6989586621679790488"><span class="annot"><span class="annottext">toQuery :: DescribeDBProxyTargetGroups -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroups%27"><span class="hs-identifier hs-type">DescribeDBProxyTargetGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679790482"><span id="local-6989586621679790483"><span id="local-6989586621679790484"><span id="local-6989586621679790485"><span id="local-6989586621679790486"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-200"></span><span>  </span><span id="local-6989586621679791624"><span class="annot"><span class="annottext">toQuery :: DescribeDBProxyTargetGroups -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroups%27"><span class="hs-identifier hs-type">DescribeDBProxyTargetGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679791618"><span id="local-6989586621679791619"><span id="local-6989586621679791620"><span id="local-6989586621679791621"><span id="local-6989586621679791622"><span class="annot"><span class="annottext">Maybe Natural
 Maybe [Filter]
 Maybe Text
 Text
 dbProxyName :: Text
-marker :: Maybe Text
-maxRecords :: Maybe Natural
-filters :: Maybe [Filter]
 targetGroupName :: Maybe Text
+maxRecords :: Maybe Natural
+marker :: Maybe Text
+filters :: Maybe [Filter]
 $sel:dbProxyName:DescribeDBProxyTargetGroups' :: DescribeDBProxyTargetGroups -&gt; Text
-$sel:marker:DescribeDBProxyTargetGroups' :: DescribeDBProxyTargetGroups -&gt; Maybe Text
-$sel:maxRecords:DescribeDBProxyTargetGroups' :: DescribeDBProxyTargetGroups -&gt; Maybe Natural
-$sel:filters:DescribeDBProxyTargetGroups' :: DescribeDBProxyTargetGroups -&gt; Maybe [Filter]
 $sel:targetGroupName:DescribeDBProxyTargetGroups' :: DescribeDBProxyTargetGroups -&gt; Maybe Text
-</span><a href="#local-6989586621679790482"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:maxRecords:DescribeDBProxyTargetGroups' :: DescribeDBProxyTargetGroups -&gt; Maybe Natural
+$sel:marker:DescribeDBProxyTargetGroups' :: DescribeDBProxyTargetGroups -&gt; Maybe Text
+$sel:filters:DescribeDBProxyTargetGroups' :: DescribeDBProxyTargetGroups -&gt; Maybe [Filter]
+</span><a href="#local-6989586621679791618"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-201"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -638,18 +646,13 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;2014-10-31&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-208"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;TargetGroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679790486"><span class="hs-identifier hs-var">targetGroupName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-209"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Filters&quot;</span></span><span>
-</span><span id="line-210"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+</span><span id="line-209"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
 forall a. ToQuery a =&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
-</span><span id="line-211"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; [Filter] -&gt; QueryString
+</span><span id="line-210"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; [Filter] -&gt; QueryString
 forall a.
 (IsList a, ToQuery (Item a)) =&gt;
 ByteString -&gt; a -&gt; QueryString
@@ -657,40 +660,45 @@ ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;Filter&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Filter] -&gt; QueryString) -&gt; Maybe [Filter] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621679790485"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679791622"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-211"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Marker&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679791621"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-212"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;MaxRecords&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679790484"><span class="hs-identifier hs-var">maxRecords</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679791620"><span class="hs-identifier hs-var">maxRecords</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-213"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;Marker&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+</span><span class="hs-string">&quot;TargetGroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679790483"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679791619"><span class="hs-identifier hs-var">targetGroupName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-214"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;DBProxyName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679790482"><span class="hs-identifier hs-var">dbProxyName</span></a></span><span>
+</span><a href="#local-6989586621679791618"><span class="hs-identifier hs-var">dbProxyName</span></a></span><span>
 </span><span id="line-215"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-216"></span><span>
 </span><span id="line-217"></span><span class="hs-comment">-- | /See:/ 'newDescribeDBProxyTargetGroupsResponse' smart constructor.</span><span>
-</span><span id="line-218"></span><span id="local-6989586621679790478"><span id="local-6989586621679790479"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeDBProxyTargetGroupsResponse"><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroupsResponse"><span class="hs-identifier hs-var">DescribeDBProxyTargetGroupsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeDBProxyTargetGroupsResponse%27"><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroupsResponse%27"><span class="hs-identifier hs-var">DescribeDBProxyTargetGroupsResponse'</span></a></span></span><span>
-</span><span id="line-219"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An arbitrary number of @DBProxyTargetGroup@ objects, containing details</span><span>
-</span><span id="line-220"></span><span>    </span><span class="hs-comment">-- of the corresponding target groups.</span><span>
-</span><span id="line-221"></span><span>    </span><span id="%24sel%3AtargetGroups%3ADescribeDBProxyTargetGroupsResponse%27"><span class="annot"><span class="annottext">DescribeDBProxyTargetGroupsResponse -&gt; Maybe [DBProxyTargetGroup]
-</span><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#%24sel%3AtargetGroups%3ADescribeDBProxyTargetGroupsResponse%27"><span class="hs-identifier hs-var hs-var">targetGroups</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.RDS.Types.DBProxyTargetGroup.html#DBProxyTargetGroup"><span class="hs-identifier hs-type">DBProxyTargetGroup</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-222"></span><span>    </span><span class="hs-comment">-- | An optional pagination token provided by a previous request. If this</span><span>
-</span><span id="line-223"></span><span>    </span><span class="hs-comment">-- parameter is specified, the response includes only records beyond the</span><span>
-</span><span id="line-224"></span><span>    </span><span class="hs-comment">-- marker, up to the value specified by @MaxRecords@.</span><span>
-</span><span id="line-225"></span><span>    </span><span id="%24sel%3Amarker%3ADescribeDBProxyTargetGroupsResponse%27"><span class="annot"><span class="annottext">DescribeDBProxyTargetGroupsResponse -&gt; Maybe Text
+</span><span id="line-218"></span><span id="local-6989586621679791614"><span id="local-6989586621679791615"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeDBProxyTargetGroupsResponse"><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroupsResponse"><span class="hs-identifier hs-var">DescribeDBProxyTargetGroupsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeDBProxyTargetGroupsResponse%27"><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroupsResponse%27"><span class="hs-identifier hs-var">DescribeDBProxyTargetGroupsResponse'</span></a></span></span><span>
+</span><span id="line-219"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An optional pagination token provided by a previous request. If this</span><span>
+</span><span id="line-220"></span><span>    </span><span class="hs-comment">-- parameter is specified, the response includes only records beyond the</span><span>
+</span><span id="line-221"></span><span>    </span><span class="hs-comment">-- marker, up to the value specified by @MaxRecords@.</span><span>
+</span><span id="line-222"></span><span>    </span><span id="%24sel%3Amarker%3ADescribeDBProxyTargetGroupsResponse%27"><span class="annot"><span class="annottext">DescribeDBProxyTargetGroupsResponse -&gt; Maybe Text
 </span><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#%24sel%3Amarker%3ADescribeDBProxyTargetGroupsResponse%27"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-223"></span><span>    </span><span class="hs-comment">-- | An arbitrary number of @DBProxyTargetGroup@ objects, containing details</span><span>
+</span><span id="line-224"></span><span>    </span><span class="hs-comment">-- of the corresponding target groups.</span><span>
+</span><span id="line-225"></span><span>    </span><span id="%24sel%3AtargetGroups%3ADescribeDBProxyTargetGroupsResponse%27"><span class="annot"><span class="annottext">DescribeDBProxyTargetGroupsResponse -&gt; Maybe [DBProxyTargetGroup]
+</span><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#%24sel%3AtargetGroups%3ADescribeDBProxyTargetGroupsResponse%27"><span class="hs-identifier hs-var hs-var">targetGroups</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.RDS.Types.DBProxyTargetGroup.html#DBProxyTargetGroup"><span class="hs-identifier hs-type">DBProxyTargetGroup</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
 </span><span id="line-226"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-227"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeDBProxyTargetGroupsResponse%27"><span class="annot"><span class="annottext">DescribeDBProxyTargetGroupsResponse -&gt; Int
 </span><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#%24sel%3AhttpStatus%3ADescribeDBProxyTargetGroupsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-228"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-229"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679790471"><span id="local-6989586621679790473"><span class="annot"><span class="annottext">DescribeDBProxyTargetGroupsResponse
+</span><span id="line-229"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679791607"><span id="local-6989586621679791609"><span class="annot"><span class="annottext">DescribeDBProxyTargetGroupsResponse
 -&gt; DescribeDBProxyTargetGroupsResponse -&gt; Bool
 (DescribeDBProxyTargetGroupsResponse
  -&gt; DescribeDBProxyTargetGroupsResponse -&gt; Bool)
@@ -706,7 +714,7 @@ $c/= :: DescribeDBProxyTargetGroupsResponse
 -&gt; DescribeDBProxyTargetGroupsResponse -&gt; Bool
 $c== :: DescribeDBProxyTargetGroupsResponse
 -&gt; DescribeDBProxyTargetGroupsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679790463"><span id="local-6989586621679790465"><span id="local-6989586621679790467"><span id="local-6989586621679790469"><span class="annot"><span class="annottext">ReadPrec [DescribeDBProxyTargetGroupsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679791599"><span id="local-6989586621679791601"><span id="local-6989586621679791603"><span id="local-6989586621679791605"><span class="annot"><span class="annottext">ReadPrec [DescribeDBProxyTargetGroupsResponse]
 ReadPrec DescribeDBProxyTargetGroupsResponse
 Int -&gt; ReadS DescribeDBProxyTargetGroupsResponse
 ReadS [DescribeDBProxyTargetGroupsResponse]
@@ -726,7 +734,7 @@ readList :: ReadS [DescribeDBProxyTargetGroupsResponse]
 $creadList :: ReadS [DescribeDBProxyTargetGroupsResponse]
 readsPrec :: Int -&gt; ReadS DescribeDBProxyTargetGroupsResponse
 $creadsPrec :: Int -&gt; ReadS DescribeDBProxyTargetGroupsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679790457"><span id="local-6989586621679790459"><span id="local-6989586621679790461"><span class="annot"><span class="annottext">Int -&gt; DescribeDBProxyTargetGroupsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679791593"><span id="local-6989586621679791595"><span id="local-6989586621679791597"><span class="annot"><span class="annottext">Int -&gt; DescribeDBProxyTargetGroupsResponse -&gt; ShowS
 [DescribeDBProxyTargetGroupsResponse] -&gt; ShowS
 DescribeDBProxyTargetGroupsResponse -&gt; String
 (Int -&gt; DescribeDBProxyTargetGroupsResponse -&gt; ShowS)
@@ -772,12 +780,12 @@ DescribeDBProxyTargetGroupsResponse
 </span><span id="line-236"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-237"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-238"></span><span class="hs-comment">--</span><span>
-</span><span id="line-239"></span><span class="hs-comment">-- 'targetGroups', 'describeDBProxyTargetGroupsResponse_targetGroups' - An arbitrary number of @DBProxyTargetGroup@ objects, containing details</span><span>
-</span><span id="line-240"></span><span class="hs-comment">-- of the corresponding target groups.</span><span>
-</span><span id="line-241"></span><span class="hs-comment">--</span><span>
-</span><span id="line-242"></span><span class="hs-comment">-- 'marker', 'describeDBProxyTargetGroupsResponse_marker' - An optional pagination token provided by a previous request. If this</span><span>
-</span><span id="line-243"></span><span class="hs-comment">-- parameter is specified, the response includes only records beyond the</span><span>
-</span><span id="line-244"></span><span class="hs-comment">-- marker, up to the value specified by @MaxRecords@.</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- 'marker', 'describeDBProxyTargetGroupsResponse_marker' - An optional pagination token provided by a previous request. If this</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- parameter is specified, the response includes only records beyond the</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- marker, up to the value specified by @MaxRecords@.</span><span>
+</span><span id="line-242"></span><span class="hs-comment">--</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- 'targetGroups', 'describeDBProxyTargetGroupsResponse_targetGroups' - An arbitrary number of @DBProxyTargetGroup@ objects, containing details</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- of the corresponding target groups.</span><span>
 </span><span id="line-245"></span><span class="hs-comment">--</span><span>
 </span><span id="line-246"></span><span class="hs-comment">-- 'httpStatus', 'describeDBProxyTargetGroupsResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-247"></span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#newDescribeDBProxyTargetGroupsResponse"><span class="hs-identifier hs-type">newDescribeDBProxyTargetGroupsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -785,29 +793,54 @@ DescribeDBProxyTargetGroupsResponse
 </span><span id="line-249"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-250"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroupsResponse"><span class="hs-identifier hs-type">DescribeDBProxyTargetGroupsResponse</span></a></span><span>
 </span><span id="line-251"></span><span id="newDescribeDBProxyTargetGroupsResponse"><span class="annot"><span class="annottext">newDescribeDBProxyTargetGroupsResponse :: Int -&gt; DescribeDBProxyTargetGroupsResponse
-</span><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#newDescribeDBProxyTargetGroupsResponse"><span class="hs-identifier hs-var hs-var">newDescribeDBProxyTargetGroupsResponse</span></a></span></span><span> </span><span id="local-6989586621679790454"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679790454"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-252"></span><span>  </span><span class="annot"><span class="annottext">DescribeDBProxyTargetGroupsResponse' :: Maybe [DBProxyTargetGroup]
--&gt; Maybe Text -&gt; Int -&gt; DescribeDBProxyTargetGroupsResponse
+</span><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#newDescribeDBProxyTargetGroupsResponse"><span class="hs-identifier hs-var hs-var">newDescribeDBProxyTargetGroupsResponse</span></a></span></span><span> </span><span id="local-6989586621679791590"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679791590"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-252"></span><span>  </span><span class="annot"><span class="annottext">DescribeDBProxyTargetGroupsResponse' :: Maybe Text
+-&gt; Maybe [DBProxyTargetGroup]
+-&gt; Int
+-&gt; DescribeDBProxyTargetGroupsResponse
 </span><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroupsResponse%27"><span class="hs-identifier hs-type">DescribeDBProxyTargetGroupsResponse'</span></a></span><span>
-</span><span id="line-253"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:targetGroups:DescribeDBProxyTargetGroupsResponse' :: Maybe [DBProxyTargetGroup]
-</span><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#%24sel%3AtargetGroups%3ADescribeDBProxyTargetGroupsResponse%27"><span class="hs-identifier hs-var">targetGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-254"></span><span>        </span><span class="annot"><span class="annottext">Maybe [DBProxyTargetGroup]
+</span><span id="line-253"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:marker:DescribeDBProxyTargetGroupsResponse' :: Maybe Text
+</span><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#%24sel%3Amarker%3ADescribeDBProxyTargetGroupsResponse%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-254"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-255"></span><span>      </span><span class="annot"><span class="annottext">$sel:marker:DescribeDBProxyTargetGroupsResponse' :: Maybe Text
-</span><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#%24sel%3Amarker%3ADescribeDBProxyTargetGroupsResponse%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-255"></span><span>      </span><span class="annot"><span class="annottext">$sel:targetGroups:DescribeDBProxyTargetGroupsResponse' :: Maybe [DBProxyTargetGroup]
+</span><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#%24sel%3AtargetGroups%3ADescribeDBProxyTargetGroupsResponse%27"><span class="hs-identifier hs-var">targetGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DBProxyTargetGroup]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-256"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeDBProxyTargetGroupsResponse' :: Int
 </span><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#%24sel%3AhttpStatus%3ADescribeDBProxyTargetGroupsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679790454"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679791590"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-257"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-258"></span><span>
-</span><span id="line-259"></span><span class="hs-comment">-- | An arbitrary number of @DBProxyTargetGroup@ objects, containing details</span><span>
-</span><span id="line-260"></span><span class="hs-comment">-- of the corresponding target groups.</span><span>
-</span><span id="line-261"></span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#describeDBProxyTargetGroupsResponse_targetGroups"><span class="hs-identifier hs-type">describeDBProxyTargetGroupsResponse_targetGroups</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroupsResponse"><span class="hs-identifier hs-type">DescribeDBProxyTargetGroupsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.RDS.Types.DBProxyTargetGroup.html#DBProxyTargetGroup"><span class="hs-identifier hs-type">DBProxyTargetGroup</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-262"></span><span id="describeDBProxyTargetGroupsResponse_targetGroups"><span class="annot"><span class="annottext">describeDBProxyTargetGroupsResponse_targetGroups :: (Maybe [DBProxyTargetGroup] -&gt; f (Maybe [DBProxyTargetGroup]))
+</span><span id="line-259"></span><span class="hs-comment">-- | An optional pagination token provided by a previous request. If this</span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- parameter is specified, the response includes only records beyond the</span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- marker, up to the value specified by @MaxRecords@.</span><span>
+</span><span id="line-262"></span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#describeDBProxyTargetGroupsResponse_marker"><span class="hs-identifier hs-type">describeDBProxyTargetGroupsResponse_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroupsResponse"><span class="hs-identifier hs-type">DescribeDBProxyTargetGroupsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-263"></span><span id="describeDBProxyTargetGroupsResponse_marker"><span class="annot"><span class="annottext">describeDBProxyTargetGroupsResponse_marker :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeDBProxyTargetGroupsResponse
+-&gt; f DescribeDBProxyTargetGroupsResponse
+</span><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#describeDBProxyTargetGroupsResponse_marker"><span class="hs-identifier hs-var hs-var">describeDBProxyTargetGroupsResponse_marker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeDBProxyTargetGroupsResponse -&gt; Maybe Text)
+-&gt; (DescribeDBProxyTargetGroupsResponse
+    -&gt; Maybe Text -&gt; DescribeDBProxyTargetGroupsResponse)
+-&gt; Lens' DescribeDBProxyTargetGroupsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroupsResponse%27"><span class="hs-identifier hs-type">DescribeDBProxyTargetGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679791589"><span class="annot"><span class="annottext">Maybe Text
+marker :: Maybe Text
+$sel:marker:DescribeDBProxyTargetGroupsResponse' :: DescribeDBProxyTargetGroupsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679791589"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679791589"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679791588"><span class="annot"><span class="annottext">s :: DescribeDBProxyTargetGroupsResponse
+</span><a href="#local-6989586621679791588"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroupsResponse%27"><span class="hs-identifier hs-type">DescribeDBProxyTargetGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679791587"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679791587"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDBProxyTargetGroupsResponse
+</span><a href="#local-6989586621679791588"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeDBProxyTargetGroupsResponse' :: Maybe Text
+</span><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#%24sel%3Amarker%3ADescribeDBProxyTargetGroupsResponse%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679791587"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroupsResponse"><span class="hs-identifier hs-type">DescribeDBProxyTargetGroupsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-264"></span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- | An arbitrary number of @DBProxyTargetGroup@ objects, containing details</span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- of the corresponding target groups.</span><span>
+</span><span id="line-267"></span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#describeDBProxyTargetGroupsResponse_targetGroups"><span class="hs-identifier hs-type">describeDBProxyTargetGroupsResponse_targetGroups</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroupsResponse"><span class="hs-identifier hs-type">DescribeDBProxyTargetGroupsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.RDS.Types.DBProxyTargetGroup.html#DBProxyTargetGroup"><span class="hs-identifier hs-type">DBProxyTargetGroup</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-268"></span><span id="describeDBProxyTargetGroupsResponse_targetGroups"><span class="annot"><span class="annottext">describeDBProxyTargetGroupsResponse_targetGroups :: (Maybe [DBProxyTargetGroup] -&gt; f (Maybe [DBProxyTargetGroup]))
 -&gt; DescribeDBProxyTargetGroupsResponse
 -&gt; f DescribeDBProxyTargetGroupsResponse
 </span><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#describeDBProxyTargetGroupsResponse_targetGroups"><span class="hs-identifier hs-var hs-var">describeDBProxyTargetGroupsResponse_targetGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeDBProxyTargetGroupsResponse -&gt; Maybe [DBProxyTargetGroup])
@@ -817,16 +850,16 @@ forall a. Maybe a
 -&gt; Lens'
      DescribeDBProxyTargetGroupsResponse (Maybe [DBProxyTargetGroup])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroupsResponse%27"><span class="hs-identifier hs-type">DescribeDBProxyTargetGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679790453"><span class="annot"><span class="annottext">Maybe [DBProxyTargetGroup]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroupsResponse%27"><span class="hs-identifier hs-type">DescribeDBProxyTargetGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679791586"><span class="annot"><span class="annottext">Maybe [DBProxyTargetGroup]
 targetGroups :: Maybe [DBProxyTargetGroup]
 $sel:targetGroups:DescribeDBProxyTargetGroupsResponse' :: DescribeDBProxyTargetGroupsResponse -&gt; Maybe [DBProxyTargetGroup]
-</span><a href="#local-6989586621679790453"><span class="hs-identifier hs-var hs-var">targetGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DBProxyTargetGroup]
-</span><a href="#local-6989586621679790453"><span class="hs-identifier hs-var">targetGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679790452"><span class="annot"><span class="annottext">s :: DescribeDBProxyTargetGroupsResponse
-</span><a href="#local-6989586621679790452"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroupsResponse%27"><span class="hs-identifier hs-type">DescribeDBProxyTargetGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679790451"><span class="annot"><span class="annottext">Maybe [DBProxyTargetGroup]
-</span><a href="#local-6989586621679790451"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDBProxyTargetGroupsResponse
-</span><a href="#local-6989586621679790452"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetGroups:DescribeDBProxyTargetGroupsResponse' :: Maybe [DBProxyTargetGroup]
+</span><a href="#local-6989586621679791586"><span class="hs-identifier hs-var hs-var">targetGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DBProxyTargetGroup]
+</span><a href="#local-6989586621679791586"><span class="hs-identifier hs-var">targetGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679791585"><span class="annot"><span class="annottext">s :: DescribeDBProxyTargetGroupsResponse
+</span><a href="#local-6989586621679791585"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroupsResponse%27"><span class="hs-identifier hs-type">DescribeDBProxyTargetGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679791584"><span class="annot"><span class="annottext">Maybe [DBProxyTargetGroup]
+</span><a href="#local-6989586621679791584"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDBProxyTargetGroupsResponse
+</span><a href="#local-6989586621679791585"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetGroups:DescribeDBProxyTargetGroupsResponse' :: Maybe [DBProxyTargetGroup]
 </span><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#%24sel%3AtargetGroups%3ADescribeDBProxyTargetGroupsResponse%27"><span class="hs-identifier hs-var">targetGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DBProxyTargetGroup]
-</span><a href="#local-6989586621679790451"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroupsResponse"><span class="hs-identifier hs-type">DescribeDBProxyTargetGroupsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DBProxyTargetGroup] -&gt; f (Maybe [DBProxyTargetGroup]))
+</span><a href="#local-6989586621679791584"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroupsResponse"><span class="hs-identifier hs-type">DescribeDBProxyTargetGroupsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DBProxyTargetGroup] -&gt; f (Maybe [DBProxyTargetGroup]))
  -&gt; DescribeDBProxyTargetGroupsResponse
  -&gt; f DescribeDBProxyTargetGroupsResponse)
 -&gt; ((Maybe [DBProxyTargetGroup] -&gt; f (Maybe [DBProxyTargetGroup]))
@@ -853,31 +886,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [DBProxyTargetGroup]
   [DBProxyTargetGroup]
   [DBProxyTargetGroup]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-263"></span><span>
-</span><span id="line-264"></span><span class="hs-comment">-- | An optional pagination token provided by a previous request. If this</span><span>
-</span><span id="line-265"></span><span class="hs-comment">-- parameter is specified, the response includes only records beyond the</span><span>
-</span><span id="line-266"></span><span class="hs-comment">-- marker, up to the value specified by @MaxRecords@.</span><span>
-</span><span id="line-267"></span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#describeDBProxyTargetGroupsResponse_marker"><span class="hs-identifier hs-type">describeDBProxyTargetGroupsResponse_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroupsResponse"><span class="hs-identifier hs-type">DescribeDBProxyTargetGroupsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-268"></span><span id="describeDBProxyTargetGroupsResponse_marker"><span class="annot"><span class="annottext">describeDBProxyTargetGroupsResponse_marker :: (Maybe Text -&gt; f (Maybe Text))
--&gt; DescribeDBProxyTargetGroupsResponse
--&gt; f DescribeDBProxyTargetGroupsResponse
-</span><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#describeDBProxyTargetGroupsResponse_marker"><span class="hs-identifier hs-var hs-var">describeDBProxyTargetGroupsResponse_marker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeDBProxyTargetGroupsResponse -&gt; Maybe Text)
--&gt; (DescribeDBProxyTargetGroupsResponse
-    -&gt; Maybe Text -&gt; DescribeDBProxyTargetGroupsResponse)
--&gt; Lens' DescribeDBProxyTargetGroupsResponse (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroupsResponse%27"><span class="hs-identifier hs-type">DescribeDBProxyTargetGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679790450"><span class="annot"><span class="annottext">Maybe Text
-marker :: Maybe Text
-$sel:marker:DescribeDBProxyTargetGroupsResponse' :: DescribeDBProxyTargetGroupsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679790450"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679790450"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679790449"><span class="annot"><span class="annottext">s :: DescribeDBProxyTargetGroupsResponse
-</span><a href="#local-6989586621679790449"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroupsResponse%27"><span class="hs-identifier hs-type">DescribeDBProxyTargetGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679790448"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679790448"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDBProxyTargetGroupsResponse
-</span><a href="#local-6989586621679790449"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeDBProxyTargetGroupsResponse' :: Maybe Text
-</span><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#%24sel%3Amarker%3ADescribeDBProxyTargetGroupsResponse%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679790448"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroupsResponse"><span class="hs-identifier hs-type">DescribeDBProxyTargetGroupsResponse</span></a></span><span class="hs-special">)</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-269"></span><span>
 </span><span id="line-270"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-271"></span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#describeDBProxyTargetGroupsResponse_httpStatus"><span class="hs-identifier hs-type">describeDBProxyTargetGroupsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroupsResponse"><span class="hs-identifier hs-type">DescribeDBProxyTargetGroupsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -893,18 +903,18 @@ $sel:marker:DescribeDBProxyTargetGroupsResponse' :: DescribeDBProxyTargetGroupsR
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroupsResponse%27"><span class="hs-identifier hs-type">DescribeDBProxyTargetGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679790447"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroupsResponse%27"><span class="hs-identifier hs-type">DescribeDBProxyTargetGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679791583"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeDBProxyTargetGroupsResponse' :: DescribeDBProxyTargetGroupsResponse -&gt; Int
-</span><a href="#local-6989586621679790447"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679790447"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679790446"><span class="annot"><span class="annottext">s :: DescribeDBProxyTargetGroupsResponse
-</span><a href="#local-6989586621679790446"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroupsResponse%27"><span class="hs-identifier hs-type">DescribeDBProxyTargetGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679790445"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679790445"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDBProxyTargetGroupsResponse
-</span><a href="#local-6989586621679790446"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeDBProxyTargetGroupsResponse' :: Int
+</span><a href="#local-6989586621679791583"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679791583"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679791582"><span class="annot"><span class="annottext">s :: DescribeDBProxyTargetGroupsResponse
+</span><a href="#local-6989586621679791582"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroupsResponse%27"><span class="hs-identifier hs-type">DescribeDBProxyTargetGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679791581"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679791581"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDBProxyTargetGroupsResponse
+</span><a href="#local-6989586621679791582"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeDBProxyTargetGroupsResponse' :: Int
 </span><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#%24sel%3AhttpStatus%3ADescribeDBProxyTargetGroupsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679790445"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroupsResponse"><span class="hs-identifier hs-type">DescribeDBProxyTargetGroupsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679791581"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroupsResponse"><span class="hs-identifier hs-type">DescribeDBProxyTargetGroupsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-273"></span><span>
 </span><span id="line-274"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-275"></span><span>  </span><span id="local-6989586621679790443"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-275"></span><span>  </span><span id="local-6989586621679791579"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-276"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargetGroups.html#DescribeDBProxyTargetGroupsResponse"><span class="hs-identifier hs-type">DescribeDBProxyTargetGroupsResponse</span></a></span></span><span>
 </span><span id="line-277"></span></pre></body></html>

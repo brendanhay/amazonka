@@ -30,24 +30,24 @@
 </span><span id="line-30"></span><span class="hs-comment">-- @ProcessingJob@ or @TrainingJob@ is returned.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newTrialComponentSourceDetail' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621680358293"><span id="local-6989586621680358294"></span></span><span class="hs-keyword">data</span><span> </span><span id="TrialComponentSourceDetail"><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentSourceDetail.html#TrialComponentSourceDetail"><span class="hs-identifier hs-var">TrialComponentSourceDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TrialComponentSourceDetail%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentSourceDetail.html#TrialComponentSourceDetail%27"><span class="hs-identifier hs-var">TrialComponentSourceDetail'</span></a></span></span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about a processing job that\'s the source of a trial</span><span>
+</span><span id="line-33"></span><span id="local-6989586621680359754"><span id="local-6989586621680359755"></span></span><span class="hs-keyword">data</span><span> </span><span id="TrialComponentSourceDetail"><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentSourceDetail.html#TrialComponentSourceDetail"><span class="hs-identifier hs-var">TrialComponentSourceDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TrialComponentSourceDetail%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentSourceDetail.html#TrialComponentSourceDetail%27"><span class="hs-identifier hs-var">TrialComponentSourceDetail'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about a training job that\'s the source of a trial</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- component.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AprocessingJob%3ATrialComponentSourceDetail%27"><span class="annot"><span class="annottext">TrialComponentSourceDetail -&gt; Maybe ProcessingJob
-</span><a href="Network.AWS.SageMaker.Types.TrialComponentSourceDetail.html#%24sel%3AprocessingJob%3ATrialComponentSourceDetail%27"><span class="hs-identifier hs-var hs-var">processingJob</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingJob.html#ProcessingJob"><span class="hs-identifier hs-type">ProcessingJob</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | Information about a training job that\'s the source of a trial</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- component.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3AtrainingJob%3ATrialComponentSourceDetail%27"><span class="annot"><span class="annottext">TrialComponentSourceDetail -&gt; Maybe TrainingJob
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AtrainingJob%3ATrialComponentSourceDetail%27"><span class="annot"><span class="annottext">TrialComponentSourceDetail -&gt; Maybe TrainingJob
 </span><a href="Network.AWS.SageMaker.Types.TrialComponentSourceDetail.html#%24sel%3AtrainingJob%3ATrialComponentSourceDetail%27"><span class="hs-identifier hs-var hs-var">trainingJob</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJob.html#TrainingJob"><span class="hs-identifier hs-type">TrainingJob</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | Information about a transform job that\'s the source of a trial</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- component.</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3AtransformJob%3ATrialComponentSourceDetail%27"><span class="annot"><span class="annottext">TrialComponentSourceDetail -&gt; Maybe TransformJob
-</span><a href="Network.AWS.SageMaker.Types.TrialComponentSourceDetail.html#%24sel%3AtransformJob%3ATrialComponentSourceDetail%27"><span class="hs-identifier hs-var hs-var">transformJob</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformJob.html#TransformJob"><span class="hs-identifier hs-type">TransformJob</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the source.</span><span>
-</span><span id="line-44"></span><span>    </span><span id="%24sel%3AsourceArn%3ATrialComponentSourceDetail%27"><span class="annot"><span class="annottext">TrialComponentSourceDetail -&gt; Maybe Text
-</span><a href="Network.AWS.SageMaker.Types.TrialComponentSourceDetail.html#%24sel%3AsourceArn%3ATrialComponentSourceDetail%27"><span class="hs-identifier hs-var hs-var">sourceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the source.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AsourceArn%3ATrialComponentSourceDetail%27"><span class="annot"><span class="annottext">TrialComponentSourceDetail -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.TrialComponentSourceDetail.html#%24sel%3AsourceArn%3ATrialComponentSourceDetail%27"><span class="hs-identifier hs-var hs-var">sourceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | Information about a processing job that\'s the source of a trial</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- component.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AprocessingJob%3ATrialComponentSourceDetail%27"><span class="annot"><span class="annottext">TrialComponentSourceDetail -&gt; Maybe ProcessingJob
+</span><a href="Network.AWS.SageMaker.Types.TrialComponentSourceDetail.html#%24sel%3AprocessingJob%3ATrialComponentSourceDetail%27"><span class="hs-identifier hs-var hs-var">processingJob</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingJob.html#ProcessingJob"><span class="hs-identifier hs-type">ProcessingJob</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | Information about a transform job that\'s the source of a trial</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- component.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AtransformJob%3ATrialComponentSourceDetail%27"><span class="annot"><span class="annottext">TrialComponentSourceDetail -&gt; Maybe TransformJob
+</span><a href="Network.AWS.SageMaker.Types.TrialComponentSourceDetail.html#%24sel%3AtransformJob%3ATrialComponentSourceDetail%27"><span class="hs-identifier hs-var hs-var">transformJob</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformJob.html#TransformJob"><span class="hs-identifier hs-type">TransformJob</span></a></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680358284"><span id="local-6989586621680358286"><span class="annot"><span class="annottext">TrialComponentSourceDetail -&gt; TrialComponentSourceDetail -&gt; Bool
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680359745"><span id="local-6989586621680359747"><span class="annot"><span class="annottext">TrialComponentSourceDetail -&gt; TrialComponentSourceDetail -&gt; Bool
 (TrialComponentSourceDetail -&gt; TrialComponentSourceDetail -&gt; Bool)
 -&gt; (TrialComponentSourceDetail
     -&gt; TrialComponentSourceDetail -&gt; Bool)
@@ -57,7 +57,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TrialComponentSourceDetail -&gt; TrialComponentSourceDetail -&gt; Bool
 == :: TrialComponentSourceDetail -&gt; TrialComponentSourceDetail -&gt; Bool
 $c== :: TrialComponentSourceDetail -&gt; TrialComponentSourceDetail -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680358275"><span id="local-6989586621680358277"><span id="local-6989586621680358279"><span id="local-6989586621680358281"><span class="annot"><span class="annottext">ReadPrec [TrialComponentSourceDetail]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680359736"><span id="local-6989586621680359738"><span id="local-6989586621680359740"><span id="local-6989586621680359742"><span class="annot"><span class="annottext">ReadPrec [TrialComponentSourceDetail]
 ReadPrec TrialComponentSourceDetail
 Int -&gt; ReadS TrialComponentSourceDetail
 ReadS [TrialComponentSourceDetail]
@@ -77,7 +77,7 @@ readList :: ReadS [TrialComponentSourceDetail]
 $creadList :: ReadS [TrialComponentSourceDetail]
 readsPrec :: Int -&gt; ReadS TrialComponentSourceDetail
 $creadsPrec :: Int -&gt; ReadS TrialComponentSourceDetail
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680358268"><span id="local-6989586621680358270"><span id="local-6989586621680358272"><span class="annot"><span class="annottext">Int -&gt; TrialComponentSourceDetail -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680359729"><span id="local-6989586621680359731"><span id="local-6989586621680359733"><span class="annot"><span class="annottext">Int -&gt; TrialComponentSourceDetail -&gt; ShowS
 [TrialComponentSourceDetail] -&gt; ShowS
 TrialComponentSourceDetail -&gt; String
 (Int -&gt; TrialComponentSourceDetail -&gt; ShowS)
@@ -117,74 +117,49 @@ TrialComponentSourceDetail -&gt; Rep TrialComponentSourceDetail x
 </span><span id="line-53"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- 'processingJob', 'trialComponentSourceDetail_processingJob' - Information about a processing job that\'s the source of a trial</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'trainingJob', 'trialComponentSourceDetail_trainingJob' - Information about a training job that\'s the source of a trial</span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- component.</span><span>
 </span><span id="line-58"></span><span class="hs-comment">--</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- 'trainingJob', 'trialComponentSourceDetail_trainingJob' - Information about a training job that\'s the source of a trial</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- component.</span><span>
-</span><span id="line-61"></span><span class="hs-comment">--</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- 'transformJob', 'trialComponentSourceDetail_transformJob' - Information about a transform job that\'s the source of a trial</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- component.</span><span>
-</span><span id="line-64"></span><span class="hs-comment">--</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- 'sourceArn', 'trialComponentSourceDetail_sourceArn' - The Amazon Resource Name (ARN) of the source.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'sourceArn', 'trialComponentSourceDetail_sourceArn' - The Amazon Resource Name (ARN) of the source.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'processingJob', 'trialComponentSourceDetail_processingJob' - Information about a processing job that\'s the source of a trial</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- component.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'transformJob', 'trialComponentSourceDetail_transformJob' - Information about a transform job that\'s the source of a trial</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- component.</span><span>
 </span><span id="line-66"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentSourceDetail.html#newTrialComponentSourceDetail"><span class="hs-identifier hs-type">newTrialComponentSourceDetail</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentSourceDetail.html#TrialComponentSourceDetail"><span class="hs-identifier hs-type">TrialComponentSourceDetail</span></a></span><span>
 </span><span id="line-68"></span><span id="newTrialComponentSourceDetail"><span class="annot"><span class="annottext">newTrialComponentSourceDetail :: TrialComponentSourceDetail
 </span><a href="Network.AWS.SageMaker.Types.TrialComponentSourceDetail.html#newTrialComponentSourceDetail"><span class="hs-identifier hs-var hs-var">newTrialComponentSourceDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-69"></span><span>  </span><span class="annot"><span class="annottext">TrialComponentSourceDetail' :: Maybe ProcessingJob
--&gt; Maybe TrainingJob
--&gt; Maybe TransformJob
+</span><span id="line-69"></span><span>  </span><span class="annot"><span class="annottext">TrialComponentSourceDetail' :: Maybe TrainingJob
 -&gt; Maybe Text
+-&gt; Maybe ProcessingJob
+-&gt; Maybe TransformJob
 -&gt; TrialComponentSourceDetail
 </span><a href="Network.AWS.SageMaker.Types.TrialComponentSourceDetail.html#TrialComponentSourceDetail%27"><span class="hs-identifier hs-type">TrialComponentSourceDetail'</span></a></span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:processingJob:TrialComponentSourceDetail' :: Maybe ProcessingJob
-</span><a href="Network.AWS.SageMaker.Types.TrialComponentSourceDetail.html#%24sel%3AprocessingJob%3ATrialComponentSourceDetail%27"><span class="hs-identifier hs-var">processingJob</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-71"></span><span>        </span><span class="annot"><span class="annottext">Maybe ProcessingJob
+</span><span id="line-70"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:trainingJob:TrialComponentSourceDetail' :: Maybe TrainingJob
+</span><a href="Network.AWS.SageMaker.Types.TrialComponentSourceDetail.html#%24sel%3AtrainingJob%3ATrialComponentSourceDetail%27"><span class="hs-identifier hs-var">trainingJob</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-71"></span><span>        </span><span class="annot"><span class="annottext">Maybe TrainingJob
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:trainingJob:TrialComponentSourceDetail' :: Maybe TrainingJob
-</span><a href="Network.AWS.SageMaker.Types.TrialComponentSourceDetail.html#%24sel%3AtrainingJob%3ATrialComponentSourceDetail%27"><span class="hs-identifier hs-var">trainingJob</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TrainingJob
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:transformJob:TrialComponentSourceDetail' :: Maybe TransformJob
-</span><a href="Network.AWS.SageMaker.Types.TrialComponentSourceDetail.html#%24sel%3AtransformJob%3ATrialComponentSourceDetail%27"><span class="hs-identifier hs-var">transformJob</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TransformJob
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceArn:TrialComponentSourceDetail' :: Maybe Text
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceArn:TrialComponentSourceDetail' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.TrialComponentSourceDetail.html#%24sel%3AsourceArn%3ATrialComponentSourceDetail%27"><span class="hs-identifier hs-var">sourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:processingJob:TrialComponentSourceDetail' :: Maybe ProcessingJob
+</span><a href="Network.AWS.SageMaker.Types.TrialComponentSourceDetail.html#%24sel%3AprocessingJob%3ATrialComponentSourceDetail%27"><span class="hs-identifier hs-var">processingJob</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProcessingJob
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:transformJob:TrialComponentSourceDetail' :: Maybe TransformJob
+</span><a href="Network.AWS.SageMaker.Types.TrialComponentSourceDetail.html#%24sel%3AtransformJob%3ATrialComponentSourceDetail%27"><span class="hs-identifier hs-var">transformJob</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TransformJob
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-75"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- | Information about a processing job that\'s the source of a trial</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | Information about a training job that\'s the source of a trial</span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- component.</span><span>
-</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentSourceDetail.html#trialComponentSourceDetail_processingJob"><span class="hs-identifier hs-type">trialComponentSourceDetail_processingJob</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentSourceDetail.html#TrialComponentSourceDetail"><span class="hs-identifier hs-type">TrialComponentSourceDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingJob.html#ProcessingJob"><span class="hs-identifier hs-type">ProcessingJob</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-80"></span><span id="trialComponentSourceDetail_processingJob"><span class="annot"><span class="annottext">trialComponentSourceDetail_processingJob :: (Maybe ProcessingJob -&gt; f (Maybe ProcessingJob))
--&gt; TrialComponentSourceDetail -&gt; f TrialComponentSourceDetail
-</span><a href="Network.AWS.SageMaker.Types.TrialComponentSourceDetail.html#trialComponentSourceDetail_processingJob"><span class="hs-identifier hs-var hs-var">trialComponentSourceDetail_processingJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TrialComponentSourceDetail -&gt; Maybe ProcessingJob)
--&gt; (TrialComponentSourceDetail
-    -&gt; Maybe ProcessingJob -&gt; TrialComponentSourceDetail)
--&gt; Lens
-     TrialComponentSourceDetail
-     TrialComponentSourceDetail
-     (Maybe ProcessingJob)
-     (Maybe ProcessingJob)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentSourceDetail.html#TrialComponentSourceDetail%27"><span class="hs-identifier hs-type">TrialComponentSourceDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680358259"><span class="annot"><span class="annottext">Maybe ProcessingJob
-processingJob :: Maybe ProcessingJob
-$sel:processingJob:TrialComponentSourceDetail' :: TrialComponentSourceDetail -&gt; Maybe ProcessingJob
-</span><a href="#local-6989586621680358259"><span class="hs-identifier hs-var hs-var">processingJob</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ProcessingJob
-</span><a href="#local-6989586621680358259"><span class="hs-identifier hs-var">processingJob</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680358258"><span class="annot"><span class="annottext">s :: TrialComponentSourceDetail
-</span><a href="#local-6989586621680358258"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentSourceDetail.html#TrialComponentSourceDetail%27"><span class="hs-identifier hs-type">TrialComponentSourceDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680358257"><span class="annot"><span class="annottext">Maybe ProcessingJob
-</span><a href="#local-6989586621680358257"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrialComponentSourceDetail
-</span><a href="#local-6989586621680358258"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:processingJob:TrialComponentSourceDetail' :: Maybe ProcessingJob
-</span><a href="Network.AWS.SageMaker.Types.TrialComponentSourceDetail.html#%24sel%3AprocessingJob%3ATrialComponentSourceDetail%27"><span class="hs-identifier hs-var">processingJob</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProcessingJob
-</span><a href="#local-6989586621680358257"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentSourceDetail.html#TrialComponentSourceDetail"><span class="hs-identifier hs-type">TrialComponentSourceDetail</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- | Information about a training job that\'s the source of a trial</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- component.</span><span>
-</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentSourceDetail.html#trialComponentSourceDetail_trainingJob"><span class="hs-identifier hs-type">trialComponentSourceDetail_trainingJob</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentSourceDetail.html#TrialComponentSourceDetail"><span class="hs-identifier hs-type">TrialComponentSourceDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJob.html#TrainingJob"><span class="hs-identifier hs-type">TrainingJob</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-85"></span><span id="trialComponentSourceDetail_trainingJob"><span class="annot"><span class="annottext">trialComponentSourceDetail_trainingJob :: (Maybe TrainingJob -&gt; f (Maybe TrainingJob))
+</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentSourceDetail.html#trialComponentSourceDetail_trainingJob"><span class="hs-identifier hs-type">trialComponentSourceDetail_trainingJob</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentSourceDetail.html#TrialComponentSourceDetail"><span class="hs-identifier hs-type">TrialComponentSourceDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJob.html#TrainingJob"><span class="hs-identifier hs-type">TrainingJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span id="trialComponentSourceDetail_trainingJob"><span class="annot"><span class="annottext">trialComponentSourceDetail_trainingJob :: (Maybe TrainingJob -&gt; f (Maybe TrainingJob))
 -&gt; TrialComponentSourceDetail -&gt; f TrialComponentSourceDetail
 </span><a href="Network.AWS.SageMaker.Types.TrialComponentSourceDetail.html#trialComponentSourceDetail_trainingJob"><span class="hs-identifier hs-var hs-var">trialComponentSourceDetail_trainingJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TrialComponentSourceDetail -&gt; Maybe TrainingJob)
 -&gt; (TrialComponentSourceDetail
@@ -195,45 +170,20 @@ $sel:processingJob:TrialComponentSourceDetail' :: TrialComponentSourceDetail -&g
      (Maybe TrainingJob)
      (Maybe TrainingJob)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentSourceDetail.html#TrialComponentSourceDetail%27"><span class="hs-identifier hs-type">TrialComponentSourceDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680358255"><span class="annot"><span class="annottext">Maybe TrainingJob
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentSourceDetail.html#TrialComponentSourceDetail%27"><span class="hs-identifier hs-type">TrialComponentSourceDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680359720"><span class="annot"><span class="annottext">Maybe TrainingJob
 trainingJob :: Maybe TrainingJob
 $sel:trainingJob:TrialComponentSourceDetail' :: TrialComponentSourceDetail -&gt; Maybe TrainingJob
-</span><a href="#local-6989586621680358255"><span class="hs-identifier hs-var hs-var">trainingJob</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TrainingJob
-</span><a href="#local-6989586621680358255"><span class="hs-identifier hs-var">trainingJob</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680358254"><span class="annot"><span class="annottext">s :: TrialComponentSourceDetail
-</span><a href="#local-6989586621680358254"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentSourceDetail.html#TrialComponentSourceDetail%27"><span class="hs-identifier hs-type">TrialComponentSourceDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680358253"><span class="annot"><span class="annottext">Maybe TrainingJob
-</span><a href="#local-6989586621680358253"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrialComponentSourceDetail
-</span><a href="#local-6989586621680358254"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trainingJob:TrialComponentSourceDetail' :: Maybe TrainingJob
+</span><a href="#local-6989586621680359720"><span class="hs-identifier hs-var hs-var">trainingJob</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TrainingJob
+</span><a href="#local-6989586621680359720"><span class="hs-identifier hs-var">trainingJob</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680359719"><span class="annot"><span class="annottext">s :: TrialComponentSourceDetail
+</span><a href="#local-6989586621680359719"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentSourceDetail.html#TrialComponentSourceDetail%27"><span class="hs-identifier hs-type">TrialComponentSourceDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680359718"><span class="annot"><span class="annottext">Maybe TrainingJob
+</span><a href="#local-6989586621680359718"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrialComponentSourceDetail
+</span><a href="#local-6989586621680359719"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trainingJob:TrialComponentSourceDetail' :: Maybe TrainingJob
 </span><a href="Network.AWS.SageMaker.Types.TrialComponentSourceDetail.html#%24sel%3AtrainingJob%3ATrialComponentSourceDetail%27"><span class="hs-identifier hs-var">trainingJob</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TrainingJob
-</span><a href="#local-6989586621680358253"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentSourceDetail.html#TrialComponentSourceDetail"><span class="hs-identifier hs-type">TrialComponentSourceDetail</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- | Information about a transform job that\'s the source of a trial</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- component.</span><span>
-</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentSourceDetail.html#trialComponentSourceDetail_transformJob"><span class="hs-identifier hs-type">trialComponentSourceDetail_transformJob</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentSourceDetail.html#TrialComponentSourceDetail"><span class="hs-identifier hs-type">TrialComponentSourceDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformJob.html#TransformJob"><span class="hs-identifier hs-type">TransformJob</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-90"></span><span id="trialComponentSourceDetail_transformJob"><span class="annot"><span class="annottext">trialComponentSourceDetail_transformJob :: (Maybe TransformJob -&gt; f (Maybe TransformJob))
--&gt; TrialComponentSourceDetail -&gt; f TrialComponentSourceDetail
-</span><a href="Network.AWS.SageMaker.Types.TrialComponentSourceDetail.html#trialComponentSourceDetail_transformJob"><span class="hs-identifier hs-var hs-var">trialComponentSourceDetail_transformJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TrialComponentSourceDetail -&gt; Maybe TransformJob)
--&gt; (TrialComponentSourceDetail
-    -&gt; Maybe TransformJob -&gt; TrialComponentSourceDetail)
--&gt; Lens
-     TrialComponentSourceDetail
-     TrialComponentSourceDetail
-     (Maybe TransformJob)
-     (Maybe TransformJob)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentSourceDetail.html#TrialComponentSourceDetail%27"><span class="hs-identifier hs-type">TrialComponentSourceDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680358251"><span class="annot"><span class="annottext">Maybe TransformJob
-transformJob :: Maybe TransformJob
-$sel:transformJob:TrialComponentSourceDetail' :: TrialComponentSourceDetail -&gt; Maybe TransformJob
-</span><a href="#local-6989586621680358251"><span class="hs-identifier hs-var hs-var">transformJob</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TransformJob
-</span><a href="#local-6989586621680358251"><span class="hs-identifier hs-var">transformJob</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680358250"><span class="annot"><span class="annottext">s :: TrialComponentSourceDetail
-</span><a href="#local-6989586621680358250"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentSourceDetail.html#TrialComponentSourceDetail%27"><span class="hs-identifier hs-type">TrialComponentSourceDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680358249"><span class="annot"><span class="annottext">Maybe TransformJob
-</span><a href="#local-6989586621680358249"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrialComponentSourceDetail
-</span><a href="#local-6989586621680358250"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transformJob:TrialComponentSourceDetail' :: Maybe TransformJob
-</span><a href="Network.AWS.SageMaker.Types.TrialComponentSourceDetail.html#%24sel%3AtransformJob%3ATrialComponentSourceDetail%27"><span class="hs-identifier hs-var">transformJob</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TransformJob
-</span><a href="#local-6989586621680358249"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentSourceDetail.html#TrialComponentSourceDetail"><span class="hs-identifier hs-type">TrialComponentSourceDetail</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the source.</span><span>
-</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentSourceDetail.html#trialComponentSourceDetail_sourceArn"><span class="hs-identifier hs-type">trialComponentSourceDetail_sourceArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentSourceDetail.html#TrialComponentSourceDetail"><span class="hs-identifier hs-type">TrialComponentSourceDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-94"></span><span id="trialComponentSourceDetail_sourceArn"><span class="annot"><span class="annottext">trialComponentSourceDetail_sourceArn :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621680359718"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentSourceDetail.html#TrialComponentSourceDetail"><span class="hs-identifier hs-type">TrialComponentSourceDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the source.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentSourceDetail.html#trialComponentSourceDetail_sourceArn"><span class="hs-identifier hs-type">trialComponentSourceDetail_sourceArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentSourceDetail.html#TrialComponentSourceDetail"><span class="hs-identifier hs-type">TrialComponentSourceDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span id="trialComponentSourceDetail_sourceArn"><span class="annot"><span class="annottext">trialComponentSourceDetail_sourceArn :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; TrialComponentSourceDetail -&gt; f TrialComponentSourceDetail
 </span><a href="Network.AWS.SageMaker.Types.TrialComponentSourceDetail.html#trialComponentSourceDetail_sourceArn"><span class="hs-identifier hs-var hs-var">trialComponentSourceDetail_sourceArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TrialComponentSourceDetail -&gt; Maybe Text)
 -&gt; (TrialComponentSourceDetail
@@ -244,19 +194,69 @@ $sel:transformJob:TrialComponentSourceDetail' :: TrialComponentSourceDetail -&gt
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentSourceDetail.html#TrialComponentSourceDetail%27"><span class="hs-identifier hs-type">TrialComponentSourceDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680358247"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentSourceDetail.html#TrialComponentSourceDetail%27"><span class="hs-identifier hs-type">TrialComponentSourceDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680359716"><span class="annot"><span class="annottext">Maybe Text
 sourceArn :: Maybe Text
 $sel:sourceArn:TrialComponentSourceDetail' :: TrialComponentSourceDetail -&gt; Maybe Text
-</span><a href="#local-6989586621680358247"><span class="hs-identifier hs-var hs-var">sourceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680358247"><span class="hs-identifier hs-var">sourceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680358246"><span class="annot"><span class="annottext">s :: TrialComponentSourceDetail
-</span><a href="#local-6989586621680358246"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentSourceDetail.html#TrialComponentSourceDetail%27"><span class="hs-identifier hs-type">TrialComponentSourceDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680358245"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680358245"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrialComponentSourceDetail
-</span><a href="#local-6989586621680358246"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceArn:TrialComponentSourceDetail' :: Maybe Text
+</span><a href="#local-6989586621680359716"><span class="hs-identifier hs-var hs-var">sourceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680359716"><span class="hs-identifier hs-var">sourceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680359715"><span class="annot"><span class="annottext">s :: TrialComponentSourceDetail
+</span><a href="#local-6989586621680359715"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentSourceDetail.html#TrialComponentSourceDetail%27"><span class="hs-identifier hs-type">TrialComponentSourceDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680359714"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680359714"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrialComponentSourceDetail
+</span><a href="#local-6989586621680359715"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceArn:TrialComponentSourceDetail' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.TrialComponentSourceDetail.html#%24sel%3AsourceArn%3ATrialComponentSourceDetail%27"><span class="hs-identifier hs-var">sourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680358245"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentSourceDetail.html#TrialComponentSourceDetail"><span class="hs-identifier hs-type">TrialComponentSourceDetail</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680359714"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentSourceDetail.html#TrialComponentSourceDetail"><span class="hs-identifier hs-type">TrialComponentSourceDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | Information about a processing job that\'s the source of a trial</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- component.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentSourceDetail.html#trialComponentSourceDetail_processingJob"><span class="hs-identifier hs-type">trialComponentSourceDetail_processingJob</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentSourceDetail.html#TrialComponentSourceDetail"><span class="hs-identifier hs-type">TrialComponentSourceDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingJob.html#ProcessingJob"><span class="hs-identifier hs-type">ProcessingJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span id="trialComponentSourceDetail_processingJob"><span class="annot"><span class="annottext">trialComponentSourceDetail_processingJob :: (Maybe ProcessingJob -&gt; f (Maybe ProcessingJob))
+-&gt; TrialComponentSourceDetail -&gt; f TrialComponentSourceDetail
+</span><a href="Network.AWS.SageMaker.Types.TrialComponentSourceDetail.html#trialComponentSourceDetail_processingJob"><span class="hs-identifier hs-var hs-var">trialComponentSourceDetail_processingJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TrialComponentSourceDetail -&gt; Maybe ProcessingJob)
+-&gt; (TrialComponentSourceDetail
+    -&gt; Maybe ProcessingJob -&gt; TrialComponentSourceDetail)
+-&gt; Lens
+     TrialComponentSourceDetail
+     TrialComponentSourceDetail
+     (Maybe ProcessingJob)
+     (Maybe ProcessingJob)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentSourceDetail.html#TrialComponentSourceDetail%27"><span class="hs-identifier hs-type">TrialComponentSourceDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680359712"><span class="annot"><span class="annottext">Maybe ProcessingJob
+processingJob :: Maybe ProcessingJob
+$sel:processingJob:TrialComponentSourceDetail' :: TrialComponentSourceDetail -&gt; Maybe ProcessingJob
+</span><a href="#local-6989586621680359712"><span class="hs-identifier hs-var hs-var">processingJob</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ProcessingJob
+</span><a href="#local-6989586621680359712"><span class="hs-identifier hs-var">processingJob</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680359711"><span class="annot"><span class="annottext">s :: TrialComponentSourceDetail
+</span><a href="#local-6989586621680359711"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentSourceDetail.html#TrialComponentSourceDetail%27"><span class="hs-identifier hs-type">TrialComponentSourceDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680359710"><span class="annot"><span class="annottext">Maybe ProcessingJob
+</span><a href="#local-6989586621680359710"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrialComponentSourceDetail
+</span><a href="#local-6989586621680359711"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:processingJob:TrialComponentSourceDetail' :: Maybe ProcessingJob
+</span><a href="Network.AWS.SageMaker.Types.TrialComponentSourceDetail.html#%24sel%3AprocessingJob%3ATrialComponentSourceDetail%27"><span class="hs-identifier hs-var">processingJob</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProcessingJob
+</span><a href="#local-6989586621680359710"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentSourceDetail.html#TrialComponentSourceDetail"><span class="hs-identifier hs-type">TrialComponentSourceDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | Information about a transform job that\'s the source of a trial</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- component.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentSourceDetail.html#trialComponentSourceDetail_transformJob"><span class="hs-identifier hs-type">trialComponentSourceDetail_transformJob</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentSourceDetail.html#TrialComponentSourceDetail"><span class="hs-identifier hs-type">TrialComponentSourceDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformJob.html#TransformJob"><span class="hs-identifier hs-type">TransformJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span id="trialComponentSourceDetail_transformJob"><span class="annot"><span class="annottext">trialComponentSourceDetail_transformJob :: (Maybe TransformJob -&gt; f (Maybe TransformJob))
+-&gt; TrialComponentSourceDetail -&gt; f TrialComponentSourceDetail
+</span><a href="Network.AWS.SageMaker.Types.TrialComponentSourceDetail.html#trialComponentSourceDetail_transformJob"><span class="hs-identifier hs-var hs-var">trialComponentSourceDetail_transformJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TrialComponentSourceDetail -&gt; Maybe TransformJob)
+-&gt; (TrialComponentSourceDetail
+    -&gt; Maybe TransformJob -&gt; TrialComponentSourceDetail)
+-&gt; Lens
+     TrialComponentSourceDetail
+     TrialComponentSourceDetail
+     (Maybe TransformJob)
+     (Maybe TransformJob)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentSourceDetail.html#TrialComponentSourceDetail%27"><span class="hs-identifier hs-type">TrialComponentSourceDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680359708"><span class="annot"><span class="annottext">Maybe TransformJob
+transformJob :: Maybe TransformJob
+$sel:transformJob:TrialComponentSourceDetail' :: TrialComponentSourceDetail -&gt; Maybe TransformJob
+</span><a href="#local-6989586621680359708"><span class="hs-identifier hs-var hs-var">transformJob</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TransformJob
+</span><a href="#local-6989586621680359708"><span class="hs-identifier hs-var">transformJob</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680359707"><span class="annot"><span class="annottext">s :: TrialComponentSourceDetail
+</span><a href="#local-6989586621680359707"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentSourceDetail.html#TrialComponentSourceDetail%27"><span class="hs-identifier hs-type">TrialComponentSourceDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680359706"><span class="annot"><span class="annottext">Maybe TransformJob
+</span><a href="#local-6989586621680359706"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrialComponentSourceDetail
+</span><a href="#local-6989586621680359707"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transformJob:TrialComponentSourceDetail' :: Maybe TransformJob
+</span><a href="Network.AWS.SageMaker.Types.TrialComponentSourceDetail.html#%24sel%3AtransformJob%3ATrialComponentSourceDetail%27"><span class="hs-identifier hs-var">transformJob</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TransformJob
+</span><a href="#local-6989586621680359706"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentSourceDetail.html#TrialComponentSourceDetail"><span class="hs-identifier hs-type">TrialComponentSourceDetail</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680358242"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentSourceDetail.html#TrialComponentSourceDetail"><span class="hs-identifier hs-type">TrialComponentSourceDetail</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621680358240"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TrialComponentSourceDetail
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680359703"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentSourceDetail.html#TrialComponentSourceDetail"><span class="hs-identifier hs-type">TrialComponentSourceDetail</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621680359701"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TrialComponentSourceDetail
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser TrialComponentSourceDetail)
@@ -266,62 +266,68 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;TrialComponentSourceDetail&quot;</span></span><span>
-</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680358237"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680358237"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-101"></span><span>          </span><span class="annot"><span class="annottext">Maybe ProcessingJob
--&gt; Maybe TrainingJob
--&gt; Maybe TransformJob
+</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680359698"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680359698"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-101"></span><span>          </span><span class="annot"><span class="annottext">Maybe TrainingJob
 -&gt; Maybe Text
+-&gt; Maybe ProcessingJob
+-&gt; Maybe TransformJob
 -&gt; TrialComponentSourceDetail
 </span><a href="Network.AWS.SageMaker.Types.TrialComponentSourceDetail.html#TrialComponentSourceDetail%27"><span class="hs-identifier hs-var">TrialComponentSourceDetail'</span></a></span><span>
-</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ProcessingJob
- -&gt; Maybe TrainingJob
- -&gt; Maybe TransformJob
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">(Maybe TrainingJob
  -&gt; Maybe Text
+ -&gt; Maybe ProcessingJob
+ -&gt; Maybe TransformJob
  -&gt; TrialComponentSourceDetail)
--&gt; Parser (Maybe ProcessingJob)
--&gt; Parser
-     (Maybe TrainingJob
-      -&gt; Maybe TransformJob -&gt; Maybe Text -&gt; TrialComponentSourceDetail)
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680358237"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ProcessingJob)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ProcessingJob&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe TrainingJob
-   -&gt; Maybe TransformJob -&gt; Maybe Text -&gt; TrialComponentSourceDetail)
 -&gt; Parser (Maybe TrainingJob)
 -&gt; Parser
-     (Maybe TransformJob -&gt; Maybe Text -&gt; TrialComponentSourceDetail)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680358237"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TrainingJob)
+     (Maybe Text
+      -&gt; Maybe ProcessingJob
+      -&gt; Maybe TransformJob
+      -&gt; TrialComponentSourceDetail)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680359698"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TrainingJob)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TrainingJob&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe TransformJob -&gt; Maybe Text -&gt; TrialComponentSourceDetail)
--&gt; Parser (Maybe TransformJob)
--&gt; Parser (Maybe Text -&gt; TrialComponentSourceDetail)
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe ProcessingJob
+   -&gt; Maybe TransformJob
+   -&gt; TrialComponentSourceDetail)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe ProcessingJob
+      -&gt; Maybe TransformJob -&gt; TrialComponentSourceDetail)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680358237"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TransformJob)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;TransformJob&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; TrialComponentSourceDetail)
--&gt; Parser (Maybe Text) -&gt; Parser TrialComponentSourceDetail
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680358237"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680359698"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SourceArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ProcessingJob
+   -&gt; Maybe TransformJob -&gt; TrialComponentSourceDetail)
+-&gt; Parser (Maybe ProcessingJob)
+-&gt; Parser (Maybe TransformJob -&gt; TrialComponentSourceDetail)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680359698"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ProcessingJob)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProcessingJob&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe TransformJob -&gt; TrialComponentSourceDetail)
+-&gt; Parser (Maybe TransformJob) -&gt; Parser TrialComponentSourceDetail
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680359698"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TransformJob)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TransformJob&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680358231"><span id="local-6989586621680358233"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentSourceDetail.html#TrialComponentSourceDetail"><span class="hs-identifier hs-type">TrialComponentSourceDetail</span></a></span></span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680359692"><span id="local-6989586621680359694"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentSourceDetail.html#TrialComponentSourceDetail"><span class="hs-identifier hs-type">TrialComponentSourceDetail</span></a></span></span></span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680358228"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentSourceDetail.html#TrialComponentSourceDetail"><span class="hs-identifier hs-type">TrialComponentSourceDetail</span></a></span></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680359689"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentSourceDetail.html#TrialComponentSourceDetail"><span class="hs-identifier hs-type">TrialComponentSourceDetail</span></a></span></span><span>
 </span><span id="line-111"></span></pre></body></html>

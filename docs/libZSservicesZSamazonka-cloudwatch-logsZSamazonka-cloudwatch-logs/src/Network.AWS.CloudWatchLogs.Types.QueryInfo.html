@@ -28,25 +28,25 @@
 </span><span id="line-28"></span><span class="hs-comment">-- request in a @DescribeQueries@ operation.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newQueryInfo' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679222306"><span id="local-6989586621679222307"></span></span><span class="hs-keyword">data</span><span> </span><span id="QueryInfo"><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.QueryInfo.html#QueryInfo"><span class="hs-identifier hs-var">QueryInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="QueryInfo%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.QueryInfo.html#QueryInfo%27"><span class="hs-identifier hs-var">QueryInfo'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The query string used in this query.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AqueryString%3AQueryInfo%27"><span class="annot"><span class="annottext">QueryInfo -&gt; Maybe Text
-</span><a href="Network.AWS.CloudWatchLogs.Types.QueryInfo.html#%24sel%3AqueryString%3AQueryInfo%27"><span class="hs-identifier hs-var hs-var">queryString</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The status of this query. Possible values are @Cancelled@, @Complete@,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- @Failed@, @Running@, @Scheduled@, and @Unknown@.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3Astatus%3AQueryInfo%27"><span class="annot"><span class="annottext">QueryInfo -&gt; Maybe QueryStatus
+</span><span id="line-31"></span><span id="local-6989586621679222445"><span id="local-6989586621679222446"></span></span><span class="hs-keyword">data</span><span> </span><span id="QueryInfo"><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.QueryInfo.html#QueryInfo"><span class="hs-identifier hs-var">QueryInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="QueryInfo%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.QueryInfo.html#QueryInfo%27"><span class="hs-identifier hs-var">QueryInfo'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of this query. Possible values are @Cancelled@, @Complete@,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- @Failed@, @Running@, @Scheduled@, and @Unknown@.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Astatus%3AQueryInfo%27"><span class="annot"><span class="annottext">QueryInfo -&gt; Maybe QueryStatus
 </span><a href="Network.AWS.CloudWatchLogs.Types.QueryInfo.html#%24sel%3Astatus%3AQueryInfo%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.QueryStatus.html#QueryStatus"><span class="hs-identifier hs-type">QueryStatus</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The unique ID number of this query.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AqueryId%3AQueryInfo%27"><span class="annot"><span class="annottext">QueryInfo -&gt; Maybe Text
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The unique ID number of this query.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AqueryId%3AQueryInfo%27"><span class="annot"><span class="annottext">QueryInfo -&gt; Maybe Text
 </span><a href="Network.AWS.CloudWatchLogs.Types.QueryInfo.html#%24sel%3AqueryId%3AQueryInfo%27"><span class="hs-identifier hs-var hs-var">queryId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The name of the log group scanned by this query.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3AlogGroupName%3AQueryInfo%27"><span class="annot"><span class="annottext">QueryInfo -&gt; Maybe Text
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The name of the log group scanned by this query.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AlogGroupName%3AQueryInfo%27"><span class="annot"><span class="annottext">QueryInfo -&gt; Maybe Text
 </span><a href="Network.AWS.CloudWatchLogs.Types.QueryInfo.html#%24sel%3AlogGroupName%3AQueryInfo%27"><span class="hs-identifier hs-var hs-var">logGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The query string used in this query.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AqueryString%3AQueryInfo%27"><span class="annot"><span class="annottext">QueryInfo -&gt; Maybe Text
+</span><a href="Network.AWS.CloudWatchLogs.Types.QueryInfo.html#%24sel%3AqueryString%3AQueryInfo%27"><span class="hs-identifier hs-var hs-var">queryString</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The date and time that this query was created.</span><span>
 </span><span id="line-42"></span><span>    </span><span id="%24sel%3AcreateTime%3AQueryInfo%27"><span class="annot"><span class="annottext">QueryInfo -&gt; Maybe Natural
 </span><a href="Network.AWS.CloudWatchLogs.Types.QueryInfo.html#%24sel%3AcreateTime%3AQueryInfo%27"><span class="hs-identifier hs-var hs-var">createTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679222296"><span id="local-6989586621679222298"><span class="annot"><span class="annottext">QueryInfo -&gt; QueryInfo -&gt; Bool
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679222435"><span id="local-6989586621679222437"><span class="annot"><span class="annottext">QueryInfo -&gt; QueryInfo -&gt; Bool
 (QueryInfo -&gt; QueryInfo -&gt; Bool)
 -&gt; (QueryInfo -&gt; QueryInfo -&gt; Bool) -&gt; Eq QueryInfo
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -54,7 +54,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: QueryInfo -&gt; QueryInfo -&gt; Bool
 == :: QueryInfo -&gt; QueryInfo -&gt; Bool
 $c== :: QueryInfo -&gt; QueryInfo -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222287"><span id="local-6989586621679222289"><span id="local-6989586621679222291"><span id="local-6989586621679222293"><span class="annot"><span class="annottext">ReadPrec [QueryInfo]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222426"><span id="local-6989586621679222428"><span id="local-6989586621679222430"><span id="local-6989586621679222432"><span class="annot"><span class="annottext">ReadPrec [QueryInfo]
 ReadPrec QueryInfo
 Int -&gt; ReadS QueryInfo
 ReadS [QueryInfo]
@@ -74,7 +74,7 @@ readList :: ReadS [QueryInfo]
 $creadList :: ReadS [QueryInfo]
 readsPrec :: Int -&gt; ReadS QueryInfo
 $creadsPrec :: Int -&gt; ReadS QueryInfo
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222280"><span id="local-6989586621679222282"><span id="local-6989586621679222284"><span class="annot"><span class="annottext">Int -&gt; QueryInfo -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222419"><span id="local-6989586621679222421"><span id="local-6989586621679222423"><span class="annot"><span class="annottext">Int -&gt; QueryInfo -&gt; ShowS
 [QueryInfo] -&gt; ShowS
 QueryInfo -&gt; String
 (Int -&gt; QueryInfo -&gt; ShowS)
@@ -107,41 +107,41 @@ $cfrom :: forall x. QueryInfo -&gt; Rep QueryInfo x
 </span><span id="line-51"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-53"></span><span class="hs-comment">--</span><span>
-</span><span id="line-54"></span><span class="hs-comment">-- 'queryString', 'queryInfo_queryString' - The query string used in this query.</span><span>
-</span><span id="line-55"></span><span class="hs-comment">--</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- 'status', 'queryInfo_status' - The status of this query. Possible values are @Cancelled@, @Complete@,</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- @Failed@, @Running@, @Scheduled@, and @Unknown@.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'status', 'queryInfo_status' - The status of this query. Possible values are @Cancelled@, @Complete@,</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- @Failed@, @Running@, @Scheduled@, and @Unknown@.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'queryId', 'queryInfo_queryId' - The unique ID number of this query.</span><span>
 </span><span id="line-58"></span><span class="hs-comment">--</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- 'queryId', 'queryInfo_queryId' - The unique ID number of this query.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'logGroupName', 'queryInfo_logGroupName' - The name of the log group scanned by this query.</span><span>
 </span><span id="line-60"></span><span class="hs-comment">--</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- 'logGroupName', 'queryInfo_logGroupName' - The name of the log group scanned by this query.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'queryString', 'queryInfo_queryString' - The query string used in this query.</span><span>
 </span><span id="line-62"></span><span class="hs-comment">--</span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- 'createTime', 'queryInfo_createTime' - The date and time that this query was created.</span><span>
 </span><span id="line-64"></span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.QueryInfo.html#newQueryInfo"><span class="hs-identifier hs-type">newQueryInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-65"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.QueryInfo.html#QueryInfo"><span class="hs-identifier hs-type">QueryInfo</span></a></span><span>
 </span><span id="line-66"></span><span id="newQueryInfo"><span class="annot"><span class="annottext">newQueryInfo :: QueryInfo
 </span><a href="Network.AWS.CloudWatchLogs.Types.QueryInfo.html#newQueryInfo"><span class="hs-identifier hs-var hs-var">newQueryInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-67"></span><span>  </span><span class="annot"><span class="annottext">QueryInfo' :: Maybe Text
--&gt; Maybe QueryStatus
+</span><span id="line-67"></span><span>  </span><span class="annot"><span class="annottext">QueryInfo' :: Maybe QueryStatus
+-&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Natural
 -&gt; QueryInfo
 </span><a href="Network.AWS.CloudWatchLogs.Types.QueryInfo.html#QueryInfo%27"><span class="hs-identifier hs-type">QueryInfo'</span></a></span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:queryString:QueryInfo' :: Maybe Text
-</span><a href="Network.AWS.CloudWatchLogs.Types.QueryInfo.html#%24sel%3AqueryString%3AQueryInfo%27"><span class="hs-identifier hs-var">queryString</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:QueryInfo' :: Maybe QueryStatus
+</span><span id="line-68"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:QueryInfo' :: Maybe QueryStatus
 </span><a href="Network.AWS.CloudWatchLogs.Types.QueryInfo.html#%24sel%3Astatus%3AQueryInfo%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe QueryStatus
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:queryId:QueryInfo' :: Maybe Text
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:queryId:QueryInfo' :: Maybe Text
 </span><a href="Network.AWS.CloudWatchLogs.Types.QueryInfo.html#%24sel%3AqueryId%3AQueryInfo%27"><span class="hs-identifier hs-var">queryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:logGroupName:QueryInfo' :: Maybe Text
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:logGroupName:QueryInfo' :: Maybe Text
 </span><a href="Network.AWS.CloudWatchLogs.Types.QueryInfo.html#%24sel%3AlogGroupName%3AQueryInfo%27"><span class="hs-identifier hs-var">logGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:queryString:QueryInfo' :: Maybe Text
+</span><a href="Network.AWS.CloudWatchLogs.Types.QueryInfo.html#%24sel%3AqueryString%3AQueryInfo%27"><span class="hs-identifier hs-var">queryString</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:createTime:QueryInfo' :: Maybe Natural
@@ -150,79 +150,79 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-73"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- | The query string used in this query.</span><span>
-</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.QueryInfo.html#queryInfo_queryString"><span class="hs-identifier hs-type">queryInfo_queryString</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.QueryInfo.html#QueryInfo"><span class="hs-identifier hs-type">QueryInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-77"></span><span id="queryInfo_queryString"><span class="annot"><span class="annottext">queryInfo_queryString :: (Maybe Text -&gt; f (Maybe Text)) -&gt; QueryInfo -&gt; f QueryInfo
-</span><a href="Network.AWS.CloudWatchLogs.Types.QueryInfo.html#queryInfo_queryString"><span class="hs-identifier hs-var hs-var">queryInfo_queryString</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(QueryInfo -&gt; Maybe Text)
--&gt; (QueryInfo -&gt; Maybe Text -&gt; QueryInfo)
--&gt; Lens QueryInfo QueryInfo (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.QueryInfo.html#QueryInfo%27"><span class="hs-identifier hs-type">QueryInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222271"><span class="annot"><span class="annottext">Maybe Text
-queryString :: Maybe Text
-$sel:queryString:QueryInfo' :: QueryInfo -&gt; Maybe Text
-</span><a href="#local-6989586621679222271"><span class="hs-identifier hs-var hs-var">queryString</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222271"><span class="hs-identifier hs-var">queryString</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222270"><span class="annot"><span class="annottext">s :: QueryInfo
-</span><a href="#local-6989586621679222270"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.QueryInfo.html#QueryInfo%27"><span class="hs-identifier hs-type">QueryInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222269"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222269"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QueryInfo
-</span><a href="#local-6989586621679222270"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryString:QueryInfo' :: Maybe Text
-</span><a href="Network.AWS.CloudWatchLogs.Types.QueryInfo.html#%24sel%3AqueryString%3AQueryInfo%27"><span class="hs-identifier hs-var">queryString</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222269"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.QueryInfo.html#QueryInfo"><span class="hs-identifier hs-type">QueryInfo</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- | The status of this query. Possible values are @Cancelled@, @Complete@,</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- @Failed@, @Running@, @Scheduled@, and @Unknown@.</span><span>
-</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.QueryInfo.html#queryInfo_status"><span class="hs-identifier hs-type">queryInfo_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.QueryInfo.html#QueryInfo"><span class="hs-identifier hs-type">QueryInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.QueryStatus.html#QueryStatus"><span class="hs-identifier hs-type">QueryStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-82"></span><span id="queryInfo_status"><span class="annot"><span class="annottext">queryInfo_status :: (Maybe QueryStatus -&gt; f (Maybe QueryStatus))
+</span><span id="line-75"></span><span class="hs-comment">-- | The status of this query. Possible values are @Cancelled@, @Complete@,</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- @Failed@, @Running@, @Scheduled@, and @Unknown@.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.QueryInfo.html#queryInfo_status"><span class="hs-identifier hs-type">queryInfo_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.QueryInfo.html#QueryInfo"><span class="hs-identifier hs-type">QueryInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.QueryStatus.html#QueryStatus"><span class="hs-identifier hs-type">QueryStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span id="queryInfo_status"><span class="annot"><span class="annottext">queryInfo_status :: (Maybe QueryStatus -&gt; f (Maybe QueryStatus))
 -&gt; QueryInfo -&gt; f QueryInfo
 </span><a href="Network.AWS.CloudWatchLogs.Types.QueryInfo.html#queryInfo_status"><span class="hs-identifier hs-var hs-var">queryInfo_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(QueryInfo -&gt; Maybe QueryStatus)
 -&gt; (QueryInfo -&gt; Maybe QueryStatus -&gt; QueryInfo)
 -&gt; Lens QueryInfo QueryInfo (Maybe QueryStatus) (Maybe QueryStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.QueryInfo.html#QueryInfo%27"><span class="hs-identifier hs-type">QueryInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222267"><span class="annot"><span class="annottext">Maybe QueryStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.QueryInfo.html#QueryInfo%27"><span class="hs-identifier hs-type">QueryInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222410"><span class="annot"><span class="annottext">Maybe QueryStatus
 status :: Maybe QueryStatus
 $sel:status:QueryInfo' :: QueryInfo -&gt; Maybe QueryStatus
-</span><a href="#local-6989586621679222267"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe QueryStatus
-</span><a href="#local-6989586621679222267"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222266"><span class="annot"><span class="annottext">s :: QueryInfo
-</span><a href="#local-6989586621679222266"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.QueryInfo.html#QueryInfo%27"><span class="hs-identifier hs-type">QueryInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222265"><span class="annot"><span class="annottext">Maybe QueryStatus
-</span><a href="#local-6989586621679222265"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QueryInfo
-</span><a href="#local-6989586621679222266"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:QueryInfo' :: Maybe QueryStatus
+</span><a href="#local-6989586621679222410"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe QueryStatus
+</span><a href="#local-6989586621679222410"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222409"><span class="annot"><span class="annottext">s :: QueryInfo
+</span><a href="#local-6989586621679222409"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.QueryInfo.html#QueryInfo%27"><span class="hs-identifier hs-type">QueryInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222408"><span class="annot"><span class="annottext">Maybe QueryStatus
+</span><a href="#local-6989586621679222408"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QueryInfo
+</span><a href="#local-6989586621679222409"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:QueryInfo' :: Maybe QueryStatus
 </span><a href="Network.AWS.CloudWatchLogs.Types.QueryInfo.html#%24sel%3Astatus%3AQueryInfo%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe QueryStatus
-</span><a href="#local-6989586621679222265"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.QueryInfo.html#QueryInfo"><span class="hs-identifier hs-type">QueryInfo</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- | The unique ID number of this query.</span><span>
-</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.QueryInfo.html#queryInfo_queryId"><span class="hs-identifier hs-type">queryInfo_queryId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.QueryInfo.html#QueryInfo"><span class="hs-identifier hs-type">QueryInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-86"></span><span id="queryInfo_queryId"><span class="annot"><span class="annottext">queryInfo_queryId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; QueryInfo -&gt; f QueryInfo
+</span><a href="#local-6989586621679222408"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.QueryInfo.html#QueryInfo"><span class="hs-identifier hs-type">QueryInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | The unique ID number of this query.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.QueryInfo.html#queryInfo_queryId"><span class="hs-identifier hs-type">queryInfo_queryId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.QueryInfo.html#QueryInfo"><span class="hs-identifier hs-type">QueryInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span id="queryInfo_queryId"><span class="annot"><span class="annottext">queryInfo_queryId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; QueryInfo -&gt; f QueryInfo
 </span><a href="Network.AWS.CloudWatchLogs.Types.QueryInfo.html#queryInfo_queryId"><span class="hs-identifier hs-var hs-var">queryInfo_queryId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(QueryInfo -&gt; Maybe Text)
 -&gt; (QueryInfo -&gt; Maybe Text -&gt; QueryInfo)
 -&gt; Lens QueryInfo QueryInfo (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.QueryInfo.html#QueryInfo%27"><span class="hs-identifier hs-type">QueryInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222263"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.QueryInfo.html#QueryInfo%27"><span class="hs-identifier hs-type">QueryInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222406"><span class="annot"><span class="annottext">Maybe Text
 queryId :: Maybe Text
 $sel:queryId:QueryInfo' :: QueryInfo -&gt; Maybe Text
-</span><a href="#local-6989586621679222263"><span class="hs-identifier hs-var hs-var">queryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222263"><span class="hs-identifier hs-var">queryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222262"><span class="annot"><span class="annottext">s :: QueryInfo
-</span><a href="#local-6989586621679222262"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.QueryInfo.html#QueryInfo%27"><span class="hs-identifier hs-type">QueryInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222261"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222261"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QueryInfo
-</span><a href="#local-6989586621679222262"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryId:QueryInfo' :: Maybe Text
+</span><a href="#local-6989586621679222406"><span class="hs-identifier hs-var hs-var">queryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222406"><span class="hs-identifier hs-var">queryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222405"><span class="annot"><span class="annottext">s :: QueryInfo
+</span><a href="#local-6989586621679222405"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.QueryInfo.html#QueryInfo%27"><span class="hs-identifier hs-type">QueryInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222404"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222404"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QueryInfo
+</span><a href="#local-6989586621679222405"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryId:QueryInfo' :: Maybe Text
 </span><a href="Network.AWS.CloudWatchLogs.Types.QueryInfo.html#%24sel%3AqueryId%3AQueryInfo%27"><span class="hs-identifier hs-var">queryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222261"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.QueryInfo.html#QueryInfo"><span class="hs-identifier hs-type">QueryInfo</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- | The name of the log group scanned by this query.</span><span>
-</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.QueryInfo.html#queryInfo_logGroupName"><span class="hs-identifier hs-type">queryInfo_logGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.QueryInfo.html#QueryInfo"><span class="hs-identifier hs-type">QueryInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-90"></span><span id="queryInfo_logGroupName"><span class="annot"><span class="annottext">queryInfo_logGroupName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; QueryInfo -&gt; f QueryInfo
+</span><a href="#local-6989586621679222404"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.QueryInfo.html#QueryInfo"><span class="hs-identifier hs-type">QueryInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | The name of the log group scanned by this query.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.QueryInfo.html#queryInfo_logGroupName"><span class="hs-identifier hs-type">queryInfo_logGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.QueryInfo.html#QueryInfo"><span class="hs-identifier hs-type">QueryInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span id="queryInfo_logGroupName"><span class="annot"><span class="annottext">queryInfo_logGroupName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; QueryInfo -&gt; f QueryInfo
 </span><a href="Network.AWS.CloudWatchLogs.Types.QueryInfo.html#queryInfo_logGroupName"><span class="hs-identifier hs-var hs-var">queryInfo_logGroupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(QueryInfo -&gt; Maybe Text)
 -&gt; (QueryInfo -&gt; Maybe Text -&gt; QueryInfo)
 -&gt; Lens QueryInfo QueryInfo (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.QueryInfo.html#QueryInfo%27"><span class="hs-identifier hs-type">QueryInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222259"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.QueryInfo.html#QueryInfo%27"><span class="hs-identifier hs-type">QueryInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222402"><span class="annot"><span class="annottext">Maybe Text
 logGroupName :: Maybe Text
 $sel:logGroupName:QueryInfo' :: QueryInfo -&gt; Maybe Text
-</span><a href="#local-6989586621679222259"><span class="hs-identifier hs-var hs-var">logGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222259"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222258"><span class="annot"><span class="annottext">s :: QueryInfo
-</span><a href="#local-6989586621679222258"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.QueryInfo.html#QueryInfo%27"><span class="hs-identifier hs-type">QueryInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222257"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222257"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QueryInfo
-</span><a href="#local-6989586621679222258"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logGroupName:QueryInfo' :: Maybe Text
+</span><a href="#local-6989586621679222402"><span class="hs-identifier hs-var hs-var">logGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222402"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222401"><span class="annot"><span class="annottext">s :: QueryInfo
+</span><a href="#local-6989586621679222401"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.QueryInfo.html#QueryInfo%27"><span class="hs-identifier hs-type">QueryInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222400"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222400"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QueryInfo
+</span><a href="#local-6989586621679222401"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logGroupName:QueryInfo' :: Maybe Text
 </span><a href="Network.AWS.CloudWatchLogs.Types.QueryInfo.html#%24sel%3AlogGroupName%3AQueryInfo%27"><span class="hs-identifier hs-var">logGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222257"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.QueryInfo.html#QueryInfo"><span class="hs-identifier hs-type">QueryInfo</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679222400"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.QueryInfo.html#QueryInfo"><span class="hs-identifier hs-type">QueryInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | The query string used in this query.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.QueryInfo.html#queryInfo_queryString"><span class="hs-identifier hs-type">queryInfo_queryString</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.QueryInfo.html#QueryInfo"><span class="hs-identifier hs-type">QueryInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="queryInfo_queryString"><span class="annot"><span class="annottext">queryInfo_queryString :: (Maybe Text -&gt; f (Maybe Text)) -&gt; QueryInfo -&gt; f QueryInfo
+</span><a href="Network.AWS.CloudWatchLogs.Types.QueryInfo.html#queryInfo_queryString"><span class="hs-identifier hs-var hs-var">queryInfo_queryString</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(QueryInfo -&gt; Maybe Text)
+-&gt; (QueryInfo -&gt; Maybe Text -&gt; QueryInfo)
+-&gt; Lens QueryInfo QueryInfo (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.QueryInfo.html#QueryInfo%27"><span class="hs-identifier hs-type">QueryInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222398"><span class="annot"><span class="annottext">Maybe Text
+queryString :: Maybe Text
+$sel:queryString:QueryInfo' :: QueryInfo -&gt; Maybe Text
+</span><a href="#local-6989586621679222398"><span class="hs-identifier hs-var hs-var">queryString</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222398"><span class="hs-identifier hs-var">queryString</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222397"><span class="annot"><span class="annottext">s :: QueryInfo
+</span><a href="#local-6989586621679222397"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.QueryInfo.html#QueryInfo%27"><span class="hs-identifier hs-type">QueryInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222396"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222396"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QueryInfo
+</span><a href="#local-6989586621679222397"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryString:QueryInfo' :: Maybe Text
+</span><a href="Network.AWS.CloudWatchLogs.Types.QueryInfo.html#%24sel%3AqueryString%3AQueryInfo%27"><span class="hs-identifier hs-var">queryString</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222396"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.QueryInfo.html#QueryInfo"><span class="hs-identifier hs-type">QueryInfo</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- | The date and time that this query was created.</span><span>
 </span><span id="line-93"></span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.QueryInfo.html#queryInfo_createTime"><span class="hs-identifier hs-type">queryInfo_createTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.QueryInfo.html#QueryInfo"><span class="hs-identifier hs-type">QueryInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -231,89 +231,89 @@ $sel:logGroupName:QueryInfo' :: QueryInfo -&gt; Maybe Text
 -&gt; (QueryInfo -&gt; Maybe Natural -&gt; QueryInfo)
 -&gt; Lens QueryInfo QueryInfo (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.QueryInfo.html#QueryInfo%27"><span class="hs-identifier hs-type">QueryInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222255"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.QueryInfo.html#QueryInfo%27"><span class="hs-identifier hs-type">QueryInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222394"><span class="annot"><span class="annottext">Maybe Natural
 createTime :: Maybe Natural
 $sel:createTime:QueryInfo' :: QueryInfo -&gt; Maybe Natural
-</span><a href="#local-6989586621679222255"><span class="hs-identifier hs-var hs-var">createTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679222255"><span class="hs-identifier hs-var">createTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222254"><span class="annot"><span class="annottext">s :: QueryInfo
-</span><a href="#local-6989586621679222254"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.QueryInfo.html#QueryInfo%27"><span class="hs-identifier hs-type">QueryInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222253"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679222253"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QueryInfo
-</span><a href="#local-6989586621679222254"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createTime:QueryInfo' :: Maybe Natural
+</span><a href="#local-6989586621679222394"><span class="hs-identifier hs-var hs-var">createTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679222394"><span class="hs-identifier hs-var">createTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222393"><span class="annot"><span class="annottext">s :: QueryInfo
+</span><a href="#local-6989586621679222393"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.QueryInfo.html#QueryInfo%27"><span class="hs-identifier hs-type">QueryInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222392"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679222392"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QueryInfo
+</span><a href="#local-6989586621679222393"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createTime:QueryInfo' :: Maybe Natural
 </span><a href="Network.AWS.CloudWatchLogs.Types.QueryInfo.html#%24sel%3AcreateTime%3AQueryInfo%27"><span class="hs-identifier hs-var">createTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679222253"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.QueryInfo.html#QueryInfo"><span class="hs-identifier hs-type">QueryInfo</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679222392"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.QueryInfo.html#QueryInfo"><span class="hs-identifier hs-type">QueryInfo</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222250"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.QueryInfo.html#QueryInfo"><span class="hs-identifier hs-type">QueryInfo</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679222248"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser QueryInfo
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222389"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.QueryInfo.html#QueryInfo"><span class="hs-identifier hs-type">QueryInfo</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679222387"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser QueryInfo
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser QueryInfo) -&gt; Value -&gt; Parser QueryInfo
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;QueryInfo&quot;</span></span><span>
-</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679222245"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679222245"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-101"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe QueryStatus
+</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679222384"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679222384"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-101"></span><span>          </span><span class="annot"><span class="annottext">Maybe QueryStatus
+-&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Natural
 -&gt; QueryInfo
 </span><a href="Network.AWS.CloudWatchLogs.Types.QueryInfo.html#QueryInfo%27"><span class="hs-identifier hs-var">QueryInfo'</span></a></span><span>
-</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe QueryStatus
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">(Maybe QueryStatus
+ -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe Natural
  -&gt; QueryInfo)
--&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe QueryStatus)
 -&gt; Parser
-     (Maybe QueryStatus
+     (Maybe Text
       -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Natural -&gt; QueryInfo)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679222245"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;queryString&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe QueryStatus
-   -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Natural -&gt; QueryInfo)
--&gt; Parser (Maybe QueryStatus)
--&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Natural -&gt; QueryInfo)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679222245"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe QueryStatus)
+</span><a href="#local-6989586621679222384"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe QueryStatus)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Natural -&gt; QueryInfo)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Natural -&gt; QueryInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679222384"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;queryId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Natural -&gt; QueryInfo)
 -&gt; Parser (Maybe Text)
 -&gt; Parser (Maybe Text -&gt; Maybe Natural -&gt; QueryInfo)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679222245"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679222384"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;queryId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;logGroupName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Natural -&gt; QueryInfo)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Natural -&gt; QueryInfo)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679222245"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679222384"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;logGroupName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;queryString&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Natural -&gt; QueryInfo)
 -&gt; Parser (Maybe Natural) -&gt; Parser QueryInfo
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679222245"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679222384"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;createTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222239"><span id="local-6989586621679222241"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.QueryInfo.html#QueryInfo"><span class="hs-identifier hs-type">QueryInfo</span></a></span></span></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222378"><span id="local-6989586621679222380"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.QueryInfo.html#QueryInfo"><span class="hs-identifier hs-type">QueryInfo</span></a></span></span></span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222236"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.QueryInfo.html#QueryInfo"><span class="hs-identifier hs-type">QueryInfo</span></a></span></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222375"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.QueryInfo.html#QueryInfo"><span class="hs-identifier hs-type">QueryInfo</span></a></span></span><span>
 </span><span id="line-112"></span></pre></body></html>

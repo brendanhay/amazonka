@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- | Authentication Scheme</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679860648"><span id="local-6989586621679860649"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AuthenticationScheme"><span class="annot"><a href="Network.AWS.MediaLive.Types.AuthenticationScheme.html#AuthenticationScheme"><span class="hs-identifier hs-var">AuthenticationScheme</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AuthenticationScheme%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.AuthenticationScheme.html#AuthenticationScheme%27"><span class="hs-identifier hs-var">AuthenticationScheme'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679867307"><span id="local-6989586621679867308"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AuthenticationScheme"><span class="annot"><a href="Network.AWS.MediaLive.Types.AuthenticationScheme.html#AuthenticationScheme"><span class="hs-identifier hs-var">AuthenticationScheme</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AuthenticationScheme%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.AuthenticationScheme.html#AuthenticationScheme%27"><span class="hs-identifier hs-var">AuthenticationScheme'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAuthenticationScheme"><span class="annot"><span class="annottext">AuthenticationScheme -&gt; Text
 </span><a href="Network.AWS.MediaLive.Types.AuthenticationScheme.html#fromAuthenticationScheme"><span class="hs-identifier hs-var hs-var">fromAuthenticationScheme</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679860640"><span id="local-6989586621679860642"><span id="local-6989586621679860644"><span class="annot"><span class="annottext">Int -&gt; AuthenticationScheme -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679867299"><span id="local-6989586621679867301"><span id="local-6989586621679867303"><span class="annot"><span class="annottext">Int -&gt; AuthenticationScheme -&gt; ShowS
 [AuthenticationScheme] -&gt; ShowS
 AuthenticationScheme -&gt; String
 (Int -&gt; AuthenticationScheme -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: AuthenticationScheme -&gt; String
 showsPrec :: Int -&gt; AuthenticationScheme -&gt; ShowS
 $cshowsPrec :: Int -&gt; AuthenticationScheme -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679860631"><span id="local-6989586621679860633"><span id="local-6989586621679860635"><span id="local-6989586621679860637"><span class="annot"><span class="annottext">ReadPrec [AuthenticationScheme]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679867290"><span id="local-6989586621679867292"><span id="local-6989586621679867294"><span id="local-6989586621679867296"><span class="annot"><span class="annottext">ReadPrec [AuthenticationScheme]
 ReadPrec AuthenticationScheme
 Int -&gt; ReadS AuthenticationScheme
 ReadS [AuthenticationScheme]
@@ -73,7 +73,7 @@ $creadList :: ReadS [AuthenticationScheme]
 readsPrec :: Int -&gt; ReadS AuthenticationScheme
 $creadsPrec :: Int -&gt; ReadS AuthenticationScheme
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679860626"><span id="local-6989586621679860628"><span class="annot"><span class="annottext">AuthenticationScheme -&gt; AuthenticationScheme -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679867285"><span id="local-6989586621679867287"><span class="annot"><span class="annottext">AuthenticationScheme -&gt; AuthenticationScheme -&gt; Bool
 (AuthenticationScheme -&gt; AuthenticationScheme -&gt; Bool)
 -&gt; (AuthenticationScheme -&gt; AuthenticationScheme -&gt; Bool)
 -&gt; Eq AuthenticationScheme
@@ -83,7 +83,7 @@ $c/= :: AuthenticationScheme -&gt; AuthenticationScheme -&gt; Bool
 == :: AuthenticationScheme -&gt; AuthenticationScheme -&gt; Bool
 $c== :: AuthenticationScheme -&gt; AuthenticationScheme -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679860610"><span id="local-6989586621679860612"><span id="local-6989586621679860614"><span id="local-6989586621679860616"><span id="local-6989586621679860618"><span id="local-6989586621679860620"><span id="local-6989586621679860622"><span class="annot"><span class="annottext">Eq AuthenticationScheme
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679867269"><span id="local-6989586621679867271"><span id="local-6989586621679867273"><span id="local-6989586621679867275"><span id="local-6989586621679867277"><span id="local-6989586621679867279"><span id="local-6989586621679867281"><span class="annot"><span class="annottext">Eq AuthenticationScheme
 Eq AuthenticationScheme
 -&gt; (AuthenticationScheme -&gt; AuthenticationScheme -&gt; Ordering)
 -&gt; (AuthenticationScheme -&gt; AuthenticationScheme -&gt; Bool)
@@ -141,7 +141,7 @@ $cfrom :: forall x. AuthenticationScheme -&gt; Rep AuthenticationScheme x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679860602"><span id="local-6989586621679860604"><span class="annot"><span class="annottext">Int -&gt; AuthenticationScheme -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679867261"><span id="local-6989586621679867263"><span class="annot"><span class="annottext">Int -&gt; AuthenticationScheme -&gt; Int
 AuthenticationScheme -&gt; Int
 (Int -&gt; AuthenticationScheme -&gt; Int)
 -&gt; (AuthenticationScheme -&gt; Int) -&gt; Hashable AuthenticationScheme
@@ -151,54 +151,54 @@ $chash :: AuthenticationScheme -&gt; Int
 hashWithSalt :: Int -&gt; AuthenticationScheme -&gt; Int
 $chashWithSalt :: Int -&gt; AuthenticationScheme -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679860599"><span class="annot"><span class="annottext">AuthenticationScheme -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679867258"><span class="annot"><span class="annottext">AuthenticationScheme -&gt; ()
 (AuthenticationScheme -&gt; ()) -&gt; NFData AuthenticationScheme
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AuthenticationScheme -&gt; ()
 $crnf :: AuthenticationScheme -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679860596"><span class="annot"><span class="annottext">Text -&gt; Either String AuthenticationScheme
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679867255"><span class="annot"><span class="annottext">Text -&gt; Either String AuthenticationScheme
 (Text -&gt; Either String AuthenticationScheme)
 -&gt; FromText AuthenticationScheme
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AuthenticationScheme
 $cfromText :: Text -&gt; Either String AuthenticationScheme
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679860593"><span class="annot"><span class="annottext">AuthenticationScheme -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679867252"><span class="annot"><span class="annottext">AuthenticationScheme -&gt; Text
 (AuthenticationScheme -&gt; Text) -&gt; ToText AuthenticationScheme
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AuthenticationScheme -&gt; Text
 $ctoText :: AuthenticationScheme -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679860590"><span class="annot"><span class="annottext">AuthenticationScheme -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679867249"><span class="annot"><span class="annottext">AuthenticationScheme -&gt; ByteString
 (AuthenticationScheme -&gt; ByteString)
 -&gt; ToByteString AuthenticationScheme
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AuthenticationScheme -&gt; ByteString
 $ctoBS :: AuthenticationScheme -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679860587"><span class="annot"><span class="annottext">AuthenticationScheme -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679867246"><span class="annot"><span class="annottext">AuthenticationScheme -&gt; ByteStringBuilder
 (AuthenticationScheme -&gt; ByteStringBuilder)
 -&gt; ToLog AuthenticationScheme
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AuthenticationScheme -&gt; ByteStringBuilder
 $cbuild :: AuthenticationScheme -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679860584"><span class="annot"><span class="annottext">HeaderName -&gt; AuthenticationScheme -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679867243"><span class="annot"><span class="annottext">HeaderName -&gt; AuthenticationScheme -&gt; [Header]
 (HeaderName -&gt; AuthenticationScheme -&gt; [Header])
 -&gt; ToHeader AuthenticationScheme
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AuthenticationScheme -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AuthenticationScheme -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679860581"><span class="annot"><span class="annottext">AuthenticationScheme -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679867240"><span class="annot"><span class="annottext">AuthenticationScheme -&gt; QueryString
 (AuthenticationScheme -&gt; QueryString)
 -&gt; ToQuery AuthenticationScheme
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AuthenticationScheme -&gt; QueryString
 $ctoQuery :: AuthenticationScheme -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679860576"><span id="local-6989586621679860578"><span class="annot"><span class="annottext">Value -&gt; Parser [AuthenticationScheme]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679867235"><span id="local-6989586621679867237"><span class="annot"><span class="annottext">Value -&gt; Parser [AuthenticationScheme]
 Value -&gt; Parser AuthenticationScheme
 (Value -&gt; Parser AuthenticationScheme)
 -&gt; (Value -&gt; Parser [AuthenticationScheme])
@@ -210,7 +210,7 @@ $cparseJSONList :: Value -&gt; Parser [AuthenticationScheme]
 parseJSON :: Value -&gt; Parser AuthenticationScheme
 $cparseJSON :: Value -&gt; Parser AuthenticationScheme
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679860571"><span id="local-6989586621679860573"><span class="annot"><span class="annottext">FromJSONKeyFunction [AuthenticationScheme]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679867230"><span id="local-6989586621679867232"><span class="annot"><span class="annottext">FromJSONKeyFunction [AuthenticationScheme]
 FromJSONKeyFunction AuthenticationScheme
 FromJSONKeyFunction AuthenticationScheme
 -&gt; FromJSONKeyFunction [AuthenticationScheme]
@@ -222,7 +222,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AuthenticationScheme]
 fromJSONKey :: FromJSONKeyFunction AuthenticationScheme
 $cfromJSONKey :: FromJSONKeyFunction AuthenticationScheme
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679860562"><span id="local-6989586621679860564"><span id="local-6989586621679860566"><span id="local-6989586621679860568"><span class="annot"><span class="annottext">[AuthenticationScheme] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679867221"><span id="local-6989586621679867223"><span id="local-6989586621679867225"><span id="local-6989586621679867227"><span class="annot"><span class="annottext">[AuthenticationScheme] -&gt; Encoding
 [AuthenticationScheme] -&gt; Value
 AuthenticationScheme -&gt; Encoding
 AuthenticationScheme -&gt; Value
@@ -246,7 +246,7 @@ $ctoEncoding :: AuthenticationScheme -&gt; Encoding
 toJSON :: AuthenticationScheme -&gt; Value
 $ctoJSON :: AuthenticationScheme -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679860557"><span id="local-6989586621679860559"><span class="annot"><span class="annottext">ToJSONKeyFunction [AuthenticationScheme]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679867216"><span id="local-6989586621679867218"><span class="annot"><span class="annottext">ToJSONKeyFunction [AuthenticationScheme]
 ToJSONKeyFunction AuthenticationScheme
 ToJSONKeyFunction AuthenticationScheme
 -&gt; ToJSONKeyFunction [AuthenticationScheme]
@@ -258,14 +258,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AuthenticationScheme]
 toJSONKey :: ToJSONKeyFunction AuthenticationScheme
 $ctoJSONKey :: ToJSONKeyFunction AuthenticationScheme
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679860554"><span class="annot"><span class="annottext">[Node] -&gt; Either String AuthenticationScheme
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679867213"><span class="annot"><span class="annottext">[Node] -&gt; Either String AuthenticationScheme
 ([Node] -&gt; Either String AuthenticationScheme)
 -&gt; FromXML AuthenticationScheme
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AuthenticationScheme
 $cparseXML :: [Node] -&gt; Either String AuthenticationScheme
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679860551"><span class="annot"><span class="annottext">AuthenticationScheme -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679867210"><span class="annot"><span class="annottext">AuthenticationScheme -&gt; XML
 (AuthenticationScheme -&gt; XML) -&gt; ToXML AuthenticationScheme
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: AuthenticationScheme -&gt; XML

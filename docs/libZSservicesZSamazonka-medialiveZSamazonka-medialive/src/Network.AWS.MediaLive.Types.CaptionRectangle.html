@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Caption Rectangle</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newCaptionRectangle' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679862738"><span id="local-6989586621679862739"></span></span><span class="hs-keyword">data</span><span> </span><span id="CaptionRectangle"><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionRectangle.html#CaptionRectangle"><span class="hs-identifier hs-var">CaptionRectangle</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CaptionRectangle%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionRectangle.html#CaptionRectangle%27"><span class="hs-identifier hs-var">CaptionRectangle'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679869399"><span id="local-6989586621679869400"></span></span><span class="hs-keyword">data</span><span> </span><span id="CaptionRectangle"><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionRectangle.html#CaptionRectangle"><span class="hs-identifier hs-var">CaptionRectangle</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CaptionRectangle%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionRectangle.html#CaptionRectangle%27"><span class="hs-identifier hs-var">CaptionRectangle'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | See the description in leftOffset. For topOffset, specify the position</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- of the top edge of the rectangle, as a percentage of the underlying</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- frame height, and relative to the top edge of the frame. For example,</span><span>
@@ -67,7 +67,7 @@
 </span><span id="line-64"></span><span>    </span><span id="%24sel%3AleftOffset%3ACaptionRectangle%27"><span class="annot"><span class="annottext">CaptionRectangle -&gt; Double
 </span><a href="Network.AWS.MediaLive.Types.CaptionRectangle.html#%24sel%3AleftOffset%3ACaptionRectangle%27"><span class="hs-identifier hs-var hs-var">leftOffset</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679862729"><span id="local-6989586621679862731"><span class="annot"><span class="annottext">CaptionRectangle -&gt; CaptionRectangle -&gt; Bool
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679869390"><span id="local-6989586621679869392"><span class="annot"><span class="annottext">CaptionRectangle -&gt; CaptionRectangle -&gt; Bool
 (CaptionRectangle -&gt; CaptionRectangle -&gt; Bool)
 -&gt; (CaptionRectangle -&gt; CaptionRectangle -&gt; Bool)
 -&gt; Eq CaptionRectangle
@@ -76,7 +76,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CaptionRectangle -&gt; CaptionRectangle -&gt; Bool
 == :: CaptionRectangle -&gt; CaptionRectangle -&gt; Bool
 $c== :: CaptionRectangle -&gt; CaptionRectangle -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679862720"><span id="local-6989586621679862722"><span id="local-6989586621679862724"><span id="local-6989586621679862726"><span class="annot"><span class="annottext">ReadPrec [CaptionRectangle]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679869381"><span id="local-6989586621679869383"><span id="local-6989586621679869385"><span id="local-6989586621679869387"><span class="annot"><span class="annottext">ReadPrec [CaptionRectangle]
 ReadPrec CaptionRectangle
 Int -&gt; ReadS CaptionRectangle
 ReadS [CaptionRectangle]
@@ -96,7 +96,7 @@ readList :: ReadS [CaptionRectangle]
 $creadList :: ReadS [CaptionRectangle]
 readsPrec :: Int -&gt; ReadS CaptionRectangle
 $creadsPrec :: Int -&gt; ReadS CaptionRectangle
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679862713"><span id="local-6989586621679862715"><span id="local-6989586621679862717"><span class="annot"><span class="annottext">Int -&gt; CaptionRectangle -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679869374"><span id="local-6989586621679869376"><span id="local-6989586621679869378"><span class="annot"><span class="annottext">Int -&gt; CaptionRectangle -&gt; ShowS
 [CaptionRectangle] -&gt; ShowS
 CaptionRectangle -&gt; String
 (Int -&gt; CaptionRectangle -&gt; ShowS)
@@ -176,28 +176,28 @@ $cfrom :: forall x. CaptionRectangle -&gt; Rep CaptionRectangle x
 </span><span id="line-119"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionRectangle.html#CaptionRectangle"><span class="hs-identifier hs-type">CaptionRectangle</span></a></span><span>
 </span><span id="line-120"></span><span id="newCaptionRectangle"><span class="annot"><span class="annottext">newCaptionRectangle :: Double -&gt; Double -&gt; Double -&gt; Double -&gt; CaptionRectangle
 </span><a href="Network.AWS.MediaLive.Types.CaptionRectangle.html#newCaptionRectangle"><span class="hs-identifier hs-var hs-var">newCaptionRectangle</span></a></span></span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679862707"><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679862707"><span class="hs-identifier hs-var">pTopOffset_</span></a></span></span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679862706"><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679862706"><span class="hs-identifier hs-var">pHeight_</span></a></span></span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679862705"><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679862705"><span class="hs-identifier hs-var">pWidth_</span></a></span></span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679862704"><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679862704"><span class="hs-identifier hs-var">pLeftOffset_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679869368"><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679869368"><span class="hs-identifier hs-var">pTopOffset_</span></a></span></span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679869367"><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679869367"><span class="hs-identifier hs-var">pHeight_</span></a></span></span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679869366"><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679869366"><span class="hs-identifier hs-var">pWidth_</span></a></span></span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679869365"><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679869365"><span class="hs-identifier hs-var">pLeftOffset_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">CaptionRectangle' :: Double -&gt; Double -&gt; Double -&gt; Double -&gt; CaptionRectangle
 </span><a href="Network.AWS.MediaLive.Types.CaptionRectangle.html#CaptionRectangle%27"><span class="hs-identifier hs-type">CaptionRectangle'</span></a></span><span>
 </span><span id="line-126"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:topOffset:CaptionRectangle' :: Double
 </span><a href="Network.AWS.MediaLive.Types.CaptionRectangle.html#%24sel%3AtopOffset%3ACaptionRectangle%27"><span class="hs-identifier hs-var">topOffset</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679862707"><span class="hs-identifier hs-var">pTopOffset_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679869368"><span class="hs-identifier hs-var">pTopOffset_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-127"></span><span>        </span><span class="annot"><span class="annottext">$sel:height:CaptionRectangle' :: Double
 </span><a href="Network.AWS.MediaLive.Types.CaptionRectangle.html#%24sel%3Aheight%3ACaptionRectangle%27"><span class="hs-identifier hs-var">height</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679862706"><span class="hs-identifier hs-var">pHeight_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679869367"><span class="hs-identifier hs-var">pHeight_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-128"></span><span>        </span><span class="annot"><span class="annottext">$sel:width:CaptionRectangle' :: Double
 </span><a href="Network.AWS.MediaLive.Types.CaptionRectangle.html#%24sel%3Awidth%3ACaptionRectangle%27"><span class="hs-identifier hs-var">width</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679862705"><span class="hs-identifier hs-var">pWidth_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679869366"><span class="hs-identifier hs-var">pWidth_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-129"></span><span>        </span><span class="annot"><span class="annottext">$sel:leftOffset:CaptionRectangle' :: Double
 </span><a href="Network.AWS.MediaLive.Types.CaptionRectangle.html#%24sel%3AleftOffset%3ACaptionRectangle%27"><span class="hs-identifier hs-var">leftOffset</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679862704"><span class="hs-identifier hs-var">pLeftOffset_</span></a></span><span>
+</span><a href="#local-6989586621679869365"><span class="hs-identifier hs-var">pLeftOffset_</span></a></span><span>
 </span><span id="line-130"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-comment">-- | See the description in leftOffset. For topOffset, specify the position</span><span>
@@ -212,16 +212,16 @@ $cfrom :: forall x. CaptionRectangle -&gt; Rep CaptionRectangle x
 -&gt; (CaptionRectangle -&gt; Double -&gt; CaptionRectangle)
 -&gt; Lens CaptionRectangle CaptionRectangle Double Double
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionRectangle.html#CaptionRectangle%27"><span class="hs-identifier hs-type">CaptionRectangle'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679862700"><span class="annot"><span class="annottext">Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionRectangle.html#CaptionRectangle%27"><span class="hs-identifier hs-type">CaptionRectangle'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679869361"><span class="annot"><span class="annottext">Double
 topOffset :: Double
 $sel:topOffset:CaptionRectangle' :: CaptionRectangle -&gt; Double
-</span><a href="#local-6989586621679862700"><span class="hs-identifier hs-var hs-var">topOffset</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679862700"><span class="hs-identifier hs-var">topOffset</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679862699"><span class="annot"><span class="annottext">s :: CaptionRectangle
-</span><a href="#local-6989586621679862699"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionRectangle.html#CaptionRectangle%27"><span class="hs-identifier hs-type">CaptionRectangle'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679862698"><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679862698"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CaptionRectangle
-</span><a href="#local-6989586621679862699"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:topOffset:CaptionRectangle' :: Double
+</span><a href="#local-6989586621679869361"><span class="hs-identifier hs-var hs-var">topOffset</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679869361"><span class="hs-identifier hs-var">topOffset</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679869360"><span class="annot"><span class="annottext">s :: CaptionRectangle
+</span><a href="#local-6989586621679869360"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionRectangle.html#CaptionRectangle%27"><span class="hs-identifier hs-type">CaptionRectangle'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679869359"><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679869359"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CaptionRectangle
+</span><a href="#local-6989586621679869360"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:topOffset:CaptionRectangle' :: Double
 </span><a href="Network.AWS.MediaLive.Types.CaptionRectangle.html#%24sel%3AtopOffset%3ACaptionRectangle%27"><span class="hs-identifier hs-var">topOffset</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679862698"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionRectangle.html#CaptionRectangle"><span class="hs-identifier hs-type">CaptionRectangle</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679869359"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionRectangle.html#CaptionRectangle"><span class="hs-identifier hs-type">CaptionRectangle</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-comment">-- | See the description in leftOffset. For height, specify the entire height</span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- of the rectangle as a percentage of the underlying frame height. For</span><span>
@@ -234,16 +234,16 @@ $sel:topOffset:CaptionRectangle' :: CaptionRectangle -&gt; Double
 -&gt; (CaptionRectangle -&gt; Double -&gt; CaptionRectangle)
 -&gt; Lens CaptionRectangle CaptionRectangle Double Double
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionRectangle.html#CaptionRectangle%27"><span class="hs-identifier hs-type">CaptionRectangle'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679862696"><span class="annot"><span class="annottext">Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionRectangle.html#CaptionRectangle%27"><span class="hs-identifier hs-type">CaptionRectangle'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679869357"><span class="annot"><span class="annottext">Double
 height :: Double
 $sel:height:CaptionRectangle' :: CaptionRectangle -&gt; Double
-</span><a href="#local-6989586621679862696"><span class="hs-identifier hs-var hs-var">height</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679862696"><span class="hs-identifier hs-var">height</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679862695"><span class="annot"><span class="annottext">s :: CaptionRectangle
-</span><a href="#local-6989586621679862695"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionRectangle.html#CaptionRectangle%27"><span class="hs-identifier hs-type">CaptionRectangle'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679862694"><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679862694"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CaptionRectangle
-</span><a href="#local-6989586621679862695"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:height:CaptionRectangle' :: Double
+</span><a href="#local-6989586621679869357"><span class="hs-identifier hs-var hs-var">height</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679869357"><span class="hs-identifier hs-var">height</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679869356"><span class="annot"><span class="annottext">s :: CaptionRectangle
+</span><a href="#local-6989586621679869356"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionRectangle.html#CaptionRectangle%27"><span class="hs-identifier hs-type">CaptionRectangle'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679869355"><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679869355"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CaptionRectangle
+</span><a href="#local-6989586621679869356"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:height:CaptionRectangle' :: Double
 </span><a href="Network.AWS.MediaLive.Types.CaptionRectangle.html#%24sel%3Aheight%3ACaptionRectangle%27"><span class="hs-identifier hs-var">height</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679862694"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionRectangle.html#CaptionRectangle"><span class="hs-identifier hs-type">CaptionRectangle</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679869355"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionRectangle.html#CaptionRectangle"><span class="hs-identifier hs-type">CaptionRectangle</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-comment">-- | See the description in leftOffset. For width, specify the entire width</span><span>
 </span><span id="line-150"></span><span class="hs-comment">-- of the rectangle as a percentage of the underlying frame width. For</span><span>
@@ -256,16 +256,16 @@ $sel:height:CaptionRectangle' :: CaptionRectangle -&gt; Double
 -&gt; (CaptionRectangle -&gt; Double -&gt; CaptionRectangle)
 -&gt; Lens CaptionRectangle CaptionRectangle Double Double
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionRectangle.html#CaptionRectangle%27"><span class="hs-identifier hs-type">CaptionRectangle'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679862692"><span class="annot"><span class="annottext">Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionRectangle.html#CaptionRectangle%27"><span class="hs-identifier hs-type">CaptionRectangle'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679869353"><span class="annot"><span class="annottext">Double
 width :: Double
 $sel:width:CaptionRectangle' :: CaptionRectangle -&gt; Double
-</span><a href="#local-6989586621679862692"><span class="hs-identifier hs-var hs-var">width</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679862692"><span class="hs-identifier hs-var">width</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679862691"><span class="annot"><span class="annottext">s :: CaptionRectangle
-</span><a href="#local-6989586621679862691"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionRectangle.html#CaptionRectangle%27"><span class="hs-identifier hs-type">CaptionRectangle'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679862690"><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679862690"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CaptionRectangle
-</span><a href="#local-6989586621679862691"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:width:CaptionRectangle' :: Double
+</span><a href="#local-6989586621679869353"><span class="hs-identifier hs-var hs-var">width</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679869353"><span class="hs-identifier hs-var">width</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679869352"><span class="annot"><span class="annottext">s :: CaptionRectangle
+</span><a href="#local-6989586621679869352"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionRectangle.html#CaptionRectangle%27"><span class="hs-identifier hs-type">CaptionRectangle'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679869351"><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679869351"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CaptionRectangle
+</span><a href="#local-6989586621679869352"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:width:CaptionRectangle' :: Double
 </span><a href="Network.AWS.MediaLive.Types.CaptionRectangle.html#%24sel%3Awidth%3ACaptionRectangle%27"><span class="hs-identifier hs-var">width</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679862690"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionRectangle.html#CaptionRectangle"><span class="hs-identifier hs-type">CaptionRectangle</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679869351"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionRectangle.html#CaptionRectangle"><span class="hs-identifier hs-type">CaptionRectangle</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-comment">-- | Applies only if you plan to convert these source captions to EBU-TT-D or</span><span>
 </span><span id="line-158"></span><span class="hs-comment">-- TTML in an output. (Make sure to leave the default if you don\'t have</span><span>
@@ -288,19 +288,19 @@ $sel:width:CaptionRectangle' :: CaptionRectangle -&gt; Double
 -&gt; (CaptionRectangle -&gt; Double -&gt; CaptionRectangle)
 -&gt; Lens CaptionRectangle CaptionRectangle Double Double
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionRectangle.html#CaptionRectangle%27"><span class="hs-identifier hs-type">CaptionRectangle'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679862688"><span class="annot"><span class="annottext">Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionRectangle.html#CaptionRectangle%27"><span class="hs-identifier hs-type">CaptionRectangle'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679869349"><span class="annot"><span class="annottext">Double
 leftOffset :: Double
 $sel:leftOffset:CaptionRectangle' :: CaptionRectangle -&gt; Double
-</span><a href="#local-6989586621679862688"><span class="hs-identifier hs-var hs-var">leftOffset</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679862688"><span class="hs-identifier hs-var">leftOffset</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679862687"><span class="annot"><span class="annottext">s :: CaptionRectangle
-</span><a href="#local-6989586621679862687"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionRectangle.html#CaptionRectangle%27"><span class="hs-identifier hs-type">CaptionRectangle'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679862686"><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679862686"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CaptionRectangle
-</span><a href="#local-6989586621679862687"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:leftOffset:CaptionRectangle' :: Double
+</span><a href="#local-6989586621679869349"><span class="hs-identifier hs-var hs-var">leftOffset</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679869349"><span class="hs-identifier hs-var">leftOffset</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679869348"><span class="annot"><span class="annottext">s :: CaptionRectangle
+</span><a href="#local-6989586621679869348"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionRectangle.html#CaptionRectangle%27"><span class="hs-identifier hs-type">CaptionRectangle'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679869347"><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679869347"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CaptionRectangle
+</span><a href="#local-6989586621679869348"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:leftOffset:CaptionRectangle' :: Double
 </span><a href="Network.AWS.MediaLive.Types.CaptionRectangle.html#%24sel%3AleftOffset%3ACaptionRectangle%27"><span class="hs-identifier hs-var">leftOffset</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679862686"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionRectangle.html#CaptionRectangle"><span class="hs-identifier hs-type">CaptionRectangle</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679869347"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionRectangle.html#CaptionRectangle"><span class="hs-identifier hs-type">CaptionRectangle</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>
-</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679862683"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionRectangle.html#CaptionRectangle"><span class="hs-identifier hs-type">CaptionRectangle</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-176"></span><span>  </span><span id="local-6989586621679862681"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CaptionRectangle
+</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679869344"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionRectangle.html#CaptionRectangle"><span class="hs-identifier hs-type">CaptionRectangle</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679869342"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CaptionRectangle
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-177"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser CaptionRectangle)
@@ -310,8 +310,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-178"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;CaptionRectangle&quot;</span></span><span>
-</span><span id="line-179"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679862678"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679862678"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-179"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679869339"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679869339"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-180"></span><span>          </span><span class="annot"><span class="annottext">Double -&gt; Double -&gt; Double -&gt; Double -&gt; CaptionRectangle
 </span><a href="Network.AWS.MediaLive.Types.CaptionRectangle.html#CaptionRectangle%27"><span class="hs-identifier hs-var">CaptionRectangle'</span></a></span><span>
 </span><span id="line-181"></span><span>            </span><span class="annot"><span class="annottext">(Double -&gt; Double -&gt; Double -&gt; Double -&gt; CaptionRectangle)
@@ -319,7 +319,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Double -&gt; Double -&gt; Double -&gt; CaptionRectangle)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679862678"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Double
+</span><a href="#local-6989586621679869339"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Double
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;topOffset&quot;</span></span><span class="hs-special">)</span><span>
@@ -327,7 +327,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Double -&gt; Parser (Double -&gt; Double -&gt; CaptionRectangle)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679862678"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Double
+</span><a href="#local-6989586621679869339"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Double
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;height&quot;</span></span><span class="hs-special">)</span><span>
@@ -335,7 +335,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Double -&gt; Parser (Double -&gt; CaptionRectangle)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679862678"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Double
+</span><a href="#local-6989586621679869339"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Double
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;width&quot;</span></span><span class="hs-special">)</span><span>
@@ -343,19 +343,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Double -&gt; Parser CaptionRectangle
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679862678"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Double
+</span><a href="#local-6989586621679869339"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Double
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;leftOffset&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-185"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-186"></span><span>
-</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679862672"><span id="local-6989586621679862674"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionRectangle.html#CaptionRectangle"><span class="hs-identifier hs-type">CaptionRectangle</span></a></span></span></span><span>
+</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679869333"><span id="local-6989586621679869335"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionRectangle.html#CaptionRectangle"><span class="hs-identifier hs-type">CaptionRectangle</span></a></span></span></span><span>
 </span><span id="line-188"></span><span>
-</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679862669"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionRectangle.html#CaptionRectangle"><span class="hs-identifier hs-type">CaptionRectangle</span></a></span></span><span>
+</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679869330"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionRectangle.html#CaptionRectangle"><span class="hs-identifier hs-type">CaptionRectangle</span></a></span></span><span>
 </span><span id="line-190"></span><span>
-</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679862661"><span id="local-6989586621679862663"><span id="local-6989586621679862665"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionRectangle.html#CaptionRectangle"><span class="hs-identifier hs-type">CaptionRectangle</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-192"></span><span>  </span><span id="local-6989586621679862659"><span class="annot"><span class="annottext">toJSON :: CaptionRectangle -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionRectangle.html#CaptionRectangle%27"><span class="hs-identifier hs-type">CaptionRectangle'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679862654"><span id="local-6989586621679862655"><span id="local-6989586621679862656"><span id="local-6989586621679862657"><span class="annot"><span class="annottext">Double
+</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679869322"><span id="local-6989586621679869324"><span id="local-6989586621679869326"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionRectangle.html#CaptionRectangle"><span class="hs-identifier hs-type">CaptionRectangle</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-192"></span><span>  </span><span id="local-6989586621679869320"><span class="annot"><span class="annottext">toJSON :: CaptionRectangle -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionRectangle.html#CaptionRectangle%27"><span class="hs-identifier hs-type">CaptionRectangle'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679869315"><span id="local-6989586621679869316"><span id="local-6989586621679869317"><span id="local-6989586621679869318"><span class="annot"><span class="annottext">Double
 leftOffset :: Double
 width :: Double
 height :: Double
@@ -364,7 +364,7 @@ $sel:leftOffset:CaptionRectangle' :: CaptionRectangle -&gt; Double
 $sel:width:CaptionRectangle' :: CaptionRectangle -&gt; Double
 $sel:height:CaptionRectangle' :: CaptionRectangle -&gt; Double
 $sel:topOffset:CaptionRectangle' :: CaptionRectangle -&gt; Double
-</span><a href="#local-6989586621679862654"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679869315"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-193"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-194"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -376,28 +376,28 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;topOffset&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Double -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679862657"><span class="hs-identifier hs-var">topOffset</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679869318"><span class="hs-identifier hs-var">topOffset</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-196"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;height&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Double -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679862656"><span class="hs-identifier hs-var">height</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679869317"><span class="hs-identifier hs-var">height</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-197"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;width&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Double -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679862655"><span class="hs-identifier hs-var">width</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679869316"><span class="hs-identifier hs-var">width</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-198"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;leftOffset&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Double -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679862654"><span class="hs-identifier hs-var">leftOffset</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679869315"><span class="hs-identifier hs-var">leftOffset</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-199"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-200"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-201"></span></pre></body></html>

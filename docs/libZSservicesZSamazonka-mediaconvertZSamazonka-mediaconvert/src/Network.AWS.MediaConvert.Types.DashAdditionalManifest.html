@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- different subset of outputs in the group.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newDashAdditionalManifest' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679947934"><span id="local-6989586621679947935"></span></span><span class="hs-keyword">data</span><span> </span><span id="DashAdditionalManifest"><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashAdditionalManifest.html#DashAdditionalManifest"><span class="hs-identifier hs-var">DashAdditionalManifest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DashAdditionalManifest%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashAdditionalManifest.html#DashAdditionalManifest%27"><span class="hs-identifier hs-var">DashAdditionalManifest'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679952557"><span id="local-6989586621679952558"></span></span><span class="hs-keyword">data</span><span> </span><span id="DashAdditionalManifest"><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashAdditionalManifest.html#DashAdditionalManifest"><span class="hs-identifier hs-var">DashAdditionalManifest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DashAdditionalManifest%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashAdditionalManifest.html#DashAdditionalManifest%27"><span class="hs-identifier hs-var">DashAdditionalManifest'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specify a name modifier that the service adds to the name of this</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- manifest to make it different from the file names of the other main</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- manifests in the output group. For example, say that the default main</span><span>
@@ -42,7 +42,7 @@
 </span><span id="line-41"></span><span>    </span><span id="%24sel%3AselectedOutputs%3ADashAdditionalManifest%27"><span class="annot"><span class="annottext">DashAdditionalManifest -&gt; Maybe [Text]
 </span><a href="Network.AWS.MediaConvert.Types.DashAdditionalManifest.html#%24sel%3AselectedOutputs%3ADashAdditionalManifest%27"><span class="hs-identifier hs-var hs-var">selectedOutputs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679947927"><span id="local-6989586621679947929"><span class="annot"><span class="annottext">DashAdditionalManifest -&gt; DashAdditionalManifest -&gt; Bool
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679952550"><span id="local-6989586621679952552"><span class="annot"><span class="annottext">DashAdditionalManifest -&gt; DashAdditionalManifest -&gt; Bool
 (DashAdditionalManifest -&gt; DashAdditionalManifest -&gt; Bool)
 -&gt; (DashAdditionalManifest -&gt; DashAdditionalManifest -&gt; Bool)
 -&gt; Eq DashAdditionalManifest
@@ -51,7 +51,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DashAdditionalManifest -&gt; DashAdditionalManifest -&gt; Bool
 == :: DashAdditionalManifest -&gt; DashAdditionalManifest -&gt; Bool
 $c== :: DashAdditionalManifest -&gt; DashAdditionalManifest -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679947918"><span id="local-6989586621679947920"><span id="local-6989586621679947922"><span id="local-6989586621679947924"><span class="annot"><span class="annottext">ReadPrec [DashAdditionalManifest]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679952541"><span id="local-6989586621679952543"><span id="local-6989586621679952545"><span id="local-6989586621679952547"><span class="annot"><span class="annottext">ReadPrec [DashAdditionalManifest]
 ReadPrec DashAdditionalManifest
 Int -&gt; ReadS DashAdditionalManifest
 ReadS [DashAdditionalManifest]
@@ -71,7 +71,7 @@ readList :: ReadS [DashAdditionalManifest]
 $creadList :: ReadS [DashAdditionalManifest]
 readsPrec :: Int -&gt; ReadS DashAdditionalManifest
 $creadsPrec :: Int -&gt; ReadS DashAdditionalManifest
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679947911"><span id="local-6989586621679947913"><span id="local-6989586621679947915"><span class="annot"><span class="annottext">Int -&gt; DashAdditionalManifest -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679952534"><span id="local-6989586621679952536"><span id="local-6989586621679952538"><span class="annot"><span class="annottext">Int -&gt; DashAdditionalManifest -&gt; ShowS
 [DashAdditionalManifest] -&gt; ShowS
 DashAdditionalManifest -&gt; String
 (Int -&gt; DashAdditionalManifest -&gt; ShowS)
@@ -149,16 +149,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashAdditionalManifest.html#DashAdditionalManifest%27"><span class="hs-identifier hs-type">DashAdditionalManifest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679947902"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashAdditionalManifest.html#DashAdditionalManifest%27"><span class="hs-identifier hs-type">DashAdditionalManifest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679952525"><span class="annot"><span class="annottext">Maybe Text
 manifestNameModifier :: Maybe Text
 $sel:manifestNameModifier:DashAdditionalManifest' :: DashAdditionalManifest -&gt; Maybe Text
-</span><a href="#local-6989586621679947902"><span class="hs-identifier hs-var hs-var">manifestNameModifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679947902"><span class="hs-identifier hs-var">manifestNameModifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679947901"><span class="annot"><span class="annottext">s :: DashAdditionalManifest
-</span><a href="#local-6989586621679947901"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashAdditionalManifest.html#DashAdditionalManifest%27"><span class="hs-identifier hs-type">DashAdditionalManifest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679947900"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679947900"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DashAdditionalManifest
-</span><a href="#local-6989586621679947901"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:manifestNameModifier:DashAdditionalManifest' :: Maybe Text
+</span><a href="#local-6989586621679952525"><span class="hs-identifier hs-var hs-var">manifestNameModifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679952525"><span class="hs-identifier hs-var">manifestNameModifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679952524"><span class="annot"><span class="annottext">s :: DashAdditionalManifest
+</span><a href="#local-6989586621679952524"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashAdditionalManifest.html#DashAdditionalManifest%27"><span class="hs-identifier hs-type">DashAdditionalManifest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679952523"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679952523"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DashAdditionalManifest
+</span><a href="#local-6989586621679952524"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:manifestNameModifier:DashAdditionalManifest' :: Maybe Text
 </span><a href="Network.AWS.MediaConvert.Types.DashAdditionalManifest.html#%24sel%3AmanifestNameModifier%3ADashAdditionalManifest%27"><span class="hs-identifier hs-var">manifestNameModifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679947900"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashAdditionalManifest.html#DashAdditionalManifest"><span class="hs-identifier hs-type">DashAdditionalManifest</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679952523"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashAdditionalManifest.html#DashAdditionalManifest"><span class="hs-identifier hs-type">DashAdditionalManifest</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- | Specify the outputs that you want this additional top-level manifest to</span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- reference.</span><span>
@@ -174,16 +174,16 @@ $sel:manifestNameModifier:DashAdditionalManifest' :: DashAdditionalManifest -&gt
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashAdditionalManifest.html#DashAdditionalManifest%27"><span class="hs-identifier hs-type">DashAdditionalManifest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679947898"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashAdditionalManifest.html#DashAdditionalManifest%27"><span class="hs-identifier hs-type">DashAdditionalManifest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679952521"><span class="annot"><span class="annottext">Maybe [Text]
 selectedOutputs :: Maybe [Text]
 $sel:selectedOutputs:DashAdditionalManifest' :: DashAdditionalManifest -&gt; Maybe [Text]
-</span><a href="#local-6989586621679947898"><span class="hs-identifier hs-var hs-var">selectedOutputs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679947898"><span class="hs-identifier hs-var">selectedOutputs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679947897"><span class="annot"><span class="annottext">s :: DashAdditionalManifest
-</span><a href="#local-6989586621679947897"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashAdditionalManifest.html#DashAdditionalManifest%27"><span class="hs-identifier hs-type">DashAdditionalManifest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679947896"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679947896"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DashAdditionalManifest
-</span><a href="#local-6989586621679947897"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:selectedOutputs:DashAdditionalManifest' :: Maybe [Text]
+</span><a href="#local-6989586621679952521"><span class="hs-identifier hs-var hs-var">selectedOutputs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679952521"><span class="hs-identifier hs-var">selectedOutputs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679952520"><span class="annot"><span class="annottext">s :: DashAdditionalManifest
+</span><a href="#local-6989586621679952520"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashAdditionalManifest.html#DashAdditionalManifest%27"><span class="hs-identifier hs-type">DashAdditionalManifest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679952519"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679952519"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DashAdditionalManifest
+</span><a href="#local-6989586621679952520"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:selectedOutputs:DashAdditionalManifest' :: Maybe [Text]
 </span><a href="Network.AWS.MediaConvert.Types.DashAdditionalManifest.html#%24sel%3AselectedOutputs%3ADashAdditionalManifest%27"><span class="hs-identifier hs-var">selectedOutputs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679947896"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashAdditionalManifest.html#DashAdditionalManifest"><span class="hs-identifier hs-type">DashAdditionalManifest</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679952519"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashAdditionalManifest.html#DashAdditionalManifest"><span class="hs-identifier hs-type">DashAdditionalManifest</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; DashAdditionalManifest -&gt; f DashAdditionalManifest)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -197,11 +197,11 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679947890"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashAdditionalManifest.html#DashAdditionalManifest"><span class="hs-identifier hs-type">DashAdditionalManifest</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679947888"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DashAdditionalManifest
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679952513"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashAdditionalManifest.html#DashAdditionalManifest"><span class="hs-identifier hs-type">DashAdditionalManifest</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679952511"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DashAdditionalManifest
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser DashAdditionalManifest)
@@ -211,8 +211,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;DashAdditionalManifest&quot;</span></span><span>
-</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679947885"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679947885"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679952508"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679952508"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-90"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [Text] -&gt; DashAdditionalManifest
 </span><a href="Network.AWS.MediaConvert.Types.DashAdditionalManifest.html#DashAdditionalManifest%27"><span class="hs-identifier hs-var">DashAdditionalManifest'</span></a></span><span>
 </span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [Text] -&gt; DashAdditionalManifest)
@@ -220,7 +220,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe [Text] -&gt; DashAdditionalManifest)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679947885"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679952508"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;manifestNameModifier&quot;</span></span><span class="hs-special">)</span><span>
@@ -228,7 +228,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe [Text]) -&gt; Parser DashAdditionalManifest
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679947885"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679952508"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;selectedOutputs&quot;</span></span><span>
@@ -241,19 +241,19 @@ forall a. Monoid a =&gt; a
 </span><span id="line-94"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679947878"><span id="local-6989586621679947880"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashAdditionalManifest.html#DashAdditionalManifest"><span class="hs-identifier hs-type">DashAdditionalManifest</span></a></span></span></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679952501"><span id="local-6989586621679952503"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashAdditionalManifest.html#DashAdditionalManifest"><span class="hs-identifier hs-type">DashAdditionalManifest</span></a></span></span></span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679947875"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashAdditionalManifest.html#DashAdditionalManifest"><span class="hs-identifier hs-type">DashAdditionalManifest</span></a></span></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679952498"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashAdditionalManifest.html#DashAdditionalManifest"><span class="hs-identifier hs-type">DashAdditionalManifest</span></a></span></span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679947867"><span id="local-6989586621679947869"><span id="local-6989586621679947871"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashAdditionalManifest.html#DashAdditionalManifest"><span class="hs-identifier hs-type">DashAdditionalManifest</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679947865"><span class="annot"><span class="annottext">toJSON :: DashAdditionalManifest -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashAdditionalManifest.html#DashAdditionalManifest%27"><span class="hs-identifier hs-type">DashAdditionalManifest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679947862"><span id="local-6989586621679947863"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679952490"><span id="local-6989586621679952492"><span id="local-6989586621679952494"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashAdditionalManifest.html#DashAdditionalManifest"><span class="hs-identifier hs-type">DashAdditionalManifest</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679952488"><span class="annot"><span class="annottext">toJSON :: DashAdditionalManifest -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashAdditionalManifest.html#DashAdditionalManifest%27"><span class="hs-identifier hs-type">DashAdditionalManifest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679952485"><span id="local-6989586621679952486"><span class="annot"><span class="annottext">Maybe [Text]
 Maybe Text
 selectedOutputs :: Maybe [Text]
 manifestNameModifier :: Maybe Text
 $sel:selectedOutputs:DashAdditionalManifest' :: DashAdditionalManifest -&gt; Maybe [Text]
 $sel:manifestNameModifier:DashAdditionalManifest' :: DashAdditionalManifest -&gt; Maybe Text
-</span><a href="#local-6989586621679947862"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679952485"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -266,7 +266,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-106"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679947863"><span class="hs-identifier hs-var">manifestNameModifier</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679952486"><span class="hs-identifier hs-var">manifestNameModifier</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-107"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;selectedOutputs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -274,7 +274,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-108"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679947862"><span class="hs-identifier hs-var">selectedOutputs</span></a></span><span>
+</span><a href="#local-6989586621679952485"><span class="hs-identifier hs-var">selectedOutputs</span></a></span><span>
 </span><span id="line-109"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-110"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span></pre></body></html>

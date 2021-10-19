@@ -52,7 +52,7 @@
 </span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newDetachSecurityProfile' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679833114"><span id="local-6989586621679833115"></span></span><span class="hs-keyword">data</span><span> </span><span id="DetachSecurityProfile"><span class="annot"><a href="Network.AWS.IoT.DetachSecurityProfile.html#DetachSecurityProfile"><span class="hs-identifier hs-var">DetachSecurityProfile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DetachSecurityProfile%27"><span class="annot"><a href="Network.AWS.IoT.DetachSecurityProfile.html#DetachSecurityProfile%27"><span class="hs-identifier hs-var">DetachSecurityProfile'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679834087"><span id="local-6989586621679834088"></span></span><span class="hs-keyword">data</span><span> </span><span id="DetachSecurityProfile"><span class="annot"><a href="Network.AWS.IoT.DetachSecurityProfile.html#DetachSecurityProfile"><span class="hs-identifier hs-var">DetachSecurityProfile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DetachSecurityProfile%27"><span class="annot"><a href="Network.AWS.IoT.DetachSecurityProfile.html#DetachSecurityProfile%27"><span class="hs-identifier hs-var">DetachSecurityProfile'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The security profile that is detached.</span><span>
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3AsecurityProfileName%3ADetachSecurityProfile%27"><span class="annot"><span class="annottext">DetachSecurityProfile -&gt; Text
 </span><a href="Network.AWS.IoT.DetachSecurityProfile.html#%24sel%3AsecurityProfileName%3ADetachSecurityProfile%27"><span class="hs-identifier hs-var hs-var">securityProfileName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -60,7 +60,7 @@
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AsecurityProfileTargetArn%3ADetachSecurityProfile%27"><span class="annot"><span class="annottext">DetachSecurityProfile -&gt; Text
 </span><a href="Network.AWS.IoT.DetachSecurityProfile.html#%24sel%3AsecurityProfileTargetArn%3ADetachSecurityProfile%27"><span class="hs-identifier hs-var hs-var">securityProfileTargetArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679833107"><span id="local-6989586621679833109"><span class="annot"><span class="annottext">DetachSecurityProfile -&gt; DetachSecurityProfile -&gt; Bool
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679834080"><span id="local-6989586621679834082"><span class="annot"><span class="annottext">DetachSecurityProfile -&gt; DetachSecurityProfile -&gt; Bool
 (DetachSecurityProfile -&gt; DetachSecurityProfile -&gt; Bool)
 -&gt; (DetachSecurityProfile -&gt; DetachSecurityProfile -&gt; Bool)
 -&gt; Eq DetachSecurityProfile
@@ -69,7 +69,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DetachSecurityProfile -&gt; DetachSecurityProfile -&gt; Bool
 == :: DetachSecurityProfile -&gt; DetachSecurityProfile -&gt; Bool
 $c== :: DetachSecurityProfile -&gt; DetachSecurityProfile -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679833098"><span id="local-6989586621679833100"><span id="local-6989586621679833102"><span id="local-6989586621679833104"><span class="annot"><span class="annottext">ReadPrec [DetachSecurityProfile]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679834071"><span id="local-6989586621679834073"><span id="local-6989586621679834075"><span id="local-6989586621679834077"><span class="annot"><span class="annottext">ReadPrec [DetachSecurityProfile]
 ReadPrec DetachSecurityProfile
 Int -&gt; ReadS DetachSecurityProfile
 ReadS [DetachSecurityProfile]
@@ -89,7 +89,7 @@ readList :: ReadS [DetachSecurityProfile]
 $creadList :: ReadS [DetachSecurityProfile]
 readsPrec :: Int -&gt; ReadS DetachSecurityProfile
 $creadsPrec :: Int -&gt; ReadS DetachSecurityProfile
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679833091"><span id="local-6989586621679833093"><span id="local-6989586621679833095"><span class="annot"><span class="annottext">Int -&gt; DetachSecurityProfile -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679834064"><span id="local-6989586621679834066"><span id="local-6989586621679834068"><span class="annot"><span class="annottext">Int -&gt; DetachSecurityProfile -&gt; ShowS
 [DetachSecurityProfile] -&gt; ShowS
 DetachSecurityProfile -&gt; String
 (Int -&gt; DetachSecurityProfile -&gt; ShowS)
@@ -134,20 +134,20 @@ $cfrom :: forall x. DetachSecurityProfile -&gt; Rep DetachSecurityProfile x
 </span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.DetachSecurityProfile.html#DetachSecurityProfile"><span class="hs-identifier hs-type">DetachSecurityProfile</span></a></span><span>
 </span><span id="line-80"></span><span id="newDetachSecurityProfile"><span class="annot"><span class="annottext">newDetachSecurityProfile :: Text -&gt; Text -&gt; DetachSecurityProfile
 </span><a href="Network.AWS.IoT.DetachSecurityProfile.html#newDetachSecurityProfile"><span class="hs-identifier hs-var hs-var">newDetachSecurityProfile</span></a></span></span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679833086"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679833086"><span class="hs-identifier hs-var">pSecurityProfileName_</span></a></span></span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679833085"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679833085"><span class="hs-identifier hs-var">pSecurityProfileTargetArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679834059"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679834059"><span class="hs-identifier hs-var">pSecurityProfileName_</span></a></span></span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679834058"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679834058"><span class="hs-identifier hs-var">pSecurityProfileTargetArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">DetachSecurityProfile' :: Text -&gt; Text -&gt; DetachSecurityProfile
 </span><a href="Network.AWS.IoT.DetachSecurityProfile.html#DetachSecurityProfile%27"><span class="hs-identifier hs-type">DetachSecurityProfile'</span></a></span><span>
 </span><span id="line-84"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:securityProfileName:DetachSecurityProfile' :: Text
 </span><a href="Network.AWS.IoT.DetachSecurityProfile.html#%24sel%3AsecurityProfileName%3ADetachSecurityProfile%27"><span class="hs-identifier hs-var">securityProfileName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679833086"><span class="hs-identifier hs-var">pSecurityProfileName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679834059"><span class="hs-identifier hs-var">pSecurityProfileName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-86"></span><span>        </span><span class="annot"><span class="annottext">$sel:securityProfileTargetArn:DetachSecurityProfile' :: Text
 </span><a href="Network.AWS.IoT.DetachSecurityProfile.html#%24sel%3AsecurityProfileTargetArn%3ADetachSecurityProfile%27"><span class="hs-identifier hs-var">securityProfileTargetArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679833085"><span class="hs-identifier hs-var">pSecurityProfileTargetArn_</span></a></span><span>
+</span><a href="#local-6989586621679834058"><span class="hs-identifier hs-var">pSecurityProfileTargetArn_</span></a></span><span>
 </span><span id="line-88"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- | The security profile that is detached.</span><span>
@@ -158,16 +158,16 @@ $cfrom :: forall x. DetachSecurityProfile -&gt; Rep DetachSecurityProfile x
 -&gt; (DetachSecurityProfile -&gt; Text -&gt; DetachSecurityProfile)
 -&gt; Lens DetachSecurityProfile DetachSecurityProfile Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DetachSecurityProfile.html#DetachSecurityProfile%27"><span class="hs-identifier hs-type">DetachSecurityProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679833082"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DetachSecurityProfile.html#DetachSecurityProfile%27"><span class="hs-identifier hs-type">DetachSecurityProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679834055"><span class="annot"><span class="annottext">Text
 securityProfileName :: Text
 $sel:securityProfileName:DetachSecurityProfile' :: DetachSecurityProfile -&gt; Text
-</span><a href="#local-6989586621679833082"><span class="hs-identifier hs-var hs-var">securityProfileName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679833082"><span class="hs-identifier hs-var">securityProfileName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679833081"><span class="annot"><span class="annottext">s :: DetachSecurityProfile
-</span><a href="#local-6989586621679833081"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DetachSecurityProfile.html#DetachSecurityProfile%27"><span class="hs-identifier hs-type">DetachSecurityProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679833080"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679833080"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetachSecurityProfile
-</span><a href="#local-6989586621679833081"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:securityProfileName:DetachSecurityProfile' :: Text
+</span><a href="#local-6989586621679834055"><span class="hs-identifier hs-var hs-var">securityProfileName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679834055"><span class="hs-identifier hs-var">securityProfileName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679834054"><span class="annot"><span class="annottext">s :: DetachSecurityProfile
+</span><a href="#local-6989586621679834054"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DetachSecurityProfile.html#DetachSecurityProfile%27"><span class="hs-identifier hs-type">DetachSecurityProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679834053"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679834053"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetachSecurityProfile
+</span><a href="#local-6989586621679834054"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:securityProfileName:DetachSecurityProfile' :: Text
 </span><a href="Network.AWS.IoT.DetachSecurityProfile.html#%24sel%3AsecurityProfileName%3ADetachSecurityProfile%27"><span class="hs-identifier hs-var">securityProfileName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679833080"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DetachSecurityProfile.html#DetachSecurityProfile"><span class="hs-identifier hs-type">DetachSecurityProfile</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679834053"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DetachSecurityProfile.html#DetachSecurityProfile"><span class="hs-identifier hs-type">DetachSecurityProfile</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- | The ARN of the thing group from which the security profile is detached.</span><span>
 </span><span id="line-95"></span><span class="annot"><a href="Network.AWS.IoT.DetachSecurityProfile.html#detachSecurityProfile_securityProfileTargetArn"><span class="hs-identifier hs-type">detachSecurityProfile_securityProfileTargetArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DetachSecurityProfile.html#DetachSecurityProfile"><span class="hs-identifier hs-type">DetachSecurityProfile</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -177,27 +177,27 @@ $sel:securityProfileName:DetachSecurityProfile' :: DetachSecurityProfile -&gt; T
 -&gt; (DetachSecurityProfile -&gt; Text -&gt; DetachSecurityProfile)
 -&gt; Lens DetachSecurityProfile DetachSecurityProfile Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DetachSecurityProfile.html#DetachSecurityProfile%27"><span class="hs-identifier hs-type">DetachSecurityProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679833079"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DetachSecurityProfile.html#DetachSecurityProfile%27"><span class="hs-identifier hs-type">DetachSecurityProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679834052"><span class="annot"><span class="annottext">Text
 securityProfileTargetArn :: Text
 $sel:securityProfileTargetArn:DetachSecurityProfile' :: DetachSecurityProfile -&gt; Text
-</span><a href="#local-6989586621679833079"><span class="hs-identifier hs-var hs-var">securityProfileTargetArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679833079"><span class="hs-identifier hs-var">securityProfileTargetArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679833078"><span class="annot"><span class="annottext">s :: DetachSecurityProfile
-</span><a href="#local-6989586621679833078"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DetachSecurityProfile.html#DetachSecurityProfile%27"><span class="hs-identifier hs-type">DetachSecurityProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679833077"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679833077"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetachSecurityProfile
-</span><a href="#local-6989586621679833078"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:securityProfileTargetArn:DetachSecurityProfile' :: Text
+</span><a href="#local-6989586621679834052"><span class="hs-identifier hs-var hs-var">securityProfileTargetArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679834052"><span class="hs-identifier hs-var">securityProfileTargetArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679834051"><span class="annot"><span class="annottext">s :: DetachSecurityProfile
+</span><a href="#local-6989586621679834051"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DetachSecurityProfile.html#DetachSecurityProfile%27"><span class="hs-identifier hs-type">DetachSecurityProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679834050"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679834050"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetachSecurityProfile
+</span><a href="#local-6989586621679834051"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:securityProfileTargetArn:DetachSecurityProfile' :: Text
 </span><a href="Network.AWS.IoT.DetachSecurityProfile.html#%24sel%3AsecurityProfileTargetArn%3ADetachSecurityProfile%27"><span class="hs-identifier hs-var">securityProfileTargetArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679833077"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DetachSecurityProfile.html#DetachSecurityProfile"><span class="hs-identifier hs-type">DetachSecurityProfile</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679834050"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DetachSecurityProfile.html#DetachSecurityProfile"><span class="hs-identifier hs-type">DetachSecurityProfile</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DetachSecurityProfile.html#DetachSecurityProfile"><span class="hs-identifier hs-type">DetachSecurityProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-99"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-100"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DetachSecurityProfile.html#DetachSecurityProfile"><span class="hs-identifier hs-type">DetachSecurityProfile</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-101"></span><span>      </span><span class="annot"><a href="Network.AWS.IoT.DetachSecurityProfile.html#DetachSecurityProfileResponse"><span class="hs-identifier hs-type">DetachSecurityProfileResponse</span></a></span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679833073"><span class="annot"><span class="annottext">request :: DetachSecurityProfile -&gt; Request DetachSecurityProfile
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679834046"><span class="annot"><span class="annottext">request :: DetachSecurityProfile -&gt; Request DetachSecurityProfile
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DetachSecurityProfile -&gt; Request DetachSecurityProfile
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IoT.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679833069"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679834042"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DetachSecurityProfile
 -&gt; ClientResponse ClientBody
@@ -223,10 +223,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679833066"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679833066"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679833065"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679833065"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679833064"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679833064"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679834039"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679834039"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679834038"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679834038"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679834037"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679834037"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-106"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DetachSecurityProfileResponse
 </span><a href="Network.AWS.IoT.DetachSecurityProfile.html#DetachSecurityProfileResponse%27"><span class="hs-identifier hs-var">DetachSecurityProfileResponse'</span></a></span><span>
 </span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DetachSecurityProfileResponse)
@@ -237,15 +237,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679833066"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679834039"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679833057"><span id="local-6989586621679833059"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DetachSecurityProfile.html#DetachSecurityProfile"><span class="hs-identifier hs-type">DetachSecurityProfile</span></a></span></span></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679834030"><span id="local-6989586621679834032"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DetachSecurityProfile.html#DetachSecurityProfile"><span class="hs-identifier hs-type">DetachSecurityProfile</span></a></span></span></span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679833054"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DetachSecurityProfile.html#DetachSecurityProfile"><span class="hs-identifier hs-type">DetachSecurityProfile</span></a></span></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679834027"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DetachSecurityProfile.html#DetachSecurityProfile"><span class="hs-identifier hs-type">DetachSecurityProfile</span></a></span></span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DetachSecurityProfile.html#DetachSecurityProfile"><span class="hs-identifier hs-type">DetachSecurityProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679833050"><span class="annot"><span class="annottext">toHeaders :: DetachSecurityProfile -&gt; ResponseHeaders
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679834023"><span class="annot"><span class="annottext">toHeaders :: DetachSecurityProfile -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DetachSecurityProfile -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -253,13 +253,13 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DetachSecurityProfile.html#DetachSecurityProfile"><span class="hs-identifier hs-type">DetachSecurityProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679833045"><span class="annot"><span class="annottext">toPath :: DetachSecurityProfile -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DetachSecurityProfile.html#DetachSecurityProfile%27"><span class="hs-identifier hs-type">DetachSecurityProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679833042"><span id="local-6989586621679833043"><span class="annot"><span class="annottext">Text
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679834018"><span class="annot"><span class="annottext">toPath :: DetachSecurityProfile -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DetachSecurityProfile.html#DetachSecurityProfile%27"><span class="hs-identifier hs-type">DetachSecurityProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679834015"><span id="local-6989586621679834016"><span class="annot"><span class="annottext">Text
 securityProfileTargetArn :: Text
 securityProfileName :: Text
 $sel:securityProfileTargetArn:DetachSecurityProfile' :: DetachSecurityProfile -&gt; Text
 $sel:securityProfileName:DetachSecurityProfile' :: DetachSecurityProfile -&gt; Text
-</span><a href="#local-6989586621679833042"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679834015"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -268,19 +268,19 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-121"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679833043"><span class="hs-identifier hs-var">securityProfileName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679834016"><span class="hs-identifier hs-var">securityProfileName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-122"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/targets&quot;</span></span><span>
 </span><span id="line-123"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DetachSecurityProfile.html#DetachSecurityProfile"><span class="hs-identifier hs-type">DetachSecurityProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679833038"><span class="annot"><span class="annottext">toQuery :: DetachSecurityProfile -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DetachSecurityProfile.html#DetachSecurityProfile%27"><span class="hs-identifier hs-type">DetachSecurityProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679833035"><span id="local-6989586621679833036"><span class="annot"><span class="annottext">Text
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679834011"><span class="annot"><span class="annottext">toQuery :: DetachSecurityProfile -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DetachSecurityProfile.html#DetachSecurityProfile%27"><span class="hs-identifier hs-type">DetachSecurityProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679834008"><span id="local-6989586621679834009"><span class="annot"><span class="annottext">Text
 securityProfileTargetArn :: Text
 securityProfileName :: Text
 $sel:securityProfileTargetArn:DetachSecurityProfile' :: DetachSecurityProfile -&gt; Text
 $sel:securityProfileName:DetachSecurityProfile' :: DetachSecurityProfile -&gt; Text
-</span><a href="#local-6989586621679833035"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679834008"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-127"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -289,16 +289,16 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-129"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679833035"><span class="hs-identifier hs-var">securityProfileTargetArn</span></a></span><span>
+</span><a href="#local-6989586621679834008"><span class="hs-identifier hs-var">securityProfileTargetArn</span></a></span><span>
 </span><span id="line-130"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-comment">-- | /See:/ 'newDetachSecurityProfileResponse' smart constructor.</span><span>
-</span><span id="line-133"></span><span id="local-6989586621679833032"><span id="local-6989586621679833033"></span></span><span class="hs-keyword">data</span><span> </span><span id="DetachSecurityProfileResponse"><span class="annot"><a href="Network.AWS.IoT.DetachSecurityProfile.html#DetachSecurityProfileResponse"><span class="hs-identifier hs-var">DetachSecurityProfileResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DetachSecurityProfileResponse%27"><span class="annot"><a href="Network.AWS.IoT.DetachSecurityProfile.html#DetachSecurityProfileResponse%27"><span class="hs-identifier hs-var">DetachSecurityProfileResponse'</span></a></span></span><span>
+</span><span id="line-133"></span><span id="local-6989586621679834005"><span id="local-6989586621679834006"></span></span><span class="hs-keyword">data</span><span> </span><span id="DetachSecurityProfileResponse"><span class="annot"><a href="Network.AWS.IoT.DetachSecurityProfile.html#DetachSecurityProfileResponse"><span class="hs-identifier hs-var">DetachSecurityProfileResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DetachSecurityProfileResponse%27"><span class="annot"><a href="Network.AWS.IoT.DetachSecurityProfile.html#DetachSecurityProfileResponse%27"><span class="hs-identifier hs-var">DetachSecurityProfileResponse'</span></a></span></span><span>
 </span><span id="line-134"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-135"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADetachSecurityProfileResponse%27"><span class="annot"><span class="annottext">DetachSecurityProfileResponse -&gt; Int
 </span><a href="Network.AWS.IoT.DetachSecurityProfile.html#%24sel%3AhttpStatus%3ADetachSecurityProfileResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-136"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-137"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679833027"><span id="local-6989586621679833029"><span class="annot"><span class="annottext">DetachSecurityProfileResponse
+</span><span id="line-137"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679834000"><span id="local-6989586621679834002"><span class="annot"><span class="annottext">DetachSecurityProfileResponse
 -&gt; DetachSecurityProfileResponse -&gt; Bool
 (DetachSecurityProfileResponse
  -&gt; DetachSecurityProfileResponse -&gt; Bool)
@@ -314,7 +314,7 @@ $c/= :: DetachSecurityProfileResponse
 -&gt; DetachSecurityProfileResponse -&gt; Bool
 $c== :: DetachSecurityProfileResponse
 -&gt; DetachSecurityProfileResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679833019"><span id="local-6989586621679833021"><span id="local-6989586621679833023"><span id="local-6989586621679833025"><span class="annot"><span class="annottext">ReadPrec [DetachSecurityProfileResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679833992"><span id="local-6989586621679833994"><span id="local-6989586621679833996"><span id="local-6989586621679833998"><span class="annot"><span class="annottext">ReadPrec [DetachSecurityProfileResponse]
 ReadPrec DetachSecurityProfileResponse
 Int -&gt; ReadS DetachSecurityProfileResponse
 ReadS [DetachSecurityProfileResponse]
@@ -334,7 +334,7 @@ readList :: ReadS [DetachSecurityProfileResponse]
 $creadList :: ReadS [DetachSecurityProfileResponse]
 readsPrec :: Int -&gt; ReadS DetachSecurityProfileResponse
 $creadsPrec :: Int -&gt; ReadS DetachSecurityProfileResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679833013"><span id="local-6989586621679833015"><span id="local-6989586621679833017"><span class="annot"><span class="annottext">Int -&gt; DetachSecurityProfileResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679833986"><span id="local-6989586621679833988"><span id="local-6989586621679833990"><span class="annot"><span class="annottext">Int -&gt; DetachSecurityProfileResponse -&gt; ShowS
 [DetachSecurityProfileResponse] -&gt; ShowS
 DetachSecurityProfileResponse -&gt; String
 (Int -&gt; DetachSecurityProfileResponse -&gt; ShowS)
@@ -386,14 +386,14 @@ DetachSecurityProfileResponse
 </span><span id="line-150"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-151"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.DetachSecurityProfile.html#DetachSecurityProfileResponse"><span class="hs-identifier hs-type">DetachSecurityProfileResponse</span></a></span><span>
 </span><span id="line-152"></span><span id="newDetachSecurityProfileResponse"><span class="annot"><span class="annottext">newDetachSecurityProfileResponse :: Int -&gt; DetachSecurityProfileResponse
-</span><a href="Network.AWS.IoT.DetachSecurityProfile.html#newDetachSecurityProfileResponse"><span class="hs-identifier hs-var hs-var">newDetachSecurityProfileResponse</span></a></span></span><span> </span><span id="local-6989586621679833010"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679833010"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.DetachSecurityProfile.html#newDetachSecurityProfileResponse"><span class="hs-identifier hs-var hs-var">newDetachSecurityProfileResponse</span></a></span></span><span> </span><span id="local-6989586621679833983"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679833983"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-153"></span><span>  </span><span class="annot"><span class="annottext">DetachSecurityProfileResponse' :: Int -&gt; DetachSecurityProfileResponse
 </span><a href="Network.AWS.IoT.DetachSecurityProfile.html#DetachSecurityProfileResponse%27"><span class="hs-identifier hs-type">DetachSecurityProfileResponse'</span></a></span><span>
 </span><span id="line-154"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DetachSecurityProfileResponse' :: Int
 </span><a href="Network.AWS.IoT.DetachSecurityProfile.html#%24sel%3AhttpStatus%3ADetachSecurityProfileResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-155"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679833010"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679833983"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-156"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-157"></span><span>
 </span><span id="line-158"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -406,16 +406,16 @@ DetachSecurityProfileResponse
 -&gt; Lens
      DetachSecurityProfileResponse DetachSecurityProfileResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DetachSecurityProfile.html#DetachSecurityProfileResponse%27"><span class="hs-identifier hs-type">DetachSecurityProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679833009"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DetachSecurityProfile.html#DetachSecurityProfileResponse%27"><span class="hs-identifier hs-type">DetachSecurityProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679833982"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DetachSecurityProfileResponse' :: DetachSecurityProfileResponse -&gt; Int
-</span><a href="#local-6989586621679833009"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679833009"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679833008"><span class="annot"><span class="annottext">s :: DetachSecurityProfileResponse
-</span><a href="#local-6989586621679833008"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DetachSecurityProfile.html#DetachSecurityProfileResponse%27"><span class="hs-identifier hs-type">DetachSecurityProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679833007"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679833007"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetachSecurityProfileResponse
-</span><a href="#local-6989586621679833008"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DetachSecurityProfileResponse' :: Int
+</span><a href="#local-6989586621679833982"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679833982"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679833981"><span class="annot"><span class="annottext">s :: DetachSecurityProfileResponse
+</span><a href="#local-6989586621679833981"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DetachSecurityProfile.html#DetachSecurityProfileResponse%27"><span class="hs-identifier hs-type">DetachSecurityProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679833980"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679833980"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetachSecurityProfileResponse
+</span><a href="#local-6989586621679833981"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DetachSecurityProfileResponse' :: Int
 </span><a href="Network.AWS.IoT.DetachSecurityProfile.html#%24sel%3AhttpStatus%3ADetachSecurityProfileResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679833007"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DetachSecurityProfile.html#DetachSecurityProfileResponse"><span class="hs-identifier hs-type">DetachSecurityProfileResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679833980"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DetachSecurityProfile.html#DetachSecurityProfileResponse"><span class="hs-identifier hs-type">DetachSecurityProfileResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-161"></span><span>
-</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679833005"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DetachSecurityProfile.html#DetachSecurityProfileResponse"><span class="hs-identifier hs-type">DetachSecurityProfileResponse</span></a></span></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679833978"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DetachSecurityProfile.html#DetachSecurityProfileResponse"><span class="hs-identifier hs-type">DetachSecurityProfileResponse</span></a></span></span><span>
 </span><span id="line-163"></span></pre></body></html>

@@ -60,12 +60,12 @@
 </span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-61"></span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- | /See:/ 'newDeleteBot' smart constructor.</span><span>
-</span><span id="line-63"></span><span id="local-6989586621679327200"><span id="local-6989586621679327201"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteBot"><span class="annot"><a href="Network.AWS.LexModels.DeleteBot.html#DeleteBot"><span class="hs-identifier hs-var">DeleteBot</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteBot%27"><span class="annot"><a href="Network.AWS.LexModels.DeleteBot.html#DeleteBot%27"><span class="hs-identifier hs-var">DeleteBot'</span></a></span></span><span>
+</span><span id="line-63"></span><span id="local-6989586621679327534"><span id="local-6989586621679327535"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteBot"><span class="annot"><a href="Network.AWS.LexModels.DeleteBot.html#DeleteBot"><span class="hs-identifier hs-var">DeleteBot</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteBot%27"><span class="annot"><a href="Network.AWS.LexModels.DeleteBot.html#DeleteBot%27"><span class="hs-identifier hs-var">DeleteBot'</span></a></span></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the bot. The name is case sensitive.</span><span>
 </span><span id="line-65"></span><span>    </span><span id="%24sel%3Aname%3ADeleteBot%27"><span class="annot"><span class="annottext">DeleteBot -&gt; Text
 </span><a href="Network.AWS.LexModels.DeleteBot.html#%24sel%3Aname%3ADeleteBot%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679327194"><span id="local-6989586621679327196"><span class="annot"><span class="annottext">DeleteBot -&gt; DeleteBot -&gt; Bool
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679327528"><span id="local-6989586621679327530"><span class="annot"><span class="annottext">DeleteBot -&gt; DeleteBot -&gt; Bool
 (DeleteBot -&gt; DeleteBot -&gt; Bool)
 -&gt; (DeleteBot -&gt; DeleteBot -&gt; Bool) -&gt; Eq DeleteBot
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -73,7 +73,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteBot -&gt; DeleteBot -&gt; Bool
 == :: DeleteBot -&gt; DeleteBot -&gt; Bool
 $c== :: DeleteBot -&gt; DeleteBot -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679327185"><span id="local-6989586621679327187"><span id="local-6989586621679327189"><span id="local-6989586621679327191"><span class="annot"><span class="annottext">ReadPrec [DeleteBot]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679327519"><span id="local-6989586621679327521"><span id="local-6989586621679327523"><span id="local-6989586621679327525"><span class="annot"><span class="annottext">ReadPrec [DeleteBot]
 ReadPrec DeleteBot
 Int -&gt; ReadS DeleteBot
 ReadS [DeleteBot]
@@ -93,7 +93,7 @@ readList :: ReadS [DeleteBot]
 $creadList :: ReadS [DeleteBot]
 readsPrec :: Int -&gt; ReadS DeleteBot
 $creadsPrec :: Int -&gt; ReadS DeleteBot
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679327178"><span id="local-6989586621679327180"><span id="local-6989586621679327182"><span class="annot"><span class="annottext">Int -&gt; DeleteBot -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679327512"><span id="local-6989586621679327514"><span id="local-6989586621679327516"><span class="annot"><span class="annottext">Int -&gt; DeleteBot -&gt; ShowS
 [DeleteBot] -&gt; ShowS
 DeleteBot -&gt; String
 (Int -&gt; DeleteBot -&gt; ShowS)
@@ -132,11 +132,11 @@ $cfrom :: forall x. DeleteBot -&gt; Rep DeleteBot x
 </span><span id="line-80"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.LexModels.DeleteBot.html#DeleteBot"><span class="hs-identifier hs-type">DeleteBot</span></a></span><span>
 </span><span id="line-82"></span><span id="newDeleteBot"><span class="annot"><span class="annottext">newDeleteBot :: Text -&gt; DeleteBot
-</span><a href="Network.AWS.LexModels.DeleteBot.html#newDeleteBot"><span class="hs-identifier hs-var hs-var">newDeleteBot</span></a></span></span><span> </span><span id="local-6989586621679327173"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679327173"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeleteBot' :: Text -&gt; DeleteBot
+</span><a href="Network.AWS.LexModels.DeleteBot.html#newDeleteBot"><span class="hs-identifier hs-var hs-var">newDeleteBot</span></a></span></span><span> </span><span id="local-6989586621679327507"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679327507"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeleteBot' :: Text -&gt; DeleteBot
 </span><a href="Network.AWS.LexModels.DeleteBot.html#DeleteBot%27"><span class="hs-identifier hs-type">DeleteBot'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DeleteBot' :: Text
 </span><a href="Network.AWS.LexModels.DeleteBot.html#%24sel%3Aname%3ADeleteBot%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679327173"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679327507"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- | The name of the bot. The name is case sensitive.</span><span>
 </span><span id="line-85"></span><span class="annot"><a href="Network.AWS.LexModels.DeleteBot.html#deleteBot_name"><span class="hs-identifier hs-type">deleteBot_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.DeleteBot.html#DeleteBot"><span class="hs-identifier hs-type">DeleteBot</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -145,25 +145,25 @@ $cfrom :: forall x. DeleteBot -&gt; Rep DeleteBot x
 -&gt; (DeleteBot -&gt; Text -&gt; DeleteBot)
 -&gt; Lens DeleteBot DeleteBot Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.DeleteBot.html#DeleteBot%27"><span class="hs-identifier hs-type">DeleteBot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679327170"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.DeleteBot.html#DeleteBot%27"><span class="hs-identifier hs-type">DeleteBot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679327504"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:DeleteBot' :: DeleteBot -&gt; Text
-</span><a href="#local-6989586621679327170"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679327170"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679327169"><span class="annot"><span class="annottext">s :: DeleteBot
-</span><a href="#local-6989586621679327169"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.DeleteBot.html#DeleteBot%27"><span class="hs-identifier hs-type">DeleteBot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679327168"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679327168"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBot
-</span><a href="#local-6989586621679327169"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DeleteBot' :: Text
+</span><a href="#local-6989586621679327504"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679327504"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679327503"><span class="annot"><span class="annottext">s :: DeleteBot
+</span><a href="#local-6989586621679327503"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.DeleteBot.html#DeleteBot%27"><span class="hs-identifier hs-type">DeleteBot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679327502"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679327502"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBot
+</span><a href="#local-6989586621679327503"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DeleteBot' :: Text
 </span><a href="Network.AWS.LexModels.DeleteBot.html#%24sel%3Aname%3ADeleteBot%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679327168"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.DeleteBot.html#DeleteBot"><span class="hs-identifier hs-type">DeleteBot</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679327502"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.DeleteBot.html#DeleteBot"><span class="hs-identifier hs-type">DeleteBot</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.DeleteBot.html#DeleteBot"><span class="hs-identifier hs-type">DeleteBot</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-89"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.DeleteBot.html#DeleteBot"><span class="hs-identifier hs-type">DeleteBot</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.DeleteBot.html#DeleteBotResponse"><span class="hs-identifier hs-type">DeleteBotResponse</span></a></span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621679327164"><span class="annot"><span class="annottext">request :: DeleteBot -&gt; Request DeleteBot
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679327498"><span class="annot"><span class="annottext">request :: DeleteBot -&gt; Request DeleteBot
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteBot -&gt; Request DeleteBot
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.LexModels.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679327160"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679327494"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteBot
 -&gt; ClientResponse ClientBody
@@ -186,12 +186,12 @@ AWSResponse a
 DeleteBotResponse
 </span><a href="Network.AWS.LexModels.DeleteBot.html#DeleteBotResponse%27"><span class="hs-identifier hs-var">DeleteBotResponse'</span></a></span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679327153"><span id="local-6989586621679327155"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.DeleteBot.html#DeleteBot"><span class="hs-identifier hs-type">DeleteBot</span></a></span></span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679327487"><span id="local-6989586621679327489"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.DeleteBot.html#DeleteBot"><span class="hs-identifier hs-type">DeleteBot</span></a></span></span></span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679327150"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.DeleteBot.html#DeleteBot"><span class="hs-identifier hs-type">DeleteBot</span></a></span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679327484"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.DeleteBot.html#DeleteBot"><span class="hs-identifier hs-type">DeleteBot</span></a></span></span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.DeleteBot.html#DeleteBot"><span class="hs-identifier hs-type">DeleteBot</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679327146"><span class="annot"><span class="annottext">toHeaders :: DeleteBot -&gt; [Header]
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679327480"><span class="annot"><span class="annottext">toHeaders :: DeleteBot -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; DeleteBot -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -211,21 +211,21 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.DeleteBot.html#DeleteBot"><span class="hs-identifier hs-type">DeleteBot</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679327140"><span class="annot"><span class="annottext">toPath :: DeleteBot -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.DeleteBot.html#DeleteBot%27"><span class="hs-identifier hs-type">DeleteBot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679327138"><span class="annot"><span class="annottext">Text
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679327474"><span class="annot"><span class="annottext">toPath :: DeleteBot -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.DeleteBot.html#DeleteBot%27"><span class="hs-identifier hs-type">DeleteBot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679327472"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:DeleteBot' :: DeleteBot -&gt; Text
-</span><a href="#local-6989586621679327138"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679327472"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/bots/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679327138"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679327472"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.DeleteBot.html#DeleteBot"><span class="hs-identifier hs-type">DeleteBot</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679327134"><span class="annot"><span class="annottext">toQuery :: DeleteBot -&gt; QueryString
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679327468"><span class="annot"><span class="annottext">toQuery :: DeleteBot -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteBot -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -233,10 +233,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-comment">-- | /See:/ 'newDeleteBotResponse' smart constructor.</span><span>
-</span><span id="line-116"></span><span id="local-6989586621679327131"><span id="local-6989586621679327132"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteBotResponse"><span class="annot"><a href="Network.AWS.LexModels.DeleteBot.html#DeleteBotResponse"><span class="hs-identifier hs-var">DeleteBotResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteBotResponse%27"><span class="annot"><a href="Network.AWS.LexModels.DeleteBot.html#DeleteBotResponse%27"><span class="hs-identifier hs-var">DeleteBotResponse'</span></a></span></span><span>
+</span><span id="line-116"></span><span id="local-6989586621679327465"><span id="local-6989586621679327466"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteBotResponse"><span class="annot"><a href="Network.AWS.LexModels.DeleteBot.html#DeleteBotResponse"><span class="hs-identifier hs-var">DeleteBotResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteBotResponse%27"><span class="annot"><a href="Network.AWS.LexModels.DeleteBot.html#DeleteBotResponse%27"><span class="hs-identifier hs-var">DeleteBotResponse'</span></a></span></span><span>
 </span><span id="line-117"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-118"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-119"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679327127"><span id="local-6989586621679327129"><span class="annot"><span class="annottext">DeleteBotResponse -&gt; DeleteBotResponse -&gt; Bool
+</span><span id="line-119"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679327461"><span id="local-6989586621679327463"><span class="annot"><span class="annottext">DeleteBotResponse -&gt; DeleteBotResponse -&gt; Bool
 (DeleteBotResponse -&gt; DeleteBotResponse -&gt; Bool)
 -&gt; (DeleteBotResponse -&gt; DeleteBotResponse -&gt; Bool)
 -&gt; Eq DeleteBotResponse
@@ -245,7 +245,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteBotResponse -&gt; DeleteBotResponse -&gt; Bool
 == :: DeleteBotResponse -&gt; DeleteBotResponse -&gt; Bool
 $c== :: DeleteBotResponse -&gt; DeleteBotResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679327119"><span id="local-6989586621679327121"><span id="local-6989586621679327123"><span id="local-6989586621679327125"><span class="annot"><span class="annottext">ReadPrec [DeleteBotResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679327453"><span id="local-6989586621679327455"><span id="local-6989586621679327457"><span id="local-6989586621679327459"><span class="annot"><span class="annottext">ReadPrec [DeleteBotResponse]
 ReadPrec DeleteBotResponse
 Int -&gt; ReadS DeleteBotResponse
 ReadS [DeleteBotResponse]
@@ -265,7 +265,7 @@ readList :: ReadS [DeleteBotResponse]
 $creadList :: ReadS [DeleteBotResponse]
 readsPrec :: Int -&gt; ReadS DeleteBotResponse
 $creadsPrec :: Int -&gt; ReadS DeleteBotResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679327113"><span id="local-6989586621679327115"><span id="local-6989586621679327117"><span class="annot"><span class="annottext">Int -&gt; DeleteBotResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679327447"><span id="local-6989586621679327449"><span id="local-6989586621679327451"><span class="annot"><span class="annottext">Int -&gt; DeleteBotResponse -&gt; ShowS
 [DeleteBotResponse] -&gt; ShowS
 DeleteBotResponse -&gt; String
 (Int -&gt; DeleteBotResponse -&gt; ShowS)
@@ -301,5 +301,5 @@ $cfrom :: forall x. DeleteBotResponse -&gt; Rep DeleteBotResponse x
 </span><a href="Network.AWS.LexModels.DeleteBot.html#newDeleteBotResponse"><span class="hs-identifier hs-var hs-var">newDeleteBotResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeleteBotResponse
 </span><a href="Network.AWS.LexModels.DeleteBot.html#DeleteBotResponse%27"><span class="hs-identifier hs-var">DeleteBotResponse'</span></a></span><span>
 </span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679327109"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.DeleteBot.html#DeleteBotResponse"><span class="hs-identifier hs-type">DeleteBotResponse</span></a></span></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679327443"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.DeleteBot.html#DeleteBotResponse"><span class="hs-identifier hs-type">DeleteBotResponse</span></a></span></span><span>
 </span><span id="line-130"></span></pre></body></html>

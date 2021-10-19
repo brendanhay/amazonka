@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Contains a paginated list of information about workflow executions.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newWorkflowExecutionInfos' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679354785"><span id="local-6989586621679354786"></span></span><span class="hs-keyword">data</span><span> </span><span id="WorkflowExecutionInfos"><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionInfos.html#WorkflowExecutionInfos"><span class="hs-identifier hs-var">WorkflowExecutionInfos</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WorkflowExecutionInfos%27"><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionInfos.html#WorkflowExecutionInfos%27"><span class="hs-identifier hs-var">WorkflowExecutionInfos'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679354866"><span id="local-6989586621679354867"></span></span><span class="hs-keyword">data</span><span> </span><span id="WorkflowExecutionInfos"><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionInfos.html#WorkflowExecutionInfos"><span class="hs-identifier hs-var">WorkflowExecutionInfos</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WorkflowExecutionInfos%27"><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionInfos.html#WorkflowExecutionInfos%27"><span class="hs-identifier hs-var">WorkflowExecutionInfos'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If a @NextPageToken@ was returned by a previous call, there are more</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- results available. To retrieve the next page of results, make the call</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- again using the returned token in @nextPageToken@. Keep all other</span><span>
@@ -41,7 +41,7 @@
 </span><span id="line-40"></span><span>    </span><span id="%24sel%3AexecutionInfos%3AWorkflowExecutionInfos%27"><span class="annot"><span class="annottext">WorkflowExecutionInfos -&gt; [WorkflowExecutionInfo]
 </span><a href="Network.AWS.SWF.Types.WorkflowExecutionInfos.html#%24sel%3AexecutionInfos%3AWorkflowExecutionInfos%27"><span class="hs-identifier hs-var hs-var">executionInfos</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionInfo.html#WorkflowExecutionInfo"><span class="hs-identifier hs-type">WorkflowExecutionInfo</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679354778"><span id="local-6989586621679354780"><span class="annot"><span class="annottext">WorkflowExecutionInfos -&gt; WorkflowExecutionInfos -&gt; Bool
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679354859"><span id="local-6989586621679354861"><span class="annot"><span class="annottext">WorkflowExecutionInfos -&gt; WorkflowExecutionInfos -&gt; Bool
 (WorkflowExecutionInfos -&gt; WorkflowExecutionInfos -&gt; Bool)
 -&gt; (WorkflowExecutionInfos -&gt; WorkflowExecutionInfos -&gt; Bool)
 -&gt; Eq WorkflowExecutionInfos
@@ -50,7 +50,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: WorkflowExecutionInfos -&gt; WorkflowExecutionInfos -&gt; Bool
 == :: WorkflowExecutionInfos -&gt; WorkflowExecutionInfos -&gt; Bool
 $c== :: WorkflowExecutionInfos -&gt; WorkflowExecutionInfos -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679354769"><span id="local-6989586621679354771"><span id="local-6989586621679354773"><span id="local-6989586621679354775"><span class="annot"><span class="annottext">ReadPrec [WorkflowExecutionInfos]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679354850"><span id="local-6989586621679354852"><span id="local-6989586621679354854"><span id="local-6989586621679354856"><span class="annot"><span class="annottext">ReadPrec [WorkflowExecutionInfos]
 ReadPrec WorkflowExecutionInfos
 Int -&gt; ReadS WorkflowExecutionInfos
 ReadS [WorkflowExecutionInfos]
@@ -70,7 +70,7 @@ readList :: ReadS [WorkflowExecutionInfos]
 $creadList :: ReadS [WorkflowExecutionInfos]
 readsPrec :: Int -&gt; ReadS WorkflowExecutionInfos
 $creadsPrec :: Int -&gt; ReadS WorkflowExecutionInfos
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679354762"><span id="local-6989586621679354764"><span id="local-6989586621679354766"><span class="annot"><span class="annottext">Int -&gt; WorkflowExecutionInfos -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679354843"><span id="local-6989586621679354845"><span id="local-6989586621679354847"><span class="annot"><span class="annottext">Int -&gt; WorkflowExecutionInfos -&gt; ShowS
 [WorkflowExecutionInfos] -&gt; ShowS
 WorkflowExecutionInfos -&gt; String
 (Int -&gt; WorkflowExecutionInfos -&gt; ShowS)
@@ -149,16 +149,16 @@ forall a. Monoid a =&gt; a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionInfos.html#WorkflowExecutionInfos%27"><span class="hs-identifier hs-type">WorkflowExecutionInfos'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354753"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionInfos.html#WorkflowExecutionInfos%27"><span class="hs-identifier hs-type">WorkflowExecutionInfos'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354834"><span class="annot"><span class="annottext">Maybe Text
 nextPageToken :: Maybe Text
 $sel:nextPageToken:WorkflowExecutionInfos' :: WorkflowExecutionInfos -&gt; Maybe Text
-</span><a href="#local-6989586621679354753"><span class="hs-identifier hs-var hs-var">nextPageToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679354753"><span class="hs-identifier hs-var">nextPageToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354752"><span class="annot"><span class="annottext">s :: WorkflowExecutionInfos
-</span><a href="#local-6989586621679354752"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionInfos.html#WorkflowExecutionInfos%27"><span class="hs-identifier hs-type">WorkflowExecutionInfos'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354751"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679354751"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkflowExecutionInfos
-</span><a href="#local-6989586621679354752"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextPageToken:WorkflowExecutionInfos' :: Maybe Text
+</span><a href="#local-6989586621679354834"><span class="hs-identifier hs-var hs-var">nextPageToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679354834"><span class="hs-identifier hs-var">nextPageToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354833"><span class="annot"><span class="annottext">s :: WorkflowExecutionInfos
+</span><a href="#local-6989586621679354833"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionInfos.html#WorkflowExecutionInfos%27"><span class="hs-identifier hs-type">WorkflowExecutionInfos'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354832"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679354832"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkflowExecutionInfos
+</span><a href="#local-6989586621679354833"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextPageToken:WorkflowExecutionInfos' :: Maybe Text
 </span><a href="Network.AWS.SWF.Types.WorkflowExecutionInfos.html#%24sel%3AnextPageToken%3AWorkflowExecutionInfos%27"><span class="hs-identifier hs-var">nextPageToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679354751"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionInfos.html#WorkflowExecutionInfos"><span class="hs-identifier hs-type">WorkflowExecutionInfos</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679354832"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionInfos.html#WorkflowExecutionInfos"><span class="hs-identifier hs-type">WorkflowExecutionInfos</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- | The list of workflow information structures.</span><span>
 </span><span id="line-81"></span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionInfos.html#workflowExecutionInfos_executionInfos"><span class="hs-identifier hs-type">workflowExecutionInfos_executionInfos</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionInfos.html#WorkflowExecutionInfos"><span class="hs-identifier hs-type">WorkflowExecutionInfos</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionInfo.html#WorkflowExecutionInfo"><span class="hs-identifier hs-type">WorkflowExecutionInfo</span></a></span><span class="hs-special">]</span><span>
@@ -173,16 +173,16 @@ $sel:nextPageToken:WorkflowExecutionInfos' :: WorkflowExecutionInfos -&gt; Maybe
      [WorkflowExecutionInfo]
      [WorkflowExecutionInfo]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionInfos.html#WorkflowExecutionInfos%27"><span class="hs-identifier hs-type">WorkflowExecutionInfos'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354749"><span class="annot"><span class="annottext">[WorkflowExecutionInfo]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionInfos.html#WorkflowExecutionInfos%27"><span class="hs-identifier hs-type">WorkflowExecutionInfos'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354830"><span class="annot"><span class="annottext">[WorkflowExecutionInfo]
 executionInfos :: [WorkflowExecutionInfo]
 $sel:executionInfos:WorkflowExecutionInfos' :: WorkflowExecutionInfos -&gt; [WorkflowExecutionInfo]
-</span><a href="#local-6989586621679354749"><span class="hs-identifier hs-var hs-var">executionInfos</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[WorkflowExecutionInfo]
-</span><a href="#local-6989586621679354749"><span class="hs-identifier hs-var">executionInfos</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354748"><span class="annot"><span class="annottext">s :: WorkflowExecutionInfos
-</span><a href="#local-6989586621679354748"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionInfos.html#WorkflowExecutionInfos%27"><span class="hs-identifier hs-type">WorkflowExecutionInfos'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354747"><span class="annot"><span class="annottext">[WorkflowExecutionInfo]
-</span><a href="#local-6989586621679354747"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkflowExecutionInfos
-</span><a href="#local-6989586621679354748"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:executionInfos:WorkflowExecutionInfos' :: [WorkflowExecutionInfo]
+</span><a href="#local-6989586621679354830"><span class="hs-identifier hs-var hs-var">executionInfos</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[WorkflowExecutionInfo]
+</span><a href="#local-6989586621679354830"><span class="hs-identifier hs-var">executionInfos</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354829"><span class="annot"><span class="annottext">s :: WorkflowExecutionInfos
+</span><a href="#local-6989586621679354829"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionInfos.html#WorkflowExecutionInfos%27"><span class="hs-identifier hs-type">WorkflowExecutionInfos'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354828"><span class="annot"><span class="annottext">[WorkflowExecutionInfo]
+</span><a href="#local-6989586621679354828"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkflowExecutionInfos
+</span><a href="#local-6989586621679354829"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:executionInfos:WorkflowExecutionInfos' :: [WorkflowExecutionInfo]
 </span><a href="Network.AWS.SWF.Types.WorkflowExecutionInfos.html#%24sel%3AexecutionInfos%3AWorkflowExecutionInfos%27"><span class="hs-identifier hs-var">executionInfos</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[WorkflowExecutionInfo]
-</span><a href="#local-6989586621679354747"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionInfos.html#WorkflowExecutionInfos"><span class="hs-identifier hs-type">WorkflowExecutionInfos</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([WorkflowExecutionInfo] -&gt; f [WorkflowExecutionInfo])
+</span><a href="#local-6989586621679354828"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionInfos.html#WorkflowExecutionInfos"><span class="hs-identifier hs-type">WorkflowExecutionInfos</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([WorkflowExecutionInfo] -&gt; f [WorkflowExecutionInfo])
  -&gt; WorkflowExecutionInfos -&gt; f WorkflowExecutionInfos)
 -&gt; (([WorkflowExecutionInfo] -&gt; f [WorkflowExecutionInfo])
     -&gt; [WorkflowExecutionInfo] -&gt; f [WorkflowExecutionInfo])
@@ -192,11 +192,11 @@ $sel:executionInfos:WorkflowExecutionInfos' :: WorkflowExecutionInfos -&gt; [Wor
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([WorkflowExecutionInfo] -&gt; f [WorkflowExecutionInfo])
 -&gt; [WorkflowExecutionInfo] -&gt; f [WorkflowExecutionInfo]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679354742"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionInfos.html#WorkflowExecutionInfos"><span class="hs-identifier hs-type">WorkflowExecutionInfos</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679354740"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser WorkflowExecutionInfos
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679354823"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionInfos.html#WorkflowExecutionInfos"><span class="hs-identifier hs-type">WorkflowExecutionInfos</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679354821"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser WorkflowExecutionInfos
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser WorkflowExecutionInfos)
@@ -206,8 +206,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;WorkflowExecutionInfos&quot;</span></span><span>
-</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679354737"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679354737"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679354818"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679354818"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-89"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; [WorkflowExecutionInfo] -&gt; WorkflowExecutionInfos
 </span><a href="Network.AWS.SWF.Types.WorkflowExecutionInfos.html#WorkflowExecutionInfos%27"><span class="hs-identifier hs-var">WorkflowExecutionInfos'</span></a></span><span>
 </span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; [WorkflowExecutionInfo] -&gt; WorkflowExecutionInfos)
@@ -215,7 +215,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser ([WorkflowExecutionInfo] -&gt; WorkflowExecutionInfos)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679354737"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679354818"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextPageToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -223,7 +223,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser [WorkflowExecutionInfo] -&gt; Parser WorkflowExecutionInfos
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679354737"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [WorkflowExecutionInfo])
+</span><a href="#local-6989586621679354818"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [WorkflowExecutionInfo])
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;executionInfos&quot;</span></span><span>
@@ -236,7 +236,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-93"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679354730"><span id="local-6989586621679354732"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionInfos.html#WorkflowExecutionInfos"><span class="hs-identifier hs-type">WorkflowExecutionInfos</span></a></span></span></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679354811"><span id="local-6989586621679354813"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionInfos.html#WorkflowExecutionInfos"><span class="hs-identifier hs-type">WorkflowExecutionInfos</span></a></span></span></span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679354727"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionInfos.html#WorkflowExecutionInfos"><span class="hs-identifier hs-type">WorkflowExecutionInfos</span></a></span></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679354808"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionInfos.html#WorkflowExecutionInfos"><span class="hs-identifier hs-type">WorkflowExecutionInfos</span></a></span></span><span>
 </span><span id="line-99"></span></pre></body></html>

@@ -27,46 +27,46 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | A rule that controls access to an Amazon WorkMail organization.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newAccessControlRule' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679258343"><span id="local-6989586621679258344"></span></span><span class="hs-keyword">data</span><span> </span><span id="AccessControlRule"><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule"><span class="hs-identifier hs-var">AccessControlRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AccessControlRule%27"><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule%27"><span class="hs-identifier hs-var">AccessControlRule'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679278556"><span id="local-6989586621679278557"></span></span><span class="hs-keyword">data</span><span> </span><span id="AccessControlRule"><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule"><span class="hs-identifier hs-var">AccessControlRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AccessControlRule%27"><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule%27"><span class="hs-identifier hs-var">AccessControlRule'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The rule effect.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Aeffect%3AAccessControlRule%27"><span class="annot"><span class="annottext">AccessControlRule -&gt; Maybe AccessControlRuleEffect
 </span><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#%24sel%3Aeffect%3AAccessControlRule%27"><span class="hs-identifier hs-var hs-var">effect</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRuleEffect.html#AccessControlRuleEffect"><span class="hs-identifier hs-type">AccessControlRuleEffect</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The date that the rule was created.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AdateCreated%3AAccessControlRule%27"><span class="annot"><span class="annottext">AccessControlRule -&gt; Maybe POSIX
-</span><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#%24sel%3AdateCreated%3AAccessControlRule%27"><span class="hs-identifier hs-var hs-var">dateCreated</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | IPv4 CIDR ranges to exclude from the rule.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AnotIpRanges%3AAccessControlRule%27"><span class="annot"><span class="annottext">AccessControlRule -&gt; Maybe [Text]
-</span><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#%24sel%3AnotIpRanges%3AAccessControlRule%27"><span class="hs-identifier hs-var hs-var">notIpRanges</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | Access protocol actions to include in the rule. Valid values include</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- @ActiveSync@, @AutoDiscover@, @EWS@, @IMAP@, @SMTP@, @WindowsOutlook@,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- and @WebMail@.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3Aactions%3AAccessControlRule%27"><span class="annot"><span class="annottext">AccessControlRule -&gt; Maybe [Text]
-</span><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#%24sel%3Aactions%3AAccessControlRule%27"><span class="hs-identifier hs-var hs-var">actions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | IPv4 CIDR ranges to include in the rule.</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3AipRanges%3AAccessControlRule%27"><span class="annot"><span class="annottext">AccessControlRule -&gt; Maybe [Text]
-</span><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#%24sel%3AipRanges%3AAccessControlRule%27"><span class="hs-identifier hs-var hs-var">ipRanges</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The date that the rule was modified.</span><span>
-</span><span id="line-44"></span><span>    </span><span id="%24sel%3AdateModified%3AAccessControlRule%27"><span class="annot"><span class="annottext">AccessControlRule -&gt; Maybe POSIX
-</span><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#%24sel%3AdateModified%3AAccessControlRule%27"><span class="hs-identifier hs-var hs-var">dateModified</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The rule name.</span><span>
-</span><span id="line-46"></span><span>    </span><span id="%24sel%3Aname%3AAccessControlRule%27"><span class="annot"><span class="annottext">AccessControlRule -&gt; Maybe Text
-</span><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#%24sel%3Aname%3AAccessControlRule%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | User IDs to include in the rule.</span><span>
-</span><span id="line-48"></span><span>    </span><span id="%24sel%3AuserIds%3AAccessControlRule%27"><span class="annot"><span class="annottext">AccessControlRule -&gt; Maybe [Text]
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | User IDs to include in the rule.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AuserIds%3AAccessControlRule%27"><span class="annot"><span class="annottext">AccessControlRule -&gt; Maybe [Text]
 </span><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#%24sel%3AuserIds%3AAccessControlRule%27"><span class="hs-identifier hs-var hs-var">userIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The rule description.</span><span>
-</span><span id="line-50"></span><span>    </span><span id="%24sel%3Adescription%3AAccessControlRule%27"><span class="annot"><span class="annottext">AccessControlRule -&gt; Maybe Text
-</span><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#%24sel%3Adescription%3AAccessControlRule%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Access protocol actions to include in the rule. Valid values include</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- @ActiveSync@, @AutoDiscover@, @EWS@, @IMAP@, @SMTP@, @WindowsOutlook@,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- and @WebMail@.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Aactions%3AAccessControlRule%27"><span class="annot"><span class="annottext">AccessControlRule -&gt; Maybe [Text]
+</span><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#%24sel%3Aactions%3AAccessControlRule%27"><span class="hs-identifier hs-var hs-var">actions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The date that the rule was created.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AdateCreated%3AAccessControlRule%27"><span class="annot"><span class="annottext">AccessControlRule -&gt; Maybe POSIX
+</span><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#%24sel%3AdateCreated%3AAccessControlRule%27"><span class="hs-identifier hs-var hs-var">dateCreated</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The rule name.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3Aname%3AAccessControlRule%27"><span class="annot"><span class="annottext">AccessControlRule -&gt; Maybe Text
+</span><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#%24sel%3Aname%3AAccessControlRule%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | User IDs to exclude from the rule.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AnotUserIds%3AAccessControlRule%27"><span class="annot"><span class="annottext">AccessControlRule -&gt; Maybe [Text]
+</span><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#%24sel%3AnotUserIds%3AAccessControlRule%27"><span class="hs-identifier hs-var hs-var">notUserIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The date that the rule was modified.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AdateModified%3AAccessControlRule%27"><span class="annot"><span class="annottext">AccessControlRule -&gt; Maybe POSIX
+</span><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#%24sel%3AdateModified%3AAccessControlRule%27"><span class="hs-identifier hs-var hs-var">dateModified</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | IPv4 CIDR ranges to include in the rule.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AipRanges%3AAccessControlRule%27"><span class="annot"><span class="annottext">AccessControlRule -&gt; Maybe [Text]
+</span><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#%24sel%3AipRanges%3AAccessControlRule%27"><span class="hs-identifier hs-var hs-var">ipRanges</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | IPv4 CIDR ranges to exclude from the rule.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AnotIpRanges%3AAccessControlRule%27"><span class="annot"><span class="annottext">AccessControlRule -&gt; Maybe [Text]
+</span><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#%24sel%3AnotIpRanges%3AAccessControlRule%27"><span class="hs-identifier hs-var hs-var">notIpRanges</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
 </span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | Access protocol actions to exclude from the rule. Valid values include</span><span>
 </span><span id="line-52"></span><span>    </span><span class="hs-comment">-- @ActiveSync@, @AutoDiscover@, @EWS@, @IMAP@, @SMTP@, @WindowsOutlook@,</span><span>
 </span><span id="line-53"></span><span>    </span><span class="hs-comment">-- and @WebMail@.</span><span>
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3AnotActions%3AAccessControlRule%27"><span class="annot"><span class="annottext">AccessControlRule -&gt; Maybe [Text]
 </span><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#%24sel%3AnotActions%3AAccessControlRule%27"><span class="hs-identifier hs-var hs-var">notActions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | User IDs to exclude from the rule.</span><span>
-</span><span id="line-56"></span><span>    </span><span id="%24sel%3AnotUserIds%3AAccessControlRule%27"><span class="annot"><span class="annottext">AccessControlRule -&gt; Maybe [Text]
-</span><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#%24sel%3AnotUserIds%3AAccessControlRule%27"><span class="hs-identifier hs-var hs-var">notUserIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The rule description.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3Adescription%3AAccessControlRule%27"><span class="annot"><span class="annottext">AccessControlRule -&gt; Maybe Text
+</span><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#%24sel%3Adescription%3AAccessControlRule%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679258327"><span id="local-6989586621679258329"><span class="annot"><span class="annottext">AccessControlRule -&gt; AccessControlRule -&gt; Bool
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679278540"><span id="local-6989586621679278542"><span class="annot"><span class="annottext">AccessControlRule -&gt; AccessControlRule -&gt; Bool
 (AccessControlRule -&gt; AccessControlRule -&gt; Bool)
 -&gt; (AccessControlRule -&gt; AccessControlRule -&gt; Bool)
 -&gt; Eq AccessControlRule
@@ -75,7 +75,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AccessControlRule -&gt; AccessControlRule -&gt; Bool
 == :: AccessControlRule -&gt; AccessControlRule -&gt; Bool
 $c== :: AccessControlRule -&gt; AccessControlRule -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258318"><span id="local-6989586621679258320"><span id="local-6989586621679258322"><span id="local-6989586621679258324"><span class="annot"><span class="annottext">ReadPrec [AccessControlRule]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679278531"><span id="local-6989586621679278533"><span id="local-6989586621679278535"><span id="local-6989586621679278537"><span class="annot"><span class="annottext">ReadPrec [AccessControlRule]
 ReadPrec AccessControlRule
 Int -&gt; ReadS AccessControlRule
 ReadS [AccessControlRule]
@@ -95,7 +95,7 @@ readList :: ReadS [AccessControlRule]
 $creadList :: ReadS [AccessControlRule]
 readsPrec :: Int -&gt; ReadS AccessControlRule
 $creadsPrec :: Int -&gt; ReadS AccessControlRule
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258311"><span id="local-6989586621679258313"><span id="local-6989586621679258315"><span class="annot"><span class="annottext">Int -&gt; AccessControlRule -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679278524"><span id="local-6989586621679278526"><span id="local-6989586621679278528"><span class="annot"><span class="annottext">Int -&gt; AccessControlRule -&gt; ShowS
 [AccessControlRule] -&gt; ShowS
 AccessControlRule -&gt; String
 (Int -&gt; AccessControlRule -&gt; ShowS)
@@ -131,88 +131,88 @@ $cfrom :: forall x. AccessControlRule -&gt; Rep AccessControlRule x
 </span><span id="line-67"></span><span class="hs-comment">--</span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- 'effect', 'accessControlRule_effect' - The rule effect.</span><span>
 </span><span id="line-69"></span><span class="hs-comment">--</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- 'dateCreated', 'accessControlRule_dateCreated' - The date that the rule was created.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'userIds', 'accessControlRule_userIds' - User IDs to include in the rule.</span><span>
 </span><span id="line-71"></span><span class="hs-comment">--</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- 'notIpRanges', 'accessControlRule_notIpRanges' - IPv4 CIDR ranges to exclude from the rule.</span><span>
-</span><span id="line-73"></span><span class="hs-comment">--</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- 'actions', 'accessControlRule_actions' - Access protocol actions to include in the rule. Valid values include</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- @ActiveSync@, @AutoDiscover@, @EWS@, @IMAP@, @SMTP@, @WindowsOutlook@,</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- and @WebMail@.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'actions', 'accessControlRule_actions' - Access protocol actions to include in the rule. Valid values include</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- @ActiveSync@, @AutoDiscover@, @EWS@, @IMAP@, @SMTP@, @WindowsOutlook@,</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- and @WebMail@.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'dateCreated', 'accessControlRule_dateCreated' - The date that the rule was created.</span><span>
 </span><span id="line-77"></span><span class="hs-comment">--</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- 'ipRanges', 'accessControlRule_ipRanges' - IPv4 CIDR ranges to include in the rule.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'name', 'accessControlRule_name' - The rule name.</span><span>
 </span><span id="line-79"></span><span class="hs-comment">--</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- 'dateModified', 'accessControlRule_dateModified' - The date that the rule was modified.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'notUserIds', 'accessControlRule_notUserIds' - User IDs to exclude from the rule.</span><span>
 </span><span id="line-81"></span><span class="hs-comment">--</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- 'name', 'accessControlRule_name' - The rule name.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'dateModified', 'accessControlRule_dateModified' - The date that the rule was modified.</span><span>
 </span><span id="line-83"></span><span class="hs-comment">--</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- 'userIds', 'accessControlRule_userIds' - User IDs to include in the rule.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'ipRanges', 'accessControlRule_ipRanges' - IPv4 CIDR ranges to include in the rule.</span><span>
 </span><span id="line-85"></span><span class="hs-comment">--</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- 'description', 'accessControlRule_description' - The rule description.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'notIpRanges', 'accessControlRule_notIpRanges' - IPv4 CIDR ranges to exclude from the rule.</span><span>
 </span><span id="line-87"></span><span class="hs-comment">--</span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- 'notActions', 'accessControlRule_notActions' - Access protocol actions to exclude from the rule. Valid values include</span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- @ActiveSync@, @AutoDiscover@, @EWS@, @IMAP@, @SMTP@, @WindowsOutlook@,</span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- and @WebMail@.</span><span>
 </span><span id="line-91"></span><span class="hs-comment">--</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- 'notUserIds', 'accessControlRule_notUserIds' - User IDs to exclude from the rule.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'description', 'accessControlRule_description' - The rule description.</span><span>
 </span><span id="line-93"></span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#newAccessControlRule"><span class="hs-identifier hs-type">newAccessControlRule</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-94"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule"><span class="hs-identifier hs-type">AccessControlRule</span></a></span><span>
 </span><span id="line-95"></span><span id="newAccessControlRule"><span class="annot"><span class="annottext">newAccessControlRule :: AccessControlRule
 </span><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#newAccessControlRule"><span class="hs-identifier hs-var hs-var">newAccessControlRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>  </span><span class="annot"><span class="annottext">AccessControlRule' :: Maybe AccessControlRuleEffect
--&gt; Maybe POSIX
--&gt; Maybe [Text]
 -&gt; Maybe [Text]
 -&gt; Maybe [Text]
 -&gt; Maybe POSIX
 -&gt; Maybe Text
 -&gt; Maybe [Text]
+-&gt; Maybe POSIX
+-&gt; Maybe [Text]
+-&gt; Maybe [Text]
+-&gt; Maybe [Text]
 -&gt; Maybe Text
--&gt; Maybe [Text]
--&gt; Maybe [Text]
 -&gt; AccessControlRule
 </span><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule%27"><span class="hs-identifier hs-type">AccessControlRule'</span></a></span><span>
 </span><span id="line-97"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:effect:AccessControlRule' :: Maybe AccessControlRuleEffect
 </span><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#%24sel%3Aeffect%3AAccessControlRule%27"><span class="hs-identifier hs-var">effect</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AccessControlRuleEffect
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:dateCreated:AccessControlRule' :: Maybe POSIX
-</span><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#%24sel%3AdateCreated%3AAccessControlRule%27"><span class="hs-identifier hs-var">dateCreated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:notIpRanges:AccessControlRule' :: Maybe [Text]
-</span><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#%24sel%3AnotIpRanges%3AAccessControlRule%27"><span class="hs-identifier hs-var">notIpRanges</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:actions:AccessControlRule' :: Maybe [Text]
-</span><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#%24sel%3Aactions%3AAccessControlRule%27"><span class="hs-identifier hs-var">actions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:ipRanges:AccessControlRule' :: Maybe [Text]
-</span><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#%24sel%3AipRanges%3AAccessControlRule%27"><span class="hs-identifier hs-var">ipRanges</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:dateModified:AccessControlRule' :: Maybe POSIX
-</span><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#%24sel%3AdateModified%3AAccessControlRule%27"><span class="hs-identifier hs-var">dateModified</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:AccessControlRule' :: Maybe Text
-</span><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#%24sel%3Aname%3AAccessControlRule%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:userIds:AccessControlRule' :: Maybe [Text]
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:userIds:AccessControlRule' :: Maybe [Text]
 </span><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#%24sel%3AuserIds%3AAccessControlRule%27"><span class="hs-identifier hs-var">userIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:AccessControlRule' :: Maybe Text
-</span><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#%24sel%3Adescription%3AAccessControlRule%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:actions:AccessControlRule' :: Maybe [Text]
+</span><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#%24sel%3Aactions%3AAccessControlRule%27"><span class="hs-identifier hs-var">actions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:dateCreated:AccessControlRule' :: Maybe POSIX
+</span><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#%24sel%3AdateCreated%3AAccessControlRule%27"><span class="hs-identifier hs-var">dateCreated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:AccessControlRule' :: Maybe Text
+</span><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#%24sel%3Aname%3AAccessControlRule%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:notUserIds:AccessControlRule' :: Maybe [Text]
+</span><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#%24sel%3AnotUserIds%3AAccessControlRule%27"><span class="hs-identifier hs-var">notUserIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:dateModified:AccessControlRule' :: Maybe POSIX
+</span><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#%24sel%3AdateModified%3AAccessControlRule%27"><span class="hs-identifier hs-var">dateModified</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:ipRanges:AccessControlRule' :: Maybe [Text]
+</span><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#%24sel%3AipRanges%3AAccessControlRule%27"><span class="hs-identifier hs-var">ipRanges</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:notIpRanges:AccessControlRule' :: Maybe [Text]
+</span><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#%24sel%3AnotIpRanges%3AAccessControlRule%27"><span class="hs-identifier hs-var">notIpRanges</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:notActions:AccessControlRule' :: Maybe [Text]
 </span><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#%24sel%3AnotActions%3AAccessControlRule%27"><span class="hs-identifier hs-var">notActions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:notUserIds:AccessControlRule' :: Maybe [Text]
-</span><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#%24sel%3AnotUserIds%3AAccessControlRule%27"><span class="hs-identifier hs-var">notUserIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:AccessControlRule' :: Maybe Text
+</span><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#%24sel%3Adescription%3AAccessControlRule%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-108"></span><span>    </span><span class="hs-special">}</span><span>
@@ -231,233 +231,36 @@ forall a. Maybe a
      (Maybe AccessControlRuleEffect)
      (Maybe AccessControlRuleEffect)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule%27"><span class="hs-identifier hs-type">AccessControlRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258302"><span class="annot"><span class="annottext">Maybe AccessControlRuleEffect
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule%27"><span class="hs-identifier hs-type">AccessControlRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278515"><span class="annot"><span class="annottext">Maybe AccessControlRuleEffect
 effect :: Maybe AccessControlRuleEffect
 $sel:effect:AccessControlRule' :: AccessControlRule -&gt; Maybe AccessControlRuleEffect
-</span><a href="#local-6989586621679258302"><span class="hs-identifier hs-var hs-var">effect</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AccessControlRuleEffect
-</span><a href="#local-6989586621679258302"><span class="hs-identifier hs-var">effect</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258301"><span class="annot"><span class="annottext">s :: AccessControlRule
-</span><a href="#local-6989586621679258301"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule%27"><span class="hs-identifier hs-type">AccessControlRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258300"><span class="annot"><span class="annottext">Maybe AccessControlRuleEffect
-</span><a href="#local-6989586621679258300"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessControlRule
-</span><a href="#local-6989586621679258301"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:effect:AccessControlRule' :: Maybe AccessControlRuleEffect
+</span><a href="#local-6989586621679278515"><span class="hs-identifier hs-var hs-var">effect</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AccessControlRuleEffect
+</span><a href="#local-6989586621679278515"><span class="hs-identifier hs-var">effect</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278514"><span class="annot"><span class="annottext">s :: AccessControlRule
+</span><a href="#local-6989586621679278514"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule%27"><span class="hs-identifier hs-type">AccessControlRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278513"><span class="annot"><span class="annottext">Maybe AccessControlRuleEffect
+</span><a href="#local-6989586621679278513"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessControlRule
+</span><a href="#local-6989586621679278514"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:effect:AccessControlRule' :: Maybe AccessControlRuleEffect
 </span><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#%24sel%3Aeffect%3AAccessControlRule%27"><span class="hs-identifier hs-var">effect</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AccessControlRuleEffect
-</span><a href="#local-6989586621679258300"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule"><span class="hs-identifier hs-type">AccessControlRule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679278513"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule"><span class="hs-identifier hs-type">AccessControlRule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- | The date that the rule was created.</span><span>
-</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#accessControlRule_dateCreated"><span class="hs-identifier hs-type">accessControlRule_dateCreated</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule"><span class="hs-identifier hs-type">AccessControlRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-116"></span><span id="accessControlRule_dateCreated"><span class="annot"><span class="annottext">accessControlRule_dateCreated :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; AccessControlRule -&gt; f AccessControlRule
-</span><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#accessControlRule_dateCreated"><span class="hs-identifier hs-var hs-var">accessControlRule_dateCreated</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccessControlRule -&gt; Maybe POSIX)
--&gt; (AccessControlRule -&gt; Maybe POSIX -&gt; AccessControlRule)
--&gt; Lens
-     AccessControlRule AccessControlRule (Maybe POSIX) (Maybe POSIX)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule%27"><span class="hs-identifier hs-type">AccessControlRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258298"><span class="annot"><span class="annottext">Maybe POSIX
-dateCreated :: Maybe POSIX
-$sel:dateCreated:AccessControlRule' :: AccessControlRule -&gt; Maybe POSIX
-</span><a href="#local-6989586621679258298"><span class="hs-identifier hs-var hs-var">dateCreated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679258298"><span class="hs-identifier hs-var">dateCreated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258297"><span class="annot"><span class="annottext">s :: AccessControlRule
-</span><a href="#local-6989586621679258297"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule%27"><span class="hs-identifier hs-type">AccessControlRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258296"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679258296"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessControlRule
-</span><a href="#local-6989586621679258297"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dateCreated:AccessControlRule' :: Maybe POSIX
-</span><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#%24sel%3AdateCreated%3AAccessControlRule%27"><span class="hs-identifier hs-var">dateCreated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679258296"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule"><span class="hs-identifier hs-type">AccessControlRule</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
- -&gt; AccessControlRule -&gt; f AccessControlRule)
--&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
-    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
--&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; AccessControlRule
--&gt; f AccessControlRule
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
--&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
-forall (a :: Format). Iso' (Time a) UTCTime
-</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- | IPv4 CIDR ranges to exclude from the rule.</span><span>
-</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#accessControlRule_notIpRanges"><span class="hs-identifier hs-type">accessControlRule_notIpRanges</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule"><span class="hs-identifier hs-type">AccessControlRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-120"></span><span id="accessControlRule_notIpRanges"><span class="annot"><span class="annottext">accessControlRule_notIpRanges :: (Maybe [Text] -&gt; f (Maybe [Text]))
--&gt; AccessControlRule -&gt; f AccessControlRule
-</span><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#accessControlRule_notIpRanges"><span class="hs-identifier hs-var hs-var">accessControlRule_notIpRanges</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccessControlRule -&gt; Maybe [Text])
--&gt; (AccessControlRule -&gt; Maybe [Text] -&gt; AccessControlRule)
--&gt; Lens
-     AccessControlRule AccessControlRule (Maybe [Text]) (Maybe [Text])
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule%27"><span class="hs-identifier hs-type">AccessControlRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258291"><span class="annot"><span class="annottext">Maybe [Text]
-notIpRanges :: Maybe [Text]
-$sel:notIpRanges:AccessControlRule' :: AccessControlRule -&gt; Maybe [Text]
-</span><a href="#local-6989586621679258291"><span class="hs-identifier hs-var hs-var">notIpRanges</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679258291"><span class="hs-identifier hs-var">notIpRanges</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258290"><span class="annot"><span class="annottext">s :: AccessControlRule
-</span><a href="#local-6989586621679258290"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule%27"><span class="hs-identifier hs-type">AccessControlRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258289"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679258289"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessControlRule
-</span><a href="#local-6989586621679258290"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notIpRanges:AccessControlRule' :: Maybe [Text]
-</span><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#%24sel%3AnotIpRanges%3AAccessControlRule%27"><span class="hs-identifier hs-var">notIpRanges</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679258289"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule"><span class="hs-identifier hs-type">AccessControlRule</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
- -&gt; AccessControlRule -&gt; f AccessControlRule)
--&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
-    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
--&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
--&gt; AccessControlRule
--&gt; f AccessControlRule
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
--&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- | Access protocol actions to include in the rule. Valid values include</span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- @ActiveSync@, @AutoDiscover@, @EWS@, @IMAP@, @SMTP@, @WindowsOutlook@,</span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- and @WebMail@.</span><span>
-</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#accessControlRule_actions"><span class="hs-identifier hs-type">accessControlRule_actions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule"><span class="hs-identifier hs-type">AccessControlRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-126"></span><span id="accessControlRule_actions"><span class="annot"><span class="annottext">accessControlRule_actions :: (Maybe [Text] -&gt; f (Maybe [Text]))
--&gt; AccessControlRule -&gt; f AccessControlRule
-</span><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#accessControlRule_actions"><span class="hs-identifier hs-var hs-var">accessControlRule_actions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccessControlRule -&gt; Maybe [Text])
--&gt; (AccessControlRule -&gt; Maybe [Text] -&gt; AccessControlRule)
--&gt; Lens
-     AccessControlRule AccessControlRule (Maybe [Text]) (Maybe [Text])
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule%27"><span class="hs-identifier hs-type">AccessControlRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258286"><span class="annot"><span class="annottext">Maybe [Text]
-actions :: Maybe [Text]
-$sel:actions:AccessControlRule' :: AccessControlRule -&gt; Maybe [Text]
-</span><a href="#local-6989586621679258286"><span class="hs-identifier hs-var hs-var">actions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679258286"><span class="hs-identifier hs-var">actions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258285"><span class="annot"><span class="annottext">s :: AccessControlRule
-</span><a href="#local-6989586621679258285"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule%27"><span class="hs-identifier hs-type">AccessControlRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258284"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679258284"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessControlRule
-</span><a href="#local-6989586621679258285"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actions:AccessControlRule' :: Maybe [Text]
-</span><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#%24sel%3Aactions%3AAccessControlRule%27"><span class="hs-identifier hs-var">actions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679258284"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule"><span class="hs-identifier hs-type">AccessControlRule</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
- -&gt; AccessControlRule -&gt; f AccessControlRule)
--&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
-    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
--&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
--&gt; AccessControlRule
--&gt; f AccessControlRule
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
--&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- | IPv4 CIDR ranges to include in the rule.</span><span>
-</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#accessControlRule_ipRanges"><span class="hs-identifier hs-type">accessControlRule_ipRanges</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule"><span class="hs-identifier hs-type">AccessControlRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-130"></span><span id="accessControlRule_ipRanges"><span class="annot"><span class="annottext">accessControlRule_ipRanges :: (Maybe [Text] -&gt; f (Maybe [Text]))
--&gt; AccessControlRule -&gt; f AccessControlRule
-</span><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#accessControlRule_ipRanges"><span class="hs-identifier hs-var hs-var">accessControlRule_ipRanges</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccessControlRule -&gt; Maybe [Text])
--&gt; (AccessControlRule -&gt; Maybe [Text] -&gt; AccessControlRule)
--&gt; Lens
-     AccessControlRule AccessControlRule (Maybe [Text]) (Maybe [Text])
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule%27"><span class="hs-identifier hs-type">AccessControlRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258282"><span class="annot"><span class="annottext">Maybe [Text]
-ipRanges :: Maybe [Text]
-$sel:ipRanges:AccessControlRule' :: AccessControlRule -&gt; Maybe [Text]
-</span><a href="#local-6989586621679258282"><span class="hs-identifier hs-var hs-var">ipRanges</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679258282"><span class="hs-identifier hs-var">ipRanges</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258281"><span class="annot"><span class="annottext">s :: AccessControlRule
-</span><a href="#local-6989586621679258281"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule%27"><span class="hs-identifier hs-type">AccessControlRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258280"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679258280"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessControlRule
-</span><a href="#local-6989586621679258281"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipRanges:AccessControlRule' :: Maybe [Text]
-</span><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#%24sel%3AipRanges%3AAccessControlRule%27"><span class="hs-identifier hs-var">ipRanges</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679258280"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule"><span class="hs-identifier hs-type">AccessControlRule</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
- -&gt; AccessControlRule -&gt; f AccessControlRule)
--&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
-    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
--&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
--&gt; AccessControlRule
--&gt; f AccessControlRule
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
--&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-131"></span><span>
-</span><span id="line-132"></span><span class="hs-comment">-- | The date that the rule was modified.</span><span>
-</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#accessControlRule_dateModified"><span class="hs-identifier hs-type">accessControlRule_dateModified</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule"><span class="hs-identifier hs-type">AccessControlRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-134"></span><span id="accessControlRule_dateModified"><span class="annot"><span class="annottext">accessControlRule_dateModified :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; AccessControlRule -&gt; f AccessControlRule
-</span><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#accessControlRule_dateModified"><span class="hs-identifier hs-var hs-var">accessControlRule_dateModified</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccessControlRule -&gt; Maybe POSIX)
--&gt; (AccessControlRule -&gt; Maybe POSIX -&gt; AccessControlRule)
--&gt; Lens
-     AccessControlRule AccessControlRule (Maybe POSIX) (Maybe POSIX)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule%27"><span class="hs-identifier hs-type">AccessControlRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258278"><span class="annot"><span class="annottext">Maybe POSIX
-dateModified :: Maybe POSIX
-$sel:dateModified:AccessControlRule' :: AccessControlRule -&gt; Maybe POSIX
-</span><a href="#local-6989586621679258278"><span class="hs-identifier hs-var hs-var">dateModified</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679258278"><span class="hs-identifier hs-var">dateModified</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258277"><span class="annot"><span class="annottext">s :: AccessControlRule
-</span><a href="#local-6989586621679258277"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule%27"><span class="hs-identifier hs-type">AccessControlRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258276"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679258276"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessControlRule
-</span><a href="#local-6989586621679258277"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dateModified:AccessControlRule' :: Maybe POSIX
-</span><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#%24sel%3AdateModified%3AAccessControlRule%27"><span class="hs-identifier hs-var">dateModified</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679258276"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule"><span class="hs-identifier hs-type">AccessControlRule</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
- -&gt; AccessControlRule -&gt; f AccessControlRule)
--&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
-    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
--&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; AccessControlRule
--&gt; f AccessControlRule
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
--&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
-forall (a :: Format). Iso' (Time a) UTCTime
-</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-135"></span><span>
-</span><span id="line-136"></span><span class="hs-comment">-- | The rule name.</span><span>
-</span><span id="line-137"></span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#accessControlRule_name"><span class="hs-identifier hs-type">accessControlRule_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule"><span class="hs-identifier hs-type">AccessControlRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-138"></span><span id="accessControlRule_name"><span class="annot"><span class="annottext">accessControlRule_name :: (Maybe Text -&gt; f (Maybe Text))
--&gt; AccessControlRule -&gt; f AccessControlRule
-</span><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#accessControlRule_name"><span class="hs-identifier hs-var hs-var">accessControlRule_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccessControlRule -&gt; Maybe Text)
--&gt; (AccessControlRule -&gt; Maybe Text -&gt; AccessControlRule)
--&gt; Lens
-     AccessControlRule AccessControlRule (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule%27"><span class="hs-identifier hs-type">AccessControlRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258274"><span class="annot"><span class="annottext">Maybe Text
-name :: Maybe Text
-$sel:name:AccessControlRule' :: AccessControlRule -&gt; Maybe Text
-</span><a href="#local-6989586621679258274"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679258274"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258273"><span class="annot"><span class="annottext">s :: AccessControlRule
-</span><a href="#local-6989586621679258273"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule%27"><span class="hs-identifier hs-type">AccessControlRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258272"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679258272"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessControlRule
-</span><a href="#local-6989586621679258273"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:AccessControlRule' :: Maybe Text
-</span><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#%24sel%3Aname%3AAccessControlRule%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679258272"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule"><span class="hs-identifier hs-type">AccessControlRule</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-139"></span><span>
-</span><span id="line-140"></span><span class="hs-comment">-- | User IDs to include in the rule.</span><span>
-</span><span id="line-141"></span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#accessControlRule_userIds"><span class="hs-identifier hs-type">accessControlRule_userIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule"><span class="hs-identifier hs-type">AccessControlRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-142"></span><span id="accessControlRule_userIds"><span class="annot"><span class="annottext">accessControlRule_userIds :: (Maybe [Text] -&gt; f (Maybe [Text]))
+</span><span id="line-114"></span><span class="hs-comment">-- | User IDs to include in the rule.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#accessControlRule_userIds"><span class="hs-identifier hs-type">accessControlRule_userIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule"><span class="hs-identifier hs-type">AccessControlRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span id="accessControlRule_userIds"><span class="annot"><span class="annottext">accessControlRule_userIds :: (Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; AccessControlRule -&gt; f AccessControlRule
 </span><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#accessControlRule_userIds"><span class="hs-identifier hs-var hs-var">accessControlRule_userIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccessControlRule -&gt; Maybe [Text])
 -&gt; (AccessControlRule -&gt; Maybe [Text] -&gt; AccessControlRule)
 -&gt; Lens
      AccessControlRule AccessControlRule (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule%27"><span class="hs-identifier hs-type">AccessControlRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258270"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule%27"><span class="hs-identifier hs-type">AccessControlRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278511"><span class="annot"><span class="annottext">Maybe [Text]
 userIds :: Maybe [Text]
 $sel:userIds:AccessControlRule' :: AccessControlRule -&gt; Maybe [Text]
-</span><a href="#local-6989586621679258270"><span class="hs-identifier hs-var hs-var">userIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679258270"><span class="hs-identifier hs-var">userIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258269"><span class="annot"><span class="annottext">s :: AccessControlRule
-</span><a href="#local-6989586621679258269"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule%27"><span class="hs-identifier hs-type">AccessControlRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258268"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679258268"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessControlRule
-</span><a href="#local-6989586621679258269"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userIds:AccessControlRule' :: Maybe [Text]
+</span><a href="#local-6989586621679278511"><span class="hs-identifier hs-var hs-var">userIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679278511"><span class="hs-identifier hs-var">userIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278510"><span class="annot"><span class="annottext">s :: AccessControlRule
+</span><a href="#local-6989586621679278510"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule%27"><span class="hs-identifier hs-type">AccessControlRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278509"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679278509"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessControlRule
+</span><a href="#local-6989586621679278510"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userIds:AccessControlRule' :: Maybe [Text]
 </span><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#%24sel%3AuserIds%3AAccessControlRule%27"><span class="hs-identifier hs-var">userIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679258268"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule"><span class="hs-identifier hs-type">AccessControlRule</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679278509"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule"><span class="hs-identifier hs-type">AccessControlRule</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; AccessControlRule -&gt; f AccessControlRule)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -471,28 +274,240 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-143"></span><span>
-</span><span id="line-144"></span><span class="hs-comment">-- | The rule description.</span><span>
-</span><span id="line-145"></span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#accessControlRule_description"><span class="hs-identifier hs-type">accessControlRule_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule"><span class="hs-identifier hs-type">AccessControlRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-146"></span><span id="accessControlRule_description"><span class="annot"><span class="annottext">accessControlRule_description :: (Maybe Text -&gt; f (Maybe Text))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | Access protocol actions to include in the rule. Valid values include</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- @ActiveSync@, @AutoDiscover@, @EWS@, @IMAP@, @SMTP@, @WindowsOutlook@,</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- and @WebMail@.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#accessControlRule_actions"><span class="hs-identifier hs-type">accessControlRule_actions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule"><span class="hs-identifier hs-type">AccessControlRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span id="accessControlRule_actions"><span class="annot"><span class="annottext">accessControlRule_actions :: (Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; AccessControlRule -&gt; f AccessControlRule
-</span><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#accessControlRule_description"><span class="hs-identifier hs-var hs-var">accessControlRule_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccessControlRule -&gt; Maybe Text)
+</span><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#accessControlRule_actions"><span class="hs-identifier hs-var hs-var">accessControlRule_actions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccessControlRule -&gt; Maybe [Text])
+-&gt; (AccessControlRule -&gt; Maybe [Text] -&gt; AccessControlRule)
+-&gt; Lens
+     AccessControlRule AccessControlRule (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule%27"><span class="hs-identifier hs-type">AccessControlRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278504"><span class="annot"><span class="annottext">Maybe [Text]
+actions :: Maybe [Text]
+$sel:actions:AccessControlRule' :: AccessControlRule -&gt; Maybe [Text]
+</span><a href="#local-6989586621679278504"><span class="hs-identifier hs-var hs-var">actions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679278504"><span class="hs-identifier hs-var">actions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278503"><span class="annot"><span class="annottext">s :: AccessControlRule
+</span><a href="#local-6989586621679278503"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule%27"><span class="hs-identifier hs-type">AccessControlRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278502"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679278502"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessControlRule
+</span><a href="#local-6989586621679278503"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actions:AccessControlRule' :: Maybe [Text]
+</span><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#%24sel%3Aactions%3AAccessControlRule%27"><span class="hs-identifier hs-var">actions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679278502"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule"><span class="hs-identifier hs-type">AccessControlRule</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; AccessControlRule -&gt; f AccessControlRule)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; AccessControlRule
+-&gt; f AccessControlRule
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | The date that the rule was created.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#accessControlRule_dateCreated"><span class="hs-identifier hs-type">accessControlRule_dateCreated</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule"><span class="hs-identifier hs-type">AccessControlRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="accessControlRule_dateCreated"><span class="annot"><span class="annottext">accessControlRule_dateCreated :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; AccessControlRule -&gt; f AccessControlRule
+</span><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#accessControlRule_dateCreated"><span class="hs-identifier hs-var hs-var">accessControlRule_dateCreated</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccessControlRule -&gt; Maybe POSIX)
+-&gt; (AccessControlRule -&gt; Maybe POSIX -&gt; AccessControlRule)
+-&gt; Lens
+     AccessControlRule AccessControlRule (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule%27"><span class="hs-identifier hs-type">AccessControlRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278500"><span class="annot"><span class="annottext">Maybe POSIX
+dateCreated :: Maybe POSIX
+$sel:dateCreated:AccessControlRule' :: AccessControlRule -&gt; Maybe POSIX
+</span><a href="#local-6989586621679278500"><span class="hs-identifier hs-var hs-var">dateCreated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679278500"><span class="hs-identifier hs-var">dateCreated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278499"><span class="annot"><span class="annottext">s :: AccessControlRule
+</span><a href="#local-6989586621679278499"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule%27"><span class="hs-identifier hs-type">AccessControlRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278498"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679278498"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessControlRule
+</span><a href="#local-6989586621679278499"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dateCreated:AccessControlRule' :: Maybe POSIX
+</span><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#%24sel%3AdateCreated%3AAccessControlRule%27"><span class="hs-identifier hs-var">dateCreated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679278498"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule"><span class="hs-identifier hs-type">AccessControlRule</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; AccessControlRule -&gt; f AccessControlRule)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; AccessControlRule
+-&gt; f AccessControlRule
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | The rule name.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#accessControlRule_name"><span class="hs-identifier hs-type">accessControlRule_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule"><span class="hs-identifier hs-type">AccessControlRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="accessControlRule_name"><span class="annot"><span class="annottext">accessControlRule_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AccessControlRule -&gt; f AccessControlRule
+</span><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#accessControlRule_name"><span class="hs-identifier hs-var hs-var">accessControlRule_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccessControlRule -&gt; Maybe Text)
 -&gt; (AccessControlRule -&gt; Maybe Text -&gt; AccessControlRule)
 -&gt; Lens
      AccessControlRule AccessControlRule (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule%27"><span class="hs-identifier hs-type">AccessControlRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258266"><span class="annot"><span class="annottext">Maybe Text
-description :: Maybe Text
-$sel:description:AccessControlRule' :: AccessControlRule -&gt; Maybe Text
-</span><a href="#local-6989586621679258266"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679258266"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258265"><span class="annot"><span class="annottext">s :: AccessControlRule
-</span><a href="#local-6989586621679258265"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule%27"><span class="hs-identifier hs-type">AccessControlRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258264"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679258264"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessControlRule
-</span><a href="#local-6989586621679258265"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:AccessControlRule' :: Maybe Text
-</span><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#%24sel%3Adescription%3AAccessControlRule%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679258264"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule"><span class="hs-identifier hs-type">AccessControlRule</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule%27"><span class="hs-identifier hs-type">AccessControlRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278495"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:AccessControlRule' :: AccessControlRule -&gt; Maybe Text
+</span><a href="#local-6989586621679278495"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679278495"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278494"><span class="annot"><span class="annottext">s :: AccessControlRule
+</span><a href="#local-6989586621679278494"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule%27"><span class="hs-identifier hs-type">AccessControlRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278493"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679278493"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessControlRule
+</span><a href="#local-6989586621679278494"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:AccessControlRule' :: Maybe Text
+</span><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#%24sel%3Aname%3AAccessControlRule%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679278493"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule"><span class="hs-identifier hs-type">AccessControlRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | User IDs to exclude from the rule.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#accessControlRule_notUserIds"><span class="hs-identifier hs-type">accessControlRule_notUserIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule"><span class="hs-identifier hs-type">AccessControlRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span id="accessControlRule_notUserIds"><span class="annot"><span class="annottext">accessControlRule_notUserIds :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; AccessControlRule -&gt; f AccessControlRule
+</span><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#accessControlRule_notUserIds"><span class="hs-identifier hs-var hs-var">accessControlRule_notUserIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccessControlRule -&gt; Maybe [Text])
+-&gt; (AccessControlRule -&gt; Maybe [Text] -&gt; AccessControlRule)
+-&gt; Lens
+     AccessControlRule AccessControlRule (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule%27"><span class="hs-identifier hs-type">AccessControlRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278491"><span class="annot"><span class="annottext">Maybe [Text]
+notUserIds :: Maybe [Text]
+$sel:notUserIds:AccessControlRule' :: AccessControlRule -&gt; Maybe [Text]
+</span><a href="#local-6989586621679278491"><span class="hs-identifier hs-var hs-var">notUserIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679278491"><span class="hs-identifier hs-var">notUserIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278490"><span class="annot"><span class="annottext">s :: AccessControlRule
+</span><a href="#local-6989586621679278490"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule%27"><span class="hs-identifier hs-type">AccessControlRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278489"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679278489"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessControlRule
+</span><a href="#local-6989586621679278490"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notUserIds:AccessControlRule' :: Maybe [Text]
+</span><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#%24sel%3AnotUserIds%3AAccessControlRule%27"><span class="hs-identifier hs-var">notUserIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679278489"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule"><span class="hs-identifier hs-type">AccessControlRule</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; AccessControlRule -&gt; f AccessControlRule)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; AccessControlRule
+-&gt; f AccessControlRule
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | The date that the rule was modified.</span><span>
+</span><span id="line-137"></span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#accessControlRule_dateModified"><span class="hs-identifier hs-type">accessControlRule_dateModified</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule"><span class="hs-identifier hs-type">AccessControlRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span id="accessControlRule_dateModified"><span class="annot"><span class="annottext">accessControlRule_dateModified :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; AccessControlRule -&gt; f AccessControlRule
+</span><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#accessControlRule_dateModified"><span class="hs-identifier hs-var hs-var">accessControlRule_dateModified</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccessControlRule -&gt; Maybe POSIX)
+-&gt; (AccessControlRule -&gt; Maybe POSIX -&gt; AccessControlRule)
+-&gt; Lens
+     AccessControlRule AccessControlRule (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule%27"><span class="hs-identifier hs-type">AccessControlRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278487"><span class="annot"><span class="annottext">Maybe POSIX
+dateModified :: Maybe POSIX
+$sel:dateModified:AccessControlRule' :: AccessControlRule -&gt; Maybe POSIX
+</span><a href="#local-6989586621679278487"><span class="hs-identifier hs-var hs-var">dateModified</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679278487"><span class="hs-identifier hs-var">dateModified</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278486"><span class="annot"><span class="annottext">s :: AccessControlRule
+</span><a href="#local-6989586621679278486"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule%27"><span class="hs-identifier hs-type">AccessControlRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278485"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679278485"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessControlRule
+</span><a href="#local-6989586621679278486"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dateModified:AccessControlRule' :: Maybe POSIX
+</span><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#%24sel%3AdateModified%3AAccessControlRule%27"><span class="hs-identifier hs-var">dateModified</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679278485"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule"><span class="hs-identifier hs-type">AccessControlRule</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; AccessControlRule -&gt; f AccessControlRule)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; AccessControlRule
+-&gt; f AccessControlRule
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- | IPv4 CIDR ranges to include in the rule.</span><span>
+</span><span id="line-141"></span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#accessControlRule_ipRanges"><span class="hs-identifier hs-type">accessControlRule_ipRanges</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule"><span class="hs-identifier hs-type">AccessControlRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span id="accessControlRule_ipRanges"><span class="annot"><span class="annottext">accessControlRule_ipRanges :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; AccessControlRule -&gt; f AccessControlRule
+</span><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#accessControlRule_ipRanges"><span class="hs-identifier hs-var hs-var">accessControlRule_ipRanges</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccessControlRule -&gt; Maybe [Text])
+-&gt; (AccessControlRule -&gt; Maybe [Text] -&gt; AccessControlRule)
+-&gt; Lens
+     AccessControlRule AccessControlRule (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule%27"><span class="hs-identifier hs-type">AccessControlRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278483"><span class="annot"><span class="annottext">Maybe [Text]
+ipRanges :: Maybe [Text]
+$sel:ipRanges:AccessControlRule' :: AccessControlRule -&gt; Maybe [Text]
+</span><a href="#local-6989586621679278483"><span class="hs-identifier hs-var hs-var">ipRanges</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679278483"><span class="hs-identifier hs-var">ipRanges</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278482"><span class="annot"><span class="annottext">s :: AccessControlRule
+</span><a href="#local-6989586621679278482"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule%27"><span class="hs-identifier hs-type">AccessControlRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278481"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679278481"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessControlRule
+</span><a href="#local-6989586621679278482"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipRanges:AccessControlRule' :: Maybe [Text]
+</span><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#%24sel%3AipRanges%3AAccessControlRule%27"><span class="hs-identifier hs-var">ipRanges</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679278481"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule"><span class="hs-identifier hs-type">AccessControlRule</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; AccessControlRule -&gt; f AccessControlRule)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; AccessControlRule
+-&gt; f AccessControlRule
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- | IPv4 CIDR ranges to exclude from the rule.</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#accessControlRule_notIpRanges"><span class="hs-identifier hs-type">accessControlRule_notIpRanges</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule"><span class="hs-identifier hs-type">AccessControlRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span id="accessControlRule_notIpRanges"><span class="annot"><span class="annottext">accessControlRule_notIpRanges :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; AccessControlRule -&gt; f AccessControlRule
+</span><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#accessControlRule_notIpRanges"><span class="hs-identifier hs-var hs-var">accessControlRule_notIpRanges</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccessControlRule -&gt; Maybe [Text])
+-&gt; (AccessControlRule -&gt; Maybe [Text] -&gt; AccessControlRule)
+-&gt; Lens
+     AccessControlRule AccessControlRule (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule%27"><span class="hs-identifier hs-type">AccessControlRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278479"><span class="annot"><span class="annottext">Maybe [Text]
+notIpRanges :: Maybe [Text]
+$sel:notIpRanges:AccessControlRule' :: AccessControlRule -&gt; Maybe [Text]
+</span><a href="#local-6989586621679278479"><span class="hs-identifier hs-var hs-var">notIpRanges</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679278479"><span class="hs-identifier hs-var">notIpRanges</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278478"><span class="annot"><span class="annottext">s :: AccessControlRule
+</span><a href="#local-6989586621679278478"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule%27"><span class="hs-identifier hs-type">AccessControlRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278477"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679278477"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessControlRule
+</span><a href="#local-6989586621679278478"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notIpRanges:AccessControlRule' :: Maybe [Text]
+</span><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#%24sel%3AnotIpRanges%3AAccessControlRule%27"><span class="hs-identifier hs-var">notIpRanges</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679278477"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule"><span class="hs-identifier hs-type">AccessControlRule</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; AccessControlRule -&gt; f AccessControlRule)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; AccessControlRule
+-&gt; f AccessControlRule
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-comment">-- | Access protocol actions to exclude from the rule. Valid values include</span><span>
 </span><span id="line-149"></span><span class="hs-comment">-- @ActiveSync@, @AutoDiscover@, @EWS@, @IMAP@, @SMTP@, @WindowsOutlook@,</span><span>
@@ -505,16 +520,16 @@ $sel:description:AccessControlRule' :: AccessControlRule -&gt; Maybe Text
 -&gt; Lens
      AccessControlRule AccessControlRule (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule%27"><span class="hs-identifier hs-type">AccessControlRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258262"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule%27"><span class="hs-identifier hs-type">AccessControlRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278475"><span class="annot"><span class="annottext">Maybe [Text]
 notActions :: Maybe [Text]
 $sel:notActions:AccessControlRule' :: AccessControlRule -&gt; Maybe [Text]
-</span><a href="#local-6989586621679258262"><span class="hs-identifier hs-var hs-var">notActions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679258262"><span class="hs-identifier hs-var">notActions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258261"><span class="annot"><span class="annottext">s :: AccessControlRule
-</span><a href="#local-6989586621679258261"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule%27"><span class="hs-identifier hs-type">AccessControlRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258260"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679258260"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessControlRule
-</span><a href="#local-6989586621679258261"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notActions:AccessControlRule' :: Maybe [Text]
+</span><a href="#local-6989586621679278475"><span class="hs-identifier hs-var hs-var">notActions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679278475"><span class="hs-identifier hs-var">notActions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278474"><span class="annot"><span class="annottext">s :: AccessControlRule
+</span><a href="#local-6989586621679278474"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule%27"><span class="hs-identifier hs-type">AccessControlRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278473"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679278473"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessControlRule
+</span><a href="#local-6989586621679278474"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notActions:AccessControlRule' :: Maybe [Text]
 </span><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#%24sel%3AnotActions%3AAccessControlRule%27"><span class="hs-identifier hs-var">notActions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679258260"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule"><span class="hs-identifier hs-type">AccessControlRule</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679278473"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule"><span class="hs-identifier hs-type">AccessControlRule</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; AccessControlRule -&gt; f AccessControlRule)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -528,46 +543,31 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-153"></span><span>
-</span><span id="line-154"></span><span class="hs-comment">-- | User IDs to exclude from the rule.</span><span>
-</span><span id="line-155"></span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#accessControlRule_notUserIds"><span class="hs-identifier hs-type">accessControlRule_notUserIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule"><span class="hs-identifier hs-type">AccessControlRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-156"></span><span id="accessControlRule_notUserIds"><span class="annot"><span class="annottext">accessControlRule_notUserIds :: (Maybe [Text] -&gt; f (Maybe [Text]))
+</span><span id="line-154"></span><span class="hs-comment">-- | The rule description.</span><span>
+</span><span id="line-155"></span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#accessControlRule_description"><span class="hs-identifier hs-type">accessControlRule_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule"><span class="hs-identifier hs-type">AccessControlRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span id="accessControlRule_description"><span class="annot"><span class="annottext">accessControlRule_description :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; AccessControlRule -&gt; f AccessControlRule
-</span><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#accessControlRule_notUserIds"><span class="hs-identifier hs-var hs-var">accessControlRule_notUserIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccessControlRule -&gt; Maybe [Text])
--&gt; (AccessControlRule -&gt; Maybe [Text] -&gt; AccessControlRule)
+</span><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#accessControlRule_description"><span class="hs-identifier hs-var hs-var">accessControlRule_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccessControlRule -&gt; Maybe Text)
+-&gt; (AccessControlRule -&gt; Maybe Text -&gt; AccessControlRule)
 -&gt; Lens
-     AccessControlRule AccessControlRule (Maybe [Text]) (Maybe [Text])
+     AccessControlRule AccessControlRule (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule%27"><span class="hs-identifier hs-type">AccessControlRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258258"><span class="annot"><span class="annottext">Maybe [Text]
-notUserIds :: Maybe [Text]
-$sel:notUserIds:AccessControlRule' :: AccessControlRule -&gt; Maybe [Text]
-</span><a href="#local-6989586621679258258"><span class="hs-identifier hs-var hs-var">notUserIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679258258"><span class="hs-identifier hs-var">notUserIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258257"><span class="annot"><span class="annottext">s :: AccessControlRule
-</span><a href="#local-6989586621679258257"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule%27"><span class="hs-identifier hs-type">AccessControlRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258256"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679258256"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessControlRule
-</span><a href="#local-6989586621679258257"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notUserIds:AccessControlRule' :: Maybe [Text]
-</span><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#%24sel%3AnotUserIds%3AAccessControlRule%27"><span class="hs-identifier hs-var">notUserIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679258256"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule"><span class="hs-identifier hs-type">AccessControlRule</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
- -&gt; AccessControlRule -&gt; f AccessControlRule)
--&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
-    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
--&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
--&gt; AccessControlRule
--&gt; f AccessControlRule
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
--&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule%27"><span class="hs-identifier hs-type">AccessControlRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278471"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:AccessControlRule' :: AccessControlRule -&gt; Maybe Text
+</span><a href="#local-6989586621679278471"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679278471"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278470"><span class="annot"><span class="annottext">s :: AccessControlRule
+</span><a href="#local-6989586621679278470"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule%27"><span class="hs-identifier hs-type">AccessControlRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278469"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679278469"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessControlRule
+</span><a href="#local-6989586621679278470"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:AccessControlRule' :: Maybe Text
+</span><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#%24sel%3Adescription%3AAccessControlRule%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679278469"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule"><span class="hs-identifier hs-type">AccessControlRule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span><span>
-</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258253"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule"><span class="hs-identifier hs-type">AccessControlRule</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-159"></span><span>  </span><span id="local-6989586621679258251"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AccessControlRule
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278466"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule"><span class="hs-identifier hs-type">AccessControlRule</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679278464"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AccessControlRule
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-160"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AccessControlRule)
@@ -577,124 +577,63 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-161"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AccessControlRule&quot;</span></span><span>
-</span><span id="line-162"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679258248"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679258248"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-162"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679278461"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679278461"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-163"></span><span>          </span><span class="annot"><span class="annottext">Maybe AccessControlRuleEffect
--&gt; Maybe POSIX
--&gt; Maybe [Text]
 -&gt; Maybe [Text]
 -&gt; Maybe [Text]
 -&gt; Maybe POSIX
 -&gt; Maybe Text
 -&gt; Maybe [Text]
+-&gt; Maybe POSIX
+-&gt; Maybe [Text]
+-&gt; Maybe [Text]
+-&gt; Maybe [Text]
 -&gt; Maybe Text
--&gt; Maybe [Text]
--&gt; Maybe [Text]
 -&gt; AccessControlRule
 </span><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule%27"><span class="hs-identifier hs-var">AccessControlRule'</span></a></span><span>
 </span><span id="line-164"></span><span>            </span><span class="annot"><span class="annottext">(Maybe AccessControlRuleEffect
- -&gt; Maybe POSIX
- -&gt; Maybe [Text]
  -&gt; Maybe [Text]
  -&gt; Maybe [Text]
  -&gt; Maybe POSIX
  -&gt; Maybe Text
  -&gt; Maybe [Text]
+ -&gt; Maybe POSIX
+ -&gt; Maybe [Text]
+ -&gt; Maybe [Text]
+ -&gt; Maybe [Text]
  -&gt; Maybe Text
- -&gt; Maybe [Text]
- -&gt; Maybe [Text]
  -&gt; AccessControlRule)
 -&gt; Parser (Maybe AccessControlRuleEffect)
 -&gt; Parser
-     (Maybe POSIX
-      -&gt; Maybe [Text]
-      -&gt; Maybe [Text]
+     (Maybe [Text]
       -&gt; Maybe [Text]
       -&gt; Maybe POSIX
       -&gt; Maybe Text
       -&gt; Maybe [Text]
+      -&gt; Maybe POSIX
+      -&gt; Maybe [Text]
+      -&gt; Maybe [Text]
+      -&gt; Maybe [Text]
       -&gt; Maybe Text
-      -&gt; Maybe [Text]
-      -&gt; Maybe [Text]
       -&gt; AccessControlRule)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679258248"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AccessControlRuleEffect)
+</span><a href="#local-6989586621679278461"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AccessControlRuleEffect)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Effect&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-165"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe POSIX
-   -&gt; Maybe [Text]
-   -&gt; Maybe [Text]
-   -&gt; Maybe [Text]
-   -&gt; Maybe POSIX
-   -&gt; Maybe Text
-   -&gt; Maybe [Text]
-   -&gt; Maybe Text
-   -&gt; Maybe [Text]
-   -&gt; Maybe [Text]
-   -&gt; AccessControlRule)
--&gt; Parser (Maybe POSIX)
--&gt; Parser
-     (Maybe [Text]
-      -&gt; Maybe [Text]
-      -&gt; Maybe [Text]
-      -&gt; Maybe POSIX
-      -&gt; Maybe Text
-      -&gt; Maybe [Text]
-      -&gt; Maybe Text
-      -&gt; Maybe [Text]
-      -&gt; Maybe [Text]
-      -&gt; AccessControlRule)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679258248"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;DateCreated&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-166"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe [Text]
-   -&gt; Maybe [Text]
-   -&gt; Maybe [Text]
-   -&gt; Maybe POSIX
-   -&gt; Maybe Text
-   -&gt; Maybe [Text]
-   -&gt; Maybe Text
-   -&gt; Maybe [Text]
-   -&gt; Maybe [Text]
-   -&gt; AccessControlRule)
--&gt; Parser (Maybe [Text])
--&gt; Parser
-     (Maybe [Text]
-      -&gt; Maybe [Text]
-      -&gt; Maybe POSIX
-      -&gt; Maybe Text
-      -&gt; Maybe [Text]
-      -&gt; Maybe Text
-      -&gt; Maybe [Text]
-      -&gt; Maybe [Text]
-      -&gt; AccessControlRule)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679258248"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NotIpRanges&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
--&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
-forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
-</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-forall a. Monoid a =&gt; a
-</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-167"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe [Text]
    -&gt; Maybe [Text]
    -&gt; Maybe POSIX
    -&gt; Maybe Text
    -&gt; Maybe [Text]
+   -&gt; Maybe POSIX
+   -&gt; Maybe [Text]
+   -&gt; Maybe [Text]
+   -&gt; Maybe [Text]
    -&gt; Maybe Text
-   -&gt; Maybe [Text]
-   -&gt; Maybe [Text]
    -&gt; AccessControlRule)
 -&gt; Parser (Maybe [Text])
 -&gt; Parser
@@ -702,98 +641,15 @@ forall a. Monoid a =&gt; a
       -&gt; Maybe POSIX
       -&gt; Maybe Text
       -&gt; Maybe [Text]
+      -&gt; Maybe POSIX
+      -&gt; Maybe [Text]
+      -&gt; Maybe [Text]
+      -&gt; Maybe [Text]
       -&gt; Maybe Text
-      -&gt; Maybe [Text]
-      -&gt; Maybe [Text]
       -&gt; AccessControlRule)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679258248"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Actions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
--&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
-forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
-</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-forall a. Monoid a =&gt; a
-</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-168"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe [Text]
-   -&gt; Maybe POSIX
-   -&gt; Maybe Text
-   -&gt; Maybe [Text]
-   -&gt; Maybe Text
-   -&gt; Maybe [Text]
-   -&gt; Maybe [Text]
-   -&gt; AccessControlRule)
--&gt; Parser (Maybe [Text])
--&gt; Parser
-     (Maybe POSIX
-      -&gt; Maybe Text
-      -&gt; Maybe [Text]
-      -&gt; Maybe Text
-      -&gt; Maybe [Text]
-      -&gt; Maybe [Text]
-      -&gt; AccessControlRule)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679258248"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;IpRanges&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
--&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
-forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
-</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-forall a. Monoid a =&gt; a
-</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-169"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe POSIX
-   -&gt; Maybe Text
-   -&gt; Maybe [Text]
-   -&gt; Maybe Text
-   -&gt; Maybe [Text]
-   -&gt; Maybe [Text]
-   -&gt; AccessControlRule)
--&gt; Parser (Maybe POSIX)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe [Text]
-      -&gt; Maybe Text
-      -&gt; Maybe [Text]
-      -&gt; Maybe [Text]
-      -&gt; AccessControlRule)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679258248"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;DateModified&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-170"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe [Text]
-   -&gt; Maybe Text
-   -&gt; Maybe [Text]
-   -&gt; Maybe [Text]
-   -&gt; AccessControlRule)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe [Text]
-      -&gt; Maybe Text -&gt; Maybe [Text] -&gt; Maybe [Text] -&gt; AccessControlRule)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679258248"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-171"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe [Text]
-   -&gt; Maybe Text -&gt; Maybe [Text] -&gt; Maybe [Text] -&gt; AccessControlRule)
--&gt; Parser (Maybe [Text])
--&gt; Parser
-     (Maybe Text -&gt; Maybe [Text] -&gt; Maybe [Text] -&gt; AccessControlRule)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679258248"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679278461"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;UserIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
@@ -802,35 +658,108 @@ forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-172"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text -&gt; Maybe [Text] -&gt; Maybe [Text] -&gt; AccessControlRule)
--&gt; Parser (Maybe Text)
--&gt; Parser (Maybe [Text] -&gt; Maybe [Text] -&gt; AccessControlRule)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679258248"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-173"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [Text] -&gt; Maybe [Text] -&gt; AccessControlRule)
+</span><span id="line-166"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [Text]
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe POSIX
+   -&gt; Maybe [Text]
+   -&gt; Maybe [Text]
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; AccessControlRule)
 -&gt; Parser (Maybe [Text])
--&gt; Parser (Maybe [Text] -&gt; AccessControlRule)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe POSIX
+      -&gt; Maybe [Text]
+      -&gt; Maybe [Text]
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; AccessControlRule)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679258248"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679278461"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NotActions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
+</span><span class="hs-string">&quot;Actions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
 -&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
 forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-174"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [Text] -&gt; AccessControlRule)
--&gt; Parser (Maybe [Text]) -&gt; Parser AccessControlRule
+</span><span id="line-167"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe POSIX
+   -&gt; Maybe [Text]
+   -&gt; Maybe [Text]
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; AccessControlRule)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe POSIX
+      -&gt; Maybe [Text]
+      -&gt; Maybe [Text]
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; AccessControlRule)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679258248"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679278461"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DateCreated&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe POSIX
+   -&gt; Maybe [Text]
+   -&gt; Maybe [Text]
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; AccessControlRule)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe [Text]
+      -&gt; Maybe POSIX
+      -&gt; Maybe [Text]
+      -&gt; Maybe [Text]
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; AccessControlRule)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679278461"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [Text]
+   -&gt; Maybe POSIX
+   -&gt; Maybe [Text]
+   -&gt; Maybe [Text]
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; AccessControlRule)
+-&gt; Parser (Maybe [Text])
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe [Text]
+      -&gt; Maybe [Text]
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; AccessControlRule)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679278461"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NotUserIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
@@ -839,9 +768,80 @@ forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe [Text]
+   -&gt; Maybe [Text]
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; AccessControlRule)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe [Text]
+      -&gt; Maybe [Text] -&gt; Maybe [Text] -&gt; Maybe Text -&gt; AccessControlRule)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679278461"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DateModified&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [Text]
+   -&gt; Maybe [Text] -&gt; Maybe [Text] -&gt; Maybe Text -&gt; AccessControlRule)
+-&gt; Parser (Maybe [Text])
+-&gt; Parser
+     (Maybe [Text] -&gt; Maybe [Text] -&gt; Maybe Text -&gt; AccessControlRule)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679278461"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IpRanges&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [Text] -&gt; Maybe [Text] -&gt; Maybe Text -&gt; AccessControlRule)
+-&gt; Parser (Maybe [Text])
+-&gt; Parser (Maybe [Text] -&gt; Maybe Text -&gt; AccessControlRule)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679278461"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NotIpRanges&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [Text] -&gt; Maybe Text -&gt; AccessControlRule)
+-&gt; Parser (Maybe [Text])
+-&gt; Parser (Maybe Text -&gt; AccessControlRule)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679278461"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NotActions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; AccessControlRule)
+-&gt; Parser (Maybe Text) -&gt; Parser AccessControlRule
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679278461"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-175"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>
-</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258241"><span id="local-6989586621679258243"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule"><span class="hs-identifier hs-type">AccessControlRule</span></a></span></span></span><span>
+</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278454"><span id="local-6989586621679278456"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule"><span class="hs-identifier hs-type">AccessControlRule</span></a></span></span></span><span>
 </span><span id="line-178"></span><span>
-</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258238"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule"><span class="hs-identifier hs-type">AccessControlRule</span></a></span></span><span>
+</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278451"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule"><span class="hs-identifier hs-type">AccessControlRule</span></a></span></span><span>
 </span><span id="line-180"></span></pre></body></html>

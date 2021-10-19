@@ -60,29 +60,29 @@
 </span><span id="line-60"></span><span class="hs-comment">--     the maximum skill variance between players after 30 seconds.</span><span>
 </span><span id="line-61"></span><span class="hs-comment">--</span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- /See:/ 'newMatchmakingRuleSet' smart constructor.</span><span>
-</span><span id="line-63"></span><span id="local-6989586621679435698"><span id="local-6989586621679435699"></span></span><span class="hs-keyword">data</span><span> </span><span id="MatchmakingRuleSet"><span class="annot"><a href="Network.AWS.GameLift.Types.MatchmakingRuleSet.html#MatchmakingRuleSet"><span class="hs-identifier hs-var">MatchmakingRuleSet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MatchmakingRuleSet%27"><span class="annot"><a href="Network.AWS.GameLift.Types.MatchmakingRuleSet.html#MatchmakingRuleSet%27"><span class="hs-identifier hs-var">MatchmakingRuleSet'</span></a></span></span><span>
+</span><span id="line-63"></span><span id="local-6989586621679436149"><span id="local-6989586621679436150"></span></span><span class="hs-keyword">data</span><span> </span><span id="MatchmakingRuleSet"><span class="annot"><a href="Network.AWS.GameLift.Types.MatchmakingRuleSet.html#MatchmakingRuleSet"><span class="hs-identifier hs-var">MatchmakingRuleSet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MatchmakingRuleSet%27"><span class="annot"><a href="Network.AWS.GameLift.Types.MatchmakingRuleSet.html#MatchmakingRuleSet%27"><span class="hs-identifier hs-var">MatchmakingRuleSet'</span></a></span></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A time stamp indicating when this data object was created. Format is a</span><span>
 </span><span id="line-65"></span><span>    </span><span class="hs-comment">-- number expressed in Unix time as milliseconds (for example</span><span>
 </span><span id="line-66"></span><span>    </span><span class="hs-comment">-- @\&quot;1469498468.057\&quot;@).</span><span>
 </span><span id="line-67"></span><span>    </span><span id="%24sel%3AcreationTime%3AMatchmakingRuleSet%27"><span class="annot"><span class="annottext">MatchmakingRuleSet -&gt; Maybe POSIX
 </span><a href="Network.AWS.GameLift.Types.MatchmakingRuleSet.html#%24sel%3AcreationTime%3AMatchmakingRuleSet%27"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name</span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- (&lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN&gt;)</span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- that is assigned to a GameLift matchmaking rule set resource and</span><span>
-</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- uniquely identifies it. ARNs are unique across all Regions. Format is</span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- @arn:aws:gamelift:\&lt;region&gt;::matchmakingruleset\/\&lt;ruleset name&gt;@. In a</span><span>
-</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- GameLift rule set ARN, the resource ID matches the /RuleSetName/ value.</span><span>
-</span><span id="line-74"></span><span>    </span><span id="%24sel%3AruleSetArn%3AMatchmakingRuleSet%27"><span class="annot"><span class="annottext">MatchmakingRuleSet -&gt; Maybe Text
-</span><a href="Network.AWS.GameLift.Types.MatchmakingRuleSet.html#%24sel%3AruleSetArn%3AMatchmakingRuleSet%27"><span class="hs-identifier hs-var hs-var">ruleSetArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | A unique identifier for the matchmaking rule set</span><span>
-</span><span id="line-76"></span><span>    </span><span id="%24sel%3AruleSetName%3AMatchmakingRuleSet%27"><span class="annot"><span class="annottext">MatchmakingRuleSet -&gt; Maybe Text
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | A unique identifier for the matchmaking rule set</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AruleSetName%3AMatchmakingRuleSet%27"><span class="annot"><span class="annottext">MatchmakingRuleSet -&gt; Maybe Text
 </span><a href="Network.AWS.GameLift.Types.MatchmakingRuleSet.html#%24sel%3AruleSetName%3AMatchmakingRuleSet%27"><span class="hs-identifier hs-var hs-var">ruleSetName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- (&lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN&gt;)</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- that is assigned to a GameLift matchmaking rule set resource and</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- uniquely identifies it. ARNs are unique across all Regions. Format is</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- @arn:aws:gamelift:\&lt;region&gt;::matchmakingruleset\/\&lt;ruleset name&gt;@. In a</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- GameLift rule set ARN, the resource ID matches the /RuleSetName/ value.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3AruleSetArn%3AMatchmakingRuleSet%27"><span class="annot"><span class="annottext">MatchmakingRuleSet -&gt; Maybe Text
+</span><a href="Network.AWS.GameLift.Types.MatchmakingRuleSet.html#%24sel%3AruleSetArn%3AMatchmakingRuleSet%27"><span class="hs-identifier hs-var hs-var">ruleSetArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | A collection of matchmaking rules, formatted as a JSON string. Comments</span><span>
 </span><span id="line-78"></span><span>    </span><span class="hs-comment">-- are not allowed in JSON, but most elements support a description field.</span><span>
 </span><span id="line-79"></span><span>    </span><span id="%24sel%3AruleSetBody%3AMatchmakingRuleSet%27"><span class="annot"><span class="annottext">MatchmakingRuleSet -&gt; Text
 </span><a href="Network.AWS.GameLift.Types.MatchmakingRuleSet.html#%24sel%3AruleSetBody%3AMatchmakingRuleSet%27"><span class="hs-identifier hs-var hs-var">ruleSetBody</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-80"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-81"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679435689"><span id="local-6989586621679435691"><span class="annot"><span class="annottext">MatchmakingRuleSet -&gt; MatchmakingRuleSet -&gt; Bool
+</span><span id="line-81"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679436140"><span id="local-6989586621679436142"><span class="annot"><span class="annottext">MatchmakingRuleSet -&gt; MatchmakingRuleSet -&gt; Bool
 (MatchmakingRuleSet -&gt; MatchmakingRuleSet -&gt; Bool)
 -&gt; (MatchmakingRuleSet -&gt; MatchmakingRuleSet -&gt; Bool)
 -&gt; Eq MatchmakingRuleSet
@@ -91,7 +91,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: MatchmakingRuleSet -&gt; MatchmakingRuleSet -&gt; Bool
 == :: MatchmakingRuleSet -&gt; MatchmakingRuleSet -&gt; Bool
 $c== :: MatchmakingRuleSet -&gt; MatchmakingRuleSet -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679435680"><span id="local-6989586621679435682"><span id="local-6989586621679435684"><span id="local-6989586621679435686"><span class="annot"><span class="annottext">ReadPrec [MatchmakingRuleSet]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679436131"><span id="local-6989586621679436133"><span id="local-6989586621679436135"><span id="local-6989586621679436137"><span class="annot"><span class="annottext">ReadPrec [MatchmakingRuleSet]
 ReadPrec MatchmakingRuleSet
 Int -&gt; ReadS MatchmakingRuleSet
 ReadS [MatchmakingRuleSet]
@@ -111,7 +111,7 @@ readList :: ReadS [MatchmakingRuleSet]
 $creadList :: ReadS [MatchmakingRuleSet]
 readsPrec :: Int -&gt; ReadS MatchmakingRuleSet
 $creadsPrec :: Int -&gt; ReadS MatchmakingRuleSet
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679435673"><span id="local-6989586621679435675"><span id="local-6989586621679435677"><span class="annot"><span class="annottext">Int -&gt; MatchmakingRuleSet -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679436124"><span id="local-6989586621679436126"><span id="local-6989586621679436128"><span class="annot"><span class="annottext">Int -&gt; MatchmakingRuleSet -&gt; ShowS
 [MatchmakingRuleSet] -&gt; ShowS
 MatchmakingRuleSet -&gt; String
 (Int -&gt; MatchmakingRuleSet -&gt; ShowS)
@@ -149,14 +149,14 @@ $cfrom :: forall x. MatchmakingRuleSet -&gt; Rep MatchmakingRuleSet x
 </span><span id="line-92"></span><span class="hs-comment">-- number expressed in Unix time as milliseconds (for example</span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- @\&quot;1469498468.057\&quot;@).</span><span>
 </span><span id="line-94"></span><span class="hs-comment">--</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- 'ruleSetArn', 'matchmakingRuleSet_ruleSetArn' - The Amazon Resource Name</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- (&lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN&gt;)</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- that is assigned to a GameLift matchmaking rule set resource and</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- uniquely identifies it. ARNs are unique across all Regions. Format is</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- @arn:aws:gamelift:\&lt;region&gt;::matchmakingruleset\/\&lt;ruleset name&gt;@. In a</span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- GameLift rule set ARN, the resource ID matches the /RuleSetName/ value.</span><span>
-</span><span id="line-101"></span><span class="hs-comment">--</span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- 'ruleSetName', 'matchmakingRuleSet_ruleSetName' - A unique identifier for the matchmaking rule set</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'ruleSetName', 'matchmakingRuleSet_ruleSetName' - A unique identifier for the matchmaking rule set</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'ruleSetArn', 'matchmakingRuleSet_ruleSetArn' - The Amazon Resource Name</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- (&lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN&gt;)</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- that is assigned to a GameLift matchmaking rule set resource and</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- uniquely identifies it. ARNs are unique across all Regions. Format is</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- @arn:aws:gamelift:\&lt;region&gt;::matchmakingruleset\/\&lt;ruleset name&gt;@. In a</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- GameLift rule set ARN, the resource ID matches the /RuleSetName/ value.</span><span>
 </span><span id="line-103"></span><span class="hs-comment">--</span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- 'ruleSetBody', 'matchmakingRuleSet_ruleSetBody' - A collection of matchmaking rules, formatted as a JSON string. Comments</span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- are not allowed in JSON, but most elements support a description field.</span><span>
@@ -165,8 +165,8 @@ $cfrom :: forall x. MatchmakingRuleSet -&gt; Rep MatchmakingRuleSet x
 </span><span id="line-108"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-109"></span><span>  </span><span class="annot"><a href="Network.AWS.GameLift.Types.MatchmakingRuleSet.html#MatchmakingRuleSet"><span class="hs-identifier hs-type">MatchmakingRuleSet</span></a></span><span>
 </span><span id="line-110"></span><span id="newMatchmakingRuleSet"><span class="annot"><span class="annottext">newMatchmakingRuleSet :: Text -&gt; MatchmakingRuleSet
-</span><a href="Network.AWS.GameLift.Types.MatchmakingRuleSet.html#newMatchmakingRuleSet"><span class="hs-identifier hs-var hs-var">newMatchmakingRuleSet</span></a></span></span><span> </span><span id="local-6989586621679435667"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679435667"><span class="hs-identifier hs-var">pRuleSetBody_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.GameLift.Types.MatchmakingRuleSet.html#newMatchmakingRuleSet"><span class="hs-identifier hs-var hs-var">newMatchmakingRuleSet</span></a></span></span><span> </span><span id="local-6989586621679436118"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679436118"><span class="hs-identifier hs-var">pRuleSetBody_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-111"></span><span>  </span><span class="annot"><span class="annottext">MatchmakingRuleSet' :: Maybe POSIX
 -&gt; Maybe Text -&gt; Maybe Text -&gt; Text -&gt; MatchmakingRuleSet
 </span><a href="Network.AWS.GameLift.Types.MatchmakingRuleSet.html#MatchmakingRuleSet%27"><span class="hs-identifier hs-type">MatchmakingRuleSet'</span></a></span><span>
@@ -174,17 +174,17 @@ $cfrom :: forall x. MatchmakingRuleSet -&gt; Rep MatchmakingRuleSet x
 </span><a href="Network.AWS.GameLift.Types.MatchmakingRuleSet.html#%24sel%3AcreationTime%3AMatchmakingRuleSet%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:ruleSetArn:MatchmakingRuleSet' :: Maybe Text
-</span><a href="Network.AWS.GameLift.Types.MatchmakingRuleSet.html#%24sel%3AruleSetArn%3AMatchmakingRuleSet%27"><span class="hs-identifier hs-var">ruleSetArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:ruleSetName:MatchmakingRuleSet' :: Maybe Text
+</span><a href="Network.AWS.GameLift.Types.MatchmakingRuleSet.html#%24sel%3AruleSetName%3AMatchmakingRuleSet%27"><span class="hs-identifier hs-var">ruleSetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:ruleSetName:MatchmakingRuleSet' :: Maybe Text
-</span><a href="Network.AWS.GameLift.Types.MatchmakingRuleSet.html#%24sel%3AruleSetName%3AMatchmakingRuleSet%27"><span class="hs-identifier hs-var">ruleSetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:ruleSetArn:MatchmakingRuleSet' :: Maybe Text
+</span><a href="Network.AWS.GameLift.Types.MatchmakingRuleSet.html#%24sel%3AruleSetArn%3AMatchmakingRuleSet%27"><span class="hs-identifier hs-var">ruleSetArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:ruleSetBody:MatchmakingRuleSet' :: Text
 </span><a href="Network.AWS.GameLift.Types.MatchmakingRuleSet.html#%24sel%3AruleSetBody%3AMatchmakingRuleSet%27"><span class="hs-identifier hs-var">ruleSetBody</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679435667"><span class="hs-identifier hs-var">pRuleSetBody_</span></a></span><span>
+</span><a href="#local-6989586621679436118"><span class="hs-identifier hs-var">pRuleSetBody_</span></a></span><span>
 </span><span id="line-116"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-comment">-- | A time stamp indicating when this data object was created. Format is a</span><span>
@@ -198,16 +198,16 @@ forall a. Maybe a
 -&gt; Lens
      MatchmakingRuleSet MatchmakingRuleSet (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.MatchmakingRuleSet.html#MatchmakingRuleSet%27"><span class="hs-identifier hs-type">MatchmakingRuleSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679435663"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.MatchmakingRuleSet.html#MatchmakingRuleSet%27"><span class="hs-identifier hs-type">MatchmakingRuleSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436114"><span class="annot"><span class="annottext">Maybe POSIX
 creationTime :: Maybe POSIX
 $sel:creationTime:MatchmakingRuleSet' :: MatchmakingRuleSet -&gt; Maybe POSIX
-</span><a href="#local-6989586621679435663"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679435663"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679435662"><span class="annot"><span class="annottext">s :: MatchmakingRuleSet
-</span><a href="#local-6989586621679435662"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.MatchmakingRuleSet.html#MatchmakingRuleSet%27"><span class="hs-identifier hs-type">MatchmakingRuleSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679435661"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679435661"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MatchmakingRuleSet
-</span><a href="#local-6989586621679435662"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:MatchmakingRuleSet' :: Maybe POSIX
+</span><a href="#local-6989586621679436114"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679436114"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436113"><span class="annot"><span class="annottext">s :: MatchmakingRuleSet
+</span><a href="#local-6989586621679436113"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.MatchmakingRuleSet.html#MatchmakingRuleSet%27"><span class="hs-identifier hs-type">MatchmakingRuleSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436112"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679436112"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MatchmakingRuleSet
+</span><a href="#local-6989586621679436113"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:MatchmakingRuleSet' :: Maybe POSIX
 </span><a href="Network.AWS.GameLift.Types.MatchmakingRuleSet.html#%24sel%3AcreationTime%3AMatchmakingRuleSet%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679435661"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.MatchmakingRuleSet.html#MatchmakingRuleSet"><span class="hs-identifier hs-type">MatchmakingRuleSet</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679436112"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.MatchmakingRuleSet.html#MatchmakingRuleSet"><span class="hs-identifier hs-type">MatchmakingRuleSet</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; MatchmakingRuleSet -&gt; f MatchmakingRuleSet)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -224,50 +224,50 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- | The Amazon Resource Name</span><span>
-</span><span id="line-125"></span><span class="hs-comment">-- (&lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN&gt;)</span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- that is assigned to a GameLift matchmaking rule set resource and</span><span>
-</span><span id="line-127"></span><span class="hs-comment">-- uniquely identifies it. ARNs are unique across all Regions. Format is</span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- @arn:aws:gamelift:\&lt;region&gt;::matchmakingruleset\/\&lt;ruleset name&gt;@. In a</span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- GameLift rule set ARN, the resource ID matches the /RuleSetName/ value.</span><span>
-</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.GameLift.Types.MatchmakingRuleSet.html#matchmakingRuleSet_ruleSetArn"><span class="hs-identifier hs-type">matchmakingRuleSet_ruleSetArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.MatchmakingRuleSet.html#MatchmakingRuleSet"><span class="hs-identifier hs-type">MatchmakingRuleSet</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-131"></span><span id="matchmakingRuleSet_ruleSetArn"><span class="annot"><span class="annottext">matchmakingRuleSet_ruleSetArn :: (Maybe Text -&gt; f (Maybe Text))
--&gt; MatchmakingRuleSet -&gt; f MatchmakingRuleSet
-</span><a href="Network.AWS.GameLift.Types.MatchmakingRuleSet.html#matchmakingRuleSet_ruleSetArn"><span class="hs-identifier hs-var hs-var">matchmakingRuleSet_ruleSetArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MatchmakingRuleSet -&gt; Maybe Text)
--&gt; (MatchmakingRuleSet -&gt; Maybe Text -&gt; MatchmakingRuleSet)
--&gt; Lens
-     MatchmakingRuleSet MatchmakingRuleSet (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.MatchmakingRuleSet.html#MatchmakingRuleSet%27"><span class="hs-identifier hs-type">MatchmakingRuleSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679435656"><span class="annot"><span class="annottext">Maybe Text
-ruleSetArn :: Maybe Text
-$sel:ruleSetArn:MatchmakingRuleSet' :: MatchmakingRuleSet -&gt; Maybe Text
-</span><a href="#local-6989586621679435656"><span class="hs-identifier hs-var hs-var">ruleSetArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679435656"><span class="hs-identifier hs-var">ruleSetArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679435655"><span class="annot"><span class="annottext">s :: MatchmakingRuleSet
-</span><a href="#local-6989586621679435655"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.MatchmakingRuleSet.html#MatchmakingRuleSet%27"><span class="hs-identifier hs-type">MatchmakingRuleSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679435654"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679435654"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MatchmakingRuleSet
-</span><a href="#local-6989586621679435655"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleSetArn:MatchmakingRuleSet' :: Maybe Text
-</span><a href="Network.AWS.GameLift.Types.MatchmakingRuleSet.html#%24sel%3AruleSetArn%3AMatchmakingRuleSet%27"><span class="hs-identifier hs-var">ruleSetArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679435654"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.MatchmakingRuleSet.html#MatchmakingRuleSet"><span class="hs-identifier hs-type">MatchmakingRuleSet</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-132"></span><span>
-</span><span id="line-133"></span><span class="hs-comment">-- | A unique identifier for the matchmaking rule set</span><span>
-</span><span id="line-134"></span><span class="annot"><a href="Network.AWS.GameLift.Types.MatchmakingRuleSet.html#matchmakingRuleSet_ruleSetName"><span class="hs-identifier hs-type">matchmakingRuleSet_ruleSetName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.MatchmakingRuleSet.html#MatchmakingRuleSet"><span class="hs-identifier hs-type">MatchmakingRuleSet</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-135"></span><span id="matchmakingRuleSet_ruleSetName"><span class="annot"><span class="annottext">matchmakingRuleSet_ruleSetName :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-124"></span><span class="hs-comment">-- | A unique identifier for the matchmaking rule set</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.GameLift.Types.MatchmakingRuleSet.html#matchmakingRuleSet_ruleSetName"><span class="hs-identifier hs-type">matchmakingRuleSet_ruleSetName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.MatchmakingRuleSet.html#MatchmakingRuleSet"><span class="hs-identifier hs-type">MatchmakingRuleSet</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="matchmakingRuleSet_ruleSetName"><span class="annot"><span class="annottext">matchmakingRuleSet_ruleSetName :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; MatchmakingRuleSet -&gt; f MatchmakingRuleSet
 </span><a href="Network.AWS.GameLift.Types.MatchmakingRuleSet.html#matchmakingRuleSet_ruleSetName"><span class="hs-identifier hs-var hs-var">matchmakingRuleSet_ruleSetName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MatchmakingRuleSet -&gt; Maybe Text)
 -&gt; (MatchmakingRuleSet -&gt; Maybe Text -&gt; MatchmakingRuleSet)
 -&gt; Lens
      MatchmakingRuleSet MatchmakingRuleSet (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.MatchmakingRuleSet.html#MatchmakingRuleSet%27"><span class="hs-identifier hs-type">MatchmakingRuleSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679435652"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.MatchmakingRuleSet.html#MatchmakingRuleSet%27"><span class="hs-identifier hs-type">MatchmakingRuleSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436107"><span class="annot"><span class="annottext">Maybe Text
 ruleSetName :: Maybe Text
 $sel:ruleSetName:MatchmakingRuleSet' :: MatchmakingRuleSet -&gt; Maybe Text
-</span><a href="#local-6989586621679435652"><span class="hs-identifier hs-var hs-var">ruleSetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679435652"><span class="hs-identifier hs-var">ruleSetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679435651"><span class="annot"><span class="annottext">s :: MatchmakingRuleSet
-</span><a href="#local-6989586621679435651"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.MatchmakingRuleSet.html#MatchmakingRuleSet%27"><span class="hs-identifier hs-type">MatchmakingRuleSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679435650"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679435650"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MatchmakingRuleSet
-</span><a href="#local-6989586621679435651"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleSetName:MatchmakingRuleSet' :: Maybe Text
+</span><a href="#local-6989586621679436107"><span class="hs-identifier hs-var hs-var">ruleSetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679436107"><span class="hs-identifier hs-var">ruleSetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436106"><span class="annot"><span class="annottext">s :: MatchmakingRuleSet
+</span><a href="#local-6989586621679436106"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.MatchmakingRuleSet.html#MatchmakingRuleSet%27"><span class="hs-identifier hs-type">MatchmakingRuleSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436105"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679436105"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MatchmakingRuleSet
+</span><a href="#local-6989586621679436106"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleSetName:MatchmakingRuleSet' :: Maybe Text
 </span><a href="Network.AWS.GameLift.Types.MatchmakingRuleSet.html#%24sel%3AruleSetName%3AMatchmakingRuleSet%27"><span class="hs-identifier hs-var">ruleSetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679435650"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.MatchmakingRuleSet.html#MatchmakingRuleSet"><span class="hs-identifier hs-type">MatchmakingRuleSet</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679436105"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.MatchmakingRuleSet.html#MatchmakingRuleSet"><span class="hs-identifier hs-type">MatchmakingRuleSet</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | The Amazon Resource Name</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- (&lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN&gt;)</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- that is assigned to a GameLift matchmaking rule set resource and</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- uniquely identifies it. ARNs are unique across all Regions. Format is</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- @arn:aws:gamelift:\&lt;region&gt;::matchmakingruleset\/\&lt;ruleset name&gt;@. In a</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- GameLift rule set ARN, the resource ID matches the /RuleSetName/ value.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Network.AWS.GameLift.Types.MatchmakingRuleSet.html#matchmakingRuleSet_ruleSetArn"><span class="hs-identifier hs-type">matchmakingRuleSet_ruleSetArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.MatchmakingRuleSet.html#MatchmakingRuleSet"><span class="hs-identifier hs-type">MatchmakingRuleSet</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span id="matchmakingRuleSet_ruleSetArn"><span class="annot"><span class="annottext">matchmakingRuleSet_ruleSetArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; MatchmakingRuleSet -&gt; f MatchmakingRuleSet
+</span><a href="Network.AWS.GameLift.Types.MatchmakingRuleSet.html#matchmakingRuleSet_ruleSetArn"><span class="hs-identifier hs-var hs-var">matchmakingRuleSet_ruleSetArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MatchmakingRuleSet -&gt; Maybe Text)
+-&gt; (MatchmakingRuleSet -&gt; Maybe Text -&gt; MatchmakingRuleSet)
+-&gt; Lens
+     MatchmakingRuleSet MatchmakingRuleSet (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.MatchmakingRuleSet.html#MatchmakingRuleSet%27"><span class="hs-identifier hs-type">MatchmakingRuleSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436103"><span class="annot"><span class="annottext">Maybe Text
+ruleSetArn :: Maybe Text
+$sel:ruleSetArn:MatchmakingRuleSet' :: MatchmakingRuleSet -&gt; Maybe Text
+</span><a href="#local-6989586621679436103"><span class="hs-identifier hs-var hs-var">ruleSetArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679436103"><span class="hs-identifier hs-var">ruleSetArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436102"><span class="annot"><span class="annottext">s :: MatchmakingRuleSet
+</span><a href="#local-6989586621679436102"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.MatchmakingRuleSet.html#MatchmakingRuleSet%27"><span class="hs-identifier hs-type">MatchmakingRuleSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436101"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679436101"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MatchmakingRuleSet
+</span><a href="#local-6989586621679436102"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleSetArn:MatchmakingRuleSet' :: Maybe Text
+</span><a href="Network.AWS.GameLift.Types.MatchmakingRuleSet.html#%24sel%3AruleSetArn%3AMatchmakingRuleSet%27"><span class="hs-identifier hs-var">ruleSetArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679436101"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.MatchmakingRuleSet.html#MatchmakingRuleSet"><span class="hs-identifier hs-type">MatchmakingRuleSet</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-comment">-- | A collection of matchmaking rules, formatted as a JSON string. Comments</span><span>
 </span><span id="line-138"></span><span class="hs-comment">-- are not allowed in JSON, but most elements support a description field.</span><span>
@@ -277,19 +277,19 @@ $sel:ruleSetName:MatchmakingRuleSet' :: MatchmakingRuleSet -&gt; Maybe Text
 -&gt; (MatchmakingRuleSet -&gt; Text -&gt; MatchmakingRuleSet)
 -&gt; Lens MatchmakingRuleSet MatchmakingRuleSet Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.MatchmakingRuleSet.html#MatchmakingRuleSet%27"><span class="hs-identifier hs-type">MatchmakingRuleSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679435648"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.MatchmakingRuleSet.html#MatchmakingRuleSet%27"><span class="hs-identifier hs-type">MatchmakingRuleSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436099"><span class="annot"><span class="annottext">Text
 ruleSetBody :: Text
 $sel:ruleSetBody:MatchmakingRuleSet' :: MatchmakingRuleSet -&gt; Text
-</span><a href="#local-6989586621679435648"><span class="hs-identifier hs-var hs-var">ruleSetBody</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679435648"><span class="hs-identifier hs-var">ruleSetBody</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679435647"><span class="annot"><span class="annottext">s :: MatchmakingRuleSet
-</span><a href="#local-6989586621679435647"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.MatchmakingRuleSet.html#MatchmakingRuleSet%27"><span class="hs-identifier hs-type">MatchmakingRuleSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679435646"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679435646"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MatchmakingRuleSet
-</span><a href="#local-6989586621679435647"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleSetBody:MatchmakingRuleSet' :: Text
+</span><a href="#local-6989586621679436099"><span class="hs-identifier hs-var hs-var">ruleSetBody</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679436099"><span class="hs-identifier hs-var">ruleSetBody</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436098"><span class="annot"><span class="annottext">s :: MatchmakingRuleSet
+</span><a href="#local-6989586621679436098"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.MatchmakingRuleSet.html#MatchmakingRuleSet%27"><span class="hs-identifier hs-type">MatchmakingRuleSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436097"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679436097"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MatchmakingRuleSet
+</span><a href="#local-6989586621679436098"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleSetBody:MatchmakingRuleSet' :: Text
 </span><a href="Network.AWS.GameLift.Types.MatchmakingRuleSet.html#%24sel%3AruleSetBody%3AMatchmakingRuleSet%27"><span class="hs-identifier hs-var">ruleSetBody</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679435646"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.MatchmakingRuleSet.html#MatchmakingRuleSet"><span class="hs-identifier hs-type">MatchmakingRuleSet</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679436097"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.MatchmakingRuleSet.html#MatchmakingRuleSet"><span class="hs-identifier hs-type">MatchmakingRuleSet</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679435643"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.MatchmakingRuleSet.html#MatchmakingRuleSet"><span class="hs-identifier hs-type">MatchmakingRuleSet</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679435641"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MatchmakingRuleSet
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679436094"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.MatchmakingRuleSet.html#MatchmakingRuleSet"><span class="hs-identifier hs-type">MatchmakingRuleSet</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679436092"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MatchmakingRuleSet
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-144"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser MatchmakingRuleSet)
@@ -299,8 +299,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-145"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;MatchmakingRuleSet&quot;</span></span><span>
-</span><span id="line-146"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679435638"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679435638"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679436089"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679436089"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-147"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
 -&gt; Maybe Text -&gt; Maybe Text -&gt; Text -&gt; MatchmakingRuleSet
 </span><a href="Network.AWS.GameLift.Types.MatchmakingRuleSet.html#MatchmakingRuleSet%27"><span class="hs-identifier hs-var">MatchmakingRuleSet'</span></a></span><span>
@@ -310,7 +310,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Text -&gt; MatchmakingRuleSet)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679435638"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679436089"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CreationTime&quot;</span></span><span class="hs-special">)</span><span>
@@ -319,29 +319,29 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; Text -&gt; MatchmakingRuleSet)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679435638"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679436089"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;RuleSetArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;RuleSetName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Text -&gt; MatchmakingRuleSet)
 -&gt; Parser (Maybe Text) -&gt; Parser (Text -&gt; MatchmakingRuleSet)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679435638"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679436089"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;RuleSetName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;RuleSetArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; MatchmakingRuleSet)
 -&gt; Parser Text -&gt; Parser MatchmakingRuleSet
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679435638"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679436089"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RuleSetBody&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-152"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>
-</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679435631"><span id="local-6989586621679435633"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.MatchmakingRuleSet.html#MatchmakingRuleSet"><span class="hs-identifier hs-type">MatchmakingRuleSet</span></a></span></span></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679436082"><span id="local-6989586621679436084"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.MatchmakingRuleSet.html#MatchmakingRuleSet"><span class="hs-identifier hs-type">MatchmakingRuleSet</span></a></span></span></span><span>
 </span><span id="line-155"></span><span>
-</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679435628"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.MatchmakingRuleSet.html#MatchmakingRuleSet"><span class="hs-identifier hs-type">MatchmakingRuleSet</span></a></span></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679436079"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.MatchmakingRuleSet.html#MatchmakingRuleSet"><span class="hs-identifier hs-type">MatchmakingRuleSet</span></a></span></span><span>
 </span><span id="line-157"></span></pre></body></html>

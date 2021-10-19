@@ -37,8 +37,8 @@
 </span><span id="line-37"></span><span>
 </span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
 </span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#listEntityRecognizers_nextToken"><span class="hs-identifier">listEntityRecognizers_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#listEntityRecognizers_maxResults"><span class="hs-identifier">listEntityRecognizers_maxResults</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#listEntityRecognizers_filter"><span class="hs-identifier">listEntityRecognizers_filter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#listEntityRecognizers_filter"><span class="hs-identifier">listEntityRecognizers_filter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#listEntityRecognizers_maxResults"><span class="hs-identifier">listEntityRecognizers_maxResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-42"></span><span>
 </span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#ListEntityRecognizersResponse"><span class="hs-identifier">ListEntityRecognizersResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -59,21 +59,21 @@
 </span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- | /See:/ 'newListEntityRecognizers' smart constructor.</span><span>
-</span><span id="line-62"></span><span id="local-6989586621679358320"><span id="local-6989586621679358321"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListEntityRecognizers"><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#ListEntityRecognizers"><span class="hs-identifier hs-var">ListEntityRecognizers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListEntityRecognizers%27"><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#ListEntityRecognizers%27"><span class="hs-identifier hs-var">ListEntityRecognizers'</span></a></span></span><span>
+</span><span id="line-62"></span><span id="local-6989586621679358613"><span id="local-6989586621679358614"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListEntityRecognizers"><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#ListEntityRecognizers"><span class="hs-identifier hs-var">ListEntityRecognizers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListEntityRecognizers%27"><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#ListEntityRecognizers%27"><span class="hs-identifier hs-var">ListEntityRecognizers'</span></a></span></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Identifies the next page of results to return.</span><span>
 </span><span id="line-64"></span><span>    </span><span id="%24sel%3AnextToken%3AListEntityRecognizers%27"><span class="annot"><span class="annottext">ListEntityRecognizers -&gt; Maybe Text
 </span><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#%24sel%3AnextToken%3AListEntityRecognizers%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The maximum number of results to return on each page. The default is</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- 100.</span><span>
-</span><span id="line-67"></span><span>    </span><span id="%24sel%3AmaxResults%3AListEntityRecognizers%27"><span class="annot"><span class="annottext">ListEntityRecognizers -&gt; Maybe Natural
-</span><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#%24sel%3AmaxResults%3AListEntityRecognizers%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | Filters the list of entities returned. You can filter on @Status@,</span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- @SubmitTimeBefore@, or @SubmitTimeAfter@. You can only set one filter at</span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- a time.</span><span>
-</span><span id="line-71"></span><span>    </span><span id="%24sel%3Afilter%27%3AListEntityRecognizers%27"><span class="annot"><span class="annottext">ListEntityRecognizers -&gt; Maybe EntityRecognizerFilter
-</span><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#%24sel%3Afilter%27%3AListEntityRecognizers%27"><span class="hs-identifier hs-var hs-var">filter'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerFilter.html#EntityRecognizerFilter"><span class="hs-identifier hs-type">EntityRecognizerFilter</span></a></span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | Filters the list of entities returned. You can filter on @Status@,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- @SubmitTimeBefore@, or @SubmitTimeAfter@. You can only set one filter at</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- a time.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3Afilter%27%3AListEntityRecognizers%27"><span class="annot"><span class="annottext">ListEntityRecognizers -&gt; Maybe EntityRecognizerFilter
+</span><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#%24sel%3Afilter%27%3AListEntityRecognizers%27"><span class="hs-identifier hs-var hs-var">filter'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerFilter.html#EntityRecognizerFilter"><span class="hs-identifier hs-type">EntityRecognizerFilter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The maximum number of results to return on each page. The default is</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- 100.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AmaxResults%3AListEntityRecognizers%27"><span class="annot"><span class="annottext">ListEntityRecognizers -&gt; Maybe Natural
+</span><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#%24sel%3AmaxResults%3AListEntityRecognizers%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-72"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679358312"><span id="local-6989586621679358314"><span class="annot"><span class="annottext">ListEntityRecognizers -&gt; ListEntityRecognizers -&gt; Bool
+</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679358605"><span id="local-6989586621679358607"><span class="annot"><span class="annottext">ListEntityRecognizers -&gt; ListEntityRecognizers -&gt; Bool
 (ListEntityRecognizers -&gt; ListEntityRecognizers -&gt; Bool)
 -&gt; (ListEntityRecognizers -&gt; ListEntityRecognizers -&gt; Bool)
 -&gt; Eq ListEntityRecognizers
@@ -82,7 +82,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListEntityRecognizers -&gt; ListEntityRecognizers -&gt; Bool
 == :: ListEntityRecognizers -&gt; ListEntityRecognizers -&gt; Bool
 $c== :: ListEntityRecognizers -&gt; ListEntityRecognizers -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679358303"><span id="local-6989586621679358305"><span id="local-6989586621679358307"><span id="local-6989586621679358309"><span class="annot"><span class="annottext">ReadPrec [ListEntityRecognizers]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679358596"><span id="local-6989586621679358598"><span id="local-6989586621679358600"><span id="local-6989586621679358602"><span class="annot"><span class="annottext">ReadPrec [ListEntityRecognizers]
 ReadPrec ListEntityRecognizers
 Int -&gt; ReadS ListEntityRecognizers
 ReadS [ListEntityRecognizers]
@@ -102,7 +102,7 @@ readList :: ReadS [ListEntityRecognizers]
 $creadList :: ReadS [ListEntityRecognizers]
 readsPrec :: Int -&gt; ReadS ListEntityRecognizers
 $creadsPrec :: Int -&gt; ReadS ListEntityRecognizers
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679358296"><span id="local-6989586621679358298"><span id="local-6989586621679358300"><span class="annot"><span class="annottext">Int -&gt; ListEntityRecognizers -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679358589"><span id="local-6989586621679358591"><span id="local-6989586621679358593"><span class="annot"><span class="annottext">Int -&gt; ListEntityRecognizers -&gt; ShowS
 [ListEntityRecognizers] -&gt; ShowS
 ListEntityRecognizers -&gt; String
 (Int -&gt; ListEntityRecognizers -&gt; ShowS)
@@ -138,31 +138,31 @@ $cfrom :: forall x. ListEntityRecognizers -&gt; Rep ListEntityRecognizers x
 </span><span id="line-82"></span><span class="hs-comment">--</span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- 'nextToken', 'listEntityRecognizers_nextToken' - Identifies the next page of results to return.</span><span>
 </span><span id="line-84"></span><span class="hs-comment">--</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- 'maxResults', 'listEntityRecognizers_maxResults' - The maximum number of results to return on each page. The default is</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- 100.</span><span>
-</span><span id="line-87"></span><span class="hs-comment">--</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- 'filter'', 'listEntityRecognizers_filter' - Filters the list of entities returned. You can filter on @Status@,</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- @SubmitTimeBefore@, or @SubmitTimeAfter@. You can only set one filter at</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- a time.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'filter'', 'listEntityRecognizers_filter' - Filters the list of entities returned. You can filter on @Status@,</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- @SubmitTimeBefore@, or @SubmitTimeAfter@. You can only set one filter at</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- a time.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'maxResults', 'listEntityRecognizers_maxResults' - The maximum number of results to return on each page. The default is</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 100.</span><span>
 </span><span id="line-91"></span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#newListEntityRecognizers"><span class="hs-identifier hs-type">newListEntityRecognizers</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-92"></span><span>  </span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#ListEntityRecognizers"><span class="hs-identifier hs-type">ListEntityRecognizers</span></a></span><span>
 </span><span id="line-93"></span><span id="newListEntityRecognizers"><span class="annot"><span class="annottext">newListEntityRecognizers :: ListEntityRecognizers
 </span><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#newListEntityRecognizers"><span class="hs-identifier hs-var hs-var">newListEntityRecognizers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-94"></span><span>  </span><span class="annot"><span class="annottext">ListEntityRecognizers' :: Maybe Text
--&gt; Maybe Natural
 -&gt; Maybe EntityRecognizerFilter
+-&gt; Maybe Natural
 -&gt; ListEntityRecognizers
 </span><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#ListEntityRecognizers%27"><span class="hs-identifier hs-type">ListEntityRecognizers'</span></a></span><span>
 </span><span id="line-95"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListEntityRecognizers' :: Maybe Text
 </span><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#%24sel%3AnextToken%3AListEntityRecognizers%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListEntityRecognizers' :: Maybe Natural
-</span><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#%24sel%3AmaxResults%3AListEntityRecognizers%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:filter':ListEntityRecognizers' :: Maybe EntityRecognizerFilter
+</span><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#%24sel%3Afilter%27%3AListEntityRecognizers%27"><span class="hs-identifier hs-var">filter'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EntityRecognizerFilter
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:filter':ListEntityRecognizers' :: Maybe EntityRecognizerFilter
-</span><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#%24sel%3Afilter%27%3AListEntityRecognizers%27"><span class="hs-identifier hs-var">filter'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EntityRecognizerFilter
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListEntityRecognizers' :: Maybe Natural
+</span><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#%24sel%3AmaxResults%3AListEntityRecognizers%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-98"></span><span>    </span><span class="hs-special">}</span><span>
@@ -179,47 +179,22 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#ListEntityRecognizers%27"><span class="hs-identifier hs-type">ListEntityRecognizers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679358290"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#ListEntityRecognizers%27"><span class="hs-identifier hs-type">ListEntityRecognizers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679358583"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListEntityRecognizers' :: ListEntityRecognizers -&gt; Maybe Text
-</span><a href="#local-6989586621679358290"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679358290"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679358289"><span class="annot"><span class="annottext">s :: ListEntityRecognizers
-</span><a href="#local-6989586621679358289"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#ListEntityRecognizers%27"><span class="hs-identifier hs-type">ListEntityRecognizers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679358288"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679358288"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListEntityRecognizers
-</span><a href="#local-6989586621679358289"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListEntityRecognizers' :: Maybe Text
+</span><a href="#local-6989586621679358583"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679358583"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679358582"><span class="annot"><span class="annottext">s :: ListEntityRecognizers
+</span><a href="#local-6989586621679358582"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#ListEntityRecognizers%27"><span class="hs-identifier hs-type">ListEntityRecognizers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679358581"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679358581"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListEntityRecognizers
+</span><a href="#local-6989586621679358582"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListEntityRecognizers' :: Maybe Text
 </span><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#%24sel%3AnextToken%3AListEntityRecognizers%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679358288"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#ListEntityRecognizers"><span class="hs-identifier hs-type">ListEntityRecognizers</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679358581"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#ListEntityRecognizers"><span class="hs-identifier hs-type">ListEntityRecognizers</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- | The maximum number of results to return on each page. The default is</span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- 100.</span><span>
-</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#listEntityRecognizers_maxResults"><span class="hs-identifier hs-type">listEntityRecognizers_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#ListEntityRecognizers"><span class="hs-identifier hs-type">ListEntityRecognizers</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-107"></span><span id="listEntityRecognizers_maxResults"><span class="annot"><span class="annottext">listEntityRecognizers_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
--&gt; ListEntityRecognizers -&gt; f ListEntityRecognizers
-</span><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#listEntityRecognizers_maxResults"><span class="hs-identifier hs-var hs-var">listEntityRecognizers_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListEntityRecognizers -&gt; Maybe Natural)
--&gt; (ListEntityRecognizers
-    -&gt; Maybe Natural -&gt; ListEntityRecognizers)
--&gt; Lens
-     ListEntityRecognizers
-     ListEntityRecognizers
-     (Maybe Natural)
-     (Maybe Natural)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#ListEntityRecognizers%27"><span class="hs-identifier hs-type">ListEntityRecognizers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679358287"><span class="annot"><span class="annottext">Maybe Natural
-maxResults :: Maybe Natural
-$sel:maxResults:ListEntityRecognizers' :: ListEntityRecognizers -&gt; Maybe Natural
-</span><a href="#local-6989586621679358287"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679358287"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679358286"><span class="annot"><span class="annottext">s :: ListEntityRecognizers
-</span><a href="#local-6989586621679358286"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#ListEntityRecognizers%27"><span class="hs-identifier hs-type">ListEntityRecognizers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679358285"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679358285"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListEntityRecognizers
-</span><a href="#local-6989586621679358286"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListEntityRecognizers' :: Maybe Natural
-</span><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#%24sel%3AmaxResults%3AListEntityRecognizers%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679358285"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#ListEntityRecognizers"><span class="hs-identifier hs-type">ListEntityRecognizers</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- | Filters the list of entities returned. You can filter on @Status@,</span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- @SubmitTimeBefore@, or @SubmitTimeAfter@. You can only set one filter at</span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- a time.</span><span>
-</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#listEntityRecognizers_filter"><span class="hs-identifier hs-type">listEntityRecognizers_filter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#ListEntityRecognizers"><span class="hs-identifier hs-type">ListEntityRecognizers</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerFilter.html#EntityRecognizerFilter"><span class="hs-identifier hs-type">EntityRecognizerFilter</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-113"></span><span id="listEntityRecognizers_filter"><span class="annot"><span class="annottext">listEntityRecognizers_filter :: (Maybe EntityRecognizerFilter -&gt; f (Maybe EntityRecognizerFilter))
+</span><span id="line-104"></span><span class="hs-comment">-- | Filters the list of entities returned. You can filter on @Status@,</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- @SubmitTimeBefore@, or @SubmitTimeAfter@. You can only set one filter at</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- a time.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#listEntityRecognizers_filter"><span class="hs-identifier hs-type">listEntityRecognizers_filter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#ListEntityRecognizers"><span class="hs-identifier hs-type">ListEntityRecognizers</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerFilter.html#EntityRecognizerFilter"><span class="hs-identifier hs-type">EntityRecognizerFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span id="listEntityRecognizers_filter"><span class="annot"><span class="annottext">listEntityRecognizers_filter :: (Maybe EntityRecognizerFilter -&gt; f (Maybe EntityRecognizerFilter))
 -&gt; ListEntityRecognizers -&gt; f ListEntityRecognizers
 </span><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#listEntityRecognizers_filter"><span class="hs-identifier hs-var hs-var">listEntityRecognizers_filter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListEntityRecognizers -&gt; Maybe EntityRecognizerFilter)
 -&gt; (ListEntityRecognizers
@@ -230,29 +205,54 @@ $sel:maxResults:ListEntityRecognizers' :: ListEntityRecognizers -&gt; Maybe Natu
      (Maybe EntityRecognizerFilter)
      (Maybe EntityRecognizerFilter)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#ListEntityRecognizers%27"><span class="hs-identifier hs-type">ListEntityRecognizers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679358284"><span class="annot"><span class="annottext">Maybe EntityRecognizerFilter
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#ListEntityRecognizers%27"><span class="hs-identifier hs-type">ListEntityRecognizers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679358580"><span class="annot"><span class="annottext">Maybe EntityRecognizerFilter
 filter' :: Maybe EntityRecognizerFilter
 $sel:filter':ListEntityRecognizers' :: ListEntityRecognizers -&gt; Maybe EntityRecognizerFilter
-</span><a href="#local-6989586621679358284"><span class="hs-identifier hs-var hs-var">filter'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EntityRecognizerFilter
-</span><a href="#local-6989586621679358284"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679358283"><span class="annot"><span class="annottext">s :: ListEntityRecognizers
-</span><a href="#local-6989586621679358283"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#ListEntityRecognizers%27"><span class="hs-identifier hs-type">ListEntityRecognizers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679358282"><span class="annot"><span class="annottext">Maybe EntityRecognizerFilter
-</span><a href="#local-6989586621679358282"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListEntityRecognizers
-</span><a href="#local-6989586621679358283"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filter':ListEntityRecognizers' :: Maybe EntityRecognizerFilter
+</span><a href="#local-6989586621679358580"><span class="hs-identifier hs-var hs-var">filter'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EntityRecognizerFilter
+</span><a href="#local-6989586621679358580"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679358579"><span class="annot"><span class="annottext">s :: ListEntityRecognizers
+</span><a href="#local-6989586621679358579"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#ListEntityRecognizers%27"><span class="hs-identifier hs-type">ListEntityRecognizers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679358578"><span class="annot"><span class="annottext">Maybe EntityRecognizerFilter
+</span><a href="#local-6989586621679358578"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListEntityRecognizers
+</span><a href="#local-6989586621679358579"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filter':ListEntityRecognizers' :: Maybe EntityRecognizerFilter
 </span><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#%24sel%3Afilter%27%3AListEntityRecognizers%27"><span class="hs-identifier hs-var">filter'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EntityRecognizerFilter
-</span><a href="#local-6989586621679358282"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#ListEntityRecognizers"><span class="hs-identifier hs-type">ListEntityRecognizers</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679358578"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#ListEntityRecognizers"><span class="hs-identifier hs-type">ListEntityRecognizers</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | The maximum number of results to return on each page. The default is</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- 100.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#listEntityRecognizers_maxResults"><span class="hs-identifier hs-type">listEntityRecognizers_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#ListEntityRecognizers"><span class="hs-identifier hs-type">ListEntityRecognizers</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="listEntityRecognizers_maxResults"><span class="annot"><span class="annottext">listEntityRecognizers_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListEntityRecognizers -&gt; f ListEntityRecognizers
+</span><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#listEntityRecognizers_maxResults"><span class="hs-identifier hs-var hs-var">listEntityRecognizers_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListEntityRecognizers -&gt; Maybe Natural)
+-&gt; (ListEntityRecognizers
+    -&gt; Maybe Natural -&gt; ListEntityRecognizers)
+-&gt; Lens
+     ListEntityRecognizers
+     ListEntityRecognizers
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#ListEntityRecognizers%27"><span class="hs-identifier hs-type">ListEntityRecognizers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679358577"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListEntityRecognizers' :: ListEntityRecognizers -&gt; Maybe Natural
+</span><a href="#local-6989586621679358577"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679358577"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679358576"><span class="annot"><span class="annottext">s :: ListEntityRecognizers
+</span><a href="#local-6989586621679358576"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#ListEntityRecognizers%27"><span class="hs-identifier hs-type">ListEntityRecognizers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679358575"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679358575"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListEntityRecognizers
+</span><a href="#local-6989586621679358576"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListEntityRecognizers' :: Maybe Natural
+</span><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#%24sel%3AmaxResults%3AListEntityRecognizers%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679358575"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#ListEntityRecognizers"><span class="hs-identifier hs-type">ListEntityRecognizers</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#ListEntityRecognizers"><span class="hs-identifier hs-type">ListEntityRecognizers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679358278"><span class="annot"><span class="annottext">page :: ListEntityRecognizers
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679358571"><span class="annot"><span class="annottext">page :: ListEntityRecognizers
 -&gt; AWSResponse ListEntityRecognizers -&gt; Maybe ListEntityRecognizers
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679358276"><span class="annot"><span class="annottext">ListEntityRecognizers
-</span><a href="#local-6989586621679358276"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679358275"><span class="annot"><span class="annottext">AWSResponse ListEntityRecognizers
-</span><a href="#local-6989586621679358275"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679358569"><span class="annot"><span class="annottext">ListEntityRecognizers
+</span><a href="#local-6989586621679358569"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679358568"><span class="annot"><span class="annottext">AWSResponse ListEntityRecognizers
+</span><a href="#local-6989586621679358568"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-117"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-118"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListEntityRecognizers
 ListEntityRecognizersResponse
-</span><a href="#local-6989586621679358275"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679358568"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">ListEntityRecognizersResponse
 -&gt; Getting (First Text) ListEntityRecognizersResponse Text
 -&gt; Maybe Text
@@ -282,7 +282,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-124"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListEntityRecognizers
 ListEntityRecognizersResponse
-</span><a href="#local-6989586621679358275"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679358568"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">ListEntityRecognizersResponse
 -&gt; Getting
      (First [EntityRecognizerProperties])
@@ -341,7 +341,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-131"></span><span>        </span><span class="annot"><span class="annottext">ListEntityRecognizers
-</span><a href="#local-6989586621679358276"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679358569"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-132"></span><span>          </span><span class="annot"><span class="annottext">ListEntityRecognizers
 -&gt; (ListEntityRecognizers -&gt; ListEntityRecognizers)
 -&gt; ListEntityRecognizers
@@ -360,7 +360,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListEntityRecognizers
 ListEntityRecognizersResponse
-</span><a href="#local-6989586621679358275"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679358568"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-134"></span><span>          </span><span class="annot"><span class="annottext">ListEntityRecognizersResponse
 -&gt; Getting (First Text) ListEntityRecognizersResponse Text
 -&gt; Maybe Text
@@ -386,12 +386,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-138"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-139"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#ListEntityRecognizers"><span class="hs-identifier hs-type">ListEntityRecognizers</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-140"></span><span>      </span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#ListEntityRecognizersResponse"><span class="hs-identifier hs-type">ListEntityRecognizersResponse</span></a></span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621679358265"><span class="annot"><span class="annottext">request :: ListEntityRecognizers -&gt; Request ListEntityRecognizers
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679358558"><span class="annot"><span class="annottext">request :: ListEntityRecognizers -&gt; Request ListEntityRecognizers
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListEntityRecognizers -&gt; Request ListEntityRecognizers
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Comprehend.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679358261"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679358554"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListEntityRecognizers
 -&gt; ClientResponse ClientBody
@@ -417,10 +417,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-144"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679358258"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679358258"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679358257"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679358257"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679358256"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679358256"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-144"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679358551"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679358551"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679358550"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679358550"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679358549"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679358549"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-145"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe [EntityRecognizerProperties]
 -&gt; Int
@@ -437,7 +437,7 @@ MonadResource m =&gt;
       -&gt; Int -&gt; ListEntityRecognizersResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679358256"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679358549"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -449,7 +449,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; ListEntityRecognizersResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679358256"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679358549"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text
 -&gt; Either String (Maybe (Maybe [EntityRecognizerProperties]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
@@ -471,15 +471,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679358258"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679358551"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-151"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-152"></span><span>
-</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679358247"><span id="local-6989586621679358249"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#ListEntityRecognizers"><span class="hs-identifier hs-type">ListEntityRecognizers</span></a></span></span></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679358540"><span id="local-6989586621679358542"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#ListEntityRecognizers"><span class="hs-identifier hs-type">ListEntityRecognizers</span></a></span></span></span><span>
 </span><span id="line-154"></span><span>
-</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679358244"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#ListEntityRecognizers"><span class="hs-identifier hs-type">ListEntityRecognizers</span></a></span></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679358537"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#ListEntityRecognizers"><span class="hs-identifier hs-type">ListEntityRecognizers</span></a></span></span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#ListEntityRecognizers"><span class="hs-identifier hs-type">ListEntityRecognizers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-158"></span><span>  </span><span id="local-6989586621679358240"><span class="annot"><span class="annottext">toHeaders :: ListEntityRecognizers -&gt; ResponseHeaders
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679358533"><span class="annot"><span class="annottext">toHeaders :: ListEntityRecognizers -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-159"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListEntityRecognizers -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -506,18 +506,18 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-169"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-170"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-171"></span><span>
-</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679358230"><span id="local-6989586621679358232"><span id="local-6989586621679358234"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#ListEntityRecognizers"><span class="hs-identifier hs-type">ListEntityRecognizers</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-173"></span><span>  </span><span id="local-6989586621679358228"><span class="annot"><span class="annottext">toJSON :: ListEntityRecognizers -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#ListEntityRecognizers%27"><span class="hs-identifier hs-type">ListEntityRecognizers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679358224"><span id="local-6989586621679358225"><span id="local-6989586621679358226"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679358523"><span id="local-6989586621679358525"><span id="local-6989586621679358527"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#ListEntityRecognizers"><span class="hs-identifier hs-type">ListEntityRecognizers</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679358521"><span class="annot"><span class="annottext">toJSON :: ListEntityRecognizers -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#ListEntityRecognizers%27"><span class="hs-identifier hs-type">ListEntityRecognizers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679358517"><span id="local-6989586621679358518"><span id="local-6989586621679358519"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Maybe EntityRecognizerFilter
-filter' :: Maybe EntityRecognizerFilter
 maxResults :: Maybe Natural
+filter' :: Maybe EntityRecognizerFilter
 nextToken :: Maybe Text
-$sel:filter':ListEntityRecognizers' :: ListEntityRecognizers -&gt; Maybe EntityRecognizerFilter
 $sel:maxResults:ListEntityRecognizers' :: ListEntityRecognizers -&gt; Maybe Natural
+$sel:filter':ListEntityRecognizers' :: ListEntityRecognizers -&gt; Maybe EntityRecognizerFilter
 $sel:nextToken:ListEntityRecognizers' :: ListEntityRecognizers -&gt; Maybe Text
-</span><a href="#local-6989586621679358224"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679358517"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-174"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-175"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -529,34 +529,34 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679358226"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679358519"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-177"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679358225"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-178"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Filter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; EntityRecognizerFilter -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(EntityRecognizerFilter -&gt; Pair)
 -&gt; Maybe EntityRecognizerFilter -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe EntityRecognizerFilter
-</span><a href="#local-6989586621679358224"><span class="hs-identifier hs-var">filter'</span></a></span><span>
+</span><a href="#local-6989586621679358518"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679358517"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-179"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-180"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-181"></span><span>
 </span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#ListEntityRecognizers"><span class="hs-identifier hs-type">ListEntityRecognizers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-183"></span><span>  </span><span id="local-6989586621679358218"><span class="annot"><span class="annottext">toPath :: ListEntityRecognizers -&gt; ByteString
+</span><span id="line-183"></span><span>  </span><span id="local-6989586621679358511"><span class="annot"><span class="annottext">toPath :: ListEntityRecognizers -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListEntityRecognizers -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-184"></span><span>
 </span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#ListEntityRecognizers"><span class="hs-identifier hs-type">ListEntityRecognizers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-186"></span><span>  </span><span id="local-6989586621679358214"><span class="annot"><span class="annottext">toQuery :: ListEntityRecognizers -&gt; QueryString
+</span><span id="line-186"></span><span>  </span><span id="local-6989586621679358507"><span class="annot"><span class="annottext">toQuery :: ListEntityRecognizers -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListEntityRecognizers -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -564,7 +564,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-187"></span><span>
 </span><span id="line-188"></span><span class="hs-comment">-- | /See:/ 'newListEntityRecognizersResponse' smart constructor.</span><span>
-</span><span id="line-189"></span><span id="local-6989586621679358211"><span id="local-6989586621679358212"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListEntityRecognizersResponse"><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#ListEntityRecognizersResponse"><span class="hs-identifier hs-var">ListEntityRecognizersResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListEntityRecognizersResponse%27"><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#ListEntityRecognizersResponse%27"><span class="hs-identifier hs-var">ListEntityRecognizersResponse'</span></a></span></span><span>
+</span><span id="line-189"></span><span id="local-6989586621679358504"><span id="local-6989586621679358505"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListEntityRecognizersResponse"><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#ListEntityRecognizersResponse"><span class="hs-identifier hs-var">ListEntityRecognizersResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListEntityRecognizersResponse%27"><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#ListEntityRecognizersResponse%27"><span class="hs-identifier hs-var">ListEntityRecognizersResponse'</span></a></span></span><span>
 </span><span id="line-190"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Identifies the next page of results to return.</span><span>
 </span><span id="line-191"></span><span>    </span><span id="%24sel%3AnextToken%3AListEntityRecognizersResponse%27"><span class="annot"><span class="annottext">ListEntityRecognizersResponse -&gt; Maybe Text
 </span><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#%24sel%3AnextToken%3AListEntityRecognizersResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -575,7 +575,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-195"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListEntityRecognizersResponse%27"><span class="annot"><span class="annottext">ListEntityRecognizersResponse -&gt; Int
 </span><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#%24sel%3AhttpStatus%3AListEntityRecognizersResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-196"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-197"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679358204"><span id="local-6989586621679358206"><span class="annot"><span class="annottext">ListEntityRecognizersResponse
+</span><span id="line-197"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679358497"><span id="local-6989586621679358499"><span class="annot"><span class="annottext">ListEntityRecognizersResponse
 -&gt; ListEntityRecognizersResponse -&gt; Bool
 (ListEntityRecognizersResponse
  -&gt; ListEntityRecognizersResponse -&gt; Bool)
@@ -591,7 +591,7 @@ $c/= :: ListEntityRecognizersResponse
 -&gt; ListEntityRecognizersResponse -&gt; Bool
 $c== :: ListEntityRecognizersResponse
 -&gt; ListEntityRecognizersResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679358198"><span id="local-6989586621679358200"><span id="local-6989586621679358202"><span class="annot"><span class="annottext">Int -&gt; ListEntityRecognizersResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679358491"><span id="local-6989586621679358493"><span id="local-6989586621679358495"><span class="annot"><span class="annottext">Int -&gt; ListEntityRecognizersResponse -&gt; ShowS
 [ListEntityRecognizersResponse] -&gt; ShowS
 ListEntityRecognizersResponse -&gt; String
 (Int -&gt; ListEntityRecognizersResponse -&gt; ShowS)
@@ -647,8 +647,8 @@ ListEntityRecognizersResponse
 </span><span id="line-214"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-215"></span><span>  </span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#ListEntityRecognizersResponse"><span class="hs-identifier hs-type">ListEntityRecognizersResponse</span></a></span><span>
 </span><span id="line-216"></span><span id="newListEntityRecognizersResponse"><span class="annot"><span class="annottext">newListEntityRecognizersResponse :: Int -&gt; ListEntityRecognizersResponse
-</span><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#newListEntityRecognizersResponse"><span class="hs-identifier hs-var hs-var">newListEntityRecognizersResponse</span></a></span></span><span> </span><span id="local-6989586621679358195"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679358195"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#newListEntityRecognizersResponse"><span class="hs-identifier hs-var hs-var">newListEntityRecognizersResponse</span></a></span></span><span> </span><span id="local-6989586621679358488"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679358488"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-217"></span><span>  </span><span class="annot"><span class="annottext">ListEntityRecognizersResponse' :: Maybe Text
 -&gt; Maybe [EntityRecognizerProperties]
 -&gt; Int
@@ -666,7 +666,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-222"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListEntityRecognizersResponse' :: Int
 </span><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#%24sel%3AhttpStatus%3AListEntityRecognizersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679358195"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679358488"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-223"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-224"></span><span>
 </span><span id="line-225"></span><span class="hs-comment">-- | Identifies the next page of results to return.</span><span>
@@ -678,16 +678,16 @@ forall a. Maybe a
     -&gt; Maybe Text -&gt; ListEntityRecognizersResponse)
 -&gt; Lens' ListEntityRecognizersResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#ListEntityRecognizersResponse%27"><span class="hs-identifier hs-type">ListEntityRecognizersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679358194"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#ListEntityRecognizersResponse%27"><span class="hs-identifier hs-type">ListEntityRecognizersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679358487"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListEntityRecognizersResponse' :: ListEntityRecognizersResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679358194"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679358194"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679358193"><span class="annot"><span class="annottext">s :: ListEntityRecognizersResponse
-</span><a href="#local-6989586621679358193"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#ListEntityRecognizersResponse%27"><span class="hs-identifier hs-type">ListEntityRecognizersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679358192"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679358192"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListEntityRecognizersResponse
-</span><a href="#local-6989586621679358193"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListEntityRecognizersResponse' :: Maybe Text
+</span><a href="#local-6989586621679358487"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679358487"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679358486"><span class="annot"><span class="annottext">s :: ListEntityRecognizersResponse
+</span><a href="#local-6989586621679358486"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#ListEntityRecognizersResponse%27"><span class="hs-identifier hs-type">ListEntityRecognizersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679358485"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679358485"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListEntityRecognizersResponse
+</span><a href="#local-6989586621679358486"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListEntityRecognizersResponse' :: Maybe Text
 </span><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#%24sel%3AnextToken%3AListEntityRecognizersResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679358192"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#ListEntityRecognizersResponse"><span class="hs-identifier hs-type">ListEntityRecognizersResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679358485"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#ListEntityRecognizersResponse"><span class="hs-identifier hs-type">ListEntityRecognizersResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-228"></span><span>
 </span><span id="line-229"></span><span class="hs-comment">-- | The list of properties of an entity recognizer.</span><span>
 </span><span id="line-230"></span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#listEntityRecognizersResponse_entityRecognizerPropertiesList"><span class="hs-identifier hs-type">listEntityRecognizersResponse_entityRecognizerPropertiesList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#ListEntityRecognizersResponse"><span class="hs-identifier hs-type">ListEntityRecognizersResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityRecognizerProperties.html#EntityRecognizerProperties"><span class="hs-identifier hs-type">EntityRecognizerProperties</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -702,16 +702,16 @@ $sel:nextToken:ListEntityRecognizersResponse' :: ListEntityRecognizersResponse -
 -&gt; Lens'
      ListEntityRecognizersResponse (Maybe [EntityRecognizerProperties])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#ListEntityRecognizersResponse%27"><span class="hs-identifier hs-type">ListEntityRecognizersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679358191"><span class="annot"><span class="annottext">Maybe [EntityRecognizerProperties]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#ListEntityRecognizersResponse%27"><span class="hs-identifier hs-type">ListEntityRecognizersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679358484"><span class="annot"><span class="annottext">Maybe [EntityRecognizerProperties]
 entityRecognizerPropertiesList :: Maybe [EntityRecognizerProperties]
 $sel:entityRecognizerPropertiesList:ListEntityRecognizersResponse' :: ListEntityRecognizersResponse -&gt; Maybe [EntityRecognizerProperties]
-</span><a href="#local-6989586621679358191"><span class="hs-identifier hs-var hs-var">entityRecognizerPropertiesList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [EntityRecognizerProperties]
-</span><a href="#local-6989586621679358191"><span class="hs-identifier hs-var">entityRecognizerPropertiesList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679358190"><span class="annot"><span class="annottext">s :: ListEntityRecognizersResponse
-</span><a href="#local-6989586621679358190"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#ListEntityRecognizersResponse%27"><span class="hs-identifier hs-type">ListEntityRecognizersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679358189"><span class="annot"><span class="annottext">Maybe [EntityRecognizerProperties]
-</span><a href="#local-6989586621679358189"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListEntityRecognizersResponse
-</span><a href="#local-6989586621679358190"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:entityRecognizerPropertiesList:ListEntityRecognizersResponse' :: Maybe [EntityRecognizerProperties]
+</span><a href="#local-6989586621679358484"><span class="hs-identifier hs-var hs-var">entityRecognizerPropertiesList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [EntityRecognizerProperties]
+</span><a href="#local-6989586621679358484"><span class="hs-identifier hs-var">entityRecognizerPropertiesList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679358483"><span class="annot"><span class="annottext">s :: ListEntityRecognizersResponse
+</span><a href="#local-6989586621679358483"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#ListEntityRecognizersResponse%27"><span class="hs-identifier hs-type">ListEntityRecognizersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679358482"><span class="annot"><span class="annottext">Maybe [EntityRecognizerProperties]
+</span><a href="#local-6989586621679358482"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListEntityRecognizersResponse
+</span><a href="#local-6989586621679358483"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:entityRecognizerPropertiesList:ListEntityRecognizersResponse' :: Maybe [EntityRecognizerProperties]
 </span><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#%24sel%3AentityRecognizerPropertiesList%3AListEntityRecognizersResponse%27"><span class="hs-identifier hs-var">entityRecognizerPropertiesList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [EntityRecognizerProperties]
-</span><a href="#local-6989586621679358189"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#ListEntityRecognizersResponse"><span class="hs-identifier hs-type">ListEntityRecognizersResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [EntityRecognizerProperties]
+</span><a href="#local-6989586621679358482"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#ListEntityRecognizersResponse"><span class="hs-identifier hs-type">ListEntityRecognizersResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [EntityRecognizerProperties]
   -&gt; f (Maybe [EntityRecognizerProperties]))
  -&gt; ListEntityRecognizersResponse
  -&gt; f ListEntityRecognizersResponse)
@@ -742,8 +742,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [EntityRecognizerProperties]
   [EntityRecognizerProperties]
   [EntityRecognizerProperties]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-232"></span><span>
 </span><span id="line-233"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-234"></span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#listEntityRecognizersResponse_httpStatus"><span class="hs-identifier hs-type">listEntityRecognizersResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#ListEntityRecognizersResponse"><span class="hs-identifier hs-type">ListEntityRecognizersResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -755,16 +755,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; Lens
      ListEntityRecognizersResponse ListEntityRecognizersResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#ListEntityRecognizersResponse%27"><span class="hs-identifier hs-type">ListEntityRecognizersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679358186"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#ListEntityRecognizersResponse%27"><span class="hs-identifier hs-type">ListEntityRecognizersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679358479"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListEntityRecognizersResponse' :: ListEntityRecognizersResponse -&gt; Int
-</span><a href="#local-6989586621679358186"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679358186"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679358185"><span class="annot"><span class="annottext">s :: ListEntityRecognizersResponse
-</span><a href="#local-6989586621679358185"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#ListEntityRecognizersResponse%27"><span class="hs-identifier hs-type">ListEntityRecognizersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679358184"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679358184"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListEntityRecognizersResponse
-</span><a href="#local-6989586621679358185"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListEntityRecognizersResponse' :: Int
+</span><a href="#local-6989586621679358479"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679358479"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679358478"><span class="annot"><span class="annottext">s :: ListEntityRecognizersResponse
+</span><a href="#local-6989586621679358478"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#ListEntityRecognizersResponse%27"><span class="hs-identifier hs-type">ListEntityRecognizersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679358477"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679358477"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListEntityRecognizersResponse
+</span><a href="#local-6989586621679358478"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListEntityRecognizersResponse' :: Int
 </span><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#%24sel%3AhttpStatus%3AListEntityRecognizersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679358184"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#ListEntityRecognizersResponse"><span class="hs-identifier hs-type">ListEntityRecognizersResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679358477"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#ListEntityRecognizersResponse"><span class="hs-identifier hs-type">ListEntityRecognizersResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-236"></span><span>
-</span><span id="line-237"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679358182"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#ListEntityRecognizersResponse"><span class="hs-identifier hs-type">ListEntityRecognizersResponse</span></a></span></span><span>
+</span><span id="line-237"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679358475"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListEntityRecognizers.html#ListEntityRecognizersResponse"><span class="hs-identifier hs-type">ListEntityRecognizersResponse</span></a></span></span><span>
 </span><span id="line-238"></span></pre></body></html>

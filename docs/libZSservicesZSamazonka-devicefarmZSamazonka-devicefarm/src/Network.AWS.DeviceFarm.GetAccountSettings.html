@@ -47,10 +47,10 @@
 </span><span id="line-47"></span><span class="hs-comment">-- | Represents the request sent to retrieve the account settings.</span><span>
 </span><span id="line-48"></span><span class="hs-comment">--</span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- /See:/ 'newGetAccountSettings' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621679384966"><span id="local-6989586621679384967"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetAccountSettings"><span class="annot"><a href="Network.AWS.DeviceFarm.GetAccountSettings.html#GetAccountSettings"><span class="hs-identifier hs-var">GetAccountSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetAccountSettings%27"><span class="annot"><a href="Network.AWS.DeviceFarm.GetAccountSettings.html#GetAccountSettings%27"><span class="hs-identifier hs-var">GetAccountSettings'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679385247"><span id="local-6989586621679385248"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetAccountSettings"><span class="annot"><a href="Network.AWS.DeviceFarm.GetAccountSettings.html#GetAccountSettings"><span class="hs-identifier hs-var">GetAccountSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetAccountSettings%27"><span class="annot"><a href="Network.AWS.DeviceFarm.GetAccountSettings.html#GetAccountSettings%27"><span class="hs-identifier hs-var">GetAccountSettings'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679384961"><span id="local-6989586621679384963"><span class="annot"><span class="annottext">GetAccountSettings -&gt; GetAccountSettings -&gt; Bool
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679385242"><span id="local-6989586621679385244"><span class="annot"><span class="annottext">GetAccountSettings -&gt; GetAccountSettings -&gt; Bool
 (GetAccountSettings -&gt; GetAccountSettings -&gt; Bool)
 -&gt; (GetAccountSettings -&gt; GetAccountSettings -&gt; Bool)
 -&gt; Eq GetAccountSettings
@@ -59,7 +59,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetAccountSettings -&gt; GetAccountSettings -&gt; Bool
 == :: GetAccountSettings -&gt; GetAccountSettings -&gt; Bool
 $c== :: GetAccountSettings -&gt; GetAccountSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679384952"><span id="local-6989586621679384954"><span id="local-6989586621679384956"><span id="local-6989586621679384958"><span class="annot"><span class="annottext">ReadPrec [GetAccountSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679385233"><span id="local-6989586621679385235"><span id="local-6989586621679385237"><span id="local-6989586621679385239"><span class="annot"><span class="annottext">ReadPrec [GetAccountSettings]
 ReadPrec GetAccountSettings
 Int -&gt; ReadS GetAccountSettings
 ReadS [GetAccountSettings]
@@ -79,7 +79,7 @@ readList :: ReadS [GetAccountSettings]
 $creadList :: ReadS [GetAccountSettings]
 readsPrec :: Int -&gt; ReadS GetAccountSettings
 $creadsPrec :: Int -&gt; ReadS GetAccountSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679384945"><span id="local-6989586621679384947"><span id="local-6989586621679384949"><span class="annot"><span class="annottext">Int -&gt; GetAccountSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679385226"><span id="local-6989586621679385228"><span id="local-6989586621679385230"><span class="annot"><span class="annottext">Int -&gt; GetAccountSettings -&gt; ShowS
 [GetAccountSettings] -&gt; ShowS
 GetAccountSettings -&gt; String
 (Int -&gt; GetAccountSettings -&gt; ShowS)
@@ -119,12 +119,12 @@ $cfrom :: forall x. GetAccountSettings -&gt; Rep GetAccountSettings x
 </span><span id="line-64"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-65"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetAccountSettings.html#GetAccountSettings"><span class="hs-identifier hs-type">GetAccountSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-66"></span><span>      </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetAccountSettings.html#GetAccountSettingsResponse"><span class="hs-identifier hs-type">GetAccountSettingsResponse</span></a></span><span>
-</span><span id="line-67"></span><span>  </span><span id="local-6989586621679384937"><span class="annot"><span class="annottext">request :: GetAccountSettings -&gt; Request GetAccountSettings
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679385218"><span class="annot"><span class="annottext">request :: GetAccountSettings -&gt; Request GetAccountSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetAccountSettings -&gt; Request GetAccountSettings
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DeviceFarm.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-68"></span><span>  </span><span id="local-6989586621679384933"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621679385214"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetAccountSettings
 -&gt; ClientResponse ClientBody
@@ -150,10 +150,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679384930"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679384930"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679384929"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679384929"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679384928"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679384928"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679385211"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679385211"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679385210"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679385210"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679385209"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679385209"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-71"></span><span>          </span><span class="annot"><span class="annottext">Maybe AccountSettings -&gt; Int -&gt; GetAccountSettingsResponse
 </span><a href="Network.AWS.DeviceFarm.GetAccountSettings.html#GetAccountSettingsResponse%27"><span class="hs-identifier hs-var">GetAccountSettingsResponse'</span></a></span><span>
 </span><span id="line-72"></span><span>            </span><span class="annot"><span class="annottext">(Maybe AccountSettings -&gt; Int -&gt; GetAccountSettingsResponse)
@@ -161,7 +161,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; GetAccountSettingsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679384928"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe AccountSettings)
+</span><a href="#local-6989586621679385209"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe AccountSettings)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;accountSettings&quot;</span></span><span class="hs-special">)</span><span>
@@ -173,15 +173,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679384930"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679385211"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679384920"><span id="local-6989586621679384922"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetAccountSettings.html#GetAccountSettings"><span class="hs-identifier hs-type">GetAccountSettings</span></a></span></span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679385201"><span id="local-6989586621679385203"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetAccountSettings.html#GetAccountSettings"><span class="hs-identifier hs-type">GetAccountSettings</span></a></span></span></span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679384917"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetAccountSettings.html#GetAccountSettings"><span class="hs-identifier hs-type">GetAccountSettings</span></a></span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679385198"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetAccountSettings.html#GetAccountSettings"><span class="hs-identifier hs-type">GetAccountSettings</span></a></span></span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetAccountSettings.html#GetAccountSettings"><span class="hs-identifier hs-type">GetAccountSettings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679384913"><span class="annot"><span class="annottext">toHeaders :: GetAccountSettings -&gt; ResponseHeaders
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679385194"><span class="annot"><span class="annottext">toHeaders :: GetAccountSettings -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetAccountSettings -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -208,8 +208,8 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-92"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-93"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679384903"><span id="local-6989586621679384905"><span id="local-6989586621679384907"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetAccountSettings.html#GetAccountSettings"><span class="hs-identifier hs-type">GetAccountSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679384901"><span class="annot"><span class="annottext">toJSON :: GetAccountSettings -&gt; Value
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679385184"><span id="local-6989586621679385186"><span id="local-6989586621679385188"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetAccountSettings.html#GetAccountSettings"><span class="hs-identifier hs-type">GetAccountSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679385182"><span class="annot"><span class="annottext">toJSON :: GetAccountSettings -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Value -&gt; GetAccountSettings -&gt; Value
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Value
@@ -218,14 +218,14 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetAccountSettings.html#GetAccountSettings"><span class="hs-identifier hs-type">GetAccountSettings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679384896"><span class="annot"><span class="annottext">toPath :: GetAccountSettings -&gt; ByteString
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679385177"><span class="annot"><span class="annottext">toPath :: GetAccountSettings -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetAccountSettings -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetAccountSettings.html#GetAccountSettings"><span class="hs-identifier hs-type">GetAccountSettings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679384892"><span class="annot"><span class="annottext">toQuery :: GetAccountSettings -&gt; QueryString
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679385173"><span class="annot"><span class="annottext">toQuery :: GetAccountSettings -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetAccountSettings -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -236,7 +236,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-105"></span><span class="hs-comment">-- @GetAccountSettings@ request.</span><span>
 </span><span id="line-106"></span><span class="hs-comment">--</span><span>
 </span><span id="line-107"></span><span class="hs-comment">-- /See:/ 'newGetAccountSettingsResponse' smart constructor.</span><span>
-</span><span id="line-108"></span><span id="local-6989586621679384889"><span id="local-6989586621679384890"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetAccountSettingsResponse"><span class="annot"><a href="Network.AWS.DeviceFarm.GetAccountSettings.html#GetAccountSettingsResponse"><span class="hs-identifier hs-var">GetAccountSettingsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetAccountSettingsResponse%27"><span class="annot"><a href="Network.AWS.DeviceFarm.GetAccountSettings.html#GetAccountSettingsResponse%27"><span class="hs-identifier hs-var">GetAccountSettingsResponse'</span></a></span></span><span>
+</span><span id="line-108"></span><span id="local-6989586621679385170"><span id="local-6989586621679385171"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetAccountSettingsResponse"><span class="annot"><a href="Network.AWS.DeviceFarm.GetAccountSettings.html#GetAccountSettingsResponse"><span class="hs-identifier hs-var">GetAccountSettingsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetAccountSettingsResponse%27"><span class="annot"><a href="Network.AWS.DeviceFarm.GetAccountSettings.html#GetAccountSettingsResponse%27"><span class="hs-identifier hs-var">GetAccountSettingsResponse'</span></a></span></span><span>
 </span><span id="line-109"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The account settings.</span><span>
 </span><span id="line-110"></span><span>    </span><span id="%24sel%3AaccountSettings%3AGetAccountSettingsResponse%27"><span class="annot"><span class="annottext">GetAccountSettingsResponse -&gt; Maybe AccountSettings
 </span><a href="Network.AWS.DeviceFarm.GetAccountSettings.html#%24sel%3AaccountSettings%3AGetAccountSettingsResponse%27"><span class="hs-identifier hs-var hs-var">accountSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#AccountSettings"><span class="hs-identifier hs-type">AccountSettings</span></a></span><span class="hs-special">,</span><span>
@@ -244,7 +244,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-112"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetAccountSettingsResponse%27"><span class="annot"><span class="annottext">GetAccountSettingsResponse -&gt; Int
 </span><a href="Network.AWS.DeviceFarm.GetAccountSettings.html#%24sel%3AhttpStatus%3AGetAccountSettingsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-113"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-114"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679384883"><span id="local-6989586621679384885"><span class="annot"><span class="annottext">GetAccountSettingsResponse -&gt; GetAccountSettingsResponse -&gt; Bool
+</span><span id="line-114"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679385164"><span id="local-6989586621679385166"><span class="annot"><span class="annottext">GetAccountSettingsResponse -&gt; GetAccountSettingsResponse -&gt; Bool
 (GetAccountSettingsResponse -&gt; GetAccountSettingsResponse -&gt; Bool)
 -&gt; (GetAccountSettingsResponse
     -&gt; GetAccountSettingsResponse -&gt; Bool)
@@ -254,7 +254,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetAccountSettingsResponse -&gt; GetAccountSettingsResponse -&gt; Bool
 == :: GetAccountSettingsResponse -&gt; GetAccountSettingsResponse -&gt; Bool
 $c== :: GetAccountSettingsResponse -&gt; GetAccountSettingsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679384875"><span id="local-6989586621679384877"><span id="local-6989586621679384879"><span id="local-6989586621679384881"><span class="annot"><span class="annottext">ReadPrec [GetAccountSettingsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679385156"><span id="local-6989586621679385158"><span id="local-6989586621679385160"><span id="local-6989586621679385162"><span class="annot"><span class="annottext">ReadPrec [GetAccountSettingsResponse]
 ReadPrec GetAccountSettingsResponse
 Int -&gt; ReadS GetAccountSettingsResponse
 ReadS [GetAccountSettingsResponse]
@@ -274,7 +274,7 @@ readList :: ReadS [GetAccountSettingsResponse]
 $creadList :: ReadS [GetAccountSettingsResponse]
 readsPrec :: Int -&gt; ReadS GetAccountSettingsResponse
 $creadsPrec :: Int -&gt; ReadS GetAccountSettingsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679384869"><span id="local-6989586621679384871"><span id="local-6989586621679384873"><span class="annot"><span class="annottext">Int -&gt; GetAccountSettingsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679385150"><span id="local-6989586621679385152"><span id="local-6989586621679385154"><span class="annot"><span class="annottext">Int -&gt; GetAccountSettingsResponse -&gt; ShowS
 [GetAccountSettingsResponse] -&gt; ShowS
 GetAccountSettingsResponse -&gt; String
 (Int -&gt; GetAccountSettingsResponse -&gt; ShowS)
@@ -322,8 +322,8 @@ GetAccountSettingsResponse -&gt; Rep GetAccountSettingsResponse x
 </span><span id="line-129"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-130"></span><span>  </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetAccountSettings.html#GetAccountSettingsResponse"><span class="hs-identifier hs-type">GetAccountSettingsResponse</span></a></span><span>
 </span><span id="line-131"></span><span id="newGetAccountSettingsResponse"><span class="annot"><span class="annottext">newGetAccountSettingsResponse :: Int -&gt; GetAccountSettingsResponse
-</span><a href="Network.AWS.DeviceFarm.GetAccountSettings.html#newGetAccountSettingsResponse"><span class="hs-identifier hs-var hs-var">newGetAccountSettingsResponse</span></a></span></span><span> </span><span id="local-6989586621679384866"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679384866"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DeviceFarm.GetAccountSettings.html#newGetAccountSettingsResponse"><span class="hs-identifier hs-var hs-var">newGetAccountSettingsResponse</span></a></span></span><span> </span><span id="local-6989586621679385147"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679385147"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-132"></span><span>  </span><span class="annot"><span class="annottext">GetAccountSettingsResponse' :: Maybe AccountSettings -&gt; Int -&gt; GetAccountSettingsResponse
 </span><a href="Network.AWS.DeviceFarm.GetAccountSettings.html#GetAccountSettingsResponse%27"><span class="hs-identifier hs-type">GetAccountSettingsResponse'</span></a></span><span>
 </span><span id="line-133"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:accountSettings:GetAccountSettingsResponse' :: Maybe AccountSettings
@@ -333,7 +333,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-135"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetAccountSettingsResponse' :: Int
 </span><a href="Network.AWS.DeviceFarm.GetAccountSettings.html#%24sel%3AhttpStatus%3AGetAccountSettingsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679384866"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679385147"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-136"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-comment">-- | The account settings.</span><span>
@@ -349,16 +349,16 @@ forall a. Maybe a
      (Maybe AccountSettings)
      (Maybe AccountSettings)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetAccountSettings.html#GetAccountSettingsResponse%27"><span class="hs-identifier hs-type">GetAccountSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384863"><span class="annot"><span class="annottext">Maybe AccountSettings
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetAccountSettings.html#GetAccountSettingsResponse%27"><span class="hs-identifier hs-type">GetAccountSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679385144"><span class="annot"><span class="annottext">Maybe AccountSettings
 accountSettings :: Maybe AccountSettings
 $sel:accountSettings:GetAccountSettingsResponse' :: GetAccountSettingsResponse -&gt; Maybe AccountSettings
-</span><a href="#local-6989586621679384863"><span class="hs-identifier hs-var hs-var">accountSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AccountSettings
-</span><a href="#local-6989586621679384863"><span class="hs-identifier hs-var">accountSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679384862"><span class="annot"><span class="annottext">s :: GetAccountSettingsResponse
-</span><a href="#local-6989586621679384862"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetAccountSettings.html#GetAccountSettingsResponse%27"><span class="hs-identifier hs-type">GetAccountSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679384861"><span class="annot"><span class="annottext">Maybe AccountSettings
-</span><a href="#local-6989586621679384861"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAccountSettingsResponse
-</span><a href="#local-6989586621679384862"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountSettings:GetAccountSettingsResponse' :: Maybe AccountSettings
+</span><a href="#local-6989586621679385144"><span class="hs-identifier hs-var hs-var">accountSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AccountSettings
+</span><a href="#local-6989586621679385144"><span class="hs-identifier hs-var">accountSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679385143"><span class="annot"><span class="annottext">s :: GetAccountSettingsResponse
+</span><a href="#local-6989586621679385143"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetAccountSettings.html#GetAccountSettingsResponse%27"><span class="hs-identifier hs-type">GetAccountSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679385142"><span class="annot"><span class="annottext">Maybe AccountSettings
+</span><a href="#local-6989586621679385142"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAccountSettingsResponse
+</span><a href="#local-6989586621679385143"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountSettings:GetAccountSettingsResponse' :: Maybe AccountSettings
 </span><a href="Network.AWS.DeviceFarm.GetAccountSettings.html#%24sel%3AaccountSettings%3AGetAccountSettingsResponse%27"><span class="hs-identifier hs-var">accountSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AccountSettings
-</span><a href="#local-6989586621679384861"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetAccountSettings.html#GetAccountSettingsResponse"><span class="hs-identifier hs-type">GetAccountSettingsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679385142"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetAccountSettings.html#GetAccountSettingsResponse"><span class="hs-identifier hs-type">GetAccountSettingsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-143"></span><span class="annot"><a href="Network.AWS.DeviceFarm.GetAccountSettings.html#getAccountSettingsResponse_httpStatus"><span class="hs-identifier hs-type">getAccountSettingsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetAccountSettings.html#GetAccountSettingsResponse"><span class="hs-identifier hs-type">GetAccountSettingsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -370,16 +370,16 @@ $sel:accountSettings:GetAccountSettingsResponse' :: GetAccountSettingsResponse -
 -&gt; Lens
      GetAccountSettingsResponse GetAccountSettingsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetAccountSettings.html#GetAccountSettingsResponse%27"><span class="hs-identifier hs-type">GetAccountSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384860"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetAccountSettings.html#GetAccountSettingsResponse%27"><span class="hs-identifier hs-type">GetAccountSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679385141"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetAccountSettingsResponse' :: GetAccountSettingsResponse -&gt; Int
-</span><a href="#local-6989586621679384860"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679384860"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679384859"><span class="annot"><span class="annottext">s :: GetAccountSettingsResponse
-</span><a href="#local-6989586621679384859"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetAccountSettings.html#GetAccountSettingsResponse%27"><span class="hs-identifier hs-type">GetAccountSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679384858"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679384858"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAccountSettingsResponse
-</span><a href="#local-6989586621679384859"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetAccountSettingsResponse' :: Int
+</span><a href="#local-6989586621679385141"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679385141"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679385140"><span class="annot"><span class="annottext">s :: GetAccountSettingsResponse
+</span><a href="#local-6989586621679385140"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetAccountSettings.html#GetAccountSettingsResponse%27"><span class="hs-identifier hs-type">GetAccountSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679385139"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679385139"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAccountSettingsResponse
+</span><a href="#local-6989586621679385140"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetAccountSettingsResponse' :: Int
 </span><a href="Network.AWS.DeviceFarm.GetAccountSettings.html#%24sel%3AhttpStatus%3AGetAccountSettingsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679384858"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetAccountSettings.html#GetAccountSettingsResponse"><span class="hs-identifier hs-type">GetAccountSettingsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679385139"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetAccountSettings.html#GetAccountSettingsResponse"><span class="hs-identifier hs-type">GetAccountSettingsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>
-</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679384856"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetAccountSettings.html#GetAccountSettingsResponse"><span class="hs-identifier hs-type">GetAccountSettingsResponse</span></a></span></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679385137"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetAccountSettings.html#GetAccountSettingsResponse"><span class="hs-identifier hs-type">GetAccountSettingsResponse</span></a></span></span><span>
 </span><span id="line-147"></span></pre></body></html>

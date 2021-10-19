@@ -27,15 +27,15 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | The CPU options for the instance.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newCpuOptions' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621681063554"><span id="local-6989586621681063555"></span></span><span class="hs-keyword">data</span><span> </span><span id="CpuOptions"><span class="annot"><a href="Network.AWS.EC2.Types.CpuOptions.html#CpuOptions"><span class="hs-identifier hs-var">CpuOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CpuOptions%27"><span class="annot"><a href="Network.AWS.EC2.Types.CpuOptions.html#CpuOptions%27"><span class="hs-identifier hs-var">CpuOptions'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of threads per CPU core.</span><span>
-</span><span id="line-32"></span><span>    </span><span id="%24sel%3AthreadsPerCore%3ACpuOptions%27"><span class="annot"><span class="annottext">CpuOptions -&gt; Maybe Int
-</span><a href="Network.AWS.EC2.Types.CpuOptions.html#%24sel%3AthreadsPerCore%3ACpuOptions%27"><span class="hs-identifier hs-var hs-var">threadsPerCore</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The number of CPU cores for the instance.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AcoreCount%3ACpuOptions%27"><span class="annot"><span class="annottext">CpuOptions -&gt; Maybe Int
-</span><a href="Network.AWS.EC2.Types.CpuOptions.html#%24sel%3AcoreCount%3ACpuOptions%27"><span class="hs-identifier hs-var hs-var">coreCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621681097129"><span id="local-6989586621681097130"></span></span><span class="hs-keyword">data</span><span> </span><span id="CpuOptions"><span class="annot"><a href="Network.AWS.EC2.Types.CpuOptions.html#CpuOptions"><span class="hs-identifier hs-var">CpuOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CpuOptions%27"><span class="annot"><a href="Network.AWS.EC2.Types.CpuOptions.html#CpuOptions%27"><span class="hs-identifier hs-var">CpuOptions'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of CPU cores for the instance.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AcoreCount%3ACpuOptions%27"><span class="annot"><span class="annottext">CpuOptions -&gt; Maybe Int
+</span><a href="Network.AWS.EC2.Types.CpuOptions.html#%24sel%3AcoreCount%3ACpuOptions%27"><span class="hs-identifier hs-var hs-var">coreCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The number of threads per CPU core.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AthreadsPerCore%3ACpuOptions%27"><span class="annot"><span class="annottext">CpuOptions -&gt; Maybe Int
+</span><a href="Network.AWS.EC2.Types.CpuOptions.html#%24sel%3AthreadsPerCore%3ACpuOptions%27"><span class="hs-identifier hs-var hs-var">threadsPerCore</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681063547"><span id="local-6989586621681063549"><span class="annot"><span class="annottext">CpuOptions -&gt; CpuOptions -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681097122"><span id="local-6989586621681097124"><span class="annot"><span class="annottext">CpuOptions -&gt; CpuOptions -&gt; Bool
 (CpuOptions -&gt; CpuOptions -&gt; Bool)
 -&gt; (CpuOptions -&gt; CpuOptions -&gt; Bool) -&gt; Eq CpuOptions
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CpuOptions -&gt; CpuOptions -&gt; Bool
 == :: CpuOptions -&gt; CpuOptions -&gt; Bool
 $c== :: CpuOptions -&gt; CpuOptions -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681063538"><span id="local-6989586621681063540"><span id="local-6989586621681063542"><span id="local-6989586621681063544"><span class="annot"><span class="annottext">ReadPrec [CpuOptions]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681097113"><span id="local-6989586621681097115"><span id="local-6989586621681097117"><span id="local-6989586621681097119"><span class="annot"><span class="annottext">ReadPrec [CpuOptions]
 ReadPrec CpuOptions
 Int -&gt; ReadS CpuOptions
 ReadS [CpuOptions]
@@ -63,7 +63,7 @@ readList :: ReadS [CpuOptions]
 $creadList :: ReadS [CpuOptions]
 readsPrec :: Int -&gt; ReadS CpuOptions
 $creadsPrec :: Int -&gt; ReadS CpuOptions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681063531"><span id="local-6989586621681063533"><span id="local-6989586621681063535"><span class="annot"><span class="annottext">Int -&gt; CpuOptions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681097106"><span id="local-6989586621681097108"><span id="local-6989586621681097110"><span class="annot"><span class="annottext">Int -&gt; CpuOptions -&gt; ShowS
 [CpuOptions] -&gt; ShowS
 CpuOptions -&gt; String
 (Int -&gt; CpuOptions -&gt; ShowS)
@@ -96,65 +96,65 @@ $cfrom :: forall x. CpuOptions -&gt; Rep CpuOptions x
 </span><span id="line-43"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-44"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-45"></span><span class="hs-comment">--</span><span>
-</span><span id="line-46"></span><span class="hs-comment">-- 'threadsPerCore', 'cpuOptions_threadsPerCore' - The number of threads per CPU core.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- 'coreCount', 'cpuOptions_coreCount' - The number of CPU cores for the instance.</span><span>
 </span><span id="line-47"></span><span class="hs-comment">--</span><span>
-</span><span id="line-48"></span><span class="hs-comment">-- 'coreCount', 'cpuOptions_coreCount' - The number of CPU cores for the instance.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'threadsPerCore', 'cpuOptions_threadsPerCore' - The number of threads per CPU core.</span><span>
 </span><span id="line-49"></span><span class="annot"><a href="Network.AWS.EC2.Types.CpuOptions.html#newCpuOptions"><span class="hs-identifier hs-type">newCpuOptions</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-50"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.CpuOptions.html#CpuOptions"><span class="hs-identifier hs-type">CpuOptions</span></a></span><span>
 </span><span id="line-51"></span><span id="newCpuOptions"><span class="annot"><span class="annottext">newCpuOptions :: CpuOptions
 </span><a href="Network.AWS.EC2.Types.CpuOptions.html#newCpuOptions"><span class="hs-identifier hs-var hs-var">newCpuOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-52"></span><span>  </span><span class="annot"><span class="annottext">CpuOptions' :: Maybe Int -&gt; Maybe Int -&gt; CpuOptions
 </span><a href="Network.AWS.EC2.Types.CpuOptions.html#CpuOptions%27"><span class="hs-identifier hs-type">CpuOptions'</span></a></span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:threadsPerCore:CpuOptions' :: Maybe Int
-</span><a href="Network.AWS.EC2.Types.CpuOptions.html#%24sel%3AthreadsPerCore%3ACpuOptions%27"><span class="hs-identifier hs-var">threadsPerCore</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-53"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:coreCount:CpuOptions' :: Maybe Int
+</span><a href="Network.AWS.EC2.Types.CpuOptions.html#%24sel%3AcoreCount%3ACpuOptions%27"><span class="hs-identifier hs-var">coreCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span class="annot"><span class="annottext">$sel:coreCount:CpuOptions' :: Maybe Int
-</span><a href="Network.AWS.EC2.Types.CpuOptions.html#%24sel%3AcoreCount%3ACpuOptions%27"><span class="hs-identifier hs-var">coreCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-54"></span><span>      </span><span class="annot"><span class="annottext">$sel:threadsPerCore:CpuOptions' :: Maybe Int
+</span><a href="Network.AWS.EC2.Types.CpuOptions.html#%24sel%3AthreadsPerCore%3ACpuOptions%27"><span class="hs-identifier hs-var">threadsPerCore</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-56"></span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- | The number of threads per CPU core.</span><span>
-</span><span id="line-58"></span><span class="annot"><a href="Network.AWS.EC2.Types.CpuOptions.html#cpuOptions_threadsPerCore"><span class="hs-identifier hs-type">cpuOptions_threadsPerCore</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CpuOptions.html#CpuOptions"><span class="hs-identifier hs-type">CpuOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-59"></span><span id="cpuOptions_threadsPerCore"><span class="annot"><span class="annottext">cpuOptions_threadsPerCore :: (Maybe Int -&gt; f (Maybe Int)) -&gt; CpuOptions -&gt; f CpuOptions
-</span><a href="Network.AWS.EC2.Types.CpuOptions.html#cpuOptions_threadsPerCore"><span class="hs-identifier hs-var hs-var">cpuOptions_threadsPerCore</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CpuOptions -&gt; Maybe Int)
--&gt; (CpuOptions -&gt; Maybe Int -&gt; CpuOptions)
--&gt; Lens CpuOptions CpuOptions (Maybe Int) (Maybe Int)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.CpuOptions.html#CpuOptions%27"><span class="hs-identifier hs-type">CpuOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681063522"><span class="annot"><span class="annottext">Maybe Int
-threadsPerCore :: Maybe Int
-$sel:threadsPerCore:CpuOptions' :: CpuOptions -&gt; Maybe Int
-</span><a href="#local-6989586621681063522"><span class="hs-identifier hs-var hs-var">threadsPerCore</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681063522"><span class="hs-identifier hs-var">threadsPerCore</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681063521"><span class="annot"><span class="annottext">s :: CpuOptions
-</span><a href="#local-6989586621681063521"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.CpuOptions.html#CpuOptions%27"><span class="hs-identifier hs-type">CpuOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681063520"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681063520"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CpuOptions
-</span><a href="#local-6989586621681063521"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:threadsPerCore:CpuOptions' :: Maybe Int
-</span><a href="Network.AWS.EC2.Types.CpuOptions.html#%24sel%3AthreadsPerCore%3ACpuOptions%27"><span class="hs-identifier hs-var">threadsPerCore</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681063520"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CpuOptions.html#CpuOptions"><span class="hs-identifier hs-type">CpuOptions</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- | The number of CPU cores for the instance.</span><span>
-</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.EC2.Types.CpuOptions.html#cpuOptions_coreCount"><span class="hs-identifier hs-type">cpuOptions_coreCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CpuOptions.html#CpuOptions"><span class="hs-identifier hs-type">CpuOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-63"></span><span id="cpuOptions_coreCount"><span class="annot"><span class="annottext">cpuOptions_coreCount :: (Maybe Int -&gt; f (Maybe Int)) -&gt; CpuOptions -&gt; f CpuOptions
+</span><span id="line-57"></span><span class="hs-comment">-- | The number of CPU cores for the instance.</span><span>
+</span><span id="line-58"></span><span class="annot"><a href="Network.AWS.EC2.Types.CpuOptions.html#cpuOptions_coreCount"><span class="hs-identifier hs-type">cpuOptions_coreCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CpuOptions.html#CpuOptions"><span class="hs-identifier hs-type">CpuOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span id="cpuOptions_coreCount"><span class="annot"><span class="annottext">cpuOptions_coreCount :: (Maybe Int -&gt; f (Maybe Int)) -&gt; CpuOptions -&gt; f CpuOptions
 </span><a href="Network.AWS.EC2.Types.CpuOptions.html#cpuOptions_coreCount"><span class="hs-identifier hs-var hs-var">cpuOptions_coreCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CpuOptions -&gt; Maybe Int)
 -&gt; (CpuOptions -&gt; Maybe Int -&gt; CpuOptions)
 -&gt; Lens CpuOptions CpuOptions (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.CpuOptions.html#CpuOptions%27"><span class="hs-identifier hs-type">CpuOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681063518"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.CpuOptions.html#CpuOptions%27"><span class="hs-identifier hs-type">CpuOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681097097"><span class="annot"><span class="annottext">Maybe Int
 coreCount :: Maybe Int
 $sel:coreCount:CpuOptions' :: CpuOptions -&gt; Maybe Int
-</span><a href="#local-6989586621681063518"><span class="hs-identifier hs-var hs-var">coreCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681063518"><span class="hs-identifier hs-var">coreCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681063517"><span class="annot"><span class="annottext">s :: CpuOptions
-</span><a href="#local-6989586621681063517"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.CpuOptions.html#CpuOptions%27"><span class="hs-identifier hs-type">CpuOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681063516"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681063516"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CpuOptions
-</span><a href="#local-6989586621681063517"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:coreCount:CpuOptions' :: Maybe Int
+</span><a href="#local-6989586621681097097"><span class="hs-identifier hs-var hs-var">coreCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681097097"><span class="hs-identifier hs-var">coreCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681097096"><span class="annot"><span class="annottext">s :: CpuOptions
+</span><a href="#local-6989586621681097096"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.CpuOptions.html#CpuOptions%27"><span class="hs-identifier hs-type">CpuOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681097095"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681097095"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CpuOptions
+</span><a href="#local-6989586621681097096"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:coreCount:CpuOptions' :: Maybe Int
 </span><a href="Network.AWS.EC2.Types.CpuOptions.html#%24sel%3AcoreCount%3ACpuOptions%27"><span class="hs-identifier hs-var">coreCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681063516"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CpuOptions.html#CpuOptions"><span class="hs-identifier hs-type">CpuOptions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681097095"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CpuOptions.html#CpuOptions"><span class="hs-identifier hs-type">CpuOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | The number of threads per CPU core.</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.EC2.Types.CpuOptions.html#cpuOptions_threadsPerCore"><span class="hs-identifier hs-type">cpuOptions_threadsPerCore</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CpuOptions.html#CpuOptions"><span class="hs-identifier hs-type">CpuOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span id="cpuOptions_threadsPerCore"><span class="annot"><span class="annottext">cpuOptions_threadsPerCore :: (Maybe Int -&gt; f (Maybe Int)) -&gt; CpuOptions -&gt; f CpuOptions
+</span><a href="Network.AWS.EC2.Types.CpuOptions.html#cpuOptions_threadsPerCore"><span class="hs-identifier hs-var hs-var">cpuOptions_threadsPerCore</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CpuOptions -&gt; Maybe Int)
+-&gt; (CpuOptions -&gt; Maybe Int -&gt; CpuOptions)
+-&gt; Lens CpuOptions CpuOptions (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.CpuOptions.html#CpuOptions%27"><span class="hs-identifier hs-type">CpuOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681097093"><span class="annot"><span class="annottext">Maybe Int
+threadsPerCore :: Maybe Int
+$sel:threadsPerCore:CpuOptions' :: CpuOptions -&gt; Maybe Int
+</span><a href="#local-6989586621681097093"><span class="hs-identifier hs-var hs-var">threadsPerCore</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681097093"><span class="hs-identifier hs-var">threadsPerCore</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681097092"><span class="annot"><span class="annottext">s :: CpuOptions
+</span><a href="#local-6989586621681097092"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.CpuOptions.html#CpuOptions%27"><span class="hs-identifier hs-type">CpuOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681097091"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681097091"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CpuOptions
+</span><a href="#local-6989586621681097092"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:threadsPerCore:CpuOptions' :: Maybe Int
+</span><a href="Network.AWS.EC2.Types.CpuOptions.html#%24sel%3AthreadsPerCore%3ACpuOptions%27"><span class="hs-identifier hs-var">threadsPerCore</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681097091"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CpuOptions.html#CpuOptions"><span class="hs-identifier hs-type">CpuOptions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
 </span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CpuOptions.html#CpuOptions"><span class="hs-identifier hs-type">CpuOptions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-66"></span><span>  </span><span id="local-6989586621681063513"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String CpuOptions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681063511"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681063511"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621681097088"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String CpuOptions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681097086"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681097086"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">Maybe Int -&gt; Maybe Int -&gt; CpuOptions
 </span><a href="Network.AWS.EC2.Types.CpuOptions.html#CpuOptions%27"><span class="hs-identifier hs-var">CpuOptions'</span></a></span><span>
 </span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Int -&gt; Maybe Int -&gt; CpuOptions)
@@ -162,20 +162,20 @@ $sel:coreCount:CpuOptions' :: CpuOptions -&gt; Maybe Int
 -&gt; Either String (Maybe Int -&gt; CpuOptions)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681063511"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+</span><a href="#local-6989586621681097086"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;threadsPerCore&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;coreCount&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Int -&gt; CpuOptions)
 -&gt; Either String (Maybe Int) -&gt; Either String CpuOptions
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681063511"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+</span><a href="#local-6989586621681097086"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;coreCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;threadsPerCore&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681063505"><span id="local-6989586621681063507"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CpuOptions.html#CpuOptions"><span class="hs-identifier hs-type">CpuOptions</span></a></span></span></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681097080"><span id="local-6989586621681097082"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CpuOptions.html#CpuOptions"><span class="hs-identifier hs-type">CpuOptions</span></a></span></span></span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681063502"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CpuOptions.html#CpuOptions"><span class="hs-identifier hs-type">CpuOptions</span></a></span></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681097077"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CpuOptions.html#CpuOptions"><span class="hs-identifier hs-type">CpuOptions</span></a></span></span><span>
 </span><span id="line-74"></span></pre></body></html>

@@ -30,15 +30,15 @@
 </span><span id="line-30"></span><span class="hs-comment">-- Connection status information is also communicated as a fleet Event.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newVpcPeeringConnectionStatus' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679441777"><span id="local-6989586621679441778"></span></span><span class="hs-keyword">data</span><span> </span><span id="VpcPeeringConnectionStatus"><span class="annot"><a href="Network.AWS.GameLift.Types.VpcPeeringConnectionStatus.html#VpcPeeringConnectionStatus"><span class="hs-identifier hs-var">VpcPeeringConnectionStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VpcPeeringConnectionStatus%27"><span class="annot"><a href="Network.AWS.GameLift.Types.VpcPeeringConnectionStatus.html#VpcPeeringConnectionStatus%27"><span class="hs-identifier hs-var">VpcPeeringConnectionStatus'</span></a></span></span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Additional messaging associated with the connection status.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3Amessage%3AVpcPeeringConnectionStatus%27"><span class="annot"><span class="annottext">VpcPeeringConnectionStatus -&gt; Maybe Text
-</span><a href="Network.AWS.GameLift.Types.VpcPeeringConnectionStatus.html#%24sel%3Amessage%3AVpcPeeringConnectionStatus%27"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Code indicating the status of a VPC peering connection.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3Acode%3AVpcPeeringConnectionStatus%27"><span class="annot"><span class="annottext">VpcPeeringConnectionStatus -&gt; Maybe Text
-</span><a href="Network.AWS.GameLift.Types.VpcPeeringConnectionStatus.html#%24sel%3Acode%3AVpcPeeringConnectionStatus%27"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679442240"><span id="local-6989586621679442241"></span></span><span class="hs-keyword">data</span><span> </span><span id="VpcPeeringConnectionStatus"><span class="annot"><a href="Network.AWS.GameLift.Types.VpcPeeringConnectionStatus.html#VpcPeeringConnectionStatus"><span class="hs-identifier hs-var">VpcPeeringConnectionStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VpcPeeringConnectionStatus%27"><span class="annot"><a href="Network.AWS.GameLift.Types.VpcPeeringConnectionStatus.html#VpcPeeringConnectionStatus%27"><span class="hs-identifier hs-var">VpcPeeringConnectionStatus'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Code indicating the status of a VPC peering connection.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Acode%3AVpcPeeringConnectionStatus%27"><span class="annot"><span class="annottext">VpcPeeringConnectionStatus -&gt; Maybe Text
+</span><a href="Network.AWS.GameLift.Types.VpcPeeringConnectionStatus.html#%24sel%3Acode%3AVpcPeeringConnectionStatus%27"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Additional messaging associated with the connection status.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Amessage%3AVpcPeeringConnectionStatus%27"><span class="annot"><span class="annottext">VpcPeeringConnectionStatus -&gt; Maybe Text
+</span><a href="Network.AWS.GameLift.Types.VpcPeeringConnectionStatus.html#%24sel%3Amessage%3AVpcPeeringConnectionStatus%27"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679441770"><span id="local-6989586621679441772"><span class="annot"><span class="annottext">VpcPeeringConnectionStatus -&gt; VpcPeeringConnectionStatus -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679442233"><span id="local-6989586621679442235"><span class="annot"><span class="annottext">VpcPeeringConnectionStatus -&gt; VpcPeeringConnectionStatus -&gt; Bool
 (VpcPeeringConnectionStatus -&gt; VpcPeeringConnectionStatus -&gt; Bool)
 -&gt; (VpcPeeringConnectionStatus
     -&gt; VpcPeeringConnectionStatus -&gt; Bool)
@@ -48,7 +48,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: VpcPeeringConnectionStatus -&gt; VpcPeeringConnectionStatus -&gt; Bool
 == :: VpcPeeringConnectionStatus -&gt; VpcPeeringConnectionStatus -&gt; Bool
 $c== :: VpcPeeringConnectionStatus -&gt; VpcPeeringConnectionStatus -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679441761"><span id="local-6989586621679441763"><span id="local-6989586621679441765"><span id="local-6989586621679441767"><span class="annot"><span class="annottext">ReadPrec [VpcPeeringConnectionStatus]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679442224"><span id="local-6989586621679442226"><span id="local-6989586621679442228"><span id="local-6989586621679442230"><span class="annot"><span class="annottext">ReadPrec [VpcPeeringConnectionStatus]
 ReadPrec VpcPeeringConnectionStatus
 Int -&gt; ReadS VpcPeeringConnectionStatus
 ReadS [VpcPeeringConnectionStatus]
@@ -68,7 +68,7 @@ readList :: ReadS [VpcPeeringConnectionStatus]
 $creadList :: ReadS [VpcPeeringConnectionStatus]
 readsPrec :: Int -&gt; ReadS VpcPeeringConnectionStatus
 $creadsPrec :: Int -&gt; ReadS VpcPeeringConnectionStatus
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679441754"><span id="local-6989586621679441756"><span id="local-6989586621679441758"><span class="annot"><span class="annottext">Int -&gt; VpcPeeringConnectionStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679442217"><span id="local-6989586621679442219"><span id="local-6989586621679442221"><span class="annot"><span class="annottext">Int -&gt; VpcPeeringConnectionStatus -&gt; ShowS
 [VpcPeeringConnectionStatus] -&gt; ShowS
 VpcPeeringConnectionStatus -&gt; String
 (Int -&gt; VpcPeeringConnectionStatus -&gt; ShowS)
@@ -108,53 +108,28 @@ VpcPeeringConnectionStatus -&gt; Rep VpcPeeringConnectionStatus x
 </span><span id="line-46"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-47"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-48"></span><span class="hs-comment">--</span><span>
-</span><span id="line-49"></span><span class="hs-comment">-- 'message', 'vpcPeeringConnectionStatus_message' - Additional messaging associated with the connection status.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'code', 'vpcPeeringConnectionStatus_code' - Code indicating the status of a VPC peering connection.</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
-</span><span id="line-51"></span><span class="hs-comment">-- 'code', 'vpcPeeringConnectionStatus_code' - Code indicating the status of a VPC peering connection.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'message', 'vpcPeeringConnectionStatus_message' - Additional messaging associated with the connection status.</span><span>
 </span><span id="line-52"></span><span class="annot"><a href="Network.AWS.GameLift.Types.VpcPeeringConnectionStatus.html#newVpcPeeringConnectionStatus"><span class="hs-identifier hs-type">newVpcPeeringConnectionStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-53"></span><span>  </span><span class="annot"><a href="Network.AWS.GameLift.Types.VpcPeeringConnectionStatus.html#VpcPeeringConnectionStatus"><span class="hs-identifier hs-type">VpcPeeringConnectionStatus</span></a></span><span>
 </span><span id="line-54"></span><span id="newVpcPeeringConnectionStatus"><span class="annot"><span class="annottext">newVpcPeeringConnectionStatus :: VpcPeeringConnectionStatus
 </span><a href="Network.AWS.GameLift.Types.VpcPeeringConnectionStatus.html#newVpcPeeringConnectionStatus"><span class="hs-identifier hs-var hs-var">newVpcPeeringConnectionStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">VpcPeeringConnectionStatus' :: Maybe Text -&gt; Maybe Text -&gt; VpcPeeringConnectionStatus
 </span><a href="Network.AWS.GameLift.Types.VpcPeeringConnectionStatus.html#VpcPeeringConnectionStatus%27"><span class="hs-identifier hs-type">VpcPeeringConnectionStatus'</span></a></span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:message:VpcPeeringConnectionStatus' :: Maybe Text
-</span><a href="Network.AWS.GameLift.Types.VpcPeeringConnectionStatus.html#%24sel%3Amessage%3AVpcPeeringConnectionStatus%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-57"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:code:VpcPeeringConnectionStatus' :: Maybe Text
+</span><span id="line-56"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:code:VpcPeeringConnectionStatus' :: Maybe Text
 </span><a href="Network.AWS.GameLift.Types.VpcPeeringConnectionStatus.html#%24sel%3Acode%3AVpcPeeringConnectionStatus%27"><span class="hs-identifier hs-var">code</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- | Additional messaging associated with the connection status.</span><span>
-</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.GameLift.Types.VpcPeeringConnectionStatus.html#vpcPeeringConnectionStatus_message"><span class="hs-identifier hs-type">vpcPeeringConnectionStatus_message</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.VpcPeeringConnectionStatus.html#VpcPeeringConnectionStatus"><span class="hs-identifier hs-type">VpcPeeringConnectionStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-63"></span><span id="vpcPeeringConnectionStatus_message"><span class="annot"><span class="annottext">vpcPeeringConnectionStatus_message :: (Maybe Text -&gt; f (Maybe Text))
--&gt; VpcPeeringConnectionStatus -&gt; f VpcPeeringConnectionStatus
-</span><a href="Network.AWS.GameLift.Types.VpcPeeringConnectionStatus.html#vpcPeeringConnectionStatus_message"><span class="hs-identifier hs-var hs-var">vpcPeeringConnectionStatus_message</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VpcPeeringConnectionStatus -&gt; Maybe Text)
--&gt; (VpcPeeringConnectionStatus
-    -&gt; Maybe Text -&gt; VpcPeeringConnectionStatus)
--&gt; Lens
-     VpcPeeringConnectionStatus
-     VpcPeeringConnectionStatus
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.VpcPeeringConnectionStatus.html#VpcPeeringConnectionStatus%27"><span class="hs-identifier hs-type">VpcPeeringConnectionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679441745"><span class="annot"><span class="annottext">Maybe Text
-message :: Maybe Text
-$sel:message:VpcPeeringConnectionStatus' :: VpcPeeringConnectionStatus -&gt; Maybe Text
-</span><a href="#local-6989586621679441745"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679441745"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679441744"><span class="annot"><span class="annottext">s :: VpcPeeringConnectionStatus
-</span><a href="#local-6989586621679441744"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.VpcPeeringConnectionStatus.html#VpcPeeringConnectionStatus%27"><span class="hs-identifier hs-type">VpcPeeringConnectionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679441743"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679441743"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpcPeeringConnectionStatus
-</span><a href="#local-6989586621679441744"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:VpcPeeringConnectionStatus' :: Maybe Text
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">$sel:message:VpcPeeringConnectionStatus' :: Maybe Text
 </span><a href="Network.AWS.GameLift.Types.VpcPeeringConnectionStatus.html#%24sel%3Amessage%3AVpcPeeringConnectionStatus%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679441743"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.VpcPeeringConnectionStatus.html#VpcPeeringConnectionStatus"><span class="hs-identifier hs-type">VpcPeeringConnectionStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- | Code indicating the status of a VPC peering connection.</span><span>
-</span><span id="line-66"></span><span class="annot"><a href="Network.AWS.GameLift.Types.VpcPeeringConnectionStatus.html#vpcPeeringConnectionStatus_code"><span class="hs-identifier hs-type">vpcPeeringConnectionStatus_code</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.VpcPeeringConnectionStatus.html#VpcPeeringConnectionStatus"><span class="hs-identifier hs-type">VpcPeeringConnectionStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-67"></span><span id="vpcPeeringConnectionStatus_code"><span class="annot"><span class="annottext">vpcPeeringConnectionStatus_code :: (Maybe Text -&gt; f (Maybe Text))
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- | Code indicating the status of a VPC peering connection.</span><span>
+</span><span id="line-61"></span><span class="annot"><a href="Network.AWS.GameLift.Types.VpcPeeringConnectionStatus.html#vpcPeeringConnectionStatus_code"><span class="hs-identifier hs-type">vpcPeeringConnectionStatus_code</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.VpcPeeringConnectionStatus.html#VpcPeeringConnectionStatus"><span class="hs-identifier hs-type">VpcPeeringConnectionStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span id="vpcPeeringConnectionStatus_code"><span class="annot"><span class="annottext">vpcPeeringConnectionStatus_code :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; VpcPeeringConnectionStatus -&gt; f VpcPeeringConnectionStatus
 </span><a href="Network.AWS.GameLift.Types.VpcPeeringConnectionStatus.html#vpcPeeringConnectionStatus_code"><span class="hs-identifier hs-var hs-var">vpcPeeringConnectionStatus_code</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VpcPeeringConnectionStatus -&gt; Maybe Text)
 -&gt; (VpcPeeringConnectionStatus
@@ -165,52 +140,76 @@ $sel:message:VpcPeeringConnectionStatus' :: VpcPeeringConnectionStatus -&gt; May
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.VpcPeeringConnectionStatus.html#VpcPeeringConnectionStatus%27"><span class="hs-identifier hs-type">VpcPeeringConnectionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679441741"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.VpcPeeringConnectionStatus.html#VpcPeeringConnectionStatus%27"><span class="hs-identifier hs-type">VpcPeeringConnectionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679442208"><span class="annot"><span class="annottext">Maybe Text
 code :: Maybe Text
 $sel:code:VpcPeeringConnectionStatus' :: VpcPeeringConnectionStatus -&gt; Maybe Text
-</span><a href="#local-6989586621679441741"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679441741"><span class="hs-identifier hs-var">code</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679441740"><span class="annot"><span class="annottext">s :: VpcPeeringConnectionStatus
-</span><a href="#local-6989586621679441740"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.VpcPeeringConnectionStatus.html#VpcPeeringConnectionStatus%27"><span class="hs-identifier hs-type">VpcPeeringConnectionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679441739"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679441739"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpcPeeringConnectionStatus
-</span><a href="#local-6989586621679441740"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:code:VpcPeeringConnectionStatus' :: Maybe Text
+</span><a href="#local-6989586621679442208"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679442208"><span class="hs-identifier hs-var">code</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679442207"><span class="annot"><span class="annottext">s :: VpcPeeringConnectionStatus
+</span><a href="#local-6989586621679442207"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.VpcPeeringConnectionStatus.html#VpcPeeringConnectionStatus%27"><span class="hs-identifier hs-type">VpcPeeringConnectionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679442206"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679442206"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpcPeeringConnectionStatus
+</span><a href="#local-6989586621679442207"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:code:VpcPeeringConnectionStatus' :: Maybe Text
 </span><a href="Network.AWS.GameLift.Types.VpcPeeringConnectionStatus.html#%24sel%3Acode%3AVpcPeeringConnectionStatus%27"><span class="hs-identifier hs-var">code</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679441739"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.VpcPeeringConnectionStatus.html#VpcPeeringConnectionStatus"><span class="hs-identifier hs-type">VpcPeeringConnectionStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679441736"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.VpcPeeringConnectionStatus.html#VpcPeeringConnectionStatus"><span class="hs-identifier hs-type">VpcPeeringConnectionStatus</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621679441734"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser VpcPeeringConnectionStatus
+</span><a href="#local-6989586621679442206"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.VpcPeeringConnectionStatus.html#VpcPeeringConnectionStatus"><span class="hs-identifier hs-type">VpcPeeringConnectionStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- | Additional messaging associated with the connection status.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Network.AWS.GameLift.Types.VpcPeeringConnectionStatus.html#vpcPeeringConnectionStatus_message"><span class="hs-identifier hs-type">vpcPeeringConnectionStatus_message</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.VpcPeeringConnectionStatus.html#VpcPeeringConnectionStatus"><span class="hs-identifier hs-type">VpcPeeringConnectionStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span id="vpcPeeringConnectionStatus_message"><span class="annot"><span class="annottext">vpcPeeringConnectionStatus_message :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; VpcPeeringConnectionStatus -&gt; f VpcPeeringConnectionStatus
+</span><a href="Network.AWS.GameLift.Types.VpcPeeringConnectionStatus.html#vpcPeeringConnectionStatus_message"><span class="hs-identifier hs-var hs-var">vpcPeeringConnectionStatus_message</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VpcPeeringConnectionStatus -&gt; Maybe Text)
+-&gt; (VpcPeeringConnectionStatus
+    -&gt; Maybe Text -&gt; VpcPeeringConnectionStatus)
+-&gt; Lens
+     VpcPeeringConnectionStatus
+     VpcPeeringConnectionStatus
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.VpcPeeringConnectionStatus.html#VpcPeeringConnectionStatus%27"><span class="hs-identifier hs-type">VpcPeeringConnectionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679442204"><span class="annot"><span class="annottext">Maybe Text
+message :: Maybe Text
+$sel:message:VpcPeeringConnectionStatus' :: VpcPeeringConnectionStatus -&gt; Maybe Text
+</span><a href="#local-6989586621679442204"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679442204"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679442203"><span class="annot"><span class="annottext">s :: VpcPeeringConnectionStatus
+</span><a href="#local-6989586621679442203"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.VpcPeeringConnectionStatus.html#VpcPeeringConnectionStatus%27"><span class="hs-identifier hs-type">VpcPeeringConnectionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679442202"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679442202"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpcPeeringConnectionStatus
+</span><a href="#local-6989586621679442203"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:VpcPeeringConnectionStatus' :: Maybe Text
+</span><a href="Network.AWS.GameLift.Types.VpcPeeringConnectionStatus.html#%24sel%3Amessage%3AVpcPeeringConnectionStatus%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679442202"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.VpcPeeringConnectionStatus.html#VpcPeeringConnectionStatus"><span class="hs-identifier hs-type">VpcPeeringConnectionStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679442199"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.VpcPeeringConnectionStatus.html#VpcPeeringConnectionStatus"><span class="hs-identifier hs-type">VpcPeeringConnectionStatus</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621679442197"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser VpcPeeringConnectionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">String
+</span><span id="line-70"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser VpcPeeringConnectionStatus)
 -&gt; Value
 -&gt; Parser VpcPeeringConnectionStatus
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
-</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;VpcPeeringConnectionStatus&quot;</span></span><span>
-</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679441731"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679441731"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-74"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; VpcPeeringConnectionStatus
+</span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679442194"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679442194"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; VpcPeeringConnectionStatus
 </span><a href="Network.AWS.GameLift.Types.VpcPeeringConnectionStatus.html#VpcPeeringConnectionStatus%27"><span class="hs-identifier hs-var">VpcPeeringConnectionStatus'</span></a></span><span>
-</span><span id="line-75"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; VpcPeeringConnectionStatus)
+</span><span id="line-74"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; VpcPeeringConnectionStatus)
 -&gt; Parser (Maybe Text)
 -&gt; Parser (Maybe Text -&gt; VpcPeeringConnectionStatus)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679441731"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Message&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-76"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; VpcPeeringConnectionStatus)
--&gt; Parser (Maybe Text) -&gt; Parser VpcPeeringConnectionStatus
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679441731"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679442194"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Code&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-77"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679441725"><span id="local-6989586621679441727"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.VpcPeeringConnectionStatus.html#VpcPeeringConnectionStatus"><span class="hs-identifier hs-type">VpcPeeringConnectionStatus</span></a></span></span></span><span>
-</span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679441722"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.VpcPeeringConnectionStatus.html#VpcPeeringConnectionStatus"><span class="hs-identifier hs-type">VpcPeeringConnectionStatus</span></a></span></span><span>
-</span><span id="line-82"></span></pre></body></html>
+</span><span id="line-75"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; VpcPeeringConnectionStatus)
+-&gt; Parser (Maybe Text) -&gt; Parser VpcPeeringConnectionStatus
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679442194"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Message&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679442188"><span id="local-6989586621679442190"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.VpcPeeringConnectionStatus.html#VpcPeeringConnectionStatus"><span class="hs-identifier hs-type">VpcPeeringConnectionStatus</span></a></span></span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679442185"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.VpcPeeringConnectionStatus.html#VpcPeeringConnectionStatus"><span class="hs-identifier hs-type">VpcPeeringConnectionStatus</span></a></span></span><span>
+</span><span id="line-81"></span></pre></body></html>

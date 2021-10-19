@@ -30,7 +30,7 @@
 </span><span id="line-30"></span><span class="hs-comment">-- exist.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newUpdateCondition' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679149638"><span id="local-6989586621679149639"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateCondition"><span class="annot"><a href="Network.AWS.SDB.Types.UpdateCondition.html#UpdateCondition"><span class="hs-identifier hs-var">UpdateCondition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateCondition%27"><span class="annot"><a href="Network.AWS.SDB.Types.UpdateCondition.html#UpdateCondition%27"><span class="hs-identifier hs-var">UpdateCondition'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679149686"><span id="local-6989586621679149687"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateCondition"><span class="annot"><a href="Network.AWS.SDB.Types.UpdateCondition.html#UpdateCondition"><span class="hs-identifier hs-var">UpdateCondition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateCondition%27"><span class="annot"><a href="Network.AWS.SDB.Types.UpdateCondition.html#UpdateCondition%27"><span class="hs-identifier hs-var">UpdateCondition'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A value specifying whether or not the specified attribute must exist</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- with the specified value in order for the update condition to be</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- satisfied. Specify @true@ if the attribute must exist for the update</span><span>
@@ -38,15 +38,15 @@
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">-- exist in order for the update condition to be satisfied.</span><span>
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3Aexists%3AUpdateCondition%27"><span class="annot"><span class="annottext">UpdateCondition -&gt; Maybe Bool
 </span><a href="Network.AWS.SDB.Types.UpdateCondition.html#%24sel%3Aexists%3AUpdateCondition%27"><span class="hs-identifier hs-var hs-var">exists</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The name of the attribute involved in the condition.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3Aname%3AUpdateCondition%27"><span class="annot"><span class="annottext">UpdateCondition -&gt; Maybe Text
-</span><a href="Network.AWS.SDB.Types.UpdateCondition.html#%24sel%3Aname%3AUpdateCondition%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The value of an attribute. This value can only be specified when the</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- @Exists@ parameter is equal to @true@.</span><span>
-</span><span id="line-44"></span><span>    </span><span id="%24sel%3Avalue%3AUpdateCondition%27"><span class="annot"><span class="annottext">UpdateCondition -&gt; Maybe Text
-</span><a href="Network.AWS.SDB.Types.UpdateCondition.html#%24sel%3Avalue%3AUpdateCondition%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The value of an attribute. This value can only be specified when the</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- @Exists@ parameter is equal to @true@.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3Avalue%3AUpdateCondition%27"><span class="annot"><span class="annottext">UpdateCondition -&gt; Maybe Text
+</span><a href="Network.AWS.SDB.Types.UpdateCondition.html#%24sel%3Avalue%3AUpdateCondition%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The name of the attribute involved in the condition.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3Aname%3AUpdateCondition%27"><span class="annot"><span class="annottext">UpdateCondition -&gt; Maybe Text
+</span><a href="Network.AWS.SDB.Types.UpdateCondition.html#%24sel%3Aname%3AUpdateCondition%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679149630"><span id="local-6989586621679149632"><span class="annot"><span class="annottext">UpdateCondition -&gt; UpdateCondition -&gt; Bool
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679149678"><span id="local-6989586621679149680"><span class="annot"><span class="annottext">UpdateCondition -&gt; UpdateCondition -&gt; Bool
 (UpdateCondition -&gt; UpdateCondition -&gt; Bool)
 -&gt; (UpdateCondition -&gt; UpdateCondition -&gt; Bool)
 -&gt; Eq UpdateCondition
@@ -55,7 +55,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateCondition -&gt; UpdateCondition -&gt; Bool
 == :: UpdateCondition -&gt; UpdateCondition -&gt; Bool
 $c== :: UpdateCondition -&gt; UpdateCondition -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679149621"><span id="local-6989586621679149623"><span id="local-6989586621679149625"><span id="local-6989586621679149627"><span class="annot"><span class="annottext">ReadPrec [UpdateCondition]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679149669"><span id="local-6989586621679149671"><span id="local-6989586621679149673"><span id="local-6989586621679149675"><span class="annot"><span class="annottext">ReadPrec [UpdateCondition]
 ReadPrec UpdateCondition
 Int -&gt; ReadS UpdateCondition
 ReadS [UpdateCondition]
@@ -75,7 +75,7 @@ readList :: ReadS [UpdateCondition]
 $creadList :: ReadS [UpdateCondition]
 readsPrec :: Int -&gt; ReadS UpdateCondition
 $creadsPrec :: Int -&gt; ReadS UpdateCondition
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679149614"><span id="local-6989586621679149616"><span id="local-6989586621679149618"><span class="annot"><span class="annottext">Int -&gt; UpdateCondition -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679149662"><span id="local-6989586621679149664"><span id="local-6989586621679149666"><span class="annot"><span class="annottext">Int -&gt; UpdateCondition -&gt; ShowS
 [UpdateCondition] -&gt; ShowS
 UpdateCondition -&gt; String
 (Int -&gt; UpdateCondition -&gt; ShowS)
@@ -115,10 +115,10 @@ $cfrom :: forall x. UpdateCondition -&gt; Rep UpdateCondition x
 </span><span id="line-59"></span><span class="hs-comment">-- condition to be satisfied. Specify @false@ if the attribute should not</span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- exist in order for the update condition to be satisfied.</span><span>
 </span><span id="line-61"></span><span class="hs-comment">--</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- 'name', 'updateCondition_name' - The name of the attribute involved in the condition.</span><span>
-</span><span id="line-63"></span><span class="hs-comment">--</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- 'value', 'updateCondition_value' - The value of an attribute. This value can only be specified when the</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- @Exists@ parameter is equal to @true@.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'value', 'updateCondition_value' - The value of an attribute. This value can only be specified when the</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- @Exists@ parameter is equal to @true@.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'name', 'updateCondition_name' - The name of the attribute involved in the condition.</span><span>
 </span><span id="line-66"></span><span class="annot"><a href="Network.AWS.SDB.Types.UpdateCondition.html#newUpdateCondition"><span class="hs-identifier hs-type">newUpdateCondition</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.SDB.Types.UpdateCondition.html#UpdateCondition"><span class="hs-identifier hs-type">UpdateCondition</span></a></span><span>
 </span><span id="line-68"></span><span id="newUpdateCondition"><span class="annot"><span class="annottext">newUpdateCondition :: UpdateCondition
@@ -129,12 +129,12 @@ $cfrom :: forall x. UpdateCondition -&gt; Rep UpdateCondition x
 </span><a href="Network.AWS.SDB.Types.UpdateCondition.html#%24sel%3Aexists%3AUpdateCondition%27"><span class="hs-identifier hs-var">exists</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:UpdateCondition' :: Maybe Text
-</span><a href="Network.AWS.SDB.Types.UpdateCondition.html#%24sel%3Aname%3AUpdateCondition%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:value:UpdateCondition' :: Maybe Text
+</span><a href="Network.AWS.SDB.Types.UpdateCondition.html#%24sel%3Avalue%3AUpdateCondition%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:value:UpdateCondition' :: Maybe Text
-</span><a href="Network.AWS.SDB.Types.UpdateCondition.html#%24sel%3Avalue%3AUpdateCondition%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:UpdateCondition' :: Maybe Text
+</span><a href="Network.AWS.SDB.Types.UpdateCondition.html#%24sel%3Aname%3AUpdateCondition%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-73"></span><span>    </span><span class="hs-special">}</span><span>
@@ -151,71 +151,71 @@ forall a. Maybe a
 -&gt; (UpdateCondition -&gt; Maybe Bool -&gt; UpdateCondition)
 -&gt; Lens UpdateCondition UpdateCondition (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SDB.Types.UpdateCondition.html#UpdateCondition%27"><span class="hs-identifier hs-type">UpdateCondition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679149605"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SDB.Types.UpdateCondition.html#UpdateCondition%27"><span class="hs-identifier hs-type">UpdateCondition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679149653"><span class="annot"><span class="annottext">Maybe Bool
 exists :: Maybe Bool
 $sel:exists:UpdateCondition' :: UpdateCondition -&gt; Maybe Bool
-</span><a href="#local-6989586621679149605"><span class="hs-identifier hs-var hs-var">exists</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679149605"><span class="hs-identifier hs-var">exists</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679149604"><span class="annot"><span class="annottext">s :: UpdateCondition
-</span><a href="#local-6989586621679149604"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SDB.Types.UpdateCondition.html#UpdateCondition%27"><span class="hs-identifier hs-type">UpdateCondition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679149603"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679149603"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateCondition
-</span><a href="#local-6989586621679149604"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exists:UpdateCondition' :: Maybe Bool
+</span><a href="#local-6989586621679149653"><span class="hs-identifier hs-var hs-var">exists</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679149653"><span class="hs-identifier hs-var">exists</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679149652"><span class="annot"><span class="annottext">s :: UpdateCondition
+</span><a href="#local-6989586621679149652"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SDB.Types.UpdateCondition.html#UpdateCondition%27"><span class="hs-identifier hs-type">UpdateCondition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679149651"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679149651"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateCondition
+</span><a href="#local-6989586621679149652"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exists:UpdateCondition' :: Maybe Bool
 </span><a href="Network.AWS.SDB.Types.UpdateCondition.html#%24sel%3Aexists%3AUpdateCondition%27"><span class="hs-identifier hs-var">exists</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679149603"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SDB.Types.UpdateCondition.html#UpdateCondition"><span class="hs-identifier hs-type">UpdateCondition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679149651"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SDB.Types.UpdateCondition.html#UpdateCondition"><span class="hs-identifier hs-type">UpdateCondition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- | The name of the attribute involved in the condition.</span><span>
-</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.SDB.Types.UpdateCondition.html#updateCondition_name"><span class="hs-identifier hs-type">updateCondition_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.Types.UpdateCondition.html#UpdateCondition"><span class="hs-identifier hs-type">UpdateCondition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-85"></span><span id="updateCondition_name"><span class="annot"><span class="annottext">updateCondition_name :: (Maybe Text -&gt; f (Maybe Text))
--&gt; UpdateCondition -&gt; f UpdateCondition
-</span><a href="Network.AWS.SDB.Types.UpdateCondition.html#updateCondition_name"><span class="hs-identifier hs-var hs-var">updateCondition_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateCondition -&gt; Maybe Text)
--&gt; (UpdateCondition -&gt; Maybe Text -&gt; UpdateCondition)
--&gt; Lens UpdateCondition UpdateCondition (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SDB.Types.UpdateCondition.html#UpdateCondition%27"><span class="hs-identifier hs-type">UpdateCondition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679149601"><span class="annot"><span class="annottext">Maybe Text
-name :: Maybe Text
-$sel:name:UpdateCondition' :: UpdateCondition -&gt; Maybe Text
-</span><a href="#local-6989586621679149601"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679149601"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679149600"><span class="annot"><span class="annottext">s :: UpdateCondition
-</span><a href="#local-6989586621679149600"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SDB.Types.UpdateCondition.html#UpdateCondition%27"><span class="hs-identifier hs-type">UpdateCondition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679149599"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679149599"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateCondition
-</span><a href="#local-6989586621679149600"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:UpdateCondition' :: Maybe Text
-</span><a href="Network.AWS.SDB.Types.UpdateCondition.html#%24sel%3Aname%3AUpdateCondition%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679149599"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SDB.Types.UpdateCondition.html#UpdateCondition"><span class="hs-identifier hs-type">UpdateCondition</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- | The value of an attribute. This value can only be specified when the</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- @Exists@ parameter is equal to @true@.</span><span>
-</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.SDB.Types.UpdateCondition.html#updateCondition_value"><span class="hs-identifier hs-type">updateCondition_value</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.Types.UpdateCondition.html#UpdateCondition"><span class="hs-identifier hs-type">UpdateCondition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-90"></span><span id="updateCondition_value"><span class="annot"><span class="annottext">updateCondition_value :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-83"></span><span class="hs-comment">-- | The value of an attribute. This value can only be specified when the</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- @Exists@ parameter is equal to @true@.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.SDB.Types.UpdateCondition.html#updateCondition_value"><span class="hs-identifier hs-type">updateCondition_value</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.Types.UpdateCondition.html#UpdateCondition"><span class="hs-identifier hs-type">UpdateCondition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span id="updateCondition_value"><span class="annot"><span class="annottext">updateCondition_value :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; UpdateCondition -&gt; f UpdateCondition
 </span><a href="Network.AWS.SDB.Types.UpdateCondition.html#updateCondition_value"><span class="hs-identifier hs-var hs-var">updateCondition_value</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateCondition -&gt; Maybe Text)
 -&gt; (UpdateCondition -&gt; Maybe Text -&gt; UpdateCondition)
 -&gt; Lens UpdateCondition UpdateCondition (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SDB.Types.UpdateCondition.html#UpdateCondition%27"><span class="hs-identifier hs-type">UpdateCondition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679149597"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SDB.Types.UpdateCondition.html#UpdateCondition%27"><span class="hs-identifier hs-type">UpdateCondition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679149649"><span class="annot"><span class="annottext">Maybe Text
 value :: Maybe Text
 $sel:value:UpdateCondition' :: UpdateCondition -&gt; Maybe Text
-</span><a href="#local-6989586621679149597"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679149597"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679149596"><span class="annot"><span class="annottext">s :: UpdateCondition
-</span><a href="#local-6989586621679149596"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SDB.Types.UpdateCondition.html#UpdateCondition%27"><span class="hs-identifier hs-type">UpdateCondition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679149595"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679149595"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateCondition
-</span><a href="#local-6989586621679149596"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:UpdateCondition' :: Maybe Text
+</span><a href="#local-6989586621679149649"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679149649"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679149648"><span class="annot"><span class="annottext">s :: UpdateCondition
+</span><a href="#local-6989586621679149648"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SDB.Types.UpdateCondition.html#UpdateCondition%27"><span class="hs-identifier hs-type">UpdateCondition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679149647"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679149647"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateCondition
+</span><a href="#local-6989586621679149648"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:UpdateCondition' :: Maybe Text
 </span><a href="Network.AWS.SDB.Types.UpdateCondition.html#%24sel%3Avalue%3AUpdateCondition%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679149595"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SDB.Types.UpdateCondition.html#UpdateCondition"><span class="hs-identifier hs-type">UpdateCondition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679149647"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SDB.Types.UpdateCondition.html#UpdateCondition"><span class="hs-identifier hs-type">UpdateCondition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | The name of the attribute involved in the condition.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.SDB.Types.UpdateCondition.html#updateCondition_name"><span class="hs-identifier hs-type">updateCondition_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.Types.UpdateCondition.html#UpdateCondition"><span class="hs-identifier hs-type">UpdateCondition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="updateCondition_name"><span class="annot"><span class="annottext">updateCondition_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateCondition -&gt; f UpdateCondition
+</span><a href="Network.AWS.SDB.Types.UpdateCondition.html#updateCondition_name"><span class="hs-identifier hs-var hs-var">updateCondition_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateCondition -&gt; Maybe Text)
+-&gt; (UpdateCondition -&gt; Maybe Text -&gt; UpdateCondition)
+-&gt; Lens UpdateCondition UpdateCondition (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SDB.Types.UpdateCondition.html#UpdateCondition%27"><span class="hs-identifier hs-type">UpdateCondition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679149645"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:UpdateCondition' :: UpdateCondition -&gt; Maybe Text
+</span><a href="#local-6989586621679149645"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679149645"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679149644"><span class="annot"><span class="annottext">s :: UpdateCondition
+</span><a href="#local-6989586621679149644"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SDB.Types.UpdateCondition.html#UpdateCondition%27"><span class="hs-identifier hs-type">UpdateCondition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679149643"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679149643"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateCondition
+</span><a href="#local-6989586621679149644"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:UpdateCondition' :: Maybe Text
+</span><a href="Network.AWS.SDB.Types.UpdateCondition.html#%24sel%3Aname%3AUpdateCondition%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679149643"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SDB.Types.UpdateCondition.html#UpdateCondition"><span class="hs-identifier hs-type">UpdateCondition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679149591"><span id="local-6989586621679149593"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.Types.UpdateCondition.html#UpdateCondition"><span class="hs-identifier hs-type">UpdateCondition</span></a></span></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679149639"><span id="local-6989586621679149641"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.Types.UpdateCondition.html#UpdateCondition"><span class="hs-identifier hs-type">UpdateCondition</span></a></span></span></span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679149588"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.Types.UpdateCondition.html#UpdateCondition"><span class="hs-identifier hs-type">UpdateCondition</span></a></span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679149636"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.Types.UpdateCondition.html#UpdateCondition"><span class="hs-identifier hs-type">UpdateCondition</span></a></span></span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.Types.UpdateCondition.html#UpdateCondition"><span class="hs-identifier hs-type">UpdateCondition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679149584"><span class="annot"><span class="annottext">toQuery :: UpdateCondition -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.Types.UpdateCondition.html#UpdateCondition%27"><span class="hs-identifier hs-type">UpdateCondition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679149580"><span id="local-6989586621679149581"><span id="local-6989586621679149582"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679149632"><span class="annot"><span class="annottext">toQuery :: UpdateCondition -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.Types.UpdateCondition.html#UpdateCondition%27"><span class="hs-identifier hs-type">UpdateCondition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679149628"><span id="local-6989586621679149629"><span id="local-6989586621679149630"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Text
-value :: Maybe Text
 name :: Maybe Text
+value :: Maybe Text
 exists :: Maybe Bool
-$sel:value:UpdateCondition' :: UpdateCondition -&gt; Maybe Text
 $sel:name:UpdateCondition' :: UpdateCondition -&gt; Maybe Text
+$sel:value:UpdateCondition' :: UpdateCondition -&gt; Maybe Text
 $sel:exists:UpdateCondition' :: UpdateCondition -&gt; Maybe Bool
-</span><a href="#local-6989586621679149580"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679149628"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -223,16 +223,16 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;Exists&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679149582"><span class="hs-identifier hs-var">exists</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679149630"><span class="hs-identifier hs-var">exists</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-100"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679149581"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-101"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Value&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679149580"><span class="hs-identifier hs-var">value</span></a></span><span>
+</span><a href="#local-6989586621679149629"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679149628"><span class="hs-identifier hs-var">name</span></a></span><span>
 </span><span id="line-102"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-103"></span></pre></body></html>

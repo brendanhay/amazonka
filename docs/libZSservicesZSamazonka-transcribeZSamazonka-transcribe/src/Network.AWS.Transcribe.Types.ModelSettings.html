@@ -27,12 +27,12 @@
 </span><span id="line-27"></span><span class="hs-comment">-- job.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newModelSettings' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679272844"><span id="local-6989586621679272845"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModelSettings"><span class="annot"><a href="Network.AWS.Transcribe.Types.ModelSettings.html#ModelSettings"><span class="hs-identifier hs-var">ModelSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModelSettings%27"><span class="annot"><a href="Network.AWS.Transcribe.Types.ModelSettings.html#ModelSettings%27"><span class="hs-identifier hs-var">ModelSettings'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679273007"><span id="local-6989586621679273008"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModelSettings"><span class="annot"><a href="Network.AWS.Transcribe.Types.ModelSettings.html#ModelSettings"><span class="hs-identifier hs-var">ModelSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModelSettings%27"><span class="annot"><a href="Network.AWS.Transcribe.Types.ModelSettings.html#ModelSettings%27"><span class="hs-identifier hs-var">ModelSettings'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of your custom language model.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AlanguageModelName%3AModelSettings%27"><span class="annot"><span class="annottext">ModelSettings -&gt; Maybe Text
 </span><a href="Network.AWS.Transcribe.Types.ModelSettings.html#%24sel%3AlanguageModelName%3AModelSettings%27"><span class="hs-identifier hs-var hs-var">languageModelName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679272838"><span id="local-6989586621679272840"><span class="annot"><span class="annottext">ModelSettings -&gt; ModelSettings -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679273001"><span id="local-6989586621679273003"><span class="annot"><span class="annottext">ModelSettings -&gt; ModelSettings -&gt; Bool
 (ModelSettings -&gt; ModelSettings -&gt; Bool)
 -&gt; (ModelSettings -&gt; ModelSettings -&gt; Bool) -&gt; Eq ModelSettings
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -40,7 +40,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ModelSettings -&gt; ModelSettings -&gt; Bool
 == :: ModelSettings -&gt; ModelSettings -&gt; Bool
 $c== :: ModelSettings -&gt; ModelSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679272829"><span id="local-6989586621679272831"><span id="local-6989586621679272833"><span id="local-6989586621679272835"><span class="annot"><span class="annottext">ReadPrec [ModelSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679272992"><span id="local-6989586621679272994"><span id="local-6989586621679272996"><span id="local-6989586621679272998"><span class="annot"><span class="annottext">ReadPrec [ModelSettings]
 ReadPrec ModelSettings
 Int -&gt; ReadS ModelSettings
 ReadS [ModelSettings]
@@ -60,7 +60,7 @@ readList :: ReadS [ModelSettings]
 $creadList :: ReadS [ModelSettings]
 readsPrec :: Int -&gt; ReadS ModelSettings
 $creadsPrec :: Int -&gt; ReadS ModelSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679272822"><span id="local-6989586621679272824"><span id="local-6989586621679272826"><span class="annot"><span class="annottext">Int -&gt; ModelSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679272985"><span id="local-6989586621679272987"><span id="local-6989586621679272989"><span class="annot"><span class="annottext">Int -&gt; ModelSettings -&gt; ShowS
 [ModelSettings] -&gt; ShowS
 ModelSettings -&gt; String
 (Int -&gt; ModelSettings -&gt; ShowS)
@@ -112,19 +112,19 @@ forall a. Maybe a
 -&gt; (ModelSettings -&gt; Maybe Text -&gt; ModelSettings)
 -&gt; Lens ModelSettings ModelSettings (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.ModelSettings.html#ModelSettings%27"><span class="hs-identifier hs-type">ModelSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272813"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.ModelSettings.html#ModelSettings%27"><span class="hs-identifier hs-type">ModelSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272976"><span class="annot"><span class="annottext">Maybe Text
 languageModelName :: Maybe Text
 $sel:languageModelName:ModelSettings' :: ModelSettings -&gt; Maybe Text
-</span><a href="#local-6989586621679272813"><span class="hs-identifier hs-var hs-var">languageModelName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679272813"><span class="hs-identifier hs-var">languageModelName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272812"><span class="annot"><span class="annottext">s :: ModelSettings
-</span><a href="#local-6989586621679272812"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.ModelSettings.html#ModelSettings%27"><span class="hs-identifier hs-type">ModelSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272811"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679272811"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelSettings
-</span><a href="#local-6989586621679272812"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:languageModelName:ModelSettings' :: Maybe Text
+</span><a href="#local-6989586621679272976"><span class="hs-identifier hs-var hs-var">languageModelName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679272976"><span class="hs-identifier hs-var">languageModelName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272975"><span class="annot"><span class="annottext">s :: ModelSettings
+</span><a href="#local-6989586621679272975"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.ModelSettings.html#ModelSettings%27"><span class="hs-identifier hs-type">ModelSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272974"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679272974"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelSettings
+</span><a href="#local-6989586621679272975"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:languageModelName:ModelSettings' :: Maybe Text
 </span><a href="Network.AWS.Transcribe.Types.ModelSettings.html#%24sel%3AlanguageModelName%3AModelSettings%27"><span class="hs-identifier hs-var">languageModelName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679272811"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.ModelSettings.html#ModelSettings"><span class="hs-identifier hs-type">ModelSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679272974"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.ModelSettings.html#ModelSettings"><span class="hs-identifier hs-type">ModelSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-53"></span><span>
-</span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679272808"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.ModelSettings.html#ModelSettings"><span class="hs-identifier hs-type">ModelSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-55"></span><span>  </span><span id="local-6989586621679272806"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ModelSettings
+</span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679272971"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.ModelSettings.html#ModelSettings"><span class="hs-identifier hs-type">ModelSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-55"></span><span>  </span><span id="local-6989586621679272969"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ModelSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-56"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ModelSettings)
@@ -134,30 +134,30 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ModelSettings&quot;</span></span><span>
-</span><span id="line-58"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679272803"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679272803"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-58"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679272966"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679272966"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-59"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; ModelSettings
 </span><a href="Network.AWS.Transcribe.Types.ModelSettings.html#ModelSettings%27"><span class="hs-identifier hs-var">ModelSettings'</span></a></span><span>
 </span><span id="line-60"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; ModelSettings)
 -&gt; Parser (Maybe Text) -&gt; Parser ModelSettings
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679272803"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679272966"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LanguageModelName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679272797"><span id="local-6989586621679272799"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.ModelSettings.html#ModelSettings"><span class="hs-identifier hs-type">ModelSettings</span></a></span></span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679272960"><span id="local-6989586621679272962"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.ModelSettings.html#ModelSettings"><span class="hs-identifier hs-type">ModelSettings</span></a></span></span></span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679272794"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.ModelSettings.html#ModelSettings"><span class="hs-identifier hs-type">ModelSettings</span></a></span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679272957"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.ModelSettings.html#ModelSettings"><span class="hs-identifier hs-type">ModelSettings</span></a></span></span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679272786"><span id="local-6989586621679272788"><span id="local-6989586621679272790"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.ModelSettings.html#ModelSettings"><span class="hs-identifier hs-type">ModelSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-68"></span><span>  </span><span id="local-6989586621679272784"><span class="annot"><span class="annottext">toJSON :: ModelSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.ModelSettings.html#ModelSettings%27"><span class="hs-identifier hs-type">ModelSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272782"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679272949"><span id="local-6989586621679272951"><span id="local-6989586621679272953"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.ModelSettings.html#ModelSettings"><span class="hs-identifier hs-type">ModelSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621679272947"><span class="annot"><span class="annottext">toJSON :: ModelSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.ModelSettings.html#ModelSettings%27"><span class="hs-identifier hs-type">ModelSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272945"><span class="annot"><span class="annottext">Maybe Text
 languageModelName :: Maybe Text
 $sel:languageModelName:ModelSettings' :: ModelSettings -&gt; Maybe Text
-</span><a href="#local-6989586621679272782"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679272945"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-69"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -170,7 +170,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-72"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679272782"><span class="hs-identifier hs-var">languageModelName</span></a></span><span>
+</span><a href="#local-6989586621679272945"><span class="hs-identifier hs-var">languageModelName</span></a></span><span>
 </span><span id="line-73"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-74"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span></pre></body></html>

@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- from a segment.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newAttributeDimension' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679591651"><span id="local-6989586621679591652"></span></span><span class="hs-keyword">data</span><span> </span><span id="AttributeDimension"><span class="annot"><a href="Network.AWS.Pinpoint.Types.AttributeDimension.html#AttributeDimension"><span class="hs-identifier hs-var">AttributeDimension</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AttributeDimension%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.AttributeDimension.html#AttributeDimension%27"><span class="hs-identifier hs-var">AttributeDimension'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679592081"><span id="local-6989586621679592082"></span></span><span class="hs-keyword">data</span><span> </span><span id="AttributeDimension"><span class="annot"><a href="Network.AWS.Pinpoint.Types.AttributeDimension.html#AttributeDimension"><span class="hs-identifier hs-var">AttributeDimension</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AttributeDimension%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.AttributeDimension.html#AttributeDimension%27"><span class="hs-identifier hs-var">AttributeDimension'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type of segment dimension to use. Valid values are:</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- INCLUSIVE - endpoints that have attributes matching the values are</span><span>
@@ -59,7 +59,7 @@
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3Avalues%3AAttributeDimension%27"><span class="annot"><span class="annottext">AttributeDimension -&gt; [Text]
 </span><a href="Network.AWS.Pinpoint.Types.AttributeDimension.html#%24sel%3Avalues%3AAttributeDimension%27"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679591644"><span id="local-6989586621679591646"><span class="annot"><span class="annottext">AttributeDimension -&gt; AttributeDimension -&gt; Bool
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679592074"><span id="local-6989586621679592076"><span class="annot"><span class="annottext">AttributeDimension -&gt; AttributeDimension -&gt; Bool
 (AttributeDimension -&gt; AttributeDimension -&gt; Bool)
 -&gt; (AttributeDimension -&gt; AttributeDimension -&gt; Bool)
 -&gt; Eq AttributeDimension
@@ -68,7 +68,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AttributeDimension -&gt; AttributeDimension -&gt; Bool
 == :: AttributeDimension -&gt; AttributeDimension -&gt; Bool
 $c== :: AttributeDimension -&gt; AttributeDimension -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679591635"><span id="local-6989586621679591637"><span id="local-6989586621679591639"><span id="local-6989586621679591641"><span class="annot"><span class="annottext">ReadPrec [AttributeDimension]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679592065"><span id="local-6989586621679592067"><span id="local-6989586621679592069"><span id="local-6989586621679592071"><span class="annot"><span class="annottext">ReadPrec [AttributeDimension]
 ReadPrec AttributeDimension
 Int -&gt; ReadS AttributeDimension
 ReadS [AttributeDimension]
@@ -88,7 +88,7 @@ readList :: ReadS [AttributeDimension]
 $creadList :: ReadS [AttributeDimension]
 readsPrec :: Int -&gt; ReadS AttributeDimension
 $creadsPrec :: Int -&gt; ReadS AttributeDimension
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679591628"><span id="local-6989586621679591630"><span id="local-6989586621679591632"><span class="annot"><span class="annottext">Int -&gt; AttributeDimension -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679592058"><span id="local-6989586621679592060"><span id="local-6989586621679592062"><span class="annot"><span class="annottext">Int -&gt; AttributeDimension -&gt; ShowS
 [AttributeDimension] -&gt; ShowS
 AttributeDimension -&gt; String
 (Int -&gt; AttributeDimension -&gt; ShowS)
@@ -199,16 +199,16 @@ forall a. Monoid a =&gt; a
      (Maybe AttributeType)
      (Maybe AttributeType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AttributeDimension.html#AttributeDimension%27"><span class="hs-identifier hs-type">AttributeDimension'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679591619"><span class="annot"><span class="annottext">Maybe AttributeType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AttributeDimension.html#AttributeDimension%27"><span class="hs-identifier hs-type">AttributeDimension'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679592049"><span class="annot"><span class="annottext">Maybe AttributeType
 attributeType :: Maybe AttributeType
 $sel:attributeType:AttributeDimension' :: AttributeDimension -&gt; Maybe AttributeType
-</span><a href="#local-6989586621679591619"><span class="hs-identifier hs-var hs-var">attributeType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AttributeType
-</span><a href="#local-6989586621679591619"><span class="hs-identifier hs-var">attributeType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679591618"><span class="annot"><span class="annottext">s :: AttributeDimension
-</span><a href="#local-6989586621679591618"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AttributeDimension.html#AttributeDimension%27"><span class="hs-identifier hs-type">AttributeDimension'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679591617"><span class="annot"><span class="annottext">Maybe AttributeType
-</span><a href="#local-6989586621679591617"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttributeDimension
-</span><a href="#local-6989586621679591618"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributeType:AttributeDimension' :: Maybe AttributeType
+</span><a href="#local-6989586621679592049"><span class="hs-identifier hs-var hs-var">attributeType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AttributeType
+</span><a href="#local-6989586621679592049"><span class="hs-identifier hs-var">attributeType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679592048"><span class="annot"><span class="annottext">s :: AttributeDimension
+</span><a href="#local-6989586621679592048"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AttributeDimension.html#AttributeDimension%27"><span class="hs-identifier hs-type">AttributeDimension'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679592047"><span class="annot"><span class="annottext">Maybe AttributeType
+</span><a href="#local-6989586621679592047"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttributeDimension
+</span><a href="#local-6989586621679592048"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributeType:AttributeDimension' :: Maybe AttributeType
 </span><a href="Network.AWS.Pinpoint.Types.AttributeDimension.html#%24sel%3AattributeType%3AAttributeDimension%27"><span class="hs-identifier hs-var">attributeType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AttributeType
-</span><a href="#local-6989586621679591617"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AttributeDimension.html#AttributeDimension"><span class="hs-identifier hs-type">AttributeDimension</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679592047"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AttributeDimension.html#AttributeDimension"><span class="hs-identifier hs-type">AttributeDimension</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-comment">-- | The criteria values to use for the segment dimension. Depending on the</span><span>
 </span><span id="line-131"></span><span class="hs-comment">-- value of the AttributeType property, endpoints are included or excluded</span><span>
@@ -219,16 +219,16 @@ $sel:attributeType:AttributeDimension' :: AttributeDimension -&gt; Maybe Attribu
 -&gt; (AttributeDimension -&gt; [Text] -&gt; AttributeDimension)
 -&gt; Lens AttributeDimension AttributeDimension [Text] [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AttributeDimension.html#AttributeDimension%27"><span class="hs-identifier hs-type">AttributeDimension'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679591615"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AttributeDimension.html#AttributeDimension%27"><span class="hs-identifier hs-type">AttributeDimension'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679592045"><span class="annot"><span class="annottext">[Text]
 values :: [Text]
 $sel:values:AttributeDimension' :: AttributeDimension -&gt; [Text]
-</span><a href="#local-6989586621679591615"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679591615"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679591614"><span class="annot"><span class="annottext">s :: AttributeDimension
-</span><a href="#local-6989586621679591614"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AttributeDimension.html#AttributeDimension%27"><span class="hs-identifier hs-type">AttributeDimension'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679591613"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679591613"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttributeDimension
-</span><a href="#local-6989586621679591614"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:values:AttributeDimension' :: [Text]
+</span><a href="#local-6989586621679592045"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679592045"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679592044"><span class="annot"><span class="annottext">s :: AttributeDimension
+</span><a href="#local-6989586621679592044"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AttributeDimension.html#AttributeDimension%27"><span class="hs-identifier hs-type">AttributeDimension'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679592043"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679592043"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttributeDimension
+</span><a href="#local-6989586621679592044"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:values:AttributeDimension' :: [Text]
 </span><a href="Network.AWS.Pinpoint.Types.AttributeDimension.html#%24sel%3Avalues%3AAttributeDimension%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679591613"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AttributeDimension.html#AttributeDimension"><span class="hs-identifier hs-type">AttributeDimension</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+</span><a href="#local-6989586621679592043"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AttributeDimension.html#AttributeDimension"><span class="hs-identifier hs-type">AttributeDimension</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
  -&gt; AttributeDimension -&gt; f AttributeDimension)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
@@ -236,11 +236,11 @@ $sel:values:AttributeDimension' :: AttributeDimension -&gt; [Text]
 -&gt; f AttributeDimension
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-135"></span><span>
-</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679591608"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AttributeDimension.html#AttributeDimension"><span class="hs-identifier hs-type">AttributeDimension</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679591606"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AttributeDimension
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679592038"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AttributeDimension.html#AttributeDimension"><span class="hs-identifier hs-type">AttributeDimension</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679592036"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AttributeDimension
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-138"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AttributeDimension)
@@ -250,8 +250,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-139"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AttributeDimension&quot;</span></span><span>
-</span><span id="line-140"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679591603"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679591603"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-140"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679592033"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679592033"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-141"></span><span>          </span><span class="annot"><span class="annottext">Maybe AttributeType -&gt; [Text] -&gt; AttributeDimension
 </span><a href="Network.AWS.Pinpoint.Types.AttributeDimension.html#AttributeDimension%27"><span class="hs-identifier hs-var">AttributeDimension'</span></a></span><span>
 </span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">(Maybe AttributeType -&gt; [Text] -&gt; AttributeDimension)
@@ -259,7 +259,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser ([Text] -&gt; AttributeDimension)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679591603"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AttributeType)
+</span><a href="#local-6989586621679592033"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AttributeType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AttributeType&quot;</span></span><span class="hs-special">)</span><span>
@@ -267,7 +267,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser [Text] -&gt; Parser AttributeDimension
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679591603"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [Text])
+</span><a href="#local-6989586621679592033"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [Text])
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Values&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe [Text]) -&gt; [Text] -&gt; Parser [Text]
@@ -277,19 +277,19 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>
-</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679591596"><span id="local-6989586621679591598"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AttributeDimension.html#AttributeDimension"><span class="hs-identifier hs-type">AttributeDimension</span></a></span></span></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679592026"><span id="local-6989586621679592028"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AttributeDimension.html#AttributeDimension"><span class="hs-identifier hs-type">AttributeDimension</span></a></span></span></span><span>
 </span><span id="line-147"></span><span>
-</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679591593"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AttributeDimension.html#AttributeDimension"><span class="hs-identifier hs-type">AttributeDimension</span></a></span></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679592023"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AttributeDimension.html#AttributeDimension"><span class="hs-identifier hs-type">AttributeDimension</span></a></span></span><span>
 </span><span id="line-149"></span><span>
-</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679591585"><span id="local-6989586621679591587"><span id="local-6989586621679591589"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AttributeDimension.html#AttributeDimension"><span class="hs-identifier hs-type">AttributeDimension</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-151"></span><span>  </span><span id="local-6989586621679591583"><span class="annot"><span class="annottext">toJSON :: AttributeDimension -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AttributeDimension.html#AttributeDimension%27"><span class="hs-identifier hs-type">AttributeDimension'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679591580"><span id="local-6989586621679591581"><span class="annot"><span class="annottext">[Text]
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679592015"><span id="local-6989586621679592017"><span id="local-6989586621679592019"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AttributeDimension.html#AttributeDimension"><span class="hs-identifier hs-type">AttributeDimension</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679592013"><span class="annot"><span class="annottext">toJSON :: AttributeDimension -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AttributeDimension.html#AttributeDimension%27"><span class="hs-identifier hs-type">AttributeDimension'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679592010"><span id="local-6989586621679592011"><span class="annot"><span class="annottext">[Text]
 Maybe AttributeType
 values :: [Text]
 attributeType :: Maybe AttributeType
 $sel:values:AttributeDimension' :: AttributeDimension -&gt; [Text]
 $sel:attributeType:AttributeDimension' :: AttributeDimension -&gt; Maybe AttributeType
-</span><a href="#local-6989586621679591580"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679592010"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-152"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-153"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -301,14 +301,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(AttributeType -&gt; Pair) -&gt; Maybe AttributeType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AttributeType
-</span><a href="#local-6989586621679591581"><span class="hs-identifier hs-var">attributeType</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679592011"><span class="hs-identifier hs-var">attributeType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Values&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679591580"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679592010"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-157"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span></pre></body></html>

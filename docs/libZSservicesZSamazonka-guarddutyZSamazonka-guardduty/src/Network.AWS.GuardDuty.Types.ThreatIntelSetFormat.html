@@ -33,13 +33,13 @@
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-35"></span><span>
-</span><span id="line-36"></span><span id="local-6989586621679301274"><span id="local-6989586621679301275"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ThreatIntelSetFormat"><span class="annot"><a href="Network.AWS.GuardDuty.Types.ThreatIntelSetFormat.html#ThreatIntelSetFormat"><span class="hs-identifier hs-var">ThreatIntelSetFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ThreatIntelSetFormat%27"><span class="annot"><a href="Network.AWS.GuardDuty.Types.ThreatIntelSetFormat.html#ThreatIntelSetFormat%27"><span class="hs-identifier hs-var">ThreatIntelSetFormat'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679301565"><span id="local-6989586621679301566"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ThreatIntelSetFormat"><span class="annot"><a href="Network.AWS.GuardDuty.Types.ThreatIntelSetFormat.html#ThreatIntelSetFormat"><span class="hs-identifier hs-var">ThreatIntelSetFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ThreatIntelSetFormat%27"><span class="annot"><a href="Network.AWS.GuardDuty.Types.ThreatIntelSetFormat.html#ThreatIntelSetFormat%27"><span class="hs-identifier hs-var">ThreatIntelSetFormat'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromThreatIntelSetFormat"><span class="annot"><span class="annottext">ThreatIntelSetFormat -&gt; Text
 </span><a href="Network.AWS.GuardDuty.Types.ThreatIntelSetFormat.html#fromThreatIntelSetFormat"><span class="hs-identifier hs-var hs-var">fromThreatIntelSetFormat</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679301266"><span id="local-6989586621679301268"><span id="local-6989586621679301270"><span class="annot"><span class="annottext">Int -&gt; ThreatIntelSetFormat -&gt; ShowS
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679301557"><span id="local-6989586621679301559"><span id="local-6989586621679301561"><span class="annot"><span class="annottext">Int -&gt; ThreatIntelSetFormat -&gt; ShowS
 [ThreatIntelSetFormat] -&gt; ShowS
 ThreatIntelSetFormat -&gt; String
 (Int -&gt; ThreatIntelSetFormat -&gt; ShowS)
@@ -55,7 +55,7 @@ $cshow :: ThreatIntelSetFormat -&gt; String
 showsPrec :: Int -&gt; ThreatIntelSetFormat -&gt; ShowS
 $cshowsPrec :: Int -&gt; ThreatIntelSetFormat -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679301257"><span id="local-6989586621679301259"><span id="local-6989586621679301261"><span id="local-6989586621679301263"><span class="annot"><span class="annottext">ReadPrec [ThreatIntelSetFormat]
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679301548"><span id="local-6989586621679301550"><span id="local-6989586621679301552"><span id="local-6989586621679301554"><span class="annot"><span class="annottext">ReadPrec [ThreatIntelSetFormat]
 ReadPrec ThreatIntelSetFormat
 Int -&gt; ReadS ThreatIntelSetFormat
 ReadS [ThreatIntelSetFormat]
@@ -76,7 +76,7 @@ $creadList :: ReadS [ThreatIntelSetFormat]
 readsPrec :: Int -&gt; ReadS ThreatIntelSetFormat
 $creadsPrec :: Int -&gt; ReadS ThreatIntelSetFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679301252"><span id="local-6989586621679301254"><span class="annot"><span class="annottext">ThreatIntelSetFormat -&gt; ThreatIntelSetFormat -&gt; Bool
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679301543"><span id="local-6989586621679301545"><span class="annot"><span class="annottext">ThreatIntelSetFormat -&gt; ThreatIntelSetFormat -&gt; Bool
 (ThreatIntelSetFormat -&gt; ThreatIntelSetFormat -&gt; Bool)
 -&gt; (ThreatIntelSetFormat -&gt; ThreatIntelSetFormat -&gt; Bool)
 -&gt; Eq ThreatIntelSetFormat
@@ -86,7 +86,7 @@ $c/= :: ThreatIntelSetFormat -&gt; ThreatIntelSetFormat -&gt; Bool
 == :: ThreatIntelSetFormat -&gt; ThreatIntelSetFormat -&gt; Bool
 $c== :: ThreatIntelSetFormat -&gt; ThreatIntelSetFormat -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679301236"><span id="local-6989586621679301238"><span id="local-6989586621679301240"><span id="local-6989586621679301242"><span id="local-6989586621679301244"><span id="local-6989586621679301246"><span id="local-6989586621679301248"><span class="annot"><span class="annottext">Eq ThreatIntelSetFormat
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679301527"><span id="local-6989586621679301529"><span id="local-6989586621679301531"><span id="local-6989586621679301533"><span id="local-6989586621679301535"><span id="local-6989586621679301537"><span id="local-6989586621679301539"><span class="annot"><span class="annottext">Eq ThreatIntelSetFormat
 Eq ThreatIntelSetFormat
 -&gt; (ThreatIntelSetFormat -&gt; ThreatIntelSetFormat -&gt; Ordering)
 -&gt; (ThreatIntelSetFormat -&gt; ThreatIntelSetFormat -&gt; Bool)
@@ -144,7 +144,7 @@ $cfrom :: forall x. ThreatIntelSetFormat -&gt; Rep ThreatIntelSetFormat x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679301228"><span id="local-6989586621679301230"><span class="annot"><span class="annottext">Int -&gt; ThreatIntelSetFormat -&gt; Int
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679301519"><span id="local-6989586621679301521"><span class="annot"><span class="annottext">Int -&gt; ThreatIntelSetFormat -&gt; Int
 ThreatIntelSetFormat -&gt; Int
 (Int -&gt; ThreatIntelSetFormat -&gt; Int)
 -&gt; (ThreatIntelSetFormat -&gt; Int) -&gt; Hashable ThreatIntelSetFormat
@@ -154,54 +154,54 @@ $chash :: ThreatIntelSetFormat -&gt; Int
 hashWithSalt :: Int -&gt; ThreatIntelSetFormat -&gt; Int
 $chashWithSalt :: Int -&gt; ThreatIntelSetFormat -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679301225"><span class="annot"><span class="annottext">ThreatIntelSetFormat -&gt; ()
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679301516"><span class="annot"><span class="annottext">ThreatIntelSetFormat -&gt; ()
 (ThreatIntelSetFormat -&gt; ()) -&gt; NFData ThreatIntelSetFormat
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ThreatIntelSetFormat -&gt; ()
 $crnf :: ThreatIntelSetFormat -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679301222"><span class="annot"><span class="annottext">Text -&gt; Either String ThreatIntelSetFormat
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679301513"><span class="annot"><span class="annottext">Text -&gt; Either String ThreatIntelSetFormat
 (Text -&gt; Either String ThreatIntelSetFormat)
 -&gt; FromText ThreatIntelSetFormat
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ThreatIntelSetFormat
 $cfromText :: Text -&gt; Either String ThreatIntelSetFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679301219"><span class="annot"><span class="annottext">ThreatIntelSetFormat -&gt; Text
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679301510"><span class="annot"><span class="annottext">ThreatIntelSetFormat -&gt; Text
 (ThreatIntelSetFormat -&gt; Text) -&gt; ToText ThreatIntelSetFormat
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ThreatIntelSetFormat -&gt; Text
 $ctoText :: ThreatIntelSetFormat -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679301216"><span class="annot"><span class="annottext">ThreatIntelSetFormat -&gt; ByteString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679301507"><span class="annot"><span class="annottext">ThreatIntelSetFormat -&gt; ByteString
 (ThreatIntelSetFormat -&gt; ByteString)
 -&gt; ToByteString ThreatIntelSetFormat
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ThreatIntelSetFormat -&gt; ByteString
 $ctoBS :: ThreatIntelSetFormat -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679301213"><span class="annot"><span class="annottext">ThreatIntelSetFormat -&gt; ByteStringBuilder
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679301504"><span class="annot"><span class="annottext">ThreatIntelSetFormat -&gt; ByteStringBuilder
 (ThreatIntelSetFormat -&gt; ByteStringBuilder)
 -&gt; ToLog ThreatIntelSetFormat
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ThreatIntelSetFormat -&gt; ByteStringBuilder
 $cbuild :: ThreatIntelSetFormat -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679301210"><span class="annot"><span class="annottext">HeaderName -&gt; ThreatIntelSetFormat -&gt; [Header]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679301501"><span class="annot"><span class="annottext">HeaderName -&gt; ThreatIntelSetFormat -&gt; [Header]
 (HeaderName -&gt; ThreatIntelSetFormat -&gt; [Header])
 -&gt; ToHeader ThreatIntelSetFormat
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ThreatIntelSetFormat -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ThreatIntelSetFormat -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679301207"><span class="annot"><span class="annottext">ThreatIntelSetFormat -&gt; QueryString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679301498"><span class="annot"><span class="annottext">ThreatIntelSetFormat -&gt; QueryString
 (ThreatIntelSetFormat -&gt; QueryString)
 -&gt; ToQuery ThreatIntelSetFormat
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ThreatIntelSetFormat -&gt; QueryString
 $ctoQuery :: ThreatIntelSetFormat -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679301202"><span id="local-6989586621679301204"><span class="annot"><span class="annottext">Value -&gt; Parser [ThreatIntelSetFormat]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679301493"><span id="local-6989586621679301495"><span class="annot"><span class="annottext">Value -&gt; Parser [ThreatIntelSetFormat]
 Value -&gt; Parser ThreatIntelSetFormat
 (Value -&gt; Parser ThreatIntelSetFormat)
 -&gt; (Value -&gt; Parser [ThreatIntelSetFormat])
@@ -213,7 +213,7 @@ $cparseJSONList :: Value -&gt; Parser [ThreatIntelSetFormat]
 parseJSON :: Value -&gt; Parser ThreatIntelSetFormat
 $cparseJSON :: Value -&gt; Parser ThreatIntelSetFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679301197"><span id="local-6989586621679301199"><span class="annot"><span class="annottext">FromJSONKeyFunction [ThreatIntelSetFormat]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679301488"><span id="local-6989586621679301490"><span class="annot"><span class="annottext">FromJSONKeyFunction [ThreatIntelSetFormat]
 FromJSONKeyFunction ThreatIntelSetFormat
 FromJSONKeyFunction ThreatIntelSetFormat
 -&gt; FromJSONKeyFunction [ThreatIntelSetFormat]
@@ -225,7 +225,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ThreatIntelSetFormat]
 fromJSONKey :: FromJSONKeyFunction ThreatIntelSetFormat
 $cfromJSONKey :: FromJSONKeyFunction ThreatIntelSetFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679301188"><span id="local-6989586621679301190"><span id="local-6989586621679301192"><span id="local-6989586621679301194"><span class="annot"><span class="annottext">[ThreatIntelSetFormat] -&gt; Encoding
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679301479"><span id="local-6989586621679301481"><span id="local-6989586621679301483"><span id="local-6989586621679301485"><span class="annot"><span class="annottext">[ThreatIntelSetFormat] -&gt; Encoding
 [ThreatIntelSetFormat] -&gt; Value
 ThreatIntelSetFormat -&gt; Encoding
 ThreatIntelSetFormat -&gt; Value
@@ -249,7 +249,7 @@ $ctoEncoding :: ThreatIntelSetFormat -&gt; Encoding
 toJSON :: ThreatIntelSetFormat -&gt; Value
 $ctoJSON :: ThreatIntelSetFormat -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679301183"><span id="local-6989586621679301185"><span class="annot"><span class="annottext">ToJSONKeyFunction [ThreatIntelSetFormat]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679301474"><span id="local-6989586621679301476"><span class="annot"><span class="annottext">ToJSONKeyFunction [ThreatIntelSetFormat]
 ToJSONKeyFunction ThreatIntelSetFormat
 ToJSONKeyFunction ThreatIntelSetFormat
 -&gt; ToJSONKeyFunction [ThreatIntelSetFormat]
@@ -261,14 +261,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ThreatIntelSetFormat]
 toJSONKey :: ToJSONKeyFunction ThreatIntelSetFormat
 $ctoJSONKey :: ToJSONKeyFunction ThreatIntelSetFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679301180"><span class="annot"><span class="annottext">[Node] -&gt; Either String ThreatIntelSetFormat
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679301471"><span class="annot"><span class="annottext">[Node] -&gt; Either String ThreatIntelSetFormat
 ([Node] -&gt; Either String ThreatIntelSetFormat)
 -&gt; FromXML ThreatIntelSetFormat
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ThreatIntelSetFormat
 $cparseXML :: [Node] -&gt; Either String ThreatIntelSetFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679301177"><span class="annot"><span class="annottext">ThreatIntelSetFormat -&gt; XML
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679301468"><span class="annot"><span class="annottext">ThreatIntelSetFormat -&gt; XML
 (ThreatIntelSetFormat -&gt; XML) -&gt; ToXML ThreatIntelSetFormat
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ThreatIntelSetFormat -&gt; XML

@@ -28,18 +28,18 @@
 </span><span id="line-28"></span><span class="hs-comment">-- run.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newBatchStopJobRunError' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679684717"><span id="local-6989586621679684718"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchStopJobRunError"><span class="annot"><a href="Network.AWS.Glue.Types.BatchStopJobRunError.html#BatchStopJobRunError"><span class="hs-identifier hs-var">BatchStopJobRunError</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchStopJobRunError%27"><span class="annot"><a href="Network.AWS.Glue.Types.BatchStopJobRunError.html#BatchStopJobRunError%27"><span class="hs-identifier hs-var">BatchStopJobRunError'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies details about the error that was encountered.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AerrorDetail%3ABatchStopJobRunError%27"><span class="annot"><span class="annottext">BatchStopJobRunError -&gt; Maybe ErrorDetail
-</span><a href="Network.AWS.Glue.Types.BatchStopJobRunError.html#%24sel%3AerrorDetail%3ABatchStopJobRunError%27"><span class="hs-identifier hs-var hs-var">errorDetail</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ErrorDetail.html#ErrorDetail"><span class="hs-identifier hs-type">ErrorDetail</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679686368"><span id="local-6989586621679686369"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchStopJobRunError"><span class="annot"><a href="Network.AWS.Glue.Types.BatchStopJobRunError.html#BatchStopJobRunError"><span class="hs-identifier hs-var">BatchStopJobRunError</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchStopJobRunError%27"><span class="annot"><a href="Network.AWS.Glue.Types.BatchStopJobRunError.html#BatchStopJobRunError%27"><span class="hs-identifier hs-var">BatchStopJobRunError'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the job definition that is used in the job run in question.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AjobName%3ABatchStopJobRunError%27"><span class="annot"><span class="annottext">BatchStopJobRunError -&gt; Maybe Text
+</span><a href="Network.AWS.Glue.Types.BatchStopJobRunError.html#%24sel%3AjobName%3ABatchStopJobRunError%27"><span class="hs-identifier hs-var hs-var">jobName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The @JobRunId@ of the job run in question.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AjobRunId%3ABatchStopJobRunError%27"><span class="annot"><span class="annottext">BatchStopJobRunError -&gt; Maybe Text
 </span><a href="Network.AWS.Glue.Types.BatchStopJobRunError.html#%24sel%3AjobRunId%3ABatchStopJobRunError%27"><span class="hs-identifier hs-var hs-var">jobRunId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The name of the job definition that is used in the job run in question.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AjobName%3ABatchStopJobRunError%27"><span class="annot"><span class="annottext">BatchStopJobRunError -&gt; Maybe Text
-</span><a href="Network.AWS.Glue.Types.BatchStopJobRunError.html#%24sel%3AjobName%3ABatchStopJobRunError%27"><span class="hs-identifier hs-var hs-var">jobName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Specifies details about the error that was encountered.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AerrorDetail%3ABatchStopJobRunError%27"><span class="annot"><span class="annottext">BatchStopJobRunError -&gt; Maybe ErrorDetail
+</span><a href="Network.AWS.Glue.Types.BatchStopJobRunError.html#%24sel%3AerrorDetail%3ABatchStopJobRunError%27"><span class="hs-identifier hs-var hs-var">errorDetail</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ErrorDetail.html#ErrorDetail"><span class="hs-identifier hs-type">ErrorDetail</span></a></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679684709"><span id="local-6989586621679684711"><span class="annot"><span class="annottext">BatchStopJobRunError -&gt; BatchStopJobRunError -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679686360"><span id="local-6989586621679686362"><span class="annot"><span class="annottext">BatchStopJobRunError -&gt; BatchStopJobRunError -&gt; Bool
 (BatchStopJobRunError -&gt; BatchStopJobRunError -&gt; Bool)
 -&gt; (BatchStopJobRunError -&gt; BatchStopJobRunError -&gt; Bool)
 -&gt; Eq BatchStopJobRunError
@@ -48,7 +48,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: BatchStopJobRunError -&gt; BatchStopJobRunError -&gt; Bool
 == :: BatchStopJobRunError -&gt; BatchStopJobRunError -&gt; Bool
 $c== :: BatchStopJobRunError -&gt; BatchStopJobRunError -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679684700"><span id="local-6989586621679684702"><span id="local-6989586621679684704"><span id="local-6989586621679684706"><span class="annot"><span class="annottext">ReadPrec [BatchStopJobRunError]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679686351"><span id="local-6989586621679686353"><span id="local-6989586621679686355"><span id="local-6989586621679686357"><span class="annot"><span class="annottext">ReadPrec [BatchStopJobRunError]
 ReadPrec BatchStopJobRunError
 Int -&gt; ReadS BatchStopJobRunError
 ReadS [BatchStopJobRunError]
@@ -68,7 +68,7 @@ readList :: ReadS [BatchStopJobRunError]
 $creadList :: ReadS [BatchStopJobRunError]
 readsPrec :: Int -&gt; ReadS BatchStopJobRunError
 $creadsPrec :: Int -&gt; ReadS BatchStopJobRunError
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679684693"><span id="local-6989586621679684695"><span id="local-6989586621679684697"><span class="annot"><span class="annottext">Int -&gt; BatchStopJobRunError -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679686344"><span id="local-6989586621679686346"><span id="local-6989586621679686348"><span class="annot"><span class="annottext">Int -&gt; BatchStopJobRunError -&gt; ShowS
 [BatchStopJobRunError] -&gt; ShowS
 BatchStopJobRunError -&gt; String
 (Int -&gt; BatchStopJobRunError -&gt; ShowS)
@@ -102,36 +102,75 @@ $cfrom :: forall x. BatchStopJobRunError -&gt; Rep BatchStopJobRunError x
 </span><span id="line-46"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-47"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-48"></span><span class="hs-comment">--</span><span>
-</span><span id="line-49"></span><span class="hs-comment">-- 'errorDetail', 'batchStopJobRunError_errorDetail' - Specifies details about the error that was encountered.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'jobName', 'batchStopJobRunError_jobName' - The name of the job definition that is used in the job run in question.</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- 'jobRunId', 'batchStopJobRunError_jobRunId' - The @JobRunId@ of the job run in question.</span><span>
 </span><span id="line-52"></span><span class="hs-comment">--</span><span>
-</span><span id="line-53"></span><span class="hs-comment">-- 'jobName', 'batchStopJobRunError_jobName' - The name of the job definition that is used in the job run in question.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'errorDetail', 'batchStopJobRunError_errorDetail' - Specifies details about the error that was encountered.</span><span>
 </span><span id="line-54"></span><span class="annot"><a href="Network.AWS.Glue.Types.BatchStopJobRunError.html#newBatchStopJobRunError"><span class="hs-identifier hs-type">newBatchStopJobRunError</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-55"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.Types.BatchStopJobRunError.html#BatchStopJobRunError"><span class="hs-identifier hs-type">BatchStopJobRunError</span></a></span><span>
 </span><span id="line-56"></span><span id="newBatchStopJobRunError"><span class="annot"><span class="annottext">newBatchStopJobRunError :: BatchStopJobRunError
 </span><a href="Network.AWS.Glue.Types.BatchStopJobRunError.html#newBatchStopJobRunError"><span class="hs-identifier hs-var hs-var">newBatchStopJobRunError</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-57"></span><span>  </span><span class="annot"><span class="annottext">BatchStopJobRunError' :: Maybe ErrorDetail
--&gt; Maybe Text -&gt; Maybe Text -&gt; BatchStopJobRunError
+</span><span id="line-57"></span><span>  </span><span class="annot"><span class="annottext">BatchStopJobRunError' :: Maybe Text
+-&gt; Maybe Text -&gt; Maybe ErrorDetail -&gt; BatchStopJobRunError
 </span><a href="Network.AWS.Glue.Types.BatchStopJobRunError.html#BatchStopJobRunError%27"><span class="hs-identifier hs-type">BatchStopJobRunError'</span></a></span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:errorDetail:BatchStopJobRunError' :: Maybe ErrorDetail
-</span><a href="Network.AWS.Glue.Types.BatchStopJobRunError.html#%24sel%3AerrorDetail%3ABatchStopJobRunError%27"><span class="hs-identifier hs-var">errorDetail</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-59"></span><span>        </span><span class="annot"><span class="annottext">Maybe ErrorDetail
+</span><span id="line-58"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:jobName:BatchStopJobRunError' :: Maybe Text
+</span><a href="Network.AWS.Glue.Types.BatchStopJobRunError.html#%24sel%3AjobName%3ABatchStopJobRunError%27"><span class="hs-identifier hs-var">jobName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobRunId:BatchStopJobRunError' :: Maybe Text
+</span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobRunId:BatchStopJobRunError' :: Maybe Text
 </span><a href="Network.AWS.Glue.Types.BatchStopJobRunError.html#%24sel%3AjobRunId%3ABatchStopJobRunError%27"><span class="hs-identifier hs-var">jobRunId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobName:BatchStopJobRunError' :: Maybe Text
-</span><a href="Network.AWS.Glue.Types.BatchStopJobRunError.html#%24sel%3AjobName%3ABatchStopJobRunError%27"><span class="hs-identifier hs-var">jobName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:errorDetail:BatchStopJobRunError' :: Maybe ErrorDetail
+</span><a href="Network.AWS.Glue.Types.BatchStopJobRunError.html#%24sel%3AerrorDetail%3ABatchStopJobRunError%27"><span class="hs-identifier hs-var">errorDetail</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ErrorDetail
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- | Specifies details about the error that was encountered.</span><span>
-</span><span id="line-65"></span><span class="annot"><a href="Network.AWS.Glue.Types.BatchStopJobRunError.html#batchStopJobRunError_errorDetail"><span class="hs-identifier hs-type">batchStopJobRunError_errorDetail</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.BatchStopJobRunError.html#BatchStopJobRunError"><span class="hs-identifier hs-type">BatchStopJobRunError</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ErrorDetail.html#ErrorDetail"><span class="hs-identifier hs-type">ErrorDetail</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-66"></span><span id="batchStopJobRunError_errorDetail"><span class="annot"><span class="annottext">batchStopJobRunError_errorDetail :: (Maybe ErrorDetail -&gt; f (Maybe ErrorDetail))
+</span><span id="line-61"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- | The name of the job definition that is used in the job run in question.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.Glue.Types.BatchStopJobRunError.html#batchStopJobRunError_jobName"><span class="hs-identifier hs-type">batchStopJobRunError_jobName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.BatchStopJobRunError.html#BatchStopJobRunError"><span class="hs-identifier hs-type">BatchStopJobRunError</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span id="batchStopJobRunError_jobName"><span class="annot"><span class="annottext">batchStopJobRunError_jobName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; BatchStopJobRunError -&gt; f BatchStopJobRunError
+</span><a href="Network.AWS.Glue.Types.BatchStopJobRunError.html#batchStopJobRunError_jobName"><span class="hs-identifier hs-var hs-var">batchStopJobRunError_jobName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchStopJobRunError -&gt; Maybe Text)
+-&gt; (BatchStopJobRunError -&gt; Maybe Text -&gt; BatchStopJobRunError)
+-&gt; Lens
+     BatchStopJobRunError BatchStopJobRunError (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.BatchStopJobRunError.html#BatchStopJobRunError%27"><span class="hs-identifier hs-type">BatchStopJobRunError'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679686335"><span class="annot"><span class="annottext">Maybe Text
+jobName :: Maybe Text
+$sel:jobName:BatchStopJobRunError' :: BatchStopJobRunError -&gt; Maybe Text
+</span><a href="#local-6989586621679686335"><span class="hs-identifier hs-var hs-var">jobName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679686335"><span class="hs-identifier hs-var">jobName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679686334"><span class="annot"><span class="annottext">s :: BatchStopJobRunError
+</span><a href="#local-6989586621679686334"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.BatchStopJobRunError.html#BatchStopJobRunError%27"><span class="hs-identifier hs-type">BatchStopJobRunError'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679686333"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679686333"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchStopJobRunError
+</span><a href="#local-6989586621679686334"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobName:BatchStopJobRunError' :: Maybe Text
+</span><a href="Network.AWS.Glue.Types.BatchStopJobRunError.html#%24sel%3AjobName%3ABatchStopJobRunError%27"><span class="hs-identifier hs-var">jobName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679686333"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.BatchStopJobRunError.html#BatchStopJobRunError"><span class="hs-identifier hs-type">BatchStopJobRunError</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- | The @JobRunId@ of the job run in question.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.Glue.Types.BatchStopJobRunError.html#batchStopJobRunError_jobRunId"><span class="hs-identifier hs-type">batchStopJobRunError_jobRunId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.BatchStopJobRunError.html#BatchStopJobRunError"><span class="hs-identifier hs-type">BatchStopJobRunError</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span id="batchStopJobRunError_jobRunId"><span class="annot"><span class="annottext">batchStopJobRunError_jobRunId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; BatchStopJobRunError -&gt; f BatchStopJobRunError
+</span><a href="Network.AWS.Glue.Types.BatchStopJobRunError.html#batchStopJobRunError_jobRunId"><span class="hs-identifier hs-var hs-var">batchStopJobRunError_jobRunId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchStopJobRunError -&gt; Maybe Text)
+-&gt; (BatchStopJobRunError -&gt; Maybe Text -&gt; BatchStopJobRunError)
+-&gt; Lens
+     BatchStopJobRunError BatchStopJobRunError (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.BatchStopJobRunError.html#BatchStopJobRunError%27"><span class="hs-identifier hs-type">BatchStopJobRunError'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679686331"><span class="annot"><span class="annottext">Maybe Text
+jobRunId :: Maybe Text
+$sel:jobRunId:BatchStopJobRunError' :: BatchStopJobRunError -&gt; Maybe Text
+</span><a href="#local-6989586621679686331"><span class="hs-identifier hs-var hs-var">jobRunId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679686331"><span class="hs-identifier hs-var">jobRunId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679686330"><span class="annot"><span class="annottext">s :: BatchStopJobRunError
+</span><a href="#local-6989586621679686330"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.BatchStopJobRunError.html#BatchStopJobRunError%27"><span class="hs-identifier hs-type">BatchStopJobRunError'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679686329"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679686329"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchStopJobRunError
+</span><a href="#local-6989586621679686330"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobRunId:BatchStopJobRunError' :: Maybe Text
+</span><a href="Network.AWS.Glue.Types.BatchStopJobRunError.html#%24sel%3AjobRunId%3ABatchStopJobRunError%27"><span class="hs-identifier hs-var">jobRunId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679686329"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.BatchStopJobRunError.html#BatchStopJobRunError"><span class="hs-identifier hs-type">BatchStopJobRunError</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | Specifies details about the error that was encountered.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.Glue.Types.BatchStopJobRunError.html#batchStopJobRunError_errorDetail"><span class="hs-identifier hs-type">batchStopJobRunError_errorDetail</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.BatchStopJobRunError.html#BatchStopJobRunError"><span class="hs-identifier hs-type">BatchStopJobRunError</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ErrorDetail.html#ErrorDetail"><span class="hs-identifier hs-type">ErrorDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span id="batchStopJobRunError_errorDetail"><span class="annot"><span class="annottext">batchStopJobRunError_errorDetail :: (Maybe ErrorDetail -&gt; f (Maybe ErrorDetail))
 -&gt; BatchStopJobRunError -&gt; f BatchStopJobRunError
 </span><a href="Network.AWS.Glue.Types.BatchStopJobRunError.html#batchStopJobRunError_errorDetail"><span class="hs-identifier hs-var hs-var">batchStopJobRunError_errorDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchStopJobRunError -&gt; Maybe ErrorDetail)
 -&gt; (BatchStopJobRunError
@@ -142,103 +181,63 @@ forall a. Maybe a
      (Maybe ErrorDetail)
      (Maybe ErrorDetail)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.BatchStopJobRunError.html#BatchStopJobRunError%27"><span class="hs-identifier hs-type">BatchStopJobRunError'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679684684"><span class="annot"><span class="annottext">Maybe ErrorDetail
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.BatchStopJobRunError.html#BatchStopJobRunError%27"><span class="hs-identifier hs-type">BatchStopJobRunError'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679686327"><span class="annot"><span class="annottext">Maybe ErrorDetail
 errorDetail :: Maybe ErrorDetail
 $sel:errorDetail:BatchStopJobRunError' :: BatchStopJobRunError -&gt; Maybe ErrorDetail
-</span><a href="#local-6989586621679684684"><span class="hs-identifier hs-var hs-var">errorDetail</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ErrorDetail
-</span><a href="#local-6989586621679684684"><span class="hs-identifier hs-var">errorDetail</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679684683"><span class="annot"><span class="annottext">s :: BatchStopJobRunError
-</span><a href="#local-6989586621679684683"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.BatchStopJobRunError.html#BatchStopJobRunError%27"><span class="hs-identifier hs-type">BatchStopJobRunError'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679684682"><span class="annot"><span class="annottext">Maybe ErrorDetail
-</span><a href="#local-6989586621679684682"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchStopJobRunError
-</span><a href="#local-6989586621679684683"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorDetail:BatchStopJobRunError' :: Maybe ErrorDetail
+</span><a href="#local-6989586621679686327"><span class="hs-identifier hs-var hs-var">errorDetail</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ErrorDetail
+</span><a href="#local-6989586621679686327"><span class="hs-identifier hs-var">errorDetail</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679686326"><span class="annot"><span class="annottext">s :: BatchStopJobRunError
+</span><a href="#local-6989586621679686326"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.BatchStopJobRunError.html#BatchStopJobRunError%27"><span class="hs-identifier hs-type">BatchStopJobRunError'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679686325"><span class="annot"><span class="annottext">Maybe ErrorDetail
+</span><a href="#local-6989586621679686325"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchStopJobRunError
+</span><a href="#local-6989586621679686326"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorDetail:BatchStopJobRunError' :: Maybe ErrorDetail
 </span><a href="Network.AWS.Glue.Types.BatchStopJobRunError.html#%24sel%3AerrorDetail%3ABatchStopJobRunError%27"><span class="hs-identifier hs-var">errorDetail</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ErrorDetail
-</span><a href="#local-6989586621679684682"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.BatchStopJobRunError.html#BatchStopJobRunError"><span class="hs-identifier hs-type">BatchStopJobRunError</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- | The @JobRunId@ of the job run in question.</span><span>
-</span><span id="line-69"></span><span class="annot"><a href="Network.AWS.Glue.Types.BatchStopJobRunError.html#batchStopJobRunError_jobRunId"><span class="hs-identifier hs-type">batchStopJobRunError_jobRunId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.BatchStopJobRunError.html#BatchStopJobRunError"><span class="hs-identifier hs-type">BatchStopJobRunError</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-70"></span><span id="batchStopJobRunError_jobRunId"><span class="annot"><span class="annottext">batchStopJobRunError_jobRunId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; BatchStopJobRunError -&gt; f BatchStopJobRunError
-</span><a href="Network.AWS.Glue.Types.BatchStopJobRunError.html#batchStopJobRunError_jobRunId"><span class="hs-identifier hs-var hs-var">batchStopJobRunError_jobRunId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchStopJobRunError -&gt; Maybe Text)
--&gt; (BatchStopJobRunError -&gt; Maybe Text -&gt; BatchStopJobRunError)
--&gt; Lens
-     BatchStopJobRunError BatchStopJobRunError (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.BatchStopJobRunError.html#BatchStopJobRunError%27"><span class="hs-identifier hs-type">BatchStopJobRunError'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679684680"><span class="annot"><span class="annottext">Maybe Text
-jobRunId :: Maybe Text
-$sel:jobRunId:BatchStopJobRunError' :: BatchStopJobRunError -&gt; Maybe Text
-</span><a href="#local-6989586621679684680"><span class="hs-identifier hs-var hs-var">jobRunId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679684680"><span class="hs-identifier hs-var">jobRunId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679684679"><span class="annot"><span class="annottext">s :: BatchStopJobRunError
-</span><a href="#local-6989586621679684679"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.BatchStopJobRunError.html#BatchStopJobRunError%27"><span class="hs-identifier hs-type">BatchStopJobRunError'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679684678"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679684678"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchStopJobRunError
-</span><a href="#local-6989586621679684679"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobRunId:BatchStopJobRunError' :: Maybe Text
-</span><a href="Network.AWS.Glue.Types.BatchStopJobRunError.html#%24sel%3AjobRunId%3ABatchStopJobRunError%27"><span class="hs-identifier hs-var">jobRunId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679684678"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.BatchStopJobRunError.html#BatchStopJobRunError"><span class="hs-identifier hs-type">BatchStopJobRunError</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- | The name of the job definition that is used in the job run in question.</span><span>
-</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.Glue.Types.BatchStopJobRunError.html#batchStopJobRunError_jobName"><span class="hs-identifier hs-type">batchStopJobRunError_jobName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.BatchStopJobRunError.html#BatchStopJobRunError"><span class="hs-identifier hs-type">BatchStopJobRunError</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-74"></span><span id="batchStopJobRunError_jobName"><span class="annot"><span class="annottext">batchStopJobRunError_jobName :: (Maybe Text -&gt; f (Maybe Text))
--&gt; BatchStopJobRunError -&gt; f BatchStopJobRunError
-</span><a href="Network.AWS.Glue.Types.BatchStopJobRunError.html#batchStopJobRunError_jobName"><span class="hs-identifier hs-var hs-var">batchStopJobRunError_jobName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchStopJobRunError -&gt; Maybe Text)
--&gt; (BatchStopJobRunError -&gt; Maybe Text -&gt; BatchStopJobRunError)
--&gt; Lens
-     BatchStopJobRunError BatchStopJobRunError (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.BatchStopJobRunError.html#BatchStopJobRunError%27"><span class="hs-identifier hs-type">BatchStopJobRunError'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679684676"><span class="annot"><span class="annottext">Maybe Text
-jobName :: Maybe Text
-$sel:jobName:BatchStopJobRunError' :: BatchStopJobRunError -&gt; Maybe Text
-</span><a href="#local-6989586621679684676"><span class="hs-identifier hs-var hs-var">jobName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679684676"><span class="hs-identifier hs-var">jobName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679684675"><span class="annot"><span class="annottext">s :: BatchStopJobRunError
-</span><a href="#local-6989586621679684675"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.BatchStopJobRunError.html#BatchStopJobRunError%27"><span class="hs-identifier hs-type">BatchStopJobRunError'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679684674"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679684674"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchStopJobRunError
-</span><a href="#local-6989586621679684675"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobName:BatchStopJobRunError' :: Maybe Text
-</span><a href="Network.AWS.Glue.Types.BatchStopJobRunError.html#%24sel%3AjobName%3ABatchStopJobRunError%27"><span class="hs-identifier hs-var">jobName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679684674"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.BatchStopJobRunError.html#BatchStopJobRunError"><span class="hs-identifier hs-type">BatchStopJobRunError</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679684671"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.BatchStopJobRunError.html#BatchStopJobRunError"><span class="hs-identifier hs-type">BatchStopJobRunError</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621679684669"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BatchStopJobRunError
+</span><a href="#local-6989586621679686325"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.BatchStopJobRunError.html#BatchStopJobRunError"><span class="hs-identifier hs-type">BatchStopJobRunError</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679686322"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.BatchStopJobRunError.html#BatchStopJobRunError"><span class="hs-identifier hs-type">BatchStopJobRunError</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679686320"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BatchStopJobRunError
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-78"></span><span>    </span><span class="annot"><span class="annottext">String
+</span><span id="line-77"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser BatchStopJobRunError)
 -&gt; Value
 -&gt; Parser BatchStopJobRunError
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
-</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;BatchStopJobRunError&quot;</span></span><span>
-</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679684666"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679684666"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-81"></span><span>          </span><span class="annot"><span class="annottext">Maybe ErrorDetail
--&gt; Maybe Text -&gt; Maybe Text -&gt; BatchStopJobRunError
+</span><span id="line-79"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679686317"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679686317"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-80"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text -&gt; Maybe ErrorDetail -&gt; BatchStopJobRunError
 </span><a href="Network.AWS.Glue.Types.BatchStopJobRunError.html#BatchStopJobRunError%27"><span class="hs-identifier hs-var">BatchStopJobRunError'</span></a></span><span>
-</span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ErrorDetail
- -&gt; Maybe Text -&gt; Maybe Text -&gt; BatchStopJobRunError)
--&gt; Parser (Maybe ErrorDetail)
--&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; BatchStopJobRunError)
+</span><span id="line-81"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text -&gt; Maybe ErrorDetail -&gt; BatchStopJobRunError)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe ErrorDetail -&gt; BatchStopJobRunError)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679684666"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ErrorDetail)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ErrorDetail&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; BatchStopJobRunError)
--&gt; Parser (Maybe Text)
--&gt; Parser (Maybe Text -&gt; BatchStopJobRunError)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679684666"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;JobRunId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; BatchStopJobRunError)
--&gt; Parser (Maybe Text) -&gt; Parser BatchStopJobRunError
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679684666"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679686317"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;JobName&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-85"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679684660"><span id="local-6989586621679684662"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.BatchStopJobRunError.html#BatchStopJobRunError"><span class="hs-identifier hs-type">BatchStopJobRunError</span></a></span></span></span><span>
-</span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679684657"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.BatchStopJobRunError.html#BatchStopJobRunError"><span class="hs-identifier hs-type">BatchStopJobRunError</span></a></span></span><span>
-</span><span id="line-90"></span></pre></body></html>
+</span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe ErrorDetail -&gt; BatchStopJobRunError)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe ErrorDetail -&gt; BatchStopJobRunError)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679686317"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;JobRunId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe ErrorDetail -&gt; BatchStopJobRunError)
+-&gt; Parser (Maybe ErrorDetail) -&gt; Parser BatchStopJobRunError
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679686317"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ErrorDetail)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ErrorDetail&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679686311"><span id="local-6989586621679686313"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.BatchStopJobRunError.html#BatchStopJobRunError"><span class="hs-identifier hs-type">BatchStopJobRunError</span></a></span></span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679686308"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.BatchStopJobRunError.html#BatchStopJobRunError"><span class="hs-identifier hs-type">BatchStopJobRunError</span></a></span></span><span>
+</span><span id="line-89"></span></pre></body></html>

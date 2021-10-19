@@ -26,15 +26,15 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | The estimated size of the resource.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newEstimatedResourceSize' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679255045"><span id="local-6989586621679255046"></span></span><span class="hs-keyword">data</span><span> </span><span id="EstimatedResourceSize"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.EstimatedResourceSize.html#EstimatedResourceSize"><span class="hs-identifier hs-var">EstimatedResourceSize</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EstimatedResourceSize%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.EstimatedResourceSize.html#EstimatedResourceSize%27"><span class="hs-identifier hs-var">EstimatedResourceSize'</span></a></span></span><span>
-</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The estimated size of the resource, in bytes.</span><span>
-</span><span id="line-31"></span><span>    </span><span id="%24sel%3AestimatedSizeInBytes%3AEstimatedResourceSize%27"><span class="annot"><span class="annottext">EstimatedResourceSize -&gt; Maybe Double
-</span><a href="Network.AWS.IoTAnalytics.Types.EstimatedResourceSize.html#%24sel%3AestimatedSizeInBytes%3AEstimatedResourceSize%27"><span class="hs-identifier hs-var hs-var">estimatedSizeInBytes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The time when the estimate of the size of the resource was made.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AestimatedOn%3AEstimatedResourceSize%27"><span class="annot"><span class="annottext">EstimatedResourceSize -&gt; Maybe POSIX
-</span><a href="Network.AWS.IoTAnalytics.Types.EstimatedResourceSize.html#%24sel%3AestimatedOn%3AEstimatedResourceSize%27"><span class="hs-identifier hs-var hs-var">estimatedOn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679255247"><span id="local-6989586621679255248"></span></span><span class="hs-keyword">data</span><span> </span><span id="EstimatedResourceSize"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.EstimatedResourceSize.html#EstimatedResourceSize"><span class="hs-identifier hs-var">EstimatedResourceSize</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EstimatedResourceSize%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.EstimatedResourceSize.html#EstimatedResourceSize%27"><span class="hs-identifier hs-var">EstimatedResourceSize'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The time when the estimate of the size of the resource was made.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3AestimatedOn%3AEstimatedResourceSize%27"><span class="annot"><span class="annottext">EstimatedResourceSize -&gt; Maybe POSIX
+</span><a href="Network.AWS.IoTAnalytics.Types.EstimatedResourceSize.html#%24sel%3AestimatedOn%3AEstimatedResourceSize%27"><span class="hs-identifier hs-var hs-var">estimatedOn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The estimated size of the resource, in bytes.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AestimatedSizeInBytes%3AEstimatedResourceSize%27"><span class="annot"><span class="annottext">EstimatedResourceSize -&gt; Maybe Double
+</span><a href="Network.AWS.IoTAnalytics.Types.EstimatedResourceSize.html#%24sel%3AestimatedSizeInBytes%3AEstimatedResourceSize%27"><span class="hs-identifier hs-var hs-var">estimatedSizeInBytes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679255038"><span id="local-6989586621679255040"><span class="annot"><span class="annottext">EstimatedResourceSize -&gt; EstimatedResourceSize -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679255240"><span id="local-6989586621679255242"><span class="annot"><span class="annottext">EstimatedResourceSize -&gt; EstimatedResourceSize -&gt; Bool
 (EstimatedResourceSize -&gt; EstimatedResourceSize -&gt; Bool)
 -&gt; (EstimatedResourceSize -&gt; EstimatedResourceSize -&gt; Bool)
 -&gt; Eq EstimatedResourceSize
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: EstimatedResourceSize -&gt; EstimatedResourceSize -&gt; Bool
 == :: EstimatedResourceSize -&gt; EstimatedResourceSize -&gt; Bool
 $c== :: EstimatedResourceSize -&gt; EstimatedResourceSize -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255029"><span id="local-6989586621679255031"><span id="local-6989586621679255033"><span id="local-6989586621679255035"><span class="annot"><span class="annottext">ReadPrec [EstimatedResourceSize]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255231"><span id="local-6989586621679255233"><span id="local-6989586621679255235"><span id="local-6989586621679255237"><span class="annot"><span class="annottext">ReadPrec [EstimatedResourceSize]
 ReadPrec EstimatedResourceSize
 Int -&gt; ReadS EstimatedResourceSize
 ReadS [EstimatedResourceSize]
@@ -63,7 +63,7 @@ readList :: ReadS [EstimatedResourceSize]
 $creadList :: ReadS [EstimatedResourceSize]
 readsPrec :: Int -&gt; ReadS EstimatedResourceSize
 $creadsPrec :: Int -&gt; ReadS EstimatedResourceSize
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255022"><span id="local-6989586621679255024"><span id="local-6989586621679255026"><span class="annot"><span class="annottext">Int -&gt; EstimatedResourceSize -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255224"><span id="local-6989586621679255226"><span id="local-6989586621679255228"><span class="annot"><span class="annottext">Int -&gt; EstimatedResourceSize -&gt; ShowS
 [EstimatedResourceSize] -&gt; ShowS
 EstimatedResourceSize -&gt; String
 (Int -&gt; EstimatedResourceSize -&gt; ShowS)
@@ -97,52 +97,29 @@ $cfrom :: forall x. EstimatedResourceSize -&gt; Rep EstimatedResourceSize x
 </span><span id="line-42"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-43"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-44"></span><span class="hs-comment">--</span><span>
-</span><span id="line-45"></span><span class="hs-comment">-- 'estimatedSizeInBytes', 'estimatedResourceSize_estimatedSizeInBytes' - The estimated size of the resource, in bytes.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- 'estimatedOn', 'estimatedResourceSize_estimatedOn' - The time when the estimate of the size of the resource was made.</span><span>
 </span><span id="line-46"></span><span class="hs-comment">--</span><span>
-</span><span id="line-47"></span><span class="hs-comment">-- 'estimatedOn', 'estimatedResourceSize_estimatedOn' - The time when the estimate of the size of the resource was made.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'estimatedSizeInBytes', 'estimatedResourceSize_estimatedSizeInBytes' - The estimated size of the resource, in bytes.</span><span>
 </span><span id="line-48"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.EstimatedResourceSize.html#newEstimatedResourceSize"><span class="hs-identifier hs-type">newEstimatedResourceSize</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-49"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.EstimatedResourceSize.html#EstimatedResourceSize"><span class="hs-identifier hs-type">EstimatedResourceSize</span></a></span><span>
 </span><span id="line-50"></span><span id="newEstimatedResourceSize"><span class="annot"><span class="annottext">newEstimatedResourceSize :: EstimatedResourceSize
 </span><a href="Network.AWS.IoTAnalytics.Types.EstimatedResourceSize.html#newEstimatedResourceSize"><span class="hs-identifier hs-var hs-var">newEstimatedResourceSize</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-51"></span><span>  </span><span class="annot"><span class="annottext">EstimatedResourceSize' :: Maybe Double -&gt; Maybe POSIX -&gt; EstimatedResourceSize
+</span><span id="line-51"></span><span>  </span><span class="annot"><span class="annottext">EstimatedResourceSize' :: Maybe POSIX -&gt; Maybe Double -&gt; EstimatedResourceSize
 </span><a href="Network.AWS.IoTAnalytics.Types.EstimatedResourceSize.html#EstimatedResourceSize%27"><span class="hs-identifier hs-type">EstimatedResourceSize'</span></a></span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:estimatedSizeInBytes:EstimatedResourceSize' :: Maybe Double
-</span><a href="Network.AWS.IoTAnalytics.Types.EstimatedResourceSize.html#%24sel%3AestimatedSizeInBytes%3AEstimatedResourceSize%27"><span class="hs-identifier hs-var">estimatedSizeInBytes</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-53"></span><span>        </span><span class="annot"><span class="annottext">Maybe Double
+</span><span id="line-52"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:estimatedOn:EstimatedResourceSize' :: Maybe POSIX
+</span><a href="Network.AWS.IoTAnalytics.Types.EstimatedResourceSize.html#%24sel%3AestimatedOn%3AEstimatedResourceSize%27"><span class="hs-identifier hs-var">estimatedOn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-53"></span><span>        </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span class="annot"><span class="annottext">$sel:estimatedOn:EstimatedResourceSize' :: Maybe POSIX
-</span><a href="Network.AWS.IoTAnalytics.Types.EstimatedResourceSize.html#%24sel%3AestimatedOn%3AEstimatedResourceSize%27"><span class="hs-identifier hs-var">estimatedOn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><span id="line-54"></span><span>      </span><span class="annot"><span class="annottext">$sel:estimatedSizeInBytes:EstimatedResourceSize' :: Maybe Double
+</span><a href="Network.AWS.IoTAnalytics.Types.EstimatedResourceSize.html#%24sel%3AestimatedSizeInBytes%3AEstimatedResourceSize%27"><span class="hs-identifier hs-var">estimatedSizeInBytes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-56"></span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- | The estimated size of the resource, in bytes.</span><span>
-</span><span id="line-58"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.EstimatedResourceSize.html#estimatedResourceSize_estimatedSizeInBytes"><span class="hs-identifier hs-type">estimatedResourceSize_estimatedSizeInBytes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.EstimatedResourceSize.html#EstimatedResourceSize"><span class="hs-identifier hs-type">EstimatedResourceSize</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
-</span><span id="line-59"></span><span id="estimatedResourceSize_estimatedSizeInBytes"><span class="annot"><span class="annottext">estimatedResourceSize_estimatedSizeInBytes :: (Maybe Double -&gt; f (Maybe Double))
--&gt; EstimatedResourceSize -&gt; f EstimatedResourceSize
-</span><a href="Network.AWS.IoTAnalytics.Types.EstimatedResourceSize.html#estimatedResourceSize_estimatedSizeInBytes"><span class="hs-identifier hs-var hs-var">estimatedResourceSize_estimatedSizeInBytes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EstimatedResourceSize -&gt; Maybe Double)
--&gt; (EstimatedResourceSize -&gt; Maybe Double -&gt; EstimatedResourceSize)
--&gt; Lens
-     EstimatedResourceSize
-     EstimatedResourceSize
-     (Maybe Double)
-     (Maybe Double)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.EstimatedResourceSize.html#EstimatedResourceSize%27"><span class="hs-identifier hs-type">EstimatedResourceSize'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255013"><span class="annot"><span class="annottext">Maybe Double
-estimatedSizeInBytes :: Maybe Double
-$sel:estimatedSizeInBytes:EstimatedResourceSize' :: EstimatedResourceSize -&gt; Maybe Double
-</span><a href="#local-6989586621679255013"><span class="hs-identifier hs-var hs-var">estimatedSizeInBytes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679255013"><span class="hs-identifier hs-var">estimatedSizeInBytes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255012"><span class="annot"><span class="annottext">s :: EstimatedResourceSize
-</span><a href="#local-6989586621679255012"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.EstimatedResourceSize.html#EstimatedResourceSize%27"><span class="hs-identifier hs-type">EstimatedResourceSize'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255011"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679255011"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EstimatedResourceSize
-</span><a href="#local-6989586621679255012"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:estimatedSizeInBytes:EstimatedResourceSize' :: Maybe Double
-</span><a href="Network.AWS.IoTAnalytics.Types.EstimatedResourceSize.html#%24sel%3AestimatedSizeInBytes%3AEstimatedResourceSize%27"><span class="hs-identifier hs-var">estimatedSizeInBytes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679255011"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.EstimatedResourceSize.html#EstimatedResourceSize"><span class="hs-identifier hs-type">EstimatedResourceSize</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- | The time when the estimate of the size of the resource was made.</span><span>
-</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.EstimatedResourceSize.html#estimatedResourceSize_estimatedOn"><span class="hs-identifier hs-type">estimatedResourceSize_estimatedOn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.EstimatedResourceSize.html#EstimatedResourceSize"><span class="hs-identifier hs-type">EstimatedResourceSize</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-63"></span><span id="estimatedResourceSize_estimatedOn"><span class="annot"><span class="annottext">estimatedResourceSize_estimatedOn :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span id="line-57"></span><span class="hs-comment">-- | The time when the estimate of the size of the resource was made.</span><span>
+</span><span id="line-58"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.EstimatedResourceSize.html#estimatedResourceSize_estimatedOn"><span class="hs-identifier hs-type">estimatedResourceSize_estimatedOn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.EstimatedResourceSize.html#EstimatedResourceSize"><span class="hs-identifier hs-type">EstimatedResourceSize</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span id="estimatedResourceSize_estimatedOn"><span class="annot"><span class="annottext">estimatedResourceSize_estimatedOn :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; EstimatedResourceSize -&gt; f EstimatedResourceSize
 </span><a href="Network.AWS.IoTAnalytics.Types.EstimatedResourceSize.html#estimatedResourceSize_estimatedOn"><span class="hs-identifier hs-var hs-var">estimatedResourceSize_estimatedOn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EstimatedResourceSize -&gt; Maybe POSIX)
 -&gt; (EstimatedResourceSize -&gt; Maybe POSIX -&gt; EstimatedResourceSize)
@@ -152,16 +129,16 @@ $sel:estimatedSizeInBytes:EstimatedResourceSize' :: EstimatedResourceSize -&gt; 
      (Maybe POSIX)
      (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.EstimatedResourceSize.html#EstimatedResourceSize%27"><span class="hs-identifier hs-type">EstimatedResourceSize'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255009"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.EstimatedResourceSize.html#EstimatedResourceSize%27"><span class="hs-identifier hs-type">EstimatedResourceSize'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255215"><span class="annot"><span class="annottext">Maybe POSIX
 estimatedOn :: Maybe POSIX
 $sel:estimatedOn:EstimatedResourceSize' :: EstimatedResourceSize -&gt; Maybe POSIX
-</span><a href="#local-6989586621679255009"><span class="hs-identifier hs-var hs-var">estimatedOn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679255009"><span class="hs-identifier hs-var">estimatedOn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255008"><span class="annot"><span class="annottext">s :: EstimatedResourceSize
-</span><a href="#local-6989586621679255008"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.EstimatedResourceSize.html#EstimatedResourceSize%27"><span class="hs-identifier hs-type">EstimatedResourceSize'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255007"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679255007"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EstimatedResourceSize
-</span><a href="#local-6989586621679255008"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:estimatedOn:EstimatedResourceSize' :: Maybe POSIX
+</span><a href="#local-6989586621679255215"><span class="hs-identifier hs-var hs-var">estimatedOn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679255215"><span class="hs-identifier hs-var">estimatedOn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255214"><span class="annot"><span class="annottext">s :: EstimatedResourceSize
+</span><a href="#local-6989586621679255214"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.EstimatedResourceSize.html#EstimatedResourceSize%27"><span class="hs-identifier hs-type">EstimatedResourceSize'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255213"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679255213"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EstimatedResourceSize
+</span><a href="#local-6989586621679255214"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:estimatedOn:EstimatedResourceSize' :: Maybe POSIX
 </span><a href="Network.AWS.IoTAnalytics.Types.EstimatedResourceSize.html#%24sel%3AestimatedOn%3AEstimatedResourceSize%27"><span class="hs-identifier hs-var">estimatedOn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679255007"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.EstimatedResourceSize.html#EstimatedResourceSize"><span class="hs-identifier hs-type">EstimatedResourceSize</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679255213"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.EstimatedResourceSize.html#EstimatedResourceSize"><span class="hs-identifier hs-type">EstimatedResourceSize</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; EstimatedResourceSize -&gt; f EstimatedResourceSize)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -177,9 +154,32 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | The estimated size of the resource, in bytes.</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.EstimatedResourceSize.html#estimatedResourceSize_estimatedSizeInBytes"><span class="hs-identifier hs-type">estimatedResourceSize_estimatedSizeInBytes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.EstimatedResourceSize.html#EstimatedResourceSize"><span class="hs-identifier hs-type">EstimatedResourceSize</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span id="estimatedResourceSize_estimatedSizeInBytes"><span class="annot"><span class="annottext">estimatedResourceSize_estimatedSizeInBytes :: (Maybe Double -&gt; f (Maybe Double))
+-&gt; EstimatedResourceSize -&gt; f EstimatedResourceSize
+</span><a href="Network.AWS.IoTAnalytics.Types.EstimatedResourceSize.html#estimatedResourceSize_estimatedSizeInBytes"><span class="hs-identifier hs-var hs-var">estimatedResourceSize_estimatedSizeInBytes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EstimatedResourceSize -&gt; Maybe Double)
+-&gt; (EstimatedResourceSize -&gt; Maybe Double -&gt; EstimatedResourceSize)
+-&gt; Lens
+     EstimatedResourceSize
+     EstimatedResourceSize
+     (Maybe Double)
+     (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.EstimatedResourceSize.html#EstimatedResourceSize%27"><span class="hs-identifier hs-type">EstimatedResourceSize'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255208"><span class="annot"><span class="annottext">Maybe Double
+estimatedSizeInBytes :: Maybe Double
+$sel:estimatedSizeInBytes:EstimatedResourceSize' :: EstimatedResourceSize -&gt; Maybe Double
+</span><a href="#local-6989586621679255208"><span class="hs-identifier hs-var hs-var">estimatedSizeInBytes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679255208"><span class="hs-identifier hs-var">estimatedSizeInBytes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255207"><span class="annot"><span class="annottext">s :: EstimatedResourceSize
+</span><a href="#local-6989586621679255207"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.EstimatedResourceSize.html#EstimatedResourceSize%27"><span class="hs-identifier hs-type">EstimatedResourceSize'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255206"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679255206"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EstimatedResourceSize
+</span><a href="#local-6989586621679255207"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:estimatedSizeInBytes:EstimatedResourceSize' :: Maybe Double
+</span><a href="Network.AWS.IoTAnalytics.Types.EstimatedResourceSize.html#%24sel%3AestimatedSizeInBytes%3AEstimatedResourceSize%27"><span class="hs-identifier hs-var">estimatedSizeInBytes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679255206"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.EstimatedResourceSize.html#EstimatedResourceSize"><span class="hs-identifier hs-type">EstimatedResourceSize</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255001"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.EstimatedResourceSize.html#EstimatedResourceSize"><span class="hs-identifier hs-type">EstimatedResourceSize</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-66"></span><span>  </span><span id="local-6989586621679254999"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EstimatedResourceSize
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255203"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.EstimatedResourceSize.html#EstimatedResourceSize"><span class="hs-identifier hs-type">EstimatedResourceSize</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679255201"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EstimatedResourceSize
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser EstimatedResourceSize)
@@ -189,30 +189,30 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;EstimatedResourceSize&quot;</span></span><span>
-</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679254996"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679254996"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-70"></span><span>          </span><span class="annot"><span class="annottext">Maybe Double -&gt; Maybe POSIX -&gt; EstimatedResourceSize
+</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679255198"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679255198"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-70"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX -&gt; Maybe Double -&gt; EstimatedResourceSize
 </span><a href="Network.AWS.IoTAnalytics.Types.EstimatedResourceSize.html#EstimatedResourceSize%27"><span class="hs-identifier hs-var">EstimatedResourceSize'</span></a></span><span>
-</span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Double -&gt; Maybe POSIX -&gt; EstimatedResourceSize)
--&gt; Parser (Maybe Double)
--&gt; Parser (Maybe POSIX -&gt; EstimatedResourceSize)
+</span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX -&gt; Maybe Double -&gt; EstimatedResourceSize)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser (Maybe Double -&gt; EstimatedResourceSize)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679254996"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;estimatedSizeInBytes&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-72"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; EstimatedResourceSize)
--&gt; Parser (Maybe POSIX) -&gt; Parser EstimatedResourceSize
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679254996"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679255198"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;estimatedOn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Double -&gt; EstimatedResourceSize)
+-&gt; Parser (Maybe Double) -&gt; Parser EstimatedResourceSize
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679255198"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;estimatedSizeInBytes&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254990"><span id="local-6989586621679254992"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.EstimatedResourceSize.html#EstimatedResourceSize"><span class="hs-identifier hs-type">EstimatedResourceSize</span></a></span></span></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255192"><span id="local-6989586621679255194"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.EstimatedResourceSize.html#EstimatedResourceSize"><span class="hs-identifier hs-type">EstimatedResourceSize</span></a></span></span></span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254987"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.EstimatedResourceSize.html#EstimatedResourceSize"><span class="hs-identifier hs-type">EstimatedResourceSize</span></a></span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255189"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.EstimatedResourceSize.html#EstimatedResourceSize"><span class="hs-identifier hs-type">EstimatedResourceSize</span></a></span></span><span>
 </span><span id="line-78"></span></pre></body></html>

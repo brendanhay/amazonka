@@ -39,10 +39,10 @@
 </span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShare.html#newDataShare"><span class="hs-identifier">newDataShare</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-40"></span><span>
 </span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShare.html#dataShare_dataShareAssociations"><span class="hs-identifier">dataShare_dataShareAssociations</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShare.html#dataShare_allowPubliclyAccessibleConsumers"><span class="hs-identifier">dataShare_allowPubliclyAccessibleConsumers</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShare.html#dataShare_producerArn"><span class="hs-identifier">dataShare_producerArn</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShare.html#dataShare_dataShareArn"><span class="hs-identifier">dataShare_dataShareArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShare.html#dataShare_producerArn"><span class="hs-identifier">dataShare_producerArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShare.html#dataShare_dataShareAssociations"><span class="hs-identifier">dataShare_dataShareAssociations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShare.html#dataShare_dataShareArn"><span class="hs-identifier">dataShare_dataShareArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShare.html#dataShare_allowPubliclyAccessibleConsumers"><span class="hs-identifier">dataShare_allowPubliclyAccessibleConsumers</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span class="hs-keyword">where</span><span>
 </span><span id="line-48"></span><span>
@@ -54,7 +54,7 @@
 </span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-55"></span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newAssociateDataShareConsumer' smart constructor.</span><span>
-</span><span id="line-57"></span><span id="local-6989586621679529147"><span id="local-6989586621679529148"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociateDataShareConsumer"><span class="annot"><a href="Network.AWS.Redshift.AssociateDataShareConsumer.html#AssociateDataShareConsumer"><span class="hs-identifier hs-var">AssociateDataShareConsumer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociateDataShareConsumer%27"><span class="annot"><a href="Network.AWS.Redshift.AssociateDataShareConsumer.html#AssociateDataShareConsumer%27"><span class="hs-identifier hs-var">AssociateDataShareConsumer'</span></a></span></span><span>
+</span><span id="line-57"></span><span id="local-6989586621679529899"><span id="local-6989586621679529900"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociateDataShareConsumer"><span class="annot"><a href="Network.AWS.Redshift.AssociateDataShareConsumer.html#AssociateDataShareConsumer"><span class="hs-identifier hs-var">AssociateDataShareConsumer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociateDataShareConsumer%27"><span class="annot"><a href="Network.AWS.Redshift.AssociateDataShareConsumer.html#AssociateDataShareConsumer%27"><span class="hs-identifier hs-var">AssociateDataShareConsumer'</span></a></span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A value that specifies whether the datashare is associated with the</span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-comment">-- entire account.</span><span>
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3AassociateEntireAccount%3AAssociateDataShareConsumer%27"><span class="annot"><span class="annottext">AssociateDataShareConsumer -&gt; Maybe Bool
@@ -68,7 +68,7 @@
 </span><span id="line-66"></span><span>    </span><span id="%24sel%3AdataShareArn%3AAssociateDataShareConsumer%27"><span class="annot"><span class="annottext">AssociateDataShareConsumer -&gt; Text
 </span><a href="Network.AWS.Redshift.AssociateDataShareConsumer.html#%24sel%3AdataShareArn%3AAssociateDataShareConsumer%27"><span class="hs-identifier hs-var hs-var">dataShareArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679529139"><span id="local-6989586621679529141"><span class="annot"><span class="annottext">AssociateDataShareConsumer -&gt; AssociateDataShareConsumer -&gt; Bool
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679529891"><span id="local-6989586621679529893"><span class="annot"><span class="annottext">AssociateDataShareConsumer -&gt; AssociateDataShareConsumer -&gt; Bool
 (AssociateDataShareConsumer -&gt; AssociateDataShareConsumer -&gt; Bool)
 -&gt; (AssociateDataShareConsumer
     -&gt; AssociateDataShareConsumer -&gt; Bool)
@@ -78,7 +78,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AssociateDataShareConsumer -&gt; AssociateDataShareConsumer -&gt; Bool
 == :: AssociateDataShareConsumer -&gt; AssociateDataShareConsumer -&gt; Bool
 $c== :: AssociateDataShareConsumer -&gt; AssociateDataShareConsumer -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679529130"><span id="local-6989586621679529132"><span id="local-6989586621679529134"><span id="local-6989586621679529136"><span class="annot"><span class="annottext">ReadPrec [AssociateDataShareConsumer]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679529882"><span id="local-6989586621679529884"><span id="local-6989586621679529886"><span id="local-6989586621679529888"><span class="annot"><span class="annottext">ReadPrec [AssociateDataShareConsumer]
 ReadPrec AssociateDataShareConsumer
 Int -&gt; ReadS AssociateDataShareConsumer
 ReadS [AssociateDataShareConsumer]
@@ -98,7 +98,7 @@ readList :: ReadS [AssociateDataShareConsumer]
 $creadList :: ReadS [AssociateDataShareConsumer]
 readsPrec :: Int -&gt; ReadS AssociateDataShareConsumer
 $creadsPrec :: Int -&gt; ReadS AssociateDataShareConsumer
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679529123"><span id="local-6989586621679529125"><span id="local-6989586621679529127"><span class="annot"><span class="annottext">Int -&gt; AssociateDataShareConsumer -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679529875"><span id="local-6989586621679529877"><span id="local-6989586621679529879"><span class="annot"><span class="annottext">Int -&gt; AssociateDataShareConsumer -&gt; ShowS
 [AssociateDataShareConsumer] -&gt; ShowS
 AssociateDataShareConsumer -&gt; String
 (Int -&gt; AssociateDataShareConsumer -&gt; ShowS)
@@ -151,8 +151,8 @@ AssociateDataShareConsumer -&gt; Rep AssociateDataShareConsumer x
 </span><span id="line-88"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-89"></span><span>  </span><span class="annot"><a href="Network.AWS.Redshift.AssociateDataShareConsumer.html#AssociateDataShareConsumer"><span class="hs-identifier hs-type">AssociateDataShareConsumer</span></a></span><span>
 </span><span id="line-90"></span><span id="newAssociateDataShareConsumer"><span class="annot"><span class="annottext">newAssociateDataShareConsumer :: Text -&gt; AssociateDataShareConsumer
-</span><a href="Network.AWS.Redshift.AssociateDataShareConsumer.html#newAssociateDataShareConsumer"><span class="hs-identifier hs-var hs-var">newAssociateDataShareConsumer</span></a></span></span><span> </span><span id="local-6989586621679529118"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679529118"><span class="hs-identifier hs-var">pDataShareArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Redshift.AssociateDataShareConsumer.html#newAssociateDataShareConsumer"><span class="hs-identifier hs-var hs-var">newAssociateDataShareConsumer</span></a></span></span><span> </span><span id="local-6989586621679529870"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679529870"><span class="hs-identifier hs-var">pDataShareArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-91"></span><span>  </span><span class="annot"><span class="annottext">AssociateDataShareConsumer' :: Maybe Bool -&gt; Maybe Text -&gt; Text -&gt; AssociateDataShareConsumer
 </span><a href="Network.AWS.Redshift.AssociateDataShareConsumer.html#AssociateDataShareConsumer%27"><span class="hs-identifier hs-type">AssociateDataShareConsumer'</span></a></span><span>
 </span><span id="line-92"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:associateEntireAccount:AssociateDataShareConsumer' :: Maybe Bool
@@ -166,7 +166,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:dataShareArn:AssociateDataShareConsumer' :: Text
 </span><a href="Network.AWS.Redshift.AssociateDataShareConsumer.html#%24sel%3AdataShareArn%3AAssociateDataShareConsumer%27"><span class="hs-identifier hs-var">dataShareArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679529118"><span class="hs-identifier hs-var">pDataShareArn_</span></a></span><span>
+</span><a href="#local-6989586621679529870"><span class="hs-identifier hs-var">pDataShareArn_</span></a></span><span>
 </span><span id="line-96"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- | A value that specifies whether the datashare is associated with the</span><span>
@@ -183,16 +183,16 @@ forall a. Maybe a
      (Maybe Bool)
      (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.AssociateDataShareConsumer.html#AssociateDataShareConsumer%27"><span class="hs-identifier hs-type">AssociateDataShareConsumer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679529115"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.AssociateDataShareConsumer.html#AssociateDataShareConsumer%27"><span class="hs-identifier hs-type">AssociateDataShareConsumer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679529867"><span class="annot"><span class="annottext">Maybe Bool
 associateEntireAccount :: Maybe Bool
 $sel:associateEntireAccount:AssociateDataShareConsumer' :: AssociateDataShareConsumer -&gt; Maybe Bool
-</span><a href="#local-6989586621679529115"><span class="hs-identifier hs-var hs-var">associateEntireAccount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679529115"><span class="hs-identifier hs-var">associateEntireAccount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679529114"><span class="annot"><span class="annottext">s :: AssociateDataShareConsumer
-</span><a href="#local-6989586621679529114"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.AssociateDataShareConsumer.html#AssociateDataShareConsumer%27"><span class="hs-identifier hs-type">AssociateDataShareConsumer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679529113"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679529113"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateDataShareConsumer
-</span><a href="#local-6989586621679529114"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:associateEntireAccount:AssociateDataShareConsumer' :: Maybe Bool
+</span><a href="#local-6989586621679529867"><span class="hs-identifier hs-var hs-var">associateEntireAccount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679529867"><span class="hs-identifier hs-var">associateEntireAccount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679529866"><span class="annot"><span class="annottext">s :: AssociateDataShareConsumer
+</span><a href="#local-6989586621679529866"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.AssociateDataShareConsumer.html#AssociateDataShareConsumer%27"><span class="hs-identifier hs-type">AssociateDataShareConsumer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679529865"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679529865"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateDataShareConsumer
+</span><a href="#local-6989586621679529866"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:associateEntireAccount:AssociateDataShareConsumer' :: Maybe Bool
 </span><a href="Network.AWS.Redshift.AssociateDataShareConsumer.html#%24sel%3AassociateEntireAccount%3AAssociateDataShareConsumer%27"><span class="hs-identifier hs-var">associateEntireAccount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679529113"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.AssociateDataShareConsumer.html#AssociateDataShareConsumer"><span class="hs-identifier hs-type">AssociateDataShareConsumer</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679529865"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.AssociateDataShareConsumer.html#AssociateDataShareConsumer"><span class="hs-identifier hs-type">AssociateDataShareConsumer</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the consumer that is associated with</span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- the datashare.</span><span>
@@ -208,16 +208,16 @@ $sel:associateEntireAccount:AssociateDataShareConsumer' :: AssociateDataShareCon
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.AssociateDataShareConsumer.html#AssociateDataShareConsumer%27"><span class="hs-identifier hs-type">AssociateDataShareConsumer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679529112"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.AssociateDataShareConsumer.html#AssociateDataShareConsumer%27"><span class="hs-identifier hs-type">AssociateDataShareConsumer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679529864"><span class="annot"><span class="annottext">Maybe Text
 consumerArn :: Maybe Text
 $sel:consumerArn:AssociateDataShareConsumer' :: AssociateDataShareConsumer -&gt; Maybe Text
-</span><a href="#local-6989586621679529112"><span class="hs-identifier hs-var hs-var">consumerArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679529112"><span class="hs-identifier hs-var">consumerArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679529111"><span class="annot"><span class="annottext">s :: AssociateDataShareConsumer
-</span><a href="#local-6989586621679529111"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.AssociateDataShareConsumer.html#AssociateDataShareConsumer%27"><span class="hs-identifier hs-type">AssociateDataShareConsumer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679529110"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679529110"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateDataShareConsumer
-</span><a href="#local-6989586621679529111"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:consumerArn:AssociateDataShareConsumer' :: Maybe Text
+</span><a href="#local-6989586621679529864"><span class="hs-identifier hs-var hs-var">consumerArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679529864"><span class="hs-identifier hs-var">consumerArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679529863"><span class="annot"><span class="annottext">s :: AssociateDataShareConsumer
+</span><a href="#local-6989586621679529863"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.AssociateDataShareConsumer.html#AssociateDataShareConsumer%27"><span class="hs-identifier hs-type">AssociateDataShareConsumer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679529862"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679529862"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateDataShareConsumer
+</span><a href="#local-6989586621679529863"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:consumerArn:AssociateDataShareConsumer' :: Maybe Text
 </span><a href="Network.AWS.Redshift.AssociateDataShareConsumer.html#%24sel%3AconsumerArn%3AAssociateDataShareConsumer%27"><span class="hs-identifier hs-var">consumerArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679529110"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.AssociateDataShareConsumer.html#AssociateDataShareConsumer"><span class="hs-identifier hs-type">AssociateDataShareConsumer</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679529862"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.AssociateDataShareConsumer.html#AssociateDataShareConsumer"><span class="hs-identifier hs-type">AssociateDataShareConsumer</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the datashare that the consumer is to</span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- use with the account or the namespace.</span><span>
@@ -230,28 +230,28 @@ $sel:consumerArn:AssociateDataShareConsumer' :: AssociateDataShareConsumer -&gt;
 -&gt; Lens
      AssociateDataShareConsumer AssociateDataShareConsumer Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.AssociateDataShareConsumer.html#AssociateDataShareConsumer%27"><span class="hs-identifier hs-type">AssociateDataShareConsumer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679529109"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.AssociateDataShareConsumer.html#AssociateDataShareConsumer%27"><span class="hs-identifier hs-type">AssociateDataShareConsumer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679529861"><span class="annot"><span class="annottext">Text
 dataShareArn :: Text
 $sel:dataShareArn:AssociateDataShareConsumer' :: AssociateDataShareConsumer -&gt; Text
-</span><a href="#local-6989586621679529109"><span class="hs-identifier hs-var hs-var">dataShareArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679529109"><span class="hs-identifier hs-var">dataShareArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679529108"><span class="annot"><span class="annottext">s :: AssociateDataShareConsumer
-</span><a href="#local-6989586621679529108"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.AssociateDataShareConsumer.html#AssociateDataShareConsumer%27"><span class="hs-identifier hs-type">AssociateDataShareConsumer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679529107"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679529107"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateDataShareConsumer
-</span><a href="#local-6989586621679529108"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataShareArn:AssociateDataShareConsumer' :: Text
+</span><a href="#local-6989586621679529861"><span class="hs-identifier hs-var hs-var">dataShareArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679529861"><span class="hs-identifier hs-var">dataShareArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679529860"><span class="annot"><span class="annottext">s :: AssociateDataShareConsumer
+</span><a href="#local-6989586621679529860"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.AssociateDataShareConsumer.html#AssociateDataShareConsumer%27"><span class="hs-identifier hs-type">AssociateDataShareConsumer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679529859"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679529859"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateDataShareConsumer
+</span><a href="#local-6989586621679529860"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataShareArn:AssociateDataShareConsumer' :: Text
 </span><a href="Network.AWS.Redshift.AssociateDataShareConsumer.html#%24sel%3AdataShareArn%3AAssociateDataShareConsumer%27"><span class="hs-identifier hs-var">dataShareArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679529107"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.AssociateDataShareConsumer.html#AssociateDataShareConsumer"><span class="hs-identifier hs-type">AssociateDataShareConsumer</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679529859"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.AssociateDataShareConsumer.html#AssociateDataShareConsumer"><span class="hs-identifier hs-type">AssociateDataShareConsumer</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.AssociateDataShareConsumer.html#AssociateDataShareConsumer"><span class="hs-identifier hs-type">AssociateDataShareConsumer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-114"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-115"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.AssociateDataShareConsumer.html#AssociateDataShareConsumer"><span class="hs-identifier hs-type">AssociateDataShareConsumer</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-116"></span><span>      </span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShare.html#DataShare"><span class="hs-identifier hs-type">DataShare</span></a></span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679529103"><span class="annot"><span class="annottext">request :: AssociateDataShareConsumer -&gt; Request AssociateDataShareConsumer
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679529855"><span class="annot"><span class="annottext">request :: AssociateDataShareConsumer -&gt; Request AssociateDataShareConsumer
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; AssociateDataShareConsumer -&gt; Request AssociateDataShareConsumer
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Redshift.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679529099"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679529851"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy AssociateDataShareConsumer
 -&gt; ClientResponse ClientBody
@@ -282,20 +282,20 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AssociateDataShareConsumerResult&quot;</span></span><span>
-</span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679529096"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679529096"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679529095"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679529095"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679529094"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679529094"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Either String DataShare
+</span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679529848"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679529848"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679529847"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679529847"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679529846"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679529846"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Either String DataShare
 forall a. FromXML a =&gt; [Node] -&gt; Either String a
 </span><span class="hs-identifier hs-var">Core.parseXML</span></span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679529094"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679529846"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679529089"><span id="local-6989586621679529091"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.AssociateDataShareConsumer.html#AssociateDataShareConsumer"><span class="hs-identifier hs-type">AssociateDataShareConsumer</span></a></span></span></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679529841"><span id="local-6989586621679529843"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.AssociateDataShareConsumer.html#AssociateDataShareConsumer"><span class="hs-identifier hs-type">AssociateDataShareConsumer</span></a></span></span></span><span>
 </span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679529086"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.AssociateDataShareConsumer.html#AssociateDataShareConsumer"><span class="hs-identifier hs-type">AssociateDataShareConsumer</span></a></span></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679529838"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.AssociateDataShareConsumer.html#AssociateDataShareConsumer"><span class="hs-identifier hs-type">AssociateDataShareConsumer</span></a></span></span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.AssociateDataShareConsumer.html#AssociateDataShareConsumer"><span class="hs-identifier hs-type">AssociateDataShareConsumer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679529082"><span class="annot"><span class="annottext">toHeaders :: AssociateDataShareConsumer -&gt; ResponseHeaders
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679529834"><span class="annot"><span class="annottext">toHeaders :: AssociateDataShareConsumer -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; AssociateDataShareConsumer -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -303,15 +303,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.AssociateDataShareConsumer.html#AssociateDataShareConsumer"><span class="hs-identifier hs-type">AssociateDataShareConsumer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679529077"><span class="annot"><span class="annottext">toPath :: AssociateDataShareConsumer -&gt; ByteString
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679529829"><span class="annot"><span class="annottext">toPath :: AssociateDataShareConsumer -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; AssociateDataShareConsumer -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.AssociateDataShareConsumer.html#AssociateDataShareConsumer"><span class="hs-identifier hs-type">AssociateDataShareConsumer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679529073"><span class="annot"><span class="annottext">toQuery :: AssociateDataShareConsumer -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.AssociateDataShareConsumer.html#AssociateDataShareConsumer%27"><span class="hs-identifier hs-type">AssociateDataShareConsumer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679529069"><span id="local-6989586621679529070"><span id="local-6989586621679529071"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679529825"><span class="annot"><span class="annottext">toQuery :: AssociateDataShareConsumer -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.AssociateDataShareConsumer.html#AssociateDataShareConsumer%27"><span class="hs-identifier hs-type">AssociateDataShareConsumer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679529821"><span id="local-6989586621679529822"><span id="local-6989586621679529823"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Text
 Text
 dataShareArn :: Text
@@ -320,7 +320,7 @@ associateEntireAccount :: Maybe Bool
 $sel:dataShareArn:AssociateDataShareConsumer' :: AssociateDataShareConsumer -&gt; Text
 $sel:consumerArn:AssociateDataShareConsumer' :: AssociateDataShareConsumer -&gt; Maybe Text
 $sel:associateEntireAccount:AssociateDataShareConsumer' :: AssociateDataShareConsumer -&gt; Maybe Bool
-</span><a href="#local-6989586621679529069"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679529821"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -341,16 +341,16 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-141"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679529071"><span class="hs-identifier hs-var">associateEntireAccount</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679529823"><span class="hs-identifier hs-var">associateEntireAccount</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-142"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;ConsumerArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679529070"><span class="hs-identifier hs-var">consumerArn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679529822"><span class="hs-identifier hs-var">consumerArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-143"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;DataShareArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679529069"><span class="hs-identifier hs-var">dataShareArn</span></a></span><span>
+</span><a href="#local-6989586621679529821"><span class="hs-identifier hs-var">dataShareArn</span></a></span><span>
 </span><span id="line-144"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-145"></span></pre></body></html>

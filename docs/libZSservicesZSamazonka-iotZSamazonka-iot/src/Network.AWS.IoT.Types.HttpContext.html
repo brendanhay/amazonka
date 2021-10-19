@@ -26,15 +26,15 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Specifies the HTTP context to use for the test authorizer request.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newHttpContext' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679785257"><span id="local-6989586621679785258"></span></span><span class="hs-keyword">data</span><span> </span><span id="HttpContext"><span class="annot"><a href="Network.AWS.IoT.Types.HttpContext.html#HttpContext"><span class="hs-identifier hs-var">HttpContext</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HttpContext%27"><span class="annot"><a href="Network.AWS.IoT.Types.HttpContext.html#HttpContext%27"><span class="hs-identifier hs-var">HttpContext'</span></a></span></span><span>
-</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The query string keys and values in an HTTP authorization request.</span><span>
-</span><span id="line-31"></span><span>    </span><span id="%24sel%3AqueryString%3AHttpContext%27"><span class="annot"><span class="annottext">HttpContext -&gt; Maybe Text
-</span><a href="Network.AWS.IoT.Types.HttpContext.html#%24sel%3AqueryString%3AHttpContext%27"><span class="hs-identifier hs-var hs-var">queryString</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The header keys and values in an HTTP authorization request.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3Aheaders%3AHttpContext%27"><span class="annot"><span class="annottext">HttpContext -&gt; Maybe (HashMap Text Text)
-</span><a href="Network.AWS.IoT.Types.HttpContext.html#%24sel%3Aheaders%3AHttpContext%27"><span class="hs-identifier hs-var hs-var">headers</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679786108"><span id="local-6989586621679786109"></span></span><span class="hs-keyword">data</span><span> </span><span id="HttpContext"><span class="annot"><a href="Network.AWS.IoT.Types.HttpContext.html#HttpContext"><span class="hs-identifier hs-var">HttpContext</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HttpContext%27"><span class="annot"><a href="Network.AWS.IoT.Types.HttpContext.html#HttpContext%27"><span class="hs-identifier hs-var">HttpContext'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The header keys and values in an HTTP authorization request.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3Aheaders%3AHttpContext%27"><span class="annot"><span class="annottext">HttpContext -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.IoT.Types.HttpContext.html#%24sel%3Aheaders%3AHttpContext%27"><span class="hs-identifier hs-var hs-var">headers</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The query string keys and values in an HTTP authorization request.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AqueryString%3AHttpContext%27"><span class="annot"><span class="annottext">HttpContext -&gt; Maybe Text
+</span><a href="Network.AWS.IoT.Types.HttpContext.html#%24sel%3AqueryString%3AHttpContext%27"><span class="hs-identifier hs-var hs-var">queryString</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679785250"><span id="local-6989586621679785252"><span class="annot"><span class="annottext">HttpContext -&gt; HttpContext -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679786101"><span id="local-6989586621679786103"><span class="annot"><span class="annottext">HttpContext -&gt; HttpContext -&gt; Bool
 (HttpContext -&gt; HttpContext -&gt; Bool)
 -&gt; (HttpContext -&gt; HttpContext -&gt; Bool) -&gt; Eq HttpContext
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -42,7 +42,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: HttpContext -&gt; HttpContext -&gt; Bool
 == :: HttpContext -&gt; HttpContext -&gt; Bool
 $c== :: HttpContext -&gt; HttpContext -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679785241"><span id="local-6989586621679785243"><span id="local-6989586621679785245"><span id="local-6989586621679785247"><span class="annot"><span class="annottext">ReadPrec [HttpContext]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679786092"><span id="local-6989586621679786094"><span id="local-6989586621679786096"><span id="local-6989586621679786098"><span class="annot"><span class="annottext">ReadPrec [HttpContext]
 ReadPrec HttpContext
 Int -&gt; ReadS HttpContext
 ReadS [HttpContext]
@@ -62,7 +62,7 @@ readList :: ReadS [HttpContext]
 $creadList :: ReadS [HttpContext]
 readsPrec :: Int -&gt; ReadS HttpContext
 $creadsPrec :: Int -&gt; ReadS HttpContext
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679785234"><span id="local-6989586621679785236"><span id="local-6989586621679785238"><span class="annot"><span class="annottext">Int -&gt; HttpContext -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679786085"><span id="local-6989586621679786087"><span id="local-6989586621679786089"><span class="annot"><span class="annottext">Int -&gt; HttpContext -&gt; ShowS
 [HttpContext] -&gt; ShowS
 HttpContext -&gt; String
 (Int -&gt; HttpContext -&gt; ShowS)
@@ -96,46 +96,28 @@ $cfrom :: forall x. HttpContext -&gt; Rep HttpContext x
 </span><span id="line-42"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-43"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-44"></span><span class="hs-comment">--</span><span>
-</span><span id="line-45"></span><span class="hs-comment">-- 'queryString', 'httpContext_queryString' - The query string keys and values in an HTTP authorization request.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- 'headers', 'httpContext_headers' - The header keys and values in an HTTP authorization request.</span><span>
 </span><span id="line-46"></span><span class="hs-comment">--</span><span>
-</span><span id="line-47"></span><span class="hs-comment">-- 'headers', 'httpContext_headers' - The header keys and values in an HTTP authorization request.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'queryString', 'httpContext_queryString' - The query string keys and values in an HTTP authorization request.</span><span>
 </span><span id="line-48"></span><span class="annot"><a href="Network.AWS.IoT.Types.HttpContext.html#newHttpContext"><span class="hs-identifier hs-type">newHttpContext</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-49"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.Types.HttpContext.html#HttpContext"><span class="hs-identifier hs-type">HttpContext</span></a></span><span>
 </span><span id="line-50"></span><span id="newHttpContext"><span class="annot"><span class="annottext">newHttpContext :: HttpContext
 </span><a href="Network.AWS.IoT.Types.HttpContext.html#newHttpContext"><span class="hs-identifier hs-var hs-var">newHttpContext</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-51"></span><span>  </span><span class="annot"><span class="annottext">HttpContext' :: Maybe Text -&gt; Maybe (HashMap Text Text) -&gt; HttpContext
+</span><span id="line-51"></span><span>  </span><span class="annot"><span class="annottext">HttpContext' :: Maybe (HashMap Text Text) -&gt; Maybe Text -&gt; HttpContext
 </span><a href="Network.AWS.IoT.Types.HttpContext.html#HttpContext%27"><span class="hs-identifier hs-type">HttpContext'</span></a></span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:queryString:HttpContext' :: Maybe Text
-</span><a href="Network.AWS.IoT.Types.HttpContext.html#%24sel%3AqueryString%3AHttpContext%27"><span class="hs-identifier hs-var">queryString</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-52"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:headers:HttpContext' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.IoT.Types.HttpContext.html#%24sel%3Aheaders%3AHttpContext%27"><span class="hs-identifier hs-var">headers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span class="annot"><span class="annottext">$sel:headers:HttpContext' :: Maybe (HashMap Text Text)
-</span><a href="Network.AWS.IoT.Types.HttpContext.html#%24sel%3Aheaders%3AHttpContext%27"><span class="hs-identifier hs-var">headers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span id="line-53"></span><span>      </span><span class="annot"><span class="annottext">$sel:queryString:HttpContext' :: Maybe Text
+</span><a href="Network.AWS.IoT.Types.HttpContext.html#%24sel%3AqueryString%3AHttpContext%27"><span class="hs-identifier hs-var">queryString</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-55"></span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- | The query string keys and values in an HTTP authorization request.</span><span>
-</span><span id="line-57"></span><span class="annot"><a href="Network.AWS.IoT.Types.HttpContext.html#httpContext_queryString"><span class="hs-identifier hs-type">httpContext_queryString</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.HttpContext.html#HttpContext"><span class="hs-identifier hs-type">HttpContext</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-58"></span><span id="httpContext_queryString"><span class="annot"><span class="annottext">httpContext_queryString :: (Maybe Text -&gt; f (Maybe Text)) -&gt; HttpContext -&gt; f HttpContext
-</span><a href="Network.AWS.IoT.Types.HttpContext.html#httpContext_queryString"><span class="hs-identifier hs-var hs-var">httpContext_queryString</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HttpContext -&gt; Maybe Text)
--&gt; (HttpContext -&gt; Maybe Text -&gt; HttpContext)
--&gt; Lens HttpContext HttpContext (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.HttpContext.html#HttpContext%27"><span class="hs-identifier hs-type">HttpContext'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679785225"><span class="annot"><span class="annottext">Maybe Text
-queryString :: Maybe Text
-$sel:queryString:HttpContext' :: HttpContext -&gt; Maybe Text
-</span><a href="#local-6989586621679785225"><span class="hs-identifier hs-var hs-var">queryString</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679785225"><span class="hs-identifier hs-var">queryString</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679785224"><span class="annot"><span class="annottext">s :: HttpContext
-</span><a href="#local-6989586621679785224"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.HttpContext.html#HttpContext%27"><span class="hs-identifier hs-type">HttpContext'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679785223"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679785223"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HttpContext
-</span><a href="#local-6989586621679785224"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryString:HttpContext' :: Maybe Text
-</span><a href="Network.AWS.IoT.Types.HttpContext.html#%24sel%3AqueryString%3AHttpContext%27"><span class="hs-identifier hs-var">queryString</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679785223"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.HttpContext.html#HttpContext"><span class="hs-identifier hs-type">HttpContext</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-59"></span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- | The header keys and values in an HTTP authorization request.</span><span>
-</span><span id="line-61"></span><span class="annot"><a href="Network.AWS.IoT.Types.HttpContext.html#httpContext_headers"><span class="hs-identifier hs-type">httpContext_headers</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.HttpContext.html#HttpContext"><span class="hs-identifier hs-type">HttpContext</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-62"></span><span id="httpContext_headers"><span class="annot"><span class="annottext">httpContext_headers :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><span id="line-56"></span><span class="hs-comment">-- | The header keys and values in an HTTP authorization request.</span><span>
+</span><span id="line-57"></span><span class="annot"><a href="Network.AWS.IoT.Types.HttpContext.html#httpContext_headers"><span class="hs-identifier hs-type">httpContext_headers</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.HttpContext.html#HttpContext"><span class="hs-identifier hs-type">HttpContext</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span id="httpContext_headers"><span class="annot"><span class="annottext">httpContext_headers :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
 -&gt; HttpContext -&gt; f HttpContext
 </span><a href="Network.AWS.IoT.Types.HttpContext.html#httpContext_headers"><span class="hs-identifier hs-var hs-var">httpContext_headers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HttpContext -&gt; Maybe (HashMap Text Text))
 -&gt; (HttpContext -&gt; Maybe (HashMap Text Text) -&gt; HttpContext)
@@ -145,16 +127,16 @@ $sel:queryString:HttpContext' :: HttpContext -&gt; Maybe Text
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.HttpContext.html#HttpContext%27"><span class="hs-identifier hs-type">HttpContext'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679785221"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.HttpContext.html#HttpContext%27"><span class="hs-identifier hs-type">HttpContext'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679786076"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 headers :: Maybe (HashMap Text Text)
 $sel:headers:HttpContext' :: HttpContext -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679785221"><span class="hs-identifier hs-var hs-var">headers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679785221"><span class="hs-identifier hs-var">headers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679785220"><span class="annot"><span class="annottext">s :: HttpContext
-</span><a href="#local-6989586621679785220"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.HttpContext.html#HttpContext%27"><span class="hs-identifier hs-type">HttpContext'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679785219"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679785219"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HttpContext
-</span><a href="#local-6989586621679785220"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:headers:HttpContext' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679786076"><span class="hs-identifier hs-var hs-var">headers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679786076"><span class="hs-identifier hs-var">headers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679786075"><span class="annot"><span class="annottext">s :: HttpContext
+</span><a href="#local-6989586621679786075"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.HttpContext.html#HttpContext%27"><span class="hs-identifier hs-type">HttpContext'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679786074"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679786074"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HttpContext
+</span><a href="#local-6989586621679786075"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:headers:HttpContext' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.IoT.Types.HttpContext.html#%24sel%3Aheaders%3AHttpContext%27"><span class="hs-identifier hs-var">headers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679785219"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.HttpContext.html#HttpContext"><span class="hs-identifier hs-type">HttpContext</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679786074"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.HttpContext.html#HttpContext"><span class="hs-identifier hs-type">HttpContext</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; HttpContext -&gt; f HttpContext)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -180,42 +162,60 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (HashMap Text Text)
   (HashMap Text Text)
   (HashMap Text Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679785212"><span id="local-6989586621679785214"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.HttpContext.html#HttpContext"><span class="hs-identifier hs-type">HttpContext</span></a></span></span></span><span>
-</span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679785209"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.HttpContext.html#HttpContext"><span class="hs-identifier hs-type">HttpContext</span></a></span></span><span>
-</span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679785201"><span id="local-6989586621679785203"><span id="local-6989586621679785205"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.HttpContext.html#HttpContext"><span class="hs-identifier hs-type">HttpContext</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-69"></span><span>  </span><span id="local-6989586621679785199"><span class="annot"><span class="annottext">toJSON :: HttpContext -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.HttpContext.html#HttpContext%27"><span class="hs-identifier hs-type">HttpContext'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679785196"><span id="local-6989586621679785197"><span class="annot"><span class="annottext">Maybe Text
-Maybe (HashMap Text Text)
-headers :: Maybe (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- | The query string keys and values in an HTTP authorization request.</span><span>
+</span><span id="line-61"></span><span class="annot"><a href="Network.AWS.IoT.Types.HttpContext.html#httpContext_queryString"><span class="hs-identifier hs-type">httpContext_queryString</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.HttpContext.html#HttpContext"><span class="hs-identifier hs-type">HttpContext</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span id="httpContext_queryString"><span class="annot"><span class="annottext">httpContext_queryString :: (Maybe Text -&gt; f (Maybe Text)) -&gt; HttpContext -&gt; f HttpContext
+</span><a href="Network.AWS.IoT.Types.HttpContext.html#httpContext_queryString"><span class="hs-identifier hs-var hs-var">httpContext_queryString</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HttpContext -&gt; Maybe Text)
+-&gt; (HttpContext -&gt; Maybe Text -&gt; HttpContext)
+-&gt; Lens HttpContext HttpContext (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.HttpContext.html#HttpContext%27"><span class="hs-identifier hs-type">HttpContext'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679786069"><span class="annot"><span class="annottext">Maybe Text
 queryString :: Maybe Text
-$sel:headers:HttpContext' :: HttpContext -&gt; Maybe (HashMap Text Text)
 $sel:queryString:HttpContext' :: HttpContext -&gt; Maybe Text
-</span><a href="#local-6989586621679785196"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679786069"><span class="hs-identifier hs-var hs-var">queryString</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679786069"><span class="hs-identifier hs-var">queryString</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679786068"><span class="annot"><span class="annottext">s :: HttpContext
+</span><a href="#local-6989586621679786068"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.HttpContext.html#HttpContext%27"><span class="hs-identifier hs-type">HttpContext'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679786067"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679786067"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HttpContext
+</span><a href="#local-6989586621679786068"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryString:HttpContext' :: Maybe Text
+</span><a href="Network.AWS.IoT.Types.HttpContext.html#%24sel%3AqueryString%3AHttpContext%27"><span class="hs-identifier hs-var">queryString</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679786067"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.HttpContext.html#HttpContext"><span class="hs-identifier hs-type">HttpContext</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679786063"><span id="local-6989586621679786065"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.HttpContext.html#HttpContext"><span class="hs-identifier hs-type">HttpContext</span></a></span></span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679786060"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.HttpContext.html#HttpContext"><span class="hs-identifier hs-type">HttpContext</span></a></span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679786052"><span id="local-6989586621679786054"><span id="local-6989586621679786056"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.HttpContext.html#HttpContext"><span class="hs-identifier hs-type">HttpContext</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621679786050"><span class="annot"><span class="annottext">toJSON :: HttpContext -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.HttpContext.html#HttpContext%27"><span class="hs-identifier hs-type">HttpContext'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679786047"><span id="local-6989586621679786048"><span class="annot"><span class="annottext">Maybe Text
+Maybe (HashMap Text Text)
+queryString :: Maybe Text
+headers :: Maybe (HashMap Text Text)
+$sel:queryString:HttpContext' :: HttpContext -&gt; Maybe Text
+$sel:headers:HttpContext' :: HttpContext -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679786047"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-71"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-72"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;queryString&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679785197"><span class="hs-identifier hs-var">queryString</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;headers&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
 -&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679785196"><span class="hs-identifier hs-var">headers</span></a></span><span>
+</span><a href="#local-6989586621679786048"><span class="hs-identifier hs-var">headers</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;queryString&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679786047"><span class="hs-identifier hs-var">queryString</span></a></span><span>
 </span><span id="line-74"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-75"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span></pre></body></html>

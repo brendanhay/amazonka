@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679244920"><span id="local-6989586621679244921"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="QualificationStatus"><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.QualificationStatus.html#QualificationStatus"><span class="hs-identifier hs-var">QualificationStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="QualificationStatus%27"><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.QualificationStatus.html#QualificationStatus%27"><span class="hs-identifier hs-var">QualificationStatus'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679245040"><span id="local-6989586621679245041"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="QualificationStatus"><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.QualificationStatus.html#QualificationStatus"><span class="hs-identifier hs-var">QualificationStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="QualificationStatus%27"><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.QualificationStatus.html#QualificationStatus%27"><span class="hs-identifier hs-var">QualificationStatus'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromQualificationStatus"><span class="annot"><span class="annottext">QualificationStatus -&gt; Text
 </span><a href="Network.AWS.MechanicalTurk.Types.QualificationStatus.html#fromQualificationStatus"><span class="hs-identifier hs-var hs-var">fromQualificationStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679244912"><span id="local-6989586621679244914"><span id="local-6989586621679244916"><span class="annot"><span class="annottext">Int -&gt; QualificationStatus -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679245032"><span id="local-6989586621679245034"><span id="local-6989586621679245036"><span class="annot"><span class="annottext">Int -&gt; QualificationStatus -&gt; ShowS
 [QualificationStatus] -&gt; ShowS
 QualificationStatus -&gt; String
 (Int -&gt; QualificationStatus -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: QualificationStatus -&gt; String
 showsPrec :: Int -&gt; QualificationStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; QualificationStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679244903"><span id="local-6989586621679244905"><span id="local-6989586621679244907"><span id="local-6989586621679244909"><span class="annot"><span class="annottext">ReadPrec [QualificationStatus]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679245023"><span id="local-6989586621679245025"><span id="local-6989586621679245027"><span id="local-6989586621679245029"><span class="annot"><span class="annottext">ReadPrec [QualificationStatus]
 ReadPrec QualificationStatus
 Int -&gt; ReadS QualificationStatus
 ReadS [QualificationStatus]
@@ -72,7 +72,7 @@ $creadList :: ReadS [QualificationStatus]
 readsPrec :: Int -&gt; ReadS QualificationStatus
 $creadsPrec :: Int -&gt; ReadS QualificationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679244898"><span id="local-6989586621679244900"><span class="annot"><span class="annottext">QualificationStatus -&gt; QualificationStatus -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679245018"><span id="local-6989586621679245020"><span class="annot"><span class="annottext">QualificationStatus -&gt; QualificationStatus -&gt; Bool
 (QualificationStatus -&gt; QualificationStatus -&gt; Bool)
 -&gt; (QualificationStatus -&gt; QualificationStatus -&gt; Bool)
 -&gt; Eq QualificationStatus
@@ -82,7 +82,7 @@ $c/= :: QualificationStatus -&gt; QualificationStatus -&gt; Bool
 == :: QualificationStatus -&gt; QualificationStatus -&gt; Bool
 $c== :: QualificationStatus -&gt; QualificationStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679244882"><span id="local-6989586621679244884"><span id="local-6989586621679244886"><span id="local-6989586621679244888"><span id="local-6989586621679244890"><span id="local-6989586621679244892"><span id="local-6989586621679244894"><span class="annot"><span class="annottext">Eq QualificationStatus
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679245002"><span id="local-6989586621679245004"><span id="local-6989586621679245006"><span id="local-6989586621679245008"><span id="local-6989586621679245010"><span id="local-6989586621679245012"><span id="local-6989586621679245014"><span class="annot"><span class="annottext">Eq QualificationStatus
 Eq QualificationStatus
 -&gt; (QualificationStatus -&gt; QualificationStatus -&gt; Ordering)
 -&gt; (QualificationStatus -&gt; QualificationStatus -&gt; Bool)
@@ -135,7 +135,7 @@ $cfrom :: forall x. QualificationStatus -&gt; Rep QualificationStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679244874"><span id="local-6989586621679244876"><span class="annot"><span class="annottext">Int -&gt; QualificationStatus -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679244994"><span id="local-6989586621679244996"><span class="annot"><span class="annottext">Int -&gt; QualificationStatus -&gt; Int
 QualificationStatus -&gt; Int
 (Int -&gt; QualificationStatus -&gt; Int)
 -&gt; (QualificationStatus -&gt; Int) -&gt; Hashable QualificationStatus
@@ -145,53 +145,53 @@ $chash :: QualificationStatus -&gt; Int
 hashWithSalt :: Int -&gt; QualificationStatus -&gt; Int
 $chashWithSalt :: Int -&gt; QualificationStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679244871"><span class="annot"><span class="annottext">QualificationStatus -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679244991"><span class="annot"><span class="annottext">QualificationStatus -&gt; ()
 (QualificationStatus -&gt; ()) -&gt; NFData QualificationStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: QualificationStatus -&gt; ()
 $crnf :: QualificationStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679244868"><span class="annot"><span class="annottext">Text -&gt; Either String QualificationStatus
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679244988"><span class="annot"><span class="annottext">Text -&gt; Either String QualificationStatus
 (Text -&gt; Either String QualificationStatus)
 -&gt; FromText QualificationStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String QualificationStatus
 $cfromText :: Text -&gt; Either String QualificationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679244865"><span class="annot"><span class="annottext">QualificationStatus -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679244985"><span class="annot"><span class="annottext">QualificationStatus -&gt; Text
 (QualificationStatus -&gt; Text) -&gt; ToText QualificationStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: QualificationStatus -&gt; Text
 $ctoText :: QualificationStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679244862"><span class="annot"><span class="annottext">QualificationStatus -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679244982"><span class="annot"><span class="annottext">QualificationStatus -&gt; ByteString
 (QualificationStatus -&gt; ByteString)
 -&gt; ToByteString QualificationStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: QualificationStatus -&gt; ByteString
 $ctoBS :: QualificationStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679244859"><span class="annot"><span class="annottext">QualificationStatus -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679244979"><span class="annot"><span class="annottext">QualificationStatus -&gt; ByteStringBuilder
 (QualificationStatus -&gt; ByteStringBuilder)
 -&gt; ToLog QualificationStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: QualificationStatus -&gt; ByteStringBuilder
 $cbuild :: QualificationStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679244856"><span class="annot"><span class="annottext">HeaderName -&gt; QualificationStatus -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679244976"><span class="annot"><span class="annottext">HeaderName -&gt; QualificationStatus -&gt; [Header]
 (HeaderName -&gt; QualificationStatus -&gt; [Header])
 -&gt; ToHeader QualificationStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; QualificationStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; QualificationStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679244853"><span class="annot"><span class="annottext">QualificationStatus -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679244973"><span class="annot"><span class="annottext">QualificationStatus -&gt; QueryString
 (QualificationStatus -&gt; QueryString) -&gt; ToQuery QualificationStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: QualificationStatus -&gt; QueryString
 $ctoQuery :: QualificationStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679244848"><span id="local-6989586621679244850"><span class="annot"><span class="annottext">Value -&gt; Parser [QualificationStatus]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679244968"><span id="local-6989586621679244970"><span class="annot"><span class="annottext">Value -&gt; Parser [QualificationStatus]
 Value -&gt; Parser QualificationStatus
 (Value -&gt; Parser QualificationStatus)
 -&gt; (Value -&gt; Parser [QualificationStatus])
@@ -203,7 +203,7 @@ $cparseJSONList :: Value -&gt; Parser [QualificationStatus]
 parseJSON :: Value -&gt; Parser QualificationStatus
 $cparseJSON :: Value -&gt; Parser QualificationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679244843"><span id="local-6989586621679244845"><span class="annot"><span class="annottext">FromJSONKeyFunction [QualificationStatus]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679244963"><span id="local-6989586621679244965"><span class="annot"><span class="annottext">FromJSONKeyFunction [QualificationStatus]
 FromJSONKeyFunction QualificationStatus
 FromJSONKeyFunction QualificationStatus
 -&gt; FromJSONKeyFunction [QualificationStatus]
@@ -215,7 +215,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [QualificationStatus]
 fromJSONKey :: FromJSONKeyFunction QualificationStatus
 $cfromJSONKey :: FromJSONKeyFunction QualificationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679244834"><span id="local-6989586621679244836"><span id="local-6989586621679244838"><span id="local-6989586621679244840"><span class="annot"><span class="annottext">[QualificationStatus] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679244954"><span id="local-6989586621679244956"><span id="local-6989586621679244958"><span id="local-6989586621679244960"><span class="annot"><span class="annottext">[QualificationStatus] -&gt; Encoding
 [QualificationStatus] -&gt; Value
 QualificationStatus -&gt; Encoding
 QualificationStatus -&gt; Value
@@ -239,7 +239,7 @@ $ctoEncoding :: QualificationStatus -&gt; Encoding
 toJSON :: QualificationStatus -&gt; Value
 $ctoJSON :: QualificationStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679244829"><span id="local-6989586621679244831"><span class="annot"><span class="annottext">ToJSONKeyFunction [QualificationStatus]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679244949"><span id="local-6989586621679244951"><span class="annot"><span class="annottext">ToJSONKeyFunction [QualificationStatus]
 ToJSONKeyFunction QualificationStatus
 ToJSONKeyFunction QualificationStatus
 -&gt; ToJSONKeyFunction [QualificationStatus]
@@ -251,14 +251,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [QualificationStatus]
 toJSONKey :: ToJSONKeyFunction QualificationStatus
 $ctoJSONKey :: ToJSONKeyFunction QualificationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679244826"><span class="annot"><span class="annottext">[Node] -&gt; Either String QualificationStatus
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679244946"><span class="annot"><span class="annottext">[Node] -&gt; Either String QualificationStatus
 ([Node] -&gt; Either String QualificationStatus)
 -&gt; FromXML QualificationStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String QualificationStatus
 $cparseXML :: [Node] -&gt; Either String QualificationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679244823"><span class="annot"><span class="annottext">QualificationStatus -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679244943"><span class="annot"><span class="annottext">QualificationStatus -&gt; XML
 (QualificationStatus -&gt; XML) -&gt; ToXML QualificationStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: QualificationStatus -&gt; XML

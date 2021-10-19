@@ -27,25 +27,25 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Information about the associated IAM roles.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newAssociatedRole' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621681053797"><span id="local-6989586621681053798"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociatedRole"><span class="annot"><a href="Network.AWS.EC2.Types.AssociatedRole.html#AssociatedRole"><span class="hs-identifier hs-var">AssociatedRole</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociatedRole%27"><span class="annot"><a href="Network.AWS.EC2.Types.AssociatedRole.html#AssociatedRole%27"><span class="hs-identifier hs-var">AssociatedRole'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The key of the Amazon S3 object ey where the certificate, certificate</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- chain, and encrypted private key bundle is stored. The object key is</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- formated as follows: @role_arn@\/@certificate_arn@.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AcertificateS3ObjectKey%3AAssociatedRole%27"><span class="annot"><span class="annottext">AssociatedRole -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.AssociatedRole.html#%24sel%3AcertificateS3ObjectKey%3AAssociatedRole%27"><span class="hs-identifier hs-var hs-var">certificateS3ObjectKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The ID of the KMS customer master key (CMK) used to encrypt the private</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- key.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AencryptionKmsKeyId%3AAssociatedRole%27"><span class="annot"><span class="annottext">AssociatedRole -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.AssociatedRole.html#%24sel%3AencryptionKmsKeyId%3AAssociatedRole%27"><span class="hs-identifier hs-var hs-var">encryptionKmsKeyId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The name of the Amazon S3 bucket in which the Amazon S3 object is</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- stored.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3AcertificateS3BucketName%3AAssociatedRole%27"><span class="annot"><span class="annottext">AssociatedRole -&gt; Maybe Text
+</span><span id="line-30"></span><span id="local-6989586621681086995"><span id="local-6989586621681086996"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociatedRole"><span class="annot"><a href="Network.AWS.EC2.Types.AssociatedRole.html#AssociatedRole"><span class="hs-identifier hs-var">AssociatedRole</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociatedRole%27"><span class="annot"><a href="Network.AWS.EC2.Types.AssociatedRole.html#AssociatedRole%27"><span class="hs-identifier hs-var">AssociatedRole'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the Amazon S3 bucket in which the Amazon S3 object is</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- stored.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AcertificateS3BucketName%3AAssociatedRole%27"><span class="annot"><span class="annottext">AssociatedRole -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.Types.AssociatedRole.html#%24sel%3AcertificateS3BucketName%3AAssociatedRole%27"><span class="hs-identifier hs-var hs-var">certificateS3BucketName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The key of the Amazon S3 object ey where the certificate, certificate</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- chain, and encrypted private key bundle is stored. The object key is</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- formated as follows: @role_arn@\/@certificate_arn@.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AcertificateS3ObjectKey%3AAssociatedRole%27"><span class="annot"><span class="annottext">AssociatedRole -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.AssociatedRole.html#%24sel%3AcertificateS3ObjectKey%3AAssociatedRole%27"><span class="hs-identifier hs-var hs-var">certificateS3ObjectKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The ID of the KMS customer master key (CMK) used to encrypt the private</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- key.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AencryptionKmsKeyId%3AAssociatedRole%27"><span class="annot"><span class="annottext">AssociatedRole -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.AssociatedRole.html#%24sel%3AencryptionKmsKeyId%3AAssociatedRole%27"><span class="hs-identifier hs-var hs-var">encryptionKmsKeyId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The ARN of the associated IAM role.</span><span>
 </span><span id="line-42"></span><span>    </span><span id="%24sel%3AassociatedRoleArn%3AAssociatedRole%27"><span class="annot"><span class="annottext">AssociatedRole -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.Types.AssociatedRole.html#%24sel%3AassociatedRoleArn%3AAssociatedRole%27"><span class="hs-identifier hs-var hs-var">associatedRoleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681053788"><span id="local-6989586621681053790"><span class="annot"><span class="annottext">AssociatedRole -&gt; AssociatedRole -&gt; Bool
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681086986"><span id="local-6989586621681086988"><span class="annot"><span class="annottext">AssociatedRole -&gt; AssociatedRole -&gt; Bool
 (AssociatedRole -&gt; AssociatedRole -&gt; Bool)
 -&gt; (AssociatedRole -&gt; AssociatedRole -&gt; Bool) -&gt; Eq AssociatedRole
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -53,7 +53,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AssociatedRole -&gt; AssociatedRole -&gt; Bool
 == :: AssociatedRole -&gt; AssociatedRole -&gt; Bool
 $c== :: AssociatedRole -&gt; AssociatedRole -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681053779"><span id="local-6989586621681053781"><span id="local-6989586621681053783"><span id="local-6989586621681053785"><span class="annot"><span class="annottext">ReadPrec [AssociatedRole]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681086977"><span id="local-6989586621681086979"><span id="local-6989586621681086981"><span id="local-6989586621681086983"><span class="annot"><span class="annottext">ReadPrec [AssociatedRole]
 ReadPrec AssociatedRole
 Int -&gt; ReadS AssociatedRole
 ReadS [AssociatedRole]
@@ -73,7 +73,7 @@ readList :: ReadS [AssociatedRole]
 $creadList :: ReadS [AssociatedRole]
 readsPrec :: Int -&gt; ReadS AssociatedRole
 $creadsPrec :: Int -&gt; ReadS AssociatedRole
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681053772"><span id="local-6989586621681053774"><span id="local-6989586621681053776"><span class="annot"><span class="annottext">Int -&gt; AssociatedRole -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681086970"><span id="local-6989586621681086972"><span id="local-6989586621681086974"><span class="annot"><span class="annottext">Int -&gt; AssociatedRole -&gt; ShowS
 [AssociatedRole] -&gt; ShowS
 AssociatedRole -&gt; String
 (Int -&gt; AssociatedRole -&gt; ShowS)
@@ -107,15 +107,15 @@ $cfrom :: forall x. AssociatedRole -&gt; Rep AssociatedRole x
 </span><span id="line-51"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-53"></span><span class="hs-comment">--</span><span>
-</span><span id="line-54"></span><span class="hs-comment">-- 'certificateS3ObjectKey', 'associatedRole_certificateS3ObjectKey' - The key of the Amazon S3 object ey where the certificate, certificate</span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- chain, and encrypted private key bundle is stored. The object key is</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- formated as follows: @role_arn@\/@certificate_arn@.</span><span>
-</span><span id="line-57"></span><span class="hs-comment">--</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- 'encryptionKmsKeyId', 'associatedRole_encryptionKmsKeyId' - The ID of the KMS customer master key (CMK) used to encrypt the private</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- key.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'certificateS3BucketName', 'associatedRole_certificateS3BucketName' - The name of the Amazon S3 bucket in which the Amazon S3 object is</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- stored.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'certificateS3ObjectKey', 'associatedRole_certificateS3ObjectKey' - The key of the Amazon S3 object ey where the certificate, certificate</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- chain, and encrypted private key bundle is stored. The object key is</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- formated as follows: @role_arn@\/@certificate_arn@.</span><span>
 </span><span id="line-60"></span><span class="hs-comment">--</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- 'certificateS3BucketName', 'associatedRole_certificateS3BucketName' - The name of the Amazon S3 bucket in which the Amazon S3 object is</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- stored.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'encryptionKmsKeyId', 'associatedRole_encryptionKmsKeyId' - The ID of the KMS customer master key (CMK) used to encrypt the private</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- key.</span><span>
 </span><span id="line-63"></span><span class="hs-comment">--</span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- 'associatedRoleArn', 'associatedRole_associatedRoleArn' - The ARN of the associated IAM role.</span><span>
 </span><span id="line-65"></span><span class="annot"><a href="Network.AWS.EC2.Types.AssociatedRole.html#newAssociatedRole"><span class="hs-identifier hs-type">newAssociatedRole</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -125,17 +125,17 @@ $cfrom :: forall x. AssociatedRole -&gt; Rep AssociatedRole x
 </span><span id="line-68"></span><span>  </span><span class="annot"><span class="annottext">AssociatedRole' :: Maybe Text
 -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; AssociatedRole
 </span><a href="Network.AWS.EC2.Types.AssociatedRole.html#AssociatedRole%27"><span class="hs-identifier hs-type">AssociatedRole'</span></a></span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:certificateS3ObjectKey:AssociatedRole' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.AssociatedRole.html#%24sel%3AcertificateS3ObjectKey%3AAssociatedRole%27"><span class="hs-identifier hs-var">certificateS3ObjectKey</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:certificateS3BucketName:AssociatedRole' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.AssociatedRole.html#%24sel%3AcertificateS3BucketName%3AAssociatedRole%27"><span class="hs-identifier hs-var">certificateS3BucketName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:encryptionKmsKeyId:AssociatedRole' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.AssociatedRole.html#%24sel%3AencryptionKmsKeyId%3AAssociatedRole%27"><span class="hs-identifier hs-var">encryptionKmsKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:certificateS3ObjectKey:AssociatedRole' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.AssociatedRole.html#%24sel%3AcertificateS3ObjectKey%3AAssociatedRole%27"><span class="hs-identifier hs-var">certificateS3ObjectKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:certificateS3BucketName:AssociatedRole' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.AssociatedRole.html#%24sel%3AcertificateS3BucketName%3AAssociatedRole%27"><span class="hs-identifier hs-var">certificateS3BucketName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:encryptionKmsKeyId:AssociatedRole' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.AssociatedRole.html#%24sel%3AencryptionKmsKeyId%3AAssociatedRole%27"><span class="hs-identifier hs-var">encryptionKmsKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:associatedRoleArn:AssociatedRole' :: Maybe Text
@@ -144,66 +144,66 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-74"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- | The key of the Amazon S3 object ey where the certificate, certificate</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- chain, and encrypted private key bundle is stored. The object key is</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- formated as follows: @role_arn@\/@certificate_arn@.</span><span>
-</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.EC2.Types.AssociatedRole.html#associatedRole_certificateS3ObjectKey"><span class="hs-identifier hs-type">associatedRole_certificateS3ObjectKey</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AssociatedRole.html#AssociatedRole"><span class="hs-identifier hs-type">AssociatedRole</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-80"></span><span id="associatedRole_certificateS3ObjectKey"><span class="annot"><span class="annottext">associatedRole_certificateS3ObjectKey :: (Maybe Text -&gt; f (Maybe Text))
--&gt; AssociatedRole -&gt; f AssociatedRole
-</span><a href="Network.AWS.EC2.Types.AssociatedRole.html#associatedRole_certificateS3ObjectKey"><span class="hs-identifier hs-var hs-var">associatedRole_certificateS3ObjectKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociatedRole -&gt; Maybe Text)
--&gt; (AssociatedRole -&gt; Maybe Text -&gt; AssociatedRole)
--&gt; Lens AssociatedRole AssociatedRole (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.AssociatedRole.html#AssociatedRole%27"><span class="hs-identifier hs-type">AssociatedRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681053763"><span class="annot"><span class="annottext">Maybe Text
-certificateS3ObjectKey :: Maybe Text
-$sel:certificateS3ObjectKey:AssociatedRole' :: AssociatedRole -&gt; Maybe Text
-</span><a href="#local-6989586621681053763"><span class="hs-identifier hs-var hs-var">certificateS3ObjectKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681053763"><span class="hs-identifier hs-var">certificateS3ObjectKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681053762"><span class="annot"><span class="annottext">s :: AssociatedRole
-</span><a href="#local-6989586621681053762"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.AssociatedRole.html#AssociatedRole%27"><span class="hs-identifier hs-type">AssociatedRole'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681053761"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681053761"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociatedRole
-</span><a href="#local-6989586621681053762"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateS3ObjectKey:AssociatedRole' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.AssociatedRole.html#%24sel%3AcertificateS3ObjectKey%3AAssociatedRole%27"><span class="hs-identifier hs-var">certificateS3ObjectKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681053761"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AssociatedRole.html#AssociatedRole"><span class="hs-identifier hs-type">AssociatedRole</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- | The ID of the KMS customer master key (CMK) used to encrypt the private</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- key.</span><span>
-</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.EC2.Types.AssociatedRole.html#associatedRole_encryptionKmsKeyId"><span class="hs-identifier hs-type">associatedRole_encryptionKmsKeyId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AssociatedRole.html#AssociatedRole"><span class="hs-identifier hs-type">AssociatedRole</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-85"></span><span id="associatedRole_encryptionKmsKeyId"><span class="annot"><span class="annottext">associatedRole_encryptionKmsKeyId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; AssociatedRole -&gt; f AssociatedRole
-</span><a href="Network.AWS.EC2.Types.AssociatedRole.html#associatedRole_encryptionKmsKeyId"><span class="hs-identifier hs-var hs-var">associatedRole_encryptionKmsKeyId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociatedRole -&gt; Maybe Text)
--&gt; (AssociatedRole -&gt; Maybe Text -&gt; AssociatedRole)
--&gt; Lens AssociatedRole AssociatedRole (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.AssociatedRole.html#AssociatedRole%27"><span class="hs-identifier hs-type">AssociatedRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681053759"><span class="annot"><span class="annottext">Maybe Text
-encryptionKmsKeyId :: Maybe Text
-$sel:encryptionKmsKeyId:AssociatedRole' :: AssociatedRole -&gt; Maybe Text
-</span><a href="#local-6989586621681053759"><span class="hs-identifier hs-var hs-var">encryptionKmsKeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681053759"><span class="hs-identifier hs-var">encryptionKmsKeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681053758"><span class="annot"><span class="annottext">s :: AssociatedRole
-</span><a href="#local-6989586621681053758"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.AssociatedRole.html#AssociatedRole%27"><span class="hs-identifier hs-type">AssociatedRole'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681053757"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681053757"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociatedRole
-</span><a href="#local-6989586621681053758"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryptionKmsKeyId:AssociatedRole' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.AssociatedRole.html#%24sel%3AencryptionKmsKeyId%3AAssociatedRole%27"><span class="hs-identifier hs-var">encryptionKmsKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681053757"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AssociatedRole.html#AssociatedRole"><span class="hs-identifier hs-type">AssociatedRole</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- | The name of the Amazon S3 bucket in which the Amazon S3 object is</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- stored.</span><span>
-</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.EC2.Types.AssociatedRole.html#associatedRole_certificateS3BucketName"><span class="hs-identifier hs-type">associatedRole_certificateS3BucketName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AssociatedRole.html#AssociatedRole"><span class="hs-identifier hs-type">AssociatedRole</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-90"></span><span id="associatedRole_certificateS3BucketName"><span class="annot"><span class="annottext">associatedRole_certificateS3BucketName :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-76"></span><span class="hs-comment">-- | The name of the Amazon S3 bucket in which the Amazon S3 object is</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- stored.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.EC2.Types.AssociatedRole.html#associatedRole_certificateS3BucketName"><span class="hs-identifier hs-type">associatedRole_certificateS3BucketName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AssociatedRole.html#AssociatedRole"><span class="hs-identifier hs-type">AssociatedRole</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span id="associatedRole_certificateS3BucketName"><span class="annot"><span class="annottext">associatedRole_certificateS3BucketName :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; AssociatedRole -&gt; f AssociatedRole
 </span><a href="Network.AWS.EC2.Types.AssociatedRole.html#associatedRole_certificateS3BucketName"><span class="hs-identifier hs-var hs-var">associatedRole_certificateS3BucketName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociatedRole -&gt; Maybe Text)
 -&gt; (AssociatedRole -&gt; Maybe Text -&gt; AssociatedRole)
 -&gt; Lens AssociatedRole AssociatedRole (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.AssociatedRole.html#AssociatedRole%27"><span class="hs-identifier hs-type">AssociatedRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681053755"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.AssociatedRole.html#AssociatedRole%27"><span class="hs-identifier hs-type">AssociatedRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681086961"><span class="annot"><span class="annottext">Maybe Text
 certificateS3BucketName :: Maybe Text
 $sel:certificateS3BucketName:AssociatedRole' :: AssociatedRole -&gt; Maybe Text
-</span><a href="#local-6989586621681053755"><span class="hs-identifier hs-var hs-var">certificateS3BucketName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681053755"><span class="hs-identifier hs-var">certificateS3BucketName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681053754"><span class="annot"><span class="annottext">s :: AssociatedRole
-</span><a href="#local-6989586621681053754"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.AssociatedRole.html#AssociatedRole%27"><span class="hs-identifier hs-type">AssociatedRole'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681053753"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681053753"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociatedRole
-</span><a href="#local-6989586621681053754"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateS3BucketName:AssociatedRole' :: Maybe Text
+</span><a href="#local-6989586621681086961"><span class="hs-identifier hs-var hs-var">certificateS3BucketName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681086961"><span class="hs-identifier hs-var">certificateS3BucketName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681086960"><span class="annot"><span class="annottext">s :: AssociatedRole
+</span><a href="#local-6989586621681086960"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.AssociatedRole.html#AssociatedRole%27"><span class="hs-identifier hs-type">AssociatedRole'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681086959"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681086959"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociatedRole
+</span><a href="#local-6989586621681086960"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateS3BucketName:AssociatedRole' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.AssociatedRole.html#%24sel%3AcertificateS3BucketName%3AAssociatedRole%27"><span class="hs-identifier hs-var">certificateS3BucketName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681053753"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AssociatedRole.html#AssociatedRole"><span class="hs-identifier hs-type">AssociatedRole</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681086959"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AssociatedRole.html#AssociatedRole"><span class="hs-identifier hs-type">AssociatedRole</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | The key of the Amazon S3 object ey where the certificate, certificate</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- chain, and encrypted private key bundle is stored. The object key is</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- formated as follows: @role_arn@\/@certificate_arn@.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.EC2.Types.AssociatedRole.html#associatedRole_certificateS3ObjectKey"><span class="hs-identifier hs-type">associatedRole_certificateS3ObjectKey</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AssociatedRole.html#AssociatedRole"><span class="hs-identifier hs-type">AssociatedRole</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span id="associatedRole_certificateS3ObjectKey"><span class="annot"><span class="annottext">associatedRole_certificateS3ObjectKey :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AssociatedRole -&gt; f AssociatedRole
+</span><a href="Network.AWS.EC2.Types.AssociatedRole.html#associatedRole_certificateS3ObjectKey"><span class="hs-identifier hs-var hs-var">associatedRole_certificateS3ObjectKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociatedRole -&gt; Maybe Text)
+-&gt; (AssociatedRole -&gt; Maybe Text -&gt; AssociatedRole)
+-&gt; Lens AssociatedRole AssociatedRole (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.AssociatedRole.html#AssociatedRole%27"><span class="hs-identifier hs-type">AssociatedRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681086957"><span class="annot"><span class="annottext">Maybe Text
+certificateS3ObjectKey :: Maybe Text
+$sel:certificateS3ObjectKey:AssociatedRole' :: AssociatedRole -&gt; Maybe Text
+</span><a href="#local-6989586621681086957"><span class="hs-identifier hs-var hs-var">certificateS3ObjectKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681086957"><span class="hs-identifier hs-var">certificateS3ObjectKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681086956"><span class="annot"><span class="annottext">s :: AssociatedRole
+</span><a href="#local-6989586621681086956"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.AssociatedRole.html#AssociatedRole%27"><span class="hs-identifier hs-type">AssociatedRole'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681086955"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681086955"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociatedRole
+</span><a href="#local-6989586621681086956"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateS3ObjectKey:AssociatedRole' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.AssociatedRole.html#%24sel%3AcertificateS3ObjectKey%3AAssociatedRole%27"><span class="hs-identifier hs-var">certificateS3ObjectKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681086955"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AssociatedRole.html#AssociatedRole"><span class="hs-identifier hs-type">AssociatedRole</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | The ID of the KMS customer master key (CMK) used to encrypt the private</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- key.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.EC2.Types.AssociatedRole.html#associatedRole_encryptionKmsKeyId"><span class="hs-identifier hs-type">associatedRole_encryptionKmsKeyId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AssociatedRole.html#AssociatedRole"><span class="hs-identifier hs-type">AssociatedRole</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="associatedRole_encryptionKmsKeyId"><span class="annot"><span class="annottext">associatedRole_encryptionKmsKeyId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AssociatedRole -&gt; f AssociatedRole
+</span><a href="Network.AWS.EC2.Types.AssociatedRole.html#associatedRole_encryptionKmsKeyId"><span class="hs-identifier hs-var hs-var">associatedRole_encryptionKmsKeyId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociatedRole -&gt; Maybe Text)
+-&gt; (AssociatedRole -&gt; Maybe Text -&gt; AssociatedRole)
+-&gt; Lens AssociatedRole AssociatedRole (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.AssociatedRole.html#AssociatedRole%27"><span class="hs-identifier hs-type">AssociatedRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681086953"><span class="annot"><span class="annottext">Maybe Text
+encryptionKmsKeyId :: Maybe Text
+$sel:encryptionKmsKeyId:AssociatedRole' :: AssociatedRole -&gt; Maybe Text
+</span><a href="#local-6989586621681086953"><span class="hs-identifier hs-var hs-var">encryptionKmsKeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681086953"><span class="hs-identifier hs-var">encryptionKmsKeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681086952"><span class="annot"><span class="annottext">s :: AssociatedRole
+</span><a href="#local-6989586621681086952"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.AssociatedRole.html#AssociatedRole%27"><span class="hs-identifier hs-type">AssociatedRole'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681086951"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681086951"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociatedRole
+</span><a href="#local-6989586621681086952"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryptionKmsKeyId:AssociatedRole' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.AssociatedRole.html#%24sel%3AencryptionKmsKeyId%3AAssociatedRole%27"><span class="hs-identifier hs-var">encryptionKmsKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681086951"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AssociatedRole.html#AssociatedRole"><span class="hs-identifier hs-type">AssociatedRole</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- | The ARN of the associated IAM role.</span><span>
 </span><span id="line-93"></span><span class="annot"><a href="Network.AWS.EC2.Types.AssociatedRole.html#associatedRole_associatedRoleArn"><span class="hs-identifier hs-type">associatedRole_associatedRoleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AssociatedRole.html#AssociatedRole"><span class="hs-identifier hs-type">AssociatedRole</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -213,21 +213,21 @@ $sel:certificateS3BucketName:AssociatedRole' :: AssociatedRole -&gt; Maybe Text
 -&gt; (AssociatedRole -&gt; Maybe Text -&gt; AssociatedRole)
 -&gt; Lens AssociatedRole AssociatedRole (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.AssociatedRole.html#AssociatedRole%27"><span class="hs-identifier hs-type">AssociatedRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681053751"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.AssociatedRole.html#AssociatedRole%27"><span class="hs-identifier hs-type">AssociatedRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681086949"><span class="annot"><span class="annottext">Maybe Text
 associatedRoleArn :: Maybe Text
 $sel:associatedRoleArn:AssociatedRole' :: AssociatedRole -&gt; Maybe Text
-</span><a href="#local-6989586621681053751"><span class="hs-identifier hs-var hs-var">associatedRoleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681053751"><span class="hs-identifier hs-var">associatedRoleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681053750"><span class="annot"><span class="annottext">s :: AssociatedRole
-</span><a href="#local-6989586621681053750"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.AssociatedRole.html#AssociatedRole%27"><span class="hs-identifier hs-type">AssociatedRole'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681053749"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681053749"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociatedRole
-</span><a href="#local-6989586621681053750"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:associatedRoleArn:AssociatedRole' :: Maybe Text
+</span><a href="#local-6989586621681086949"><span class="hs-identifier hs-var hs-var">associatedRoleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681086949"><span class="hs-identifier hs-var">associatedRoleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681086948"><span class="annot"><span class="annottext">s :: AssociatedRole
+</span><a href="#local-6989586621681086948"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.AssociatedRole.html#AssociatedRole%27"><span class="hs-identifier hs-type">AssociatedRole'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681086947"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681086947"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociatedRole
+</span><a href="#local-6989586621681086948"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:associatedRoleArn:AssociatedRole' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.AssociatedRole.html#%24sel%3AassociatedRoleArn%3AAssociatedRole%27"><span class="hs-identifier hs-var">associatedRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681053749"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AssociatedRole.html#AssociatedRole"><span class="hs-identifier hs-type">AssociatedRole</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681086947"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AssociatedRole.html#AssociatedRole"><span class="hs-identifier hs-type">AssociatedRole</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AssociatedRole.html#AssociatedRole"><span class="hs-identifier hs-type">AssociatedRole</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621681053746"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String AssociatedRole
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681053744"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681053744"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621681086944"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String AssociatedRole
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681086942"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681086942"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; AssociatedRole
 </span><a href="Network.AWS.EC2.Types.AssociatedRole.html#AssociatedRole%27"><span class="hs-identifier hs-var">AssociatedRole'</span></a></span><span>
@@ -238,39 +238,39 @@ $sel:associatedRoleArn:AssociatedRole' :: AssociatedRole -&gt; Maybe Text
      String (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; AssociatedRole)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681053744"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681086942"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;certificateS3ObjectKey&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;certificateS3BucketName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">Either
   String (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; AssociatedRole)
 -&gt; Either String (Maybe Text)
 -&gt; Either String (Maybe Text -&gt; Maybe Text -&gt; AssociatedRole)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681053744"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681086942"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;encryptionKmsKeyId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;certificateS3ObjectKey&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Maybe Text -&gt; AssociatedRole)
 -&gt; Either String (Maybe Text)
 -&gt; Either String (Maybe Text -&gt; AssociatedRole)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681053744"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681086942"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;certificateS3BucketName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;encryptionKmsKeyId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; AssociatedRole)
 -&gt; Either String (Maybe Text) -&gt; Either String AssociatedRole
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681053744"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681086942"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;associatedRoleArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681053738"><span id="local-6989586621681053740"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AssociatedRole.html#AssociatedRole"><span class="hs-identifier hs-type">AssociatedRole</span></a></span></span></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681086936"><span id="local-6989586621681086938"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AssociatedRole.html#AssociatedRole"><span class="hs-identifier hs-type">AssociatedRole</span></a></span></span></span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681053735"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AssociatedRole.html#AssociatedRole"><span class="hs-identifier hs-type">AssociatedRole</span></a></span></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681086933"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AssociatedRole.html#AssociatedRole"><span class="hs-identifier hs-type">AssociatedRole</span></a></span></span><span>
 </span><span id="line-107"></span></pre></body></html>

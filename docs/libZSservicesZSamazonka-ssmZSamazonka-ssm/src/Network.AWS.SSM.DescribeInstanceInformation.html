@@ -40,18 +40,18 @@
 </span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#newDescribeInstanceInformation"><span class="hs-identifier">newDescribeInstanceInformation</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-41"></span><span>
 </span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#describeInstanceInformation_nextToken"><span class="hs-identifier">describeInstanceInformation_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#describeInstanceInformation_maxResults"><span class="hs-identifier">describeInstanceInformation_maxResults</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#describeInstanceInformation_instanceInformationFilterList"><span class="hs-identifier">describeInstanceInformation_instanceInformationFilterList</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#describeInstanceInformation_filters"><span class="hs-identifier">describeInstanceInformation_filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#describeInstanceInformation_instanceInformationFilterList"><span class="hs-identifier">describeInstanceInformation_instanceInformationFilterList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#describeInstanceInformation_filters"><span class="hs-identifier">describeInstanceInformation_filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#describeInstanceInformation_nextToken"><span class="hs-identifier">describeInstanceInformation_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#describeInstanceInformation_maxResults"><span class="hs-identifier">describeInstanceInformation_maxResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-47"></span><span>
 </span><span id="line-48"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
 </span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformationResponse"><span class="hs-identifier">DescribeInstanceInformationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#newDescribeInstanceInformationResponse"><span class="hs-identifier">newDescribeInstanceInformationResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-51"></span><span>
 </span><span id="line-52"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#describeInstanceInformationResponse_instanceInformationList"><span class="hs-identifier">describeInstanceInformationResponse_instanceInformationList</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#describeInstanceInformationResponse_nextToken"><span class="hs-identifier">describeInstanceInformationResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#describeInstanceInformationResponse_nextToken"><span class="hs-identifier">describeInstanceInformationResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#describeInstanceInformationResponse_instanceInformationList"><span class="hs-identifier">describeInstanceInformationResponse_instanceInformationList</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-55"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#describeInstanceInformationResponse_httpStatus"><span class="hs-identifier">describeInstanceInformationResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-57"></span><span class="hs-keyword">where</span><span>
@@ -64,34 +64,34 @@
 </span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.html"><span class="hs-identifier">Network.AWS.SSM.Types</span></a></span><span>
 </span><span id="line-65"></span><span>
 </span><span id="line-66"></span><span class="hs-comment">-- | /See:/ 'newDescribeInstanceInformation' smart constructor.</span><span>
-</span><span id="line-67"></span><span id="local-6989586621679844259"><span id="local-6989586621679844260"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeInstanceInformation"><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformation"><span class="hs-identifier hs-var">DescribeInstanceInformation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeInstanceInformation%27"><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformation%27"><span class="hs-identifier hs-var">DescribeInstanceInformation'</span></a></span></span><span>
-</span><span id="line-68"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token for the next set of items to return. (You received this token</span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- from a previous call.)</span><span>
-</span><span id="line-70"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeInstanceInformation%27"><span class="annot"><span class="annottext">DescribeInstanceInformation -&gt; Maybe Text
-</span><a href="Network.AWS.SSM.DescribeInstanceInformation.html#%24sel%3AnextToken%3ADescribeInstanceInformation%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | The maximum number of items to return for this call. The call also</span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- returns a token that you can specify in a subsequent call to get the</span><span>
-</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- next set of results.</span><span>
-</span><span id="line-74"></span><span>    </span><span id="%24sel%3AmaxResults%3ADescribeInstanceInformation%27"><span class="annot"><span class="annottext">DescribeInstanceInformation -&gt; Maybe Natural
-</span><a href="Network.AWS.SSM.DescribeInstanceInformation.html#%24sel%3AmaxResults%3ADescribeInstanceInformation%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | This is a legacy method. We recommend that you don\'t use this method.</span><span>
-</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- Instead, use the @Filters@ data type. @Filters@ enables you to return</span><span>
-</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- instance information by filtering based on tags applied to managed</span><span>
-</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- instances.</span><span>
-</span><span id="line-79"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- Attempting to use @InstanceInformationFilterList@ and @Filters@ leads to</span><span>
-</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- an exception error.</span><span>
-</span><span id="line-82"></span><span>    </span><span id="%24sel%3AinstanceInformationFilterList%3ADescribeInstanceInformation%27"><span class="annot"><span class="annottext">DescribeInstanceInformation -&gt; Maybe [InstanceInformationFilter]
+</span><span id="line-67"></span><span id="local-6989586621679846070"><span id="local-6989586621679846071"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeInstanceInformation"><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformation"><span class="hs-identifier hs-var">DescribeInstanceInformation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeInstanceInformation%27"><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformation%27"><span class="hs-identifier hs-var">DescribeInstanceInformation'</span></a></span></span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | This is a legacy method. We recommend that you don\'t use this method.</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- Instead, use the @Filters@ data type. @Filters@ enables you to return</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- instance information by filtering based on tags applied to managed</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- instances.</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- Attempting to use @InstanceInformationFilterList@ and @Filters@ leads to</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- an exception error.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3AinstanceInformationFilterList%3ADescribeInstanceInformation%27"><span class="annot"><span class="annottext">DescribeInstanceInformation -&gt; Maybe [InstanceInformationFilter]
 </span><a href="Network.AWS.SSM.DescribeInstanceInformation.html#%24sel%3AinstanceInformationFilterList%3ADescribeInstanceInformation%27"><span class="hs-identifier hs-var hs-var">instanceInformationFilterList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceInformationFilter.html#InstanceInformationFilter"><span class="hs-identifier hs-type">InstanceInformationFilter</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- | One or more filters. Use a filter to return a more specific list of</span><span>
-</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- instances. You can filter based on tags applied to EC2 instances. Use</span><span>
-</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- this @Filters@ data type instead of @InstanceInformationFilterList@,</span><span>
-</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- which is deprecated.</span><span>
-</span><span id="line-87"></span><span>    </span><span id="%24sel%3Afilters%3ADescribeInstanceInformation%27"><span class="annot"><span class="annottext">DescribeInstanceInformation
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | One or more filters. Use a filter to return a more specific list of</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- instances. You can filter based on tags applied to EC2 instances. Use</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- this @Filters@ data type instead of @InstanceInformationFilterList@,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- which is deprecated.</span><span>
+</span><span id="line-80"></span><span>    </span><span id="%24sel%3Afilters%3ADescribeInstanceInformation%27"><span class="annot"><span class="annottext">DescribeInstanceInformation
 -&gt; Maybe [InstanceInformationStringFilter]
-</span><a href="Network.AWS.SSM.DescribeInstanceInformation.html#%24sel%3Afilters%3ADescribeInstanceInformation%27"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceInformationStringFilter.html#InstanceInformationStringFilter"><span class="hs-identifier hs-type">InstanceInformationStringFilter</span></a></span><span class="hs-special">]</span><span>
+</span><a href="Network.AWS.SSM.DescribeInstanceInformation.html#%24sel%3Afilters%3ADescribeInstanceInformation%27"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceInformationStringFilter.html#InstanceInformationStringFilter"><span class="hs-identifier hs-type">InstanceInformationStringFilter</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- | The token for the next set of items to return. (You received this token</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- from a previous call.)</span><span>
+</span><span id="line-83"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeInstanceInformation%27"><span class="annot"><span class="annottext">DescribeInstanceInformation -&gt; Maybe Text
+</span><a href="Network.AWS.SSM.DescribeInstanceInformation.html#%24sel%3AnextToken%3ADescribeInstanceInformation%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- | The maximum number of items to return for this call. The call also</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- returns a token that you can specify in a subsequent call to get the</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- next set of results.</span><span>
+</span><span id="line-87"></span><span>    </span><span id="%24sel%3AmaxResults%3ADescribeInstanceInformation%27"><span class="annot"><span class="annottext">DescribeInstanceInformation -&gt; Maybe Natural
+</span><a href="Network.AWS.SSM.DescribeInstanceInformation.html#%24sel%3AmaxResults%3ADescribeInstanceInformation%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-88"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-89"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679844250"><span id="local-6989586621679844252"><span class="annot"><span class="annottext">DescribeInstanceInformation -&gt; DescribeInstanceInformation -&gt; Bool
+</span><span id="line-89"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679846061"><span id="local-6989586621679846063"><span class="annot"><span class="annottext">DescribeInstanceInformation -&gt; DescribeInstanceInformation -&gt; Bool
 (DescribeInstanceInformation
  -&gt; DescribeInstanceInformation -&gt; Bool)
 -&gt; (DescribeInstanceInformation
@@ -102,7 +102,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeInstanceInformation -&gt; DescribeInstanceInformation -&gt; Bool
 == :: DescribeInstanceInformation -&gt; DescribeInstanceInformation -&gt; Bool
 $c== :: DescribeInstanceInformation -&gt; DescribeInstanceInformation -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679844241"><span id="local-6989586621679844243"><span id="local-6989586621679844245"><span id="local-6989586621679844247"><span class="annot"><span class="annottext">ReadPrec [DescribeInstanceInformation]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679846052"><span id="local-6989586621679846054"><span id="local-6989586621679846056"><span id="local-6989586621679846058"><span class="annot"><span class="annottext">ReadPrec [DescribeInstanceInformation]
 ReadPrec DescribeInstanceInformation
 Int -&gt; ReadS DescribeInstanceInformation
 ReadS [DescribeInstanceInformation]
@@ -122,7 +122,7 @@ readList :: ReadS [DescribeInstanceInformation]
 $creadList :: ReadS [DescribeInstanceInformation]
 readsPrec :: Int -&gt; ReadS DescribeInstanceInformation
 $creadsPrec :: Int -&gt; ReadS DescribeInstanceInformation
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679844234"><span id="local-6989586621679844236"><span id="local-6989586621679844238"><span class="annot"><span class="annottext">Int -&gt; DescribeInstanceInformation -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679846045"><span id="local-6989586621679846047"><span id="local-6989586621679846049"><span class="annot"><span class="annottext">Int -&gt; DescribeInstanceInformation -&gt; ShowS
 [DescribeInstanceInformation] -&gt; ShowS
 DescribeInstanceInformation -&gt; String
 (Int -&gt; DescribeInstanceInformation -&gt; ShowS)
@@ -162,115 +162,63 @@ DescribeInstanceInformation -&gt; Rep DescribeInstanceInformation x
 </span><span id="line-96"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-98"></span><span class="hs-comment">--</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- 'nextToken', 'describeInstanceInformation_nextToken' - The token for the next set of items to return. (You received this token</span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- from a previous call.)</span><span>
-</span><span id="line-101"></span><span class="hs-comment">--</span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- 'maxResults', 'describeInstanceInformation_maxResults' - The maximum number of items to return for this call. The call also</span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- returns a token that you can specify in a subsequent call to get the</span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- next set of results.</span><span>
-</span><span id="line-105"></span><span class="hs-comment">--</span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- 'instanceInformationFilterList', 'describeInstanceInformation_instanceInformationFilterList' - This is a legacy method. We recommend that you don\'t use this method.</span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- Instead, use the @Filters@ data type. @Filters@ enables you to return</span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- instance information by filtering based on tags applied to managed</span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- instances.</span><span>
-</span><span id="line-110"></span><span class="hs-comment">--</span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- Attempting to use @InstanceInformationFilterList@ and @Filters@ leads to</span><span>
-</span><span id="line-112"></span><span class="hs-comment">-- an exception error.</span><span>
-</span><span id="line-113"></span><span class="hs-comment">--</span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- 'filters', 'describeInstanceInformation_filters' - One or more filters. Use a filter to return a more specific list of</span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- instances. You can filter based on tags applied to EC2 instances. Use</span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- this @Filters@ data type instead of @InstanceInformationFilterList@,</span><span>
-</span><span id="line-117"></span><span class="hs-comment">-- which is deprecated.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'instanceInformationFilterList', 'describeInstanceInformation_instanceInformationFilterList' - This is a legacy method. We recommend that you don\'t use this method.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- Instead, use the @Filters@ data type. @Filters@ enables you to return</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- instance information by filtering based on tags applied to managed</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- instances.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- Attempting to use @InstanceInformationFilterList@ and @Filters@ leads to</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- an exception error.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- 'filters', 'describeInstanceInformation_filters' - One or more filters. Use a filter to return a more specific list of</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- instances. You can filter based on tags applied to EC2 instances. Use</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- this @Filters@ data type instead of @InstanceInformationFilterList@,</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- which is deprecated.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- 'nextToken', 'describeInstanceInformation_nextToken' - The token for the next set of items to return. (You received this token</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- from a previous call.)</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- 'maxResults', 'describeInstanceInformation_maxResults' - The maximum number of items to return for this call. The call also</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- returns a token that you can specify in a subsequent call to get the</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- next set of results.</span><span>
 </span><span id="line-118"></span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#newDescribeInstanceInformation"><span class="hs-identifier hs-type">newDescribeInstanceInformation</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-119"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformation"><span class="hs-identifier hs-type">DescribeInstanceInformation</span></a></span><span>
 </span><span id="line-120"></span><span id="newDescribeInstanceInformation"><span class="annot"><span class="annottext">newDescribeInstanceInformation :: DescribeInstanceInformation
 </span><a href="Network.AWS.SSM.DescribeInstanceInformation.html#newDescribeInstanceInformation"><span class="hs-identifier hs-var hs-var">newDescribeInstanceInformation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-121"></span><span>  </span><span class="annot"><span class="annottext">DescribeInstanceInformation' :: Maybe Text
--&gt; Maybe Natural
--&gt; Maybe [InstanceInformationFilter]
+</span><span id="line-121"></span><span>  </span><span class="annot"><span class="annottext">DescribeInstanceInformation' :: Maybe [InstanceInformationFilter]
 -&gt; Maybe [InstanceInformationStringFilter]
+-&gt; Maybe Text
+-&gt; Maybe Natural
 -&gt; DescribeInstanceInformation
 </span><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformation%27"><span class="hs-identifier hs-type">DescribeInstanceInformation'</span></a></span><span>
-</span><span id="line-122"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeInstanceInformation' :: Maybe Text
-</span><a href="Network.AWS.SSM.DescribeInstanceInformation.html#%24sel%3AnextToken%3ADescribeInstanceInformation%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-123"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:DescribeInstanceInformation' :: Maybe Natural
-</span><a href="Network.AWS.SSM.DescribeInstanceInformation.html#%24sel%3AmaxResults%3ADescribeInstanceInformation%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceInformationFilterList:DescribeInstanceInformation' :: Maybe [InstanceInformationFilter]
+</span><span id="line-122"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:instanceInformationFilterList:DescribeInstanceInformation' :: Maybe [InstanceInformationFilter]
 </span><a href="Network.AWS.SSM.DescribeInstanceInformation.html#%24sel%3AinstanceInformationFilterList%3ADescribeInstanceInformation%27"><span class="hs-identifier hs-var">instanceInformationFilterList</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-126"></span><span>        </span><span class="annot"><span class="annottext">Maybe [InstanceInformationFilter]
+</span><span id="line-123"></span><span>        </span><span class="annot"><span class="annottext">Maybe [InstanceInformationFilter]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">$sel:filters:DescribeInstanceInformation' :: Maybe [InstanceInformationStringFilter]
+</span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">$sel:filters:DescribeInstanceInformation' :: Maybe [InstanceInformationStringFilter]
 </span><a href="Network.AWS.SSM.DescribeInstanceInformation.html#%24sel%3Afilters%3ADescribeInstanceInformation%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [InstanceInformationStringFilter]
 forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-128"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- | The token for the next set of items to return. (You received this token</span><span>
-</span><span id="line-131"></span><span class="hs-comment">-- from a previous call.)</span><span>
-</span><span id="line-132"></span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#describeInstanceInformation_nextToken"><span class="hs-identifier hs-type">describeInstanceInformation_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformation"><span class="hs-identifier hs-type">DescribeInstanceInformation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-133"></span><span id="describeInstanceInformation_nextToken"><span class="annot"><span class="annottext">describeInstanceInformation_nextToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; DescribeInstanceInformation -&gt; f DescribeInstanceInformation
-</span><a href="Network.AWS.SSM.DescribeInstanceInformation.html#describeInstanceInformation_nextToken"><span class="hs-identifier hs-var hs-var">describeInstanceInformation_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeInstanceInformation -&gt; Maybe Text)
--&gt; (DescribeInstanceInformation
-    -&gt; Maybe Text -&gt; DescribeInstanceInformation)
--&gt; Lens
-     DescribeInstanceInformation
-     DescribeInstanceInformation
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformation%27"><span class="hs-identifier hs-type">DescribeInstanceInformation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679844228"><span class="annot"><span class="annottext">Maybe Text
-nextToken :: Maybe Text
-$sel:nextToken:DescribeInstanceInformation' :: DescribeInstanceInformation -&gt; Maybe Text
-</span><a href="#local-6989586621679844228"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679844228"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679844227"><span class="annot"><span class="annottext">s :: DescribeInstanceInformation
-</span><a href="#local-6989586621679844227"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformation%27"><span class="hs-identifier hs-type">DescribeInstanceInformation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679844226"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679844226"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstanceInformation
-</span><a href="#local-6989586621679844227"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeInstanceInformation' :: Maybe Text
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeInstanceInformation' :: Maybe Text
 </span><a href="Network.AWS.SSM.DescribeInstanceInformation.html#%24sel%3AnextToken%3ADescribeInstanceInformation%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679844226"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformation"><span class="hs-identifier hs-type">DescribeInstanceInformation</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-134"></span><span>
-</span><span id="line-135"></span><span class="hs-comment">-- | The maximum number of items to return for this call. The call also</span><span>
-</span><span id="line-136"></span><span class="hs-comment">-- returns a token that you can specify in a subsequent call to get the</span><span>
-</span><span id="line-137"></span><span class="hs-comment">-- next set of results.</span><span>
-</span><span id="line-138"></span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#describeInstanceInformation_maxResults"><span class="hs-identifier hs-type">describeInstanceInformation_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformation"><span class="hs-identifier hs-type">DescribeInstanceInformation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-139"></span><span id="describeInstanceInformation_maxResults"><span class="annot"><span class="annottext">describeInstanceInformation_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
--&gt; DescribeInstanceInformation -&gt; f DescribeInstanceInformation
-</span><a href="Network.AWS.SSM.DescribeInstanceInformation.html#describeInstanceInformation_maxResults"><span class="hs-identifier hs-var hs-var">describeInstanceInformation_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeInstanceInformation -&gt; Maybe Natural)
--&gt; (DescribeInstanceInformation
-    -&gt; Maybe Natural -&gt; DescribeInstanceInformation)
--&gt; Lens
-     DescribeInstanceInformation
-     DescribeInstanceInformation
-     (Maybe Natural)
-     (Maybe Natural)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformation%27"><span class="hs-identifier hs-type">DescribeInstanceInformation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679844225"><span class="annot"><span class="annottext">Maybe Natural
-maxResults :: Maybe Natural
-$sel:maxResults:DescribeInstanceInformation' :: DescribeInstanceInformation -&gt; Maybe Natural
-</span><a href="#local-6989586621679844225"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679844225"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679844224"><span class="annot"><span class="annottext">s :: DescribeInstanceInformation
-</span><a href="#local-6989586621679844224"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformation%27"><span class="hs-identifier hs-type">DescribeInstanceInformation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679844223"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679844223"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstanceInformation
-</span><a href="#local-6989586621679844224"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:DescribeInstanceInformation' :: Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:DescribeInstanceInformation' :: Maybe Natural
 </span><a href="Network.AWS.SSM.DescribeInstanceInformation.html#%24sel%3AmaxResults%3ADescribeInstanceInformation%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679844223"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformation"><span class="hs-identifier hs-type">DescribeInstanceInformation</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-140"></span><span>
-</span><span id="line-141"></span><span class="hs-comment">-- | This is a legacy method. We recommend that you don\'t use this method.</span><span>
-</span><span id="line-142"></span><span class="hs-comment">-- Instead, use the @Filters@ data type. @Filters@ enables you to return</span><span>
-</span><span id="line-143"></span><span class="hs-comment">-- instance information by filtering based on tags applied to managed</span><span>
-</span><span id="line-144"></span><span class="hs-comment">-- instances.</span><span>
-</span><span id="line-145"></span><span class="hs-comment">--</span><span>
-</span><span id="line-146"></span><span class="hs-comment">-- Attempting to use @InstanceInformationFilterList@ and @Filters@ leads to</span><span>
-</span><span id="line-147"></span><span class="hs-comment">-- an exception error.</span><span>
-</span><span id="line-148"></span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#describeInstanceInformation_instanceInformationFilterList"><span class="hs-identifier hs-type">describeInstanceInformation_instanceInformationFilterList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformation"><span class="hs-identifier hs-type">DescribeInstanceInformation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceInformationFilter.html#InstanceInformationFilter"><span class="hs-identifier hs-type">InstanceInformationFilter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-149"></span><span id="describeInstanceInformation_instanceInformationFilterList"><span class="annot"><span class="annottext">describeInstanceInformation_instanceInformationFilterList :: (Maybe [InstanceInformationFilter]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | This is a legacy method. We recommend that you don\'t use this method.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- Instead, use the @Filters@ data type. @Filters@ enables you to return</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- instance information by filtering based on tags applied to managed</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- instances.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- Attempting to use @InstanceInformationFilterList@ and @Filters@ leads to</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- an exception error.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#describeInstanceInformation_instanceInformationFilterList"><span class="hs-identifier hs-type">describeInstanceInformation_instanceInformationFilterList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformation"><span class="hs-identifier hs-type">DescribeInstanceInformation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceInformationFilter.html#InstanceInformationFilter"><span class="hs-identifier hs-type">InstanceInformationFilter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span id="describeInstanceInformation_instanceInformationFilterList"><span class="annot"><span class="annottext">describeInstanceInformation_instanceInformationFilterList :: (Maybe [InstanceInformationFilter]
  -&gt; f (Maybe [InstanceInformationFilter]))
 -&gt; DescribeInstanceInformation -&gt; f DescribeInstanceInformation
 </span><a href="Network.AWS.SSM.DescribeInstanceInformation.html#describeInstanceInformation_instanceInformationFilterList"><span class="hs-identifier hs-var hs-var">describeInstanceInformation_instanceInformationFilterList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeInstanceInformation -&gt; Maybe [InstanceInformationFilter])
@@ -283,16 +231,16 @@ $sel:maxResults:DescribeInstanceInformation' :: DescribeInstanceInformation -&gt
      (Maybe [InstanceInformationFilter])
      (Maybe [InstanceInformationFilter])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformation%27"><span class="hs-identifier hs-type">DescribeInstanceInformation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679844222"><span class="annot"><span class="annottext">Maybe [InstanceInformationFilter]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformation%27"><span class="hs-identifier hs-type">DescribeInstanceInformation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679846039"><span class="annot"><span class="annottext">Maybe [InstanceInformationFilter]
 instanceInformationFilterList :: Maybe [InstanceInformationFilter]
 $sel:instanceInformationFilterList:DescribeInstanceInformation' :: DescribeInstanceInformation -&gt; Maybe [InstanceInformationFilter]
-</span><a href="#local-6989586621679844222"><span class="hs-identifier hs-var hs-var">instanceInformationFilterList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [InstanceInformationFilter]
-</span><a href="#local-6989586621679844222"><span class="hs-identifier hs-var">instanceInformationFilterList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679844221"><span class="annot"><span class="annottext">s :: DescribeInstanceInformation
-</span><a href="#local-6989586621679844221"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformation%27"><span class="hs-identifier hs-type">DescribeInstanceInformation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679844220"><span class="annot"><span class="annottext">Maybe [InstanceInformationFilter]
-</span><a href="#local-6989586621679844220"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstanceInformation
-</span><a href="#local-6989586621679844221"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceInformationFilterList:DescribeInstanceInformation' :: Maybe [InstanceInformationFilter]
+</span><a href="#local-6989586621679846039"><span class="hs-identifier hs-var hs-var">instanceInformationFilterList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [InstanceInformationFilter]
+</span><a href="#local-6989586621679846039"><span class="hs-identifier hs-var">instanceInformationFilterList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679846038"><span class="annot"><span class="annottext">s :: DescribeInstanceInformation
+</span><a href="#local-6989586621679846038"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformation%27"><span class="hs-identifier hs-type">DescribeInstanceInformation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679846037"><span class="annot"><span class="annottext">Maybe [InstanceInformationFilter]
+</span><a href="#local-6989586621679846037"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstanceInformation
+</span><a href="#local-6989586621679846038"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceInformationFilterList:DescribeInstanceInformation' :: Maybe [InstanceInformationFilter]
 </span><a href="Network.AWS.SSM.DescribeInstanceInformation.html#%24sel%3AinstanceInformationFilterList%3ADescribeInstanceInformation%27"><span class="hs-identifier hs-var">instanceInformationFilterList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [InstanceInformationFilter]
-</span><a href="#local-6989586621679844220"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformation"><span class="hs-identifier hs-type">DescribeInstanceInformation</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [InstanceInformationFilter]
+</span><a href="#local-6989586621679846037"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformation"><span class="hs-identifier hs-type">DescribeInstanceInformation</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [InstanceInformationFilter]
   -&gt; f (Maybe [InstanceInformationFilter]))
  -&gt; DescribeInstanceInformation -&gt; f DescribeInstanceInformation)
 -&gt; ((Maybe [InstanceInformationFilter]
@@ -322,15 +270,15 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [InstanceInformationFilter]
   [InstanceInformationFilter]
   [InstanceInformationFilter]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-150"></span><span>
-</span><span id="line-151"></span><span class="hs-comment">-- | One or more filters. Use a filter to return a more specific list of</span><span>
-</span><span id="line-152"></span><span class="hs-comment">-- instances. You can filter based on tags applied to EC2 instances. Use</span><span>
-</span><span id="line-153"></span><span class="hs-comment">-- this @Filters@ data type instead of @InstanceInformationFilterList@,</span><span>
-</span><span id="line-154"></span><span class="hs-comment">-- which is deprecated.</span><span>
-</span><span id="line-155"></span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#describeInstanceInformation_filters"><span class="hs-identifier hs-type">describeInstanceInformation_filters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformation"><span class="hs-identifier hs-type">DescribeInstanceInformation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceInformationStringFilter.html#InstanceInformationStringFilter"><span class="hs-identifier hs-type">InstanceInformationStringFilter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-156"></span><span id="describeInstanceInformation_filters"><span class="annot"><span class="annottext">describeInstanceInformation_filters :: (Maybe [InstanceInformationStringFilter]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | One or more filters. Use a filter to return a more specific list of</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- instances. You can filter based on tags applied to EC2 instances. Use</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- this @Filters@ data type instead of @InstanceInformationFilterList@,</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- which is deprecated.</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#describeInstanceInformation_filters"><span class="hs-identifier hs-type">describeInstanceInformation_filters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformation"><span class="hs-identifier hs-type">DescribeInstanceInformation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceInformationStringFilter.html#InstanceInformationStringFilter"><span class="hs-identifier hs-type">InstanceInformationStringFilter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span id="describeInstanceInformation_filters"><span class="annot"><span class="annottext">describeInstanceInformation_filters :: (Maybe [InstanceInformationStringFilter]
  -&gt; f (Maybe [InstanceInformationStringFilter]))
 -&gt; DescribeInstanceInformation -&gt; f DescribeInstanceInformation
 </span><a href="Network.AWS.SSM.DescribeInstanceInformation.html#describeInstanceInformation_filters"><span class="hs-identifier hs-var hs-var">describeInstanceInformation_filters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeInstanceInformation
@@ -344,17 +292,17 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe [InstanceInformationStringFilter])
      (Maybe [InstanceInformationStringFilter])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformation%27"><span class="hs-identifier hs-type">DescribeInstanceInformation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679844216"><span class="annot"><span class="annottext">Maybe [InstanceInformationStringFilter]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformation%27"><span class="hs-identifier hs-type">DescribeInstanceInformation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679846033"><span class="annot"><span class="annottext">Maybe [InstanceInformationStringFilter]
 filters :: Maybe [InstanceInformationStringFilter]
 $sel:filters:DescribeInstanceInformation' :: DescribeInstanceInformation
 -&gt; Maybe [InstanceInformationStringFilter]
-</span><a href="#local-6989586621679844216"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [InstanceInformationStringFilter]
-</span><a href="#local-6989586621679844216"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679844215"><span class="annot"><span class="annottext">s :: DescribeInstanceInformation
-</span><a href="#local-6989586621679844215"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformation%27"><span class="hs-identifier hs-type">DescribeInstanceInformation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679844214"><span class="annot"><span class="annottext">Maybe [InstanceInformationStringFilter]
-</span><a href="#local-6989586621679844214"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstanceInformation
-</span><a href="#local-6989586621679844215"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:DescribeInstanceInformation' :: Maybe [InstanceInformationStringFilter]
+</span><a href="#local-6989586621679846033"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [InstanceInformationStringFilter]
+</span><a href="#local-6989586621679846033"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679846032"><span class="annot"><span class="annottext">s :: DescribeInstanceInformation
+</span><a href="#local-6989586621679846032"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformation%27"><span class="hs-identifier hs-type">DescribeInstanceInformation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679846031"><span class="annot"><span class="annottext">Maybe [InstanceInformationStringFilter]
+</span><a href="#local-6989586621679846031"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstanceInformation
+</span><a href="#local-6989586621679846032"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:DescribeInstanceInformation' :: Maybe [InstanceInformationStringFilter]
 </span><a href="Network.AWS.SSM.DescribeInstanceInformation.html#%24sel%3Afilters%3ADescribeInstanceInformation%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [InstanceInformationStringFilter]
-</span><a href="#local-6989586621679844214"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformation"><span class="hs-identifier hs-type">DescribeInstanceInformation</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [InstanceInformationStringFilter]
+</span><a href="#local-6989586621679846031"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformation"><span class="hs-identifier hs-type">DescribeInstanceInformation</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [InstanceInformationStringFilter]
   -&gt; f (Maybe [InstanceInformationStringFilter]))
  -&gt; DescribeInstanceInformation -&gt; f DescribeInstanceInformation)
 -&gt; ((Maybe [InstanceInformationStringFilter]
@@ -384,23 +332,74 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [InstanceInformationStringFilter]
   [InstanceInformationStringFilter]
   [InstanceInformationStringFilter]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-157"></span><span>
-</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformation"><span class="hs-identifier hs-type">DescribeInstanceInformation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-159"></span><span>  </span><span id="local-6989586621679844210"><span class="annot"><span class="annottext">page :: DescribeInstanceInformation
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- | The token for the next set of items to return. (You received this token</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- from a previous call.)</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#describeInstanceInformation_nextToken"><span class="hs-identifier hs-type">describeInstanceInformation_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformation"><span class="hs-identifier hs-type">DescribeInstanceInformation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span id="describeInstanceInformation_nextToken"><span class="annot"><span class="annottext">describeInstanceInformation_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeInstanceInformation -&gt; f DescribeInstanceInformation
+</span><a href="Network.AWS.SSM.DescribeInstanceInformation.html#describeInstanceInformation_nextToken"><span class="hs-identifier hs-var hs-var">describeInstanceInformation_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeInstanceInformation -&gt; Maybe Text)
+-&gt; (DescribeInstanceInformation
+    -&gt; Maybe Text -&gt; DescribeInstanceInformation)
+-&gt; Lens
+     DescribeInstanceInformation
+     DescribeInstanceInformation
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformation%27"><span class="hs-identifier hs-type">DescribeInstanceInformation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679846030"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:DescribeInstanceInformation' :: DescribeInstanceInformation -&gt; Maybe Text
+</span><a href="#local-6989586621679846030"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679846030"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679846029"><span class="annot"><span class="annottext">s :: DescribeInstanceInformation
+</span><a href="#local-6989586621679846029"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformation%27"><span class="hs-identifier hs-type">DescribeInstanceInformation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679846028"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679846028"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstanceInformation
+</span><a href="#local-6989586621679846029"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeInstanceInformation' :: Maybe Text
+</span><a href="Network.AWS.SSM.DescribeInstanceInformation.html#%24sel%3AnextToken%3ADescribeInstanceInformation%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679846028"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformation"><span class="hs-identifier hs-type">DescribeInstanceInformation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- | The maximum number of items to return for this call. The call also</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- returns a token that you can specify in a subsequent call to get the</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- next set of results.</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#describeInstanceInformation_maxResults"><span class="hs-identifier hs-type">describeInstanceInformation_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformation"><span class="hs-identifier hs-type">DescribeInstanceInformation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span id="describeInstanceInformation_maxResults"><span class="annot"><span class="annottext">describeInstanceInformation_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; DescribeInstanceInformation -&gt; f DescribeInstanceInformation
+</span><a href="Network.AWS.SSM.DescribeInstanceInformation.html#describeInstanceInformation_maxResults"><span class="hs-identifier hs-var hs-var">describeInstanceInformation_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeInstanceInformation -&gt; Maybe Natural)
+-&gt; (DescribeInstanceInformation
+    -&gt; Maybe Natural -&gt; DescribeInstanceInformation)
+-&gt; Lens
+     DescribeInstanceInformation
+     DescribeInstanceInformation
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformation%27"><span class="hs-identifier hs-type">DescribeInstanceInformation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679846027"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:DescribeInstanceInformation' :: DescribeInstanceInformation -&gt; Maybe Natural
+</span><a href="#local-6989586621679846027"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679846027"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679846026"><span class="annot"><span class="annottext">s :: DescribeInstanceInformation
+</span><a href="#local-6989586621679846026"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformation%27"><span class="hs-identifier hs-type">DescribeInstanceInformation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679846025"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679846025"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstanceInformation
+</span><a href="#local-6989586621679846026"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:DescribeInstanceInformation' :: Maybe Natural
+</span><a href="Network.AWS.SSM.DescribeInstanceInformation.html#%24sel%3AmaxResults%3ADescribeInstanceInformation%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679846025"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformation"><span class="hs-identifier hs-type">DescribeInstanceInformation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformation"><span class="hs-identifier hs-type">DescribeInstanceInformation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679846021"><span class="annot"><span class="annottext">page :: DescribeInstanceInformation
 -&gt; AWSResponse DescribeInstanceInformation
 -&gt; Maybe DescribeInstanceInformation
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679844208"><span class="annot"><span class="annottext">DescribeInstanceInformation
-</span><a href="#local-6989586621679844208"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679844207"><span class="annot"><span class="annottext">AWSResponse DescribeInstanceInformation
-</span><a href="#local-6989586621679844207"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
-</span><span id="line-160"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679846019"><span class="annot"><span class="annottext">DescribeInstanceInformation
+</span><a href="#local-6989586621679846019"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679846018"><span class="annot"><span class="annottext">AWSResponse DescribeInstanceInformation
+</span><a href="#local-6989586621679846018"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
-</span><span id="line-161"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeInstanceInformation
+</span><span id="line-160"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeInstanceInformation
 DescribeInstanceInformationResponse
-</span><a href="#local-6989586621679844207"><span class="hs-identifier hs-var">rs</span></a></span><span>
-</span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">DescribeInstanceInformationResponse
+</span><a href="#local-6989586621679846018"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">DescribeInstanceInformationResponse
 -&gt; Getting (First Text) DescribeInstanceInformationResponse Text
 -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -409,7 +408,7 @@ forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
 -&gt; Const (First Text) DescribeInstanceInformationResponse
 Lens' DescribeInstanceInformationResponse (Maybe Text)
 </span><a href="Network.AWS.SSM.DescribeInstanceInformation.html#describeInstanceInformationResponse_nextToken"><span class="hs-identifier hs-var">describeInstanceInformationResponse_nextToken</span></a></span><span>
-</span><span id="line-163"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+</span><span id="line-162"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
  -&gt; DescribeInstanceInformationResponse
  -&gt; Const (First Text) DescribeInstanceInformationResponse)
 -&gt; ((Text -&gt; Const (First Text) Text)
@@ -420,17 +419,17 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
 forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
-</span><span id="line-164"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-165"></span><span>      </span><span class="annot"><span class="annottext">Maybe DescribeInstanceInformation
+</span><span id="line-163"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-164"></span><span>      </span><span class="annot"><span class="annottext">Maybe DescribeInstanceInformation
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-166"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [InstanceInformation] -&gt; Bool
+</span><span id="line-165"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [InstanceInformation] -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
-</span><span id="line-167"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeInstanceInformation
+</span><span id="line-166"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeInstanceInformation
 DescribeInstanceInformationResponse
-</span><a href="#local-6989586621679844207"><span class="hs-identifier hs-var">rs</span></a></span><span>
-</span><span id="line-168"></span><span>            </span><span class="annot"><span class="annottext">DescribeInstanceInformationResponse
+</span><a href="#local-6989586621679846018"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-167"></span><span>            </span><span class="annot"><span class="annottext">DescribeInstanceInformationResponse
 -&gt; Getting
      (First [InstanceInformation])
      DescribeInstanceInformationResponse
@@ -446,7 +445,7 @@ forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
 Lens'
   DescribeInstanceInformationResponse (Maybe [InstanceInformation])
 </span><a href="Network.AWS.SSM.DescribeInstanceInformation.html#describeInstanceInformationResponse_instanceInformationList"><span class="hs-identifier hs-var">describeInstanceInformationResponse_instanceInformationList</span></a></span><span>
-</span><span id="line-169"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [InstanceInformation]
+</span><span id="line-168"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [InstanceInformation]
   -&gt; Const
        (First [InstanceInformation]) (Maybe [InstanceInformation]))
  -&gt; DescribeInstanceInformationResponse
@@ -469,21 +468,21 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
      (First [InstanceInformation]) (Maybe [InstanceInformation])
 forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
-</span><span id="line-170"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-171"></span><span>      </span><span class="annot"><span class="annottext">Maybe DescribeInstanceInformation
+</span><span id="line-169"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-170"></span><span>      </span><span class="annot"><span class="annottext">Maybe DescribeInstanceInformation
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-172"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span id="line-171"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
 </span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-173"></span><span>      </span><span class="annot"><span class="annottext">DescribeInstanceInformation -&gt; Maybe DescribeInstanceInformation
+</span><span id="line-172"></span><span>      </span><span class="annot"><span class="annottext">DescribeInstanceInformation -&gt; Maybe DescribeInstanceInformation
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(DescribeInstanceInformation -&gt; Maybe DescribeInstanceInformation)
 -&gt; DescribeInstanceInformation -&gt; Maybe DescribeInstanceInformation
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
-</span><span id="line-174"></span><span>        </span><span class="annot"><span class="annottext">DescribeInstanceInformation
-</span><a href="#local-6989586621679844208"><span class="hs-identifier hs-var">rq</span></a></span><span>
-</span><span id="line-175"></span><span>          </span><span class="annot"><span class="annottext">DescribeInstanceInformation
+</span><span id="line-173"></span><span>        </span><span class="annot"><span class="annottext">DescribeInstanceInformation
+</span><a href="#local-6989586621679846019"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-174"></span><span>          </span><span class="annot"><span class="annottext">DescribeInstanceInformation
 -&gt; (DescribeInstanceInformation -&gt; DescribeInstanceInformation)
 -&gt; DescribeInstanceInformation
 forall a b. a -&gt; (a -&gt; b) -&gt; b
@@ -496,7 +495,7 @@ Lens
   (Maybe Text)
   (Maybe Text)
 </span><a href="Network.AWS.SSM.DescribeInstanceInformation.html#describeInstanceInformation_nextToken"><span class="hs-identifier hs-var">describeInstanceInformation_nextToken</span></a></span><span>
-</span><span id="line-176"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+</span><span id="line-175"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
  -&gt; DescribeInstanceInformation
  -&gt; Identity DescribeInstanceInformation)
 -&gt; Maybe Text
@@ -505,8 +504,8 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeInstanceInformation
 DescribeInstanceInformationResponse
-</span><a href="#local-6989586621679844207"><span class="hs-identifier hs-var">rs</span></a></span><span>
-</span><span id="line-177"></span><span>          </span><span class="annot"><span class="annottext">DescribeInstanceInformationResponse
+</span><a href="#local-6989586621679846018"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-176"></span><span>          </span><span class="annot"><span class="annottext">DescribeInstanceInformationResponse
 -&gt; Getting (First Text) DescribeInstanceInformationResponse Text
 -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -515,7 +514,7 @@ forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
 -&gt; Const (First Text) DescribeInstanceInformationResponse
 Lens' DescribeInstanceInformationResponse (Maybe Text)
 </span><a href="Network.AWS.SSM.DescribeInstanceInformation.html#describeInstanceInformationResponse_nextToken"><span class="hs-identifier hs-var">describeInstanceInformationResponse_nextToken</span></a></span><span>
-</span><span id="line-178"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+</span><span id="line-177"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
  -&gt; DescribeInstanceInformationResponse
  -&gt; Const (First Text) DescribeInstanceInformationResponse)
 -&gt; ((Text -&gt; Const (First Text) Text)
@@ -526,26 +525,26 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
 forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
-</span><span id="line-179"></span><span>
-</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformation"><span class="hs-identifier hs-type">DescribeInstanceInformation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-181"></span><span>  </span><span class="hs-keyword">type</span><span>
-</span><span id="line-182"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformation"><span class="hs-identifier hs-type">DescribeInstanceInformation</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-183"></span><span>      </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformationResponse"><span class="hs-identifier hs-type">DescribeInstanceInformationResponse</span></a></span><span>
-</span><span id="line-184"></span><span>  </span><span id="local-6989586621679844198"><span class="annot"><span class="annottext">request :: DescribeInstanceInformation -&gt; Request DescribeInstanceInformation
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformation"><span class="hs-identifier hs-type">DescribeInstanceInformation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-180"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-181"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformation"><span class="hs-identifier hs-type">DescribeInstanceInformation</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-182"></span><span>      </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformationResponse"><span class="hs-identifier hs-type">DescribeInstanceInformationResponse</span></a></span><span>
+</span><span id="line-183"></span><span>  </span><span id="local-6989586621679846009"><span class="annot"><span class="annottext">request :: DescribeInstanceInformation -&gt; Request DescribeInstanceInformation
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DescribeInstanceInformation
 -&gt; Request DescribeInstanceInformation
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SSM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-185"></span><span>  </span><span id="local-6989586621679844194"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679846005"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeInstanceInformation
 -&gt; ClientResponse ClientBody
 -&gt; m (Either
         Error (ClientResponse (AWSResponse DescribeInstanceInformation)))
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-186"></span><span>    </span><span class="annot"><span class="annottext">(Int
+</span><span id="line-185"></span><span>    </span><span class="annot"><span class="annottext">(Int
  -&gt; ResponseHeaders
  -&gt; Object
  -&gt; Either String (AWSResponse DescribeInstanceInformation))
@@ -564,21 +563,39 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-187"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679844191"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679844191"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679844190"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679844190"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679844189"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679844189"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-188"></span><span>          </span><span class="annot"><span class="annottext">Maybe [InstanceInformation]
--&gt; Maybe Text -&gt; Int -&gt; DescribeInstanceInformationResponse
+</span><span id="line-186"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679846002"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679846002"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679846001"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679846001"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679846000"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679846000"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-187"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [InstanceInformation]
+-&gt; Int
+-&gt; DescribeInstanceInformationResponse
 </span><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformationResponse%27"><span class="hs-identifier hs-var">DescribeInstanceInformationResponse'</span></a></span><span>
-</span><span id="line-189"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [InstanceInformation]
- -&gt; Maybe Text -&gt; Int -&gt; DescribeInstanceInformationResponse)
--&gt; Either String (Maybe [InstanceInformation])
+</span><span id="line-188"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [InstanceInformation]
+ -&gt; Int
+ -&gt; DescribeInstanceInformationResponse)
+-&gt; Either String (Maybe Text)
 -&gt; Either
-     String (Maybe Text -&gt; Int -&gt; DescribeInstanceInformationResponse)
+     String
+     (Maybe [InstanceInformation]
+      -&gt; Int -&gt; DescribeInstanceInformationResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679844189"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679846000"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [InstanceInformation]
+   -&gt; Int -&gt; DescribeInstanceInformationResponse)
+-&gt; Either String (Maybe [InstanceInformation])
+-&gt; Either String (Int -&gt; DescribeInstanceInformationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679846000"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Either String (Maybe (Maybe [InstanceInformation]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -591,17 +608,7 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-191"></span><span>                        </span><span class="hs-special">)</span><span>
-</span><span id="line-192"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String (Maybe Text -&gt; Int -&gt; DescribeInstanceInformationResponse)
--&gt; Either String (Maybe Text)
--&gt; Either String (Int -&gt; DescribeInstanceInformationResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679844189"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-193"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeInstanceInformationResponse)
+</span><span id="line-192"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeInstanceInformationResponse)
 -&gt; Either String Int
 -&gt; Either String DescribeInstanceInformationResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -610,125 +617,125 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679844191"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-194"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-195"></span><span>
-</span><span id="line-196"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679844180"><span id="local-6989586621679844182"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformation"><span class="hs-identifier hs-type">DescribeInstanceInformation</span></a></span></span></span><span>
-</span><span id="line-197"></span><span>
-</span><span id="line-198"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679844177"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformation"><span class="hs-identifier hs-type">DescribeInstanceInformation</span></a></span></span><span>
-</span><span id="line-199"></span><span>
-</span><span id="line-200"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformation"><span class="hs-identifier hs-type">DescribeInstanceInformation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-201"></span><span>  </span><span id="local-6989586621679844173"><span class="annot"><span class="annottext">toHeaders :: DescribeInstanceInformation -&gt; ResponseHeaders
+</span><a href="#local-6989586621679846002"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679845991"><span id="local-6989586621679845993"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformation"><span class="hs-identifier hs-type">DescribeInstanceInformation</span></a></span></span></span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679845988"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformation"><span class="hs-identifier hs-type">DescribeInstanceInformation</span></a></span></span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformation"><span class="hs-identifier hs-type">DescribeInstanceInformation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-200"></span><span>  </span><span id="local-6989586621679845984"><span class="annot"><span class="annottext">toHeaders :: DescribeInstanceInformation -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-202"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeInstanceInformation -&gt; ResponseHeaders
+</span><span id="line-201"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeInstanceInformation -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
-</span><span id="line-203"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+</span><span id="line-202"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
-</span><span id="line-204"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span id="line-203"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
 </span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
-</span><span id="line-205"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+</span><span id="line-204"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;AmazonSSM.DescribeInstanceInformation&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
-</span><span id="line-206"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
-</span><span id="line-207"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-208"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span id="line-205"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-206"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
 </span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
-</span><span id="line-209"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+</span><span id="line-208"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
-</span><span id="line-210"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
-</span><span id="line-211"></span><span>                      </span><span class="hs-special">)</span><span>
-</span><span id="line-212"></span><span>          </span><span class="hs-special">]</span><span>
-</span><span id="line-213"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-214"></span><span>
-</span><span id="line-215"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679844163"><span id="local-6989586621679844165"><span id="local-6989586621679844167"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformation"><span class="hs-identifier hs-type">DescribeInstanceInformation</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-216"></span><span>  </span><span id="local-6989586621679844161"><span class="annot"><span class="annottext">toJSON :: DescribeInstanceInformation -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformation%27"><span class="hs-identifier hs-type">DescribeInstanceInformation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679844156"><span id="local-6989586621679844157"><span id="local-6989586621679844158"><span id="local-6989586621679844159"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-209"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-210"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-212"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>
+</span><span id="line-214"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679845974"><span id="local-6989586621679845976"><span id="local-6989586621679845978"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformation"><span class="hs-identifier hs-type">DescribeInstanceInformation</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-215"></span><span>  </span><span id="local-6989586621679845972"><span class="annot"><span class="annottext">toJSON :: DescribeInstanceInformation -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformation%27"><span class="hs-identifier hs-type">DescribeInstanceInformation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679845967"><span id="local-6989586621679845968"><span id="local-6989586621679845969"><span id="local-6989586621679845970"><span class="annot"><span class="annottext">Maybe Natural
 Maybe [InstanceInformationFilter]
 Maybe [InstanceInformationStringFilter]
 Maybe Text
-filters :: Maybe [InstanceInformationStringFilter]
-instanceInformationFilterList :: Maybe [InstanceInformationFilter]
 maxResults :: Maybe Natural
 nextToken :: Maybe Text
+filters :: Maybe [InstanceInformationStringFilter]
+instanceInformationFilterList :: Maybe [InstanceInformationFilter]
+$sel:maxResults:DescribeInstanceInformation' :: DescribeInstanceInformation -&gt; Maybe Natural
+$sel:nextToken:DescribeInstanceInformation' :: DescribeInstanceInformation -&gt; Maybe Text
 $sel:filters:DescribeInstanceInformation' :: DescribeInstanceInformation
 -&gt; Maybe [InstanceInformationStringFilter]
 $sel:instanceInformationFilterList:DescribeInstanceInformation' :: DescribeInstanceInformation -&gt; Maybe [InstanceInformationFilter]
-$sel:maxResults:DescribeInstanceInformation' :: DescribeInstanceInformation -&gt; Maybe Natural
-$sel:nextToken:DescribeInstanceInformation' :: DescribeInstanceInformation -&gt; Maybe Text
-</span><a href="#local-6989586621679844156"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-217"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><a href="#local-6989586621679845967"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-216"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
-</span><span id="line-218"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+</span><span id="line-217"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
-</span><span id="line-219"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679844159"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-220"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679844158"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-221"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span id="line-218"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;InstanceInformationFilterList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [InstanceInformationFilter] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-222"></span><span>              </span><span class="annot"><span class="annottext">([InstanceInformationFilter] -&gt; Pair)
+</span><span id="line-219"></span><span>              </span><span class="annot"><span class="annottext">([InstanceInformationFilter] -&gt; Pair)
 -&gt; Maybe [InstanceInformationFilter] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [InstanceInformationFilter]
-</span><a href="#local-6989586621679844157"><span class="hs-identifier hs-var">instanceInformationFilterList</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-223"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679845970"><span class="hs-identifier hs-var">instanceInformationFilterList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-220"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Filters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [InstanceInformationStringFilter] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([InstanceInformationStringFilter] -&gt; Pair)
 -&gt; Maybe [InstanceInformationStringFilter] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [InstanceInformationStringFilter]
-</span><a href="#local-6989586621679844156"><span class="hs-identifier hs-var">filters</span></a></span><span>
-</span><span id="line-224"></span><span>          </span><span class="hs-special">]</span><span>
-</span><span id="line-225"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-226"></span><span>
-</span><span id="line-227"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformation"><span class="hs-identifier hs-type">DescribeInstanceInformation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-228"></span><span>  </span><span id="local-6989586621679844150"><span class="annot"><span class="annottext">toPath :: DescribeInstanceInformation -&gt; ByteString
+</span><a href="#local-6989586621679845969"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-221"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679845968"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-222"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679845967"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-223"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-224"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span>
+</span><span id="line-226"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformation"><span class="hs-identifier hs-type">DescribeInstanceInformation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-227"></span><span>  </span><span id="local-6989586621679845961"><span class="annot"><span class="annottext">toPath :: DescribeInstanceInformation -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeInstanceInformation -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
-</span><span id="line-229"></span><span>
-</span><span id="line-230"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformation"><span class="hs-identifier hs-type">DescribeInstanceInformation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-231"></span><span>  </span><span id="local-6989586621679844146"><span class="annot"><span class="annottext">toQuery :: DescribeInstanceInformation -&gt; QueryString
+</span><span id="line-228"></span><span>
+</span><span id="line-229"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformation"><span class="hs-identifier hs-type">DescribeInstanceInformation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-230"></span><span>  </span><span id="local-6989586621679845957"><span class="annot"><span class="annottext">toQuery :: DescribeInstanceInformation -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeInstanceInformation -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-232"></span><span>
-</span><span id="line-233"></span><span class="hs-comment">-- | /See:/ 'newDescribeInstanceInformationResponse' smart constructor.</span><span>
-</span><span id="line-234"></span><span id="local-6989586621679844143"><span id="local-6989586621679844144"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeInstanceInformationResponse"><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformationResponse"><span class="hs-identifier hs-var">DescribeInstanceInformationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeInstanceInformationResponse%27"><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformationResponse%27"><span class="hs-identifier hs-var">DescribeInstanceInformationResponse'</span></a></span></span><span>
-</span><span id="line-235"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The instance information list.</span><span>
-</span><span id="line-236"></span><span>    </span><span id="%24sel%3AinstanceInformationList%3ADescribeInstanceInformationResponse%27"><span class="annot"><span class="annottext">DescribeInstanceInformationResponse -&gt; Maybe [InstanceInformation]
-</span><a href="Network.AWS.SSM.DescribeInstanceInformation.html#%24sel%3AinstanceInformationList%3ADescribeInstanceInformationResponse%27"><span class="hs-identifier hs-var hs-var">instanceInformationList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceInformation.html#InstanceInformation"><span class="hs-identifier hs-type">InstanceInformation</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-237"></span><span>    </span><span class="hs-comment">-- | The token to use when requesting the next set of items. If there are no</span><span>
-</span><span id="line-238"></span><span>    </span><span class="hs-comment">-- additional items to return, the string is empty.</span><span>
-</span><span id="line-239"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeInstanceInformationResponse%27"><span class="annot"><span class="annottext">DescribeInstanceInformationResponse -&gt; Maybe Text
+</span><span id="line-231"></span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- | /See:/ 'newDescribeInstanceInformationResponse' smart constructor.</span><span>
+</span><span id="line-233"></span><span id="local-6989586621679845954"><span id="local-6989586621679845955"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeInstanceInformationResponse"><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformationResponse"><span class="hs-identifier hs-var">DescribeInstanceInformationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeInstanceInformationResponse%27"><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformationResponse%27"><span class="hs-identifier hs-var">DescribeInstanceInformationResponse'</span></a></span></span><span>
+</span><span id="line-234"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token to use when requesting the next set of items. If there are no</span><span>
+</span><span id="line-235"></span><span>    </span><span class="hs-comment">-- additional items to return, the string is empty.</span><span>
+</span><span id="line-236"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeInstanceInformationResponse%27"><span class="annot"><span class="annottext">DescribeInstanceInformationResponse -&gt; Maybe Text
 </span><a href="Network.AWS.SSM.DescribeInstanceInformation.html#%24sel%3AnextToken%3ADescribeInstanceInformationResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-240"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
-</span><span id="line-241"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeInstanceInformationResponse%27"><span class="annot"><span class="annottext">DescribeInstanceInformationResponse -&gt; Int
+</span><span id="line-237"></span><span>    </span><span class="hs-comment">-- | The instance information list.</span><span>
+</span><span id="line-238"></span><span>    </span><span id="%24sel%3AinstanceInformationList%3ADescribeInstanceInformationResponse%27"><span class="annot"><span class="annottext">DescribeInstanceInformationResponse -&gt; Maybe [InstanceInformation]
+</span><a href="Network.AWS.SSM.DescribeInstanceInformation.html#%24sel%3AinstanceInformationList%3ADescribeInstanceInformationResponse%27"><span class="hs-identifier hs-var hs-var">instanceInformationList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceInformation.html#InstanceInformation"><span class="hs-identifier hs-type">InstanceInformation</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-239"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-240"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeInstanceInformationResponse%27"><span class="annot"><span class="annottext">DescribeInstanceInformationResponse -&gt; Int
 </span><a href="Network.AWS.SSM.DescribeInstanceInformation.html#%24sel%3AhttpStatus%3ADescribeInstanceInformationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
-</span><span id="line-242"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-243"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679844136"><span id="local-6989586621679844138"><span class="annot"><span class="annottext">DescribeInstanceInformationResponse
+</span><span id="line-241"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-242"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679845947"><span id="local-6989586621679845949"><span class="annot"><span class="annottext">DescribeInstanceInformationResponse
 -&gt; DescribeInstanceInformationResponse -&gt; Bool
 (DescribeInstanceInformationResponse
  -&gt; DescribeInstanceInformationResponse -&gt; Bool)
@@ -744,7 +751,7 @@ $c/= :: DescribeInstanceInformationResponse
 -&gt; DescribeInstanceInformationResponse -&gt; Bool
 $c== :: DescribeInstanceInformationResponse
 -&gt; DescribeInstanceInformationResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679844128"><span id="local-6989586621679844130"><span id="local-6989586621679844132"><span id="local-6989586621679844134"><span class="annot"><span class="annottext">ReadPrec [DescribeInstanceInformationResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679845939"><span id="local-6989586621679845941"><span id="local-6989586621679845943"><span id="local-6989586621679845945"><span class="annot"><span class="annottext">ReadPrec [DescribeInstanceInformationResponse]
 ReadPrec DescribeInstanceInformationResponse
 Int -&gt; ReadS DescribeInstanceInformationResponse
 ReadS [DescribeInstanceInformationResponse]
@@ -764,7 +771,7 @@ readList :: ReadS [DescribeInstanceInformationResponse]
 $creadList :: ReadS [DescribeInstanceInformationResponse]
 readsPrec :: Int -&gt; ReadS DescribeInstanceInformationResponse
 $creadsPrec :: Int -&gt; ReadS DescribeInstanceInformationResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679844122"><span id="local-6989586621679844124"><span id="local-6989586621679844126"><span class="annot"><span class="annottext">Int -&gt; DescribeInstanceInformationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679845933"><span id="local-6989586621679845935"><span id="local-6989586621679845937"><span class="annot"><span class="annottext">Int -&gt; DescribeInstanceInformationResponse -&gt; ShowS
 [DescribeInstanceInformationResponse] -&gt; ShowS
 DescribeInstanceInformationResponse -&gt; String
 (Int -&gt; DescribeInstanceInformationResponse -&gt; ShowS)
@@ -801,48 +808,73 @@ $cfrom :: forall x.
 DescribeInstanceInformationResponse
 -&gt; Rep DescribeInstanceInformationResponse x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
-</span><span id="line-244"></span><span>
-</span><span id="line-245"></span><span class="hs-comment">-- |</span><span>
-</span><span id="line-246"></span><span class="hs-comment">-- Create a value of 'DescribeInstanceInformationResponse' with all optional fields omitted.</span><span>
-</span><span id="line-247"></span><span class="hs-comment">--</span><span>
-</span><span id="line-248"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
-</span><span id="line-249"></span><span class="hs-comment">--</span><span>
-</span><span id="line-250"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
-</span><span id="line-251"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
-</span><span id="line-252"></span><span class="hs-comment">--</span><span>
-</span><span id="line-253"></span><span class="hs-comment">-- 'instanceInformationList', 'describeInstanceInformationResponse_instanceInformationList' - The instance information list.</span><span>
+</span><span id="line-243"></span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- Create a value of 'DescribeInstanceInformationResponse' with all optional fields omitted.</span><span>
+</span><span id="line-246"></span><span class="hs-comment">--</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-248"></span><span class="hs-comment">--</span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-251"></span><span class="hs-comment">--</span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- 'nextToken', 'describeInstanceInformationResponse_nextToken' - The token to use when requesting the next set of items. If there are no</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- additional items to return, the string is empty.</span><span>
 </span><span id="line-254"></span><span class="hs-comment">--</span><span>
-</span><span id="line-255"></span><span class="hs-comment">-- 'nextToken', 'describeInstanceInformationResponse_nextToken' - The token to use when requesting the next set of items. If there are no</span><span>
-</span><span id="line-256"></span><span class="hs-comment">-- additional items to return, the string is empty.</span><span>
-</span><span id="line-257"></span><span class="hs-comment">--</span><span>
-</span><span id="line-258"></span><span class="hs-comment">-- 'httpStatus', 'describeInstanceInformationResponse_httpStatus' - The response's http status code.</span><span>
-</span><span id="line-259"></span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#newDescribeInstanceInformationResponse"><span class="hs-identifier hs-type">newDescribeInstanceInformationResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
-</span><span id="line-260"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
-</span><span id="line-261"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-262"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformationResponse"><span class="hs-identifier hs-type">DescribeInstanceInformationResponse</span></a></span><span>
-</span><span id="line-263"></span><span id="newDescribeInstanceInformationResponse"><span class="annot"><span class="annottext">newDescribeInstanceInformationResponse :: Int -&gt; DescribeInstanceInformationResponse
-</span><a href="Network.AWS.SSM.DescribeInstanceInformation.html#newDescribeInstanceInformationResponse"><span class="hs-identifier hs-var hs-var">newDescribeInstanceInformationResponse</span></a></span></span><span> </span><span id="local-6989586621679844119"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679844119"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-264"></span><span>  </span><span class="annot"><span class="annottext">DescribeInstanceInformationResponse' :: Maybe [InstanceInformation]
--&gt; Maybe Text -&gt; Int -&gt; DescribeInstanceInformationResponse
+</span><span id="line-255"></span><span class="hs-comment">-- 'instanceInformationList', 'describeInstanceInformationResponse_instanceInformationList' - The instance information list.</span><span>
+</span><span id="line-256"></span><span class="hs-comment">--</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- 'httpStatus', 'describeInstanceInformationResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-258"></span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#newDescribeInstanceInformationResponse"><span class="hs-identifier hs-type">newDescribeInstanceInformationResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-259"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-260"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-261"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformationResponse"><span class="hs-identifier hs-type">DescribeInstanceInformationResponse</span></a></span><span>
+</span><span id="line-262"></span><span id="newDescribeInstanceInformationResponse"><span class="annot"><span class="annottext">newDescribeInstanceInformationResponse :: Int -&gt; DescribeInstanceInformationResponse
+</span><a href="Network.AWS.SSM.DescribeInstanceInformation.html#newDescribeInstanceInformationResponse"><span class="hs-identifier hs-var hs-var">newDescribeInstanceInformationResponse</span></a></span></span><span> </span><span id="local-6989586621679845930"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679845930"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-263"></span><span>  </span><span class="annot"><span class="annottext">DescribeInstanceInformationResponse' :: Maybe Text
+-&gt; Maybe [InstanceInformation]
+-&gt; Int
+-&gt; DescribeInstanceInformationResponse
 </span><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformationResponse%27"><span class="hs-identifier hs-type">DescribeInstanceInformationResponse'</span></a></span><span>
-</span><span id="line-265"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:instanceInformationList:DescribeInstanceInformationResponse' :: Maybe [InstanceInformation]
-</span><a href="Network.AWS.SSM.DescribeInstanceInformation.html#%24sel%3AinstanceInformationList%3ADescribeInstanceInformationResponse%27"><span class="hs-identifier hs-var">instanceInformationList</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-266"></span><span>        </span><span class="annot"><span class="annottext">Maybe [InstanceInformation]
+</span><span id="line-264"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeInstanceInformationResponse' :: Maybe Text
+</span><a href="Network.AWS.SSM.DescribeInstanceInformation.html#%24sel%3AnextToken%3ADescribeInstanceInformationResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-265"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-267"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeInstanceInformationResponse' :: Maybe Text
-</span><a href="Network.AWS.SSM.DescribeInstanceInformation.html#%24sel%3AnextToken%3ADescribeInstanceInformationResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-266"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceInformationList:DescribeInstanceInformationResponse' :: Maybe [InstanceInformation]
+</span><a href="Network.AWS.SSM.DescribeInstanceInformation.html#%24sel%3AinstanceInformationList%3ADescribeInstanceInformationResponse%27"><span class="hs-identifier hs-var">instanceInformationList</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-267"></span><span>        </span><span class="annot"><span class="annottext">Maybe [InstanceInformation]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-268"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeInstanceInformationResponse' :: Int
 </span><a href="Network.AWS.SSM.DescribeInstanceInformation.html#%24sel%3AhttpStatus%3ADescribeInstanceInformationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679844119"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679845930"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-269"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-270"></span><span>
-</span><span id="line-271"></span><span class="hs-comment">-- | The instance information list.</span><span>
-</span><span id="line-272"></span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#describeInstanceInformationResponse_instanceInformationList"><span class="hs-identifier hs-type">describeInstanceInformationResponse_instanceInformationList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformationResponse"><span class="hs-identifier hs-type">DescribeInstanceInformationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceInformation.html#InstanceInformation"><span class="hs-identifier hs-type">InstanceInformation</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-273"></span><span id="describeInstanceInformationResponse_instanceInformationList"><span class="annot"><span class="annottext">describeInstanceInformationResponse_instanceInformationList :: (Maybe [InstanceInformation] -&gt; f (Maybe [InstanceInformation]))
+</span><span id="line-271"></span><span class="hs-comment">-- | The token to use when requesting the next set of items. If there are no</span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- additional items to return, the string is empty.</span><span>
+</span><span id="line-273"></span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#describeInstanceInformationResponse_nextToken"><span class="hs-identifier hs-type">describeInstanceInformationResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformationResponse"><span class="hs-identifier hs-type">DescribeInstanceInformationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-274"></span><span id="describeInstanceInformationResponse_nextToken"><span class="annot"><span class="annottext">describeInstanceInformationResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeInstanceInformationResponse
+-&gt; f DescribeInstanceInformationResponse
+</span><a href="Network.AWS.SSM.DescribeInstanceInformation.html#describeInstanceInformationResponse_nextToken"><span class="hs-identifier hs-var hs-var">describeInstanceInformationResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeInstanceInformationResponse -&gt; Maybe Text)
+-&gt; (DescribeInstanceInformationResponse
+    -&gt; Maybe Text -&gt; DescribeInstanceInformationResponse)
+-&gt; Lens' DescribeInstanceInformationResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformationResponse%27"><span class="hs-identifier hs-type">DescribeInstanceInformationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679845929"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:DescribeInstanceInformationResponse' :: DescribeInstanceInformationResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679845929"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679845929"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679845928"><span class="annot"><span class="annottext">s :: DescribeInstanceInformationResponse
+</span><a href="#local-6989586621679845928"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformationResponse%27"><span class="hs-identifier hs-type">DescribeInstanceInformationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679845927"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679845927"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstanceInformationResponse
+</span><a href="#local-6989586621679845928"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeInstanceInformationResponse' :: Maybe Text
+</span><a href="Network.AWS.SSM.DescribeInstanceInformation.html#%24sel%3AnextToken%3ADescribeInstanceInformationResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679845927"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformationResponse"><span class="hs-identifier hs-type">DescribeInstanceInformationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-275"></span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- | The instance information list.</span><span>
+</span><span id="line-277"></span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#describeInstanceInformationResponse_instanceInformationList"><span class="hs-identifier hs-type">describeInstanceInformationResponse_instanceInformationList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformationResponse"><span class="hs-identifier hs-type">DescribeInstanceInformationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceInformation.html#InstanceInformation"><span class="hs-identifier hs-type">InstanceInformation</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-278"></span><span id="describeInstanceInformationResponse_instanceInformationList"><span class="annot"><span class="annottext">describeInstanceInformationResponse_instanceInformationList :: (Maybe [InstanceInformation] -&gt; f (Maybe [InstanceInformation]))
 -&gt; DescribeInstanceInformationResponse
 -&gt; f DescribeInstanceInformationResponse
 </span><a href="Network.AWS.SSM.DescribeInstanceInformation.html#describeInstanceInformationResponse_instanceInformationList"><span class="hs-identifier hs-var hs-var">describeInstanceInformationResponse_instanceInformationList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeInstanceInformationResponse
@@ -853,16 +885,16 @@ forall a. Maybe a
 -&gt; Lens'
      DescribeInstanceInformationResponse (Maybe [InstanceInformation])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformationResponse%27"><span class="hs-identifier hs-type">DescribeInstanceInformationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679844118"><span class="annot"><span class="annottext">Maybe [InstanceInformation]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformationResponse%27"><span class="hs-identifier hs-type">DescribeInstanceInformationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679845926"><span class="annot"><span class="annottext">Maybe [InstanceInformation]
 instanceInformationList :: Maybe [InstanceInformation]
 $sel:instanceInformationList:DescribeInstanceInformationResponse' :: DescribeInstanceInformationResponse -&gt; Maybe [InstanceInformation]
-</span><a href="#local-6989586621679844118"><span class="hs-identifier hs-var hs-var">instanceInformationList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [InstanceInformation]
-</span><a href="#local-6989586621679844118"><span class="hs-identifier hs-var">instanceInformationList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679844117"><span class="annot"><span class="annottext">s :: DescribeInstanceInformationResponse
-</span><a href="#local-6989586621679844117"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformationResponse%27"><span class="hs-identifier hs-type">DescribeInstanceInformationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679844116"><span class="annot"><span class="annottext">Maybe [InstanceInformation]
-</span><a href="#local-6989586621679844116"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstanceInformationResponse
-</span><a href="#local-6989586621679844117"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceInformationList:DescribeInstanceInformationResponse' :: Maybe [InstanceInformation]
+</span><a href="#local-6989586621679845926"><span class="hs-identifier hs-var hs-var">instanceInformationList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [InstanceInformation]
+</span><a href="#local-6989586621679845926"><span class="hs-identifier hs-var">instanceInformationList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679845925"><span class="annot"><span class="annottext">s :: DescribeInstanceInformationResponse
+</span><a href="#local-6989586621679845925"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformationResponse%27"><span class="hs-identifier hs-type">DescribeInstanceInformationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679845924"><span class="annot"><span class="annottext">Maybe [InstanceInformation]
+</span><a href="#local-6989586621679845924"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstanceInformationResponse
+</span><a href="#local-6989586621679845925"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceInformationList:DescribeInstanceInformationResponse' :: Maybe [InstanceInformation]
 </span><a href="Network.AWS.SSM.DescribeInstanceInformation.html#%24sel%3AinstanceInformationList%3ADescribeInstanceInformationResponse%27"><span class="hs-identifier hs-var">instanceInformationList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [InstanceInformation]
-</span><a href="#local-6989586621679844116"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformationResponse"><span class="hs-identifier hs-type">DescribeInstanceInformationResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [InstanceInformation] -&gt; f (Maybe [InstanceInformation]))
+</span><a href="#local-6989586621679845924"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformationResponse"><span class="hs-identifier hs-type">DescribeInstanceInformationResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [InstanceInformation] -&gt; f (Maybe [InstanceInformation]))
  -&gt; DescribeInstanceInformationResponse
  -&gt; f DescribeInstanceInformationResponse)
 -&gt; ((Maybe [InstanceInformation]
@@ -890,30 +922,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [InstanceInformation]
   [InstanceInformation]
   [InstanceInformation]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-274"></span><span>
-</span><span id="line-275"></span><span class="hs-comment">-- | The token to use when requesting the next set of items. If there are no</span><span>
-</span><span id="line-276"></span><span class="hs-comment">-- additional items to return, the string is empty.</span><span>
-</span><span id="line-277"></span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#describeInstanceInformationResponse_nextToken"><span class="hs-identifier hs-type">describeInstanceInformationResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformationResponse"><span class="hs-identifier hs-type">DescribeInstanceInformationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-278"></span><span id="describeInstanceInformationResponse_nextToken"><span class="annot"><span class="annottext">describeInstanceInformationResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; DescribeInstanceInformationResponse
--&gt; f DescribeInstanceInformationResponse
-</span><a href="Network.AWS.SSM.DescribeInstanceInformation.html#describeInstanceInformationResponse_nextToken"><span class="hs-identifier hs-var hs-var">describeInstanceInformationResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeInstanceInformationResponse -&gt; Maybe Text)
--&gt; (DescribeInstanceInformationResponse
-    -&gt; Maybe Text -&gt; DescribeInstanceInformationResponse)
--&gt; Lens' DescribeInstanceInformationResponse (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformationResponse%27"><span class="hs-identifier hs-type">DescribeInstanceInformationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679844115"><span class="annot"><span class="annottext">Maybe Text
-nextToken :: Maybe Text
-$sel:nextToken:DescribeInstanceInformationResponse' :: DescribeInstanceInformationResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679844115"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679844115"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679844114"><span class="annot"><span class="annottext">s :: DescribeInstanceInformationResponse
-</span><a href="#local-6989586621679844114"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformationResponse%27"><span class="hs-identifier hs-type">DescribeInstanceInformationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679844113"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679844113"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstanceInformationResponse
-</span><a href="#local-6989586621679844114"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeInstanceInformationResponse' :: Maybe Text
-</span><a href="Network.AWS.SSM.DescribeInstanceInformation.html#%24sel%3AnextToken%3ADescribeInstanceInformationResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679844113"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformationResponse"><span class="hs-identifier hs-type">DescribeInstanceInformationResponse</span></a></span><span class="hs-special">)</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-279"></span><span>
 </span><span id="line-280"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-281"></span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#describeInstanceInformationResponse_httpStatus"><span class="hs-identifier hs-type">describeInstanceInformationResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformationResponse"><span class="hs-identifier hs-type">DescribeInstanceInformationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -929,18 +939,18 @@ $sel:nextToken:DescribeInstanceInformationResponse' :: DescribeInstanceInformati
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformationResponse%27"><span class="hs-identifier hs-type">DescribeInstanceInformationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679844112"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformationResponse%27"><span class="hs-identifier hs-type">DescribeInstanceInformationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679845923"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeInstanceInformationResponse' :: DescribeInstanceInformationResponse -&gt; Int
-</span><a href="#local-6989586621679844112"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679844112"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679844111"><span class="annot"><span class="annottext">s :: DescribeInstanceInformationResponse
-</span><a href="#local-6989586621679844111"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformationResponse%27"><span class="hs-identifier hs-type">DescribeInstanceInformationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679844110"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679844110"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstanceInformationResponse
-</span><a href="#local-6989586621679844111"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeInstanceInformationResponse' :: Int
+</span><a href="#local-6989586621679845923"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679845923"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679845922"><span class="annot"><span class="annottext">s :: DescribeInstanceInformationResponse
+</span><a href="#local-6989586621679845922"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformationResponse%27"><span class="hs-identifier hs-type">DescribeInstanceInformationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679845921"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679845921"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstanceInformationResponse
+</span><a href="#local-6989586621679845922"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeInstanceInformationResponse' :: Int
 </span><a href="Network.AWS.SSM.DescribeInstanceInformation.html#%24sel%3AhttpStatus%3ADescribeInstanceInformationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679844110"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformationResponse"><span class="hs-identifier hs-type">DescribeInstanceInformationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679845921"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformationResponse"><span class="hs-identifier hs-type">DescribeInstanceInformationResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-283"></span><span>
 </span><span id="line-284"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-285"></span><span>  </span><span id="local-6989586621679844108"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-285"></span><span>  </span><span id="local-6989586621679845919"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-286"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.DescribeInstanceInformation.html#DescribeInstanceInformationResponse"><span class="hs-identifier hs-type">DescribeInstanceInformationResponse</span></a></span></span><span>
 </span><span id="line-287"></span></pre></body></html>

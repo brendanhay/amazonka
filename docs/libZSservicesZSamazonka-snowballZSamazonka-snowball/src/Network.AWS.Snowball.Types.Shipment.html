@@ -27,20 +27,20 @@
 </span><span id="line-27"></span><span class="hs-comment">-- shipment.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newShipment' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679224502"><span id="local-6989586621679224503"></span></span><span class="hs-keyword">data</span><span> </span><span id="Shipment"><span class="annot"><a href="Network.AWS.Snowball.Types.Shipment.html#Shipment"><span class="hs-identifier hs-var">Shipment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Shipment%27"><span class="annot"><a href="Network.AWS.Snowball.Types.Shipment.html#Shipment%27"><span class="hs-identifier hs-var">Shipment'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The tracking number for this job. Using this tracking number with your</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- region\'s carrier\'s website, you can track a Snow device as the carrier</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- transports it.</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- For India, the carrier is Amazon Logistics. For all other regions, UPS</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- is the carrier.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AtrackingNumber%3AShipment%27"><span class="annot"><span class="annottext">Shipment -&gt; Maybe Text
-</span><a href="Network.AWS.Snowball.Types.Shipment.html#%24sel%3AtrackingNumber%3AShipment%27"><span class="hs-identifier hs-var hs-var">trackingNumber</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | Status information for a shipment.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3Astatus%3AShipment%27"><span class="annot"><span class="annottext">Shipment -&gt; Maybe Text
-</span><a href="Network.AWS.Snowball.Types.Shipment.html#%24sel%3Astatus%3AShipment%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679224560"><span id="local-6989586621679224561"></span></span><span class="hs-keyword">data</span><span> </span><span id="Shipment"><span class="annot"><a href="Network.AWS.Snowball.Types.Shipment.html#Shipment"><span class="hs-identifier hs-var">Shipment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Shipment%27"><span class="annot"><a href="Network.AWS.Snowball.Types.Shipment.html#Shipment%27"><span class="hs-identifier hs-var">Shipment'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Status information for a shipment.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3Astatus%3AShipment%27"><span class="annot"><span class="annottext">Shipment -&gt; Maybe Text
+</span><a href="Network.AWS.Snowball.Types.Shipment.html#%24sel%3Astatus%3AShipment%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The tracking number for this job. Using this tracking number with your</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- region\'s carrier\'s website, you can track a Snow device as the carrier</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- transports it.</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- For India, the carrier is Amazon Logistics. For all other regions, UPS</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- is the carrier.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AtrackingNumber%3AShipment%27"><span class="annot"><span class="annottext">Shipment -&gt; Maybe Text
+</span><a href="Network.AWS.Snowball.Types.Shipment.html#%24sel%3AtrackingNumber%3AShipment%27"><span class="hs-identifier hs-var hs-var">trackingNumber</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679224495"><span id="local-6989586621679224497"><span class="annot"><span class="annottext">Shipment -&gt; Shipment -&gt; Bool
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679224553"><span id="local-6989586621679224555"><span class="annot"><span class="annottext">Shipment -&gt; Shipment -&gt; Bool
 (Shipment -&gt; Shipment -&gt; Bool)
 -&gt; (Shipment -&gt; Shipment -&gt; Bool) -&gt; Eq Shipment
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -48,7 +48,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Shipment -&gt; Shipment -&gt; Bool
 == :: Shipment -&gt; Shipment -&gt; Bool
 $c== :: Shipment -&gt; Shipment -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224486"><span id="local-6989586621679224488"><span id="local-6989586621679224490"><span id="local-6989586621679224492"><span class="annot"><span class="annottext">ReadPrec [Shipment]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224544"><span id="local-6989586621679224546"><span id="local-6989586621679224548"><span id="local-6989586621679224550"><span class="annot"><span class="annottext">ReadPrec [Shipment]
 ReadPrec Shipment
 Int -&gt; ReadS Shipment
 ReadS [Shipment]
@@ -68,7 +68,7 @@ readList :: ReadS [Shipment]
 $creadList :: ReadS [Shipment]
 readsPrec :: Int -&gt; ReadS Shipment
 $creadsPrec :: Int -&gt; ReadS Shipment
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224479"><span id="local-6989586621679224481"><span id="local-6989586621679224483"><span class="annot"><span class="annottext">Int -&gt; Shipment -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224537"><span id="local-6989586621679224539"><span id="local-6989586621679224541"><span class="annot"><span class="annottext">Int -&gt; Shipment -&gt; ShowS
 [Shipment] -&gt; ShowS
 Shipment -&gt; String
 (Int -&gt; Shipment -&gt; ShowS)
@@ -99,102 +99,102 @@ $cfrom :: forall x. Shipment -&gt; Rep Shipment x
 </span><span id="line-48"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
-</span><span id="line-51"></span><span class="hs-comment">-- 'trackingNumber', 'shipment_trackingNumber' - The tracking number for this job. Using this tracking number with your</span><span>
-</span><span id="line-52"></span><span class="hs-comment">-- region\'s carrier\'s website, you can track a Snow device as the carrier</span><span>
-</span><span id="line-53"></span><span class="hs-comment">-- transports it.</span><span>
-</span><span id="line-54"></span><span class="hs-comment">--</span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- For India, the carrier is Amazon Logistics. For all other regions, UPS</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- is the carrier.</span><span>
-</span><span id="line-57"></span><span class="hs-comment">--</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- 'status', 'shipment_status' - Status information for a shipment.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'status', 'shipment_status' - Status information for a shipment.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'trackingNumber', 'shipment_trackingNumber' - The tracking number for this job. Using this tracking number with your</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- region\'s carrier\'s website, you can track a Snow device as the carrier</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- transports it.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- For India, the carrier is Amazon Logistics. For all other regions, UPS</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- is the carrier.</span><span>
 </span><span id="line-59"></span><span class="annot"><a href="Network.AWS.Snowball.Types.Shipment.html#newShipment"><span class="hs-identifier hs-type">newShipment</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-60"></span><span>  </span><span class="annot"><a href="Network.AWS.Snowball.Types.Shipment.html#Shipment"><span class="hs-identifier hs-type">Shipment</span></a></span><span>
 </span><span id="line-61"></span><span id="newShipment"><span class="annot"><span class="annottext">newShipment :: Shipment
 </span><a href="Network.AWS.Snowball.Types.Shipment.html#newShipment"><span class="hs-identifier hs-var hs-var">newShipment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-62"></span><span>  </span><span class="annot"><span class="annottext">Shipment' :: Maybe Text -&gt; Maybe Text -&gt; Shipment
 </span><a href="Network.AWS.Snowball.Types.Shipment.html#Shipment%27"><span class="hs-identifier hs-type">Shipment'</span></a></span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:trackingNumber:Shipment' :: Maybe Text
-</span><a href="Network.AWS.Snowball.Types.Shipment.html#%24sel%3AtrackingNumber%3AShipment%27"><span class="hs-identifier hs-var">trackingNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-63"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:Shipment' :: Maybe Text
+</span><a href="Network.AWS.Snowball.Types.Shipment.html#%24sel%3Astatus%3AShipment%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:Shipment' :: Maybe Text
-</span><a href="Network.AWS.Snowball.Types.Shipment.html#%24sel%3Astatus%3AShipment%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:trackingNumber:Shipment' :: Maybe Text
+</span><a href="Network.AWS.Snowball.Types.Shipment.html#%24sel%3AtrackingNumber%3AShipment%27"><span class="hs-identifier hs-var">trackingNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-65"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- | The tracking number for this job. Using this tracking number with your</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- region\'s carrier\'s website, you can track a Snow device as the carrier</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- transports it.</span><span>
-</span><span id="line-70"></span><span class="hs-comment">--</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- For India, the carrier is Amazon Logistics. For all other regions, UPS</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- is the carrier.</span><span>
-</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.Snowball.Types.Shipment.html#shipment_trackingNumber"><span class="hs-identifier hs-type">shipment_trackingNumber</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Shipment.html#Shipment"><span class="hs-identifier hs-type">Shipment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-74"></span><span id="shipment_trackingNumber"><span class="annot"><span class="annottext">shipment_trackingNumber :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Shipment -&gt; f Shipment
-</span><a href="Network.AWS.Snowball.Types.Shipment.html#shipment_trackingNumber"><span class="hs-identifier hs-var hs-var">shipment_trackingNumber</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Shipment -&gt; Maybe Text)
--&gt; (Shipment -&gt; Maybe Text -&gt; Shipment)
--&gt; Lens Shipment Shipment (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.Shipment.html#Shipment%27"><span class="hs-identifier hs-type">Shipment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224470"><span class="annot"><span class="annottext">Maybe Text
-trackingNumber :: Maybe Text
-$sel:trackingNumber:Shipment' :: Shipment -&gt; Maybe Text
-</span><a href="#local-6989586621679224470"><span class="hs-identifier hs-var hs-var">trackingNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679224470"><span class="hs-identifier hs-var">trackingNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224469"><span class="annot"><span class="annottext">s :: Shipment
-</span><a href="#local-6989586621679224469"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.Shipment.html#Shipment%27"><span class="hs-identifier hs-type">Shipment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224468"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679224468"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Shipment
-</span><a href="#local-6989586621679224469"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trackingNumber:Shipment' :: Maybe Text
-</span><a href="Network.AWS.Snowball.Types.Shipment.html#%24sel%3AtrackingNumber%3AShipment%27"><span class="hs-identifier hs-var">trackingNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679224468"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Shipment.html#Shipment"><span class="hs-identifier hs-type">Shipment</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- | Status information for a shipment.</span><span>
-</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.Snowball.Types.Shipment.html#shipment_status"><span class="hs-identifier hs-type">shipment_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Shipment.html#Shipment"><span class="hs-identifier hs-type">Shipment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-78"></span><span id="shipment_status"><span class="annot"><span class="annottext">shipment_status :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Shipment -&gt; f Shipment
+</span><span id="line-67"></span><span class="hs-comment">-- | Status information for a shipment.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.Snowball.Types.Shipment.html#shipment_status"><span class="hs-identifier hs-type">shipment_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Shipment.html#Shipment"><span class="hs-identifier hs-type">Shipment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span id="shipment_status"><span class="annot"><span class="annottext">shipment_status :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Shipment -&gt; f Shipment
 </span><a href="Network.AWS.Snowball.Types.Shipment.html#shipment_status"><span class="hs-identifier hs-var hs-var">shipment_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Shipment -&gt; Maybe Text)
 -&gt; (Shipment -&gt; Maybe Text -&gt; Shipment)
 -&gt; Lens Shipment Shipment (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.Shipment.html#Shipment%27"><span class="hs-identifier hs-type">Shipment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224466"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.Shipment.html#Shipment%27"><span class="hs-identifier hs-type">Shipment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224528"><span class="annot"><span class="annottext">Maybe Text
 status :: Maybe Text
 $sel:status:Shipment' :: Shipment -&gt; Maybe Text
-</span><a href="#local-6989586621679224466"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679224466"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224465"><span class="annot"><span class="annottext">s :: Shipment
-</span><a href="#local-6989586621679224465"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.Shipment.html#Shipment%27"><span class="hs-identifier hs-type">Shipment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224464"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679224464"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Shipment
-</span><a href="#local-6989586621679224465"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:Shipment' :: Maybe Text
+</span><a href="#local-6989586621679224528"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679224528"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224527"><span class="annot"><span class="annottext">s :: Shipment
+</span><a href="#local-6989586621679224527"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.Shipment.html#Shipment%27"><span class="hs-identifier hs-type">Shipment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224526"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679224526"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Shipment
+</span><a href="#local-6989586621679224527"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:Shipment' :: Maybe Text
 </span><a href="Network.AWS.Snowball.Types.Shipment.html#%24sel%3Astatus%3AShipment%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679224464"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Shipment.html#Shipment"><span class="hs-identifier hs-type">Shipment</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679224526"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Shipment.html#Shipment"><span class="hs-identifier hs-type">Shipment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | The tracking number for this job. Using this tracking number with your</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- region\'s carrier\'s website, you can track a Snow device as the carrier</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- transports it.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- For India, the carrier is Amazon Logistics. For all other regions, UPS</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- is the carrier.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.Snowball.Types.Shipment.html#shipment_trackingNumber"><span class="hs-identifier hs-type">shipment_trackingNumber</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Shipment.html#Shipment"><span class="hs-identifier hs-type">Shipment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span id="shipment_trackingNumber"><span class="annot"><span class="annottext">shipment_trackingNumber :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Shipment -&gt; f Shipment
+</span><a href="Network.AWS.Snowball.Types.Shipment.html#shipment_trackingNumber"><span class="hs-identifier hs-var hs-var">shipment_trackingNumber</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Shipment -&gt; Maybe Text)
+-&gt; (Shipment -&gt; Maybe Text -&gt; Shipment)
+-&gt; Lens Shipment Shipment (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.Shipment.html#Shipment%27"><span class="hs-identifier hs-type">Shipment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224524"><span class="annot"><span class="annottext">Maybe Text
+trackingNumber :: Maybe Text
+$sel:trackingNumber:Shipment' :: Shipment -&gt; Maybe Text
+</span><a href="#local-6989586621679224524"><span class="hs-identifier hs-var hs-var">trackingNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679224524"><span class="hs-identifier hs-var">trackingNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224523"><span class="annot"><span class="annottext">s :: Shipment
+</span><a href="#local-6989586621679224523"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.Shipment.html#Shipment%27"><span class="hs-identifier hs-type">Shipment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224522"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679224522"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Shipment
+</span><a href="#local-6989586621679224523"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trackingNumber:Shipment' :: Maybe Text
+</span><a href="Network.AWS.Snowball.Types.Shipment.html#%24sel%3AtrackingNumber%3AShipment%27"><span class="hs-identifier hs-var">trackingNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679224522"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Shipment.html#Shipment"><span class="hs-identifier hs-type">Shipment</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224461"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Shipment.html#Shipment"><span class="hs-identifier hs-type">Shipment</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679224459"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Shipment
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224519"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Shipment.html#Shipment"><span class="hs-identifier hs-type">Shipment</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679224517"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Shipment
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Shipment) -&gt; Value -&gt; Parser Shipment
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Shipment&quot;</span></span><span>
-</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679224456"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679224456"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679224514"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679224514"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-85"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Shipment
 </span><a href="Network.AWS.Snowball.Types.Shipment.html#Shipment%27"><span class="hs-identifier hs-var">Shipment'</span></a></span><span>
 </span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Shipment)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; Shipment)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679224456"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679224514"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;TrackingNumber&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Shipment)
 -&gt; Parser (Maybe Text) -&gt; Parser Shipment
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679224456"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679224514"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;TrackingNumber&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224450"><span id="local-6989586621679224452"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Shipment.html#Shipment"><span class="hs-identifier hs-type">Shipment</span></a></span></span></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224508"><span id="local-6989586621679224510"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Shipment.html#Shipment"><span class="hs-identifier hs-type">Shipment</span></a></span></span></span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224447"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Shipment.html#Shipment"><span class="hs-identifier hs-type">Shipment</span></a></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224505"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Shipment.html#Shipment"><span class="hs-identifier hs-type">Shipment</span></a></span></span><span>
 </span><span id="line-93"></span></pre></body></html>

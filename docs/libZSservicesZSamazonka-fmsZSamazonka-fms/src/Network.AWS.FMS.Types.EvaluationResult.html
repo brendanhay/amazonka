@@ -29,25 +29,25 @@
 </span><span id="line-29"></span><span class="hs-comment">-- by the specified policy or that don\'t comply with the policy.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newEvaluationResult' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679246907"><span id="local-6989586621679246908"></span></span><span class="hs-keyword">data</span><span> </span><span id="EvaluationResult"><span class="annot"><a href="Network.AWS.FMS.Types.EvaluationResult.html#EvaluationResult"><span class="hs-identifier hs-var">EvaluationResult</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EvaluationResult%27"><span class="annot"><a href="Network.AWS.FMS.Types.EvaluationResult.html#EvaluationResult%27"><span class="hs-identifier hs-var">EvaluationResult'</span></a></span></span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Describes an Amazon Web Services account\'s compliance with the Firewall</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- Manager policy.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AcomplianceStatus%3AEvaluationResult%27"><span class="annot"><span class="annottext">EvaluationResult -&gt; Maybe PolicyComplianceStatusType
+</span><span id="line-32"></span><span id="local-6989586621679247141"><span id="local-6989586621679247142"></span></span><span class="hs-keyword">data</span><span> </span><span id="EvaluationResult"><span class="annot"><a href="Network.AWS.FMS.Types.EvaluationResult.html#EvaluationResult"><span class="hs-identifier hs-var">EvaluationResult</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EvaluationResult%27"><span class="annot"><a href="Network.AWS.FMS.Types.EvaluationResult.html#EvaluationResult%27"><span class="hs-identifier hs-var">EvaluationResult'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of resources that are noncompliant with the specified policy.</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- For WAF and Shield Advanced policies, a resource is considered</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- noncompliant if it is not associated with the policy. For security group</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- policies, a resource is considered noncompliant if it doesn\'t comply</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- with the rules of the policy and remediation is disabled or not</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- possible.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AviolatorCount%3AEvaluationResult%27"><span class="annot"><span class="annottext">EvaluationResult -&gt; Maybe Natural
+</span><a href="Network.AWS.FMS.Types.EvaluationResult.html#%24sel%3AviolatorCount%3AEvaluationResult%27"><span class="hs-identifier hs-var hs-var">violatorCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | Describes an Amazon Web Services account\'s compliance with the Firewall</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- Manager policy.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AcomplianceStatus%3AEvaluationResult%27"><span class="annot"><span class="annottext">EvaluationResult -&gt; Maybe PolicyComplianceStatusType
 </span><a href="Network.AWS.FMS.Types.EvaluationResult.html#%24sel%3AcomplianceStatus%3AEvaluationResult%27"><span class="hs-identifier hs-var hs-var">complianceStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatusType.html#PolicyComplianceStatusType"><span class="hs-identifier hs-type">PolicyComplianceStatusType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Indicates that over 100 resources are noncompliant with the Firewall</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- Manager policy.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AevaluationLimitExceeded%3AEvaluationResult%27"><span class="annot"><span class="annottext">EvaluationResult -&gt; Maybe Bool
-</span><a href="Network.AWS.FMS.Types.EvaluationResult.html#%24sel%3AevaluationLimitExceeded%3AEvaluationResult%27"><span class="hs-identifier hs-var hs-var">evaluationLimitExceeded</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The number of resources that are noncompliant with the specified policy.</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- For WAF and Shield Advanced policies, a resource is considered</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- noncompliant if it is not associated with the policy. For security group</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- policies, a resource is considered noncompliant if it doesn\'t comply</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- with the rules of the policy and remediation is disabled or not</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- possible.</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3AviolatorCount%3AEvaluationResult%27"><span class="annot"><span class="annottext">EvaluationResult -&gt; Maybe Natural
-</span><a href="Network.AWS.FMS.Types.EvaluationResult.html#%24sel%3AviolatorCount%3AEvaluationResult%27"><span class="hs-identifier hs-var hs-var">violatorCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | Indicates that over 100 resources are noncompliant with the Firewall</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- Manager policy.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AevaluationLimitExceeded%3AEvaluationResult%27"><span class="annot"><span class="annottext">EvaluationResult -&gt; Maybe Bool
+</span><a href="Network.AWS.FMS.Types.EvaluationResult.html#%24sel%3AevaluationLimitExceeded%3AEvaluationResult%27"><span class="hs-identifier hs-var hs-var">evaluationLimitExceeded</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679246899"><span id="local-6989586621679246901"><span class="annot"><span class="annottext">EvaluationResult -&gt; EvaluationResult -&gt; Bool
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679247133"><span id="local-6989586621679247135"><span class="annot"><span class="annottext">EvaluationResult -&gt; EvaluationResult -&gt; Bool
 (EvaluationResult -&gt; EvaluationResult -&gt; Bool)
 -&gt; (EvaluationResult -&gt; EvaluationResult -&gt; Bool)
 -&gt; Eq EvaluationResult
@@ -56,7 +56,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: EvaluationResult -&gt; EvaluationResult -&gt; Bool
 == :: EvaluationResult -&gt; EvaluationResult -&gt; Bool
 $c== :: EvaluationResult -&gt; EvaluationResult -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679246890"><span id="local-6989586621679246892"><span id="local-6989586621679246894"><span id="local-6989586621679246896"><span class="annot"><span class="annottext">ReadPrec [EvaluationResult]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247124"><span id="local-6989586621679247126"><span id="local-6989586621679247128"><span id="local-6989586621679247130"><span class="annot"><span class="annottext">ReadPrec [EvaluationResult]
 ReadPrec EvaluationResult
 Int -&gt; ReadS EvaluationResult
 ReadS [EvaluationResult]
@@ -76,7 +76,7 @@ readList :: ReadS [EvaluationResult]
 $creadList :: ReadS [EvaluationResult]
 readsPrec :: Int -&gt; ReadS EvaluationResult
 $creadsPrec :: Int -&gt; ReadS EvaluationResult
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679246883"><span id="local-6989586621679246885"><span id="local-6989586621679246887"><span class="annot"><span class="annottext">Int -&gt; EvaluationResult -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247117"><span id="local-6989586621679247119"><span id="local-6989586621679247121"><span class="annot"><span class="annottext">Int -&gt; EvaluationResult -&gt; ShowS
 [EvaluationResult] -&gt; ShowS
 EvaluationResult -&gt; String
 (Int -&gt; EvaluationResult -&gt; ShowS)
@@ -110,44 +110,70 @@ $cfrom :: forall x. EvaluationResult -&gt; Rep EvaluationResult x
 </span><span id="line-54"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-56"></span><span class="hs-comment">--</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- 'complianceStatus', 'evaluationResult_complianceStatus' - Describes an Amazon Web Services account\'s compliance with the Firewall</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- Manager policy.</span><span>
-</span><span id="line-59"></span><span class="hs-comment">--</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- 'evaluationLimitExceeded', 'evaluationResult_evaluationLimitExceeded' - Indicates that over 100 resources are noncompliant with the Firewall</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- Manager policy.</span><span>
-</span><span id="line-62"></span><span class="hs-comment">--</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- 'violatorCount', 'evaluationResult_violatorCount' - The number of resources that are noncompliant with the specified policy.</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- For WAF and Shield Advanced policies, a resource is considered</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- noncompliant if it is not associated with the policy. For security group</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- policies, a resource is considered noncompliant if it doesn\'t comply</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- with the rules of the policy and remediation is disabled or not</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- possible.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'violatorCount', 'evaluationResult_violatorCount' - The number of resources that are noncompliant with the specified policy.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- For WAF and Shield Advanced policies, a resource is considered</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- noncompliant if it is not associated with the policy. For security group</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- policies, a resource is considered noncompliant if it doesn\'t comply</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- with the rules of the policy and remediation is disabled or not</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- possible.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'complianceStatus', 'evaluationResult_complianceStatus' - Describes an Amazon Web Services account\'s compliance with the Firewall</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Manager policy.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'evaluationLimitExceeded', 'evaluationResult_evaluationLimitExceeded' - Indicates that over 100 resources are noncompliant with the Firewall</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Manager policy.</span><span>
 </span><span id="line-69"></span><span class="annot"><a href="Network.AWS.FMS.Types.EvaluationResult.html#newEvaluationResult"><span class="hs-identifier hs-type">newEvaluationResult</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.FMS.Types.EvaluationResult.html#EvaluationResult"><span class="hs-identifier hs-type">EvaluationResult</span></a></span><span>
 </span><span id="line-71"></span><span id="newEvaluationResult"><span class="annot"><span class="annottext">newEvaluationResult :: EvaluationResult
 </span><a href="Network.AWS.FMS.Types.EvaluationResult.html#newEvaluationResult"><span class="hs-identifier hs-var hs-var">newEvaluationResult</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-72"></span><span>  </span><span class="annot"><span class="annottext">EvaluationResult' :: Maybe PolicyComplianceStatusType
--&gt; Maybe Bool -&gt; Maybe Natural -&gt; EvaluationResult
+</span><span id="line-72"></span><span>  </span><span class="annot"><span class="annottext">EvaluationResult' :: Maybe Natural
+-&gt; Maybe PolicyComplianceStatusType
+-&gt; Maybe Bool
+-&gt; EvaluationResult
 </span><a href="Network.AWS.FMS.Types.EvaluationResult.html#EvaluationResult%27"><span class="hs-identifier hs-type">EvaluationResult'</span></a></span><span>
-</span><span id="line-73"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:complianceStatus:EvaluationResult' :: Maybe PolicyComplianceStatusType
-</span><a href="Network.AWS.FMS.Types.EvaluationResult.html#%24sel%3AcomplianceStatus%3AEvaluationResult%27"><span class="hs-identifier hs-var">complianceStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-74"></span><span>        </span><span class="annot"><span class="annottext">Maybe PolicyComplianceStatusType
+</span><span id="line-73"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:violatorCount:EvaluationResult' :: Maybe Natural
+</span><a href="Network.AWS.FMS.Types.EvaluationResult.html#%24sel%3AviolatorCount%3AEvaluationResult%27"><span class="hs-identifier hs-var">violatorCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:complianceStatus:EvaluationResult' :: Maybe PolicyComplianceStatusType
+</span><a href="Network.AWS.FMS.Types.EvaluationResult.html#%24sel%3AcomplianceStatus%3AEvaluationResult%27"><span class="hs-identifier hs-var">complianceStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PolicyComplianceStatusType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:evaluationLimitExceeded:EvaluationResult' :: Maybe Bool
 </span><a href="Network.AWS.FMS.Types.EvaluationResult.html#%24sel%3AevaluationLimitExceeded%3AEvaluationResult%27"><span class="hs-identifier hs-var">evaluationLimitExceeded</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:violatorCount:EvaluationResult' :: Maybe Natural
-</span><a href="Network.AWS.FMS.Types.EvaluationResult.html#%24sel%3AviolatorCount%3AEvaluationResult%27"><span class="hs-identifier hs-var">violatorCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-77"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- | Describes an Amazon Web Services account\'s compliance with the Firewall</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- Manager policy.</span><span>
-</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.FMS.Types.EvaluationResult.html#evaluationResult_complianceStatus"><span class="hs-identifier hs-type">evaluationResult_complianceStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.EvaluationResult.html#EvaluationResult"><span class="hs-identifier hs-type">EvaluationResult</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatusType.html#PolicyComplianceStatusType"><span class="hs-identifier hs-type">PolicyComplianceStatusType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-82"></span><span id="evaluationResult_complianceStatus"><span class="annot"><span class="annottext">evaluationResult_complianceStatus :: (Maybe PolicyComplianceStatusType
+</span><span id="line-76"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | The number of resources that are noncompliant with the specified policy.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- For WAF and Shield Advanced policies, a resource is considered</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- noncompliant if it is not associated with the policy. For security group</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- policies, a resource is considered noncompliant if it doesn\'t comply</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- with the rules of the policy and remediation is disabled or not</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- possible.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.FMS.Types.EvaluationResult.html#evaluationResult_violatorCount"><span class="hs-identifier hs-type">evaluationResult_violatorCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.EvaluationResult.html#EvaluationResult"><span class="hs-identifier hs-type">EvaluationResult</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span id="evaluationResult_violatorCount"><span class="annot"><span class="annottext">evaluationResult_violatorCount :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; EvaluationResult -&gt; f EvaluationResult
+</span><a href="Network.AWS.FMS.Types.EvaluationResult.html#evaluationResult_violatorCount"><span class="hs-identifier hs-var hs-var">evaluationResult_violatorCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EvaluationResult -&gt; Maybe Natural)
+-&gt; (EvaluationResult -&gt; Maybe Natural -&gt; EvaluationResult)
+-&gt; Lens
+     EvaluationResult EvaluationResult (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.EvaluationResult.html#EvaluationResult%27"><span class="hs-identifier hs-type">EvaluationResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247108"><span class="annot"><span class="annottext">Maybe Natural
+violatorCount :: Maybe Natural
+$sel:violatorCount:EvaluationResult' :: EvaluationResult -&gt; Maybe Natural
+</span><a href="#local-6989586621679247108"><span class="hs-identifier hs-var hs-var">violatorCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679247108"><span class="hs-identifier hs-var">violatorCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247107"><span class="annot"><span class="annottext">s :: EvaluationResult
+</span><a href="#local-6989586621679247107"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.EvaluationResult.html#EvaluationResult%27"><span class="hs-identifier hs-type">EvaluationResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247106"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679247106"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EvaluationResult
+</span><a href="#local-6989586621679247107"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:violatorCount:EvaluationResult' :: Maybe Natural
+</span><a href="Network.AWS.FMS.Types.EvaluationResult.html#%24sel%3AviolatorCount%3AEvaluationResult%27"><span class="hs-identifier hs-var">violatorCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679247106"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.EvaluationResult.html#EvaluationResult"><span class="hs-identifier hs-type">EvaluationResult</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | Describes an Amazon Web Services account\'s compliance with the Firewall</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- Manager policy.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.FMS.Types.EvaluationResult.html#evaluationResult_complianceStatus"><span class="hs-identifier hs-type">evaluationResult_complianceStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.EvaluationResult.html#EvaluationResult"><span class="hs-identifier hs-type">EvaluationResult</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatusType.html#PolicyComplianceStatusType"><span class="hs-identifier hs-type">PolicyComplianceStatusType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="evaluationResult_complianceStatus"><span class="annot"><span class="annottext">evaluationResult_complianceStatus :: (Maybe PolicyComplianceStatusType
  -&gt; f (Maybe PolicyComplianceStatusType))
 -&gt; EvaluationResult -&gt; f EvaluationResult
 </span><a href="Network.AWS.FMS.Types.EvaluationResult.html#evaluationResult_complianceStatus"><span class="hs-identifier hs-var hs-var">evaluationResult_complianceStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EvaluationResult -&gt; Maybe PolicyComplianceStatusType)
@@ -159,108 +185,91 @@ forall a. Maybe a
      (Maybe PolicyComplianceStatusType)
      (Maybe PolicyComplianceStatusType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.EvaluationResult.html#EvaluationResult%27"><span class="hs-identifier hs-type">EvaluationResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679246874"><span class="annot"><span class="annottext">Maybe PolicyComplianceStatusType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.EvaluationResult.html#EvaluationResult%27"><span class="hs-identifier hs-type">EvaluationResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247104"><span class="annot"><span class="annottext">Maybe PolicyComplianceStatusType
 complianceStatus :: Maybe PolicyComplianceStatusType
 $sel:complianceStatus:EvaluationResult' :: EvaluationResult -&gt; Maybe PolicyComplianceStatusType
-</span><a href="#local-6989586621679246874"><span class="hs-identifier hs-var hs-var">complianceStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PolicyComplianceStatusType
-</span><a href="#local-6989586621679246874"><span class="hs-identifier hs-var">complianceStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679246873"><span class="annot"><span class="annottext">s :: EvaluationResult
-</span><a href="#local-6989586621679246873"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.EvaluationResult.html#EvaluationResult%27"><span class="hs-identifier hs-type">EvaluationResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679246872"><span class="annot"><span class="annottext">Maybe PolicyComplianceStatusType
-</span><a href="#local-6989586621679246872"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EvaluationResult
-</span><a href="#local-6989586621679246873"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:complianceStatus:EvaluationResult' :: Maybe PolicyComplianceStatusType
+</span><a href="#local-6989586621679247104"><span class="hs-identifier hs-var hs-var">complianceStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PolicyComplianceStatusType
+</span><a href="#local-6989586621679247104"><span class="hs-identifier hs-var">complianceStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247103"><span class="annot"><span class="annottext">s :: EvaluationResult
+</span><a href="#local-6989586621679247103"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.EvaluationResult.html#EvaluationResult%27"><span class="hs-identifier hs-type">EvaluationResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247102"><span class="annot"><span class="annottext">Maybe PolicyComplianceStatusType
+</span><a href="#local-6989586621679247102"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EvaluationResult
+</span><a href="#local-6989586621679247103"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:complianceStatus:EvaluationResult' :: Maybe PolicyComplianceStatusType
 </span><a href="Network.AWS.FMS.Types.EvaluationResult.html#%24sel%3AcomplianceStatus%3AEvaluationResult%27"><span class="hs-identifier hs-var">complianceStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PolicyComplianceStatusType
-</span><a href="#local-6989586621679246872"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.EvaluationResult.html#EvaluationResult"><span class="hs-identifier hs-type">EvaluationResult</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- | Indicates that over 100 resources are noncompliant with the Firewall</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- Manager policy.</span><span>
-</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.FMS.Types.EvaluationResult.html#evaluationResult_evaluationLimitExceeded"><span class="hs-identifier hs-type">evaluationResult_evaluationLimitExceeded</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.EvaluationResult.html#EvaluationResult"><span class="hs-identifier hs-type">EvaluationResult</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-87"></span><span id="evaluationResult_evaluationLimitExceeded"><span class="annot"><span class="annottext">evaluationResult_evaluationLimitExceeded :: (Maybe Bool -&gt; f (Maybe Bool))
+</span><a href="#local-6989586621679247102"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.EvaluationResult.html#EvaluationResult"><span class="hs-identifier hs-type">EvaluationResult</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | Indicates that over 100 resources are noncompliant with the Firewall</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- Manager policy.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.FMS.Types.EvaluationResult.html#evaluationResult_evaluationLimitExceeded"><span class="hs-identifier hs-type">evaluationResult_evaluationLimitExceeded</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.EvaluationResult.html#EvaluationResult"><span class="hs-identifier hs-type">EvaluationResult</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="evaluationResult_evaluationLimitExceeded"><span class="annot"><span class="annottext">evaluationResult_evaluationLimitExceeded :: (Maybe Bool -&gt; f (Maybe Bool))
 -&gt; EvaluationResult -&gt; f EvaluationResult
 </span><a href="Network.AWS.FMS.Types.EvaluationResult.html#evaluationResult_evaluationLimitExceeded"><span class="hs-identifier hs-var hs-var">evaluationResult_evaluationLimitExceeded</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EvaluationResult -&gt; Maybe Bool)
 -&gt; (EvaluationResult -&gt; Maybe Bool -&gt; EvaluationResult)
 -&gt; Lens EvaluationResult EvaluationResult (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.EvaluationResult.html#EvaluationResult%27"><span class="hs-identifier hs-type">EvaluationResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679246870"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.EvaluationResult.html#EvaluationResult%27"><span class="hs-identifier hs-type">EvaluationResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247100"><span class="annot"><span class="annottext">Maybe Bool
 evaluationLimitExceeded :: Maybe Bool
 $sel:evaluationLimitExceeded:EvaluationResult' :: EvaluationResult -&gt; Maybe Bool
-</span><a href="#local-6989586621679246870"><span class="hs-identifier hs-var hs-var">evaluationLimitExceeded</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679246870"><span class="hs-identifier hs-var">evaluationLimitExceeded</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679246869"><span class="annot"><span class="annottext">s :: EvaluationResult
-</span><a href="#local-6989586621679246869"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.EvaluationResult.html#EvaluationResult%27"><span class="hs-identifier hs-type">EvaluationResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679246868"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679246868"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EvaluationResult
-</span><a href="#local-6989586621679246869"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:evaluationLimitExceeded:EvaluationResult' :: Maybe Bool
+</span><a href="#local-6989586621679247100"><span class="hs-identifier hs-var hs-var">evaluationLimitExceeded</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679247100"><span class="hs-identifier hs-var">evaluationLimitExceeded</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247099"><span class="annot"><span class="annottext">s :: EvaluationResult
+</span><a href="#local-6989586621679247099"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.EvaluationResult.html#EvaluationResult%27"><span class="hs-identifier hs-type">EvaluationResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247098"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679247098"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EvaluationResult
+</span><a href="#local-6989586621679247099"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:evaluationLimitExceeded:EvaluationResult' :: Maybe Bool
 </span><a href="Network.AWS.FMS.Types.EvaluationResult.html#%24sel%3AevaluationLimitExceeded%3AEvaluationResult%27"><span class="hs-identifier hs-var">evaluationLimitExceeded</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679246868"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.EvaluationResult.html#EvaluationResult"><span class="hs-identifier hs-type">EvaluationResult</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- | The number of resources that are noncompliant with the specified policy.</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- For WAF and Shield Advanced policies, a resource is considered</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- noncompliant if it is not associated with the policy. For security group</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- policies, a resource is considered noncompliant if it doesn\'t comply</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- with the rules of the policy and remediation is disabled or not</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- possible.</span><span>
-</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.FMS.Types.EvaluationResult.html#evaluationResult_violatorCount"><span class="hs-identifier hs-type">evaluationResult_violatorCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.EvaluationResult.html#EvaluationResult"><span class="hs-identifier hs-type">EvaluationResult</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-96"></span><span id="evaluationResult_violatorCount"><span class="annot"><span class="annottext">evaluationResult_violatorCount :: (Maybe Natural -&gt; f (Maybe Natural))
--&gt; EvaluationResult -&gt; f EvaluationResult
-</span><a href="Network.AWS.FMS.Types.EvaluationResult.html#evaluationResult_violatorCount"><span class="hs-identifier hs-var hs-var">evaluationResult_violatorCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EvaluationResult -&gt; Maybe Natural)
--&gt; (EvaluationResult -&gt; Maybe Natural -&gt; EvaluationResult)
--&gt; Lens
-     EvaluationResult EvaluationResult (Maybe Natural) (Maybe Natural)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.EvaluationResult.html#EvaluationResult%27"><span class="hs-identifier hs-type">EvaluationResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679246866"><span class="annot"><span class="annottext">Maybe Natural
-violatorCount :: Maybe Natural
-$sel:violatorCount:EvaluationResult' :: EvaluationResult -&gt; Maybe Natural
-</span><a href="#local-6989586621679246866"><span class="hs-identifier hs-var hs-var">violatorCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679246866"><span class="hs-identifier hs-var">violatorCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679246865"><span class="annot"><span class="annottext">s :: EvaluationResult
-</span><a href="#local-6989586621679246865"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.EvaluationResult.html#EvaluationResult%27"><span class="hs-identifier hs-type">EvaluationResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679246864"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679246864"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EvaluationResult
-</span><a href="#local-6989586621679246865"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:violatorCount:EvaluationResult' :: Maybe Natural
-</span><a href="Network.AWS.FMS.Types.EvaluationResult.html#%24sel%3AviolatorCount%3AEvaluationResult%27"><span class="hs-identifier hs-var">violatorCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679246864"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.EvaluationResult.html#EvaluationResult"><span class="hs-identifier hs-type">EvaluationResult</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679246861"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.EvaluationResult.html#EvaluationResult"><span class="hs-identifier hs-type">EvaluationResult</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679246859"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EvaluationResult
+</span><a href="#local-6989586621679247098"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.EvaluationResult.html#EvaluationResult"><span class="hs-identifier hs-type">EvaluationResult</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247095"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.EvaluationResult.html#EvaluationResult"><span class="hs-identifier hs-type">EvaluationResult</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679247093"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EvaluationResult
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">String
+</span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser EvaluationResult)
 -&gt; Value
 -&gt; Parser EvaluationResult
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
-</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;EvaluationResult&quot;</span></span><span>
-</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679246856"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679246856"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-103"></span><span>          </span><span class="annot"><span class="annottext">Maybe PolicyComplianceStatusType
--&gt; Maybe Bool -&gt; Maybe Natural -&gt; EvaluationResult
+</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679247090"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679247090"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-102"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural
+-&gt; Maybe PolicyComplianceStatusType
+-&gt; Maybe Bool
+-&gt; EvaluationResult
 </span><a href="Network.AWS.FMS.Types.EvaluationResult.html#EvaluationResult%27"><span class="hs-identifier hs-var">EvaluationResult'</span></a></span><span>
-</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">(Maybe PolicyComplianceStatusType
- -&gt; Maybe Bool -&gt; Maybe Natural -&gt; EvaluationResult)
--&gt; Parser (Maybe PolicyComplianceStatusType)
--&gt; Parser (Maybe Bool -&gt; Maybe Natural -&gt; EvaluationResult)
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Natural
+ -&gt; Maybe PolicyComplianceStatusType
+ -&gt; Maybe Bool
+ -&gt; EvaluationResult)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Maybe PolicyComplianceStatusType
+      -&gt; Maybe Bool -&gt; EvaluationResult)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679246856"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe PolicyComplianceStatusType)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ComplianceStatus&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Bool -&gt; Maybe Natural -&gt; EvaluationResult)
--&gt; Parser (Maybe Bool)
--&gt; Parser (Maybe Natural -&gt; EvaluationResult)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679246856"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;EvaluationLimitExceeded&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Natural -&gt; EvaluationResult)
--&gt; Parser (Maybe Natural) -&gt; Parser EvaluationResult
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679246856"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679247090"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ViolatorCount&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679246850"><span id="local-6989586621679246852"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.EvaluationResult.html#EvaluationResult"><span class="hs-identifier hs-type">EvaluationResult</span></a></span></span></span><span>
-</span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679246847"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.EvaluationResult.html#EvaluationResult"><span class="hs-identifier hs-type">EvaluationResult</span></a></span></span><span>
-</span><span id="line-112"></span></pre></body></html>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe PolicyComplianceStatusType
+   -&gt; Maybe Bool -&gt; EvaluationResult)
+-&gt; Parser (Maybe PolicyComplianceStatusType)
+-&gt; Parser (Maybe Bool -&gt; EvaluationResult)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679247090"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe PolicyComplianceStatusType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ComplianceStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Bool -&gt; EvaluationResult)
+-&gt; Parser (Maybe Bool) -&gt; Parser EvaluationResult
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679247090"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EvaluationLimitExceeded&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247084"><span id="local-6989586621679247086"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.EvaluationResult.html#EvaluationResult"><span class="hs-identifier hs-type">EvaluationResult</span></a></span></span></span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247081"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.EvaluationResult.html#EvaluationResult"><span class="hs-identifier hs-type">EvaluationResult</span></a></span></span><span>
+</span><span id="line-111"></span></pre></body></html>

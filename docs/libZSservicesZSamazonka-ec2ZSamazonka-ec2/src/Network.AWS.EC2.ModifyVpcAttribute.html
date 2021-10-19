@@ -27,8 +27,8 @@
 </span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcAttribute.html#newModifyVpcAttribute"><span class="hs-identifier">newModifyVpcAttribute</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-28"></span><span>
 </span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcAttribute.html#modifyVpcAttribute_enableDnsSupport"><span class="hs-identifier">modifyVpcAttribute_enableDnsSupport</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcAttribute.html#modifyVpcAttribute_enableDnsHostnames"><span class="hs-identifier">modifyVpcAttribute_enableDnsHostnames</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcAttribute.html#modifyVpcAttribute_enableDnsHostnames"><span class="hs-identifier">modifyVpcAttribute_enableDnsHostnames</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcAttribute.html#modifyVpcAttribute_enableDnsSupport"><span class="hs-identifier">modifyVpcAttribute_enableDnsSupport</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcAttribute.html#modifyVpcAttribute_vpcId"><span class="hs-identifier">modifyVpcAttribute_vpcId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-33"></span><span>
 </span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
@@ -45,32 +45,32 @@
 </span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-46"></span><span>
 </span><span id="line-47"></span><span class="hs-comment">-- | /See:/ 'newModifyVpcAttribute' smart constructor.</span><span>
-</span><span id="line-48"></span><span id="local-6989586621681179828"><span id="local-6989586621681179829"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyVpcAttribute"><span class="annot"><a href="Network.AWS.EC2.ModifyVpcAttribute.html#ModifyVpcAttribute"><span class="hs-identifier hs-var">ModifyVpcAttribute</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyVpcAttribute%27"><span class="annot"><a href="Network.AWS.EC2.ModifyVpcAttribute.html#ModifyVpcAttribute%27"><span class="hs-identifier hs-var">ModifyVpcAttribute'</span></a></span></span><span>
-</span><span id="line-49"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Indicates whether the DNS resolution is supported for the VPC. If</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- enabled, queries to the Amazon provided DNS server at the</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- 169.254.169.253 IP address, or the reserved IP address at the base of</span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- the VPC network range \&quot;plus two\&quot; succeed. If disabled, the Amazon</span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- provided DNS service in the VPC that resolves public DNS hostnames to IP</span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- addresses is not enabled.</span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- You cannot modify the DNS resolution and DNS hostnames attributes in the</span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- same request. Use separate requests for each attribute.</span><span>
-</span><span id="line-58"></span><span>    </span><span id="%24sel%3AenableDnsSupport%3AModifyVpcAttribute%27"><span class="annot"><span class="annottext">ModifyVpcAttribute -&gt; Maybe AttributeBooleanValue
-</span><a href="Network.AWS.EC2.ModifyVpcAttribute.html#%24sel%3AenableDnsSupport%3AModifyVpcAttribute%27"><span class="hs-identifier hs-var hs-var">enableDnsSupport</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AttributeBooleanValue.html#AttributeBooleanValue"><span class="hs-identifier hs-type">AttributeBooleanValue</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | Indicates whether the instances launched in the VPC get DNS hostnames.</span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- If enabled, instances in the VPC get DNS hostnames; otherwise, they do</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- not.</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- You cannot modify the DNS resolution and DNS hostnames attributes in the</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- same request. Use separate requests for each attribute. You can only</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- enable DNS hostnames if you\'ve enabled DNS support.</span><span>
-</span><span id="line-66"></span><span>    </span><span id="%24sel%3AenableDnsHostnames%3AModifyVpcAttribute%27"><span class="annot"><span class="annottext">ModifyVpcAttribute -&gt; Maybe AttributeBooleanValue
+</span><span id="line-48"></span><span id="local-6989586621681215210"><span id="local-6989586621681215211"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyVpcAttribute"><span class="annot"><a href="Network.AWS.EC2.ModifyVpcAttribute.html#ModifyVpcAttribute"><span class="hs-identifier hs-var">ModifyVpcAttribute</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyVpcAttribute%27"><span class="annot"><a href="Network.AWS.EC2.ModifyVpcAttribute.html#ModifyVpcAttribute%27"><span class="hs-identifier hs-var">ModifyVpcAttribute'</span></a></span></span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Indicates whether the instances launched in the VPC get DNS hostnames.</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- If enabled, instances in the VPC get DNS hostnames; otherwise, they do</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- not.</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- You cannot modify the DNS resolution and DNS hostnames attributes in the</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- same request. Use separate requests for each attribute. You can only</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- enable DNS hostnames if you\'ve enabled DNS support.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AenableDnsHostnames%3AModifyVpcAttribute%27"><span class="annot"><span class="annottext">ModifyVpcAttribute -&gt; Maybe AttributeBooleanValue
 </span><a href="Network.AWS.EC2.ModifyVpcAttribute.html#%24sel%3AenableDnsHostnames%3AModifyVpcAttribute%27"><span class="hs-identifier hs-var hs-var">enableDnsHostnames</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AttributeBooleanValue.html#AttributeBooleanValue"><span class="hs-identifier hs-type">AttributeBooleanValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | Indicates whether the DNS resolution is supported for the VPC. If</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- enabled, queries to the Amazon provided DNS server at the</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- 169.254.169.253 IP address, or the reserved IP address at the base of</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- the VPC network range \&quot;plus two\&quot; succeed. If disabled, the Amazon</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- provided DNS service in the VPC that resolves public DNS hostnames to IP</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- addresses is not enabled.</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- You cannot modify the DNS resolution and DNS hostnames attributes in the</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- same request. Use separate requests for each attribute.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AenableDnsSupport%3AModifyVpcAttribute%27"><span class="annot"><span class="annottext">ModifyVpcAttribute -&gt; Maybe AttributeBooleanValue
+</span><a href="Network.AWS.EC2.ModifyVpcAttribute.html#%24sel%3AenableDnsSupport%3AModifyVpcAttribute%27"><span class="hs-identifier hs-var hs-var">enableDnsSupport</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AttributeBooleanValue.html#AttributeBooleanValue"><span class="hs-identifier hs-type">AttributeBooleanValue</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The ID of the VPC.</span><span>
 </span><span id="line-68"></span><span>    </span><span id="%24sel%3AvpcId%3AModifyVpcAttribute%27"><span class="annot"><span class="annottext">ModifyVpcAttribute -&gt; Text
 </span><a href="Network.AWS.EC2.ModifyVpcAttribute.html#%24sel%3AvpcId%3AModifyVpcAttribute%27"><span class="hs-identifier hs-var hs-var">vpcId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-69"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681179820"><span id="local-6989586621681179822"><span class="annot"><span class="annottext">ModifyVpcAttribute -&gt; ModifyVpcAttribute -&gt; Bool
+</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681215202"><span id="local-6989586621681215204"><span class="annot"><span class="annottext">ModifyVpcAttribute -&gt; ModifyVpcAttribute -&gt; Bool
 (ModifyVpcAttribute -&gt; ModifyVpcAttribute -&gt; Bool)
 -&gt; (ModifyVpcAttribute -&gt; ModifyVpcAttribute -&gt; Bool)
 -&gt; Eq ModifyVpcAttribute
@@ -79,7 +79,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ModifyVpcAttribute -&gt; ModifyVpcAttribute -&gt; Bool
 == :: ModifyVpcAttribute -&gt; ModifyVpcAttribute -&gt; Bool
 $c== :: ModifyVpcAttribute -&gt; ModifyVpcAttribute -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681179811"><span id="local-6989586621681179813"><span id="local-6989586621681179815"><span id="local-6989586621681179817"><span class="annot"><span class="annottext">ReadPrec [ModifyVpcAttribute]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681215193"><span id="local-6989586621681215195"><span id="local-6989586621681215197"><span id="local-6989586621681215199"><span class="annot"><span class="annottext">ReadPrec [ModifyVpcAttribute]
 ReadPrec ModifyVpcAttribute
 Int -&gt; ReadS ModifyVpcAttribute
 ReadS [ModifyVpcAttribute]
@@ -99,7 +99,7 @@ readList :: ReadS [ModifyVpcAttribute]
 $creadList :: ReadS [ModifyVpcAttribute]
 readsPrec :: Int -&gt; ReadS ModifyVpcAttribute
 $creadsPrec :: Int -&gt; ReadS ModifyVpcAttribute
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681179804"><span id="local-6989586621681179806"><span id="local-6989586621681179808"><span class="annot"><span class="annottext">Int -&gt; ModifyVpcAttribute -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681215186"><span id="local-6989586621681215188"><span id="local-6989586621681215190"><span class="annot"><span class="annottext">Int -&gt; ModifyVpcAttribute -&gt; ShowS
 [ModifyVpcAttribute] -&gt; ShowS
 ModifyVpcAttribute -&gt; String
 (Int -&gt; ModifyVpcAttribute -&gt; ShowS)
@@ -133,23 +133,23 @@ $cfrom :: forall x. ModifyVpcAttribute -&gt; Rep ModifyVpcAttribute x
 </span><span id="line-77"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-79"></span><span class="hs-comment">--</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- 'enableDnsSupport', 'modifyVpcAttribute_enableDnsSupport' - Indicates whether the DNS resolution is supported for the VPC. If</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- enabled, queries to the Amazon provided DNS server at the</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- 169.254.169.253 IP address, or the reserved IP address at the base of</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- the VPC network range \&quot;plus two\&quot; succeed. If disabled, the Amazon</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- provided DNS service in the VPC that resolves public DNS hostnames to IP</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- addresses is not enabled.</span><span>
-</span><span id="line-86"></span><span class="hs-comment">--</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- You cannot modify the DNS resolution and DNS hostnames attributes in the</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- same request. Use separate requests for each attribute.</span><span>
-</span><span id="line-89"></span><span class="hs-comment">--</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- 'enableDnsHostnames', 'modifyVpcAttribute_enableDnsHostnames' - Indicates whether the instances launched in the VPC get DNS hostnames.</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- If enabled, instances in the VPC get DNS hostnames; otherwise, they do</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- not.</span><span>
-</span><span id="line-93"></span><span class="hs-comment">--</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- You cannot modify the DNS resolution and DNS hostnames attributes in the</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- same request. Use separate requests for each attribute. You can only</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- enable DNS hostnames if you\'ve enabled DNS support.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'enableDnsHostnames', 'modifyVpcAttribute_enableDnsHostnames' - Indicates whether the instances launched in the VPC get DNS hostnames.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- If enabled, instances in the VPC get DNS hostnames; otherwise, they do</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- not.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- You cannot modify the DNS resolution and DNS hostnames attributes in the</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- same request. Use separate requests for each attribute. You can only</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- enable DNS hostnames if you\'ve enabled DNS support.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'enableDnsSupport', 'modifyVpcAttribute_enableDnsSupport' - Indicates whether the DNS resolution is supported for the VPC. If</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- enabled, queries to the Amazon provided DNS server at the</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 169.254.169.253 IP address, or the reserved IP address at the base of</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- the VPC network range \&quot;plus two\&quot; succeed. If disabled, the Amazon</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- provided DNS service in the VPC that resolves public DNS hostnames to IP</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- addresses is not enabled.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- You cannot modify the DNS resolution and DNS hostnames attributes in the</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- same request. Use separate requests for each attribute.</span><span>
 </span><span id="line-97"></span><span class="hs-comment">--</span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- 'vpcId', 'modifyVpcAttribute_vpcId' - The ID of the VPC.</span><span>
 </span><span id="line-99"></span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcAttribute.html#newModifyVpcAttribute"><span class="hs-identifier hs-type">newModifyVpcAttribute</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -157,66 +157,34 @@ $cfrom :: forall x. ModifyVpcAttribute -&gt; Rep ModifyVpcAttribute x
 </span><span id="line-101"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-102"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcAttribute.html#ModifyVpcAttribute"><span class="hs-identifier hs-type">ModifyVpcAttribute</span></a></span><span>
 </span><span id="line-103"></span><span id="newModifyVpcAttribute"><span class="annot"><span class="annottext">newModifyVpcAttribute :: Text -&gt; ModifyVpcAttribute
-</span><a href="Network.AWS.EC2.ModifyVpcAttribute.html#newModifyVpcAttribute"><span class="hs-identifier hs-var hs-var">newModifyVpcAttribute</span></a></span></span><span> </span><span id="local-6989586621681179799"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681179799"><span class="hs-identifier hs-var">pVpcId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EC2.ModifyVpcAttribute.html#newModifyVpcAttribute"><span class="hs-identifier hs-var hs-var">newModifyVpcAttribute</span></a></span></span><span> </span><span id="local-6989586621681215181"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681215181"><span class="hs-identifier hs-var">pVpcId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-104"></span><span>  </span><span class="annot"><span class="annottext">ModifyVpcAttribute' :: Maybe AttributeBooleanValue
 -&gt; Maybe AttributeBooleanValue -&gt; Text -&gt; ModifyVpcAttribute
 </span><a href="Network.AWS.EC2.ModifyVpcAttribute.html#ModifyVpcAttribute%27"><span class="hs-identifier hs-type">ModifyVpcAttribute'</span></a></span><span>
-</span><span id="line-105"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:enableDnsSupport:ModifyVpcAttribute' :: Maybe AttributeBooleanValue
-</span><a href="Network.AWS.EC2.ModifyVpcAttribute.html#%24sel%3AenableDnsSupport%3AModifyVpcAttribute%27"><span class="hs-identifier hs-var">enableDnsSupport</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:enableDnsHostnames:ModifyVpcAttribute' :: Maybe AttributeBooleanValue
+</span><a href="Network.AWS.EC2.ModifyVpcAttribute.html#%24sel%3AenableDnsHostnames%3AModifyVpcAttribute%27"><span class="hs-identifier hs-var">enableDnsHostnames</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-106"></span><span>        </span><span class="annot"><span class="annottext">Maybe AttributeBooleanValue
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:enableDnsHostnames:ModifyVpcAttribute' :: Maybe AttributeBooleanValue
-</span><a href="Network.AWS.EC2.ModifyVpcAttribute.html#%24sel%3AenableDnsHostnames%3AModifyVpcAttribute%27"><span class="hs-identifier hs-var">enableDnsHostnames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AttributeBooleanValue
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:enableDnsSupport:ModifyVpcAttribute' :: Maybe AttributeBooleanValue
+</span><a href="Network.AWS.EC2.ModifyVpcAttribute.html#%24sel%3AenableDnsSupport%3AModifyVpcAttribute%27"><span class="hs-identifier hs-var">enableDnsSupport</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AttributeBooleanValue
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:vpcId:ModifyVpcAttribute' :: Text
 </span><a href="Network.AWS.EC2.ModifyVpcAttribute.html#%24sel%3AvpcId%3AModifyVpcAttribute%27"><span class="hs-identifier hs-var">vpcId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681179799"><span class="hs-identifier hs-var">pVpcId_</span></a></span><span>
+</span><a href="#local-6989586621681215181"><span class="hs-identifier hs-var">pVpcId_</span></a></span><span>
 </span><span id="line-109"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- | Indicates whether the DNS resolution is supported for the VPC. If</span><span>
-</span><span id="line-112"></span><span class="hs-comment">-- enabled, queries to the Amazon provided DNS server at the</span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- 169.254.169.253 IP address, or the reserved IP address at the base of</span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- the VPC network range \&quot;plus two\&quot; succeed. If disabled, the Amazon</span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- provided DNS service in the VPC that resolves public DNS hostnames to IP</span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- addresses is not enabled.</span><span>
-</span><span id="line-117"></span><span class="hs-comment">--</span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- You cannot modify the DNS resolution and DNS hostnames attributes in the</span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- same request. Use separate requests for each attribute.</span><span>
-</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcAttribute.html#modifyVpcAttribute_enableDnsSupport"><span class="hs-identifier hs-type">modifyVpcAttribute_enableDnsSupport</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcAttribute.html#ModifyVpcAttribute"><span class="hs-identifier hs-type">ModifyVpcAttribute</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AttributeBooleanValue.html#AttributeBooleanValue"><span class="hs-identifier hs-type">AttributeBooleanValue</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-121"></span><span id="modifyVpcAttribute_enableDnsSupport"><span class="annot"><span class="annottext">modifyVpcAttribute_enableDnsSupport :: (Maybe AttributeBooleanValue -&gt; f (Maybe AttributeBooleanValue))
--&gt; ModifyVpcAttribute -&gt; f ModifyVpcAttribute
-</span><a href="Network.AWS.EC2.ModifyVpcAttribute.html#modifyVpcAttribute_enableDnsSupport"><span class="hs-identifier hs-var hs-var">modifyVpcAttribute_enableDnsSupport</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyVpcAttribute -&gt; Maybe AttributeBooleanValue)
--&gt; (ModifyVpcAttribute
-    -&gt; Maybe AttributeBooleanValue -&gt; ModifyVpcAttribute)
--&gt; Lens
-     ModifyVpcAttribute
-     ModifyVpcAttribute
-     (Maybe AttributeBooleanValue)
-     (Maybe AttributeBooleanValue)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcAttribute.html#ModifyVpcAttribute%27"><span class="hs-identifier hs-type">ModifyVpcAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681179796"><span class="annot"><span class="annottext">Maybe AttributeBooleanValue
-enableDnsSupport :: Maybe AttributeBooleanValue
-$sel:enableDnsSupport:ModifyVpcAttribute' :: ModifyVpcAttribute -&gt; Maybe AttributeBooleanValue
-</span><a href="#local-6989586621681179796"><span class="hs-identifier hs-var hs-var">enableDnsSupport</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AttributeBooleanValue
-</span><a href="#local-6989586621681179796"><span class="hs-identifier hs-var">enableDnsSupport</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681179795"><span class="annot"><span class="annottext">s :: ModifyVpcAttribute
-</span><a href="#local-6989586621681179795"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcAttribute.html#ModifyVpcAttribute%27"><span class="hs-identifier hs-type">ModifyVpcAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681179794"><span class="annot"><span class="annottext">Maybe AttributeBooleanValue
-</span><a href="#local-6989586621681179794"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyVpcAttribute
-</span><a href="#local-6989586621681179795"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enableDnsSupport:ModifyVpcAttribute' :: Maybe AttributeBooleanValue
-</span><a href="Network.AWS.EC2.ModifyVpcAttribute.html#%24sel%3AenableDnsSupport%3AModifyVpcAttribute%27"><span class="hs-identifier hs-var">enableDnsSupport</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AttributeBooleanValue
-</span><a href="#local-6989586621681179794"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcAttribute.html#ModifyVpcAttribute"><span class="hs-identifier hs-type">ModifyVpcAttribute</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- | Indicates whether the instances launched in the VPC get DNS hostnames.</span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- If enabled, instances in the VPC get DNS hostnames; otherwise, they do</span><span>
-</span><span id="line-125"></span><span class="hs-comment">-- not.</span><span>
-</span><span id="line-126"></span><span class="hs-comment">--</span><span>
-</span><span id="line-127"></span><span class="hs-comment">-- You cannot modify the DNS resolution and DNS hostnames attributes in the</span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- same request. Use separate requests for each attribute. You can only</span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- enable DNS hostnames if you\'ve enabled DNS support.</span><span>
-</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcAttribute.html#modifyVpcAttribute_enableDnsHostnames"><span class="hs-identifier hs-type">modifyVpcAttribute_enableDnsHostnames</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcAttribute.html#ModifyVpcAttribute"><span class="hs-identifier hs-type">ModifyVpcAttribute</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AttributeBooleanValue.html#AttributeBooleanValue"><span class="hs-identifier hs-type">AttributeBooleanValue</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-131"></span><span id="modifyVpcAttribute_enableDnsHostnames"><span class="annot"><span class="annottext">modifyVpcAttribute_enableDnsHostnames :: (Maybe AttributeBooleanValue -&gt; f (Maybe AttributeBooleanValue))
+</span><span id="line-111"></span><span class="hs-comment">-- | Indicates whether the instances launched in the VPC get DNS hostnames.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- If enabled, instances in the VPC get DNS hostnames; otherwise, they do</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- not.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- You cannot modify the DNS resolution and DNS hostnames attributes in the</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- same request. Use separate requests for each attribute. You can only</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- enable DNS hostnames if you\'ve enabled DNS support.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcAttribute.html#modifyVpcAttribute_enableDnsHostnames"><span class="hs-identifier hs-type">modifyVpcAttribute_enableDnsHostnames</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcAttribute.html#ModifyVpcAttribute"><span class="hs-identifier hs-type">ModifyVpcAttribute</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AttributeBooleanValue.html#AttributeBooleanValue"><span class="hs-identifier hs-type">AttributeBooleanValue</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span id="modifyVpcAttribute_enableDnsHostnames"><span class="annot"><span class="annottext">modifyVpcAttribute_enableDnsHostnames :: (Maybe AttributeBooleanValue -&gt; f (Maybe AttributeBooleanValue))
 -&gt; ModifyVpcAttribute -&gt; f ModifyVpcAttribute
 </span><a href="Network.AWS.EC2.ModifyVpcAttribute.html#modifyVpcAttribute_enableDnsHostnames"><span class="hs-identifier hs-var hs-var">modifyVpcAttribute_enableDnsHostnames</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyVpcAttribute -&gt; Maybe AttributeBooleanValue)
 -&gt; (ModifyVpcAttribute
@@ -227,16 +195,48 @@ $sel:enableDnsSupport:ModifyVpcAttribute' :: ModifyVpcAttribute -&gt; Maybe Attr
      (Maybe AttributeBooleanValue)
      (Maybe AttributeBooleanValue)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcAttribute.html#ModifyVpcAttribute%27"><span class="hs-identifier hs-type">ModifyVpcAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681179793"><span class="annot"><span class="annottext">Maybe AttributeBooleanValue
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcAttribute.html#ModifyVpcAttribute%27"><span class="hs-identifier hs-type">ModifyVpcAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681215178"><span class="annot"><span class="annottext">Maybe AttributeBooleanValue
 enableDnsHostnames :: Maybe AttributeBooleanValue
 $sel:enableDnsHostnames:ModifyVpcAttribute' :: ModifyVpcAttribute -&gt; Maybe AttributeBooleanValue
-</span><a href="#local-6989586621681179793"><span class="hs-identifier hs-var hs-var">enableDnsHostnames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AttributeBooleanValue
-</span><a href="#local-6989586621681179793"><span class="hs-identifier hs-var">enableDnsHostnames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681179792"><span class="annot"><span class="annottext">s :: ModifyVpcAttribute
-</span><a href="#local-6989586621681179792"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcAttribute.html#ModifyVpcAttribute%27"><span class="hs-identifier hs-type">ModifyVpcAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681179791"><span class="annot"><span class="annottext">Maybe AttributeBooleanValue
-</span><a href="#local-6989586621681179791"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyVpcAttribute
-</span><a href="#local-6989586621681179792"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enableDnsHostnames:ModifyVpcAttribute' :: Maybe AttributeBooleanValue
+</span><a href="#local-6989586621681215178"><span class="hs-identifier hs-var hs-var">enableDnsHostnames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AttributeBooleanValue
+</span><a href="#local-6989586621681215178"><span class="hs-identifier hs-var">enableDnsHostnames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681215177"><span class="annot"><span class="annottext">s :: ModifyVpcAttribute
+</span><a href="#local-6989586621681215177"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcAttribute.html#ModifyVpcAttribute%27"><span class="hs-identifier hs-type">ModifyVpcAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681215176"><span class="annot"><span class="annottext">Maybe AttributeBooleanValue
+</span><a href="#local-6989586621681215176"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyVpcAttribute
+</span><a href="#local-6989586621681215177"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enableDnsHostnames:ModifyVpcAttribute' :: Maybe AttributeBooleanValue
 </span><a href="Network.AWS.EC2.ModifyVpcAttribute.html#%24sel%3AenableDnsHostnames%3AModifyVpcAttribute%27"><span class="hs-identifier hs-var">enableDnsHostnames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AttributeBooleanValue
-</span><a href="#local-6989586621681179791"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcAttribute.html#ModifyVpcAttribute"><span class="hs-identifier hs-type">ModifyVpcAttribute</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681215176"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcAttribute.html#ModifyVpcAttribute"><span class="hs-identifier hs-type">ModifyVpcAttribute</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | Indicates whether the DNS resolution is supported for the VPC. If</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- enabled, queries to the Amazon provided DNS server at the</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- 169.254.169.253 IP address, or the reserved IP address at the base of</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- the VPC network range \&quot;plus two\&quot; succeed. If disabled, the Amazon</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- provided DNS service in the VPC that resolves public DNS hostnames to IP</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- addresses is not enabled.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- You cannot modify the DNS resolution and DNS hostnames attributes in the</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- same request. Use separate requests for each attribute.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcAttribute.html#modifyVpcAttribute_enableDnsSupport"><span class="hs-identifier hs-type">modifyVpcAttribute_enableDnsSupport</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcAttribute.html#ModifyVpcAttribute"><span class="hs-identifier hs-type">ModifyVpcAttribute</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AttributeBooleanValue.html#AttributeBooleanValue"><span class="hs-identifier hs-type">AttributeBooleanValue</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span id="modifyVpcAttribute_enableDnsSupport"><span class="annot"><span class="annottext">modifyVpcAttribute_enableDnsSupport :: (Maybe AttributeBooleanValue -&gt; f (Maybe AttributeBooleanValue))
+-&gt; ModifyVpcAttribute -&gt; f ModifyVpcAttribute
+</span><a href="Network.AWS.EC2.ModifyVpcAttribute.html#modifyVpcAttribute_enableDnsSupport"><span class="hs-identifier hs-var hs-var">modifyVpcAttribute_enableDnsSupport</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyVpcAttribute -&gt; Maybe AttributeBooleanValue)
+-&gt; (ModifyVpcAttribute
+    -&gt; Maybe AttributeBooleanValue -&gt; ModifyVpcAttribute)
+-&gt; Lens
+     ModifyVpcAttribute
+     ModifyVpcAttribute
+     (Maybe AttributeBooleanValue)
+     (Maybe AttributeBooleanValue)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcAttribute.html#ModifyVpcAttribute%27"><span class="hs-identifier hs-type">ModifyVpcAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681215175"><span class="annot"><span class="annottext">Maybe AttributeBooleanValue
+enableDnsSupport :: Maybe AttributeBooleanValue
+$sel:enableDnsSupport:ModifyVpcAttribute' :: ModifyVpcAttribute -&gt; Maybe AttributeBooleanValue
+</span><a href="#local-6989586621681215175"><span class="hs-identifier hs-var hs-var">enableDnsSupport</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AttributeBooleanValue
+</span><a href="#local-6989586621681215175"><span class="hs-identifier hs-var">enableDnsSupport</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681215174"><span class="annot"><span class="annottext">s :: ModifyVpcAttribute
+</span><a href="#local-6989586621681215174"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcAttribute.html#ModifyVpcAttribute%27"><span class="hs-identifier hs-type">ModifyVpcAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681215173"><span class="annot"><span class="annottext">Maybe AttributeBooleanValue
+</span><a href="#local-6989586621681215173"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyVpcAttribute
+</span><a href="#local-6989586621681215174"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enableDnsSupport:ModifyVpcAttribute' :: Maybe AttributeBooleanValue
+</span><a href="Network.AWS.EC2.ModifyVpcAttribute.html#%24sel%3AenableDnsSupport%3AModifyVpcAttribute%27"><span class="hs-identifier hs-var">enableDnsSupport</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AttributeBooleanValue
+</span><a href="#local-6989586621681215173"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcAttribute.html#ModifyVpcAttribute"><span class="hs-identifier hs-type">ModifyVpcAttribute</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-comment">-- | The ID of the VPC.</span><span>
 </span><span id="line-134"></span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcAttribute.html#modifyVpcAttribute_vpcId"><span class="hs-identifier hs-type">modifyVpcAttribute_vpcId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcAttribute.html#ModifyVpcAttribute"><span class="hs-identifier hs-type">ModifyVpcAttribute</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -245,27 +245,27 @@ $sel:enableDnsHostnames:ModifyVpcAttribute' :: ModifyVpcAttribute -&gt; Maybe At
 -&gt; (ModifyVpcAttribute -&gt; Text -&gt; ModifyVpcAttribute)
 -&gt; Lens ModifyVpcAttribute ModifyVpcAttribute Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcAttribute.html#ModifyVpcAttribute%27"><span class="hs-identifier hs-type">ModifyVpcAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681179790"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcAttribute.html#ModifyVpcAttribute%27"><span class="hs-identifier hs-type">ModifyVpcAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681215172"><span class="annot"><span class="annottext">Text
 vpcId :: Text
 $sel:vpcId:ModifyVpcAttribute' :: ModifyVpcAttribute -&gt; Text
-</span><a href="#local-6989586621681179790"><span class="hs-identifier hs-var hs-var">vpcId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681179790"><span class="hs-identifier hs-var">vpcId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681179789"><span class="annot"><span class="annottext">s :: ModifyVpcAttribute
-</span><a href="#local-6989586621681179789"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcAttribute.html#ModifyVpcAttribute%27"><span class="hs-identifier hs-type">ModifyVpcAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681179788"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681179788"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyVpcAttribute
-</span><a href="#local-6989586621681179789"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcId:ModifyVpcAttribute' :: Text
+</span><a href="#local-6989586621681215172"><span class="hs-identifier hs-var hs-var">vpcId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681215172"><span class="hs-identifier hs-var">vpcId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681215171"><span class="annot"><span class="annottext">s :: ModifyVpcAttribute
+</span><a href="#local-6989586621681215171"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcAttribute.html#ModifyVpcAttribute%27"><span class="hs-identifier hs-type">ModifyVpcAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681215170"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681215170"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyVpcAttribute
+</span><a href="#local-6989586621681215171"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcId:ModifyVpcAttribute' :: Text
 </span><a href="Network.AWS.EC2.ModifyVpcAttribute.html#%24sel%3AvpcId%3AModifyVpcAttribute%27"><span class="hs-identifier hs-var">vpcId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681179788"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcAttribute.html#ModifyVpcAttribute"><span class="hs-identifier hs-type">ModifyVpcAttribute</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681215170"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcAttribute.html#ModifyVpcAttribute"><span class="hs-identifier hs-type">ModifyVpcAttribute</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcAttribute.html#ModifyVpcAttribute"><span class="hs-identifier hs-type">ModifyVpcAttribute</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-138"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-139"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcAttribute.html#ModifyVpcAttribute"><span class="hs-identifier hs-type">ModifyVpcAttribute</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-140"></span><span>      </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcAttribute.html#ModifyVpcAttributeResponse"><span class="hs-identifier hs-type">ModifyVpcAttributeResponse</span></a></span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621681179784"><span class="annot"><span class="annottext">request :: ModifyVpcAttribute -&gt; Request ModifyVpcAttribute
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621681215166"><span class="annot"><span class="annottext">request :: ModifyVpcAttribute -&gt; Request ModifyVpcAttribute
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ModifyVpcAttribute -&gt; Request ModifyVpcAttribute
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621681179780"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621681215162"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ModifyVpcAttribute
 -&gt; ClientResponse ClientBody
@@ -291,12 +291,12 @@ AWSResponse a
 ModifyVpcAttributeResponse
 </span><a href="Network.AWS.EC2.ModifyVpcAttribute.html#ModifyVpcAttributeResponse%27"><span class="hs-identifier hs-var">ModifyVpcAttributeResponse'</span></a></span><span>
 </span><span id="line-144"></span><span>
-</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681179773"><span id="local-6989586621681179775"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcAttribute.html#ModifyVpcAttribute"><span class="hs-identifier hs-type">ModifyVpcAttribute</span></a></span></span></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681215155"><span id="local-6989586621681215157"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcAttribute.html#ModifyVpcAttribute"><span class="hs-identifier hs-type">ModifyVpcAttribute</span></a></span></span></span><span>
 </span><span id="line-146"></span><span>
-</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681179770"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcAttribute.html#ModifyVpcAttribute"><span class="hs-identifier hs-type">ModifyVpcAttribute</span></a></span></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681215152"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcAttribute.html#ModifyVpcAttribute"><span class="hs-identifier hs-type">ModifyVpcAttribute</span></a></span></span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcAttribute.html#ModifyVpcAttribute"><span class="hs-identifier hs-type">ModifyVpcAttribute</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621681179766"><span class="annot"><span class="annottext">toHeaders :: ModifyVpcAttribute -&gt; [Header]
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621681215148"><span class="annot"><span class="annottext">toHeaders :: ModifyVpcAttribute -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; ModifyVpcAttribute -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
@@ -304,23 +304,23 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcAttribute.html#ModifyVpcAttribute"><span class="hs-identifier hs-type">ModifyVpcAttribute</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-153"></span><span>  </span><span id="local-6989586621681179761"><span class="annot"><span class="annottext">toPath :: ModifyVpcAttribute -&gt; ByteString
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621681215143"><span class="annot"><span class="annottext">toPath :: ModifyVpcAttribute -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ModifyVpcAttribute -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcAttribute.html#ModifyVpcAttribute"><span class="hs-identifier hs-type">ModifyVpcAttribute</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-156"></span><span>  </span><span id="local-6989586621681179757"><span class="annot"><span class="annottext">toQuery :: ModifyVpcAttribute -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcAttribute.html#ModifyVpcAttribute%27"><span class="hs-identifier hs-type">ModifyVpcAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681179753"><span id="local-6989586621681179754"><span id="local-6989586621681179755"><span class="annot"><span class="annottext">Maybe AttributeBooleanValue
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621681215139"><span class="annot"><span class="annottext">toQuery :: ModifyVpcAttribute -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcAttribute.html#ModifyVpcAttribute%27"><span class="hs-identifier hs-type">ModifyVpcAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681215135"><span id="local-6989586621681215136"><span id="local-6989586621681215137"><span class="annot"><span class="annottext">Maybe AttributeBooleanValue
 Text
 vpcId :: Text
-enableDnsHostnames :: Maybe AttributeBooleanValue
 enableDnsSupport :: Maybe AttributeBooleanValue
+enableDnsHostnames :: Maybe AttributeBooleanValue
 $sel:vpcId:ModifyVpcAttribute' :: ModifyVpcAttribute -&gt; Text
-$sel:enableDnsHostnames:ModifyVpcAttribute' :: ModifyVpcAttribute -&gt; Maybe AttributeBooleanValue
 $sel:enableDnsSupport:ModifyVpcAttribute' :: ModifyVpcAttribute -&gt; Maybe AttributeBooleanValue
-</span><a href="#local-6989586621681179753"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:enableDnsHostnames:ModifyVpcAttribute' :: ModifyVpcAttribute -&gt; Maybe AttributeBooleanValue
+</span><a href="#local-6989586621681215135"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-157"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -337,27 +337,27 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;2016-11-15&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-162"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;EnableDnsSupport&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe AttributeBooleanValue -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe AttributeBooleanValue
-</span><a href="#local-6989586621681179755"><span class="hs-identifier hs-var">enableDnsSupport</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-163"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;EnableDnsHostnames&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe AttributeBooleanValue -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe AttributeBooleanValue
-</span><a href="#local-6989586621681179754"><span class="hs-identifier hs-var">enableDnsHostnames</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681215137"><span class="hs-identifier hs-var">enableDnsHostnames</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;EnableDnsSupport&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe AttributeBooleanValue -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe AttributeBooleanValue
+</span><a href="#local-6989586621681215136"><span class="hs-identifier hs-var">enableDnsSupport</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-164"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;VpcId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681179753"><span class="hs-identifier hs-var">vpcId</span></a></span><span>
+</span><a href="#local-6989586621681215135"><span class="hs-identifier hs-var">vpcId</span></a></span><span>
 </span><span id="line-165"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-166"></span><span>
 </span><span id="line-167"></span><span class="hs-comment">-- | /See:/ 'newModifyVpcAttributeResponse' smart constructor.</span><span>
-</span><span id="line-168"></span><span id="local-6989586621681179750"><span id="local-6989586621681179751"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyVpcAttributeResponse"><span class="annot"><a href="Network.AWS.EC2.ModifyVpcAttribute.html#ModifyVpcAttributeResponse"><span class="hs-identifier hs-var">ModifyVpcAttributeResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyVpcAttributeResponse%27"><span class="annot"><a href="Network.AWS.EC2.ModifyVpcAttribute.html#ModifyVpcAttributeResponse%27"><span class="hs-identifier hs-var">ModifyVpcAttributeResponse'</span></a></span></span><span>
+</span><span id="line-168"></span><span id="local-6989586621681215132"><span id="local-6989586621681215133"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyVpcAttributeResponse"><span class="annot"><a href="Network.AWS.EC2.ModifyVpcAttribute.html#ModifyVpcAttributeResponse"><span class="hs-identifier hs-var">ModifyVpcAttributeResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyVpcAttributeResponse%27"><span class="annot"><a href="Network.AWS.EC2.ModifyVpcAttribute.html#ModifyVpcAttributeResponse%27"><span class="hs-identifier hs-var">ModifyVpcAttributeResponse'</span></a></span></span><span>
 </span><span id="line-169"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-170"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-171"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681179746"><span id="local-6989586621681179748"><span class="annot"><span class="annottext">ModifyVpcAttributeResponse -&gt; ModifyVpcAttributeResponse -&gt; Bool
+</span><span id="line-171"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681215128"><span id="local-6989586621681215130"><span class="annot"><span class="annottext">ModifyVpcAttributeResponse -&gt; ModifyVpcAttributeResponse -&gt; Bool
 (ModifyVpcAttributeResponse -&gt; ModifyVpcAttributeResponse -&gt; Bool)
 -&gt; (ModifyVpcAttributeResponse
     -&gt; ModifyVpcAttributeResponse -&gt; Bool)
@@ -367,7 +367,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ModifyVpcAttributeResponse -&gt; ModifyVpcAttributeResponse -&gt; Bool
 == :: ModifyVpcAttributeResponse -&gt; ModifyVpcAttributeResponse -&gt; Bool
 $c== :: ModifyVpcAttributeResponse -&gt; ModifyVpcAttributeResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681179738"><span id="local-6989586621681179740"><span id="local-6989586621681179742"><span id="local-6989586621681179744"><span class="annot"><span class="annottext">ReadPrec [ModifyVpcAttributeResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681215120"><span id="local-6989586621681215122"><span id="local-6989586621681215124"><span id="local-6989586621681215126"><span class="annot"><span class="annottext">ReadPrec [ModifyVpcAttributeResponse]
 ReadPrec ModifyVpcAttributeResponse
 Int -&gt; ReadS ModifyVpcAttributeResponse
 ReadS [ModifyVpcAttributeResponse]
@@ -387,7 +387,7 @@ readList :: ReadS [ModifyVpcAttributeResponse]
 $creadList :: ReadS [ModifyVpcAttributeResponse]
 readsPrec :: Int -&gt; ReadS ModifyVpcAttributeResponse
 $creadsPrec :: Int -&gt; ReadS ModifyVpcAttributeResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681179732"><span id="local-6989586621681179734"><span id="local-6989586621681179736"><span class="annot"><span class="annottext">Int -&gt; ModifyVpcAttributeResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681215114"><span id="local-6989586621681215116"><span id="local-6989586621681215118"><span class="annot"><span class="annottext">Int -&gt; ModifyVpcAttributeResponse -&gt; ShowS
 [ModifyVpcAttributeResponse] -&gt; ShowS
 ModifyVpcAttributeResponse -&gt; String
 (Int -&gt; ModifyVpcAttributeResponse -&gt; ShowS)
@@ -430,5 +430,5 @@ ModifyVpcAttributeResponse -&gt; Rep ModifyVpcAttributeResponse x
 </span><span id="line-180"></span><span>  </span><span class="annot"><span class="annottext">ModifyVpcAttributeResponse
 </span><a href="Network.AWS.EC2.ModifyVpcAttribute.html#ModifyVpcAttributeResponse%27"><span class="hs-identifier hs-var">ModifyVpcAttributeResponse'</span></a></span><span>
 </span><span id="line-181"></span><span>
-</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681179728"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcAttribute.html#ModifyVpcAttributeResponse"><span class="hs-identifier hs-type">ModifyVpcAttributeResponse</span></a></span></span><span>
+</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681215110"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpcAttribute.html#ModifyVpcAttributeResponse"><span class="hs-identifier hs-type">ModifyVpcAttributeResponse</span></a></span></span><span>
 </span><span id="line-183"></span></pre></body></html>

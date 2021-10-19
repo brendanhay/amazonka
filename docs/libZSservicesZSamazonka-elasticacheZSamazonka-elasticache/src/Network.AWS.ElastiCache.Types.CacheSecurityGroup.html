@@ -33,16 +33,16 @@
 </span><span id="line-33"></span><span class="hs-comment">-- -   @RevokeCacheSecurityGroupIngress@</span><span>
 </span><span id="line-34"></span><span class="hs-comment">--</span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- /See:/ 'newCacheSecurityGroup' smart constructor.</span><span>
-</span><span id="line-36"></span><span id="local-6989586621679399104"><span id="local-6989586621679399105"></span></span><span class="hs-keyword">data</span><span> </span><span id="CacheSecurityGroup"><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#CacheSecurityGroup"><span class="hs-identifier hs-var">CacheSecurityGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CacheSecurityGroup%27"><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#CacheSecurityGroup%27"><span class="hs-identifier hs-var">CacheSecurityGroup'</span></a></span></span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon account ID of the cache security group owner.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AownerId%3ACacheSecurityGroup%27"><span class="annot"><span class="annottext">CacheSecurityGroup -&gt; Maybe Text
-</span><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#%24sel%3AownerId%3ACacheSecurityGroup%27"><span class="hs-identifier hs-var hs-var">ownerId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span id="local-6989586621679399622"><span id="local-6989586621679399623"></span></span><span class="hs-keyword">data</span><span> </span><span id="CacheSecurityGroup"><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#CacheSecurityGroup"><span class="hs-identifier hs-var">CacheSecurityGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CacheSecurityGroup%27"><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#CacheSecurityGroup%27"><span class="hs-identifier hs-var">CacheSecurityGroup'</span></a></span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the cache security group.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AcacheSecurityGroupName%3ACacheSecurityGroup%27"><span class="annot"><span class="annottext">CacheSecurityGroup -&gt; Maybe Text
+</span><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#%24sel%3AcacheSecurityGroupName%3ACacheSecurityGroup%27"><span class="hs-identifier hs-var hs-var">cacheSecurityGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The ARN of the cache security group,</span><span>
 </span><span id="line-40"></span><span>    </span><span id="%24sel%3Aarn%3ACacheSecurityGroup%27"><span class="annot"><span class="annottext">CacheSecurityGroup -&gt; Maybe Text
 </span><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#%24sel%3Aarn%3ACacheSecurityGroup%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The name of the cache security group.</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3AcacheSecurityGroupName%3ACacheSecurityGroup%27"><span class="annot"><span class="annottext">CacheSecurityGroup -&gt; Maybe Text
-</span><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#%24sel%3AcacheSecurityGroupName%3ACacheSecurityGroup%27"><span class="hs-identifier hs-var hs-var">cacheSecurityGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The Amazon account ID of the cache security group owner.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AownerId%3ACacheSecurityGroup%27"><span class="annot"><span class="annottext">CacheSecurityGroup -&gt; Maybe Text
+</span><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#%24sel%3AownerId%3ACacheSecurityGroup%27"><span class="hs-identifier hs-var hs-var">ownerId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | A list of Amazon EC2 security groups that are associated with this cache</span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-comment">-- security group.</span><span>
 </span><span id="line-45"></span><span>    </span><span id="%24sel%3AeC2SecurityGroups%3ACacheSecurityGroup%27"><span class="annot"><span class="annottext">CacheSecurityGroup -&gt; Maybe [EC2SecurityGroup]
@@ -51,7 +51,7 @@
 </span><span id="line-47"></span><span>    </span><span id="%24sel%3Adescription%3ACacheSecurityGroup%27"><span class="annot"><span class="annottext">CacheSecurityGroup -&gt; Maybe Text
 </span><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#%24sel%3Adescription%3ACacheSecurityGroup%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679399094"><span id="local-6989586621679399096"><span class="annot"><span class="annottext">CacheSecurityGroup -&gt; CacheSecurityGroup -&gt; Bool
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679399612"><span id="local-6989586621679399614"><span class="annot"><span class="annottext">CacheSecurityGroup -&gt; CacheSecurityGroup -&gt; Bool
 (CacheSecurityGroup -&gt; CacheSecurityGroup -&gt; Bool)
 -&gt; (CacheSecurityGroup -&gt; CacheSecurityGroup -&gt; Bool)
 -&gt; Eq CacheSecurityGroup
@@ -60,7 +60,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CacheSecurityGroup -&gt; CacheSecurityGroup -&gt; Bool
 == :: CacheSecurityGroup -&gt; CacheSecurityGroup -&gt; Bool
 $c== :: CacheSecurityGroup -&gt; CacheSecurityGroup -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679399085"><span id="local-6989586621679399087"><span id="local-6989586621679399089"><span id="local-6989586621679399091"><span class="annot"><span class="annottext">ReadPrec [CacheSecurityGroup]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679399603"><span id="local-6989586621679399605"><span id="local-6989586621679399607"><span id="local-6989586621679399609"><span class="annot"><span class="annottext">ReadPrec [CacheSecurityGroup]
 ReadPrec CacheSecurityGroup
 Int -&gt; ReadS CacheSecurityGroup
 ReadS [CacheSecurityGroup]
@@ -80,7 +80,7 @@ readList :: ReadS [CacheSecurityGroup]
 $creadList :: ReadS [CacheSecurityGroup]
 readsPrec :: Int -&gt; ReadS CacheSecurityGroup
 $creadsPrec :: Int -&gt; ReadS CacheSecurityGroup
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679399078"><span id="local-6989586621679399080"><span id="local-6989586621679399082"><span class="annot"><span class="annottext">Int -&gt; CacheSecurityGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679399596"><span id="local-6989586621679399598"><span id="local-6989586621679399600"><span class="annot"><span class="annottext">Int -&gt; CacheSecurityGroup -&gt; ShowS
 [CacheSecurityGroup] -&gt; ShowS
 CacheSecurityGroup -&gt; String
 (Int -&gt; CacheSecurityGroup -&gt; ShowS)
@@ -114,11 +114,11 @@ $cfrom :: forall x. CacheSecurityGroup -&gt; Rep CacheSecurityGroup x
 </span><span id="line-56"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-58"></span><span class="hs-comment">--</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- 'ownerId', 'cacheSecurityGroup_ownerId' - The Amazon account ID of the cache security group owner.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'cacheSecurityGroupName', 'cacheSecurityGroup_cacheSecurityGroupName' - The name of the cache security group.</span><span>
 </span><span id="line-60"></span><span class="hs-comment">--</span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- 'arn', 'cacheSecurityGroup_arn' - The ARN of the cache security group,</span><span>
 </span><span id="line-62"></span><span class="hs-comment">--</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- 'cacheSecurityGroupName', 'cacheSecurityGroup_cacheSecurityGroupName' - The name of the cache security group.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'ownerId', 'cacheSecurityGroup_ownerId' - The Amazon account ID of the cache security group owner.</span><span>
 </span><span id="line-64"></span><span class="hs-comment">--</span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- 'eC2SecurityGroups', 'cacheSecurityGroup_eC2SecurityGroups' - A list of Amazon EC2 security groups that are associated with this cache</span><span>
 </span><span id="line-66"></span><span class="hs-comment">-- security group.</span><span>
@@ -135,92 +135,93 @@ $cfrom :: forall x. CacheSecurityGroup -&gt; Rep CacheSecurityGroup x
 -&gt; Maybe Text
 -&gt; CacheSecurityGroup
 </span><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#CacheSecurityGroup%27"><span class="hs-identifier hs-type">CacheSecurityGroup'</span></a></span><span>
-</span><span id="line-73"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:ownerId:CacheSecurityGroup' :: Maybe Text
-</span><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#%24sel%3AownerId%3ACacheSecurityGroup%27"><span class="hs-identifier hs-var">ownerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-73"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:cacheSecurityGroupName:CacheSecurityGroup' :: Maybe Text
+</span><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#%24sel%3AcacheSecurityGroupName%3ACacheSecurityGroup%27"><span class="hs-identifier hs-var">cacheSecurityGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-74"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:CacheSecurityGroup' :: Maybe Text
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:CacheSecurityGroup' :: Maybe Text
 </span><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#%24sel%3Aarn%3ACacheSecurityGroup%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:cacheSecurityGroupName:CacheSecurityGroup' :: Maybe Text
-</span><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#%24sel%3AcacheSecurityGroupName%3ACacheSecurityGroup%27"><span class="hs-identifier hs-var">cacheSecurityGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:ownerId:CacheSecurityGroup' :: Maybe Text
+</span><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#%24sel%3AownerId%3ACacheSecurityGroup%27"><span class="hs-identifier hs-var">ownerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:eC2SecurityGroups:CacheSecurityGroup' :: Maybe [EC2SecurityGroup]
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:eC2SecurityGroups:CacheSecurityGroup' :: Maybe [EC2SecurityGroup]
 </span><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#%24sel%3AeC2SecurityGroups%3ACacheSecurityGroup%27"><span class="hs-identifier hs-var">eC2SecurityGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [EC2SecurityGroup]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:CacheSecurityGroup' :: Maybe Text
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:CacheSecurityGroup' :: Maybe Text
 </span><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#%24sel%3Adescription%3ACacheSecurityGroup%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-78"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- | The Amazon account ID of the cache security group owner.</span><span>
-</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#cacheSecurityGroup_ownerId"><span class="hs-identifier hs-type">cacheSecurityGroup_ownerId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#CacheSecurityGroup"><span class="hs-identifier hs-type">CacheSecurityGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-82"></span><span id="cacheSecurityGroup_ownerId"><span class="annot"><span class="annottext">cacheSecurityGroup_ownerId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; CacheSecurityGroup -&gt; f CacheSecurityGroup
-</span><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#cacheSecurityGroup_ownerId"><span class="hs-identifier hs-var hs-var">cacheSecurityGroup_ownerId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CacheSecurityGroup -&gt; Maybe Text)
--&gt; (CacheSecurityGroup -&gt; Maybe Text -&gt; CacheSecurityGroup)
--&gt; Lens
-     CacheSecurityGroup CacheSecurityGroup (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#CacheSecurityGroup%27"><span class="hs-identifier hs-type">CacheSecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399069"><span class="annot"><span class="annottext">Maybe Text
-ownerId :: Maybe Text
-$sel:ownerId:CacheSecurityGroup' :: CacheSecurityGroup -&gt; Maybe Text
-</span><a href="#local-6989586621679399069"><span class="hs-identifier hs-var hs-var">ownerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679399069"><span class="hs-identifier hs-var">ownerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399068"><span class="annot"><span class="annottext">s :: CacheSecurityGroup
-</span><a href="#local-6989586621679399068"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#CacheSecurityGroup%27"><span class="hs-identifier hs-type">CacheSecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399067"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679399067"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheSecurityGroup
-</span><a href="#local-6989586621679399068"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ownerId:CacheSecurityGroup' :: Maybe Text
-</span><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#%24sel%3AownerId%3ACacheSecurityGroup%27"><span class="hs-identifier hs-var">ownerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679399067"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#CacheSecurityGroup"><span class="hs-identifier hs-type">CacheSecurityGroup</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- | The ARN of the cache security group,</span><span>
-</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#cacheSecurityGroup_arn"><span class="hs-identifier hs-type">cacheSecurityGroup_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#CacheSecurityGroup"><span class="hs-identifier hs-type">CacheSecurityGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-86"></span><span id="cacheSecurityGroup_arn"><span class="annot"><span class="annottext">cacheSecurityGroup_arn :: (Maybe Text -&gt; f (Maybe Text))
--&gt; CacheSecurityGroup -&gt; f CacheSecurityGroup
-</span><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#cacheSecurityGroup_arn"><span class="hs-identifier hs-var hs-var">cacheSecurityGroup_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CacheSecurityGroup -&gt; Maybe Text)
--&gt; (CacheSecurityGroup -&gt; Maybe Text -&gt; CacheSecurityGroup)
--&gt; Lens
-     CacheSecurityGroup CacheSecurityGroup (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#CacheSecurityGroup%27"><span class="hs-identifier hs-type">CacheSecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399065"><span class="annot"><span class="annottext">Maybe Text
-arn :: Maybe Text
-$sel:arn:CacheSecurityGroup' :: CacheSecurityGroup -&gt; Maybe Text
-</span><a href="#local-6989586621679399065"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679399065"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399064"><span class="annot"><span class="annottext">s :: CacheSecurityGroup
-</span><a href="#local-6989586621679399064"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#CacheSecurityGroup%27"><span class="hs-identifier hs-type">CacheSecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399063"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679399063"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheSecurityGroup
-</span><a href="#local-6989586621679399064"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:CacheSecurityGroup' :: Maybe Text
-</span><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#%24sel%3Aarn%3ACacheSecurityGroup%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679399063"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#CacheSecurityGroup"><span class="hs-identifier hs-type">CacheSecurityGroup</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- | The name of the cache security group.</span><span>
-</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#cacheSecurityGroup_cacheSecurityGroupName"><span class="hs-identifier hs-type">cacheSecurityGroup_cacheSecurityGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#CacheSecurityGroup"><span class="hs-identifier hs-type">CacheSecurityGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-90"></span><span id="cacheSecurityGroup_cacheSecurityGroupName"><span class="annot"><span class="annottext">cacheSecurityGroup_cacheSecurityGroupName :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-79"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | The name of the cache security group.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#cacheSecurityGroup_cacheSecurityGroupName"><span class="hs-identifier hs-type">cacheSecurityGroup_cacheSecurityGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#CacheSecurityGroup"><span class="hs-identifier hs-type">CacheSecurityGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="cacheSecurityGroup_cacheSecurityGroupName"><span class="annot"><span class="annottext">cacheSecurityGroup_cacheSecurityGroupName :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; CacheSecurityGroup -&gt; f CacheSecurityGroup
 </span><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#cacheSecurityGroup_cacheSecurityGroupName"><span class="hs-identifier hs-var hs-var">cacheSecurityGroup_cacheSecurityGroupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CacheSecurityGroup -&gt; Maybe Text)
 -&gt; (CacheSecurityGroup -&gt; Maybe Text -&gt; CacheSecurityGroup)
 -&gt; Lens
      CacheSecurityGroup CacheSecurityGroup (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#CacheSecurityGroup%27"><span class="hs-identifier hs-type">CacheSecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399061"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#CacheSecurityGroup%27"><span class="hs-identifier hs-type">CacheSecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399587"><span class="annot"><span class="annottext">Maybe Text
 cacheSecurityGroupName :: Maybe Text
 $sel:cacheSecurityGroupName:CacheSecurityGroup' :: CacheSecurityGroup -&gt; Maybe Text
-</span><a href="#local-6989586621679399061"><span class="hs-identifier hs-var hs-var">cacheSecurityGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679399061"><span class="hs-identifier hs-var">cacheSecurityGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399060"><span class="annot"><span class="annottext">s :: CacheSecurityGroup
-</span><a href="#local-6989586621679399060"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#CacheSecurityGroup%27"><span class="hs-identifier hs-type">CacheSecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399059"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679399059"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheSecurityGroup
-</span><a href="#local-6989586621679399060"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cacheSecurityGroupName:CacheSecurityGroup' :: Maybe Text
+</span><a href="#local-6989586621679399587"><span class="hs-identifier hs-var hs-var">cacheSecurityGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679399587"><span class="hs-identifier hs-var">cacheSecurityGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399586"><span class="annot"><span class="annottext">s :: CacheSecurityGroup
+</span><a href="#local-6989586621679399586"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#CacheSecurityGroup%27"><span class="hs-identifier hs-type">CacheSecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399585"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679399585"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheSecurityGroup
+</span><a href="#local-6989586621679399586"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cacheSecurityGroupName:CacheSecurityGroup' :: Maybe Text
 </span><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#%24sel%3AcacheSecurityGroupName%3ACacheSecurityGroup%27"><span class="hs-identifier hs-var">cacheSecurityGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679399059"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#CacheSecurityGroup"><span class="hs-identifier hs-type">CacheSecurityGroup</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- | A list of Amazon EC2 security groups that are associated with this cache</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- security group.</span><span>
-</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#cacheSecurityGroup_eC2SecurityGroups"><span class="hs-identifier hs-type">cacheSecurityGroup_eC2SecurityGroups</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#CacheSecurityGroup"><span class="hs-identifier hs-type">CacheSecurityGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.EC2SecurityGroup.html#EC2SecurityGroup"><span class="hs-identifier hs-type">EC2SecurityGroup</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-95"></span><span id="cacheSecurityGroup_eC2SecurityGroups"><span class="annot"><span class="annottext">cacheSecurityGroup_eC2SecurityGroups :: (Maybe [EC2SecurityGroup] -&gt; f (Maybe [EC2SecurityGroup]))
+</span><a href="#local-6989586621679399585"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#CacheSecurityGroup"><span class="hs-identifier hs-type">CacheSecurityGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The ARN of the cache security group,</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#cacheSecurityGroup_arn"><span class="hs-identifier hs-type">cacheSecurityGroup_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#CacheSecurityGroup"><span class="hs-identifier hs-type">CacheSecurityGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span id="cacheSecurityGroup_arn"><span class="annot"><span class="annottext">cacheSecurityGroup_arn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CacheSecurityGroup -&gt; f CacheSecurityGroup
+</span><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#cacheSecurityGroup_arn"><span class="hs-identifier hs-var hs-var">cacheSecurityGroup_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CacheSecurityGroup -&gt; Maybe Text)
+-&gt; (CacheSecurityGroup -&gt; Maybe Text -&gt; CacheSecurityGroup)
+-&gt; Lens
+     CacheSecurityGroup CacheSecurityGroup (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#CacheSecurityGroup%27"><span class="hs-identifier hs-type">CacheSecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399583"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:CacheSecurityGroup' :: CacheSecurityGroup -&gt; Maybe Text
+</span><a href="#local-6989586621679399583"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679399583"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399582"><span class="annot"><span class="annottext">s :: CacheSecurityGroup
+</span><a href="#local-6989586621679399582"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#CacheSecurityGroup%27"><span class="hs-identifier hs-type">CacheSecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399581"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679399581"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheSecurityGroup
+</span><a href="#local-6989586621679399582"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:CacheSecurityGroup' :: Maybe Text
+</span><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#%24sel%3Aarn%3ACacheSecurityGroup%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679399581"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#CacheSecurityGroup"><span class="hs-identifier hs-type">CacheSecurityGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | The Amazon account ID of the cache security group owner.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#cacheSecurityGroup_ownerId"><span class="hs-identifier hs-type">cacheSecurityGroup_ownerId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#CacheSecurityGroup"><span class="hs-identifier hs-type">CacheSecurityGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span id="cacheSecurityGroup_ownerId"><span class="annot"><span class="annottext">cacheSecurityGroup_ownerId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CacheSecurityGroup -&gt; f CacheSecurityGroup
+</span><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#cacheSecurityGroup_ownerId"><span class="hs-identifier hs-var hs-var">cacheSecurityGroup_ownerId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CacheSecurityGroup -&gt; Maybe Text)
+-&gt; (CacheSecurityGroup -&gt; Maybe Text -&gt; CacheSecurityGroup)
+-&gt; Lens
+     CacheSecurityGroup CacheSecurityGroup (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#CacheSecurityGroup%27"><span class="hs-identifier hs-type">CacheSecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399579"><span class="annot"><span class="annottext">Maybe Text
+ownerId :: Maybe Text
+$sel:ownerId:CacheSecurityGroup' :: CacheSecurityGroup -&gt; Maybe Text
+</span><a href="#local-6989586621679399579"><span class="hs-identifier hs-var hs-var">ownerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679399579"><span class="hs-identifier hs-var">ownerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399578"><span class="annot"><span class="annottext">s :: CacheSecurityGroup
+</span><a href="#local-6989586621679399578"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#CacheSecurityGroup%27"><span class="hs-identifier hs-type">CacheSecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399577"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679399577"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheSecurityGroup
+</span><a href="#local-6989586621679399578"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ownerId:CacheSecurityGroup' :: Maybe Text
+</span><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#%24sel%3AownerId%3ACacheSecurityGroup%27"><span class="hs-identifier hs-var">ownerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679399577"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#CacheSecurityGroup"><span class="hs-identifier hs-type">CacheSecurityGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | A list of Amazon EC2 security groups that are associated with this cache</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- security group.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#cacheSecurityGroup_eC2SecurityGroups"><span class="hs-identifier hs-type">cacheSecurityGroup_eC2SecurityGroups</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#CacheSecurityGroup"><span class="hs-identifier hs-type">CacheSecurityGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.EC2SecurityGroup.html#EC2SecurityGroup"><span class="hs-identifier hs-type">EC2SecurityGroup</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="cacheSecurityGroup_eC2SecurityGroups"><span class="annot"><span class="annottext">cacheSecurityGroup_eC2SecurityGroups :: (Maybe [EC2SecurityGroup] -&gt; f (Maybe [EC2SecurityGroup]))
 -&gt; CacheSecurityGroup -&gt; f CacheSecurityGroup
 </span><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#cacheSecurityGroup_eC2SecurityGroups"><span class="hs-identifier hs-var hs-var">cacheSecurityGroup_eC2SecurityGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CacheSecurityGroup -&gt; Maybe [EC2SecurityGroup])
 -&gt; (CacheSecurityGroup
@@ -231,16 +232,16 @@ $sel:cacheSecurityGroupName:CacheSecurityGroup' :: CacheSecurityGroup -&gt; Mayb
      (Maybe [EC2SecurityGroup])
      (Maybe [EC2SecurityGroup])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#CacheSecurityGroup%27"><span class="hs-identifier hs-type">CacheSecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399057"><span class="annot"><span class="annottext">Maybe [EC2SecurityGroup]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#CacheSecurityGroup%27"><span class="hs-identifier hs-type">CacheSecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399575"><span class="annot"><span class="annottext">Maybe [EC2SecurityGroup]
 eC2SecurityGroups :: Maybe [EC2SecurityGroup]
 $sel:eC2SecurityGroups:CacheSecurityGroup' :: CacheSecurityGroup -&gt; Maybe [EC2SecurityGroup]
-</span><a href="#local-6989586621679399057"><span class="hs-identifier hs-var hs-var">eC2SecurityGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [EC2SecurityGroup]
-</span><a href="#local-6989586621679399057"><span class="hs-identifier hs-var">eC2SecurityGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399056"><span class="annot"><span class="annottext">s :: CacheSecurityGroup
-</span><a href="#local-6989586621679399056"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#CacheSecurityGroup%27"><span class="hs-identifier hs-type">CacheSecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399055"><span class="annot"><span class="annottext">Maybe [EC2SecurityGroup]
-</span><a href="#local-6989586621679399055"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheSecurityGroup
-</span><a href="#local-6989586621679399056"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eC2SecurityGroups:CacheSecurityGroup' :: Maybe [EC2SecurityGroup]
+</span><a href="#local-6989586621679399575"><span class="hs-identifier hs-var hs-var">eC2SecurityGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [EC2SecurityGroup]
+</span><a href="#local-6989586621679399575"><span class="hs-identifier hs-var">eC2SecurityGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399574"><span class="annot"><span class="annottext">s :: CacheSecurityGroup
+</span><a href="#local-6989586621679399574"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#CacheSecurityGroup%27"><span class="hs-identifier hs-type">CacheSecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399573"><span class="annot"><span class="annottext">Maybe [EC2SecurityGroup]
+</span><a href="#local-6989586621679399573"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheSecurityGroup
+</span><a href="#local-6989586621679399574"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eC2SecurityGroups:CacheSecurityGroup' :: Maybe [EC2SecurityGroup]
 </span><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#%24sel%3AeC2SecurityGroups%3ACacheSecurityGroup%27"><span class="hs-identifier hs-var">eC2SecurityGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [EC2SecurityGroup]
-</span><a href="#local-6989586621679399055"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#CacheSecurityGroup"><span class="hs-identifier hs-type">CacheSecurityGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [EC2SecurityGroup] -&gt; f (Maybe [EC2SecurityGroup]))
+</span><a href="#local-6989586621679399573"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#CacheSecurityGroup"><span class="hs-identifier hs-type">CacheSecurityGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [EC2SecurityGroup] -&gt; f (Maybe [EC2SecurityGroup]))
  -&gt; CacheSecurityGroup -&gt; f CacheSecurityGroup)
 -&gt; ((Maybe [EC2SecurityGroup] -&gt; f (Maybe [EC2SecurityGroup]))
     -&gt; Maybe [EC2SecurityGroup] -&gt; f (Maybe [EC2SecurityGroup]))
@@ -266,41 +267,41 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [EC2SecurityGroup]
   [EC2SecurityGroup]
   [EC2SecurityGroup]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- | The description of the cache security group.</span><span>
-</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#cacheSecurityGroup_description"><span class="hs-identifier hs-type">cacheSecurityGroup_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#CacheSecurityGroup"><span class="hs-identifier hs-type">CacheSecurityGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-99"></span><span id="cacheSecurityGroup_description"><span class="annot"><span class="annottext">cacheSecurityGroup_description :: (Maybe Text -&gt; f (Maybe Text))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | The description of the cache security group.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#cacheSecurityGroup_description"><span class="hs-identifier hs-type">cacheSecurityGroup_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#CacheSecurityGroup"><span class="hs-identifier hs-type">CacheSecurityGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="cacheSecurityGroup_description"><span class="annot"><span class="annottext">cacheSecurityGroup_description :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; CacheSecurityGroup -&gt; f CacheSecurityGroup
 </span><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#cacheSecurityGroup_description"><span class="hs-identifier hs-var hs-var">cacheSecurityGroup_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CacheSecurityGroup -&gt; Maybe Text)
 -&gt; (CacheSecurityGroup -&gt; Maybe Text -&gt; CacheSecurityGroup)
 -&gt; Lens
      CacheSecurityGroup CacheSecurityGroup (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#CacheSecurityGroup%27"><span class="hs-identifier hs-type">CacheSecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399050"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#CacheSecurityGroup%27"><span class="hs-identifier hs-type">CacheSecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399568"><span class="annot"><span class="annottext">Maybe Text
 description :: Maybe Text
 $sel:description:CacheSecurityGroup' :: CacheSecurityGroup -&gt; Maybe Text
-</span><a href="#local-6989586621679399050"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679399050"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399049"><span class="annot"><span class="annottext">s :: CacheSecurityGroup
-</span><a href="#local-6989586621679399049"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#CacheSecurityGroup%27"><span class="hs-identifier hs-type">CacheSecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399048"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679399048"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheSecurityGroup
-</span><a href="#local-6989586621679399049"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CacheSecurityGroup' :: Maybe Text
+</span><a href="#local-6989586621679399568"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679399568"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399567"><span class="annot"><span class="annottext">s :: CacheSecurityGroup
+</span><a href="#local-6989586621679399567"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#CacheSecurityGroup%27"><span class="hs-identifier hs-type">CacheSecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399566"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679399566"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheSecurityGroup
+</span><a href="#local-6989586621679399567"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CacheSecurityGroup' :: Maybe Text
 </span><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#%24sel%3Adescription%3ACacheSecurityGroup%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679399048"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#CacheSecurityGroup"><span class="hs-identifier hs-type">CacheSecurityGroup</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#CacheSecurityGroup"><span class="hs-identifier hs-type">CacheSecurityGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679399045"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String CacheSecurityGroup
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679399043"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679399043"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679399566"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#CacheSecurityGroup"><span class="hs-identifier hs-type">CacheSecurityGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#CacheSecurityGroup"><span class="hs-identifier hs-type">CacheSecurityGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679399563"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String CacheSecurityGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679399561"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679399561"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe [EC2SecurityGroup]
 -&gt; Maybe Text
 -&gt; CacheSecurityGroup
 </span><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#CacheSecurityGroup%27"><span class="hs-identifier hs-var">CacheSecurityGroup'</span></a></span><span>
-</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe [EC2SecurityGroup]
@@ -316,11 +317,11 @@ $sel:description:CacheSecurityGroup' :: CacheSecurityGroup -&gt; Maybe Text
       -&gt; CacheSecurityGroup)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679399043"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679399561"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;OwnerId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">Either
+</span><span class="hs-string">&quot;CacheSecurityGroupName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
   (Maybe Text
    -&gt; Maybe Text
@@ -334,11 +335,11 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; Maybe [EC2SecurityGroup] -&gt; Maybe Text -&gt; CacheSecurityGroup)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679399043"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679399561"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ARN&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">Either
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
   (Maybe Text
    -&gt; Maybe [EC2SecurityGroup] -&gt; Maybe Text -&gt; CacheSecurityGroup)
@@ -348,27 +349,27 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
      (Maybe [EC2SecurityGroup] -&gt; Maybe Text -&gt; CacheSecurityGroup)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679399043"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679399561"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;CacheSecurityGroupName&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">Either
+</span><span class="hs-string">&quot;OwnerId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
   (Maybe [EC2SecurityGroup] -&gt; Maybe Text -&gt; CacheSecurityGroup)
 -&gt; Either String (Maybe [EC2SecurityGroup])
 -&gt; Either String (Maybe Text -&gt; CacheSecurityGroup)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679399043"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679399561"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EC2SecurityGroups&quot;</span></span><span>
-</span><span id="line-108"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+</span><span id="line-109"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
 forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-109"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+</span><span id="line-110"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
 -&gt; ([Node] -&gt; Either String (Maybe [EC2SecurityGroup]))
 -&gt; Either String (Maybe [EC2SecurityGroup])
 forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
@@ -381,17 +382,17 @@ Applicative f =&gt;
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EC2SecurityGroup&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-110"></span><span>                  </span><span class="hs-special">)</span><span>
-</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; CacheSecurityGroup)
+</span><span id="line-111"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; CacheSecurityGroup)
 -&gt; Either String (Maybe Text) -&gt; Either String CacheSecurityGroup
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679399043"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679399561"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679399034"><span id="local-6989586621679399036"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#CacheSecurityGroup"><span class="hs-identifier hs-type">CacheSecurityGroup</span></a></span></span></span><span>
-</span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679399031"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#CacheSecurityGroup"><span class="hs-identifier hs-type">CacheSecurityGroup</span></a></span></span><span>
-</span><span id="line-116"></span></pre></body></html>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679399552"><span id="local-6989586621679399554"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#CacheSecurityGroup"><span class="hs-identifier hs-type">CacheSecurityGroup</span></a></span></span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679399549"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheSecurityGroup.html#CacheSecurityGroup"><span class="hs-identifier hs-type">CacheSecurityGroup</span></a></span></span><span>
+</span><span id="line-117"></span></pre></body></html>

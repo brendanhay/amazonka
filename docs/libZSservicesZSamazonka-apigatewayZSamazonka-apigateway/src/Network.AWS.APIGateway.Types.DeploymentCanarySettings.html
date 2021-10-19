@@ -26,22 +26,22 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | The input configuration for a canary deployment.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newDeploymentCanarySettings' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679365267"><span id="local-6989586621679365268"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeploymentCanarySettings"><span class="annot"><a href="Network.AWS.APIGateway.Types.DeploymentCanarySettings.html#DeploymentCanarySettings"><span class="hs-identifier hs-var">DeploymentCanarySettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeploymentCanarySettings%27"><span class="annot"><a href="Network.AWS.APIGateway.Types.DeploymentCanarySettings.html#DeploymentCanarySettings%27"><span class="hs-identifier hs-var">DeploymentCanarySettings'</span></a></span></span><span>
-</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The percentage (0.0-100.0) of traffic routed to the canary deployment.</span><span>
-</span><span id="line-31"></span><span>    </span><span id="%24sel%3ApercentTraffic%3ADeploymentCanarySettings%27"><span class="annot"><span class="annottext">DeploymentCanarySettings -&gt; Maybe Double
-</span><a href="Network.AWS.APIGateway.Types.DeploymentCanarySettings.html#%24sel%3ApercentTraffic%3ADeploymentCanarySettings%27"><span class="hs-identifier hs-var hs-var">percentTraffic</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | A Boolean flag to indicate whether the canary release deployment uses</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- the stage cache or not.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AuseStageCache%3ADeploymentCanarySettings%27"><span class="annot"><span class="annottext">DeploymentCanarySettings -&gt; Maybe Bool
+</span><span id="line-29"></span><span id="local-6989586621679365763"><span id="local-6989586621679365764"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeploymentCanarySettings"><span class="annot"><a href="Network.AWS.APIGateway.Types.DeploymentCanarySettings.html#DeploymentCanarySettings"><span class="hs-identifier hs-var">DeploymentCanarySettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeploymentCanarySettings%27"><span class="annot"><a href="Network.AWS.APIGateway.Types.DeploymentCanarySettings.html#DeploymentCanarySettings%27"><span class="hs-identifier hs-var">DeploymentCanarySettings'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A stage variable overrides used for the canary release deployment. They</span><span>
+</span><span id="line-31"></span><span>    </span><span class="hs-comment">-- can override existing stage variables or add new stage variables for the</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- canary release deployment. These stage variables are represented as a</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- string-to-string map between stage variable names and their values.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AstageVariableOverrides%3ADeploymentCanarySettings%27"><span class="annot"><span class="annottext">DeploymentCanarySettings -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.APIGateway.Types.DeploymentCanarySettings.html#%24sel%3AstageVariableOverrides%3ADeploymentCanarySettings%27"><span class="hs-identifier hs-var hs-var">stageVariableOverrides</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | A Boolean flag to indicate whether the canary release deployment uses</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- the stage cache or not.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AuseStageCache%3ADeploymentCanarySettings%27"><span class="annot"><span class="annottext">DeploymentCanarySettings -&gt; Maybe Bool
 </span><a href="Network.AWS.APIGateway.Types.DeploymentCanarySettings.html#%24sel%3AuseStageCache%3ADeploymentCanarySettings%27"><span class="hs-identifier hs-var hs-var">useStageCache</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | A stage variable overrides used for the canary release deployment. They</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- can override existing stage variables or add new stage variables for the</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- canary release deployment. These stage variables are represented as a</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- string-to-string map between stage variable names and their values.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3AstageVariableOverrides%3ADeploymentCanarySettings%27"><span class="annot"><span class="annottext">DeploymentCanarySettings -&gt; Maybe (HashMap Text Text)
-</span><a href="Network.AWS.APIGateway.Types.DeploymentCanarySettings.html#%24sel%3AstageVariableOverrides%3ADeploymentCanarySettings%27"><span class="hs-identifier hs-var hs-var">stageVariableOverrides</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The percentage (0.0-100.0) of traffic routed to the canary deployment.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3ApercentTraffic%3ADeploymentCanarySettings%27"><span class="annot"><span class="annottext">DeploymentCanarySettings -&gt; Maybe Double
+</span><a href="Network.AWS.APIGateway.Types.DeploymentCanarySettings.html#%24sel%3ApercentTraffic%3ADeploymentCanarySettings%27"><span class="hs-identifier hs-var hs-var">percentTraffic</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679365259"><span id="local-6989586621679365261"><span class="annot"><span class="annottext">DeploymentCanarySettings -&gt; DeploymentCanarySettings -&gt; Bool
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679365755"><span id="local-6989586621679365757"><span class="annot"><span class="annottext">DeploymentCanarySettings -&gt; DeploymentCanarySettings -&gt; Bool
 (DeploymentCanarySettings -&gt; DeploymentCanarySettings -&gt; Bool)
 -&gt; (DeploymentCanarySettings -&gt; DeploymentCanarySettings -&gt; Bool)
 -&gt; Eq DeploymentCanarySettings
@@ -50,7 +50,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeploymentCanarySettings -&gt; DeploymentCanarySettings -&gt; Bool
 == :: DeploymentCanarySettings -&gt; DeploymentCanarySettings -&gt; Bool
 $c== :: DeploymentCanarySettings -&gt; DeploymentCanarySettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679365250"><span id="local-6989586621679365252"><span id="local-6989586621679365254"><span id="local-6989586621679365256"><span class="annot"><span class="annottext">ReadPrec [DeploymentCanarySettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679365746"><span id="local-6989586621679365748"><span id="local-6989586621679365750"><span id="local-6989586621679365752"><span class="annot"><span class="annottext">ReadPrec [DeploymentCanarySettings]
 ReadPrec DeploymentCanarySettings
 Int -&gt; ReadS DeploymentCanarySettings
 ReadS [DeploymentCanarySettings]
@@ -70,7 +70,7 @@ readList :: ReadS [DeploymentCanarySettings]
 $creadList :: ReadS [DeploymentCanarySettings]
 readsPrec :: Int -&gt; ReadS DeploymentCanarySettings
 $creadsPrec :: Int -&gt; ReadS DeploymentCanarySettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679365243"><span id="local-6989586621679365245"><span id="local-6989586621679365247"><span class="annot"><span class="annottext">Int -&gt; DeploymentCanarySettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679365739"><span id="local-6989586621679365741"><span id="local-6989586621679365743"><span class="annot"><span class="annottext">Int -&gt; DeploymentCanarySettings -&gt; ShowS
 [DeploymentCanarySettings] -&gt; ShowS
 DeploymentCanarySettings -&gt; String
 (Int -&gt; DeploymentCanarySettings -&gt; ShowS)
@@ -110,94 +110,43 @@ DeploymentCanarySettings -&gt; Rep DeploymentCanarySettings x
 </span><span id="line-48"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
-</span><span id="line-51"></span><span class="hs-comment">-- 'percentTraffic', 'deploymentCanarySettings_percentTraffic' - The percentage (0.0-100.0) of traffic routed to the canary deployment.</span><span>
-</span><span id="line-52"></span><span class="hs-comment">--</span><span>
-</span><span id="line-53"></span><span class="hs-comment">-- 'useStageCache', 'deploymentCanarySettings_useStageCache' - A Boolean flag to indicate whether the canary release deployment uses</span><span>
-</span><span id="line-54"></span><span class="hs-comment">-- the stage cache or not.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'stageVariableOverrides', 'deploymentCanarySettings_stageVariableOverrides' - A stage variable overrides used for the canary release deployment. They</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- can override existing stage variables or add new stage variables for the</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- canary release deployment. These stage variables are represented as a</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- string-to-string map between stage variable names and their values.</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- 'stageVariableOverrides', 'deploymentCanarySettings_stageVariableOverrides' - A stage variable overrides used for the canary release deployment. They</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- can override existing stage variables or add new stage variables for the</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- canary release deployment. These stage variables are represented as a</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- string-to-string map between stage variable names and their values.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'useStageCache', 'deploymentCanarySettings_useStageCache' - A Boolean flag to indicate whether the canary release deployment uses</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- the stage cache or not.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'percentTraffic', 'deploymentCanarySettings_percentTraffic' - The percentage (0.0-100.0) of traffic routed to the canary deployment.</span><span>
 </span><span id="line-60"></span><span class="annot"><a href="Network.AWS.APIGateway.Types.DeploymentCanarySettings.html#newDeploymentCanarySettings"><span class="hs-identifier hs-type">newDeploymentCanarySettings</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-61"></span><span>  </span><span class="annot"><a href="Network.AWS.APIGateway.Types.DeploymentCanarySettings.html#DeploymentCanarySettings"><span class="hs-identifier hs-type">DeploymentCanarySettings</span></a></span><span>
 </span><span id="line-62"></span><span id="newDeploymentCanarySettings"><span class="annot"><span class="annottext">newDeploymentCanarySettings :: DeploymentCanarySettings
 </span><a href="Network.AWS.APIGateway.Types.DeploymentCanarySettings.html#newDeploymentCanarySettings"><span class="hs-identifier hs-var hs-var">newDeploymentCanarySettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-63"></span><span>  </span><span class="annot"><span class="annottext">DeploymentCanarySettings' :: Maybe Double
--&gt; Maybe Bool
--&gt; Maybe (HashMap Text Text)
--&gt; DeploymentCanarySettings
+</span><span id="line-63"></span><span>  </span><span class="annot"><span class="annottext">DeploymentCanarySettings' :: Maybe (HashMap Text Text)
+-&gt; Maybe Bool -&gt; Maybe Double -&gt; DeploymentCanarySettings
 </span><a href="Network.AWS.APIGateway.Types.DeploymentCanarySettings.html#DeploymentCanarySettings%27"><span class="hs-identifier hs-type">DeploymentCanarySettings'</span></a></span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:percentTraffic:DeploymentCanarySettings' :: Maybe Double
-</span><a href="Network.AWS.APIGateway.Types.DeploymentCanarySettings.html#%24sel%3ApercentTraffic%3ADeploymentCanarySettings%27"><span class="hs-identifier hs-var">percentTraffic</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-65"></span><span>        </span><span class="annot"><span class="annottext">Maybe Double
+</span><span id="line-64"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:stageVariableOverrides:DeploymentCanarySettings' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.APIGateway.Types.DeploymentCanarySettings.html#%24sel%3AstageVariableOverrides%3ADeploymentCanarySettings%27"><span class="hs-identifier hs-var">stageVariableOverrides</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-65"></span><span>        </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">$sel:useStageCache:DeploymentCanarySettings' :: Maybe Bool
 </span><a href="Network.AWS.APIGateway.Types.DeploymentCanarySettings.html#%24sel%3AuseStageCache%3ADeploymentCanarySettings%27"><span class="hs-identifier hs-var">useStageCache</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:stageVariableOverrides:DeploymentCanarySettings' :: Maybe (HashMap Text Text)
-</span><a href="Network.AWS.APIGateway.Types.DeploymentCanarySettings.html#%24sel%3AstageVariableOverrides%3ADeploymentCanarySettings%27"><span class="hs-identifier hs-var">stageVariableOverrides</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:percentTraffic:DeploymentCanarySettings' :: Maybe Double
+</span><a href="Network.AWS.APIGateway.Types.DeploymentCanarySettings.html#%24sel%3ApercentTraffic%3ADeploymentCanarySettings%27"><span class="hs-identifier hs-var">percentTraffic</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-68"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- | The percentage (0.0-100.0) of traffic routed to the canary deployment.</span><span>
-</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.APIGateway.Types.DeploymentCanarySettings.html#deploymentCanarySettings_percentTraffic"><span class="hs-identifier hs-type">deploymentCanarySettings_percentTraffic</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.DeploymentCanarySettings.html#DeploymentCanarySettings"><span class="hs-identifier hs-type">DeploymentCanarySettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
-</span><span id="line-72"></span><span id="deploymentCanarySettings_percentTraffic"><span class="annot"><span class="annottext">deploymentCanarySettings_percentTraffic :: (Maybe Double -&gt; f (Maybe Double))
--&gt; DeploymentCanarySettings -&gt; f DeploymentCanarySettings
-</span><a href="Network.AWS.APIGateway.Types.DeploymentCanarySettings.html#deploymentCanarySettings_percentTraffic"><span class="hs-identifier hs-var hs-var">deploymentCanarySettings_percentTraffic</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeploymentCanarySettings -&gt; Maybe Double)
--&gt; (DeploymentCanarySettings
-    -&gt; Maybe Double -&gt; DeploymentCanarySettings)
--&gt; Lens
-     DeploymentCanarySettings
-     DeploymentCanarySettings
-     (Maybe Double)
-     (Maybe Double)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.DeploymentCanarySettings.html#DeploymentCanarySettings%27"><span class="hs-identifier hs-type">DeploymentCanarySettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365234"><span class="annot"><span class="annottext">Maybe Double
-percentTraffic :: Maybe Double
-$sel:percentTraffic:DeploymentCanarySettings' :: DeploymentCanarySettings -&gt; Maybe Double
-</span><a href="#local-6989586621679365234"><span class="hs-identifier hs-var hs-var">percentTraffic</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679365234"><span class="hs-identifier hs-var">percentTraffic</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365233"><span class="annot"><span class="annottext">s :: DeploymentCanarySettings
-</span><a href="#local-6989586621679365233"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.DeploymentCanarySettings.html#DeploymentCanarySettings%27"><span class="hs-identifier hs-type">DeploymentCanarySettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365232"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679365232"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeploymentCanarySettings
-</span><a href="#local-6989586621679365233"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:percentTraffic:DeploymentCanarySettings' :: Maybe Double
-</span><a href="Network.AWS.APIGateway.Types.DeploymentCanarySettings.html#%24sel%3ApercentTraffic%3ADeploymentCanarySettings%27"><span class="hs-identifier hs-var">percentTraffic</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679365232"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.DeploymentCanarySettings.html#DeploymentCanarySettings"><span class="hs-identifier hs-type">DeploymentCanarySettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- | A Boolean flag to indicate whether the canary release deployment uses</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- the stage cache or not.</span><span>
-</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.APIGateway.Types.DeploymentCanarySettings.html#deploymentCanarySettings_useStageCache"><span class="hs-identifier hs-type">deploymentCanarySettings_useStageCache</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.DeploymentCanarySettings.html#DeploymentCanarySettings"><span class="hs-identifier hs-type">DeploymentCanarySettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-77"></span><span id="deploymentCanarySettings_useStageCache"><span class="annot"><span class="annottext">deploymentCanarySettings_useStageCache :: (Maybe Bool -&gt; f (Maybe Bool))
--&gt; DeploymentCanarySettings -&gt; f DeploymentCanarySettings
-</span><a href="Network.AWS.APIGateway.Types.DeploymentCanarySettings.html#deploymentCanarySettings_useStageCache"><span class="hs-identifier hs-var hs-var">deploymentCanarySettings_useStageCache</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeploymentCanarySettings -&gt; Maybe Bool)
--&gt; (DeploymentCanarySettings
-    -&gt; Maybe Bool -&gt; DeploymentCanarySettings)
--&gt; Lens
-     DeploymentCanarySettings
-     DeploymentCanarySettings
-     (Maybe Bool)
-     (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.DeploymentCanarySettings.html#DeploymentCanarySettings%27"><span class="hs-identifier hs-type">DeploymentCanarySettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365230"><span class="annot"><span class="annottext">Maybe Bool
-useStageCache :: Maybe Bool
-$sel:useStageCache:DeploymentCanarySettings' :: DeploymentCanarySettings -&gt; Maybe Bool
-</span><a href="#local-6989586621679365230"><span class="hs-identifier hs-var hs-var">useStageCache</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679365230"><span class="hs-identifier hs-var">useStageCache</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365229"><span class="annot"><span class="annottext">s :: DeploymentCanarySettings
-</span><a href="#local-6989586621679365229"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.DeploymentCanarySettings.html#DeploymentCanarySettings%27"><span class="hs-identifier hs-type">DeploymentCanarySettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365228"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679365228"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeploymentCanarySettings
-</span><a href="#local-6989586621679365229"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:useStageCache:DeploymentCanarySettings' :: Maybe Bool
-</span><a href="Network.AWS.APIGateway.Types.DeploymentCanarySettings.html#%24sel%3AuseStageCache%3ADeploymentCanarySettings%27"><span class="hs-identifier hs-var">useStageCache</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679365228"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.DeploymentCanarySettings.html#DeploymentCanarySettings"><span class="hs-identifier hs-type">DeploymentCanarySettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- | A stage variable overrides used for the canary release deployment. They</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- can override existing stage variables or add new stage variables for the</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- canary release deployment. These stage variables are represented as a</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- string-to-string map between stage variable names and their values.</span><span>
-</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.APIGateway.Types.DeploymentCanarySettings.html#deploymentCanarySettings_stageVariableOverrides"><span class="hs-identifier hs-type">deploymentCanarySettings_stageVariableOverrides</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.DeploymentCanarySettings.html#DeploymentCanarySettings"><span class="hs-identifier hs-type">DeploymentCanarySettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-84"></span><span id="deploymentCanarySettings_stageVariableOverrides"><span class="annot"><span class="annottext">deploymentCanarySettings_stageVariableOverrides :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><span id="line-70"></span><span class="hs-comment">-- | A stage variable overrides used for the canary release deployment. They</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- can override existing stage variables or add new stage variables for the</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- canary release deployment. These stage variables are represented as a</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- string-to-string map between stage variable names and their values.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Network.AWS.APIGateway.Types.DeploymentCanarySettings.html#deploymentCanarySettings_stageVariableOverrides"><span class="hs-identifier hs-type">deploymentCanarySettings_stageVariableOverrides</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.DeploymentCanarySettings.html#DeploymentCanarySettings"><span class="hs-identifier hs-type">DeploymentCanarySettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span id="deploymentCanarySettings_stageVariableOverrides"><span class="annot"><span class="annottext">deploymentCanarySettings_stageVariableOverrides :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
 -&gt; DeploymentCanarySettings -&gt; f DeploymentCanarySettings
 </span><a href="Network.AWS.APIGateway.Types.DeploymentCanarySettings.html#deploymentCanarySettings_stageVariableOverrides"><span class="hs-identifier hs-var hs-var">deploymentCanarySettings_stageVariableOverrides</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeploymentCanarySettings -&gt; Maybe (HashMap Text Text))
 -&gt; (DeploymentCanarySettings
@@ -208,16 +157,16 @@ $sel:useStageCache:DeploymentCanarySettings' :: DeploymentCanarySettings -&gt; M
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.DeploymentCanarySettings.html#DeploymentCanarySettings%27"><span class="hs-identifier hs-type">DeploymentCanarySettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365226"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.DeploymentCanarySettings.html#DeploymentCanarySettings%27"><span class="hs-identifier hs-type">DeploymentCanarySettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365730"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 stageVariableOverrides :: Maybe (HashMap Text Text)
 $sel:stageVariableOverrides:DeploymentCanarySettings' :: DeploymentCanarySettings -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679365226"><span class="hs-identifier hs-var hs-var">stageVariableOverrides</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679365226"><span class="hs-identifier hs-var">stageVariableOverrides</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365225"><span class="annot"><span class="annottext">s :: DeploymentCanarySettings
-</span><a href="#local-6989586621679365225"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.DeploymentCanarySettings.html#DeploymentCanarySettings%27"><span class="hs-identifier hs-type">DeploymentCanarySettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365224"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679365224"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeploymentCanarySettings
-</span><a href="#local-6989586621679365225"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stageVariableOverrides:DeploymentCanarySettings' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679365730"><span class="hs-identifier hs-var hs-var">stageVariableOverrides</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679365730"><span class="hs-identifier hs-var">stageVariableOverrides</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365729"><span class="annot"><span class="annottext">s :: DeploymentCanarySettings
+</span><a href="#local-6989586621679365729"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.DeploymentCanarySettings.html#DeploymentCanarySettings%27"><span class="hs-identifier hs-type">DeploymentCanarySettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365728"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679365728"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeploymentCanarySettings
+</span><a href="#local-6989586621679365729"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stageVariableOverrides:DeploymentCanarySettings' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.APIGateway.Types.DeploymentCanarySettings.html#%24sel%3AstageVariableOverrides%3ADeploymentCanarySettings%27"><span class="hs-identifier hs-var">stageVariableOverrides</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679365224"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.DeploymentCanarySettings.html#DeploymentCanarySettings"><span class="hs-identifier hs-type">DeploymentCanarySettings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679365728"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.DeploymentCanarySettings.html#DeploymentCanarySettings"><span class="hs-identifier hs-type">DeploymentCanarySettings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; DeploymentCanarySettings -&gt; f DeploymentCanarySettings)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -243,54 +192,103 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (HashMap Text Text)
   (HashMap Text Text)
   (HashMap Text Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | A Boolean flag to indicate whether the canary release deployment uses</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- the stage cache or not.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.APIGateway.Types.DeploymentCanarySettings.html#deploymentCanarySettings_useStageCache"><span class="hs-identifier hs-type">deploymentCanarySettings_useStageCache</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.DeploymentCanarySettings.html#DeploymentCanarySettings"><span class="hs-identifier hs-type">DeploymentCanarySettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span id="deploymentCanarySettings_useStageCache"><span class="annot"><span class="annottext">deploymentCanarySettings_useStageCache :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; DeploymentCanarySettings -&gt; f DeploymentCanarySettings
+</span><a href="Network.AWS.APIGateway.Types.DeploymentCanarySettings.html#deploymentCanarySettings_useStageCache"><span class="hs-identifier hs-var hs-var">deploymentCanarySettings_useStageCache</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeploymentCanarySettings -&gt; Maybe Bool)
+-&gt; (DeploymentCanarySettings
+    -&gt; Maybe Bool -&gt; DeploymentCanarySettings)
+-&gt; Lens
+     DeploymentCanarySettings
+     DeploymentCanarySettings
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.DeploymentCanarySettings.html#DeploymentCanarySettings%27"><span class="hs-identifier hs-type">DeploymentCanarySettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365723"><span class="annot"><span class="annottext">Maybe Bool
+useStageCache :: Maybe Bool
+$sel:useStageCache:DeploymentCanarySettings' :: DeploymentCanarySettings -&gt; Maybe Bool
+</span><a href="#local-6989586621679365723"><span class="hs-identifier hs-var hs-var">useStageCache</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679365723"><span class="hs-identifier hs-var">useStageCache</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365722"><span class="annot"><span class="annottext">s :: DeploymentCanarySettings
+</span><a href="#local-6989586621679365722"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.DeploymentCanarySettings.html#DeploymentCanarySettings%27"><span class="hs-identifier hs-type">DeploymentCanarySettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365721"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679365721"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeploymentCanarySettings
+</span><a href="#local-6989586621679365722"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:useStageCache:DeploymentCanarySettings' :: Maybe Bool
+</span><a href="Network.AWS.APIGateway.Types.DeploymentCanarySettings.html#%24sel%3AuseStageCache%3ADeploymentCanarySettings%27"><span class="hs-identifier hs-var">useStageCache</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679365721"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.DeploymentCanarySettings.html#DeploymentCanarySettings"><span class="hs-identifier hs-type">DeploymentCanarySettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | The percentage (0.0-100.0) of traffic routed to the canary deployment.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.APIGateway.Types.DeploymentCanarySettings.html#deploymentCanarySettings_percentTraffic"><span class="hs-identifier hs-type">deploymentCanarySettings_percentTraffic</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.DeploymentCanarySettings.html#DeploymentCanarySettings"><span class="hs-identifier hs-type">DeploymentCanarySettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span id="deploymentCanarySettings_percentTraffic"><span class="annot"><span class="annottext">deploymentCanarySettings_percentTraffic :: (Maybe Double -&gt; f (Maybe Double))
+-&gt; DeploymentCanarySettings -&gt; f DeploymentCanarySettings
+</span><a href="Network.AWS.APIGateway.Types.DeploymentCanarySettings.html#deploymentCanarySettings_percentTraffic"><span class="hs-identifier hs-var hs-var">deploymentCanarySettings_percentTraffic</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeploymentCanarySettings -&gt; Maybe Double)
+-&gt; (DeploymentCanarySettings
+    -&gt; Maybe Double -&gt; DeploymentCanarySettings)
+-&gt; Lens
+     DeploymentCanarySettings
+     DeploymentCanarySettings
+     (Maybe Double)
+     (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.DeploymentCanarySettings.html#DeploymentCanarySettings%27"><span class="hs-identifier hs-type">DeploymentCanarySettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365719"><span class="annot"><span class="annottext">Maybe Double
+percentTraffic :: Maybe Double
+$sel:percentTraffic:DeploymentCanarySettings' :: DeploymentCanarySettings -&gt; Maybe Double
+</span><a href="#local-6989586621679365719"><span class="hs-identifier hs-var hs-var">percentTraffic</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679365719"><span class="hs-identifier hs-var">percentTraffic</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365718"><span class="annot"><span class="annottext">s :: DeploymentCanarySettings
+</span><a href="#local-6989586621679365718"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.DeploymentCanarySettings.html#DeploymentCanarySettings%27"><span class="hs-identifier hs-type">DeploymentCanarySettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365717"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679365717"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeploymentCanarySettings
+</span><a href="#local-6989586621679365718"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:percentTraffic:DeploymentCanarySettings' :: Maybe Double
+</span><a href="Network.AWS.APIGateway.Types.DeploymentCanarySettings.html#%24sel%3ApercentTraffic%3ADeploymentCanarySettings%27"><span class="hs-identifier hs-var">percentTraffic</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679365717"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.DeploymentCanarySettings.html#DeploymentCanarySettings"><span class="hs-identifier hs-type">DeploymentCanarySettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679365217"><span id="local-6989586621679365219"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.DeploymentCanarySettings.html#DeploymentCanarySettings"><span class="hs-identifier hs-type">DeploymentCanarySettings</span></a></span></span></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679365713"><span id="local-6989586621679365715"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.DeploymentCanarySettings.html#DeploymentCanarySettings"><span class="hs-identifier hs-type">DeploymentCanarySettings</span></a></span></span></span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679365214"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.DeploymentCanarySettings.html#DeploymentCanarySettings"><span class="hs-identifier hs-type">DeploymentCanarySettings</span></a></span></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679365710"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.DeploymentCanarySettings.html#DeploymentCanarySettings"><span class="hs-identifier hs-type">DeploymentCanarySettings</span></a></span></span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679365206"><span id="local-6989586621679365208"><span id="local-6989586621679365210"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.DeploymentCanarySettings.html#DeploymentCanarySettings"><span class="hs-identifier hs-type">DeploymentCanarySettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679365204"><span class="annot"><span class="annottext">toJSON :: DeploymentCanarySettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.DeploymentCanarySettings.html#DeploymentCanarySettings%27"><span class="hs-identifier hs-type">DeploymentCanarySettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365200"><span id="local-6989586621679365201"><span id="local-6989586621679365202"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679365702"><span id="local-6989586621679365704"><span id="local-6989586621679365706"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.DeploymentCanarySettings.html#DeploymentCanarySettings"><span class="hs-identifier hs-type">DeploymentCanarySettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679365700"><span class="annot"><span class="annottext">toJSON :: DeploymentCanarySettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.DeploymentCanarySettings.html#DeploymentCanarySettings%27"><span class="hs-identifier hs-type">DeploymentCanarySettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365696"><span id="local-6989586621679365697"><span id="local-6989586621679365698"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Double
 Maybe (HashMap Text Text)
-stageVariableOverrides :: Maybe (HashMap Text Text)
-useStageCache :: Maybe Bool
 percentTraffic :: Maybe Double
-$sel:stageVariableOverrides:DeploymentCanarySettings' :: DeploymentCanarySettings -&gt; Maybe (HashMap Text Text)
-$sel:useStageCache:DeploymentCanarySettings' :: DeploymentCanarySettings -&gt; Maybe Bool
+useStageCache :: Maybe Bool
+stageVariableOverrides :: Maybe (HashMap Text Text)
 $sel:percentTraffic:DeploymentCanarySettings' :: DeploymentCanarySettings -&gt; Maybe Double
-</span><a href="#local-6989586621679365200"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:useStageCache:DeploymentCanarySettings' :: DeploymentCanarySettings -&gt; Maybe Bool
+$sel:stageVariableOverrides:DeploymentCanarySettings' :: DeploymentCanarySettings -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679365696"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-94"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;percentTraffic&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Double -&gt; Pair
+</span><span class="hs-string">&quot;stageVariableOverrides&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-95"></span><span>              </span><span class="annot"><span class="annottext">(Double -&gt; Pair) -&gt; Maybe Double -&gt; Maybe Pair
+</span><span id="line-95"></span><span>              </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
+-&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679365202"><span class="hs-identifier hs-var">percentTraffic</span></a></span><span class="hs-special">,</span><span>
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679365698"><span class="hs-identifier hs-var">stageVariableOverrides</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-96"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;useStageCache&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679365201"><span class="hs-identifier hs-var">useStageCache</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679365697"><span class="hs-identifier hs-var">useStageCache</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-97"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;stageVariableOverrides&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
+</span><span class="hs-string">&quot;percentTraffic&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Double -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-98"></span><span>              </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
--&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
+</span><span id="line-98"></span><span>              </span><span class="annot"><span class="annottext">(Double -&gt; Pair) -&gt; Maybe Double -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679365200"><span class="hs-identifier hs-var">stageVariableOverrides</span></a></span><span>
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679365696"><span class="hs-identifier hs-var">percentTraffic</span></a></span><span>
 </span><span id="line-99"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-100"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span></pre></body></html>

@@ -64,12 +64,12 @@
 </span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-65"></span><span>
 </span><span id="line-66"></span><span class="hs-comment">-- | /See:/ 'newDeleteAlarms' smart constructor.</span><span>
-</span><span id="line-67"></span><span id="local-6989586621679266765"><span id="local-6989586621679266766"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteAlarms"><span class="annot"><a href="Network.AWS.CloudWatch.DeleteAlarms.html#DeleteAlarms"><span class="hs-identifier hs-var">DeleteAlarms</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteAlarms%27"><span class="annot"><a href="Network.AWS.CloudWatch.DeleteAlarms.html#DeleteAlarms%27"><span class="hs-identifier hs-var">DeleteAlarms'</span></a></span></span><span>
+</span><span id="line-67"></span><span id="local-6989586621679267146"><span id="local-6989586621679267147"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteAlarms"><span class="annot"><a href="Network.AWS.CloudWatch.DeleteAlarms.html#DeleteAlarms"><span class="hs-identifier hs-var">DeleteAlarms</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteAlarms%27"><span class="annot"><a href="Network.AWS.CloudWatch.DeleteAlarms.html#DeleteAlarms%27"><span class="hs-identifier hs-var">DeleteAlarms'</span></a></span></span><span>
 </span><span id="line-68"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The alarms to be deleted.</span><span>
 </span><span id="line-69"></span><span>    </span><span id="%24sel%3AalarmNames%3ADeleteAlarms%27"><span class="annot"><span class="annottext">DeleteAlarms -&gt; [Text]
 </span><a href="Network.AWS.CloudWatch.DeleteAlarms.html#%24sel%3AalarmNames%3ADeleteAlarms%27"><span class="hs-identifier hs-var hs-var">alarmNames</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-70"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679266759"><span id="local-6989586621679266761"><span class="annot"><span class="annottext">DeleteAlarms -&gt; DeleteAlarms -&gt; Bool
+</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679267140"><span id="local-6989586621679267142"><span class="annot"><span class="annottext">DeleteAlarms -&gt; DeleteAlarms -&gt; Bool
 (DeleteAlarms -&gt; DeleteAlarms -&gt; Bool)
 -&gt; (DeleteAlarms -&gt; DeleteAlarms -&gt; Bool) -&gt; Eq DeleteAlarms
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -77,7 +77,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteAlarms -&gt; DeleteAlarms -&gt; Bool
 == :: DeleteAlarms -&gt; DeleteAlarms -&gt; Bool
 $c== :: DeleteAlarms -&gt; DeleteAlarms -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679266750"><span id="local-6989586621679266752"><span id="local-6989586621679266754"><span id="local-6989586621679266756"><span class="annot"><span class="annottext">ReadPrec [DeleteAlarms]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679267131"><span id="local-6989586621679267133"><span id="local-6989586621679267135"><span id="local-6989586621679267137"><span class="annot"><span class="annottext">ReadPrec [DeleteAlarms]
 ReadPrec DeleteAlarms
 Int -&gt; ReadS DeleteAlarms
 ReadS [DeleteAlarms]
@@ -97,7 +97,7 @@ readList :: ReadS [DeleteAlarms]
 $creadList :: ReadS [DeleteAlarms]
 readsPrec :: Int -&gt; ReadS DeleteAlarms
 $creadsPrec :: Int -&gt; ReadS DeleteAlarms
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679266743"><span id="local-6989586621679266745"><span id="local-6989586621679266747"><span class="annot"><span class="annottext">Int -&gt; DeleteAlarms -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679267124"><span id="local-6989586621679267126"><span id="local-6989586621679267128"><span class="annot"><span class="annottext">Int -&gt; DeleteAlarms -&gt; ShowS
 [DeleteAlarms] -&gt; ShowS
 DeleteAlarms -&gt; String
 (Int -&gt; DeleteAlarms -&gt; ShowS)
@@ -149,33 +149,33 @@ forall a. Monoid a =&gt; a
 -&gt; (DeleteAlarms -&gt; [Text] -&gt; DeleteAlarms)
 -&gt; Lens DeleteAlarms DeleteAlarms [Text] [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.DeleteAlarms.html#DeleteAlarms%27"><span class="hs-identifier hs-type">DeleteAlarms'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266736"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.DeleteAlarms.html#DeleteAlarms%27"><span class="hs-identifier hs-type">DeleteAlarms'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267117"><span class="annot"><span class="annottext">[Text]
 alarmNames :: [Text]
 $sel:alarmNames:DeleteAlarms' :: DeleteAlarms -&gt; [Text]
-</span><a href="#local-6989586621679266736"><span class="hs-identifier hs-var hs-var">alarmNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679266736"><span class="hs-identifier hs-var">alarmNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266735"><span class="annot"><span class="annottext">s :: DeleteAlarms
-</span><a href="#local-6989586621679266735"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.DeleteAlarms.html#DeleteAlarms%27"><span class="hs-identifier hs-type">DeleteAlarms'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266734"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679266734"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteAlarms
-</span><a href="#local-6989586621679266735"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:alarmNames:DeleteAlarms' :: [Text]
+</span><a href="#local-6989586621679267117"><span class="hs-identifier hs-var hs-var">alarmNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679267117"><span class="hs-identifier hs-var">alarmNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679267116"><span class="annot"><span class="annottext">s :: DeleteAlarms
+</span><a href="#local-6989586621679267116"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.DeleteAlarms.html#DeleteAlarms%27"><span class="hs-identifier hs-type">DeleteAlarms'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679267115"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679267115"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteAlarms
+</span><a href="#local-6989586621679267116"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:alarmNames:DeleteAlarms' :: [Text]
 </span><a href="Network.AWS.CloudWatch.DeleteAlarms.html#%24sel%3AalarmNames%3ADeleteAlarms%27"><span class="hs-identifier hs-var">alarmNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679266734"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.DeleteAlarms.html#DeleteAlarms"><span class="hs-identifier hs-type">DeleteAlarms</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; DeleteAlarms -&gt; f DeleteAlarms)
+</span><a href="#local-6989586621679267115"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.DeleteAlarms.html#DeleteAlarms"><span class="hs-identifier hs-type">DeleteAlarms</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; DeleteAlarms -&gt; f DeleteAlarms)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
 -&gt; DeleteAlarms
 -&gt; f DeleteAlarms
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.DeleteAlarms.html#DeleteAlarms"><span class="hs-identifier hs-type">DeleteAlarms</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-92"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.DeleteAlarms.html#DeleteAlarms"><span class="hs-identifier hs-type">DeleteAlarms</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.DeleteAlarms.html#DeleteAlarmsResponse"><span class="hs-identifier hs-type">DeleteAlarmsResponse</span></a></span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679266728"><span class="annot"><span class="annottext">request :: DeleteAlarms -&gt; Request DeleteAlarms
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679267109"><span class="annot"><span class="annottext">request :: DeleteAlarms -&gt; Request DeleteAlarms
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteAlarms -&gt; Request DeleteAlarms
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudWatch.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679266724"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679267105"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteAlarms
 -&gt; ClientResponse ClientBody
@@ -198,12 +198,12 @@ AWSResponse a
 DeleteAlarmsResponse
 </span><a href="Network.AWS.CloudWatch.DeleteAlarms.html#DeleteAlarmsResponse%27"><span class="hs-identifier hs-var">DeleteAlarmsResponse'</span></a></span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679266717"><span id="local-6989586621679266719"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.DeleteAlarms.html#DeleteAlarms"><span class="hs-identifier hs-type">DeleteAlarms</span></a></span></span></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679267098"><span id="local-6989586621679267100"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.DeleteAlarms.html#DeleteAlarms"><span class="hs-identifier hs-type">DeleteAlarms</span></a></span></span></span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679266714"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.DeleteAlarms.html#DeleteAlarms"><span class="hs-identifier hs-type">DeleteAlarms</span></a></span></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679267095"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.DeleteAlarms.html#DeleteAlarms"><span class="hs-identifier hs-type">DeleteAlarms</span></a></span></span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.DeleteAlarms.html#DeleteAlarms"><span class="hs-identifier hs-type">DeleteAlarms</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679266710"><span class="annot"><span class="annottext">toHeaders :: DeleteAlarms -&gt; [Header]
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679267091"><span class="annot"><span class="annottext">toHeaders :: DeleteAlarms -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; DeleteAlarms -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
@@ -211,18 +211,18 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.DeleteAlarms.html#DeleteAlarms"><span class="hs-identifier hs-type">DeleteAlarms</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679266705"><span class="annot"><span class="annottext">toPath :: DeleteAlarms -&gt; ByteString
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679267086"><span class="annot"><span class="annottext">toPath :: DeleteAlarms -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteAlarms -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.DeleteAlarms.html#DeleteAlarms"><span class="hs-identifier hs-type">DeleteAlarms</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679266701"><span class="annot"><span class="annottext">toQuery :: DeleteAlarms -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.DeleteAlarms.html#DeleteAlarms%27"><span class="hs-identifier hs-type">DeleteAlarms'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266699"><span class="annot"><span class="annottext">[Text]
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679267082"><span class="annot"><span class="annottext">toQuery :: DeleteAlarms -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.DeleteAlarms.html#DeleteAlarms%27"><span class="hs-identifier hs-type">DeleteAlarms'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267080"><span class="annot"><span class="annottext">[Text]
 alarmNames :: [Text]
 $sel:alarmNames:DeleteAlarms' :: DeleteAlarms -&gt; [Text]
-</span><a href="#local-6989586621679266699"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679267080"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -248,14 +248,14 @@ forall a.
 ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679266699"><span class="hs-identifier hs-var">alarmNames</span></a></span><span>
+</span><a href="#local-6989586621679267080"><span class="hs-identifier hs-var">alarmNames</span></a></span><span>
 </span><span id="line-115"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-comment">-- | /See:/ 'newDeleteAlarmsResponse' smart constructor.</span><span>
-</span><span id="line-118"></span><span id="local-6989586621679266695"><span id="local-6989586621679266696"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteAlarmsResponse"><span class="annot"><a href="Network.AWS.CloudWatch.DeleteAlarms.html#DeleteAlarmsResponse"><span class="hs-identifier hs-var">DeleteAlarmsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteAlarmsResponse%27"><span class="annot"><a href="Network.AWS.CloudWatch.DeleteAlarms.html#DeleteAlarmsResponse%27"><span class="hs-identifier hs-var">DeleteAlarmsResponse'</span></a></span></span><span>
+</span><span id="line-118"></span><span id="local-6989586621679267076"><span id="local-6989586621679267077"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteAlarmsResponse"><span class="annot"><a href="Network.AWS.CloudWatch.DeleteAlarms.html#DeleteAlarmsResponse"><span class="hs-identifier hs-var">DeleteAlarmsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteAlarmsResponse%27"><span class="annot"><a href="Network.AWS.CloudWatch.DeleteAlarms.html#DeleteAlarmsResponse%27"><span class="hs-identifier hs-var">DeleteAlarmsResponse'</span></a></span></span><span>
 </span><span id="line-119"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-120"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-121"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679266691"><span id="local-6989586621679266693"><span class="annot"><span class="annottext">DeleteAlarmsResponse -&gt; DeleteAlarmsResponse -&gt; Bool
+</span><span id="line-121"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679267072"><span id="local-6989586621679267074"><span class="annot"><span class="annottext">DeleteAlarmsResponse -&gt; DeleteAlarmsResponse -&gt; Bool
 (DeleteAlarmsResponse -&gt; DeleteAlarmsResponse -&gt; Bool)
 -&gt; (DeleteAlarmsResponse -&gt; DeleteAlarmsResponse -&gt; Bool)
 -&gt; Eq DeleteAlarmsResponse
@@ -264,7 +264,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteAlarmsResponse -&gt; DeleteAlarmsResponse -&gt; Bool
 == :: DeleteAlarmsResponse -&gt; DeleteAlarmsResponse -&gt; Bool
 $c== :: DeleteAlarmsResponse -&gt; DeleteAlarmsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679266683"><span id="local-6989586621679266685"><span id="local-6989586621679266687"><span id="local-6989586621679266689"><span class="annot"><span class="annottext">ReadPrec [DeleteAlarmsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679267064"><span id="local-6989586621679267066"><span id="local-6989586621679267068"><span id="local-6989586621679267070"><span class="annot"><span class="annottext">ReadPrec [DeleteAlarmsResponse]
 ReadPrec DeleteAlarmsResponse
 Int -&gt; ReadS DeleteAlarmsResponse
 ReadS [DeleteAlarmsResponse]
@@ -284,7 +284,7 @@ readList :: ReadS [DeleteAlarmsResponse]
 $creadList :: ReadS [DeleteAlarmsResponse]
 readsPrec :: Int -&gt; ReadS DeleteAlarmsResponse
 $creadsPrec :: Int -&gt; ReadS DeleteAlarmsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679266677"><span id="local-6989586621679266679"><span id="local-6989586621679266681"><span class="annot"><span class="annottext">Int -&gt; DeleteAlarmsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679267058"><span id="local-6989586621679267060"><span id="local-6989586621679267062"><span class="annot"><span class="annottext">Int -&gt; DeleteAlarmsResponse -&gt; ShowS
 [DeleteAlarmsResponse] -&gt; ShowS
 DeleteAlarmsResponse -&gt; String
 (Int -&gt; DeleteAlarmsResponse -&gt; ShowS)
@@ -320,5 +320,5 @@ $cfrom :: forall x. DeleteAlarmsResponse -&gt; Rep DeleteAlarmsResponse x
 </span><a href="Network.AWS.CloudWatch.DeleteAlarms.html#newDeleteAlarmsResponse"><span class="hs-identifier hs-var hs-var">newDeleteAlarmsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeleteAlarmsResponse
 </span><a href="Network.AWS.CloudWatch.DeleteAlarms.html#DeleteAlarmsResponse%27"><span class="hs-identifier hs-var">DeleteAlarmsResponse'</span></a></span><span>
 </span><span id="line-130"></span><span>
-</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679266673"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.DeleteAlarms.html#DeleteAlarmsResponse"><span class="hs-identifier hs-type">DeleteAlarmsResponse</span></a></span></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679267054"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.DeleteAlarms.html#DeleteAlarmsResponse"><span class="hs-identifier hs-type">DeleteAlarmsResponse</span></a></span></span><span>
 </span><span id="line-132"></span></pre></body></html>

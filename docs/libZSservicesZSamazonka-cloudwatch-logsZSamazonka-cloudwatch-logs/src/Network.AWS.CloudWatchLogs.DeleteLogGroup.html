@@ -44,12 +44,12 @@
 </span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-45"></span><span>
 </span><span id="line-46"></span><span class="hs-comment">-- | /See:/ 'newDeleteLogGroup' smart constructor.</span><span>
-</span><span id="line-47"></span><span id="local-6989586621679231983"><span id="local-6989586621679231984"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteLogGroup"><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteLogGroup.html#DeleteLogGroup"><span class="hs-identifier hs-var">DeleteLogGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteLogGroup%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteLogGroup.html#DeleteLogGroup%27"><span class="hs-identifier hs-var">DeleteLogGroup'</span></a></span></span><span>
+</span><span id="line-47"></span><span id="local-6989586621679232148"><span id="local-6989586621679232149"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteLogGroup"><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteLogGroup.html#DeleteLogGroup"><span class="hs-identifier hs-var">DeleteLogGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteLogGroup%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteLogGroup.html#DeleteLogGroup%27"><span class="hs-identifier hs-var">DeleteLogGroup'</span></a></span></span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the log group.</span><span>
 </span><span id="line-49"></span><span>    </span><span id="%24sel%3AlogGroupName%3ADeleteLogGroup%27"><span class="annot"><span class="annottext">DeleteLogGroup -&gt; Text
 </span><a href="Network.AWS.CloudWatchLogs.DeleteLogGroup.html#%24sel%3AlogGroupName%3ADeleteLogGroup%27"><span class="hs-identifier hs-var hs-var">logGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679231977"><span id="local-6989586621679231979"><span class="annot"><span class="annottext">DeleteLogGroup -&gt; DeleteLogGroup -&gt; Bool
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679232142"><span id="local-6989586621679232144"><span class="annot"><span class="annottext">DeleteLogGroup -&gt; DeleteLogGroup -&gt; Bool
 (DeleteLogGroup -&gt; DeleteLogGroup -&gt; Bool)
 -&gt; (DeleteLogGroup -&gt; DeleteLogGroup -&gt; Bool) -&gt; Eq DeleteLogGroup
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -57,7 +57,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteLogGroup -&gt; DeleteLogGroup -&gt; Bool
 == :: DeleteLogGroup -&gt; DeleteLogGroup -&gt; Bool
 $c== :: DeleteLogGroup -&gt; DeleteLogGroup -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679231968"><span id="local-6989586621679231970"><span id="local-6989586621679231972"><span id="local-6989586621679231974"><span class="annot"><span class="annottext">ReadPrec [DeleteLogGroup]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679232133"><span id="local-6989586621679232135"><span id="local-6989586621679232137"><span id="local-6989586621679232139"><span class="annot"><span class="annottext">ReadPrec [DeleteLogGroup]
 ReadPrec DeleteLogGroup
 Int -&gt; ReadS DeleteLogGroup
 ReadS [DeleteLogGroup]
@@ -77,7 +77,7 @@ readList :: ReadS [DeleteLogGroup]
 $creadList :: ReadS [DeleteLogGroup]
 readsPrec :: Int -&gt; ReadS DeleteLogGroup
 $creadsPrec :: Int -&gt; ReadS DeleteLogGroup
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679231961"><span id="local-6989586621679231963"><span id="local-6989586621679231965"><span class="annot"><span class="annottext">Int -&gt; DeleteLogGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679232126"><span id="local-6989586621679232128"><span id="local-6989586621679232130"><span class="annot"><span class="annottext">Int -&gt; DeleteLogGroup -&gt; ShowS
 [DeleteLogGroup] -&gt; ShowS
 DeleteLogGroup -&gt; String
 (Int -&gt; DeleteLogGroup -&gt; ShowS)
@@ -117,12 +117,12 @@ $cfrom :: forall x. DeleteLogGroup -&gt; Rep DeleteLogGroup x
 </span><span id="line-64"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-65"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteLogGroup.html#DeleteLogGroup"><span class="hs-identifier hs-type">DeleteLogGroup</span></a></span><span>
 </span><span id="line-66"></span><span id="newDeleteLogGroup"><span class="annot"><span class="annottext">newDeleteLogGroup :: Text -&gt; DeleteLogGroup
-</span><a href="Network.AWS.CloudWatchLogs.DeleteLogGroup.html#newDeleteLogGroup"><span class="hs-identifier hs-var hs-var">newDeleteLogGroup</span></a></span></span><span> </span><span id="local-6989586621679231956"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679231956"><span class="hs-identifier hs-var">pLogGroupName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudWatchLogs.DeleteLogGroup.html#newDeleteLogGroup"><span class="hs-identifier hs-var hs-var">newDeleteLogGroup</span></a></span></span><span> </span><span id="local-6989586621679232121"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679232121"><span class="hs-identifier hs-var">pLogGroupName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-67"></span><span>  </span><span class="annot"><span class="annottext">DeleteLogGroup' :: Text -&gt; DeleteLogGroup
 </span><a href="Network.AWS.CloudWatchLogs.DeleteLogGroup.html#DeleteLogGroup%27"><span class="hs-identifier hs-type">DeleteLogGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logGroupName:DeleteLogGroup' :: Text
 </span><a href="Network.AWS.CloudWatchLogs.DeleteLogGroup.html#%24sel%3AlogGroupName%3ADeleteLogGroup%27"><span class="hs-identifier hs-var">logGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679231956"><span class="hs-identifier hs-var">pLogGroupName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679232121"><span class="hs-identifier hs-var">pLogGroupName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- | The name of the log group.</span><span>
 </span><span id="line-70"></span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteLogGroup.html#deleteLogGroup_logGroupName"><span class="hs-identifier hs-type">deleteLogGroup_logGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteLogGroup.html#DeleteLogGroup"><span class="hs-identifier hs-type">DeleteLogGroup</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -131,27 +131,27 @@ $cfrom :: forall x. DeleteLogGroup -&gt; Rep DeleteLogGroup x
 -&gt; (DeleteLogGroup -&gt; Text -&gt; DeleteLogGroup)
 -&gt; Lens DeleteLogGroup DeleteLogGroup Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteLogGroup.html#DeleteLogGroup%27"><span class="hs-identifier hs-type">DeleteLogGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231953"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteLogGroup.html#DeleteLogGroup%27"><span class="hs-identifier hs-type">DeleteLogGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232118"><span class="annot"><span class="annottext">Text
 logGroupName :: Text
 $sel:logGroupName:DeleteLogGroup' :: DeleteLogGroup -&gt; Text
-</span><a href="#local-6989586621679231953"><span class="hs-identifier hs-var hs-var">logGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679231953"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231952"><span class="annot"><span class="annottext">s :: DeleteLogGroup
-</span><a href="#local-6989586621679231952"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteLogGroup.html#DeleteLogGroup%27"><span class="hs-identifier hs-type">DeleteLogGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231951"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679231951"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteLogGroup
-</span><a href="#local-6989586621679231952"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logGroupName:DeleteLogGroup' :: Text
+</span><a href="#local-6989586621679232118"><span class="hs-identifier hs-var hs-var">logGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679232118"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232117"><span class="annot"><span class="annottext">s :: DeleteLogGroup
+</span><a href="#local-6989586621679232117"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteLogGroup.html#DeleteLogGroup%27"><span class="hs-identifier hs-type">DeleteLogGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232116"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679232116"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteLogGroup
+</span><a href="#local-6989586621679232117"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logGroupName:DeleteLogGroup' :: Text
 </span><a href="Network.AWS.CloudWatchLogs.DeleteLogGroup.html#%24sel%3AlogGroupName%3ADeleteLogGroup%27"><span class="hs-identifier hs-var">logGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679231951"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteLogGroup.html#DeleteLogGroup"><span class="hs-identifier hs-type">DeleteLogGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679232116"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteLogGroup.html#DeleteLogGroup"><span class="hs-identifier hs-type">DeleteLogGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>
 </span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteLogGroup.html#DeleteLogGroup"><span class="hs-identifier hs-type">DeleteLogGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-74"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-75"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteLogGroup.html#DeleteLogGroup"><span class="hs-identifier hs-type">DeleteLogGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteLogGroup.html#DeleteLogGroupResponse"><span class="hs-identifier hs-type">DeleteLogGroupResponse</span></a></span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621679231947"><span class="annot"><span class="annottext">request :: DeleteLogGroup -&gt; Request DeleteLogGroup
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679232112"><span class="annot"><span class="annottext">request :: DeleteLogGroup -&gt; Request DeleteLogGroup
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteLogGroup -&gt; Request DeleteLogGroup
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudWatchLogs.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-78"></span><span>  </span><span id="local-6989586621679231943"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679232108"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteLogGroup
 -&gt; ClientResponse ClientBody
@@ -175,12 +175,12 @@ AWSResponse a
 DeleteLogGroupResponse
 </span><a href="Network.AWS.CloudWatchLogs.DeleteLogGroup.html#DeleteLogGroupResponse%27"><span class="hs-identifier hs-var">DeleteLogGroupResponse'</span></a></span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679231936"><span id="local-6989586621679231938"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteLogGroup.html#DeleteLogGroup"><span class="hs-identifier hs-type">DeleteLogGroup</span></a></span></span></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679232101"><span id="local-6989586621679232103"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteLogGroup.html#DeleteLogGroup"><span class="hs-identifier hs-type">DeleteLogGroup</span></a></span></span></span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679231933"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteLogGroup.html#DeleteLogGroup"><span class="hs-identifier hs-type">DeleteLogGroup</span></a></span></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679232098"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteLogGroup.html#DeleteLogGroup"><span class="hs-identifier hs-type">DeleteLogGroup</span></a></span></span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteLogGroup.html#DeleteLogGroup"><span class="hs-identifier hs-type">DeleteLogGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679231929"><span class="annot"><span class="annottext">toHeaders :: DeleteLogGroup -&gt; [Header]
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679232094"><span class="annot"><span class="annottext">toHeaders :: DeleteLogGroup -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; DeleteLogGroup -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -207,12 +207,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-97"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-98"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679231919"><span id="local-6989586621679231921"><span id="local-6989586621679231923"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteLogGroup.html#DeleteLogGroup"><span class="hs-identifier hs-type">DeleteLogGroup</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679231917"><span class="annot"><span class="annottext">toJSON :: DeleteLogGroup -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteLogGroup.html#DeleteLogGroup%27"><span class="hs-identifier hs-type">DeleteLogGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231915"><span class="annot"><span class="annottext">Text
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679232084"><span id="local-6989586621679232086"><span id="local-6989586621679232088"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteLogGroup.html#DeleteLogGroup"><span class="hs-identifier hs-type">DeleteLogGroup</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679232082"><span class="annot"><span class="annottext">toJSON :: DeleteLogGroup -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteLogGroup.html#DeleteLogGroup%27"><span class="hs-identifier hs-type">DeleteLogGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232080"><span class="annot"><span class="annottext">Text
 logGroupName :: Text
 $sel:logGroupName:DeleteLogGroup' :: DeleteLogGroup -&gt; Text
-</span><a href="#local-6989586621679231915"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679232080"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-103"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -224,18 +224,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;logGroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679231915"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679232080"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-105"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteLogGroup.html#DeleteLogGroup"><span class="hs-identifier hs-type">DeleteLogGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679231909"><span class="annot"><span class="annottext">toPath :: DeleteLogGroup -&gt; ByteString
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679232074"><span class="annot"><span class="annottext">toPath :: DeleteLogGroup -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteLogGroup -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteLogGroup.html#DeleteLogGroup"><span class="hs-identifier hs-type">DeleteLogGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679231905"><span class="annot"><span class="annottext">toQuery :: DeleteLogGroup -&gt; QueryString
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679232070"><span class="annot"><span class="annottext">toQuery :: DeleteLogGroup -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteLogGroup -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -243,10 +243,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-comment">-- | /See:/ 'newDeleteLogGroupResponse' smart constructor.</span><span>
-</span><span id="line-114"></span><span id="local-6989586621679231902"><span id="local-6989586621679231903"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteLogGroupResponse"><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteLogGroup.html#DeleteLogGroupResponse"><span class="hs-identifier hs-var">DeleteLogGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteLogGroupResponse%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteLogGroup.html#DeleteLogGroupResponse%27"><span class="hs-identifier hs-var">DeleteLogGroupResponse'</span></a></span></span><span>
+</span><span id="line-114"></span><span id="local-6989586621679232067"><span id="local-6989586621679232068"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteLogGroupResponse"><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteLogGroup.html#DeleteLogGroupResponse"><span class="hs-identifier hs-var">DeleteLogGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteLogGroupResponse%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteLogGroup.html#DeleteLogGroupResponse%27"><span class="hs-identifier hs-var">DeleteLogGroupResponse'</span></a></span></span><span>
 </span><span id="line-115"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-116"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-117"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679231898"><span id="local-6989586621679231900"><span class="annot"><span class="annottext">DeleteLogGroupResponse -&gt; DeleteLogGroupResponse -&gt; Bool
+</span><span id="line-117"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679232063"><span id="local-6989586621679232065"><span class="annot"><span class="annottext">DeleteLogGroupResponse -&gt; DeleteLogGroupResponse -&gt; Bool
 (DeleteLogGroupResponse -&gt; DeleteLogGroupResponse -&gt; Bool)
 -&gt; (DeleteLogGroupResponse -&gt; DeleteLogGroupResponse -&gt; Bool)
 -&gt; Eq DeleteLogGroupResponse
@@ -255,7 +255,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteLogGroupResponse -&gt; DeleteLogGroupResponse -&gt; Bool
 == :: DeleteLogGroupResponse -&gt; DeleteLogGroupResponse -&gt; Bool
 $c== :: DeleteLogGroupResponse -&gt; DeleteLogGroupResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679231890"><span id="local-6989586621679231892"><span id="local-6989586621679231894"><span id="local-6989586621679231896"><span class="annot"><span class="annottext">ReadPrec [DeleteLogGroupResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679232055"><span id="local-6989586621679232057"><span id="local-6989586621679232059"><span id="local-6989586621679232061"><span class="annot"><span class="annottext">ReadPrec [DeleteLogGroupResponse]
 ReadPrec DeleteLogGroupResponse
 Int -&gt; ReadS DeleteLogGroupResponse
 ReadS [DeleteLogGroupResponse]
@@ -275,7 +275,7 @@ readList :: ReadS [DeleteLogGroupResponse]
 $creadList :: ReadS [DeleteLogGroupResponse]
 readsPrec :: Int -&gt; ReadS DeleteLogGroupResponse
 $creadsPrec :: Int -&gt; ReadS DeleteLogGroupResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679231884"><span id="local-6989586621679231886"><span id="local-6989586621679231888"><span class="annot"><span class="annottext">Int -&gt; DeleteLogGroupResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679232049"><span id="local-6989586621679232051"><span id="local-6989586621679232053"><span class="annot"><span class="annottext">Int -&gt; DeleteLogGroupResponse -&gt; ShowS
 [DeleteLogGroupResponse] -&gt; ShowS
 DeleteLogGroupResponse -&gt; String
 (Int -&gt; DeleteLogGroupResponse -&gt; ShowS)
@@ -312,5 +312,5 @@ $cfrom :: forall x. DeleteLogGroupResponse -&gt; Rep DeleteLogGroupResponse x
 </span><a href="Network.AWS.CloudWatchLogs.DeleteLogGroup.html#newDeleteLogGroupResponse"><span class="hs-identifier hs-var hs-var">newDeleteLogGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeleteLogGroupResponse
 </span><a href="Network.AWS.CloudWatchLogs.DeleteLogGroup.html#DeleteLogGroupResponse%27"><span class="hs-identifier hs-var">DeleteLogGroupResponse'</span></a></span><span>
 </span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679231880"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteLogGroup.html#DeleteLogGroupResponse"><span class="hs-identifier hs-type">DeleteLogGroupResponse</span></a></span></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679232045"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteLogGroup.html#DeleteLogGroupResponse"><span class="hs-identifier hs-type">DeleteLogGroupResponse</span></a></span></span><span>
 </span><span id="line-128"></span></pre></body></html>

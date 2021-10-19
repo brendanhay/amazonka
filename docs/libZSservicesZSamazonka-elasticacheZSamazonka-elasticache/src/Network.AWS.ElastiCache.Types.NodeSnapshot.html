@@ -27,31 +27,31 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Represents an individual cache node in a snapshot of a cluster.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newNodeSnapshot' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679401600"><span id="local-6989586621679401601"></span></span><span class="hs-keyword">data</span><span> </span><span id="NodeSnapshot"><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#NodeSnapshot"><span class="hs-identifier hs-var">NodeSnapshot</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NodeSnapshot%27"><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#NodeSnapshot%27"><span class="hs-identifier hs-var">NodeSnapshot'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679402124"><span id="local-6989586621679402125"></span></span><span class="hs-keyword">data</span><span> </span><span id="NodeSnapshot"><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#NodeSnapshot"><span class="hs-identifier hs-var">NodeSnapshot</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NodeSnapshot%27"><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#NodeSnapshot%27"><span class="hs-identifier hs-var">NodeSnapshot'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The configuration for the source node group (shard).</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AnodeGroupConfiguration%3ANodeSnapshot%27"><span class="annot"><span class="annottext">NodeSnapshot -&gt; Maybe NodeGroupConfiguration
 </span><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#%24sel%3AnodeGroupConfiguration%3ANodeSnapshot%27"><span class="hs-identifier hs-var hs-var">nodeGroupConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroupConfiguration.html#NodeGroupConfiguration"><span class="hs-identifier hs-type">NodeGroupConfiguration</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The size of the cache on the source cache node.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AcacheSize%3ANodeSnapshot%27"><span class="annot"><span class="annottext">NodeSnapshot -&gt; Maybe Text
-</span><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#%24sel%3AcacheSize%3ANodeSnapshot%27"><span class="hs-identifier hs-var hs-var">cacheSize</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The date and time when the cache node was created in the source cluster.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AcacheNodeCreateTime%3ANodeSnapshot%27"><span class="annot"><span class="annottext">NodeSnapshot -&gt; Maybe ISO8601
+</span><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#%24sel%3AcacheNodeCreateTime%3ANodeSnapshot%27"><span class="hs-identifier hs-var hs-var">cacheNodeCreateTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | A unique identifier for the source cluster.</span><span>
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3AcacheClusterId%3ANodeSnapshot%27"><span class="annot"><span class="annottext">NodeSnapshot -&gt; Maybe Text
 </span><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#%24sel%3AcacheClusterId%3ANodeSnapshot%27"><span class="hs-identifier hs-var hs-var">cacheClusterId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The date and time when the cache node was created in the source cluster.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AcacheNodeCreateTime%3ANodeSnapshot%27"><span class="annot"><span class="annottext">NodeSnapshot -&gt; Maybe ISO8601
-</span><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#%24sel%3AcacheNodeCreateTime%3ANodeSnapshot%27"><span class="hs-identifier hs-var hs-var">cacheNodeCreateTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The date and time when the source node\'s metadata and cache data set</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- was obtained for the snapshot.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3AsnapshotCreateTime%3ANodeSnapshot%27"><span class="annot"><span class="annottext">NodeSnapshot -&gt; Maybe ISO8601
-</span><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#%24sel%3AsnapshotCreateTime%3ANodeSnapshot%27"><span class="hs-identifier hs-var hs-var">snapshotCreateTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | A unique identifier for the source node group (shard).</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3AnodeGroupId%3ANodeSnapshot%27"><span class="annot"><span class="annottext">NodeSnapshot -&gt; Maybe Text
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The cache node identifier for the node in the source cluster.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AcacheNodeId%3ANodeSnapshot%27"><span class="annot"><span class="annottext">NodeSnapshot -&gt; Maybe Text
+</span><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#%24sel%3AcacheNodeId%3ANodeSnapshot%27"><span class="hs-identifier hs-var hs-var">cacheNodeId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | A unique identifier for the source node group (shard).</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AnodeGroupId%3ANodeSnapshot%27"><span class="annot"><span class="annottext">NodeSnapshot -&gt; Maybe Text
 </span><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#%24sel%3AnodeGroupId%3ANodeSnapshot%27"><span class="hs-identifier hs-var hs-var">nodeGroupId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The cache node identifier for the node in the source cluster.</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3AcacheNodeId%3ANodeSnapshot%27"><span class="annot"><span class="annottext">NodeSnapshot -&gt; Maybe Text
-</span><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#%24sel%3AcacheNodeId%3ANodeSnapshot%27"><span class="hs-identifier hs-var hs-var">cacheNodeId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The date and time when the source node\'s metadata and cache data set</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- was obtained for the snapshot.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AsnapshotCreateTime%3ANodeSnapshot%27"><span class="annot"><span class="annottext">NodeSnapshot -&gt; Maybe ISO8601
+</span><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#%24sel%3AsnapshotCreateTime%3ANodeSnapshot%27"><span class="hs-identifier hs-var hs-var">snapshotCreateTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The size of the cache on the source cache node.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AcacheSize%3ANodeSnapshot%27"><span class="annot"><span class="annottext">NodeSnapshot -&gt; Maybe Text
+</span><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#%24sel%3AcacheSize%3ANodeSnapshot%27"><span class="hs-identifier hs-var hs-var">cacheSize</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679401588"><span id="local-6989586621679401590"><span class="annot"><span class="annottext">NodeSnapshot -&gt; NodeSnapshot -&gt; Bool
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679402112"><span id="local-6989586621679402114"><span class="annot"><span class="annottext">NodeSnapshot -&gt; NodeSnapshot -&gt; Bool
 (NodeSnapshot -&gt; NodeSnapshot -&gt; Bool)
 -&gt; (NodeSnapshot -&gt; NodeSnapshot -&gt; Bool) -&gt; Eq NodeSnapshot
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -59,7 +59,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: NodeSnapshot -&gt; NodeSnapshot -&gt; Bool
 == :: NodeSnapshot -&gt; NodeSnapshot -&gt; Bool
 $c== :: NodeSnapshot -&gt; NodeSnapshot -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679401579"><span id="local-6989586621679401581"><span id="local-6989586621679401583"><span id="local-6989586621679401585"><span class="annot"><span class="annottext">ReadPrec [NodeSnapshot]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679402103"><span id="local-6989586621679402105"><span id="local-6989586621679402107"><span id="local-6989586621679402109"><span class="annot"><span class="annottext">ReadPrec [NodeSnapshot]
 ReadPrec NodeSnapshot
 Int -&gt; ReadS NodeSnapshot
 ReadS [NodeSnapshot]
@@ -79,7 +79,7 @@ readList :: ReadS [NodeSnapshot]
 $creadList :: ReadS [NodeSnapshot]
 readsPrec :: Int -&gt; ReadS NodeSnapshot
 $creadsPrec :: Int -&gt; ReadS NodeSnapshot
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679401572"><span id="local-6989586621679401574"><span id="local-6989586621679401576"><span class="annot"><span class="annottext">Int -&gt; NodeSnapshot -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679402096"><span id="local-6989586621679402098"><span id="local-6989586621679402100"><span class="annot"><span class="annottext">Int -&gt; NodeSnapshot -&gt; ShowS
 [NodeSnapshot] -&gt; ShowS
 NodeSnapshot -&gt; String
 (Int -&gt; NodeSnapshot -&gt; ShowS)
@@ -115,28 +115,28 @@ $cfrom :: forall x. NodeSnapshot -&gt; Rep NodeSnapshot x
 </span><span id="line-56"></span><span class="hs-comment">--</span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- 'nodeGroupConfiguration', 'nodeSnapshot_nodeGroupConfiguration' - The configuration for the source node group (shard).</span><span>
 </span><span id="line-58"></span><span class="hs-comment">--</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- 'cacheSize', 'nodeSnapshot_cacheSize' - The size of the cache on the source cache node.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'cacheNodeCreateTime', 'nodeSnapshot_cacheNodeCreateTime' - The date and time when the cache node was created in the source cluster.</span><span>
 </span><span id="line-60"></span><span class="hs-comment">--</span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- 'cacheClusterId', 'nodeSnapshot_cacheClusterId' - A unique identifier for the source cluster.</span><span>
 </span><span id="line-62"></span><span class="hs-comment">--</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- 'cacheNodeCreateTime', 'nodeSnapshot_cacheNodeCreateTime' - The date and time when the cache node was created in the source cluster.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'cacheNodeId', 'nodeSnapshot_cacheNodeId' - The cache node identifier for the node in the source cluster.</span><span>
 </span><span id="line-64"></span><span class="hs-comment">--</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- 'snapshotCreateTime', 'nodeSnapshot_snapshotCreateTime' - The date and time when the source node\'s metadata and cache data set</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- was obtained for the snapshot.</span><span>
-</span><span id="line-67"></span><span class="hs-comment">--</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- 'nodeGroupId', 'nodeSnapshot_nodeGroupId' - A unique identifier for the source node group (shard).</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'nodeGroupId', 'nodeSnapshot_nodeGroupId' - A unique identifier for the source node group (shard).</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'snapshotCreateTime', 'nodeSnapshot_snapshotCreateTime' - The date and time when the source node\'s metadata and cache data set</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- was obtained for the snapshot.</span><span>
 </span><span id="line-69"></span><span class="hs-comment">--</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- 'cacheNodeId', 'nodeSnapshot_cacheNodeId' - The cache node identifier for the node in the source cluster.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'cacheSize', 'nodeSnapshot_cacheSize' - The size of the cache on the source cache node.</span><span>
 </span><span id="line-71"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#newNodeSnapshot"><span class="hs-identifier hs-type">newNodeSnapshot</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#NodeSnapshot"><span class="hs-identifier hs-type">NodeSnapshot</span></a></span><span>
 </span><span id="line-73"></span><span id="newNodeSnapshot"><span class="annot"><span class="annottext">newNodeSnapshot :: NodeSnapshot
 </span><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#newNodeSnapshot"><span class="hs-identifier hs-var hs-var">newNodeSnapshot</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>  </span><span class="annot"><span class="annottext">NodeSnapshot' :: Maybe NodeGroupConfiguration
+-&gt; Maybe ISO8601
+-&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe ISO8601
--&gt; Maybe ISO8601
--&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; NodeSnapshot
 </span><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#NodeSnapshot%27"><span class="hs-identifier hs-type">NodeSnapshot'</span></a></span><span>
@@ -145,28 +145,28 @@ $cfrom :: forall x. NodeSnapshot -&gt; Rep NodeSnapshot x
 </span><span id="line-76"></span><span>        </span><span class="annot"><span class="annottext">Maybe NodeGroupConfiguration
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:cacheSize:NodeSnapshot' :: Maybe Text
-</span><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#%24sel%3AcacheSize%3ANodeSnapshot%27"><span class="hs-identifier hs-var">cacheSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:cacheNodeCreateTime:NodeSnapshot' :: Maybe ISO8601
+</span><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#%24sel%3AcacheNodeCreateTime%3ANodeSnapshot%27"><span class="hs-identifier hs-var">cacheNodeCreateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:cacheClusterId:NodeSnapshot' :: Maybe Text
 </span><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#%24sel%3AcacheClusterId%3ANodeSnapshot%27"><span class="hs-identifier hs-var">cacheClusterId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:cacheNodeCreateTime:NodeSnapshot' :: Maybe ISO8601
-</span><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#%24sel%3AcacheNodeCreateTime%3ANodeSnapshot%27"><span class="hs-identifier hs-var">cacheNodeCreateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:cacheNodeId:NodeSnapshot' :: Maybe Text
+</span><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#%24sel%3AcacheNodeId%3ANodeSnapshot%27"><span class="hs-identifier hs-var">cacheNodeId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:snapshotCreateTime:NodeSnapshot' :: Maybe ISO8601
-</span><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#%24sel%3AsnapshotCreateTime%3ANodeSnapshot%27"><span class="hs-identifier hs-var">snapshotCreateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:nodeGroupId:NodeSnapshot' :: Maybe Text
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:nodeGroupId:NodeSnapshot' :: Maybe Text
 </span><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#%24sel%3AnodeGroupId%3ANodeSnapshot%27"><span class="hs-identifier hs-var">nodeGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:cacheNodeId:NodeSnapshot' :: Maybe Text
-</span><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#%24sel%3AcacheNodeId%3ANodeSnapshot%27"><span class="hs-identifier hs-var">cacheNodeId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:snapshotCreateTime:NodeSnapshot' :: Maybe ISO8601
+</span><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#%24sel%3AsnapshotCreateTime%3ANodeSnapshot%27"><span class="hs-identifier hs-var">snapshotCreateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:cacheSize:NodeSnapshot' :: Maybe Text
+</span><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#%24sel%3AcacheSize%3ANodeSnapshot%27"><span class="hs-identifier hs-var">cacheSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-83"></span><span>    </span><span class="hs-special">}</span><span>
@@ -183,34 +183,51 @@ forall a. Maybe a
      (Maybe NodeGroupConfiguration)
      (Maybe NodeGroupConfiguration)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#NodeSnapshot%27"><span class="hs-identifier hs-type">NodeSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401563"><span class="annot"><span class="annottext">Maybe NodeGroupConfiguration
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#NodeSnapshot%27"><span class="hs-identifier hs-type">NodeSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402087"><span class="annot"><span class="annottext">Maybe NodeGroupConfiguration
 nodeGroupConfiguration :: Maybe NodeGroupConfiguration
 $sel:nodeGroupConfiguration:NodeSnapshot' :: NodeSnapshot -&gt; Maybe NodeGroupConfiguration
-</span><a href="#local-6989586621679401563"><span class="hs-identifier hs-var hs-var">nodeGroupConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NodeGroupConfiguration
-</span><a href="#local-6989586621679401563"><span class="hs-identifier hs-var">nodeGroupConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401562"><span class="annot"><span class="annottext">s :: NodeSnapshot
-</span><a href="#local-6989586621679401562"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#NodeSnapshot%27"><span class="hs-identifier hs-type">NodeSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401561"><span class="annot"><span class="annottext">Maybe NodeGroupConfiguration
-</span><a href="#local-6989586621679401561"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NodeSnapshot
-</span><a href="#local-6989586621679401562"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nodeGroupConfiguration:NodeSnapshot' :: Maybe NodeGroupConfiguration
+</span><a href="#local-6989586621679402087"><span class="hs-identifier hs-var hs-var">nodeGroupConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NodeGroupConfiguration
+</span><a href="#local-6989586621679402087"><span class="hs-identifier hs-var">nodeGroupConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402086"><span class="annot"><span class="annottext">s :: NodeSnapshot
+</span><a href="#local-6989586621679402086"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#NodeSnapshot%27"><span class="hs-identifier hs-type">NodeSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402085"><span class="annot"><span class="annottext">Maybe NodeGroupConfiguration
+</span><a href="#local-6989586621679402085"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NodeSnapshot
+</span><a href="#local-6989586621679402086"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nodeGroupConfiguration:NodeSnapshot' :: Maybe NodeGroupConfiguration
 </span><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#%24sel%3AnodeGroupConfiguration%3ANodeSnapshot%27"><span class="hs-identifier hs-var">nodeGroupConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NodeGroupConfiguration
-</span><a href="#local-6989586621679401561"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#NodeSnapshot"><span class="hs-identifier hs-type">NodeSnapshot</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679402085"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#NodeSnapshot"><span class="hs-identifier hs-type">NodeSnapshot</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- | The size of the cache on the source cache node.</span><span>
-</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#nodeSnapshot_cacheSize"><span class="hs-identifier hs-type">nodeSnapshot_cacheSize</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#NodeSnapshot"><span class="hs-identifier hs-type">NodeSnapshot</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-91"></span><span id="nodeSnapshot_cacheSize"><span class="annot"><span class="annottext">nodeSnapshot_cacheSize :: (Maybe Text -&gt; f (Maybe Text)) -&gt; NodeSnapshot -&gt; f NodeSnapshot
-</span><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#nodeSnapshot_cacheSize"><span class="hs-identifier hs-var hs-var">nodeSnapshot_cacheSize</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NodeSnapshot -&gt; Maybe Text)
--&gt; (NodeSnapshot -&gt; Maybe Text -&gt; NodeSnapshot)
--&gt; Lens NodeSnapshot NodeSnapshot (Maybe Text) (Maybe Text)
+</span><span id="line-89"></span><span class="hs-comment">-- | The date and time when the cache node was created in the source cluster.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#nodeSnapshot_cacheNodeCreateTime"><span class="hs-identifier hs-type">nodeSnapshot_cacheNodeCreateTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#NodeSnapshot"><span class="hs-identifier hs-type">NodeSnapshot</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span id="nodeSnapshot_cacheNodeCreateTime"><span class="annot"><span class="annottext">nodeSnapshot_cacheNodeCreateTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; NodeSnapshot -&gt; f NodeSnapshot
+</span><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#nodeSnapshot_cacheNodeCreateTime"><span class="hs-identifier hs-var hs-var">nodeSnapshot_cacheNodeCreateTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NodeSnapshot -&gt; Maybe ISO8601)
+-&gt; (NodeSnapshot -&gt; Maybe ISO8601 -&gt; NodeSnapshot)
+-&gt; Lens NodeSnapshot NodeSnapshot (Maybe ISO8601) (Maybe ISO8601)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#NodeSnapshot%27"><span class="hs-identifier hs-type">NodeSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401559"><span class="annot"><span class="annottext">Maybe Text
-cacheSize :: Maybe Text
-$sel:cacheSize:NodeSnapshot' :: NodeSnapshot -&gt; Maybe Text
-</span><a href="#local-6989586621679401559"><span class="hs-identifier hs-var hs-var">cacheSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679401559"><span class="hs-identifier hs-var">cacheSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401558"><span class="annot"><span class="annottext">s :: NodeSnapshot
-</span><a href="#local-6989586621679401558"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#NodeSnapshot%27"><span class="hs-identifier hs-type">NodeSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401557"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679401557"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NodeSnapshot
-</span><a href="#local-6989586621679401558"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cacheSize:NodeSnapshot' :: Maybe Text
-</span><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#%24sel%3AcacheSize%3ANodeSnapshot%27"><span class="hs-identifier hs-var">cacheSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679401557"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#NodeSnapshot"><span class="hs-identifier hs-type">NodeSnapshot</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#NodeSnapshot%27"><span class="hs-identifier hs-type">NodeSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402083"><span class="annot"><span class="annottext">Maybe ISO8601
+cacheNodeCreateTime :: Maybe ISO8601
+$sel:cacheNodeCreateTime:NodeSnapshot' :: NodeSnapshot -&gt; Maybe ISO8601
+</span><a href="#local-6989586621679402083"><span class="hs-identifier hs-var hs-var">cacheNodeCreateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679402083"><span class="hs-identifier hs-var">cacheNodeCreateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402082"><span class="annot"><span class="annottext">s :: NodeSnapshot
+</span><a href="#local-6989586621679402082"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#NodeSnapshot%27"><span class="hs-identifier hs-type">NodeSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402081"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679402081"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NodeSnapshot
+</span><a href="#local-6989586621679402082"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cacheNodeCreateTime:NodeSnapshot' :: Maybe ISO8601
+</span><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#%24sel%3AcacheNodeCreateTime%3ANodeSnapshot%27"><span class="hs-identifier hs-var">cacheNodeCreateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679402081"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#NodeSnapshot"><span class="hs-identifier hs-type">NodeSnapshot</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+ -&gt; NodeSnapshot -&gt; f NodeSnapshot)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; NodeSnapshot
+-&gt; f NodeSnapshot
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+-&gt; Iso
+     (Maybe ISO8601) (Maybe ISO8601) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- | A unique identifier for the source cluster.</span><span>
 </span><span id="line-94"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#nodeSnapshot_cacheClusterId"><span class="hs-identifier hs-type">nodeSnapshot_cacheClusterId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#NodeSnapshot"><span class="hs-identifier hs-type">NodeSnapshot</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -219,71 +236,72 @@ $sel:cacheSize:NodeSnapshot' :: NodeSnapshot -&gt; Maybe Text
 -&gt; (NodeSnapshot -&gt; Maybe Text -&gt; NodeSnapshot)
 -&gt; Lens NodeSnapshot NodeSnapshot (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#NodeSnapshot%27"><span class="hs-identifier hs-type">NodeSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401555"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#NodeSnapshot%27"><span class="hs-identifier hs-type">NodeSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402076"><span class="annot"><span class="annottext">Maybe Text
 cacheClusterId :: Maybe Text
 $sel:cacheClusterId:NodeSnapshot' :: NodeSnapshot -&gt; Maybe Text
-</span><a href="#local-6989586621679401555"><span class="hs-identifier hs-var hs-var">cacheClusterId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679401555"><span class="hs-identifier hs-var">cacheClusterId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401554"><span class="annot"><span class="annottext">s :: NodeSnapshot
-</span><a href="#local-6989586621679401554"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#NodeSnapshot%27"><span class="hs-identifier hs-type">NodeSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401553"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679401553"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NodeSnapshot
-</span><a href="#local-6989586621679401554"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cacheClusterId:NodeSnapshot' :: Maybe Text
+</span><a href="#local-6989586621679402076"><span class="hs-identifier hs-var hs-var">cacheClusterId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679402076"><span class="hs-identifier hs-var">cacheClusterId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402075"><span class="annot"><span class="annottext">s :: NodeSnapshot
+</span><a href="#local-6989586621679402075"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#NodeSnapshot%27"><span class="hs-identifier hs-type">NodeSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402074"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679402074"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NodeSnapshot
+</span><a href="#local-6989586621679402075"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cacheClusterId:NodeSnapshot' :: Maybe Text
 </span><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#%24sel%3AcacheClusterId%3ANodeSnapshot%27"><span class="hs-identifier hs-var">cacheClusterId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679401553"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#NodeSnapshot"><span class="hs-identifier hs-type">NodeSnapshot</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679402074"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#NodeSnapshot"><span class="hs-identifier hs-type">NodeSnapshot</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- | The date and time when the cache node was created in the source cluster.</span><span>
-</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#nodeSnapshot_cacheNodeCreateTime"><span class="hs-identifier hs-type">nodeSnapshot_cacheNodeCreateTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#NodeSnapshot"><span class="hs-identifier hs-type">NodeSnapshot</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-99"></span><span id="nodeSnapshot_cacheNodeCreateTime"><span class="annot"><span class="annottext">nodeSnapshot_cacheNodeCreateTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; NodeSnapshot -&gt; f NodeSnapshot
-</span><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#nodeSnapshot_cacheNodeCreateTime"><span class="hs-identifier hs-var hs-var">nodeSnapshot_cacheNodeCreateTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NodeSnapshot -&gt; Maybe ISO8601)
--&gt; (NodeSnapshot -&gt; Maybe ISO8601 -&gt; NodeSnapshot)
--&gt; Lens NodeSnapshot NodeSnapshot (Maybe ISO8601) (Maybe ISO8601)
+</span><span id="line-97"></span><span class="hs-comment">-- | The cache node identifier for the node in the source cluster.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#nodeSnapshot_cacheNodeId"><span class="hs-identifier hs-type">nodeSnapshot_cacheNodeId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#NodeSnapshot"><span class="hs-identifier hs-type">NodeSnapshot</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="nodeSnapshot_cacheNodeId"><span class="annot"><span class="annottext">nodeSnapshot_cacheNodeId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; NodeSnapshot -&gt; f NodeSnapshot
+</span><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#nodeSnapshot_cacheNodeId"><span class="hs-identifier hs-var hs-var">nodeSnapshot_cacheNodeId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NodeSnapshot -&gt; Maybe Text)
+-&gt; (NodeSnapshot -&gt; Maybe Text -&gt; NodeSnapshot)
+-&gt; Lens NodeSnapshot NodeSnapshot (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#NodeSnapshot%27"><span class="hs-identifier hs-type">NodeSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401551"><span class="annot"><span class="annottext">Maybe ISO8601
-cacheNodeCreateTime :: Maybe ISO8601
-$sel:cacheNodeCreateTime:NodeSnapshot' :: NodeSnapshot -&gt; Maybe ISO8601
-</span><a href="#local-6989586621679401551"><span class="hs-identifier hs-var hs-var">cacheNodeCreateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679401551"><span class="hs-identifier hs-var">cacheNodeCreateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401550"><span class="annot"><span class="annottext">s :: NodeSnapshot
-</span><a href="#local-6989586621679401550"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#NodeSnapshot%27"><span class="hs-identifier hs-type">NodeSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401549"><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679401549"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NodeSnapshot
-</span><a href="#local-6989586621679401550"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cacheNodeCreateTime:NodeSnapshot' :: Maybe ISO8601
-</span><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#%24sel%3AcacheNodeCreateTime%3ANodeSnapshot%27"><span class="hs-identifier hs-var">cacheNodeCreateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679401549"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#NodeSnapshot"><span class="hs-identifier hs-type">NodeSnapshot</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
- -&gt; NodeSnapshot -&gt; f NodeSnapshot)
--&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
-    -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
--&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; NodeSnapshot
--&gt; f NodeSnapshot
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
--&gt; Iso
-     (Maybe ISO8601) (Maybe ISO8601) (Maybe UTCTime) (Maybe UTCTime)
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
-forall (a :: Format). Iso' (Time a) UTCTime
-</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#NodeSnapshot%27"><span class="hs-identifier hs-type">NodeSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402072"><span class="annot"><span class="annottext">Maybe Text
+cacheNodeId :: Maybe Text
+$sel:cacheNodeId:NodeSnapshot' :: NodeSnapshot -&gt; Maybe Text
+</span><a href="#local-6989586621679402072"><span class="hs-identifier hs-var hs-var">cacheNodeId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679402072"><span class="hs-identifier hs-var">cacheNodeId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402071"><span class="annot"><span class="annottext">s :: NodeSnapshot
+</span><a href="#local-6989586621679402071"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#NodeSnapshot%27"><span class="hs-identifier hs-type">NodeSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402070"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679402070"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NodeSnapshot
+</span><a href="#local-6989586621679402071"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cacheNodeId:NodeSnapshot' :: Maybe Text
+</span><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#%24sel%3AcacheNodeId%3ANodeSnapshot%27"><span class="hs-identifier hs-var">cacheNodeId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679402070"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#NodeSnapshot"><span class="hs-identifier hs-type">NodeSnapshot</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- | The date and time when the source node\'s metadata and cache data set</span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- was obtained for the snapshot.</span><span>
-</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#nodeSnapshot_snapshotCreateTime"><span class="hs-identifier hs-type">nodeSnapshot_snapshotCreateTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#NodeSnapshot"><span class="hs-identifier hs-type">NodeSnapshot</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-104"></span><span id="nodeSnapshot_snapshotCreateTime"><span class="annot"><span class="annottext">nodeSnapshot_snapshotCreateTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span id="line-101"></span><span class="hs-comment">-- | A unique identifier for the source node group (shard).</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#nodeSnapshot_nodeGroupId"><span class="hs-identifier hs-type">nodeSnapshot_nodeGroupId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#NodeSnapshot"><span class="hs-identifier hs-type">NodeSnapshot</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="nodeSnapshot_nodeGroupId"><span class="annot"><span class="annottext">nodeSnapshot_nodeGroupId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; NodeSnapshot -&gt; f NodeSnapshot
+</span><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#nodeSnapshot_nodeGroupId"><span class="hs-identifier hs-var hs-var">nodeSnapshot_nodeGroupId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NodeSnapshot -&gt; Maybe Text)
+-&gt; (NodeSnapshot -&gt; Maybe Text -&gt; NodeSnapshot)
+-&gt; Lens NodeSnapshot NodeSnapshot (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#NodeSnapshot%27"><span class="hs-identifier hs-type">NodeSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402068"><span class="annot"><span class="annottext">Maybe Text
+nodeGroupId :: Maybe Text
+$sel:nodeGroupId:NodeSnapshot' :: NodeSnapshot -&gt; Maybe Text
+</span><a href="#local-6989586621679402068"><span class="hs-identifier hs-var hs-var">nodeGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679402068"><span class="hs-identifier hs-var">nodeGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402067"><span class="annot"><span class="annottext">s :: NodeSnapshot
+</span><a href="#local-6989586621679402067"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#NodeSnapshot%27"><span class="hs-identifier hs-type">NodeSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402066"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679402066"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NodeSnapshot
+</span><a href="#local-6989586621679402067"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nodeGroupId:NodeSnapshot' :: Maybe Text
+</span><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#%24sel%3AnodeGroupId%3ANodeSnapshot%27"><span class="hs-identifier hs-var">nodeGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679402066"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#NodeSnapshot"><span class="hs-identifier hs-type">NodeSnapshot</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | The date and time when the source node\'s metadata and cache data set</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- was obtained for the snapshot.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#nodeSnapshot_snapshotCreateTime"><span class="hs-identifier hs-type">nodeSnapshot_snapshotCreateTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#NodeSnapshot"><span class="hs-identifier hs-type">NodeSnapshot</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span id="nodeSnapshot_snapshotCreateTime"><span class="annot"><span class="annottext">nodeSnapshot_snapshotCreateTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; NodeSnapshot -&gt; f NodeSnapshot
 </span><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#nodeSnapshot_snapshotCreateTime"><span class="hs-identifier hs-var hs-var">nodeSnapshot_snapshotCreateTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NodeSnapshot -&gt; Maybe ISO8601)
 -&gt; (NodeSnapshot -&gt; Maybe ISO8601 -&gt; NodeSnapshot)
 -&gt; Lens NodeSnapshot NodeSnapshot (Maybe ISO8601) (Maybe ISO8601)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#NodeSnapshot%27"><span class="hs-identifier hs-type">NodeSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401544"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#NodeSnapshot%27"><span class="hs-identifier hs-type">NodeSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402064"><span class="annot"><span class="annottext">Maybe ISO8601
 snapshotCreateTime :: Maybe ISO8601
 $sel:snapshotCreateTime:NodeSnapshot' :: NodeSnapshot -&gt; Maybe ISO8601
-</span><a href="#local-6989586621679401544"><span class="hs-identifier hs-var hs-var">snapshotCreateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679401544"><span class="hs-identifier hs-var">snapshotCreateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401543"><span class="annot"><span class="annottext">s :: NodeSnapshot
-</span><a href="#local-6989586621679401543"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#NodeSnapshot%27"><span class="hs-identifier hs-type">NodeSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401542"><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679401542"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NodeSnapshot
-</span><a href="#local-6989586621679401543"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:snapshotCreateTime:NodeSnapshot' :: Maybe ISO8601
+</span><a href="#local-6989586621679402064"><span class="hs-identifier hs-var hs-var">snapshotCreateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679402064"><span class="hs-identifier hs-var">snapshotCreateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402063"><span class="annot"><span class="annottext">s :: NodeSnapshot
+</span><a href="#local-6989586621679402063"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#NodeSnapshot%27"><span class="hs-identifier hs-type">NodeSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402062"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679402062"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NodeSnapshot
+</span><a href="#local-6989586621679402063"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:snapshotCreateTime:NodeSnapshot' :: Maybe ISO8601
 </span><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#%24sel%3AsnapshotCreateTime%3ANodeSnapshot%27"><span class="hs-identifier hs-var">snapshotCreateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679401542"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#NodeSnapshot"><span class="hs-identifier hs-type">NodeSnapshot</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+</span><a href="#local-6989586621679402062"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#NodeSnapshot"><span class="hs-identifier hs-type">NodeSnapshot</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
  -&gt; NodeSnapshot -&gt; f NodeSnapshot)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
@@ -300,165 +318,147 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- | A unique identifier for the source node group (shard).</span><span>
-</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#nodeSnapshot_nodeGroupId"><span class="hs-identifier hs-type">nodeSnapshot_nodeGroupId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#NodeSnapshot"><span class="hs-identifier hs-type">NodeSnapshot</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-108"></span><span id="nodeSnapshot_nodeGroupId"><span class="annot"><span class="annottext">nodeSnapshot_nodeGroupId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; NodeSnapshot -&gt; f NodeSnapshot
-</span><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#nodeSnapshot_nodeGroupId"><span class="hs-identifier hs-var hs-var">nodeSnapshot_nodeGroupId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NodeSnapshot -&gt; Maybe Text)
--&gt; (NodeSnapshot -&gt; Maybe Text -&gt; NodeSnapshot)
--&gt; Lens NodeSnapshot NodeSnapshot (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#NodeSnapshot%27"><span class="hs-identifier hs-type">NodeSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401540"><span class="annot"><span class="annottext">Maybe Text
-nodeGroupId :: Maybe Text
-$sel:nodeGroupId:NodeSnapshot' :: NodeSnapshot -&gt; Maybe Text
-</span><a href="#local-6989586621679401540"><span class="hs-identifier hs-var hs-var">nodeGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679401540"><span class="hs-identifier hs-var">nodeGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401539"><span class="annot"><span class="annottext">s :: NodeSnapshot
-</span><a href="#local-6989586621679401539"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#NodeSnapshot%27"><span class="hs-identifier hs-type">NodeSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401538"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679401538"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NodeSnapshot
-</span><a href="#local-6989586621679401539"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nodeGroupId:NodeSnapshot' :: Maybe Text
-</span><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#%24sel%3AnodeGroupId%3ANodeSnapshot%27"><span class="hs-identifier hs-var">nodeGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679401538"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#NodeSnapshot"><span class="hs-identifier hs-type">NodeSnapshot</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- | The cache node identifier for the node in the source cluster.</span><span>
-</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#nodeSnapshot_cacheNodeId"><span class="hs-identifier hs-type">nodeSnapshot_cacheNodeId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#NodeSnapshot"><span class="hs-identifier hs-type">NodeSnapshot</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-112"></span><span id="nodeSnapshot_cacheNodeId"><span class="annot"><span class="annottext">nodeSnapshot_cacheNodeId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; NodeSnapshot -&gt; f NodeSnapshot
-</span><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#nodeSnapshot_cacheNodeId"><span class="hs-identifier hs-var hs-var">nodeSnapshot_cacheNodeId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NodeSnapshot -&gt; Maybe Text)
+</span><span id="line-110"></span><span class="hs-comment">-- | The size of the cache on the source cache node.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#nodeSnapshot_cacheSize"><span class="hs-identifier hs-type">nodeSnapshot_cacheSize</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#NodeSnapshot"><span class="hs-identifier hs-type">NodeSnapshot</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="nodeSnapshot_cacheSize"><span class="annot"><span class="annottext">nodeSnapshot_cacheSize :: (Maybe Text -&gt; f (Maybe Text)) -&gt; NodeSnapshot -&gt; f NodeSnapshot
+</span><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#nodeSnapshot_cacheSize"><span class="hs-identifier hs-var hs-var">nodeSnapshot_cacheSize</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NodeSnapshot -&gt; Maybe Text)
 -&gt; (NodeSnapshot -&gt; Maybe Text -&gt; NodeSnapshot)
 -&gt; Lens NodeSnapshot NodeSnapshot (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#NodeSnapshot%27"><span class="hs-identifier hs-type">NodeSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401536"><span class="annot"><span class="annottext">Maybe Text
-cacheNodeId :: Maybe Text
-$sel:cacheNodeId:NodeSnapshot' :: NodeSnapshot -&gt; Maybe Text
-</span><a href="#local-6989586621679401536"><span class="hs-identifier hs-var hs-var">cacheNodeId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679401536"><span class="hs-identifier hs-var">cacheNodeId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401535"><span class="annot"><span class="annottext">s :: NodeSnapshot
-</span><a href="#local-6989586621679401535"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#NodeSnapshot%27"><span class="hs-identifier hs-type">NodeSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401534"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679401534"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NodeSnapshot
-</span><a href="#local-6989586621679401535"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cacheNodeId:NodeSnapshot' :: Maybe Text
-</span><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#%24sel%3AcacheNodeId%3ANodeSnapshot%27"><span class="hs-identifier hs-var">cacheNodeId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679401534"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#NodeSnapshot"><span class="hs-identifier hs-type">NodeSnapshot</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#NodeSnapshot%27"><span class="hs-identifier hs-type">NodeSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402060"><span class="annot"><span class="annottext">Maybe Text
+cacheSize :: Maybe Text
+$sel:cacheSize:NodeSnapshot' :: NodeSnapshot -&gt; Maybe Text
+</span><a href="#local-6989586621679402060"><span class="hs-identifier hs-var hs-var">cacheSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679402060"><span class="hs-identifier hs-var">cacheSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402059"><span class="annot"><span class="annottext">s :: NodeSnapshot
+</span><a href="#local-6989586621679402059"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#NodeSnapshot%27"><span class="hs-identifier hs-type">NodeSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402058"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679402058"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NodeSnapshot
+</span><a href="#local-6989586621679402059"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cacheSize:NodeSnapshot' :: Maybe Text
+</span><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#%24sel%3AcacheSize%3ANodeSnapshot%27"><span class="hs-identifier hs-var">cacheSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679402058"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#NodeSnapshot"><span class="hs-identifier hs-type">NodeSnapshot</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#NodeSnapshot"><span class="hs-identifier hs-type">NodeSnapshot</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679401531"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String NodeSnapshot
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679401529"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679401529"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679402055"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String NodeSnapshot
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679402053"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679402053"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">Maybe NodeGroupConfiguration
+-&gt; Maybe ISO8601
+-&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe ISO8601
--&gt; Maybe ISO8601
--&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; NodeSnapshot
 </span><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#NodeSnapshot%27"><span class="hs-identifier hs-var">NodeSnapshot'</span></a></span><span>
 </span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">(Maybe NodeGroupConfiguration
+ -&gt; Maybe ISO8601
+ -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe ISO8601
- -&gt; Maybe ISO8601
- -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; NodeSnapshot)
 -&gt; Either String (Maybe NodeGroupConfiguration)
 -&gt; Either
      String
-     (Maybe Text
+     (Maybe ISO8601
+      -&gt; Maybe Text
+      -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe ISO8601
-      -&gt; Maybe ISO8601
-      -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; NodeSnapshot)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679401529"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe NodeGroupConfiguration)
+</span><a href="#local-6989586621679402053"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe NodeGroupConfiguration)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NodeGroupConfiguration&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
+  (Maybe ISO8601
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ISO8601
+   -&gt; Maybe Text
+   -&gt; NodeSnapshot)
+-&gt; Either String (Maybe ISO8601)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ISO8601
+      -&gt; Maybe Text
+      -&gt; NodeSnapshot)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679402053"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CacheNodeCreateTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
   (Maybe Text
    -&gt; Maybe Text
-   -&gt; Maybe ISO8601
-   -&gt; Maybe ISO8601
    -&gt; Maybe Text
+   -&gt; Maybe ISO8601
    -&gt; Maybe Text
    -&gt; NodeSnapshot)
 -&gt; Either String (Maybe Text)
 -&gt; Either
      String
      (Maybe Text
-      -&gt; Maybe ISO8601
-      -&gt; Maybe ISO8601
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; NodeSnapshot)
+      -&gt; Maybe Text -&gt; Maybe ISO8601 -&gt; Maybe Text -&gt; NodeSnapshot)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679401529"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;CacheSize&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe Text
-   -&gt; Maybe ISO8601
-   -&gt; Maybe ISO8601
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; NodeSnapshot)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String
-     (Maybe ISO8601
-      -&gt; Maybe ISO8601 -&gt; Maybe Text -&gt; Maybe Text -&gt; NodeSnapshot)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679401529"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679402053"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CacheClusterId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe ISO8601
-   -&gt; Maybe ISO8601 -&gt; Maybe Text -&gt; Maybe Text -&gt; NodeSnapshot)
--&gt; Either String (Maybe ISO8601)
--&gt; Either
-     String (Maybe ISO8601 -&gt; Maybe Text -&gt; Maybe Text -&gt; NodeSnapshot)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679401529"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;CacheNodeCreateTime&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String (Maybe ISO8601 -&gt; Maybe Text -&gt; Maybe Text -&gt; NodeSnapshot)
--&gt; Either String (Maybe ISO8601)
--&gt; Either String (Maybe Text -&gt; Maybe Text -&gt; NodeSnapshot)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679401529"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;SnapshotCreateTime&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Maybe Text -&gt; NodeSnapshot)
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe ISO8601 -&gt; Maybe Text -&gt; NodeSnapshot)
 -&gt; Either String (Maybe Text)
--&gt; Either String (Maybe Text -&gt; NodeSnapshot)
+-&gt; Either
+     String (Maybe Text -&gt; Maybe ISO8601 -&gt; Maybe Text -&gt; NodeSnapshot)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679401529"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679402053"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CacheNodeId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Maybe ISO8601 -&gt; Maybe Text -&gt; NodeSnapshot)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe ISO8601 -&gt; Maybe Text -&gt; NodeSnapshot)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679402053"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NodeGroupId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe ISO8601 -&gt; Maybe Text -&gt; NodeSnapshot)
+-&gt; Either String (Maybe ISO8601)
+-&gt; Either String (Maybe Text -&gt; NodeSnapshot)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679402053"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SnapshotCreateTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; NodeSnapshot)
 -&gt; Either String (Maybe Text) -&gt; Either String NodeSnapshot
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679401529"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679402053"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;CacheNodeId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;CacheSize&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679401523"><span id="local-6989586621679401525"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#NodeSnapshot"><span class="hs-identifier hs-type">NodeSnapshot</span></a></span></span></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679402047"><span id="local-6989586621679402049"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#NodeSnapshot"><span class="hs-identifier hs-type">NodeSnapshot</span></a></span></span></span><span>
 </span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679401520"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#NodeSnapshot"><span class="hs-identifier hs-type">NodeSnapshot</span></a></span></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679402044"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeSnapshot.html#NodeSnapshot"><span class="hs-identifier hs-type">NodeSnapshot</span></a></span></span><span>
 </span><span id="line-128"></span></pre></body></html>

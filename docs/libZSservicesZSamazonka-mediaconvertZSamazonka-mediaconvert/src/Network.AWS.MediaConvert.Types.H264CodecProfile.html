@@ -35,13 +35,13 @@
 </span><span id="line-35"></span><span>
 </span><span id="line-36"></span><span class="hs-comment">-- | H.264 Profile. High 4:2:2 and 10-bit profiles are only available with</span><span>
 </span><span id="line-37"></span><span class="hs-comment">-- the AVC-I License.</span><span>
-</span><span id="line-38"></span><span id="local-6989586621679961148"><span id="local-6989586621679961149"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="H264CodecProfile"><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264CodecProfile.html#H264CodecProfile"><span class="hs-identifier hs-var">H264CodecProfile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="H264CodecProfile%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264CodecProfile.html#H264CodecProfile%27"><span class="hs-identifier hs-var">H264CodecProfile'</span></a></span></span><span>
+</span><span id="line-38"></span><span id="local-6989586621679965772"><span id="local-6989586621679965773"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="H264CodecProfile"><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264CodecProfile.html#H264CodecProfile"><span class="hs-identifier hs-var">H264CodecProfile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="H264CodecProfile%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264CodecProfile.html#H264CodecProfile%27"><span class="hs-identifier hs-var">H264CodecProfile'</span></a></span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromH264CodecProfile"><span class="annot"><span class="annottext">H264CodecProfile -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.H264CodecProfile.html#fromH264CodecProfile"><span class="hs-identifier hs-var hs-var">fromH264CodecProfile</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-40"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679961140"><span id="local-6989586621679961142"><span id="local-6989586621679961144"><span class="annot"><span class="annottext">Int -&gt; H264CodecProfile -&gt; ShowS
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679965764"><span id="local-6989586621679965766"><span id="local-6989586621679965768"><span class="annot"><span class="annottext">Int -&gt; H264CodecProfile -&gt; ShowS
 [H264CodecProfile] -&gt; ShowS
 H264CodecProfile -&gt; String
 (Int -&gt; H264CodecProfile -&gt; ShowS)
@@ -57,7 +57,7 @@ $cshow :: H264CodecProfile -&gt; String
 showsPrec :: Int -&gt; H264CodecProfile -&gt; ShowS
 $cshowsPrec :: Int -&gt; H264CodecProfile -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679961131"><span id="local-6989586621679961133"><span id="local-6989586621679961135"><span id="local-6989586621679961137"><span class="annot"><span class="annottext">ReadPrec [H264CodecProfile]
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679965755"><span id="local-6989586621679965757"><span id="local-6989586621679965759"><span id="local-6989586621679965761"><span class="annot"><span class="annottext">ReadPrec [H264CodecProfile]
 ReadPrec H264CodecProfile
 Int -&gt; ReadS H264CodecProfile
 ReadS [H264CodecProfile]
@@ -78,7 +78,7 @@ $creadList :: ReadS [H264CodecProfile]
 readsPrec :: Int -&gt; ReadS H264CodecProfile
 $creadsPrec :: Int -&gt; ReadS H264CodecProfile
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679961126"><span id="local-6989586621679961128"><span class="annot"><span class="annottext">H264CodecProfile -&gt; H264CodecProfile -&gt; Bool
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679965750"><span id="local-6989586621679965752"><span class="annot"><span class="annottext">H264CodecProfile -&gt; H264CodecProfile -&gt; Bool
 (H264CodecProfile -&gt; H264CodecProfile -&gt; Bool)
 -&gt; (H264CodecProfile -&gt; H264CodecProfile -&gt; Bool)
 -&gt; Eq H264CodecProfile
@@ -88,7 +88,7 @@ $c/= :: H264CodecProfile -&gt; H264CodecProfile -&gt; Bool
 == :: H264CodecProfile -&gt; H264CodecProfile -&gt; Bool
 $c== :: H264CodecProfile -&gt; H264CodecProfile -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679961110"><span id="local-6989586621679961112"><span id="local-6989586621679961114"><span id="local-6989586621679961116"><span id="local-6989586621679961118"><span id="local-6989586621679961120"><span id="local-6989586621679961122"><span class="annot"><span class="annottext">Eq H264CodecProfile
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679965734"><span id="local-6989586621679965736"><span id="local-6989586621679965738"><span id="local-6989586621679965740"><span id="local-6989586621679965742"><span id="local-6989586621679965744"><span id="local-6989586621679965746"><span class="annot"><span class="annottext">Eq H264CodecProfile
 Eq H264CodecProfile
 -&gt; (H264CodecProfile -&gt; H264CodecProfile -&gt; Ordering)
 -&gt; (H264CodecProfile -&gt; H264CodecProfile -&gt; Bool)
@@ -139,7 +139,7 @@ $cfrom :: forall x. H264CodecProfile -&gt; Rep H264CodecProfile x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-48"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679961102"><span id="local-6989586621679961104"><span class="annot"><span class="annottext">Int -&gt; H264CodecProfile -&gt; Int
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679965726"><span id="local-6989586621679965728"><span class="annot"><span class="annottext">Int -&gt; H264CodecProfile -&gt; Int
 H264CodecProfile -&gt; Int
 (Int -&gt; H264CodecProfile -&gt; Int)
 -&gt; (H264CodecProfile -&gt; Int) -&gt; Hashable H264CodecProfile
@@ -149,51 +149,51 @@ $chash :: H264CodecProfile -&gt; Int
 hashWithSalt :: Int -&gt; H264CodecProfile -&gt; Int
 $chashWithSalt :: Int -&gt; H264CodecProfile -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679961099"><span class="annot"><span class="annottext">H264CodecProfile -&gt; ()
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679965723"><span class="annot"><span class="annottext">H264CodecProfile -&gt; ()
 (H264CodecProfile -&gt; ()) -&gt; NFData H264CodecProfile
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: H264CodecProfile -&gt; ()
 $crnf :: H264CodecProfile -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679961096"><span class="annot"><span class="annottext">Text -&gt; Either String H264CodecProfile
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679965720"><span class="annot"><span class="annottext">Text -&gt; Either String H264CodecProfile
 (Text -&gt; Either String H264CodecProfile)
 -&gt; FromText H264CodecProfile
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String H264CodecProfile
 $cfromText :: Text -&gt; Either String H264CodecProfile
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679961093"><span class="annot"><span class="annottext">H264CodecProfile -&gt; Text
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679965717"><span class="annot"><span class="annottext">H264CodecProfile -&gt; Text
 (H264CodecProfile -&gt; Text) -&gt; ToText H264CodecProfile
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: H264CodecProfile -&gt; Text
 $ctoText :: H264CodecProfile -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679961090"><span class="annot"><span class="annottext">H264CodecProfile -&gt; ByteString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679965714"><span class="annot"><span class="annottext">H264CodecProfile -&gt; ByteString
 (H264CodecProfile -&gt; ByteString) -&gt; ToByteString H264CodecProfile
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: H264CodecProfile -&gt; ByteString
 $ctoBS :: H264CodecProfile -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679961087"><span class="annot"><span class="annottext">H264CodecProfile -&gt; ByteStringBuilder
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679965711"><span class="annot"><span class="annottext">H264CodecProfile -&gt; ByteStringBuilder
 (H264CodecProfile -&gt; ByteStringBuilder) -&gt; ToLog H264CodecProfile
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: H264CodecProfile -&gt; ByteStringBuilder
 $cbuild :: H264CodecProfile -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679961084"><span class="annot"><span class="annottext">HeaderName -&gt; H264CodecProfile -&gt; [Header]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679965708"><span class="annot"><span class="annottext">HeaderName -&gt; H264CodecProfile -&gt; [Header]
 (HeaderName -&gt; H264CodecProfile -&gt; [Header])
 -&gt; ToHeader H264CodecProfile
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; H264CodecProfile -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; H264CodecProfile -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679961081"><span class="annot"><span class="annottext">H264CodecProfile -&gt; QueryString
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679965705"><span class="annot"><span class="annottext">H264CodecProfile -&gt; QueryString
 (H264CodecProfile -&gt; QueryString) -&gt; ToQuery H264CodecProfile
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: H264CodecProfile -&gt; QueryString
 $ctoQuery :: H264CodecProfile -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679961076"><span id="local-6989586621679961078"><span class="annot"><span class="annottext">Value -&gt; Parser [H264CodecProfile]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679965700"><span id="local-6989586621679965702"><span class="annot"><span class="annottext">Value -&gt; Parser [H264CodecProfile]
 Value -&gt; Parser H264CodecProfile
 (Value -&gt; Parser H264CodecProfile)
 -&gt; (Value -&gt; Parser [H264CodecProfile])
@@ -205,7 +205,7 @@ $cparseJSONList :: Value -&gt; Parser [H264CodecProfile]
 parseJSON :: Value -&gt; Parser H264CodecProfile
 $cparseJSON :: Value -&gt; Parser H264CodecProfile
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679961071"><span id="local-6989586621679961073"><span class="annot"><span class="annottext">FromJSONKeyFunction [H264CodecProfile]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679965695"><span id="local-6989586621679965697"><span class="annot"><span class="annottext">FromJSONKeyFunction [H264CodecProfile]
 FromJSONKeyFunction H264CodecProfile
 FromJSONKeyFunction H264CodecProfile
 -&gt; FromJSONKeyFunction [H264CodecProfile]
@@ -217,7 +217,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [H264CodecProfile]
 fromJSONKey :: FromJSONKeyFunction H264CodecProfile
 $cfromJSONKey :: FromJSONKeyFunction H264CodecProfile
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679961062"><span id="local-6989586621679961064"><span id="local-6989586621679961066"><span id="local-6989586621679961068"><span class="annot"><span class="annottext">[H264CodecProfile] -&gt; Encoding
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679965686"><span id="local-6989586621679965688"><span id="local-6989586621679965690"><span id="local-6989586621679965692"><span class="annot"><span class="annottext">[H264CodecProfile] -&gt; Encoding
 [H264CodecProfile] -&gt; Value
 H264CodecProfile -&gt; Encoding
 H264CodecProfile -&gt; Value
@@ -241,7 +241,7 @@ $ctoEncoding :: H264CodecProfile -&gt; Encoding
 toJSON :: H264CodecProfile -&gt; Value
 $ctoJSON :: H264CodecProfile -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679961057"><span id="local-6989586621679961059"><span class="annot"><span class="annottext">ToJSONKeyFunction [H264CodecProfile]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679965681"><span id="local-6989586621679965683"><span class="annot"><span class="annottext">ToJSONKeyFunction [H264CodecProfile]
 ToJSONKeyFunction H264CodecProfile
 ToJSONKeyFunction H264CodecProfile
 -&gt; ToJSONKeyFunction [H264CodecProfile]
@@ -253,14 +253,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [H264CodecProfile]
 toJSONKey :: ToJSONKeyFunction H264CodecProfile
 $ctoJSONKey :: ToJSONKeyFunction H264CodecProfile
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679961054"><span class="annot"><span class="annottext">[Node] -&gt; Either String H264CodecProfile
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679965678"><span class="annot"><span class="annottext">[Node] -&gt; Either String H264CodecProfile
 ([Node] -&gt; Either String H264CodecProfile)
 -&gt; FromXML H264CodecProfile
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String H264CodecProfile
 $cparseXML :: [Node] -&gt; Either String H264CodecProfile
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679961051"><span class="annot"><span class="annottext">H264CodecProfile -&gt; XML
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679965675"><span class="annot"><span class="annottext">H264CodecProfile -&gt; XML
 (H264CodecProfile -&gt; XML) -&gt; ToXML H264CodecProfile
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: H264CodecProfile -&gt; XML

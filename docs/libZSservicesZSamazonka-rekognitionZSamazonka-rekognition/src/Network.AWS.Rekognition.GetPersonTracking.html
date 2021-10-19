@@ -71,9 +71,9 @@
 </span><span id="line-71"></span><span>    </span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#newGetPersonTrackingResponse"><span class="hs-identifier">newGetPersonTrackingResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-72"></span><span>
 </span><span id="line-73"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-74"></span><span>    </span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#getPersonTrackingResponse_statusMessage"><span class="hs-identifier">getPersonTrackingResponse_statusMessage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#getPersonTrackingResponse_nextToken"><span class="hs-identifier">getPersonTrackingResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-75"></span><span>    </span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#getPersonTrackingResponse_videoMetadata"><span class="hs-identifier">getPersonTrackingResponse_videoMetadata</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-76"></span><span>    </span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#getPersonTrackingResponse_nextToken"><span class="hs-identifier">getPersonTrackingResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#getPersonTrackingResponse_statusMessage"><span class="hs-identifier">getPersonTrackingResponse_statusMessage</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-77"></span><span>    </span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#getPersonTrackingResponse_jobStatus"><span class="hs-identifier">getPersonTrackingResponse_jobStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-78"></span><span>    </span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#getPersonTrackingResponse_persons"><span class="hs-identifier">getPersonTrackingResponse_persons</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-79"></span><span>    </span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#getPersonTrackingResponse_httpStatus"><span class="hs-identifier">getPersonTrackingResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
@@ -88,7 +88,7 @@
 </span><span id="line-88"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- | /See:/ 'newGetPersonTracking' smart constructor.</span><span>
-</span><span id="line-91"></span><span id="local-6989586621679342018"><span id="local-6989586621679342019"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetPersonTracking"><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTracking"><span class="hs-identifier hs-var">GetPersonTracking</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetPersonTracking%27"><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTracking%27"><span class="hs-identifier hs-var">GetPersonTracking'</span></a></span></span><span>
+</span><span id="line-91"></span><span id="local-6989586621679342329"><span id="local-6989586621679342330"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetPersonTracking"><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTracking"><span class="hs-identifier hs-var">GetPersonTracking</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetPersonTracking%27"><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTracking%27"><span class="hs-identifier hs-var">GetPersonTracking'</span></a></span></span><span>
 </span><span id="line-92"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If the previous response was incomplete (because there are more persons</span><span>
 </span><span id="line-93"></span><span>    </span><span class="hs-comment">-- to retrieve), Amazon Rekognition Video returns a pagination token in the</span><span>
 </span><span id="line-94"></span><span>    </span><span class="hs-comment">-- response. You can use this pagination token to retrieve the next set of</span><span>
@@ -112,7 +112,7 @@
 </span><span id="line-109"></span><span>    </span><span id="%24sel%3AjobId%3AGetPersonTracking%27"><span class="annot"><span class="annottext">GetPersonTracking -&gt; Text
 </span><a href="Network.AWS.Rekognition.GetPersonTracking.html#%24sel%3AjobId%3AGetPersonTracking%27"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-110"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-111"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679342009"><span id="local-6989586621679342011"><span class="annot"><span class="annottext">GetPersonTracking -&gt; GetPersonTracking -&gt; Bool
+</span><span id="line-111"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679342320"><span id="local-6989586621679342322"><span class="annot"><span class="annottext">GetPersonTracking -&gt; GetPersonTracking -&gt; Bool
 (GetPersonTracking -&gt; GetPersonTracking -&gt; Bool)
 -&gt; (GetPersonTracking -&gt; GetPersonTracking -&gt; Bool)
 -&gt; Eq GetPersonTracking
@@ -121,7 +121,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetPersonTracking -&gt; GetPersonTracking -&gt; Bool
 == :: GetPersonTracking -&gt; GetPersonTracking -&gt; Bool
 $c== :: GetPersonTracking -&gt; GetPersonTracking -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679342000"><span id="local-6989586621679342002"><span id="local-6989586621679342004"><span id="local-6989586621679342006"><span class="annot"><span class="annottext">ReadPrec [GetPersonTracking]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679342311"><span id="local-6989586621679342313"><span id="local-6989586621679342315"><span id="local-6989586621679342317"><span class="annot"><span class="annottext">ReadPrec [GetPersonTracking]
 ReadPrec GetPersonTracking
 Int -&gt; ReadS GetPersonTracking
 ReadS [GetPersonTracking]
@@ -141,7 +141,7 @@ readList :: ReadS [GetPersonTracking]
 $creadList :: ReadS [GetPersonTracking]
 readsPrec :: Int -&gt; ReadS GetPersonTracking
 $creadsPrec :: Int -&gt; ReadS GetPersonTracking
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679341993"><span id="local-6989586621679341995"><span id="local-6989586621679341997"><span class="annot"><span class="annottext">Int -&gt; GetPersonTracking -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679342304"><span id="local-6989586621679342306"><span id="local-6989586621679342308"><span class="annot"><span class="annottext">Int -&gt; GetPersonTracking -&gt; ShowS
 [GetPersonTracking] -&gt; ShowS
 GetPersonTracking -&gt; String
 (Int -&gt; GetPersonTracking -&gt; ShowS)
@@ -197,8 +197,8 @@ $cfrom :: forall x. GetPersonTracking -&gt; Rep GetPersonTracking x
 </span><span id="line-140"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-141"></span><span>  </span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTracking"><span class="hs-identifier hs-type">GetPersonTracking</span></a></span><span>
 </span><span id="line-142"></span><span id="newGetPersonTracking"><span class="annot"><span class="annottext">newGetPersonTracking :: Text -&gt; GetPersonTracking
-</span><a href="Network.AWS.Rekognition.GetPersonTracking.html#newGetPersonTracking"><span class="hs-identifier hs-var hs-var">newGetPersonTracking</span></a></span></span><span> </span><span id="local-6989586621679341988"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679341988"><span class="hs-identifier hs-var">pJobId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Rekognition.GetPersonTracking.html#newGetPersonTracking"><span class="hs-identifier hs-var hs-var">newGetPersonTracking</span></a></span></span><span> </span><span id="local-6989586621679342299"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679342299"><span class="hs-identifier hs-var">pJobId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-143"></span><span>  </span><span class="annot"><span class="annottext">GetPersonTracking' :: Maybe Text
 -&gt; Maybe Natural
 -&gt; Maybe PersonTrackingSortBy
@@ -219,7 +219,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-147"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobId:GetPersonTracking' :: Text
 </span><a href="Network.AWS.Rekognition.GetPersonTracking.html#%24sel%3AjobId%3AGetPersonTracking%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679341988"><span class="hs-identifier hs-var">pJobId_</span></a></span><span>
+</span><a href="#local-6989586621679342299"><span class="hs-identifier hs-var">pJobId_</span></a></span><span>
 </span><span id="line-148"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-comment">-- | If the previous response was incomplete (because there are more persons</span><span>
@@ -234,16 +234,16 @@ forall a. Maybe a
 -&gt; Lens
      GetPersonTracking GetPersonTracking (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTracking%27"><span class="hs-identifier hs-type">GetPersonTracking'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341985"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTracking%27"><span class="hs-identifier hs-type">GetPersonTracking'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342296"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:GetPersonTracking' :: GetPersonTracking -&gt; Maybe Text
-</span><a href="#local-6989586621679341985"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679341985"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341984"><span class="annot"><span class="annottext">s :: GetPersonTracking
-</span><a href="#local-6989586621679341984"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTracking%27"><span class="hs-identifier hs-type">GetPersonTracking'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341983"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679341983"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPersonTracking
-</span><a href="#local-6989586621679341984"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetPersonTracking' :: Maybe Text
+</span><a href="#local-6989586621679342296"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679342296"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342295"><span class="annot"><span class="annottext">s :: GetPersonTracking
+</span><a href="#local-6989586621679342295"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTracking%27"><span class="hs-identifier hs-type">GetPersonTracking'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342294"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679342294"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPersonTracking
+</span><a href="#local-6989586621679342295"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetPersonTracking' :: Maybe Text
 </span><a href="Network.AWS.Rekognition.GetPersonTracking.html#%24sel%3AnextToken%3AGetPersonTracking%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679341983"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTracking"><span class="hs-identifier hs-type">GetPersonTracking</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679342294"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTracking"><span class="hs-identifier hs-type">GetPersonTracking</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-comment">-- | Maximum number of results to return per paginated call. The largest</span><span>
 </span><span id="line-158"></span><span class="hs-comment">-- value you can specify is 1000. If you specify a value greater than 1000,</span><span>
@@ -256,16 +256,16 @@ $sel:nextToken:GetPersonTracking' :: GetPersonTracking -&gt; Maybe Text
 -&gt; Lens
      GetPersonTracking GetPersonTracking (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTracking%27"><span class="hs-identifier hs-type">GetPersonTracking'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341982"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTracking%27"><span class="hs-identifier hs-type">GetPersonTracking'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342293"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:GetPersonTracking' :: GetPersonTracking -&gt; Maybe Natural
-</span><a href="#local-6989586621679341982"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679341982"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341981"><span class="annot"><span class="annottext">s :: GetPersonTracking
-</span><a href="#local-6989586621679341981"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTracking%27"><span class="hs-identifier hs-type">GetPersonTracking'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341980"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679341980"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPersonTracking
-</span><a href="#local-6989586621679341981"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:GetPersonTracking' :: Maybe Natural
+</span><a href="#local-6989586621679342293"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679342293"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342292"><span class="annot"><span class="annottext">s :: GetPersonTracking
+</span><a href="#local-6989586621679342292"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTracking%27"><span class="hs-identifier hs-type">GetPersonTracking'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342291"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679342291"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPersonTracking
+</span><a href="#local-6989586621679342292"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:GetPersonTracking' :: Maybe Natural
 </span><a href="Network.AWS.Rekognition.GetPersonTracking.html#%24sel%3AmaxResults%3AGetPersonTracking%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679341980"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTracking"><span class="hs-identifier hs-type">GetPersonTracking</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679342291"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTracking"><span class="hs-identifier hs-type">GetPersonTracking</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-162"></span><span>
 </span><span id="line-163"></span><span class="hs-comment">-- | Sort to use for elements in the @Persons@ array. Use @TIMESTAMP@ to sort</span><span>
 </span><span id="line-164"></span><span class="hs-comment">-- array elements by the time persons are detected. Use @INDEX@ to sort by</span><span>
@@ -284,16 +284,16 @@ $sel:maxResults:GetPersonTracking' :: GetPersonTracking -&gt; Maybe Natural
      (Maybe PersonTrackingSortBy)
      (Maybe PersonTrackingSortBy)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTracking%27"><span class="hs-identifier hs-type">GetPersonTracking'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341979"><span class="annot"><span class="annottext">Maybe PersonTrackingSortBy
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTracking%27"><span class="hs-identifier hs-type">GetPersonTracking'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342290"><span class="annot"><span class="annottext">Maybe PersonTrackingSortBy
 sortBy :: Maybe PersonTrackingSortBy
 $sel:sortBy:GetPersonTracking' :: GetPersonTracking -&gt; Maybe PersonTrackingSortBy
-</span><a href="#local-6989586621679341979"><span class="hs-identifier hs-var hs-var">sortBy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PersonTrackingSortBy
-</span><a href="#local-6989586621679341979"><span class="hs-identifier hs-var">sortBy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341978"><span class="annot"><span class="annottext">s :: GetPersonTracking
-</span><a href="#local-6989586621679341978"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTracking%27"><span class="hs-identifier hs-type">GetPersonTracking'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341977"><span class="annot"><span class="annottext">Maybe PersonTrackingSortBy
-</span><a href="#local-6989586621679341977"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPersonTracking
-</span><a href="#local-6989586621679341978"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortBy:GetPersonTracking' :: Maybe PersonTrackingSortBy
+</span><a href="#local-6989586621679342290"><span class="hs-identifier hs-var hs-var">sortBy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PersonTrackingSortBy
+</span><a href="#local-6989586621679342290"><span class="hs-identifier hs-var">sortBy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342289"><span class="annot"><span class="annottext">s :: GetPersonTracking
+</span><a href="#local-6989586621679342289"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTracking%27"><span class="hs-identifier hs-type">GetPersonTracking'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342288"><span class="annot"><span class="annottext">Maybe PersonTrackingSortBy
+</span><a href="#local-6989586621679342288"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPersonTracking
+</span><a href="#local-6989586621679342289"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortBy:GetPersonTracking' :: Maybe PersonTrackingSortBy
 </span><a href="Network.AWS.Rekognition.GetPersonTracking.html#%24sel%3AsortBy%3AGetPersonTracking%27"><span class="hs-identifier hs-var">sortBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PersonTrackingSortBy
-</span><a href="#local-6989586621679341977"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTracking"><span class="hs-identifier hs-type">GetPersonTracking</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679342288"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTracking"><span class="hs-identifier hs-type">GetPersonTracking</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>
 </span><span id="line-171"></span><span class="hs-comment">-- | The identifier for a job that tracks persons in a video. You get the</span><span>
 </span><span id="line-172"></span><span class="hs-comment">-- @JobId@ from a call to @StartPersonTracking@.</span><span>
@@ -303,27 +303,27 @@ $sel:sortBy:GetPersonTracking' :: GetPersonTracking -&gt; Maybe PersonTrackingSo
 -&gt; (GetPersonTracking -&gt; Text -&gt; GetPersonTracking)
 -&gt; Lens GetPersonTracking GetPersonTracking Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTracking%27"><span class="hs-identifier hs-type">GetPersonTracking'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341976"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTracking%27"><span class="hs-identifier hs-type">GetPersonTracking'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342287"><span class="annot"><span class="annottext">Text
 jobId :: Text
 $sel:jobId:GetPersonTracking' :: GetPersonTracking -&gt; Text
-</span><a href="#local-6989586621679341976"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679341976"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341975"><span class="annot"><span class="annottext">s :: GetPersonTracking
-</span><a href="#local-6989586621679341975"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTracking%27"><span class="hs-identifier hs-type">GetPersonTracking'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341974"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679341974"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPersonTracking
-</span><a href="#local-6989586621679341975"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:GetPersonTracking' :: Text
+</span><a href="#local-6989586621679342287"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679342287"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342286"><span class="annot"><span class="annottext">s :: GetPersonTracking
+</span><a href="#local-6989586621679342286"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTracking%27"><span class="hs-identifier hs-type">GetPersonTracking'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342285"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679342285"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPersonTracking
+</span><a href="#local-6989586621679342286"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:GetPersonTracking' :: Text
 </span><a href="Network.AWS.Rekognition.GetPersonTracking.html#%24sel%3AjobId%3AGetPersonTracking%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679341974"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTracking"><span class="hs-identifier hs-type">GetPersonTracking</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679342285"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTracking"><span class="hs-identifier hs-type">GetPersonTracking</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-175"></span><span>
 </span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTracking"><span class="hs-identifier hs-type">GetPersonTracking</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-177"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-178"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTracking"><span class="hs-identifier hs-type">GetPersonTracking</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-179"></span><span>      </span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTrackingResponse"><span class="hs-identifier hs-type">GetPersonTrackingResponse</span></a></span><span>
-</span><span id="line-180"></span><span>  </span><span id="local-6989586621679341970"><span class="annot"><span class="annottext">request :: GetPersonTracking -&gt; Request GetPersonTracking
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621679342281"><span class="annot"><span class="annottext">request :: GetPersonTracking -&gt; Request GetPersonTracking
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetPersonTracking -&gt; Request GetPersonTracking
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Rekognition.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-181"></span><span>  </span><span id="local-6989586621679341966"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679342277"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetPersonTracking
 -&gt; ClientResponse ClientBody
@@ -349,10 +349,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-183"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679341963"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679341963"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679341962"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679341962"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679341961"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679341961"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-183"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679342274"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679342274"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679342273"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679342273"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679342272"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679342272"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-184"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe VideoMetadata
 -&gt; Maybe Text
@@ -379,10 +379,10 @@ MonadResource m =&gt;
       -&gt; GetPersonTrackingResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679341961"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679342272"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;StatusMessage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-186"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
   (Maybe VideoMetadata
@@ -401,7 +401,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
       -&gt; GetPersonTrackingResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679341961"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe VideoMetadata)
+</span><a href="#local-6989586621679342272"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe VideoMetadata)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;VideoMetadata&quot;</span></span><span class="hs-special">)</span><span>
@@ -419,10 +419,10 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
       -&gt; Maybe [PersonDetection] -&gt; Int -&gt; GetPersonTrackingResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679341961"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679342272"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;StatusMessage&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-188"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
   (Maybe VideoJobStatus
@@ -433,7 +433,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
      (Maybe [PersonDetection] -&gt; Int -&gt; GetPersonTrackingResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679341961"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe VideoJobStatus)
+</span><a href="#local-6989586621679342272"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe VideoJobStatus)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;JobStatus&quot;</span></span><span class="hs-special">)</span><span>
@@ -444,7 +444,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; GetPersonTrackingResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679341961"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [PersonDetection]))
+</span><a href="#local-6989586621679342272"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [PersonDetection]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Persons&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [PersonDetection]))
@@ -462,15 +462,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679341963"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679342274"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-191"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-192"></span><span>
-</span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679341952"><span id="local-6989586621679341954"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTracking"><span class="hs-identifier hs-type">GetPersonTracking</span></a></span></span></span><span>
+</span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679342263"><span id="local-6989586621679342265"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTracking"><span class="hs-identifier hs-type">GetPersonTracking</span></a></span></span></span><span>
 </span><span id="line-194"></span><span>
-</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679341949"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTracking"><span class="hs-identifier hs-type">GetPersonTracking</span></a></span></span><span>
+</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679342260"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTracking"><span class="hs-identifier hs-type">GetPersonTracking</span></a></span></span><span>
 </span><span id="line-196"></span><span>
 </span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTracking"><span class="hs-identifier hs-type">GetPersonTracking</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-198"></span><span>  </span><span id="local-6989586621679341945"><span class="annot"><span class="annottext">toHeaders :: GetPersonTracking -&gt; ResponseHeaders
+</span><span id="line-198"></span><span>  </span><span id="local-6989586621679342256"><span class="annot"><span class="annottext">toHeaders :: GetPersonTracking -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-199"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetPersonTracking -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -497,9 +497,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-209"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-210"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-211"></span><span>
-</span><span id="line-212"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679341935"><span id="local-6989586621679341937"><span id="local-6989586621679341939"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTracking"><span class="hs-identifier hs-type">GetPersonTracking</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-213"></span><span>  </span><span id="local-6989586621679341933"><span class="annot"><span class="annottext">toJSON :: GetPersonTracking -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTracking%27"><span class="hs-identifier hs-type">GetPersonTracking'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341928"><span id="local-6989586621679341929"><span id="local-6989586621679341930"><span id="local-6989586621679341931"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-212"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679342246"><span id="local-6989586621679342248"><span id="local-6989586621679342250"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTracking"><span class="hs-identifier hs-type">GetPersonTracking</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-213"></span><span>  </span><span id="local-6989586621679342244"><span class="annot"><span class="annottext">toJSON :: GetPersonTracking -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTracking%27"><span class="hs-identifier hs-type">GetPersonTracking'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342239"><span id="local-6989586621679342240"><span id="local-6989586621679342241"><span id="local-6989586621679342242"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Maybe PersonTrackingSortBy
 Text
@@ -511,7 +511,7 @@ $sel:jobId:GetPersonTracking' :: GetPersonTracking -&gt; Text
 $sel:sortBy:GetPersonTracking' :: GetPersonTracking -&gt; Maybe PersonTrackingSortBy
 $sel:maxResults:GetPersonTracking' :: GetPersonTracking -&gt; Maybe Natural
 $sel:nextToken:GetPersonTracking' :: GetPersonTracking -&gt; Maybe Text
-</span><a href="#local-6989586621679341928"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679342239"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-214"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-215"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -523,14 +523,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679341931"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679342242"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-217"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679341930"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679342241"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-218"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SortBy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; PersonTrackingSortBy -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -538,26 +538,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe PersonTrackingSortBy -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe PersonTrackingSortBy
-</span><a href="#local-6989586621679341929"><span class="hs-identifier hs-var">sortBy</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679342240"><span class="hs-identifier hs-var">sortBy</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-219"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;JobId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679341928"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679342239"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-220"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-221"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-222"></span><span>
 </span><span id="line-223"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTracking"><span class="hs-identifier hs-type">GetPersonTracking</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-224"></span><span>  </span><span id="local-6989586621679341922"><span class="annot"><span class="annottext">toPath :: GetPersonTracking -&gt; ByteString
+</span><span id="line-224"></span><span>  </span><span id="local-6989586621679342233"><span class="annot"><span class="annottext">toPath :: GetPersonTracking -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetPersonTracking -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-225"></span><span>
 </span><span id="line-226"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTracking"><span class="hs-identifier hs-type">GetPersonTracking</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-227"></span><span>  </span><span id="local-6989586621679341918"><span class="annot"><span class="annottext">toQuery :: GetPersonTracking -&gt; QueryString
+</span><span id="line-227"></span><span>  </span><span id="local-6989586621679342229"><span class="annot"><span class="annottext">toQuery :: GetPersonTracking -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetPersonTracking -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -565,20 +565,20 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-228"></span><span>
 </span><span id="line-229"></span><span class="hs-comment">-- | /See:/ 'newGetPersonTrackingResponse' smart constructor.</span><span>
-</span><span id="line-230"></span><span id="local-6989586621679341915"><span id="local-6989586621679341916"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetPersonTrackingResponse"><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTrackingResponse"><span class="hs-identifier hs-var">GetPersonTrackingResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetPersonTrackingResponse%27"><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTrackingResponse%27"><span class="hs-identifier hs-var">GetPersonTrackingResponse'</span></a></span></span><span>
-</span><span id="line-231"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If the job fails, @StatusMessage@ provides a descriptive error message.</span><span>
-</span><span id="line-232"></span><span>    </span><span id="%24sel%3AstatusMessage%3AGetPersonTrackingResponse%27"><span class="annot"><span class="annottext">GetPersonTrackingResponse -&gt; Maybe Text
-</span><a href="Network.AWS.Rekognition.GetPersonTracking.html#%24sel%3AstatusMessage%3AGetPersonTrackingResponse%27"><span class="hs-identifier hs-var hs-var">statusMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-233"></span><span>    </span><span class="hs-comment">-- | Information about a video that Amazon Rekognition Video analyzed.</span><span>
-</span><span id="line-234"></span><span>    </span><span class="hs-comment">-- @Videometadata@ is returned in every page of paginated responses from a</span><span>
-</span><span id="line-235"></span><span>    </span><span class="hs-comment">-- Amazon Rekognition Video operation.</span><span>
-</span><span id="line-236"></span><span>    </span><span id="%24sel%3AvideoMetadata%3AGetPersonTrackingResponse%27"><span class="annot"><span class="annottext">GetPersonTrackingResponse -&gt; Maybe VideoMetadata
-</span><a href="Network.AWS.Rekognition.GetPersonTracking.html#%24sel%3AvideoMetadata%3AGetPersonTrackingResponse%27"><span class="hs-identifier hs-var hs-var">videoMetadata</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.VideoMetadata.html#VideoMetadata"><span class="hs-identifier hs-type">VideoMetadata</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-237"></span><span>    </span><span class="hs-comment">-- | If the response is truncated, Amazon Rekognition Video returns this</span><span>
-</span><span id="line-238"></span><span>    </span><span class="hs-comment">-- token that you can use in the subsequent request to retrieve the next</span><span>
-</span><span id="line-239"></span><span>    </span><span class="hs-comment">-- set of persons.</span><span>
-</span><span id="line-240"></span><span>    </span><span id="%24sel%3AnextToken%3AGetPersonTrackingResponse%27"><span class="annot"><span class="annottext">GetPersonTrackingResponse -&gt; Maybe Text
+</span><span id="line-230"></span><span id="local-6989586621679342226"><span id="local-6989586621679342227"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetPersonTrackingResponse"><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTrackingResponse"><span class="hs-identifier hs-var">GetPersonTrackingResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetPersonTrackingResponse%27"><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTrackingResponse%27"><span class="hs-identifier hs-var">GetPersonTrackingResponse'</span></a></span></span><span>
+</span><span id="line-231"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If the response is truncated, Amazon Rekognition Video returns this</span><span>
+</span><span id="line-232"></span><span>    </span><span class="hs-comment">-- token that you can use in the subsequent request to retrieve the next</span><span>
+</span><span id="line-233"></span><span>    </span><span class="hs-comment">-- set of persons.</span><span>
+</span><span id="line-234"></span><span>    </span><span id="%24sel%3AnextToken%3AGetPersonTrackingResponse%27"><span class="annot"><span class="annottext">GetPersonTrackingResponse -&gt; Maybe Text
 </span><a href="Network.AWS.Rekognition.GetPersonTracking.html#%24sel%3AnextToken%3AGetPersonTrackingResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-235"></span><span>    </span><span class="hs-comment">-- | Information about a video that Amazon Rekognition Video analyzed.</span><span>
+</span><span id="line-236"></span><span>    </span><span class="hs-comment">-- @Videometadata@ is returned in every page of paginated responses from a</span><span>
+</span><span id="line-237"></span><span>    </span><span class="hs-comment">-- Amazon Rekognition Video operation.</span><span>
+</span><span id="line-238"></span><span>    </span><span id="%24sel%3AvideoMetadata%3AGetPersonTrackingResponse%27"><span class="annot"><span class="annottext">GetPersonTrackingResponse -&gt; Maybe VideoMetadata
+</span><a href="Network.AWS.Rekognition.GetPersonTracking.html#%24sel%3AvideoMetadata%3AGetPersonTrackingResponse%27"><span class="hs-identifier hs-var hs-var">videoMetadata</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.VideoMetadata.html#VideoMetadata"><span class="hs-identifier hs-type">VideoMetadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-239"></span><span>    </span><span class="hs-comment">-- | If the job fails, @StatusMessage@ provides a descriptive error message.</span><span>
+</span><span id="line-240"></span><span>    </span><span id="%24sel%3AstatusMessage%3AGetPersonTrackingResponse%27"><span class="annot"><span class="annottext">GetPersonTrackingResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Rekognition.GetPersonTracking.html#%24sel%3AstatusMessage%3AGetPersonTrackingResponse%27"><span class="hs-identifier hs-var hs-var">statusMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-241"></span><span>    </span><span class="hs-comment">-- | The current status of the person tracking job.</span><span>
 </span><span id="line-242"></span><span>    </span><span id="%24sel%3AjobStatus%3AGetPersonTrackingResponse%27"><span class="annot"><span class="annottext">GetPersonTrackingResponse -&gt; Maybe VideoJobStatus
 </span><a href="Network.AWS.Rekognition.GetPersonTracking.html#%24sel%3AjobStatus%3AGetPersonTrackingResponse%27"><span class="hs-identifier hs-var hs-var">jobStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.VideoJobStatus.html#VideoJobStatus"><span class="hs-identifier hs-type">VideoJobStatus</span></a></span><span class="hs-special">,</span><span>
@@ -591,7 +591,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-248"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetPersonTrackingResponse%27"><span class="annot"><span class="annottext">GetPersonTrackingResponse -&gt; Int
 </span><a href="Network.AWS.Rekognition.GetPersonTracking.html#%24sel%3AhttpStatus%3AGetPersonTrackingResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-249"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-250"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679341905"><span id="local-6989586621679341907"><span class="annot"><span class="annottext">GetPersonTrackingResponse -&gt; GetPersonTrackingResponse -&gt; Bool
+</span><span id="line-250"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679342216"><span id="local-6989586621679342218"><span class="annot"><span class="annottext">GetPersonTrackingResponse -&gt; GetPersonTrackingResponse -&gt; Bool
 (GetPersonTrackingResponse -&gt; GetPersonTrackingResponse -&gt; Bool)
 -&gt; (GetPersonTrackingResponse -&gt; GetPersonTrackingResponse -&gt; Bool)
 -&gt; Eq GetPersonTrackingResponse
@@ -600,7 +600,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetPersonTrackingResponse -&gt; GetPersonTrackingResponse -&gt; Bool
 == :: GetPersonTrackingResponse -&gt; GetPersonTrackingResponse -&gt; Bool
 $c== :: GetPersonTrackingResponse -&gt; GetPersonTrackingResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679341897"><span id="local-6989586621679341899"><span id="local-6989586621679341901"><span id="local-6989586621679341903"><span class="annot"><span class="annottext">ReadPrec [GetPersonTrackingResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679342208"><span id="local-6989586621679342210"><span id="local-6989586621679342212"><span id="local-6989586621679342214"><span class="annot"><span class="annottext">ReadPrec [GetPersonTrackingResponse]
 ReadPrec GetPersonTrackingResponse
 Int -&gt; ReadS GetPersonTrackingResponse
 ReadS [GetPersonTrackingResponse]
@@ -620,7 +620,7 @@ readList :: ReadS [GetPersonTrackingResponse]
 $creadList :: ReadS [GetPersonTrackingResponse]
 readsPrec :: Int -&gt; ReadS GetPersonTrackingResponse
 $creadsPrec :: Int -&gt; ReadS GetPersonTrackingResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679341891"><span id="local-6989586621679341893"><span id="local-6989586621679341895"><span class="annot"><span class="annottext">Int -&gt; GetPersonTrackingResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679342202"><span id="local-6989586621679342204"><span id="local-6989586621679342206"><span class="annot"><span class="annottext">Int -&gt; GetPersonTrackingResponse -&gt; ShowS
 [GetPersonTrackingResponse] -&gt; ShowS
 GetPersonTrackingResponse -&gt; String
 (Int -&gt; GetPersonTrackingResponse -&gt; ShowS)
@@ -660,15 +660,15 @@ GetPersonTrackingResponse -&gt; Rep GetPersonTrackingResponse x
 </span><span id="line-257"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-258"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-259"></span><span class="hs-comment">--</span><span>
-</span><span id="line-260"></span><span class="hs-comment">-- 'statusMessage', 'getPersonTrackingResponse_statusMessage' - If the job fails, @StatusMessage@ provides a descriptive error message.</span><span>
-</span><span id="line-261"></span><span class="hs-comment">--</span><span>
-</span><span id="line-262"></span><span class="hs-comment">-- 'videoMetadata', 'getPersonTrackingResponse_videoMetadata' - Information about a video that Amazon Rekognition Video analyzed.</span><span>
-</span><span id="line-263"></span><span class="hs-comment">-- @Videometadata@ is returned in every page of paginated responses from a</span><span>
-</span><span id="line-264"></span><span class="hs-comment">-- Amazon Rekognition Video operation.</span><span>
-</span><span id="line-265"></span><span class="hs-comment">--</span><span>
-</span><span id="line-266"></span><span class="hs-comment">-- 'nextToken', 'getPersonTrackingResponse_nextToken' - If the response is truncated, Amazon Rekognition Video returns this</span><span>
-</span><span id="line-267"></span><span class="hs-comment">-- token that you can use in the subsequent request to retrieve the next</span><span>
-</span><span id="line-268"></span><span class="hs-comment">-- set of persons.</span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- 'nextToken', 'getPersonTrackingResponse_nextToken' - If the response is truncated, Amazon Rekognition Video returns this</span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- token that you can use in the subsequent request to retrieve the next</span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- set of persons.</span><span>
+</span><span id="line-263"></span><span class="hs-comment">--</span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- 'videoMetadata', 'getPersonTrackingResponse_videoMetadata' - Information about a video that Amazon Rekognition Video analyzed.</span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- @Videometadata@ is returned in every page of paginated responses from a</span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- Amazon Rekognition Video operation.</span><span>
+</span><span id="line-267"></span><span class="hs-comment">--</span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- 'statusMessage', 'getPersonTrackingResponse_statusMessage' - If the job fails, @StatusMessage@ provides a descriptive error message.</span><span>
 </span><span id="line-269"></span><span class="hs-comment">--</span><span>
 </span><span id="line-270"></span><span class="hs-comment">-- 'jobStatus', 'getPersonTrackingResponse_jobStatus' - The current status of the person tracking job.</span><span>
 </span><span id="line-271"></span><span class="hs-comment">--</span><span>
@@ -682,8 +682,8 @@ GetPersonTrackingResponse -&gt; Rep GetPersonTrackingResponse x
 </span><span id="line-279"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-280"></span><span>  </span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTrackingResponse"><span class="hs-identifier hs-type">GetPersonTrackingResponse</span></a></span><span>
 </span><span id="line-281"></span><span id="newGetPersonTrackingResponse"><span class="annot"><span class="annottext">newGetPersonTrackingResponse :: Int -&gt; GetPersonTrackingResponse
-</span><a href="Network.AWS.Rekognition.GetPersonTracking.html#newGetPersonTrackingResponse"><span class="hs-identifier hs-var hs-var">newGetPersonTrackingResponse</span></a></span></span><span> </span><span id="local-6989586621679341888"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679341888"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Rekognition.GetPersonTracking.html#newGetPersonTrackingResponse"><span class="hs-identifier hs-var hs-var">newGetPersonTrackingResponse</span></a></span></span><span> </span><span id="local-6989586621679342199"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679342199"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-282"></span><span>  </span><span class="annot"><span class="annottext">GetPersonTrackingResponse' :: Maybe Text
 -&gt; Maybe VideoMetadata
 -&gt; Maybe Text
@@ -692,8 +692,8 @@ GetPersonTrackingResponse -&gt; Rep GetPersonTrackingResponse x
 -&gt; Int
 -&gt; GetPersonTrackingResponse
 </span><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTrackingResponse%27"><span class="hs-identifier hs-type">GetPersonTrackingResponse'</span></a></span><span>
-</span><span id="line-283"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:statusMessage:GetPersonTrackingResponse' :: Maybe Text
-</span><a href="Network.AWS.Rekognition.GetPersonTracking.html#%24sel%3AstatusMessage%3AGetPersonTrackingResponse%27"><span class="hs-identifier hs-var">statusMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-283"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:GetPersonTrackingResponse' :: Maybe Text
+</span><a href="Network.AWS.Rekognition.GetPersonTracking.html#%24sel%3AnextToken%3AGetPersonTrackingResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-284"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
@@ -701,8 +701,8 @@ forall a. Maybe a
 </span><a href="Network.AWS.Rekognition.GetPersonTracking.html#%24sel%3AvideoMetadata%3AGetPersonTrackingResponse%27"><span class="hs-identifier hs-var">videoMetadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VideoMetadata
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-286"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:GetPersonTrackingResponse' :: Maybe Text
-</span><a href="Network.AWS.Rekognition.GetPersonTracking.html#%24sel%3AnextToken%3AGetPersonTrackingResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-286"></span><span>      </span><span class="annot"><span class="annottext">$sel:statusMessage:GetPersonTrackingResponse' :: Maybe Text
+</span><a href="Network.AWS.Rekognition.GetPersonTracking.html#%24sel%3AstatusMessage%3AGetPersonTrackingResponse%27"><span class="hs-identifier hs-var">statusMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-287"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobStatus:GetPersonTrackingResponse' :: Maybe VideoJobStatus
@@ -715,64 +715,14 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-289"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetPersonTrackingResponse' :: Int
 </span><a href="Network.AWS.Rekognition.GetPersonTracking.html#%24sel%3AhttpStatus%3AGetPersonTrackingResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679341888"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679342199"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-290"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-291"></span><span>
-</span><span id="line-292"></span><span class="hs-comment">-- | If the job fails, @StatusMessage@ provides a descriptive error message.</span><span>
-</span><span id="line-293"></span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#getPersonTrackingResponse_statusMessage"><span class="hs-identifier hs-type">getPersonTrackingResponse_statusMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTrackingResponse"><span class="hs-identifier hs-type">GetPersonTrackingResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-294"></span><span id="getPersonTrackingResponse_statusMessage"><span class="annot"><span class="annottext">getPersonTrackingResponse_statusMessage :: (Maybe Text -&gt; f (Maybe Text))
--&gt; GetPersonTrackingResponse -&gt; f GetPersonTrackingResponse
-</span><a href="Network.AWS.Rekognition.GetPersonTracking.html#getPersonTrackingResponse_statusMessage"><span class="hs-identifier hs-var hs-var">getPersonTrackingResponse_statusMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetPersonTrackingResponse -&gt; Maybe Text)
--&gt; (GetPersonTrackingResponse
-    -&gt; Maybe Text -&gt; GetPersonTrackingResponse)
--&gt; Lens
-     GetPersonTrackingResponse
-     GetPersonTrackingResponse
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTrackingResponse%27"><span class="hs-identifier hs-type">GetPersonTrackingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341887"><span class="annot"><span class="annottext">Maybe Text
-statusMessage :: Maybe Text
-$sel:statusMessage:GetPersonTrackingResponse' :: GetPersonTrackingResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679341887"><span class="hs-identifier hs-var hs-var">statusMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679341887"><span class="hs-identifier hs-var">statusMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341886"><span class="annot"><span class="annottext">s :: GetPersonTrackingResponse
-</span><a href="#local-6989586621679341886"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTrackingResponse%27"><span class="hs-identifier hs-type">GetPersonTrackingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341885"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679341885"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPersonTrackingResponse
-</span><a href="#local-6989586621679341886"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusMessage:GetPersonTrackingResponse' :: Maybe Text
-</span><a href="Network.AWS.Rekognition.GetPersonTracking.html#%24sel%3AstatusMessage%3AGetPersonTrackingResponse%27"><span class="hs-identifier hs-var">statusMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679341885"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTrackingResponse"><span class="hs-identifier hs-type">GetPersonTrackingResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-295"></span><span>
-</span><span id="line-296"></span><span class="hs-comment">-- | Information about a video that Amazon Rekognition Video analyzed.</span><span>
-</span><span id="line-297"></span><span class="hs-comment">-- @Videometadata@ is returned in every page of paginated responses from a</span><span>
-</span><span id="line-298"></span><span class="hs-comment">-- Amazon Rekognition Video operation.</span><span>
-</span><span id="line-299"></span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#getPersonTrackingResponse_videoMetadata"><span class="hs-identifier hs-type">getPersonTrackingResponse_videoMetadata</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTrackingResponse"><span class="hs-identifier hs-type">GetPersonTrackingResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.VideoMetadata.html#VideoMetadata"><span class="hs-identifier hs-type">VideoMetadata</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-300"></span><span id="getPersonTrackingResponse_videoMetadata"><span class="annot"><span class="annottext">getPersonTrackingResponse_videoMetadata :: (Maybe VideoMetadata -&gt; f (Maybe VideoMetadata))
--&gt; GetPersonTrackingResponse -&gt; f GetPersonTrackingResponse
-</span><a href="Network.AWS.Rekognition.GetPersonTracking.html#getPersonTrackingResponse_videoMetadata"><span class="hs-identifier hs-var hs-var">getPersonTrackingResponse_videoMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetPersonTrackingResponse -&gt; Maybe VideoMetadata)
--&gt; (GetPersonTrackingResponse
-    -&gt; Maybe VideoMetadata -&gt; GetPersonTrackingResponse)
--&gt; Lens
-     GetPersonTrackingResponse
-     GetPersonTrackingResponse
-     (Maybe VideoMetadata)
-     (Maybe VideoMetadata)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTrackingResponse%27"><span class="hs-identifier hs-type">GetPersonTrackingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341884"><span class="annot"><span class="annottext">Maybe VideoMetadata
-videoMetadata :: Maybe VideoMetadata
-$sel:videoMetadata:GetPersonTrackingResponse' :: GetPersonTrackingResponse -&gt; Maybe VideoMetadata
-</span><a href="#local-6989586621679341884"><span class="hs-identifier hs-var hs-var">videoMetadata</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VideoMetadata
-</span><a href="#local-6989586621679341884"><span class="hs-identifier hs-var">videoMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341883"><span class="annot"><span class="annottext">s :: GetPersonTrackingResponse
-</span><a href="#local-6989586621679341883"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTrackingResponse%27"><span class="hs-identifier hs-type">GetPersonTrackingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341882"><span class="annot"><span class="annottext">Maybe VideoMetadata
-</span><a href="#local-6989586621679341882"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPersonTrackingResponse
-</span><a href="#local-6989586621679341883"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:videoMetadata:GetPersonTrackingResponse' :: Maybe VideoMetadata
-</span><a href="Network.AWS.Rekognition.GetPersonTracking.html#%24sel%3AvideoMetadata%3AGetPersonTrackingResponse%27"><span class="hs-identifier hs-var">videoMetadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VideoMetadata
-</span><a href="#local-6989586621679341882"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTrackingResponse"><span class="hs-identifier hs-type">GetPersonTrackingResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-301"></span><span>
-</span><span id="line-302"></span><span class="hs-comment">-- | If the response is truncated, Amazon Rekognition Video returns this</span><span>
-</span><span id="line-303"></span><span class="hs-comment">-- token that you can use in the subsequent request to retrieve the next</span><span>
-</span><span id="line-304"></span><span class="hs-comment">-- set of persons.</span><span>
-</span><span id="line-305"></span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#getPersonTrackingResponse_nextToken"><span class="hs-identifier hs-type">getPersonTrackingResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTrackingResponse"><span class="hs-identifier hs-type">GetPersonTrackingResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-306"></span><span id="getPersonTrackingResponse_nextToken"><span class="annot"><span class="annottext">getPersonTrackingResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-292"></span><span class="hs-comment">-- | If the response is truncated, Amazon Rekognition Video returns this</span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- token that you can use in the subsequent request to retrieve the next</span><span>
+</span><span id="line-294"></span><span class="hs-comment">-- set of persons.</span><span>
+</span><span id="line-295"></span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#getPersonTrackingResponse_nextToken"><span class="hs-identifier hs-type">getPersonTrackingResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTrackingResponse"><span class="hs-identifier hs-type">GetPersonTrackingResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-296"></span><span id="getPersonTrackingResponse_nextToken"><span class="annot"><span class="annottext">getPersonTrackingResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; GetPersonTrackingResponse -&gt; f GetPersonTrackingResponse
 </span><a href="Network.AWS.Rekognition.GetPersonTracking.html#getPersonTrackingResponse_nextToken"><span class="hs-identifier hs-var hs-var">getPersonTrackingResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetPersonTrackingResponse -&gt; Maybe Text)
 -&gt; (GetPersonTrackingResponse
@@ -783,16 +733,66 @@ $sel:videoMetadata:GetPersonTrackingResponse' :: GetPersonTrackingResponse -&gt;
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTrackingResponse%27"><span class="hs-identifier hs-type">GetPersonTrackingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341881"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTrackingResponse%27"><span class="hs-identifier hs-type">GetPersonTrackingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342198"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:GetPersonTrackingResponse' :: GetPersonTrackingResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679341881"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679341881"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341880"><span class="annot"><span class="annottext">s :: GetPersonTrackingResponse
-</span><a href="#local-6989586621679341880"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTrackingResponse%27"><span class="hs-identifier hs-type">GetPersonTrackingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341879"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679341879"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPersonTrackingResponse
-</span><a href="#local-6989586621679341880"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetPersonTrackingResponse' :: Maybe Text
+</span><a href="#local-6989586621679342198"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679342198"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342197"><span class="annot"><span class="annottext">s :: GetPersonTrackingResponse
+</span><a href="#local-6989586621679342197"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTrackingResponse%27"><span class="hs-identifier hs-type">GetPersonTrackingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342196"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679342196"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPersonTrackingResponse
+</span><a href="#local-6989586621679342197"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetPersonTrackingResponse' :: Maybe Text
 </span><a href="Network.AWS.Rekognition.GetPersonTracking.html#%24sel%3AnextToken%3AGetPersonTrackingResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679341879"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTrackingResponse"><span class="hs-identifier hs-type">GetPersonTrackingResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679342196"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTrackingResponse"><span class="hs-identifier hs-type">GetPersonTrackingResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-297"></span><span>
+</span><span id="line-298"></span><span class="hs-comment">-- | Information about a video that Amazon Rekognition Video analyzed.</span><span>
+</span><span id="line-299"></span><span class="hs-comment">-- @Videometadata@ is returned in every page of paginated responses from a</span><span>
+</span><span id="line-300"></span><span class="hs-comment">-- Amazon Rekognition Video operation.</span><span>
+</span><span id="line-301"></span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#getPersonTrackingResponse_videoMetadata"><span class="hs-identifier hs-type">getPersonTrackingResponse_videoMetadata</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTrackingResponse"><span class="hs-identifier hs-type">GetPersonTrackingResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.VideoMetadata.html#VideoMetadata"><span class="hs-identifier hs-type">VideoMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-302"></span><span id="getPersonTrackingResponse_videoMetadata"><span class="annot"><span class="annottext">getPersonTrackingResponse_videoMetadata :: (Maybe VideoMetadata -&gt; f (Maybe VideoMetadata))
+-&gt; GetPersonTrackingResponse -&gt; f GetPersonTrackingResponse
+</span><a href="Network.AWS.Rekognition.GetPersonTracking.html#getPersonTrackingResponse_videoMetadata"><span class="hs-identifier hs-var hs-var">getPersonTrackingResponse_videoMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetPersonTrackingResponse -&gt; Maybe VideoMetadata)
+-&gt; (GetPersonTrackingResponse
+    -&gt; Maybe VideoMetadata -&gt; GetPersonTrackingResponse)
+-&gt; Lens
+     GetPersonTrackingResponse
+     GetPersonTrackingResponse
+     (Maybe VideoMetadata)
+     (Maybe VideoMetadata)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTrackingResponse%27"><span class="hs-identifier hs-type">GetPersonTrackingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342195"><span class="annot"><span class="annottext">Maybe VideoMetadata
+videoMetadata :: Maybe VideoMetadata
+$sel:videoMetadata:GetPersonTrackingResponse' :: GetPersonTrackingResponse -&gt; Maybe VideoMetadata
+</span><a href="#local-6989586621679342195"><span class="hs-identifier hs-var hs-var">videoMetadata</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VideoMetadata
+</span><a href="#local-6989586621679342195"><span class="hs-identifier hs-var">videoMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342194"><span class="annot"><span class="annottext">s :: GetPersonTrackingResponse
+</span><a href="#local-6989586621679342194"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTrackingResponse%27"><span class="hs-identifier hs-type">GetPersonTrackingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342193"><span class="annot"><span class="annottext">Maybe VideoMetadata
+</span><a href="#local-6989586621679342193"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPersonTrackingResponse
+</span><a href="#local-6989586621679342194"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:videoMetadata:GetPersonTrackingResponse' :: Maybe VideoMetadata
+</span><a href="Network.AWS.Rekognition.GetPersonTracking.html#%24sel%3AvideoMetadata%3AGetPersonTrackingResponse%27"><span class="hs-identifier hs-var">videoMetadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VideoMetadata
+</span><a href="#local-6989586621679342193"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTrackingResponse"><span class="hs-identifier hs-type">GetPersonTrackingResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-303"></span><span>
+</span><span id="line-304"></span><span class="hs-comment">-- | If the job fails, @StatusMessage@ provides a descriptive error message.</span><span>
+</span><span id="line-305"></span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#getPersonTrackingResponse_statusMessage"><span class="hs-identifier hs-type">getPersonTrackingResponse_statusMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTrackingResponse"><span class="hs-identifier hs-type">GetPersonTrackingResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-306"></span><span id="getPersonTrackingResponse_statusMessage"><span class="annot"><span class="annottext">getPersonTrackingResponse_statusMessage :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetPersonTrackingResponse -&gt; f GetPersonTrackingResponse
+</span><a href="Network.AWS.Rekognition.GetPersonTracking.html#getPersonTrackingResponse_statusMessage"><span class="hs-identifier hs-var hs-var">getPersonTrackingResponse_statusMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetPersonTrackingResponse -&gt; Maybe Text)
+-&gt; (GetPersonTrackingResponse
+    -&gt; Maybe Text -&gt; GetPersonTrackingResponse)
+-&gt; Lens
+     GetPersonTrackingResponse
+     GetPersonTrackingResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTrackingResponse%27"><span class="hs-identifier hs-type">GetPersonTrackingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342192"><span class="annot"><span class="annottext">Maybe Text
+statusMessage :: Maybe Text
+$sel:statusMessage:GetPersonTrackingResponse' :: GetPersonTrackingResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679342192"><span class="hs-identifier hs-var hs-var">statusMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679342192"><span class="hs-identifier hs-var">statusMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342191"><span class="annot"><span class="annottext">s :: GetPersonTrackingResponse
+</span><a href="#local-6989586621679342191"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTrackingResponse%27"><span class="hs-identifier hs-type">GetPersonTrackingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342190"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679342190"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPersonTrackingResponse
+</span><a href="#local-6989586621679342191"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusMessage:GetPersonTrackingResponse' :: Maybe Text
+</span><a href="Network.AWS.Rekognition.GetPersonTracking.html#%24sel%3AstatusMessage%3AGetPersonTrackingResponse%27"><span class="hs-identifier hs-var">statusMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679342190"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTrackingResponse"><span class="hs-identifier hs-type">GetPersonTrackingResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-307"></span><span>
 </span><span id="line-308"></span><span class="hs-comment">-- | The current status of the person tracking job.</span><span>
 </span><span id="line-309"></span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#getPersonTrackingResponse_jobStatus"><span class="hs-identifier hs-type">getPersonTrackingResponse_jobStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTrackingResponse"><span class="hs-identifier hs-type">GetPersonTrackingResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.VideoJobStatus.html#VideoJobStatus"><span class="hs-identifier hs-type">VideoJobStatus</span></a></span><span class="hs-special">)</span><span>
@@ -807,16 +807,16 @@ $sel:nextToken:GetPersonTrackingResponse' :: GetPersonTrackingResponse -&gt; May
      (Maybe VideoJobStatus)
      (Maybe VideoJobStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTrackingResponse%27"><span class="hs-identifier hs-type">GetPersonTrackingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341878"><span class="annot"><span class="annottext">Maybe VideoJobStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTrackingResponse%27"><span class="hs-identifier hs-type">GetPersonTrackingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342189"><span class="annot"><span class="annottext">Maybe VideoJobStatus
 jobStatus :: Maybe VideoJobStatus
 $sel:jobStatus:GetPersonTrackingResponse' :: GetPersonTrackingResponse -&gt; Maybe VideoJobStatus
-</span><a href="#local-6989586621679341878"><span class="hs-identifier hs-var hs-var">jobStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VideoJobStatus
-</span><a href="#local-6989586621679341878"><span class="hs-identifier hs-var">jobStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341877"><span class="annot"><span class="annottext">s :: GetPersonTrackingResponse
-</span><a href="#local-6989586621679341877"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTrackingResponse%27"><span class="hs-identifier hs-type">GetPersonTrackingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341876"><span class="annot"><span class="annottext">Maybe VideoJobStatus
-</span><a href="#local-6989586621679341876"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPersonTrackingResponse
-</span><a href="#local-6989586621679341877"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobStatus:GetPersonTrackingResponse' :: Maybe VideoJobStatus
+</span><a href="#local-6989586621679342189"><span class="hs-identifier hs-var hs-var">jobStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VideoJobStatus
+</span><a href="#local-6989586621679342189"><span class="hs-identifier hs-var">jobStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342188"><span class="annot"><span class="annottext">s :: GetPersonTrackingResponse
+</span><a href="#local-6989586621679342188"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTrackingResponse%27"><span class="hs-identifier hs-type">GetPersonTrackingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342187"><span class="annot"><span class="annottext">Maybe VideoJobStatus
+</span><a href="#local-6989586621679342187"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPersonTrackingResponse
+</span><a href="#local-6989586621679342188"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobStatus:GetPersonTrackingResponse' :: Maybe VideoJobStatus
 </span><a href="Network.AWS.Rekognition.GetPersonTracking.html#%24sel%3AjobStatus%3AGetPersonTrackingResponse%27"><span class="hs-identifier hs-var">jobStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VideoJobStatus
-</span><a href="#local-6989586621679341876"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTrackingResponse"><span class="hs-identifier hs-type">GetPersonTrackingResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679342187"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTrackingResponse"><span class="hs-identifier hs-type">GetPersonTrackingResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-311"></span><span>
 </span><span id="line-312"></span><span class="hs-comment">-- | An array of the persons detected in the video and the time(s) their path</span><span>
 </span><span id="line-313"></span><span class="hs-comment">-- was tracked throughout the video. An array element will exist for each</span><span>
@@ -833,16 +833,16 @@ $sel:jobStatus:GetPersonTrackingResponse' :: GetPersonTrackingResponse -&gt; May
      (Maybe [PersonDetection])
      (Maybe [PersonDetection])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTrackingResponse%27"><span class="hs-identifier hs-type">GetPersonTrackingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341875"><span class="annot"><span class="annottext">Maybe [PersonDetection]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTrackingResponse%27"><span class="hs-identifier hs-type">GetPersonTrackingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342186"><span class="annot"><span class="annottext">Maybe [PersonDetection]
 persons :: Maybe [PersonDetection]
 $sel:persons:GetPersonTrackingResponse' :: GetPersonTrackingResponse -&gt; Maybe [PersonDetection]
-</span><a href="#local-6989586621679341875"><span class="hs-identifier hs-var hs-var">persons</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PersonDetection]
-</span><a href="#local-6989586621679341875"><span class="hs-identifier hs-var">persons</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341874"><span class="annot"><span class="annottext">s :: GetPersonTrackingResponse
-</span><a href="#local-6989586621679341874"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTrackingResponse%27"><span class="hs-identifier hs-type">GetPersonTrackingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341873"><span class="annot"><span class="annottext">Maybe [PersonDetection]
-</span><a href="#local-6989586621679341873"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPersonTrackingResponse
-</span><a href="#local-6989586621679341874"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:persons:GetPersonTrackingResponse' :: Maybe [PersonDetection]
+</span><a href="#local-6989586621679342186"><span class="hs-identifier hs-var hs-var">persons</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PersonDetection]
+</span><a href="#local-6989586621679342186"><span class="hs-identifier hs-var">persons</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342185"><span class="annot"><span class="annottext">s :: GetPersonTrackingResponse
+</span><a href="#local-6989586621679342185"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTrackingResponse%27"><span class="hs-identifier hs-type">GetPersonTrackingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342184"><span class="annot"><span class="annottext">Maybe [PersonDetection]
+</span><a href="#local-6989586621679342184"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPersonTrackingResponse
+</span><a href="#local-6989586621679342185"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:persons:GetPersonTrackingResponse' :: Maybe [PersonDetection]
 </span><a href="Network.AWS.Rekognition.GetPersonTracking.html#%24sel%3Apersons%3AGetPersonTrackingResponse%27"><span class="hs-identifier hs-var">persons</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PersonDetection]
-</span><a href="#local-6989586621679341873"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTrackingResponse"><span class="hs-identifier hs-type">GetPersonTrackingResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PersonDetection] -&gt; f (Maybe [PersonDetection]))
+</span><a href="#local-6989586621679342184"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTrackingResponse"><span class="hs-identifier hs-type">GetPersonTrackingResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PersonDetection] -&gt; f (Maybe [PersonDetection]))
  -&gt; GetPersonTrackingResponse -&gt; f GetPersonTrackingResponse)
 -&gt; ((Maybe [PersonDetection] -&gt; f (Maybe [PersonDetection]))
     -&gt; Maybe [PersonDetection] -&gt; f (Maybe [PersonDetection]))
@@ -868,8 +868,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [PersonDetection]
   [PersonDetection]
   [PersonDetection]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-317"></span><span>
 </span><span id="line-318"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-319"></span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#getPersonTrackingResponse_httpStatus"><span class="hs-identifier hs-type">getPersonTrackingResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTrackingResponse"><span class="hs-identifier hs-type">GetPersonTrackingResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -879,16 +879,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (GetPersonTrackingResponse -&gt; Int -&gt; GetPersonTrackingResponse)
 -&gt; Lens GetPersonTrackingResponse GetPersonTrackingResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTrackingResponse%27"><span class="hs-identifier hs-type">GetPersonTrackingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341869"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTrackingResponse%27"><span class="hs-identifier hs-type">GetPersonTrackingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342180"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetPersonTrackingResponse' :: GetPersonTrackingResponse -&gt; Int
-</span><a href="#local-6989586621679341869"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679341869"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341868"><span class="annot"><span class="annottext">s :: GetPersonTrackingResponse
-</span><a href="#local-6989586621679341868"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTrackingResponse%27"><span class="hs-identifier hs-type">GetPersonTrackingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341867"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679341867"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPersonTrackingResponse
-</span><a href="#local-6989586621679341868"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetPersonTrackingResponse' :: Int
+</span><a href="#local-6989586621679342180"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679342180"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342179"><span class="annot"><span class="annottext">s :: GetPersonTrackingResponse
+</span><a href="#local-6989586621679342179"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTrackingResponse%27"><span class="hs-identifier hs-type">GetPersonTrackingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342178"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679342178"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPersonTrackingResponse
+</span><a href="#local-6989586621679342179"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetPersonTrackingResponse' :: Int
 </span><a href="Network.AWS.Rekognition.GetPersonTracking.html#%24sel%3AhttpStatus%3AGetPersonTrackingResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679341867"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTrackingResponse"><span class="hs-identifier hs-type">GetPersonTrackingResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679342178"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTrackingResponse"><span class="hs-identifier hs-type">GetPersonTrackingResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-321"></span><span>
-</span><span id="line-322"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679341865"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTrackingResponse"><span class="hs-identifier hs-type">GetPersonTrackingResponse</span></a></span></span><span>
+</span><span id="line-322"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679342176"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetPersonTracking.html#GetPersonTrackingResponse"><span class="hs-identifier hs-type">GetPersonTrackingResponse</span></a></span></span><span>
 </span><span id="line-323"></span></pre></body></html>

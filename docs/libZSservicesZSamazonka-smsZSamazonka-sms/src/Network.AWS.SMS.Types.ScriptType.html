@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679246993"><span id="local-6989586621679246994"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ScriptType"><span class="annot"><a href="Network.AWS.SMS.Types.ScriptType.html#ScriptType"><span class="hs-identifier hs-var">ScriptType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ScriptType%27"><span class="annot"><a href="Network.AWS.SMS.Types.ScriptType.html#ScriptType%27"><span class="hs-identifier hs-var">ScriptType'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679247122"><span id="local-6989586621679247123"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ScriptType"><span class="annot"><a href="Network.AWS.SMS.Types.ScriptType.html#ScriptType"><span class="hs-identifier hs-var">ScriptType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ScriptType%27"><span class="annot"><a href="Network.AWS.SMS.Types.ScriptType.html#ScriptType%27"><span class="hs-identifier hs-var">ScriptType'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromScriptType"><span class="annot"><span class="annottext">ScriptType -&gt; Text
 </span><a href="Network.AWS.SMS.Types.ScriptType.html#fromScriptType"><span class="hs-identifier hs-var hs-var">fromScriptType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679246985"><span id="local-6989586621679246987"><span id="local-6989586621679246989"><span class="annot"><span class="annottext">Int -&gt; ScriptType -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679247114"><span id="local-6989586621679247116"><span id="local-6989586621679247118"><span class="annot"><span class="annottext">Int -&gt; ScriptType -&gt; ShowS
 [ScriptType] -&gt; ShowS
 ScriptType -&gt; String
 (Int -&gt; ScriptType -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: ScriptType -&gt; String
 showsPrec :: Int -&gt; ScriptType -&gt; ShowS
 $cshowsPrec :: Int -&gt; ScriptType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679246976"><span id="local-6989586621679246978"><span id="local-6989586621679246980"><span id="local-6989586621679246982"><span class="annot"><span class="annottext">ReadPrec [ScriptType]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679247105"><span id="local-6989586621679247107"><span id="local-6989586621679247109"><span id="local-6989586621679247111"><span class="annot"><span class="annottext">ReadPrec [ScriptType]
 ReadPrec ScriptType
 Int -&gt; ReadS ScriptType
 ReadS [ScriptType]
@@ -72,7 +72,7 @@ $creadList :: ReadS [ScriptType]
 readsPrec :: Int -&gt; ReadS ScriptType
 $creadsPrec :: Int -&gt; ReadS ScriptType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679246971"><span id="local-6989586621679246973"><span class="annot"><span class="annottext">ScriptType -&gt; ScriptType -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679247100"><span id="local-6989586621679247102"><span class="annot"><span class="annottext">ScriptType -&gt; ScriptType -&gt; Bool
 (ScriptType -&gt; ScriptType -&gt; Bool)
 -&gt; (ScriptType -&gt; ScriptType -&gt; Bool) -&gt; Eq ScriptType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: ScriptType -&gt; ScriptType -&gt; Bool
 == :: ScriptType -&gt; ScriptType -&gt; Bool
 $c== :: ScriptType -&gt; ScriptType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679246955"><span id="local-6989586621679246957"><span id="local-6989586621679246959"><span id="local-6989586621679246961"><span id="local-6989586621679246963"><span id="local-6989586621679246965"><span id="local-6989586621679246967"><span class="annot"><span class="annottext">Eq ScriptType
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679247084"><span id="local-6989586621679247086"><span id="local-6989586621679247088"><span id="local-6989586621679247090"><span id="local-6989586621679247092"><span id="local-6989586621679247094"><span id="local-6989586621679247096"><span class="annot"><span class="annottext">Eq ScriptType
 Eq ScriptType
 -&gt; (ScriptType -&gt; ScriptType -&gt; Ordering)
 -&gt; (ScriptType -&gt; ScriptType -&gt; Bool)
@@ -131,7 +131,7 @@ $cfrom :: forall x. ScriptType -&gt; Rep ScriptType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679246947"><span id="local-6989586621679246949"><span class="annot"><span class="annottext">Int -&gt; ScriptType -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679247076"><span id="local-6989586621679247078"><span class="annot"><span class="annottext">Int -&gt; ScriptType -&gt; Int
 ScriptType -&gt; Int
 (Int -&gt; ScriptType -&gt; Int)
 -&gt; (ScriptType -&gt; Int) -&gt; Hashable ScriptType
@@ -141,49 +141,49 @@ $chash :: ScriptType -&gt; Int
 hashWithSalt :: Int -&gt; ScriptType -&gt; Int
 $chashWithSalt :: Int -&gt; ScriptType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679246944"><span class="annot"><span class="annottext">ScriptType -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679247073"><span class="annot"><span class="annottext">ScriptType -&gt; ()
 (ScriptType -&gt; ()) -&gt; NFData ScriptType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ScriptType -&gt; ()
 $crnf :: ScriptType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679246941"><span class="annot"><span class="annottext">Text -&gt; Either String ScriptType
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679247070"><span class="annot"><span class="annottext">Text -&gt; Either String ScriptType
 (Text -&gt; Either String ScriptType) -&gt; FromText ScriptType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ScriptType
 $cfromText :: Text -&gt; Either String ScriptType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679246938"><span class="annot"><span class="annottext">ScriptType -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679247067"><span class="annot"><span class="annottext">ScriptType -&gt; Text
 (ScriptType -&gt; Text) -&gt; ToText ScriptType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ScriptType -&gt; Text
 $ctoText :: ScriptType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679246935"><span class="annot"><span class="annottext">ScriptType -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679247064"><span class="annot"><span class="annottext">ScriptType -&gt; ByteString
 (ScriptType -&gt; ByteString) -&gt; ToByteString ScriptType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ScriptType -&gt; ByteString
 $ctoBS :: ScriptType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679246932"><span class="annot"><span class="annottext">ScriptType -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679247061"><span class="annot"><span class="annottext">ScriptType -&gt; ByteStringBuilder
 (ScriptType -&gt; ByteStringBuilder) -&gt; ToLog ScriptType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ScriptType -&gt; ByteStringBuilder
 $cbuild :: ScriptType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679246929"><span class="annot"><span class="annottext">HeaderName -&gt; ScriptType -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679247058"><span class="annot"><span class="annottext">HeaderName -&gt; ScriptType -&gt; [Header]
 (HeaderName -&gt; ScriptType -&gt; [Header]) -&gt; ToHeader ScriptType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ScriptType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ScriptType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679246926"><span class="annot"><span class="annottext">ScriptType -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679247055"><span class="annot"><span class="annottext">ScriptType -&gt; QueryString
 (ScriptType -&gt; QueryString) -&gt; ToQuery ScriptType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ScriptType -&gt; QueryString
 $ctoQuery :: ScriptType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679246921"><span id="local-6989586621679246923"><span class="annot"><span class="annottext">Value -&gt; Parser [ScriptType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679247050"><span id="local-6989586621679247052"><span class="annot"><span class="annottext">Value -&gt; Parser [ScriptType]
 Value -&gt; Parser ScriptType
 (Value -&gt; Parser ScriptType)
 -&gt; (Value -&gt; Parser [ScriptType]) -&gt; FromJSON ScriptType
@@ -194,7 +194,7 @@ $cparseJSONList :: Value -&gt; Parser [ScriptType]
 parseJSON :: Value -&gt; Parser ScriptType
 $cparseJSON :: Value -&gt; Parser ScriptType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679246916"><span id="local-6989586621679246918"><span class="annot"><span class="annottext">FromJSONKeyFunction [ScriptType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679247045"><span id="local-6989586621679247047"><span class="annot"><span class="annottext">FromJSONKeyFunction [ScriptType]
 FromJSONKeyFunction ScriptType
 FromJSONKeyFunction ScriptType
 -&gt; FromJSONKeyFunction [ScriptType] -&gt; FromJSONKey ScriptType
@@ -205,7 +205,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ScriptType]
 fromJSONKey :: FromJSONKeyFunction ScriptType
 $cfromJSONKey :: FromJSONKeyFunction ScriptType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679246907"><span id="local-6989586621679246909"><span id="local-6989586621679246911"><span id="local-6989586621679246913"><span class="annot"><span class="annottext">[ScriptType] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679247036"><span id="local-6989586621679247038"><span id="local-6989586621679247040"><span id="local-6989586621679247042"><span class="annot"><span class="annottext">[ScriptType] -&gt; Encoding
 [ScriptType] -&gt; Value
 ScriptType -&gt; Encoding
 ScriptType -&gt; Value
@@ -229,7 +229,7 @@ $ctoEncoding :: ScriptType -&gt; Encoding
 toJSON :: ScriptType -&gt; Value
 $ctoJSON :: ScriptType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679246902"><span id="local-6989586621679246904"><span class="annot"><span class="annottext">ToJSONKeyFunction [ScriptType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679247031"><span id="local-6989586621679247033"><span class="annot"><span class="annottext">ToJSONKeyFunction [ScriptType]
 ToJSONKeyFunction ScriptType
 ToJSONKeyFunction ScriptType
 -&gt; ToJSONKeyFunction [ScriptType] -&gt; ToJSONKey ScriptType
@@ -240,13 +240,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ScriptType]
 toJSONKey :: ToJSONKeyFunction ScriptType
 $ctoJSONKey :: ToJSONKeyFunction ScriptType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679246899"><span class="annot"><span class="annottext">[Node] -&gt; Either String ScriptType
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679247028"><span class="annot"><span class="annottext">[Node] -&gt; Either String ScriptType
 ([Node] -&gt; Either String ScriptType) -&gt; FromXML ScriptType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ScriptType
 $cparseXML :: [Node] -&gt; Either String ScriptType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679246896"><span class="annot"><span class="annottext">ScriptType -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679247025"><span class="annot"><span class="annottext">ScriptType -&gt; XML
 (ScriptType -&gt; XML) -&gt; ToXML ScriptType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ScriptType -&gt; XML

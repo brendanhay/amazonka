@@ -30,7 +30,7 @@
 </span><span id="line-30"></span><span class="hs-comment">-- GetServiceLinkedRoleDeletionStatus operation.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newRoleUsageType' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679429043"><span id="local-6989586621679429044"></span></span><span class="hs-keyword">data</span><span> </span><span id="RoleUsageType"><span class="annot"><a href="Network.AWS.IAM.Types.RoleUsageType.html#RoleUsageType"><span class="hs-identifier hs-var">RoleUsageType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RoleUsageType%27"><span class="annot"><a href="Network.AWS.IAM.Types.RoleUsageType.html#RoleUsageType%27"><span class="hs-identifier hs-var">RoleUsageType'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679429553"><span id="local-6989586621679429554"></span></span><span class="hs-keyword">data</span><span> </span><span id="RoleUsageType"><span class="annot"><a href="Network.AWS.IAM.Types.RoleUsageType.html#RoleUsageType"><span class="hs-identifier hs-var">RoleUsageType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RoleUsageType%27"><span class="annot"><a href="Network.AWS.IAM.Types.RoleUsageType.html#RoleUsageType%27"><span class="hs-identifier hs-var">RoleUsageType'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the resource that is using the service-linked role.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3Aresources%3ARoleUsageType%27"><span class="annot"><span class="annottext">RoleUsageType -&gt; Maybe [Text]
 </span><a href="Network.AWS.IAM.Types.RoleUsageType.html#%24sel%3Aresources%3ARoleUsageType%27"><span class="hs-identifier hs-var hs-var">resources</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -38,7 +38,7 @@
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3Aregion%3ARoleUsageType%27"><span class="annot"><span class="annottext">RoleUsageType -&gt; Maybe Text
 </span><a href="Network.AWS.IAM.Types.RoleUsageType.html#%24sel%3Aregion%3ARoleUsageType%27"><span class="hs-identifier hs-var hs-var">region</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679429036"><span id="local-6989586621679429038"><span class="annot"><span class="annottext">RoleUsageType -&gt; RoleUsageType -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679429546"><span id="local-6989586621679429548"><span class="annot"><span class="annottext">RoleUsageType -&gt; RoleUsageType -&gt; Bool
 (RoleUsageType -&gt; RoleUsageType -&gt; Bool)
 -&gt; (RoleUsageType -&gt; RoleUsageType -&gt; Bool) -&gt; Eq RoleUsageType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -46,7 +46,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RoleUsageType -&gt; RoleUsageType -&gt; Bool
 == :: RoleUsageType -&gt; RoleUsageType -&gt; Bool
 $c== :: RoleUsageType -&gt; RoleUsageType -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679429027"><span id="local-6989586621679429029"><span id="local-6989586621679429031"><span id="local-6989586621679429033"><span class="annot"><span class="annottext">ReadPrec [RoleUsageType]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679429537"><span id="local-6989586621679429539"><span id="local-6989586621679429541"><span id="local-6989586621679429543"><span class="annot"><span class="annottext">ReadPrec [RoleUsageType]
 ReadPrec RoleUsageType
 Int -&gt; ReadS RoleUsageType
 ReadS [RoleUsageType]
@@ -66,7 +66,7 @@ readList :: ReadS [RoleUsageType]
 $creadList :: ReadS [RoleUsageType]
 readsPrec :: Int -&gt; ReadS RoleUsageType
 $creadsPrec :: Int -&gt; ReadS RoleUsageType
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679429020"><span id="local-6989586621679429022"><span id="local-6989586621679429024"><span class="annot"><span class="annottext">Int -&gt; RoleUsageType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679429530"><span id="local-6989586621679429532"><span id="local-6989586621679429534"><span class="annot"><span class="annottext">Int -&gt; RoleUsageType -&gt; ShowS
 [RoleUsageType] -&gt; ShowS
 RoleUsageType -&gt; String
 (Int -&gt; RoleUsageType -&gt; ShowS)
@@ -127,16 +127,16 @@ forall a. Maybe a
 -&gt; (RoleUsageType -&gt; Maybe [Text] -&gt; RoleUsageType)
 -&gt; Lens RoleUsageType RoleUsageType (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.RoleUsageType.html#RoleUsageType%27"><span class="hs-identifier hs-type">RoleUsageType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679429011"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.RoleUsageType.html#RoleUsageType%27"><span class="hs-identifier hs-type">RoleUsageType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679429521"><span class="annot"><span class="annottext">Maybe [Text]
 resources :: Maybe [Text]
 $sel:resources:RoleUsageType' :: RoleUsageType -&gt; Maybe [Text]
-</span><a href="#local-6989586621679429011"><span class="hs-identifier hs-var hs-var">resources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679429011"><span class="hs-identifier hs-var">resources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679429010"><span class="annot"><span class="annottext">s :: RoleUsageType
-</span><a href="#local-6989586621679429010"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.RoleUsageType.html#RoleUsageType%27"><span class="hs-identifier hs-type">RoleUsageType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679429009"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679429009"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RoleUsageType
-</span><a href="#local-6989586621679429010"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resources:RoleUsageType' :: Maybe [Text]
+</span><a href="#local-6989586621679429521"><span class="hs-identifier hs-var hs-var">resources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679429521"><span class="hs-identifier hs-var">resources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679429520"><span class="annot"><span class="annottext">s :: RoleUsageType
+</span><a href="#local-6989586621679429520"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.RoleUsageType.html#RoleUsageType%27"><span class="hs-identifier hs-type">RoleUsageType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679429519"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679429519"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RoleUsageType
+</span><a href="#local-6989586621679429520"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resources:RoleUsageType' :: Maybe [Text]
 </span><a href="Network.AWS.IAM.Types.RoleUsageType.html#%24sel%3Aresources%3ARoleUsageType%27"><span class="hs-identifier hs-var">resources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679429009"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.RoleUsageType.html#RoleUsageType"><span class="hs-identifier hs-type">RoleUsageType</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679429519"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.RoleUsageType.html#RoleUsageType"><span class="hs-identifier hs-type">RoleUsageType</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; RoleUsageType -&gt; f RoleUsageType)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -150,8 +150,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- | The name of the Region where the service-linked role is being used.</span><span>
 </span><span id="line-65"></span><span class="annot"><a href="Network.AWS.IAM.Types.RoleUsageType.html#roleUsageType_region"><span class="hs-identifier hs-type">roleUsageType_region</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.RoleUsageType.html#RoleUsageType"><span class="hs-identifier hs-type">RoleUsageType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -160,21 +160,21 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (RoleUsageType -&gt; Maybe Text -&gt; RoleUsageType)
 -&gt; Lens RoleUsageType RoleUsageType (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.RoleUsageType.html#RoleUsageType%27"><span class="hs-identifier hs-type">RoleUsageType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679429004"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.RoleUsageType.html#RoleUsageType%27"><span class="hs-identifier hs-type">RoleUsageType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679429514"><span class="annot"><span class="annottext">Maybe Text
 region :: Maybe Text
 $sel:region:RoleUsageType' :: RoleUsageType -&gt; Maybe Text
-</span><a href="#local-6989586621679429004"><span class="hs-identifier hs-var hs-var">region</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679429004"><span class="hs-identifier hs-var">region</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679429003"><span class="annot"><span class="annottext">s :: RoleUsageType
-</span><a href="#local-6989586621679429003"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.RoleUsageType.html#RoleUsageType%27"><span class="hs-identifier hs-type">RoleUsageType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679429002"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679429002"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RoleUsageType
-</span><a href="#local-6989586621679429003"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:region:RoleUsageType' :: Maybe Text
+</span><a href="#local-6989586621679429514"><span class="hs-identifier hs-var hs-var">region</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679429514"><span class="hs-identifier hs-var">region</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679429513"><span class="annot"><span class="annottext">s :: RoleUsageType
+</span><a href="#local-6989586621679429513"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.RoleUsageType.html#RoleUsageType%27"><span class="hs-identifier hs-type">RoleUsageType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679429512"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679429512"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RoleUsageType
+</span><a href="#local-6989586621679429513"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:region:RoleUsageType' :: Maybe Text
 </span><a href="Network.AWS.IAM.Types.RoleUsageType.html#%24sel%3Aregion%3ARoleUsageType%27"><span class="hs-identifier hs-var">region</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679429002"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.RoleUsageType.html#RoleUsageType"><span class="hs-identifier hs-type">RoleUsageType</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679429512"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.RoleUsageType.html#RoleUsageType"><span class="hs-identifier hs-type">RoleUsageType</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
 </span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.RoleUsageType.html#RoleUsageType"><span class="hs-identifier hs-type">RoleUsageType</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-69"></span><span>  </span><span id="local-6989586621679428999"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String RoleUsageType
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679428997"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679428997"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621679429509"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String RoleUsageType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679429507"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679429507"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>    </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; Maybe Text -&gt; RoleUsageType
 </span><a href="Network.AWS.IAM.Types.RoleUsageType.html#RoleUsageType%27"><span class="hs-identifier hs-var">RoleUsageType'</span></a></span><span>
 </span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; Maybe Text -&gt; RoleUsageType)
@@ -182,7 +182,7 @@ $sel:region:RoleUsageType' :: RoleUsageType -&gt; Maybe Text
 -&gt; Either String (Maybe Text -&gt; RoleUsageType)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679428997"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679429507"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Resources&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -208,12 +208,12 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 -&gt; Either String (Maybe Text) -&gt; Either String RoleUsageType
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679428997"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679429507"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Region&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679428988"><span id="local-6989586621679428990"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.RoleUsageType.html#RoleUsageType"><span class="hs-identifier hs-type">RoleUsageType</span></a></span></span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679429498"><span id="local-6989586621679429500"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.RoleUsageType.html#RoleUsageType"><span class="hs-identifier hs-type">RoleUsageType</span></a></span></span></span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679428985"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.RoleUsageType.html#RoleUsageType"><span class="hs-identifier hs-type">RoleUsageType</span></a></span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679429495"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.RoleUsageType.html#RoleUsageType"><span class="hs-identifier hs-type">RoleUsageType</span></a></span></span><span>
 </span><span id="line-79"></span></pre></body></html>

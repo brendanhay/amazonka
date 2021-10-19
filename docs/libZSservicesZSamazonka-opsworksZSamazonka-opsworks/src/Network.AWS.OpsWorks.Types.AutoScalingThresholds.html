@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- load-based instances.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newAutoScalingThresholds' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679371896"><span id="local-6989586621679371897"></span></span><span class="hs-keyword">data</span><span> </span><span id="AutoScalingThresholds"><span class="annot"><a href="Network.AWS.OpsWorks.Types.AutoScalingThresholds.html#AutoScalingThresholds"><span class="hs-identifier hs-var">AutoScalingThresholds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AutoScalingThresholds%27"><span class="annot"><a href="Network.AWS.OpsWorks.Types.AutoScalingThresholds.html#AutoScalingThresholds%27"><span class="hs-identifier hs-var">AutoScalingThresholds'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679372287"><span id="local-6989586621679372288"></span></span><span class="hs-keyword">data</span><span> </span><span id="AutoScalingThresholds"><span class="annot"><a href="Network.AWS.OpsWorks.Types.AutoScalingThresholds.html#AutoScalingThresholds"><span class="hs-identifier hs-var">AutoScalingThresholds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AutoScalingThresholds%27"><span class="annot"><a href="Network.AWS.OpsWorks.Types.AutoScalingThresholds.html#AutoScalingThresholds%27"><span class="hs-identifier hs-var">AutoScalingThresholds'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of instances to add or remove when the load exceeds a</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- threshold.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AinstanceCount%3AAutoScalingThresholds%27"><span class="annot"><span class="annottext">AutoScalingThresholds -&gt; Maybe Int
@@ -73,7 +73,7 @@
 </span><span id="line-67"></span><span>    </span><span id="%24sel%3AcpuThreshold%3AAutoScalingThresholds%27"><span class="annot"><span class="annottext">AutoScalingThresholds -&gt; Maybe Double
 </span><a href="Network.AWS.OpsWorks.Types.AutoScalingThresholds.html#%24sel%3AcpuThreshold%3AAutoScalingThresholds%27"><span class="hs-identifier hs-var hs-var">cpuThreshold</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span>
 </span><span id="line-68"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679371884"><span id="local-6989586621679371886"><span class="annot"><span class="annottext">AutoScalingThresholds -&gt; AutoScalingThresholds -&gt; Bool
+</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679372275"><span id="local-6989586621679372277"><span class="annot"><span class="annottext">AutoScalingThresholds -&gt; AutoScalingThresholds -&gt; Bool
 (AutoScalingThresholds -&gt; AutoScalingThresholds -&gt; Bool)
 -&gt; (AutoScalingThresholds -&gt; AutoScalingThresholds -&gt; Bool)
 -&gt; Eq AutoScalingThresholds
@@ -82,7 +82,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AutoScalingThresholds -&gt; AutoScalingThresholds -&gt; Bool
 == :: AutoScalingThresholds -&gt; AutoScalingThresholds -&gt; Bool
 $c== :: AutoScalingThresholds -&gt; AutoScalingThresholds -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679371875"><span id="local-6989586621679371877"><span id="local-6989586621679371879"><span id="local-6989586621679371881"><span class="annot"><span class="annottext">ReadPrec [AutoScalingThresholds]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679372266"><span id="local-6989586621679372268"><span id="local-6989586621679372270"><span id="local-6989586621679372272"><span class="annot"><span class="annottext">ReadPrec [AutoScalingThresholds]
 ReadPrec AutoScalingThresholds
 Int -&gt; ReadS AutoScalingThresholds
 ReadS [AutoScalingThresholds]
@@ -102,7 +102,7 @@ readList :: ReadS [AutoScalingThresholds]
 $creadList :: ReadS [AutoScalingThresholds]
 readsPrec :: Int -&gt; ReadS AutoScalingThresholds
 $creadsPrec :: Int -&gt; ReadS AutoScalingThresholds
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679371868"><span id="local-6989586621679371870"><span id="local-6989586621679371872"><span class="annot"><span class="annottext">Int -&gt; AutoScalingThresholds -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679372259"><span id="local-6989586621679372261"><span id="local-6989586621679372263"><span class="annot"><span class="annottext">Int -&gt; AutoScalingThresholds -&gt; ShowS
 [AutoScalingThresholds] -&gt; ShowS
 AutoScalingThresholds -&gt; String
 (Int -&gt; AutoScalingThresholds -&gt; ShowS)
@@ -225,16 +225,16 @@ forall a. Maybe a
 -&gt; Lens
      AutoScalingThresholds AutoScalingThresholds (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.AutoScalingThresholds.html#AutoScalingThresholds%27"><span class="hs-identifier hs-type">AutoScalingThresholds'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371859"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.AutoScalingThresholds.html#AutoScalingThresholds%27"><span class="hs-identifier hs-type">AutoScalingThresholds'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679372250"><span class="annot"><span class="annottext">Maybe Int
 instanceCount :: Maybe Int
 $sel:instanceCount:AutoScalingThresholds' :: AutoScalingThresholds -&gt; Maybe Int
-</span><a href="#local-6989586621679371859"><span class="hs-identifier hs-var hs-var">instanceCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679371859"><span class="hs-identifier hs-var">instanceCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371858"><span class="annot"><span class="annottext">s :: AutoScalingThresholds
-</span><a href="#local-6989586621679371858"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.AutoScalingThresholds.html#AutoScalingThresholds%27"><span class="hs-identifier hs-type">AutoScalingThresholds'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371857"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679371857"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoScalingThresholds
-</span><a href="#local-6989586621679371858"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceCount:AutoScalingThresholds' :: Maybe Int
+</span><a href="#local-6989586621679372250"><span class="hs-identifier hs-var hs-var">instanceCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679372250"><span class="hs-identifier hs-var">instanceCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679372249"><span class="annot"><span class="annottext">s :: AutoScalingThresholds
+</span><a href="#local-6989586621679372249"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.AutoScalingThresholds.html#AutoScalingThresholds%27"><span class="hs-identifier hs-type">AutoScalingThresholds'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679372248"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679372248"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoScalingThresholds
+</span><a href="#local-6989586621679372249"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceCount:AutoScalingThresholds' :: Maybe Int
 </span><a href="Network.AWS.OpsWorks.Types.AutoScalingThresholds.html#%24sel%3AinstanceCount%3AAutoScalingThresholds%27"><span class="hs-identifier hs-var">instanceCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679371857"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.AutoScalingThresholds.html#AutoScalingThresholds"><span class="hs-identifier hs-type">AutoScalingThresholds</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679372248"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.AutoScalingThresholds.html#AutoScalingThresholds"><span class="hs-identifier hs-type">AutoScalingThresholds</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-comment">-- | The amount of time (in minutes) after a scaling event occurs that AWS</span><span>
 </span><span id="line-134"></span><span class="hs-comment">-- OpsWorks Stacks should ignore metrics and suppress additional scaling</span><span>
@@ -257,16 +257,16 @@ $sel:instanceCount:AutoScalingThresholds' :: AutoScalingThresholds -&gt; Maybe I
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.AutoScalingThresholds.html#AutoScalingThresholds%27"><span class="hs-identifier hs-type">AutoScalingThresholds'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371855"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.AutoScalingThresholds.html#AutoScalingThresholds%27"><span class="hs-identifier hs-type">AutoScalingThresholds'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679372246"><span class="annot"><span class="annottext">Maybe Natural
 ignoreMetricsTime :: Maybe Natural
 $sel:ignoreMetricsTime:AutoScalingThresholds' :: AutoScalingThresholds -&gt; Maybe Natural
-</span><a href="#local-6989586621679371855"><span class="hs-identifier hs-var hs-var">ignoreMetricsTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679371855"><span class="hs-identifier hs-var">ignoreMetricsTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371854"><span class="annot"><span class="annottext">s :: AutoScalingThresholds
-</span><a href="#local-6989586621679371854"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.AutoScalingThresholds.html#AutoScalingThresholds%27"><span class="hs-identifier hs-type">AutoScalingThresholds'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371853"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679371853"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoScalingThresholds
-</span><a href="#local-6989586621679371854"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ignoreMetricsTime:AutoScalingThresholds' :: Maybe Natural
+</span><a href="#local-6989586621679372246"><span class="hs-identifier hs-var hs-var">ignoreMetricsTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679372246"><span class="hs-identifier hs-var">ignoreMetricsTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679372245"><span class="annot"><span class="annottext">s :: AutoScalingThresholds
+</span><a href="#local-6989586621679372245"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.AutoScalingThresholds.html#AutoScalingThresholds%27"><span class="hs-identifier hs-type">AutoScalingThresholds'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679372244"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679372244"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoScalingThresholds
+</span><a href="#local-6989586621679372245"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ignoreMetricsTime:AutoScalingThresholds' :: Maybe Natural
 </span><a href="Network.AWS.OpsWorks.Types.AutoScalingThresholds.html#%24sel%3AignoreMetricsTime%3AAutoScalingThresholds%27"><span class="hs-identifier hs-var">ignoreMetricsTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679371853"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.AutoScalingThresholds.html#AutoScalingThresholds"><span class="hs-identifier hs-type">AutoScalingThresholds</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679372244"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.AutoScalingThresholds.html#AutoScalingThresholds"><span class="hs-identifier hs-type">AutoScalingThresholds</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-comment">-- | The load threshold. A value of -1 disables the threshold. For more</span><span>
 </span><span id="line-146"></span><span class="hs-comment">-- information about how load is computed, see</span><span>
@@ -282,16 +282,16 @@ $sel:ignoreMetricsTime:AutoScalingThresholds' :: AutoScalingThresholds -&gt; May
      (Maybe Double)
      (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.AutoScalingThresholds.html#AutoScalingThresholds%27"><span class="hs-identifier hs-type">AutoScalingThresholds'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371851"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.AutoScalingThresholds.html#AutoScalingThresholds%27"><span class="hs-identifier hs-type">AutoScalingThresholds'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679372242"><span class="annot"><span class="annottext">Maybe Double
 loadThreshold :: Maybe Double
 $sel:loadThreshold:AutoScalingThresholds' :: AutoScalingThresholds -&gt; Maybe Double
-</span><a href="#local-6989586621679371851"><span class="hs-identifier hs-var hs-var">loadThreshold</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679371851"><span class="hs-identifier hs-var">loadThreshold</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371850"><span class="annot"><span class="annottext">s :: AutoScalingThresholds
-</span><a href="#local-6989586621679371850"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.AutoScalingThresholds.html#AutoScalingThresholds%27"><span class="hs-identifier hs-type">AutoScalingThresholds'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371849"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679371849"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoScalingThresholds
-</span><a href="#local-6989586621679371850"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:loadThreshold:AutoScalingThresholds' :: Maybe Double
+</span><a href="#local-6989586621679372242"><span class="hs-identifier hs-var hs-var">loadThreshold</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679372242"><span class="hs-identifier hs-var">loadThreshold</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679372241"><span class="annot"><span class="annottext">s :: AutoScalingThresholds
+</span><a href="#local-6989586621679372241"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.AutoScalingThresholds.html#AutoScalingThresholds%27"><span class="hs-identifier hs-type">AutoScalingThresholds'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679372240"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679372240"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoScalingThresholds
+</span><a href="#local-6989586621679372241"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:loadThreshold:AutoScalingThresholds' :: Maybe Double
 </span><a href="Network.AWS.OpsWorks.Types.AutoScalingThresholds.html#%24sel%3AloadThreshold%3AAutoScalingThresholds%27"><span class="hs-identifier hs-var">loadThreshold</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679371849"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.AutoScalingThresholds.html#AutoScalingThresholds"><span class="hs-identifier hs-type">AutoScalingThresholds</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679372240"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.AutoScalingThresholds.html#AutoScalingThresholds"><span class="hs-identifier hs-type">AutoScalingThresholds</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-comment">-- | The amount of time, in minutes, that the load must exceed a threshold</span><span>
 </span><span id="line-152"></span><span class="hs-comment">-- before more instances are added or removed.</span><span>
@@ -307,16 +307,16 @@ $sel:loadThreshold:AutoScalingThresholds' :: AutoScalingThresholds -&gt; Maybe D
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.AutoScalingThresholds.html#AutoScalingThresholds%27"><span class="hs-identifier hs-type">AutoScalingThresholds'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371847"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.AutoScalingThresholds.html#AutoScalingThresholds%27"><span class="hs-identifier hs-type">AutoScalingThresholds'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679372238"><span class="annot"><span class="annottext">Maybe Natural
 thresholdsWaitTime :: Maybe Natural
 $sel:thresholdsWaitTime:AutoScalingThresholds' :: AutoScalingThresholds -&gt; Maybe Natural
-</span><a href="#local-6989586621679371847"><span class="hs-identifier hs-var hs-var">thresholdsWaitTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679371847"><span class="hs-identifier hs-var">thresholdsWaitTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371846"><span class="annot"><span class="annottext">s :: AutoScalingThresholds
-</span><a href="#local-6989586621679371846"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.AutoScalingThresholds.html#AutoScalingThresholds%27"><span class="hs-identifier hs-type">AutoScalingThresholds'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371845"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679371845"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoScalingThresholds
-</span><a href="#local-6989586621679371846"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:thresholdsWaitTime:AutoScalingThresholds' :: Maybe Natural
+</span><a href="#local-6989586621679372238"><span class="hs-identifier hs-var hs-var">thresholdsWaitTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679372238"><span class="hs-identifier hs-var">thresholdsWaitTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679372237"><span class="annot"><span class="annottext">s :: AutoScalingThresholds
+</span><a href="#local-6989586621679372237"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.AutoScalingThresholds.html#AutoScalingThresholds%27"><span class="hs-identifier hs-type">AutoScalingThresholds'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679372236"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679372236"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoScalingThresholds
+</span><a href="#local-6989586621679372237"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:thresholdsWaitTime:AutoScalingThresholds' :: Maybe Natural
 </span><a href="Network.AWS.OpsWorks.Types.AutoScalingThresholds.html#%24sel%3AthresholdsWaitTime%3AAutoScalingThresholds%27"><span class="hs-identifier hs-var">thresholdsWaitTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679371845"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.AutoScalingThresholds.html#AutoScalingThresholds"><span class="hs-identifier hs-type">AutoScalingThresholds</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679372236"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.AutoScalingThresholds.html#AutoScalingThresholds"><span class="hs-identifier hs-type">AutoScalingThresholds</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>
 </span><span id="line-156"></span><span class="hs-comment">-- | Custom Cloudwatch auto scaling alarms, to be used as thresholds. This</span><span>
 </span><span id="line-157"></span><span class="hs-comment">-- parameter takes a list of up to five alarm names, which are case</span><span>
@@ -338,16 +338,16 @@ $sel:thresholdsWaitTime:AutoScalingThresholds' :: AutoScalingThresholds -&gt; Ma
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.AutoScalingThresholds.html#AutoScalingThresholds%27"><span class="hs-identifier hs-type">AutoScalingThresholds'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371843"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.AutoScalingThresholds.html#AutoScalingThresholds%27"><span class="hs-identifier hs-type">AutoScalingThresholds'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679372234"><span class="annot"><span class="annottext">Maybe [Text]
 alarms :: Maybe [Text]
 $sel:alarms:AutoScalingThresholds' :: AutoScalingThresholds -&gt; Maybe [Text]
-</span><a href="#local-6989586621679371843"><span class="hs-identifier hs-var hs-var">alarms</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679371843"><span class="hs-identifier hs-var">alarms</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371842"><span class="annot"><span class="annottext">s :: AutoScalingThresholds
-</span><a href="#local-6989586621679371842"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.AutoScalingThresholds.html#AutoScalingThresholds%27"><span class="hs-identifier hs-type">AutoScalingThresholds'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371841"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679371841"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoScalingThresholds
-</span><a href="#local-6989586621679371842"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:alarms:AutoScalingThresholds' :: Maybe [Text]
+</span><a href="#local-6989586621679372234"><span class="hs-identifier hs-var hs-var">alarms</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679372234"><span class="hs-identifier hs-var">alarms</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679372233"><span class="annot"><span class="annottext">s :: AutoScalingThresholds
+</span><a href="#local-6989586621679372233"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.AutoScalingThresholds.html#AutoScalingThresholds%27"><span class="hs-identifier hs-type">AutoScalingThresholds'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679372232"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679372232"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoScalingThresholds
+</span><a href="#local-6989586621679372233"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:alarms:AutoScalingThresholds' :: Maybe [Text]
 </span><a href="Network.AWS.OpsWorks.Types.AutoScalingThresholds.html#%24sel%3Aalarms%3AAutoScalingThresholds%27"><span class="hs-identifier hs-var">alarms</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679371841"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.AutoScalingThresholds.html#AutoScalingThresholds"><span class="hs-identifier hs-type">AutoScalingThresholds</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679372232"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.AutoScalingThresholds.html#AutoScalingThresholds"><span class="hs-identifier hs-type">AutoScalingThresholds</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; AutoScalingThresholds -&gt; f AutoScalingThresholds)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -361,8 +361,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-167"></span><span>
 </span><span id="line-168"></span><span class="hs-comment">-- | The memory utilization threshold, as a percent of the available memory.</span><span>
 </span><span id="line-169"></span><span class="hs-comment">-- A value of -1 disables the threshold.</span><span>
@@ -377,16 +377,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe Double)
      (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.AutoScalingThresholds.html#AutoScalingThresholds%27"><span class="hs-identifier hs-type">AutoScalingThresholds'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371836"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.AutoScalingThresholds.html#AutoScalingThresholds%27"><span class="hs-identifier hs-type">AutoScalingThresholds'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679372227"><span class="annot"><span class="annottext">Maybe Double
 memoryThreshold :: Maybe Double
 $sel:memoryThreshold:AutoScalingThresholds' :: AutoScalingThresholds -&gt; Maybe Double
-</span><a href="#local-6989586621679371836"><span class="hs-identifier hs-var hs-var">memoryThreshold</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679371836"><span class="hs-identifier hs-var">memoryThreshold</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371835"><span class="annot"><span class="annottext">s :: AutoScalingThresholds
-</span><a href="#local-6989586621679371835"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.AutoScalingThresholds.html#AutoScalingThresholds%27"><span class="hs-identifier hs-type">AutoScalingThresholds'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371834"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679371834"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoScalingThresholds
-</span><a href="#local-6989586621679371835"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:memoryThreshold:AutoScalingThresholds' :: Maybe Double
+</span><a href="#local-6989586621679372227"><span class="hs-identifier hs-var hs-var">memoryThreshold</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679372227"><span class="hs-identifier hs-var">memoryThreshold</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679372226"><span class="annot"><span class="annottext">s :: AutoScalingThresholds
+</span><a href="#local-6989586621679372226"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.AutoScalingThresholds.html#AutoScalingThresholds%27"><span class="hs-identifier hs-type">AutoScalingThresholds'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679372225"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679372225"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoScalingThresholds
+</span><a href="#local-6989586621679372226"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:memoryThreshold:AutoScalingThresholds' :: Maybe Double
 </span><a href="Network.AWS.OpsWorks.Types.AutoScalingThresholds.html#%24sel%3AmemoryThreshold%3AAutoScalingThresholds%27"><span class="hs-identifier hs-var">memoryThreshold</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679371834"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.AutoScalingThresholds.html#AutoScalingThresholds"><span class="hs-identifier hs-type">AutoScalingThresholds</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679372225"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.AutoScalingThresholds.html#AutoScalingThresholds"><span class="hs-identifier hs-type">AutoScalingThresholds</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-172"></span><span>
 </span><span id="line-173"></span><span class="hs-comment">-- | The CPU utilization threshold, as a percent of the available CPU. A</span><span>
 </span><span id="line-174"></span><span class="hs-comment">-- value of -1 disables the threshold.</span><span>
@@ -401,19 +401,19 @@ $sel:memoryThreshold:AutoScalingThresholds' :: AutoScalingThresholds -&gt; Maybe
      (Maybe Double)
      (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.AutoScalingThresholds.html#AutoScalingThresholds%27"><span class="hs-identifier hs-type">AutoScalingThresholds'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371832"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.AutoScalingThresholds.html#AutoScalingThresholds%27"><span class="hs-identifier hs-type">AutoScalingThresholds'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679372223"><span class="annot"><span class="annottext">Maybe Double
 cpuThreshold :: Maybe Double
 $sel:cpuThreshold:AutoScalingThresholds' :: AutoScalingThresholds -&gt; Maybe Double
-</span><a href="#local-6989586621679371832"><span class="hs-identifier hs-var hs-var">cpuThreshold</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679371832"><span class="hs-identifier hs-var">cpuThreshold</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371831"><span class="annot"><span class="annottext">s :: AutoScalingThresholds
-</span><a href="#local-6989586621679371831"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.AutoScalingThresholds.html#AutoScalingThresholds%27"><span class="hs-identifier hs-type">AutoScalingThresholds'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371830"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679371830"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoScalingThresholds
-</span><a href="#local-6989586621679371831"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cpuThreshold:AutoScalingThresholds' :: Maybe Double
+</span><a href="#local-6989586621679372223"><span class="hs-identifier hs-var hs-var">cpuThreshold</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679372223"><span class="hs-identifier hs-var">cpuThreshold</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679372222"><span class="annot"><span class="annottext">s :: AutoScalingThresholds
+</span><a href="#local-6989586621679372222"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.AutoScalingThresholds.html#AutoScalingThresholds%27"><span class="hs-identifier hs-type">AutoScalingThresholds'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679372221"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679372221"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoScalingThresholds
+</span><a href="#local-6989586621679372222"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cpuThreshold:AutoScalingThresholds' :: Maybe Double
 </span><a href="Network.AWS.OpsWorks.Types.AutoScalingThresholds.html#%24sel%3AcpuThreshold%3AAutoScalingThresholds%27"><span class="hs-identifier hs-var">cpuThreshold</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679371830"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.AutoScalingThresholds.html#AutoScalingThresholds"><span class="hs-identifier hs-type">AutoScalingThresholds</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679372221"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.AutoScalingThresholds.html#AutoScalingThresholds"><span class="hs-identifier hs-type">AutoScalingThresholds</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-177"></span><span>
-</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679371827"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.AutoScalingThresholds.html#AutoScalingThresholds"><span class="hs-identifier hs-type">AutoScalingThresholds</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-179"></span><span>  </span><span id="local-6989586621679371825"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AutoScalingThresholds
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679372218"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.AutoScalingThresholds.html#AutoScalingThresholds"><span class="hs-identifier hs-type">AutoScalingThresholds</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679372216"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AutoScalingThresholds
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-180"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AutoScalingThresholds)
@@ -423,8 +423,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-181"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AutoScalingThresholds&quot;</span></span><span>
-</span><span id="line-182"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679371822"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679371822"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-182"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679372213"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679372213"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-183"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int
 -&gt; Maybe Natural
 -&gt; Maybe Double
@@ -453,7 +453,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; AutoScalingThresholds)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679371822"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679372213"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;InstanceCount&quot;</span></span><span class="hs-special">)</span><span>
@@ -475,7 +475,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; AutoScalingThresholds)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679371822"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679372213"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IgnoreMetricsTime&quot;</span></span><span class="hs-special">)</span><span>
@@ -495,7 +495,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; AutoScalingThresholds)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679371822"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+</span><a href="#local-6989586621679372213"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LoadThreshold&quot;</span></span><span class="hs-special">)</span><span>
@@ -511,7 +511,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Maybe Double -&gt; Maybe Double -&gt; AutoScalingThresholds)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679371822"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679372213"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ThresholdsWaitTime&quot;</span></span><span class="hs-special">)</span><span>
@@ -522,7 +522,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Double -&gt; Maybe Double -&gt; AutoScalingThresholds)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679371822"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679372213"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Alarms&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
@@ -536,7 +536,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe Double -&gt; AutoScalingThresholds)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679371822"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+</span><a href="#local-6989586621679372213"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MemoryThreshold&quot;</span></span><span class="hs-special">)</span><span>
@@ -544,19 +544,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Double) -&gt; Parser AutoScalingThresholds
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679371822"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+</span><a href="#local-6989586621679372213"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CpuThreshold&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-191"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-192"></span><span>
-</span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679371815"><span id="local-6989586621679371817"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.AutoScalingThresholds.html#AutoScalingThresholds"><span class="hs-identifier hs-type">AutoScalingThresholds</span></a></span></span></span><span>
+</span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679372206"><span id="local-6989586621679372208"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.AutoScalingThresholds.html#AutoScalingThresholds"><span class="hs-identifier hs-type">AutoScalingThresholds</span></a></span></span></span><span>
 </span><span id="line-194"></span><span>
-</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679371812"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.AutoScalingThresholds.html#AutoScalingThresholds"><span class="hs-identifier hs-type">AutoScalingThresholds</span></a></span></span><span>
+</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679372203"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.AutoScalingThresholds.html#AutoScalingThresholds"><span class="hs-identifier hs-type">AutoScalingThresholds</span></a></span></span><span>
 </span><span id="line-196"></span><span>
-</span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679371804"><span id="local-6989586621679371806"><span id="local-6989586621679371808"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.AutoScalingThresholds.html#AutoScalingThresholds"><span class="hs-identifier hs-type">AutoScalingThresholds</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-198"></span><span>  </span><span id="local-6989586621679371802"><span class="annot"><span class="annottext">toJSON :: AutoScalingThresholds -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.AutoScalingThresholds.html#AutoScalingThresholds%27"><span class="hs-identifier hs-type">AutoScalingThresholds'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371794"><span id="local-6989586621679371795"><span id="local-6989586621679371796"><span id="local-6989586621679371797"><span id="local-6989586621679371798"><span id="local-6989586621679371799"><span id="local-6989586621679371800"><span class="annot"><span class="annottext">Maybe Double
+</span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679372195"><span id="local-6989586621679372197"><span id="local-6989586621679372199"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.AutoScalingThresholds.html#AutoScalingThresholds"><span class="hs-identifier hs-type">AutoScalingThresholds</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-198"></span><span>  </span><span id="local-6989586621679372193"><span class="annot"><span class="annottext">toJSON :: AutoScalingThresholds -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.AutoScalingThresholds.html#AutoScalingThresholds%27"><span class="hs-identifier hs-type">AutoScalingThresholds'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679372185"><span id="local-6989586621679372186"><span id="local-6989586621679372187"><span id="local-6989586621679372188"><span id="local-6989586621679372189"><span id="local-6989586621679372190"><span id="local-6989586621679372191"><span class="annot"><span class="annottext">Maybe Double
 Maybe Int
 Maybe Natural
 Maybe [Text]
@@ -574,7 +574,7 @@ $sel:thresholdsWaitTime:AutoScalingThresholds' :: AutoScalingThresholds -&gt; Ma
 $sel:loadThreshold:AutoScalingThresholds' :: AutoScalingThresholds -&gt; Maybe Double
 $sel:ignoreMetricsTime:AutoScalingThresholds' :: AutoScalingThresholds -&gt; Maybe Natural
 $sel:instanceCount:AutoScalingThresholds' :: AutoScalingThresholds -&gt; Maybe Int
-</span><a href="#local-6989586621679371794"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679372185"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-199"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-200"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -586,7 +586,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679371800"><span class="hs-identifier hs-var">instanceCount</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679372191"><span class="hs-identifier hs-var">instanceCount</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-202"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IgnoreMetricsTime&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -594,14 +594,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-203"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679371799"><span class="hs-identifier hs-var">ignoreMetricsTime</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679372190"><span class="hs-identifier hs-var">ignoreMetricsTime</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-204"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LoadThreshold&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Double -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Double -&gt; Pair) -&gt; Maybe Double -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679371798"><span class="hs-identifier hs-var">loadThreshold</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679372189"><span class="hs-identifier hs-var">loadThreshold</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-205"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ThresholdsWaitTime&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -609,14 +609,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-206"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679371797"><span class="hs-identifier hs-var">thresholdsWaitTime</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679372188"><span class="hs-identifier hs-var">thresholdsWaitTime</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-207"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Alarms&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679371796"><span class="hs-identifier hs-var">alarms</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679372187"><span class="hs-identifier hs-var">alarms</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-208"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MemoryThreshold&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Double -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -624,14 +624,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-209"></span><span>              </span><span class="annot"><span class="annottext">(Double -&gt; Pair) -&gt; Maybe Double -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679371795"><span class="hs-identifier hs-var">memoryThreshold</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679372186"><span class="hs-identifier hs-var">memoryThreshold</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-210"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CpuThreshold&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Double -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Double -&gt; Pair) -&gt; Maybe Double -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679371794"><span class="hs-identifier hs-var">cpuThreshold</span></a></span><span>
+</span><a href="#local-6989586621679372185"><span class="hs-identifier hs-var">cpuThreshold</span></a></span><span>
 </span><span id="line-211"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-212"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-213"></span></pre></body></html>

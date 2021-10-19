@@ -30,7 +30,7 @@
 </span><span id="line-30"></span><span class="hs-comment">-- &lt;http://docs.aws.amazon.com/lex/latest/dg/built-in-intent-kendra-search.html AMAZON.KendraSearchIntent&gt;.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newKendraConfiguration' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679311226"><span id="local-6989586621679311227"></span></span><span class="hs-keyword">data</span><span> </span><span id="KendraConfiguration"><span class="annot"><a href="Network.AWS.LexModels.Types.KendraConfiguration.html#KendraConfiguration"><span class="hs-identifier hs-var">KendraConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="KendraConfiguration%27"><span class="annot"><a href="Network.AWS.LexModels.Types.KendraConfiguration.html#KendraConfiguration%27"><span class="hs-identifier hs-var">KendraConfiguration'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679311508"><span id="local-6989586621679311509"></span></span><span class="hs-keyword">data</span><span> </span><span id="KendraConfiguration"><span class="annot"><a href="Network.AWS.LexModels.Types.KendraConfiguration.html#KendraConfiguration"><span class="hs-identifier hs-var">KendraConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="KendraConfiguration%27"><span class="annot"><a href="Network.AWS.LexModels.Types.KendraConfiguration.html#KendraConfiguration%27"><span class="hs-identifier hs-var">KendraConfiguration'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A query filter that Amazon Lex sends to Amazon Kendra to filter the</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- response from the query. The filter is in the format defined by Amazon</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- Kendra. For more information, see</span><span>
@@ -53,7 +53,7 @@
 </span><span id="line-51"></span><span>    </span><span id="%24sel%3Arole%27%3AKendraConfiguration%27"><span class="annot"><span class="annottext">KendraConfiguration -&gt; Text
 </span><a href="Network.AWS.LexModels.Types.KendraConfiguration.html#%24sel%3Arole%27%3AKendraConfiguration%27"><span class="hs-identifier hs-var hs-var">role'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679311218"><span id="local-6989586621679311220"><span class="annot"><span class="annottext">KendraConfiguration -&gt; KendraConfiguration -&gt; Bool
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679311500"><span id="local-6989586621679311502"><span class="annot"><span class="annottext">KendraConfiguration -&gt; KendraConfiguration -&gt; Bool
 (KendraConfiguration -&gt; KendraConfiguration -&gt; Bool)
 -&gt; (KendraConfiguration -&gt; KendraConfiguration -&gt; Bool)
 -&gt; Eq KendraConfiguration
@@ -62,7 +62,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: KendraConfiguration -&gt; KendraConfiguration -&gt; Bool
 == :: KendraConfiguration -&gt; KendraConfiguration -&gt; Bool
 $c== :: KendraConfiguration -&gt; KendraConfiguration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311209"><span id="local-6989586621679311211"><span id="local-6989586621679311213"><span id="local-6989586621679311215"><span class="annot"><span class="annottext">ReadPrec [KendraConfiguration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311491"><span id="local-6989586621679311493"><span id="local-6989586621679311495"><span id="local-6989586621679311497"><span class="annot"><span class="annottext">ReadPrec [KendraConfiguration]
 ReadPrec KendraConfiguration
 Int -&gt; ReadS KendraConfiguration
 ReadS [KendraConfiguration]
@@ -82,7 +82,7 @@ readList :: ReadS [KendraConfiguration]
 $creadList :: ReadS [KendraConfiguration]
 readsPrec :: Int -&gt; ReadS KendraConfiguration
 $creadsPrec :: Int -&gt; ReadS KendraConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311202"><span id="local-6989586621679311204"><span id="local-6989586621679311206"><span class="annot"><span class="annottext">Int -&gt; KendraConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311484"><span id="local-6989586621679311486"><span id="local-6989586621679311488"><span class="annot"><span class="annottext">Int -&gt; KendraConfiguration -&gt; ShowS
 [KendraConfiguration] -&gt; ShowS
 KendraConfiguration -&gt; String
 (Int -&gt; KendraConfiguration -&gt; ShowS)
@@ -140,9 +140,9 @@ $cfrom :: forall x. KendraConfiguration -&gt; Rep KendraConfiguration x
 </span><span id="line-84"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-85"></span><span>  </span><span class="annot"><a href="Network.AWS.LexModels.Types.KendraConfiguration.html#KendraConfiguration"><span class="hs-identifier hs-type">KendraConfiguration</span></a></span><span>
 </span><span id="line-86"></span><span id="newKendraConfiguration"><span class="annot"><span class="annottext">newKendraConfiguration :: Text -&gt; Text -&gt; KendraConfiguration
-</span><a href="Network.AWS.LexModels.Types.KendraConfiguration.html#newKendraConfiguration"><span class="hs-identifier hs-var hs-var">newKendraConfiguration</span></a></span></span><span> </span><span id="local-6989586621679311196"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679311196"><span class="hs-identifier hs-var">pKendraIndex_</span></a></span></span><span> </span><span id="local-6989586621679311195"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679311195"><span class="hs-identifier hs-var">pRole_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.LexModels.Types.KendraConfiguration.html#newKendraConfiguration"><span class="hs-identifier hs-var hs-var">newKendraConfiguration</span></a></span></span><span> </span><span id="local-6989586621679311478"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311478"><span class="hs-identifier hs-var">pKendraIndex_</span></a></span></span><span> </span><span id="local-6989586621679311477"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311477"><span class="hs-identifier hs-var">pRole_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>  </span><span class="annot"><span class="annottext">KendraConfiguration' :: Maybe Text -&gt; Text -&gt; Text -&gt; KendraConfiguration
 </span><a href="Network.AWS.LexModels.Types.KendraConfiguration.html#KendraConfiguration%27"><span class="hs-identifier hs-type">KendraConfiguration'</span></a></span><span>
 </span><span id="line-88"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:queryFilterString:KendraConfiguration' :: Maybe Text
@@ -152,10 +152,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:kendraIndex:KendraConfiguration' :: Text
 </span><a href="Network.AWS.LexModels.Types.KendraConfiguration.html#%24sel%3AkendraIndex%3AKendraConfiguration%27"><span class="hs-identifier hs-var">kendraIndex</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679311196"><span class="hs-identifier hs-var">pKendraIndex_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679311478"><span class="hs-identifier hs-var">pKendraIndex_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:role':KendraConfiguration' :: Text
 </span><a href="Network.AWS.LexModels.Types.KendraConfiguration.html#%24sel%3Arole%27%3AKendraConfiguration%27"><span class="hs-identifier hs-var">role'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679311195"><span class="hs-identifier hs-var">pRole_</span></a></span><span>
+</span><a href="#local-6989586621679311477"><span class="hs-identifier hs-var">pRole_</span></a></span><span>
 </span><span id="line-92"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- | A query filter that Amazon Lex sends to Amazon Kendra to filter the</span><span>
@@ -172,16 +172,16 @@ forall a. Maybe a
 -&gt; Lens
      KendraConfiguration KendraConfiguration (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.KendraConfiguration.html#KendraConfiguration%27"><span class="hs-identifier hs-type">KendraConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311191"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.KendraConfiguration.html#KendraConfiguration%27"><span class="hs-identifier hs-type">KendraConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311473"><span class="annot"><span class="annottext">Maybe Text
 queryFilterString :: Maybe Text
 $sel:queryFilterString:KendraConfiguration' :: KendraConfiguration -&gt; Maybe Text
-</span><a href="#local-6989586621679311191"><span class="hs-identifier hs-var hs-var">queryFilterString</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679311191"><span class="hs-identifier hs-var">queryFilterString</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311190"><span class="annot"><span class="annottext">s :: KendraConfiguration
-</span><a href="#local-6989586621679311190"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.KendraConfiguration.html#KendraConfiguration%27"><span class="hs-identifier hs-type">KendraConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311189"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679311189"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KendraConfiguration
-</span><a href="#local-6989586621679311190"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryFilterString:KendraConfiguration' :: Maybe Text
+</span><a href="#local-6989586621679311473"><span class="hs-identifier hs-var hs-var">queryFilterString</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679311473"><span class="hs-identifier hs-var">queryFilterString</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311472"><span class="annot"><span class="annottext">s :: KendraConfiguration
+</span><a href="#local-6989586621679311472"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.KendraConfiguration.html#KendraConfiguration%27"><span class="hs-identifier hs-type">KendraConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311471"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679311471"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KendraConfiguration
+</span><a href="#local-6989586621679311472"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryFilterString:KendraConfiguration' :: Maybe Text
 </span><a href="Network.AWS.LexModels.Types.KendraConfiguration.html#%24sel%3AqueryFilterString%3AKendraConfiguration%27"><span class="hs-identifier hs-var">queryFilterString</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679311189"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.KendraConfiguration.html#KendraConfiguration"><span class="hs-identifier hs-type">KendraConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679311471"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.KendraConfiguration.html#KendraConfiguration"><span class="hs-identifier hs-type">KendraConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the Amazon Kendra index that you want</span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- the AMAZON.KendraSearchIntent intent to search. The index must be in the</span><span>
@@ -194,16 +194,16 @@ $sel:queryFilterString:KendraConfiguration' :: KendraConfiguration -&gt; Maybe T
 -&gt; (KendraConfiguration -&gt; Text -&gt; KendraConfiguration)
 -&gt; Lens KendraConfiguration KendraConfiguration Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.KendraConfiguration.html#KendraConfiguration%27"><span class="hs-identifier hs-type">KendraConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311187"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.KendraConfiguration.html#KendraConfiguration%27"><span class="hs-identifier hs-type">KendraConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311469"><span class="annot"><span class="annottext">Text
 kendraIndex :: Text
 $sel:kendraIndex:KendraConfiguration' :: KendraConfiguration -&gt; Text
-</span><a href="#local-6989586621679311187"><span class="hs-identifier hs-var hs-var">kendraIndex</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679311187"><span class="hs-identifier hs-var">kendraIndex</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311186"><span class="annot"><span class="annottext">s :: KendraConfiguration
-</span><a href="#local-6989586621679311186"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.KendraConfiguration.html#KendraConfiguration%27"><span class="hs-identifier hs-type">KendraConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311185"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679311185"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KendraConfiguration
-</span><a href="#local-6989586621679311186"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kendraIndex:KendraConfiguration' :: Text
+</span><a href="#local-6989586621679311469"><span class="hs-identifier hs-var hs-var">kendraIndex</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311469"><span class="hs-identifier hs-var">kendraIndex</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311468"><span class="annot"><span class="annottext">s :: KendraConfiguration
+</span><a href="#local-6989586621679311468"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.KendraConfiguration.html#KendraConfiguration%27"><span class="hs-identifier hs-type">KendraConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311467"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311467"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KendraConfiguration
+</span><a href="#local-6989586621679311468"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kendraIndex:KendraConfiguration' :: Text
 </span><a href="Network.AWS.LexModels.Types.KendraConfiguration.html#%24sel%3AkendraIndex%3AKendraConfiguration%27"><span class="hs-identifier hs-var">kendraIndex</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679311185"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.KendraConfiguration.html#KendraConfiguration"><span class="hs-identifier hs-type">KendraConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679311467"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.KendraConfiguration.html#KendraConfiguration"><span class="hs-identifier hs-type">KendraConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of an IAM role that has permission to</span><span>
 </span><span id="line-112"></span><span class="hs-comment">-- search the Amazon Kendra index. The role must be in the same account and</span><span>
@@ -215,19 +215,19 @@ $sel:kendraIndex:KendraConfiguration' :: KendraConfiguration -&gt; Text
 -&gt; (KendraConfiguration -&gt; Text -&gt; KendraConfiguration)
 -&gt; Lens KendraConfiguration KendraConfiguration Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.KendraConfiguration.html#KendraConfiguration%27"><span class="hs-identifier hs-type">KendraConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311183"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.KendraConfiguration.html#KendraConfiguration%27"><span class="hs-identifier hs-type">KendraConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311465"><span class="annot"><span class="annottext">Text
 role' :: Text
 $sel:role':KendraConfiguration' :: KendraConfiguration -&gt; Text
-</span><a href="#local-6989586621679311183"><span class="hs-identifier hs-var hs-var">role'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679311183"><span class="hs-identifier hs-var">role'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311182"><span class="annot"><span class="annottext">s :: KendraConfiguration
-</span><a href="#local-6989586621679311182"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.KendraConfiguration.html#KendraConfiguration%27"><span class="hs-identifier hs-type">KendraConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311181"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679311181"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KendraConfiguration
-</span><a href="#local-6989586621679311182"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:role':KendraConfiguration' :: Text
+</span><a href="#local-6989586621679311465"><span class="hs-identifier hs-var hs-var">role'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311465"><span class="hs-identifier hs-var">role'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311464"><span class="annot"><span class="annottext">s :: KendraConfiguration
+</span><a href="#local-6989586621679311464"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.KendraConfiguration.html#KendraConfiguration%27"><span class="hs-identifier hs-type">KendraConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311463"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311463"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KendraConfiguration
+</span><a href="#local-6989586621679311464"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:role':KendraConfiguration' :: Text
 </span><a href="Network.AWS.LexModels.Types.KendraConfiguration.html#%24sel%3Arole%27%3AKendraConfiguration%27"><span class="hs-identifier hs-var">role'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679311181"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.KendraConfiguration.html#KendraConfiguration"><span class="hs-identifier hs-type">KendraConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679311463"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.KendraConfiguration.html#KendraConfiguration"><span class="hs-identifier hs-type">KendraConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311178"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.KendraConfiguration.html#KendraConfiguration"><span class="hs-identifier hs-type">KendraConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679311176"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser KendraConfiguration
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311460"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.KendraConfiguration.html#KendraConfiguration"><span class="hs-identifier hs-type">KendraConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679311458"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser KendraConfiguration
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser KendraConfiguration)
@@ -237,8 +237,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;KendraConfiguration&quot;</span></span><span>
-</span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679311173"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679311173"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679311455"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679311455"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-123"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Text -&gt; Text -&gt; KendraConfiguration
 </span><a href="Network.AWS.LexModels.Types.KendraConfiguration.html#KendraConfiguration%27"><span class="hs-identifier hs-var">KendraConfiguration'</span></a></span><span>
 </span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Text -&gt; Text -&gt; KendraConfiguration)
@@ -246,7 +246,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Text -&gt; Text -&gt; KendraConfiguration)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679311173"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679311455"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;queryFilterString&quot;</span></span><span class="hs-special">)</span><span>
@@ -254,7 +254,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Text -&gt; Parser (Text -&gt; KendraConfiguration)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679311173"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679311455"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;kendraIndex&quot;</span></span><span class="hs-special">)</span><span>
@@ -262,19 +262,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser KendraConfiguration
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679311173"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679311455"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;role&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311166"><span id="local-6989586621679311168"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.KendraConfiguration.html#KendraConfiguration"><span class="hs-identifier hs-type">KendraConfiguration</span></a></span></span></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311448"><span id="local-6989586621679311450"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.KendraConfiguration.html#KendraConfiguration"><span class="hs-identifier hs-type">KendraConfiguration</span></a></span></span></span><span>
 </span><span id="line-130"></span><span>
-</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311163"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.KendraConfiguration.html#KendraConfiguration"><span class="hs-identifier hs-type">KendraConfiguration</span></a></span></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311445"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.KendraConfiguration.html#KendraConfiguration"><span class="hs-identifier hs-type">KendraConfiguration</span></a></span></span><span>
 </span><span id="line-132"></span><span>
-</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311155"><span id="local-6989586621679311157"><span id="local-6989586621679311159"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.KendraConfiguration.html#KendraConfiguration"><span class="hs-identifier hs-type">KendraConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679311153"><span class="annot"><span class="annottext">toJSON :: KendraConfiguration -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.KendraConfiguration.html#KendraConfiguration%27"><span class="hs-identifier hs-type">KendraConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311149"><span id="local-6989586621679311150"><span id="local-6989586621679311151"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311437"><span id="local-6989586621679311439"><span id="local-6989586621679311441"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.KendraConfiguration.html#KendraConfiguration"><span class="hs-identifier hs-type">KendraConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679311435"><span class="annot"><span class="annottext">toJSON :: KendraConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.KendraConfiguration.html#KendraConfiguration%27"><span class="hs-identifier hs-type">KendraConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311431"><span id="local-6989586621679311432"><span id="local-6989586621679311433"><span class="annot"><span class="annottext">Maybe Text
 Text
 role' :: Text
 kendraIndex :: Text
@@ -282,7 +282,7 @@ queryFilterString :: Maybe Text
 $sel:role':KendraConfiguration' :: KendraConfiguration -&gt; Text
 $sel:kendraIndex:KendraConfiguration' :: KendraConfiguration -&gt; Text
 $sel:queryFilterString:KendraConfiguration' :: KendraConfiguration -&gt; Maybe Text
-</span><a href="#local-6989586621679311149"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679311431"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-136"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -295,21 +295,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-138"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679311151"><span class="hs-identifier hs-var">queryFilterString</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679311433"><span class="hs-identifier hs-var">queryFilterString</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;kendraIndex&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679311150"><span class="hs-identifier hs-var">kendraIndex</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679311432"><span class="hs-identifier hs-var">kendraIndex</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;role&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679311149"><span class="hs-identifier hs-var">role'</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679311431"><span class="hs-identifier hs-var">role'</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-142"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span></pre></body></html>

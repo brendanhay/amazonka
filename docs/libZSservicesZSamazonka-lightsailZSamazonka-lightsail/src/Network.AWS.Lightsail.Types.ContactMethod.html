@@ -34,7 +34,7 @@
 </span><span id="line-34"></span><span class="hs-comment">-- &lt;https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-notifications Notifications in Amazon Lightsail&gt;.</span><span>
 </span><span id="line-35"></span><span class="hs-comment">--</span><span>
 </span><span id="line-36"></span><span class="hs-comment">-- /See:/ 'newContactMethod' smart constructor.</span><span>
-</span><span id="line-37"></span><span id="local-6989586621679622079"><span id="local-6989586621679622080"></span></span><span class="hs-keyword">data</span><span> </span><span id="ContactMethod"><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#ContactMethod"><span class="hs-identifier hs-var">ContactMethod</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContactMethod%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#ContactMethod%27"><span class="hs-identifier hs-var">ContactMethod'</span></a></span></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679622988"><span id="local-6989586621679622989"></span></span><span class="hs-keyword">data</span><span> </span><span id="ContactMethod"><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#ContactMethod"><span class="hs-identifier hs-var">ContactMethod</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContactMethod%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#ContactMethod%27"><span class="hs-identifier hs-var">ContactMethod'</span></a></span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The current status of the contact method.</span><span>
 </span><span id="line-39"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-40"></span><span>    </span><span class="hs-comment">-- A contact method has the following possible status:</span><span>
@@ -48,35 +48,35 @@
 </span><span id="line-48"></span><span>    </span><span class="hs-comment">--     the verification has expired.</span><span>
 </span><span id="line-49"></span><span>    </span><span id="%24sel%3Astatus%3AContactMethod%27"><span class="annot"><span class="annottext">ContactMethod -&gt; Maybe ContactMethodStatus
 </span><a href="Network.AWS.Lightsail.Types.ContactMethod.html#%24sel%3Astatus%3AContactMethod%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethodStatus.html#ContactMethodStatus"><span class="hs-identifier hs-type">ContactMethodStatus</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The destination of the contact method, such as an email address or a</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- mobile phone number.</span><span>
-</span><span id="line-52"></span><span>    </span><span id="%24sel%3AcontactEndpoint%3AContactMethod%27"><span class="annot"><span class="annottext">ContactMethod -&gt; Maybe Text
-</span><a href="Network.AWS.Lightsail.Types.ContactMethod.html#%24sel%3AcontactEndpoint%3AContactMethod%27"><span class="hs-identifier hs-var hs-var">contactEndpoint</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The timestamp when the contact method was created.</span><span>
-</span><span id="line-54"></span><span>    </span><span id="%24sel%3AcreatedAt%3AContactMethod%27"><span class="annot"><span class="annottext">ContactMethod -&gt; Maybe POSIX
-</span><a href="Network.AWS.Lightsail.Types.ContactMethod.html#%24sel%3AcreatedAt%3AContactMethod%27"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the contact method.</span><span>
-</span><span id="line-56"></span><span>    </span><span id="%24sel%3Aarn%3AContactMethod%27"><span class="annot"><span class="annottext">ContactMethod -&gt; Maybe Text
-</span><a href="Network.AWS.Lightsail.Types.ContactMethod.html#%24sel%3Aarn%3AContactMethod%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The support code. Include this code in your email to support when you</span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- have questions about your Lightsail contact method. This code enables</span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- our support team to look up your Lightsail information more easily.</span><span>
-</span><span id="line-60"></span><span>    </span><span id="%24sel%3AsupportCode%3AContactMethod%27"><span class="annot"><span class="annottext">ContactMethod -&gt; Maybe Text
-</span><a href="Network.AWS.Lightsail.Types.ContactMethod.html#%24sel%3AsupportCode%3AContactMethod%27"><span class="hs-identifier hs-var hs-var">supportCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The Lightsail resource type (e.g., @ContactMethod@).</span><span>
-</span><span id="line-62"></span><span>    </span><span id="%24sel%3AresourceType%3AContactMethod%27"><span class="annot"><span class="annottext">ContactMethod -&gt; Maybe ResourceType
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The Lightsail resource type (e.g., @ContactMethod@).</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AresourceType%3AContactMethod%27"><span class="annot"><span class="annottext">ContactMethod -&gt; Maybe ResourceType
 </span><a href="Network.AWS.Lightsail.Types.ContactMethod.html#%24sel%3AresourceType%3AContactMethod%27"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ResourceType.html#ResourceType"><span class="hs-identifier hs-type">ResourceType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The name of the contact method.</span><span>
-</span><span id="line-64"></span><span>    </span><span id="%24sel%3Aname%3AContactMethod%27"><span class="annot"><span class="annottext">ContactMethod -&gt; Maybe Text
-</span><a href="Network.AWS.Lightsail.Types.ContactMethod.html#%24sel%3Aname%3AContactMethod%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The protocol of the contact method, such as email or SMS (text</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- messaging).</span><span>
-</span><span id="line-67"></span><span>    </span><span id="%24sel%3Aprotocol%3AContactMethod%27"><span class="annot"><span class="annottext">ContactMethod -&gt; Maybe ContactProtocol
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the contact method.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3Aarn%3AContactMethod%27"><span class="annot"><span class="annottext">ContactMethod -&gt; Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.ContactMethod.html#%24sel%3Aarn%3AContactMethod%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The timestamp when the contact method was created.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AcreatedAt%3AContactMethod%27"><span class="annot"><span class="annottext">ContactMethod -&gt; Maybe POSIX
+</span><a href="Network.AWS.Lightsail.Types.ContactMethod.html#%24sel%3AcreatedAt%3AContactMethod%27"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3Alocation%3AContactMethod%27"><span class="annot"><span class="annottext">ContactMethod -&gt; Maybe ResourceLocation
+</span><a href="Network.AWS.Lightsail.Types.ContactMethod.html#%24sel%3Alocation%3AContactMethod%27"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ResourceLocation.html#ResourceLocation"><span class="hs-identifier hs-type">ResourceLocation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The protocol of the contact method, such as email or SMS (text</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- messaging).</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3Aprotocol%3AContactMethod%27"><span class="annot"><span class="annottext">ContactMethod -&gt; Maybe ContactProtocol
 </span><a href="Network.AWS.Lightsail.Types.ContactMethod.html#%24sel%3Aprotocol%3AContactMethod%27"><span class="hs-identifier hs-var hs-var">protocol</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactProtocol.html#ContactProtocol"><span class="hs-identifier hs-type">ContactProtocol</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>    </span><span id="%24sel%3Alocation%3AContactMethod%27"><span class="annot"><span class="annottext">ContactMethod -&gt; Maybe ResourceLocation
-</span><a href="Network.AWS.Lightsail.Types.ContactMethod.html#%24sel%3Alocation%3AContactMethod%27"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ResourceLocation.html#ResourceLocation"><span class="hs-identifier hs-type">ResourceLocation</span></a></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The name of the contact method.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3Aname%3AContactMethod%27"><span class="annot"><span class="annottext">ContactMethod -&gt; Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.ContactMethod.html#%24sel%3Aname%3AContactMethod%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The support code. Include this code in your email to support when you</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- have questions about your Lightsail contact method. This code enables</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- our support team to look up your Lightsail information more easily.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AsupportCode%3AContactMethod%27"><span class="annot"><span class="annottext">ContactMethod -&gt; Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.ContactMethod.html#%24sel%3AsupportCode%3AContactMethod%27"><span class="hs-identifier hs-var hs-var">supportCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The destination of the contact method, such as an email address or a</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- mobile phone number.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AcontactEndpoint%3AContactMethod%27"><span class="annot"><span class="annottext">ContactMethod -&gt; Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.ContactMethod.html#%24sel%3AcontactEndpoint%3AContactMethod%27"><span class="hs-identifier hs-var hs-var">contactEndpoint</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-69"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679622065"><span id="local-6989586621679622067"><span class="annot"><span class="annottext">ContactMethod -&gt; ContactMethod -&gt; Bool
+</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679622974"><span id="local-6989586621679622976"><span class="annot"><span class="annottext">ContactMethod -&gt; ContactMethod -&gt; Bool
 (ContactMethod -&gt; ContactMethod -&gt; Bool)
 -&gt; (ContactMethod -&gt; ContactMethod -&gt; Bool) -&gt; Eq ContactMethod
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -84,7 +84,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ContactMethod -&gt; ContactMethod -&gt; Bool
 == :: ContactMethod -&gt; ContactMethod -&gt; Bool
 $c== :: ContactMethod -&gt; ContactMethod -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679622056"><span id="local-6989586621679622058"><span id="local-6989586621679622060"><span id="local-6989586621679622062"><span class="annot"><span class="annottext">ReadPrec [ContactMethod]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679622965"><span id="local-6989586621679622967"><span id="local-6989586621679622969"><span id="local-6989586621679622971"><span class="annot"><span class="annottext">ReadPrec [ContactMethod]
 ReadPrec ContactMethod
 Int -&gt; ReadS ContactMethod
 ReadS [ContactMethod]
@@ -104,7 +104,7 @@ readList :: ReadS [ContactMethod]
 $creadList :: ReadS [ContactMethod]
 readsPrec :: Int -&gt; ReadS ContactMethod
 $creadsPrec :: Int -&gt; ReadS ContactMethod
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679622049"><span id="local-6989586621679622051"><span id="local-6989586621679622053"><span class="annot"><span class="annottext">Int -&gt; ContactMethod -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679622958"><span id="local-6989586621679622960"><span id="local-6989586621679622962"><span class="annot"><span class="annottext">Int -&gt; ContactMethod -&gt; ShowS
 [ContactMethod] -&gt; ShowS
 ContactMethod -&gt; String
 (Int -&gt; ContactMethod -&gt; ShowS)
@@ -150,74 +150,74 @@ $cfrom :: forall x. ContactMethod -&gt; Rep ContactMethod x
 </span><span id="line-89"></span><span class="hs-comment">-- -   @InValid@ - An attempt was made to verify the contact method, but</span><span>
 </span><span id="line-90"></span><span class="hs-comment">--     the verification has expired.</span><span>
 </span><span id="line-91"></span><span class="hs-comment">--</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- 'contactEndpoint', 'contactMethod_contactEndpoint' - The destination of the contact method, such as an email address or a</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- mobile phone number.</span><span>
-</span><span id="line-94"></span><span class="hs-comment">--</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- 'createdAt', 'contactMethod_createdAt' - The timestamp when the contact method was created.</span><span>
-</span><span id="line-96"></span><span class="hs-comment">--</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- 'arn', 'contactMethod_arn' - The Amazon Resource Name (ARN) of the contact method.</span><span>
-</span><span id="line-98"></span><span class="hs-comment">--</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- 'supportCode', 'contactMethod_supportCode' - The support code. Include this code in your email to support when you</span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- have questions about your Lightsail contact method. This code enables</span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- our support team to look up your Lightsail information more easily.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'resourceType', 'contactMethod_resourceType' - The Lightsail resource type (e.g., @ContactMethod@).</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'arn', 'contactMethod_arn' - The Amazon Resource Name (ARN) of the contact method.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'createdAt', 'contactMethod_createdAt' - The timestamp when the contact method was created.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'location', 'contactMethod_location' - Undocumented member.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'protocol', 'contactMethod_protocol' - The protocol of the contact method, such as email or SMS (text</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- messaging).</span><span>
 </span><span id="line-102"></span><span class="hs-comment">--</span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- 'resourceType', 'contactMethod_resourceType' - The Lightsail resource type (e.g., @ContactMethod@).</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 'name', 'contactMethod_name' - The name of the contact method.</span><span>
 </span><span id="line-104"></span><span class="hs-comment">--</span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- 'name', 'contactMethod_name' - The name of the contact method.</span><span>
-</span><span id="line-106"></span><span class="hs-comment">--</span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- 'protocol', 'contactMethod_protocol' - The protocol of the contact method, such as email or SMS (text</span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- messaging).</span><span>
-</span><span id="line-109"></span><span class="hs-comment">--</span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- 'location', 'contactMethod_location' - Undocumented member.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'supportCode', 'contactMethod_supportCode' - The support code. Include this code in your email to support when you</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- have questions about your Lightsail contact method. This code enables</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- our support team to look up your Lightsail information more easily.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- 'contactEndpoint', 'contactMethod_contactEndpoint' - The destination of the contact method, such as an email address or a</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- mobile phone number.</span><span>
 </span><span id="line-111"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#newContactMethod"><span class="hs-identifier hs-type">newContactMethod</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-112"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#ContactMethod"><span class="hs-identifier hs-type">ContactMethod</span></a></span><span>
 </span><span id="line-113"></span><span id="newContactMethod"><span class="annot"><span class="annottext">newContactMethod :: ContactMethod
 </span><a href="Network.AWS.Lightsail.Types.ContactMethod.html#newContactMethod"><span class="hs-identifier hs-var hs-var">newContactMethod</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>  </span><span class="annot"><span class="annottext">ContactMethod' :: Maybe ContactMethodStatus
--&gt; Maybe Text
--&gt; Maybe POSIX
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Maybe ResourceType
 -&gt; Maybe Text
--&gt; Maybe ContactProtocol
+-&gt; Maybe POSIX
 -&gt; Maybe ResourceLocation
+-&gt; Maybe ContactProtocol
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; ContactMethod
 </span><a href="Network.AWS.Lightsail.Types.ContactMethod.html#ContactMethod%27"><span class="hs-identifier hs-type">ContactMethod'</span></a></span><span>
 </span><span id="line-115"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:ContactMethod' :: Maybe ContactMethodStatus
 </span><a href="Network.AWS.Lightsail.Types.ContactMethod.html#%24sel%3Astatus%3AContactMethod%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ContactMethodStatus
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:contactEndpoint:ContactMethod' :: Maybe Text
-</span><a href="Network.AWS.Lightsail.Types.ContactMethod.html#%24sel%3AcontactEndpoint%3AContactMethod%27"><span class="hs-identifier hs-var">contactEndpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceType:ContactMethod' :: Maybe ResourceType
+</span><a href="Network.AWS.Lightsail.Types.ContactMethod.html#%24sel%3AresourceType%3AContactMethod%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdAt:ContactMethod' :: Maybe POSIX
-</span><a href="Network.AWS.Lightsail.Types.ContactMethod.html#%24sel%3AcreatedAt%3AContactMethod%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:ContactMethod' :: Maybe Text
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:ContactMethod' :: Maybe Text
 </span><a href="Network.AWS.Lightsail.Types.ContactMethod.html#%24sel%3Aarn%3AContactMethod%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">$sel:supportCode:ContactMethod' :: Maybe Text
-</span><a href="Network.AWS.Lightsail.Types.ContactMethod.html#%24sel%3AsupportCode%3AContactMethod%27"><span class="hs-identifier hs-var">supportCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdAt:ContactMethod' :: Maybe POSIX
+</span><a href="Network.AWS.Lightsail.Types.ContactMethod.html#%24sel%3AcreatedAt%3AContactMethod%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceType:ContactMethod' :: Maybe ResourceType
-</span><a href="Network.AWS.Lightsail.Types.ContactMethod.html#%24sel%3AresourceType%3AContactMethod%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceType
+</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">$sel:location:ContactMethod' :: Maybe ResourceLocation
+</span><a href="Network.AWS.Lightsail.Types.ContactMethod.html#%24sel%3Alocation%3AContactMethod%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceLocation
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">$sel:protocol:ContactMethod' :: Maybe ContactProtocol
+</span><a href="Network.AWS.Lightsail.Types.ContactMethod.html#%24sel%3Aprotocol%3AContactMethod%27"><span class="hs-identifier hs-var">protocol</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ContactProtocol
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:ContactMethod' :: Maybe Text
 </span><a href="Network.AWS.Lightsail.Types.ContactMethod.html#%24sel%3Aname%3AContactMethod%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">$sel:protocol:ContactMethod' :: Maybe ContactProtocol
-</span><a href="Network.AWS.Lightsail.Types.ContactMethod.html#%24sel%3Aprotocol%3AContactMethod%27"><span class="hs-identifier hs-var">protocol</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ContactProtocol
+</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">$sel:supportCode:ContactMethod' :: Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.ContactMethod.html#%24sel%3AsupportCode%3AContactMethod%27"><span class="hs-identifier hs-var">supportCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">$sel:location:ContactMethod' :: Maybe ResourceLocation
-</span><a href="Network.AWS.Lightsail.Types.ContactMethod.html#%24sel%3Alocation%3AContactMethod%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceLocation
+</span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">$sel:contactEndpoint:ContactMethod' :: Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.ContactMethod.html#%24sel%3AcontactEndpoint%3AContactMethod%27"><span class="hs-identifier hs-var">contactEndpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-124"></span><span>    </span><span class="hs-special">}</span><span>
@@ -244,54 +244,76 @@ forall a. Maybe a
      (Maybe ContactMethodStatus)
      (Maybe ContactMethodStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#ContactMethod%27"><span class="hs-identifier hs-type">ContactMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679622040"><span class="annot"><span class="annottext">Maybe ContactMethodStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#ContactMethod%27"><span class="hs-identifier hs-type">ContactMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679622949"><span class="annot"><span class="annottext">Maybe ContactMethodStatus
 status :: Maybe ContactMethodStatus
 $sel:status:ContactMethod' :: ContactMethod -&gt; Maybe ContactMethodStatus
-</span><a href="#local-6989586621679622040"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ContactMethodStatus
-</span><a href="#local-6989586621679622040"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679622039"><span class="annot"><span class="annottext">s :: ContactMethod
-</span><a href="#local-6989586621679622039"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#ContactMethod%27"><span class="hs-identifier hs-type">ContactMethod'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679622038"><span class="annot"><span class="annottext">Maybe ContactMethodStatus
-</span><a href="#local-6989586621679622038"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContactMethod
-</span><a href="#local-6989586621679622039"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ContactMethod' :: Maybe ContactMethodStatus
+</span><a href="#local-6989586621679622949"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ContactMethodStatus
+</span><a href="#local-6989586621679622949"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679622948"><span class="annot"><span class="annottext">s :: ContactMethod
+</span><a href="#local-6989586621679622948"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#ContactMethod%27"><span class="hs-identifier hs-type">ContactMethod'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679622947"><span class="annot"><span class="annottext">Maybe ContactMethodStatus
+</span><a href="#local-6989586621679622947"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContactMethod
+</span><a href="#local-6989586621679622948"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ContactMethod' :: Maybe ContactMethodStatus
 </span><a href="Network.AWS.Lightsail.Types.ContactMethod.html#%24sel%3Astatus%3AContactMethod%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ContactMethodStatus
-</span><a href="#local-6989586621679622038"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#ContactMethod"><span class="hs-identifier hs-type">ContactMethod</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679622947"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#ContactMethod"><span class="hs-identifier hs-type">ContactMethod</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>
-</span><span id="line-140"></span><span class="hs-comment">-- | The destination of the contact method, such as an email address or a</span><span>
-</span><span id="line-141"></span><span class="hs-comment">-- mobile phone number.</span><span>
-</span><span id="line-142"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#contactMethod_contactEndpoint"><span class="hs-identifier hs-type">contactMethod_contactEndpoint</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#ContactMethod"><span class="hs-identifier hs-type">ContactMethod</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-143"></span><span id="contactMethod_contactEndpoint"><span class="annot"><span class="annottext">contactMethod_contactEndpoint :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ContactMethod -&gt; f ContactMethod
-</span><a href="Network.AWS.Lightsail.Types.ContactMethod.html#contactMethod_contactEndpoint"><span class="hs-identifier hs-var hs-var">contactMethod_contactEndpoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContactMethod -&gt; Maybe Text)
+</span><span id="line-140"></span><span class="hs-comment">-- | The Lightsail resource type (e.g., @ContactMethod@).</span><span>
+</span><span id="line-141"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#contactMethod_resourceType"><span class="hs-identifier hs-type">contactMethod_resourceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#ContactMethod"><span class="hs-identifier hs-type">ContactMethod</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ResourceType.html#ResourceType"><span class="hs-identifier hs-type">ResourceType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span id="contactMethod_resourceType"><span class="annot"><span class="annottext">contactMethod_resourceType :: (Maybe ResourceType -&gt; f (Maybe ResourceType))
+-&gt; ContactMethod -&gt; f ContactMethod
+</span><a href="Network.AWS.Lightsail.Types.ContactMethod.html#contactMethod_resourceType"><span class="hs-identifier hs-var hs-var">contactMethod_resourceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContactMethod -&gt; Maybe ResourceType)
+-&gt; (ContactMethod -&gt; Maybe ResourceType -&gt; ContactMethod)
+-&gt; Lens
+     ContactMethod
+     ContactMethod
+     (Maybe ResourceType)
+     (Maybe ResourceType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#ContactMethod%27"><span class="hs-identifier hs-type">ContactMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679622945"><span class="annot"><span class="annottext">Maybe ResourceType
+resourceType :: Maybe ResourceType
+$sel:resourceType:ContactMethod' :: ContactMethod -&gt; Maybe ResourceType
+</span><a href="#local-6989586621679622945"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceType
+</span><a href="#local-6989586621679622945"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679622944"><span class="annot"><span class="annottext">s :: ContactMethod
+</span><a href="#local-6989586621679622944"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#ContactMethod%27"><span class="hs-identifier hs-type">ContactMethod'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679622943"><span class="annot"><span class="annottext">Maybe ResourceType
+</span><a href="#local-6989586621679622943"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContactMethod
+</span><a href="#local-6989586621679622944"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceType:ContactMethod' :: Maybe ResourceType
+</span><a href="Network.AWS.Lightsail.Types.ContactMethod.html#%24sel%3AresourceType%3AContactMethod%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceType
+</span><a href="#local-6989586621679622943"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#ContactMethod"><span class="hs-identifier hs-type">ContactMethod</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the contact method.</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#contactMethod_arn"><span class="hs-identifier hs-type">contactMethod_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#ContactMethod"><span class="hs-identifier hs-type">ContactMethod</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span id="contactMethod_arn"><span class="annot"><span class="annottext">contactMethod_arn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ContactMethod -&gt; f ContactMethod
+</span><a href="Network.AWS.Lightsail.Types.ContactMethod.html#contactMethod_arn"><span class="hs-identifier hs-var hs-var">contactMethod_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContactMethod -&gt; Maybe Text)
 -&gt; (ContactMethod -&gt; Maybe Text -&gt; ContactMethod)
 -&gt; Lens ContactMethod ContactMethod (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#ContactMethod%27"><span class="hs-identifier hs-type">ContactMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679622036"><span class="annot"><span class="annottext">Maybe Text
-contactEndpoint :: Maybe Text
-$sel:contactEndpoint:ContactMethod' :: ContactMethod -&gt; Maybe Text
-</span><a href="#local-6989586621679622036"><span class="hs-identifier hs-var hs-var">contactEndpoint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679622036"><span class="hs-identifier hs-var">contactEndpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679622035"><span class="annot"><span class="annottext">s :: ContactMethod
-</span><a href="#local-6989586621679622035"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#ContactMethod%27"><span class="hs-identifier hs-type">ContactMethod'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679622034"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679622034"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContactMethod
-</span><a href="#local-6989586621679622035"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contactEndpoint:ContactMethod' :: Maybe Text
-</span><a href="Network.AWS.Lightsail.Types.ContactMethod.html#%24sel%3AcontactEndpoint%3AContactMethod%27"><span class="hs-identifier hs-var">contactEndpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679622034"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#ContactMethod"><span class="hs-identifier hs-type">ContactMethod</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-144"></span><span>
-</span><span id="line-145"></span><span class="hs-comment">-- | The timestamp when the contact method was created.</span><span>
-</span><span id="line-146"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#contactMethod_createdAt"><span class="hs-identifier hs-type">contactMethod_createdAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#ContactMethod"><span class="hs-identifier hs-type">ContactMethod</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-147"></span><span id="contactMethod_createdAt"><span class="annot"><span class="annottext">contactMethod_createdAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#ContactMethod%27"><span class="hs-identifier hs-type">ContactMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679622941"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:ContactMethod' :: ContactMethod -&gt; Maybe Text
+</span><a href="#local-6989586621679622941"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679622941"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679622940"><span class="annot"><span class="annottext">s :: ContactMethod
+</span><a href="#local-6989586621679622940"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#ContactMethod%27"><span class="hs-identifier hs-type">ContactMethod'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679622939"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679622939"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContactMethod
+</span><a href="#local-6989586621679622940"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:ContactMethod' :: Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.ContactMethod.html#%24sel%3Aarn%3AContactMethod%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679622939"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#ContactMethod"><span class="hs-identifier hs-type">ContactMethod</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- | The timestamp when the contact method was created.</span><span>
+</span><span id="line-149"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#contactMethod_createdAt"><span class="hs-identifier hs-type">contactMethod_createdAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#ContactMethod"><span class="hs-identifier hs-type">ContactMethod</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span id="contactMethod_createdAt"><span class="annot"><span class="annottext">contactMethod_createdAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; ContactMethod -&gt; f ContactMethod
 </span><a href="Network.AWS.Lightsail.Types.ContactMethod.html#contactMethod_createdAt"><span class="hs-identifier hs-var hs-var">contactMethod_createdAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContactMethod -&gt; Maybe POSIX)
 -&gt; (ContactMethod -&gt; Maybe POSIX -&gt; ContactMethod)
 -&gt; Lens ContactMethod ContactMethod (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#ContactMethod%27"><span class="hs-identifier hs-type">ContactMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679622032"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#ContactMethod%27"><span class="hs-identifier hs-type">ContactMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679622937"><span class="annot"><span class="annottext">Maybe POSIX
 createdAt :: Maybe POSIX
 $sel:createdAt:ContactMethod' :: ContactMethod -&gt; Maybe POSIX
-</span><a href="#local-6989586621679622032"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679622032"><span class="hs-identifier hs-var">createdAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679622031"><span class="annot"><span class="annottext">s :: ContactMethod
-</span><a href="#local-6989586621679622031"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#ContactMethod%27"><span class="hs-identifier hs-type">ContactMethod'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679622030"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679622030"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContactMethod
-</span><a href="#local-6989586621679622031"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAt:ContactMethod' :: Maybe POSIX
+</span><a href="#local-6989586621679622937"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679622937"><span class="hs-identifier hs-var">createdAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679622936"><span class="annot"><span class="annottext">s :: ContactMethod
+</span><a href="#local-6989586621679622936"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#ContactMethod%27"><span class="hs-identifier hs-type">ContactMethod'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679622935"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679622935"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContactMethod
+</span><a href="#local-6989586621679622936"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAt:ContactMethod' :: Maybe POSIX
 </span><a href="Network.AWS.Lightsail.Types.ContactMethod.html#%24sel%3AcreatedAt%3AContactMethod%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679622030"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#ContactMethod"><span class="hs-identifier hs-type">ContactMethod</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679622935"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#ContactMethod"><span class="hs-identifier hs-type">ContactMethod</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; ContactMethod -&gt; f ContactMethod)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -307,113 +329,10 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-148"></span><span>
-</span><span id="line-149"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the contact method.</span><span>
-</span><span id="line-150"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#contactMethod_arn"><span class="hs-identifier hs-type">contactMethod_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#ContactMethod"><span class="hs-identifier hs-type">ContactMethod</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-151"></span><span id="contactMethod_arn"><span class="annot"><span class="annottext">contactMethod_arn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ContactMethod -&gt; f ContactMethod
-</span><a href="Network.AWS.Lightsail.Types.ContactMethod.html#contactMethod_arn"><span class="hs-identifier hs-var hs-var">contactMethod_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContactMethod -&gt; Maybe Text)
--&gt; (ContactMethod -&gt; Maybe Text -&gt; ContactMethod)
--&gt; Lens ContactMethod ContactMethod (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#ContactMethod%27"><span class="hs-identifier hs-type">ContactMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679622025"><span class="annot"><span class="annottext">Maybe Text
-arn :: Maybe Text
-$sel:arn:ContactMethod' :: ContactMethod -&gt; Maybe Text
-</span><a href="#local-6989586621679622025"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679622025"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679622024"><span class="annot"><span class="annottext">s :: ContactMethod
-</span><a href="#local-6989586621679622024"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#ContactMethod%27"><span class="hs-identifier hs-type">ContactMethod'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679622023"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679622023"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContactMethod
-</span><a href="#local-6989586621679622024"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:ContactMethod' :: Maybe Text
-</span><a href="Network.AWS.Lightsail.Types.ContactMethod.html#%24sel%3Aarn%3AContactMethod%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679622023"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#ContactMethod"><span class="hs-identifier hs-type">ContactMethod</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-152"></span><span>
-</span><span id="line-153"></span><span class="hs-comment">-- | The support code. Include this code in your email to support when you</span><span>
-</span><span id="line-154"></span><span class="hs-comment">-- have questions about your Lightsail contact method. This code enables</span><span>
-</span><span id="line-155"></span><span class="hs-comment">-- our support team to look up your Lightsail information more easily.</span><span>
-</span><span id="line-156"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#contactMethod_supportCode"><span class="hs-identifier hs-type">contactMethod_supportCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#ContactMethod"><span class="hs-identifier hs-type">ContactMethod</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-157"></span><span id="contactMethod_supportCode"><span class="annot"><span class="annottext">contactMethod_supportCode :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ContactMethod -&gt; f ContactMethod
-</span><a href="Network.AWS.Lightsail.Types.ContactMethod.html#contactMethod_supportCode"><span class="hs-identifier hs-var hs-var">contactMethod_supportCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContactMethod -&gt; Maybe Text)
--&gt; (ContactMethod -&gt; Maybe Text -&gt; ContactMethod)
--&gt; Lens ContactMethod ContactMethod (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#ContactMethod%27"><span class="hs-identifier hs-type">ContactMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679622021"><span class="annot"><span class="annottext">Maybe Text
-supportCode :: Maybe Text
-$sel:supportCode:ContactMethod' :: ContactMethod -&gt; Maybe Text
-</span><a href="#local-6989586621679622021"><span class="hs-identifier hs-var hs-var">supportCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679622021"><span class="hs-identifier hs-var">supportCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679622020"><span class="annot"><span class="annottext">s :: ContactMethod
-</span><a href="#local-6989586621679622020"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#ContactMethod%27"><span class="hs-identifier hs-type">ContactMethod'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679622019"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679622019"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContactMethod
-</span><a href="#local-6989586621679622020"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:supportCode:ContactMethod' :: Maybe Text
-</span><a href="Network.AWS.Lightsail.Types.ContactMethod.html#%24sel%3AsupportCode%3AContactMethod%27"><span class="hs-identifier hs-var">supportCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679622019"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#ContactMethod"><span class="hs-identifier hs-type">ContactMethod</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-158"></span><span>
-</span><span id="line-159"></span><span class="hs-comment">-- | The Lightsail resource type (e.g., @ContactMethod@).</span><span>
-</span><span id="line-160"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#contactMethod_resourceType"><span class="hs-identifier hs-type">contactMethod_resourceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#ContactMethod"><span class="hs-identifier hs-type">ContactMethod</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ResourceType.html#ResourceType"><span class="hs-identifier hs-type">ResourceType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-161"></span><span id="contactMethod_resourceType"><span class="annot"><span class="annottext">contactMethod_resourceType :: (Maybe ResourceType -&gt; f (Maybe ResourceType))
--&gt; ContactMethod -&gt; f ContactMethod
-</span><a href="Network.AWS.Lightsail.Types.ContactMethod.html#contactMethod_resourceType"><span class="hs-identifier hs-var hs-var">contactMethod_resourceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContactMethod -&gt; Maybe ResourceType)
--&gt; (ContactMethod -&gt; Maybe ResourceType -&gt; ContactMethod)
--&gt; Lens
-     ContactMethod
-     ContactMethod
-     (Maybe ResourceType)
-     (Maybe ResourceType)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#ContactMethod%27"><span class="hs-identifier hs-type">ContactMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679622017"><span class="annot"><span class="annottext">Maybe ResourceType
-resourceType :: Maybe ResourceType
-$sel:resourceType:ContactMethod' :: ContactMethod -&gt; Maybe ResourceType
-</span><a href="#local-6989586621679622017"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceType
-</span><a href="#local-6989586621679622017"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679622016"><span class="annot"><span class="annottext">s :: ContactMethod
-</span><a href="#local-6989586621679622016"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#ContactMethod%27"><span class="hs-identifier hs-type">ContactMethod'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679622015"><span class="annot"><span class="annottext">Maybe ResourceType
-</span><a href="#local-6989586621679622015"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContactMethod
-</span><a href="#local-6989586621679622016"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceType:ContactMethod' :: Maybe ResourceType
-</span><a href="Network.AWS.Lightsail.Types.ContactMethod.html#%24sel%3AresourceType%3AContactMethod%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceType
-</span><a href="#local-6989586621679622015"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#ContactMethod"><span class="hs-identifier hs-type">ContactMethod</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-162"></span><span>
-</span><span id="line-163"></span><span class="hs-comment">-- | The name of the contact method.</span><span>
-</span><span id="line-164"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#contactMethod_name"><span class="hs-identifier hs-type">contactMethod_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#ContactMethod"><span class="hs-identifier hs-type">ContactMethod</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-165"></span><span id="contactMethod_name"><span class="annot"><span class="annottext">contactMethod_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ContactMethod -&gt; f ContactMethod
-</span><a href="Network.AWS.Lightsail.Types.ContactMethod.html#contactMethod_name"><span class="hs-identifier hs-var hs-var">contactMethod_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContactMethod -&gt; Maybe Text)
--&gt; (ContactMethod -&gt; Maybe Text -&gt; ContactMethod)
--&gt; Lens ContactMethod ContactMethod (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#ContactMethod%27"><span class="hs-identifier hs-type">ContactMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679622013"><span class="annot"><span class="annottext">Maybe Text
-name :: Maybe Text
-$sel:name:ContactMethod' :: ContactMethod -&gt; Maybe Text
-</span><a href="#local-6989586621679622013"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679622013"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679622012"><span class="annot"><span class="annottext">s :: ContactMethod
-</span><a href="#local-6989586621679622012"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#ContactMethod%27"><span class="hs-identifier hs-type">ContactMethod'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679622011"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679622011"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContactMethod
-</span><a href="#local-6989586621679622012"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ContactMethod' :: Maybe Text
-</span><a href="Network.AWS.Lightsail.Types.ContactMethod.html#%24sel%3Aname%3AContactMethod%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679622011"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#ContactMethod"><span class="hs-identifier hs-type">ContactMethod</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-166"></span><span>
-</span><span id="line-167"></span><span class="hs-comment">-- | The protocol of the contact method, such as email or SMS (text</span><span>
-</span><span id="line-168"></span><span class="hs-comment">-- messaging).</span><span>
-</span><span id="line-169"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#contactMethod_protocol"><span class="hs-identifier hs-type">contactMethod_protocol</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#ContactMethod"><span class="hs-identifier hs-type">ContactMethod</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactProtocol.html#ContactProtocol"><span class="hs-identifier hs-type">ContactProtocol</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-170"></span><span id="contactMethod_protocol"><span class="annot"><span class="annottext">contactMethod_protocol :: (Maybe ContactProtocol -&gt; f (Maybe ContactProtocol))
--&gt; ContactMethod -&gt; f ContactMethod
-</span><a href="Network.AWS.Lightsail.Types.ContactMethod.html#contactMethod_protocol"><span class="hs-identifier hs-var hs-var">contactMethod_protocol</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContactMethod -&gt; Maybe ContactProtocol)
--&gt; (ContactMethod -&gt; Maybe ContactProtocol -&gt; ContactMethod)
--&gt; Lens
-     ContactMethod
-     ContactMethod
-     (Maybe ContactProtocol)
-     (Maybe ContactProtocol)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#ContactMethod%27"><span class="hs-identifier hs-type">ContactMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679622009"><span class="annot"><span class="annottext">Maybe ContactProtocol
-protocol :: Maybe ContactProtocol
-$sel:protocol:ContactMethod' :: ContactMethod -&gt; Maybe ContactProtocol
-</span><a href="#local-6989586621679622009"><span class="hs-identifier hs-var hs-var">protocol</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ContactProtocol
-</span><a href="#local-6989586621679622009"><span class="hs-identifier hs-var">protocol</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679622008"><span class="annot"><span class="annottext">s :: ContactMethod
-</span><a href="#local-6989586621679622008"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#ContactMethod%27"><span class="hs-identifier hs-type">ContactMethod'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679622007"><span class="annot"><span class="annottext">Maybe ContactProtocol
-</span><a href="#local-6989586621679622007"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContactMethod
-</span><a href="#local-6989586621679622008"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:protocol:ContactMethod' :: Maybe ContactProtocol
-</span><a href="Network.AWS.Lightsail.Types.ContactMethod.html#%24sel%3Aprotocol%3AContactMethod%27"><span class="hs-identifier hs-var">protocol</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ContactProtocol
-</span><a href="#local-6989586621679622007"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#ContactMethod"><span class="hs-identifier hs-type">ContactMethod</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-171"></span><span>
-</span><span id="line-172"></span><span class="hs-comment">-- | Undocumented member.</span><span>
-</span><span id="line-173"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#contactMethod_location"><span class="hs-identifier hs-type">contactMethod_location</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#ContactMethod"><span class="hs-identifier hs-type">ContactMethod</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ResourceLocation.html#ResourceLocation"><span class="hs-identifier hs-type">ResourceLocation</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-174"></span><span id="contactMethod_location"><span class="annot"><span class="annottext">contactMethod_location :: (Maybe ResourceLocation -&gt; f (Maybe ResourceLocation))
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#contactMethod_location"><span class="hs-identifier hs-type">contactMethod_location</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#ContactMethod"><span class="hs-identifier hs-type">ContactMethod</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ResourceLocation.html#ResourceLocation"><span class="hs-identifier hs-type">ResourceLocation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span id="contactMethod_location"><span class="annot"><span class="annottext">contactMethod_location :: (Maybe ResourceLocation -&gt; f (Maybe ResourceLocation))
 -&gt; ContactMethod -&gt; f ContactMethod
 </span><a href="Network.AWS.Lightsail.Types.ContactMethod.html#contactMethod_location"><span class="hs-identifier hs-var hs-var">contactMethod_location</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContactMethod -&gt; Maybe ResourceLocation)
 -&gt; (ContactMethod -&gt; Maybe ResourceLocation -&gt; ContactMethod)
@@ -423,19 +342,100 @@ $sel:protocol:ContactMethod' :: ContactMethod -&gt; Maybe ContactProtocol
      (Maybe ResourceLocation)
      (Maybe ResourceLocation)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#ContactMethod%27"><span class="hs-identifier hs-type">ContactMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679622005"><span class="annot"><span class="annottext">Maybe ResourceLocation
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#ContactMethod%27"><span class="hs-identifier hs-type">ContactMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679622930"><span class="annot"><span class="annottext">Maybe ResourceLocation
 location :: Maybe ResourceLocation
 $sel:location:ContactMethod' :: ContactMethod -&gt; Maybe ResourceLocation
-</span><a href="#local-6989586621679622005"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceLocation
-</span><a href="#local-6989586621679622005"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679622004"><span class="annot"><span class="annottext">s :: ContactMethod
-</span><a href="#local-6989586621679622004"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#ContactMethod%27"><span class="hs-identifier hs-type">ContactMethod'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679622003"><span class="annot"><span class="annottext">Maybe ResourceLocation
-</span><a href="#local-6989586621679622003"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContactMethod
-</span><a href="#local-6989586621679622004"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:location:ContactMethod' :: Maybe ResourceLocation
+</span><a href="#local-6989586621679622930"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceLocation
+</span><a href="#local-6989586621679622930"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679622929"><span class="annot"><span class="annottext">s :: ContactMethod
+</span><a href="#local-6989586621679622929"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#ContactMethod%27"><span class="hs-identifier hs-type">ContactMethod'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679622928"><span class="annot"><span class="annottext">Maybe ResourceLocation
+</span><a href="#local-6989586621679622928"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContactMethod
+</span><a href="#local-6989586621679622929"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:location:ContactMethod' :: Maybe ResourceLocation
 </span><a href="Network.AWS.Lightsail.Types.ContactMethod.html#%24sel%3Alocation%3AContactMethod%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceLocation
-</span><a href="#local-6989586621679622003"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#ContactMethod"><span class="hs-identifier hs-type">ContactMethod</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679622928"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#ContactMethod"><span class="hs-identifier hs-type">ContactMethod</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- | The protocol of the contact method, such as email or SMS (text</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- messaging).</span><span>
+</span><span id="line-158"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#contactMethod_protocol"><span class="hs-identifier hs-type">contactMethod_protocol</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#ContactMethod"><span class="hs-identifier hs-type">ContactMethod</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactProtocol.html#ContactProtocol"><span class="hs-identifier hs-type">ContactProtocol</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span id="contactMethod_protocol"><span class="annot"><span class="annottext">contactMethod_protocol :: (Maybe ContactProtocol -&gt; f (Maybe ContactProtocol))
+-&gt; ContactMethod -&gt; f ContactMethod
+</span><a href="Network.AWS.Lightsail.Types.ContactMethod.html#contactMethod_protocol"><span class="hs-identifier hs-var hs-var">contactMethod_protocol</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContactMethod -&gt; Maybe ContactProtocol)
+-&gt; (ContactMethod -&gt; Maybe ContactProtocol -&gt; ContactMethod)
+-&gt; Lens
+     ContactMethod
+     ContactMethod
+     (Maybe ContactProtocol)
+     (Maybe ContactProtocol)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#ContactMethod%27"><span class="hs-identifier hs-type">ContactMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679622926"><span class="annot"><span class="annottext">Maybe ContactProtocol
+protocol :: Maybe ContactProtocol
+$sel:protocol:ContactMethod' :: ContactMethod -&gt; Maybe ContactProtocol
+</span><a href="#local-6989586621679622926"><span class="hs-identifier hs-var hs-var">protocol</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ContactProtocol
+</span><a href="#local-6989586621679622926"><span class="hs-identifier hs-var">protocol</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679622925"><span class="annot"><span class="annottext">s :: ContactMethod
+</span><a href="#local-6989586621679622925"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#ContactMethod%27"><span class="hs-identifier hs-type">ContactMethod'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679622924"><span class="annot"><span class="annottext">Maybe ContactProtocol
+</span><a href="#local-6989586621679622924"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContactMethod
+</span><a href="#local-6989586621679622925"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:protocol:ContactMethod' :: Maybe ContactProtocol
+</span><a href="Network.AWS.Lightsail.Types.ContactMethod.html#%24sel%3Aprotocol%3AContactMethod%27"><span class="hs-identifier hs-var">protocol</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ContactProtocol
+</span><a href="#local-6989586621679622924"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#ContactMethod"><span class="hs-identifier hs-type">ContactMethod</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- | The name of the contact method.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#contactMethod_name"><span class="hs-identifier hs-type">contactMethod_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#ContactMethod"><span class="hs-identifier hs-type">ContactMethod</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span id="contactMethod_name"><span class="annot"><span class="annottext">contactMethod_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ContactMethod -&gt; f ContactMethod
+</span><a href="Network.AWS.Lightsail.Types.ContactMethod.html#contactMethod_name"><span class="hs-identifier hs-var hs-var">contactMethod_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContactMethod -&gt; Maybe Text)
+-&gt; (ContactMethod -&gt; Maybe Text -&gt; ContactMethod)
+-&gt; Lens ContactMethod ContactMethod (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#ContactMethod%27"><span class="hs-identifier hs-type">ContactMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679622922"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:ContactMethod' :: ContactMethod -&gt; Maybe Text
+</span><a href="#local-6989586621679622922"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679622922"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679622921"><span class="annot"><span class="annottext">s :: ContactMethod
+</span><a href="#local-6989586621679622921"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#ContactMethod%27"><span class="hs-identifier hs-type">ContactMethod'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679622920"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679622920"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContactMethod
+</span><a href="#local-6989586621679622921"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ContactMethod' :: Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.ContactMethod.html#%24sel%3Aname%3AContactMethod%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679622920"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#ContactMethod"><span class="hs-identifier hs-type">ContactMethod</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- | The support code. Include this code in your email to support when you</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- have questions about your Lightsail contact method. This code enables</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- our support team to look up your Lightsail information more easily.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#contactMethod_supportCode"><span class="hs-identifier hs-type">contactMethod_supportCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#ContactMethod"><span class="hs-identifier hs-type">ContactMethod</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span id="contactMethod_supportCode"><span class="annot"><span class="annottext">contactMethod_supportCode :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ContactMethod -&gt; f ContactMethod
+</span><a href="Network.AWS.Lightsail.Types.ContactMethod.html#contactMethod_supportCode"><span class="hs-identifier hs-var hs-var">contactMethod_supportCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContactMethod -&gt; Maybe Text)
+-&gt; (ContactMethod -&gt; Maybe Text -&gt; ContactMethod)
+-&gt; Lens ContactMethod ContactMethod (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#ContactMethod%27"><span class="hs-identifier hs-type">ContactMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679622918"><span class="annot"><span class="annottext">Maybe Text
+supportCode :: Maybe Text
+$sel:supportCode:ContactMethod' :: ContactMethod -&gt; Maybe Text
+</span><a href="#local-6989586621679622918"><span class="hs-identifier hs-var hs-var">supportCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679622918"><span class="hs-identifier hs-var">supportCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679622917"><span class="annot"><span class="annottext">s :: ContactMethod
+</span><a href="#local-6989586621679622917"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#ContactMethod%27"><span class="hs-identifier hs-type">ContactMethod'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679622916"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679622916"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContactMethod
+</span><a href="#local-6989586621679622917"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:supportCode:ContactMethod' :: Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.ContactMethod.html#%24sel%3AsupportCode%3AContactMethod%27"><span class="hs-identifier hs-var">supportCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679622916"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#ContactMethod"><span class="hs-identifier hs-type">ContactMethod</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- | The destination of the contact method, such as an email address or a</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- mobile phone number.</span><span>
+</span><span id="line-173"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#contactMethod_contactEndpoint"><span class="hs-identifier hs-type">contactMethod_contactEndpoint</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#ContactMethod"><span class="hs-identifier hs-type">ContactMethod</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span id="contactMethod_contactEndpoint"><span class="annot"><span class="annottext">contactMethod_contactEndpoint :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ContactMethod -&gt; f ContactMethod
+</span><a href="Network.AWS.Lightsail.Types.ContactMethod.html#contactMethod_contactEndpoint"><span class="hs-identifier hs-var hs-var">contactMethod_contactEndpoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContactMethod -&gt; Maybe Text)
+-&gt; (ContactMethod -&gt; Maybe Text -&gt; ContactMethod)
+-&gt; Lens ContactMethod ContactMethod (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#ContactMethod%27"><span class="hs-identifier hs-type">ContactMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679622914"><span class="annot"><span class="annottext">Maybe Text
+contactEndpoint :: Maybe Text
+$sel:contactEndpoint:ContactMethod' :: ContactMethod -&gt; Maybe Text
+</span><a href="#local-6989586621679622914"><span class="hs-identifier hs-var hs-var">contactEndpoint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679622914"><span class="hs-identifier hs-var">contactEndpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679622913"><span class="annot"><span class="annottext">s :: ContactMethod
+</span><a href="#local-6989586621679622913"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#ContactMethod%27"><span class="hs-identifier hs-type">ContactMethod'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679622912"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679622912"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContactMethod
+</span><a href="#local-6989586621679622913"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contactEndpoint:ContactMethod' :: Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.ContactMethod.html#%24sel%3AcontactEndpoint%3AContactMethod%27"><span class="hs-identifier hs-var">contactEndpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679622912"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#ContactMethod"><span class="hs-identifier hs-type">ContactMethod</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-175"></span><span>
-</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679622000"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#ContactMethod"><span class="hs-identifier hs-type">ContactMethod</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-177"></span><span>  </span><span id="local-6989586621679621998"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ContactMethod
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679622909"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#ContactMethod"><span class="hs-identifier hs-type">ContactMethod</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621679622907"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ContactMethod
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-178"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ContactMethod)
@@ -445,191 +445,174 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-179"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ContactMethod&quot;</span></span><span>
-</span><span id="line-180"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679621995"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679621995"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-180"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679622904"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679622904"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-181"></span><span>          </span><span class="annot"><span class="annottext">Maybe ContactMethodStatus
--&gt; Maybe Text
--&gt; Maybe POSIX
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Maybe ResourceType
 -&gt; Maybe Text
--&gt; Maybe ContactProtocol
+-&gt; Maybe POSIX
 -&gt; Maybe ResourceLocation
+-&gt; Maybe ContactProtocol
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; ContactMethod
 </span><a href="Network.AWS.Lightsail.Types.ContactMethod.html#ContactMethod%27"><span class="hs-identifier hs-var">ContactMethod'</span></a></span><span>
 </span><span id="line-182"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ContactMethodStatus
- -&gt; Maybe Text
- -&gt; Maybe POSIX
- -&gt; Maybe Text
- -&gt; Maybe Text
  -&gt; Maybe ResourceType
  -&gt; Maybe Text
- -&gt; Maybe ContactProtocol
+ -&gt; Maybe POSIX
  -&gt; Maybe ResourceLocation
+ -&gt; Maybe ContactProtocol
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
  -&gt; ContactMethod)
 -&gt; Parser (Maybe ContactMethodStatus)
 -&gt; Parser
-     (Maybe Text
+     (Maybe ResourceType
+      -&gt; Maybe Text
       -&gt; Maybe POSIX
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe ResourceType
-      -&gt; Maybe Text
-      -&gt; Maybe ContactProtocol
       -&gt; Maybe ResourceLocation
+      -&gt; Maybe ContactProtocol
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
       -&gt; ContactMethod)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679621995"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ContactMethodStatus)
+</span><a href="#local-6989586621679622904"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ContactMethodStatus)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-183"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe POSIX
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe ResourceType
-   -&gt; Maybe Text
-   -&gt; Maybe ContactProtocol
-   -&gt; Maybe ResourceLocation
-   -&gt; ContactMethod)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe POSIX
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe ResourceType
-      -&gt; Maybe Text
-      -&gt; Maybe ContactProtocol
-      -&gt; Maybe ResourceLocation
-      -&gt; ContactMethod)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679621995"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;contactEndpoint&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-184"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe POSIX
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe ResourceType
-   -&gt; Maybe Text
-   -&gt; Maybe ContactProtocol
-   -&gt; Maybe ResourceLocation
-   -&gt; ContactMethod)
--&gt; Parser (Maybe POSIX)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe ResourceType
-      -&gt; Maybe Text
-      -&gt; Maybe ContactProtocol
-      -&gt; Maybe ResourceLocation
-      -&gt; ContactMethod)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679621995"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;createdAt&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-185"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe ResourceType
-   -&gt; Maybe Text
-   -&gt; Maybe ContactProtocol
-   -&gt; Maybe ResourceLocation
-   -&gt; ContactMethod)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe ResourceType
-      -&gt; Maybe Text
-      -&gt; Maybe ContactProtocol
-      -&gt; Maybe ResourceLocation
-      -&gt; ContactMethod)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679621995"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;arn&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-186"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe ResourceType
-   -&gt; Maybe Text
-   -&gt; Maybe ContactProtocol
-   -&gt; Maybe ResourceLocation
-   -&gt; ContactMethod)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe ResourceType
-      -&gt; Maybe Text
-      -&gt; Maybe ContactProtocol
-      -&gt; Maybe ResourceLocation
-      -&gt; ContactMethod)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679621995"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;supportCode&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-187"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe ResourceType
    -&gt; Maybe Text
-   -&gt; Maybe ContactProtocol
+   -&gt; Maybe POSIX
    -&gt; Maybe ResourceLocation
+   -&gt; Maybe ContactProtocol
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
    -&gt; ContactMethod)
 -&gt; Parser (Maybe ResourceType)
 -&gt; Parser
      (Maybe Text
-      -&gt; Maybe ContactProtocol
+      -&gt; Maybe POSIX
       -&gt; Maybe ResourceLocation
+      -&gt; Maybe ContactProtocol
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
       -&gt; ContactMethod)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679621995"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ResourceType)
+</span><a href="#local-6989586621679622904"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ResourceType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;resourceType&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-188"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span id="line-184"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
-   -&gt; Maybe ContactProtocol
+   -&gt; Maybe POSIX
    -&gt; Maybe ResourceLocation
+   -&gt; Maybe ContactProtocol
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
    -&gt; ContactMethod)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
-     (Maybe ContactProtocol -&gt; Maybe ResourceLocation -&gt; ContactMethod)
+     (Maybe POSIX
+      -&gt; Maybe ResourceLocation
+      -&gt; Maybe ContactProtocol
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; ContactMethod)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679621995"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679622904"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-189"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe ContactProtocol -&gt; Maybe ResourceLocation -&gt; ContactMethod)
--&gt; Parser (Maybe ContactProtocol)
--&gt; Parser (Maybe ResourceLocation -&gt; ContactMethod)
+</span><span class="hs-string">&quot;arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe ResourceLocation
+   -&gt; Maybe ContactProtocol
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ContactMethod)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe ResourceLocation
+      -&gt; Maybe ContactProtocol
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; ContactMethod)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679621995"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ContactProtocol)
+</span><a href="#local-6989586621679622904"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;protocol&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-190"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe ResourceLocation -&gt; ContactMethod)
--&gt; Parser (Maybe ResourceLocation) -&gt; Parser ContactMethod
+</span><span class="hs-string">&quot;createdAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ResourceLocation
+   -&gt; Maybe ContactProtocol
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ContactMethod)
+-&gt; Parser (Maybe ResourceLocation)
+-&gt; Parser
+     (Maybe ContactProtocol
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; ContactMethod)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679621995"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ResourceLocation)
+</span><a href="#local-6989586621679622904"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ResourceLocation)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;location&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ContactProtocol
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; ContactMethod)
+-&gt; Parser (Maybe ContactProtocol)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; ContactMethod)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679622904"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ContactProtocol)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;protocol&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; ContactMethod)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; ContactMethod)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679622904"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; ContactMethod)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; ContactMethod)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679622904"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;supportCode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; ContactMethod)
+-&gt; Parser (Maybe Text) -&gt; Parser ContactMethod
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679622904"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;contactEndpoint&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-191"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-192"></span><span>
-</span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679621989"><span id="local-6989586621679621991"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#ContactMethod"><span class="hs-identifier hs-type">ContactMethod</span></a></span></span></span><span>
+</span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679622898"><span id="local-6989586621679622900"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#ContactMethod"><span class="hs-identifier hs-type">ContactMethod</span></a></span></span></span><span>
 </span><span id="line-194"></span><span>
-</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679621986"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#ContactMethod"><span class="hs-identifier hs-type">ContactMethod</span></a></span></span><span>
+</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679622895"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#ContactMethod"><span class="hs-identifier hs-type">ContactMethod</span></a></span></span><span>
 </span><span id="line-196"></span></pre></body></html>

@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679307550"><span id="local-6989586621679307551"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="EC2TagFilterType"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.EC2TagFilterType.html#EC2TagFilterType"><span class="hs-identifier hs-var">EC2TagFilterType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EC2TagFilterType%27"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.EC2TagFilterType.html#EC2TagFilterType%27"><span class="hs-identifier hs-var">EC2TagFilterType'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679307833"><span id="local-6989586621679307834"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="EC2TagFilterType"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.EC2TagFilterType.html#EC2TagFilterType"><span class="hs-identifier hs-var">EC2TagFilterType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EC2TagFilterType%27"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.EC2TagFilterType.html#EC2TagFilterType%27"><span class="hs-identifier hs-var">EC2TagFilterType'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromEC2TagFilterType"><span class="annot"><span class="annottext">EC2TagFilterType -&gt; Text
 </span><a href="Network.AWS.CodeDeploy.Types.EC2TagFilterType.html#fromEC2TagFilterType"><span class="hs-identifier hs-var hs-var">fromEC2TagFilterType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679307542"><span id="local-6989586621679307544"><span id="local-6989586621679307546"><span class="annot"><span class="annottext">Int -&gt; EC2TagFilterType -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679307825"><span id="local-6989586621679307827"><span id="local-6989586621679307829"><span class="annot"><span class="annottext">Int -&gt; EC2TagFilterType -&gt; ShowS
 [EC2TagFilterType] -&gt; ShowS
 EC2TagFilterType -&gt; String
 (Int -&gt; EC2TagFilterType -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: EC2TagFilterType -&gt; String
 showsPrec :: Int -&gt; EC2TagFilterType -&gt; ShowS
 $cshowsPrec :: Int -&gt; EC2TagFilterType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679307533"><span id="local-6989586621679307535"><span id="local-6989586621679307537"><span id="local-6989586621679307539"><span class="annot"><span class="annottext">ReadPrec [EC2TagFilterType]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679307816"><span id="local-6989586621679307818"><span id="local-6989586621679307820"><span id="local-6989586621679307822"><span class="annot"><span class="annottext">ReadPrec [EC2TagFilterType]
 ReadPrec EC2TagFilterType
 Int -&gt; ReadS EC2TagFilterType
 ReadS [EC2TagFilterType]
@@ -73,7 +73,7 @@ $creadList :: ReadS [EC2TagFilterType]
 readsPrec :: Int -&gt; ReadS EC2TagFilterType
 $creadsPrec :: Int -&gt; ReadS EC2TagFilterType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679307528"><span id="local-6989586621679307530"><span class="annot"><span class="annottext">EC2TagFilterType -&gt; EC2TagFilterType -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679307811"><span id="local-6989586621679307813"><span class="annot"><span class="annottext">EC2TagFilterType -&gt; EC2TagFilterType -&gt; Bool
 (EC2TagFilterType -&gt; EC2TagFilterType -&gt; Bool)
 -&gt; (EC2TagFilterType -&gt; EC2TagFilterType -&gt; Bool)
 -&gt; Eq EC2TagFilterType
@@ -83,7 +83,7 @@ $c/= :: EC2TagFilterType -&gt; EC2TagFilterType -&gt; Bool
 == :: EC2TagFilterType -&gt; EC2TagFilterType -&gt; Bool
 $c== :: EC2TagFilterType -&gt; EC2TagFilterType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679307512"><span id="local-6989586621679307514"><span id="local-6989586621679307516"><span id="local-6989586621679307518"><span id="local-6989586621679307520"><span id="local-6989586621679307522"><span id="local-6989586621679307524"><span class="annot"><span class="annottext">Eq EC2TagFilterType
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679307795"><span id="local-6989586621679307797"><span id="local-6989586621679307799"><span id="local-6989586621679307801"><span id="local-6989586621679307803"><span id="local-6989586621679307805"><span id="local-6989586621679307807"><span class="annot"><span class="annottext">Eq EC2TagFilterType
 Eq EC2TagFilterType
 -&gt; (EC2TagFilterType -&gt; EC2TagFilterType -&gt; Ordering)
 -&gt; (EC2TagFilterType -&gt; EC2TagFilterType -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. EC2TagFilterType -&gt; Rep EC2TagFilterType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679307504"><span id="local-6989586621679307506"><span class="annot"><span class="annottext">Int -&gt; EC2TagFilterType -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679307787"><span id="local-6989586621679307789"><span class="annot"><span class="annottext">Int -&gt; EC2TagFilterType -&gt; Int
 EC2TagFilterType -&gt; Int
 (Int -&gt; EC2TagFilterType -&gt; Int)
 -&gt; (EC2TagFilterType -&gt; Int) -&gt; Hashable EC2TagFilterType
@@ -144,51 +144,51 @@ $chash :: EC2TagFilterType -&gt; Int
 hashWithSalt :: Int -&gt; EC2TagFilterType -&gt; Int
 $chashWithSalt :: Int -&gt; EC2TagFilterType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679307501"><span class="annot"><span class="annottext">EC2TagFilterType -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679307784"><span class="annot"><span class="annottext">EC2TagFilterType -&gt; ()
 (EC2TagFilterType -&gt; ()) -&gt; NFData EC2TagFilterType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: EC2TagFilterType -&gt; ()
 $crnf :: EC2TagFilterType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679307498"><span class="annot"><span class="annottext">Text -&gt; Either String EC2TagFilterType
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679307781"><span class="annot"><span class="annottext">Text -&gt; Either String EC2TagFilterType
 (Text -&gt; Either String EC2TagFilterType)
 -&gt; FromText EC2TagFilterType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String EC2TagFilterType
 $cfromText :: Text -&gt; Either String EC2TagFilterType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679307495"><span class="annot"><span class="annottext">EC2TagFilterType -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679307778"><span class="annot"><span class="annottext">EC2TagFilterType -&gt; Text
 (EC2TagFilterType -&gt; Text) -&gt; ToText EC2TagFilterType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: EC2TagFilterType -&gt; Text
 $ctoText :: EC2TagFilterType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679307492"><span class="annot"><span class="annottext">EC2TagFilterType -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679307775"><span class="annot"><span class="annottext">EC2TagFilterType -&gt; ByteString
 (EC2TagFilterType -&gt; ByteString) -&gt; ToByteString EC2TagFilterType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: EC2TagFilterType -&gt; ByteString
 $ctoBS :: EC2TagFilterType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679307489"><span class="annot"><span class="annottext">EC2TagFilterType -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679307772"><span class="annot"><span class="annottext">EC2TagFilterType -&gt; ByteStringBuilder
 (EC2TagFilterType -&gt; ByteStringBuilder) -&gt; ToLog EC2TagFilterType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: EC2TagFilterType -&gt; ByteStringBuilder
 $cbuild :: EC2TagFilterType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679307486"><span class="annot"><span class="annottext">HeaderName -&gt; EC2TagFilterType -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679307769"><span class="annot"><span class="annottext">HeaderName -&gt; EC2TagFilterType -&gt; [Header]
 (HeaderName -&gt; EC2TagFilterType -&gt; [Header])
 -&gt; ToHeader EC2TagFilterType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; EC2TagFilterType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; EC2TagFilterType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679307483"><span class="annot"><span class="annottext">EC2TagFilterType -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679307766"><span class="annot"><span class="annottext">EC2TagFilterType -&gt; QueryString
 (EC2TagFilterType -&gt; QueryString) -&gt; ToQuery EC2TagFilterType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: EC2TagFilterType -&gt; QueryString
 $ctoQuery :: EC2TagFilterType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679307478"><span id="local-6989586621679307480"><span class="annot"><span class="annottext">Value -&gt; Parser [EC2TagFilterType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679307761"><span id="local-6989586621679307763"><span class="annot"><span class="annottext">Value -&gt; Parser [EC2TagFilterType]
 Value -&gt; Parser EC2TagFilterType
 (Value -&gt; Parser EC2TagFilterType)
 -&gt; (Value -&gt; Parser [EC2TagFilterType])
@@ -200,7 +200,7 @@ $cparseJSONList :: Value -&gt; Parser [EC2TagFilterType]
 parseJSON :: Value -&gt; Parser EC2TagFilterType
 $cparseJSON :: Value -&gt; Parser EC2TagFilterType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679307473"><span id="local-6989586621679307475"><span class="annot"><span class="annottext">FromJSONKeyFunction [EC2TagFilterType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679307756"><span id="local-6989586621679307758"><span class="annot"><span class="annottext">FromJSONKeyFunction [EC2TagFilterType]
 FromJSONKeyFunction EC2TagFilterType
 FromJSONKeyFunction EC2TagFilterType
 -&gt; FromJSONKeyFunction [EC2TagFilterType]
@@ -212,7 +212,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [EC2TagFilterType]
 fromJSONKey :: FromJSONKeyFunction EC2TagFilterType
 $cfromJSONKey :: FromJSONKeyFunction EC2TagFilterType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679307464"><span id="local-6989586621679307466"><span id="local-6989586621679307468"><span id="local-6989586621679307470"><span class="annot"><span class="annottext">[EC2TagFilterType] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679307747"><span id="local-6989586621679307749"><span id="local-6989586621679307751"><span id="local-6989586621679307753"><span class="annot"><span class="annottext">[EC2TagFilterType] -&gt; Encoding
 [EC2TagFilterType] -&gt; Value
 EC2TagFilterType -&gt; Encoding
 EC2TagFilterType -&gt; Value
@@ -236,7 +236,7 @@ $ctoEncoding :: EC2TagFilterType -&gt; Encoding
 toJSON :: EC2TagFilterType -&gt; Value
 $ctoJSON :: EC2TagFilterType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679307459"><span id="local-6989586621679307461"><span class="annot"><span class="annottext">ToJSONKeyFunction [EC2TagFilterType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679307742"><span id="local-6989586621679307744"><span class="annot"><span class="annottext">ToJSONKeyFunction [EC2TagFilterType]
 ToJSONKeyFunction EC2TagFilterType
 ToJSONKeyFunction EC2TagFilterType
 -&gt; ToJSONKeyFunction [EC2TagFilterType]
@@ -248,14 +248,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [EC2TagFilterType]
 toJSONKey :: ToJSONKeyFunction EC2TagFilterType
 $ctoJSONKey :: ToJSONKeyFunction EC2TagFilterType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679307456"><span class="annot"><span class="annottext">[Node] -&gt; Either String EC2TagFilterType
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679307739"><span class="annot"><span class="annottext">[Node] -&gt; Either String EC2TagFilterType
 ([Node] -&gt; Either String EC2TagFilterType)
 -&gt; FromXML EC2TagFilterType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String EC2TagFilterType
 $cparseXML :: [Node] -&gt; Either String EC2TagFilterType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679307453"><span class="annot"><span class="annottext">EC2TagFilterType -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679307736"><span class="annot"><span class="annottext">EC2TagFilterType -&gt; XML
 (EC2TagFilterType -&gt; XML) -&gt; ToXML EC2TagFilterType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: EC2TagFilterType -&gt; XML

@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Describes the attack.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newAttackVectorDescription' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679201144"><span id="local-6989586621679201145"></span></span><span class="hs-keyword">data</span><span> </span><span id="AttackVectorDescription"><span class="annot"><a href="Network.AWS.Shield.Types.AttackVectorDescription.html#AttackVectorDescription"><span class="hs-identifier hs-var">AttackVectorDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AttackVectorDescription%27"><span class="annot"><a href="Network.AWS.Shield.Types.AttackVectorDescription.html#AttackVectorDescription%27"><span class="hs-identifier hs-var">AttackVectorDescription'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679201267"><span id="local-6989586621679201268"></span></span><span class="hs-keyword">data</span><span> </span><span id="AttackVectorDescription"><span class="annot"><a href="Network.AWS.Shield.Types.AttackVectorDescription.html#AttackVectorDescription"><span class="hs-identifier hs-var">AttackVectorDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AttackVectorDescription%27"><span class="annot"><a href="Network.AWS.Shield.Types.AttackVectorDescription.html#AttackVectorDescription%27"><span class="hs-identifier hs-var">AttackVectorDescription'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The attack type. Valid values:</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- -   UDP_TRAFFIC</span><span>
@@ -67,7 +67,7 @@
 </span><span id="line-67"></span><span>    </span><span id="%24sel%3AvectorType%3AAttackVectorDescription%27"><span class="annot"><span class="annottext">AttackVectorDescription -&gt; Text
 </span><a href="Network.AWS.Shield.Types.AttackVectorDescription.html#%24sel%3AvectorType%3AAttackVectorDescription%27"><span class="hs-identifier hs-var hs-var">vectorType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-68"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679201138"><span id="local-6989586621679201140"><span class="annot"><span class="annottext">AttackVectorDescription -&gt; AttackVectorDescription -&gt; Bool
+</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679201261"><span id="local-6989586621679201263"><span class="annot"><span class="annottext">AttackVectorDescription -&gt; AttackVectorDescription -&gt; Bool
 (AttackVectorDescription -&gt; AttackVectorDescription -&gt; Bool)
 -&gt; (AttackVectorDescription -&gt; AttackVectorDescription -&gt; Bool)
 -&gt; Eq AttackVectorDescription
@@ -76,7 +76,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AttackVectorDescription -&gt; AttackVectorDescription -&gt; Bool
 == :: AttackVectorDescription -&gt; AttackVectorDescription -&gt; Bool
 $c== :: AttackVectorDescription -&gt; AttackVectorDescription -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679201129"><span id="local-6989586621679201131"><span id="local-6989586621679201133"><span id="local-6989586621679201135"><span class="annot"><span class="annottext">ReadPrec [AttackVectorDescription]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679201252"><span id="local-6989586621679201254"><span id="local-6989586621679201256"><span id="local-6989586621679201258"><span class="annot"><span class="annottext">ReadPrec [AttackVectorDescription]
 ReadPrec AttackVectorDescription
 Int -&gt; ReadS AttackVectorDescription
 ReadS [AttackVectorDescription]
@@ -96,7 +96,7 @@ readList :: ReadS [AttackVectorDescription]
 $creadList :: ReadS [AttackVectorDescription]
 readsPrec :: Int -&gt; ReadS AttackVectorDescription
 $creadsPrec :: Int -&gt; ReadS AttackVectorDescription
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679201122"><span id="local-6989586621679201124"><span id="local-6989586621679201126"><span class="annot"><span class="annottext">Int -&gt; AttackVectorDescription -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679201245"><span id="local-6989586621679201247"><span id="local-6989586621679201249"><span class="annot"><span class="annottext">Int -&gt; AttackVectorDescription -&gt; ShowS
 [AttackVectorDescription] -&gt; ShowS
 AttackVectorDescription -&gt; String
 (Int -&gt; AttackVectorDescription -&gt; ShowS)
@@ -174,12 +174,12 @@ $cfrom :: forall x. AttackVectorDescription -&gt; Rep AttackVectorDescription x
 </span><span id="line-118"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-119"></span><span>  </span><span class="annot"><a href="Network.AWS.Shield.Types.AttackVectorDescription.html#AttackVectorDescription"><span class="hs-identifier hs-type">AttackVectorDescription</span></a></span><span>
 </span><span id="line-120"></span><span id="newAttackVectorDescription"><span class="annot"><span class="annottext">newAttackVectorDescription :: Text -&gt; AttackVectorDescription
-</span><a href="Network.AWS.Shield.Types.AttackVectorDescription.html#newAttackVectorDescription"><span class="hs-identifier hs-var hs-var">newAttackVectorDescription</span></a></span></span><span> </span><span id="local-6989586621679201116"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679201116"><span class="hs-identifier hs-var">pVectorType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Shield.Types.AttackVectorDescription.html#newAttackVectorDescription"><span class="hs-identifier hs-var hs-var">newAttackVectorDescription</span></a></span></span><span> </span><span id="local-6989586621679201239"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679201239"><span class="hs-identifier hs-var">pVectorType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-121"></span><span>  </span><span class="annot"><span class="annottext">AttackVectorDescription' :: Text -&gt; AttackVectorDescription
 </span><a href="Network.AWS.Shield.Types.AttackVectorDescription.html#AttackVectorDescription%27"><span class="hs-identifier hs-type">AttackVectorDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vectorType:AttackVectorDescription' :: Text
 </span><a href="Network.AWS.Shield.Types.AttackVectorDescription.html#%24sel%3AvectorType%3AAttackVectorDescription%27"><span class="hs-identifier hs-var">vectorType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679201116"><span class="hs-identifier hs-var">pVectorType_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679201239"><span class="hs-identifier hs-var">pVectorType_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-comment">-- | The attack type. Valid values:</span><span>
 </span><span id="line-124"></span><span class="hs-comment">--</span><span>
@@ -225,19 +225,19 @@ $cfrom :: forall x. AttackVectorDescription -&gt; Rep AttackVectorDescription x
 -&gt; (AttackVectorDescription -&gt; Text -&gt; AttackVectorDescription)
 -&gt; Lens AttackVectorDescription AttackVectorDescription Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Shield.Types.AttackVectorDescription.html#AttackVectorDescription%27"><span class="hs-identifier hs-type">AttackVectorDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201112"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Shield.Types.AttackVectorDescription.html#AttackVectorDescription%27"><span class="hs-identifier hs-type">AttackVectorDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201235"><span class="annot"><span class="annottext">Text
 vectorType :: Text
 $sel:vectorType:AttackVectorDescription' :: AttackVectorDescription -&gt; Text
-</span><a href="#local-6989586621679201112"><span class="hs-identifier hs-var hs-var">vectorType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679201112"><span class="hs-identifier hs-var">vectorType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201111"><span class="annot"><span class="annottext">s :: AttackVectorDescription
-</span><a href="#local-6989586621679201111"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Shield.Types.AttackVectorDescription.html#AttackVectorDescription%27"><span class="hs-identifier hs-type">AttackVectorDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201110"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679201110"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttackVectorDescription
-</span><a href="#local-6989586621679201111"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vectorType:AttackVectorDescription' :: Text
+</span><a href="#local-6989586621679201235"><span class="hs-identifier hs-var hs-var">vectorType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679201235"><span class="hs-identifier hs-var">vectorType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201234"><span class="annot"><span class="annottext">s :: AttackVectorDescription
+</span><a href="#local-6989586621679201234"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Shield.Types.AttackVectorDescription.html#AttackVectorDescription%27"><span class="hs-identifier hs-type">AttackVectorDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201233"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679201233"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttackVectorDescription
+</span><a href="#local-6989586621679201234"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vectorType:AttackVectorDescription' :: Text
 </span><a href="Network.AWS.Shield.Types.AttackVectorDescription.html#%24sel%3AvectorType%3AAttackVectorDescription%27"><span class="hs-identifier hs-var">vectorType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679201110"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.AttackVectorDescription.html#AttackVectorDescription"><span class="hs-identifier hs-type">AttackVectorDescription</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679201233"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.AttackVectorDescription.html#AttackVectorDescription"><span class="hs-identifier hs-type">AttackVectorDescription</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-162"></span><span>
-</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679201107"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.AttackVectorDescription.html#AttackVectorDescription"><span class="hs-identifier hs-type">AttackVectorDescription</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-164"></span><span>  </span><span id="local-6989586621679201105"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AttackVectorDescription
+</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679201230"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.AttackVectorDescription.html#AttackVectorDescription"><span class="hs-identifier hs-type">AttackVectorDescription</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621679201228"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AttackVectorDescription
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-165"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AttackVectorDescription)
@@ -247,21 +247,21 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-166"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AttackVectorDescription&quot;</span></span><span>
-</span><span id="line-167"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679201102"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679201102"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-167"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679201225"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679201225"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-168"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; AttackVectorDescription
 </span><a href="Network.AWS.Shield.Types.AttackVectorDescription.html#AttackVectorDescription%27"><span class="hs-identifier hs-var">AttackVectorDescription'</span></a></span><span>
 </span><span id="line-169"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; AttackVectorDescription)
 -&gt; Parser Text -&gt; Parser AttackVectorDescription
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679201102"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679201225"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;VectorType&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-171"></span><span>
-</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679201096"><span id="local-6989586621679201098"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.AttackVectorDescription.html#AttackVectorDescription"><span class="hs-identifier hs-type">AttackVectorDescription</span></a></span></span></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679201219"><span id="local-6989586621679201221"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.AttackVectorDescription.html#AttackVectorDescription"><span class="hs-identifier hs-type">AttackVectorDescription</span></a></span></span></span><span>
 </span><span id="line-173"></span><span>
-</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679201093"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.AttackVectorDescription.html#AttackVectorDescription"><span class="hs-identifier hs-type">AttackVectorDescription</span></a></span></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679201216"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.AttackVectorDescription.html#AttackVectorDescription"><span class="hs-identifier hs-type">AttackVectorDescription</span></a></span></span><span>
 </span><span id="line-175"></span></pre></body></html>

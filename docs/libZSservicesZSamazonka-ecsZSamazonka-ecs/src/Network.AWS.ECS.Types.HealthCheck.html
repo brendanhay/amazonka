@@ -75,31 +75,31 @@
 </span><span id="line-75"></span><span class="hs-comment">--     a service that is configured to use a Classic Load Balancer.</span><span>
 </span><span id="line-76"></span><span class="hs-comment">--</span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- /See:/ 'newHealthCheck' smart constructor.</span><span>
-</span><span id="line-78"></span><span id="local-6989586621679453046"><span id="local-6989586621679453047"></span></span><span class="hs-keyword">data</span><span> </span><span id="HealthCheck"><span class="annot"><a href="Network.AWS.ECS.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-var">HealthCheck</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HealthCheck%27"><span class="annot"><a href="Network.AWS.ECS.Types.HealthCheck.html#HealthCheck%27"><span class="hs-identifier hs-var">HealthCheck'</span></a></span></span><span>
-</span><span id="line-79"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of times to retry a failed health check before the container</span><span>
-</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- is considered unhealthy. You may specify between 1 and 10 retries. The</span><span>
-</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- default value is 3.</span><span>
-</span><span id="line-82"></span><span>    </span><span id="%24sel%3Aretries%3AHealthCheck%27"><span class="annot"><span class="annottext">HealthCheck -&gt; Maybe Int
-</span><a href="Network.AWS.ECS.Types.HealthCheck.html#%24sel%3Aretries%3AHealthCheck%27"><span class="hs-identifier hs-var hs-var">retries</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- | The time period in seconds to wait for a health check to succeed before</span><span>
-</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- it is considered a failure. You may specify between 2 and 60 seconds.</span><span>
-</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- The default value is 5.</span><span>
-</span><span id="line-86"></span><span>    </span><span id="%24sel%3Atimeout%3AHealthCheck%27"><span class="annot"><span class="annottext">HealthCheck -&gt; Maybe Int
-</span><a href="Network.AWS.ECS.Types.HealthCheck.html#%24sel%3Atimeout%3AHealthCheck%27"><span class="hs-identifier hs-var hs-var">timeout</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- | The optional grace period within which to provide containers time to</span><span>
-</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- bootstrap before failed health checks count towards the maximum number</span><span>
-</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- of retries. You may specify between 0 and 300 seconds. The @startPeriod@</span><span>
-</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- is disabled by default.</span><span>
-</span><span id="line-91"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- If a health check succeeds within the @startPeriod@, then the container</span><span>
-</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- is considered healthy and any subsequent failures count toward the</span><span>
-</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- maximum number of retries.</span><span>
-</span><span id="line-95"></span><span>    </span><span id="%24sel%3AstartPeriod%3AHealthCheck%27"><span class="annot"><span class="annottext">HealthCheck -&gt; Maybe Int
+</span><span id="line-78"></span><span id="local-6989586621679453759"><span id="local-6989586621679453760"></span></span><span class="hs-keyword">data</span><span> </span><span id="HealthCheck"><span class="annot"><a href="Network.AWS.ECS.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-var">HealthCheck</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HealthCheck%27"><span class="annot"><a href="Network.AWS.ECS.Types.HealthCheck.html#HealthCheck%27"><span class="hs-identifier hs-var">HealthCheck'</span></a></span></span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The optional grace period within which to provide containers time to</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- bootstrap before failed health checks count towards the maximum number</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- of retries. You may specify between 0 and 300 seconds. The @startPeriod@</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- is disabled by default.</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- If a health check succeeds within the @startPeriod@, then the container</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- is considered healthy and any subsequent failures count toward the</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- maximum number of retries.</span><span>
+</span><span id="line-87"></span><span>    </span><span id="%24sel%3AstartPeriod%3AHealthCheck%27"><span class="annot"><span class="annottext">HealthCheck -&gt; Maybe Int
 </span><a href="Network.AWS.ECS.Types.HealthCheck.html#%24sel%3AstartPeriod%3AHealthCheck%27"><span class="hs-identifier hs-var hs-var">startPeriod</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- | The time period in seconds between each health check execution. You may</span><span>
-</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- specify between 5 and 300 seconds. The default value is 30 seconds.</span><span>
-</span><span id="line-98"></span><span>    </span><span id="%24sel%3Ainterval%3AHealthCheck%27"><span class="annot"><span class="annottext">HealthCheck -&gt; Maybe Int
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- | The number of times to retry a failed health check before the container</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- is considered unhealthy. You may specify between 1 and 10 retries. The</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- default value is 3.</span><span>
+</span><span id="line-91"></span><span>    </span><span id="%24sel%3Aretries%3AHealthCheck%27"><span class="annot"><span class="annottext">HealthCheck -&gt; Maybe Int
+</span><a href="Network.AWS.ECS.Types.HealthCheck.html#%24sel%3Aretries%3AHealthCheck%27"><span class="hs-identifier hs-var hs-var">retries</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- | The time period in seconds between each health check execution. You may</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- specify between 5 and 300 seconds. The default value is 30 seconds.</span><span>
+</span><span id="line-94"></span><span>    </span><span id="%24sel%3Ainterval%3AHealthCheck%27"><span class="annot"><span class="annottext">HealthCheck -&gt; Maybe Int
 </span><a href="Network.AWS.ECS.Types.HealthCheck.html#%24sel%3Ainterval%3AHealthCheck%27"><span class="hs-identifier hs-var hs-var">interval</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- | The time period in seconds to wait for a health check to succeed before</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- it is considered a failure. You may specify between 2 and 60 seconds.</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- The default value is 5.</span><span>
+</span><span id="line-98"></span><span>    </span><span id="%24sel%3Atimeout%3AHealthCheck%27"><span class="annot"><span class="annottext">HealthCheck -&gt; Maybe Int
+</span><a href="Network.AWS.ECS.Types.HealthCheck.html#%24sel%3Atimeout%3AHealthCheck%27"><span class="hs-identifier hs-var hs-var">timeout</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
 </span><span id="line-99"></span><span>    </span><span class="hs-comment">-- | A string array representing the command that the container runs to</span><span>
 </span><span id="line-100"></span><span>    </span><span class="hs-comment">-- determine if it is healthy. The string array must start with @CMD@ to</span><span>
 </span><span id="line-101"></span><span>    </span><span class="hs-comment">-- execute the command arguments directly, or @CMD-SHELL@ to run the</span><span>
@@ -124,7 +124,7 @@
 </span><span id="line-120"></span><span>    </span><span id="%24sel%3Acommand%3AHealthCheck%27"><span class="annot"><span class="annottext">HealthCheck -&gt; [Text]
 </span><a href="Network.AWS.ECS.Types.HealthCheck.html#%24sel%3Acommand%3AHealthCheck%27"><span class="hs-identifier hs-var hs-var">command</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-121"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-122"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679453036"><span id="local-6989586621679453038"><span class="annot"><span class="annottext">HealthCheck -&gt; HealthCheck -&gt; Bool
+</span><span id="line-122"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679453749"><span id="local-6989586621679453751"><span class="annot"><span class="annottext">HealthCheck -&gt; HealthCheck -&gt; Bool
 (HealthCheck -&gt; HealthCheck -&gt; Bool)
 -&gt; (HealthCheck -&gt; HealthCheck -&gt; Bool) -&gt; Eq HealthCheck
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -132,7 +132,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: HealthCheck -&gt; HealthCheck -&gt; Bool
 == :: HealthCheck -&gt; HealthCheck -&gt; Bool
 $c== :: HealthCheck -&gt; HealthCheck -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679453027"><span id="local-6989586621679453029"><span id="local-6989586621679453031"><span id="local-6989586621679453033"><span class="annot"><span class="annottext">ReadPrec [HealthCheck]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679453740"><span id="local-6989586621679453742"><span id="local-6989586621679453744"><span id="local-6989586621679453746"><span class="annot"><span class="annottext">ReadPrec [HealthCheck]
 ReadPrec HealthCheck
 Int -&gt; ReadS HealthCheck
 ReadS [HealthCheck]
@@ -152,7 +152,7 @@ readList :: ReadS [HealthCheck]
 $creadList :: ReadS [HealthCheck]
 readsPrec :: Int -&gt; ReadS HealthCheck
 $creadsPrec :: Int -&gt; ReadS HealthCheck
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679453020"><span id="local-6989586621679453022"><span id="local-6989586621679453024"><span class="annot"><span class="annottext">Int -&gt; HealthCheck -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679453733"><span id="local-6989586621679453735"><span id="local-6989586621679453737"><span class="annot"><span class="annottext">Int -&gt; HealthCheck -&gt; ShowS
 [HealthCheck] -&gt; ShowS
 HealthCheck -&gt; String
 (Int -&gt; HealthCheck -&gt; ShowS)
@@ -186,25 +186,25 @@ $cfrom :: forall x. HealthCheck -&gt; Rep HealthCheck x
 </span><span id="line-129"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-130"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-131"></span><span class="hs-comment">--</span><span>
-</span><span id="line-132"></span><span class="hs-comment">-- 'retries', 'healthCheck_retries' - The number of times to retry a failed health check before the container</span><span>
-</span><span id="line-133"></span><span class="hs-comment">-- is considered unhealthy. You may specify between 1 and 10 retries. The</span><span>
-</span><span id="line-134"></span><span class="hs-comment">-- default value is 3.</span><span>
-</span><span id="line-135"></span><span class="hs-comment">--</span><span>
-</span><span id="line-136"></span><span class="hs-comment">-- 'timeout', 'healthCheck_timeout' - The time period in seconds to wait for a health check to succeed before</span><span>
-</span><span id="line-137"></span><span class="hs-comment">-- it is considered a failure. You may specify between 2 and 60 seconds.</span><span>
-</span><span id="line-138"></span><span class="hs-comment">-- The default value is 5.</span><span>
-</span><span id="line-139"></span><span class="hs-comment">--</span><span>
-</span><span id="line-140"></span><span class="hs-comment">-- 'startPeriod', 'healthCheck_startPeriod' - The optional grace period within which to provide containers time to</span><span>
-</span><span id="line-141"></span><span class="hs-comment">-- bootstrap before failed health checks count towards the maximum number</span><span>
-</span><span id="line-142"></span><span class="hs-comment">-- of retries. You may specify between 0 and 300 seconds. The @startPeriod@</span><span>
-</span><span id="line-143"></span><span class="hs-comment">-- is disabled by default.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- 'startPeriod', 'healthCheck_startPeriod' - The optional grace period within which to provide containers time to</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- bootstrap before failed health checks count towards the maximum number</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- of retries. You may specify between 0 and 300 seconds. The @startPeriod@</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- is disabled by default.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- If a health check succeeds within the @startPeriod@, then the container</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- is considered healthy and any subsequent failures count toward the</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- maximum number of retries.</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- 'retries', 'healthCheck_retries' - The number of times to retry a failed health check before the container</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- is considered unhealthy. You may specify between 1 and 10 retries. The</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- default value is 3.</span><span>
 </span><span id="line-144"></span><span class="hs-comment">--</span><span>
-</span><span id="line-145"></span><span class="hs-comment">-- If a health check succeeds within the @startPeriod@, then the container</span><span>
-</span><span id="line-146"></span><span class="hs-comment">-- is considered healthy and any subsequent failures count toward the</span><span>
-</span><span id="line-147"></span><span class="hs-comment">-- maximum number of retries.</span><span>
-</span><span id="line-148"></span><span class="hs-comment">--</span><span>
-</span><span id="line-149"></span><span class="hs-comment">-- 'interval', 'healthCheck_interval' - The time period in seconds between each health check execution. You may</span><span>
-</span><span id="line-150"></span><span class="hs-comment">-- specify between 5 and 300 seconds. The default value is 30 seconds.</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- 'interval', 'healthCheck_interval' - The time period in seconds between each health check execution. You may</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- specify between 5 and 300 seconds. The default value is 30 seconds.</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- 'timeout', 'healthCheck_timeout' - The time period in seconds to wait for a health check to succeed before</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- it is considered a failure. You may specify between 2 and 60 seconds.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- The default value is 5.</span><span>
 </span><span id="line-151"></span><span class="hs-comment">--</span><span>
 </span><span id="line-152"></span><span class="hs-comment">-- 'command', 'healthCheck_command' - A string array representing the command that the container runs to</span><span>
 </span><span id="line-153"></span><span class="hs-comment">-- determine if it is healthy. The string array must start with @CMD@ to</span><span>
@@ -234,20 +234,20 @@ $cfrom :: forall x. HealthCheck -&gt; Rep HealthCheck x
 </span><span id="line-176"></span><span>  </span><span class="annot"><span class="annottext">HealthCheck' :: Maybe Int
 -&gt; Maybe Int -&gt; Maybe Int -&gt; Maybe Int -&gt; [Text] -&gt; HealthCheck
 </span><a href="Network.AWS.ECS.Types.HealthCheck.html#HealthCheck%27"><span class="hs-identifier hs-type">HealthCheck'</span></a></span><span>
-</span><span id="line-177"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:retries:HealthCheck' :: Maybe Int
-</span><a href="Network.AWS.ECS.Types.HealthCheck.html#%24sel%3Aretries%3AHealthCheck%27"><span class="hs-identifier hs-var">retries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-178"></span><span>      </span><span class="annot"><span class="annottext">$sel:timeout:HealthCheck' :: Maybe Int
-</span><a href="Network.AWS.ECS.Types.HealthCheck.html#%24sel%3Atimeout%3AHealthCheck%27"><span class="hs-identifier hs-var">timeout</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-179"></span><span>      </span><span class="annot"><span class="annottext">$sel:startPeriod:HealthCheck' :: Maybe Int
+</span><span id="line-177"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:startPeriod:HealthCheck' :: Maybe Int
 </span><a href="Network.AWS.ECS.Types.HealthCheck.html#%24sel%3AstartPeriod%3AHealthCheck%27"><span class="hs-identifier hs-var">startPeriod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-180"></span><span>      </span><span class="annot"><span class="annottext">$sel:interval:HealthCheck' :: Maybe Int
+</span><span id="line-178"></span><span>      </span><span class="annot"><span class="annottext">$sel:retries:HealthCheck' :: Maybe Int
+</span><a href="Network.AWS.ECS.Types.HealthCheck.html#%24sel%3Aretries%3AHealthCheck%27"><span class="hs-identifier hs-var">retries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>      </span><span class="annot"><span class="annottext">$sel:interval:HealthCheck' :: Maybe Int
 </span><a href="Network.AWS.ECS.Types.HealthCheck.html#%24sel%3Ainterval%3AHealthCheck%27"><span class="hs-identifier hs-var">interval</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>      </span><span class="annot"><span class="annottext">$sel:timeout:HealthCheck' :: Maybe Int
+</span><a href="Network.AWS.ECS.Types.HealthCheck.html#%24sel%3Atimeout%3AHealthCheck%27"><span class="hs-identifier hs-var">timeout</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-181"></span><span>      </span><span class="annot"><span class="annottext">$sel:command:HealthCheck' :: [Text]
@@ -256,89 +256,89 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-182"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-183"></span><span>
-</span><span id="line-184"></span><span class="hs-comment">-- | The number of times to retry a failed health check before the container</span><span>
-</span><span id="line-185"></span><span class="hs-comment">-- is considered unhealthy. You may specify between 1 and 10 retries. The</span><span>
-</span><span id="line-186"></span><span class="hs-comment">-- default value is 3.</span><span>
-</span><span id="line-187"></span><span class="annot"><a href="Network.AWS.ECS.Types.HealthCheck.html#healthCheck_retries"><span class="hs-identifier hs-type">healthCheck_retries</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-type">HealthCheck</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-188"></span><span id="healthCheck_retries"><span class="annot"><span class="annottext">healthCheck_retries :: (Maybe Int -&gt; f (Maybe Int)) -&gt; HealthCheck -&gt; f HealthCheck
-</span><a href="Network.AWS.ECS.Types.HealthCheck.html#healthCheck_retries"><span class="hs-identifier hs-var hs-var">healthCheck_retries</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HealthCheck -&gt; Maybe Int)
--&gt; (HealthCheck -&gt; Maybe Int -&gt; HealthCheck)
--&gt; Lens HealthCheck HealthCheck (Maybe Int) (Maybe Int)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.HealthCheck.html#HealthCheck%27"><span class="hs-identifier hs-type">HealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679453011"><span class="annot"><span class="annottext">Maybe Int
-retries :: Maybe Int
-$sel:retries:HealthCheck' :: HealthCheck -&gt; Maybe Int
-</span><a href="#local-6989586621679453011"><span class="hs-identifier hs-var hs-var">retries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679453011"><span class="hs-identifier hs-var">retries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679453010"><span class="annot"><span class="annottext">s :: HealthCheck
-</span><a href="#local-6989586621679453010"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.HealthCheck.html#HealthCheck%27"><span class="hs-identifier hs-type">HealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679453009"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679453009"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HealthCheck
-</span><a href="#local-6989586621679453010"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:retries:HealthCheck' :: Maybe Int
-</span><a href="Network.AWS.ECS.Types.HealthCheck.html#%24sel%3Aretries%3AHealthCheck%27"><span class="hs-identifier hs-var">retries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679453009"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-type">HealthCheck</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-189"></span><span>
-</span><span id="line-190"></span><span class="hs-comment">-- | The time period in seconds to wait for a health check to succeed before</span><span>
-</span><span id="line-191"></span><span class="hs-comment">-- it is considered a failure. You may specify between 2 and 60 seconds.</span><span>
-</span><span id="line-192"></span><span class="hs-comment">-- The default value is 5.</span><span>
-</span><span id="line-193"></span><span class="annot"><a href="Network.AWS.ECS.Types.HealthCheck.html#healthCheck_timeout"><span class="hs-identifier hs-type">healthCheck_timeout</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-type">HealthCheck</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-194"></span><span id="healthCheck_timeout"><span class="annot"><span class="annottext">healthCheck_timeout :: (Maybe Int -&gt; f (Maybe Int)) -&gt; HealthCheck -&gt; f HealthCheck
-</span><a href="Network.AWS.ECS.Types.HealthCheck.html#healthCheck_timeout"><span class="hs-identifier hs-var hs-var">healthCheck_timeout</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HealthCheck -&gt; Maybe Int)
--&gt; (HealthCheck -&gt; Maybe Int -&gt; HealthCheck)
--&gt; Lens HealthCheck HealthCheck (Maybe Int) (Maybe Int)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.HealthCheck.html#HealthCheck%27"><span class="hs-identifier hs-type">HealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679453007"><span class="annot"><span class="annottext">Maybe Int
-timeout :: Maybe Int
-$sel:timeout:HealthCheck' :: HealthCheck -&gt; Maybe Int
-</span><a href="#local-6989586621679453007"><span class="hs-identifier hs-var hs-var">timeout</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679453007"><span class="hs-identifier hs-var">timeout</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679453006"><span class="annot"><span class="annottext">s :: HealthCheck
-</span><a href="#local-6989586621679453006"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.HealthCheck.html#HealthCheck%27"><span class="hs-identifier hs-type">HealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679453005"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679453005"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HealthCheck
-</span><a href="#local-6989586621679453006"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timeout:HealthCheck' :: Maybe Int
-</span><a href="Network.AWS.ECS.Types.HealthCheck.html#%24sel%3Atimeout%3AHealthCheck%27"><span class="hs-identifier hs-var">timeout</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679453005"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-type">HealthCheck</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-195"></span><span>
-</span><span id="line-196"></span><span class="hs-comment">-- | The optional grace period within which to provide containers time to</span><span>
-</span><span id="line-197"></span><span class="hs-comment">-- bootstrap before failed health checks count towards the maximum number</span><span>
-</span><span id="line-198"></span><span class="hs-comment">-- of retries. You may specify between 0 and 300 seconds. The @startPeriod@</span><span>
-</span><span id="line-199"></span><span class="hs-comment">-- is disabled by default.</span><span>
-</span><span id="line-200"></span><span class="hs-comment">--</span><span>
-</span><span id="line-201"></span><span class="hs-comment">-- If a health check succeeds within the @startPeriod@, then the container</span><span>
-</span><span id="line-202"></span><span class="hs-comment">-- is considered healthy and any subsequent failures count toward the</span><span>
-</span><span id="line-203"></span><span class="hs-comment">-- maximum number of retries.</span><span>
-</span><span id="line-204"></span><span class="annot"><a href="Network.AWS.ECS.Types.HealthCheck.html#healthCheck_startPeriod"><span class="hs-identifier hs-type">healthCheck_startPeriod</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-type">HealthCheck</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-205"></span><span id="healthCheck_startPeriod"><span class="annot"><span class="annottext">healthCheck_startPeriod :: (Maybe Int -&gt; f (Maybe Int)) -&gt; HealthCheck -&gt; f HealthCheck
+</span><span id="line-184"></span><span class="hs-comment">-- | The optional grace period within which to provide containers time to</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- bootstrap before failed health checks count towards the maximum number</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- of retries. You may specify between 0 and 300 seconds. The @startPeriod@</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- is disabled by default.</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- If a health check succeeds within the @startPeriod@, then the container</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- is considered healthy and any subsequent failures count toward the</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- maximum number of retries.</span><span>
+</span><span id="line-192"></span><span class="annot"><a href="Network.AWS.ECS.Types.HealthCheck.html#healthCheck_startPeriod"><span class="hs-identifier hs-type">healthCheck_startPeriod</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-type">HealthCheck</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span id="healthCheck_startPeriod"><span class="annot"><span class="annottext">healthCheck_startPeriod :: (Maybe Int -&gt; f (Maybe Int)) -&gt; HealthCheck -&gt; f HealthCheck
 </span><a href="Network.AWS.ECS.Types.HealthCheck.html#healthCheck_startPeriod"><span class="hs-identifier hs-var hs-var">healthCheck_startPeriod</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HealthCheck -&gt; Maybe Int)
 -&gt; (HealthCheck -&gt; Maybe Int -&gt; HealthCheck)
 -&gt; Lens HealthCheck HealthCheck (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.HealthCheck.html#HealthCheck%27"><span class="hs-identifier hs-type">HealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679453003"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.HealthCheck.html#HealthCheck%27"><span class="hs-identifier hs-type">HealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679453724"><span class="annot"><span class="annottext">Maybe Int
 startPeriod :: Maybe Int
 $sel:startPeriod:HealthCheck' :: HealthCheck -&gt; Maybe Int
-</span><a href="#local-6989586621679453003"><span class="hs-identifier hs-var hs-var">startPeriod</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679453003"><span class="hs-identifier hs-var">startPeriod</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679453002"><span class="annot"><span class="annottext">s :: HealthCheck
-</span><a href="#local-6989586621679453002"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.HealthCheck.html#HealthCheck%27"><span class="hs-identifier hs-type">HealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679453001"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679453001"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HealthCheck
-</span><a href="#local-6989586621679453002"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startPeriod:HealthCheck' :: Maybe Int
+</span><a href="#local-6989586621679453724"><span class="hs-identifier hs-var hs-var">startPeriod</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679453724"><span class="hs-identifier hs-var">startPeriod</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679453723"><span class="annot"><span class="annottext">s :: HealthCheck
+</span><a href="#local-6989586621679453723"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.HealthCheck.html#HealthCheck%27"><span class="hs-identifier hs-type">HealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679453722"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679453722"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HealthCheck
+</span><a href="#local-6989586621679453723"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startPeriod:HealthCheck' :: Maybe Int
 </span><a href="Network.AWS.ECS.Types.HealthCheck.html#%24sel%3AstartPeriod%3AHealthCheck%27"><span class="hs-identifier hs-var">startPeriod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679453001"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-type">HealthCheck</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-206"></span><span>
-</span><span id="line-207"></span><span class="hs-comment">-- | The time period in seconds between each health check execution. You may</span><span>
-</span><span id="line-208"></span><span class="hs-comment">-- specify between 5 and 300 seconds. The default value is 30 seconds.</span><span>
-</span><span id="line-209"></span><span class="annot"><a href="Network.AWS.ECS.Types.HealthCheck.html#healthCheck_interval"><span class="hs-identifier hs-type">healthCheck_interval</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-type">HealthCheck</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-210"></span><span id="healthCheck_interval"><span class="annot"><span class="annottext">healthCheck_interval :: (Maybe Int -&gt; f (Maybe Int)) -&gt; HealthCheck -&gt; f HealthCheck
+</span><a href="#local-6989586621679453722"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-type">HealthCheck</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- | The number of times to retry a failed health check before the container</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- is considered unhealthy. You may specify between 1 and 10 retries. The</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- default value is 3.</span><span>
+</span><span id="line-198"></span><span class="annot"><a href="Network.AWS.ECS.Types.HealthCheck.html#healthCheck_retries"><span class="hs-identifier hs-type">healthCheck_retries</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-type">HealthCheck</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span id="healthCheck_retries"><span class="annot"><span class="annottext">healthCheck_retries :: (Maybe Int -&gt; f (Maybe Int)) -&gt; HealthCheck -&gt; f HealthCheck
+</span><a href="Network.AWS.ECS.Types.HealthCheck.html#healthCheck_retries"><span class="hs-identifier hs-var hs-var">healthCheck_retries</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HealthCheck -&gt; Maybe Int)
+-&gt; (HealthCheck -&gt; Maybe Int -&gt; HealthCheck)
+-&gt; Lens HealthCheck HealthCheck (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.HealthCheck.html#HealthCheck%27"><span class="hs-identifier hs-type">HealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679453720"><span class="annot"><span class="annottext">Maybe Int
+retries :: Maybe Int
+$sel:retries:HealthCheck' :: HealthCheck -&gt; Maybe Int
+</span><a href="#local-6989586621679453720"><span class="hs-identifier hs-var hs-var">retries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679453720"><span class="hs-identifier hs-var">retries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679453719"><span class="annot"><span class="annottext">s :: HealthCheck
+</span><a href="#local-6989586621679453719"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.HealthCheck.html#HealthCheck%27"><span class="hs-identifier hs-type">HealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679453718"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679453718"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HealthCheck
+</span><a href="#local-6989586621679453719"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:retries:HealthCheck' :: Maybe Int
+</span><a href="Network.AWS.ECS.Types.HealthCheck.html#%24sel%3Aretries%3AHealthCheck%27"><span class="hs-identifier hs-var">retries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679453718"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-type">HealthCheck</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- | The time period in seconds between each health check execution. You may</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- specify between 5 and 300 seconds. The default value is 30 seconds.</span><span>
+</span><span id="line-203"></span><span class="annot"><a href="Network.AWS.ECS.Types.HealthCheck.html#healthCheck_interval"><span class="hs-identifier hs-type">healthCheck_interval</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-type">HealthCheck</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span id="healthCheck_interval"><span class="annot"><span class="annottext">healthCheck_interval :: (Maybe Int -&gt; f (Maybe Int)) -&gt; HealthCheck -&gt; f HealthCheck
 </span><a href="Network.AWS.ECS.Types.HealthCheck.html#healthCheck_interval"><span class="hs-identifier hs-var hs-var">healthCheck_interval</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HealthCheck -&gt; Maybe Int)
 -&gt; (HealthCheck -&gt; Maybe Int -&gt; HealthCheck)
 -&gt; Lens HealthCheck HealthCheck (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.HealthCheck.html#HealthCheck%27"><span class="hs-identifier hs-type">HealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679452999"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.HealthCheck.html#HealthCheck%27"><span class="hs-identifier hs-type">HealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679453716"><span class="annot"><span class="annottext">Maybe Int
 interval :: Maybe Int
 $sel:interval:HealthCheck' :: HealthCheck -&gt; Maybe Int
-</span><a href="#local-6989586621679452999"><span class="hs-identifier hs-var hs-var">interval</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679452999"><span class="hs-identifier hs-var">interval</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679452998"><span class="annot"><span class="annottext">s :: HealthCheck
-</span><a href="#local-6989586621679452998"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.HealthCheck.html#HealthCheck%27"><span class="hs-identifier hs-type">HealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679452997"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679452997"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HealthCheck
-</span><a href="#local-6989586621679452998"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:interval:HealthCheck' :: Maybe Int
+</span><a href="#local-6989586621679453716"><span class="hs-identifier hs-var hs-var">interval</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679453716"><span class="hs-identifier hs-var">interval</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679453715"><span class="annot"><span class="annottext">s :: HealthCheck
+</span><a href="#local-6989586621679453715"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.HealthCheck.html#HealthCheck%27"><span class="hs-identifier hs-type">HealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679453714"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679453714"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HealthCheck
+</span><a href="#local-6989586621679453715"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:interval:HealthCheck' :: Maybe Int
 </span><a href="Network.AWS.ECS.Types.HealthCheck.html#%24sel%3Ainterval%3AHealthCheck%27"><span class="hs-identifier hs-var">interval</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679452997"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-type">HealthCheck</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679453714"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-type">HealthCheck</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- | The time period in seconds to wait for a health check to succeed before</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- it is considered a failure. You may specify between 2 and 60 seconds.</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- The default value is 5.</span><span>
+</span><span id="line-209"></span><span class="annot"><a href="Network.AWS.ECS.Types.HealthCheck.html#healthCheck_timeout"><span class="hs-identifier hs-type">healthCheck_timeout</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-type">HealthCheck</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span id="healthCheck_timeout"><span class="annot"><span class="annottext">healthCheck_timeout :: (Maybe Int -&gt; f (Maybe Int)) -&gt; HealthCheck -&gt; f HealthCheck
+</span><a href="Network.AWS.ECS.Types.HealthCheck.html#healthCheck_timeout"><span class="hs-identifier hs-var hs-var">healthCheck_timeout</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HealthCheck -&gt; Maybe Int)
+-&gt; (HealthCheck -&gt; Maybe Int -&gt; HealthCheck)
+-&gt; Lens HealthCheck HealthCheck (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.HealthCheck.html#HealthCheck%27"><span class="hs-identifier hs-type">HealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679453712"><span class="annot"><span class="annottext">Maybe Int
+timeout :: Maybe Int
+$sel:timeout:HealthCheck' :: HealthCheck -&gt; Maybe Int
+</span><a href="#local-6989586621679453712"><span class="hs-identifier hs-var hs-var">timeout</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679453712"><span class="hs-identifier hs-var">timeout</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679453711"><span class="annot"><span class="annottext">s :: HealthCheck
+</span><a href="#local-6989586621679453711"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.HealthCheck.html#HealthCheck%27"><span class="hs-identifier hs-type">HealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679453710"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679453710"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HealthCheck
+</span><a href="#local-6989586621679453711"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timeout:HealthCheck' :: Maybe Int
+</span><a href="Network.AWS.ECS.Types.HealthCheck.html#%24sel%3Atimeout%3AHealthCheck%27"><span class="hs-identifier hs-var">timeout</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679453710"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-type">HealthCheck</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-211"></span><span>
 </span><span id="line-212"></span><span class="hs-comment">-- | A string array representing the command that the container runs to</span><span>
 </span><span id="line-213"></span><span class="hs-comment">-- determine if it is healthy. The string array must start with @CMD@ to</span><span>
@@ -367,27 +367,27 @@ $sel:interval:HealthCheck' :: HealthCheck -&gt; Maybe Int
 -&gt; (HealthCheck -&gt; [Text] -&gt; HealthCheck)
 -&gt; Lens HealthCheck HealthCheck [Text] [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.HealthCheck.html#HealthCheck%27"><span class="hs-identifier hs-type">HealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679452995"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.HealthCheck.html#HealthCheck%27"><span class="hs-identifier hs-type">HealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679453708"><span class="annot"><span class="annottext">[Text]
 command :: [Text]
 $sel:command:HealthCheck' :: HealthCheck -&gt; [Text]
-</span><a href="#local-6989586621679452995"><span class="hs-identifier hs-var hs-var">command</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679452995"><span class="hs-identifier hs-var">command</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679452994"><span class="annot"><span class="annottext">s :: HealthCheck
-</span><a href="#local-6989586621679452994"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.HealthCheck.html#HealthCheck%27"><span class="hs-identifier hs-type">HealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679452993"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679452993"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HealthCheck
-</span><a href="#local-6989586621679452994"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:command:HealthCheck' :: [Text]
+</span><a href="#local-6989586621679453708"><span class="hs-identifier hs-var hs-var">command</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679453708"><span class="hs-identifier hs-var">command</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679453707"><span class="annot"><span class="annottext">s :: HealthCheck
+</span><a href="#local-6989586621679453707"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.HealthCheck.html#HealthCheck%27"><span class="hs-identifier hs-type">HealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679453706"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679453706"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HealthCheck
+</span><a href="#local-6989586621679453707"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:command:HealthCheck' :: [Text]
 </span><a href="Network.AWS.ECS.Types.HealthCheck.html#%24sel%3Acommand%3AHealthCheck%27"><span class="hs-identifier hs-var">command</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679452993"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-type">HealthCheck</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; HealthCheck -&gt; f HealthCheck)
+</span><a href="#local-6989586621679453706"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-type">HealthCheck</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; HealthCheck -&gt; f HealthCheck)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
 -&gt; HealthCheck
 -&gt; f HealthCheck
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-235"></span><span>
-</span><span id="line-236"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679452988"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-type">HealthCheck</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-237"></span><span>  </span><span id="local-6989586621679452986"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser HealthCheck
+</span><span id="line-236"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679453701"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-type">HealthCheck</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-237"></span><span>  </span><span id="local-6989586621679453699"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser HealthCheck
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-238"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser HealthCheck) -&gt; Value -&gt; Parser HealthCheck
@@ -395,8 +395,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-239"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;HealthCheck&quot;</span></span><span>
-</span><span id="line-240"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679452983"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679452983"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-240"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679453696"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679453696"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-241"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int
 -&gt; Maybe Int -&gt; Maybe Int -&gt; Maybe Int -&gt; [Text] -&gt; HealthCheck
 </span><a href="Network.AWS.ECS.Types.HealthCheck.html#HealthCheck%27"><span class="hs-identifier hs-var">HealthCheck'</span></a></span><span>
@@ -407,42 +407,42 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
      (Maybe Int -&gt; Maybe Int -&gt; Maybe Int -&gt; [Text] -&gt; HealthCheck)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679452983"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679453696"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;retries&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;startPeriod&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-243"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Int -&gt; Maybe Int -&gt; Maybe Int -&gt; [Text] -&gt; HealthCheck)
 -&gt; Parser (Maybe Int)
 -&gt; Parser (Maybe Int -&gt; Maybe Int -&gt; [Text] -&gt; HealthCheck)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679452983"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679453696"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;timeout&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;retries&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-244"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Int -&gt; Maybe Int -&gt; [Text] -&gt; HealthCheck)
 -&gt; Parser (Maybe Int)
 -&gt; Parser (Maybe Int -&gt; [Text] -&gt; HealthCheck)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679452983"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679453696"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;startPeriod&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;interval&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-245"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Int -&gt; [Text] -&gt; HealthCheck)
 -&gt; Parser (Maybe Int) -&gt; Parser ([Text] -&gt; HealthCheck)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679452983"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679453696"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;interval&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;timeout&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-246"></span><span>            </span><span class="annot"><span class="annottext">Parser ([Text] -&gt; HealthCheck)
 -&gt; Parser [Text] -&gt; Parser HealthCheck
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679452983"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [Text])
+</span><a href="#local-6989586621679453696"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [Text])
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;command&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe [Text]) -&gt; [Text] -&gt; Parser [Text]
@@ -452,65 +452,65 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-247"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-248"></span><span>
-</span><span id="line-249"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679452976"><span id="local-6989586621679452978"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-type">HealthCheck</span></a></span></span></span><span>
+</span><span id="line-249"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679453689"><span id="local-6989586621679453691"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-type">HealthCheck</span></a></span></span></span><span>
 </span><span id="line-250"></span><span>
-</span><span id="line-251"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679452973"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-type">HealthCheck</span></a></span></span><span>
+</span><span id="line-251"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679453686"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-type">HealthCheck</span></a></span></span><span>
 </span><span id="line-252"></span><span>
-</span><span id="line-253"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679452965"><span id="local-6989586621679452967"><span id="local-6989586621679452969"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-type">HealthCheck</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-254"></span><span>  </span><span id="local-6989586621679452963"><span class="annot"><span class="annottext">toJSON :: HealthCheck -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.HealthCheck.html#HealthCheck%27"><span class="hs-identifier hs-type">HealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679452957"><span id="local-6989586621679452958"><span id="local-6989586621679452959"><span id="local-6989586621679452960"><span id="local-6989586621679452961"><span class="annot"><span class="annottext">[Text]
+</span><span id="line-253"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679453678"><span id="local-6989586621679453680"><span id="local-6989586621679453682"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-type">HealthCheck</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-254"></span><span>  </span><span id="local-6989586621679453676"><span class="annot"><span class="annottext">toJSON :: HealthCheck -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.HealthCheck.html#HealthCheck%27"><span class="hs-identifier hs-type">HealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679453670"><span id="local-6989586621679453671"><span id="local-6989586621679453672"><span id="local-6989586621679453673"><span id="local-6989586621679453674"><span class="annot"><span class="annottext">[Text]
 Maybe Int
 command :: [Text]
-interval :: Maybe Int
-startPeriod :: Maybe Int
 timeout :: Maybe Int
+interval :: Maybe Int
 retries :: Maybe Int
+startPeriod :: Maybe Int
 $sel:command:HealthCheck' :: HealthCheck -&gt; [Text]
-$sel:interval:HealthCheck' :: HealthCheck -&gt; Maybe Int
-$sel:startPeriod:HealthCheck' :: HealthCheck -&gt; Maybe Int
 $sel:timeout:HealthCheck' :: HealthCheck -&gt; Maybe Int
+$sel:interval:HealthCheck' :: HealthCheck -&gt; Maybe Int
 $sel:retries:HealthCheck' :: HealthCheck -&gt; Maybe Int
-</span><a href="#local-6989586621679452957"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:startPeriod:HealthCheck' :: HealthCheck -&gt; Maybe Int
+</span><a href="#local-6989586621679453670"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-255"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-256"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-257"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;retries&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679452961"><span class="hs-identifier hs-var">retries</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-258"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;timeout&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679452960"><span class="hs-identifier hs-var">timeout</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-259"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;startPeriod&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679452959"><span class="hs-identifier hs-var">startPeriod</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-260"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679453674"><span class="hs-identifier hs-var">startPeriod</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-258"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;retries&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679453673"><span class="hs-identifier hs-var">retries</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-259"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;interval&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679452958"><span class="hs-identifier hs-var">interval</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679453672"><span class="hs-identifier hs-var">interval</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-260"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;timeout&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679453671"><span class="hs-identifier hs-var">timeout</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-261"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;command&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679452957"><span class="hs-identifier hs-var">command</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679453670"><span class="hs-identifier hs-var">command</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-262"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-263"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-264"></span></pre></body></html>

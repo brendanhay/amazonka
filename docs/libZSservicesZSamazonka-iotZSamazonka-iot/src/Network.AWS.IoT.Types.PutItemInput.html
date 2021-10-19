@@ -27,12 +27,12 @@
 </span><span id="line-27"></span><span class="hs-comment">-- table to which the message data will be written.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newPutItemInput' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679793301"><span id="local-6989586621679793302"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutItemInput"><span class="annot"><a href="Network.AWS.IoT.Types.PutItemInput.html#PutItemInput"><span class="hs-identifier hs-var">PutItemInput</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutItemInput%27"><span class="annot"><a href="Network.AWS.IoT.Types.PutItemInput.html#PutItemInput%27"><span class="hs-identifier hs-var">PutItemInput'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679794168"><span id="local-6989586621679794169"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutItemInput"><span class="annot"><a href="Network.AWS.IoT.Types.PutItemInput.html#PutItemInput"><span class="hs-identifier hs-var">PutItemInput</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutItemInput%27"><span class="annot"><a href="Network.AWS.IoT.Types.PutItemInput.html#PutItemInput%27"><span class="hs-identifier hs-var">PutItemInput'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The table where the message data will be written.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AtableName%3APutItemInput%27"><span class="annot"><span class="annottext">PutItemInput -&gt; Text
 </span><a href="Network.AWS.IoT.Types.PutItemInput.html#%24sel%3AtableName%3APutItemInput%27"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679793295"><span id="local-6989586621679793297"><span class="annot"><span class="annottext">PutItemInput -&gt; PutItemInput -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679794162"><span id="local-6989586621679794164"><span class="annot"><span class="annottext">PutItemInput -&gt; PutItemInput -&gt; Bool
 (PutItemInput -&gt; PutItemInput -&gt; Bool)
 -&gt; (PutItemInput -&gt; PutItemInput -&gt; Bool) -&gt; Eq PutItemInput
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -40,7 +40,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutItemInput -&gt; PutItemInput -&gt; Bool
 == :: PutItemInput -&gt; PutItemInput -&gt; Bool
 $c== :: PutItemInput -&gt; PutItemInput -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679793286"><span id="local-6989586621679793288"><span id="local-6989586621679793290"><span id="local-6989586621679793292"><span class="annot"><span class="annottext">ReadPrec [PutItemInput]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679794153"><span id="local-6989586621679794155"><span id="local-6989586621679794157"><span id="local-6989586621679794159"><span class="annot"><span class="annottext">ReadPrec [PutItemInput]
 ReadPrec PutItemInput
 Int -&gt; ReadS PutItemInput
 ReadS [PutItemInput]
@@ -60,7 +60,7 @@ readList :: ReadS [PutItemInput]
 $creadList :: ReadS [PutItemInput]
 readsPrec :: Int -&gt; ReadS PutItemInput
 $creadsPrec :: Int -&gt; ReadS PutItemInput
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679793279"><span id="local-6989586621679793281"><span id="local-6989586621679793283"><span class="annot"><span class="annottext">Int -&gt; PutItemInput -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679794146"><span id="local-6989586621679794148"><span id="local-6989586621679794150"><span class="annot"><span class="annottext">Int -&gt; PutItemInput -&gt; ShowS
 [PutItemInput] -&gt; ShowS
 PutItemInput -&gt; String
 (Int -&gt; PutItemInput -&gt; ShowS)
@@ -100,12 +100,12 @@ $cfrom :: forall x. PutItemInput -&gt; Rep PutItemInput x
 </span><span id="line-47"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-48"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.Types.PutItemInput.html#PutItemInput"><span class="hs-identifier hs-type">PutItemInput</span></a></span><span>
 </span><span id="line-49"></span><span id="newPutItemInput"><span class="annot"><span class="annottext">newPutItemInput :: Text -&gt; PutItemInput
-</span><a href="Network.AWS.IoT.Types.PutItemInput.html#newPutItemInput"><span class="hs-identifier hs-var hs-var">newPutItemInput</span></a></span></span><span> </span><span id="local-6989586621679793273"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679793273"><span class="hs-identifier hs-var">pTableName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.Types.PutItemInput.html#newPutItemInput"><span class="hs-identifier hs-var hs-var">newPutItemInput</span></a></span></span><span> </span><span id="local-6989586621679794140"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679794140"><span class="hs-identifier hs-var">pTableName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-50"></span><span>  </span><span class="annot"><span class="annottext">PutItemInput' :: Text -&gt; PutItemInput
 </span><a href="Network.AWS.IoT.Types.PutItemInput.html#PutItemInput%27"><span class="hs-identifier hs-type">PutItemInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableName:PutItemInput' :: Text
 </span><a href="Network.AWS.IoT.Types.PutItemInput.html#%24sel%3AtableName%3APutItemInput%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679793273"><span class="hs-identifier hs-var">pTableName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679794140"><span class="hs-identifier hs-var">pTableName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-51"></span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- | The table where the message data will be written.</span><span>
 </span><span id="line-53"></span><span class="annot"><a href="Network.AWS.IoT.Types.PutItemInput.html#putItemInput_tableName"><span class="hs-identifier hs-type">putItemInput_tableName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.PutItemInput.html#PutItemInput"><span class="hs-identifier hs-type">PutItemInput</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -114,19 +114,19 @@ $cfrom :: forall x. PutItemInput -&gt; Rep PutItemInput x
 -&gt; (PutItemInput -&gt; Text -&gt; PutItemInput)
 -&gt; Lens PutItemInput PutItemInput Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.PutItemInput.html#PutItemInput%27"><span class="hs-identifier hs-type">PutItemInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679793269"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.PutItemInput.html#PutItemInput%27"><span class="hs-identifier hs-type">PutItemInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679794136"><span class="annot"><span class="annottext">Text
 tableName :: Text
 $sel:tableName:PutItemInput' :: PutItemInput -&gt; Text
-</span><a href="#local-6989586621679793269"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679793269"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679793268"><span class="annot"><span class="annottext">s :: PutItemInput
-</span><a href="#local-6989586621679793268"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.PutItemInput.html#PutItemInput%27"><span class="hs-identifier hs-type">PutItemInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679793267"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679793267"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutItemInput
-</span><a href="#local-6989586621679793268"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableName:PutItemInput' :: Text
+</span><a href="#local-6989586621679794136"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679794136"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679794135"><span class="annot"><span class="annottext">s :: PutItemInput
+</span><a href="#local-6989586621679794135"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.PutItemInput.html#PutItemInput%27"><span class="hs-identifier hs-type">PutItemInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679794134"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679794134"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutItemInput
+</span><a href="#local-6989586621679794135"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableName:PutItemInput' :: Text
 </span><a href="Network.AWS.IoT.Types.PutItemInput.html#%24sel%3AtableName%3APutItemInput%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679793267"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.PutItemInput.html#PutItemInput"><span class="hs-identifier hs-type">PutItemInput</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679794134"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.PutItemInput.html#PutItemInput"><span class="hs-identifier hs-type">PutItemInput</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-55"></span><span>
-</span><span id="line-56"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679793264"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.PutItemInput.html#PutItemInput"><span class="hs-identifier hs-type">PutItemInput</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-57"></span><span>  </span><span id="local-6989586621679793262"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PutItemInput
+</span><span id="line-56"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679794131"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.PutItemInput.html#PutItemInput"><span class="hs-identifier hs-type">PutItemInput</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-57"></span><span>  </span><span id="local-6989586621679794129"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PutItemInput
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-58"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser PutItemInput) -&gt; Value -&gt; Parser PutItemInput
@@ -134,28 +134,28 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;PutItemInput&quot;</span></span><span>
-</span><span id="line-60"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679793259"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679793259"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-60"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679794126"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679794126"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-61"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; PutItemInput
 </span><a href="Network.AWS.IoT.Types.PutItemInput.html#PutItemInput%27"><span class="hs-identifier hs-var">PutItemInput'</span></a></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; PutItemInput) -&gt; Parser Text -&gt; Parser PutItemInput
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679793259"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679794126"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;tableName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-62"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679793253"><span id="local-6989586621679793255"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.PutItemInput.html#PutItemInput"><span class="hs-identifier hs-type">PutItemInput</span></a></span></span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679794120"><span id="local-6989586621679794122"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.PutItemInput.html#PutItemInput"><span class="hs-identifier hs-type">PutItemInput</span></a></span></span></span><span>
 </span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679793250"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.PutItemInput.html#PutItemInput"><span class="hs-identifier hs-type">PutItemInput</span></a></span></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679794117"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.PutItemInput.html#PutItemInput"><span class="hs-identifier hs-type">PutItemInput</span></a></span></span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679793242"><span id="local-6989586621679793244"><span id="local-6989586621679793246"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.PutItemInput.html#PutItemInput"><span class="hs-identifier hs-type">PutItemInput</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-69"></span><span>  </span><span id="local-6989586621679793240"><span class="annot"><span class="annottext">toJSON :: PutItemInput -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.PutItemInput.html#PutItemInput%27"><span class="hs-identifier hs-type">PutItemInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679793238"><span class="annot"><span class="annottext">Text
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679794109"><span id="local-6989586621679794111"><span id="local-6989586621679794113"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.PutItemInput.html#PutItemInput"><span class="hs-identifier hs-type">PutItemInput</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621679794107"><span class="annot"><span class="annottext">toJSON :: PutItemInput -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.PutItemInput.html#PutItemInput%27"><span class="hs-identifier hs-type">PutItemInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679794105"><span class="annot"><span class="annottext">Text
 tableName :: Text
 $sel:tableName:PutItemInput' :: PutItemInput -&gt; Text
-</span><a href="#local-6989586621679793238"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679794105"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-71"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -167,6 +167,6 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;tableName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679793238"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679794105"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-73"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span></pre></body></html>

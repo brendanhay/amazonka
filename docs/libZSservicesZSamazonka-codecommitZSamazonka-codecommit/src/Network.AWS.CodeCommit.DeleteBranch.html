@@ -51,7 +51,7 @@
 </span><span id="line-51"></span><span class="hs-comment">-- | Represents the input of a delete branch operation.</span><span>
 </span><span id="line-52"></span><span class="hs-comment">--</span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- /See:/ 'newDeleteBranch' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679369273"><span id="local-6989586621679369274"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteBranch"><span class="annot"><a href="Network.AWS.CodeCommit.DeleteBranch.html#DeleteBranch"><span class="hs-identifier hs-var">DeleteBranch</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteBranch%27"><span class="annot"><a href="Network.AWS.CodeCommit.DeleteBranch.html#DeleteBranch%27"><span class="hs-identifier hs-var">DeleteBranch'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679369582"><span id="local-6989586621679369583"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteBranch"><span class="annot"><a href="Network.AWS.CodeCommit.DeleteBranch.html#DeleteBranch"><span class="hs-identifier hs-var">DeleteBranch</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteBranch%27"><span class="annot"><a href="Network.AWS.CodeCommit.DeleteBranch.html#DeleteBranch%27"><span class="hs-identifier hs-var">DeleteBranch'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the repository that contains the branch to be deleted.</span><span>
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3ArepositoryName%3ADeleteBranch%27"><span class="annot"><span class="annottext">DeleteBranch -&gt; Text
 </span><a href="Network.AWS.CodeCommit.DeleteBranch.html#%24sel%3ArepositoryName%3ADeleteBranch%27"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -59,7 +59,7 @@
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AbranchName%3ADeleteBranch%27"><span class="annot"><span class="annottext">DeleteBranch -&gt; Text
 </span><a href="Network.AWS.CodeCommit.DeleteBranch.html#%24sel%3AbranchName%3ADeleteBranch%27"><span class="hs-identifier hs-var hs-var">branchName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679369266"><span id="local-6989586621679369268"><span class="annot"><span class="annottext">DeleteBranch -&gt; DeleteBranch -&gt; Bool
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679369575"><span id="local-6989586621679369577"><span class="annot"><span class="annottext">DeleteBranch -&gt; DeleteBranch -&gt; Bool
 (DeleteBranch -&gt; DeleteBranch -&gt; Bool)
 -&gt; (DeleteBranch -&gt; DeleteBranch -&gt; Bool) -&gt; Eq DeleteBranch
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -67,7 +67,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteBranch -&gt; DeleteBranch -&gt; Bool
 == :: DeleteBranch -&gt; DeleteBranch -&gt; Bool
 $c== :: DeleteBranch -&gt; DeleteBranch -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679369257"><span id="local-6989586621679369259"><span id="local-6989586621679369261"><span id="local-6989586621679369263"><span class="annot"><span class="annottext">ReadPrec [DeleteBranch]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679369566"><span id="local-6989586621679369568"><span id="local-6989586621679369570"><span id="local-6989586621679369572"><span class="annot"><span class="annottext">ReadPrec [DeleteBranch]
 ReadPrec DeleteBranch
 Int -&gt; ReadS DeleteBranch
 ReadS [DeleteBranch]
@@ -87,7 +87,7 @@ readList :: ReadS [DeleteBranch]
 $creadList :: ReadS [DeleteBranch]
 readsPrec :: Int -&gt; ReadS DeleteBranch
 $creadsPrec :: Int -&gt; ReadS DeleteBranch
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679369250"><span id="local-6989586621679369252"><span id="local-6989586621679369254"><span class="annot"><span class="annottext">Int -&gt; DeleteBranch -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679369559"><span id="local-6989586621679369561"><span id="local-6989586621679369563"><span class="annot"><span class="annottext">Int -&gt; DeleteBranch -&gt; ShowS
 [DeleteBranch] -&gt; ShowS
 DeleteBranch -&gt; String
 (Int -&gt; DeleteBranch -&gt; ShowS)
@@ -131,17 +131,17 @@ $cfrom :: forall x. DeleteBranch -&gt; Rep DeleteBranch x
 </span><span id="line-77"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteBranch.html#DeleteBranch"><span class="hs-identifier hs-type">DeleteBranch</span></a></span><span>
 </span><span id="line-79"></span><span id="newDeleteBranch"><span class="annot"><span class="annottext">newDeleteBranch :: Text -&gt; Text -&gt; DeleteBranch
-</span><a href="Network.AWS.CodeCommit.DeleteBranch.html#newDeleteBranch"><span class="hs-identifier hs-var hs-var">newDeleteBranch</span></a></span></span><span> </span><span id="local-6989586621679369245"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679369245"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span></span><span> </span><span id="local-6989586621679369244"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679369244"><span class="hs-identifier hs-var">pBranchName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodeCommit.DeleteBranch.html#newDeleteBranch"><span class="hs-identifier hs-var hs-var">newDeleteBranch</span></a></span></span><span> </span><span id="local-6989586621679369554"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679369554"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span></span><span> </span><span id="local-6989586621679369553"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679369553"><span class="hs-identifier hs-var">pBranchName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">DeleteBranch' :: Text -&gt; Text -&gt; DeleteBranch
 </span><a href="Network.AWS.CodeCommit.DeleteBranch.html#DeleteBranch%27"><span class="hs-identifier hs-type">DeleteBranch'</span></a></span><span>
 </span><span id="line-81"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:repositoryName:DeleteBranch' :: Text
 </span><a href="Network.AWS.CodeCommit.DeleteBranch.html#%24sel%3ArepositoryName%3ADeleteBranch%27"><span class="hs-identifier hs-var">repositoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679369245"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679369554"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:branchName:DeleteBranch' :: Text
 </span><a href="Network.AWS.CodeCommit.DeleteBranch.html#%24sel%3AbranchName%3ADeleteBranch%27"><span class="hs-identifier hs-var">branchName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679369244"><span class="hs-identifier hs-var">pBranchName_</span></a></span><span>
+</span><a href="#local-6989586621679369553"><span class="hs-identifier hs-var">pBranchName_</span></a></span><span>
 </span><span id="line-83"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- | The name of the repository that contains the branch to be deleted.</span><span>
@@ -151,16 +151,16 @@ $cfrom :: forall x. DeleteBranch -&gt; Rep DeleteBranch x
 -&gt; (DeleteBranch -&gt; Text -&gt; DeleteBranch)
 -&gt; Lens DeleteBranch DeleteBranch Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteBranch.html#DeleteBranch%27"><span class="hs-identifier hs-type">DeleteBranch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369241"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteBranch.html#DeleteBranch%27"><span class="hs-identifier hs-type">DeleteBranch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369550"><span class="annot"><span class="annottext">Text
 repositoryName :: Text
 $sel:repositoryName:DeleteBranch' :: DeleteBranch -&gt; Text
-</span><a href="#local-6989586621679369241"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679369241"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369240"><span class="annot"><span class="annottext">s :: DeleteBranch
-</span><a href="#local-6989586621679369240"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteBranch.html#DeleteBranch%27"><span class="hs-identifier hs-type">DeleteBranch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369239"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679369239"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBranch
-</span><a href="#local-6989586621679369240"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoryName:DeleteBranch' :: Text
+</span><a href="#local-6989586621679369550"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679369550"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369549"><span class="annot"><span class="annottext">s :: DeleteBranch
+</span><a href="#local-6989586621679369549"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteBranch.html#DeleteBranch%27"><span class="hs-identifier hs-type">DeleteBranch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369548"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679369548"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBranch
+</span><a href="#local-6989586621679369549"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoryName:DeleteBranch' :: Text
 </span><a href="Network.AWS.CodeCommit.DeleteBranch.html#%24sel%3ArepositoryName%3ADeleteBranch%27"><span class="hs-identifier hs-var">repositoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679369239"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteBranch.html#DeleteBranch"><span class="hs-identifier hs-type">DeleteBranch</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679369548"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteBranch.html#DeleteBranch"><span class="hs-identifier hs-type">DeleteBranch</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- | The name of the branch to delete.</span><span>
 </span><span id="line-90"></span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteBranch.html#deleteBranch_branchName"><span class="hs-identifier hs-type">deleteBranch_branchName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteBranch.html#DeleteBranch"><span class="hs-identifier hs-type">DeleteBranch</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -169,25 +169,25 @@ $sel:repositoryName:DeleteBranch' :: DeleteBranch -&gt; Text
 -&gt; (DeleteBranch -&gt; Text -&gt; DeleteBranch)
 -&gt; Lens DeleteBranch DeleteBranch Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteBranch.html#DeleteBranch%27"><span class="hs-identifier hs-type">DeleteBranch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369238"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteBranch.html#DeleteBranch%27"><span class="hs-identifier hs-type">DeleteBranch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369547"><span class="annot"><span class="annottext">Text
 branchName :: Text
 $sel:branchName:DeleteBranch' :: DeleteBranch -&gt; Text
-</span><a href="#local-6989586621679369238"><span class="hs-identifier hs-var hs-var">branchName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679369238"><span class="hs-identifier hs-var">branchName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369237"><span class="annot"><span class="annottext">s :: DeleteBranch
-</span><a href="#local-6989586621679369237"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteBranch.html#DeleteBranch%27"><span class="hs-identifier hs-type">DeleteBranch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369236"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679369236"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBranch
-</span><a href="#local-6989586621679369237"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:branchName:DeleteBranch' :: Text
+</span><a href="#local-6989586621679369547"><span class="hs-identifier hs-var hs-var">branchName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679369547"><span class="hs-identifier hs-var">branchName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369546"><span class="annot"><span class="annottext">s :: DeleteBranch
+</span><a href="#local-6989586621679369546"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteBranch.html#DeleteBranch%27"><span class="hs-identifier hs-type">DeleteBranch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369545"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679369545"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBranch
+</span><a href="#local-6989586621679369546"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:branchName:DeleteBranch' :: Text
 </span><a href="Network.AWS.CodeCommit.DeleteBranch.html#%24sel%3AbranchName%3ADeleteBranch%27"><span class="hs-identifier hs-var">branchName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679369236"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteBranch.html#DeleteBranch"><span class="hs-identifier hs-type">DeleteBranch</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679369545"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteBranch.html#DeleteBranch"><span class="hs-identifier hs-type">DeleteBranch</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteBranch.html#DeleteBranch"><span class="hs-identifier hs-type">DeleteBranch</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-94"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteBranch.html#DeleteBranch"><span class="hs-identifier hs-type">DeleteBranch</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteBranch.html#DeleteBranchResponse"><span class="hs-identifier hs-type">DeleteBranchResponse</span></a></span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679369232"><span class="annot"><span class="annottext">request :: DeleteBranch -&gt; Request DeleteBranch
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679369541"><span class="annot"><span class="annottext">request :: DeleteBranch -&gt; Request DeleteBranch
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteBranch -&gt; Request DeleteBranch
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CodeCommit.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679369228"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679369537"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteBranch
 -&gt; ClientResponse ClientBody
@@ -211,10 +211,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679369225"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679369225"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679369224"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679369224"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679369223"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679369223"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679369534"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679369534"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679369533"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679369533"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679369532"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679369532"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-99"></span><span>          </span><span class="annot"><span class="annottext">Maybe BranchInfo -&gt; Int -&gt; DeleteBranchResponse
 </span><a href="Network.AWS.CodeCommit.DeleteBranch.html#DeleteBranchResponse%27"><span class="hs-identifier hs-var">DeleteBranchResponse'</span></a></span><span>
 </span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">(Maybe BranchInfo -&gt; Int -&gt; DeleteBranchResponse)
@@ -222,7 +222,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DeleteBranchResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679369223"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe BranchInfo)
+</span><a href="#local-6989586621679369532"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe BranchInfo)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;deletedBranch&quot;</span></span><span class="hs-special">)</span><span>
@@ -234,15 +234,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679369225"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679369534"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369215"><span id="local-6989586621679369217"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteBranch.html#DeleteBranch"><span class="hs-identifier hs-type">DeleteBranch</span></a></span></span></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369524"><span id="local-6989586621679369526"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteBranch.html#DeleteBranch"><span class="hs-identifier hs-type">DeleteBranch</span></a></span></span></span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369212"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteBranch.html#DeleteBranch"><span class="hs-identifier hs-type">DeleteBranch</span></a></span></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369521"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteBranch.html#DeleteBranch"><span class="hs-identifier hs-type">DeleteBranch</span></a></span></span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteBranch.html#DeleteBranch"><span class="hs-identifier hs-type">DeleteBranch</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679369208"><span class="annot"><span class="annottext">toHeaders :: DeleteBranch -&gt; ResponseHeaders
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679369517"><span class="annot"><span class="annottext">toHeaders :: DeleteBranch -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteBranch -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -269,14 +269,14 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-120"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369198"><span id="local-6989586621679369200"><span id="local-6989586621679369202"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteBranch.html#DeleteBranch"><span class="hs-identifier hs-type">DeleteBranch</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679369196"><span class="annot"><span class="annottext">toJSON :: DeleteBranch -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteBranch.html#DeleteBranch%27"><span class="hs-identifier hs-type">DeleteBranch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369193"><span id="local-6989586621679369194"><span class="annot"><span class="annottext">Text
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369507"><span id="local-6989586621679369509"><span id="local-6989586621679369511"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteBranch.html#DeleteBranch"><span class="hs-identifier hs-type">DeleteBranch</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679369505"><span class="annot"><span class="annottext">toJSON :: DeleteBranch -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteBranch.html#DeleteBranch%27"><span class="hs-identifier hs-type">DeleteBranch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369502"><span id="local-6989586621679369503"><span class="annot"><span class="annottext">Text
 branchName :: Text
 repositoryName :: Text
 $sel:branchName:DeleteBranch' :: DeleteBranch -&gt; Text
 $sel:repositoryName:DeleteBranch' :: DeleteBranch -&gt; Text
-</span><a href="#local-6989586621679369193"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679369502"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -289,26 +289,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;repositoryName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679369194"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679369503"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;branchName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679369193"><span class="hs-identifier hs-var">branchName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679369502"><span class="hs-identifier hs-var">branchName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-131"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteBranch.html#DeleteBranch"><span class="hs-identifier hs-type">DeleteBranch</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679369187"><span class="annot"><span class="annottext">toPath :: DeleteBranch -&gt; ByteString
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679369496"><span class="annot"><span class="annottext">toPath :: DeleteBranch -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteBranch -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteBranch.html#DeleteBranch"><span class="hs-identifier hs-type">DeleteBranch</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679369183"><span class="annot"><span class="annottext">toQuery :: DeleteBranch -&gt; QueryString
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679369492"><span class="annot"><span class="annottext">toQuery :: DeleteBranch -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteBranch -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -318,7 +318,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-139"></span><span class="hs-comment">-- | Represents the output of a delete branch operation.</span><span>
 </span><span id="line-140"></span><span class="hs-comment">--</span><span>
 </span><span id="line-141"></span><span class="hs-comment">-- /See:/ 'newDeleteBranchResponse' smart constructor.</span><span>
-</span><span id="line-142"></span><span id="local-6989586621679369180"><span id="local-6989586621679369181"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteBranchResponse"><span class="annot"><a href="Network.AWS.CodeCommit.DeleteBranch.html#DeleteBranchResponse"><span class="hs-identifier hs-var">DeleteBranchResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteBranchResponse%27"><span class="annot"><a href="Network.AWS.CodeCommit.DeleteBranch.html#DeleteBranchResponse%27"><span class="hs-identifier hs-var">DeleteBranchResponse'</span></a></span></span><span>
+</span><span id="line-142"></span><span id="local-6989586621679369489"><span id="local-6989586621679369490"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteBranchResponse"><span class="annot"><a href="Network.AWS.CodeCommit.DeleteBranch.html#DeleteBranchResponse"><span class="hs-identifier hs-var">DeleteBranchResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteBranchResponse%27"><span class="annot"><a href="Network.AWS.CodeCommit.DeleteBranch.html#DeleteBranchResponse%27"><span class="hs-identifier hs-var">DeleteBranchResponse'</span></a></span></span><span>
 </span><span id="line-143"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the branch deleted by the operation, including the</span><span>
 </span><span id="line-144"></span><span>    </span><span class="hs-comment">-- branch name and the commit ID that was the tip of the branch.</span><span>
 </span><span id="line-145"></span><span>    </span><span id="%24sel%3AdeletedBranch%3ADeleteBranchResponse%27"><span class="annot"><span class="annottext">DeleteBranchResponse -&gt; Maybe BranchInfo
@@ -327,7 +327,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-147"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteBranchResponse%27"><span class="annot"><span class="annottext">DeleteBranchResponse -&gt; Int
 </span><a href="Network.AWS.CodeCommit.DeleteBranch.html#%24sel%3AhttpStatus%3ADeleteBranchResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-148"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-149"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679369174"><span id="local-6989586621679369176"><span class="annot"><span class="annottext">DeleteBranchResponse -&gt; DeleteBranchResponse -&gt; Bool
+</span><span id="line-149"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679369483"><span id="local-6989586621679369485"><span class="annot"><span class="annottext">DeleteBranchResponse -&gt; DeleteBranchResponse -&gt; Bool
 (DeleteBranchResponse -&gt; DeleteBranchResponse -&gt; Bool)
 -&gt; (DeleteBranchResponse -&gt; DeleteBranchResponse -&gt; Bool)
 -&gt; Eq DeleteBranchResponse
@@ -336,7 +336,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteBranchResponse -&gt; DeleteBranchResponse -&gt; Bool
 == :: DeleteBranchResponse -&gt; DeleteBranchResponse -&gt; Bool
 $c== :: DeleteBranchResponse -&gt; DeleteBranchResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679369166"><span id="local-6989586621679369168"><span id="local-6989586621679369170"><span id="local-6989586621679369172"><span class="annot"><span class="annottext">ReadPrec [DeleteBranchResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679369475"><span id="local-6989586621679369477"><span id="local-6989586621679369479"><span id="local-6989586621679369481"><span class="annot"><span class="annottext">ReadPrec [DeleteBranchResponse]
 ReadPrec DeleteBranchResponse
 Int -&gt; ReadS DeleteBranchResponse
 ReadS [DeleteBranchResponse]
@@ -356,7 +356,7 @@ readList :: ReadS [DeleteBranchResponse]
 $creadList :: ReadS [DeleteBranchResponse]
 readsPrec :: Int -&gt; ReadS DeleteBranchResponse
 $creadsPrec :: Int -&gt; ReadS DeleteBranchResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679369160"><span id="local-6989586621679369162"><span id="local-6989586621679369164"><span class="annot"><span class="annottext">Int -&gt; DeleteBranchResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679369469"><span id="local-6989586621679369471"><span id="local-6989586621679369473"><span class="annot"><span class="annottext">Int -&gt; DeleteBranchResponse -&gt; ShowS
 [DeleteBranchResponse] -&gt; ShowS
 DeleteBranchResponse -&gt; String
 (Int -&gt; DeleteBranchResponse -&gt; ShowS)
@@ -399,8 +399,8 @@ $cfrom :: forall x. DeleteBranchResponse -&gt; Rep DeleteBranchResponse x
 </span><span id="line-165"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-166"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteBranch.html#DeleteBranchResponse"><span class="hs-identifier hs-type">DeleteBranchResponse</span></a></span><span>
 </span><span id="line-167"></span><span id="newDeleteBranchResponse"><span class="annot"><span class="annottext">newDeleteBranchResponse :: Int -&gt; DeleteBranchResponse
-</span><a href="Network.AWS.CodeCommit.DeleteBranch.html#newDeleteBranchResponse"><span class="hs-identifier hs-var hs-var">newDeleteBranchResponse</span></a></span></span><span> </span><span id="local-6989586621679369157"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679369157"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodeCommit.DeleteBranch.html#newDeleteBranchResponse"><span class="hs-identifier hs-var hs-var">newDeleteBranchResponse</span></a></span></span><span> </span><span id="local-6989586621679369466"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679369466"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-168"></span><span>  </span><span class="annot"><span class="annottext">DeleteBranchResponse' :: Maybe BranchInfo -&gt; Int -&gt; DeleteBranchResponse
 </span><a href="Network.AWS.CodeCommit.DeleteBranch.html#DeleteBranchResponse%27"><span class="hs-identifier hs-type">DeleteBranchResponse'</span></a></span><span>
 </span><span id="line-169"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:deletedBranch:DeleteBranchResponse' :: Maybe BranchInfo
@@ -410,7 +410,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-171"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteBranchResponse' :: Int
 </span><a href="Network.AWS.CodeCommit.DeleteBranch.html#%24sel%3AhttpStatus%3ADeleteBranchResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679369157"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679369466"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-172"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-173"></span><span>
 </span><span id="line-174"></span><span class="hs-comment">-- | Information about the branch deleted by the operation, including the</span><span>
@@ -427,16 +427,16 @@ forall a. Maybe a
      (Maybe BranchInfo)
      (Maybe BranchInfo)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteBranch.html#DeleteBranchResponse%27"><span class="hs-identifier hs-type">DeleteBranchResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369156"><span class="annot"><span class="annottext">Maybe BranchInfo
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteBranch.html#DeleteBranchResponse%27"><span class="hs-identifier hs-type">DeleteBranchResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369465"><span class="annot"><span class="annottext">Maybe BranchInfo
 deletedBranch :: Maybe BranchInfo
 $sel:deletedBranch:DeleteBranchResponse' :: DeleteBranchResponse -&gt; Maybe BranchInfo
-</span><a href="#local-6989586621679369156"><span class="hs-identifier hs-var hs-var">deletedBranch</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BranchInfo
-</span><a href="#local-6989586621679369156"><span class="hs-identifier hs-var">deletedBranch</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369155"><span class="annot"><span class="annottext">s :: DeleteBranchResponse
-</span><a href="#local-6989586621679369155"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteBranch.html#DeleteBranchResponse%27"><span class="hs-identifier hs-type">DeleteBranchResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369154"><span class="annot"><span class="annottext">Maybe BranchInfo
-</span><a href="#local-6989586621679369154"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBranchResponse
-</span><a href="#local-6989586621679369155"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deletedBranch:DeleteBranchResponse' :: Maybe BranchInfo
+</span><a href="#local-6989586621679369465"><span class="hs-identifier hs-var hs-var">deletedBranch</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BranchInfo
+</span><a href="#local-6989586621679369465"><span class="hs-identifier hs-var">deletedBranch</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369464"><span class="annot"><span class="annottext">s :: DeleteBranchResponse
+</span><a href="#local-6989586621679369464"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteBranch.html#DeleteBranchResponse%27"><span class="hs-identifier hs-type">DeleteBranchResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369463"><span class="annot"><span class="annottext">Maybe BranchInfo
+</span><a href="#local-6989586621679369463"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBranchResponse
+</span><a href="#local-6989586621679369464"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deletedBranch:DeleteBranchResponse' :: Maybe BranchInfo
 </span><a href="Network.AWS.CodeCommit.DeleteBranch.html#%24sel%3AdeletedBranch%3ADeleteBranchResponse%27"><span class="hs-identifier hs-var">deletedBranch</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BranchInfo
-</span><a href="#local-6989586621679369154"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteBranch.html#DeleteBranchResponse"><span class="hs-identifier hs-type">DeleteBranchResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679369463"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteBranch.html#DeleteBranchResponse"><span class="hs-identifier hs-type">DeleteBranchResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-178"></span><span>
 </span><span id="line-179"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-180"></span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteBranch.html#deleteBranchResponse_httpStatus"><span class="hs-identifier hs-type">deleteBranchResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteBranch.html#DeleteBranchResponse"><span class="hs-identifier hs-type">DeleteBranchResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -445,16 +445,16 @@ $sel:deletedBranch:DeleteBranchResponse' :: DeleteBranchResponse -&gt; Maybe Bra
 -&gt; (DeleteBranchResponse -&gt; Int -&gt; DeleteBranchResponse)
 -&gt; Lens DeleteBranchResponse DeleteBranchResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteBranch.html#DeleteBranchResponse%27"><span class="hs-identifier hs-type">DeleteBranchResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369153"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteBranch.html#DeleteBranchResponse%27"><span class="hs-identifier hs-type">DeleteBranchResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369462"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteBranchResponse' :: DeleteBranchResponse -&gt; Int
-</span><a href="#local-6989586621679369153"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679369153"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369152"><span class="annot"><span class="annottext">s :: DeleteBranchResponse
-</span><a href="#local-6989586621679369152"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteBranch.html#DeleteBranchResponse%27"><span class="hs-identifier hs-type">DeleteBranchResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369151"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679369151"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBranchResponse
-</span><a href="#local-6989586621679369152"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteBranchResponse' :: Int
+</span><a href="#local-6989586621679369462"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679369462"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369461"><span class="annot"><span class="annottext">s :: DeleteBranchResponse
+</span><a href="#local-6989586621679369461"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteBranch.html#DeleteBranchResponse%27"><span class="hs-identifier hs-type">DeleteBranchResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369460"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679369460"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBranchResponse
+</span><a href="#local-6989586621679369461"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteBranchResponse' :: Int
 </span><a href="Network.AWS.CodeCommit.DeleteBranch.html#%24sel%3AhttpStatus%3ADeleteBranchResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679369151"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteBranch.html#DeleteBranchResponse"><span class="hs-identifier hs-type">DeleteBranchResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679369460"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteBranch.html#DeleteBranchResponse"><span class="hs-identifier hs-type">DeleteBranchResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-182"></span><span>
-</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369149"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteBranch.html#DeleteBranchResponse"><span class="hs-identifier hs-type">DeleteBranchResponse</span></a></span></span><span>
+</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369458"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteBranch.html#DeleteBranchResponse"><span class="hs-identifier hs-type">DeleteBranchResponse</span></a></span></span><span>
 </span><span id="line-184"></span></pre></body></html>

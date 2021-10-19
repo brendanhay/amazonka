@@ -80,7 +80,7 @@
 </span><span id="line-80"></span><span class="hs-comment">-- @{ \&quot;Type\&quot;: \&quot;CLOUDFORMATION_STACK_1_0\&quot;, \&quot;Query\&quot;: { \&quot;ResourceTypeFilters\&quot;: [ \&quot;AWS::EC2::Instance\&quot;, \&quot;AWS::S3::Bucket\&quot; ], \&quot;StackIdentifier\&quot;: \&quot;arn:aws:cloudformation:us-west-2:123456789012:stack\/AWStestuseraccount\/fb0d5000-aba8-00e8-aa9e-50d5cEXAMPLE\&quot; } }@</span><span>
 </span><span id="line-81"></span><span class="hs-comment">--</span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- /See:/ 'newResourceQuery' smart constructor.</span><span>
-</span><span id="line-83"></span><span id="local-6989586621679177086"><span id="local-6989586621679177087"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResourceQuery"><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceQuery.html#ResourceQuery"><span class="hs-identifier hs-var">ResourceQuery</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResourceQuery%27"><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceQuery.html#ResourceQuery%27"><span class="hs-identifier hs-var">ResourceQuery'</span></a></span></span><span>
+</span><span id="line-83"></span><span id="local-6989586621679177219"><span id="local-6989586621679177220"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResourceQuery"><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceQuery.html#ResourceQuery"><span class="hs-identifier hs-var">ResourceQuery</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResourceQuery%27"><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceQuery.html#ResourceQuery%27"><span class="hs-identifier hs-var">ResourceQuery'</span></a></span></span><span>
 </span><span id="line-84"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type of the query. You can use the following values:</span><span>
 </span><span id="line-85"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-86"></span><span>    </span><span class="hs-comment">-- -   /@CLOUDFORMATION_STACK_1_0:@/ Specifies that the @Query@ contains an</span><span>
@@ -131,7 +131,7 @@
 </span><span id="line-130"></span><span>    </span><span id="%24sel%3Aquery%3AResourceQuery%27"><span class="annot"><span class="annottext">ResourceQuery -&gt; Text
 </span><a href="Network.AWS.ResourceGroups.Types.ResourceQuery.html#%24sel%3Aquery%3AResourceQuery%27"><span class="hs-identifier hs-var hs-var">query</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-131"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-132"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679177079"><span id="local-6989586621679177081"><span class="annot"><span class="annottext">ResourceQuery -&gt; ResourceQuery -&gt; Bool
+</span><span id="line-132"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679177212"><span id="local-6989586621679177214"><span class="annot"><span class="annottext">ResourceQuery -&gt; ResourceQuery -&gt; Bool
 (ResourceQuery -&gt; ResourceQuery -&gt; Bool)
 -&gt; (ResourceQuery -&gt; ResourceQuery -&gt; Bool) -&gt; Eq ResourceQuery
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -139,7 +139,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ResourceQuery -&gt; ResourceQuery -&gt; Bool
 == :: ResourceQuery -&gt; ResourceQuery -&gt; Bool
 $c== :: ResourceQuery -&gt; ResourceQuery -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177070"><span id="local-6989586621679177072"><span id="local-6989586621679177074"><span id="local-6989586621679177076"><span class="annot"><span class="annottext">ReadPrec [ResourceQuery]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177203"><span id="local-6989586621679177205"><span id="local-6989586621679177207"><span id="local-6989586621679177209"><span class="annot"><span class="annottext">ReadPrec [ResourceQuery]
 ReadPrec ResourceQuery
 Int -&gt; ReadS ResourceQuery
 ReadS [ResourceQuery]
@@ -159,7 +159,7 @@ readList :: ReadS [ResourceQuery]
 $creadList :: ReadS [ResourceQuery]
 readsPrec :: Int -&gt; ReadS ResourceQuery
 $creadsPrec :: Int -&gt; ReadS ResourceQuery
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177063"><span id="local-6989586621679177065"><span id="local-6989586621679177067"><span class="annot"><span class="annottext">Int -&gt; ResourceQuery -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177196"><span id="local-6989586621679177198"><span id="local-6989586621679177200"><span class="annot"><span class="annottext">Int -&gt; ResourceQuery -&gt; ShowS
 [ResourceQuery] -&gt; ShowS
 ResourceQuery -&gt; String
 (Int -&gt; ResourceQuery -&gt; ShowS)
@@ -246,17 +246,17 @@ $cfrom :: forall x. ResourceQuery -&gt; Rep ResourceQuery x
 </span><span id="line-192"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-193"></span><span>  </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceQuery.html#ResourceQuery"><span class="hs-identifier hs-type">ResourceQuery</span></a></span><span>
 </span><span id="line-194"></span><span id="newResourceQuery"><span class="annot"><span class="annottext">newResourceQuery :: QueryType -&gt; Text -&gt; ResourceQuery
-</span><a href="Network.AWS.ResourceGroups.Types.ResourceQuery.html#newResourceQuery"><span class="hs-identifier hs-var hs-var">newResourceQuery</span></a></span></span><span> </span><span id="local-6989586621679177057"><span class="annot"><span class="annottext">QueryType
-</span><a href="#local-6989586621679177057"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span id="local-6989586621679177056"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679177056"><span class="hs-identifier hs-var">pSearchQuery_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ResourceGroups.Types.ResourceQuery.html#newResourceQuery"><span class="hs-identifier hs-var hs-var">newResourceQuery</span></a></span></span><span> </span><span id="local-6989586621679177190"><span class="annot"><span class="annottext">QueryType
+</span><a href="#local-6989586621679177190"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span id="local-6989586621679177189"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177189"><span class="hs-identifier hs-var">pSearchQuery_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-195"></span><span>  </span><span class="annot"><span class="annottext">ResourceQuery' :: QueryType -&gt; Text -&gt; ResourceQuery
 </span><a href="Network.AWS.ResourceGroups.Types.ResourceQuery.html#ResourceQuery%27"><span class="hs-identifier hs-type">ResourceQuery'</span></a></span><span>
 </span><span id="line-196"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:type':ResourceQuery' :: QueryType
 </span><a href="Network.AWS.ResourceGroups.Types.ResourceQuery.html#%24sel%3Atype%27%3AResourceQuery%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryType
-</span><a href="#local-6989586621679177057"><span class="hs-identifier hs-var">pType_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679177190"><span class="hs-identifier hs-var">pType_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-197"></span><span>      </span><span class="annot"><span class="annottext">$sel:query:ResourceQuery' :: Text
 </span><a href="Network.AWS.ResourceGroups.Types.ResourceQuery.html#%24sel%3Aquery%3AResourceQuery%27"><span class="hs-identifier hs-var">query</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679177056"><span class="hs-identifier hs-var">pSearchQuery_</span></a></span><span>
+</span><a href="#local-6989586621679177189"><span class="hs-identifier hs-var">pSearchQuery_</span></a></span><span>
 </span><span id="line-198"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-199"></span><span>
 </span><span id="line-200"></span><span class="hs-comment">-- | The type of the query. You can use the following values:</span><span>
@@ -309,16 +309,16 @@ $cfrom :: forall x. ResourceQuery -&gt; Rep ResourceQuery x
 -&gt; (ResourceQuery -&gt; QueryType -&gt; ResourceQuery)
 -&gt; Lens ResourceQuery ResourceQuery QueryType QueryType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceQuery.html#ResourceQuery%27"><span class="hs-identifier hs-type">ResourceQuery'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177052"><span class="annot"><span class="annottext">QueryType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceQuery.html#ResourceQuery%27"><span class="hs-identifier hs-type">ResourceQuery'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177185"><span class="annot"><span class="annottext">QueryType
 type' :: QueryType
 $sel:type':ResourceQuery' :: ResourceQuery -&gt; QueryType
-</span><a href="#local-6989586621679177052"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QueryType
-</span><a href="#local-6989586621679177052"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177051"><span class="annot"><span class="annottext">s :: ResourceQuery
-</span><a href="#local-6989586621679177051"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceQuery.html#ResourceQuery%27"><span class="hs-identifier hs-type">ResourceQuery'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177050"><span class="annot"><span class="annottext">QueryType
-</span><a href="#local-6989586621679177050"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceQuery
-</span><a href="#local-6989586621679177051"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':ResourceQuery' :: QueryType
+</span><a href="#local-6989586621679177185"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QueryType
+</span><a href="#local-6989586621679177185"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177184"><span class="annot"><span class="annottext">s :: ResourceQuery
+</span><a href="#local-6989586621679177184"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceQuery.html#ResourceQuery%27"><span class="hs-identifier hs-type">ResourceQuery'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177183"><span class="annot"><span class="annottext">QueryType
+</span><a href="#local-6989586621679177183"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceQuery
+</span><a href="#local-6989586621679177184"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':ResourceQuery' :: QueryType
 </span><a href="Network.AWS.ResourceGroups.Types.ResourceQuery.html#%24sel%3Atype%27%3AResourceQuery%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryType
-</span><a href="#local-6989586621679177050"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceQuery.html#ResourceQuery"><span class="hs-identifier hs-type">ResourceQuery</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679177183"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceQuery.html#ResourceQuery"><span class="hs-identifier hs-type">ResourceQuery</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-246"></span><span>
 </span><span id="line-247"></span><span class="hs-comment">-- | The query that defines a group or a search.</span><span>
 </span><span id="line-248"></span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceQuery.html#resourceQuery_searchQuery"><span class="hs-identifier hs-type">resourceQuery_searchQuery</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceQuery.html#ResourceQuery"><span class="hs-identifier hs-type">ResourceQuery</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -327,19 +327,19 @@ $sel:type':ResourceQuery' :: ResourceQuery -&gt; QueryType
 -&gt; (ResourceQuery -&gt; Text -&gt; ResourceQuery)
 -&gt; Lens ResourceQuery ResourceQuery Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceQuery.html#ResourceQuery%27"><span class="hs-identifier hs-type">ResourceQuery'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177048"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceQuery.html#ResourceQuery%27"><span class="hs-identifier hs-type">ResourceQuery'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177181"><span class="annot"><span class="annottext">Text
 query :: Text
 $sel:query:ResourceQuery' :: ResourceQuery -&gt; Text
-</span><a href="#local-6989586621679177048"><span class="hs-identifier hs-var hs-var">query</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679177048"><span class="hs-identifier hs-var">query</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177047"><span class="annot"><span class="annottext">s :: ResourceQuery
-</span><a href="#local-6989586621679177047"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceQuery.html#ResourceQuery%27"><span class="hs-identifier hs-type">ResourceQuery'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177046"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679177046"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceQuery
-</span><a href="#local-6989586621679177047"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:query:ResourceQuery' :: Text
+</span><a href="#local-6989586621679177181"><span class="hs-identifier hs-var hs-var">query</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177181"><span class="hs-identifier hs-var">query</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177180"><span class="annot"><span class="annottext">s :: ResourceQuery
+</span><a href="#local-6989586621679177180"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceQuery.html#ResourceQuery%27"><span class="hs-identifier hs-type">ResourceQuery'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177179"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177179"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceQuery
+</span><a href="#local-6989586621679177180"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:query:ResourceQuery' :: Text
 </span><a href="Network.AWS.ResourceGroups.Types.ResourceQuery.html#%24sel%3Aquery%3AResourceQuery%27"><span class="hs-identifier hs-var">query</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679177046"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceQuery.html#ResourceQuery"><span class="hs-identifier hs-type">ResourceQuery</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679177179"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceQuery.html#ResourceQuery"><span class="hs-identifier hs-type">ResourceQuery</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-250"></span><span>
-</span><span id="line-251"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177043"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceQuery.html#ResourceQuery"><span class="hs-identifier hs-type">ResourceQuery</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-252"></span><span>  </span><span id="local-6989586621679177041"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ResourceQuery
+</span><span id="line-251"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177176"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceQuery.html#ResourceQuery"><span class="hs-identifier hs-type">ResourceQuery</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-252"></span><span>  </span><span id="local-6989586621679177174"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ResourceQuery
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-253"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ResourceQuery)
@@ -349,40 +349,40 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-254"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ResourceQuery&quot;</span></span><span>
-</span><span id="line-255"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679177038"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679177038"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-255"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679177171"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679177171"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-256"></span><span>          </span><span class="annot"><span class="annottext">QueryType -&gt; Text -&gt; ResourceQuery
 </span><a href="Network.AWS.ResourceGroups.Types.ResourceQuery.html#ResourceQuery%27"><span class="hs-identifier hs-var">ResourceQuery'</span></a></span><span>
 </span><span id="line-257"></span><span>            </span><span class="annot"><span class="annottext">(QueryType -&gt; Text -&gt; ResourceQuery)
 -&gt; Parser QueryType -&gt; Parser (Text -&gt; ResourceQuery)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679177038"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser QueryType
+</span><a href="#local-6989586621679177171"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser QueryType
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Parser (Text -&gt; ResourceQuery)
 -&gt; Parser Text -&gt; Parser ResourceQuery
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679177038"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679177171"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Query&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-258"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-259"></span><span>
-</span><span id="line-260"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177032"><span id="local-6989586621679177034"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceQuery.html#ResourceQuery"><span class="hs-identifier hs-type">ResourceQuery</span></a></span></span></span><span>
+</span><span id="line-260"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177165"><span id="local-6989586621679177167"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceQuery.html#ResourceQuery"><span class="hs-identifier hs-type">ResourceQuery</span></a></span></span></span><span>
 </span><span id="line-261"></span><span>
-</span><span id="line-262"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177029"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceQuery.html#ResourceQuery"><span class="hs-identifier hs-type">ResourceQuery</span></a></span></span><span>
+</span><span id="line-262"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177162"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceQuery.html#ResourceQuery"><span class="hs-identifier hs-type">ResourceQuery</span></a></span></span><span>
 </span><span id="line-263"></span><span>
-</span><span id="line-264"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177021"><span id="local-6989586621679177023"><span id="local-6989586621679177025"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceQuery.html#ResourceQuery"><span class="hs-identifier hs-type">ResourceQuery</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-265"></span><span>  </span><span id="local-6989586621679177019"><span class="annot"><span class="annottext">toJSON :: ResourceQuery -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceQuery.html#ResourceQuery%27"><span class="hs-identifier hs-type">ResourceQuery'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177016"><span id="local-6989586621679177017"><span class="annot"><span class="annottext">Text
+</span><span id="line-264"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177154"><span id="local-6989586621679177156"><span id="local-6989586621679177158"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceQuery.html#ResourceQuery"><span class="hs-identifier hs-type">ResourceQuery</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-265"></span><span>  </span><span id="local-6989586621679177152"><span class="annot"><span class="annottext">toJSON :: ResourceQuery -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceQuery.html#ResourceQuery%27"><span class="hs-identifier hs-type">ResourceQuery'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177149"><span id="local-6989586621679177150"><span class="annot"><span class="annottext">Text
 QueryType
 query :: Text
 type' :: QueryType
 $sel:query:ResourceQuery' :: ResourceQuery -&gt; Text
 $sel:type':ResourceQuery' :: ResourceQuery -&gt; QueryType
-</span><a href="#local-6989586621679177016"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679177149"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-266"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-267"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -394,14 +394,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; QueryType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">QueryType
-</span><a href="#local-6989586621679177017"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679177150"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-269"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Query&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679177016"><span class="hs-identifier hs-var">query</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679177149"><span class="hs-identifier hs-var">query</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-270"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-271"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-272"></span></pre></body></html>

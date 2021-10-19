@@ -22,7 +22,7 @@
 </span><span id="line-22"></span><span class="hs-comment">--</span><span>
 </span><span id="line-23"></span><span class="hs-comment">-- Disassociates a connection alias from a directory. Disassociating a</span><span>
 </span><span id="line-24"></span><span class="hs-comment">-- connection alias disables cross-Region redirection between two</span><span>
-</span><span id="line-25"></span><span class="hs-comment">-- directories in different AWS Regions. For more information, see</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- directories in different Regions. For more information, see</span><span>
 </span><span id="line-26"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html Cross-Region Redirection for Amazon WorkSpaces&gt;.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- Before performing this operation, call</span><span>
@@ -54,12 +54,12 @@
 </span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.html"><span class="hs-identifier">Network.AWS.WorkSpaces.Types</span></a></span><span>
 </span><span id="line-55"></span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newDisassociateConnectionAlias' smart constructor.</span><span>
-</span><span id="line-57"></span><span id="local-6989586621679279614"><span id="local-6989586621679279615"></span></span><span class="hs-keyword">data</span><span> </span><span id="DisassociateConnectionAlias"><span class="annot"><a href="Network.AWS.WorkSpaces.DisassociateConnectionAlias.html#DisassociateConnectionAlias"><span class="hs-identifier hs-var">DisassociateConnectionAlias</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DisassociateConnectionAlias%27"><span class="annot"><a href="Network.AWS.WorkSpaces.DisassociateConnectionAlias.html#DisassociateConnectionAlias%27"><span class="hs-identifier hs-var">DisassociateConnectionAlias'</span></a></span></span><span>
+</span><span id="line-57"></span><span id="local-6989586621679282474"><span id="local-6989586621679282475"></span></span><span class="hs-keyword">data</span><span> </span><span id="DisassociateConnectionAlias"><span class="annot"><a href="Network.AWS.WorkSpaces.DisassociateConnectionAlias.html#DisassociateConnectionAlias"><span class="hs-identifier hs-var">DisassociateConnectionAlias</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DisassociateConnectionAlias%27"><span class="annot"><a href="Network.AWS.WorkSpaces.DisassociateConnectionAlias.html#DisassociateConnectionAlias%27"><span class="hs-identifier hs-var">DisassociateConnectionAlias'</span></a></span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier of the connection alias to disassociate.</span><span>
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AaliasId%3ADisassociateConnectionAlias%27"><span class="annot"><span class="annottext">DisassociateConnectionAlias -&gt; Text
 </span><a href="Network.AWS.WorkSpaces.DisassociateConnectionAlias.html#%24sel%3AaliasId%3ADisassociateConnectionAlias%27"><span class="hs-identifier hs-var hs-var">aliasId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679279608"><span id="local-6989586621679279610"><span class="annot"><span class="annottext">DisassociateConnectionAlias -&gt; DisassociateConnectionAlias -&gt; Bool
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679282468"><span id="local-6989586621679282470"><span class="annot"><span class="annottext">DisassociateConnectionAlias -&gt; DisassociateConnectionAlias -&gt; Bool
 (DisassociateConnectionAlias
  -&gt; DisassociateConnectionAlias -&gt; Bool)
 -&gt; (DisassociateConnectionAlias
@@ -70,7 +70,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DisassociateConnectionAlias -&gt; DisassociateConnectionAlias -&gt; Bool
 == :: DisassociateConnectionAlias -&gt; DisassociateConnectionAlias -&gt; Bool
 $c== :: DisassociateConnectionAlias -&gt; DisassociateConnectionAlias -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279599"><span id="local-6989586621679279601"><span id="local-6989586621679279603"><span id="local-6989586621679279605"><span class="annot"><span class="annottext">ReadPrec [DisassociateConnectionAlias]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679282459"><span id="local-6989586621679282461"><span id="local-6989586621679282463"><span id="local-6989586621679282465"><span class="annot"><span class="annottext">ReadPrec [DisassociateConnectionAlias]
 ReadPrec DisassociateConnectionAlias
 Int -&gt; ReadS DisassociateConnectionAlias
 ReadS [DisassociateConnectionAlias]
@@ -90,7 +90,7 @@ readList :: ReadS [DisassociateConnectionAlias]
 $creadList :: ReadS [DisassociateConnectionAlias]
 readsPrec :: Int -&gt; ReadS DisassociateConnectionAlias
 $creadsPrec :: Int -&gt; ReadS DisassociateConnectionAlias
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279592"><span id="local-6989586621679279594"><span id="local-6989586621679279596"><span class="annot"><span class="annottext">Int -&gt; DisassociateConnectionAlias -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679282452"><span id="local-6989586621679282454"><span id="local-6989586621679282456"><span class="annot"><span class="annottext">Int -&gt; DisassociateConnectionAlias -&gt; ShowS
 [DisassociateConnectionAlias] -&gt; ShowS
 DisassociateConnectionAlias -&gt; String
 (Int -&gt; DisassociateConnectionAlias -&gt; ShowS)
@@ -136,12 +136,12 @@ DisassociateConnectionAlias -&gt; Rep DisassociateConnectionAlias x
 </span><span id="line-74"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkSpaces.DisassociateConnectionAlias.html#DisassociateConnectionAlias"><span class="hs-identifier hs-type">DisassociateConnectionAlias</span></a></span><span>
 </span><span id="line-76"></span><span id="newDisassociateConnectionAlias"><span class="annot"><span class="annottext">newDisassociateConnectionAlias :: Text -&gt; DisassociateConnectionAlias
-</span><a href="Network.AWS.WorkSpaces.DisassociateConnectionAlias.html#newDisassociateConnectionAlias"><span class="hs-identifier hs-var hs-var">newDisassociateConnectionAlias</span></a></span></span><span> </span><span id="local-6989586621679279587"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679279587"><span class="hs-identifier hs-var">pAliasId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.WorkSpaces.DisassociateConnectionAlias.html#newDisassociateConnectionAlias"><span class="hs-identifier hs-var hs-var">newDisassociateConnectionAlias</span></a></span></span><span> </span><span id="local-6989586621679282447"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679282447"><span class="hs-identifier hs-var">pAliasId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>  </span><span class="annot"><span class="annottext">DisassociateConnectionAlias' :: Text -&gt; DisassociateConnectionAlias
 </span><a href="Network.AWS.WorkSpaces.DisassociateConnectionAlias.html#DisassociateConnectionAlias%27"><span class="hs-identifier hs-type">DisassociateConnectionAlias'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aliasId:DisassociateConnectionAlias' :: Text
 </span><a href="Network.AWS.WorkSpaces.DisassociateConnectionAlias.html#%24sel%3AaliasId%3ADisassociateConnectionAlias%27"><span class="hs-identifier hs-var">aliasId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679279587"><span class="hs-identifier hs-var">pAliasId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679282447"><span class="hs-identifier hs-var">pAliasId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-78"></span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- | The identifier of the connection alias to disassociate.</span><span>
 </span><span id="line-80"></span><span class="annot"><a href="Network.AWS.WorkSpaces.DisassociateConnectionAlias.html#disassociateConnectionAlias_aliasId"><span class="hs-identifier hs-type">disassociateConnectionAlias_aliasId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.DisassociateConnectionAlias.html#DisassociateConnectionAlias"><span class="hs-identifier hs-type">DisassociateConnectionAlias</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -153,29 +153,29 @@ DisassociateConnectionAlias -&gt; Rep DisassociateConnectionAlias x
 -&gt; Lens
      DisassociateConnectionAlias DisassociateConnectionAlias Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.DisassociateConnectionAlias.html#DisassociateConnectionAlias%27"><span class="hs-identifier hs-type">DisassociateConnectionAlias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279584"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.DisassociateConnectionAlias.html#DisassociateConnectionAlias%27"><span class="hs-identifier hs-type">DisassociateConnectionAlias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679282444"><span class="annot"><span class="annottext">Text
 aliasId :: Text
 $sel:aliasId:DisassociateConnectionAlias' :: DisassociateConnectionAlias -&gt; Text
-</span><a href="#local-6989586621679279584"><span class="hs-identifier hs-var hs-var">aliasId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679279584"><span class="hs-identifier hs-var">aliasId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279583"><span class="annot"><span class="annottext">s :: DisassociateConnectionAlias
-</span><a href="#local-6989586621679279583"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.DisassociateConnectionAlias.html#DisassociateConnectionAlias%27"><span class="hs-identifier hs-type">DisassociateConnectionAlias'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279582"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679279582"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisassociateConnectionAlias
-</span><a href="#local-6989586621679279583"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aliasId:DisassociateConnectionAlias' :: Text
+</span><a href="#local-6989586621679282444"><span class="hs-identifier hs-var hs-var">aliasId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679282444"><span class="hs-identifier hs-var">aliasId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679282443"><span class="annot"><span class="annottext">s :: DisassociateConnectionAlias
+</span><a href="#local-6989586621679282443"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.DisassociateConnectionAlias.html#DisassociateConnectionAlias%27"><span class="hs-identifier hs-type">DisassociateConnectionAlias'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679282442"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679282442"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisassociateConnectionAlias
+</span><a href="#local-6989586621679282443"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aliasId:DisassociateConnectionAlias' :: Text
 </span><a href="Network.AWS.WorkSpaces.DisassociateConnectionAlias.html#%24sel%3AaliasId%3ADisassociateConnectionAlias%27"><span class="hs-identifier hs-var">aliasId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679279582"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.DisassociateConnectionAlias.html#DisassociateConnectionAlias"><span class="hs-identifier hs-type">DisassociateConnectionAlias</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679282442"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.DisassociateConnectionAlias.html#DisassociateConnectionAlias"><span class="hs-identifier hs-type">DisassociateConnectionAlias</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.DisassociateConnectionAlias.html#DisassociateConnectionAlias"><span class="hs-identifier hs-type">DisassociateConnectionAlias</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-84"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-85"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.DisassociateConnectionAlias.html#DisassociateConnectionAlias"><span class="hs-identifier hs-type">DisassociateConnectionAlias</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>      </span><span class="annot"><a href="Network.AWS.WorkSpaces.DisassociateConnectionAlias.html#DisassociateConnectionAliasResponse"><span class="hs-identifier hs-type">DisassociateConnectionAliasResponse</span></a></span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679279578"><span class="annot"><span class="annottext">request :: DisassociateConnectionAlias -&gt; Request DisassociateConnectionAlias
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679282438"><span class="annot"><span class="annottext">request :: DisassociateConnectionAlias -&gt; Request DisassociateConnectionAlias
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DisassociateConnectionAlias
 -&gt; Request DisassociateConnectionAlias
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.WorkSpaces.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679279574"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679282434"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DisassociateConnectionAlias
 -&gt; ClientResponse ClientBody
@@ -201,10 +201,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679279571"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679279571"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679279570"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679279570"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679279569"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679279569"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679282431"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679282431"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679282430"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679282430"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679282429"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679282429"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DisassociateConnectionAliasResponse
 </span><a href="Network.AWS.WorkSpaces.DisassociateConnectionAlias.html#DisassociateConnectionAliasResponse%27"><span class="hs-identifier hs-var">DisassociateConnectionAliasResponse'</span></a></span><span>
 </span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DisassociateConnectionAliasResponse)
@@ -216,15 +216,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679279571"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679282431"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279562"><span id="local-6989586621679279564"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.DisassociateConnectionAlias.html#DisassociateConnectionAlias"><span class="hs-identifier hs-type">DisassociateConnectionAlias</span></a></span></span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679282422"><span id="local-6989586621679282424"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.DisassociateConnectionAlias.html#DisassociateConnectionAlias"><span class="hs-identifier hs-type">DisassociateConnectionAlias</span></a></span></span></span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279559"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.DisassociateConnectionAlias.html#DisassociateConnectionAlias"><span class="hs-identifier hs-type">DisassociateConnectionAlias</span></a></span></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679282419"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.DisassociateConnectionAlias.html#DisassociateConnectionAlias"><span class="hs-identifier hs-type">DisassociateConnectionAlias</span></a></span></span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.DisassociateConnectionAlias.html#DisassociateConnectionAlias"><span class="hs-identifier hs-type">DisassociateConnectionAlias</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679279555"><span class="annot"><span class="annottext">toHeaders :: DisassociateConnectionAlias -&gt; ResponseHeaders
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679282415"><span class="annot"><span class="annottext">toHeaders :: DisassociateConnectionAlias -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DisassociateConnectionAlias -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -251,12 +251,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-111"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279545"><span id="local-6989586621679279547"><span id="local-6989586621679279549"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.DisassociateConnectionAlias.html#DisassociateConnectionAlias"><span class="hs-identifier hs-type">DisassociateConnectionAlias</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679279543"><span class="annot"><span class="annottext">toJSON :: DisassociateConnectionAlias -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.DisassociateConnectionAlias.html#DisassociateConnectionAlias%27"><span class="hs-identifier hs-type">DisassociateConnectionAlias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279541"><span class="annot"><span class="annottext">Text
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679282405"><span id="local-6989586621679282407"><span id="local-6989586621679282409"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.DisassociateConnectionAlias.html#DisassociateConnectionAlias"><span class="hs-identifier hs-type">DisassociateConnectionAlias</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679282403"><span class="annot"><span class="annottext">toJSON :: DisassociateConnectionAlias -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.DisassociateConnectionAlias.html#DisassociateConnectionAlias%27"><span class="hs-identifier hs-type">DisassociateConnectionAlias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679282401"><span class="annot"><span class="annottext">Text
 aliasId :: Text
 $sel:aliasId:DisassociateConnectionAlias' :: DisassociateConnectionAlias -&gt; Text
-</span><a href="#local-6989586621679279541"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679282401"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -268,18 +268,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;AliasId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679279541"><span class="hs-identifier hs-var">aliasId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679282401"><span class="hs-identifier hs-var">aliasId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-119"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.DisassociateConnectionAlias.html#DisassociateConnectionAlias"><span class="hs-identifier hs-type">DisassociateConnectionAlias</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679279535"><span class="annot"><span class="annottext">toPath :: DisassociateConnectionAlias -&gt; ByteString
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679282395"><span class="annot"><span class="annottext">toPath :: DisassociateConnectionAlias -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DisassociateConnectionAlias -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.DisassociateConnectionAlias.html#DisassociateConnectionAlias"><span class="hs-identifier hs-type">DisassociateConnectionAlias</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679279531"><span class="annot"><span class="annottext">toQuery :: DisassociateConnectionAlias -&gt; QueryString
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679282391"><span class="annot"><span class="annottext">toQuery :: DisassociateConnectionAlias -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DisassociateConnectionAlias -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -287,12 +287,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-comment">-- | /See:/ 'newDisassociateConnectionAliasResponse' smart constructor.</span><span>
-</span><span id="line-128"></span><span id="local-6989586621679279528"><span id="local-6989586621679279529"></span></span><span class="hs-keyword">data</span><span> </span><span id="DisassociateConnectionAliasResponse"><span class="annot"><a href="Network.AWS.WorkSpaces.DisassociateConnectionAlias.html#DisassociateConnectionAliasResponse"><span class="hs-identifier hs-var">DisassociateConnectionAliasResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DisassociateConnectionAliasResponse%27"><span class="annot"><a href="Network.AWS.WorkSpaces.DisassociateConnectionAlias.html#DisassociateConnectionAliasResponse%27"><span class="hs-identifier hs-var">DisassociateConnectionAliasResponse'</span></a></span></span><span>
+</span><span id="line-128"></span><span id="local-6989586621679282388"><span id="local-6989586621679282389"></span></span><span class="hs-keyword">data</span><span> </span><span id="DisassociateConnectionAliasResponse"><span class="annot"><a href="Network.AWS.WorkSpaces.DisassociateConnectionAlias.html#DisassociateConnectionAliasResponse"><span class="hs-identifier hs-var">DisassociateConnectionAliasResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DisassociateConnectionAliasResponse%27"><span class="annot"><a href="Network.AWS.WorkSpaces.DisassociateConnectionAlias.html#DisassociateConnectionAliasResponse%27"><span class="hs-identifier hs-var">DisassociateConnectionAliasResponse'</span></a></span></span><span>
 </span><span id="line-129"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-130"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADisassociateConnectionAliasResponse%27"><span class="annot"><span class="annottext">DisassociateConnectionAliasResponse -&gt; Int
 </span><a href="Network.AWS.WorkSpaces.DisassociateConnectionAlias.html#%24sel%3AhttpStatus%3ADisassociateConnectionAliasResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-131"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-132"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679279523"><span id="local-6989586621679279525"><span class="annot"><span class="annottext">DisassociateConnectionAliasResponse
+</span><span id="line-132"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679282383"><span id="local-6989586621679282385"><span class="annot"><span class="annottext">DisassociateConnectionAliasResponse
 -&gt; DisassociateConnectionAliasResponse -&gt; Bool
 (DisassociateConnectionAliasResponse
  -&gt; DisassociateConnectionAliasResponse -&gt; Bool)
@@ -308,7 +308,7 @@ $c/= :: DisassociateConnectionAliasResponse
 -&gt; DisassociateConnectionAliasResponse -&gt; Bool
 $c== :: DisassociateConnectionAliasResponse
 -&gt; DisassociateConnectionAliasResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279515"><span id="local-6989586621679279517"><span id="local-6989586621679279519"><span id="local-6989586621679279521"><span class="annot"><span class="annottext">ReadPrec [DisassociateConnectionAliasResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679282375"><span id="local-6989586621679282377"><span id="local-6989586621679282379"><span id="local-6989586621679282381"><span class="annot"><span class="annottext">ReadPrec [DisassociateConnectionAliasResponse]
 ReadPrec DisassociateConnectionAliasResponse
 Int -&gt; ReadS DisassociateConnectionAliasResponse
 ReadS [DisassociateConnectionAliasResponse]
@@ -328,7 +328,7 @@ readList :: ReadS [DisassociateConnectionAliasResponse]
 $creadList :: ReadS [DisassociateConnectionAliasResponse]
 readsPrec :: Int -&gt; ReadS DisassociateConnectionAliasResponse
 $creadsPrec :: Int -&gt; ReadS DisassociateConnectionAliasResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279509"><span id="local-6989586621679279511"><span id="local-6989586621679279513"><span class="annot"><span class="annottext">Int -&gt; DisassociateConnectionAliasResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679282369"><span id="local-6989586621679282371"><span id="local-6989586621679282373"><span class="annot"><span class="annottext">Int -&gt; DisassociateConnectionAliasResponse -&gt; ShowS
 [DisassociateConnectionAliasResponse] -&gt; ShowS
 DisassociateConnectionAliasResponse -&gt; String
 (Int -&gt; DisassociateConnectionAliasResponse -&gt; ShowS)
@@ -380,14 +380,14 @@ DisassociateConnectionAliasResponse
 </span><span id="line-145"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-146"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkSpaces.DisassociateConnectionAlias.html#DisassociateConnectionAliasResponse"><span class="hs-identifier hs-type">DisassociateConnectionAliasResponse</span></a></span><span>
 </span><span id="line-147"></span><span id="newDisassociateConnectionAliasResponse"><span class="annot"><span class="annottext">newDisassociateConnectionAliasResponse :: Int -&gt; DisassociateConnectionAliasResponse
-</span><a href="Network.AWS.WorkSpaces.DisassociateConnectionAlias.html#newDisassociateConnectionAliasResponse"><span class="hs-identifier hs-var hs-var">newDisassociateConnectionAliasResponse</span></a></span></span><span> </span><span id="local-6989586621679279506"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679279506"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.WorkSpaces.DisassociateConnectionAlias.html#newDisassociateConnectionAliasResponse"><span class="hs-identifier hs-var hs-var">newDisassociateConnectionAliasResponse</span></a></span></span><span> </span><span id="local-6989586621679282366"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679282366"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-148"></span><span>  </span><span class="annot"><span class="annottext">DisassociateConnectionAliasResponse' :: Int -&gt; DisassociateConnectionAliasResponse
 </span><a href="Network.AWS.WorkSpaces.DisassociateConnectionAlias.html#DisassociateConnectionAliasResponse%27"><span class="hs-identifier hs-type">DisassociateConnectionAliasResponse'</span></a></span><span>
 </span><span id="line-149"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DisassociateConnectionAliasResponse' :: Int
 </span><a href="Network.AWS.WorkSpaces.DisassociateConnectionAlias.html#%24sel%3AhttpStatus%3ADisassociateConnectionAliasResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-150"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679279506"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679282366"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-151"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-152"></span><span>
 </span><span id="line-153"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -404,18 +404,18 @@ DisassociateConnectionAliasResponse
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.DisassociateConnectionAlias.html#DisassociateConnectionAliasResponse%27"><span class="hs-identifier hs-type">DisassociateConnectionAliasResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279505"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.DisassociateConnectionAlias.html#DisassociateConnectionAliasResponse%27"><span class="hs-identifier hs-type">DisassociateConnectionAliasResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679282365"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DisassociateConnectionAliasResponse' :: DisassociateConnectionAliasResponse -&gt; Int
-</span><a href="#local-6989586621679279505"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679279505"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279504"><span class="annot"><span class="annottext">s :: DisassociateConnectionAliasResponse
-</span><a href="#local-6989586621679279504"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.DisassociateConnectionAlias.html#DisassociateConnectionAliasResponse%27"><span class="hs-identifier hs-type">DisassociateConnectionAliasResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279503"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679279503"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisassociateConnectionAliasResponse
-</span><a href="#local-6989586621679279504"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DisassociateConnectionAliasResponse' :: Int
+</span><a href="#local-6989586621679282365"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679282365"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679282364"><span class="annot"><span class="annottext">s :: DisassociateConnectionAliasResponse
+</span><a href="#local-6989586621679282364"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.DisassociateConnectionAlias.html#DisassociateConnectionAliasResponse%27"><span class="hs-identifier hs-type">DisassociateConnectionAliasResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679282363"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679282363"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisassociateConnectionAliasResponse
+</span><a href="#local-6989586621679282364"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DisassociateConnectionAliasResponse' :: Int
 </span><a href="Network.AWS.WorkSpaces.DisassociateConnectionAlias.html#%24sel%3AhttpStatus%3ADisassociateConnectionAliasResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679279503"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.DisassociateConnectionAlias.html#DisassociateConnectionAliasResponse"><span class="hs-identifier hs-type">DisassociateConnectionAliasResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679282363"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.DisassociateConnectionAlias.html#DisassociateConnectionAliasResponse"><span class="hs-identifier hs-type">DisassociateConnectionAliasResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-158"></span><span>  </span><span id="local-6989586621679279501"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679282361"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-159"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.DisassociateConnectionAlias.html#DisassociateConnectionAliasResponse"><span class="hs-identifier hs-type">DisassociateConnectionAliasResponse</span></a></span></span><span>
 </span><span id="line-160"></span></pre></body></html>

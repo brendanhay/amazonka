@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679692858"><span id="local-6989586621679692859"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PrincipalType"><span class="annot"><a href="Network.AWS.Glue.Types.PrincipalType.html#PrincipalType"><span class="hs-identifier hs-var">PrincipalType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PrincipalType%27"><span class="annot"><a href="Network.AWS.Glue.Types.PrincipalType.html#PrincipalType%27"><span class="hs-identifier hs-var">PrincipalType'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679694531"><span id="local-6989586621679694532"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PrincipalType"><span class="annot"><a href="Network.AWS.Glue.Types.PrincipalType.html#PrincipalType"><span class="hs-identifier hs-var">PrincipalType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PrincipalType%27"><span class="annot"><a href="Network.AWS.Glue.Types.PrincipalType.html#PrincipalType%27"><span class="hs-identifier hs-var">PrincipalType'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromPrincipalType"><span class="annot"><span class="annottext">PrincipalType -&gt; Text
 </span><a href="Network.AWS.Glue.Types.PrincipalType.html#fromPrincipalType"><span class="hs-identifier hs-var hs-var">fromPrincipalType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679692850"><span id="local-6989586621679692852"><span id="local-6989586621679692854"><span class="annot"><span class="annottext">Int -&gt; PrincipalType -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679694523"><span id="local-6989586621679694525"><span id="local-6989586621679694527"><span class="annot"><span class="annottext">Int -&gt; PrincipalType -&gt; ShowS
 [PrincipalType] -&gt; ShowS
 PrincipalType -&gt; String
 (Int -&gt; PrincipalType -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: PrincipalType -&gt; String
 showsPrec :: Int -&gt; PrincipalType -&gt; ShowS
 $cshowsPrec :: Int -&gt; PrincipalType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679692841"><span id="local-6989586621679692843"><span id="local-6989586621679692845"><span id="local-6989586621679692847"><span class="annot"><span class="annottext">ReadPrec [PrincipalType]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679694514"><span id="local-6989586621679694516"><span id="local-6989586621679694518"><span id="local-6989586621679694520"><span class="annot"><span class="annottext">ReadPrec [PrincipalType]
 ReadPrec PrincipalType
 Int -&gt; ReadS PrincipalType
 ReadS [PrincipalType]
@@ -73,7 +73,7 @@ $creadList :: ReadS [PrincipalType]
 readsPrec :: Int -&gt; ReadS PrincipalType
 $creadsPrec :: Int -&gt; ReadS PrincipalType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679692836"><span id="local-6989586621679692838"><span class="annot"><span class="annottext">PrincipalType -&gt; PrincipalType -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679694509"><span id="local-6989586621679694511"><span class="annot"><span class="annottext">PrincipalType -&gt; PrincipalType -&gt; Bool
 (PrincipalType -&gt; PrincipalType -&gt; Bool)
 -&gt; (PrincipalType -&gt; PrincipalType -&gt; Bool) -&gt; Eq PrincipalType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ $c/= :: PrincipalType -&gt; PrincipalType -&gt; Bool
 == :: PrincipalType -&gt; PrincipalType -&gt; Bool
 $c== :: PrincipalType -&gt; PrincipalType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679692820"><span id="local-6989586621679692822"><span id="local-6989586621679692824"><span id="local-6989586621679692826"><span id="local-6989586621679692828"><span id="local-6989586621679692830"><span id="local-6989586621679692832"><span class="annot"><span class="annottext">Eq PrincipalType
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679694493"><span id="local-6989586621679694495"><span id="local-6989586621679694497"><span id="local-6989586621679694499"><span id="local-6989586621679694501"><span id="local-6989586621679694503"><span id="local-6989586621679694505"><span class="annot"><span class="annottext">Eq PrincipalType
 Eq PrincipalType
 -&gt; (PrincipalType -&gt; PrincipalType -&gt; Ordering)
 -&gt; (PrincipalType -&gt; PrincipalType -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. PrincipalType -&gt; Rep PrincipalType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679692812"><span id="local-6989586621679692814"><span class="annot"><span class="annottext">Int -&gt; PrincipalType -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679694485"><span id="local-6989586621679694487"><span class="annot"><span class="annottext">Int -&gt; PrincipalType -&gt; Int
 PrincipalType -&gt; Int
 (Int -&gt; PrincipalType -&gt; Int)
 -&gt; (PrincipalType -&gt; Int) -&gt; Hashable PrincipalType
@@ -143,49 +143,49 @@ $chash :: PrincipalType -&gt; Int
 hashWithSalt :: Int -&gt; PrincipalType -&gt; Int
 $chashWithSalt :: Int -&gt; PrincipalType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679692809"><span class="annot"><span class="annottext">PrincipalType -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679694482"><span class="annot"><span class="annottext">PrincipalType -&gt; ()
 (PrincipalType -&gt; ()) -&gt; NFData PrincipalType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: PrincipalType -&gt; ()
 $crnf :: PrincipalType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679692806"><span class="annot"><span class="annottext">Text -&gt; Either String PrincipalType
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679694479"><span class="annot"><span class="annottext">Text -&gt; Either String PrincipalType
 (Text -&gt; Either String PrincipalType) -&gt; FromText PrincipalType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String PrincipalType
 $cfromText :: Text -&gt; Either String PrincipalType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679692803"><span class="annot"><span class="annottext">PrincipalType -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679694476"><span class="annot"><span class="annottext">PrincipalType -&gt; Text
 (PrincipalType -&gt; Text) -&gt; ToText PrincipalType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: PrincipalType -&gt; Text
 $ctoText :: PrincipalType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679692800"><span class="annot"><span class="annottext">PrincipalType -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679694473"><span class="annot"><span class="annottext">PrincipalType -&gt; ByteString
 (PrincipalType -&gt; ByteString) -&gt; ToByteString PrincipalType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: PrincipalType -&gt; ByteString
 $ctoBS :: PrincipalType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679692797"><span class="annot"><span class="annottext">PrincipalType -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679694470"><span class="annot"><span class="annottext">PrincipalType -&gt; ByteStringBuilder
 (PrincipalType -&gt; ByteStringBuilder) -&gt; ToLog PrincipalType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: PrincipalType -&gt; ByteStringBuilder
 $cbuild :: PrincipalType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679692794"><span class="annot"><span class="annottext">HeaderName -&gt; PrincipalType -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679694467"><span class="annot"><span class="annottext">HeaderName -&gt; PrincipalType -&gt; [Header]
 (HeaderName -&gt; PrincipalType -&gt; [Header]) -&gt; ToHeader PrincipalType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; PrincipalType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; PrincipalType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679692791"><span class="annot"><span class="annottext">PrincipalType -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679694464"><span class="annot"><span class="annottext">PrincipalType -&gt; QueryString
 (PrincipalType -&gt; QueryString) -&gt; ToQuery PrincipalType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: PrincipalType -&gt; QueryString
 $ctoQuery :: PrincipalType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679692786"><span id="local-6989586621679692788"><span class="annot"><span class="annottext">Value -&gt; Parser [PrincipalType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679694459"><span id="local-6989586621679694461"><span class="annot"><span class="annottext">Value -&gt; Parser [PrincipalType]
 Value -&gt; Parser PrincipalType
 (Value -&gt; Parser PrincipalType)
 -&gt; (Value -&gt; Parser [PrincipalType]) -&gt; FromJSON PrincipalType
@@ -196,7 +196,7 @@ $cparseJSONList :: Value -&gt; Parser [PrincipalType]
 parseJSON :: Value -&gt; Parser PrincipalType
 $cparseJSON :: Value -&gt; Parser PrincipalType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679692781"><span id="local-6989586621679692783"><span class="annot"><span class="annottext">FromJSONKeyFunction [PrincipalType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679694454"><span id="local-6989586621679694456"><span class="annot"><span class="annottext">FromJSONKeyFunction [PrincipalType]
 FromJSONKeyFunction PrincipalType
 FromJSONKeyFunction PrincipalType
 -&gt; FromJSONKeyFunction [PrincipalType] -&gt; FromJSONKey PrincipalType
@@ -207,7 +207,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [PrincipalType]
 fromJSONKey :: FromJSONKeyFunction PrincipalType
 $cfromJSONKey :: FromJSONKeyFunction PrincipalType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679692772"><span id="local-6989586621679692774"><span id="local-6989586621679692776"><span id="local-6989586621679692778"><span class="annot"><span class="annottext">[PrincipalType] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679694445"><span id="local-6989586621679694447"><span id="local-6989586621679694449"><span id="local-6989586621679694451"><span class="annot"><span class="annottext">[PrincipalType] -&gt; Encoding
 [PrincipalType] -&gt; Value
 PrincipalType -&gt; Encoding
 PrincipalType -&gt; Value
@@ -231,7 +231,7 @@ $ctoEncoding :: PrincipalType -&gt; Encoding
 toJSON :: PrincipalType -&gt; Value
 $ctoJSON :: PrincipalType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679692767"><span id="local-6989586621679692769"><span class="annot"><span class="annottext">ToJSONKeyFunction [PrincipalType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679694440"><span id="local-6989586621679694442"><span class="annot"><span class="annottext">ToJSONKeyFunction [PrincipalType]
 ToJSONKeyFunction PrincipalType
 ToJSONKeyFunction PrincipalType
 -&gt; ToJSONKeyFunction [PrincipalType] -&gt; ToJSONKey PrincipalType
@@ -242,13 +242,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [PrincipalType]
 toJSONKey :: ToJSONKeyFunction PrincipalType
 $ctoJSONKey :: ToJSONKeyFunction PrincipalType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679692764"><span class="annot"><span class="annottext">[Node] -&gt; Either String PrincipalType
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679694437"><span class="annot"><span class="annottext">[Node] -&gt; Either String PrincipalType
 ([Node] -&gt; Either String PrincipalType) -&gt; FromXML PrincipalType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String PrincipalType
 $cparseXML :: [Node] -&gt; Either String PrincipalType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679692761"><span class="annot"><span class="annottext">PrincipalType -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679694434"><span class="annot"><span class="annottext">PrincipalType -&gt; XML
 (PrincipalType -&gt; XML) -&gt; ToXML PrincipalType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: PrincipalType -&gt; XML

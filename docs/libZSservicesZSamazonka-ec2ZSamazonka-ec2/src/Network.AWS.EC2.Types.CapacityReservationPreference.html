@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621681058054"><span id="local-6989586621681058055"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CapacityReservationPreference"><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationPreference.html#CapacityReservationPreference"><span class="hs-identifier hs-var">CapacityReservationPreference</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CapacityReservationPreference%27"><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationPreference.html#CapacityReservationPreference%27"><span class="hs-identifier hs-var">CapacityReservationPreference'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621681091626"><span id="local-6989586621681091627"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CapacityReservationPreference"><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationPreference.html#CapacityReservationPreference"><span class="hs-identifier hs-var">CapacityReservationPreference</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CapacityReservationPreference%27"><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationPreference.html#CapacityReservationPreference%27"><span class="hs-identifier hs-var">CapacityReservationPreference'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCapacityReservationPreference"><span class="annot"><span class="annottext">CapacityReservationPreference -&gt; Text
 </span><a href="Network.AWS.EC2.Types.CapacityReservationPreference.html#fromCapacityReservationPreference"><span class="hs-identifier hs-var hs-var">fromCapacityReservationPreference</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681058046"><span id="local-6989586621681058048"><span id="local-6989586621681058050"><span class="annot"><span class="annottext">Int -&gt; CapacityReservationPreference -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681091618"><span id="local-6989586621681091620"><span id="local-6989586621681091622"><span class="annot"><span class="annottext">Int -&gt; CapacityReservationPreference -&gt; ShowS
 [CapacityReservationPreference] -&gt; ShowS
 CapacityReservationPreference -&gt; String
 (Int -&gt; CapacityReservationPreference -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: CapacityReservationPreference -&gt; String
 showsPrec :: Int -&gt; CapacityReservationPreference -&gt; ShowS
 $cshowsPrec :: Int -&gt; CapacityReservationPreference -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621681058037"><span id="local-6989586621681058039"><span id="local-6989586621681058041"><span id="local-6989586621681058043"><span class="annot"><span class="annottext">ReadPrec [CapacityReservationPreference]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621681091609"><span id="local-6989586621681091611"><span id="local-6989586621681091613"><span id="local-6989586621681091615"><span class="annot"><span class="annottext">ReadPrec [CapacityReservationPreference]
 ReadPrec CapacityReservationPreference
 Int -&gt; ReadS CapacityReservationPreference
 ReadS [CapacityReservationPreference]
@@ -73,7 +73,7 @@ $creadList :: ReadS [CapacityReservationPreference]
 readsPrec :: Int -&gt; ReadS CapacityReservationPreference
 $creadsPrec :: Int -&gt; ReadS CapacityReservationPreference
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621681058032"><span id="local-6989586621681058034"><span class="annot"><span class="annottext">CapacityReservationPreference
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621681091604"><span id="local-6989586621681091606"><span class="annot"><span class="annottext">CapacityReservationPreference
 -&gt; CapacityReservationPreference -&gt; Bool
 (CapacityReservationPreference
  -&gt; CapacityReservationPreference -&gt; Bool)
@@ -90,7 +90,7 @@ $c/= :: CapacityReservationPreference
 $c== :: CapacityReservationPreference
 -&gt; CapacityReservationPreference -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621681058016"><span id="local-6989586621681058018"><span id="local-6989586621681058020"><span id="local-6989586621681058022"><span id="local-6989586621681058024"><span id="local-6989586621681058026"><span id="local-6989586621681058028"><span class="annot"><span class="annottext">Eq CapacityReservationPreference
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681091588"><span id="local-6989586621681091590"><span id="local-6989586621681091592"><span id="local-6989586621681091594"><span id="local-6989586621681091596"><span id="local-6989586621681091598"><span id="local-6989586621681091600"><span class="annot"><span class="annottext">Eq CapacityReservationPreference
 Eq CapacityReservationPreference
 -&gt; (CapacityReservationPreference
     -&gt; CapacityReservationPreference -&gt; Ordering)
@@ -177,7 +177,7 @@ CapacityReservationPreference
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681058008"><span id="local-6989586621681058010"><span class="annot"><span class="annottext">Int -&gt; CapacityReservationPreference -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681091580"><span id="local-6989586621681091582"><span class="annot"><span class="annottext">Int -&gt; CapacityReservationPreference -&gt; Int
 CapacityReservationPreference -&gt; Int
 (Int -&gt; CapacityReservationPreference -&gt; Int)
 -&gt; (CapacityReservationPreference -&gt; Int)
@@ -188,56 +188,56 @@ $chash :: CapacityReservationPreference -&gt; Int
 hashWithSalt :: Int -&gt; CapacityReservationPreference -&gt; Int
 $chashWithSalt :: Int -&gt; CapacityReservationPreference -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621681058005"><span class="annot"><span class="annottext">CapacityReservationPreference -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621681091577"><span class="annot"><span class="annottext">CapacityReservationPreference -&gt; ()
 (CapacityReservationPreference -&gt; ())
 -&gt; NFData CapacityReservationPreference
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: CapacityReservationPreference -&gt; ()
 $crnf :: CapacityReservationPreference -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621681058002"><span class="annot"><span class="annottext">Text -&gt; Either String CapacityReservationPreference
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681091574"><span class="annot"><span class="annottext">Text -&gt; Either String CapacityReservationPreference
 (Text -&gt; Either String CapacityReservationPreference)
 -&gt; FromText CapacityReservationPreference
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String CapacityReservationPreference
 $cfromText :: Text -&gt; Either String CapacityReservationPreference
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621681057999"><span class="annot"><span class="annottext">CapacityReservationPreference -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681091571"><span class="annot"><span class="annottext">CapacityReservationPreference -&gt; Text
 (CapacityReservationPreference -&gt; Text)
 -&gt; ToText CapacityReservationPreference
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: CapacityReservationPreference -&gt; Text
 $ctoText :: CapacityReservationPreference -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681057996"><span class="annot"><span class="annottext">CapacityReservationPreference -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681091568"><span class="annot"><span class="annottext">CapacityReservationPreference -&gt; ByteString
 (CapacityReservationPreference -&gt; ByteString)
 -&gt; ToByteString CapacityReservationPreference
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: CapacityReservationPreference -&gt; ByteString
 $ctoBS :: CapacityReservationPreference -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681057993"><span class="annot"><span class="annottext">CapacityReservationPreference -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681091565"><span class="annot"><span class="annottext">CapacityReservationPreference -&gt; ByteStringBuilder
 (CapacityReservationPreference -&gt; ByteStringBuilder)
 -&gt; ToLog CapacityReservationPreference
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: CapacityReservationPreference -&gt; ByteStringBuilder
 $cbuild :: CapacityReservationPreference -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681057990"><span class="annot"><span class="annottext">HeaderName -&gt; CapacityReservationPreference -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681091562"><span class="annot"><span class="annottext">HeaderName -&gt; CapacityReservationPreference -&gt; [Header]
 (HeaderName -&gt; CapacityReservationPreference -&gt; [Header])
 -&gt; ToHeader CapacityReservationPreference
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; CapacityReservationPreference -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; CapacityReservationPreference -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681057987"><span class="annot"><span class="annottext">CapacityReservationPreference -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681091559"><span class="annot"><span class="annottext">CapacityReservationPreference -&gt; QueryString
 (CapacityReservationPreference -&gt; QueryString)
 -&gt; ToQuery CapacityReservationPreference
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: CapacityReservationPreference -&gt; QueryString
 $ctoQuery :: CapacityReservationPreference -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681057982"><span id="local-6989586621681057984"><span class="annot"><span class="annottext">Value -&gt; Parser [CapacityReservationPreference]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681091554"><span id="local-6989586621681091556"><span class="annot"><span class="annottext">Value -&gt; Parser [CapacityReservationPreference]
 Value -&gt; Parser CapacityReservationPreference
 (Value -&gt; Parser CapacityReservationPreference)
 -&gt; (Value -&gt; Parser [CapacityReservationPreference])
@@ -249,7 +249,7 @@ $cparseJSONList :: Value -&gt; Parser [CapacityReservationPreference]
 parseJSON :: Value -&gt; Parser CapacityReservationPreference
 $cparseJSON :: Value -&gt; Parser CapacityReservationPreference
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681057977"><span id="local-6989586621681057979"><span class="annot"><span class="annottext">FromJSONKeyFunction [CapacityReservationPreference]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681091549"><span id="local-6989586621681091551"><span class="annot"><span class="annottext">FromJSONKeyFunction [CapacityReservationPreference]
 FromJSONKeyFunction CapacityReservationPreference
 FromJSONKeyFunction CapacityReservationPreference
 -&gt; FromJSONKeyFunction [CapacityReservationPreference]
@@ -261,7 +261,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [CapacityReservationPreference]
 fromJSONKey :: FromJSONKeyFunction CapacityReservationPreference
 $cfromJSONKey :: FromJSONKeyFunction CapacityReservationPreference
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681057968"><span id="local-6989586621681057970"><span id="local-6989586621681057972"><span id="local-6989586621681057974"><span class="annot"><span class="annottext">[CapacityReservationPreference] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681091540"><span id="local-6989586621681091542"><span id="local-6989586621681091544"><span id="local-6989586621681091546"><span class="annot"><span class="annottext">[CapacityReservationPreference] -&gt; Encoding
 [CapacityReservationPreference] -&gt; Value
 CapacityReservationPreference -&gt; Encoding
 CapacityReservationPreference -&gt; Value
@@ -285,7 +285,7 @@ $ctoEncoding :: CapacityReservationPreference -&gt; Encoding
 toJSON :: CapacityReservationPreference -&gt; Value
 $ctoJSON :: CapacityReservationPreference -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681057963"><span id="local-6989586621681057965"><span class="annot"><span class="annottext">ToJSONKeyFunction [CapacityReservationPreference]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681091535"><span id="local-6989586621681091537"><span class="annot"><span class="annottext">ToJSONKeyFunction [CapacityReservationPreference]
 ToJSONKeyFunction CapacityReservationPreference
 ToJSONKeyFunction CapacityReservationPreference
 -&gt; ToJSONKeyFunction [CapacityReservationPreference]
@@ -297,14 +297,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [CapacityReservationPreference]
 toJSONKey :: ToJSONKeyFunction CapacityReservationPreference
 $ctoJSONKey :: ToJSONKeyFunction CapacityReservationPreference
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681057960"><span class="annot"><span class="annottext">[Node] -&gt; Either String CapacityReservationPreference
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681091532"><span class="annot"><span class="annottext">[Node] -&gt; Either String CapacityReservationPreference
 ([Node] -&gt; Either String CapacityReservationPreference)
 -&gt; FromXML CapacityReservationPreference
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String CapacityReservationPreference
 $cparseXML :: [Node] -&gt; Either String CapacityReservationPreference
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621681057957"><span class="annot"><span class="annottext">CapacityReservationPreference -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681091529"><span class="annot"><span class="annottext">CapacityReservationPreference -&gt; XML
 (CapacityReservationPreference -&gt; XML)
 -&gt; ToXML CapacityReservationPreference
 forall a. (a -&gt; XML) -&gt; ToXML a

@@ -106,13 +106,13 @@
 </span><span id="line-106"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-107"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span id="local-6989586621679616157"><span id="local-6989586621679616158"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="OperationType"><span class="annot"><a href="Network.AWS.Lightsail.Types.OperationType.html#OperationType"><span class="hs-identifier hs-var">OperationType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OperationType%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.OperationType.html#OperationType%27"><span class="hs-identifier hs-var">OperationType'</span></a></span></span><span>
+</span><span id="line-109"></span><span id="local-6989586621679617054"><span id="local-6989586621679617055"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="OperationType"><span class="annot"><a href="Network.AWS.Lightsail.Types.OperationType.html#OperationType"><span class="hs-identifier hs-var">OperationType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OperationType%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.OperationType.html#OperationType%27"><span class="hs-identifier hs-var">OperationType'</span></a></span></span><span>
 </span><span id="line-110"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromOperationType"><span class="annot"><span class="annottext">OperationType -&gt; Text
 </span><a href="Network.AWS.Lightsail.Types.OperationType.html#fromOperationType"><span class="hs-identifier hs-var hs-var">fromOperationType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-111"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-112"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-113"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-114"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679616149"><span id="local-6989586621679616151"><span id="local-6989586621679616153"><span class="annot"><span class="annottext">Int -&gt; OperationType -&gt; ShowS
+</span><span id="line-114"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679617046"><span id="local-6989586621679617048"><span id="local-6989586621679617050"><span class="annot"><span class="annottext">Int -&gt; OperationType -&gt; ShowS
 [OperationType] -&gt; ShowS
 OperationType -&gt; String
 (Int -&gt; OperationType -&gt; ShowS)
@@ -128,7 +128,7 @@ $cshow :: OperationType -&gt; String
 showsPrec :: Int -&gt; OperationType -&gt; ShowS
 $cshowsPrec :: Int -&gt; OperationType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-115"></span><span>      </span><span id="local-6989586621679616140"><span id="local-6989586621679616142"><span id="local-6989586621679616144"><span id="local-6989586621679616146"><span class="annot"><span class="annottext">ReadPrec [OperationType]
+</span><span id="line-115"></span><span>      </span><span id="local-6989586621679617037"><span id="local-6989586621679617039"><span id="local-6989586621679617041"><span id="local-6989586621679617043"><span class="annot"><span class="annottext">ReadPrec [OperationType]
 ReadPrec OperationType
 Int -&gt; ReadS OperationType
 ReadS [OperationType]
@@ -149,7 +149,7 @@ $creadList :: ReadS [OperationType]
 readsPrec :: Int -&gt; ReadS OperationType
 $creadsPrec :: Int -&gt; ReadS OperationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-116"></span><span>      </span><span id="local-6989586621679616135"><span id="local-6989586621679616137"><span class="annot"><span class="annottext">OperationType -&gt; OperationType -&gt; Bool
+</span><span id="line-116"></span><span>      </span><span id="local-6989586621679617032"><span id="local-6989586621679617034"><span class="annot"><span class="annottext">OperationType -&gt; OperationType -&gt; Bool
 (OperationType -&gt; OperationType -&gt; Bool)
 -&gt; (OperationType -&gt; OperationType -&gt; Bool) -&gt; Eq OperationType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -158,7 +158,7 @@ $c/= :: OperationType -&gt; OperationType -&gt; Bool
 == :: OperationType -&gt; OperationType -&gt; Bool
 $c== :: OperationType -&gt; OperationType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-117"></span><span>      </span><span id="local-6989586621679616119"><span id="local-6989586621679616121"><span id="local-6989586621679616123"><span id="local-6989586621679616125"><span id="local-6989586621679616127"><span id="local-6989586621679616129"><span id="local-6989586621679616131"><span class="annot"><span class="annottext">Eq OperationType
+</span><span id="line-117"></span><span>      </span><span id="local-6989586621679617016"><span id="local-6989586621679617018"><span id="local-6989586621679617020"><span id="local-6989586621679617022"><span id="local-6989586621679617024"><span id="local-6989586621679617026"><span id="local-6989586621679617028"><span class="annot"><span class="annottext">Eq OperationType
 Eq OperationType
 -&gt; (OperationType -&gt; OperationType -&gt; Ordering)
 -&gt; (OperationType -&gt; OperationType -&gt; Bool)
@@ -209,7 +209,7 @@ $cfrom :: forall x. OperationType -&gt; Rep OperationType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-119"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-121"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679616111"><span id="local-6989586621679616113"><span class="annot"><span class="annottext">Int -&gt; OperationType -&gt; Int
+</span><span id="line-121"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679617008"><span id="local-6989586621679617010"><span class="annot"><span class="annottext">Int -&gt; OperationType -&gt; Int
 OperationType -&gt; Int
 (Int -&gt; OperationType -&gt; Int)
 -&gt; (OperationType -&gt; Int) -&gt; Hashable OperationType
@@ -219,49 +219,49 @@ $chash :: OperationType -&gt; Int
 hashWithSalt :: Int -&gt; OperationType -&gt; Int
 $chashWithSalt :: Int -&gt; OperationType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-122"></span><span>      </span><span id="local-6989586621679616108"><span class="annot"><span class="annottext">OperationType -&gt; ()
+</span><span id="line-122"></span><span>      </span><span id="local-6989586621679617005"><span class="annot"><span class="annottext">OperationType -&gt; ()
 (OperationType -&gt; ()) -&gt; NFData OperationType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: OperationType -&gt; ()
 $crnf :: OperationType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-123"></span><span>      </span><span id="local-6989586621679616105"><span class="annot"><span class="annottext">Text -&gt; Either String OperationType
+</span><span id="line-123"></span><span>      </span><span id="local-6989586621679617002"><span class="annot"><span class="annottext">Text -&gt; Either String OperationType
 (Text -&gt; Either String OperationType) -&gt; FromText OperationType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String OperationType
 $cfromText :: Text -&gt; Either String OperationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-124"></span><span>      </span><span id="local-6989586621679616102"><span class="annot"><span class="annottext">OperationType -&gt; Text
+</span><span id="line-124"></span><span>      </span><span id="local-6989586621679616999"><span class="annot"><span class="annottext">OperationType -&gt; Text
 (OperationType -&gt; Text) -&gt; ToText OperationType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: OperationType -&gt; Text
 $ctoText :: OperationType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-125"></span><span>      </span><span id="local-6989586621679616099"><span class="annot"><span class="annottext">OperationType -&gt; ByteString
+</span><span id="line-125"></span><span>      </span><span id="local-6989586621679616996"><span class="annot"><span class="annottext">OperationType -&gt; ByteString
 (OperationType -&gt; ByteString) -&gt; ToByteString OperationType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: OperationType -&gt; ByteString
 $ctoBS :: OperationType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-126"></span><span>      </span><span id="local-6989586621679616096"><span class="annot"><span class="annottext">OperationType -&gt; ByteStringBuilder
+</span><span id="line-126"></span><span>      </span><span id="local-6989586621679616993"><span class="annot"><span class="annottext">OperationType -&gt; ByteStringBuilder
 (OperationType -&gt; ByteStringBuilder) -&gt; ToLog OperationType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: OperationType -&gt; ByteStringBuilder
 $cbuild :: OperationType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-127"></span><span>      </span><span id="local-6989586621679616093"><span class="annot"><span class="annottext">HeaderName -&gt; OperationType -&gt; [Header]
+</span><span id="line-127"></span><span>      </span><span id="local-6989586621679616990"><span class="annot"><span class="annottext">HeaderName -&gt; OperationType -&gt; [Header]
 (HeaderName -&gt; OperationType -&gt; [Header]) -&gt; ToHeader OperationType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; OperationType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; OperationType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-128"></span><span>      </span><span id="local-6989586621679616090"><span class="annot"><span class="annottext">OperationType -&gt; QueryString
+</span><span id="line-128"></span><span>      </span><span id="local-6989586621679616987"><span class="annot"><span class="annottext">OperationType -&gt; QueryString
 (OperationType -&gt; QueryString) -&gt; ToQuery OperationType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: OperationType -&gt; QueryString
 $ctoQuery :: OperationType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-129"></span><span>      </span><span id="local-6989586621679616085"><span id="local-6989586621679616087"><span class="annot"><span class="annottext">Value -&gt; Parser [OperationType]
+</span><span id="line-129"></span><span>      </span><span id="local-6989586621679616982"><span id="local-6989586621679616984"><span class="annot"><span class="annottext">Value -&gt; Parser [OperationType]
 Value -&gt; Parser OperationType
 (Value -&gt; Parser OperationType)
 -&gt; (Value -&gt; Parser [OperationType]) -&gt; FromJSON OperationType
@@ -272,7 +272,7 @@ $cparseJSONList :: Value -&gt; Parser [OperationType]
 parseJSON :: Value -&gt; Parser OperationType
 $cparseJSON :: Value -&gt; Parser OperationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-130"></span><span>      </span><span id="local-6989586621679616080"><span id="local-6989586621679616082"><span class="annot"><span class="annottext">FromJSONKeyFunction [OperationType]
+</span><span id="line-130"></span><span>      </span><span id="local-6989586621679616977"><span id="local-6989586621679616979"><span class="annot"><span class="annottext">FromJSONKeyFunction [OperationType]
 FromJSONKeyFunction OperationType
 FromJSONKeyFunction OperationType
 -&gt; FromJSONKeyFunction [OperationType] -&gt; FromJSONKey OperationType
@@ -283,7 +283,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [OperationType]
 fromJSONKey :: FromJSONKeyFunction OperationType
 $cfromJSONKey :: FromJSONKeyFunction OperationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-131"></span><span>      </span><span id="local-6989586621679616071"><span id="local-6989586621679616073"><span id="local-6989586621679616075"><span id="local-6989586621679616077"><span class="annot"><span class="annottext">[OperationType] -&gt; Encoding
+</span><span id="line-131"></span><span>      </span><span id="local-6989586621679616968"><span id="local-6989586621679616970"><span id="local-6989586621679616972"><span id="local-6989586621679616974"><span class="annot"><span class="annottext">[OperationType] -&gt; Encoding
 [OperationType] -&gt; Value
 OperationType -&gt; Encoding
 OperationType -&gt; Value
@@ -307,7 +307,7 @@ $ctoEncoding :: OperationType -&gt; Encoding
 toJSON :: OperationType -&gt; Value
 $ctoJSON :: OperationType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-132"></span><span>      </span><span id="local-6989586621679616066"><span id="local-6989586621679616068"><span class="annot"><span class="annottext">ToJSONKeyFunction [OperationType]
+</span><span id="line-132"></span><span>      </span><span id="local-6989586621679616963"><span id="local-6989586621679616965"><span class="annot"><span class="annottext">ToJSONKeyFunction [OperationType]
 ToJSONKeyFunction OperationType
 ToJSONKeyFunction OperationType
 -&gt; ToJSONKeyFunction [OperationType] -&gt; ToJSONKey OperationType
@@ -318,13 +318,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [OperationType]
 toJSONKey :: ToJSONKeyFunction OperationType
 $ctoJSONKey :: ToJSONKeyFunction OperationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-133"></span><span>      </span><span id="local-6989586621679616063"><span class="annot"><span class="annottext">[Node] -&gt; Either String OperationType
+</span><span id="line-133"></span><span>      </span><span id="local-6989586621679616960"><span class="annot"><span class="annottext">[Node] -&gt; Either String OperationType
 ([Node] -&gt; Either String OperationType) -&gt; FromXML OperationType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String OperationType
 $cparseXML :: [Node] -&gt; Either String OperationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-134"></span><span>      </span><span id="local-6989586621679616060"><span class="annot"><span class="annottext">OperationType -&gt; XML
+</span><span id="line-134"></span><span>      </span><span id="local-6989586621679616957"><span class="annot"><span class="annottext">OperationType -&gt; XML
 (OperationType -&gt; XML) -&gt; ToXML OperationType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: OperationType -&gt; XML

@@ -29,8 +29,8 @@
 </span><span id="line-29"></span><span>
 </span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
 </span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.ListContributorInsights.html#listContributorInsights_nextToken"><span class="hs-identifier">listContributorInsights_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.ListContributorInsights.html#listContributorInsights_tableName"><span class="hs-identifier">listContributorInsights_tableName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.ListContributorInsights.html#listContributorInsights_maxResults"><span class="hs-identifier">listContributorInsights_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.ListContributorInsights.html#listContributorInsights_maxResults"><span class="hs-identifier">listContributorInsights_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.ListContributorInsights.html#listContributorInsights_tableName"><span class="hs-identifier">listContributorInsights_tableName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-34"></span><span>
 </span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
 </span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.ListContributorInsights.html#ListContributorInsightsResponse"><span class="hs-identifier">ListContributorInsightsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -51,18 +51,18 @@
 </span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-52"></span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newListContributorInsights' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679388727"><span id="local-6989586621679388728"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListContributorInsights"><span class="annot"><a href="Network.AWS.DynamoDB.ListContributorInsights.html#ListContributorInsights"><span class="hs-identifier hs-var">ListContributorInsights</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListContributorInsights%27"><span class="annot"><a href="Network.AWS.DynamoDB.ListContributorInsights.html#ListContributorInsights%27"><span class="hs-identifier hs-var">ListContributorInsights'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679389447"><span id="local-6989586621679389448"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListContributorInsights"><span class="annot"><a href="Network.AWS.DynamoDB.ListContributorInsights.html#ListContributorInsights"><span class="hs-identifier hs-var">ListContributorInsights</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListContributorInsights%27"><span class="annot"><a href="Network.AWS.DynamoDB.ListContributorInsights.html#ListContributorInsights%27"><span class="hs-identifier hs-var">ListContributorInsights'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A token to for the desired page, if there is one.</span><span>
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3AnextToken%3AListContributorInsights%27"><span class="annot"><span class="annottext">ListContributorInsights -&gt; Maybe Text
 </span><a href="Network.AWS.DynamoDB.ListContributorInsights.html#%24sel%3AnextToken%3AListContributorInsights%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The name of the table.</span><span>
-</span><span id="line-58"></span><span>    </span><span id="%24sel%3AtableName%3AListContributorInsights%27"><span class="annot"><span class="annottext">ListContributorInsights -&gt; Maybe Text
-</span><a href="Network.AWS.DynamoDB.ListContributorInsights.html#%24sel%3AtableName%3AListContributorInsights%27"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | Maximum number of results to return per page.</span><span>
-</span><span id="line-60"></span><span>    </span><span id="%24sel%3AmaxResults%3AListContributorInsights%27"><span class="annot"><span class="annottext">ListContributorInsights -&gt; Maybe Int
-</span><a href="Network.AWS.DynamoDB.ListContributorInsights.html#%24sel%3AmaxResults%3AListContributorInsights%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | Maximum number of results to return per page.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AmaxResults%3AListContributorInsights%27"><span class="annot"><span class="annottext">ListContributorInsights -&gt; Maybe Int
+</span><a href="Network.AWS.DynamoDB.ListContributorInsights.html#%24sel%3AmaxResults%3AListContributorInsights%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The name of the table.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AtableName%3AListContributorInsights%27"><span class="annot"><span class="annottext">ListContributorInsights -&gt; Maybe Text
+</span><a href="Network.AWS.DynamoDB.ListContributorInsights.html#%24sel%3AtableName%3AListContributorInsights%27"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679388719"><span id="local-6989586621679388721"><span class="annot"><span class="annottext">ListContributorInsights -&gt; ListContributorInsights -&gt; Bool
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679389439"><span id="local-6989586621679389441"><span class="annot"><span class="annottext">ListContributorInsights -&gt; ListContributorInsights -&gt; Bool
 (ListContributorInsights -&gt; ListContributorInsights -&gt; Bool)
 -&gt; (ListContributorInsights -&gt; ListContributorInsights -&gt; Bool)
 -&gt; Eq ListContributorInsights
@@ -71,7 +71,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListContributorInsights -&gt; ListContributorInsights -&gt; Bool
 == :: ListContributorInsights -&gt; ListContributorInsights -&gt; Bool
 $c== :: ListContributorInsights -&gt; ListContributorInsights -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388710"><span id="local-6989586621679388712"><span id="local-6989586621679388714"><span id="local-6989586621679388716"><span class="annot"><span class="annottext">ReadPrec [ListContributorInsights]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389430"><span id="local-6989586621679389432"><span id="local-6989586621679389434"><span id="local-6989586621679389436"><span class="annot"><span class="annottext">ReadPrec [ListContributorInsights]
 ReadPrec ListContributorInsights
 Int -&gt; ReadS ListContributorInsights
 ReadS [ListContributorInsights]
@@ -91,7 +91,7 @@ readList :: ReadS [ListContributorInsights]
 $creadList :: ReadS [ListContributorInsights]
 readsPrec :: Int -&gt; ReadS ListContributorInsights
 $creadsPrec :: Int -&gt; ReadS ListContributorInsights
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388703"><span id="local-6989586621679388705"><span id="local-6989586621679388707"><span class="annot"><span class="annottext">Int -&gt; ListContributorInsights -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389423"><span id="local-6989586621679389425"><span id="local-6989586621679389427"><span class="annot"><span class="annottext">Int -&gt; ListContributorInsights -&gt; ShowS
 [ListContributorInsights] -&gt; ShowS
 ListContributorInsights -&gt; String
 (Int -&gt; ListContributorInsights -&gt; ShowS)
@@ -129,26 +129,26 @@ $cfrom :: forall x. ListContributorInsights -&gt; Rep ListContributorInsights x
 </span><span id="line-71"></span><span class="hs-comment">--</span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- 'nextToken', 'listContributorInsights_nextToken' - A token to for the desired page, if there is one.</span><span>
 </span><span id="line-73"></span><span class="hs-comment">--</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- 'tableName', 'listContributorInsights_tableName' - The name of the table.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'maxResults', 'listContributorInsights_maxResults' - Maximum number of results to return per page.</span><span>
 </span><span id="line-75"></span><span class="hs-comment">--</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- 'maxResults', 'listContributorInsights_maxResults' - Maximum number of results to return per page.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'tableName', 'listContributorInsights_tableName' - The name of the table.</span><span>
 </span><span id="line-77"></span><span class="annot"><a href="Network.AWS.DynamoDB.ListContributorInsights.html#newListContributorInsights"><span class="hs-identifier hs-type">newListContributorInsights</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDB.ListContributorInsights.html#ListContributorInsights"><span class="hs-identifier hs-type">ListContributorInsights</span></a></span><span>
 </span><span id="line-79"></span><span id="newListContributorInsights"><span class="annot"><span class="annottext">newListContributorInsights :: ListContributorInsights
 </span><a href="Network.AWS.DynamoDB.ListContributorInsights.html#newListContributorInsights"><span class="hs-identifier hs-var hs-var">newListContributorInsights</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">ListContributorInsights' :: Maybe Text -&gt; Maybe Text -&gt; Maybe Int -&gt; ListContributorInsights
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">ListContributorInsights' :: Maybe Text -&gt; Maybe Int -&gt; Maybe Text -&gt; ListContributorInsights
 </span><a href="Network.AWS.DynamoDB.ListContributorInsights.html#ListContributorInsights%27"><span class="hs-identifier hs-type">ListContributorInsights'</span></a></span><span>
 </span><span id="line-81"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListContributorInsights' :: Maybe Text
 </span><a href="Network.AWS.DynamoDB.ListContributorInsights.html#%24sel%3AnextToken%3AListContributorInsights%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:tableName:ListContributorInsights' :: Maybe Text
-</span><a href="Network.AWS.DynamoDB.ListContributorInsights.html#%24sel%3AtableName%3AListContributorInsights%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListContributorInsights' :: Maybe Int
+</span><a href="Network.AWS.DynamoDB.ListContributorInsights.html#%24sel%3AmaxResults%3AListContributorInsights%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListContributorInsights' :: Maybe Int
-</span><a href="Network.AWS.DynamoDB.ListContributorInsights.html#%24sel%3AmaxResults%3AListContributorInsights%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:tableName:ListContributorInsights' :: Maybe Text
+</span><a href="Network.AWS.DynamoDB.ListContributorInsights.html#%24sel%3AtableName%3AListContributorInsights%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-85"></span><span>    </span><span class="hs-special">}</span><span>
@@ -166,44 +166,20 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.ListContributorInsights.html#ListContributorInsights%27"><span class="hs-identifier hs-type">ListContributorInsights'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388696"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.ListContributorInsights.html#ListContributorInsights%27"><span class="hs-identifier hs-type">ListContributorInsights'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389416"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListContributorInsights' :: ListContributorInsights -&gt; Maybe Text
-</span><a href="#local-6989586621679388696"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679388696"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388695"><span class="annot"><span class="annottext">s :: ListContributorInsights
-</span><a href="#local-6989586621679388695"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.ListContributorInsights.html#ListContributorInsights%27"><span class="hs-identifier hs-type">ListContributorInsights'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388694"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679388694"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListContributorInsights
-</span><a href="#local-6989586621679388695"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListContributorInsights' :: Maybe Text
+</span><a href="#local-6989586621679389416"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679389416"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389415"><span class="annot"><span class="annottext">s :: ListContributorInsights
+</span><a href="#local-6989586621679389415"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.ListContributorInsights.html#ListContributorInsights%27"><span class="hs-identifier hs-type">ListContributorInsights'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389414"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679389414"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListContributorInsights
+</span><a href="#local-6989586621679389415"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListContributorInsights' :: Maybe Text
 </span><a href="Network.AWS.DynamoDB.ListContributorInsights.html#%24sel%3AnextToken%3AListContributorInsights%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679388694"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListContributorInsights.html#ListContributorInsights"><span class="hs-identifier hs-type">ListContributorInsights</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679389414"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListContributorInsights.html#ListContributorInsights"><span class="hs-identifier hs-type">ListContributorInsights</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- | The name of the table.</span><span>
-</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.DynamoDB.ListContributorInsights.html#listContributorInsights_tableName"><span class="hs-identifier hs-type">listContributorInsights_tableName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListContributorInsights.html#ListContributorInsights"><span class="hs-identifier hs-type">ListContributorInsights</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-93"></span><span id="listContributorInsights_tableName"><span class="annot"><span class="annottext">listContributorInsights_tableName :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ListContributorInsights -&gt; f ListContributorInsights
-</span><a href="Network.AWS.DynamoDB.ListContributorInsights.html#listContributorInsights_tableName"><span class="hs-identifier hs-var hs-var">listContributorInsights_tableName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListContributorInsights -&gt; Maybe Text)
--&gt; (ListContributorInsights
-    -&gt; Maybe Text -&gt; ListContributorInsights)
--&gt; Lens
-     ListContributorInsights
-     ListContributorInsights
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.ListContributorInsights.html#ListContributorInsights%27"><span class="hs-identifier hs-type">ListContributorInsights'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388693"><span class="annot"><span class="annottext">Maybe Text
-tableName :: Maybe Text
-$sel:tableName:ListContributorInsights' :: ListContributorInsights -&gt; Maybe Text
-</span><a href="#local-6989586621679388693"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679388693"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388692"><span class="annot"><span class="annottext">s :: ListContributorInsights
-</span><a href="#local-6989586621679388692"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.ListContributorInsights.html#ListContributorInsights%27"><span class="hs-identifier hs-type">ListContributorInsights'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388691"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679388691"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListContributorInsights
-</span><a href="#local-6989586621679388692"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableName:ListContributorInsights' :: Maybe Text
-</span><a href="Network.AWS.DynamoDB.ListContributorInsights.html#%24sel%3AtableName%3AListContributorInsights%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679388691"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListContributorInsights.html#ListContributorInsights"><span class="hs-identifier hs-type">ListContributorInsights</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- | Maximum number of results to return per page.</span><span>
-</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.DynamoDB.ListContributorInsights.html#listContributorInsights_maxResults"><span class="hs-identifier hs-type">listContributorInsights_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListContributorInsights.html#ListContributorInsights"><span class="hs-identifier hs-type">ListContributorInsights</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-97"></span><span id="listContributorInsights_maxResults"><span class="annot"><span class="annottext">listContributorInsights_maxResults :: (Maybe Int -&gt; f (Maybe Int))
+</span><span id="line-91"></span><span class="hs-comment">-- | Maximum number of results to return per page.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.DynamoDB.ListContributorInsights.html#listContributorInsights_maxResults"><span class="hs-identifier hs-type">listContributorInsights_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListContributorInsights.html#ListContributorInsights"><span class="hs-identifier hs-type">ListContributorInsights</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span id="listContributorInsights_maxResults"><span class="annot"><span class="annottext">listContributorInsights_maxResults :: (Maybe Int -&gt; f (Maybe Int))
 -&gt; ListContributorInsights -&gt; f ListContributorInsights
 </span><a href="Network.AWS.DynamoDB.ListContributorInsights.html#listContributorInsights_maxResults"><span class="hs-identifier hs-var hs-var">listContributorInsights_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListContributorInsights -&gt; Maybe Int)
 -&gt; (ListContributorInsights
@@ -214,28 +190,52 @@ $sel:tableName:ListContributorInsights' :: ListContributorInsights -&gt; Maybe T
      (Maybe Int)
      (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.ListContributorInsights.html#ListContributorInsights%27"><span class="hs-identifier hs-type">ListContributorInsights'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388690"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.ListContributorInsights.html#ListContributorInsights%27"><span class="hs-identifier hs-type">ListContributorInsights'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389413"><span class="annot"><span class="annottext">Maybe Int
 maxResults :: Maybe Int
 $sel:maxResults:ListContributorInsights' :: ListContributorInsights -&gt; Maybe Int
-</span><a href="#local-6989586621679388690"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679388690"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388689"><span class="annot"><span class="annottext">s :: ListContributorInsights
-</span><a href="#local-6989586621679388689"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.ListContributorInsights.html#ListContributorInsights%27"><span class="hs-identifier hs-type">ListContributorInsights'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388688"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679388688"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListContributorInsights
-</span><a href="#local-6989586621679388689"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListContributorInsights' :: Maybe Int
+</span><a href="#local-6989586621679389413"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679389413"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389412"><span class="annot"><span class="annottext">s :: ListContributorInsights
+</span><a href="#local-6989586621679389412"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.ListContributorInsights.html#ListContributorInsights%27"><span class="hs-identifier hs-type">ListContributorInsights'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389411"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679389411"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListContributorInsights
+</span><a href="#local-6989586621679389412"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListContributorInsights' :: Maybe Int
 </span><a href="Network.AWS.DynamoDB.ListContributorInsights.html#%24sel%3AmaxResults%3AListContributorInsights%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679388688"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListContributorInsights.html#ListContributorInsights"><span class="hs-identifier hs-type">ListContributorInsights</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679389411"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListContributorInsights.html#ListContributorInsights"><span class="hs-identifier hs-type">ListContributorInsights</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | The name of the table.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.DynamoDB.ListContributorInsights.html#listContributorInsights_tableName"><span class="hs-identifier hs-type">listContributorInsights_tableName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListContributorInsights.html#ListContributorInsights"><span class="hs-identifier hs-type">ListContributorInsights</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span id="listContributorInsights_tableName"><span class="annot"><span class="annottext">listContributorInsights_tableName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListContributorInsights -&gt; f ListContributorInsights
+</span><a href="Network.AWS.DynamoDB.ListContributorInsights.html#listContributorInsights_tableName"><span class="hs-identifier hs-var hs-var">listContributorInsights_tableName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListContributorInsights -&gt; Maybe Text)
+-&gt; (ListContributorInsights
+    -&gt; Maybe Text -&gt; ListContributorInsights)
+-&gt; Lens
+     ListContributorInsights
+     ListContributorInsights
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.ListContributorInsights.html#ListContributorInsights%27"><span class="hs-identifier hs-type">ListContributorInsights'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389410"><span class="annot"><span class="annottext">Maybe Text
+tableName :: Maybe Text
+$sel:tableName:ListContributorInsights' :: ListContributorInsights -&gt; Maybe Text
+</span><a href="#local-6989586621679389410"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679389410"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389409"><span class="annot"><span class="annottext">s :: ListContributorInsights
+</span><a href="#local-6989586621679389409"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.ListContributorInsights.html#ListContributorInsights%27"><span class="hs-identifier hs-type">ListContributorInsights'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389408"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679389408"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListContributorInsights
+</span><a href="#local-6989586621679389409"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableName:ListContributorInsights' :: Maybe Text
+</span><a href="Network.AWS.DynamoDB.ListContributorInsights.html#%24sel%3AtableName%3AListContributorInsights%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679389408"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListContributorInsights.html#ListContributorInsights"><span class="hs-identifier hs-type">ListContributorInsights</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListContributorInsights.html#ListContributorInsights"><span class="hs-identifier hs-type">ListContributorInsights</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-100"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-101"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListContributorInsights.html#ListContributorInsights"><span class="hs-identifier hs-type">ListContributorInsights</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>      </span><span class="annot"><a href="Network.AWS.DynamoDB.ListContributorInsights.html#ListContributorInsightsResponse"><span class="hs-identifier hs-type">ListContributorInsightsResponse</span></a></span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679388684"><span class="annot"><span class="annottext">request :: ListContributorInsights -&gt; Request ListContributorInsights
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679389404"><span class="annot"><span class="annottext">request :: ListContributorInsights -&gt; Request ListContributorInsights
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; ListContributorInsights -&gt; Request ListContributorInsights
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DynamoDB.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679388680"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679389400"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListContributorInsights
 -&gt; ClientResponse ClientBody
@@ -261,10 +261,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679388677"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679388677"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679388676"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679388676"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679388675"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679388675"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679389397"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679389397"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679389396"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679389396"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679389395"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679389395"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-107"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ContributorInsightsSummary]
 -&gt; Maybe Text -&gt; Int -&gt; ListContributorInsightsResponse
 </span><a href="Network.AWS.DynamoDB.ListContributorInsights.html#ListContributorInsightsResponse%27"><span class="hs-identifier hs-var">ListContributorInsightsResponse'</span></a></span><span>
@@ -275,7 +275,7 @@ MonadResource m =&gt;
      String (Maybe Text -&gt; Int -&gt; ListContributorInsightsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679388675"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679389395"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text
 -&gt; Either String (Maybe (Maybe [ContributorInsightsSummary]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
@@ -295,7 +295,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Int -&gt; ListContributorInsightsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679388675"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679389395"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -308,15 +308,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679388677"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679389397"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388666"><span id="local-6989586621679388668"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListContributorInsights.html#ListContributorInsights"><span class="hs-identifier hs-type">ListContributorInsights</span></a></span></span></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389386"><span id="local-6989586621679389388"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListContributorInsights.html#ListContributorInsights"><span class="hs-identifier hs-type">ListContributorInsights</span></a></span></span></span><span>
 </span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388663"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListContributorInsights.html#ListContributorInsights"><span class="hs-identifier hs-type">ListContributorInsights</span></a></span></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389383"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListContributorInsights.html#ListContributorInsights"><span class="hs-identifier hs-type">ListContributorInsights</span></a></span></span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListContributorInsights.html#ListContributorInsights"><span class="hs-identifier hs-type">ListContributorInsights</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679388659"><span class="annot"><span class="annottext">toHeaders :: ListContributorInsights -&gt; ResponseHeaders
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679389379"><span class="annot"><span class="annottext">toHeaders :: ListContributorInsights -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListContributorInsights -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -343,17 +343,17 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-131"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-132"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>
-</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388649"><span id="local-6989586621679388651"><span id="local-6989586621679388653"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListContributorInsights.html#ListContributorInsights"><span class="hs-identifier hs-type">ListContributorInsights</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679388647"><span class="annot"><span class="annottext">toJSON :: ListContributorInsights -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListContributorInsights.html#ListContributorInsights%27"><span class="hs-identifier hs-type">ListContributorInsights'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388643"><span id="local-6989586621679388644"><span id="local-6989586621679388645"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389369"><span id="local-6989586621679389371"><span id="local-6989586621679389373"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListContributorInsights.html#ListContributorInsights"><span class="hs-identifier hs-type">ListContributorInsights</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679389367"><span class="annot"><span class="annottext">toJSON :: ListContributorInsights -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListContributorInsights.html#ListContributorInsights%27"><span class="hs-identifier hs-type">ListContributorInsights'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389363"><span id="local-6989586621679389364"><span id="local-6989586621679389365"><span class="annot"><span class="annottext">Maybe Int
 Maybe Text
-maxResults :: Maybe Int
 tableName :: Maybe Text
+maxResults :: Maybe Int
 nextToken :: Maybe Text
-$sel:maxResults:ListContributorInsights' :: ListContributorInsights -&gt; Maybe Int
 $sel:tableName:ListContributorInsights' :: ListContributorInsights -&gt; Maybe Text
+$sel:maxResults:ListContributorInsights' :: ListContributorInsights -&gt; Maybe Int
 $sel:nextToken:ListContributorInsights' :: ListContributorInsights -&gt; Maybe Text
-</span><a href="#local-6989586621679388643"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679389363"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-136"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-137"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -365,33 +365,33 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679388645"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679389365"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-139"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;TableName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679388644"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-140"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679388643"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><a href="#local-6989586621679389364"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TableName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679389363"><span class="hs-identifier hs-var">tableName</span></a></span><span>
 </span><span id="line-141"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-142"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListContributorInsights.html#ListContributorInsights"><span class="hs-identifier hs-type">ListContributorInsights</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621679388637"><span class="annot"><span class="annottext">toPath :: ListContributorInsights -&gt; ByteString
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679389357"><span class="annot"><span class="annottext">toPath :: ListContributorInsights -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListContributorInsights -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListContributorInsights.html#ListContributorInsights"><span class="hs-identifier hs-type">ListContributorInsights</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-148"></span><span>  </span><span id="local-6989586621679388633"><span class="annot"><span class="annottext">toQuery :: ListContributorInsights -&gt; QueryString
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679389353"><span class="annot"><span class="annottext">toQuery :: ListContributorInsights -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListContributorInsights -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -399,7 +399,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-comment">-- | /See:/ 'newListContributorInsightsResponse' smart constructor.</span><span>
-</span><span id="line-151"></span><span id="local-6989586621679388630"><span id="local-6989586621679388631"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListContributorInsightsResponse"><span class="annot"><a href="Network.AWS.DynamoDB.ListContributorInsights.html#ListContributorInsightsResponse"><span class="hs-identifier hs-var">ListContributorInsightsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListContributorInsightsResponse%27"><span class="annot"><a href="Network.AWS.DynamoDB.ListContributorInsights.html#ListContributorInsightsResponse%27"><span class="hs-identifier hs-var">ListContributorInsightsResponse'</span></a></span></span><span>
+</span><span id="line-151"></span><span id="local-6989586621679389350"><span id="local-6989586621679389351"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListContributorInsightsResponse"><span class="annot"><a href="Network.AWS.DynamoDB.ListContributorInsights.html#ListContributorInsightsResponse"><span class="hs-identifier hs-var">ListContributorInsightsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListContributorInsightsResponse%27"><span class="annot"><a href="Network.AWS.DynamoDB.ListContributorInsights.html#ListContributorInsightsResponse%27"><span class="hs-identifier hs-var">ListContributorInsightsResponse'</span></a></span></span><span>
 </span><span id="line-152"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of ContributorInsightsSummary.</span><span>
 </span><span id="line-153"></span><span>    </span><span id="%24sel%3AcontributorInsightsSummaries%3AListContributorInsightsResponse%27"><span class="annot"><span class="annottext">ListContributorInsightsResponse
 -&gt; Maybe [ContributorInsightsSummary]
@@ -411,7 +411,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-157"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListContributorInsightsResponse%27"><span class="annot"><span class="annottext">ListContributorInsightsResponse -&gt; Int
 </span><a href="Network.AWS.DynamoDB.ListContributorInsights.html#%24sel%3AhttpStatus%3AListContributorInsightsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-158"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-159"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679388623"><span id="local-6989586621679388625"><span class="annot"><span class="annottext">ListContributorInsightsResponse
+</span><span id="line-159"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679389343"><span id="local-6989586621679389345"><span class="annot"><span class="annottext">ListContributorInsightsResponse
 -&gt; ListContributorInsightsResponse -&gt; Bool
 (ListContributorInsightsResponse
  -&gt; ListContributorInsightsResponse -&gt; Bool)
@@ -427,7 +427,7 @@ $c/= :: ListContributorInsightsResponse
 -&gt; ListContributorInsightsResponse -&gt; Bool
 $c== :: ListContributorInsightsResponse
 -&gt; ListContributorInsightsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388615"><span id="local-6989586621679388617"><span id="local-6989586621679388619"><span id="local-6989586621679388621"><span class="annot"><span class="annottext">ReadPrec [ListContributorInsightsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389335"><span id="local-6989586621679389337"><span id="local-6989586621679389339"><span id="local-6989586621679389341"><span class="annot"><span class="annottext">ReadPrec [ListContributorInsightsResponse]
 ReadPrec ListContributorInsightsResponse
 Int -&gt; ReadS ListContributorInsightsResponse
 ReadS [ListContributorInsightsResponse]
@@ -447,7 +447,7 @@ readList :: ReadS [ListContributorInsightsResponse]
 $creadList :: ReadS [ListContributorInsightsResponse]
 readsPrec :: Int -&gt; ReadS ListContributorInsightsResponse
 $creadsPrec :: Int -&gt; ReadS ListContributorInsightsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388609"><span id="local-6989586621679388611"><span id="local-6989586621679388613"><span class="annot"><span class="annottext">Int -&gt; ListContributorInsightsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389329"><span id="local-6989586621679389331"><span id="local-6989586621679389333"><span class="annot"><span class="annottext">Int -&gt; ListContributorInsightsResponse -&gt; ShowS
 [ListContributorInsightsResponse] -&gt; ShowS
 ListContributorInsightsResponse -&gt; String
 (Int -&gt; ListContributorInsightsResponse -&gt; ShowS)
@@ -503,8 +503,8 @@ ListContributorInsightsResponse
 </span><span id="line-176"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-177"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDB.ListContributorInsights.html#ListContributorInsightsResponse"><span class="hs-identifier hs-type">ListContributorInsightsResponse</span></a></span><span>
 </span><span id="line-178"></span><span id="newListContributorInsightsResponse"><span class="annot"><span class="annottext">newListContributorInsightsResponse :: Int -&gt; ListContributorInsightsResponse
-</span><a href="Network.AWS.DynamoDB.ListContributorInsights.html#newListContributorInsightsResponse"><span class="hs-identifier hs-var hs-var">newListContributorInsightsResponse</span></a></span></span><span> </span><span id="local-6989586621679388606"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679388606"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DynamoDB.ListContributorInsights.html#newListContributorInsightsResponse"><span class="hs-identifier hs-var hs-var">newListContributorInsightsResponse</span></a></span></span><span> </span><span id="local-6989586621679389326"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679389326"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-179"></span><span>  </span><span class="annot"><span class="annottext">ListContributorInsightsResponse' :: Maybe [ContributorInsightsSummary]
 -&gt; Maybe Text -&gt; Int -&gt; ListContributorInsightsResponse
 </span><a href="Network.AWS.DynamoDB.ListContributorInsights.html#ListContributorInsightsResponse%27"><span class="hs-identifier hs-type">ListContributorInsightsResponse'</span></a></span><span>
@@ -519,7 +519,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-183"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListContributorInsightsResponse' :: Int
 </span><a href="Network.AWS.DynamoDB.ListContributorInsights.html#%24sel%3AhttpStatus%3AListContributorInsightsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679388606"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679389326"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-184"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-185"></span><span>
 </span><span id="line-186"></span><span class="hs-comment">-- | A list of ContributorInsightsSummary.</span><span>
@@ -539,17 +539,17 @@ forall a. Maybe a
      (Maybe [ContributorInsightsSummary])
      (Maybe [ContributorInsightsSummary])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.ListContributorInsights.html#ListContributorInsightsResponse%27"><span class="hs-identifier hs-type">ListContributorInsightsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388605"><span class="annot"><span class="annottext">Maybe [ContributorInsightsSummary]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.ListContributorInsights.html#ListContributorInsightsResponse%27"><span class="hs-identifier hs-type">ListContributorInsightsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389325"><span class="annot"><span class="annottext">Maybe [ContributorInsightsSummary]
 contributorInsightsSummaries :: Maybe [ContributorInsightsSummary]
 $sel:contributorInsightsSummaries:ListContributorInsightsResponse' :: ListContributorInsightsResponse
 -&gt; Maybe [ContributorInsightsSummary]
-</span><a href="#local-6989586621679388605"><span class="hs-identifier hs-var hs-var">contributorInsightsSummaries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ContributorInsightsSummary]
-</span><a href="#local-6989586621679388605"><span class="hs-identifier hs-var">contributorInsightsSummaries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388604"><span class="annot"><span class="annottext">s :: ListContributorInsightsResponse
-</span><a href="#local-6989586621679388604"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.ListContributorInsights.html#ListContributorInsightsResponse%27"><span class="hs-identifier hs-type">ListContributorInsightsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388603"><span class="annot"><span class="annottext">Maybe [ContributorInsightsSummary]
-</span><a href="#local-6989586621679388603"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListContributorInsightsResponse
-</span><a href="#local-6989586621679388604"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contributorInsightsSummaries:ListContributorInsightsResponse' :: Maybe [ContributorInsightsSummary]
+</span><a href="#local-6989586621679389325"><span class="hs-identifier hs-var hs-var">contributorInsightsSummaries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ContributorInsightsSummary]
+</span><a href="#local-6989586621679389325"><span class="hs-identifier hs-var">contributorInsightsSummaries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389324"><span class="annot"><span class="annottext">s :: ListContributorInsightsResponse
+</span><a href="#local-6989586621679389324"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.ListContributorInsights.html#ListContributorInsightsResponse%27"><span class="hs-identifier hs-type">ListContributorInsightsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389323"><span class="annot"><span class="annottext">Maybe [ContributorInsightsSummary]
+</span><a href="#local-6989586621679389323"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListContributorInsightsResponse
+</span><a href="#local-6989586621679389324"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contributorInsightsSummaries:ListContributorInsightsResponse' :: Maybe [ContributorInsightsSummary]
 </span><a href="Network.AWS.DynamoDB.ListContributorInsights.html#%24sel%3AcontributorInsightsSummaries%3AListContributorInsightsResponse%27"><span class="hs-identifier hs-var">contributorInsightsSummaries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ContributorInsightsSummary]
-</span><a href="#local-6989586621679388603"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListContributorInsights.html#ListContributorInsightsResponse"><span class="hs-identifier hs-type">ListContributorInsightsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ContributorInsightsSummary]
+</span><a href="#local-6989586621679389323"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListContributorInsights.html#ListContributorInsightsResponse"><span class="hs-identifier hs-type">ListContributorInsightsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ContributorInsightsSummary]
   -&gt; f (Maybe [ContributorInsightsSummary]))
  -&gt; ListContributorInsightsResponse
  -&gt; f ListContributorInsightsResponse)
@@ -580,8 +580,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [ContributorInsightsSummary]
   [ContributorInsightsSummary]
   [ContributorInsightsSummary]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-189"></span><span>
 </span><span id="line-190"></span><span class="hs-comment">-- | A token to go to the next page if there is one.</span><span>
 </span><span id="line-191"></span><span class="annot"><a href="Network.AWS.DynamoDB.ListContributorInsights.html#listContributorInsightsResponse_nextToken"><span class="hs-identifier hs-type">listContributorInsightsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListContributorInsights.html#ListContributorInsightsResponse"><span class="hs-identifier hs-type">ListContributorInsightsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -597,16 +597,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.ListContributorInsights.html#ListContributorInsightsResponse%27"><span class="hs-identifier hs-type">ListContributorInsightsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388599"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.ListContributorInsights.html#ListContributorInsightsResponse%27"><span class="hs-identifier hs-type">ListContributorInsightsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389319"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListContributorInsightsResponse' :: ListContributorInsightsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679388599"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679388599"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388598"><span class="annot"><span class="annottext">s :: ListContributorInsightsResponse
-</span><a href="#local-6989586621679388598"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.ListContributorInsights.html#ListContributorInsightsResponse%27"><span class="hs-identifier hs-type">ListContributorInsightsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388597"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679388597"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListContributorInsightsResponse
-</span><a href="#local-6989586621679388598"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListContributorInsightsResponse' :: Maybe Text
+</span><a href="#local-6989586621679389319"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679389319"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389318"><span class="annot"><span class="annottext">s :: ListContributorInsightsResponse
+</span><a href="#local-6989586621679389318"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.ListContributorInsights.html#ListContributorInsightsResponse%27"><span class="hs-identifier hs-type">ListContributorInsightsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389317"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679389317"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListContributorInsightsResponse
+</span><a href="#local-6989586621679389318"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListContributorInsightsResponse' :: Maybe Text
 </span><a href="Network.AWS.DynamoDB.ListContributorInsights.html#%24sel%3AnextToken%3AListContributorInsightsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679388597"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListContributorInsights.html#ListContributorInsightsResponse"><span class="hs-identifier hs-type">ListContributorInsightsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679389317"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListContributorInsights.html#ListContributorInsightsResponse"><span class="hs-identifier hs-type">ListContributorInsightsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-193"></span><span>
 </span><span id="line-194"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-195"></span><span class="annot"><a href="Network.AWS.DynamoDB.ListContributorInsights.html#listContributorInsightsResponse_httpStatus"><span class="hs-identifier hs-type">listContributorInsightsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListContributorInsights.html#ListContributorInsightsResponse"><span class="hs-identifier hs-type">ListContributorInsightsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -622,18 +622,18 @@ $sel:nextToken:ListContributorInsightsResponse' :: ListContributorInsightsRespon
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.ListContributorInsights.html#ListContributorInsightsResponse%27"><span class="hs-identifier hs-type">ListContributorInsightsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388596"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.ListContributorInsights.html#ListContributorInsightsResponse%27"><span class="hs-identifier hs-type">ListContributorInsightsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389316"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListContributorInsightsResponse' :: ListContributorInsightsResponse -&gt; Int
-</span><a href="#local-6989586621679388596"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679388596"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388595"><span class="annot"><span class="annottext">s :: ListContributorInsightsResponse
-</span><a href="#local-6989586621679388595"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.ListContributorInsights.html#ListContributorInsightsResponse%27"><span class="hs-identifier hs-type">ListContributorInsightsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388594"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679388594"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListContributorInsightsResponse
-</span><a href="#local-6989586621679388595"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListContributorInsightsResponse' :: Int
+</span><a href="#local-6989586621679389316"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679389316"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389315"><span class="annot"><span class="annottext">s :: ListContributorInsightsResponse
+</span><a href="#local-6989586621679389315"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.ListContributorInsights.html#ListContributorInsightsResponse%27"><span class="hs-identifier hs-type">ListContributorInsightsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389314"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679389314"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListContributorInsightsResponse
+</span><a href="#local-6989586621679389315"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListContributorInsightsResponse' :: Int
 </span><a href="Network.AWS.DynamoDB.ListContributorInsights.html#%24sel%3AhttpStatus%3AListContributorInsightsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679388594"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListContributorInsights.html#ListContributorInsightsResponse"><span class="hs-identifier hs-type">ListContributorInsightsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679389314"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListContributorInsights.html#ListContributorInsightsResponse"><span class="hs-identifier hs-type">ListContributorInsightsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-197"></span><span>
 </span><span id="line-198"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-199"></span><span>  </span><span id="local-6989586621679388592"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-199"></span><span>  </span><span id="local-6989586621679389312"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-200"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.ListContributorInsights.html#ListContributorInsightsResponse"><span class="hs-identifier hs-type">ListContributorInsightsResponse</span></a></span></span><span>
 </span><span id="line-201"></span></pre></body></html>

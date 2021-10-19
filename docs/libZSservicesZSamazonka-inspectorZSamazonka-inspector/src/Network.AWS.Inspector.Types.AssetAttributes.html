@@ -29,38 +29,38 @@
 </span><span id="line-29"></span><span class="hs-comment">-- generated.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newAssetAttributes' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679249165"><span id="local-6989586621679249166"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssetAttributes"><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#AssetAttributes"><span class="hs-identifier hs-var">AssetAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssetAttributes%27"><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#AssetAttributes%27"><span class="hs-identifier hs-var">AssetAttributes'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679249530"><span id="local-6989586621679249531"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssetAttributes"><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#AssetAttributes"><span class="hs-identifier hs-var">AssetAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssetAttributes%27"><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#AssetAttributes%27"><span class="hs-identifier hs-var">AssetAttributes'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The hostname of the EC2 instance where the finding is generated.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Ahostname%3AAssetAttributes%27"><span class="annot"><span class="annottext">AssetAttributes -&gt; Maybe Text
 </span><a href="Network.AWS.Inspector.Types.AssetAttributes.html#%24sel%3Ahostname%3AAssetAttributes%27"><span class="hs-identifier hs-var hs-var">hostname</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The ID of the agent that is installed on the EC2 instance where the</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- finding is generated.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AagentId%3AAssetAttributes%27"><span class="annot"><span class="annottext">AssetAttributes -&gt; Maybe Text
-</span><a href="Network.AWS.Inspector.Types.AssetAttributes.html#%24sel%3AagentId%3AAssetAttributes%27"><span class="hs-identifier hs-var hs-var">agentId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The ID of the Amazon Machine Image (AMI) that is installed on the EC2</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- instance where the finding is generated.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3AamiId%3AAssetAttributes%27"><span class="annot"><span class="annottext">AssetAttributes -&gt; Maybe Text
-</span><a href="Network.AWS.Inspector.Types.AssetAttributes.html#%24sel%3AamiId%3AAssetAttributes%27"><span class="hs-identifier hs-var hs-var">amiId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The tags related to the EC2 instance where the finding is generated.</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3Atags%3AAssetAttributes%27"><span class="annot"><span class="annottext">AssetAttributes -&gt; Maybe [Tag]
-</span><a href="Network.AWS.Inspector.Types.AssetAttributes.html#%24sel%3Atags%3AAssetAttributes%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Inspector.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The list of IP v4 addresses of the EC2 instance where the finding is</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- generated.</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3Aipv4Addresses%3AAssetAttributes%27"><span class="annot"><span class="annottext">AssetAttributes -&gt; Maybe [Text]
-</span><a href="Network.AWS.Inspector.Types.AssetAttributes.html#%24sel%3Aipv4Addresses%3AAssetAttributes%27"><span class="hs-identifier hs-var hs-var">ipv4Addresses</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | An array of the network interfaces interacting with the EC2 instance</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- where the finding is generated.</span><span>
-</span><span id="line-48"></span><span>    </span><span id="%24sel%3AnetworkInterfaces%3AAssetAttributes%27"><span class="annot"><span class="annottext">AssetAttributes -&gt; Maybe [NetworkInterface]
-</span><a href="Network.AWS.Inspector.Types.AssetAttributes.html#%24sel%3AnetworkInterfaces%3AAssetAttributes%27"><span class="hs-identifier hs-var hs-var">networkInterfaces</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Inspector.Types.NetworkInterface.html#NetworkInterface"><span class="hs-identifier hs-type">NetworkInterface</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The Auto Scaling group of the EC2 instance where the finding is</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- generated.</span><span>
-</span><span id="line-51"></span><span>    </span><span id="%24sel%3AautoScalingGroup%3AAssetAttributes%27"><span class="annot"><span class="annottext">AssetAttributes -&gt; Maybe Text
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The Auto Scaling group of the EC2 instance where the finding is</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- generated.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AautoScalingGroup%3AAssetAttributes%27"><span class="annot"><span class="annottext">AssetAttributes -&gt; Maybe Text
 </span><a href="Network.AWS.Inspector.Types.AssetAttributes.html#%24sel%3AautoScalingGroup%3AAssetAttributes%27"><span class="hs-identifier hs-var hs-var">autoScalingGroup</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | An array of the network interfaces interacting with the EC2 instance</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- where the finding is generated.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AnetworkInterfaces%3AAssetAttributes%27"><span class="annot"><span class="annottext">AssetAttributes -&gt; Maybe [NetworkInterface]
+</span><a href="Network.AWS.Inspector.Types.AssetAttributes.html#%24sel%3AnetworkInterfaces%3AAssetAttributes%27"><span class="hs-identifier hs-var hs-var">networkInterfaces</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Inspector.Types.NetworkInterface.html#NetworkInterface"><span class="hs-identifier hs-type">NetworkInterface</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The list of IP v4 addresses of the EC2 instance where the finding is</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- generated.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Aipv4Addresses%3AAssetAttributes%27"><span class="annot"><span class="annottext">AssetAttributes -&gt; Maybe [Text]
+</span><a href="Network.AWS.Inspector.Types.AssetAttributes.html#%24sel%3Aipv4Addresses%3AAssetAttributes%27"><span class="hs-identifier hs-var hs-var">ipv4Addresses</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The ID of the agent that is installed on the EC2 instance where the</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- finding is generated.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AagentId%3AAssetAttributes%27"><span class="annot"><span class="annottext">AssetAttributes -&gt; Maybe Text
+</span><a href="Network.AWS.Inspector.Types.AssetAttributes.html#%24sel%3AagentId%3AAssetAttributes%27"><span class="hs-identifier hs-var hs-var">agentId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The ID of the Amazon Machine Image (AMI) that is installed on the EC2</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- instance where the finding is generated.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AamiId%3AAssetAttributes%27"><span class="annot"><span class="annottext">AssetAttributes -&gt; Maybe Text
+</span><a href="Network.AWS.Inspector.Types.AssetAttributes.html#%24sel%3AamiId%3AAssetAttributes%27"><span class="hs-identifier hs-var hs-var">amiId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The tags related to the EC2 instance where the finding is generated.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3Atags%3AAssetAttributes%27"><span class="annot"><span class="annottext">AssetAttributes -&gt; Maybe [Tag]
+</span><a href="Network.AWS.Inspector.Types.AssetAttributes.html#%24sel%3Atags%3AAssetAttributes%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Inspector.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
 </span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The schema version of this data type.</span><span>
 </span><span id="line-53"></span><span>    </span><span id="%24sel%3AschemaVersion%3AAssetAttributes%27"><span class="annot"><span class="annottext">AssetAttributes -&gt; Natural
 </span><a href="Network.AWS.Inspector.Types.AssetAttributes.html#%24sel%3AschemaVersion%3AAssetAttributes%27"><span class="hs-identifier hs-var hs-var">schemaVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679249152"><span id="local-6989586621679249154"><span class="annot"><span class="annottext">AssetAttributes -&gt; AssetAttributes -&gt; Bool
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679249517"><span id="local-6989586621679249519"><span class="annot"><span class="annottext">AssetAttributes -&gt; AssetAttributes -&gt; Bool
 (AssetAttributes -&gt; AssetAttributes -&gt; Bool)
 -&gt; (AssetAttributes -&gt; AssetAttributes -&gt; Bool)
 -&gt; Eq AssetAttributes
@@ -69,7 +69,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AssetAttributes -&gt; AssetAttributes -&gt; Bool
 == :: AssetAttributes -&gt; AssetAttributes -&gt; Bool
 $c== :: AssetAttributes -&gt; AssetAttributes -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249143"><span id="local-6989586621679249145"><span id="local-6989586621679249147"><span id="local-6989586621679249149"><span class="annot"><span class="annottext">ReadPrec [AssetAttributes]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249508"><span id="local-6989586621679249510"><span id="local-6989586621679249512"><span id="local-6989586621679249514"><span class="annot"><span class="annottext">ReadPrec [AssetAttributes]
 ReadPrec AssetAttributes
 Int -&gt; ReadS AssetAttributes
 ReadS [AssetAttributes]
@@ -89,7 +89,7 @@ readList :: ReadS [AssetAttributes]
 $creadList :: ReadS [AssetAttributes]
 readsPrec :: Int -&gt; ReadS AssetAttributes
 $creadsPrec :: Int -&gt; ReadS AssetAttributes
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249136"><span id="local-6989586621679249138"><span id="local-6989586621679249140"><span class="annot"><span class="annottext">Int -&gt; AssetAttributes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249501"><span id="local-6989586621679249503"><span id="local-6989586621679249505"><span class="annot"><span class="annottext">Int -&gt; AssetAttributes -&gt; ShowS
 [AssetAttributes] -&gt; ShowS
 AssetAttributes -&gt; String
 (Int -&gt; AssetAttributes -&gt; ShowS)
@@ -125,22 +125,22 @@ $cfrom :: forall x. AssetAttributes -&gt; Rep AssetAttributes x
 </span><span id="line-64"></span><span class="hs-comment">--</span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- 'hostname', 'assetAttributes_hostname' - The hostname of the EC2 instance where the finding is generated.</span><span>
 </span><span id="line-66"></span><span class="hs-comment">--</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- 'agentId', 'assetAttributes_agentId' - The ID of the agent that is installed on the EC2 instance where the</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- finding is generated.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'autoScalingGroup', 'assetAttributes_autoScalingGroup' - The Auto Scaling group of the EC2 instance where the finding is</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- generated.</span><span>
 </span><span id="line-69"></span><span class="hs-comment">--</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- 'amiId', 'assetAttributes_amiId' - The ID of the Amazon Machine Image (AMI) that is installed on the EC2</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- instance where the finding is generated.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'networkInterfaces', 'assetAttributes_networkInterfaces' - An array of the network interfaces interacting with the EC2 instance</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- where the finding is generated.</span><span>
 </span><span id="line-72"></span><span class="hs-comment">--</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- 'tags', 'assetAttributes_tags' - The tags related to the EC2 instance where the finding is generated.</span><span>
-</span><span id="line-74"></span><span class="hs-comment">--</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- 'ipv4Addresses', 'assetAttributes_ipv4Addresses' - The list of IP v4 addresses of the EC2 instance where the finding is</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- generated.</span><span>
-</span><span id="line-77"></span><span class="hs-comment">--</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- 'networkInterfaces', 'assetAttributes_networkInterfaces' - An array of the network interfaces interacting with the EC2 instance</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- where the finding is generated.</span><span>
-</span><span id="line-80"></span><span class="hs-comment">--</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- 'autoScalingGroup', 'assetAttributes_autoScalingGroup' - The Auto Scaling group of the EC2 instance where the finding is</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- generated.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'ipv4Addresses', 'assetAttributes_ipv4Addresses' - The list of IP v4 addresses of the EC2 instance where the finding is</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- generated.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'agentId', 'assetAttributes_agentId' - The ID of the agent that is installed on the EC2 instance where the</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- finding is generated.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'amiId', 'assetAttributes_amiId' - The ID of the Amazon Machine Image (AMI) that is installed on the EC2</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- instance where the finding is generated.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'tags', 'assetAttributes_tags' - The tags related to the EC2 instance where the finding is generated.</span><span>
 </span><span id="line-83"></span><span class="hs-comment">--</span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- 'schemaVersion', 'assetAttributes_schemaVersion' - The schema version of this data type.</span><span>
 </span><span id="line-85"></span><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#newAssetAttributes"><span class="hs-identifier hs-type">newAssetAttributes</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -148,15 +148,15 @@ $cfrom :: forall x. AssetAttributes -&gt; Rep AssetAttributes x
 </span><span id="line-87"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-88"></span><span>  </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#AssetAttributes"><span class="hs-identifier hs-type">AssetAttributes</span></a></span><span>
 </span><span id="line-89"></span><span id="newAssetAttributes"><span class="annot"><span class="annottext">newAssetAttributes :: Natural -&gt; AssetAttributes
-</span><a href="Network.AWS.Inspector.Types.AssetAttributes.html#newAssetAttributes"><span class="hs-identifier hs-var hs-var">newAssetAttributes</span></a></span></span><span> </span><span id="local-6989586621679249130"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679249130"><span class="hs-identifier hs-var">pSchemaVersion_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Inspector.Types.AssetAttributes.html#newAssetAttributes"><span class="hs-identifier hs-var hs-var">newAssetAttributes</span></a></span></span><span> </span><span id="local-6989586621679249495"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679249495"><span class="hs-identifier hs-var">pSchemaVersion_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-90"></span><span>  </span><span class="annot"><span class="annottext">AssetAttributes' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [NetworkInterface]
+-&gt; Maybe [Text]
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe [Tag]
--&gt; Maybe [Text]
--&gt; Maybe [NetworkInterface]
--&gt; Maybe Text
 -&gt; Natural
 -&gt; AssetAttributes
 </span><a href="Network.AWS.Inspector.Types.AssetAttributes.html#AssetAttributes%27"><span class="hs-identifier hs-type">AssetAttributes'</span></a></span><span>
@@ -164,33 +164,33 @@ $cfrom :: forall x. AssetAttributes -&gt; Rep AssetAttributes x
 </span><a href="Network.AWS.Inspector.Types.AssetAttributes.html#%24sel%3Ahostname%3AAssetAttributes%27"><span class="hs-identifier hs-var">hostname</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:agentId:AssetAttributes' :: Maybe Text
-</span><a href="Network.AWS.Inspector.Types.AssetAttributes.html#%24sel%3AagentId%3AAssetAttributes%27"><span class="hs-identifier hs-var">agentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:autoScalingGroup:AssetAttributes' :: Maybe Text
+</span><a href="Network.AWS.Inspector.Types.AssetAttributes.html#%24sel%3AautoScalingGroup%3AAssetAttributes%27"><span class="hs-identifier hs-var">autoScalingGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:amiId:AssetAttributes' :: Maybe Text
-</span><a href="Network.AWS.Inspector.Types.AssetAttributes.html#%24sel%3AamiId%3AAssetAttributes%27"><span class="hs-identifier hs-var">amiId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:AssetAttributes' :: Maybe [Tag]
-</span><a href="Network.AWS.Inspector.Types.AssetAttributes.html#%24sel%3Atags%3AAssetAttributes%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:ipv4Addresses:AssetAttributes' :: Maybe [Text]
-</span><a href="Network.AWS.Inspector.Types.AssetAttributes.html#%24sel%3Aipv4Addresses%3AAssetAttributes%27"><span class="hs-identifier hs-var">ipv4Addresses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:networkInterfaces:AssetAttributes' :: Maybe [NetworkInterface]
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:networkInterfaces:AssetAttributes' :: Maybe [NetworkInterface]
 </span><a href="Network.AWS.Inspector.Types.AssetAttributes.html#%24sel%3AnetworkInterfaces%3AAssetAttributes%27"><span class="hs-identifier hs-var">networkInterfaces</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [NetworkInterface]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:autoScalingGroup:AssetAttributes' :: Maybe Text
-</span><a href="Network.AWS.Inspector.Types.AssetAttributes.html#%24sel%3AautoScalingGroup%3AAssetAttributes%27"><span class="hs-identifier hs-var">autoScalingGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:ipv4Addresses:AssetAttributes' :: Maybe [Text]
+</span><a href="Network.AWS.Inspector.Types.AssetAttributes.html#%24sel%3Aipv4Addresses%3AAssetAttributes%27"><span class="hs-identifier hs-var">ipv4Addresses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:agentId:AssetAttributes' :: Maybe Text
+</span><a href="Network.AWS.Inspector.Types.AssetAttributes.html#%24sel%3AagentId%3AAssetAttributes%27"><span class="hs-identifier hs-var">agentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:amiId:AssetAttributes' :: Maybe Text
+</span><a href="Network.AWS.Inspector.Types.AssetAttributes.html#%24sel%3AamiId%3AAssetAttributes%27"><span class="hs-identifier hs-var">amiId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:AssetAttributes' :: Maybe [Tag]
+</span><a href="Network.AWS.Inspector.Types.AssetAttributes.html#%24sel%3Atags%3AAssetAttributes%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:schemaVersion:AssetAttributes' :: Natural
 </span><a href="Network.AWS.Inspector.Types.AssetAttributes.html#%24sel%3AschemaVersion%3AAssetAttributes%27"><span class="hs-identifier hs-var">schemaVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679249130"><span class="hs-identifier hs-var">pSchemaVersion_</span></a></span><span>
+</span><a href="#local-6989586621679249495"><span class="hs-identifier hs-var">pSchemaVersion_</span></a></span><span>
 </span><span id="line-99"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- | The hostname of the EC2 instance where the finding is generated.</span><span>
@@ -201,131 +201,41 @@ forall a. Maybe a
 -&gt; (AssetAttributes -&gt; Maybe Text -&gt; AssetAttributes)
 -&gt; Lens AssetAttributes AssetAttributes (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#AssetAttributes%27"><span class="hs-identifier hs-type">AssetAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249126"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#AssetAttributes%27"><span class="hs-identifier hs-type">AssetAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249491"><span class="annot"><span class="annottext">Maybe Text
 hostname :: Maybe Text
 $sel:hostname:AssetAttributes' :: AssetAttributes -&gt; Maybe Text
-</span><a href="#local-6989586621679249126"><span class="hs-identifier hs-var hs-var">hostname</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679249126"><span class="hs-identifier hs-var">hostname</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249125"><span class="annot"><span class="annottext">s :: AssetAttributes
-</span><a href="#local-6989586621679249125"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#AssetAttributes%27"><span class="hs-identifier hs-type">AssetAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249124"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679249124"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssetAttributes
-</span><a href="#local-6989586621679249125"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hostname:AssetAttributes' :: Maybe Text
+</span><a href="#local-6989586621679249491"><span class="hs-identifier hs-var hs-var">hostname</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249491"><span class="hs-identifier hs-var">hostname</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249490"><span class="annot"><span class="annottext">s :: AssetAttributes
+</span><a href="#local-6989586621679249490"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#AssetAttributes%27"><span class="hs-identifier hs-type">AssetAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249489"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249489"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssetAttributes
+</span><a href="#local-6989586621679249490"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hostname:AssetAttributes' :: Maybe Text
 </span><a href="Network.AWS.Inspector.Types.AssetAttributes.html#%24sel%3Ahostname%3AAssetAttributes%27"><span class="hs-identifier hs-var">hostname</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679249124"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#AssetAttributes"><span class="hs-identifier hs-type">AssetAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679249489"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#AssetAttributes"><span class="hs-identifier hs-type">AssetAttributes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- | The ID of the agent that is installed on the EC2 instance where the</span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- finding is generated.</span><span>
-</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#assetAttributes_agentId"><span class="hs-identifier hs-type">assetAttributes_agentId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#AssetAttributes"><span class="hs-identifier hs-type">AssetAttributes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-108"></span><span id="assetAttributes_agentId"><span class="annot"><span class="annottext">assetAttributes_agentId :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-105"></span><span class="hs-comment">-- | The Auto Scaling group of the EC2 instance where the finding is</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- generated.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#assetAttributes_autoScalingGroup"><span class="hs-identifier hs-type">assetAttributes_autoScalingGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#AssetAttributes"><span class="hs-identifier hs-type">AssetAttributes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span id="assetAttributes_autoScalingGroup"><span class="annot"><span class="annottext">assetAttributes_autoScalingGroup :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; AssetAttributes -&gt; f AssetAttributes
-</span><a href="Network.AWS.Inspector.Types.AssetAttributes.html#assetAttributes_agentId"><span class="hs-identifier hs-var hs-var">assetAttributes_agentId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssetAttributes -&gt; Maybe Text)
+</span><a href="Network.AWS.Inspector.Types.AssetAttributes.html#assetAttributes_autoScalingGroup"><span class="hs-identifier hs-var hs-var">assetAttributes_autoScalingGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssetAttributes -&gt; Maybe Text)
 -&gt; (AssetAttributes -&gt; Maybe Text -&gt; AssetAttributes)
 -&gt; Lens AssetAttributes AssetAttributes (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#AssetAttributes%27"><span class="hs-identifier hs-type">AssetAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249122"><span class="annot"><span class="annottext">Maybe Text
-agentId :: Maybe Text
-$sel:agentId:AssetAttributes' :: AssetAttributes -&gt; Maybe Text
-</span><a href="#local-6989586621679249122"><span class="hs-identifier hs-var hs-var">agentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679249122"><span class="hs-identifier hs-var">agentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249121"><span class="annot"><span class="annottext">s :: AssetAttributes
-</span><a href="#local-6989586621679249121"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#AssetAttributes%27"><span class="hs-identifier hs-type">AssetAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249120"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679249120"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssetAttributes
-</span><a href="#local-6989586621679249121"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:agentId:AssetAttributes' :: Maybe Text
-</span><a href="Network.AWS.Inspector.Types.AssetAttributes.html#%24sel%3AagentId%3AAssetAttributes%27"><span class="hs-identifier hs-var">agentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679249120"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#AssetAttributes"><span class="hs-identifier hs-type">AssetAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#AssetAttributes%27"><span class="hs-identifier hs-type">AssetAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249487"><span class="annot"><span class="annottext">Maybe Text
+autoScalingGroup :: Maybe Text
+$sel:autoScalingGroup:AssetAttributes' :: AssetAttributes -&gt; Maybe Text
+</span><a href="#local-6989586621679249487"><span class="hs-identifier hs-var hs-var">autoScalingGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249487"><span class="hs-identifier hs-var">autoScalingGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249486"><span class="annot"><span class="annottext">s :: AssetAttributes
+</span><a href="#local-6989586621679249486"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#AssetAttributes%27"><span class="hs-identifier hs-type">AssetAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249485"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249485"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssetAttributes
+</span><a href="#local-6989586621679249486"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoScalingGroup:AssetAttributes' :: Maybe Text
+</span><a href="Network.AWS.Inspector.Types.AssetAttributes.html#%24sel%3AautoScalingGroup%3AAssetAttributes%27"><span class="hs-identifier hs-var">autoScalingGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249485"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#AssetAttributes"><span class="hs-identifier hs-type">AssetAttributes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- | The ID of the Amazon Machine Image (AMI) that is installed on the EC2</span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- instance where the finding is generated.</span><span>
-</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#assetAttributes_amiId"><span class="hs-identifier hs-type">assetAttributes_amiId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#AssetAttributes"><span class="hs-identifier hs-type">AssetAttributes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-113"></span><span id="assetAttributes_amiId"><span class="annot"><span class="annottext">assetAttributes_amiId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; AssetAttributes -&gt; f AssetAttributes
-</span><a href="Network.AWS.Inspector.Types.AssetAttributes.html#assetAttributes_amiId"><span class="hs-identifier hs-var hs-var">assetAttributes_amiId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssetAttributes -&gt; Maybe Text)
--&gt; (AssetAttributes -&gt; Maybe Text -&gt; AssetAttributes)
--&gt; Lens AssetAttributes AssetAttributes (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#AssetAttributes%27"><span class="hs-identifier hs-type">AssetAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249118"><span class="annot"><span class="annottext">Maybe Text
-amiId :: Maybe Text
-$sel:amiId:AssetAttributes' :: AssetAttributes -&gt; Maybe Text
-</span><a href="#local-6989586621679249118"><span class="hs-identifier hs-var hs-var">amiId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679249118"><span class="hs-identifier hs-var">amiId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249117"><span class="annot"><span class="annottext">s :: AssetAttributes
-</span><a href="#local-6989586621679249117"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#AssetAttributes%27"><span class="hs-identifier hs-type">AssetAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249116"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679249116"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssetAttributes
-</span><a href="#local-6989586621679249117"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:amiId:AssetAttributes' :: Maybe Text
-</span><a href="Network.AWS.Inspector.Types.AssetAttributes.html#%24sel%3AamiId%3AAssetAttributes%27"><span class="hs-identifier hs-var">amiId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679249116"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#AssetAttributes"><span class="hs-identifier hs-type">AssetAttributes</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- | The tags related to the EC2 instance where the finding is generated.</span><span>
-</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#assetAttributes_tags"><span class="hs-identifier hs-type">assetAttributes_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#AssetAttributes"><span class="hs-identifier hs-type">AssetAttributes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Inspector.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-117"></span><span id="assetAttributes_tags"><span class="annot"><span class="annottext">assetAttributes_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
--&gt; AssetAttributes -&gt; f AssetAttributes
-</span><a href="Network.AWS.Inspector.Types.AssetAttributes.html#assetAttributes_tags"><span class="hs-identifier hs-var hs-var">assetAttributes_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssetAttributes -&gt; Maybe [Tag])
--&gt; (AssetAttributes -&gt; Maybe [Tag] -&gt; AssetAttributes)
--&gt; Lens AssetAttributes AssetAttributes (Maybe [Tag]) (Maybe [Tag])
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#AssetAttributes%27"><span class="hs-identifier hs-type">AssetAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249114"><span class="annot"><span class="annottext">Maybe [Tag]
-tags :: Maybe [Tag]
-$sel:tags:AssetAttributes' :: AssetAttributes -&gt; Maybe [Tag]
-</span><a href="#local-6989586621679249114"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679249114"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249113"><span class="annot"><span class="annottext">s :: AssetAttributes
-</span><a href="#local-6989586621679249113"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#AssetAttributes%27"><span class="hs-identifier hs-type">AssetAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249112"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679249112"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssetAttributes
-</span><a href="#local-6989586621679249113"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:AssetAttributes' :: Maybe [Tag]
-</span><a href="Network.AWS.Inspector.Types.AssetAttributes.html#%24sel%3Atags%3AAssetAttributes%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679249112"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#AssetAttributes"><span class="hs-identifier hs-type">AssetAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
- -&gt; AssetAttributes -&gt; f AssetAttributes)
--&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
-    -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
--&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
--&gt; AssetAttributes
--&gt; f AssetAttributes
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
--&gt; Iso (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag])
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- | The list of IP v4 addresses of the EC2 instance where the finding is</span><span>
-</span><span id="line-120"></span><span class="hs-comment">-- generated.</span><span>
-</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#assetAttributes_ipv4Addresses"><span class="hs-identifier hs-type">assetAttributes_ipv4Addresses</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#AssetAttributes"><span class="hs-identifier hs-type">AssetAttributes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-122"></span><span id="assetAttributes_ipv4Addresses"><span class="annot"><span class="annottext">assetAttributes_ipv4Addresses :: (Maybe [Text] -&gt; f (Maybe [Text]))
--&gt; AssetAttributes -&gt; f AssetAttributes
-</span><a href="Network.AWS.Inspector.Types.AssetAttributes.html#assetAttributes_ipv4Addresses"><span class="hs-identifier hs-var hs-var">assetAttributes_ipv4Addresses</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssetAttributes -&gt; Maybe [Text])
--&gt; (AssetAttributes -&gt; Maybe [Text] -&gt; AssetAttributes)
--&gt; Lens
-     AssetAttributes AssetAttributes (Maybe [Text]) (Maybe [Text])
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#AssetAttributes%27"><span class="hs-identifier hs-type">AssetAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249107"><span class="annot"><span class="annottext">Maybe [Text]
-ipv4Addresses :: Maybe [Text]
-$sel:ipv4Addresses:AssetAttributes' :: AssetAttributes -&gt; Maybe [Text]
-</span><a href="#local-6989586621679249107"><span class="hs-identifier hs-var hs-var">ipv4Addresses</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679249107"><span class="hs-identifier hs-var">ipv4Addresses</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249106"><span class="annot"><span class="annottext">s :: AssetAttributes
-</span><a href="#local-6989586621679249106"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#AssetAttributes%27"><span class="hs-identifier hs-type">AssetAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249105"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679249105"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssetAttributes
-</span><a href="#local-6989586621679249106"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipv4Addresses:AssetAttributes' :: Maybe [Text]
-</span><a href="Network.AWS.Inspector.Types.AssetAttributes.html#%24sel%3Aipv4Addresses%3AAssetAttributes%27"><span class="hs-identifier hs-var">ipv4Addresses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679249105"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#AssetAttributes"><span class="hs-identifier hs-type">AssetAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
- -&gt; AssetAttributes -&gt; f AssetAttributes)
--&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
-    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
--&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
--&gt; AssetAttributes
--&gt; f AssetAttributes
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
--&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- | An array of the network interfaces interacting with the EC2 instance</span><span>
-</span><span id="line-125"></span><span class="hs-comment">-- where the finding is generated.</span><span>
-</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#assetAttributes_networkInterfaces"><span class="hs-identifier hs-type">assetAttributes_networkInterfaces</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#AssetAttributes"><span class="hs-identifier hs-type">AssetAttributes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Inspector.Types.NetworkInterface.html#NetworkInterface"><span class="hs-identifier hs-type">NetworkInterface</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-127"></span><span id="assetAttributes_networkInterfaces"><span class="annot"><span class="annottext">assetAttributes_networkInterfaces :: (Maybe [NetworkInterface] -&gt; f (Maybe [NetworkInterface]))
+</span><span id="line-110"></span><span class="hs-comment">-- | An array of the network interfaces interacting with the EC2 instance</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- where the finding is generated.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#assetAttributes_networkInterfaces"><span class="hs-identifier hs-type">assetAttributes_networkInterfaces</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#AssetAttributes"><span class="hs-identifier hs-type">AssetAttributes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Inspector.Types.NetworkInterface.html#NetworkInterface"><span class="hs-identifier hs-type">NetworkInterface</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="assetAttributes_networkInterfaces"><span class="annot"><span class="annottext">assetAttributes_networkInterfaces :: (Maybe [NetworkInterface] -&gt; f (Maybe [NetworkInterface]))
 -&gt; AssetAttributes -&gt; f AssetAttributes
 </span><a href="Network.AWS.Inspector.Types.AssetAttributes.html#assetAttributes_networkInterfaces"><span class="hs-identifier hs-var hs-var">assetAttributes_networkInterfaces</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssetAttributes -&gt; Maybe [NetworkInterface])
 -&gt; (AssetAttributes -&gt; Maybe [NetworkInterface] -&gt; AssetAttributes)
@@ -335,16 +245,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe [NetworkInterface])
      (Maybe [NetworkInterface])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#AssetAttributes%27"><span class="hs-identifier hs-type">AssetAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249103"><span class="annot"><span class="annottext">Maybe [NetworkInterface]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#AssetAttributes%27"><span class="hs-identifier hs-type">AssetAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249483"><span class="annot"><span class="annottext">Maybe [NetworkInterface]
 networkInterfaces :: Maybe [NetworkInterface]
 $sel:networkInterfaces:AssetAttributes' :: AssetAttributes -&gt; Maybe [NetworkInterface]
-</span><a href="#local-6989586621679249103"><span class="hs-identifier hs-var hs-var">networkInterfaces</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [NetworkInterface]
-</span><a href="#local-6989586621679249103"><span class="hs-identifier hs-var">networkInterfaces</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249102"><span class="annot"><span class="annottext">s :: AssetAttributes
-</span><a href="#local-6989586621679249102"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#AssetAttributes%27"><span class="hs-identifier hs-type">AssetAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249101"><span class="annot"><span class="annottext">Maybe [NetworkInterface]
-</span><a href="#local-6989586621679249101"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssetAttributes
-</span><a href="#local-6989586621679249102"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkInterfaces:AssetAttributes' :: Maybe [NetworkInterface]
+</span><a href="#local-6989586621679249483"><span class="hs-identifier hs-var hs-var">networkInterfaces</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [NetworkInterface]
+</span><a href="#local-6989586621679249483"><span class="hs-identifier hs-var">networkInterfaces</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249482"><span class="annot"><span class="annottext">s :: AssetAttributes
+</span><a href="#local-6989586621679249482"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#AssetAttributes%27"><span class="hs-identifier hs-type">AssetAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249481"><span class="annot"><span class="annottext">Maybe [NetworkInterface]
+</span><a href="#local-6989586621679249481"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssetAttributes
+</span><a href="#local-6989586621679249482"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkInterfaces:AssetAttributes' :: Maybe [NetworkInterface]
 </span><a href="Network.AWS.Inspector.Types.AssetAttributes.html#%24sel%3AnetworkInterfaces%3AAssetAttributes%27"><span class="hs-identifier hs-var">networkInterfaces</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [NetworkInterface]
-</span><a href="#local-6989586621679249101"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#AssetAttributes"><span class="hs-identifier hs-type">AssetAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [NetworkInterface] -&gt; f (Maybe [NetworkInterface]))
+</span><a href="#local-6989586621679249481"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#AssetAttributes"><span class="hs-identifier hs-type">AssetAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [NetworkInterface] -&gt; f (Maybe [NetworkInterface]))
  -&gt; AssetAttributes -&gt; f AssetAttributes)
 -&gt; ((Maybe [NetworkInterface] -&gt; f (Maybe [NetworkInterface]))
     -&gt; Maybe [NetworkInterface] -&gt; f (Maybe [NetworkInterface]))
@@ -370,28 +280,118 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [NetworkInterface]
   [NetworkInterface]
   [NetworkInterface]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- | The Auto Scaling group of the EC2 instance where the finding is</span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- generated.</span><span>
-</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#assetAttributes_autoScalingGroup"><span class="hs-identifier hs-type">assetAttributes_autoScalingGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#AssetAttributes"><span class="hs-identifier hs-type">AssetAttributes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-132"></span><span id="assetAttributes_autoScalingGroup"><span class="annot"><span class="annottext">assetAttributes_autoScalingGroup :: (Maybe Text -&gt; f (Maybe Text))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | The list of IP v4 addresses of the EC2 instance where the finding is</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- generated.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#assetAttributes_ipv4Addresses"><span class="hs-identifier hs-type">assetAttributes_ipv4Addresses</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#AssetAttributes"><span class="hs-identifier hs-type">AssetAttributes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="assetAttributes_ipv4Addresses"><span class="annot"><span class="annottext">assetAttributes_ipv4Addresses :: (Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; AssetAttributes -&gt; f AssetAttributes
-</span><a href="Network.AWS.Inspector.Types.AssetAttributes.html#assetAttributes_autoScalingGroup"><span class="hs-identifier hs-var hs-var">assetAttributes_autoScalingGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssetAttributes -&gt; Maybe Text)
+</span><a href="Network.AWS.Inspector.Types.AssetAttributes.html#assetAttributes_ipv4Addresses"><span class="hs-identifier hs-var hs-var">assetAttributes_ipv4Addresses</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssetAttributes -&gt; Maybe [Text])
+-&gt; (AssetAttributes -&gt; Maybe [Text] -&gt; AssetAttributes)
+-&gt; Lens
+     AssetAttributes AssetAttributes (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#AssetAttributes%27"><span class="hs-identifier hs-type">AssetAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249476"><span class="annot"><span class="annottext">Maybe [Text]
+ipv4Addresses :: Maybe [Text]
+$sel:ipv4Addresses:AssetAttributes' :: AssetAttributes -&gt; Maybe [Text]
+</span><a href="#local-6989586621679249476"><span class="hs-identifier hs-var hs-var">ipv4Addresses</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679249476"><span class="hs-identifier hs-var">ipv4Addresses</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249475"><span class="annot"><span class="annottext">s :: AssetAttributes
+</span><a href="#local-6989586621679249475"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#AssetAttributes%27"><span class="hs-identifier hs-type">AssetAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249474"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679249474"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssetAttributes
+</span><a href="#local-6989586621679249475"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipv4Addresses:AssetAttributes' :: Maybe [Text]
+</span><a href="Network.AWS.Inspector.Types.AssetAttributes.html#%24sel%3Aipv4Addresses%3AAssetAttributes%27"><span class="hs-identifier hs-var">ipv4Addresses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679249474"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#AssetAttributes"><span class="hs-identifier hs-type">AssetAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; AssetAttributes -&gt; f AssetAttributes)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; AssetAttributes
+-&gt; f AssetAttributes
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | The ID of the agent that is installed on the EC2 instance where the</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- finding is generated.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#assetAttributes_agentId"><span class="hs-identifier hs-type">assetAttributes_agentId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#AssetAttributes"><span class="hs-identifier hs-type">AssetAttributes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span id="assetAttributes_agentId"><span class="annot"><span class="annottext">assetAttributes_agentId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AssetAttributes -&gt; f AssetAttributes
+</span><a href="Network.AWS.Inspector.Types.AssetAttributes.html#assetAttributes_agentId"><span class="hs-identifier hs-var hs-var">assetAttributes_agentId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssetAttributes -&gt; Maybe Text)
 -&gt; (AssetAttributes -&gt; Maybe Text -&gt; AssetAttributes)
 -&gt; Lens AssetAttributes AssetAttributes (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#AssetAttributes%27"><span class="hs-identifier hs-type">AssetAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249099"><span class="annot"><span class="annottext">Maybe Text
-autoScalingGroup :: Maybe Text
-$sel:autoScalingGroup:AssetAttributes' :: AssetAttributes -&gt; Maybe Text
-</span><a href="#local-6989586621679249099"><span class="hs-identifier hs-var hs-var">autoScalingGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679249099"><span class="hs-identifier hs-var">autoScalingGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249098"><span class="annot"><span class="annottext">s :: AssetAttributes
-</span><a href="#local-6989586621679249098"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#AssetAttributes%27"><span class="hs-identifier hs-type">AssetAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249097"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679249097"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssetAttributes
-</span><a href="#local-6989586621679249098"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoScalingGroup:AssetAttributes' :: Maybe Text
-</span><a href="Network.AWS.Inspector.Types.AssetAttributes.html#%24sel%3AautoScalingGroup%3AAssetAttributes%27"><span class="hs-identifier hs-var">autoScalingGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679249097"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#AssetAttributes"><span class="hs-identifier hs-type">AssetAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#AssetAttributes%27"><span class="hs-identifier hs-type">AssetAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249472"><span class="annot"><span class="annottext">Maybe Text
+agentId :: Maybe Text
+$sel:agentId:AssetAttributes' :: AssetAttributes -&gt; Maybe Text
+</span><a href="#local-6989586621679249472"><span class="hs-identifier hs-var hs-var">agentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249472"><span class="hs-identifier hs-var">agentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249471"><span class="annot"><span class="annottext">s :: AssetAttributes
+</span><a href="#local-6989586621679249471"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#AssetAttributes%27"><span class="hs-identifier hs-type">AssetAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249470"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249470"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssetAttributes
+</span><a href="#local-6989586621679249471"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:agentId:AssetAttributes' :: Maybe Text
+</span><a href="Network.AWS.Inspector.Types.AssetAttributes.html#%24sel%3AagentId%3AAssetAttributes%27"><span class="hs-identifier hs-var">agentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249470"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#AssetAttributes"><span class="hs-identifier hs-type">AssetAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | The ID of the Amazon Machine Image (AMI) that is installed on the EC2</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- instance where the finding is generated.</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#assetAttributes_amiId"><span class="hs-identifier hs-type">assetAttributes_amiId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#AssetAttributes"><span class="hs-identifier hs-type">AssetAttributes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span id="assetAttributes_amiId"><span class="annot"><span class="annottext">assetAttributes_amiId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AssetAttributes -&gt; f AssetAttributes
+</span><a href="Network.AWS.Inspector.Types.AssetAttributes.html#assetAttributes_amiId"><span class="hs-identifier hs-var hs-var">assetAttributes_amiId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssetAttributes -&gt; Maybe Text)
+-&gt; (AssetAttributes -&gt; Maybe Text -&gt; AssetAttributes)
+-&gt; Lens AssetAttributes AssetAttributes (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#AssetAttributes%27"><span class="hs-identifier hs-type">AssetAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249468"><span class="annot"><span class="annottext">Maybe Text
+amiId :: Maybe Text
+$sel:amiId:AssetAttributes' :: AssetAttributes -&gt; Maybe Text
+</span><a href="#local-6989586621679249468"><span class="hs-identifier hs-var hs-var">amiId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249468"><span class="hs-identifier hs-var">amiId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249467"><span class="annot"><span class="annottext">s :: AssetAttributes
+</span><a href="#local-6989586621679249467"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#AssetAttributes%27"><span class="hs-identifier hs-type">AssetAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249466"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249466"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssetAttributes
+</span><a href="#local-6989586621679249467"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:amiId:AssetAttributes' :: Maybe Text
+</span><a href="Network.AWS.Inspector.Types.AssetAttributes.html#%24sel%3AamiId%3AAssetAttributes%27"><span class="hs-identifier hs-var">amiId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249466"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#AssetAttributes"><span class="hs-identifier hs-type">AssetAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- | The tags related to the EC2 instance where the finding is generated.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#assetAttributes_tags"><span class="hs-identifier hs-type">assetAttributes_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#AssetAttributes"><span class="hs-identifier hs-type">AssetAttributes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Inspector.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span id="assetAttributes_tags"><span class="annot"><span class="annottext">assetAttributes_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; AssetAttributes -&gt; f AssetAttributes
+</span><a href="Network.AWS.Inspector.Types.AssetAttributes.html#assetAttributes_tags"><span class="hs-identifier hs-var hs-var">assetAttributes_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssetAttributes -&gt; Maybe [Tag])
+-&gt; (AssetAttributes -&gt; Maybe [Tag] -&gt; AssetAttributes)
+-&gt; Lens AssetAttributes AssetAttributes (Maybe [Tag]) (Maybe [Tag])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#AssetAttributes%27"><span class="hs-identifier hs-type">AssetAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249464"><span class="annot"><span class="annottext">Maybe [Tag]
+tags :: Maybe [Tag]
+$sel:tags:AssetAttributes' :: AssetAttributes -&gt; Maybe [Tag]
+</span><a href="#local-6989586621679249464"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679249464"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249463"><span class="annot"><span class="annottext">s :: AssetAttributes
+</span><a href="#local-6989586621679249463"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#AssetAttributes%27"><span class="hs-identifier hs-type">AssetAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249462"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679249462"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssetAttributes
+</span><a href="#local-6989586621679249463"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:AssetAttributes' :: Maybe [Tag]
+</span><a href="Network.AWS.Inspector.Types.AssetAttributes.html#%24sel%3Atags%3AAssetAttributes%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679249462"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#AssetAttributes"><span class="hs-identifier hs-type">AssetAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+ -&gt; AssetAttributes -&gt; f AssetAttributes)
+-&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
+    -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; AssetAttributes
+-&gt; f AssetAttributes
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+-&gt; Iso (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-comment">-- | The schema version of this data type.</span><span>
 </span><span id="line-135"></span><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#assetAttributes_schemaVersion"><span class="hs-identifier hs-type">assetAttributes_schemaVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#AssetAttributes"><span class="hs-identifier hs-type">AssetAttributes</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
@@ -400,19 +400,19 @@ $sel:autoScalingGroup:AssetAttributes' :: AssetAttributes -&gt; Maybe Text
 -&gt; (AssetAttributes -&gt; Natural -&gt; AssetAttributes)
 -&gt; Lens AssetAttributes AssetAttributes Natural Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#AssetAttributes%27"><span class="hs-identifier hs-type">AssetAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249095"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#AssetAttributes%27"><span class="hs-identifier hs-type">AssetAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249460"><span class="annot"><span class="annottext">Natural
 schemaVersion :: Natural
 $sel:schemaVersion:AssetAttributes' :: AssetAttributes -&gt; Natural
-</span><a href="#local-6989586621679249095"><span class="hs-identifier hs-var hs-var">schemaVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679249095"><span class="hs-identifier hs-var">schemaVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249094"><span class="annot"><span class="annottext">s :: AssetAttributes
-</span><a href="#local-6989586621679249094"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#AssetAttributes%27"><span class="hs-identifier hs-type">AssetAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249093"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679249093"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssetAttributes
-</span><a href="#local-6989586621679249094"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemaVersion:AssetAttributes' :: Natural
+</span><a href="#local-6989586621679249460"><span class="hs-identifier hs-var hs-var">schemaVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679249460"><span class="hs-identifier hs-var">schemaVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249459"><span class="annot"><span class="annottext">s :: AssetAttributes
+</span><a href="#local-6989586621679249459"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#AssetAttributes%27"><span class="hs-identifier hs-type">AssetAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249458"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679249458"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssetAttributes
+</span><a href="#local-6989586621679249459"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemaVersion:AssetAttributes' :: Natural
 </span><a href="Network.AWS.Inspector.Types.AssetAttributes.html#%24sel%3AschemaVersion%3AAssetAttributes%27"><span class="hs-identifier hs-var">schemaVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679249093"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#AssetAttributes"><span class="hs-identifier hs-type">AssetAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679249458"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#AssetAttributes"><span class="hs-identifier hs-type">AssetAttributes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
-</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249090"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#AssetAttributes"><span class="hs-identifier hs-type">AssetAttributes</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679249088"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AssetAttributes
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249455"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#AssetAttributes"><span class="hs-identifier hs-type">AssetAttributes</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679249453"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AssetAttributes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-140"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AssetAttributes)
@@ -422,126 +422,110 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-141"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AssetAttributes&quot;</span></span><span>
-</span><span id="line-142"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679249085"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679249085"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-142"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679249450"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679249450"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-143"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [NetworkInterface]
+-&gt; Maybe [Text]
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe [Tag]
--&gt; Maybe [Text]
--&gt; Maybe [NetworkInterface]
--&gt; Maybe Text
 -&gt; Natural
 -&gt; AssetAttributes
 </span><a href="Network.AWS.Inspector.Types.AssetAttributes.html#AssetAttributes%27"><span class="hs-identifier hs-var">AssetAttributes'</span></a></span><span>
 </span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
  -&gt; Maybe Text
+ -&gt; Maybe [NetworkInterface]
+ -&gt; Maybe [Text]
+ -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe [Tag]
- -&gt; Maybe [Text]
- -&gt; Maybe [NetworkInterface]
- -&gt; Maybe Text
  -&gt; Natural
  -&gt; AssetAttributes)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
      (Maybe Text
+      -&gt; Maybe [NetworkInterface]
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe [Tag]
-      -&gt; Maybe [Text]
-      -&gt; Maybe [NetworkInterface]
-      -&gt; Maybe Text
       -&gt; Natural
       -&gt; AssetAttributes)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679249085"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679249450"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;hostname&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
+   -&gt; Maybe [NetworkInterface]
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe [Tag]
-   -&gt; Maybe [Text]
-   -&gt; Maybe [NetworkInterface]
-   -&gt; Maybe Text
    -&gt; Natural
    -&gt; AssetAttributes)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
-     (Maybe Text
+     (Maybe [NetworkInterface]
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
       -&gt; Maybe [Tag]
-      -&gt; Maybe [Text]
-      -&gt; Maybe [NetworkInterface]
-      -&gt; Maybe Text
       -&gt; Natural
       -&gt; AssetAttributes)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679249085"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679249450"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;agentId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;autoScalingGroup&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
+  (Maybe [NetworkInterface]
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
    -&gt; Maybe [Tag]
-   -&gt; Maybe [Text]
-   -&gt; Maybe [NetworkInterface]
-   -&gt; Maybe Text
    -&gt; Natural
    -&gt; AssetAttributes)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe [Tag]
-      -&gt; Maybe [Text]
-      -&gt; Maybe [NetworkInterface]
-      -&gt; Maybe Text
-      -&gt; Natural
-      -&gt; AssetAttributes)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679249085"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;amiId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe [Tag]
-   -&gt; Maybe [Text]
-   -&gt; Maybe [NetworkInterface]
-   -&gt; Maybe Text
-   -&gt; Natural
-   -&gt; AssetAttributes)
--&gt; Parser (Maybe [Tag])
+-&gt; Parser (Maybe [NetworkInterface])
 -&gt; Parser
      (Maybe [Text]
-      -&gt; Maybe [NetworkInterface]
       -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Tag]
       -&gt; Natural
       -&gt; AssetAttributes)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679249085"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Tag]))
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679249450"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [NetworkInterface]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Tag])) -&gt; Maybe [Tag] -&gt; Parser (Maybe [Tag])
+</span><span class="hs-string">&quot;networkInterfaces&quot;</span></span><span>
+</span><span id="line-147"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [NetworkInterface]))
+-&gt; Maybe [NetworkInterface] -&gt; Parser (Maybe [NetworkInterface])
 forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
-</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [NetworkInterface]
 forall a. Monoid a =&gt; a
-</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-148"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe [Text]
-   -&gt; Maybe [NetworkInterface]
    -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Tag]
    -&gt; Natural
    -&gt; AssetAttributes)
 -&gt; Parser (Maybe [Text])
 -&gt; Parser
-     (Maybe [NetworkInterface]
-      -&gt; Maybe Text -&gt; Natural -&gt; AssetAttributes)
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Maybe [Tag] -&gt; Natural -&gt; AssetAttributes)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679249085"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679249450"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ipv4Addresses&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
@@ -550,43 +534,49 @@ forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe [NetworkInterface]
-   -&gt; Maybe Text -&gt; Natural -&gt; AssetAttributes)
--&gt; Parser (Maybe [NetworkInterface])
--&gt; Parser (Maybe Text -&gt; Natural -&gt; AssetAttributes)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679249085"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [NetworkInterface]))
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;networkInterfaces&quot;</span></span><span>
-</span><span id="line-150"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [NetworkInterface]))
--&gt; Maybe [NetworkInterface] -&gt; Parser (Maybe [NetworkInterface])
-forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
-</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [NetworkInterface]
-forall a. Monoid a =&gt; a
-</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-151"></span><span>                        </span><span class="hs-special">)</span><span>
-</span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Natural -&gt; AssetAttributes)
--&gt; Parser (Maybe Text) -&gt; Parser (Natural -&gt; AssetAttributes)
+</span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe [Tag] -&gt; Natural -&gt; AssetAttributes)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe [Tag] -&gt; Natural -&gt; AssetAttributes)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679249085"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679249450"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;autoScalingGroup&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;agentId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe [Tag] -&gt; Natural -&gt; AssetAttributes)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe [Tag] -&gt; Natural -&gt; AssetAttributes)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679249450"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;amiId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [Tag] -&gt; Natural -&gt; AssetAttributes)
+-&gt; Parser (Maybe [Tag]) -&gt; Parser (Natural -&gt; AssetAttributes)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679249450"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Tag]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Tag])) -&gt; Maybe [Tag] -&gt; Parser (Maybe [Tag])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">Parser (Natural -&gt; AssetAttributes)
 -&gt; Parser Natural -&gt; Parser AssetAttributes
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679249085"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
+</span><a href="#local-6989586621679249450"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;schemaVersion&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>
-</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249077"><span id="local-6989586621679249079"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#AssetAttributes"><span class="hs-identifier hs-type">AssetAttributes</span></a></span></span></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249442"><span id="local-6989586621679249444"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#AssetAttributes"><span class="hs-identifier hs-type">AssetAttributes</span></a></span></span></span><span>
 </span><span id="line-157"></span><span>
-</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249074"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#AssetAttributes"><span class="hs-identifier hs-type">AssetAttributes</span></a></span></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249439"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssetAttributes.html#AssetAttributes"><span class="hs-identifier hs-type">AssetAttributes</span></a></span></span><span>
 </span><span id="line-159"></span></pre></body></html>

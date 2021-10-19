@@ -53,7 +53,7 @@
 </span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newAttachSecurityProfile' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679855361"><span id="local-6989586621679855362"></span></span><span class="hs-keyword">data</span><span> </span><span id="AttachSecurityProfile"><span class="annot"><a href="Network.AWS.IoT.AttachSecurityProfile.html#AttachSecurityProfile"><span class="hs-identifier hs-var">AttachSecurityProfile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AttachSecurityProfile%27"><span class="annot"><a href="Network.AWS.IoT.AttachSecurityProfile.html#AttachSecurityProfile%27"><span class="hs-identifier hs-var">AttachSecurityProfile'</span></a></span></span><span>
+</span><span id="line-56"></span><span id="local-6989586621679856369"><span id="local-6989586621679856370"></span></span><span class="hs-keyword">data</span><span> </span><span id="AttachSecurityProfile"><span class="annot"><a href="Network.AWS.IoT.AttachSecurityProfile.html#AttachSecurityProfile"><span class="hs-identifier hs-var">AttachSecurityProfile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AttachSecurityProfile%27"><span class="annot"><a href="Network.AWS.IoT.AttachSecurityProfile.html#AttachSecurityProfile%27"><span class="hs-identifier hs-var">AttachSecurityProfile'</span></a></span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The security profile that is attached.</span><span>
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AsecurityProfileName%3AAttachSecurityProfile%27"><span class="annot"><span class="annottext">AttachSecurityProfile -&gt; Text
 </span><a href="Network.AWS.IoT.AttachSecurityProfile.html#%24sel%3AsecurityProfileName%3AAttachSecurityProfile%27"><span class="hs-identifier hs-var hs-var">securityProfileName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -62,7 +62,7 @@
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3AsecurityProfileTargetArn%3AAttachSecurityProfile%27"><span class="annot"><span class="annottext">AttachSecurityProfile -&gt; Text
 </span><a href="Network.AWS.IoT.AttachSecurityProfile.html#%24sel%3AsecurityProfileTargetArn%3AAttachSecurityProfile%27"><span class="hs-identifier hs-var hs-var">securityProfileTargetArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679855354"><span id="local-6989586621679855356"><span class="annot"><span class="annottext">AttachSecurityProfile -&gt; AttachSecurityProfile -&gt; Bool
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679856362"><span id="local-6989586621679856364"><span class="annot"><span class="annottext">AttachSecurityProfile -&gt; AttachSecurityProfile -&gt; Bool
 (AttachSecurityProfile -&gt; AttachSecurityProfile -&gt; Bool)
 -&gt; (AttachSecurityProfile -&gt; AttachSecurityProfile -&gt; Bool)
 -&gt; Eq AttachSecurityProfile
@@ -71,7 +71,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AttachSecurityProfile -&gt; AttachSecurityProfile -&gt; Bool
 == :: AttachSecurityProfile -&gt; AttachSecurityProfile -&gt; Bool
 $c== :: AttachSecurityProfile -&gt; AttachSecurityProfile -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679855345"><span id="local-6989586621679855347"><span id="local-6989586621679855349"><span id="local-6989586621679855351"><span class="annot"><span class="annottext">ReadPrec [AttachSecurityProfile]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679856353"><span id="local-6989586621679856355"><span id="local-6989586621679856357"><span id="local-6989586621679856359"><span class="annot"><span class="annottext">ReadPrec [AttachSecurityProfile]
 ReadPrec AttachSecurityProfile
 Int -&gt; ReadS AttachSecurityProfile
 ReadS [AttachSecurityProfile]
@@ -91,7 +91,7 @@ readList :: ReadS [AttachSecurityProfile]
 $creadList :: ReadS [AttachSecurityProfile]
 readsPrec :: Int -&gt; ReadS AttachSecurityProfile
 $creadsPrec :: Int -&gt; ReadS AttachSecurityProfile
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679855338"><span id="local-6989586621679855340"><span id="local-6989586621679855342"><span class="annot"><span class="annottext">Int -&gt; AttachSecurityProfile -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679856346"><span id="local-6989586621679856348"><span id="local-6989586621679856350"><span class="annot"><span class="annottext">Int -&gt; AttachSecurityProfile -&gt; ShowS
 [AttachSecurityProfile] -&gt; ShowS
 AttachSecurityProfile -&gt; String
 (Int -&gt; AttachSecurityProfile -&gt; ShowS)
@@ -137,20 +137,20 @@ $cfrom :: forall x. AttachSecurityProfile -&gt; Rep AttachSecurityProfile x
 </span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.AttachSecurityProfile.html#AttachSecurityProfile"><span class="hs-identifier hs-type">AttachSecurityProfile</span></a></span><span>
 </span><span id="line-83"></span><span id="newAttachSecurityProfile"><span class="annot"><span class="annottext">newAttachSecurityProfile :: Text -&gt; Text -&gt; AttachSecurityProfile
 </span><a href="Network.AWS.IoT.AttachSecurityProfile.html#newAttachSecurityProfile"><span class="hs-identifier hs-var hs-var">newAttachSecurityProfile</span></a></span></span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679855333"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679855333"><span class="hs-identifier hs-var">pSecurityProfileName_</span></a></span></span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679855332"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679855332"><span class="hs-identifier hs-var">pSecurityProfileTargetArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679856341"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679856341"><span class="hs-identifier hs-var">pSecurityProfileName_</span></a></span></span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679856340"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679856340"><span class="hs-identifier hs-var">pSecurityProfileTargetArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">AttachSecurityProfile' :: Text -&gt; Text -&gt; AttachSecurityProfile
 </span><a href="Network.AWS.IoT.AttachSecurityProfile.html#AttachSecurityProfile%27"><span class="hs-identifier hs-type">AttachSecurityProfile'</span></a></span><span>
 </span><span id="line-87"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:securityProfileName:AttachSecurityProfile' :: Text
 </span><a href="Network.AWS.IoT.AttachSecurityProfile.html#%24sel%3AsecurityProfileName%3AAttachSecurityProfile%27"><span class="hs-identifier hs-var">securityProfileName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-88"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679855333"><span class="hs-identifier hs-var">pSecurityProfileName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679856341"><span class="hs-identifier hs-var">pSecurityProfileName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-89"></span><span>        </span><span class="annot"><span class="annottext">$sel:securityProfileTargetArn:AttachSecurityProfile' :: Text
 </span><a href="Network.AWS.IoT.AttachSecurityProfile.html#%24sel%3AsecurityProfileTargetArn%3AAttachSecurityProfile%27"><span class="hs-identifier hs-var">securityProfileTargetArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-90"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679855332"><span class="hs-identifier hs-var">pSecurityProfileTargetArn_</span></a></span><span>
+</span><a href="#local-6989586621679856340"><span class="hs-identifier hs-var">pSecurityProfileTargetArn_</span></a></span><span>
 </span><span id="line-91"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- | The security profile that is attached.</span><span>
@@ -161,16 +161,16 @@ $cfrom :: forall x. AttachSecurityProfile -&gt; Rep AttachSecurityProfile x
 -&gt; (AttachSecurityProfile -&gt; Text -&gt; AttachSecurityProfile)
 -&gt; Lens AttachSecurityProfile AttachSecurityProfile Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.AttachSecurityProfile.html#AttachSecurityProfile%27"><span class="hs-identifier hs-type">AttachSecurityProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679855329"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.AttachSecurityProfile.html#AttachSecurityProfile%27"><span class="hs-identifier hs-type">AttachSecurityProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679856337"><span class="annot"><span class="annottext">Text
 securityProfileName :: Text
 $sel:securityProfileName:AttachSecurityProfile' :: AttachSecurityProfile -&gt; Text
-</span><a href="#local-6989586621679855329"><span class="hs-identifier hs-var hs-var">securityProfileName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679855329"><span class="hs-identifier hs-var">securityProfileName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679855328"><span class="annot"><span class="annottext">s :: AttachSecurityProfile
-</span><a href="#local-6989586621679855328"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.AttachSecurityProfile.html#AttachSecurityProfile%27"><span class="hs-identifier hs-type">AttachSecurityProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679855327"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679855327"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttachSecurityProfile
-</span><a href="#local-6989586621679855328"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:securityProfileName:AttachSecurityProfile' :: Text
+</span><a href="#local-6989586621679856337"><span class="hs-identifier hs-var hs-var">securityProfileName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679856337"><span class="hs-identifier hs-var">securityProfileName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679856336"><span class="annot"><span class="annottext">s :: AttachSecurityProfile
+</span><a href="#local-6989586621679856336"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.AttachSecurityProfile.html#AttachSecurityProfile%27"><span class="hs-identifier hs-type">AttachSecurityProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679856335"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679856335"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttachSecurityProfile
+</span><a href="#local-6989586621679856336"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:securityProfileName:AttachSecurityProfile' :: Text
 </span><a href="Network.AWS.IoT.AttachSecurityProfile.html#%24sel%3AsecurityProfileName%3AAttachSecurityProfile%27"><span class="hs-identifier hs-var">securityProfileName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679855327"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.AttachSecurityProfile.html#AttachSecurityProfile"><span class="hs-identifier hs-type">AttachSecurityProfile</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679856335"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.AttachSecurityProfile.html#AttachSecurityProfile"><span class="hs-identifier hs-type">AttachSecurityProfile</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- | The ARN of the target (thing group) to which the security profile is</span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- attached.</span><span>
@@ -181,27 +181,27 @@ $sel:securityProfileName:AttachSecurityProfile' :: AttachSecurityProfile -&gt; T
 -&gt; (AttachSecurityProfile -&gt; Text -&gt; AttachSecurityProfile)
 -&gt; Lens AttachSecurityProfile AttachSecurityProfile Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.AttachSecurityProfile.html#AttachSecurityProfile%27"><span class="hs-identifier hs-type">AttachSecurityProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679855326"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.AttachSecurityProfile.html#AttachSecurityProfile%27"><span class="hs-identifier hs-type">AttachSecurityProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679856334"><span class="annot"><span class="annottext">Text
 securityProfileTargetArn :: Text
 $sel:securityProfileTargetArn:AttachSecurityProfile' :: AttachSecurityProfile -&gt; Text
-</span><a href="#local-6989586621679855326"><span class="hs-identifier hs-var hs-var">securityProfileTargetArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679855326"><span class="hs-identifier hs-var">securityProfileTargetArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679855325"><span class="annot"><span class="annottext">s :: AttachSecurityProfile
-</span><a href="#local-6989586621679855325"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.AttachSecurityProfile.html#AttachSecurityProfile%27"><span class="hs-identifier hs-type">AttachSecurityProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679855324"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679855324"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttachSecurityProfile
-</span><a href="#local-6989586621679855325"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:securityProfileTargetArn:AttachSecurityProfile' :: Text
+</span><a href="#local-6989586621679856334"><span class="hs-identifier hs-var hs-var">securityProfileTargetArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679856334"><span class="hs-identifier hs-var">securityProfileTargetArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679856333"><span class="annot"><span class="annottext">s :: AttachSecurityProfile
+</span><a href="#local-6989586621679856333"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.AttachSecurityProfile.html#AttachSecurityProfile%27"><span class="hs-identifier hs-type">AttachSecurityProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679856332"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679856332"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttachSecurityProfile
+</span><a href="#local-6989586621679856333"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:securityProfileTargetArn:AttachSecurityProfile' :: Text
 </span><a href="Network.AWS.IoT.AttachSecurityProfile.html#%24sel%3AsecurityProfileTargetArn%3AAttachSecurityProfile%27"><span class="hs-identifier hs-var">securityProfileTargetArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679855324"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.AttachSecurityProfile.html#AttachSecurityProfile"><span class="hs-identifier hs-type">AttachSecurityProfile</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679856332"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.AttachSecurityProfile.html#AttachSecurityProfile"><span class="hs-identifier hs-type">AttachSecurityProfile</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.AttachSecurityProfile.html#AttachSecurityProfile"><span class="hs-identifier hs-type">AttachSecurityProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-103"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-104"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.AttachSecurityProfile.html#AttachSecurityProfile"><span class="hs-identifier hs-type">AttachSecurityProfile</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-105"></span><span>      </span><span class="annot"><a href="Network.AWS.IoT.AttachSecurityProfile.html#AttachSecurityProfileResponse"><span class="hs-identifier hs-type">AttachSecurityProfileResponse</span></a></span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679855320"><span class="annot"><span class="annottext">request :: AttachSecurityProfile -&gt; Request AttachSecurityProfile
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679856328"><span class="annot"><span class="annottext">request :: AttachSecurityProfile -&gt; Request AttachSecurityProfile
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; AttachSecurityProfile -&gt; Request AttachSecurityProfile
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IoT.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679855316"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679856324"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy AttachSecurityProfile
 -&gt; ClientResponse ClientBody
@@ -227,10 +227,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679855313"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679855313"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679855312"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679855312"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679855311"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679855311"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679856321"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679856321"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679856320"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679856320"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679856319"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679856319"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-110"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; AttachSecurityProfileResponse
 </span><a href="Network.AWS.IoT.AttachSecurityProfile.html#AttachSecurityProfileResponse%27"><span class="hs-identifier hs-var">AttachSecurityProfileResponse'</span></a></span><span>
 </span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; AttachSecurityProfileResponse)
@@ -241,23 +241,23 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679855313"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679856321"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679855304"><span id="local-6989586621679855306"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.AttachSecurityProfile.html#AttachSecurityProfile"><span class="hs-identifier hs-type">AttachSecurityProfile</span></a></span></span></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679856312"><span id="local-6989586621679856314"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.AttachSecurityProfile.html#AttachSecurityProfile"><span class="hs-identifier hs-type">AttachSecurityProfile</span></a></span></span></span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679855301"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.AttachSecurityProfile.html#AttachSecurityProfile"><span class="hs-identifier hs-type">AttachSecurityProfile</span></a></span></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679856309"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.AttachSecurityProfile.html#AttachSecurityProfile"><span class="hs-identifier hs-type">AttachSecurityProfile</span></a></span></span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.AttachSecurityProfile.html#AttachSecurityProfile"><span class="hs-identifier hs-type">AttachSecurityProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679855297"><span class="annot"><span class="annottext">toHeaders :: AttachSecurityProfile -&gt; ResponseHeaders
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679856305"><span class="annot"><span class="annottext">toHeaders :: AttachSecurityProfile -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; AttachSecurityProfile -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679855288"><span id="local-6989586621679855290"><span id="local-6989586621679855292"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.AttachSecurityProfile.html#AttachSecurityProfile"><span class="hs-identifier hs-type">AttachSecurityProfile</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679855286"><span class="annot"><span class="annottext">toJSON :: AttachSecurityProfile -&gt; Value
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679856296"><span id="local-6989586621679856298"><span id="local-6989586621679856300"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.AttachSecurityProfile.html#AttachSecurityProfile"><span class="hs-identifier hs-type">AttachSecurityProfile</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679856294"><span class="annot"><span class="annottext">toJSON :: AttachSecurityProfile -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Value -&gt; AttachSecurityProfile -&gt; Value
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Value
@@ -266,13 +266,13 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.AttachSecurityProfile.html#AttachSecurityProfile"><span class="hs-identifier hs-type">AttachSecurityProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679855281"><span class="annot"><span class="annottext">toPath :: AttachSecurityProfile -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.AttachSecurityProfile.html#AttachSecurityProfile%27"><span class="hs-identifier hs-type">AttachSecurityProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679855278"><span id="local-6989586621679855279"><span class="annot"><span class="annottext">Text
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679856289"><span class="annot"><span class="annottext">toPath :: AttachSecurityProfile -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.AttachSecurityProfile.html#AttachSecurityProfile%27"><span class="hs-identifier hs-type">AttachSecurityProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679856286"><span id="local-6989586621679856287"><span class="annot"><span class="annottext">Text
 securityProfileTargetArn :: Text
 securityProfileName :: Text
 $sel:securityProfileTargetArn:AttachSecurityProfile' :: AttachSecurityProfile -&gt; Text
 $sel:securityProfileName:AttachSecurityProfile' :: AttachSecurityProfile -&gt; Text
-</span><a href="#local-6989586621679855278"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679856286"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-126"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -281,19 +281,19 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-128"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679855279"><span class="hs-identifier hs-var">securityProfileName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679856287"><span class="hs-identifier hs-var">securityProfileName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-129"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/targets&quot;</span></span><span>
 </span><span id="line-130"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.AttachSecurityProfile.html#AttachSecurityProfile"><span class="hs-identifier hs-type">AttachSecurityProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679855274"><span class="annot"><span class="annottext">toQuery :: AttachSecurityProfile -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.AttachSecurityProfile.html#AttachSecurityProfile%27"><span class="hs-identifier hs-type">AttachSecurityProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679855271"><span id="local-6989586621679855272"><span class="annot"><span class="annottext">Text
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679856282"><span class="annot"><span class="annottext">toQuery :: AttachSecurityProfile -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.AttachSecurityProfile.html#AttachSecurityProfile%27"><span class="hs-identifier hs-type">AttachSecurityProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679856279"><span id="local-6989586621679856280"><span class="annot"><span class="annottext">Text
 securityProfileTargetArn :: Text
 securityProfileName :: Text
 $sel:securityProfileTargetArn:AttachSecurityProfile' :: AttachSecurityProfile -&gt; Text
 $sel:securityProfileName:AttachSecurityProfile' :: AttachSecurityProfile -&gt; Text
-</span><a href="#local-6989586621679855271"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679856279"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -302,16 +302,16 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-136"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679855271"><span class="hs-identifier hs-var">securityProfileTargetArn</span></a></span><span>
+</span><a href="#local-6989586621679856279"><span class="hs-identifier hs-var">securityProfileTargetArn</span></a></span><span>
 </span><span id="line-137"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-comment">-- | /See:/ 'newAttachSecurityProfileResponse' smart constructor.</span><span>
-</span><span id="line-140"></span><span id="local-6989586621679855268"><span id="local-6989586621679855269"></span></span><span class="hs-keyword">data</span><span> </span><span id="AttachSecurityProfileResponse"><span class="annot"><a href="Network.AWS.IoT.AttachSecurityProfile.html#AttachSecurityProfileResponse"><span class="hs-identifier hs-var">AttachSecurityProfileResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AttachSecurityProfileResponse%27"><span class="annot"><a href="Network.AWS.IoT.AttachSecurityProfile.html#AttachSecurityProfileResponse%27"><span class="hs-identifier hs-var">AttachSecurityProfileResponse'</span></a></span></span><span>
+</span><span id="line-140"></span><span id="local-6989586621679856276"><span id="local-6989586621679856277"></span></span><span class="hs-keyword">data</span><span> </span><span id="AttachSecurityProfileResponse"><span class="annot"><a href="Network.AWS.IoT.AttachSecurityProfile.html#AttachSecurityProfileResponse"><span class="hs-identifier hs-var">AttachSecurityProfileResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AttachSecurityProfileResponse%27"><span class="annot"><a href="Network.AWS.IoT.AttachSecurityProfile.html#AttachSecurityProfileResponse%27"><span class="hs-identifier hs-var">AttachSecurityProfileResponse'</span></a></span></span><span>
 </span><span id="line-141"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-142"></span><span>    </span><span id="%24sel%3AhttpStatus%3AAttachSecurityProfileResponse%27"><span class="annot"><span class="annottext">AttachSecurityProfileResponse -&gt; Int
 </span><a href="Network.AWS.IoT.AttachSecurityProfile.html#%24sel%3AhttpStatus%3AAttachSecurityProfileResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-143"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-144"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679855263"><span id="local-6989586621679855265"><span class="annot"><span class="annottext">AttachSecurityProfileResponse
+</span><span id="line-144"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679856271"><span id="local-6989586621679856273"><span class="annot"><span class="annottext">AttachSecurityProfileResponse
 -&gt; AttachSecurityProfileResponse -&gt; Bool
 (AttachSecurityProfileResponse
  -&gt; AttachSecurityProfileResponse -&gt; Bool)
@@ -327,7 +327,7 @@ $c/= :: AttachSecurityProfileResponse
 -&gt; AttachSecurityProfileResponse -&gt; Bool
 $c== :: AttachSecurityProfileResponse
 -&gt; AttachSecurityProfileResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679855255"><span id="local-6989586621679855257"><span id="local-6989586621679855259"><span id="local-6989586621679855261"><span class="annot"><span class="annottext">ReadPrec [AttachSecurityProfileResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679856263"><span id="local-6989586621679856265"><span id="local-6989586621679856267"><span id="local-6989586621679856269"><span class="annot"><span class="annottext">ReadPrec [AttachSecurityProfileResponse]
 ReadPrec AttachSecurityProfileResponse
 Int -&gt; ReadS AttachSecurityProfileResponse
 ReadS [AttachSecurityProfileResponse]
@@ -347,7 +347,7 @@ readList :: ReadS [AttachSecurityProfileResponse]
 $creadList :: ReadS [AttachSecurityProfileResponse]
 readsPrec :: Int -&gt; ReadS AttachSecurityProfileResponse
 $creadsPrec :: Int -&gt; ReadS AttachSecurityProfileResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679855249"><span id="local-6989586621679855251"><span id="local-6989586621679855253"><span class="annot"><span class="annottext">Int -&gt; AttachSecurityProfileResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679856257"><span id="local-6989586621679856259"><span id="local-6989586621679856261"><span class="annot"><span class="annottext">Int -&gt; AttachSecurityProfileResponse -&gt; ShowS
 [AttachSecurityProfileResponse] -&gt; ShowS
 AttachSecurityProfileResponse -&gt; String
 (Int -&gt; AttachSecurityProfileResponse -&gt; ShowS)
@@ -399,14 +399,14 @@ AttachSecurityProfileResponse
 </span><span id="line-157"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-158"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.AttachSecurityProfile.html#AttachSecurityProfileResponse"><span class="hs-identifier hs-type">AttachSecurityProfileResponse</span></a></span><span>
 </span><span id="line-159"></span><span id="newAttachSecurityProfileResponse"><span class="annot"><span class="annottext">newAttachSecurityProfileResponse :: Int -&gt; AttachSecurityProfileResponse
-</span><a href="Network.AWS.IoT.AttachSecurityProfile.html#newAttachSecurityProfileResponse"><span class="hs-identifier hs-var hs-var">newAttachSecurityProfileResponse</span></a></span></span><span> </span><span id="local-6989586621679855246"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679855246"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.AttachSecurityProfile.html#newAttachSecurityProfileResponse"><span class="hs-identifier hs-var hs-var">newAttachSecurityProfileResponse</span></a></span></span><span> </span><span id="local-6989586621679856254"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679856254"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-160"></span><span>  </span><span class="annot"><span class="annottext">AttachSecurityProfileResponse' :: Int -&gt; AttachSecurityProfileResponse
 </span><a href="Network.AWS.IoT.AttachSecurityProfile.html#AttachSecurityProfileResponse%27"><span class="hs-identifier hs-type">AttachSecurityProfileResponse'</span></a></span><span>
 </span><span id="line-161"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:AttachSecurityProfileResponse' :: Int
 </span><a href="Network.AWS.IoT.AttachSecurityProfile.html#%24sel%3AhttpStatus%3AAttachSecurityProfileResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-162"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679855246"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679856254"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-163"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-164"></span><span>
 </span><span id="line-165"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -419,16 +419,16 @@ AttachSecurityProfileResponse
 -&gt; Lens
      AttachSecurityProfileResponse AttachSecurityProfileResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.AttachSecurityProfile.html#AttachSecurityProfileResponse%27"><span class="hs-identifier hs-type">AttachSecurityProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679855245"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.AttachSecurityProfile.html#AttachSecurityProfileResponse%27"><span class="hs-identifier hs-type">AttachSecurityProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679856253"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:AttachSecurityProfileResponse' :: AttachSecurityProfileResponse -&gt; Int
-</span><a href="#local-6989586621679855245"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679855245"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679855244"><span class="annot"><span class="annottext">s :: AttachSecurityProfileResponse
-</span><a href="#local-6989586621679855244"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.AttachSecurityProfile.html#AttachSecurityProfileResponse%27"><span class="hs-identifier hs-type">AttachSecurityProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679855243"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679855243"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttachSecurityProfileResponse
-</span><a href="#local-6989586621679855244"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AttachSecurityProfileResponse' :: Int
+</span><a href="#local-6989586621679856253"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679856253"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679856252"><span class="annot"><span class="annottext">s :: AttachSecurityProfileResponse
+</span><a href="#local-6989586621679856252"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.AttachSecurityProfile.html#AttachSecurityProfileResponse%27"><span class="hs-identifier hs-type">AttachSecurityProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679856251"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679856251"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttachSecurityProfileResponse
+</span><a href="#local-6989586621679856252"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AttachSecurityProfileResponse' :: Int
 </span><a href="Network.AWS.IoT.AttachSecurityProfile.html#%24sel%3AhttpStatus%3AAttachSecurityProfileResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679855243"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.AttachSecurityProfile.html#AttachSecurityProfileResponse"><span class="hs-identifier hs-type">AttachSecurityProfileResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679856251"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.AttachSecurityProfile.html#AttachSecurityProfileResponse"><span class="hs-identifier hs-type">AttachSecurityProfileResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>
-</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679855241"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.AttachSecurityProfile.html#AttachSecurityProfileResponse"><span class="hs-identifier hs-type">AttachSecurityProfileResponse</span></a></span></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679856249"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.AttachSecurityProfile.html#AttachSecurityProfileResponse"><span class="hs-identifier hs-type">AttachSecurityProfileResponse</span></a></span></span><span>
 </span><span id="line-170"></span></pre></body></html>

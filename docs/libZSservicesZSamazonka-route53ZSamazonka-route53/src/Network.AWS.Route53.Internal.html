@@ -31,10 +31,10 @@
 </span><span id="line-31"></span><span class="hs-comment">-- @/hostedzone/ABC123@, but expects unprefixed identifiers as inputs, such as</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- @ABC123@, the 'FromXML' instance will strip this prefix take care to ensure</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- the correct input format is observed and @decodeXML . encodeXML == id@ holds.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679292228"><span id="local-6989586621679292229"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ResourceId"><span class="annot"><a href="Network.AWS.Route53.Internal.html#ResourceId"><span class="hs-identifier hs-var">ResourceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResourceId"><span class="annot"><a href="Network.AWS.Route53.Internal.html#ResourceId"><span class="hs-identifier hs-var">ResourceId</span></a></span></span><span> </span><span class="hs-special">{</span><span> </span><span id="fromResourceId"><span class="annot"><span class="annottext">ResourceId -&gt; Text
+</span><span id="line-34"></span><span id="local-6989586621679292373"><span id="local-6989586621679292374"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ResourceId"><span class="annot"><a href="Network.AWS.Route53.Internal.html#ResourceId"><span class="hs-identifier hs-var">ResourceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResourceId"><span class="annot"><a href="Network.AWS.Route53.Internal.html#ResourceId"><span class="hs-identifier hs-var">ResourceId</span></a></span></span><span> </span><span class="hs-special">{</span><span> </span><span id="fromResourceId"><span class="annot"><span class="annottext">ResourceId -&gt; Text
 </span><a href="Network.AWS.Route53.Internal.html#fromResourceId"><span class="hs-identifier hs-var hs-var">fromResourceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Text</span></span><span> </span><span class="hs-special">}</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-keyword">deriving</span><span>
-</span><span id="line-36"></span><span>        </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679292222"><span id="local-6989586621679292224"><span class="annot"><span class="annottext">ResourceId -&gt; ResourceId -&gt; Bool
+</span><span id="line-36"></span><span>        </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679292367"><span id="local-6989586621679292369"><span class="annot"><span class="annottext">ResourceId -&gt; ResourceId -&gt; Bool
 (ResourceId -&gt; ResourceId -&gt; Bool)
 -&gt; (ResourceId -&gt; ResourceId -&gt; Bool) -&gt; Eq ResourceId
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -43,7 +43,7 @@ $c/= :: ResourceId -&gt; ResourceId -&gt; Bool
 == :: ResourceId -&gt; ResourceId -&gt; Bool
 $c== :: ResourceId -&gt; ResourceId -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Eq</span></span></span></span><span>
-</span><span id="line-37"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679292206"><span id="local-6989586621679292208"><span id="local-6989586621679292210"><span id="local-6989586621679292212"><span id="local-6989586621679292214"><span id="local-6989586621679292216"><span id="local-6989586621679292218"><span class="annot"><span class="annottext">Eq ResourceId
+</span><span id="line-37"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679292351"><span id="local-6989586621679292353"><span id="local-6989586621679292355"><span id="local-6989586621679292357"><span id="local-6989586621679292359"><span id="local-6989586621679292361"><span id="local-6989586621679292363"><span class="annot"><span class="annottext">Eq ResourceId
 Eq ResourceId
 -&gt; (ResourceId -&gt; ResourceId -&gt; Ordering)
 -&gt; (ResourceId -&gt; ResourceId -&gt; Bool)
@@ -82,7 +82,7 @@ compare :: ResourceId -&gt; ResourceId -&gt; Ordering
 $ccompare :: ResourceId -&gt; ResourceId -&gt; Ordering
 $cp1Ord :: Eq ResourceId
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Ord</span></span></span></span></span></span></span></span></span><span>
-</span><span id="line-38"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679292197"><span id="local-6989586621679292199"><span id="local-6989586621679292201"><span id="local-6989586621679292203"><span class="annot"><span class="annottext">ReadPrec [ResourceId]
+</span><span id="line-38"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679292342"><span id="local-6989586621679292344"><span id="local-6989586621679292346"><span id="local-6989586621679292348"><span class="annot"><span class="annottext">ReadPrec [ResourceId]
 ReadPrec ResourceId
 Int -&gt; ReadS ResourceId
 ReadS [ResourceId]
@@ -103,7 +103,7 @@ $creadList :: ReadS [ResourceId]
 readsPrec :: Int -&gt; ReadS ResourceId
 $creadsPrec :: Int -&gt; ReadS ResourceId
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Read</span></span></span></span></span></span><span>
-</span><span id="line-39"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679292190"><span id="local-6989586621679292192"><span id="local-6989586621679292194"><span class="annot"><span class="annottext">Int -&gt; ResourceId -&gt; ShowS
+</span><span id="line-39"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679292335"><span id="local-6989586621679292337"><span id="local-6989586621679292339"><span class="annot"><span class="annottext">Int -&gt; ResourceId -&gt; ShowS
 [ResourceId] -&gt; ShowS
 ResourceId -&gt; String
 (Int -&gt; ResourceId -&gt; ShowS)
@@ -128,43 +128,43 @@ forall a.
 $cto :: forall x. Rep ResourceId x -&gt; ResourceId
 $cfrom :: forall x. ResourceId -&gt; Rep ResourceId x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Generic</span></span><span>
-</span><span id="line-41"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679292184"><span class="annot"><span class="annottext">String -&gt; ResourceId
+</span><span id="line-41"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679292329"><span class="annot"><span class="annottext">String -&gt; ResourceId
 (String -&gt; ResourceId) -&gt; IsString ResourceId
 forall a. (String -&gt; a) -&gt; IsString a
 fromString :: String -&gt; ResourceId
 $cfromString :: String -&gt; ResourceId
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">IsString</span></span></span><span>
-</span><span id="line-42"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679292181"><span class="annot"><span class="annottext">Text -&gt; Either String ResourceId
+</span><span id="line-42"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679292326"><span class="annot"><span class="annottext">Text -&gt; Either String ResourceId
 (Text -&gt; Either String ResourceId) -&gt; FromText ResourceId
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ResourceId
 $cfromText :: Text -&gt; Either String ResourceId
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">FromText</span></span></span><span>
-</span><span id="line-43"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679292178"><span class="annot"><span class="annottext">ResourceId -&gt; Text
+</span><span id="line-43"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679292323"><span class="annot"><span class="annottext">ResourceId -&gt; Text
 (ResourceId -&gt; Text) -&gt; ToText ResourceId
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ResourceId -&gt; Text
 $ctoText :: ResourceId -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">ToText</span></span></span><span>
-</span><span id="line-44"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679292175"><span class="annot"><span class="annottext">ResourceId -&gt; ByteString
+</span><span id="line-44"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679292320"><span class="annot"><span class="annottext">ResourceId -&gt; ByteString
 (ResourceId -&gt; ByteString) -&gt; ToByteString ResourceId
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ResourceId -&gt; ByteString
 $ctoBS :: ResourceId -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">ToByteString</span></span></span><span>
-</span><span id="line-45"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679292172"><span class="annot"><span class="annottext">ResourceId -&gt; XML
+</span><span id="line-45"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679292317"><span class="annot"><span class="annottext">ResourceId -&gt; XML
 (ResourceId -&gt; XML) -&gt; ToXML ResourceId
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ResourceId -&gt; XML
 $ctoXML :: ResourceId -&gt; XML
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">ToXML</span></span></span><span>
-</span><span id="line-46"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679292169"><span class="annot"><span class="annottext">ResourceId -&gt; QueryString
+</span><span id="line-46"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679292314"><span class="annot"><span class="annottext">ResourceId -&gt; QueryString
 (ResourceId -&gt; QueryString) -&gt; ToQuery ResourceId
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ResourceId -&gt; QueryString
 $ctoQuery :: ResourceId -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">ToQuery</span></span></span><span>
-</span><span id="line-47"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679292166"><span class="annot"><span class="annottext">ResourceId -&gt; ByteStringBuilder
+</span><span id="line-47"></span><span>        </span><span class="hs-special">,</span><span> </span><span id="local-6989586621679292311"><span class="annot"><span class="annottext">ResourceId -&gt; ByteStringBuilder
 (ResourceId -&gt; ByteStringBuilder) -&gt; ToLog ResourceId
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ResourceId -&gt; ByteStringBuilder
@@ -172,12 +172,12 @@ $cbuild :: ResourceId -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">ToLog</span></span></span><span>
 </span><span id="line-48"></span><span>        </span><span class="hs-special">)</span><span>
 </span><span id="line-49"></span><span>
-</span><span id="line-50"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679292161"><span id="local-6989586621679292163"><span class="annot"><span class="hs-identifier hs-type">Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Internal.html#ResourceId"><span class="hs-identifier hs-type">ResourceId</span></a></span></span></span><span>
-</span><span id="line-51"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679292158"><span class="annot"><span class="hs-identifier hs-type">NFData</span></span><span>   </span><span class="annot"><a href="Network.AWS.Route53.Internal.html#ResourceId"><span class="hs-identifier hs-type">ResourceId</span></a></span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679292306"><span id="local-6989586621679292308"><span class="annot"><span class="hs-identifier hs-type">Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Internal.html#ResourceId"><span class="hs-identifier hs-type">ResourceId</span></a></span></span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679292303"><span class="annot"><span class="hs-identifier hs-type">NFData</span></span><span>   </span><span class="annot"><a href="Network.AWS.Route53.Internal.html#ResourceId"><span class="hs-identifier hs-type">ResourceId</span></a></span></span><span>
 </span><span id="line-52"></span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- | Handles prefixed Route53 resource identifiers.</span><span>
 </span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Internal.html#ResourceId"><span class="hs-identifier hs-type">ResourceId</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-55"></span><span>    </span><span id="local-6989586621679292154"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ResourceId
+</span><span id="line-55"></span><span>    </span><span id="local-6989586621679292299"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ResourceId
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; ResourceId)
 -&gt; Either String Text -&gt; Either String ResourceId
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
@@ -324,8 +324,8 @@ forall a. a -&gt; Maybe a
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Just</span></span><span> </span><span class="annot"><span class="annottext">ResourceId
 </span><span class="hs-string">&quot;Z31GFT0UA1I2HV&quot;</span></span><span>
-</span><span id="line-90"></span><span>    </span><span id="local-6989586621679292125"><span class="annot"><span class="annottext">Region
-</span><a href="#local-6989586621679292125"><span class="hs-identifier hs-var">_other</span></a></span></span><span>          </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceId
+</span><span id="line-90"></span><span>    </span><span id="local-6989586621679292270"><span class="annot"><span class="annottext">Region
+</span><a href="#local-6989586621679292270"><span class="hs-identifier hs-var">_other</span></a></span></span><span>          </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceId
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Nothing</span></span><span>
 </span><span id="line-91"></span></pre></body></html>

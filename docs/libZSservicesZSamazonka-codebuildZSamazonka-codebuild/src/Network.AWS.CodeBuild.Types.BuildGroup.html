@@ -29,27 +29,27 @@
 </span><span id="line-29"></span><span class="hs-comment">-- to set dependencies on other build groups.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newBuildGroup' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679376999"><span id="local-6989586621679377000"></span></span><span class="hs-keyword">data</span><span> </span><span id="BuildGroup"><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#BuildGroup"><span class="hs-identifier hs-var">BuildGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BuildGroup%27"><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#BuildGroup%27"><span class="hs-identifier hs-var">BuildGroup'</span></a></span></span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of strings that contain the identifiers of the build groups</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- that this build group depends on.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AdependsOn%3ABuildGroup%27"><span class="annot"><span class="annottext">BuildGroup -&gt; Maybe [Text]
-</span><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#%24sel%3AdependsOn%3ABuildGroup%27"><span class="hs-identifier hs-var hs-var">dependsOn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Contains the identifier of the build group.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3Aidentifier%3ABuildGroup%27"><span class="annot"><span class="annottext">BuildGroup -&gt; Maybe Text
+</span><span id="line-32"></span><span id="local-6989586621679378884"><span id="local-6989586621679378885"></span></span><span class="hs-keyword">data</span><span> </span><span id="BuildGroup"><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#BuildGroup"><span class="hs-identifier hs-var">BuildGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BuildGroup%27"><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#BuildGroup%27"><span class="hs-identifier hs-var">BuildGroup'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Contains the identifier of the build group.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Aidentifier%3ABuildGroup%27"><span class="annot"><span class="annottext">BuildGroup -&gt; Maybe Text
 </span><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#%24sel%3Aidentifier%3ABuildGroup%27"><span class="hs-identifier hs-var hs-var">identifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | A @BuildSummary@ object that contains a summary of the current build</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- group.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3AcurrentBuildSummary%3ABuildGroup%27"><span class="annot"><span class="annottext">BuildGroup -&gt; Maybe BuildSummary
-</span><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#%24sel%3AcurrentBuildSummary%3ABuildGroup%27"><span class="hs-identifier hs-var hs-var">currentBuildSummary</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#BuildSummary"><span class="hs-identifier hs-type">BuildSummary</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | Specifies if failures in this build group can be ignored.</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3AignoreFailure%3ABuildGroup%27"><span class="annot"><span class="annottext">BuildGroup -&gt; Maybe Bool
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | An array of strings that contain the identifiers of the build groups</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- that this build group depends on.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AdependsOn%3ABuildGroup%27"><span class="annot"><span class="annottext">BuildGroup -&gt; Maybe [Text]
+</span><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#%24sel%3AdependsOn%3ABuildGroup%27"><span class="hs-identifier hs-var hs-var">dependsOn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | Specifies if failures in this build group can be ignored.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AignoreFailure%3ABuildGroup%27"><span class="annot"><span class="annottext">BuildGroup -&gt; Maybe Bool
 </span><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#%24sel%3AignoreFailure%3ABuildGroup%27"><span class="hs-identifier hs-var hs-var">ignoreFailure</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | A @BuildSummary@ object that contains a summary of the current build</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- group.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AcurrentBuildSummary%3ABuildGroup%27"><span class="annot"><span class="annottext">BuildGroup -&gt; Maybe BuildSummary
+</span><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#%24sel%3AcurrentBuildSummary%3ABuildGroup%27"><span class="hs-identifier hs-var hs-var">currentBuildSummary</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#BuildSummary"><span class="hs-identifier hs-type">BuildSummary</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | An array of @BuildSummary@ objects that contain summaries of previous</span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-comment">-- build groups.</span><span>
 </span><span id="line-45"></span><span>    </span><span id="%24sel%3ApriorBuildSummaryList%3ABuildGroup%27"><span class="annot"><span class="annottext">BuildGroup -&gt; Maybe [BuildSummary]
 </span><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#%24sel%3ApriorBuildSummaryList%3ABuildGroup%27"><span class="hs-identifier hs-var hs-var">priorBuildSummaryList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#BuildSummary"><span class="hs-identifier hs-type">BuildSummary</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679376989"><span id="local-6989586621679376991"><span class="annot"><span class="annottext">BuildGroup -&gt; BuildGroup -&gt; Bool
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679378874"><span id="local-6989586621679378876"><span class="annot"><span class="annottext">BuildGroup -&gt; BuildGroup -&gt; Bool
 (BuildGroup -&gt; BuildGroup -&gt; Bool)
 -&gt; (BuildGroup -&gt; BuildGroup -&gt; Bool) -&gt; Eq BuildGroup
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -57,7 +57,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: BuildGroup -&gt; BuildGroup -&gt; Bool
 == :: BuildGroup -&gt; BuildGroup -&gt; Bool
 $c== :: BuildGroup -&gt; BuildGroup -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679376980"><span id="local-6989586621679376982"><span id="local-6989586621679376984"><span id="local-6989586621679376986"><span class="annot"><span class="annottext">ReadPrec [BuildGroup]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679378865"><span id="local-6989586621679378867"><span id="local-6989586621679378869"><span id="local-6989586621679378871"><span class="annot"><span class="annottext">ReadPrec [BuildGroup]
 ReadPrec BuildGroup
 Int -&gt; ReadS BuildGroup
 ReadS [BuildGroup]
@@ -77,7 +77,7 @@ readList :: ReadS [BuildGroup]
 $creadList :: ReadS [BuildGroup]
 readsPrec :: Int -&gt; ReadS BuildGroup
 $creadsPrec :: Int -&gt; ReadS BuildGroup
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679376973"><span id="local-6989586621679376975"><span id="local-6989586621679376977"><span class="annot"><span class="annottext">Int -&gt; BuildGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679378858"><span id="local-6989586621679378860"><span id="local-6989586621679378862"><span class="annot"><span class="annottext">Int -&gt; BuildGroup -&gt; ShowS
 [BuildGroup] -&gt; ShowS
 BuildGroup -&gt; String
 (Int -&gt; BuildGroup -&gt; ShowS)
@@ -110,15 +110,15 @@ $cfrom :: forall x. BuildGroup -&gt; Rep BuildGroup x
 </span><span id="line-54"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-56"></span><span class="hs-comment">--</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- 'dependsOn', 'buildGroup_dependsOn' - An array of strings that contain the identifiers of the build groups</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- that this build group depends on.</span><span>
-</span><span id="line-59"></span><span class="hs-comment">--</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- 'identifier', 'buildGroup_identifier' - Contains the identifier of the build group.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'identifier', 'buildGroup_identifier' - Contains the identifier of the build group.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'dependsOn', 'buildGroup_dependsOn' - An array of strings that contain the identifiers of the build groups</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- that this build group depends on.</span><span>
 </span><span id="line-61"></span><span class="hs-comment">--</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- 'currentBuildSummary', 'buildGroup_currentBuildSummary' - A @BuildSummary@ object that contains a summary of the current build</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- group.</span><span>
-</span><span id="line-64"></span><span class="hs-comment">--</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- 'ignoreFailure', 'buildGroup_ignoreFailure' - Specifies if failures in this build group can be ignored.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'ignoreFailure', 'buildGroup_ignoreFailure' - Specifies if failures in this build group can be ignored.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'currentBuildSummary', 'buildGroup_currentBuildSummary' - A @BuildSummary@ object that contains a summary of the current build</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- group.</span><span>
 </span><span id="line-66"></span><span class="hs-comment">--</span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- 'priorBuildSummaryList', 'buildGroup_priorBuildSummaryList' - An array of @BuildSummary@ objects that contain summaries of previous</span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- build groups.</span><span>
@@ -126,27 +126,27 @@ $cfrom :: forall x. BuildGroup -&gt; Rep BuildGroup x
 </span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#BuildGroup"><span class="hs-identifier hs-type">BuildGroup</span></a></span><span>
 </span><span id="line-71"></span><span id="newBuildGroup"><span class="annot"><span class="annottext">newBuildGroup :: BuildGroup
 </span><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#newBuildGroup"><span class="hs-identifier hs-var hs-var">newBuildGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-72"></span><span>  </span><span class="annot"><span class="annottext">BuildGroup' :: Maybe [Text]
--&gt; Maybe Text
--&gt; Maybe BuildSummary
+</span><span id="line-72"></span><span>  </span><span class="annot"><span class="annottext">BuildGroup' :: Maybe Text
+-&gt; Maybe [Text]
 -&gt; Maybe Bool
+-&gt; Maybe BuildSummary
 -&gt; Maybe [BuildSummary]
 -&gt; BuildGroup
 </span><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#BuildGroup%27"><span class="hs-identifier hs-type">BuildGroup'</span></a></span><span>
-</span><span id="line-73"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dependsOn:BuildGroup' :: Maybe [Text]
-</span><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#%24sel%3AdependsOn%3ABuildGroup%27"><span class="hs-identifier hs-var">dependsOn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:identifier:BuildGroup' :: Maybe Text
+</span><span id="line-73"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:identifier:BuildGroup' :: Maybe Text
 </span><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#%24sel%3Aidentifier%3ABuildGroup%27"><span class="hs-identifier hs-var">identifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:currentBuildSummary:BuildGroup' :: Maybe BuildSummary
-</span><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#%24sel%3AcurrentBuildSummary%3ABuildGroup%27"><span class="hs-identifier hs-var">currentBuildSummary</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BuildSummary
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:dependsOn:BuildGroup' :: Maybe [Text]
+</span><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#%24sel%3AdependsOn%3ABuildGroup%27"><span class="hs-identifier hs-var">dependsOn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:ignoreFailure:BuildGroup' :: Maybe Bool
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:ignoreFailure:BuildGroup' :: Maybe Bool
 </span><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#%24sel%3AignoreFailure%3ABuildGroup%27"><span class="hs-identifier hs-var">ignoreFailure</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:currentBuildSummary:BuildGroup' :: Maybe BuildSummary
+</span><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#%24sel%3AcurrentBuildSummary%3ABuildGroup%27"><span class="hs-identifier hs-var">currentBuildSummary</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BuildSummary
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:priorBuildSummaryList:BuildGroup' :: Maybe [BuildSummary]
@@ -155,24 +155,42 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-78"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- | An array of strings that contain the identifiers of the build groups</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- that this build group depends on.</span><span>
-</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#buildGroup_dependsOn"><span class="hs-identifier hs-type">buildGroup_dependsOn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#BuildGroup"><span class="hs-identifier hs-type">BuildGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-83"></span><span id="buildGroup_dependsOn"><span class="annot"><span class="annottext">buildGroup_dependsOn :: (Maybe [Text] -&gt; f (Maybe [Text])) -&gt; BuildGroup -&gt; f BuildGroup
+</span><span id="line-80"></span><span class="hs-comment">-- | Contains the identifier of the build group.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#buildGroup_identifier"><span class="hs-identifier hs-type">buildGroup_identifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#BuildGroup"><span class="hs-identifier hs-type">BuildGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span id="buildGroup_identifier"><span class="annot"><span class="annottext">buildGroup_identifier :: (Maybe Text -&gt; f (Maybe Text)) -&gt; BuildGroup -&gt; f BuildGroup
+</span><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#buildGroup_identifier"><span class="hs-identifier hs-var hs-var">buildGroup_identifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BuildGroup -&gt; Maybe Text)
+-&gt; (BuildGroup -&gt; Maybe Text -&gt; BuildGroup)
+-&gt; Lens BuildGroup BuildGroup (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#BuildGroup%27"><span class="hs-identifier hs-type">BuildGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378849"><span class="annot"><span class="annottext">Maybe Text
+identifier :: Maybe Text
+$sel:identifier:BuildGroup' :: BuildGroup -&gt; Maybe Text
+</span><a href="#local-6989586621679378849"><span class="hs-identifier hs-var hs-var">identifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679378849"><span class="hs-identifier hs-var">identifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378848"><span class="annot"><span class="annottext">s :: BuildGroup
+</span><a href="#local-6989586621679378848"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#BuildGroup%27"><span class="hs-identifier hs-type">BuildGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378847"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679378847"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BuildGroup
+</span><a href="#local-6989586621679378848"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identifier:BuildGroup' :: Maybe Text
+</span><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#%24sel%3Aidentifier%3ABuildGroup%27"><span class="hs-identifier hs-var">identifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679378847"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#BuildGroup"><span class="hs-identifier hs-type">BuildGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | An array of strings that contain the identifiers of the build groups</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- that this build group depends on.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#buildGroup_dependsOn"><span class="hs-identifier hs-type">buildGroup_dependsOn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#BuildGroup"><span class="hs-identifier hs-type">BuildGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span id="buildGroup_dependsOn"><span class="annot"><span class="annottext">buildGroup_dependsOn :: (Maybe [Text] -&gt; f (Maybe [Text])) -&gt; BuildGroup -&gt; f BuildGroup
 </span><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#buildGroup_dependsOn"><span class="hs-identifier hs-var hs-var">buildGroup_dependsOn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BuildGroup -&gt; Maybe [Text])
 -&gt; (BuildGroup -&gt; Maybe [Text] -&gt; BuildGroup)
 -&gt; Lens BuildGroup BuildGroup (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#BuildGroup%27"><span class="hs-identifier hs-type">BuildGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376964"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#BuildGroup%27"><span class="hs-identifier hs-type">BuildGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378845"><span class="annot"><span class="annottext">Maybe [Text]
 dependsOn :: Maybe [Text]
 $sel:dependsOn:BuildGroup' :: BuildGroup -&gt; Maybe [Text]
-</span><a href="#local-6989586621679376964"><span class="hs-identifier hs-var hs-var">dependsOn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679376964"><span class="hs-identifier hs-var">dependsOn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376963"><span class="annot"><span class="annottext">s :: BuildGroup
-</span><a href="#local-6989586621679376963"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#BuildGroup%27"><span class="hs-identifier hs-type">BuildGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376962"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679376962"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BuildGroup
-</span><a href="#local-6989586621679376963"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dependsOn:BuildGroup' :: Maybe [Text]
+</span><a href="#local-6989586621679378845"><span class="hs-identifier hs-var hs-var">dependsOn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679378845"><span class="hs-identifier hs-var">dependsOn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378844"><span class="annot"><span class="annottext">s :: BuildGroup
+</span><a href="#local-6989586621679378844"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#BuildGroup%27"><span class="hs-identifier hs-type">BuildGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378843"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679378843"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BuildGroup
+</span><a href="#local-6989586621679378844"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dependsOn:BuildGroup' :: Maybe [Text]
 </span><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#%24sel%3AdependsOn%3ABuildGroup%27"><span class="hs-identifier hs-var">dependsOn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679376962"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#BuildGroup"><span class="hs-identifier hs-type">BuildGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; BuildGroup -&gt; f BuildGroup)
+</span><a href="#local-6989586621679378843"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#BuildGroup"><span class="hs-identifier hs-type">BuildGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; BuildGroup -&gt; f BuildGroup)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
@@ -185,65 +203,47 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- | Contains the identifier of the build group.</span><span>
-</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#buildGroup_identifier"><span class="hs-identifier hs-type">buildGroup_identifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#BuildGroup"><span class="hs-identifier hs-type">BuildGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-87"></span><span id="buildGroup_identifier"><span class="annot"><span class="annottext">buildGroup_identifier :: (Maybe Text -&gt; f (Maybe Text)) -&gt; BuildGroup -&gt; f BuildGroup
-</span><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#buildGroup_identifier"><span class="hs-identifier hs-var hs-var">buildGroup_identifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BuildGroup -&gt; Maybe Text)
--&gt; (BuildGroup -&gt; Maybe Text -&gt; BuildGroup)
--&gt; Lens BuildGroup BuildGroup (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#BuildGroup%27"><span class="hs-identifier hs-type">BuildGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376957"><span class="annot"><span class="annottext">Maybe Text
-identifier :: Maybe Text
-$sel:identifier:BuildGroup' :: BuildGroup -&gt; Maybe Text
-</span><a href="#local-6989586621679376957"><span class="hs-identifier hs-var hs-var">identifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679376957"><span class="hs-identifier hs-var">identifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376956"><span class="annot"><span class="annottext">s :: BuildGroup
-</span><a href="#local-6989586621679376956"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#BuildGroup%27"><span class="hs-identifier hs-type">BuildGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376955"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679376955"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BuildGroup
-</span><a href="#local-6989586621679376956"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identifier:BuildGroup' :: Maybe Text
-</span><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#%24sel%3Aidentifier%3ABuildGroup%27"><span class="hs-identifier hs-var">identifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679376955"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#BuildGroup"><span class="hs-identifier hs-type">BuildGroup</span></a></span><span class="hs-special">)</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- | A @BuildSummary@ object that contains a summary of the current build</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- group.</span><span>
-</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#buildGroup_currentBuildSummary"><span class="hs-identifier hs-type">buildGroup_currentBuildSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#BuildGroup"><span class="hs-identifier hs-type">BuildGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#BuildSummary"><span class="hs-identifier hs-type">BuildSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-92"></span><span id="buildGroup_currentBuildSummary"><span class="annot"><span class="annottext">buildGroup_currentBuildSummary :: (Maybe BuildSummary -&gt; f (Maybe BuildSummary))
+</span><span id="line-89"></span><span class="hs-comment">-- | Specifies if failures in this build group can be ignored.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#buildGroup_ignoreFailure"><span class="hs-identifier hs-type">buildGroup_ignoreFailure</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#BuildGroup"><span class="hs-identifier hs-type">BuildGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span id="buildGroup_ignoreFailure"><span class="annot"><span class="annottext">buildGroup_ignoreFailure :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; BuildGroup -&gt; f BuildGroup
+</span><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#buildGroup_ignoreFailure"><span class="hs-identifier hs-var hs-var">buildGroup_ignoreFailure</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BuildGroup -&gt; Maybe Bool)
+-&gt; (BuildGroup -&gt; Maybe Bool -&gt; BuildGroup)
+-&gt; Lens BuildGroup BuildGroup (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#BuildGroup%27"><span class="hs-identifier hs-type">BuildGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378838"><span class="annot"><span class="annottext">Maybe Bool
+ignoreFailure :: Maybe Bool
+$sel:ignoreFailure:BuildGroup' :: BuildGroup -&gt; Maybe Bool
+</span><a href="#local-6989586621679378838"><span class="hs-identifier hs-var hs-var">ignoreFailure</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679378838"><span class="hs-identifier hs-var">ignoreFailure</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378837"><span class="annot"><span class="annottext">s :: BuildGroup
+</span><a href="#local-6989586621679378837"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#BuildGroup%27"><span class="hs-identifier hs-type">BuildGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378836"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679378836"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BuildGroup
+</span><a href="#local-6989586621679378837"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ignoreFailure:BuildGroup' :: Maybe Bool
+</span><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#%24sel%3AignoreFailure%3ABuildGroup%27"><span class="hs-identifier hs-var">ignoreFailure</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679378836"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#BuildGroup"><span class="hs-identifier hs-type">BuildGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | A @BuildSummary@ object that contains a summary of the current build</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- group.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#buildGroup_currentBuildSummary"><span class="hs-identifier hs-type">buildGroup_currentBuildSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#BuildGroup"><span class="hs-identifier hs-type">BuildGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#BuildSummary"><span class="hs-identifier hs-type">BuildSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="buildGroup_currentBuildSummary"><span class="annot"><span class="annottext">buildGroup_currentBuildSummary :: (Maybe BuildSummary -&gt; f (Maybe BuildSummary))
 -&gt; BuildGroup -&gt; f BuildGroup
 </span><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#buildGroup_currentBuildSummary"><span class="hs-identifier hs-var hs-var">buildGroup_currentBuildSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BuildGroup -&gt; Maybe BuildSummary)
 -&gt; (BuildGroup -&gt; Maybe BuildSummary -&gt; BuildGroup)
 -&gt; Lens
      BuildGroup BuildGroup (Maybe BuildSummary) (Maybe BuildSummary)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#BuildGroup%27"><span class="hs-identifier hs-type">BuildGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376953"><span class="annot"><span class="annottext">Maybe BuildSummary
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#BuildGroup%27"><span class="hs-identifier hs-type">BuildGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378834"><span class="annot"><span class="annottext">Maybe BuildSummary
 currentBuildSummary :: Maybe BuildSummary
 $sel:currentBuildSummary:BuildGroup' :: BuildGroup -&gt; Maybe BuildSummary
-</span><a href="#local-6989586621679376953"><span class="hs-identifier hs-var hs-var">currentBuildSummary</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BuildSummary
-</span><a href="#local-6989586621679376953"><span class="hs-identifier hs-var">currentBuildSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376952"><span class="annot"><span class="annottext">s :: BuildGroup
-</span><a href="#local-6989586621679376952"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#BuildGroup%27"><span class="hs-identifier hs-type">BuildGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376951"><span class="annot"><span class="annottext">Maybe BuildSummary
-</span><a href="#local-6989586621679376951"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BuildGroup
-</span><a href="#local-6989586621679376952"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:currentBuildSummary:BuildGroup' :: Maybe BuildSummary
+</span><a href="#local-6989586621679378834"><span class="hs-identifier hs-var hs-var">currentBuildSummary</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BuildSummary
+</span><a href="#local-6989586621679378834"><span class="hs-identifier hs-var">currentBuildSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378833"><span class="annot"><span class="annottext">s :: BuildGroup
+</span><a href="#local-6989586621679378833"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#BuildGroup%27"><span class="hs-identifier hs-type">BuildGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378832"><span class="annot"><span class="annottext">Maybe BuildSummary
+</span><a href="#local-6989586621679378832"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BuildGroup
+</span><a href="#local-6989586621679378833"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:currentBuildSummary:BuildGroup' :: Maybe BuildSummary
 </span><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#%24sel%3AcurrentBuildSummary%3ABuildGroup%27"><span class="hs-identifier hs-var">currentBuildSummary</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BuildSummary
-</span><a href="#local-6989586621679376951"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#BuildGroup"><span class="hs-identifier hs-type">BuildGroup</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- | Specifies if failures in this build group can be ignored.</span><span>
-</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#buildGroup_ignoreFailure"><span class="hs-identifier hs-type">buildGroup_ignoreFailure</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#BuildGroup"><span class="hs-identifier hs-type">BuildGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-96"></span><span id="buildGroup_ignoreFailure"><span class="annot"><span class="annottext">buildGroup_ignoreFailure :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; BuildGroup -&gt; f BuildGroup
-</span><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#buildGroup_ignoreFailure"><span class="hs-identifier hs-var hs-var">buildGroup_ignoreFailure</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BuildGroup -&gt; Maybe Bool)
--&gt; (BuildGroup -&gt; Maybe Bool -&gt; BuildGroup)
--&gt; Lens BuildGroup BuildGroup (Maybe Bool) (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#BuildGroup%27"><span class="hs-identifier hs-type">BuildGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376949"><span class="annot"><span class="annottext">Maybe Bool
-ignoreFailure :: Maybe Bool
-$sel:ignoreFailure:BuildGroup' :: BuildGroup -&gt; Maybe Bool
-</span><a href="#local-6989586621679376949"><span class="hs-identifier hs-var hs-var">ignoreFailure</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679376949"><span class="hs-identifier hs-var">ignoreFailure</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376948"><span class="annot"><span class="annottext">s :: BuildGroup
-</span><a href="#local-6989586621679376948"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#BuildGroup%27"><span class="hs-identifier hs-type">BuildGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376947"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679376947"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BuildGroup
-</span><a href="#local-6989586621679376948"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ignoreFailure:BuildGroup' :: Maybe Bool
-</span><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#%24sel%3AignoreFailure%3ABuildGroup%27"><span class="hs-identifier hs-var">ignoreFailure</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679376947"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#BuildGroup"><span class="hs-identifier hs-type">BuildGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679378832"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#BuildGroup"><span class="hs-identifier hs-type">BuildGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- | An array of @BuildSummary@ objects that contain summaries of previous</span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- build groups.</span><span>
@@ -255,16 +255,16 @@ $sel:ignoreFailure:BuildGroup' :: BuildGroup -&gt; Maybe Bool
 -&gt; Lens
      BuildGroup BuildGroup (Maybe [BuildSummary]) (Maybe [BuildSummary])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#BuildGroup%27"><span class="hs-identifier hs-type">BuildGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376945"><span class="annot"><span class="annottext">Maybe [BuildSummary]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#BuildGroup%27"><span class="hs-identifier hs-type">BuildGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378830"><span class="annot"><span class="annottext">Maybe [BuildSummary]
 priorBuildSummaryList :: Maybe [BuildSummary]
 $sel:priorBuildSummaryList:BuildGroup' :: BuildGroup -&gt; Maybe [BuildSummary]
-</span><a href="#local-6989586621679376945"><span class="hs-identifier hs-var hs-var">priorBuildSummaryList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [BuildSummary]
-</span><a href="#local-6989586621679376945"><span class="hs-identifier hs-var">priorBuildSummaryList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376944"><span class="annot"><span class="annottext">s :: BuildGroup
-</span><a href="#local-6989586621679376944"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#BuildGroup%27"><span class="hs-identifier hs-type">BuildGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376943"><span class="annot"><span class="annottext">Maybe [BuildSummary]
-</span><a href="#local-6989586621679376943"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BuildGroup
-</span><a href="#local-6989586621679376944"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:priorBuildSummaryList:BuildGroup' :: Maybe [BuildSummary]
+</span><a href="#local-6989586621679378830"><span class="hs-identifier hs-var hs-var">priorBuildSummaryList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [BuildSummary]
+</span><a href="#local-6989586621679378830"><span class="hs-identifier hs-var">priorBuildSummaryList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378829"><span class="annot"><span class="annottext">s :: BuildGroup
+</span><a href="#local-6989586621679378829"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#BuildGroup%27"><span class="hs-identifier hs-type">BuildGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378828"><span class="annot"><span class="annottext">Maybe [BuildSummary]
+</span><a href="#local-6989586621679378828"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BuildGroup
+</span><a href="#local-6989586621679378829"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:priorBuildSummaryList:BuildGroup' :: Maybe [BuildSummary]
 </span><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#%24sel%3ApriorBuildSummaryList%3ABuildGroup%27"><span class="hs-identifier hs-var">priorBuildSummaryList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [BuildSummary]
-</span><a href="#local-6989586621679376943"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#BuildGroup"><span class="hs-identifier hs-type">BuildGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [BuildSummary] -&gt; f (Maybe [BuildSummary]))
+</span><a href="#local-6989586621679378828"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#BuildGroup"><span class="hs-identifier hs-type">BuildGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [BuildSummary] -&gt; f (Maybe [BuildSummary]))
  -&gt; BuildGroup -&gt; f BuildGroup)
 -&gt; ((Maybe [BuildSummary] -&gt; f (Maybe [BuildSummary]))
     -&gt; Maybe [BuildSummary] -&gt; f (Maybe [BuildSummary]))
@@ -282,11 +282,11 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [BuildSummary] [BuildSummary] [BuildSummary] [BuildSummary]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679376940"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#BuildGroup"><span class="hs-identifier hs-type">BuildGroup</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679376938"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BuildGroup
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679378825"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#BuildGroup"><span class="hs-identifier hs-type">BuildGroup</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679378823"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BuildGroup
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser BuildGroup) -&gt; Value -&gt; Parser BuildGroup
@@ -294,31 +294,47 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;BuildGroup&quot;</span></span><span>
-</span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679376935"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679376935"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-108"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text]
--&gt; Maybe Text
--&gt; Maybe BuildSummary
+</span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679378820"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679378820"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-108"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [Text]
 -&gt; Maybe Bool
+-&gt; Maybe BuildSummary
 -&gt; Maybe [BuildSummary]
 -&gt; BuildGroup
 </span><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#BuildGroup%27"><span class="hs-identifier hs-var">BuildGroup'</span></a></span><span>
-</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text]
- -&gt; Maybe Text
- -&gt; Maybe BuildSummary
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [Text]
  -&gt; Maybe Bool
+ -&gt; Maybe BuildSummary
  -&gt; Maybe [BuildSummary]
  -&gt; BuildGroup)
--&gt; Parser (Maybe [Text])
+-&gt; Parser (Maybe Text)
 -&gt; Parser
-     (Maybe Text
-      -&gt; Maybe BuildSummary
+     (Maybe [Text]
       -&gt; Maybe Bool
+      -&gt; Maybe BuildSummary
       -&gt; Maybe [BuildSummary]
       -&gt; BuildGroup)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679376935"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679378820"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;identifier&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [Text]
+   -&gt; Maybe Bool
+   -&gt; Maybe BuildSummary
+   -&gt; Maybe [BuildSummary]
+   -&gt; BuildGroup)
+-&gt; Parser (Maybe [Text])
+-&gt; Parser
+     (Maybe Bool
+      -&gt; Maybe BuildSummary -&gt; Maybe [BuildSummary] -&gt; BuildGroup)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679378820"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;dependsOn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
@@ -327,47 +343,32 @@ forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe BuildSummary
-   -&gt; Maybe Bool
-   -&gt; Maybe [BuildSummary]
-   -&gt; BuildGroup)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe BuildSummary
-      -&gt; Maybe Bool -&gt; Maybe [BuildSummary] -&gt; BuildGroup)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679376935"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;identifier&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe BuildSummary
-   -&gt; Maybe Bool -&gt; Maybe [BuildSummary] -&gt; BuildGroup)
--&gt; Parser (Maybe BuildSummary)
--&gt; Parser (Maybe Bool -&gt; Maybe [BuildSummary] -&gt; BuildGroup)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679376935"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe BuildSummary)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;currentBuildSummary&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Bool -&gt; Maybe [BuildSummary] -&gt; BuildGroup)
+  (Maybe Bool
+   -&gt; Maybe BuildSummary -&gt; Maybe [BuildSummary] -&gt; BuildGroup)
 -&gt; Parser (Maybe Bool)
--&gt; Parser (Maybe [BuildSummary] -&gt; BuildGroup)
+-&gt; Parser
+     (Maybe BuildSummary -&gt; Maybe [BuildSummary] -&gt; BuildGroup)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679376935"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679378820"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ignoreFailure&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe BuildSummary -&gt; Maybe [BuildSummary] -&gt; BuildGroup)
+-&gt; Parser (Maybe BuildSummary)
+-&gt; Parser (Maybe [BuildSummary] -&gt; BuildGroup)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679378820"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe BuildSummary)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;currentBuildSummary&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [BuildSummary] -&gt; BuildGroup)
 -&gt; Parser (Maybe [BuildSummary]) -&gt; Parser BuildGroup
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679376935"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [BuildSummary]))
+</span><a href="#local-6989586621679378820"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [BuildSummary]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;priorBuildSummaryList&quot;</span></span><span>
@@ -380,7 +381,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-115"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679376928"><span id="local-6989586621679376930"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#BuildGroup"><span class="hs-identifier hs-type">BuildGroup</span></a></span></span></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679378813"><span id="local-6989586621679378815"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#BuildGroup"><span class="hs-identifier hs-type">BuildGroup</span></a></span></span></span><span>
 </span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679376925"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#BuildGroup"><span class="hs-identifier hs-type">BuildGroup</span></a></span></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679378810"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildGroup.html#BuildGroup"><span class="hs-identifier hs-type">BuildGroup</span></a></span></span><span>
 </span><span id="line-121"></span></pre></body></html>

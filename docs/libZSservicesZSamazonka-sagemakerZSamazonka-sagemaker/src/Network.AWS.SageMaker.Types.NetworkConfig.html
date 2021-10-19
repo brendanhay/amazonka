@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-comment">-- VPC-enabled jobs.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newNetworkConfig' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621680357923"><span id="local-6989586621680357924"></span></span><span class="hs-keyword">data</span><span> </span><span id="NetworkConfig"><span class="annot"><a href="Network.AWS.SageMaker.Types.NetworkConfig.html#NetworkConfig"><span class="hs-identifier hs-var">NetworkConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NetworkConfig%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.NetworkConfig.html#NetworkConfig%27"><span class="hs-identifier hs-var">NetworkConfig'</span></a></span></span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AvpcConfig%3ANetworkConfig%27"><span class="annot"><span class="annottext">NetworkConfig -&gt; Maybe VpcConfig
-</span><a href="Network.AWS.SageMaker.Types.NetworkConfig.html#%24sel%3AvpcConfig%3ANetworkConfig%27"><span class="hs-identifier hs-var hs-var">vpcConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.VpcConfig.html#VpcConfig"><span class="hs-identifier hs-type">VpcConfig</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Whether to allow inbound and outbound network calls to and from the</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- containers used for the processing job.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AenableNetworkIsolation%3ANetworkConfig%27"><span class="annot"><span class="annottext">NetworkConfig -&gt; Maybe Bool
+</span><span id="line-33"></span><span id="local-6989586621680359382"><span id="local-6989586621680359383"></span></span><span class="hs-keyword">data</span><span> </span><span id="NetworkConfig"><span class="annot"><a href="Network.AWS.SageMaker.Types.NetworkConfig.html#NetworkConfig"><span class="hs-identifier hs-var">NetworkConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NetworkConfig%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.NetworkConfig.html#NetworkConfig%27"><span class="hs-identifier hs-var">NetworkConfig'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Whether to allow inbound and outbound network calls to and from the</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- containers used for the processing job.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AenableNetworkIsolation%3ANetworkConfig%27"><span class="annot"><span class="annottext">NetworkConfig -&gt; Maybe Bool
 </span><a href="Network.AWS.SageMaker.Types.NetworkConfig.html#%24sel%3AenableNetworkIsolation%3ANetworkConfig%27"><span class="hs-identifier hs-var hs-var">enableNetworkIsolation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AvpcConfig%3ANetworkConfig%27"><span class="annot"><span class="annottext">NetworkConfig -&gt; Maybe VpcConfig
+</span><a href="Network.AWS.SageMaker.Types.NetworkConfig.html#%24sel%3AvpcConfig%3ANetworkConfig%27"><span class="hs-identifier hs-var hs-var">vpcConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.VpcConfig.html#VpcConfig"><span class="hs-identifier hs-type">VpcConfig</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | Whether to encrypt all communications between distributed processing</span><span>
 </span><span id="line-39"></span><span>    </span><span class="hs-comment">-- jobs. Choose @True@ to encrypt communications. Encryption provides</span><span>
 </span><span id="line-40"></span><span>    </span><span class="hs-comment">-- greater security for distributed processing jobs, but the processing</span><span>
@@ -44,7 +44,7 @@
 </span><span id="line-42"></span><span>    </span><span id="%24sel%3AenableInterContainerTrafficEncryption%3ANetworkConfig%27"><span class="annot"><span class="annottext">NetworkConfig -&gt; Maybe Bool
 </span><a href="Network.AWS.SageMaker.Types.NetworkConfig.html#%24sel%3AenableInterContainerTrafficEncryption%3ANetworkConfig%27"><span class="hs-identifier hs-var hs-var">enableInterContainerTrafficEncryption</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680357915"><span id="local-6989586621680357917"><span class="annot"><span class="annottext">NetworkConfig -&gt; NetworkConfig -&gt; Bool
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680359374"><span id="local-6989586621680359376"><span class="annot"><span class="annottext">NetworkConfig -&gt; NetworkConfig -&gt; Bool
 (NetworkConfig -&gt; NetworkConfig -&gt; Bool)
 -&gt; (NetworkConfig -&gt; NetworkConfig -&gt; Bool) -&gt; Eq NetworkConfig
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -52,7 +52,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: NetworkConfig -&gt; NetworkConfig -&gt; Bool
 == :: NetworkConfig -&gt; NetworkConfig -&gt; Bool
 $c== :: NetworkConfig -&gt; NetworkConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680357906"><span id="local-6989586621680357908"><span id="local-6989586621680357910"><span id="local-6989586621680357912"><span class="annot"><span class="annottext">ReadPrec [NetworkConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680359365"><span id="local-6989586621680359367"><span id="local-6989586621680359369"><span id="local-6989586621680359371"><span class="annot"><span class="annottext">ReadPrec [NetworkConfig]
 ReadPrec NetworkConfig
 Int -&gt; ReadS NetworkConfig
 ReadS [NetworkConfig]
@@ -72,7 +72,7 @@ readList :: ReadS [NetworkConfig]
 $creadList :: ReadS [NetworkConfig]
 readsPrec :: Int -&gt; ReadS NetworkConfig
 $creadsPrec :: Int -&gt; ReadS NetworkConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680357899"><span id="local-6989586621680357901"><span id="local-6989586621680357903"><span class="annot"><span class="annottext">Int -&gt; NetworkConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680359358"><span id="local-6989586621680359360"><span id="local-6989586621680359362"><span class="annot"><span class="annottext">Int -&gt; NetworkConfig -&gt; ShowS
 [NetworkConfig] -&gt; ShowS
 NetworkConfig -&gt; String
 (Int -&gt; NetworkConfig -&gt; ShowS)
@@ -106,10 +106,10 @@ $cfrom :: forall x. NetworkConfig -&gt; Rep NetworkConfig x
 </span><span id="line-51"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-53"></span><span class="hs-comment">--</span><span>
-</span><span id="line-54"></span><span class="hs-comment">-- 'vpcConfig', 'networkConfig_vpcConfig' - Undocumented member.</span><span>
-</span><span id="line-55"></span><span class="hs-comment">--</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- 'enableNetworkIsolation', 'networkConfig_enableNetworkIsolation' - Whether to allow inbound and outbound network calls to and from the</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- containers used for the processing job.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'enableNetworkIsolation', 'networkConfig_enableNetworkIsolation' - Whether to allow inbound and outbound network calls to and from the</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- containers used for the processing job.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'vpcConfig', 'networkConfig_vpcConfig' - Undocumented member.</span><span>
 </span><span id="line-58"></span><span class="hs-comment">--</span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- 'enableInterContainerTrafficEncryption', 'networkConfig_enableInterContainerTrafficEncryption' - Whether to encrypt all communications between distributed processing</span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- jobs. Choose @True@ to encrypt communications. Encryption provides</span><span>
@@ -119,168 +119,169 @@ $cfrom :: forall x. NetworkConfig -&gt; Rep NetworkConfig x
 </span><span id="line-64"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.NetworkConfig.html#NetworkConfig"><span class="hs-identifier hs-type">NetworkConfig</span></a></span><span>
 </span><span id="line-65"></span><span id="newNetworkConfig"><span class="annot"><span class="annottext">newNetworkConfig :: NetworkConfig
 </span><a href="Network.AWS.SageMaker.Types.NetworkConfig.html#newNetworkConfig"><span class="hs-identifier hs-var hs-var">newNetworkConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-66"></span><span>  </span><span class="annot"><span class="annottext">NetworkConfig' :: Maybe VpcConfig -&gt; Maybe Bool -&gt; Maybe Bool -&gt; NetworkConfig
+</span><span id="line-66"></span><span>  </span><span class="annot"><span class="annottext">NetworkConfig' :: Maybe Bool -&gt; Maybe VpcConfig -&gt; Maybe Bool -&gt; NetworkConfig
 </span><a href="Network.AWS.SageMaker.Types.NetworkConfig.html#NetworkConfig%27"><span class="hs-identifier hs-type">NetworkConfig'</span></a></span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:vpcConfig:NetworkConfig' :: Maybe VpcConfig
+</span><span id="line-67"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:enableNetworkIsolation:NetworkConfig' :: Maybe Bool
+</span><a href="Network.AWS.SageMaker.Types.NetworkConfig.html#%24sel%3AenableNetworkIsolation%3ANetworkConfig%27"><span class="hs-identifier hs-var">enableNetworkIsolation</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:vpcConfig:NetworkConfig' :: Maybe VpcConfig
 </span><a href="Network.AWS.SageMaker.Types.NetworkConfig.html#%24sel%3AvpcConfig%3ANetworkConfig%27"><span class="hs-identifier hs-var">vpcConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VpcConfig
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:enableNetworkIsolation:NetworkConfig' :: Maybe Bool
-</span><a href="Network.AWS.SageMaker.Types.NetworkConfig.html#%24sel%3AenableNetworkIsolation%3ANetworkConfig%27"><span class="hs-identifier hs-var">enableNetworkIsolation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:enableInterContainerTrafficEncryption:NetworkConfig' :: Maybe Bool
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:enableInterContainerTrafficEncryption:NetworkConfig' :: Maybe Bool
 </span><a href="Network.AWS.SageMaker.Types.NetworkConfig.html#%24sel%3AenableInterContainerTrafficEncryption%3ANetworkConfig%27"><span class="hs-identifier hs-var">enableInterContainerTrafficEncryption</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-70"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-71"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-71"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- | Undocumented member.</span><span>
-</span><span id="line-74"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.NetworkConfig.html#networkConfig_vpcConfig"><span class="hs-identifier hs-type">networkConfig_vpcConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.NetworkConfig.html#NetworkConfig"><span class="hs-identifier hs-type">NetworkConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.VpcConfig.html#VpcConfig"><span class="hs-identifier hs-type">VpcConfig</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-75"></span><span id="networkConfig_vpcConfig"><span class="annot"><span class="annottext">networkConfig_vpcConfig :: (Maybe VpcConfig -&gt; f (Maybe VpcConfig))
+</span><span id="line-72"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- | Whether to allow inbound and outbound network calls to and from the</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- containers used for the processing job.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.NetworkConfig.html#networkConfig_enableNetworkIsolation"><span class="hs-identifier hs-type">networkConfig_enableNetworkIsolation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.NetworkConfig.html#NetworkConfig"><span class="hs-identifier hs-type">NetworkConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span id="networkConfig_enableNetworkIsolation"><span class="annot"><span class="annottext">networkConfig_enableNetworkIsolation :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; NetworkConfig -&gt; f NetworkConfig
+</span><a href="Network.AWS.SageMaker.Types.NetworkConfig.html#networkConfig_enableNetworkIsolation"><span class="hs-identifier hs-var hs-var">networkConfig_enableNetworkIsolation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NetworkConfig -&gt; Maybe Bool)
+-&gt; (NetworkConfig -&gt; Maybe Bool -&gt; NetworkConfig)
+-&gt; Lens NetworkConfig NetworkConfig (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.NetworkConfig.html#NetworkConfig%27"><span class="hs-identifier hs-type">NetworkConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680359349"><span class="annot"><span class="annottext">Maybe Bool
+enableNetworkIsolation :: Maybe Bool
+$sel:enableNetworkIsolation:NetworkConfig' :: NetworkConfig -&gt; Maybe Bool
+</span><a href="#local-6989586621680359349"><span class="hs-identifier hs-var hs-var">enableNetworkIsolation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621680359349"><span class="hs-identifier hs-var">enableNetworkIsolation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680359348"><span class="annot"><span class="annottext">s :: NetworkConfig
+</span><a href="#local-6989586621680359348"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.NetworkConfig.html#NetworkConfig%27"><span class="hs-identifier hs-type">NetworkConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680359347"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621680359347"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NetworkConfig
+</span><a href="#local-6989586621680359348"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enableNetworkIsolation:NetworkConfig' :: Maybe Bool
+</span><a href="Network.AWS.SageMaker.Types.NetworkConfig.html#%24sel%3AenableNetworkIsolation%3ANetworkConfig%27"><span class="hs-identifier hs-var">enableNetworkIsolation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621680359347"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.NetworkConfig.html#NetworkConfig"><span class="hs-identifier hs-type">NetworkConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.NetworkConfig.html#networkConfig_vpcConfig"><span class="hs-identifier hs-type">networkConfig_vpcConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.NetworkConfig.html#NetworkConfig"><span class="hs-identifier hs-type">NetworkConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.VpcConfig.html#VpcConfig"><span class="hs-identifier hs-type">VpcConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span id="networkConfig_vpcConfig"><span class="annot"><span class="annottext">networkConfig_vpcConfig :: (Maybe VpcConfig -&gt; f (Maybe VpcConfig))
 -&gt; NetworkConfig -&gt; f NetworkConfig
 </span><a href="Network.AWS.SageMaker.Types.NetworkConfig.html#networkConfig_vpcConfig"><span class="hs-identifier hs-var hs-var">networkConfig_vpcConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NetworkConfig -&gt; Maybe VpcConfig)
 -&gt; (NetworkConfig -&gt; Maybe VpcConfig -&gt; NetworkConfig)
 -&gt; Lens
      NetworkConfig NetworkConfig (Maybe VpcConfig) (Maybe VpcConfig)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.NetworkConfig.html#NetworkConfig%27"><span class="hs-identifier hs-type">NetworkConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680357890"><span class="annot"><span class="annottext">Maybe VpcConfig
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.NetworkConfig.html#NetworkConfig%27"><span class="hs-identifier hs-type">NetworkConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680359345"><span class="annot"><span class="annottext">Maybe VpcConfig
 vpcConfig :: Maybe VpcConfig
 $sel:vpcConfig:NetworkConfig' :: NetworkConfig -&gt; Maybe VpcConfig
-</span><a href="#local-6989586621680357890"><span class="hs-identifier hs-var hs-var">vpcConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VpcConfig
-</span><a href="#local-6989586621680357890"><span class="hs-identifier hs-var">vpcConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680357889"><span class="annot"><span class="annottext">s :: NetworkConfig
-</span><a href="#local-6989586621680357889"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.NetworkConfig.html#NetworkConfig%27"><span class="hs-identifier hs-type">NetworkConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680357888"><span class="annot"><span class="annottext">Maybe VpcConfig
-</span><a href="#local-6989586621680357888"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NetworkConfig
-</span><a href="#local-6989586621680357889"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcConfig:NetworkConfig' :: Maybe VpcConfig
+</span><a href="#local-6989586621680359345"><span class="hs-identifier hs-var hs-var">vpcConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VpcConfig
+</span><a href="#local-6989586621680359345"><span class="hs-identifier hs-var">vpcConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680359344"><span class="annot"><span class="annottext">s :: NetworkConfig
+</span><a href="#local-6989586621680359344"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.NetworkConfig.html#NetworkConfig%27"><span class="hs-identifier hs-type">NetworkConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680359343"><span class="annot"><span class="annottext">Maybe VpcConfig
+</span><a href="#local-6989586621680359343"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NetworkConfig
+</span><a href="#local-6989586621680359344"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcConfig:NetworkConfig' :: Maybe VpcConfig
 </span><a href="Network.AWS.SageMaker.Types.NetworkConfig.html#%24sel%3AvpcConfig%3ANetworkConfig%27"><span class="hs-identifier hs-var">vpcConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VpcConfig
-</span><a href="#local-6989586621680357888"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.NetworkConfig.html#NetworkConfig"><span class="hs-identifier hs-type">NetworkConfig</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- | Whether to allow inbound and outbound network calls to and from the</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- containers used for the processing job.</span><span>
-</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.NetworkConfig.html#networkConfig_enableNetworkIsolation"><span class="hs-identifier hs-type">networkConfig_enableNetworkIsolation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.NetworkConfig.html#NetworkConfig"><span class="hs-identifier hs-type">NetworkConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-80"></span><span id="networkConfig_enableNetworkIsolation"><span class="annot"><span class="annottext">networkConfig_enableNetworkIsolation :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; NetworkConfig -&gt; f NetworkConfig
-</span><a href="Network.AWS.SageMaker.Types.NetworkConfig.html#networkConfig_enableNetworkIsolation"><span class="hs-identifier hs-var hs-var">networkConfig_enableNetworkIsolation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NetworkConfig -&gt; Maybe Bool)
--&gt; (NetworkConfig -&gt; Maybe Bool -&gt; NetworkConfig)
--&gt; Lens NetworkConfig NetworkConfig (Maybe Bool) (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.NetworkConfig.html#NetworkConfig%27"><span class="hs-identifier hs-type">NetworkConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680357886"><span class="annot"><span class="annottext">Maybe Bool
-enableNetworkIsolation :: Maybe Bool
-$sel:enableNetworkIsolation:NetworkConfig' :: NetworkConfig -&gt; Maybe Bool
-</span><a href="#local-6989586621680357886"><span class="hs-identifier hs-var hs-var">enableNetworkIsolation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621680357886"><span class="hs-identifier hs-var">enableNetworkIsolation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680357885"><span class="annot"><span class="annottext">s :: NetworkConfig
-</span><a href="#local-6989586621680357885"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.NetworkConfig.html#NetworkConfig%27"><span class="hs-identifier hs-type">NetworkConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680357884"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621680357884"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NetworkConfig
-</span><a href="#local-6989586621680357885"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enableNetworkIsolation:NetworkConfig' :: Maybe Bool
-</span><a href="Network.AWS.SageMaker.Types.NetworkConfig.html#%24sel%3AenableNetworkIsolation%3ANetworkConfig%27"><span class="hs-identifier hs-var">enableNetworkIsolation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621680357884"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.NetworkConfig.html#NetworkConfig"><span class="hs-identifier hs-type">NetworkConfig</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- | Whether to encrypt all communications between distributed processing</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- jobs. Choose @True@ to encrypt communications. Encryption provides</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- greater security for distributed processing jobs, but the processing</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- might take longer.</span><span>
-</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.NetworkConfig.html#networkConfig_enableInterContainerTrafficEncryption"><span class="hs-identifier hs-type">networkConfig_enableInterContainerTrafficEncryption</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.NetworkConfig.html#NetworkConfig"><span class="hs-identifier hs-type">NetworkConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-87"></span><span id="networkConfig_enableInterContainerTrafficEncryption"><span class="annot"><span class="annottext">networkConfig_enableInterContainerTrafficEncryption :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; NetworkConfig -&gt; f NetworkConfig
+</span><a href="#local-6989586621680359343"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.NetworkConfig.html#NetworkConfig"><span class="hs-identifier hs-type">NetworkConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- | Whether to encrypt all communications between distributed processing</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- jobs. Choose @True@ to encrypt communications. Encryption provides</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- greater security for distributed processing jobs, but the processing</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- might take longer.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.NetworkConfig.html#networkConfig_enableInterContainerTrafficEncryption"><span class="hs-identifier hs-type">networkConfig_enableInterContainerTrafficEncryption</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.NetworkConfig.html#NetworkConfig"><span class="hs-identifier hs-type">NetworkConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="networkConfig_enableInterContainerTrafficEncryption"><span class="annot"><span class="annottext">networkConfig_enableInterContainerTrafficEncryption :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; NetworkConfig -&gt; f NetworkConfig
 </span><a href="Network.AWS.SageMaker.Types.NetworkConfig.html#networkConfig_enableInterContainerTrafficEncryption"><span class="hs-identifier hs-var hs-var">networkConfig_enableInterContainerTrafficEncryption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NetworkConfig -&gt; Maybe Bool)
 -&gt; (NetworkConfig -&gt; Maybe Bool -&gt; NetworkConfig)
 -&gt; Lens NetworkConfig NetworkConfig (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.NetworkConfig.html#NetworkConfig%27"><span class="hs-identifier hs-type">NetworkConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680357882"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.NetworkConfig.html#NetworkConfig%27"><span class="hs-identifier hs-type">NetworkConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680359341"><span class="annot"><span class="annottext">Maybe Bool
 enableInterContainerTrafficEncryption :: Maybe Bool
 $sel:enableInterContainerTrafficEncryption:NetworkConfig' :: NetworkConfig -&gt; Maybe Bool
-</span><a href="#local-6989586621680357882"><span class="hs-identifier hs-var hs-var">enableInterContainerTrafficEncryption</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621680357882"><span class="hs-identifier hs-var">enableInterContainerTrafficEncryption</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680357881"><span class="annot"><span class="annottext">s :: NetworkConfig
-</span><a href="#local-6989586621680357881"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.NetworkConfig.html#NetworkConfig%27"><span class="hs-identifier hs-type">NetworkConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680357880"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621680357880"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NetworkConfig
-</span><a href="#local-6989586621680357881"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enableInterContainerTrafficEncryption:NetworkConfig' :: Maybe Bool
+</span><a href="#local-6989586621680359341"><span class="hs-identifier hs-var hs-var">enableInterContainerTrafficEncryption</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621680359341"><span class="hs-identifier hs-var">enableInterContainerTrafficEncryption</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680359340"><span class="annot"><span class="annottext">s :: NetworkConfig
+</span><a href="#local-6989586621680359340"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.NetworkConfig.html#NetworkConfig%27"><span class="hs-identifier hs-type">NetworkConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680359339"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621680359339"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NetworkConfig
+</span><a href="#local-6989586621680359340"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enableInterContainerTrafficEncryption:NetworkConfig' :: Maybe Bool
 </span><a href="Network.AWS.SageMaker.Types.NetworkConfig.html#%24sel%3AenableInterContainerTrafficEncryption%3ANetworkConfig%27"><span class="hs-identifier hs-var">enableInterContainerTrafficEncryption</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621680357880"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.NetworkConfig.html#NetworkConfig"><span class="hs-identifier hs-type">NetworkConfig</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680357877"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.NetworkConfig.html#NetworkConfig"><span class="hs-identifier hs-type">NetworkConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621680357875"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser NetworkConfig
+</span><a href="#local-6989586621680359339"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.NetworkConfig.html#NetworkConfig"><span class="hs-identifier hs-type">NetworkConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680359336"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.NetworkConfig.html#NetworkConfig"><span class="hs-identifier hs-type">NetworkConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621680359334"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser NetworkConfig
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-91"></span><span>    </span><span class="annot"><span class="annottext">String
+</span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser NetworkConfig)
 -&gt; Value
 -&gt; Parser NetworkConfig
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
-</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;NetworkConfig&quot;</span></span><span>
-</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680357872"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680357872"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-94"></span><span>          </span><span class="annot"><span class="annottext">Maybe VpcConfig -&gt; Maybe Bool -&gt; Maybe Bool -&gt; NetworkConfig
+</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680359331"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680359331"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-95"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool -&gt; Maybe VpcConfig -&gt; Maybe Bool -&gt; NetworkConfig
 </span><a href="Network.AWS.SageMaker.Types.NetworkConfig.html#NetworkConfig%27"><span class="hs-identifier hs-var">NetworkConfig'</span></a></span><span>
-</span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">(Maybe VpcConfig -&gt; Maybe Bool -&gt; Maybe Bool -&gt; NetworkConfig)
--&gt; Parser (Maybe VpcConfig)
--&gt; Parser (Maybe Bool -&gt; Maybe Bool -&gt; NetworkConfig)
+</span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Bool -&gt; Maybe VpcConfig -&gt; Maybe Bool -&gt; NetworkConfig)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser (Maybe VpcConfig -&gt; Maybe Bool -&gt; NetworkConfig)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680357872"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe VpcConfig)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;VpcConfig&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Bool -&gt; Maybe Bool -&gt; NetworkConfig)
--&gt; Parser (Maybe Bool) -&gt; Parser (Maybe Bool -&gt; NetworkConfig)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680357872"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621680359331"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EnableNetworkIsolation&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Bool -&gt; NetworkConfig)
+</span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe VpcConfig -&gt; Maybe Bool -&gt; NetworkConfig)
+-&gt; Parser (Maybe VpcConfig) -&gt; Parser (Maybe Bool -&gt; NetworkConfig)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680359331"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe VpcConfig)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VpcConfig&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Bool -&gt; NetworkConfig)
 -&gt; Parser (Maybe Bool) -&gt; Parser NetworkConfig
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680357872"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621680359331"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EnableInterContainerTrafficEncryption&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-98"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680357866"><span id="local-6989586621680357868"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.NetworkConfig.html#NetworkConfig"><span class="hs-identifier hs-type">NetworkConfig</span></a></span></span></span><span>
-</span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680357863"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.NetworkConfig.html#NetworkConfig"><span class="hs-identifier hs-type">NetworkConfig</span></a></span></span><span>
-</span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680357855"><span id="local-6989586621680357857"><span id="local-6989586621680357859"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.NetworkConfig.html#NetworkConfig"><span class="hs-identifier hs-type">NetworkConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621680357853"><span class="annot"><span class="annottext">toJSON :: NetworkConfig -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.NetworkConfig.html#NetworkConfig%27"><span class="hs-identifier hs-type">NetworkConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680357849"><span id="local-6989586621680357850"><span id="local-6989586621680357851"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680359325"><span id="local-6989586621680359327"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.NetworkConfig.html#NetworkConfig"><span class="hs-identifier hs-type">NetworkConfig</span></a></span></span></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680359322"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.NetworkConfig.html#NetworkConfig"><span class="hs-identifier hs-type">NetworkConfig</span></a></span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680359314"><span id="local-6989586621680359316"><span id="local-6989586621680359318"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.NetworkConfig.html#NetworkConfig"><span class="hs-identifier hs-type">NetworkConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621680359312"><span class="annot"><span class="annottext">toJSON :: NetworkConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.NetworkConfig.html#NetworkConfig%27"><span class="hs-identifier hs-type">NetworkConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680359308"><span id="local-6989586621680359309"><span id="local-6989586621680359310"><span class="annot"><span class="annottext">Maybe Bool
 Maybe VpcConfig
 enableInterContainerTrafficEncryption :: Maybe Bool
-enableNetworkIsolation :: Maybe Bool
 vpcConfig :: Maybe VpcConfig
+enableNetworkIsolation :: Maybe Bool
 $sel:enableInterContainerTrafficEncryption:NetworkConfig' :: NetworkConfig -&gt; Maybe Bool
-$sel:enableNetworkIsolation:NetworkConfig' :: NetworkConfig -&gt; Maybe Bool
 $sel:vpcConfig:NetworkConfig' :: NetworkConfig -&gt; Maybe VpcConfig
-</span><a href="#local-6989586621680357849"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+$sel:enableNetworkIsolation:NetworkConfig' :: NetworkConfig -&gt; Maybe Bool
+</span><a href="#local-6989586621680359308"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
-</span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+</span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
-</span><span id="line-108"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;VpcConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; VpcConfig -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(VpcConfig -&gt; Pair) -&gt; Maybe VpcConfig -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe VpcConfig
-</span><a href="#local-6989586621680357851"><span class="hs-identifier hs-var">vpcConfig</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-109"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span id="line-109"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EnableNetworkIsolation&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621680357850"><span class="hs-identifier hs-var">enableNetworkIsolation</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680359310"><span class="hs-identifier hs-var">enableNetworkIsolation</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-111"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VpcConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; VpcConfig -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(VpcConfig -&gt; Pair) -&gt; Maybe VpcConfig -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe VpcConfig
+</span><a href="#local-6989586621680359309"><span class="hs-identifier hs-var">vpcConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EnableInterContainerTrafficEncryption&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-112"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+</span><span id="line-113"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621680357849"><span class="hs-identifier hs-var">enableInterContainerTrafficEncryption</span></a></span><span>
-</span><span id="line-113"></span><span>          </span><span class="hs-special">]</span><span>
-</span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-115"></span></pre></body></html>
+</span><a href="#local-6989586621680359308"><span class="hs-identifier hs-var">enableInterContainerTrafficEncryption</span></a></span><span>
+</span><span id="line-114"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span></pre></body></html>

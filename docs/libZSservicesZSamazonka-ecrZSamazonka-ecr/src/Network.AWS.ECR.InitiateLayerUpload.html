@@ -44,8 +44,8 @@
 </span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.ECR.InitiateLayerUpload.html#newInitiateLayerUploadResponse"><span class="hs-identifier">newInitiateLayerUploadResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-45"></span><span>
 </span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.ECR.InitiateLayerUpload.html#initiateLayerUploadResponse_uploadId"><span class="hs-identifier">initiateLayerUploadResponse_uploadId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.ECR.InitiateLayerUpload.html#initiateLayerUploadResponse_partSize"><span class="hs-identifier">initiateLayerUploadResponse_partSize</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.ECR.InitiateLayerUpload.html#initiateLayerUploadResponse_partSize"><span class="hs-identifier">initiateLayerUploadResponse_partSize</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.ECR.InitiateLayerUpload.html#initiateLayerUploadResponse_uploadId"><span class="hs-identifier">initiateLayerUploadResponse_uploadId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.ECR.InitiateLayerUpload.html#initiateLayerUploadResponse_httpStatus"><span class="hs-identifier">initiateLayerUploadResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-51"></span><span class="hs-keyword">where</span><span>
@@ -58,7 +58,7 @@
 </span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- | /See:/ 'newInitiateLayerUpload' smart constructor.</span><span>
-</span><span id="line-61"></span><span id="local-6989586621679239533"><span id="local-6989586621679239534"></span></span><span class="hs-keyword">data</span><span> </span><span id="InitiateLayerUpload"><span class="annot"><a href="Network.AWS.ECR.InitiateLayerUpload.html#InitiateLayerUpload"><span class="hs-identifier hs-var">InitiateLayerUpload</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InitiateLayerUpload%27"><span class="annot"><a href="Network.AWS.ECR.InitiateLayerUpload.html#InitiateLayerUpload%27"><span class="hs-identifier hs-var">InitiateLayerUpload'</span></a></span></span><span>
+</span><span id="line-61"></span><span id="local-6989586621679239690"><span id="local-6989586621679239691"></span></span><span class="hs-keyword">data</span><span> </span><span id="InitiateLayerUpload"><span class="annot"><a href="Network.AWS.ECR.InitiateLayerUpload.html#InitiateLayerUpload"><span class="hs-identifier hs-var">InitiateLayerUpload</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InitiateLayerUpload%27"><span class="annot"><a href="Network.AWS.ECR.InitiateLayerUpload.html#InitiateLayerUpload%27"><span class="hs-identifier hs-var">InitiateLayerUpload'</span></a></span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Web Services account ID associated with the registry to which</span><span>
 </span><span id="line-63"></span><span>    </span><span class="hs-comment">-- you intend to upload layers. If you do not specify a registry, the</span><span>
 </span><span id="line-64"></span><span>    </span><span class="hs-comment">-- default registry is assumed.</span><span>
@@ -68,7 +68,7 @@
 </span><span id="line-67"></span><span>    </span><span id="%24sel%3ArepositoryName%3AInitiateLayerUpload%27"><span class="annot"><span class="annottext">InitiateLayerUpload -&gt; Text
 </span><a href="Network.AWS.ECR.InitiateLayerUpload.html#%24sel%3ArepositoryName%3AInitiateLayerUpload%27"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-68"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679239526"><span id="local-6989586621679239528"><span class="annot"><span class="annottext">InitiateLayerUpload -&gt; InitiateLayerUpload -&gt; Bool
+</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679239683"><span id="local-6989586621679239685"><span class="annot"><span class="annottext">InitiateLayerUpload -&gt; InitiateLayerUpload -&gt; Bool
 (InitiateLayerUpload -&gt; InitiateLayerUpload -&gt; Bool)
 -&gt; (InitiateLayerUpload -&gt; InitiateLayerUpload -&gt; Bool)
 -&gt; Eq InitiateLayerUpload
@@ -77,7 +77,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: InitiateLayerUpload -&gt; InitiateLayerUpload -&gt; Bool
 == :: InitiateLayerUpload -&gt; InitiateLayerUpload -&gt; Bool
 $c== :: InitiateLayerUpload -&gt; InitiateLayerUpload -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679239517"><span id="local-6989586621679239519"><span id="local-6989586621679239521"><span id="local-6989586621679239523"><span class="annot"><span class="annottext">ReadPrec [InitiateLayerUpload]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679239674"><span id="local-6989586621679239676"><span id="local-6989586621679239678"><span id="local-6989586621679239680"><span class="annot"><span class="annottext">ReadPrec [InitiateLayerUpload]
 ReadPrec InitiateLayerUpload
 Int -&gt; ReadS InitiateLayerUpload
 ReadS [InitiateLayerUpload]
@@ -97,7 +97,7 @@ readList :: ReadS [InitiateLayerUpload]
 $creadList :: ReadS [InitiateLayerUpload]
 readsPrec :: Int -&gt; ReadS InitiateLayerUpload
 $creadsPrec :: Int -&gt; ReadS InitiateLayerUpload
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679239510"><span id="local-6989586621679239512"><span id="local-6989586621679239514"><span class="annot"><span class="annottext">Int -&gt; InitiateLayerUpload -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679239667"><span id="local-6989586621679239669"><span id="local-6989586621679239671"><span class="annot"><span class="annottext">Int -&gt; InitiateLayerUpload -&gt; ShowS
 [InitiateLayerUpload] -&gt; ShowS
 InitiateLayerUpload -&gt; String
 (Int -&gt; InitiateLayerUpload -&gt; ShowS)
@@ -141,8 +141,8 @@ $cfrom :: forall x. InitiateLayerUpload -&gt; Rep InitiateLayerUpload x
 </span><span id="line-86"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-87"></span><span>  </span><span class="annot"><a href="Network.AWS.ECR.InitiateLayerUpload.html#InitiateLayerUpload"><span class="hs-identifier hs-type">InitiateLayerUpload</span></a></span><span>
 </span><span id="line-88"></span><span id="newInitiateLayerUpload"><span class="annot"><span class="annottext">newInitiateLayerUpload :: Text -&gt; InitiateLayerUpload
-</span><a href="Network.AWS.ECR.InitiateLayerUpload.html#newInitiateLayerUpload"><span class="hs-identifier hs-var hs-var">newInitiateLayerUpload</span></a></span></span><span> </span><span id="local-6989586621679239505"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679239505"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ECR.InitiateLayerUpload.html#newInitiateLayerUpload"><span class="hs-identifier hs-var hs-var">newInitiateLayerUpload</span></a></span></span><span> </span><span id="local-6989586621679239662"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679239662"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-89"></span><span>  </span><span class="annot"><span class="annottext">InitiateLayerUpload' :: Maybe Text -&gt; Text -&gt; InitiateLayerUpload
 </span><a href="Network.AWS.ECR.InitiateLayerUpload.html#InitiateLayerUpload%27"><span class="hs-identifier hs-type">InitiateLayerUpload'</span></a></span><span>
 </span><span id="line-90"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:registryId:InitiateLayerUpload' :: Maybe Text
@@ -151,7 +151,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:repositoryName:InitiateLayerUpload' :: Text
 </span><a href="Network.AWS.ECR.InitiateLayerUpload.html#%24sel%3ArepositoryName%3AInitiateLayerUpload%27"><span class="hs-identifier hs-var">repositoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679239505"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span><span>
+</span><a href="#local-6989586621679239662"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span><span>
 </span><span id="line-92"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- | The Amazon Web Services account ID associated with the registry to which</span><span>
@@ -165,16 +165,16 @@ forall a. Maybe a
 -&gt; Lens
      InitiateLayerUpload InitiateLayerUpload (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.InitiateLayerUpload.html#InitiateLayerUpload%27"><span class="hs-identifier hs-type">InitiateLayerUpload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239502"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.InitiateLayerUpload.html#InitiateLayerUpload%27"><span class="hs-identifier hs-type">InitiateLayerUpload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239659"><span class="annot"><span class="annottext">Maybe Text
 registryId :: Maybe Text
 $sel:registryId:InitiateLayerUpload' :: InitiateLayerUpload -&gt; Maybe Text
-</span><a href="#local-6989586621679239502"><span class="hs-identifier hs-var hs-var">registryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679239502"><span class="hs-identifier hs-var">registryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239501"><span class="annot"><span class="annottext">s :: InitiateLayerUpload
-</span><a href="#local-6989586621679239501"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.InitiateLayerUpload.html#InitiateLayerUpload%27"><span class="hs-identifier hs-type">InitiateLayerUpload'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239500"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679239500"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InitiateLayerUpload
-</span><a href="#local-6989586621679239501"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registryId:InitiateLayerUpload' :: Maybe Text
+</span><a href="#local-6989586621679239659"><span class="hs-identifier hs-var hs-var">registryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679239659"><span class="hs-identifier hs-var">registryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239658"><span class="annot"><span class="annottext">s :: InitiateLayerUpload
+</span><a href="#local-6989586621679239658"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.InitiateLayerUpload.html#InitiateLayerUpload%27"><span class="hs-identifier hs-type">InitiateLayerUpload'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239657"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679239657"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InitiateLayerUpload
+</span><a href="#local-6989586621679239658"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registryId:InitiateLayerUpload' :: Maybe Text
 </span><a href="Network.AWS.ECR.InitiateLayerUpload.html#%24sel%3AregistryId%3AInitiateLayerUpload%27"><span class="hs-identifier hs-var">registryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679239500"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.InitiateLayerUpload.html#InitiateLayerUpload"><span class="hs-identifier hs-type">InitiateLayerUpload</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679239657"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.InitiateLayerUpload.html#InitiateLayerUpload"><span class="hs-identifier hs-type">InitiateLayerUpload</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-comment">-- | The name of the repository to which you intend to upload layers.</span><span>
 </span><span id="line-101"></span><span class="annot"><a href="Network.AWS.ECR.InitiateLayerUpload.html#initiateLayerUpload_repositoryName"><span class="hs-identifier hs-type">initiateLayerUpload_repositoryName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.InitiateLayerUpload.html#InitiateLayerUpload"><span class="hs-identifier hs-type">InitiateLayerUpload</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -183,27 +183,27 @@ $sel:registryId:InitiateLayerUpload' :: InitiateLayerUpload -&gt; Maybe Text
 -&gt; (InitiateLayerUpload -&gt; Text -&gt; InitiateLayerUpload)
 -&gt; Lens InitiateLayerUpload InitiateLayerUpload Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.InitiateLayerUpload.html#InitiateLayerUpload%27"><span class="hs-identifier hs-type">InitiateLayerUpload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239499"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.InitiateLayerUpload.html#InitiateLayerUpload%27"><span class="hs-identifier hs-type">InitiateLayerUpload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239656"><span class="annot"><span class="annottext">Text
 repositoryName :: Text
 $sel:repositoryName:InitiateLayerUpload' :: InitiateLayerUpload -&gt; Text
-</span><a href="#local-6989586621679239499"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679239499"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239498"><span class="annot"><span class="annottext">s :: InitiateLayerUpload
-</span><a href="#local-6989586621679239498"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.InitiateLayerUpload.html#InitiateLayerUpload%27"><span class="hs-identifier hs-type">InitiateLayerUpload'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239497"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679239497"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InitiateLayerUpload
-</span><a href="#local-6989586621679239498"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoryName:InitiateLayerUpload' :: Text
+</span><a href="#local-6989586621679239656"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679239656"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239655"><span class="annot"><span class="annottext">s :: InitiateLayerUpload
+</span><a href="#local-6989586621679239655"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.InitiateLayerUpload.html#InitiateLayerUpload%27"><span class="hs-identifier hs-type">InitiateLayerUpload'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239654"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679239654"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InitiateLayerUpload
+</span><a href="#local-6989586621679239655"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoryName:InitiateLayerUpload' :: Text
 </span><a href="Network.AWS.ECR.InitiateLayerUpload.html#%24sel%3ArepositoryName%3AInitiateLayerUpload%27"><span class="hs-identifier hs-var">repositoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679239497"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.InitiateLayerUpload.html#InitiateLayerUpload"><span class="hs-identifier hs-type">InitiateLayerUpload</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679239654"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.InitiateLayerUpload.html#InitiateLayerUpload"><span class="hs-identifier hs-type">InitiateLayerUpload</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.InitiateLayerUpload.html#InitiateLayerUpload"><span class="hs-identifier hs-type">InitiateLayerUpload</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-105"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-106"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.InitiateLayerUpload.html#InitiateLayerUpload"><span class="hs-identifier hs-type">InitiateLayerUpload</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>      </span><span class="annot"><a href="Network.AWS.ECR.InitiateLayerUpload.html#InitiateLayerUploadResponse"><span class="hs-identifier hs-type">InitiateLayerUploadResponse</span></a></span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679239493"><span class="annot"><span class="annottext">request :: InitiateLayerUpload -&gt; Request InitiateLayerUpload
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679239650"><span class="annot"><span class="annottext">request :: InitiateLayerUpload -&gt; Request InitiateLayerUpload
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; InitiateLayerUpload -&gt; Request InitiateLayerUpload
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.ECR.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679239489"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679239646"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy InitiateLayerUpload
 -&gt; ClientResponse ClientBody
@@ -229,31 +229,30 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679239486"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679239486"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679239485"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679239485"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679239484"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679239484"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-112"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Natural -&gt; Int -&gt; InitiateLayerUploadResponse
+</span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679239643"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679239643"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679239642"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679239642"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679239641"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679239641"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-112"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural -&gt; Maybe Text -&gt; Int -&gt; InitiateLayerUploadResponse
 </span><a href="Network.AWS.ECR.InitiateLayerUpload.html#InitiateLayerUploadResponse%27"><span class="hs-identifier hs-var">InitiateLayerUploadResponse'</span></a></span><span>
-</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Natural -&gt; Int -&gt; InitiateLayerUploadResponse)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String (Maybe Natural -&gt; Int -&gt; InitiateLayerUploadResponse)
+</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Natural -&gt; Maybe Text -&gt; Int -&gt; InitiateLayerUploadResponse)
+-&gt; Either String (Maybe Natural)
+-&gt; Either String (Maybe Text -&gt; Int -&gt; InitiateLayerUploadResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679239484"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;uploadId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Natural -&gt; Int -&gt; InitiateLayerUploadResponse)
--&gt; Either String (Maybe Natural)
--&gt; Either String (Int -&gt; InitiateLayerUploadResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679239484"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Natural)
+</span><a href="#local-6989586621679239641"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;partSize&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; InitiateLayerUploadResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; InitiateLayerUploadResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679239641"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;uploadId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; InitiateLayerUploadResponse)
 -&gt; Either String Int -&gt; Either String InitiateLayerUploadResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -262,15 +261,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679239486"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679239643"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679239476"><span id="local-6989586621679239478"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.InitiateLayerUpload.html#InitiateLayerUpload"><span class="hs-identifier hs-type">InitiateLayerUpload</span></a></span></span></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679239633"><span id="local-6989586621679239635"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.InitiateLayerUpload.html#InitiateLayerUpload"><span class="hs-identifier hs-type">InitiateLayerUpload</span></a></span></span></span><span>
 </span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679239473"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.InitiateLayerUpload.html#InitiateLayerUpload"><span class="hs-identifier hs-type">InitiateLayerUpload</span></a></span></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679239630"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.InitiateLayerUpload.html#InitiateLayerUpload"><span class="hs-identifier hs-type">InitiateLayerUpload</span></a></span></span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.InitiateLayerUpload.html#InitiateLayerUpload"><span class="hs-identifier hs-type">InitiateLayerUpload</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679239469"><span class="annot"><span class="annottext">toHeaders :: InitiateLayerUpload -&gt; ResponseHeaders
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679239626"><span class="annot"><span class="annottext">toHeaders :: InitiateLayerUpload -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; InitiateLayerUpload -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -297,15 +296,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-134"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-135"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>
-</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679239459"><span id="local-6989586621679239461"><span id="local-6989586621679239463"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.InitiateLayerUpload.html#InitiateLayerUpload"><span class="hs-identifier hs-type">InitiateLayerUpload</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679239457"><span class="annot"><span class="annottext">toJSON :: InitiateLayerUpload -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.InitiateLayerUpload.html#InitiateLayerUpload%27"><span class="hs-identifier hs-type">InitiateLayerUpload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239454"><span id="local-6989586621679239455"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679239616"><span id="local-6989586621679239618"><span id="local-6989586621679239620"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.InitiateLayerUpload.html#InitiateLayerUpload"><span class="hs-identifier hs-type">InitiateLayerUpload</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679239614"><span class="annot"><span class="annottext">toJSON :: InitiateLayerUpload -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.InitiateLayerUpload.html#InitiateLayerUpload%27"><span class="hs-identifier hs-type">InitiateLayerUpload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239611"><span id="local-6989586621679239612"><span class="annot"><span class="annottext">Maybe Text
 Text
 repositoryName :: Text
 registryId :: Maybe Text
 $sel:repositoryName:InitiateLayerUpload' :: InitiateLayerUpload -&gt; Text
 $sel:registryId:InitiateLayerUpload' :: InitiateLayerUpload -&gt; Maybe Text
-</span><a href="#local-6989586621679239454"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679239611"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-139"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-140"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -317,7 +316,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679239455"><span class="hs-identifier hs-var">registryId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679239612"><span class="hs-identifier hs-var">registryId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -325,19 +324,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;repositoryName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679239454"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679239611"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-145"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.InitiateLayerUpload.html#InitiateLayerUpload"><span class="hs-identifier hs-type">InitiateLayerUpload</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-148"></span><span>  </span><span id="local-6989586621679239448"><span class="annot"><span class="annottext">toPath :: InitiateLayerUpload -&gt; ByteString
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679239605"><span class="annot"><span class="annottext">toPath :: InitiateLayerUpload -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; InitiateLayerUpload -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.InitiateLayerUpload.html#InitiateLayerUpload"><span class="hs-identifier hs-type">InitiateLayerUpload</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-151"></span><span>  </span><span id="local-6989586621679239444"><span class="annot"><span class="annottext">toQuery :: InitiateLayerUpload -&gt; QueryString
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679239601"><span class="annot"><span class="annottext">toQuery :: InitiateLayerUpload -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; InitiateLayerUpload -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -345,20 +344,20 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-152"></span><span>
 </span><span id="line-153"></span><span class="hs-comment">-- | /See:/ 'newInitiateLayerUploadResponse' smart constructor.</span><span>
-</span><span id="line-154"></span><span id="local-6989586621679239441"><span id="local-6989586621679239442"></span></span><span class="hs-keyword">data</span><span> </span><span id="InitiateLayerUploadResponse"><span class="annot"><a href="Network.AWS.ECR.InitiateLayerUpload.html#InitiateLayerUploadResponse"><span class="hs-identifier hs-var">InitiateLayerUploadResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InitiateLayerUploadResponse%27"><span class="annot"><a href="Network.AWS.ECR.InitiateLayerUpload.html#InitiateLayerUploadResponse%27"><span class="hs-identifier hs-var">InitiateLayerUploadResponse'</span></a></span></span><span>
-</span><span id="line-155"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The upload ID for the layer upload. This parameter is passed to further</span><span>
-</span><span id="line-156"></span><span>    </span><span class="hs-comment">-- UploadLayerPart and CompleteLayerUpload operations.</span><span>
-</span><span id="line-157"></span><span>    </span><span id="%24sel%3AuploadId%3AInitiateLayerUploadResponse%27"><span class="annot"><span class="annottext">InitiateLayerUploadResponse -&gt; Maybe Text
-</span><a href="Network.AWS.ECR.InitiateLayerUpload.html#%24sel%3AuploadId%3AInitiateLayerUploadResponse%27"><span class="hs-identifier hs-var hs-var">uploadId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-158"></span><span>    </span><span class="hs-comment">-- | The size, in bytes, that Amazon ECR expects future layer part uploads to</span><span>
-</span><span id="line-159"></span><span>    </span><span class="hs-comment">-- be.</span><span>
-</span><span id="line-160"></span><span>    </span><span id="%24sel%3ApartSize%3AInitiateLayerUploadResponse%27"><span class="annot"><span class="annottext">InitiateLayerUploadResponse -&gt; Maybe Natural
+</span><span id="line-154"></span><span id="local-6989586621679239598"><span id="local-6989586621679239599"></span></span><span class="hs-keyword">data</span><span> </span><span id="InitiateLayerUploadResponse"><span class="annot"><a href="Network.AWS.ECR.InitiateLayerUpload.html#InitiateLayerUploadResponse"><span class="hs-identifier hs-var">InitiateLayerUploadResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InitiateLayerUploadResponse%27"><span class="annot"><a href="Network.AWS.ECR.InitiateLayerUpload.html#InitiateLayerUploadResponse%27"><span class="hs-identifier hs-var">InitiateLayerUploadResponse'</span></a></span></span><span>
+</span><span id="line-155"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The size, in bytes, that Amazon ECR expects future layer part uploads to</span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-comment">-- be.</span><span>
+</span><span id="line-157"></span><span>    </span><span id="%24sel%3ApartSize%3AInitiateLayerUploadResponse%27"><span class="annot"><span class="annottext">InitiateLayerUploadResponse -&gt; Maybe Natural
 </span><a href="Network.AWS.ECR.InitiateLayerUpload.html#%24sel%3ApartSize%3AInitiateLayerUploadResponse%27"><span class="hs-identifier hs-var hs-var">partSize</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>    </span><span class="hs-comment">-- | The upload ID for the layer upload. This parameter is passed to further</span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-comment">-- UploadLayerPart and CompleteLayerUpload operations.</span><span>
+</span><span id="line-160"></span><span>    </span><span id="%24sel%3AuploadId%3AInitiateLayerUploadResponse%27"><span class="annot"><span class="annottext">InitiateLayerUploadResponse -&gt; Maybe Text
+</span><a href="Network.AWS.ECR.InitiateLayerUpload.html#%24sel%3AuploadId%3AInitiateLayerUploadResponse%27"><span class="hs-identifier hs-var hs-var">uploadId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-161"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-162"></span><span>    </span><span id="%24sel%3AhttpStatus%3AInitiateLayerUploadResponse%27"><span class="annot"><span class="annottext">InitiateLayerUploadResponse -&gt; Int
 </span><a href="Network.AWS.ECR.InitiateLayerUpload.html#%24sel%3AhttpStatus%3AInitiateLayerUploadResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-163"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-164"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679239434"><span id="local-6989586621679239436"><span class="annot"><span class="annottext">InitiateLayerUploadResponse -&gt; InitiateLayerUploadResponse -&gt; Bool
+</span><span id="line-164"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679239591"><span id="local-6989586621679239593"><span class="annot"><span class="annottext">InitiateLayerUploadResponse -&gt; InitiateLayerUploadResponse -&gt; Bool
 (InitiateLayerUploadResponse
  -&gt; InitiateLayerUploadResponse -&gt; Bool)
 -&gt; (InitiateLayerUploadResponse
@@ -369,7 +368,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: InitiateLayerUploadResponse -&gt; InitiateLayerUploadResponse -&gt; Bool
 == :: InitiateLayerUploadResponse -&gt; InitiateLayerUploadResponse -&gt; Bool
 $c== :: InitiateLayerUploadResponse -&gt; InitiateLayerUploadResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679239426"><span id="local-6989586621679239428"><span id="local-6989586621679239430"><span id="local-6989586621679239432"><span class="annot"><span class="annottext">ReadPrec [InitiateLayerUploadResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679239583"><span id="local-6989586621679239585"><span id="local-6989586621679239587"><span id="local-6989586621679239589"><span class="annot"><span class="annottext">ReadPrec [InitiateLayerUploadResponse]
 ReadPrec InitiateLayerUploadResponse
 Int -&gt; ReadS InitiateLayerUploadResponse
 ReadS [InitiateLayerUploadResponse]
@@ -389,7 +388,7 @@ readList :: ReadS [InitiateLayerUploadResponse]
 $creadList :: ReadS [InitiateLayerUploadResponse]
 readsPrec :: Int -&gt; ReadS InitiateLayerUploadResponse
 $creadsPrec :: Int -&gt; ReadS InitiateLayerUploadResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679239420"><span id="local-6989586621679239422"><span id="local-6989586621679239424"><span class="annot"><span class="annottext">Int -&gt; InitiateLayerUploadResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679239577"><span id="local-6989586621679239579"><span id="local-6989586621679239581"><span class="annot"><span class="annottext">Int -&gt; InitiateLayerUploadResponse -&gt; ShowS
 [InitiateLayerUploadResponse] -&gt; ShowS
 InitiateLayerUploadResponse -&gt; String
 (Int -&gt; InitiateLayerUploadResponse -&gt; ShowS)
@@ -429,11 +428,11 @@ InitiateLayerUploadResponse -&gt; Rep InitiateLayerUploadResponse x
 </span><span id="line-171"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-172"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-173"></span><span class="hs-comment">--</span><span>
-</span><span id="line-174"></span><span class="hs-comment">-- 'uploadId', 'initiateLayerUploadResponse_uploadId' - The upload ID for the layer upload. This parameter is passed to further</span><span>
-</span><span id="line-175"></span><span class="hs-comment">-- UploadLayerPart and CompleteLayerUpload operations.</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- 'partSize', 'initiateLayerUploadResponse_partSize' - The size, in bytes, that Amazon ECR expects future layer part uploads to</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- be.</span><span>
 </span><span id="line-176"></span><span class="hs-comment">--</span><span>
-</span><span id="line-177"></span><span class="hs-comment">-- 'partSize', 'initiateLayerUploadResponse_partSize' - The size, in bytes, that Amazon ECR expects future layer part uploads to</span><span>
-</span><span id="line-178"></span><span class="hs-comment">-- be.</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- 'uploadId', 'initiateLayerUploadResponse_uploadId' - The upload ID for the layer upload. This parameter is passed to further</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- UploadLayerPart and CompleteLayerUpload operations.</span><span>
 </span><span id="line-179"></span><span class="hs-comment">--</span><span>
 </span><span id="line-180"></span><span class="hs-comment">-- 'httpStatus', 'initiateLayerUploadResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-181"></span><span class="annot"><a href="Network.AWS.ECR.InitiateLayerUpload.html#newInitiateLayerUploadResponse"><span class="hs-identifier hs-type">newInitiateLayerUploadResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -441,53 +440,28 @@ InitiateLayerUploadResponse -&gt; Rep InitiateLayerUploadResponse x
 </span><span id="line-183"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-184"></span><span>  </span><span class="annot"><a href="Network.AWS.ECR.InitiateLayerUpload.html#InitiateLayerUploadResponse"><span class="hs-identifier hs-type">InitiateLayerUploadResponse</span></a></span><span>
 </span><span id="line-185"></span><span id="newInitiateLayerUploadResponse"><span class="annot"><span class="annottext">newInitiateLayerUploadResponse :: Int -&gt; InitiateLayerUploadResponse
-</span><a href="Network.AWS.ECR.InitiateLayerUpload.html#newInitiateLayerUploadResponse"><span class="hs-identifier hs-var hs-var">newInitiateLayerUploadResponse</span></a></span></span><span> </span><span id="local-6989586621679239417"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679239417"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-186"></span><span>  </span><span class="annot"><span class="annottext">InitiateLayerUploadResponse' :: Maybe Text -&gt; Maybe Natural -&gt; Int -&gt; InitiateLayerUploadResponse
+</span><a href="Network.AWS.ECR.InitiateLayerUpload.html#newInitiateLayerUploadResponse"><span class="hs-identifier hs-var hs-var">newInitiateLayerUploadResponse</span></a></span></span><span> </span><span id="local-6989586621679239574"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679239574"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-186"></span><span>  </span><span class="annot"><span class="annottext">InitiateLayerUploadResponse' :: Maybe Natural -&gt; Maybe Text -&gt; Int -&gt; InitiateLayerUploadResponse
 </span><a href="Network.AWS.ECR.InitiateLayerUpload.html#InitiateLayerUploadResponse%27"><span class="hs-identifier hs-type">InitiateLayerUploadResponse'</span></a></span><span>
-</span><span id="line-187"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:uploadId:InitiateLayerUploadResponse' :: Maybe Text
-</span><a href="Network.AWS.ECR.InitiateLayerUpload.html#%24sel%3AuploadId%3AInitiateLayerUploadResponse%27"><span class="hs-identifier hs-var">uploadId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-188"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-187"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:partSize:InitiateLayerUploadResponse' :: Maybe Natural
+</span><a href="Network.AWS.ECR.InitiateLayerUpload.html#%24sel%3ApartSize%3AInitiateLayerUploadResponse%27"><span class="hs-identifier hs-var">partSize</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-188"></span><span>        </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-189"></span><span>      </span><span class="annot"><span class="annottext">$sel:partSize:InitiateLayerUploadResponse' :: Maybe Natural
-</span><a href="Network.AWS.ECR.InitiateLayerUpload.html#%24sel%3ApartSize%3AInitiateLayerUploadResponse%27"><span class="hs-identifier hs-var">partSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-189"></span><span>      </span><span class="annot"><span class="annottext">$sel:uploadId:InitiateLayerUploadResponse' :: Maybe Text
+</span><a href="Network.AWS.ECR.InitiateLayerUpload.html#%24sel%3AuploadId%3AInitiateLayerUploadResponse%27"><span class="hs-identifier hs-var">uploadId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-190"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:InitiateLayerUploadResponse' :: Int
 </span><a href="Network.AWS.ECR.InitiateLayerUpload.html#%24sel%3AhttpStatus%3AInitiateLayerUploadResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679239417"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679239574"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-191"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-192"></span><span>
-</span><span id="line-193"></span><span class="hs-comment">-- | The upload ID for the layer upload. This parameter is passed to further</span><span>
-</span><span id="line-194"></span><span class="hs-comment">-- UploadLayerPart and CompleteLayerUpload operations.</span><span>
-</span><span id="line-195"></span><span class="annot"><a href="Network.AWS.ECR.InitiateLayerUpload.html#initiateLayerUploadResponse_uploadId"><span class="hs-identifier hs-type">initiateLayerUploadResponse_uploadId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.InitiateLayerUpload.html#InitiateLayerUploadResponse"><span class="hs-identifier hs-type">InitiateLayerUploadResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-196"></span><span id="initiateLayerUploadResponse_uploadId"><span class="annot"><span class="annottext">initiateLayerUploadResponse_uploadId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; InitiateLayerUploadResponse -&gt; f InitiateLayerUploadResponse
-</span><a href="Network.AWS.ECR.InitiateLayerUpload.html#initiateLayerUploadResponse_uploadId"><span class="hs-identifier hs-var hs-var">initiateLayerUploadResponse_uploadId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InitiateLayerUploadResponse -&gt; Maybe Text)
--&gt; (InitiateLayerUploadResponse
-    -&gt; Maybe Text -&gt; InitiateLayerUploadResponse)
--&gt; Lens
-     InitiateLayerUploadResponse
-     InitiateLayerUploadResponse
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.InitiateLayerUpload.html#InitiateLayerUploadResponse%27"><span class="hs-identifier hs-type">InitiateLayerUploadResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239416"><span class="annot"><span class="annottext">Maybe Text
-uploadId :: Maybe Text
-$sel:uploadId:InitiateLayerUploadResponse' :: InitiateLayerUploadResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679239416"><span class="hs-identifier hs-var hs-var">uploadId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679239416"><span class="hs-identifier hs-var">uploadId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239415"><span class="annot"><span class="annottext">s :: InitiateLayerUploadResponse
-</span><a href="#local-6989586621679239415"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.InitiateLayerUpload.html#InitiateLayerUploadResponse%27"><span class="hs-identifier hs-type">InitiateLayerUploadResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239414"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679239414"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InitiateLayerUploadResponse
-</span><a href="#local-6989586621679239415"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:uploadId:InitiateLayerUploadResponse' :: Maybe Text
-</span><a href="Network.AWS.ECR.InitiateLayerUpload.html#%24sel%3AuploadId%3AInitiateLayerUploadResponse%27"><span class="hs-identifier hs-var">uploadId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679239414"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.InitiateLayerUpload.html#InitiateLayerUploadResponse"><span class="hs-identifier hs-type">InitiateLayerUploadResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-197"></span><span>
-</span><span id="line-198"></span><span class="hs-comment">-- | The size, in bytes, that Amazon ECR expects future layer part uploads to</span><span>
-</span><span id="line-199"></span><span class="hs-comment">-- be.</span><span>
-</span><span id="line-200"></span><span class="annot"><a href="Network.AWS.ECR.InitiateLayerUpload.html#initiateLayerUploadResponse_partSize"><span class="hs-identifier hs-type">initiateLayerUploadResponse_partSize</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.InitiateLayerUpload.html#InitiateLayerUploadResponse"><span class="hs-identifier hs-type">InitiateLayerUploadResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-201"></span><span id="initiateLayerUploadResponse_partSize"><span class="annot"><span class="annottext">initiateLayerUploadResponse_partSize :: (Maybe Natural -&gt; f (Maybe Natural))
+</span><span id="line-193"></span><span class="hs-comment">-- | The size, in bytes, that Amazon ECR expects future layer part uploads to</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- be.</span><span>
+</span><span id="line-195"></span><span class="annot"><a href="Network.AWS.ECR.InitiateLayerUpload.html#initiateLayerUploadResponse_partSize"><span class="hs-identifier hs-type">initiateLayerUploadResponse_partSize</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.InitiateLayerUpload.html#InitiateLayerUploadResponse"><span class="hs-identifier hs-type">InitiateLayerUploadResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span id="initiateLayerUploadResponse_partSize"><span class="annot"><span class="annottext">initiateLayerUploadResponse_partSize :: (Maybe Natural -&gt; f (Maybe Natural))
 -&gt; InitiateLayerUploadResponse -&gt; f InitiateLayerUploadResponse
 </span><a href="Network.AWS.ECR.InitiateLayerUpload.html#initiateLayerUploadResponse_partSize"><span class="hs-identifier hs-var hs-var">initiateLayerUploadResponse_partSize</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InitiateLayerUploadResponse -&gt; Maybe Natural)
 -&gt; (InitiateLayerUploadResponse
@@ -498,16 +472,41 @@ $sel:uploadId:InitiateLayerUploadResponse' :: InitiateLayerUploadResponse -&gt; 
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.InitiateLayerUpload.html#InitiateLayerUploadResponse%27"><span class="hs-identifier hs-type">InitiateLayerUploadResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239413"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.InitiateLayerUpload.html#InitiateLayerUploadResponse%27"><span class="hs-identifier hs-type">InitiateLayerUploadResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239573"><span class="annot"><span class="annottext">Maybe Natural
 partSize :: Maybe Natural
 $sel:partSize:InitiateLayerUploadResponse' :: InitiateLayerUploadResponse -&gt; Maybe Natural
-</span><a href="#local-6989586621679239413"><span class="hs-identifier hs-var hs-var">partSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679239413"><span class="hs-identifier hs-var">partSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239412"><span class="annot"><span class="annottext">s :: InitiateLayerUploadResponse
-</span><a href="#local-6989586621679239412"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.InitiateLayerUpload.html#InitiateLayerUploadResponse%27"><span class="hs-identifier hs-type">InitiateLayerUploadResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239411"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679239411"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InitiateLayerUploadResponse
-</span><a href="#local-6989586621679239412"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:partSize:InitiateLayerUploadResponse' :: Maybe Natural
+</span><a href="#local-6989586621679239573"><span class="hs-identifier hs-var hs-var">partSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679239573"><span class="hs-identifier hs-var">partSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239572"><span class="annot"><span class="annottext">s :: InitiateLayerUploadResponse
+</span><a href="#local-6989586621679239572"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.InitiateLayerUpload.html#InitiateLayerUploadResponse%27"><span class="hs-identifier hs-type">InitiateLayerUploadResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239571"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679239571"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InitiateLayerUploadResponse
+</span><a href="#local-6989586621679239572"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:partSize:InitiateLayerUploadResponse' :: Maybe Natural
 </span><a href="Network.AWS.ECR.InitiateLayerUpload.html#%24sel%3ApartSize%3AInitiateLayerUploadResponse%27"><span class="hs-identifier hs-var">partSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679239411"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.InitiateLayerUpload.html#InitiateLayerUploadResponse"><span class="hs-identifier hs-type">InitiateLayerUploadResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679239571"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.InitiateLayerUpload.html#InitiateLayerUploadResponse"><span class="hs-identifier hs-type">InitiateLayerUploadResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- | The upload ID for the layer upload. This parameter is passed to further</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- UploadLayerPart and CompleteLayerUpload operations.</span><span>
+</span><span id="line-200"></span><span class="annot"><a href="Network.AWS.ECR.InitiateLayerUpload.html#initiateLayerUploadResponse_uploadId"><span class="hs-identifier hs-type">initiateLayerUploadResponse_uploadId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.InitiateLayerUpload.html#InitiateLayerUploadResponse"><span class="hs-identifier hs-type">InitiateLayerUploadResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span id="initiateLayerUploadResponse_uploadId"><span class="annot"><span class="annottext">initiateLayerUploadResponse_uploadId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InitiateLayerUploadResponse -&gt; f InitiateLayerUploadResponse
+</span><a href="Network.AWS.ECR.InitiateLayerUpload.html#initiateLayerUploadResponse_uploadId"><span class="hs-identifier hs-var hs-var">initiateLayerUploadResponse_uploadId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InitiateLayerUploadResponse -&gt; Maybe Text)
+-&gt; (InitiateLayerUploadResponse
+    -&gt; Maybe Text -&gt; InitiateLayerUploadResponse)
+-&gt; Lens
+     InitiateLayerUploadResponse
+     InitiateLayerUploadResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.InitiateLayerUpload.html#InitiateLayerUploadResponse%27"><span class="hs-identifier hs-type">InitiateLayerUploadResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239570"><span class="annot"><span class="annottext">Maybe Text
+uploadId :: Maybe Text
+$sel:uploadId:InitiateLayerUploadResponse' :: InitiateLayerUploadResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679239570"><span class="hs-identifier hs-var hs-var">uploadId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679239570"><span class="hs-identifier hs-var">uploadId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239569"><span class="annot"><span class="annottext">s :: InitiateLayerUploadResponse
+</span><a href="#local-6989586621679239569"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.InitiateLayerUpload.html#InitiateLayerUploadResponse%27"><span class="hs-identifier hs-type">InitiateLayerUploadResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239568"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679239568"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InitiateLayerUploadResponse
+</span><a href="#local-6989586621679239569"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:uploadId:InitiateLayerUploadResponse' :: Maybe Text
+</span><a href="Network.AWS.ECR.InitiateLayerUpload.html#%24sel%3AuploadId%3AInitiateLayerUploadResponse%27"><span class="hs-identifier hs-var">uploadId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679239568"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.InitiateLayerUpload.html#InitiateLayerUploadResponse"><span class="hs-identifier hs-type">InitiateLayerUploadResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-202"></span><span>
 </span><span id="line-203"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-204"></span><span class="annot"><a href="Network.AWS.ECR.InitiateLayerUpload.html#initiateLayerUploadResponse_httpStatus"><span class="hs-identifier hs-type">initiateLayerUploadResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.InitiateLayerUpload.html#InitiateLayerUploadResponse"><span class="hs-identifier hs-type">InitiateLayerUploadResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -519,16 +518,16 @@ $sel:partSize:InitiateLayerUploadResponse' :: InitiateLayerUploadResponse -&gt; 
 -&gt; Lens
      InitiateLayerUploadResponse InitiateLayerUploadResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.InitiateLayerUpload.html#InitiateLayerUploadResponse%27"><span class="hs-identifier hs-type">InitiateLayerUploadResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239410"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.InitiateLayerUpload.html#InitiateLayerUploadResponse%27"><span class="hs-identifier hs-type">InitiateLayerUploadResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239567"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:InitiateLayerUploadResponse' :: InitiateLayerUploadResponse -&gt; Int
-</span><a href="#local-6989586621679239410"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679239410"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239409"><span class="annot"><span class="annottext">s :: InitiateLayerUploadResponse
-</span><a href="#local-6989586621679239409"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.InitiateLayerUpload.html#InitiateLayerUploadResponse%27"><span class="hs-identifier hs-type">InitiateLayerUploadResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239408"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679239408"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InitiateLayerUploadResponse
-</span><a href="#local-6989586621679239409"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:InitiateLayerUploadResponse' :: Int
+</span><a href="#local-6989586621679239567"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679239567"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239566"><span class="annot"><span class="annottext">s :: InitiateLayerUploadResponse
+</span><a href="#local-6989586621679239566"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.InitiateLayerUpload.html#InitiateLayerUploadResponse%27"><span class="hs-identifier hs-type">InitiateLayerUploadResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239565"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679239565"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InitiateLayerUploadResponse
+</span><a href="#local-6989586621679239566"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:InitiateLayerUploadResponse' :: Int
 </span><a href="Network.AWS.ECR.InitiateLayerUpload.html#%24sel%3AhttpStatus%3AInitiateLayerUploadResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679239408"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.InitiateLayerUpload.html#InitiateLayerUploadResponse"><span class="hs-identifier hs-type">InitiateLayerUploadResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679239565"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.InitiateLayerUpload.html#InitiateLayerUploadResponse"><span class="hs-identifier hs-type">InitiateLayerUploadResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-206"></span><span>
-</span><span id="line-207"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679239406"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.InitiateLayerUpload.html#InitiateLayerUploadResponse"><span class="hs-identifier hs-type">InitiateLayerUploadResponse</span></a></span></span><span>
+</span><span id="line-207"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679239563"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.InitiateLayerUpload.html#InitiateLayerUploadResponse"><span class="hs-identifier hs-type">InitiateLayerUploadResponse</span></a></span></span><span>
 </span><span id="line-208"></span></pre></body></html>

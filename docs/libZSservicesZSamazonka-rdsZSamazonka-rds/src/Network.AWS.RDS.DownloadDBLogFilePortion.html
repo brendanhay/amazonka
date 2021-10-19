@@ -40,8 +40,8 @@
 </span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#newDownloadDBLogFilePortionResponse"><span class="hs-identifier">newDownloadDBLogFilePortionResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-41"></span><span>
 </span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#downloadDBLogFilePortionResponse_additionalDataPending"><span class="hs-identifier">downloadDBLogFilePortionResponse_additionalDataPending</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#downloadDBLogFilePortionResponse_logFileData"><span class="hs-identifier">downloadDBLogFilePortionResponse_logFileData</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#downloadDBLogFilePortionResponse_logFileData"><span class="hs-identifier">downloadDBLogFilePortionResponse_logFileData</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#downloadDBLogFilePortionResponse_additionalDataPending"><span class="hs-identifier">downloadDBLogFilePortionResponse_additionalDataPending</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#downloadDBLogFilePortionResponse_marker"><span class="hs-identifier">downloadDBLogFilePortionResponse_marker</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#downloadDBLogFilePortionResponse_httpStatus"><span class="hs-identifier">downloadDBLogFilePortionResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-special">)</span><span>
@@ -57,7 +57,7 @@
 </span><span id="line-57"></span><span class="hs-comment">-- |</span><span>
 </span><span id="line-58"></span><span class="hs-comment">--</span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- /See:/ 'newDownloadDBLogFilePortion' smart constructor.</span><span>
-</span><span id="line-60"></span><span id="local-6989586621679784525"><span id="local-6989586621679784526"></span></span><span class="hs-keyword">data</span><span> </span><span id="DownloadDBLogFilePortion"><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#DownloadDBLogFilePortion"><span class="hs-identifier hs-var">DownloadDBLogFilePortion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DownloadDBLogFilePortion%27"><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#DownloadDBLogFilePortion%27"><span class="hs-identifier hs-var">DownloadDBLogFilePortion'</span></a></span></span><span>
+</span><span id="line-60"></span><span id="local-6989586621679785641"><span id="local-6989586621679785642"></span></span><span class="hs-keyword">data</span><span> </span><span id="DownloadDBLogFilePortion"><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#DownloadDBLogFilePortion"><span class="hs-identifier hs-var">DownloadDBLogFilePortion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DownloadDBLogFilePortion%27"><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#DownloadDBLogFilePortion%27"><span class="hs-identifier hs-var">DownloadDBLogFilePortion'</span></a></span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of lines to download. If the number of lines specified</span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-comment">-- results in a file over 1 MB in size, the file is truncated at 1 MB in</span><span>
 </span><span id="line-63"></span><span>    </span><span class="hs-comment">-- size.</span><span>
@@ -101,7 +101,7 @@
 </span><span id="line-98"></span><span>    </span><span id="%24sel%3AlogFileName%3ADownloadDBLogFilePortion%27"><span class="annot"><span class="annottext">DownloadDBLogFilePortion -&gt; Text
 </span><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#%24sel%3AlogFileName%3ADownloadDBLogFilePortion%27"><span class="hs-identifier hs-var hs-var">logFileName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-99"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-100"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679784516"><span id="local-6989586621679784518"><span class="annot"><span class="annottext">DownloadDBLogFilePortion -&gt; DownloadDBLogFilePortion -&gt; Bool
+</span><span id="line-100"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679785632"><span id="local-6989586621679785634"><span class="annot"><span class="annottext">DownloadDBLogFilePortion -&gt; DownloadDBLogFilePortion -&gt; Bool
 (DownloadDBLogFilePortion -&gt; DownloadDBLogFilePortion -&gt; Bool)
 -&gt; (DownloadDBLogFilePortion -&gt; DownloadDBLogFilePortion -&gt; Bool)
 -&gt; Eq DownloadDBLogFilePortion
@@ -110,7 +110,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DownloadDBLogFilePortion -&gt; DownloadDBLogFilePortion -&gt; Bool
 == :: DownloadDBLogFilePortion -&gt; DownloadDBLogFilePortion -&gt; Bool
 $c== :: DownloadDBLogFilePortion -&gt; DownloadDBLogFilePortion -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679784507"><span id="local-6989586621679784509"><span id="local-6989586621679784511"><span id="local-6989586621679784513"><span class="annot"><span class="annottext">ReadPrec [DownloadDBLogFilePortion]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679785623"><span id="local-6989586621679785625"><span id="local-6989586621679785627"><span id="local-6989586621679785629"><span class="annot"><span class="annottext">ReadPrec [DownloadDBLogFilePortion]
 ReadPrec DownloadDBLogFilePortion
 Int -&gt; ReadS DownloadDBLogFilePortion
 ReadS [DownloadDBLogFilePortion]
@@ -130,7 +130,7 @@ readList :: ReadS [DownloadDBLogFilePortion]
 $creadList :: ReadS [DownloadDBLogFilePortion]
 readsPrec :: Int -&gt; ReadS DownloadDBLogFilePortion
 $creadsPrec :: Int -&gt; ReadS DownloadDBLogFilePortion
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679784500"><span id="local-6989586621679784502"><span id="local-6989586621679784504"><span class="annot"><span class="annottext">Int -&gt; DownloadDBLogFilePortion -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679785616"><span id="local-6989586621679785618"><span id="local-6989586621679785620"><span class="annot"><span class="annottext">Int -&gt; DownloadDBLogFilePortion -&gt; ShowS
 [DownloadDBLogFilePortion] -&gt; ShowS
 DownloadDBLogFilePortion -&gt; String
 (Int -&gt; DownloadDBLogFilePortion -&gt; ShowS)
@@ -215,10 +215,10 @@ DownloadDBLogFilePortion -&gt; Rep DownloadDBLogFilePortion x
 </span><span id="line-152"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#DownloadDBLogFilePortion"><span class="hs-identifier hs-type">DownloadDBLogFilePortion</span></a></span><span>
 </span><span id="line-153"></span><span id="newDownloadDBLogFilePortion"><span class="annot"><span class="annottext">newDownloadDBLogFilePortion :: Text -&gt; Text -&gt; DownloadDBLogFilePortion
 </span><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#newDownloadDBLogFilePortion"><span class="hs-identifier hs-var hs-var">newDownloadDBLogFilePortion</span></a></span></span><span>
-</span><span id="line-154"></span><span>  </span><span id="local-6989586621679784495"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679784495"><span class="hs-identifier hs-var">pDBInstanceIdentifier_</span></a></span></span><span>
-</span><span id="line-155"></span><span>  </span><span id="local-6989586621679784494"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679784494"><span class="hs-identifier hs-var">pLogFileName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679785611"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679785611"><span class="hs-identifier hs-var">pDBInstanceIdentifier_</span></a></span></span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679785610"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679785610"><span class="hs-identifier hs-var">pLogFileName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-156"></span><span>    </span><span class="annot"><span class="annottext">DownloadDBLogFilePortion' :: Maybe Int -&gt; Maybe Text -&gt; Text -&gt; Text -&gt; DownloadDBLogFilePortion
 </span><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#DownloadDBLogFilePortion%27"><span class="hs-identifier hs-type">DownloadDBLogFilePortion'</span></a></span><span>
 </span><span id="line-157"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:numberOfLines:DownloadDBLogFilePortion' :: Maybe Int
@@ -232,10 +232,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-160"></span><span>        </span><span class="annot"><span class="annottext">$sel:dbInstanceIdentifier:DownloadDBLogFilePortion' :: Text
 </span><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#%24sel%3AdbInstanceIdentifier%3ADownloadDBLogFilePortion%27"><span class="hs-identifier hs-var">dbInstanceIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679784495"><span class="hs-identifier hs-var">pDBInstanceIdentifier_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679785611"><span class="hs-identifier hs-var">pDBInstanceIdentifier_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-161"></span><span>        </span><span class="annot"><span class="annottext">$sel:logFileName:DownloadDBLogFilePortion' :: Text
 </span><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#%24sel%3AlogFileName%3ADownloadDBLogFilePortion%27"><span class="hs-identifier hs-var">logFileName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679784494"><span class="hs-identifier hs-var">pLogFileName_</span></a></span><span>
+</span><a href="#local-6989586621679785610"><span class="hs-identifier hs-var">pLogFileName_</span></a></span><span>
 </span><span id="line-162"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-163"></span><span>
 </span><span id="line-164"></span><span class="hs-comment">-- | The number of lines to download. If the number of lines specified</span><span>
@@ -274,16 +274,16 @@ forall a. Maybe a
      (Maybe Int)
      (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#DownloadDBLogFilePortion%27"><span class="hs-identifier hs-type">DownloadDBLogFilePortion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679784492"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#DownloadDBLogFilePortion%27"><span class="hs-identifier hs-type">DownloadDBLogFilePortion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679785608"><span class="annot"><span class="annottext">Maybe Int
 numberOfLines :: Maybe Int
 $sel:numberOfLines:DownloadDBLogFilePortion' :: DownloadDBLogFilePortion -&gt; Maybe Int
-</span><a href="#local-6989586621679784492"><span class="hs-identifier hs-var hs-var">numberOfLines</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679784492"><span class="hs-identifier hs-var">numberOfLines</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679784491"><span class="annot"><span class="annottext">s :: DownloadDBLogFilePortion
-</span><a href="#local-6989586621679784491"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#DownloadDBLogFilePortion%27"><span class="hs-identifier hs-type">DownloadDBLogFilePortion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679784490"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679784490"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DownloadDBLogFilePortion
-</span><a href="#local-6989586621679784491"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numberOfLines:DownloadDBLogFilePortion' :: Maybe Int
+</span><a href="#local-6989586621679785608"><span class="hs-identifier hs-var hs-var">numberOfLines</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679785608"><span class="hs-identifier hs-var">numberOfLines</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679785607"><span class="annot"><span class="annottext">s :: DownloadDBLogFilePortion
+</span><a href="#local-6989586621679785607"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#DownloadDBLogFilePortion%27"><span class="hs-identifier hs-type">DownloadDBLogFilePortion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679785606"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679785606"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DownloadDBLogFilePortion
+</span><a href="#local-6989586621679785607"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numberOfLines:DownloadDBLogFilePortion' :: Maybe Int
 </span><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#%24sel%3AnumberOfLines%3ADownloadDBLogFilePortion%27"><span class="hs-identifier hs-var">numberOfLines</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679784490"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#DownloadDBLogFilePortion"><span class="hs-identifier hs-type">DownloadDBLogFilePortion</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679785606"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#DownloadDBLogFilePortion"><span class="hs-identifier hs-type">DownloadDBLogFilePortion</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-190"></span><span>
 </span><span id="line-191"></span><span class="hs-comment">-- | The pagination token provided in the previous request or \&quot;0\&quot;. If the</span><span>
 </span><span id="line-192"></span><span class="hs-comment">-- Marker parameter is specified the response includes only records beyond</span><span>
@@ -300,16 +300,16 @@ $sel:numberOfLines:DownloadDBLogFilePortion' :: DownloadDBLogFilePortion -&gt; M
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#DownloadDBLogFilePortion%27"><span class="hs-identifier hs-type">DownloadDBLogFilePortion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679784489"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#DownloadDBLogFilePortion%27"><span class="hs-identifier hs-type">DownloadDBLogFilePortion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679785605"><span class="annot"><span class="annottext">Maybe Text
 marker :: Maybe Text
 $sel:marker:DownloadDBLogFilePortion' :: DownloadDBLogFilePortion -&gt; Maybe Text
-</span><a href="#local-6989586621679784489"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679784489"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679784488"><span class="annot"><span class="annottext">s :: DownloadDBLogFilePortion
-</span><a href="#local-6989586621679784488"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#DownloadDBLogFilePortion%27"><span class="hs-identifier hs-type">DownloadDBLogFilePortion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679784487"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679784487"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DownloadDBLogFilePortion
-</span><a href="#local-6989586621679784488"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DownloadDBLogFilePortion' :: Maybe Text
+</span><a href="#local-6989586621679785605"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679785605"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679785604"><span class="annot"><span class="annottext">s :: DownloadDBLogFilePortion
+</span><a href="#local-6989586621679785604"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#DownloadDBLogFilePortion%27"><span class="hs-identifier hs-type">DownloadDBLogFilePortion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679785603"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679785603"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DownloadDBLogFilePortion
+</span><a href="#local-6989586621679785604"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DownloadDBLogFilePortion' :: Maybe Text
 </span><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#%24sel%3Amarker%3ADownloadDBLogFilePortion%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679784487"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#DownloadDBLogFilePortion"><span class="hs-identifier hs-type">DownloadDBLogFilePortion</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679785603"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#DownloadDBLogFilePortion"><span class="hs-identifier hs-type">DownloadDBLogFilePortion</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-196"></span><span>
 </span><span id="line-197"></span><span class="hs-comment">-- | The customer-assigned name of the DB instance that contains the log</span><span>
 </span><span id="line-198"></span><span class="hs-comment">-- files you want to list.</span><span>
@@ -324,16 +324,16 @@ $sel:marker:DownloadDBLogFilePortion' :: DownloadDBLogFilePortion -&gt; Maybe Te
 -&gt; (DownloadDBLogFilePortion -&gt; Text -&gt; DownloadDBLogFilePortion)
 -&gt; Lens DownloadDBLogFilePortion DownloadDBLogFilePortion Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#DownloadDBLogFilePortion%27"><span class="hs-identifier hs-type">DownloadDBLogFilePortion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679784486"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#DownloadDBLogFilePortion%27"><span class="hs-identifier hs-type">DownloadDBLogFilePortion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679785602"><span class="annot"><span class="annottext">Text
 dbInstanceIdentifier :: Text
 $sel:dbInstanceIdentifier:DownloadDBLogFilePortion' :: DownloadDBLogFilePortion -&gt; Text
-</span><a href="#local-6989586621679784486"><span class="hs-identifier hs-var hs-var">dbInstanceIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679784486"><span class="hs-identifier hs-var">dbInstanceIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679784485"><span class="annot"><span class="annottext">s :: DownloadDBLogFilePortion
-</span><a href="#local-6989586621679784485"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#DownloadDBLogFilePortion%27"><span class="hs-identifier hs-type">DownloadDBLogFilePortion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679784484"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679784484"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DownloadDBLogFilePortion
-</span><a href="#local-6989586621679784485"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbInstanceIdentifier:DownloadDBLogFilePortion' :: Text
+</span><a href="#local-6989586621679785602"><span class="hs-identifier hs-var hs-var">dbInstanceIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679785602"><span class="hs-identifier hs-var">dbInstanceIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679785601"><span class="annot"><span class="annottext">s :: DownloadDBLogFilePortion
+</span><a href="#local-6989586621679785601"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#DownloadDBLogFilePortion%27"><span class="hs-identifier hs-type">DownloadDBLogFilePortion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679785600"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679785600"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DownloadDBLogFilePortion
+</span><a href="#local-6989586621679785601"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbInstanceIdentifier:DownloadDBLogFilePortion' :: Text
 </span><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#%24sel%3AdbInstanceIdentifier%3ADownloadDBLogFilePortion%27"><span class="hs-identifier hs-var">dbInstanceIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679784484"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#DownloadDBLogFilePortion"><span class="hs-identifier hs-type">DownloadDBLogFilePortion</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679785600"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#DownloadDBLogFilePortion"><span class="hs-identifier hs-type">DownloadDBLogFilePortion</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-205"></span><span>
 </span><span id="line-206"></span><span class="hs-comment">-- | The name of the log file to be downloaded.</span><span>
 </span><span id="line-207"></span><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#downloadDBLogFilePortion_logFileName"><span class="hs-identifier hs-type">downloadDBLogFilePortion_logFileName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#DownloadDBLogFilePortion"><span class="hs-identifier hs-type">DownloadDBLogFilePortion</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -343,30 +343,30 @@ $sel:dbInstanceIdentifier:DownloadDBLogFilePortion' :: DownloadDBLogFilePortion 
 -&gt; (DownloadDBLogFilePortion -&gt; Text -&gt; DownloadDBLogFilePortion)
 -&gt; Lens DownloadDBLogFilePortion DownloadDBLogFilePortion Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#DownloadDBLogFilePortion%27"><span class="hs-identifier hs-type">DownloadDBLogFilePortion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679784483"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#DownloadDBLogFilePortion%27"><span class="hs-identifier hs-type">DownloadDBLogFilePortion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679785599"><span class="annot"><span class="annottext">Text
 logFileName :: Text
 $sel:logFileName:DownloadDBLogFilePortion' :: DownloadDBLogFilePortion -&gt; Text
-</span><a href="#local-6989586621679784483"><span class="hs-identifier hs-var hs-var">logFileName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679784483"><span class="hs-identifier hs-var">logFileName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679784482"><span class="annot"><span class="annottext">s :: DownloadDBLogFilePortion
-</span><a href="#local-6989586621679784482"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#DownloadDBLogFilePortion%27"><span class="hs-identifier hs-type">DownloadDBLogFilePortion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679784481"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679784481"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DownloadDBLogFilePortion
-</span><a href="#local-6989586621679784482"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logFileName:DownloadDBLogFilePortion' :: Text
+</span><a href="#local-6989586621679785599"><span class="hs-identifier hs-var hs-var">logFileName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679785599"><span class="hs-identifier hs-var">logFileName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679785598"><span class="annot"><span class="annottext">s :: DownloadDBLogFilePortion
+</span><a href="#local-6989586621679785598"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#DownloadDBLogFilePortion%27"><span class="hs-identifier hs-type">DownloadDBLogFilePortion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679785597"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679785597"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DownloadDBLogFilePortion
+</span><a href="#local-6989586621679785598"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logFileName:DownloadDBLogFilePortion' :: Text
 </span><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#%24sel%3AlogFileName%3ADownloadDBLogFilePortion%27"><span class="hs-identifier hs-var">logFileName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679784481"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#DownloadDBLogFilePortion"><span class="hs-identifier hs-type">DownloadDBLogFilePortion</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679785597"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#DownloadDBLogFilePortion"><span class="hs-identifier hs-type">DownloadDBLogFilePortion</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-209"></span><span>
 </span><span id="line-210"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#DownloadDBLogFilePortion"><span class="hs-identifier hs-type">DownloadDBLogFilePortion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-211"></span><span>  </span><span id="local-6989586621679784477"><span class="annot"><span class="annottext">page :: DownloadDBLogFilePortion
+</span><span id="line-211"></span><span>  </span><span id="local-6989586621679785593"><span class="annot"><span class="annottext">page :: DownloadDBLogFilePortion
 -&gt; AWSResponse DownloadDBLogFilePortion
 -&gt; Maybe DownloadDBLogFilePortion
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679784475"><span class="annot"><span class="annottext">DownloadDBLogFilePortion
-</span><a href="#local-6989586621679784475"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679784474"><span class="annot"><span class="annottext">AWSResponse DownloadDBLogFilePortion
-</span><a href="#local-6989586621679784474"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679785591"><span class="annot"><span class="annottext">DownloadDBLogFilePortion
+</span><a href="#local-6989586621679785591"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679785590"><span class="annot"><span class="annottext">AWSResponse DownloadDBLogFilePortion
+</span><a href="#local-6989586621679785590"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-212"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Bool -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-213"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DownloadDBLogFilePortion
 DownloadDBLogFilePortionResponse
-</span><a href="#local-6989586621679784474"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679785590"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-214"></span><span>            </span><span class="annot"><span class="annottext">DownloadDBLogFilePortionResponse
 -&gt; Getting (First Bool) DownloadDBLogFilePortionResponse Bool
 -&gt; Maybe Bool
@@ -396,7 +396,7 @@ forall a. Maybe a -&gt; Bool
 </span><span class="hs-identifier hs-var">Prelude.isNothing</span></span><span>
 </span><span id="line-219"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DownloadDBLogFilePortion
 DownloadDBLogFilePortionResponse
-</span><a href="#local-6989586621679784474"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679785590"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-220"></span><span>            </span><span class="annot"><span class="annottext">DownloadDBLogFilePortionResponse
 -&gt; Getting (First Text) DownloadDBLogFilePortionResponse Text
 -&gt; Maybe Text
@@ -430,7 +430,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-226"></span><span>        </span><span class="annot"><span class="annottext">DownloadDBLogFilePortion
-</span><a href="#local-6989586621679784475"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679785591"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-227"></span><span>          </span><span class="annot"><span class="annottext">DownloadDBLogFilePortion
 -&gt; (DownloadDBLogFilePortion -&gt; DownloadDBLogFilePortion)
 -&gt; DownloadDBLogFilePortion
@@ -451,7 +451,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DownloadDBLogFilePortion
 DownloadDBLogFilePortionResponse
-</span><a href="#local-6989586621679784474"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679785590"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-229"></span><span>          </span><span class="annot"><span class="annottext">DownloadDBLogFilePortionResponse
 -&gt; Getting (First Text) DownloadDBLogFilePortionResponse Text
 -&gt; Maybe Text
@@ -477,13 +477,13 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-233"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-234"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#DownloadDBLogFilePortion"><span class="hs-identifier hs-type">DownloadDBLogFilePortion</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-235"></span><span>      </span><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#DownloadDBLogFilePortionResponse"><span class="hs-identifier hs-type">DownloadDBLogFilePortionResponse</span></a></span><span>
-</span><span id="line-236"></span><span>  </span><span id="local-6989586621679784463"><span class="annot"><span class="annottext">request :: DownloadDBLogFilePortion -&gt; Request DownloadDBLogFilePortion
+</span><span id="line-236"></span><span>  </span><span id="local-6989586621679785579"><span class="annot"><span class="annottext">request :: DownloadDBLogFilePortion -&gt; Request DownloadDBLogFilePortion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DownloadDBLogFilePortion -&gt; Request DownloadDBLogFilePortion
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.RDS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-237"></span><span>  </span><span id="local-6989586621679784459"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-237"></span><span>  </span><span id="local-6989586621679785575"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DownloadDBLogFilePortion
 -&gt; ClientResponse ClientBody
@@ -514,52 +514,52 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-239"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DownloadDBLogFilePortionResult&quot;</span></span><span>
-</span><span id="line-240"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679784456"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679784456"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679784455"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679784455"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679784454"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679784454"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-241"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool
--&gt; Maybe Text
+</span><span id="line-240"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679785572"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679785572"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679785571"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679785571"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679785570"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679785570"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-241"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Bool
 -&gt; Maybe Text
 -&gt; Int
 -&gt; DownloadDBLogFilePortionResponse
 </span><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#DownloadDBLogFilePortionResponse%27"><span class="hs-identifier hs-var">DownloadDBLogFilePortionResponse'</span></a></span><span>
-</span><span id="line-242"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Bool
- -&gt; Maybe Text
+</span><span id="line-242"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Bool
  -&gt; Maybe Text
  -&gt; Int
  -&gt; DownloadDBLogFilePortionResponse)
--&gt; Either String (Maybe Bool)
+-&gt; Either String (Maybe Text)
 -&gt; Either
      String
-     (Maybe Text
+     (Maybe Bool
       -&gt; Maybe Text -&gt; Int -&gt; DownloadDBLogFilePortionResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679784454"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+</span><a href="#local-6989586621679785570"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;AdditionalDataPending&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;LogFileData&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-243"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe Text
+  (Maybe Bool
    -&gt; Maybe Text -&gt; Int -&gt; DownloadDBLogFilePortionResponse)
--&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Bool)
 -&gt; Either
      String (Maybe Text -&gt; Int -&gt; DownloadDBLogFilePortionResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679784454"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679785570"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;LogFileData&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;AdditionalDataPending&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-244"></span><span>            </span><span class="annot"><span class="annottext">Either
   String (Maybe Text -&gt; Int -&gt; DownloadDBLogFilePortionResponse)
 -&gt; Either String (Maybe Text)
 -&gt; Either String (Int -&gt; DownloadDBLogFilePortionResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679784454"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679785570"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Marker&quot;</span></span><span class="hs-special">)</span><span>
@@ -572,15 +572,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679784456"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679785572"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-246"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-247"></span><span>
-</span><span id="line-248"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679784446"><span id="local-6989586621679784448"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#DownloadDBLogFilePortion"><span class="hs-identifier hs-type">DownloadDBLogFilePortion</span></a></span></span></span><span>
+</span><span id="line-248"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679785562"><span id="local-6989586621679785564"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#DownloadDBLogFilePortion"><span class="hs-identifier hs-type">DownloadDBLogFilePortion</span></a></span></span></span><span>
 </span><span id="line-249"></span><span>
-</span><span id="line-250"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679784443"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#DownloadDBLogFilePortion"><span class="hs-identifier hs-type">DownloadDBLogFilePortion</span></a></span></span><span>
+</span><span id="line-250"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679785559"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#DownloadDBLogFilePortion"><span class="hs-identifier hs-type">DownloadDBLogFilePortion</span></a></span></span><span>
 </span><span id="line-251"></span><span>
 </span><span id="line-252"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#DownloadDBLogFilePortion"><span class="hs-identifier hs-type">DownloadDBLogFilePortion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-253"></span><span>  </span><span id="local-6989586621679784439"><span class="annot"><span class="annottext">toHeaders :: DownloadDBLogFilePortion -&gt; ResponseHeaders
+</span><span id="line-253"></span><span>  </span><span id="local-6989586621679785555"><span class="annot"><span class="annottext">toHeaders :: DownloadDBLogFilePortion -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DownloadDBLogFilePortion -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -588,15 +588,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-254"></span><span>
 </span><span id="line-255"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#DownloadDBLogFilePortion"><span class="hs-identifier hs-type">DownloadDBLogFilePortion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-256"></span><span>  </span><span id="local-6989586621679784434"><span class="annot"><span class="annottext">toPath :: DownloadDBLogFilePortion -&gt; ByteString
+</span><span id="line-256"></span><span>  </span><span id="local-6989586621679785550"><span class="annot"><span class="annottext">toPath :: DownloadDBLogFilePortion -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DownloadDBLogFilePortion -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-257"></span><span>
 </span><span id="line-258"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#DownloadDBLogFilePortion"><span class="hs-identifier hs-type">DownloadDBLogFilePortion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-259"></span><span>  </span><span id="local-6989586621679784430"><span class="annot"><span class="annottext">toQuery :: DownloadDBLogFilePortion -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#DownloadDBLogFilePortion%27"><span class="hs-identifier hs-type">DownloadDBLogFilePortion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679784425"><span id="local-6989586621679784426"><span id="local-6989586621679784427"><span id="local-6989586621679784428"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-259"></span><span>  </span><span id="local-6989586621679785546"><span class="annot"><span class="annottext">toQuery :: DownloadDBLogFilePortion -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#DownloadDBLogFilePortion%27"><span class="hs-identifier hs-type">DownloadDBLogFilePortion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679785541"><span id="local-6989586621679785542"><span id="local-6989586621679785543"><span id="local-6989586621679785544"><span class="annot"><span class="annottext">Maybe Int
 Maybe Text
 Text
 logFileName :: Text
@@ -607,7 +607,7 @@ $sel:logFileName:DownloadDBLogFilePortion' :: DownloadDBLogFilePortion -&gt; Tex
 $sel:dbInstanceIdentifier:DownloadDBLogFilePortion' :: DownloadDBLogFilePortion -&gt; Text
 $sel:marker:DownloadDBLogFilePortion' :: DownloadDBLogFilePortion -&gt; Maybe Text
 $sel:numberOfLines:DownloadDBLogFilePortion' :: DownloadDBLogFilePortion -&gt; Maybe Int
-</span><a href="#local-6989586621679784425"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679785541"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-260"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -627,36 +627,36 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;NumberOfLines&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679784428"><span class="hs-identifier hs-var">numberOfLines</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679785544"><span class="hs-identifier hs-var">numberOfLines</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-266"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Marker&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679784427"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679785543"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-267"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;DBInstanceIdentifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679784426"><span class="hs-identifier hs-var">dbInstanceIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679785542"><span class="hs-identifier hs-var">dbInstanceIdentifier</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-268"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;LogFileName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679784425"><span class="hs-identifier hs-var">logFileName</span></a></span><span>
+</span><a href="#local-6989586621679785541"><span class="hs-identifier hs-var">logFileName</span></a></span><span>
 </span><span id="line-269"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-270"></span><span>
 </span><span id="line-271"></span><span class="hs-comment">-- | This data type is used as a response element to</span><span>
 </span><span id="line-272"></span><span class="hs-comment">-- @DownloadDBLogFilePortion@.</span><span>
 </span><span id="line-273"></span><span class="hs-comment">--</span><span>
 </span><span id="line-274"></span><span class="hs-comment">-- /See:/ 'newDownloadDBLogFilePortionResponse' smart constructor.</span><span>
-</span><span id="line-275"></span><span id="local-6989586621679784422"><span id="local-6989586621679784423"></span></span><span class="hs-keyword">data</span><span> </span><span id="DownloadDBLogFilePortionResponse"><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#DownloadDBLogFilePortionResponse"><span class="hs-identifier hs-var">DownloadDBLogFilePortionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DownloadDBLogFilePortionResponse%27"><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#DownloadDBLogFilePortionResponse%27"><span class="hs-identifier hs-var">DownloadDBLogFilePortionResponse'</span></a></span></span><span>
-</span><span id="line-276"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Boolean value that if true, indicates there is more data to be</span><span>
-</span><span id="line-277"></span><span>    </span><span class="hs-comment">-- downloaded.</span><span>
-</span><span id="line-278"></span><span>    </span><span id="%24sel%3AadditionalDataPending%3ADownloadDBLogFilePortionResponse%27"><span class="annot"><span class="annottext">DownloadDBLogFilePortionResponse -&gt; Maybe Bool
-</span><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#%24sel%3AadditionalDataPending%3ADownloadDBLogFilePortionResponse%27"><span class="hs-identifier hs-var hs-var">additionalDataPending</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-279"></span><span>    </span><span class="hs-comment">-- | Entries from the specified log file.</span><span>
-</span><span id="line-280"></span><span>    </span><span id="%24sel%3AlogFileData%3ADownloadDBLogFilePortionResponse%27"><span class="annot"><span class="annottext">DownloadDBLogFilePortionResponse -&gt; Maybe Text
+</span><span id="line-275"></span><span id="local-6989586621679785538"><span id="local-6989586621679785539"></span></span><span class="hs-keyword">data</span><span> </span><span id="DownloadDBLogFilePortionResponse"><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#DownloadDBLogFilePortionResponse"><span class="hs-identifier hs-var">DownloadDBLogFilePortionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DownloadDBLogFilePortionResponse%27"><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#DownloadDBLogFilePortionResponse%27"><span class="hs-identifier hs-var">DownloadDBLogFilePortionResponse'</span></a></span></span><span>
+</span><span id="line-276"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Entries from the specified log file.</span><span>
+</span><span id="line-277"></span><span>    </span><span id="%24sel%3AlogFileData%3ADownloadDBLogFilePortionResponse%27"><span class="annot"><span class="annottext">DownloadDBLogFilePortionResponse -&gt; Maybe Text
 </span><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#%24sel%3AlogFileData%3ADownloadDBLogFilePortionResponse%27"><span class="hs-identifier hs-var hs-var">logFileData</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-278"></span><span>    </span><span class="hs-comment">-- | Boolean value that if true, indicates there is more data to be</span><span>
+</span><span id="line-279"></span><span>    </span><span class="hs-comment">-- downloaded.</span><span>
+</span><span id="line-280"></span><span>    </span><span id="%24sel%3AadditionalDataPending%3ADownloadDBLogFilePortionResponse%27"><span class="annot"><span class="annottext">DownloadDBLogFilePortionResponse -&gt; Maybe Bool
+</span><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#%24sel%3AadditionalDataPending%3ADownloadDBLogFilePortionResponse%27"><span class="hs-identifier hs-var hs-var">additionalDataPending</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
 </span><span id="line-281"></span><span>    </span><span class="hs-comment">-- | A pagination token that can be used in a later DownloadDBLogFilePortion</span><span>
 </span><span id="line-282"></span><span>    </span><span class="hs-comment">-- request.</span><span>
 </span><span id="line-283"></span><span>    </span><span id="%24sel%3Amarker%3ADownloadDBLogFilePortionResponse%27"><span class="annot"><span class="annottext">DownloadDBLogFilePortionResponse -&gt; Maybe Text
@@ -665,7 +665,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-285"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADownloadDBLogFilePortionResponse%27"><span class="annot"><span class="annottext">DownloadDBLogFilePortionResponse -&gt; Int
 </span><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#%24sel%3AhttpStatus%3ADownloadDBLogFilePortionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-286"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-287"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679784414"><span id="local-6989586621679784416"><span class="annot"><span class="annottext">DownloadDBLogFilePortionResponse
+</span><span id="line-287"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679785530"><span id="local-6989586621679785532"><span class="annot"><span class="annottext">DownloadDBLogFilePortionResponse
 -&gt; DownloadDBLogFilePortionResponse -&gt; Bool
 (DownloadDBLogFilePortionResponse
  -&gt; DownloadDBLogFilePortionResponse -&gt; Bool)
@@ -681,7 +681,7 @@ $c/= :: DownloadDBLogFilePortionResponse
 -&gt; DownloadDBLogFilePortionResponse -&gt; Bool
 $c== :: DownloadDBLogFilePortionResponse
 -&gt; DownloadDBLogFilePortionResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679784406"><span id="local-6989586621679784408"><span id="local-6989586621679784410"><span id="local-6989586621679784412"><span class="annot"><span class="annottext">ReadPrec [DownloadDBLogFilePortionResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679785522"><span id="local-6989586621679785524"><span id="local-6989586621679785526"><span id="local-6989586621679785528"><span class="annot"><span class="annottext">ReadPrec [DownloadDBLogFilePortionResponse]
 ReadPrec DownloadDBLogFilePortionResponse
 Int -&gt; ReadS DownloadDBLogFilePortionResponse
 ReadS [DownloadDBLogFilePortionResponse]
@@ -701,7 +701,7 @@ readList :: ReadS [DownloadDBLogFilePortionResponse]
 $creadList :: ReadS [DownloadDBLogFilePortionResponse]
 readsPrec :: Int -&gt; ReadS DownloadDBLogFilePortionResponse
 $creadsPrec :: Int -&gt; ReadS DownloadDBLogFilePortionResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679784400"><span id="local-6989586621679784402"><span id="local-6989586621679784404"><span class="annot"><span class="annottext">Int -&gt; DownloadDBLogFilePortionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679785516"><span id="local-6989586621679785518"><span id="local-6989586621679785520"><span class="annot"><span class="annottext">Int -&gt; DownloadDBLogFilePortionResponse -&gt; ShowS
 [DownloadDBLogFilePortionResponse] -&gt; ShowS
 DownloadDBLogFilePortionResponse -&gt; String
 (Int -&gt; DownloadDBLogFilePortionResponse -&gt; ShowS)
@@ -747,10 +747,10 @@ DownloadDBLogFilePortionResponse
 </span><span id="line-294"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-295"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-296"></span><span class="hs-comment">--</span><span>
-</span><span id="line-297"></span><span class="hs-comment">-- 'additionalDataPending', 'downloadDBLogFilePortionResponse_additionalDataPending' - Boolean value that if true, indicates there is more data to be</span><span>
-</span><span id="line-298"></span><span class="hs-comment">-- downloaded.</span><span>
-</span><span id="line-299"></span><span class="hs-comment">--</span><span>
-</span><span id="line-300"></span><span class="hs-comment">-- 'logFileData', 'downloadDBLogFilePortionResponse_logFileData' - Entries from the specified log file.</span><span>
+</span><span id="line-297"></span><span class="hs-comment">-- 'logFileData', 'downloadDBLogFilePortionResponse_logFileData' - Entries from the specified log file.</span><span>
+</span><span id="line-298"></span><span class="hs-comment">--</span><span>
+</span><span id="line-299"></span><span class="hs-comment">-- 'additionalDataPending', 'downloadDBLogFilePortionResponse_additionalDataPending' - Boolean value that if true, indicates there is more data to be</span><span>
+</span><span id="line-300"></span><span class="hs-comment">-- downloaded.</span><span>
 </span><span id="line-301"></span><span class="hs-comment">--</span><span>
 </span><span id="line-302"></span><span class="hs-comment">-- 'marker', 'downloadDBLogFilePortionResponse_marker' - A pagination token that can be used in a later DownloadDBLogFilePortion</span><span>
 </span><span id="line-303"></span><span class="hs-comment">-- request.</span><span>
@@ -761,21 +761,21 @@ DownloadDBLogFilePortionResponse
 </span><span id="line-308"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-309"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#DownloadDBLogFilePortionResponse"><span class="hs-identifier hs-type">DownloadDBLogFilePortionResponse</span></a></span><span>
 </span><span id="line-310"></span><span id="newDownloadDBLogFilePortionResponse"><span class="annot"><span class="annottext">newDownloadDBLogFilePortionResponse :: Int -&gt; DownloadDBLogFilePortionResponse
-</span><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#newDownloadDBLogFilePortionResponse"><span class="hs-identifier hs-var hs-var">newDownloadDBLogFilePortionResponse</span></a></span></span><span> </span><span id="local-6989586621679784397"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679784397"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-311"></span><span>  </span><span class="annot"><span class="annottext">DownloadDBLogFilePortionResponse' :: Maybe Bool
--&gt; Maybe Text
+</span><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#newDownloadDBLogFilePortionResponse"><span class="hs-identifier hs-var hs-var">newDownloadDBLogFilePortionResponse</span></a></span></span><span> </span><span id="local-6989586621679785513"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679785513"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-311"></span><span>  </span><span class="annot"><span class="annottext">DownloadDBLogFilePortionResponse' :: Maybe Text
+-&gt; Maybe Bool
 -&gt; Maybe Text
 -&gt; Int
 -&gt; DownloadDBLogFilePortionResponse
 </span><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#DownloadDBLogFilePortionResponse%27"><span class="hs-identifier hs-type">DownloadDBLogFilePortionResponse'</span></a></span><span>
-</span><span id="line-312"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:additionalDataPending:DownloadDBLogFilePortionResponse' :: Maybe Bool
-</span><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#%24sel%3AadditionalDataPending%3ADownloadDBLogFilePortionResponse%27"><span class="hs-identifier hs-var">additionalDataPending</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-313"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-312"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:logFileData:DownloadDBLogFilePortionResponse' :: Maybe Text
+</span><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#%24sel%3AlogFileData%3ADownloadDBLogFilePortionResponse%27"><span class="hs-identifier hs-var">logFileData</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-313"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-314"></span><span>      </span><span class="annot"><span class="annottext">$sel:logFileData:DownloadDBLogFilePortionResponse' :: Maybe Text
-</span><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#%24sel%3AlogFileData%3ADownloadDBLogFilePortionResponse%27"><span class="hs-identifier hs-var">logFileData</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-314"></span><span>      </span><span class="annot"><span class="annottext">$sel:additionalDataPending:DownloadDBLogFilePortionResponse' :: Maybe Bool
+</span><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#%24sel%3AadditionalDataPending%3ADownloadDBLogFilePortionResponse%27"><span class="hs-identifier hs-var">additionalDataPending</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-315"></span><span>      </span><span class="annot"><span class="annottext">$sel:marker:DownloadDBLogFilePortionResponse' :: Maybe Text
@@ -784,34 +784,12 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-316"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DownloadDBLogFilePortionResponse' :: Int
 </span><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#%24sel%3AhttpStatus%3ADownloadDBLogFilePortionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679784397"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679785513"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-317"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-318"></span><span>
-</span><span id="line-319"></span><span class="hs-comment">-- | Boolean value that if true, indicates there is more data to be</span><span>
-</span><span id="line-320"></span><span class="hs-comment">-- downloaded.</span><span>
-</span><span id="line-321"></span><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#downloadDBLogFilePortionResponse_additionalDataPending"><span class="hs-identifier hs-type">downloadDBLogFilePortionResponse_additionalDataPending</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#DownloadDBLogFilePortionResponse"><span class="hs-identifier hs-type">DownloadDBLogFilePortionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-322"></span><span id="downloadDBLogFilePortionResponse_additionalDataPending"><span class="annot"><span class="annottext">downloadDBLogFilePortionResponse_additionalDataPending :: (Maybe Bool -&gt; f (Maybe Bool))
--&gt; DownloadDBLogFilePortionResponse
--&gt; f DownloadDBLogFilePortionResponse
-</span><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#downloadDBLogFilePortionResponse_additionalDataPending"><span class="hs-identifier hs-var hs-var">downloadDBLogFilePortionResponse_additionalDataPending</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DownloadDBLogFilePortionResponse -&gt; Maybe Bool)
--&gt; (DownloadDBLogFilePortionResponse
-    -&gt; Maybe Bool -&gt; DownloadDBLogFilePortionResponse)
--&gt; Lens' DownloadDBLogFilePortionResponse (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#DownloadDBLogFilePortionResponse%27"><span class="hs-identifier hs-type">DownloadDBLogFilePortionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679784396"><span class="annot"><span class="annottext">Maybe Bool
-additionalDataPending :: Maybe Bool
-$sel:additionalDataPending:DownloadDBLogFilePortionResponse' :: DownloadDBLogFilePortionResponse -&gt; Maybe Bool
-</span><a href="#local-6989586621679784396"><span class="hs-identifier hs-var hs-var">additionalDataPending</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679784396"><span class="hs-identifier hs-var">additionalDataPending</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679784395"><span class="annot"><span class="annottext">s :: DownloadDBLogFilePortionResponse
-</span><a href="#local-6989586621679784395"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#DownloadDBLogFilePortionResponse%27"><span class="hs-identifier hs-type">DownloadDBLogFilePortionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679784394"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679784394"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DownloadDBLogFilePortionResponse
-</span><a href="#local-6989586621679784395"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:additionalDataPending:DownloadDBLogFilePortionResponse' :: Maybe Bool
-</span><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#%24sel%3AadditionalDataPending%3ADownloadDBLogFilePortionResponse%27"><span class="hs-identifier hs-var">additionalDataPending</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679784394"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#DownloadDBLogFilePortionResponse"><span class="hs-identifier hs-type">DownloadDBLogFilePortionResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-323"></span><span>
-</span><span id="line-324"></span><span class="hs-comment">-- | Entries from the specified log file.</span><span>
-</span><span id="line-325"></span><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#downloadDBLogFilePortionResponse_logFileData"><span class="hs-identifier hs-type">downloadDBLogFilePortionResponse_logFileData</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#DownloadDBLogFilePortionResponse"><span class="hs-identifier hs-type">DownloadDBLogFilePortionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-326"></span><span id="downloadDBLogFilePortionResponse_logFileData"><span class="annot"><span class="annottext">downloadDBLogFilePortionResponse_logFileData :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-319"></span><span class="hs-comment">-- | Entries from the specified log file.</span><span>
+</span><span id="line-320"></span><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#downloadDBLogFilePortionResponse_logFileData"><span class="hs-identifier hs-type">downloadDBLogFilePortionResponse_logFileData</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#DownloadDBLogFilePortionResponse"><span class="hs-identifier hs-type">DownloadDBLogFilePortionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-321"></span><span id="downloadDBLogFilePortionResponse_logFileData"><span class="annot"><span class="annottext">downloadDBLogFilePortionResponse_logFileData :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; DownloadDBLogFilePortionResponse
 -&gt; f DownloadDBLogFilePortionResponse
 </span><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#downloadDBLogFilePortionResponse_logFileData"><span class="hs-identifier hs-var hs-var">downloadDBLogFilePortionResponse_logFileData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DownloadDBLogFilePortionResponse -&gt; Maybe Text)
@@ -819,16 +797,38 @@ $sel:additionalDataPending:DownloadDBLogFilePortionResponse' :: DownloadDBLogFil
     -&gt; Maybe Text -&gt; DownloadDBLogFilePortionResponse)
 -&gt; Lens' DownloadDBLogFilePortionResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#DownloadDBLogFilePortionResponse%27"><span class="hs-identifier hs-type">DownloadDBLogFilePortionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679784393"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#DownloadDBLogFilePortionResponse%27"><span class="hs-identifier hs-type">DownloadDBLogFilePortionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679785512"><span class="annot"><span class="annottext">Maybe Text
 logFileData :: Maybe Text
 $sel:logFileData:DownloadDBLogFilePortionResponse' :: DownloadDBLogFilePortionResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679784393"><span class="hs-identifier hs-var hs-var">logFileData</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679784393"><span class="hs-identifier hs-var">logFileData</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679784392"><span class="annot"><span class="annottext">s :: DownloadDBLogFilePortionResponse
-</span><a href="#local-6989586621679784392"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#DownloadDBLogFilePortionResponse%27"><span class="hs-identifier hs-type">DownloadDBLogFilePortionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679784391"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679784391"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DownloadDBLogFilePortionResponse
-</span><a href="#local-6989586621679784392"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logFileData:DownloadDBLogFilePortionResponse' :: Maybe Text
+</span><a href="#local-6989586621679785512"><span class="hs-identifier hs-var hs-var">logFileData</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679785512"><span class="hs-identifier hs-var">logFileData</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679785511"><span class="annot"><span class="annottext">s :: DownloadDBLogFilePortionResponse
+</span><a href="#local-6989586621679785511"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#DownloadDBLogFilePortionResponse%27"><span class="hs-identifier hs-type">DownloadDBLogFilePortionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679785510"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679785510"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DownloadDBLogFilePortionResponse
+</span><a href="#local-6989586621679785511"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logFileData:DownloadDBLogFilePortionResponse' :: Maybe Text
 </span><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#%24sel%3AlogFileData%3ADownloadDBLogFilePortionResponse%27"><span class="hs-identifier hs-var">logFileData</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679784391"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#DownloadDBLogFilePortionResponse"><span class="hs-identifier hs-type">DownloadDBLogFilePortionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679785510"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#DownloadDBLogFilePortionResponse"><span class="hs-identifier hs-type">DownloadDBLogFilePortionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-322"></span><span>
+</span><span id="line-323"></span><span class="hs-comment">-- | Boolean value that if true, indicates there is more data to be</span><span>
+</span><span id="line-324"></span><span class="hs-comment">-- downloaded.</span><span>
+</span><span id="line-325"></span><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#downloadDBLogFilePortionResponse_additionalDataPending"><span class="hs-identifier hs-type">downloadDBLogFilePortionResponse_additionalDataPending</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#DownloadDBLogFilePortionResponse"><span class="hs-identifier hs-type">DownloadDBLogFilePortionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-326"></span><span id="downloadDBLogFilePortionResponse_additionalDataPending"><span class="annot"><span class="annottext">downloadDBLogFilePortionResponse_additionalDataPending :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; DownloadDBLogFilePortionResponse
+-&gt; f DownloadDBLogFilePortionResponse
+</span><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#downloadDBLogFilePortionResponse_additionalDataPending"><span class="hs-identifier hs-var hs-var">downloadDBLogFilePortionResponse_additionalDataPending</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DownloadDBLogFilePortionResponse -&gt; Maybe Bool)
+-&gt; (DownloadDBLogFilePortionResponse
+    -&gt; Maybe Bool -&gt; DownloadDBLogFilePortionResponse)
+-&gt; Lens' DownloadDBLogFilePortionResponse (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#DownloadDBLogFilePortionResponse%27"><span class="hs-identifier hs-type">DownloadDBLogFilePortionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679785509"><span class="annot"><span class="annottext">Maybe Bool
+additionalDataPending :: Maybe Bool
+$sel:additionalDataPending:DownloadDBLogFilePortionResponse' :: DownloadDBLogFilePortionResponse -&gt; Maybe Bool
+</span><a href="#local-6989586621679785509"><span class="hs-identifier hs-var hs-var">additionalDataPending</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679785509"><span class="hs-identifier hs-var">additionalDataPending</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679785508"><span class="annot"><span class="annottext">s :: DownloadDBLogFilePortionResponse
+</span><a href="#local-6989586621679785508"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#DownloadDBLogFilePortionResponse%27"><span class="hs-identifier hs-type">DownloadDBLogFilePortionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679785507"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679785507"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DownloadDBLogFilePortionResponse
+</span><a href="#local-6989586621679785508"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:additionalDataPending:DownloadDBLogFilePortionResponse' :: Maybe Bool
+</span><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#%24sel%3AadditionalDataPending%3ADownloadDBLogFilePortionResponse%27"><span class="hs-identifier hs-var">additionalDataPending</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679785507"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#DownloadDBLogFilePortionResponse"><span class="hs-identifier hs-type">DownloadDBLogFilePortionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-327"></span><span>
 </span><span id="line-328"></span><span class="hs-comment">-- | A pagination token that can be used in a later DownloadDBLogFilePortion</span><span>
 </span><span id="line-329"></span><span class="hs-comment">-- request.</span><span>
@@ -841,16 +841,16 @@ $sel:logFileData:DownloadDBLogFilePortionResponse' :: DownloadDBLogFilePortionRe
     -&gt; Maybe Text -&gt; DownloadDBLogFilePortionResponse)
 -&gt; Lens' DownloadDBLogFilePortionResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#DownloadDBLogFilePortionResponse%27"><span class="hs-identifier hs-type">DownloadDBLogFilePortionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679784390"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#DownloadDBLogFilePortionResponse%27"><span class="hs-identifier hs-type">DownloadDBLogFilePortionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679785506"><span class="annot"><span class="annottext">Maybe Text
 marker :: Maybe Text
 $sel:marker:DownloadDBLogFilePortionResponse' :: DownloadDBLogFilePortionResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679784390"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679784390"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679784389"><span class="annot"><span class="annottext">s :: DownloadDBLogFilePortionResponse
-</span><a href="#local-6989586621679784389"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#DownloadDBLogFilePortionResponse%27"><span class="hs-identifier hs-type">DownloadDBLogFilePortionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679784388"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679784388"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DownloadDBLogFilePortionResponse
-</span><a href="#local-6989586621679784389"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DownloadDBLogFilePortionResponse' :: Maybe Text
+</span><a href="#local-6989586621679785506"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679785506"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679785505"><span class="annot"><span class="annottext">s :: DownloadDBLogFilePortionResponse
+</span><a href="#local-6989586621679785505"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#DownloadDBLogFilePortionResponse%27"><span class="hs-identifier hs-type">DownloadDBLogFilePortionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679785504"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679785504"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DownloadDBLogFilePortionResponse
+</span><a href="#local-6989586621679785505"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DownloadDBLogFilePortionResponse' :: Maybe Text
 </span><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#%24sel%3Amarker%3ADownloadDBLogFilePortionResponse%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679784388"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#DownloadDBLogFilePortionResponse"><span class="hs-identifier hs-type">DownloadDBLogFilePortionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679785504"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#DownloadDBLogFilePortionResponse"><span class="hs-identifier hs-type">DownloadDBLogFilePortionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-332"></span><span>
 </span><span id="line-333"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-334"></span><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#downloadDBLogFilePortionResponse_httpStatus"><span class="hs-identifier hs-type">downloadDBLogFilePortionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#DownloadDBLogFilePortionResponse"><span class="hs-identifier hs-type">DownloadDBLogFilePortionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -866,18 +866,18 @@ $sel:marker:DownloadDBLogFilePortionResponse' :: DownloadDBLogFilePortionRespons
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#DownloadDBLogFilePortionResponse%27"><span class="hs-identifier hs-type">DownloadDBLogFilePortionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679784387"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#DownloadDBLogFilePortionResponse%27"><span class="hs-identifier hs-type">DownloadDBLogFilePortionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679785503"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DownloadDBLogFilePortionResponse' :: DownloadDBLogFilePortionResponse -&gt; Int
-</span><a href="#local-6989586621679784387"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679784387"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679784386"><span class="annot"><span class="annottext">s :: DownloadDBLogFilePortionResponse
-</span><a href="#local-6989586621679784386"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#DownloadDBLogFilePortionResponse%27"><span class="hs-identifier hs-type">DownloadDBLogFilePortionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679784385"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679784385"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DownloadDBLogFilePortionResponse
-</span><a href="#local-6989586621679784386"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DownloadDBLogFilePortionResponse' :: Int
+</span><a href="#local-6989586621679785503"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679785503"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679785502"><span class="annot"><span class="annottext">s :: DownloadDBLogFilePortionResponse
+</span><a href="#local-6989586621679785502"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#DownloadDBLogFilePortionResponse%27"><span class="hs-identifier hs-type">DownloadDBLogFilePortionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679785501"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679785501"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DownloadDBLogFilePortionResponse
+</span><a href="#local-6989586621679785502"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DownloadDBLogFilePortionResponse' :: Int
 </span><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#%24sel%3AhttpStatus%3ADownloadDBLogFilePortionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679784385"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#DownloadDBLogFilePortionResponse"><span class="hs-identifier hs-type">DownloadDBLogFilePortionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679785501"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#DownloadDBLogFilePortionResponse"><span class="hs-identifier hs-type">DownloadDBLogFilePortionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-336"></span><span>
 </span><span id="line-337"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-338"></span><span>  </span><span id="local-6989586621679784383"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-338"></span><span>  </span><span id="local-6989586621679785499"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-339"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.DownloadDBLogFilePortion.html#DownloadDBLogFilePortionResponse"><span class="hs-identifier hs-type">DownloadDBLogFilePortionResponse</span></a></span></span><span>
 </span><span id="line-340"></span></pre></body></html>

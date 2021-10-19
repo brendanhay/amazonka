@@ -40,7 +40,7 @@
 </span><span id="line-40"></span><span class="hs-comment">-- doesn\'t match all of the conditions in any of the rules in a @WebACL@.</span><span>
 </span><span id="line-41"></span><span class="hs-comment">--</span><span>
 </span><span id="line-42"></span><span class="hs-comment">-- /See:/ 'newWafAction' smart constructor.</span><span>
-</span><span id="line-43"></span><span id="local-6989586621679310200"><span id="local-6989586621679310201"></span></span><span class="hs-keyword">data</span><span> </span><span id="WafAction"><span class="annot"><a href="Network.AWS.WAFRegional.Types.WafAction.html#WafAction"><span class="hs-identifier hs-var">WafAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WafAction%27"><span class="annot"><a href="Network.AWS.WAFRegional.Types.WafAction.html#WafAction%27"><span class="hs-identifier hs-var">WafAction'</span></a></span></span><span>
+</span><span id="line-43"></span><span id="local-6989586621679310452"><span id="local-6989586621679310453"></span></span><span class="hs-keyword">data</span><span> </span><span id="WafAction"><span class="annot"><a href="Network.AWS.WAFRegional.Types.WafAction.html#WafAction"><span class="hs-identifier hs-var">WafAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WafAction%27"><span class="annot"><a href="Network.AWS.WAFRegional.Types.WafAction.html#WafAction%27"><span class="hs-identifier hs-var">WafAction'</span></a></span></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies how you want AWS WAF to respond to requests that match the</span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-comment">-- settings in a @Rule@. Valid settings include the following:</span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -55,7 +55,7 @@
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3Atype%27%3AWafAction%27"><span class="annot"><span class="annottext">WafAction -&gt; WafActionType
 </span><a href="Network.AWS.WAFRegional.Types.WafAction.html#%24sel%3Atype%27%3AWafAction%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.WafActionType.html#WafActionType"><span class="hs-identifier hs-type">WafActionType</span></a></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679310194"><span id="local-6989586621679310196"><span class="annot"><span class="annottext">WafAction -&gt; WafAction -&gt; Bool
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679310446"><span id="local-6989586621679310448"><span class="annot"><span class="annottext">WafAction -&gt; WafAction -&gt; Bool
 (WafAction -&gt; WafAction -&gt; Bool)
 -&gt; (WafAction -&gt; WafAction -&gt; Bool) -&gt; Eq WafAction
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -63,7 +63,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: WafAction -&gt; WafAction -&gt; Bool
 == :: WafAction -&gt; WafAction -&gt; Bool
 $c== :: WafAction -&gt; WafAction -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310185"><span id="local-6989586621679310187"><span id="local-6989586621679310189"><span id="local-6989586621679310191"><span class="annot"><span class="annottext">ReadPrec [WafAction]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310437"><span id="local-6989586621679310439"><span id="local-6989586621679310441"><span id="local-6989586621679310443"><span class="annot"><span class="annottext">ReadPrec [WafAction]
 ReadPrec WafAction
 Int -&gt; ReadS WafAction
 ReadS [WafAction]
@@ -83,7 +83,7 @@ readList :: ReadS [WafAction]
 $creadList :: ReadS [WafAction]
 readsPrec :: Int -&gt; ReadS WafAction
 $creadsPrec :: Int -&gt; ReadS WafAction
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310178"><span id="local-6989586621679310180"><span id="local-6989586621679310182"><span class="annot"><span class="annottext">Int -&gt; WafAction -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310430"><span id="local-6989586621679310432"><span id="local-6989586621679310434"><span class="annot"><span class="annottext">Int -&gt; WafAction -&gt; ShowS
 [WafAction] -&gt; ShowS
 WafAction -&gt; String
 (Int -&gt; WafAction -&gt; ShowS)
@@ -132,11 +132,11 @@ $cfrom :: forall x. WafAction -&gt; Rep WafAction x
 </span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.WafActionType.html#WafActionType"><span class="hs-identifier hs-type">WafActionType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.WafAction.html#WafAction"><span class="hs-identifier hs-type">WafAction</span></a></span><span>
 </span><span id="line-82"></span><span id="newWafAction"><span class="annot"><span class="annottext">newWafAction :: WafActionType -&gt; WafAction
-</span><a href="Network.AWS.WAFRegional.Types.WafAction.html#newWafAction"><span class="hs-identifier hs-var hs-var">newWafAction</span></a></span></span><span> </span><span id="local-6989586621679310172"><span class="annot"><span class="annottext">WafActionType
-</span><a href="#local-6989586621679310172"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">WafAction' :: WafActionType -&gt; WafAction
+</span><a href="Network.AWS.WAFRegional.Types.WafAction.html#newWafAction"><span class="hs-identifier hs-var hs-var">newWafAction</span></a></span></span><span> </span><span id="local-6989586621679310424"><span class="annot"><span class="annottext">WafActionType
+</span><a href="#local-6989586621679310424"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">WafAction' :: WafActionType -&gt; WafAction
 </span><a href="Network.AWS.WAFRegional.Types.WafAction.html#WafAction%27"><span class="hs-identifier hs-type">WafAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':WafAction' :: WafActionType
 </span><a href="Network.AWS.WAFRegional.Types.WafAction.html#%24sel%3Atype%27%3AWafAction%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">WafActionType
-</span><a href="#local-6989586621679310172"><span class="hs-identifier hs-var">pType_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679310424"><span class="hs-identifier hs-var">pType_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- | Specifies how you want AWS WAF to respond to requests that match the</span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- settings in a @Rule@. Valid settings include the following:</span><span>
@@ -155,46 +155,46 @@ $cfrom :: forall x. WafAction -&gt; Rep WafAction x
 -&gt; (WafAction -&gt; WafActionType -&gt; WafAction)
 -&gt; Lens WafAction WafAction WafActionType WafActionType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.WafAction.html#WafAction%27"><span class="hs-identifier hs-type">WafAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310168"><span class="annot"><span class="annottext">WafActionType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.WafAction.html#WafAction%27"><span class="hs-identifier hs-type">WafAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310420"><span class="annot"><span class="annottext">WafActionType
 type' :: WafActionType
 $sel:type':WafAction' :: WafAction -&gt; WafActionType
-</span><a href="#local-6989586621679310168"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WafActionType
-</span><a href="#local-6989586621679310168"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310167"><span class="annot"><span class="annottext">s :: WafAction
-</span><a href="#local-6989586621679310167"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.WafAction.html#WafAction%27"><span class="hs-identifier hs-type">WafAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310166"><span class="annot"><span class="annottext">WafActionType
-</span><a href="#local-6989586621679310166"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WafAction
-</span><a href="#local-6989586621679310167"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':WafAction' :: WafActionType
+</span><a href="#local-6989586621679310420"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WafActionType
+</span><a href="#local-6989586621679310420"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310419"><span class="annot"><span class="annottext">s :: WafAction
+</span><a href="#local-6989586621679310419"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.WafAction.html#WafAction%27"><span class="hs-identifier hs-type">WafAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310418"><span class="annot"><span class="annottext">WafActionType
+</span><a href="#local-6989586621679310418"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WafAction
+</span><a href="#local-6989586621679310419"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':WafAction' :: WafActionType
 </span><a href="Network.AWS.WAFRegional.Types.WafAction.html#%24sel%3Atype%27%3AWafAction%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">WafActionType
-</span><a href="#local-6989586621679310166"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.WafAction.html#WafAction"><span class="hs-identifier hs-type">WafAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679310418"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.WafAction.html#WafAction"><span class="hs-identifier hs-type">WafAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310163"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.WafAction.html#WafAction"><span class="hs-identifier hs-type">WafAction</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679310161"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser WafAction
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310415"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.WafAction.html#WafAction"><span class="hs-identifier hs-type">WafAction</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679310413"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser WafAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser WafAction) -&gt; Value -&gt; Parser WafAction
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;WafAction&quot;</span></span><span>
-</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310158"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679310158"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WafActionType -&gt; WafAction
+</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310410"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679310410"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WafActionType -&gt; WafAction
 </span><a href="Network.AWS.WAFRegional.Types.WafAction.html#WafAction%27"><span class="hs-identifier hs-var">WafAction'</span></a></span><span> </span><span class="annot"><span class="annottext">(WafActionType -&gt; WafAction)
 -&gt; Parser WafActionType -&gt; Parser WafAction
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679310158"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser WafActionType
+</span><a href="#local-6989586621679310410"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser WafActionType
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310152"><span id="local-6989586621679310154"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.WafAction.html#WafAction"><span class="hs-identifier hs-type">WafAction</span></a></span></span></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310404"><span id="local-6989586621679310406"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.WafAction.html#WafAction"><span class="hs-identifier hs-type">WafAction</span></a></span></span></span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310149"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.WafAction.html#WafAction"><span class="hs-identifier hs-type">WafAction</span></a></span></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310401"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.WafAction.html#WafAction"><span class="hs-identifier hs-type">WafAction</span></a></span></span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310141"><span id="local-6989586621679310143"><span id="local-6989586621679310145"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.WafAction.html#WafAction"><span class="hs-identifier hs-type">WafAction</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679310139"><span class="annot"><span class="annottext">toJSON :: WafAction -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.WafAction.html#WafAction%27"><span class="hs-identifier hs-type">WafAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310137"><span class="annot"><span class="annottext">WafActionType
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310393"><span id="local-6989586621679310395"><span id="local-6989586621679310397"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.WafAction.html#WafAction"><span class="hs-identifier hs-type">WafAction</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679310391"><span class="annot"><span class="annottext">toJSON :: WafAction -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.WafAction.html#WafAction%27"><span class="hs-identifier hs-type">WafAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310389"><span class="annot"><span class="annottext">WafActionType
 type' :: WafActionType
 $sel:type':WafAction' :: WafAction -&gt; WafActionType
-</span><a href="#local-6989586621679310137"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679310389"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -206,6 +206,6 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; WafActionType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">WafActionType
-</span><a href="#local-6989586621679310137"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679310389"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span></pre></body></html>

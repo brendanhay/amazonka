@@ -32,8 +32,8 @@
 </span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#newListGroupsForUser"><span class="hs-identifier">newListGroupsForUser</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-33"></span><span>
 </span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#listGroupsForUser_maxItems"><span class="hs-identifier">listGroupsForUser_maxItems</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#listGroupsForUser_marker"><span class="hs-identifier">listGroupsForUser_marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#listGroupsForUser_marker"><span class="hs-identifier">listGroupsForUser_marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#listGroupsForUser_maxItems"><span class="hs-identifier">listGroupsForUser_maxItems</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#listGroupsForUser_userName"><span class="hs-identifier">listGroupsForUser_userName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-38"></span><span>
 </span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
@@ -41,8 +41,8 @@
 </span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#newListGroupsForUserResponse"><span class="hs-identifier">newListGroupsForUserResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-42"></span><span>
 </span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#listGroupsForUserResponse_isTruncated"><span class="hs-identifier">listGroupsForUserResponse_isTruncated</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#listGroupsForUserResponse_marker"><span class="hs-identifier">listGroupsForUserResponse_marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#listGroupsForUserResponse_marker"><span class="hs-identifier">listGroupsForUserResponse_marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#listGroupsForUserResponse_isTruncated"><span class="hs-identifier">listGroupsForUserResponse_isTruncated</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#listGroupsForUserResponse_httpStatus"><span class="hs-identifier">listGroupsForUserResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#listGroupsForUserResponse_groups"><span class="hs-identifier">listGroupsForUserResponse_groups</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-special">)</span><span>
@@ -56,24 +56,24 @@
 </span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-57"></span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newListGroupsForUser' smart constructor.</span><span>
-</span><span id="line-59"></span><span id="local-6989586621679444495"><span id="local-6989586621679444496"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListGroupsForUser"><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#ListGroupsForUser"><span class="hs-identifier hs-var">ListGroupsForUser</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListGroupsForUser%27"><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#ListGroupsForUser%27"><span class="hs-identifier hs-var">ListGroupsForUser'</span></a></span></span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Use this only when paginating results to indicate the maximum number of</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- items you want in the response. If additional items exist beyond the</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- maximum you specify, the @IsTruncated@ response element is @true@.</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- If you do not include this parameter, the number of items defaults to</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- 100. Note that IAM might return fewer results, even when there are more</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- results available. In that case, the @IsTruncated@ response element</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- returns @true@, and @Marker@ contains a value to include in the</span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- subsequent call that tells the service where to continue from.</span><span>
-</span><span id="line-69"></span><span>    </span><span id="%24sel%3AmaxItems%3AListGroupsForUser%27"><span class="annot"><span class="annottext">ListGroupsForUser -&gt; Maybe Natural
-</span><a href="Network.AWS.IAM.ListGroupsForUser.html#%24sel%3AmaxItems%3AListGroupsForUser%27"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | Use this parameter only when paginating results and only after you</span><span>
-</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- receive a response indicating that the results are truncated. Set it to</span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- the value of the @Marker@ element in the response that you received to</span><span>
-</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- indicate where the next call should start.</span><span>
-</span><span id="line-74"></span><span>    </span><span id="%24sel%3Amarker%3AListGroupsForUser%27"><span class="annot"><span class="annottext">ListGroupsForUser -&gt; Maybe Text
+</span><span id="line-59"></span><span id="local-6989586621679445089"><span id="local-6989586621679445090"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListGroupsForUser"><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#ListGroupsForUser"><span class="hs-identifier hs-var">ListGroupsForUser</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListGroupsForUser%27"><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#ListGroupsForUser%27"><span class="hs-identifier hs-var">ListGroupsForUser'</span></a></span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Use this parameter only when paginating results and only after you</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- receive a response indicating that the results are truncated. Set it to</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- the value of the @Marker@ element in the response that you received to</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- indicate where the next call should start.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3Amarker%3AListGroupsForUser%27"><span class="annot"><span class="annottext">ListGroupsForUser -&gt; Maybe Text
 </span><a href="Network.AWS.IAM.ListGroupsForUser.html#%24sel%3Amarker%3AListGroupsForUser%27"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | Use this only when paginating results to indicate the maximum number of</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- items you want in the response. If additional items exist beyond the</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- maximum you specify, the @IsTruncated@ response element is @true@.</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- If you do not include this parameter, the number of items defaults to</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- 100. Note that IAM might return fewer results, even when there are more</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- results available. In that case, the @IsTruncated@ response element</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- returns @true@, and @Marker@ contains a value to include in the</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- subsequent call that tells the service where to continue from.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3AmaxItems%3AListGroupsForUser%27"><span class="annot"><span class="annottext">ListGroupsForUser -&gt; Maybe Natural
+</span><a href="Network.AWS.IAM.ListGroupsForUser.html#%24sel%3AmaxItems%3AListGroupsForUser%27"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
 </span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | The name of the user to list groups for.</span><span>
 </span><span id="line-76"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-77"></span><span>    </span><span class="hs-comment">-- This parameter allows (through its</span><span>
@@ -83,7 +83,7 @@
 </span><span id="line-81"></span><span>    </span><span id="%24sel%3AuserName%3AListGroupsForUser%27"><span class="annot"><span class="annottext">ListGroupsForUser -&gt; Text
 </span><a href="Network.AWS.IAM.ListGroupsForUser.html#%24sel%3AuserName%3AListGroupsForUser%27"><span class="hs-identifier hs-var hs-var">userName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-82"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-83"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679444487"><span id="local-6989586621679444489"><span class="annot"><span class="annottext">ListGroupsForUser -&gt; ListGroupsForUser -&gt; Bool
+</span><span id="line-83"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679445081"><span id="local-6989586621679445083"><span class="annot"><span class="annottext">ListGroupsForUser -&gt; ListGroupsForUser -&gt; Bool
 (ListGroupsForUser -&gt; ListGroupsForUser -&gt; Bool)
 -&gt; (ListGroupsForUser -&gt; ListGroupsForUser -&gt; Bool)
 -&gt; Eq ListGroupsForUser
@@ -92,7 +92,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListGroupsForUser -&gt; ListGroupsForUser -&gt; Bool
 == :: ListGroupsForUser -&gt; ListGroupsForUser -&gt; Bool
 $c== :: ListGroupsForUser -&gt; ListGroupsForUser -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679444478"><span id="local-6989586621679444480"><span id="local-6989586621679444482"><span id="local-6989586621679444484"><span class="annot"><span class="annottext">ReadPrec [ListGroupsForUser]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679445072"><span id="local-6989586621679445074"><span id="local-6989586621679445076"><span id="local-6989586621679445078"><span class="annot"><span class="annottext">ReadPrec [ListGroupsForUser]
 ReadPrec ListGroupsForUser
 Int -&gt; ReadS ListGroupsForUser
 ReadS [ListGroupsForUser]
@@ -112,7 +112,7 @@ readList :: ReadS [ListGroupsForUser]
 $creadList :: ReadS [ListGroupsForUser]
 readsPrec :: Int -&gt; ReadS ListGroupsForUser
 $creadsPrec :: Int -&gt; ReadS ListGroupsForUser
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679444471"><span id="local-6989586621679444473"><span id="local-6989586621679444475"><span class="annot"><span class="annottext">Int -&gt; ListGroupsForUser -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679445065"><span id="local-6989586621679445067"><span id="local-6989586621679445069"><span class="annot"><span class="annottext">Int -&gt; ListGroupsForUser -&gt; ShowS
 [ListGroupsForUser] -&gt; ShowS
 ListGroupsForUser -&gt; String
 (Int -&gt; ListGroupsForUser -&gt; ShowS)
@@ -146,20 +146,20 @@ $cfrom :: forall x. ListGroupsForUser -&gt; Rep ListGroupsForUser x
 </span><span id="line-90"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-92"></span><span class="hs-comment">--</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- 'maxItems', 'listGroupsForUser_maxItems' - Use this only when paginating results to indicate the maximum number of</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- items you want in the response. If additional items exist beyond the</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- maximum you specify, the @IsTruncated@ response element is @true@.</span><span>
-</span><span id="line-96"></span><span class="hs-comment">--</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- If you do not include this parameter, the number of items defaults to</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- 100. Note that IAM might return fewer results, even when there are more</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- results available. In that case, the @IsTruncated@ response element</span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- returns @true@, and @Marker@ contains a value to include in the</span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- subsequent call that tells the service where to continue from.</span><span>
-</span><span id="line-102"></span><span class="hs-comment">--</span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- 'marker', 'listGroupsForUser_marker' - Use this parameter only when paginating results and only after you</span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- receive a response indicating that the results are truncated. Set it to</span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- the value of the @Marker@ element in the response that you received to</span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- indicate where the next call should start.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'marker', 'listGroupsForUser_marker' - Use this parameter only when paginating results and only after you</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- receive a response indicating that the results are truncated. Set it to</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- the value of the @Marker@ element in the response that you received to</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- indicate where the next call should start.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'maxItems', 'listGroupsForUser_maxItems' - Use this only when paginating results to indicate the maximum number of</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- items you want in the response. If additional items exist beyond the</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- maximum you specify, the @IsTruncated@ response element is @true@.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- If you do not include this parameter, the number of items defaults to</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 100. Note that IAM might return fewer results, even when there are more</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- results available. In that case, the @IsTruncated@ response element</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- returns @true@, and @Marker@ contains a value to include in the</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- subsequent call that tells the service where to continue from.</span><span>
 </span><span id="line-107"></span><span class="hs-comment">--</span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- 'userName', 'listGroupsForUser_userName' - The name of the user to list groups for.</span><span>
 </span><span id="line-109"></span><span class="hs-comment">--</span><span>
@@ -172,73 +172,73 @@ $cfrom :: forall x. ListGroupsForUser -&gt; Rep ListGroupsForUser x
 </span><span id="line-116"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-117"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#ListGroupsForUser"><span class="hs-identifier hs-type">ListGroupsForUser</span></a></span><span>
 </span><span id="line-118"></span><span id="newListGroupsForUser"><span class="annot"><span class="annottext">newListGroupsForUser :: Text -&gt; ListGroupsForUser
-</span><a href="Network.AWS.IAM.ListGroupsForUser.html#newListGroupsForUser"><span class="hs-identifier hs-var hs-var">newListGroupsForUser</span></a></span></span><span> </span><span id="local-6989586621679444466"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679444466"><span class="hs-identifier hs-var">pUserName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-119"></span><span>  </span><span class="annot"><span class="annottext">ListGroupsForUser' :: Maybe Natural -&gt; Maybe Text -&gt; Text -&gt; ListGroupsForUser
+</span><a href="Network.AWS.IAM.ListGroupsForUser.html#newListGroupsForUser"><span class="hs-identifier hs-var hs-var">newListGroupsForUser</span></a></span></span><span> </span><span id="local-6989586621679445060"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679445060"><span class="hs-identifier hs-var">pUserName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>  </span><span class="annot"><span class="annottext">ListGroupsForUser' :: Maybe Text -&gt; Maybe Natural -&gt; Text -&gt; ListGroupsForUser
 </span><a href="Network.AWS.IAM.ListGroupsForUser.html#ListGroupsForUser%27"><span class="hs-identifier hs-type">ListGroupsForUser'</span></a></span><span>
-</span><span id="line-120"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:maxItems:ListGroupsForUser' :: Maybe Natural
-</span><a href="Network.AWS.IAM.ListGroupsForUser.html#%24sel%3AmaxItems%3AListGroupsForUser%27"><span class="hs-identifier hs-var">maxItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-120"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:marker:ListGroupsForUser' :: Maybe Text
+</span><a href="Network.AWS.IAM.ListGroupsForUser.html#%24sel%3Amarker%3AListGroupsForUser%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">$sel:marker:ListGroupsForUser' :: Maybe Text
-</span><a href="Network.AWS.IAM.ListGroupsForUser.html#%24sel%3Amarker%3AListGroupsForUser%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxItems:ListGroupsForUser' :: Maybe Natural
+</span><a href="Network.AWS.IAM.ListGroupsForUser.html#%24sel%3AmaxItems%3AListGroupsForUser%27"><span class="hs-identifier hs-var">maxItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">$sel:userName:ListGroupsForUser' :: Text
 </span><a href="Network.AWS.IAM.ListGroupsForUser.html#%24sel%3AuserName%3AListGroupsForUser%27"><span class="hs-identifier hs-var">userName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679444466"><span class="hs-identifier hs-var">pUserName_</span></a></span><span>
+</span><a href="#local-6989586621679445060"><span class="hs-identifier hs-var">pUserName_</span></a></span><span>
 </span><span id="line-123"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-comment">-- | Use this only when paginating results to indicate the maximum number of</span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- items you want in the response. If additional items exist beyond the</span><span>
-</span><span id="line-127"></span><span class="hs-comment">-- maximum you specify, the @IsTruncated@ response element is @true@.</span><span>
-</span><span id="line-128"></span><span class="hs-comment">--</span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- If you do not include this parameter, the number of items defaults to</span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- 100. Note that IAM might return fewer results, even when there are more</span><span>
-</span><span id="line-131"></span><span class="hs-comment">-- results available. In that case, the @IsTruncated@ response element</span><span>
-</span><span id="line-132"></span><span class="hs-comment">-- returns @true@, and @Marker@ contains a value to include in the</span><span>
-</span><span id="line-133"></span><span class="hs-comment">-- subsequent call that tells the service where to continue from.</span><span>
-</span><span id="line-134"></span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#listGroupsForUser_maxItems"><span class="hs-identifier hs-type">listGroupsForUser_maxItems</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#ListGroupsForUser"><span class="hs-identifier hs-type">ListGroupsForUser</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-135"></span><span id="listGroupsForUser_maxItems"><span class="annot"><span class="annottext">listGroupsForUser_maxItems :: (Maybe Natural -&gt; f (Maybe Natural))
--&gt; ListGroupsForUser -&gt; f ListGroupsForUser
-</span><a href="Network.AWS.IAM.ListGroupsForUser.html#listGroupsForUser_maxItems"><span class="hs-identifier hs-var hs-var">listGroupsForUser_maxItems</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListGroupsForUser -&gt; Maybe Natural)
--&gt; (ListGroupsForUser -&gt; Maybe Natural -&gt; ListGroupsForUser)
--&gt; Lens
-     ListGroupsForUser ListGroupsForUser (Maybe Natural) (Maybe Natural)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#ListGroupsForUser%27"><span class="hs-identifier hs-type">ListGroupsForUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679444464"><span class="annot"><span class="annottext">Maybe Natural
-maxItems :: Maybe Natural
-$sel:maxItems:ListGroupsForUser' :: ListGroupsForUser -&gt; Maybe Natural
-</span><a href="#local-6989586621679444464"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679444464"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679444463"><span class="annot"><span class="annottext">s :: ListGroupsForUser
-</span><a href="#local-6989586621679444463"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#ListGroupsForUser%27"><span class="hs-identifier hs-type">ListGroupsForUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679444462"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679444462"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGroupsForUser
-</span><a href="#local-6989586621679444463"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxItems:ListGroupsForUser' :: Maybe Natural
-</span><a href="Network.AWS.IAM.ListGroupsForUser.html#%24sel%3AmaxItems%3AListGroupsForUser%27"><span class="hs-identifier hs-var">maxItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679444462"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#ListGroupsForUser"><span class="hs-identifier hs-type">ListGroupsForUser</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-136"></span><span>
-</span><span id="line-137"></span><span class="hs-comment">-- | Use this parameter only when paginating results and only after you</span><span>
-</span><span id="line-138"></span><span class="hs-comment">-- receive a response indicating that the results are truncated. Set it to</span><span>
-</span><span id="line-139"></span><span class="hs-comment">-- the value of the @Marker@ element in the response that you received to</span><span>
-</span><span id="line-140"></span><span class="hs-comment">-- indicate where the next call should start.</span><span>
-</span><span id="line-141"></span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#listGroupsForUser_marker"><span class="hs-identifier hs-type">listGroupsForUser_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#ListGroupsForUser"><span class="hs-identifier hs-type">ListGroupsForUser</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-142"></span><span id="listGroupsForUser_marker"><span class="annot"><span class="annottext">listGroupsForUser_marker :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-125"></span><span class="hs-comment">-- | Use this parameter only when paginating results and only after you</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- receive a response indicating that the results are truncated. Set it to</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- the value of the @Marker@ element in the response that you received to</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- indicate where the next call should start.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#listGroupsForUser_marker"><span class="hs-identifier hs-type">listGroupsForUser_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#ListGroupsForUser"><span class="hs-identifier hs-type">ListGroupsForUser</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="listGroupsForUser_marker"><span class="annot"><span class="annottext">listGroupsForUser_marker :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ListGroupsForUser -&gt; f ListGroupsForUser
 </span><a href="Network.AWS.IAM.ListGroupsForUser.html#listGroupsForUser_marker"><span class="hs-identifier hs-var hs-var">listGroupsForUser_marker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListGroupsForUser -&gt; Maybe Text)
 -&gt; (ListGroupsForUser -&gt; Maybe Text -&gt; ListGroupsForUser)
 -&gt; Lens
      ListGroupsForUser ListGroupsForUser (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#ListGroupsForUser%27"><span class="hs-identifier hs-type">ListGroupsForUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679444461"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#ListGroupsForUser%27"><span class="hs-identifier hs-type">ListGroupsForUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679445058"><span class="annot"><span class="annottext">Maybe Text
 marker :: Maybe Text
 $sel:marker:ListGroupsForUser' :: ListGroupsForUser -&gt; Maybe Text
-</span><a href="#local-6989586621679444461"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679444461"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679444460"><span class="annot"><span class="annottext">s :: ListGroupsForUser
-</span><a href="#local-6989586621679444460"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#ListGroupsForUser%27"><span class="hs-identifier hs-type">ListGroupsForUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679444459"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679444459"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGroupsForUser
-</span><a href="#local-6989586621679444460"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListGroupsForUser' :: Maybe Text
+</span><a href="#local-6989586621679445058"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679445058"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679445057"><span class="annot"><span class="annottext">s :: ListGroupsForUser
+</span><a href="#local-6989586621679445057"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#ListGroupsForUser%27"><span class="hs-identifier hs-type">ListGroupsForUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679445056"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679445056"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGroupsForUser
+</span><a href="#local-6989586621679445057"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListGroupsForUser' :: Maybe Text
 </span><a href="Network.AWS.IAM.ListGroupsForUser.html#%24sel%3Amarker%3AListGroupsForUser%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679444459"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#ListGroupsForUser"><span class="hs-identifier hs-type">ListGroupsForUser</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679445056"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#ListGroupsForUser"><span class="hs-identifier hs-type">ListGroupsForUser</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | Use this only when paginating results to indicate the maximum number of</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- items you want in the response. If additional items exist beyond the</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- maximum you specify, the @IsTruncated@ response element is @true@.</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- If you do not include this parameter, the number of items defaults to</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- 100. Note that IAM might return fewer results, even when there are more</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- results available. In that case, the @IsTruncated@ response element</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- returns @true@, and @Marker@ contains a value to include in the</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- subsequent call that tells the service where to continue from.</span><span>
+</span><span id="line-141"></span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#listGroupsForUser_maxItems"><span class="hs-identifier hs-type">listGroupsForUser_maxItems</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#ListGroupsForUser"><span class="hs-identifier hs-type">ListGroupsForUser</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span id="listGroupsForUser_maxItems"><span class="annot"><span class="annottext">listGroupsForUser_maxItems :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListGroupsForUser -&gt; f ListGroupsForUser
+</span><a href="Network.AWS.IAM.ListGroupsForUser.html#listGroupsForUser_maxItems"><span class="hs-identifier hs-var hs-var">listGroupsForUser_maxItems</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListGroupsForUser -&gt; Maybe Natural)
+-&gt; (ListGroupsForUser -&gt; Maybe Natural -&gt; ListGroupsForUser)
+-&gt; Lens
+     ListGroupsForUser ListGroupsForUser (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#ListGroupsForUser%27"><span class="hs-identifier hs-type">ListGroupsForUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679445055"><span class="annot"><span class="annottext">Maybe Natural
+maxItems :: Maybe Natural
+$sel:maxItems:ListGroupsForUser' :: ListGroupsForUser -&gt; Maybe Natural
+</span><a href="#local-6989586621679445055"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679445055"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679445054"><span class="annot"><span class="annottext">s :: ListGroupsForUser
+</span><a href="#local-6989586621679445054"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#ListGroupsForUser%27"><span class="hs-identifier hs-type">ListGroupsForUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679445053"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679445053"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGroupsForUser
+</span><a href="#local-6989586621679445054"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxItems:ListGroupsForUser' :: Maybe Natural
+</span><a href="Network.AWS.IAM.ListGroupsForUser.html#%24sel%3AmaxItems%3AListGroupsForUser%27"><span class="hs-identifier hs-var">maxItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679445053"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#ListGroupsForUser"><span class="hs-identifier hs-type">ListGroupsForUser</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-comment">-- | The name of the user to list groups for.</span><span>
 </span><span id="line-145"></span><span class="hs-comment">--</span><span>
@@ -252,29 +252,29 @@ $sel:marker:ListGroupsForUser' :: ListGroupsForUser -&gt; Maybe Text
 -&gt; (ListGroupsForUser -&gt; Text -&gt; ListGroupsForUser)
 -&gt; Lens ListGroupsForUser ListGroupsForUser Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#ListGroupsForUser%27"><span class="hs-identifier hs-type">ListGroupsForUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679444458"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#ListGroupsForUser%27"><span class="hs-identifier hs-type">ListGroupsForUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679445052"><span class="annot"><span class="annottext">Text
 userName :: Text
 $sel:userName:ListGroupsForUser' :: ListGroupsForUser -&gt; Text
-</span><a href="#local-6989586621679444458"><span class="hs-identifier hs-var hs-var">userName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679444458"><span class="hs-identifier hs-var">userName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679444457"><span class="annot"><span class="annottext">s :: ListGroupsForUser
-</span><a href="#local-6989586621679444457"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#ListGroupsForUser%27"><span class="hs-identifier hs-type">ListGroupsForUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679444456"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679444456"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGroupsForUser
-</span><a href="#local-6989586621679444457"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userName:ListGroupsForUser' :: Text
+</span><a href="#local-6989586621679445052"><span class="hs-identifier hs-var hs-var">userName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679445052"><span class="hs-identifier hs-var">userName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679445051"><span class="annot"><span class="annottext">s :: ListGroupsForUser
+</span><a href="#local-6989586621679445051"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#ListGroupsForUser%27"><span class="hs-identifier hs-type">ListGroupsForUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679445050"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679445050"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGroupsForUser
+</span><a href="#local-6989586621679445051"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userName:ListGroupsForUser' :: Text
 </span><a href="Network.AWS.IAM.ListGroupsForUser.html#%24sel%3AuserName%3AListGroupsForUser%27"><span class="hs-identifier hs-var">userName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679444456"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#ListGroupsForUser"><span class="hs-identifier hs-type">ListGroupsForUser</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679445050"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#ListGroupsForUser"><span class="hs-identifier hs-type">ListGroupsForUser</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-152"></span><span>
 </span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#ListGroupsForUser"><span class="hs-identifier hs-type">ListGroupsForUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-154"></span><span>  </span><span id="local-6989586621679444452"><span class="annot"><span class="annottext">page :: ListGroupsForUser
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679445046"><span class="annot"><span class="annottext">page :: ListGroupsForUser
 -&gt; AWSResponse ListGroupsForUser -&gt; Maybe ListGroupsForUser
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679444450"><span class="annot"><span class="annottext">ListGroupsForUser
-</span><a href="#local-6989586621679444450"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679444449"><span class="annot"><span class="annottext">AWSResponse ListGroupsForUser
-</span><a href="#local-6989586621679444449"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679445044"><span class="annot"><span class="annottext">ListGroupsForUser
+</span><a href="#local-6989586621679445044"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679445043"><span class="annot"><span class="annottext">AWSResponse ListGroupsForUser
+</span><a href="#local-6989586621679445043"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-155"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Bool -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-156"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListGroupsForUser
 ListGroupsForUserResponse
-</span><a href="#local-6989586621679444449"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679445043"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">ListGroupsForUserResponse
 -&gt; Getting (First Bool) ListGroupsForUserResponse Bool
 -&gt; Maybe Bool
@@ -304,7 +304,7 @@ forall a. Maybe a -&gt; Bool
 </span><span class="hs-identifier hs-var">Prelude.isNothing</span></span><span>
 </span><span id="line-162"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListGroupsForUser
 ListGroupsForUserResponse
-</span><a href="#local-6989586621679444449"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679445043"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">ListGroupsForUserResponse
 -&gt; Getting (First Text) ListGroupsForUserResponse Text
 -&gt; Maybe Text
@@ -338,7 +338,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-169"></span><span>        </span><span class="annot"><span class="annottext">ListGroupsForUser
-</span><a href="#local-6989586621679444450"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679445044"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-170"></span><span>          </span><span class="annot"><span class="annottext">ListGroupsForUser
 -&gt; (ListGroupsForUser -&gt; ListGroupsForUser) -&gt; ListGroupsForUser
 forall a b. a -&gt; (a -&gt; b) -&gt; b
@@ -352,7 +352,7 @@ Lens ListGroupsForUser ListGroupsForUser (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListGroupsForUser
 ListGroupsForUserResponse
-</span><a href="#local-6989586621679444449"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679445043"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-172"></span><span>          </span><span class="annot"><span class="annottext">ListGroupsForUserResponse
 -&gt; Getting (First Text) ListGroupsForUserResponse Text
 -&gt; Maybe Text
@@ -377,12 +377,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-175"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-176"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#ListGroupsForUser"><span class="hs-identifier hs-type">ListGroupsForUser</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-177"></span><span>      </span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#ListGroupsForUserResponse"><span class="hs-identifier hs-type">ListGroupsForUserResponse</span></a></span><span>
-</span><span id="line-178"></span><span>  </span><span id="local-6989586621679444438"><span class="annot"><span class="annottext">request :: ListGroupsForUser -&gt; Request ListGroupsForUser
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679445032"><span class="annot"><span class="annottext">request :: ListGroupsForUser -&gt; Request ListGroupsForUser
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListGroupsForUser -&gt; Request ListGroupsForUser
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IAM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-179"></span><span>  </span><span id="local-6989586621679444434"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679445028"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListGroupsForUser
 -&gt; ClientResponse ClientBody
@@ -413,34 +413,34 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-181"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ListGroupsForUserResult&quot;</span></span><span>
-</span><span id="line-182"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679444431"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679444431"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679444430"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679444430"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679444429"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679444429"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-183"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool
--&gt; Maybe Text -&gt; Int -&gt; [Group] -&gt; ListGroupsForUserResponse
+</span><span id="line-182"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679445025"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679445025"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679445024"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679445024"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679445023"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679445023"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-183"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Bool -&gt; Int -&gt; [Group] -&gt; ListGroupsForUserResponse
 </span><a href="Network.AWS.IAM.ListGroupsForUser.html#ListGroupsForUserResponse%27"><span class="hs-identifier hs-var">ListGroupsForUserResponse'</span></a></span><span>
-</span><span id="line-184"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Bool
- -&gt; Maybe Text -&gt; Int -&gt; [Group] -&gt; ListGroupsForUserResponse)
--&gt; Either String (Maybe Bool)
+</span><span id="line-184"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Bool -&gt; Int -&gt; [Group] -&gt; ListGroupsForUserResponse)
+-&gt; Either String (Maybe Text)
 -&gt; Either
-     String (Maybe Text -&gt; Int -&gt; [Group] -&gt; ListGroupsForUserResponse)
+     String (Maybe Bool -&gt; Int -&gt; [Group] -&gt; ListGroupsForUserResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679444429"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;IsTruncated&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-185"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String (Maybe Text -&gt; Int -&gt; [Group] -&gt; ListGroupsForUserResponse)
--&gt; Either String (Maybe Text)
--&gt; Either String (Int -&gt; [Group] -&gt; ListGroupsForUserResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679444429"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679445023"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Marker&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Bool -&gt; Int -&gt; [Group] -&gt; ListGroupsForUserResponse)
+-&gt; Either String (Maybe Bool)
+-&gt; Either String (Int -&gt; [Group] -&gt; ListGroupsForUserResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679445023"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IsTruncated&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-186"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; [Group] -&gt; ListGroupsForUserResponse)
 -&gt; Either String Int
 -&gt; Either String ([Group] -&gt; ListGroupsForUserResponse)
@@ -450,12 +450,12 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679444431"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679445025"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-187"></span><span>            </span><span class="annot"><span class="annottext">Either String ([Group] -&gt; ListGroupsForUserResponse)
 -&gt; Either String [Group] -&gt; Either String ListGroupsForUserResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679444429"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679445023"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Groups&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -473,12 +473,12 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span id="line-189"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-190"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-191"></span><span>
-</span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679444419"><span id="local-6989586621679444421"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#ListGroupsForUser"><span class="hs-identifier hs-type">ListGroupsForUser</span></a></span></span></span><span>
+</span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679445013"><span id="local-6989586621679445015"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#ListGroupsForUser"><span class="hs-identifier hs-type">ListGroupsForUser</span></a></span></span></span><span>
 </span><span id="line-193"></span><span>
-</span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679444416"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#ListGroupsForUser"><span class="hs-identifier hs-type">ListGroupsForUser</span></a></span></span><span>
+</span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679445010"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#ListGroupsForUser"><span class="hs-identifier hs-type">ListGroupsForUser</span></a></span></span><span>
 </span><span id="line-195"></span><span>
 </span><span id="line-196"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#ListGroupsForUser"><span class="hs-identifier hs-type">ListGroupsForUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-197"></span><span>  </span><span id="local-6989586621679444412"><span class="annot"><span class="annottext">toHeaders :: ListGroupsForUser -&gt; ResponseHeaders
+</span><span id="line-197"></span><span>  </span><span id="local-6989586621679445006"><span class="annot"><span class="annottext">toHeaders :: ListGroupsForUser -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListGroupsForUser -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -486,24 +486,24 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-198"></span><span>
 </span><span id="line-199"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#ListGroupsForUser"><span class="hs-identifier hs-type">ListGroupsForUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-200"></span><span>  </span><span id="local-6989586621679444407"><span class="annot"><span class="annottext">toPath :: ListGroupsForUser -&gt; ByteString
+</span><span id="line-200"></span><span>  </span><span id="local-6989586621679445001"><span class="annot"><span class="annottext">toPath :: ListGroupsForUser -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListGroupsForUser -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-201"></span><span>
 </span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#ListGroupsForUser"><span class="hs-identifier hs-type">ListGroupsForUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-203"></span><span>  </span><span id="local-6989586621679444403"><span class="annot"><span class="annottext">toQuery :: ListGroupsForUser -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#ListGroupsForUser%27"><span class="hs-identifier hs-type">ListGroupsForUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679444399"><span id="local-6989586621679444400"><span id="local-6989586621679444401"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-203"></span><span>  </span><span id="local-6989586621679444997"><span class="annot"><span class="annottext">toQuery :: ListGroupsForUser -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#ListGroupsForUser%27"><span class="hs-identifier hs-type">ListGroupsForUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679444993"><span id="local-6989586621679444994"><span id="local-6989586621679444995"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Text
 userName :: Text
-marker :: Maybe Text
 maxItems :: Maybe Natural
+marker :: Maybe Text
 $sel:userName:ListGroupsForUser' :: ListGroupsForUser -&gt; Text
-$sel:marker:ListGroupsForUser' :: ListGroupsForUser -&gt; Maybe Text
 $sel:maxItems:ListGroupsForUser' :: ListGroupsForUser -&gt; Maybe Natural
-</span><a href="#local-6989586621679444399"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:marker:ListGroupsForUser' :: ListGroupsForUser -&gt; Maybe Text
+</span><a href="#local-6989586621679444993"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-204"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -520,40 +520,40 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;2010-05-08&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-209"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;MaxItems&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679444401"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-210"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Marker&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679444400"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679444995"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;MaxItems&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679444994"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-211"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;UserName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679444399"><span class="hs-identifier hs-var">userName</span></a></span><span>
+</span><a href="#local-6989586621679444993"><span class="hs-identifier hs-var">userName</span></a></span><span>
 </span><span id="line-212"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-213"></span><span>
 </span><span id="line-214"></span><span class="hs-comment">-- | Contains the response to a successful ListGroupsForUser request.</span><span>
 </span><span id="line-215"></span><span class="hs-comment">--</span><span>
 </span><span id="line-216"></span><span class="hs-comment">-- /See:/ 'newListGroupsForUserResponse' smart constructor.</span><span>
-</span><span id="line-217"></span><span id="local-6989586621679444396"><span id="local-6989586621679444397"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListGroupsForUserResponse"><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#ListGroupsForUserResponse"><span class="hs-identifier hs-var">ListGroupsForUserResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListGroupsForUserResponse%27"><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#ListGroupsForUserResponse%27"><span class="hs-identifier hs-var">ListGroupsForUserResponse'</span></a></span></span><span>
-</span><span id="line-218"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A flag that indicates whether there are more items to return. If your</span><span>
-</span><span id="line-219"></span><span>    </span><span class="hs-comment">-- results were truncated, you can make a subsequent pagination request</span><span>
-</span><span id="line-220"></span><span>    </span><span class="hs-comment">-- using the @Marker@ request parameter to retrieve more items. Note that</span><span>
-</span><span id="line-221"></span><span>    </span><span class="hs-comment">-- IAM might return fewer than the @MaxItems@ number of results even when</span><span>
-</span><span id="line-222"></span><span>    </span><span class="hs-comment">-- there are more results available. We recommend that you check</span><span>
-</span><span id="line-223"></span><span>    </span><span class="hs-comment">-- @IsTruncated@ after every call to ensure that you receive all your</span><span>
-</span><span id="line-224"></span><span>    </span><span class="hs-comment">-- results.</span><span>
-</span><span id="line-225"></span><span>    </span><span id="%24sel%3AisTruncated%3AListGroupsForUserResponse%27"><span class="annot"><span class="annottext">ListGroupsForUserResponse -&gt; Maybe Bool
-</span><a href="Network.AWS.IAM.ListGroupsForUser.html#%24sel%3AisTruncated%3AListGroupsForUserResponse%27"><span class="hs-identifier hs-var hs-var">isTruncated</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-226"></span><span>    </span><span class="hs-comment">-- | When @IsTruncated@ is @true@, this element is present and contains the</span><span>
-</span><span id="line-227"></span><span>    </span><span class="hs-comment">-- value to use for the @Marker@ parameter in a subsequent pagination</span><span>
-</span><span id="line-228"></span><span>    </span><span class="hs-comment">-- request.</span><span>
-</span><span id="line-229"></span><span>    </span><span id="%24sel%3Amarker%3AListGroupsForUserResponse%27"><span class="annot"><span class="annottext">ListGroupsForUserResponse -&gt; Maybe Text
+</span><span id="line-217"></span><span id="local-6989586621679444990"><span id="local-6989586621679444991"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListGroupsForUserResponse"><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#ListGroupsForUserResponse"><span class="hs-identifier hs-var">ListGroupsForUserResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListGroupsForUserResponse%27"><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#ListGroupsForUserResponse%27"><span class="hs-identifier hs-var">ListGroupsForUserResponse'</span></a></span></span><span>
+</span><span id="line-218"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | When @IsTruncated@ is @true@, this element is present and contains the</span><span>
+</span><span id="line-219"></span><span>    </span><span class="hs-comment">-- value to use for the @Marker@ parameter in a subsequent pagination</span><span>
+</span><span id="line-220"></span><span>    </span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-221"></span><span>    </span><span id="%24sel%3Amarker%3AListGroupsForUserResponse%27"><span class="annot"><span class="annottext">ListGroupsForUserResponse -&gt; Maybe Text
 </span><a href="Network.AWS.IAM.ListGroupsForUser.html#%24sel%3Amarker%3AListGroupsForUserResponse%27"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-222"></span><span>    </span><span class="hs-comment">-- | A flag that indicates whether there are more items to return. If your</span><span>
+</span><span id="line-223"></span><span>    </span><span class="hs-comment">-- results were truncated, you can make a subsequent pagination request</span><span>
+</span><span id="line-224"></span><span>    </span><span class="hs-comment">-- using the @Marker@ request parameter to retrieve more items. Note that</span><span>
+</span><span id="line-225"></span><span>    </span><span class="hs-comment">-- IAM might return fewer than the @MaxItems@ number of results even when</span><span>
+</span><span id="line-226"></span><span>    </span><span class="hs-comment">-- there are more results available. We recommend that you check</span><span>
+</span><span id="line-227"></span><span>    </span><span class="hs-comment">-- @IsTruncated@ after every call to ensure that you receive all your</span><span>
+</span><span id="line-228"></span><span>    </span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-229"></span><span>    </span><span id="%24sel%3AisTruncated%3AListGroupsForUserResponse%27"><span class="annot"><span class="annottext">ListGroupsForUserResponse -&gt; Maybe Bool
+</span><a href="Network.AWS.IAM.ListGroupsForUser.html#%24sel%3AisTruncated%3AListGroupsForUserResponse%27"><span class="hs-identifier hs-var hs-var">isTruncated</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
 </span><span id="line-230"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-231"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListGroupsForUserResponse%27"><span class="annot"><span class="annottext">ListGroupsForUserResponse -&gt; Int
 </span><a href="Network.AWS.IAM.ListGroupsForUser.html#%24sel%3AhttpStatus%3AListGroupsForUserResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -561,7 +561,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-233"></span><span>    </span><span id="%24sel%3Agroups%3AListGroupsForUserResponse%27"><span class="annot"><span class="annottext">ListGroupsForUserResponse -&gt; [Group]
 </span><a href="Network.AWS.IAM.ListGroupsForUser.html#%24sel%3Agroups%3AListGroupsForUserResponse%27"><span class="hs-identifier hs-var hs-var">groups</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IAM.Types.Group.html#Group"><span class="hs-identifier hs-type">Group</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-234"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-235"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679444388"><span id="local-6989586621679444390"><span class="annot"><span class="annottext">ListGroupsForUserResponse -&gt; ListGroupsForUserResponse -&gt; Bool
+</span><span id="line-235"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679444982"><span id="local-6989586621679444984"><span class="annot"><span class="annottext">ListGroupsForUserResponse -&gt; ListGroupsForUserResponse -&gt; Bool
 (ListGroupsForUserResponse -&gt; ListGroupsForUserResponse -&gt; Bool)
 -&gt; (ListGroupsForUserResponse -&gt; ListGroupsForUserResponse -&gt; Bool)
 -&gt; Eq ListGroupsForUserResponse
@@ -570,7 +570,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListGroupsForUserResponse -&gt; ListGroupsForUserResponse -&gt; Bool
 == :: ListGroupsForUserResponse -&gt; ListGroupsForUserResponse -&gt; Bool
 $c== :: ListGroupsForUserResponse -&gt; ListGroupsForUserResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679444380"><span id="local-6989586621679444382"><span id="local-6989586621679444384"><span id="local-6989586621679444386"><span class="annot"><span class="annottext">ReadPrec [ListGroupsForUserResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679444974"><span id="local-6989586621679444976"><span id="local-6989586621679444978"><span id="local-6989586621679444980"><span class="annot"><span class="annottext">ReadPrec [ListGroupsForUserResponse]
 ReadPrec ListGroupsForUserResponse
 Int -&gt; ReadS ListGroupsForUserResponse
 ReadS [ListGroupsForUserResponse]
@@ -590,7 +590,7 @@ readList :: ReadS [ListGroupsForUserResponse]
 $creadList :: ReadS [ListGroupsForUserResponse]
 readsPrec :: Int -&gt; ReadS ListGroupsForUserResponse
 $creadsPrec :: Int -&gt; ReadS ListGroupsForUserResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679444374"><span id="local-6989586621679444376"><span id="local-6989586621679444378"><span class="annot"><span class="annottext">Int -&gt; ListGroupsForUserResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679444968"><span id="local-6989586621679444970"><span id="local-6989586621679444972"><span class="annot"><span class="annottext">Int -&gt; ListGroupsForUserResponse -&gt; ShowS
 [ListGroupsForUserResponse] -&gt; ShowS
 ListGroupsForUserResponse -&gt; String
 (Int -&gt; ListGroupsForUserResponse -&gt; ShowS)
@@ -630,17 +630,17 @@ ListGroupsForUserResponse -&gt; Rep ListGroupsForUserResponse x
 </span><span id="line-242"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-243"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-244"></span><span class="hs-comment">--</span><span>
-</span><span id="line-245"></span><span class="hs-comment">-- 'isTruncated', 'listGroupsForUserResponse_isTruncated' - A flag that indicates whether there are more items to return. If your</span><span>
-</span><span id="line-246"></span><span class="hs-comment">-- results were truncated, you can make a subsequent pagination request</span><span>
-</span><span id="line-247"></span><span class="hs-comment">-- using the @Marker@ request parameter to retrieve more items. Note that</span><span>
-</span><span id="line-248"></span><span class="hs-comment">-- IAM might return fewer than the @MaxItems@ number of results even when</span><span>
-</span><span id="line-249"></span><span class="hs-comment">-- there are more results available. We recommend that you check</span><span>
-</span><span id="line-250"></span><span class="hs-comment">-- @IsTruncated@ after every call to ensure that you receive all your</span><span>
-</span><span id="line-251"></span><span class="hs-comment">-- results.</span><span>
-</span><span id="line-252"></span><span class="hs-comment">--</span><span>
-</span><span id="line-253"></span><span class="hs-comment">-- 'marker', 'listGroupsForUserResponse_marker' - When @IsTruncated@ is @true@, this element is present and contains the</span><span>
-</span><span id="line-254"></span><span class="hs-comment">-- value to use for the @Marker@ parameter in a subsequent pagination</span><span>
-</span><span id="line-255"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- 'marker', 'listGroupsForUserResponse_marker' - When @IsTruncated@ is @true@, this element is present and contains the</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- value to use for the @Marker@ parameter in a subsequent pagination</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-248"></span><span class="hs-comment">--</span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- 'isTruncated', 'listGroupsForUserResponse_isTruncated' - A flag that indicates whether there are more items to return. If your</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- results were truncated, you can make a subsequent pagination request</span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- using the @Marker@ request parameter to retrieve more items. Note that</span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- IAM might return fewer than the @MaxItems@ number of results even when</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- there are more results available. We recommend that you check</span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- @IsTruncated@ after every call to ensure that you receive all your</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- results.</span><span>
 </span><span id="line-256"></span><span class="hs-comment">--</span><span>
 </span><span id="line-257"></span><span class="hs-comment">-- 'httpStatus', 'listGroupsForUserResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-258"></span><span class="hs-comment">--</span><span>
@@ -650,76 +650,76 @@ ListGroupsForUserResponse -&gt; Rep ListGroupsForUserResponse x
 </span><span id="line-262"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-263"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#ListGroupsForUserResponse"><span class="hs-identifier hs-type">ListGroupsForUserResponse</span></a></span><span>
 </span><span id="line-264"></span><span id="newListGroupsForUserResponse"><span class="annot"><span class="annottext">newListGroupsForUserResponse :: Int -&gt; ListGroupsForUserResponse
-</span><a href="Network.AWS.IAM.ListGroupsForUser.html#newListGroupsForUserResponse"><span class="hs-identifier hs-var hs-var">newListGroupsForUserResponse</span></a></span></span><span> </span><span id="local-6989586621679444371"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679444371"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-265"></span><span>  </span><span class="annot"><span class="annottext">ListGroupsForUserResponse' :: Maybe Bool
--&gt; Maybe Text -&gt; Int -&gt; [Group] -&gt; ListGroupsForUserResponse
+</span><a href="Network.AWS.IAM.ListGroupsForUser.html#newListGroupsForUserResponse"><span class="hs-identifier hs-var hs-var">newListGroupsForUserResponse</span></a></span></span><span> </span><span id="local-6989586621679444965"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679444965"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-265"></span><span>  </span><span class="annot"><span class="annottext">ListGroupsForUserResponse' :: Maybe Text
+-&gt; Maybe Bool -&gt; Int -&gt; [Group] -&gt; ListGroupsForUserResponse
 </span><a href="Network.AWS.IAM.ListGroupsForUser.html#ListGroupsForUserResponse%27"><span class="hs-identifier hs-type">ListGroupsForUserResponse'</span></a></span><span>
-</span><span id="line-266"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:isTruncated:ListGroupsForUserResponse' :: Maybe Bool
-</span><a href="Network.AWS.IAM.ListGroupsForUser.html#%24sel%3AisTruncated%3AListGroupsForUserResponse%27"><span class="hs-identifier hs-var">isTruncated</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-267"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-266"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:marker:ListGroupsForUserResponse' :: Maybe Text
+</span><a href="Network.AWS.IAM.ListGroupsForUser.html#%24sel%3Amarker%3AListGroupsForUserResponse%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-267"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-268"></span><span>      </span><span class="annot"><span class="annottext">$sel:marker:ListGroupsForUserResponse' :: Maybe Text
-</span><a href="Network.AWS.IAM.ListGroupsForUser.html#%24sel%3Amarker%3AListGroupsForUserResponse%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-268"></span><span>      </span><span class="annot"><span class="annottext">$sel:isTruncated:ListGroupsForUserResponse' :: Maybe Bool
+</span><a href="Network.AWS.IAM.ListGroupsForUser.html#%24sel%3AisTruncated%3AListGroupsForUserResponse%27"><span class="hs-identifier hs-var">isTruncated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-269"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListGroupsForUserResponse' :: Int
 </span><a href="Network.AWS.IAM.ListGroupsForUser.html#%24sel%3AhttpStatus%3AListGroupsForUserResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679444371"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679444965"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-270"></span><span>      </span><span class="annot"><span class="annottext">$sel:groups:ListGroupsForUserResponse' :: [Group]
 </span><a href="Network.AWS.IAM.ListGroupsForUser.html#%24sel%3Agroups%3AListGroupsForUserResponse%27"><span class="hs-identifier hs-var">groups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Group]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-271"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-272"></span><span>
-</span><span id="line-273"></span><span class="hs-comment">-- | A flag that indicates whether there are more items to return. If your</span><span>
-</span><span id="line-274"></span><span class="hs-comment">-- results were truncated, you can make a subsequent pagination request</span><span>
-</span><span id="line-275"></span><span class="hs-comment">-- using the @Marker@ request parameter to retrieve more items. Note that</span><span>
-</span><span id="line-276"></span><span class="hs-comment">-- IAM might return fewer than the @MaxItems@ number of results even when</span><span>
-</span><span id="line-277"></span><span class="hs-comment">-- there are more results available. We recommend that you check</span><span>
-</span><span id="line-278"></span><span class="hs-comment">-- @IsTruncated@ after every call to ensure that you receive all your</span><span>
-</span><span id="line-279"></span><span class="hs-comment">-- results.</span><span>
-</span><span id="line-280"></span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#listGroupsForUserResponse_isTruncated"><span class="hs-identifier hs-type">listGroupsForUserResponse_isTruncated</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#ListGroupsForUserResponse"><span class="hs-identifier hs-type">ListGroupsForUserResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-281"></span><span id="listGroupsForUserResponse_isTruncated"><span class="annot"><span class="annottext">listGroupsForUserResponse_isTruncated :: (Maybe Bool -&gt; f (Maybe Bool))
--&gt; ListGroupsForUserResponse -&gt; f ListGroupsForUserResponse
-</span><a href="Network.AWS.IAM.ListGroupsForUser.html#listGroupsForUserResponse_isTruncated"><span class="hs-identifier hs-var hs-var">listGroupsForUserResponse_isTruncated</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListGroupsForUserResponse -&gt; Maybe Bool)
--&gt; (ListGroupsForUserResponse
-    -&gt; Maybe Bool -&gt; ListGroupsForUserResponse)
--&gt; Lens' ListGroupsForUserResponse (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#ListGroupsForUserResponse%27"><span class="hs-identifier hs-type">ListGroupsForUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679444370"><span class="annot"><span class="annottext">Maybe Bool
-isTruncated :: Maybe Bool
-$sel:isTruncated:ListGroupsForUserResponse' :: ListGroupsForUserResponse -&gt; Maybe Bool
-</span><a href="#local-6989586621679444370"><span class="hs-identifier hs-var hs-var">isTruncated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679444370"><span class="hs-identifier hs-var">isTruncated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679444369"><span class="annot"><span class="annottext">s :: ListGroupsForUserResponse
-</span><a href="#local-6989586621679444369"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#ListGroupsForUserResponse%27"><span class="hs-identifier hs-type">ListGroupsForUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679444368"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679444368"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGroupsForUserResponse
-</span><a href="#local-6989586621679444369"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isTruncated:ListGroupsForUserResponse' :: Maybe Bool
-</span><a href="Network.AWS.IAM.ListGroupsForUser.html#%24sel%3AisTruncated%3AListGroupsForUserResponse%27"><span class="hs-identifier hs-var">isTruncated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679444368"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#ListGroupsForUserResponse"><span class="hs-identifier hs-type">ListGroupsForUserResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-282"></span><span>
-</span><span id="line-283"></span><span class="hs-comment">-- | When @IsTruncated@ is @true@, this element is present and contains the</span><span>
-</span><span id="line-284"></span><span class="hs-comment">-- value to use for the @Marker@ parameter in a subsequent pagination</span><span>
-</span><span id="line-285"></span><span class="hs-comment">-- request.</span><span>
-</span><span id="line-286"></span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#listGroupsForUserResponse_marker"><span class="hs-identifier hs-type">listGroupsForUserResponse_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#ListGroupsForUserResponse"><span class="hs-identifier hs-type">ListGroupsForUserResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-287"></span><span id="listGroupsForUserResponse_marker"><span class="annot"><span class="annottext">listGroupsForUserResponse_marker :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-273"></span><span class="hs-comment">-- | When @IsTruncated@ is @true@, this element is present and contains the</span><span>
+</span><span id="line-274"></span><span class="hs-comment">-- value to use for the @Marker@ parameter in a subsequent pagination</span><span>
+</span><span id="line-275"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-276"></span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#listGroupsForUserResponse_marker"><span class="hs-identifier hs-type">listGroupsForUserResponse_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#ListGroupsForUserResponse"><span class="hs-identifier hs-type">ListGroupsForUserResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-277"></span><span id="listGroupsForUserResponse_marker"><span class="annot"><span class="annottext">listGroupsForUserResponse_marker :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ListGroupsForUserResponse -&gt; f ListGroupsForUserResponse
 </span><a href="Network.AWS.IAM.ListGroupsForUser.html#listGroupsForUserResponse_marker"><span class="hs-identifier hs-var hs-var">listGroupsForUserResponse_marker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListGroupsForUserResponse -&gt; Maybe Text)
 -&gt; (ListGroupsForUserResponse
     -&gt; Maybe Text -&gt; ListGroupsForUserResponse)
 -&gt; Lens' ListGroupsForUserResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#ListGroupsForUserResponse%27"><span class="hs-identifier hs-type">ListGroupsForUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679444367"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#ListGroupsForUserResponse%27"><span class="hs-identifier hs-type">ListGroupsForUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679444964"><span class="annot"><span class="annottext">Maybe Text
 marker :: Maybe Text
 $sel:marker:ListGroupsForUserResponse' :: ListGroupsForUserResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679444367"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679444367"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679444366"><span class="annot"><span class="annottext">s :: ListGroupsForUserResponse
-</span><a href="#local-6989586621679444366"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#ListGroupsForUserResponse%27"><span class="hs-identifier hs-type">ListGroupsForUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679444365"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679444365"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGroupsForUserResponse
-</span><a href="#local-6989586621679444366"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListGroupsForUserResponse' :: Maybe Text
+</span><a href="#local-6989586621679444964"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679444964"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679444963"><span class="annot"><span class="annottext">s :: ListGroupsForUserResponse
+</span><a href="#local-6989586621679444963"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#ListGroupsForUserResponse%27"><span class="hs-identifier hs-type">ListGroupsForUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679444962"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679444962"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGroupsForUserResponse
+</span><a href="#local-6989586621679444963"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListGroupsForUserResponse' :: Maybe Text
 </span><a href="Network.AWS.IAM.ListGroupsForUser.html#%24sel%3Amarker%3AListGroupsForUserResponse%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679444365"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#ListGroupsForUserResponse"><span class="hs-identifier hs-type">ListGroupsForUserResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679444962"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#ListGroupsForUserResponse"><span class="hs-identifier hs-type">ListGroupsForUserResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-278"></span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- | A flag that indicates whether there are more items to return. If your</span><span>
+</span><span id="line-280"></span><span class="hs-comment">-- results were truncated, you can make a subsequent pagination request</span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- using the @Marker@ request parameter to retrieve more items. Note that</span><span>
+</span><span id="line-282"></span><span class="hs-comment">-- IAM might return fewer than the @MaxItems@ number of results even when</span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- there are more results available. We recommend that you check</span><span>
+</span><span id="line-284"></span><span class="hs-comment">-- @IsTruncated@ after every call to ensure that you receive all your</span><span>
+</span><span id="line-285"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-286"></span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#listGroupsForUserResponse_isTruncated"><span class="hs-identifier hs-type">listGroupsForUserResponse_isTruncated</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#ListGroupsForUserResponse"><span class="hs-identifier hs-type">ListGroupsForUserResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-287"></span><span id="listGroupsForUserResponse_isTruncated"><span class="annot"><span class="annottext">listGroupsForUserResponse_isTruncated :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; ListGroupsForUserResponse -&gt; f ListGroupsForUserResponse
+</span><a href="Network.AWS.IAM.ListGroupsForUser.html#listGroupsForUserResponse_isTruncated"><span class="hs-identifier hs-var hs-var">listGroupsForUserResponse_isTruncated</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListGroupsForUserResponse -&gt; Maybe Bool)
+-&gt; (ListGroupsForUserResponse
+    -&gt; Maybe Bool -&gt; ListGroupsForUserResponse)
+-&gt; Lens' ListGroupsForUserResponse (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#ListGroupsForUserResponse%27"><span class="hs-identifier hs-type">ListGroupsForUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679444961"><span class="annot"><span class="annottext">Maybe Bool
+isTruncated :: Maybe Bool
+$sel:isTruncated:ListGroupsForUserResponse' :: ListGroupsForUserResponse -&gt; Maybe Bool
+</span><a href="#local-6989586621679444961"><span class="hs-identifier hs-var hs-var">isTruncated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679444961"><span class="hs-identifier hs-var">isTruncated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679444960"><span class="annot"><span class="annottext">s :: ListGroupsForUserResponse
+</span><a href="#local-6989586621679444960"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#ListGroupsForUserResponse%27"><span class="hs-identifier hs-type">ListGroupsForUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679444959"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679444959"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGroupsForUserResponse
+</span><a href="#local-6989586621679444960"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isTruncated:ListGroupsForUserResponse' :: Maybe Bool
+</span><a href="Network.AWS.IAM.ListGroupsForUser.html#%24sel%3AisTruncated%3AListGroupsForUserResponse%27"><span class="hs-identifier hs-var">isTruncated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679444959"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#ListGroupsForUserResponse"><span class="hs-identifier hs-type">ListGroupsForUserResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-288"></span><span>
 </span><span id="line-289"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-290"></span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#listGroupsForUserResponse_httpStatus"><span class="hs-identifier hs-type">listGroupsForUserResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#ListGroupsForUserResponse"><span class="hs-identifier hs-type">ListGroupsForUserResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -729,16 +729,16 @@ $sel:marker:ListGroupsForUserResponse' :: ListGroupsForUserResponse -&gt; Maybe 
 -&gt; (ListGroupsForUserResponse -&gt; Int -&gt; ListGroupsForUserResponse)
 -&gt; Lens ListGroupsForUserResponse ListGroupsForUserResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#ListGroupsForUserResponse%27"><span class="hs-identifier hs-type">ListGroupsForUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679444364"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#ListGroupsForUserResponse%27"><span class="hs-identifier hs-type">ListGroupsForUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679444958"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListGroupsForUserResponse' :: ListGroupsForUserResponse -&gt; Int
-</span><a href="#local-6989586621679444364"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679444364"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679444363"><span class="annot"><span class="annottext">s :: ListGroupsForUserResponse
-</span><a href="#local-6989586621679444363"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#ListGroupsForUserResponse%27"><span class="hs-identifier hs-type">ListGroupsForUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679444362"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679444362"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGroupsForUserResponse
-</span><a href="#local-6989586621679444363"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListGroupsForUserResponse' :: Int
+</span><a href="#local-6989586621679444958"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679444958"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679444957"><span class="annot"><span class="annottext">s :: ListGroupsForUserResponse
+</span><a href="#local-6989586621679444957"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#ListGroupsForUserResponse%27"><span class="hs-identifier hs-type">ListGroupsForUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679444956"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679444956"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGroupsForUserResponse
+</span><a href="#local-6989586621679444957"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListGroupsForUserResponse' :: Int
 </span><a href="Network.AWS.IAM.ListGroupsForUser.html#%24sel%3AhttpStatus%3AListGroupsForUserResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679444362"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#ListGroupsForUserResponse"><span class="hs-identifier hs-type">ListGroupsForUserResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679444956"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#ListGroupsForUserResponse"><span class="hs-identifier hs-type">ListGroupsForUserResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-292"></span><span>
 </span><span id="line-293"></span><span class="hs-comment">-- | A list of groups.</span><span>
 </span><span id="line-294"></span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#listGroupsForUserResponse_groups"><span class="hs-identifier hs-type">listGroupsForUserResponse_groups</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#ListGroupsForUserResponse"><span class="hs-identifier hs-type">ListGroupsForUserResponse</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IAM.Types.Group.html#Group"><span class="hs-identifier hs-type">Group</span></a></span><span class="hs-special">]</span><span>
@@ -750,16 +750,16 @@ $sel:httpStatus:ListGroupsForUserResponse' :: ListGroupsForUserResponse -&gt; In
 -&gt; Lens
      ListGroupsForUserResponse ListGroupsForUserResponse [Group] [Group]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#ListGroupsForUserResponse%27"><span class="hs-identifier hs-type">ListGroupsForUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679444361"><span class="annot"><span class="annottext">[Group]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#ListGroupsForUserResponse%27"><span class="hs-identifier hs-type">ListGroupsForUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679444955"><span class="annot"><span class="annottext">[Group]
 groups :: [Group]
 $sel:groups:ListGroupsForUserResponse' :: ListGroupsForUserResponse -&gt; [Group]
-</span><a href="#local-6989586621679444361"><span class="hs-identifier hs-var hs-var">groups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Group]
-</span><a href="#local-6989586621679444361"><span class="hs-identifier hs-var">groups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679444360"><span class="annot"><span class="annottext">s :: ListGroupsForUserResponse
-</span><a href="#local-6989586621679444360"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#ListGroupsForUserResponse%27"><span class="hs-identifier hs-type">ListGroupsForUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679444359"><span class="annot"><span class="annottext">[Group]
-</span><a href="#local-6989586621679444359"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGroupsForUserResponse
-</span><a href="#local-6989586621679444360"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groups:ListGroupsForUserResponse' :: [Group]
+</span><a href="#local-6989586621679444955"><span class="hs-identifier hs-var hs-var">groups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Group]
+</span><a href="#local-6989586621679444955"><span class="hs-identifier hs-var">groups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679444954"><span class="annot"><span class="annottext">s :: ListGroupsForUserResponse
+</span><a href="#local-6989586621679444954"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#ListGroupsForUserResponse%27"><span class="hs-identifier hs-type">ListGroupsForUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679444953"><span class="annot"><span class="annottext">[Group]
+</span><a href="#local-6989586621679444953"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGroupsForUserResponse
+</span><a href="#local-6989586621679444954"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groups:ListGroupsForUserResponse' :: [Group]
 </span><a href="Network.AWS.IAM.ListGroupsForUser.html#%24sel%3Agroups%3AListGroupsForUserResponse%27"><span class="hs-identifier hs-var">groups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Group]
-</span><a href="#local-6989586621679444359"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#ListGroupsForUserResponse"><span class="hs-identifier hs-type">ListGroupsForUserResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Group] -&gt; f [Group])
+</span><a href="#local-6989586621679444953"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#ListGroupsForUserResponse"><span class="hs-identifier hs-type">ListGroupsForUserResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Group] -&gt; f [Group])
  -&gt; ListGroupsForUserResponse -&gt; f ListGroupsForUserResponse)
 -&gt; (([Group] -&gt; f [Group]) -&gt; [Group] -&gt; f [Group])
 -&gt; ([Group] -&gt; f [Group])
@@ -767,8 +767,8 @@ $sel:groups:ListGroupsForUserResponse' :: ListGroupsForUserResponse -&gt; [Group
 -&gt; f ListGroupsForUserResponse
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Group] -&gt; f [Group]) -&gt; [Group] -&gt; f [Group]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-296"></span><span>
-</span><span id="line-297"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679444356"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#ListGroupsForUserResponse"><span class="hs-identifier hs-type">ListGroupsForUserResponse</span></a></span></span><span>
+</span><span id="line-297"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679444950"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListGroupsForUser.html#ListGroupsForUserResponse"><span class="hs-identifier hs-type">ListGroupsForUserResponse</span></a></span></span><span>
 </span><span id="line-298"></span></pre></body></html>

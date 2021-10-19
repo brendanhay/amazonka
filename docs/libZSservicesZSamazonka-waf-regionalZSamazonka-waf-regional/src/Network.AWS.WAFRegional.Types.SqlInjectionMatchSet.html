@@ -42,7 +42,7 @@
 </span><span id="line-42"></span><span class="hs-comment">-- request to be considered a match.</span><span>
 </span><span id="line-43"></span><span class="hs-comment">--</span><span>
 </span><span id="line-44"></span><span class="hs-comment">-- /See:/ 'newSqlInjectionMatchSet' smart constructor.</span><span>
-</span><span id="line-45"></span><span id="local-6989586621679308683"><span id="local-6989586621679308684"></span></span><span class="hs-keyword">data</span><span> </span><span id="SqlInjectionMatchSet"><span class="annot"><a href="Network.AWS.WAFRegional.Types.SqlInjectionMatchSet.html#SqlInjectionMatchSet"><span class="hs-identifier hs-var">SqlInjectionMatchSet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SqlInjectionMatchSet%27"><span class="annot"><a href="Network.AWS.WAFRegional.Types.SqlInjectionMatchSet.html#SqlInjectionMatchSet%27"><span class="hs-identifier hs-var">SqlInjectionMatchSet'</span></a></span></span><span>
+</span><span id="line-45"></span><span id="local-6989586621679308928"><span id="local-6989586621679308929"></span></span><span class="hs-keyword">data</span><span> </span><span id="SqlInjectionMatchSet"><span class="annot"><a href="Network.AWS.WAFRegional.Types.SqlInjectionMatchSet.html#SqlInjectionMatchSet"><span class="hs-identifier hs-var">SqlInjectionMatchSet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SqlInjectionMatchSet%27"><span class="annot"><a href="Network.AWS.WAFRegional.Types.SqlInjectionMatchSet.html#SqlInjectionMatchSet%27"><span class="hs-identifier hs-var">SqlInjectionMatchSet'</span></a></span></span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name, if any, of the @SqlInjectionMatchSet@.</span><span>
 </span><span id="line-47"></span><span>    </span><span id="%24sel%3Aname%3ASqlInjectionMatchSet%27"><span class="annot"><span class="annottext">SqlInjectionMatchSet -&gt; Maybe Text
 </span><a href="Network.AWS.WAFRegional.Types.SqlInjectionMatchSet.html#%24sel%3Aname%3ASqlInjectionMatchSet%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -63,7 +63,7 @@
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3AsqlInjectionMatchTuples%3ASqlInjectionMatchSet%27"><span class="annot"><span class="annottext">SqlInjectionMatchSet -&gt; [SqlInjectionMatchTuple]
 </span><a href="Network.AWS.WAFRegional.Types.SqlInjectionMatchSet.html#%24sel%3AsqlInjectionMatchTuples%3ASqlInjectionMatchSet%27"><span class="hs-identifier hs-var hs-var">sqlInjectionMatchTuples</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.SqlInjectionMatchTuple.html#SqlInjectionMatchTuple"><span class="hs-identifier hs-type">SqlInjectionMatchTuple</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679308675"><span id="local-6989586621679308677"><span class="annot"><span class="annottext">SqlInjectionMatchSet -&gt; SqlInjectionMatchSet -&gt; Bool
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679308920"><span id="local-6989586621679308922"><span class="annot"><span class="annottext">SqlInjectionMatchSet -&gt; SqlInjectionMatchSet -&gt; Bool
 (SqlInjectionMatchSet -&gt; SqlInjectionMatchSet -&gt; Bool)
 -&gt; (SqlInjectionMatchSet -&gt; SqlInjectionMatchSet -&gt; Bool)
 -&gt; Eq SqlInjectionMatchSet
@@ -72,7 +72,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SqlInjectionMatchSet -&gt; SqlInjectionMatchSet -&gt; Bool
 == :: SqlInjectionMatchSet -&gt; SqlInjectionMatchSet -&gt; Bool
 $c== :: SqlInjectionMatchSet -&gt; SqlInjectionMatchSet -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679308666"><span id="local-6989586621679308668"><span id="local-6989586621679308670"><span id="local-6989586621679308672"><span class="annot"><span class="annottext">ReadPrec [SqlInjectionMatchSet]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679308911"><span id="local-6989586621679308913"><span id="local-6989586621679308915"><span id="local-6989586621679308917"><span class="annot"><span class="annottext">ReadPrec [SqlInjectionMatchSet]
 ReadPrec SqlInjectionMatchSet
 Int -&gt; ReadS SqlInjectionMatchSet
 ReadS [SqlInjectionMatchSet]
@@ -92,7 +92,7 @@ readList :: ReadS [SqlInjectionMatchSet]
 $creadList :: ReadS [SqlInjectionMatchSet]
 readsPrec :: Int -&gt; ReadS SqlInjectionMatchSet
 $creadsPrec :: Int -&gt; ReadS SqlInjectionMatchSet
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679308659"><span id="local-6989586621679308661"><span id="local-6989586621679308663"><span class="annot"><span class="annottext">Int -&gt; SqlInjectionMatchSet -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679308904"><span id="local-6989586621679308906"><span id="local-6989586621679308908"><span class="annot"><span class="annottext">Int -&gt; SqlInjectionMatchSet -&gt; ShowS
 [SqlInjectionMatchSet] -&gt; ShowS
 SqlInjectionMatchSet -&gt; String
 (Int -&gt; SqlInjectionMatchSet -&gt; ShowS)
@@ -146,8 +146,8 @@ $cfrom :: forall x. SqlInjectionMatchSet -&gt; Rep SqlInjectionMatchSet x
 </span><span id="line-90"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-91"></span><span>  </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.SqlInjectionMatchSet.html#SqlInjectionMatchSet"><span class="hs-identifier hs-type">SqlInjectionMatchSet</span></a></span><span>
 </span><span id="line-92"></span><span id="newSqlInjectionMatchSet"><span class="annot"><span class="annottext">newSqlInjectionMatchSet :: Text -&gt; SqlInjectionMatchSet
-</span><a href="Network.AWS.WAFRegional.Types.SqlInjectionMatchSet.html#newSqlInjectionMatchSet"><span class="hs-identifier hs-var hs-var">newSqlInjectionMatchSet</span></a></span></span><span> </span><span id="local-6989586621679308653"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679308653"><span class="hs-identifier hs-var">pSqlInjectionMatchSetId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.WAFRegional.Types.SqlInjectionMatchSet.html#newSqlInjectionMatchSet"><span class="hs-identifier hs-var hs-var">newSqlInjectionMatchSet</span></a></span></span><span> </span><span id="local-6989586621679308898"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679308898"><span class="hs-identifier hs-var">pSqlInjectionMatchSetId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>  </span><span class="annot"><span class="annottext">SqlInjectionMatchSet' :: Maybe Text
 -&gt; Text -&gt; [SqlInjectionMatchTuple] -&gt; SqlInjectionMatchSet
 </span><a href="Network.AWS.WAFRegional.Types.SqlInjectionMatchSet.html#SqlInjectionMatchSet%27"><span class="hs-identifier hs-type">SqlInjectionMatchSet'</span></a></span><span>
@@ -157,7 +157,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:sqlInjectionMatchSetId:SqlInjectionMatchSet' :: Text
 </span><a href="Network.AWS.WAFRegional.Types.SqlInjectionMatchSet.html#%24sel%3AsqlInjectionMatchSetId%3ASqlInjectionMatchSet%27"><span class="hs-identifier hs-var">sqlInjectionMatchSetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679308653"><span class="hs-identifier hs-var">pSqlInjectionMatchSetId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679308898"><span class="hs-identifier hs-var">pSqlInjectionMatchSetId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:sqlInjectionMatchTuples:SqlInjectionMatchSet' :: [SqlInjectionMatchTuple]
 </span><a href="Network.AWS.WAFRegional.Types.SqlInjectionMatchSet.html#%24sel%3AsqlInjectionMatchTuples%3ASqlInjectionMatchSet%27"><span class="hs-identifier hs-var">sqlInjectionMatchTuples</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[SqlInjectionMatchTuple]
 forall a. Monoid a =&gt; a
@@ -173,16 +173,16 @@ forall a. Monoid a =&gt; a
 -&gt; Lens
      SqlInjectionMatchSet SqlInjectionMatchSet (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.SqlInjectionMatchSet.html#SqlInjectionMatchSet%27"><span class="hs-identifier hs-type">SqlInjectionMatchSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308649"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.SqlInjectionMatchSet.html#SqlInjectionMatchSet%27"><span class="hs-identifier hs-type">SqlInjectionMatchSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308894"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 $sel:name:SqlInjectionMatchSet' :: SqlInjectionMatchSet -&gt; Maybe Text
-</span><a href="#local-6989586621679308649"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679308649"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679308648"><span class="annot"><span class="annottext">s :: SqlInjectionMatchSet
-</span><a href="#local-6989586621679308648"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.SqlInjectionMatchSet.html#SqlInjectionMatchSet%27"><span class="hs-identifier hs-type">SqlInjectionMatchSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679308647"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679308647"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SqlInjectionMatchSet
-</span><a href="#local-6989586621679308648"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:SqlInjectionMatchSet' :: Maybe Text
+</span><a href="#local-6989586621679308894"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679308894"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679308893"><span class="annot"><span class="annottext">s :: SqlInjectionMatchSet
+</span><a href="#local-6989586621679308893"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.SqlInjectionMatchSet.html#SqlInjectionMatchSet%27"><span class="hs-identifier hs-type">SqlInjectionMatchSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679308892"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679308892"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SqlInjectionMatchSet
+</span><a href="#local-6989586621679308893"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:SqlInjectionMatchSet' :: Maybe Text
 </span><a href="Network.AWS.WAFRegional.Types.SqlInjectionMatchSet.html#%24sel%3Aname%3ASqlInjectionMatchSet%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679308647"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.SqlInjectionMatchSet.html#SqlInjectionMatchSet"><span class="hs-identifier hs-type">SqlInjectionMatchSet</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679308892"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.SqlInjectionMatchSet.html#SqlInjectionMatchSet"><span class="hs-identifier hs-type">SqlInjectionMatchSet</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-comment">-- | A unique identifier for a @SqlInjectionMatchSet@. You use</span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- @SqlInjectionMatchSetId@ to get information about a</span><span>
@@ -200,16 +200,16 @@ $sel:name:SqlInjectionMatchSet' :: SqlInjectionMatchSet -&gt; Maybe Text
 -&gt; (SqlInjectionMatchSet -&gt; Text -&gt; SqlInjectionMatchSet)
 -&gt; Lens SqlInjectionMatchSet SqlInjectionMatchSet Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.SqlInjectionMatchSet.html#SqlInjectionMatchSet%27"><span class="hs-identifier hs-type">SqlInjectionMatchSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308645"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.SqlInjectionMatchSet.html#SqlInjectionMatchSet%27"><span class="hs-identifier hs-type">SqlInjectionMatchSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308890"><span class="annot"><span class="annottext">Text
 sqlInjectionMatchSetId :: Text
 $sel:sqlInjectionMatchSetId:SqlInjectionMatchSet' :: SqlInjectionMatchSet -&gt; Text
-</span><a href="#local-6989586621679308645"><span class="hs-identifier hs-var hs-var">sqlInjectionMatchSetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679308645"><span class="hs-identifier hs-var">sqlInjectionMatchSetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679308644"><span class="annot"><span class="annottext">s :: SqlInjectionMatchSet
-</span><a href="#local-6989586621679308644"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.SqlInjectionMatchSet.html#SqlInjectionMatchSet%27"><span class="hs-identifier hs-type">SqlInjectionMatchSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679308643"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679308643"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SqlInjectionMatchSet
-</span><a href="#local-6989586621679308644"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sqlInjectionMatchSetId:SqlInjectionMatchSet' :: Text
+</span><a href="#local-6989586621679308890"><span class="hs-identifier hs-var hs-var">sqlInjectionMatchSetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679308890"><span class="hs-identifier hs-var">sqlInjectionMatchSetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679308889"><span class="annot"><span class="annottext">s :: SqlInjectionMatchSet
+</span><a href="#local-6989586621679308889"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.SqlInjectionMatchSet.html#SqlInjectionMatchSet%27"><span class="hs-identifier hs-type">SqlInjectionMatchSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679308888"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679308888"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SqlInjectionMatchSet
+</span><a href="#local-6989586621679308889"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sqlInjectionMatchSetId:SqlInjectionMatchSet' :: Text
 </span><a href="Network.AWS.WAFRegional.Types.SqlInjectionMatchSet.html#%24sel%3AsqlInjectionMatchSetId%3ASqlInjectionMatchSet%27"><span class="hs-identifier hs-var">sqlInjectionMatchSetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679308643"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.SqlInjectionMatchSet.html#SqlInjectionMatchSet"><span class="hs-identifier hs-type">SqlInjectionMatchSet</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679308888"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.SqlInjectionMatchSet.html#SqlInjectionMatchSet"><span class="hs-identifier hs-type">SqlInjectionMatchSet</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-comment">-- | Specifies the parts of web requests that you want to inspect for</span><span>
 </span><span id="line-117"></span><span class="hs-comment">-- snippets of malicious SQL code.</span><span>
@@ -225,16 +225,16 @@ $sel:sqlInjectionMatchSetId:SqlInjectionMatchSet' :: SqlInjectionMatchSet -&gt; 
      [SqlInjectionMatchTuple]
      [SqlInjectionMatchTuple]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.SqlInjectionMatchSet.html#SqlInjectionMatchSet%27"><span class="hs-identifier hs-type">SqlInjectionMatchSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308641"><span class="annot"><span class="annottext">[SqlInjectionMatchTuple]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.SqlInjectionMatchSet.html#SqlInjectionMatchSet%27"><span class="hs-identifier hs-type">SqlInjectionMatchSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308886"><span class="annot"><span class="annottext">[SqlInjectionMatchTuple]
 sqlInjectionMatchTuples :: [SqlInjectionMatchTuple]
 $sel:sqlInjectionMatchTuples:SqlInjectionMatchSet' :: SqlInjectionMatchSet -&gt; [SqlInjectionMatchTuple]
-</span><a href="#local-6989586621679308641"><span class="hs-identifier hs-var hs-var">sqlInjectionMatchTuples</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[SqlInjectionMatchTuple]
-</span><a href="#local-6989586621679308641"><span class="hs-identifier hs-var">sqlInjectionMatchTuples</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679308640"><span class="annot"><span class="annottext">s :: SqlInjectionMatchSet
-</span><a href="#local-6989586621679308640"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.SqlInjectionMatchSet.html#SqlInjectionMatchSet%27"><span class="hs-identifier hs-type">SqlInjectionMatchSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679308639"><span class="annot"><span class="annottext">[SqlInjectionMatchTuple]
-</span><a href="#local-6989586621679308639"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SqlInjectionMatchSet
-</span><a href="#local-6989586621679308640"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sqlInjectionMatchTuples:SqlInjectionMatchSet' :: [SqlInjectionMatchTuple]
+</span><a href="#local-6989586621679308886"><span class="hs-identifier hs-var hs-var">sqlInjectionMatchTuples</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[SqlInjectionMatchTuple]
+</span><a href="#local-6989586621679308886"><span class="hs-identifier hs-var">sqlInjectionMatchTuples</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679308885"><span class="annot"><span class="annottext">s :: SqlInjectionMatchSet
+</span><a href="#local-6989586621679308885"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.SqlInjectionMatchSet.html#SqlInjectionMatchSet%27"><span class="hs-identifier hs-type">SqlInjectionMatchSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679308884"><span class="annot"><span class="annottext">[SqlInjectionMatchTuple]
+</span><a href="#local-6989586621679308884"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SqlInjectionMatchSet
+</span><a href="#local-6989586621679308885"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sqlInjectionMatchTuples:SqlInjectionMatchSet' :: [SqlInjectionMatchTuple]
 </span><a href="Network.AWS.WAFRegional.Types.SqlInjectionMatchSet.html#%24sel%3AsqlInjectionMatchTuples%3ASqlInjectionMatchSet%27"><span class="hs-identifier hs-var">sqlInjectionMatchTuples</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[SqlInjectionMatchTuple]
-</span><a href="#local-6989586621679308639"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.SqlInjectionMatchSet.html#SqlInjectionMatchSet"><span class="hs-identifier hs-type">SqlInjectionMatchSet</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([SqlInjectionMatchTuple] -&gt; f [SqlInjectionMatchTuple])
+</span><a href="#local-6989586621679308884"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.SqlInjectionMatchSet.html#SqlInjectionMatchSet"><span class="hs-identifier hs-type">SqlInjectionMatchSet</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([SqlInjectionMatchTuple] -&gt; f [SqlInjectionMatchTuple])
  -&gt; SqlInjectionMatchSet -&gt; f SqlInjectionMatchSet)
 -&gt; (([SqlInjectionMatchTuple] -&gt; f [SqlInjectionMatchTuple])
     -&gt; [SqlInjectionMatchTuple] -&gt; f [SqlInjectionMatchTuple])
@@ -244,11 +244,11 @@ $sel:sqlInjectionMatchTuples:SqlInjectionMatchSet' :: SqlInjectionMatchSet -&gt;
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([SqlInjectionMatchTuple] -&gt; f [SqlInjectionMatchTuple])
 -&gt; [SqlInjectionMatchTuple] -&gt; f [SqlInjectionMatchTuple]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679308634"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.SqlInjectionMatchSet.html#SqlInjectionMatchSet"><span class="hs-identifier hs-type">SqlInjectionMatchSet</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679308632"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SqlInjectionMatchSet
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679308879"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.SqlInjectionMatchSet.html#SqlInjectionMatchSet"><span class="hs-identifier hs-type">SqlInjectionMatchSet</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679308877"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SqlInjectionMatchSet
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser SqlInjectionMatchSet)
@@ -258,8 +258,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;SqlInjectionMatchSet&quot;</span></span><span>
-</span><span id="line-125"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679308629"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679308629"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-125"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679308874"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679308874"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-126"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Text -&gt; [SqlInjectionMatchTuple] -&gt; SqlInjectionMatchSet
 </span><a href="Network.AWS.WAFRegional.Types.SqlInjectionMatchSet.html#SqlInjectionMatchSet%27"><span class="hs-identifier hs-var">SqlInjectionMatchSet'</span></a></span><span>
@@ -270,7 +270,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
      (Text -&gt; [SqlInjectionMatchTuple] -&gt; SqlInjectionMatchSet)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679308629"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679308874"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
@@ -279,7 +279,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser ([SqlInjectionMatchTuple] -&gt; SqlInjectionMatchSet)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679308629"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679308874"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SqlInjectionMatchSetId&quot;</span></span><span class="hs-special">)</span><span>
@@ -287,7 +287,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser [SqlInjectionMatchTuple] -&gt; Parser SqlInjectionMatchSet
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679308629"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [SqlInjectionMatchTuple])
+</span><a href="#local-6989586621679308874"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [SqlInjectionMatchTuple])
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SqlInjectionMatchTuples&quot;</span></span><span>
@@ -300,7 +300,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-131"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>
-</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679308621"><span id="local-6989586621679308623"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.SqlInjectionMatchSet.html#SqlInjectionMatchSet"><span class="hs-identifier hs-type">SqlInjectionMatchSet</span></a></span></span></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679308866"><span id="local-6989586621679308868"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.SqlInjectionMatchSet.html#SqlInjectionMatchSet"><span class="hs-identifier hs-type">SqlInjectionMatchSet</span></a></span></span></span><span>
 </span><span id="line-135"></span><span>
-</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679308618"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.SqlInjectionMatchSet.html#SqlInjectionMatchSet"><span class="hs-identifier hs-type">SqlInjectionMatchSet</span></a></span></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679308863"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.SqlInjectionMatchSet.html#SqlInjectionMatchSet"><span class="hs-identifier hs-type">SqlInjectionMatchSet</span></a></span></span><span>
 </span><span id="line-137"></span></pre></body></html>

@@ -39,13 +39,13 @@
 </span><span id="line-39"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-40"></span><span>
 </span><span id="line-41"></span><span class="hs-comment">-- | Type of video codec</span><span>
-</span><span id="line-42"></span><span id="local-6989586621680006747"><span id="local-6989586621680006748"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="VideoCodec"><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoCodec.html#VideoCodec"><span class="hs-identifier hs-var">VideoCodec</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VideoCodec%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoCodec.html#VideoCodec%27"><span class="hs-identifier hs-var">VideoCodec'</span></a></span></span><span>
+</span><span id="line-42"></span><span id="local-6989586621680011680"><span id="local-6989586621680011681"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="VideoCodec"><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoCodec.html#VideoCodec"><span class="hs-identifier hs-var">VideoCodec</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VideoCodec%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoCodec.html#VideoCodec%27"><span class="hs-identifier hs-var">VideoCodec'</span></a></span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromVideoCodec"><span class="annot"><span class="annottext">VideoCodec -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.VideoCodec.html#fromVideoCodec"><span class="hs-identifier hs-var hs-var">fromVideoCodec</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-44"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680006739"><span id="local-6989586621680006741"><span id="local-6989586621680006743"><span class="annot"><span class="annottext">Int -&gt; VideoCodec -&gt; ShowS
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680011672"><span id="local-6989586621680011674"><span id="local-6989586621680011676"><span class="annot"><span class="annottext">Int -&gt; VideoCodec -&gt; ShowS
 [VideoCodec] -&gt; ShowS
 VideoCodec -&gt; String
 (Int -&gt; VideoCodec -&gt; ShowS)
@@ -61,7 +61,7 @@ $cshow :: VideoCodec -&gt; String
 showsPrec :: Int -&gt; VideoCodec -&gt; ShowS
 $cshowsPrec :: Int -&gt; VideoCodec -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621680006730"><span id="local-6989586621680006732"><span id="local-6989586621680006734"><span id="local-6989586621680006736"><span class="annot"><span class="annottext">ReadPrec [VideoCodec]
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680011663"><span id="local-6989586621680011665"><span id="local-6989586621680011667"><span id="local-6989586621680011669"><span class="annot"><span class="annottext">ReadPrec [VideoCodec]
 ReadPrec VideoCodec
 Int -&gt; ReadS VideoCodec
 ReadS [VideoCodec]
@@ -82,7 +82,7 @@ $creadList :: ReadS [VideoCodec]
 readsPrec :: Int -&gt; ReadS VideoCodec
 $creadsPrec :: Int -&gt; ReadS VideoCodec
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621680006725"><span id="local-6989586621680006727"><span class="annot"><span class="annottext">VideoCodec -&gt; VideoCodec -&gt; Bool
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680011658"><span id="local-6989586621680011660"><span class="annot"><span class="annottext">VideoCodec -&gt; VideoCodec -&gt; Bool
 (VideoCodec -&gt; VideoCodec -&gt; Bool)
 -&gt; (VideoCodec -&gt; VideoCodec -&gt; Bool) -&gt; Eq VideoCodec
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -91,7 +91,7 @@ $c/= :: VideoCodec -&gt; VideoCodec -&gt; Bool
 == :: VideoCodec -&gt; VideoCodec -&gt; Bool
 $c== :: VideoCodec -&gt; VideoCodec -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621680006709"><span id="local-6989586621680006711"><span id="local-6989586621680006713"><span id="local-6989586621680006715"><span id="local-6989586621680006717"><span id="local-6989586621680006719"><span id="local-6989586621680006721"><span class="annot"><span class="annottext">Eq VideoCodec
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680011642"><span id="local-6989586621680011644"><span id="local-6989586621680011646"><span id="local-6989586621680011648"><span id="local-6989586621680011650"><span id="local-6989586621680011652"><span id="local-6989586621680011654"><span class="annot"><span class="annottext">Eq VideoCodec
 Eq VideoCodec
 -&gt; (VideoCodec -&gt; VideoCodec -&gt; Ordering)
 -&gt; (VideoCodec -&gt; VideoCodec -&gt; Bool)
@@ -141,7 +141,7 @@ $cfrom :: forall x. VideoCodec -&gt; Rep VideoCodec x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-52"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680006701"><span id="local-6989586621680006703"><span class="annot"><span class="annottext">Int -&gt; VideoCodec -&gt; Int
+</span><span id="line-54"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680011634"><span id="local-6989586621680011636"><span class="annot"><span class="annottext">Int -&gt; VideoCodec -&gt; Int
 VideoCodec -&gt; Int
 (Int -&gt; VideoCodec -&gt; Int)
 -&gt; (VideoCodec -&gt; Int) -&gt; Hashable VideoCodec
@@ -151,49 +151,49 @@ $chash :: VideoCodec -&gt; Int
 hashWithSalt :: Int -&gt; VideoCodec -&gt; Int
 $chashWithSalt :: Int -&gt; VideoCodec -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621680006698"><span class="annot"><span class="annottext">VideoCodec -&gt; ()
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680011631"><span class="annot"><span class="annottext">VideoCodec -&gt; ()
 (VideoCodec -&gt; ()) -&gt; NFData VideoCodec
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: VideoCodec -&gt; ()
 $crnf :: VideoCodec -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680006695"><span class="annot"><span class="annottext">Text -&gt; Either String VideoCodec
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680011628"><span class="annot"><span class="annottext">Text -&gt; Either String VideoCodec
 (Text -&gt; Either String VideoCodec) -&gt; FromText VideoCodec
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String VideoCodec
 $cfromText :: Text -&gt; Either String VideoCodec
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621680006692"><span class="annot"><span class="annottext">VideoCodec -&gt; Text
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680011625"><span class="annot"><span class="annottext">VideoCodec -&gt; Text
 (VideoCodec -&gt; Text) -&gt; ToText VideoCodec
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: VideoCodec -&gt; Text
 $ctoText :: VideoCodec -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621680006689"><span class="annot"><span class="annottext">VideoCodec -&gt; ByteString
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680011622"><span class="annot"><span class="annottext">VideoCodec -&gt; ByteString
 (VideoCodec -&gt; ByteString) -&gt; ToByteString VideoCodec
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: VideoCodec -&gt; ByteString
 $ctoBS :: VideoCodec -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621680006686"><span class="annot"><span class="annottext">VideoCodec -&gt; ByteStringBuilder
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621680011619"><span class="annot"><span class="annottext">VideoCodec -&gt; ByteStringBuilder
 (VideoCodec -&gt; ByteStringBuilder) -&gt; ToLog VideoCodec
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: VideoCodec -&gt; ByteStringBuilder
 $cbuild :: VideoCodec -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621680006683"><span class="annot"><span class="annottext">HeaderName -&gt; VideoCodec -&gt; [Header]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621680011616"><span class="annot"><span class="annottext">HeaderName -&gt; VideoCodec -&gt; [Header]
 (HeaderName -&gt; VideoCodec -&gt; [Header]) -&gt; ToHeader VideoCodec
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; VideoCodec -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; VideoCodec -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621680006680"><span class="annot"><span class="annottext">VideoCodec -&gt; QueryString
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621680011613"><span class="annot"><span class="annottext">VideoCodec -&gt; QueryString
 (VideoCodec -&gt; QueryString) -&gt; ToQuery VideoCodec
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: VideoCodec -&gt; QueryString
 $ctoQuery :: VideoCodec -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621680006675"><span id="local-6989586621680006677"><span class="annot"><span class="annottext">Value -&gt; Parser [VideoCodec]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621680011608"><span id="local-6989586621680011610"><span class="annot"><span class="annottext">Value -&gt; Parser [VideoCodec]
 Value -&gt; Parser VideoCodec
 (Value -&gt; Parser VideoCodec)
 -&gt; (Value -&gt; Parser [VideoCodec]) -&gt; FromJSON VideoCodec
@@ -204,7 +204,7 @@ $cparseJSONList :: Value -&gt; Parser [VideoCodec]
 parseJSON :: Value -&gt; Parser VideoCodec
 $cparseJSON :: Value -&gt; Parser VideoCodec
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621680006670"><span id="local-6989586621680006672"><span class="annot"><span class="annottext">FromJSONKeyFunction [VideoCodec]
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621680011603"><span id="local-6989586621680011605"><span class="annot"><span class="annottext">FromJSONKeyFunction [VideoCodec]
 FromJSONKeyFunction VideoCodec
 FromJSONKeyFunction VideoCodec
 -&gt; FromJSONKeyFunction [VideoCodec] -&gt; FromJSONKey VideoCodec
@@ -215,7 +215,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [VideoCodec]
 fromJSONKey :: FromJSONKeyFunction VideoCodec
 $cfromJSONKey :: FromJSONKeyFunction VideoCodec
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621680006661"><span id="local-6989586621680006663"><span id="local-6989586621680006665"><span id="local-6989586621680006667"><span class="annot"><span class="annottext">[VideoCodec] -&gt; Encoding
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621680011594"><span id="local-6989586621680011596"><span id="local-6989586621680011598"><span id="local-6989586621680011600"><span class="annot"><span class="annottext">[VideoCodec] -&gt; Encoding
 [VideoCodec] -&gt; Value
 VideoCodec -&gt; Encoding
 VideoCodec -&gt; Value
@@ -239,7 +239,7 @@ $ctoEncoding :: VideoCodec -&gt; Encoding
 toJSON :: VideoCodec -&gt; Value
 $ctoJSON :: VideoCodec -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621680006656"><span id="local-6989586621680006658"><span class="annot"><span class="annottext">ToJSONKeyFunction [VideoCodec]
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621680011589"><span id="local-6989586621680011591"><span class="annot"><span class="annottext">ToJSONKeyFunction [VideoCodec]
 ToJSONKeyFunction VideoCodec
 ToJSONKeyFunction VideoCodec
 -&gt; ToJSONKeyFunction [VideoCodec] -&gt; ToJSONKey VideoCodec
@@ -250,13 +250,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [VideoCodec]
 toJSONKey :: ToJSONKeyFunction VideoCodec
 $ctoJSONKey :: ToJSONKeyFunction VideoCodec
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621680006653"><span class="annot"><span class="annottext">[Node] -&gt; Either String VideoCodec
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621680011586"><span class="annot"><span class="annottext">[Node] -&gt; Either String VideoCodec
 ([Node] -&gt; Either String VideoCodec) -&gt; FromXML VideoCodec
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String VideoCodec
 $cparseXML :: [Node] -&gt; Either String VideoCodec
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621680006650"><span class="annot"><span class="annottext">VideoCodec -&gt; XML
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621680011583"><span class="annot"><span class="annottext">VideoCodec -&gt; XML
 (VideoCodec -&gt; XML) -&gt; ToXML VideoCodec
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: VideoCodec -&gt; XML

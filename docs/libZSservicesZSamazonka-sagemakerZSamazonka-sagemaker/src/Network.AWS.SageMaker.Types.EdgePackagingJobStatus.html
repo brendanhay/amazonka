@@ -33,13 +33,13 @@
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-35"></span><span>
-</span><span id="line-36"></span><span id="local-6989586621680301627"><span id="local-6989586621680301628"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="EdgePackagingJobStatus"><span class="annot"><a href="Network.AWS.SageMaker.Types.EdgePackagingJobStatus.html#EdgePackagingJobStatus"><span class="hs-identifier hs-var">EdgePackagingJobStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EdgePackagingJobStatus%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.EdgePackagingJobStatus.html#EdgePackagingJobStatus%27"><span class="hs-identifier hs-var">EdgePackagingJobStatus'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621680303002"><span id="local-6989586621680303003"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="EdgePackagingJobStatus"><span class="annot"><a href="Network.AWS.SageMaker.Types.EdgePackagingJobStatus.html#EdgePackagingJobStatus"><span class="hs-identifier hs-var">EdgePackagingJobStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EdgePackagingJobStatus%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.EdgePackagingJobStatus.html#EdgePackagingJobStatus%27"><span class="hs-identifier hs-var">EdgePackagingJobStatus'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromEdgePackagingJobStatus"><span class="annot"><span class="annottext">EdgePackagingJobStatus -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.EdgePackagingJobStatus.html#fromEdgePackagingJobStatus"><span class="hs-identifier hs-var hs-var">fromEdgePackagingJobStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680301619"><span id="local-6989586621680301621"><span id="local-6989586621680301623"><span class="annot"><span class="annottext">Int -&gt; EdgePackagingJobStatus -&gt; ShowS
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680302994"><span id="local-6989586621680302996"><span id="local-6989586621680302998"><span class="annot"><span class="annottext">Int -&gt; EdgePackagingJobStatus -&gt; ShowS
 [EdgePackagingJobStatus] -&gt; ShowS
 EdgePackagingJobStatus -&gt; String
 (Int -&gt; EdgePackagingJobStatus -&gt; ShowS)
@@ -55,7 +55,7 @@ $cshow :: EdgePackagingJobStatus -&gt; String
 showsPrec :: Int -&gt; EdgePackagingJobStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; EdgePackagingJobStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621680301610"><span id="local-6989586621680301612"><span id="local-6989586621680301614"><span id="local-6989586621680301616"><span class="annot"><span class="annottext">ReadPrec [EdgePackagingJobStatus]
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621680302985"><span id="local-6989586621680302987"><span id="local-6989586621680302989"><span id="local-6989586621680302991"><span class="annot"><span class="annottext">ReadPrec [EdgePackagingJobStatus]
 ReadPrec EdgePackagingJobStatus
 Int -&gt; ReadS EdgePackagingJobStatus
 ReadS [EdgePackagingJobStatus]
@@ -76,7 +76,7 @@ $creadList :: ReadS [EdgePackagingJobStatus]
 readsPrec :: Int -&gt; ReadS EdgePackagingJobStatus
 $creadsPrec :: Int -&gt; ReadS EdgePackagingJobStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621680301605"><span id="local-6989586621680301607"><span class="annot"><span class="annottext">EdgePackagingJobStatus -&gt; EdgePackagingJobStatus -&gt; Bool
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621680302980"><span id="local-6989586621680302982"><span class="annot"><span class="annottext">EdgePackagingJobStatus -&gt; EdgePackagingJobStatus -&gt; Bool
 (EdgePackagingJobStatus -&gt; EdgePackagingJobStatus -&gt; Bool)
 -&gt; (EdgePackagingJobStatus -&gt; EdgePackagingJobStatus -&gt; Bool)
 -&gt; Eq EdgePackagingJobStatus
@@ -86,7 +86,7 @@ $c/= :: EdgePackagingJobStatus -&gt; EdgePackagingJobStatus -&gt; Bool
 == :: EdgePackagingJobStatus -&gt; EdgePackagingJobStatus -&gt; Bool
 $c== :: EdgePackagingJobStatus -&gt; EdgePackagingJobStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621680301589"><span id="local-6989586621680301591"><span id="local-6989586621680301593"><span id="local-6989586621680301595"><span id="local-6989586621680301597"><span id="local-6989586621680301599"><span id="local-6989586621680301601"><span class="annot"><span class="annottext">Eq EdgePackagingJobStatus
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621680302964"><span id="local-6989586621680302966"><span id="local-6989586621680302968"><span id="local-6989586621680302970"><span id="local-6989586621680302972"><span id="local-6989586621680302974"><span id="local-6989586621680302976"><span class="annot"><span class="annottext">Eq EdgePackagingJobStatus
 Eq EdgePackagingJobStatus
 -&gt; (EdgePackagingJobStatus -&gt; EdgePackagingJobStatus -&gt; Ordering)
 -&gt; (EdgePackagingJobStatus -&gt; EdgePackagingJobStatus -&gt; Bool)
@@ -145,7 +145,7 @@ $cfrom :: forall x. EdgePackagingJobStatus -&gt; Rep EdgePackagingJobStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680301581"><span id="local-6989586621680301583"><span class="annot"><span class="annottext">Int -&gt; EdgePackagingJobStatus -&gt; Int
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680302956"><span id="local-6989586621680302958"><span class="annot"><span class="annottext">Int -&gt; EdgePackagingJobStatus -&gt; Int
 EdgePackagingJobStatus -&gt; Int
 (Int -&gt; EdgePackagingJobStatus -&gt; Int)
 -&gt; (EdgePackagingJobStatus -&gt; Int)
@@ -156,54 +156,54 @@ $chash :: EdgePackagingJobStatus -&gt; Int
 hashWithSalt :: Int -&gt; EdgePackagingJobStatus -&gt; Int
 $chashWithSalt :: Int -&gt; EdgePackagingJobStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621680301578"><span class="annot"><span class="annottext">EdgePackagingJobStatus -&gt; ()
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680302953"><span class="annot"><span class="annottext">EdgePackagingJobStatus -&gt; ()
 (EdgePackagingJobStatus -&gt; ()) -&gt; NFData EdgePackagingJobStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: EdgePackagingJobStatus -&gt; ()
 $crnf :: EdgePackagingJobStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621680301575"><span class="annot"><span class="annottext">Text -&gt; Either String EdgePackagingJobStatus
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680302950"><span class="annot"><span class="annottext">Text -&gt; Either String EdgePackagingJobStatus
 (Text -&gt; Either String EdgePackagingJobStatus)
 -&gt; FromText EdgePackagingJobStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String EdgePackagingJobStatus
 $cfromText :: Text -&gt; Either String EdgePackagingJobStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621680301572"><span class="annot"><span class="annottext">EdgePackagingJobStatus -&gt; Text
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680302947"><span class="annot"><span class="annottext">EdgePackagingJobStatus -&gt; Text
 (EdgePackagingJobStatus -&gt; Text) -&gt; ToText EdgePackagingJobStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: EdgePackagingJobStatus -&gt; Text
 $ctoText :: EdgePackagingJobStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621680301569"><span class="annot"><span class="annottext">EdgePackagingJobStatus -&gt; ByteString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680302944"><span class="annot"><span class="annottext">EdgePackagingJobStatus -&gt; ByteString
 (EdgePackagingJobStatus -&gt; ByteString)
 -&gt; ToByteString EdgePackagingJobStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: EdgePackagingJobStatus -&gt; ByteString
 $ctoBS :: EdgePackagingJobStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621680301566"><span class="annot"><span class="annottext">EdgePackagingJobStatus -&gt; ByteStringBuilder
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680302941"><span class="annot"><span class="annottext">EdgePackagingJobStatus -&gt; ByteStringBuilder
 (EdgePackagingJobStatus -&gt; ByteStringBuilder)
 -&gt; ToLog EdgePackagingJobStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: EdgePackagingJobStatus -&gt; ByteStringBuilder
 $cbuild :: EdgePackagingJobStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621680301563"><span class="annot"><span class="annottext">HeaderName -&gt; EdgePackagingJobStatus -&gt; [Header]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680302938"><span class="annot"><span class="annottext">HeaderName -&gt; EdgePackagingJobStatus -&gt; [Header]
 (HeaderName -&gt; EdgePackagingJobStatus -&gt; [Header])
 -&gt; ToHeader EdgePackagingJobStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; EdgePackagingJobStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; EdgePackagingJobStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621680301560"><span class="annot"><span class="annottext">EdgePackagingJobStatus -&gt; QueryString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680302935"><span class="annot"><span class="annottext">EdgePackagingJobStatus -&gt; QueryString
 (EdgePackagingJobStatus -&gt; QueryString)
 -&gt; ToQuery EdgePackagingJobStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: EdgePackagingJobStatus -&gt; QueryString
 $ctoQuery :: EdgePackagingJobStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680301555"><span id="local-6989586621680301557"><span class="annot"><span class="annottext">Value -&gt; Parser [EdgePackagingJobStatus]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680302930"><span id="local-6989586621680302932"><span class="annot"><span class="annottext">Value -&gt; Parser [EdgePackagingJobStatus]
 Value -&gt; Parser EdgePackagingJobStatus
 (Value -&gt; Parser EdgePackagingJobStatus)
 -&gt; (Value -&gt; Parser [EdgePackagingJobStatus])
@@ -215,7 +215,7 @@ $cparseJSONList :: Value -&gt; Parser [EdgePackagingJobStatus]
 parseJSON :: Value -&gt; Parser EdgePackagingJobStatus
 $cparseJSON :: Value -&gt; Parser EdgePackagingJobStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621680301550"><span id="local-6989586621680301552"><span class="annot"><span class="annottext">FromJSONKeyFunction [EdgePackagingJobStatus]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680302925"><span id="local-6989586621680302927"><span class="annot"><span class="annottext">FromJSONKeyFunction [EdgePackagingJobStatus]
 FromJSONKeyFunction EdgePackagingJobStatus
 FromJSONKeyFunction EdgePackagingJobStatus
 -&gt; FromJSONKeyFunction [EdgePackagingJobStatus]
@@ -227,7 +227,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [EdgePackagingJobStatus]
 fromJSONKey :: FromJSONKeyFunction EdgePackagingJobStatus
 $cfromJSONKey :: FromJSONKeyFunction EdgePackagingJobStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621680301541"><span id="local-6989586621680301543"><span id="local-6989586621680301545"><span id="local-6989586621680301547"><span class="annot"><span class="annottext">[EdgePackagingJobStatus] -&gt; Encoding
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680302916"><span id="local-6989586621680302918"><span id="local-6989586621680302920"><span id="local-6989586621680302922"><span class="annot"><span class="annottext">[EdgePackagingJobStatus] -&gt; Encoding
 [EdgePackagingJobStatus] -&gt; Value
 EdgePackagingJobStatus -&gt; Encoding
 EdgePackagingJobStatus -&gt; Value
@@ -251,7 +251,7 @@ $ctoEncoding :: EdgePackagingJobStatus -&gt; Encoding
 toJSON :: EdgePackagingJobStatus -&gt; Value
 $ctoJSON :: EdgePackagingJobStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621680301536"><span id="local-6989586621680301538"><span class="annot"><span class="annottext">ToJSONKeyFunction [EdgePackagingJobStatus]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621680302911"><span id="local-6989586621680302913"><span class="annot"><span class="annottext">ToJSONKeyFunction [EdgePackagingJobStatus]
 ToJSONKeyFunction EdgePackagingJobStatus
 ToJSONKeyFunction EdgePackagingJobStatus
 -&gt; ToJSONKeyFunction [EdgePackagingJobStatus]
@@ -263,14 +263,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [EdgePackagingJobStatus]
 toJSONKey :: ToJSONKeyFunction EdgePackagingJobStatus
 $ctoJSONKey :: ToJSONKeyFunction EdgePackagingJobStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621680301533"><span class="annot"><span class="annottext">[Node] -&gt; Either String EdgePackagingJobStatus
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621680302908"><span class="annot"><span class="annottext">[Node] -&gt; Either String EdgePackagingJobStatus
 ([Node] -&gt; Either String EdgePackagingJobStatus)
 -&gt; FromXML EdgePackagingJobStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String EdgePackagingJobStatus
 $cparseXML :: [Node] -&gt; Either String EdgePackagingJobStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621680301530"><span class="annot"><span class="annottext">EdgePackagingJobStatus -&gt; XML
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621680302905"><span class="annot"><span class="annottext">EdgePackagingJobStatus -&gt; XML
 (EdgePackagingJobStatus -&gt; XML) -&gt; ToXML EdgePackagingJobStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: EdgePackagingJobStatus -&gt; XML

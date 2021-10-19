@@ -27,24 +27,24 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Information about the status of the rule evaluation.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newDebugRuleEvaluationStatus' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621680338253"><span id="local-6989586621680338254"></span></span><span class="hs-keyword">data</span><span> </span><span id="DebugRuleEvaluationStatus"><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#DebugRuleEvaluationStatus"><span class="hs-identifier hs-var">DebugRuleEvaluationStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DebugRuleEvaluationStatus%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#DebugRuleEvaluationStatus%27"><span class="hs-identifier hs-var">DebugRuleEvaluationStatus'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the rule configuration.</span><span>
-</span><span id="line-32"></span><span>    </span><span id="%24sel%3AruleConfigurationName%3ADebugRuleEvaluationStatus%27"><span class="annot"><span class="annottext">DebugRuleEvaluationStatus -&gt; Maybe Text
-</span><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#%24sel%3AruleConfigurationName%3ADebugRuleEvaluationStatus%27"><span class="hs-identifier hs-var hs-var">ruleConfigurationName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span id="local-6989586621680339665"><span id="local-6989586621680339666"></span></span><span class="hs-keyword">data</span><span> </span><span id="DebugRuleEvaluationStatus"><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#DebugRuleEvaluationStatus"><span class="hs-identifier hs-var">DebugRuleEvaluationStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DebugRuleEvaluationStatus%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#DebugRuleEvaluationStatus%27"><span class="hs-identifier hs-var">DebugRuleEvaluationStatus'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Timestamp when the rule evaluation status was last modified.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AlastModifiedTime%3ADebugRuleEvaluationStatus%27"><span class="annot"><span class="annottext">DebugRuleEvaluationStatus -&gt; Maybe POSIX
+</span><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#%24sel%3AlastModifiedTime%3ADebugRuleEvaluationStatus%27"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | Details from the rule evaluation.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AstatusDetails%3ADebugRuleEvaluationStatus%27"><span class="annot"><span class="annottext">DebugRuleEvaluationStatus -&gt; Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#%24sel%3AstatusDetails%3ADebugRuleEvaluationStatus%27"><span class="hs-identifier hs-var hs-var">statusDetails</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Status of the rule evaluation.</span><span>
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3AruleEvaluationStatus%3ADebugRuleEvaluationStatus%27"><span class="annot"><span class="annottext">DebugRuleEvaluationStatus -&gt; Maybe RuleEvaluationStatus
 </span><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#%24sel%3AruleEvaluationStatus%3ADebugRuleEvaluationStatus%27"><span class="hs-identifier hs-var hs-var">ruleEvaluationStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.RuleEvaluationStatus.html#RuleEvaluationStatus"><span class="hs-identifier hs-type">RuleEvaluationStatus</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | Timestamp when the rule evaluation status was last modified.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AlastModifiedTime%3ADebugRuleEvaluationStatus%27"><span class="annot"><span class="annottext">DebugRuleEvaluationStatus -&gt; Maybe POSIX
-</span><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#%24sel%3AlastModifiedTime%3ADebugRuleEvaluationStatus%27"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the rule evaluation job.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3AruleEvaluationJobArn%3ADebugRuleEvaluationStatus%27"><span class="annot"><span class="annottext">DebugRuleEvaluationStatus -&gt; Maybe Text
-</span><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#%24sel%3AruleEvaluationJobArn%3ADebugRuleEvaluationStatus%27"><span class="hs-identifier hs-var hs-var">ruleEvaluationJobArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the rule evaluation job.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AruleEvaluationJobArn%3ADebugRuleEvaluationStatus%27"><span class="annot"><span class="annottext">DebugRuleEvaluationStatus -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#%24sel%3AruleEvaluationJobArn%3ADebugRuleEvaluationStatus%27"><span class="hs-identifier hs-var hs-var">ruleEvaluationJobArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The name of the rule configuration.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AruleConfigurationName%3ADebugRuleEvaluationStatus%27"><span class="annot"><span class="annottext">DebugRuleEvaluationStatus -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#%24sel%3AruleConfigurationName%3ADebugRuleEvaluationStatus%27"><span class="hs-identifier hs-var hs-var">ruleConfigurationName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680338243"><span id="local-6989586621680338245"><span class="annot"><span class="annottext">DebugRuleEvaluationStatus -&gt; DebugRuleEvaluationStatus -&gt; Bool
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680339655"><span id="local-6989586621680339657"><span class="annot"><span class="annottext">DebugRuleEvaluationStatus -&gt; DebugRuleEvaluationStatus -&gt; Bool
 (DebugRuleEvaluationStatus -&gt; DebugRuleEvaluationStatus -&gt; Bool)
 -&gt; (DebugRuleEvaluationStatus -&gt; DebugRuleEvaluationStatus -&gt; Bool)
 -&gt; Eq DebugRuleEvaluationStatus
@@ -53,7 +53,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DebugRuleEvaluationStatus -&gt; DebugRuleEvaluationStatus -&gt; Bool
 == :: DebugRuleEvaluationStatus -&gt; DebugRuleEvaluationStatus -&gt; Bool
 $c== :: DebugRuleEvaluationStatus -&gt; DebugRuleEvaluationStatus -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680338234"><span id="local-6989586621680338236"><span id="local-6989586621680338238"><span id="local-6989586621680338240"><span class="annot"><span class="annottext">ReadPrec [DebugRuleEvaluationStatus]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680339646"><span id="local-6989586621680339648"><span id="local-6989586621680339650"><span id="local-6989586621680339652"><span class="annot"><span class="annottext">ReadPrec [DebugRuleEvaluationStatus]
 ReadPrec DebugRuleEvaluationStatus
 Int -&gt; ReadS DebugRuleEvaluationStatus
 ReadS [DebugRuleEvaluationStatus]
@@ -73,7 +73,7 @@ readList :: ReadS [DebugRuleEvaluationStatus]
 $creadList :: ReadS [DebugRuleEvaluationStatus]
 readsPrec :: Int -&gt; ReadS DebugRuleEvaluationStatus
 $creadsPrec :: Int -&gt; ReadS DebugRuleEvaluationStatus
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680338227"><span id="local-6989586621680338229"><span id="local-6989586621680338231"><span class="annot"><span class="annottext">Int -&gt; DebugRuleEvaluationStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680339639"><span id="local-6989586621680339641"><span id="local-6989586621680339643"><span class="annot"><span class="annottext">Int -&gt; DebugRuleEvaluationStatus -&gt; ShowS
 [DebugRuleEvaluationStatus] -&gt; ShowS
 DebugRuleEvaluationStatus -&gt; String
 (Int -&gt; DebugRuleEvaluationStatus -&gt; ShowS)
@@ -113,29 +113,29 @@ DebugRuleEvaluationStatus -&gt; Rep DebugRuleEvaluationStatus x
 </span><span id="line-49"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-51"></span><span class="hs-comment">--</span><span>
-</span><span id="line-52"></span><span class="hs-comment">-- 'ruleConfigurationName', 'debugRuleEvaluationStatus_ruleConfigurationName' - The name of the rule configuration.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'lastModifiedTime', 'debugRuleEvaluationStatus_lastModifiedTime' - Timestamp when the rule evaluation status was last modified.</span><span>
 </span><span id="line-53"></span><span class="hs-comment">--</span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- 'statusDetails', 'debugRuleEvaluationStatus_statusDetails' - Details from the rule evaluation.</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- 'ruleEvaluationStatus', 'debugRuleEvaluationStatus_ruleEvaluationStatus' - Status of the rule evaluation.</span><span>
 </span><span id="line-57"></span><span class="hs-comment">--</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- 'lastModifiedTime', 'debugRuleEvaluationStatus_lastModifiedTime' - Timestamp when the rule evaluation status was last modified.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'ruleEvaluationJobArn', 'debugRuleEvaluationStatus_ruleEvaluationJobArn' - The Amazon Resource Name (ARN) of the rule evaluation job.</span><span>
 </span><span id="line-59"></span><span class="hs-comment">--</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- 'ruleEvaluationJobArn', 'debugRuleEvaluationStatus_ruleEvaluationJobArn' - The Amazon Resource Name (ARN) of the rule evaluation job.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'ruleConfigurationName', 'debugRuleEvaluationStatus_ruleConfigurationName' - The name of the rule configuration.</span><span>
 </span><span id="line-61"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#newDebugRuleEvaluationStatus"><span class="hs-identifier hs-type">newDebugRuleEvaluationStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-62"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#DebugRuleEvaluationStatus"><span class="hs-identifier hs-type">DebugRuleEvaluationStatus</span></a></span><span>
 </span><span id="line-63"></span><span id="newDebugRuleEvaluationStatus"><span class="annot"><span class="annottext">newDebugRuleEvaluationStatus :: DebugRuleEvaluationStatus
 </span><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#newDebugRuleEvaluationStatus"><span class="hs-identifier hs-var hs-var">newDebugRuleEvaluationStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-64"></span><span>  </span><span class="annot"><span class="annottext">DebugRuleEvaluationStatus' :: Maybe Text
+</span><span id="line-64"></span><span>  </span><span class="annot"><span class="annottext">DebugRuleEvaluationStatus' :: Maybe POSIX
 -&gt; Maybe Text
 -&gt; Maybe RuleEvaluationStatus
--&gt; Maybe POSIX
+-&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; DebugRuleEvaluationStatus
 </span><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#DebugRuleEvaluationStatus%27"><span class="hs-identifier hs-type">DebugRuleEvaluationStatus'</span></a></span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:ruleConfigurationName:DebugRuleEvaluationStatus' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#%24sel%3AruleConfigurationName%3ADebugRuleEvaluationStatus%27"><span class="hs-identifier hs-var">ruleConfigurationName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-66"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-65"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:lastModifiedTime:DebugRuleEvaluationStatus' :: Maybe POSIX
+</span><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#%24sel%3AlastModifiedTime%3ADebugRuleEvaluationStatus%27"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-66"></span><span>        </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:statusDetails:DebugRuleEvaluationStatus' :: Maybe Text
@@ -146,91 +146,19 @@ forall a. Maybe a
 </span><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#%24sel%3AruleEvaluationStatus%3ADebugRuleEvaluationStatus%27"><span class="hs-identifier hs-var">ruleEvaluationStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RuleEvaluationStatus
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastModifiedTime:DebugRuleEvaluationStatus' :: Maybe POSIX
-</span><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#%24sel%3AlastModifiedTime%3ADebugRuleEvaluationStatus%27"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:ruleEvaluationJobArn:DebugRuleEvaluationStatus' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#%24sel%3AruleEvaluationJobArn%3ADebugRuleEvaluationStatus%27"><span class="hs-identifier hs-var">ruleEvaluationJobArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:ruleEvaluationJobArn:DebugRuleEvaluationStatus' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#%24sel%3AruleEvaluationJobArn%3ADebugRuleEvaluationStatus%27"><span class="hs-identifier hs-var">ruleEvaluationJobArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:ruleConfigurationName:DebugRuleEvaluationStatus' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#%24sel%3AruleConfigurationName%3ADebugRuleEvaluationStatus%27"><span class="hs-identifier hs-var">ruleConfigurationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-71"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- | The name of the rule configuration.</span><span>
-</span><span id="line-74"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#debugRuleEvaluationStatus_ruleConfigurationName"><span class="hs-identifier hs-type">debugRuleEvaluationStatus_ruleConfigurationName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#DebugRuleEvaluationStatus"><span class="hs-identifier hs-type">DebugRuleEvaluationStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-75"></span><span id="debugRuleEvaluationStatus_ruleConfigurationName"><span class="annot"><span class="annottext">debugRuleEvaluationStatus_ruleConfigurationName :: (Maybe Text -&gt; f (Maybe Text))
--&gt; DebugRuleEvaluationStatus -&gt; f DebugRuleEvaluationStatus
-</span><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#debugRuleEvaluationStatus_ruleConfigurationName"><span class="hs-identifier hs-var hs-var">debugRuleEvaluationStatus_ruleConfigurationName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DebugRuleEvaluationStatus -&gt; Maybe Text)
--&gt; (DebugRuleEvaluationStatus
-    -&gt; Maybe Text -&gt; DebugRuleEvaluationStatus)
--&gt; Lens
-     DebugRuleEvaluationStatus
-     DebugRuleEvaluationStatus
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#DebugRuleEvaluationStatus%27"><span class="hs-identifier hs-type">DebugRuleEvaluationStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680338218"><span class="annot"><span class="annottext">Maybe Text
-ruleConfigurationName :: Maybe Text
-$sel:ruleConfigurationName:DebugRuleEvaluationStatus' :: DebugRuleEvaluationStatus -&gt; Maybe Text
-</span><a href="#local-6989586621680338218"><span class="hs-identifier hs-var hs-var">ruleConfigurationName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680338218"><span class="hs-identifier hs-var">ruleConfigurationName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680338217"><span class="annot"><span class="annottext">s :: DebugRuleEvaluationStatus
-</span><a href="#local-6989586621680338217"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#DebugRuleEvaluationStatus%27"><span class="hs-identifier hs-type">DebugRuleEvaluationStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680338216"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680338216"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DebugRuleEvaluationStatus
-</span><a href="#local-6989586621680338217"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleConfigurationName:DebugRuleEvaluationStatus' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#%24sel%3AruleConfigurationName%3ADebugRuleEvaluationStatus%27"><span class="hs-identifier hs-var">ruleConfigurationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680338216"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#DebugRuleEvaluationStatus"><span class="hs-identifier hs-type">DebugRuleEvaluationStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- | Details from the rule evaluation.</span><span>
-</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#debugRuleEvaluationStatus_statusDetails"><span class="hs-identifier hs-type">debugRuleEvaluationStatus_statusDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#DebugRuleEvaluationStatus"><span class="hs-identifier hs-type">DebugRuleEvaluationStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-79"></span><span id="debugRuleEvaluationStatus_statusDetails"><span class="annot"><span class="annottext">debugRuleEvaluationStatus_statusDetails :: (Maybe Text -&gt; f (Maybe Text))
--&gt; DebugRuleEvaluationStatus -&gt; f DebugRuleEvaluationStatus
-</span><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#debugRuleEvaluationStatus_statusDetails"><span class="hs-identifier hs-var hs-var">debugRuleEvaluationStatus_statusDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DebugRuleEvaluationStatus -&gt; Maybe Text)
--&gt; (DebugRuleEvaluationStatus
-    -&gt; Maybe Text -&gt; DebugRuleEvaluationStatus)
--&gt; Lens
-     DebugRuleEvaluationStatus
-     DebugRuleEvaluationStatus
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#DebugRuleEvaluationStatus%27"><span class="hs-identifier hs-type">DebugRuleEvaluationStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680338214"><span class="annot"><span class="annottext">Maybe Text
-statusDetails :: Maybe Text
-$sel:statusDetails:DebugRuleEvaluationStatus' :: DebugRuleEvaluationStatus -&gt; Maybe Text
-</span><a href="#local-6989586621680338214"><span class="hs-identifier hs-var hs-var">statusDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680338214"><span class="hs-identifier hs-var">statusDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680338213"><span class="annot"><span class="annottext">s :: DebugRuleEvaluationStatus
-</span><a href="#local-6989586621680338213"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#DebugRuleEvaluationStatus%27"><span class="hs-identifier hs-type">DebugRuleEvaluationStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680338212"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680338212"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DebugRuleEvaluationStatus
-</span><a href="#local-6989586621680338213"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusDetails:DebugRuleEvaluationStatus' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#%24sel%3AstatusDetails%3ADebugRuleEvaluationStatus%27"><span class="hs-identifier hs-var">statusDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680338212"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#DebugRuleEvaluationStatus"><span class="hs-identifier hs-type">DebugRuleEvaluationStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- | Status of the rule evaluation.</span><span>
-</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#debugRuleEvaluationStatus_ruleEvaluationStatus"><span class="hs-identifier hs-type">debugRuleEvaluationStatus_ruleEvaluationStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#DebugRuleEvaluationStatus"><span class="hs-identifier hs-type">DebugRuleEvaluationStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.RuleEvaluationStatus.html#RuleEvaluationStatus"><span class="hs-identifier hs-type">RuleEvaluationStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-83"></span><span id="debugRuleEvaluationStatus_ruleEvaluationStatus"><span class="annot"><span class="annottext">debugRuleEvaluationStatus_ruleEvaluationStatus :: (Maybe RuleEvaluationStatus -&gt; f (Maybe RuleEvaluationStatus))
--&gt; DebugRuleEvaluationStatus -&gt; f DebugRuleEvaluationStatus
-</span><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#debugRuleEvaluationStatus_ruleEvaluationStatus"><span class="hs-identifier hs-var hs-var">debugRuleEvaluationStatus_ruleEvaluationStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DebugRuleEvaluationStatus -&gt; Maybe RuleEvaluationStatus)
--&gt; (DebugRuleEvaluationStatus
-    -&gt; Maybe RuleEvaluationStatus -&gt; DebugRuleEvaluationStatus)
--&gt; Lens
-     DebugRuleEvaluationStatus
-     DebugRuleEvaluationStatus
-     (Maybe RuleEvaluationStatus)
-     (Maybe RuleEvaluationStatus)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#DebugRuleEvaluationStatus%27"><span class="hs-identifier hs-type">DebugRuleEvaluationStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680338210"><span class="annot"><span class="annottext">Maybe RuleEvaluationStatus
-ruleEvaluationStatus :: Maybe RuleEvaluationStatus
-$sel:ruleEvaluationStatus:DebugRuleEvaluationStatus' :: DebugRuleEvaluationStatus -&gt; Maybe RuleEvaluationStatus
-</span><a href="#local-6989586621680338210"><span class="hs-identifier hs-var hs-var">ruleEvaluationStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RuleEvaluationStatus
-</span><a href="#local-6989586621680338210"><span class="hs-identifier hs-var">ruleEvaluationStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680338209"><span class="annot"><span class="annottext">s :: DebugRuleEvaluationStatus
-</span><a href="#local-6989586621680338209"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#DebugRuleEvaluationStatus%27"><span class="hs-identifier hs-type">DebugRuleEvaluationStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680338208"><span class="annot"><span class="annottext">Maybe RuleEvaluationStatus
-</span><a href="#local-6989586621680338208"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DebugRuleEvaluationStatus
-</span><a href="#local-6989586621680338209"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleEvaluationStatus:DebugRuleEvaluationStatus' :: Maybe RuleEvaluationStatus
-</span><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#%24sel%3AruleEvaluationStatus%3ADebugRuleEvaluationStatus%27"><span class="hs-identifier hs-var">ruleEvaluationStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RuleEvaluationStatus
-</span><a href="#local-6989586621680338208"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#DebugRuleEvaluationStatus"><span class="hs-identifier hs-type">DebugRuleEvaluationStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- | Timestamp when the rule evaluation status was last modified.</span><span>
-</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#debugRuleEvaluationStatus_lastModifiedTime"><span class="hs-identifier hs-type">debugRuleEvaluationStatus_lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#DebugRuleEvaluationStatus"><span class="hs-identifier hs-type">DebugRuleEvaluationStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-87"></span><span id="debugRuleEvaluationStatus_lastModifiedTime"><span class="annot"><span class="annottext">debugRuleEvaluationStatus_lastModifiedTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span id="line-73"></span><span class="hs-comment">-- | Timestamp when the rule evaluation status was last modified.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#debugRuleEvaluationStatus_lastModifiedTime"><span class="hs-identifier hs-type">debugRuleEvaluationStatus_lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#DebugRuleEvaluationStatus"><span class="hs-identifier hs-type">DebugRuleEvaluationStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span id="debugRuleEvaluationStatus_lastModifiedTime"><span class="annot"><span class="annottext">debugRuleEvaluationStatus_lastModifiedTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; DebugRuleEvaluationStatus -&gt; f DebugRuleEvaluationStatus
 </span><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#debugRuleEvaluationStatus_lastModifiedTime"><span class="hs-identifier hs-var hs-var">debugRuleEvaluationStatus_lastModifiedTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DebugRuleEvaluationStatus -&gt; Maybe POSIX)
 -&gt; (DebugRuleEvaluationStatus
@@ -241,16 +169,16 @@ $sel:ruleEvaluationStatus:DebugRuleEvaluationStatus' :: DebugRuleEvaluationStatu
      (Maybe POSIX)
      (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#DebugRuleEvaluationStatus%27"><span class="hs-identifier hs-type">DebugRuleEvaluationStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680338206"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#DebugRuleEvaluationStatus%27"><span class="hs-identifier hs-type">DebugRuleEvaluationStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680339630"><span class="annot"><span class="annottext">Maybe POSIX
 lastModifiedTime :: Maybe POSIX
 $sel:lastModifiedTime:DebugRuleEvaluationStatus' :: DebugRuleEvaluationStatus -&gt; Maybe POSIX
-</span><a href="#local-6989586621680338206"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680338206"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680338205"><span class="annot"><span class="annottext">s :: DebugRuleEvaluationStatus
-</span><a href="#local-6989586621680338205"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#DebugRuleEvaluationStatus%27"><span class="hs-identifier hs-type">DebugRuleEvaluationStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680338204"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680338204"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DebugRuleEvaluationStatus
-</span><a href="#local-6989586621680338205"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedTime:DebugRuleEvaluationStatus' :: Maybe POSIX
+</span><a href="#local-6989586621680339630"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680339630"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680339629"><span class="annot"><span class="annottext">s :: DebugRuleEvaluationStatus
+</span><a href="#local-6989586621680339629"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#DebugRuleEvaluationStatus%27"><span class="hs-identifier hs-type">DebugRuleEvaluationStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680339628"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680339628"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DebugRuleEvaluationStatus
+</span><a href="#local-6989586621680339629"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedTime:DebugRuleEvaluationStatus' :: Maybe POSIX
 </span><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#%24sel%3AlastModifiedTime%3ADebugRuleEvaluationStatus%27"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680338204"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#DebugRuleEvaluationStatus"><span class="hs-identifier hs-type">DebugRuleEvaluationStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621680339628"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#DebugRuleEvaluationStatus"><span class="hs-identifier hs-type">DebugRuleEvaluationStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; DebugRuleEvaluationStatus -&gt; f DebugRuleEvaluationStatus)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -266,10 +194,58 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the rule evaluation job.</span><span>
-</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#debugRuleEvaluationStatus_ruleEvaluationJobArn"><span class="hs-identifier hs-type">debugRuleEvaluationStatus_ruleEvaluationJobArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#DebugRuleEvaluationStatus"><span class="hs-identifier hs-type">DebugRuleEvaluationStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-91"></span><span id="debugRuleEvaluationStatus_ruleEvaluationJobArn"><span class="annot"><span class="annottext">debugRuleEvaluationStatus_ruleEvaluationJobArn :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | Details from the rule evaluation.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#debugRuleEvaluationStatus_statusDetails"><span class="hs-identifier hs-type">debugRuleEvaluationStatus_statusDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#DebugRuleEvaluationStatus"><span class="hs-identifier hs-type">DebugRuleEvaluationStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span id="debugRuleEvaluationStatus_statusDetails"><span class="annot"><span class="annottext">debugRuleEvaluationStatus_statusDetails :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DebugRuleEvaluationStatus -&gt; f DebugRuleEvaluationStatus
+</span><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#debugRuleEvaluationStatus_statusDetails"><span class="hs-identifier hs-var hs-var">debugRuleEvaluationStatus_statusDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DebugRuleEvaluationStatus -&gt; Maybe Text)
+-&gt; (DebugRuleEvaluationStatus
+    -&gt; Maybe Text -&gt; DebugRuleEvaluationStatus)
+-&gt; Lens
+     DebugRuleEvaluationStatus
+     DebugRuleEvaluationStatus
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#DebugRuleEvaluationStatus%27"><span class="hs-identifier hs-type">DebugRuleEvaluationStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680339623"><span class="annot"><span class="annottext">Maybe Text
+statusDetails :: Maybe Text
+$sel:statusDetails:DebugRuleEvaluationStatus' :: DebugRuleEvaluationStatus -&gt; Maybe Text
+</span><a href="#local-6989586621680339623"><span class="hs-identifier hs-var hs-var">statusDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680339623"><span class="hs-identifier hs-var">statusDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680339622"><span class="annot"><span class="annottext">s :: DebugRuleEvaluationStatus
+</span><a href="#local-6989586621680339622"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#DebugRuleEvaluationStatus%27"><span class="hs-identifier hs-type">DebugRuleEvaluationStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680339621"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680339621"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DebugRuleEvaluationStatus
+</span><a href="#local-6989586621680339622"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusDetails:DebugRuleEvaluationStatus' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#%24sel%3AstatusDetails%3ADebugRuleEvaluationStatus%27"><span class="hs-identifier hs-var">statusDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680339621"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#DebugRuleEvaluationStatus"><span class="hs-identifier hs-type">DebugRuleEvaluationStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | Status of the rule evaluation.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#debugRuleEvaluationStatus_ruleEvaluationStatus"><span class="hs-identifier hs-type">debugRuleEvaluationStatus_ruleEvaluationStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#DebugRuleEvaluationStatus"><span class="hs-identifier hs-type">DebugRuleEvaluationStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.RuleEvaluationStatus.html#RuleEvaluationStatus"><span class="hs-identifier hs-type">RuleEvaluationStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="debugRuleEvaluationStatus_ruleEvaluationStatus"><span class="annot"><span class="annottext">debugRuleEvaluationStatus_ruleEvaluationStatus :: (Maybe RuleEvaluationStatus -&gt; f (Maybe RuleEvaluationStatus))
+-&gt; DebugRuleEvaluationStatus -&gt; f DebugRuleEvaluationStatus
+</span><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#debugRuleEvaluationStatus_ruleEvaluationStatus"><span class="hs-identifier hs-var hs-var">debugRuleEvaluationStatus_ruleEvaluationStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DebugRuleEvaluationStatus -&gt; Maybe RuleEvaluationStatus)
+-&gt; (DebugRuleEvaluationStatus
+    -&gt; Maybe RuleEvaluationStatus -&gt; DebugRuleEvaluationStatus)
+-&gt; Lens
+     DebugRuleEvaluationStatus
+     DebugRuleEvaluationStatus
+     (Maybe RuleEvaluationStatus)
+     (Maybe RuleEvaluationStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#DebugRuleEvaluationStatus%27"><span class="hs-identifier hs-type">DebugRuleEvaluationStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680339619"><span class="annot"><span class="annottext">Maybe RuleEvaluationStatus
+ruleEvaluationStatus :: Maybe RuleEvaluationStatus
+$sel:ruleEvaluationStatus:DebugRuleEvaluationStatus' :: DebugRuleEvaluationStatus -&gt; Maybe RuleEvaluationStatus
+</span><a href="#local-6989586621680339619"><span class="hs-identifier hs-var hs-var">ruleEvaluationStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RuleEvaluationStatus
+</span><a href="#local-6989586621680339619"><span class="hs-identifier hs-var">ruleEvaluationStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680339618"><span class="annot"><span class="annottext">s :: DebugRuleEvaluationStatus
+</span><a href="#local-6989586621680339618"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#DebugRuleEvaluationStatus%27"><span class="hs-identifier hs-type">DebugRuleEvaluationStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680339617"><span class="annot"><span class="annottext">Maybe RuleEvaluationStatus
+</span><a href="#local-6989586621680339617"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DebugRuleEvaluationStatus
+</span><a href="#local-6989586621680339618"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleEvaluationStatus:DebugRuleEvaluationStatus' :: Maybe RuleEvaluationStatus
+</span><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#%24sel%3AruleEvaluationStatus%3ADebugRuleEvaluationStatus%27"><span class="hs-identifier hs-var">ruleEvaluationStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RuleEvaluationStatus
+</span><a href="#local-6989586621680339617"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#DebugRuleEvaluationStatus"><span class="hs-identifier hs-type">DebugRuleEvaluationStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the rule evaluation job.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#debugRuleEvaluationStatus_ruleEvaluationJobArn"><span class="hs-identifier hs-type">debugRuleEvaluationStatus_ruleEvaluationJobArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#DebugRuleEvaluationStatus"><span class="hs-identifier hs-type">DebugRuleEvaluationStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span id="debugRuleEvaluationStatus_ruleEvaluationJobArn"><span class="annot"><span class="annottext">debugRuleEvaluationStatus_ruleEvaluationJobArn :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; DebugRuleEvaluationStatus -&gt; f DebugRuleEvaluationStatus
 </span><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#debugRuleEvaluationStatus_ruleEvaluationJobArn"><span class="hs-identifier hs-var hs-var">debugRuleEvaluationStatus_ruleEvaluationJobArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DebugRuleEvaluationStatus -&gt; Maybe Text)
 -&gt; (DebugRuleEvaluationStatus
@@ -280,19 +256,43 @@ forall (a :: Format). Iso' (Time a) UTCTime
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#DebugRuleEvaluationStatus%27"><span class="hs-identifier hs-type">DebugRuleEvaluationStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680338199"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#DebugRuleEvaluationStatus%27"><span class="hs-identifier hs-type">DebugRuleEvaluationStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680339615"><span class="annot"><span class="annottext">Maybe Text
 ruleEvaluationJobArn :: Maybe Text
 $sel:ruleEvaluationJobArn:DebugRuleEvaluationStatus' :: DebugRuleEvaluationStatus -&gt; Maybe Text
-</span><a href="#local-6989586621680338199"><span class="hs-identifier hs-var hs-var">ruleEvaluationJobArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680338199"><span class="hs-identifier hs-var">ruleEvaluationJobArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680338198"><span class="annot"><span class="annottext">s :: DebugRuleEvaluationStatus
-</span><a href="#local-6989586621680338198"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#DebugRuleEvaluationStatus%27"><span class="hs-identifier hs-type">DebugRuleEvaluationStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680338197"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680338197"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DebugRuleEvaluationStatus
-</span><a href="#local-6989586621680338198"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleEvaluationJobArn:DebugRuleEvaluationStatus' :: Maybe Text
+</span><a href="#local-6989586621680339615"><span class="hs-identifier hs-var hs-var">ruleEvaluationJobArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680339615"><span class="hs-identifier hs-var">ruleEvaluationJobArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680339614"><span class="annot"><span class="annottext">s :: DebugRuleEvaluationStatus
+</span><a href="#local-6989586621680339614"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#DebugRuleEvaluationStatus%27"><span class="hs-identifier hs-type">DebugRuleEvaluationStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680339613"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680339613"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DebugRuleEvaluationStatus
+</span><a href="#local-6989586621680339614"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleEvaluationJobArn:DebugRuleEvaluationStatus' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#%24sel%3AruleEvaluationJobArn%3ADebugRuleEvaluationStatus%27"><span class="hs-identifier hs-var">ruleEvaluationJobArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680338197"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#DebugRuleEvaluationStatus"><span class="hs-identifier hs-type">DebugRuleEvaluationStatus</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680339613"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#DebugRuleEvaluationStatus"><span class="hs-identifier hs-type">DebugRuleEvaluationStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | The name of the rule configuration.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#debugRuleEvaluationStatus_ruleConfigurationName"><span class="hs-identifier hs-type">debugRuleEvaluationStatus_ruleConfigurationName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#DebugRuleEvaluationStatus"><span class="hs-identifier hs-type">DebugRuleEvaluationStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span id="debugRuleEvaluationStatus_ruleConfigurationName"><span class="annot"><span class="annottext">debugRuleEvaluationStatus_ruleConfigurationName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DebugRuleEvaluationStatus -&gt; f DebugRuleEvaluationStatus
+</span><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#debugRuleEvaluationStatus_ruleConfigurationName"><span class="hs-identifier hs-var hs-var">debugRuleEvaluationStatus_ruleConfigurationName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DebugRuleEvaluationStatus -&gt; Maybe Text)
+-&gt; (DebugRuleEvaluationStatus
+    -&gt; Maybe Text -&gt; DebugRuleEvaluationStatus)
+-&gt; Lens
+     DebugRuleEvaluationStatus
+     DebugRuleEvaluationStatus
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#DebugRuleEvaluationStatus%27"><span class="hs-identifier hs-type">DebugRuleEvaluationStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680339611"><span class="annot"><span class="annottext">Maybe Text
+ruleConfigurationName :: Maybe Text
+$sel:ruleConfigurationName:DebugRuleEvaluationStatus' :: DebugRuleEvaluationStatus -&gt; Maybe Text
+</span><a href="#local-6989586621680339611"><span class="hs-identifier hs-var hs-var">ruleConfigurationName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680339611"><span class="hs-identifier hs-var">ruleConfigurationName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680339610"><span class="annot"><span class="annottext">s :: DebugRuleEvaluationStatus
+</span><a href="#local-6989586621680339610"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#DebugRuleEvaluationStatus%27"><span class="hs-identifier hs-type">DebugRuleEvaluationStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680339609"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680339609"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DebugRuleEvaluationStatus
+</span><a href="#local-6989586621680339610"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleConfigurationName:DebugRuleEvaluationStatus' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#%24sel%3AruleConfigurationName%3ADebugRuleEvaluationStatus%27"><span class="hs-identifier hs-var">ruleConfigurationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680339609"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#DebugRuleEvaluationStatus"><span class="hs-identifier hs-type">DebugRuleEvaluationStatus</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680338194"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#DebugRuleEvaluationStatus"><span class="hs-identifier hs-type">DebugRuleEvaluationStatus</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621680338192"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DebugRuleEvaluationStatus
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680339606"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#DebugRuleEvaluationStatus"><span class="hs-identifier hs-type">DebugRuleEvaluationStatus</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621680339604"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DebugRuleEvaluationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser DebugRuleEvaluationStatus)
@@ -302,81 +302,81 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;DebugRuleEvaluationStatus&quot;</span></span><span>
-</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680338189"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680338189"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-98"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680339601"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680339601"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
 -&gt; Maybe Text
 -&gt; Maybe RuleEvaluationStatus
--&gt; Maybe POSIX
+-&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; DebugRuleEvaluationStatus
 </span><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#DebugRuleEvaluationStatus%27"><span class="hs-identifier hs-var">DebugRuleEvaluationStatus'</span></a></span><span>
-</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
  -&gt; Maybe Text
  -&gt; Maybe RuleEvaluationStatus
- -&gt; Maybe POSIX
+ -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; DebugRuleEvaluationStatus)
--&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe POSIX)
 -&gt; Parser
      (Maybe Text
       -&gt; Maybe RuleEvaluationStatus
-      -&gt; Maybe POSIX
+      -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; DebugRuleEvaluationStatus)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680338189"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680339601"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;RuleConfigurationName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;LastModifiedTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
    -&gt; Maybe RuleEvaluationStatus
-   -&gt; Maybe POSIX
+   -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; DebugRuleEvaluationStatus)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
      (Maybe RuleEvaluationStatus
-      -&gt; Maybe POSIX -&gt; Maybe Text -&gt; DebugRuleEvaluationStatus)
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; DebugRuleEvaluationStatus)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680338189"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680339601"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StatusDetails&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe RuleEvaluationStatus
-   -&gt; Maybe POSIX -&gt; Maybe Text -&gt; DebugRuleEvaluationStatus)
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; DebugRuleEvaluationStatus)
 -&gt; Parser (Maybe RuleEvaluationStatus)
--&gt; Parser (Maybe POSIX -&gt; Maybe Text -&gt; DebugRuleEvaluationStatus)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; DebugRuleEvaluationStatus)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680338189"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RuleEvaluationStatus)
+</span><a href="#local-6989586621680339601"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RuleEvaluationStatus)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RuleEvaluationStatus&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; Maybe Text -&gt; DebugRuleEvaluationStatus)
--&gt; Parser (Maybe POSIX)
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; DebugRuleEvaluationStatus)
+-&gt; Parser (Maybe Text)
 -&gt; Parser (Maybe Text -&gt; DebugRuleEvaluationStatus)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680338189"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621680339601"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;LastModifiedTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;RuleEvaluationJobArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; DebugRuleEvaluationStatus)
 -&gt; Parser (Maybe Text) -&gt; Parser DebugRuleEvaluationStatus
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680338189"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680339601"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;RuleEvaluationJobArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;RuleConfigurationName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680338183"><span id="local-6989586621680338185"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#DebugRuleEvaluationStatus"><span class="hs-identifier hs-type">DebugRuleEvaluationStatus</span></a></span></span></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680339595"><span id="local-6989586621680339597"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#DebugRuleEvaluationStatus"><span class="hs-identifier hs-type">DebugRuleEvaluationStatus</span></a></span></span></span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680338180"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#DebugRuleEvaluationStatus"><span class="hs-identifier hs-type">DebugRuleEvaluationStatus</span></a></span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680339592"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus.html#DebugRuleEvaluationStatus"><span class="hs-identifier hs-type">DebugRuleEvaluationStatus</span></a></span></span><span>
 </span><span id="line-109"></span></pre></body></html>

@@ -34,13 +34,13 @@
 </span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-36"></span><span>
-</span><span id="line-37"></span><span id="local-6989586621679598581"><span id="local-6989586621679598582"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Frequency"><span class="annot"><a href="Network.AWS.Pinpoint.Types.Frequency.html#Frequency"><span class="hs-identifier hs-var">Frequency</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Frequency%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.Frequency.html#Frequency%27"><span class="hs-identifier hs-var">Frequency'</span></a></span></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679599033"><span id="local-6989586621679599034"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Frequency"><span class="annot"><a href="Network.AWS.Pinpoint.Types.Frequency.html#Frequency"><span class="hs-identifier hs-var">Frequency</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Frequency%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.Frequency.html#Frequency%27"><span class="hs-identifier hs-var">Frequency'</span></a></span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromFrequency"><span class="annot"><span class="annottext">Frequency -&gt; Text
 </span><a href="Network.AWS.Pinpoint.Types.Frequency.html#fromFrequency"><span class="hs-identifier hs-var hs-var">fromFrequency</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679598573"><span id="local-6989586621679598575"><span id="local-6989586621679598577"><span class="annot"><span class="annottext">Int -&gt; Frequency -&gt; ShowS
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679599025"><span id="local-6989586621679599027"><span id="local-6989586621679599029"><span class="annot"><span class="annottext">Int -&gt; Frequency -&gt; ShowS
 [Frequency] -&gt; ShowS
 Frequency -&gt; String
 (Int -&gt; Frequency -&gt; ShowS)
@@ -56,7 +56,7 @@ $cshow :: Frequency -&gt; String
 showsPrec :: Int -&gt; Frequency -&gt; ShowS
 $cshowsPrec :: Int -&gt; Frequency -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679598564"><span id="local-6989586621679598566"><span id="local-6989586621679598568"><span id="local-6989586621679598570"><span class="annot"><span class="annottext">ReadPrec [Frequency]
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679599016"><span id="local-6989586621679599018"><span id="local-6989586621679599020"><span id="local-6989586621679599022"><span class="annot"><span class="annottext">ReadPrec [Frequency]
 ReadPrec Frequency
 Int -&gt; ReadS Frequency
 ReadS [Frequency]
@@ -77,7 +77,7 @@ $creadList :: ReadS [Frequency]
 readsPrec :: Int -&gt; ReadS Frequency
 $creadsPrec :: Int -&gt; ReadS Frequency
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679598559"><span id="local-6989586621679598561"><span class="annot"><span class="annottext">Frequency -&gt; Frequency -&gt; Bool
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679599011"><span id="local-6989586621679599013"><span class="annot"><span class="annottext">Frequency -&gt; Frequency -&gt; Bool
 (Frequency -&gt; Frequency -&gt; Bool)
 -&gt; (Frequency -&gt; Frequency -&gt; Bool) -&gt; Eq Frequency
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -86,7 +86,7 @@ $c/= :: Frequency -&gt; Frequency -&gt; Bool
 == :: Frequency -&gt; Frequency -&gt; Bool
 $c== :: Frequency -&gt; Frequency -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679598543"><span id="local-6989586621679598545"><span id="local-6989586621679598547"><span id="local-6989586621679598549"><span id="local-6989586621679598551"><span id="local-6989586621679598553"><span id="local-6989586621679598555"><span class="annot"><span class="annottext">Eq Frequency
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679598995"><span id="local-6989586621679598997"><span id="local-6989586621679598999"><span id="local-6989586621679599001"><span id="local-6989586621679599003"><span id="local-6989586621679599005"><span id="local-6989586621679599007"><span class="annot"><span class="annottext">Eq Frequency
 Eq Frequency
 -&gt; (Frequency -&gt; Frequency -&gt; Ordering)
 -&gt; (Frequency -&gt; Frequency -&gt; Bool)
@@ -136,7 +136,7 @@ $cfrom :: forall x. Frequency -&gt; Rep Frequency x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679598535"><span id="local-6989586621679598537"><span class="annot"><span class="annottext">Int -&gt; Frequency -&gt; Int
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679598987"><span id="local-6989586621679598989"><span class="annot"><span class="annottext">Int -&gt; Frequency -&gt; Int
 Frequency -&gt; Int
 (Int -&gt; Frequency -&gt; Int)
 -&gt; (Frequency -&gt; Int) -&gt; Hashable Frequency
@@ -146,49 +146,49 @@ $chash :: Frequency -&gt; Int
 hashWithSalt :: Int -&gt; Frequency -&gt; Int
 $chashWithSalt :: Int -&gt; Frequency -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679598532"><span class="annot"><span class="annottext">Frequency -&gt; ()
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679598984"><span class="annot"><span class="annottext">Frequency -&gt; ()
 (Frequency -&gt; ()) -&gt; NFData Frequency
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: Frequency -&gt; ()
 $crnf :: Frequency -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679598529"><span class="annot"><span class="annottext">Text -&gt; Either String Frequency
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679598981"><span class="annot"><span class="annottext">Text -&gt; Either String Frequency
 (Text -&gt; Either String Frequency) -&gt; FromText Frequency
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String Frequency
 $cfromText :: Text -&gt; Either String Frequency
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679598526"><span class="annot"><span class="annottext">Frequency -&gt; Text
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679598978"><span class="annot"><span class="annottext">Frequency -&gt; Text
 (Frequency -&gt; Text) -&gt; ToText Frequency
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: Frequency -&gt; Text
 $ctoText :: Frequency -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679598523"><span class="annot"><span class="annottext">Frequency -&gt; ByteString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679598975"><span class="annot"><span class="annottext">Frequency -&gt; ByteString
 (Frequency -&gt; ByteString) -&gt; ToByteString Frequency
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: Frequency -&gt; ByteString
 $ctoBS :: Frequency -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679598520"><span class="annot"><span class="annottext">Frequency -&gt; ByteStringBuilder
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679598972"><span class="annot"><span class="annottext">Frequency -&gt; ByteStringBuilder
 (Frequency -&gt; ByteStringBuilder) -&gt; ToLog Frequency
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: Frequency -&gt; ByteStringBuilder
 $cbuild :: Frequency -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679598517"><span class="annot"><span class="annottext">HeaderName -&gt; Frequency -&gt; [Header]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679598969"><span class="annot"><span class="annottext">HeaderName -&gt; Frequency -&gt; [Header]
 (HeaderName -&gt; Frequency -&gt; [Header]) -&gt; ToHeader Frequency
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; Frequency -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; Frequency -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679598514"><span class="annot"><span class="annottext">Frequency -&gt; QueryString
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679598966"><span class="annot"><span class="annottext">Frequency -&gt; QueryString
 (Frequency -&gt; QueryString) -&gt; ToQuery Frequency
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: Frequency -&gt; QueryString
 $ctoQuery :: Frequency -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679598509"><span id="local-6989586621679598511"><span class="annot"><span class="annottext">Value -&gt; Parser [Frequency]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679598961"><span id="local-6989586621679598963"><span class="annot"><span class="annottext">Value -&gt; Parser [Frequency]
 Value -&gt; Parser Frequency
 (Value -&gt; Parser Frequency)
 -&gt; (Value -&gt; Parser [Frequency]) -&gt; FromJSON Frequency
@@ -199,7 +199,7 @@ $cparseJSONList :: Value -&gt; Parser [Frequency]
 parseJSON :: Value -&gt; Parser Frequency
 $cparseJSON :: Value -&gt; Parser Frequency
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679598504"><span id="local-6989586621679598506"><span class="annot"><span class="annottext">FromJSONKeyFunction [Frequency]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679598956"><span id="local-6989586621679598958"><span class="annot"><span class="annottext">FromJSONKeyFunction [Frequency]
 FromJSONKeyFunction Frequency
 FromJSONKeyFunction Frequency
 -&gt; FromJSONKeyFunction [Frequency] -&gt; FromJSONKey Frequency
@@ -210,7 +210,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [Frequency]
 fromJSONKey :: FromJSONKeyFunction Frequency
 $cfromJSONKey :: FromJSONKeyFunction Frequency
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679598495"><span id="local-6989586621679598497"><span id="local-6989586621679598499"><span id="local-6989586621679598501"><span class="annot"><span class="annottext">[Frequency] -&gt; Encoding
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679598947"><span id="local-6989586621679598949"><span id="local-6989586621679598951"><span id="local-6989586621679598953"><span class="annot"><span class="annottext">[Frequency] -&gt; Encoding
 [Frequency] -&gt; Value
 Frequency -&gt; Encoding
 Frequency -&gt; Value
@@ -234,7 +234,7 @@ $ctoEncoding :: Frequency -&gt; Encoding
 toJSON :: Frequency -&gt; Value
 $ctoJSON :: Frequency -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679598490"><span id="local-6989586621679598492"><span class="annot"><span class="annottext">ToJSONKeyFunction [Frequency]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679598942"><span id="local-6989586621679598944"><span class="annot"><span class="annottext">ToJSONKeyFunction [Frequency]
 ToJSONKeyFunction Frequency
 ToJSONKeyFunction Frequency
 -&gt; ToJSONKeyFunction [Frequency] -&gt; ToJSONKey Frequency
@@ -245,13 +245,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [Frequency]
 toJSONKey :: ToJSONKeyFunction Frequency
 $ctoJSONKey :: ToJSONKeyFunction Frequency
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679598487"><span class="annot"><span class="annottext">[Node] -&gt; Either String Frequency
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679598939"><span class="annot"><span class="annottext">[Node] -&gt; Either String Frequency
 ([Node] -&gt; Either String Frequency) -&gt; FromXML Frequency
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String Frequency
 $cparseXML :: [Node] -&gt; Either String Frequency
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679598484"><span class="annot"><span class="annottext">Frequency -&gt; XML
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679598936"><span class="annot"><span class="annottext">Frequency -&gt; XML
 (Frequency -&gt; XML) -&gt; ToXML Frequency
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: Frequency -&gt; XML

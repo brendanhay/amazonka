@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- deployment\'s target.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newECSService' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679307942"><span id="local-6989586621679307943"></span></span><span class="hs-keyword">data</span><span> </span><span id="ECSService"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ECSService.html#ECSService"><span class="hs-identifier hs-var">ECSService</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ECSService%27"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ECSService.html#ECSService%27"><span class="hs-identifier hs-var">ECSService'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679308226"><span id="local-6989586621679308227"></span></span><span class="hs-keyword">data</span><span> </span><span id="ECSService"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ECSService.html#ECSService"><span class="hs-identifier hs-var">ECSService</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ECSService%27"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ECSService.html#ECSService%27"><span class="hs-identifier hs-var">ECSService'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the target Amazon ECS service.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AserviceName%3AECSService%27"><span class="annot"><span class="annottext">ECSService -&gt; Maybe Text
 </span><a href="Network.AWS.CodeDeploy.Types.ECSService.html#%24sel%3AserviceName%3AECSService%27"><span class="hs-identifier hs-var hs-var">serviceName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -35,7 +35,7 @@
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AclusterName%3AECSService%27"><span class="annot"><span class="annottext">ECSService -&gt; Maybe Text
 </span><a href="Network.AWS.CodeDeploy.Types.ECSService.html#%24sel%3AclusterName%3AECSService%27"><span class="hs-identifier hs-var hs-var">clusterName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679307935"><span id="local-6989586621679307937"><span class="annot"><span class="annottext">ECSService -&gt; ECSService -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679308219"><span id="local-6989586621679308221"><span class="annot"><span class="annottext">ECSService -&gt; ECSService -&gt; Bool
 (ECSService -&gt; ECSService -&gt; Bool)
 -&gt; (ECSService -&gt; ECSService -&gt; Bool) -&gt; Eq ECSService
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ECSService -&gt; ECSService -&gt; Bool
 == :: ECSService -&gt; ECSService -&gt; Bool
 $c== :: ECSService -&gt; ECSService -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307926"><span id="local-6989586621679307928"><span id="local-6989586621679307930"><span id="local-6989586621679307932"><span class="annot"><span class="annottext">ReadPrec [ECSService]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679308210"><span id="local-6989586621679308212"><span id="local-6989586621679308214"><span id="local-6989586621679308216"><span class="annot"><span class="annottext">ReadPrec [ECSService]
 ReadPrec ECSService
 Int -&gt; ReadS ECSService
 ReadS [ECSService]
@@ -63,7 +63,7 @@ readList :: ReadS [ECSService]
 $creadList :: ReadS [ECSService]
 readsPrec :: Int -&gt; ReadS ECSService
 $creadsPrec :: Int -&gt; ReadS ECSService
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307919"><span id="local-6989586621679307921"><span id="local-6989586621679307923"><span class="annot"><span class="annottext">Int -&gt; ECSService -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679308203"><span id="local-6989586621679308205"><span id="local-6989586621679308207"><span class="annot"><span class="annottext">Int -&gt; ECSService -&gt; ShowS
 [ECSService] -&gt; ShowS
 ECSService -&gt; String
 (Int -&gt; ECSService -&gt; ShowS)
@@ -122,16 +122,16 @@ forall a. Maybe a
 -&gt; (ECSService -&gt; Maybe Text -&gt; ECSService)
 -&gt; Lens ECSService ECSService (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ECSService.html#ECSService%27"><span class="hs-identifier hs-type">ECSService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307910"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ECSService.html#ECSService%27"><span class="hs-identifier hs-type">ECSService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308194"><span class="annot"><span class="annottext">Maybe Text
 serviceName :: Maybe Text
 $sel:serviceName:ECSService' :: ECSService -&gt; Maybe Text
-</span><a href="#local-6989586621679307910"><span class="hs-identifier hs-var hs-var">serviceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679307910"><span class="hs-identifier hs-var">serviceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307909"><span class="annot"><span class="annottext">s :: ECSService
-</span><a href="#local-6989586621679307909"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ECSService.html#ECSService%27"><span class="hs-identifier hs-type">ECSService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307908"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679307908"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ECSService
-</span><a href="#local-6989586621679307909"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceName:ECSService' :: Maybe Text
+</span><a href="#local-6989586621679308194"><span class="hs-identifier hs-var hs-var">serviceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679308194"><span class="hs-identifier hs-var">serviceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679308193"><span class="annot"><span class="annottext">s :: ECSService
+</span><a href="#local-6989586621679308193"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ECSService.html#ECSService%27"><span class="hs-identifier hs-type">ECSService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679308192"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679308192"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ECSService
+</span><a href="#local-6989586621679308193"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceName:ECSService' :: Maybe Text
 </span><a href="Network.AWS.CodeDeploy.Types.ECSService.html#%24sel%3AserviceName%3AECSService%27"><span class="hs-identifier hs-var">serviceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679307908"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ECSService.html#ECSService"><span class="hs-identifier hs-type">ECSService</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679308192"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ECSService.html#ECSService"><span class="hs-identifier hs-type">ECSService</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- | The name of the cluster that the Amazon ECS service is associated with.</span><span>
 </span><span id="line-62"></span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ECSService.html#eCSService_clusterName"><span class="hs-identifier hs-type">eCSService_clusterName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ECSService.html#ECSService"><span class="hs-identifier hs-type">ECSService</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -140,19 +140,19 @@ $sel:serviceName:ECSService' :: ECSService -&gt; Maybe Text
 -&gt; (ECSService -&gt; Maybe Text -&gt; ECSService)
 -&gt; Lens ECSService ECSService (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ECSService.html#ECSService%27"><span class="hs-identifier hs-type">ECSService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307906"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ECSService.html#ECSService%27"><span class="hs-identifier hs-type">ECSService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308190"><span class="annot"><span class="annottext">Maybe Text
 clusterName :: Maybe Text
 $sel:clusterName:ECSService' :: ECSService -&gt; Maybe Text
-</span><a href="#local-6989586621679307906"><span class="hs-identifier hs-var hs-var">clusterName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679307906"><span class="hs-identifier hs-var">clusterName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307905"><span class="annot"><span class="annottext">s :: ECSService
-</span><a href="#local-6989586621679307905"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ECSService.html#ECSService%27"><span class="hs-identifier hs-type">ECSService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307904"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679307904"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ECSService
-</span><a href="#local-6989586621679307905"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterName:ECSService' :: Maybe Text
+</span><a href="#local-6989586621679308190"><span class="hs-identifier hs-var hs-var">clusterName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679308190"><span class="hs-identifier hs-var">clusterName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679308189"><span class="annot"><span class="annottext">s :: ECSService
+</span><a href="#local-6989586621679308189"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ECSService.html#ECSService%27"><span class="hs-identifier hs-type">ECSService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679308188"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679308188"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ECSService
+</span><a href="#local-6989586621679308189"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterName:ECSService' :: Maybe Text
 </span><a href="Network.AWS.CodeDeploy.Types.ECSService.html#%24sel%3AclusterName%3AECSService%27"><span class="hs-identifier hs-var">clusterName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679307904"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ECSService.html#ECSService"><span class="hs-identifier hs-type">ECSService</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679308188"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ECSService.html#ECSService"><span class="hs-identifier hs-type">ECSService</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307901"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ECSService.html#ECSService"><span class="hs-identifier hs-type">ECSService</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-66"></span><span>  </span><span id="local-6989586621679307899"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ECSService
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679308185"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ECSService.html#ECSService"><span class="hs-identifier hs-type">ECSService</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679308183"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ECSService
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ECSService) -&gt; Value -&gt; Parser ECSService
@@ -160,15 +160,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ECSService&quot;</span></span><span>
-</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679307896"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679307896"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679308180"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679308180"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-70"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; ECSService
 </span><a href="Network.AWS.CodeDeploy.Types.ECSService.html#ECSService%27"><span class="hs-identifier hs-var">ECSService'</span></a></span><span>
 </span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; ECSService)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; ECSService)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679307896"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679308180"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;serviceName&quot;</span></span><span class="hs-special">)</span><span>
@@ -176,24 +176,24 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser ECSService
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679307896"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679308180"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;clusterName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307890"><span id="local-6989586621679307892"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ECSService.html#ECSService"><span class="hs-identifier hs-type">ECSService</span></a></span></span></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679308174"><span id="local-6989586621679308176"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ECSService.html#ECSService"><span class="hs-identifier hs-type">ECSService</span></a></span></span></span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307887"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ECSService.html#ECSService"><span class="hs-identifier hs-type">ECSService</span></a></span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679308171"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ECSService.html#ECSService"><span class="hs-identifier hs-type">ECSService</span></a></span></span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307879"><span id="local-6989586621679307881"><span id="local-6989586621679307883"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ECSService.html#ECSService"><span class="hs-identifier hs-type">ECSService</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679307877"><span class="annot"><span class="annottext">toJSON :: ECSService -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ECSService.html#ECSService%27"><span class="hs-identifier hs-type">ECSService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307874"><span id="local-6989586621679307875"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679308163"><span id="local-6989586621679308165"><span id="local-6989586621679308167"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ECSService.html#ECSService"><span class="hs-identifier hs-type">ECSService</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679308161"><span class="annot"><span class="annottext">toJSON :: ECSService -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ECSService.html#ECSService%27"><span class="hs-identifier hs-type">ECSService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308158"><span id="local-6989586621679308159"><span class="annot"><span class="annottext">Maybe Text
 clusterName :: Maybe Text
 serviceName :: Maybe Text
 $sel:clusterName:ECSService' :: ECSService -&gt; Maybe Text
 $sel:serviceName:ECSService' :: ECSService -&gt; Maybe Text
-</span><a href="#local-6989586621679307874"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679308158"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -205,14 +205,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679307875"><span class="hs-identifier hs-var">serviceName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679308159"><span class="hs-identifier hs-var">serviceName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-84"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;clusterName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679307874"><span class="hs-identifier hs-var">clusterName</span></a></span><span>
+</span><a href="#local-6989586621679308158"><span class="hs-identifier hs-var">clusterName</span></a></span><span>
 </span><span id="line-85"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-86"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span></pre></body></html>

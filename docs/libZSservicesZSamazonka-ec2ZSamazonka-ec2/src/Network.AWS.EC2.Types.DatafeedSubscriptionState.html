@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621681064102"><span id="local-6989586621681064103"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DatafeedSubscriptionState"><span class="annot"><a href="Network.AWS.EC2.Types.DatafeedSubscriptionState.html#DatafeedSubscriptionState"><span class="hs-identifier hs-var">DatafeedSubscriptionState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DatafeedSubscriptionState%27"><span class="annot"><a href="Network.AWS.EC2.Types.DatafeedSubscriptionState.html#DatafeedSubscriptionState%27"><span class="hs-identifier hs-var">DatafeedSubscriptionState'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621681097677"><span id="local-6989586621681097678"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DatafeedSubscriptionState"><span class="annot"><a href="Network.AWS.EC2.Types.DatafeedSubscriptionState.html#DatafeedSubscriptionState"><span class="hs-identifier hs-var">DatafeedSubscriptionState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DatafeedSubscriptionState%27"><span class="annot"><a href="Network.AWS.EC2.Types.DatafeedSubscriptionState.html#DatafeedSubscriptionState%27"><span class="hs-identifier hs-var">DatafeedSubscriptionState'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDatafeedSubscriptionState"><span class="annot"><span class="annottext">DatafeedSubscriptionState -&gt; Text
 </span><a href="Network.AWS.EC2.Types.DatafeedSubscriptionState.html#fromDatafeedSubscriptionState"><span class="hs-identifier hs-var hs-var">fromDatafeedSubscriptionState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681064094"><span id="local-6989586621681064096"><span id="local-6989586621681064098"><span class="annot"><span class="annottext">Int -&gt; DatafeedSubscriptionState -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681097669"><span id="local-6989586621681097671"><span id="local-6989586621681097673"><span class="annot"><span class="annottext">Int -&gt; DatafeedSubscriptionState -&gt; ShowS
 [DatafeedSubscriptionState] -&gt; ShowS
 DatafeedSubscriptionState -&gt; String
 (Int -&gt; DatafeedSubscriptionState -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: DatafeedSubscriptionState -&gt; String
 showsPrec :: Int -&gt; DatafeedSubscriptionState -&gt; ShowS
 $cshowsPrec :: Int -&gt; DatafeedSubscriptionState -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621681064085"><span id="local-6989586621681064087"><span id="local-6989586621681064089"><span id="local-6989586621681064091"><span class="annot"><span class="annottext">ReadPrec [DatafeedSubscriptionState]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621681097660"><span id="local-6989586621681097662"><span id="local-6989586621681097664"><span id="local-6989586621681097666"><span class="annot"><span class="annottext">ReadPrec [DatafeedSubscriptionState]
 ReadPrec DatafeedSubscriptionState
 Int -&gt; ReadS DatafeedSubscriptionState
 ReadS [DatafeedSubscriptionState]
@@ -73,7 +73,7 @@ $creadList :: ReadS [DatafeedSubscriptionState]
 readsPrec :: Int -&gt; ReadS DatafeedSubscriptionState
 $creadsPrec :: Int -&gt; ReadS DatafeedSubscriptionState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621681064080"><span id="local-6989586621681064082"><span class="annot"><span class="annottext">DatafeedSubscriptionState -&gt; DatafeedSubscriptionState -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621681097655"><span id="local-6989586621681097657"><span class="annot"><span class="annottext">DatafeedSubscriptionState -&gt; DatafeedSubscriptionState -&gt; Bool
 (DatafeedSubscriptionState -&gt; DatafeedSubscriptionState -&gt; Bool)
 -&gt; (DatafeedSubscriptionState -&gt; DatafeedSubscriptionState -&gt; Bool)
 -&gt; Eq DatafeedSubscriptionState
@@ -83,7 +83,7 @@ $c/= :: DatafeedSubscriptionState -&gt; DatafeedSubscriptionState -&gt; Bool
 == :: DatafeedSubscriptionState -&gt; DatafeedSubscriptionState -&gt; Bool
 $c== :: DatafeedSubscriptionState -&gt; DatafeedSubscriptionState -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621681064064"><span id="local-6989586621681064066"><span id="local-6989586621681064068"><span id="local-6989586621681064070"><span id="local-6989586621681064072"><span id="local-6989586621681064074"><span id="local-6989586621681064076"><span class="annot"><span class="annottext">Eq DatafeedSubscriptionState
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681097639"><span id="local-6989586621681097641"><span id="local-6989586621681097643"><span id="local-6989586621681097645"><span id="local-6989586621681097647"><span id="local-6989586621681097649"><span id="local-6989586621681097651"><span class="annot"><span class="annottext">Eq DatafeedSubscriptionState
 Eq DatafeedSubscriptionState
 -&gt; (DatafeedSubscriptionState
     -&gt; DatafeedSubscriptionState -&gt; Ordering)
@@ -148,7 +148,7 @@ DatafeedSubscriptionState -&gt; Rep DatafeedSubscriptionState x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681064056"><span id="local-6989586621681064058"><span class="annot"><span class="annottext">Int -&gt; DatafeedSubscriptionState -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681097631"><span id="local-6989586621681097633"><span class="annot"><span class="annottext">Int -&gt; DatafeedSubscriptionState -&gt; Int
 DatafeedSubscriptionState -&gt; Int
 (Int -&gt; DatafeedSubscriptionState -&gt; Int)
 -&gt; (DatafeedSubscriptionState -&gt; Int)
@@ -159,56 +159,56 @@ $chash :: DatafeedSubscriptionState -&gt; Int
 hashWithSalt :: Int -&gt; DatafeedSubscriptionState -&gt; Int
 $chashWithSalt :: Int -&gt; DatafeedSubscriptionState -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621681064053"><span class="annot"><span class="annottext">DatafeedSubscriptionState -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621681097628"><span class="annot"><span class="annottext">DatafeedSubscriptionState -&gt; ()
 (DatafeedSubscriptionState -&gt; ())
 -&gt; NFData DatafeedSubscriptionState
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: DatafeedSubscriptionState -&gt; ()
 $crnf :: DatafeedSubscriptionState -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621681064050"><span class="annot"><span class="annottext">Text -&gt; Either String DatafeedSubscriptionState
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681097625"><span class="annot"><span class="annottext">Text -&gt; Either String DatafeedSubscriptionState
 (Text -&gt; Either String DatafeedSubscriptionState)
 -&gt; FromText DatafeedSubscriptionState
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String DatafeedSubscriptionState
 $cfromText :: Text -&gt; Either String DatafeedSubscriptionState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621681064047"><span class="annot"><span class="annottext">DatafeedSubscriptionState -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681097622"><span class="annot"><span class="annottext">DatafeedSubscriptionState -&gt; Text
 (DatafeedSubscriptionState -&gt; Text)
 -&gt; ToText DatafeedSubscriptionState
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: DatafeedSubscriptionState -&gt; Text
 $ctoText :: DatafeedSubscriptionState -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681064044"><span class="annot"><span class="annottext">DatafeedSubscriptionState -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681097619"><span class="annot"><span class="annottext">DatafeedSubscriptionState -&gt; ByteString
 (DatafeedSubscriptionState -&gt; ByteString)
 -&gt; ToByteString DatafeedSubscriptionState
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: DatafeedSubscriptionState -&gt; ByteString
 $ctoBS :: DatafeedSubscriptionState -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681064041"><span class="annot"><span class="annottext">DatafeedSubscriptionState -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681097616"><span class="annot"><span class="annottext">DatafeedSubscriptionState -&gt; ByteStringBuilder
 (DatafeedSubscriptionState -&gt; ByteStringBuilder)
 -&gt; ToLog DatafeedSubscriptionState
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: DatafeedSubscriptionState -&gt; ByteStringBuilder
 $cbuild :: DatafeedSubscriptionState -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681064038"><span class="annot"><span class="annottext">HeaderName -&gt; DatafeedSubscriptionState -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681097613"><span class="annot"><span class="annottext">HeaderName -&gt; DatafeedSubscriptionState -&gt; [Header]
 (HeaderName -&gt; DatafeedSubscriptionState -&gt; [Header])
 -&gt; ToHeader DatafeedSubscriptionState
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; DatafeedSubscriptionState -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; DatafeedSubscriptionState -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681064035"><span class="annot"><span class="annottext">DatafeedSubscriptionState -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681097610"><span class="annot"><span class="annottext">DatafeedSubscriptionState -&gt; QueryString
 (DatafeedSubscriptionState -&gt; QueryString)
 -&gt; ToQuery DatafeedSubscriptionState
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: DatafeedSubscriptionState -&gt; QueryString
 $ctoQuery :: DatafeedSubscriptionState -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681064030"><span id="local-6989586621681064032"><span class="annot"><span class="annottext">Value -&gt; Parser [DatafeedSubscriptionState]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681097605"><span id="local-6989586621681097607"><span class="annot"><span class="annottext">Value -&gt; Parser [DatafeedSubscriptionState]
 Value -&gt; Parser DatafeedSubscriptionState
 (Value -&gt; Parser DatafeedSubscriptionState)
 -&gt; (Value -&gt; Parser [DatafeedSubscriptionState])
@@ -220,7 +220,7 @@ $cparseJSONList :: Value -&gt; Parser [DatafeedSubscriptionState]
 parseJSON :: Value -&gt; Parser DatafeedSubscriptionState
 $cparseJSON :: Value -&gt; Parser DatafeedSubscriptionState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681064025"><span id="local-6989586621681064027"><span class="annot"><span class="annottext">FromJSONKeyFunction [DatafeedSubscriptionState]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681097600"><span id="local-6989586621681097602"><span class="annot"><span class="annottext">FromJSONKeyFunction [DatafeedSubscriptionState]
 FromJSONKeyFunction DatafeedSubscriptionState
 FromJSONKeyFunction DatafeedSubscriptionState
 -&gt; FromJSONKeyFunction [DatafeedSubscriptionState]
@@ -232,7 +232,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [DatafeedSubscriptionState]
 fromJSONKey :: FromJSONKeyFunction DatafeedSubscriptionState
 $cfromJSONKey :: FromJSONKeyFunction DatafeedSubscriptionState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681064016"><span id="local-6989586621681064018"><span id="local-6989586621681064020"><span id="local-6989586621681064022"><span class="annot"><span class="annottext">[DatafeedSubscriptionState] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681097591"><span id="local-6989586621681097593"><span id="local-6989586621681097595"><span id="local-6989586621681097597"><span class="annot"><span class="annottext">[DatafeedSubscriptionState] -&gt; Encoding
 [DatafeedSubscriptionState] -&gt; Value
 DatafeedSubscriptionState -&gt; Encoding
 DatafeedSubscriptionState -&gt; Value
@@ -256,7 +256,7 @@ $ctoEncoding :: DatafeedSubscriptionState -&gt; Encoding
 toJSON :: DatafeedSubscriptionState -&gt; Value
 $ctoJSON :: DatafeedSubscriptionState -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681064011"><span id="local-6989586621681064013"><span class="annot"><span class="annottext">ToJSONKeyFunction [DatafeedSubscriptionState]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681097586"><span id="local-6989586621681097588"><span class="annot"><span class="annottext">ToJSONKeyFunction [DatafeedSubscriptionState]
 ToJSONKeyFunction DatafeedSubscriptionState
 ToJSONKeyFunction DatafeedSubscriptionState
 -&gt; ToJSONKeyFunction [DatafeedSubscriptionState]
@@ -268,14 +268,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [DatafeedSubscriptionState]
 toJSONKey :: ToJSONKeyFunction DatafeedSubscriptionState
 $ctoJSONKey :: ToJSONKeyFunction DatafeedSubscriptionState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681064008"><span class="annot"><span class="annottext">[Node] -&gt; Either String DatafeedSubscriptionState
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681097583"><span class="annot"><span class="annottext">[Node] -&gt; Either String DatafeedSubscriptionState
 ([Node] -&gt; Either String DatafeedSubscriptionState)
 -&gt; FromXML DatafeedSubscriptionState
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String DatafeedSubscriptionState
 $cparseXML :: [Node] -&gt; Either String DatafeedSubscriptionState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621681064005"><span class="annot"><span class="annottext">DatafeedSubscriptionState -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681097580"><span class="annot"><span class="annottext">DatafeedSubscriptionState -&gt; XML
 (DatafeedSubscriptionState -&gt; XML)
 -&gt; ToXML DatafeedSubscriptionState
 forall a. (a -&gt; XML) -&gt; ToXML a

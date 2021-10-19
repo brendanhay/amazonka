@@ -27,10 +27,10 @@
 </span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#newCreateModelBiasJobDefinition"><span class="hs-identifier">newCreateModelBiasJobDefinition</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-28"></span><span>
 </span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#createModelBiasJobDefinition_networkConfig"><span class="hs-identifier">createModelBiasJobDefinition_networkConfig</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#createModelBiasJobDefinition_modelBiasBaselineConfig"><span class="hs-identifier">createModelBiasJobDefinition_modelBiasBaselineConfig</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#createModelBiasJobDefinition_tags"><span class="hs-identifier">createModelBiasJobDefinition_tags</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#createModelBiasJobDefinition_stoppingCondition"><span class="hs-identifier">createModelBiasJobDefinition_stoppingCondition</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#createModelBiasJobDefinition_modelBiasBaselineConfig"><span class="hs-identifier">createModelBiasJobDefinition_modelBiasBaselineConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#createModelBiasJobDefinition_stoppingCondition"><span class="hs-identifier">createModelBiasJobDefinition_stoppingCondition</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#createModelBiasJobDefinition_networkConfig"><span class="hs-identifier">createModelBiasJobDefinition_networkConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#createModelBiasJobDefinition_tags"><span class="hs-identifier">createModelBiasJobDefinition_tags</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#createModelBiasJobDefinition_jobDefinitionName"><span class="hs-identifier">createModelBiasJobDefinition_jobDefinitionName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#createModelBiasJobDefinition_modelBiasAppSpecification"><span class="hs-identifier">createModelBiasJobDefinition_modelBiasAppSpecification</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#createModelBiasJobDefinition_modelBiasJobInput"><span class="hs-identifier">createModelBiasJobDefinition_modelBiasJobInput</span></a></span><span class="hs-special">,</span><span>
@@ -56,20 +56,20 @@
 </span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.html"><span class="hs-identifier">Network.AWS.SageMaker.Types</span></a></span><span>
 </span><span id="line-57"></span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newCreateModelBiasJobDefinition' smart constructor.</span><span>
-</span><span id="line-59"></span><span id="local-6989586621680416096"><span id="local-6989586621680416097"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateModelBiasJobDefinition"><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition"><span class="hs-identifier hs-var">CreateModelBiasJobDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateModelBiasJobDefinition%27"><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition%27"><span class="hs-identifier hs-var">CreateModelBiasJobDefinition'</span></a></span></span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Networking options for a model bias job.</span><span>
-</span><span id="line-61"></span><span>    </span><span id="%24sel%3AnetworkConfig%3ACreateModelBiasJobDefinition%27"><span class="annot"><span class="annottext">CreateModelBiasJobDefinition -&gt; Maybe MonitoringNetworkConfig
-</span><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#%24sel%3AnetworkConfig%3ACreateModelBiasJobDefinition%27"><span class="hs-identifier hs-var hs-var">networkConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringNetworkConfig.html#MonitoringNetworkConfig"><span class="hs-identifier hs-type">MonitoringNetworkConfig</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The baseline configuration for a model bias job.</span><span>
-</span><span id="line-63"></span><span>    </span><span id="%24sel%3AmodelBiasBaselineConfig%3ACreateModelBiasJobDefinition%27"><span class="annot"><span class="annottext">CreateModelBiasJobDefinition -&gt; Maybe ModelBiasBaselineConfig
+</span><span id="line-59"></span><span id="local-6989586621680417740"><span id="local-6989586621680417741"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateModelBiasJobDefinition"><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition"><span class="hs-identifier hs-var">CreateModelBiasJobDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateModelBiasJobDefinition%27"><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition%27"><span class="hs-identifier hs-var">CreateModelBiasJobDefinition'</span></a></span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The baseline configuration for a model bias job.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AmodelBiasBaselineConfig%3ACreateModelBiasJobDefinition%27"><span class="annot"><span class="annottext">CreateModelBiasJobDefinition -&gt; Maybe ModelBiasBaselineConfig
 </span><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#%24sel%3AmodelBiasBaselineConfig%3ACreateModelBiasJobDefinition%27"><span class="hs-identifier hs-var hs-var">modelBiasBaselineConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelBiasBaselineConfig.html#ModelBiasBaselineConfig"><span class="hs-identifier hs-type">ModelBiasBaselineConfig</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | (Optional) An array of key-value pairs. For more information, see</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL Using Cost Allocation Tags&gt;</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- in the /Amazon Web Services Billing and Cost Management User Guide/.</span><span>
-</span><span id="line-67"></span><span>    </span><span id="%24sel%3Atags%3ACreateModelBiasJobDefinition%27"><span class="annot"><span class="annottext">CreateModelBiasJobDefinition -&gt; Maybe [Tag]
-</span><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#%24sel%3Atags%3ACreateModelBiasJobDefinition%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>    </span><span id="%24sel%3AstoppingCondition%3ACreateModelBiasJobDefinition%27"><span class="annot"><span class="annottext">CreateModelBiasJobDefinition -&gt; Maybe MonitoringStoppingCondition
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AstoppingCondition%3ACreateModelBiasJobDefinition%27"><span class="annot"><span class="annottext">CreateModelBiasJobDefinition -&gt; Maybe MonitoringStoppingCondition
 </span><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#%24sel%3AstoppingCondition%3ACreateModelBiasJobDefinition%27"><span class="hs-identifier hs-var hs-var">stoppingCondition</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringStoppingCondition.html#MonitoringStoppingCondition"><span class="hs-identifier hs-type">MonitoringStoppingCondition</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | Networking options for a model bias job.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AnetworkConfig%3ACreateModelBiasJobDefinition%27"><span class="annot"><span class="annottext">CreateModelBiasJobDefinition -&gt; Maybe MonitoringNetworkConfig
+</span><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#%24sel%3AnetworkConfig%3ACreateModelBiasJobDefinition%27"><span class="hs-identifier hs-var hs-var">networkConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringNetworkConfig.html#MonitoringNetworkConfig"><span class="hs-identifier hs-type">MonitoringNetworkConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | (Optional) An array of key-value pairs. For more information, see</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL Using Cost Allocation Tags&gt;</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- in the /Amazon Web Services Billing and Cost Management User Guide/.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3Atags%3ACreateModelBiasJobDefinition%27"><span class="annot"><span class="annottext">CreateModelBiasJobDefinition -&gt; Maybe [Tag]
+</span><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#%24sel%3Atags%3ACreateModelBiasJobDefinition%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
 </span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The name of the bias job definition. The name must be unique within an</span><span>
 </span><span id="line-70"></span><span>    </span><span class="hs-comment">-- Amazon Web Services Region in the Amazon Web Services account.</span><span>
 </span><span id="line-71"></span><span>    </span><span id="%24sel%3AjobDefinitionName%3ACreateModelBiasJobDefinition%27"><span class="annot"><span class="annottext">CreateModelBiasJobDefinition -&gt; Text
@@ -89,7 +89,7 @@
 </span><span id="line-80"></span><span>    </span><span id="%24sel%3AroleArn%3ACreateModelBiasJobDefinition%27"><span class="annot"><span class="annottext">CreateModelBiasJobDefinition -&gt; Text
 </span><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#%24sel%3AroleArn%3ACreateModelBiasJobDefinition%27"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-81"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-82"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680416081"><span id="local-6989586621680416083"><span class="annot"><span class="annottext">CreateModelBiasJobDefinition
+</span><span id="line-82"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680417725"><span id="local-6989586621680417727"><span class="annot"><span class="annottext">CreateModelBiasJobDefinition
 -&gt; CreateModelBiasJobDefinition -&gt; Bool
 (CreateModelBiasJobDefinition
  -&gt; CreateModelBiasJobDefinition -&gt; Bool)
@@ -105,7 +105,7 @@ $c/= :: CreateModelBiasJobDefinition
 -&gt; CreateModelBiasJobDefinition -&gt; Bool
 $c== :: CreateModelBiasJobDefinition
 -&gt; CreateModelBiasJobDefinition -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680416072"><span id="local-6989586621680416074"><span id="local-6989586621680416076"><span id="local-6989586621680416078"><span class="annot"><span class="annottext">ReadPrec [CreateModelBiasJobDefinition]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680417716"><span id="local-6989586621680417718"><span id="local-6989586621680417720"><span id="local-6989586621680417722"><span class="annot"><span class="annottext">ReadPrec [CreateModelBiasJobDefinition]
 ReadPrec CreateModelBiasJobDefinition
 Int -&gt; ReadS CreateModelBiasJobDefinition
 ReadS [CreateModelBiasJobDefinition]
@@ -125,7 +125,7 @@ readList :: ReadS [CreateModelBiasJobDefinition]
 $creadList :: ReadS [CreateModelBiasJobDefinition]
 readsPrec :: Int -&gt; ReadS CreateModelBiasJobDefinition
 $creadsPrec :: Int -&gt; ReadS CreateModelBiasJobDefinition
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680416065"><span id="local-6989586621680416067"><span id="local-6989586621680416069"><span class="annot"><span class="annottext">Int -&gt; CreateModelBiasJobDefinition -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680417709"><span id="local-6989586621680417711"><span id="local-6989586621680417713"><span class="annot"><span class="annottext">Int -&gt; CreateModelBiasJobDefinition -&gt; ShowS
 [CreateModelBiasJobDefinition] -&gt; ShowS
 CreateModelBiasJobDefinition -&gt; String
 (Int -&gt; CreateModelBiasJobDefinition -&gt; ShowS)
@@ -165,15 +165,15 @@ CreateModelBiasJobDefinition -&gt; Rep CreateModelBiasJobDefinition x
 </span><span id="line-89"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-91"></span><span class="hs-comment">--</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- 'networkConfig', 'createModelBiasJobDefinition_networkConfig' - Networking options for a model bias job.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'modelBiasBaselineConfig', 'createModelBiasJobDefinition_modelBiasBaselineConfig' - The baseline configuration for a model bias job.</span><span>
 </span><span id="line-93"></span><span class="hs-comment">--</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- 'modelBiasBaselineConfig', 'createModelBiasJobDefinition_modelBiasBaselineConfig' - The baseline configuration for a model bias job.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'stoppingCondition', 'createModelBiasJobDefinition_stoppingCondition' - Undocumented member.</span><span>
 </span><span id="line-95"></span><span class="hs-comment">--</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- 'tags', 'createModelBiasJobDefinition_tags' - (Optional) An array of key-value pairs. For more information, see</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL Using Cost Allocation Tags&gt;</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- in the /Amazon Web Services Billing and Cost Management User Guide/.</span><span>
-</span><span id="line-99"></span><span class="hs-comment">--</span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- 'stoppingCondition', 'createModelBiasJobDefinition_stoppingCondition' - Undocumented member.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'networkConfig', 'createModelBiasJobDefinition_networkConfig' - Networking options for a model bias job.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'tags', 'createModelBiasJobDefinition_tags' - (Optional) An array of key-value pairs. For more information, see</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL Using Cost Allocation Tags&gt;</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- in the /Amazon Web Services Billing and Cost Management User Guide/.</span><span>
 </span><span id="line-101"></span><span class="hs-comment">--</span><span>
 </span><span id="line-102"></span><span class="hs-comment">-- 'jobDefinitionName', 'createModelBiasJobDefinition_jobDefinitionName' - The name of the bias job definition. The name must be unique within an</span><span>
 </span><span id="line-103"></span><span class="hs-comment">-- Amazon Web Services Region in the Amazon Web Services account.</span><span>
@@ -210,22 +210,22 @@ CreateModelBiasJobDefinition -&gt; Rep CreateModelBiasJobDefinition x
 -&gt; Text
 -&gt; CreateModelBiasJobDefinition
 </span><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#newCreateModelBiasJobDefinition"><span class="hs-identifier hs-var hs-var">newCreateModelBiasJobDefinition</span></a></span></span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621680416060"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680416060"><span class="hs-identifier hs-var">pJobDefinitionName_</span></a></span></span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621680416059"><span class="annot"><span class="annottext">ModelBiasAppSpecification
-</span><a href="#local-6989586621680416059"><span class="hs-identifier hs-var">pModelBiasAppSpecification_</span></a></span></span><span>
-</span><span id="line-132"></span><span>  </span><span id="local-6989586621680416058"><span class="annot"><span class="annottext">ModelBiasJobInput
-</span><a href="#local-6989586621680416058"><span class="hs-identifier hs-var">pModelBiasJobInput_</span></a></span></span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621680416057"><span class="annot"><span class="annottext">MonitoringOutputConfig
-</span><a href="#local-6989586621680416057"><span class="hs-identifier hs-var">pModelBiasJobOutputConfig_</span></a></span></span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621680416056"><span class="annot"><span class="annottext">MonitoringResources
-</span><a href="#local-6989586621680416056"><span class="hs-identifier hs-var">pJobResources_</span></a></span></span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621680416055"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680416055"><span class="hs-identifier hs-var">pRoleArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-136"></span><span>    </span><span class="annot"><span class="annottext">CreateModelBiasJobDefinition' :: Maybe MonitoringNetworkConfig
--&gt; Maybe ModelBiasBaselineConfig
--&gt; Maybe [Tag]
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621680417704"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680417704"><span class="hs-identifier hs-var">pJobDefinitionName_</span></a></span></span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621680417703"><span class="annot"><span class="annottext">ModelBiasAppSpecification
+</span><a href="#local-6989586621680417703"><span class="hs-identifier hs-var">pModelBiasAppSpecification_</span></a></span></span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621680417702"><span class="annot"><span class="annottext">ModelBiasJobInput
+</span><a href="#local-6989586621680417702"><span class="hs-identifier hs-var">pModelBiasJobInput_</span></a></span></span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621680417701"><span class="annot"><span class="annottext">MonitoringOutputConfig
+</span><a href="#local-6989586621680417701"><span class="hs-identifier hs-var">pModelBiasJobOutputConfig_</span></a></span></span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621680417700"><span class="annot"><span class="annottext">MonitoringResources
+</span><a href="#local-6989586621680417700"><span class="hs-identifier hs-var">pJobResources_</span></a></span></span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621680417699"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680417699"><span class="hs-identifier hs-var">pRoleArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-136"></span><span>    </span><span class="annot"><span class="annottext">CreateModelBiasJobDefinition' :: Maybe ModelBiasBaselineConfig
 -&gt; Maybe MonitoringStoppingCondition
+-&gt; Maybe MonitoringNetworkConfig
+-&gt; Maybe [Tag]
 -&gt; Text
 -&gt; ModelBiasAppSpecification
 -&gt; ModelBiasJobInput
@@ -234,73 +234,48 @@ CreateModelBiasJobDefinition -&gt; Rep CreateModelBiasJobDefinition x
 -&gt; Text
 -&gt; CreateModelBiasJobDefinition
 </span><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition%27"><span class="hs-identifier hs-type">CreateModelBiasJobDefinition'</span></a></span><span>
-</span><span id="line-137"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:networkConfig:CreateModelBiasJobDefinition' :: Maybe MonitoringNetworkConfig
-</span><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#%24sel%3AnetworkConfig%3ACreateModelBiasJobDefinition%27"><span class="hs-identifier hs-var">networkConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-138"></span><span>          </span><span class="annot"><span class="annottext">Maybe MonitoringNetworkConfig
+</span><span id="line-137"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:modelBiasBaselineConfig:CreateModelBiasJobDefinition' :: Maybe ModelBiasBaselineConfig
+</span><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#%24sel%3AmodelBiasBaselineConfig%3ACreateModelBiasJobDefinition%27"><span class="hs-identifier hs-var">modelBiasBaselineConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>          </span><span class="annot"><span class="annottext">Maybe ModelBiasBaselineConfig
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-139"></span><span>        </span><span class="annot"><span class="annottext">$sel:modelBiasBaselineConfig:CreateModelBiasJobDefinition' :: Maybe ModelBiasBaselineConfig
-</span><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#%24sel%3AmodelBiasBaselineConfig%3ACreateModelBiasJobDefinition%27"><span class="hs-identifier hs-var">modelBiasBaselineConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ModelBiasBaselineConfig
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-140"></span><span>        </span><span class="annot"><span class="annottext">$sel:tags:CreateModelBiasJobDefinition' :: Maybe [Tag]
-</span><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#%24sel%3Atags%3ACreateModelBiasJobDefinition%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-141"></span><span>        </span><span class="annot"><span class="annottext">$sel:stoppingCondition:CreateModelBiasJobDefinition' :: Maybe MonitoringStoppingCondition
+</span><span id="line-139"></span><span>        </span><span class="annot"><span class="annottext">$sel:stoppingCondition:CreateModelBiasJobDefinition' :: Maybe MonitoringStoppingCondition
 </span><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#%24sel%3AstoppingCondition%3ACreateModelBiasJobDefinition%27"><span class="hs-identifier hs-var">stoppingCondition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MonitoringStoppingCondition
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>        </span><span class="annot"><span class="annottext">$sel:networkConfig:CreateModelBiasJobDefinition' :: Maybe MonitoringNetworkConfig
+</span><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#%24sel%3AnetworkConfig%3ACreateModelBiasJobDefinition%27"><span class="hs-identifier hs-var">networkConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MonitoringNetworkConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>        </span><span class="annot"><span class="annottext">$sel:tags:CreateModelBiasJobDefinition' :: Maybe [Tag]
+</span><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#%24sel%3Atags%3ACreateModelBiasJobDefinition%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-142"></span><span>        </span><span class="annot"><span class="annottext">$sel:jobDefinitionName:CreateModelBiasJobDefinition' :: Text
 </span><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#%24sel%3AjobDefinitionName%3ACreateModelBiasJobDefinition%27"><span class="hs-identifier hs-var">jobDefinitionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680416060"><span class="hs-identifier hs-var">pJobDefinitionName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680417704"><span class="hs-identifier hs-var">pJobDefinitionName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-143"></span><span>        </span><span class="annot"><span class="annottext">$sel:modelBiasAppSpecification:CreateModelBiasJobDefinition' :: ModelBiasAppSpecification
 </span><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#%24sel%3AmodelBiasAppSpecification%3ACreateModelBiasJobDefinition%27"><span class="hs-identifier hs-var">modelBiasAppSpecification</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-144"></span><span>          </span><span class="annot"><span class="annottext">ModelBiasAppSpecification
-</span><a href="#local-6989586621680416059"><span class="hs-identifier hs-var">pModelBiasAppSpecification_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680417703"><span class="hs-identifier hs-var">pModelBiasAppSpecification_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-145"></span><span>        </span><span class="annot"><span class="annottext">$sel:modelBiasJobInput:CreateModelBiasJobDefinition' :: ModelBiasJobInput
 </span><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#%24sel%3AmodelBiasJobInput%3ACreateModelBiasJobDefinition%27"><span class="hs-identifier hs-var">modelBiasJobInput</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ModelBiasJobInput
-</span><a href="#local-6989586621680416058"><span class="hs-identifier hs-var">pModelBiasJobInput_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680417702"><span class="hs-identifier hs-var">pModelBiasJobInput_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-146"></span><span>        </span><span class="annot"><span class="annottext">$sel:modelBiasJobOutputConfig:CreateModelBiasJobDefinition' :: MonitoringOutputConfig
 </span><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#%24sel%3AmodelBiasJobOutputConfig%3ACreateModelBiasJobDefinition%27"><span class="hs-identifier hs-var">modelBiasJobOutputConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-147"></span><span>          </span><span class="annot"><span class="annottext">MonitoringOutputConfig
-</span><a href="#local-6989586621680416057"><span class="hs-identifier hs-var">pModelBiasJobOutputConfig_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680417701"><span class="hs-identifier hs-var">pModelBiasJobOutputConfig_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-148"></span><span>        </span><span class="annot"><span class="annottext">$sel:jobResources:CreateModelBiasJobDefinition' :: MonitoringResources
 </span><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#%24sel%3AjobResources%3ACreateModelBiasJobDefinition%27"><span class="hs-identifier hs-var">jobResources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">MonitoringResources
-</span><a href="#local-6989586621680416056"><span class="hs-identifier hs-var">pJobResources_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680417700"><span class="hs-identifier hs-var">pJobResources_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-149"></span><span>        </span><span class="annot"><span class="annottext">$sel:roleArn:CreateModelBiasJobDefinition' :: Text
 </span><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#%24sel%3AroleArn%3ACreateModelBiasJobDefinition%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680416055"><span class="hs-identifier hs-var">pRoleArn_</span></a></span><span>
+</span><a href="#local-6989586621680417699"><span class="hs-identifier hs-var">pRoleArn_</span></a></span><span>
 </span><span id="line-150"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-151"></span><span>
-</span><span id="line-152"></span><span class="hs-comment">-- | Networking options for a model bias job.</span><span>
-</span><span id="line-153"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#createModelBiasJobDefinition_networkConfig"><span class="hs-identifier hs-type">createModelBiasJobDefinition_networkConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition"><span class="hs-identifier hs-type">CreateModelBiasJobDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringNetworkConfig.html#MonitoringNetworkConfig"><span class="hs-identifier hs-type">MonitoringNetworkConfig</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-154"></span><span id="createModelBiasJobDefinition_networkConfig"><span class="annot"><span class="annottext">createModelBiasJobDefinition_networkConfig :: (Maybe MonitoringNetworkConfig
- -&gt; f (Maybe MonitoringNetworkConfig))
--&gt; CreateModelBiasJobDefinition -&gt; f CreateModelBiasJobDefinition
-</span><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#createModelBiasJobDefinition_networkConfig"><span class="hs-identifier hs-var hs-var">createModelBiasJobDefinition_networkConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateModelBiasJobDefinition -&gt; Maybe MonitoringNetworkConfig)
--&gt; (CreateModelBiasJobDefinition
-    -&gt; Maybe MonitoringNetworkConfig -&gt; CreateModelBiasJobDefinition)
--&gt; Lens
-     CreateModelBiasJobDefinition
-     CreateModelBiasJobDefinition
-     (Maybe MonitoringNetworkConfig)
-     (Maybe MonitoringNetworkConfig)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition%27"><span class="hs-identifier hs-type">CreateModelBiasJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680416052"><span class="annot"><span class="annottext">Maybe MonitoringNetworkConfig
-networkConfig :: Maybe MonitoringNetworkConfig
-$sel:networkConfig:CreateModelBiasJobDefinition' :: CreateModelBiasJobDefinition -&gt; Maybe MonitoringNetworkConfig
-</span><a href="#local-6989586621680416052"><span class="hs-identifier hs-var hs-var">networkConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MonitoringNetworkConfig
-</span><a href="#local-6989586621680416052"><span class="hs-identifier hs-var">networkConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680416051"><span class="annot"><span class="annottext">s :: CreateModelBiasJobDefinition
-</span><a href="#local-6989586621680416051"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition%27"><span class="hs-identifier hs-type">CreateModelBiasJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680416050"><span class="annot"><span class="annottext">Maybe MonitoringNetworkConfig
-</span><a href="#local-6989586621680416050"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModelBiasJobDefinition
-</span><a href="#local-6989586621680416051"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkConfig:CreateModelBiasJobDefinition' :: Maybe MonitoringNetworkConfig
-</span><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#%24sel%3AnetworkConfig%3ACreateModelBiasJobDefinition%27"><span class="hs-identifier hs-var">networkConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MonitoringNetworkConfig
-</span><a href="#local-6989586621680416050"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition"><span class="hs-identifier hs-type">CreateModelBiasJobDefinition</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-155"></span><span>
-</span><span id="line-156"></span><span class="hs-comment">-- | The baseline configuration for a model bias job.</span><span>
-</span><span id="line-157"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#createModelBiasJobDefinition_modelBiasBaselineConfig"><span class="hs-identifier hs-type">createModelBiasJobDefinition_modelBiasBaselineConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition"><span class="hs-identifier hs-type">CreateModelBiasJobDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelBiasBaselineConfig.html#ModelBiasBaselineConfig"><span class="hs-identifier hs-type">ModelBiasBaselineConfig</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-158"></span><span id="createModelBiasJobDefinition_modelBiasBaselineConfig"><span class="annot"><span class="annottext">createModelBiasJobDefinition_modelBiasBaselineConfig :: (Maybe ModelBiasBaselineConfig
+</span><span id="line-152"></span><span class="hs-comment">-- | The baseline configuration for a model bias job.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#createModelBiasJobDefinition_modelBiasBaselineConfig"><span class="hs-identifier hs-type">createModelBiasJobDefinition_modelBiasBaselineConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition"><span class="hs-identifier hs-type">CreateModelBiasJobDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelBiasBaselineConfig.html#ModelBiasBaselineConfig"><span class="hs-identifier hs-type">ModelBiasBaselineConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span id="createModelBiasJobDefinition_modelBiasBaselineConfig"><span class="annot"><span class="annottext">createModelBiasJobDefinition_modelBiasBaselineConfig :: (Maybe ModelBiasBaselineConfig
  -&gt; f (Maybe ModelBiasBaselineConfig))
 -&gt; CreateModelBiasJobDefinition -&gt; f CreateModelBiasJobDefinition
 </span><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#createModelBiasJobDefinition_modelBiasBaselineConfig"><span class="hs-identifier hs-var hs-var">createModelBiasJobDefinition_modelBiasBaselineConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateModelBiasJobDefinition -&gt; Maybe ModelBiasBaselineConfig)
@@ -312,22 +287,73 @@ $sel:networkConfig:CreateModelBiasJobDefinition' :: CreateModelBiasJobDefinition
      (Maybe ModelBiasBaselineConfig)
      (Maybe ModelBiasBaselineConfig)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition%27"><span class="hs-identifier hs-type">CreateModelBiasJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680416049"><span class="annot"><span class="annottext">Maybe ModelBiasBaselineConfig
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition%27"><span class="hs-identifier hs-type">CreateModelBiasJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680417696"><span class="annot"><span class="annottext">Maybe ModelBiasBaselineConfig
 modelBiasBaselineConfig :: Maybe ModelBiasBaselineConfig
 $sel:modelBiasBaselineConfig:CreateModelBiasJobDefinition' :: CreateModelBiasJobDefinition -&gt; Maybe ModelBiasBaselineConfig
-</span><a href="#local-6989586621680416049"><span class="hs-identifier hs-var hs-var">modelBiasBaselineConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ModelBiasBaselineConfig
-</span><a href="#local-6989586621680416049"><span class="hs-identifier hs-var">modelBiasBaselineConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680416048"><span class="annot"><span class="annottext">s :: CreateModelBiasJobDefinition
-</span><a href="#local-6989586621680416048"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition%27"><span class="hs-identifier hs-type">CreateModelBiasJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680416047"><span class="annot"><span class="annottext">Maybe ModelBiasBaselineConfig
-</span><a href="#local-6989586621680416047"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModelBiasJobDefinition
-</span><a href="#local-6989586621680416048"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelBiasBaselineConfig:CreateModelBiasJobDefinition' :: Maybe ModelBiasBaselineConfig
+</span><a href="#local-6989586621680417696"><span class="hs-identifier hs-var hs-var">modelBiasBaselineConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ModelBiasBaselineConfig
+</span><a href="#local-6989586621680417696"><span class="hs-identifier hs-var">modelBiasBaselineConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680417695"><span class="annot"><span class="annottext">s :: CreateModelBiasJobDefinition
+</span><a href="#local-6989586621680417695"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition%27"><span class="hs-identifier hs-type">CreateModelBiasJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680417694"><span class="annot"><span class="annottext">Maybe ModelBiasBaselineConfig
+</span><a href="#local-6989586621680417694"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModelBiasJobDefinition
+</span><a href="#local-6989586621680417695"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelBiasBaselineConfig:CreateModelBiasJobDefinition' :: Maybe ModelBiasBaselineConfig
 </span><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#%24sel%3AmodelBiasBaselineConfig%3ACreateModelBiasJobDefinition%27"><span class="hs-identifier hs-var">modelBiasBaselineConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ModelBiasBaselineConfig
-</span><a href="#local-6989586621680416047"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition"><span class="hs-identifier hs-type">CreateModelBiasJobDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680417694"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition"><span class="hs-identifier hs-type">CreateModelBiasJobDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#createModelBiasJobDefinition_stoppingCondition"><span class="hs-identifier hs-type">createModelBiasJobDefinition_stoppingCondition</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition"><span class="hs-identifier hs-type">CreateModelBiasJobDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringStoppingCondition.html#MonitoringStoppingCondition"><span class="hs-identifier hs-type">MonitoringStoppingCondition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span id="createModelBiasJobDefinition_stoppingCondition"><span class="annot"><span class="annottext">createModelBiasJobDefinition_stoppingCondition :: (Maybe MonitoringStoppingCondition
+ -&gt; f (Maybe MonitoringStoppingCondition))
+-&gt; CreateModelBiasJobDefinition -&gt; f CreateModelBiasJobDefinition
+</span><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#createModelBiasJobDefinition_stoppingCondition"><span class="hs-identifier hs-var hs-var">createModelBiasJobDefinition_stoppingCondition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateModelBiasJobDefinition -&gt; Maybe MonitoringStoppingCondition)
+-&gt; (CreateModelBiasJobDefinition
+    -&gt; Maybe MonitoringStoppingCondition
+    -&gt; CreateModelBiasJobDefinition)
+-&gt; Lens
+     CreateModelBiasJobDefinition
+     CreateModelBiasJobDefinition
+     (Maybe MonitoringStoppingCondition)
+     (Maybe MonitoringStoppingCondition)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition%27"><span class="hs-identifier hs-type">CreateModelBiasJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680417693"><span class="annot"><span class="annottext">Maybe MonitoringStoppingCondition
+stoppingCondition :: Maybe MonitoringStoppingCondition
+$sel:stoppingCondition:CreateModelBiasJobDefinition' :: CreateModelBiasJobDefinition -&gt; Maybe MonitoringStoppingCondition
+</span><a href="#local-6989586621680417693"><span class="hs-identifier hs-var hs-var">stoppingCondition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MonitoringStoppingCondition
+</span><a href="#local-6989586621680417693"><span class="hs-identifier hs-var">stoppingCondition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680417692"><span class="annot"><span class="annottext">s :: CreateModelBiasJobDefinition
+</span><a href="#local-6989586621680417692"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition%27"><span class="hs-identifier hs-type">CreateModelBiasJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680417691"><span class="annot"><span class="annottext">Maybe MonitoringStoppingCondition
+</span><a href="#local-6989586621680417691"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModelBiasJobDefinition
+</span><a href="#local-6989586621680417692"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stoppingCondition:CreateModelBiasJobDefinition' :: Maybe MonitoringStoppingCondition
+</span><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#%24sel%3AstoppingCondition%3ACreateModelBiasJobDefinition%27"><span class="hs-identifier hs-var">stoppingCondition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MonitoringStoppingCondition
+</span><a href="#local-6989586621680417691"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition"><span class="hs-identifier hs-type">CreateModelBiasJobDefinition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span><span>
-</span><span id="line-160"></span><span class="hs-comment">-- | (Optional) An array of key-value pairs. For more information, see</span><span>
-</span><span id="line-161"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL Using Cost Allocation Tags&gt;</span><span>
-</span><span id="line-162"></span><span class="hs-comment">-- in the /Amazon Web Services Billing and Cost Management User Guide/.</span><span>
-</span><span id="line-163"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#createModelBiasJobDefinition_tags"><span class="hs-identifier hs-type">createModelBiasJobDefinition_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition"><span class="hs-identifier hs-type">CreateModelBiasJobDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-164"></span><span id="createModelBiasJobDefinition_tags"><span class="annot"><span class="annottext">createModelBiasJobDefinition_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
+</span><span id="line-160"></span><span class="hs-comment">-- | Networking options for a model bias job.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#createModelBiasJobDefinition_networkConfig"><span class="hs-identifier hs-type">createModelBiasJobDefinition_networkConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition"><span class="hs-identifier hs-type">CreateModelBiasJobDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringNetworkConfig.html#MonitoringNetworkConfig"><span class="hs-identifier hs-type">MonitoringNetworkConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span id="createModelBiasJobDefinition_networkConfig"><span class="annot"><span class="annottext">createModelBiasJobDefinition_networkConfig :: (Maybe MonitoringNetworkConfig
+ -&gt; f (Maybe MonitoringNetworkConfig))
+-&gt; CreateModelBiasJobDefinition -&gt; f CreateModelBiasJobDefinition
+</span><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#createModelBiasJobDefinition_networkConfig"><span class="hs-identifier hs-var hs-var">createModelBiasJobDefinition_networkConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateModelBiasJobDefinition -&gt; Maybe MonitoringNetworkConfig)
+-&gt; (CreateModelBiasJobDefinition
+    -&gt; Maybe MonitoringNetworkConfig -&gt; CreateModelBiasJobDefinition)
+-&gt; Lens
+     CreateModelBiasJobDefinition
+     CreateModelBiasJobDefinition
+     (Maybe MonitoringNetworkConfig)
+     (Maybe MonitoringNetworkConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition%27"><span class="hs-identifier hs-type">CreateModelBiasJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680417690"><span class="annot"><span class="annottext">Maybe MonitoringNetworkConfig
+networkConfig :: Maybe MonitoringNetworkConfig
+$sel:networkConfig:CreateModelBiasJobDefinition' :: CreateModelBiasJobDefinition -&gt; Maybe MonitoringNetworkConfig
+</span><a href="#local-6989586621680417690"><span class="hs-identifier hs-var hs-var">networkConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MonitoringNetworkConfig
+</span><a href="#local-6989586621680417690"><span class="hs-identifier hs-var">networkConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680417689"><span class="annot"><span class="annottext">s :: CreateModelBiasJobDefinition
+</span><a href="#local-6989586621680417689"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition%27"><span class="hs-identifier hs-type">CreateModelBiasJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680417688"><span class="annot"><span class="annottext">Maybe MonitoringNetworkConfig
+</span><a href="#local-6989586621680417688"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModelBiasJobDefinition
+</span><a href="#local-6989586621680417689"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkConfig:CreateModelBiasJobDefinition' :: Maybe MonitoringNetworkConfig
+</span><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#%24sel%3AnetworkConfig%3ACreateModelBiasJobDefinition%27"><span class="hs-identifier hs-var">networkConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MonitoringNetworkConfig
+</span><a href="#local-6989586621680417688"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition"><span class="hs-identifier hs-type">CreateModelBiasJobDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- | (Optional) An array of key-value pairs. For more information, see</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL Using Cost Allocation Tags&gt;</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- in the /Amazon Web Services Billing and Cost Management User Guide/.</span><span>
+</span><span id="line-167"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#createModelBiasJobDefinition_tags"><span class="hs-identifier hs-type">createModelBiasJobDefinition_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition"><span class="hs-identifier hs-type">CreateModelBiasJobDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span id="createModelBiasJobDefinition_tags"><span class="annot"><span class="annottext">createModelBiasJobDefinition_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
 -&gt; CreateModelBiasJobDefinition -&gt; f CreateModelBiasJobDefinition
 </span><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#createModelBiasJobDefinition_tags"><span class="hs-identifier hs-var hs-var">createModelBiasJobDefinition_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateModelBiasJobDefinition -&gt; Maybe [Tag])
 -&gt; (CreateModelBiasJobDefinition
@@ -338,16 +364,16 @@ $sel:modelBiasBaselineConfig:CreateModelBiasJobDefinition' :: CreateModelBiasJob
      (Maybe [Tag])
      (Maybe [Tag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition%27"><span class="hs-identifier hs-type">CreateModelBiasJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680416046"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition%27"><span class="hs-identifier hs-type">CreateModelBiasJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680417687"><span class="annot"><span class="annottext">Maybe [Tag]
 tags :: Maybe [Tag]
 $sel:tags:CreateModelBiasJobDefinition' :: CreateModelBiasJobDefinition -&gt; Maybe [Tag]
-</span><a href="#local-6989586621680416046"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621680416046"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680416045"><span class="annot"><span class="annottext">s :: CreateModelBiasJobDefinition
-</span><a href="#local-6989586621680416045"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition%27"><span class="hs-identifier hs-type">CreateModelBiasJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680416044"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621680416044"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModelBiasJobDefinition
-</span><a href="#local-6989586621680416045"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateModelBiasJobDefinition' :: Maybe [Tag]
+</span><a href="#local-6989586621680417687"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621680417687"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680417686"><span class="annot"><span class="annottext">s :: CreateModelBiasJobDefinition
+</span><a href="#local-6989586621680417686"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition%27"><span class="hs-identifier hs-type">CreateModelBiasJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680417685"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621680417685"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModelBiasJobDefinition
+</span><a href="#local-6989586621680417686"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateModelBiasJobDefinition' :: Maybe [Tag]
 </span><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#%24sel%3Atags%3ACreateModelBiasJobDefinition%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621680416044"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition"><span class="hs-identifier hs-type">CreateModelBiasJobDefinition</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+</span><a href="#local-6989586621680417685"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition"><span class="hs-identifier hs-type">CreateModelBiasJobDefinition</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
  -&gt; CreateModelBiasJobDefinition -&gt; f CreateModelBiasJobDefinition)
 -&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
     -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
@@ -361,34 +387,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-165"></span><span>
-</span><span id="line-166"></span><span class="hs-comment">-- | Undocumented member.</span><span>
-</span><span id="line-167"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#createModelBiasJobDefinition_stoppingCondition"><span class="hs-identifier hs-type">createModelBiasJobDefinition_stoppingCondition</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition"><span class="hs-identifier hs-type">CreateModelBiasJobDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringStoppingCondition.html#MonitoringStoppingCondition"><span class="hs-identifier hs-type">MonitoringStoppingCondition</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-168"></span><span id="createModelBiasJobDefinition_stoppingCondition"><span class="annot"><span class="annottext">createModelBiasJobDefinition_stoppingCondition :: (Maybe MonitoringStoppingCondition
- -&gt; f (Maybe MonitoringStoppingCondition))
--&gt; CreateModelBiasJobDefinition -&gt; f CreateModelBiasJobDefinition
-</span><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#createModelBiasJobDefinition_stoppingCondition"><span class="hs-identifier hs-var hs-var">createModelBiasJobDefinition_stoppingCondition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateModelBiasJobDefinition -&gt; Maybe MonitoringStoppingCondition)
--&gt; (CreateModelBiasJobDefinition
-    -&gt; Maybe MonitoringStoppingCondition
-    -&gt; CreateModelBiasJobDefinition)
--&gt; Lens
-     CreateModelBiasJobDefinition
-     CreateModelBiasJobDefinition
-     (Maybe MonitoringStoppingCondition)
-     (Maybe MonitoringStoppingCondition)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition%27"><span class="hs-identifier hs-type">CreateModelBiasJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680416040"><span class="annot"><span class="annottext">Maybe MonitoringStoppingCondition
-stoppingCondition :: Maybe MonitoringStoppingCondition
-$sel:stoppingCondition:CreateModelBiasJobDefinition' :: CreateModelBiasJobDefinition -&gt; Maybe MonitoringStoppingCondition
-</span><a href="#local-6989586621680416040"><span class="hs-identifier hs-var hs-var">stoppingCondition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MonitoringStoppingCondition
-</span><a href="#local-6989586621680416040"><span class="hs-identifier hs-var">stoppingCondition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680416039"><span class="annot"><span class="annottext">s :: CreateModelBiasJobDefinition
-</span><a href="#local-6989586621680416039"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition%27"><span class="hs-identifier hs-type">CreateModelBiasJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680416038"><span class="annot"><span class="annottext">Maybe MonitoringStoppingCondition
-</span><a href="#local-6989586621680416038"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModelBiasJobDefinition
-</span><a href="#local-6989586621680416039"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stoppingCondition:CreateModelBiasJobDefinition' :: Maybe MonitoringStoppingCondition
-</span><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#%24sel%3AstoppingCondition%3ACreateModelBiasJobDefinition%27"><span class="hs-identifier hs-var">stoppingCondition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MonitoringStoppingCondition
-</span><a href="#local-6989586621680416038"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition"><span class="hs-identifier hs-type">CreateModelBiasJobDefinition</span></a></span><span class="hs-special">)</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-169"></span><span>
 </span><span id="line-170"></span><span class="hs-comment">-- | The name of the bias job definition. The name must be unique within an</span><span>
 </span><span id="line-171"></span><span class="hs-comment">-- Amazon Web Services Region in the Amazon Web Services account.</span><span>
@@ -401,16 +401,16 @@ $sel:stoppingCondition:CreateModelBiasJobDefinition' :: CreateModelBiasJobDefini
 -&gt; Lens
      CreateModelBiasJobDefinition CreateModelBiasJobDefinition Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition%27"><span class="hs-identifier hs-type">CreateModelBiasJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680416037"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition%27"><span class="hs-identifier hs-type">CreateModelBiasJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680417681"><span class="annot"><span class="annottext">Text
 jobDefinitionName :: Text
 $sel:jobDefinitionName:CreateModelBiasJobDefinition' :: CreateModelBiasJobDefinition -&gt; Text
-</span><a href="#local-6989586621680416037"><span class="hs-identifier hs-var hs-var">jobDefinitionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680416037"><span class="hs-identifier hs-var">jobDefinitionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680416036"><span class="annot"><span class="annottext">s :: CreateModelBiasJobDefinition
-</span><a href="#local-6989586621680416036"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition%27"><span class="hs-identifier hs-type">CreateModelBiasJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680416035"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680416035"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModelBiasJobDefinition
-</span><a href="#local-6989586621680416036"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobDefinitionName:CreateModelBiasJobDefinition' :: Text
+</span><a href="#local-6989586621680417681"><span class="hs-identifier hs-var hs-var">jobDefinitionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680417681"><span class="hs-identifier hs-var">jobDefinitionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680417680"><span class="annot"><span class="annottext">s :: CreateModelBiasJobDefinition
+</span><a href="#local-6989586621680417680"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition%27"><span class="hs-identifier hs-type">CreateModelBiasJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680417679"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680417679"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModelBiasJobDefinition
+</span><a href="#local-6989586621680417680"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobDefinitionName:CreateModelBiasJobDefinition' :: Text
 </span><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#%24sel%3AjobDefinitionName%3ACreateModelBiasJobDefinition%27"><span class="hs-identifier hs-var">jobDefinitionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680416035"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition"><span class="hs-identifier hs-type">CreateModelBiasJobDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680417679"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition"><span class="hs-identifier hs-type">CreateModelBiasJobDefinition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>
 </span><span id="line-175"></span><span class="hs-comment">-- | Configures the model bias job to run a specified Docker container image.</span><span>
 </span><span id="line-176"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#createModelBiasJobDefinition_modelBiasAppSpecification"><span class="hs-identifier hs-type">createModelBiasJobDefinition_modelBiasAppSpecification</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition"><span class="hs-identifier hs-type">CreateModelBiasJobDefinition</span></a></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelBiasAppSpecification.html#ModelBiasAppSpecification"><span class="hs-identifier hs-type">ModelBiasAppSpecification</span></a></span><span>
@@ -425,16 +425,16 @@ $sel:jobDefinitionName:CreateModelBiasJobDefinition' :: CreateModelBiasJobDefini
      ModelBiasAppSpecification
      ModelBiasAppSpecification
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition%27"><span class="hs-identifier hs-type">CreateModelBiasJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680416034"><span class="annot"><span class="annottext">ModelBiasAppSpecification
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition%27"><span class="hs-identifier hs-type">CreateModelBiasJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680417678"><span class="annot"><span class="annottext">ModelBiasAppSpecification
 modelBiasAppSpecification :: ModelBiasAppSpecification
 $sel:modelBiasAppSpecification:CreateModelBiasJobDefinition' :: CreateModelBiasJobDefinition -&gt; ModelBiasAppSpecification
-</span><a href="#local-6989586621680416034"><span class="hs-identifier hs-var hs-var">modelBiasAppSpecification</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelBiasAppSpecification
-</span><a href="#local-6989586621680416034"><span class="hs-identifier hs-var">modelBiasAppSpecification</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680416033"><span class="annot"><span class="annottext">s :: CreateModelBiasJobDefinition
-</span><a href="#local-6989586621680416033"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition%27"><span class="hs-identifier hs-type">CreateModelBiasJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680416032"><span class="annot"><span class="annottext">ModelBiasAppSpecification
-</span><a href="#local-6989586621680416032"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModelBiasJobDefinition
-</span><a href="#local-6989586621680416033"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelBiasAppSpecification:CreateModelBiasJobDefinition' :: ModelBiasAppSpecification
+</span><a href="#local-6989586621680417678"><span class="hs-identifier hs-var hs-var">modelBiasAppSpecification</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelBiasAppSpecification
+</span><a href="#local-6989586621680417678"><span class="hs-identifier hs-var">modelBiasAppSpecification</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680417677"><span class="annot"><span class="annottext">s :: CreateModelBiasJobDefinition
+</span><a href="#local-6989586621680417677"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition%27"><span class="hs-identifier hs-type">CreateModelBiasJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680417676"><span class="annot"><span class="annottext">ModelBiasAppSpecification
+</span><a href="#local-6989586621680417676"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModelBiasJobDefinition
+</span><a href="#local-6989586621680417677"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelBiasAppSpecification:CreateModelBiasJobDefinition' :: ModelBiasAppSpecification
 </span><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#%24sel%3AmodelBiasAppSpecification%3ACreateModelBiasJobDefinition%27"><span class="hs-identifier hs-var">modelBiasAppSpecification</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ModelBiasAppSpecification
-</span><a href="#local-6989586621680416032"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition"><span class="hs-identifier hs-type">CreateModelBiasJobDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680417676"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition"><span class="hs-identifier hs-type">CreateModelBiasJobDefinition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-178"></span><span>
 </span><span id="line-179"></span><span class="hs-comment">-- | Inputs for the model bias job.</span><span>
 </span><span id="line-180"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#createModelBiasJobDefinition_modelBiasJobInput"><span class="hs-identifier hs-type">createModelBiasJobDefinition_modelBiasJobInput</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition"><span class="hs-identifier hs-type">CreateModelBiasJobDefinition</span></a></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelBiasJobInput.html#ModelBiasJobInput"><span class="hs-identifier hs-type">ModelBiasJobInput</span></a></span><span>
@@ -449,16 +449,16 @@ $sel:modelBiasAppSpecification:CreateModelBiasJobDefinition' :: CreateModelBiasJ
      ModelBiasJobInput
      ModelBiasJobInput
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition%27"><span class="hs-identifier hs-type">CreateModelBiasJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680416031"><span class="annot"><span class="annottext">ModelBiasJobInput
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition%27"><span class="hs-identifier hs-type">CreateModelBiasJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680417675"><span class="annot"><span class="annottext">ModelBiasJobInput
 modelBiasJobInput :: ModelBiasJobInput
 $sel:modelBiasJobInput:CreateModelBiasJobDefinition' :: CreateModelBiasJobDefinition -&gt; ModelBiasJobInput
-</span><a href="#local-6989586621680416031"><span class="hs-identifier hs-var hs-var">modelBiasJobInput</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelBiasJobInput
-</span><a href="#local-6989586621680416031"><span class="hs-identifier hs-var">modelBiasJobInput</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680416030"><span class="annot"><span class="annottext">s :: CreateModelBiasJobDefinition
-</span><a href="#local-6989586621680416030"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition%27"><span class="hs-identifier hs-type">CreateModelBiasJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680416029"><span class="annot"><span class="annottext">ModelBiasJobInput
-</span><a href="#local-6989586621680416029"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModelBiasJobDefinition
-</span><a href="#local-6989586621680416030"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelBiasJobInput:CreateModelBiasJobDefinition' :: ModelBiasJobInput
+</span><a href="#local-6989586621680417675"><span class="hs-identifier hs-var hs-var">modelBiasJobInput</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelBiasJobInput
+</span><a href="#local-6989586621680417675"><span class="hs-identifier hs-var">modelBiasJobInput</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680417674"><span class="annot"><span class="annottext">s :: CreateModelBiasJobDefinition
+</span><a href="#local-6989586621680417674"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition%27"><span class="hs-identifier hs-type">CreateModelBiasJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680417673"><span class="annot"><span class="annottext">ModelBiasJobInput
+</span><a href="#local-6989586621680417673"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModelBiasJobDefinition
+</span><a href="#local-6989586621680417674"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelBiasJobInput:CreateModelBiasJobDefinition' :: ModelBiasJobInput
 </span><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#%24sel%3AmodelBiasJobInput%3ACreateModelBiasJobDefinition%27"><span class="hs-identifier hs-var">modelBiasJobInput</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ModelBiasJobInput
-</span><a href="#local-6989586621680416029"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition"><span class="hs-identifier hs-type">CreateModelBiasJobDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680417673"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition"><span class="hs-identifier hs-type">CreateModelBiasJobDefinition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-182"></span><span>
 </span><span id="line-183"></span><span class="hs-comment">-- | Undocumented member.</span><span>
 </span><span id="line-184"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#createModelBiasJobDefinition_modelBiasJobOutputConfig"><span class="hs-identifier hs-type">createModelBiasJobDefinition_modelBiasJobOutputConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition"><span class="hs-identifier hs-type">CreateModelBiasJobDefinition</span></a></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringOutputConfig.html#MonitoringOutputConfig"><span class="hs-identifier hs-type">MonitoringOutputConfig</span></a></span><span>
@@ -473,16 +473,16 @@ $sel:modelBiasJobInput:CreateModelBiasJobDefinition' :: CreateModelBiasJobDefini
      MonitoringOutputConfig
      MonitoringOutputConfig
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition%27"><span class="hs-identifier hs-type">CreateModelBiasJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680416028"><span class="annot"><span class="annottext">MonitoringOutputConfig
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition%27"><span class="hs-identifier hs-type">CreateModelBiasJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680417672"><span class="annot"><span class="annottext">MonitoringOutputConfig
 modelBiasJobOutputConfig :: MonitoringOutputConfig
 $sel:modelBiasJobOutputConfig:CreateModelBiasJobDefinition' :: CreateModelBiasJobDefinition -&gt; MonitoringOutputConfig
-</span><a href="#local-6989586621680416028"><span class="hs-identifier hs-var hs-var">modelBiasJobOutputConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MonitoringOutputConfig
-</span><a href="#local-6989586621680416028"><span class="hs-identifier hs-var">modelBiasJobOutputConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680416027"><span class="annot"><span class="annottext">s :: CreateModelBiasJobDefinition
-</span><a href="#local-6989586621680416027"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition%27"><span class="hs-identifier hs-type">CreateModelBiasJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680416026"><span class="annot"><span class="annottext">MonitoringOutputConfig
-</span><a href="#local-6989586621680416026"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModelBiasJobDefinition
-</span><a href="#local-6989586621680416027"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelBiasJobOutputConfig:CreateModelBiasJobDefinition' :: MonitoringOutputConfig
+</span><a href="#local-6989586621680417672"><span class="hs-identifier hs-var hs-var">modelBiasJobOutputConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MonitoringOutputConfig
+</span><a href="#local-6989586621680417672"><span class="hs-identifier hs-var">modelBiasJobOutputConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680417671"><span class="annot"><span class="annottext">s :: CreateModelBiasJobDefinition
+</span><a href="#local-6989586621680417671"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition%27"><span class="hs-identifier hs-type">CreateModelBiasJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680417670"><span class="annot"><span class="annottext">MonitoringOutputConfig
+</span><a href="#local-6989586621680417670"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModelBiasJobDefinition
+</span><a href="#local-6989586621680417671"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelBiasJobOutputConfig:CreateModelBiasJobDefinition' :: MonitoringOutputConfig
 </span><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#%24sel%3AmodelBiasJobOutputConfig%3ACreateModelBiasJobDefinition%27"><span class="hs-identifier hs-var">modelBiasJobOutputConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">MonitoringOutputConfig
-</span><a href="#local-6989586621680416026"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition"><span class="hs-identifier hs-type">CreateModelBiasJobDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680417670"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition"><span class="hs-identifier hs-type">CreateModelBiasJobDefinition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-186"></span><span>
 </span><span id="line-187"></span><span class="hs-comment">-- | Undocumented member.</span><span>
 </span><span id="line-188"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#createModelBiasJobDefinition_jobResources"><span class="hs-identifier hs-type">createModelBiasJobDefinition_jobResources</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition"><span class="hs-identifier hs-type">CreateModelBiasJobDefinition</span></a></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringResources.html#MonitoringResources"><span class="hs-identifier hs-type">MonitoringResources</span></a></span><span>
@@ -497,16 +497,16 @@ $sel:modelBiasJobOutputConfig:CreateModelBiasJobDefinition' :: CreateModelBiasJo
      MonitoringResources
      MonitoringResources
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition%27"><span class="hs-identifier hs-type">CreateModelBiasJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680416025"><span class="annot"><span class="annottext">MonitoringResources
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition%27"><span class="hs-identifier hs-type">CreateModelBiasJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680417669"><span class="annot"><span class="annottext">MonitoringResources
 jobResources :: MonitoringResources
 $sel:jobResources:CreateModelBiasJobDefinition' :: CreateModelBiasJobDefinition -&gt; MonitoringResources
-</span><a href="#local-6989586621680416025"><span class="hs-identifier hs-var hs-var">jobResources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MonitoringResources
-</span><a href="#local-6989586621680416025"><span class="hs-identifier hs-var">jobResources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680416024"><span class="annot"><span class="annottext">s :: CreateModelBiasJobDefinition
-</span><a href="#local-6989586621680416024"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition%27"><span class="hs-identifier hs-type">CreateModelBiasJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680416023"><span class="annot"><span class="annottext">MonitoringResources
-</span><a href="#local-6989586621680416023"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModelBiasJobDefinition
-</span><a href="#local-6989586621680416024"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobResources:CreateModelBiasJobDefinition' :: MonitoringResources
+</span><a href="#local-6989586621680417669"><span class="hs-identifier hs-var hs-var">jobResources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MonitoringResources
+</span><a href="#local-6989586621680417669"><span class="hs-identifier hs-var">jobResources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680417668"><span class="annot"><span class="annottext">s :: CreateModelBiasJobDefinition
+</span><a href="#local-6989586621680417668"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition%27"><span class="hs-identifier hs-type">CreateModelBiasJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680417667"><span class="annot"><span class="annottext">MonitoringResources
+</span><a href="#local-6989586621680417667"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModelBiasJobDefinition
+</span><a href="#local-6989586621680417668"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobResources:CreateModelBiasJobDefinition' :: MonitoringResources
 </span><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#%24sel%3AjobResources%3ACreateModelBiasJobDefinition%27"><span class="hs-identifier hs-var">jobResources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">MonitoringResources
-</span><a href="#local-6989586621680416023"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition"><span class="hs-identifier hs-type">CreateModelBiasJobDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680417667"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition"><span class="hs-identifier hs-type">CreateModelBiasJobDefinition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-190"></span><span>
 </span><span id="line-191"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can</span><span>
 </span><span id="line-192"></span><span class="hs-comment">-- assume to perform tasks on your behalf.</span><span>
@@ -519,22 +519,22 @@ $sel:jobResources:CreateModelBiasJobDefinition' :: CreateModelBiasJobDefinition 
 -&gt; Lens
      CreateModelBiasJobDefinition CreateModelBiasJobDefinition Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition%27"><span class="hs-identifier hs-type">CreateModelBiasJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680416022"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition%27"><span class="hs-identifier hs-type">CreateModelBiasJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680417666"><span class="annot"><span class="annottext">Text
 roleArn :: Text
 $sel:roleArn:CreateModelBiasJobDefinition' :: CreateModelBiasJobDefinition -&gt; Text
-</span><a href="#local-6989586621680416022"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680416022"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680416021"><span class="annot"><span class="annottext">s :: CreateModelBiasJobDefinition
-</span><a href="#local-6989586621680416021"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition%27"><span class="hs-identifier hs-type">CreateModelBiasJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680416020"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680416020"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModelBiasJobDefinition
-</span><a href="#local-6989586621680416021"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:CreateModelBiasJobDefinition' :: Text
+</span><a href="#local-6989586621680417666"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680417666"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680417665"><span class="annot"><span class="annottext">s :: CreateModelBiasJobDefinition
+</span><a href="#local-6989586621680417665"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition%27"><span class="hs-identifier hs-type">CreateModelBiasJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680417664"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680417664"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModelBiasJobDefinition
+</span><a href="#local-6989586621680417665"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:CreateModelBiasJobDefinition' :: Text
 </span><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#%24sel%3AroleArn%3ACreateModelBiasJobDefinition%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680416020"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition"><span class="hs-identifier hs-type">CreateModelBiasJobDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680417664"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition"><span class="hs-identifier hs-type">CreateModelBiasJobDefinition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-195"></span><span>
 </span><span id="line-196"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition"><span class="hs-identifier hs-type">CreateModelBiasJobDefinition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-197"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-198"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition"><span class="hs-identifier hs-type">CreateModelBiasJobDefinition</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-199"></span><span>      </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinitionResponse"><span class="hs-identifier hs-type">CreateModelBiasJobDefinitionResponse</span></a></span><span>
-</span><span id="line-200"></span><span>  </span><span id="local-6989586621680416016"><span class="annot"><span class="annottext">request :: CreateModelBiasJobDefinition
+</span><span id="line-200"></span><span>  </span><span id="local-6989586621680417660"><span class="annot"><span class="annottext">request :: CreateModelBiasJobDefinition
 -&gt; Request CreateModelBiasJobDefinition
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; CreateModelBiasJobDefinition
@@ -542,7 +542,7 @@ $sel:roleArn:CreateModelBiasJobDefinition' :: CreateModelBiasJobDefinition -&gt;
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SageMaker.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-201"></span><span>  </span><span id="local-6989586621680416012"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-201"></span><span>  </span><span id="local-6989586621680417656"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateModelBiasJobDefinition
 -&gt; ClientResponse ClientBody
@@ -568,10 +568,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-203"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680416009"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680416009"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680416008"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621680416008"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680416007"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680416007"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-203"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680417653"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680417653"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680417652"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621680417652"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680417651"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680417651"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-204"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Text -&gt; CreateModelBiasJobDefinitionResponse
 </span><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinitionResponse%27"><span class="hs-identifier hs-var">CreateModelBiasJobDefinitionResponse'</span></a></span><span>
 </span><span id="line-205"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; Text -&gt; CreateModelBiasJobDefinitionResponse)
@@ -583,26 +583,26 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680416009"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680417653"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-206"></span><span>            </span><span class="annot"><span class="annottext">Either String (Text -&gt; CreateModelBiasJobDefinitionResponse)
 -&gt; Either String Text
 -&gt; Either String CreateModelBiasJobDefinitionResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680416007"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621680417651"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;JobDefinitionArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-207"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-208"></span><span>
 </span><span id="line-209"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-210"></span><span>  </span><span id="local-6989586621680415999"><span id="local-6989586621680416001"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-210"></span><span>  </span><span id="local-6989586621680417643"><span id="local-6989586621680417645"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-211"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition"><span class="hs-identifier hs-type">CreateModelBiasJobDefinition</span></a></span></span></span><span>
 </span><span id="line-212"></span><span>
-</span><span id="line-213"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680415996"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition"><span class="hs-identifier hs-type">CreateModelBiasJobDefinition</span></a></span></span><span>
+</span><span id="line-213"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680417640"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition"><span class="hs-identifier hs-type">CreateModelBiasJobDefinition</span></a></span></span><span>
 </span><span id="line-214"></span><span>
 </span><span id="line-215"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition"><span class="hs-identifier hs-type">CreateModelBiasJobDefinition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-216"></span><span>  </span><span id="local-6989586621680415992"><span class="annot"><span class="annottext">toHeaders :: CreateModelBiasJobDefinition -&gt; ResponseHeaders
+</span><span id="line-216"></span><span>  </span><span id="local-6989586621680417636"><span class="annot"><span class="annottext">toHeaders :: CreateModelBiasJobDefinition -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-217"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateModelBiasJobDefinition -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -629,9 +629,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-227"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-228"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-229"></span><span>
-</span><span id="line-230"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680415982"><span id="local-6989586621680415984"><span id="local-6989586621680415986"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition"><span class="hs-identifier hs-type">CreateModelBiasJobDefinition</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-231"></span><span>  </span><span id="local-6989586621680415980"><span class="annot"><span class="annottext">toJSON :: CreateModelBiasJobDefinition -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition%27"><span class="hs-identifier hs-type">CreateModelBiasJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680415969"><span id="local-6989586621680415970"><span id="local-6989586621680415971"><span id="local-6989586621680415972"><span id="local-6989586621680415973"><span id="local-6989586621680415974"><span id="local-6989586621680415975"><span id="local-6989586621680415976"><span id="local-6989586621680415977"><span id="local-6989586621680415978"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span id="line-230"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680417626"><span id="local-6989586621680417628"><span id="local-6989586621680417630"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition"><span class="hs-identifier hs-type">CreateModelBiasJobDefinition</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-231"></span><span>  </span><span id="local-6989586621680417624"><span class="annot"><span class="annottext">toJSON :: CreateModelBiasJobDefinition -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition%27"><span class="hs-identifier hs-type">CreateModelBiasJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680417613"><span id="local-6989586621680417614"><span id="local-6989586621680417615"><span id="local-6989586621680417616"><span id="local-6989586621680417617"><span id="local-6989586621680417618"><span id="local-6989586621680417619"><span id="local-6989586621680417620"><span id="local-6989586621680417621"><span id="local-6989586621680417622"><span class="annot"><span class="annottext">Maybe [Tag]
 Maybe ModelBiasBaselineConfig
 Maybe MonitoringStoppingCondition
 Maybe MonitoringNetworkConfig
@@ -646,59 +646,59 @@ modelBiasJobOutputConfig :: MonitoringOutputConfig
 modelBiasJobInput :: ModelBiasJobInput
 modelBiasAppSpecification :: ModelBiasAppSpecification
 jobDefinitionName :: Text
-stoppingCondition :: Maybe MonitoringStoppingCondition
 tags :: Maybe [Tag]
-modelBiasBaselineConfig :: Maybe ModelBiasBaselineConfig
 networkConfig :: Maybe MonitoringNetworkConfig
+stoppingCondition :: Maybe MonitoringStoppingCondition
+modelBiasBaselineConfig :: Maybe ModelBiasBaselineConfig
 $sel:roleArn:CreateModelBiasJobDefinition' :: CreateModelBiasJobDefinition -&gt; Text
 $sel:jobResources:CreateModelBiasJobDefinition' :: CreateModelBiasJobDefinition -&gt; MonitoringResources
 $sel:modelBiasJobOutputConfig:CreateModelBiasJobDefinition' :: CreateModelBiasJobDefinition -&gt; MonitoringOutputConfig
 $sel:modelBiasJobInput:CreateModelBiasJobDefinition' :: CreateModelBiasJobDefinition -&gt; ModelBiasJobInput
 $sel:modelBiasAppSpecification:CreateModelBiasJobDefinition' :: CreateModelBiasJobDefinition -&gt; ModelBiasAppSpecification
 $sel:jobDefinitionName:CreateModelBiasJobDefinition' :: CreateModelBiasJobDefinition -&gt; Text
-$sel:stoppingCondition:CreateModelBiasJobDefinition' :: CreateModelBiasJobDefinition -&gt; Maybe MonitoringStoppingCondition
 $sel:tags:CreateModelBiasJobDefinition' :: CreateModelBiasJobDefinition -&gt; Maybe [Tag]
-$sel:modelBiasBaselineConfig:CreateModelBiasJobDefinition' :: CreateModelBiasJobDefinition -&gt; Maybe ModelBiasBaselineConfig
 $sel:networkConfig:CreateModelBiasJobDefinition' :: CreateModelBiasJobDefinition -&gt; Maybe MonitoringNetworkConfig
-</span><a href="#local-6989586621680415969"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:stoppingCondition:CreateModelBiasJobDefinition' :: CreateModelBiasJobDefinition -&gt; Maybe MonitoringStoppingCondition
+$sel:modelBiasBaselineConfig:CreateModelBiasJobDefinition' :: CreateModelBiasJobDefinition -&gt; Maybe ModelBiasBaselineConfig
+</span><a href="#local-6989586621680417613"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-232"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-233"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-234"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ModelBiasBaselineConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ModelBiasBaselineConfig -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span>              </span><span class="annot"><span class="annottext">(ModelBiasBaselineConfig -&gt; Pair)
+-&gt; Maybe ModelBiasBaselineConfig -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ModelBiasBaselineConfig
+</span><a href="#local-6989586621680417622"><span class="hs-identifier hs-var">modelBiasBaselineConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-236"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StoppingCondition&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MonitoringStoppingCondition -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span>              </span><span class="annot"><span class="annottext">(MonitoringStoppingCondition -&gt; Pair)
+-&gt; Maybe MonitoringStoppingCondition -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MonitoringStoppingCondition
+</span><a href="#local-6989586621680417621"><span class="hs-identifier hs-var">stoppingCondition</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-238"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NetworkConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MonitoringNetworkConfig -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(MonitoringNetworkConfig -&gt; Pair)
 -&gt; Maybe MonitoringNetworkConfig -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MonitoringNetworkConfig
-</span><a href="#local-6989586621680415978"><span class="hs-identifier hs-var">networkConfig</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-235"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ModelBiasBaselineConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ModelBiasBaselineConfig -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-236"></span><span>              </span><span class="annot"><span class="annottext">(ModelBiasBaselineConfig -&gt; Pair)
--&gt; Maybe ModelBiasBaselineConfig -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ModelBiasBaselineConfig
-</span><a href="#local-6989586621680415977"><span class="hs-identifier hs-var">modelBiasBaselineConfig</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-237"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680417620"><span class="hs-identifier hs-var">networkConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-239"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621680415976"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-238"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;StoppingCondition&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MonitoringStoppingCondition -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-239"></span><span>              </span><span class="annot"><span class="annottext">(MonitoringStoppingCondition -&gt; Pair)
--&gt; Maybe MonitoringStoppingCondition -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MonitoringStoppingCondition
-</span><a href="#local-6989586621680415975"><span class="hs-identifier hs-var">stoppingCondition</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680417619"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-240"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -706,7 +706,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;JobDefinitionName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680415974"><span class="hs-identifier hs-var">jobDefinitionName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680417618"><span class="hs-identifier hs-var">jobDefinitionName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-242"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -715,7 +715,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-244"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; ModelBiasAppSpecification -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ModelBiasAppSpecification
-</span><a href="#local-6989586621680415973"><span class="hs-identifier hs-var">modelBiasAppSpecification</span></a></span><span>
+</span><a href="#local-6989586621680417617"><span class="hs-identifier hs-var">modelBiasAppSpecification</span></a></span><span>
 </span><span id="line-245"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-246"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
@@ -724,7 +724,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ModelBiasJobInput&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ModelBiasJobInput -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ModelBiasJobInput
-</span><a href="#local-6989586621680415972"><span class="hs-identifier hs-var">modelBiasJobInput</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680417616"><span class="hs-identifier hs-var">modelBiasJobInput</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-248"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -733,7 +733,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-250"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; MonitoringOutputConfig -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">MonitoringOutputConfig
-</span><a href="#local-6989586621680415971"><span class="hs-identifier hs-var">modelBiasJobOutputConfig</span></a></span><span>
+</span><a href="#local-6989586621680417615"><span class="hs-identifier hs-var">modelBiasJobOutputConfig</span></a></span><span>
 </span><span id="line-251"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-252"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
@@ -741,26 +741,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;JobResources&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MonitoringResources -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">MonitoringResources
-</span><a href="#local-6989586621680415970"><span class="hs-identifier hs-var">jobResources</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680417614"><span class="hs-identifier hs-var">jobResources</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-253"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RoleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680415969"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680417613"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-254"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-255"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-256"></span><span>
 </span><span id="line-257"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition"><span class="hs-identifier hs-type">CreateModelBiasJobDefinition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-258"></span><span>  </span><span id="local-6989586621680415963"><span class="annot"><span class="annottext">toPath :: CreateModelBiasJobDefinition -&gt; ByteString
+</span><span id="line-258"></span><span>  </span><span id="local-6989586621680417607"><span class="annot"><span class="annottext">toPath :: CreateModelBiasJobDefinition -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateModelBiasJobDefinition -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-259"></span><span>
 </span><span id="line-260"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinition"><span class="hs-identifier hs-type">CreateModelBiasJobDefinition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-261"></span><span>  </span><span id="local-6989586621680415959"><span class="annot"><span class="annottext">toQuery :: CreateModelBiasJobDefinition -&gt; QueryString
+</span><span id="line-261"></span><span>  </span><span id="local-6989586621680417603"><span class="annot"><span class="annottext">toQuery :: CreateModelBiasJobDefinition -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateModelBiasJobDefinition -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -768,7 +768,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-262"></span><span>
 </span><span id="line-263"></span><span class="hs-comment">-- | /See:/ 'newCreateModelBiasJobDefinitionResponse' smart constructor.</span><span>
-</span><span id="line-264"></span><span id="local-6989586621680415956"><span id="local-6989586621680415957"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateModelBiasJobDefinitionResponse"><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinitionResponse"><span class="hs-identifier hs-var">CreateModelBiasJobDefinitionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateModelBiasJobDefinitionResponse%27"><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinitionResponse%27"><span class="hs-identifier hs-var">CreateModelBiasJobDefinitionResponse'</span></a></span></span><span>
+</span><span id="line-264"></span><span id="local-6989586621680417600"><span id="local-6989586621680417601"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateModelBiasJobDefinitionResponse"><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinitionResponse"><span class="hs-identifier hs-var">CreateModelBiasJobDefinitionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateModelBiasJobDefinitionResponse%27"><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinitionResponse%27"><span class="hs-identifier hs-var">CreateModelBiasJobDefinitionResponse'</span></a></span></span><span>
 </span><span id="line-265"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-266"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateModelBiasJobDefinitionResponse%27"><span class="annot"><span class="annottext">CreateModelBiasJobDefinitionResponse -&gt; Int
 </span><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#%24sel%3AhttpStatus%3ACreateModelBiasJobDefinitionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -776,7 +776,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-268"></span><span>    </span><span id="%24sel%3AjobDefinitionArn%3ACreateModelBiasJobDefinitionResponse%27"><span class="annot"><span class="annottext">CreateModelBiasJobDefinitionResponse -&gt; Text
 </span><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#%24sel%3AjobDefinitionArn%3ACreateModelBiasJobDefinitionResponse%27"><span class="hs-identifier hs-var hs-var">jobDefinitionArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-269"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-270"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680415950"><span id="local-6989586621680415952"><span class="annot"><span class="annottext">CreateModelBiasJobDefinitionResponse
+</span><span id="line-270"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680417594"><span id="local-6989586621680417596"><span class="annot"><span class="annottext">CreateModelBiasJobDefinitionResponse
 -&gt; CreateModelBiasJobDefinitionResponse -&gt; Bool
 (CreateModelBiasJobDefinitionResponse
  -&gt; CreateModelBiasJobDefinitionResponse -&gt; Bool)
@@ -792,7 +792,7 @@ $c/= :: CreateModelBiasJobDefinitionResponse
 -&gt; CreateModelBiasJobDefinitionResponse -&gt; Bool
 $c== :: CreateModelBiasJobDefinitionResponse
 -&gt; CreateModelBiasJobDefinitionResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680415942"><span id="local-6989586621680415944"><span id="local-6989586621680415946"><span id="local-6989586621680415948"><span class="annot"><span class="annottext">ReadPrec [CreateModelBiasJobDefinitionResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680417586"><span id="local-6989586621680417588"><span id="local-6989586621680417590"><span id="local-6989586621680417592"><span class="annot"><span class="annottext">ReadPrec [CreateModelBiasJobDefinitionResponse]
 ReadPrec CreateModelBiasJobDefinitionResponse
 Int -&gt; ReadS CreateModelBiasJobDefinitionResponse
 ReadS [CreateModelBiasJobDefinitionResponse]
@@ -812,7 +812,7 @@ readList :: ReadS [CreateModelBiasJobDefinitionResponse]
 $creadList :: ReadS [CreateModelBiasJobDefinitionResponse]
 readsPrec :: Int -&gt; ReadS CreateModelBiasJobDefinitionResponse
 $creadsPrec :: Int -&gt; ReadS CreateModelBiasJobDefinitionResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680415936"><span id="local-6989586621680415938"><span id="local-6989586621680415940"><span class="annot"><span class="annottext">Int -&gt; CreateModelBiasJobDefinitionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680417580"><span id="local-6989586621680417582"><span id="local-6989586621680417584"><span class="annot"><span class="annottext">Int -&gt; CreateModelBiasJobDefinitionResponse -&gt; ShowS
 [CreateModelBiasJobDefinitionResponse] -&gt; ShowS
 CreateModelBiasJobDefinitionResponse -&gt; String
 (Int -&gt; CreateModelBiasJobDefinitionResponse -&gt; ShowS)
@@ -869,19 +869,19 @@ CreateModelBiasJobDefinitionResponse
 </span><span id="line-288"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinitionResponse"><span class="hs-identifier hs-type">CreateModelBiasJobDefinitionResponse</span></a></span><span>
 </span><span id="line-289"></span><span id="newCreateModelBiasJobDefinitionResponse"><span class="annot"><span class="annottext">newCreateModelBiasJobDefinitionResponse :: Int -&gt; Text -&gt; CreateModelBiasJobDefinitionResponse
 </span><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#newCreateModelBiasJobDefinitionResponse"><span class="hs-identifier hs-var hs-var">newCreateModelBiasJobDefinitionResponse</span></a></span></span><span>
-</span><span id="line-290"></span><span>  </span><span id="local-6989586621680415933"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680415933"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
-</span><span id="line-291"></span><span>  </span><span id="local-6989586621680415932"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680415932"><span class="hs-identifier hs-var">pJobDefinitionArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-290"></span><span>  </span><span id="local-6989586621680417577"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680417577"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-291"></span><span>  </span><span id="local-6989586621680417576"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680417576"><span class="hs-identifier hs-var">pJobDefinitionArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-292"></span><span>    </span><span class="annot"><span class="annottext">CreateModelBiasJobDefinitionResponse' :: Int -&gt; Text -&gt; CreateModelBiasJobDefinitionResponse
 </span><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinitionResponse%27"><span class="hs-identifier hs-type">CreateModelBiasJobDefinitionResponse'</span></a></span><span>
 </span><span id="line-293"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateModelBiasJobDefinitionResponse' :: Int
 </span><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#%24sel%3AhttpStatus%3ACreateModelBiasJobDefinitionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-294"></span><span>          </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680415933"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680417577"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-295"></span><span>        </span><span class="annot"><span class="annottext">$sel:jobDefinitionArn:CreateModelBiasJobDefinitionResponse' :: Text
 </span><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#%24sel%3AjobDefinitionArn%3ACreateModelBiasJobDefinitionResponse%27"><span class="hs-identifier hs-var">jobDefinitionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680415932"><span class="hs-identifier hs-var">pJobDefinitionArn_</span></a></span><span>
+</span><a href="#local-6989586621680417576"><span class="hs-identifier hs-var">pJobDefinitionArn_</span></a></span><span>
 </span><span id="line-296"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-297"></span><span>
 </span><span id="line-298"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -898,16 +898,16 @@ CreateModelBiasJobDefinitionResponse
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinitionResponse%27"><span class="hs-identifier hs-type">CreateModelBiasJobDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680415931"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinitionResponse%27"><span class="hs-identifier hs-type">CreateModelBiasJobDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680417575"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateModelBiasJobDefinitionResponse' :: CreateModelBiasJobDefinitionResponse -&gt; Int
-</span><a href="#local-6989586621680415931"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680415931"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680415930"><span class="annot"><span class="annottext">s :: CreateModelBiasJobDefinitionResponse
-</span><a href="#local-6989586621680415930"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinitionResponse%27"><span class="hs-identifier hs-type">CreateModelBiasJobDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680415929"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680415929"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModelBiasJobDefinitionResponse
-</span><a href="#local-6989586621680415930"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateModelBiasJobDefinitionResponse' :: Int
+</span><a href="#local-6989586621680417575"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680417575"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680417574"><span class="annot"><span class="annottext">s :: CreateModelBiasJobDefinitionResponse
+</span><a href="#local-6989586621680417574"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinitionResponse%27"><span class="hs-identifier hs-type">CreateModelBiasJobDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680417573"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680417573"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModelBiasJobDefinitionResponse
+</span><a href="#local-6989586621680417574"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateModelBiasJobDefinitionResponse' :: Int
 </span><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#%24sel%3AhttpStatus%3ACreateModelBiasJobDefinitionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680415929"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinitionResponse"><span class="hs-identifier hs-type">CreateModelBiasJobDefinitionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680417573"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinitionResponse"><span class="hs-identifier hs-type">CreateModelBiasJobDefinitionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-301"></span><span>
 </span><span id="line-302"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the model bias job.</span><span>
 </span><span id="line-303"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#createModelBiasJobDefinitionResponse_jobDefinitionArn"><span class="hs-identifier hs-type">createModelBiasJobDefinitionResponse_jobDefinitionArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinitionResponse"><span class="hs-identifier hs-type">CreateModelBiasJobDefinitionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -923,18 +923,18 @@ $sel:httpStatus:CreateModelBiasJobDefinitionResponse' :: CreateModelBiasJobDefin
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinitionResponse%27"><span class="hs-identifier hs-type">CreateModelBiasJobDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680415928"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinitionResponse%27"><span class="hs-identifier hs-type">CreateModelBiasJobDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680417572"><span class="annot"><span class="annottext">Text
 jobDefinitionArn :: Text
 $sel:jobDefinitionArn:CreateModelBiasJobDefinitionResponse' :: CreateModelBiasJobDefinitionResponse -&gt; Text
-</span><a href="#local-6989586621680415928"><span class="hs-identifier hs-var hs-var">jobDefinitionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680415928"><span class="hs-identifier hs-var">jobDefinitionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680415927"><span class="annot"><span class="annottext">s :: CreateModelBiasJobDefinitionResponse
-</span><a href="#local-6989586621680415927"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinitionResponse%27"><span class="hs-identifier hs-type">CreateModelBiasJobDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680415926"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680415926"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModelBiasJobDefinitionResponse
-</span><a href="#local-6989586621680415927"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobDefinitionArn:CreateModelBiasJobDefinitionResponse' :: Text
+</span><a href="#local-6989586621680417572"><span class="hs-identifier hs-var hs-var">jobDefinitionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680417572"><span class="hs-identifier hs-var">jobDefinitionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680417571"><span class="annot"><span class="annottext">s :: CreateModelBiasJobDefinitionResponse
+</span><a href="#local-6989586621680417571"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinitionResponse%27"><span class="hs-identifier hs-type">CreateModelBiasJobDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680417570"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680417570"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModelBiasJobDefinitionResponse
+</span><a href="#local-6989586621680417571"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobDefinitionArn:CreateModelBiasJobDefinitionResponse' :: Text
 </span><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#%24sel%3AjobDefinitionArn%3ACreateModelBiasJobDefinitionResponse%27"><span class="hs-identifier hs-var">jobDefinitionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680415926"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinitionResponse"><span class="hs-identifier hs-type">CreateModelBiasJobDefinitionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680417570"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinitionResponse"><span class="hs-identifier hs-type">CreateModelBiasJobDefinitionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-305"></span><span>
 </span><span id="line-306"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-307"></span><span>  </span><span id="local-6989586621680415924"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-307"></span><span>  </span><span id="local-6989586621680417568"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-308"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelBiasJobDefinition.html#CreateModelBiasJobDefinitionResponse"><span class="hs-identifier hs-type">CreateModelBiasJobDefinitionResponse</span></a></span></span><span>
 </span><span id="line-309"></span></pre></body></html>

@@ -28,26 +28,26 @@
 </span><span id="line-28"></span><span class="hs-comment">-- sync.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newResourceDataSyncSource' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679810888"><span id="local-6989586621679810889"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResourceDataSyncSource"><span class="annot"><a href="Network.AWS.SSM.Types.ResourceDataSyncSource.html#ResourceDataSyncSource"><span class="hs-identifier hs-var">ResourceDataSyncSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResourceDataSyncSource%27"><span class="annot"><a href="Network.AWS.SSM.Types.ResourceDataSyncSource.html#ResourceDataSyncSource%27"><span class="hs-identifier hs-var">ResourceDataSyncSource'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Whether to automatically synchronize and aggregate data from new Amazon</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- Web Services Regions when those Regions come online.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AincludeFutureRegions%3AResourceDataSyncSource%27"><span class="annot"><span class="annottext">ResourceDataSyncSource -&gt; Maybe Bool
+</span><span id="line-31"></span><span id="local-6989586621679812582"><span id="local-6989586621679812583"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResourceDataSyncSource"><span class="annot"><a href="Network.AWS.SSM.Types.ResourceDataSyncSource.html#ResourceDataSyncSource"><span class="hs-identifier hs-var">ResourceDataSyncSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResourceDataSyncSource%27"><span class="annot"><a href="Network.AWS.SSM.Types.ResourceDataSyncSource.html#ResourceDataSyncSource%27"><span class="hs-identifier hs-var">ResourceDataSyncSource'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | When you create a resource data sync, if you choose one of the</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- Organizations options, then Systems Manager automatically enables all</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- OpsData sources in the selected Amazon Web Services Regions for all</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- Amazon Web Services accounts in your organization (or in the selected</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- organization units). For more information, see</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/systems-manager/latest/userguide/Explorer-resouce-data-sync-multiple-accounts-and-regions.html About multiple account and Region resource data syncs&gt;</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- in the /Amazon Web Services Systems Manager User Guide/.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AenableAllOpsDataSources%3AResourceDataSyncSource%27"><span class="annot"><span class="annottext">ResourceDataSyncSource -&gt; Maybe Bool
+</span><a href="Network.AWS.SSM.Types.ResourceDataSyncSource.html#%24sel%3AenableAllOpsDataSources%3AResourceDataSyncSource%27"><span class="hs-identifier hs-var hs-var">enableAllOpsDataSources</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | Whether to automatically synchronize and aggregate data from new Amazon</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- Web Services Regions when those Regions come online.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AincludeFutureRegions%3AResourceDataSyncSource%27"><span class="annot"><span class="annottext">ResourceDataSyncSource -&gt; Maybe Bool
 </span><a href="Network.AWS.SSM.Types.ResourceDataSyncSource.html#%24sel%3AincludeFutureRegions%3AResourceDataSyncSource%27"><span class="hs-identifier hs-var hs-var">includeFutureRegions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Information about the @AwsOrganizationsSource@ resource data sync</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- source. A sync source of this type can synchronize data from</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- Organizations.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AawsOrganizationsSource%3AResourceDataSyncSource%27"><span class="annot"><span class="annottext">ResourceDataSyncSource
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | Information about the @AwsOrganizationsSource@ resource data sync</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- source. A sync source of this type can synchronize data from</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- Organizations.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AawsOrganizationsSource%3AResourceDataSyncSource%27"><span class="annot"><span class="annottext">ResourceDataSyncSource
 -&gt; Maybe ResourceDataSyncAwsOrganizationsSource
 </span><a href="Network.AWS.SSM.Types.ResourceDataSyncSource.html#%24sel%3AawsOrganizationsSource%3AResourceDataSyncSource%27"><span class="hs-identifier hs-var hs-var">awsOrganizationsSource</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ResourceDataSyncAwsOrganizationsSource.html#ResourceDataSyncAwsOrganizationsSource"><span class="hs-identifier hs-type">ResourceDataSyncAwsOrganizationsSource</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | When you create a resource data sync, if you choose one of the</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- Organizations options, then Systems Manager automatically enables all</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- OpsData sources in the selected Amazon Web Services Regions for all</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- Amazon Web Services accounts in your organization (or in the selected</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- organization units). For more information, see</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/systems-manager/latest/userguide/Explorer-resouce-data-sync-multiple-accounts-and-regions.html About multiple account and Region resource data syncs&gt;</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- in the /Amazon Web Services Systems Manager User Guide/.</span><span>
-</span><span id="line-46"></span><span>    </span><span id="%24sel%3AenableAllOpsDataSources%3AResourceDataSyncSource%27"><span class="annot"><span class="annottext">ResourceDataSyncSource -&gt; Maybe Bool
-</span><a href="Network.AWS.SSM.Types.ResourceDataSyncSource.html#%24sel%3AenableAllOpsDataSources%3AResourceDataSyncSource%27"><span class="hs-identifier hs-var hs-var">enableAllOpsDataSources</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
 </span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The type of data source for the resource data sync. @SourceType@ is</span><span>
 </span><span id="line-48"></span><span>    </span><span class="hs-comment">-- either @AwsOrganizations@ (if an organization is present in</span><span>
 </span><span id="line-49"></span><span>    </span><span class="hs-comment">-- Organizations) or @SingleAccountMultiRegions@.</span><span>
@@ -58,7 +58,7 @@
 </span><span id="line-53"></span><span>    </span><span id="%24sel%3AsourceRegions%3AResourceDataSyncSource%27"><span class="annot"><span class="annottext">ResourceDataSyncSource -&gt; [Text]
 </span><a href="Network.AWS.SSM.Types.ResourceDataSyncSource.html#%24sel%3AsourceRegions%3AResourceDataSyncSource%27"><span class="hs-identifier hs-var hs-var">sourceRegions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679810878"><span id="local-6989586621679810880"><span class="annot"><span class="annottext">ResourceDataSyncSource -&gt; ResourceDataSyncSource -&gt; Bool
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679812572"><span id="local-6989586621679812574"><span class="annot"><span class="annottext">ResourceDataSyncSource -&gt; ResourceDataSyncSource -&gt; Bool
 (ResourceDataSyncSource -&gt; ResourceDataSyncSource -&gt; Bool)
 -&gt; (ResourceDataSyncSource -&gt; ResourceDataSyncSource -&gt; Bool)
 -&gt; Eq ResourceDataSyncSource
@@ -67,7 +67,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ResourceDataSyncSource -&gt; ResourceDataSyncSource -&gt; Bool
 == :: ResourceDataSyncSource -&gt; ResourceDataSyncSource -&gt; Bool
 $c== :: ResourceDataSyncSource -&gt; ResourceDataSyncSource -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679810869"><span id="local-6989586621679810871"><span id="local-6989586621679810873"><span id="local-6989586621679810875"><span class="annot"><span class="annottext">ReadPrec [ResourceDataSyncSource]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679812563"><span id="local-6989586621679812565"><span id="local-6989586621679812567"><span id="local-6989586621679812569"><span class="annot"><span class="annottext">ReadPrec [ResourceDataSyncSource]
 ReadPrec ResourceDataSyncSource
 Int -&gt; ReadS ResourceDataSyncSource
 ReadS [ResourceDataSyncSource]
@@ -87,7 +87,7 @@ readList :: ReadS [ResourceDataSyncSource]
 $creadList :: ReadS [ResourceDataSyncSource]
 readsPrec :: Int -&gt; ReadS ResourceDataSyncSource
 $creadsPrec :: Int -&gt; ReadS ResourceDataSyncSource
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679810862"><span id="local-6989586621679810864"><span id="local-6989586621679810866"><span class="annot"><span class="annottext">Int -&gt; ResourceDataSyncSource -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679812556"><span id="local-6989586621679812558"><span id="local-6989586621679812560"><span class="annot"><span class="annottext">Int -&gt; ResourceDataSyncSource -&gt; ShowS
 [ResourceDataSyncSource] -&gt; ShowS
 ResourceDataSyncSource -&gt; String
 (Int -&gt; ResourceDataSyncSource -&gt; ShowS)
@@ -122,20 +122,20 @@ $cfrom :: forall x. ResourceDataSyncSource -&gt; Rep ResourceDataSyncSource x
 </span><span id="line-62"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-64"></span><span class="hs-comment">--</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- 'includeFutureRegions', 'resourceDataSyncSource_includeFutureRegions' - Whether to automatically synchronize and aggregate data from new Amazon</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- Web Services Regions when those Regions come online.</span><span>
-</span><span id="line-67"></span><span class="hs-comment">--</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- 'awsOrganizationsSource', 'resourceDataSyncSource_awsOrganizationsSource' - Information about the @AwsOrganizationsSource@ resource data sync</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- source. A sync source of this type can synchronize data from</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- Organizations.</span><span>
-</span><span id="line-71"></span><span class="hs-comment">--</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- 'enableAllOpsDataSources', 'resourceDataSyncSource_enableAllOpsDataSources' - When you create a resource data sync, if you choose one of the</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- Organizations options, then Systems Manager automatically enables all</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- OpsData sources in the selected Amazon Web Services Regions for all</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- Amazon Web Services accounts in your organization (or in the selected</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- organization units). For more information, see</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/systems-manager/latest/userguide/Explorer-resouce-data-sync-multiple-accounts-and-regions.html About multiple account and Region resource data syncs&gt;</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- in the /Amazon Web Services Systems Manager User Guide/.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'enableAllOpsDataSources', 'resourceDataSyncSource_enableAllOpsDataSources' - When you create a resource data sync, if you choose one of the</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Organizations options, then Systems Manager automatically enables all</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- OpsData sources in the selected Amazon Web Services Regions for all</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Amazon Web Services accounts in your organization (or in the selected</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- organization units). For more information, see</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/systems-manager/latest/userguide/Explorer-resouce-data-sync-multiple-accounts-and-regions.html About multiple account and Region resource data syncs&gt;</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- in the /Amazon Web Services Systems Manager User Guide/.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'includeFutureRegions', 'resourceDataSyncSource_includeFutureRegions' - Whether to automatically synchronize and aggregate data from new Amazon</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- Web Services Regions when those Regions come online.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'awsOrganizationsSource', 'resourceDataSyncSource_awsOrganizationsSource' - Information about the @AwsOrganizationsSource@ resource data sync</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- source. A sync source of this type can synchronize data from</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- Organizations.</span><span>
 </span><span id="line-79"></span><span class="hs-comment">--</span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- 'sourceType', 'resourceDataSyncSource_sourceType' - The type of data source for the resource data sync. @SourceType@ is</span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- either @AwsOrganizations@ (if an organization is present in</span><span>
@@ -148,41 +148,70 @@ $cfrom :: forall x. ResourceDataSyncSource -&gt; Rep ResourceDataSyncSource x
 </span><span id="line-88"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-89"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.Types.ResourceDataSyncSource.html#ResourceDataSyncSource"><span class="hs-identifier hs-type">ResourceDataSyncSource</span></a></span><span>
 </span><span id="line-90"></span><span id="newResourceDataSyncSource"><span class="annot"><span class="annottext">newResourceDataSyncSource :: Text -&gt; ResourceDataSyncSource
-</span><a href="Network.AWS.SSM.Types.ResourceDataSyncSource.html#newResourceDataSyncSource"><span class="hs-identifier hs-var hs-var">newResourceDataSyncSource</span></a></span></span><span> </span><span id="local-6989586621679810856"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679810856"><span class="hs-identifier hs-var">pSourceType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SSM.Types.ResourceDataSyncSource.html#newResourceDataSyncSource"><span class="hs-identifier hs-var hs-var">newResourceDataSyncSource</span></a></span></span><span> </span><span id="local-6989586621679812550"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679812550"><span class="hs-identifier hs-var">pSourceType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-91"></span><span>  </span><span class="annot"><span class="annottext">ResourceDataSyncSource' :: Maybe Bool
--&gt; Maybe ResourceDataSyncAwsOrganizationsSource
 -&gt; Maybe Bool
+-&gt; Maybe ResourceDataSyncAwsOrganizationsSource
 -&gt; Text
 -&gt; [Text]
 -&gt; ResourceDataSyncSource
 </span><a href="Network.AWS.SSM.Types.ResourceDataSyncSource.html#ResourceDataSyncSource%27"><span class="hs-identifier hs-type">ResourceDataSyncSource'</span></a></span><span>
-</span><span id="line-92"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:includeFutureRegions:ResourceDataSyncSource' :: Maybe Bool
-</span><a href="Network.AWS.SSM.Types.ResourceDataSyncSource.html#%24sel%3AincludeFutureRegions%3AResourceDataSyncSource%27"><span class="hs-identifier hs-var">includeFutureRegions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:enableAllOpsDataSources:ResourceDataSyncSource' :: Maybe Bool
+</span><a href="Network.AWS.SSM.Types.ResourceDataSyncSource.html#%24sel%3AenableAllOpsDataSources%3AResourceDataSyncSource%27"><span class="hs-identifier hs-var">enableAllOpsDataSources</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:awsOrganizationsSource:ResourceDataSyncSource' :: Maybe ResourceDataSyncAwsOrganizationsSource
-</span><a href="Network.AWS.SSM.Types.ResourceDataSyncSource.html#%24sel%3AawsOrganizationsSource%3AResourceDataSyncSource%27"><span class="hs-identifier hs-var">awsOrganizationsSource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceDataSyncAwsOrganizationsSource
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:includeFutureRegions:ResourceDataSyncSource' :: Maybe Bool
+</span><a href="Network.AWS.SSM.Types.ResourceDataSyncSource.html#%24sel%3AincludeFutureRegions%3AResourceDataSyncSource%27"><span class="hs-identifier hs-var">includeFutureRegions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:enableAllOpsDataSources:ResourceDataSyncSource' :: Maybe Bool
-</span><a href="Network.AWS.SSM.Types.ResourceDataSyncSource.html#%24sel%3AenableAllOpsDataSources%3AResourceDataSyncSource%27"><span class="hs-identifier hs-var">enableAllOpsDataSources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:awsOrganizationsSource:ResourceDataSyncSource' :: Maybe ResourceDataSyncAwsOrganizationsSource
+</span><a href="Network.AWS.SSM.Types.ResourceDataSyncSource.html#%24sel%3AawsOrganizationsSource%3AResourceDataSyncSource%27"><span class="hs-identifier hs-var">awsOrganizationsSource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceDataSyncAwsOrganizationsSource
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceType:ResourceDataSyncSource' :: Text
 </span><a href="Network.AWS.SSM.Types.ResourceDataSyncSource.html#%24sel%3AsourceType%3AResourceDataSyncSource%27"><span class="hs-identifier hs-var">sourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679810856"><span class="hs-identifier hs-var">pSourceType_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679812550"><span class="hs-identifier hs-var">pSourceType_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceRegions:ResourceDataSyncSource' :: [Text]
 </span><a href="Network.AWS.SSM.Types.ResourceDataSyncSource.html#%24sel%3AsourceRegions%3AResourceDataSyncSource%27"><span class="hs-identifier hs-var">sourceRegions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-98"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- | Whether to automatically synchronize and aggregate data from new Amazon</span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- Web Services Regions when those Regions come online.</span><span>
-</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.SSM.Types.ResourceDataSyncSource.html#resourceDataSyncSource_includeFutureRegions"><span class="hs-identifier hs-type">resourceDataSyncSource_includeFutureRegions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ResourceDataSyncSource.html#ResourceDataSyncSource"><span class="hs-identifier hs-type">ResourceDataSyncSource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-103"></span><span id="resourceDataSyncSource_includeFutureRegions"><span class="annot"><span class="annottext">resourceDataSyncSource_includeFutureRegions :: (Maybe Bool -&gt; f (Maybe Bool))
+</span><span id="line-100"></span><span class="hs-comment">-- | When you create a resource data sync, if you choose one of the</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- Organizations options, then Systems Manager automatically enables all</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- OpsData sources in the selected Amazon Web Services Regions for all</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- Amazon Web Services accounts in your organization (or in the selected</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- organization units). For more information, see</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/systems-manager/latest/userguide/Explorer-resouce-data-sync-multiple-accounts-and-regions.html About multiple account and Region resource data syncs&gt;</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- in the /Amazon Web Services Systems Manager User Guide/.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.SSM.Types.ResourceDataSyncSource.html#resourceDataSyncSource_enableAllOpsDataSources"><span class="hs-identifier hs-type">resourceDataSyncSource_enableAllOpsDataSources</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ResourceDataSyncSource.html#ResourceDataSyncSource"><span class="hs-identifier hs-type">ResourceDataSyncSource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span id="resourceDataSyncSource_enableAllOpsDataSources"><span class="annot"><span class="annottext">resourceDataSyncSource_enableAllOpsDataSources :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; ResourceDataSyncSource -&gt; f ResourceDataSyncSource
+</span><a href="Network.AWS.SSM.Types.ResourceDataSyncSource.html#resourceDataSyncSource_enableAllOpsDataSources"><span class="hs-identifier hs-var hs-var">resourceDataSyncSource_enableAllOpsDataSources</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResourceDataSyncSource -&gt; Maybe Bool)
+-&gt; (ResourceDataSyncSource -&gt; Maybe Bool -&gt; ResourceDataSyncSource)
+-&gt; Lens
+     ResourceDataSyncSource
+     ResourceDataSyncSource
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.ResourceDataSyncSource.html#ResourceDataSyncSource%27"><span class="hs-identifier hs-type">ResourceDataSyncSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679812546"><span class="annot"><span class="annottext">Maybe Bool
+enableAllOpsDataSources :: Maybe Bool
+$sel:enableAllOpsDataSources:ResourceDataSyncSource' :: ResourceDataSyncSource -&gt; Maybe Bool
+</span><a href="#local-6989586621679812546"><span class="hs-identifier hs-var hs-var">enableAllOpsDataSources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679812546"><span class="hs-identifier hs-var">enableAllOpsDataSources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679812545"><span class="annot"><span class="annottext">s :: ResourceDataSyncSource
+</span><a href="#local-6989586621679812545"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.ResourceDataSyncSource.html#ResourceDataSyncSource%27"><span class="hs-identifier hs-type">ResourceDataSyncSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679812544"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679812544"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceDataSyncSource
+</span><a href="#local-6989586621679812545"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enableAllOpsDataSources:ResourceDataSyncSource' :: Maybe Bool
+</span><a href="Network.AWS.SSM.Types.ResourceDataSyncSource.html#%24sel%3AenableAllOpsDataSources%3AResourceDataSyncSource%27"><span class="hs-identifier hs-var">enableAllOpsDataSources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679812544"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ResourceDataSyncSource.html#ResourceDataSyncSource"><span class="hs-identifier hs-type">ResourceDataSyncSource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | Whether to automatically synchronize and aggregate data from new Amazon</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- Web Services Regions when those Regions come online.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.SSM.Types.ResourceDataSyncSource.html#resourceDataSyncSource_includeFutureRegions"><span class="hs-identifier hs-type">resourceDataSyncSource_includeFutureRegions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ResourceDataSyncSource.html#ResourceDataSyncSource"><span class="hs-identifier hs-type">ResourceDataSyncSource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="resourceDataSyncSource_includeFutureRegions"><span class="annot"><span class="annottext">resourceDataSyncSource_includeFutureRegions :: (Maybe Bool -&gt; f (Maybe Bool))
 -&gt; ResourceDataSyncSource -&gt; f ResourceDataSyncSource
 </span><a href="Network.AWS.SSM.Types.ResourceDataSyncSource.html#resourceDataSyncSource_includeFutureRegions"><span class="hs-identifier hs-var hs-var">resourceDataSyncSource_includeFutureRegions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResourceDataSyncSource -&gt; Maybe Bool)
 -&gt; (ResourceDataSyncSource -&gt; Maybe Bool -&gt; ResourceDataSyncSource)
@@ -192,22 +221,22 @@ forall a. Monoid a =&gt; a
      (Maybe Bool)
      (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.ResourceDataSyncSource.html#ResourceDataSyncSource%27"><span class="hs-identifier hs-type">ResourceDataSyncSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679810852"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.ResourceDataSyncSource.html#ResourceDataSyncSource%27"><span class="hs-identifier hs-type">ResourceDataSyncSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679812542"><span class="annot"><span class="annottext">Maybe Bool
 includeFutureRegions :: Maybe Bool
 $sel:includeFutureRegions:ResourceDataSyncSource' :: ResourceDataSyncSource -&gt; Maybe Bool
-</span><a href="#local-6989586621679810852"><span class="hs-identifier hs-var hs-var">includeFutureRegions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679810852"><span class="hs-identifier hs-var">includeFutureRegions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679810851"><span class="annot"><span class="annottext">s :: ResourceDataSyncSource
-</span><a href="#local-6989586621679810851"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.ResourceDataSyncSource.html#ResourceDataSyncSource%27"><span class="hs-identifier hs-type">ResourceDataSyncSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679810850"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679810850"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceDataSyncSource
-</span><a href="#local-6989586621679810851"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includeFutureRegions:ResourceDataSyncSource' :: Maybe Bool
+</span><a href="#local-6989586621679812542"><span class="hs-identifier hs-var hs-var">includeFutureRegions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679812542"><span class="hs-identifier hs-var">includeFutureRegions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679812541"><span class="annot"><span class="annottext">s :: ResourceDataSyncSource
+</span><a href="#local-6989586621679812541"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.ResourceDataSyncSource.html#ResourceDataSyncSource%27"><span class="hs-identifier hs-type">ResourceDataSyncSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679812540"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679812540"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceDataSyncSource
+</span><a href="#local-6989586621679812541"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includeFutureRegions:ResourceDataSyncSource' :: Maybe Bool
 </span><a href="Network.AWS.SSM.Types.ResourceDataSyncSource.html#%24sel%3AincludeFutureRegions%3AResourceDataSyncSource%27"><span class="hs-identifier hs-var">includeFutureRegions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679810850"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ResourceDataSyncSource.html#ResourceDataSyncSource"><span class="hs-identifier hs-type">ResourceDataSyncSource</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- | Information about the @AwsOrganizationsSource@ resource data sync</span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- source. A sync source of this type can synchronize data from</span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- Organizations.</span><span>
-</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.SSM.Types.ResourceDataSyncSource.html#resourceDataSyncSource_awsOrganizationsSource"><span class="hs-identifier hs-type">resourceDataSyncSource_awsOrganizationsSource</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ResourceDataSyncSource.html#ResourceDataSyncSource"><span class="hs-identifier hs-type">ResourceDataSyncSource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ResourceDataSyncAwsOrganizationsSource.html#ResourceDataSyncAwsOrganizationsSource"><span class="hs-identifier hs-type">ResourceDataSyncAwsOrganizationsSource</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-109"></span><span id="resourceDataSyncSource_awsOrganizationsSource"><span class="annot"><span class="annottext">resourceDataSyncSource_awsOrganizationsSource :: (Maybe ResourceDataSyncAwsOrganizationsSource
+</span><a href="#local-6989586621679812540"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ResourceDataSyncSource.html#ResourceDataSyncSource"><span class="hs-identifier hs-type">ResourceDataSyncSource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | Information about the @AwsOrganizationsSource@ resource data sync</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- source. A sync source of this type can synchronize data from</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- Organizations.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Network.AWS.SSM.Types.ResourceDataSyncSource.html#resourceDataSyncSource_awsOrganizationsSource"><span class="hs-identifier hs-type">resourceDataSyncSource_awsOrganizationsSource</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ResourceDataSyncSource.html#ResourceDataSyncSource"><span class="hs-identifier hs-type">ResourceDataSyncSource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ResourceDataSyncAwsOrganizationsSource.html#ResourceDataSyncAwsOrganizationsSource"><span class="hs-identifier hs-type">ResourceDataSyncAwsOrganizationsSource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span id="resourceDataSyncSource_awsOrganizationsSource"><span class="annot"><span class="annottext">resourceDataSyncSource_awsOrganizationsSource :: (Maybe ResourceDataSyncAwsOrganizationsSource
  -&gt; f (Maybe ResourceDataSyncAwsOrganizationsSource))
 -&gt; ResourceDataSyncSource -&gt; f ResourceDataSyncSource
 </span><a href="Network.AWS.SSM.Types.ResourceDataSyncSource.html#resourceDataSyncSource_awsOrganizationsSource"><span class="hs-identifier hs-var hs-var">resourceDataSyncSource_awsOrganizationsSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResourceDataSyncSource
@@ -221,46 +250,17 @@ $sel:includeFutureRegions:ResourceDataSyncSource' :: ResourceDataSyncSource -&gt
      (Maybe ResourceDataSyncAwsOrganizationsSource)
      (Maybe ResourceDataSyncAwsOrganizationsSource)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.ResourceDataSyncSource.html#ResourceDataSyncSource%27"><span class="hs-identifier hs-type">ResourceDataSyncSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679810848"><span class="annot"><span class="annottext">Maybe ResourceDataSyncAwsOrganizationsSource
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.ResourceDataSyncSource.html#ResourceDataSyncSource%27"><span class="hs-identifier hs-type">ResourceDataSyncSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679812538"><span class="annot"><span class="annottext">Maybe ResourceDataSyncAwsOrganizationsSource
 awsOrganizationsSource :: Maybe ResourceDataSyncAwsOrganizationsSource
 $sel:awsOrganizationsSource:ResourceDataSyncSource' :: ResourceDataSyncSource
 -&gt; Maybe ResourceDataSyncAwsOrganizationsSource
-</span><a href="#local-6989586621679810848"><span class="hs-identifier hs-var hs-var">awsOrganizationsSource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceDataSyncAwsOrganizationsSource
-</span><a href="#local-6989586621679810848"><span class="hs-identifier hs-var">awsOrganizationsSource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679810847"><span class="annot"><span class="annottext">s :: ResourceDataSyncSource
-</span><a href="#local-6989586621679810847"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.ResourceDataSyncSource.html#ResourceDataSyncSource%27"><span class="hs-identifier hs-type">ResourceDataSyncSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679810846"><span class="annot"><span class="annottext">Maybe ResourceDataSyncAwsOrganizationsSource
-</span><a href="#local-6989586621679810846"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceDataSyncSource
-</span><a href="#local-6989586621679810847"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsOrganizationsSource:ResourceDataSyncSource' :: Maybe ResourceDataSyncAwsOrganizationsSource
+</span><a href="#local-6989586621679812538"><span class="hs-identifier hs-var hs-var">awsOrganizationsSource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceDataSyncAwsOrganizationsSource
+</span><a href="#local-6989586621679812538"><span class="hs-identifier hs-var">awsOrganizationsSource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679812537"><span class="annot"><span class="annottext">s :: ResourceDataSyncSource
+</span><a href="#local-6989586621679812537"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.ResourceDataSyncSource.html#ResourceDataSyncSource%27"><span class="hs-identifier hs-type">ResourceDataSyncSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679812536"><span class="annot"><span class="annottext">Maybe ResourceDataSyncAwsOrganizationsSource
+</span><a href="#local-6989586621679812536"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceDataSyncSource
+</span><a href="#local-6989586621679812537"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsOrganizationsSource:ResourceDataSyncSource' :: Maybe ResourceDataSyncAwsOrganizationsSource
 </span><a href="Network.AWS.SSM.Types.ResourceDataSyncSource.html#%24sel%3AawsOrganizationsSource%3AResourceDataSyncSource%27"><span class="hs-identifier hs-var">awsOrganizationsSource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceDataSyncAwsOrganizationsSource
-</span><a href="#local-6989586621679810846"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ResourceDataSyncSource.html#ResourceDataSyncSource"><span class="hs-identifier hs-type">ResourceDataSyncSource</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- | When you create a resource data sync, if you choose one of the</span><span>
-</span><span id="line-112"></span><span class="hs-comment">-- Organizations options, then Systems Manager automatically enables all</span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- OpsData sources in the selected Amazon Web Services Regions for all</span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- Amazon Web Services accounts in your organization (or in the selected</span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- organization units). For more information, see</span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/systems-manager/latest/userguide/Explorer-resouce-data-sync-multiple-accounts-and-regions.html About multiple account and Region resource data syncs&gt;</span><span>
-</span><span id="line-117"></span><span class="hs-comment">-- in the /Amazon Web Services Systems Manager User Guide/.</span><span>
-</span><span id="line-118"></span><span class="annot"><a href="Network.AWS.SSM.Types.ResourceDataSyncSource.html#resourceDataSyncSource_enableAllOpsDataSources"><span class="hs-identifier hs-type">resourceDataSyncSource_enableAllOpsDataSources</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ResourceDataSyncSource.html#ResourceDataSyncSource"><span class="hs-identifier hs-type">ResourceDataSyncSource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-119"></span><span id="resourceDataSyncSource_enableAllOpsDataSources"><span class="annot"><span class="annottext">resourceDataSyncSource_enableAllOpsDataSources :: (Maybe Bool -&gt; f (Maybe Bool))
--&gt; ResourceDataSyncSource -&gt; f ResourceDataSyncSource
-</span><a href="Network.AWS.SSM.Types.ResourceDataSyncSource.html#resourceDataSyncSource_enableAllOpsDataSources"><span class="hs-identifier hs-var hs-var">resourceDataSyncSource_enableAllOpsDataSources</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResourceDataSyncSource -&gt; Maybe Bool)
--&gt; (ResourceDataSyncSource -&gt; Maybe Bool -&gt; ResourceDataSyncSource)
--&gt; Lens
-     ResourceDataSyncSource
-     ResourceDataSyncSource
-     (Maybe Bool)
-     (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.ResourceDataSyncSource.html#ResourceDataSyncSource%27"><span class="hs-identifier hs-type">ResourceDataSyncSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679810844"><span class="annot"><span class="annottext">Maybe Bool
-enableAllOpsDataSources :: Maybe Bool
-$sel:enableAllOpsDataSources:ResourceDataSyncSource' :: ResourceDataSyncSource -&gt; Maybe Bool
-</span><a href="#local-6989586621679810844"><span class="hs-identifier hs-var hs-var">enableAllOpsDataSources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679810844"><span class="hs-identifier hs-var">enableAllOpsDataSources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679810843"><span class="annot"><span class="annottext">s :: ResourceDataSyncSource
-</span><a href="#local-6989586621679810843"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.ResourceDataSyncSource.html#ResourceDataSyncSource%27"><span class="hs-identifier hs-type">ResourceDataSyncSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679810842"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679810842"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceDataSyncSource
-</span><a href="#local-6989586621679810843"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enableAllOpsDataSources:ResourceDataSyncSource' :: Maybe Bool
-</span><a href="Network.AWS.SSM.Types.ResourceDataSyncSource.html#%24sel%3AenableAllOpsDataSources%3AResourceDataSyncSource%27"><span class="hs-identifier hs-var">enableAllOpsDataSources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679810842"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ResourceDataSyncSource.html#ResourceDataSyncSource"><span class="hs-identifier hs-type">ResourceDataSyncSource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679812536"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ResourceDataSyncSource.html#ResourceDataSyncSource"><span class="hs-identifier hs-type">ResourceDataSyncSource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-comment">-- | The type of data source for the resource data sync. @SourceType@ is</span><span>
 </span><span id="line-122"></span><span class="hs-comment">-- either @AwsOrganizations@ (if an organization is present in</span><span>
@@ -272,16 +272,16 @@ $sel:enableAllOpsDataSources:ResourceDataSyncSource' :: ResourceDataSyncSource -
 -&gt; (ResourceDataSyncSource -&gt; Text -&gt; ResourceDataSyncSource)
 -&gt; Lens ResourceDataSyncSource ResourceDataSyncSource Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.ResourceDataSyncSource.html#ResourceDataSyncSource%27"><span class="hs-identifier hs-type">ResourceDataSyncSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679810840"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.ResourceDataSyncSource.html#ResourceDataSyncSource%27"><span class="hs-identifier hs-type">ResourceDataSyncSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679812534"><span class="annot"><span class="annottext">Text
 sourceType :: Text
 $sel:sourceType:ResourceDataSyncSource' :: ResourceDataSyncSource -&gt; Text
-</span><a href="#local-6989586621679810840"><span class="hs-identifier hs-var hs-var">sourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679810840"><span class="hs-identifier hs-var">sourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679810839"><span class="annot"><span class="annottext">s :: ResourceDataSyncSource
-</span><a href="#local-6989586621679810839"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.ResourceDataSyncSource.html#ResourceDataSyncSource%27"><span class="hs-identifier hs-type">ResourceDataSyncSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679810838"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679810838"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceDataSyncSource
-</span><a href="#local-6989586621679810839"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceType:ResourceDataSyncSource' :: Text
+</span><a href="#local-6989586621679812534"><span class="hs-identifier hs-var hs-var">sourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679812534"><span class="hs-identifier hs-var">sourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679812533"><span class="annot"><span class="annottext">s :: ResourceDataSyncSource
+</span><a href="#local-6989586621679812533"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.ResourceDataSyncSource.html#ResourceDataSyncSource%27"><span class="hs-identifier hs-type">ResourceDataSyncSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679812532"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679812532"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceDataSyncSource
+</span><a href="#local-6989586621679812533"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceType:ResourceDataSyncSource' :: Text
 </span><a href="Network.AWS.SSM.Types.ResourceDataSyncSource.html#%24sel%3AsourceType%3AResourceDataSyncSource%27"><span class="hs-identifier hs-var">sourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679810838"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ResourceDataSyncSource.html#ResourceDataSyncSource"><span class="hs-identifier hs-type">ResourceDataSyncSource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679812532"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ResourceDataSyncSource.html#ResourceDataSyncSource"><span class="hs-identifier hs-type">ResourceDataSyncSource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-comment">-- | The @SyncSource@ Amazon Web Services Regions included in the resource</span><span>
 </span><span id="line-128"></span><span class="hs-comment">-- data sync.</span><span>
@@ -292,16 +292,16 @@ $sel:sourceType:ResourceDataSyncSource' :: ResourceDataSyncSource -&gt; Text
 -&gt; (ResourceDataSyncSource -&gt; [Text] -&gt; ResourceDataSyncSource)
 -&gt; Lens ResourceDataSyncSource ResourceDataSyncSource [Text] [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.ResourceDataSyncSource.html#ResourceDataSyncSource%27"><span class="hs-identifier hs-type">ResourceDataSyncSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679810836"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.ResourceDataSyncSource.html#ResourceDataSyncSource%27"><span class="hs-identifier hs-type">ResourceDataSyncSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679812530"><span class="annot"><span class="annottext">[Text]
 sourceRegions :: [Text]
 $sel:sourceRegions:ResourceDataSyncSource' :: ResourceDataSyncSource -&gt; [Text]
-</span><a href="#local-6989586621679810836"><span class="hs-identifier hs-var hs-var">sourceRegions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679810836"><span class="hs-identifier hs-var">sourceRegions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679810835"><span class="annot"><span class="annottext">s :: ResourceDataSyncSource
-</span><a href="#local-6989586621679810835"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.ResourceDataSyncSource.html#ResourceDataSyncSource%27"><span class="hs-identifier hs-type">ResourceDataSyncSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679810834"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679810834"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceDataSyncSource
-</span><a href="#local-6989586621679810835"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceRegions:ResourceDataSyncSource' :: [Text]
+</span><a href="#local-6989586621679812530"><span class="hs-identifier hs-var hs-var">sourceRegions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679812530"><span class="hs-identifier hs-var">sourceRegions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679812529"><span class="annot"><span class="annottext">s :: ResourceDataSyncSource
+</span><a href="#local-6989586621679812529"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.ResourceDataSyncSource.html#ResourceDataSyncSource%27"><span class="hs-identifier hs-type">ResourceDataSyncSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679812528"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679812528"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceDataSyncSource
+</span><a href="#local-6989586621679812529"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceRegions:ResourceDataSyncSource' :: [Text]
 </span><a href="Network.AWS.SSM.Types.ResourceDataSyncSource.html#%24sel%3AsourceRegions%3AResourceDataSyncSource%27"><span class="hs-identifier hs-var">sourceRegions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679810834"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ResourceDataSyncSource.html#ResourceDataSyncSource"><span class="hs-identifier hs-type">ResourceDataSyncSource</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+</span><a href="#local-6989586621679812528"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ResourceDataSyncSource.html#ResourceDataSyncSource"><span class="hs-identifier hs-type">ResourceDataSyncSource</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
  -&gt; ResourceDataSyncSource -&gt; f ResourceDataSyncSource)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
@@ -309,68 +309,68 @@ $sel:sourceRegions:ResourceDataSyncSource' :: ResourceDataSyncSource -&gt; [Text
 -&gt; f ResourceDataSyncSource
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-131"></span><span>
-</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679810828"><span id="local-6989586621679810830"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ResourceDataSyncSource.html#ResourceDataSyncSource"><span class="hs-identifier hs-type">ResourceDataSyncSource</span></a></span></span></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679812522"><span id="local-6989586621679812524"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ResourceDataSyncSource.html#ResourceDataSyncSource"><span class="hs-identifier hs-type">ResourceDataSyncSource</span></a></span></span></span><span>
 </span><span id="line-133"></span><span>
-</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679810825"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ResourceDataSyncSource.html#ResourceDataSyncSource"><span class="hs-identifier hs-type">ResourceDataSyncSource</span></a></span></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679812519"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ResourceDataSyncSource.html#ResourceDataSyncSource"><span class="hs-identifier hs-type">ResourceDataSyncSource</span></a></span></span><span>
 </span><span id="line-135"></span><span>
-</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679810817"><span id="local-6989586621679810819"><span id="local-6989586621679810821"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ResourceDataSyncSource.html#ResourceDataSyncSource"><span class="hs-identifier hs-type">ResourceDataSyncSource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679810815"><span class="annot"><span class="annottext">toJSON :: ResourceDataSyncSource -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ResourceDataSyncSource.html#ResourceDataSyncSource%27"><span class="hs-identifier hs-type">ResourceDataSyncSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679810809"><span id="local-6989586621679810810"><span id="local-6989586621679810811"><span id="local-6989586621679810812"><span id="local-6989586621679810813"><span class="annot"><span class="annottext">[Text]
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679812511"><span id="local-6989586621679812513"><span id="local-6989586621679812515"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ResourceDataSyncSource.html#ResourceDataSyncSource"><span class="hs-identifier hs-type">ResourceDataSyncSource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679812509"><span class="annot"><span class="annottext">toJSON :: ResourceDataSyncSource -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ResourceDataSyncSource.html#ResourceDataSyncSource%27"><span class="hs-identifier hs-type">ResourceDataSyncSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679812503"><span id="local-6989586621679812504"><span id="local-6989586621679812505"><span id="local-6989586621679812506"><span id="local-6989586621679812507"><span class="annot"><span class="annottext">[Text]
 Maybe Bool
 Maybe ResourceDataSyncAwsOrganizationsSource
 Text
 sourceRegions :: [Text]
 sourceType :: Text
-enableAllOpsDataSources :: Maybe Bool
 awsOrganizationsSource :: Maybe ResourceDataSyncAwsOrganizationsSource
 includeFutureRegions :: Maybe Bool
+enableAllOpsDataSources :: Maybe Bool
 $sel:sourceRegions:ResourceDataSyncSource' :: ResourceDataSyncSource -&gt; [Text]
 $sel:sourceType:ResourceDataSyncSource' :: ResourceDataSyncSource -&gt; Text
-$sel:enableAllOpsDataSources:ResourceDataSyncSource' :: ResourceDataSyncSource -&gt; Maybe Bool
 $sel:awsOrganizationsSource:ResourceDataSyncSource' :: ResourceDataSyncSource
 -&gt; Maybe ResourceDataSyncAwsOrganizationsSource
 $sel:includeFutureRegions:ResourceDataSyncSource' :: ResourceDataSyncSource -&gt; Maybe Bool
-</span><a href="#local-6989586621679810809"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:enableAllOpsDataSources:ResourceDataSyncSource' :: ResourceDataSyncSource -&gt; Maybe Bool
+</span><a href="#local-6989586621679812503"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-138"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-139"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-140"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;IncludeFutureRegions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+</span><span class="hs-string">&quot;EnableAllOpsDataSources&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679810813"><span class="hs-identifier hs-var">includeFutureRegions</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679812507"><span class="hs-identifier hs-var">enableAllOpsDataSources</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-142"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IncludeFutureRegions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679812506"><span class="hs-identifier hs-var">includeFutureRegions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AwsOrganizationsSource&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ResourceDataSyncAwsOrganizationsSource -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-143"></span><span>              </span><span class="annot"><span class="annottext">(ResourceDataSyncAwsOrganizationsSource -&gt; Pair)
+</span><span id="line-145"></span><span>              </span><span class="annot"><span class="annottext">(ResourceDataSyncAwsOrganizationsSource -&gt; Pair)
 -&gt; Maybe ResourceDataSyncAwsOrganizationsSource -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ResourceDataSyncAwsOrganizationsSource
-</span><a href="#local-6989586621679810812"><span class="hs-identifier hs-var">awsOrganizationsSource</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-144"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;EnableAllOpsDataSources&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-145"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679810811"><span class="hs-identifier hs-var">enableAllOpsDataSources</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679812505"><span class="hs-identifier hs-var">awsOrganizationsSource</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SourceType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679810810"><span class="hs-identifier hs-var">sourceType</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679812504"><span class="hs-identifier hs-var">sourceType</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -378,7 +378,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;SourceRegions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679810809"><span class="hs-identifier hs-var">sourceRegions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679812503"><span class="hs-identifier hs-var">sourceRegions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-150"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-151"></span></pre></body></html>

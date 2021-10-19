@@ -34,12 +34,12 @@
 </span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#newModifyManagedPrefixList"><span class="hs-identifier">newModifyManagedPrefixList</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-35"></span><span>
 </span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#modifyManagedPrefixList_removeEntries"><span class="hs-identifier">modifyManagedPrefixList_removeEntries</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#modifyManagedPrefixList_maxEntries"><span class="hs-identifier">modifyManagedPrefixList_maxEntries</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#modifyManagedPrefixList_dryRun"><span class="hs-identifier">modifyManagedPrefixList_dryRun</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#modifyManagedPrefixList_currentVersion"><span class="hs-identifier">modifyManagedPrefixList_currentVersion</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#modifyManagedPrefixList_prefixListName"><span class="hs-identifier">modifyManagedPrefixList_prefixListName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#modifyManagedPrefixList_addEntries"><span class="hs-identifier">modifyManagedPrefixList_addEntries</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#modifyManagedPrefixList_currentVersion"><span class="hs-identifier">modifyManagedPrefixList_currentVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#modifyManagedPrefixList_removeEntries"><span class="hs-identifier">modifyManagedPrefixList_removeEntries</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#modifyManagedPrefixList_prefixListName"><span class="hs-identifier">modifyManagedPrefixList_prefixListName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#modifyManagedPrefixList_addEntries"><span class="hs-identifier">modifyManagedPrefixList_addEntries</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#modifyManagedPrefixList_maxEntries"><span class="hs-identifier">modifyManagedPrefixList_maxEntries</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#modifyManagedPrefixList_dryRun"><span class="hs-identifier">modifyManagedPrefixList_dryRun</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#modifyManagedPrefixList_prefixListId"><span class="hs-identifier">modifyManagedPrefixList_prefixListId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-44"></span><span>
 </span><span id="line-45"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
@@ -60,40 +60,40 @@
 </span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-61"></span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- | /See:/ 'newModifyManagedPrefixList' smart constructor.</span><span>
-</span><span id="line-63"></span><span id="local-6989586621681183130"><span id="local-6989586621681183131"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyManagedPrefixList"><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixList"><span class="hs-identifier hs-var">ModifyManagedPrefixList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyManagedPrefixList%27"><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixList%27"><span class="hs-identifier hs-var">ModifyManagedPrefixList'</span></a></span></span><span>
-</span><span id="line-64"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | One or more entries to remove from the prefix list.</span><span>
-</span><span id="line-65"></span><span>    </span><span id="%24sel%3AremoveEntries%3AModifyManagedPrefixList%27"><span class="annot"><span class="annottext">ModifyManagedPrefixList -&gt; Maybe [RemovePrefixListEntry]
-</span><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#%24sel%3AremoveEntries%3AModifyManagedPrefixList%27"><span class="hs-identifier hs-var hs-var">removeEntries</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.RemovePrefixListEntry.html#RemovePrefixListEntry"><span class="hs-identifier hs-type">RemovePrefixListEntry</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The maximum number of entries for the prefix list. You cannot modify the</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- entries of a prefix list and modify the size of a prefix list at the</span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- same time.</span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- If any of the resources that reference the prefix list cannot support</span><span>
-</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- the new maximum size, the modify operation fails. Check the state</span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- message for the IDs of the first ten resources that do not support the</span><span>
-</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- new maximum size.</span><span>
-</span><span id="line-74"></span><span>    </span><span id="%24sel%3AmaxEntries%3AModifyManagedPrefixList%27"><span class="annot"><span class="annottext">ModifyManagedPrefixList -&gt; Maybe Int
-</span><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#%24sel%3AmaxEntries%3AModifyManagedPrefixList%27"><span class="hs-identifier hs-var hs-var">maxEntries</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
-</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
-</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
-</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
-</span><span id="line-79"></span><span>    </span><span id="%24sel%3AdryRun%3AModifyManagedPrefixList%27"><span class="annot"><span class="annottext">ModifyManagedPrefixList -&gt; Maybe Bool
-</span><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#%24sel%3AdryRun%3AModifyManagedPrefixList%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- | The current version of the prefix list.</span><span>
-</span><span id="line-81"></span><span>    </span><span id="%24sel%3AcurrentVersion%3AModifyManagedPrefixList%27"><span class="annot"><span class="annottext">ModifyManagedPrefixList -&gt; Maybe Integer
+</span><span id="line-63"></span><span id="local-6989586621681218523"><span id="local-6989586621681218524"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyManagedPrefixList"><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixList"><span class="hs-identifier hs-var">ModifyManagedPrefixList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyManagedPrefixList%27"><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixList%27"><span class="hs-identifier hs-var">ModifyManagedPrefixList'</span></a></span></span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The current version of the prefix list.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AcurrentVersion%3AModifyManagedPrefixList%27"><span class="annot"><span class="annottext">ModifyManagedPrefixList -&gt; Maybe Integer
 </span><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#%24sel%3AcurrentVersion%3AModifyManagedPrefixList%27"><span class="hs-identifier hs-var hs-var">currentVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
-</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- | A name for the prefix list.</span><span>
-</span><span id="line-83"></span><span>    </span><span id="%24sel%3AprefixListName%3AModifyManagedPrefixList%27"><span class="annot"><span class="annottext">ModifyManagedPrefixList -&gt; Maybe Text
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | One or more entries to remove from the prefix list.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AremoveEntries%3AModifyManagedPrefixList%27"><span class="annot"><span class="annottext">ModifyManagedPrefixList -&gt; Maybe [RemovePrefixListEntry]
+</span><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#%24sel%3AremoveEntries%3AModifyManagedPrefixList%27"><span class="hs-identifier hs-var hs-var">removeEntries</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.RemovePrefixListEntry.html#RemovePrefixListEntry"><span class="hs-identifier hs-type">RemovePrefixListEntry</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | A name for the prefix list.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AprefixListName%3AModifyManagedPrefixList%27"><span class="annot"><span class="annottext">ModifyManagedPrefixList -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#%24sel%3AprefixListName%3AModifyManagedPrefixList%27"><span class="hs-identifier hs-var hs-var">prefixListName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- | One or more entries to add to the prefix list.</span><span>
-</span><span id="line-85"></span><span>    </span><span id="%24sel%3AaddEntries%3AModifyManagedPrefixList%27"><span class="annot"><span class="annottext">ModifyManagedPrefixList -&gt; Maybe [AddPrefixListEntry]
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | One or more entries to add to the prefix list.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AaddEntries%3AModifyManagedPrefixList%27"><span class="annot"><span class="annottext">ModifyManagedPrefixList -&gt; Maybe [AddPrefixListEntry]
 </span><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#%24sel%3AaddEntries%3AModifyManagedPrefixList%27"><span class="hs-identifier hs-var hs-var">addEntries</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.AddPrefixListEntry.html#AddPrefixListEntry"><span class="hs-identifier hs-type">AddPrefixListEntry</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | The maximum number of entries for the prefix list. You cannot modify the</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- entries of a prefix list and modify the size of a prefix list at the</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- same time.</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- If any of the resources that reference the prefix list cannot support</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- the new maximum size, the modify operation fails. Check the state</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- message for the IDs of the first ten resources that do not support the</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- new maximum size.</span><span>
+</span><span id="line-80"></span><span>    </span><span id="%24sel%3AmaxEntries%3AModifyManagedPrefixList%27"><span class="annot"><span class="annottext">ModifyManagedPrefixList -&gt; Maybe Int
+</span><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#%24sel%3AmaxEntries%3AModifyManagedPrefixList%27"><span class="hs-identifier hs-var hs-var">maxEntries</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-85"></span><span>    </span><span id="%24sel%3AdryRun%3AModifyManagedPrefixList%27"><span class="annot"><span class="annottext">ModifyManagedPrefixList -&gt; Maybe Bool
+</span><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#%24sel%3AdryRun%3AModifyManagedPrefixList%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
 </span><span id="line-86"></span><span>    </span><span class="hs-comment">-- | The ID of the prefix list.</span><span>
 </span><span id="line-87"></span><span>    </span><span id="%24sel%3AprefixListId%3AModifyManagedPrefixList%27"><span class="annot"><span class="annottext">ModifyManagedPrefixList -&gt; Text
 </span><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#%24sel%3AprefixListId%3AModifyManagedPrefixList%27"><span class="hs-identifier hs-var hs-var">prefixListId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-88"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-89"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681183118"><span id="local-6989586621681183120"><span class="annot"><span class="annottext">ModifyManagedPrefixList -&gt; ModifyManagedPrefixList -&gt; Bool
+</span><span id="line-89"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681218511"><span id="local-6989586621681218513"><span class="annot"><span class="annottext">ModifyManagedPrefixList -&gt; ModifyManagedPrefixList -&gt; Bool
 (ModifyManagedPrefixList -&gt; ModifyManagedPrefixList -&gt; Bool)
 -&gt; (ModifyManagedPrefixList -&gt; ModifyManagedPrefixList -&gt; Bool)
 -&gt; Eq ModifyManagedPrefixList
@@ -102,7 +102,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ModifyManagedPrefixList -&gt; ModifyManagedPrefixList -&gt; Bool
 == :: ModifyManagedPrefixList -&gt; ModifyManagedPrefixList -&gt; Bool
 $c== :: ModifyManagedPrefixList -&gt; ModifyManagedPrefixList -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681183109"><span id="local-6989586621681183111"><span id="local-6989586621681183113"><span id="local-6989586621681183115"><span class="annot"><span class="annottext">ReadPrec [ModifyManagedPrefixList]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681218502"><span id="local-6989586621681218504"><span id="local-6989586621681218506"><span id="local-6989586621681218508"><span class="annot"><span class="annottext">ReadPrec [ModifyManagedPrefixList]
 ReadPrec ModifyManagedPrefixList
 Int -&gt; ReadS ModifyManagedPrefixList
 ReadS [ModifyManagedPrefixList]
@@ -122,7 +122,7 @@ readList :: ReadS [ModifyManagedPrefixList]
 $creadList :: ReadS [ModifyManagedPrefixList]
 readsPrec :: Int -&gt; ReadS ModifyManagedPrefixList
 $creadsPrec :: Int -&gt; ReadS ModifyManagedPrefixList
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681183102"><span id="local-6989586621681183104"><span id="local-6989586621681183106"><span class="annot"><span class="annottext">Int -&gt; ModifyManagedPrefixList -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681218495"><span id="local-6989586621681218497"><span id="local-6989586621681218499"><span class="annot"><span class="annottext">Int -&gt; ModifyManagedPrefixList -&gt; ShowS
 [ModifyManagedPrefixList] -&gt; ShowS
 ModifyManagedPrefixList -&gt; String
 (Int -&gt; ModifyManagedPrefixList -&gt; ShowS)
@@ -158,27 +158,27 @@ $cfrom :: forall x. ModifyManagedPrefixList -&gt; Rep ModifyManagedPrefixList x
 </span><span id="line-96"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-98"></span><span class="hs-comment">--</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- 'removeEntries', 'modifyManagedPrefixList_removeEntries' - One or more entries to remove from the prefix list.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'currentVersion', 'modifyManagedPrefixList_currentVersion' - The current version of the prefix list.</span><span>
 </span><span id="line-100"></span><span class="hs-comment">--</span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- 'maxEntries', 'modifyManagedPrefixList_maxEntries' - The maximum number of entries for the prefix list. You cannot modify the</span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- entries of a prefix list and modify the size of a prefix list at the</span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- same time.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'removeEntries', 'modifyManagedPrefixList_removeEntries' - One or more entries to remove from the prefix list.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 'prefixListName', 'modifyManagedPrefixList_prefixListName' - A name for the prefix list.</span><span>
 </span><span id="line-104"></span><span class="hs-comment">--</span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- If any of the resources that reference the prefix list cannot support</span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- the new maximum size, the modify operation fails. Check the state</span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- message for the IDs of the first ten resources that do not support the</span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- new maximum size.</span><span>
-</span><span id="line-109"></span><span class="hs-comment">--</span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- 'dryRun', 'modifyManagedPrefixList_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
-</span><span id="line-112"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
-</span><span id="line-114"></span><span class="hs-comment">--</span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- 'currentVersion', 'modifyManagedPrefixList_currentVersion' - The current version of the prefix list.</span><span>
-</span><span id="line-116"></span><span class="hs-comment">--</span><span>
-</span><span id="line-117"></span><span class="hs-comment">-- 'prefixListName', 'modifyManagedPrefixList_prefixListName' - A name for the prefix list.</span><span>
-</span><span id="line-118"></span><span class="hs-comment">--</span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- 'addEntries', 'modifyManagedPrefixList_addEntries' - One or more entries to add to the prefix list.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'addEntries', 'modifyManagedPrefixList_addEntries' - One or more entries to add to the prefix list.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- 'maxEntries', 'modifyManagedPrefixList_maxEntries' - The maximum number of entries for the prefix list. You cannot modify the</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- entries of a prefix list and modify the size of a prefix list at the</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- same time.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- If any of the resources that reference the prefix list cannot support</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- the new maximum size, the modify operation fails. Check the state</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- message for the IDs of the first ten resources that do not support the</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- new maximum size.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- 'dryRun', 'modifyManagedPrefixList_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
 </span><span id="line-120"></span><span class="hs-comment">--</span><span>
 </span><span id="line-121"></span><span class="hs-comment">-- 'prefixListId', 'modifyManagedPrefixList_prefixListId' - The ID of the prefix list.</span><span>
 </span><span id="line-122"></span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#newModifyManagedPrefixList"><span class="hs-identifier hs-type">newModifyManagedPrefixList</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -186,50 +186,74 @@ $cfrom :: forall x. ModifyManagedPrefixList -&gt; Rep ModifyManagedPrefixList x
 </span><span id="line-124"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-125"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixList"><span class="hs-identifier hs-type">ModifyManagedPrefixList</span></a></span><span>
 </span><span id="line-126"></span><span id="newModifyManagedPrefixList"><span class="annot"><span class="annottext">newModifyManagedPrefixList :: Text -&gt; ModifyManagedPrefixList
-</span><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#newModifyManagedPrefixList"><span class="hs-identifier hs-var hs-var">newModifyManagedPrefixList</span></a></span></span><span> </span><span id="local-6989586621681183097"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681183097"><span class="hs-identifier hs-var">pPrefixListId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-127"></span><span>  </span><span class="annot"><span class="annottext">ModifyManagedPrefixList' :: Maybe [RemovePrefixListEntry]
--&gt; Maybe Int
--&gt; Maybe Bool
--&gt; Maybe Integer
+</span><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#newModifyManagedPrefixList"><span class="hs-identifier hs-var hs-var">newModifyManagedPrefixList</span></a></span></span><span> </span><span id="local-6989586621681218490"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681218490"><span class="hs-identifier hs-var">pPrefixListId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-127"></span><span>  </span><span class="annot"><span class="annottext">ModifyManagedPrefixList' :: Maybe Integer
+-&gt; Maybe [RemovePrefixListEntry]
 -&gt; Maybe Text
 -&gt; Maybe [AddPrefixListEntry]
+-&gt; Maybe Int
+-&gt; Maybe Bool
 -&gt; Text
 -&gt; ModifyManagedPrefixList
 </span><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixList%27"><span class="hs-identifier hs-type">ModifyManagedPrefixList'</span></a></span><span>
-</span><span id="line-128"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:removeEntries:ModifyManagedPrefixList' :: Maybe [RemovePrefixListEntry]
-</span><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#%24sel%3AremoveEntries%3AModifyManagedPrefixList%27"><span class="hs-identifier hs-var">removeEntries</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-129"></span><span>        </span><span class="annot"><span class="annottext">Maybe [RemovePrefixListEntry]
+</span><span id="line-128"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:currentVersion:ModifyManagedPrefixList' :: Maybe Integer
+</span><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#%24sel%3AcurrentVersion%3AModifyManagedPrefixList%27"><span class="hs-identifier hs-var">currentVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-129"></span><span>        </span><span class="annot"><span class="annottext">Maybe Integer
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxEntries:ModifyManagedPrefixList' :: Maybe Int
-</span><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#%24sel%3AmaxEntries%3AModifyManagedPrefixList%27"><span class="hs-identifier hs-var">maxEntries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">$sel:removeEntries:ModifyManagedPrefixList' :: Maybe [RemovePrefixListEntry]
+</span><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#%24sel%3AremoveEntries%3AModifyManagedPrefixList%27"><span class="hs-identifier hs-var">removeEntries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [RemovePrefixListEntry]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">$sel:dryRun:ModifyManagedPrefixList' :: Maybe Bool
-</span><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#%24sel%3AdryRun%3AModifyManagedPrefixList%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">$sel:currentVersion:ModifyManagedPrefixList' :: Maybe Integer
-</span><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#%24sel%3AcurrentVersion%3AModifyManagedPrefixList%27"><span class="hs-identifier hs-var">currentVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-133"></span><span>      </span><span class="annot"><span class="annottext">$sel:prefixListName:ModifyManagedPrefixList' :: Maybe Text
+</span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">$sel:prefixListName:ModifyManagedPrefixList' :: Maybe Text
 </span><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#%24sel%3AprefixListName%3AModifyManagedPrefixList%27"><span class="hs-identifier hs-var">prefixListName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-134"></span><span>      </span><span class="annot"><span class="annottext">$sel:addEntries:ModifyManagedPrefixList' :: Maybe [AddPrefixListEntry]
+</span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">$sel:addEntries:ModifyManagedPrefixList' :: Maybe [AddPrefixListEntry]
 </span><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#%24sel%3AaddEntries%3AModifyManagedPrefixList%27"><span class="hs-identifier hs-var">addEntries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AddPrefixListEntry]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxEntries:ModifyManagedPrefixList' :: Maybe Int
+</span><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#%24sel%3AmaxEntries%3AModifyManagedPrefixList%27"><span class="hs-identifier hs-var">maxEntries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>      </span><span class="annot"><span class="annottext">$sel:dryRun:ModifyManagedPrefixList' :: Maybe Bool
+</span><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#%24sel%3AdryRun%3AModifyManagedPrefixList%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-135"></span><span>      </span><span class="annot"><span class="annottext">$sel:prefixListId:ModifyManagedPrefixList' :: Text
 </span><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#%24sel%3AprefixListId%3AModifyManagedPrefixList%27"><span class="hs-identifier hs-var">prefixListId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681183097"><span class="hs-identifier hs-var">pPrefixListId_</span></a></span><span>
+</span><a href="#local-6989586621681218490"><span class="hs-identifier hs-var">pPrefixListId_</span></a></span><span>
 </span><span id="line-136"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-137"></span><span>
-</span><span id="line-138"></span><span class="hs-comment">-- | One or more entries to remove from the prefix list.</span><span>
-</span><span id="line-139"></span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#modifyManagedPrefixList_removeEntries"><span class="hs-identifier hs-type">modifyManagedPrefixList_removeEntries</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixList"><span class="hs-identifier hs-type">ModifyManagedPrefixList</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.RemovePrefixListEntry.html#RemovePrefixListEntry"><span class="hs-identifier hs-type">RemovePrefixListEntry</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-140"></span><span id="modifyManagedPrefixList_removeEntries"><span class="annot"><span class="annottext">modifyManagedPrefixList_removeEntries :: (Maybe [RemovePrefixListEntry]
+</span><span id="line-138"></span><span class="hs-comment">-- | The current version of the prefix list.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#modifyManagedPrefixList_currentVersion"><span class="hs-identifier hs-type">modifyManagedPrefixList_currentVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixList"><span class="hs-identifier hs-type">ModifyManagedPrefixList</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span id="modifyManagedPrefixList_currentVersion"><span class="annot"><span class="annottext">modifyManagedPrefixList_currentVersion :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; ModifyManagedPrefixList -&gt; f ModifyManagedPrefixList
+</span><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#modifyManagedPrefixList_currentVersion"><span class="hs-identifier hs-var hs-var">modifyManagedPrefixList_currentVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyManagedPrefixList -&gt; Maybe Integer)
+-&gt; (ModifyManagedPrefixList
+    -&gt; Maybe Integer -&gt; ModifyManagedPrefixList)
+-&gt; Lens
+     ModifyManagedPrefixList
+     ModifyManagedPrefixList
+     (Maybe Integer)
+     (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixList%27"><span class="hs-identifier hs-type">ModifyManagedPrefixList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681218487"><span class="annot"><span class="annottext">Maybe Integer
+currentVersion :: Maybe Integer
+$sel:currentVersion:ModifyManagedPrefixList' :: ModifyManagedPrefixList -&gt; Maybe Integer
+</span><a href="#local-6989586621681218487"><span class="hs-identifier hs-var hs-var">currentVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621681218487"><span class="hs-identifier hs-var">currentVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681218486"><span class="annot"><span class="annottext">s :: ModifyManagedPrefixList
+</span><a href="#local-6989586621681218486"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixList%27"><span class="hs-identifier hs-type">ModifyManagedPrefixList'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681218485"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621681218485"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyManagedPrefixList
+</span><a href="#local-6989586621681218486"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:currentVersion:ModifyManagedPrefixList' :: Maybe Integer
+</span><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#%24sel%3AcurrentVersion%3AModifyManagedPrefixList%27"><span class="hs-identifier hs-var">currentVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621681218485"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixList"><span class="hs-identifier hs-type">ModifyManagedPrefixList</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- | One or more entries to remove from the prefix list.</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#modifyManagedPrefixList_removeEntries"><span class="hs-identifier hs-type">modifyManagedPrefixList_removeEntries</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixList"><span class="hs-identifier hs-type">ModifyManagedPrefixList</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.RemovePrefixListEntry.html#RemovePrefixListEntry"><span class="hs-identifier hs-type">RemovePrefixListEntry</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span id="modifyManagedPrefixList_removeEntries"><span class="annot"><span class="annottext">modifyManagedPrefixList_removeEntries :: (Maybe [RemovePrefixListEntry]
  -&gt; f (Maybe [RemovePrefixListEntry]))
 -&gt; ModifyManagedPrefixList -&gt; f ModifyManagedPrefixList
 </span><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#modifyManagedPrefixList_removeEntries"><span class="hs-identifier hs-var hs-var">modifyManagedPrefixList_removeEntries</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyManagedPrefixList -&gt; Maybe [RemovePrefixListEntry])
@@ -241,16 +265,16 @@ forall a. Maybe a
      (Maybe [RemovePrefixListEntry])
      (Maybe [RemovePrefixListEntry])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixList%27"><span class="hs-identifier hs-type">ModifyManagedPrefixList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681183094"><span class="annot"><span class="annottext">Maybe [RemovePrefixListEntry]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixList%27"><span class="hs-identifier hs-type">ModifyManagedPrefixList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681218484"><span class="annot"><span class="annottext">Maybe [RemovePrefixListEntry]
 removeEntries :: Maybe [RemovePrefixListEntry]
 $sel:removeEntries:ModifyManagedPrefixList' :: ModifyManagedPrefixList -&gt; Maybe [RemovePrefixListEntry]
-</span><a href="#local-6989586621681183094"><span class="hs-identifier hs-var hs-var">removeEntries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [RemovePrefixListEntry]
-</span><a href="#local-6989586621681183094"><span class="hs-identifier hs-var">removeEntries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681183093"><span class="annot"><span class="annottext">s :: ModifyManagedPrefixList
-</span><a href="#local-6989586621681183093"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixList%27"><span class="hs-identifier hs-type">ModifyManagedPrefixList'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681183092"><span class="annot"><span class="annottext">Maybe [RemovePrefixListEntry]
-</span><a href="#local-6989586621681183092"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyManagedPrefixList
-</span><a href="#local-6989586621681183093"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:removeEntries:ModifyManagedPrefixList' :: Maybe [RemovePrefixListEntry]
+</span><a href="#local-6989586621681218484"><span class="hs-identifier hs-var hs-var">removeEntries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [RemovePrefixListEntry]
+</span><a href="#local-6989586621681218484"><span class="hs-identifier hs-var">removeEntries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681218483"><span class="annot"><span class="annottext">s :: ModifyManagedPrefixList
+</span><a href="#local-6989586621681218483"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixList%27"><span class="hs-identifier hs-type">ModifyManagedPrefixList'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681218482"><span class="annot"><span class="annottext">Maybe [RemovePrefixListEntry]
+</span><a href="#local-6989586621681218482"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyManagedPrefixList
+</span><a href="#local-6989586621681218483"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:removeEntries:ModifyManagedPrefixList' :: Maybe [RemovePrefixListEntry]
 </span><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#%24sel%3AremoveEntries%3AModifyManagedPrefixList%27"><span class="hs-identifier hs-var">removeEntries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [RemovePrefixListEntry]
-</span><a href="#local-6989586621681183092"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixList"><span class="hs-identifier hs-type">ModifyManagedPrefixList</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [RemovePrefixListEntry]
+</span><a href="#local-6989586621681218482"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixList"><span class="hs-identifier hs-type">ModifyManagedPrefixList</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [RemovePrefixListEntry]
   -&gt; f (Maybe [RemovePrefixListEntry]))
  -&gt; ModifyManagedPrefixList -&gt; f ModifyManagedPrefixList)
 -&gt; ((Maybe [RemovePrefixListEntry]
@@ -280,94 +304,12 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [RemovePrefixListEntry]
   [RemovePrefixListEntry]
   [RemovePrefixListEntry]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-comment">-- | The maximum number of entries for the prefix list. You cannot modify the</span><span>
-</span><span id="line-143"></span><span class="hs-comment">-- entries of a prefix list and modify the size of a prefix list at the</span><span>
-</span><span id="line-144"></span><span class="hs-comment">-- same time.</span><span>
-</span><span id="line-145"></span><span class="hs-comment">--</span><span>
-</span><span id="line-146"></span><span class="hs-comment">-- If any of the resources that reference the prefix list cannot support</span><span>
-</span><span id="line-147"></span><span class="hs-comment">-- the new maximum size, the modify operation fails. Check the state</span><span>
-</span><span id="line-148"></span><span class="hs-comment">-- message for the IDs of the first ten resources that do not support the</span><span>
-</span><span id="line-149"></span><span class="hs-comment">-- new maximum size.</span><span>
-</span><span id="line-150"></span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#modifyManagedPrefixList_maxEntries"><span class="hs-identifier hs-type">modifyManagedPrefixList_maxEntries</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixList"><span class="hs-identifier hs-type">ModifyManagedPrefixList</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-151"></span><span id="modifyManagedPrefixList_maxEntries"><span class="annot"><span class="annottext">modifyManagedPrefixList_maxEntries :: (Maybe Int -&gt; f (Maybe Int))
--&gt; ModifyManagedPrefixList -&gt; f ModifyManagedPrefixList
-</span><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#modifyManagedPrefixList_maxEntries"><span class="hs-identifier hs-var hs-var">modifyManagedPrefixList_maxEntries</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyManagedPrefixList -&gt; Maybe Int)
--&gt; (ModifyManagedPrefixList
-    -&gt; Maybe Int -&gt; ModifyManagedPrefixList)
--&gt; Lens
-     ModifyManagedPrefixList
-     ModifyManagedPrefixList
-     (Maybe Int)
-     (Maybe Int)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixList%27"><span class="hs-identifier hs-type">ModifyManagedPrefixList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681183088"><span class="annot"><span class="annottext">Maybe Int
-maxEntries :: Maybe Int
-$sel:maxEntries:ModifyManagedPrefixList' :: ModifyManagedPrefixList -&gt; Maybe Int
-</span><a href="#local-6989586621681183088"><span class="hs-identifier hs-var hs-var">maxEntries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681183088"><span class="hs-identifier hs-var">maxEntries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681183087"><span class="annot"><span class="annottext">s :: ModifyManagedPrefixList
-</span><a href="#local-6989586621681183087"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixList%27"><span class="hs-identifier hs-type">ModifyManagedPrefixList'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681183086"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681183086"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyManagedPrefixList
-</span><a href="#local-6989586621681183087"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxEntries:ModifyManagedPrefixList' :: Maybe Int
-</span><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#%24sel%3AmaxEntries%3AModifyManagedPrefixList%27"><span class="hs-identifier hs-var">maxEntries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681183086"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixList"><span class="hs-identifier hs-type">ModifyManagedPrefixList</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-152"></span><span>
-</span><span id="line-153"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
-</span><span id="line-154"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
-</span><span id="line-155"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
-</span><span id="line-156"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
-</span><span id="line-157"></span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#modifyManagedPrefixList_dryRun"><span class="hs-identifier hs-type">modifyManagedPrefixList_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixList"><span class="hs-identifier hs-type">ModifyManagedPrefixList</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-158"></span><span id="modifyManagedPrefixList_dryRun"><span class="annot"><span class="annottext">modifyManagedPrefixList_dryRun :: (Maybe Bool -&gt; f (Maybe Bool))
--&gt; ModifyManagedPrefixList -&gt; f ModifyManagedPrefixList
-</span><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#modifyManagedPrefixList_dryRun"><span class="hs-identifier hs-var hs-var">modifyManagedPrefixList_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyManagedPrefixList -&gt; Maybe Bool)
--&gt; (ModifyManagedPrefixList
-    -&gt; Maybe Bool -&gt; ModifyManagedPrefixList)
--&gt; Lens
-     ModifyManagedPrefixList
-     ModifyManagedPrefixList
-     (Maybe Bool)
-     (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixList%27"><span class="hs-identifier hs-type">ModifyManagedPrefixList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681183085"><span class="annot"><span class="annottext">Maybe Bool
-dryRun :: Maybe Bool
-$sel:dryRun:ModifyManagedPrefixList' :: ModifyManagedPrefixList -&gt; Maybe Bool
-</span><a href="#local-6989586621681183085"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681183085"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681183084"><span class="annot"><span class="annottext">s :: ModifyManagedPrefixList
-</span><a href="#local-6989586621681183084"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixList%27"><span class="hs-identifier hs-type">ModifyManagedPrefixList'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681183083"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681183083"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyManagedPrefixList
-</span><a href="#local-6989586621681183084"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:ModifyManagedPrefixList' :: Maybe Bool
-</span><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#%24sel%3AdryRun%3AModifyManagedPrefixList%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681183083"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixList"><span class="hs-identifier hs-type">ModifyManagedPrefixList</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-159"></span><span>
-</span><span id="line-160"></span><span class="hs-comment">-- | The current version of the prefix list.</span><span>
-</span><span id="line-161"></span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#modifyManagedPrefixList_currentVersion"><span class="hs-identifier hs-type">modifyManagedPrefixList_currentVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixList"><span class="hs-identifier hs-type">ModifyManagedPrefixList</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
-</span><span id="line-162"></span><span id="modifyManagedPrefixList_currentVersion"><span class="annot"><span class="annottext">modifyManagedPrefixList_currentVersion :: (Maybe Integer -&gt; f (Maybe Integer))
--&gt; ModifyManagedPrefixList -&gt; f ModifyManagedPrefixList
-</span><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#modifyManagedPrefixList_currentVersion"><span class="hs-identifier hs-var hs-var">modifyManagedPrefixList_currentVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyManagedPrefixList -&gt; Maybe Integer)
--&gt; (ModifyManagedPrefixList
-    -&gt; Maybe Integer -&gt; ModifyManagedPrefixList)
--&gt; Lens
-     ModifyManagedPrefixList
-     ModifyManagedPrefixList
-     (Maybe Integer)
-     (Maybe Integer)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixList%27"><span class="hs-identifier hs-type">ModifyManagedPrefixList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681183082"><span class="annot"><span class="annottext">Maybe Integer
-currentVersion :: Maybe Integer
-$sel:currentVersion:ModifyManagedPrefixList' :: ModifyManagedPrefixList -&gt; Maybe Integer
-</span><a href="#local-6989586621681183082"><span class="hs-identifier hs-var hs-var">currentVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621681183082"><span class="hs-identifier hs-var">currentVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681183081"><span class="annot"><span class="annottext">s :: ModifyManagedPrefixList
-</span><a href="#local-6989586621681183081"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixList%27"><span class="hs-identifier hs-type">ModifyManagedPrefixList'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681183080"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621681183080"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyManagedPrefixList
-</span><a href="#local-6989586621681183081"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:currentVersion:ModifyManagedPrefixList' :: Maybe Integer
-</span><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#%24sel%3AcurrentVersion%3AModifyManagedPrefixList%27"><span class="hs-identifier hs-var">currentVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621681183080"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixList"><span class="hs-identifier hs-type">ModifyManagedPrefixList</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-163"></span><span>
-</span><span id="line-164"></span><span class="hs-comment">-- | A name for the prefix list.</span><span>
-</span><span id="line-165"></span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#modifyManagedPrefixList_prefixListName"><span class="hs-identifier hs-type">modifyManagedPrefixList_prefixListName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixList"><span class="hs-identifier hs-type">ModifyManagedPrefixList</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-166"></span><span id="modifyManagedPrefixList_prefixListName"><span class="annot"><span class="annottext">modifyManagedPrefixList_prefixListName :: (Maybe Text -&gt; f (Maybe Text))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- | A name for the prefix list.</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#modifyManagedPrefixList_prefixListName"><span class="hs-identifier hs-type">modifyManagedPrefixList_prefixListName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixList"><span class="hs-identifier hs-type">ModifyManagedPrefixList</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span id="modifyManagedPrefixList_prefixListName"><span class="annot"><span class="annottext">modifyManagedPrefixList_prefixListName :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ModifyManagedPrefixList -&gt; f ModifyManagedPrefixList
 </span><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#modifyManagedPrefixList_prefixListName"><span class="hs-identifier hs-var hs-var">modifyManagedPrefixList_prefixListName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyManagedPrefixList -&gt; Maybe Text)
 -&gt; (ModifyManagedPrefixList
@@ -378,20 +320,20 @@ $sel:currentVersion:ModifyManagedPrefixList' :: ModifyManagedPrefixList -&gt; Ma
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixList%27"><span class="hs-identifier hs-type">ModifyManagedPrefixList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681183079"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixList%27"><span class="hs-identifier hs-type">ModifyManagedPrefixList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681218478"><span class="annot"><span class="annottext">Maybe Text
 prefixListName :: Maybe Text
 $sel:prefixListName:ModifyManagedPrefixList' :: ModifyManagedPrefixList -&gt; Maybe Text
-</span><a href="#local-6989586621681183079"><span class="hs-identifier hs-var hs-var">prefixListName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681183079"><span class="hs-identifier hs-var">prefixListName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681183078"><span class="annot"><span class="annottext">s :: ModifyManagedPrefixList
-</span><a href="#local-6989586621681183078"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixList%27"><span class="hs-identifier hs-type">ModifyManagedPrefixList'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681183077"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681183077"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyManagedPrefixList
-</span><a href="#local-6989586621681183078"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:prefixListName:ModifyManagedPrefixList' :: Maybe Text
+</span><a href="#local-6989586621681218478"><span class="hs-identifier hs-var hs-var">prefixListName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681218478"><span class="hs-identifier hs-var">prefixListName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681218477"><span class="annot"><span class="annottext">s :: ModifyManagedPrefixList
+</span><a href="#local-6989586621681218477"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixList%27"><span class="hs-identifier hs-type">ModifyManagedPrefixList'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681218476"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681218476"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyManagedPrefixList
+</span><a href="#local-6989586621681218477"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:prefixListName:ModifyManagedPrefixList' :: Maybe Text
 </span><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#%24sel%3AprefixListName%3AModifyManagedPrefixList%27"><span class="hs-identifier hs-var">prefixListName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681183077"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixList"><span class="hs-identifier hs-type">ModifyManagedPrefixList</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-167"></span><span>
-</span><span id="line-168"></span><span class="hs-comment">-- | One or more entries to add to the prefix list.</span><span>
-</span><span id="line-169"></span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#modifyManagedPrefixList_addEntries"><span class="hs-identifier hs-type">modifyManagedPrefixList_addEntries</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixList"><span class="hs-identifier hs-type">ModifyManagedPrefixList</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.AddPrefixListEntry.html#AddPrefixListEntry"><span class="hs-identifier hs-type">AddPrefixListEntry</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-170"></span><span id="modifyManagedPrefixList_addEntries"><span class="annot"><span class="annottext">modifyManagedPrefixList_addEntries :: (Maybe [AddPrefixListEntry] -&gt; f (Maybe [AddPrefixListEntry]))
+</span><a href="#local-6989586621681218476"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixList"><span class="hs-identifier hs-type">ModifyManagedPrefixList</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- | One or more entries to add to the prefix list.</span><span>
+</span><span id="line-151"></span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#modifyManagedPrefixList_addEntries"><span class="hs-identifier hs-type">modifyManagedPrefixList_addEntries</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixList"><span class="hs-identifier hs-type">ModifyManagedPrefixList</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.AddPrefixListEntry.html#AddPrefixListEntry"><span class="hs-identifier hs-type">AddPrefixListEntry</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span id="modifyManagedPrefixList_addEntries"><span class="annot"><span class="annottext">modifyManagedPrefixList_addEntries :: (Maybe [AddPrefixListEntry] -&gt; f (Maybe [AddPrefixListEntry]))
 -&gt; ModifyManagedPrefixList -&gt; f ModifyManagedPrefixList
 </span><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#modifyManagedPrefixList_addEntries"><span class="hs-identifier hs-var hs-var">modifyManagedPrefixList_addEntries</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyManagedPrefixList -&gt; Maybe [AddPrefixListEntry])
 -&gt; (ModifyManagedPrefixList
@@ -402,16 +344,16 @@ $sel:prefixListName:ModifyManagedPrefixList' :: ModifyManagedPrefixList -&gt; Ma
      (Maybe [AddPrefixListEntry])
      (Maybe [AddPrefixListEntry])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixList%27"><span class="hs-identifier hs-type">ModifyManagedPrefixList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681183076"><span class="annot"><span class="annottext">Maybe [AddPrefixListEntry]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixList%27"><span class="hs-identifier hs-type">ModifyManagedPrefixList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681218475"><span class="annot"><span class="annottext">Maybe [AddPrefixListEntry]
 addEntries :: Maybe [AddPrefixListEntry]
 $sel:addEntries:ModifyManagedPrefixList' :: ModifyManagedPrefixList -&gt; Maybe [AddPrefixListEntry]
-</span><a href="#local-6989586621681183076"><span class="hs-identifier hs-var hs-var">addEntries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AddPrefixListEntry]
-</span><a href="#local-6989586621681183076"><span class="hs-identifier hs-var">addEntries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681183075"><span class="annot"><span class="annottext">s :: ModifyManagedPrefixList
-</span><a href="#local-6989586621681183075"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixList%27"><span class="hs-identifier hs-type">ModifyManagedPrefixList'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681183074"><span class="annot"><span class="annottext">Maybe [AddPrefixListEntry]
-</span><a href="#local-6989586621681183074"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyManagedPrefixList
-</span><a href="#local-6989586621681183075"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:addEntries:ModifyManagedPrefixList' :: Maybe [AddPrefixListEntry]
+</span><a href="#local-6989586621681218475"><span class="hs-identifier hs-var hs-var">addEntries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AddPrefixListEntry]
+</span><a href="#local-6989586621681218475"><span class="hs-identifier hs-var">addEntries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681218474"><span class="annot"><span class="annottext">s :: ModifyManagedPrefixList
+</span><a href="#local-6989586621681218474"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixList%27"><span class="hs-identifier hs-type">ModifyManagedPrefixList'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681218473"><span class="annot"><span class="annottext">Maybe [AddPrefixListEntry]
+</span><a href="#local-6989586621681218473"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyManagedPrefixList
+</span><a href="#local-6989586621681218474"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:addEntries:ModifyManagedPrefixList' :: Maybe [AddPrefixListEntry]
 </span><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#%24sel%3AaddEntries%3AModifyManagedPrefixList%27"><span class="hs-identifier hs-var">addEntries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AddPrefixListEntry]
-</span><a href="#local-6989586621681183074"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixList"><span class="hs-identifier hs-type">ModifyManagedPrefixList</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AddPrefixListEntry] -&gt; f (Maybe [AddPrefixListEntry]))
+</span><a href="#local-6989586621681218473"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixList"><span class="hs-identifier hs-type">ModifyManagedPrefixList</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AddPrefixListEntry] -&gt; f (Maybe [AddPrefixListEntry]))
  -&gt; ModifyManagedPrefixList -&gt; f ModifyManagedPrefixList)
 -&gt; ((Maybe [AddPrefixListEntry] -&gt; f (Maybe [AddPrefixListEntry]))
     -&gt; Maybe [AddPrefixListEntry] -&gt; f (Maybe [AddPrefixListEntry]))
@@ -437,8 +379,66 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [AddPrefixListEntry]
   [AddPrefixListEntry]
   [AddPrefixListEntry]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- | The maximum number of entries for the prefix list. You cannot modify the</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- entries of a prefix list and modify the size of a prefix list at the</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- same time.</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- If any of the resources that reference the prefix list cannot support</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- the new maximum size, the modify operation fails. Check the state</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- message for the IDs of the first ten resources that do not support the</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- new maximum size.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#modifyManagedPrefixList_maxEntries"><span class="hs-identifier hs-type">modifyManagedPrefixList_maxEntries</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixList"><span class="hs-identifier hs-type">ModifyManagedPrefixList</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span id="modifyManagedPrefixList_maxEntries"><span class="annot"><span class="annottext">modifyManagedPrefixList_maxEntries :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; ModifyManagedPrefixList -&gt; f ModifyManagedPrefixList
+</span><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#modifyManagedPrefixList_maxEntries"><span class="hs-identifier hs-var hs-var">modifyManagedPrefixList_maxEntries</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyManagedPrefixList -&gt; Maybe Int)
+-&gt; (ModifyManagedPrefixList
+    -&gt; Maybe Int -&gt; ModifyManagedPrefixList)
+-&gt; Lens
+     ModifyManagedPrefixList
+     ModifyManagedPrefixList
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixList%27"><span class="hs-identifier hs-type">ModifyManagedPrefixList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681218472"><span class="annot"><span class="annottext">Maybe Int
+maxEntries :: Maybe Int
+$sel:maxEntries:ModifyManagedPrefixList' :: ModifyManagedPrefixList -&gt; Maybe Int
+</span><a href="#local-6989586621681218472"><span class="hs-identifier hs-var hs-var">maxEntries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681218472"><span class="hs-identifier hs-var">maxEntries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681218471"><span class="annot"><span class="annottext">s :: ModifyManagedPrefixList
+</span><a href="#local-6989586621681218471"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixList%27"><span class="hs-identifier hs-type">ModifyManagedPrefixList'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681218470"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681218470"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyManagedPrefixList
+</span><a href="#local-6989586621681218471"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxEntries:ModifyManagedPrefixList' :: Maybe Int
+</span><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#%24sel%3AmaxEntries%3AModifyManagedPrefixList%27"><span class="hs-identifier hs-var">maxEntries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681218470"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixList"><span class="hs-identifier hs-type">ModifyManagedPrefixList</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#modifyManagedPrefixList_dryRun"><span class="hs-identifier hs-type">modifyManagedPrefixList_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixList"><span class="hs-identifier hs-type">ModifyManagedPrefixList</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span id="modifyManagedPrefixList_dryRun"><span class="annot"><span class="annottext">modifyManagedPrefixList_dryRun :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; ModifyManagedPrefixList -&gt; f ModifyManagedPrefixList
+</span><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#modifyManagedPrefixList_dryRun"><span class="hs-identifier hs-var hs-var">modifyManagedPrefixList_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyManagedPrefixList -&gt; Maybe Bool)
+-&gt; (ModifyManagedPrefixList
+    -&gt; Maybe Bool -&gt; ModifyManagedPrefixList)
+-&gt; Lens
+     ModifyManagedPrefixList
+     ModifyManagedPrefixList
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixList%27"><span class="hs-identifier hs-type">ModifyManagedPrefixList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681218469"><span class="annot"><span class="annottext">Maybe Bool
+dryRun :: Maybe Bool
+$sel:dryRun:ModifyManagedPrefixList' :: ModifyManagedPrefixList -&gt; Maybe Bool
+</span><a href="#local-6989586621681218469"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681218469"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681218468"><span class="annot"><span class="annottext">s :: ModifyManagedPrefixList
+</span><a href="#local-6989586621681218468"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixList%27"><span class="hs-identifier hs-type">ModifyManagedPrefixList'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681218467"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681218467"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyManagedPrefixList
+</span><a href="#local-6989586621681218468"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:ModifyManagedPrefixList' :: Maybe Bool
+</span><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#%24sel%3AdryRun%3AModifyManagedPrefixList%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681218467"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixList"><span class="hs-identifier hs-type">ModifyManagedPrefixList</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-171"></span><span>
 </span><span id="line-172"></span><span class="hs-comment">-- | The ID of the prefix list.</span><span>
 </span><span id="line-173"></span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#modifyManagedPrefixList_prefixListId"><span class="hs-identifier hs-type">modifyManagedPrefixList_prefixListId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixList"><span class="hs-identifier hs-type">ModifyManagedPrefixList</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -448,28 +448,28 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (ModifyManagedPrefixList -&gt; Text -&gt; ModifyManagedPrefixList)
 -&gt; Lens ModifyManagedPrefixList ModifyManagedPrefixList Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixList%27"><span class="hs-identifier hs-type">ModifyManagedPrefixList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681183073"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixList%27"><span class="hs-identifier hs-type">ModifyManagedPrefixList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681218466"><span class="annot"><span class="annottext">Text
 prefixListId :: Text
 $sel:prefixListId:ModifyManagedPrefixList' :: ModifyManagedPrefixList -&gt; Text
-</span><a href="#local-6989586621681183073"><span class="hs-identifier hs-var hs-var">prefixListId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681183073"><span class="hs-identifier hs-var">prefixListId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681183072"><span class="annot"><span class="annottext">s :: ModifyManagedPrefixList
-</span><a href="#local-6989586621681183072"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixList%27"><span class="hs-identifier hs-type">ModifyManagedPrefixList'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681183071"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681183071"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyManagedPrefixList
-</span><a href="#local-6989586621681183072"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:prefixListId:ModifyManagedPrefixList' :: Text
+</span><a href="#local-6989586621681218466"><span class="hs-identifier hs-var hs-var">prefixListId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681218466"><span class="hs-identifier hs-var">prefixListId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681218465"><span class="annot"><span class="annottext">s :: ModifyManagedPrefixList
+</span><a href="#local-6989586621681218465"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixList%27"><span class="hs-identifier hs-type">ModifyManagedPrefixList'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681218464"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681218464"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyManagedPrefixList
+</span><a href="#local-6989586621681218465"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:prefixListId:ModifyManagedPrefixList' :: Text
 </span><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#%24sel%3AprefixListId%3AModifyManagedPrefixList%27"><span class="hs-identifier hs-var">prefixListId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681183071"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixList"><span class="hs-identifier hs-type">ModifyManagedPrefixList</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681218464"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixList"><span class="hs-identifier hs-type">ModifyManagedPrefixList</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-175"></span><span>
 </span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixList"><span class="hs-identifier hs-type">ModifyManagedPrefixList</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-177"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-178"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixList"><span class="hs-identifier hs-type">ModifyManagedPrefixList</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-179"></span><span>      </span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixListResponse"><span class="hs-identifier hs-type">ModifyManagedPrefixListResponse</span></a></span><span>
-</span><span id="line-180"></span><span>  </span><span id="local-6989586621681183067"><span class="annot"><span class="annottext">request :: ModifyManagedPrefixList -&gt; Request ModifyManagedPrefixList
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621681218460"><span class="annot"><span class="annottext">request :: ModifyManagedPrefixList -&gt; Request ModifyManagedPrefixList
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; ModifyManagedPrefixList -&gt; Request ModifyManagedPrefixList
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-181"></span><span>  </span><span id="local-6989586621681183063"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621681218456"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ModifyManagedPrefixList
 -&gt; ClientResponse ClientBody
@@ -495,10 +495,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
-</span><span id="line-183"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681183060"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681183060"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681183059"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621681183059"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681183058"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681183058"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-183"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681218453"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681218453"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681218452"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681218452"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681218451"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681218451"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-184"></span><span>          </span><span class="annot"><span class="annottext">Maybe ManagedPrefixList -&gt; Int -&gt; ModifyManagedPrefixListResponse
 </span><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixListResponse%27"><span class="hs-identifier hs-var">ModifyManagedPrefixListResponse'</span></a></span><span>
 </span><span id="line-185"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ManagedPrefixList -&gt; Int -&gt; ModifyManagedPrefixListResponse)
@@ -506,7 +506,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; ModifyManagedPrefixListResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681183058"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ManagedPrefixList)
+</span><a href="#local-6989586621681218451"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ManagedPrefixList)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;prefixList&quot;</span></span><span class="hs-special">)</span><span>
@@ -519,15 +519,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681183060"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681218453"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-187"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-188"></span><span>
-</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681183050"><span id="local-6989586621681183052"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixList"><span class="hs-identifier hs-type">ModifyManagedPrefixList</span></a></span></span></span><span>
+</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681218443"><span id="local-6989586621681218445"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixList"><span class="hs-identifier hs-type">ModifyManagedPrefixList</span></a></span></span></span><span>
 </span><span id="line-190"></span><span>
-</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681183047"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixList"><span class="hs-identifier hs-type">ModifyManagedPrefixList</span></a></span></span><span>
+</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681218440"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixList"><span class="hs-identifier hs-type">ModifyManagedPrefixList</span></a></span></span><span>
 </span><span id="line-192"></span><span>
 </span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixList"><span class="hs-identifier hs-type">ModifyManagedPrefixList</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-194"></span><span>  </span><span id="local-6989586621681183043"><span class="annot"><span class="annottext">toHeaders :: ModifyManagedPrefixList -&gt; ResponseHeaders
+</span><span id="line-194"></span><span>  </span><span id="local-6989586621681218436"><span class="annot"><span class="annottext">toHeaders :: ModifyManagedPrefixList -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ModifyManagedPrefixList -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -535,15 +535,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-195"></span><span>
 </span><span id="line-196"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixList"><span class="hs-identifier hs-type">ModifyManagedPrefixList</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-197"></span><span>  </span><span id="local-6989586621681183038"><span class="annot"><span class="annottext">toPath :: ModifyManagedPrefixList -&gt; ByteString
+</span><span id="line-197"></span><span>  </span><span id="local-6989586621681218431"><span class="annot"><span class="annottext">toPath :: ModifyManagedPrefixList -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ModifyManagedPrefixList -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-198"></span><span>
 </span><span id="line-199"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixList"><span class="hs-identifier hs-type">ModifyManagedPrefixList</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-200"></span><span>  </span><span id="local-6989586621681183034"><span class="annot"><span class="annottext">toQuery :: ModifyManagedPrefixList -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixList%27"><span class="hs-identifier hs-type">ModifyManagedPrefixList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681183026"><span id="local-6989586621681183027"><span id="local-6989586621681183028"><span id="local-6989586621681183029"><span id="local-6989586621681183030"><span id="local-6989586621681183031"><span id="local-6989586621681183032"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-200"></span><span>  </span><span id="local-6989586621681218427"><span class="annot"><span class="annottext">toQuery :: ModifyManagedPrefixList -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixList%27"><span class="hs-identifier hs-type">ModifyManagedPrefixList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681218419"><span id="local-6989586621681218420"><span id="local-6989586621681218421"><span id="local-6989586621681218422"><span id="local-6989586621681218423"><span id="local-6989586621681218424"><span id="local-6989586621681218425"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Int
 Maybe Integer
 Maybe [AddPrefixListEntry]
@@ -551,20 +551,20 @@ Maybe [RemovePrefixListEntry]
 Maybe Text
 Text
 prefixListId :: Text
-addEntries :: Maybe [AddPrefixListEntry]
-prefixListName :: Maybe Text
-currentVersion :: Maybe Integer
 dryRun :: Maybe Bool
 maxEntries :: Maybe Int
+addEntries :: Maybe [AddPrefixListEntry]
+prefixListName :: Maybe Text
 removeEntries :: Maybe [RemovePrefixListEntry]
+currentVersion :: Maybe Integer
 $sel:prefixListId:ModifyManagedPrefixList' :: ModifyManagedPrefixList -&gt; Text
-$sel:addEntries:ModifyManagedPrefixList' :: ModifyManagedPrefixList -&gt; Maybe [AddPrefixListEntry]
-$sel:prefixListName:ModifyManagedPrefixList' :: ModifyManagedPrefixList -&gt; Maybe Text
-$sel:currentVersion:ModifyManagedPrefixList' :: ModifyManagedPrefixList -&gt; Maybe Integer
 $sel:dryRun:ModifyManagedPrefixList' :: ModifyManagedPrefixList -&gt; Maybe Bool
 $sel:maxEntries:ModifyManagedPrefixList' :: ModifyManagedPrefixList -&gt; Maybe Int
+$sel:addEntries:ModifyManagedPrefixList' :: ModifyManagedPrefixList -&gt; Maybe [AddPrefixListEntry]
+$sel:prefixListName:ModifyManagedPrefixList' :: ModifyManagedPrefixList -&gt; Maybe Text
 $sel:removeEntries:ModifyManagedPrefixList' :: ModifyManagedPrefixList -&gt; Maybe [RemovePrefixListEntry]
-</span><a href="#local-6989586621681183026"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:currentVersion:ModifyManagedPrefixList' :: ModifyManagedPrefixList -&gt; Maybe Integer
+</span><a href="#local-6989586621681218419"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-201"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -580,45 +580,35 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;2016-11-15&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-206"></span><span>        </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+</span><span id="line-206"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;CurrentVersion&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Integer -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621681218425"><span class="hs-identifier hs-var">currentVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>        </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
 forall a. ToQuery a =&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
-</span><span id="line-207"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [RemovePrefixListEntry] -&gt; QueryString
+</span><span id="line-208"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [RemovePrefixListEntry] -&gt; QueryString
 forall a.
 (IsList a, ToQuery (Item a)) =&gt;
 ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;RemoveEntry&quot;</span></span><span>
-</span><span id="line-208"></span><span>              </span><span class="annot"><span class="annottext">([RemovePrefixListEntry] -&gt; QueryString)
+</span><span id="line-209"></span><span>              </span><span class="annot"><span class="annottext">([RemovePrefixListEntry] -&gt; QueryString)
 -&gt; Maybe [RemovePrefixListEntry] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [RemovePrefixListEntry]
-</span><a href="#local-6989586621681183032"><span class="hs-identifier hs-var">removeEntries</span></a></span><span>
-</span><span id="line-209"></span><span>          </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-210"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;MaxEntries&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681183031"><span class="hs-identifier hs-var">maxEntries</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681218424"><span class="hs-identifier hs-var">removeEntries</span></a></span><span>
+</span><span id="line-210"></span><span>          </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-211"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681183030"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-212"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;CurrentVersion&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Integer -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621681183029"><span class="hs-identifier hs-var">currentVersion</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-213"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;PrefixListName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681183028"><span class="hs-identifier hs-var">prefixListName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-214"></span><span>        </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+</span><a href="#local-6989586621681218423"><span class="hs-identifier hs-var">prefixListName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-212"></span><span>        </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
 forall a. ToQuery a =&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
-</span><span id="line-215"></span><span>          </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; [AddPrefixListEntry] -&gt; QueryString
+</span><span id="line-213"></span><span>          </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; [AddPrefixListEntry] -&gt; QueryString
 forall a.
 (IsList a, ToQuery (Item a)) =&gt;
 ByteString -&gt; a -&gt; QueryString
@@ -627,16 +617,26 @@ ByteString -&gt; a -&gt; QueryString
 -&gt; Maybe [AddPrefixListEntry] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AddPrefixListEntry]
-</span><a href="#local-6989586621681183027"><span class="hs-identifier hs-var">addEntries</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681218422"><span class="hs-identifier hs-var">addEntries</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-214"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;MaxEntries&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681218421"><span class="hs-identifier hs-var">maxEntries</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-215"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681218420"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-216"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;PrefixListId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681183026"><span class="hs-identifier hs-var">prefixListId</span></a></span><span>
+</span><a href="#local-6989586621681218419"><span class="hs-identifier hs-var">prefixListId</span></a></span><span>
 </span><span id="line-217"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-218"></span><span>
 </span><span id="line-219"></span><span class="hs-comment">-- | /See:/ 'newModifyManagedPrefixListResponse' smart constructor.</span><span>
-</span><span id="line-220"></span><span id="local-6989586621681183022"><span id="local-6989586621681183023"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyManagedPrefixListResponse"><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixListResponse"><span class="hs-identifier hs-var">ModifyManagedPrefixListResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyManagedPrefixListResponse%27"><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixListResponse%27"><span class="hs-identifier hs-var">ModifyManagedPrefixListResponse'</span></a></span></span><span>
+</span><span id="line-220"></span><span id="local-6989586621681218415"><span id="local-6989586621681218416"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyManagedPrefixListResponse"><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixListResponse"><span class="hs-identifier hs-var">ModifyManagedPrefixListResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyManagedPrefixListResponse%27"><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixListResponse%27"><span class="hs-identifier hs-var">ModifyManagedPrefixListResponse'</span></a></span></span><span>
 </span><span id="line-221"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the prefix list.</span><span>
 </span><span id="line-222"></span><span>    </span><span id="%24sel%3AprefixList%3AModifyManagedPrefixListResponse%27"><span class="annot"><span class="annottext">ModifyManagedPrefixListResponse -&gt; Maybe ManagedPrefixList
 </span><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#%24sel%3AprefixList%3AModifyManagedPrefixListResponse%27"><span class="hs-identifier hs-var hs-var">prefixList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ManagedPrefixList.html#ManagedPrefixList"><span class="hs-identifier hs-type">ManagedPrefixList</span></a></span><span class="hs-special">,</span><span>
@@ -644,7 +644,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-224"></span><span>    </span><span id="%24sel%3AhttpStatus%3AModifyManagedPrefixListResponse%27"><span class="annot"><span class="annottext">ModifyManagedPrefixListResponse -&gt; Int
 </span><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#%24sel%3AhttpStatus%3AModifyManagedPrefixListResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-225"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-226"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681183016"><span id="local-6989586621681183018"><span class="annot"><span class="annottext">ModifyManagedPrefixListResponse
+</span><span id="line-226"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681218409"><span id="local-6989586621681218411"><span class="annot"><span class="annottext">ModifyManagedPrefixListResponse
 -&gt; ModifyManagedPrefixListResponse -&gt; Bool
 (ModifyManagedPrefixListResponse
  -&gt; ModifyManagedPrefixListResponse -&gt; Bool)
@@ -660,7 +660,7 @@ $c/= :: ModifyManagedPrefixListResponse
 -&gt; ModifyManagedPrefixListResponse -&gt; Bool
 $c== :: ModifyManagedPrefixListResponse
 -&gt; ModifyManagedPrefixListResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681183008"><span id="local-6989586621681183010"><span id="local-6989586621681183012"><span id="local-6989586621681183014"><span class="annot"><span class="annottext">ReadPrec [ModifyManagedPrefixListResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681218401"><span id="local-6989586621681218403"><span id="local-6989586621681218405"><span id="local-6989586621681218407"><span class="annot"><span class="annottext">ReadPrec [ModifyManagedPrefixListResponse]
 ReadPrec ModifyManagedPrefixListResponse
 Int -&gt; ReadS ModifyManagedPrefixListResponse
 ReadS [ModifyManagedPrefixListResponse]
@@ -680,7 +680,7 @@ readList :: ReadS [ModifyManagedPrefixListResponse]
 $creadList :: ReadS [ModifyManagedPrefixListResponse]
 readsPrec :: Int -&gt; ReadS ModifyManagedPrefixListResponse
 $creadsPrec :: Int -&gt; ReadS ModifyManagedPrefixListResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681183002"><span id="local-6989586621681183004"><span id="local-6989586621681183006"><span class="annot"><span class="annottext">Int -&gt; ModifyManagedPrefixListResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681218395"><span id="local-6989586621681218397"><span id="local-6989586621681218399"><span class="annot"><span class="annottext">Int -&gt; ModifyManagedPrefixListResponse -&gt; ShowS
 [ModifyManagedPrefixListResponse] -&gt; ShowS
 ModifyManagedPrefixListResponse -&gt; String
 (Int -&gt; ModifyManagedPrefixListResponse -&gt; ShowS)
@@ -734,8 +734,8 @@ ModifyManagedPrefixListResponse
 </span><span id="line-241"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-242"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixListResponse"><span class="hs-identifier hs-type">ModifyManagedPrefixListResponse</span></a></span><span>
 </span><span id="line-243"></span><span id="newModifyManagedPrefixListResponse"><span class="annot"><span class="annottext">newModifyManagedPrefixListResponse :: Int -&gt; ModifyManagedPrefixListResponse
-</span><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#newModifyManagedPrefixListResponse"><span class="hs-identifier hs-var hs-var">newModifyManagedPrefixListResponse</span></a></span></span><span> </span><span id="local-6989586621681182999"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681182999"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#newModifyManagedPrefixListResponse"><span class="hs-identifier hs-var hs-var">newModifyManagedPrefixListResponse</span></a></span></span><span> </span><span id="local-6989586621681218392"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681218392"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-244"></span><span>  </span><span class="annot"><span class="annottext">ModifyManagedPrefixListResponse' :: Maybe ManagedPrefixList -&gt; Int -&gt; ModifyManagedPrefixListResponse
 </span><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixListResponse%27"><span class="hs-identifier hs-type">ModifyManagedPrefixListResponse'</span></a></span><span>
 </span><span id="line-245"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:prefixList:ModifyManagedPrefixListResponse' :: Maybe ManagedPrefixList
@@ -745,7 +745,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-247"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ModifyManagedPrefixListResponse' :: Int
 </span><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#%24sel%3AhttpStatus%3AModifyManagedPrefixListResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681182999"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621681218392"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-248"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-249"></span><span>
 </span><span id="line-250"></span><span class="hs-comment">-- | Information about the prefix list.</span><span>
@@ -762,16 +762,16 @@ forall a. Maybe a
      (Maybe ManagedPrefixList)
      (Maybe ManagedPrefixList)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixListResponse%27"><span class="hs-identifier hs-type">ModifyManagedPrefixListResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681182998"><span class="annot"><span class="annottext">Maybe ManagedPrefixList
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixListResponse%27"><span class="hs-identifier hs-type">ModifyManagedPrefixListResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681218391"><span class="annot"><span class="annottext">Maybe ManagedPrefixList
 prefixList :: Maybe ManagedPrefixList
 $sel:prefixList:ModifyManagedPrefixListResponse' :: ModifyManagedPrefixListResponse -&gt; Maybe ManagedPrefixList
-</span><a href="#local-6989586621681182998"><span class="hs-identifier hs-var hs-var">prefixList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ManagedPrefixList
-</span><a href="#local-6989586621681182998"><span class="hs-identifier hs-var">prefixList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681182997"><span class="annot"><span class="annottext">s :: ModifyManagedPrefixListResponse
-</span><a href="#local-6989586621681182997"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixListResponse%27"><span class="hs-identifier hs-type">ModifyManagedPrefixListResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681182996"><span class="annot"><span class="annottext">Maybe ManagedPrefixList
-</span><a href="#local-6989586621681182996"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyManagedPrefixListResponse
-</span><a href="#local-6989586621681182997"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:prefixList:ModifyManagedPrefixListResponse' :: Maybe ManagedPrefixList
+</span><a href="#local-6989586621681218391"><span class="hs-identifier hs-var hs-var">prefixList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ManagedPrefixList
+</span><a href="#local-6989586621681218391"><span class="hs-identifier hs-var">prefixList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681218390"><span class="annot"><span class="annottext">s :: ModifyManagedPrefixListResponse
+</span><a href="#local-6989586621681218390"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixListResponse%27"><span class="hs-identifier hs-type">ModifyManagedPrefixListResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681218389"><span class="annot"><span class="annottext">Maybe ManagedPrefixList
+</span><a href="#local-6989586621681218389"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyManagedPrefixListResponse
+</span><a href="#local-6989586621681218390"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:prefixList:ModifyManagedPrefixListResponse' :: Maybe ManagedPrefixList
 </span><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#%24sel%3AprefixList%3AModifyManagedPrefixListResponse%27"><span class="hs-identifier hs-var">prefixList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ManagedPrefixList
-</span><a href="#local-6989586621681182996"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixListResponse"><span class="hs-identifier hs-type">ModifyManagedPrefixListResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681218389"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixListResponse"><span class="hs-identifier hs-type">ModifyManagedPrefixListResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-253"></span><span>
 </span><span id="line-254"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-255"></span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#modifyManagedPrefixListResponse_httpStatus"><span class="hs-identifier hs-type">modifyManagedPrefixListResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixListResponse"><span class="hs-identifier hs-type">ModifyManagedPrefixListResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -787,18 +787,18 @@ $sel:prefixList:ModifyManagedPrefixListResponse' :: ModifyManagedPrefixListRespo
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixListResponse%27"><span class="hs-identifier hs-type">ModifyManagedPrefixListResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681182995"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixListResponse%27"><span class="hs-identifier hs-type">ModifyManagedPrefixListResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681218388"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ModifyManagedPrefixListResponse' :: ModifyManagedPrefixListResponse -&gt; Int
-</span><a href="#local-6989586621681182995"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681182995"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681182994"><span class="annot"><span class="annottext">s :: ModifyManagedPrefixListResponse
-</span><a href="#local-6989586621681182994"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixListResponse%27"><span class="hs-identifier hs-type">ModifyManagedPrefixListResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681182993"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681182993"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyManagedPrefixListResponse
-</span><a href="#local-6989586621681182994"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ModifyManagedPrefixListResponse' :: Int
+</span><a href="#local-6989586621681218388"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681218388"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681218387"><span class="annot"><span class="annottext">s :: ModifyManagedPrefixListResponse
+</span><a href="#local-6989586621681218387"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixListResponse%27"><span class="hs-identifier hs-type">ModifyManagedPrefixListResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681218386"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681218386"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyManagedPrefixListResponse
+</span><a href="#local-6989586621681218387"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ModifyManagedPrefixListResponse' :: Int
 </span><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#%24sel%3AhttpStatus%3AModifyManagedPrefixListResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681182993"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixListResponse"><span class="hs-identifier hs-type">ModifyManagedPrefixListResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681218386"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixListResponse"><span class="hs-identifier hs-type">ModifyManagedPrefixListResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-257"></span><span>
 </span><span id="line-258"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-259"></span><span>  </span><span id="local-6989586621681182991"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-259"></span><span>  </span><span id="local-6989586621681218384"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-260"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyManagedPrefixList.html#ModifyManagedPrefixListResponse"><span class="hs-identifier hs-type">ModifyManagedPrefixListResponse</span></a></span></span><span>
 </span><span id="line-261"></span></pre></body></html>

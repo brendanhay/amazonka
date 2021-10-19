@@ -47,12 +47,12 @@
 </span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-48"></span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newDeleteCertificate' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621679454548"><span id="local-6989586621679454549"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteCertificate"><span class="annot"><a href="Network.AWS.DMS.DeleteCertificate.html#DeleteCertificate"><span class="hs-identifier hs-var">DeleteCertificate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteCertificate%27"><span class="annot"><a href="Network.AWS.DMS.DeleteCertificate.html#DeleteCertificate%27"><span class="hs-identifier hs-var">DeleteCertificate'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679454867"><span id="local-6989586621679454868"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteCertificate"><span class="annot"><a href="Network.AWS.DMS.DeleteCertificate.html#DeleteCertificate"><span class="hs-identifier hs-var">DeleteCertificate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteCertificate%27"><span class="annot"><a href="Network.AWS.DMS.DeleteCertificate.html#DeleteCertificate%27"><span class="hs-identifier hs-var">DeleteCertificate'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the deleted certificate.</span><span>
 </span><span id="line-52"></span><span>    </span><span id="%24sel%3AcertificateArn%3ADeleteCertificate%27"><span class="annot"><span class="annottext">DeleteCertificate -&gt; Text
 </span><a href="Network.AWS.DMS.DeleteCertificate.html#%24sel%3AcertificateArn%3ADeleteCertificate%27"><span class="hs-identifier hs-var hs-var">certificateArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679454542"><span id="local-6989586621679454544"><span class="annot"><span class="annottext">DeleteCertificate -&gt; DeleteCertificate -&gt; Bool
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679454861"><span id="local-6989586621679454863"><span class="annot"><span class="annottext">DeleteCertificate -&gt; DeleteCertificate -&gt; Bool
 (DeleteCertificate -&gt; DeleteCertificate -&gt; Bool)
 -&gt; (DeleteCertificate -&gt; DeleteCertificate -&gt; Bool)
 -&gt; Eq DeleteCertificate
@@ -61,7 +61,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteCertificate -&gt; DeleteCertificate -&gt; Bool
 == :: DeleteCertificate -&gt; DeleteCertificate -&gt; Bool
 $c== :: DeleteCertificate -&gt; DeleteCertificate -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679454533"><span id="local-6989586621679454535"><span id="local-6989586621679454537"><span id="local-6989586621679454539"><span class="annot"><span class="annottext">ReadPrec [DeleteCertificate]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679454852"><span id="local-6989586621679454854"><span id="local-6989586621679454856"><span id="local-6989586621679454858"><span class="annot"><span class="annottext">ReadPrec [DeleteCertificate]
 ReadPrec DeleteCertificate
 Int -&gt; ReadS DeleteCertificate
 ReadS [DeleteCertificate]
@@ -81,7 +81,7 @@ readList :: ReadS [DeleteCertificate]
 $creadList :: ReadS [DeleteCertificate]
 readsPrec :: Int -&gt; ReadS DeleteCertificate
 $creadsPrec :: Int -&gt; ReadS DeleteCertificate
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679454526"><span id="local-6989586621679454528"><span id="local-6989586621679454530"><span class="annot"><span class="annottext">Int -&gt; DeleteCertificate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679454845"><span id="local-6989586621679454847"><span id="local-6989586621679454849"><span class="annot"><span class="annottext">Int -&gt; DeleteCertificate -&gt; ShowS
 [DeleteCertificate] -&gt; ShowS
 DeleteCertificate -&gt; String
 (Int -&gt; DeleteCertificate -&gt; ShowS)
@@ -121,14 +121,14 @@ $cfrom :: forall x. DeleteCertificate -&gt; Rep DeleteCertificate x
 </span><span id="line-67"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.DMS.DeleteCertificate.html#DeleteCertificate"><span class="hs-identifier hs-type">DeleteCertificate</span></a></span><span>
 </span><span id="line-69"></span><span id="newDeleteCertificate"><span class="annot"><span class="annottext">newDeleteCertificate :: Text -&gt; DeleteCertificate
-</span><a href="Network.AWS.DMS.DeleteCertificate.html#newDeleteCertificate"><span class="hs-identifier hs-var hs-var">newDeleteCertificate</span></a></span></span><span> </span><span id="local-6989586621679454521"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679454521"><span class="hs-identifier hs-var">pCertificateArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DMS.DeleteCertificate.html#newDeleteCertificate"><span class="hs-identifier hs-var hs-var">newDeleteCertificate</span></a></span></span><span> </span><span id="local-6989586621679454840"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679454840"><span class="hs-identifier hs-var">pCertificateArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">DeleteCertificate' :: Text -&gt; DeleteCertificate
 </span><a href="Network.AWS.DMS.DeleteCertificate.html#DeleteCertificate%27"><span class="hs-identifier hs-type">DeleteCertificate'</span></a></span><span>
 </span><span id="line-71"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:certificateArn:DeleteCertificate' :: Text
 </span><a href="Network.AWS.DMS.DeleteCertificate.html#%24sel%3AcertificateArn%3ADeleteCertificate%27"><span class="hs-identifier hs-var">certificateArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679454521"><span class="hs-identifier hs-var">pCertificateArn_</span></a></span><span>
+</span><a href="#local-6989586621679454840"><span class="hs-identifier hs-var">pCertificateArn_</span></a></span><span>
 </span><span id="line-73"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the deleted certificate.</span><span>
@@ -138,27 +138,27 @@ $cfrom :: forall x. DeleteCertificate -&gt; Rep DeleteCertificate x
 -&gt; (DeleteCertificate -&gt; Text -&gt; DeleteCertificate)
 -&gt; Lens DeleteCertificate DeleteCertificate Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.DeleteCertificate.html#DeleteCertificate%27"><span class="hs-identifier hs-type">DeleteCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679454518"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.DeleteCertificate.html#DeleteCertificate%27"><span class="hs-identifier hs-type">DeleteCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679454837"><span class="annot"><span class="annottext">Text
 certificateArn :: Text
 $sel:certificateArn:DeleteCertificate' :: DeleteCertificate -&gt; Text
-</span><a href="#local-6989586621679454518"><span class="hs-identifier hs-var hs-var">certificateArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679454518"><span class="hs-identifier hs-var">certificateArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679454517"><span class="annot"><span class="annottext">s :: DeleteCertificate
-</span><a href="#local-6989586621679454517"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.DeleteCertificate.html#DeleteCertificate%27"><span class="hs-identifier hs-type">DeleteCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679454516"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679454516"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteCertificate
-</span><a href="#local-6989586621679454517"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateArn:DeleteCertificate' :: Text
+</span><a href="#local-6989586621679454837"><span class="hs-identifier hs-var hs-var">certificateArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679454837"><span class="hs-identifier hs-var">certificateArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679454836"><span class="annot"><span class="annottext">s :: DeleteCertificate
+</span><a href="#local-6989586621679454836"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.DeleteCertificate.html#DeleteCertificate%27"><span class="hs-identifier hs-type">DeleteCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679454835"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679454835"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteCertificate
+</span><a href="#local-6989586621679454836"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateArn:DeleteCertificate' :: Text
 </span><a href="Network.AWS.DMS.DeleteCertificate.html#%24sel%3AcertificateArn%3ADeleteCertificate%27"><span class="hs-identifier hs-var">certificateArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679454516"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.DeleteCertificate.html#DeleteCertificate"><span class="hs-identifier hs-type">DeleteCertificate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679454835"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.DeleteCertificate.html#DeleteCertificate"><span class="hs-identifier hs-type">DeleteCertificate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
 </span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.DeleteCertificate.html#DeleteCertificate"><span class="hs-identifier hs-type">DeleteCertificate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-80"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-81"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.DeleteCertificate.html#DeleteCertificate"><span class="hs-identifier hs-type">DeleteCertificate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>      </span><span class="annot"><a href="Network.AWS.DMS.DeleteCertificate.html#DeleteCertificateResponse"><span class="hs-identifier hs-type">DeleteCertificateResponse</span></a></span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679454512"><span class="annot"><span class="annottext">request :: DeleteCertificate -&gt; Request DeleteCertificate
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679454831"><span class="annot"><span class="annottext">request :: DeleteCertificate -&gt; Request DeleteCertificate
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteCertificate -&gt; Request DeleteCertificate
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DMS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679454508"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679454827"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteCertificate
 -&gt; ClientResponse ClientBody
@@ -184,10 +184,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679454505"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679454505"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679454504"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679454504"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679454503"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679454503"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679454824"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679454824"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679454823"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679454823"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679454822"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679454822"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-87"></span><span>          </span><span class="annot"><span class="annottext">Maybe Certificate -&gt; Int -&gt; DeleteCertificateResponse
 </span><a href="Network.AWS.DMS.DeleteCertificate.html#DeleteCertificateResponse%27"><span class="hs-identifier hs-var">DeleteCertificateResponse'</span></a></span><span>
 </span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Certificate -&gt; Int -&gt; DeleteCertificateResponse)
@@ -195,7 +195,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DeleteCertificateResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679454503"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Certificate)
+</span><a href="#local-6989586621679454822"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Certificate)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Certificate&quot;</span></span><span class="hs-special">)</span><span>
@@ -207,15 +207,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679454505"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679454824"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679454495"><span id="local-6989586621679454497"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.DeleteCertificate.html#DeleteCertificate"><span class="hs-identifier hs-type">DeleteCertificate</span></a></span></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679454814"><span id="local-6989586621679454816"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.DeleteCertificate.html#DeleteCertificate"><span class="hs-identifier hs-type">DeleteCertificate</span></a></span></span></span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679454492"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.DeleteCertificate.html#DeleteCertificate"><span class="hs-identifier hs-type">DeleteCertificate</span></a></span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679454811"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.DeleteCertificate.html#DeleteCertificate"><span class="hs-identifier hs-type">DeleteCertificate</span></a></span></span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.DeleteCertificate.html#DeleteCertificate"><span class="hs-identifier hs-type">DeleteCertificate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679454488"><span class="annot"><span class="annottext">toHeaders :: DeleteCertificate -&gt; ResponseHeaders
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679454807"><span class="annot"><span class="annottext">toHeaders :: DeleteCertificate -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteCertificate -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -242,12 +242,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-108"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679454478"><span id="local-6989586621679454480"><span id="local-6989586621679454482"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.DeleteCertificate.html#DeleteCertificate"><span class="hs-identifier hs-type">DeleteCertificate</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679454476"><span class="annot"><span class="annottext">toJSON :: DeleteCertificate -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.DeleteCertificate.html#DeleteCertificate%27"><span class="hs-identifier hs-type">DeleteCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679454474"><span class="annot"><span class="annottext">Text
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679454797"><span id="local-6989586621679454799"><span id="local-6989586621679454801"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.DeleteCertificate.html#DeleteCertificate"><span class="hs-identifier hs-type">DeleteCertificate</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679454795"><span class="annot"><span class="annottext">toJSON :: DeleteCertificate -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.DeleteCertificate.html#DeleteCertificate%27"><span class="hs-identifier hs-type">DeleteCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679454793"><span class="annot"><span class="annottext">Text
 certificateArn :: Text
 $sel:certificateArn:DeleteCertificate' :: DeleteCertificate -&gt; Text
-</span><a href="#local-6989586621679454474"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679454793"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -260,19 +260,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;CertificateArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679454474"><span class="hs-identifier hs-var">certificateArn</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679454793"><span class="hs-identifier hs-var">certificateArn</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.DeleteCertificate.html#DeleteCertificate"><span class="hs-identifier hs-type">DeleteCertificate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679454468"><span class="annot"><span class="annottext">toPath :: DeleteCertificate -&gt; ByteString
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679454787"><span class="annot"><span class="annottext">toPath :: DeleteCertificate -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteCertificate -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.DeleteCertificate.html#DeleteCertificate"><span class="hs-identifier hs-type">DeleteCertificate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679454464"><span class="annot"><span class="annottext">toQuery :: DeleteCertificate -&gt; QueryString
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679454783"><span class="annot"><span class="annottext">toQuery :: DeleteCertificate -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteCertificate -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -280,7 +280,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-comment">-- | /See:/ 'newDeleteCertificateResponse' smart constructor.</span><span>
-</span><span id="line-127"></span><span id="local-6989586621679454461"><span id="local-6989586621679454462"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteCertificateResponse"><span class="annot"><a href="Network.AWS.DMS.DeleteCertificate.html#DeleteCertificateResponse"><span class="hs-identifier hs-var">DeleteCertificateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteCertificateResponse%27"><span class="annot"><a href="Network.AWS.DMS.DeleteCertificate.html#DeleteCertificateResponse%27"><span class="hs-identifier hs-var">DeleteCertificateResponse'</span></a></span></span><span>
+</span><span id="line-127"></span><span id="local-6989586621679454780"><span id="local-6989586621679454781"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteCertificateResponse"><span class="annot"><a href="Network.AWS.DMS.DeleteCertificate.html#DeleteCertificateResponse"><span class="hs-identifier hs-var">DeleteCertificateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteCertificateResponse%27"><span class="annot"><a href="Network.AWS.DMS.DeleteCertificate.html#DeleteCertificateResponse%27"><span class="hs-identifier hs-var">DeleteCertificateResponse'</span></a></span></span><span>
 </span><span id="line-128"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Secure Sockets Layer (SSL) certificate.</span><span>
 </span><span id="line-129"></span><span>    </span><span id="%24sel%3Acertificate%3ADeleteCertificateResponse%27"><span class="annot"><span class="annottext">DeleteCertificateResponse -&gt; Maybe Certificate
 </span><a href="Network.AWS.DMS.DeleteCertificate.html#%24sel%3Acertificate%3ADeleteCertificateResponse%27"><span class="hs-identifier hs-var hs-var">certificate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.Certificate.html#Certificate"><span class="hs-identifier hs-type">Certificate</span></a></span><span class="hs-special">,</span><span>
@@ -288,7 +288,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-131"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteCertificateResponse%27"><span class="annot"><span class="annottext">DeleteCertificateResponse -&gt; Int
 </span><a href="Network.AWS.DMS.DeleteCertificate.html#%24sel%3AhttpStatus%3ADeleteCertificateResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-132"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-133"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679454455"><span id="local-6989586621679454457"><span class="annot"><span class="annottext">DeleteCertificateResponse -&gt; DeleteCertificateResponse -&gt; Bool
+</span><span id="line-133"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679454774"><span id="local-6989586621679454776"><span class="annot"><span class="annottext">DeleteCertificateResponse -&gt; DeleteCertificateResponse -&gt; Bool
 (DeleteCertificateResponse -&gt; DeleteCertificateResponse -&gt; Bool)
 -&gt; (DeleteCertificateResponse -&gt; DeleteCertificateResponse -&gt; Bool)
 -&gt; Eq DeleteCertificateResponse
@@ -297,7 +297,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteCertificateResponse -&gt; DeleteCertificateResponse -&gt; Bool
 == :: DeleteCertificateResponse -&gt; DeleteCertificateResponse -&gt; Bool
 $c== :: DeleteCertificateResponse -&gt; DeleteCertificateResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679454447"><span id="local-6989586621679454449"><span id="local-6989586621679454451"><span id="local-6989586621679454453"><span class="annot"><span class="annottext">ReadPrec [DeleteCertificateResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679454766"><span id="local-6989586621679454768"><span id="local-6989586621679454770"><span id="local-6989586621679454772"><span class="annot"><span class="annottext">ReadPrec [DeleteCertificateResponse]
 ReadPrec DeleteCertificateResponse
 Int -&gt; ReadS DeleteCertificateResponse
 ReadS [DeleteCertificateResponse]
@@ -317,7 +317,7 @@ readList :: ReadS [DeleteCertificateResponse]
 $creadList :: ReadS [DeleteCertificateResponse]
 readsPrec :: Int -&gt; ReadS DeleteCertificateResponse
 $creadsPrec :: Int -&gt; ReadS DeleteCertificateResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679454441"><span id="local-6989586621679454443"><span id="local-6989586621679454445"><span class="annot"><span class="annottext">Int -&gt; DeleteCertificateResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679454760"><span id="local-6989586621679454762"><span id="local-6989586621679454764"><span class="annot"><span class="annottext">Int -&gt; DeleteCertificateResponse -&gt; ShowS
 [DeleteCertificateResponse] -&gt; ShowS
 DeleteCertificateResponse -&gt; String
 (Int -&gt; DeleteCertificateResponse -&gt; ShowS)
@@ -365,8 +365,8 @@ DeleteCertificateResponse -&gt; Rep DeleteCertificateResponse x
 </span><span id="line-148"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-149"></span><span>  </span><span class="annot"><a href="Network.AWS.DMS.DeleteCertificate.html#DeleteCertificateResponse"><span class="hs-identifier hs-type">DeleteCertificateResponse</span></a></span><span>
 </span><span id="line-150"></span><span id="newDeleteCertificateResponse"><span class="annot"><span class="annottext">newDeleteCertificateResponse :: Int -&gt; DeleteCertificateResponse
-</span><a href="Network.AWS.DMS.DeleteCertificate.html#newDeleteCertificateResponse"><span class="hs-identifier hs-var hs-var">newDeleteCertificateResponse</span></a></span></span><span> </span><span id="local-6989586621679454438"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679454438"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DMS.DeleteCertificate.html#newDeleteCertificateResponse"><span class="hs-identifier hs-var hs-var">newDeleteCertificateResponse</span></a></span></span><span> </span><span id="local-6989586621679454757"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679454757"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-151"></span><span>  </span><span class="annot"><span class="annottext">DeleteCertificateResponse' :: Maybe Certificate -&gt; Int -&gt; DeleteCertificateResponse
 </span><a href="Network.AWS.DMS.DeleteCertificate.html#DeleteCertificateResponse%27"><span class="hs-identifier hs-type">DeleteCertificateResponse'</span></a></span><span>
 </span><span id="line-152"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:certificate:DeleteCertificateResponse' :: Maybe Certificate
@@ -376,7 +376,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-154"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteCertificateResponse' :: Int
 </span><a href="Network.AWS.DMS.DeleteCertificate.html#%24sel%3AhttpStatus%3ADeleteCertificateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679454438"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679454757"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-155"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-comment">-- | The Secure Sockets Layer (SSL) certificate.</span><span>
@@ -392,16 +392,16 @@ forall a. Maybe a
      (Maybe Certificate)
      (Maybe Certificate)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.DeleteCertificate.html#DeleteCertificateResponse%27"><span class="hs-identifier hs-type">DeleteCertificateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679454437"><span class="annot"><span class="annottext">Maybe Certificate
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.DeleteCertificate.html#DeleteCertificateResponse%27"><span class="hs-identifier hs-type">DeleteCertificateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679454756"><span class="annot"><span class="annottext">Maybe Certificate
 certificate :: Maybe Certificate
 $sel:certificate:DeleteCertificateResponse' :: DeleteCertificateResponse -&gt; Maybe Certificate
-</span><a href="#local-6989586621679454437"><span class="hs-identifier hs-var hs-var">certificate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Certificate
-</span><a href="#local-6989586621679454437"><span class="hs-identifier hs-var">certificate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679454436"><span class="annot"><span class="annottext">s :: DeleteCertificateResponse
-</span><a href="#local-6989586621679454436"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.DeleteCertificate.html#DeleteCertificateResponse%27"><span class="hs-identifier hs-type">DeleteCertificateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679454435"><span class="annot"><span class="annottext">Maybe Certificate
-</span><a href="#local-6989586621679454435"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteCertificateResponse
-</span><a href="#local-6989586621679454436"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificate:DeleteCertificateResponse' :: Maybe Certificate
+</span><a href="#local-6989586621679454756"><span class="hs-identifier hs-var hs-var">certificate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Certificate
+</span><a href="#local-6989586621679454756"><span class="hs-identifier hs-var">certificate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679454755"><span class="annot"><span class="annottext">s :: DeleteCertificateResponse
+</span><a href="#local-6989586621679454755"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.DeleteCertificate.html#DeleteCertificateResponse%27"><span class="hs-identifier hs-type">DeleteCertificateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679454754"><span class="annot"><span class="annottext">Maybe Certificate
+</span><a href="#local-6989586621679454754"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteCertificateResponse
+</span><a href="#local-6989586621679454755"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificate:DeleteCertificateResponse' :: Maybe Certificate
 </span><a href="Network.AWS.DMS.DeleteCertificate.html#%24sel%3Acertificate%3ADeleteCertificateResponse%27"><span class="hs-identifier hs-var">certificate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Certificate
-</span><a href="#local-6989586621679454435"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.DeleteCertificate.html#DeleteCertificateResponse"><span class="hs-identifier hs-type">DeleteCertificateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679454754"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.DeleteCertificate.html#DeleteCertificateResponse"><span class="hs-identifier hs-type">DeleteCertificateResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-160"></span><span>
 </span><span id="line-161"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-162"></span><span class="annot"><a href="Network.AWS.DMS.DeleteCertificate.html#deleteCertificateResponse_httpStatus"><span class="hs-identifier hs-type">deleteCertificateResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.DeleteCertificate.html#DeleteCertificateResponse"><span class="hs-identifier hs-type">DeleteCertificateResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -411,16 +411,16 @@ $sel:certificate:DeleteCertificateResponse' :: DeleteCertificateResponse -&gt; M
 -&gt; (DeleteCertificateResponse -&gt; Int -&gt; DeleteCertificateResponse)
 -&gt; Lens DeleteCertificateResponse DeleteCertificateResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.DeleteCertificate.html#DeleteCertificateResponse%27"><span class="hs-identifier hs-type">DeleteCertificateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679454434"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.DeleteCertificate.html#DeleteCertificateResponse%27"><span class="hs-identifier hs-type">DeleteCertificateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679454753"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteCertificateResponse' :: DeleteCertificateResponse -&gt; Int
-</span><a href="#local-6989586621679454434"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679454434"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679454433"><span class="annot"><span class="annottext">s :: DeleteCertificateResponse
-</span><a href="#local-6989586621679454433"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.DeleteCertificate.html#DeleteCertificateResponse%27"><span class="hs-identifier hs-type">DeleteCertificateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679454432"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679454432"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteCertificateResponse
-</span><a href="#local-6989586621679454433"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteCertificateResponse' :: Int
+</span><a href="#local-6989586621679454753"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679454753"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679454752"><span class="annot"><span class="annottext">s :: DeleteCertificateResponse
+</span><a href="#local-6989586621679454752"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.DeleteCertificate.html#DeleteCertificateResponse%27"><span class="hs-identifier hs-type">DeleteCertificateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679454751"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679454751"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteCertificateResponse
+</span><a href="#local-6989586621679454752"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteCertificateResponse' :: Int
 </span><a href="Network.AWS.DMS.DeleteCertificate.html#%24sel%3AhttpStatus%3ADeleteCertificateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679454432"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.DeleteCertificate.html#DeleteCertificateResponse"><span class="hs-identifier hs-type">DeleteCertificateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679454751"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.DeleteCertificate.html#DeleteCertificateResponse"><span class="hs-identifier hs-type">DeleteCertificateResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-164"></span><span>
-</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679454430"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.DeleteCertificate.html#DeleteCertificateResponse"><span class="hs-identifier hs-type">DeleteCertificateResponse</span></a></span></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679454749"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.DeleteCertificate.html#DeleteCertificateResponse"><span class="hs-identifier hs-type">DeleteCertificateResponse</span></a></span></span><span>
 </span><span id="line-166"></span></pre></body></html>

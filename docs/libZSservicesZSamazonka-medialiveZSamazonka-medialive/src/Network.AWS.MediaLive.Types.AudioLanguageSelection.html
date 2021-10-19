@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Audio Language Selection</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newAudioLanguageSelection' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679858813"><span id="local-6989586621679858814"></span></span><span class="hs-keyword">data</span><span> </span><span id="AudioLanguageSelection"><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioLanguageSelection.html#AudioLanguageSelection"><span class="hs-identifier hs-var">AudioLanguageSelection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AudioLanguageSelection%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioLanguageSelection.html#AudioLanguageSelection%27"><span class="hs-identifier hs-var">AudioLanguageSelection'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679865470"><span id="local-6989586621679865471"></span></span><span class="hs-keyword">data</span><span> </span><span id="AudioLanguageSelection"><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioLanguageSelection.html#AudioLanguageSelection"><span class="hs-identifier hs-var">AudioLanguageSelection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AudioLanguageSelection%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioLanguageSelection.html#AudioLanguageSelection%27"><span class="hs-identifier hs-var">AudioLanguageSelection'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | When set to \&quot;strict\&quot;, the transport stream demux strictly identifies</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- audio streams by their language descriptor. If a PMT update occurs such</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- that an audio stream matching the initially selected language is no</span><span>
@@ -42,7 +42,7 @@
 </span><span id="line-41"></span><span>    </span><span id="%24sel%3AlanguageCode%3AAudioLanguageSelection%27"><span class="annot"><span class="annottext">AudioLanguageSelection -&gt; Text
 </span><a href="Network.AWS.MediaLive.Types.AudioLanguageSelection.html#%24sel%3AlanguageCode%3AAudioLanguageSelection%27"><span class="hs-identifier hs-var hs-var">languageCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679858806"><span id="local-6989586621679858808"><span class="annot"><span class="annottext">AudioLanguageSelection -&gt; AudioLanguageSelection -&gt; Bool
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679865463"><span id="local-6989586621679865465"><span class="annot"><span class="annottext">AudioLanguageSelection -&gt; AudioLanguageSelection -&gt; Bool
 (AudioLanguageSelection -&gt; AudioLanguageSelection -&gt; Bool)
 -&gt; (AudioLanguageSelection -&gt; AudioLanguageSelection -&gt; Bool)
 -&gt; Eq AudioLanguageSelection
@@ -51,7 +51,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AudioLanguageSelection -&gt; AudioLanguageSelection -&gt; Bool
 == :: AudioLanguageSelection -&gt; AudioLanguageSelection -&gt; Bool
 $c== :: AudioLanguageSelection -&gt; AudioLanguageSelection -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679858797"><span id="local-6989586621679858799"><span id="local-6989586621679858801"><span id="local-6989586621679858803"><span class="annot"><span class="annottext">ReadPrec [AudioLanguageSelection]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679865454"><span id="local-6989586621679865456"><span id="local-6989586621679865458"><span id="local-6989586621679865460"><span class="annot"><span class="annottext">ReadPrec [AudioLanguageSelection]
 ReadPrec AudioLanguageSelection
 Int -&gt; ReadS AudioLanguageSelection
 ReadS [AudioLanguageSelection]
@@ -71,7 +71,7 @@ readList :: ReadS [AudioLanguageSelection]
 $creadList :: ReadS [AudioLanguageSelection]
 readsPrec :: Int -&gt; ReadS AudioLanguageSelection
 $creadsPrec :: Int -&gt; ReadS AudioLanguageSelection
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679858790"><span id="local-6989586621679858792"><span id="local-6989586621679858794"><span class="annot"><span class="annottext">Int -&gt; AudioLanguageSelection -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679865447"><span id="local-6989586621679865449"><span id="local-6989586621679865451"><span class="annot"><span class="annottext">Int -&gt; AudioLanguageSelection -&gt; ShowS
 [AudioLanguageSelection] -&gt; ShowS
 AudioLanguageSelection -&gt; String
 (Int -&gt; AudioLanguageSelection -&gt; ShowS)
@@ -121,8 +121,8 @@ $cfrom :: forall x. AudioLanguageSelection -&gt; Rep AudioLanguageSelection x
 </span><span id="line-65"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-66"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioLanguageSelection.html#AudioLanguageSelection"><span class="hs-identifier hs-type">AudioLanguageSelection</span></a></span><span>
 </span><span id="line-67"></span><span id="newAudioLanguageSelection"><span class="annot"><span class="annottext">newAudioLanguageSelection :: Text -&gt; AudioLanguageSelection
-</span><a href="Network.AWS.MediaLive.Types.AudioLanguageSelection.html#newAudioLanguageSelection"><span class="hs-identifier hs-var hs-var">newAudioLanguageSelection</span></a></span></span><span> </span><span id="local-6989586621679858784"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679858784"><span class="hs-identifier hs-var">pLanguageCode_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MediaLive.Types.AudioLanguageSelection.html#newAudioLanguageSelection"><span class="hs-identifier hs-var hs-var">newAudioLanguageSelection</span></a></span></span><span> </span><span id="local-6989586621679865441"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679865441"><span class="hs-identifier hs-var">pLanguageCode_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-68"></span><span>  </span><span class="annot"><span class="annottext">AudioLanguageSelection' :: Maybe AudioLanguageSelectionPolicy
 -&gt; Text -&gt; AudioLanguageSelection
 </span><a href="Network.AWS.MediaLive.Types.AudioLanguageSelection.html#AudioLanguageSelection%27"><span class="hs-identifier hs-type">AudioLanguageSelection'</span></a></span><span>
@@ -133,7 +133,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:languageCode:AudioLanguageSelection' :: Text
 </span><a href="Network.AWS.MediaLive.Types.AudioLanguageSelection.html#%24sel%3AlanguageCode%3AAudioLanguageSelection%27"><span class="hs-identifier hs-var">languageCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679858784"><span class="hs-identifier hs-var">pLanguageCode_</span></a></span><span>
+</span><a href="#local-6989586621679865441"><span class="hs-identifier hs-var">pLanguageCode_</span></a></span><span>
 </span><span id="line-72"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- | When set to \&quot;strict\&quot;, the transport stream demux strictly identifies</span><span>
@@ -156,16 +156,16 @@ forall a. Maybe a
      (Maybe AudioLanguageSelectionPolicy)
      (Maybe AudioLanguageSelectionPolicy)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioLanguageSelection.html#AudioLanguageSelection%27"><span class="hs-identifier hs-type">AudioLanguageSelection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679858780"><span class="annot"><span class="annottext">Maybe AudioLanguageSelectionPolicy
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioLanguageSelection.html#AudioLanguageSelection%27"><span class="hs-identifier hs-type">AudioLanguageSelection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679865437"><span class="annot"><span class="annottext">Maybe AudioLanguageSelectionPolicy
 languageSelectionPolicy :: Maybe AudioLanguageSelectionPolicy
 $sel:languageSelectionPolicy:AudioLanguageSelection' :: AudioLanguageSelection -&gt; Maybe AudioLanguageSelectionPolicy
-</span><a href="#local-6989586621679858780"><span class="hs-identifier hs-var hs-var">languageSelectionPolicy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AudioLanguageSelectionPolicy
-</span><a href="#local-6989586621679858780"><span class="hs-identifier hs-var">languageSelectionPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679858779"><span class="annot"><span class="annottext">s :: AudioLanguageSelection
-</span><a href="#local-6989586621679858779"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioLanguageSelection.html#AudioLanguageSelection%27"><span class="hs-identifier hs-type">AudioLanguageSelection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679858778"><span class="annot"><span class="annottext">Maybe AudioLanguageSelectionPolicy
-</span><a href="#local-6989586621679858778"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioLanguageSelection
-</span><a href="#local-6989586621679858779"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:languageSelectionPolicy:AudioLanguageSelection' :: Maybe AudioLanguageSelectionPolicy
+</span><a href="#local-6989586621679865437"><span class="hs-identifier hs-var hs-var">languageSelectionPolicy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AudioLanguageSelectionPolicy
+</span><a href="#local-6989586621679865437"><span class="hs-identifier hs-var">languageSelectionPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679865436"><span class="annot"><span class="annottext">s :: AudioLanguageSelection
+</span><a href="#local-6989586621679865436"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioLanguageSelection.html#AudioLanguageSelection%27"><span class="hs-identifier hs-type">AudioLanguageSelection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679865435"><span class="annot"><span class="annottext">Maybe AudioLanguageSelectionPolicy
+</span><a href="#local-6989586621679865435"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioLanguageSelection
+</span><a href="#local-6989586621679865436"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:languageSelectionPolicy:AudioLanguageSelection' :: Maybe AudioLanguageSelectionPolicy
 </span><a href="Network.AWS.MediaLive.Types.AudioLanguageSelection.html#%24sel%3AlanguageSelectionPolicy%3AAudioLanguageSelection%27"><span class="hs-identifier hs-var">languageSelectionPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AudioLanguageSelectionPolicy
-</span><a href="#local-6989586621679858778"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioLanguageSelection.html#AudioLanguageSelection"><span class="hs-identifier hs-type">AudioLanguageSelection</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679865435"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioLanguageSelection.html#AudioLanguageSelection"><span class="hs-identifier hs-type">AudioLanguageSelection</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- | Selects a specific three-letter language code from within an audio</span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- source.</span><span>
@@ -176,19 +176,19 @@ $sel:languageSelectionPolicy:AudioLanguageSelection' :: AudioLanguageSelection -
 -&gt; (AudioLanguageSelection -&gt; Text -&gt; AudioLanguageSelection)
 -&gt; Lens AudioLanguageSelection AudioLanguageSelection Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioLanguageSelection.html#AudioLanguageSelection%27"><span class="hs-identifier hs-type">AudioLanguageSelection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679858776"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioLanguageSelection.html#AudioLanguageSelection%27"><span class="hs-identifier hs-type">AudioLanguageSelection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679865433"><span class="annot"><span class="annottext">Text
 languageCode :: Text
 $sel:languageCode:AudioLanguageSelection' :: AudioLanguageSelection -&gt; Text
-</span><a href="#local-6989586621679858776"><span class="hs-identifier hs-var hs-var">languageCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679858776"><span class="hs-identifier hs-var">languageCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679858775"><span class="annot"><span class="annottext">s :: AudioLanguageSelection
-</span><a href="#local-6989586621679858775"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioLanguageSelection.html#AudioLanguageSelection%27"><span class="hs-identifier hs-type">AudioLanguageSelection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679858774"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679858774"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioLanguageSelection
-</span><a href="#local-6989586621679858775"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:languageCode:AudioLanguageSelection' :: Text
+</span><a href="#local-6989586621679865433"><span class="hs-identifier hs-var hs-var">languageCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679865433"><span class="hs-identifier hs-var">languageCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679865432"><span class="annot"><span class="annottext">s :: AudioLanguageSelection
+</span><a href="#local-6989586621679865432"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioLanguageSelection.html#AudioLanguageSelection%27"><span class="hs-identifier hs-type">AudioLanguageSelection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679865431"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679865431"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioLanguageSelection
+</span><a href="#local-6989586621679865432"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:languageCode:AudioLanguageSelection' :: Text
 </span><a href="Network.AWS.MediaLive.Types.AudioLanguageSelection.html#%24sel%3AlanguageCode%3AAudioLanguageSelection%27"><span class="hs-identifier hs-var">languageCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679858774"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioLanguageSelection.html#AudioLanguageSelection"><span class="hs-identifier hs-type">AudioLanguageSelection</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679865431"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioLanguageSelection.html#AudioLanguageSelection"><span class="hs-identifier hs-type">AudioLanguageSelection</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679858771"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioLanguageSelection.html#AudioLanguageSelection"><span class="hs-identifier hs-type">AudioLanguageSelection</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621679858769"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AudioLanguageSelection
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679865428"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioLanguageSelection.html#AudioLanguageSelection"><span class="hs-identifier hs-type">AudioLanguageSelection</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679865426"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AudioLanguageSelection
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-91"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AudioLanguageSelection)
@@ -198,8 +198,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AudioLanguageSelection&quot;</span></span><span>
-</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679858766"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679858766"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679865423"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679865423"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-94"></span><span>          </span><span class="annot"><span class="annottext">Maybe AudioLanguageSelectionPolicy
 -&gt; Text -&gt; AudioLanguageSelection
 </span><a href="Network.AWS.MediaLive.Types.AudioLanguageSelection.html#AudioLanguageSelection%27"><span class="hs-identifier hs-var">AudioLanguageSelection'</span></a></span><span>
@@ -209,7 +209,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Text -&gt; AudioLanguageSelection)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679858766"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AudioLanguageSelectionPolicy)
+</span><a href="#local-6989586621679865423"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AudioLanguageSelectionPolicy)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;languageSelectionPolicy&quot;</span></span><span class="hs-special">)</span><span>
@@ -217,25 +217,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Text -&gt; Parser AudioLanguageSelection
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679858766"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679865423"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;languageCode&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679858759"><span id="local-6989586621679858761"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioLanguageSelection.html#AudioLanguageSelection"><span class="hs-identifier hs-type">AudioLanguageSelection</span></a></span></span></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679865416"><span id="local-6989586621679865418"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioLanguageSelection.html#AudioLanguageSelection"><span class="hs-identifier hs-type">AudioLanguageSelection</span></a></span></span></span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679858756"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioLanguageSelection.html#AudioLanguageSelection"><span class="hs-identifier hs-type">AudioLanguageSelection</span></a></span></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679865413"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioLanguageSelection.html#AudioLanguageSelection"><span class="hs-identifier hs-type">AudioLanguageSelection</span></a></span></span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679858748"><span id="local-6989586621679858750"><span id="local-6989586621679858752"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioLanguageSelection.html#AudioLanguageSelection"><span class="hs-identifier hs-type">AudioLanguageSelection</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679858746"><span class="annot"><span class="annottext">toJSON :: AudioLanguageSelection -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioLanguageSelection.html#AudioLanguageSelection%27"><span class="hs-identifier hs-type">AudioLanguageSelection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679858743"><span id="local-6989586621679858744"><span class="annot"><span class="annottext">Maybe AudioLanguageSelectionPolicy
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679865405"><span id="local-6989586621679865407"><span id="local-6989586621679865409"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioLanguageSelection.html#AudioLanguageSelection"><span class="hs-identifier hs-type">AudioLanguageSelection</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679865403"><span class="annot"><span class="annottext">toJSON :: AudioLanguageSelection -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioLanguageSelection.html#AudioLanguageSelection%27"><span class="hs-identifier hs-type">AudioLanguageSelection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679865400"><span id="local-6989586621679865401"><span class="annot"><span class="annottext">Maybe AudioLanguageSelectionPolicy
 Text
 languageCode :: Text
 languageSelectionPolicy :: Maybe AudioLanguageSelectionPolicy
 $sel:languageCode:AudioLanguageSelection' :: AudioLanguageSelection -&gt; Text
 $sel:languageSelectionPolicy:AudioLanguageSelection' :: AudioLanguageSelection -&gt; Maybe AudioLanguageSelectionPolicy
-</span><a href="#local-6989586621679858743"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679865400"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -249,14 +249,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe AudioLanguageSelectionPolicy -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AudioLanguageSelectionPolicy
-</span><a href="#local-6989586621679858744"><span class="hs-identifier hs-var">languageSelectionPolicy</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679865401"><span class="hs-identifier hs-var">languageSelectionPolicy</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;languageCode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679858743"><span class="hs-identifier hs-var">languageCode</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679865400"><span class="hs-identifier hs-var">languageCode</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span></pre></body></html>

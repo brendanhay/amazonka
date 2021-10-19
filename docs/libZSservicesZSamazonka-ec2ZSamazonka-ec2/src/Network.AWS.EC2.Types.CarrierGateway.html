@@ -29,24 +29,24 @@
 </span><span id="line-29"></span><span class="hs-comment">-- | Describes a carrier gateway.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newCarrierGateway' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621681128643"><span id="local-6989586621681128644"></span></span><span class="hs-keyword">data</span><span> </span><span id="CarrierGateway"><span class="annot"><a href="Network.AWS.EC2.Types.CarrierGateway.html#CarrierGateway"><span class="hs-identifier hs-var">CarrierGateway</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CarrierGateway%27"><span class="annot"><a href="Network.AWS.EC2.Types.CarrierGateway.html#CarrierGateway%27"><span class="hs-identifier hs-var">CarrierGateway'</span></a></span></span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Web Services account ID of the owner of the carrier gateway.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AownerId%3ACarrierGateway%27"><span class="annot"><span class="annottext">CarrierGateway -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.CarrierGateway.html#%24sel%3AownerId%3ACarrierGateway%27"><span class="hs-identifier hs-var hs-var">ownerId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The state of the carrier gateway.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3Astate%3ACarrierGateway%27"><span class="annot"><span class="annottext">CarrierGateway -&gt; Maybe CarrierGatewayState
+</span><span id="line-32"></span><span id="local-6989586621681163547"><span id="local-6989586621681163548"></span></span><span class="hs-keyword">data</span><span> </span><span id="CarrierGateway"><span class="annot"><a href="Network.AWS.EC2.Types.CarrierGateway.html#CarrierGateway"><span class="hs-identifier hs-var">CarrierGateway</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CarrierGateway%27"><span class="annot"><a href="Network.AWS.EC2.Types.CarrierGateway.html#CarrierGateway%27"><span class="hs-identifier hs-var">CarrierGateway'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The state of the carrier gateway.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Astate%3ACarrierGateway%27"><span class="annot"><span class="annottext">CarrierGateway -&gt; Maybe CarrierGatewayState
 </span><a href="Network.AWS.EC2.Types.CarrierGateway.html#%24sel%3Astate%3ACarrierGateway%27"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CarrierGatewayState.html#CarrierGatewayState"><span class="hs-identifier hs-type">CarrierGatewayState</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The tags assigned to the carrier gateway.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3Atags%3ACarrierGateway%27"><span class="annot"><span class="annottext">CarrierGateway -&gt; Maybe [Tag]
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The ID of the VPC associated with the carrier gateway.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AvpcId%3ACarrierGateway%27"><span class="annot"><span class="annottext">CarrierGateway -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.CarrierGateway.html#%24sel%3AvpcId%3ACarrierGateway%27"><span class="hs-identifier hs-var hs-var">vpcId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The Amazon Web Services account ID of the owner of the carrier gateway.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AownerId%3ACarrierGateway%27"><span class="annot"><span class="annottext">CarrierGateway -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.CarrierGateway.html#%24sel%3AownerId%3ACarrierGateway%27"><span class="hs-identifier hs-var hs-var">ownerId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The tags assigned to the carrier gateway.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3Atags%3ACarrierGateway%27"><span class="annot"><span class="annottext">CarrierGateway -&gt; Maybe [Tag]
 </span><a href="Network.AWS.EC2.Types.CarrierGateway.html#%24sel%3Atags%3ACarrierGateway%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The ID of the carrier gateway.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3AcarrierGatewayId%3ACarrierGateway%27"><span class="annot"><span class="annottext">CarrierGateway -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.CarrierGateway.html#%24sel%3AcarrierGatewayId%3ACarrierGateway%27"><span class="hs-identifier hs-var hs-var">carrierGatewayId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The ID of the VPC associated with the carrier gateway.</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3AvpcId%3ACarrierGateway%27"><span class="annot"><span class="annottext">CarrierGateway -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.CarrierGateway.html#%24sel%3AvpcId%3ACarrierGateway%27"><span class="hs-identifier hs-var hs-var">vpcId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The ID of the carrier gateway.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AcarrierGatewayId%3ACarrierGateway%27"><span class="annot"><span class="annottext">CarrierGateway -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.CarrierGateway.html#%24sel%3AcarrierGatewayId%3ACarrierGateway%27"><span class="hs-identifier hs-var hs-var">carrierGatewayId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681128633"><span id="local-6989586621681128635"><span class="annot"><span class="annottext">CarrierGateway -&gt; CarrierGateway -&gt; Bool
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681163537"><span id="local-6989586621681163539"><span class="annot"><span class="annottext">CarrierGateway -&gt; CarrierGateway -&gt; Bool
 (CarrierGateway -&gt; CarrierGateway -&gt; Bool)
 -&gt; (CarrierGateway -&gt; CarrierGateway -&gt; Bool) -&gt; Eq CarrierGateway
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -54,7 +54,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CarrierGateway -&gt; CarrierGateway -&gt; Bool
 == :: CarrierGateway -&gt; CarrierGateway -&gt; Bool
 $c== :: CarrierGateway -&gt; CarrierGateway -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681128624"><span id="local-6989586621681128626"><span id="local-6989586621681128628"><span id="local-6989586621681128630"><span class="annot"><span class="annottext">ReadPrec [CarrierGateway]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681163528"><span id="local-6989586621681163530"><span id="local-6989586621681163532"><span id="local-6989586621681163534"><span class="annot"><span class="annottext">ReadPrec [CarrierGateway]
 ReadPrec CarrierGateway
 Int -&gt; ReadS CarrierGateway
 ReadS [CarrierGateway]
@@ -74,7 +74,7 @@ readList :: ReadS [CarrierGateway]
 $creadList :: ReadS [CarrierGateway]
 readsPrec :: Int -&gt; ReadS CarrierGateway
 $creadsPrec :: Int -&gt; ReadS CarrierGateway
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681128617"><span id="local-6989586621681128619"><span id="local-6989586621681128621"><span class="annot"><span class="annottext">Int -&gt; CarrierGateway -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681163521"><span id="local-6989586621681163523"><span id="local-6989586621681163525"><span class="annot"><span class="annottext">Int -&gt; CarrierGateway -&gt; ShowS
 [CarrierGateway] -&gt; ShowS
 CarrierGateway -&gt; String
 (Int -&gt; CarrierGateway -&gt; ShowS)
@@ -108,70 +108,51 @@ $cfrom :: forall x. CarrierGateway -&gt; Rep CarrierGateway x
 </span><span id="line-51"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-53"></span><span class="hs-comment">--</span><span>
-</span><span id="line-54"></span><span class="hs-comment">-- 'ownerId', 'carrierGateway_ownerId' - The Amazon Web Services account ID of the owner of the carrier gateway.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'state', 'carrierGateway_state' - The state of the carrier gateway.</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- 'state', 'carrierGateway_state' - The state of the carrier gateway.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'vpcId', 'carrierGateway_vpcId' - The ID of the VPC associated with the carrier gateway.</span><span>
 </span><span id="line-57"></span><span class="hs-comment">--</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- 'tags', 'carrierGateway_tags' - The tags assigned to the carrier gateway.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'ownerId', 'carrierGateway_ownerId' - The Amazon Web Services account ID of the owner of the carrier gateway.</span><span>
 </span><span id="line-59"></span><span class="hs-comment">--</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- 'carrierGatewayId', 'carrierGateway_carrierGatewayId' - The ID of the carrier gateway.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'tags', 'carrierGateway_tags' - The tags assigned to the carrier gateway.</span><span>
 </span><span id="line-61"></span><span class="hs-comment">--</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- 'vpcId', 'carrierGateway_vpcId' - The ID of the VPC associated with the carrier gateway.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'carrierGatewayId', 'carrierGateway_carrierGatewayId' - The ID of the carrier gateway.</span><span>
 </span><span id="line-63"></span><span class="annot"><a href="Network.AWS.EC2.Types.CarrierGateway.html#newCarrierGateway"><span class="hs-identifier hs-type">newCarrierGateway</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-64"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.CarrierGateway.html#CarrierGateway"><span class="hs-identifier hs-type">CarrierGateway</span></a></span><span>
 </span><span id="line-65"></span><span id="newCarrierGateway"><span class="annot"><span class="annottext">newCarrierGateway :: CarrierGateway
 </span><a href="Network.AWS.EC2.Types.CarrierGateway.html#newCarrierGateway"><span class="hs-identifier hs-var hs-var">newCarrierGateway</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-66"></span><span>  </span><span class="annot"><span class="annottext">CarrierGateway' :: Maybe Text
--&gt; Maybe CarrierGatewayState
--&gt; Maybe [Tag]
+</span><span id="line-66"></span><span>  </span><span class="annot"><span class="annottext">CarrierGateway' :: Maybe CarrierGatewayState
 -&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [Tag]
 -&gt; Maybe Text
 -&gt; CarrierGateway
 </span><a href="Network.AWS.EC2.Types.CarrierGateway.html#CarrierGateway%27"><span class="hs-identifier hs-type">CarrierGateway'</span></a></span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:ownerId:CarrierGateway' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.CarrierGateway.html#%24sel%3AownerId%3ACarrierGateway%27"><span class="hs-identifier hs-var">ownerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:state:CarrierGateway' :: Maybe CarrierGatewayState
+</span><span id="line-67"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:state:CarrierGateway' :: Maybe CarrierGatewayState
 </span><a href="Network.AWS.EC2.Types.CarrierGateway.html#%24sel%3Astate%3ACarrierGateway%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CarrierGatewayState
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:CarrierGateway' :: Maybe [Tag]
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:vpcId:CarrierGateway' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.CarrierGateway.html#%24sel%3AvpcId%3ACarrierGateway%27"><span class="hs-identifier hs-var">vpcId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:ownerId:CarrierGateway' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.CarrierGateway.html#%24sel%3AownerId%3ACarrierGateway%27"><span class="hs-identifier hs-var">ownerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:CarrierGateway' :: Maybe [Tag]
 </span><a href="Network.AWS.EC2.Types.CarrierGateway.html#%24sel%3Atags%3ACarrierGateway%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:carrierGatewayId:CarrierGateway' :: Maybe Text
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:carrierGatewayId:CarrierGateway' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.CarrierGateway.html#%24sel%3AcarrierGatewayId%3ACarrierGateway%27"><span class="hs-identifier hs-var">carrierGatewayId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:vpcId:CarrierGateway' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.CarrierGateway.html#%24sel%3AvpcId%3ACarrierGateway%27"><span class="hs-identifier hs-var">vpcId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-72"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- | The Amazon Web Services account ID of the owner of the carrier gateway.</span><span>
-</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.EC2.Types.CarrierGateway.html#carrierGateway_ownerId"><span class="hs-identifier hs-type">carrierGateway_ownerId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CarrierGateway.html#CarrierGateway"><span class="hs-identifier hs-type">CarrierGateway</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-76"></span><span id="carrierGateway_ownerId"><span class="annot"><span class="annottext">carrierGateway_ownerId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; CarrierGateway -&gt; f CarrierGateway
-</span><a href="Network.AWS.EC2.Types.CarrierGateway.html#carrierGateway_ownerId"><span class="hs-identifier hs-var hs-var">carrierGateway_ownerId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CarrierGateway -&gt; Maybe Text)
--&gt; (CarrierGateway -&gt; Maybe Text -&gt; CarrierGateway)
--&gt; Lens CarrierGateway CarrierGateway (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.CarrierGateway.html#CarrierGateway%27"><span class="hs-identifier hs-type">CarrierGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681128608"><span class="annot"><span class="annottext">Maybe Text
-ownerId :: Maybe Text
-$sel:ownerId:CarrierGateway' :: CarrierGateway -&gt; Maybe Text
-</span><a href="#local-6989586621681128608"><span class="hs-identifier hs-var hs-var">ownerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681128608"><span class="hs-identifier hs-var">ownerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681128607"><span class="annot"><span class="annottext">s :: CarrierGateway
-</span><a href="#local-6989586621681128607"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.CarrierGateway.html#CarrierGateway%27"><span class="hs-identifier hs-type">CarrierGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681128606"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681128606"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CarrierGateway
-</span><a href="#local-6989586621681128607"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ownerId:CarrierGateway' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.CarrierGateway.html#%24sel%3AownerId%3ACarrierGateway%27"><span class="hs-identifier hs-var">ownerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681128606"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CarrierGateway.html#CarrierGateway"><span class="hs-identifier hs-type">CarrierGateway</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- | The state of the carrier gateway.</span><span>
-</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.EC2.Types.CarrierGateway.html#carrierGateway_state"><span class="hs-identifier hs-type">carrierGateway_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CarrierGateway.html#CarrierGateway"><span class="hs-identifier hs-type">CarrierGateway</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CarrierGatewayState.html#CarrierGatewayState"><span class="hs-identifier hs-type">CarrierGatewayState</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-80"></span><span id="carrierGateway_state"><span class="annot"><span class="annottext">carrierGateway_state :: (Maybe CarrierGatewayState -&gt; f (Maybe CarrierGatewayState))
+</span><span id="line-74"></span><span class="hs-comment">-- | The state of the carrier gateway.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.EC2.Types.CarrierGateway.html#carrierGateway_state"><span class="hs-identifier hs-type">carrierGateway_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CarrierGateway.html#CarrierGateway"><span class="hs-identifier hs-type">CarrierGateway</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CarrierGatewayState.html#CarrierGatewayState"><span class="hs-identifier hs-type">CarrierGatewayState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span id="carrierGateway_state"><span class="annot"><span class="annottext">carrierGateway_state :: (Maybe CarrierGatewayState -&gt; f (Maybe CarrierGatewayState))
 -&gt; CarrierGateway -&gt; f CarrierGateway
 </span><a href="Network.AWS.EC2.Types.CarrierGateway.html#carrierGateway_state"><span class="hs-identifier hs-var hs-var">carrierGateway_state</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CarrierGateway -&gt; Maybe CarrierGatewayState)
 -&gt; (CarrierGateway -&gt; Maybe CarrierGatewayState -&gt; CarrierGateway)
@@ -181,35 +162,73 @@ $sel:ownerId:CarrierGateway' :: CarrierGateway -&gt; Maybe Text
      (Maybe CarrierGatewayState)
      (Maybe CarrierGatewayState)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.CarrierGateway.html#CarrierGateway%27"><span class="hs-identifier hs-type">CarrierGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681128604"><span class="annot"><span class="annottext">Maybe CarrierGatewayState
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.CarrierGateway.html#CarrierGateway%27"><span class="hs-identifier hs-type">CarrierGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681163512"><span class="annot"><span class="annottext">Maybe CarrierGatewayState
 state :: Maybe CarrierGatewayState
 $sel:state:CarrierGateway' :: CarrierGateway -&gt; Maybe CarrierGatewayState
-</span><a href="#local-6989586621681128604"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CarrierGatewayState
-</span><a href="#local-6989586621681128604"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681128603"><span class="annot"><span class="annottext">s :: CarrierGateway
-</span><a href="#local-6989586621681128603"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.CarrierGateway.html#CarrierGateway%27"><span class="hs-identifier hs-type">CarrierGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681128602"><span class="annot"><span class="annottext">Maybe CarrierGatewayState
-</span><a href="#local-6989586621681128602"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CarrierGateway
-</span><a href="#local-6989586621681128603"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:CarrierGateway' :: Maybe CarrierGatewayState
+</span><a href="#local-6989586621681163512"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CarrierGatewayState
+</span><a href="#local-6989586621681163512"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681163511"><span class="annot"><span class="annottext">s :: CarrierGateway
+</span><a href="#local-6989586621681163511"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.CarrierGateway.html#CarrierGateway%27"><span class="hs-identifier hs-type">CarrierGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681163510"><span class="annot"><span class="annottext">Maybe CarrierGatewayState
+</span><a href="#local-6989586621681163510"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CarrierGateway
+</span><a href="#local-6989586621681163511"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:CarrierGateway' :: Maybe CarrierGatewayState
 </span><a href="Network.AWS.EC2.Types.CarrierGateway.html#%24sel%3Astate%3ACarrierGateway%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CarrierGatewayState
-</span><a href="#local-6989586621681128602"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CarrierGateway.html#CarrierGateway"><span class="hs-identifier hs-type">CarrierGateway</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681163510"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CarrierGateway.html#CarrierGateway"><span class="hs-identifier hs-type">CarrierGateway</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | The ID of the VPC associated with the carrier gateway.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.EC2.Types.CarrierGateway.html#carrierGateway_vpcId"><span class="hs-identifier hs-type">carrierGateway_vpcId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CarrierGateway.html#CarrierGateway"><span class="hs-identifier hs-type">CarrierGateway</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span id="carrierGateway_vpcId"><span class="annot"><span class="annottext">carrierGateway_vpcId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CarrierGateway -&gt; f CarrierGateway
+</span><a href="Network.AWS.EC2.Types.CarrierGateway.html#carrierGateway_vpcId"><span class="hs-identifier hs-var hs-var">carrierGateway_vpcId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CarrierGateway -&gt; Maybe Text)
+-&gt; (CarrierGateway -&gt; Maybe Text -&gt; CarrierGateway)
+-&gt; Lens CarrierGateway CarrierGateway (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.CarrierGateway.html#CarrierGateway%27"><span class="hs-identifier hs-type">CarrierGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681163508"><span class="annot"><span class="annottext">Maybe Text
+vpcId :: Maybe Text
+$sel:vpcId:CarrierGateway' :: CarrierGateway -&gt; Maybe Text
+</span><a href="#local-6989586621681163508"><span class="hs-identifier hs-var hs-var">vpcId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681163508"><span class="hs-identifier hs-var">vpcId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681163507"><span class="annot"><span class="annottext">s :: CarrierGateway
+</span><a href="#local-6989586621681163507"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.CarrierGateway.html#CarrierGateway%27"><span class="hs-identifier hs-type">CarrierGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681163506"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681163506"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CarrierGateway
+</span><a href="#local-6989586621681163507"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcId:CarrierGateway' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.CarrierGateway.html#%24sel%3AvpcId%3ACarrierGateway%27"><span class="hs-identifier hs-var">vpcId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681163506"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CarrierGateway.html#CarrierGateway"><span class="hs-identifier hs-type">CarrierGateway</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- | The tags assigned to the carrier gateway.</span><span>
-</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.EC2.Types.CarrierGateway.html#carrierGateway_tags"><span class="hs-identifier hs-type">carrierGateway_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CarrierGateway.html#CarrierGateway"><span class="hs-identifier hs-type">CarrierGateway</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-84"></span><span id="carrierGateway_tags"><span class="annot"><span class="annottext">carrierGateway_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
+</span><span id="line-82"></span><span class="hs-comment">-- | The Amazon Web Services account ID of the owner of the carrier gateway.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.EC2.Types.CarrierGateway.html#carrierGateway_ownerId"><span class="hs-identifier hs-type">carrierGateway_ownerId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CarrierGateway.html#CarrierGateway"><span class="hs-identifier hs-type">CarrierGateway</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span id="carrierGateway_ownerId"><span class="annot"><span class="annottext">carrierGateway_ownerId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CarrierGateway -&gt; f CarrierGateway
+</span><a href="Network.AWS.EC2.Types.CarrierGateway.html#carrierGateway_ownerId"><span class="hs-identifier hs-var hs-var">carrierGateway_ownerId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CarrierGateway -&gt; Maybe Text)
+-&gt; (CarrierGateway -&gt; Maybe Text -&gt; CarrierGateway)
+-&gt; Lens CarrierGateway CarrierGateway (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.CarrierGateway.html#CarrierGateway%27"><span class="hs-identifier hs-type">CarrierGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681163504"><span class="annot"><span class="annottext">Maybe Text
+ownerId :: Maybe Text
+$sel:ownerId:CarrierGateway' :: CarrierGateway -&gt; Maybe Text
+</span><a href="#local-6989586621681163504"><span class="hs-identifier hs-var hs-var">ownerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681163504"><span class="hs-identifier hs-var">ownerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681163503"><span class="annot"><span class="annottext">s :: CarrierGateway
+</span><a href="#local-6989586621681163503"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.CarrierGateway.html#CarrierGateway%27"><span class="hs-identifier hs-type">CarrierGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681163502"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681163502"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CarrierGateway
+</span><a href="#local-6989586621681163503"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ownerId:CarrierGateway' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.CarrierGateway.html#%24sel%3AownerId%3ACarrierGateway%27"><span class="hs-identifier hs-var">ownerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681163502"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CarrierGateway.html#CarrierGateway"><span class="hs-identifier hs-type">CarrierGateway</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | The tags assigned to the carrier gateway.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.EC2.Types.CarrierGateway.html#carrierGateway_tags"><span class="hs-identifier hs-type">carrierGateway_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CarrierGateway.html#CarrierGateway"><span class="hs-identifier hs-type">CarrierGateway</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="carrierGateway_tags"><span class="annot"><span class="annottext">carrierGateway_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
 -&gt; CarrierGateway -&gt; f CarrierGateway
 </span><a href="Network.AWS.EC2.Types.CarrierGateway.html#carrierGateway_tags"><span class="hs-identifier hs-var hs-var">carrierGateway_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CarrierGateway -&gt; Maybe [Tag])
 -&gt; (CarrierGateway -&gt; Maybe [Tag] -&gt; CarrierGateway)
 -&gt; Lens CarrierGateway CarrierGateway (Maybe [Tag]) (Maybe [Tag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.CarrierGateway.html#CarrierGateway%27"><span class="hs-identifier hs-type">CarrierGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681128600"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.CarrierGateway.html#CarrierGateway%27"><span class="hs-identifier hs-type">CarrierGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681163500"><span class="annot"><span class="annottext">Maybe [Tag]
 tags :: Maybe [Tag]
 $sel:tags:CarrierGateway' :: CarrierGateway -&gt; Maybe [Tag]
-</span><a href="#local-6989586621681128600"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621681128600"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681128599"><span class="annot"><span class="annottext">s :: CarrierGateway
-</span><a href="#local-6989586621681128599"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.CarrierGateway.html#CarrierGateway%27"><span class="hs-identifier hs-type">CarrierGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681128598"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621681128598"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CarrierGateway
-</span><a href="#local-6989586621681128599"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CarrierGateway' :: Maybe [Tag]
+</span><a href="#local-6989586621681163500"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621681163500"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681163499"><span class="annot"><span class="annottext">s :: CarrierGateway
+</span><a href="#local-6989586621681163499"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.CarrierGateway.html#CarrierGateway%27"><span class="hs-identifier hs-type">CarrierGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681163498"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621681163498"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CarrierGateway
+</span><a href="#local-6989586621681163499"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CarrierGateway' :: Maybe [Tag]
 </span><a href="Network.AWS.EC2.Types.CarrierGateway.html#%24sel%3Atags%3ACarrierGateway%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621681128598"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CarrierGateway.html#CarrierGateway"><span class="hs-identifier hs-type">CarrierGateway</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+</span><a href="#local-6989586621681163498"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CarrierGateway.html#CarrierGateway"><span class="hs-identifier hs-type">CarrierGateway</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
  -&gt; CarrierGateway -&gt; f CarrierGateway)
 -&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
     -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
@@ -223,95 +242,85 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- | The ID of the carrier gateway.</span><span>
-</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.EC2.Types.CarrierGateway.html#carrierGateway_carrierGatewayId"><span class="hs-identifier hs-type">carrierGateway_carrierGatewayId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CarrierGateway.html#CarrierGateway"><span class="hs-identifier hs-type">CarrierGateway</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-88"></span><span id="carrierGateway_carrierGatewayId"><span class="annot"><span class="annottext">carrierGateway_carrierGatewayId :: (Maybe Text -&gt; f (Maybe Text))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The ID of the carrier gateway.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.EC2.Types.CarrierGateway.html#carrierGateway_carrierGatewayId"><span class="hs-identifier hs-type">carrierGateway_carrierGatewayId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CarrierGateway.html#CarrierGateway"><span class="hs-identifier hs-type">CarrierGateway</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="carrierGateway_carrierGatewayId"><span class="annot"><span class="annottext">carrierGateway_carrierGatewayId :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; CarrierGateway -&gt; f CarrierGateway
 </span><a href="Network.AWS.EC2.Types.CarrierGateway.html#carrierGateway_carrierGatewayId"><span class="hs-identifier hs-var hs-var">carrierGateway_carrierGatewayId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CarrierGateway -&gt; Maybe Text)
 -&gt; (CarrierGateway -&gt; Maybe Text -&gt; CarrierGateway)
 -&gt; Lens CarrierGateway CarrierGateway (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.CarrierGateway.html#CarrierGateway%27"><span class="hs-identifier hs-type">CarrierGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681128593"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.CarrierGateway.html#CarrierGateway%27"><span class="hs-identifier hs-type">CarrierGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681163493"><span class="annot"><span class="annottext">Maybe Text
 carrierGatewayId :: Maybe Text
 $sel:carrierGatewayId:CarrierGateway' :: CarrierGateway -&gt; Maybe Text
-</span><a href="#local-6989586621681128593"><span class="hs-identifier hs-var hs-var">carrierGatewayId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681128593"><span class="hs-identifier hs-var">carrierGatewayId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681128592"><span class="annot"><span class="annottext">s :: CarrierGateway
-</span><a href="#local-6989586621681128592"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.CarrierGateway.html#CarrierGateway%27"><span class="hs-identifier hs-type">CarrierGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681128591"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681128591"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CarrierGateway
-</span><a href="#local-6989586621681128592"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:carrierGatewayId:CarrierGateway' :: Maybe Text
+</span><a href="#local-6989586621681163493"><span class="hs-identifier hs-var hs-var">carrierGatewayId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681163493"><span class="hs-identifier hs-var">carrierGatewayId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681163492"><span class="annot"><span class="annottext">s :: CarrierGateway
+</span><a href="#local-6989586621681163492"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.CarrierGateway.html#CarrierGateway%27"><span class="hs-identifier hs-type">CarrierGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681163491"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681163491"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CarrierGateway
+</span><a href="#local-6989586621681163492"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:carrierGatewayId:CarrierGateway' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.CarrierGateway.html#%24sel%3AcarrierGatewayId%3ACarrierGateway%27"><span class="hs-identifier hs-var">carrierGatewayId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681128591"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CarrierGateway.html#CarrierGateway"><span class="hs-identifier hs-type">CarrierGateway</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- | The ID of the VPC associated with the carrier gateway.</span><span>
-</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.EC2.Types.CarrierGateway.html#carrierGateway_vpcId"><span class="hs-identifier hs-type">carrierGateway_vpcId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CarrierGateway.html#CarrierGateway"><span class="hs-identifier hs-type">CarrierGateway</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-92"></span><span id="carrierGateway_vpcId"><span class="annot"><span class="annottext">carrierGateway_vpcId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; CarrierGateway -&gt; f CarrierGateway
-</span><a href="Network.AWS.EC2.Types.CarrierGateway.html#carrierGateway_vpcId"><span class="hs-identifier hs-var hs-var">carrierGateway_vpcId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CarrierGateway -&gt; Maybe Text)
--&gt; (CarrierGateway -&gt; Maybe Text -&gt; CarrierGateway)
--&gt; Lens CarrierGateway CarrierGateway (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.CarrierGateway.html#CarrierGateway%27"><span class="hs-identifier hs-type">CarrierGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681128589"><span class="annot"><span class="annottext">Maybe Text
-vpcId :: Maybe Text
-$sel:vpcId:CarrierGateway' :: CarrierGateway -&gt; Maybe Text
-</span><a href="#local-6989586621681128589"><span class="hs-identifier hs-var hs-var">vpcId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681128589"><span class="hs-identifier hs-var">vpcId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681128588"><span class="annot"><span class="annottext">s :: CarrierGateway
-</span><a href="#local-6989586621681128588"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.CarrierGateway.html#CarrierGateway%27"><span class="hs-identifier hs-type">CarrierGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681128587"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681128587"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CarrierGateway
-</span><a href="#local-6989586621681128588"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcId:CarrierGateway' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.CarrierGateway.html#%24sel%3AvpcId%3ACarrierGateway%27"><span class="hs-identifier hs-var">vpcId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681128587"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CarrierGateway.html#CarrierGateway"><span class="hs-identifier hs-type">CarrierGateway</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681163491"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CarrierGateway.html#CarrierGateway"><span class="hs-identifier hs-type">CarrierGateway</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CarrierGateway.html#CarrierGateway"><span class="hs-identifier hs-type">CarrierGateway</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621681128584"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String CarrierGateway
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681128582"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681128582"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe CarrierGatewayState
--&gt; Maybe [Tag]
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621681163488"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String CarrierGateway
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681163486"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681163486"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">Maybe CarrierGatewayState
 -&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [Tag]
 -&gt; Maybe Text
 -&gt; CarrierGateway
 </span><a href="Network.AWS.EC2.Types.CarrierGateway.html#CarrierGateway%27"><span class="hs-identifier hs-var">CarrierGateway'</span></a></span><span>
-</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe CarrierGatewayState
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">(Maybe CarrierGatewayState
+ -&gt; Maybe Text
+ -&gt; Maybe Text
  -&gt; Maybe [Tag]
  -&gt; Maybe Text
- -&gt; Maybe Text
  -&gt; CarrierGateway)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String
-     (Maybe CarrierGatewayState
-      -&gt; Maybe [Tag] -&gt; Maybe Text -&gt; Maybe Text -&gt; CarrierGateway)
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681128582"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ownerId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe CarrierGatewayState
-   -&gt; Maybe [Tag] -&gt; Maybe Text -&gt; Maybe Text -&gt; CarrierGateway)
 -&gt; Either String (Maybe CarrierGatewayState)
 -&gt; Either
-     String (Maybe [Tag] -&gt; Maybe Text -&gt; Maybe Text -&gt; CarrierGateway)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681128582"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe CarrierGatewayState)
+     String
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Maybe [Tag] -&gt; Maybe Text -&gt; CarrierGateway)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681163486"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe CarrierGatewayState)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;state&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe [Tag] -&gt; Maybe Text -&gt; CarrierGateway)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe Text -&gt; Maybe [Tag] -&gt; Maybe Text -&gt; CarrierGateway)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681163486"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;vpcId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String (Maybe [Tag] -&gt; Maybe Text -&gt; Maybe Text -&gt; CarrierGateway)
+  String (Maybe Text -&gt; Maybe [Tag] -&gt; Maybe Text -&gt; CarrierGateway)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe [Tag] -&gt; Maybe Text -&gt; CarrierGateway)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681163486"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ownerId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe [Tag] -&gt; Maybe Text -&gt; CarrierGateway)
 -&gt; Either String (Maybe [Tag])
--&gt; Either String (Maybe Text -&gt; Maybe Text -&gt; CarrierGateway)
+-&gt; Either String (Maybe Text -&gt; CarrierGateway)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681128582"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621681163486"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;tagSet&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -319,7 +328,7 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-100"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+</span><span id="line-101"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
 -&gt; ([Node] -&gt; Either String (Maybe [Tag]))
 -&gt; Either String (Maybe [Tag])
 forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
@@ -332,26 +341,17 @@ Applicative f =&gt;
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;item&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-101"></span><span>                  </span><span class="hs-special">)</span><span>
-</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Maybe Text -&gt; CarrierGateway)
--&gt; Either String (Maybe Text)
--&gt; Either String (Maybe Text -&gt; CarrierGateway)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681128582"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;carrierGatewayId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>                  </span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; CarrierGateway)
 -&gt; Either String (Maybe Text) -&gt; Either String CarrierGateway
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681128582"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681163486"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;vpcId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;carrierGatewayId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681128573"><span id="local-6989586621681128575"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CarrierGateway.html#CarrierGateway"><span class="hs-identifier hs-type">CarrierGateway</span></a></span></span></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681163477"><span id="local-6989586621681163479"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CarrierGateway.html#CarrierGateway"><span class="hs-identifier hs-type">CarrierGateway</span></a></span></span></span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681128570"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CarrierGateway.html#CarrierGateway"><span class="hs-identifier hs-type">CarrierGateway</span></a></span></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681163474"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CarrierGateway.html#CarrierGateway"><span class="hs-identifier hs-type">CarrierGateway</span></a></span></span><span>
 </span><span id="line-108"></span></pre></body></html>

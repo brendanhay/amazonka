@@ -37,8 +37,8 @@
 </span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#newListInputSecurityGroupsResponse"><span class="hs-identifier">newListInputSecurityGroupsResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-38"></span><span>
 </span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#listInputSecurityGroupsResponse_inputSecurityGroups"><span class="hs-identifier">listInputSecurityGroupsResponse_inputSecurityGroups</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#listInputSecurityGroupsResponse_nextToken"><span class="hs-identifier">listInputSecurityGroupsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#listInputSecurityGroupsResponse_nextToken"><span class="hs-identifier">listInputSecurityGroupsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#listInputSecurityGroupsResponse_inputSecurityGroups"><span class="hs-identifier">listInputSecurityGroupsResponse_inputSecurityGroups</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#listInputSecurityGroupsResponse_httpStatus"><span class="hs-identifier">listInputSecurityGroupsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span class="hs-keyword">where</span><span>
@@ -53,13 +53,13 @@
 </span><span id="line-53"></span><span class="hs-comment">-- | Placeholder documentation for ListInputSecurityGroupsRequest</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- /See:/ 'newListInputSecurityGroups' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679933829"><span id="local-6989586621679933830"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListInputSecurityGroups"><span class="annot"><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#ListInputSecurityGroups"><span class="hs-identifier hs-var">ListInputSecurityGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListInputSecurityGroups%27"><span class="annot"><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#ListInputSecurityGroups%27"><span class="hs-identifier hs-var">ListInputSecurityGroups'</span></a></span></span><span>
+</span><span id="line-56"></span><span id="local-6989586621679941412"><span id="local-6989586621679941413"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListInputSecurityGroups"><span class="annot"><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#ListInputSecurityGroups"><span class="hs-identifier hs-var">ListInputSecurityGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListInputSecurityGroups%27"><span class="annot"><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#ListInputSecurityGroups%27"><span class="hs-identifier hs-var">ListInputSecurityGroups'</span></a></span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AnextToken%3AListInputSecurityGroups%27"><span class="annot"><span class="annottext">ListInputSecurityGroups -&gt; Maybe Text
 </span><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#%24sel%3AnextToken%3AListInputSecurityGroups%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AmaxResults%3AListInputSecurityGroups%27"><span class="annot"><span class="annottext">ListInputSecurityGroups -&gt; Maybe Natural
 </span><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#%24sel%3AmaxResults%3AListInputSecurityGroups%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679933822"><span id="local-6989586621679933824"><span class="annot"><span class="annottext">ListInputSecurityGroups -&gt; ListInputSecurityGroups -&gt; Bool
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679941405"><span id="local-6989586621679941407"><span class="annot"><span class="annottext">ListInputSecurityGroups -&gt; ListInputSecurityGroups -&gt; Bool
 (ListInputSecurityGroups -&gt; ListInputSecurityGroups -&gt; Bool)
 -&gt; (ListInputSecurityGroups -&gt; ListInputSecurityGroups -&gt; Bool)
 -&gt; Eq ListInputSecurityGroups
@@ -68,7 +68,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListInputSecurityGroups -&gt; ListInputSecurityGroups -&gt; Bool
 == :: ListInputSecurityGroups -&gt; ListInputSecurityGroups -&gt; Bool
 $c== :: ListInputSecurityGroups -&gt; ListInputSecurityGroups -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679933813"><span id="local-6989586621679933815"><span id="local-6989586621679933817"><span id="local-6989586621679933819"><span class="annot"><span class="annottext">ReadPrec [ListInputSecurityGroups]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679941396"><span id="local-6989586621679941398"><span id="local-6989586621679941400"><span id="local-6989586621679941402"><span class="annot"><span class="annottext">ReadPrec [ListInputSecurityGroups]
 ReadPrec ListInputSecurityGroups
 Int -&gt; ReadS ListInputSecurityGroups
 ReadS [ListInputSecurityGroups]
@@ -88,7 +88,7 @@ readList :: ReadS [ListInputSecurityGroups]
 $creadList :: ReadS [ListInputSecurityGroups]
 readsPrec :: Int -&gt; ReadS ListInputSecurityGroups
 $creadsPrec :: Int -&gt; ReadS ListInputSecurityGroups
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679933806"><span id="local-6989586621679933808"><span id="local-6989586621679933810"><span class="annot"><span class="annottext">Int -&gt; ListInputSecurityGroups -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679941389"><span id="local-6989586621679941391"><span id="local-6989586621679941393"><span class="annot"><span class="annottext">Int -&gt; ListInputSecurityGroups -&gt; ShowS
 [ListInputSecurityGroups] -&gt; ShowS
 ListInputSecurityGroups -&gt; String
 (Int -&gt; ListInputSecurityGroups -&gt; ShowS)
@@ -157,16 +157,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#ListInputSecurityGroups%27"><span class="hs-identifier hs-type">ListInputSecurityGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679933800"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#ListInputSecurityGroups%27"><span class="hs-identifier hs-type">ListInputSecurityGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679941383"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListInputSecurityGroups' :: ListInputSecurityGroups -&gt; Maybe Text
-</span><a href="#local-6989586621679933800"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679933800"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679933799"><span class="annot"><span class="annottext">s :: ListInputSecurityGroups
-</span><a href="#local-6989586621679933799"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#ListInputSecurityGroups%27"><span class="hs-identifier hs-type">ListInputSecurityGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679933798"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679933798"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListInputSecurityGroups
-</span><a href="#local-6989586621679933799"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListInputSecurityGroups' :: Maybe Text
+</span><a href="#local-6989586621679941383"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679941383"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679941382"><span class="annot"><span class="annottext">s :: ListInputSecurityGroups
+</span><a href="#local-6989586621679941382"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#ListInputSecurityGroups%27"><span class="hs-identifier hs-type">ListInputSecurityGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679941381"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679941381"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListInputSecurityGroups
+</span><a href="#local-6989586621679941382"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListInputSecurityGroups' :: Maybe Text
 </span><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#%24sel%3AnextToken%3AListInputSecurityGroups%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679933798"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#ListInputSecurityGroups"><span class="hs-identifier hs-type">ListInputSecurityGroups</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679941381"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#ListInputSecurityGroups"><span class="hs-identifier hs-type">ListInputSecurityGroups</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- | Undocumented member.</span><span>
 </span><span id="line-87"></span><span class="annot"><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#listInputSecurityGroups_maxResults"><span class="hs-identifier hs-type">listInputSecurityGroups_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#ListInputSecurityGroups"><span class="hs-identifier hs-type">ListInputSecurityGroups</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -181,30 +181,30 @@ $sel:nextToken:ListInputSecurityGroups' :: ListInputSecurityGroups -&gt; Maybe T
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#ListInputSecurityGroups%27"><span class="hs-identifier hs-type">ListInputSecurityGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679933797"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#ListInputSecurityGroups%27"><span class="hs-identifier hs-type">ListInputSecurityGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679941380"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:ListInputSecurityGroups' :: ListInputSecurityGroups -&gt; Maybe Natural
-</span><a href="#local-6989586621679933797"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679933797"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679933796"><span class="annot"><span class="annottext">s :: ListInputSecurityGroups
-</span><a href="#local-6989586621679933796"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#ListInputSecurityGroups%27"><span class="hs-identifier hs-type">ListInputSecurityGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679933795"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679933795"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListInputSecurityGroups
-</span><a href="#local-6989586621679933796"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListInputSecurityGroups' :: Maybe Natural
+</span><a href="#local-6989586621679941380"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679941380"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679941379"><span class="annot"><span class="annottext">s :: ListInputSecurityGroups
+</span><a href="#local-6989586621679941379"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#ListInputSecurityGroups%27"><span class="hs-identifier hs-type">ListInputSecurityGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679941378"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679941378"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListInputSecurityGroups
+</span><a href="#local-6989586621679941379"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListInputSecurityGroups' :: Maybe Natural
 </span><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#%24sel%3AmaxResults%3AListInputSecurityGroups%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679933795"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#ListInputSecurityGroups"><span class="hs-identifier hs-type">ListInputSecurityGroups</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679941378"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#ListInputSecurityGroups"><span class="hs-identifier hs-type">ListInputSecurityGroups</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#ListInputSecurityGroups"><span class="hs-identifier hs-type">ListInputSecurityGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679933791"><span class="annot"><span class="annottext">page :: ListInputSecurityGroups
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679941374"><span class="annot"><span class="annottext">page :: ListInputSecurityGroups
 -&gt; AWSResponse ListInputSecurityGroups
 -&gt; Maybe ListInputSecurityGroups
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679933789"><span class="annot"><span class="annottext">ListInputSecurityGroups
-</span><a href="#local-6989586621679933789"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679933788"><span class="annot"><span class="annottext">AWSResponse ListInputSecurityGroups
-</span><a href="#local-6989586621679933788"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679941372"><span class="annot"><span class="annottext">ListInputSecurityGroups
+</span><a href="#local-6989586621679941372"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679941371"><span class="annot"><span class="annottext">AWSResponse ListInputSecurityGroups
+</span><a href="#local-6989586621679941371"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-92"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-93"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListInputSecurityGroups
 ListInputSecurityGroupsResponse
-</span><a href="#local-6989586621679933788"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679941371"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">ListInputSecurityGroupsResponse
 -&gt; Getting (First Text) ListInputSecurityGroupsResponse Text
 -&gt; Maybe Text
@@ -234,7 +234,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-99"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListInputSecurityGroups
 ListInputSecurityGroupsResponse
-</span><a href="#local-6989586621679933788"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679941371"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">ListInputSecurityGroupsResponse
 -&gt; Getting
      (First [InputSecurityGroup])
@@ -282,7 +282,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-106"></span><span>        </span><span class="annot"><span class="annottext">ListInputSecurityGroups
-</span><a href="#local-6989586621679933789"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679941372"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-107"></span><span>          </span><span class="annot"><span class="annottext">ListInputSecurityGroups
 -&gt; (ListInputSecurityGroups -&gt; ListInputSecurityGroups)
 -&gt; ListInputSecurityGroups
@@ -301,7 +301,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListInputSecurityGroups
 ListInputSecurityGroupsResponse
-</span><a href="#local-6989586621679933788"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679941371"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-109"></span><span>          </span><span class="annot"><span class="annottext">ListInputSecurityGroupsResponse
 -&gt; Getting (First Text) ListInputSecurityGroupsResponse Text
 -&gt; Maybe Text
@@ -327,13 +327,13 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-113"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-114"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#ListInputSecurityGroups"><span class="hs-identifier hs-type">ListInputSecurityGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>      </span><span class="annot"><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#ListInputSecurityGroupsResponse"><span class="hs-identifier hs-type">ListInputSecurityGroupsResponse</span></a></span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679933778"><span class="annot"><span class="annottext">request :: ListInputSecurityGroups -&gt; Request ListInputSecurityGroups
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679941361"><span class="annot"><span class="annottext">request :: ListInputSecurityGroups -&gt; Request ListInputSecurityGroups
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; ListInputSecurityGroups -&gt; Request ListInputSecurityGroups
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.MediaLive.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679933774"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679941357"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListInputSecurityGroups
 -&gt; ClientResponse ClientBody
@@ -359,43 +359,51 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-119"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679933771"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679933771"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679933770"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679933770"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679933769"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679933769"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-120"></span><span>          </span><span class="annot"><span class="annottext">Maybe [InputSecurityGroup]
--&gt; Maybe Text -&gt; Int -&gt; ListInputSecurityGroupsResponse
+</span><span id="line-119"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679941354"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679941354"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679941353"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679941353"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679941352"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679941352"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-120"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [InputSecurityGroup]
+-&gt; Int
+-&gt; ListInputSecurityGroupsResponse
 </span><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#ListInputSecurityGroupsResponse%27"><span class="hs-identifier hs-var">ListInputSecurityGroupsResponse'</span></a></span><span>
-</span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [InputSecurityGroup]
- -&gt; Maybe Text -&gt; Int -&gt; ListInputSecurityGroupsResponse)
--&gt; Either String (Maybe [InputSecurityGroup])
+</span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [InputSecurityGroup]
+ -&gt; Int
+ -&gt; ListInputSecurityGroupsResponse)
+-&gt; Either String (Maybe Text)
 -&gt; Either
-     String (Maybe Text -&gt; Int -&gt; ListInputSecurityGroupsResponse)
+     String
+     (Maybe [InputSecurityGroup]
+      -&gt; Int -&gt; ListInputSecurityGroupsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679933769"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679941352"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [InputSecurityGroup]
+   -&gt; Int -&gt; ListInputSecurityGroupsResponse)
+-&gt; Either String (Maybe [InputSecurityGroup])
+-&gt; Either String (Int -&gt; ListInputSecurityGroupsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679941352"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Either String (Maybe (Maybe [InputSecurityGroup]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;inputSecurityGroups&quot;</span></span><span>
-</span><span id="line-122"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [InputSecurityGroup]))
+</span><span id="line-123"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [InputSecurityGroup]))
 -&gt; Maybe [InputSecurityGroup]
 -&gt; Either String (Maybe [InputSecurityGroup])
 forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [InputSecurityGroup]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-123"></span><span>                        </span><span class="hs-special">)</span><span>
-</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String (Maybe Text -&gt; Int -&gt; ListInputSecurityGroupsResponse)
--&gt; Either String (Maybe Text)
--&gt; Either String (Int -&gt; ListInputSecurityGroupsResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679933769"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListInputSecurityGroupsResponse)
 -&gt; Either String Int
 -&gt; Either String ListInputSecurityGroupsResponse
@@ -405,15 +413,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679933771"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679941354"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679933760"><span id="local-6989586621679933762"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#ListInputSecurityGroups"><span class="hs-identifier hs-type">ListInputSecurityGroups</span></a></span></span></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679941343"><span id="local-6989586621679941345"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#ListInputSecurityGroups"><span class="hs-identifier hs-type">ListInputSecurityGroups</span></a></span></span></span><span>
 </span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679933757"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#ListInputSecurityGroups"><span class="hs-identifier hs-type">ListInputSecurityGroups</span></a></span></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679941340"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#ListInputSecurityGroups"><span class="hs-identifier hs-type">ListInputSecurityGroups</span></a></span></span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#ListInputSecurityGroups"><span class="hs-identifier hs-type">ListInputSecurityGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679933753"><span class="annot"><span class="annottext">toHeaders :: ListInputSecurityGroups -&gt; ResponseHeaders
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679941336"><span class="annot"><span class="annottext">toHeaders :: ListInputSecurityGroups -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListInputSecurityGroups -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -433,21 +441,21 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-141"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#ListInputSecurityGroups"><span class="hs-identifier hs-type">ListInputSecurityGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-144"></span><span>  </span><span id="local-6989586621679933747"><span class="annot"><span class="annottext">toPath :: ListInputSecurityGroups -&gt; ByteString
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679941330"><span class="annot"><span class="annottext">toPath :: ListInputSecurityGroups -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListInputSecurityGroups -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/prod/inputSecurityGroups&quot;</span></span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#ListInputSecurityGroups"><span class="hs-identifier hs-type">ListInputSecurityGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-147"></span><span>  </span><span id="local-6989586621679933743"><span class="annot"><span class="annottext">toQuery :: ListInputSecurityGroups -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#ListInputSecurityGroups%27"><span class="hs-identifier hs-type">ListInputSecurityGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679933740"><span id="local-6989586621679933741"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679941326"><span class="annot"><span class="annottext">toQuery :: ListInputSecurityGroups -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#ListInputSecurityGroups%27"><span class="hs-identifier hs-type">ListInputSecurityGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679941323"><span id="local-6989586621679941324"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 maxResults :: Maybe Natural
 nextToken :: Maybe Text
 $sel:maxResults:ListInputSecurityGroups' :: ListInputSecurityGroups -&gt; Maybe Natural
 $sel:nextToken:ListInputSecurityGroups' :: ListInputSecurityGroups -&gt; Maybe Text
-</span><a href="#local-6989586621679933740"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679941323"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-148"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -455,28 +463,28 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679933741"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679941324"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-150"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679933740"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><a href="#local-6989586621679941323"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-151"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-152"></span><span>
 </span><span id="line-153"></span><span class="hs-comment">-- | Placeholder documentation for ListInputSecurityGroupsResponse</span><span>
 </span><span id="line-154"></span><span class="hs-comment">--</span><span>
 </span><span id="line-155"></span><span class="hs-comment">-- /See:/ 'newListInputSecurityGroupsResponse' smart constructor.</span><span>
-</span><span id="line-156"></span><span id="local-6989586621679933737"><span id="local-6989586621679933738"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListInputSecurityGroupsResponse"><span class="annot"><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#ListInputSecurityGroupsResponse"><span class="hs-identifier hs-var">ListInputSecurityGroupsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListInputSecurityGroupsResponse%27"><span class="annot"><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#ListInputSecurityGroupsResponse%27"><span class="hs-identifier hs-var">ListInputSecurityGroupsResponse'</span></a></span></span><span>
-</span><span id="line-157"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | List of input security groups</span><span>
-</span><span id="line-158"></span><span>    </span><span id="%24sel%3AinputSecurityGroups%3AListInputSecurityGroupsResponse%27"><span class="annot"><span class="annottext">ListInputSecurityGroupsResponse -&gt; Maybe [InputSecurityGroup]
-</span><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#%24sel%3AinputSecurityGroups%3AListInputSecurityGroupsResponse%27"><span class="hs-identifier hs-var hs-var">inputSecurityGroups</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSecurityGroup.html#InputSecurityGroup"><span class="hs-identifier hs-type">InputSecurityGroup</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-159"></span><span>    </span><span id="%24sel%3AnextToken%3AListInputSecurityGroupsResponse%27"><span class="annot"><span class="annottext">ListInputSecurityGroupsResponse -&gt; Maybe Text
+</span><span id="line-156"></span><span id="local-6989586621679941320"><span id="local-6989586621679941321"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListInputSecurityGroupsResponse"><span class="annot"><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#ListInputSecurityGroupsResponse"><span class="hs-identifier hs-var">ListInputSecurityGroupsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListInputSecurityGroupsResponse%27"><span class="annot"><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#ListInputSecurityGroupsResponse%27"><span class="hs-identifier hs-var">ListInputSecurityGroupsResponse'</span></a></span></span><span>
+</span><span id="line-157"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AnextToken%3AListInputSecurityGroupsResponse%27"><span class="annot"><span class="annottext">ListInputSecurityGroupsResponse -&gt; Maybe Text
 </span><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#%24sel%3AnextToken%3AListInputSecurityGroupsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>    </span><span class="hs-comment">-- | List of input security groups</span><span>
+</span><span id="line-159"></span><span>    </span><span id="%24sel%3AinputSecurityGroups%3AListInputSecurityGroupsResponse%27"><span class="annot"><span class="annottext">ListInputSecurityGroupsResponse -&gt; Maybe [InputSecurityGroup]
+</span><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#%24sel%3AinputSecurityGroups%3AListInputSecurityGroupsResponse%27"><span class="hs-identifier hs-var hs-var">inputSecurityGroups</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSecurityGroup.html#InputSecurityGroup"><span class="hs-identifier hs-type">InputSecurityGroup</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
 </span><span id="line-160"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-161"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListInputSecurityGroupsResponse%27"><span class="annot"><span class="annottext">ListInputSecurityGroupsResponse -&gt; Int
 </span><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#%24sel%3AhttpStatus%3AListInputSecurityGroupsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-162"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-163"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679933730"><span id="local-6989586621679933732"><span class="annot"><span class="annottext">ListInputSecurityGroupsResponse
+</span><span id="line-163"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679941313"><span id="local-6989586621679941315"><span class="annot"><span class="annottext">ListInputSecurityGroupsResponse
 -&gt; ListInputSecurityGroupsResponse -&gt; Bool
 (ListInputSecurityGroupsResponse
  -&gt; ListInputSecurityGroupsResponse -&gt; Bool)
@@ -492,7 +500,7 @@ $c/= :: ListInputSecurityGroupsResponse
 -&gt; ListInputSecurityGroupsResponse -&gt; Bool
 $c== :: ListInputSecurityGroupsResponse
 -&gt; ListInputSecurityGroupsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679933722"><span id="local-6989586621679933724"><span id="local-6989586621679933726"><span id="local-6989586621679933728"><span class="annot"><span class="annottext">ReadPrec [ListInputSecurityGroupsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679941305"><span id="local-6989586621679941307"><span id="local-6989586621679941309"><span id="local-6989586621679941311"><span class="annot"><span class="annottext">ReadPrec [ListInputSecurityGroupsResponse]
 ReadPrec ListInputSecurityGroupsResponse
 Int -&gt; ReadS ListInputSecurityGroupsResponse
 ReadS [ListInputSecurityGroupsResponse]
@@ -512,7 +520,7 @@ readList :: ReadS [ListInputSecurityGroupsResponse]
 $creadList :: ReadS [ListInputSecurityGroupsResponse]
 readsPrec :: Int -&gt; ReadS ListInputSecurityGroupsResponse
 $creadsPrec :: Int -&gt; ReadS ListInputSecurityGroupsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679933716"><span id="local-6989586621679933718"><span id="local-6989586621679933720"><span class="annot"><span class="annottext">Int -&gt; ListInputSecurityGroupsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679941299"><span id="local-6989586621679941301"><span id="local-6989586621679941303"><span class="annot"><span class="annottext">Int -&gt; ListInputSecurityGroupsResponse -&gt; ShowS
 [ListInputSecurityGroupsResponse] -&gt; ShowS
 ListInputSecurityGroupsResponse -&gt; String
 (Int -&gt; ListInputSecurityGroupsResponse -&gt; ShowS)
@@ -558,9 +566,9 @@ ListInputSecurityGroupsResponse
 </span><span id="line-170"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-171"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-172"></span><span class="hs-comment">--</span><span>
-</span><span id="line-173"></span><span class="hs-comment">-- 'inputSecurityGroups', 'listInputSecurityGroupsResponse_inputSecurityGroups' - List of input security groups</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- 'nextToken', 'listInputSecurityGroupsResponse_nextToken' - Undocumented member.</span><span>
 </span><span id="line-174"></span><span class="hs-comment">--</span><span>
-</span><span id="line-175"></span><span class="hs-comment">-- 'nextToken', 'listInputSecurityGroupsResponse_nextToken' - Undocumented member.</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- 'inputSecurityGroups', 'listInputSecurityGroupsResponse_inputSecurityGroups' - List of input security groups</span><span>
 </span><span id="line-176"></span><span class="hs-comment">--</span><span>
 </span><span id="line-177"></span><span class="hs-comment">-- 'httpStatus', 'listInputSecurityGroupsResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-178"></span><span class="annot"><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#newListInputSecurityGroupsResponse"><span class="hs-identifier hs-type">newListInputSecurityGroupsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -568,28 +576,51 @@ ListInputSecurityGroupsResponse
 </span><span id="line-180"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-181"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#ListInputSecurityGroupsResponse"><span class="hs-identifier hs-type">ListInputSecurityGroupsResponse</span></a></span><span>
 </span><span id="line-182"></span><span id="newListInputSecurityGroupsResponse"><span class="annot"><span class="annottext">newListInputSecurityGroupsResponse :: Int -&gt; ListInputSecurityGroupsResponse
-</span><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#newListInputSecurityGroupsResponse"><span class="hs-identifier hs-var hs-var">newListInputSecurityGroupsResponse</span></a></span></span><span> </span><span id="local-6989586621679933713"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679933713"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-183"></span><span>  </span><span class="annot"><span class="annottext">ListInputSecurityGroupsResponse' :: Maybe [InputSecurityGroup]
--&gt; Maybe Text -&gt; Int -&gt; ListInputSecurityGroupsResponse
+</span><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#newListInputSecurityGroupsResponse"><span class="hs-identifier hs-var hs-var">newListInputSecurityGroupsResponse</span></a></span></span><span> </span><span id="local-6989586621679941296"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679941296"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-183"></span><span>  </span><span class="annot"><span class="annottext">ListInputSecurityGroupsResponse' :: Maybe Text
+-&gt; Maybe [InputSecurityGroup]
+-&gt; Int
+-&gt; ListInputSecurityGroupsResponse
 </span><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#ListInputSecurityGroupsResponse%27"><span class="hs-identifier hs-type">ListInputSecurityGroupsResponse'</span></a></span><span>
-</span><span id="line-184"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:inputSecurityGroups:ListInputSecurityGroupsResponse' :: Maybe [InputSecurityGroup]
-</span><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#%24sel%3AinputSecurityGroups%3AListInputSecurityGroupsResponse%27"><span class="hs-identifier hs-var">inputSecurityGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-185"></span><span>        </span><span class="annot"><span class="annottext">Maybe [InputSecurityGroup]
+</span><span id="line-184"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListInputSecurityGroupsResponse' :: Maybe Text
+</span><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#%24sel%3AnextToken%3AListInputSecurityGroupsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-185"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-186"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListInputSecurityGroupsResponse' :: Maybe Text
-</span><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#%24sel%3AnextToken%3AListInputSecurityGroupsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-186"></span><span>      </span><span class="annot"><span class="annottext">$sel:inputSecurityGroups:ListInputSecurityGroupsResponse' :: Maybe [InputSecurityGroup]
+</span><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#%24sel%3AinputSecurityGroups%3AListInputSecurityGroupsResponse%27"><span class="hs-identifier hs-var">inputSecurityGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [InputSecurityGroup]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-187"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListInputSecurityGroupsResponse' :: Int
 </span><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#%24sel%3AhttpStatus%3AListInputSecurityGroupsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679933713"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679941296"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-188"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-189"></span><span>
-</span><span id="line-190"></span><span class="hs-comment">-- | List of input security groups</span><span>
-</span><span id="line-191"></span><span class="annot"><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#listInputSecurityGroupsResponse_inputSecurityGroups"><span class="hs-identifier hs-type">listInputSecurityGroupsResponse_inputSecurityGroups</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#ListInputSecurityGroupsResponse"><span class="hs-identifier hs-type">ListInputSecurityGroupsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSecurityGroup.html#InputSecurityGroup"><span class="hs-identifier hs-type">InputSecurityGroup</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-192"></span><span id="listInputSecurityGroupsResponse_inputSecurityGroups"><span class="annot"><span class="annottext">listInputSecurityGroupsResponse_inputSecurityGroups :: (Maybe [InputSecurityGroup] -&gt; f (Maybe [InputSecurityGroup]))
+</span><span id="line-190"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-191"></span><span class="annot"><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#listInputSecurityGroupsResponse_nextToken"><span class="hs-identifier hs-type">listInputSecurityGroupsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#ListInputSecurityGroupsResponse"><span class="hs-identifier hs-type">ListInputSecurityGroupsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span id="listInputSecurityGroupsResponse_nextToken"><span class="annot"><span class="annottext">listInputSecurityGroupsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListInputSecurityGroupsResponse
+-&gt; f ListInputSecurityGroupsResponse
+</span><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#listInputSecurityGroupsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listInputSecurityGroupsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListInputSecurityGroupsResponse -&gt; Maybe Text)
+-&gt; (ListInputSecurityGroupsResponse
+    -&gt; Maybe Text -&gt; ListInputSecurityGroupsResponse)
+-&gt; Lens' ListInputSecurityGroupsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#ListInputSecurityGroupsResponse%27"><span class="hs-identifier hs-type">ListInputSecurityGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679941295"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListInputSecurityGroupsResponse' :: ListInputSecurityGroupsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679941295"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679941295"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679941294"><span class="annot"><span class="annottext">s :: ListInputSecurityGroupsResponse
+</span><a href="#local-6989586621679941294"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#ListInputSecurityGroupsResponse%27"><span class="hs-identifier hs-type">ListInputSecurityGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679941293"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679941293"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListInputSecurityGroupsResponse
+</span><a href="#local-6989586621679941294"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListInputSecurityGroupsResponse' :: Maybe Text
+</span><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#%24sel%3AnextToken%3AListInputSecurityGroupsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679941293"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#ListInputSecurityGroupsResponse"><span class="hs-identifier hs-type">ListInputSecurityGroupsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- | List of input security groups</span><span>
+</span><span id="line-195"></span><span class="annot"><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#listInputSecurityGroupsResponse_inputSecurityGroups"><span class="hs-identifier hs-type">listInputSecurityGroupsResponse_inputSecurityGroups</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#ListInputSecurityGroupsResponse"><span class="hs-identifier hs-type">ListInputSecurityGroupsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSecurityGroup.html#InputSecurityGroup"><span class="hs-identifier hs-type">InputSecurityGroup</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span id="listInputSecurityGroupsResponse_inputSecurityGroups"><span class="annot"><span class="annottext">listInputSecurityGroupsResponse_inputSecurityGroups :: (Maybe [InputSecurityGroup] -&gt; f (Maybe [InputSecurityGroup]))
 -&gt; ListInputSecurityGroupsResponse
 -&gt; f ListInputSecurityGroupsResponse
 </span><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#listInputSecurityGroupsResponse_inputSecurityGroups"><span class="hs-identifier hs-var hs-var">listInputSecurityGroupsResponse_inputSecurityGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListInputSecurityGroupsResponse -&gt; Maybe [InputSecurityGroup])
@@ -598,16 +629,16 @@ forall a. Maybe a
 -&gt; Lens'
      ListInputSecurityGroupsResponse (Maybe [InputSecurityGroup])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#ListInputSecurityGroupsResponse%27"><span class="hs-identifier hs-type">ListInputSecurityGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679933712"><span class="annot"><span class="annottext">Maybe [InputSecurityGroup]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#ListInputSecurityGroupsResponse%27"><span class="hs-identifier hs-type">ListInputSecurityGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679941292"><span class="annot"><span class="annottext">Maybe [InputSecurityGroup]
 inputSecurityGroups :: Maybe [InputSecurityGroup]
 $sel:inputSecurityGroups:ListInputSecurityGroupsResponse' :: ListInputSecurityGroupsResponse -&gt; Maybe [InputSecurityGroup]
-</span><a href="#local-6989586621679933712"><span class="hs-identifier hs-var hs-var">inputSecurityGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [InputSecurityGroup]
-</span><a href="#local-6989586621679933712"><span class="hs-identifier hs-var">inputSecurityGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679933711"><span class="annot"><span class="annottext">s :: ListInputSecurityGroupsResponse
-</span><a href="#local-6989586621679933711"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#ListInputSecurityGroupsResponse%27"><span class="hs-identifier hs-type">ListInputSecurityGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679933710"><span class="annot"><span class="annottext">Maybe [InputSecurityGroup]
-</span><a href="#local-6989586621679933710"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListInputSecurityGroupsResponse
-</span><a href="#local-6989586621679933711"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputSecurityGroups:ListInputSecurityGroupsResponse' :: Maybe [InputSecurityGroup]
+</span><a href="#local-6989586621679941292"><span class="hs-identifier hs-var hs-var">inputSecurityGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [InputSecurityGroup]
+</span><a href="#local-6989586621679941292"><span class="hs-identifier hs-var">inputSecurityGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679941291"><span class="annot"><span class="annottext">s :: ListInputSecurityGroupsResponse
+</span><a href="#local-6989586621679941291"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#ListInputSecurityGroupsResponse%27"><span class="hs-identifier hs-type">ListInputSecurityGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679941290"><span class="annot"><span class="annottext">Maybe [InputSecurityGroup]
+</span><a href="#local-6989586621679941290"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListInputSecurityGroupsResponse
+</span><a href="#local-6989586621679941291"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputSecurityGroups:ListInputSecurityGroupsResponse' :: Maybe [InputSecurityGroup]
 </span><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#%24sel%3AinputSecurityGroups%3AListInputSecurityGroupsResponse%27"><span class="hs-identifier hs-var">inputSecurityGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [InputSecurityGroup]
-</span><a href="#local-6989586621679933710"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#ListInputSecurityGroupsResponse"><span class="hs-identifier hs-type">ListInputSecurityGroupsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [InputSecurityGroup] -&gt; f (Maybe [InputSecurityGroup]))
+</span><a href="#local-6989586621679941290"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#ListInputSecurityGroupsResponse"><span class="hs-identifier hs-type">ListInputSecurityGroupsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [InputSecurityGroup] -&gt; f (Maybe [InputSecurityGroup]))
  -&gt; ListInputSecurityGroupsResponse
  -&gt; f ListInputSecurityGroupsResponse)
 -&gt; ((Maybe [InputSecurityGroup] -&gt; f (Maybe [InputSecurityGroup]))
@@ -634,29 +665,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [InputSecurityGroup]
   [InputSecurityGroup]
   [InputSecurityGroup]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-193"></span><span>
-</span><span id="line-194"></span><span class="hs-comment">-- | Undocumented member.</span><span>
-</span><span id="line-195"></span><span class="annot"><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#listInputSecurityGroupsResponse_nextToken"><span class="hs-identifier hs-type">listInputSecurityGroupsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#ListInputSecurityGroupsResponse"><span class="hs-identifier hs-type">ListInputSecurityGroupsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-196"></span><span id="listInputSecurityGroupsResponse_nextToken"><span class="annot"><span class="annottext">listInputSecurityGroupsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ListInputSecurityGroupsResponse
--&gt; f ListInputSecurityGroupsResponse
-</span><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#listInputSecurityGroupsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listInputSecurityGroupsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListInputSecurityGroupsResponse -&gt; Maybe Text)
--&gt; (ListInputSecurityGroupsResponse
-    -&gt; Maybe Text -&gt; ListInputSecurityGroupsResponse)
--&gt; Lens' ListInputSecurityGroupsResponse (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#ListInputSecurityGroupsResponse%27"><span class="hs-identifier hs-type">ListInputSecurityGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679933707"><span class="annot"><span class="annottext">Maybe Text
-nextToken :: Maybe Text
-$sel:nextToken:ListInputSecurityGroupsResponse' :: ListInputSecurityGroupsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679933707"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679933707"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679933706"><span class="annot"><span class="annottext">s :: ListInputSecurityGroupsResponse
-</span><a href="#local-6989586621679933706"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#ListInputSecurityGroupsResponse%27"><span class="hs-identifier hs-type">ListInputSecurityGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679933705"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679933705"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListInputSecurityGroupsResponse
-</span><a href="#local-6989586621679933706"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListInputSecurityGroupsResponse' :: Maybe Text
-</span><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#%24sel%3AnextToken%3AListInputSecurityGroupsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679933705"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#ListInputSecurityGroupsResponse"><span class="hs-identifier hs-type">ListInputSecurityGroupsResponse</span></a></span><span class="hs-special">)</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-197"></span><span>
 </span><span id="line-198"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-199"></span><span class="annot"><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#listInputSecurityGroupsResponse_httpStatus"><span class="hs-identifier hs-type">listInputSecurityGroupsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#ListInputSecurityGroupsResponse"><span class="hs-identifier hs-type">ListInputSecurityGroupsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -672,18 +682,18 @@ $sel:nextToken:ListInputSecurityGroupsResponse' :: ListInputSecurityGroupsRespon
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#ListInputSecurityGroupsResponse%27"><span class="hs-identifier hs-type">ListInputSecurityGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679933704"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#ListInputSecurityGroupsResponse%27"><span class="hs-identifier hs-type">ListInputSecurityGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679941287"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListInputSecurityGroupsResponse' :: ListInputSecurityGroupsResponse -&gt; Int
-</span><a href="#local-6989586621679933704"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679933704"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679933703"><span class="annot"><span class="annottext">s :: ListInputSecurityGroupsResponse
-</span><a href="#local-6989586621679933703"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#ListInputSecurityGroupsResponse%27"><span class="hs-identifier hs-type">ListInputSecurityGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679933702"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679933702"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListInputSecurityGroupsResponse
-</span><a href="#local-6989586621679933703"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListInputSecurityGroupsResponse' :: Int
+</span><a href="#local-6989586621679941287"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679941287"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679941286"><span class="annot"><span class="annottext">s :: ListInputSecurityGroupsResponse
+</span><a href="#local-6989586621679941286"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#ListInputSecurityGroupsResponse%27"><span class="hs-identifier hs-type">ListInputSecurityGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679941285"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679941285"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListInputSecurityGroupsResponse
+</span><a href="#local-6989586621679941286"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListInputSecurityGroupsResponse' :: Int
 </span><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#%24sel%3AhttpStatus%3AListInputSecurityGroupsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679933702"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#ListInputSecurityGroupsResponse"><span class="hs-identifier hs-type">ListInputSecurityGroupsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679941285"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#ListInputSecurityGroupsResponse"><span class="hs-identifier hs-type">ListInputSecurityGroupsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-201"></span><span>
 </span><span id="line-202"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-203"></span><span>  </span><span id="local-6989586621679933700"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-203"></span><span>  </span><span id="local-6989586621679941283"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-204"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaLive.ListInputSecurityGroups.html#ListInputSecurityGroupsResponse"><span class="hs-identifier hs-type">ListInputSecurityGroupsResponse</span></a></span></span><span>
 </span><span id="line-205"></span></pre></body></html>

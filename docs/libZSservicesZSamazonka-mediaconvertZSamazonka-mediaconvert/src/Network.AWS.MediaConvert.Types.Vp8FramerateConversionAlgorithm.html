@@ -41,13 +41,13 @@
 </span><span id="line-41"></span><span class="hs-comment">-- motion-compensated interpolation. FrameFormer chooses the best</span><span>
 </span><span id="line-42"></span><span class="hs-comment">-- conversion method frame by frame. Note that using FrameFormer increases</span><span>
 </span><span id="line-43"></span><span class="hs-comment">-- the transcoding time and incurs a significant add-on cost.</span><span>
-</span><span id="line-44"></span><span id="local-6989586621680007846"><span id="local-6989586621680007847"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Vp8FramerateConversionAlgorithm"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp8FramerateConversionAlgorithm.html#Vp8FramerateConversionAlgorithm"><span class="hs-identifier hs-var">Vp8FramerateConversionAlgorithm</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Vp8FramerateConversionAlgorithm%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp8FramerateConversionAlgorithm.html#Vp8FramerateConversionAlgorithm%27"><span class="hs-identifier hs-var">Vp8FramerateConversionAlgorithm'</span></a></span></span><span>
+</span><span id="line-44"></span><span id="local-6989586621680012780"><span id="local-6989586621680012781"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Vp8FramerateConversionAlgorithm"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp8FramerateConversionAlgorithm.html#Vp8FramerateConversionAlgorithm"><span class="hs-identifier hs-var">Vp8FramerateConversionAlgorithm</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Vp8FramerateConversionAlgorithm%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp8FramerateConversionAlgorithm.html#Vp8FramerateConversionAlgorithm%27"><span class="hs-identifier hs-var">Vp8FramerateConversionAlgorithm'</span></a></span></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromVp8FramerateConversionAlgorithm"><span class="annot"><span class="annottext">Vp8FramerateConversionAlgorithm -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.Vp8FramerateConversionAlgorithm.html#fromVp8FramerateConversionAlgorithm"><span class="hs-identifier hs-var hs-var">fromVp8FramerateConversionAlgorithm</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-46"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680007838"><span id="local-6989586621680007840"><span id="local-6989586621680007842"><span class="annot"><span class="annottext">Int -&gt; Vp8FramerateConversionAlgorithm -&gt; ShowS
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680012772"><span id="local-6989586621680012774"><span id="local-6989586621680012776"><span class="annot"><span class="annottext">Int -&gt; Vp8FramerateConversionAlgorithm -&gt; ShowS
 [Vp8FramerateConversionAlgorithm] -&gt; ShowS
 Vp8FramerateConversionAlgorithm -&gt; String
 (Int -&gt; Vp8FramerateConversionAlgorithm -&gt; ShowS)
@@ -63,7 +63,7 @@ $cshow :: Vp8FramerateConversionAlgorithm -&gt; String
 showsPrec :: Int -&gt; Vp8FramerateConversionAlgorithm -&gt; ShowS
 $cshowsPrec :: Int -&gt; Vp8FramerateConversionAlgorithm -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621680007829"><span id="local-6989586621680007831"><span id="local-6989586621680007833"><span id="local-6989586621680007835"><span class="annot"><span class="annottext">ReadPrec [Vp8FramerateConversionAlgorithm]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680012763"><span id="local-6989586621680012765"><span id="local-6989586621680012767"><span id="local-6989586621680012769"><span class="annot"><span class="annottext">ReadPrec [Vp8FramerateConversionAlgorithm]
 ReadPrec Vp8FramerateConversionAlgorithm
 Int -&gt; ReadS Vp8FramerateConversionAlgorithm
 ReadS [Vp8FramerateConversionAlgorithm]
@@ -84,7 +84,7 @@ $creadList :: ReadS [Vp8FramerateConversionAlgorithm]
 readsPrec :: Int -&gt; ReadS Vp8FramerateConversionAlgorithm
 $creadsPrec :: Int -&gt; ReadS Vp8FramerateConversionAlgorithm
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621680007824"><span id="local-6989586621680007826"><span class="annot"><span class="annottext">Vp8FramerateConversionAlgorithm
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680012758"><span id="local-6989586621680012760"><span class="annot"><span class="annottext">Vp8FramerateConversionAlgorithm
 -&gt; Vp8FramerateConversionAlgorithm -&gt; Bool
 (Vp8FramerateConversionAlgorithm
  -&gt; Vp8FramerateConversionAlgorithm -&gt; Bool)
@@ -101,7 +101,7 @@ $c/= :: Vp8FramerateConversionAlgorithm
 $c== :: Vp8FramerateConversionAlgorithm
 -&gt; Vp8FramerateConversionAlgorithm -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621680007808"><span id="local-6989586621680007810"><span id="local-6989586621680007812"><span id="local-6989586621680007814"><span id="local-6989586621680007816"><span id="local-6989586621680007818"><span id="local-6989586621680007820"><span class="annot"><span class="annottext">Eq Vp8FramerateConversionAlgorithm
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680012742"><span id="local-6989586621680012744"><span id="local-6989586621680012746"><span id="local-6989586621680012748"><span id="local-6989586621680012750"><span id="local-6989586621680012752"><span id="local-6989586621680012754"><span class="annot"><span class="annottext">Eq Vp8FramerateConversionAlgorithm
 Eq Vp8FramerateConversionAlgorithm
 -&gt; (Vp8FramerateConversionAlgorithm
     -&gt; Vp8FramerateConversionAlgorithm -&gt; Ordering)
@@ -195,7 +195,7 @@ Vp8FramerateConversionAlgorithm
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680007800"><span id="local-6989586621680007802"><span class="annot"><span class="annottext">Int -&gt; Vp8FramerateConversionAlgorithm -&gt; Int
+</span><span id="line-56"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680012734"><span id="local-6989586621680012736"><span class="annot"><span class="annottext">Int -&gt; Vp8FramerateConversionAlgorithm -&gt; Int
 Vp8FramerateConversionAlgorithm -&gt; Int
 (Int -&gt; Vp8FramerateConversionAlgorithm -&gt; Int)
 -&gt; (Vp8FramerateConversionAlgorithm -&gt; Int)
@@ -206,56 +206,56 @@ $chash :: Vp8FramerateConversionAlgorithm -&gt; Int
 hashWithSalt :: Int -&gt; Vp8FramerateConversionAlgorithm -&gt; Int
 $chashWithSalt :: Int -&gt; Vp8FramerateConversionAlgorithm -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621680007797"><span class="annot"><span class="annottext">Vp8FramerateConversionAlgorithm -&gt; ()
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680012731"><span class="annot"><span class="annottext">Vp8FramerateConversionAlgorithm -&gt; ()
 (Vp8FramerateConversionAlgorithm -&gt; ())
 -&gt; NFData Vp8FramerateConversionAlgorithm
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: Vp8FramerateConversionAlgorithm -&gt; ()
 $crnf :: Vp8FramerateConversionAlgorithm -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621680007794"><span class="annot"><span class="annottext">Text -&gt; Either String Vp8FramerateConversionAlgorithm
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680012728"><span class="annot"><span class="annottext">Text -&gt; Either String Vp8FramerateConversionAlgorithm
 (Text -&gt; Either String Vp8FramerateConversionAlgorithm)
 -&gt; FromText Vp8FramerateConversionAlgorithm
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String Vp8FramerateConversionAlgorithm
 $cfromText :: Text -&gt; Either String Vp8FramerateConversionAlgorithm
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621680007791"><span class="annot"><span class="annottext">Vp8FramerateConversionAlgorithm -&gt; Text
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621680012725"><span class="annot"><span class="annottext">Vp8FramerateConversionAlgorithm -&gt; Text
 (Vp8FramerateConversionAlgorithm -&gt; Text)
 -&gt; ToText Vp8FramerateConversionAlgorithm
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: Vp8FramerateConversionAlgorithm -&gt; Text
 $ctoText :: Vp8FramerateConversionAlgorithm -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621680007788"><span class="annot"><span class="annottext">Vp8FramerateConversionAlgorithm -&gt; ByteString
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621680012722"><span class="annot"><span class="annottext">Vp8FramerateConversionAlgorithm -&gt; ByteString
 (Vp8FramerateConversionAlgorithm -&gt; ByteString)
 -&gt; ToByteString Vp8FramerateConversionAlgorithm
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: Vp8FramerateConversionAlgorithm -&gt; ByteString
 $ctoBS :: Vp8FramerateConversionAlgorithm -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621680007785"><span class="annot"><span class="annottext">Vp8FramerateConversionAlgorithm -&gt; ByteStringBuilder
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621680012719"><span class="annot"><span class="annottext">Vp8FramerateConversionAlgorithm -&gt; ByteStringBuilder
 (Vp8FramerateConversionAlgorithm -&gt; ByteStringBuilder)
 -&gt; ToLog Vp8FramerateConversionAlgorithm
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: Vp8FramerateConversionAlgorithm -&gt; ByteStringBuilder
 $cbuild :: Vp8FramerateConversionAlgorithm -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621680007782"><span class="annot"><span class="annottext">HeaderName -&gt; Vp8FramerateConversionAlgorithm -&gt; [Header]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621680012716"><span class="annot"><span class="annottext">HeaderName -&gt; Vp8FramerateConversionAlgorithm -&gt; [Header]
 (HeaderName -&gt; Vp8FramerateConversionAlgorithm -&gt; [Header])
 -&gt; ToHeader Vp8FramerateConversionAlgorithm
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; Vp8FramerateConversionAlgorithm -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; Vp8FramerateConversionAlgorithm -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621680007779"><span class="annot"><span class="annottext">Vp8FramerateConversionAlgorithm -&gt; QueryString
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621680012713"><span class="annot"><span class="annottext">Vp8FramerateConversionAlgorithm -&gt; QueryString
 (Vp8FramerateConversionAlgorithm -&gt; QueryString)
 -&gt; ToQuery Vp8FramerateConversionAlgorithm
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: Vp8FramerateConversionAlgorithm -&gt; QueryString
 $ctoQuery :: Vp8FramerateConversionAlgorithm -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621680007774"><span id="local-6989586621680007776"><span class="annot"><span class="annottext">Value -&gt; Parser [Vp8FramerateConversionAlgorithm]
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621680012708"><span id="local-6989586621680012710"><span class="annot"><span class="annottext">Value -&gt; Parser [Vp8FramerateConversionAlgorithm]
 Value -&gt; Parser Vp8FramerateConversionAlgorithm
 (Value -&gt; Parser Vp8FramerateConversionAlgorithm)
 -&gt; (Value -&gt; Parser [Vp8FramerateConversionAlgorithm])
@@ -267,7 +267,7 @@ $cparseJSONList :: Value -&gt; Parser [Vp8FramerateConversionAlgorithm]
 parseJSON :: Value -&gt; Parser Vp8FramerateConversionAlgorithm
 $cparseJSON :: Value -&gt; Parser Vp8FramerateConversionAlgorithm
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621680007769"><span id="local-6989586621680007771"><span class="annot"><span class="annottext">FromJSONKeyFunction [Vp8FramerateConversionAlgorithm]
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621680012703"><span id="local-6989586621680012705"><span class="annot"><span class="annottext">FromJSONKeyFunction [Vp8FramerateConversionAlgorithm]
 FromJSONKeyFunction Vp8FramerateConversionAlgorithm
 FromJSONKeyFunction Vp8FramerateConversionAlgorithm
 -&gt; FromJSONKeyFunction [Vp8FramerateConversionAlgorithm]
@@ -279,7 +279,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [Vp8FramerateConversionAlgorithm]
 fromJSONKey :: FromJSONKeyFunction Vp8FramerateConversionAlgorithm
 $cfromJSONKey :: FromJSONKeyFunction Vp8FramerateConversionAlgorithm
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621680007760"><span id="local-6989586621680007762"><span id="local-6989586621680007764"><span id="local-6989586621680007766"><span class="annot"><span class="annottext">[Vp8FramerateConversionAlgorithm] -&gt; Encoding
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621680012694"><span id="local-6989586621680012696"><span id="local-6989586621680012698"><span id="local-6989586621680012700"><span class="annot"><span class="annottext">[Vp8FramerateConversionAlgorithm] -&gt; Encoding
 [Vp8FramerateConversionAlgorithm] -&gt; Value
 Vp8FramerateConversionAlgorithm -&gt; Encoding
 Vp8FramerateConversionAlgorithm -&gt; Value
@@ -303,7 +303,7 @@ $ctoEncoding :: Vp8FramerateConversionAlgorithm -&gt; Encoding
 toJSON :: Vp8FramerateConversionAlgorithm -&gt; Value
 $ctoJSON :: Vp8FramerateConversionAlgorithm -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621680007755"><span id="local-6989586621680007757"><span class="annot"><span class="annottext">ToJSONKeyFunction [Vp8FramerateConversionAlgorithm]
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621680012689"><span id="local-6989586621680012691"><span class="annot"><span class="annottext">ToJSONKeyFunction [Vp8FramerateConversionAlgorithm]
 ToJSONKeyFunction Vp8FramerateConversionAlgorithm
 ToJSONKeyFunction Vp8FramerateConversionAlgorithm
 -&gt; ToJSONKeyFunction [Vp8FramerateConversionAlgorithm]
@@ -315,14 +315,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [Vp8FramerateConversionAlgorithm]
 toJSONKey :: ToJSONKeyFunction Vp8FramerateConversionAlgorithm
 $ctoJSONKey :: ToJSONKeyFunction Vp8FramerateConversionAlgorithm
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span id="local-6989586621680007752"><span class="annot"><span class="annottext">[Node] -&gt; Either String Vp8FramerateConversionAlgorithm
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621680012686"><span class="annot"><span class="annottext">[Node] -&gt; Either String Vp8FramerateConversionAlgorithm
 ([Node] -&gt; Either String Vp8FramerateConversionAlgorithm)
 -&gt; FromXML Vp8FramerateConversionAlgorithm
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String Vp8FramerateConversionAlgorithm
 $cparseXML :: [Node] -&gt; Either String Vp8FramerateConversionAlgorithm
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span id="local-6989586621680007749"><span class="annot"><span class="annottext">Vp8FramerateConversionAlgorithm -&gt; XML
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621680012683"><span class="annot"><span class="annottext">Vp8FramerateConversionAlgorithm -&gt; XML
 (Vp8FramerateConversionAlgorithm -&gt; XML)
 -&gt; ToXML Vp8FramerateConversionAlgorithm
 forall a. (a -&gt; XML) -&gt; ToXML a

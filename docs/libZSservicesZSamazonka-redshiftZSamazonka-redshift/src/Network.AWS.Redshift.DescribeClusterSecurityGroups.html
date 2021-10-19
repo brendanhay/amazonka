@@ -45,11 +45,11 @@
 </span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#newDescribeClusterSecurityGroups"><span class="hs-identifier">newDescribeClusterSecurityGroups</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-46"></span><span>
 </span><span id="line-47"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#describeClusterSecurityGroups_tagKeys"><span class="hs-identifier">describeClusterSecurityGroups_tagKeys</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#describeClusterSecurityGroups_clusterSecurityGroupName"><span class="hs-identifier">describeClusterSecurityGroups_clusterSecurityGroupName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#describeClusterSecurityGroups_tagValues"><span class="hs-identifier">describeClusterSecurityGroups_tagValues</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#describeClusterSecurityGroups_maxRecords"><span class="hs-identifier">describeClusterSecurityGroups_maxRecords</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#describeClusterSecurityGroups_marker"><span class="hs-identifier">describeClusterSecurityGroups_marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#describeClusterSecurityGroups_tagValues"><span class="hs-identifier">describeClusterSecurityGroups_tagValues</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#describeClusterSecurityGroups_tagKeys"><span class="hs-identifier">describeClusterSecurityGroups_tagKeys</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#describeClusterSecurityGroups_clusterSecurityGroupName"><span class="hs-identifier">describeClusterSecurityGroups_clusterSecurityGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#describeClusterSecurityGroups_marker"><span class="hs-identifier">describeClusterSecurityGroups_marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#describeClusterSecurityGroups_maxRecords"><span class="hs-identifier">describeClusterSecurityGroups_maxRecords</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
 </span><span id="line-55"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#DescribeClusterSecurityGroupsResponse"><span class="hs-identifier">DescribeClusterSecurityGroupsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -72,55 +72,55 @@
 </span><span id="line-72"></span><span class="hs-comment">-- |</span><span>
 </span><span id="line-73"></span><span class="hs-comment">--</span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- /See:/ 'newDescribeClusterSecurityGroups' smart constructor.</span><span>
-</span><span id="line-75"></span><span id="local-6989586621679519872"><span id="local-6989586621679519873"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeClusterSecurityGroups"><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#DescribeClusterSecurityGroups"><span class="hs-identifier hs-var">DescribeClusterSecurityGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeClusterSecurityGroups%27"><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#DescribeClusterSecurityGroups%27"><span class="hs-identifier hs-var">DescribeClusterSecurityGroups'</span></a></span></span><span>
-</span><span id="line-76"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A tag key or keys for which you want to return all matching cluster</span><span>
-</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- security groups that are associated with the specified key or keys. For</span><span>
-</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- example, suppose that you have security groups that are tagged with keys</span><span>
-</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- called @owner@ and @environment@. If you specify both of these tag keys</span><span>
-</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- in the request, Amazon Redshift returns a response with the security</span><span>
-</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- groups that have either or both of these tag keys associated with them.</span><span>
-</span><span id="line-82"></span><span>    </span><span id="%24sel%3AtagKeys%3ADescribeClusterSecurityGroups%27"><span class="annot"><span class="annottext">DescribeClusterSecurityGroups -&gt; Maybe [Text]
-</span><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#%24sel%3AtagKeys%3ADescribeClusterSecurityGroups%27"><span class="hs-identifier hs-var hs-var">tagKeys</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- | The name of a cluster security group for which you are requesting</span><span>
-</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- details. You can specify either the __Marker__ parameter or a</span><span>
-</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- __ClusterSecurityGroupName__ parameter, but not both.</span><span>
-</span><span id="line-86"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- Example: @securitygroup1@</span><span>
-</span><span id="line-88"></span><span>    </span><span id="%24sel%3AclusterSecurityGroupName%3ADescribeClusterSecurityGroups%27"><span class="annot"><span class="annottext">DescribeClusterSecurityGroups -&gt; Maybe Text
-</span><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#%24sel%3AclusterSecurityGroupName%3ADescribeClusterSecurityGroups%27"><span class="hs-identifier hs-var hs-var">clusterSecurityGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- | A tag value or values for which you want to return all matching cluster</span><span>
-</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- security groups that are associated with the specified tag value or</span><span>
-</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- values. For example, suppose that you have security groups that are</span><span>
-</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- tagged with values called @admin@ and @test@. If you specify both of</span><span>
-</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- these tag values in the request, Amazon Redshift returns a response with</span><span>
-</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- the security groups that have either or both of these tag values</span><span>
-</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- associated with them.</span><span>
-</span><span id="line-96"></span><span>    </span><span id="%24sel%3AtagValues%3ADescribeClusterSecurityGroups%27"><span class="annot"><span class="annottext">DescribeClusterSecurityGroups -&gt; Maybe [Text]
+</span><span id="line-75"></span><span id="local-6989586621679520599"><span id="local-6989586621679520600"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeClusterSecurityGroups"><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#DescribeClusterSecurityGroups"><span class="hs-identifier hs-var">DescribeClusterSecurityGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeClusterSecurityGroups%27"><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#DescribeClusterSecurityGroups%27"><span class="hs-identifier hs-var">DescribeClusterSecurityGroups'</span></a></span></span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A tag value or values for which you want to return all matching cluster</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- security groups that are associated with the specified tag value or</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- values. For example, suppose that you have security groups that are</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- tagged with values called @admin@ and @test@. If you specify both of</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- these tag values in the request, Amazon Redshift returns a response with</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- the security groups that have either or both of these tag values</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- associated with them.</span><span>
+</span><span id="line-83"></span><span>    </span><span id="%24sel%3AtagValues%3ADescribeClusterSecurityGroups%27"><span class="annot"><span class="annottext">DescribeClusterSecurityGroups -&gt; Maybe [Text]
 </span><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#%24sel%3AtagValues%3ADescribeClusterSecurityGroups%27"><span class="hs-identifier hs-var hs-var">tagValues</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- | The maximum number of response records to return in each call. If the</span><span>
-</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- number of remaining response records exceeds the specified @MaxRecords@</span><span>
-</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- value, a value is returned in a @marker@ field of the response. You can</span><span>
-</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- retrieve the next set of records by retrying the command with the</span><span>
-</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- returned marker value.</span><span>
-</span><span id="line-102"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- Default: @100@</span><span>
-</span><span id="line-104"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- Constraints: minimum 20, maximum 100.</span><span>
-</span><span id="line-106"></span><span>    </span><span id="%24sel%3AmaxRecords%3ADescribeClusterSecurityGroups%27"><span class="annot"><span class="annottext">DescribeClusterSecurityGroups -&gt; Maybe Int
-</span><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#%24sel%3AmaxRecords%3ADescribeClusterSecurityGroups%27"><span class="hs-identifier hs-var hs-var">maxRecords</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- | An optional parameter that specifies the starting point to return a set</span><span>
-</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- of response records. When the results of a DescribeClusterSecurityGroups</span><span>
-</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- request exceed the value specified in @MaxRecords@, Amazon Web Services</span><span>
-</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- returns a value in the @Marker@ field of the response. You can retrieve</span><span>
-</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- the next set of response records by providing the returned marker value</span><span>
-</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- in the @Marker@ parameter and retrying the request.</span><span>
-</span><span id="line-113"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-114"></span><span>    </span><span class="hs-comment">-- Constraints: You can specify either the __ClusterSecurityGroupName__</span><span>
-</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- parameter or the __Marker__ parameter, but not both.</span><span>
-</span><span id="line-116"></span><span>    </span><span id="%24sel%3Amarker%3ADescribeClusterSecurityGroups%27"><span class="annot"><span class="annottext">DescribeClusterSecurityGroups -&gt; Maybe Text
-</span><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#%24sel%3Amarker%3ADescribeClusterSecurityGroups%27"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- | A tag key or keys for which you want to return all matching cluster</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- security groups that are associated with the specified key or keys. For</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- example, suppose that you have security groups that are tagged with keys</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- called @owner@ and @environment@. If you specify both of these tag keys</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- in the request, Amazon Redshift returns a response with the security</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- groups that have either or both of these tag keys associated with them.</span><span>
+</span><span id="line-90"></span><span>    </span><span id="%24sel%3AtagKeys%3ADescribeClusterSecurityGroups%27"><span class="annot"><span class="annottext">DescribeClusterSecurityGroups -&gt; Maybe [Text]
+</span><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#%24sel%3AtagKeys%3ADescribeClusterSecurityGroups%27"><span class="hs-identifier hs-var hs-var">tagKeys</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- | The name of a cluster security group for which you are requesting</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- details. You can specify either the __Marker__ parameter or a</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- __ClusterSecurityGroupName__ parameter, but not both.</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- Example: @securitygroup1@</span><span>
+</span><span id="line-96"></span><span>    </span><span id="%24sel%3AclusterSecurityGroupName%3ADescribeClusterSecurityGroups%27"><span class="annot"><span class="annottext">DescribeClusterSecurityGroups -&gt; Maybe Text
+</span><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#%24sel%3AclusterSecurityGroupName%3ADescribeClusterSecurityGroups%27"><span class="hs-identifier hs-var hs-var">clusterSecurityGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- | An optional parameter that specifies the starting point to return a set</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- of response records. When the results of a DescribeClusterSecurityGroups</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- request exceed the value specified in @MaxRecords@, Amazon Web Services</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- returns a value in the @Marker@ field of the response. You can retrieve</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- the next set of response records by providing the returned marker value</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- in the @Marker@ parameter and retrying the request.</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- Constraints: You can specify either the __ClusterSecurityGroupName__</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- parameter or the __Marker__ parameter, but not both.</span><span>
+</span><span id="line-106"></span><span>    </span><span id="%24sel%3Amarker%3ADescribeClusterSecurityGroups%27"><span class="annot"><span class="annottext">DescribeClusterSecurityGroups -&gt; Maybe Text
+</span><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#%24sel%3Amarker%3ADescribeClusterSecurityGroups%27"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- | The maximum number of response records to return in each call. If the</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- number of remaining response records exceeds the specified @MaxRecords@</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- value, a value is returned in a @marker@ field of the response. You can</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- retrieve the next set of records by retrying the command with the</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- returned marker value.</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- Default: @100@</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- Constraints: minimum 20, maximum 100.</span><span>
+</span><span id="line-116"></span><span>    </span><span id="%24sel%3AmaxRecords%3ADescribeClusterSecurityGroups%27"><span class="annot"><span class="annottext">DescribeClusterSecurityGroups -&gt; Maybe Int
+</span><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#%24sel%3AmaxRecords%3ADescribeClusterSecurityGroups%27"><span class="hs-identifier hs-var hs-var">maxRecords</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-117"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-118"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679519862"><span id="local-6989586621679519864"><span class="annot"><span class="annottext">DescribeClusterSecurityGroups
+</span><span id="line-118"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679520589"><span id="local-6989586621679520591"><span class="annot"><span class="annottext">DescribeClusterSecurityGroups
 -&gt; DescribeClusterSecurityGroups -&gt; Bool
 (DescribeClusterSecurityGroups
  -&gt; DescribeClusterSecurityGroups -&gt; Bool)
@@ -136,7 +136,7 @@ $c/= :: DescribeClusterSecurityGroups
 -&gt; DescribeClusterSecurityGroups -&gt; Bool
 $c== :: DescribeClusterSecurityGroups
 -&gt; DescribeClusterSecurityGroups -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679519853"><span id="local-6989586621679519855"><span id="local-6989586621679519857"><span id="local-6989586621679519859"><span class="annot"><span class="annottext">ReadPrec [DescribeClusterSecurityGroups]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679520580"><span id="local-6989586621679520582"><span id="local-6989586621679520584"><span id="local-6989586621679520586"><span class="annot"><span class="annottext">ReadPrec [DescribeClusterSecurityGroups]
 ReadPrec DescribeClusterSecurityGroups
 Int -&gt; ReadS DescribeClusterSecurityGroups
 ReadS [DescribeClusterSecurityGroups]
@@ -156,7 +156,7 @@ readList :: ReadS [DescribeClusterSecurityGroups]
 $creadList :: ReadS [DescribeClusterSecurityGroups]
 readsPrec :: Int -&gt; ReadS DescribeClusterSecurityGroups
 $creadsPrec :: Int -&gt; ReadS DescribeClusterSecurityGroups
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679519846"><span id="local-6989586621679519848"><span id="local-6989586621679519850"><span class="annot"><span class="annottext">Int -&gt; DescribeClusterSecurityGroups -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679520573"><span id="local-6989586621679520575"><span id="local-6989586621679520577"><span class="annot"><span class="annottext">Int -&gt; DescribeClusterSecurityGroups -&gt; ShowS
 [DescribeClusterSecurityGroups] -&gt; ShowS
 DescribeClusterSecurityGroups -&gt; String
 (Int -&gt; DescribeClusterSecurityGroups -&gt; ShowS)
@@ -202,162 +202,89 @@ DescribeClusterSecurityGroups
 </span><span id="line-125"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-126"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-127"></span><span class="hs-comment">--</span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- 'tagKeys', 'describeClusterSecurityGroups_tagKeys' - A tag key or keys for which you want to return all matching cluster</span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- security groups that are associated with the specified key or keys. For</span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- example, suppose that you have security groups that are tagged with keys</span><span>
-</span><span id="line-131"></span><span class="hs-comment">-- called @owner@ and @environment@. If you specify both of these tag keys</span><span>
-</span><span id="line-132"></span><span class="hs-comment">-- in the request, Amazon Redshift returns a response with the security</span><span>
-</span><span id="line-133"></span><span class="hs-comment">-- groups that have either or both of these tag keys associated with them.</span><span>
-</span><span id="line-134"></span><span class="hs-comment">--</span><span>
-</span><span id="line-135"></span><span class="hs-comment">-- 'clusterSecurityGroupName', 'describeClusterSecurityGroups_clusterSecurityGroupName' - The name of a cluster security group for which you are requesting</span><span>
-</span><span id="line-136"></span><span class="hs-comment">-- details. You can specify either the __Marker__ parameter or a</span><span>
-</span><span id="line-137"></span><span class="hs-comment">-- __ClusterSecurityGroupName__ parameter, but not both.</span><span>
-</span><span id="line-138"></span><span class="hs-comment">--</span><span>
-</span><span id="line-139"></span><span class="hs-comment">-- Example: @securitygroup1@</span><span>
-</span><span id="line-140"></span><span class="hs-comment">--</span><span>
-</span><span id="line-141"></span><span class="hs-comment">-- 'tagValues', 'describeClusterSecurityGroups_tagValues' - A tag value or values for which you want to return all matching cluster</span><span>
-</span><span id="line-142"></span><span class="hs-comment">-- security groups that are associated with the specified tag value or</span><span>
-</span><span id="line-143"></span><span class="hs-comment">-- values. For example, suppose that you have security groups that are</span><span>
-</span><span id="line-144"></span><span class="hs-comment">-- tagged with values called @admin@ and @test@. If you specify both of</span><span>
-</span><span id="line-145"></span><span class="hs-comment">-- these tag values in the request, Amazon Redshift returns a response with</span><span>
-</span><span id="line-146"></span><span class="hs-comment">-- the security groups that have either or both of these tag values</span><span>
-</span><span id="line-147"></span><span class="hs-comment">-- associated with them.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- 'tagValues', 'describeClusterSecurityGroups_tagValues' - A tag value or values for which you want to return all matching cluster</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- security groups that are associated with the specified tag value or</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- values. For example, suppose that you have security groups that are</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- tagged with values called @admin@ and @test@. If you specify both of</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- these tag values in the request, Amazon Redshift returns a response with</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- the security groups that have either or both of these tag values</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- associated with them.</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- 'tagKeys', 'describeClusterSecurityGroups_tagKeys' - A tag key or keys for which you want to return all matching cluster</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- security groups that are associated with the specified key or keys. For</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- example, suppose that you have security groups that are tagged with keys</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- called @owner@ and @environment@. If you specify both of these tag keys</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- in the request, Amazon Redshift returns a response with the security</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- groups that have either or both of these tag keys associated with them.</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- 'clusterSecurityGroupName', 'describeClusterSecurityGroups_clusterSecurityGroupName' - The name of a cluster security group for which you are requesting</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- details. You can specify either the __Marker__ parameter or a</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- __ClusterSecurityGroupName__ parameter, but not both.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- Example: @securitygroup1@</span><span>
 </span><span id="line-148"></span><span class="hs-comment">--</span><span>
-</span><span id="line-149"></span><span class="hs-comment">-- 'maxRecords', 'describeClusterSecurityGroups_maxRecords' - The maximum number of response records to return in each call. If the</span><span>
-</span><span id="line-150"></span><span class="hs-comment">-- number of remaining response records exceeds the specified @MaxRecords@</span><span>
-</span><span id="line-151"></span><span class="hs-comment">-- value, a value is returned in a @marker@ field of the response. You can</span><span>
-</span><span id="line-152"></span><span class="hs-comment">-- retrieve the next set of records by retrying the command with the</span><span>
-</span><span id="line-153"></span><span class="hs-comment">-- returned marker value.</span><span>
-</span><span id="line-154"></span><span class="hs-comment">--</span><span>
-</span><span id="line-155"></span><span class="hs-comment">-- Default: @100@</span><span>
-</span><span id="line-156"></span><span class="hs-comment">--</span><span>
-</span><span id="line-157"></span><span class="hs-comment">-- Constraints: minimum 20, maximum 100.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- 'marker', 'describeClusterSecurityGroups_marker' - An optional parameter that specifies the starting point to return a set</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- of response records. When the results of a DescribeClusterSecurityGroups</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- request exceed the value specified in @MaxRecords@, Amazon Web Services</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- returns a value in the @Marker@ field of the response. You can retrieve</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- the next set of response records by providing the returned marker value</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- in the @Marker@ parameter and retrying the request.</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- Constraints: You can specify either the __ClusterSecurityGroupName__</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- parameter or the __Marker__ parameter, but not both.</span><span>
 </span><span id="line-158"></span><span class="hs-comment">--</span><span>
-</span><span id="line-159"></span><span class="hs-comment">-- 'marker', 'describeClusterSecurityGroups_marker' - An optional parameter that specifies the starting point to return a set</span><span>
-</span><span id="line-160"></span><span class="hs-comment">-- of response records. When the results of a DescribeClusterSecurityGroups</span><span>
-</span><span id="line-161"></span><span class="hs-comment">-- request exceed the value specified in @MaxRecords@, Amazon Web Services</span><span>
-</span><span id="line-162"></span><span class="hs-comment">-- returns a value in the @Marker@ field of the response. You can retrieve</span><span>
-</span><span id="line-163"></span><span class="hs-comment">-- the next set of response records by providing the returned marker value</span><span>
-</span><span id="line-164"></span><span class="hs-comment">-- in the @Marker@ parameter and retrying the request.</span><span>
-</span><span id="line-165"></span><span class="hs-comment">--</span><span>
-</span><span id="line-166"></span><span class="hs-comment">-- Constraints: You can specify either the __ClusterSecurityGroupName__</span><span>
-</span><span id="line-167"></span><span class="hs-comment">-- parameter or the __Marker__ parameter, but not both.</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- 'maxRecords', 'describeClusterSecurityGroups_maxRecords' - The maximum number of response records to return in each call. If the</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- number of remaining response records exceeds the specified @MaxRecords@</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- value, a value is returned in a @marker@ field of the response. You can</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- retrieve the next set of records by retrying the command with the</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- returned marker value.</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- Default: @100@</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- Constraints: minimum 20, maximum 100.</span><span>
 </span><span id="line-168"></span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#newDescribeClusterSecurityGroups"><span class="hs-identifier hs-type">newDescribeClusterSecurityGroups</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-169"></span><span>  </span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#DescribeClusterSecurityGroups"><span class="hs-identifier hs-type">DescribeClusterSecurityGroups</span></a></span><span>
 </span><span id="line-170"></span><span id="newDescribeClusterSecurityGroups"><span class="annot"><span class="annottext">newDescribeClusterSecurityGroups :: DescribeClusterSecurityGroups
 </span><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#newDescribeClusterSecurityGroups"><span class="hs-identifier hs-var hs-var">newDescribeClusterSecurityGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-171"></span><span>  </span><span class="annot"><span class="annottext">DescribeClusterSecurityGroups' :: Maybe [Text]
--&gt; Maybe Text
 -&gt; Maybe [Text]
--&gt; Maybe Int
 -&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Int
 -&gt; DescribeClusterSecurityGroups
 </span><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#DescribeClusterSecurityGroups%27"><span class="hs-identifier hs-type">DescribeClusterSecurityGroups'</span></a></span><span>
-</span><span id="line-172"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tagKeys:DescribeClusterSecurityGroups' :: Maybe [Text]
-</span><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#%24sel%3AtagKeys%3ADescribeClusterSecurityGroups%27"><span class="hs-identifier hs-var">tagKeys</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-172"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tagValues:DescribeClusterSecurityGroups' :: Maybe [Text]
+</span><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#%24sel%3AtagValues%3ADescribeClusterSecurityGroups%27"><span class="hs-identifier hs-var">tagValues</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-173"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-174"></span><span>      </span><span class="annot"><span class="annottext">$sel:clusterSecurityGroupName:DescribeClusterSecurityGroups' :: Maybe Text
+</span><span id="line-174"></span><span>      </span><span class="annot"><span class="annottext">$sel:tagKeys:DescribeClusterSecurityGroups' :: Maybe [Text]
+</span><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#%24sel%3AtagKeys%3ADescribeClusterSecurityGroups%27"><span class="hs-identifier hs-var">tagKeys</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>      </span><span class="annot"><span class="annottext">$sel:clusterSecurityGroupName:DescribeClusterSecurityGroups' :: Maybe Text
 </span><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#%24sel%3AclusterSecurityGroupName%3ADescribeClusterSecurityGroups%27"><span class="hs-identifier hs-var">clusterSecurityGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-175"></span><span>      </span><span class="annot"><span class="annottext">$sel:tagValues:DescribeClusterSecurityGroups' :: Maybe [Text]
-</span><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#%24sel%3AtagValues%3ADescribeClusterSecurityGroups%27"><span class="hs-identifier hs-var">tagValues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-176"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxRecords:DescribeClusterSecurityGroups' :: Maybe Int
-</span><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#%24sel%3AmaxRecords%3ADescribeClusterSecurityGroups%27"><span class="hs-identifier hs-var">maxRecords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-177"></span><span>      </span><span class="annot"><span class="annottext">$sel:marker:DescribeClusterSecurityGroups' :: Maybe Text
+</span><span id="line-176"></span><span>      </span><span class="annot"><span class="annottext">$sel:marker:DescribeClusterSecurityGroups' :: Maybe Text
 </span><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#%24sel%3Amarker%3ADescribeClusterSecurityGroups%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxRecords:DescribeClusterSecurityGroups' :: Maybe Int
+</span><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#%24sel%3AmaxRecords%3ADescribeClusterSecurityGroups%27"><span class="hs-identifier hs-var">maxRecords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-178"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-179"></span><span>
-</span><span id="line-180"></span><span class="hs-comment">-- | A tag key or keys for which you want to return all matching cluster</span><span>
-</span><span id="line-181"></span><span class="hs-comment">-- security groups that are associated with the specified key or keys. For</span><span>
-</span><span id="line-182"></span><span class="hs-comment">-- example, suppose that you have security groups that are tagged with keys</span><span>
-</span><span id="line-183"></span><span class="hs-comment">-- called @owner@ and @environment@. If you specify both of these tag keys</span><span>
-</span><span id="line-184"></span><span class="hs-comment">-- in the request, Amazon Redshift returns a response with the security</span><span>
-</span><span id="line-185"></span><span class="hs-comment">-- groups that have either or both of these tag keys associated with them.</span><span>
-</span><span id="line-186"></span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#describeClusterSecurityGroups_tagKeys"><span class="hs-identifier hs-type">describeClusterSecurityGroups_tagKeys</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#DescribeClusterSecurityGroups"><span class="hs-identifier hs-type">DescribeClusterSecurityGroups</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-187"></span><span id="describeClusterSecurityGroups_tagKeys"><span class="annot"><span class="annottext">describeClusterSecurityGroups_tagKeys :: (Maybe [Text] -&gt; f (Maybe [Text]))
--&gt; DescribeClusterSecurityGroups -&gt; f DescribeClusterSecurityGroups
-</span><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#describeClusterSecurityGroups_tagKeys"><span class="hs-identifier hs-var hs-var">describeClusterSecurityGroups_tagKeys</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeClusterSecurityGroups -&gt; Maybe [Text])
--&gt; (DescribeClusterSecurityGroups
-    -&gt; Maybe [Text] -&gt; DescribeClusterSecurityGroups)
--&gt; Lens
-     DescribeClusterSecurityGroups
-     DescribeClusterSecurityGroups
-     (Maybe [Text])
-     (Maybe [Text])
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#DescribeClusterSecurityGroups%27"><span class="hs-identifier hs-type">DescribeClusterSecurityGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679519840"><span class="annot"><span class="annottext">Maybe [Text]
-tagKeys :: Maybe [Text]
-$sel:tagKeys:DescribeClusterSecurityGroups' :: DescribeClusterSecurityGroups -&gt; Maybe [Text]
-</span><a href="#local-6989586621679519840"><span class="hs-identifier hs-var hs-var">tagKeys</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679519840"><span class="hs-identifier hs-var">tagKeys</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679519839"><span class="annot"><span class="annottext">s :: DescribeClusterSecurityGroups
-</span><a href="#local-6989586621679519839"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#DescribeClusterSecurityGroups%27"><span class="hs-identifier hs-type">DescribeClusterSecurityGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679519838"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679519838"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeClusterSecurityGroups
-</span><a href="#local-6989586621679519839"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagKeys:DescribeClusterSecurityGroups' :: Maybe [Text]
-</span><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#%24sel%3AtagKeys%3ADescribeClusterSecurityGroups%27"><span class="hs-identifier hs-var">tagKeys</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679519838"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#DescribeClusterSecurityGroups"><span class="hs-identifier hs-type">DescribeClusterSecurityGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
- -&gt; DescribeClusterSecurityGroups
- -&gt; f DescribeClusterSecurityGroups)
--&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
-    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
--&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
--&gt; DescribeClusterSecurityGroups
--&gt; f DescribeClusterSecurityGroups
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
--&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-188"></span><span>
-</span><span id="line-189"></span><span class="hs-comment">-- | The name of a cluster security group for which you are requesting</span><span>
-</span><span id="line-190"></span><span class="hs-comment">-- details. You can specify either the __Marker__ parameter or a</span><span>
-</span><span id="line-191"></span><span class="hs-comment">-- __ClusterSecurityGroupName__ parameter, but not both.</span><span>
-</span><span id="line-192"></span><span class="hs-comment">--</span><span>
-</span><span id="line-193"></span><span class="hs-comment">-- Example: @securitygroup1@</span><span>
-</span><span id="line-194"></span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#describeClusterSecurityGroups_clusterSecurityGroupName"><span class="hs-identifier hs-type">describeClusterSecurityGroups_clusterSecurityGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#DescribeClusterSecurityGroups"><span class="hs-identifier hs-type">DescribeClusterSecurityGroups</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-195"></span><span id="describeClusterSecurityGroups_clusterSecurityGroupName"><span class="annot"><span class="annottext">describeClusterSecurityGroups_clusterSecurityGroupName :: (Maybe Text -&gt; f (Maybe Text))
--&gt; DescribeClusterSecurityGroups -&gt; f DescribeClusterSecurityGroups
-</span><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#describeClusterSecurityGroups_clusterSecurityGroupName"><span class="hs-identifier hs-var hs-var">describeClusterSecurityGroups_clusterSecurityGroupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeClusterSecurityGroups -&gt; Maybe Text)
--&gt; (DescribeClusterSecurityGroups
-    -&gt; Maybe Text -&gt; DescribeClusterSecurityGroups)
--&gt; Lens
-     DescribeClusterSecurityGroups
-     DescribeClusterSecurityGroups
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#DescribeClusterSecurityGroups%27"><span class="hs-identifier hs-type">DescribeClusterSecurityGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679519834"><span class="annot"><span class="annottext">Maybe Text
-clusterSecurityGroupName :: Maybe Text
-$sel:clusterSecurityGroupName:DescribeClusterSecurityGroups' :: DescribeClusterSecurityGroups -&gt; Maybe Text
-</span><a href="#local-6989586621679519834"><span class="hs-identifier hs-var hs-var">clusterSecurityGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679519834"><span class="hs-identifier hs-var">clusterSecurityGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679519833"><span class="annot"><span class="annottext">s :: DescribeClusterSecurityGroups
-</span><a href="#local-6989586621679519833"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#DescribeClusterSecurityGroups%27"><span class="hs-identifier hs-type">DescribeClusterSecurityGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679519832"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679519832"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeClusterSecurityGroups
-</span><a href="#local-6989586621679519833"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterSecurityGroupName:DescribeClusterSecurityGroups' :: Maybe Text
-</span><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#%24sel%3AclusterSecurityGroupName%3ADescribeClusterSecurityGroups%27"><span class="hs-identifier hs-var">clusterSecurityGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679519832"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#DescribeClusterSecurityGroups"><span class="hs-identifier hs-type">DescribeClusterSecurityGroups</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-196"></span><span>
-</span><span id="line-197"></span><span class="hs-comment">-- | A tag value or values for which you want to return all matching cluster</span><span>
-</span><span id="line-198"></span><span class="hs-comment">-- security groups that are associated with the specified tag value or</span><span>
-</span><span id="line-199"></span><span class="hs-comment">-- values. For example, suppose that you have security groups that are</span><span>
-</span><span id="line-200"></span><span class="hs-comment">-- tagged with values called @admin@ and @test@. If you specify both of</span><span>
-</span><span id="line-201"></span><span class="hs-comment">-- these tag values in the request, Amazon Redshift returns a response with</span><span>
-</span><span id="line-202"></span><span class="hs-comment">-- the security groups that have either or both of these tag values</span><span>
-</span><span id="line-203"></span><span class="hs-comment">-- associated with them.</span><span>
-</span><span id="line-204"></span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#describeClusterSecurityGroups_tagValues"><span class="hs-identifier hs-type">describeClusterSecurityGroups_tagValues</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#DescribeClusterSecurityGroups"><span class="hs-identifier hs-type">DescribeClusterSecurityGroups</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-205"></span><span id="describeClusterSecurityGroups_tagValues"><span class="annot"><span class="annottext">describeClusterSecurityGroups_tagValues :: (Maybe [Text] -&gt; f (Maybe [Text]))
+</span><span id="line-180"></span><span class="hs-comment">-- | A tag value or values for which you want to return all matching cluster</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- security groups that are associated with the specified tag value or</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- values. For example, suppose that you have security groups that are</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- tagged with values called @admin@ and @test@. If you specify both of</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- these tag values in the request, Amazon Redshift returns a response with</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- the security groups that have either or both of these tag values</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- associated with them.</span><span>
+</span><span id="line-187"></span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#describeClusterSecurityGroups_tagValues"><span class="hs-identifier hs-type">describeClusterSecurityGroups_tagValues</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#DescribeClusterSecurityGroups"><span class="hs-identifier hs-type">DescribeClusterSecurityGroups</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span id="describeClusterSecurityGroups_tagValues"><span class="annot"><span class="annottext">describeClusterSecurityGroups_tagValues :: (Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; DescribeClusterSecurityGroups -&gt; f DescribeClusterSecurityGroups
 </span><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#describeClusterSecurityGroups_tagValues"><span class="hs-identifier hs-var hs-var">describeClusterSecurityGroups_tagValues</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeClusterSecurityGroups -&gt; Maybe [Text])
 -&gt; (DescribeClusterSecurityGroups
@@ -368,16 +295,16 @@ $sel:clusterSecurityGroupName:DescribeClusterSecurityGroups' :: DescribeClusterS
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#DescribeClusterSecurityGroups%27"><span class="hs-identifier hs-type">DescribeClusterSecurityGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679519831"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#DescribeClusterSecurityGroups%27"><span class="hs-identifier hs-type">DescribeClusterSecurityGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679520567"><span class="annot"><span class="annottext">Maybe [Text]
 tagValues :: Maybe [Text]
 $sel:tagValues:DescribeClusterSecurityGroups' :: DescribeClusterSecurityGroups -&gt; Maybe [Text]
-</span><a href="#local-6989586621679519831"><span class="hs-identifier hs-var hs-var">tagValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679519831"><span class="hs-identifier hs-var">tagValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679519830"><span class="annot"><span class="annottext">s :: DescribeClusterSecurityGroups
-</span><a href="#local-6989586621679519830"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#DescribeClusterSecurityGroups%27"><span class="hs-identifier hs-type">DescribeClusterSecurityGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679519829"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679519829"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeClusterSecurityGroups
-</span><a href="#local-6989586621679519830"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagValues:DescribeClusterSecurityGroups' :: Maybe [Text]
+</span><a href="#local-6989586621679520567"><span class="hs-identifier hs-var hs-var">tagValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679520567"><span class="hs-identifier hs-var">tagValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679520566"><span class="annot"><span class="annottext">s :: DescribeClusterSecurityGroups
+</span><a href="#local-6989586621679520566"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#DescribeClusterSecurityGroups%27"><span class="hs-identifier hs-type">DescribeClusterSecurityGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679520565"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679520565"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeClusterSecurityGroups
+</span><a href="#local-6989586621679520566"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagValues:DescribeClusterSecurityGroups' :: Maybe [Text]
 </span><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#%24sel%3AtagValues%3ADescribeClusterSecurityGroups%27"><span class="hs-identifier hs-var">tagValues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679519829"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#DescribeClusterSecurityGroups"><span class="hs-identifier hs-type">DescribeClusterSecurityGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679520565"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#DescribeClusterSecurityGroups"><span class="hs-identifier hs-type">DescribeClusterSecurityGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; DescribeClusterSecurityGroups
  -&gt; f DescribeClusterSecurityGroups)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
@@ -392,52 +319,93 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-206"></span><span>
-</span><span id="line-207"></span><span class="hs-comment">-- | The maximum number of response records to return in each call. If the</span><span>
-</span><span id="line-208"></span><span class="hs-comment">-- number of remaining response records exceeds the specified @MaxRecords@</span><span>
-</span><span id="line-209"></span><span class="hs-comment">-- value, a value is returned in a @marker@ field of the response. You can</span><span>
-</span><span id="line-210"></span><span class="hs-comment">-- retrieve the next set of records by retrying the command with the</span><span>
-</span><span id="line-211"></span><span class="hs-comment">-- returned marker value.</span><span>
-</span><span id="line-212"></span><span class="hs-comment">--</span><span>
-</span><span id="line-213"></span><span class="hs-comment">-- Default: @100@</span><span>
-</span><span id="line-214"></span><span class="hs-comment">--</span><span>
-</span><span id="line-215"></span><span class="hs-comment">-- Constraints: minimum 20, maximum 100.</span><span>
-</span><span id="line-216"></span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#describeClusterSecurityGroups_maxRecords"><span class="hs-identifier hs-type">describeClusterSecurityGroups_maxRecords</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#DescribeClusterSecurityGroups"><span class="hs-identifier hs-type">DescribeClusterSecurityGroups</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-217"></span><span id="describeClusterSecurityGroups_maxRecords"><span class="annot"><span class="annottext">describeClusterSecurityGroups_maxRecords :: (Maybe Int -&gt; f (Maybe Int))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- | A tag key or keys for which you want to return all matching cluster</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- security groups that are associated with the specified key or keys. For</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- example, suppose that you have security groups that are tagged with keys</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- called @owner@ and @environment@. If you specify both of these tag keys</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- in the request, Amazon Redshift returns a response with the security</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- groups that have either or both of these tag keys associated with them.</span><span>
+</span><span id="line-196"></span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#describeClusterSecurityGroups_tagKeys"><span class="hs-identifier hs-type">describeClusterSecurityGroups_tagKeys</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#DescribeClusterSecurityGroups"><span class="hs-identifier hs-type">DescribeClusterSecurityGroups</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span id="describeClusterSecurityGroups_tagKeys"><span class="annot"><span class="annottext">describeClusterSecurityGroups_tagKeys :: (Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; DescribeClusterSecurityGroups -&gt; f DescribeClusterSecurityGroups
-</span><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#describeClusterSecurityGroups_maxRecords"><span class="hs-identifier hs-var hs-var">describeClusterSecurityGroups_maxRecords</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeClusterSecurityGroups -&gt; Maybe Int)
+</span><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#describeClusterSecurityGroups_tagKeys"><span class="hs-identifier hs-var hs-var">describeClusterSecurityGroups_tagKeys</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeClusterSecurityGroups -&gt; Maybe [Text])
 -&gt; (DescribeClusterSecurityGroups
-    -&gt; Maybe Int -&gt; DescribeClusterSecurityGroups)
+    -&gt; Maybe [Text] -&gt; DescribeClusterSecurityGroups)
 -&gt; Lens
      DescribeClusterSecurityGroups
      DescribeClusterSecurityGroups
-     (Maybe Int)
-     (Maybe Int)
+     (Maybe [Text])
+     (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#DescribeClusterSecurityGroups%27"><span class="hs-identifier hs-type">DescribeClusterSecurityGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679519828"><span class="annot"><span class="annottext">Maybe Int
-maxRecords :: Maybe Int
-$sel:maxRecords:DescribeClusterSecurityGroups' :: DescribeClusterSecurityGroups -&gt; Maybe Int
-</span><a href="#local-6989586621679519828"><span class="hs-identifier hs-var hs-var">maxRecords</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679519828"><span class="hs-identifier hs-var">maxRecords</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679519827"><span class="annot"><span class="annottext">s :: DescribeClusterSecurityGroups
-</span><a href="#local-6989586621679519827"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#DescribeClusterSecurityGroups%27"><span class="hs-identifier hs-type">DescribeClusterSecurityGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679519826"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679519826"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeClusterSecurityGroups
-</span><a href="#local-6989586621679519827"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxRecords:DescribeClusterSecurityGroups' :: Maybe Int
-</span><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#%24sel%3AmaxRecords%3ADescribeClusterSecurityGroups%27"><span class="hs-identifier hs-var">maxRecords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679519826"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#DescribeClusterSecurityGroups"><span class="hs-identifier hs-type">DescribeClusterSecurityGroups</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-218"></span><span>
-</span><span id="line-219"></span><span class="hs-comment">-- | An optional parameter that specifies the starting point to return a set</span><span>
-</span><span id="line-220"></span><span class="hs-comment">-- of response records. When the results of a DescribeClusterSecurityGroups</span><span>
-</span><span id="line-221"></span><span class="hs-comment">-- request exceed the value specified in @MaxRecords@, Amazon Web Services</span><span>
-</span><span id="line-222"></span><span class="hs-comment">-- returns a value in the @Marker@ field of the response. You can retrieve</span><span>
-</span><span id="line-223"></span><span class="hs-comment">-- the next set of response records by providing the returned marker value</span><span>
-</span><span id="line-224"></span><span class="hs-comment">-- in the @Marker@ parameter and retrying the request.</span><span>
-</span><span id="line-225"></span><span class="hs-comment">--</span><span>
-</span><span id="line-226"></span><span class="hs-comment">-- Constraints: You can specify either the __ClusterSecurityGroupName__</span><span>
-</span><span id="line-227"></span><span class="hs-comment">-- parameter or the __Marker__ parameter, but not both.</span><span>
-</span><span id="line-228"></span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#describeClusterSecurityGroups_marker"><span class="hs-identifier hs-type">describeClusterSecurityGroups_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#DescribeClusterSecurityGroups"><span class="hs-identifier hs-type">DescribeClusterSecurityGroups</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-229"></span><span id="describeClusterSecurityGroups_marker"><span class="annot"><span class="annottext">describeClusterSecurityGroups_marker :: (Maybe Text -&gt; f (Maybe Text))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#DescribeClusterSecurityGroups%27"><span class="hs-identifier hs-type">DescribeClusterSecurityGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679520561"><span class="annot"><span class="annottext">Maybe [Text]
+tagKeys :: Maybe [Text]
+$sel:tagKeys:DescribeClusterSecurityGroups' :: DescribeClusterSecurityGroups -&gt; Maybe [Text]
+</span><a href="#local-6989586621679520561"><span class="hs-identifier hs-var hs-var">tagKeys</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679520561"><span class="hs-identifier hs-var">tagKeys</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679520560"><span class="annot"><span class="annottext">s :: DescribeClusterSecurityGroups
+</span><a href="#local-6989586621679520560"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#DescribeClusterSecurityGroups%27"><span class="hs-identifier hs-type">DescribeClusterSecurityGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679520559"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679520559"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeClusterSecurityGroups
+</span><a href="#local-6989586621679520560"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagKeys:DescribeClusterSecurityGroups' :: Maybe [Text]
+</span><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#%24sel%3AtagKeys%3ADescribeClusterSecurityGroups%27"><span class="hs-identifier hs-var">tagKeys</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679520559"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#DescribeClusterSecurityGroups"><span class="hs-identifier hs-type">DescribeClusterSecurityGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; DescribeClusterSecurityGroups
+ -&gt; f DescribeClusterSecurityGroups)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; DescribeClusterSecurityGroups
+-&gt; f DescribeClusterSecurityGroups
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- | The name of a cluster security group for which you are requesting</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- details. You can specify either the __Marker__ parameter or a</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- __ClusterSecurityGroupName__ parameter, but not both.</span><span>
+</span><span id="line-202"></span><span class="hs-comment">--</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- Example: @securitygroup1@</span><span>
+</span><span id="line-204"></span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#describeClusterSecurityGroups_clusterSecurityGroupName"><span class="hs-identifier hs-type">describeClusterSecurityGroups_clusterSecurityGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#DescribeClusterSecurityGroups"><span class="hs-identifier hs-type">DescribeClusterSecurityGroups</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span id="describeClusterSecurityGroups_clusterSecurityGroupName"><span class="annot"><span class="annottext">describeClusterSecurityGroups_clusterSecurityGroupName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeClusterSecurityGroups -&gt; f DescribeClusterSecurityGroups
+</span><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#describeClusterSecurityGroups_clusterSecurityGroupName"><span class="hs-identifier hs-var hs-var">describeClusterSecurityGroups_clusterSecurityGroupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeClusterSecurityGroups -&gt; Maybe Text)
+-&gt; (DescribeClusterSecurityGroups
+    -&gt; Maybe Text -&gt; DescribeClusterSecurityGroups)
+-&gt; Lens
+     DescribeClusterSecurityGroups
+     DescribeClusterSecurityGroups
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#DescribeClusterSecurityGroups%27"><span class="hs-identifier hs-type">DescribeClusterSecurityGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679520558"><span class="annot"><span class="annottext">Maybe Text
+clusterSecurityGroupName :: Maybe Text
+$sel:clusterSecurityGroupName:DescribeClusterSecurityGroups' :: DescribeClusterSecurityGroups -&gt; Maybe Text
+</span><a href="#local-6989586621679520558"><span class="hs-identifier hs-var hs-var">clusterSecurityGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679520558"><span class="hs-identifier hs-var">clusterSecurityGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679520557"><span class="annot"><span class="annottext">s :: DescribeClusterSecurityGroups
+</span><a href="#local-6989586621679520557"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#DescribeClusterSecurityGroups%27"><span class="hs-identifier hs-type">DescribeClusterSecurityGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679520556"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679520556"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeClusterSecurityGroups
+</span><a href="#local-6989586621679520557"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterSecurityGroupName:DescribeClusterSecurityGroups' :: Maybe Text
+</span><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#%24sel%3AclusterSecurityGroupName%3ADescribeClusterSecurityGroups%27"><span class="hs-identifier hs-var">clusterSecurityGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679520556"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#DescribeClusterSecurityGroups"><span class="hs-identifier hs-type">DescribeClusterSecurityGroups</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- | An optional parameter that specifies the starting point to return a set</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- of response records. When the results of a DescribeClusterSecurityGroups</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- request exceed the value specified in @MaxRecords@, Amazon Web Services</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- returns a value in the @Marker@ field of the response. You can retrieve</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- the next set of response records by providing the returned marker value</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- in the @Marker@ parameter and retrying the request.</span><span>
+</span><span id="line-213"></span><span class="hs-comment">--</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- Constraints: You can specify either the __ClusterSecurityGroupName__</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- parameter or the __Marker__ parameter, but not both.</span><span>
+</span><span id="line-216"></span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#describeClusterSecurityGroups_marker"><span class="hs-identifier hs-type">describeClusterSecurityGroups_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#DescribeClusterSecurityGroups"><span class="hs-identifier hs-type">DescribeClusterSecurityGroups</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span id="describeClusterSecurityGroups_marker"><span class="annot"><span class="annottext">describeClusterSecurityGroups_marker :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; DescribeClusterSecurityGroups -&gt; f DescribeClusterSecurityGroups
 </span><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#describeClusterSecurityGroups_marker"><span class="hs-identifier hs-var hs-var">describeClusterSecurityGroups_marker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeClusterSecurityGroups -&gt; Maybe Text)
 -&gt; (DescribeClusterSecurityGroups
@@ -448,30 +416,62 @@ $sel:maxRecords:DescribeClusterSecurityGroups' :: DescribeClusterSecurityGroups 
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#DescribeClusterSecurityGroups%27"><span class="hs-identifier hs-type">DescribeClusterSecurityGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679519825"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#DescribeClusterSecurityGroups%27"><span class="hs-identifier hs-type">DescribeClusterSecurityGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679520555"><span class="annot"><span class="annottext">Maybe Text
 marker :: Maybe Text
 $sel:marker:DescribeClusterSecurityGroups' :: DescribeClusterSecurityGroups -&gt; Maybe Text
-</span><a href="#local-6989586621679519825"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679519825"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679519824"><span class="annot"><span class="annottext">s :: DescribeClusterSecurityGroups
-</span><a href="#local-6989586621679519824"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#DescribeClusterSecurityGroups%27"><span class="hs-identifier hs-type">DescribeClusterSecurityGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679519823"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679519823"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeClusterSecurityGroups
-</span><a href="#local-6989586621679519824"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeClusterSecurityGroups' :: Maybe Text
+</span><a href="#local-6989586621679520555"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679520555"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679520554"><span class="annot"><span class="annottext">s :: DescribeClusterSecurityGroups
+</span><a href="#local-6989586621679520554"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#DescribeClusterSecurityGroups%27"><span class="hs-identifier hs-type">DescribeClusterSecurityGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679520553"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679520553"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeClusterSecurityGroups
+</span><a href="#local-6989586621679520554"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeClusterSecurityGroups' :: Maybe Text
 </span><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#%24sel%3Amarker%3ADescribeClusterSecurityGroups%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679519823"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#DescribeClusterSecurityGroups"><span class="hs-identifier hs-type">DescribeClusterSecurityGroups</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679520553"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#DescribeClusterSecurityGroups"><span class="hs-identifier hs-type">DescribeClusterSecurityGroups</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- | The maximum number of response records to return in each call. If the</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- number of remaining response records exceeds the specified @MaxRecords@</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- value, a value is returned in a @marker@ field of the response. You can</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- retrieve the next set of records by retrying the command with the</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- returned marker value.</span><span>
+</span><span id="line-224"></span><span class="hs-comment">--</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- Default: @100@</span><span>
+</span><span id="line-226"></span><span class="hs-comment">--</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- Constraints: minimum 20, maximum 100.</span><span>
+</span><span id="line-228"></span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#describeClusterSecurityGroups_maxRecords"><span class="hs-identifier hs-type">describeClusterSecurityGroups_maxRecords</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#DescribeClusterSecurityGroups"><span class="hs-identifier hs-type">DescribeClusterSecurityGroups</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span id="describeClusterSecurityGroups_maxRecords"><span class="annot"><span class="annottext">describeClusterSecurityGroups_maxRecords :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; DescribeClusterSecurityGroups -&gt; f DescribeClusterSecurityGroups
+</span><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#describeClusterSecurityGroups_maxRecords"><span class="hs-identifier hs-var hs-var">describeClusterSecurityGroups_maxRecords</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeClusterSecurityGroups -&gt; Maybe Int)
+-&gt; (DescribeClusterSecurityGroups
+    -&gt; Maybe Int -&gt; DescribeClusterSecurityGroups)
+-&gt; Lens
+     DescribeClusterSecurityGroups
+     DescribeClusterSecurityGroups
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#DescribeClusterSecurityGroups%27"><span class="hs-identifier hs-type">DescribeClusterSecurityGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679520552"><span class="annot"><span class="annottext">Maybe Int
+maxRecords :: Maybe Int
+$sel:maxRecords:DescribeClusterSecurityGroups' :: DescribeClusterSecurityGroups -&gt; Maybe Int
+</span><a href="#local-6989586621679520552"><span class="hs-identifier hs-var hs-var">maxRecords</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679520552"><span class="hs-identifier hs-var">maxRecords</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679520551"><span class="annot"><span class="annottext">s :: DescribeClusterSecurityGroups
+</span><a href="#local-6989586621679520551"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#DescribeClusterSecurityGroups%27"><span class="hs-identifier hs-type">DescribeClusterSecurityGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679520550"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679520550"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeClusterSecurityGroups
+</span><a href="#local-6989586621679520551"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxRecords:DescribeClusterSecurityGroups' :: Maybe Int
+</span><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#%24sel%3AmaxRecords%3ADescribeClusterSecurityGroups%27"><span class="hs-identifier hs-var">maxRecords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679520550"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#DescribeClusterSecurityGroups"><span class="hs-identifier hs-type">DescribeClusterSecurityGroups</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-230"></span><span>
 </span><span id="line-231"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#DescribeClusterSecurityGroups"><span class="hs-identifier hs-type">DescribeClusterSecurityGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-232"></span><span>  </span><span id="local-6989586621679519819"><span class="annot"><span class="annottext">page :: DescribeClusterSecurityGroups
+</span><span id="line-232"></span><span>  </span><span id="local-6989586621679520546"><span class="annot"><span class="annottext">page :: DescribeClusterSecurityGroups
 -&gt; AWSResponse DescribeClusterSecurityGroups
 -&gt; Maybe DescribeClusterSecurityGroups
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679519817"><span class="annot"><span class="annottext">DescribeClusterSecurityGroups
-</span><a href="#local-6989586621679519817"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679519816"><span class="annot"><span class="annottext">AWSResponse DescribeClusterSecurityGroups
-</span><a href="#local-6989586621679519816"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679520544"><span class="annot"><span class="annottext">DescribeClusterSecurityGroups
+</span><a href="#local-6989586621679520544"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679520543"><span class="annot"><span class="annottext">AWSResponse DescribeClusterSecurityGroups
+</span><a href="#local-6989586621679520543"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-233"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-234"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeClusterSecurityGroups
 DescribeClusterSecurityGroupsResponse
-</span><a href="#local-6989586621679519816"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679520543"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-235"></span><span>            </span><span class="annot"><span class="annottext">DescribeClusterSecurityGroupsResponse
 -&gt; Getting (First Text) DescribeClusterSecurityGroupsResponse Text
 -&gt; Maybe Text
@@ -501,7 +501,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-240"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeClusterSecurityGroups
 DescribeClusterSecurityGroupsResponse
-</span><a href="#local-6989586621679519816"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679520543"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-241"></span><span>            </span><span class="annot"><span class="annottext">DescribeClusterSecurityGroupsResponse
 -&gt; Getting
      (First [ClusterSecurityGroup])
@@ -560,7 +560,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-247"></span><span>        </span><span class="annot"><span class="annottext">DescribeClusterSecurityGroups
-</span><a href="#local-6989586621679519817"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679520544"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-248"></span><span>          </span><span class="annot"><span class="annottext">DescribeClusterSecurityGroups
 -&gt; (DescribeClusterSecurityGroups -&gt; DescribeClusterSecurityGroups)
 -&gt; DescribeClusterSecurityGroups
@@ -583,7 +583,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeClusterSecurityGroups
 DescribeClusterSecurityGroupsResponse
-</span><a href="#local-6989586621679519816"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679520543"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-250"></span><span>          </span><span class="annot"><span class="annottext">DescribeClusterSecurityGroupsResponse
 -&gt; Getting (First Text) DescribeClusterSecurityGroupsResponse Text
 -&gt; Maybe Text
@@ -612,7 +612,7 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-257"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-258"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#DescribeClusterSecurityGroups"><span class="hs-identifier hs-type">DescribeClusterSecurityGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-259"></span><span>      </span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#DescribeClusterSecurityGroupsResponse"><span class="hs-identifier hs-type">DescribeClusterSecurityGroupsResponse</span></a></span><span>
-</span><span id="line-260"></span><span>  </span><span id="local-6989586621679519807"><span class="annot"><span class="annottext">request :: DescribeClusterSecurityGroups
+</span><span id="line-260"></span><span>  </span><span id="local-6989586621679520534"><span class="annot"><span class="annottext">request :: DescribeClusterSecurityGroups
 -&gt; Request DescribeClusterSecurityGroups
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DescribeClusterSecurityGroups
@@ -620,7 +620,7 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Redshift.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-261"></span><span>  </span><span id="local-6989586621679519803"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-261"></span><span>  </span><span id="local-6989586621679520530"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeClusterSecurityGroups
 -&gt; ClientResponse ClientBody
@@ -651,10 +651,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-263"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DescribeClusterSecurityGroupsResult&quot;</span></span><span>
-</span><span id="line-264"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679519800"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679519800"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679519799"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679519799"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679519798"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679519798"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-264"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679520527"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679520527"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679520526"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679520526"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679520525"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679520525"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-265"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ClusterSecurityGroup]
 -&gt; Maybe Text -&gt; Int -&gt; DescribeClusterSecurityGroupsResponse
 </span><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#DescribeClusterSecurityGroupsResponse%27"><span class="hs-identifier hs-var">DescribeClusterSecurityGroupsResponse'</span></a></span><span>
@@ -665,7 +665,7 @@ Text
      String (Maybe Text -&gt; Int -&gt; DescribeClusterSecurityGroupsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679519798"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679520525"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ClusterSecurityGroups&quot;</span></span><span>
@@ -694,7 +694,7 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 -&gt; Either String (Int -&gt; DescribeClusterSecurityGroupsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679519798"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679520525"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Marker&quot;</span></span><span class="hs-special">)</span><span>
@@ -707,17 +707,17 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679519800"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679520527"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-272"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-273"></span><span>
 </span><span id="line-274"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-275"></span><span>  </span><span id="local-6989586621679519787"><span id="local-6989586621679519789"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-275"></span><span>  </span><span id="local-6989586621679520514"><span id="local-6989586621679520516"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-276"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#DescribeClusterSecurityGroups"><span class="hs-identifier hs-type">DescribeClusterSecurityGroups</span></a></span></span></span><span>
 </span><span id="line-277"></span><span>
-</span><span id="line-278"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679519784"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#DescribeClusterSecurityGroups"><span class="hs-identifier hs-type">DescribeClusterSecurityGroups</span></a></span></span><span>
+</span><span id="line-278"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679520511"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#DescribeClusterSecurityGroups"><span class="hs-identifier hs-type">DescribeClusterSecurityGroups</span></a></span></span><span>
 </span><span id="line-279"></span><span>
 </span><span id="line-280"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#DescribeClusterSecurityGroups"><span class="hs-identifier hs-type">DescribeClusterSecurityGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-281"></span><span>  </span><span id="local-6989586621679519780"><span class="annot"><span class="annottext">toHeaders :: DescribeClusterSecurityGroups -&gt; ResponseHeaders
+</span><span id="line-281"></span><span>  </span><span id="local-6989586621679520507"><span class="annot"><span class="annottext">toHeaders :: DescribeClusterSecurityGroups -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeClusterSecurityGroups -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -725,28 +725,28 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-282"></span><span>
 </span><span id="line-283"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#DescribeClusterSecurityGroups"><span class="hs-identifier hs-type">DescribeClusterSecurityGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-284"></span><span>  </span><span id="local-6989586621679519775"><span class="annot"><span class="annottext">toPath :: DescribeClusterSecurityGroups -&gt; ByteString
+</span><span id="line-284"></span><span>  </span><span id="local-6989586621679520502"><span class="annot"><span class="annottext">toPath :: DescribeClusterSecurityGroups -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeClusterSecurityGroups -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-285"></span><span>
 </span><span id="line-286"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#DescribeClusterSecurityGroups"><span class="hs-identifier hs-type">DescribeClusterSecurityGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-287"></span><span>  </span><span id="local-6989586621679519771"><span class="annot"><span class="annottext">toQuery :: DescribeClusterSecurityGroups -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#DescribeClusterSecurityGroups%27"><span class="hs-identifier hs-type">DescribeClusterSecurityGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679519765"><span id="local-6989586621679519766"><span id="local-6989586621679519767"><span id="local-6989586621679519768"><span id="local-6989586621679519769"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-287"></span><span>  </span><span id="local-6989586621679520498"><span class="annot"><span class="annottext">toQuery :: DescribeClusterSecurityGroups -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#DescribeClusterSecurityGroups%27"><span class="hs-identifier hs-type">DescribeClusterSecurityGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679520492"><span id="local-6989586621679520493"><span id="local-6989586621679520494"><span id="local-6989586621679520495"><span id="local-6989586621679520496"><span class="annot"><span class="annottext">Maybe Int
 Maybe [Text]
 Maybe Text
-marker :: Maybe Text
 maxRecords :: Maybe Int
-tagValues :: Maybe [Text]
+marker :: Maybe Text
 clusterSecurityGroupName :: Maybe Text
 tagKeys :: Maybe [Text]
-$sel:marker:DescribeClusterSecurityGroups' :: DescribeClusterSecurityGroups -&gt; Maybe Text
+tagValues :: Maybe [Text]
 $sel:maxRecords:DescribeClusterSecurityGroups' :: DescribeClusterSecurityGroups -&gt; Maybe Int
-$sel:tagValues:DescribeClusterSecurityGroups' :: DescribeClusterSecurityGroups -&gt; Maybe [Text]
+$sel:marker:DescribeClusterSecurityGroups' :: DescribeClusterSecurityGroups -&gt; Maybe Text
 $sel:clusterSecurityGroupName:DescribeClusterSecurityGroups' :: DescribeClusterSecurityGroups -&gt; Maybe Text
 $sel:tagKeys:DescribeClusterSecurityGroups' :: DescribeClusterSecurityGroups -&gt; Maybe [Text]
-</span><a href="#local-6989586621679519765"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:tagValues:DescribeClusterSecurityGroups' :: DescribeClusterSecurityGroups -&gt; Maybe [Text]
+</span><a href="#local-6989586621679520492"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-288"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -765,7 +765,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;2012-12-01&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-295"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;TagKeys&quot;</span></span><span>
+</span><span class="hs-string">&quot;TagValues&quot;</span></span><span>
 </span><span id="line-296"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
@@ -776,48 +776,48 @@ forall a.
 (IsList a, ToQuery (Item a)) =&gt;
 ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;TagKey&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
+</span><span class="hs-string">&quot;TagValue&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679519769"><span class="hs-identifier hs-var">tagKeys</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679520496"><span class="hs-identifier hs-var">tagValues</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-298"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;ClusterSecurityGroupName&quot;</span></span><span>
-</span><span id="line-299"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679519768"><span class="hs-identifier hs-var">clusterSecurityGroupName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-300"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;TagValues&quot;</span></span><span>
-</span><span id="line-301"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+</span><span class="hs-string">&quot;TagKeys&quot;</span></span><span>
+</span><span id="line-299"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
 forall a. ToQuery a =&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
-</span><span id="line-302"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; [Text] -&gt; QueryString
+</span><span id="line-300"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; [Text] -&gt; QueryString
 forall a.
 (IsList a, ToQuery (Item a)) =&gt;
 ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;TagValue&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
+</span><span class="hs-string">&quot;TagKey&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679519767"><span class="hs-identifier hs-var">tagValues</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-303"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;MaxRecords&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
+</span><a href="#local-6989586621679520495"><span class="hs-identifier hs-var">tagKeys</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-301"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ClusterSecurityGroupName&quot;</span></span><span>
+</span><span id="line-302"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679519766"><span class="hs-identifier hs-var">maxRecords</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-304"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679520494"><span class="hs-identifier hs-var">clusterSecurityGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-303"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Marker&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679519765"><span class="hs-identifier hs-var">marker</span></a></span><span>
+</span><a href="#local-6989586621679520493"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-304"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;MaxRecords&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679520492"><span class="hs-identifier hs-var">maxRecords</span></a></span><span>
 </span><span id="line-305"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-306"></span><span>
 </span><span id="line-307"></span><span class="hs-comment">-- |</span><span>
 </span><span id="line-308"></span><span class="hs-comment">--</span><span>
 </span><span id="line-309"></span><span class="hs-comment">-- /See:/ 'newDescribeClusterSecurityGroupsResponse' smart constructor.</span><span>
-</span><span id="line-310"></span><span id="local-6989586621679519761"><span id="local-6989586621679519762"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeClusterSecurityGroupsResponse"><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#DescribeClusterSecurityGroupsResponse"><span class="hs-identifier hs-var">DescribeClusterSecurityGroupsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeClusterSecurityGroupsResponse%27"><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#DescribeClusterSecurityGroupsResponse%27"><span class="hs-identifier hs-var">DescribeClusterSecurityGroupsResponse'</span></a></span></span><span>
+</span><span id="line-310"></span><span id="local-6989586621679520488"><span id="local-6989586621679520489"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeClusterSecurityGroupsResponse"><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#DescribeClusterSecurityGroupsResponse"><span class="hs-identifier hs-var">DescribeClusterSecurityGroupsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeClusterSecurityGroupsResponse%27"><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#DescribeClusterSecurityGroupsResponse%27"><span class="hs-identifier hs-var">DescribeClusterSecurityGroupsResponse'</span></a></span></span><span>
 </span><span id="line-311"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of ClusterSecurityGroup instances.</span><span>
 </span><span id="line-312"></span><span>    </span><span id="%24sel%3AclusterSecurityGroups%3ADescribeClusterSecurityGroupsResponse%27"><span class="annot"><span class="annottext">DescribeClusterSecurityGroupsResponse
 -&gt; Maybe [ClusterSecurityGroup]
@@ -834,7 +834,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-321"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeClusterSecurityGroupsResponse%27"><span class="annot"><span class="annottext">DescribeClusterSecurityGroupsResponse -&gt; Int
 </span><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#%24sel%3AhttpStatus%3ADescribeClusterSecurityGroupsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-322"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-323"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679519754"><span id="local-6989586621679519756"><span class="annot"><span class="annottext">DescribeClusterSecurityGroupsResponse
+</span><span id="line-323"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679520481"><span id="local-6989586621679520483"><span class="annot"><span class="annottext">DescribeClusterSecurityGroupsResponse
 -&gt; DescribeClusterSecurityGroupsResponse -&gt; Bool
 (DescribeClusterSecurityGroupsResponse
  -&gt; DescribeClusterSecurityGroupsResponse -&gt; Bool)
@@ -850,7 +850,7 @@ $c/= :: DescribeClusterSecurityGroupsResponse
 -&gt; DescribeClusterSecurityGroupsResponse -&gt; Bool
 $c== :: DescribeClusterSecurityGroupsResponse
 -&gt; DescribeClusterSecurityGroupsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679519746"><span id="local-6989586621679519748"><span id="local-6989586621679519750"><span id="local-6989586621679519752"><span class="annot"><span class="annottext">ReadPrec [DescribeClusterSecurityGroupsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679520473"><span id="local-6989586621679520475"><span id="local-6989586621679520477"><span id="local-6989586621679520479"><span class="annot"><span class="annottext">ReadPrec [DescribeClusterSecurityGroupsResponse]
 ReadPrec DescribeClusterSecurityGroupsResponse
 Int -&gt; ReadS DescribeClusterSecurityGroupsResponse
 ReadS [DescribeClusterSecurityGroupsResponse]
@@ -870,7 +870,7 @@ readList :: ReadS [DescribeClusterSecurityGroupsResponse]
 $creadList :: ReadS [DescribeClusterSecurityGroupsResponse]
 readsPrec :: Int -&gt; ReadS DescribeClusterSecurityGroupsResponse
 $creadsPrec :: Int -&gt; ReadS DescribeClusterSecurityGroupsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679519740"><span id="local-6989586621679519742"><span id="local-6989586621679519744"><span class="annot"><span class="annottext">Int -&gt; DescribeClusterSecurityGroupsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679520467"><span id="local-6989586621679520469"><span id="local-6989586621679520471"><span class="annot"><span class="annottext">Int -&gt; DescribeClusterSecurityGroupsResponse -&gt; ShowS
 [DescribeClusterSecurityGroupsResponse] -&gt; ShowS
 DescribeClusterSecurityGroupsResponse -&gt; String
 (Int -&gt; DescribeClusterSecurityGroupsResponse -&gt; ShowS)
@@ -931,8 +931,8 @@ DescribeClusterSecurityGroupsResponse
 </span><span id="line-345"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-346"></span><span>  </span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#DescribeClusterSecurityGroupsResponse"><span class="hs-identifier hs-type">DescribeClusterSecurityGroupsResponse</span></a></span><span>
 </span><span id="line-347"></span><span id="newDescribeClusterSecurityGroupsResponse"><span class="annot"><span class="annottext">newDescribeClusterSecurityGroupsResponse :: Int -&gt; DescribeClusterSecurityGroupsResponse
-</span><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#newDescribeClusterSecurityGroupsResponse"><span class="hs-identifier hs-var hs-var">newDescribeClusterSecurityGroupsResponse</span></a></span></span><span> </span><span id="local-6989586621679519737"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679519737"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#newDescribeClusterSecurityGroupsResponse"><span class="hs-identifier hs-var hs-var">newDescribeClusterSecurityGroupsResponse</span></a></span></span><span> </span><span id="local-6989586621679520464"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679520464"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-348"></span><span>  </span><span class="annot"><span class="annottext">DescribeClusterSecurityGroupsResponse' :: Maybe [ClusterSecurityGroup]
 -&gt; Maybe Text -&gt; Int -&gt; DescribeClusterSecurityGroupsResponse
 </span><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#DescribeClusterSecurityGroupsResponse%27"><span class="hs-identifier hs-type">DescribeClusterSecurityGroupsResponse'</span></a></span><span>
@@ -947,7 +947,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-352"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeClusterSecurityGroupsResponse' :: Int
 </span><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#%24sel%3AhttpStatus%3ADescribeClusterSecurityGroupsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679519737"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679520464"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-353"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-354"></span><span>
 </span><span id="line-355"></span><span class="hs-comment">-- | A list of ClusterSecurityGroup instances.</span><span>
@@ -964,17 +964,17 @@ forall a. Maybe a
      DescribeClusterSecurityGroupsResponse
      (Maybe [ClusterSecurityGroup])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#DescribeClusterSecurityGroupsResponse%27"><span class="hs-identifier hs-type">DescribeClusterSecurityGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679519736"><span class="annot"><span class="annottext">Maybe [ClusterSecurityGroup]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#DescribeClusterSecurityGroupsResponse%27"><span class="hs-identifier hs-type">DescribeClusterSecurityGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679520463"><span class="annot"><span class="annottext">Maybe [ClusterSecurityGroup]
 clusterSecurityGroups :: Maybe [ClusterSecurityGroup]
 $sel:clusterSecurityGroups:DescribeClusterSecurityGroupsResponse' :: DescribeClusterSecurityGroupsResponse
 -&gt; Maybe [ClusterSecurityGroup]
-</span><a href="#local-6989586621679519736"><span class="hs-identifier hs-var hs-var">clusterSecurityGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ClusterSecurityGroup]
-</span><a href="#local-6989586621679519736"><span class="hs-identifier hs-var">clusterSecurityGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679519735"><span class="annot"><span class="annottext">s :: DescribeClusterSecurityGroupsResponse
-</span><a href="#local-6989586621679519735"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#DescribeClusterSecurityGroupsResponse%27"><span class="hs-identifier hs-type">DescribeClusterSecurityGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679519734"><span class="annot"><span class="annottext">Maybe [ClusterSecurityGroup]
-</span><a href="#local-6989586621679519734"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeClusterSecurityGroupsResponse
-</span><a href="#local-6989586621679519735"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterSecurityGroups:DescribeClusterSecurityGroupsResponse' :: Maybe [ClusterSecurityGroup]
+</span><a href="#local-6989586621679520463"><span class="hs-identifier hs-var hs-var">clusterSecurityGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ClusterSecurityGroup]
+</span><a href="#local-6989586621679520463"><span class="hs-identifier hs-var">clusterSecurityGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679520462"><span class="annot"><span class="annottext">s :: DescribeClusterSecurityGroupsResponse
+</span><a href="#local-6989586621679520462"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#DescribeClusterSecurityGroupsResponse%27"><span class="hs-identifier hs-type">DescribeClusterSecurityGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679520461"><span class="annot"><span class="annottext">Maybe [ClusterSecurityGroup]
+</span><a href="#local-6989586621679520461"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeClusterSecurityGroupsResponse
+</span><a href="#local-6989586621679520462"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterSecurityGroups:DescribeClusterSecurityGroupsResponse' :: Maybe [ClusterSecurityGroup]
 </span><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#%24sel%3AclusterSecurityGroups%3ADescribeClusterSecurityGroupsResponse%27"><span class="hs-identifier hs-var">clusterSecurityGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ClusterSecurityGroup]
-</span><a href="#local-6989586621679519734"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#DescribeClusterSecurityGroupsResponse"><span class="hs-identifier hs-type">DescribeClusterSecurityGroupsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ClusterSecurityGroup] -&gt; f (Maybe [ClusterSecurityGroup]))
+</span><a href="#local-6989586621679520461"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#DescribeClusterSecurityGroupsResponse"><span class="hs-identifier hs-type">DescribeClusterSecurityGroupsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ClusterSecurityGroup] -&gt; f (Maybe [ClusterSecurityGroup]))
  -&gt; DescribeClusterSecurityGroupsResponse
  -&gt; f DescribeClusterSecurityGroupsResponse)
 -&gt; ((Maybe [ClusterSecurityGroup]
@@ -1004,8 +1004,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [ClusterSecurityGroup]
   [ClusterSecurityGroup]
   [ClusterSecurityGroup]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-358"></span><span>
 </span><span id="line-359"></span><span class="hs-comment">-- | A value that indicates the starting point for the next set of response</span><span>
 </span><span id="line-360"></span><span class="hs-comment">-- records in a subsequent request. If a value is returned in a response,</span><span>
@@ -1022,16 +1022,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
     -&gt; Maybe Text -&gt; DescribeClusterSecurityGroupsResponse)
 -&gt; Lens' DescribeClusterSecurityGroupsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#DescribeClusterSecurityGroupsResponse%27"><span class="hs-identifier hs-type">DescribeClusterSecurityGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679519733"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#DescribeClusterSecurityGroupsResponse%27"><span class="hs-identifier hs-type">DescribeClusterSecurityGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679520460"><span class="annot"><span class="annottext">Maybe Text
 marker :: Maybe Text
 $sel:marker:DescribeClusterSecurityGroupsResponse' :: DescribeClusterSecurityGroupsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679519733"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679519733"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679519732"><span class="annot"><span class="annottext">s :: DescribeClusterSecurityGroupsResponse
-</span><a href="#local-6989586621679519732"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#DescribeClusterSecurityGroupsResponse%27"><span class="hs-identifier hs-type">DescribeClusterSecurityGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679519731"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679519731"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeClusterSecurityGroupsResponse
-</span><a href="#local-6989586621679519732"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeClusterSecurityGroupsResponse' :: Maybe Text
+</span><a href="#local-6989586621679520460"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679520460"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679520459"><span class="annot"><span class="annottext">s :: DescribeClusterSecurityGroupsResponse
+</span><a href="#local-6989586621679520459"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#DescribeClusterSecurityGroupsResponse%27"><span class="hs-identifier hs-type">DescribeClusterSecurityGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679520458"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679520458"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeClusterSecurityGroupsResponse
+</span><a href="#local-6989586621679520459"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeClusterSecurityGroupsResponse' :: Maybe Text
 </span><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#%24sel%3Amarker%3ADescribeClusterSecurityGroupsResponse%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679519731"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#DescribeClusterSecurityGroupsResponse"><span class="hs-identifier hs-type">DescribeClusterSecurityGroupsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679520458"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#DescribeClusterSecurityGroupsResponse"><span class="hs-identifier hs-type">DescribeClusterSecurityGroupsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-367"></span><span>
 </span><span id="line-368"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-369"></span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#describeClusterSecurityGroupsResponse_httpStatus"><span class="hs-identifier hs-type">describeClusterSecurityGroupsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#DescribeClusterSecurityGroupsResponse"><span class="hs-identifier hs-type">DescribeClusterSecurityGroupsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -1047,18 +1047,18 @@ $sel:marker:DescribeClusterSecurityGroupsResponse' :: DescribeClusterSecurityGro
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#DescribeClusterSecurityGroupsResponse%27"><span class="hs-identifier hs-type">DescribeClusterSecurityGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679519730"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#DescribeClusterSecurityGroupsResponse%27"><span class="hs-identifier hs-type">DescribeClusterSecurityGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679520457"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeClusterSecurityGroupsResponse' :: DescribeClusterSecurityGroupsResponse -&gt; Int
-</span><a href="#local-6989586621679519730"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679519730"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679519729"><span class="annot"><span class="annottext">s :: DescribeClusterSecurityGroupsResponse
-</span><a href="#local-6989586621679519729"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#DescribeClusterSecurityGroupsResponse%27"><span class="hs-identifier hs-type">DescribeClusterSecurityGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679519728"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679519728"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeClusterSecurityGroupsResponse
-</span><a href="#local-6989586621679519729"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeClusterSecurityGroupsResponse' :: Int
+</span><a href="#local-6989586621679520457"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679520457"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679520456"><span class="annot"><span class="annottext">s :: DescribeClusterSecurityGroupsResponse
+</span><a href="#local-6989586621679520456"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#DescribeClusterSecurityGroupsResponse%27"><span class="hs-identifier hs-type">DescribeClusterSecurityGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679520455"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679520455"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeClusterSecurityGroupsResponse
+</span><a href="#local-6989586621679520456"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeClusterSecurityGroupsResponse' :: Int
 </span><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#%24sel%3AhttpStatus%3ADescribeClusterSecurityGroupsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679519728"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#DescribeClusterSecurityGroupsResponse"><span class="hs-identifier hs-type">DescribeClusterSecurityGroupsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679520455"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#DescribeClusterSecurityGroupsResponse"><span class="hs-identifier hs-type">DescribeClusterSecurityGroupsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-371"></span><span>
 </span><span id="line-372"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-373"></span><span>  </span><span id="local-6989586621679519726"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-373"></span><span>  </span><span id="local-6989586621679520453"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-374"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.DescribeClusterSecurityGroups.html#DescribeClusterSecurityGroupsResponse"><span class="hs-identifier hs-type">DescribeClusterSecurityGroupsResponse</span></a></span></span><span>
 </span><span id="line-375"></span></pre></body></html>

@@ -50,12 +50,12 @@
 </span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.html"><span class="hs-identifier">Network.AWS.SES.Types</span></a></span><span>
 </span><span id="line-51"></span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newGetTemplate' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621679283175"><span id="local-6989586621679283176"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetTemplate"><span class="annot"><a href="Network.AWS.SES.GetTemplate.html#GetTemplate"><span class="hs-identifier hs-var">GetTemplate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetTemplate%27"><span class="annot"><a href="Network.AWS.SES.GetTemplate.html#GetTemplate%27"><span class="hs-identifier hs-var">GetTemplate'</span></a></span></span><span>
+</span><span id="line-53"></span><span id="local-6989586621679283394"><span id="local-6989586621679283395"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetTemplate"><span class="annot"><a href="Network.AWS.SES.GetTemplate.html#GetTemplate"><span class="hs-identifier hs-var">GetTemplate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetTemplate%27"><span class="annot"><a href="Network.AWS.SES.GetTemplate.html#GetTemplate%27"><span class="hs-identifier hs-var">GetTemplate'</span></a></span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the template you want to retrieve.</span><span>
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3AtemplateName%3AGetTemplate%27"><span class="annot"><span class="annottext">GetTemplate -&gt; Text
 </span><a href="Network.AWS.SES.GetTemplate.html#%24sel%3AtemplateName%3AGetTemplate%27"><span class="hs-identifier hs-var hs-var">templateName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679283169"><span id="local-6989586621679283171"><span class="annot"><span class="annottext">GetTemplate -&gt; GetTemplate -&gt; Bool
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679283388"><span id="local-6989586621679283390"><span class="annot"><span class="annottext">GetTemplate -&gt; GetTemplate -&gt; Bool
 (GetTemplate -&gt; GetTemplate -&gt; Bool)
 -&gt; (GetTemplate -&gt; GetTemplate -&gt; Bool) -&gt; Eq GetTemplate
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -63,7 +63,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetTemplate -&gt; GetTemplate -&gt; Bool
 == :: GetTemplate -&gt; GetTemplate -&gt; Bool
 $c== :: GetTemplate -&gt; GetTemplate -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679283160"><span id="local-6989586621679283162"><span id="local-6989586621679283164"><span id="local-6989586621679283166"><span class="annot"><span class="annottext">ReadPrec [GetTemplate]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679283379"><span id="local-6989586621679283381"><span id="local-6989586621679283383"><span id="local-6989586621679283385"><span class="annot"><span class="annottext">ReadPrec [GetTemplate]
 ReadPrec GetTemplate
 Int -&gt; ReadS GetTemplate
 ReadS [GetTemplate]
@@ -83,7 +83,7 @@ readList :: ReadS [GetTemplate]
 $creadList :: ReadS [GetTemplate]
 readsPrec :: Int -&gt; ReadS GetTemplate
 $creadsPrec :: Int -&gt; ReadS GetTemplate
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679283153"><span id="local-6989586621679283155"><span id="local-6989586621679283157"><span class="annot"><span class="annottext">Int -&gt; GetTemplate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679283372"><span id="local-6989586621679283374"><span id="local-6989586621679283376"><span class="annot"><span class="annottext">Int -&gt; GetTemplate -&gt; ShowS
 [GetTemplate] -&gt; ShowS
 GetTemplate -&gt; String
 (Int -&gt; GetTemplate -&gt; ShowS)
@@ -123,12 +123,12 @@ $cfrom :: forall x. GetTemplate -&gt; Rep GetTemplate x
 </span><span id="line-70"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.SES.GetTemplate.html#GetTemplate"><span class="hs-identifier hs-type">GetTemplate</span></a></span><span>
 </span><span id="line-72"></span><span id="newGetTemplate"><span class="annot"><span class="annottext">newGetTemplate :: Text -&gt; GetTemplate
-</span><a href="Network.AWS.SES.GetTemplate.html#newGetTemplate"><span class="hs-identifier hs-var hs-var">newGetTemplate</span></a></span></span><span> </span><span id="local-6989586621679283148"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679283148"><span class="hs-identifier hs-var">pTemplateName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SES.GetTemplate.html#newGetTemplate"><span class="hs-identifier hs-var hs-var">newGetTemplate</span></a></span></span><span> </span><span id="local-6989586621679283367"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679283367"><span class="hs-identifier hs-var">pTemplateName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">GetTemplate' :: Text -&gt; GetTemplate
 </span><a href="Network.AWS.SES.GetTemplate.html#GetTemplate%27"><span class="hs-identifier hs-type">GetTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:templateName:GetTemplate' :: Text
 </span><a href="Network.AWS.SES.GetTemplate.html#%24sel%3AtemplateName%3AGetTemplate%27"><span class="hs-identifier hs-var">templateName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679283148"><span class="hs-identifier hs-var">pTemplateName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679283367"><span class="hs-identifier hs-var">pTemplateName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- | The name of the template you want to retrieve.</span><span>
 </span><span id="line-76"></span><span class="annot"><a href="Network.AWS.SES.GetTemplate.html#getTemplate_templateName"><span class="hs-identifier hs-type">getTemplate_templateName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.GetTemplate.html#GetTemplate"><span class="hs-identifier hs-type">GetTemplate</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -137,25 +137,25 @@ $cfrom :: forall x. GetTemplate -&gt; Rep GetTemplate x
 -&gt; (GetTemplate -&gt; Text -&gt; GetTemplate)
 -&gt; Lens GetTemplate GetTemplate Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.GetTemplate.html#GetTemplate%27"><span class="hs-identifier hs-type">GetTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283145"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.GetTemplate.html#GetTemplate%27"><span class="hs-identifier hs-type">GetTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283364"><span class="annot"><span class="annottext">Text
 templateName :: Text
 $sel:templateName:GetTemplate' :: GetTemplate -&gt; Text
-</span><a href="#local-6989586621679283145"><span class="hs-identifier hs-var hs-var">templateName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679283145"><span class="hs-identifier hs-var">templateName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283144"><span class="annot"><span class="annottext">s :: GetTemplate
-</span><a href="#local-6989586621679283144"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.GetTemplate.html#GetTemplate%27"><span class="hs-identifier hs-type">GetTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283143"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679283143"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTemplate
-</span><a href="#local-6989586621679283144"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:templateName:GetTemplate' :: Text
+</span><a href="#local-6989586621679283364"><span class="hs-identifier hs-var hs-var">templateName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679283364"><span class="hs-identifier hs-var">templateName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283363"><span class="annot"><span class="annottext">s :: GetTemplate
+</span><a href="#local-6989586621679283363"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.GetTemplate.html#GetTemplate%27"><span class="hs-identifier hs-type">GetTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283362"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679283362"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTemplate
+</span><a href="#local-6989586621679283363"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:templateName:GetTemplate' :: Text
 </span><a href="Network.AWS.SES.GetTemplate.html#%24sel%3AtemplateName%3AGetTemplate%27"><span class="hs-identifier hs-var">templateName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679283143"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.GetTemplate.html#GetTemplate"><span class="hs-identifier hs-type">GetTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679283362"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.GetTemplate.html#GetTemplate"><span class="hs-identifier hs-type">GetTemplate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
 </span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.GetTemplate.html#GetTemplate"><span class="hs-identifier hs-type">GetTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-80"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SES.GetTemplate.html#GetTemplate"><span class="hs-identifier hs-type">GetTemplate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SES.GetTemplate.html#GetTemplateResponse"><span class="hs-identifier hs-type">GetTemplateResponse</span></a></span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679283139"><span class="annot"><span class="annottext">request :: GetTemplate -&gt; Request GetTemplate
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679283358"><span class="annot"><span class="annottext">request :: GetTemplate -&gt; Request GetTemplate
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetTemplate -&gt; Request GetTemplate
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SES.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679283135"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679283354"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetTemplate
 -&gt; ClientResponse ClientBody
@@ -184,10 +184,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;GetTemplateResult&quot;</span></span><span>
-</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679283132"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679283132"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679283131"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679283131"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679283130"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679283130"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679283351"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679283351"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679283350"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679283350"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679283349"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679283349"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-86"></span><span>          </span><span class="annot"><span class="annottext">Maybe Template -&gt; Int -&gt; GetTemplateResponse
 </span><a href="Network.AWS.SES.GetTemplate.html#GetTemplateResponse%27"><span class="hs-identifier hs-var">GetTemplateResponse'</span></a></span><span>
 </span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Template -&gt; Int -&gt; GetTemplateResponse)
@@ -195,7 +195,7 @@ Text
 -&gt; Either String (Int -&gt; GetTemplateResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679283130"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Template)
+</span><a href="#local-6989586621679283349"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Template)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Template&quot;</span></span><span class="hs-special">)</span><span>
@@ -207,15 +207,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679283132"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679283351"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283122"><span id="local-6989586621679283124"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.GetTemplate.html#GetTemplate"><span class="hs-identifier hs-type">GetTemplate</span></a></span></span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283341"><span id="local-6989586621679283343"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.GetTemplate.html#GetTemplate"><span class="hs-identifier hs-type">GetTemplate</span></a></span></span></span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283119"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.GetTemplate.html#GetTemplate"><span class="hs-identifier hs-type">GetTemplate</span></a></span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283338"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.GetTemplate.html#GetTemplate"><span class="hs-identifier hs-type">GetTemplate</span></a></span></span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.GetTemplate.html#GetTemplate"><span class="hs-identifier hs-type">GetTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679283115"><span class="annot"><span class="annottext">toHeaders :: GetTemplate -&gt; ResponseHeaders
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679283334"><span class="annot"><span class="annottext">toHeaders :: GetTemplate -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetTemplate -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -223,18 +223,18 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.GetTemplate.html#GetTemplate"><span class="hs-identifier hs-type">GetTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679283110"><span class="annot"><span class="annottext">toPath :: GetTemplate -&gt; ByteString
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679283329"><span class="annot"><span class="annottext">toPath :: GetTemplate -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetTemplate -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.GetTemplate.html#GetTemplate"><span class="hs-identifier hs-type">GetTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679283106"><span class="annot"><span class="annottext">toQuery :: GetTemplate -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SES.GetTemplate.html#GetTemplate%27"><span class="hs-identifier hs-type">GetTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283104"><span class="annot"><span class="annottext">Text
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679283325"><span class="annot"><span class="annottext">toQuery :: GetTemplate -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SES.GetTemplate.html#GetTemplate%27"><span class="hs-identifier hs-type">GetTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283323"><span class="annot"><span class="annottext">Text
 templateName :: Text
 $sel:templateName:GetTemplate' :: GetTemplate -&gt; Text
-</span><a href="#local-6989586621679283104"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679283323"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -254,18 +254,18 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;TemplateName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679283104"><span class="hs-identifier hs-var">templateName</span></a></span><span>
+</span><a href="#local-6989586621679283323"><span class="hs-identifier hs-var">templateName</span></a></span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- | /See:/ 'newGetTemplateResponse' smart constructor.</span><span>
-</span><span id="line-112"></span><span id="local-6989586621679283101"><span id="local-6989586621679283102"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetTemplateResponse"><span class="annot"><a href="Network.AWS.SES.GetTemplate.html#GetTemplateResponse"><span class="hs-identifier hs-var">GetTemplateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetTemplateResponse%27"><span class="annot"><a href="Network.AWS.SES.GetTemplate.html#GetTemplateResponse%27"><span class="hs-identifier hs-var">GetTemplateResponse'</span></a></span></span><span>
+</span><span id="line-112"></span><span id="local-6989586621679283320"><span id="local-6989586621679283321"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetTemplateResponse"><span class="annot"><a href="Network.AWS.SES.GetTemplate.html#GetTemplateResponse"><span class="hs-identifier hs-var">GetTemplateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetTemplateResponse%27"><span class="annot"><a href="Network.AWS.SES.GetTemplate.html#GetTemplateResponse%27"><span class="hs-identifier hs-var">GetTemplateResponse'</span></a></span></span><span>
 </span><span id="line-113"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3Atemplate%3AGetTemplateResponse%27"><span class="annot"><span class="annottext">GetTemplateResponse -&gt; Maybe Template
 </span><a href="Network.AWS.SES.GetTemplate.html#%24sel%3Atemplate%3AGetTemplateResponse%27"><span class="hs-identifier hs-var hs-var">template</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.Template.html#Template"><span class="hs-identifier hs-type">Template</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-114"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-115"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetTemplateResponse%27"><span class="annot"><span class="annottext">GetTemplateResponse -&gt; Int
 </span><a href="Network.AWS.SES.GetTemplate.html#%24sel%3AhttpStatus%3AGetTemplateResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-116"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-117"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679283095"><span id="local-6989586621679283097"><span class="annot"><span class="annottext">GetTemplateResponse -&gt; GetTemplateResponse -&gt; Bool
+</span><span id="line-117"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679283314"><span id="local-6989586621679283316"><span class="annot"><span class="annottext">GetTemplateResponse -&gt; GetTemplateResponse -&gt; Bool
 (GetTemplateResponse -&gt; GetTemplateResponse -&gt; Bool)
 -&gt; (GetTemplateResponse -&gt; GetTemplateResponse -&gt; Bool)
 -&gt; Eq GetTemplateResponse
@@ -274,7 +274,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetTemplateResponse -&gt; GetTemplateResponse -&gt; Bool
 == :: GetTemplateResponse -&gt; GetTemplateResponse -&gt; Bool
 $c== :: GetTemplateResponse -&gt; GetTemplateResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679283087"><span id="local-6989586621679283089"><span id="local-6989586621679283091"><span id="local-6989586621679283093"><span class="annot"><span class="annottext">ReadPrec [GetTemplateResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679283306"><span id="local-6989586621679283308"><span id="local-6989586621679283310"><span id="local-6989586621679283312"><span class="annot"><span class="annottext">ReadPrec [GetTemplateResponse]
 ReadPrec GetTemplateResponse
 Int -&gt; ReadS GetTemplateResponse
 ReadS [GetTemplateResponse]
@@ -294,7 +294,7 @@ readList :: ReadS [GetTemplateResponse]
 $creadList :: ReadS [GetTemplateResponse]
 readsPrec :: Int -&gt; ReadS GetTemplateResponse
 $creadsPrec :: Int -&gt; ReadS GetTemplateResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679283081"><span id="local-6989586621679283083"><span id="local-6989586621679283085"><span class="annot"><span class="annottext">Int -&gt; GetTemplateResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679283300"><span id="local-6989586621679283302"><span id="local-6989586621679283304"><span class="annot"><span class="annottext">Int -&gt; GetTemplateResponse -&gt; ShowS
 [GetTemplateResponse] -&gt; ShowS
 GetTemplateResponse -&gt; String
 (Int -&gt; GetTemplateResponse -&gt; ShowS)
@@ -336,8 +336,8 @@ $cfrom :: forall x. GetTemplateResponse -&gt; Rep GetTemplateResponse x
 </span><span id="line-132"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-133"></span><span>  </span><span class="annot"><a href="Network.AWS.SES.GetTemplate.html#GetTemplateResponse"><span class="hs-identifier hs-type">GetTemplateResponse</span></a></span><span>
 </span><span id="line-134"></span><span id="newGetTemplateResponse"><span class="annot"><span class="annottext">newGetTemplateResponse :: Int -&gt; GetTemplateResponse
-</span><a href="Network.AWS.SES.GetTemplate.html#newGetTemplateResponse"><span class="hs-identifier hs-var hs-var">newGetTemplateResponse</span></a></span></span><span> </span><span id="local-6989586621679283078"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679283078"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SES.GetTemplate.html#newGetTemplateResponse"><span class="hs-identifier hs-var hs-var">newGetTemplateResponse</span></a></span></span><span> </span><span id="local-6989586621679283297"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679283297"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-135"></span><span>  </span><span class="annot"><span class="annottext">GetTemplateResponse' :: Maybe Template -&gt; Int -&gt; GetTemplateResponse
 </span><a href="Network.AWS.SES.GetTemplate.html#GetTemplateResponse%27"><span class="hs-identifier hs-type">GetTemplateResponse'</span></a></span><span>
 </span><span id="line-136"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:template:GetTemplateResponse' :: Maybe Template
@@ -346,7 +346,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-137"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetTemplateResponse' :: Int
 </span><a href="Network.AWS.SES.GetTemplate.html#%24sel%3AhttpStatus%3AGetTemplateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679283078"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679283297"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-138"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-comment">-- | Undocumented member.</span><span>
@@ -361,16 +361,16 @@ forall a. Maybe a
      (Maybe Template)
      (Maybe Template)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.GetTemplate.html#GetTemplateResponse%27"><span class="hs-identifier hs-type">GetTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283077"><span class="annot"><span class="annottext">Maybe Template
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.GetTemplate.html#GetTemplateResponse%27"><span class="hs-identifier hs-type">GetTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283296"><span class="annot"><span class="annottext">Maybe Template
 template :: Maybe Template
 $sel:template:GetTemplateResponse' :: GetTemplateResponse -&gt; Maybe Template
-</span><a href="#local-6989586621679283077"><span class="hs-identifier hs-var hs-var">template</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Template
-</span><a href="#local-6989586621679283077"><span class="hs-identifier hs-var">template</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283076"><span class="annot"><span class="annottext">s :: GetTemplateResponse
-</span><a href="#local-6989586621679283076"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.GetTemplate.html#GetTemplateResponse%27"><span class="hs-identifier hs-type">GetTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283075"><span class="annot"><span class="annottext">Maybe Template
-</span><a href="#local-6989586621679283075"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTemplateResponse
-</span><a href="#local-6989586621679283076"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:template:GetTemplateResponse' :: Maybe Template
+</span><a href="#local-6989586621679283296"><span class="hs-identifier hs-var hs-var">template</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Template
+</span><a href="#local-6989586621679283296"><span class="hs-identifier hs-var">template</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283295"><span class="annot"><span class="annottext">s :: GetTemplateResponse
+</span><a href="#local-6989586621679283295"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.GetTemplate.html#GetTemplateResponse%27"><span class="hs-identifier hs-type">GetTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283294"><span class="annot"><span class="annottext">Maybe Template
+</span><a href="#local-6989586621679283294"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTemplateResponse
+</span><a href="#local-6989586621679283295"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:template:GetTemplateResponse' :: Maybe Template
 </span><a href="Network.AWS.SES.GetTemplate.html#%24sel%3Atemplate%3AGetTemplateResponse%27"><span class="hs-identifier hs-var">template</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Template
-</span><a href="#local-6989586621679283075"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.GetTemplate.html#GetTemplateResponse"><span class="hs-identifier hs-type">GetTemplateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679283294"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.GetTemplate.html#GetTemplateResponse"><span class="hs-identifier hs-type">GetTemplateResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-145"></span><span class="annot"><a href="Network.AWS.SES.GetTemplate.html#getTemplateResponse_httpStatus"><span class="hs-identifier hs-type">getTemplateResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.GetTemplate.html#GetTemplateResponse"><span class="hs-identifier hs-type">GetTemplateResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -379,16 +379,16 @@ $sel:template:GetTemplateResponse' :: GetTemplateResponse -&gt; Maybe Template
 -&gt; (GetTemplateResponse -&gt; Int -&gt; GetTemplateResponse)
 -&gt; Lens GetTemplateResponse GetTemplateResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.GetTemplate.html#GetTemplateResponse%27"><span class="hs-identifier hs-type">GetTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283074"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.GetTemplate.html#GetTemplateResponse%27"><span class="hs-identifier hs-type">GetTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283293"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetTemplateResponse' :: GetTemplateResponse -&gt; Int
-</span><a href="#local-6989586621679283074"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679283074"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283073"><span class="annot"><span class="annottext">s :: GetTemplateResponse
-</span><a href="#local-6989586621679283073"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.GetTemplate.html#GetTemplateResponse%27"><span class="hs-identifier hs-type">GetTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283072"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679283072"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTemplateResponse
-</span><a href="#local-6989586621679283073"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetTemplateResponse' :: Int
+</span><a href="#local-6989586621679283293"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679283293"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283292"><span class="annot"><span class="annottext">s :: GetTemplateResponse
+</span><a href="#local-6989586621679283292"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.GetTemplate.html#GetTemplateResponse%27"><span class="hs-identifier hs-type">GetTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283291"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679283291"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTemplateResponse
+</span><a href="#local-6989586621679283292"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetTemplateResponse' :: Int
 </span><a href="Network.AWS.SES.GetTemplate.html#%24sel%3AhttpStatus%3AGetTemplateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679283072"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.GetTemplate.html#GetTemplateResponse"><span class="hs-identifier hs-type">GetTemplateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679283291"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.GetTemplate.html#GetTemplateResponse"><span class="hs-identifier hs-type">GetTemplateResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>
-</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283070"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.GetTemplate.html#GetTemplateResponse"><span class="hs-identifier hs-type">GetTemplateResponse</span></a></span></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283289"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.GetTemplate.html#GetTemplateResponse"><span class="hs-identifier hs-type">GetTemplateResponse</span></a></span></span><span>
 </span><span id="line-149"></span></pre></body></html>

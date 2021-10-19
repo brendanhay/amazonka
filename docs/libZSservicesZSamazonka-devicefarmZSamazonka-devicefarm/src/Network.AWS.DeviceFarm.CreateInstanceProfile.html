@@ -28,10 +28,10 @@
 </span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#newCreateInstanceProfile"><span class="hs-identifier">newCreateInstanceProfile</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-29"></span><span>
 </span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#createInstanceProfile_excludeAppPackagesFromCleanup"><span class="hs-identifier">createInstanceProfile_excludeAppPackagesFromCleanup</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#createInstanceProfile_description"><span class="hs-identifier">createInstanceProfile_description</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#createInstanceProfile_rebootAfterUse"><span class="hs-identifier">createInstanceProfile_rebootAfterUse</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#createInstanceProfile_packageCleanup"><span class="hs-identifier">createInstanceProfile_packageCleanup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#createInstanceProfile_rebootAfterUse"><span class="hs-identifier">createInstanceProfile_rebootAfterUse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#createInstanceProfile_packageCleanup"><span class="hs-identifier">createInstanceProfile_packageCleanup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#createInstanceProfile_excludeAppPackagesFromCleanup"><span class="hs-identifier">createInstanceProfile_excludeAppPackagesFromCleanup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#createInstanceProfile_description"><span class="hs-identifier">createInstanceProfile_description</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#createInstanceProfile_name"><span class="hs-identifier">createInstanceProfile_name</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-36"></span><span>
 </span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
@@ -52,30 +52,30 @@
 </span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newCreateInstanceProfile' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679388649"><span id="local-6989586621679388650"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateInstanceProfile"><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#CreateInstanceProfile"><span class="hs-identifier hs-var">CreateInstanceProfile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateInstanceProfile%27"><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#CreateInstanceProfile%27"><span class="hs-identifier hs-var">CreateInstanceProfile'</span></a></span></span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of strings that specifies the list of app packages that should</span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- not be cleaned up from the device after a test run.</span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- The list of packages is considered only if you set @packageCleanup@ to</span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- @true@.</span><span>
-</span><span id="line-61"></span><span>    </span><span id="%24sel%3AexcludeAppPackagesFromCleanup%3ACreateInstanceProfile%27"><span class="annot"><span class="annottext">CreateInstanceProfile -&gt; Maybe [Text]
-</span><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#%24sel%3AexcludeAppPackagesFromCleanup%3ACreateInstanceProfile%27"><span class="hs-identifier hs-var hs-var">excludeAppPackagesFromCleanup</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The description of your instance profile.</span><span>
-</span><span id="line-63"></span><span>    </span><span id="%24sel%3Adescription%3ACreateInstanceProfile%27"><span class="annot"><span class="annottext">CreateInstanceProfile -&gt; Maybe Text
-</span><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#%24sel%3Adescription%3ACreateInstanceProfile%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | When set to @true@, Device Farm reboots the instance after a test run.</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- The default value is @true@.</span><span>
-</span><span id="line-66"></span><span>    </span><span id="%24sel%3ArebootAfterUse%3ACreateInstanceProfile%27"><span class="annot"><span class="annottext">CreateInstanceProfile -&gt; Maybe Bool
+</span><span id="line-55"></span><span id="local-6989586621679388930"><span id="local-6989586621679388931"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateInstanceProfile"><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#CreateInstanceProfile"><span class="hs-identifier hs-var">CreateInstanceProfile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateInstanceProfile%27"><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#CreateInstanceProfile%27"><span class="hs-identifier hs-var">CreateInstanceProfile'</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | When set to @true@, Device Farm reboots the instance after a test run.</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- The default value is @true@.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3ArebootAfterUse%3ACreateInstanceProfile%27"><span class="annot"><span class="annottext">CreateInstanceProfile -&gt; Maybe Bool
 </span><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#%24sel%3ArebootAfterUse%3ACreateInstanceProfile%27"><span class="hs-identifier hs-var hs-var">rebootAfterUse</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | When set to @true@, Device Farm removes app packages after a test run.</span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- The default value is @false@ for private devices.</span><span>
-</span><span id="line-69"></span><span>    </span><span id="%24sel%3ApackageCleanup%3ACreateInstanceProfile%27"><span class="annot"><span class="annottext">CreateInstanceProfile -&gt; Maybe Bool
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | When set to @true@, Device Farm removes app packages after a test run.</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- The default value is @false@ for private devices.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3ApackageCleanup%3ACreateInstanceProfile%27"><span class="annot"><span class="annottext">CreateInstanceProfile -&gt; Maybe Bool
 </span><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#%24sel%3ApackageCleanup%3ACreateInstanceProfile%27"><span class="hs-identifier hs-var hs-var">packageCleanup</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | An array of strings that specifies the list of app packages that should</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- not be cleaned up from the device after a test run.</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- The list of packages is considered only if you set @packageCleanup@ to</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- @true@.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AexcludeAppPackagesFromCleanup%3ACreateInstanceProfile%27"><span class="annot"><span class="annottext">CreateInstanceProfile -&gt; Maybe [Text]
+</span><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#%24sel%3AexcludeAppPackagesFromCleanup%3ACreateInstanceProfile%27"><span class="hs-identifier hs-var hs-var">excludeAppPackagesFromCleanup</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | The description of your instance profile.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3Adescription%3ACreateInstanceProfile%27"><span class="annot"><span class="annottext">CreateInstanceProfile -&gt; Maybe Text
+</span><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#%24sel%3Adescription%3ACreateInstanceProfile%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | The name of your instance profile.</span><span>
 </span><span id="line-71"></span><span>    </span><span id="%24sel%3Aname%3ACreateInstanceProfile%27"><span class="annot"><span class="annottext">CreateInstanceProfile -&gt; Text
 </span><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#%24sel%3Aname%3ACreateInstanceProfile%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-72"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679388639"><span id="local-6989586621679388641"><span class="annot"><span class="annottext">CreateInstanceProfile -&gt; CreateInstanceProfile -&gt; Bool
+</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679388920"><span id="local-6989586621679388922"><span class="annot"><span class="annottext">CreateInstanceProfile -&gt; CreateInstanceProfile -&gt; Bool
 (CreateInstanceProfile -&gt; CreateInstanceProfile -&gt; Bool)
 -&gt; (CreateInstanceProfile -&gt; CreateInstanceProfile -&gt; Bool)
 -&gt; Eq CreateInstanceProfile
@@ -84,7 +84,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateInstanceProfile -&gt; CreateInstanceProfile -&gt; Bool
 == :: CreateInstanceProfile -&gt; CreateInstanceProfile -&gt; Bool
 $c== :: CreateInstanceProfile -&gt; CreateInstanceProfile -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388630"><span id="local-6989586621679388632"><span id="local-6989586621679388634"><span id="local-6989586621679388636"><span class="annot"><span class="annottext">ReadPrec [CreateInstanceProfile]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388911"><span id="local-6989586621679388913"><span id="local-6989586621679388915"><span id="local-6989586621679388917"><span class="annot"><span class="annottext">ReadPrec [CreateInstanceProfile]
 ReadPrec CreateInstanceProfile
 Int -&gt; ReadS CreateInstanceProfile
 ReadS [CreateInstanceProfile]
@@ -104,7 +104,7 @@ readList :: ReadS [CreateInstanceProfile]
 $creadList :: ReadS [CreateInstanceProfile]
 readsPrec :: Int -&gt; ReadS CreateInstanceProfile
 $creadsPrec :: Int -&gt; ReadS CreateInstanceProfile
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388623"><span id="local-6989586621679388625"><span id="local-6989586621679388627"><span class="annot"><span class="annottext">Int -&gt; CreateInstanceProfile -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388904"><span id="local-6989586621679388906"><span id="local-6989586621679388908"><span class="annot"><span class="annottext">Int -&gt; CreateInstanceProfile -&gt; ShowS
 [CreateInstanceProfile] -&gt; ShowS
 CreateInstanceProfile -&gt; String
 (Int -&gt; CreateInstanceProfile -&gt; ShowS)
@@ -138,19 +138,19 @@ $cfrom :: forall x. CreateInstanceProfile -&gt; Rep CreateInstanceProfile x
 </span><span id="line-80"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-82"></span><span class="hs-comment">--</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- 'excludeAppPackagesFromCleanup', 'createInstanceProfile_excludeAppPackagesFromCleanup' - An array of strings that specifies the list of app packages that should</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- not be cleaned up from the device after a test run.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'rebootAfterUse', 'createInstanceProfile_rebootAfterUse' - When set to @true@, Device Farm reboots the instance after a test run.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- The default value is @true@.</span><span>
 </span><span id="line-85"></span><span class="hs-comment">--</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- The list of packages is considered only if you set @packageCleanup@ to</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- @true@.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'packageCleanup', 'createInstanceProfile_packageCleanup' - When set to @true@, Device Farm removes app packages after a test run.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- The default value is @false@ for private devices.</span><span>
 </span><span id="line-88"></span><span class="hs-comment">--</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- 'description', 'createInstanceProfile_description' - The description of your instance profile.</span><span>
-</span><span id="line-90"></span><span class="hs-comment">--</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- 'rebootAfterUse', 'createInstanceProfile_rebootAfterUse' - When set to @true@, Device Farm reboots the instance after a test run.</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- The default value is @true@.</span><span>
-</span><span id="line-93"></span><span class="hs-comment">--</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- 'packageCleanup', 'createInstanceProfile_packageCleanup' - When set to @true@, Device Farm removes app packages after a test run.</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- The default value is @false@ for private devices.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'excludeAppPackagesFromCleanup', 'createInstanceProfile_excludeAppPackagesFromCleanup' - An array of strings that specifies the list of app packages that should</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- not be cleaned up from the device after a test run.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- The list of packages is considered only if you set @packageCleanup@ to</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- @true@.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'description', 'createInstanceProfile_description' - The description of your instance profile.</span><span>
 </span><span id="line-96"></span><span class="hs-comment">--</span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- 'name', 'createInstanceProfile_name' - The name of your instance profile.</span><span>
 </span><span id="line-98"></span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#newCreateInstanceProfile"><span class="hs-identifier hs-type">newCreateInstanceProfile</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -158,44 +158,92 @@ $cfrom :: forall x. CreateInstanceProfile -&gt; Rep CreateInstanceProfile x
 </span><span id="line-100"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-101"></span><span>  </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#CreateInstanceProfile"><span class="hs-identifier hs-type">CreateInstanceProfile</span></a></span><span>
 </span><span id="line-102"></span><span id="newCreateInstanceProfile"><span class="annot"><span class="annottext">newCreateInstanceProfile :: Text -&gt; CreateInstanceProfile
-</span><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#newCreateInstanceProfile"><span class="hs-identifier hs-var hs-var">newCreateInstanceProfile</span></a></span></span><span> </span><span id="local-6989586621679388618"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679388618"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-103"></span><span>  </span><span class="annot"><span class="annottext">CreateInstanceProfile' :: Maybe [Text]
+</span><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#newCreateInstanceProfile"><span class="hs-identifier hs-var hs-var">newCreateInstanceProfile</span></a></span></span><span> </span><span id="local-6989586621679388899"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679388899"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>  </span><span class="annot"><span class="annottext">CreateInstanceProfile' :: Maybe Bool
+-&gt; Maybe Bool
+-&gt; Maybe [Text]
 -&gt; Maybe Text
--&gt; Maybe Bool
--&gt; Maybe Bool
 -&gt; Text
 -&gt; CreateInstanceProfile
 </span><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#CreateInstanceProfile%27"><span class="hs-identifier hs-type">CreateInstanceProfile'</span></a></span><span>
-</span><span id="line-104"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:excludeAppPackagesFromCleanup:CreateInstanceProfile' :: Maybe [Text]
-</span><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#%24sel%3AexcludeAppPackagesFromCleanup%3ACreateInstanceProfile%27"><span class="hs-identifier hs-var">excludeAppPackagesFromCleanup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-105"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-104"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:rebootAfterUse:CreateInstanceProfile' :: Maybe Bool
+</span><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#%24sel%3ArebootAfterUse%3ACreateInstanceProfile%27"><span class="hs-identifier hs-var">rebootAfterUse</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:CreateInstanceProfile' :: Maybe Text
-</span><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#%24sel%3Adescription%3ACreateInstanceProfile%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:rebootAfterUse:CreateInstanceProfile' :: Maybe Bool
-</span><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#%24sel%3ArebootAfterUse%3ACreateInstanceProfile%27"><span class="hs-identifier hs-var">rebootAfterUse</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:packageCleanup:CreateInstanceProfile' :: Maybe Bool
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:packageCleanup:CreateInstanceProfile' :: Maybe Bool
 </span><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#%24sel%3ApackageCleanup%3ACreateInstanceProfile%27"><span class="hs-identifier hs-var">packageCleanup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:excludeAppPackagesFromCleanup:CreateInstanceProfile' :: Maybe [Text]
+</span><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#%24sel%3AexcludeAppPackagesFromCleanup%3ACreateInstanceProfile%27"><span class="hs-identifier hs-var">excludeAppPackagesFromCleanup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:CreateInstanceProfile' :: Maybe Text
+</span><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#%24sel%3Adescription%3ACreateInstanceProfile%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:CreateInstanceProfile' :: Text
 </span><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#%24sel%3Aname%3ACreateInstanceProfile%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679388618"><span class="hs-identifier hs-var">pName_</span></a></span><span>
+</span><a href="#local-6989586621679388899"><span class="hs-identifier hs-var">pName_</span></a></span><span>
 </span><span id="line-110"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-comment">-- | An array of strings that specifies the list of app packages that should</span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- not be cleaned up from the device after a test run.</span><span>
-</span><span id="line-114"></span><span class="hs-comment">--</span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- The list of packages is considered only if you set @packageCleanup@ to</span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- @true@.</span><span>
-</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#createInstanceProfile_excludeAppPackagesFromCleanup"><span class="hs-identifier hs-type">createInstanceProfile_excludeAppPackagesFromCleanup</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#CreateInstanceProfile"><span class="hs-identifier hs-type">CreateInstanceProfile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-118"></span><span id="createInstanceProfile_excludeAppPackagesFromCleanup"><span class="annot"><span class="annottext">createInstanceProfile_excludeAppPackagesFromCleanup :: (Maybe [Text] -&gt; f (Maybe [Text]))
+</span><span id="line-112"></span><span class="hs-comment">-- | When set to @true@, Device Farm reboots the instance after a test run.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- The default value is @true@.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#createInstanceProfile_rebootAfterUse"><span class="hs-identifier hs-type">createInstanceProfile_rebootAfterUse</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#CreateInstanceProfile"><span class="hs-identifier hs-type">CreateInstanceProfile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span id="createInstanceProfile_rebootAfterUse"><span class="annot"><span class="annottext">createInstanceProfile_rebootAfterUse :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; CreateInstanceProfile -&gt; f CreateInstanceProfile
+</span><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#createInstanceProfile_rebootAfterUse"><span class="hs-identifier hs-var hs-var">createInstanceProfile_rebootAfterUse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateInstanceProfile -&gt; Maybe Bool)
+-&gt; (CreateInstanceProfile -&gt; Maybe Bool -&gt; CreateInstanceProfile)
+-&gt; Lens
+     CreateInstanceProfile
+     CreateInstanceProfile
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#CreateInstanceProfile%27"><span class="hs-identifier hs-type">CreateInstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388896"><span class="annot"><span class="annottext">Maybe Bool
+rebootAfterUse :: Maybe Bool
+$sel:rebootAfterUse:CreateInstanceProfile' :: CreateInstanceProfile -&gt; Maybe Bool
+</span><a href="#local-6989586621679388896"><span class="hs-identifier hs-var hs-var">rebootAfterUse</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679388896"><span class="hs-identifier hs-var">rebootAfterUse</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388895"><span class="annot"><span class="annottext">s :: CreateInstanceProfile
+</span><a href="#local-6989586621679388895"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#CreateInstanceProfile%27"><span class="hs-identifier hs-type">CreateInstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388894"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679388894"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateInstanceProfile
+</span><a href="#local-6989586621679388895"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rebootAfterUse:CreateInstanceProfile' :: Maybe Bool
+</span><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#%24sel%3ArebootAfterUse%3ACreateInstanceProfile%27"><span class="hs-identifier hs-var">rebootAfterUse</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679388894"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#CreateInstanceProfile"><span class="hs-identifier hs-type">CreateInstanceProfile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | When set to @true@, Device Farm removes app packages after a test run.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- The default value is @false@ for private devices.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#createInstanceProfile_packageCleanup"><span class="hs-identifier hs-type">createInstanceProfile_packageCleanup</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#CreateInstanceProfile"><span class="hs-identifier hs-type">CreateInstanceProfile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span id="createInstanceProfile_packageCleanup"><span class="annot"><span class="annottext">createInstanceProfile_packageCleanup :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; CreateInstanceProfile -&gt; f CreateInstanceProfile
+</span><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#createInstanceProfile_packageCleanup"><span class="hs-identifier hs-var hs-var">createInstanceProfile_packageCleanup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateInstanceProfile -&gt; Maybe Bool)
+-&gt; (CreateInstanceProfile -&gt; Maybe Bool -&gt; CreateInstanceProfile)
+-&gt; Lens
+     CreateInstanceProfile
+     CreateInstanceProfile
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#CreateInstanceProfile%27"><span class="hs-identifier hs-type">CreateInstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388893"><span class="annot"><span class="annottext">Maybe Bool
+packageCleanup :: Maybe Bool
+$sel:packageCleanup:CreateInstanceProfile' :: CreateInstanceProfile -&gt; Maybe Bool
+</span><a href="#local-6989586621679388893"><span class="hs-identifier hs-var hs-var">packageCleanup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679388893"><span class="hs-identifier hs-var">packageCleanup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388892"><span class="annot"><span class="annottext">s :: CreateInstanceProfile
+</span><a href="#local-6989586621679388892"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#CreateInstanceProfile%27"><span class="hs-identifier hs-type">CreateInstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388891"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679388891"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateInstanceProfile
+</span><a href="#local-6989586621679388892"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:packageCleanup:CreateInstanceProfile' :: Maybe Bool
+</span><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#%24sel%3ApackageCleanup%3ACreateInstanceProfile%27"><span class="hs-identifier hs-var">packageCleanup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679388891"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#CreateInstanceProfile"><span class="hs-identifier hs-type">CreateInstanceProfile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | An array of strings that specifies the list of app packages that should</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- not be cleaned up from the device after a test run.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- The list of packages is considered only if you set @packageCleanup@ to</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- @true@.</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#createInstanceProfile_excludeAppPackagesFromCleanup"><span class="hs-identifier hs-type">createInstanceProfile_excludeAppPackagesFromCleanup</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#CreateInstanceProfile"><span class="hs-identifier hs-type">CreateInstanceProfile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span id="createInstanceProfile_excludeAppPackagesFromCleanup"><span class="annot"><span class="annottext">createInstanceProfile_excludeAppPackagesFromCleanup :: (Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; CreateInstanceProfile -&gt; f CreateInstanceProfile
 </span><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#createInstanceProfile_excludeAppPackagesFromCleanup"><span class="hs-identifier hs-var hs-var">createInstanceProfile_excludeAppPackagesFromCleanup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateInstanceProfile -&gt; Maybe [Text])
 -&gt; (CreateInstanceProfile -&gt; Maybe [Text] -&gt; CreateInstanceProfile)
@@ -205,16 +253,16 @@ forall a. Maybe a
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#CreateInstanceProfile%27"><span class="hs-identifier hs-type">CreateInstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388615"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#CreateInstanceProfile%27"><span class="hs-identifier hs-type">CreateInstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388890"><span class="annot"><span class="annottext">Maybe [Text]
 excludeAppPackagesFromCleanup :: Maybe [Text]
 $sel:excludeAppPackagesFromCleanup:CreateInstanceProfile' :: CreateInstanceProfile -&gt; Maybe [Text]
-</span><a href="#local-6989586621679388615"><span class="hs-identifier hs-var hs-var">excludeAppPackagesFromCleanup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679388615"><span class="hs-identifier hs-var">excludeAppPackagesFromCleanup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388614"><span class="annot"><span class="annottext">s :: CreateInstanceProfile
-</span><a href="#local-6989586621679388614"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#CreateInstanceProfile%27"><span class="hs-identifier hs-type">CreateInstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388613"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679388613"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateInstanceProfile
-</span><a href="#local-6989586621679388614"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:excludeAppPackagesFromCleanup:CreateInstanceProfile' :: Maybe [Text]
+</span><a href="#local-6989586621679388890"><span class="hs-identifier hs-var hs-var">excludeAppPackagesFromCleanup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679388890"><span class="hs-identifier hs-var">excludeAppPackagesFromCleanup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388889"><span class="annot"><span class="annottext">s :: CreateInstanceProfile
+</span><a href="#local-6989586621679388889"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#CreateInstanceProfile%27"><span class="hs-identifier hs-type">CreateInstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388888"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679388888"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateInstanceProfile
+</span><a href="#local-6989586621679388889"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:excludeAppPackagesFromCleanup:CreateInstanceProfile' :: Maybe [Text]
 </span><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#%24sel%3AexcludeAppPackagesFromCleanup%3ACreateInstanceProfile%27"><span class="hs-identifier hs-var">excludeAppPackagesFromCleanup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679388613"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#CreateInstanceProfile"><span class="hs-identifier hs-type">CreateInstanceProfile</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679388888"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#CreateInstanceProfile"><span class="hs-identifier hs-type">CreateInstanceProfile</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; CreateInstanceProfile -&gt; f CreateInstanceProfile)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -228,12 +276,12 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-comment">-- | The description of your instance profile.</span><span>
-</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#createInstanceProfile_description"><span class="hs-identifier hs-type">createInstanceProfile_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#CreateInstanceProfile"><span class="hs-identifier hs-type">CreateInstanceProfile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-122"></span><span id="createInstanceProfile_description"><span class="annot"><span class="annottext">createInstanceProfile_description :: (Maybe Text -&gt; f (Maybe Text))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- | The description of your instance profile.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#createInstanceProfile_description"><span class="hs-identifier hs-type">createInstanceProfile_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#CreateInstanceProfile"><span class="hs-identifier hs-type">CreateInstanceProfile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span id="createInstanceProfile_description"><span class="annot"><span class="annottext">createInstanceProfile_description :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; CreateInstanceProfile -&gt; f CreateInstanceProfile
 </span><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#createInstanceProfile_description"><span class="hs-identifier hs-var hs-var">createInstanceProfile_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateInstanceProfile -&gt; Maybe Text)
 -&gt; (CreateInstanceProfile -&gt; Maybe Text -&gt; CreateInstanceProfile)
@@ -243,64 +291,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#CreateInstanceProfile%27"><span class="hs-identifier hs-type">CreateInstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388609"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#CreateInstanceProfile%27"><span class="hs-identifier hs-type">CreateInstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388884"><span class="annot"><span class="annottext">Maybe Text
 description :: Maybe Text
 $sel:description:CreateInstanceProfile' :: CreateInstanceProfile -&gt; Maybe Text
-</span><a href="#local-6989586621679388609"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679388609"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388608"><span class="annot"><span class="annottext">s :: CreateInstanceProfile
-</span><a href="#local-6989586621679388608"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#CreateInstanceProfile%27"><span class="hs-identifier hs-type">CreateInstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388607"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679388607"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateInstanceProfile
-</span><a href="#local-6989586621679388608"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CreateInstanceProfile' :: Maybe Text
+</span><a href="#local-6989586621679388884"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679388884"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388883"><span class="annot"><span class="annottext">s :: CreateInstanceProfile
+</span><a href="#local-6989586621679388883"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#CreateInstanceProfile%27"><span class="hs-identifier hs-type">CreateInstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388882"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679388882"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateInstanceProfile
+</span><a href="#local-6989586621679388883"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CreateInstanceProfile' :: Maybe Text
 </span><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#%24sel%3Adescription%3ACreateInstanceProfile%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679388607"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#CreateInstanceProfile"><span class="hs-identifier hs-type">CreateInstanceProfile</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- | When set to @true@, Device Farm reboots the instance after a test run.</span><span>
-</span><span id="line-125"></span><span class="hs-comment">-- The default value is @true@.</span><span>
-</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#createInstanceProfile_rebootAfterUse"><span class="hs-identifier hs-type">createInstanceProfile_rebootAfterUse</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#CreateInstanceProfile"><span class="hs-identifier hs-type">CreateInstanceProfile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-127"></span><span id="createInstanceProfile_rebootAfterUse"><span class="annot"><span class="annottext">createInstanceProfile_rebootAfterUse :: (Maybe Bool -&gt; f (Maybe Bool))
--&gt; CreateInstanceProfile -&gt; f CreateInstanceProfile
-</span><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#createInstanceProfile_rebootAfterUse"><span class="hs-identifier hs-var hs-var">createInstanceProfile_rebootAfterUse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateInstanceProfile -&gt; Maybe Bool)
--&gt; (CreateInstanceProfile -&gt; Maybe Bool -&gt; CreateInstanceProfile)
--&gt; Lens
-     CreateInstanceProfile
-     CreateInstanceProfile
-     (Maybe Bool)
-     (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#CreateInstanceProfile%27"><span class="hs-identifier hs-type">CreateInstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388606"><span class="annot"><span class="annottext">Maybe Bool
-rebootAfterUse :: Maybe Bool
-$sel:rebootAfterUse:CreateInstanceProfile' :: CreateInstanceProfile -&gt; Maybe Bool
-</span><a href="#local-6989586621679388606"><span class="hs-identifier hs-var hs-var">rebootAfterUse</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679388606"><span class="hs-identifier hs-var">rebootAfterUse</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388605"><span class="annot"><span class="annottext">s :: CreateInstanceProfile
-</span><a href="#local-6989586621679388605"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#CreateInstanceProfile%27"><span class="hs-identifier hs-type">CreateInstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388604"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679388604"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateInstanceProfile
-</span><a href="#local-6989586621679388605"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rebootAfterUse:CreateInstanceProfile' :: Maybe Bool
-</span><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#%24sel%3ArebootAfterUse%3ACreateInstanceProfile%27"><span class="hs-identifier hs-var">rebootAfterUse</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679388604"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#CreateInstanceProfile"><span class="hs-identifier hs-type">CreateInstanceProfile</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- | When set to @true@, Device Farm removes app packages after a test run.</span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- The default value is @false@ for private devices.</span><span>
-</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#createInstanceProfile_packageCleanup"><span class="hs-identifier hs-type">createInstanceProfile_packageCleanup</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#CreateInstanceProfile"><span class="hs-identifier hs-type">CreateInstanceProfile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-132"></span><span id="createInstanceProfile_packageCleanup"><span class="annot"><span class="annottext">createInstanceProfile_packageCleanup :: (Maybe Bool -&gt; f (Maybe Bool))
--&gt; CreateInstanceProfile -&gt; f CreateInstanceProfile
-</span><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#createInstanceProfile_packageCleanup"><span class="hs-identifier hs-var hs-var">createInstanceProfile_packageCleanup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateInstanceProfile -&gt; Maybe Bool)
--&gt; (CreateInstanceProfile -&gt; Maybe Bool -&gt; CreateInstanceProfile)
--&gt; Lens
-     CreateInstanceProfile
-     CreateInstanceProfile
-     (Maybe Bool)
-     (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#CreateInstanceProfile%27"><span class="hs-identifier hs-type">CreateInstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388603"><span class="annot"><span class="annottext">Maybe Bool
-packageCleanup :: Maybe Bool
-$sel:packageCleanup:CreateInstanceProfile' :: CreateInstanceProfile -&gt; Maybe Bool
-</span><a href="#local-6989586621679388603"><span class="hs-identifier hs-var hs-var">packageCleanup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679388603"><span class="hs-identifier hs-var">packageCleanup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388602"><span class="annot"><span class="annottext">s :: CreateInstanceProfile
-</span><a href="#local-6989586621679388602"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#CreateInstanceProfile%27"><span class="hs-identifier hs-type">CreateInstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388601"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679388601"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateInstanceProfile
-</span><a href="#local-6989586621679388602"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:packageCleanup:CreateInstanceProfile' :: Maybe Bool
-</span><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#%24sel%3ApackageCleanup%3ACreateInstanceProfile%27"><span class="hs-identifier hs-var">packageCleanup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679388601"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#CreateInstanceProfile"><span class="hs-identifier hs-type">CreateInstanceProfile</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679388882"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#CreateInstanceProfile"><span class="hs-identifier hs-type">CreateInstanceProfile</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-comment">-- | The name of your instance profile.</span><span>
 </span><span id="line-135"></span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#createInstanceProfile_name"><span class="hs-identifier hs-type">createInstanceProfile_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#CreateInstanceProfile"><span class="hs-identifier hs-type">CreateInstanceProfile</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -310,27 +310,27 @@ $sel:packageCleanup:CreateInstanceProfile' :: CreateInstanceProfile -&gt; Maybe 
 -&gt; (CreateInstanceProfile -&gt; Text -&gt; CreateInstanceProfile)
 -&gt; Lens CreateInstanceProfile CreateInstanceProfile Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#CreateInstanceProfile%27"><span class="hs-identifier hs-type">CreateInstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388600"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#CreateInstanceProfile%27"><span class="hs-identifier hs-type">CreateInstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388881"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:CreateInstanceProfile' :: CreateInstanceProfile -&gt; Text
-</span><a href="#local-6989586621679388600"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679388600"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388599"><span class="annot"><span class="annottext">s :: CreateInstanceProfile
-</span><a href="#local-6989586621679388599"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#CreateInstanceProfile%27"><span class="hs-identifier hs-type">CreateInstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388598"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679388598"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateInstanceProfile
-</span><a href="#local-6989586621679388599"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreateInstanceProfile' :: Text
+</span><a href="#local-6989586621679388881"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679388881"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388880"><span class="annot"><span class="annottext">s :: CreateInstanceProfile
+</span><a href="#local-6989586621679388880"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#CreateInstanceProfile%27"><span class="hs-identifier hs-type">CreateInstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388879"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679388879"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateInstanceProfile
+</span><a href="#local-6989586621679388880"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreateInstanceProfile' :: Text
 </span><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#%24sel%3Aname%3ACreateInstanceProfile%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679388598"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#CreateInstanceProfile"><span class="hs-identifier hs-type">CreateInstanceProfile</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679388879"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#CreateInstanceProfile"><span class="hs-identifier hs-type">CreateInstanceProfile</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#CreateInstanceProfile"><span class="hs-identifier hs-type">CreateInstanceProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-139"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-140"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#CreateInstanceProfile"><span class="hs-identifier hs-type">CreateInstanceProfile</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-141"></span><span>      </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#CreateInstanceProfileResponse"><span class="hs-identifier hs-type">CreateInstanceProfileResponse</span></a></span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679388594"><span class="annot"><span class="annottext">request :: CreateInstanceProfile -&gt; Request CreateInstanceProfile
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679388875"><span class="annot"><span class="annottext">request :: CreateInstanceProfile -&gt; Request CreateInstanceProfile
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateInstanceProfile -&gt; Request CreateInstanceProfile
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DeviceFarm.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679388590"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679388871"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateInstanceProfile
 -&gt; ClientResponse ClientBody
@@ -356,10 +356,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-145"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679388587"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679388587"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679388586"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679388586"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679388585"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679388585"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-145"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679388868"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679388868"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679388867"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679388867"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679388866"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679388866"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-146"></span><span>          </span><span class="annot"><span class="annottext">Maybe InstanceProfile -&gt; Int -&gt; CreateInstanceProfileResponse
 </span><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#CreateInstanceProfileResponse%27"><span class="hs-identifier hs-var">CreateInstanceProfileResponse'</span></a></span><span>
 </span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">(Maybe InstanceProfile -&gt; Int -&gt; CreateInstanceProfileResponse)
@@ -367,7 +367,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; CreateInstanceProfileResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679388585"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe InstanceProfile)
+</span><a href="#local-6989586621679388866"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe InstanceProfile)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;instanceProfile&quot;</span></span><span class="hs-special">)</span><span>
@@ -379,15 +379,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679388587"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679388868"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>
-</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388577"><span id="local-6989586621679388579"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#CreateInstanceProfile"><span class="hs-identifier hs-type">CreateInstanceProfile</span></a></span></span></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388858"><span id="local-6989586621679388860"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#CreateInstanceProfile"><span class="hs-identifier hs-type">CreateInstanceProfile</span></a></span></span></span><span>
 </span><span id="line-152"></span><span>
-</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388574"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#CreateInstanceProfile"><span class="hs-identifier hs-type">CreateInstanceProfile</span></a></span></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388855"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#CreateInstanceProfile"><span class="hs-identifier hs-type">CreateInstanceProfile</span></a></span></span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#CreateInstanceProfile"><span class="hs-identifier hs-type">CreateInstanceProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-156"></span><span>  </span><span id="local-6989586621679388570"><span class="annot"><span class="annottext">toHeaders :: CreateInstanceProfile -&gt; ResponseHeaders
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679388851"><span class="annot"><span class="annottext">toHeaders :: CreateInstanceProfile -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-157"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateInstanceProfile -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -414,78 +414,78 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-167"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-168"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-169"></span><span>
-</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388560"><span id="local-6989586621679388562"><span id="local-6989586621679388564"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#CreateInstanceProfile"><span class="hs-identifier hs-type">CreateInstanceProfile</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-171"></span><span>  </span><span id="local-6989586621679388558"><span class="annot"><span class="annottext">toJSON :: CreateInstanceProfile -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#CreateInstanceProfile%27"><span class="hs-identifier hs-type">CreateInstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388552"><span id="local-6989586621679388553"><span id="local-6989586621679388554"><span id="local-6989586621679388555"><span id="local-6989586621679388556"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388841"><span id="local-6989586621679388843"><span id="local-6989586621679388845"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#CreateInstanceProfile"><span class="hs-identifier hs-type">CreateInstanceProfile</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621679388839"><span class="annot"><span class="annottext">toJSON :: CreateInstanceProfile -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#CreateInstanceProfile%27"><span class="hs-identifier hs-type">CreateInstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388833"><span id="local-6989586621679388834"><span id="local-6989586621679388835"><span id="local-6989586621679388836"><span id="local-6989586621679388837"><span class="annot"><span class="annottext">Maybe Bool
 Maybe [Text]
 Maybe Text
 Text
 name :: Text
-packageCleanup :: Maybe Bool
-rebootAfterUse :: Maybe Bool
 description :: Maybe Text
 excludeAppPackagesFromCleanup :: Maybe [Text]
+packageCleanup :: Maybe Bool
+rebootAfterUse :: Maybe Bool
 $sel:name:CreateInstanceProfile' :: CreateInstanceProfile -&gt; Text
-$sel:packageCleanup:CreateInstanceProfile' :: CreateInstanceProfile -&gt; Maybe Bool
-$sel:rebootAfterUse:CreateInstanceProfile' :: CreateInstanceProfile -&gt; Maybe Bool
 $sel:description:CreateInstanceProfile' :: CreateInstanceProfile -&gt; Maybe Text
 $sel:excludeAppPackagesFromCleanup:CreateInstanceProfile' :: CreateInstanceProfile -&gt; Maybe [Text]
-</span><a href="#local-6989586621679388552"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:packageCleanup:CreateInstanceProfile' :: CreateInstanceProfile -&gt; Maybe Bool
+$sel:rebootAfterUse:CreateInstanceProfile' :: CreateInstanceProfile -&gt; Maybe Bool
+</span><a href="#local-6989586621679388833"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-172"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-173"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-174"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;rebootAfterUse&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679388837"><span class="hs-identifier hs-var">rebootAfterUse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;packageCleanup&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679388836"><span class="hs-identifier hs-var">packageCleanup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;excludeAppPackagesFromCleanup&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-175"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+</span><span id="line-179"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679388556"><span class="hs-identifier hs-var">excludeAppPackagesFromCleanup</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-176"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679388835"><span class="hs-identifier hs-var">excludeAppPackagesFromCleanup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679388555"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-177"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;rebootAfterUse&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-178"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679388554"><span class="hs-identifier hs-var">rebootAfterUse</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-179"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;packageCleanup&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-180"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679388553"><span class="hs-identifier hs-var">packageCleanup</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679388834"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-181"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679388552"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679388833"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-182"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-183"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-184"></span><span>
 </span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#CreateInstanceProfile"><span class="hs-identifier hs-type">CreateInstanceProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-186"></span><span>  </span><span id="local-6989586621679388546"><span class="annot"><span class="annottext">toPath :: CreateInstanceProfile -&gt; ByteString
+</span><span id="line-186"></span><span>  </span><span id="local-6989586621679388827"><span class="annot"><span class="annottext">toPath :: CreateInstanceProfile -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateInstanceProfile -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-187"></span><span>
 </span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#CreateInstanceProfile"><span class="hs-identifier hs-type">CreateInstanceProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-189"></span><span>  </span><span id="local-6989586621679388542"><span class="annot"><span class="annottext">toQuery :: CreateInstanceProfile -&gt; QueryString
+</span><span id="line-189"></span><span>  </span><span id="local-6989586621679388823"><span class="annot"><span class="annottext">toQuery :: CreateInstanceProfile -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateInstanceProfile -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -493,7 +493,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-190"></span><span>
 </span><span id="line-191"></span><span class="hs-comment">-- | /See:/ 'newCreateInstanceProfileResponse' smart constructor.</span><span>
-</span><span id="line-192"></span><span id="local-6989586621679388539"><span id="local-6989586621679388540"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateInstanceProfileResponse"><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#CreateInstanceProfileResponse"><span class="hs-identifier hs-var">CreateInstanceProfileResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateInstanceProfileResponse%27"><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#CreateInstanceProfileResponse%27"><span class="hs-identifier hs-var">CreateInstanceProfileResponse'</span></a></span></span><span>
+</span><span id="line-192"></span><span id="local-6989586621679388820"><span id="local-6989586621679388821"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateInstanceProfileResponse"><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#CreateInstanceProfileResponse"><span class="hs-identifier hs-var">CreateInstanceProfileResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateInstanceProfileResponse%27"><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#CreateInstanceProfileResponse%27"><span class="hs-identifier hs-var">CreateInstanceProfileResponse'</span></a></span></span><span>
 </span><span id="line-193"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An object that contains information about your instance profile.</span><span>
 </span><span id="line-194"></span><span>    </span><span id="%24sel%3AinstanceProfile%3ACreateInstanceProfileResponse%27"><span class="annot"><span class="annottext">CreateInstanceProfileResponse -&gt; Maybe InstanceProfile
 </span><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#%24sel%3AinstanceProfile%3ACreateInstanceProfileResponse%27"><span class="hs-identifier hs-var hs-var">instanceProfile</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.InstanceProfile.html#InstanceProfile"><span class="hs-identifier hs-type">InstanceProfile</span></a></span><span class="hs-special">,</span><span>
@@ -501,7 +501,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-196"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateInstanceProfileResponse%27"><span class="annot"><span class="annottext">CreateInstanceProfileResponse -&gt; Int
 </span><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#%24sel%3AhttpStatus%3ACreateInstanceProfileResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-197"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-198"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679388533"><span id="local-6989586621679388535"><span class="annot"><span class="annottext">CreateInstanceProfileResponse
+</span><span id="line-198"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679388814"><span id="local-6989586621679388816"><span class="annot"><span class="annottext">CreateInstanceProfileResponse
 -&gt; CreateInstanceProfileResponse -&gt; Bool
 (CreateInstanceProfileResponse
  -&gt; CreateInstanceProfileResponse -&gt; Bool)
@@ -517,7 +517,7 @@ $c/= :: CreateInstanceProfileResponse
 -&gt; CreateInstanceProfileResponse -&gt; Bool
 $c== :: CreateInstanceProfileResponse
 -&gt; CreateInstanceProfileResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388525"><span id="local-6989586621679388527"><span id="local-6989586621679388529"><span id="local-6989586621679388531"><span class="annot"><span class="annottext">ReadPrec [CreateInstanceProfileResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388806"><span id="local-6989586621679388808"><span id="local-6989586621679388810"><span id="local-6989586621679388812"><span class="annot"><span class="annottext">ReadPrec [CreateInstanceProfileResponse]
 ReadPrec CreateInstanceProfileResponse
 Int -&gt; ReadS CreateInstanceProfileResponse
 ReadS [CreateInstanceProfileResponse]
@@ -537,7 +537,7 @@ readList :: ReadS [CreateInstanceProfileResponse]
 $creadList :: ReadS [CreateInstanceProfileResponse]
 readsPrec :: Int -&gt; ReadS CreateInstanceProfileResponse
 $creadsPrec :: Int -&gt; ReadS CreateInstanceProfileResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388519"><span id="local-6989586621679388521"><span id="local-6989586621679388523"><span class="annot"><span class="annottext">Int -&gt; CreateInstanceProfileResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388800"><span id="local-6989586621679388802"><span id="local-6989586621679388804"><span class="annot"><span class="annottext">Int -&gt; CreateInstanceProfileResponse -&gt; ShowS
 [CreateInstanceProfileResponse] -&gt; ShowS
 CreateInstanceProfileResponse -&gt; String
 (Int -&gt; CreateInstanceProfileResponse -&gt; ShowS)
@@ -591,8 +591,8 @@ CreateInstanceProfileResponse
 </span><span id="line-213"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-214"></span><span>  </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#CreateInstanceProfileResponse"><span class="hs-identifier hs-type">CreateInstanceProfileResponse</span></a></span><span>
 </span><span id="line-215"></span><span id="newCreateInstanceProfileResponse"><span class="annot"><span class="annottext">newCreateInstanceProfileResponse :: Int -&gt; CreateInstanceProfileResponse
-</span><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#newCreateInstanceProfileResponse"><span class="hs-identifier hs-var hs-var">newCreateInstanceProfileResponse</span></a></span></span><span> </span><span id="local-6989586621679388516"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679388516"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#newCreateInstanceProfileResponse"><span class="hs-identifier hs-var hs-var">newCreateInstanceProfileResponse</span></a></span></span><span> </span><span id="local-6989586621679388797"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679388797"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-216"></span><span>  </span><span class="annot"><span class="annottext">CreateInstanceProfileResponse' :: Maybe InstanceProfile -&gt; Int -&gt; CreateInstanceProfileResponse
 </span><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#CreateInstanceProfileResponse%27"><span class="hs-identifier hs-type">CreateInstanceProfileResponse'</span></a></span><span>
 </span><span id="line-217"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:instanceProfile:CreateInstanceProfileResponse' :: Maybe InstanceProfile
@@ -602,7 +602,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-219"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateInstanceProfileResponse' :: Int
 </span><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#%24sel%3AhttpStatus%3ACreateInstanceProfileResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679388516"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679388797"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-220"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-221"></span><span>
 </span><span id="line-222"></span><span class="hs-comment">-- | An object that contains information about your instance profile.</span><span>
@@ -618,16 +618,16 @@ forall a. Maybe a
      (Maybe InstanceProfile)
      (Maybe InstanceProfile)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#CreateInstanceProfileResponse%27"><span class="hs-identifier hs-type">CreateInstanceProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388515"><span class="annot"><span class="annottext">Maybe InstanceProfile
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#CreateInstanceProfileResponse%27"><span class="hs-identifier hs-type">CreateInstanceProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388796"><span class="annot"><span class="annottext">Maybe InstanceProfile
 instanceProfile :: Maybe InstanceProfile
 $sel:instanceProfile:CreateInstanceProfileResponse' :: CreateInstanceProfileResponse -&gt; Maybe InstanceProfile
-</span><a href="#local-6989586621679388515"><span class="hs-identifier hs-var hs-var">instanceProfile</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceProfile
-</span><a href="#local-6989586621679388515"><span class="hs-identifier hs-var">instanceProfile</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388514"><span class="annot"><span class="annottext">s :: CreateInstanceProfileResponse
-</span><a href="#local-6989586621679388514"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#CreateInstanceProfileResponse%27"><span class="hs-identifier hs-type">CreateInstanceProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388513"><span class="annot"><span class="annottext">Maybe InstanceProfile
-</span><a href="#local-6989586621679388513"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateInstanceProfileResponse
-</span><a href="#local-6989586621679388514"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceProfile:CreateInstanceProfileResponse' :: Maybe InstanceProfile
+</span><a href="#local-6989586621679388796"><span class="hs-identifier hs-var hs-var">instanceProfile</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceProfile
+</span><a href="#local-6989586621679388796"><span class="hs-identifier hs-var">instanceProfile</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388795"><span class="annot"><span class="annottext">s :: CreateInstanceProfileResponse
+</span><a href="#local-6989586621679388795"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#CreateInstanceProfileResponse%27"><span class="hs-identifier hs-type">CreateInstanceProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388794"><span class="annot"><span class="annottext">Maybe InstanceProfile
+</span><a href="#local-6989586621679388794"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateInstanceProfileResponse
+</span><a href="#local-6989586621679388795"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceProfile:CreateInstanceProfileResponse' :: Maybe InstanceProfile
 </span><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#%24sel%3AinstanceProfile%3ACreateInstanceProfileResponse%27"><span class="hs-identifier hs-var">instanceProfile</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceProfile
-</span><a href="#local-6989586621679388513"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#CreateInstanceProfileResponse"><span class="hs-identifier hs-type">CreateInstanceProfileResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679388794"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#CreateInstanceProfileResponse"><span class="hs-identifier hs-type">CreateInstanceProfileResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-225"></span><span>
 </span><span id="line-226"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-227"></span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#createInstanceProfileResponse_httpStatus"><span class="hs-identifier hs-type">createInstanceProfileResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#CreateInstanceProfileResponse"><span class="hs-identifier hs-type">CreateInstanceProfileResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -639,16 +639,16 @@ $sel:instanceProfile:CreateInstanceProfileResponse' :: CreateInstanceProfileResp
 -&gt; Lens
      CreateInstanceProfileResponse CreateInstanceProfileResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#CreateInstanceProfileResponse%27"><span class="hs-identifier hs-type">CreateInstanceProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388512"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#CreateInstanceProfileResponse%27"><span class="hs-identifier hs-type">CreateInstanceProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388793"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateInstanceProfileResponse' :: CreateInstanceProfileResponse -&gt; Int
-</span><a href="#local-6989586621679388512"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679388512"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388511"><span class="annot"><span class="annottext">s :: CreateInstanceProfileResponse
-</span><a href="#local-6989586621679388511"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#CreateInstanceProfileResponse%27"><span class="hs-identifier hs-type">CreateInstanceProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388510"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679388510"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateInstanceProfileResponse
-</span><a href="#local-6989586621679388511"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateInstanceProfileResponse' :: Int
+</span><a href="#local-6989586621679388793"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679388793"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388792"><span class="annot"><span class="annottext">s :: CreateInstanceProfileResponse
+</span><a href="#local-6989586621679388792"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#CreateInstanceProfileResponse%27"><span class="hs-identifier hs-type">CreateInstanceProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388791"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679388791"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateInstanceProfileResponse
+</span><a href="#local-6989586621679388792"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateInstanceProfileResponse' :: Int
 </span><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#%24sel%3AhttpStatus%3ACreateInstanceProfileResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679388510"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#CreateInstanceProfileResponse"><span class="hs-identifier hs-type">CreateInstanceProfileResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679388791"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#CreateInstanceProfileResponse"><span class="hs-identifier hs-type">CreateInstanceProfileResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-229"></span><span>
-</span><span id="line-230"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388508"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#CreateInstanceProfileResponse"><span class="hs-identifier hs-type">CreateInstanceProfileResponse</span></a></span></span><span>
+</span><span id="line-230"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388789"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateInstanceProfile.html#CreateInstanceProfileResponse"><span class="hs-identifier hs-type">CreateInstanceProfileResponse</span></a></span></span><span>
 </span><span id="line-231"></span></pre></body></html>

@@ -29,18 +29,18 @@
 </span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#newDescribeRepositories"><span class="hs-identifier">newDescribeRepositories</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-30"></span><span>
 </span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#describeRepositories_nextToken"><span class="hs-identifier">describeRepositories_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#describeRepositories_registryId"><span class="hs-identifier">describeRepositories_registryId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#describeRepositories_repositoryNames"><span class="hs-identifier">describeRepositories_repositoryNames</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#describeRepositories_maxResults"><span class="hs-identifier">describeRepositories_maxResults</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#describeRepositories_registryId"><span class="hs-identifier">describeRepositories_registryId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#describeRepositories_nextToken"><span class="hs-identifier">describeRepositories_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#describeRepositories_maxResults"><span class="hs-identifier">describeRepositories_maxResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-36"></span><span>
 </span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
 </span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#DescribeRepositoriesResponse"><span class="hs-identifier">DescribeRepositoriesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#newDescribeRepositoriesResponse"><span class="hs-identifier">newDescribeRepositoriesResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-40"></span><span>
 </span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#describeRepositoriesResponse_nextToken"><span class="hs-identifier">describeRepositoriesResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#describeRepositoriesResponse_repositories"><span class="hs-identifier">describeRepositoriesResponse_repositories</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#describeRepositoriesResponse_repositories"><span class="hs-identifier">describeRepositoriesResponse_repositories</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#describeRepositoriesResponse_nextToken"><span class="hs-identifier">describeRepositoriesResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#describeRepositoriesResponse_httpStatus"><span class="hs-identifier">describeRepositoriesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span class="hs-keyword">where</span><span>
@@ -53,43 +53,43 @@
 </span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newDescribeRepositories' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679241247"><span id="local-6989586621679241248"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeRepositories"><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#DescribeRepositories"><span class="hs-identifier hs-var">DescribeRepositories</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeRepositories%27"><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#DescribeRepositories%27"><span class="hs-identifier hs-var">DescribeRepositories'</span></a></span></span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The @nextToken@ value returned from a previous paginated</span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- @DescribeRepositories@ request where @maxResults@ was used and the</span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- results exceeded the value of that parameter. Pagination continues from</span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- the end of the previous results that returned the @nextToken@ value.</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- This value is @null@ when there are no more results to return. This</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- option cannot be used when you specify repositories with</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- @repositoryNames@.</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- This token should be treated as an opaque identifier that is only used</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- to retrieve the next items in a list and not for other programmatic</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- purposes.</span><span>
-</span><span id="line-68"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeRepositories%27"><span class="annot"><span class="annottext">DescribeRepositories -&gt; Maybe Text
-</span><a href="Network.AWS.ECR.DescribeRepositories.html#%24sel%3AnextToken%3ADescribeRepositories%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | A list of repositories to describe. If this parameter is omitted, then</span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- all repositories in a registry are described.</span><span>
-</span><span id="line-71"></span><span>    </span><span id="%24sel%3ArepositoryNames%3ADescribeRepositories%27"><span class="annot"><span class="annottext">DescribeRepositories -&gt; Maybe (NonEmpty Text)
+</span><span id="line-56"></span><span id="local-6989586621679241406"><span id="local-6989586621679241407"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeRepositories"><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#DescribeRepositories"><span class="hs-identifier hs-var">DescribeRepositories</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeRepositories%27"><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#DescribeRepositories%27"><span class="hs-identifier hs-var">DescribeRepositories'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Web Services account ID associated with the registry that</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- contains the repositories to be described. If you do not specify a</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- registry, the default registry is assumed.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AregistryId%3ADescribeRepositories%27"><span class="annot"><span class="annottext">DescribeRepositories -&gt; Maybe Text
+</span><a href="Network.AWS.ECR.DescribeRepositories.html#%24sel%3AregistryId%3ADescribeRepositories%27"><span class="hs-identifier hs-var hs-var">registryId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | A list of repositories to describe. If this parameter is omitted, then</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- all repositories in a registry are described.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3ArepositoryNames%3ADescribeRepositories%27"><span class="annot"><span class="annottext">DescribeRepositories -&gt; Maybe (NonEmpty Text)
 </span><a href="Network.AWS.ECR.DescribeRepositories.html#%24sel%3ArepositoryNames%3ADescribeRepositories%27"><span class="hs-identifier hs-var hs-var">repositoryNames</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | The maximum number of repository results returned by</span><span>
-</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- @DescribeRepositories@ in paginated output. When this parameter is used,</span><span>
-</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- @DescribeRepositories@ only returns @maxResults@ results in a single</span><span>
-</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- page along with a @nextToken@ response element. The remaining results of</span><span>
-</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- the initial request can be seen by sending another</span><span>
-</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- @DescribeRepositories@ request with the returned @nextToken@ value. This</span><span>
-</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- value can be between 1 and 1000. If this parameter is not used, then</span><span>
-</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- @DescribeRepositories@ returns up to 100 results and a @nextToken@</span><span>
-</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- value, if applicable. This option cannot be used when you specify</span><span>
-</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- repositories with @repositoryNames@.</span><span>
-</span><span id="line-82"></span><span>    </span><span id="%24sel%3AmaxResults%3ADescribeRepositories%27"><span class="annot"><span class="annottext">DescribeRepositories -&gt; Maybe Natural
-</span><a href="Network.AWS.ECR.DescribeRepositories.html#%24sel%3AmaxResults%3ADescribeRepositories%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- | The Amazon Web Services account ID associated with the registry that</span><span>
-</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- contains the repositories to be described. If you do not specify a</span><span>
-</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- registry, the default registry is assumed.</span><span>
-</span><span id="line-86"></span><span>    </span><span id="%24sel%3AregistryId%3ADescribeRepositories%27"><span class="annot"><span class="annottext">DescribeRepositories -&gt; Maybe Text
-</span><a href="Network.AWS.ECR.DescribeRepositories.html#%24sel%3AregistryId%3ADescribeRepositories%27"><span class="hs-identifier hs-var hs-var">registryId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The @nextToken@ value returned from a previous paginated</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- @DescribeRepositories@ request where @maxResults@ was used and the</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- results exceeded the value of that parameter. Pagination continues from</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- the end of the previous results that returned the @nextToken@ value.</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- This value is @null@ when there are no more results to return. This</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- option cannot be used when you specify repositories with</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- @repositoryNames@.</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- This token should be treated as an opaque identifier that is only used</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- to retrieve the next items in a list and not for other programmatic</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- purposes.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeRepositories%27"><span class="annot"><span class="annottext">DescribeRepositories -&gt; Maybe Text
+</span><a href="Network.AWS.ECR.DescribeRepositories.html#%24sel%3AnextToken%3ADescribeRepositories%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | The maximum number of repository results returned by</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- @DescribeRepositories@ in paginated output. When this parameter is used,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- @DescribeRepositories@ only returns @maxResults@ results in a single</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- page along with a @nextToken@ response element. The remaining results of</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- the initial request can be seen by sending another</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- @DescribeRepositories@ request with the returned @nextToken@ value. This</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- value can be between 1 and 1000. If this parameter is not used, then</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- @DescribeRepositories@ returns up to 100 results and a @nextToken@</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- value, if applicable. This option cannot be used when you specify</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- repositories with @repositoryNames@.</span><span>
+</span><span id="line-86"></span><span>    </span><span id="%24sel%3AmaxResults%3ADescribeRepositories%27"><span class="annot"><span class="annottext">DescribeRepositories -&gt; Maybe Natural
+</span><a href="Network.AWS.ECR.DescribeRepositories.html#%24sel%3AmaxResults%3ADescribeRepositories%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-87"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-88"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679241238"><span id="local-6989586621679241240"><span class="annot"><span class="annottext">DescribeRepositories -&gt; DescribeRepositories -&gt; Bool
+</span><span id="line-88"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679241397"><span id="local-6989586621679241399"><span class="annot"><span class="annottext">DescribeRepositories -&gt; DescribeRepositories -&gt; Bool
 (DescribeRepositories -&gt; DescribeRepositories -&gt; Bool)
 -&gt; (DescribeRepositories -&gt; DescribeRepositories -&gt; Bool)
 -&gt; Eq DescribeRepositories
@@ -98,7 +98,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeRepositories -&gt; DescribeRepositories -&gt; Bool
 == :: DescribeRepositories -&gt; DescribeRepositories -&gt; Bool
 $c== :: DescribeRepositories -&gt; DescribeRepositories -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679241229"><span id="local-6989586621679241231"><span id="local-6989586621679241233"><span id="local-6989586621679241235"><span class="annot"><span class="annottext">ReadPrec [DescribeRepositories]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679241388"><span id="local-6989586621679241390"><span id="local-6989586621679241392"><span id="local-6989586621679241394"><span class="annot"><span class="annottext">ReadPrec [DescribeRepositories]
 ReadPrec DescribeRepositories
 Int -&gt; ReadS DescribeRepositories
 ReadS [DescribeRepositories]
@@ -118,7 +118,7 @@ readList :: ReadS [DescribeRepositories]
 $creadList :: ReadS [DescribeRepositories]
 readsPrec :: Int -&gt; ReadS DescribeRepositories
 $creadsPrec :: Int -&gt; ReadS DescribeRepositories
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679241222"><span id="local-6989586621679241224"><span id="local-6989586621679241226"><span class="annot"><span class="annottext">Int -&gt; DescribeRepositories -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679241381"><span id="local-6989586621679241383"><span id="local-6989586621679241385"><span class="annot"><span class="annottext">Int -&gt; DescribeRepositories -&gt; ShowS
 [DescribeRepositories] -&gt; ShowS
 DescribeRepositories -&gt; String
 (Int -&gt; DescribeRepositories -&gt; ShowS)
@@ -152,97 +152,89 @@ $cfrom :: forall x. DescribeRepositories -&gt; Rep DescribeRepositories x
 </span><span id="line-95"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-97"></span><span class="hs-comment">--</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- 'nextToken', 'describeRepositories_nextToken' - The @nextToken@ value returned from a previous paginated</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- @DescribeRepositories@ request where @maxResults@ was used and the</span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- results exceeded the value of that parameter. Pagination continues from</span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- the end of the previous results that returned the @nextToken@ value.</span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- This value is @null@ when there are no more results to return. This</span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- option cannot be used when you specify repositories with</span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- @repositoryNames@.</span><span>
-</span><span id="line-105"></span><span class="hs-comment">--</span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- This token should be treated as an opaque identifier that is only used</span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- to retrieve the next items in a list and not for other programmatic</span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- purposes.</span><span>
-</span><span id="line-109"></span><span class="hs-comment">--</span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- 'repositoryNames', 'describeRepositories_repositoryNames' - A list of repositories to describe. If this parameter is omitted, then</span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- all repositories in a registry are described.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'registryId', 'describeRepositories_registryId' - The Amazon Web Services account ID associated with the registry that</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- contains the repositories to be described. If you do not specify a</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- registry, the default registry is assumed.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'repositoryNames', 'describeRepositories_repositoryNames' - A list of repositories to describe. If this parameter is omitted, then</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- all repositories in a registry are described.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'nextToken', 'describeRepositories_nextToken' - The @nextToken@ value returned from a previous paginated</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- @DescribeRepositories@ request where @maxResults@ was used and the</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- results exceeded the value of that parameter. Pagination continues from</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- the end of the previous results that returned the @nextToken@ value.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- This value is @null@ when there are no more results to return. This</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- option cannot be used when you specify repositories with</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- @repositoryNames@.</span><span>
 </span><span id="line-112"></span><span class="hs-comment">--</span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- 'maxResults', 'describeRepositories_maxResults' - The maximum number of repository results returned by</span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- @DescribeRepositories@ in paginated output. When this parameter is used,</span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- @DescribeRepositories@ only returns @maxResults@ results in a single</span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- page along with a @nextToken@ response element. The remaining results of</span><span>
-</span><span id="line-117"></span><span class="hs-comment">-- the initial request can be seen by sending another</span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- @DescribeRepositories@ request with the returned @nextToken@ value. This</span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- value can be between 1 and 1000. If this parameter is not used, then</span><span>
-</span><span id="line-120"></span><span class="hs-comment">-- @DescribeRepositories@ returns up to 100 results and a @nextToken@</span><span>
-</span><span id="line-121"></span><span class="hs-comment">-- value, if applicable. This option cannot be used when you specify</span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- repositories with @repositoryNames@.</span><span>
-</span><span id="line-123"></span><span class="hs-comment">--</span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- 'registryId', 'describeRepositories_registryId' - The Amazon Web Services account ID associated with the registry that</span><span>
-</span><span id="line-125"></span><span class="hs-comment">-- contains the repositories to be described. If you do not specify a</span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- registry, the default registry is assumed.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- This token should be treated as an opaque identifier that is only used</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- to retrieve the next items in a list and not for other programmatic</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- purposes.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- 'maxResults', 'describeRepositories_maxResults' - The maximum number of repository results returned by</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- @DescribeRepositories@ in paginated output. When this parameter is used,</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- @DescribeRepositories@ only returns @maxResults@ results in a single</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- page along with a @nextToken@ response element. The remaining results of</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- the initial request can be seen by sending another</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- @DescribeRepositories@ request with the returned @nextToken@ value. This</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- value can be between 1 and 1000. If this parameter is not used, then</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- @DescribeRepositories@ returns up to 100 results and a @nextToken@</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- value, if applicable. This option cannot be used when you specify</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- repositories with @repositoryNames@.</span><span>
 </span><span id="line-127"></span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#newDescribeRepositories"><span class="hs-identifier hs-type">newDescribeRepositories</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-128"></span><span>  </span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#DescribeRepositories"><span class="hs-identifier hs-type">DescribeRepositories</span></a></span><span>
 </span><span id="line-129"></span><span id="newDescribeRepositories"><span class="annot"><span class="annottext">newDescribeRepositories :: DescribeRepositories
 </span><a href="Network.AWS.ECR.DescribeRepositories.html#newDescribeRepositories"><span class="hs-identifier hs-var hs-var">newDescribeRepositories</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-130"></span><span>  </span><span class="annot"><span class="annottext">DescribeRepositories' :: Maybe Text
 -&gt; Maybe (NonEmpty Text)
--&gt; Maybe Natural
 -&gt; Maybe Text
+-&gt; Maybe Natural
 -&gt; DescribeRepositories
 </span><a href="Network.AWS.ECR.DescribeRepositories.html#DescribeRepositories%27"><span class="hs-identifier hs-type">DescribeRepositories'</span></a></span><span>
-</span><span id="line-131"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeRepositories' :: Maybe Text
-</span><a href="Network.AWS.ECR.DescribeRepositories.html#%24sel%3AnextToken%3ADescribeRepositories%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-131"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:registryId:DescribeRepositories' :: Maybe Text
+</span><a href="Network.AWS.ECR.DescribeRepositories.html#%24sel%3AregistryId%3ADescribeRepositories%27"><span class="hs-identifier hs-var">registryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">$sel:repositoryNames:DescribeRepositories' :: Maybe (NonEmpty Text)
 </span><a href="Network.AWS.ECR.DescribeRepositories.html#%24sel%3ArepositoryNames%3ADescribeRepositories%27"><span class="hs-identifier hs-var">repositoryNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-133"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:DescribeRepositories' :: Maybe Natural
-</span><a href="Network.AWS.ECR.DescribeRepositories.html#%24sel%3AmaxResults%3ADescribeRepositories%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-133"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeRepositories' :: Maybe Text
+</span><a href="Network.AWS.ECR.DescribeRepositories.html#%24sel%3AnextToken%3ADescribeRepositories%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-134"></span><span>      </span><span class="annot"><span class="annottext">$sel:registryId:DescribeRepositories' :: Maybe Text
-</span><a href="Network.AWS.ECR.DescribeRepositories.html#%24sel%3AregistryId%3ADescribeRepositories%27"><span class="hs-identifier hs-var">registryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-134"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:DescribeRepositories' :: Maybe Natural
+</span><a href="Network.AWS.ECR.DescribeRepositories.html#%24sel%3AmaxResults%3ADescribeRepositories%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-135"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-136"></span><span>
-</span><span id="line-137"></span><span class="hs-comment">-- | The @nextToken@ value returned from a previous paginated</span><span>
-</span><span id="line-138"></span><span class="hs-comment">-- @DescribeRepositories@ request where @maxResults@ was used and the</span><span>
-</span><span id="line-139"></span><span class="hs-comment">-- results exceeded the value of that parameter. Pagination continues from</span><span>
-</span><span id="line-140"></span><span class="hs-comment">-- the end of the previous results that returned the @nextToken@ value.</span><span>
-</span><span id="line-141"></span><span class="hs-comment">-- This value is @null@ when there are no more results to return. This</span><span>
-</span><span id="line-142"></span><span class="hs-comment">-- option cannot be used when you specify repositories with</span><span>
-</span><span id="line-143"></span><span class="hs-comment">-- @repositoryNames@.</span><span>
-</span><span id="line-144"></span><span class="hs-comment">--</span><span>
-</span><span id="line-145"></span><span class="hs-comment">-- This token should be treated as an opaque identifier that is only used</span><span>
-</span><span id="line-146"></span><span class="hs-comment">-- to retrieve the next items in a list and not for other programmatic</span><span>
-</span><span id="line-147"></span><span class="hs-comment">-- purposes.</span><span>
-</span><span id="line-148"></span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#describeRepositories_nextToken"><span class="hs-identifier hs-type">describeRepositories_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#DescribeRepositories"><span class="hs-identifier hs-type">DescribeRepositories</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-149"></span><span id="describeRepositories_nextToken"><span class="annot"><span class="annottext">describeRepositories_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-137"></span><span class="hs-comment">-- | The Amazon Web Services account ID associated with the registry that</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- contains the repositories to be described. If you do not specify a</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- registry, the default registry is assumed.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#describeRepositories_registryId"><span class="hs-identifier hs-type">describeRepositories_registryId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#DescribeRepositories"><span class="hs-identifier hs-type">DescribeRepositories</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span id="describeRepositories_registryId"><span class="annot"><span class="annottext">describeRepositories_registryId :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; DescribeRepositories -&gt; f DescribeRepositories
-</span><a href="Network.AWS.ECR.DescribeRepositories.html#describeRepositories_nextToken"><span class="hs-identifier hs-var hs-var">describeRepositories_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeRepositories -&gt; Maybe Text)
+</span><a href="Network.AWS.ECR.DescribeRepositories.html#describeRepositories_registryId"><span class="hs-identifier hs-var hs-var">describeRepositories_registryId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeRepositories -&gt; Maybe Text)
 -&gt; (DescribeRepositories -&gt; Maybe Text -&gt; DescribeRepositories)
 -&gt; Lens
      DescribeRepositories DescribeRepositories (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#DescribeRepositories%27"><span class="hs-identifier hs-type">DescribeRepositories'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679241216"><span class="annot"><span class="annottext">Maybe Text
-nextToken :: Maybe Text
-$sel:nextToken:DescribeRepositories' :: DescribeRepositories -&gt; Maybe Text
-</span><a href="#local-6989586621679241216"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679241216"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679241215"><span class="annot"><span class="annottext">s :: DescribeRepositories
-</span><a href="#local-6989586621679241215"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#DescribeRepositories%27"><span class="hs-identifier hs-type">DescribeRepositories'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679241214"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679241214"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRepositories
-</span><a href="#local-6989586621679241215"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeRepositories' :: Maybe Text
-</span><a href="Network.AWS.ECR.DescribeRepositories.html#%24sel%3AnextToken%3ADescribeRepositories%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679241214"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#DescribeRepositories"><span class="hs-identifier hs-type">DescribeRepositories</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-150"></span><span>
-</span><span id="line-151"></span><span class="hs-comment">-- | A list of repositories to describe. If this parameter is omitted, then</span><span>
-</span><span id="line-152"></span><span class="hs-comment">-- all repositories in a registry are described.</span><span>
-</span><span id="line-153"></span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#describeRepositories_repositoryNames"><span class="hs-identifier hs-type">describeRepositories_repositoryNames</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#DescribeRepositories"><span class="hs-identifier hs-type">DescribeRepositories</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-154"></span><span id="describeRepositories_repositoryNames"><span class="annot"><span class="annottext">describeRepositories_repositoryNames :: (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#DescribeRepositories%27"><span class="hs-identifier hs-type">DescribeRepositories'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679241375"><span class="annot"><span class="annottext">Maybe Text
+registryId :: Maybe Text
+$sel:registryId:DescribeRepositories' :: DescribeRepositories -&gt; Maybe Text
+</span><a href="#local-6989586621679241375"><span class="hs-identifier hs-var hs-var">registryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679241375"><span class="hs-identifier hs-var">registryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679241374"><span class="annot"><span class="annottext">s :: DescribeRepositories
+</span><a href="#local-6989586621679241374"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#DescribeRepositories%27"><span class="hs-identifier hs-type">DescribeRepositories'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679241373"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679241373"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRepositories
+</span><a href="#local-6989586621679241374"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registryId:DescribeRepositories' :: Maybe Text
+</span><a href="Network.AWS.ECR.DescribeRepositories.html#%24sel%3AregistryId%3ADescribeRepositories%27"><span class="hs-identifier hs-var">registryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679241373"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#DescribeRepositories"><span class="hs-identifier hs-type">DescribeRepositories</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- | A list of repositories to describe. If this parameter is omitted, then</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- all repositories in a registry are described.</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#describeRepositories_repositoryNames"><span class="hs-identifier hs-type">describeRepositories_repositoryNames</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#DescribeRepositories"><span class="hs-identifier hs-type">DescribeRepositories</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span id="describeRepositories_repositoryNames"><span class="annot"><span class="annottext">describeRepositories_repositoryNames :: (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
 -&gt; DescribeRepositories -&gt; f DescribeRepositories
 </span><a href="Network.AWS.ECR.DescribeRepositories.html#describeRepositories_repositoryNames"><span class="hs-identifier hs-var hs-var">describeRepositories_repositoryNames</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeRepositories -&gt; Maybe (NonEmpty Text))
 -&gt; (DescribeRepositories
@@ -253,16 +245,16 @@ $sel:nextToken:DescribeRepositories' :: DescribeRepositories -&gt; Maybe Text
      (Maybe (NonEmpty Text))
      (Maybe (NonEmpty Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#DescribeRepositories%27"><span class="hs-identifier hs-type">DescribeRepositories'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679241213"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#DescribeRepositories%27"><span class="hs-identifier hs-type">DescribeRepositories'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679241372"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
 repositoryNames :: Maybe (NonEmpty Text)
 $sel:repositoryNames:DescribeRepositories' :: DescribeRepositories -&gt; Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679241213"><span class="hs-identifier hs-var hs-var">repositoryNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679241213"><span class="hs-identifier hs-var">repositoryNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679241212"><span class="annot"><span class="annottext">s :: DescribeRepositories
-</span><a href="#local-6989586621679241212"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#DescribeRepositories%27"><span class="hs-identifier hs-type">DescribeRepositories'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679241211"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679241211"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRepositories
-</span><a href="#local-6989586621679241212"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoryNames:DescribeRepositories' :: Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679241372"><span class="hs-identifier hs-var hs-var">repositoryNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679241372"><span class="hs-identifier hs-var">repositoryNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679241371"><span class="annot"><span class="annottext">s :: DescribeRepositories
+</span><a href="#local-6989586621679241371"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#DescribeRepositories%27"><span class="hs-identifier hs-type">DescribeRepositories'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679241370"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679241370"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRepositories
+</span><a href="#local-6989586621679241371"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoryNames:DescribeRepositories' :: Maybe (NonEmpty Text)
 </span><a href="Network.AWS.ECR.DescribeRepositories.html#%24sel%3ArepositoryNames%3ADescribeRepositories%27"><span class="hs-identifier hs-var">repositoryNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679241211"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#DescribeRepositories"><span class="hs-identifier hs-type">DescribeRepositories</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+</span><a href="#local-6989586621679241370"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#DescribeRepositories"><span class="hs-identifier hs-type">DescribeRepositories</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
  -&gt; DescribeRepositories -&gt; f DescribeRepositories)
 -&gt; ((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
     -&gt; Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
@@ -282,21 +274,51 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
   (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-155"></span><span>
-</span><span id="line-156"></span><span class="hs-comment">-- | The maximum number of repository results returned by</span><span>
-</span><span id="line-157"></span><span class="hs-comment">-- @DescribeRepositories@ in paginated output. When this parameter is used,</span><span>
-</span><span id="line-158"></span><span class="hs-comment">-- @DescribeRepositories@ only returns @maxResults@ results in a single</span><span>
-</span><span id="line-159"></span><span class="hs-comment">-- page along with a @nextToken@ response element. The remaining results of</span><span>
-</span><span id="line-160"></span><span class="hs-comment">-- the initial request can be seen by sending another</span><span>
-</span><span id="line-161"></span><span class="hs-comment">-- @DescribeRepositories@ request with the returned @nextToken@ value. This</span><span>
-</span><span id="line-162"></span><span class="hs-comment">-- value can be between 1 and 1000. If this parameter is not used, then</span><span>
-</span><span id="line-163"></span><span class="hs-comment">-- @DescribeRepositories@ returns up to 100 results and a @nextToken@</span><span>
-</span><span id="line-164"></span><span class="hs-comment">-- value, if applicable. This option cannot be used when you specify</span><span>
-</span><span id="line-165"></span><span class="hs-comment">-- repositories with @repositoryNames@.</span><span>
-</span><span id="line-166"></span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#describeRepositories_maxResults"><span class="hs-identifier hs-type">describeRepositories_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#DescribeRepositories"><span class="hs-identifier hs-type">DescribeRepositories</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-167"></span><span id="describeRepositories_maxResults"><span class="annot"><span class="annottext">describeRepositories_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- | The @nextToken@ value returned from a previous paginated</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- @DescribeRepositories@ request where @maxResults@ was used and the</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- results exceeded the value of that parameter. Pagination continues from</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- the end of the previous results that returned the @nextToken@ value.</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- This value is @null@ when there are no more results to return. This</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- option cannot be used when you specify repositories with</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- @repositoryNames@.</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- This token should be treated as an opaque identifier that is only used</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- to retrieve the next items in a list and not for other programmatic</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- purposes.</span><span>
+</span><span id="line-159"></span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#describeRepositories_nextToken"><span class="hs-identifier hs-type">describeRepositories_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#DescribeRepositories"><span class="hs-identifier hs-type">DescribeRepositories</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span id="describeRepositories_nextToken"><span class="annot"><span class="annottext">describeRepositories_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeRepositories -&gt; f DescribeRepositories
+</span><a href="Network.AWS.ECR.DescribeRepositories.html#describeRepositories_nextToken"><span class="hs-identifier hs-var hs-var">describeRepositories_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeRepositories -&gt; Maybe Text)
+-&gt; (DescribeRepositories -&gt; Maybe Text -&gt; DescribeRepositories)
+-&gt; Lens
+     DescribeRepositories DescribeRepositories (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#DescribeRepositories%27"><span class="hs-identifier hs-type">DescribeRepositories'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679241366"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:DescribeRepositories' :: DescribeRepositories -&gt; Maybe Text
+</span><a href="#local-6989586621679241366"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679241366"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679241365"><span class="annot"><span class="annottext">s :: DescribeRepositories
+</span><a href="#local-6989586621679241365"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#DescribeRepositories%27"><span class="hs-identifier hs-type">DescribeRepositories'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679241364"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679241364"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRepositories
+</span><a href="#local-6989586621679241365"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeRepositories' :: Maybe Text
+</span><a href="Network.AWS.ECR.DescribeRepositories.html#%24sel%3AnextToken%3ADescribeRepositories%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679241364"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#DescribeRepositories"><span class="hs-identifier hs-type">DescribeRepositories</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- | The maximum number of repository results returned by</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- @DescribeRepositories@ in paginated output. When this parameter is used,</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- @DescribeRepositories@ only returns @maxResults@ results in a single</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- page along with a @nextToken@ response element. The remaining results of</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- the initial request can be seen by sending another</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- @DescribeRepositories@ request with the returned @nextToken@ value. This</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- value can be between 1 and 1000. If this parameter is not used, then</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- @DescribeRepositories@ returns up to 100 results and a @nextToken@</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- value, if applicable. This option cannot be used when you specify</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- repositories with @repositoryNames@.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#describeRepositories_maxResults"><span class="hs-identifier hs-type">describeRepositories_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#DescribeRepositories"><span class="hs-identifier hs-type">DescribeRepositories</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span id="describeRepositories_maxResults"><span class="annot"><span class="annottext">describeRepositories_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
 -&gt; DescribeRepositories -&gt; f DescribeRepositories
 </span><a href="Network.AWS.ECR.DescribeRepositories.html#describeRepositories_maxResults"><span class="hs-identifier hs-var hs-var">describeRepositories_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeRepositories -&gt; Maybe Natural)
 -&gt; (DescribeRepositories -&gt; Maybe Natural -&gt; DescribeRepositories)
@@ -306,51 +328,29 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#DescribeRepositories%27"><span class="hs-identifier hs-type">DescribeRepositories'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679241207"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#DescribeRepositories%27"><span class="hs-identifier hs-type">DescribeRepositories'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679241363"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:DescribeRepositories' :: DescribeRepositories -&gt; Maybe Natural
-</span><a href="#local-6989586621679241207"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679241207"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679241206"><span class="annot"><span class="annottext">s :: DescribeRepositories
-</span><a href="#local-6989586621679241206"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#DescribeRepositories%27"><span class="hs-identifier hs-type">DescribeRepositories'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679241205"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679241205"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRepositories
-</span><a href="#local-6989586621679241206"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:DescribeRepositories' :: Maybe Natural
+</span><a href="#local-6989586621679241363"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679241363"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679241362"><span class="annot"><span class="annottext">s :: DescribeRepositories
+</span><a href="#local-6989586621679241362"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#DescribeRepositories%27"><span class="hs-identifier hs-type">DescribeRepositories'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679241361"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679241361"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRepositories
+</span><a href="#local-6989586621679241362"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:DescribeRepositories' :: Maybe Natural
 </span><a href="Network.AWS.ECR.DescribeRepositories.html#%24sel%3AmaxResults%3ADescribeRepositories%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679241205"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#DescribeRepositories"><span class="hs-identifier hs-type">DescribeRepositories</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-168"></span><span>
-</span><span id="line-169"></span><span class="hs-comment">-- | The Amazon Web Services account ID associated with the registry that</span><span>
-</span><span id="line-170"></span><span class="hs-comment">-- contains the repositories to be described. If you do not specify a</span><span>
-</span><span id="line-171"></span><span class="hs-comment">-- registry, the default registry is assumed.</span><span>
-</span><span id="line-172"></span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#describeRepositories_registryId"><span class="hs-identifier hs-type">describeRepositories_registryId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#DescribeRepositories"><span class="hs-identifier hs-type">DescribeRepositories</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-173"></span><span id="describeRepositories_registryId"><span class="annot"><span class="annottext">describeRepositories_registryId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; DescribeRepositories -&gt; f DescribeRepositories
-</span><a href="Network.AWS.ECR.DescribeRepositories.html#describeRepositories_registryId"><span class="hs-identifier hs-var hs-var">describeRepositories_registryId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeRepositories -&gt; Maybe Text)
--&gt; (DescribeRepositories -&gt; Maybe Text -&gt; DescribeRepositories)
--&gt; Lens
-     DescribeRepositories DescribeRepositories (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#DescribeRepositories%27"><span class="hs-identifier hs-type">DescribeRepositories'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679241204"><span class="annot"><span class="annottext">Maybe Text
-registryId :: Maybe Text
-$sel:registryId:DescribeRepositories' :: DescribeRepositories -&gt; Maybe Text
-</span><a href="#local-6989586621679241204"><span class="hs-identifier hs-var hs-var">registryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679241204"><span class="hs-identifier hs-var">registryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679241203"><span class="annot"><span class="annottext">s :: DescribeRepositories
-</span><a href="#local-6989586621679241203"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#DescribeRepositories%27"><span class="hs-identifier hs-type">DescribeRepositories'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679241202"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679241202"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRepositories
-</span><a href="#local-6989586621679241203"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registryId:DescribeRepositories' :: Maybe Text
-</span><a href="Network.AWS.ECR.DescribeRepositories.html#%24sel%3AregistryId%3ADescribeRepositories%27"><span class="hs-identifier hs-var">registryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679241202"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#DescribeRepositories"><span class="hs-identifier hs-type">DescribeRepositories</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679241361"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#DescribeRepositories"><span class="hs-identifier hs-type">DescribeRepositories</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>
 </span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#DescribeRepositories"><span class="hs-identifier hs-type">DescribeRepositories</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-176"></span><span>  </span><span id="local-6989586621679241198"><span class="annot"><span class="annottext">page :: DescribeRepositories
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679241357"><span class="annot"><span class="annottext">page :: DescribeRepositories
 -&gt; AWSResponse DescribeRepositories -&gt; Maybe DescribeRepositories
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679241196"><span class="annot"><span class="annottext">DescribeRepositories
-</span><a href="#local-6989586621679241196"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679241195"><span class="annot"><span class="annottext">AWSResponse DescribeRepositories
-</span><a href="#local-6989586621679241195"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679241355"><span class="annot"><span class="annottext">DescribeRepositories
+</span><a href="#local-6989586621679241355"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679241354"><span class="annot"><span class="annottext">AWSResponse DescribeRepositories
+</span><a href="#local-6989586621679241354"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-177"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-178"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeRepositories
 DescribeRepositoriesResponse
-</span><a href="#local-6989586621679241195"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679241354"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-179"></span><span>            </span><span class="annot"><span class="annottext">DescribeRepositoriesResponse
 -&gt; Getting (First Text) DescribeRepositoriesResponse Text
 -&gt; Maybe Text
@@ -380,7 +380,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-184"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeRepositories
 DescribeRepositoriesResponse
-</span><a href="#local-6989586621679241195"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679241354"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-185"></span><span>            </span><span class="annot"><span class="annottext">DescribeRepositoriesResponse
 -&gt; Getting
      (First [Repository]) DescribeRepositoriesResponse [Repository]
@@ -420,7 +420,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-191"></span><span>        </span><span class="annot"><span class="annottext">DescribeRepositories
-</span><a href="#local-6989586621679241196"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679241355"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-192"></span><span>          </span><span class="annot"><span class="annottext">DescribeRepositories
 -&gt; (DescribeRepositories -&gt; DescribeRepositories)
 -&gt; DescribeRepositories
@@ -436,7 +436,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeRepositories
 DescribeRepositoriesResponse
-</span><a href="#local-6989586621679241195"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679241354"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-194"></span><span>          </span><span class="annot"><span class="annottext">DescribeRepositoriesResponse
 -&gt; Getting (First Text) DescribeRepositoriesResponse Text
 -&gt; Maybe Text
@@ -462,12 +462,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-198"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-199"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#DescribeRepositories"><span class="hs-identifier hs-type">DescribeRepositories</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-200"></span><span>      </span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#DescribeRepositoriesResponse"><span class="hs-identifier hs-type">DescribeRepositoriesResponse</span></a></span><span>
-</span><span id="line-201"></span><span>  </span><span id="local-6989586621679241186"><span class="annot"><span class="annottext">request :: DescribeRepositories -&gt; Request DescribeRepositories
+</span><span id="line-201"></span><span>  </span><span id="local-6989586621679241345"><span class="annot"><span class="annottext">request :: DescribeRepositories -&gt; Request DescribeRepositories
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeRepositories -&gt; Request DescribeRepositories
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.ECR.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-202"></span><span>  </span><span id="local-6989586621679241182"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-202"></span><span>  </span><span id="local-6989586621679241341"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeRepositories
 -&gt; ClientResponse ClientBody
@@ -493,31 +493,21 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-204"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679241179"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679241179"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679241178"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679241178"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679241177"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679241177"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-205"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe [Repository] -&gt; Int -&gt; DescribeRepositoriesResponse
+</span><span id="line-204"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679241338"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679241338"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679241337"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679241337"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679241336"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679241336"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-205"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Repository]
+-&gt; Maybe Text -&gt; Int -&gt; DescribeRepositoriesResponse
 </span><a href="Network.AWS.ECR.DescribeRepositories.html#DescribeRepositoriesResponse%27"><span class="hs-identifier hs-var">DescribeRepositoriesResponse'</span></a></span><span>
-</span><span id="line-206"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe [Repository] -&gt; Int -&gt; DescribeRepositoriesResponse)
--&gt; Either String (Maybe Text)
+</span><span id="line-206"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Repository]
+ -&gt; Maybe Text -&gt; Int -&gt; DescribeRepositoriesResponse)
+-&gt; Either String (Maybe [Repository])
 -&gt; Either
-     String (Maybe [Repository] -&gt; Int -&gt; DescribeRepositoriesResponse)
+     String (Maybe Text -&gt; Int -&gt; DescribeRepositoriesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679241177"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-207"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String (Maybe [Repository] -&gt; Int -&gt; DescribeRepositoriesResponse)
--&gt; Either String (Maybe [Repository])
--&gt; Either String (Int -&gt; DescribeRepositoriesResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679241177"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Repository]))
+</span><a href="#local-6989586621679241336"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Repository]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;repositories&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Repository]))
@@ -526,6 +516,15 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Repository]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; DescribeRepositoriesResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; DescribeRepositoriesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679241336"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-208"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeRepositoriesResponse)
 -&gt; Either String Int -&gt; Either String DescribeRepositoriesResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -534,15 +533,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679241179"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679241338"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-209"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-210"></span><span>
-</span><span id="line-211"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679241168"><span id="local-6989586621679241170"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#DescribeRepositories"><span class="hs-identifier hs-type">DescribeRepositories</span></a></span></span></span><span>
+</span><span id="line-211"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679241327"><span id="local-6989586621679241329"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#DescribeRepositories"><span class="hs-identifier hs-type">DescribeRepositories</span></a></span></span></span><span>
 </span><span id="line-212"></span><span>
-</span><span id="line-213"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679241165"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#DescribeRepositories"><span class="hs-identifier hs-type">DescribeRepositories</span></a></span></span><span>
+</span><span id="line-213"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679241324"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#DescribeRepositories"><span class="hs-identifier hs-type">DescribeRepositories</span></a></span></span><span>
 </span><span id="line-214"></span><span>
 </span><span id="line-215"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#DescribeRepositories"><span class="hs-identifier hs-type">DescribeRepositories</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-216"></span><span>  </span><span id="local-6989586621679241161"><span class="annot"><span class="annottext">toHeaders :: DescribeRepositories -&gt; ResponseHeaders
+</span><span id="line-216"></span><span>  </span><span id="local-6989586621679241320"><span class="annot"><span class="annottext">toHeaders :: DescribeRepositories -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-217"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeRepositories -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -569,32 +568,32 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-227"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-228"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-229"></span><span>
-</span><span id="line-230"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679241151"><span id="local-6989586621679241153"><span id="local-6989586621679241155"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#DescribeRepositories"><span class="hs-identifier hs-type">DescribeRepositories</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-231"></span><span>  </span><span id="local-6989586621679241149"><span class="annot"><span class="annottext">toJSON :: DescribeRepositories -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#DescribeRepositories%27"><span class="hs-identifier hs-type">DescribeRepositories'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679241144"><span id="local-6989586621679241145"><span id="local-6989586621679241146"><span id="local-6989586621679241147"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-230"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679241310"><span id="local-6989586621679241312"><span id="local-6989586621679241314"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#DescribeRepositories"><span class="hs-identifier hs-type">DescribeRepositories</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-231"></span><span>  </span><span id="local-6989586621679241308"><span class="annot"><span class="annottext">toJSON :: DescribeRepositories -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#DescribeRepositories%27"><span class="hs-identifier hs-type">DescribeRepositories'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679241303"><span id="local-6989586621679241304"><span id="local-6989586621679241305"><span id="local-6989586621679241306"><span class="annot"><span class="annottext">Maybe Natural
 Maybe (NonEmpty Text)
 Maybe Text
-registryId :: Maybe Text
 maxResults :: Maybe Natural
-repositoryNames :: Maybe (NonEmpty Text)
 nextToken :: Maybe Text
-$sel:registryId:DescribeRepositories' :: DescribeRepositories -&gt; Maybe Text
+repositoryNames :: Maybe (NonEmpty Text)
+registryId :: Maybe Text
 $sel:maxResults:DescribeRepositories' :: DescribeRepositories -&gt; Maybe Natural
-$sel:repositoryNames:DescribeRepositories' :: DescribeRepositories -&gt; Maybe (NonEmpty Text)
 $sel:nextToken:DescribeRepositories' :: DescribeRepositories -&gt; Maybe Text
-</span><a href="#local-6989586621679241144"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:repositoryNames:DescribeRepositories' :: DescribeRepositories -&gt; Maybe (NonEmpty Text)
+$sel:registryId:DescribeRepositories' :: DescribeRepositories -&gt; Maybe Text
+</span><a href="#local-6989586621679241303"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-232"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-233"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-234"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+</span><span class="hs-string">&quot;registryId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679241147"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679241306"><span class="hs-identifier hs-var">registryId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-235"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;repositoryNames&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -602,33 +601,33 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-236"></span><span>              </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; Pair) -&gt; Maybe (NonEmpty Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679241146"><span class="hs-identifier hs-var">repositoryNames</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679241305"><span class="hs-identifier hs-var">repositoryNames</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-237"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679241304"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-238"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679241145"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-238"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;registryId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679241144"><span class="hs-identifier hs-var">registryId</span></a></span><span>
+</span><a href="#local-6989586621679241303"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-239"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-240"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-241"></span><span>
 </span><span id="line-242"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#DescribeRepositories"><span class="hs-identifier hs-type">DescribeRepositories</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-243"></span><span>  </span><span id="local-6989586621679241138"><span class="annot"><span class="annottext">toPath :: DescribeRepositories -&gt; ByteString
+</span><span id="line-243"></span><span>  </span><span id="local-6989586621679241297"><span class="annot"><span class="annottext">toPath :: DescribeRepositories -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeRepositories -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-244"></span><span>
 </span><span id="line-245"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#DescribeRepositories"><span class="hs-identifier hs-type">DescribeRepositories</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-246"></span><span>  </span><span id="local-6989586621679241134"><span class="annot"><span class="annottext">toQuery :: DescribeRepositories -&gt; QueryString
+</span><span id="line-246"></span><span>  </span><span id="local-6989586621679241293"><span class="annot"><span class="annottext">toQuery :: DescribeRepositories -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeRepositories -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -636,21 +635,21 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-247"></span><span>
 </span><span id="line-248"></span><span class="hs-comment">-- | /See:/ 'newDescribeRepositoriesResponse' smart constructor.</span><span>
-</span><span id="line-249"></span><span id="local-6989586621679241131"><span id="local-6989586621679241132"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeRepositoriesResponse"><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#DescribeRepositoriesResponse"><span class="hs-identifier hs-var">DescribeRepositoriesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeRepositoriesResponse%27"><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#DescribeRepositoriesResponse%27"><span class="hs-identifier hs-var">DescribeRepositoriesResponse'</span></a></span></span><span>
-</span><span id="line-250"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The @nextToken@ value to include in a future @DescribeRepositories@</span><span>
-</span><span id="line-251"></span><span>    </span><span class="hs-comment">-- request. When the results of a @DescribeRepositories@ request exceed</span><span>
-</span><span id="line-252"></span><span>    </span><span class="hs-comment">-- @maxResults@, this value can be used to retrieve the next page of</span><span>
-</span><span id="line-253"></span><span>    </span><span class="hs-comment">-- results. This value is @null@ when there are no more results to return.</span><span>
-</span><span id="line-254"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeRepositoriesResponse%27"><span class="annot"><span class="annottext">DescribeRepositoriesResponse -&gt; Maybe Text
-</span><a href="Network.AWS.ECR.DescribeRepositories.html#%24sel%3AnextToken%3ADescribeRepositoriesResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-255"></span><span>    </span><span class="hs-comment">-- | A list of repository objects corresponding to valid repositories.</span><span>
-</span><span id="line-256"></span><span>    </span><span id="%24sel%3Arepositories%3ADescribeRepositoriesResponse%27"><span class="annot"><span class="annottext">DescribeRepositoriesResponse -&gt; Maybe [Repository]
+</span><span id="line-249"></span><span id="local-6989586621679241290"><span id="local-6989586621679241291"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeRepositoriesResponse"><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#DescribeRepositoriesResponse"><span class="hs-identifier hs-var">DescribeRepositoriesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeRepositoriesResponse%27"><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#DescribeRepositoriesResponse%27"><span class="hs-identifier hs-var">DescribeRepositoriesResponse'</span></a></span></span><span>
+</span><span id="line-250"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of repository objects corresponding to valid repositories.</span><span>
+</span><span id="line-251"></span><span>    </span><span id="%24sel%3Arepositories%3ADescribeRepositoriesResponse%27"><span class="annot"><span class="annottext">DescribeRepositoriesResponse -&gt; Maybe [Repository]
 </span><a href="Network.AWS.ECR.DescribeRepositories.html#%24sel%3Arepositories%3ADescribeRepositoriesResponse%27"><span class="hs-identifier hs-var hs-var">repositories</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#Repository"><span class="hs-identifier hs-type">Repository</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-252"></span><span>    </span><span class="hs-comment">-- | The @nextToken@ value to include in a future @DescribeRepositories@</span><span>
+</span><span id="line-253"></span><span>    </span><span class="hs-comment">-- request. When the results of a @DescribeRepositories@ request exceed</span><span>
+</span><span id="line-254"></span><span>    </span><span class="hs-comment">-- @maxResults@, this value can be used to retrieve the next page of</span><span>
+</span><span id="line-255"></span><span>    </span><span class="hs-comment">-- results. This value is @null@ when there are no more results to return.</span><span>
+</span><span id="line-256"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeRepositoriesResponse%27"><span class="annot"><span class="annottext">DescribeRepositoriesResponse -&gt; Maybe Text
+</span><a href="Network.AWS.ECR.DescribeRepositories.html#%24sel%3AnextToken%3ADescribeRepositoriesResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-257"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-258"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeRepositoriesResponse%27"><span class="annot"><span class="annottext">DescribeRepositoriesResponse -&gt; Int
 </span><a href="Network.AWS.ECR.DescribeRepositories.html#%24sel%3AhttpStatus%3ADescribeRepositoriesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-259"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-260"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679241124"><span id="local-6989586621679241126"><span class="annot"><span class="annottext">DescribeRepositoriesResponse
+</span><span id="line-260"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679241283"><span id="local-6989586621679241285"><span class="annot"><span class="annottext">DescribeRepositoriesResponse
 -&gt; DescribeRepositoriesResponse -&gt; Bool
 (DescribeRepositoriesResponse
  -&gt; DescribeRepositoriesResponse -&gt; Bool)
@@ -666,7 +665,7 @@ $c/= :: DescribeRepositoriesResponse
 -&gt; DescribeRepositoriesResponse -&gt; Bool
 $c== :: DescribeRepositoriesResponse
 -&gt; DescribeRepositoriesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679241116"><span id="local-6989586621679241118"><span id="local-6989586621679241120"><span id="local-6989586621679241122"><span class="annot"><span class="annottext">ReadPrec [DescribeRepositoriesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679241275"><span id="local-6989586621679241277"><span id="local-6989586621679241279"><span id="local-6989586621679241281"><span class="annot"><span class="annottext">ReadPrec [DescribeRepositoriesResponse]
 ReadPrec DescribeRepositoriesResponse
 Int -&gt; ReadS DescribeRepositoriesResponse
 ReadS [DescribeRepositoriesResponse]
@@ -686,7 +685,7 @@ readList :: ReadS [DescribeRepositoriesResponse]
 $creadList :: ReadS [DescribeRepositoriesResponse]
 readsPrec :: Int -&gt; ReadS DescribeRepositoriesResponse
 $creadsPrec :: Int -&gt; ReadS DescribeRepositoriesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679241110"><span id="local-6989586621679241112"><span id="local-6989586621679241114"><span class="annot"><span class="annottext">Int -&gt; DescribeRepositoriesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679241269"><span id="local-6989586621679241271"><span id="local-6989586621679241273"><span class="annot"><span class="annottext">Int -&gt; DescribeRepositoriesResponse -&gt; ShowS
 [DescribeRepositoriesResponse] -&gt; ShowS
 DescribeRepositoriesResponse -&gt; String
 (Int -&gt; DescribeRepositoriesResponse -&gt; ShowS)
@@ -726,12 +725,12 @@ DescribeRepositoriesResponse -&gt; Rep DescribeRepositoriesResponse x
 </span><span id="line-267"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-268"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-269"></span><span class="hs-comment">--</span><span>
-</span><span id="line-270"></span><span class="hs-comment">-- 'nextToken', 'describeRepositoriesResponse_nextToken' - The @nextToken@ value to include in a future @DescribeRepositories@</span><span>
-</span><span id="line-271"></span><span class="hs-comment">-- request. When the results of a @DescribeRepositories@ request exceed</span><span>
-</span><span id="line-272"></span><span class="hs-comment">-- @maxResults@, this value can be used to retrieve the next page of</span><span>
-</span><span id="line-273"></span><span class="hs-comment">-- results. This value is @null@ when there are no more results to return.</span><span>
-</span><span id="line-274"></span><span class="hs-comment">--</span><span>
-</span><span id="line-275"></span><span class="hs-comment">-- 'repositories', 'describeRepositoriesResponse_repositories' - A list of repository objects corresponding to valid repositories.</span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- 'repositories', 'describeRepositoriesResponse_repositories' - A list of repository objects corresponding to valid repositories.</span><span>
+</span><span id="line-271"></span><span class="hs-comment">--</span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- 'nextToken', 'describeRepositoriesResponse_nextToken' - The @nextToken@ value to include in a future @DescribeRepositories@</span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- request. When the results of a @DescribeRepositories@ request exceed</span><span>
+</span><span id="line-274"></span><span class="hs-comment">-- @maxResults@, this value can be used to retrieve the next page of</span><span>
+</span><span id="line-275"></span><span class="hs-comment">-- results. This value is @null@ when there are no more results to return.</span><span>
 </span><span id="line-276"></span><span class="hs-comment">--</span><span>
 </span><span id="line-277"></span><span class="hs-comment">-- 'httpStatus', 'describeRepositoriesResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-278"></span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#newDescribeRepositoriesResponse"><span class="hs-identifier hs-type">newDescribeRepositoriesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -739,67 +738,44 @@ DescribeRepositoriesResponse -&gt; Rep DescribeRepositoriesResponse x
 </span><span id="line-280"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-281"></span><span>  </span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#DescribeRepositoriesResponse"><span class="hs-identifier hs-type">DescribeRepositoriesResponse</span></a></span><span>
 </span><span id="line-282"></span><span id="newDescribeRepositoriesResponse"><span class="annot"><span class="annottext">newDescribeRepositoriesResponse :: Int -&gt; DescribeRepositoriesResponse
-</span><a href="Network.AWS.ECR.DescribeRepositories.html#newDescribeRepositoriesResponse"><span class="hs-identifier hs-var hs-var">newDescribeRepositoriesResponse</span></a></span></span><span> </span><span id="local-6989586621679241107"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679241107"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-283"></span><span>  </span><span class="annot"><span class="annottext">DescribeRepositoriesResponse' :: Maybe Text
--&gt; Maybe [Repository] -&gt; Int -&gt; DescribeRepositoriesResponse
+</span><a href="Network.AWS.ECR.DescribeRepositories.html#newDescribeRepositoriesResponse"><span class="hs-identifier hs-var hs-var">newDescribeRepositoriesResponse</span></a></span></span><span> </span><span id="local-6989586621679241266"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679241266"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-283"></span><span>  </span><span class="annot"><span class="annottext">DescribeRepositoriesResponse' :: Maybe [Repository]
+-&gt; Maybe Text -&gt; Int -&gt; DescribeRepositoriesResponse
 </span><a href="Network.AWS.ECR.DescribeRepositories.html#DescribeRepositoriesResponse%27"><span class="hs-identifier hs-type">DescribeRepositoriesResponse'</span></a></span><span>
-</span><span id="line-284"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeRepositoriesResponse' :: Maybe Text
-</span><a href="Network.AWS.ECR.DescribeRepositories.html#%24sel%3AnextToken%3ADescribeRepositoriesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-285"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-284"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:repositories:DescribeRepositoriesResponse' :: Maybe [Repository]
+</span><a href="Network.AWS.ECR.DescribeRepositories.html#%24sel%3Arepositories%3ADescribeRepositoriesResponse%27"><span class="hs-identifier hs-var">repositories</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-285"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Repository]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-286"></span><span>      </span><span class="annot"><span class="annottext">$sel:repositories:DescribeRepositoriesResponse' :: Maybe [Repository]
-</span><a href="Network.AWS.ECR.DescribeRepositories.html#%24sel%3Arepositories%3ADescribeRepositoriesResponse%27"><span class="hs-identifier hs-var">repositories</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Repository]
+</span><span id="line-286"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeRepositoriesResponse' :: Maybe Text
+</span><a href="Network.AWS.ECR.DescribeRepositories.html#%24sel%3AnextToken%3ADescribeRepositoriesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-287"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeRepositoriesResponse' :: Int
 </span><a href="Network.AWS.ECR.DescribeRepositories.html#%24sel%3AhttpStatus%3ADescribeRepositoriesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679241107"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679241266"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-288"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-289"></span><span>
-</span><span id="line-290"></span><span class="hs-comment">-- | The @nextToken@ value to include in a future @DescribeRepositories@</span><span>
-</span><span id="line-291"></span><span class="hs-comment">-- request. When the results of a @DescribeRepositories@ request exceed</span><span>
-</span><span id="line-292"></span><span class="hs-comment">-- @maxResults@, this value can be used to retrieve the next page of</span><span>
-</span><span id="line-293"></span><span class="hs-comment">-- results. This value is @null@ when there are no more results to return.</span><span>
-</span><span id="line-294"></span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#describeRepositoriesResponse_nextToken"><span class="hs-identifier hs-type">describeRepositoriesResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#DescribeRepositoriesResponse"><span class="hs-identifier hs-type">DescribeRepositoriesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-295"></span><span id="describeRepositoriesResponse_nextToken"><span class="annot"><span class="annottext">describeRepositoriesResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; DescribeRepositoriesResponse -&gt; f DescribeRepositoriesResponse
-</span><a href="Network.AWS.ECR.DescribeRepositories.html#describeRepositoriesResponse_nextToken"><span class="hs-identifier hs-var hs-var">describeRepositoriesResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeRepositoriesResponse -&gt; Maybe Text)
--&gt; (DescribeRepositoriesResponse
-    -&gt; Maybe Text -&gt; DescribeRepositoriesResponse)
--&gt; Lens' DescribeRepositoriesResponse (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#DescribeRepositoriesResponse%27"><span class="hs-identifier hs-type">DescribeRepositoriesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679241106"><span class="annot"><span class="annottext">Maybe Text
-nextToken :: Maybe Text
-$sel:nextToken:DescribeRepositoriesResponse' :: DescribeRepositoriesResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679241106"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679241106"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679241105"><span class="annot"><span class="annottext">s :: DescribeRepositoriesResponse
-</span><a href="#local-6989586621679241105"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#DescribeRepositoriesResponse%27"><span class="hs-identifier hs-type">DescribeRepositoriesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679241104"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679241104"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRepositoriesResponse
-</span><a href="#local-6989586621679241105"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeRepositoriesResponse' :: Maybe Text
-</span><a href="Network.AWS.ECR.DescribeRepositories.html#%24sel%3AnextToken%3ADescribeRepositoriesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679241104"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#DescribeRepositoriesResponse"><span class="hs-identifier hs-type">DescribeRepositoriesResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-296"></span><span>
-</span><span id="line-297"></span><span class="hs-comment">-- | A list of repository objects corresponding to valid repositories.</span><span>
-</span><span id="line-298"></span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#describeRepositoriesResponse_repositories"><span class="hs-identifier hs-type">describeRepositoriesResponse_repositories</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#DescribeRepositoriesResponse"><span class="hs-identifier hs-type">DescribeRepositoriesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#Repository"><span class="hs-identifier hs-type">Repository</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-299"></span><span id="describeRepositoriesResponse_repositories"><span class="annot"><span class="annottext">describeRepositoriesResponse_repositories :: (Maybe [Repository] -&gt; f (Maybe [Repository]))
+</span><span id="line-290"></span><span class="hs-comment">-- | A list of repository objects corresponding to valid repositories.</span><span>
+</span><span id="line-291"></span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#describeRepositoriesResponse_repositories"><span class="hs-identifier hs-type">describeRepositoriesResponse_repositories</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#DescribeRepositoriesResponse"><span class="hs-identifier hs-type">DescribeRepositoriesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#Repository"><span class="hs-identifier hs-type">Repository</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-292"></span><span id="describeRepositoriesResponse_repositories"><span class="annot"><span class="annottext">describeRepositoriesResponse_repositories :: (Maybe [Repository] -&gt; f (Maybe [Repository]))
 -&gt; DescribeRepositoriesResponse -&gt; f DescribeRepositoriesResponse
 </span><a href="Network.AWS.ECR.DescribeRepositories.html#describeRepositoriesResponse_repositories"><span class="hs-identifier hs-var hs-var">describeRepositoriesResponse_repositories</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeRepositoriesResponse -&gt; Maybe [Repository])
 -&gt; (DescribeRepositoriesResponse
     -&gt; Maybe [Repository] -&gt; DescribeRepositoriesResponse)
 -&gt; Lens' DescribeRepositoriesResponse (Maybe [Repository])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#DescribeRepositoriesResponse%27"><span class="hs-identifier hs-type">DescribeRepositoriesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679241103"><span class="annot"><span class="annottext">Maybe [Repository]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#DescribeRepositoriesResponse%27"><span class="hs-identifier hs-type">DescribeRepositoriesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679241265"><span class="annot"><span class="annottext">Maybe [Repository]
 repositories :: Maybe [Repository]
 $sel:repositories:DescribeRepositoriesResponse' :: DescribeRepositoriesResponse -&gt; Maybe [Repository]
-</span><a href="#local-6989586621679241103"><span class="hs-identifier hs-var hs-var">repositories</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Repository]
-</span><a href="#local-6989586621679241103"><span class="hs-identifier hs-var">repositories</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679241102"><span class="annot"><span class="annottext">s :: DescribeRepositoriesResponse
-</span><a href="#local-6989586621679241102"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#DescribeRepositoriesResponse%27"><span class="hs-identifier hs-type">DescribeRepositoriesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679241101"><span class="annot"><span class="annottext">Maybe [Repository]
-</span><a href="#local-6989586621679241101"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRepositoriesResponse
-</span><a href="#local-6989586621679241102"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositories:DescribeRepositoriesResponse' :: Maybe [Repository]
+</span><a href="#local-6989586621679241265"><span class="hs-identifier hs-var hs-var">repositories</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Repository]
+</span><a href="#local-6989586621679241265"><span class="hs-identifier hs-var">repositories</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679241264"><span class="annot"><span class="annottext">s :: DescribeRepositoriesResponse
+</span><a href="#local-6989586621679241264"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#DescribeRepositoriesResponse%27"><span class="hs-identifier hs-type">DescribeRepositoriesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679241263"><span class="annot"><span class="annottext">Maybe [Repository]
+</span><a href="#local-6989586621679241263"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRepositoriesResponse
+</span><a href="#local-6989586621679241264"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositories:DescribeRepositoriesResponse' :: Maybe [Repository]
 </span><a href="Network.AWS.ECR.DescribeRepositories.html#%24sel%3Arepositories%3ADescribeRepositoriesResponse%27"><span class="hs-identifier hs-var">repositories</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Repository]
-</span><a href="#local-6989586621679241101"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#DescribeRepositoriesResponse"><span class="hs-identifier hs-type">DescribeRepositoriesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Repository] -&gt; f (Maybe [Repository]))
+</span><a href="#local-6989586621679241263"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#DescribeRepositoriesResponse"><span class="hs-identifier hs-type">DescribeRepositoriesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Repository] -&gt; f (Maybe [Repository]))
  -&gt; DescribeRepositoriesResponse -&gt; f DescribeRepositoriesResponse)
 -&gt; ((Maybe [Repository] -&gt; f (Maybe [Repository]))
     -&gt; Maybe [Repository] -&gt; f (Maybe [Repository]))
@@ -817,8 +793,31 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Repository] [Repository] [Repository] [Repository]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-293"></span><span>
+</span><span id="line-294"></span><span class="hs-comment">-- | The @nextToken@ value to include in a future @DescribeRepositories@</span><span>
+</span><span id="line-295"></span><span class="hs-comment">-- request. When the results of a @DescribeRepositories@ request exceed</span><span>
+</span><span id="line-296"></span><span class="hs-comment">-- @maxResults@, this value can be used to retrieve the next page of</span><span>
+</span><span id="line-297"></span><span class="hs-comment">-- results. This value is @null@ when there are no more results to return.</span><span>
+</span><span id="line-298"></span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#describeRepositoriesResponse_nextToken"><span class="hs-identifier hs-type">describeRepositoriesResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#DescribeRepositoriesResponse"><span class="hs-identifier hs-type">DescribeRepositoriesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-299"></span><span id="describeRepositoriesResponse_nextToken"><span class="annot"><span class="annottext">describeRepositoriesResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeRepositoriesResponse -&gt; f DescribeRepositoriesResponse
+</span><a href="Network.AWS.ECR.DescribeRepositories.html#describeRepositoriesResponse_nextToken"><span class="hs-identifier hs-var hs-var">describeRepositoriesResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeRepositoriesResponse -&gt; Maybe Text)
+-&gt; (DescribeRepositoriesResponse
+    -&gt; Maybe Text -&gt; DescribeRepositoriesResponse)
+-&gt; Lens' DescribeRepositoriesResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#DescribeRepositoriesResponse%27"><span class="hs-identifier hs-type">DescribeRepositoriesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679241262"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:DescribeRepositoriesResponse' :: DescribeRepositoriesResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679241262"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679241262"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679241261"><span class="annot"><span class="annottext">s :: DescribeRepositoriesResponse
+</span><a href="#local-6989586621679241261"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#DescribeRepositoriesResponse%27"><span class="hs-identifier hs-type">DescribeRepositoriesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679241260"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679241260"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRepositoriesResponse
+</span><a href="#local-6989586621679241261"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeRepositoriesResponse' :: Maybe Text
+</span><a href="Network.AWS.ECR.DescribeRepositories.html#%24sel%3AnextToken%3ADescribeRepositoriesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679241260"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#DescribeRepositoriesResponse"><span class="hs-identifier hs-type">DescribeRepositoriesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-300"></span><span>
 </span><span id="line-301"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-302"></span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#describeRepositoriesResponse_httpStatus"><span class="hs-identifier hs-type">describeRepositoriesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#DescribeRepositoriesResponse"><span class="hs-identifier hs-type">DescribeRepositoriesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -830,16 +829,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; Lens
      DescribeRepositoriesResponse DescribeRepositoriesResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#DescribeRepositoriesResponse%27"><span class="hs-identifier hs-type">DescribeRepositoriesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679241100"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#DescribeRepositoriesResponse%27"><span class="hs-identifier hs-type">DescribeRepositoriesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679241259"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeRepositoriesResponse' :: DescribeRepositoriesResponse -&gt; Int
-</span><a href="#local-6989586621679241100"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679241100"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679241099"><span class="annot"><span class="annottext">s :: DescribeRepositoriesResponse
-</span><a href="#local-6989586621679241099"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#DescribeRepositoriesResponse%27"><span class="hs-identifier hs-type">DescribeRepositoriesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679241098"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679241098"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRepositoriesResponse
-</span><a href="#local-6989586621679241099"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeRepositoriesResponse' :: Int
+</span><a href="#local-6989586621679241259"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679241259"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679241258"><span class="annot"><span class="annottext">s :: DescribeRepositoriesResponse
+</span><a href="#local-6989586621679241258"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#DescribeRepositoriesResponse%27"><span class="hs-identifier hs-type">DescribeRepositoriesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679241257"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679241257"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRepositoriesResponse
+</span><a href="#local-6989586621679241258"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeRepositoriesResponse' :: Int
 </span><a href="Network.AWS.ECR.DescribeRepositories.html#%24sel%3AhttpStatus%3ADescribeRepositoriesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679241098"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#DescribeRepositoriesResponse"><span class="hs-identifier hs-type">DescribeRepositoriesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679241257"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#DescribeRepositoriesResponse"><span class="hs-identifier hs-type">DescribeRepositoriesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-304"></span><span>
-</span><span id="line-305"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679241096"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#DescribeRepositoriesResponse"><span class="hs-identifier hs-type">DescribeRepositoriesResponse</span></a></span></span><span>
+</span><span id="line-305"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679241255"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeRepositories.html#DescribeRepositoriesResponse"><span class="hs-identifier hs-type">DescribeRepositoriesResponse</span></a></span></span><span>
 </span><span id="line-306"></span></pre></body></html>

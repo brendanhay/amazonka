@@ -30,27 +30,27 @@
 </span><span id="line-30"></span><span class="hs-comment">-- | Option for host instance type.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newBrokerInstanceOption' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679223482"><span id="local-6989586621679223483"></span></span><span class="hs-keyword">data</span><span> </span><span id="BrokerInstanceOption"><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#BrokerInstanceOption"><span class="hs-identifier hs-var">BrokerInstanceOption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BrokerInstanceOption%27"><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#BrokerInstanceOption%27"><span class="hs-identifier hs-var">BrokerInstanceOption'</span></a></span></span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The list of available az.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AavailabilityZones%3ABrokerInstanceOption%27"><span class="annot"><span class="annottext">BrokerInstanceOption -&gt; Maybe [AvailabilityZone]
-</span><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#%24sel%3AavailabilityZones%3ABrokerInstanceOption%27"><span class="hs-identifier hs-var hs-var">availabilityZones</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MQ.Types.AvailabilityZone.html#AvailabilityZone"><span class="hs-identifier hs-type">AvailabilityZone</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The broker\'s storage type.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AstorageType%3ABrokerInstanceOption%27"><span class="annot"><span class="annottext">BrokerInstanceOption -&gt; Maybe BrokerStorageType
-</span><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#%24sel%3AstorageType%3ABrokerInstanceOption%27"><span class="hs-identifier hs-var hs-var">storageType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerStorageType.html#BrokerStorageType"><span class="hs-identifier hs-type">BrokerStorageType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The broker\'s engine type.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3AengineType%3ABrokerInstanceOption%27"><span class="annot"><span class="annottext">BrokerInstanceOption -&gt; Maybe EngineType
-</span><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#%24sel%3AengineType%3ABrokerInstanceOption%27"><span class="hs-identifier hs-var hs-var">engineType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.EngineType.html#EngineType"><span class="hs-identifier hs-type">EngineType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The list of supported deployment modes.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3AsupportedDeploymentModes%3ABrokerInstanceOption%27"><span class="annot"><span class="annottext">BrokerInstanceOption -&gt; Maybe [DeploymentMode]
-</span><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#%24sel%3AsupportedDeploymentModes%3ABrokerInstanceOption%27"><span class="hs-identifier hs-var hs-var">supportedDeploymentModes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MQ.Types.DeploymentMode.html#DeploymentMode"><span class="hs-identifier hs-type">DeploymentMode</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The list of supported engine versions.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3AsupportedEngineVersions%3ABrokerInstanceOption%27"><span class="annot"><span class="annottext">BrokerInstanceOption -&gt; Maybe [Text]
+</span><span id="line-33"></span><span id="local-6989586621679223638"><span id="local-6989586621679223639"></span></span><span class="hs-keyword">data</span><span> </span><span id="BrokerInstanceOption"><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#BrokerInstanceOption"><span class="hs-identifier hs-var">BrokerInstanceOption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BrokerInstanceOption%27"><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#BrokerInstanceOption%27"><span class="hs-identifier hs-var">BrokerInstanceOption'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The list of supported engine versions.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AsupportedEngineVersions%3ABrokerInstanceOption%27"><span class="annot"><span class="annottext">BrokerInstanceOption -&gt; Maybe [Text]
 </span><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#%24sel%3AsupportedEngineVersions%3ABrokerInstanceOption%27"><span class="hs-identifier hs-var hs-var">supportedEngineVersions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The broker\'s instance type.</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3AhostInstanceType%3ABrokerInstanceOption%27"><span class="annot"><span class="annottext">BrokerInstanceOption -&gt; Maybe Text
-</span><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#%24sel%3AhostInstanceType%3ABrokerInstanceOption%27"><span class="hs-identifier hs-var hs-var">hostInstanceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The list of available az.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AavailabilityZones%3ABrokerInstanceOption%27"><span class="annot"><span class="annottext">BrokerInstanceOption -&gt; Maybe [AvailabilityZone]
+</span><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#%24sel%3AavailabilityZones%3ABrokerInstanceOption%27"><span class="hs-identifier hs-var hs-var">availabilityZones</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MQ.Types.AvailabilityZone.html#AvailabilityZone"><span class="hs-identifier hs-type">AvailabilityZone</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The list of supported deployment modes.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AsupportedDeploymentModes%3ABrokerInstanceOption%27"><span class="annot"><span class="annottext">BrokerInstanceOption -&gt; Maybe [DeploymentMode]
+</span><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#%24sel%3AsupportedDeploymentModes%3ABrokerInstanceOption%27"><span class="hs-identifier hs-var hs-var">supportedDeploymentModes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MQ.Types.DeploymentMode.html#DeploymentMode"><span class="hs-identifier hs-type">DeploymentMode</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The broker\'s engine type.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AengineType%3ABrokerInstanceOption%27"><span class="annot"><span class="annottext">BrokerInstanceOption -&gt; Maybe EngineType
+</span><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#%24sel%3AengineType%3ABrokerInstanceOption%27"><span class="hs-identifier hs-var hs-var">engineType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.EngineType.html#EngineType"><span class="hs-identifier hs-type">EngineType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The broker\'s instance type.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AhostInstanceType%3ABrokerInstanceOption%27"><span class="annot"><span class="annottext">BrokerInstanceOption -&gt; Maybe Text
+</span><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#%24sel%3AhostInstanceType%3ABrokerInstanceOption%27"><span class="hs-identifier hs-var hs-var">hostInstanceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The broker\'s storage type.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AstorageType%3ABrokerInstanceOption%27"><span class="annot"><span class="annottext">BrokerInstanceOption -&gt; Maybe BrokerStorageType
+</span><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#%24sel%3AstorageType%3ABrokerInstanceOption%27"><span class="hs-identifier hs-var hs-var">storageType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerStorageType.html#BrokerStorageType"><span class="hs-identifier hs-type">BrokerStorageType</span></a></span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679223471"><span id="local-6989586621679223473"><span class="annot"><span class="annottext">BrokerInstanceOption -&gt; BrokerInstanceOption -&gt; Bool
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679223627"><span id="local-6989586621679223629"><span class="annot"><span class="annottext">BrokerInstanceOption -&gt; BrokerInstanceOption -&gt; Bool
 (BrokerInstanceOption -&gt; BrokerInstanceOption -&gt; Bool)
 -&gt; (BrokerInstanceOption -&gt; BrokerInstanceOption -&gt; Bool)
 -&gt; Eq BrokerInstanceOption
@@ -59,7 +59,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: BrokerInstanceOption -&gt; BrokerInstanceOption -&gt; Bool
 == :: BrokerInstanceOption -&gt; BrokerInstanceOption -&gt; Bool
 $c== :: BrokerInstanceOption -&gt; BrokerInstanceOption -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679223462"><span id="local-6989586621679223464"><span id="local-6989586621679223466"><span id="local-6989586621679223468"><span class="annot"><span class="annottext">ReadPrec [BrokerInstanceOption]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679223618"><span id="local-6989586621679223620"><span id="local-6989586621679223622"><span id="local-6989586621679223624"><span class="annot"><span class="annottext">ReadPrec [BrokerInstanceOption]
 ReadPrec BrokerInstanceOption
 Int -&gt; ReadS BrokerInstanceOption
 ReadS [BrokerInstanceOption]
@@ -79,7 +79,7 @@ readList :: ReadS [BrokerInstanceOption]
 $creadList :: ReadS [BrokerInstanceOption]
 readsPrec :: Int -&gt; ReadS BrokerInstanceOption
 $creadsPrec :: Int -&gt; ReadS BrokerInstanceOption
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679223455"><span id="local-6989586621679223457"><span id="local-6989586621679223459"><span class="annot"><span class="annottext">Int -&gt; BrokerInstanceOption -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679223611"><span id="local-6989586621679223613"><span id="local-6989586621679223615"><span class="annot"><span class="annottext">Int -&gt; BrokerInstanceOption -&gt; ShowS
 [BrokerInstanceOption] -&gt; ShowS
 BrokerInstanceOption -&gt; String
 (Int -&gt; BrokerInstanceOption -&gt; ShowS)
@@ -113,59 +113,97 @@ $cfrom :: forall x. BrokerInstanceOption -&gt; Rep BrokerInstanceOption x
 </span><span id="line-54"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-56"></span><span class="hs-comment">--</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- 'availabilityZones', 'brokerInstanceOption_availabilityZones' - The list of available az.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'supportedEngineVersions', 'brokerInstanceOption_supportedEngineVersions' - The list of supported engine versions.</span><span>
 </span><span id="line-58"></span><span class="hs-comment">--</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- 'storageType', 'brokerInstanceOption_storageType' - The broker\'s storage type.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'availabilityZones', 'brokerInstanceOption_availabilityZones' - The list of available az.</span><span>
 </span><span id="line-60"></span><span class="hs-comment">--</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- 'engineType', 'brokerInstanceOption_engineType' - The broker\'s engine type.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'supportedDeploymentModes', 'brokerInstanceOption_supportedDeploymentModes' - The list of supported deployment modes.</span><span>
 </span><span id="line-62"></span><span class="hs-comment">--</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- 'supportedDeploymentModes', 'brokerInstanceOption_supportedDeploymentModes' - The list of supported deployment modes.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'engineType', 'brokerInstanceOption_engineType' - The broker\'s engine type.</span><span>
 </span><span id="line-64"></span><span class="hs-comment">--</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- 'supportedEngineVersions', 'brokerInstanceOption_supportedEngineVersions' - The list of supported engine versions.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'hostInstanceType', 'brokerInstanceOption_hostInstanceType' - The broker\'s instance type.</span><span>
 </span><span id="line-66"></span><span class="hs-comment">--</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- 'hostInstanceType', 'brokerInstanceOption_hostInstanceType' - The broker\'s instance type.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'storageType', 'brokerInstanceOption_storageType' - The broker\'s storage type.</span><span>
 </span><span id="line-68"></span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#newBrokerInstanceOption"><span class="hs-identifier hs-type">newBrokerInstanceOption</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#BrokerInstanceOption"><span class="hs-identifier hs-type">BrokerInstanceOption</span></a></span><span>
 </span><span id="line-70"></span><span id="newBrokerInstanceOption"><span class="annot"><span class="annottext">newBrokerInstanceOption :: BrokerInstanceOption
 </span><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#newBrokerInstanceOption"><span class="hs-identifier hs-var hs-var">newBrokerInstanceOption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-71"></span><span>  </span><span class="annot"><span class="annottext">BrokerInstanceOption' :: Maybe [AvailabilityZone]
--&gt; Maybe BrokerStorageType
--&gt; Maybe EngineType
+</span><span id="line-71"></span><span>  </span><span class="annot"><span class="annottext">BrokerInstanceOption' :: Maybe [Text]
+-&gt; Maybe [AvailabilityZone]
 -&gt; Maybe [DeploymentMode]
--&gt; Maybe [Text]
+-&gt; Maybe EngineType
 -&gt; Maybe Text
+-&gt; Maybe BrokerStorageType
 -&gt; BrokerInstanceOption
 </span><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#BrokerInstanceOption%27"><span class="hs-identifier hs-type">BrokerInstanceOption'</span></a></span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:availabilityZones:BrokerInstanceOption' :: Maybe [AvailabilityZone]
-</span><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#%24sel%3AavailabilityZones%3ABrokerInstanceOption%27"><span class="hs-identifier hs-var">availabilityZones</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-73"></span><span>        </span><span class="annot"><span class="annottext">Maybe [AvailabilityZone]
+</span><span id="line-72"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:supportedEngineVersions:BrokerInstanceOption' :: Maybe [Text]
+</span><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#%24sel%3AsupportedEngineVersions%3ABrokerInstanceOption%27"><span class="hs-identifier hs-var">supportedEngineVersions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:storageType:BrokerInstanceOption' :: Maybe BrokerStorageType
-</span><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#%24sel%3AstorageType%3ABrokerInstanceOption%27"><span class="hs-identifier hs-var">storageType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BrokerStorageType
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:availabilityZones:BrokerInstanceOption' :: Maybe [AvailabilityZone]
+</span><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#%24sel%3AavailabilityZones%3ABrokerInstanceOption%27"><span class="hs-identifier hs-var">availabilityZones</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AvailabilityZone]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:engineType:BrokerInstanceOption' :: Maybe EngineType
-</span><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#%24sel%3AengineType%3ABrokerInstanceOption%27"><span class="hs-identifier hs-var">engineType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EngineType
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:supportedDeploymentModes:BrokerInstanceOption' :: Maybe [DeploymentMode]
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:supportedDeploymentModes:BrokerInstanceOption' :: Maybe [DeploymentMode]
 </span><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#%24sel%3AsupportedDeploymentModes%3ABrokerInstanceOption%27"><span class="hs-identifier hs-var">supportedDeploymentModes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DeploymentMode]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:supportedEngineVersions:BrokerInstanceOption' :: Maybe [Text]
-</span><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#%24sel%3AsupportedEngineVersions%3ABrokerInstanceOption%27"><span class="hs-identifier hs-var">supportedEngineVersions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:engineType:BrokerInstanceOption' :: Maybe EngineType
+</span><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#%24sel%3AengineType%3ABrokerInstanceOption%27"><span class="hs-identifier hs-var">engineType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EngineType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:hostInstanceType:BrokerInstanceOption' :: Maybe Text
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:hostInstanceType:BrokerInstanceOption' :: Maybe Text
 </span><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#%24sel%3AhostInstanceType%3ABrokerInstanceOption%27"><span class="hs-identifier hs-var">hostInstanceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:storageType:BrokerInstanceOption' :: Maybe BrokerStorageType
+</span><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#%24sel%3AstorageType%3ABrokerInstanceOption%27"><span class="hs-identifier hs-var">storageType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BrokerStorageType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-79"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- | The list of available az.</span><span>
-</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#brokerInstanceOption_availabilityZones"><span class="hs-identifier hs-type">brokerInstanceOption_availabilityZones</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#BrokerInstanceOption"><span class="hs-identifier hs-type">BrokerInstanceOption</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MQ.Types.AvailabilityZone.html#AvailabilityZone"><span class="hs-identifier hs-type">AvailabilityZone</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-83"></span><span id="brokerInstanceOption_availabilityZones"><span class="annot"><span class="annottext">brokerInstanceOption_availabilityZones :: (Maybe [AvailabilityZone] -&gt; f (Maybe [AvailabilityZone]))
+</span><span id="line-81"></span><span class="hs-comment">-- | The list of supported engine versions.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#brokerInstanceOption_supportedEngineVersions"><span class="hs-identifier hs-type">brokerInstanceOption_supportedEngineVersions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#BrokerInstanceOption"><span class="hs-identifier hs-type">BrokerInstanceOption</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="brokerInstanceOption_supportedEngineVersions"><span class="annot"><span class="annottext">brokerInstanceOption_supportedEngineVersions :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; BrokerInstanceOption -&gt; f BrokerInstanceOption
+</span><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#brokerInstanceOption_supportedEngineVersions"><span class="hs-identifier hs-var hs-var">brokerInstanceOption_supportedEngineVersions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BrokerInstanceOption -&gt; Maybe [Text])
+-&gt; (BrokerInstanceOption -&gt; Maybe [Text] -&gt; BrokerInstanceOption)
+-&gt; Lens
+     BrokerInstanceOption
+     BrokerInstanceOption
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#BrokerInstanceOption%27"><span class="hs-identifier hs-type">BrokerInstanceOption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223602"><span class="annot"><span class="annottext">Maybe [Text]
+supportedEngineVersions :: Maybe [Text]
+$sel:supportedEngineVersions:BrokerInstanceOption' :: BrokerInstanceOption -&gt; Maybe [Text]
+</span><a href="#local-6989586621679223602"><span class="hs-identifier hs-var hs-var">supportedEngineVersions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679223602"><span class="hs-identifier hs-var">supportedEngineVersions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223601"><span class="annot"><span class="annottext">s :: BrokerInstanceOption
+</span><a href="#local-6989586621679223601"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#BrokerInstanceOption%27"><span class="hs-identifier hs-type">BrokerInstanceOption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223600"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679223600"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BrokerInstanceOption
+</span><a href="#local-6989586621679223601"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:supportedEngineVersions:BrokerInstanceOption' :: Maybe [Text]
+</span><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#%24sel%3AsupportedEngineVersions%3ABrokerInstanceOption%27"><span class="hs-identifier hs-var">supportedEngineVersions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679223600"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#BrokerInstanceOption"><span class="hs-identifier hs-type">BrokerInstanceOption</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; BrokerInstanceOption -&gt; f BrokerInstanceOption)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; BrokerInstanceOption
+-&gt; f BrokerInstanceOption
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The list of available az.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#brokerInstanceOption_availabilityZones"><span class="hs-identifier hs-type">brokerInstanceOption_availabilityZones</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#BrokerInstanceOption"><span class="hs-identifier hs-type">BrokerInstanceOption</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MQ.Types.AvailabilityZone.html#AvailabilityZone"><span class="hs-identifier hs-type">AvailabilityZone</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span id="brokerInstanceOption_availabilityZones"><span class="annot"><span class="annottext">brokerInstanceOption_availabilityZones :: (Maybe [AvailabilityZone] -&gt; f (Maybe [AvailabilityZone]))
 -&gt; BrokerInstanceOption -&gt; f BrokerInstanceOption
 </span><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#brokerInstanceOption_availabilityZones"><span class="hs-identifier hs-var hs-var">brokerInstanceOption_availabilityZones</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BrokerInstanceOption -&gt; Maybe [AvailabilityZone])
 -&gt; (BrokerInstanceOption
@@ -176,16 +214,16 @@ forall a. Maybe a
      (Maybe [AvailabilityZone])
      (Maybe [AvailabilityZone])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#BrokerInstanceOption%27"><span class="hs-identifier hs-type">BrokerInstanceOption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223446"><span class="annot"><span class="annottext">Maybe [AvailabilityZone]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#BrokerInstanceOption%27"><span class="hs-identifier hs-type">BrokerInstanceOption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223595"><span class="annot"><span class="annottext">Maybe [AvailabilityZone]
 availabilityZones :: Maybe [AvailabilityZone]
 $sel:availabilityZones:BrokerInstanceOption' :: BrokerInstanceOption -&gt; Maybe [AvailabilityZone]
-</span><a href="#local-6989586621679223446"><span class="hs-identifier hs-var hs-var">availabilityZones</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AvailabilityZone]
-</span><a href="#local-6989586621679223446"><span class="hs-identifier hs-var">availabilityZones</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223445"><span class="annot"><span class="annottext">s :: BrokerInstanceOption
-</span><a href="#local-6989586621679223445"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#BrokerInstanceOption%27"><span class="hs-identifier hs-type">BrokerInstanceOption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223444"><span class="annot"><span class="annottext">Maybe [AvailabilityZone]
-</span><a href="#local-6989586621679223444"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BrokerInstanceOption
-</span><a href="#local-6989586621679223445"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:availabilityZones:BrokerInstanceOption' :: Maybe [AvailabilityZone]
+</span><a href="#local-6989586621679223595"><span class="hs-identifier hs-var hs-var">availabilityZones</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AvailabilityZone]
+</span><a href="#local-6989586621679223595"><span class="hs-identifier hs-var">availabilityZones</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223594"><span class="annot"><span class="annottext">s :: BrokerInstanceOption
+</span><a href="#local-6989586621679223594"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#BrokerInstanceOption%27"><span class="hs-identifier hs-type">BrokerInstanceOption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223593"><span class="annot"><span class="annottext">Maybe [AvailabilityZone]
+</span><a href="#local-6989586621679223593"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BrokerInstanceOption
+</span><a href="#local-6989586621679223594"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:availabilityZones:BrokerInstanceOption' :: Maybe [AvailabilityZone]
 </span><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#%24sel%3AavailabilityZones%3ABrokerInstanceOption%27"><span class="hs-identifier hs-var">availabilityZones</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AvailabilityZone]
-</span><a href="#local-6989586621679223444"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#BrokerInstanceOption"><span class="hs-identifier hs-type">BrokerInstanceOption</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AvailabilityZone] -&gt; f (Maybe [AvailabilityZone]))
+</span><a href="#local-6989586621679223593"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#BrokerInstanceOption"><span class="hs-identifier hs-type">BrokerInstanceOption</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AvailabilityZone] -&gt; f (Maybe [AvailabilityZone]))
  -&gt; BrokerInstanceOption -&gt; f BrokerInstanceOption)
 -&gt; ((Maybe [AvailabilityZone] -&gt; f (Maybe [AvailabilityZone]))
     -&gt; Maybe [AvailabilityZone] -&gt; f (Maybe [AvailabilityZone]))
@@ -211,60 +249,12 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [AvailabilityZone]
   [AvailabilityZone]
   [AvailabilityZone]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- | The broker\'s storage type.</span><span>
-</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#brokerInstanceOption_storageType"><span class="hs-identifier hs-type">brokerInstanceOption_storageType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#BrokerInstanceOption"><span class="hs-identifier hs-type">BrokerInstanceOption</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerStorageType.html#BrokerStorageType"><span class="hs-identifier hs-type">BrokerStorageType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-87"></span><span id="brokerInstanceOption_storageType"><span class="annot"><span class="annottext">brokerInstanceOption_storageType :: (Maybe BrokerStorageType -&gt; f (Maybe BrokerStorageType))
--&gt; BrokerInstanceOption -&gt; f BrokerInstanceOption
-</span><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#brokerInstanceOption_storageType"><span class="hs-identifier hs-var hs-var">brokerInstanceOption_storageType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BrokerInstanceOption -&gt; Maybe BrokerStorageType)
--&gt; (BrokerInstanceOption
-    -&gt; Maybe BrokerStorageType -&gt; BrokerInstanceOption)
--&gt; Lens
-     BrokerInstanceOption
-     BrokerInstanceOption
-     (Maybe BrokerStorageType)
-     (Maybe BrokerStorageType)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#BrokerInstanceOption%27"><span class="hs-identifier hs-type">BrokerInstanceOption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223439"><span class="annot"><span class="annottext">Maybe BrokerStorageType
-storageType :: Maybe BrokerStorageType
-$sel:storageType:BrokerInstanceOption' :: BrokerInstanceOption -&gt; Maybe BrokerStorageType
-</span><a href="#local-6989586621679223439"><span class="hs-identifier hs-var hs-var">storageType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BrokerStorageType
-</span><a href="#local-6989586621679223439"><span class="hs-identifier hs-var">storageType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223438"><span class="annot"><span class="annottext">s :: BrokerInstanceOption
-</span><a href="#local-6989586621679223438"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#BrokerInstanceOption%27"><span class="hs-identifier hs-type">BrokerInstanceOption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223437"><span class="annot"><span class="annottext">Maybe BrokerStorageType
-</span><a href="#local-6989586621679223437"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BrokerInstanceOption
-</span><a href="#local-6989586621679223438"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:storageType:BrokerInstanceOption' :: Maybe BrokerStorageType
-</span><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#%24sel%3AstorageType%3ABrokerInstanceOption%27"><span class="hs-identifier hs-var">storageType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BrokerStorageType
-</span><a href="#local-6989586621679223437"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#BrokerInstanceOption"><span class="hs-identifier hs-type">BrokerInstanceOption</span></a></span><span class="hs-special">)</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- | The broker\'s engine type.</span><span>
-</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#brokerInstanceOption_engineType"><span class="hs-identifier hs-type">brokerInstanceOption_engineType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#BrokerInstanceOption"><span class="hs-identifier hs-type">BrokerInstanceOption</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.EngineType.html#EngineType"><span class="hs-identifier hs-type">EngineType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-91"></span><span id="brokerInstanceOption_engineType"><span class="annot"><span class="annottext">brokerInstanceOption_engineType :: (Maybe EngineType -&gt; f (Maybe EngineType))
--&gt; BrokerInstanceOption -&gt; f BrokerInstanceOption
-</span><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#brokerInstanceOption_engineType"><span class="hs-identifier hs-var hs-var">brokerInstanceOption_engineType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BrokerInstanceOption -&gt; Maybe EngineType)
--&gt; (BrokerInstanceOption
-    -&gt; Maybe EngineType -&gt; BrokerInstanceOption)
--&gt; Lens
-     BrokerInstanceOption
-     BrokerInstanceOption
-     (Maybe EngineType)
-     (Maybe EngineType)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#BrokerInstanceOption%27"><span class="hs-identifier hs-type">BrokerInstanceOption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223435"><span class="annot"><span class="annottext">Maybe EngineType
-engineType :: Maybe EngineType
-$sel:engineType:BrokerInstanceOption' :: BrokerInstanceOption -&gt; Maybe EngineType
-</span><a href="#local-6989586621679223435"><span class="hs-identifier hs-var hs-var">engineType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EngineType
-</span><a href="#local-6989586621679223435"><span class="hs-identifier hs-var">engineType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223434"><span class="annot"><span class="annottext">s :: BrokerInstanceOption
-</span><a href="#local-6989586621679223434"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#BrokerInstanceOption%27"><span class="hs-identifier hs-type">BrokerInstanceOption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223433"><span class="annot"><span class="annottext">Maybe EngineType
-</span><a href="#local-6989586621679223433"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BrokerInstanceOption
-</span><a href="#local-6989586621679223434"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:engineType:BrokerInstanceOption' :: Maybe EngineType
-</span><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#%24sel%3AengineType%3ABrokerInstanceOption%27"><span class="hs-identifier hs-var">engineType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EngineType
-</span><a href="#local-6989586621679223433"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#BrokerInstanceOption"><span class="hs-identifier hs-type">BrokerInstanceOption</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- | The list of supported deployment modes.</span><span>
-</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#brokerInstanceOption_supportedDeploymentModes"><span class="hs-identifier hs-type">brokerInstanceOption_supportedDeploymentModes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#BrokerInstanceOption"><span class="hs-identifier hs-type">BrokerInstanceOption</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MQ.Types.DeploymentMode.html#DeploymentMode"><span class="hs-identifier hs-type">DeploymentMode</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-95"></span><span id="brokerInstanceOption_supportedDeploymentModes"><span class="annot"><span class="annottext">brokerInstanceOption_supportedDeploymentModes :: (Maybe [DeploymentMode] -&gt; f (Maybe [DeploymentMode]))
+</span><span id="line-89"></span><span class="hs-comment">-- | The list of supported deployment modes.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#brokerInstanceOption_supportedDeploymentModes"><span class="hs-identifier hs-type">brokerInstanceOption_supportedDeploymentModes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#BrokerInstanceOption"><span class="hs-identifier hs-type">BrokerInstanceOption</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MQ.Types.DeploymentMode.html#DeploymentMode"><span class="hs-identifier hs-type">DeploymentMode</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span id="brokerInstanceOption_supportedDeploymentModes"><span class="annot"><span class="annottext">brokerInstanceOption_supportedDeploymentModes :: (Maybe [DeploymentMode] -&gt; f (Maybe [DeploymentMode]))
 -&gt; BrokerInstanceOption -&gt; f BrokerInstanceOption
 </span><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#brokerInstanceOption_supportedDeploymentModes"><span class="hs-identifier hs-var hs-var">brokerInstanceOption_supportedDeploymentModes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BrokerInstanceOption -&gt; Maybe [DeploymentMode])
 -&gt; (BrokerInstanceOption
@@ -275,16 +265,16 @@ $sel:engineType:BrokerInstanceOption' :: BrokerInstanceOption -&gt; Maybe Engine
      (Maybe [DeploymentMode])
      (Maybe [DeploymentMode])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#BrokerInstanceOption%27"><span class="hs-identifier hs-type">BrokerInstanceOption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223431"><span class="annot"><span class="annottext">Maybe [DeploymentMode]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#BrokerInstanceOption%27"><span class="hs-identifier hs-type">BrokerInstanceOption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223591"><span class="annot"><span class="annottext">Maybe [DeploymentMode]
 supportedDeploymentModes :: Maybe [DeploymentMode]
 $sel:supportedDeploymentModes:BrokerInstanceOption' :: BrokerInstanceOption -&gt; Maybe [DeploymentMode]
-</span><a href="#local-6989586621679223431"><span class="hs-identifier hs-var hs-var">supportedDeploymentModes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DeploymentMode]
-</span><a href="#local-6989586621679223431"><span class="hs-identifier hs-var">supportedDeploymentModes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223430"><span class="annot"><span class="annottext">s :: BrokerInstanceOption
-</span><a href="#local-6989586621679223430"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#BrokerInstanceOption%27"><span class="hs-identifier hs-type">BrokerInstanceOption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223429"><span class="annot"><span class="annottext">Maybe [DeploymentMode]
-</span><a href="#local-6989586621679223429"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BrokerInstanceOption
-</span><a href="#local-6989586621679223430"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:supportedDeploymentModes:BrokerInstanceOption' :: Maybe [DeploymentMode]
+</span><a href="#local-6989586621679223591"><span class="hs-identifier hs-var hs-var">supportedDeploymentModes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DeploymentMode]
+</span><a href="#local-6989586621679223591"><span class="hs-identifier hs-var">supportedDeploymentModes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223590"><span class="annot"><span class="annottext">s :: BrokerInstanceOption
+</span><a href="#local-6989586621679223590"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#BrokerInstanceOption%27"><span class="hs-identifier hs-type">BrokerInstanceOption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223589"><span class="annot"><span class="annottext">Maybe [DeploymentMode]
+</span><a href="#local-6989586621679223589"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BrokerInstanceOption
+</span><a href="#local-6989586621679223590"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:supportedDeploymentModes:BrokerInstanceOption' :: Maybe [DeploymentMode]
 </span><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#%24sel%3AsupportedDeploymentModes%3ABrokerInstanceOption%27"><span class="hs-identifier hs-var">supportedDeploymentModes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DeploymentMode]
-</span><a href="#local-6989586621679223429"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#BrokerInstanceOption"><span class="hs-identifier hs-type">BrokerInstanceOption</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DeploymentMode] -&gt; f (Maybe [DeploymentMode]))
+</span><a href="#local-6989586621679223589"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#BrokerInstanceOption"><span class="hs-identifier hs-type">BrokerInstanceOption</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DeploymentMode] -&gt; f (Maybe [DeploymentMode]))
  -&gt; BrokerInstanceOption -&gt; f BrokerInstanceOption)
 -&gt; ((Maybe [DeploymentMode] -&gt; f (Maybe [DeploymentMode]))
     -&gt; Maybe [DeploymentMode] -&gt; f (Maybe [DeploymentMode]))
@@ -304,69 +294,79 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
   [DeploymentMode] [DeploymentMode] [DeploymentMode] [DeploymentMode]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- | The list of supported engine versions.</span><span>
-</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#brokerInstanceOption_supportedEngineVersions"><span class="hs-identifier hs-type">brokerInstanceOption_supportedEngineVersions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#BrokerInstanceOption"><span class="hs-identifier hs-type">BrokerInstanceOption</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-99"></span><span id="brokerInstanceOption_supportedEngineVersions"><span class="annot"><span class="annottext">brokerInstanceOption_supportedEngineVersions :: (Maybe [Text] -&gt; f (Maybe [Text]))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | The broker\'s engine type.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#brokerInstanceOption_engineType"><span class="hs-identifier hs-type">brokerInstanceOption_engineType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#BrokerInstanceOption"><span class="hs-identifier hs-type">BrokerInstanceOption</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.EngineType.html#EngineType"><span class="hs-identifier hs-type">EngineType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="brokerInstanceOption_engineType"><span class="annot"><span class="annottext">brokerInstanceOption_engineType :: (Maybe EngineType -&gt; f (Maybe EngineType))
 -&gt; BrokerInstanceOption -&gt; f BrokerInstanceOption
-</span><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#brokerInstanceOption_supportedEngineVersions"><span class="hs-identifier hs-var hs-var">brokerInstanceOption_supportedEngineVersions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BrokerInstanceOption -&gt; Maybe [Text])
--&gt; (BrokerInstanceOption -&gt; Maybe [Text] -&gt; BrokerInstanceOption)
+</span><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#brokerInstanceOption_engineType"><span class="hs-identifier hs-var hs-var">brokerInstanceOption_engineType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BrokerInstanceOption -&gt; Maybe EngineType)
+-&gt; (BrokerInstanceOption
+    -&gt; Maybe EngineType -&gt; BrokerInstanceOption)
 -&gt; Lens
      BrokerInstanceOption
      BrokerInstanceOption
-     (Maybe [Text])
-     (Maybe [Text])
+     (Maybe EngineType)
+     (Maybe EngineType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#BrokerInstanceOption%27"><span class="hs-identifier hs-type">BrokerInstanceOption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223427"><span class="annot"><span class="annottext">Maybe [Text]
-supportedEngineVersions :: Maybe [Text]
-$sel:supportedEngineVersions:BrokerInstanceOption' :: BrokerInstanceOption -&gt; Maybe [Text]
-</span><a href="#local-6989586621679223427"><span class="hs-identifier hs-var hs-var">supportedEngineVersions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679223427"><span class="hs-identifier hs-var">supportedEngineVersions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223426"><span class="annot"><span class="annottext">s :: BrokerInstanceOption
-</span><a href="#local-6989586621679223426"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#BrokerInstanceOption%27"><span class="hs-identifier hs-type">BrokerInstanceOption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223425"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679223425"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BrokerInstanceOption
-</span><a href="#local-6989586621679223426"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:supportedEngineVersions:BrokerInstanceOption' :: Maybe [Text]
-</span><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#%24sel%3AsupportedEngineVersions%3ABrokerInstanceOption%27"><span class="hs-identifier hs-var">supportedEngineVersions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679223425"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#BrokerInstanceOption"><span class="hs-identifier hs-type">BrokerInstanceOption</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
- -&gt; BrokerInstanceOption -&gt; f BrokerInstanceOption)
--&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
-    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
--&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
--&gt; BrokerInstanceOption
--&gt; f BrokerInstanceOption
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
--&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- | The broker\'s instance type.</span><span>
-</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#brokerInstanceOption_hostInstanceType"><span class="hs-identifier hs-type">brokerInstanceOption_hostInstanceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#BrokerInstanceOption"><span class="hs-identifier hs-type">BrokerInstanceOption</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-103"></span><span id="brokerInstanceOption_hostInstanceType"><span class="annot"><span class="annottext">brokerInstanceOption_hostInstanceType :: (Maybe Text -&gt; f (Maybe Text))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#BrokerInstanceOption%27"><span class="hs-identifier hs-type">BrokerInstanceOption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223587"><span class="annot"><span class="annottext">Maybe EngineType
+engineType :: Maybe EngineType
+$sel:engineType:BrokerInstanceOption' :: BrokerInstanceOption -&gt; Maybe EngineType
+</span><a href="#local-6989586621679223587"><span class="hs-identifier hs-var hs-var">engineType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EngineType
+</span><a href="#local-6989586621679223587"><span class="hs-identifier hs-var">engineType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223586"><span class="annot"><span class="annottext">s :: BrokerInstanceOption
+</span><a href="#local-6989586621679223586"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#BrokerInstanceOption%27"><span class="hs-identifier hs-type">BrokerInstanceOption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223585"><span class="annot"><span class="annottext">Maybe EngineType
+</span><a href="#local-6989586621679223585"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BrokerInstanceOption
+</span><a href="#local-6989586621679223586"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:engineType:BrokerInstanceOption' :: Maybe EngineType
+</span><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#%24sel%3AengineType%3ABrokerInstanceOption%27"><span class="hs-identifier hs-var">engineType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EngineType
+</span><a href="#local-6989586621679223585"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#BrokerInstanceOption"><span class="hs-identifier hs-type">BrokerInstanceOption</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | The broker\'s instance type.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#brokerInstanceOption_hostInstanceType"><span class="hs-identifier hs-type">brokerInstanceOption_hostInstanceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#BrokerInstanceOption"><span class="hs-identifier hs-type">BrokerInstanceOption</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="brokerInstanceOption_hostInstanceType"><span class="annot"><span class="annottext">brokerInstanceOption_hostInstanceType :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; BrokerInstanceOption -&gt; f BrokerInstanceOption
 </span><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#brokerInstanceOption_hostInstanceType"><span class="hs-identifier hs-var hs-var">brokerInstanceOption_hostInstanceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BrokerInstanceOption -&gt; Maybe Text)
 -&gt; (BrokerInstanceOption -&gt; Maybe Text -&gt; BrokerInstanceOption)
 -&gt; Lens
      BrokerInstanceOption BrokerInstanceOption (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#BrokerInstanceOption%27"><span class="hs-identifier hs-type">BrokerInstanceOption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223423"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#BrokerInstanceOption%27"><span class="hs-identifier hs-type">BrokerInstanceOption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223583"><span class="annot"><span class="annottext">Maybe Text
 hostInstanceType :: Maybe Text
 $sel:hostInstanceType:BrokerInstanceOption' :: BrokerInstanceOption -&gt; Maybe Text
-</span><a href="#local-6989586621679223423"><span class="hs-identifier hs-var hs-var">hostInstanceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679223423"><span class="hs-identifier hs-var">hostInstanceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223422"><span class="annot"><span class="annottext">s :: BrokerInstanceOption
-</span><a href="#local-6989586621679223422"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#BrokerInstanceOption%27"><span class="hs-identifier hs-type">BrokerInstanceOption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223421"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679223421"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BrokerInstanceOption
-</span><a href="#local-6989586621679223422"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hostInstanceType:BrokerInstanceOption' :: Maybe Text
+</span><a href="#local-6989586621679223583"><span class="hs-identifier hs-var hs-var">hostInstanceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679223583"><span class="hs-identifier hs-var">hostInstanceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223582"><span class="annot"><span class="annottext">s :: BrokerInstanceOption
+</span><a href="#local-6989586621679223582"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#BrokerInstanceOption%27"><span class="hs-identifier hs-type">BrokerInstanceOption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223581"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679223581"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BrokerInstanceOption
+</span><a href="#local-6989586621679223582"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hostInstanceType:BrokerInstanceOption' :: Maybe Text
 </span><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#%24sel%3AhostInstanceType%3ABrokerInstanceOption%27"><span class="hs-identifier hs-var">hostInstanceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679223421"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#BrokerInstanceOption"><span class="hs-identifier hs-type">BrokerInstanceOption</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679223581"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#BrokerInstanceOption"><span class="hs-identifier hs-type">BrokerInstanceOption</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | The broker\'s storage type.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#brokerInstanceOption_storageType"><span class="hs-identifier hs-type">brokerInstanceOption_storageType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#BrokerInstanceOption"><span class="hs-identifier hs-type">BrokerInstanceOption</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerStorageType.html#BrokerStorageType"><span class="hs-identifier hs-type">BrokerStorageType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="brokerInstanceOption_storageType"><span class="annot"><span class="annottext">brokerInstanceOption_storageType :: (Maybe BrokerStorageType -&gt; f (Maybe BrokerStorageType))
+-&gt; BrokerInstanceOption -&gt; f BrokerInstanceOption
+</span><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#brokerInstanceOption_storageType"><span class="hs-identifier hs-var hs-var">brokerInstanceOption_storageType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BrokerInstanceOption -&gt; Maybe BrokerStorageType)
+-&gt; (BrokerInstanceOption
+    -&gt; Maybe BrokerStorageType -&gt; BrokerInstanceOption)
+-&gt; Lens
+     BrokerInstanceOption
+     BrokerInstanceOption
+     (Maybe BrokerStorageType)
+     (Maybe BrokerStorageType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#BrokerInstanceOption%27"><span class="hs-identifier hs-type">BrokerInstanceOption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223579"><span class="annot"><span class="annottext">Maybe BrokerStorageType
+storageType :: Maybe BrokerStorageType
+$sel:storageType:BrokerInstanceOption' :: BrokerInstanceOption -&gt; Maybe BrokerStorageType
+</span><a href="#local-6989586621679223579"><span class="hs-identifier hs-var hs-var">storageType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BrokerStorageType
+</span><a href="#local-6989586621679223579"><span class="hs-identifier hs-var">storageType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223578"><span class="annot"><span class="annottext">s :: BrokerInstanceOption
+</span><a href="#local-6989586621679223578"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#BrokerInstanceOption%27"><span class="hs-identifier hs-type">BrokerInstanceOption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223577"><span class="annot"><span class="annottext">Maybe BrokerStorageType
+</span><a href="#local-6989586621679223577"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BrokerInstanceOption
+</span><a href="#local-6989586621679223578"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:storageType:BrokerInstanceOption' :: Maybe BrokerStorageType
+</span><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#%24sel%3AstorageType%3ABrokerInstanceOption%27"><span class="hs-identifier hs-var">storageType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BrokerStorageType
+</span><a href="#local-6989586621679223577"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#BrokerInstanceOption"><span class="hs-identifier hs-type">BrokerInstanceOption</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223418"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#BrokerInstanceOption"><span class="hs-identifier hs-type">BrokerInstanceOption</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679223416"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BrokerInstanceOption
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223574"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#BrokerInstanceOption"><span class="hs-identifier hs-type">BrokerInstanceOption</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679223572"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BrokerInstanceOption
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser BrokerInstanceOption)
@@ -376,125 +376,127 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;BrokerInstanceOption&quot;</span></span><span>
-</span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679223413"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679223413"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-110"></span><span>          </span><span class="annot"><span class="annottext">Maybe [AvailabilityZone]
--&gt; Maybe BrokerStorageType
--&gt; Maybe EngineType
+</span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679223569"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679223569"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-110"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text]
+-&gt; Maybe [AvailabilityZone]
 -&gt; Maybe [DeploymentMode]
--&gt; Maybe [Text]
+-&gt; Maybe EngineType
 -&gt; Maybe Text
+-&gt; Maybe BrokerStorageType
 -&gt; BrokerInstanceOption
 </span><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#BrokerInstanceOption%27"><span class="hs-identifier hs-var">BrokerInstanceOption'</span></a></span><span>
-</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [AvailabilityZone]
- -&gt; Maybe BrokerStorageType
- -&gt; Maybe EngineType
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text]
+ -&gt; Maybe [AvailabilityZone]
  -&gt; Maybe [DeploymentMode]
- -&gt; Maybe [Text]
+ -&gt; Maybe EngineType
  -&gt; Maybe Text
+ -&gt; Maybe BrokerStorageType
  -&gt; BrokerInstanceOption)
--&gt; Parser (Maybe [AvailabilityZone])
+-&gt; Parser (Maybe [Text])
 -&gt; Parser
-     (Maybe BrokerStorageType
-      -&gt; Maybe EngineType
+     (Maybe [AvailabilityZone]
       -&gt; Maybe [DeploymentMode]
-      -&gt; Maybe [Text]
+      -&gt; Maybe EngineType
       -&gt; Maybe Text
+      -&gt; Maybe BrokerStorageType
       -&gt; BrokerInstanceOption)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679223413"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [AvailabilityZone]))
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;availabilityZones&quot;</span></span><span>
-</span><span id="line-112"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [AvailabilityZone]))
--&gt; Maybe [AvailabilityZone] -&gt; Parser (Maybe [AvailabilityZone])
-forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
-</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AvailabilityZone]
-forall a. Monoid a =&gt; a
-</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-113"></span><span>                        </span><span class="hs-special">)</span><span>
-</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe BrokerStorageType
-   -&gt; Maybe EngineType
-   -&gt; Maybe [DeploymentMode]
-   -&gt; Maybe [Text]
-   -&gt; Maybe Text
-   -&gt; BrokerInstanceOption)
--&gt; Parser (Maybe BrokerStorageType)
--&gt; Parser
-     (Maybe EngineType
-      -&gt; Maybe [DeploymentMode]
-      -&gt; Maybe [Text]
-      -&gt; Maybe Text
-      -&gt; BrokerInstanceOption)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679223413"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe BrokerStorageType)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;storageType&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe EngineType
-   -&gt; Maybe [DeploymentMode]
-   -&gt; Maybe [Text]
-   -&gt; Maybe Text
-   -&gt; BrokerInstanceOption)
--&gt; Parser (Maybe EngineType)
--&gt; Parser
-     (Maybe [DeploymentMode]
-      -&gt; Maybe [Text] -&gt; Maybe Text -&gt; BrokerInstanceOption)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679223413"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EngineType)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;engineType&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe [DeploymentMode]
-   -&gt; Maybe [Text] -&gt; Maybe Text -&gt; BrokerInstanceOption)
--&gt; Parser (Maybe [DeploymentMode])
--&gt; Parser (Maybe [Text] -&gt; Maybe Text -&gt; BrokerInstanceOption)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679223413"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [DeploymentMode]))
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;supportedDeploymentModes&quot;</span></span><span>
-</span><span id="line-117"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [DeploymentMode]))
--&gt; Maybe [DeploymentMode] -&gt; Parser (Maybe [DeploymentMode])
-forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
-</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [DeploymentMode]
-forall a. Monoid a =&gt; a
-</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-118"></span><span>                        </span><span class="hs-special">)</span><span>
-</span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [Text] -&gt; Maybe Text -&gt; BrokerInstanceOption)
--&gt; Parser (Maybe [Text])
--&gt; Parser (Maybe Text -&gt; BrokerInstanceOption)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679223413"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679223569"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;supportedEngineVersions&quot;</span></span><span>
-</span><span id="line-120"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
+</span><span id="line-112"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
 -&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
 forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-121"></span><span>                        </span><span class="hs-special">)</span><span>
-</span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; BrokerInstanceOption)
--&gt; Parser (Maybe Text) -&gt; Parser BrokerInstanceOption
+</span><span id="line-113"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [AvailabilityZone]
+   -&gt; Maybe [DeploymentMode]
+   -&gt; Maybe EngineType
+   -&gt; Maybe Text
+   -&gt; Maybe BrokerStorageType
+   -&gt; BrokerInstanceOption)
+-&gt; Parser (Maybe [AvailabilityZone])
+-&gt; Parser
+     (Maybe [DeploymentMode]
+      -&gt; Maybe EngineType
+      -&gt; Maybe Text
+      -&gt; Maybe BrokerStorageType
+      -&gt; BrokerInstanceOption)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679223569"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [AvailabilityZone]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;availabilityZones&quot;</span></span><span>
+</span><span id="line-115"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [AvailabilityZone]))
+-&gt; Maybe [AvailabilityZone] -&gt; Parser (Maybe [AvailabilityZone])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AvailabilityZone]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-116"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [DeploymentMode]
+   -&gt; Maybe EngineType
+   -&gt; Maybe Text
+   -&gt; Maybe BrokerStorageType
+   -&gt; BrokerInstanceOption)
+-&gt; Parser (Maybe [DeploymentMode])
+-&gt; Parser
+     (Maybe EngineType
+      -&gt; Maybe Text -&gt; Maybe BrokerStorageType -&gt; BrokerInstanceOption)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679223569"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [DeploymentMode]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;supportedDeploymentModes&quot;</span></span><span>
+</span><span id="line-118"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [DeploymentMode]))
+-&gt; Maybe [DeploymentMode] -&gt; Parser (Maybe [DeploymentMode])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [DeploymentMode]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-119"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe EngineType
+   -&gt; Maybe Text -&gt; Maybe BrokerStorageType -&gt; BrokerInstanceOption)
+-&gt; Parser (Maybe EngineType)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe BrokerStorageType -&gt; BrokerInstanceOption)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679223413"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679223569"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EngineType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;engineType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; Maybe BrokerStorageType -&gt; BrokerInstanceOption)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe BrokerStorageType -&gt; BrokerInstanceOption)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679223569"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;hostInstanceType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe BrokerStorageType -&gt; BrokerInstanceOption)
+-&gt; Parser (Maybe BrokerStorageType) -&gt; Parser BrokerInstanceOption
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679223569"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe BrokerStorageType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;storageType&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223406"><span id="local-6989586621679223408"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#BrokerInstanceOption"><span class="hs-identifier hs-type">BrokerInstanceOption</span></a></span></span></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223562"><span id="local-6989586621679223564"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#BrokerInstanceOption"><span class="hs-identifier hs-type">BrokerInstanceOption</span></a></span></span></span><span>
 </span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223403"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#BrokerInstanceOption"><span class="hs-identifier hs-type">BrokerInstanceOption</span></a></span></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223559"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerInstanceOption.html#BrokerInstanceOption"><span class="hs-identifier hs-type">BrokerInstanceOption</span></a></span></span><span>
 </span><span id="line-128"></span></pre></body></html>

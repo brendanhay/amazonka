@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679273767"><span id="local-6989586621679273768"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RedactionOutput"><span class="annot"><a href="Network.AWS.Transcribe.Types.RedactionOutput.html#RedactionOutput"><span class="hs-identifier hs-var">RedactionOutput</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RedactionOutput%27"><span class="annot"><a href="Network.AWS.Transcribe.Types.RedactionOutput.html#RedactionOutput%27"><span class="hs-identifier hs-var">RedactionOutput'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679273930"><span id="local-6989586621679273931"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RedactionOutput"><span class="annot"><a href="Network.AWS.Transcribe.Types.RedactionOutput.html#RedactionOutput"><span class="hs-identifier hs-var">RedactionOutput</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RedactionOutput%27"><span class="annot"><a href="Network.AWS.Transcribe.Types.RedactionOutput.html#RedactionOutput%27"><span class="hs-identifier hs-var">RedactionOutput'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromRedactionOutput"><span class="annot"><span class="annottext">RedactionOutput -&gt; Text
 </span><a href="Network.AWS.Transcribe.Types.RedactionOutput.html#fromRedactionOutput"><span class="hs-identifier hs-var hs-var">fromRedactionOutput</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679273759"><span id="local-6989586621679273761"><span id="local-6989586621679273763"><span class="annot"><span class="annottext">Int -&gt; RedactionOutput -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679273922"><span id="local-6989586621679273924"><span id="local-6989586621679273926"><span class="annot"><span class="annottext">Int -&gt; RedactionOutput -&gt; ShowS
 [RedactionOutput] -&gt; ShowS
 RedactionOutput -&gt; String
 (Int -&gt; RedactionOutput -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: RedactionOutput -&gt; String
 showsPrec :: Int -&gt; RedactionOutput -&gt; ShowS
 $cshowsPrec :: Int -&gt; RedactionOutput -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679273750"><span id="local-6989586621679273752"><span id="local-6989586621679273754"><span id="local-6989586621679273756"><span class="annot"><span class="annottext">ReadPrec [RedactionOutput]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679273913"><span id="local-6989586621679273915"><span id="local-6989586621679273917"><span id="local-6989586621679273919"><span class="annot"><span class="annottext">ReadPrec [RedactionOutput]
 ReadPrec RedactionOutput
 Int -&gt; ReadS RedactionOutput
 ReadS [RedactionOutput]
@@ -72,7 +72,7 @@ $creadList :: ReadS [RedactionOutput]
 readsPrec :: Int -&gt; ReadS RedactionOutput
 $creadsPrec :: Int -&gt; ReadS RedactionOutput
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679273745"><span id="local-6989586621679273747"><span class="annot"><span class="annottext">RedactionOutput -&gt; RedactionOutput -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679273908"><span id="local-6989586621679273910"><span class="annot"><span class="annottext">RedactionOutput -&gt; RedactionOutput -&gt; Bool
 (RedactionOutput -&gt; RedactionOutput -&gt; Bool)
 -&gt; (RedactionOutput -&gt; RedactionOutput -&gt; Bool)
 -&gt; Eq RedactionOutput
@@ -82,7 +82,7 @@ $c/= :: RedactionOutput -&gt; RedactionOutput -&gt; Bool
 == :: RedactionOutput -&gt; RedactionOutput -&gt; Bool
 $c== :: RedactionOutput -&gt; RedactionOutput -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679273729"><span id="local-6989586621679273731"><span id="local-6989586621679273733"><span id="local-6989586621679273735"><span id="local-6989586621679273737"><span id="local-6989586621679273739"><span id="local-6989586621679273741"><span class="annot"><span class="annottext">Eq RedactionOutput
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679273892"><span id="local-6989586621679273894"><span id="local-6989586621679273896"><span id="local-6989586621679273898"><span id="local-6989586621679273900"><span id="local-6989586621679273902"><span id="local-6989586621679273904"><span class="annot"><span class="annottext">Eq RedactionOutput
 Eq RedactionOutput
 -&gt; (RedactionOutput -&gt; RedactionOutput -&gt; Ordering)
 -&gt; (RedactionOutput -&gt; RedactionOutput -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. RedactionOutput -&gt; Rep RedactionOutput x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679273721"><span id="local-6989586621679273723"><span class="annot"><span class="annottext">Int -&gt; RedactionOutput -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679273884"><span id="local-6989586621679273886"><span class="annot"><span class="annottext">Int -&gt; RedactionOutput -&gt; Int
 RedactionOutput -&gt; Int
 (Int -&gt; RedactionOutput -&gt; Int)
 -&gt; (RedactionOutput -&gt; Int) -&gt; Hashable RedactionOutput
@@ -143,50 +143,50 @@ $chash :: RedactionOutput -&gt; Int
 hashWithSalt :: Int -&gt; RedactionOutput -&gt; Int
 $chashWithSalt :: Int -&gt; RedactionOutput -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679273718"><span class="annot"><span class="annottext">RedactionOutput -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679273881"><span class="annot"><span class="annottext">RedactionOutput -&gt; ()
 (RedactionOutput -&gt; ()) -&gt; NFData RedactionOutput
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: RedactionOutput -&gt; ()
 $crnf :: RedactionOutput -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679273715"><span class="annot"><span class="annottext">Text -&gt; Either String RedactionOutput
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679273878"><span class="annot"><span class="annottext">Text -&gt; Either String RedactionOutput
 (Text -&gt; Either String RedactionOutput) -&gt; FromText RedactionOutput
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String RedactionOutput
 $cfromText :: Text -&gt; Either String RedactionOutput
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679273712"><span class="annot"><span class="annottext">RedactionOutput -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679273875"><span class="annot"><span class="annottext">RedactionOutput -&gt; Text
 (RedactionOutput -&gt; Text) -&gt; ToText RedactionOutput
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: RedactionOutput -&gt; Text
 $ctoText :: RedactionOutput -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679273709"><span class="annot"><span class="annottext">RedactionOutput -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679273872"><span class="annot"><span class="annottext">RedactionOutput -&gt; ByteString
 (RedactionOutput -&gt; ByteString) -&gt; ToByteString RedactionOutput
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: RedactionOutput -&gt; ByteString
 $ctoBS :: RedactionOutput -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679273706"><span class="annot"><span class="annottext">RedactionOutput -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679273869"><span class="annot"><span class="annottext">RedactionOutput -&gt; ByteStringBuilder
 (RedactionOutput -&gt; ByteStringBuilder) -&gt; ToLog RedactionOutput
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: RedactionOutput -&gt; ByteStringBuilder
 $cbuild :: RedactionOutput -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679273703"><span class="annot"><span class="annottext">HeaderName -&gt; RedactionOutput -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679273866"><span class="annot"><span class="annottext">HeaderName -&gt; RedactionOutput -&gt; [Header]
 (HeaderName -&gt; RedactionOutput -&gt; [Header])
 -&gt; ToHeader RedactionOutput
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; RedactionOutput -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; RedactionOutput -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679273700"><span class="annot"><span class="annottext">RedactionOutput -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679273863"><span class="annot"><span class="annottext">RedactionOutput -&gt; QueryString
 (RedactionOutput -&gt; QueryString) -&gt; ToQuery RedactionOutput
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: RedactionOutput -&gt; QueryString
 $ctoQuery :: RedactionOutput -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679273695"><span id="local-6989586621679273697"><span class="annot"><span class="annottext">Value -&gt; Parser [RedactionOutput]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679273858"><span id="local-6989586621679273860"><span class="annot"><span class="annottext">Value -&gt; Parser [RedactionOutput]
 Value -&gt; Parser RedactionOutput
 (Value -&gt; Parser RedactionOutput)
 -&gt; (Value -&gt; Parser [RedactionOutput]) -&gt; FromJSON RedactionOutput
@@ -197,7 +197,7 @@ $cparseJSONList :: Value -&gt; Parser [RedactionOutput]
 parseJSON :: Value -&gt; Parser RedactionOutput
 $cparseJSON :: Value -&gt; Parser RedactionOutput
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679273690"><span id="local-6989586621679273692"><span class="annot"><span class="annottext">FromJSONKeyFunction [RedactionOutput]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679273853"><span id="local-6989586621679273855"><span class="annot"><span class="annottext">FromJSONKeyFunction [RedactionOutput]
 FromJSONKeyFunction RedactionOutput
 FromJSONKeyFunction RedactionOutput
 -&gt; FromJSONKeyFunction [RedactionOutput]
@@ -209,7 +209,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [RedactionOutput]
 fromJSONKey :: FromJSONKeyFunction RedactionOutput
 $cfromJSONKey :: FromJSONKeyFunction RedactionOutput
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679273681"><span id="local-6989586621679273683"><span id="local-6989586621679273685"><span id="local-6989586621679273687"><span class="annot"><span class="annottext">[RedactionOutput] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679273844"><span id="local-6989586621679273846"><span id="local-6989586621679273848"><span id="local-6989586621679273850"><span class="annot"><span class="annottext">[RedactionOutput] -&gt; Encoding
 [RedactionOutput] -&gt; Value
 RedactionOutput -&gt; Encoding
 RedactionOutput -&gt; Value
@@ -233,7 +233,7 @@ $ctoEncoding :: RedactionOutput -&gt; Encoding
 toJSON :: RedactionOutput -&gt; Value
 $ctoJSON :: RedactionOutput -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679273676"><span id="local-6989586621679273678"><span class="annot"><span class="annottext">ToJSONKeyFunction [RedactionOutput]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679273839"><span id="local-6989586621679273841"><span class="annot"><span class="annottext">ToJSONKeyFunction [RedactionOutput]
 ToJSONKeyFunction RedactionOutput
 ToJSONKeyFunction RedactionOutput
 -&gt; ToJSONKeyFunction [RedactionOutput] -&gt; ToJSONKey RedactionOutput
@@ -244,14 +244,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [RedactionOutput]
 toJSONKey :: ToJSONKeyFunction RedactionOutput
 $ctoJSONKey :: ToJSONKeyFunction RedactionOutput
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679273673"><span class="annot"><span class="annottext">[Node] -&gt; Either String RedactionOutput
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679273836"><span class="annot"><span class="annottext">[Node] -&gt; Either String RedactionOutput
 ([Node] -&gt; Either String RedactionOutput)
 -&gt; FromXML RedactionOutput
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String RedactionOutput
 $cparseXML :: [Node] -&gt; Either String RedactionOutput
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679273670"><span class="annot"><span class="annottext">RedactionOutput -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679273833"><span class="annot"><span class="annottext">RedactionOutput -&gt; XML
 (RedactionOutput -&gt; XML) -&gt; ToXML RedactionOutput
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: RedactionOutput -&gt; XML

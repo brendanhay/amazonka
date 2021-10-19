@@ -35,13 +35,13 @@
 </span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-37"></span><span>
-</span><span id="line-38"></span><span id="local-6989586621679794044"><span id="local-6989586621679794045"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InstanceInformationFilterKey"><span class="annot"><a href="Network.AWS.SSM.Types.InstanceInformationFilterKey.html#InstanceInformationFilterKey"><span class="hs-identifier hs-var">InstanceInformationFilterKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceInformationFilterKey%27"><span class="annot"><a href="Network.AWS.SSM.Types.InstanceInformationFilterKey.html#InstanceInformationFilterKey%27"><span class="hs-identifier hs-var">InstanceInformationFilterKey'</span></a></span></span><span>
+</span><span id="line-38"></span><span id="local-6989586621679795673"><span id="local-6989586621679795674"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InstanceInformationFilterKey"><span class="annot"><a href="Network.AWS.SSM.Types.InstanceInformationFilterKey.html#InstanceInformationFilterKey"><span class="hs-identifier hs-var">InstanceInformationFilterKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceInformationFilterKey%27"><span class="annot"><a href="Network.AWS.SSM.Types.InstanceInformationFilterKey.html#InstanceInformationFilterKey%27"><span class="hs-identifier hs-var">InstanceInformationFilterKey'</span></a></span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromInstanceInformationFilterKey"><span class="annot"><span class="annottext">InstanceInformationFilterKey -&gt; Text
 </span><a href="Network.AWS.SSM.Types.InstanceInformationFilterKey.html#fromInstanceInformationFilterKey"><span class="hs-identifier hs-var hs-var">fromInstanceInformationFilterKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-40"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679794036"><span id="local-6989586621679794038"><span id="local-6989586621679794040"><span class="annot"><span class="annottext">Int -&gt; InstanceInformationFilterKey -&gt; ShowS
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679795665"><span id="local-6989586621679795667"><span id="local-6989586621679795669"><span class="annot"><span class="annottext">Int -&gt; InstanceInformationFilterKey -&gt; ShowS
 [InstanceInformationFilterKey] -&gt; ShowS
 InstanceInformationFilterKey -&gt; String
 (Int -&gt; InstanceInformationFilterKey -&gt; ShowS)
@@ -57,7 +57,7 @@ $cshow :: InstanceInformationFilterKey -&gt; String
 showsPrec :: Int -&gt; InstanceInformationFilterKey -&gt; ShowS
 $cshowsPrec :: Int -&gt; InstanceInformationFilterKey -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679794027"><span id="local-6989586621679794029"><span id="local-6989586621679794031"><span id="local-6989586621679794033"><span class="annot"><span class="annottext">ReadPrec [InstanceInformationFilterKey]
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679795656"><span id="local-6989586621679795658"><span id="local-6989586621679795660"><span id="local-6989586621679795662"><span class="annot"><span class="annottext">ReadPrec [InstanceInformationFilterKey]
 ReadPrec InstanceInformationFilterKey
 Int -&gt; ReadS InstanceInformationFilterKey
 ReadS [InstanceInformationFilterKey]
@@ -78,7 +78,7 @@ $creadList :: ReadS [InstanceInformationFilterKey]
 readsPrec :: Int -&gt; ReadS InstanceInformationFilterKey
 $creadsPrec :: Int -&gt; ReadS InstanceInformationFilterKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679794022"><span id="local-6989586621679794024"><span class="annot"><span class="annottext">InstanceInformationFilterKey
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679795651"><span id="local-6989586621679795653"><span class="annot"><span class="annottext">InstanceInformationFilterKey
 -&gt; InstanceInformationFilterKey -&gt; Bool
 (InstanceInformationFilterKey
  -&gt; InstanceInformationFilterKey -&gt; Bool)
@@ -95,7 +95,7 @@ $c/= :: InstanceInformationFilterKey
 $c== :: InstanceInformationFilterKey
 -&gt; InstanceInformationFilterKey -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679794006"><span id="local-6989586621679794008"><span id="local-6989586621679794010"><span id="local-6989586621679794012"><span id="local-6989586621679794014"><span id="local-6989586621679794016"><span id="local-6989586621679794018"><span class="annot"><span class="annottext">Eq InstanceInformationFilterKey
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679795635"><span id="local-6989586621679795637"><span id="local-6989586621679795639"><span id="local-6989586621679795641"><span id="local-6989586621679795643"><span id="local-6989586621679795645"><span id="local-6989586621679795647"><span class="annot"><span class="annottext">Eq InstanceInformationFilterKey
 Eq InstanceInformationFilterKey
 -&gt; (InstanceInformationFilterKey
     -&gt; InstanceInformationFilterKey -&gt; Ordering)
@@ -176,7 +176,7 @@ InstanceInformationFilterKey -&gt; Rep InstanceInformationFilterKey x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-48"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679793998"><span id="local-6989586621679794000"><span class="annot"><span class="annottext">Int -&gt; InstanceInformationFilterKey -&gt; Int
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679795627"><span id="local-6989586621679795629"><span class="annot"><span class="annottext">Int -&gt; InstanceInformationFilterKey -&gt; Int
 InstanceInformationFilterKey -&gt; Int
 (Int -&gt; InstanceInformationFilterKey -&gt; Int)
 -&gt; (InstanceInformationFilterKey -&gt; Int)
@@ -187,56 +187,56 @@ $chash :: InstanceInformationFilterKey -&gt; Int
 hashWithSalt :: Int -&gt; InstanceInformationFilterKey -&gt; Int
 $chashWithSalt :: Int -&gt; InstanceInformationFilterKey -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679793995"><span class="annot"><span class="annottext">InstanceInformationFilterKey -&gt; ()
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679795624"><span class="annot"><span class="annottext">InstanceInformationFilterKey -&gt; ()
 (InstanceInformationFilterKey -&gt; ())
 -&gt; NFData InstanceInformationFilterKey
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: InstanceInformationFilterKey -&gt; ()
 $crnf :: InstanceInformationFilterKey -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679793992"><span class="annot"><span class="annottext">Text -&gt; Either String InstanceInformationFilterKey
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679795621"><span class="annot"><span class="annottext">Text -&gt; Either String InstanceInformationFilterKey
 (Text -&gt; Either String InstanceInformationFilterKey)
 -&gt; FromText InstanceInformationFilterKey
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String InstanceInformationFilterKey
 $cfromText :: Text -&gt; Either String InstanceInformationFilterKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679793989"><span class="annot"><span class="annottext">InstanceInformationFilterKey -&gt; Text
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679795618"><span class="annot"><span class="annottext">InstanceInformationFilterKey -&gt; Text
 (InstanceInformationFilterKey -&gt; Text)
 -&gt; ToText InstanceInformationFilterKey
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: InstanceInformationFilterKey -&gt; Text
 $ctoText :: InstanceInformationFilterKey -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679793986"><span class="annot"><span class="annottext">InstanceInformationFilterKey -&gt; ByteString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679795615"><span class="annot"><span class="annottext">InstanceInformationFilterKey -&gt; ByteString
 (InstanceInformationFilterKey -&gt; ByteString)
 -&gt; ToByteString InstanceInformationFilterKey
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: InstanceInformationFilterKey -&gt; ByteString
 $ctoBS :: InstanceInformationFilterKey -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679793983"><span class="annot"><span class="annottext">InstanceInformationFilterKey -&gt; ByteStringBuilder
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679795612"><span class="annot"><span class="annottext">InstanceInformationFilterKey -&gt; ByteStringBuilder
 (InstanceInformationFilterKey -&gt; ByteStringBuilder)
 -&gt; ToLog InstanceInformationFilterKey
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: InstanceInformationFilterKey -&gt; ByteStringBuilder
 $cbuild :: InstanceInformationFilterKey -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679793980"><span class="annot"><span class="annottext">HeaderName -&gt; InstanceInformationFilterKey -&gt; [Header]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679795609"><span class="annot"><span class="annottext">HeaderName -&gt; InstanceInformationFilterKey -&gt; [Header]
 (HeaderName -&gt; InstanceInformationFilterKey -&gt; [Header])
 -&gt; ToHeader InstanceInformationFilterKey
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; InstanceInformationFilterKey -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; InstanceInformationFilterKey -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679793977"><span class="annot"><span class="annottext">InstanceInformationFilterKey -&gt; QueryString
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679795606"><span class="annot"><span class="annottext">InstanceInformationFilterKey -&gt; QueryString
 (InstanceInformationFilterKey -&gt; QueryString)
 -&gt; ToQuery InstanceInformationFilterKey
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: InstanceInformationFilterKey -&gt; QueryString
 $ctoQuery :: InstanceInformationFilterKey -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679793972"><span id="local-6989586621679793974"><span class="annot"><span class="annottext">Value -&gt; Parser [InstanceInformationFilterKey]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679795601"><span id="local-6989586621679795603"><span class="annot"><span class="annottext">Value -&gt; Parser [InstanceInformationFilterKey]
 Value -&gt; Parser InstanceInformationFilterKey
 (Value -&gt; Parser InstanceInformationFilterKey)
 -&gt; (Value -&gt; Parser [InstanceInformationFilterKey])
@@ -248,7 +248,7 @@ $cparseJSONList :: Value -&gt; Parser [InstanceInformationFilterKey]
 parseJSON :: Value -&gt; Parser InstanceInformationFilterKey
 $cparseJSON :: Value -&gt; Parser InstanceInformationFilterKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679793967"><span id="local-6989586621679793969"><span class="annot"><span class="annottext">FromJSONKeyFunction [InstanceInformationFilterKey]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679795596"><span id="local-6989586621679795598"><span class="annot"><span class="annottext">FromJSONKeyFunction [InstanceInformationFilterKey]
 FromJSONKeyFunction InstanceInformationFilterKey
 FromJSONKeyFunction InstanceInformationFilterKey
 -&gt; FromJSONKeyFunction [InstanceInformationFilterKey]
@@ -260,7 +260,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [InstanceInformationFilterKey]
 fromJSONKey :: FromJSONKeyFunction InstanceInformationFilterKey
 $cfromJSONKey :: FromJSONKeyFunction InstanceInformationFilterKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679793958"><span id="local-6989586621679793960"><span id="local-6989586621679793962"><span id="local-6989586621679793964"><span class="annot"><span class="annottext">[InstanceInformationFilterKey] -&gt; Encoding
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679795587"><span id="local-6989586621679795589"><span id="local-6989586621679795591"><span id="local-6989586621679795593"><span class="annot"><span class="annottext">[InstanceInformationFilterKey] -&gt; Encoding
 [InstanceInformationFilterKey] -&gt; Value
 InstanceInformationFilterKey -&gt; Encoding
 InstanceInformationFilterKey -&gt; Value
@@ -284,7 +284,7 @@ $ctoEncoding :: InstanceInformationFilterKey -&gt; Encoding
 toJSON :: InstanceInformationFilterKey -&gt; Value
 $ctoJSON :: InstanceInformationFilterKey -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679793953"><span id="local-6989586621679793955"><span class="annot"><span class="annottext">ToJSONKeyFunction [InstanceInformationFilterKey]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679795582"><span id="local-6989586621679795584"><span class="annot"><span class="annottext">ToJSONKeyFunction [InstanceInformationFilterKey]
 ToJSONKeyFunction InstanceInformationFilterKey
 ToJSONKeyFunction InstanceInformationFilterKey
 -&gt; ToJSONKeyFunction [InstanceInformationFilterKey]
@@ -296,14 +296,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [InstanceInformationFilterKey]
 toJSONKey :: ToJSONKeyFunction InstanceInformationFilterKey
 $ctoJSONKey :: ToJSONKeyFunction InstanceInformationFilterKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679793950"><span class="annot"><span class="annottext">[Node] -&gt; Either String InstanceInformationFilterKey
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679795579"><span class="annot"><span class="annottext">[Node] -&gt; Either String InstanceInformationFilterKey
 ([Node] -&gt; Either String InstanceInformationFilterKey)
 -&gt; FromXML InstanceInformationFilterKey
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String InstanceInformationFilterKey
 $cparseXML :: [Node] -&gt; Either String InstanceInformationFilterKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679793947"><span class="annot"><span class="annottext">InstanceInformationFilterKey -&gt; XML
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679795576"><span class="annot"><span class="annottext">InstanceInformationFilterKey -&gt; XML
 (InstanceInformationFilterKey -&gt; XML)
 -&gt; ToXML InstanceInformationFilterKey
 forall a. (a -&gt; XML) -&gt; ToXML a

@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- Valid feature @FeatureType@s are @Integral@, @Fractional@ and @String@.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newFeatureDefinition' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621680304483"><span id="local-6989586621680304484"></span></span><span class="hs-keyword">data</span><span> </span><span id="FeatureDefinition"><span class="annot"><a href="Network.AWS.SageMaker.Types.FeatureDefinition.html#FeatureDefinition"><span class="hs-identifier hs-var">FeatureDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FeatureDefinition%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.FeatureDefinition.html#FeatureDefinition%27"><span class="hs-identifier hs-var">FeatureDefinition'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621680305858"><span id="local-6989586621680305859"></span></span><span class="hs-keyword">data</span><span> </span><span id="FeatureDefinition"><span class="annot"><a href="Network.AWS.SageMaker.Types.FeatureDefinition.html#FeatureDefinition"><span class="hs-identifier hs-var">FeatureDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FeatureDefinition%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.FeatureDefinition.html#FeatureDefinition%27"><span class="hs-identifier hs-var">FeatureDefinition'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The value type of a feature. Valid values are Integral, Fractional, or</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- String.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AfeatureType%3AFeatureDefinition%27"><span class="annot"><span class="annottext">FeatureDefinition -&gt; Maybe FeatureType
@@ -39,7 +39,7 @@
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3AfeatureName%3AFeatureDefinition%27"><span class="annot"><span class="annottext">FeatureDefinition -&gt; Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.FeatureDefinition.html#%24sel%3AfeatureName%3AFeatureDefinition%27"><span class="hs-identifier hs-var hs-var">featureName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680304476"><span id="local-6989586621680304478"><span class="annot"><span class="annottext">FeatureDefinition -&gt; FeatureDefinition -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680305851"><span id="local-6989586621680305853"><span class="annot"><span class="annottext">FeatureDefinition -&gt; FeatureDefinition -&gt; Bool
 (FeatureDefinition -&gt; FeatureDefinition -&gt; Bool)
 -&gt; (FeatureDefinition -&gt; FeatureDefinition -&gt; Bool)
 -&gt; Eq FeatureDefinition
@@ -48,7 +48,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: FeatureDefinition -&gt; FeatureDefinition -&gt; Bool
 == :: FeatureDefinition -&gt; FeatureDefinition -&gt; Bool
 $c== :: FeatureDefinition -&gt; FeatureDefinition -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680304467"><span id="local-6989586621680304469"><span id="local-6989586621680304471"><span id="local-6989586621680304473"><span class="annot"><span class="annottext">ReadPrec [FeatureDefinition]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680305842"><span id="local-6989586621680305844"><span id="local-6989586621680305846"><span id="local-6989586621680305848"><span class="annot"><span class="annottext">ReadPrec [FeatureDefinition]
 ReadPrec FeatureDefinition
 Int -&gt; ReadS FeatureDefinition
 ReadS [FeatureDefinition]
@@ -68,7 +68,7 @@ readList :: ReadS [FeatureDefinition]
 $creadList :: ReadS [FeatureDefinition]
 readsPrec :: Int -&gt; ReadS FeatureDefinition
 $creadsPrec :: Int -&gt; ReadS FeatureDefinition
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680304460"><span id="local-6989586621680304462"><span id="local-6989586621680304464"><span class="annot"><span class="annottext">Int -&gt; FeatureDefinition -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680305835"><span id="local-6989586621680305837"><span id="local-6989586621680305839"><span class="annot"><span class="annottext">Int -&gt; FeatureDefinition -&gt; ShowS
 [FeatureDefinition] -&gt; ShowS
 FeatureDefinition -&gt; String
 (Int -&gt; FeatureDefinition -&gt; ShowS)
@@ -137,16 +137,16 @@ forall a. Maybe a
      (Maybe FeatureType)
      (Maybe FeatureType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.FeatureDefinition.html#FeatureDefinition%27"><span class="hs-identifier hs-type">FeatureDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680304451"><span class="annot"><span class="annottext">Maybe FeatureType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.FeatureDefinition.html#FeatureDefinition%27"><span class="hs-identifier hs-type">FeatureDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680305826"><span class="annot"><span class="annottext">Maybe FeatureType
 featureType :: Maybe FeatureType
 $sel:featureType:FeatureDefinition' :: FeatureDefinition -&gt; Maybe FeatureType
-</span><a href="#local-6989586621680304451"><span class="hs-identifier hs-var hs-var">featureType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FeatureType
-</span><a href="#local-6989586621680304451"><span class="hs-identifier hs-var">featureType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680304450"><span class="annot"><span class="annottext">s :: FeatureDefinition
-</span><a href="#local-6989586621680304450"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.FeatureDefinition.html#FeatureDefinition%27"><span class="hs-identifier hs-type">FeatureDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680304449"><span class="annot"><span class="annottext">Maybe FeatureType
-</span><a href="#local-6989586621680304449"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FeatureDefinition
-</span><a href="#local-6989586621680304450"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:featureType:FeatureDefinition' :: Maybe FeatureType
+</span><a href="#local-6989586621680305826"><span class="hs-identifier hs-var hs-var">featureType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FeatureType
+</span><a href="#local-6989586621680305826"><span class="hs-identifier hs-var">featureType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680305825"><span class="annot"><span class="annottext">s :: FeatureDefinition
+</span><a href="#local-6989586621680305825"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.FeatureDefinition.html#FeatureDefinition%27"><span class="hs-identifier hs-type">FeatureDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680305824"><span class="annot"><span class="annottext">Maybe FeatureType
+</span><a href="#local-6989586621680305824"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FeatureDefinition
+</span><a href="#local-6989586621680305825"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:featureType:FeatureDefinition' :: Maybe FeatureType
 </span><a href="Network.AWS.SageMaker.Types.FeatureDefinition.html#%24sel%3AfeatureType%3AFeatureDefinition%27"><span class="hs-identifier hs-var">featureType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FeatureType
-</span><a href="#local-6989586621680304449"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.FeatureDefinition.html#FeatureDefinition"><span class="hs-identifier hs-type">FeatureDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680305824"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.FeatureDefinition.html#FeatureDefinition"><span class="hs-identifier hs-type">FeatureDefinition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- | The name of a feature. The type must be a string. @FeatureName@ cannot</span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- be any of the following: @is_deleted@, @write_time@,</span><span>
@@ -159,19 +159,19 @@ $sel:featureType:FeatureDefinition' :: FeatureDefinition -&gt; Maybe FeatureType
 -&gt; Lens
      FeatureDefinition FeatureDefinition (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.FeatureDefinition.html#FeatureDefinition%27"><span class="hs-identifier hs-type">FeatureDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680304447"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.FeatureDefinition.html#FeatureDefinition%27"><span class="hs-identifier hs-type">FeatureDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680305822"><span class="annot"><span class="annottext">Maybe Text
 featureName :: Maybe Text
 $sel:featureName:FeatureDefinition' :: FeatureDefinition -&gt; Maybe Text
-</span><a href="#local-6989586621680304447"><span class="hs-identifier hs-var hs-var">featureName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680304447"><span class="hs-identifier hs-var">featureName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680304446"><span class="annot"><span class="annottext">s :: FeatureDefinition
-</span><a href="#local-6989586621680304446"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.FeatureDefinition.html#FeatureDefinition%27"><span class="hs-identifier hs-type">FeatureDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680304445"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680304445"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FeatureDefinition
-</span><a href="#local-6989586621680304446"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:featureName:FeatureDefinition' :: Maybe Text
+</span><a href="#local-6989586621680305822"><span class="hs-identifier hs-var hs-var">featureName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680305822"><span class="hs-identifier hs-var">featureName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680305821"><span class="annot"><span class="annottext">s :: FeatureDefinition
+</span><a href="#local-6989586621680305821"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.FeatureDefinition.html#FeatureDefinition%27"><span class="hs-identifier hs-type">FeatureDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680305820"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680305820"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FeatureDefinition
+</span><a href="#local-6989586621680305821"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:featureName:FeatureDefinition' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.FeatureDefinition.html#%24sel%3AfeatureName%3AFeatureDefinition%27"><span class="hs-identifier hs-var">featureName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680304445"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.FeatureDefinition.html#FeatureDefinition"><span class="hs-identifier hs-type">FeatureDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680305820"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.FeatureDefinition.html#FeatureDefinition"><span class="hs-identifier hs-type">FeatureDefinition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680304442"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.FeatureDefinition.html#FeatureDefinition"><span class="hs-identifier hs-type">FeatureDefinition</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-76"></span><span>  </span><span id="local-6989586621680304440"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser FeatureDefinition
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680305817"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.FeatureDefinition.html#FeatureDefinition"><span class="hs-identifier hs-type">FeatureDefinition</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621680305815"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser FeatureDefinition
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser FeatureDefinition)
@@ -181,8 +181,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;FeatureDefinition&quot;</span></span><span>
-</span><span id="line-79"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680304437"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680304437"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-79"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680305812"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680305812"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-80"></span><span>          </span><span class="annot"><span class="annottext">Maybe FeatureType -&gt; Maybe Text -&gt; FeatureDefinition
 </span><a href="Network.AWS.SageMaker.Types.FeatureDefinition.html#FeatureDefinition%27"><span class="hs-identifier hs-var">FeatureDefinition'</span></a></span><span>
 </span><span id="line-81"></span><span>            </span><span class="annot"><span class="annottext">(Maybe FeatureType -&gt; Maybe Text -&gt; FeatureDefinition)
@@ -190,7 +190,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; FeatureDefinition)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680304437"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe FeatureType)
+</span><a href="#local-6989586621680305812"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe FeatureType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FeatureType&quot;</span></span><span class="hs-special">)</span><span>
@@ -198,25 +198,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser FeatureDefinition
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680304437"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680305812"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FeatureName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680304431"><span id="local-6989586621680304433"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.FeatureDefinition.html#FeatureDefinition"><span class="hs-identifier hs-type">FeatureDefinition</span></a></span></span></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680305806"><span id="local-6989586621680305808"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.FeatureDefinition.html#FeatureDefinition"><span class="hs-identifier hs-type">FeatureDefinition</span></a></span></span></span><span>
 </span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680304428"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.FeatureDefinition.html#FeatureDefinition"><span class="hs-identifier hs-type">FeatureDefinition</span></a></span></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680305803"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.FeatureDefinition.html#FeatureDefinition"><span class="hs-identifier hs-type">FeatureDefinition</span></a></span></span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680304420"><span id="local-6989586621680304422"><span id="local-6989586621680304424"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.FeatureDefinition.html#FeatureDefinition"><span class="hs-identifier hs-type">FeatureDefinition</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621680304418"><span class="annot"><span class="annottext">toJSON :: FeatureDefinition -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.FeatureDefinition.html#FeatureDefinition%27"><span class="hs-identifier hs-type">FeatureDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680304415"><span id="local-6989586621680304416"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680305795"><span id="local-6989586621680305797"><span id="local-6989586621680305799"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.FeatureDefinition.html#FeatureDefinition"><span class="hs-identifier hs-type">FeatureDefinition</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621680305793"><span class="annot"><span class="annottext">toJSON :: FeatureDefinition -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.FeatureDefinition.html#FeatureDefinition%27"><span class="hs-identifier hs-type">FeatureDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680305790"><span id="local-6989586621680305791"><span class="annot"><span class="annottext">Maybe Text
 Maybe FeatureType
 featureName :: Maybe Text
 featureType :: Maybe FeatureType
 $sel:featureName:FeatureDefinition' :: FeatureDefinition -&gt; Maybe Text
 $sel:featureType:FeatureDefinition' :: FeatureDefinition -&gt; Maybe FeatureType
-</span><a href="#local-6989586621680304415"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680305790"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-91"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-92"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -228,14 +228,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(FeatureType -&gt; Pair) -&gt; Maybe FeatureType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe FeatureType
-</span><a href="#local-6989586621680304416"><span class="hs-identifier hs-var">featureType</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680305791"><span class="hs-identifier hs-var">featureType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-94"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FeatureName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680304415"><span class="hs-identifier hs-var">featureName</span></a></span><span>
+</span><a href="#local-6989586621680305790"><span class="hs-identifier hs-var">featureName</span></a></span><span>
 </span><span id="line-95"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-96"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span></pre></body></html>

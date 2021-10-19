@@ -30,20 +30,20 @@
 </span><span id="line-30"></span><span class="hs-comment">-- protect the information of ones that you don&#8217;t own.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newConflictingAlias' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679388279"><span id="local-6989586621679388280"></span></span><span class="hs-keyword">data</span><span> </span><span id="ConflictingAlias"><span class="annot"><a href="Network.AWS.CloudFront.Types.ConflictingAlias.html#ConflictingAlias"><span class="hs-identifier hs-var">ConflictingAlias</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConflictingAlias%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.ConflictingAlias.html#ConflictingAlias%27"><span class="hs-identifier hs-var">ConflictingAlias'</span></a></span></span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The (partially hidden) ID of the Amazon Web Services account that owns</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- the distribution that&#8217;s associated with the alias.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AaccountId%3AConflictingAlias%27"><span class="annot"><span class="annottext">ConflictingAlias -&gt; Maybe Text
-</span><a href="Network.AWS.CloudFront.Types.ConflictingAlias.html#%24sel%3AaccountId%3AConflictingAlias%27"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | An alias (also called a CNAME).</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3Aalias%3AConflictingAlias%27"><span class="annot"><span class="annottext">ConflictingAlias -&gt; Maybe Text
+</span><span id="line-33"></span><span id="local-6989586621679388504"><span id="local-6989586621679388505"></span></span><span class="hs-keyword">data</span><span> </span><span id="ConflictingAlias"><span class="annot"><a href="Network.AWS.CloudFront.Types.ConflictingAlias.html#ConflictingAlias"><span class="hs-identifier hs-var">ConflictingAlias</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConflictingAlias%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.ConflictingAlias.html#ConflictingAlias%27"><span class="hs-identifier hs-var">ConflictingAlias'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An alias (also called a CNAME).</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Aalias%3AConflictingAlias%27"><span class="annot"><span class="annottext">ConflictingAlias -&gt; Maybe Text
 </span><a href="Network.AWS.CloudFront.Types.ConflictingAlias.html#%24sel%3Aalias%3AConflictingAlias%27"><span class="hs-identifier hs-var hs-var">alias</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The (partially hidden) ID of the Amazon Web Services account that owns</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- the distribution that&#8217;s associated with the alias.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AaccountId%3AConflictingAlias%27"><span class="annot"><span class="annottext">ConflictingAlias -&gt; Maybe Text
+</span><a href="Network.AWS.CloudFront.Types.ConflictingAlias.html#%24sel%3AaccountId%3AConflictingAlias%27"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The (partially hidden) ID of the CloudFront distribution associated with</span><span>
 </span><span id="line-40"></span><span>    </span><span class="hs-comment">-- the alias.</span><span>
 </span><span id="line-41"></span><span>    </span><span id="%24sel%3AdistributionId%3AConflictingAlias%27"><span class="annot"><span class="annottext">ConflictingAlias -&gt; Maybe Text
 </span><a href="Network.AWS.CloudFront.Types.ConflictingAlias.html#%24sel%3AdistributionId%3AConflictingAlias%27"><span class="hs-identifier hs-var hs-var">distributionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679388271"><span id="local-6989586621679388273"><span class="annot"><span class="annottext">ConflictingAlias -&gt; ConflictingAlias -&gt; Bool
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679388496"><span id="local-6989586621679388498"><span class="annot"><span class="annottext">ConflictingAlias -&gt; ConflictingAlias -&gt; Bool
 (ConflictingAlias -&gt; ConflictingAlias -&gt; Bool)
 -&gt; (ConflictingAlias -&gt; ConflictingAlias -&gt; Bool)
 -&gt; Eq ConflictingAlias
@@ -52,7 +52,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ConflictingAlias -&gt; ConflictingAlias -&gt; Bool
 == :: ConflictingAlias -&gt; ConflictingAlias -&gt; Bool
 $c== :: ConflictingAlias -&gt; ConflictingAlias -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388262"><span id="local-6989586621679388264"><span id="local-6989586621679388266"><span id="local-6989586621679388268"><span class="annot"><span class="annottext">ReadPrec [ConflictingAlias]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388487"><span id="local-6989586621679388489"><span id="local-6989586621679388491"><span id="local-6989586621679388493"><span class="annot"><span class="annottext">ReadPrec [ConflictingAlias]
 ReadPrec ConflictingAlias
 Int -&gt; ReadS ConflictingAlias
 ReadS [ConflictingAlias]
@@ -72,7 +72,7 @@ readList :: ReadS [ConflictingAlias]
 $creadList :: ReadS [ConflictingAlias]
 readsPrec :: Int -&gt; ReadS ConflictingAlias
 $creadsPrec :: Int -&gt; ReadS ConflictingAlias
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388255"><span id="local-6989586621679388257"><span id="local-6989586621679388259"><span class="annot"><span class="annottext">Int -&gt; ConflictingAlias -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388480"><span id="local-6989586621679388482"><span id="local-6989586621679388484"><span class="annot"><span class="annottext">Int -&gt; ConflictingAlias -&gt; ShowS
 [ConflictingAlias] -&gt; ShowS
 ConflictingAlias -&gt; String
 (Int -&gt; ConflictingAlias -&gt; ShowS)
@@ -106,10 +106,10 @@ $cfrom :: forall x. ConflictingAlias -&gt; Rep ConflictingAlias x
 </span><span id="line-50"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-52"></span><span class="hs-comment">--</span><span>
-</span><span id="line-53"></span><span class="hs-comment">-- 'accountId', 'conflictingAlias_accountId' - The (partially hidden) ID of the Amazon Web Services account that owns</span><span>
-</span><span id="line-54"></span><span class="hs-comment">-- the distribution that&#8217;s associated with the alias.</span><span>
-</span><span id="line-55"></span><span class="hs-comment">--</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- 'alias', 'conflictingAlias_alias' - An alias (also called a CNAME).</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'alias', 'conflictingAlias_alias' - An alias (also called a CNAME).</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'accountId', 'conflictingAlias_accountId' - The (partially hidden) ID of the Amazon Web Services account that owns</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- the distribution that&#8217;s associated with the alias.</span><span>
 </span><span id="line-57"></span><span class="hs-comment">--</span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- 'distributionId', 'conflictingAlias_distributionId' - The (partially hidden) ID of the CloudFront distribution associated with</span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- the alias.</span><span>
@@ -119,12 +119,12 @@ $cfrom :: forall x. ConflictingAlias -&gt; Rep ConflictingAlias x
 </span><a href="Network.AWS.CloudFront.Types.ConflictingAlias.html#newConflictingAlias"><span class="hs-identifier hs-var hs-var">newConflictingAlias</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-63"></span><span>  </span><span class="annot"><span class="annottext">ConflictingAlias' :: Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; ConflictingAlias
 </span><a href="Network.AWS.CloudFront.Types.ConflictingAlias.html#ConflictingAlias%27"><span class="hs-identifier hs-type">ConflictingAlias'</span></a></span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:accountId:ConflictingAlias' :: Maybe Text
-</span><a href="Network.AWS.CloudFront.Types.ConflictingAlias.html#%24sel%3AaccountId%3AConflictingAlias%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-64"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:alias:ConflictingAlias' :: Maybe Text
+</span><a href="Network.AWS.CloudFront.Types.ConflictingAlias.html#%24sel%3Aalias%3AConflictingAlias%27"><span class="hs-identifier hs-var">alias</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:alias:ConflictingAlias' :: Maybe Text
-</span><a href="Network.AWS.CloudFront.Types.ConflictingAlias.html#%24sel%3Aalias%3AConflictingAlias%27"><span class="hs-identifier hs-var">alias</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:accountId:ConflictingAlias' :: Maybe Text
+</span><a href="Network.AWS.CloudFront.Types.ConflictingAlias.html#%24sel%3AaccountId%3AConflictingAlias%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">$sel:distributionId:ConflictingAlias' :: Maybe Text
@@ -133,44 +133,44 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-67"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- | The (partially hidden) ID of the Amazon Web Services account that owns</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- the distribution that&#8217;s associated with the alias.</span><span>
-</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.ConflictingAlias.html#conflictingAlias_accountId"><span class="hs-identifier hs-type">conflictingAlias_accountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ConflictingAlias.html#ConflictingAlias"><span class="hs-identifier hs-type">ConflictingAlias</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-72"></span><span id="conflictingAlias_accountId"><span class="annot"><span class="annottext">conflictingAlias_accountId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ConflictingAlias -&gt; f ConflictingAlias
-</span><a href="Network.AWS.CloudFront.Types.ConflictingAlias.html#conflictingAlias_accountId"><span class="hs-identifier hs-var hs-var">conflictingAlias_accountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConflictingAlias -&gt; Maybe Text)
--&gt; (ConflictingAlias -&gt; Maybe Text -&gt; ConflictingAlias)
--&gt; Lens ConflictingAlias ConflictingAlias (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ConflictingAlias.html#ConflictingAlias%27"><span class="hs-identifier hs-type">ConflictingAlias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388246"><span class="annot"><span class="annottext">Maybe Text
-accountId :: Maybe Text
-$sel:accountId:ConflictingAlias' :: ConflictingAlias -&gt; Maybe Text
-</span><a href="#local-6989586621679388246"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679388246"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388245"><span class="annot"><span class="annottext">s :: ConflictingAlias
-</span><a href="#local-6989586621679388245"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ConflictingAlias.html#ConflictingAlias%27"><span class="hs-identifier hs-type">ConflictingAlias'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388244"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679388244"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConflictingAlias
-</span><a href="#local-6989586621679388245"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:ConflictingAlias' :: Maybe Text
-</span><a href="Network.AWS.CloudFront.Types.ConflictingAlias.html#%24sel%3AaccountId%3AConflictingAlias%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679388244"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ConflictingAlias.html#ConflictingAlias"><span class="hs-identifier hs-type">ConflictingAlias</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- | An alias (also called a CNAME).</span><span>
-</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.ConflictingAlias.html#conflictingAlias_alias"><span class="hs-identifier hs-type">conflictingAlias_alias</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ConflictingAlias.html#ConflictingAlias"><span class="hs-identifier hs-type">ConflictingAlias</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-76"></span><span id="conflictingAlias_alias"><span class="annot"><span class="annottext">conflictingAlias_alias :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-69"></span><span class="hs-comment">-- | An alias (also called a CNAME).</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.ConflictingAlias.html#conflictingAlias_alias"><span class="hs-identifier hs-type">conflictingAlias_alias</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ConflictingAlias.html#ConflictingAlias"><span class="hs-identifier hs-type">ConflictingAlias</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span id="conflictingAlias_alias"><span class="annot"><span class="annottext">conflictingAlias_alias :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ConflictingAlias -&gt; f ConflictingAlias
 </span><a href="Network.AWS.CloudFront.Types.ConflictingAlias.html#conflictingAlias_alias"><span class="hs-identifier hs-var hs-var">conflictingAlias_alias</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConflictingAlias -&gt; Maybe Text)
 -&gt; (ConflictingAlias -&gt; Maybe Text -&gt; ConflictingAlias)
 -&gt; Lens ConflictingAlias ConflictingAlias (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ConflictingAlias.html#ConflictingAlias%27"><span class="hs-identifier hs-type">ConflictingAlias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388242"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ConflictingAlias.html#ConflictingAlias%27"><span class="hs-identifier hs-type">ConflictingAlias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388471"><span class="annot"><span class="annottext">Maybe Text
 alias :: Maybe Text
 $sel:alias:ConflictingAlias' :: ConflictingAlias -&gt; Maybe Text
-</span><a href="#local-6989586621679388242"><span class="hs-identifier hs-var hs-var">alias</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679388242"><span class="hs-identifier hs-var">alias</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388241"><span class="annot"><span class="annottext">s :: ConflictingAlias
-</span><a href="#local-6989586621679388241"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ConflictingAlias.html#ConflictingAlias%27"><span class="hs-identifier hs-type">ConflictingAlias'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388240"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679388240"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConflictingAlias
-</span><a href="#local-6989586621679388241"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:alias:ConflictingAlias' :: Maybe Text
+</span><a href="#local-6989586621679388471"><span class="hs-identifier hs-var hs-var">alias</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679388471"><span class="hs-identifier hs-var">alias</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388470"><span class="annot"><span class="annottext">s :: ConflictingAlias
+</span><a href="#local-6989586621679388470"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ConflictingAlias.html#ConflictingAlias%27"><span class="hs-identifier hs-type">ConflictingAlias'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388469"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679388469"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConflictingAlias
+</span><a href="#local-6989586621679388470"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:alias:ConflictingAlias' :: Maybe Text
 </span><a href="Network.AWS.CloudFront.Types.ConflictingAlias.html#%24sel%3Aalias%3AConflictingAlias%27"><span class="hs-identifier hs-var">alias</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679388240"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ConflictingAlias.html#ConflictingAlias"><span class="hs-identifier hs-type">ConflictingAlias</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679388469"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ConflictingAlias.html#ConflictingAlias"><span class="hs-identifier hs-type">ConflictingAlias</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- | The (partially hidden) ID of the Amazon Web Services account that owns</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- the distribution that&#8217;s associated with the alias.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.ConflictingAlias.html#conflictingAlias_accountId"><span class="hs-identifier hs-type">conflictingAlias_accountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ConflictingAlias.html#ConflictingAlias"><span class="hs-identifier hs-type">ConflictingAlias</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span id="conflictingAlias_accountId"><span class="annot"><span class="annottext">conflictingAlias_accountId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ConflictingAlias -&gt; f ConflictingAlias
+</span><a href="Network.AWS.CloudFront.Types.ConflictingAlias.html#conflictingAlias_accountId"><span class="hs-identifier hs-var hs-var">conflictingAlias_accountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConflictingAlias -&gt; Maybe Text)
+-&gt; (ConflictingAlias -&gt; Maybe Text -&gt; ConflictingAlias)
+-&gt; Lens ConflictingAlias ConflictingAlias (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ConflictingAlias.html#ConflictingAlias%27"><span class="hs-identifier hs-type">ConflictingAlias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388467"><span class="annot"><span class="annottext">Maybe Text
+accountId :: Maybe Text
+$sel:accountId:ConflictingAlias' :: ConflictingAlias -&gt; Maybe Text
+</span><a href="#local-6989586621679388467"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679388467"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388466"><span class="annot"><span class="annottext">s :: ConflictingAlias
+</span><a href="#local-6989586621679388466"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ConflictingAlias.html#ConflictingAlias%27"><span class="hs-identifier hs-type">ConflictingAlias'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388465"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679388465"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConflictingAlias
+</span><a href="#local-6989586621679388466"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:ConflictingAlias' :: Maybe Text
+</span><a href="Network.AWS.CloudFront.Types.ConflictingAlias.html#%24sel%3AaccountId%3AConflictingAlias%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679388465"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ConflictingAlias.html#ConflictingAlias"><span class="hs-identifier hs-type">ConflictingAlias</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- | The (partially hidden) ID of the CloudFront distribution associated with</span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- the alias.</span><span>
@@ -181,21 +181,21 @@ $sel:alias:ConflictingAlias' :: ConflictingAlias -&gt; Maybe Text
 -&gt; (ConflictingAlias -&gt; Maybe Text -&gt; ConflictingAlias)
 -&gt; Lens ConflictingAlias ConflictingAlias (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ConflictingAlias.html#ConflictingAlias%27"><span class="hs-identifier hs-type">ConflictingAlias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388238"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ConflictingAlias.html#ConflictingAlias%27"><span class="hs-identifier hs-type">ConflictingAlias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388463"><span class="annot"><span class="annottext">Maybe Text
 distributionId :: Maybe Text
 $sel:distributionId:ConflictingAlias' :: ConflictingAlias -&gt; Maybe Text
-</span><a href="#local-6989586621679388238"><span class="hs-identifier hs-var hs-var">distributionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679388238"><span class="hs-identifier hs-var">distributionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388237"><span class="annot"><span class="annottext">s :: ConflictingAlias
-</span><a href="#local-6989586621679388237"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ConflictingAlias.html#ConflictingAlias%27"><span class="hs-identifier hs-type">ConflictingAlias'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388236"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679388236"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConflictingAlias
-</span><a href="#local-6989586621679388237"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:distributionId:ConflictingAlias' :: Maybe Text
+</span><a href="#local-6989586621679388463"><span class="hs-identifier hs-var hs-var">distributionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679388463"><span class="hs-identifier hs-var">distributionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388462"><span class="annot"><span class="annottext">s :: ConflictingAlias
+</span><a href="#local-6989586621679388462"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ConflictingAlias.html#ConflictingAlias%27"><span class="hs-identifier hs-type">ConflictingAlias'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388461"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679388461"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConflictingAlias
+</span><a href="#local-6989586621679388462"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:distributionId:ConflictingAlias' :: Maybe Text
 </span><a href="Network.AWS.CloudFront.Types.ConflictingAlias.html#%24sel%3AdistributionId%3AConflictingAlias%27"><span class="hs-identifier hs-var">distributionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679388236"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ConflictingAlias.html#ConflictingAlias"><span class="hs-identifier hs-type">ConflictingAlias</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679388461"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ConflictingAlias.html#ConflictingAlias"><span class="hs-identifier hs-type">ConflictingAlias</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ConflictingAlias.html#ConflictingAlias"><span class="hs-identifier hs-type">ConflictingAlias</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679388233"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ConflictingAlias
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679388231"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679388231"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679388458"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ConflictingAlias
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679388456"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679388456"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; ConflictingAlias
 </span><a href="Network.AWS.CloudFront.Types.ConflictingAlias.html#ConflictingAlias%27"><span class="hs-identifier hs-var">ConflictingAlias'</span></a></span><span>
 </span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; ConflictingAlias)
@@ -203,29 +203,29 @@ $sel:distributionId:ConflictingAlias' :: ConflictingAlias -&gt; Maybe Text
 -&gt; Either String (Maybe Text -&gt; Maybe Text -&gt; ConflictingAlias)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679388231"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679388456"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;AccountId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;Alias&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Maybe Text -&gt; ConflictingAlias)
 -&gt; Either String (Maybe Text)
 -&gt; Either String (Maybe Text -&gt; ConflictingAlias)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679388231"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679388456"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Alias&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;AccountId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; ConflictingAlias)
 -&gt; Either String (Maybe Text) -&gt; Either String ConflictingAlias
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679388231"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679388456"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DistributionId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388225"><span id="local-6989586621679388227"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ConflictingAlias.html#ConflictingAlias"><span class="hs-identifier hs-type">ConflictingAlias</span></a></span></span></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388450"><span id="local-6989586621679388452"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ConflictingAlias.html#ConflictingAlias"><span class="hs-identifier hs-type">ConflictingAlias</span></a></span></span></span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388222"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ConflictingAlias.html#ConflictingAlias"><span class="hs-identifier hs-type">ConflictingAlias</span></a></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388447"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ConflictingAlias.html#ConflictingAlias"><span class="hs-identifier hs-type">ConflictingAlias</span></a></span></span><span>
 </span><span id="line-93"></span></pre></body></html>

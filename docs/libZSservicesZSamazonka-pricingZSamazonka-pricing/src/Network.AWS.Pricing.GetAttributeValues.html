@@ -43,8 +43,8 @@
 </span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#newGetAttributeValuesResponse"><span class="hs-identifier">newGetAttributeValuesResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-44"></span><span>
 </span><span id="line-45"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#getAttributeValuesResponse_nextToken"><span class="hs-identifier">getAttributeValuesResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#getAttributeValuesResponse_attributeValues"><span class="hs-identifier">getAttributeValuesResponse_attributeValues</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#getAttributeValuesResponse_attributeValues"><span class="hs-identifier">getAttributeValuesResponse_attributeValues</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#getAttributeValuesResponse_nextToken"><span class="hs-identifier">getAttributeValuesResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#getAttributeValuesResponse_httpStatus"><span class="hs-identifier">getAttributeValuesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-50"></span><span class="hs-keyword">where</span><span>
@@ -57,7 +57,7 @@
 </span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-58"></span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- | /See:/ 'newGetAttributeValues' smart constructor.</span><span>
-</span><span id="line-60"></span><span id="local-6989586621679144230"><span id="local-6989586621679144231"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetAttributeValues"><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#GetAttributeValues"><span class="hs-identifier hs-var">GetAttributeValues</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetAttributeValues%27"><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#GetAttributeValues%27"><span class="hs-identifier hs-var">GetAttributeValues'</span></a></span></span><span>
+</span><span id="line-60"></span><span id="local-6989586621679144251"><span id="local-6989586621679144252"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetAttributeValues"><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#GetAttributeValues"><span class="hs-identifier hs-var">GetAttributeValues</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetAttributeValues%27"><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#GetAttributeValues%27"><span class="hs-identifier hs-var">GetAttributeValues'</span></a></span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The pagination token that indicates the next set of results that you</span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-comment">-- want to retrieve.</span><span>
 </span><span id="line-63"></span><span>    </span><span id="%24sel%3AnextToken%3AGetAttributeValues%27"><span class="annot"><span class="annottext">GetAttributeValues -&gt; Maybe Text
@@ -74,7 +74,7 @@
 </span><span id="line-71"></span><span>    </span><span id="%24sel%3AattributeName%3AGetAttributeValues%27"><span class="annot"><span class="annottext">GetAttributeValues -&gt; Text
 </span><a href="Network.AWS.Pricing.GetAttributeValues.html#%24sel%3AattributeName%3AGetAttributeValues%27"><span class="hs-identifier hs-var hs-var">attributeName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-72"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679144221"><span id="local-6989586621679144223"><span class="annot"><span class="annottext">GetAttributeValues -&gt; GetAttributeValues -&gt; Bool
+</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679144242"><span id="local-6989586621679144244"><span class="annot"><span class="annottext">GetAttributeValues -&gt; GetAttributeValues -&gt; Bool
 (GetAttributeValues -&gt; GetAttributeValues -&gt; Bool)
 -&gt; (GetAttributeValues -&gt; GetAttributeValues -&gt; Bool)
 -&gt; Eq GetAttributeValues
@@ -83,7 +83,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetAttributeValues -&gt; GetAttributeValues -&gt; Bool
 == :: GetAttributeValues -&gt; GetAttributeValues -&gt; Bool
 $c== :: GetAttributeValues -&gt; GetAttributeValues -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679144212"><span id="local-6989586621679144214"><span id="local-6989586621679144216"><span id="local-6989586621679144218"><span class="annot"><span class="annottext">ReadPrec [GetAttributeValues]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679144233"><span id="local-6989586621679144235"><span id="local-6989586621679144237"><span id="local-6989586621679144239"><span class="annot"><span class="annottext">ReadPrec [GetAttributeValues]
 ReadPrec GetAttributeValues
 Int -&gt; ReadS GetAttributeValues
 ReadS [GetAttributeValues]
@@ -103,7 +103,7 @@ readList :: ReadS [GetAttributeValues]
 $creadList :: ReadS [GetAttributeValues]
 readsPrec :: Int -&gt; ReadS GetAttributeValues
 $creadsPrec :: Int -&gt; ReadS GetAttributeValues
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679144205"><span id="local-6989586621679144207"><span id="local-6989586621679144209"><span class="annot"><span class="annottext">Int -&gt; GetAttributeValues -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679144226"><span id="local-6989586621679144228"><span id="local-6989586621679144230"><span class="annot"><span class="annottext">Int -&gt; GetAttributeValues -&gt; ShowS
 [GetAttributeValues] -&gt; ShowS
 GetAttributeValues -&gt; String
 (Int -&gt; GetAttributeValues -&gt; ShowS)
@@ -154,9 +154,9 @@ $cfrom :: forall x. GetAttributeValues -&gt; Rep GetAttributeValues x
 </span><span id="line-97"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-98"></span><span>  </span><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#GetAttributeValues"><span class="hs-identifier hs-type">GetAttributeValues</span></a></span><span>
 </span><span id="line-99"></span><span id="newGetAttributeValues"><span class="annot"><span class="annottext">newGetAttributeValues :: Text -&gt; Text -&gt; GetAttributeValues
-</span><a href="Network.AWS.Pricing.GetAttributeValues.html#newGetAttributeValues"><span class="hs-identifier hs-var hs-var">newGetAttributeValues</span></a></span></span><span> </span><span id="local-6989586621679144200"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679144200"><span class="hs-identifier hs-var">pServiceCode_</span></a></span></span><span> </span><span id="local-6989586621679144199"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679144199"><span class="hs-identifier hs-var">pAttributeName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Pricing.GetAttributeValues.html#newGetAttributeValues"><span class="hs-identifier hs-var hs-var">newGetAttributeValues</span></a></span></span><span> </span><span id="local-6989586621679144221"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679144221"><span class="hs-identifier hs-var">pServiceCode_</span></a></span></span><span> </span><span id="local-6989586621679144220"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679144220"><span class="hs-identifier hs-var">pAttributeName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-100"></span><span>  </span><span class="annot"><span class="annottext">GetAttributeValues' :: Maybe Text -&gt; Maybe Natural -&gt; Text -&gt; Text -&gt; GetAttributeValues
 </span><a href="Network.AWS.Pricing.GetAttributeValues.html#GetAttributeValues%27"><span class="hs-identifier hs-type">GetAttributeValues'</span></a></span><span>
 </span><span id="line-101"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:GetAttributeValues' :: Maybe Text
@@ -169,10 +169,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:serviceCode:GetAttributeValues' :: Text
 </span><a href="Network.AWS.Pricing.GetAttributeValues.html#%24sel%3AserviceCode%3AGetAttributeValues%27"><span class="hs-identifier hs-var">serviceCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679144200"><span class="hs-identifier hs-var">pServiceCode_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679144221"><span class="hs-identifier hs-var">pServiceCode_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:attributeName:GetAttributeValues' :: Text
 </span><a href="Network.AWS.Pricing.GetAttributeValues.html#%24sel%3AattributeName%3AGetAttributeValues%27"><span class="hs-identifier hs-var">attributeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679144199"><span class="hs-identifier hs-var">pAttributeName_</span></a></span><span>
+</span><a href="#local-6989586621679144220"><span class="hs-identifier hs-var">pAttributeName_</span></a></span><span>
 </span><span id="line-105"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-comment">-- | The pagination token that indicates the next set of results that you</span><span>
@@ -185,16 +185,16 @@ forall a. Maybe a
 -&gt; Lens
      GetAttributeValues GetAttributeValues (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#GetAttributeValues%27"><span class="hs-identifier hs-type">GetAttributeValues'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679144197"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#GetAttributeValues%27"><span class="hs-identifier hs-type">GetAttributeValues'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679144218"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:GetAttributeValues' :: GetAttributeValues -&gt; Maybe Text
-</span><a href="#local-6989586621679144197"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679144197"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679144196"><span class="annot"><span class="annottext">s :: GetAttributeValues
-</span><a href="#local-6989586621679144196"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#GetAttributeValues%27"><span class="hs-identifier hs-type">GetAttributeValues'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679144195"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679144195"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAttributeValues
-</span><a href="#local-6989586621679144196"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetAttributeValues' :: Maybe Text
+</span><a href="#local-6989586621679144218"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679144218"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679144217"><span class="annot"><span class="annottext">s :: GetAttributeValues
+</span><a href="#local-6989586621679144217"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#GetAttributeValues%27"><span class="hs-identifier hs-type">GetAttributeValues'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679144216"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679144216"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAttributeValues
+</span><a href="#local-6989586621679144217"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetAttributeValues' :: Maybe Text
 </span><a href="Network.AWS.Pricing.GetAttributeValues.html#%24sel%3AnextToken%3AGetAttributeValues%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679144195"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#GetAttributeValues"><span class="hs-identifier hs-type">GetAttributeValues</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679144216"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#GetAttributeValues"><span class="hs-identifier hs-type">GetAttributeValues</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-comment">-- | The maximum number of results to return in response.</span><span>
 </span><span id="line-113"></span><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#getAttributeValues_maxResults"><span class="hs-identifier hs-type">getAttributeValues_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#GetAttributeValues"><span class="hs-identifier hs-type">GetAttributeValues</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -208,16 +208,16 @@ $sel:nextToken:GetAttributeValues' :: GetAttributeValues -&gt; Maybe Text
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#GetAttributeValues%27"><span class="hs-identifier hs-type">GetAttributeValues'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679144194"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#GetAttributeValues%27"><span class="hs-identifier hs-type">GetAttributeValues'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679144215"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:GetAttributeValues' :: GetAttributeValues -&gt; Maybe Natural
-</span><a href="#local-6989586621679144194"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679144194"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679144193"><span class="annot"><span class="annottext">s :: GetAttributeValues
-</span><a href="#local-6989586621679144193"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#GetAttributeValues%27"><span class="hs-identifier hs-type">GetAttributeValues'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679144192"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679144192"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAttributeValues
-</span><a href="#local-6989586621679144193"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:GetAttributeValues' :: Maybe Natural
+</span><a href="#local-6989586621679144215"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679144215"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679144214"><span class="annot"><span class="annottext">s :: GetAttributeValues
+</span><a href="#local-6989586621679144214"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#GetAttributeValues%27"><span class="hs-identifier hs-type">GetAttributeValues'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679144213"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679144213"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAttributeValues
+</span><a href="#local-6989586621679144214"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:GetAttributeValues' :: Maybe Natural
 </span><a href="Network.AWS.Pricing.GetAttributeValues.html#%24sel%3AmaxResults%3AGetAttributeValues%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679144192"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#GetAttributeValues"><span class="hs-identifier hs-type">GetAttributeValues</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679144213"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#GetAttributeValues"><span class="hs-identifier hs-type">GetAttributeValues</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-comment">-- | The service code for the service whose attributes you want to retrieve.</span><span>
 </span><span id="line-117"></span><span class="hs-comment">-- For example, if you want the retrieve an EC2 attribute, use @AmazonEC2@.</span><span>
@@ -227,16 +227,16 @@ $sel:maxResults:GetAttributeValues' :: GetAttributeValues -&gt; Maybe Natural
 -&gt; (GetAttributeValues -&gt; Text -&gt; GetAttributeValues)
 -&gt; Lens GetAttributeValues GetAttributeValues Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#GetAttributeValues%27"><span class="hs-identifier hs-type">GetAttributeValues'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679144191"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#GetAttributeValues%27"><span class="hs-identifier hs-type">GetAttributeValues'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679144212"><span class="annot"><span class="annottext">Text
 serviceCode :: Text
 $sel:serviceCode:GetAttributeValues' :: GetAttributeValues -&gt; Text
-</span><a href="#local-6989586621679144191"><span class="hs-identifier hs-var hs-var">serviceCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679144191"><span class="hs-identifier hs-var">serviceCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679144190"><span class="annot"><span class="annottext">s :: GetAttributeValues
-</span><a href="#local-6989586621679144190"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#GetAttributeValues%27"><span class="hs-identifier hs-type">GetAttributeValues'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679144189"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679144189"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAttributeValues
-</span><a href="#local-6989586621679144190"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceCode:GetAttributeValues' :: Text
+</span><a href="#local-6989586621679144212"><span class="hs-identifier hs-var hs-var">serviceCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679144212"><span class="hs-identifier hs-var">serviceCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679144211"><span class="annot"><span class="annottext">s :: GetAttributeValues
+</span><a href="#local-6989586621679144211"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#GetAttributeValues%27"><span class="hs-identifier hs-type">GetAttributeValues'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679144210"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679144210"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAttributeValues
+</span><a href="#local-6989586621679144211"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceCode:GetAttributeValues' :: Text
 </span><a href="Network.AWS.Pricing.GetAttributeValues.html#%24sel%3AserviceCode%3AGetAttributeValues%27"><span class="hs-identifier hs-var">serviceCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679144189"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#GetAttributeValues"><span class="hs-identifier hs-type">GetAttributeValues</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679144210"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#GetAttributeValues"><span class="hs-identifier hs-type">GetAttributeValues</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-comment">-- | The name of the attribute that you want to retrieve the values for, such</span><span>
 </span><span id="line-122"></span><span class="hs-comment">-- as @volumeType@.</span><span>
@@ -246,29 +246,29 @@ $sel:serviceCode:GetAttributeValues' :: GetAttributeValues -&gt; Text
 -&gt; (GetAttributeValues -&gt; Text -&gt; GetAttributeValues)
 -&gt; Lens GetAttributeValues GetAttributeValues Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#GetAttributeValues%27"><span class="hs-identifier hs-type">GetAttributeValues'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679144188"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#GetAttributeValues%27"><span class="hs-identifier hs-type">GetAttributeValues'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679144209"><span class="annot"><span class="annottext">Text
 attributeName :: Text
 $sel:attributeName:GetAttributeValues' :: GetAttributeValues -&gt; Text
-</span><a href="#local-6989586621679144188"><span class="hs-identifier hs-var hs-var">attributeName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679144188"><span class="hs-identifier hs-var">attributeName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679144187"><span class="annot"><span class="annottext">s :: GetAttributeValues
-</span><a href="#local-6989586621679144187"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#GetAttributeValues%27"><span class="hs-identifier hs-type">GetAttributeValues'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679144186"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679144186"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAttributeValues
-</span><a href="#local-6989586621679144187"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributeName:GetAttributeValues' :: Text
+</span><a href="#local-6989586621679144209"><span class="hs-identifier hs-var hs-var">attributeName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679144209"><span class="hs-identifier hs-var">attributeName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679144208"><span class="annot"><span class="annottext">s :: GetAttributeValues
+</span><a href="#local-6989586621679144208"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#GetAttributeValues%27"><span class="hs-identifier hs-type">GetAttributeValues'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679144207"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679144207"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAttributeValues
+</span><a href="#local-6989586621679144208"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributeName:GetAttributeValues' :: Text
 </span><a href="Network.AWS.Pricing.GetAttributeValues.html#%24sel%3AattributeName%3AGetAttributeValues%27"><span class="hs-identifier hs-var">attributeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679144186"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#GetAttributeValues"><span class="hs-identifier hs-type">GetAttributeValues</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679144207"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#GetAttributeValues"><span class="hs-identifier hs-type">GetAttributeValues</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#GetAttributeValues"><span class="hs-identifier hs-type">GetAttributeValues</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679144182"><span class="annot"><span class="annottext">page :: GetAttributeValues
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679144203"><span class="annot"><span class="annottext">page :: GetAttributeValues
 -&gt; AWSResponse GetAttributeValues -&gt; Maybe GetAttributeValues
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679144180"><span class="annot"><span class="annottext">GetAttributeValues
-</span><a href="#local-6989586621679144180"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679144179"><span class="annot"><span class="annottext">AWSResponse GetAttributeValues
-</span><a href="#local-6989586621679144179"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679144201"><span class="annot"><span class="annottext">GetAttributeValues
+</span><a href="#local-6989586621679144201"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679144200"><span class="annot"><span class="annottext">AWSResponse GetAttributeValues
+</span><a href="#local-6989586621679144200"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-128"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-129"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse GetAttributeValues
 GetAttributeValuesResponse
-</span><a href="#local-6989586621679144179"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679144200"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">GetAttributeValuesResponse
 -&gt; Getting (First Text) GetAttributeValuesResponse Text
 -&gt; Maybe Text
@@ -298,7 +298,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-135"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse GetAttributeValues
 GetAttributeValuesResponse
-</span><a href="#local-6989586621679144179"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679144200"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">GetAttributeValuesResponse
 -&gt; Getting
      (First [AttributeValue])
@@ -344,7 +344,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-142"></span><span>        </span><span class="annot"><span class="annottext">GetAttributeValues
-</span><a href="#local-6989586621679144180"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679144201"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-143"></span><span>          </span><span class="annot"><span class="annottext">GetAttributeValues
 -&gt; (GetAttributeValues -&gt; GetAttributeValues) -&gt; GetAttributeValues
 forall a b. a -&gt; (a -&gt; b) -&gt; b
@@ -359,7 +359,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse GetAttributeValues
 GetAttributeValuesResponse
-</span><a href="#local-6989586621679144179"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679144200"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-145"></span><span>          </span><span class="annot"><span class="annottext">GetAttributeValuesResponse
 -&gt; Getting (First Text) GetAttributeValuesResponse Text
 -&gt; Maybe Text
@@ -385,12 +385,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-149"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-150"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#GetAttributeValues"><span class="hs-identifier hs-type">GetAttributeValues</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-151"></span><span>      </span><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#GetAttributeValuesResponse"><span class="hs-identifier hs-type">GetAttributeValuesResponse</span></a></span><span>
-</span><span id="line-152"></span><span>  </span><span id="local-6989586621679144169"><span class="annot"><span class="annottext">request :: GetAttributeValues -&gt; Request GetAttributeValues
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679144190"><span class="annot"><span class="annottext">request :: GetAttributeValues -&gt; Request GetAttributeValues
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetAttributeValues -&gt; Request GetAttributeValues
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Pricing.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-153"></span><span>  </span><span id="local-6989586621679144165"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679144186"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetAttributeValues
 -&gt; ClientResponse ClientBody
@@ -416,43 +416,39 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-155"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679144162"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679144162"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679144161"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679144161"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679144160"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679144160"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-156"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe [AttributeValue] -&gt; Int -&gt; GetAttributeValuesResponse
+</span><span id="line-155"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679144183"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679144183"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679144182"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679144182"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679144181"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679144181"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-156"></span><span>          </span><span class="annot"><span class="annottext">Maybe [AttributeValue]
+-&gt; Maybe Text -&gt; Int -&gt; GetAttributeValuesResponse
 </span><a href="Network.AWS.Pricing.GetAttributeValues.html#GetAttributeValuesResponse%27"><span class="hs-identifier hs-var">GetAttributeValuesResponse'</span></a></span><span>
-</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe [AttributeValue] -&gt; Int -&gt; GetAttributeValuesResponse)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String
-     (Maybe [AttributeValue] -&gt; Int -&gt; GetAttributeValuesResponse)
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679144160"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe [AttributeValue] -&gt; Int -&gt; GetAttributeValuesResponse)
+</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [AttributeValue]
+ -&gt; Maybe Text -&gt; Int -&gt; GetAttributeValuesResponse)
 -&gt; Either String (Maybe [AttributeValue])
--&gt; Either String (Int -&gt; GetAttributeValuesResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679144160"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [AttributeValue]))
+-&gt; Either String (Maybe Text -&gt; Int -&gt; GetAttributeValuesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679144181"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [AttributeValue]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AttributeValues&quot;</span></span><span>
-</span><span id="line-159"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [AttributeValue]))
+</span><span id="line-158"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [AttributeValue]))
 -&gt; Maybe [AttributeValue] -&gt; Either String (Maybe [AttributeValue])
 forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AttributeValue]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-160"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; GetAttributeValuesResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; GetAttributeValuesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679144181"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetAttributeValuesResponse)
 -&gt; Either String Int -&gt; Either String GetAttributeValuesResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -461,15 +457,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679144162"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679144183"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-162"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>
-</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679144151"><span id="local-6989586621679144153"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#GetAttributeValues"><span class="hs-identifier hs-type">GetAttributeValues</span></a></span></span></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679144172"><span id="local-6989586621679144174"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#GetAttributeValues"><span class="hs-identifier hs-type">GetAttributeValues</span></a></span></span></span><span>
 </span><span id="line-165"></span><span>
-</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679144148"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#GetAttributeValues"><span class="hs-identifier hs-type">GetAttributeValues</span></a></span></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679144169"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#GetAttributeValues"><span class="hs-identifier hs-type">GetAttributeValues</span></a></span></span><span>
 </span><span id="line-167"></span><span>
 </span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#GetAttributeValues"><span class="hs-identifier hs-type">GetAttributeValues</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-169"></span><span>  </span><span id="local-6989586621679144144"><span class="annot"><span class="annottext">toHeaders :: GetAttributeValues -&gt; ResponseHeaders
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679144165"><span class="annot"><span class="annottext">toHeaders :: GetAttributeValues -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-170"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetAttributeValues -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -496,9 +492,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-180"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-181"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-182"></span><span>
-</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679144134"><span id="local-6989586621679144136"><span id="local-6989586621679144138"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#GetAttributeValues"><span class="hs-identifier hs-type">GetAttributeValues</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-184"></span><span>  </span><span id="local-6989586621679144132"><span class="annot"><span class="annottext">toJSON :: GetAttributeValues -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#GetAttributeValues%27"><span class="hs-identifier hs-type">GetAttributeValues'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679144127"><span id="local-6989586621679144128"><span id="local-6989586621679144129"><span id="local-6989586621679144130"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679144155"><span id="local-6989586621679144157"><span id="local-6989586621679144159"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#GetAttributeValues"><span class="hs-identifier hs-type">GetAttributeValues</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679144153"><span class="annot"><span class="annottext">toJSON :: GetAttributeValues -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#GetAttributeValues%27"><span class="hs-identifier hs-type">GetAttributeValues'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679144148"><span id="local-6989586621679144149"><span id="local-6989586621679144150"><span id="local-6989586621679144151"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Text
 attributeName :: Text
@@ -509,7 +505,7 @@ $sel:attributeName:GetAttributeValues' :: GetAttributeValues -&gt; Text
 $sel:serviceCode:GetAttributeValues' :: GetAttributeValues -&gt; Text
 $sel:maxResults:GetAttributeValues' :: GetAttributeValues -&gt; Maybe Natural
 $sel:nextToken:GetAttributeValues' :: GetAttributeValues -&gt; Maybe Text
-</span><a href="#local-6989586621679144127"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679144148"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-185"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-186"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -521,21 +517,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679144130"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679144151"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-188"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679144129"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679144150"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-189"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ServiceCode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679144128"><span class="hs-identifier hs-var">serviceCode</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679144149"><span class="hs-identifier hs-var">serviceCode</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-190"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -543,19 +539,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;AttributeName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679144127"><span class="hs-identifier hs-var">attributeName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679144148"><span class="hs-identifier hs-var">attributeName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-192"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-193"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-194"></span><span>
 </span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#GetAttributeValues"><span class="hs-identifier hs-type">GetAttributeValues</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-196"></span><span>  </span><span id="local-6989586621679144121"><span class="annot"><span class="annottext">toPath :: GetAttributeValues -&gt; ByteString
+</span><span id="line-196"></span><span>  </span><span id="local-6989586621679144142"><span class="annot"><span class="annottext">toPath :: GetAttributeValues -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetAttributeValues -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-197"></span><span>
 </span><span id="line-198"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#GetAttributeValues"><span class="hs-identifier hs-type">GetAttributeValues</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-199"></span><span>  </span><span id="local-6989586621679144117"><span class="annot"><span class="annottext">toQuery :: GetAttributeValues -&gt; QueryString
+</span><span id="line-199"></span><span>  </span><span id="local-6989586621679144138"><span class="annot"><span class="annottext">toQuery :: GetAttributeValues -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetAttributeValues -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -563,20 +559,20 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-200"></span><span>
 </span><span id="line-201"></span><span class="hs-comment">-- | /See:/ 'newGetAttributeValuesResponse' smart constructor.</span><span>
-</span><span id="line-202"></span><span id="local-6989586621679144114"><span id="local-6989586621679144115"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetAttributeValuesResponse"><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#GetAttributeValuesResponse"><span class="hs-identifier hs-var">GetAttributeValuesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetAttributeValuesResponse%27"><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#GetAttributeValuesResponse%27"><span class="hs-identifier hs-var">GetAttributeValuesResponse'</span></a></span></span><span>
-</span><span id="line-203"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The pagination token that indicates the next set of results to retrieve.</span><span>
-</span><span id="line-204"></span><span>    </span><span id="%24sel%3AnextToken%3AGetAttributeValuesResponse%27"><span class="annot"><span class="annottext">GetAttributeValuesResponse -&gt; Maybe Text
-</span><a href="Network.AWS.Pricing.GetAttributeValues.html#%24sel%3AnextToken%3AGetAttributeValuesResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-205"></span><span>    </span><span class="hs-comment">-- | The list of values for an attribute. For example,</span><span>
-</span><span id="line-206"></span><span>    </span><span class="hs-comment">-- @Throughput Optimized HDD@ and @Provisioned IOPS@ are two available</span><span>
-</span><span id="line-207"></span><span>    </span><span class="hs-comment">-- values for the @AmazonEC2@ @volumeType@.</span><span>
-</span><span id="line-208"></span><span>    </span><span id="%24sel%3AattributeValues%3AGetAttributeValuesResponse%27"><span class="annot"><span class="annottext">GetAttributeValuesResponse -&gt; Maybe [AttributeValue]
+</span><span id="line-202"></span><span id="local-6989586621679144135"><span id="local-6989586621679144136"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetAttributeValuesResponse"><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#GetAttributeValuesResponse"><span class="hs-identifier hs-var">GetAttributeValuesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetAttributeValuesResponse%27"><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#GetAttributeValuesResponse%27"><span class="hs-identifier hs-var">GetAttributeValuesResponse'</span></a></span></span><span>
+</span><span id="line-203"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The list of values for an attribute. For example,</span><span>
+</span><span id="line-204"></span><span>    </span><span class="hs-comment">-- @Throughput Optimized HDD@ and @Provisioned IOPS@ are two available</span><span>
+</span><span id="line-205"></span><span>    </span><span class="hs-comment">-- values for the @AmazonEC2@ @volumeType@.</span><span>
+</span><span id="line-206"></span><span>    </span><span id="%24sel%3AattributeValues%3AGetAttributeValuesResponse%27"><span class="annot"><span class="annottext">GetAttributeValuesResponse -&gt; Maybe [AttributeValue]
 </span><a href="Network.AWS.Pricing.GetAttributeValues.html#%24sel%3AattributeValues%3AGetAttributeValuesResponse%27"><span class="hs-identifier hs-var hs-var">attributeValues</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Pricing.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>    </span><span class="hs-comment">-- | The pagination token that indicates the next set of results to retrieve.</span><span>
+</span><span id="line-208"></span><span>    </span><span id="%24sel%3AnextToken%3AGetAttributeValuesResponse%27"><span class="annot"><span class="annottext">GetAttributeValuesResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Pricing.GetAttributeValues.html#%24sel%3AnextToken%3AGetAttributeValuesResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-209"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-210"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetAttributeValuesResponse%27"><span class="annot"><span class="annottext">GetAttributeValuesResponse -&gt; Int
 </span><a href="Network.AWS.Pricing.GetAttributeValues.html#%24sel%3AhttpStatus%3AGetAttributeValuesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-211"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-212"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679144107"><span id="local-6989586621679144109"><span class="annot"><span class="annottext">GetAttributeValuesResponse -&gt; GetAttributeValuesResponse -&gt; Bool
+</span><span id="line-212"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679144128"><span id="local-6989586621679144130"><span class="annot"><span class="annottext">GetAttributeValuesResponse -&gt; GetAttributeValuesResponse -&gt; Bool
 (GetAttributeValuesResponse -&gt; GetAttributeValuesResponse -&gt; Bool)
 -&gt; (GetAttributeValuesResponse
     -&gt; GetAttributeValuesResponse -&gt; Bool)
@@ -586,7 +582,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetAttributeValuesResponse -&gt; GetAttributeValuesResponse -&gt; Bool
 == :: GetAttributeValuesResponse -&gt; GetAttributeValuesResponse -&gt; Bool
 $c== :: GetAttributeValuesResponse -&gt; GetAttributeValuesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679144099"><span id="local-6989586621679144101"><span id="local-6989586621679144103"><span id="local-6989586621679144105"><span class="annot"><span class="annottext">ReadPrec [GetAttributeValuesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679144120"><span id="local-6989586621679144122"><span id="local-6989586621679144124"><span id="local-6989586621679144126"><span class="annot"><span class="annottext">ReadPrec [GetAttributeValuesResponse]
 ReadPrec GetAttributeValuesResponse
 Int -&gt; ReadS GetAttributeValuesResponse
 ReadS [GetAttributeValuesResponse]
@@ -606,7 +602,7 @@ readList :: ReadS [GetAttributeValuesResponse]
 $creadList :: ReadS [GetAttributeValuesResponse]
 readsPrec :: Int -&gt; ReadS GetAttributeValuesResponse
 $creadsPrec :: Int -&gt; ReadS GetAttributeValuesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679144093"><span id="local-6989586621679144095"><span id="local-6989586621679144097"><span class="annot"><span class="annottext">Int -&gt; GetAttributeValuesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679144114"><span id="local-6989586621679144116"><span id="local-6989586621679144118"><span class="annot"><span class="annottext">Int -&gt; GetAttributeValuesResponse -&gt; ShowS
 [GetAttributeValuesResponse] -&gt; ShowS
 GetAttributeValuesResponse -&gt; String
 (Int -&gt; GetAttributeValuesResponse -&gt; ShowS)
@@ -646,11 +642,11 @@ GetAttributeValuesResponse -&gt; Rep GetAttributeValuesResponse x
 </span><span id="line-219"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-220"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-221"></span><span class="hs-comment">--</span><span>
-</span><span id="line-222"></span><span class="hs-comment">-- 'nextToken', 'getAttributeValuesResponse_nextToken' - The pagination token that indicates the next set of results to retrieve.</span><span>
-</span><span id="line-223"></span><span class="hs-comment">--</span><span>
-</span><span id="line-224"></span><span class="hs-comment">-- 'attributeValues', 'getAttributeValuesResponse_attributeValues' - The list of values for an attribute. For example,</span><span>
-</span><span id="line-225"></span><span class="hs-comment">-- @Throughput Optimized HDD@ and @Provisioned IOPS@ are two available</span><span>
-</span><span id="line-226"></span><span class="hs-comment">-- values for the @AmazonEC2@ @volumeType@.</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- 'attributeValues', 'getAttributeValuesResponse_attributeValues' - The list of values for an attribute. For example,</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- @Throughput Optimized HDD@ and @Provisioned IOPS@ are two available</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- values for the @AmazonEC2@ @volumeType@.</span><span>
+</span><span id="line-225"></span><span class="hs-comment">--</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- 'nextToken', 'getAttributeValuesResponse_nextToken' - The pagination token that indicates the next set of results to retrieve.</span><span>
 </span><span id="line-227"></span><span class="hs-comment">--</span><span>
 </span><span id="line-228"></span><span class="hs-comment">-- 'httpStatus', 'getAttributeValuesResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-229"></span><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#newGetAttributeValuesResponse"><span class="hs-identifier hs-type">newGetAttributeValuesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -658,66 +654,46 @@ GetAttributeValuesResponse -&gt; Rep GetAttributeValuesResponse x
 </span><span id="line-231"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-232"></span><span>  </span><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#GetAttributeValuesResponse"><span class="hs-identifier hs-type">GetAttributeValuesResponse</span></a></span><span>
 </span><span id="line-233"></span><span id="newGetAttributeValuesResponse"><span class="annot"><span class="annottext">newGetAttributeValuesResponse :: Int -&gt; GetAttributeValuesResponse
-</span><a href="Network.AWS.Pricing.GetAttributeValues.html#newGetAttributeValuesResponse"><span class="hs-identifier hs-var hs-var">newGetAttributeValuesResponse</span></a></span></span><span> </span><span id="local-6989586621679144090"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679144090"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-234"></span><span>  </span><span class="annot"><span class="annottext">GetAttributeValuesResponse' :: Maybe Text
--&gt; Maybe [AttributeValue] -&gt; Int -&gt; GetAttributeValuesResponse
+</span><a href="Network.AWS.Pricing.GetAttributeValues.html#newGetAttributeValuesResponse"><span class="hs-identifier hs-var hs-var">newGetAttributeValuesResponse</span></a></span></span><span> </span><span id="local-6989586621679144111"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679144111"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-234"></span><span>  </span><span class="annot"><span class="annottext">GetAttributeValuesResponse' :: Maybe [AttributeValue]
+-&gt; Maybe Text -&gt; Int -&gt; GetAttributeValuesResponse
 </span><a href="Network.AWS.Pricing.GetAttributeValues.html#GetAttributeValuesResponse%27"><span class="hs-identifier hs-type">GetAttributeValuesResponse'</span></a></span><span>
-</span><span id="line-235"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:GetAttributeValuesResponse' :: Maybe Text
-</span><a href="Network.AWS.Pricing.GetAttributeValues.html#%24sel%3AnextToken%3AGetAttributeValuesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-236"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-235"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:attributeValues:GetAttributeValuesResponse' :: Maybe [AttributeValue]
+</span><a href="Network.AWS.Pricing.GetAttributeValues.html#%24sel%3AattributeValues%3AGetAttributeValuesResponse%27"><span class="hs-identifier hs-var">attributeValues</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-236"></span><span>        </span><span class="annot"><span class="annottext">Maybe [AttributeValue]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-237"></span><span>      </span><span class="annot"><span class="annottext">$sel:attributeValues:GetAttributeValuesResponse' :: Maybe [AttributeValue]
-</span><a href="Network.AWS.Pricing.GetAttributeValues.html#%24sel%3AattributeValues%3AGetAttributeValuesResponse%27"><span class="hs-identifier hs-var">attributeValues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AttributeValue]
+</span><span id="line-237"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:GetAttributeValuesResponse' :: Maybe Text
+</span><a href="Network.AWS.Pricing.GetAttributeValues.html#%24sel%3AnextToken%3AGetAttributeValuesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-238"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetAttributeValuesResponse' :: Int
 </span><a href="Network.AWS.Pricing.GetAttributeValues.html#%24sel%3AhttpStatus%3AGetAttributeValuesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679144090"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679144111"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-239"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-240"></span><span>
-</span><span id="line-241"></span><span class="hs-comment">-- | The pagination token that indicates the next set of results to retrieve.</span><span>
-</span><span id="line-242"></span><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#getAttributeValuesResponse_nextToken"><span class="hs-identifier hs-type">getAttributeValuesResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#GetAttributeValuesResponse"><span class="hs-identifier hs-type">GetAttributeValuesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-243"></span><span id="getAttributeValuesResponse_nextToken"><span class="annot"><span class="annottext">getAttributeValuesResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; GetAttributeValuesResponse -&gt; f GetAttributeValuesResponse
-</span><a href="Network.AWS.Pricing.GetAttributeValues.html#getAttributeValuesResponse_nextToken"><span class="hs-identifier hs-var hs-var">getAttributeValuesResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetAttributeValuesResponse -&gt; Maybe Text)
--&gt; (GetAttributeValuesResponse
-    -&gt; Maybe Text -&gt; GetAttributeValuesResponse)
--&gt; Lens' GetAttributeValuesResponse (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#GetAttributeValuesResponse%27"><span class="hs-identifier hs-type">GetAttributeValuesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679144089"><span class="annot"><span class="annottext">Maybe Text
-nextToken :: Maybe Text
-$sel:nextToken:GetAttributeValuesResponse' :: GetAttributeValuesResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679144089"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679144089"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679144088"><span class="annot"><span class="annottext">s :: GetAttributeValuesResponse
-</span><a href="#local-6989586621679144088"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#GetAttributeValuesResponse%27"><span class="hs-identifier hs-type">GetAttributeValuesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679144087"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679144087"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAttributeValuesResponse
-</span><a href="#local-6989586621679144088"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetAttributeValuesResponse' :: Maybe Text
-</span><a href="Network.AWS.Pricing.GetAttributeValues.html#%24sel%3AnextToken%3AGetAttributeValuesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679144087"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#GetAttributeValuesResponse"><span class="hs-identifier hs-type">GetAttributeValuesResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-244"></span><span>
-</span><span id="line-245"></span><span class="hs-comment">-- | The list of values for an attribute. For example,</span><span>
-</span><span id="line-246"></span><span class="hs-comment">-- @Throughput Optimized HDD@ and @Provisioned IOPS@ are two available</span><span>
-</span><span id="line-247"></span><span class="hs-comment">-- values for the @AmazonEC2@ @volumeType@.</span><span>
-</span><span id="line-248"></span><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#getAttributeValuesResponse_attributeValues"><span class="hs-identifier hs-type">getAttributeValuesResponse_attributeValues</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#GetAttributeValuesResponse"><span class="hs-identifier hs-type">GetAttributeValuesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Pricing.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-249"></span><span id="getAttributeValuesResponse_attributeValues"><span class="annot"><span class="annottext">getAttributeValuesResponse_attributeValues :: (Maybe [AttributeValue] -&gt; f (Maybe [AttributeValue]))
+</span><span id="line-241"></span><span class="hs-comment">-- | The list of values for an attribute. For example,</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- @Throughput Optimized HDD@ and @Provisioned IOPS@ are two available</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- values for the @AmazonEC2@ @volumeType@.</span><span>
+</span><span id="line-244"></span><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#getAttributeValuesResponse_attributeValues"><span class="hs-identifier hs-type">getAttributeValuesResponse_attributeValues</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#GetAttributeValuesResponse"><span class="hs-identifier hs-type">GetAttributeValuesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Pricing.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-245"></span><span id="getAttributeValuesResponse_attributeValues"><span class="annot"><span class="annottext">getAttributeValuesResponse_attributeValues :: (Maybe [AttributeValue] -&gt; f (Maybe [AttributeValue]))
 -&gt; GetAttributeValuesResponse -&gt; f GetAttributeValuesResponse
 </span><a href="Network.AWS.Pricing.GetAttributeValues.html#getAttributeValuesResponse_attributeValues"><span class="hs-identifier hs-var hs-var">getAttributeValuesResponse_attributeValues</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetAttributeValuesResponse -&gt; Maybe [AttributeValue])
 -&gt; (GetAttributeValuesResponse
     -&gt; Maybe [AttributeValue] -&gt; GetAttributeValuesResponse)
 -&gt; Lens' GetAttributeValuesResponse (Maybe [AttributeValue])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#GetAttributeValuesResponse%27"><span class="hs-identifier hs-type">GetAttributeValuesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679144086"><span class="annot"><span class="annottext">Maybe [AttributeValue]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#GetAttributeValuesResponse%27"><span class="hs-identifier hs-type">GetAttributeValuesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679144110"><span class="annot"><span class="annottext">Maybe [AttributeValue]
 attributeValues :: Maybe [AttributeValue]
 $sel:attributeValues:GetAttributeValuesResponse' :: GetAttributeValuesResponse -&gt; Maybe [AttributeValue]
-</span><a href="#local-6989586621679144086"><span class="hs-identifier hs-var hs-var">attributeValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AttributeValue]
-</span><a href="#local-6989586621679144086"><span class="hs-identifier hs-var">attributeValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679144085"><span class="annot"><span class="annottext">s :: GetAttributeValuesResponse
-</span><a href="#local-6989586621679144085"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#GetAttributeValuesResponse%27"><span class="hs-identifier hs-type">GetAttributeValuesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679144084"><span class="annot"><span class="annottext">Maybe [AttributeValue]
-</span><a href="#local-6989586621679144084"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAttributeValuesResponse
-</span><a href="#local-6989586621679144085"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributeValues:GetAttributeValuesResponse' :: Maybe [AttributeValue]
+</span><a href="#local-6989586621679144110"><span class="hs-identifier hs-var hs-var">attributeValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AttributeValue]
+</span><a href="#local-6989586621679144110"><span class="hs-identifier hs-var">attributeValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679144109"><span class="annot"><span class="annottext">s :: GetAttributeValuesResponse
+</span><a href="#local-6989586621679144109"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#GetAttributeValuesResponse%27"><span class="hs-identifier hs-type">GetAttributeValuesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679144108"><span class="annot"><span class="annottext">Maybe [AttributeValue]
+</span><a href="#local-6989586621679144108"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAttributeValuesResponse
+</span><a href="#local-6989586621679144109"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributeValues:GetAttributeValuesResponse' :: Maybe [AttributeValue]
 </span><a href="Network.AWS.Pricing.GetAttributeValues.html#%24sel%3AattributeValues%3AGetAttributeValuesResponse%27"><span class="hs-identifier hs-var">attributeValues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AttributeValue]
-</span><a href="#local-6989586621679144084"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#GetAttributeValuesResponse"><span class="hs-identifier hs-type">GetAttributeValuesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AttributeValue] -&gt; f (Maybe [AttributeValue]))
+</span><a href="#local-6989586621679144108"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#GetAttributeValuesResponse"><span class="hs-identifier hs-type">GetAttributeValuesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AttributeValue] -&gt; f (Maybe [AttributeValue]))
  -&gt; GetAttributeValuesResponse -&gt; f GetAttributeValuesResponse)
 -&gt; ((Maybe [AttributeValue] -&gt; f (Maybe [AttributeValue]))
     -&gt; Maybe [AttributeValue] -&gt; f (Maybe [AttributeValue]))
@@ -737,8 +713,28 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
   [AttributeValue] [AttributeValue] [AttributeValue] [AttributeValue]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-246"></span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- | The pagination token that indicates the next set of results to retrieve.</span><span>
+</span><span id="line-248"></span><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#getAttributeValuesResponse_nextToken"><span class="hs-identifier hs-type">getAttributeValuesResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#GetAttributeValuesResponse"><span class="hs-identifier hs-type">GetAttributeValuesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span id="getAttributeValuesResponse_nextToken"><span class="annot"><span class="annottext">getAttributeValuesResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetAttributeValuesResponse -&gt; f GetAttributeValuesResponse
+</span><a href="Network.AWS.Pricing.GetAttributeValues.html#getAttributeValuesResponse_nextToken"><span class="hs-identifier hs-var hs-var">getAttributeValuesResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetAttributeValuesResponse -&gt; Maybe Text)
+-&gt; (GetAttributeValuesResponse
+    -&gt; Maybe Text -&gt; GetAttributeValuesResponse)
+-&gt; Lens' GetAttributeValuesResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#GetAttributeValuesResponse%27"><span class="hs-identifier hs-type">GetAttributeValuesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679144105"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:GetAttributeValuesResponse' :: GetAttributeValuesResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679144105"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679144105"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679144104"><span class="annot"><span class="annottext">s :: GetAttributeValuesResponse
+</span><a href="#local-6989586621679144104"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#GetAttributeValuesResponse%27"><span class="hs-identifier hs-type">GetAttributeValuesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679144103"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679144103"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAttributeValuesResponse
+</span><a href="#local-6989586621679144104"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetAttributeValuesResponse' :: Maybe Text
+</span><a href="Network.AWS.Pricing.GetAttributeValues.html#%24sel%3AnextToken%3AGetAttributeValuesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679144103"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#GetAttributeValuesResponse"><span class="hs-identifier hs-type">GetAttributeValuesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-250"></span><span>
 </span><span id="line-251"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-252"></span><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#getAttributeValuesResponse_httpStatus"><span class="hs-identifier hs-type">getAttributeValuesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#GetAttributeValuesResponse"><span class="hs-identifier hs-type">GetAttributeValuesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -750,16 +746,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; Lens
      GetAttributeValuesResponse GetAttributeValuesResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#GetAttributeValuesResponse%27"><span class="hs-identifier hs-type">GetAttributeValuesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679144081"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#GetAttributeValuesResponse%27"><span class="hs-identifier hs-type">GetAttributeValuesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679144102"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetAttributeValuesResponse' :: GetAttributeValuesResponse -&gt; Int
-</span><a href="#local-6989586621679144081"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679144081"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679144080"><span class="annot"><span class="annottext">s :: GetAttributeValuesResponse
-</span><a href="#local-6989586621679144080"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#GetAttributeValuesResponse%27"><span class="hs-identifier hs-type">GetAttributeValuesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679144079"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679144079"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAttributeValuesResponse
-</span><a href="#local-6989586621679144080"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetAttributeValuesResponse' :: Int
+</span><a href="#local-6989586621679144102"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679144102"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679144101"><span class="annot"><span class="annottext">s :: GetAttributeValuesResponse
+</span><a href="#local-6989586621679144101"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#GetAttributeValuesResponse%27"><span class="hs-identifier hs-type">GetAttributeValuesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679144100"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679144100"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAttributeValuesResponse
+</span><a href="#local-6989586621679144101"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetAttributeValuesResponse' :: Int
 </span><a href="Network.AWS.Pricing.GetAttributeValues.html#%24sel%3AhttpStatus%3AGetAttributeValuesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679144079"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#GetAttributeValuesResponse"><span class="hs-identifier hs-type">GetAttributeValuesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679144100"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#GetAttributeValuesResponse"><span class="hs-identifier hs-type">GetAttributeValuesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-254"></span><span>
-</span><span id="line-255"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679144077"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#GetAttributeValuesResponse"><span class="hs-identifier hs-type">GetAttributeValuesResponse</span></a></span></span><span>
+</span><span id="line-255"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679144098"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pricing.GetAttributeValues.html#GetAttributeValuesResponse"><span class="hs-identifier hs-type">GetAttributeValuesResponse</span></a></span></span><span>
 </span><span id="line-256"></span></pre></body></html>

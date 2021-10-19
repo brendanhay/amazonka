@@ -27,20 +27,20 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Information about the state of the load balancer.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newLoadBalancerState' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679248376"><span id="local-6989586621679248377"></span></span><span class="hs-keyword">data</span><span> </span><span id="LoadBalancerState"><span class="annot"><a href="Network.AWS.ELBv2.Types.LoadBalancerState.html#LoadBalancerState"><span class="hs-identifier hs-var">LoadBalancerState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LoadBalancerState%27"><span class="annot"><a href="Network.AWS.ELBv2.Types.LoadBalancerState.html#LoadBalancerState%27"><span class="hs-identifier hs-var">LoadBalancerState'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The state code. The initial state of the load balancer is</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- @provisioning@. After the load balancer is fully set up and ready to</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- route traffic, its state is @active@. If load balancer is routing</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- traffic but does not have the resources it needs to scale, its state</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- is@active_impaired@. If the load balancer could not be set up, its state</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- is @failed@.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3Acode%3ALoadBalancerState%27"><span class="annot"><span class="annottext">LoadBalancerState -&gt; Maybe LoadBalancerStateEnum
-</span><a href="Network.AWS.ELBv2.Types.LoadBalancerState.html#%24sel%3Acode%3ALoadBalancerState%27"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.LoadBalancerStateEnum.html#LoadBalancerStateEnum"><span class="hs-identifier hs-type">LoadBalancerStateEnum</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | A description of the state.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3Areason%3ALoadBalancerState%27"><span class="annot"><span class="annottext">LoadBalancerState -&gt; Maybe Text
-</span><a href="Network.AWS.ELBv2.Types.LoadBalancerState.html#%24sel%3Areason%3ALoadBalancerState%27"><span class="hs-identifier hs-var hs-var">reason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679251077"><span id="local-6989586621679251078"></span></span><span class="hs-keyword">data</span><span> </span><span id="LoadBalancerState"><span class="annot"><a href="Network.AWS.ELBv2.Types.LoadBalancerState.html#LoadBalancerState"><span class="hs-identifier hs-var">LoadBalancerState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LoadBalancerState%27"><span class="annot"><a href="Network.AWS.ELBv2.Types.LoadBalancerState.html#LoadBalancerState%27"><span class="hs-identifier hs-var">LoadBalancerState'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A description of the state.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3Areason%3ALoadBalancerState%27"><span class="annot"><span class="annottext">LoadBalancerState -&gt; Maybe Text
+</span><a href="Network.AWS.ELBv2.Types.LoadBalancerState.html#%24sel%3Areason%3ALoadBalancerState%27"><span class="hs-identifier hs-var hs-var">reason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The state code. The initial state of the load balancer is</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- @provisioning@. After the load balancer is fully set up and ready to</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- route traffic, its state is @active@. If load balancer is routing</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- traffic but does not have the resources it needs to scale, its state</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- is@active_impaired@. If the load balancer could not be set up, its state</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- is @failed@.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3Acode%3ALoadBalancerState%27"><span class="annot"><span class="annottext">LoadBalancerState -&gt; Maybe LoadBalancerStateEnum
+</span><a href="Network.AWS.ELBv2.Types.LoadBalancerState.html#%24sel%3Acode%3ALoadBalancerState%27"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.LoadBalancerStateEnum.html#LoadBalancerStateEnum"><span class="hs-identifier hs-type">LoadBalancerStateEnum</span></a></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679248369"><span id="local-6989586621679248371"><span class="annot"><span class="annottext">LoadBalancerState -&gt; LoadBalancerState -&gt; Bool
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679251070"><span id="local-6989586621679251072"><span class="annot"><span class="annottext">LoadBalancerState -&gt; LoadBalancerState -&gt; Bool
 (LoadBalancerState -&gt; LoadBalancerState -&gt; Bool)
 -&gt; (LoadBalancerState -&gt; LoadBalancerState -&gt; Bool)
 -&gt; Eq LoadBalancerState
@@ -49,7 +49,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: LoadBalancerState -&gt; LoadBalancerState -&gt; Bool
 == :: LoadBalancerState -&gt; LoadBalancerState -&gt; Bool
 $c== :: LoadBalancerState -&gt; LoadBalancerState -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679248360"><span id="local-6989586621679248362"><span id="local-6989586621679248364"><span id="local-6989586621679248366"><span class="annot"><span class="annottext">ReadPrec [LoadBalancerState]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251061"><span id="local-6989586621679251063"><span id="local-6989586621679251065"><span id="local-6989586621679251067"><span class="annot"><span class="annottext">ReadPrec [LoadBalancerState]
 ReadPrec LoadBalancerState
 Int -&gt; ReadS LoadBalancerState
 ReadS [LoadBalancerState]
@@ -69,7 +69,7 @@ readList :: ReadS [LoadBalancerState]
 $creadList :: ReadS [LoadBalancerState]
 readsPrec :: Int -&gt; ReadS LoadBalancerState
 $creadsPrec :: Int -&gt; ReadS LoadBalancerState
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679248353"><span id="local-6989586621679248355"><span id="local-6989586621679248357"><span class="annot"><span class="annottext">Int -&gt; LoadBalancerState -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251054"><span id="local-6989586621679251056"><span id="local-6989586621679251058"><span class="annot"><span class="annottext">Int -&gt; LoadBalancerState -&gt; ShowS
 [LoadBalancerState] -&gt; ShowS
 LoadBalancerState -&gt; String
 (Int -&gt; LoadBalancerState -&gt; ShowS)
@@ -103,38 +103,58 @@ $cfrom :: forall x. LoadBalancerState -&gt; Rep LoadBalancerState x
 </span><span id="line-48"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
-</span><span id="line-51"></span><span class="hs-comment">-- 'code', 'loadBalancerState_code' - The state code. The initial state of the load balancer is</span><span>
-</span><span id="line-52"></span><span class="hs-comment">-- @provisioning@. After the load balancer is fully set up and ready to</span><span>
-</span><span id="line-53"></span><span class="hs-comment">-- route traffic, its state is @active@. If load balancer is routing</span><span>
-</span><span id="line-54"></span><span class="hs-comment">-- traffic but does not have the resources it needs to scale, its state</span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- is@active_impaired@. If the load balancer could not be set up, its state</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- is @failed@.</span><span>
-</span><span id="line-57"></span><span class="hs-comment">--</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- 'reason', 'loadBalancerState_reason' - A description of the state.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'reason', 'loadBalancerState_reason' - A description of the state.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'code', 'loadBalancerState_code' - The state code. The initial state of the load balancer is</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- @provisioning@. After the load balancer is fully set up and ready to</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- route traffic, its state is @active@. If load balancer is routing</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- traffic but does not have the resources it needs to scale, its state</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- is@active_impaired@. If the load balancer could not be set up, its state</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- is @failed@.</span><span>
 </span><span id="line-59"></span><span class="annot"><a href="Network.AWS.ELBv2.Types.LoadBalancerState.html#newLoadBalancerState"><span class="hs-identifier hs-type">newLoadBalancerState</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-60"></span><span>  </span><span class="annot"><a href="Network.AWS.ELBv2.Types.LoadBalancerState.html#LoadBalancerState"><span class="hs-identifier hs-type">LoadBalancerState</span></a></span><span>
 </span><span id="line-61"></span><span id="newLoadBalancerState"><span class="annot"><span class="annottext">newLoadBalancerState :: LoadBalancerState
 </span><a href="Network.AWS.ELBv2.Types.LoadBalancerState.html#newLoadBalancerState"><span class="hs-identifier hs-var hs-var">newLoadBalancerState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-62"></span><span>  </span><span class="annot"><span class="annottext">LoadBalancerState' :: Maybe LoadBalancerStateEnum -&gt; Maybe Text -&gt; LoadBalancerState
+</span><span id="line-62"></span><span>  </span><span class="annot"><span class="annottext">LoadBalancerState' :: Maybe Text -&gt; Maybe LoadBalancerStateEnum -&gt; LoadBalancerState
 </span><a href="Network.AWS.ELBv2.Types.LoadBalancerState.html#LoadBalancerState%27"><span class="hs-identifier hs-type">LoadBalancerState'</span></a></span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:code:LoadBalancerState' :: Maybe LoadBalancerStateEnum
-</span><a href="Network.AWS.ELBv2.Types.LoadBalancerState.html#%24sel%3Acode%3ALoadBalancerState%27"><span class="hs-identifier hs-var">code</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LoadBalancerStateEnum
+</span><span id="line-63"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:reason:LoadBalancerState' :: Maybe Text
+</span><a href="Network.AWS.ELBv2.Types.LoadBalancerState.html#%24sel%3Areason%3ALoadBalancerState%27"><span class="hs-identifier hs-var">reason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:reason:LoadBalancerState' :: Maybe Text
-</span><a href="Network.AWS.ELBv2.Types.LoadBalancerState.html#%24sel%3Areason%3ALoadBalancerState%27"><span class="hs-identifier hs-var">reason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:code:LoadBalancerState' :: Maybe LoadBalancerStateEnum
+</span><a href="Network.AWS.ELBv2.Types.LoadBalancerState.html#%24sel%3Acode%3ALoadBalancerState%27"><span class="hs-identifier hs-var">code</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LoadBalancerStateEnum
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-65"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- | The state code. The initial state of the load balancer is</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- @provisioning@. After the load balancer is fully set up and ready to</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- route traffic, its state is @active@. If load balancer is routing</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- traffic but does not have the resources it needs to scale, its state</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- is@active_impaired@. If the load balancer could not be set up, its state</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- is @failed@.</span><span>
-</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.ELBv2.Types.LoadBalancerState.html#loadBalancerState_code"><span class="hs-identifier hs-type">loadBalancerState_code</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.LoadBalancerState.html#LoadBalancerState"><span class="hs-identifier hs-type">LoadBalancerState</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.LoadBalancerStateEnum.html#LoadBalancerStateEnum"><span class="hs-identifier hs-type">LoadBalancerStateEnum</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-74"></span><span id="loadBalancerState_code"><span class="annot"><span class="annottext">loadBalancerState_code :: (Maybe LoadBalancerStateEnum -&gt; f (Maybe LoadBalancerStateEnum))
+</span><span id="line-67"></span><span class="hs-comment">-- | A description of the state.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.ELBv2.Types.LoadBalancerState.html#loadBalancerState_reason"><span class="hs-identifier hs-type">loadBalancerState_reason</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.LoadBalancerState.html#LoadBalancerState"><span class="hs-identifier hs-type">LoadBalancerState</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span id="loadBalancerState_reason"><span class="annot"><span class="annottext">loadBalancerState_reason :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; LoadBalancerState -&gt; f LoadBalancerState
+</span><a href="Network.AWS.ELBv2.Types.LoadBalancerState.html#loadBalancerState_reason"><span class="hs-identifier hs-var hs-var">loadBalancerState_reason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LoadBalancerState -&gt; Maybe Text)
+-&gt; (LoadBalancerState -&gt; Maybe Text -&gt; LoadBalancerState)
+-&gt; Lens
+     LoadBalancerState LoadBalancerState (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBv2.Types.LoadBalancerState.html#LoadBalancerState%27"><span class="hs-identifier hs-type">LoadBalancerState'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251045"><span class="annot"><span class="annottext">Maybe Text
+reason :: Maybe Text
+$sel:reason:LoadBalancerState' :: LoadBalancerState -&gt; Maybe Text
+</span><a href="#local-6989586621679251045"><span class="hs-identifier hs-var hs-var">reason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679251045"><span class="hs-identifier hs-var">reason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251044"><span class="annot"><span class="annottext">s :: LoadBalancerState
+</span><a href="#local-6989586621679251044"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBv2.Types.LoadBalancerState.html#LoadBalancerState%27"><span class="hs-identifier hs-type">LoadBalancerState'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251043"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679251043"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoadBalancerState
+</span><a href="#local-6989586621679251044"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reason:LoadBalancerState' :: Maybe Text
+</span><a href="Network.AWS.ELBv2.Types.LoadBalancerState.html#%24sel%3Areason%3ALoadBalancerState%27"><span class="hs-identifier hs-var">reason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679251043"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.LoadBalancerState.html#LoadBalancerState"><span class="hs-identifier hs-type">LoadBalancerState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | The state code. The initial state of the load balancer is</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- @provisioning@. After the load balancer is fully set up and ready to</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- route traffic, its state is @active@. If load balancer is routing</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- traffic but does not have the resources it needs to scale, its state</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- is@active_impaired@. If the load balancer could not be set up, its state</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- is @failed@.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.ELBv2.Types.LoadBalancerState.html#loadBalancerState_code"><span class="hs-identifier hs-type">loadBalancerState_code</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.LoadBalancerState.html#LoadBalancerState"><span class="hs-identifier hs-type">LoadBalancerState</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.LoadBalancerStateEnum.html#LoadBalancerStateEnum"><span class="hs-identifier hs-type">LoadBalancerStateEnum</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span id="loadBalancerState_code"><span class="annot"><span class="annottext">loadBalancerState_code :: (Maybe LoadBalancerStateEnum -&gt; f (Maybe LoadBalancerStateEnum))
 -&gt; LoadBalancerState -&gt; f LoadBalancerState
 </span><a href="Network.AWS.ELBv2.Types.LoadBalancerState.html#loadBalancerState_code"><span class="hs-identifier hs-var hs-var">loadBalancerState_code</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LoadBalancerState -&gt; Maybe LoadBalancerStateEnum)
 -&gt; (LoadBalancerState
@@ -145,61 +165,42 @@ forall a. Maybe a
      (Maybe LoadBalancerStateEnum)
      (Maybe LoadBalancerStateEnum)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBv2.Types.LoadBalancerState.html#LoadBalancerState%27"><span class="hs-identifier hs-type">LoadBalancerState'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248344"><span class="annot"><span class="annottext">Maybe LoadBalancerStateEnum
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBv2.Types.LoadBalancerState.html#LoadBalancerState%27"><span class="hs-identifier hs-type">LoadBalancerState'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251041"><span class="annot"><span class="annottext">Maybe LoadBalancerStateEnum
 code :: Maybe LoadBalancerStateEnum
 $sel:code:LoadBalancerState' :: LoadBalancerState -&gt; Maybe LoadBalancerStateEnum
-</span><a href="#local-6989586621679248344"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LoadBalancerStateEnum
-</span><a href="#local-6989586621679248344"><span class="hs-identifier hs-var">code</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248343"><span class="annot"><span class="annottext">s :: LoadBalancerState
-</span><a href="#local-6989586621679248343"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBv2.Types.LoadBalancerState.html#LoadBalancerState%27"><span class="hs-identifier hs-type">LoadBalancerState'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248342"><span class="annot"><span class="annottext">Maybe LoadBalancerStateEnum
-</span><a href="#local-6989586621679248342"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoadBalancerState
-</span><a href="#local-6989586621679248343"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:code:LoadBalancerState' :: Maybe LoadBalancerStateEnum
+</span><a href="#local-6989586621679251041"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LoadBalancerStateEnum
+</span><a href="#local-6989586621679251041"><span class="hs-identifier hs-var">code</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251040"><span class="annot"><span class="annottext">s :: LoadBalancerState
+</span><a href="#local-6989586621679251040"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBv2.Types.LoadBalancerState.html#LoadBalancerState%27"><span class="hs-identifier hs-type">LoadBalancerState'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251039"><span class="annot"><span class="annottext">Maybe LoadBalancerStateEnum
+</span><a href="#local-6989586621679251039"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoadBalancerState
+</span><a href="#local-6989586621679251040"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:code:LoadBalancerState' :: Maybe LoadBalancerStateEnum
 </span><a href="Network.AWS.ELBv2.Types.LoadBalancerState.html#%24sel%3Acode%3ALoadBalancerState%27"><span class="hs-identifier hs-var">code</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LoadBalancerStateEnum
-</span><a href="#local-6989586621679248342"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.LoadBalancerState.html#LoadBalancerState"><span class="hs-identifier hs-type">LoadBalancerState</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- | A description of the state.</span><span>
-</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.ELBv2.Types.LoadBalancerState.html#loadBalancerState_reason"><span class="hs-identifier hs-type">loadBalancerState_reason</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.LoadBalancerState.html#LoadBalancerState"><span class="hs-identifier hs-type">LoadBalancerState</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-78"></span><span id="loadBalancerState_reason"><span class="annot"><span class="annottext">loadBalancerState_reason :: (Maybe Text -&gt; f (Maybe Text))
--&gt; LoadBalancerState -&gt; f LoadBalancerState
-</span><a href="Network.AWS.ELBv2.Types.LoadBalancerState.html#loadBalancerState_reason"><span class="hs-identifier hs-var hs-var">loadBalancerState_reason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LoadBalancerState -&gt; Maybe Text)
--&gt; (LoadBalancerState -&gt; Maybe Text -&gt; LoadBalancerState)
--&gt; Lens
-     LoadBalancerState LoadBalancerState (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBv2.Types.LoadBalancerState.html#LoadBalancerState%27"><span class="hs-identifier hs-type">LoadBalancerState'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248340"><span class="annot"><span class="annottext">Maybe Text
-reason :: Maybe Text
-$sel:reason:LoadBalancerState' :: LoadBalancerState -&gt; Maybe Text
-</span><a href="#local-6989586621679248340"><span class="hs-identifier hs-var hs-var">reason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679248340"><span class="hs-identifier hs-var">reason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248339"><span class="annot"><span class="annottext">s :: LoadBalancerState
-</span><a href="#local-6989586621679248339"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBv2.Types.LoadBalancerState.html#LoadBalancerState%27"><span class="hs-identifier hs-type">LoadBalancerState'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248338"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679248338"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoadBalancerState
-</span><a href="#local-6989586621679248339"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reason:LoadBalancerState' :: Maybe Text
-</span><a href="Network.AWS.ELBv2.Types.LoadBalancerState.html#%24sel%3Areason%3ALoadBalancerState%27"><span class="hs-identifier hs-var">reason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679248338"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.LoadBalancerState.html#LoadBalancerState"><span class="hs-identifier hs-type">LoadBalancerState</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679251039"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.LoadBalancerState.html#LoadBalancerState"><span class="hs-identifier hs-type">LoadBalancerState</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.LoadBalancerState.html#LoadBalancerState"><span class="hs-identifier hs-type">LoadBalancerState</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679248335"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String LoadBalancerState
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679248333"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679248333"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-82"></span><span>    </span><span class="annot"><span class="annottext">Maybe LoadBalancerStateEnum -&gt; Maybe Text -&gt; LoadBalancerState
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679251036"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String LoadBalancerState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679251034"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679251034"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe LoadBalancerStateEnum -&gt; LoadBalancerState
 </span><a href="Network.AWS.ELBv2.Types.LoadBalancerState.html#LoadBalancerState%27"><span class="hs-identifier hs-var">LoadBalancerState'</span></a></span><span>
-</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">(Maybe LoadBalancerStateEnum -&gt; Maybe Text -&gt; LoadBalancerState)
--&gt; Either String (Maybe LoadBalancerStateEnum)
--&gt; Either String (Maybe Text -&gt; LoadBalancerState)
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe LoadBalancerStateEnum -&gt; LoadBalancerState)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe LoadBalancerStateEnum -&gt; LoadBalancerState)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679248333"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe LoadBalancerStateEnum)
+</span><a href="#local-6989586621679251034"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Code&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; LoadBalancerState)
--&gt; Either String (Maybe Text) -&gt; Either String LoadBalancerState
+</span><span class="hs-string">&quot;Reason&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Either String (Maybe LoadBalancerStateEnum -&gt; LoadBalancerState)
+-&gt; Either String (Maybe LoadBalancerStateEnum)
+-&gt; Either String LoadBalancerState
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679248333"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679251034"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe LoadBalancerStateEnum)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Reason&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;Code&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248327"><span id="local-6989586621679248329"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.LoadBalancerState.html#LoadBalancerState"><span class="hs-identifier hs-type">LoadBalancerState</span></a></span></span></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251028"><span id="local-6989586621679251030"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.LoadBalancerState.html#LoadBalancerState"><span class="hs-identifier hs-type">LoadBalancerState</span></a></span></span></span><span>
 </span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248324"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.LoadBalancerState.html#LoadBalancerState"><span class="hs-identifier hs-type">LoadBalancerState</span></a></span></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251025"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.LoadBalancerState.html#LoadBalancerState"><span class="hs-identifier hs-type">LoadBalancerState</span></a></span></span><span>
 </span><span id="line-88"></span></pre></body></html>

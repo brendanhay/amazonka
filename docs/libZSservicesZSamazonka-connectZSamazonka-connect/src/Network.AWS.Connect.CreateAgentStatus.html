@@ -31,8 +31,8 @@
 </span><span id="line-31"></span><span>
 </span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
 </span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#createAgentStatus_displayOrder"><span class="hs-identifier">createAgentStatus_displayOrder</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#createAgentStatus_tags"><span class="hs-identifier">createAgentStatus_tags</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#createAgentStatus_description"><span class="hs-identifier">createAgentStatus_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#createAgentStatus_description"><span class="hs-identifier">createAgentStatus_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#createAgentStatus_tags"><span class="hs-identifier">createAgentStatus_tags</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#createAgentStatus_instanceId"><span class="hs-identifier">createAgentStatus_instanceId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#createAgentStatus_name"><span class="hs-identifier">createAgentStatus_name</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#createAgentStatus_state"><span class="hs-identifier">createAgentStatus_state</span></a></span><span class="hs-special">,</span><span>
@@ -56,16 +56,16 @@
 </span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-57"></span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newCreateAgentStatus' smart constructor.</span><span>
-</span><span id="line-59"></span><span id="local-6989586621679426384"><span id="local-6989586621679426385"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateAgentStatus"><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatus"><span class="hs-identifier hs-var">CreateAgentStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateAgentStatus%27"><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatus%27"><span class="hs-identifier hs-var">CreateAgentStatus'</span></a></span></span><span>
+</span><span id="line-59"></span><span id="local-6989586621679426718"><span id="local-6989586621679426719"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateAgentStatus"><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatus"><span class="hs-identifier hs-var">CreateAgentStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateAgentStatus%27"><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatus%27"><span class="hs-identifier hs-var">CreateAgentStatus'</span></a></span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The display order of the status.</span><span>
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3AdisplayOrder%3ACreateAgentStatus%27"><span class="annot"><span class="annottext">CreateAgentStatus -&gt; Maybe Natural
 </span><a href="Network.AWS.Connect.CreateAgentStatus.html#%24sel%3AdisplayOrder%3ACreateAgentStatus%27"><span class="hs-identifier hs-var hs-var">displayOrder</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | One or more tags.</span><span>
-</span><span id="line-63"></span><span>    </span><span id="%24sel%3Atags%3ACreateAgentStatus%27"><span class="annot"><span class="annottext">CreateAgentStatus -&gt; Maybe (HashMap Text Text)
-</span><a href="Network.AWS.Connect.CreateAgentStatus.html#%24sel%3Atags%3ACreateAgentStatus%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The description of the status.</span><span>
-</span><span id="line-65"></span><span>    </span><span id="%24sel%3Adescription%3ACreateAgentStatus%27"><span class="annot"><span class="annottext">CreateAgentStatus -&gt; Maybe Text
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The description of the status.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3Adescription%3ACreateAgentStatus%27"><span class="annot"><span class="annottext">CreateAgentStatus -&gt; Maybe Text
 </span><a href="Network.AWS.Connect.CreateAgentStatus.html#%24sel%3Adescription%3ACreateAgentStatus%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | One or more tags.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3Atags%3ACreateAgentStatus%27"><span class="annot"><span class="annottext">CreateAgentStatus -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Connect.CreateAgentStatus.html#%24sel%3Atags%3ACreateAgentStatus%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The identifier of the Amazon Connect instance. You can find the</span><span>
 </span><span id="line-67"></span><span>    </span><span class="hs-comment">-- instanceId in the ARN of the instance.</span><span>
 </span><span id="line-68"></span><span>    </span><span id="%24sel%3AinstanceId%3ACreateAgentStatus%27"><span class="annot"><span class="annottext">CreateAgentStatus -&gt; Text
@@ -77,7 +77,7 @@
 </span><span id="line-72"></span><span>    </span><span id="%24sel%3Astate%3ACreateAgentStatus%27"><span class="annot"><span class="annottext">CreateAgentStatus -&gt; AgentStatusState
 </span><a href="Network.AWS.Connect.CreateAgentStatus.html#%24sel%3Astate%3ACreateAgentStatus%27"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.AgentStatusState.html#AgentStatusState"><span class="hs-identifier hs-type">AgentStatusState</span></a></span><span>
 </span><span id="line-73"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679426373"><span id="local-6989586621679426375"><span class="annot"><span class="annottext">CreateAgentStatus -&gt; CreateAgentStatus -&gt; Bool
+</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679426707"><span id="local-6989586621679426709"><span class="annot"><span class="annottext">CreateAgentStatus -&gt; CreateAgentStatus -&gt; Bool
 (CreateAgentStatus -&gt; CreateAgentStatus -&gt; Bool)
 -&gt; (CreateAgentStatus -&gt; CreateAgentStatus -&gt; Bool)
 -&gt; Eq CreateAgentStatus
@@ -86,7 +86,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateAgentStatus -&gt; CreateAgentStatus -&gt; Bool
 == :: CreateAgentStatus -&gt; CreateAgentStatus -&gt; Bool
 $c== :: CreateAgentStatus -&gt; CreateAgentStatus -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679426364"><span id="local-6989586621679426366"><span id="local-6989586621679426368"><span id="local-6989586621679426370"><span class="annot"><span class="annottext">ReadPrec [CreateAgentStatus]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679426698"><span id="local-6989586621679426700"><span id="local-6989586621679426702"><span id="local-6989586621679426704"><span class="annot"><span class="annottext">ReadPrec [CreateAgentStatus]
 ReadPrec CreateAgentStatus
 Int -&gt; ReadS CreateAgentStatus
 ReadS [CreateAgentStatus]
@@ -106,7 +106,7 @@ readList :: ReadS [CreateAgentStatus]
 $creadList :: ReadS [CreateAgentStatus]
 readsPrec :: Int -&gt; ReadS CreateAgentStatus
 $creadsPrec :: Int -&gt; ReadS CreateAgentStatus
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679426357"><span id="local-6989586621679426359"><span id="local-6989586621679426361"><span class="annot"><span class="annottext">Int -&gt; CreateAgentStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679426691"><span id="local-6989586621679426693"><span id="local-6989586621679426695"><span class="annot"><span class="annottext">Int -&gt; CreateAgentStatus -&gt; ShowS
 [CreateAgentStatus] -&gt; ShowS
 CreateAgentStatus -&gt; String
 (Int -&gt; CreateAgentStatus -&gt; ShowS)
@@ -142,9 +142,9 @@ $cfrom :: forall x. CreateAgentStatus -&gt; Rep CreateAgentStatus x
 </span><span id="line-83"></span><span class="hs-comment">--</span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- 'displayOrder', 'createAgentStatus_displayOrder' - The display order of the status.</span><span>
 </span><span id="line-85"></span><span class="hs-comment">--</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- 'tags', 'createAgentStatus_tags' - One or more tags.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'description', 'createAgentStatus_description' - The description of the status.</span><span>
 </span><span id="line-87"></span><span class="hs-comment">--</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- 'description', 'createAgentStatus_description' - The description of the status.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'tags', 'createAgentStatus_tags' - One or more tags.</span><span>
 </span><span id="line-89"></span><span class="hs-comment">--</span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- 'instanceId', 'createAgentStatus_instanceId' - The identifier of the Amazon Connect instance. You can find the</span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- instanceId in the ARN of the instance.</span><span>
@@ -161,13 +161,13 @@ $cfrom :: forall x. CreateAgentStatus -&gt; Rep CreateAgentStatus x
 </span><span id="line-102"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.Types.AgentStatusState.html#AgentStatusState"><span class="hs-identifier hs-type">AgentStatusState</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-103"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatus"><span class="hs-identifier hs-type">CreateAgentStatus</span></a></span><span>
 </span><span id="line-104"></span><span id="newCreateAgentStatus"><span class="annot"><span class="annottext">newCreateAgentStatus :: Text -&gt; Text -&gt; AgentStatusState -&gt; CreateAgentStatus
-</span><a href="Network.AWS.Connect.CreateAgentStatus.html#newCreateAgentStatus"><span class="hs-identifier hs-var hs-var">newCreateAgentStatus</span></a></span></span><span> </span><span id="local-6989586621679426352"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679426352"><span class="hs-identifier hs-var">pInstanceId_</span></a></span></span><span> </span><span id="local-6989586621679426351"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679426351"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679426350"><span class="annot"><span class="annottext">AgentStatusState
-</span><a href="#local-6989586621679426350"><span class="hs-identifier hs-var">pState_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Connect.CreateAgentStatus.html#newCreateAgentStatus"><span class="hs-identifier hs-var hs-var">newCreateAgentStatus</span></a></span></span><span> </span><span id="local-6989586621679426686"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679426686"><span class="hs-identifier hs-var">pInstanceId_</span></a></span></span><span> </span><span id="local-6989586621679426685"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679426685"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679426684"><span class="annot"><span class="annottext">AgentStatusState
+</span><a href="#local-6989586621679426684"><span class="hs-identifier hs-var">pState_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-105"></span><span>  </span><span class="annot"><span class="annottext">CreateAgentStatus' :: Maybe Natural
--&gt; Maybe (HashMap Text Text)
 -&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
 -&gt; Text
 -&gt; Text
 -&gt; AgentStatusState
@@ -177,23 +177,23 @@ $cfrom :: forall x. CreateAgentStatus -&gt; Rep CreateAgentStatus x
 </span><a href="Network.AWS.Connect.CreateAgentStatus.html#%24sel%3AdisplayOrder%3ACreateAgentStatus%27"><span class="hs-identifier hs-var">displayOrder</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:CreateAgentStatus' :: Maybe (HashMap Text Text)
-</span><a href="Network.AWS.Connect.CreateAgentStatus.html#%24sel%3Atags%3ACreateAgentStatus%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:CreateAgentStatus' :: Maybe Text
+</span><a href="Network.AWS.Connect.CreateAgentStatus.html#%24sel%3Adescription%3ACreateAgentStatus%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:CreateAgentStatus' :: Maybe Text
-</span><a href="Network.AWS.Connect.CreateAgentStatus.html#%24sel%3Adescription%3ACreateAgentStatus%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:CreateAgentStatus' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Connect.CreateAgentStatus.html#%24sel%3Atags%3ACreateAgentStatus%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceId:CreateAgentStatus' :: Text
 </span><a href="Network.AWS.Connect.CreateAgentStatus.html#%24sel%3AinstanceId%3ACreateAgentStatus%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679426352"><span class="hs-identifier hs-var">pInstanceId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679426686"><span class="hs-identifier hs-var">pInstanceId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:CreateAgentStatus' :: Text
 </span><a href="Network.AWS.Connect.CreateAgentStatus.html#%24sel%3Aname%3ACreateAgentStatus%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679426351"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679426685"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:state:CreateAgentStatus' :: AgentStatusState
 </span><a href="Network.AWS.Connect.CreateAgentStatus.html#%24sel%3Astate%3ACreateAgentStatus%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AgentStatusState
-</span><a href="#local-6989586621679426350"><span class="hs-identifier hs-var">pState_</span></a></span><span>
+</span><a href="#local-6989586621679426684"><span class="hs-identifier hs-var">pState_</span></a></span><span>
 </span><span id="line-112"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-comment">-- | The display order of the status.</span><span>
@@ -205,20 +205,40 @@ forall a. Maybe a
 -&gt; Lens
      CreateAgentStatus CreateAgentStatus (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatus%27"><span class="hs-identifier hs-type">CreateAgentStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426347"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatus%27"><span class="hs-identifier hs-type">CreateAgentStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426681"><span class="annot"><span class="annottext">Maybe Natural
 displayOrder :: Maybe Natural
 $sel:displayOrder:CreateAgentStatus' :: CreateAgentStatus -&gt; Maybe Natural
-</span><a href="#local-6989586621679426347"><span class="hs-identifier hs-var hs-var">displayOrder</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679426347"><span class="hs-identifier hs-var">displayOrder</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679426346"><span class="annot"><span class="annottext">s :: CreateAgentStatus
-</span><a href="#local-6989586621679426346"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatus%27"><span class="hs-identifier hs-type">CreateAgentStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679426345"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679426345"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAgentStatus
-</span><a href="#local-6989586621679426346"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:displayOrder:CreateAgentStatus' :: Maybe Natural
+</span><a href="#local-6989586621679426681"><span class="hs-identifier hs-var hs-var">displayOrder</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679426681"><span class="hs-identifier hs-var">displayOrder</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679426680"><span class="annot"><span class="annottext">s :: CreateAgentStatus
+</span><a href="#local-6989586621679426680"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatus%27"><span class="hs-identifier hs-type">CreateAgentStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679426679"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679426679"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAgentStatus
+</span><a href="#local-6989586621679426680"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:displayOrder:CreateAgentStatus' :: Maybe Natural
 </span><a href="Network.AWS.Connect.CreateAgentStatus.html#%24sel%3AdisplayOrder%3ACreateAgentStatus%27"><span class="hs-identifier hs-var">displayOrder</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679426345"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatus"><span class="hs-identifier hs-type">CreateAgentStatus</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679426679"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatus"><span class="hs-identifier hs-type">CreateAgentStatus</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- | One or more tags.</span><span>
-</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#createAgentStatus_tags"><span class="hs-identifier hs-type">createAgentStatus_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatus"><span class="hs-identifier hs-type">CreateAgentStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-120"></span><span id="createAgentStatus_tags"><span class="annot"><span class="annottext">createAgentStatus_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><span id="line-118"></span><span class="hs-comment">-- | The description of the status.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#createAgentStatus_description"><span class="hs-identifier hs-type">createAgentStatus_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatus"><span class="hs-identifier hs-type">CreateAgentStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span id="createAgentStatus_description"><span class="annot"><span class="annottext">createAgentStatus_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateAgentStatus -&gt; f CreateAgentStatus
+</span><a href="Network.AWS.Connect.CreateAgentStatus.html#createAgentStatus_description"><span class="hs-identifier hs-var hs-var">createAgentStatus_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateAgentStatus -&gt; Maybe Text)
+-&gt; (CreateAgentStatus -&gt; Maybe Text -&gt; CreateAgentStatus)
+-&gt; Lens
+     CreateAgentStatus CreateAgentStatus (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatus%27"><span class="hs-identifier hs-type">CreateAgentStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426678"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:CreateAgentStatus' :: CreateAgentStatus -&gt; Maybe Text
+</span><a href="#local-6989586621679426678"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679426678"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679426677"><span class="annot"><span class="annottext">s :: CreateAgentStatus
+</span><a href="#local-6989586621679426677"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatus%27"><span class="hs-identifier hs-type">CreateAgentStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679426676"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679426676"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAgentStatus
+</span><a href="#local-6989586621679426677"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CreateAgentStatus' :: Maybe Text
+</span><a href="Network.AWS.Connect.CreateAgentStatus.html#%24sel%3Adescription%3ACreateAgentStatus%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679426676"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatus"><span class="hs-identifier hs-type">CreateAgentStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | One or more tags.</span><span>
+</span><span id="line-123"></span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#createAgentStatus_tags"><span class="hs-identifier hs-type">createAgentStatus_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatus"><span class="hs-identifier hs-type">CreateAgentStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span id="createAgentStatus_tags"><span class="annot"><span class="annottext">createAgentStatus_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
 -&gt; CreateAgentStatus -&gt; f CreateAgentStatus
 </span><a href="Network.AWS.Connect.CreateAgentStatus.html#createAgentStatus_tags"><span class="hs-identifier hs-var hs-var">createAgentStatus_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateAgentStatus -&gt; Maybe (HashMap Text Text))
 -&gt; (CreateAgentStatus
@@ -229,16 +249,16 @@ $sel:displayOrder:CreateAgentStatus' :: CreateAgentStatus -&gt; Maybe Natural
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatus%27"><span class="hs-identifier hs-type">CreateAgentStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426344"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatus%27"><span class="hs-identifier hs-type">CreateAgentStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426675"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 tags :: Maybe (HashMap Text Text)
 $sel:tags:CreateAgentStatus' :: CreateAgentStatus -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679426344"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679426344"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679426343"><span class="annot"><span class="annottext">s :: CreateAgentStatus
-</span><a href="#local-6989586621679426343"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatus%27"><span class="hs-identifier hs-type">CreateAgentStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679426342"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679426342"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAgentStatus
-</span><a href="#local-6989586621679426343"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateAgentStatus' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679426675"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679426675"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679426674"><span class="annot"><span class="annottext">s :: CreateAgentStatus
+</span><a href="#local-6989586621679426674"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatus%27"><span class="hs-identifier hs-type">CreateAgentStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679426673"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679426673"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAgentStatus
+</span><a href="#local-6989586621679426674"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateAgentStatus' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.Connect.CreateAgentStatus.html#%24sel%3Atags%3ACreateAgentStatus%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679426342"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatus"><span class="hs-identifier hs-type">CreateAgentStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679426673"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatus"><span class="hs-identifier hs-type">CreateAgentStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; CreateAgentStatus -&gt; f CreateAgentStatus)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -264,28 +284,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (HashMap Text Text)
   (HashMap Text Text)
   (HashMap Text Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- | The description of the status.</span><span>
-</span><span id="line-123"></span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#createAgentStatus_description"><span class="hs-identifier hs-type">createAgentStatus_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatus"><span class="hs-identifier hs-type">CreateAgentStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-124"></span><span id="createAgentStatus_description"><span class="annot"><span class="annottext">createAgentStatus_description :: (Maybe Text -&gt; f (Maybe Text))
--&gt; CreateAgentStatus -&gt; f CreateAgentStatus
-</span><a href="Network.AWS.Connect.CreateAgentStatus.html#createAgentStatus_description"><span class="hs-identifier hs-var hs-var">createAgentStatus_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateAgentStatus -&gt; Maybe Text)
--&gt; (CreateAgentStatus -&gt; Maybe Text -&gt; CreateAgentStatus)
--&gt; Lens
-     CreateAgentStatus CreateAgentStatus (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatus%27"><span class="hs-identifier hs-type">CreateAgentStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426338"><span class="annot"><span class="annottext">Maybe Text
-description :: Maybe Text
-$sel:description:CreateAgentStatus' :: CreateAgentStatus -&gt; Maybe Text
-</span><a href="#local-6989586621679426338"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679426338"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679426337"><span class="annot"><span class="annottext">s :: CreateAgentStatus
-</span><a href="#local-6989586621679426337"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatus%27"><span class="hs-identifier hs-type">CreateAgentStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679426336"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679426336"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAgentStatus
-</span><a href="#local-6989586621679426337"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CreateAgentStatus' :: Maybe Text
-</span><a href="Network.AWS.Connect.CreateAgentStatus.html#%24sel%3Adescription%3ACreateAgentStatus%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679426336"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatus"><span class="hs-identifier hs-type">CreateAgentStatus</span></a></span><span class="hs-special">)</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-comment">-- | The identifier of the Amazon Connect instance. You can find the</span><span>
 </span><span id="line-127"></span><span class="hs-comment">-- instanceId in the ARN of the instance.</span><span>
@@ -295,16 +295,16 @@ $sel:description:CreateAgentStatus' :: CreateAgentStatus -&gt; Maybe Text
 -&gt; (CreateAgentStatus -&gt; Text -&gt; CreateAgentStatus)
 -&gt; Lens CreateAgentStatus CreateAgentStatus Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatus%27"><span class="hs-identifier hs-type">CreateAgentStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426335"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatus%27"><span class="hs-identifier hs-type">CreateAgentStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426669"><span class="annot"><span class="annottext">Text
 instanceId :: Text
 $sel:instanceId:CreateAgentStatus' :: CreateAgentStatus -&gt; Text
-</span><a href="#local-6989586621679426335"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679426335"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679426334"><span class="annot"><span class="annottext">s :: CreateAgentStatus
-</span><a href="#local-6989586621679426334"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatus%27"><span class="hs-identifier hs-type">CreateAgentStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679426333"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679426333"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAgentStatus
-</span><a href="#local-6989586621679426334"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:CreateAgentStatus' :: Text
+</span><a href="#local-6989586621679426669"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679426669"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679426668"><span class="annot"><span class="annottext">s :: CreateAgentStatus
+</span><a href="#local-6989586621679426668"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatus%27"><span class="hs-identifier hs-type">CreateAgentStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679426667"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679426667"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAgentStatus
+</span><a href="#local-6989586621679426668"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:CreateAgentStatus' :: Text
 </span><a href="Network.AWS.Connect.CreateAgentStatus.html#%24sel%3AinstanceId%3ACreateAgentStatus%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679426333"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatus"><span class="hs-identifier hs-type">CreateAgentStatus</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679426667"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatus"><span class="hs-identifier hs-type">CreateAgentStatus</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>
 </span><span id="line-131"></span><span class="hs-comment">-- | The name of the status.</span><span>
 </span><span id="line-132"></span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#createAgentStatus_name"><span class="hs-identifier hs-type">createAgentStatus_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatus"><span class="hs-identifier hs-type">CreateAgentStatus</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -313,16 +313,16 @@ $sel:instanceId:CreateAgentStatus' :: CreateAgentStatus -&gt; Text
 -&gt; (CreateAgentStatus -&gt; Text -&gt; CreateAgentStatus)
 -&gt; Lens CreateAgentStatus CreateAgentStatus Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatus%27"><span class="hs-identifier hs-type">CreateAgentStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426332"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatus%27"><span class="hs-identifier hs-type">CreateAgentStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426666"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:CreateAgentStatus' :: CreateAgentStatus -&gt; Text
-</span><a href="#local-6989586621679426332"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679426332"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679426331"><span class="annot"><span class="annottext">s :: CreateAgentStatus
-</span><a href="#local-6989586621679426331"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatus%27"><span class="hs-identifier hs-type">CreateAgentStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679426330"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679426330"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAgentStatus
-</span><a href="#local-6989586621679426331"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreateAgentStatus' :: Text
+</span><a href="#local-6989586621679426666"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679426666"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679426665"><span class="annot"><span class="annottext">s :: CreateAgentStatus
+</span><a href="#local-6989586621679426665"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatus%27"><span class="hs-identifier hs-type">CreateAgentStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679426664"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679426664"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAgentStatus
+</span><a href="#local-6989586621679426665"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreateAgentStatus' :: Text
 </span><a href="Network.AWS.Connect.CreateAgentStatus.html#%24sel%3Aname%3ACreateAgentStatus%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679426330"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatus"><span class="hs-identifier hs-type">CreateAgentStatus</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679426664"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatus"><span class="hs-identifier hs-type">CreateAgentStatus</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-comment">-- | The state of the status.</span><span>
 </span><span id="line-136"></span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#createAgentStatus_state"><span class="hs-identifier hs-type">createAgentStatus_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatus"><span class="hs-identifier hs-type">CreateAgentStatus</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.AgentStatusState.html#AgentStatusState"><span class="hs-identifier hs-type">AgentStatusState</span></a></span><span>
@@ -336,27 +336,27 @@ $sel:name:CreateAgentStatus' :: CreateAgentStatus -&gt; Text
      AgentStatusState
      AgentStatusState
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatus%27"><span class="hs-identifier hs-type">CreateAgentStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426329"><span class="annot"><span class="annottext">AgentStatusState
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatus%27"><span class="hs-identifier hs-type">CreateAgentStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426663"><span class="annot"><span class="annottext">AgentStatusState
 state :: AgentStatusState
 $sel:state:CreateAgentStatus' :: CreateAgentStatus -&gt; AgentStatusState
-</span><a href="#local-6989586621679426329"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AgentStatusState
-</span><a href="#local-6989586621679426329"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679426328"><span class="annot"><span class="annottext">s :: CreateAgentStatus
-</span><a href="#local-6989586621679426328"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatus%27"><span class="hs-identifier hs-type">CreateAgentStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679426327"><span class="annot"><span class="annottext">AgentStatusState
-</span><a href="#local-6989586621679426327"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAgentStatus
-</span><a href="#local-6989586621679426328"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:CreateAgentStatus' :: AgentStatusState
+</span><a href="#local-6989586621679426663"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AgentStatusState
+</span><a href="#local-6989586621679426663"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679426662"><span class="annot"><span class="annottext">s :: CreateAgentStatus
+</span><a href="#local-6989586621679426662"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatus%27"><span class="hs-identifier hs-type">CreateAgentStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679426661"><span class="annot"><span class="annottext">AgentStatusState
+</span><a href="#local-6989586621679426661"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAgentStatus
+</span><a href="#local-6989586621679426662"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:CreateAgentStatus' :: AgentStatusState
 </span><a href="Network.AWS.Connect.CreateAgentStatus.html#%24sel%3Astate%3ACreateAgentStatus%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AgentStatusState
-</span><a href="#local-6989586621679426327"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatus"><span class="hs-identifier hs-type">CreateAgentStatus</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679426661"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatus"><span class="hs-identifier hs-type">CreateAgentStatus</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatus"><span class="hs-identifier hs-type">CreateAgentStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-140"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-141"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatus"><span class="hs-identifier hs-type">CreateAgentStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-142"></span><span>      </span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatusResponse"><span class="hs-identifier hs-type">CreateAgentStatusResponse</span></a></span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679426323"><span class="annot"><span class="annottext">request :: CreateAgentStatus -&gt; Request CreateAgentStatus
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679426657"><span class="annot"><span class="annottext">request :: CreateAgentStatus -&gt; Request CreateAgentStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateAgentStatus -&gt; Request CreateAgentStatus
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Connect.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-144"></span><span>  </span><span id="local-6989586621679426319"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679426653"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateAgentStatus
 -&gt; ClientResponse ClientBody
@@ -382,10 +382,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-146"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679426316"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679426316"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679426315"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679426315"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679426314"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679426314"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679426650"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679426650"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679426649"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679426649"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679426648"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679426648"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-147"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CreateAgentStatusResponse
 </span><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatusResponse%27"><span class="hs-identifier hs-var">CreateAgentStatusResponse'</span></a></span><span>
 </span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CreateAgentStatusResponse)
@@ -393,7 +393,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe Text -&gt; Int -&gt; CreateAgentStatusResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679426314"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679426648"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AgentStatusId&quot;</span></span><span class="hs-special">)</span><span>
@@ -402,7 +402,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; CreateAgentStatusResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679426314"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679426648"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AgentStatusARN&quot;</span></span><span class="hs-special">)</span><span>
@@ -414,15 +414,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679426316"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679426650"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-151"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-152"></span><span>
-</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679426306"><span id="local-6989586621679426308"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatus"><span class="hs-identifier hs-type">CreateAgentStatus</span></a></span></span></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679426640"><span id="local-6989586621679426642"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatus"><span class="hs-identifier hs-type">CreateAgentStatus</span></a></span></span></span><span>
 </span><span id="line-154"></span><span>
-</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679426303"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatus"><span class="hs-identifier hs-type">CreateAgentStatus</span></a></span></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679426637"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatus"><span class="hs-identifier hs-type">CreateAgentStatus</span></a></span></span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatus"><span class="hs-identifier hs-type">CreateAgentStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-158"></span><span>  </span><span id="local-6989586621679426299"><span class="annot"><span class="annottext">toHeaders :: CreateAgentStatus -&gt; ResponseHeaders
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679426633"><span class="annot"><span class="annottext">toHeaders :: CreateAgentStatus -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-159"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateAgentStatus -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -441,9 +441,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-165"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-166"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-167"></span><span>
-</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679426289"><span id="local-6989586621679426291"><span id="local-6989586621679426293"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatus"><span class="hs-identifier hs-type">CreateAgentStatus</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-169"></span><span>  </span><span id="local-6989586621679426287"><span class="annot"><span class="annottext">toJSON :: CreateAgentStatus -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatus%27"><span class="hs-identifier hs-type">CreateAgentStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426280"><span id="local-6989586621679426281"><span id="local-6989586621679426282"><span id="local-6989586621679426283"><span id="local-6989586621679426284"><span id="local-6989586621679426285"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679426623"><span id="local-6989586621679426625"><span id="local-6989586621679426627"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatus"><span class="hs-identifier hs-type">CreateAgentStatus</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679426621"><span class="annot"><span class="annottext">toJSON :: CreateAgentStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatus%27"><span class="hs-identifier hs-type">CreateAgentStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426614"><span id="local-6989586621679426615"><span id="local-6989586621679426616"><span id="local-6989586621679426617"><span id="local-6989586621679426618"><span id="local-6989586621679426619"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Maybe (HashMap Text Text)
 Text
@@ -451,16 +451,16 @@ AgentStatusState
 state :: AgentStatusState
 name :: Text
 instanceId :: Text
-description :: Maybe Text
 tags :: Maybe (HashMap Text Text)
+description :: Maybe Text
 displayOrder :: Maybe Natural
 $sel:state:CreateAgentStatus' :: CreateAgentStatus -&gt; AgentStatusState
 $sel:name:CreateAgentStatus' :: CreateAgentStatus -&gt; Text
 $sel:instanceId:CreateAgentStatus' :: CreateAgentStatus -&gt; Text
-$sel:description:CreateAgentStatus' :: CreateAgentStatus -&gt; Maybe Text
 $sel:tags:CreateAgentStatus' :: CreateAgentStatus -&gt; Maybe (HashMap Text Text)
+$sel:description:CreateAgentStatus' :: CreateAgentStatus -&gt; Maybe Text
 $sel:displayOrder:CreateAgentStatus' :: CreateAgentStatus -&gt; Maybe Natural
-</span><a href="#local-6989586621679426280"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679426614"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-170"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-171"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -472,42 +472,42 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679426285"><span class="hs-identifier hs-var">displayOrder</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679426619"><span class="hs-identifier hs-var">displayOrder</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-173"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679426618"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
 -&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679426284"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-174"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679426283"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679426617"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-175"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679426281"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679426615"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-176"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;State&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AgentStatusState -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">AgentStatusState
-</span><a href="#local-6989586621679426280"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679426614"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-177"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-178"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatus"><span class="hs-identifier hs-type">CreateAgentStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-181"></span><span>  </span><span id="local-6989586621679426274"><span class="annot"><span class="annottext">toPath :: CreateAgentStatus -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatus%27"><span class="hs-identifier hs-type">CreateAgentStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426267"><span id="local-6989586621679426268"><span id="local-6989586621679426269"><span id="local-6989586621679426270"><span id="local-6989586621679426271"><span id="local-6989586621679426272"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679426608"><span class="annot"><span class="annottext">toPath :: CreateAgentStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatus%27"><span class="hs-identifier hs-type">CreateAgentStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426601"><span id="local-6989586621679426602"><span id="local-6989586621679426603"><span id="local-6989586621679426604"><span id="local-6989586621679426605"><span id="local-6989586621679426606"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Maybe (HashMap Text Text)
 Text
@@ -515,16 +515,16 @@ AgentStatusState
 state :: AgentStatusState
 name :: Text
 instanceId :: Text
-description :: Maybe Text
 tags :: Maybe (HashMap Text Text)
+description :: Maybe Text
 displayOrder :: Maybe Natural
 $sel:state:CreateAgentStatus' :: CreateAgentStatus -&gt; AgentStatusState
 $sel:name:CreateAgentStatus' :: CreateAgentStatus -&gt; Text
 $sel:instanceId:CreateAgentStatus' :: CreateAgentStatus -&gt; Text
-$sel:description:CreateAgentStatus' :: CreateAgentStatus -&gt; Maybe Text
 $sel:tags:CreateAgentStatus' :: CreateAgentStatus -&gt; Maybe (HashMap Text Text)
+$sel:description:CreateAgentStatus' :: CreateAgentStatus -&gt; Maybe Text
 $sel:displayOrder:CreateAgentStatus' :: CreateAgentStatus -&gt; Maybe Natural
-</span><a href="#local-6989586621679426267"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679426601"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-182"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -532,10 +532,10 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/agent-status/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679426269"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679426603"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-184"></span><span>
 </span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatus"><span class="hs-identifier hs-type">CreateAgentStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-186"></span><span>  </span><span id="local-6989586621679426263"><span class="annot"><span class="annottext">toQuery :: CreateAgentStatus -&gt; QueryString
+</span><span id="line-186"></span><span>  </span><span id="local-6989586621679426597"><span class="annot"><span class="annottext">toQuery :: CreateAgentStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateAgentStatus -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -543,7 +543,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-187"></span><span>
 </span><span id="line-188"></span><span class="hs-comment">-- | /See:/ 'newCreateAgentStatusResponse' smart constructor.</span><span>
-</span><span id="line-189"></span><span id="local-6989586621679426260"><span id="local-6989586621679426261"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateAgentStatusResponse"><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatusResponse"><span class="hs-identifier hs-var">CreateAgentStatusResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateAgentStatusResponse%27"><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatusResponse%27"><span class="hs-identifier hs-var">CreateAgentStatusResponse'</span></a></span></span><span>
+</span><span id="line-189"></span><span id="local-6989586621679426594"><span id="local-6989586621679426595"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateAgentStatusResponse"><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatusResponse"><span class="hs-identifier hs-var">CreateAgentStatusResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateAgentStatusResponse%27"><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatusResponse%27"><span class="hs-identifier hs-var">CreateAgentStatusResponse'</span></a></span></span><span>
 </span><span id="line-190"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier of the agent status.</span><span>
 </span><span id="line-191"></span><span>    </span><span id="%24sel%3AagentStatusId%3ACreateAgentStatusResponse%27"><span class="annot"><span class="annottext">CreateAgentStatusResponse -&gt; Maybe Text
 </span><a href="Network.AWS.Connect.CreateAgentStatus.html#%24sel%3AagentStatusId%3ACreateAgentStatusResponse%27"><span class="hs-identifier hs-var hs-var">agentStatusId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -554,7 +554,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-195"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateAgentStatusResponse%27"><span class="annot"><span class="annottext">CreateAgentStatusResponse -&gt; Int
 </span><a href="Network.AWS.Connect.CreateAgentStatus.html#%24sel%3AhttpStatus%3ACreateAgentStatusResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-196"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-197"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679426253"><span id="local-6989586621679426255"><span class="annot"><span class="annottext">CreateAgentStatusResponse -&gt; CreateAgentStatusResponse -&gt; Bool
+</span><span id="line-197"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679426587"><span id="local-6989586621679426589"><span class="annot"><span class="annottext">CreateAgentStatusResponse -&gt; CreateAgentStatusResponse -&gt; Bool
 (CreateAgentStatusResponse -&gt; CreateAgentStatusResponse -&gt; Bool)
 -&gt; (CreateAgentStatusResponse -&gt; CreateAgentStatusResponse -&gt; Bool)
 -&gt; Eq CreateAgentStatusResponse
@@ -563,7 +563,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateAgentStatusResponse -&gt; CreateAgentStatusResponse -&gt; Bool
 == :: CreateAgentStatusResponse -&gt; CreateAgentStatusResponse -&gt; Bool
 $c== :: CreateAgentStatusResponse -&gt; CreateAgentStatusResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679426245"><span id="local-6989586621679426247"><span id="local-6989586621679426249"><span id="local-6989586621679426251"><span class="annot"><span class="annottext">ReadPrec [CreateAgentStatusResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679426579"><span id="local-6989586621679426581"><span id="local-6989586621679426583"><span id="local-6989586621679426585"><span class="annot"><span class="annottext">ReadPrec [CreateAgentStatusResponse]
 ReadPrec CreateAgentStatusResponse
 Int -&gt; ReadS CreateAgentStatusResponse
 ReadS [CreateAgentStatusResponse]
@@ -583,7 +583,7 @@ readList :: ReadS [CreateAgentStatusResponse]
 $creadList :: ReadS [CreateAgentStatusResponse]
 readsPrec :: Int -&gt; ReadS CreateAgentStatusResponse
 $creadsPrec :: Int -&gt; ReadS CreateAgentStatusResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679426239"><span id="local-6989586621679426241"><span id="local-6989586621679426243"><span class="annot"><span class="annottext">Int -&gt; CreateAgentStatusResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679426573"><span id="local-6989586621679426575"><span id="local-6989586621679426577"><span class="annot"><span class="annottext">Int -&gt; CreateAgentStatusResponse -&gt; ShowS
 [CreateAgentStatusResponse] -&gt; ShowS
 CreateAgentStatusResponse -&gt; String
 (Int -&gt; CreateAgentStatusResponse -&gt; ShowS)
@@ -633,8 +633,8 @@ CreateAgentStatusResponse -&gt; Rep CreateAgentStatusResponse x
 </span><span id="line-214"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-215"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatusResponse"><span class="hs-identifier hs-type">CreateAgentStatusResponse</span></a></span><span>
 </span><span id="line-216"></span><span id="newCreateAgentStatusResponse"><span class="annot"><span class="annottext">newCreateAgentStatusResponse :: Int -&gt; CreateAgentStatusResponse
-</span><a href="Network.AWS.Connect.CreateAgentStatus.html#newCreateAgentStatusResponse"><span class="hs-identifier hs-var hs-var">newCreateAgentStatusResponse</span></a></span></span><span> </span><span id="local-6989586621679426236"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679426236"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Connect.CreateAgentStatus.html#newCreateAgentStatusResponse"><span class="hs-identifier hs-var hs-var">newCreateAgentStatusResponse</span></a></span></span><span> </span><span id="local-6989586621679426570"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679426570"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-217"></span><span>  </span><span class="annot"><span class="annottext">CreateAgentStatusResponse' :: Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CreateAgentStatusResponse
 </span><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatusResponse%27"><span class="hs-identifier hs-type">CreateAgentStatusResponse'</span></a></span><span>
 </span><span id="line-218"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:agentStatusId:CreateAgentStatusResponse' :: Maybe Text
@@ -648,7 +648,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-221"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateAgentStatusResponse' :: Int
 </span><a href="Network.AWS.Connect.CreateAgentStatus.html#%24sel%3AhttpStatus%3ACreateAgentStatusResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679426236"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679426570"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-222"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-223"></span><span>
 </span><span id="line-224"></span><span class="hs-comment">-- | The identifier of the agent status.</span><span>
@@ -664,16 +664,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatusResponse%27"><span class="hs-identifier hs-type">CreateAgentStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426235"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatusResponse%27"><span class="hs-identifier hs-type">CreateAgentStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426569"><span class="annot"><span class="annottext">Maybe Text
 agentStatusId :: Maybe Text
 $sel:agentStatusId:CreateAgentStatusResponse' :: CreateAgentStatusResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679426235"><span class="hs-identifier hs-var hs-var">agentStatusId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679426235"><span class="hs-identifier hs-var">agentStatusId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679426234"><span class="annot"><span class="annottext">s :: CreateAgentStatusResponse
-</span><a href="#local-6989586621679426234"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatusResponse%27"><span class="hs-identifier hs-type">CreateAgentStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679426233"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679426233"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAgentStatusResponse
-</span><a href="#local-6989586621679426234"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:agentStatusId:CreateAgentStatusResponse' :: Maybe Text
+</span><a href="#local-6989586621679426569"><span class="hs-identifier hs-var hs-var">agentStatusId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679426569"><span class="hs-identifier hs-var">agentStatusId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679426568"><span class="annot"><span class="annottext">s :: CreateAgentStatusResponse
+</span><a href="#local-6989586621679426568"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatusResponse%27"><span class="hs-identifier hs-type">CreateAgentStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679426567"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679426567"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAgentStatusResponse
+</span><a href="#local-6989586621679426568"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:agentStatusId:CreateAgentStatusResponse' :: Maybe Text
 </span><a href="Network.AWS.Connect.CreateAgentStatus.html#%24sel%3AagentStatusId%3ACreateAgentStatusResponse%27"><span class="hs-identifier hs-var">agentStatusId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679426233"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatusResponse"><span class="hs-identifier hs-type">CreateAgentStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679426567"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatusResponse"><span class="hs-identifier hs-type">CreateAgentStatusResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-227"></span><span>
 </span><span id="line-228"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the agent status.</span><span>
 </span><span id="line-229"></span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#createAgentStatusResponse_agentStatusARN"><span class="hs-identifier hs-type">createAgentStatusResponse_agentStatusARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatusResponse"><span class="hs-identifier hs-type">CreateAgentStatusResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -688,16 +688,16 @@ $sel:agentStatusId:CreateAgentStatusResponse' :: CreateAgentStatusResponse -&gt;
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatusResponse%27"><span class="hs-identifier hs-type">CreateAgentStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426232"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatusResponse%27"><span class="hs-identifier hs-type">CreateAgentStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426566"><span class="annot"><span class="annottext">Maybe Text
 agentStatusARN :: Maybe Text
 $sel:agentStatusARN:CreateAgentStatusResponse' :: CreateAgentStatusResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679426232"><span class="hs-identifier hs-var hs-var">agentStatusARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679426232"><span class="hs-identifier hs-var">agentStatusARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679426231"><span class="annot"><span class="annottext">s :: CreateAgentStatusResponse
-</span><a href="#local-6989586621679426231"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatusResponse%27"><span class="hs-identifier hs-type">CreateAgentStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679426230"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679426230"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAgentStatusResponse
-</span><a href="#local-6989586621679426231"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:agentStatusARN:CreateAgentStatusResponse' :: Maybe Text
+</span><a href="#local-6989586621679426566"><span class="hs-identifier hs-var hs-var">agentStatusARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679426566"><span class="hs-identifier hs-var">agentStatusARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679426565"><span class="annot"><span class="annottext">s :: CreateAgentStatusResponse
+</span><a href="#local-6989586621679426565"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatusResponse%27"><span class="hs-identifier hs-type">CreateAgentStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679426564"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679426564"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAgentStatusResponse
+</span><a href="#local-6989586621679426565"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:agentStatusARN:CreateAgentStatusResponse' :: Maybe Text
 </span><a href="Network.AWS.Connect.CreateAgentStatus.html#%24sel%3AagentStatusARN%3ACreateAgentStatusResponse%27"><span class="hs-identifier hs-var">agentStatusARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679426230"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatusResponse"><span class="hs-identifier hs-type">CreateAgentStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679426564"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatusResponse"><span class="hs-identifier hs-type">CreateAgentStatusResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-231"></span><span>
 </span><span id="line-232"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-233"></span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#createAgentStatusResponse_httpStatus"><span class="hs-identifier hs-type">createAgentStatusResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatusResponse"><span class="hs-identifier hs-type">CreateAgentStatusResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -707,16 +707,16 @@ $sel:agentStatusARN:CreateAgentStatusResponse' :: CreateAgentStatusResponse -&gt
 -&gt; (CreateAgentStatusResponse -&gt; Int -&gt; CreateAgentStatusResponse)
 -&gt; Lens CreateAgentStatusResponse CreateAgentStatusResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatusResponse%27"><span class="hs-identifier hs-type">CreateAgentStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426229"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatusResponse%27"><span class="hs-identifier hs-type">CreateAgentStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426563"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateAgentStatusResponse' :: CreateAgentStatusResponse -&gt; Int
-</span><a href="#local-6989586621679426229"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679426229"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679426228"><span class="annot"><span class="annottext">s :: CreateAgentStatusResponse
-</span><a href="#local-6989586621679426228"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatusResponse%27"><span class="hs-identifier hs-type">CreateAgentStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679426227"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679426227"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAgentStatusResponse
-</span><a href="#local-6989586621679426228"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateAgentStatusResponse' :: Int
+</span><a href="#local-6989586621679426563"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679426563"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679426562"><span class="annot"><span class="annottext">s :: CreateAgentStatusResponse
+</span><a href="#local-6989586621679426562"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatusResponse%27"><span class="hs-identifier hs-type">CreateAgentStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679426561"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679426561"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAgentStatusResponse
+</span><a href="#local-6989586621679426562"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateAgentStatusResponse' :: Int
 </span><a href="Network.AWS.Connect.CreateAgentStatus.html#%24sel%3AhttpStatus%3ACreateAgentStatusResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679426227"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatusResponse"><span class="hs-identifier hs-type">CreateAgentStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679426561"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatusResponse"><span class="hs-identifier hs-type">CreateAgentStatusResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-235"></span><span>
-</span><span id="line-236"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679426225"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatusResponse"><span class="hs-identifier hs-type">CreateAgentStatusResponse</span></a></span></span><span>
+</span><span id="line-236"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679426559"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateAgentStatus.html#CreateAgentStatusResponse"><span class="hs-identifier hs-type">CreateAgentStatusResponse</span></a></span></span><span>
 </span><span id="line-237"></span></pre></body></html>

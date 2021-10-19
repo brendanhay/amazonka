@@ -30,7 +30,7 @@
 </span><span id="line-30"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email.html Amazon SES Developer Guide&gt;.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newExtensionField' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679272188"><span id="local-6989586621679272189"></span></span><span class="hs-keyword">data</span><span> </span><span id="ExtensionField"><span class="annot"><a href="Network.AWS.SES.Types.ExtensionField.html#ExtensionField"><span class="hs-identifier hs-var">ExtensionField</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExtensionField%27"><span class="annot"><a href="Network.AWS.SES.Types.ExtensionField.html#ExtensionField%27"><span class="hs-identifier hs-var">ExtensionField'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679272380"><span id="local-6989586621679272381"></span></span><span class="hs-keyword">data</span><span> </span><span id="ExtensionField"><span class="annot"><a href="Network.AWS.SES.Types.ExtensionField.html#ExtensionField"><span class="hs-identifier hs-var">ExtensionField</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExtensionField%27"><span class="annot"><a href="Network.AWS.SES.Types.ExtensionField.html#ExtensionField%27"><span class="hs-identifier hs-var">ExtensionField'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the header to add. Must be between 1 and 50 characters,</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- inclusive, and consist of alphanumeric (a-z, A-Z, 0-9) characters and</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- dashes only.</span><span>
@@ -41,7 +41,7 @@
 </span><span id="line-40"></span><span>    </span><span id="%24sel%3Avalue%3AExtensionField%27"><span class="annot"><span class="annottext">ExtensionField -&gt; Text
 </span><a href="Network.AWS.SES.Types.ExtensionField.html#%24sel%3Avalue%3AExtensionField%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679272181"><span id="local-6989586621679272183"><span class="annot"><span class="annottext">ExtensionField -&gt; ExtensionField -&gt; Bool
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679272373"><span id="local-6989586621679272375"><span class="annot"><span class="annottext">ExtensionField -&gt; ExtensionField -&gt; Bool
 (ExtensionField -&gt; ExtensionField -&gt; Bool)
 -&gt; (ExtensionField -&gt; ExtensionField -&gt; Bool) -&gt; Eq ExtensionField
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -49,7 +49,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ExtensionField -&gt; ExtensionField -&gt; Bool
 == :: ExtensionField -&gt; ExtensionField -&gt; Bool
 $c== :: ExtensionField -&gt; ExtensionField -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679272172"><span id="local-6989586621679272174"><span id="local-6989586621679272176"><span id="local-6989586621679272178"><span class="annot"><span class="annottext">ReadPrec [ExtensionField]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679272364"><span id="local-6989586621679272366"><span id="local-6989586621679272368"><span id="local-6989586621679272370"><span class="annot"><span class="annottext">ReadPrec [ExtensionField]
 ReadPrec ExtensionField
 Int -&gt; ReadS ExtensionField
 ReadS [ExtensionField]
@@ -69,7 +69,7 @@ readList :: ReadS [ExtensionField]
 $creadList :: ReadS [ExtensionField]
 readsPrec :: Int -&gt; ReadS ExtensionField
 $creadsPrec :: Int -&gt; ReadS ExtensionField
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679272165"><span id="local-6989586621679272167"><span id="local-6989586621679272169"><span class="annot"><span class="annottext">Int -&gt; ExtensionField -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679272357"><span id="local-6989586621679272359"><span id="local-6989586621679272361"><span class="annot"><span class="annottext">Int -&gt; ExtensionField -&gt; ShowS
 [ExtensionField] -&gt; ShowS
 ExtensionField -&gt; String
 (Int -&gt; ExtensionField -&gt; ShowS)
@@ -116,15 +116,15 @@ $cfrom :: forall x. ExtensionField -&gt; Rep ExtensionField x
 </span><span id="line-62"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-63"></span><span>  </span><span class="annot"><a href="Network.AWS.SES.Types.ExtensionField.html#ExtensionField"><span class="hs-identifier hs-type">ExtensionField</span></a></span><span>
 </span><span id="line-64"></span><span id="newExtensionField"><span class="annot"><span class="annottext">newExtensionField :: Text -&gt; Text -&gt; ExtensionField
-</span><a href="Network.AWS.SES.Types.ExtensionField.html#newExtensionField"><span class="hs-identifier hs-var hs-var">newExtensionField</span></a></span></span><span> </span><span id="local-6989586621679272159"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679272159"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679272158"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679272158"><span class="hs-identifier hs-var">pValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SES.Types.ExtensionField.html#newExtensionField"><span class="hs-identifier hs-var hs-var">newExtensionField</span></a></span></span><span> </span><span id="local-6989586621679272351"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679272351"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679272350"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679272350"><span class="hs-identifier hs-var">pValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-65"></span><span>  </span><span class="annot"><span class="annottext">ExtensionField' :: Text -&gt; Text -&gt; ExtensionField
 </span><a href="Network.AWS.SES.Types.ExtensionField.html#ExtensionField%27"><span class="hs-identifier hs-type">ExtensionField'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ExtensionField' :: Text
 </span><a href="Network.AWS.SES.Types.ExtensionField.html#%24sel%3Aname%3AExtensionField%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679272159"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:value:ExtensionField' :: Text
+</span><a href="#local-6989586621679272351"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:value:ExtensionField' :: Text
 </span><a href="Network.AWS.SES.Types.ExtensionField.html#%24sel%3Avalue%3AExtensionField%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679272158"><span class="hs-identifier hs-var">pValue_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679272350"><span class="hs-identifier hs-var">pValue_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- | The name of the header to add. Must be between 1 and 50 characters,</span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- inclusive, and consist of alphanumeric (a-z, A-Z, 0-9) characters and</span><span>
@@ -135,16 +135,16 @@ $cfrom :: forall x. ExtensionField -&gt; Rep ExtensionField x
 -&gt; (ExtensionField -&gt; Text -&gt; ExtensionField)
 -&gt; Lens ExtensionField ExtensionField Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.ExtensionField.html#ExtensionField%27"><span class="hs-identifier hs-type">ExtensionField'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272154"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.ExtensionField.html#ExtensionField%27"><span class="hs-identifier hs-type">ExtensionField'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272346"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:ExtensionField' :: ExtensionField -&gt; Text
-</span><a href="#local-6989586621679272154"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679272154"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272153"><span class="annot"><span class="annottext">s :: ExtensionField
-</span><a href="#local-6989586621679272153"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.ExtensionField.html#ExtensionField%27"><span class="hs-identifier hs-type">ExtensionField'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272152"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679272152"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExtensionField
-</span><a href="#local-6989586621679272153"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ExtensionField' :: Text
+</span><a href="#local-6989586621679272346"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679272346"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272345"><span class="annot"><span class="annottext">s :: ExtensionField
+</span><a href="#local-6989586621679272345"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.ExtensionField.html#ExtensionField%27"><span class="hs-identifier hs-type">ExtensionField'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272344"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679272344"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExtensionField
+</span><a href="#local-6989586621679272345"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ExtensionField' :: Text
 </span><a href="Network.AWS.SES.Types.ExtensionField.html#%24sel%3Aname%3AExtensionField%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679272152"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.ExtensionField.html#ExtensionField"><span class="hs-identifier hs-type">ExtensionField</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679272344"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.ExtensionField.html#ExtensionField"><span class="hs-identifier hs-type">ExtensionField</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- | The value of the header to add. Must be less than 2048 characters, and</span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- must not contain newline characters (\&quot;\\r\&quot; or \&quot;\\n\&quot;).</span><span>
@@ -154,29 +154,29 @@ $sel:name:ExtensionField' :: ExtensionField -&gt; Text
 -&gt; (ExtensionField -&gt; Text -&gt; ExtensionField)
 -&gt; Lens ExtensionField ExtensionField Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.ExtensionField.html#ExtensionField%27"><span class="hs-identifier hs-type">ExtensionField'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272150"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.ExtensionField.html#ExtensionField%27"><span class="hs-identifier hs-type">ExtensionField'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272342"><span class="annot"><span class="annottext">Text
 value :: Text
 $sel:value:ExtensionField' :: ExtensionField -&gt; Text
-</span><a href="#local-6989586621679272150"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679272150"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272149"><span class="annot"><span class="annottext">s :: ExtensionField
-</span><a href="#local-6989586621679272149"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.ExtensionField.html#ExtensionField%27"><span class="hs-identifier hs-type">ExtensionField'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272148"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679272148"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExtensionField
-</span><a href="#local-6989586621679272149"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:ExtensionField' :: Text
+</span><a href="#local-6989586621679272342"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679272342"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272341"><span class="annot"><span class="annottext">s :: ExtensionField
+</span><a href="#local-6989586621679272341"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.ExtensionField.html#ExtensionField%27"><span class="hs-identifier hs-type">ExtensionField'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272340"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679272340"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExtensionField
+</span><a href="#local-6989586621679272341"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:ExtensionField' :: Text
 </span><a href="Network.AWS.SES.Types.ExtensionField.html#%24sel%3Avalue%3AExtensionField%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679272148"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.ExtensionField.html#ExtensionField"><span class="hs-identifier hs-type">ExtensionField</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679272340"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.ExtensionField.html#ExtensionField"><span class="hs-identifier hs-type">ExtensionField</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679272144"><span id="local-6989586621679272146"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.ExtensionField.html#ExtensionField"><span class="hs-identifier hs-type">ExtensionField</span></a></span></span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679272336"><span id="local-6989586621679272338"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.ExtensionField.html#ExtensionField"><span class="hs-identifier hs-type">ExtensionField</span></a></span></span></span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679272141"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.ExtensionField.html#ExtensionField"><span class="hs-identifier hs-type">ExtensionField</span></a></span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679272333"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.ExtensionField.html#ExtensionField"><span class="hs-identifier hs-type">ExtensionField</span></a></span></span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.ExtensionField.html#ExtensionField"><span class="hs-identifier hs-type">ExtensionField</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679272137"><span class="annot"><span class="annottext">toQuery :: ExtensionField -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.ExtensionField.html#ExtensionField%27"><span class="hs-identifier hs-type">ExtensionField'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272134"><span id="local-6989586621679272135"><span class="annot"><span class="annottext">Text
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679272329"><span class="annot"><span class="annottext">toQuery :: ExtensionField -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.ExtensionField.html#ExtensionField%27"><span class="hs-identifier hs-type">ExtensionField'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272326"><span id="local-6989586621679272327"><span class="annot"><span class="annottext">Text
 value :: Text
 name :: Text
 $sel:value:ExtensionField' :: ExtensionField -&gt; Text
 $sel:name:ExtensionField' :: ExtensionField -&gt; Text
-</span><a href="#local-6989586621679272134"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679272326"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -184,9 +184,9 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679272135"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679272327"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Value&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679272134"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679272326"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-86"></span></pre></body></html>

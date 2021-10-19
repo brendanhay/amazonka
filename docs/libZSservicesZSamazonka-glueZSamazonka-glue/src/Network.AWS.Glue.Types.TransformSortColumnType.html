@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-34"></span><span>
-</span><span id="line-35"></span><span id="local-6989586621679700873"><span id="local-6989586621679700874"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TransformSortColumnType"><span class="annot"><a href="Network.AWS.Glue.Types.TransformSortColumnType.html#TransformSortColumnType"><span class="hs-identifier hs-var">TransformSortColumnType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TransformSortColumnType%27"><span class="annot"><a href="Network.AWS.Glue.Types.TransformSortColumnType.html#TransformSortColumnType%27"><span class="hs-identifier hs-var">TransformSortColumnType'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679702579"><span id="local-6989586621679702580"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TransformSortColumnType"><span class="annot"><a href="Network.AWS.Glue.Types.TransformSortColumnType.html#TransformSortColumnType"><span class="hs-identifier hs-var">TransformSortColumnType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TransformSortColumnType%27"><span class="annot"><a href="Network.AWS.Glue.Types.TransformSortColumnType.html#TransformSortColumnType%27"><span class="hs-identifier hs-var">TransformSortColumnType'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTransformSortColumnType"><span class="annot"><span class="annottext">TransformSortColumnType -&gt; Text
 </span><a href="Network.AWS.Glue.Types.TransformSortColumnType.html#fromTransformSortColumnType"><span class="hs-identifier hs-var hs-var">fromTransformSortColumnType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679700865"><span id="local-6989586621679700867"><span id="local-6989586621679700869"><span class="annot"><span class="annottext">Int -&gt; TransformSortColumnType -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679702571"><span id="local-6989586621679702573"><span id="local-6989586621679702575"><span class="annot"><span class="annottext">Int -&gt; TransformSortColumnType -&gt; ShowS
 [TransformSortColumnType] -&gt; ShowS
 TransformSortColumnType -&gt; String
 (Int -&gt; TransformSortColumnType -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: TransformSortColumnType -&gt; String
 showsPrec :: Int -&gt; TransformSortColumnType -&gt; ShowS
 $cshowsPrec :: Int -&gt; TransformSortColumnType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679700856"><span id="local-6989586621679700858"><span id="local-6989586621679700860"><span id="local-6989586621679700862"><span class="annot"><span class="annottext">ReadPrec [TransformSortColumnType]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679702562"><span id="local-6989586621679702564"><span id="local-6989586621679702566"><span id="local-6989586621679702568"><span class="annot"><span class="annottext">ReadPrec [TransformSortColumnType]
 ReadPrec TransformSortColumnType
 Int -&gt; ReadS TransformSortColumnType
 ReadS [TransformSortColumnType]
@@ -75,7 +75,7 @@ $creadList :: ReadS [TransformSortColumnType]
 readsPrec :: Int -&gt; ReadS TransformSortColumnType
 $creadsPrec :: Int -&gt; ReadS TransformSortColumnType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679700851"><span id="local-6989586621679700853"><span class="annot"><span class="annottext">TransformSortColumnType -&gt; TransformSortColumnType -&gt; Bool
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679702557"><span id="local-6989586621679702559"><span class="annot"><span class="annottext">TransformSortColumnType -&gt; TransformSortColumnType -&gt; Bool
 (TransformSortColumnType -&gt; TransformSortColumnType -&gt; Bool)
 -&gt; (TransformSortColumnType -&gt; TransformSortColumnType -&gt; Bool)
 -&gt; Eq TransformSortColumnType
@@ -85,7 +85,7 @@ $c/= :: TransformSortColumnType -&gt; TransformSortColumnType -&gt; Bool
 == :: TransformSortColumnType -&gt; TransformSortColumnType -&gt; Bool
 $c== :: TransformSortColumnType -&gt; TransformSortColumnType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679700835"><span id="local-6989586621679700837"><span id="local-6989586621679700839"><span id="local-6989586621679700841"><span id="local-6989586621679700843"><span id="local-6989586621679700845"><span id="local-6989586621679700847"><span class="annot"><span class="annottext">Eq TransformSortColumnType
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679702541"><span id="local-6989586621679702543"><span id="local-6989586621679702545"><span id="local-6989586621679702547"><span id="local-6989586621679702549"><span id="local-6989586621679702551"><span id="local-6989586621679702553"><span class="annot"><span class="annottext">Eq TransformSortColumnType
 Eq TransformSortColumnType
 -&gt; (TransformSortColumnType -&gt; TransformSortColumnType -&gt; Ordering)
 -&gt; (TransformSortColumnType -&gt; TransformSortColumnType -&gt; Bool)
@@ -145,7 +145,7 @@ $cfrom :: forall x. TransformSortColumnType -&gt; Rep TransformSortColumnType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679700827"><span id="local-6989586621679700829"><span class="annot"><span class="annottext">Int -&gt; TransformSortColumnType -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679702533"><span id="local-6989586621679702535"><span class="annot"><span class="annottext">Int -&gt; TransformSortColumnType -&gt; Int
 TransformSortColumnType -&gt; Int
 (Int -&gt; TransformSortColumnType -&gt; Int)
 -&gt; (TransformSortColumnType -&gt; Int)
@@ -156,54 +156,54 @@ $chash :: TransformSortColumnType -&gt; Int
 hashWithSalt :: Int -&gt; TransformSortColumnType -&gt; Int
 $chashWithSalt :: Int -&gt; TransformSortColumnType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679700824"><span class="annot"><span class="annottext">TransformSortColumnType -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679702530"><span class="annot"><span class="annottext">TransformSortColumnType -&gt; ()
 (TransformSortColumnType -&gt; ()) -&gt; NFData TransformSortColumnType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: TransformSortColumnType -&gt; ()
 $crnf :: TransformSortColumnType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679700821"><span class="annot"><span class="annottext">Text -&gt; Either String TransformSortColumnType
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679702527"><span class="annot"><span class="annottext">Text -&gt; Either String TransformSortColumnType
 (Text -&gt; Either String TransformSortColumnType)
 -&gt; FromText TransformSortColumnType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String TransformSortColumnType
 $cfromText :: Text -&gt; Either String TransformSortColumnType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679700818"><span class="annot"><span class="annottext">TransformSortColumnType -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679702524"><span class="annot"><span class="annottext">TransformSortColumnType -&gt; Text
 (TransformSortColumnType -&gt; Text) -&gt; ToText TransformSortColumnType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: TransformSortColumnType -&gt; Text
 $ctoText :: TransformSortColumnType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679700815"><span class="annot"><span class="annottext">TransformSortColumnType -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679702521"><span class="annot"><span class="annottext">TransformSortColumnType -&gt; ByteString
 (TransformSortColumnType -&gt; ByteString)
 -&gt; ToByteString TransformSortColumnType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: TransformSortColumnType -&gt; ByteString
 $ctoBS :: TransformSortColumnType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679700812"><span class="annot"><span class="annottext">TransformSortColumnType -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679702518"><span class="annot"><span class="annottext">TransformSortColumnType -&gt; ByteStringBuilder
 (TransformSortColumnType -&gt; ByteStringBuilder)
 -&gt; ToLog TransformSortColumnType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: TransformSortColumnType -&gt; ByteStringBuilder
 $cbuild :: TransformSortColumnType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679700809"><span class="annot"><span class="annottext">HeaderName -&gt; TransformSortColumnType -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679702515"><span class="annot"><span class="annottext">HeaderName -&gt; TransformSortColumnType -&gt; [Header]
 (HeaderName -&gt; TransformSortColumnType -&gt; [Header])
 -&gt; ToHeader TransformSortColumnType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; TransformSortColumnType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; TransformSortColumnType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679700806"><span class="annot"><span class="annottext">TransformSortColumnType -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679702512"><span class="annot"><span class="annottext">TransformSortColumnType -&gt; QueryString
 (TransformSortColumnType -&gt; QueryString)
 -&gt; ToQuery TransformSortColumnType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: TransformSortColumnType -&gt; QueryString
 $ctoQuery :: TransformSortColumnType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679700801"><span id="local-6989586621679700803"><span class="annot"><span class="annottext">Value -&gt; Parser [TransformSortColumnType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679702507"><span id="local-6989586621679702509"><span class="annot"><span class="annottext">Value -&gt; Parser [TransformSortColumnType]
 Value -&gt; Parser TransformSortColumnType
 (Value -&gt; Parser TransformSortColumnType)
 -&gt; (Value -&gt; Parser [TransformSortColumnType])
@@ -215,7 +215,7 @@ $cparseJSONList :: Value -&gt; Parser [TransformSortColumnType]
 parseJSON :: Value -&gt; Parser TransformSortColumnType
 $cparseJSON :: Value -&gt; Parser TransformSortColumnType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679700796"><span id="local-6989586621679700798"><span class="annot"><span class="annottext">FromJSONKeyFunction [TransformSortColumnType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679702502"><span id="local-6989586621679702504"><span class="annot"><span class="annottext">FromJSONKeyFunction [TransformSortColumnType]
 FromJSONKeyFunction TransformSortColumnType
 FromJSONKeyFunction TransformSortColumnType
 -&gt; FromJSONKeyFunction [TransformSortColumnType]
@@ -227,7 +227,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [TransformSortColumnType]
 fromJSONKey :: FromJSONKeyFunction TransformSortColumnType
 $cfromJSONKey :: FromJSONKeyFunction TransformSortColumnType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679700787"><span id="local-6989586621679700789"><span id="local-6989586621679700791"><span id="local-6989586621679700793"><span class="annot"><span class="annottext">[TransformSortColumnType] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679702493"><span id="local-6989586621679702495"><span id="local-6989586621679702497"><span id="local-6989586621679702499"><span class="annot"><span class="annottext">[TransformSortColumnType] -&gt; Encoding
 [TransformSortColumnType] -&gt; Value
 TransformSortColumnType -&gt; Encoding
 TransformSortColumnType -&gt; Value
@@ -251,7 +251,7 @@ $ctoEncoding :: TransformSortColumnType -&gt; Encoding
 toJSON :: TransformSortColumnType -&gt; Value
 $ctoJSON :: TransformSortColumnType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679700782"><span id="local-6989586621679700784"><span class="annot"><span class="annottext">ToJSONKeyFunction [TransformSortColumnType]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679702488"><span id="local-6989586621679702490"><span class="annot"><span class="annottext">ToJSONKeyFunction [TransformSortColumnType]
 ToJSONKeyFunction TransformSortColumnType
 ToJSONKeyFunction TransformSortColumnType
 -&gt; ToJSONKeyFunction [TransformSortColumnType]
@@ -263,14 +263,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [TransformSortColumnType]
 toJSONKey :: ToJSONKeyFunction TransformSortColumnType
 $ctoJSONKey :: ToJSONKeyFunction TransformSortColumnType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679700779"><span class="annot"><span class="annottext">[Node] -&gt; Either String TransformSortColumnType
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679702485"><span class="annot"><span class="annottext">[Node] -&gt; Either String TransformSortColumnType
 ([Node] -&gt; Either String TransformSortColumnType)
 -&gt; FromXML TransformSortColumnType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String TransformSortColumnType
 $cparseXML :: [Node] -&gt; Either String TransformSortColumnType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679700776"><span class="annot"><span class="annottext">TransformSortColumnType -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679702482"><span class="annot"><span class="annottext">TransformSortColumnType -&gt; XML
 (TransformSortColumnType -&gt; XML) -&gt; ToXML TransformSortColumnType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: TransformSortColumnType -&gt; XML

@@ -27,8 +27,8 @@
 </span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#newUpdateLongTermPricing"><span class="hs-identifier">newUpdateLongTermPricing</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-28"></span><span>
 </span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#updateLongTermPricing_replacementJob"><span class="hs-identifier">updateLongTermPricing_replacementJob</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#updateLongTermPricing_isLongTermPricingAutoRenew"><span class="hs-identifier">updateLongTermPricing_isLongTermPricingAutoRenew</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#updateLongTermPricing_isLongTermPricingAutoRenew"><span class="hs-identifier">updateLongTermPricing_isLongTermPricingAutoRenew</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#updateLongTermPricing_replacementJob"><span class="hs-identifier">updateLongTermPricing_replacementJob</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#updateLongTermPricing_longTermPricingId"><span class="hs-identifier">updateLongTermPricing_longTermPricingId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-33"></span><span>
 </span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
@@ -48,21 +48,21 @@
 </span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.html"><span class="hs-identifier">Network.AWS.Snowball.Types</span></a></span><span>
 </span><span id="line-49"></span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newUpdateLongTermPricing' smart constructor.</span><span>
-</span><span id="line-51"></span><span id="local-6989586621679234038"><span id="local-6989586621679234039"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateLongTermPricing"><span class="annot"><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#UpdateLongTermPricing"><span class="hs-identifier hs-var">UpdateLongTermPricing</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateLongTermPricing%27"><span class="annot"><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#UpdateLongTermPricing%27"><span class="hs-identifier hs-var">UpdateLongTermPricing'</span></a></span></span><span>
-</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies that a device that is ordered with long-term pricing should be</span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- replaced with a new device.</span><span>
-</span><span id="line-54"></span><span>    </span><span id="%24sel%3AreplacementJob%3AUpdateLongTermPricing%27"><span class="annot"><span class="annottext">UpdateLongTermPricing -&gt; Maybe Text
-</span><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#%24sel%3AreplacementJob%3AUpdateLongTermPricing%27"><span class="hs-identifier hs-var hs-var">replacementJob</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | If set to @true@, specifies that the current long-term pricing type for</span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- the device should be automatically renewed before the long-term pricing</span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- contract expires.</span><span>
-</span><span id="line-58"></span><span>    </span><span id="%24sel%3AisLongTermPricingAutoRenew%3AUpdateLongTermPricing%27"><span class="annot"><span class="annottext">UpdateLongTermPricing -&gt; Maybe Bool
+</span><span id="line-51"></span><span id="local-6989586621679234107"><span id="local-6989586621679234108"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateLongTermPricing"><span class="annot"><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#UpdateLongTermPricing"><span class="hs-identifier hs-var">UpdateLongTermPricing</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateLongTermPricing%27"><span class="annot"><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#UpdateLongTermPricing%27"><span class="hs-identifier hs-var">UpdateLongTermPricing'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If set to @true@, specifies that the current long-term pricing type for</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- the device should be automatically renewed before the long-term pricing</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- contract expires.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AisLongTermPricingAutoRenew%3AUpdateLongTermPricing%27"><span class="annot"><span class="annottext">UpdateLongTermPricing -&gt; Maybe Bool
 </span><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#%24sel%3AisLongTermPricingAutoRenew%3AUpdateLongTermPricing%27"><span class="hs-identifier hs-var hs-var">isLongTermPricingAutoRenew</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | Specifies that a device that is ordered with long-term pricing should be</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- replaced with a new device.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AreplacementJob%3AUpdateLongTermPricing%27"><span class="annot"><span class="annottext">UpdateLongTermPricing -&gt; Maybe Text
+</span><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#%24sel%3AreplacementJob%3AUpdateLongTermPricing%27"><span class="hs-identifier hs-var hs-var">replacementJob</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The ID of the long-term pricing type for the device.</span><span>
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3AlongTermPricingId%3AUpdateLongTermPricing%27"><span class="annot"><span class="annottext">UpdateLongTermPricing -&gt; Text
 </span><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#%24sel%3AlongTermPricingId%3AUpdateLongTermPricing%27"><span class="hs-identifier hs-var hs-var">longTermPricingId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679234030"><span id="local-6989586621679234032"><span class="annot"><span class="annottext">UpdateLongTermPricing -&gt; UpdateLongTermPricing -&gt; Bool
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679234099"><span id="local-6989586621679234101"><span class="annot"><span class="annottext">UpdateLongTermPricing -&gt; UpdateLongTermPricing -&gt; Bool
 (UpdateLongTermPricing -&gt; UpdateLongTermPricing -&gt; Bool)
 -&gt; (UpdateLongTermPricing -&gt; UpdateLongTermPricing -&gt; Bool)
 -&gt; Eq UpdateLongTermPricing
@@ -71,7 +71,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateLongTermPricing -&gt; UpdateLongTermPricing -&gt; Bool
 == :: UpdateLongTermPricing -&gt; UpdateLongTermPricing -&gt; Bool
 $c== :: UpdateLongTermPricing -&gt; UpdateLongTermPricing -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679234021"><span id="local-6989586621679234023"><span id="local-6989586621679234025"><span id="local-6989586621679234027"><span class="annot"><span class="annottext">ReadPrec [UpdateLongTermPricing]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679234090"><span id="local-6989586621679234092"><span id="local-6989586621679234094"><span id="local-6989586621679234096"><span class="annot"><span class="annottext">ReadPrec [UpdateLongTermPricing]
 ReadPrec UpdateLongTermPricing
 Int -&gt; ReadS UpdateLongTermPricing
 ReadS [UpdateLongTermPricing]
@@ -91,7 +91,7 @@ readList :: ReadS [UpdateLongTermPricing]
 $creadList :: ReadS [UpdateLongTermPricing]
 readsPrec :: Int -&gt; ReadS UpdateLongTermPricing
 $creadsPrec :: Int -&gt; ReadS UpdateLongTermPricing
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679234014"><span id="local-6989586621679234016"><span id="local-6989586621679234018"><span class="annot"><span class="annottext">Int -&gt; UpdateLongTermPricing -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679234083"><span id="local-6989586621679234085"><span id="local-6989586621679234087"><span class="annot"><span class="annottext">Int -&gt; UpdateLongTermPricing -&gt; ShowS
 [UpdateLongTermPricing] -&gt; ShowS
 UpdateLongTermPricing -&gt; String
 (Int -&gt; UpdateLongTermPricing -&gt; ShowS)
@@ -125,12 +125,12 @@ $cfrom :: forall x. UpdateLongTermPricing -&gt; Rep UpdateLongTermPricing x
 </span><span id="line-69"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-71"></span><span class="hs-comment">--</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- 'replacementJob', 'updateLongTermPricing_replacementJob' - Specifies that a device that is ordered with long-term pricing should be</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- replaced with a new device.</span><span>
-</span><span id="line-74"></span><span class="hs-comment">--</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- 'isLongTermPricingAutoRenew', 'updateLongTermPricing_isLongTermPricingAutoRenew' - If set to @true@, specifies that the current long-term pricing type for</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- the device should be automatically renewed before the long-term pricing</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- contract expires.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'isLongTermPricingAutoRenew', 'updateLongTermPricing_isLongTermPricingAutoRenew' - If set to @true@, specifies that the current long-term pricing type for</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- the device should be automatically renewed before the long-term pricing</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- contract expires.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'replacementJob', 'updateLongTermPricing_replacementJob' - Specifies that a device that is ordered with long-term pricing should be</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- replaced with a new device.</span><span>
 </span><span id="line-78"></span><span class="hs-comment">--</span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- 'longTermPricingId', 'updateLongTermPricing_longTermPricingId' - The ID of the long-term pricing type for the device.</span><span>
 </span><span id="line-80"></span><span class="annot"><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#newUpdateLongTermPricing"><span class="hs-identifier hs-type">newUpdateLongTermPricing</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -138,53 +138,29 @@ $cfrom :: forall x. UpdateLongTermPricing -&gt; Rep UpdateLongTermPricing x
 </span><span id="line-82"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#UpdateLongTermPricing"><span class="hs-identifier hs-type">UpdateLongTermPricing</span></a></span><span>
 </span><span id="line-84"></span><span id="newUpdateLongTermPricing"><span class="annot"><span class="annottext">newUpdateLongTermPricing :: Text -&gt; UpdateLongTermPricing
-</span><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#newUpdateLongTermPricing"><span class="hs-identifier hs-var hs-var">newUpdateLongTermPricing</span></a></span></span><span> </span><span id="local-6989586621679234009"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679234009"><span class="hs-identifier hs-var">pLongTermPricingId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-85"></span><span>  </span><span class="annot"><span class="annottext">UpdateLongTermPricing' :: Maybe Text -&gt; Maybe Bool -&gt; Text -&gt; UpdateLongTermPricing
+</span><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#newUpdateLongTermPricing"><span class="hs-identifier hs-var hs-var">newUpdateLongTermPricing</span></a></span></span><span> </span><span id="local-6989586621679234078"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679234078"><span class="hs-identifier hs-var">pLongTermPricingId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><span class="annottext">UpdateLongTermPricing' :: Maybe Bool -&gt; Maybe Text -&gt; Text -&gt; UpdateLongTermPricing
 </span><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#UpdateLongTermPricing%27"><span class="hs-identifier hs-type">UpdateLongTermPricing'</span></a></span><span>
-</span><span id="line-86"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:replacementJob:UpdateLongTermPricing' :: Maybe Text
-</span><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#%24sel%3AreplacementJob%3AUpdateLongTermPricing%27"><span class="hs-identifier hs-var">replacementJob</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-87"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-86"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:isLongTermPricingAutoRenew:UpdateLongTermPricing' :: Maybe Bool
+</span><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#%24sel%3AisLongTermPricingAutoRenew%3AUpdateLongTermPricing%27"><span class="hs-identifier hs-var">isLongTermPricingAutoRenew</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:isLongTermPricingAutoRenew:UpdateLongTermPricing' :: Maybe Bool
-</span><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#%24sel%3AisLongTermPricingAutoRenew%3AUpdateLongTermPricing%27"><span class="hs-identifier hs-var">isLongTermPricingAutoRenew</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:replacementJob:UpdateLongTermPricing' :: Maybe Text
+</span><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#%24sel%3AreplacementJob%3AUpdateLongTermPricing%27"><span class="hs-identifier hs-var">replacementJob</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:longTermPricingId:UpdateLongTermPricing' :: Text
 </span><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#%24sel%3AlongTermPricingId%3AUpdateLongTermPricing%27"><span class="hs-identifier hs-var">longTermPricingId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679234009"><span class="hs-identifier hs-var">pLongTermPricingId_</span></a></span><span>
+</span><a href="#local-6989586621679234078"><span class="hs-identifier hs-var">pLongTermPricingId_</span></a></span><span>
 </span><span id="line-90"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- | Specifies that a device that is ordered with long-term pricing should be</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- replaced with a new device.</span><span>
-</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#updateLongTermPricing_replacementJob"><span class="hs-identifier hs-type">updateLongTermPricing_replacementJob</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#UpdateLongTermPricing"><span class="hs-identifier hs-type">UpdateLongTermPricing</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-95"></span><span id="updateLongTermPricing_replacementJob"><span class="annot"><span class="annottext">updateLongTermPricing_replacementJob :: (Maybe Text -&gt; f (Maybe Text))
--&gt; UpdateLongTermPricing -&gt; f UpdateLongTermPricing
-</span><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#updateLongTermPricing_replacementJob"><span class="hs-identifier hs-var hs-var">updateLongTermPricing_replacementJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateLongTermPricing -&gt; Maybe Text)
--&gt; (UpdateLongTermPricing -&gt; Maybe Text -&gt; UpdateLongTermPricing)
--&gt; Lens
-     UpdateLongTermPricing
-     UpdateLongTermPricing
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#UpdateLongTermPricing%27"><span class="hs-identifier hs-type">UpdateLongTermPricing'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679234006"><span class="annot"><span class="annottext">Maybe Text
-replacementJob :: Maybe Text
-$sel:replacementJob:UpdateLongTermPricing' :: UpdateLongTermPricing -&gt; Maybe Text
-</span><a href="#local-6989586621679234006"><span class="hs-identifier hs-var hs-var">replacementJob</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679234006"><span class="hs-identifier hs-var">replacementJob</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679234005"><span class="annot"><span class="annottext">s :: UpdateLongTermPricing
-</span><a href="#local-6989586621679234005"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#UpdateLongTermPricing%27"><span class="hs-identifier hs-type">UpdateLongTermPricing'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679234004"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679234004"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateLongTermPricing
-</span><a href="#local-6989586621679234005"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replacementJob:UpdateLongTermPricing' :: Maybe Text
-</span><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#%24sel%3AreplacementJob%3AUpdateLongTermPricing%27"><span class="hs-identifier hs-var">replacementJob</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679234004"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#UpdateLongTermPricing"><span class="hs-identifier hs-type">UpdateLongTermPricing</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- | If set to @true@, specifies that the current long-term pricing type for</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- the device should be automatically renewed before the long-term pricing</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- contract expires.</span><span>
-</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#updateLongTermPricing_isLongTermPricingAutoRenew"><span class="hs-identifier hs-type">updateLongTermPricing_isLongTermPricingAutoRenew</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#UpdateLongTermPricing"><span class="hs-identifier hs-type">UpdateLongTermPricing</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-101"></span><span id="updateLongTermPricing_isLongTermPricingAutoRenew"><span class="annot"><span class="annottext">updateLongTermPricing_isLongTermPricingAutoRenew :: (Maybe Bool -&gt; f (Maybe Bool))
+</span><span id="line-92"></span><span class="hs-comment">-- | If set to @true@, specifies that the current long-term pricing type for</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- the device should be automatically renewed before the long-term pricing</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- contract expires.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#updateLongTermPricing_isLongTermPricingAutoRenew"><span class="hs-identifier hs-type">updateLongTermPricing_isLongTermPricingAutoRenew</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#UpdateLongTermPricing"><span class="hs-identifier hs-type">UpdateLongTermPricing</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="updateLongTermPricing_isLongTermPricingAutoRenew"><span class="annot"><span class="annottext">updateLongTermPricing_isLongTermPricingAutoRenew :: (Maybe Bool -&gt; f (Maybe Bool))
 -&gt; UpdateLongTermPricing -&gt; f UpdateLongTermPricing
 </span><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#updateLongTermPricing_isLongTermPricingAutoRenew"><span class="hs-identifier hs-var hs-var">updateLongTermPricing_isLongTermPricingAutoRenew</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateLongTermPricing -&gt; Maybe Bool)
 -&gt; (UpdateLongTermPricing -&gt; Maybe Bool -&gt; UpdateLongTermPricing)
@@ -194,16 +170,40 @@ $sel:replacementJob:UpdateLongTermPricing' :: UpdateLongTermPricing -&gt; Maybe 
      (Maybe Bool)
      (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#UpdateLongTermPricing%27"><span class="hs-identifier hs-type">UpdateLongTermPricing'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679234003"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#UpdateLongTermPricing%27"><span class="hs-identifier hs-type">UpdateLongTermPricing'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679234075"><span class="annot"><span class="annottext">Maybe Bool
 isLongTermPricingAutoRenew :: Maybe Bool
 $sel:isLongTermPricingAutoRenew:UpdateLongTermPricing' :: UpdateLongTermPricing -&gt; Maybe Bool
-</span><a href="#local-6989586621679234003"><span class="hs-identifier hs-var hs-var">isLongTermPricingAutoRenew</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679234003"><span class="hs-identifier hs-var">isLongTermPricingAutoRenew</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679234002"><span class="annot"><span class="annottext">s :: UpdateLongTermPricing
-</span><a href="#local-6989586621679234002"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#UpdateLongTermPricing%27"><span class="hs-identifier hs-type">UpdateLongTermPricing'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679234001"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679234001"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateLongTermPricing
-</span><a href="#local-6989586621679234002"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isLongTermPricingAutoRenew:UpdateLongTermPricing' :: Maybe Bool
+</span><a href="#local-6989586621679234075"><span class="hs-identifier hs-var hs-var">isLongTermPricingAutoRenew</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679234075"><span class="hs-identifier hs-var">isLongTermPricingAutoRenew</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679234074"><span class="annot"><span class="annottext">s :: UpdateLongTermPricing
+</span><a href="#local-6989586621679234074"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#UpdateLongTermPricing%27"><span class="hs-identifier hs-type">UpdateLongTermPricing'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679234073"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679234073"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateLongTermPricing
+</span><a href="#local-6989586621679234074"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isLongTermPricingAutoRenew:UpdateLongTermPricing' :: Maybe Bool
 </span><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#%24sel%3AisLongTermPricingAutoRenew%3AUpdateLongTermPricing%27"><span class="hs-identifier hs-var">isLongTermPricingAutoRenew</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679234001"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#UpdateLongTermPricing"><span class="hs-identifier hs-type">UpdateLongTermPricing</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679234073"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#UpdateLongTermPricing"><span class="hs-identifier hs-type">UpdateLongTermPricing</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | Specifies that a device that is ordered with long-term pricing should be</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- replaced with a new device.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#updateLongTermPricing_replacementJob"><span class="hs-identifier hs-type">updateLongTermPricing_replacementJob</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#UpdateLongTermPricing"><span class="hs-identifier hs-type">UpdateLongTermPricing</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="updateLongTermPricing_replacementJob"><span class="annot"><span class="annottext">updateLongTermPricing_replacementJob :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateLongTermPricing -&gt; f UpdateLongTermPricing
+</span><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#updateLongTermPricing_replacementJob"><span class="hs-identifier hs-var hs-var">updateLongTermPricing_replacementJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateLongTermPricing -&gt; Maybe Text)
+-&gt; (UpdateLongTermPricing -&gt; Maybe Text -&gt; UpdateLongTermPricing)
+-&gt; Lens
+     UpdateLongTermPricing
+     UpdateLongTermPricing
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#UpdateLongTermPricing%27"><span class="hs-identifier hs-type">UpdateLongTermPricing'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679234072"><span class="annot"><span class="annottext">Maybe Text
+replacementJob :: Maybe Text
+$sel:replacementJob:UpdateLongTermPricing' :: UpdateLongTermPricing -&gt; Maybe Text
+</span><a href="#local-6989586621679234072"><span class="hs-identifier hs-var hs-var">replacementJob</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679234072"><span class="hs-identifier hs-var">replacementJob</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679234071"><span class="annot"><span class="annottext">s :: UpdateLongTermPricing
+</span><a href="#local-6989586621679234071"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#UpdateLongTermPricing%27"><span class="hs-identifier hs-type">UpdateLongTermPricing'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679234070"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679234070"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateLongTermPricing
+</span><a href="#local-6989586621679234071"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replacementJob:UpdateLongTermPricing' :: Maybe Text
+</span><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#%24sel%3AreplacementJob%3AUpdateLongTermPricing%27"><span class="hs-identifier hs-var">replacementJob</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679234070"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#UpdateLongTermPricing"><span class="hs-identifier hs-type">UpdateLongTermPricing</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-comment">-- | The ID of the long-term pricing type for the device.</span><span>
 </span><span id="line-104"></span><span class="annot"><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#updateLongTermPricing_longTermPricingId"><span class="hs-identifier hs-type">updateLongTermPricing_longTermPricingId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#UpdateLongTermPricing"><span class="hs-identifier hs-type">UpdateLongTermPricing</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -213,27 +213,27 @@ $sel:isLongTermPricingAutoRenew:UpdateLongTermPricing' :: UpdateLongTermPricing 
 -&gt; (UpdateLongTermPricing -&gt; Text -&gt; UpdateLongTermPricing)
 -&gt; Lens UpdateLongTermPricing UpdateLongTermPricing Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#UpdateLongTermPricing%27"><span class="hs-identifier hs-type">UpdateLongTermPricing'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679234000"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#UpdateLongTermPricing%27"><span class="hs-identifier hs-type">UpdateLongTermPricing'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679234069"><span class="annot"><span class="annottext">Text
 longTermPricingId :: Text
 $sel:longTermPricingId:UpdateLongTermPricing' :: UpdateLongTermPricing -&gt; Text
-</span><a href="#local-6989586621679234000"><span class="hs-identifier hs-var hs-var">longTermPricingId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679234000"><span class="hs-identifier hs-var">longTermPricingId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679233999"><span class="annot"><span class="annottext">s :: UpdateLongTermPricing
-</span><a href="#local-6989586621679233999"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#UpdateLongTermPricing%27"><span class="hs-identifier hs-type">UpdateLongTermPricing'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679233998"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679233998"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateLongTermPricing
-</span><a href="#local-6989586621679233999"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:longTermPricingId:UpdateLongTermPricing' :: Text
+</span><a href="#local-6989586621679234069"><span class="hs-identifier hs-var hs-var">longTermPricingId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679234069"><span class="hs-identifier hs-var">longTermPricingId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679234068"><span class="annot"><span class="annottext">s :: UpdateLongTermPricing
+</span><a href="#local-6989586621679234068"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#UpdateLongTermPricing%27"><span class="hs-identifier hs-type">UpdateLongTermPricing'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679234067"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679234067"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateLongTermPricing
+</span><a href="#local-6989586621679234068"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:longTermPricingId:UpdateLongTermPricing' :: Text
 </span><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#%24sel%3AlongTermPricingId%3AUpdateLongTermPricing%27"><span class="hs-identifier hs-var">longTermPricingId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679233998"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#UpdateLongTermPricing"><span class="hs-identifier hs-type">UpdateLongTermPricing</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679234067"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#UpdateLongTermPricing"><span class="hs-identifier hs-type">UpdateLongTermPricing</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#UpdateLongTermPricing"><span class="hs-identifier hs-type">UpdateLongTermPricing</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-108"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-109"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#UpdateLongTermPricing"><span class="hs-identifier hs-type">UpdateLongTermPricing</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-110"></span><span>      </span><span class="annot"><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#UpdateLongTermPricingResponse"><span class="hs-identifier hs-type">UpdateLongTermPricingResponse</span></a></span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679233994"><span class="annot"><span class="annottext">request :: UpdateLongTermPricing -&gt; Request UpdateLongTermPricing
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679234063"><span class="annot"><span class="annottext">request :: UpdateLongTermPricing -&gt; Request UpdateLongTermPricing
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateLongTermPricing -&gt; Request UpdateLongTermPricing
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Snowball.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679233990"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679234059"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateLongTermPricing
 -&gt; ClientResponse ClientBody
@@ -259,10 +259,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679233987"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679233987"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679233986"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679233986"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679233985"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679233985"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679234056"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679234056"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679234055"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679234055"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679234054"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679234054"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-115"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; UpdateLongTermPricingResponse
 </span><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#UpdateLongTermPricingResponse%27"><span class="hs-identifier hs-var">UpdateLongTermPricingResponse'</span></a></span><span>
 </span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; UpdateLongTermPricingResponse)
@@ -273,15 +273,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679233987"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679234056"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679233978"><span id="local-6989586621679233980"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#UpdateLongTermPricing"><span class="hs-identifier hs-type">UpdateLongTermPricing</span></a></span></span></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679234047"><span id="local-6989586621679234049"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#UpdateLongTermPricing"><span class="hs-identifier hs-type">UpdateLongTermPricing</span></a></span></span></span><span>
 </span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679233975"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#UpdateLongTermPricing"><span class="hs-identifier hs-type">UpdateLongTermPricing</span></a></span></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679234044"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#UpdateLongTermPricing"><span class="hs-identifier hs-type">UpdateLongTermPricing</span></a></span></span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#UpdateLongTermPricing"><span class="hs-identifier hs-type">UpdateLongTermPricing</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679233971"><span class="annot"><span class="annottext">toHeaders :: UpdateLongTermPricing -&gt; ResponseHeaders
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679234040"><span class="annot"><span class="annottext">toHeaders :: UpdateLongTermPricing -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateLongTermPricing -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -308,39 +308,39 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-135"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
-</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679233961"><span id="local-6989586621679233963"><span id="local-6989586621679233965"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#UpdateLongTermPricing"><span class="hs-identifier hs-type">UpdateLongTermPricing</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679233959"><span class="annot"><span class="annottext">toJSON :: UpdateLongTermPricing -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#UpdateLongTermPricing%27"><span class="hs-identifier hs-type">UpdateLongTermPricing'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679233955"><span id="local-6989586621679233956"><span id="local-6989586621679233957"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679234030"><span id="local-6989586621679234032"><span id="local-6989586621679234034"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#UpdateLongTermPricing"><span class="hs-identifier hs-type">UpdateLongTermPricing</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679234028"><span class="annot"><span class="annottext">toJSON :: UpdateLongTermPricing -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#UpdateLongTermPricing%27"><span class="hs-identifier hs-type">UpdateLongTermPricing'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679234024"><span id="local-6989586621679234025"><span id="local-6989586621679234026"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Text
 Text
 longTermPricingId :: Text
-isLongTermPricingAutoRenew :: Maybe Bool
 replacementJob :: Maybe Text
+isLongTermPricingAutoRenew :: Maybe Bool
 $sel:longTermPricingId:UpdateLongTermPricing' :: UpdateLongTermPricing -&gt; Text
-$sel:isLongTermPricingAutoRenew:UpdateLongTermPricing' :: UpdateLongTermPricing -&gt; Maybe Bool
 $sel:replacementJob:UpdateLongTermPricing' :: UpdateLongTermPricing -&gt; Maybe Text
-</span><a href="#local-6989586621679233955"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:isLongTermPricingAutoRenew:UpdateLongTermPricing' :: UpdateLongTermPricing -&gt; Maybe Bool
+</span><a href="#local-6989586621679234024"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-140"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-141"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-142"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ReplacementJob&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-143"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679233957"><span class="hs-identifier hs-var">replacementJob</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-144"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IsLongTermPricingAutoRenew&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-145"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+</span><span id="line-143"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679233956"><span class="hs-identifier hs-var">isLongTermPricingAutoRenew</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679234026"><span class="hs-identifier hs-var">isLongTermPricingAutoRenew</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ReplacementJob&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679234025"><span class="hs-identifier hs-var">replacementJob</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -348,19 +348,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;LongTermPricingId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679233955"><span class="hs-identifier hs-var">longTermPricingId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679234024"><span class="hs-identifier hs-var">longTermPricingId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-149"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#UpdateLongTermPricing"><span class="hs-identifier hs-type">UpdateLongTermPricing</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-152"></span><span>  </span><span id="local-6989586621679233949"><span class="annot"><span class="annottext">toPath :: UpdateLongTermPricing -&gt; ByteString
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679234018"><span class="annot"><span class="annottext">toPath :: UpdateLongTermPricing -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateLongTermPricing -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-153"></span><span>
 </span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#UpdateLongTermPricing"><span class="hs-identifier hs-type">UpdateLongTermPricing</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-155"></span><span>  </span><span id="local-6989586621679233945"><span class="annot"><span class="annottext">toQuery :: UpdateLongTermPricing -&gt; QueryString
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679234014"><span class="annot"><span class="annottext">toQuery :: UpdateLongTermPricing -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateLongTermPricing -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -368,12 +368,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-comment">-- | /See:/ 'newUpdateLongTermPricingResponse' smart constructor.</span><span>
-</span><span id="line-158"></span><span id="local-6989586621679233942"><span id="local-6989586621679233943"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateLongTermPricingResponse"><span class="annot"><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#UpdateLongTermPricingResponse"><span class="hs-identifier hs-var">UpdateLongTermPricingResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateLongTermPricingResponse%27"><span class="annot"><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#UpdateLongTermPricingResponse%27"><span class="hs-identifier hs-var">UpdateLongTermPricingResponse'</span></a></span></span><span>
+</span><span id="line-158"></span><span id="local-6989586621679234011"><span id="local-6989586621679234012"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateLongTermPricingResponse"><span class="annot"><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#UpdateLongTermPricingResponse"><span class="hs-identifier hs-var">UpdateLongTermPricingResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateLongTermPricingResponse%27"><span class="annot"><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#UpdateLongTermPricingResponse%27"><span class="hs-identifier hs-var">UpdateLongTermPricingResponse'</span></a></span></span><span>
 </span><span id="line-159"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-160"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateLongTermPricingResponse%27"><span class="annot"><span class="annottext">UpdateLongTermPricingResponse -&gt; Int
 </span><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#%24sel%3AhttpStatus%3AUpdateLongTermPricingResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-161"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-162"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679233937"><span id="local-6989586621679233939"><span class="annot"><span class="annottext">UpdateLongTermPricingResponse
+</span><span id="line-162"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679234006"><span id="local-6989586621679234008"><span class="annot"><span class="annottext">UpdateLongTermPricingResponse
 -&gt; UpdateLongTermPricingResponse -&gt; Bool
 (UpdateLongTermPricingResponse
  -&gt; UpdateLongTermPricingResponse -&gt; Bool)
@@ -389,7 +389,7 @@ $c/= :: UpdateLongTermPricingResponse
 -&gt; UpdateLongTermPricingResponse -&gt; Bool
 $c== :: UpdateLongTermPricingResponse
 -&gt; UpdateLongTermPricingResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679233929"><span id="local-6989586621679233931"><span id="local-6989586621679233933"><span id="local-6989586621679233935"><span class="annot"><span class="annottext">ReadPrec [UpdateLongTermPricingResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679233998"><span id="local-6989586621679234000"><span id="local-6989586621679234002"><span id="local-6989586621679234004"><span class="annot"><span class="annottext">ReadPrec [UpdateLongTermPricingResponse]
 ReadPrec UpdateLongTermPricingResponse
 Int -&gt; ReadS UpdateLongTermPricingResponse
 ReadS [UpdateLongTermPricingResponse]
@@ -409,7 +409,7 @@ readList :: ReadS [UpdateLongTermPricingResponse]
 $creadList :: ReadS [UpdateLongTermPricingResponse]
 readsPrec :: Int -&gt; ReadS UpdateLongTermPricingResponse
 $creadsPrec :: Int -&gt; ReadS UpdateLongTermPricingResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679233923"><span id="local-6989586621679233925"><span id="local-6989586621679233927"><span class="annot"><span class="annottext">Int -&gt; UpdateLongTermPricingResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679233992"><span id="local-6989586621679233994"><span id="local-6989586621679233996"><span class="annot"><span class="annottext">Int -&gt; UpdateLongTermPricingResponse -&gt; ShowS
 [UpdateLongTermPricingResponse] -&gt; ShowS
 UpdateLongTermPricingResponse -&gt; String
 (Int -&gt; UpdateLongTermPricingResponse -&gt; ShowS)
@@ -461,14 +461,14 @@ UpdateLongTermPricingResponse
 </span><span id="line-175"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-176"></span><span>  </span><span class="annot"><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#UpdateLongTermPricingResponse"><span class="hs-identifier hs-type">UpdateLongTermPricingResponse</span></a></span><span>
 </span><span id="line-177"></span><span id="newUpdateLongTermPricingResponse"><span class="annot"><span class="annottext">newUpdateLongTermPricingResponse :: Int -&gt; UpdateLongTermPricingResponse
-</span><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#newUpdateLongTermPricingResponse"><span class="hs-identifier hs-var hs-var">newUpdateLongTermPricingResponse</span></a></span></span><span> </span><span id="local-6989586621679233920"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679233920"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#newUpdateLongTermPricingResponse"><span class="hs-identifier hs-var hs-var">newUpdateLongTermPricingResponse</span></a></span></span><span> </span><span id="local-6989586621679233989"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679233989"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-178"></span><span>  </span><span class="annot"><span class="annottext">UpdateLongTermPricingResponse' :: Int -&gt; UpdateLongTermPricingResponse
 </span><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#UpdateLongTermPricingResponse%27"><span class="hs-identifier hs-type">UpdateLongTermPricingResponse'</span></a></span><span>
 </span><span id="line-179"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateLongTermPricingResponse' :: Int
 </span><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#%24sel%3AhttpStatus%3AUpdateLongTermPricingResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-180"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679233920"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679233989"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-181"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-182"></span><span>
 </span><span id="line-183"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -481,16 +481,16 @@ UpdateLongTermPricingResponse
 -&gt; Lens
      UpdateLongTermPricingResponse UpdateLongTermPricingResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#UpdateLongTermPricingResponse%27"><span class="hs-identifier hs-type">UpdateLongTermPricingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679233919"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#UpdateLongTermPricingResponse%27"><span class="hs-identifier hs-type">UpdateLongTermPricingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679233988"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:UpdateLongTermPricingResponse' :: UpdateLongTermPricingResponse -&gt; Int
-</span><a href="#local-6989586621679233919"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679233919"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679233918"><span class="annot"><span class="annottext">s :: UpdateLongTermPricingResponse
-</span><a href="#local-6989586621679233918"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#UpdateLongTermPricingResponse%27"><span class="hs-identifier hs-type">UpdateLongTermPricingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679233917"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679233917"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateLongTermPricingResponse
-</span><a href="#local-6989586621679233918"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateLongTermPricingResponse' :: Int
+</span><a href="#local-6989586621679233988"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679233988"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679233987"><span class="annot"><span class="annottext">s :: UpdateLongTermPricingResponse
+</span><a href="#local-6989586621679233987"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#UpdateLongTermPricingResponse%27"><span class="hs-identifier hs-type">UpdateLongTermPricingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679233986"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679233986"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateLongTermPricingResponse
+</span><a href="#local-6989586621679233987"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateLongTermPricingResponse' :: Int
 </span><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#%24sel%3AhttpStatus%3AUpdateLongTermPricingResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679233917"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#UpdateLongTermPricingResponse"><span class="hs-identifier hs-type">UpdateLongTermPricingResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679233986"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#UpdateLongTermPricingResponse"><span class="hs-identifier hs-type">UpdateLongTermPricingResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-186"></span><span>
-</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679233915"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#UpdateLongTermPricingResponse"><span class="hs-identifier hs-type">UpdateLongTermPricingResponse</span></a></span></span><span>
+</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679233984"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.UpdateLongTermPricing.html#UpdateLongTermPricingResponse"><span class="hs-identifier hs-type">UpdateLongTermPricingResponse</span></a></span></span><span>
 </span><span id="line-188"></span></pre></body></html>

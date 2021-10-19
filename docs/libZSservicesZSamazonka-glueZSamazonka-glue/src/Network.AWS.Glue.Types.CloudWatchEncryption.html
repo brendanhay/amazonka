@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Specifies how Amazon CloudWatch data should be encrypted.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newCloudWatchEncryption' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679678731"><span id="local-6989586621679678732"></span></span><span class="hs-keyword">data</span><span> </span><span id="CloudWatchEncryption"><span class="annot"><a href="Network.AWS.Glue.Types.CloudWatchEncryption.html#CloudWatchEncryption"><span class="hs-identifier hs-var">CloudWatchEncryption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CloudWatchEncryption%27"><span class="annot"><a href="Network.AWS.Glue.Types.CloudWatchEncryption.html#CloudWatchEncryption%27"><span class="hs-identifier hs-var">CloudWatchEncryption'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679680373"><span id="local-6989586621679680374"></span></span><span class="hs-keyword">data</span><span> </span><span id="CloudWatchEncryption"><span class="annot"><a href="Network.AWS.Glue.Types.CloudWatchEncryption.html#CloudWatchEncryption"><span class="hs-identifier hs-var">CloudWatchEncryption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CloudWatchEncryption%27"><span class="annot"><a href="Network.AWS.Glue.Types.CloudWatchEncryption.html#CloudWatchEncryption%27"><span class="hs-identifier hs-var">CloudWatchEncryption'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The encryption mode to use for CloudWatch data.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AcloudWatchEncryptionMode%3ACloudWatchEncryption%27"><span class="annot"><span class="annottext">CloudWatchEncryption -&gt; Maybe CloudWatchEncryptionMode
 </span><a href="Network.AWS.Glue.Types.CloudWatchEncryption.html#%24sel%3AcloudWatchEncryptionMode%3ACloudWatchEncryption%27"><span class="hs-identifier hs-var hs-var">cloudWatchEncryptionMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CloudWatchEncryptionMode.html#CloudWatchEncryptionMode"><span class="hs-identifier hs-type">CloudWatchEncryptionMode</span></a></span><span class="hs-special">,</span><span>
@@ -36,7 +36,7 @@
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AkmsKeyArn%3ACloudWatchEncryption%27"><span class="annot"><span class="annottext">CloudWatchEncryption -&gt; Maybe Text
 </span><a href="Network.AWS.Glue.Types.CloudWatchEncryption.html#%24sel%3AkmsKeyArn%3ACloudWatchEncryption%27"><span class="hs-identifier hs-var hs-var">kmsKeyArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679678724"><span id="local-6989586621679678726"><span class="annot"><span class="annottext">CloudWatchEncryption -&gt; CloudWatchEncryption -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679680366"><span id="local-6989586621679680368"><span class="annot"><span class="annottext">CloudWatchEncryption -&gt; CloudWatchEncryption -&gt; Bool
 (CloudWatchEncryption -&gt; CloudWatchEncryption -&gt; Bool)
 -&gt; (CloudWatchEncryption -&gt; CloudWatchEncryption -&gt; Bool)
 -&gt; Eq CloudWatchEncryption
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CloudWatchEncryption -&gt; CloudWatchEncryption -&gt; Bool
 == :: CloudWatchEncryption -&gt; CloudWatchEncryption -&gt; Bool
 $c== :: CloudWatchEncryption -&gt; CloudWatchEncryption -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679678715"><span id="local-6989586621679678717"><span id="local-6989586621679678719"><span id="local-6989586621679678721"><span class="annot"><span class="annottext">ReadPrec [CloudWatchEncryption]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679680357"><span id="local-6989586621679680359"><span id="local-6989586621679680361"><span id="local-6989586621679680363"><span class="annot"><span class="annottext">ReadPrec [CloudWatchEncryption]
 ReadPrec CloudWatchEncryption
 Int -&gt; ReadS CloudWatchEncryption
 ReadS [CloudWatchEncryption]
@@ -65,7 +65,7 @@ readList :: ReadS [CloudWatchEncryption]
 $creadList :: ReadS [CloudWatchEncryption]
 readsPrec :: Int -&gt; ReadS CloudWatchEncryption
 $creadsPrec :: Int -&gt; ReadS CloudWatchEncryption
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679678708"><span id="local-6989586621679678710"><span id="local-6989586621679678712"><span class="annot"><span class="annottext">Int -&gt; CloudWatchEncryption -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679680350"><span id="local-6989586621679680352"><span id="local-6989586621679680354"><span class="annot"><span class="annottext">Int -&gt; CloudWatchEncryption -&gt; ShowS
 [CloudWatchEncryption] -&gt; ShowS
 CloudWatchEncryption -&gt; String
 (Int -&gt; CloudWatchEncryption -&gt; ShowS)
@@ -135,16 +135,16 @@ forall a. Maybe a
      (Maybe CloudWatchEncryptionMode)
      (Maybe CloudWatchEncryptionMode)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.CloudWatchEncryption.html#CloudWatchEncryption%27"><span class="hs-identifier hs-type">CloudWatchEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679678699"><span class="annot"><span class="annottext">Maybe CloudWatchEncryptionMode
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.CloudWatchEncryption.html#CloudWatchEncryption%27"><span class="hs-identifier hs-type">CloudWatchEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679680341"><span class="annot"><span class="annottext">Maybe CloudWatchEncryptionMode
 cloudWatchEncryptionMode :: Maybe CloudWatchEncryptionMode
 $sel:cloudWatchEncryptionMode:CloudWatchEncryption' :: CloudWatchEncryption -&gt; Maybe CloudWatchEncryptionMode
-</span><a href="#local-6989586621679678699"><span class="hs-identifier hs-var hs-var">cloudWatchEncryptionMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CloudWatchEncryptionMode
-</span><a href="#local-6989586621679678699"><span class="hs-identifier hs-var">cloudWatchEncryptionMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679678698"><span class="annot"><span class="annottext">s :: CloudWatchEncryption
-</span><a href="#local-6989586621679678698"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.CloudWatchEncryption.html#CloudWatchEncryption%27"><span class="hs-identifier hs-type">CloudWatchEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679678697"><span class="annot"><span class="annottext">Maybe CloudWatchEncryptionMode
-</span><a href="#local-6989586621679678697"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudWatchEncryption
-</span><a href="#local-6989586621679678698"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cloudWatchEncryptionMode:CloudWatchEncryption' :: Maybe CloudWatchEncryptionMode
+</span><a href="#local-6989586621679680341"><span class="hs-identifier hs-var hs-var">cloudWatchEncryptionMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CloudWatchEncryptionMode
+</span><a href="#local-6989586621679680341"><span class="hs-identifier hs-var">cloudWatchEncryptionMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679680340"><span class="annot"><span class="annottext">s :: CloudWatchEncryption
+</span><a href="#local-6989586621679680340"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.CloudWatchEncryption.html#CloudWatchEncryption%27"><span class="hs-identifier hs-type">CloudWatchEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679680339"><span class="annot"><span class="annottext">Maybe CloudWatchEncryptionMode
+</span><a href="#local-6989586621679680339"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudWatchEncryption
+</span><a href="#local-6989586621679680340"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cloudWatchEncryptionMode:CloudWatchEncryption' :: Maybe CloudWatchEncryptionMode
 </span><a href="Network.AWS.Glue.Types.CloudWatchEncryption.html#%24sel%3AcloudWatchEncryptionMode%3ACloudWatchEncryption%27"><span class="hs-identifier hs-var">cloudWatchEncryptionMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CloudWatchEncryptionMode
-</span><a href="#local-6989586621679678697"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CloudWatchEncryption.html#CloudWatchEncryption"><span class="hs-identifier hs-type">CloudWatchEncryption</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679680339"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CloudWatchEncryption.html#CloudWatchEncryption"><span class="hs-identifier hs-type">CloudWatchEncryption</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the</span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- data.</span><span>
@@ -156,19 +156,19 @@ $sel:cloudWatchEncryptionMode:CloudWatchEncryption' :: CloudWatchEncryption -&gt
 -&gt; Lens
      CloudWatchEncryption CloudWatchEncryption (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.CloudWatchEncryption.html#CloudWatchEncryption%27"><span class="hs-identifier hs-type">CloudWatchEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679678695"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.CloudWatchEncryption.html#CloudWatchEncryption%27"><span class="hs-identifier hs-type">CloudWatchEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679680337"><span class="annot"><span class="annottext">Maybe Text
 kmsKeyArn :: Maybe Text
 $sel:kmsKeyArn:CloudWatchEncryption' :: CloudWatchEncryption -&gt; Maybe Text
-</span><a href="#local-6989586621679678695"><span class="hs-identifier hs-var hs-var">kmsKeyArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679678695"><span class="hs-identifier hs-var">kmsKeyArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679678694"><span class="annot"><span class="annottext">s :: CloudWatchEncryption
-</span><a href="#local-6989586621679678694"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.CloudWatchEncryption.html#CloudWatchEncryption%27"><span class="hs-identifier hs-type">CloudWatchEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679678693"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679678693"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudWatchEncryption
-</span><a href="#local-6989586621679678694"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kmsKeyArn:CloudWatchEncryption' :: Maybe Text
+</span><a href="#local-6989586621679680337"><span class="hs-identifier hs-var hs-var">kmsKeyArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679680337"><span class="hs-identifier hs-var">kmsKeyArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679680336"><span class="annot"><span class="annottext">s :: CloudWatchEncryption
+</span><a href="#local-6989586621679680336"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.CloudWatchEncryption.html#CloudWatchEncryption%27"><span class="hs-identifier hs-type">CloudWatchEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679680335"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679680335"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudWatchEncryption
+</span><a href="#local-6989586621679680336"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kmsKeyArn:CloudWatchEncryption' :: Maybe Text
 </span><a href="Network.AWS.Glue.Types.CloudWatchEncryption.html#%24sel%3AkmsKeyArn%3ACloudWatchEncryption%27"><span class="hs-identifier hs-var">kmsKeyArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679678693"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CloudWatchEncryption.html#CloudWatchEncryption"><span class="hs-identifier hs-type">CloudWatchEncryption</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679680335"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CloudWatchEncryption.html#CloudWatchEncryption"><span class="hs-identifier hs-type">CloudWatchEncryption</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679678690"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CloudWatchEncryption.html#CloudWatchEncryption"><span class="hs-identifier hs-type">CloudWatchEncryption</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621679678688"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CloudWatchEncryption
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679680332"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CloudWatchEncryption.html#CloudWatchEncryption"><span class="hs-identifier hs-type">CloudWatchEncryption</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679680330"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CloudWatchEncryption
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser CloudWatchEncryption)
@@ -178,8 +178,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;CloudWatchEncryption&quot;</span></span><span>
-</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679678685"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679678685"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679680327"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679680327"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-74"></span><span>          </span><span class="annot"><span class="annottext">Maybe CloudWatchEncryptionMode
 -&gt; Maybe Text -&gt; CloudWatchEncryption
 </span><a href="Network.AWS.Glue.Types.CloudWatchEncryption.html#CloudWatchEncryption%27"><span class="hs-identifier hs-var">CloudWatchEncryption'</span></a></span><span>
@@ -189,7 +189,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; CloudWatchEncryption)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679678685"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CloudWatchEncryptionMode)
+</span><a href="#local-6989586621679680327"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CloudWatchEncryptionMode)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CloudWatchEncryptionMode&quot;</span></span><span class="hs-special">)</span><span>
@@ -197,25 +197,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser CloudWatchEncryption
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679678685"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679680327"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;KmsKeyArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679678679"><span id="local-6989586621679678681"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CloudWatchEncryption.html#CloudWatchEncryption"><span class="hs-identifier hs-type">CloudWatchEncryption</span></a></span></span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679680321"><span id="local-6989586621679680323"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CloudWatchEncryption.html#CloudWatchEncryption"><span class="hs-identifier hs-type">CloudWatchEncryption</span></a></span></span></span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679678676"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CloudWatchEncryption.html#CloudWatchEncryption"><span class="hs-identifier hs-type">CloudWatchEncryption</span></a></span></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679680318"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CloudWatchEncryption.html#CloudWatchEncryption"><span class="hs-identifier hs-type">CloudWatchEncryption</span></a></span></span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679678668"><span id="local-6989586621679678670"><span id="local-6989586621679678672"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CloudWatchEncryption.html#CloudWatchEncryption"><span class="hs-identifier hs-type">CloudWatchEncryption</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679678666"><span class="annot"><span class="annottext">toJSON :: CloudWatchEncryption -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CloudWatchEncryption.html#CloudWatchEncryption%27"><span class="hs-identifier hs-type">CloudWatchEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679678663"><span id="local-6989586621679678664"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679680310"><span id="local-6989586621679680312"><span id="local-6989586621679680314"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CloudWatchEncryption.html#CloudWatchEncryption"><span class="hs-identifier hs-type">CloudWatchEncryption</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679680308"><span class="annot"><span class="annottext">toJSON :: CloudWatchEncryption -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CloudWatchEncryption.html#CloudWatchEncryption%27"><span class="hs-identifier hs-type">CloudWatchEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679680305"><span id="local-6989586621679680306"><span class="annot"><span class="annottext">Maybe Text
 Maybe CloudWatchEncryptionMode
 kmsKeyArn :: Maybe Text
 cloudWatchEncryptionMode :: Maybe CloudWatchEncryptionMode
 $sel:kmsKeyArn:CloudWatchEncryption' :: CloudWatchEncryption -&gt; Maybe Text
 $sel:cloudWatchEncryptionMode:CloudWatchEncryption' :: CloudWatchEncryption -&gt; Maybe CloudWatchEncryptionMode
-</span><a href="#local-6989586621679678663"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679680305"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -229,14 +229,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe CloudWatchEncryptionMode -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CloudWatchEncryptionMode
-</span><a href="#local-6989586621679678664"><span class="hs-identifier hs-var">cloudWatchEncryptionMode</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679680306"><span class="hs-identifier hs-var">cloudWatchEncryptionMode</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-89"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;KmsKeyArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679678663"><span class="hs-identifier hs-var">kmsKeyArn</span></a></span><span>
+</span><a href="#local-6989586621679680305"><span class="hs-identifier hs-var">kmsKeyArn</span></a></span><span>
 </span><span id="line-90"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-91"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span></pre></body></html>

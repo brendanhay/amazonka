@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- Connector directory is being created.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newDirectoryConnectSettings' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679294827"><span id="local-6989586621679294828"></span></span><span class="hs-keyword">data</span><span> </span><span id="DirectoryConnectSettings"><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryConnectSettings.html#DirectoryConnectSettings"><span class="hs-identifier hs-var">DirectoryConnectSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DirectoryConnectSettings%27"><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryConnectSettings.html#DirectoryConnectSettings%27"><span class="hs-identifier hs-var">DirectoryConnectSettings'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679295014"><span id="local-6989586621679295015"></span></span><span class="hs-keyword">data</span><span> </span><span id="DirectoryConnectSettings"><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryConnectSettings.html#DirectoryConnectSettings"><span class="hs-identifier hs-var">DirectoryConnectSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DirectoryConnectSettings%27"><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryConnectSettings.html#DirectoryConnectSettings%27"><span class="hs-identifier hs-var">DirectoryConnectSettings'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier of the VPC in which the AD Connector is created.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AvpcId%3ADirectoryConnectSettings%27"><span class="annot"><span class="annottext">DirectoryConnectSettings -&gt; Text
 </span><a href="Network.AWS.DirectoryService.Types.DirectoryConnectSettings.html#%24sel%3AvpcId%3ADirectoryConnectSettings%27"><span class="hs-identifier hs-var hs-var">vpcId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -51,7 +51,7 @@
 </span><span id="line-48"></span><span>    </span><span id="%24sel%3AcustomerUserName%3ADirectoryConnectSettings%27"><span class="annot"><span class="annottext">DirectoryConnectSettings -&gt; Text
 </span><a href="Network.AWS.DirectoryService.Types.DirectoryConnectSettings.html#%24sel%3AcustomerUserName%3ADirectoryConnectSettings%27"><span class="hs-identifier hs-var hs-var">customerUserName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679294818"><span id="local-6989586621679294820"><span class="annot"><span class="annottext">DirectoryConnectSettings -&gt; DirectoryConnectSettings -&gt; Bool
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679295005"><span id="local-6989586621679295007"><span class="annot"><span class="annottext">DirectoryConnectSettings -&gt; DirectoryConnectSettings -&gt; Bool
 (DirectoryConnectSettings -&gt; DirectoryConnectSettings -&gt; Bool)
 -&gt; (DirectoryConnectSettings -&gt; DirectoryConnectSettings -&gt; Bool)
 -&gt; Eq DirectoryConnectSettings
@@ -60,7 +60,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DirectoryConnectSettings -&gt; DirectoryConnectSettings -&gt; Bool
 == :: DirectoryConnectSettings -&gt; DirectoryConnectSettings -&gt; Bool
 $c== :: DirectoryConnectSettings -&gt; DirectoryConnectSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679294809"><span id="local-6989586621679294811"><span id="local-6989586621679294813"><span id="local-6989586621679294815"><span class="annot"><span class="annottext">ReadPrec [DirectoryConnectSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679294996"><span id="local-6989586621679294998"><span id="local-6989586621679295000"><span id="local-6989586621679295002"><span class="annot"><span class="annottext">ReadPrec [DirectoryConnectSettings]
 ReadPrec DirectoryConnectSettings
 Int -&gt; ReadS DirectoryConnectSettings
 ReadS [DirectoryConnectSettings]
@@ -80,7 +80,7 @@ readList :: ReadS [DirectoryConnectSettings]
 $creadList :: ReadS [DirectoryConnectSettings]
 readsPrec :: Int -&gt; ReadS DirectoryConnectSettings
 $creadsPrec :: Int -&gt; ReadS DirectoryConnectSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679294802"><span id="local-6989586621679294804"><span id="local-6989586621679294806"><span class="annot"><span class="annottext">Int -&gt; DirectoryConnectSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679294989"><span id="local-6989586621679294991"><span id="local-6989586621679294993"><span class="annot"><span class="annottext">Int -&gt; DirectoryConnectSettings -&gt; ShowS
 [DirectoryConnectSettings] -&gt; ShowS
 DirectoryConnectSettings -&gt; String
 (Int -&gt; DirectoryConnectSettings -&gt; ShowS)
@@ -145,15 +145,15 @@ DirectoryConnectSettings -&gt; Rep DirectoryConnectSettings x
 </span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryConnectSettings.html#DirectoryConnectSettings"><span class="hs-identifier hs-type">DirectoryConnectSettings</span></a></span><span>
 </span><span id="line-83"></span><span id="newDirectoryConnectSettings"><span class="annot"><span class="annottext">newDirectoryConnectSettings :: Text -&gt; Text -&gt; DirectoryConnectSettings
 </span><a href="Network.AWS.DirectoryService.Types.DirectoryConnectSettings.html#newDirectoryConnectSettings"><span class="hs-identifier hs-var hs-var">newDirectoryConnectSettings</span></a></span></span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679294796"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679294796"><span class="hs-identifier hs-var">pVpcId_</span></a></span></span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679294795"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679294795"><span class="hs-identifier hs-var">pCustomerUserName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679294983"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679294983"><span class="hs-identifier hs-var">pVpcId_</span></a></span></span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679294982"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679294982"><span class="hs-identifier hs-var">pCustomerUserName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">DirectoryConnectSettings' :: Text -&gt; [Text] -&gt; [Text] -&gt; Text -&gt; DirectoryConnectSettings
 </span><a href="Network.AWS.DirectoryService.Types.DirectoryConnectSettings.html#DirectoryConnectSettings%27"><span class="hs-identifier hs-type">DirectoryConnectSettings'</span></a></span><span>
 </span><span id="line-87"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:vpcId:DirectoryConnectSettings' :: Text
 </span><a href="Network.AWS.DirectoryService.Types.DirectoryConnectSettings.html#%24sel%3AvpcId%3ADirectoryConnectSettings%27"><span class="hs-identifier hs-var">vpcId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679294796"><span class="hs-identifier hs-var">pVpcId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679294983"><span class="hs-identifier hs-var">pVpcId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-88"></span><span>        </span><span class="annot"><span class="annottext">$sel:subnetIds:DirectoryConnectSettings' :: [Text]
 </span><a href="Network.AWS.DirectoryService.Types.DirectoryConnectSettings.html#%24sel%3AsubnetIds%3ADirectoryConnectSettings%27"><span class="hs-identifier hs-var">subnetIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
 forall a. Monoid a =&gt; a
@@ -164,7 +164,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
 </span><span id="line-90"></span><span>        </span><span class="annot"><span class="annottext">$sel:customerUserName:DirectoryConnectSettings' :: Text
 </span><a href="Network.AWS.DirectoryService.Types.DirectoryConnectSettings.html#%24sel%3AcustomerUserName%3ADirectoryConnectSettings%27"><span class="hs-identifier hs-var">customerUserName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679294795"><span class="hs-identifier hs-var">pCustomerUserName_</span></a></span><span>
+</span><a href="#local-6989586621679294982"><span class="hs-identifier hs-var">pCustomerUserName_</span></a></span><span>
 </span><span id="line-91"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- | The identifier of the VPC in which the AD Connector is created.</span><span>
@@ -175,16 +175,16 @@ forall a. Monoid a =&gt; a
 -&gt; (DirectoryConnectSettings -&gt; Text -&gt; DirectoryConnectSettings)
 -&gt; Lens DirectoryConnectSettings DirectoryConnectSettings Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryConnectSettings.html#DirectoryConnectSettings%27"><span class="hs-identifier hs-type">DirectoryConnectSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294791"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryConnectSettings.html#DirectoryConnectSettings%27"><span class="hs-identifier hs-type">DirectoryConnectSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294978"><span class="annot"><span class="annottext">Text
 vpcId :: Text
 $sel:vpcId:DirectoryConnectSettings' :: DirectoryConnectSettings -&gt; Text
-</span><a href="#local-6989586621679294791"><span class="hs-identifier hs-var hs-var">vpcId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679294791"><span class="hs-identifier hs-var">vpcId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294790"><span class="annot"><span class="annottext">s :: DirectoryConnectSettings
-</span><a href="#local-6989586621679294790"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryConnectSettings.html#DirectoryConnectSettings%27"><span class="hs-identifier hs-type">DirectoryConnectSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294789"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679294789"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DirectoryConnectSettings
-</span><a href="#local-6989586621679294790"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcId:DirectoryConnectSettings' :: Text
+</span><a href="#local-6989586621679294978"><span class="hs-identifier hs-var hs-var">vpcId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679294978"><span class="hs-identifier hs-var">vpcId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294977"><span class="annot"><span class="annottext">s :: DirectoryConnectSettings
+</span><a href="#local-6989586621679294977"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryConnectSettings.html#DirectoryConnectSettings%27"><span class="hs-identifier hs-type">DirectoryConnectSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294976"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679294976"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DirectoryConnectSettings
+</span><a href="#local-6989586621679294977"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcId:DirectoryConnectSettings' :: Text
 </span><a href="Network.AWS.DirectoryService.Types.DirectoryConnectSettings.html#%24sel%3AvpcId%3ADirectoryConnectSettings%27"><span class="hs-identifier hs-var">vpcId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679294789"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryConnectSettings.html#DirectoryConnectSettings"><span class="hs-identifier hs-type">DirectoryConnectSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679294976"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryConnectSettings.html#DirectoryConnectSettings"><span class="hs-identifier hs-type">DirectoryConnectSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- | A list of subnet identifiers in the VPC in which the AD Connector is</span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- created.</span><span>
@@ -196,16 +196,16 @@ $sel:vpcId:DirectoryConnectSettings' :: DirectoryConnectSettings -&gt; Text
 -&gt; Lens
      DirectoryConnectSettings DirectoryConnectSettings [Text] [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryConnectSettings.html#DirectoryConnectSettings%27"><span class="hs-identifier hs-type">DirectoryConnectSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294787"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryConnectSettings.html#DirectoryConnectSettings%27"><span class="hs-identifier hs-type">DirectoryConnectSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294974"><span class="annot"><span class="annottext">[Text]
 subnetIds :: [Text]
 $sel:subnetIds:DirectoryConnectSettings' :: DirectoryConnectSettings -&gt; [Text]
-</span><a href="#local-6989586621679294787"><span class="hs-identifier hs-var hs-var">subnetIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679294787"><span class="hs-identifier hs-var">subnetIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294786"><span class="annot"><span class="annottext">s :: DirectoryConnectSettings
-</span><a href="#local-6989586621679294786"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryConnectSettings.html#DirectoryConnectSettings%27"><span class="hs-identifier hs-type">DirectoryConnectSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294785"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679294785"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DirectoryConnectSettings
-</span><a href="#local-6989586621679294786"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnetIds:DirectoryConnectSettings' :: [Text]
+</span><a href="#local-6989586621679294974"><span class="hs-identifier hs-var hs-var">subnetIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679294974"><span class="hs-identifier hs-var">subnetIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294973"><span class="annot"><span class="annottext">s :: DirectoryConnectSettings
+</span><a href="#local-6989586621679294973"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryConnectSettings.html#DirectoryConnectSettings%27"><span class="hs-identifier hs-type">DirectoryConnectSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294972"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679294972"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DirectoryConnectSettings
+</span><a href="#local-6989586621679294973"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnetIds:DirectoryConnectSettings' :: [Text]
 </span><a href="Network.AWS.DirectoryService.Types.DirectoryConnectSettings.html#%24sel%3AsubnetIds%3ADirectoryConnectSettings%27"><span class="hs-identifier hs-var">subnetIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679294785"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryConnectSettings.html#DirectoryConnectSettings"><span class="hs-identifier hs-type">DirectoryConnectSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+</span><a href="#local-6989586621679294972"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryConnectSettings.html#DirectoryConnectSettings"><span class="hs-identifier hs-type">DirectoryConnectSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
  -&gt; DirectoryConnectSettings -&gt; f DirectoryConnectSettings)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
@@ -213,8 +213,8 @@ $sel:subnetIds:DirectoryConnectSettings' :: DirectoryConnectSettings -&gt; [Text
 -&gt; f DirectoryConnectSettings
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-comment">-- | A list of one or more IP addresses of DNS servers or domain controllers</span><span>
 </span><span id="line-103"></span><span class="hs-comment">-- in your self-managed directory.</span><span>
@@ -226,16 +226,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; Lens
      DirectoryConnectSettings DirectoryConnectSettings [Text] [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryConnectSettings.html#DirectoryConnectSettings%27"><span class="hs-identifier hs-type">DirectoryConnectSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294781"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryConnectSettings.html#DirectoryConnectSettings%27"><span class="hs-identifier hs-type">DirectoryConnectSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294968"><span class="annot"><span class="annottext">[Text]
 customerDnsIps :: [Text]
 $sel:customerDnsIps:DirectoryConnectSettings' :: DirectoryConnectSettings -&gt; [Text]
-</span><a href="#local-6989586621679294781"><span class="hs-identifier hs-var hs-var">customerDnsIps</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679294781"><span class="hs-identifier hs-var">customerDnsIps</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294780"><span class="annot"><span class="annottext">s :: DirectoryConnectSettings
-</span><a href="#local-6989586621679294780"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryConnectSettings.html#DirectoryConnectSettings%27"><span class="hs-identifier hs-type">DirectoryConnectSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294779"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679294779"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DirectoryConnectSettings
-</span><a href="#local-6989586621679294780"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customerDnsIps:DirectoryConnectSettings' :: [Text]
+</span><a href="#local-6989586621679294968"><span class="hs-identifier hs-var hs-var">customerDnsIps</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679294968"><span class="hs-identifier hs-var">customerDnsIps</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294967"><span class="annot"><span class="annottext">s :: DirectoryConnectSettings
+</span><a href="#local-6989586621679294967"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryConnectSettings.html#DirectoryConnectSettings%27"><span class="hs-identifier hs-type">DirectoryConnectSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294966"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679294966"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DirectoryConnectSettings
+</span><a href="#local-6989586621679294967"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customerDnsIps:DirectoryConnectSettings' :: [Text]
 </span><a href="Network.AWS.DirectoryService.Types.DirectoryConnectSettings.html#%24sel%3AcustomerDnsIps%3ADirectoryConnectSettings%27"><span class="hs-identifier hs-var">customerDnsIps</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679294779"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryConnectSettings.html#DirectoryConnectSettings"><span class="hs-identifier hs-type">DirectoryConnectSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+</span><a href="#local-6989586621679294966"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryConnectSettings.html#DirectoryConnectSettings"><span class="hs-identifier hs-type">DirectoryConnectSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
  -&gt; DirectoryConnectSettings -&gt; f DirectoryConnectSettings)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
@@ -243,8 +243,8 @@ $sel:customerDnsIps:DirectoryConnectSettings' :: DirectoryConnectSettings -&gt; 
 -&gt; f DirectoryConnectSettings
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-comment">-- | The user name of an account in your self-managed directory that is used</span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- to connect to the directory. This account must have the following</span><span>
@@ -262,24 +262,24 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (DirectoryConnectSettings -&gt; Text -&gt; DirectoryConnectSettings)
 -&gt; Lens DirectoryConnectSettings DirectoryConnectSettings Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryConnectSettings.html#DirectoryConnectSettings%27"><span class="hs-identifier hs-type">DirectoryConnectSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294777"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryConnectSettings.html#DirectoryConnectSettings%27"><span class="hs-identifier hs-type">DirectoryConnectSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294964"><span class="annot"><span class="annottext">Text
 customerUserName :: Text
 $sel:customerUserName:DirectoryConnectSettings' :: DirectoryConnectSettings -&gt; Text
-</span><a href="#local-6989586621679294777"><span class="hs-identifier hs-var hs-var">customerUserName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679294777"><span class="hs-identifier hs-var">customerUserName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294776"><span class="annot"><span class="annottext">s :: DirectoryConnectSettings
-</span><a href="#local-6989586621679294776"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryConnectSettings.html#DirectoryConnectSettings%27"><span class="hs-identifier hs-type">DirectoryConnectSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294775"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679294775"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DirectoryConnectSettings
-</span><a href="#local-6989586621679294776"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customerUserName:DirectoryConnectSettings' :: Text
+</span><a href="#local-6989586621679294964"><span class="hs-identifier hs-var hs-var">customerUserName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679294964"><span class="hs-identifier hs-var">customerUserName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294963"><span class="annot"><span class="annottext">s :: DirectoryConnectSettings
+</span><a href="#local-6989586621679294963"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryConnectSettings.html#DirectoryConnectSettings%27"><span class="hs-identifier hs-type">DirectoryConnectSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294962"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679294962"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DirectoryConnectSettings
+</span><a href="#local-6989586621679294963"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customerUserName:DirectoryConnectSettings' :: Text
 </span><a href="Network.AWS.DirectoryService.Types.DirectoryConnectSettings.html#%24sel%3AcustomerUserName%3ADirectoryConnectSettings%27"><span class="hs-identifier hs-var">customerUserName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679294775"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryConnectSettings.html#DirectoryConnectSettings"><span class="hs-identifier hs-type">DirectoryConnectSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679294962"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryConnectSettings.html#DirectoryConnectSettings"><span class="hs-identifier hs-type">DirectoryConnectSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294771"><span id="local-6989586621679294773"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryConnectSettings.html#DirectoryConnectSettings"><span class="hs-identifier hs-type">DirectoryConnectSettings</span></a></span></span></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294958"><span id="local-6989586621679294960"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryConnectSettings.html#DirectoryConnectSettings"><span class="hs-identifier hs-type">DirectoryConnectSettings</span></a></span></span></span><span>
 </span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294768"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryConnectSettings.html#DirectoryConnectSettings"><span class="hs-identifier hs-type">DirectoryConnectSettings</span></a></span></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294955"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryConnectSettings.html#DirectoryConnectSettings"><span class="hs-identifier hs-type">DirectoryConnectSettings</span></a></span></span><span>
 </span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294760"><span id="local-6989586621679294762"><span id="local-6989586621679294764"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryConnectSettings.html#DirectoryConnectSettings"><span class="hs-identifier hs-type">DirectoryConnectSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679294758"><span class="annot"><span class="annottext">toJSON :: DirectoryConnectSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryConnectSettings.html#DirectoryConnectSettings%27"><span class="hs-identifier hs-type">DirectoryConnectSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294753"><span id="local-6989586621679294754"><span id="local-6989586621679294755"><span id="local-6989586621679294756"><span class="annot"><span class="annottext">[Text]
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294947"><span id="local-6989586621679294949"><span id="local-6989586621679294951"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryConnectSettings.html#DirectoryConnectSettings"><span class="hs-identifier hs-type">DirectoryConnectSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679294945"><span class="annot"><span class="annottext">toJSON :: DirectoryConnectSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.DirectoryConnectSettings.html#DirectoryConnectSettings%27"><span class="hs-identifier hs-type">DirectoryConnectSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294940"><span id="local-6989586621679294941"><span id="local-6989586621679294942"><span id="local-6989586621679294943"><span class="annot"><span class="annottext">[Text]
 Text
 customerUserName :: Text
 customerDnsIps :: [Text]
@@ -289,7 +289,7 @@ $sel:customerUserName:DirectoryConnectSettings' :: DirectoryConnectSettings -&gt
 $sel:customerDnsIps:DirectoryConnectSettings' :: DirectoryConnectSettings -&gt; [Text]
 $sel:subnetIds:DirectoryConnectSettings' :: DirectoryConnectSettings -&gt; [Text]
 $sel:vpcId:DirectoryConnectSettings' :: DirectoryConnectSettings -&gt; Text
-</span><a href="#local-6989586621679294753"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679294940"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -301,14 +301,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;VpcId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679294756"><span class="hs-identifier hs-var">vpcId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679294943"><span class="hs-identifier hs-var">vpcId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SubnetIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679294755"><span class="hs-identifier hs-var">subnetIds</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679294942"><span class="hs-identifier hs-var">subnetIds</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -316,7 +316,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;CustomerDnsIps&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679294754"><span class="hs-identifier hs-var">customerDnsIps</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679294941"><span class="hs-identifier hs-var">customerDnsIps</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -324,7 +324,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;CustomerUserName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679294753"><span class="hs-identifier hs-var">customerUserName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679294940"><span class="hs-identifier hs-var">customerUserName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-134"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span></pre></body></html>

@@ -49,12 +49,12 @@
 </span><span id="line-49"></span><span class="hs-comment">-- | The input for the DeleteTopicRule operation.</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- /See:/ 'newDeleteTopicRule' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679841130"><span id="local-6989586621679841131"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteTopicRule"><span class="annot"><a href="Network.AWS.IoT.DeleteTopicRule.html#DeleteTopicRule"><span class="hs-identifier hs-var">DeleteTopicRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteTopicRule%27"><span class="annot"><a href="Network.AWS.IoT.DeleteTopicRule.html#DeleteTopicRule%27"><span class="hs-identifier hs-var">DeleteTopicRule'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679842118"><span id="local-6989586621679842119"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteTopicRule"><span class="annot"><a href="Network.AWS.IoT.DeleteTopicRule.html#DeleteTopicRule"><span class="hs-identifier hs-var">DeleteTopicRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteTopicRule%27"><span class="annot"><a href="Network.AWS.IoT.DeleteTopicRule.html#DeleteTopicRule%27"><span class="hs-identifier hs-var">DeleteTopicRule'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the rule.</span><span>
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3AruleName%3ADeleteTopicRule%27"><span class="annot"><span class="annottext">DeleteTopicRule -&gt; Text
 </span><a href="Network.AWS.IoT.DeleteTopicRule.html#%24sel%3AruleName%3ADeleteTopicRule%27"><span class="hs-identifier hs-var hs-var">ruleName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679841124"><span id="local-6989586621679841126"><span class="annot"><span class="annottext">DeleteTopicRule -&gt; DeleteTopicRule -&gt; Bool
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679842112"><span id="local-6989586621679842114"><span class="annot"><span class="annottext">DeleteTopicRule -&gt; DeleteTopicRule -&gt; Bool
 (DeleteTopicRule -&gt; DeleteTopicRule -&gt; Bool)
 -&gt; (DeleteTopicRule -&gt; DeleteTopicRule -&gt; Bool)
 -&gt; Eq DeleteTopicRule
@@ -63,7 +63,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteTopicRule -&gt; DeleteTopicRule -&gt; Bool
 == :: DeleteTopicRule -&gt; DeleteTopicRule -&gt; Bool
 $c== :: DeleteTopicRule -&gt; DeleteTopicRule -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679841115"><span id="local-6989586621679841117"><span id="local-6989586621679841119"><span id="local-6989586621679841121"><span class="annot"><span class="annottext">ReadPrec [DeleteTopicRule]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679842103"><span id="local-6989586621679842105"><span id="local-6989586621679842107"><span id="local-6989586621679842109"><span class="annot"><span class="annottext">ReadPrec [DeleteTopicRule]
 ReadPrec DeleteTopicRule
 Int -&gt; ReadS DeleteTopicRule
 ReadS [DeleteTopicRule]
@@ -83,7 +83,7 @@ readList :: ReadS [DeleteTopicRule]
 $creadList :: ReadS [DeleteTopicRule]
 readsPrec :: Int -&gt; ReadS DeleteTopicRule
 $creadsPrec :: Int -&gt; ReadS DeleteTopicRule
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679841108"><span id="local-6989586621679841110"><span id="local-6989586621679841112"><span class="annot"><span class="annottext">Int -&gt; DeleteTopicRule -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679842096"><span id="local-6989586621679842098"><span id="local-6989586621679842100"><span class="annot"><span class="annottext">Int -&gt; DeleteTopicRule -&gt; ShowS
 [DeleteTopicRule] -&gt; ShowS
 DeleteTopicRule -&gt; String
 (Int -&gt; DeleteTopicRule -&gt; ShowS)
@@ -123,12 +123,12 @@ $cfrom :: forall x. DeleteTopicRule -&gt; Rep DeleteTopicRule x
 </span><span id="line-69"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.DeleteTopicRule.html#DeleteTopicRule"><span class="hs-identifier hs-type">DeleteTopicRule</span></a></span><span>
 </span><span id="line-71"></span><span id="newDeleteTopicRule"><span class="annot"><span class="annottext">newDeleteTopicRule :: Text -&gt; DeleteTopicRule
-</span><a href="Network.AWS.IoT.DeleteTopicRule.html#newDeleteTopicRule"><span class="hs-identifier hs-var hs-var">newDeleteTopicRule</span></a></span></span><span> </span><span id="local-6989586621679841103"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679841103"><span class="hs-identifier hs-var">pRuleName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.DeleteTopicRule.html#newDeleteTopicRule"><span class="hs-identifier hs-var hs-var">newDeleteTopicRule</span></a></span></span><span> </span><span id="local-6989586621679842091"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679842091"><span class="hs-identifier hs-var">pRuleName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>  </span><span class="annot"><span class="annottext">DeleteTopicRule' :: Text -&gt; DeleteTopicRule
 </span><a href="Network.AWS.IoT.DeleteTopicRule.html#DeleteTopicRule%27"><span class="hs-identifier hs-type">DeleteTopicRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleName:DeleteTopicRule' :: Text
 </span><a href="Network.AWS.IoT.DeleteTopicRule.html#%24sel%3AruleName%3ADeleteTopicRule%27"><span class="hs-identifier hs-var">ruleName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679841103"><span class="hs-identifier hs-var">pRuleName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679842091"><span class="hs-identifier hs-var">pRuleName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- | The name of the rule.</span><span>
 </span><span id="line-75"></span><span class="annot"><a href="Network.AWS.IoT.DeleteTopicRule.html#deleteTopicRule_ruleName"><span class="hs-identifier hs-type">deleteTopicRule_ruleName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteTopicRule.html#DeleteTopicRule"><span class="hs-identifier hs-type">DeleteTopicRule</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -137,27 +137,27 @@ $cfrom :: forall x. DeleteTopicRule -&gt; Rep DeleteTopicRule x
 -&gt; (DeleteTopicRule -&gt; Text -&gt; DeleteTopicRule)
 -&gt; Lens DeleteTopicRule DeleteTopicRule Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DeleteTopicRule.html#DeleteTopicRule%27"><span class="hs-identifier hs-type">DeleteTopicRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679841100"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DeleteTopicRule.html#DeleteTopicRule%27"><span class="hs-identifier hs-type">DeleteTopicRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679842088"><span class="annot"><span class="annottext">Text
 ruleName :: Text
 $sel:ruleName:DeleteTopicRule' :: DeleteTopicRule -&gt; Text
-</span><a href="#local-6989586621679841100"><span class="hs-identifier hs-var hs-var">ruleName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679841100"><span class="hs-identifier hs-var">ruleName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679841099"><span class="annot"><span class="annottext">s :: DeleteTopicRule
-</span><a href="#local-6989586621679841099"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DeleteTopicRule.html#DeleteTopicRule%27"><span class="hs-identifier hs-type">DeleteTopicRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679841098"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679841098"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteTopicRule
-</span><a href="#local-6989586621679841099"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleName:DeleteTopicRule' :: Text
+</span><a href="#local-6989586621679842088"><span class="hs-identifier hs-var hs-var">ruleName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679842088"><span class="hs-identifier hs-var">ruleName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679842087"><span class="annot"><span class="annottext">s :: DeleteTopicRule
+</span><a href="#local-6989586621679842087"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DeleteTopicRule.html#DeleteTopicRule%27"><span class="hs-identifier hs-type">DeleteTopicRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679842086"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679842086"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteTopicRule
+</span><a href="#local-6989586621679842087"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleName:DeleteTopicRule' :: Text
 </span><a href="Network.AWS.IoT.DeleteTopicRule.html#%24sel%3AruleName%3ADeleteTopicRule%27"><span class="hs-identifier hs-var">ruleName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679841098"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteTopicRule.html#DeleteTopicRule"><span class="hs-identifier hs-type">DeleteTopicRule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679842086"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteTopicRule.html#DeleteTopicRule"><span class="hs-identifier hs-type">DeleteTopicRule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteTopicRule.html#DeleteTopicRule"><span class="hs-identifier hs-type">DeleteTopicRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-79"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-80"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteTopicRule.html#DeleteTopicRule"><span class="hs-identifier hs-type">DeleteTopicRule</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>      </span><span class="annot"><a href="Network.AWS.IoT.DeleteTopicRule.html#DeleteTopicRuleResponse"><span class="hs-identifier hs-type">DeleteTopicRuleResponse</span></a></span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679841094"><span class="annot"><span class="annottext">request :: DeleteTopicRule -&gt; Request DeleteTopicRule
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679842082"><span class="annot"><span class="annottext">request :: DeleteTopicRule -&gt; Request DeleteTopicRule
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteTopicRule -&gt; Request DeleteTopicRule
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IoT.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679841090"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679842078"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteTopicRule
 -&gt; ClientResponse ClientBody
@@ -181,12 +181,12 @@ AWSResponse a
 DeleteTopicRuleResponse
 </span><a href="Network.AWS.IoT.DeleteTopicRule.html#DeleteTopicRuleResponse%27"><span class="hs-identifier hs-var">DeleteTopicRuleResponse'</span></a></span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679841083"><span id="local-6989586621679841085"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteTopicRule.html#DeleteTopicRule"><span class="hs-identifier hs-type">DeleteTopicRule</span></a></span></span></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679842071"><span id="local-6989586621679842073"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteTopicRule.html#DeleteTopicRule"><span class="hs-identifier hs-type">DeleteTopicRule</span></a></span></span></span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679841080"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteTopicRule.html#DeleteTopicRule"><span class="hs-identifier hs-type">DeleteTopicRule</span></a></span></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679842068"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteTopicRule.html#DeleteTopicRule"><span class="hs-identifier hs-type">DeleteTopicRule</span></a></span></span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteTopicRule.html#DeleteTopicRule"><span class="hs-identifier hs-type">DeleteTopicRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679841076"><span class="annot"><span class="annottext">toHeaders :: DeleteTopicRule -&gt; [Header]
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679842064"><span class="annot"><span class="annottext">toHeaders :: DeleteTopicRule -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; DeleteTopicRule -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
@@ -194,21 +194,21 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteTopicRule.html#DeleteTopicRule"><span class="hs-identifier hs-type">DeleteTopicRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679841071"><span class="annot"><span class="annottext">toPath :: DeleteTopicRule -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteTopicRule.html#DeleteTopicRule%27"><span class="hs-identifier hs-type">DeleteTopicRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679841069"><span class="annot"><span class="annottext">Text
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679842059"><span class="annot"><span class="annottext">toPath :: DeleteTopicRule -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteTopicRule.html#DeleteTopicRule%27"><span class="hs-identifier hs-type">DeleteTopicRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679842057"><span class="annot"><span class="annottext">Text
 ruleName :: Text
 $sel:ruleName:DeleteTopicRule' :: DeleteTopicRule -&gt; Text
-</span><a href="#local-6989586621679841069"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679842057"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/rules/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679841069"><span class="hs-identifier hs-var">ruleName</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679842057"><span class="hs-identifier hs-var">ruleName</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteTopicRule.html#DeleteTopicRule"><span class="hs-identifier hs-type">DeleteTopicRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679841065"><span class="annot"><span class="annottext">toQuery :: DeleteTopicRule -&gt; QueryString
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679842053"><span class="annot"><span class="annottext">toQuery :: DeleteTopicRule -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteTopicRule -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -216,10 +216,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-comment">-- | /See:/ 'newDeleteTopicRuleResponse' smart constructor.</span><span>
-</span><span id="line-101"></span><span id="local-6989586621679841062"><span id="local-6989586621679841063"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteTopicRuleResponse"><span class="annot"><a href="Network.AWS.IoT.DeleteTopicRule.html#DeleteTopicRuleResponse"><span class="hs-identifier hs-var">DeleteTopicRuleResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteTopicRuleResponse%27"><span class="annot"><a href="Network.AWS.IoT.DeleteTopicRule.html#DeleteTopicRuleResponse%27"><span class="hs-identifier hs-var">DeleteTopicRuleResponse'</span></a></span></span><span>
+</span><span id="line-101"></span><span id="local-6989586621679842050"><span id="local-6989586621679842051"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteTopicRuleResponse"><span class="annot"><a href="Network.AWS.IoT.DeleteTopicRule.html#DeleteTopicRuleResponse"><span class="hs-identifier hs-var">DeleteTopicRuleResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteTopicRuleResponse%27"><span class="annot"><a href="Network.AWS.IoT.DeleteTopicRule.html#DeleteTopicRuleResponse%27"><span class="hs-identifier hs-var">DeleteTopicRuleResponse'</span></a></span></span><span>
 </span><span id="line-102"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-103"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-104"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679841058"><span id="local-6989586621679841060"><span class="annot"><span class="annottext">DeleteTopicRuleResponse -&gt; DeleteTopicRuleResponse -&gt; Bool
+</span><span id="line-104"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679842046"><span id="local-6989586621679842048"><span class="annot"><span class="annottext">DeleteTopicRuleResponse -&gt; DeleteTopicRuleResponse -&gt; Bool
 (DeleteTopicRuleResponse -&gt; DeleteTopicRuleResponse -&gt; Bool)
 -&gt; (DeleteTopicRuleResponse -&gt; DeleteTopicRuleResponse -&gt; Bool)
 -&gt; Eq DeleteTopicRuleResponse
@@ -228,7 +228,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteTopicRuleResponse -&gt; DeleteTopicRuleResponse -&gt; Bool
 == :: DeleteTopicRuleResponse -&gt; DeleteTopicRuleResponse -&gt; Bool
 $c== :: DeleteTopicRuleResponse -&gt; DeleteTopicRuleResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679841050"><span id="local-6989586621679841052"><span id="local-6989586621679841054"><span id="local-6989586621679841056"><span class="annot"><span class="annottext">ReadPrec [DeleteTopicRuleResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679842038"><span id="local-6989586621679842040"><span id="local-6989586621679842042"><span id="local-6989586621679842044"><span class="annot"><span class="annottext">ReadPrec [DeleteTopicRuleResponse]
 ReadPrec DeleteTopicRuleResponse
 Int -&gt; ReadS DeleteTopicRuleResponse
 ReadS [DeleteTopicRuleResponse]
@@ -248,7 +248,7 @@ readList :: ReadS [DeleteTopicRuleResponse]
 $creadList :: ReadS [DeleteTopicRuleResponse]
 readsPrec :: Int -&gt; ReadS DeleteTopicRuleResponse
 $creadsPrec :: Int -&gt; ReadS DeleteTopicRuleResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679841044"><span id="local-6989586621679841046"><span id="local-6989586621679841048"><span class="annot"><span class="annottext">Int -&gt; DeleteTopicRuleResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679842032"><span id="local-6989586621679842034"><span id="local-6989586621679842036"><span class="annot"><span class="annottext">Int -&gt; DeleteTopicRuleResponse -&gt; ShowS
 [DeleteTopicRuleResponse] -&gt; ShowS
 DeleteTopicRuleResponse -&gt; String
 (Int -&gt; DeleteTopicRuleResponse -&gt; ShowS)
@@ -286,5 +286,5 @@ $cfrom :: forall x. DeleteTopicRuleResponse -&gt; Rep DeleteTopicRuleResponse x
 </span><a href="Network.AWS.IoT.DeleteTopicRule.html#newDeleteTopicRuleResponse"><span class="hs-identifier hs-var hs-var">newDeleteTopicRuleResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeleteTopicRuleResponse
 </span><a href="Network.AWS.IoT.DeleteTopicRule.html#DeleteTopicRuleResponse%27"><span class="hs-identifier hs-var">DeleteTopicRuleResponse'</span></a></span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679841040"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteTopicRule.html#DeleteTopicRuleResponse"><span class="hs-identifier hs-type">DeleteTopicRuleResponse</span></a></span></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679842028"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteTopicRule.html#DeleteTopicRuleResponse"><span class="hs-identifier hs-type">DeleteTopicRuleResponse</span></a></span></span><span>
 </span><span id="line-115"></span></pre></body></html>

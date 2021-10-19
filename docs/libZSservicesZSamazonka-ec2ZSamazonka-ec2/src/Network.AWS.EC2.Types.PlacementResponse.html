@@ -27,12 +27,12 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Describes the placement of an instance.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newPlacementResponse' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621681100787"><span id="local-6989586621681100788"></span></span><span class="hs-keyword">data</span><span> </span><span id="PlacementResponse"><span class="annot"><a href="Network.AWS.EC2.Types.PlacementResponse.html#PlacementResponse"><span class="hs-identifier hs-var">PlacementResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PlacementResponse%27"><span class="annot"><a href="Network.AWS.EC2.Types.PlacementResponse.html#PlacementResponse%27"><span class="hs-identifier hs-var">PlacementResponse'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621681135488"><span id="local-6989586621681135489"></span></span><span class="hs-keyword">data</span><span> </span><span id="PlacementResponse"><span class="annot"><a href="Network.AWS.EC2.Types.PlacementResponse.html#PlacementResponse"><span class="hs-identifier hs-var">PlacementResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PlacementResponse%27"><span class="annot"><a href="Network.AWS.EC2.Types.PlacementResponse.html#PlacementResponse%27"><span class="hs-identifier hs-var">PlacementResponse'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the placement group that the instance is in.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AgroupName%3APlacementResponse%27"><span class="annot"><span class="annottext">PlacementResponse -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.Types.PlacementResponse.html#%24sel%3AgroupName%3APlacementResponse%27"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681100781"><span id="local-6989586621681100783"><span class="annot"><span class="annottext">PlacementResponse -&gt; PlacementResponse -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681135482"><span id="local-6989586621681135484"><span class="annot"><span class="annottext">PlacementResponse -&gt; PlacementResponse -&gt; Bool
 (PlacementResponse -&gt; PlacementResponse -&gt; Bool)
 -&gt; (PlacementResponse -&gt; PlacementResponse -&gt; Bool)
 -&gt; Eq PlacementResponse
@@ -41,7 +41,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PlacementResponse -&gt; PlacementResponse -&gt; Bool
 == :: PlacementResponse -&gt; PlacementResponse -&gt; Bool
 $c== :: PlacementResponse -&gt; PlacementResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681100772"><span id="local-6989586621681100774"><span id="local-6989586621681100776"><span id="local-6989586621681100778"><span class="annot"><span class="annottext">ReadPrec [PlacementResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681135473"><span id="local-6989586621681135475"><span id="local-6989586621681135477"><span id="local-6989586621681135479"><span class="annot"><span class="annottext">ReadPrec [PlacementResponse]
 ReadPrec PlacementResponse
 Int -&gt; ReadS PlacementResponse
 ReadS [PlacementResponse]
@@ -61,7 +61,7 @@ readList :: ReadS [PlacementResponse]
 $creadList :: ReadS [PlacementResponse]
 readsPrec :: Int -&gt; ReadS PlacementResponse
 $creadsPrec :: Int -&gt; ReadS PlacementResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681100765"><span id="local-6989586621681100767"><span id="local-6989586621681100769"><span class="annot"><span class="annottext">Int -&gt; PlacementResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681135466"><span id="local-6989586621681135468"><span id="local-6989586621681135470"><span class="annot"><span class="annottext">Int -&gt; PlacementResponse -&gt; ShowS
 [PlacementResponse] -&gt; ShowS
 PlacementResponse -&gt; String
 (Int -&gt; PlacementResponse -&gt; ShowS)
@@ -115,33 +115,33 @@ forall a. Maybe a
 -&gt; Lens
      PlacementResponse PlacementResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.PlacementResponse.html#PlacementResponse%27"><span class="hs-identifier hs-type">PlacementResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681100756"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.PlacementResponse.html#PlacementResponse%27"><span class="hs-identifier hs-type">PlacementResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681135457"><span class="annot"><span class="annottext">Maybe Text
 groupName :: Maybe Text
 $sel:groupName:PlacementResponse' :: PlacementResponse -&gt; Maybe Text
-</span><a href="#local-6989586621681100756"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681100756"><span class="hs-identifier hs-var">groupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681100755"><span class="annot"><span class="annottext">s :: PlacementResponse
-</span><a href="#local-6989586621681100755"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.PlacementResponse.html#PlacementResponse%27"><span class="hs-identifier hs-type">PlacementResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681100754"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681100754"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PlacementResponse
-</span><a href="#local-6989586621681100755"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupName:PlacementResponse' :: Maybe Text
+</span><a href="#local-6989586621681135457"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681135457"><span class="hs-identifier hs-var">groupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681135456"><span class="annot"><span class="annottext">s :: PlacementResponse
+</span><a href="#local-6989586621681135456"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.PlacementResponse.html#PlacementResponse%27"><span class="hs-identifier hs-type">PlacementResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681135455"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681135455"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PlacementResponse
+</span><a href="#local-6989586621681135456"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupName:PlacementResponse' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.PlacementResponse.html#%24sel%3AgroupName%3APlacementResponse%27"><span class="hs-identifier hs-var">groupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681100754"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PlacementResponse.html#PlacementResponse"><span class="hs-identifier hs-type">PlacementResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681135455"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PlacementResponse.html#PlacementResponse"><span class="hs-identifier hs-type">PlacementResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PlacementResponse.html#PlacementResponse"><span class="hs-identifier hs-type">PlacementResponse</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-55"></span><span>  </span><span id="local-6989586621681100751"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String PlacementResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681100749"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681100749"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-55"></span><span>  </span><span id="local-6989586621681135452"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String PlacementResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681135450"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681135450"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-56"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; PlacementResponse
 </span><a href="Network.AWS.EC2.Types.PlacementResponse.html#PlacementResponse%27"><span class="hs-identifier hs-var">PlacementResponse'</span></a></span><span>
 </span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; PlacementResponse)
 -&gt; Either String (Maybe Text) -&gt; Either String PlacementResponse
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681100749"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681135450"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;groupName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-58"></span><span>
-</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681100743"><span id="local-6989586621681100745"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PlacementResponse.html#PlacementResponse"><span class="hs-identifier hs-type">PlacementResponse</span></a></span></span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681135444"><span id="local-6989586621681135446"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PlacementResponse.html#PlacementResponse"><span class="hs-identifier hs-type">PlacementResponse</span></a></span></span></span><span>
 </span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681100740"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PlacementResponse.html#PlacementResponse"><span class="hs-identifier hs-type">PlacementResponse</span></a></span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681135441"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PlacementResponse.html#PlacementResponse"><span class="hs-identifier hs-type">PlacementResponse</span></a></span></span><span>
 </span><span id="line-62"></span></pre></body></html>

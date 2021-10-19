@@ -28,11 +28,11 @@
 </span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#newPutFile"><span class="hs-identifier">newPutFile</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-29"></span><span>
 </span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#putFile_parentCommitId"><span class="hs-identifier">putFile_parentCommitId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#putFile_commitMessage"><span class="hs-identifier">putFile_commitMessage</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#putFile_name"><span class="hs-identifier">putFile_name</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#putFile_email"><span class="hs-identifier">putFile_email</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#putFile_fileMode"><span class="hs-identifier">putFile_fileMode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#putFile_email"><span class="hs-identifier">putFile_email</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#putFile_fileMode"><span class="hs-identifier">putFile_fileMode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#putFile_parentCommitId"><span class="hs-identifier">putFile_parentCommitId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#putFile_name"><span class="hs-identifier">putFile_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#putFile_commitMessage"><span class="hs-identifier">putFile_commitMessage</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#putFile_repositoryName"><span class="hs-identifier">putFile_repositoryName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#putFile_branchName"><span class="hs-identifier">putFile_branchName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#putFile_fileContent"><span class="hs-identifier">putFile_fileContent</span></a></span><span class="hs-special">,</span><span>
@@ -58,33 +58,33 @@
 </span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- | /See:/ 'newPutFile' smart constructor.</span><span>
-</span><span id="line-61"></span><span id="local-6989586621679357772"><span id="local-6989586621679357773"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutFile"><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFile"><span class="hs-identifier hs-var">PutFile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutFile%27"><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFile%27"><span class="hs-identifier hs-var">PutFile'</span></a></span></span><span>
-</span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The full commit ID of the head commit in the branch where you want to</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- add or update the file. If this is an empty repository, no commit ID is</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- required. If this is not an empty repository, a commit ID is required.</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- The commit ID must match the ID of the head commit at the time of the</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- operation. Otherwise, an error occurs, and the file is not added or</span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- updated.</span><span>
-</span><span id="line-69"></span><span>    </span><span id="%24sel%3AparentCommitId%3APutFile%27"><span class="annot"><span class="annottext">PutFile -&gt; Maybe Text
-</span><a href="Network.AWS.CodeCommit.PutFile.html#%24sel%3AparentCommitId%3APutFile%27"><span class="hs-identifier hs-var hs-var">parentCommitId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | A message about why this file was added or updated. Although it is</span><span>
-</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- optional, a message makes the commit history for your repository more</span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- useful.</span><span>
-</span><span id="line-73"></span><span>    </span><span id="%24sel%3AcommitMessage%3APutFile%27"><span class="annot"><span class="annottext">PutFile -&gt; Maybe Text
-</span><a href="Network.AWS.CodeCommit.PutFile.html#%24sel%3AcommitMessage%3APutFile%27"><span class="hs-identifier hs-var hs-var">commitMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | The name of the person adding or updating the file. Although it is</span><span>
-</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- optional, a name makes the commit history for your repository more</span><span>
-</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- useful.</span><span>
-</span><span id="line-77"></span><span>    </span><span id="%24sel%3Aname%3APutFile%27"><span class="annot"><span class="annottext">PutFile -&gt; Maybe Text
-</span><a href="Network.AWS.CodeCommit.PutFile.html#%24sel%3Aname%3APutFile%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | An email address for the person adding or updating the file.</span><span>
-</span><span id="line-79"></span><span>    </span><span id="%24sel%3Aemail%3APutFile%27"><span class="annot"><span class="annottext">PutFile -&gt; Maybe Text
+</span><span id="line-61"></span><span id="local-6989586621679358057"><span id="local-6989586621679358058"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutFile"><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFile"><span class="hs-identifier hs-var">PutFile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutFile%27"><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFile%27"><span class="hs-identifier hs-var">PutFile'</span></a></span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An email address for the person adding or updating the file.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3Aemail%3APutFile%27"><span class="annot"><span class="annottext">PutFile -&gt; Maybe Text
 </span><a href="Network.AWS.CodeCommit.PutFile.html#%24sel%3Aemail%3APutFile%27"><span class="hs-identifier hs-var hs-var">email</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- | The file mode permissions of the blob. Valid file mode permissions are</span><span>
-</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- listed here.</span><span>
-</span><span id="line-82"></span><span>    </span><span id="%24sel%3AfileMode%3APutFile%27"><span class="annot"><span class="annottext">PutFile -&gt; Maybe FileModeTypeEnum
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The file mode permissions of the blob. Valid file mode permissions are</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- listed here.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AfileMode%3APutFile%27"><span class="annot"><span class="annottext">PutFile -&gt; Maybe FileModeTypeEnum
 </span><a href="Network.AWS.CodeCommit.PutFile.html#%24sel%3AfileMode%3APutFile%27"><span class="hs-identifier hs-var hs-var">fileMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.FileModeTypeEnum.html#FileModeTypeEnum"><span class="hs-identifier hs-type">FileModeTypeEnum</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The full commit ID of the head commit in the branch where you want to</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- add or update the file. If this is an empty repository, no commit ID is</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- required. If this is not an empty repository, a commit ID is required.</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- The commit ID must match the ID of the head commit at the time of the</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- operation. Otherwise, an error occurs, and the file is not added or</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- updated.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3AparentCommitId%3APutFile%27"><span class="annot"><span class="annottext">PutFile -&gt; Maybe Text
+</span><a href="Network.AWS.CodeCommit.PutFile.html#%24sel%3AparentCommitId%3APutFile%27"><span class="hs-identifier hs-var hs-var">parentCommitId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | The name of the person adding or updating the file. Although it is</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- optional, a name makes the commit history for your repository more</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- useful.</span><span>
+</span><span id="line-78"></span><span>    </span><span id="%24sel%3Aname%3APutFile%27"><span class="annot"><span class="annottext">PutFile -&gt; Maybe Text
+</span><a href="Network.AWS.CodeCommit.PutFile.html#%24sel%3Aname%3APutFile%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- | A message about why this file was added or updated. Although it is</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- optional, a message makes the commit history for your repository more</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- useful.</span><span>
+</span><span id="line-82"></span><span>    </span><span id="%24sel%3AcommitMessage%3APutFile%27"><span class="annot"><span class="annottext">PutFile -&gt; Maybe Text
+</span><a href="Network.AWS.CodeCommit.PutFile.html#%24sel%3AcommitMessage%3APutFile%27"><span class="hs-identifier hs-var hs-var">commitMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-83"></span><span>    </span><span class="hs-comment">-- | The name of the repository where you want to add or update the file.</span><span>
 </span><span id="line-84"></span><span>    </span><span id="%24sel%3ArepositoryName%3APutFile%27"><span class="annot"><span class="annottext">PutFile -&gt; Text
 </span><a href="Network.AWS.CodeCommit.PutFile.html#%24sel%3ArepositoryName%3APutFile%27"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -103,7 +103,7 @@
 </span><span id="line-95"></span><span>    </span><span id="%24sel%3AfilePath%3APutFile%27"><span class="annot"><span class="annottext">PutFile -&gt; Text
 </span><a href="Network.AWS.CodeCommit.PutFile.html#%24sel%3AfilePath%3APutFile%27"><span class="hs-identifier hs-var hs-var">filePath</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-96"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-97"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679357758"><span id="local-6989586621679357760"><span class="annot"><span class="annottext">PutFile -&gt; PutFile -&gt; Bool
+</span><span id="line-97"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679358043"><span id="local-6989586621679358045"><span class="annot"><span class="annottext">PutFile -&gt; PutFile -&gt; Bool
 (PutFile -&gt; PutFile -&gt; Bool)
 -&gt; (PutFile -&gt; PutFile -&gt; Bool) -&gt; Eq PutFile
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -111,7 +111,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutFile -&gt; PutFile -&gt; Bool
 == :: PutFile -&gt; PutFile -&gt; Bool
 $c== :: PutFile -&gt; PutFile -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679357749"><span id="local-6989586621679357751"><span id="local-6989586621679357753"><span id="local-6989586621679357755"><span class="annot"><span class="annottext">ReadPrec [PutFile]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679358034"><span id="local-6989586621679358036"><span id="local-6989586621679358038"><span id="local-6989586621679358040"><span class="annot"><span class="annottext">ReadPrec [PutFile]
 ReadPrec PutFile
 Int -&gt; ReadS PutFile
 ReadS [PutFile]
@@ -131,7 +131,7 @@ readList :: ReadS [PutFile]
 $creadList :: ReadS [PutFile]
 readsPrec :: Int -&gt; ReadS PutFile
 $creadsPrec :: Int -&gt; ReadS PutFile
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679357742"><span id="local-6989586621679357744"><span id="local-6989586621679357746"><span class="annot"><span class="annottext">Int -&gt; PutFile -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679358027"><span id="local-6989586621679358029"><span id="local-6989586621679358031"><span class="annot"><span class="annottext">Int -&gt; PutFile -&gt; ShowS
 [PutFile] -&gt; ShowS
 PutFile -&gt; String
 (Int -&gt; PutFile -&gt; ShowS)
@@ -162,26 +162,26 @@ $cfrom :: forall x. PutFile -&gt; Rep PutFile x
 </span><span id="line-104"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-106"></span><span class="hs-comment">--</span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- 'parentCommitId', 'putFile_parentCommitId' - The full commit ID of the head commit in the branch where you want to</span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- add or update the file. If this is an empty repository, no commit ID is</span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- required. If this is not an empty repository, a commit ID is required.</span><span>
-</span><span id="line-110"></span><span class="hs-comment">--</span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- The commit ID must match the ID of the head commit at the time of the</span><span>
-</span><span id="line-112"></span><span class="hs-comment">-- operation. Otherwise, an error occurs, and the file is not added or</span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- updated.</span><span>
-</span><span id="line-114"></span><span class="hs-comment">--</span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- 'commitMessage', 'putFile_commitMessage' - A message about why this file was added or updated. Although it is</span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- optional, a message makes the commit history for your repository more</span><span>
-</span><span id="line-117"></span><span class="hs-comment">-- useful.</span><span>
-</span><span id="line-118"></span><span class="hs-comment">--</span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- 'name', 'putFile_name' - The name of the person adding or updating the file. Although it is</span><span>
-</span><span id="line-120"></span><span class="hs-comment">-- optional, a name makes the commit history for your repository more</span><span>
-</span><span id="line-121"></span><span class="hs-comment">-- useful.</span><span>
-</span><span id="line-122"></span><span class="hs-comment">--</span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- 'email', 'putFile_email' - An email address for the person adding or updating the file.</span><span>
-</span><span id="line-124"></span><span class="hs-comment">--</span><span>
-</span><span id="line-125"></span><span class="hs-comment">-- 'fileMode', 'putFile_fileMode' - The file mode permissions of the blob. Valid file mode permissions are</span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- listed here.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- 'email', 'putFile_email' - An email address for the person adding or updating the file.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- 'fileMode', 'putFile_fileMode' - The file mode permissions of the blob. Valid file mode permissions are</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- listed here.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- 'parentCommitId', 'putFile_parentCommitId' - The full commit ID of the head commit in the branch where you want to</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- add or update the file. If this is an empty repository, no commit ID is</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- required. If this is not an empty repository, a commit ID is required.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- The commit ID must match the ID of the head commit at the time of the</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- operation. Otherwise, an error occurs, and the file is not added or</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- updated.</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- 'name', 'putFile_name' - The name of the person adding or updating the file. Although it is</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- optional, a name makes the commit history for your repository more</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- useful.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- 'commitMessage', 'putFile_commitMessage' - A message about why this file was added or updated. Although it is</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- optional, a message makes the commit history for your repository more</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- useful.</span><span>
 </span><span id="line-127"></span><span class="hs-comment">--</span><span>
 </span><span id="line-128"></span><span class="hs-comment">-- 'repositoryName', 'putFile_repositoryName' - The name of the repository where you want to add or update the file.</span><span>
 </span><span id="line-129"></span><span class="hs-comment">--</span><span>
@@ -211,51 +211,51 @@ $cfrom :: forall x. PutFile -&gt; Rep PutFile x
 </span><span id="line-153"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFile"><span class="hs-identifier hs-type">PutFile</span></a></span><span>
 </span><span id="line-154"></span><span id="newPutFile"><span class="annot"><span class="annottext">newPutFile :: Text -&gt; Text -&gt; ByteString -&gt; Text -&gt; PutFile
 </span><a href="Network.AWS.CodeCommit.PutFile.html#newPutFile"><span class="hs-identifier hs-var hs-var">newPutFile</span></a></span></span><span>
-</span><span id="line-155"></span><span>  </span><span id="local-6989586621679357737"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679357737"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span></span><span>
-</span><span id="line-156"></span><span>  </span><span id="local-6989586621679357736"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679357736"><span class="hs-identifier hs-var">pBranchName_</span></a></span></span><span>
-</span><span id="line-157"></span><span>  </span><span id="local-6989586621679357735"><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679357735"><span class="hs-identifier hs-var">pFileContent_</span></a></span></span><span>
-</span><span id="line-158"></span><span>  </span><span id="local-6989586621679357734"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679357734"><span class="hs-identifier hs-var">pFilePath_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679358022"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679358022"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span></span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679358021"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679358021"><span class="hs-identifier hs-var">pBranchName_</span></a></span></span><span>
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679358020"><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679358020"><span class="hs-identifier hs-var">pFileContent_</span></a></span></span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679358019"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679358019"><span class="hs-identifier hs-var">pFilePath_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-159"></span><span>    </span><span class="annot"><span class="annottext">PutFile' :: Maybe Text
--&gt; Maybe Text
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Maybe FileModeTypeEnum
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Text
 -&gt; Text
 -&gt; Base64
 -&gt; Text
 -&gt; PutFile
 </span><a href="Network.AWS.CodeCommit.PutFile.html#PutFile%27"><span class="hs-identifier hs-type">PutFile'</span></a></span><span>
-</span><span id="line-160"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:parentCommitId:PutFile' :: Maybe Text
-</span><a href="Network.AWS.CodeCommit.PutFile.html#%24sel%3AparentCommitId%3APutFile%27"><span class="hs-identifier hs-var">parentCommitId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-161"></span><span>        </span><span class="annot"><span class="annottext">$sel:commitMessage:PutFile' :: Maybe Text
-</span><a href="Network.AWS.CodeCommit.PutFile.html#%24sel%3AcommitMessage%3APutFile%27"><span class="hs-identifier hs-var">commitMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-162"></span><span>        </span><span class="annot"><span class="annottext">$sel:name:PutFile' :: Maybe Text
-</span><a href="Network.AWS.CodeCommit.PutFile.html#%24sel%3Aname%3APutFile%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-163"></span><span>        </span><span class="annot"><span class="annottext">$sel:email:PutFile' :: Maybe Text
+</span><span id="line-160"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:email:PutFile' :: Maybe Text
 </span><a href="Network.AWS.CodeCommit.PutFile.html#%24sel%3Aemail%3APutFile%27"><span class="hs-identifier hs-var">email</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-164"></span><span>        </span><span class="annot"><span class="annottext">$sel:fileMode:PutFile' :: Maybe FileModeTypeEnum
+</span><span id="line-161"></span><span>        </span><span class="annot"><span class="annottext">$sel:fileMode:PutFile' :: Maybe FileModeTypeEnum
 </span><a href="Network.AWS.CodeCommit.PutFile.html#%24sel%3AfileMode%3APutFile%27"><span class="hs-identifier hs-var">fileMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FileModeTypeEnum
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>        </span><span class="annot"><span class="annottext">$sel:parentCommitId:PutFile' :: Maybe Text
+</span><a href="Network.AWS.CodeCommit.PutFile.html#%24sel%3AparentCommitId%3APutFile%27"><span class="hs-identifier hs-var">parentCommitId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>        </span><span class="annot"><span class="annottext">$sel:name:PutFile' :: Maybe Text
+</span><a href="Network.AWS.CodeCommit.PutFile.html#%24sel%3Aname%3APutFile%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>        </span><span class="annot"><span class="annottext">$sel:commitMessage:PutFile' :: Maybe Text
+</span><a href="Network.AWS.CodeCommit.PutFile.html#%24sel%3AcommitMessage%3APutFile%27"><span class="hs-identifier hs-var">commitMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-165"></span><span>        </span><span class="annot"><span class="annottext">$sel:repositoryName:PutFile' :: Text
 </span><a href="Network.AWS.CodeCommit.PutFile.html#%24sel%3ArepositoryName%3APutFile%27"><span class="hs-identifier hs-var">repositoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679357737"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679358022"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-166"></span><span>        </span><span class="annot"><span class="annottext">$sel:branchName:PutFile' :: Text
 </span><a href="Network.AWS.CodeCommit.PutFile.html#%24sel%3AbranchName%3APutFile%27"><span class="hs-identifier hs-var">branchName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679357736"><span class="hs-identifier hs-var">pBranchName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679358021"><span class="hs-identifier hs-var">pBranchName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-167"></span><span>        </span><span class="annot"><span class="annottext">$sel:fileContent:PutFile' :: Base64
 </span><a href="Network.AWS.CodeCommit.PutFile.html#%24sel%3AfileContent%3APutFile%27"><span class="hs-identifier hs-var">fileContent</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged ByteString (Identity ByteString)
 -&gt; Tagged Base64 (Identity Base64)
@@ -265,114 +265,114 @@ Iso' Base64 ByteString
 -&gt; ByteString -&gt; Base64
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679357735"><span class="hs-identifier hs-var">pFileContent_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679358020"><span class="hs-identifier hs-var">pFileContent_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-168"></span><span>        </span><span class="annot"><span class="annottext">$sel:filePath:PutFile' :: Text
 </span><a href="Network.AWS.CodeCommit.PutFile.html#%24sel%3AfilePath%3APutFile%27"><span class="hs-identifier hs-var">filePath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679357734"><span class="hs-identifier hs-var">pFilePath_</span></a></span><span>
+</span><a href="#local-6989586621679358019"><span class="hs-identifier hs-var">pFilePath_</span></a></span><span>
 </span><span id="line-169"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-170"></span><span>
-</span><span id="line-171"></span><span class="hs-comment">-- | The full commit ID of the head commit in the branch where you want to</span><span>
-</span><span id="line-172"></span><span class="hs-comment">-- add or update the file. If this is an empty repository, no commit ID is</span><span>
-</span><span id="line-173"></span><span class="hs-comment">-- required. If this is not an empty repository, a commit ID is required.</span><span>
-</span><span id="line-174"></span><span class="hs-comment">--</span><span>
-</span><span id="line-175"></span><span class="hs-comment">-- The commit ID must match the ID of the head commit at the time of the</span><span>
-</span><span id="line-176"></span><span class="hs-comment">-- operation. Otherwise, an error occurs, and the file is not added or</span><span>
-</span><span id="line-177"></span><span class="hs-comment">-- updated.</span><span>
-</span><span id="line-178"></span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#putFile_parentCommitId"><span class="hs-identifier hs-type">putFile_parentCommitId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFile"><span class="hs-identifier hs-type">PutFile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-179"></span><span id="putFile_parentCommitId"><span class="annot"><span class="annottext">putFile_parentCommitId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; PutFile -&gt; f PutFile
-</span><a href="Network.AWS.CodeCommit.PutFile.html#putFile_parentCommitId"><span class="hs-identifier hs-var hs-var">putFile_parentCommitId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutFile -&gt; Maybe Text)
--&gt; (PutFile -&gt; Maybe Text -&gt; PutFile)
--&gt; Lens PutFile PutFile (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFile%27"><span class="hs-identifier hs-type">PutFile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357729"><span class="annot"><span class="annottext">Maybe Text
-parentCommitId :: Maybe Text
-$sel:parentCommitId:PutFile' :: PutFile -&gt; Maybe Text
-</span><a href="#local-6989586621679357729"><span class="hs-identifier hs-var hs-var">parentCommitId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679357729"><span class="hs-identifier hs-var">parentCommitId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679357728"><span class="annot"><span class="annottext">s :: PutFile
-</span><a href="#local-6989586621679357728"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFile%27"><span class="hs-identifier hs-type">PutFile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679357727"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679357727"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutFile
-</span><a href="#local-6989586621679357728"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parentCommitId:PutFile' :: Maybe Text
-</span><a href="Network.AWS.CodeCommit.PutFile.html#%24sel%3AparentCommitId%3APutFile%27"><span class="hs-identifier hs-var">parentCommitId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679357727"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFile"><span class="hs-identifier hs-type">PutFile</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-180"></span><span>
-</span><span id="line-181"></span><span class="hs-comment">-- | A message about why this file was added or updated. Although it is</span><span>
-</span><span id="line-182"></span><span class="hs-comment">-- optional, a message makes the commit history for your repository more</span><span>
-</span><span id="line-183"></span><span class="hs-comment">-- useful.</span><span>
-</span><span id="line-184"></span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#putFile_commitMessage"><span class="hs-identifier hs-type">putFile_commitMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFile"><span class="hs-identifier hs-type">PutFile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-185"></span><span id="putFile_commitMessage"><span class="annot"><span class="annottext">putFile_commitMessage :: (Maybe Text -&gt; f (Maybe Text)) -&gt; PutFile -&gt; f PutFile
-</span><a href="Network.AWS.CodeCommit.PutFile.html#putFile_commitMessage"><span class="hs-identifier hs-var hs-var">putFile_commitMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutFile -&gt; Maybe Text)
--&gt; (PutFile -&gt; Maybe Text -&gt; PutFile)
--&gt; Lens PutFile PutFile (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFile%27"><span class="hs-identifier hs-type">PutFile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357726"><span class="annot"><span class="annottext">Maybe Text
-commitMessage :: Maybe Text
-$sel:commitMessage:PutFile' :: PutFile -&gt; Maybe Text
-</span><a href="#local-6989586621679357726"><span class="hs-identifier hs-var hs-var">commitMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679357726"><span class="hs-identifier hs-var">commitMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679357725"><span class="annot"><span class="annottext">s :: PutFile
-</span><a href="#local-6989586621679357725"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFile%27"><span class="hs-identifier hs-type">PutFile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679357724"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679357724"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutFile
-</span><a href="#local-6989586621679357725"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:commitMessage:PutFile' :: Maybe Text
-</span><a href="Network.AWS.CodeCommit.PutFile.html#%24sel%3AcommitMessage%3APutFile%27"><span class="hs-identifier hs-var">commitMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679357724"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFile"><span class="hs-identifier hs-type">PutFile</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-186"></span><span>
-</span><span id="line-187"></span><span class="hs-comment">-- | The name of the person adding or updating the file. Although it is</span><span>
-</span><span id="line-188"></span><span class="hs-comment">-- optional, a name makes the commit history for your repository more</span><span>
-</span><span id="line-189"></span><span class="hs-comment">-- useful.</span><span>
-</span><span id="line-190"></span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#putFile_name"><span class="hs-identifier hs-type">putFile_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFile"><span class="hs-identifier hs-type">PutFile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-191"></span><span id="putFile_name"><span class="annot"><span class="annottext">putFile_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; PutFile -&gt; f PutFile
-</span><a href="Network.AWS.CodeCommit.PutFile.html#putFile_name"><span class="hs-identifier hs-var hs-var">putFile_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutFile -&gt; Maybe Text)
--&gt; (PutFile -&gt; Maybe Text -&gt; PutFile)
--&gt; Lens PutFile PutFile (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFile%27"><span class="hs-identifier hs-type">PutFile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357723"><span class="annot"><span class="annottext">Maybe Text
-name :: Maybe Text
-$sel:name:PutFile' :: PutFile -&gt; Maybe Text
-</span><a href="#local-6989586621679357723"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679357723"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679357722"><span class="annot"><span class="annottext">s :: PutFile
-</span><a href="#local-6989586621679357722"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFile%27"><span class="hs-identifier hs-type">PutFile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679357721"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679357721"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutFile
-</span><a href="#local-6989586621679357722"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:PutFile' :: Maybe Text
-</span><a href="Network.AWS.CodeCommit.PutFile.html#%24sel%3Aname%3APutFile%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679357721"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFile"><span class="hs-identifier hs-type">PutFile</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-192"></span><span>
-</span><span id="line-193"></span><span class="hs-comment">-- | An email address for the person adding or updating the file.</span><span>
-</span><span id="line-194"></span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#putFile_email"><span class="hs-identifier hs-type">putFile_email</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFile"><span class="hs-identifier hs-type">PutFile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-195"></span><span id="putFile_email"><span class="annot"><span class="annottext">putFile_email :: (Maybe Text -&gt; f (Maybe Text)) -&gt; PutFile -&gt; f PutFile
+</span><span id="line-171"></span><span class="hs-comment">-- | An email address for the person adding or updating the file.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#putFile_email"><span class="hs-identifier hs-type">putFile_email</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFile"><span class="hs-identifier hs-type">PutFile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span id="putFile_email"><span class="annot"><span class="annottext">putFile_email :: (Maybe Text -&gt; f (Maybe Text)) -&gt; PutFile -&gt; f PutFile
 </span><a href="Network.AWS.CodeCommit.PutFile.html#putFile_email"><span class="hs-identifier hs-var hs-var">putFile_email</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutFile -&gt; Maybe Text)
 -&gt; (PutFile -&gt; Maybe Text -&gt; PutFile)
 -&gt; Lens PutFile PutFile (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFile%27"><span class="hs-identifier hs-type">PutFile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357720"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFile%27"><span class="hs-identifier hs-type">PutFile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679358014"><span class="annot"><span class="annottext">Maybe Text
 email :: Maybe Text
 $sel:email:PutFile' :: PutFile -&gt; Maybe Text
-</span><a href="#local-6989586621679357720"><span class="hs-identifier hs-var hs-var">email</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679357720"><span class="hs-identifier hs-var">email</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679357719"><span class="annot"><span class="annottext">s :: PutFile
-</span><a href="#local-6989586621679357719"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFile%27"><span class="hs-identifier hs-type">PutFile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679357718"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679357718"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutFile
-</span><a href="#local-6989586621679357719"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:email:PutFile' :: Maybe Text
+</span><a href="#local-6989586621679358014"><span class="hs-identifier hs-var hs-var">email</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679358014"><span class="hs-identifier hs-var">email</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679358013"><span class="annot"><span class="annottext">s :: PutFile
+</span><a href="#local-6989586621679358013"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFile%27"><span class="hs-identifier hs-type">PutFile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679358012"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679358012"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutFile
+</span><a href="#local-6989586621679358013"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:email:PutFile' :: Maybe Text
 </span><a href="Network.AWS.CodeCommit.PutFile.html#%24sel%3Aemail%3APutFile%27"><span class="hs-identifier hs-var">email</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679357718"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFile"><span class="hs-identifier hs-type">PutFile</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-196"></span><span>
-</span><span id="line-197"></span><span class="hs-comment">-- | The file mode permissions of the blob. Valid file mode permissions are</span><span>
-</span><span id="line-198"></span><span class="hs-comment">-- listed here.</span><span>
-</span><span id="line-199"></span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#putFile_fileMode"><span class="hs-identifier hs-type">putFile_fileMode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFile"><span class="hs-identifier hs-type">PutFile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.FileModeTypeEnum.html#FileModeTypeEnum"><span class="hs-identifier hs-type">FileModeTypeEnum</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-200"></span><span id="putFile_fileMode"><span class="annot"><span class="annottext">putFile_fileMode :: (Maybe FileModeTypeEnum -&gt; f (Maybe FileModeTypeEnum))
+</span><a href="#local-6989586621679358012"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFile"><span class="hs-identifier hs-type">PutFile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- | The file mode permissions of the blob. Valid file mode permissions are</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- listed here.</span><span>
+</span><span id="line-177"></span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#putFile_fileMode"><span class="hs-identifier hs-type">putFile_fileMode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFile"><span class="hs-identifier hs-type">PutFile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.FileModeTypeEnum.html#FileModeTypeEnum"><span class="hs-identifier hs-type">FileModeTypeEnum</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span id="putFile_fileMode"><span class="annot"><span class="annottext">putFile_fileMode :: (Maybe FileModeTypeEnum -&gt; f (Maybe FileModeTypeEnum))
 -&gt; PutFile -&gt; f PutFile
 </span><a href="Network.AWS.CodeCommit.PutFile.html#putFile_fileMode"><span class="hs-identifier hs-var hs-var">putFile_fileMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutFile -&gt; Maybe FileModeTypeEnum)
 -&gt; (PutFile -&gt; Maybe FileModeTypeEnum -&gt; PutFile)
 -&gt; Lens
      PutFile PutFile (Maybe FileModeTypeEnum) (Maybe FileModeTypeEnum)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFile%27"><span class="hs-identifier hs-type">PutFile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357717"><span class="annot"><span class="annottext">Maybe FileModeTypeEnum
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFile%27"><span class="hs-identifier hs-type">PutFile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679358011"><span class="annot"><span class="annottext">Maybe FileModeTypeEnum
 fileMode :: Maybe FileModeTypeEnum
 $sel:fileMode:PutFile' :: PutFile -&gt; Maybe FileModeTypeEnum
-</span><a href="#local-6989586621679357717"><span class="hs-identifier hs-var hs-var">fileMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FileModeTypeEnum
-</span><a href="#local-6989586621679357717"><span class="hs-identifier hs-var">fileMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679357716"><span class="annot"><span class="annottext">s :: PutFile
-</span><a href="#local-6989586621679357716"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFile%27"><span class="hs-identifier hs-type">PutFile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679357715"><span class="annot"><span class="annottext">Maybe FileModeTypeEnum
-</span><a href="#local-6989586621679357715"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutFile
-</span><a href="#local-6989586621679357716"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fileMode:PutFile' :: Maybe FileModeTypeEnum
+</span><a href="#local-6989586621679358011"><span class="hs-identifier hs-var hs-var">fileMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FileModeTypeEnum
+</span><a href="#local-6989586621679358011"><span class="hs-identifier hs-var">fileMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679358010"><span class="annot"><span class="annottext">s :: PutFile
+</span><a href="#local-6989586621679358010"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFile%27"><span class="hs-identifier hs-type">PutFile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679358009"><span class="annot"><span class="annottext">Maybe FileModeTypeEnum
+</span><a href="#local-6989586621679358009"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutFile
+</span><a href="#local-6989586621679358010"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fileMode:PutFile' :: Maybe FileModeTypeEnum
 </span><a href="Network.AWS.CodeCommit.PutFile.html#%24sel%3AfileMode%3APutFile%27"><span class="hs-identifier hs-var">fileMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FileModeTypeEnum
-</span><a href="#local-6989586621679357715"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFile"><span class="hs-identifier hs-type">PutFile</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679358009"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFile"><span class="hs-identifier hs-type">PutFile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- | The full commit ID of the head commit in the branch where you want to</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- add or update the file. If this is an empty repository, no commit ID is</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- required. If this is not an empty repository, a commit ID is required.</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- The commit ID must match the ID of the head commit at the time of the</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- operation. Otherwise, an error occurs, and the file is not added or</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- updated.</span><span>
+</span><span id="line-187"></span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#putFile_parentCommitId"><span class="hs-identifier hs-type">putFile_parentCommitId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFile"><span class="hs-identifier hs-type">PutFile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span id="putFile_parentCommitId"><span class="annot"><span class="annottext">putFile_parentCommitId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; PutFile -&gt; f PutFile
+</span><a href="Network.AWS.CodeCommit.PutFile.html#putFile_parentCommitId"><span class="hs-identifier hs-var hs-var">putFile_parentCommitId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutFile -&gt; Maybe Text)
+-&gt; (PutFile -&gt; Maybe Text -&gt; PutFile)
+-&gt; Lens PutFile PutFile (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFile%27"><span class="hs-identifier hs-type">PutFile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679358008"><span class="annot"><span class="annottext">Maybe Text
+parentCommitId :: Maybe Text
+$sel:parentCommitId:PutFile' :: PutFile -&gt; Maybe Text
+</span><a href="#local-6989586621679358008"><span class="hs-identifier hs-var hs-var">parentCommitId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679358008"><span class="hs-identifier hs-var">parentCommitId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679358007"><span class="annot"><span class="annottext">s :: PutFile
+</span><a href="#local-6989586621679358007"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFile%27"><span class="hs-identifier hs-type">PutFile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679358006"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679358006"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutFile
+</span><a href="#local-6989586621679358007"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parentCommitId:PutFile' :: Maybe Text
+</span><a href="Network.AWS.CodeCommit.PutFile.html#%24sel%3AparentCommitId%3APutFile%27"><span class="hs-identifier hs-var">parentCommitId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679358006"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFile"><span class="hs-identifier hs-type">PutFile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- | The name of the person adding or updating the file. Although it is</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- optional, a name makes the commit history for your repository more</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- useful.</span><span>
+</span><span id="line-193"></span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#putFile_name"><span class="hs-identifier hs-type">putFile_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFile"><span class="hs-identifier hs-type">PutFile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span id="putFile_name"><span class="annot"><span class="annottext">putFile_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; PutFile -&gt; f PutFile
+</span><a href="Network.AWS.CodeCommit.PutFile.html#putFile_name"><span class="hs-identifier hs-var hs-var">putFile_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutFile -&gt; Maybe Text)
+-&gt; (PutFile -&gt; Maybe Text -&gt; PutFile)
+-&gt; Lens PutFile PutFile (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFile%27"><span class="hs-identifier hs-type">PutFile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679358005"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:PutFile' :: PutFile -&gt; Maybe Text
+</span><a href="#local-6989586621679358005"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679358005"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679358004"><span class="annot"><span class="annottext">s :: PutFile
+</span><a href="#local-6989586621679358004"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFile%27"><span class="hs-identifier hs-type">PutFile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679358003"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679358003"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutFile
+</span><a href="#local-6989586621679358004"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:PutFile' :: Maybe Text
+</span><a href="Network.AWS.CodeCommit.PutFile.html#%24sel%3Aname%3APutFile%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679358003"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFile"><span class="hs-identifier hs-type">PutFile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- | A message about why this file was added or updated. Although it is</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- optional, a message makes the commit history for your repository more</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- useful.</span><span>
+</span><span id="line-199"></span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#putFile_commitMessage"><span class="hs-identifier hs-type">putFile_commitMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFile"><span class="hs-identifier hs-type">PutFile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span id="putFile_commitMessage"><span class="annot"><span class="annottext">putFile_commitMessage :: (Maybe Text -&gt; f (Maybe Text)) -&gt; PutFile -&gt; f PutFile
+</span><a href="Network.AWS.CodeCommit.PutFile.html#putFile_commitMessage"><span class="hs-identifier hs-var hs-var">putFile_commitMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutFile -&gt; Maybe Text)
+-&gt; (PutFile -&gt; Maybe Text -&gt; PutFile)
+-&gt; Lens PutFile PutFile (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFile%27"><span class="hs-identifier hs-type">PutFile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679358002"><span class="annot"><span class="annottext">Maybe Text
+commitMessage :: Maybe Text
+$sel:commitMessage:PutFile' :: PutFile -&gt; Maybe Text
+</span><a href="#local-6989586621679358002"><span class="hs-identifier hs-var hs-var">commitMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679358002"><span class="hs-identifier hs-var">commitMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679358001"><span class="annot"><span class="annottext">s :: PutFile
+</span><a href="#local-6989586621679358001"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFile%27"><span class="hs-identifier hs-type">PutFile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679358000"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679358000"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutFile
+</span><a href="#local-6989586621679358001"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:commitMessage:PutFile' :: Maybe Text
+</span><a href="Network.AWS.CodeCommit.PutFile.html#%24sel%3AcommitMessage%3APutFile%27"><span class="hs-identifier hs-var">commitMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679358000"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFile"><span class="hs-identifier hs-type">PutFile</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-201"></span><span>
 </span><span id="line-202"></span><span class="hs-comment">-- | The name of the repository where you want to add or update the file.</span><span>
 </span><span id="line-203"></span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#putFile_repositoryName"><span class="hs-identifier hs-type">putFile_repositoryName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFile"><span class="hs-identifier hs-type">PutFile</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -380,16 +380,16 @@ $sel:fileMode:PutFile' :: PutFile -&gt; Maybe FileModeTypeEnum
 </span><a href="Network.AWS.CodeCommit.PutFile.html#putFile_repositoryName"><span class="hs-identifier hs-var hs-var">putFile_repositoryName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutFile -&gt; Text)
 -&gt; (PutFile -&gt; Text -&gt; PutFile) -&gt; Lens PutFile PutFile Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFile%27"><span class="hs-identifier hs-type">PutFile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357714"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFile%27"><span class="hs-identifier hs-type">PutFile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357999"><span class="annot"><span class="annottext">Text
 repositoryName :: Text
 $sel:repositoryName:PutFile' :: PutFile -&gt; Text
-</span><a href="#local-6989586621679357714"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679357714"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679357713"><span class="annot"><span class="annottext">s :: PutFile
-</span><a href="#local-6989586621679357713"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFile%27"><span class="hs-identifier hs-type">PutFile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679357712"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679357712"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutFile
-</span><a href="#local-6989586621679357713"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoryName:PutFile' :: Text
+</span><a href="#local-6989586621679357999"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357999"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679357998"><span class="annot"><span class="annottext">s :: PutFile
+</span><a href="#local-6989586621679357998"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFile%27"><span class="hs-identifier hs-type">PutFile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679357997"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357997"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutFile
+</span><a href="#local-6989586621679357998"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoryName:PutFile' :: Text
 </span><a href="Network.AWS.CodeCommit.PutFile.html#%24sel%3ArepositoryName%3APutFile%27"><span class="hs-identifier hs-var">repositoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679357712"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFile"><span class="hs-identifier hs-type">PutFile</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679357997"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFile"><span class="hs-identifier hs-type">PutFile</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-205"></span><span>
 </span><span id="line-206"></span><span class="hs-comment">-- | The name of the branch where you want to add or update the file. If this</span><span>
 </span><span id="line-207"></span><span class="hs-comment">-- is an empty repository, this branch is created.</span><span>
@@ -398,16 +398,16 @@ $sel:repositoryName:PutFile' :: PutFile -&gt; Text
 </span><a href="Network.AWS.CodeCommit.PutFile.html#putFile_branchName"><span class="hs-identifier hs-var hs-var">putFile_branchName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutFile -&gt; Text)
 -&gt; (PutFile -&gt; Text -&gt; PutFile) -&gt; Lens PutFile PutFile Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFile%27"><span class="hs-identifier hs-type">PutFile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357711"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFile%27"><span class="hs-identifier hs-type">PutFile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357996"><span class="annot"><span class="annottext">Text
 branchName :: Text
 $sel:branchName:PutFile' :: PutFile -&gt; Text
-</span><a href="#local-6989586621679357711"><span class="hs-identifier hs-var hs-var">branchName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679357711"><span class="hs-identifier hs-var">branchName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679357710"><span class="annot"><span class="annottext">s :: PutFile
-</span><a href="#local-6989586621679357710"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFile%27"><span class="hs-identifier hs-type">PutFile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679357709"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679357709"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutFile
-</span><a href="#local-6989586621679357710"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:branchName:PutFile' :: Text
+</span><a href="#local-6989586621679357996"><span class="hs-identifier hs-var hs-var">branchName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357996"><span class="hs-identifier hs-var">branchName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679357995"><span class="annot"><span class="annottext">s :: PutFile
+</span><a href="#local-6989586621679357995"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFile%27"><span class="hs-identifier hs-type">PutFile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679357994"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357994"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutFile
+</span><a href="#local-6989586621679357995"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:branchName:PutFile' :: Text
 </span><a href="Network.AWS.CodeCommit.PutFile.html#%24sel%3AbranchName%3APutFile%27"><span class="hs-identifier hs-var">branchName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679357709"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFile"><span class="hs-identifier hs-type">PutFile</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679357994"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFile"><span class="hs-identifier hs-type">PutFile</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-210"></span><span>
 </span><span id="line-211"></span><span class="hs-comment">-- | The content of the file, in binary object format.--</span><span>
 </span><span id="line-212"></span><span class="hs-comment">-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.</span><span>
@@ -420,16 +420,16 @@ $sel:branchName:PutFile' :: PutFile -&gt; Text
 -&gt; (PutFile -&gt; Base64 -&gt; PutFile)
 -&gt; Lens PutFile PutFile Base64 Base64
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFile%27"><span class="hs-identifier hs-type">PutFile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357708"><span class="annot"><span class="annottext">Base64
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFile%27"><span class="hs-identifier hs-type">PutFile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357993"><span class="annot"><span class="annottext">Base64
 fileContent :: Base64
 $sel:fileContent:PutFile' :: PutFile -&gt; Base64
-</span><a href="#local-6989586621679357708"><span class="hs-identifier hs-var hs-var">fileContent</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Base64
-</span><a href="#local-6989586621679357708"><span class="hs-identifier hs-var">fileContent</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679357707"><span class="annot"><span class="annottext">s :: PutFile
-</span><a href="#local-6989586621679357707"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFile%27"><span class="hs-identifier hs-type">PutFile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679357706"><span class="annot"><span class="annottext">Base64
-</span><a href="#local-6989586621679357706"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutFile
-</span><a href="#local-6989586621679357707"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fileContent:PutFile' :: Base64
+</span><a href="#local-6989586621679357993"><span class="hs-identifier hs-var hs-var">fileContent</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Base64
+</span><a href="#local-6989586621679357993"><span class="hs-identifier hs-var">fileContent</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679357992"><span class="annot"><span class="annottext">s :: PutFile
+</span><a href="#local-6989586621679357992"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFile%27"><span class="hs-identifier hs-type">PutFile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679357991"><span class="annot"><span class="annottext">Base64
+</span><a href="#local-6989586621679357991"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutFile
+</span><a href="#local-6989586621679357992"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fileContent:PutFile' :: Base64
 </span><a href="Network.AWS.CodeCommit.PutFile.html#%24sel%3AfileContent%3APutFile%27"><span class="hs-identifier hs-var">fileContent</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Base64
-</span><a href="#local-6989586621679357706"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFile"><span class="hs-identifier hs-type">PutFile</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Base64 -&gt; f Base64) -&gt; PutFile -&gt; f PutFile)
+</span><a href="#local-6989586621679357991"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFile"><span class="hs-identifier hs-type">PutFile</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Base64 -&gt; f Base64) -&gt; PutFile -&gt; f PutFile)
 -&gt; ((ByteString -&gt; f ByteString) -&gt; Base64 -&gt; f Base64)
 -&gt; (ByteString -&gt; f ByteString)
 -&gt; PutFile
@@ -449,25 +449,25 @@ Iso' Base64 ByteString
 </span><a href="Network.AWS.CodeCommit.PutFile.html#putFile_filePath"><span class="hs-identifier hs-var hs-var">putFile_filePath</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutFile -&gt; Text)
 -&gt; (PutFile -&gt; Text -&gt; PutFile) -&gt; Lens PutFile PutFile Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFile%27"><span class="hs-identifier hs-type">PutFile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357704"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFile%27"><span class="hs-identifier hs-type">PutFile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357989"><span class="annot"><span class="annottext">Text
 filePath :: Text
 $sel:filePath:PutFile' :: PutFile -&gt; Text
-</span><a href="#local-6989586621679357704"><span class="hs-identifier hs-var hs-var">filePath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679357704"><span class="hs-identifier hs-var">filePath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679357703"><span class="annot"><span class="annottext">s :: PutFile
-</span><a href="#local-6989586621679357703"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFile%27"><span class="hs-identifier hs-type">PutFile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679357702"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679357702"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutFile
-</span><a href="#local-6989586621679357703"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filePath:PutFile' :: Text
+</span><a href="#local-6989586621679357989"><span class="hs-identifier hs-var hs-var">filePath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357989"><span class="hs-identifier hs-var">filePath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679357988"><span class="annot"><span class="annottext">s :: PutFile
+</span><a href="#local-6989586621679357988"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFile%27"><span class="hs-identifier hs-type">PutFile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679357987"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357987"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutFile
+</span><a href="#local-6989586621679357988"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filePath:PutFile' :: Text
 </span><a href="Network.AWS.CodeCommit.PutFile.html#%24sel%3AfilePath%3APutFile%27"><span class="hs-identifier hs-var">filePath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679357702"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFile"><span class="hs-identifier hs-type">PutFile</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679357987"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFile"><span class="hs-identifier hs-type">PutFile</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-226"></span><span>
 </span><span id="line-227"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFile"><span class="hs-identifier hs-type">PutFile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-228"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFile"><span class="hs-identifier hs-type">PutFile</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFileResponse"><span class="hs-identifier hs-type">PutFileResponse</span></a></span><span>
-</span><span id="line-229"></span><span>  </span><span id="local-6989586621679357698"><span class="annot"><span class="annottext">request :: PutFile -&gt; Request PutFile
+</span><span id="line-229"></span><span>  </span><span id="local-6989586621679357983"><span class="annot"><span class="annottext">request :: PutFile -&gt; Request PutFile
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; PutFile -&gt; Request PutFile
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CodeCommit.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-230"></span><span>  </span><span id="local-6989586621679357694"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-230"></span><span>  </span><span id="local-6989586621679357979"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy PutFile
 -&gt; ClientResponse ClientBody
@@ -491,10 +491,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-232"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679357691"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679357691"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679357690"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679357690"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679357689"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679357689"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-232"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679357976"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679357976"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679357975"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679357975"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679357974"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679357974"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-233"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Text -&gt; Text -&gt; Text -&gt; PutFileResponse
 </span><a href="Network.AWS.CodeCommit.PutFile.html#PutFileResponse%27"><span class="hs-identifier hs-var">PutFileResponse'</span></a></span><span>
 </span><span id="line-234"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; Text -&gt; Text -&gt; Text -&gt; PutFileResponse)
@@ -506,13 +506,13 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679357691"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679357976"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-235"></span><span>            </span><span class="annot"><span class="annottext">Either String (Text -&gt; Text -&gt; Text -&gt; PutFileResponse)
 -&gt; Either String Text
 -&gt; Either String (Text -&gt; Text -&gt; PutFileResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679357689"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679357974"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;commitId&quot;</span></span><span class="hs-special">)</span><span>
@@ -520,7 +520,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 -&gt; Either String Text -&gt; Either String (Text -&gt; PutFileResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679357689"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679357974"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;blobId&quot;</span></span><span class="hs-special">)</span><span>
@@ -528,18 +528,18 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 -&gt; Either String Text -&gt; Either String PutFileResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679357689"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679357974"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;treeId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-238"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-239"></span><span>
-</span><span id="line-240"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679357681"><span id="local-6989586621679357683"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFile"><span class="hs-identifier hs-type">PutFile</span></a></span></span></span><span>
+</span><span id="line-240"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679357966"><span id="local-6989586621679357968"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFile"><span class="hs-identifier hs-type">PutFile</span></a></span></span></span><span>
 </span><span id="line-241"></span><span>
-</span><span id="line-242"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679357678"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFile"><span class="hs-identifier hs-type">PutFile</span></a></span></span><span>
+</span><span id="line-242"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679357963"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFile"><span class="hs-identifier hs-type">PutFile</span></a></span></span><span>
 </span><span id="line-243"></span><span>
 </span><span id="line-244"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFile"><span class="hs-identifier hs-type">PutFile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-245"></span><span>  </span><span id="local-6989586621679357674"><span class="annot"><span class="annottext">toHeaders :: PutFile -&gt; ResponseHeaders
+</span><span id="line-245"></span><span>  </span><span id="local-6989586621679357959"><span class="annot"><span class="annottext">toHeaders :: PutFile -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-246"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; PutFile -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -566,9 +566,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-256"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-257"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-258"></span><span>
-</span><span id="line-259"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679357664"><span id="local-6989586621679357666"><span id="local-6989586621679357668"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFile"><span class="hs-identifier hs-type">PutFile</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-260"></span><span>  </span><span id="local-6989586621679357662"><span class="annot"><span class="annottext">toJSON :: PutFile -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFile%27"><span class="hs-identifier hs-type">PutFile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357652"><span id="local-6989586621679357653"><span id="local-6989586621679357654"><span id="local-6989586621679357655"><span id="local-6989586621679357656"><span id="local-6989586621679357657"><span id="local-6989586621679357658"><span id="local-6989586621679357659"><span id="local-6989586621679357660"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-259"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679357949"><span id="local-6989586621679357951"><span id="local-6989586621679357953"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFile"><span class="hs-identifier hs-type">PutFile</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-260"></span><span>  </span><span id="local-6989586621679357947"><span class="annot"><span class="annottext">toJSON :: PutFile -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFile%27"><span class="hs-identifier hs-type">PutFile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357937"><span id="local-6989586621679357938"><span id="local-6989586621679357939"><span id="local-6989586621679357940"><span id="local-6989586621679357941"><span id="local-6989586621679357942"><span id="local-6989586621679357943"><span id="local-6989586621679357944"><span id="local-6989586621679357945"><span class="annot"><span class="annottext">Maybe Text
 Maybe FileModeTypeEnum
 Text
 Base64
@@ -576,62 +576,62 @@ filePath :: Text
 fileContent :: Base64
 branchName :: Text
 repositoryName :: Text
+commitMessage :: Maybe Text
+name :: Maybe Text
+parentCommitId :: Maybe Text
 fileMode :: Maybe FileModeTypeEnum
 email :: Maybe Text
-name :: Maybe Text
-commitMessage :: Maybe Text
-parentCommitId :: Maybe Text
 $sel:filePath:PutFile' :: PutFile -&gt; Text
 $sel:fileContent:PutFile' :: PutFile -&gt; Base64
 $sel:branchName:PutFile' :: PutFile -&gt; Text
 $sel:repositoryName:PutFile' :: PutFile -&gt; Text
+$sel:commitMessage:PutFile' :: PutFile -&gt; Maybe Text
+$sel:name:PutFile' :: PutFile -&gt; Maybe Text
+$sel:parentCommitId:PutFile' :: PutFile -&gt; Maybe Text
 $sel:fileMode:PutFile' :: PutFile -&gt; Maybe FileModeTypeEnum
 $sel:email:PutFile' :: PutFile -&gt; Maybe Text
-$sel:name:PutFile' :: PutFile -&gt; Maybe Text
-$sel:commitMessage:PutFile' :: PutFile -&gt; Maybe Text
-$sel:parentCommitId:PutFile' :: PutFile -&gt; Maybe Text
-</span><a href="#local-6989586621679357652"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679357937"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-261"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-262"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-263"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;parentCommitId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-264"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679357660"><span class="hs-identifier hs-var">parentCommitId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-265"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;commitMessage&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679357659"><span class="hs-identifier hs-var">commitMessage</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-266"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679357658"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-267"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;email&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679357657"><span class="hs-identifier hs-var">email</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-268"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357945"><span class="hs-identifier hs-var">email</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-264"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;fileMode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; FileModeTypeEnum -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(FileModeTypeEnum -&gt; Pair) -&gt; Maybe FileModeTypeEnum -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe FileModeTypeEnum
-</span><a href="#local-6989586621679357656"><span class="hs-identifier hs-var">fileMode</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679357944"><span class="hs-identifier hs-var">fileMode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-265"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;parentCommitId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-266"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679357943"><span class="hs-identifier hs-var">parentCommitId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-267"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679357942"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-268"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;commitMessage&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679357941"><span class="hs-identifier hs-var">commitMessage</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-269"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -639,40 +639,40 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;repositoryName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679357655"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679357940"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-271"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;branchName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679357654"><span class="hs-identifier hs-var">branchName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679357939"><span class="hs-identifier hs-var">branchName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-272"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;fileContent&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Base64 -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Base64
-</span><a href="#local-6989586621679357653"><span class="hs-identifier hs-var">fileContent</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679357938"><span class="hs-identifier hs-var">fileContent</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-273"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;filePath&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679357652"><span class="hs-identifier hs-var">filePath</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679357937"><span class="hs-identifier hs-var">filePath</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-274"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-275"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-276"></span><span>
 </span><span id="line-277"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFile"><span class="hs-identifier hs-type">PutFile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-278"></span><span>  </span><span id="local-6989586621679357646"><span class="annot"><span class="annottext">toPath :: PutFile -&gt; ByteString
+</span><span id="line-278"></span><span>  </span><span id="local-6989586621679357931"><span class="annot"><span class="annottext">toPath :: PutFile -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; PutFile -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-279"></span><span>
 </span><span id="line-280"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFile"><span class="hs-identifier hs-type">PutFile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-281"></span><span>  </span><span id="local-6989586621679357642"><span class="annot"><span class="annottext">toQuery :: PutFile -&gt; QueryString
+</span><span id="line-281"></span><span>  </span><span id="local-6989586621679357927"><span class="annot"><span class="annottext">toQuery :: PutFile -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; PutFile -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -680,7 +680,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-282"></span><span>
 </span><span id="line-283"></span><span class="hs-comment">-- | /See:/ 'newPutFileResponse' smart constructor.</span><span>
-</span><span id="line-284"></span><span id="local-6989586621679357639"><span id="local-6989586621679357640"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutFileResponse"><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFileResponse"><span class="hs-identifier hs-var">PutFileResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutFileResponse%27"><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFileResponse%27"><span class="hs-identifier hs-var">PutFileResponse'</span></a></span></span><span>
+</span><span id="line-284"></span><span id="local-6989586621679357924"><span id="local-6989586621679357925"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutFileResponse"><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFileResponse"><span class="hs-identifier hs-var">PutFileResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutFileResponse%27"><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFileResponse%27"><span class="hs-identifier hs-var">PutFileResponse'</span></a></span></span><span>
 </span><span id="line-285"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-286"></span><span>    </span><span id="%24sel%3AhttpStatus%3APutFileResponse%27"><span class="annot"><span class="annottext">PutFileResponse -&gt; Int
 </span><a href="Network.AWS.CodeCommit.PutFile.html#%24sel%3AhttpStatus%3APutFileResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -695,7 +695,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-293"></span><span>    </span><span id="%24sel%3AtreeId%3APutFileResponse%27"><span class="annot"><span class="annottext">PutFileResponse -&gt; Text
 </span><a href="Network.AWS.CodeCommit.PutFile.html#%24sel%3AtreeId%3APutFileResponse%27"><span class="hs-identifier hs-var hs-var">treeId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-294"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-295"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679357631"><span id="local-6989586621679357633"><span class="annot"><span class="annottext">PutFileResponse -&gt; PutFileResponse -&gt; Bool
+</span><span id="line-295"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679357916"><span id="local-6989586621679357918"><span class="annot"><span class="annottext">PutFileResponse -&gt; PutFileResponse -&gt; Bool
 (PutFileResponse -&gt; PutFileResponse -&gt; Bool)
 -&gt; (PutFileResponse -&gt; PutFileResponse -&gt; Bool)
 -&gt; Eq PutFileResponse
@@ -704,7 +704,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutFileResponse -&gt; PutFileResponse -&gt; Bool
 == :: PutFileResponse -&gt; PutFileResponse -&gt; Bool
 $c== :: PutFileResponse -&gt; PutFileResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679357623"><span id="local-6989586621679357625"><span id="local-6989586621679357627"><span id="local-6989586621679357629"><span class="annot"><span class="annottext">ReadPrec [PutFileResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679357908"><span id="local-6989586621679357910"><span id="local-6989586621679357912"><span id="local-6989586621679357914"><span class="annot"><span class="annottext">ReadPrec [PutFileResponse]
 ReadPrec PutFileResponse
 Int -&gt; ReadS PutFileResponse
 ReadS [PutFileResponse]
@@ -724,7 +724,7 @@ readList :: ReadS [PutFileResponse]
 $creadList :: ReadS [PutFileResponse]
 readsPrec :: Int -&gt; ReadS PutFileResponse
 $creadsPrec :: Int -&gt; ReadS PutFileResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679357617"><span id="local-6989586621679357619"><span id="local-6989586621679357621"><span class="annot"><span class="annottext">Int -&gt; PutFileResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679357902"><span id="local-6989586621679357904"><span id="local-6989586621679357906"><span class="annot"><span class="annottext">Int -&gt; PutFileResponse -&gt; ShowS
 [PutFileResponse] -&gt; ShowS
 PutFileResponse -&gt; String
 (Int -&gt; PutFileResponse -&gt; ShowS)
@@ -778,28 +778,28 @@ $cfrom :: forall x. PutFileResponse -&gt; Rep PutFileResponse x
 </span><span id="line-322"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFileResponse"><span class="hs-identifier hs-type">PutFileResponse</span></a></span><span>
 </span><span id="line-323"></span><span id="newPutFileResponse"><span class="annot"><span class="annottext">newPutFileResponse :: Int -&gt; Text -&gt; Text -&gt; Text -&gt; PutFileResponse
 </span><a href="Network.AWS.CodeCommit.PutFile.html#newPutFileResponse"><span class="hs-identifier hs-var hs-var">newPutFileResponse</span></a></span></span><span>
-</span><span id="line-324"></span><span>  </span><span id="local-6989586621679357614"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679357614"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
-</span><span id="line-325"></span><span>  </span><span id="local-6989586621679357613"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679357613"><span class="hs-identifier hs-var">pCommitId_</span></a></span></span><span>
-</span><span id="line-326"></span><span>  </span><span id="local-6989586621679357612"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679357612"><span class="hs-identifier hs-var">pBlobId_</span></a></span></span><span>
-</span><span id="line-327"></span><span>  </span><span id="local-6989586621679357611"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679357611"><span class="hs-identifier hs-var">pTreeId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-324"></span><span>  </span><span id="local-6989586621679357899"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679357899"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-325"></span><span>  </span><span id="local-6989586621679357898"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357898"><span class="hs-identifier hs-var">pCommitId_</span></a></span></span><span>
+</span><span id="line-326"></span><span>  </span><span id="local-6989586621679357897"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357897"><span class="hs-identifier hs-var">pBlobId_</span></a></span></span><span>
+</span><span id="line-327"></span><span>  </span><span id="local-6989586621679357896"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357896"><span class="hs-identifier hs-var">pTreeId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-328"></span><span>    </span><span class="annot"><span class="annottext">PutFileResponse' :: Int -&gt; Text -&gt; Text -&gt; Text -&gt; PutFileResponse
 </span><a href="Network.AWS.CodeCommit.PutFile.html#PutFileResponse%27"><span class="hs-identifier hs-type">PutFileResponse'</span></a></span><span>
 </span><span id="line-329"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:PutFileResponse' :: Int
 </span><a href="Network.AWS.CodeCommit.PutFile.html#%24sel%3AhttpStatus%3APutFileResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679357614"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679357899"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-330"></span><span>        </span><span class="annot"><span class="annottext">$sel:commitId:PutFileResponse' :: Text
 </span><a href="Network.AWS.CodeCommit.PutFile.html#%24sel%3AcommitId%3APutFileResponse%27"><span class="hs-identifier hs-var">commitId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679357613"><span class="hs-identifier hs-var">pCommitId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679357898"><span class="hs-identifier hs-var">pCommitId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-331"></span><span>        </span><span class="annot"><span class="annottext">$sel:blobId:PutFileResponse' :: Text
 </span><a href="Network.AWS.CodeCommit.PutFile.html#%24sel%3AblobId%3APutFileResponse%27"><span class="hs-identifier hs-var">blobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679357612"><span class="hs-identifier hs-var">pBlobId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679357897"><span class="hs-identifier hs-var">pBlobId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-332"></span><span>        </span><span class="annot"><span class="annottext">$sel:treeId:PutFileResponse' :: Text
 </span><a href="Network.AWS.CodeCommit.PutFile.html#%24sel%3AtreeId%3APutFileResponse%27"><span class="hs-identifier hs-var">treeId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679357611"><span class="hs-identifier hs-var">pTreeId_</span></a></span><span>
+</span><a href="#local-6989586621679357896"><span class="hs-identifier hs-var">pTreeId_</span></a></span><span>
 </span><span id="line-333"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-334"></span><span>
 </span><span id="line-335"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -809,16 +809,16 @@ $cfrom :: forall x. PutFileResponse -&gt; Rep PutFileResponse x
 -&gt; (PutFileResponse -&gt; Int -&gt; PutFileResponse)
 -&gt; Lens PutFileResponse PutFileResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFileResponse%27"><span class="hs-identifier hs-type">PutFileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357610"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFileResponse%27"><span class="hs-identifier hs-type">PutFileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357895"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:PutFileResponse' :: PutFileResponse -&gt; Int
-</span><a href="#local-6989586621679357610"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679357610"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679357609"><span class="annot"><span class="annottext">s :: PutFileResponse
-</span><a href="#local-6989586621679357609"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFileResponse%27"><span class="hs-identifier hs-type">PutFileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679357608"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679357608"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutFileResponse
-</span><a href="#local-6989586621679357609"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutFileResponse' :: Int
+</span><a href="#local-6989586621679357895"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679357895"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679357894"><span class="annot"><span class="annottext">s :: PutFileResponse
+</span><a href="#local-6989586621679357894"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFileResponse%27"><span class="hs-identifier hs-type">PutFileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679357893"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679357893"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutFileResponse
+</span><a href="#local-6989586621679357894"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutFileResponse' :: Int
 </span><a href="Network.AWS.CodeCommit.PutFile.html#%24sel%3AhttpStatus%3APutFileResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679357608"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFileResponse"><span class="hs-identifier hs-type">PutFileResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679357893"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFileResponse"><span class="hs-identifier hs-type">PutFileResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-338"></span><span>
 </span><span id="line-339"></span><span class="hs-comment">-- | The full SHA ID of the commit that contains this file change.</span><span>
 </span><span id="line-340"></span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#putFileResponse_commitId"><span class="hs-identifier hs-type">putFileResponse_commitId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFileResponse"><span class="hs-identifier hs-type">PutFileResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -827,16 +827,16 @@ $sel:httpStatus:PutFileResponse' :: PutFileResponse -&gt; Int
 -&gt; (PutFileResponse -&gt; Text -&gt; PutFileResponse)
 -&gt; Lens PutFileResponse PutFileResponse Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFileResponse%27"><span class="hs-identifier hs-type">PutFileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357607"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFileResponse%27"><span class="hs-identifier hs-type">PutFileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357892"><span class="annot"><span class="annottext">Text
 commitId :: Text
 $sel:commitId:PutFileResponse' :: PutFileResponse -&gt; Text
-</span><a href="#local-6989586621679357607"><span class="hs-identifier hs-var hs-var">commitId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679357607"><span class="hs-identifier hs-var">commitId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679357606"><span class="annot"><span class="annottext">s :: PutFileResponse
-</span><a href="#local-6989586621679357606"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFileResponse%27"><span class="hs-identifier hs-type">PutFileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679357605"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679357605"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutFileResponse
-</span><a href="#local-6989586621679357606"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:commitId:PutFileResponse' :: Text
+</span><a href="#local-6989586621679357892"><span class="hs-identifier hs-var hs-var">commitId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357892"><span class="hs-identifier hs-var">commitId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679357891"><span class="annot"><span class="annottext">s :: PutFileResponse
+</span><a href="#local-6989586621679357891"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFileResponse%27"><span class="hs-identifier hs-type">PutFileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679357890"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357890"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutFileResponse
+</span><a href="#local-6989586621679357891"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:commitId:PutFileResponse' :: Text
 </span><a href="Network.AWS.CodeCommit.PutFile.html#%24sel%3AcommitId%3APutFileResponse%27"><span class="hs-identifier hs-var">commitId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679357605"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFileResponse"><span class="hs-identifier hs-type">PutFileResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679357890"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFileResponse"><span class="hs-identifier hs-type">PutFileResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-342"></span><span>
 </span><span id="line-343"></span><span class="hs-comment">-- | The ID of the blob, which is its SHA-1 pointer.</span><span>
 </span><span id="line-344"></span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#putFileResponse_blobId"><span class="hs-identifier hs-type">putFileResponse_blobId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFileResponse"><span class="hs-identifier hs-type">PutFileResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -845,16 +845,16 @@ $sel:commitId:PutFileResponse' :: PutFileResponse -&gt; Text
 -&gt; (PutFileResponse -&gt; Text -&gt; PutFileResponse)
 -&gt; Lens PutFileResponse PutFileResponse Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFileResponse%27"><span class="hs-identifier hs-type">PutFileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357604"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFileResponse%27"><span class="hs-identifier hs-type">PutFileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357889"><span class="annot"><span class="annottext">Text
 blobId :: Text
 $sel:blobId:PutFileResponse' :: PutFileResponse -&gt; Text
-</span><a href="#local-6989586621679357604"><span class="hs-identifier hs-var hs-var">blobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679357604"><span class="hs-identifier hs-var">blobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679357603"><span class="annot"><span class="annottext">s :: PutFileResponse
-</span><a href="#local-6989586621679357603"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFileResponse%27"><span class="hs-identifier hs-type">PutFileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679357602"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679357602"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutFileResponse
-</span><a href="#local-6989586621679357603"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:blobId:PutFileResponse' :: Text
+</span><a href="#local-6989586621679357889"><span class="hs-identifier hs-var hs-var">blobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357889"><span class="hs-identifier hs-var">blobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679357888"><span class="annot"><span class="annottext">s :: PutFileResponse
+</span><a href="#local-6989586621679357888"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFileResponse%27"><span class="hs-identifier hs-type">PutFileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679357887"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357887"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutFileResponse
+</span><a href="#local-6989586621679357888"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:blobId:PutFileResponse' :: Text
 </span><a href="Network.AWS.CodeCommit.PutFile.html#%24sel%3AblobId%3APutFileResponse%27"><span class="hs-identifier hs-var">blobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679357602"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFileResponse"><span class="hs-identifier hs-type">PutFileResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679357887"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFileResponse"><span class="hs-identifier hs-type">PutFileResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-346"></span><span>
 </span><span id="line-347"></span><span class="hs-comment">-- | The full SHA-1 pointer of the tree information for the commit that</span><span>
 </span><span id="line-348"></span><span class="hs-comment">-- contains this file change.</span><span>
@@ -864,16 +864,16 @@ $sel:blobId:PutFileResponse' :: PutFileResponse -&gt; Text
 -&gt; (PutFileResponse -&gt; Text -&gt; PutFileResponse)
 -&gt; Lens PutFileResponse PutFileResponse Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFileResponse%27"><span class="hs-identifier hs-type">PutFileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357601"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFileResponse%27"><span class="hs-identifier hs-type">PutFileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357886"><span class="annot"><span class="annottext">Text
 treeId :: Text
 $sel:treeId:PutFileResponse' :: PutFileResponse -&gt; Text
-</span><a href="#local-6989586621679357601"><span class="hs-identifier hs-var hs-var">treeId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679357601"><span class="hs-identifier hs-var">treeId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679357600"><span class="annot"><span class="annottext">s :: PutFileResponse
-</span><a href="#local-6989586621679357600"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFileResponse%27"><span class="hs-identifier hs-type">PutFileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679357599"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679357599"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutFileResponse
-</span><a href="#local-6989586621679357600"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:treeId:PutFileResponse' :: Text
+</span><a href="#local-6989586621679357886"><span class="hs-identifier hs-var hs-var">treeId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357886"><span class="hs-identifier hs-var">treeId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679357885"><span class="annot"><span class="annottext">s :: PutFileResponse
+</span><a href="#local-6989586621679357885"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFileResponse%27"><span class="hs-identifier hs-type">PutFileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679357884"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679357884"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutFileResponse
+</span><a href="#local-6989586621679357885"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:treeId:PutFileResponse' :: Text
 </span><a href="Network.AWS.CodeCommit.PutFile.html#%24sel%3AtreeId%3APutFileResponse%27"><span class="hs-identifier hs-var">treeId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679357599"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFileResponse"><span class="hs-identifier hs-type">PutFileResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679357884"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFileResponse"><span class="hs-identifier hs-type">PutFileResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-351"></span><span>
-</span><span id="line-352"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679357597"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFileResponse"><span class="hs-identifier hs-type">PutFileResponse</span></a></span></span><span>
+</span><span id="line-352"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679357882"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PutFile.html#PutFileResponse"><span class="hs-identifier hs-type">PutFileResponse</span></a></span></span><span>
 </span><span id="line-353"></span></pre></body></html>

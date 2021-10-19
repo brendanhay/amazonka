@@ -29,8 +29,8 @@
 </span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.APIGateway.GetSdkTypes.html#newGetSdkTypes"><span class="hs-identifier">newGetSdkTypes</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-30"></span><span>
 </span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.APIGateway.GetSdkTypes.html#getSdkTypes_position"><span class="hs-identifier">getSdkTypes_position</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.APIGateway.GetSdkTypes.html#getSdkTypes_limit"><span class="hs-identifier">getSdkTypes_limit</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.APIGateway.GetSdkTypes.html#getSdkTypes_limit"><span class="hs-identifier">getSdkTypes_limit</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.APIGateway.GetSdkTypes.html#getSdkTypes_position"><span class="hs-identifier">getSdkTypes_position</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-34"></span><span>
 </span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
 </span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.APIGateway.GetSdkTypes.html#GetSdkTypesResponse"><span class="hs-identifier">GetSdkTypesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -53,16 +53,16 @@
 </span><span id="line-53"></span><span class="hs-comment">-- | Get the SdkTypes collection.</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- /See:/ 'newGetSdkTypes' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679378091"><span id="local-6989586621679378092"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetSdkTypes"><span class="annot"><a href="Network.AWS.APIGateway.GetSdkTypes.html#GetSdkTypes"><span class="hs-identifier hs-var">GetSdkTypes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetSdkTypes%27"><span class="annot"><a href="Network.AWS.APIGateway.GetSdkTypes.html#GetSdkTypes%27"><span class="hs-identifier hs-var">GetSdkTypes'</span></a></span></span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The current pagination position in the paged result set.</span><span>
-</span><span id="line-58"></span><span>    </span><span id="%24sel%3Aposition%3AGetSdkTypes%27"><span class="annot"><span class="annottext">GetSdkTypes -&gt; Maybe Text
-</span><a href="Network.AWS.APIGateway.GetSdkTypes.html#%24sel%3Aposition%3AGetSdkTypes%27"><span class="hs-identifier hs-var hs-var">position</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The maximum number of returned results per page. The default value is 25</span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- and the maximum value is 500.</span><span>
-</span><span id="line-61"></span><span>    </span><span id="%24sel%3Alimit%3AGetSdkTypes%27"><span class="annot"><span class="annottext">GetSdkTypes -&gt; Maybe Int
-</span><a href="Network.AWS.APIGateway.GetSdkTypes.html#%24sel%3Alimit%3AGetSdkTypes%27"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-56"></span><span id="local-6989586621679378628"><span id="local-6989586621679378629"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetSdkTypes"><span class="annot"><a href="Network.AWS.APIGateway.GetSdkTypes.html#GetSdkTypes"><span class="hs-identifier hs-var">GetSdkTypes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetSdkTypes%27"><span class="annot"><a href="Network.AWS.APIGateway.GetSdkTypes.html#GetSdkTypes%27"><span class="hs-identifier hs-var">GetSdkTypes'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The maximum number of returned results per page. The default value is 25</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- and the maximum value is 500.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3Alimit%3AGetSdkTypes%27"><span class="annot"><span class="annottext">GetSdkTypes -&gt; Maybe Int
+</span><a href="Network.AWS.APIGateway.GetSdkTypes.html#%24sel%3Alimit%3AGetSdkTypes%27"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The current pagination position in the paged result set.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3Aposition%3AGetSdkTypes%27"><span class="annot"><span class="annottext">GetSdkTypes -&gt; Maybe Text
+</span><a href="Network.AWS.APIGateway.GetSdkTypes.html#%24sel%3Aposition%3AGetSdkTypes%27"><span class="hs-identifier hs-var hs-var">position</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679378084"><span id="local-6989586621679378086"><span class="annot"><span class="annottext">GetSdkTypes -&gt; GetSdkTypes -&gt; Bool
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679378621"><span id="local-6989586621679378623"><span class="annot"><span class="annottext">GetSdkTypes -&gt; GetSdkTypes -&gt; Bool
 (GetSdkTypes -&gt; GetSdkTypes -&gt; Bool)
 -&gt; (GetSdkTypes -&gt; GetSdkTypes -&gt; Bool) -&gt; Eq GetSdkTypes
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -70,7 +70,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetSdkTypes -&gt; GetSdkTypes -&gt; Bool
 == :: GetSdkTypes -&gt; GetSdkTypes -&gt; Bool
 $c== :: GetSdkTypes -&gt; GetSdkTypes -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679378075"><span id="local-6989586621679378077"><span id="local-6989586621679378079"><span id="local-6989586621679378081"><span class="annot"><span class="annottext">ReadPrec [GetSdkTypes]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679378612"><span id="local-6989586621679378614"><span id="local-6989586621679378616"><span id="local-6989586621679378618"><span class="annot"><span class="annottext">ReadPrec [GetSdkTypes]
 ReadPrec GetSdkTypes
 Int -&gt; ReadS GetSdkTypes
 ReadS [GetSdkTypes]
@@ -90,7 +90,7 @@ readList :: ReadS [GetSdkTypes]
 $creadList :: ReadS [GetSdkTypes]
 readsPrec :: Int -&gt; ReadS GetSdkTypes
 $creadsPrec :: Int -&gt; ReadS GetSdkTypes
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679378068"><span id="local-6989586621679378070"><span id="local-6989586621679378072"><span class="annot"><span class="annottext">Int -&gt; GetSdkTypes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679378605"><span id="local-6989586621679378607"><span id="local-6989586621679378609"><span class="annot"><span class="annottext">Int -&gt; GetSdkTypes -&gt; ShowS
 [GetSdkTypes] -&gt; ShowS
 GetSdkTypes -&gt; String
 (Int -&gt; GetSdkTypes -&gt; ShowS)
@@ -124,74 +124,74 @@ $cfrom :: forall x. GetSdkTypes -&gt; Rep GetSdkTypes x
 </span><span id="line-70"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-72"></span><span class="hs-comment">--</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- 'position', 'getSdkTypes_position' - The current pagination position in the paged result set.</span><span>
-</span><span id="line-74"></span><span class="hs-comment">--</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- 'limit', 'getSdkTypes_limit' - The maximum number of returned results per page. The default value is 25</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- and the maximum value is 500.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'limit', 'getSdkTypes_limit' - The maximum number of returned results per page. The default value is 25</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- and the maximum value is 500.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'position', 'getSdkTypes_position' - The current pagination position in the paged result set.</span><span>
 </span><span id="line-77"></span><span class="annot"><a href="Network.AWS.APIGateway.GetSdkTypes.html#newGetSdkTypes"><span class="hs-identifier hs-type">newGetSdkTypes</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.APIGateway.GetSdkTypes.html#GetSdkTypes"><span class="hs-identifier hs-type">GetSdkTypes</span></a></span><span>
 </span><span id="line-79"></span><span id="newGetSdkTypes"><span class="annot"><span class="annottext">newGetSdkTypes :: GetSdkTypes
 </span><a href="Network.AWS.APIGateway.GetSdkTypes.html#newGetSdkTypes"><span class="hs-identifier hs-var hs-var">newGetSdkTypes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">GetSdkTypes' :: Maybe Text -&gt; Maybe Int -&gt; GetSdkTypes
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">GetSdkTypes' :: Maybe Int -&gt; Maybe Text -&gt; GetSdkTypes
 </span><a href="Network.AWS.APIGateway.GetSdkTypes.html#GetSdkTypes%27"><span class="hs-identifier hs-type">GetSdkTypes'</span></a></span><span>
-</span><span id="line-81"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:position:GetSdkTypes' :: Maybe Text
-</span><a href="Network.AWS.APIGateway.GetSdkTypes.html#%24sel%3Aposition%3AGetSdkTypes%27"><span class="hs-identifier hs-var">position</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-81"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:limit:GetSdkTypes' :: Maybe Int
+</span><a href="Network.AWS.APIGateway.GetSdkTypes.html#%24sel%3Alimit%3AGetSdkTypes%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:limit:GetSdkTypes' :: Maybe Int
-</span><a href="Network.AWS.APIGateway.GetSdkTypes.html#%24sel%3Alimit%3AGetSdkTypes%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:position:GetSdkTypes' :: Maybe Text
+</span><a href="Network.AWS.APIGateway.GetSdkTypes.html#%24sel%3Aposition%3AGetSdkTypes%27"><span class="hs-identifier hs-var">position</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-83"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- | The current pagination position in the paged result set.</span><span>
-</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.APIGateway.GetSdkTypes.html#getSdkTypes_position"><span class="hs-identifier hs-type">getSdkTypes_position</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetSdkTypes.html#GetSdkTypes"><span class="hs-identifier hs-type">GetSdkTypes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-87"></span><span id="getSdkTypes_position"><span class="annot"><span class="annottext">getSdkTypes_position :: (Maybe Text -&gt; f (Maybe Text)) -&gt; GetSdkTypes -&gt; f GetSdkTypes
-</span><a href="Network.AWS.APIGateway.GetSdkTypes.html#getSdkTypes_position"><span class="hs-identifier hs-var hs-var">getSdkTypes_position</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetSdkTypes -&gt; Maybe Text)
--&gt; (GetSdkTypes -&gt; Maybe Text -&gt; GetSdkTypes)
--&gt; Lens GetSdkTypes GetSdkTypes (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.GetSdkTypes.html#GetSdkTypes%27"><span class="hs-identifier hs-type">GetSdkTypes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378062"><span class="annot"><span class="annottext">Maybe Text
-position :: Maybe Text
-$sel:position:GetSdkTypes' :: GetSdkTypes -&gt; Maybe Text
-</span><a href="#local-6989586621679378062"><span class="hs-identifier hs-var hs-var">position</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679378062"><span class="hs-identifier hs-var">position</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378061"><span class="annot"><span class="annottext">s :: GetSdkTypes
-</span><a href="#local-6989586621679378061"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.GetSdkTypes.html#GetSdkTypes%27"><span class="hs-identifier hs-type">GetSdkTypes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378060"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679378060"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSdkTypes
-</span><a href="#local-6989586621679378061"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:position:GetSdkTypes' :: Maybe Text
-</span><a href="Network.AWS.APIGateway.GetSdkTypes.html#%24sel%3Aposition%3AGetSdkTypes%27"><span class="hs-identifier hs-var">position</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679378060"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetSdkTypes.html#GetSdkTypes"><span class="hs-identifier hs-type">GetSdkTypes</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- | The maximum number of returned results per page. The default value is 25</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- and the maximum value is 500.</span><span>
-</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.APIGateway.GetSdkTypes.html#getSdkTypes_limit"><span class="hs-identifier hs-type">getSdkTypes_limit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetSdkTypes.html#GetSdkTypes"><span class="hs-identifier hs-type">GetSdkTypes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-92"></span><span id="getSdkTypes_limit"><span class="annot"><span class="annottext">getSdkTypes_limit :: (Maybe Int -&gt; f (Maybe Int)) -&gt; GetSdkTypes -&gt; f GetSdkTypes
+</span><span id="line-85"></span><span class="hs-comment">-- | The maximum number of returned results per page. The default value is 25</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- and the maximum value is 500.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.APIGateway.GetSdkTypes.html#getSdkTypes_limit"><span class="hs-identifier hs-type">getSdkTypes_limit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetSdkTypes.html#GetSdkTypes"><span class="hs-identifier hs-type">GetSdkTypes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="getSdkTypes_limit"><span class="annot"><span class="annottext">getSdkTypes_limit :: (Maybe Int -&gt; f (Maybe Int)) -&gt; GetSdkTypes -&gt; f GetSdkTypes
 </span><a href="Network.AWS.APIGateway.GetSdkTypes.html#getSdkTypes_limit"><span class="hs-identifier hs-var hs-var">getSdkTypes_limit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetSdkTypes -&gt; Maybe Int)
 -&gt; (GetSdkTypes -&gt; Maybe Int -&gt; GetSdkTypes)
 -&gt; Lens GetSdkTypes GetSdkTypes (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.GetSdkTypes.html#GetSdkTypes%27"><span class="hs-identifier hs-type">GetSdkTypes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378059"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.GetSdkTypes.html#GetSdkTypes%27"><span class="hs-identifier hs-type">GetSdkTypes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378599"><span class="annot"><span class="annottext">Maybe Int
 limit :: Maybe Int
 $sel:limit:GetSdkTypes' :: GetSdkTypes -&gt; Maybe Int
-</span><a href="#local-6989586621679378059"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679378059"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378058"><span class="annot"><span class="annottext">s :: GetSdkTypes
-</span><a href="#local-6989586621679378058"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.GetSdkTypes.html#GetSdkTypes%27"><span class="hs-identifier hs-type">GetSdkTypes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378057"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679378057"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSdkTypes
-</span><a href="#local-6989586621679378058"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:GetSdkTypes' :: Maybe Int
+</span><a href="#local-6989586621679378599"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679378599"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378598"><span class="annot"><span class="annottext">s :: GetSdkTypes
+</span><a href="#local-6989586621679378598"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.GetSdkTypes.html#GetSdkTypes%27"><span class="hs-identifier hs-type">GetSdkTypes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378597"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679378597"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSdkTypes
+</span><a href="#local-6989586621679378598"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:GetSdkTypes' :: Maybe Int
 </span><a href="Network.AWS.APIGateway.GetSdkTypes.html#%24sel%3Alimit%3AGetSdkTypes%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679378057"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetSdkTypes.html#GetSdkTypes"><span class="hs-identifier hs-type">GetSdkTypes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679378597"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetSdkTypes.html#GetSdkTypes"><span class="hs-identifier hs-type">GetSdkTypes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The current pagination position in the paged result set.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.APIGateway.GetSdkTypes.html#getSdkTypes_position"><span class="hs-identifier hs-type">getSdkTypes_position</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetSdkTypes.html#GetSdkTypes"><span class="hs-identifier hs-type">GetSdkTypes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="getSdkTypes_position"><span class="annot"><span class="annottext">getSdkTypes_position :: (Maybe Text -&gt; f (Maybe Text)) -&gt; GetSdkTypes -&gt; f GetSdkTypes
+</span><a href="Network.AWS.APIGateway.GetSdkTypes.html#getSdkTypes_position"><span class="hs-identifier hs-var hs-var">getSdkTypes_position</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetSdkTypes -&gt; Maybe Text)
+-&gt; (GetSdkTypes -&gt; Maybe Text -&gt; GetSdkTypes)
+-&gt; Lens GetSdkTypes GetSdkTypes (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.GetSdkTypes.html#GetSdkTypes%27"><span class="hs-identifier hs-type">GetSdkTypes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378596"><span class="annot"><span class="annottext">Maybe Text
+position :: Maybe Text
+$sel:position:GetSdkTypes' :: GetSdkTypes -&gt; Maybe Text
+</span><a href="#local-6989586621679378596"><span class="hs-identifier hs-var hs-var">position</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679378596"><span class="hs-identifier hs-var">position</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378595"><span class="annot"><span class="annottext">s :: GetSdkTypes
+</span><a href="#local-6989586621679378595"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.GetSdkTypes.html#GetSdkTypes%27"><span class="hs-identifier hs-type">GetSdkTypes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378594"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679378594"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSdkTypes
+</span><a href="#local-6989586621679378595"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:position:GetSdkTypes' :: Maybe Text
+</span><a href="Network.AWS.APIGateway.GetSdkTypes.html#%24sel%3Aposition%3AGetSdkTypes%27"><span class="hs-identifier hs-var">position</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679378594"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetSdkTypes.html#GetSdkTypes"><span class="hs-identifier hs-type">GetSdkTypes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetSdkTypes.html#GetSdkTypes"><span class="hs-identifier hs-type">GetSdkTypes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679378053"><span class="annot"><span class="annottext">page :: GetSdkTypes -&gt; AWSResponse GetSdkTypes -&gt; Maybe GetSdkTypes
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679378051"><span class="annot"><span class="annottext">GetSdkTypes
-</span><a href="#local-6989586621679378051"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679378050"><span class="annot"><span class="annottext">AWSResponse GetSdkTypes
-</span><a href="#local-6989586621679378050"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679378590"><span class="annot"><span class="annottext">page :: GetSdkTypes -&gt; AWSResponse GetSdkTypes -&gt; Maybe GetSdkTypes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679378588"><span class="annot"><span class="annottext">GetSdkTypes
+</span><a href="#local-6989586621679378588"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679378587"><span class="annot"><span class="annottext">AWSResponse GetSdkTypes
+</span><a href="#local-6989586621679378587"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-96"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-97"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse GetSdkTypes
 GetSdkTypesResponse
-</span><a href="#local-6989586621679378050"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679378587"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">GetSdkTypesResponse
 -&gt; Getting (First Text) GetSdkTypesResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -217,7 +217,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-102"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse GetSdkTypes
 GetSdkTypesResponse
-</span><a href="#local-6989586621679378050"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679378587"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">GetSdkTypesResponse
 -&gt; Getting (First [SdkType]) GetSdkTypesResponse [SdkType]
 -&gt; Maybe [SdkType]
@@ -250,7 +250,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-108"></span><span>        </span><span class="annot"><span class="annottext">GetSdkTypes
-</span><a href="#local-6989586621679378051"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679378588"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-109"></span><span>          </span><span class="annot"><span class="annottext">GetSdkTypes -&gt; (GetSdkTypes -&gt; GetSdkTypes) -&gt; GetSdkTypes
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
@@ -263,7 +263,7 @@ Lens GetSdkTypes GetSdkTypes (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse GetSdkTypes
 GetSdkTypesResponse
-</span><a href="#local-6989586621679378050"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679378587"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-111"></span><span>          </span><span class="annot"><span class="annottext">GetSdkTypesResponse
 -&gt; Getting (First Text) GetSdkTypesResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -283,12 +283,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetSdkTypes.html#GetSdkTypes"><span class="hs-identifier hs-type">GetSdkTypes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-114"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetSdkTypes.html#GetSdkTypes"><span class="hs-identifier hs-type">GetSdkTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetSdkTypes.html#GetSdkTypesResponse"><span class="hs-identifier hs-type">GetSdkTypesResponse</span></a></span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679378040"><span class="annot"><span class="annottext">request :: GetSdkTypes -&gt; Request GetSdkTypes
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679378577"><span class="annot"><span class="annottext">request :: GetSdkTypes -&gt; Request GetSdkTypes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetSdkTypes -&gt; Request GetSdkTypes
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.APIGateway.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679378036"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679378573"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetSdkTypes
 -&gt; ClientResponse ClientBody
@@ -312,10 +312,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679378033"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679378033"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679378032"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679378032"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679378031"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679378031"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679378570"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679378570"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679378569"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679378569"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679378568"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679378568"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-119"></span><span>          </span><span class="annot"><span class="annottext">Maybe [SdkType] -&gt; Maybe Text -&gt; Int -&gt; GetSdkTypesResponse
 </span><a href="Network.AWS.APIGateway.GetSdkTypes.html#GetSdkTypesResponse%27"><span class="hs-identifier hs-var">GetSdkTypesResponse'</span></a></span><span>
 </span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [SdkType] -&gt; Maybe Text -&gt; Int -&gt; GetSdkTypesResponse)
@@ -323,7 +323,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe Text -&gt; Int -&gt; GetSdkTypesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679378031"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [SdkType]))
+</span><a href="#local-6989586621679378568"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [SdkType]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;item&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [SdkType]))
@@ -337,7 +337,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Int -&gt; GetSdkTypesResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679378031"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679378568"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;position&quot;</span></span><span class="hs-special">)</span><span>
@@ -349,15 +349,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679378033"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679378570"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679378022"><span id="local-6989586621679378024"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetSdkTypes.html#GetSdkTypes"><span class="hs-identifier hs-type">GetSdkTypes</span></a></span></span></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679378559"><span id="local-6989586621679378561"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetSdkTypes.html#GetSdkTypes"><span class="hs-identifier hs-type">GetSdkTypes</span></a></span></span></span><span>
 </span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679378019"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetSdkTypes.html#GetSdkTypes"><span class="hs-identifier hs-type">GetSdkTypes</span></a></span></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679378556"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetSdkTypes.html#GetSdkTypes"><span class="hs-identifier hs-type">GetSdkTypes</span></a></span></span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetSdkTypes.html#GetSdkTypes"><span class="hs-identifier hs-type">GetSdkTypes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679378015"><span class="annot"><span class="annottext">toHeaders :: GetSdkTypes -&gt; ResponseHeaders
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679378552"><span class="annot"><span class="annottext">toHeaders :: GetSdkTypes -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetSdkTypes -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -375,38 +375,38 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetSdkTypes.html#GetSdkTypes"><span class="hs-identifier hs-type">GetSdkTypes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679378009"><span class="annot"><span class="annottext">toPath :: GetSdkTypes -&gt; ByteString
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679378546"><span class="annot"><span class="annottext">toPath :: GetSdkTypes -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetSdkTypes -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/sdktypes&quot;</span></span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetSdkTypes.html#GetSdkTypes"><span class="hs-identifier hs-type">GetSdkTypes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679378005"><span class="annot"><span class="annottext">toQuery :: GetSdkTypes -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetSdkTypes.html#GetSdkTypes%27"><span class="hs-identifier hs-type">GetSdkTypes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378002"><span id="local-6989586621679378003"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679378542"><span class="annot"><span class="annottext">toQuery :: GetSdkTypes -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetSdkTypes.html#GetSdkTypes%27"><span class="hs-identifier hs-type">GetSdkTypes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378539"><span id="local-6989586621679378540"><span class="annot"><span class="annottext">Maybe Int
 Maybe Text
-limit :: Maybe Int
 position :: Maybe Text
-$sel:limit:GetSdkTypes' :: GetSdkTypes -&gt; Maybe Int
+limit :: Maybe Int
 $sel:position:GetSdkTypes' :: GetSdkTypes -&gt; Maybe Text
-</span><a href="#local-6989586621679378002"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:limit:GetSdkTypes' :: GetSdkTypes -&gt; Maybe Int
+</span><a href="#local-6989586621679378539"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-143"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
 </span><span id="line-144"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;position&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679378003"><span class="hs-identifier hs-var">position</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;limit&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679378002"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679378540"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;position&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679378539"><span class="hs-identifier hs-var">position</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-comment">-- | The collection of SdkType instances.</span><span>
 </span><span id="line-147"></span><span class="hs-comment">--</span><span>
 </span><span id="line-148"></span><span class="hs-comment">-- /See:/ 'newGetSdkTypesResponse' smart constructor.</span><span>
-</span><span id="line-149"></span><span id="local-6989586621679377999"><span id="local-6989586621679378000"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetSdkTypesResponse"><span class="annot"><a href="Network.AWS.APIGateway.GetSdkTypes.html#GetSdkTypesResponse"><span class="hs-identifier hs-var">GetSdkTypesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetSdkTypesResponse%27"><span class="annot"><a href="Network.AWS.APIGateway.GetSdkTypes.html#GetSdkTypesResponse%27"><span class="hs-identifier hs-var">GetSdkTypesResponse'</span></a></span></span><span>
+</span><span id="line-149"></span><span id="local-6989586621679378536"><span id="local-6989586621679378537"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetSdkTypesResponse"><span class="annot"><a href="Network.AWS.APIGateway.GetSdkTypes.html#GetSdkTypesResponse"><span class="hs-identifier hs-var">GetSdkTypesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetSdkTypesResponse%27"><span class="annot"><a href="Network.AWS.APIGateway.GetSdkTypes.html#GetSdkTypesResponse%27"><span class="hs-identifier hs-var">GetSdkTypesResponse'</span></a></span></span><span>
 </span><span id="line-150"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The current page of elements from this collection.</span><span>
 </span><span id="line-151"></span><span>    </span><span id="%24sel%3Aitems%3AGetSdkTypesResponse%27"><span class="annot"><span class="annottext">GetSdkTypesResponse -&gt; Maybe [SdkType]
 </span><a href="Network.AWS.APIGateway.GetSdkTypes.html#%24sel%3Aitems%3AGetSdkTypesResponse%27"><span class="hs-identifier hs-var hs-var">items</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.APIGateway.Types.SdkType.html#SdkType"><span class="hs-identifier hs-type">SdkType</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -416,7 +416,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-154"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetSdkTypesResponse%27"><span class="annot"><span class="annottext">GetSdkTypesResponse -&gt; Int
 </span><a href="Network.AWS.APIGateway.GetSdkTypes.html#%24sel%3AhttpStatus%3AGetSdkTypesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-155"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-156"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679377992"><span id="local-6989586621679377994"><span class="annot"><span class="annottext">GetSdkTypesResponse -&gt; GetSdkTypesResponse -&gt; Bool
+</span><span id="line-156"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679378529"><span id="local-6989586621679378531"><span class="annot"><span class="annottext">GetSdkTypesResponse -&gt; GetSdkTypesResponse -&gt; Bool
 (GetSdkTypesResponse -&gt; GetSdkTypesResponse -&gt; Bool)
 -&gt; (GetSdkTypesResponse -&gt; GetSdkTypesResponse -&gt; Bool)
 -&gt; Eq GetSdkTypesResponse
@@ -425,7 +425,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetSdkTypesResponse -&gt; GetSdkTypesResponse -&gt; Bool
 == :: GetSdkTypesResponse -&gt; GetSdkTypesResponse -&gt; Bool
 $c== :: GetSdkTypesResponse -&gt; GetSdkTypesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679377984"><span id="local-6989586621679377986"><span id="local-6989586621679377988"><span id="local-6989586621679377990"><span class="annot"><span class="annottext">ReadPrec [GetSdkTypesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679378521"><span id="local-6989586621679378523"><span id="local-6989586621679378525"><span id="local-6989586621679378527"><span class="annot"><span class="annottext">ReadPrec [GetSdkTypesResponse]
 ReadPrec GetSdkTypesResponse
 Int -&gt; ReadS GetSdkTypesResponse
 ReadS [GetSdkTypesResponse]
@@ -445,7 +445,7 @@ readList :: ReadS [GetSdkTypesResponse]
 $creadList :: ReadS [GetSdkTypesResponse]
 readsPrec :: Int -&gt; ReadS GetSdkTypesResponse
 $creadsPrec :: Int -&gt; ReadS GetSdkTypesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679377978"><span id="local-6989586621679377980"><span id="local-6989586621679377982"><span class="annot"><span class="annottext">Int -&gt; GetSdkTypesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679378515"><span id="local-6989586621679378517"><span id="local-6989586621679378519"><span class="annot"><span class="annottext">Int -&gt; GetSdkTypesResponse -&gt; ShowS
 [GetSdkTypesResponse] -&gt; ShowS
 GetSdkTypesResponse -&gt; String
 (Int -&gt; GetSdkTypesResponse -&gt; ShowS)
@@ -489,8 +489,8 @@ $cfrom :: forall x. GetSdkTypesResponse -&gt; Rep GetSdkTypesResponse x
 </span><span id="line-173"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-174"></span><span>  </span><span class="annot"><a href="Network.AWS.APIGateway.GetSdkTypes.html#GetSdkTypesResponse"><span class="hs-identifier hs-type">GetSdkTypesResponse</span></a></span><span>
 </span><span id="line-175"></span><span id="newGetSdkTypesResponse"><span class="annot"><span class="annottext">newGetSdkTypesResponse :: Int -&gt; GetSdkTypesResponse
-</span><a href="Network.AWS.APIGateway.GetSdkTypes.html#newGetSdkTypesResponse"><span class="hs-identifier hs-var hs-var">newGetSdkTypesResponse</span></a></span></span><span> </span><span id="local-6989586621679377975"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679377975"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.APIGateway.GetSdkTypes.html#newGetSdkTypesResponse"><span class="hs-identifier hs-var hs-var">newGetSdkTypesResponse</span></a></span></span><span> </span><span id="local-6989586621679378512"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679378512"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-176"></span><span>  </span><span class="annot"><span class="annottext">GetSdkTypesResponse' :: Maybe [SdkType] -&gt; Maybe Text -&gt; Int -&gt; GetSdkTypesResponse
 </span><a href="Network.AWS.APIGateway.GetSdkTypes.html#GetSdkTypesResponse%27"><span class="hs-identifier hs-type">GetSdkTypesResponse'</span></a></span><span>
 </span><span id="line-177"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:items:GetSdkTypesResponse' :: Maybe [SdkType]
@@ -503,7 +503,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-179"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetSdkTypesResponse' :: Int
 </span><a href="Network.AWS.APIGateway.GetSdkTypes.html#%24sel%3AhttpStatus%3AGetSdkTypesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679377975"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679378512"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-180"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-181"></span><span>
 </span><span id="line-182"></span><span class="hs-comment">-- | The current page of elements from this collection.</span><span>
@@ -514,16 +514,16 @@ forall a. Maybe a
 -&gt; (GetSdkTypesResponse -&gt; Maybe [SdkType] -&gt; GetSdkTypesResponse)
 -&gt; Lens' GetSdkTypesResponse (Maybe [SdkType])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.GetSdkTypes.html#GetSdkTypesResponse%27"><span class="hs-identifier hs-type">GetSdkTypesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377974"><span class="annot"><span class="annottext">Maybe [SdkType]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.GetSdkTypes.html#GetSdkTypesResponse%27"><span class="hs-identifier hs-type">GetSdkTypesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378511"><span class="annot"><span class="annottext">Maybe [SdkType]
 items :: Maybe [SdkType]
 $sel:items:GetSdkTypesResponse' :: GetSdkTypesResponse -&gt; Maybe [SdkType]
-</span><a href="#local-6989586621679377974"><span class="hs-identifier hs-var hs-var">items</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [SdkType]
-</span><a href="#local-6989586621679377974"><span class="hs-identifier hs-var">items</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377973"><span class="annot"><span class="annottext">s :: GetSdkTypesResponse
-</span><a href="#local-6989586621679377973"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.GetSdkTypes.html#GetSdkTypesResponse%27"><span class="hs-identifier hs-type">GetSdkTypesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377972"><span class="annot"><span class="annottext">Maybe [SdkType]
-</span><a href="#local-6989586621679377972"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSdkTypesResponse
-</span><a href="#local-6989586621679377973"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:items:GetSdkTypesResponse' :: Maybe [SdkType]
+</span><a href="#local-6989586621679378511"><span class="hs-identifier hs-var hs-var">items</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [SdkType]
+</span><a href="#local-6989586621679378511"><span class="hs-identifier hs-var">items</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378510"><span class="annot"><span class="annottext">s :: GetSdkTypesResponse
+</span><a href="#local-6989586621679378510"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.GetSdkTypes.html#GetSdkTypesResponse%27"><span class="hs-identifier hs-type">GetSdkTypesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378509"><span class="annot"><span class="annottext">Maybe [SdkType]
+</span><a href="#local-6989586621679378509"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSdkTypesResponse
+</span><a href="#local-6989586621679378510"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:items:GetSdkTypesResponse' :: Maybe [SdkType]
 </span><a href="Network.AWS.APIGateway.GetSdkTypes.html#%24sel%3Aitems%3AGetSdkTypesResponse%27"><span class="hs-identifier hs-var">items</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SdkType]
-</span><a href="#local-6989586621679377972"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetSdkTypes.html#GetSdkTypesResponse"><span class="hs-identifier hs-type">GetSdkTypesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [SdkType] -&gt; f (Maybe [SdkType]))
+</span><a href="#local-6989586621679378509"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetSdkTypes.html#GetSdkTypesResponse"><span class="hs-identifier hs-type">GetSdkTypesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [SdkType] -&gt; f (Maybe [SdkType]))
  -&gt; GetSdkTypesResponse -&gt; f GetSdkTypesResponse)
 -&gt; ((Maybe [SdkType] -&gt; f (Maybe [SdkType]))
     -&gt; Maybe [SdkType] -&gt; f (Maybe [SdkType]))
@@ -541,8 +541,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [SdkType] [SdkType] [SdkType] [SdkType]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-185"></span><span>
 </span><span id="line-186"></span><span class="hs-comment">-- | Undocumented member.</span><span>
 </span><span id="line-187"></span><span class="annot"><a href="Network.AWS.APIGateway.GetSdkTypes.html#getSdkTypesResponse_position"><span class="hs-identifier hs-type">getSdkTypesResponse_position</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetSdkTypes.html#GetSdkTypesResponse"><span class="hs-identifier hs-type">GetSdkTypesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -552,16 +552,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (GetSdkTypesResponse -&gt; Maybe Text -&gt; GetSdkTypesResponse)
 -&gt; Lens' GetSdkTypesResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.GetSdkTypes.html#GetSdkTypesResponse%27"><span class="hs-identifier hs-type">GetSdkTypesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377969"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.GetSdkTypes.html#GetSdkTypesResponse%27"><span class="hs-identifier hs-type">GetSdkTypesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378506"><span class="annot"><span class="annottext">Maybe Text
 position :: Maybe Text
 $sel:position:GetSdkTypesResponse' :: GetSdkTypesResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679377969"><span class="hs-identifier hs-var hs-var">position</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679377969"><span class="hs-identifier hs-var">position</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377968"><span class="annot"><span class="annottext">s :: GetSdkTypesResponse
-</span><a href="#local-6989586621679377968"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.GetSdkTypes.html#GetSdkTypesResponse%27"><span class="hs-identifier hs-type">GetSdkTypesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377967"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679377967"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSdkTypesResponse
-</span><a href="#local-6989586621679377968"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:position:GetSdkTypesResponse' :: Maybe Text
+</span><a href="#local-6989586621679378506"><span class="hs-identifier hs-var hs-var">position</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679378506"><span class="hs-identifier hs-var">position</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378505"><span class="annot"><span class="annottext">s :: GetSdkTypesResponse
+</span><a href="#local-6989586621679378505"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.GetSdkTypes.html#GetSdkTypesResponse%27"><span class="hs-identifier hs-type">GetSdkTypesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378504"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679378504"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSdkTypesResponse
+</span><a href="#local-6989586621679378505"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:position:GetSdkTypesResponse' :: Maybe Text
 </span><a href="Network.AWS.APIGateway.GetSdkTypes.html#%24sel%3Aposition%3AGetSdkTypesResponse%27"><span class="hs-identifier hs-var">position</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679377967"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetSdkTypes.html#GetSdkTypesResponse"><span class="hs-identifier hs-type">GetSdkTypesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679378504"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetSdkTypes.html#GetSdkTypesResponse"><span class="hs-identifier hs-type">GetSdkTypesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-189"></span><span>
 </span><span id="line-190"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-191"></span><span class="annot"><a href="Network.AWS.APIGateway.GetSdkTypes.html#getSdkTypesResponse_httpStatus"><span class="hs-identifier hs-type">getSdkTypesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetSdkTypes.html#GetSdkTypesResponse"><span class="hs-identifier hs-type">GetSdkTypesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -570,16 +570,16 @@ $sel:position:GetSdkTypesResponse' :: GetSdkTypesResponse -&gt; Maybe Text
 -&gt; (GetSdkTypesResponse -&gt; Int -&gt; GetSdkTypesResponse)
 -&gt; Lens GetSdkTypesResponse GetSdkTypesResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.GetSdkTypes.html#GetSdkTypesResponse%27"><span class="hs-identifier hs-type">GetSdkTypesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377966"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.GetSdkTypes.html#GetSdkTypesResponse%27"><span class="hs-identifier hs-type">GetSdkTypesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378503"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetSdkTypesResponse' :: GetSdkTypesResponse -&gt; Int
-</span><a href="#local-6989586621679377966"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679377966"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377965"><span class="annot"><span class="annottext">s :: GetSdkTypesResponse
-</span><a href="#local-6989586621679377965"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.GetSdkTypes.html#GetSdkTypesResponse%27"><span class="hs-identifier hs-type">GetSdkTypesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377964"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679377964"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSdkTypesResponse
-</span><a href="#local-6989586621679377965"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetSdkTypesResponse' :: Int
+</span><a href="#local-6989586621679378503"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679378503"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378502"><span class="annot"><span class="annottext">s :: GetSdkTypesResponse
+</span><a href="#local-6989586621679378502"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.GetSdkTypes.html#GetSdkTypesResponse%27"><span class="hs-identifier hs-type">GetSdkTypesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378501"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679378501"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSdkTypesResponse
+</span><a href="#local-6989586621679378502"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetSdkTypesResponse' :: Int
 </span><a href="Network.AWS.APIGateway.GetSdkTypes.html#%24sel%3AhttpStatus%3AGetSdkTypesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679377964"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetSdkTypes.html#GetSdkTypesResponse"><span class="hs-identifier hs-type">GetSdkTypesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679378501"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetSdkTypes.html#GetSdkTypesResponse"><span class="hs-identifier hs-type">GetSdkTypesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-193"></span><span>
-</span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679377962"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetSdkTypes.html#GetSdkTypesResponse"><span class="hs-identifier hs-type">GetSdkTypesResponse</span></a></span></span><span>
+</span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679378499"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetSdkTypes.html#GetSdkTypesResponse"><span class="hs-identifier hs-type">GetSdkTypesResponse</span></a></span></span><span>
 </span><span id="line-195"></span></pre></body></html>

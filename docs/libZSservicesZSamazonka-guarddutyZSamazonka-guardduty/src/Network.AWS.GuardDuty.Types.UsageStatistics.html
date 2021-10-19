@@ -30,22 +30,22 @@
 </span><span id="line-30"></span><span class="hs-comment">-- provided the result for other types will be null.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newUsageStatistics' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679302937"><span id="local-6989586621679302938"></span></span><span class="hs-keyword">data</span><span> </span><span id="UsageStatistics"><span class="annot"><a href="Network.AWS.GuardDuty.Types.UsageStatistics.html#UsageStatistics"><span class="hs-identifier hs-var">UsageStatistics</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UsageStatistics%27"><span class="annot"><a href="Network.AWS.GuardDuty.Types.UsageStatistics.html#UsageStatistics%27"><span class="hs-identifier hs-var">UsageStatistics'</span></a></span></span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The usage statistic sum organized by on data source.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AsumByDataSource%3AUsageStatistics%27"><span class="annot"><span class="annottext">UsageStatistics -&gt; Maybe [UsageDataSourceResult]
-</span><a href="Network.AWS.GuardDuty.Types.UsageStatistics.html#%24sel%3AsumByDataSource%3AUsageStatistics%27"><span class="hs-identifier hs-var hs-var">sumByDataSource</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UsageDataSourceResult.html#UsageDataSourceResult"><span class="hs-identifier hs-type">UsageDataSourceResult</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Lists the top 50 resources that have generated the most GuardDuty usage,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- in order from most to least expensive.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AtopResources%3AUsageStatistics%27"><span class="annot"><span class="annottext">UsageStatistics -&gt; Maybe [UsageResourceResult]
+</span><span id="line-33"></span><span id="local-6989586621679303231"><span id="local-6989586621679303232"></span></span><span class="hs-keyword">data</span><span> </span><span id="UsageStatistics"><span class="annot"><a href="Network.AWS.GuardDuty.Types.UsageStatistics.html#UsageStatistics"><span class="hs-identifier hs-var">UsageStatistics</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UsageStatistics%27"><span class="annot"><a href="Network.AWS.GuardDuty.Types.UsageStatistics.html#UsageStatistics%27"><span class="hs-identifier hs-var">UsageStatistics'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Lists the top 50 resources that have generated the most GuardDuty usage,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- in order from most to least expensive.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AtopResources%3AUsageStatistics%27"><span class="annot"><span class="annottext">UsageStatistics -&gt; Maybe [UsageResourceResult]
 </span><a href="Network.AWS.GuardDuty.Types.UsageStatistics.html#%24sel%3AtopResources%3AUsageStatistics%27"><span class="hs-identifier hs-var hs-var">topResources</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UsageResourceResult.html#UsageResourceResult"><span class="hs-identifier hs-type">UsageResourceResult</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The usage statistic sum organized by account ID.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3AsumByAccount%3AUsageStatistics%27"><span class="annot"><span class="annottext">UsageStatistics -&gt; Maybe [UsageAccountResult]
-</span><a href="Network.AWS.GuardDuty.Types.UsageStatistics.html#%24sel%3AsumByAccount%3AUsageStatistics%27"><span class="hs-identifier hs-var hs-var">sumByAccount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UsageAccountResult.html#UsageAccountResult"><span class="hs-identifier hs-type">UsageAccountResult</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The usage statistic sum organized by resource.</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3AsumByResource%3AUsageStatistics%27"><span class="annot"><span class="annottext">UsageStatistics -&gt; Maybe [UsageResourceResult]
-</span><a href="Network.AWS.GuardDuty.Types.UsageStatistics.html#%24sel%3AsumByResource%3AUsageStatistics%27"><span class="hs-identifier hs-var hs-var">sumByResource</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UsageResourceResult.html#UsageResourceResult"><span class="hs-identifier hs-type">UsageResourceResult</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The usage statistic sum organized by resource.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AsumByResource%3AUsageStatistics%27"><span class="annot"><span class="annottext">UsageStatistics -&gt; Maybe [UsageResourceResult]
+</span><a href="Network.AWS.GuardDuty.Types.UsageStatistics.html#%24sel%3AsumByResource%3AUsageStatistics%27"><span class="hs-identifier hs-var hs-var">sumByResource</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UsageResourceResult.html#UsageResourceResult"><span class="hs-identifier hs-type">UsageResourceResult</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The usage statistic sum organized by on data source.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AsumByDataSource%3AUsageStatistics%27"><span class="annot"><span class="annottext">UsageStatistics -&gt; Maybe [UsageDataSourceResult]
+</span><a href="Network.AWS.GuardDuty.Types.UsageStatistics.html#%24sel%3AsumByDataSource%3AUsageStatistics%27"><span class="hs-identifier hs-var hs-var">sumByDataSource</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UsageDataSourceResult.html#UsageDataSourceResult"><span class="hs-identifier hs-type">UsageDataSourceResult</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The usage statistic sum organized by account ID.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AsumByAccount%3AUsageStatistics%27"><span class="annot"><span class="annottext">UsageStatistics -&gt; Maybe [UsageAccountResult]
+</span><a href="Network.AWS.GuardDuty.Types.UsageStatistics.html#%24sel%3AsumByAccount%3AUsageStatistics%27"><span class="hs-identifier hs-var hs-var">sumByAccount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UsageAccountResult.html#UsageAccountResult"><span class="hs-identifier hs-type">UsageAccountResult</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679302928"><span id="local-6989586621679302930"><span class="annot"><span class="annottext">UsageStatistics -&gt; UsageStatistics -&gt; Bool
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679303222"><span id="local-6989586621679303224"><span class="annot"><span class="annottext">UsageStatistics -&gt; UsageStatistics -&gt; Bool
 (UsageStatistics -&gt; UsageStatistics -&gt; Bool)
 -&gt; (UsageStatistics -&gt; UsageStatistics -&gt; Bool)
 -&gt; Eq UsageStatistics
@@ -54,7 +54,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UsageStatistics -&gt; UsageStatistics -&gt; Bool
 == :: UsageStatistics -&gt; UsageStatistics -&gt; Bool
 $c== :: UsageStatistics -&gt; UsageStatistics -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302919"><span id="local-6989586621679302921"><span id="local-6989586621679302923"><span id="local-6989586621679302925"><span class="annot"><span class="annottext">ReadPrec [UsageStatistics]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679303213"><span id="local-6989586621679303215"><span id="local-6989586621679303217"><span id="local-6989586621679303219"><span class="annot"><span class="annottext">ReadPrec [UsageStatistics]
 ReadPrec UsageStatistics
 Int -&gt; ReadS UsageStatistics
 ReadS [UsageStatistics]
@@ -74,7 +74,7 @@ readList :: ReadS [UsageStatistics]
 $creadList :: ReadS [UsageStatistics]
 readsPrec :: Int -&gt; ReadS UsageStatistics
 $creadsPrec :: Int -&gt; ReadS UsageStatistics
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302912"><span id="local-6989586621679302914"><span id="local-6989586621679302916"><span class="annot"><span class="annottext">Int -&gt; UsageStatistics -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679303206"><span id="local-6989586621679303208"><span id="local-6989586621679303210"><span class="annot"><span class="annottext">Int -&gt; UsageStatistics -&gt; ShowS
 [UsageStatistics] -&gt; ShowS
 UsageStatistics -&gt; String
 (Int -&gt; UsageStatistics -&gt; ShowS)
@@ -108,45 +108,150 @@ $cfrom :: forall x. UsageStatistics -&gt; Rep UsageStatistics x
 </span><span id="line-51"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-53"></span><span class="hs-comment">--</span><span>
-</span><span id="line-54"></span><span class="hs-comment">-- 'sumByDataSource', 'usageStatistics_sumByDataSource' - The usage statistic sum organized by on data source.</span><span>
-</span><span id="line-55"></span><span class="hs-comment">--</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- 'topResources', 'usageStatistics_topResources' - Lists the top 50 resources that have generated the most GuardDuty usage,</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- in order from most to least expensive.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'topResources', 'usageStatistics_topResources' - Lists the top 50 resources that have generated the most GuardDuty usage,</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- in order from most to least expensive.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'sumByResource', 'usageStatistics_sumByResource' - The usage statistic sum organized by resource.</span><span>
 </span><span id="line-58"></span><span class="hs-comment">--</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- 'sumByAccount', 'usageStatistics_sumByAccount' - The usage statistic sum organized by account ID.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'sumByDataSource', 'usageStatistics_sumByDataSource' - The usage statistic sum organized by on data source.</span><span>
 </span><span id="line-60"></span><span class="hs-comment">--</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- 'sumByResource', 'usageStatistics_sumByResource' - The usage statistic sum organized by resource.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'sumByAccount', 'usageStatistics_sumByAccount' - The usage statistic sum organized by account ID.</span><span>
 </span><span id="line-62"></span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UsageStatistics.html#newUsageStatistics"><span class="hs-identifier hs-type">newUsageStatistics</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-63"></span><span>  </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UsageStatistics.html#UsageStatistics"><span class="hs-identifier hs-type">UsageStatistics</span></a></span><span>
 </span><span id="line-64"></span><span id="newUsageStatistics"><span class="annot"><span class="annottext">newUsageStatistics :: UsageStatistics
 </span><a href="Network.AWS.GuardDuty.Types.UsageStatistics.html#newUsageStatistics"><span class="hs-identifier hs-var hs-var">newUsageStatistics</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-65"></span><span>  </span><span class="annot"><span class="annottext">UsageStatistics' :: Maybe [UsageDataSourceResult]
+</span><span id="line-65"></span><span>  </span><span class="annot"><span class="annottext">UsageStatistics' :: Maybe [UsageResourceResult]
 -&gt; Maybe [UsageResourceResult]
+-&gt; Maybe [UsageDataSourceResult]
 -&gt; Maybe [UsageAccountResult]
--&gt; Maybe [UsageResourceResult]
 -&gt; UsageStatistics
 </span><a href="Network.AWS.GuardDuty.Types.UsageStatistics.html#UsageStatistics%27"><span class="hs-identifier hs-type">UsageStatistics'</span></a></span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sumByDataSource:UsageStatistics' :: Maybe [UsageDataSourceResult]
-</span><a href="Network.AWS.GuardDuty.Types.UsageStatistics.html#%24sel%3AsumByDataSource%3AUsageStatistics%27"><span class="hs-identifier hs-var">sumByDataSource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [UsageDataSourceResult]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:topResources:UsageStatistics' :: Maybe [UsageResourceResult]
+</span><span id="line-66"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:topResources:UsageStatistics' :: Maybe [UsageResourceResult]
 </span><a href="Network.AWS.GuardDuty.Types.UsageStatistics.html#%24sel%3AtopResources%3AUsageStatistics%27"><span class="hs-identifier hs-var">topResources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [UsageResourceResult]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:sumByAccount:UsageStatistics' :: Maybe [UsageAccountResult]
-</span><a href="Network.AWS.GuardDuty.Types.UsageStatistics.html#%24sel%3AsumByAccount%3AUsageStatistics%27"><span class="hs-identifier hs-var">sumByAccount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [UsageAccountResult]
+</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:sumByResource:UsageStatistics' :: Maybe [UsageResourceResult]
+</span><a href="Network.AWS.GuardDuty.Types.UsageStatistics.html#%24sel%3AsumByResource%3AUsageStatistics%27"><span class="hs-identifier hs-var">sumByResource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [UsageResourceResult]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:sumByResource:UsageStatistics' :: Maybe [UsageResourceResult]
-</span><a href="Network.AWS.GuardDuty.Types.UsageStatistics.html#%24sel%3AsumByResource%3AUsageStatistics%27"><span class="hs-identifier hs-var">sumByResource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [UsageResourceResult]
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:sumByDataSource:UsageStatistics' :: Maybe [UsageDataSourceResult]
+</span><a href="Network.AWS.GuardDuty.Types.UsageStatistics.html#%24sel%3AsumByDataSource%3AUsageStatistics%27"><span class="hs-identifier hs-var">sumByDataSource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [UsageDataSourceResult]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:sumByAccount:UsageStatistics' :: Maybe [UsageAccountResult]
+</span><a href="Network.AWS.GuardDuty.Types.UsageStatistics.html#%24sel%3AsumByAccount%3AUsageStatistics%27"><span class="hs-identifier hs-var">sumByAccount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [UsageAccountResult]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-70"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- | The usage statistic sum organized by on data source.</span><span>
-</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UsageStatistics.html#usageStatistics_sumByDataSource"><span class="hs-identifier hs-type">usageStatistics_sumByDataSource</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UsageStatistics.html#UsageStatistics"><span class="hs-identifier hs-type">UsageStatistics</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UsageDataSourceResult.html#UsageDataSourceResult"><span class="hs-identifier hs-type">UsageDataSourceResult</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-74"></span><span id="usageStatistics_sumByDataSource"><span class="annot"><span class="annottext">usageStatistics_sumByDataSource :: (Maybe [UsageDataSourceResult]
+</span><span id="line-72"></span><span class="hs-comment">-- | Lists the top 50 resources that have generated the most GuardDuty usage,</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- in order from most to least expensive.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UsageStatistics.html#usageStatistics_topResources"><span class="hs-identifier hs-type">usageStatistics_topResources</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UsageStatistics.html#UsageStatistics"><span class="hs-identifier hs-type">UsageStatistics</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UsageResourceResult.html#UsageResourceResult"><span class="hs-identifier hs-type">UsageResourceResult</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span id="usageStatistics_topResources"><span class="annot"><span class="annottext">usageStatistics_topResources :: (Maybe [UsageResourceResult] -&gt; f (Maybe [UsageResourceResult]))
+-&gt; UsageStatistics -&gt; f UsageStatistics
+</span><a href="Network.AWS.GuardDuty.Types.UsageStatistics.html#usageStatistics_topResources"><span class="hs-identifier hs-var hs-var">usageStatistics_topResources</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UsageStatistics -&gt; Maybe [UsageResourceResult])
+-&gt; (UsageStatistics
+    -&gt; Maybe [UsageResourceResult] -&gt; UsageStatistics)
+-&gt; Lens
+     UsageStatistics
+     UsageStatistics
+     (Maybe [UsageResourceResult])
+     (Maybe [UsageResourceResult])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UsageStatistics.html#UsageStatistics%27"><span class="hs-identifier hs-type">UsageStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303197"><span class="annot"><span class="annottext">Maybe [UsageResourceResult]
+topResources :: Maybe [UsageResourceResult]
+$sel:topResources:UsageStatistics' :: UsageStatistics -&gt; Maybe [UsageResourceResult]
+</span><a href="#local-6989586621679303197"><span class="hs-identifier hs-var hs-var">topResources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [UsageResourceResult]
+</span><a href="#local-6989586621679303197"><span class="hs-identifier hs-var">topResources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303196"><span class="annot"><span class="annottext">s :: UsageStatistics
+</span><a href="#local-6989586621679303196"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UsageStatistics.html#UsageStatistics%27"><span class="hs-identifier hs-type">UsageStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303195"><span class="annot"><span class="annottext">Maybe [UsageResourceResult]
+</span><a href="#local-6989586621679303195"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UsageStatistics
+</span><a href="#local-6989586621679303196"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:topResources:UsageStatistics' :: Maybe [UsageResourceResult]
+</span><a href="Network.AWS.GuardDuty.Types.UsageStatistics.html#%24sel%3AtopResources%3AUsageStatistics%27"><span class="hs-identifier hs-var">topResources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [UsageResourceResult]
+</span><a href="#local-6989586621679303195"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UsageStatistics.html#UsageStatistics"><span class="hs-identifier hs-type">UsageStatistics</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [UsageResourceResult] -&gt; f (Maybe [UsageResourceResult]))
+ -&gt; UsageStatistics -&gt; f UsageStatistics)
+-&gt; ((Maybe [UsageResourceResult]
+     -&gt; f (Maybe [UsageResourceResult]))
+    -&gt; Maybe [UsageResourceResult] -&gt; f (Maybe [UsageResourceResult]))
+-&gt; (Maybe [UsageResourceResult] -&gt; f (Maybe [UsageResourceResult]))
+-&gt; UsageStatistics
+-&gt; f UsageStatistics
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [UsageResourceResult]
+  [UsageResourceResult]
+  [UsageResourceResult]
+  [UsageResourceResult]
+-&gt; Iso
+     (Maybe [UsageResourceResult])
+     (Maybe [UsageResourceResult])
+     (Maybe [UsageResourceResult])
+     (Maybe [UsageResourceResult])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [UsageResourceResult]
+  [UsageResourceResult]
+  [UsageResourceResult]
+  [UsageResourceResult]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | The usage statistic sum organized by resource.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UsageStatistics.html#usageStatistics_sumByResource"><span class="hs-identifier hs-type">usageStatistics_sumByResource</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UsageStatistics.html#UsageStatistics"><span class="hs-identifier hs-type">UsageStatistics</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UsageResourceResult.html#UsageResourceResult"><span class="hs-identifier hs-type">UsageResourceResult</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span id="usageStatistics_sumByResource"><span class="annot"><span class="annottext">usageStatistics_sumByResource :: (Maybe [UsageResourceResult] -&gt; f (Maybe [UsageResourceResult]))
+-&gt; UsageStatistics -&gt; f UsageStatistics
+</span><a href="Network.AWS.GuardDuty.Types.UsageStatistics.html#usageStatistics_sumByResource"><span class="hs-identifier hs-var hs-var">usageStatistics_sumByResource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UsageStatistics -&gt; Maybe [UsageResourceResult])
+-&gt; (UsageStatistics
+    -&gt; Maybe [UsageResourceResult] -&gt; UsageStatistics)
+-&gt; Lens
+     UsageStatistics
+     UsageStatistics
+     (Maybe [UsageResourceResult])
+     (Maybe [UsageResourceResult])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UsageStatistics.html#UsageStatistics%27"><span class="hs-identifier hs-type">UsageStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303190"><span class="annot"><span class="annottext">Maybe [UsageResourceResult]
+sumByResource :: Maybe [UsageResourceResult]
+$sel:sumByResource:UsageStatistics' :: UsageStatistics -&gt; Maybe [UsageResourceResult]
+</span><a href="#local-6989586621679303190"><span class="hs-identifier hs-var hs-var">sumByResource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [UsageResourceResult]
+</span><a href="#local-6989586621679303190"><span class="hs-identifier hs-var">sumByResource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303189"><span class="annot"><span class="annottext">s :: UsageStatistics
+</span><a href="#local-6989586621679303189"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UsageStatistics.html#UsageStatistics%27"><span class="hs-identifier hs-type">UsageStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303188"><span class="annot"><span class="annottext">Maybe [UsageResourceResult]
+</span><a href="#local-6989586621679303188"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UsageStatistics
+</span><a href="#local-6989586621679303189"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sumByResource:UsageStatistics' :: Maybe [UsageResourceResult]
+</span><a href="Network.AWS.GuardDuty.Types.UsageStatistics.html#%24sel%3AsumByResource%3AUsageStatistics%27"><span class="hs-identifier hs-var">sumByResource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [UsageResourceResult]
+</span><a href="#local-6989586621679303188"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UsageStatistics.html#UsageStatistics"><span class="hs-identifier hs-type">UsageStatistics</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [UsageResourceResult] -&gt; f (Maybe [UsageResourceResult]))
+ -&gt; UsageStatistics -&gt; f UsageStatistics)
+-&gt; ((Maybe [UsageResourceResult]
+     -&gt; f (Maybe [UsageResourceResult]))
+    -&gt; Maybe [UsageResourceResult] -&gt; f (Maybe [UsageResourceResult]))
+-&gt; (Maybe [UsageResourceResult] -&gt; f (Maybe [UsageResourceResult]))
+-&gt; UsageStatistics
+-&gt; f UsageStatistics
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [UsageResourceResult]
+  [UsageResourceResult]
+  [UsageResourceResult]
+  [UsageResourceResult]
+-&gt; Iso
+     (Maybe [UsageResourceResult])
+     (Maybe [UsageResourceResult])
+     (Maybe [UsageResourceResult])
+     (Maybe [UsageResourceResult])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [UsageResourceResult]
+  [UsageResourceResult]
+  [UsageResourceResult]
+  [UsageResourceResult]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | The usage statistic sum organized by on data source.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UsageStatistics.html#usageStatistics_sumByDataSource"><span class="hs-identifier hs-type">usageStatistics_sumByDataSource</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UsageStatistics.html#UsageStatistics"><span class="hs-identifier hs-type">UsageStatistics</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UsageDataSourceResult.html#UsageDataSourceResult"><span class="hs-identifier hs-type">UsageDataSourceResult</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="usageStatistics_sumByDataSource"><span class="annot"><span class="annottext">usageStatistics_sumByDataSource :: (Maybe [UsageDataSourceResult]
  -&gt; f (Maybe [UsageDataSourceResult]))
 -&gt; UsageStatistics -&gt; f UsageStatistics
 </span><a href="Network.AWS.GuardDuty.Types.UsageStatistics.html#usageStatistics_sumByDataSource"><span class="hs-identifier hs-var hs-var">usageStatistics_sumByDataSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UsageStatistics -&gt; Maybe [UsageDataSourceResult])
@@ -158,16 +263,16 @@ forall a. Maybe a
      (Maybe [UsageDataSourceResult])
      (Maybe [UsageDataSourceResult])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UsageStatistics.html#UsageStatistics%27"><span class="hs-identifier hs-type">UsageStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302903"><span class="annot"><span class="annottext">Maybe [UsageDataSourceResult]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UsageStatistics.html#UsageStatistics%27"><span class="hs-identifier hs-type">UsageStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303186"><span class="annot"><span class="annottext">Maybe [UsageDataSourceResult]
 sumByDataSource :: Maybe [UsageDataSourceResult]
 $sel:sumByDataSource:UsageStatistics' :: UsageStatistics -&gt; Maybe [UsageDataSourceResult]
-</span><a href="#local-6989586621679302903"><span class="hs-identifier hs-var hs-var">sumByDataSource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [UsageDataSourceResult]
-</span><a href="#local-6989586621679302903"><span class="hs-identifier hs-var">sumByDataSource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302902"><span class="annot"><span class="annottext">s :: UsageStatistics
-</span><a href="#local-6989586621679302902"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UsageStatistics.html#UsageStatistics%27"><span class="hs-identifier hs-type">UsageStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302901"><span class="annot"><span class="annottext">Maybe [UsageDataSourceResult]
-</span><a href="#local-6989586621679302901"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UsageStatistics
-</span><a href="#local-6989586621679302902"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sumByDataSource:UsageStatistics' :: Maybe [UsageDataSourceResult]
+</span><a href="#local-6989586621679303186"><span class="hs-identifier hs-var hs-var">sumByDataSource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [UsageDataSourceResult]
+</span><a href="#local-6989586621679303186"><span class="hs-identifier hs-var">sumByDataSource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303185"><span class="annot"><span class="annottext">s :: UsageStatistics
+</span><a href="#local-6989586621679303185"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UsageStatistics.html#UsageStatistics%27"><span class="hs-identifier hs-type">UsageStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303184"><span class="annot"><span class="annottext">Maybe [UsageDataSourceResult]
+</span><a href="#local-6989586621679303184"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UsageStatistics
+</span><a href="#local-6989586621679303185"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sumByDataSource:UsageStatistics' :: Maybe [UsageDataSourceResult]
 </span><a href="Network.AWS.GuardDuty.Types.UsageStatistics.html#%24sel%3AsumByDataSource%3AUsageStatistics%27"><span class="hs-identifier hs-var">sumByDataSource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [UsageDataSourceResult]
-</span><a href="#local-6989586621679302901"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UsageStatistics.html#UsageStatistics"><span class="hs-identifier hs-type">UsageStatistics</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [UsageDataSourceResult]
+</span><a href="#local-6989586621679303184"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UsageStatistics.html#UsageStatistics"><span class="hs-identifier hs-type">UsageStatistics</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [UsageDataSourceResult]
   -&gt; f (Maybe [UsageDataSourceResult]))
  -&gt; UsageStatistics -&gt; f UsageStatistics)
 -&gt; ((Maybe [UsageDataSourceResult]
@@ -197,65 +302,12 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [UsageDataSourceResult]
   [UsageDataSourceResult]
   [UsageDataSourceResult]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- | Lists the top 50 resources that have generated the most GuardDuty usage,</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- in order from most to least expensive.</span><span>
-</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UsageStatistics.html#usageStatistics_topResources"><span class="hs-identifier hs-type">usageStatistics_topResources</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UsageStatistics.html#UsageStatistics"><span class="hs-identifier hs-type">UsageStatistics</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UsageResourceResult.html#UsageResourceResult"><span class="hs-identifier hs-type">UsageResourceResult</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-79"></span><span id="usageStatistics_topResources"><span class="annot"><span class="annottext">usageStatistics_topResources :: (Maybe [UsageResourceResult] -&gt; f (Maybe [UsageResourceResult]))
--&gt; UsageStatistics -&gt; f UsageStatistics
-</span><a href="Network.AWS.GuardDuty.Types.UsageStatistics.html#usageStatistics_topResources"><span class="hs-identifier hs-var hs-var">usageStatistics_topResources</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UsageStatistics -&gt; Maybe [UsageResourceResult])
--&gt; (UsageStatistics
-    -&gt; Maybe [UsageResourceResult] -&gt; UsageStatistics)
--&gt; Lens
-     UsageStatistics
-     UsageStatistics
-     (Maybe [UsageResourceResult])
-     (Maybe [UsageResourceResult])
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UsageStatistics.html#UsageStatistics%27"><span class="hs-identifier hs-type">UsageStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302896"><span class="annot"><span class="annottext">Maybe [UsageResourceResult]
-topResources :: Maybe [UsageResourceResult]
-$sel:topResources:UsageStatistics' :: UsageStatistics -&gt; Maybe [UsageResourceResult]
-</span><a href="#local-6989586621679302896"><span class="hs-identifier hs-var hs-var">topResources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [UsageResourceResult]
-</span><a href="#local-6989586621679302896"><span class="hs-identifier hs-var">topResources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302895"><span class="annot"><span class="annottext">s :: UsageStatistics
-</span><a href="#local-6989586621679302895"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UsageStatistics.html#UsageStatistics%27"><span class="hs-identifier hs-type">UsageStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302894"><span class="annot"><span class="annottext">Maybe [UsageResourceResult]
-</span><a href="#local-6989586621679302894"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UsageStatistics
-</span><a href="#local-6989586621679302895"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:topResources:UsageStatistics' :: Maybe [UsageResourceResult]
-</span><a href="Network.AWS.GuardDuty.Types.UsageStatistics.html#%24sel%3AtopResources%3AUsageStatistics%27"><span class="hs-identifier hs-var">topResources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [UsageResourceResult]
-</span><a href="#local-6989586621679302894"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UsageStatistics.html#UsageStatistics"><span class="hs-identifier hs-type">UsageStatistics</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [UsageResourceResult] -&gt; f (Maybe [UsageResourceResult]))
- -&gt; UsageStatistics -&gt; f UsageStatistics)
--&gt; ((Maybe [UsageResourceResult]
-     -&gt; f (Maybe [UsageResourceResult]))
-    -&gt; Maybe [UsageResourceResult] -&gt; f (Maybe [UsageResourceResult]))
--&gt; (Maybe [UsageResourceResult] -&gt; f (Maybe [UsageResourceResult]))
--&gt; UsageStatistics
--&gt; f UsageStatistics
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
-  [UsageResourceResult]
-  [UsageResourceResult]
-  [UsageResourceResult]
-  [UsageResourceResult]
--&gt; Iso
-     (Maybe [UsageResourceResult])
-     (Maybe [UsageResourceResult])
-     (Maybe [UsageResourceResult])
-     (Maybe [UsageResourceResult])
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
-  [UsageResourceResult]
-  [UsageResourceResult]
-  [UsageResourceResult]
-  [UsageResourceResult]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- | The usage statistic sum organized by account ID.</span><span>
-</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UsageStatistics.html#usageStatistics_sumByAccount"><span class="hs-identifier hs-type">usageStatistics_sumByAccount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UsageStatistics.html#UsageStatistics"><span class="hs-identifier hs-type">UsageStatistics</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UsageAccountResult.html#UsageAccountResult"><span class="hs-identifier hs-type">UsageAccountResult</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-83"></span><span id="usageStatistics_sumByAccount"><span class="annot"><span class="annottext">usageStatistics_sumByAccount :: (Maybe [UsageAccountResult] -&gt; f (Maybe [UsageAccountResult]))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The usage statistic sum organized by account ID.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UsageStatistics.html#usageStatistics_sumByAccount"><span class="hs-identifier hs-type">usageStatistics_sumByAccount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UsageStatistics.html#UsageStatistics"><span class="hs-identifier hs-type">UsageStatistics</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UsageAccountResult.html#UsageAccountResult"><span class="hs-identifier hs-type">UsageAccountResult</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span id="usageStatistics_sumByAccount"><span class="annot"><span class="annottext">usageStatistics_sumByAccount :: (Maybe [UsageAccountResult] -&gt; f (Maybe [UsageAccountResult]))
 -&gt; UsageStatistics -&gt; f UsageStatistics
 </span><a href="Network.AWS.GuardDuty.Types.UsageStatistics.html#usageStatistics_sumByAccount"><span class="hs-identifier hs-var hs-var">usageStatistics_sumByAccount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UsageStatistics -&gt; Maybe [UsageAccountResult])
 -&gt; (UsageStatistics
@@ -266,16 +318,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe [UsageAccountResult])
      (Maybe [UsageAccountResult])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UsageStatistics.html#UsageStatistics%27"><span class="hs-identifier hs-type">UsageStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302892"><span class="annot"><span class="annottext">Maybe [UsageAccountResult]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UsageStatistics.html#UsageStatistics%27"><span class="hs-identifier hs-type">UsageStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303182"><span class="annot"><span class="annottext">Maybe [UsageAccountResult]
 sumByAccount :: Maybe [UsageAccountResult]
 $sel:sumByAccount:UsageStatistics' :: UsageStatistics -&gt; Maybe [UsageAccountResult]
-</span><a href="#local-6989586621679302892"><span class="hs-identifier hs-var hs-var">sumByAccount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [UsageAccountResult]
-</span><a href="#local-6989586621679302892"><span class="hs-identifier hs-var">sumByAccount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302891"><span class="annot"><span class="annottext">s :: UsageStatistics
-</span><a href="#local-6989586621679302891"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UsageStatistics.html#UsageStatistics%27"><span class="hs-identifier hs-type">UsageStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302890"><span class="annot"><span class="annottext">Maybe [UsageAccountResult]
-</span><a href="#local-6989586621679302890"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UsageStatistics
-</span><a href="#local-6989586621679302891"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sumByAccount:UsageStatistics' :: Maybe [UsageAccountResult]
+</span><a href="#local-6989586621679303182"><span class="hs-identifier hs-var hs-var">sumByAccount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [UsageAccountResult]
+</span><a href="#local-6989586621679303182"><span class="hs-identifier hs-var">sumByAccount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303181"><span class="annot"><span class="annottext">s :: UsageStatistics
+</span><a href="#local-6989586621679303181"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UsageStatistics.html#UsageStatistics%27"><span class="hs-identifier hs-type">UsageStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303180"><span class="annot"><span class="annottext">Maybe [UsageAccountResult]
+</span><a href="#local-6989586621679303180"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UsageStatistics
+</span><a href="#local-6989586621679303181"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sumByAccount:UsageStatistics' :: Maybe [UsageAccountResult]
 </span><a href="Network.AWS.GuardDuty.Types.UsageStatistics.html#%24sel%3AsumByAccount%3AUsageStatistics%27"><span class="hs-identifier hs-var">sumByAccount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [UsageAccountResult]
-</span><a href="#local-6989586621679302890"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UsageStatistics.html#UsageStatistics"><span class="hs-identifier hs-type">UsageStatistics</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [UsageAccountResult] -&gt; f (Maybe [UsageAccountResult]))
+</span><a href="#local-6989586621679303180"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UsageStatistics.html#UsageStatistics"><span class="hs-identifier hs-type">UsageStatistics</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [UsageAccountResult] -&gt; f (Maybe [UsageAccountResult]))
  -&gt; UsageStatistics -&gt; f UsageStatistics)
 -&gt; ((Maybe [UsageAccountResult] -&gt; f (Maybe [UsageAccountResult]))
     -&gt; Maybe [UsageAccountResult] -&gt; f (Maybe [UsageAccountResult]))
@@ -301,63 +353,11 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [UsageAccountResult]
   [UsageAccountResult]
   [UsageAccountResult]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- | The usage statistic sum organized by resource.</span><span>
-</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UsageStatistics.html#usageStatistics_sumByResource"><span class="hs-identifier hs-type">usageStatistics_sumByResource</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UsageStatistics.html#UsageStatistics"><span class="hs-identifier hs-type">UsageStatistics</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UsageResourceResult.html#UsageResourceResult"><span class="hs-identifier hs-type">UsageResourceResult</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-87"></span><span id="usageStatistics_sumByResource"><span class="annot"><span class="annottext">usageStatistics_sumByResource :: (Maybe [UsageResourceResult] -&gt; f (Maybe [UsageResourceResult]))
--&gt; UsageStatistics -&gt; f UsageStatistics
-</span><a href="Network.AWS.GuardDuty.Types.UsageStatistics.html#usageStatistics_sumByResource"><span class="hs-identifier hs-var hs-var">usageStatistics_sumByResource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UsageStatistics -&gt; Maybe [UsageResourceResult])
--&gt; (UsageStatistics
-    -&gt; Maybe [UsageResourceResult] -&gt; UsageStatistics)
--&gt; Lens
-     UsageStatistics
-     UsageStatistics
-     (Maybe [UsageResourceResult])
-     (Maybe [UsageResourceResult])
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UsageStatistics.html#UsageStatistics%27"><span class="hs-identifier hs-type">UsageStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302888"><span class="annot"><span class="annottext">Maybe [UsageResourceResult]
-sumByResource :: Maybe [UsageResourceResult]
-$sel:sumByResource:UsageStatistics' :: UsageStatistics -&gt; Maybe [UsageResourceResult]
-</span><a href="#local-6989586621679302888"><span class="hs-identifier hs-var hs-var">sumByResource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [UsageResourceResult]
-</span><a href="#local-6989586621679302888"><span class="hs-identifier hs-var">sumByResource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302887"><span class="annot"><span class="annottext">s :: UsageStatistics
-</span><a href="#local-6989586621679302887"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UsageStatistics.html#UsageStatistics%27"><span class="hs-identifier hs-type">UsageStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302886"><span class="annot"><span class="annottext">Maybe [UsageResourceResult]
-</span><a href="#local-6989586621679302886"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UsageStatistics
-</span><a href="#local-6989586621679302887"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sumByResource:UsageStatistics' :: Maybe [UsageResourceResult]
-</span><a href="Network.AWS.GuardDuty.Types.UsageStatistics.html#%24sel%3AsumByResource%3AUsageStatistics%27"><span class="hs-identifier hs-var">sumByResource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [UsageResourceResult]
-</span><a href="#local-6989586621679302886"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UsageStatistics.html#UsageStatistics"><span class="hs-identifier hs-type">UsageStatistics</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [UsageResourceResult] -&gt; f (Maybe [UsageResourceResult]))
- -&gt; UsageStatistics -&gt; f UsageStatistics)
--&gt; ((Maybe [UsageResourceResult]
-     -&gt; f (Maybe [UsageResourceResult]))
-    -&gt; Maybe [UsageResourceResult] -&gt; f (Maybe [UsageResourceResult]))
--&gt; (Maybe [UsageResourceResult] -&gt; f (Maybe [UsageResourceResult]))
--&gt; UsageStatistics
--&gt; f UsageStatistics
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
-  [UsageResourceResult]
-  [UsageResourceResult]
-  [UsageResourceResult]
-  [UsageResourceResult]
--&gt; Iso
-     (Maybe [UsageResourceResult])
-     (Maybe [UsageResourceResult])
-     (Maybe [UsageResourceResult])
-     (Maybe [UsageResourceResult])
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
-  [UsageResourceResult]
-  [UsageResourceResult]
-  [UsageResourceResult]
-  [UsageResourceResult]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302883"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UsageStatistics.html#UsageStatistics"><span class="hs-identifier hs-type">UsageStatistics</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621679302881"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser UsageStatistics
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303177"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UsageStatistics.html#UsageStatistics"><span class="hs-identifier hs-type">UsageStatistics</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679303175"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser UsageStatistics
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-91"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser UsageStatistics)
@@ -367,51 +367,28 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;UsageStatistics&quot;</span></span><span>
-</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679302878"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679302878"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-94"></span><span>          </span><span class="annot"><span class="annottext">Maybe [UsageDataSourceResult]
+</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679303172"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679303172"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-94"></span><span>          </span><span class="annot"><span class="annottext">Maybe [UsageResourceResult]
 -&gt; Maybe [UsageResourceResult]
+-&gt; Maybe [UsageDataSourceResult]
 -&gt; Maybe [UsageAccountResult]
--&gt; Maybe [UsageResourceResult]
 -&gt; UsageStatistics
 </span><a href="Network.AWS.GuardDuty.Types.UsageStatistics.html#UsageStatistics%27"><span class="hs-identifier hs-var">UsageStatistics'</span></a></span><span>
-</span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [UsageDataSourceResult]
+</span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [UsageResourceResult]
  -&gt; Maybe [UsageResourceResult]
+ -&gt; Maybe [UsageDataSourceResult]
  -&gt; Maybe [UsageAccountResult]
- -&gt; Maybe [UsageResourceResult]
  -&gt; UsageStatistics)
--&gt; Parser (Maybe [UsageDataSourceResult])
--&gt; Parser
-     (Maybe [UsageResourceResult]
-      -&gt; Maybe [UsageAccountResult]
-      -&gt; Maybe [UsageResourceResult]
-      -&gt; UsageStatistics)
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679302878"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [UsageDataSourceResult]))
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;sumByDataSource&quot;</span></span><span>
-</span><span id="line-96"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [UsageDataSourceResult]))
--&gt; Maybe [UsageDataSourceResult]
--&gt; Parser (Maybe [UsageDataSourceResult])
-forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
-</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [UsageDataSourceResult]
-forall a. Monoid a =&gt; a
-</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-97"></span><span>                        </span><span class="hs-special">)</span><span>
-</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe [UsageResourceResult]
-   -&gt; Maybe [UsageAccountResult]
-   -&gt; Maybe [UsageResourceResult]
-   -&gt; UsageStatistics)
 -&gt; Parser (Maybe [UsageResourceResult])
 -&gt; Parser
-     (Maybe [UsageAccountResult]
-      -&gt; Maybe [UsageResourceResult] -&gt; UsageStatistics)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679302878"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [UsageResourceResult]))
+     (Maybe [UsageResourceResult]
+      -&gt; Maybe [UsageDataSourceResult]
+      -&gt; Maybe [UsageAccountResult]
+      -&gt; UsageStatistics)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679303172"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [UsageResourceResult]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;topResources&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [UsageResourceResult]))
@@ -421,28 +398,18 @@ forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [UsageResourceResult]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe [UsageAccountResult]
-   -&gt; Maybe [UsageResourceResult] -&gt; UsageStatistics)
--&gt; Parser (Maybe [UsageAccountResult])
--&gt; Parser (Maybe [UsageResourceResult] -&gt; UsageStatistics)
+</span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [UsageResourceResult]
+   -&gt; Maybe [UsageDataSourceResult]
+   -&gt; Maybe [UsageAccountResult]
+   -&gt; UsageStatistics)
+-&gt; Parser (Maybe [UsageResourceResult])
+-&gt; Parser
+     (Maybe [UsageDataSourceResult]
+      -&gt; Maybe [UsageAccountResult] -&gt; UsageStatistics)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679302878"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [UsageAccountResult]))
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;sumByAccount&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [UsageAccountResult]))
--&gt; Maybe [UsageAccountResult]
--&gt; Parser (Maybe [UsageAccountResult])
-forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
-</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [UsageAccountResult]
-forall a. Monoid a =&gt; a
-</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [UsageResourceResult] -&gt; UsageStatistics)
--&gt; Parser (Maybe [UsageResourceResult]) -&gt; Parser UsageStatistics
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679302878"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [UsageResourceResult]))
+</span><a href="#local-6989586621679303172"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [UsageResourceResult]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;sumByResource&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [UsageResourceResult]))
@@ -452,9 +419,42 @@ forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [UsageResourceResult]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [UsageDataSourceResult]
+   -&gt; Maybe [UsageAccountResult] -&gt; UsageStatistics)
+-&gt; Parser (Maybe [UsageDataSourceResult])
+-&gt; Parser (Maybe [UsageAccountResult] -&gt; UsageStatistics)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679303172"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [UsageDataSourceResult]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;sumByDataSource&quot;</span></span><span>
+</span><span id="line-98"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [UsageDataSourceResult]))
+-&gt; Maybe [UsageDataSourceResult]
+-&gt; Parser (Maybe [UsageDataSourceResult])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [UsageDataSourceResult]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-99"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [UsageAccountResult] -&gt; UsageStatistics)
+-&gt; Parser (Maybe [UsageAccountResult]) -&gt; Parser UsageStatistics
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679303172"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [UsageAccountResult]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;sumByAccount&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [UsageAccountResult]))
+-&gt; Maybe [UsageAccountResult]
+-&gt; Parser (Maybe [UsageAccountResult])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [UsageAccountResult]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302871"><span id="local-6989586621679302873"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UsageStatistics.html#UsageStatistics"><span class="hs-identifier hs-type">UsageStatistics</span></a></span></span></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303165"><span id="local-6989586621679303167"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UsageStatistics.html#UsageStatistics"><span class="hs-identifier hs-type">UsageStatistics</span></a></span></span></span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302868"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UsageStatistics.html#UsageStatistics"><span class="hs-identifier hs-type">UsageStatistics</span></a></span></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303162"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UsageStatistics.html#UsageStatistics"><span class="hs-identifier hs-type">UsageStatistics</span></a></span></span><span>
 </span><span id="line-106"></span></pre></body></html>

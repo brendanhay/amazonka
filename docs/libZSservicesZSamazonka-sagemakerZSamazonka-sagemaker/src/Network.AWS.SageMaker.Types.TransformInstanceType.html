@@ -59,13 +59,13 @@
 </span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span id="local-6989586621680349615"><span id="local-6989586621680349616"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TransformInstanceType"><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformInstanceType.html#TransformInstanceType"><span class="hs-identifier hs-var">TransformInstanceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TransformInstanceType%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformInstanceType.html#TransformInstanceType%27"><span class="hs-identifier hs-var">TransformInstanceType'</span></a></span></span><span>
+</span><span id="line-62"></span><span id="local-6989586621680351045"><span id="local-6989586621680351046"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TransformInstanceType"><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformInstanceType.html#TransformInstanceType"><span class="hs-identifier hs-var">TransformInstanceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TransformInstanceType%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformInstanceType.html#TransformInstanceType%27"><span class="hs-identifier hs-var">TransformInstanceType'</span></a></span></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTransformInstanceType"><span class="annot"><span class="annottext">TransformInstanceType -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.TransformInstanceType.html#fromTransformInstanceType"><span class="hs-identifier hs-var hs-var">fromTransformInstanceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-64"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680349607"><span id="local-6989586621680349609"><span id="local-6989586621680349611"><span class="annot"><span class="annottext">Int -&gt; TransformInstanceType -&gt; ShowS
+</span><span id="line-67"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680351037"><span id="local-6989586621680351039"><span id="local-6989586621680351041"><span class="annot"><span class="annottext">Int -&gt; TransformInstanceType -&gt; ShowS
 [TransformInstanceType] -&gt; ShowS
 TransformInstanceType -&gt; String
 (Int -&gt; TransformInstanceType -&gt; ShowS)
@@ -81,7 +81,7 @@ $cshow :: TransformInstanceType -&gt; String
 showsPrec :: Int -&gt; TransformInstanceType -&gt; ShowS
 $cshowsPrec :: Int -&gt; TransformInstanceType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span id="local-6989586621680349598"><span id="local-6989586621680349600"><span id="local-6989586621680349602"><span id="local-6989586621680349604"><span class="annot"><span class="annottext">ReadPrec [TransformInstanceType]
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621680351028"><span id="local-6989586621680351030"><span id="local-6989586621680351032"><span id="local-6989586621680351034"><span class="annot"><span class="annottext">ReadPrec [TransformInstanceType]
 ReadPrec TransformInstanceType
 Int -&gt; ReadS TransformInstanceType
 ReadS [TransformInstanceType]
@@ -102,7 +102,7 @@ $creadList :: ReadS [TransformInstanceType]
 readsPrec :: Int -&gt; ReadS TransformInstanceType
 $creadsPrec :: Int -&gt; ReadS TransformInstanceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span id="local-6989586621680349593"><span id="local-6989586621680349595"><span class="annot"><span class="annottext">TransformInstanceType -&gt; TransformInstanceType -&gt; Bool
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621680351023"><span id="local-6989586621680351025"><span class="annot"><span class="annottext">TransformInstanceType -&gt; TransformInstanceType -&gt; Bool
 (TransformInstanceType -&gt; TransformInstanceType -&gt; Bool)
 -&gt; (TransformInstanceType -&gt; TransformInstanceType -&gt; Bool)
 -&gt; Eq TransformInstanceType
@@ -112,7 +112,7 @@ $c/= :: TransformInstanceType -&gt; TransformInstanceType -&gt; Bool
 == :: TransformInstanceType -&gt; TransformInstanceType -&gt; Bool
 $c== :: TransformInstanceType -&gt; TransformInstanceType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span id="local-6989586621680349577"><span id="local-6989586621680349579"><span id="local-6989586621680349581"><span id="local-6989586621680349583"><span id="local-6989586621680349585"><span id="local-6989586621680349587"><span id="local-6989586621680349589"><span class="annot"><span class="annottext">Eq TransformInstanceType
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621680351007"><span id="local-6989586621680351009"><span id="local-6989586621680351011"><span id="local-6989586621680351013"><span id="local-6989586621680351015"><span id="local-6989586621680351017"><span id="local-6989586621680351019"><span class="annot"><span class="annottext">Eq TransformInstanceType
 Eq TransformInstanceType
 -&gt; (TransformInstanceType -&gt; TransformInstanceType -&gt; Ordering)
 -&gt; (TransformInstanceType -&gt; TransformInstanceType -&gt; Bool)
@@ -170,7 +170,7 @@ $cfrom :: forall x. TransformInstanceType -&gt; Rep TransformInstanceType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-72"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-74"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680349569"><span id="local-6989586621680349571"><span class="annot"><span class="annottext">Int -&gt; TransformInstanceType -&gt; Int
+</span><span id="line-74"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680350999"><span id="local-6989586621680351001"><span class="annot"><span class="annottext">Int -&gt; TransformInstanceType -&gt; Int
 TransformInstanceType -&gt; Int
 (Int -&gt; TransformInstanceType -&gt; Int)
 -&gt; (TransformInstanceType -&gt; Int) -&gt; Hashable TransformInstanceType
@@ -180,54 +180,54 @@ $chash :: TransformInstanceType -&gt; Int
 hashWithSalt :: Int -&gt; TransformInstanceType -&gt; Int
 $chashWithSalt :: Int -&gt; TransformInstanceType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-75"></span><span>      </span><span id="local-6989586621680349566"><span class="annot"><span class="annottext">TransformInstanceType -&gt; ()
+</span><span id="line-75"></span><span>      </span><span id="local-6989586621680350996"><span class="annot"><span class="annottext">TransformInstanceType -&gt; ()
 (TransformInstanceType -&gt; ()) -&gt; NFData TransformInstanceType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: TransformInstanceType -&gt; ()
 $crnf :: TransformInstanceType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-76"></span><span>      </span><span id="local-6989586621680349563"><span class="annot"><span class="annottext">Text -&gt; Either String TransformInstanceType
+</span><span id="line-76"></span><span>      </span><span id="local-6989586621680350993"><span class="annot"><span class="annottext">Text -&gt; Either String TransformInstanceType
 (Text -&gt; Either String TransformInstanceType)
 -&gt; FromText TransformInstanceType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String TransformInstanceType
 $cfromText :: Text -&gt; Either String TransformInstanceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-77"></span><span>      </span><span id="local-6989586621680349560"><span class="annot"><span class="annottext">TransformInstanceType -&gt; Text
+</span><span id="line-77"></span><span>      </span><span id="local-6989586621680350990"><span class="annot"><span class="annottext">TransformInstanceType -&gt; Text
 (TransformInstanceType -&gt; Text) -&gt; ToText TransformInstanceType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: TransformInstanceType -&gt; Text
 $ctoText :: TransformInstanceType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-78"></span><span>      </span><span id="local-6989586621680349557"><span class="annot"><span class="annottext">TransformInstanceType -&gt; ByteString
+</span><span id="line-78"></span><span>      </span><span id="local-6989586621680350987"><span class="annot"><span class="annottext">TransformInstanceType -&gt; ByteString
 (TransformInstanceType -&gt; ByteString)
 -&gt; ToByteString TransformInstanceType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: TransformInstanceType -&gt; ByteString
 $ctoBS :: TransformInstanceType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-79"></span><span>      </span><span id="local-6989586621680349554"><span class="annot"><span class="annottext">TransformInstanceType -&gt; ByteStringBuilder
+</span><span id="line-79"></span><span>      </span><span id="local-6989586621680350984"><span class="annot"><span class="annottext">TransformInstanceType -&gt; ByteStringBuilder
 (TransformInstanceType -&gt; ByteStringBuilder)
 -&gt; ToLog TransformInstanceType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: TransformInstanceType -&gt; ByteStringBuilder
 $cbuild :: TransformInstanceType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-80"></span><span>      </span><span id="local-6989586621680349551"><span class="annot"><span class="annottext">HeaderName -&gt; TransformInstanceType -&gt; [Header]
+</span><span id="line-80"></span><span>      </span><span id="local-6989586621680350981"><span class="annot"><span class="annottext">HeaderName -&gt; TransformInstanceType -&gt; [Header]
 (HeaderName -&gt; TransformInstanceType -&gt; [Header])
 -&gt; ToHeader TransformInstanceType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; TransformInstanceType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; TransformInstanceType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-81"></span><span>      </span><span id="local-6989586621680349548"><span class="annot"><span class="annottext">TransformInstanceType -&gt; QueryString
+</span><span id="line-81"></span><span>      </span><span id="local-6989586621680350978"><span class="annot"><span class="annottext">TransformInstanceType -&gt; QueryString
 (TransformInstanceType -&gt; QueryString)
 -&gt; ToQuery TransformInstanceType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: TransformInstanceType -&gt; QueryString
 $ctoQuery :: TransformInstanceType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-82"></span><span>      </span><span id="local-6989586621680349543"><span id="local-6989586621680349545"><span class="annot"><span class="annottext">Value -&gt; Parser [TransformInstanceType]
+</span><span id="line-82"></span><span>      </span><span id="local-6989586621680350973"><span id="local-6989586621680350975"><span class="annot"><span class="annottext">Value -&gt; Parser [TransformInstanceType]
 Value -&gt; Parser TransformInstanceType
 (Value -&gt; Parser TransformInstanceType)
 -&gt; (Value -&gt; Parser [TransformInstanceType])
@@ -239,7 +239,7 @@ $cparseJSONList :: Value -&gt; Parser [TransformInstanceType]
 parseJSON :: Value -&gt; Parser TransformInstanceType
 $cparseJSON :: Value -&gt; Parser TransformInstanceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-83"></span><span>      </span><span id="local-6989586621680349538"><span id="local-6989586621680349540"><span class="annot"><span class="annottext">FromJSONKeyFunction [TransformInstanceType]
+</span><span id="line-83"></span><span>      </span><span id="local-6989586621680350968"><span id="local-6989586621680350970"><span class="annot"><span class="annottext">FromJSONKeyFunction [TransformInstanceType]
 FromJSONKeyFunction TransformInstanceType
 FromJSONKeyFunction TransformInstanceType
 -&gt; FromJSONKeyFunction [TransformInstanceType]
@@ -251,7 +251,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [TransformInstanceType]
 fromJSONKey :: FromJSONKeyFunction TransformInstanceType
 $cfromJSONKey :: FromJSONKeyFunction TransformInstanceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-84"></span><span>      </span><span id="local-6989586621680349529"><span id="local-6989586621680349531"><span id="local-6989586621680349533"><span id="local-6989586621680349535"><span class="annot"><span class="annottext">[TransformInstanceType] -&gt; Encoding
+</span><span id="line-84"></span><span>      </span><span id="local-6989586621680350959"><span id="local-6989586621680350961"><span id="local-6989586621680350963"><span id="local-6989586621680350965"><span class="annot"><span class="annottext">[TransformInstanceType] -&gt; Encoding
 [TransformInstanceType] -&gt; Value
 TransformInstanceType -&gt; Encoding
 TransformInstanceType -&gt; Value
@@ -275,7 +275,7 @@ $ctoEncoding :: TransformInstanceType -&gt; Encoding
 toJSON :: TransformInstanceType -&gt; Value
 $ctoJSON :: TransformInstanceType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-85"></span><span>      </span><span id="local-6989586621680349524"><span id="local-6989586621680349526"><span class="annot"><span class="annottext">ToJSONKeyFunction [TransformInstanceType]
+</span><span id="line-85"></span><span>      </span><span id="local-6989586621680350954"><span id="local-6989586621680350956"><span class="annot"><span class="annottext">ToJSONKeyFunction [TransformInstanceType]
 ToJSONKeyFunction TransformInstanceType
 ToJSONKeyFunction TransformInstanceType
 -&gt; ToJSONKeyFunction [TransformInstanceType]
@@ -287,14 +287,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [TransformInstanceType]
 toJSONKey :: ToJSONKeyFunction TransformInstanceType
 $ctoJSONKey :: ToJSONKeyFunction TransformInstanceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-86"></span><span>      </span><span id="local-6989586621680349521"><span class="annot"><span class="annottext">[Node] -&gt; Either String TransformInstanceType
+</span><span id="line-86"></span><span>      </span><span id="local-6989586621680350951"><span class="annot"><span class="annottext">[Node] -&gt; Either String TransformInstanceType
 ([Node] -&gt; Either String TransformInstanceType)
 -&gt; FromXML TransformInstanceType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String TransformInstanceType
 $cparseXML :: [Node] -&gt; Either String TransformInstanceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-87"></span><span>      </span><span id="local-6989586621680349518"><span class="annot"><span class="annottext">TransformInstanceType -&gt; XML
+</span><span id="line-87"></span><span>      </span><span id="local-6989586621680350948"><span class="annot"><span class="annottext">TransformInstanceType -&gt; XML
 (TransformInstanceType -&gt; XML) -&gt; ToXML TransformInstanceType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: TransformInstanceType -&gt; XML

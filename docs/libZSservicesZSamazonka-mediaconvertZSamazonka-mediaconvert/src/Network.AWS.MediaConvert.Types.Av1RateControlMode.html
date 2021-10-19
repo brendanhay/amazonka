@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- | \'With AV1 outputs, for rate control mode, MediaConvert supports only</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- quality-defined variable bitrate (QVBR). You can\'\'t use CBR or VBR.\'</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679937944"><span id="local-6989586621679937945"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Av1RateControlMode"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1RateControlMode.html#Av1RateControlMode"><span class="hs-identifier hs-var">Av1RateControlMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Av1RateControlMode%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1RateControlMode.html#Av1RateControlMode%27"><span class="hs-identifier hs-var">Av1RateControlMode'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679942566"><span id="local-6989586621679942567"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Av1RateControlMode"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1RateControlMode.html#Av1RateControlMode"><span class="hs-identifier hs-var">Av1RateControlMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Av1RateControlMode%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1RateControlMode.html#Av1RateControlMode%27"><span class="hs-identifier hs-var">Av1RateControlMode'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAv1RateControlMode"><span class="annot"><span class="annottext">Av1RateControlMode -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.Av1RateControlMode.html#fromAv1RateControlMode"><span class="hs-identifier hs-var hs-var">fromAv1RateControlMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679937936"><span id="local-6989586621679937938"><span id="local-6989586621679937940"><span class="annot"><span class="annottext">Int -&gt; Av1RateControlMode -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679942558"><span id="local-6989586621679942560"><span id="local-6989586621679942562"><span class="annot"><span class="annottext">Int -&gt; Av1RateControlMode -&gt; ShowS
 [Av1RateControlMode] -&gt; ShowS
 Av1RateControlMode -&gt; String
 (Int -&gt; Av1RateControlMode -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: Av1RateControlMode -&gt; String
 showsPrec :: Int -&gt; Av1RateControlMode -&gt; ShowS
 $cshowsPrec :: Int -&gt; Av1RateControlMode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679937927"><span id="local-6989586621679937929"><span id="local-6989586621679937931"><span id="local-6989586621679937933"><span class="annot"><span class="annottext">ReadPrec [Av1RateControlMode]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679942549"><span id="local-6989586621679942551"><span id="local-6989586621679942553"><span id="local-6989586621679942555"><span class="annot"><span class="annottext">ReadPrec [Av1RateControlMode]
 ReadPrec Av1RateControlMode
 Int -&gt; ReadS Av1RateControlMode
 ReadS [Av1RateControlMode]
@@ -73,7 +73,7 @@ $creadList :: ReadS [Av1RateControlMode]
 readsPrec :: Int -&gt; ReadS Av1RateControlMode
 $creadsPrec :: Int -&gt; ReadS Av1RateControlMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679937922"><span id="local-6989586621679937924"><span class="annot"><span class="annottext">Av1RateControlMode -&gt; Av1RateControlMode -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679942544"><span id="local-6989586621679942546"><span class="annot"><span class="annottext">Av1RateControlMode -&gt; Av1RateControlMode -&gt; Bool
 (Av1RateControlMode -&gt; Av1RateControlMode -&gt; Bool)
 -&gt; (Av1RateControlMode -&gt; Av1RateControlMode -&gt; Bool)
 -&gt; Eq Av1RateControlMode
@@ -83,7 +83,7 @@ $c/= :: Av1RateControlMode -&gt; Av1RateControlMode -&gt; Bool
 == :: Av1RateControlMode -&gt; Av1RateControlMode -&gt; Bool
 $c== :: Av1RateControlMode -&gt; Av1RateControlMode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679937906"><span id="local-6989586621679937908"><span id="local-6989586621679937910"><span id="local-6989586621679937912"><span id="local-6989586621679937914"><span id="local-6989586621679937916"><span id="local-6989586621679937918"><span class="annot"><span class="annottext">Eq Av1RateControlMode
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679942528"><span id="local-6989586621679942530"><span id="local-6989586621679942532"><span id="local-6989586621679942534"><span id="local-6989586621679942536"><span id="local-6989586621679942538"><span id="local-6989586621679942540"><span class="annot"><span class="annottext">Eq Av1RateControlMode
 Eq Av1RateControlMode
 -&gt; (Av1RateControlMode -&gt; Av1RateControlMode -&gt; Ordering)
 -&gt; (Av1RateControlMode -&gt; Av1RateControlMode -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. Av1RateControlMode -&gt; Rep Av1RateControlMode x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679937898"><span id="local-6989586621679937900"><span class="annot"><span class="annottext">Int -&gt; Av1RateControlMode -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679942520"><span id="local-6989586621679942522"><span class="annot"><span class="annottext">Int -&gt; Av1RateControlMode -&gt; Int
 Av1RateControlMode -&gt; Int
 (Int -&gt; Av1RateControlMode -&gt; Int)
 -&gt; (Av1RateControlMode -&gt; Int) -&gt; Hashable Av1RateControlMode
@@ -144,53 +144,53 @@ $chash :: Av1RateControlMode -&gt; Int
 hashWithSalt :: Int -&gt; Av1RateControlMode -&gt; Int
 $chashWithSalt :: Int -&gt; Av1RateControlMode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679937895"><span class="annot"><span class="annottext">Av1RateControlMode -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679942517"><span class="annot"><span class="annottext">Av1RateControlMode -&gt; ()
 (Av1RateControlMode -&gt; ()) -&gt; NFData Av1RateControlMode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: Av1RateControlMode -&gt; ()
 $crnf :: Av1RateControlMode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679937892"><span class="annot"><span class="annottext">Text -&gt; Either String Av1RateControlMode
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679942514"><span class="annot"><span class="annottext">Text -&gt; Either String Av1RateControlMode
 (Text -&gt; Either String Av1RateControlMode)
 -&gt; FromText Av1RateControlMode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String Av1RateControlMode
 $cfromText :: Text -&gt; Either String Av1RateControlMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679937889"><span class="annot"><span class="annottext">Av1RateControlMode -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679942511"><span class="annot"><span class="annottext">Av1RateControlMode -&gt; Text
 (Av1RateControlMode -&gt; Text) -&gt; ToText Av1RateControlMode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: Av1RateControlMode -&gt; Text
 $ctoText :: Av1RateControlMode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679937886"><span class="annot"><span class="annottext">Av1RateControlMode -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679942508"><span class="annot"><span class="annottext">Av1RateControlMode -&gt; ByteString
 (Av1RateControlMode -&gt; ByteString)
 -&gt; ToByteString Av1RateControlMode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: Av1RateControlMode -&gt; ByteString
 $ctoBS :: Av1RateControlMode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679937883"><span class="annot"><span class="annottext">Av1RateControlMode -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679942505"><span class="annot"><span class="annottext">Av1RateControlMode -&gt; ByteStringBuilder
 (Av1RateControlMode -&gt; ByteStringBuilder)
 -&gt; ToLog Av1RateControlMode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: Av1RateControlMode -&gt; ByteStringBuilder
 $cbuild :: Av1RateControlMode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679937880"><span class="annot"><span class="annottext">HeaderName -&gt; Av1RateControlMode -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679942502"><span class="annot"><span class="annottext">HeaderName -&gt; Av1RateControlMode -&gt; [Header]
 (HeaderName -&gt; Av1RateControlMode -&gt; [Header])
 -&gt; ToHeader Av1RateControlMode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; Av1RateControlMode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; Av1RateControlMode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679937877"><span class="annot"><span class="annottext">Av1RateControlMode -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679942499"><span class="annot"><span class="annottext">Av1RateControlMode -&gt; QueryString
 (Av1RateControlMode -&gt; QueryString) -&gt; ToQuery Av1RateControlMode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: Av1RateControlMode -&gt; QueryString
 $ctoQuery :: Av1RateControlMode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679937872"><span id="local-6989586621679937874"><span class="annot"><span class="annottext">Value -&gt; Parser [Av1RateControlMode]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679942494"><span id="local-6989586621679942496"><span class="annot"><span class="annottext">Value -&gt; Parser [Av1RateControlMode]
 Value -&gt; Parser Av1RateControlMode
 (Value -&gt; Parser Av1RateControlMode)
 -&gt; (Value -&gt; Parser [Av1RateControlMode])
@@ -202,7 +202,7 @@ $cparseJSONList :: Value -&gt; Parser [Av1RateControlMode]
 parseJSON :: Value -&gt; Parser Av1RateControlMode
 $cparseJSON :: Value -&gt; Parser Av1RateControlMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679937867"><span id="local-6989586621679937869"><span class="annot"><span class="annottext">FromJSONKeyFunction [Av1RateControlMode]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679942489"><span id="local-6989586621679942491"><span class="annot"><span class="annottext">FromJSONKeyFunction [Av1RateControlMode]
 FromJSONKeyFunction Av1RateControlMode
 FromJSONKeyFunction Av1RateControlMode
 -&gt; FromJSONKeyFunction [Av1RateControlMode]
@@ -214,7 +214,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [Av1RateControlMode]
 fromJSONKey :: FromJSONKeyFunction Av1RateControlMode
 $cfromJSONKey :: FromJSONKeyFunction Av1RateControlMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679937858"><span id="local-6989586621679937860"><span id="local-6989586621679937862"><span id="local-6989586621679937864"><span class="annot"><span class="annottext">[Av1RateControlMode] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679942480"><span id="local-6989586621679942482"><span id="local-6989586621679942484"><span id="local-6989586621679942486"><span class="annot"><span class="annottext">[Av1RateControlMode] -&gt; Encoding
 [Av1RateControlMode] -&gt; Value
 Av1RateControlMode -&gt; Encoding
 Av1RateControlMode -&gt; Value
@@ -238,7 +238,7 @@ $ctoEncoding :: Av1RateControlMode -&gt; Encoding
 toJSON :: Av1RateControlMode -&gt; Value
 $ctoJSON :: Av1RateControlMode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679937853"><span id="local-6989586621679937855"><span class="annot"><span class="annottext">ToJSONKeyFunction [Av1RateControlMode]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679942475"><span id="local-6989586621679942477"><span class="annot"><span class="annottext">ToJSONKeyFunction [Av1RateControlMode]
 ToJSONKeyFunction Av1RateControlMode
 ToJSONKeyFunction Av1RateControlMode
 -&gt; ToJSONKeyFunction [Av1RateControlMode]
@@ -250,14 +250,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [Av1RateControlMode]
 toJSONKey :: ToJSONKeyFunction Av1RateControlMode
 $ctoJSONKey :: ToJSONKeyFunction Av1RateControlMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679937850"><span class="annot"><span class="annottext">[Node] -&gt; Either String Av1RateControlMode
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679942472"><span class="annot"><span class="annottext">[Node] -&gt; Either String Av1RateControlMode
 ([Node] -&gt; Either String Av1RateControlMode)
 -&gt; FromXML Av1RateControlMode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String Av1RateControlMode
 $cparseXML :: [Node] -&gt; Either String Av1RateControlMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679937847"><span class="annot"><span class="annottext">Av1RateControlMode -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679942469"><span class="annot"><span class="annottext">Av1RateControlMode -&gt; XML
 (Av1RateControlMode -&gt; XML) -&gt; ToXML Av1RateControlMode
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: Av1RateControlMode -&gt; XML

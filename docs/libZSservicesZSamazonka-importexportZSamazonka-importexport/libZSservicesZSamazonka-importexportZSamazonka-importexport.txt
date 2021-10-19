@@ -2,7 +2,7 @@
 -- See Hoogle, http://www.haskell.org/hoogle/
 
 @package libZSservicesZSamazonka-importexportZSamazonka-importexport
-@version 1.6.1
+@version 2.0
 
 
 module Network.AWS.ImportExport.Types.Artifact
@@ -13,8 +13,8 @@ module Network.AWS.ImportExport.Types.Artifact
 --   <i>See:</i> <a>newArtifact</a> smart constructor.
 data Artifact
 Artifact' :: Maybe Text -> Maybe Text -> Artifact
-[$sel:description:Artifact'] :: Artifact -> Maybe Text
 [$sel:url:Artifact'] :: Artifact -> Maybe Text
+[$sel:description:Artifact'] :: Artifact -> Maybe Text
 
 -- | Create a value of <a>Artifact</a> with all optional fields omitted.
 --   
@@ -24,17 +24,17 @@ Artifact' :: Maybe Text -> Maybe Text -> Artifact
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
+--   <a>$sel:url:Artifact'</a>, <a>artifact_url</a> - Undocumented member.
+--   
 --   <a>$sel:description:Artifact'</a>, <a>artifact_description</a> -
 --   Undocumented member.
---   
---   <a>$sel:url:Artifact'</a>, <a>artifact_url</a> - Undocumented member.
 newArtifact :: Artifact
 
 -- | Undocumented member.
-artifact_description :: Lens' Artifact (Maybe Text)
+artifact_url :: Lens' Artifact (Maybe Text)
 
 -- | Undocumented member.
-artifact_url :: Lens' Artifact (Maybe Text)
+artifact_description :: Lens' Artifact (Maybe Text)
 instance GHC.Generics.Generic Network.AWS.ImportExport.Types.Artifact.Artifact
 instance GHC.Show.Show Network.AWS.ImportExport.Types.Artifact.Artifact
 instance GHC.Read.Read Network.AWS.ImportExport.Types.Artifact.Artifact
@@ -130,65 +130,49 @@ module Network.AWS.ImportExport.Types
 --   configuration.
 defaultService :: Service
 
--- | The client tool version is invalid.
-_InvalidVersionException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | Each account can create only a certain number of jobs per day. If you
---   need to create more than this, please contact
---   awsimportexport@amazon.com to explain your particular use case.
-_CreateJobQuotaExceededException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | AWS Import/Export cannot cancel the job
-_UnableToCancelJobIdException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | One or more manifest fields was invalid. Please correct and resubmit.
-_InvalidManifestFieldException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | One or more required customs parameters was missing from the manifest.
-_MissingCustomsException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | The address specified in the manifest is invalid.
-_InvalidAddressException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | One or more required parameters was missing from the request.
-_MissingParameterException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | The account specified does not have the appropriate bucket
---   permissions.
-_BucketPermissionException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | One or more parameters had an invalid value.
-_InvalidParameterException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | Your manifest is not well-formed.
-_MalformedManifestException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | Your manifest file contained buckets from multiple regions. A job is
---   restricted to buckets from one region. Please correct and resubmit.
-_MultipleRegionsException :: AsError a => Getting (First ServiceError) a ServiceError
-
 -- | The JOBID was missing, not found, or not associated with the AWS
 --   account.
 _InvalidJobIdException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | One or more required fields were missing from the manifest file.
---   Please correct and resubmit.
-_MissingManifestFieldException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | One or more parameters had an invalid value.
+_InvalidParameterException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | AWS Import/Export cannot update the job
-_UnableToUpdateJobIdException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | Indicates that the specified job has expired out of the system.
+_ExpiredJobIdException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | One or more customs parameters was invalid. Please correct and
---   resubmit.
-_InvalidCustomsException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | File system specified in export manifest is invalid.
+_InvalidFileSystemException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | The AWS Access Key ID specified in the request did not match the
 --   manifest's accessKeyId value. The manifest and the request
 --   authentication must use the same AWS Access Key ID.
 _InvalidAccessKeyIdException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | File system specified in export manifest is invalid.
-_InvalidFileSystemException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | AWS Import/Export cannot update the job
+_UnableToUpdateJobIdException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | AWS Import/Export cannot cancel the job
+_UnableToCancelJobIdException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | Your manifest file contained buckets from multiple regions. A job is
+--   restricted to buckets from one region. Please correct and resubmit.
+_MultipleRegionsException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | The client tool version is invalid.
+_InvalidVersionException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | Your manifest is not well-formed.
+_MalformedManifestException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | One or more required parameters was missing from the request.
+_MissingParameterException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | The specified job ID has been canceled and is no longer valid.
+_CanceledJobIdException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | The account specified does not have the appropriate bucket
+--   permissions.
+_BucketPermissionException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | The specified bucket does not exist. Create the specified bucket or
 --   change the manifest's bucket, exportBucket, or logBucket field to a
@@ -196,11 +180,27 @@ _InvalidFileSystemException :: AsError a => Getting (First ServiceError) a Servi
 --   has write permissions to.
 _NoSuchBucketException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | The specified job ID has been canceled and is no longer valid.
-_CanceledJobIdException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | The address specified in the manifest is invalid.
+_InvalidAddressException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | Indicates that the specified job has expired out of the system.
-_ExpiredJobIdException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | One or more required customs parameters was missing from the manifest.
+_MissingCustomsException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | One or more manifest fields was invalid. Please correct and resubmit.
+_InvalidManifestFieldException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | One or more customs parameters was invalid. Please correct and
+--   resubmit.
+_InvalidCustomsException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | One or more required fields were missing from the manifest file.
+--   Please correct and resubmit.
+_MissingManifestFieldException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | Each account can create only a certain number of jobs per day. If you
+--   need to create more than this, please contact
+--   awsimportexport@amazon.com to explain your particular use case.
+_CreateJobQuotaExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | Specifies whether the job to initiate is an import or export job.
 newtype JobType
@@ -215,8 +215,8 @@ pattern JobType_Import :: JobType
 --   <i>See:</i> <a>newArtifact</a> smart constructor.
 data Artifact
 Artifact' :: Maybe Text -> Maybe Text -> Artifact
-[$sel:description:Artifact'] :: Artifact -> Maybe Text
 [$sel:url:Artifact'] :: Artifact -> Maybe Text
+[$sel:description:Artifact'] :: Artifact -> Maybe Text
 
 -- | Create a value of <a>Artifact</a> with all optional fields omitted.
 --   
@@ -226,17 +226,17 @@ Artifact' :: Maybe Text -> Maybe Text -> Artifact
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
+--   <a>$sel:url:Artifact'</a>, <a>artifact_url</a> - Undocumented member.
+--   
 --   <a>$sel:description:Artifact'</a>, <a>artifact_description</a> -
 --   Undocumented member.
---   
---   <a>$sel:url:Artifact'</a>, <a>artifact_url</a> - Undocumented member.
 newArtifact :: Artifact
 
 -- | Undocumented member.
-artifact_description :: Lens' Artifact (Maybe Text)
+artifact_url :: Lens' Artifact (Maybe Text)
 
 -- | Undocumented member.
-artifact_url :: Lens' Artifact (Maybe Text)
+artifact_description :: Lens' Artifact (Maybe Text)
 
 -- | Representation of a job returned by the ListJobs operation.
 --   
@@ -293,10 +293,10 @@ module Network.AWS.ImportExport.ListJobs
 --   
 --   <i>See:</i> <a>newListJobs</a> smart constructor.
 data ListJobs
-ListJobs' :: Maybe Int -> Maybe Text -> Maybe Text -> ListJobs
-[$sel:maxJobs:ListJobs'] :: ListJobs -> Maybe Int
+ListJobs' :: Maybe Text -> Maybe Text -> Maybe Int -> ListJobs
 [$sel:aPIVersion:ListJobs'] :: ListJobs -> Maybe Text
 [$sel:marker:ListJobs'] :: ListJobs -> Maybe Text
+[$sel:maxJobs:ListJobs'] :: ListJobs -> Maybe Int
 
 -- | Create a value of <a>ListJobs</a> with all optional fields omitted.
 --   
@@ -306,18 +306,15 @@ ListJobs' :: Maybe Int -> Maybe Text -> Maybe Text -> ListJobs
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:maxJobs:ListJobs'</a>, <a>listJobs_maxJobs</a> - Undocumented
---   member.
---   
 --   <a>$sel:aPIVersion:ListJobs'</a>, <a>listJobs_aPIVersion</a> -
 --   Undocumented member.
 --   
 --   <a>$sel:marker:ListJobs'</a>, <a>listJobs_marker</a> - Undocumented
 --   member.
+--   
+--   <a>$sel:maxJobs:ListJobs'</a>, <a>listJobs_maxJobs</a> - Undocumented
+--   member.
 newListJobs :: ListJobs
-
--- | Undocumented member.
-listJobs_maxJobs :: Lens' ListJobs (Maybe Int)
 
 -- | Undocumented member.
 listJobs_aPIVersion :: Lens' ListJobs (Maybe Text)
@@ -325,13 +322,16 @@ listJobs_aPIVersion :: Lens' ListJobs (Maybe Text)
 -- | Undocumented member.
 listJobs_marker :: Lens' ListJobs (Maybe Text)
 
+-- | Undocumented member.
+listJobs_maxJobs :: Lens' ListJobs (Maybe Int)
+
 -- | Output structure for the ListJobs operation.
 --   
 --   <i>See:</i> <a>newListJobsResponse</a> smart constructor.
 data ListJobsResponse
-ListJobsResponse' :: Maybe Bool -> Maybe [Job] -> Int -> ListJobsResponse
-[$sel:isTruncated:ListJobsResponse'] :: ListJobsResponse -> Maybe Bool
+ListJobsResponse' :: Maybe [Job] -> Maybe Bool -> Int -> ListJobsResponse
 [$sel:jobs:ListJobsResponse'] :: ListJobsResponse -> Maybe [Job]
+[$sel:isTruncated:ListJobsResponse'] :: ListJobsResponse -> Maybe Bool
 
 -- | The response's http status code.
 [$sel:httpStatus:ListJobsResponse'] :: ListJobsResponse -> Int
@@ -345,21 +345,21 @@ ListJobsResponse' :: Maybe Bool -> Maybe [Job] -> Int -> ListJobsResponse
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:isTruncated:ListJobsResponse'</a>,
---   <a>listJobsResponse_isTruncated</a> - Undocumented member.
---   
 --   <a>$sel:jobs:ListJobsResponse'</a>, <a>listJobsResponse_jobs</a> -
 --   Undocumented member.
+--   
+--   <a>$sel:isTruncated:ListJobsResponse'</a>,
+--   <a>listJobsResponse_isTruncated</a> - Undocumented member.
 --   
 --   <a>$sel:httpStatus:ListJobsResponse'</a>,
 --   <a>listJobsResponse_httpStatus</a> - The response's http status code.
 newListJobsResponse :: Int -> ListJobsResponse
 
 -- | Undocumented member.
-listJobsResponse_isTruncated :: Lens' ListJobsResponse (Maybe Bool)
+listJobsResponse_jobs :: Lens' ListJobsResponse (Maybe [Job])
 
 -- | Undocumented member.
-listJobsResponse_jobs :: Lens' ListJobsResponse (Maybe [Job])
+listJobsResponse_isTruncated :: Lens' ListJobsResponse (Maybe Bool)
 
 -- | The response's http status code.
 listJobsResponse_httpStatus :: Lens' ListJobsResponse Int
@@ -420,23 +420,23 @@ getStatus_jobId :: Lens' GetStatus Text
 --   
 --   <i>See:</i> <a>newGetStatusResponse</a> smart constructor.
 data GetStatusResponse
-GetStatusResponse' :: Maybe Text -> Maybe Text -> Maybe Int -> Maybe ISO8601 -> Maybe Text -> Maybe JobType -> Maybe Text -> Maybe Text -> Maybe [Artifact] -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Int -> GetStatusResponse
-[$sel:trackingNumber:GetStatusResponse'] :: GetStatusResponse -> Maybe Text
-[$sel:currentManifest:GetStatusResponse'] :: GetStatusResponse -> Maybe Text
-[$sel:errorCount:GetStatusResponse'] :: GetStatusResponse -> Maybe Int
-[$sel:creationDate:GetStatusResponse'] :: GetStatusResponse -> Maybe ISO8601
-[$sel:logBucket:GetStatusResponse'] :: GetStatusResponse -> Maybe Text
-[$sel:jobType:GetStatusResponse'] :: GetStatusResponse -> Maybe JobType
-[$sel:signature:GetStatusResponse'] :: GetStatusResponse -> Maybe Text
+GetStatusResponse' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe JobType -> Maybe Text -> Maybe Text -> Maybe Int -> Maybe Text -> Maybe [Artifact] -> Maybe Text -> Maybe ISO8601 -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Int -> GetStatusResponse
 [$sel:carrier:GetStatusResponse'] :: GetStatusResponse -> Maybe Text
-[$sel:artifactList:GetStatusResponse'] :: GetStatusResponse -> Maybe [Artifact]
-[$sel:progressMessage:GetStatusResponse'] :: GetStatusResponse -> Maybe Text
-[$sel:locationMessage:GetStatusResponse'] :: GetStatusResponse -> Maybe Text
-[$sel:logKey:GetStatusResponse'] :: GetStatusResponse -> Maybe Text
-[$sel:signatureFileContents:GetStatusResponse'] :: GetStatusResponse -> Maybe Text
-[$sel:locationCode:GetStatusResponse'] :: GetStatusResponse -> Maybe Text
-[$sel:progressCode:GetStatusResponse'] :: GetStatusResponse -> Maybe Text
+[$sel:trackingNumber:GetStatusResponse'] :: GetStatusResponse -> Maybe Text
+[$sel:signature:GetStatusResponse'] :: GetStatusResponse -> Maybe Text
+[$sel:jobType:GetStatusResponse'] :: GetStatusResponse -> Maybe JobType
 [$sel:jobId:GetStatusResponse'] :: GetStatusResponse -> Maybe Text
+[$sel:signatureFileContents:GetStatusResponse'] :: GetStatusResponse -> Maybe Text
+[$sel:errorCount:GetStatusResponse'] :: GetStatusResponse -> Maybe Int
+[$sel:currentManifest:GetStatusResponse'] :: GetStatusResponse -> Maybe Text
+[$sel:artifactList:GetStatusResponse'] :: GetStatusResponse -> Maybe [Artifact]
+[$sel:logBucket:GetStatusResponse'] :: GetStatusResponse -> Maybe Text
+[$sel:creationDate:GetStatusResponse'] :: GetStatusResponse -> Maybe ISO8601
+[$sel:progressCode:GetStatusResponse'] :: GetStatusResponse -> Maybe Text
+[$sel:locationCode:GetStatusResponse'] :: GetStatusResponse -> Maybe Text
+[$sel:logKey:GetStatusResponse'] :: GetStatusResponse -> Maybe Text
+[$sel:locationMessage:GetStatusResponse'] :: GetStatusResponse -> Maybe Text
+[$sel:progressMessage:GetStatusResponse'] :: GetStatusResponse -> Maybe Text
 
 -- | The response's http status code.
 [$sel:httpStatus:GetStatusResponse'] :: GetStatusResponse -> Int
@@ -450,105 +450,105 @@ GetStatusResponse' :: Maybe Text -> Maybe Text -> Maybe Int -> Maybe ISO8601 -> 
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
+--   <a>$sel:carrier:GetStatusResponse'</a>,
+--   <a>getStatusResponse_carrier</a> - Undocumented member.
+--   
 --   <a>$sel:trackingNumber:GetStatusResponse'</a>,
 --   <a>getStatusResponse_trackingNumber</a> - Undocumented member.
---   
---   <a>$sel:currentManifest:GetStatusResponse'</a>,
---   <a>getStatusResponse_currentManifest</a> - Undocumented member.
---   
---   <a>$sel:errorCount:GetStatusResponse'</a>,
---   <a>getStatusResponse_errorCount</a> - Undocumented member.
---   
---   <a>$sel:creationDate:GetStatusResponse'</a>,
---   <a>getStatusResponse_creationDate</a> - Undocumented member.
---   
---   <a>$sel:logBucket:GetStatusResponse'</a>,
---   <a>getStatusResponse_logBucket</a> - Undocumented member.
---   
---   <a>$sel:jobType:GetStatusResponse'</a>,
---   <a>getStatusResponse_jobType</a> - Undocumented member.
 --   
 --   <a>$sel:signature:GetStatusResponse'</a>,
 --   <a>getStatusResponse_signature</a> - Undocumented member.
 --   
---   <a>$sel:carrier:GetStatusResponse'</a>,
---   <a>getStatusResponse_carrier</a> - Undocumented member.
+--   <a>$sel:jobType:GetStatusResponse'</a>,
+--   <a>getStatusResponse_jobType</a> - Undocumented member.
 --   
---   <a>$sel:artifactList:GetStatusResponse'</a>,
---   <a>getStatusResponse_artifactList</a> - Undocumented member.
---   
---   <a>$sel:progressMessage:GetStatusResponse'</a>,
---   <a>getStatusResponse_progressMessage</a> - Undocumented member.
---   
---   <a>$sel:locationMessage:GetStatusResponse'</a>,
---   <a>getStatusResponse_locationMessage</a> - Undocumented member.
---   
---   <a>$sel:logKey:GetStatusResponse'</a>, <a>getStatusResponse_logKey</a>
---   - Undocumented member.
+--   <a>$sel:jobId:GetStatus'</a>, <a>getStatusResponse_jobId</a> -
+--   Undocumented member.
 --   
 --   <a>$sel:signatureFileContents:GetStatusResponse'</a>,
 --   <a>getStatusResponse_signatureFileContents</a> - Undocumented member.
 --   
---   <a>$sel:locationCode:GetStatusResponse'</a>,
---   <a>getStatusResponse_locationCode</a> - Undocumented member.
+--   <a>$sel:errorCount:GetStatusResponse'</a>,
+--   <a>getStatusResponse_errorCount</a> - Undocumented member.
+--   
+--   <a>$sel:currentManifest:GetStatusResponse'</a>,
+--   <a>getStatusResponse_currentManifest</a> - Undocumented member.
+--   
+--   <a>$sel:artifactList:GetStatusResponse'</a>,
+--   <a>getStatusResponse_artifactList</a> - Undocumented member.
+--   
+--   <a>$sel:logBucket:GetStatusResponse'</a>,
+--   <a>getStatusResponse_logBucket</a> - Undocumented member.
+--   
+--   <a>$sel:creationDate:GetStatusResponse'</a>,
+--   <a>getStatusResponse_creationDate</a> - Undocumented member.
 --   
 --   <a>$sel:progressCode:GetStatusResponse'</a>,
 --   <a>getStatusResponse_progressCode</a> - Undocumented member.
 --   
---   <a>$sel:jobId:GetStatus'</a>, <a>getStatusResponse_jobId</a> -
---   Undocumented member.
+--   <a>$sel:locationCode:GetStatusResponse'</a>,
+--   <a>getStatusResponse_locationCode</a> - Undocumented member.
+--   
+--   <a>$sel:logKey:GetStatusResponse'</a>, <a>getStatusResponse_logKey</a>
+--   - Undocumented member.
+--   
+--   <a>$sel:locationMessage:GetStatusResponse'</a>,
+--   <a>getStatusResponse_locationMessage</a> - Undocumented member.
+--   
+--   <a>$sel:progressMessage:GetStatusResponse'</a>,
+--   <a>getStatusResponse_progressMessage</a> - Undocumented member.
 --   
 --   <a>$sel:httpStatus:GetStatusResponse'</a>,
 --   <a>getStatusResponse_httpStatus</a> - The response's http status code.
 newGetStatusResponse :: Int -> GetStatusResponse
 
 -- | Undocumented member.
+getStatusResponse_carrier :: Lens' GetStatusResponse (Maybe Text)
+
+-- | Undocumented member.
 getStatusResponse_trackingNumber :: Lens' GetStatusResponse (Maybe Text)
-
--- | Undocumented member.
-getStatusResponse_currentManifest :: Lens' GetStatusResponse (Maybe Text)
-
--- | Undocumented member.
-getStatusResponse_errorCount :: Lens' GetStatusResponse (Maybe Int)
-
--- | Undocumented member.
-getStatusResponse_creationDate :: Lens' GetStatusResponse (Maybe UTCTime)
-
--- | Undocumented member.
-getStatusResponse_logBucket :: Lens' GetStatusResponse (Maybe Text)
-
--- | Undocumented member.
-getStatusResponse_jobType :: Lens' GetStatusResponse (Maybe JobType)
 
 -- | Undocumented member.
 getStatusResponse_signature :: Lens' GetStatusResponse (Maybe Text)
 
 -- | Undocumented member.
-getStatusResponse_carrier :: Lens' GetStatusResponse (Maybe Text)
+getStatusResponse_jobType :: Lens' GetStatusResponse (Maybe JobType)
 
 -- | Undocumented member.
-getStatusResponse_artifactList :: Lens' GetStatusResponse (Maybe [Artifact])
-
--- | Undocumented member.
-getStatusResponse_progressMessage :: Lens' GetStatusResponse (Maybe Text)
-
--- | Undocumented member.
-getStatusResponse_locationMessage :: Lens' GetStatusResponse (Maybe Text)
-
--- | Undocumented member.
-getStatusResponse_logKey :: Lens' GetStatusResponse (Maybe Text)
+getStatusResponse_jobId :: Lens' GetStatusResponse (Maybe Text)
 
 -- | Undocumented member.
 getStatusResponse_signatureFileContents :: Lens' GetStatusResponse (Maybe Text)
 
 -- | Undocumented member.
-getStatusResponse_locationCode :: Lens' GetStatusResponse (Maybe Text)
+getStatusResponse_errorCount :: Lens' GetStatusResponse (Maybe Int)
+
+-- | Undocumented member.
+getStatusResponse_currentManifest :: Lens' GetStatusResponse (Maybe Text)
+
+-- | Undocumented member.
+getStatusResponse_artifactList :: Lens' GetStatusResponse (Maybe [Artifact])
+
+-- | Undocumented member.
+getStatusResponse_logBucket :: Lens' GetStatusResponse (Maybe Text)
+
+-- | Undocumented member.
+getStatusResponse_creationDate :: Lens' GetStatusResponse (Maybe UTCTime)
 
 -- | Undocumented member.
 getStatusResponse_progressCode :: Lens' GetStatusResponse (Maybe Text)
 
 -- | Undocumented member.
-getStatusResponse_jobId :: Lens' GetStatusResponse (Maybe Text)
+getStatusResponse_locationCode :: Lens' GetStatusResponse (Maybe Text)
+
+-- | Undocumented member.
+getStatusResponse_logKey :: Lens' GetStatusResponse (Maybe Text)
+
+-- | Undocumented member.
+getStatusResponse_locationMessage :: Lens' GetStatusResponse (Maybe Text)
+
+-- | Undocumented member.
+getStatusResponse_progressMessage :: Lens' GetStatusResponse (Maybe Text)
 
 -- | The response's http status code.
 getStatusResponse_httpStatus :: Lens' GetStatusResponse Int
@@ -576,17 +576,17 @@ module Network.AWS.ImportExport.GetShippingLabel
 -- | <i>See:</i> <a>newGetShippingLabel</a> smart constructor.
 data GetShippingLabel
 GetShippingLabel' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> [Text] -> GetShippingLabel
-[$sel:company:GetShippingLabel'] :: GetShippingLabel -> Maybe Text
-[$sel:phoneNumber:GetShippingLabel'] :: GetShippingLabel -> Maybe Text
-[$sel:postalCode:GetShippingLabel'] :: GetShippingLabel -> Maybe Text
-[$sel:street1:GetShippingLabel'] :: GetShippingLabel -> Maybe Text
+[$sel:street3:GetShippingLabel'] :: GetShippingLabel -> Maybe Text
 [$sel:aPIVersion:GetShippingLabel'] :: GetShippingLabel -> Maybe Text
-[$sel:city:GetShippingLabel'] :: GetShippingLabel -> Maybe Text
-[$sel:name:GetShippingLabel'] :: GetShippingLabel -> Maybe Text
-[$sel:street2:GetShippingLabel'] :: GetShippingLabel -> Maybe Text
 [$sel:country:GetShippingLabel'] :: GetShippingLabel -> Maybe Text
 [$sel:stateOrProvince:GetShippingLabel'] :: GetShippingLabel -> Maybe Text
-[$sel:street3:GetShippingLabel'] :: GetShippingLabel -> Maybe Text
+[$sel:postalCode:GetShippingLabel'] :: GetShippingLabel -> Maybe Text
+[$sel:street2:GetShippingLabel'] :: GetShippingLabel -> Maybe Text
+[$sel:name:GetShippingLabel'] :: GetShippingLabel -> Maybe Text
+[$sel:company:GetShippingLabel'] :: GetShippingLabel -> Maybe Text
+[$sel:phoneNumber:GetShippingLabel'] :: GetShippingLabel -> Maybe Text
+[$sel:city:GetShippingLabel'] :: GetShippingLabel -> Maybe Text
+[$sel:street1:GetShippingLabel'] :: GetShippingLabel -> Maybe Text
 [$sel:jobIds:GetShippingLabel'] :: GetShippingLabel -> [Text]
 
 -- | Create a value of <a>GetShippingLabel</a> with all optional fields
@@ -598,29 +598,11 @@ GetShippingLabel' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> May
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:company:GetShippingLabel'</a>, <a>getShippingLabel_company</a>
---   - Undocumented member.
---   
---   <a>$sel:phoneNumber:GetShippingLabel'</a>,
---   <a>getShippingLabel_phoneNumber</a> - Undocumented member.
---   
---   <a>$sel:postalCode:GetShippingLabel'</a>,
---   <a>getShippingLabel_postalCode</a> - Undocumented member.
---   
---   <a>$sel:street1:GetShippingLabel'</a>, <a>getShippingLabel_street1</a>
+--   <a>$sel:street3:GetShippingLabel'</a>, <a>getShippingLabel_street3</a>
 --   - Undocumented member.
 --   
 --   <a>$sel:aPIVersion:GetShippingLabel'</a>,
 --   <a>getShippingLabel_aPIVersion</a> - Undocumented member.
---   
---   <a>$sel:city:GetShippingLabel'</a>, <a>getShippingLabel_city</a> -
---   Undocumented member.
---   
---   <a>$sel:name:GetShippingLabel'</a>, <a>getShippingLabel_name</a> -
---   Undocumented member.
---   
---   <a>$sel:street2:GetShippingLabel'</a>, <a>getShippingLabel_street2</a>
---   - Undocumented member.
 --   
 --   <a>$sel:country:GetShippingLabel'</a>, <a>getShippingLabel_country</a>
 --   - Undocumented member.
@@ -628,7 +610,25 @@ GetShippingLabel' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> May
 --   <a>$sel:stateOrProvince:GetShippingLabel'</a>,
 --   <a>getShippingLabel_stateOrProvince</a> - Undocumented member.
 --   
---   <a>$sel:street3:GetShippingLabel'</a>, <a>getShippingLabel_street3</a>
+--   <a>$sel:postalCode:GetShippingLabel'</a>,
+--   <a>getShippingLabel_postalCode</a> - Undocumented member.
+--   
+--   <a>$sel:street2:GetShippingLabel'</a>, <a>getShippingLabel_street2</a>
+--   - Undocumented member.
+--   
+--   <a>$sel:name:GetShippingLabel'</a>, <a>getShippingLabel_name</a> -
+--   Undocumented member.
+--   
+--   <a>$sel:company:GetShippingLabel'</a>, <a>getShippingLabel_company</a>
+--   - Undocumented member.
+--   
+--   <a>$sel:phoneNumber:GetShippingLabel'</a>,
+--   <a>getShippingLabel_phoneNumber</a> - Undocumented member.
+--   
+--   <a>$sel:city:GetShippingLabel'</a>, <a>getShippingLabel_city</a> -
+--   Undocumented member.
+--   
+--   <a>$sel:street1:GetShippingLabel'</a>, <a>getShippingLabel_street1</a>
 --   - Undocumented member.
 --   
 --   <a>$sel:jobIds:GetShippingLabel'</a>, <a>getShippingLabel_jobIds</a> -
@@ -636,28 +636,10 @@ GetShippingLabel' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> May
 newGetShippingLabel :: GetShippingLabel
 
 -- | Undocumented member.
-getShippingLabel_company :: Lens' GetShippingLabel (Maybe Text)
-
--- | Undocumented member.
-getShippingLabel_phoneNumber :: Lens' GetShippingLabel (Maybe Text)
-
--- | Undocumented member.
-getShippingLabel_postalCode :: Lens' GetShippingLabel (Maybe Text)
-
--- | Undocumented member.
-getShippingLabel_street1 :: Lens' GetShippingLabel (Maybe Text)
+getShippingLabel_street3 :: Lens' GetShippingLabel (Maybe Text)
 
 -- | Undocumented member.
 getShippingLabel_aPIVersion :: Lens' GetShippingLabel (Maybe Text)
-
--- | Undocumented member.
-getShippingLabel_city :: Lens' GetShippingLabel (Maybe Text)
-
--- | Undocumented member.
-getShippingLabel_name :: Lens' GetShippingLabel (Maybe Text)
-
--- | Undocumented member.
-getShippingLabel_street2 :: Lens' GetShippingLabel (Maybe Text)
 
 -- | Undocumented member.
 getShippingLabel_country :: Lens' GetShippingLabel (Maybe Text)
@@ -666,7 +648,25 @@ getShippingLabel_country :: Lens' GetShippingLabel (Maybe Text)
 getShippingLabel_stateOrProvince :: Lens' GetShippingLabel (Maybe Text)
 
 -- | Undocumented member.
-getShippingLabel_street3 :: Lens' GetShippingLabel (Maybe Text)
+getShippingLabel_postalCode :: Lens' GetShippingLabel (Maybe Text)
+
+-- | Undocumented member.
+getShippingLabel_street2 :: Lens' GetShippingLabel (Maybe Text)
+
+-- | Undocumented member.
+getShippingLabel_name :: Lens' GetShippingLabel (Maybe Text)
+
+-- | Undocumented member.
+getShippingLabel_company :: Lens' GetShippingLabel (Maybe Text)
+
+-- | Undocumented member.
+getShippingLabel_phoneNumber :: Lens' GetShippingLabel (Maybe Text)
+
+-- | Undocumented member.
+getShippingLabel_city :: Lens' GetShippingLabel (Maybe Text)
+
+-- | Undocumented member.
+getShippingLabel_street1 :: Lens' GetShippingLabel (Maybe Text)
 
 -- | Undocumented member.
 getShippingLabel_jobIds :: Lens' GetShippingLabel [Text]
@@ -674,8 +674,8 @@ getShippingLabel_jobIds :: Lens' GetShippingLabel [Text]
 -- | <i>See:</i> <a>newGetShippingLabelResponse</a> smart constructor.
 data GetShippingLabelResponse
 GetShippingLabelResponse' :: Maybe Text -> Maybe Text -> Int -> GetShippingLabelResponse
-[$sel:warning:GetShippingLabelResponse'] :: GetShippingLabelResponse -> Maybe Text
 [$sel:shippingLabelURL:GetShippingLabelResponse'] :: GetShippingLabelResponse -> Maybe Text
+[$sel:warning:GetShippingLabelResponse'] :: GetShippingLabelResponse -> Maybe Text
 
 -- | The response's http status code.
 [$sel:httpStatus:GetShippingLabelResponse'] :: GetShippingLabelResponse -> Int
@@ -689,12 +689,12 @@ GetShippingLabelResponse' :: Maybe Text -> Maybe Text -> Int -> GetShippingLabel
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:warning:GetShippingLabelResponse'</a>,
---   <a>getShippingLabelResponse_warning</a> - Undocumented member.
---   
 --   <a>$sel:shippingLabelURL:GetShippingLabelResponse'</a>,
 --   <a>getShippingLabelResponse_shippingLabelURL</a> - Undocumented
 --   member.
+--   
+--   <a>$sel:warning:GetShippingLabelResponse'</a>,
+--   <a>getShippingLabelResponse_warning</a> - Undocumented member.
 --   
 --   <a>$sel:httpStatus:GetShippingLabelResponse'</a>,
 --   <a>getShippingLabelResponse_httpStatus</a> - The response's http
@@ -702,10 +702,10 @@ GetShippingLabelResponse' :: Maybe Text -> Maybe Text -> Int -> GetShippingLabel
 newGetShippingLabelResponse :: Int -> GetShippingLabelResponse
 
 -- | Undocumented member.
-getShippingLabelResponse_warning :: Lens' GetShippingLabelResponse (Maybe Text)
+getShippingLabelResponse_shippingLabelURL :: Lens' GetShippingLabelResponse (Maybe Text)
 
 -- | Undocumented member.
-getShippingLabelResponse_shippingLabelURL :: Lens' GetShippingLabelResponse (Maybe Text)
+getShippingLabelResponse_warning :: Lens' GetShippingLabelResponse (Maybe Text)
 
 -- | The response's http status code.
 getShippingLabelResponse_httpStatus :: Lens' GetShippingLabelResponse Int
@@ -788,13 +788,13 @@ createJob_validateOnly :: Lens' CreateJob Bool
 --   
 --   <i>See:</i> <a>newCreateJobResponse</a> smart constructor.
 data CreateJobResponse
-CreateJobResponse' :: Maybe Text -> Maybe JobType -> Maybe Text -> Maybe [Artifact] -> Maybe Text -> Maybe Text -> Int -> CreateJobResponse
-[$sel:warningMessage:CreateJobResponse'] :: CreateJobResponse -> Maybe Text
-[$sel:jobType:CreateJobResponse'] :: CreateJobResponse -> Maybe JobType
+CreateJobResponse' :: Maybe Text -> Maybe JobType -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe [Artifact] -> Int -> CreateJobResponse
 [$sel:signature:CreateJobResponse'] :: CreateJobResponse -> Maybe Text
-[$sel:artifactList:CreateJobResponse'] :: CreateJobResponse -> Maybe [Artifact]
-[$sel:signatureFileContents:CreateJobResponse'] :: CreateJobResponse -> Maybe Text
+[$sel:jobType:CreateJobResponse'] :: CreateJobResponse -> Maybe JobType
 [$sel:jobId:CreateJobResponse'] :: CreateJobResponse -> Maybe Text
+[$sel:signatureFileContents:CreateJobResponse'] :: CreateJobResponse -> Maybe Text
+[$sel:warningMessage:CreateJobResponse'] :: CreateJobResponse -> Maybe Text
+[$sel:artifactList:CreateJobResponse'] :: CreateJobResponse -> Maybe [Artifact]
 
 -- | The response's http status code.
 [$sel:httpStatus:CreateJobResponse'] :: CreateJobResponse -> Int
@@ -808,45 +808,45 @@ CreateJobResponse' :: Maybe Text -> Maybe JobType -> Maybe Text -> Maybe [Artifa
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:warningMessage:CreateJobResponse'</a>,
---   <a>createJobResponse_warningMessage</a> - Undocumented member.
+--   <a>$sel:signature:CreateJobResponse'</a>,
+--   <a>createJobResponse_signature</a> - Undocumented member.
 --   
 --   <a>$sel:jobType:CreateJob'</a>, <a>createJobResponse_jobType</a> -
 --   Undocumented member.
 --   
---   <a>$sel:signature:CreateJobResponse'</a>,
---   <a>createJobResponse_signature</a> - Undocumented member.
---   
---   <a>$sel:artifactList:CreateJobResponse'</a>,
---   <a>createJobResponse_artifactList</a> - Undocumented member.
+--   <a>$sel:jobId:CreateJobResponse'</a>, <a>createJobResponse_jobId</a> -
+--   Undocumented member.
 --   
 --   <a>$sel:signatureFileContents:CreateJobResponse'</a>,
 --   <a>createJobResponse_signatureFileContents</a> - Undocumented member.
 --   
---   <a>$sel:jobId:CreateJobResponse'</a>, <a>createJobResponse_jobId</a> -
---   Undocumented member.
+--   <a>$sel:warningMessage:CreateJobResponse'</a>,
+--   <a>createJobResponse_warningMessage</a> - Undocumented member.
+--   
+--   <a>$sel:artifactList:CreateJobResponse'</a>,
+--   <a>createJobResponse_artifactList</a> - Undocumented member.
 --   
 --   <a>$sel:httpStatus:CreateJobResponse'</a>,
 --   <a>createJobResponse_httpStatus</a> - The response's http status code.
 newCreateJobResponse :: Int -> CreateJobResponse
 
 -- | Undocumented member.
-createJobResponse_warningMessage :: Lens' CreateJobResponse (Maybe Text)
+createJobResponse_signature :: Lens' CreateJobResponse (Maybe Text)
 
 -- | Undocumented member.
 createJobResponse_jobType :: Lens' CreateJobResponse (Maybe JobType)
 
 -- | Undocumented member.
-createJobResponse_signature :: Lens' CreateJobResponse (Maybe Text)
-
--- | Undocumented member.
-createJobResponse_artifactList :: Lens' CreateJobResponse (Maybe [Artifact])
+createJobResponse_jobId :: Lens' CreateJobResponse (Maybe Text)
 
 -- | Undocumented member.
 createJobResponse_signatureFileContents :: Lens' CreateJobResponse (Maybe Text)
 
 -- | Undocumented member.
-createJobResponse_jobId :: Lens' CreateJobResponse (Maybe Text)
+createJobResponse_warningMessage :: Lens' CreateJobResponse (Maybe Text)
+
+-- | Undocumented member.
+createJobResponse_artifactList :: Lens' CreateJobResponse (Maybe [Artifact])
 
 -- | The response's http status code.
 createJobResponse_httpStatus :: Lens' CreateJobResponse Int
@@ -1009,10 +1009,10 @@ updateJob_validateOnly :: Lens' UpdateJob Bool
 --   
 --   <i>See:</i> <a>newUpdateJobResponse</a> smart constructor.
 data UpdateJobResponse
-UpdateJobResponse' :: Maybe Text -> Maybe [Artifact] -> Maybe Bool -> Int -> UpdateJobResponse
+UpdateJobResponse' :: Maybe Bool -> Maybe Text -> Maybe [Artifact] -> Int -> UpdateJobResponse
+[$sel:success:UpdateJobResponse'] :: UpdateJobResponse -> Maybe Bool
 [$sel:warningMessage:UpdateJobResponse'] :: UpdateJobResponse -> Maybe Text
 [$sel:artifactList:UpdateJobResponse'] :: UpdateJobResponse -> Maybe [Artifact]
-[$sel:success:UpdateJobResponse'] :: UpdateJobResponse -> Maybe Bool
 
 -- | The response's http status code.
 [$sel:httpStatus:UpdateJobResponse'] :: UpdateJobResponse -> Int
@@ -1026,27 +1026,27 @@ UpdateJobResponse' :: Maybe Text -> Maybe [Artifact] -> Maybe Bool -> Int -> Upd
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
+--   <a>$sel:success:UpdateJobResponse'</a>,
+--   <a>updateJobResponse_success</a> - Undocumented member.
+--   
 --   <a>$sel:warningMessage:UpdateJobResponse'</a>,
 --   <a>updateJobResponse_warningMessage</a> - Undocumented member.
 --   
 --   <a>$sel:artifactList:UpdateJobResponse'</a>,
 --   <a>updateJobResponse_artifactList</a> - Undocumented member.
 --   
---   <a>$sel:success:UpdateJobResponse'</a>,
---   <a>updateJobResponse_success</a> - Undocumented member.
---   
 --   <a>$sel:httpStatus:UpdateJobResponse'</a>,
 --   <a>updateJobResponse_httpStatus</a> - The response's http status code.
 newUpdateJobResponse :: Int -> UpdateJobResponse
+
+-- | Undocumented member.
+updateJobResponse_success :: Lens' UpdateJobResponse (Maybe Bool)
 
 -- | Undocumented member.
 updateJobResponse_warningMessage :: Lens' UpdateJobResponse (Maybe Text)
 
 -- | Undocumented member.
 updateJobResponse_artifactList :: Lens' UpdateJobResponse (Maybe [Artifact])
-
--- | Undocumented member.
-updateJobResponse_success :: Lens' UpdateJobResponse (Maybe Bool)
 
 -- | The response's http status code.
 updateJobResponse_httpStatus :: Lens' UpdateJobResponse Int
@@ -1070,124 +1070,10 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ImportExport.UpdateJob.Updat
 module Network.AWS.ImportExport.Lens
 
 -- | Undocumented member.
-cancelJob_aPIVersion :: Lens' CancelJob (Maybe Text)
-
--- | Undocumented member.
-cancelJob_jobId :: Lens' CancelJob Text
-
--- | Undocumented member.
-cancelJobResponse_success :: Lens' CancelJobResponse (Maybe Bool)
-
--- | The response's http status code.
-cancelJobResponse_httpStatus :: Lens' CancelJobResponse Int
-
--- | Undocumented member.
-updateJob_aPIVersion :: Lens' UpdateJob (Maybe Text)
-
--- | Undocumented member.
-updateJob_jobId :: Lens' UpdateJob Text
-
--- | Undocumented member.
-updateJob_manifest :: Lens' UpdateJob Text
-
--- | Undocumented member.
-updateJob_jobType :: Lens' UpdateJob JobType
-
--- | Undocumented member.
-updateJob_validateOnly :: Lens' UpdateJob Bool
-
--- | Undocumented member.
-updateJobResponse_warningMessage :: Lens' UpdateJobResponse (Maybe Text)
-
--- | Undocumented member.
-updateJobResponse_artifactList :: Lens' UpdateJobResponse (Maybe [Artifact])
-
--- | Undocumented member.
-updateJobResponse_success :: Lens' UpdateJobResponse (Maybe Bool)
-
--- | The response's http status code.
-updateJobResponse_httpStatus :: Lens' UpdateJobResponse Int
-
--- | Undocumented member.
-getStatus_aPIVersion :: Lens' GetStatus (Maybe Text)
-
--- | Undocumented member.
-getStatus_jobId :: Lens' GetStatus Text
-
--- | Undocumented member.
-getStatusResponse_trackingNumber :: Lens' GetStatusResponse (Maybe Text)
-
--- | Undocumented member.
-getStatusResponse_currentManifest :: Lens' GetStatusResponse (Maybe Text)
-
--- | Undocumented member.
-getStatusResponse_errorCount :: Lens' GetStatusResponse (Maybe Int)
-
--- | Undocumented member.
-getStatusResponse_creationDate :: Lens' GetStatusResponse (Maybe UTCTime)
-
--- | Undocumented member.
-getStatusResponse_logBucket :: Lens' GetStatusResponse (Maybe Text)
-
--- | Undocumented member.
-getStatusResponse_jobType :: Lens' GetStatusResponse (Maybe JobType)
-
--- | Undocumented member.
-getStatusResponse_signature :: Lens' GetStatusResponse (Maybe Text)
-
--- | Undocumented member.
-getStatusResponse_carrier :: Lens' GetStatusResponse (Maybe Text)
-
--- | Undocumented member.
-getStatusResponse_artifactList :: Lens' GetStatusResponse (Maybe [Artifact])
-
--- | Undocumented member.
-getStatusResponse_progressMessage :: Lens' GetStatusResponse (Maybe Text)
-
--- | Undocumented member.
-getStatusResponse_locationMessage :: Lens' GetStatusResponse (Maybe Text)
-
--- | Undocumented member.
-getStatusResponse_logKey :: Lens' GetStatusResponse (Maybe Text)
-
--- | Undocumented member.
-getStatusResponse_signatureFileContents :: Lens' GetStatusResponse (Maybe Text)
-
--- | Undocumented member.
-getStatusResponse_locationCode :: Lens' GetStatusResponse (Maybe Text)
-
--- | Undocumented member.
-getStatusResponse_progressCode :: Lens' GetStatusResponse (Maybe Text)
-
--- | Undocumented member.
-getStatusResponse_jobId :: Lens' GetStatusResponse (Maybe Text)
-
--- | The response's http status code.
-getStatusResponse_httpStatus :: Lens' GetStatusResponse Int
-
--- | Undocumented member.
-getShippingLabel_company :: Lens' GetShippingLabel (Maybe Text)
-
--- | Undocumented member.
-getShippingLabel_phoneNumber :: Lens' GetShippingLabel (Maybe Text)
-
--- | Undocumented member.
-getShippingLabel_postalCode :: Lens' GetShippingLabel (Maybe Text)
-
--- | Undocumented member.
-getShippingLabel_street1 :: Lens' GetShippingLabel (Maybe Text)
+getShippingLabel_street3 :: Lens' GetShippingLabel (Maybe Text)
 
 -- | Undocumented member.
 getShippingLabel_aPIVersion :: Lens' GetShippingLabel (Maybe Text)
-
--- | Undocumented member.
-getShippingLabel_city :: Lens' GetShippingLabel (Maybe Text)
-
--- | Undocumented member.
-getShippingLabel_name :: Lens' GetShippingLabel (Maybe Text)
-
--- | Undocumented member.
-getShippingLabel_street2 :: Lens' GetShippingLabel (Maybe Text)
 
 -- | Undocumented member.
 getShippingLabel_country :: Lens' GetShippingLabel (Maybe Text)
@@ -1196,37 +1082,37 @@ getShippingLabel_country :: Lens' GetShippingLabel (Maybe Text)
 getShippingLabel_stateOrProvince :: Lens' GetShippingLabel (Maybe Text)
 
 -- | Undocumented member.
-getShippingLabel_street3 :: Lens' GetShippingLabel (Maybe Text)
+getShippingLabel_postalCode :: Lens' GetShippingLabel (Maybe Text)
+
+-- | Undocumented member.
+getShippingLabel_street2 :: Lens' GetShippingLabel (Maybe Text)
+
+-- | Undocumented member.
+getShippingLabel_name :: Lens' GetShippingLabel (Maybe Text)
+
+-- | Undocumented member.
+getShippingLabel_company :: Lens' GetShippingLabel (Maybe Text)
+
+-- | Undocumented member.
+getShippingLabel_phoneNumber :: Lens' GetShippingLabel (Maybe Text)
+
+-- | Undocumented member.
+getShippingLabel_city :: Lens' GetShippingLabel (Maybe Text)
+
+-- | Undocumented member.
+getShippingLabel_street1 :: Lens' GetShippingLabel (Maybe Text)
 
 -- | Undocumented member.
 getShippingLabel_jobIds :: Lens' GetShippingLabel [Text]
 
 -- | Undocumented member.
-getShippingLabelResponse_warning :: Lens' GetShippingLabelResponse (Maybe Text)
+getShippingLabelResponse_shippingLabelURL :: Lens' GetShippingLabelResponse (Maybe Text)
 
 -- | Undocumented member.
-getShippingLabelResponse_shippingLabelURL :: Lens' GetShippingLabelResponse (Maybe Text)
+getShippingLabelResponse_warning :: Lens' GetShippingLabelResponse (Maybe Text)
 
 -- | The response's http status code.
 getShippingLabelResponse_httpStatus :: Lens' GetShippingLabelResponse Int
-
--- | Undocumented member.
-listJobs_maxJobs :: Lens' ListJobs (Maybe Int)
-
--- | Undocumented member.
-listJobs_aPIVersion :: Lens' ListJobs (Maybe Text)
-
--- | Undocumented member.
-listJobs_marker :: Lens' ListJobs (Maybe Text)
-
--- | Undocumented member.
-listJobsResponse_isTruncated :: Lens' ListJobsResponse (Maybe Bool)
-
--- | Undocumented member.
-listJobsResponse_jobs :: Lens' ListJobsResponse (Maybe [Job])
-
--- | The response's http status code.
-listJobsResponse_httpStatus :: Lens' ListJobsResponse Int
 
 -- | Undocumented member.
 createJob_aPIVersion :: Lens' CreateJob (Maybe Text)
@@ -1244,31 +1130,145 @@ createJob_manifest :: Lens' CreateJob Text
 createJob_validateOnly :: Lens' CreateJob Bool
 
 -- | Undocumented member.
-createJobResponse_warningMessage :: Lens' CreateJobResponse (Maybe Text)
+createJobResponse_signature :: Lens' CreateJobResponse (Maybe Text)
 
 -- | Undocumented member.
 createJobResponse_jobType :: Lens' CreateJobResponse (Maybe JobType)
 
 -- | Undocumented member.
-createJobResponse_signature :: Lens' CreateJobResponse (Maybe Text)
-
--- | Undocumented member.
-createJobResponse_artifactList :: Lens' CreateJobResponse (Maybe [Artifact])
+createJobResponse_jobId :: Lens' CreateJobResponse (Maybe Text)
 
 -- | Undocumented member.
 createJobResponse_signatureFileContents :: Lens' CreateJobResponse (Maybe Text)
 
 -- | Undocumented member.
-createJobResponse_jobId :: Lens' CreateJobResponse (Maybe Text)
+createJobResponse_warningMessage :: Lens' CreateJobResponse (Maybe Text)
+
+-- | Undocumented member.
+createJobResponse_artifactList :: Lens' CreateJobResponse (Maybe [Artifact])
 
 -- | The response's http status code.
 createJobResponse_httpStatus :: Lens' CreateJobResponse Int
 
 -- | Undocumented member.
-artifact_description :: Lens' Artifact (Maybe Text)
+listJobs_aPIVersion :: Lens' ListJobs (Maybe Text)
+
+-- | Undocumented member.
+listJobs_marker :: Lens' ListJobs (Maybe Text)
+
+-- | Undocumented member.
+listJobs_maxJobs :: Lens' ListJobs (Maybe Int)
+
+-- | Undocumented member.
+listJobsResponse_jobs :: Lens' ListJobsResponse (Maybe [Job])
+
+-- | Undocumented member.
+listJobsResponse_isTruncated :: Lens' ListJobsResponse (Maybe Bool)
+
+-- | The response's http status code.
+listJobsResponse_httpStatus :: Lens' ListJobsResponse Int
+
+-- | Undocumented member.
+updateJob_aPIVersion :: Lens' UpdateJob (Maybe Text)
+
+-- | Undocumented member.
+updateJob_jobId :: Lens' UpdateJob Text
+
+-- | Undocumented member.
+updateJob_manifest :: Lens' UpdateJob Text
+
+-- | Undocumented member.
+updateJob_jobType :: Lens' UpdateJob JobType
+
+-- | Undocumented member.
+updateJob_validateOnly :: Lens' UpdateJob Bool
+
+-- | Undocumented member.
+updateJobResponse_success :: Lens' UpdateJobResponse (Maybe Bool)
+
+-- | Undocumented member.
+updateJobResponse_warningMessage :: Lens' UpdateJobResponse (Maybe Text)
+
+-- | Undocumented member.
+updateJobResponse_artifactList :: Lens' UpdateJobResponse (Maybe [Artifact])
+
+-- | The response's http status code.
+updateJobResponse_httpStatus :: Lens' UpdateJobResponse Int
+
+-- | Undocumented member.
+getStatus_aPIVersion :: Lens' GetStatus (Maybe Text)
+
+-- | Undocumented member.
+getStatus_jobId :: Lens' GetStatus Text
+
+-- | Undocumented member.
+getStatusResponse_carrier :: Lens' GetStatusResponse (Maybe Text)
+
+-- | Undocumented member.
+getStatusResponse_trackingNumber :: Lens' GetStatusResponse (Maybe Text)
+
+-- | Undocumented member.
+getStatusResponse_signature :: Lens' GetStatusResponse (Maybe Text)
+
+-- | Undocumented member.
+getStatusResponse_jobType :: Lens' GetStatusResponse (Maybe JobType)
+
+-- | Undocumented member.
+getStatusResponse_jobId :: Lens' GetStatusResponse (Maybe Text)
+
+-- | Undocumented member.
+getStatusResponse_signatureFileContents :: Lens' GetStatusResponse (Maybe Text)
+
+-- | Undocumented member.
+getStatusResponse_errorCount :: Lens' GetStatusResponse (Maybe Int)
+
+-- | Undocumented member.
+getStatusResponse_currentManifest :: Lens' GetStatusResponse (Maybe Text)
+
+-- | Undocumented member.
+getStatusResponse_artifactList :: Lens' GetStatusResponse (Maybe [Artifact])
+
+-- | Undocumented member.
+getStatusResponse_logBucket :: Lens' GetStatusResponse (Maybe Text)
+
+-- | Undocumented member.
+getStatusResponse_creationDate :: Lens' GetStatusResponse (Maybe UTCTime)
+
+-- | Undocumented member.
+getStatusResponse_progressCode :: Lens' GetStatusResponse (Maybe Text)
+
+-- | Undocumented member.
+getStatusResponse_locationCode :: Lens' GetStatusResponse (Maybe Text)
+
+-- | Undocumented member.
+getStatusResponse_logKey :: Lens' GetStatusResponse (Maybe Text)
+
+-- | Undocumented member.
+getStatusResponse_locationMessage :: Lens' GetStatusResponse (Maybe Text)
+
+-- | Undocumented member.
+getStatusResponse_progressMessage :: Lens' GetStatusResponse (Maybe Text)
+
+-- | The response's http status code.
+getStatusResponse_httpStatus :: Lens' GetStatusResponse Int
+
+-- | Undocumented member.
+cancelJob_aPIVersion :: Lens' CancelJob (Maybe Text)
+
+-- | Undocumented member.
+cancelJob_jobId :: Lens' CancelJob Text
+
+-- | Undocumented member.
+cancelJobResponse_success :: Lens' CancelJobResponse (Maybe Bool)
+
+-- | The response's http status code.
+cancelJobResponse_httpStatus :: Lens' CancelJobResponse Int
 
 -- | Undocumented member.
 artifact_url :: Lens' Artifact (Maybe Text)
+
+-- | Undocumented member.
+artifact_description :: Lens' Artifact (Maybe Text)
 
 -- | Undocumented member.
 job_jobType :: Lens' Job JobType
@@ -1302,65 +1302,49 @@ module Network.AWS.ImportExport
 --   configuration.
 defaultService :: Service
 
--- | The client tool version is invalid.
-_InvalidVersionException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | Each account can create only a certain number of jobs per day. If you
---   need to create more than this, please contact
---   awsimportexport@amazon.com to explain your particular use case.
-_CreateJobQuotaExceededException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | AWS Import/Export cannot cancel the job
-_UnableToCancelJobIdException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | One or more manifest fields was invalid. Please correct and resubmit.
-_InvalidManifestFieldException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | One or more required customs parameters was missing from the manifest.
-_MissingCustomsException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | The address specified in the manifest is invalid.
-_InvalidAddressException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | One or more required parameters was missing from the request.
-_MissingParameterException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | The account specified does not have the appropriate bucket
---   permissions.
-_BucketPermissionException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | One or more parameters had an invalid value.
-_InvalidParameterException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | Your manifest is not well-formed.
-_MalformedManifestException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | Your manifest file contained buckets from multiple regions. A job is
---   restricted to buckets from one region. Please correct and resubmit.
-_MultipleRegionsException :: AsError a => Getting (First ServiceError) a ServiceError
-
 -- | The JOBID was missing, not found, or not associated with the AWS
 --   account.
 _InvalidJobIdException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | One or more required fields were missing from the manifest file.
---   Please correct and resubmit.
-_MissingManifestFieldException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | One or more parameters had an invalid value.
+_InvalidParameterException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | AWS Import/Export cannot update the job
-_UnableToUpdateJobIdException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | Indicates that the specified job has expired out of the system.
+_ExpiredJobIdException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | One or more customs parameters was invalid. Please correct and
---   resubmit.
-_InvalidCustomsException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | File system specified in export manifest is invalid.
+_InvalidFileSystemException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | The AWS Access Key ID specified in the request did not match the
 --   manifest's accessKeyId value. The manifest and the request
 --   authentication must use the same AWS Access Key ID.
 _InvalidAccessKeyIdException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | File system specified in export manifest is invalid.
-_InvalidFileSystemException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | AWS Import/Export cannot update the job
+_UnableToUpdateJobIdException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | AWS Import/Export cannot cancel the job
+_UnableToCancelJobIdException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | Your manifest file contained buckets from multiple regions. A job is
+--   restricted to buckets from one region. Please correct and resubmit.
+_MultipleRegionsException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | The client tool version is invalid.
+_InvalidVersionException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | Your manifest is not well-formed.
+_MalformedManifestException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | One or more required parameters was missing from the request.
+_MissingParameterException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | The specified job ID has been canceled and is no longer valid.
+_CanceledJobIdException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | The account specified does not have the appropriate bucket
+--   permissions.
+_BucketPermissionException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | The specified bucket does not exist. Create the specified bucket or
 --   change the manifest's bucket, exportBucket, or logBucket field to a
@@ -1368,11 +1352,364 @@ _InvalidFileSystemException :: AsError a => Getting (First ServiceError) a Servi
 --   has write permissions to.
 _NoSuchBucketException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | The specified job ID has been canceled and is no longer valid.
-_CanceledJobIdException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | The address specified in the manifest is invalid.
+_InvalidAddressException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | Indicates that the specified job has expired out of the system.
-_ExpiredJobIdException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | One or more required customs parameters was missing from the manifest.
+_MissingCustomsException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | One or more manifest fields was invalid. Please correct and resubmit.
+_InvalidManifestFieldException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | One or more customs parameters was invalid. Please correct and
+--   resubmit.
+_InvalidCustomsException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | One or more required fields were missing from the manifest file.
+--   Please correct and resubmit.
+_MissingManifestFieldException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | Each account can create only a certain number of jobs per day. If you
+--   need to create more than this, please contact
+--   awsimportexport@amazon.com to explain your particular use case.
+_CreateJobQuotaExceededException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | <i>See:</i> <a>newGetShippingLabel</a> smart constructor.
+data GetShippingLabel
+GetShippingLabel' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> [Text] -> GetShippingLabel
+
+-- | Create a value of <a>GetShippingLabel</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:street3:GetShippingLabel'</a>, <a>getShippingLabel_street3</a>
+--   - Undocumented member.
+--   
+--   <a>$sel:aPIVersion:GetShippingLabel'</a>,
+--   <a>getShippingLabel_aPIVersion</a> - Undocumented member.
+--   
+--   <a>$sel:country:GetShippingLabel'</a>, <a>getShippingLabel_country</a>
+--   - Undocumented member.
+--   
+--   <a>$sel:stateOrProvince:GetShippingLabel'</a>,
+--   <a>getShippingLabel_stateOrProvince</a> - Undocumented member.
+--   
+--   <a>$sel:postalCode:GetShippingLabel'</a>,
+--   <a>getShippingLabel_postalCode</a> - Undocumented member.
+--   
+--   <a>$sel:street2:GetShippingLabel'</a>, <a>getShippingLabel_street2</a>
+--   - Undocumented member.
+--   
+--   <a>$sel:name:GetShippingLabel'</a>, <a>getShippingLabel_name</a> -
+--   Undocumented member.
+--   
+--   <a>$sel:company:GetShippingLabel'</a>, <a>getShippingLabel_company</a>
+--   - Undocumented member.
+--   
+--   <a>$sel:phoneNumber:GetShippingLabel'</a>,
+--   <a>getShippingLabel_phoneNumber</a> - Undocumented member.
+--   
+--   <a>$sel:city:GetShippingLabel'</a>, <a>getShippingLabel_city</a> -
+--   Undocumented member.
+--   
+--   <a>$sel:street1:GetShippingLabel'</a>, <a>getShippingLabel_street1</a>
+--   - Undocumented member.
+--   
+--   <a>$sel:jobIds:GetShippingLabel'</a>, <a>getShippingLabel_jobIds</a> -
+--   Undocumented member.
+newGetShippingLabel :: GetShippingLabel
+
+-- | <i>See:</i> <a>newGetShippingLabelResponse</a> smart constructor.
+data GetShippingLabelResponse
+GetShippingLabelResponse' :: Maybe Text -> Maybe Text -> Int -> GetShippingLabelResponse
+
+-- | Create a value of <a>GetShippingLabelResponse</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:shippingLabelURL:GetShippingLabelResponse'</a>,
+--   <a>getShippingLabelResponse_shippingLabelURL</a> - Undocumented
+--   member.
+--   
+--   <a>$sel:warning:GetShippingLabelResponse'</a>,
+--   <a>getShippingLabelResponse_warning</a> - Undocumented member.
+--   
+--   <a>$sel:httpStatus:GetShippingLabelResponse'</a>,
+--   <a>getShippingLabelResponse_httpStatus</a> - The response's http
+--   status code.
+newGetShippingLabelResponse :: Int -> GetShippingLabelResponse
+
+-- | Input structure for the CreateJob operation.
+--   
+--   <i>See:</i> <a>newCreateJob</a> smart constructor.
+data CreateJob
+CreateJob' :: Maybe Text -> Maybe Text -> JobType -> Text -> Bool -> CreateJob
+
+-- | Create a value of <a>CreateJob</a> with all optional fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:aPIVersion:CreateJob'</a>, <a>createJob_aPIVersion</a> -
+--   Undocumented member.
+--   
+--   <a>$sel:manifestAddendum:CreateJob'</a>,
+--   <a>createJob_manifestAddendum</a> - Undocumented member.
+--   
+--   <a>$sel:jobType:CreateJob'</a>, <a>createJob_jobType</a> -
+--   Undocumented member.
+--   
+--   <a>$sel:manifest:CreateJob'</a>, <a>createJob_manifest</a> -
+--   Undocumented member.
+--   
+--   <a>$sel:validateOnly:CreateJob'</a>, <a>createJob_validateOnly</a> -
+--   Undocumented member.
+newCreateJob :: JobType -> Text -> Bool -> CreateJob
+
+-- | Output structure for the CreateJob operation.
+--   
+--   <i>See:</i> <a>newCreateJobResponse</a> smart constructor.
+data CreateJobResponse
+CreateJobResponse' :: Maybe Text -> Maybe JobType -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe [Artifact] -> Int -> CreateJobResponse
+
+-- | Create a value of <a>CreateJobResponse</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:signature:CreateJobResponse'</a>,
+--   <a>createJobResponse_signature</a> - Undocumented member.
+--   
+--   <a>$sel:jobType:CreateJob'</a>, <a>createJobResponse_jobType</a> -
+--   Undocumented member.
+--   
+--   <a>$sel:jobId:CreateJobResponse'</a>, <a>createJobResponse_jobId</a> -
+--   Undocumented member.
+--   
+--   <a>$sel:signatureFileContents:CreateJobResponse'</a>,
+--   <a>createJobResponse_signatureFileContents</a> - Undocumented member.
+--   
+--   <a>$sel:warningMessage:CreateJobResponse'</a>,
+--   <a>createJobResponse_warningMessage</a> - Undocumented member.
+--   
+--   <a>$sel:artifactList:CreateJobResponse'</a>,
+--   <a>createJobResponse_artifactList</a> - Undocumented member.
+--   
+--   <a>$sel:httpStatus:CreateJobResponse'</a>,
+--   <a>createJobResponse_httpStatus</a> - The response's http status code.
+newCreateJobResponse :: Int -> CreateJobResponse
+
+-- | Input structure for the ListJobs operation.
+--   
+--   <i>See:</i> <a>newListJobs</a> smart constructor.
+data ListJobs
+ListJobs' :: Maybe Text -> Maybe Text -> Maybe Int -> ListJobs
+
+-- | Create a value of <a>ListJobs</a> with all optional fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:aPIVersion:ListJobs'</a>, <a>listJobs_aPIVersion</a> -
+--   Undocumented member.
+--   
+--   <a>$sel:marker:ListJobs'</a>, <a>listJobs_marker</a> - Undocumented
+--   member.
+--   
+--   <a>$sel:maxJobs:ListJobs'</a>, <a>listJobs_maxJobs</a> - Undocumented
+--   member.
+newListJobs :: ListJobs
+
+-- | Output structure for the ListJobs operation.
+--   
+--   <i>See:</i> <a>newListJobsResponse</a> smart constructor.
+data ListJobsResponse
+ListJobsResponse' :: Maybe [Job] -> Maybe Bool -> Int -> ListJobsResponse
+
+-- | Create a value of <a>ListJobsResponse</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:jobs:ListJobsResponse'</a>, <a>listJobsResponse_jobs</a> -
+--   Undocumented member.
+--   
+--   <a>$sel:isTruncated:ListJobsResponse'</a>,
+--   <a>listJobsResponse_isTruncated</a> - Undocumented member.
+--   
+--   <a>$sel:httpStatus:ListJobsResponse'</a>,
+--   <a>listJobsResponse_httpStatus</a> - The response's http status code.
+newListJobsResponse :: Int -> ListJobsResponse
+
+-- | Input structure for the UpateJob operation.
+--   
+--   <i>See:</i> <a>newUpdateJob</a> smart constructor.
+data UpdateJob
+UpdateJob' :: Maybe Text -> Text -> Text -> JobType -> Bool -> UpdateJob
+
+-- | Create a value of <a>UpdateJob</a> with all optional fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:aPIVersion:UpdateJob'</a>, <a>updateJob_aPIVersion</a> -
+--   Undocumented member.
+--   
+--   <a>$sel:jobId:UpdateJob'</a>, <a>updateJob_jobId</a> - Undocumented
+--   member.
+--   
+--   <a>$sel:manifest:UpdateJob'</a>, <a>updateJob_manifest</a> -
+--   Undocumented member.
+--   
+--   <a>$sel:jobType:UpdateJob'</a>, <a>updateJob_jobType</a> -
+--   Undocumented member.
+--   
+--   <a>$sel:validateOnly:UpdateJob'</a>, <a>updateJob_validateOnly</a> -
+--   Undocumented member.
+newUpdateJob :: Text -> Text -> JobType -> Bool -> UpdateJob
+
+-- | Output structure for the UpateJob operation.
+--   
+--   <i>See:</i> <a>newUpdateJobResponse</a> smart constructor.
+data UpdateJobResponse
+UpdateJobResponse' :: Maybe Bool -> Maybe Text -> Maybe [Artifact] -> Int -> UpdateJobResponse
+
+-- | Create a value of <a>UpdateJobResponse</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:success:UpdateJobResponse'</a>,
+--   <a>updateJobResponse_success</a> - Undocumented member.
+--   
+--   <a>$sel:warningMessage:UpdateJobResponse'</a>,
+--   <a>updateJobResponse_warningMessage</a> - Undocumented member.
+--   
+--   <a>$sel:artifactList:UpdateJobResponse'</a>,
+--   <a>updateJobResponse_artifactList</a> - Undocumented member.
+--   
+--   <a>$sel:httpStatus:UpdateJobResponse'</a>,
+--   <a>updateJobResponse_httpStatus</a> - The response's http status code.
+newUpdateJobResponse :: Int -> UpdateJobResponse
+
+-- | Input structure for the GetStatus operation.
+--   
+--   <i>See:</i> <a>newGetStatus</a> smart constructor.
+data GetStatus
+GetStatus' :: Maybe Text -> Text -> GetStatus
+
+-- | Create a value of <a>GetStatus</a> with all optional fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:aPIVersion:GetStatus'</a>, <a>getStatus_aPIVersion</a> -
+--   Undocumented member.
+--   
+--   <a>$sel:jobId:GetStatus'</a>, <a>getStatus_jobId</a> - Undocumented
+--   member.
+newGetStatus :: Text -> GetStatus
+
+-- | Output structure for the GetStatus operation.
+--   
+--   <i>See:</i> <a>newGetStatusResponse</a> smart constructor.
+data GetStatusResponse
+GetStatusResponse' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe JobType -> Maybe Text -> Maybe Text -> Maybe Int -> Maybe Text -> Maybe [Artifact] -> Maybe Text -> Maybe ISO8601 -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Int -> GetStatusResponse
+
+-- | Create a value of <a>GetStatusResponse</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:carrier:GetStatusResponse'</a>,
+--   <a>getStatusResponse_carrier</a> - Undocumented member.
+--   
+--   <a>$sel:trackingNumber:GetStatusResponse'</a>,
+--   <a>getStatusResponse_trackingNumber</a> - Undocumented member.
+--   
+--   <a>$sel:signature:GetStatusResponse'</a>,
+--   <a>getStatusResponse_signature</a> - Undocumented member.
+--   
+--   <a>$sel:jobType:GetStatusResponse'</a>,
+--   <a>getStatusResponse_jobType</a> - Undocumented member.
+--   
+--   <a>$sel:jobId:GetStatus'</a>, <a>getStatusResponse_jobId</a> -
+--   Undocumented member.
+--   
+--   <a>$sel:signatureFileContents:GetStatusResponse'</a>,
+--   <a>getStatusResponse_signatureFileContents</a> - Undocumented member.
+--   
+--   <a>$sel:errorCount:GetStatusResponse'</a>,
+--   <a>getStatusResponse_errorCount</a> - Undocumented member.
+--   
+--   <a>$sel:currentManifest:GetStatusResponse'</a>,
+--   <a>getStatusResponse_currentManifest</a> - Undocumented member.
+--   
+--   <a>$sel:artifactList:GetStatusResponse'</a>,
+--   <a>getStatusResponse_artifactList</a> - Undocumented member.
+--   
+--   <a>$sel:logBucket:GetStatusResponse'</a>,
+--   <a>getStatusResponse_logBucket</a> - Undocumented member.
+--   
+--   <a>$sel:creationDate:GetStatusResponse'</a>,
+--   <a>getStatusResponse_creationDate</a> - Undocumented member.
+--   
+--   <a>$sel:progressCode:GetStatusResponse'</a>,
+--   <a>getStatusResponse_progressCode</a> - Undocumented member.
+--   
+--   <a>$sel:locationCode:GetStatusResponse'</a>,
+--   <a>getStatusResponse_locationCode</a> - Undocumented member.
+--   
+--   <a>$sel:logKey:GetStatusResponse'</a>, <a>getStatusResponse_logKey</a>
+--   - Undocumented member.
+--   
+--   <a>$sel:locationMessage:GetStatusResponse'</a>,
+--   <a>getStatusResponse_locationMessage</a> - Undocumented member.
+--   
+--   <a>$sel:progressMessage:GetStatusResponse'</a>,
+--   <a>getStatusResponse_progressMessage</a> - Undocumented member.
+--   
+--   <a>$sel:httpStatus:GetStatusResponse'</a>,
+--   <a>getStatusResponse_httpStatus</a> - The response's http status code.
+newGetStatusResponse :: Int -> GetStatusResponse
 
 -- | Input structure for the CancelJob operation.
 --   
@@ -1417,343 +1754,6 @@ CancelJobResponse' :: Maybe Bool -> Int -> CancelJobResponse
 --   <a>cancelJobResponse_httpStatus</a> - The response's http status code.
 newCancelJobResponse :: Int -> CancelJobResponse
 
--- | Input structure for the UpateJob operation.
---   
---   <i>See:</i> <a>newUpdateJob</a> smart constructor.
-data UpdateJob
-UpdateJob' :: Maybe Text -> Text -> Text -> JobType -> Bool -> UpdateJob
-
--- | Create a value of <a>UpdateJob</a> with all optional fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:aPIVersion:UpdateJob'</a>, <a>updateJob_aPIVersion</a> -
---   Undocumented member.
---   
---   <a>$sel:jobId:UpdateJob'</a>, <a>updateJob_jobId</a> - Undocumented
---   member.
---   
---   <a>$sel:manifest:UpdateJob'</a>, <a>updateJob_manifest</a> -
---   Undocumented member.
---   
---   <a>$sel:jobType:UpdateJob'</a>, <a>updateJob_jobType</a> -
---   Undocumented member.
---   
---   <a>$sel:validateOnly:UpdateJob'</a>, <a>updateJob_validateOnly</a> -
---   Undocumented member.
-newUpdateJob :: Text -> Text -> JobType -> Bool -> UpdateJob
-
--- | Output structure for the UpateJob operation.
---   
---   <i>See:</i> <a>newUpdateJobResponse</a> smart constructor.
-data UpdateJobResponse
-UpdateJobResponse' :: Maybe Text -> Maybe [Artifact] -> Maybe Bool -> Int -> UpdateJobResponse
-
--- | Create a value of <a>UpdateJobResponse</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:warningMessage:UpdateJobResponse'</a>,
---   <a>updateJobResponse_warningMessage</a> - Undocumented member.
---   
---   <a>$sel:artifactList:UpdateJobResponse'</a>,
---   <a>updateJobResponse_artifactList</a> - Undocumented member.
---   
---   <a>$sel:success:UpdateJobResponse'</a>,
---   <a>updateJobResponse_success</a> - Undocumented member.
---   
---   <a>$sel:httpStatus:UpdateJobResponse'</a>,
---   <a>updateJobResponse_httpStatus</a> - The response's http status code.
-newUpdateJobResponse :: Int -> UpdateJobResponse
-
--- | Input structure for the GetStatus operation.
---   
---   <i>See:</i> <a>newGetStatus</a> smart constructor.
-data GetStatus
-GetStatus' :: Maybe Text -> Text -> GetStatus
-
--- | Create a value of <a>GetStatus</a> with all optional fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:aPIVersion:GetStatus'</a>, <a>getStatus_aPIVersion</a> -
---   Undocumented member.
---   
---   <a>$sel:jobId:GetStatus'</a>, <a>getStatus_jobId</a> - Undocumented
---   member.
-newGetStatus :: Text -> GetStatus
-
--- | Output structure for the GetStatus operation.
---   
---   <i>See:</i> <a>newGetStatusResponse</a> smart constructor.
-data GetStatusResponse
-GetStatusResponse' :: Maybe Text -> Maybe Text -> Maybe Int -> Maybe ISO8601 -> Maybe Text -> Maybe JobType -> Maybe Text -> Maybe Text -> Maybe [Artifact] -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Int -> GetStatusResponse
-
--- | Create a value of <a>GetStatusResponse</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:trackingNumber:GetStatusResponse'</a>,
---   <a>getStatusResponse_trackingNumber</a> - Undocumented member.
---   
---   <a>$sel:currentManifest:GetStatusResponse'</a>,
---   <a>getStatusResponse_currentManifest</a> - Undocumented member.
---   
---   <a>$sel:errorCount:GetStatusResponse'</a>,
---   <a>getStatusResponse_errorCount</a> - Undocumented member.
---   
---   <a>$sel:creationDate:GetStatusResponse'</a>,
---   <a>getStatusResponse_creationDate</a> - Undocumented member.
---   
---   <a>$sel:logBucket:GetStatusResponse'</a>,
---   <a>getStatusResponse_logBucket</a> - Undocumented member.
---   
---   <a>$sel:jobType:GetStatusResponse'</a>,
---   <a>getStatusResponse_jobType</a> - Undocumented member.
---   
---   <a>$sel:signature:GetStatusResponse'</a>,
---   <a>getStatusResponse_signature</a> - Undocumented member.
---   
---   <a>$sel:carrier:GetStatusResponse'</a>,
---   <a>getStatusResponse_carrier</a> - Undocumented member.
---   
---   <a>$sel:artifactList:GetStatusResponse'</a>,
---   <a>getStatusResponse_artifactList</a> - Undocumented member.
---   
---   <a>$sel:progressMessage:GetStatusResponse'</a>,
---   <a>getStatusResponse_progressMessage</a> - Undocumented member.
---   
---   <a>$sel:locationMessage:GetStatusResponse'</a>,
---   <a>getStatusResponse_locationMessage</a> - Undocumented member.
---   
---   <a>$sel:logKey:GetStatusResponse'</a>, <a>getStatusResponse_logKey</a>
---   - Undocumented member.
---   
---   <a>$sel:signatureFileContents:GetStatusResponse'</a>,
---   <a>getStatusResponse_signatureFileContents</a> - Undocumented member.
---   
---   <a>$sel:locationCode:GetStatusResponse'</a>,
---   <a>getStatusResponse_locationCode</a> - Undocumented member.
---   
---   <a>$sel:progressCode:GetStatusResponse'</a>,
---   <a>getStatusResponse_progressCode</a> - Undocumented member.
---   
---   <a>$sel:jobId:GetStatus'</a>, <a>getStatusResponse_jobId</a> -
---   Undocumented member.
---   
---   <a>$sel:httpStatus:GetStatusResponse'</a>,
---   <a>getStatusResponse_httpStatus</a> - The response's http status code.
-newGetStatusResponse :: Int -> GetStatusResponse
-
--- | <i>See:</i> <a>newGetShippingLabel</a> smart constructor.
-data GetShippingLabel
-GetShippingLabel' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> [Text] -> GetShippingLabel
-
--- | Create a value of <a>GetShippingLabel</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:company:GetShippingLabel'</a>, <a>getShippingLabel_company</a>
---   - Undocumented member.
---   
---   <a>$sel:phoneNumber:GetShippingLabel'</a>,
---   <a>getShippingLabel_phoneNumber</a> - Undocumented member.
---   
---   <a>$sel:postalCode:GetShippingLabel'</a>,
---   <a>getShippingLabel_postalCode</a> - Undocumented member.
---   
---   <a>$sel:street1:GetShippingLabel'</a>, <a>getShippingLabel_street1</a>
---   - Undocumented member.
---   
---   <a>$sel:aPIVersion:GetShippingLabel'</a>,
---   <a>getShippingLabel_aPIVersion</a> - Undocumented member.
---   
---   <a>$sel:city:GetShippingLabel'</a>, <a>getShippingLabel_city</a> -
---   Undocumented member.
---   
---   <a>$sel:name:GetShippingLabel'</a>, <a>getShippingLabel_name</a> -
---   Undocumented member.
---   
---   <a>$sel:street2:GetShippingLabel'</a>, <a>getShippingLabel_street2</a>
---   - Undocumented member.
---   
---   <a>$sel:country:GetShippingLabel'</a>, <a>getShippingLabel_country</a>
---   - Undocumented member.
---   
---   <a>$sel:stateOrProvince:GetShippingLabel'</a>,
---   <a>getShippingLabel_stateOrProvince</a> - Undocumented member.
---   
---   <a>$sel:street3:GetShippingLabel'</a>, <a>getShippingLabel_street3</a>
---   - Undocumented member.
---   
---   <a>$sel:jobIds:GetShippingLabel'</a>, <a>getShippingLabel_jobIds</a> -
---   Undocumented member.
-newGetShippingLabel :: GetShippingLabel
-
--- | <i>See:</i> <a>newGetShippingLabelResponse</a> smart constructor.
-data GetShippingLabelResponse
-GetShippingLabelResponse' :: Maybe Text -> Maybe Text -> Int -> GetShippingLabelResponse
-
--- | Create a value of <a>GetShippingLabelResponse</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:warning:GetShippingLabelResponse'</a>,
---   <a>getShippingLabelResponse_warning</a> - Undocumented member.
---   
---   <a>$sel:shippingLabelURL:GetShippingLabelResponse'</a>,
---   <a>getShippingLabelResponse_shippingLabelURL</a> - Undocumented
---   member.
---   
---   <a>$sel:httpStatus:GetShippingLabelResponse'</a>,
---   <a>getShippingLabelResponse_httpStatus</a> - The response's http
---   status code.
-newGetShippingLabelResponse :: Int -> GetShippingLabelResponse
-
--- | Input structure for the ListJobs operation.
---   
---   <i>See:</i> <a>newListJobs</a> smart constructor.
-data ListJobs
-ListJobs' :: Maybe Int -> Maybe Text -> Maybe Text -> ListJobs
-
--- | Create a value of <a>ListJobs</a> with all optional fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:maxJobs:ListJobs'</a>, <a>listJobs_maxJobs</a> - Undocumented
---   member.
---   
---   <a>$sel:aPIVersion:ListJobs'</a>, <a>listJobs_aPIVersion</a> -
---   Undocumented member.
---   
---   <a>$sel:marker:ListJobs'</a>, <a>listJobs_marker</a> - Undocumented
---   member.
-newListJobs :: ListJobs
-
--- | Output structure for the ListJobs operation.
---   
---   <i>See:</i> <a>newListJobsResponse</a> smart constructor.
-data ListJobsResponse
-ListJobsResponse' :: Maybe Bool -> Maybe [Job] -> Int -> ListJobsResponse
-
--- | Create a value of <a>ListJobsResponse</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:isTruncated:ListJobsResponse'</a>,
---   <a>listJobsResponse_isTruncated</a> - Undocumented member.
---   
---   <a>$sel:jobs:ListJobsResponse'</a>, <a>listJobsResponse_jobs</a> -
---   Undocumented member.
---   
---   <a>$sel:httpStatus:ListJobsResponse'</a>,
---   <a>listJobsResponse_httpStatus</a> - The response's http status code.
-newListJobsResponse :: Int -> ListJobsResponse
-
--- | Input structure for the CreateJob operation.
---   
---   <i>See:</i> <a>newCreateJob</a> smart constructor.
-data CreateJob
-CreateJob' :: Maybe Text -> Maybe Text -> JobType -> Text -> Bool -> CreateJob
-
--- | Create a value of <a>CreateJob</a> with all optional fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:aPIVersion:CreateJob'</a>, <a>createJob_aPIVersion</a> -
---   Undocumented member.
---   
---   <a>$sel:manifestAddendum:CreateJob'</a>,
---   <a>createJob_manifestAddendum</a> - Undocumented member.
---   
---   <a>$sel:jobType:CreateJob'</a>, <a>createJob_jobType</a> -
---   Undocumented member.
---   
---   <a>$sel:manifest:CreateJob'</a>, <a>createJob_manifest</a> -
---   Undocumented member.
---   
---   <a>$sel:validateOnly:CreateJob'</a>, <a>createJob_validateOnly</a> -
---   Undocumented member.
-newCreateJob :: JobType -> Text -> Bool -> CreateJob
-
--- | Output structure for the CreateJob operation.
---   
---   <i>See:</i> <a>newCreateJobResponse</a> smart constructor.
-data CreateJobResponse
-CreateJobResponse' :: Maybe Text -> Maybe JobType -> Maybe Text -> Maybe [Artifact] -> Maybe Text -> Maybe Text -> Int -> CreateJobResponse
-
--- | Create a value of <a>CreateJobResponse</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:warningMessage:CreateJobResponse'</a>,
---   <a>createJobResponse_warningMessage</a> - Undocumented member.
---   
---   <a>$sel:jobType:CreateJob'</a>, <a>createJobResponse_jobType</a> -
---   Undocumented member.
---   
---   <a>$sel:signature:CreateJobResponse'</a>,
---   <a>createJobResponse_signature</a> - Undocumented member.
---   
---   <a>$sel:artifactList:CreateJobResponse'</a>,
---   <a>createJobResponse_artifactList</a> - Undocumented member.
---   
---   <a>$sel:signatureFileContents:CreateJobResponse'</a>,
---   <a>createJobResponse_signatureFileContents</a> - Undocumented member.
---   
---   <a>$sel:jobId:CreateJobResponse'</a>, <a>createJobResponse_jobId</a> -
---   Undocumented member.
---   
---   <a>$sel:httpStatus:CreateJobResponse'</a>,
---   <a>createJobResponse_httpStatus</a> - The response's http status code.
-newCreateJobResponse :: Int -> CreateJobResponse
-
 -- | Specifies whether the job to initiate is an import or export job.
 newtype JobType
 JobType' :: Text -> JobType
@@ -1776,10 +1776,10 @@ Artifact' :: Maybe Text -> Maybe Text -> Artifact
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
+--   <a>$sel:url:Artifact'</a>, <a>artifact_url</a> - Undocumented member.
+--   
 --   <a>$sel:description:Artifact'</a>, <a>artifact_description</a> -
 --   Undocumented member.
---   
---   <a>$sel:url:Artifact'</a>, <a>artifact_url</a> - Undocumented member.
 newArtifact :: Artifact
 
 -- | Representation of a job returned by the ListJobs operation.

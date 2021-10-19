@@ -51,7 +51,7 @@
 </span><span id="line-51"></span><span class="hs-comment">-- defined in the web ACL.</span><span>
 </span><span id="line-52"></span><span class="hs-comment">--</span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- /See:/ 'newRateBasedRule' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679303001"><span id="local-6989586621679303002"></span></span><span class="hs-keyword">data</span><span> </span><span id="RateBasedRule"><span class="annot"><a href="Network.AWS.WAF.Types.RateBasedRule.html#RateBasedRule"><span class="hs-identifier hs-var">RateBasedRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RateBasedRule%27"><span class="annot"><a href="Network.AWS.WAF.Types.RateBasedRule.html#RateBasedRule%27"><span class="hs-identifier hs-var">RateBasedRule'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679303235"><span id="local-6989586621679303236"></span></span><span class="hs-keyword">data</span><span> </span><span id="RateBasedRule"><span class="annot"><a href="Network.AWS.WAF.Types.RateBasedRule.html#RateBasedRule"><span class="hs-identifier hs-var">RateBasedRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RateBasedRule%27"><span class="annot"><a href="Network.AWS.WAF.Types.RateBasedRule.html#RateBasedRule%27"><span class="hs-identifier hs-var">RateBasedRule'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A friendly name or description for the metrics for a @RateBasedRule@.</span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-comment">-- The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">-- maximum length 128 and minimum length one. It can\'t contain whitespace</span><span>
@@ -91,7 +91,7 @@
 </span><span id="line-86"></span><span>    </span><span id="%24sel%3ArateLimit%3ARateBasedRule%27"><span class="annot"><span class="annottext">RateBasedRule -&gt; Natural
 </span><a href="Network.AWS.WAF.Types.RateBasedRule.html#%24sel%3ArateLimit%3ARateBasedRule%27"><span class="hs-identifier hs-var hs-var">rateLimit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-87"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-88"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679302990"><span id="local-6989586621679302992"><span class="annot"><span class="annottext">RateBasedRule -&gt; RateBasedRule -&gt; Bool
+</span><span id="line-88"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679303224"><span id="local-6989586621679303226"><span class="annot"><span class="annottext">RateBasedRule -&gt; RateBasedRule -&gt; Bool
 (RateBasedRule -&gt; RateBasedRule -&gt; Bool)
 -&gt; (RateBasedRule -&gt; RateBasedRule -&gt; Bool) -&gt; Eq RateBasedRule
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -99,7 +99,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RateBasedRule -&gt; RateBasedRule -&gt; Bool
 == :: RateBasedRule -&gt; RateBasedRule -&gt; Bool
 $c== :: RateBasedRule -&gt; RateBasedRule -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302981"><span id="local-6989586621679302983"><span id="local-6989586621679302985"><span id="local-6989586621679302987"><span class="annot"><span class="annottext">ReadPrec [RateBasedRule]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679303215"><span id="local-6989586621679303217"><span id="local-6989586621679303219"><span id="local-6989586621679303221"><span class="annot"><span class="annottext">ReadPrec [RateBasedRule]
 ReadPrec RateBasedRule
 Int -&gt; ReadS RateBasedRule
 ReadS [RateBasedRule]
@@ -119,7 +119,7 @@ readList :: ReadS [RateBasedRule]
 $creadList :: ReadS [RateBasedRule]
 readsPrec :: Int -&gt; ReadS RateBasedRule
 $creadsPrec :: Int -&gt; ReadS RateBasedRule
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302974"><span id="local-6989586621679302976"><span id="local-6989586621679302978"><span class="annot"><span class="annottext">Int -&gt; RateBasedRule -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679303208"><span id="local-6989586621679303210"><span id="local-6989586621679303212"><span class="annot"><span class="annottext">Int -&gt; RateBasedRule -&gt; ShowS
 [RateBasedRule] -&gt; ShowS
 RateBasedRule -&gt; String
 (Int -&gt; RateBasedRule -&gt; ShowS)
@@ -193,10 +193,10 @@ $cfrom :: forall x. RateBasedRule -&gt; Rep RateBasedRule x
 </span><span id="line-135"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-136"></span><span>  </span><span class="annot"><a href="Network.AWS.WAF.Types.RateBasedRule.html#RateBasedRule"><span class="hs-identifier hs-type">RateBasedRule</span></a></span><span>
 </span><span id="line-137"></span><span id="newRateBasedRule"><span class="annot"><span class="annottext">newRateBasedRule :: Text -&gt; RateKey -&gt; Natural -&gt; RateBasedRule
-</span><a href="Network.AWS.WAF.Types.RateBasedRule.html#newRateBasedRule"><span class="hs-identifier hs-var hs-var">newRateBasedRule</span></a></span></span><span> </span><span id="local-6989586621679302968"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679302968"><span class="hs-identifier hs-var">pRuleId_</span></a></span></span><span> </span><span id="local-6989586621679302967"><span class="annot"><span class="annottext">RateKey
-</span><a href="#local-6989586621679302967"><span class="hs-identifier hs-var">pRateKey_</span></a></span></span><span> </span><span id="local-6989586621679302966"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679302966"><span class="hs-identifier hs-var">pRateLimit_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.WAF.Types.RateBasedRule.html#newRateBasedRule"><span class="hs-identifier hs-var hs-var">newRateBasedRule</span></a></span></span><span> </span><span id="local-6989586621679303202"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679303202"><span class="hs-identifier hs-var">pRuleId_</span></a></span></span><span> </span><span id="local-6989586621679303201"><span class="annot"><span class="annottext">RateKey
+</span><a href="#local-6989586621679303201"><span class="hs-identifier hs-var">pRateKey_</span></a></span></span><span> </span><span id="local-6989586621679303200"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679303200"><span class="hs-identifier hs-var">pRateLimit_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-138"></span><span>  </span><span class="annot"><span class="annottext">RateBasedRule' :: Maybe Text
 -&gt; Maybe Text
 -&gt; Text
@@ -215,17 +215,17 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-141"></span><span>      </span><span class="annot"><span class="annottext">$sel:ruleId:RateBasedRule' :: Text
 </span><a href="Network.AWS.WAF.Types.RateBasedRule.html#%24sel%3AruleId%3ARateBasedRule%27"><span class="hs-identifier hs-var">ruleId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679302968"><span class="hs-identifier hs-var">pRuleId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679303202"><span class="hs-identifier hs-var">pRuleId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">$sel:matchPredicates:RateBasedRule' :: [Predicate]
 </span><a href="Network.AWS.WAF.Types.RateBasedRule.html#%24sel%3AmatchPredicates%3ARateBasedRule%27"><span class="hs-identifier hs-var">matchPredicates</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Predicate]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
 </span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">$sel:rateKey:RateBasedRule' :: RateKey
 </span><a href="Network.AWS.WAF.Types.RateBasedRule.html#%24sel%3ArateKey%3ARateBasedRule%27"><span class="hs-identifier hs-var">rateKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RateKey
-</span><a href="#local-6989586621679302967"><span class="hs-identifier hs-var">pRateKey_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679303201"><span class="hs-identifier hs-var">pRateKey_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-144"></span><span>      </span><span class="annot"><span class="annottext">$sel:rateLimit:RateBasedRule' :: Natural
 </span><a href="Network.AWS.WAF.Types.RateBasedRule.html#%24sel%3ArateLimit%3ARateBasedRule%27"><span class="hs-identifier hs-var">rateLimit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679302966"><span class="hs-identifier hs-var">pRateLimit_</span></a></span><span>
+</span><a href="#local-6989586621679303200"><span class="hs-identifier hs-var">pRateLimit_</span></a></span><span>
 </span><span id="line-145"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-comment">-- | A friendly name or description for the metrics for a @RateBasedRule@.</span><span>
@@ -240,16 +240,16 @@ forall a. Monoid a =&gt; a
 -&gt; (RateBasedRule -&gt; Maybe Text -&gt; RateBasedRule)
 -&gt; Lens RateBasedRule RateBasedRule (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.Types.RateBasedRule.html#RateBasedRule%27"><span class="hs-identifier hs-type">RateBasedRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302962"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.Types.RateBasedRule.html#RateBasedRule%27"><span class="hs-identifier hs-type">RateBasedRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303196"><span class="annot"><span class="annottext">Maybe Text
 metricName :: Maybe Text
 $sel:metricName:RateBasedRule' :: RateBasedRule -&gt; Maybe Text
-</span><a href="#local-6989586621679302962"><span class="hs-identifier hs-var hs-var">metricName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302962"><span class="hs-identifier hs-var">metricName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302961"><span class="annot"><span class="annottext">s :: RateBasedRule
-</span><a href="#local-6989586621679302961"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.Types.RateBasedRule.html#RateBasedRule%27"><span class="hs-identifier hs-type">RateBasedRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302960"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302960"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RateBasedRule
-</span><a href="#local-6989586621679302961"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricName:RateBasedRule' :: Maybe Text
+</span><a href="#local-6989586621679303196"><span class="hs-identifier hs-var hs-var">metricName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679303196"><span class="hs-identifier hs-var">metricName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303195"><span class="annot"><span class="annottext">s :: RateBasedRule
+</span><a href="#local-6989586621679303195"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.Types.RateBasedRule.html#RateBasedRule%27"><span class="hs-identifier hs-type">RateBasedRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303194"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679303194"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RateBasedRule
+</span><a href="#local-6989586621679303195"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricName:RateBasedRule' :: Maybe Text
 </span><a href="Network.AWS.WAF.Types.RateBasedRule.html#%24sel%3AmetricName%3ARateBasedRule%27"><span class="hs-identifier hs-var">metricName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302960"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.RateBasedRule.html#RateBasedRule"><span class="hs-identifier hs-type">RateBasedRule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679303194"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.RateBasedRule.html#RateBasedRule"><span class="hs-identifier hs-type">RateBasedRule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>
 </span><span id="line-156"></span><span class="hs-comment">-- | A friendly name or description for a @RateBasedRule@. You can\'t change</span><span>
 </span><span id="line-157"></span><span class="hs-comment">-- the name of a @RateBasedRule@ after you create it.</span><span>
@@ -259,16 +259,16 @@ $sel:metricName:RateBasedRule' :: RateBasedRule -&gt; Maybe Text
 -&gt; (RateBasedRule -&gt; Maybe Text -&gt; RateBasedRule)
 -&gt; Lens RateBasedRule RateBasedRule (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.Types.RateBasedRule.html#RateBasedRule%27"><span class="hs-identifier hs-type">RateBasedRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302958"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.Types.RateBasedRule.html#RateBasedRule%27"><span class="hs-identifier hs-type">RateBasedRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303192"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 $sel:name:RateBasedRule' :: RateBasedRule -&gt; Maybe Text
-</span><a href="#local-6989586621679302958"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302958"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302957"><span class="annot"><span class="annottext">s :: RateBasedRule
-</span><a href="#local-6989586621679302957"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.Types.RateBasedRule.html#RateBasedRule%27"><span class="hs-identifier hs-type">RateBasedRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302956"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302956"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RateBasedRule
-</span><a href="#local-6989586621679302957"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:RateBasedRule' :: Maybe Text
+</span><a href="#local-6989586621679303192"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679303192"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303191"><span class="annot"><span class="annottext">s :: RateBasedRule
+</span><a href="#local-6989586621679303191"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.Types.RateBasedRule.html#RateBasedRule%27"><span class="hs-identifier hs-type">RateBasedRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303190"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679303190"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RateBasedRule
+</span><a href="#local-6989586621679303191"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:RateBasedRule' :: Maybe Text
 </span><a href="Network.AWS.WAF.Types.RateBasedRule.html#%24sel%3Aname%3ARateBasedRule%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302956"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.RateBasedRule.html#RateBasedRule"><span class="hs-identifier hs-type">RateBasedRule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679303190"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.RateBasedRule.html#RateBasedRule"><span class="hs-identifier hs-type">RateBasedRule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-160"></span><span>
 </span><span id="line-161"></span><span class="hs-comment">-- | A unique identifier for a @RateBasedRule@. You use @RuleId@ to get more</span><span>
 </span><span id="line-162"></span><span class="hs-comment">-- information about a @RateBasedRule@ (see GetRateBasedRule), update a</span><span>
@@ -281,16 +281,16 @@ $sel:name:RateBasedRule' :: RateBasedRule -&gt; Maybe Text
 -&gt; (RateBasedRule -&gt; Text -&gt; RateBasedRule)
 -&gt; Lens RateBasedRule RateBasedRule Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.Types.RateBasedRule.html#RateBasedRule%27"><span class="hs-identifier hs-type">RateBasedRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302954"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.Types.RateBasedRule.html#RateBasedRule%27"><span class="hs-identifier hs-type">RateBasedRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303188"><span class="annot"><span class="annottext">Text
 ruleId :: Text
 $sel:ruleId:RateBasedRule' :: RateBasedRule -&gt; Text
-</span><a href="#local-6989586621679302954"><span class="hs-identifier hs-var hs-var">ruleId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679302954"><span class="hs-identifier hs-var">ruleId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302953"><span class="annot"><span class="annottext">s :: RateBasedRule
-</span><a href="#local-6989586621679302953"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.Types.RateBasedRule.html#RateBasedRule%27"><span class="hs-identifier hs-type">RateBasedRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302952"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679302952"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RateBasedRule
-</span><a href="#local-6989586621679302953"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleId:RateBasedRule' :: Text
+</span><a href="#local-6989586621679303188"><span class="hs-identifier hs-var hs-var">ruleId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679303188"><span class="hs-identifier hs-var">ruleId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303187"><span class="annot"><span class="annottext">s :: RateBasedRule
+</span><a href="#local-6989586621679303187"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.Types.RateBasedRule.html#RateBasedRule%27"><span class="hs-identifier hs-type">RateBasedRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303186"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679303186"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RateBasedRule
+</span><a href="#local-6989586621679303187"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleId:RateBasedRule' :: Text
 </span><a href="Network.AWS.WAF.Types.RateBasedRule.html#%24sel%3AruleId%3ARateBasedRule%27"><span class="hs-identifier hs-var">ruleId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679302952"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.RateBasedRule.html#RateBasedRule"><span class="hs-identifier hs-type">RateBasedRule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679303186"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.RateBasedRule.html#RateBasedRule"><span class="hs-identifier hs-type">RateBasedRule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>
 </span><span id="line-169"></span><span class="hs-comment">-- | The @Predicates@ object contains one @Predicate@ element for each</span><span>
 </span><span id="line-170"></span><span class="hs-comment">-- ByteMatchSet, IPSet, or SqlInjectionMatchSet object that you want to</span><span>
@@ -301,16 +301,16 @@ $sel:ruleId:RateBasedRule' :: RateBasedRule -&gt; Text
 -&gt; (RateBasedRule -&gt; [Predicate] -&gt; RateBasedRule)
 -&gt; Lens RateBasedRule RateBasedRule [Predicate] [Predicate]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.Types.RateBasedRule.html#RateBasedRule%27"><span class="hs-identifier hs-type">RateBasedRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302950"><span class="annot"><span class="annottext">[Predicate]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.Types.RateBasedRule.html#RateBasedRule%27"><span class="hs-identifier hs-type">RateBasedRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303184"><span class="annot"><span class="annottext">[Predicate]
 matchPredicates :: [Predicate]
 $sel:matchPredicates:RateBasedRule' :: RateBasedRule -&gt; [Predicate]
-</span><a href="#local-6989586621679302950"><span class="hs-identifier hs-var hs-var">matchPredicates</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Predicate]
-</span><a href="#local-6989586621679302950"><span class="hs-identifier hs-var">matchPredicates</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302949"><span class="annot"><span class="annottext">s :: RateBasedRule
-</span><a href="#local-6989586621679302949"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.Types.RateBasedRule.html#RateBasedRule%27"><span class="hs-identifier hs-type">RateBasedRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302948"><span class="annot"><span class="annottext">[Predicate]
-</span><a href="#local-6989586621679302948"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RateBasedRule
-</span><a href="#local-6989586621679302949"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:matchPredicates:RateBasedRule' :: [Predicate]
+</span><a href="#local-6989586621679303184"><span class="hs-identifier hs-var hs-var">matchPredicates</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Predicate]
+</span><a href="#local-6989586621679303184"><span class="hs-identifier hs-var">matchPredicates</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303183"><span class="annot"><span class="annottext">s :: RateBasedRule
+</span><a href="#local-6989586621679303183"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.Types.RateBasedRule.html#RateBasedRule%27"><span class="hs-identifier hs-type">RateBasedRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303182"><span class="annot"><span class="annottext">[Predicate]
+</span><a href="#local-6989586621679303182"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RateBasedRule
+</span><a href="#local-6989586621679303183"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:matchPredicates:RateBasedRule' :: [Predicate]
 </span><a href="Network.AWS.WAF.Types.RateBasedRule.html#%24sel%3AmatchPredicates%3ARateBasedRule%27"><span class="hs-identifier hs-var">matchPredicates</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Predicate]
-</span><a href="#local-6989586621679302948"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.RateBasedRule.html#RateBasedRule"><span class="hs-identifier hs-type">RateBasedRule</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Predicate] -&gt; f [Predicate])
+</span><a href="#local-6989586621679303182"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.RateBasedRule.html#RateBasedRule"><span class="hs-identifier hs-type">RateBasedRule</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Predicate] -&gt; f [Predicate])
  -&gt; RateBasedRule -&gt; f RateBasedRule)
 -&gt; (([Predicate] -&gt; f [Predicate]) -&gt; [Predicate] -&gt; f [Predicate])
 -&gt; ([Predicate] -&gt; f [Predicate])
@@ -318,8 +318,8 @@ $sel:matchPredicates:RateBasedRule' :: RateBasedRule -&gt; [Predicate]
 -&gt; f RateBasedRule
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Predicate] -&gt; f [Predicate]) -&gt; [Predicate] -&gt; f [Predicate]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-174"></span><span>
 </span><span id="line-175"></span><span class="hs-comment">-- | The field that AWS WAF uses to determine if requests are likely arriving</span><span>
 </span><span id="line-176"></span><span class="hs-comment">-- from single source and thus subject to rate monitoring. The only valid</span><span>
@@ -332,16 +332,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (RateBasedRule -&gt; RateKey -&gt; RateBasedRule)
 -&gt; Lens RateBasedRule RateBasedRule RateKey RateKey
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.Types.RateBasedRule.html#RateBasedRule%27"><span class="hs-identifier hs-type">RateBasedRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302944"><span class="annot"><span class="annottext">RateKey
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.Types.RateBasedRule.html#RateBasedRule%27"><span class="hs-identifier hs-type">RateBasedRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303178"><span class="annot"><span class="annottext">RateKey
 rateKey :: RateKey
 $sel:rateKey:RateBasedRule' :: RateBasedRule -&gt; RateKey
-</span><a href="#local-6989586621679302944"><span class="hs-identifier hs-var hs-var">rateKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RateKey
-</span><a href="#local-6989586621679302944"><span class="hs-identifier hs-var">rateKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302943"><span class="annot"><span class="annottext">s :: RateBasedRule
-</span><a href="#local-6989586621679302943"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.Types.RateBasedRule.html#RateBasedRule%27"><span class="hs-identifier hs-type">RateBasedRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302942"><span class="annot"><span class="annottext">RateKey
-</span><a href="#local-6989586621679302942"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RateBasedRule
-</span><a href="#local-6989586621679302943"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rateKey:RateBasedRule' :: RateKey
+</span><a href="#local-6989586621679303178"><span class="hs-identifier hs-var hs-var">rateKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RateKey
+</span><a href="#local-6989586621679303178"><span class="hs-identifier hs-var">rateKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303177"><span class="annot"><span class="annottext">s :: RateBasedRule
+</span><a href="#local-6989586621679303177"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.Types.RateBasedRule.html#RateBasedRule%27"><span class="hs-identifier hs-type">RateBasedRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303176"><span class="annot"><span class="annottext">RateKey
+</span><a href="#local-6989586621679303176"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RateBasedRule
+</span><a href="#local-6989586621679303177"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rateKey:RateBasedRule' :: RateKey
 </span><a href="Network.AWS.WAF.Types.RateBasedRule.html#%24sel%3ArateKey%3ARateBasedRule%27"><span class="hs-identifier hs-var">rateKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RateKey
-</span><a href="#local-6989586621679302942"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.RateBasedRule.html#RateBasedRule"><span class="hs-identifier hs-type">RateBasedRule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679303176"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.RateBasedRule.html#RateBasedRule"><span class="hs-identifier hs-type">RateBasedRule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-182"></span><span>
 </span><span id="line-183"></span><span class="hs-comment">-- | The maximum number of requests, which have an identical value in the</span><span>
 </span><span id="line-184"></span><span class="hs-comment">-- field specified by the @RateKey@, allowed in a five-minute period. If</span><span>
@@ -354,19 +354,19 @@ $sel:rateKey:RateBasedRule' :: RateBasedRule -&gt; RateKey
 -&gt; (RateBasedRule -&gt; Natural -&gt; RateBasedRule)
 -&gt; Lens RateBasedRule RateBasedRule Natural Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.Types.RateBasedRule.html#RateBasedRule%27"><span class="hs-identifier hs-type">RateBasedRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302940"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.Types.RateBasedRule.html#RateBasedRule%27"><span class="hs-identifier hs-type">RateBasedRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303174"><span class="annot"><span class="annottext">Natural
 rateLimit :: Natural
 $sel:rateLimit:RateBasedRule' :: RateBasedRule -&gt; Natural
-</span><a href="#local-6989586621679302940"><span class="hs-identifier hs-var hs-var">rateLimit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679302940"><span class="hs-identifier hs-var">rateLimit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302939"><span class="annot"><span class="annottext">s :: RateBasedRule
-</span><a href="#local-6989586621679302939"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.Types.RateBasedRule.html#RateBasedRule%27"><span class="hs-identifier hs-type">RateBasedRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302938"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679302938"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RateBasedRule
-</span><a href="#local-6989586621679302939"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rateLimit:RateBasedRule' :: Natural
+</span><a href="#local-6989586621679303174"><span class="hs-identifier hs-var hs-var">rateLimit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679303174"><span class="hs-identifier hs-var">rateLimit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303173"><span class="annot"><span class="annottext">s :: RateBasedRule
+</span><a href="#local-6989586621679303173"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.Types.RateBasedRule.html#RateBasedRule%27"><span class="hs-identifier hs-type">RateBasedRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303172"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679303172"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RateBasedRule
+</span><a href="#local-6989586621679303173"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rateLimit:RateBasedRule' :: Natural
 </span><a href="Network.AWS.WAF.Types.RateBasedRule.html#%24sel%3ArateLimit%3ARateBasedRule%27"><span class="hs-identifier hs-var">rateLimit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679302938"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.RateBasedRule.html#RateBasedRule"><span class="hs-identifier hs-type">RateBasedRule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679303172"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.RateBasedRule.html#RateBasedRule"><span class="hs-identifier hs-type">RateBasedRule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-190"></span><span>
-</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302935"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.RateBasedRule.html#RateBasedRule"><span class="hs-identifier hs-type">RateBasedRule</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-192"></span><span>  </span><span id="local-6989586621679302933"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RateBasedRule
+</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303169"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.RateBasedRule.html#RateBasedRule"><span class="hs-identifier hs-type">RateBasedRule</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-192"></span><span>  </span><span id="local-6989586621679303167"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RateBasedRule
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-193"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser RateBasedRule)
@@ -376,8 +376,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-194"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;RateBasedRule&quot;</span></span><span>
-</span><span id="line-195"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679302930"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679302930"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-195"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679303164"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679303164"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-196"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text
 -&gt; Text
@@ -399,7 +399,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Text -&gt; [Predicate] -&gt; RateKey -&gt; Natural -&gt; RateBasedRule)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679302930"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679303164"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MetricName&quot;</span></span><span class="hs-special">)</span><span>
@@ -411,7 +411,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Text -&gt; [Predicate] -&gt; RateKey -&gt; Natural -&gt; RateBasedRule)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679302930"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679303164"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
@@ -420,7 +420,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser ([Predicate] -&gt; RateKey -&gt; Natural -&gt; RateBasedRule)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679302930"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679303164"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RuleId&quot;</span></span><span class="hs-special">)</span><span>
@@ -429,7 +429,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser (RateKey -&gt; Natural -&gt; RateBasedRule)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679302930"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [Predicate])
+</span><a href="#local-6989586621679303164"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [Predicate])
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MatchPredicates&quot;</span></span><span>
@@ -443,7 +443,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser RateKey -&gt; Parser (Natural -&gt; RateBasedRule)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679302930"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser RateKey
+</span><a href="#local-6989586621679303164"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser RateKey
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RateKey&quot;</span></span><span class="hs-special">)</span><span>
@@ -451,13 +451,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Natural -&gt; Parser RateBasedRule
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679302930"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
+</span><a href="#local-6989586621679303164"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RateLimit&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-205"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-206"></span><span>
-</span><span id="line-207"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302922"><span id="local-6989586621679302924"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.RateBasedRule.html#RateBasedRule"><span class="hs-identifier hs-type">RateBasedRule</span></a></span></span></span><span>
+</span><span id="line-207"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303156"><span id="local-6989586621679303158"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.RateBasedRule.html#RateBasedRule"><span class="hs-identifier hs-type">RateBasedRule</span></a></span></span></span><span>
 </span><span id="line-208"></span><span>
-</span><span id="line-209"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302919"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.RateBasedRule.html#RateBasedRule"><span class="hs-identifier hs-type">RateBasedRule</span></a></span></span><span>
+</span><span id="line-209"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303153"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.RateBasedRule.html#RateBasedRule"><span class="hs-identifier hs-type">RateBasedRule</span></a></span></span><span>
 </span><span id="line-210"></span></pre></body></html>

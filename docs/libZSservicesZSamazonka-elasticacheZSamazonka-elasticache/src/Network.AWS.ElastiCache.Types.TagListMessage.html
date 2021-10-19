@@ -28,12 +28,12 @@
 </span><span id="line-28"></span><span class="hs-comment">-- @ListTagsForResource@, and @RemoveTagsFromResource@ operations.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newTagListMessage' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679406567"><span id="local-6989586621679406568"></span></span><span class="hs-keyword">data</span><span> </span><span id="TagListMessage"><span class="annot"><a href="Network.AWS.ElastiCache.Types.TagListMessage.html#TagListMessage"><span class="hs-identifier hs-var">TagListMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TagListMessage%27"><span class="annot"><a href="Network.AWS.ElastiCache.Types.TagListMessage.html#TagListMessage%27"><span class="hs-identifier hs-var">TagListMessage'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679407105"><span id="local-6989586621679407106"></span></span><span class="hs-keyword">data</span><span> </span><span id="TagListMessage"><span class="annot"><a href="Network.AWS.ElastiCache.Types.TagListMessage.html#TagListMessage"><span class="hs-identifier hs-var">TagListMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TagListMessage%27"><span class="annot"><a href="Network.AWS.ElastiCache.Types.TagListMessage.html#TagListMessage%27"><span class="hs-identifier hs-var">TagListMessage'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of tags as key-value pairs.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AtagList%3ATagListMessage%27"><span class="annot"><span class="annottext">TagListMessage -&gt; Maybe [Tag]
 </span><a href="Network.AWS.ElastiCache.Types.TagListMessage.html#%24sel%3AtagList%3ATagListMessage%27"><span class="hs-identifier hs-var hs-var">tagList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679406561"><span id="local-6989586621679406563"><span class="annot"><span class="annottext">TagListMessage -&gt; TagListMessage -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679407099"><span id="local-6989586621679407101"><span class="annot"><span class="annottext">TagListMessage -&gt; TagListMessage -&gt; Bool
 (TagListMessage -&gt; TagListMessage -&gt; Bool)
 -&gt; (TagListMessage -&gt; TagListMessage -&gt; Bool) -&gt; Eq TagListMessage
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -41,7 +41,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TagListMessage -&gt; TagListMessage -&gt; Bool
 == :: TagListMessage -&gt; TagListMessage -&gt; Bool
 $c== :: TagListMessage -&gt; TagListMessage -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679406552"><span id="local-6989586621679406554"><span id="local-6989586621679406556"><span id="local-6989586621679406558"><span class="annot"><span class="annottext">ReadPrec [TagListMessage]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679407090"><span id="local-6989586621679407092"><span id="local-6989586621679407094"><span id="local-6989586621679407096"><span class="annot"><span class="annottext">ReadPrec [TagListMessage]
 ReadPrec TagListMessage
 Int -&gt; ReadS TagListMessage
 ReadS [TagListMessage]
@@ -61,7 +61,7 @@ readList :: ReadS [TagListMessage]
 $creadList :: ReadS [TagListMessage]
 readsPrec :: Int -&gt; ReadS TagListMessage
 $creadsPrec :: Int -&gt; ReadS TagListMessage
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679406545"><span id="local-6989586621679406547"><span id="local-6989586621679406549"><span class="annot"><span class="annottext">Int -&gt; TagListMessage -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679407083"><span id="local-6989586621679407085"><span id="local-6989586621679407087"><span class="annot"><span class="annottext">Int -&gt; TagListMessage -&gt; ShowS
 [TagListMessage] -&gt; ShowS
 TagListMessage -&gt; String
 (Int -&gt; TagListMessage -&gt; ShowS)
@@ -114,16 +114,16 @@ forall a. Maybe a
 -&gt; (TagListMessage -&gt; Maybe [Tag] -&gt; TagListMessage)
 -&gt; Lens TagListMessage TagListMessage (Maybe [Tag]) (Maybe [Tag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.TagListMessage.html#TagListMessage%27"><span class="hs-identifier hs-type">TagListMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679406536"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.TagListMessage.html#TagListMessage%27"><span class="hs-identifier hs-type">TagListMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679407074"><span class="annot"><span class="annottext">Maybe [Tag]
 tagList :: Maybe [Tag]
 $sel:tagList:TagListMessage' :: TagListMessage -&gt; Maybe [Tag]
-</span><a href="#local-6989586621679406536"><span class="hs-identifier hs-var hs-var">tagList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679406536"><span class="hs-identifier hs-var">tagList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679406535"><span class="annot"><span class="annottext">s :: TagListMessage
-</span><a href="#local-6989586621679406535"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.TagListMessage.html#TagListMessage%27"><span class="hs-identifier hs-type">TagListMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679406534"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679406534"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagListMessage
-</span><a href="#local-6989586621679406535"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagList:TagListMessage' :: Maybe [Tag]
+</span><a href="#local-6989586621679407074"><span class="hs-identifier hs-var hs-var">tagList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679407074"><span class="hs-identifier hs-var">tagList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679407073"><span class="annot"><span class="annottext">s :: TagListMessage
+</span><a href="#local-6989586621679407073"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.TagListMessage.html#TagListMessage%27"><span class="hs-identifier hs-type">TagListMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679407072"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679407072"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagListMessage
+</span><a href="#local-6989586621679407073"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagList:TagListMessage' :: Maybe [Tag]
 </span><a href="Network.AWS.ElastiCache.Types.TagListMessage.html#%24sel%3AtagList%3ATagListMessage%27"><span class="hs-identifier hs-var">tagList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679406534"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.TagListMessage.html#TagListMessage"><span class="hs-identifier hs-type">TagListMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+</span><a href="#local-6989586621679407072"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.TagListMessage.html#TagListMessage"><span class="hs-identifier hs-type">TagListMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
  -&gt; TagListMessage -&gt; f TagListMessage)
 -&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
     -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
@@ -137,20 +137,20 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.TagListMessage.html#TagListMessage"><span class="hs-identifier hs-type">TagListMessage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-56"></span><span>  </span><span id="local-6989586621679406528"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String TagListMessage
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679406526"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679406526"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-56"></span><span>  </span><span id="local-6989586621679407066"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String TagListMessage
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679407064"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679407064"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-57"></span><span>    </span><span class="annot"><span class="annottext">Maybe [Tag] -&gt; TagListMessage
 </span><a href="Network.AWS.ElastiCache.Types.TagListMessage.html#TagListMessage%27"><span class="hs-identifier hs-var">TagListMessage'</span></a></span><span>
 </span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">(Maybe [Tag] -&gt; TagListMessage)
 -&gt; Either String (Maybe [Tag]) -&gt; Either String TagListMessage
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679406526"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679407064"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TagList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -173,7 +173,7 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-string">&quot;Tag&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>                  </span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679406517"><span id="local-6989586621679406519"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.TagListMessage.html#TagListMessage"><span class="hs-identifier hs-type">TagListMessage</span></a></span></span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679407055"><span id="local-6989586621679407057"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.TagListMessage.html#TagListMessage"><span class="hs-identifier hs-type">TagListMessage</span></a></span></span></span><span>
 </span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679406514"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.TagListMessage.html#TagListMessage"><span class="hs-identifier hs-type">TagListMessage</span></a></span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679407052"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.TagListMessage.html#TagListMessage"><span class="hs-identifier hs-type">TagListMessage</span></a></span></span><span>
 </span><span id="line-65"></span></pre></body></html>

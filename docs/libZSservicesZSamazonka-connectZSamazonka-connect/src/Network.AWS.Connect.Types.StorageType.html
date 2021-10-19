@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621679404728"><span id="local-6989586621679404729"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="StorageType"><span class="annot"><a href="Network.AWS.Connect.Types.StorageType.html#StorageType"><span class="hs-identifier hs-var">StorageType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StorageType%27"><span class="annot"><a href="Network.AWS.Connect.Types.StorageType.html#StorageType%27"><span class="hs-identifier hs-var">StorageType'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679405012"><span id="local-6989586621679405013"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="StorageType"><span class="annot"><a href="Network.AWS.Connect.Types.StorageType.html#StorageType"><span class="hs-identifier hs-var">StorageType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StorageType%27"><span class="annot"><a href="Network.AWS.Connect.Types.StorageType.html#StorageType%27"><span class="hs-identifier hs-var">StorageType'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromStorageType"><span class="annot"><span class="annottext">StorageType -&gt; Text
 </span><a href="Network.AWS.Connect.Types.StorageType.html#fromStorageType"><span class="hs-identifier hs-var hs-var">fromStorageType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679404720"><span id="local-6989586621679404722"><span id="local-6989586621679404724"><span class="annot"><span class="annottext">Int -&gt; StorageType -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679405004"><span id="local-6989586621679405006"><span id="local-6989586621679405008"><span class="annot"><span class="annottext">Int -&gt; StorageType -&gt; ShowS
 [StorageType] -&gt; ShowS
 StorageType -&gt; String
 (Int -&gt; StorageType -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: StorageType -&gt; String
 showsPrec :: Int -&gt; StorageType -&gt; ShowS
 $cshowsPrec :: Int -&gt; StorageType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679404711"><span id="local-6989586621679404713"><span id="local-6989586621679404715"><span id="local-6989586621679404717"><span class="annot"><span class="annottext">ReadPrec [StorageType]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679404995"><span id="local-6989586621679404997"><span id="local-6989586621679404999"><span id="local-6989586621679405001"><span class="annot"><span class="annottext">ReadPrec [StorageType]
 ReadPrec StorageType
 Int -&gt; ReadS StorageType
 ReadS [StorageType]
@@ -74,7 +74,7 @@ $creadList :: ReadS [StorageType]
 readsPrec :: Int -&gt; ReadS StorageType
 $creadsPrec :: Int -&gt; ReadS StorageType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679404706"><span id="local-6989586621679404708"><span class="annot"><span class="annottext">StorageType -&gt; StorageType -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679404990"><span id="local-6989586621679404992"><span class="annot"><span class="annottext">StorageType -&gt; StorageType -&gt; Bool
 (StorageType -&gt; StorageType -&gt; Bool)
 -&gt; (StorageType -&gt; StorageType -&gt; Bool) -&gt; Eq StorageType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -83,7 +83,7 @@ $c/= :: StorageType -&gt; StorageType -&gt; Bool
 == :: StorageType -&gt; StorageType -&gt; Bool
 $c== :: StorageType -&gt; StorageType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679404690"><span id="local-6989586621679404692"><span id="local-6989586621679404694"><span id="local-6989586621679404696"><span id="local-6989586621679404698"><span id="local-6989586621679404700"><span id="local-6989586621679404702"><span class="annot"><span class="annottext">Eq StorageType
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679404974"><span id="local-6989586621679404976"><span id="local-6989586621679404978"><span id="local-6989586621679404980"><span id="local-6989586621679404982"><span id="local-6989586621679404984"><span id="local-6989586621679404986"><span class="annot"><span class="annottext">Eq StorageType
 Eq StorageType
 -&gt; (StorageType -&gt; StorageType -&gt; Ordering)
 -&gt; (StorageType -&gt; StorageType -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. StorageType -&gt; Rep StorageType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679404682"><span id="local-6989586621679404684"><span class="annot"><span class="annottext">Int -&gt; StorageType -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679404966"><span id="local-6989586621679404968"><span class="annot"><span class="annottext">Int -&gt; StorageType -&gt; Int
 StorageType -&gt; Int
 (Int -&gt; StorageType -&gt; Int)
 -&gt; (StorageType -&gt; Int) -&gt; Hashable StorageType
@@ -144,49 +144,49 @@ $chash :: StorageType -&gt; Int
 hashWithSalt :: Int -&gt; StorageType -&gt; Int
 $chashWithSalt :: Int -&gt; StorageType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679404679"><span class="annot"><span class="annottext">StorageType -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679404963"><span class="annot"><span class="annottext">StorageType -&gt; ()
 (StorageType -&gt; ()) -&gt; NFData StorageType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: StorageType -&gt; ()
 $crnf :: StorageType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679404676"><span class="annot"><span class="annottext">Text -&gt; Either String StorageType
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679404960"><span class="annot"><span class="annottext">Text -&gt; Either String StorageType
 (Text -&gt; Either String StorageType) -&gt; FromText StorageType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String StorageType
 $cfromText :: Text -&gt; Either String StorageType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679404673"><span class="annot"><span class="annottext">StorageType -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679404957"><span class="annot"><span class="annottext">StorageType -&gt; Text
 (StorageType -&gt; Text) -&gt; ToText StorageType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: StorageType -&gt; Text
 $ctoText :: StorageType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679404670"><span class="annot"><span class="annottext">StorageType -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679404954"><span class="annot"><span class="annottext">StorageType -&gt; ByteString
 (StorageType -&gt; ByteString) -&gt; ToByteString StorageType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: StorageType -&gt; ByteString
 $ctoBS :: StorageType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679404667"><span class="annot"><span class="annottext">StorageType -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679404951"><span class="annot"><span class="annottext">StorageType -&gt; ByteStringBuilder
 (StorageType -&gt; ByteStringBuilder) -&gt; ToLog StorageType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: StorageType -&gt; ByteStringBuilder
 $cbuild :: StorageType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679404664"><span class="annot"><span class="annottext">HeaderName -&gt; StorageType -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679404948"><span class="annot"><span class="annottext">HeaderName -&gt; StorageType -&gt; [Header]
 (HeaderName -&gt; StorageType -&gt; [Header]) -&gt; ToHeader StorageType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; StorageType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; StorageType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679404661"><span class="annot"><span class="annottext">StorageType -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679404945"><span class="annot"><span class="annottext">StorageType -&gt; QueryString
 (StorageType -&gt; QueryString) -&gt; ToQuery StorageType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: StorageType -&gt; QueryString
 $ctoQuery :: StorageType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679404656"><span id="local-6989586621679404658"><span class="annot"><span class="annottext">Value -&gt; Parser [StorageType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679404940"><span id="local-6989586621679404942"><span class="annot"><span class="annottext">Value -&gt; Parser [StorageType]
 Value -&gt; Parser StorageType
 (Value -&gt; Parser StorageType)
 -&gt; (Value -&gt; Parser [StorageType]) -&gt; FromJSON StorageType
@@ -197,7 +197,7 @@ $cparseJSONList :: Value -&gt; Parser [StorageType]
 parseJSON :: Value -&gt; Parser StorageType
 $cparseJSON :: Value -&gt; Parser StorageType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679404651"><span id="local-6989586621679404653"><span class="annot"><span class="annottext">FromJSONKeyFunction [StorageType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679404935"><span id="local-6989586621679404937"><span class="annot"><span class="annottext">FromJSONKeyFunction [StorageType]
 FromJSONKeyFunction StorageType
 FromJSONKeyFunction StorageType
 -&gt; FromJSONKeyFunction [StorageType] -&gt; FromJSONKey StorageType
@@ -208,7 +208,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [StorageType]
 fromJSONKey :: FromJSONKeyFunction StorageType
 $cfromJSONKey :: FromJSONKeyFunction StorageType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679404642"><span id="local-6989586621679404644"><span id="local-6989586621679404646"><span id="local-6989586621679404648"><span class="annot"><span class="annottext">[StorageType] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679404926"><span id="local-6989586621679404928"><span id="local-6989586621679404930"><span id="local-6989586621679404932"><span class="annot"><span class="annottext">[StorageType] -&gt; Encoding
 [StorageType] -&gt; Value
 StorageType -&gt; Encoding
 StorageType -&gt; Value
@@ -232,7 +232,7 @@ $ctoEncoding :: StorageType -&gt; Encoding
 toJSON :: StorageType -&gt; Value
 $ctoJSON :: StorageType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679404637"><span id="local-6989586621679404639"><span class="annot"><span class="annottext">ToJSONKeyFunction [StorageType]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679404921"><span id="local-6989586621679404923"><span class="annot"><span class="annottext">ToJSONKeyFunction [StorageType]
 ToJSONKeyFunction StorageType
 ToJSONKeyFunction StorageType
 -&gt; ToJSONKeyFunction [StorageType] -&gt; ToJSONKey StorageType
@@ -243,13 +243,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [StorageType]
 toJSONKey :: ToJSONKeyFunction StorageType
 $ctoJSONKey :: ToJSONKeyFunction StorageType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679404634"><span class="annot"><span class="annottext">[Node] -&gt; Either String StorageType
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679404918"><span class="annot"><span class="annottext">[Node] -&gt; Either String StorageType
 ([Node] -&gt; Either String StorageType) -&gt; FromXML StorageType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String StorageType
 $cparseXML :: [Node] -&gt; Either String StorageType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679404631"><span class="annot"><span class="annottext">StorageType -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679404915"><span class="annot"><span class="annottext">StorageType -&gt; XML
 (StorageType -&gt; XML) -&gt; ToXML StorageType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: StorageType -&gt; XML

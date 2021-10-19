@@ -54,7 +54,7 @@
 </span><span id="line-54"></span><span class="hs-comment">-- | Gets information about a specific traffic policy version.</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- /See:/ 'newGetTrafficPolicy' smart constructor.</span><span>
-</span><span id="line-57"></span><span id="local-6989586621679304761"><span id="local-6989586621679304762"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetTrafficPolicy"><span class="annot"><a href="Network.AWS.Route53.GetTrafficPolicy.html#GetTrafficPolicy"><span class="hs-identifier hs-var">GetTrafficPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetTrafficPolicy%27"><span class="annot"><a href="Network.AWS.Route53.GetTrafficPolicy.html#GetTrafficPolicy%27"><span class="hs-identifier hs-var">GetTrafficPolicy'</span></a></span></span><span>
+</span><span id="line-57"></span><span id="local-6989586621679304946"><span id="local-6989586621679304947"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetTrafficPolicy"><span class="annot"><a href="Network.AWS.Route53.GetTrafficPolicy.html#GetTrafficPolicy"><span class="hs-identifier hs-var">GetTrafficPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetTrafficPolicy%27"><span class="annot"><a href="Network.AWS.Route53.GetTrafficPolicy.html#GetTrafficPolicy%27"><span class="hs-identifier hs-var">GetTrafficPolicy'</span></a></span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the traffic policy that you want to get information about.</span><span>
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3Aid%3AGetTrafficPolicy%27"><span class="annot"><span class="annottext">GetTrafficPolicy -&gt; Text
 </span><a href="Network.AWS.Route53.GetTrafficPolicy.html#%24sel%3Aid%3AGetTrafficPolicy%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -63,7 +63,7 @@
 </span><span id="line-62"></span><span>    </span><span id="%24sel%3Aversion%3AGetTrafficPolicy%27"><span class="annot"><span class="annottext">GetTrafficPolicy -&gt; Natural
 </span><a href="Network.AWS.Route53.GetTrafficPolicy.html#%24sel%3Aversion%3AGetTrafficPolicy%27"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679304754"><span id="local-6989586621679304756"><span class="annot"><span class="annottext">GetTrafficPolicy -&gt; GetTrafficPolicy -&gt; Bool
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679304939"><span id="local-6989586621679304941"><span class="annot"><span class="annottext">GetTrafficPolicy -&gt; GetTrafficPolicy -&gt; Bool
 (GetTrafficPolicy -&gt; GetTrafficPolicy -&gt; Bool)
 -&gt; (GetTrafficPolicy -&gt; GetTrafficPolicy -&gt; Bool)
 -&gt; Eq GetTrafficPolicy
@@ -72,7 +72,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetTrafficPolicy -&gt; GetTrafficPolicy -&gt; Bool
 == :: GetTrafficPolicy -&gt; GetTrafficPolicy -&gt; Bool
 $c== :: GetTrafficPolicy -&gt; GetTrafficPolicy -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304745"><span id="local-6989586621679304747"><span id="local-6989586621679304749"><span id="local-6989586621679304751"><span class="annot"><span class="annottext">ReadPrec [GetTrafficPolicy]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304930"><span id="local-6989586621679304932"><span id="local-6989586621679304934"><span id="local-6989586621679304936"><span class="annot"><span class="annottext">ReadPrec [GetTrafficPolicy]
 ReadPrec GetTrafficPolicy
 Int -&gt; ReadS GetTrafficPolicy
 ReadS [GetTrafficPolicy]
@@ -92,7 +92,7 @@ readList :: ReadS [GetTrafficPolicy]
 $creadList :: ReadS [GetTrafficPolicy]
 readsPrec :: Int -&gt; ReadS GetTrafficPolicy
 $creadsPrec :: Int -&gt; ReadS GetTrafficPolicy
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304738"><span id="local-6989586621679304740"><span id="local-6989586621679304742"><span class="annot"><span class="annottext">Int -&gt; GetTrafficPolicy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304923"><span id="local-6989586621679304925"><span id="local-6989586621679304927"><span class="annot"><span class="annottext">Int -&gt; GetTrafficPolicy -&gt; ShowS
 [GetTrafficPolicy] -&gt; ShowS
 GetTrafficPolicy -&gt; String
 (Int -&gt; GetTrafficPolicy -&gt; ShowS)
@@ -137,15 +137,15 @@ $cfrom :: forall x. GetTrafficPolicy -&gt; Rep GetTrafficPolicy x
 </span><span id="line-82"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53.GetTrafficPolicy.html#GetTrafficPolicy"><span class="hs-identifier hs-type">GetTrafficPolicy</span></a></span><span>
 </span><span id="line-84"></span><span id="newGetTrafficPolicy"><span class="annot"><span class="annottext">newGetTrafficPolicy :: Text -&gt; Natural -&gt; GetTrafficPolicy
-</span><a href="Network.AWS.Route53.GetTrafficPolicy.html#newGetTrafficPolicy"><span class="hs-identifier hs-var hs-var">newGetTrafficPolicy</span></a></span></span><span> </span><span id="local-6989586621679304733"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679304733"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span id="local-6989586621679304732"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679304732"><span class="hs-identifier hs-var">pVersion_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Route53.GetTrafficPolicy.html#newGetTrafficPolicy"><span class="hs-identifier hs-var hs-var">newGetTrafficPolicy</span></a></span></span><span> </span><span id="local-6989586621679304918"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304918"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span id="local-6989586621679304917"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679304917"><span class="hs-identifier hs-var">pVersion_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>  </span><span class="annot"><span class="annottext">GetTrafficPolicy' :: Text -&gt; Natural -&gt; GetTrafficPolicy
 </span><a href="Network.AWS.Route53.GetTrafficPolicy.html#GetTrafficPolicy%27"><span class="hs-identifier hs-type">GetTrafficPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:GetTrafficPolicy' :: Text
 </span><a href="Network.AWS.Route53.GetTrafficPolicy.html#%24sel%3Aid%3AGetTrafficPolicy%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679304733"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:version:GetTrafficPolicy' :: Natural
+</span><a href="#local-6989586621679304918"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:version:GetTrafficPolicy' :: Natural
 </span><a href="Network.AWS.Route53.GetTrafficPolicy.html#%24sel%3Aversion%3AGetTrafficPolicy%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679304732"><span class="hs-identifier hs-var">pVersion_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679304917"><span class="hs-identifier hs-var">pVersion_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- | The ID of the traffic policy that you want to get information about.</span><span>
 </span><span id="line-88"></span><span class="annot"><a href="Network.AWS.Route53.GetTrafficPolicy.html#getTrafficPolicy_id"><span class="hs-identifier hs-type">getTrafficPolicy_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.GetTrafficPolicy.html#GetTrafficPolicy"><span class="hs-identifier hs-type">GetTrafficPolicy</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -154,16 +154,16 @@ $cfrom :: forall x. GetTrafficPolicy -&gt; Rep GetTrafficPolicy x
 -&gt; (GetTrafficPolicy -&gt; Text -&gt; GetTrafficPolicy)
 -&gt; Lens GetTrafficPolicy GetTrafficPolicy Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.GetTrafficPolicy.html#GetTrafficPolicy%27"><span class="hs-identifier hs-type">GetTrafficPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304729"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.GetTrafficPolicy.html#GetTrafficPolicy%27"><span class="hs-identifier hs-type">GetTrafficPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304914"><span class="annot"><span class="annottext">Text
 id :: Text
 $sel:id:GetTrafficPolicy' :: GetTrafficPolicy -&gt; Text
-</span><a href="#local-6989586621679304729"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679304729"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304728"><span class="annot"><span class="annottext">s :: GetTrafficPolicy
-</span><a href="#local-6989586621679304728"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.GetTrafficPolicy.html#GetTrafficPolicy%27"><span class="hs-identifier hs-type">GetTrafficPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304727"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679304727"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTrafficPolicy
-</span><a href="#local-6989586621679304728"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:GetTrafficPolicy' :: Text
+</span><a href="#local-6989586621679304914"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304914"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304913"><span class="annot"><span class="annottext">s :: GetTrafficPolicy
+</span><a href="#local-6989586621679304913"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.GetTrafficPolicy.html#GetTrafficPolicy%27"><span class="hs-identifier hs-type">GetTrafficPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304912"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304912"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTrafficPolicy
+</span><a href="#local-6989586621679304913"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:GetTrafficPolicy' :: Text
 </span><a href="Network.AWS.Route53.GetTrafficPolicy.html#%24sel%3Aid%3AGetTrafficPolicy%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679304727"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.GetTrafficPolicy.html#GetTrafficPolicy"><span class="hs-identifier hs-type">GetTrafficPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679304912"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.GetTrafficPolicy.html#GetTrafficPolicy"><span class="hs-identifier hs-type">GetTrafficPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- | The version number of the traffic policy that you want to get</span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- information about.</span><span>
@@ -173,27 +173,27 @@ $sel:id:GetTrafficPolicy' :: GetTrafficPolicy -&gt; Text
 -&gt; (GetTrafficPolicy -&gt; Natural -&gt; GetTrafficPolicy)
 -&gt; Lens GetTrafficPolicy GetTrafficPolicy Natural Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.GetTrafficPolicy.html#GetTrafficPolicy%27"><span class="hs-identifier hs-type">GetTrafficPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304726"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.GetTrafficPolicy.html#GetTrafficPolicy%27"><span class="hs-identifier hs-type">GetTrafficPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304911"><span class="annot"><span class="annottext">Natural
 version :: Natural
 $sel:version:GetTrafficPolicy' :: GetTrafficPolicy -&gt; Natural
-</span><a href="#local-6989586621679304726"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679304726"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304725"><span class="annot"><span class="annottext">s :: GetTrafficPolicy
-</span><a href="#local-6989586621679304725"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.GetTrafficPolicy.html#GetTrafficPolicy%27"><span class="hs-identifier hs-type">GetTrafficPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304724"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679304724"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTrafficPolicy
-</span><a href="#local-6989586621679304725"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:GetTrafficPolicy' :: Natural
+</span><a href="#local-6989586621679304911"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679304911"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304910"><span class="annot"><span class="annottext">s :: GetTrafficPolicy
+</span><a href="#local-6989586621679304910"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.GetTrafficPolicy.html#GetTrafficPolicy%27"><span class="hs-identifier hs-type">GetTrafficPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304909"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679304909"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTrafficPolicy
+</span><a href="#local-6989586621679304910"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:GetTrafficPolicy' :: Natural
 </span><a href="Network.AWS.Route53.GetTrafficPolicy.html#%24sel%3Aversion%3AGetTrafficPolicy%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679304724"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.GetTrafficPolicy.html#GetTrafficPolicy"><span class="hs-identifier hs-type">GetTrafficPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679304909"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.GetTrafficPolicy.html#GetTrafficPolicy"><span class="hs-identifier hs-type">GetTrafficPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.GetTrafficPolicy.html#GetTrafficPolicy"><span class="hs-identifier hs-type">GetTrafficPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-97"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-98"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.GetTrafficPolicy.html#GetTrafficPolicy"><span class="hs-identifier hs-type">GetTrafficPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>      </span><span class="annot"><a href="Network.AWS.Route53.GetTrafficPolicy.html#GetTrafficPolicyResponse"><span class="hs-identifier hs-type">GetTrafficPolicyResponse</span></a></span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679304720"><span class="annot"><span class="annottext">request :: GetTrafficPolicy -&gt; Request GetTrafficPolicy
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679304905"><span class="annot"><span class="annottext">request :: GetTrafficPolicy -&gt; Request GetTrafficPolicy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetTrafficPolicy -&gt; Request GetTrafficPolicy
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Route53.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679304716"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679304901"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetTrafficPolicy
 -&gt; ClientResponse ClientBody
@@ -217,10 +217,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
-</span><span id="line-103"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679304713"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679304713"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679304712"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679304712"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679304711"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679304711"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679304898"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679304898"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679304897"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679304897"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679304896"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679304896"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-104"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; TrafficPolicy -&gt; GetTrafficPolicyResponse
 </span><a href="Network.AWS.Route53.GetTrafficPolicy.html#GetTrafficPolicyResponse%27"><span class="hs-identifier hs-var">GetTrafficPolicyResponse'</span></a></span><span>
 </span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; TrafficPolicy -&gt; GetTrafficPolicyResponse)
@@ -232,24 +232,24 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679304713"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679304898"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">Either String (TrafficPolicy -&gt; GetTrafficPolicyResponse)
 -&gt; Either String TrafficPolicy
 -&gt; Either String GetTrafficPolicyResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679304711"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String TrafficPolicy
+</span><a href="#local-6989586621679304896"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String TrafficPolicy
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TrafficPolicy&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304703"><span id="local-6989586621679304705"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.GetTrafficPolicy.html#GetTrafficPolicy"><span class="hs-identifier hs-type">GetTrafficPolicy</span></a></span></span></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304888"><span id="local-6989586621679304890"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.GetTrafficPolicy.html#GetTrafficPolicy"><span class="hs-identifier hs-type">GetTrafficPolicy</span></a></span></span></span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304700"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.GetTrafficPolicy.html#GetTrafficPolicy"><span class="hs-identifier hs-type">GetTrafficPolicy</span></a></span></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304885"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.GetTrafficPolicy.html#GetTrafficPolicy"><span class="hs-identifier hs-type">GetTrafficPolicy</span></a></span></span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.GetTrafficPolicy.html#GetTrafficPolicy"><span class="hs-identifier hs-type">GetTrafficPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679304696"><span class="annot"><span class="annottext">toHeaders :: GetTrafficPolicy -&gt; ResponseHeaders
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679304881"><span class="annot"><span class="annottext">toHeaders :: GetTrafficPolicy -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetTrafficPolicy -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -257,14 +257,14 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.GetTrafficPolicy.html#GetTrafficPolicy"><span class="hs-identifier hs-type">GetTrafficPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679304691"><span class="annot"><span class="annottext">toPath :: GetTrafficPolicy -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.GetTrafficPolicy.html#GetTrafficPolicy%27"><span class="hs-identifier hs-type">GetTrafficPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304688"><span id="local-6989586621679304689"><span class="annot"><span class="annottext">Natural
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679304876"><span class="annot"><span class="annottext">toPath :: GetTrafficPolicy -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.GetTrafficPolicy.html#GetTrafficPolicy%27"><span class="hs-identifier hs-type">GetTrafficPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304873"><span id="local-6989586621679304874"><span class="annot"><span class="annottext">Natural
 Text
 version :: Natural
 id :: Text
 $sel:version:GetTrafficPolicy' :: GetTrafficPolicy -&gt; Natural
 $sel:id:GetTrafficPolicy' :: GetTrafficPolicy -&gt; Text
-</span><a href="#local-6989586621679304688"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679304873"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -273,17 +273,17 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-120"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679304689"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679304874"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-121"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-122"></span><span>        </span><span class="annot"><span class="annottext">Natural -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679304688"><span class="hs-identifier hs-var">version</span></a></span><span>
+</span><a href="#local-6989586621679304873"><span class="hs-identifier hs-var">version</span></a></span><span>
 </span><span id="line-123"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.GetTrafficPolicy.html#GetTrafficPolicy"><span class="hs-identifier hs-type">GetTrafficPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679304684"><span class="annot"><span class="annottext">toQuery :: GetTrafficPolicy -&gt; QueryString
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679304869"><span class="annot"><span class="annottext">toQuery :: GetTrafficPolicy -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetTrafficPolicy -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -293,7 +293,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-128"></span><span class="hs-comment">-- | A complex type that contains the response information for the request.</span><span>
 </span><span id="line-129"></span><span class="hs-comment">--</span><span>
 </span><span id="line-130"></span><span class="hs-comment">-- /See:/ 'newGetTrafficPolicyResponse' smart constructor.</span><span>
-</span><span id="line-131"></span><span id="local-6989586621679304681"><span id="local-6989586621679304682"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetTrafficPolicyResponse"><span class="annot"><a href="Network.AWS.Route53.GetTrafficPolicy.html#GetTrafficPolicyResponse"><span class="hs-identifier hs-var">GetTrafficPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetTrafficPolicyResponse%27"><span class="annot"><a href="Network.AWS.Route53.GetTrafficPolicy.html#GetTrafficPolicyResponse%27"><span class="hs-identifier hs-var">GetTrafficPolicyResponse'</span></a></span></span><span>
+</span><span id="line-131"></span><span id="local-6989586621679304866"><span id="local-6989586621679304867"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetTrafficPolicyResponse"><span class="annot"><a href="Network.AWS.Route53.GetTrafficPolicy.html#GetTrafficPolicyResponse"><span class="hs-identifier hs-var">GetTrafficPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetTrafficPolicyResponse%27"><span class="annot"><a href="Network.AWS.Route53.GetTrafficPolicy.html#GetTrafficPolicyResponse%27"><span class="hs-identifier hs-var">GetTrafficPolicyResponse'</span></a></span></span><span>
 </span><span id="line-132"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-133"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetTrafficPolicyResponse%27"><span class="annot"><span class="annottext">GetTrafficPolicyResponse -&gt; Int
 </span><a href="Network.AWS.Route53.GetTrafficPolicy.html#%24sel%3AhttpStatus%3AGetTrafficPolicyResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -301,7 +301,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-135"></span><span>    </span><span id="%24sel%3AtrafficPolicy%3AGetTrafficPolicyResponse%27"><span class="annot"><span class="annottext">GetTrafficPolicyResponse -&gt; TrafficPolicy
 </span><a href="Network.AWS.Route53.GetTrafficPolicy.html#%24sel%3AtrafficPolicy%3AGetTrafficPolicyResponse%27"><span class="hs-identifier hs-var hs-var">trafficPolicy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.TrafficPolicy.html#TrafficPolicy"><span class="hs-identifier hs-type">TrafficPolicy</span></a></span><span>
 </span><span id="line-136"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-137"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679304675"><span id="local-6989586621679304677"><span class="annot"><span class="annottext">GetTrafficPolicyResponse -&gt; GetTrafficPolicyResponse -&gt; Bool
+</span><span id="line-137"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679304860"><span id="local-6989586621679304862"><span class="annot"><span class="annottext">GetTrafficPolicyResponse -&gt; GetTrafficPolicyResponse -&gt; Bool
 (GetTrafficPolicyResponse -&gt; GetTrafficPolicyResponse -&gt; Bool)
 -&gt; (GetTrafficPolicyResponse -&gt; GetTrafficPolicyResponse -&gt; Bool)
 -&gt; Eq GetTrafficPolicyResponse
@@ -310,7 +310,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetTrafficPolicyResponse -&gt; GetTrafficPolicyResponse -&gt; Bool
 == :: GetTrafficPolicyResponse -&gt; GetTrafficPolicyResponse -&gt; Bool
 $c== :: GetTrafficPolicyResponse -&gt; GetTrafficPolicyResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304667"><span id="local-6989586621679304669"><span id="local-6989586621679304671"><span id="local-6989586621679304673"><span class="annot"><span class="annottext">ReadPrec [GetTrafficPolicyResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304852"><span id="local-6989586621679304854"><span id="local-6989586621679304856"><span id="local-6989586621679304858"><span class="annot"><span class="annottext">ReadPrec [GetTrafficPolicyResponse]
 ReadPrec GetTrafficPolicyResponse
 Int -&gt; ReadS GetTrafficPolicyResponse
 ReadS [GetTrafficPolicyResponse]
@@ -330,7 +330,7 @@ readList :: ReadS [GetTrafficPolicyResponse]
 $creadList :: ReadS [GetTrafficPolicyResponse]
 readsPrec :: Int -&gt; ReadS GetTrafficPolicyResponse
 $creadsPrec :: Int -&gt; ReadS GetTrafficPolicyResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304661"><span id="local-6989586621679304663"><span id="local-6989586621679304665"><span class="annot"><span class="annottext">Int -&gt; GetTrafficPolicyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304846"><span id="local-6989586621679304848"><span id="local-6989586621679304850"><span class="annot"><span class="annottext">Int -&gt; GetTrafficPolicyResponse -&gt; ShowS
 [GetTrafficPolicyResponse] -&gt; ShowS
 GetTrafficPolicyResponse -&gt; String
 (Int -&gt; GetTrafficPolicyResponse -&gt; ShowS)
@@ -381,19 +381,19 @@ GetTrafficPolicyResponse -&gt; Rep GetTrafficPolicyResponse x
 </span><span id="line-155"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53.GetTrafficPolicy.html#GetTrafficPolicyResponse"><span class="hs-identifier hs-type">GetTrafficPolicyResponse</span></a></span><span>
 </span><span id="line-156"></span><span id="newGetTrafficPolicyResponse"><span class="annot"><span class="annottext">newGetTrafficPolicyResponse :: Int -&gt; TrafficPolicy -&gt; GetTrafficPolicyResponse
 </span><a href="Network.AWS.Route53.GetTrafficPolicy.html#newGetTrafficPolicyResponse"><span class="hs-identifier hs-var hs-var">newGetTrafficPolicyResponse</span></a></span></span><span>
-</span><span id="line-157"></span><span>  </span><span id="local-6989586621679304658"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679304658"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
-</span><span id="line-158"></span><span>  </span><span id="local-6989586621679304657"><span class="annot"><span class="annottext">TrafficPolicy
-</span><a href="#local-6989586621679304657"><span class="hs-identifier hs-var">pTrafficPolicy_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679304843"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679304843"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679304842"><span class="annot"><span class="annottext">TrafficPolicy
+</span><a href="#local-6989586621679304842"><span class="hs-identifier hs-var">pTrafficPolicy_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-159"></span><span>    </span><span class="annot"><span class="annottext">GetTrafficPolicyResponse' :: Int -&gt; TrafficPolicy -&gt; GetTrafficPolicyResponse
 </span><a href="Network.AWS.Route53.GetTrafficPolicy.html#GetTrafficPolicyResponse%27"><span class="hs-identifier hs-type">GetTrafficPolicyResponse'</span></a></span><span>
 </span><span id="line-160"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:GetTrafficPolicyResponse' :: Int
 </span><a href="Network.AWS.Route53.GetTrafficPolicy.html#%24sel%3AhttpStatus%3AGetTrafficPolicyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-161"></span><span>          </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679304658"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679304843"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-162"></span><span>        </span><span class="annot"><span class="annottext">$sel:trafficPolicy:GetTrafficPolicyResponse' :: TrafficPolicy
 </span><a href="Network.AWS.Route53.GetTrafficPolicy.html#%24sel%3AtrafficPolicy%3AGetTrafficPolicyResponse%27"><span class="hs-identifier hs-var">trafficPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TrafficPolicy
-</span><a href="#local-6989586621679304657"><span class="hs-identifier hs-var">pTrafficPolicy_</span></a></span><span>
+</span><a href="#local-6989586621679304842"><span class="hs-identifier hs-var">pTrafficPolicy_</span></a></span><span>
 </span><span id="line-163"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-164"></span><span>
 </span><span id="line-165"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -404,16 +404,16 @@ GetTrafficPolicyResponse -&gt; Rep GetTrafficPolicyResponse x
 -&gt; (GetTrafficPolicyResponse -&gt; Int -&gt; GetTrafficPolicyResponse)
 -&gt; Lens GetTrafficPolicyResponse GetTrafficPolicyResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.GetTrafficPolicy.html#GetTrafficPolicyResponse%27"><span class="hs-identifier hs-type">GetTrafficPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304656"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.GetTrafficPolicy.html#GetTrafficPolicyResponse%27"><span class="hs-identifier hs-type">GetTrafficPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304841"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetTrafficPolicyResponse' :: GetTrafficPolicyResponse -&gt; Int
-</span><a href="#local-6989586621679304656"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679304656"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304655"><span class="annot"><span class="annottext">s :: GetTrafficPolicyResponse
-</span><a href="#local-6989586621679304655"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.GetTrafficPolicy.html#GetTrafficPolicyResponse%27"><span class="hs-identifier hs-type">GetTrafficPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304654"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679304654"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTrafficPolicyResponse
-</span><a href="#local-6989586621679304655"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetTrafficPolicyResponse' :: Int
+</span><a href="#local-6989586621679304841"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679304841"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304840"><span class="annot"><span class="annottext">s :: GetTrafficPolicyResponse
+</span><a href="#local-6989586621679304840"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.GetTrafficPolicy.html#GetTrafficPolicyResponse%27"><span class="hs-identifier hs-type">GetTrafficPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304839"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679304839"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTrafficPolicyResponse
+</span><a href="#local-6989586621679304840"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetTrafficPolicyResponse' :: Int
 </span><a href="Network.AWS.Route53.GetTrafficPolicy.html#%24sel%3AhttpStatus%3AGetTrafficPolicyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679304654"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.GetTrafficPolicy.html#GetTrafficPolicyResponse"><span class="hs-identifier hs-type">GetTrafficPolicyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679304839"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.GetTrafficPolicy.html#GetTrafficPolicyResponse"><span class="hs-identifier hs-type">GetTrafficPolicyResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>
 </span><span id="line-169"></span><span class="hs-comment">-- | A complex type that contains settings for the specified traffic policy.</span><span>
 </span><span id="line-170"></span><span class="annot"><a href="Network.AWS.Route53.GetTrafficPolicy.html#getTrafficPolicyResponse_trafficPolicy"><span class="hs-identifier hs-type">getTrafficPolicyResponse_trafficPolicy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.GetTrafficPolicy.html#GetTrafficPolicyResponse"><span class="hs-identifier hs-type">GetTrafficPolicyResponse</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.TrafficPolicy.html#TrafficPolicy"><span class="hs-identifier hs-type">TrafficPolicy</span></a></span><span>
@@ -428,16 +428,16 @@ $sel:httpStatus:GetTrafficPolicyResponse' :: GetTrafficPolicyResponse -&gt; Int
      TrafficPolicy
      TrafficPolicy
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.GetTrafficPolicy.html#GetTrafficPolicyResponse%27"><span class="hs-identifier hs-type">GetTrafficPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304653"><span class="annot"><span class="annottext">TrafficPolicy
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.GetTrafficPolicy.html#GetTrafficPolicyResponse%27"><span class="hs-identifier hs-type">GetTrafficPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304838"><span class="annot"><span class="annottext">TrafficPolicy
 trafficPolicy :: TrafficPolicy
 $sel:trafficPolicy:GetTrafficPolicyResponse' :: GetTrafficPolicyResponse -&gt; TrafficPolicy
-</span><a href="#local-6989586621679304653"><span class="hs-identifier hs-var hs-var">trafficPolicy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrafficPolicy
-</span><a href="#local-6989586621679304653"><span class="hs-identifier hs-var">trafficPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304652"><span class="annot"><span class="annottext">s :: GetTrafficPolicyResponse
-</span><a href="#local-6989586621679304652"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.GetTrafficPolicy.html#GetTrafficPolicyResponse%27"><span class="hs-identifier hs-type">GetTrafficPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304651"><span class="annot"><span class="annottext">TrafficPolicy
-</span><a href="#local-6989586621679304651"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTrafficPolicyResponse
-</span><a href="#local-6989586621679304652"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trafficPolicy:GetTrafficPolicyResponse' :: TrafficPolicy
+</span><a href="#local-6989586621679304838"><span class="hs-identifier hs-var hs-var">trafficPolicy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrafficPolicy
+</span><a href="#local-6989586621679304838"><span class="hs-identifier hs-var">trafficPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304837"><span class="annot"><span class="annottext">s :: GetTrafficPolicyResponse
+</span><a href="#local-6989586621679304837"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.GetTrafficPolicy.html#GetTrafficPolicyResponse%27"><span class="hs-identifier hs-type">GetTrafficPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304836"><span class="annot"><span class="annottext">TrafficPolicy
+</span><a href="#local-6989586621679304836"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTrafficPolicyResponse
+</span><a href="#local-6989586621679304837"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trafficPolicy:GetTrafficPolicyResponse' :: TrafficPolicy
 </span><a href="Network.AWS.Route53.GetTrafficPolicy.html#%24sel%3AtrafficPolicy%3AGetTrafficPolicyResponse%27"><span class="hs-identifier hs-var">trafficPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TrafficPolicy
-</span><a href="#local-6989586621679304651"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.GetTrafficPolicy.html#GetTrafficPolicyResponse"><span class="hs-identifier hs-type">GetTrafficPolicyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679304836"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.GetTrafficPolicy.html#GetTrafficPolicyResponse"><span class="hs-identifier hs-type">GetTrafficPolicyResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-172"></span><span>
-</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304649"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.GetTrafficPolicy.html#GetTrafficPolicyResponse"><span class="hs-identifier hs-type">GetTrafficPolicyResponse</span></a></span></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304834"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.GetTrafficPolicy.html#GetTrafficPolicyResponse"><span class="hs-identifier hs-type">GetTrafficPolicyResponse</span></a></span></span><span>
 </span><span id="line-174"></span></pre></body></html>

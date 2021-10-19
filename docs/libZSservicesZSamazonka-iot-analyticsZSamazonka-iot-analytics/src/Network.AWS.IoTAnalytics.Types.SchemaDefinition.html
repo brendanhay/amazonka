@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Information needed to define a schema.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newSchemaDefinition' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679258961"><span id="local-6989586621679258962"></span></span><span class="hs-keyword">data</span><span> </span><span id="SchemaDefinition"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.SchemaDefinition.html#SchemaDefinition"><span class="hs-identifier hs-var">SchemaDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SchemaDefinition%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.SchemaDefinition.html#SchemaDefinition%27"><span class="hs-identifier hs-var">SchemaDefinition'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679259167"><span id="local-6989586621679259168"></span></span><span class="hs-keyword">data</span><span> </span><span id="SchemaDefinition"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.SchemaDefinition.html#SchemaDefinition"><span class="hs-identifier hs-var">SchemaDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SchemaDefinition%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.SchemaDefinition.html#SchemaDefinition%27"><span class="hs-identifier hs-var">SchemaDefinition'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies one or more columns that store your data.</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- Each schema can have up to 100 columns. Each column can have up to 100</span><span>
@@ -35,7 +35,7 @@
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3Acolumns%3ASchemaDefinition%27"><span class="annot"><span class="annottext">SchemaDefinition -&gt; Maybe [Column]
 </span><a href="Network.AWS.IoTAnalytics.Types.SchemaDefinition.html#%24sel%3Acolumns%3ASchemaDefinition%27"><span class="hs-identifier hs-var hs-var">columns</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Column.html#Column"><span class="hs-identifier hs-type">Column</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679258955"><span id="local-6989586621679258957"><span class="annot"><span class="annottext">SchemaDefinition -&gt; SchemaDefinition -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679259161"><span id="local-6989586621679259163"><span class="annot"><span class="annottext">SchemaDefinition -&gt; SchemaDefinition -&gt; Bool
 (SchemaDefinition -&gt; SchemaDefinition -&gt; Bool)
 -&gt; (SchemaDefinition -&gt; SchemaDefinition -&gt; Bool)
 -&gt; Eq SchemaDefinition
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SchemaDefinition -&gt; SchemaDefinition -&gt; Bool
 == :: SchemaDefinition -&gt; SchemaDefinition -&gt; Bool
 $c== :: SchemaDefinition -&gt; SchemaDefinition -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258946"><span id="local-6989586621679258948"><span id="local-6989586621679258950"><span id="local-6989586621679258952"><span class="annot"><span class="annottext">ReadPrec [SchemaDefinition]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259152"><span id="local-6989586621679259154"><span id="local-6989586621679259156"><span id="local-6989586621679259158"><span class="annot"><span class="annottext">ReadPrec [SchemaDefinition]
 ReadPrec SchemaDefinition
 Int -&gt; ReadS SchemaDefinition
 ReadS [SchemaDefinition]
@@ -64,7 +64,7 @@ readList :: ReadS [SchemaDefinition]
 $creadList :: ReadS [SchemaDefinition]
 readsPrec :: Int -&gt; ReadS SchemaDefinition
 $creadsPrec :: Int -&gt; ReadS SchemaDefinition
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258939"><span id="local-6989586621679258941"><span id="local-6989586621679258943"><span class="annot"><span class="annottext">Int -&gt; SchemaDefinition -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259145"><span id="local-6989586621679259147"><span id="local-6989586621679259149"><span class="annot"><span class="annottext">Int -&gt; SchemaDefinition -&gt; ShowS
 [SchemaDefinition] -&gt; ShowS
 SchemaDefinition -&gt; String
 (Int -&gt; SchemaDefinition -&gt; ShowS)
@@ -124,16 +124,16 @@ forall a. Maybe a
 -&gt; Lens
      SchemaDefinition SchemaDefinition (Maybe [Column]) (Maybe [Column])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.SchemaDefinition.html#SchemaDefinition%27"><span class="hs-identifier hs-type">SchemaDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258930"><span class="annot"><span class="annottext">Maybe [Column]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.SchemaDefinition.html#SchemaDefinition%27"><span class="hs-identifier hs-type">SchemaDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259136"><span class="annot"><span class="annottext">Maybe [Column]
 columns :: Maybe [Column]
 $sel:columns:SchemaDefinition' :: SchemaDefinition -&gt; Maybe [Column]
-</span><a href="#local-6989586621679258930"><span class="hs-identifier hs-var hs-var">columns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Column]
-</span><a href="#local-6989586621679258930"><span class="hs-identifier hs-var">columns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258929"><span class="annot"><span class="annottext">s :: SchemaDefinition
-</span><a href="#local-6989586621679258929"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.SchemaDefinition.html#SchemaDefinition%27"><span class="hs-identifier hs-type">SchemaDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258928"><span class="annot"><span class="annottext">Maybe [Column]
-</span><a href="#local-6989586621679258928"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SchemaDefinition
-</span><a href="#local-6989586621679258929"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:columns:SchemaDefinition' :: Maybe [Column]
+</span><a href="#local-6989586621679259136"><span class="hs-identifier hs-var hs-var">columns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Column]
+</span><a href="#local-6989586621679259136"><span class="hs-identifier hs-var">columns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259135"><span class="annot"><span class="annottext">s :: SchemaDefinition
+</span><a href="#local-6989586621679259135"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.SchemaDefinition.html#SchemaDefinition%27"><span class="hs-identifier hs-type">SchemaDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259134"><span class="annot"><span class="annottext">Maybe [Column]
+</span><a href="#local-6989586621679259134"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SchemaDefinition
+</span><a href="#local-6989586621679259135"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:columns:SchemaDefinition' :: Maybe [Column]
 </span><a href="Network.AWS.IoTAnalytics.Types.SchemaDefinition.html#%24sel%3Acolumns%3ASchemaDefinition%27"><span class="hs-identifier hs-var">columns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Column]
-</span><a href="#local-6989586621679258928"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.SchemaDefinition.html#SchemaDefinition"><span class="hs-identifier hs-type">SchemaDefinition</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Column] -&gt; f (Maybe [Column]))
+</span><a href="#local-6989586621679259134"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.SchemaDefinition.html#SchemaDefinition"><span class="hs-identifier hs-type">SchemaDefinition</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Column] -&gt; f (Maybe [Column]))
  -&gt; SchemaDefinition -&gt; f SchemaDefinition)
 -&gt; ((Maybe [Column] -&gt; f (Maybe [Column]))
     -&gt; Maybe [Column] -&gt; f (Maybe [Column]))
@@ -148,11 +148,11 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Column] [Column] [Column] [Column]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258922"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.SchemaDefinition.html#SchemaDefinition"><span class="hs-identifier hs-type">SchemaDefinition</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-64"></span><span>  </span><span id="local-6989586621679258920"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SchemaDefinition
+</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259128"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.SchemaDefinition.html#SchemaDefinition"><span class="hs-identifier hs-type">SchemaDefinition</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-64"></span><span>  </span><span id="local-6989586621679259126"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SchemaDefinition
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-65"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser SchemaDefinition)
@@ -162,15 +162,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;SchemaDefinition&quot;</span></span><span>
-</span><span id="line-67"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679258917"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679258917"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-67"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679259123"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679259123"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-68"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Column] -&gt; SchemaDefinition
 </span><a href="Network.AWS.IoTAnalytics.Types.SchemaDefinition.html#SchemaDefinition%27"><span class="hs-identifier hs-var">SchemaDefinition'</span></a></span><span>
 </span><span id="line-69"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Column] -&gt; SchemaDefinition)
 -&gt; Parser (Maybe [Column]) -&gt; Parser SchemaDefinition
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679258917"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Column]))
+</span><a href="#local-6989586621679259123"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Column]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;columns&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Column]))
@@ -181,16 +181,16 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-70"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258910"><span id="local-6989586621679258912"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.SchemaDefinition.html#SchemaDefinition"><span class="hs-identifier hs-type">SchemaDefinition</span></a></span></span></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259116"><span id="local-6989586621679259118"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.SchemaDefinition.html#SchemaDefinition"><span class="hs-identifier hs-type">SchemaDefinition</span></a></span></span></span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258907"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.SchemaDefinition.html#SchemaDefinition"><span class="hs-identifier hs-type">SchemaDefinition</span></a></span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259113"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.SchemaDefinition.html#SchemaDefinition"><span class="hs-identifier hs-type">SchemaDefinition</span></a></span></span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258899"><span id="local-6989586621679258901"><span id="local-6989586621679258903"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.SchemaDefinition.html#SchemaDefinition"><span class="hs-identifier hs-type">SchemaDefinition</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621679258897"><span class="annot"><span class="annottext">toJSON :: SchemaDefinition -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.SchemaDefinition.html#SchemaDefinition%27"><span class="hs-identifier hs-type">SchemaDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258895"><span class="annot"><span class="annottext">Maybe [Column]
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259105"><span id="local-6989586621679259107"><span id="local-6989586621679259109"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.SchemaDefinition.html#SchemaDefinition"><span class="hs-identifier hs-type">SchemaDefinition</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679259103"><span class="annot"><span class="annottext">toJSON :: SchemaDefinition -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.SchemaDefinition.html#SchemaDefinition%27"><span class="hs-identifier hs-type">SchemaDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259101"><span class="annot"><span class="annottext">Maybe [Column]
 columns :: Maybe [Column]
 $sel:columns:SchemaDefinition' :: SchemaDefinition -&gt; Maybe [Column]
-</span><a href="#local-6989586621679258895"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679259101"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-79"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -202,6 +202,6 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Column] -&gt; Pair) -&gt; Maybe [Column] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Column]
-</span><a href="#local-6989586621679258895"><span class="hs-identifier hs-var">columns</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679259101"><span class="hs-identifier hs-var">columns</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-81"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span></pre></body></html>

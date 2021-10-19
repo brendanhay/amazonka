@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | One level of grouped data in the results.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newGroup' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679331360"><span id="local-6989586621679331361"></span></span><span class="hs-keyword">data</span><span> </span><span id="Group"><span class="annot"><a href="Network.AWS.CostExplorer.Types.Group.html#Group"><span class="hs-identifier hs-var">Group</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Group%27"><span class="annot"><a href="Network.AWS.CostExplorer.Types.Group.html#Group%27"><span class="hs-identifier hs-var">Group'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679331692"><span id="local-6989586621679331693"></span></span><span class="hs-keyword">data</span><span> </span><span id="Group"><span class="annot"><a href="Network.AWS.CostExplorer.Types.Group.html#Group"><span class="hs-identifier hs-var">Group</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Group%27"><span class="annot"><a href="Network.AWS.CostExplorer.Types.Group.html#Group%27"><span class="hs-identifier hs-var">Group'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The metrics that are included in this group.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Ametrics%3AGroup%27"><span class="annot"><span class="annottext">Group -&gt; Maybe (HashMap Text MetricValue)
 </span><a href="Network.AWS.CostExplorer.Types.Group.html#%24sel%3Ametrics%3AGroup%27"><span class="hs-identifier hs-var hs-var">metrics</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.MetricValue.html#MetricValue"><span class="hs-identifier hs-type">MetricValue</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -35,14 +35,14 @@
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Akeys%3AGroup%27"><span class="annot"><span class="annottext">Group -&gt; Maybe [Text]
 </span><a href="Network.AWS.CostExplorer.Types.Group.html#%24sel%3Akeys%3AGroup%27"><span class="hs-identifier hs-var hs-var">keys</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679331353"><span id="local-6989586621679331355"><span class="annot"><span class="annottext">Group -&gt; Group -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679331685"><span id="local-6989586621679331687"><span class="annot"><span class="annottext">Group -&gt; Group -&gt; Bool
 (Group -&gt; Group -&gt; Bool) -&gt; (Group -&gt; Group -&gt; Bool) -&gt; Eq Group
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: Group -&gt; Group -&gt; Bool
 $c/= :: Group -&gt; Group -&gt; Bool
 == :: Group -&gt; Group -&gt; Bool
 $c== :: Group -&gt; Group -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679331344"><span id="local-6989586621679331346"><span id="local-6989586621679331348"><span id="local-6989586621679331350"><span class="annot"><span class="annottext">ReadPrec [Group]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679331676"><span id="local-6989586621679331678"><span id="local-6989586621679331680"><span id="local-6989586621679331682"><span class="annot"><span class="annottext">ReadPrec [Group]
 ReadPrec Group
 Int -&gt; ReadS Group
 ReadS [Group]
@@ -62,7 +62,7 @@ readList :: ReadS [Group]
 $creadList :: ReadS [Group]
 readsPrec :: Int -&gt; ReadS Group
 $creadsPrec :: Int -&gt; ReadS Group
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679331337"><span id="local-6989586621679331339"><span id="local-6989586621679331341"><span class="annot"><span class="annottext">Int -&gt; Group -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679331669"><span id="local-6989586621679331671"><span id="local-6989586621679331673"><span class="annot"><span class="annottext">Int -&gt; Group -&gt; ShowS
 [Group] -&gt; ShowS
 Group -&gt; String
 (Int -&gt; Group -&gt; ShowS)
@@ -125,16 +125,16 @@ forall a. Maybe a
      (Maybe (HashMap Text MetricValue))
      (Maybe (HashMap Text MetricValue))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Group.html#Group%27"><span class="hs-identifier hs-type">Group'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331328"><span class="annot"><span class="annottext">Maybe (HashMap Text MetricValue)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Group.html#Group%27"><span class="hs-identifier hs-type">Group'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331660"><span class="annot"><span class="annottext">Maybe (HashMap Text MetricValue)
 metrics :: Maybe (HashMap Text MetricValue)
 $sel:metrics:Group' :: Group -&gt; Maybe (HashMap Text MetricValue)
-</span><a href="#local-6989586621679331328"><span class="hs-identifier hs-var hs-var">metrics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text MetricValue)
-</span><a href="#local-6989586621679331328"><span class="hs-identifier hs-var">metrics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331327"><span class="annot"><span class="annottext">s :: Group
-</span><a href="#local-6989586621679331327"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Group.html#Group%27"><span class="hs-identifier hs-type">Group'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331326"><span class="annot"><span class="annottext">Maybe (HashMap Text MetricValue)
-</span><a href="#local-6989586621679331326"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Group
-</span><a href="#local-6989586621679331327"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metrics:Group' :: Maybe (HashMap Text MetricValue)
+</span><a href="#local-6989586621679331660"><span class="hs-identifier hs-var hs-var">metrics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text MetricValue)
+</span><a href="#local-6989586621679331660"><span class="hs-identifier hs-var">metrics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331659"><span class="annot"><span class="annottext">s :: Group
+</span><a href="#local-6989586621679331659"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Group.html#Group%27"><span class="hs-identifier hs-type">Group'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331658"><span class="annot"><span class="annottext">Maybe (HashMap Text MetricValue)
+</span><a href="#local-6989586621679331658"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Group
+</span><a href="#local-6989586621679331659"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metrics:Group' :: Maybe (HashMap Text MetricValue)
 </span><a href="Network.AWS.CostExplorer.Types.Group.html#%24sel%3Ametrics%3AGroup%27"><span class="hs-identifier hs-var">metrics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text MetricValue)
-</span><a href="#local-6989586621679331326"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Group.html#Group"><span class="hs-identifier hs-type">Group</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text MetricValue)
+</span><a href="#local-6989586621679331658"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Group.html#Group"><span class="hs-identifier hs-type">Group</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text MetricValue)
   -&gt; f (Maybe (HashMap Text MetricValue)))
  -&gt; Group -&gt; f Group)
 -&gt; ((Maybe (HashMap Text MetricValue)
@@ -164,8 +164,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (HashMap Text MetricValue)
   (HashMap Text MetricValue)
   (HashMap Text MetricValue)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- | The keys that are included in this group.</span><span>
 </span><span id="line-62"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Group.html#group_keys"><span class="hs-identifier hs-type">group_keys</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Group.html#Group"><span class="hs-identifier hs-type">Group</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -174,16 +174,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (Group -&gt; Maybe [Text] -&gt; Group)
 -&gt; Lens Group Group (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Group.html#Group%27"><span class="hs-identifier hs-type">Group'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331321"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Group.html#Group%27"><span class="hs-identifier hs-type">Group'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331653"><span class="annot"><span class="annottext">Maybe [Text]
 keys :: Maybe [Text]
 $sel:keys:Group' :: Group -&gt; Maybe [Text]
-</span><a href="#local-6989586621679331321"><span class="hs-identifier hs-var hs-var">keys</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679331321"><span class="hs-identifier hs-var">keys</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331320"><span class="annot"><span class="annottext">s :: Group
-</span><a href="#local-6989586621679331320"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Group.html#Group%27"><span class="hs-identifier hs-type">Group'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331319"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679331319"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Group
-</span><a href="#local-6989586621679331320"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keys:Group' :: Maybe [Text]
+</span><a href="#local-6989586621679331653"><span class="hs-identifier hs-var hs-var">keys</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679331653"><span class="hs-identifier hs-var">keys</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331652"><span class="annot"><span class="annottext">s :: Group
+</span><a href="#local-6989586621679331652"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Group.html#Group%27"><span class="hs-identifier hs-type">Group'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331651"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679331651"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Group
+</span><a href="#local-6989586621679331652"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keys:Group' :: Maybe [Text]
 </span><a href="Network.AWS.CostExplorer.Types.Group.html#%24sel%3Akeys%3AGroup%27"><span class="hs-identifier hs-var">keys</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679331319"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Group.html#Group"><span class="hs-identifier hs-type">Group</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Group -&gt; f Group)
+</span><a href="#local-6989586621679331651"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Group.html#Group"><span class="hs-identifier hs-type">Group</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Group -&gt; f Group)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
@@ -196,19 +196,19 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679331316"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Group.html#Group"><span class="hs-identifier hs-type">Group</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-66"></span><span>  </span><span id="local-6989586621679331314"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Group
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679331648"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Group.html#Group"><span class="hs-identifier hs-type">Group</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679331646"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Group
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Group) -&gt; Value -&gt; Parser Group
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Group&quot;</span></span><span>
-</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679331311"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679331311"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679331643"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679331643"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-70"></span><span>          </span><span class="annot"><span class="annottext">Maybe (HashMap Text MetricValue) -&gt; Maybe [Text] -&gt; Group
 </span><a href="Network.AWS.CostExplorer.Types.Group.html#Group%27"><span class="hs-identifier hs-var">Group'</span></a></span><span>
 </span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (HashMap Text MetricValue) -&gt; Maybe [Text] -&gt; Group)
@@ -216,7 +216,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe [Text] -&gt; Group)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679331311"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text MetricValue)))
+</span><a href="#local-6989586621679331643"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text MetricValue)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Metrics&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text MetricValue)))
@@ -230,7 +230,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe [Text]) -&gt; Parser Group
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679331311"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679331643"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Keys&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
@@ -241,7 +241,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679331304"><span id="local-6989586621679331306"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Group.html#Group"><span class="hs-identifier hs-type">Group</span></a></span></span></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679331636"><span id="local-6989586621679331638"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Group.html#Group"><span class="hs-identifier hs-type">Group</span></a></span></span></span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679331301"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Group.html#Group"><span class="hs-identifier hs-type">Group</span></a></span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679331633"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Group.html#Group"><span class="hs-identifier hs-type">Group</span></a></span></span><span>
 </span><span id="line-78"></span></pre></body></html>

@@ -28,21 +28,21 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Summary information about a product path for a user.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newLaunchPathSummary' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679408350"><span id="local-6989586621679408351"></span></span><span class="hs-keyword">data</span><span> </span><span id="LaunchPathSummary"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.LaunchPathSummary.html#LaunchPathSummary"><span class="hs-identifier hs-var">LaunchPathSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LaunchPathSummary%27"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.LaunchPathSummary.html#LaunchPathSummary%27"><span class="hs-identifier hs-var">LaunchPathSummary'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679408810"><span id="local-6989586621679408811"></span></span><span class="hs-keyword">data</span><span> </span><span id="LaunchPathSummary"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.LaunchPathSummary.html#LaunchPathSummary"><span class="hs-identifier hs-var">LaunchPathSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LaunchPathSummary%27"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.LaunchPathSummary.html#LaunchPathSummary%27"><span class="hs-identifier hs-var">LaunchPathSummary'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The constraints on the portfolio-product relationship.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AconstraintSummaries%3ALaunchPathSummary%27"><span class="annot"><span class="annottext">LaunchPathSummary -&gt; Maybe [ConstraintSummary]
 </span><a href="Network.AWS.ServiceCatalog.Types.LaunchPathSummary.html#%24sel%3AconstraintSummaries%3ALaunchPathSummary%27"><span class="hs-identifier hs-var hs-var">constraintSummaries</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ConstraintSummary.html#ConstraintSummary"><span class="hs-identifier hs-type">ConstraintSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The identifier of the product path.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3Aid%3ALaunchPathSummary%27"><span class="annot"><span class="annottext">LaunchPathSummary -&gt; Maybe Text
-</span><a href="Network.AWS.ServiceCatalog.Types.LaunchPathSummary.html#%24sel%3Aid%3ALaunchPathSummary%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The name of the portfolio to which the user was assigned.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3Aname%3ALaunchPathSummary%27"><span class="annot"><span class="annottext">LaunchPathSummary -&gt; Maybe Text
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The name of the portfolio to which the user was assigned.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Aname%3ALaunchPathSummary%27"><span class="annot"><span class="annottext">LaunchPathSummary -&gt; Maybe Text
 </span><a href="Network.AWS.ServiceCatalog.Types.LaunchPathSummary.html#%24sel%3Aname%3ALaunchPathSummary%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The identifier of the product path.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Aid%3ALaunchPathSummary%27"><span class="annot"><span class="annottext">LaunchPathSummary -&gt; Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.Types.LaunchPathSummary.html#%24sel%3Aid%3ALaunchPathSummary%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The tags associated with this product path.</span><span>
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3Atags%3ALaunchPathSummary%27"><span class="annot"><span class="annottext">LaunchPathSummary -&gt; Maybe [Tag]
 </span><a href="Network.AWS.ServiceCatalog.Types.LaunchPathSummary.html#%24sel%3Atags%3ALaunchPathSummary%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679408341"><span id="local-6989586621679408343"><span class="annot"><span class="annottext">LaunchPathSummary -&gt; LaunchPathSummary -&gt; Bool
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679408801"><span id="local-6989586621679408803"><span class="annot"><span class="annottext">LaunchPathSummary -&gt; LaunchPathSummary -&gt; Bool
 (LaunchPathSummary -&gt; LaunchPathSummary -&gt; Bool)
 -&gt; (LaunchPathSummary -&gt; LaunchPathSummary -&gt; Bool)
 -&gt; Eq LaunchPathSummary
@@ -51,7 +51,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: LaunchPathSummary -&gt; LaunchPathSummary -&gt; Bool
 == :: LaunchPathSummary -&gt; LaunchPathSummary -&gt; Bool
 $c== :: LaunchPathSummary -&gt; LaunchPathSummary -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679408332"><span id="local-6989586621679408334"><span id="local-6989586621679408336"><span id="local-6989586621679408338"><span class="annot"><span class="annottext">ReadPrec [LaunchPathSummary]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679408792"><span id="local-6989586621679408794"><span id="local-6989586621679408796"><span id="local-6989586621679408798"><span class="annot"><span class="annottext">ReadPrec [LaunchPathSummary]
 ReadPrec LaunchPathSummary
 Int -&gt; ReadS LaunchPathSummary
 ReadS [LaunchPathSummary]
@@ -71,7 +71,7 @@ readList :: ReadS [LaunchPathSummary]
 $creadList :: ReadS [LaunchPathSummary]
 readsPrec :: Int -&gt; ReadS LaunchPathSummary
 $creadsPrec :: Int -&gt; ReadS LaunchPathSummary
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679408325"><span id="local-6989586621679408327"><span id="local-6989586621679408329"><span class="annot"><span class="annottext">Int -&gt; LaunchPathSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679408785"><span id="local-6989586621679408787"><span id="local-6989586621679408789"><span class="annot"><span class="annottext">Int -&gt; LaunchPathSummary -&gt; ShowS
 [LaunchPathSummary] -&gt; ShowS
 LaunchPathSummary -&gt; String
 (Int -&gt; LaunchPathSummary -&gt; ShowS)
@@ -107,9 +107,9 @@ $cfrom :: forall x. LaunchPathSummary -&gt; Rep LaunchPathSummary x
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- 'constraintSummaries', 'launchPathSummary_constraintSummaries' - The constraints on the portfolio-product relationship.</span><span>
 </span><span id="line-52"></span><span class="hs-comment">--</span><span>
-</span><span id="line-53"></span><span class="hs-comment">-- 'id', 'launchPathSummary_id' - The identifier of the product path.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'name', 'launchPathSummary_name' - The name of the portfolio to which the user was assigned.</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- 'name', 'launchPathSummary_name' - The name of the portfolio to which the user was assigned.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'id', 'launchPathSummary_id' - The identifier of the product path.</span><span>
 </span><span id="line-56"></span><span class="hs-comment">--</span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- 'tags', 'launchPathSummary_tags' - The tags associated with this product path.</span><span>
 </span><span id="line-58"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.LaunchPathSummary.html#newLaunchPathSummary"><span class="hs-identifier hs-type">newLaunchPathSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -124,12 +124,12 @@ $cfrom :: forall x. LaunchPathSummary -&gt; Rep LaunchPathSummary x
 </span><span id="line-63"></span><span>        </span><span class="annot"><span class="annottext">Maybe [ConstraintSummary]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:LaunchPathSummary' :: Maybe Text
-</span><a href="Network.AWS.ServiceCatalog.Types.LaunchPathSummary.html#%24sel%3Aid%3ALaunchPathSummary%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:LaunchPathSummary' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.Types.LaunchPathSummary.html#%24sel%3Aname%3ALaunchPathSummary%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:LaunchPathSummary' :: Maybe Text
-</span><a href="Network.AWS.ServiceCatalog.Types.LaunchPathSummary.html#%24sel%3Aname%3ALaunchPathSummary%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:LaunchPathSummary' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.Types.LaunchPathSummary.html#%24sel%3Aid%3ALaunchPathSummary%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:LaunchPathSummary' :: Maybe [Tag]
@@ -151,16 +151,16 @@ forall a. Maybe a
      (Maybe [ConstraintSummary])
      (Maybe [ConstraintSummary])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.LaunchPathSummary.html#LaunchPathSummary%27"><span class="hs-identifier hs-type">LaunchPathSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408316"><span class="annot"><span class="annottext">Maybe [ConstraintSummary]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.LaunchPathSummary.html#LaunchPathSummary%27"><span class="hs-identifier hs-type">LaunchPathSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408776"><span class="annot"><span class="annottext">Maybe [ConstraintSummary]
 constraintSummaries :: Maybe [ConstraintSummary]
 $sel:constraintSummaries:LaunchPathSummary' :: LaunchPathSummary -&gt; Maybe [ConstraintSummary]
-</span><a href="#local-6989586621679408316"><span class="hs-identifier hs-var hs-var">constraintSummaries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ConstraintSummary]
-</span><a href="#local-6989586621679408316"><span class="hs-identifier hs-var">constraintSummaries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679408315"><span class="annot"><span class="annottext">s :: LaunchPathSummary
-</span><a href="#local-6989586621679408315"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.LaunchPathSummary.html#LaunchPathSummary%27"><span class="hs-identifier hs-type">LaunchPathSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679408314"><span class="annot"><span class="annottext">Maybe [ConstraintSummary]
-</span><a href="#local-6989586621679408314"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchPathSummary
-</span><a href="#local-6989586621679408315"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:constraintSummaries:LaunchPathSummary' :: Maybe [ConstraintSummary]
+</span><a href="#local-6989586621679408776"><span class="hs-identifier hs-var hs-var">constraintSummaries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ConstraintSummary]
+</span><a href="#local-6989586621679408776"><span class="hs-identifier hs-var">constraintSummaries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679408775"><span class="annot"><span class="annottext">s :: LaunchPathSummary
+</span><a href="#local-6989586621679408775"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.LaunchPathSummary.html#LaunchPathSummary%27"><span class="hs-identifier hs-type">LaunchPathSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679408774"><span class="annot"><span class="annottext">Maybe [ConstraintSummary]
+</span><a href="#local-6989586621679408774"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchPathSummary
+</span><a href="#local-6989586621679408775"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:constraintSummaries:LaunchPathSummary' :: Maybe [ConstraintSummary]
 </span><a href="Network.AWS.ServiceCatalog.Types.LaunchPathSummary.html#%24sel%3AconstraintSummaries%3ALaunchPathSummary%27"><span class="hs-identifier hs-var">constraintSummaries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ConstraintSummary]
-</span><a href="#local-6989586621679408314"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.LaunchPathSummary.html#LaunchPathSummary"><span class="hs-identifier hs-type">LaunchPathSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ConstraintSummary] -&gt; f (Maybe [ConstraintSummary]))
+</span><a href="#local-6989586621679408774"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.LaunchPathSummary.html#LaunchPathSummary"><span class="hs-identifier hs-type">LaunchPathSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ConstraintSummary] -&gt; f (Maybe [ConstraintSummary]))
  -&gt; LaunchPathSummary -&gt; f LaunchPathSummary)
 -&gt; ((Maybe [ConstraintSummary] -&gt; f (Maybe [ConstraintSummary]))
     -&gt; Maybe [ConstraintSummary] -&gt; f (Maybe [ConstraintSummary]))
@@ -186,48 +186,48 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [ConstraintSummary]
   [ConstraintSummary]
   [ConstraintSummary]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- | The identifier of the product path.</span><span>
-</span><span id="line-74"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.LaunchPathSummary.html#launchPathSummary_id"><span class="hs-identifier hs-type">launchPathSummary_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.LaunchPathSummary.html#LaunchPathSummary"><span class="hs-identifier hs-type">LaunchPathSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-75"></span><span id="launchPathSummary_id"><span class="annot"><span class="annottext">launchPathSummary_id :: (Maybe Text -&gt; f (Maybe Text))
--&gt; LaunchPathSummary -&gt; f LaunchPathSummary
-</span><a href="Network.AWS.ServiceCatalog.Types.LaunchPathSummary.html#launchPathSummary_id"><span class="hs-identifier hs-var hs-var">launchPathSummary_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LaunchPathSummary -&gt; Maybe Text)
--&gt; (LaunchPathSummary -&gt; Maybe Text -&gt; LaunchPathSummary)
--&gt; Lens
-     LaunchPathSummary LaunchPathSummary (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.LaunchPathSummary.html#LaunchPathSummary%27"><span class="hs-identifier hs-type">LaunchPathSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408309"><span class="annot"><span class="annottext">Maybe Text
-id :: Maybe Text
-$sel:id:LaunchPathSummary' :: LaunchPathSummary -&gt; Maybe Text
-</span><a href="#local-6989586621679408309"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679408309"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679408308"><span class="annot"><span class="annottext">s :: LaunchPathSummary
-</span><a href="#local-6989586621679408308"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.LaunchPathSummary.html#LaunchPathSummary%27"><span class="hs-identifier hs-type">LaunchPathSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679408307"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679408307"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchPathSummary
-</span><a href="#local-6989586621679408308"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:LaunchPathSummary' :: Maybe Text
-</span><a href="Network.AWS.ServiceCatalog.Types.LaunchPathSummary.html#%24sel%3Aid%3ALaunchPathSummary%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679408307"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.LaunchPathSummary.html#LaunchPathSummary"><span class="hs-identifier hs-type">LaunchPathSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- | The name of the portfolio to which the user was assigned.</span><span>
-</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.LaunchPathSummary.html#launchPathSummary_name"><span class="hs-identifier hs-type">launchPathSummary_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.LaunchPathSummary.html#LaunchPathSummary"><span class="hs-identifier hs-type">LaunchPathSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-79"></span><span id="launchPathSummary_name"><span class="annot"><span class="annottext">launchPathSummary_name :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-73"></span><span class="hs-comment">-- | The name of the portfolio to which the user was assigned.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.LaunchPathSummary.html#launchPathSummary_name"><span class="hs-identifier hs-type">launchPathSummary_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.LaunchPathSummary.html#LaunchPathSummary"><span class="hs-identifier hs-type">LaunchPathSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span id="launchPathSummary_name"><span class="annot"><span class="annottext">launchPathSummary_name :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; LaunchPathSummary -&gt; f LaunchPathSummary
 </span><a href="Network.AWS.ServiceCatalog.Types.LaunchPathSummary.html#launchPathSummary_name"><span class="hs-identifier hs-var hs-var">launchPathSummary_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LaunchPathSummary -&gt; Maybe Text)
 -&gt; (LaunchPathSummary -&gt; Maybe Text -&gt; LaunchPathSummary)
 -&gt; Lens
      LaunchPathSummary LaunchPathSummary (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.LaunchPathSummary.html#LaunchPathSummary%27"><span class="hs-identifier hs-type">LaunchPathSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408305"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.LaunchPathSummary.html#LaunchPathSummary%27"><span class="hs-identifier hs-type">LaunchPathSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408769"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 $sel:name:LaunchPathSummary' :: LaunchPathSummary -&gt; Maybe Text
-</span><a href="#local-6989586621679408305"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679408305"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679408304"><span class="annot"><span class="annottext">s :: LaunchPathSummary
-</span><a href="#local-6989586621679408304"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.LaunchPathSummary.html#LaunchPathSummary%27"><span class="hs-identifier hs-type">LaunchPathSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679408303"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679408303"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchPathSummary
-</span><a href="#local-6989586621679408304"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:LaunchPathSummary' :: Maybe Text
+</span><a href="#local-6989586621679408769"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679408769"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679408768"><span class="annot"><span class="annottext">s :: LaunchPathSummary
+</span><a href="#local-6989586621679408768"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.LaunchPathSummary.html#LaunchPathSummary%27"><span class="hs-identifier hs-type">LaunchPathSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679408767"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679408767"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchPathSummary
+</span><a href="#local-6989586621679408768"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:LaunchPathSummary' :: Maybe Text
 </span><a href="Network.AWS.ServiceCatalog.Types.LaunchPathSummary.html#%24sel%3Aname%3ALaunchPathSummary%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679408303"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.LaunchPathSummary.html#LaunchPathSummary"><span class="hs-identifier hs-type">LaunchPathSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679408767"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.LaunchPathSummary.html#LaunchPathSummary"><span class="hs-identifier hs-type">LaunchPathSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | The identifier of the product path.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.LaunchPathSummary.html#launchPathSummary_id"><span class="hs-identifier hs-type">launchPathSummary_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.LaunchPathSummary.html#LaunchPathSummary"><span class="hs-identifier hs-type">LaunchPathSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span id="launchPathSummary_id"><span class="annot"><span class="annottext">launchPathSummary_id :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; LaunchPathSummary -&gt; f LaunchPathSummary
+</span><a href="Network.AWS.ServiceCatalog.Types.LaunchPathSummary.html#launchPathSummary_id"><span class="hs-identifier hs-var hs-var">launchPathSummary_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LaunchPathSummary -&gt; Maybe Text)
+-&gt; (LaunchPathSummary -&gt; Maybe Text -&gt; LaunchPathSummary)
+-&gt; Lens
+     LaunchPathSummary LaunchPathSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.LaunchPathSummary.html#LaunchPathSummary%27"><span class="hs-identifier hs-type">LaunchPathSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408765"><span class="annot"><span class="annottext">Maybe Text
+id :: Maybe Text
+$sel:id:LaunchPathSummary' :: LaunchPathSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679408765"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679408765"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679408764"><span class="annot"><span class="annottext">s :: LaunchPathSummary
+</span><a href="#local-6989586621679408764"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.LaunchPathSummary.html#LaunchPathSummary%27"><span class="hs-identifier hs-type">LaunchPathSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679408763"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679408763"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchPathSummary
+</span><a href="#local-6989586621679408764"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:LaunchPathSummary' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.Types.LaunchPathSummary.html#%24sel%3Aid%3ALaunchPathSummary%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679408763"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.LaunchPathSummary.html#LaunchPathSummary"><span class="hs-identifier hs-type">LaunchPathSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- | The tags associated with this product path.</span><span>
 </span><span id="line-82"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.LaunchPathSummary.html#launchPathSummary_tags"><span class="hs-identifier hs-type">launchPathSummary_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.LaunchPathSummary.html#LaunchPathSummary"><span class="hs-identifier hs-type">LaunchPathSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -238,16 +238,16 @@ $sel:name:LaunchPathSummary' :: LaunchPathSummary -&gt; Maybe Text
 -&gt; Lens
      LaunchPathSummary LaunchPathSummary (Maybe [Tag]) (Maybe [Tag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.LaunchPathSummary.html#LaunchPathSummary%27"><span class="hs-identifier hs-type">LaunchPathSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408301"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.LaunchPathSummary.html#LaunchPathSummary%27"><span class="hs-identifier hs-type">LaunchPathSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408761"><span class="annot"><span class="annottext">Maybe [Tag]
 tags :: Maybe [Tag]
 $sel:tags:LaunchPathSummary' :: LaunchPathSummary -&gt; Maybe [Tag]
-</span><a href="#local-6989586621679408301"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679408301"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679408300"><span class="annot"><span class="annottext">s :: LaunchPathSummary
-</span><a href="#local-6989586621679408300"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.LaunchPathSummary.html#LaunchPathSummary%27"><span class="hs-identifier hs-type">LaunchPathSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679408299"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679408299"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchPathSummary
-</span><a href="#local-6989586621679408300"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:LaunchPathSummary' :: Maybe [Tag]
+</span><a href="#local-6989586621679408761"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679408761"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679408760"><span class="annot"><span class="annottext">s :: LaunchPathSummary
+</span><a href="#local-6989586621679408760"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.LaunchPathSummary.html#LaunchPathSummary%27"><span class="hs-identifier hs-type">LaunchPathSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679408759"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679408759"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchPathSummary
+</span><a href="#local-6989586621679408760"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:LaunchPathSummary' :: Maybe [Tag]
 </span><a href="Network.AWS.ServiceCatalog.Types.LaunchPathSummary.html#%24sel%3Atags%3ALaunchPathSummary%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679408299"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.LaunchPathSummary.html#LaunchPathSummary"><span class="hs-identifier hs-type">LaunchPathSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+</span><a href="#local-6989586621679408759"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.LaunchPathSummary.html#LaunchPathSummary"><span class="hs-identifier hs-type">LaunchPathSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
  -&gt; LaunchPathSummary -&gt; f LaunchPathSummary)
 -&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
     -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
@@ -261,11 +261,11 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679408296"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.LaunchPathSummary.html#LaunchPathSummary"><span class="hs-identifier hs-type">LaunchPathSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679408294"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LaunchPathSummary
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679408756"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.LaunchPathSummary.html#LaunchPathSummary"><span class="hs-identifier hs-type">LaunchPathSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679408754"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LaunchPathSummary
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser LaunchPathSummary)
@@ -275,8 +275,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;LaunchPathSummary&quot;</span></span><span>
-</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679408291"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679408291"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679408751"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679408751"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-90"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ConstraintSummary]
 -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe [Tag] -&gt; LaunchPathSummary
 </span><a href="Network.AWS.ServiceCatalog.Types.LaunchPathSummary.html#LaunchPathSummary%27"><span class="hs-identifier hs-var">LaunchPathSummary'</span></a></span><span>
@@ -287,7 +287,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
      (Maybe Text -&gt; Maybe Text -&gt; Maybe [Tag] -&gt; LaunchPathSummary)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679408291"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [ConstraintSummary]))
+</span><a href="#local-6989586621679408751"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [ConstraintSummary]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ConstraintSummaries&quot;</span></span><span>
@@ -304,23 +304,23 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe Text -&gt; Maybe [Tag] -&gt; LaunchPathSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679408291"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679408751"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe [Tag] -&gt; LaunchPathSummary)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe [Tag] -&gt; LaunchPathSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679408291"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679408751"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [Tag] -&gt; LaunchPathSummary)
 -&gt; Parser (Maybe [Tag]) -&gt; Parser LaunchPathSummary
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679408291"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Tag]))
+</span><a href="#local-6989586621679408751"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Tag]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Tag])) -&gt; Maybe [Tag] -&gt; Parser (Maybe [Tag])
@@ -330,7 +330,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679408284"><span id="local-6989586621679408286"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.LaunchPathSummary.html#LaunchPathSummary"><span class="hs-identifier hs-type">LaunchPathSummary</span></a></span></span></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679408744"><span id="local-6989586621679408746"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.LaunchPathSummary.html#LaunchPathSummary"><span class="hs-identifier hs-type">LaunchPathSummary</span></a></span></span></span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679408281"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.LaunchPathSummary.html#LaunchPathSummary"><span class="hs-identifier hs-type">LaunchPathSummary</span></a></span></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679408741"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.LaunchPathSummary.html#LaunchPathSummary"><span class="hs-identifier hs-type">LaunchPathSummary</span></a></span></span><span>
 </span><span id="line-102"></span></pre></body></html>

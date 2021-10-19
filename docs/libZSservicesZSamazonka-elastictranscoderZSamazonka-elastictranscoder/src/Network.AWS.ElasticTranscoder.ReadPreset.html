@@ -49,13 +49,13 @@
 </span><span id="line-49"></span><span class="hs-comment">-- | The @ReadPresetRequest@ structure.</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- /See:/ 'newReadPreset' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679214867"><span id="local-6989586621679214868"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReadPreset"><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPreset.html#ReadPreset"><span class="hs-identifier hs-var">ReadPreset</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReadPreset%27"><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPreset.html#ReadPreset%27"><span class="hs-identifier hs-var">ReadPreset'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679214993"><span id="local-6989586621679214994"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReadPreset"><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPreset.html#ReadPreset"><span class="hs-identifier hs-var">ReadPreset</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReadPreset%27"><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPreset.html#ReadPreset%27"><span class="hs-identifier hs-var">ReadPreset'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier of the preset for which you want to get detailed</span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-comment">-- information.</span><span>
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3Aid%3AReadPreset%27"><span class="annot"><span class="annottext">ReadPreset -&gt; Text
 </span><a href="Network.AWS.ElasticTranscoder.ReadPreset.html#%24sel%3Aid%3AReadPreset%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679214861"><span id="local-6989586621679214863"><span class="annot"><span class="annottext">ReadPreset -&gt; ReadPreset -&gt; Bool
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679214987"><span id="local-6989586621679214989"><span class="annot"><span class="annottext">ReadPreset -&gt; ReadPreset -&gt; Bool
 (ReadPreset -&gt; ReadPreset -&gt; Bool)
 -&gt; (ReadPreset -&gt; ReadPreset -&gt; Bool) -&gt; Eq ReadPreset
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -63,7 +63,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ReadPreset -&gt; ReadPreset -&gt; Bool
 == :: ReadPreset -&gt; ReadPreset -&gt; Bool
 $c== :: ReadPreset -&gt; ReadPreset -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679214852"><span id="local-6989586621679214854"><span id="local-6989586621679214856"><span id="local-6989586621679214858"><span class="annot"><span class="annottext">ReadPrec [ReadPreset]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679214978"><span id="local-6989586621679214980"><span id="local-6989586621679214982"><span id="local-6989586621679214984"><span class="annot"><span class="annottext">ReadPrec [ReadPreset]
 ReadPrec ReadPreset
 Int -&gt; ReadS ReadPreset
 ReadS [ReadPreset]
@@ -83,7 +83,7 @@ readList :: ReadS [ReadPreset]
 $creadList :: ReadS [ReadPreset]
 readsPrec :: Int -&gt; ReadS ReadPreset
 $creadsPrec :: Int -&gt; ReadS ReadPreset
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679214845"><span id="local-6989586621679214847"><span id="local-6989586621679214849"><span class="annot"><span class="annottext">Int -&gt; ReadPreset -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679214971"><span id="local-6989586621679214973"><span id="local-6989586621679214975"><span class="annot"><span class="annottext">Int -&gt; ReadPreset -&gt; ShowS
 [ReadPreset] -&gt; ShowS
 ReadPreset -&gt; String
 (Int -&gt; ReadPreset -&gt; ShowS)
@@ -123,11 +123,11 @@ $cfrom :: forall x. ReadPreset -&gt; Rep ReadPreset x
 </span><span id="line-71"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPreset.html#ReadPreset"><span class="hs-identifier hs-type">ReadPreset</span></a></span><span>
 </span><span id="line-73"></span><span id="newReadPreset"><span class="annot"><span class="annottext">newReadPreset :: Text -&gt; ReadPreset
-</span><a href="Network.AWS.ElasticTranscoder.ReadPreset.html#newReadPreset"><span class="hs-identifier hs-var hs-var">newReadPreset</span></a></span></span><span> </span><span id="local-6989586621679214840"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679214840"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ReadPreset' :: Text -&gt; ReadPreset
+</span><a href="Network.AWS.ElasticTranscoder.ReadPreset.html#newReadPreset"><span class="hs-identifier hs-var hs-var">newReadPreset</span></a></span></span><span> </span><span id="local-6989586621679214966"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679214966"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ReadPreset' :: Text -&gt; ReadPreset
 </span><a href="Network.AWS.ElasticTranscoder.ReadPreset.html#ReadPreset%27"><span class="hs-identifier hs-type">ReadPreset'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:ReadPreset' :: Text
 </span><a href="Network.AWS.ElasticTranscoder.ReadPreset.html#%24sel%3Aid%3AReadPreset%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679214840"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679214966"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- | The identifier of the preset for which you want to get detailed</span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- information.</span><span>
@@ -137,25 +137,25 @@ $cfrom :: forall x. ReadPreset -&gt; Rep ReadPreset x
 -&gt; (ReadPreset -&gt; Text -&gt; ReadPreset)
 -&gt; Lens ReadPreset ReadPreset Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPreset.html#ReadPreset%27"><span class="hs-identifier hs-type">ReadPreset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679214837"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPreset.html#ReadPreset%27"><span class="hs-identifier hs-type">ReadPreset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679214963"><span class="annot"><span class="annottext">Text
 id :: Text
 $sel:id:ReadPreset' :: ReadPreset -&gt; Text
-</span><a href="#local-6989586621679214837"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679214837"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679214836"><span class="annot"><span class="annottext">s :: ReadPreset
-</span><a href="#local-6989586621679214836"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPreset.html#ReadPreset%27"><span class="hs-identifier hs-type">ReadPreset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679214835"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679214835"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReadPreset
-</span><a href="#local-6989586621679214836"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:ReadPreset' :: Text
+</span><a href="#local-6989586621679214963"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679214963"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679214962"><span class="annot"><span class="annottext">s :: ReadPreset
+</span><a href="#local-6989586621679214962"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPreset.html#ReadPreset%27"><span class="hs-identifier hs-type">ReadPreset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679214961"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679214961"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReadPreset
+</span><a href="#local-6989586621679214962"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:ReadPreset' :: Text
 </span><a href="Network.AWS.ElasticTranscoder.ReadPreset.html#%24sel%3Aid%3AReadPreset%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679214835"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPreset.html#ReadPreset"><span class="hs-identifier hs-type">ReadPreset</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679214961"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPreset.html#ReadPreset"><span class="hs-identifier hs-type">ReadPreset</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPreset.html#ReadPreset"><span class="hs-identifier hs-type">ReadPreset</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-81"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPreset.html#ReadPreset"><span class="hs-identifier hs-type">ReadPreset</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPreset.html#ReadPresetResponse"><span class="hs-identifier hs-type">ReadPresetResponse</span></a></span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679214831"><span class="annot"><span class="annottext">request :: ReadPreset -&gt; Request ReadPreset
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679214957"><span class="annot"><span class="annottext">request :: ReadPreset -&gt; Request ReadPreset
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ReadPreset -&gt; Request ReadPreset
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.ElasticTranscoder.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679214827"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679214953"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ReadPreset
 -&gt; ClientResponse ClientBody
@@ -179,10 +179,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679214824"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679214824"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679214823"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679214823"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679214822"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679214822"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679214950"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679214950"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679214949"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679214949"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679214948"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679214948"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-86"></span><span>          </span><span class="annot"><span class="annottext">Maybe Preset -&gt; Int -&gt; ReadPresetResponse
 </span><a href="Network.AWS.ElasticTranscoder.ReadPreset.html#ReadPresetResponse%27"><span class="hs-identifier hs-var">ReadPresetResponse'</span></a></span><span>
 </span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Preset -&gt; Int -&gt; ReadPresetResponse)
@@ -190,7 +190,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; ReadPresetResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679214822"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Preset)
+</span><a href="#local-6989586621679214948"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Preset)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Preset&quot;</span></span><span class="hs-special">)</span><span>
@@ -202,15 +202,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679214824"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679214950"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679214814"><span id="local-6989586621679214816"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPreset.html#ReadPreset"><span class="hs-identifier hs-type">ReadPreset</span></a></span></span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679214940"><span id="local-6989586621679214942"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPreset.html#ReadPreset"><span class="hs-identifier hs-type">ReadPreset</span></a></span></span></span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679214811"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPreset.html#ReadPreset"><span class="hs-identifier hs-type">ReadPreset</span></a></span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679214937"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPreset.html#ReadPreset"><span class="hs-identifier hs-type">ReadPreset</span></a></span></span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPreset.html#ReadPreset"><span class="hs-identifier hs-type">ReadPreset</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679214807"><span class="annot"><span class="annottext">toHeaders :: ReadPreset -&gt; ResponseHeaders
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679214933"><span class="annot"><span class="annottext">toHeaders :: ReadPreset -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ReadPreset -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -218,11 +218,11 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPreset.html#ReadPreset"><span class="hs-identifier hs-type">ReadPreset</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679214802"><span class="annot"><span class="annottext">toPath :: ReadPreset -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPreset.html#ReadPreset%27"><span class="hs-identifier hs-type">ReadPreset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679214800"><span class="annot"><span class="annottext">Text
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679214928"><span class="annot"><span class="annottext">toPath :: ReadPreset -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPreset.html#ReadPreset%27"><span class="hs-identifier hs-type">ReadPreset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679214926"><span class="annot"><span class="annottext">Text
 id :: Text
 $sel:id:ReadPreset' :: ReadPreset -&gt; Text
-</span><a href="#local-6989586621679214800"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679214926"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -230,10 +230,10 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/2012-09-25/presets/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679214800"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679214926"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPreset.html#ReadPreset"><span class="hs-identifier hs-type">ReadPreset</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679214796"><span class="annot"><span class="annottext">toQuery :: ReadPreset -&gt; QueryString
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679214922"><span class="annot"><span class="annottext">toQuery :: ReadPreset -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ReadPreset -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -243,7 +243,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-106"></span><span class="hs-comment">-- | The @ReadPresetResponse@ structure.</span><span>
 </span><span id="line-107"></span><span class="hs-comment">--</span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- /See:/ 'newReadPresetResponse' smart constructor.</span><span>
-</span><span id="line-109"></span><span id="local-6989586621679214793"><span id="local-6989586621679214794"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReadPresetResponse"><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPreset.html#ReadPresetResponse"><span class="hs-identifier hs-var">ReadPresetResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReadPresetResponse%27"><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPreset.html#ReadPresetResponse%27"><span class="hs-identifier hs-var">ReadPresetResponse'</span></a></span></span><span>
+</span><span id="line-109"></span><span id="local-6989586621679214919"><span id="local-6989586621679214920"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReadPresetResponse"><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPreset.html#ReadPresetResponse"><span class="hs-identifier hs-var">ReadPresetResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReadPresetResponse%27"><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPreset.html#ReadPresetResponse%27"><span class="hs-identifier hs-var">ReadPresetResponse'</span></a></span></span><span>
 </span><span id="line-110"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A section of the response body that provides information about the</span><span>
 </span><span id="line-111"></span><span>    </span><span class="hs-comment">-- preset.</span><span>
 </span><span id="line-112"></span><span>    </span><span id="%24sel%3Apreset%3AReadPresetResponse%27"><span class="annot"><span class="annottext">ReadPresetResponse -&gt; Maybe Preset
@@ -252,7 +252,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-114"></span><span>    </span><span id="%24sel%3AhttpStatus%3AReadPresetResponse%27"><span class="annot"><span class="annottext">ReadPresetResponse -&gt; Int
 </span><a href="Network.AWS.ElasticTranscoder.ReadPreset.html#%24sel%3AhttpStatus%3AReadPresetResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-115"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-116"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679214787"><span id="local-6989586621679214789"><span class="annot"><span class="annottext">ReadPresetResponse -&gt; ReadPresetResponse -&gt; Bool
+</span><span id="line-116"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679214913"><span id="local-6989586621679214915"><span class="annot"><span class="annottext">ReadPresetResponse -&gt; ReadPresetResponse -&gt; Bool
 (ReadPresetResponse -&gt; ReadPresetResponse -&gt; Bool)
 -&gt; (ReadPresetResponse -&gt; ReadPresetResponse -&gt; Bool)
 -&gt; Eq ReadPresetResponse
@@ -261,7 +261,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ReadPresetResponse -&gt; ReadPresetResponse -&gt; Bool
 == :: ReadPresetResponse -&gt; ReadPresetResponse -&gt; Bool
 $c== :: ReadPresetResponse -&gt; ReadPresetResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679214779"><span id="local-6989586621679214781"><span id="local-6989586621679214783"><span id="local-6989586621679214785"><span class="annot"><span class="annottext">ReadPrec [ReadPresetResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679214905"><span id="local-6989586621679214907"><span id="local-6989586621679214909"><span id="local-6989586621679214911"><span class="annot"><span class="annottext">ReadPrec [ReadPresetResponse]
 ReadPrec ReadPresetResponse
 Int -&gt; ReadS ReadPresetResponse
 ReadS [ReadPresetResponse]
@@ -281,7 +281,7 @@ readList :: ReadS [ReadPresetResponse]
 $creadList :: ReadS [ReadPresetResponse]
 readsPrec :: Int -&gt; ReadS ReadPresetResponse
 $creadsPrec :: Int -&gt; ReadS ReadPresetResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679214773"><span id="local-6989586621679214775"><span id="local-6989586621679214777"><span class="annot"><span class="annottext">Int -&gt; ReadPresetResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679214899"><span id="local-6989586621679214901"><span id="local-6989586621679214903"><span class="annot"><span class="annottext">Int -&gt; ReadPresetResponse -&gt; ShowS
 [ReadPresetResponse] -&gt; ShowS
 ReadPresetResponse -&gt; String
 (Int -&gt; ReadPresetResponse -&gt; ShowS)
@@ -324,8 +324,8 @@ $cfrom :: forall x. ReadPresetResponse -&gt; Rep ReadPresetResponse x
 </span><span id="line-132"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-133"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPreset.html#ReadPresetResponse"><span class="hs-identifier hs-type">ReadPresetResponse</span></a></span><span>
 </span><span id="line-134"></span><span id="newReadPresetResponse"><span class="annot"><span class="annottext">newReadPresetResponse :: Int -&gt; ReadPresetResponse
-</span><a href="Network.AWS.ElasticTranscoder.ReadPreset.html#newReadPresetResponse"><span class="hs-identifier hs-var hs-var">newReadPresetResponse</span></a></span></span><span> </span><span id="local-6989586621679214770"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679214770"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ElasticTranscoder.ReadPreset.html#newReadPresetResponse"><span class="hs-identifier hs-var hs-var">newReadPresetResponse</span></a></span></span><span> </span><span id="local-6989586621679214896"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679214896"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-135"></span><span>  </span><span class="annot"><span class="annottext">ReadPresetResponse' :: Maybe Preset -&gt; Int -&gt; ReadPresetResponse
 </span><a href="Network.AWS.ElasticTranscoder.ReadPreset.html#ReadPresetResponse%27"><span class="hs-identifier hs-type">ReadPresetResponse'</span></a></span><span>
 </span><span id="line-136"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:preset:ReadPresetResponse' :: Maybe Preset
@@ -334,7 +334,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-137"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ReadPresetResponse' :: Int
 </span><a href="Network.AWS.ElasticTranscoder.ReadPreset.html#%24sel%3AhttpStatus%3AReadPresetResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679214770"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679214896"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-138"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-comment">-- | A section of the response body that provides information about the</span><span>
@@ -347,16 +347,16 @@ forall a. Maybe a
 -&gt; Lens
      ReadPresetResponse ReadPresetResponse (Maybe Preset) (Maybe Preset)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPreset.html#ReadPresetResponse%27"><span class="hs-identifier hs-type">ReadPresetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679214769"><span class="annot"><span class="annottext">Maybe Preset
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPreset.html#ReadPresetResponse%27"><span class="hs-identifier hs-type">ReadPresetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679214895"><span class="annot"><span class="annottext">Maybe Preset
 preset :: Maybe Preset
 $sel:preset:ReadPresetResponse' :: ReadPresetResponse -&gt; Maybe Preset
-</span><a href="#local-6989586621679214769"><span class="hs-identifier hs-var hs-var">preset</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Preset
-</span><a href="#local-6989586621679214769"><span class="hs-identifier hs-var">preset</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679214768"><span class="annot"><span class="annottext">s :: ReadPresetResponse
-</span><a href="#local-6989586621679214768"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPreset.html#ReadPresetResponse%27"><span class="hs-identifier hs-type">ReadPresetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679214767"><span class="annot"><span class="annottext">Maybe Preset
-</span><a href="#local-6989586621679214767"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReadPresetResponse
-</span><a href="#local-6989586621679214768"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:preset:ReadPresetResponse' :: Maybe Preset
+</span><a href="#local-6989586621679214895"><span class="hs-identifier hs-var hs-var">preset</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Preset
+</span><a href="#local-6989586621679214895"><span class="hs-identifier hs-var">preset</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679214894"><span class="annot"><span class="annottext">s :: ReadPresetResponse
+</span><a href="#local-6989586621679214894"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPreset.html#ReadPresetResponse%27"><span class="hs-identifier hs-type">ReadPresetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679214893"><span class="annot"><span class="annottext">Maybe Preset
+</span><a href="#local-6989586621679214893"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReadPresetResponse
+</span><a href="#local-6989586621679214894"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:preset:ReadPresetResponse' :: Maybe Preset
 </span><a href="Network.AWS.ElasticTranscoder.ReadPreset.html#%24sel%3Apreset%3AReadPresetResponse%27"><span class="hs-identifier hs-var">preset</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Preset
-</span><a href="#local-6989586621679214767"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPreset.html#ReadPresetResponse"><span class="hs-identifier hs-type">ReadPresetResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679214893"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPreset.html#ReadPresetResponse"><span class="hs-identifier hs-type">ReadPresetResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-146"></span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPreset.html#readPresetResponse_httpStatus"><span class="hs-identifier hs-type">readPresetResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPreset.html#ReadPresetResponse"><span class="hs-identifier hs-type">ReadPresetResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -365,16 +365,16 @@ $sel:preset:ReadPresetResponse' :: ReadPresetResponse -&gt; Maybe Preset
 -&gt; (ReadPresetResponse -&gt; Int -&gt; ReadPresetResponse)
 -&gt; Lens ReadPresetResponse ReadPresetResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPreset.html#ReadPresetResponse%27"><span class="hs-identifier hs-type">ReadPresetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679214766"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPreset.html#ReadPresetResponse%27"><span class="hs-identifier hs-type">ReadPresetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679214892"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ReadPresetResponse' :: ReadPresetResponse -&gt; Int
-</span><a href="#local-6989586621679214766"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679214766"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679214765"><span class="annot"><span class="annottext">s :: ReadPresetResponse
-</span><a href="#local-6989586621679214765"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPreset.html#ReadPresetResponse%27"><span class="hs-identifier hs-type">ReadPresetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679214764"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679214764"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReadPresetResponse
-</span><a href="#local-6989586621679214765"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ReadPresetResponse' :: Int
+</span><a href="#local-6989586621679214892"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679214892"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679214891"><span class="annot"><span class="annottext">s :: ReadPresetResponse
+</span><a href="#local-6989586621679214891"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPreset.html#ReadPresetResponse%27"><span class="hs-identifier hs-type">ReadPresetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679214890"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679214890"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReadPresetResponse
+</span><a href="#local-6989586621679214891"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ReadPresetResponse' :: Int
 </span><a href="Network.AWS.ElasticTranscoder.ReadPreset.html#%24sel%3AhttpStatus%3AReadPresetResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679214764"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPreset.html#ReadPresetResponse"><span class="hs-identifier hs-type">ReadPresetResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679214890"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPreset.html#ReadPresetResponse"><span class="hs-identifier hs-type">ReadPresetResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>
-</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679214762"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPreset.html#ReadPresetResponse"><span class="hs-identifier hs-type">ReadPresetResponse</span></a></span></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679214888"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadPreset.html#ReadPresetResponse"><span class="hs-identifier hs-type">ReadPresetResponse</span></a></span></span><span>
 </span><span id="line-150"></span></pre></body></html>

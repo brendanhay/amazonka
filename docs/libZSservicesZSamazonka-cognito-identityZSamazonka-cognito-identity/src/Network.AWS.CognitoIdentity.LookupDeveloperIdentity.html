@@ -45,10 +45,10 @@
 </span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#newLookupDeveloperIdentity"><span class="hs-identifier">newLookupDeveloperIdentity</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-46"></span><span>
 </span><span id="line-47"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#lookupDeveloperIdentity_nextToken"><span class="hs-identifier">lookupDeveloperIdentity_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#lookupDeveloperIdentity_maxResults"><span class="hs-identifier">lookupDeveloperIdentity_maxResults</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#lookupDeveloperIdentity_developerUserIdentifier"><span class="hs-identifier">lookupDeveloperIdentity_developerUserIdentifier</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#lookupDeveloperIdentity_identityId"><span class="hs-identifier">lookupDeveloperIdentity_identityId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#lookupDeveloperIdentity_developerUserIdentifier"><span class="hs-identifier">lookupDeveloperIdentity_developerUserIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#lookupDeveloperIdentity_nextToken"><span class="hs-identifier">lookupDeveloperIdentity_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#lookupDeveloperIdentity_identityId"><span class="hs-identifier">lookupDeveloperIdentity_identityId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#lookupDeveloperIdentity_maxResults"><span class="hs-identifier">lookupDeveloperIdentity_maxResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-52"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#lookupDeveloperIdentity_identityPoolId"><span class="hs-identifier">lookupDeveloperIdentity_identityPoolId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
@@ -57,8 +57,8 @@
 </span><span id="line-57"></span><span>
 </span><span id="line-58"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
 </span><span id="line-59"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#lookupDeveloperIdentityResponse_nextToken"><span class="hs-identifier">lookupDeveloperIdentityResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#lookupDeveloperIdentityResponse_developerUserIdentifierList"><span class="hs-identifier">lookupDeveloperIdentityResponse_developerUserIdentifierList</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#lookupDeveloperIdentityResponse_identityId"><span class="hs-identifier">lookupDeveloperIdentityResponse_identityId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#lookupDeveloperIdentityResponse_identityId"><span class="hs-identifier">lookupDeveloperIdentityResponse_identityId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#lookupDeveloperIdentityResponse_developerUserIdentifierList"><span class="hs-identifier">lookupDeveloperIdentityResponse_developerUserIdentifierList</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-62"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#lookupDeveloperIdentityResponse_httpStatus"><span class="hs-identifier">lookupDeveloperIdentityResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span class="hs-keyword">where</span><span>
@@ -73,31 +73,31 @@
 </span><span id="line-73"></span><span class="hs-comment">-- | Input to the @LookupDeveloperIdentityInput@ action.</span><span>
 </span><span id="line-74"></span><span class="hs-comment">--</span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- /See:/ 'newLookupDeveloperIdentity' smart constructor.</span><span>
-</span><span id="line-76"></span><span id="local-6989586621679185339"><span id="local-6989586621679185340"></span></span><span class="hs-keyword">data</span><span> </span><span id="LookupDeveloperIdentity"><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentity"><span class="hs-identifier hs-var">LookupDeveloperIdentity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LookupDeveloperIdentity%27"><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentity%27"><span class="hs-identifier hs-var">LookupDeveloperIdentity'</span></a></span></span><span>
-</span><span id="line-77"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A pagination token. The first call you make will have @NextToken@ set to</span><span>
-</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- null. After that the service will return @NextToken@ values as needed.</span><span>
-</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- For example, let\'s say you make a request with @MaxResults@ set to 10,</span><span>
-</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- and there are 20 matches in the database. The service will return a</span><span>
-</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- pagination token as a part of the response. This token can be used to</span><span>
-</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- call the API again and get results starting from the 11th match.</span><span>
-</span><span id="line-83"></span><span>    </span><span id="%24sel%3AnextToken%3ALookupDeveloperIdentity%27"><span class="annot"><span class="annottext">LookupDeveloperIdentity -&gt; Maybe Text
-</span><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#%24sel%3AnextToken%3ALookupDeveloperIdentity%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- | The maximum number of identities to return.</span><span>
-</span><span id="line-85"></span><span>    </span><span id="%24sel%3AmaxResults%3ALookupDeveloperIdentity%27"><span class="annot"><span class="annottext">LookupDeveloperIdentity -&gt; Maybe Natural
-</span><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#%24sel%3AmaxResults%3ALookupDeveloperIdentity%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- | A unique ID used by your backend authentication process to identify a</span><span>
-</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- user. Typically, a developer identity provider would issue many</span><span>
-</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- developer user identifiers, in keeping with the number of users.</span><span>
-</span><span id="line-89"></span><span>    </span><span id="%24sel%3AdeveloperUserIdentifier%3ALookupDeveloperIdentity%27"><span class="annot"><span class="annottext">LookupDeveloperIdentity -&gt; Maybe Text
+</span><span id="line-76"></span><span id="local-6989586621679185509"><span id="local-6989586621679185510"></span></span><span class="hs-keyword">data</span><span> </span><span id="LookupDeveloperIdentity"><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentity"><span class="hs-identifier hs-var">LookupDeveloperIdentity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LookupDeveloperIdentity%27"><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentity%27"><span class="hs-identifier hs-var">LookupDeveloperIdentity'</span></a></span></span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A unique ID used by your backend authentication process to identify a</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- user. Typically, a developer identity provider would issue many</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- developer user identifiers, in keeping with the number of users.</span><span>
+</span><span id="line-80"></span><span>    </span><span id="%24sel%3AdeveloperUserIdentifier%3ALookupDeveloperIdentity%27"><span class="annot"><span class="annottext">LookupDeveloperIdentity -&gt; Maybe Text
 </span><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#%24sel%3AdeveloperUserIdentifier%3ALookupDeveloperIdentity%27"><span class="hs-identifier hs-var hs-var">developerUserIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- | A unique identifier in the format REGION:GUID.</span><span>
-</span><span id="line-91"></span><span>    </span><span id="%24sel%3AidentityId%3ALookupDeveloperIdentity%27"><span class="annot"><span class="annottext">LookupDeveloperIdentity -&gt; Maybe Text
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- | A pagination token. The first call you make will have @NextToken@ set to</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- null. After that the service will return @NextToken@ values as needed.</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- For example, let\'s say you make a request with @MaxResults@ set to 10,</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- and there are 20 matches in the database. The service will return a</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- pagination token as a part of the response. This token can be used to</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- call the API again and get results starting from the 11th match.</span><span>
+</span><span id="line-87"></span><span>    </span><span id="%24sel%3AnextToken%3ALookupDeveloperIdentity%27"><span class="annot"><span class="annottext">LookupDeveloperIdentity -&gt; Maybe Text
+</span><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#%24sel%3AnextToken%3ALookupDeveloperIdentity%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- | A unique identifier in the format REGION:GUID.</span><span>
+</span><span id="line-89"></span><span>    </span><span id="%24sel%3AidentityId%3ALookupDeveloperIdentity%27"><span class="annot"><span class="annottext">LookupDeveloperIdentity -&gt; Maybe Text
 </span><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#%24sel%3AidentityId%3ALookupDeveloperIdentity%27"><span class="hs-identifier hs-var hs-var">identityId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- | The maximum number of identities to return.</span><span>
+</span><span id="line-91"></span><span>    </span><span id="%24sel%3AmaxResults%3ALookupDeveloperIdentity%27"><span class="annot"><span class="annottext">LookupDeveloperIdentity -&gt; Maybe Natural
+</span><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#%24sel%3AmaxResults%3ALookupDeveloperIdentity%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
 </span><span id="line-92"></span><span>    </span><span class="hs-comment">-- | An identity pool ID in the format REGION:GUID.</span><span>
 </span><span id="line-93"></span><span>    </span><span id="%24sel%3AidentityPoolId%3ALookupDeveloperIdentity%27"><span class="annot"><span class="annottext">LookupDeveloperIdentity -&gt; Text
 </span><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#%24sel%3AidentityPoolId%3ALookupDeveloperIdentity%27"><span class="hs-identifier hs-var hs-var">identityPoolId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-94"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-95"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679185329"><span id="local-6989586621679185331"><span class="annot"><span class="annottext">LookupDeveloperIdentity -&gt; LookupDeveloperIdentity -&gt; Bool
+</span><span id="line-95"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679185499"><span id="local-6989586621679185501"><span class="annot"><span class="annottext">LookupDeveloperIdentity -&gt; LookupDeveloperIdentity -&gt; Bool
 (LookupDeveloperIdentity -&gt; LookupDeveloperIdentity -&gt; Bool)
 -&gt; (LookupDeveloperIdentity -&gt; LookupDeveloperIdentity -&gt; Bool)
 -&gt; Eq LookupDeveloperIdentity
@@ -106,7 +106,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: LookupDeveloperIdentity -&gt; LookupDeveloperIdentity -&gt; Bool
 == :: LookupDeveloperIdentity -&gt; LookupDeveloperIdentity -&gt; Bool
 $c== :: LookupDeveloperIdentity -&gt; LookupDeveloperIdentity -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679185320"><span id="local-6989586621679185322"><span id="local-6989586621679185324"><span id="local-6989586621679185326"><span class="annot"><span class="annottext">ReadPrec [LookupDeveloperIdentity]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679185490"><span id="local-6989586621679185492"><span id="local-6989586621679185494"><span id="local-6989586621679185496"><span class="annot"><span class="annottext">ReadPrec [LookupDeveloperIdentity]
 ReadPrec LookupDeveloperIdentity
 Int -&gt; ReadS LookupDeveloperIdentity
 ReadS [LookupDeveloperIdentity]
@@ -126,7 +126,7 @@ readList :: ReadS [LookupDeveloperIdentity]
 $creadList :: ReadS [LookupDeveloperIdentity]
 readsPrec :: Int -&gt; ReadS LookupDeveloperIdentity
 $creadsPrec :: Int -&gt; ReadS LookupDeveloperIdentity
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679185313"><span id="local-6989586621679185315"><span id="local-6989586621679185317"><span class="annot"><span class="annottext">Int -&gt; LookupDeveloperIdentity -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679185483"><span id="local-6989586621679185485"><span id="local-6989586621679185487"><span class="annot"><span class="annottext">Int -&gt; LookupDeveloperIdentity -&gt; ShowS
 [LookupDeveloperIdentity] -&gt; ShowS
 LookupDeveloperIdentity -&gt; String
 (Int -&gt; LookupDeveloperIdentity -&gt; ShowS)
@@ -162,20 +162,20 @@ $cfrom :: forall x. LookupDeveloperIdentity -&gt; Rep LookupDeveloperIdentity x
 </span><span id="line-102"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-103"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-104"></span><span class="hs-comment">--</span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- 'nextToken', 'lookupDeveloperIdentity_nextToken' - A pagination token. The first call you make will have @NextToken@ set to</span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- null. After that the service will return @NextToken@ values as needed.</span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- For example, let\'s say you make a request with @MaxResults@ set to 10,</span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- and there are 20 matches in the database. The service will return a</span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- pagination token as a part of the response. This token can be used to</span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- call the API again and get results starting from the 11th match.</span><span>
-</span><span id="line-111"></span><span class="hs-comment">--</span><span>
-</span><span id="line-112"></span><span class="hs-comment">-- 'maxResults', 'lookupDeveloperIdentity_maxResults' - The maximum number of identities to return.</span><span>
-</span><span id="line-113"></span><span class="hs-comment">--</span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- 'developerUserIdentifier', 'lookupDeveloperIdentity_developerUserIdentifier' - A unique ID used by your backend authentication process to identify a</span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- user. Typically, a developer identity provider would issue many</span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- developer user identifiers, in keeping with the number of users.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'developerUserIdentifier', 'lookupDeveloperIdentity_developerUserIdentifier' - A unique ID used by your backend authentication process to identify a</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- user. Typically, a developer identity provider would issue many</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- developer user identifiers, in keeping with the number of users.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- 'nextToken', 'lookupDeveloperIdentity_nextToken' - A pagination token. The first call you make will have @NextToken@ set to</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- null. After that the service will return @NextToken@ values as needed.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- For example, let\'s say you make a request with @MaxResults@ set to 10,</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- and there are 20 matches in the database. The service will return a</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- pagination token as a part of the response. This token can be used to</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- call the API again and get results starting from the 11th match.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- 'identityId', 'lookupDeveloperIdentity_identityId' - A unique identifier in the format REGION:GUID.</span><span>
 </span><span id="line-117"></span><span class="hs-comment">--</span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- 'identityId', 'lookupDeveloperIdentity_identityId' - A unique identifier in the format REGION:GUID.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- 'maxResults', 'lookupDeveloperIdentity_maxResults' - The maximum number of identities to return.</span><span>
 </span><span id="line-119"></span><span class="hs-comment">--</span><span>
 </span><span id="line-120"></span><span class="hs-comment">-- 'identityPoolId', 'lookupDeveloperIdentity_identityPoolId' - An identity pool ID in the format REGION:GUID.</span><span>
 </span><span id="line-121"></span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#newLookupDeveloperIdentity"><span class="hs-identifier hs-type">newLookupDeveloperIdentity</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -183,95 +183,42 @@ $cfrom :: forall x. LookupDeveloperIdentity -&gt; Rep LookupDeveloperIdentity x
 </span><span id="line-123"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-124"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentity"><span class="hs-identifier hs-type">LookupDeveloperIdentity</span></a></span><span>
 </span><span id="line-125"></span><span id="newLookupDeveloperIdentity"><span class="annot"><span class="annottext">newLookupDeveloperIdentity :: Text -&gt; LookupDeveloperIdentity
-</span><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#newLookupDeveloperIdentity"><span class="hs-identifier hs-var hs-var">newLookupDeveloperIdentity</span></a></span></span><span> </span><span id="local-6989586621679185308"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679185308"><span class="hs-identifier hs-var">pIdentityPoolId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#newLookupDeveloperIdentity"><span class="hs-identifier hs-var hs-var">newLookupDeveloperIdentity</span></a></span></span><span> </span><span id="local-6989586621679185478"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679185478"><span class="hs-identifier hs-var">pIdentityPoolId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-126"></span><span>  </span><span class="annot"><span class="annottext">LookupDeveloperIdentity' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe Natural
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Text
 -&gt; LookupDeveloperIdentity
 </span><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentity%27"><span class="hs-identifier hs-type">LookupDeveloperIdentity'</span></a></span><span>
-</span><span id="line-127"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:LookupDeveloperIdentity' :: Maybe Text
-</span><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#%24sel%3AnextToken%3ALookupDeveloperIdentity%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:developerUserIdentifier:LookupDeveloperIdentity' :: Maybe Text
+</span><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#%24sel%3AdeveloperUserIdentifier%3ALookupDeveloperIdentity%27"><span class="hs-identifier hs-var">developerUserIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-128"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-129"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:LookupDeveloperIdentity' :: Maybe Natural
-</span><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#%24sel%3AmaxResults%3ALookupDeveloperIdentity%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-129"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:LookupDeveloperIdentity' :: Maybe Text
+</span><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#%24sel%3AnextToken%3ALookupDeveloperIdentity%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">$sel:developerUserIdentifier:LookupDeveloperIdentity' :: Maybe Text
-</span><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#%24sel%3AdeveloperUserIdentifier%3ALookupDeveloperIdentity%27"><span class="hs-identifier hs-var">developerUserIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">$sel:identityId:LookupDeveloperIdentity' :: Maybe Text
+</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">$sel:identityId:LookupDeveloperIdentity' :: Maybe Text
 </span><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#%24sel%3AidentityId%3ALookupDeveloperIdentity%27"><span class="hs-identifier hs-var">identityId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:LookupDeveloperIdentity' :: Maybe Natural
+</span><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#%24sel%3AmaxResults%3ALookupDeveloperIdentity%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">$sel:identityPoolId:LookupDeveloperIdentity' :: Text
 </span><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#%24sel%3AidentityPoolId%3ALookupDeveloperIdentity%27"><span class="hs-identifier hs-var">identityPoolId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679185308"><span class="hs-identifier hs-var">pIdentityPoolId_</span></a></span><span>
+</span><a href="#local-6989586621679185478"><span class="hs-identifier hs-var">pIdentityPoolId_</span></a></span><span>
 </span><span id="line-133"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-134"></span><span>
-</span><span id="line-135"></span><span class="hs-comment">-- | A pagination token. The first call you make will have @NextToken@ set to</span><span>
-</span><span id="line-136"></span><span class="hs-comment">-- null. After that the service will return @NextToken@ values as needed.</span><span>
-</span><span id="line-137"></span><span class="hs-comment">-- For example, let\'s say you make a request with @MaxResults@ set to 10,</span><span>
-</span><span id="line-138"></span><span class="hs-comment">-- and there are 20 matches in the database. The service will return a</span><span>
-</span><span id="line-139"></span><span class="hs-comment">-- pagination token as a part of the response. This token can be used to</span><span>
-</span><span id="line-140"></span><span class="hs-comment">-- call the API again and get results starting from the 11th match.</span><span>
-</span><span id="line-141"></span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#lookupDeveloperIdentity_nextToken"><span class="hs-identifier hs-type">lookupDeveloperIdentity_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentity"><span class="hs-identifier hs-type">LookupDeveloperIdentity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-142"></span><span id="lookupDeveloperIdentity_nextToken"><span class="annot"><span class="annottext">lookupDeveloperIdentity_nextToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; LookupDeveloperIdentity -&gt; f LookupDeveloperIdentity
-</span><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#lookupDeveloperIdentity_nextToken"><span class="hs-identifier hs-var hs-var">lookupDeveloperIdentity_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LookupDeveloperIdentity -&gt; Maybe Text)
--&gt; (LookupDeveloperIdentity
-    -&gt; Maybe Text -&gt; LookupDeveloperIdentity)
--&gt; Lens
-     LookupDeveloperIdentity
-     LookupDeveloperIdentity
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentity%27"><span class="hs-identifier hs-type">LookupDeveloperIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185305"><span class="annot"><span class="annottext">Maybe Text
-nextToken :: Maybe Text
-$sel:nextToken:LookupDeveloperIdentity' :: LookupDeveloperIdentity -&gt; Maybe Text
-</span><a href="#local-6989586621679185305"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679185305"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185304"><span class="annot"><span class="annottext">s :: LookupDeveloperIdentity
-</span><a href="#local-6989586621679185304"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentity%27"><span class="hs-identifier hs-type">LookupDeveloperIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185303"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679185303"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LookupDeveloperIdentity
-</span><a href="#local-6989586621679185304"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:LookupDeveloperIdentity' :: Maybe Text
-</span><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#%24sel%3AnextToken%3ALookupDeveloperIdentity%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679185303"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentity"><span class="hs-identifier hs-type">LookupDeveloperIdentity</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-143"></span><span>
-</span><span id="line-144"></span><span class="hs-comment">-- | The maximum number of identities to return.</span><span>
-</span><span id="line-145"></span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#lookupDeveloperIdentity_maxResults"><span class="hs-identifier hs-type">lookupDeveloperIdentity_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentity"><span class="hs-identifier hs-type">LookupDeveloperIdentity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-146"></span><span id="lookupDeveloperIdentity_maxResults"><span class="annot"><span class="annottext">lookupDeveloperIdentity_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
--&gt; LookupDeveloperIdentity -&gt; f LookupDeveloperIdentity
-</span><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#lookupDeveloperIdentity_maxResults"><span class="hs-identifier hs-var hs-var">lookupDeveloperIdentity_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LookupDeveloperIdentity -&gt; Maybe Natural)
--&gt; (LookupDeveloperIdentity
-    -&gt; Maybe Natural -&gt; LookupDeveloperIdentity)
--&gt; Lens
-     LookupDeveloperIdentity
-     LookupDeveloperIdentity
-     (Maybe Natural)
-     (Maybe Natural)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentity%27"><span class="hs-identifier hs-type">LookupDeveloperIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185302"><span class="annot"><span class="annottext">Maybe Natural
-maxResults :: Maybe Natural
-$sel:maxResults:LookupDeveloperIdentity' :: LookupDeveloperIdentity -&gt; Maybe Natural
-</span><a href="#local-6989586621679185302"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679185302"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185301"><span class="annot"><span class="annottext">s :: LookupDeveloperIdentity
-</span><a href="#local-6989586621679185301"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentity%27"><span class="hs-identifier hs-type">LookupDeveloperIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185300"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679185300"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LookupDeveloperIdentity
-</span><a href="#local-6989586621679185301"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:LookupDeveloperIdentity' :: Maybe Natural
-</span><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#%24sel%3AmaxResults%3ALookupDeveloperIdentity%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679185300"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentity"><span class="hs-identifier hs-type">LookupDeveloperIdentity</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-147"></span><span>
-</span><span id="line-148"></span><span class="hs-comment">-- | A unique ID used by your backend authentication process to identify a</span><span>
-</span><span id="line-149"></span><span class="hs-comment">-- user. Typically, a developer identity provider would issue many</span><span>
-</span><span id="line-150"></span><span class="hs-comment">-- developer user identifiers, in keeping with the number of users.</span><span>
-</span><span id="line-151"></span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#lookupDeveloperIdentity_developerUserIdentifier"><span class="hs-identifier hs-type">lookupDeveloperIdentity_developerUserIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentity"><span class="hs-identifier hs-type">LookupDeveloperIdentity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-152"></span><span id="lookupDeveloperIdentity_developerUserIdentifier"><span class="annot"><span class="annottext">lookupDeveloperIdentity_developerUserIdentifier :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-135"></span><span class="hs-comment">-- | A unique ID used by your backend authentication process to identify a</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- user. Typically, a developer identity provider would issue many</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- developer user identifiers, in keeping with the number of users.</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#lookupDeveloperIdentity_developerUserIdentifier"><span class="hs-identifier hs-type">lookupDeveloperIdentity_developerUserIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentity"><span class="hs-identifier hs-type">LookupDeveloperIdentity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span id="lookupDeveloperIdentity_developerUserIdentifier"><span class="annot"><span class="annottext">lookupDeveloperIdentity_developerUserIdentifier :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; LookupDeveloperIdentity -&gt; f LookupDeveloperIdentity
 </span><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#lookupDeveloperIdentity_developerUserIdentifier"><span class="hs-identifier hs-var hs-var">lookupDeveloperIdentity_developerUserIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LookupDeveloperIdentity -&gt; Maybe Text)
 -&gt; (LookupDeveloperIdentity
@@ -282,20 +229,49 @@ $sel:maxResults:LookupDeveloperIdentity' :: LookupDeveloperIdentity -&gt; Maybe 
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentity%27"><span class="hs-identifier hs-type">LookupDeveloperIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185299"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentity%27"><span class="hs-identifier hs-type">LookupDeveloperIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185475"><span class="annot"><span class="annottext">Maybe Text
 developerUserIdentifier :: Maybe Text
 $sel:developerUserIdentifier:LookupDeveloperIdentity' :: LookupDeveloperIdentity -&gt; Maybe Text
-</span><a href="#local-6989586621679185299"><span class="hs-identifier hs-var hs-var">developerUserIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679185299"><span class="hs-identifier hs-var">developerUserIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185298"><span class="annot"><span class="annottext">s :: LookupDeveloperIdentity
-</span><a href="#local-6989586621679185298"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentity%27"><span class="hs-identifier hs-type">LookupDeveloperIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185297"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679185297"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LookupDeveloperIdentity
-</span><a href="#local-6989586621679185298"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:developerUserIdentifier:LookupDeveloperIdentity' :: Maybe Text
+</span><a href="#local-6989586621679185475"><span class="hs-identifier hs-var hs-var">developerUserIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679185475"><span class="hs-identifier hs-var">developerUserIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185474"><span class="annot"><span class="annottext">s :: LookupDeveloperIdentity
+</span><a href="#local-6989586621679185474"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentity%27"><span class="hs-identifier hs-type">LookupDeveloperIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185473"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679185473"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LookupDeveloperIdentity
+</span><a href="#local-6989586621679185474"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:developerUserIdentifier:LookupDeveloperIdentity' :: Maybe Text
 </span><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#%24sel%3AdeveloperUserIdentifier%3ALookupDeveloperIdentity%27"><span class="hs-identifier hs-var">developerUserIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679185297"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentity"><span class="hs-identifier hs-type">LookupDeveloperIdentity</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-153"></span><span>
-</span><span id="line-154"></span><span class="hs-comment">-- | A unique identifier in the format REGION:GUID.</span><span>
-</span><span id="line-155"></span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#lookupDeveloperIdentity_identityId"><span class="hs-identifier hs-type">lookupDeveloperIdentity_identityId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentity"><span class="hs-identifier hs-type">LookupDeveloperIdentity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-156"></span><span id="lookupDeveloperIdentity_identityId"><span class="annot"><span class="annottext">lookupDeveloperIdentity_identityId :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621679185473"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentity"><span class="hs-identifier hs-type">LookupDeveloperIdentity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | A pagination token. The first call you make will have @NextToken@ set to</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- null. After that the service will return @NextToken@ values as needed.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- For example, let\'s say you make a request with @MaxResults@ set to 10,</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- and there are 20 matches in the database. The service will return a</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- pagination token as a part of the response. This token can be used to</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- call the API again and get results starting from the 11th match.</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#lookupDeveloperIdentity_nextToken"><span class="hs-identifier hs-type">lookupDeveloperIdentity_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentity"><span class="hs-identifier hs-type">LookupDeveloperIdentity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span id="lookupDeveloperIdentity_nextToken"><span class="annot"><span class="annottext">lookupDeveloperIdentity_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; LookupDeveloperIdentity -&gt; f LookupDeveloperIdentity
+</span><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#lookupDeveloperIdentity_nextToken"><span class="hs-identifier hs-var hs-var">lookupDeveloperIdentity_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LookupDeveloperIdentity -&gt; Maybe Text)
+-&gt; (LookupDeveloperIdentity
+    -&gt; Maybe Text -&gt; LookupDeveloperIdentity)
+-&gt; Lens
+     LookupDeveloperIdentity
+     LookupDeveloperIdentity
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentity%27"><span class="hs-identifier hs-type">LookupDeveloperIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185472"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:LookupDeveloperIdentity' :: LookupDeveloperIdentity -&gt; Maybe Text
+</span><a href="#local-6989586621679185472"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679185472"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185471"><span class="annot"><span class="annottext">s :: LookupDeveloperIdentity
+</span><a href="#local-6989586621679185471"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentity%27"><span class="hs-identifier hs-type">LookupDeveloperIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185470"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679185470"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LookupDeveloperIdentity
+</span><a href="#local-6989586621679185471"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:LookupDeveloperIdentity' :: Maybe Text
+</span><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#%24sel%3AnextToken%3ALookupDeveloperIdentity%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679185470"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentity"><span class="hs-identifier hs-type">LookupDeveloperIdentity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- | A unique identifier in the format REGION:GUID.</span><span>
+</span><span id="line-151"></span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#lookupDeveloperIdentity_identityId"><span class="hs-identifier hs-type">lookupDeveloperIdentity_identityId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentity"><span class="hs-identifier hs-type">LookupDeveloperIdentity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span id="lookupDeveloperIdentity_identityId"><span class="annot"><span class="annottext">lookupDeveloperIdentity_identityId :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; LookupDeveloperIdentity -&gt; f LookupDeveloperIdentity
 </span><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#lookupDeveloperIdentity_identityId"><span class="hs-identifier hs-var hs-var">lookupDeveloperIdentity_identityId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LookupDeveloperIdentity -&gt; Maybe Text)
 -&gt; (LookupDeveloperIdentity
@@ -306,16 +282,40 @@ $sel:developerUserIdentifier:LookupDeveloperIdentity' :: LookupDeveloperIdentity
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentity%27"><span class="hs-identifier hs-type">LookupDeveloperIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185296"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentity%27"><span class="hs-identifier hs-type">LookupDeveloperIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185469"><span class="annot"><span class="annottext">Maybe Text
 identityId :: Maybe Text
 $sel:identityId:LookupDeveloperIdentity' :: LookupDeveloperIdentity -&gt; Maybe Text
-</span><a href="#local-6989586621679185296"><span class="hs-identifier hs-var hs-var">identityId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679185296"><span class="hs-identifier hs-var">identityId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185295"><span class="annot"><span class="annottext">s :: LookupDeveloperIdentity
-</span><a href="#local-6989586621679185295"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentity%27"><span class="hs-identifier hs-type">LookupDeveloperIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185294"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679185294"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LookupDeveloperIdentity
-</span><a href="#local-6989586621679185295"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identityId:LookupDeveloperIdentity' :: Maybe Text
+</span><a href="#local-6989586621679185469"><span class="hs-identifier hs-var hs-var">identityId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679185469"><span class="hs-identifier hs-var">identityId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185468"><span class="annot"><span class="annottext">s :: LookupDeveloperIdentity
+</span><a href="#local-6989586621679185468"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentity%27"><span class="hs-identifier hs-type">LookupDeveloperIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185467"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679185467"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LookupDeveloperIdentity
+</span><a href="#local-6989586621679185468"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identityId:LookupDeveloperIdentity' :: Maybe Text
 </span><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#%24sel%3AidentityId%3ALookupDeveloperIdentity%27"><span class="hs-identifier hs-var">identityId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679185294"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentity"><span class="hs-identifier hs-type">LookupDeveloperIdentity</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679185467"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentity"><span class="hs-identifier hs-type">LookupDeveloperIdentity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- | The maximum number of identities to return.</span><span>
+</span><span id="line-155"></span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#lookupDeveloperIdentity_maxResults"><span class="hs-identifier hs-type">lookupDeveloperIdentity_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentity"><span class="hs-identifier hs-type">LookupDeveloperIdentity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span id="lookupDeveloperIdentity_maxResults"><span class="annot"><span class="annottext">lookupDeveloperIdentity_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; LookupDeveloperIdentity -&gt; f LookupDeveloperIdentity
+</span><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#lookupDeveloperIdentity_maxResults"><span class="hs-identifier hs-var hs-var">lookupDeveloperIdentity_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LookupDeveloperIdentity -&gt; Maybe Natural)
+-&gt; (LookupDeveloperIdentity
+    -&gt; Maybe Natural -&gt; LookupDeveloperIdentity)
+-&gt; Lens
+     LookupDeveloperIdentity
+     LookupDeveloperIdentity
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentity%27"><span class="hs-identifier hs-type">LookupDeveloperIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185466"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:LookupDeveloperIdentity' :: LookupDeveloperIdentity -&gt; Maybe Natural
+</span><a href="#local-6989586621679185466"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679185466"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185465"><span class="annot"><span class="annottext">s :: LookupDeveloperIdentity
+</span><a href="#local-6989586621679185465"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentity%27"><span class="hs-identifier hs-type">LookupDeveloperIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185464"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679185464"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LookupDeveloperIdentity
+</span><a href="#local-6989586621679185465"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:LookupDeveloperIdentity' :: Maybe Natural
+</span><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#%24sel%3AmaxResults%3ALookupDeveloperIdentity%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679185464"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentity"><span class="hs-identifier hs-type">LookupDeveloperIdentity</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span><span>
 </span><span id="line-158"></span><span class="hs-comment">-- | An identity pool ID in the format REGION:GUID.</span><span>
 </span><span id="line-159"></span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#lookupDeveloperIdentity_identityPoolId"><span class="hs-identifier hs-type">lookupDeveloperIdentity_identityPoolId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentity"><span class="hs-identifier hs-type">LookupDeveloperIdentity</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -325,28 +325,28 @@ $sel:identityId:LookupDeveloperIdentity' :: LookupDeveloperIdentity -&gt; Maybe 
 -&gt; (LookupDeveloperIdentity -&gt; Text -&gt; LookupDeveloperIdentity)
 -&gt; Lens LookupDeveloperIdentity LookupDeveloperIdentity Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentity%27"><span class="hs-identifier hs-type">LookupDeveloperIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185293"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentity%27"><span class="hs-identifier hs-type">LookupDeveloperIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185463"><span class="annot"><span class="annottext">Text
 identityPoolId :: Text
 $sel:identityPoolId:LookupDeveloperIdentity' :: LookupDeveloperIdentity -&gt; Text
-</span><a href="#local-6989586621679185293"><span class="hs-identifier hs-var hs-var">identityPoolId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679185293"><span class="hs-identifier hs-var">identityPoolId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185292"><span class="annot"><span class="annottext">s :: LookupDeveloperIdentity
-</span><a href="#local-6989586621679185292"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentity%27"><span class="hs-identifier hs-type">LookupDeveloperIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185291"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679185291"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LookupDeveloperIdentity
-</span><a href="#local-6989586621679185292"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identityPoolId:LookupDeveloperIdentity' :: Text
+</span><a href="#local-6989586621679185463"><span class="hs-identifier hs-var hs-var">identityPoolId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679185463"><span class="hs-identifier hs-var">identityPoolId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185462"><span class="annot"><span class="annottext">s :: LookupDeveloperIdentity
+</span><a href="#local-6989586621679185462"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentity%27"><span class="hs-identifier hs-type">LookupDeveloperIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185461"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679185461"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LookupDeveloperIdentity
+</span><a href="#local-6989586621679185462"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identityPoolId:LookupDeveloperIdentity' :: Text
 </span><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#%24sel%3AidentityPoolId%3ALookupDeveloperIdentity%27"><span class="hs-identifier hs-var">identityPoolId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679185291"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentity"><span class="hs-identifier hs-type">LookupDeveloperIdentity</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679185461"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentity"><span class="hs-identifier hs-type">LookupDeveloperIdentity</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-161"></span><span>
 </span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentity"><span class="hs-identifier hs-type">LookupDeveloperIdentity</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-163"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-164"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentity"><span class="hs-identifier hs-type">LookupDeveloperIdentity</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-165"></span><span>      </span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentityResponse"><span class="hs-identifier hs-type">LookupDeveloperIdentityResponse</span></a></span><span>
-</span><span id="line-166"></span><span>  </span><span id="local-6989586621679185287"><span class="annot"><span class="annottext">request :: LookupDeveloperIdentity -&gt; Request LookupDeveloperIdentity
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679185457"><span class="annot"><span class="annottext">request :: LookupDeveloperIdentity -&gt; Request LookupDeveloperIdentity
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; LookupDeveloperIdentity -&gt; Request LookupDeveloperIdentity
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CognitoIdentity.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-167"></span><span>  </span><span id="local-6989586621679185283"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679185453"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy LookupDeveloperIdentity
 -&gt; ClientResponse ClientBody
@@ -372,62 +372,62 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-169"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679185280"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679185280"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679185279"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679185279"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679185278"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679185278"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-169"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679185450"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679185450"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679185449"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679185449"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679185448"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679185448"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-170"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe [Text]
 -&gt; Maybe Text
+-&gt; Maybe [Text]
 -&gt; Int
 -&gt; LookupDeveloperIdentityResponse
 </span><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentityResponse%27"><span class="hs-identifier hs-var">LookupDeveloperIdentityResponse'</span></a></span><span>
 </span><span id="line-171"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe [Text]
  -&gt; Maybe Text
+ -&gt; Maybe [Text]
  -&gt; Int
  -&gt; LookupDeveloperIdentityResponse)
 -&gt; Either String (Maybe Text)
 -&gt; Either
      String
-     (Maybe [Text]
-      -&gt; Maybe Text -&gt; Int -&gt; LookupDeveloperIdentityResponse)
+     (Maybe Text
+      -&gt; Maybe [Text] -&gt; Int -&gt; LookupDeveloperIdentityResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679185278"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679185448"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-172"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe [Text]
-   -&gt; Maybe Text -&gt; Int -&gt; LookupDeveloperIdentityResponse)
--&gt; Either String (Maybe [Text])
+  (Maybe Text
+   -&gt; Maybe [Text] -&gt; Int -&gt; LookupDeveloperIdentityResponse)
+-&gt; Either String (Maybe Text)
 -&gt; Either
-     String (Maybe Text -&gt; Int -&gt; LookupDeveloperIdentityResponse)
+     String (Maybe [Text] -&gt; Int -&gt; LookupDeveloperIdentityResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679185448"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IdentityId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe [Text] -&gt; Int -&gt; LookupDeveloperIdentityResponse)
+-&gt; Either String (Maybe [Text])
+-&gt; Either String (Int -&gt; LookupDeveloperIdentityResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679185278"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679185448"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DeveloperUserIdentifierList&quot;</span></span><span>
-</span><span id="line-173"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Text]))
+</span><span id="line-174"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Text]))
 -&gt; Maybe [Text] -&gt; Either String (Maybe [Text])
 forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-174"></span><span>                        </span><span class="hs-special">)</span><span>
-</span><span id="line-175"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String (Maybe Text -&gt; Int -&gt; LookupDeveloperIdentityResponse)
--&gt; Either String (Maybe Text)
--&gt; Either String (Int -&gt; LookupDeveloperIdentityResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679185278"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;IdentityId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; LookupDeveloperIdentityResponse)
 -&gt; Either String Int
 -&gt; Either String LookupDeveloperIdentityResponse
@@ -437,15 +437,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679185280"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679185450"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-177"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-178"></span><span>
-</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679185269"><span id="local-6989586621679185271"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentity"><span class="hs-identifier hs-type">LookupDeveloperIdentity</span></a></span></span></span><span>
+</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679185439"><span id="local-6989586621679185441"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentity"><span class="hs-identifier hs-type">LookupDeveloperIdentity</span></a></span></span></span><span>
 </span><span id="line-180"></span><span>
-</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679185266"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentity"><span class="hs-identifier hs-type">LookupDeveloperIdentity</span></a></span></span><span>
+</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679185436"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentity"><span class="hs-identifier hs-type">LookupDeveloperIdentity</span></a></span></span><span>
 </span><span id="line-182"></span><span>
 </span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentity"><span class="hs-identifier hs-type">LookupDeveloperIdentity</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-184"></span><span>  </span><span id="local-6989586621679185262"><span class="annot"><span class="annottext">toHeaders :: LookupDeveloperIdentity -&gt; ResponseHeaders
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679185432"><span class="annot"><span class="annottext">toHeaders :: LookupDeveloperIdentity -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-185"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; LookupDeveloperIdentity -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -472,56 +472,56 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-195"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-196"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-197"></span><span>
-</span><span id="line-198"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679185252"><span id="local-6989586621679185254"><span id="local-6989586621679185256"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentity"><span class="hs-identifier hs-type">LookupDeveloperIdentity</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-199"></span><span>  </span><span id="local-6989586621679185250"><span class="annot"><span class="annottext">toJSON :: LookupDeveloperIdentity -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentity%27"><span class="hs-identifier hs-type">LookupDeveloperIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185244"><span id="local-6989586621679185245"><span id="local-6989586621679185246"><span id="local-6989586621679185247"><span id="local-6989586621679185248"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-198"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679185422"><span id="local-6989586621679185424"><span id="local-6989586621679185426"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentity"><span class="hs-identifier hs-type">LookupDeveloperIdentity</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-199"></span><span>  </span><span id="local-6989586621679185420"><span class="annot"><span class="annottext">toJSON :: LookupDeveloperIdentity -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentity%27"><span class="hs-identifier hs-type">LookupDeveloperIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185414"><span id="local-6989586621679185415"><span id="local-6989586621679185416"><span id="local-6989586621679185417"><span id="local-6989586621679185418"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Text
 identityPoolId :: Text
-identityId :: Maybe Text
-developerUserIdentifier :: Maybe Text
 maxResults :: Maybe Natural
+identityId :: Maybe Text
 nextToken :: Maybe Text
+developerUserIdentifier :: Maybe Text
 $sel:identityPoolId:LookupDeveloperIdentity' :: LookupDeveloperIdentity -&gt; Text
-$sel:identityId:LookupDeveloperIdentity' :: LookupDeveloperIdentity -&gt; Maybe Text
-$sel:developerUserIdentifier:LookupDeveloperIdentity' :: LookupDeveloperIdentity -&gt; Maybe Text
 $sel:maxResults:LookupDeveloperIdentity' :: LookupDeveloperIdentity -&gt; Maybe Natural
+$sel:identityId:LookupDeveloperIdentity' :: LookupDeveloperIdentity -&gt; Maybe Text
 $sel:nextToken:LookupDeveloperIdentity' :: LookupDeveloperIdentity -&gt; Maybe Text
-</span><a href="#local-6989586621679185244"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:developerUserIdentifier:LookupDeveloperIdentity' :: LookupDeveloperIdentity -&gt; Maybe Text
+</span><a href="#local-6989586621679185414"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-200"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-201"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-202"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeveloperUserIdentifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679185418"><span class="hs-identifier hs-var">developerUserIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679185248"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-203"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679185247"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-204"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;DeveloperUserIdentifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-205"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679185246"><span class="hs-identifier hs-var">developerUserIdentifier</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-206"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679185417"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IdentityId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679185245"><span class="hs-identifier hs-var">identityId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679185416"><span class="hs-identifier hs-var">identityId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679185415"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-207"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -529,19 +529,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;IdentityPoolId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679185244"><span class="hs-identifier hs-var">identityPoolId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679185414"><span class="hs-identifier hs-var">identityPoolId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-209"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-210"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-211"></span><span>
 </span><span id="line-212"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentity"><span class="hs-identifier hs-type">LookupDeveloperIdentity</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-213"></span><span>  </span><span id="local-6989586621679185238"><span class="annot"><span class="annottext">toPath :: LookupDeveloperIdentity -&gt; ByteString
+</span><span id="line-213"></span><span>  </span><span id="local-6989586621679185408"><span class="annot"><span class="annottext">toPath :: LookupDeveloperIdentity -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; LookupDeveloperIdentity -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-214"></span><span>
 </span><span id="line-215"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentity"><span class="hs-identifier hs-type">LookupDeveloperIdentity</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-216"></span><span>  </span><span id="local-6989586621679185234"><span class="annot"><span class="annottext">toQuery :: LookupDeveloperIdentity -&gt; QueryString
+</span><span id="line-216"></span><span>  </span><span id="local-6989586621679185404"><span class="annot"><span class="annottext">toQuery :: LookupDeveloperIdentity -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; LookupDeveloperIdentity -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -551,7 +551,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-218"></span><span class="hs-comment">-- | Returned in response to a successful @LookupDeveloperIdentity@ action.</span><span>
 </span><span id="line-219"></span><span class="hs-comment">--</span><span>
 </span><span id="line-220"></span><span class="hs-comment">-- /See:/ 'newLookupDeveloperIdentityResponse' smart constructor.</span><span>
-</span><span id="line-221"></span><span id="local-6989586621679185231"><span id="local-6989586621679185232"></span></span><span class="hs-keyword">data</span><span> </span><span id="LookupDeveloperIdentityResponse"><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentityResponse"><span class="hs-identifier hs-var">LookupDeveloperIdentityResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LookupDeveloperIdentityResponse%27"><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentityResponse%27"><span class="hs-identifier hs-var">LookupDeveloperIdentityResponse'</span></a></span></span><span>
+</span><span id="line-221"></span><span id="local-6989586621679185401"><span id="local-6989586621679185402"></span></span><span class="hs-keyword">data</span><span> </span><span id="LookupDeveloperIdentityResponse"><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentityResponse"><span class="hs-identifier hs-var">LookupDeveloperIdentityResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LookupDeveloperIdentityResponse%27"><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentityResponse%27"><span class="hs-identifier hs-var">LookupDeveloperIdentityResponse'</span></a></span></span><span>
 </span><span id="line-222"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A pagination token. The first call you make will have @NextToken@ set to</span><span>
 </span><span id="line-223"></span><span>    </span><span class="hs-comment">-- null. After that the service will return @NextToken@ values as needed.</span><span>
 </span><span id="line-224"></span><span>    </span><span class="hs-comment">-- For example, let\'s say you make a request with @MaxResults@ set to 10,</span><span>
@@ -560,19 +560,19 @@ forall a. Monoid a =&gt; a
 </span><span id="line-227"></span><span>    </span><span class="hs-comment">-- call the API again and get results starting from the 11th match.</span><span>
 </span><span id="line-228"></span><span>    </span><span id="%24sel%3AnextToken%3ALookupDeveloperIdentityResponse%27"><span class="annot"><span class="annottext">LookupDeveloperIdentityResponse -&gt; Maybe Text
 </span><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#%24sel%3AnextToken%3ALookupDeveloperIdentityResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-229"></span><span>    </span><span class="hs-comment">-- | This is the list of developer user identifiers associated with an</span><span>
-</span><span id="line-230"></span><span>    </span><span class="hs-comment">-- identity ID. Cognito supports the association of multiple developer user</span><span>
-</span><span id="line-231"></span><span>    </span><span class="hs-comment">-- identifiers with an identity ID.</span><span>
-</span><span id="line-232"></span><span>    </span><span id="%24sel%3AdeveloperUserIdentifierList%3ALookupDeveloperIdentityResponse%27"><span class="annot"><span class="annottext">LookupDeveloperIdentityResponse -&gt; Maybe [Text]
-</span><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#%24sel%3AdeveloperUserIdentifierList%3ALookupDeveloperIdentityResponse%27"><span class="hs-identifier hs-var hs-var">developerUserIdentifierList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-233"></span><span>    </span><span class="hs-comment">-- | A unique identifier in the format REGION:GUID.</span><span>
-</span><span id="line-234"></span><span>    </span><span id="%24sel%3AidentityId%3ALookupDeveloperIdentityResponse%27"><span class="annot"><span class="annottext">LookupDeveloperIdentityResponse -&gt; Maybe Text
+</span><span id="line-229"></span><span>    </span><span class="hs-comment">-- | A unique identifier in the format REGION:GUID.</span><span>
+</span><span id="line-230"></span><span>    </span><span id="%24sel%3AidentityId%3ALookupDeveloperIdentityResponse%27"><span class="annot"><span class="annottext">LookupDeveloperIdentityResponse -&gt; Maybe Text
 </span><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#%24sel%3AidentityId%3ALookupDeveloperIdentityResponse%27"><span class="hs-identifier hs-var hs-var">identityId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-231"></span><span>    </span><span class="hs-comment">-- | This is the list of developer user identifiers associated with an</span><span>
+</span><span id="line-232"></span><span>    </span><span class="hs-comment">-- identity ID. Cognito supports the association of multiple developer user</span><span>
+</span><span id="line-233"></span><span>    </span><span class="hs-comment">-- identifiers with an identity ID.</span><span>
+</span><span id="line-234"></span><span>    </span><span id="%24sel%3AdeveloperUserIdentifierList%3ALookupDeveloperIdentityResponse%27"><span class="annot"><span class="annottext">LookupDeveloperIdentityResponse -&gt; Maybe [Text]
+</span><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#%24sel%3AdeveloperUserIdentifierList%3ALookupDeveloperIdentityResponse%27"><span class="hs-identifier hs-var hs-var">developerUserIdentifierList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
 </span><span id="line-235"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-236"></span><span>    </span><span id="%24sel%3AhttpStatus%3ALookupDeveloperIdentityResponse%27"><span class="annot"><span class="annottext">LookupDeveloperIdentityResponse -&gt; Int
 </span><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#%24sel%3AhttpStatus%3ALookupDeveloperIdentityResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-237"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-238"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679185223"><span id="local-6989586621679185225"><span class="annot"><span class="annottext">LookupDeveloperIdentityResponse
+</span><span id="line-238"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679185393"><span id="local-6989586621679185395"><span class="annot"><span class="annottext">LookupDeveloperIdentityResponse
 -&gt; LookupDeveloperIdentityResponse -&gt; Bool
 (LookupDeveloperIdentityResponse
  -&gt; LookupDeveloperIdentityResponse -&gt; Bool)
@@ -588,7 +588,7 @@ $c/= :: LookupDeveloperIdentityResponse
 -&gt; LookupDeveloperIdentityResponse -&gt; Bool
 $c== :: LookupDeveloperIdentityResponse
 -&gt; LookupDeveloperIdentityResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679185215"><span id="local-6989586621679185217"><span id="local-6989586621679185219"><span id="local-6989586621679185221"><span class="annot"><span class="annottext">ReadPrec [LookupDeveloperIdentityResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679185385"><span id="local-6989586621679185387"><span id="local-6989586621679185389"><span id="local-6989586621679185391"><span class="annot"><span class="annottext">ReadPrec [LookupDeveloperIdentityResponse]
 ReadPrec LookupDeveloperIdentityResponse
 Int -&gt; ReadS LookupDeveloperIdentityResponse
 ReadS [LookupDeveloperIdentityResponse]
@@ -608,7 +608,7 @@ readList :: ReadS [LookupDeveloperIdentityResponse]
 $creadList :: ReadS [LookupDeveloperIdentityResponse]
 readsPrec :: Int -&gt; ReadS LookupDeveloperIdentityResponse
 $creadsPrec :: Int -&gt; ReadS LookupDeveloperIdentityResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679185209"><span id="local-6989586621679185211"><span id="local-6989586621679185213"><span class="annot"><span class="annottext">Int -&gt; LookupDeveloperIdentityResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679185379"><span id="local-6989586621679185381"><span id="local-6989586621679185383"><span class="annot"><span class="annottext">Int -&gt; LookupDeveloperIdentityResponse -&gt; ShowS
 [LookupDeveloperIdentityResponse] -&gt; ShowS
 LookupDeveloperIdentityResponse -&gt; String
 (Int -&gt; LookupDeveloperIdentityResponse -&gt; ShowS)
@@ -661,11 +661,11 @@ LookupDeveloperIdentityResponse
 </span><span id="line-252"></span><span class="hs-comment">-- pagination token as a part of the response. This token can be used to</span><span>
 </span><span id="line-253"></span><span class="hs-comment">-- call the API again and get results starting from the 11th match.</span><span>
 </span><span id="line-254"></span><span class="hs-comment">--</span><span>
-</span><span id="line-255"></span><span class="hs-comment">-- 'developerUserIdentifierList', 'lookupDeveloperIdentityResponse_developerUserIdentifierList' - This is the list of developer user identifiers associated with an</span><span>
-</span><span id="line-256"></span><span class="hs-comment">-- identity ID. Cognito supports the association of multiple developer user</span><span>
-</span><span id="line-257"></span><span class="hs-comment">-- identifiers with an identity ID.</span><span>
-</span><span id="line-258"></span><span class="hs-comment">--</span><span>
-</span><span id="line-259"></span><span class="hs-comment">-- 'identityId', 'lookupDeveloperIdentityResponse_identityId' - A unique identifier in the format REGION:GUID.</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- 'identityId', 'lookupDeveloperIdentityResponse_identityId' - A unique identifier in the format REGION:GUID.</span><span>
+</span><span id="line-256"></span><span class="hs-comment">--</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- 'developerUserIdentifierList', 'lookupDeveloperIdentityResponse_developerUserIdentifierList' - This is the list of developer user identifiers associated with an</span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- identity ID. Cognito supports the association of multiple developer user</span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- identifiers with an identity ID.</span><span>
 </span><span id="line-260"></span><span class="hs-comment">--</span><span>
 </span><span id="line-261"></span><span class="hs-comment">-- 'httpStatus', 'lookupDeveloperIdentityResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-262"></span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#newLookupDeveloperIdentityResponse"><span class="hs-identifier hs-type">newLookupDeveloperIdentityResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -673,11 +673,11 @@ LookupDeveloperIdentityResponse
 </span><span id="line-264"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-265"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentityResponse"><span class="hs-identifier hs-type">LookupDeveloperIdentityResponse</span></a></span><span>
 </span><span id="line-266"></span><span id="newLookupDeveloperIdentityResponse"><span class="annot"><span class="annottext">newLookupDeveloperIdentityResponse :: Int -&gt; LookupDeveloperIdentityResponse
-</span><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#newLookupDeveloperIdentityResponse"><span class="hs-identifier hs-var hs-var">newLookupDeveloperIdentityResponse</span></a></span></span><span> </span><span id="local-6989586621679185206"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679185206"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#newLookupDeveloperIdentityResponse"><span class="hs-identifier hs-var hs-var">newLookupDeveloperIdentityResponse</span></a></span></span><span> </span><span id="local-6989586621679185376"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679185376"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-267"></span><span>  </span><span class="annot"><span class="annottext">LookupDeveloperIdentityResponse' :: Maybe Text
--&gt; Maybe [Text]
 -&gt; Maybe Text
+-&gt; Maybe [Text]
 -&gt; Int
 -&gt; LookupDeveloperIdentityResponse
 </span><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentityResponse%27"><span class="hs-identifier hs-type">LookupDeveloperIdentityResponse'</span></a></span><span>
@@ -686,18 +686,18 @@ LookupDeveloperIdentityResponse
 </span><span id="line-269"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-270"></span><span>      </span><span class="annot"><span class="annottext">$sel:developerUserIdentifierList:LookupDeveloperIdentityResponse' :: Maybe [Text]
-</span><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#%24sel%3AdeveloperUserIdentifierList%3ALookupDeveloperIdentityResponse%27"><span class="hs-identifier hs-var">developerUserIdentifierList</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-271"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-270"></span><span>      </span><span class="annot"><span class="annottext">$sel:identityId:LookupDeveloperIdentityResponse' :: Maybe Text
+</span><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#%24sel%3AidentityId%3ALookupDeveloperIdentityResponse%27"><span class="hs-identifier hs-var">identityId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-272"></span><span>      </span><span class="annot"><span class="annottext">$sel:identityId:LookupDeveloperIdentityResponse' :: Maybe Text
-</span><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#%24sel%3AidentityId%3ALookupDeveloperIdentityResponse%27"><span class="hs-identifier hs-var">identityId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-271"></span><span>      </span><span class="annot"><span class="annottext">$sel:developerUserIdentifierList:LookupDeveloperIdentityResponse' :: Maybe [Text]
+</span><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#%24sel%3AdeveloperUserIdentifierList%3ALookupDeveloperIdentityResponse%27"><span class="hs-identifier hs-var">developerUserIdentifierList</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-272"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-273"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:LookupDeveloperIdentityResponse' :: Int
 </span><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#%24sel%3AhttpStatus%3ALookupDeveloperIdentityResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679185206"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679185376"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-274"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-275"></span><span>
 </span><span id="line-276"></span><span class="hs-comment">-- | A pagination token. The first call you make will have @NextToken@ set to</span><span>
@@ -719,22 +719,47 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentityResponse%27"><span class="hs-identifier hs-type">LookupDeveloperIdentityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185205"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentityResponse%27"><span class="hs-identifier hs-type">LookupDeveloperIdentityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185375"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:LookupDeveloperIdentityResponse' :: LookupDeveloperIdentityResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679185205"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679185205"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185204"><span class="annot"><span class="annottext">s :: LookupDeveloperIdentityResponse
-</span><a href="#local-6989586621679185204"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentityResponse%27"><span class="hs-identifier hs-type">LookupDeveloperIdentityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185203"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679185203"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LookupDeveloperIdentityResponse
-</span><a href="#local-6989586621679185204"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:LookupDeveloperIdentityResponse' :: Maybe Text
+</span><a href="#local-6989586621679185375"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679185375"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185374"><span class="annot"><span class="annottext">s :: LookupDeveloperIdentityResponse
+</span><a href="#local-6989586621679185374"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentityResponse%27"><span class="hs-identifier hs-type">LookupDeveloperIdentityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185373"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679185373"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LookupDeveloperIdentityResponse
+</span><a href="#local-6989586621679185374"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:LookupDeveloperIdentityResponse' :: Maybe Text
 </span><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#%24sel%3AnextToken%3ALookupDeveloperIdentityResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679185203"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentityResponse"><span class="hs-identifier hs-type">LookupDeveloperIdentityResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679185373"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentityResponse"><span class="hs-identifier hs-type">LookupDeveloperIdentityResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-284"></span><span>
-</span><span id="line-285"></span><span class="hs-comment">-- | This is the list of developer user identifiers associated with an</span><span>
-</span><span id="line-286"></span><span class="hs-comment">-- identity ID. Cognito supports the association of multiple developer user</span><span>
-</span><span id="line-287"></span><span class="hs-comment">-- identifiers with an identity ID.</span><span>
-</span><span id="line-288"></span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#lookupDeveloperIdentityResponse_developerUserIdentifierList"><span class="hs-identifier hs-type">lookupDeveloperIdentityResponse_developerUserIdentifierList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentityResponse"><span class="hs-identifier hs-type">LookupDeveloperIdentityResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-289"></span><span id="lookupDeveloperIdentityResponse_developerUserIdentifierList"><span class="annot"><span class="annottext">lookupDeveloperIdentityResponse_developerUserIdentifierList :: (Maybe [Text] -&gt; f (Maybe [Text]))
+</span><span id="line-285"></span><span class="hs-comment">-- | A unique identifier in the format REGION:GUID.</span><span>
+</span><span id="line-286"></span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#lookupDeveloperIdentityResponse_identityId"><span class="hs-identifier hs-type">lookupDeveloperIdentityResponse_identityId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentityResponse"><span class="hs-identifier hs-type">LookupDeveloperIdentityResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-287"></span><span id="lookupDeveloperIdentityResponse_identityId"><span class="annot"><span class="annottext">lookupDeveloperIdentityResponse_identityId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; LookupDeveloperIdentityResponse
+-&gt; f LookupDeveloperIdentityResponse
+</span><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#lookupDeveloperIdentityResponse_identityId"><span class="hs-identifier hs-var hs-var">lookupDeveloperIdentityResponse_identityId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LookupDeveloperIdentityResponse -&gt; Maybe Text)
+-&gt; (LookupDeveloperIdentityResponse
+    -&gt; Maybe Text -&gt; LookupDeveloperIdentityResponse)
+-&gt; Lens
+     LookupDeveloperIdentityResponse
+     LookupDeveloperIdentityResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentityResponse%27"><span class="hs-identifier hs-type">LookupDeveloperIdentityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185372"><span class="annot"><span class="annottext">Maybe Text
+identityId :: Maybe Text
+$sel:identityId:LookupDeveloperIdentityResponse' :: LookupDeveloperIdentityResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679185372"><span class="hs-identifier hs-var hs-var">identityId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679185372"><span class="hs-identifier hs-var">identityId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185371"><span class="annot"><span class="annottext">s :: LookupDeveloperIdentityResponse
+</span><a href="#local-6989586621679185371"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentityResponse%27"><span class="hs-identifier hs-type">LookupDeveloperIdentityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185370"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679185370"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LookupDeveloperIdentityResponse
+</span><a href="#local-6989586621679185371"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identityId:LookupDeveloperIdentityResponse' :: Maybe Text
+</span><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#%24sel%3AidentityId%3ALookupDeveloperIdentityResponse%27"><span class="hs-identifier hs-var">identityId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679185370"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentityResponse"><span class="hs-identifier hs-type">LookupDeveloperIdentityResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-288"></span><span>
+</span><span id="line-289"></span><span class="hs-comment">-- | This is the list of developer user identifiers associated with an</span><span>
+</span><span id="line-290"></span><span class="hs-comment">-- identity ID. Cognito supports the association of multiple developer user</span><span>
+</span><span id="line-291"></span><span class="hs-comment">-- identifiers with an identity ID.</span><span>
+</span><span id="line-292"></span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#lookupDeveloperIdentityResponse_developerUserIdentifierList"><span class="hs-identifier hs-type">lookupDeveloperIdentityResponse_developerUserIdentifierList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentityResponse"><span class="hs-identifier hs-type">LookupDeveloperIdentityResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-293"></span><span id="lookupDeveloperIdentityResponse_developerUserIdentifierList"><span class="annot"><span class="annottext">lookupDeveloperIdentityResponse_developerUserIdentifierList :: (Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; LookupDeveloperIdentityResponse
 -&gt; f LookupDeveloperIdentityResponse
 </span><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#lookupDeveloperIdentityResponse_developerUserIdentifierList"><span class="hs-identifier hs-var hs-var">lookupDeveloperIdentityResponse_developerUserIdentifierList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LookupDeveloperIdentityResponse -&gt; Maybe [Text])
@@ -746,16 +771,16 @@ $sel:nextToken:LookupDeveloperIdentityResponse' :: LookupDeveloperIdentityRespon
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentityResponse%27"><span class="hs-identifier hs-type">LookupDeveloperIdentityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185202"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentityResponse%27"><span class="hs-identifier hs-type">LookupDeveloperIdentityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185369"><span class="annot"><span class="annottext">Maybe [Text]
 developerUserIdentifierList :: Maybe [Text]
 $sel:developerUserIdentifierList:LookupDeveloperIdentityResponse' :: LookupDeveloperIdentityResponse -&gt; Maybe [Text]
-</span><a href="#local-6989586621679185202"><span class="hs-identifier hs-var hs-var">developerUserIdentifierList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679185202"><span class="hs-identifier hs-var">developerUserIdentifierList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185201"><span class="annot"><span class="annottext">s :: LookupDeveloperIdentityResponse
-</span><a href="#local-6989586621679185201"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentityResponse%27"><span class="hs-identifier hs-type">LookupDeveloperIdentityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185200"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679185200"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LookupDeveloperIdentityResponse
-</span><a href="#local-6989586621679185201"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:developerUserIdentifierList:LookupDeveloperIdentityResponse' :: Maybe [Text]
+</span><a href="#local-6989586621679185369"><span class="hs-identifier hs-var hs-var">developerUserIdentifierList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679185369"><span class="hs-identifier hs-var">developerUserIdentifierList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185368"><span class="annot"><span class="annottext">s :: LookupDeveloperIdentityResponse
+</span><a href="#local-6989586621679185368"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentityResponse%27"><span class="hs-identifier hs-type">LookupDeveloperIdentityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185367"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679185367"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LookupDeveloperIdentityResponse
+</span><a href="#local-6989586621679185368"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:developerUserIdentifierList:LookupDeveloperIdentityResponse' :: Maybe [Text]
 </span><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#%24sel%3AdeveloperUserIdentifierList%3ALookupDeveloperIdentityResponse%27"><span class="hs-identifier hs-var">developerUserIdentifierList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679185200"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentityResponse"><span class="hs-identifier hs-type">LookupDeveloperIdentityResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679185367"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentityResponse"><span class="hs-identifier hs-type">LookupDeveloperIdentityResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; LookupDeveloperIdentityResponse
  -&gt; f LookupDeveloperIdentityResponse)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
@@ -770,33 +795,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-290"></span><span>
-</span><span id="line-291"></span><span class="hs-comment">-- | A unique identifier in the format REGION:GUID.</span><span>
-</span><span id="line-292"></span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#lookupDeveloperIdentityResponse_identityId"><span class="hs-identifier hs-type">lookupDeveloperIdentityResponse_identityId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentityResponse"><span class="hs-identifier hs-type">LookupDeveloperIdentityResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-293"></span><span id="lookupDeveloperIdentityResponse_identityId"><span class="annot"><span class="annottext">lookupDeveloperIdentityResponse_identityId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; LookupDeveloperIdentityResponse
--&gt; f LookupDeveloperIdentityResponse
-</span><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#lookupDeveloperIdentityResponse_identityId"><span class="hs-identifier hs-var hs-var">lookupDeveloperIdentityResponse_identityId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LookupDeveloperIdentityResponse -&gt; Maybe Text)
--&gt; (LookupDeveloperIdentityResponse
-    -&gt; Maybe Text -&gt; LookupDeveloperIdentityResponse)
--&gt; Lens
-     LookupDeveloperIdentityResponse
-     LookupDeveloperIdentityResponse
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentityResponse%27"><span class="hs-identifier hs-type">LookupDeveloperIdentityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185196"><span class="annot"><span class="annottext">Maybe Text
-identityId :: Maybe Text
-$sel:identityId:LookupDeveloperIdentityResponse' :: LookupDeveloperIdentityResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679185196"><span class="hs-identifier hs-var hs-var">identityId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679185196"><span class="hs-identifier hs-var">identityId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185195"><span class="annot"><span class="annottext">s :: LookupDeveloperIdentityResponse
-</span><a href="#local-6989586621679185195"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentityResponse%27"><span class="hs-identifier hs-type">LookupDeveloperIdentityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185194"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679185194"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LookupDeveloperIdentityResponse
-</span><a href="#local-6989586621679185195"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identityId:LookupDeveloperIdentityResponse' :: Maybe Text
-</span><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#%24sel%3AidentityId%3ALookupDeveloperIdentityResponse%27"><span class="hs-identifier hs-var">identityId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679185194"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentityResponse"><span class="hs-identifier hs-type">LookupDeveloperIdentityResponse</span></a></span><span class="hs-special">)</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-294"></span><span>
 </span><span id="line-295"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-296"></span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#lookupDeveloperIdentityResponse_httpStatus"><span class="hs-identifier hs-type">lookupDeveloperIdentityResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentityResponse"><span class="hs-identifier hs-type">LookupDeveloperIdentityResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -812,18 +812,18 @@ $sel:identityId:LookupDeveloperIdentityResponse' :: LookupDeveloperIdentityRespo
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentityResponse%27"><span class="hs-identifier hs-type">LookupDeveloperIdentityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185193"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentityResponse%27"><span class="hs-identifier hs-type">LookupDeveloperIdentityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185363"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:LookupDeveloperIdentityResponse' :: LookupDeveloperIdentityResponse -&gt; Int
-</span><a href="#local-6989586621679185193"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679185193"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185192"><span class="annot"><span class="annottext">s :: LookupDeveloperIdentityResponse
-</span><a href="#local-6989586621679185192"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentityResponse%27"><span class="hs-identifier hs-type">LookupDeveloperIdentityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185191"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679185191"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LookupDeveloperIdentityResponse
-</span><a href="#local-6989586621679185192"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:LookupDeveloperIdentityResponse' :: Int
+</span><a href="#local-6989586621679185363"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679185363"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185362"><span class="annot"><span class="annottext">s :: LookupDeveloperIdentityResponse
+</span><a href="#local-6989586621679185362"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentityResponse%27"><span class="hs-identifier hs-type">LookupDeveloperIdentityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185361"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679185361"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LookupDeveloperIdentityResponse
+</span><a href="#local-6989586621679185362"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:LookupDeveloperIdentityResponse' :: Int
 </span><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#%24sel%3AhttpStatus%3ALookupDeveloperIdentityResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679185191"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentityResponse"><span class="hs-identifier hs-type">LookupDeveloperIdentityResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679185361"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentityResponse"><span class="hs-identifier hs-type">LookupDeveloperIdentityResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-298"></span><span>
 </span><span id="line-299"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-300"></span><span>  </span><span id="local-6989586621679185189"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-300"></span><span>  </span><span id="local-6989586621679185359"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-301"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentity.LookupDeveloperIdentity.html#LookupDeveloperIdentityResponse"><span class="hs-identifier hs-type">LookupDeveloperIdentityResponse</span></a></span></span><span>
 </span><span id="line-302"></span></pre></body></html>

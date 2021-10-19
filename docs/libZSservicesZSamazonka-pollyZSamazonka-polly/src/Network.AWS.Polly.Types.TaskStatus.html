@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621679171859"><span id="local-6989586621679171860"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TaskStatus"><span class="annot"><a href="Network.AWS.Polly.Types.TaskStatus.html#TaskStatus"><span class="hs-identifier hs-var">TaskStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TaskStatus%27"><span class="annot"><a href="Network.AWS.Polly.Types.TaskStatus.html#TaskStatus%27"><span class="hs-identifier hs-var">TaskStatus'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679171903"><span id="local-6989586621679171904"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TaskStatus"><span class="annot"><a href="Network.AWS.Polly.Types.TaskStatus.html#TaskStatus"><span class="hs-identifier hs-var">TaskStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TaskStatus%27"><span class="annot"><a href="Network.AWS.Polly.Types.TaskStatus.html#TaskStatus%27"><span class="hs-identifier hs-var">TaskStatus'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTaskStatus"><span class="annot"><span class="annottext">TaskStatus -&gt; Text
 </span><a href="Network.AWS.Polly.Types.TaskStatus.html#fromTaskStatus"><span class="hs-identifier hs-var hs-var">fromTaskStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679171851"><span id="local-6989586621679171853"><span id="local-6989586621679171855"><span class="annot"><span class="annottext">Int -&gt; TaskStatus -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679171895"><span id="local-6989586621679171897"><span id="local-6989586621679171899"><span class="annot"><span class="annottext">Int -&gt; TaskStatus -&gt; ShowS
 [TaskStatus] -&gt; ShowS
 TaskStatus -&gt; String
 (Int -&gt; TaskStatus -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: TaskStatus -&gt; String
 showsPrec :: Int -&gt; TaskStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; TaskStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679171842"><span id="local-6989586621679171844"><span id="local-6989586621679171846"><span id="local-6989586621679171848"><span class="annot"><span class="annottext">ReadPrec [TaskStatus]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679171886"><span id="local-6989586621679171888"><span id="local-6989586621679171890"><span id="local-6989586621679171892"><span class="annot"><span class="annottext">ReadPrec [TaskStatus]
 ReadPrec TaskStatus
 Int -&gt; ReadS TaskStatus
 ReadS [TaskStatus]
@@ -74,7 +74,7 @@ $creadList :: ReadS [TaskStatus]
 readsPrec :: Int -&gt; ReadS TaskStatus
 $creadsPrec :: Int -&gt; ReadS TaskStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679171837"><span id="local-6989586621679171839"><span class="annot"><span class="annottext">TaskStatus -&gt; TaskStatus -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679171881"><span id="local-6989586621679171883"><span class="annot"><span class="annottext">TaskStatus -&gt; TaskStatus -&gt; Bool
 (TaskStatus -&gt; TaskStatus -&gt; Bool)
 -&gt; (TaskStatus -&gt; TaskStatus -&gt; Bool) -&gt; Eq TaskStatus
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -83,7 +83,7 @@ $c/= :: TaskStatus -&gt; TaskStatus -&gt; Bool
 == :: TaskStatus -&gt; TaskStatus -&gt; Bool
 $c== :: TaskStatus -&gt; TaskStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679171821"><span id="local-6989586621679171823"><span id="local-6989586621679171825"><span id="local-6989586621679171827"><span id="local-6989586621679171829"><span id="local-6989586621679171831"><span id="local-6989586621679171833"><span class="annot"><span class="annottext">Eq TaskStatus
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679171865"><span id="local-6989586621679171867"><span id="local-6989586621679171869"><span id="local-6989586621679171871"><span id="local-6989586621679171873"><span id="local-6989586621679171875"><span id="local-6989586621679171877"><span class="annot"><span class="annottext">Eq TaskStatus
 Eq TaskStatus
 -&gt; (TaskStatus -&gt; TaskStatus -&gt; Ordering)
 -&gt; (TaskStatus -&gt; TaskStatus -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. TaskStatus -&gt; Rep TaskStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679171813"><span id="local-6989586621679171815"><span class="annot"><span class="annottext">Int -&gt; TaskStatus -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679171857"><span id="local-6989586621679171859"><span class="annot"><span class="annottext">Int -&gt; TaskStatus -&gt; Int
 TaskStatus -&gt; Int
 (Int -&gt; TaskStatus -&gt; Int)
 -&gt; (TaskStatus -&gt; Int) -&gt; Hashable TaskStatus
@@ -143,49 +143,49 @@ $chash :: TaskStatus -&gt; Int
 hashWithSalt :: Int -&gt; TaskStatus -&gt; Int
 $chashWithSalt :: Int -&gt; TaskStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679171810"><span class="annot"><span class="annottext">TaskStatus -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679171854"><span class="annot"><span class="annottext">TaskStatus -&gt; ()
 (TaskStatus -&gt; ()) -&gt; NFData TaskStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: TaskStatus -&gt; ()
 $crnf :: TaskStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679171807"><span class="annot"><span class="annottext">Text -&gt; Either String TaskStatus
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679171851"><span class="annot"><span class="annottext">Text -&gt; Either String TaskStatus
 (Text -&gt; Either String TaskStatus) -&gt; FromText TaskStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String TaskStatus
 $cfromText :: Text -&gt; Either String TaskStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679171804"><span class="annot"><span class="annottext">TaskStatus -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679171848"><span class="annot"><span class="annottext">TaskStatus -&gt; Text
 (TaskStatus -&gt; Text) -&gt; ToText TaskStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: TaskStatus -&gt; Text
 $ctoText :: TaskStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679171801"><span class="annot"><span class="annottext">TaskStatus -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679171845"><span class="annot"><span class="annottext">TaskStatus -&gt; ByteString
 (TaskStatus -&gt; ByteString) -&gt; ToByteString TaskStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: TaskStatus -&gt; ByteString
 $ctoBS :: TaskStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679171798"><span class="annot"><span class="annottext">TaskStatus -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679171842"><span class="annot"><span class="annottext">TaskStatus -&gt; ByteStringBuilder
 (TaskStatus -&gt; ByteStringBuilder) -&gt; ToLog TaskStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: TaskStatus -&gt; ByteStringBuilder
 $cbuild :: TaskStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679171795"><span class="annot"><span class="annottext">HeaderName -&gt; TaskStatus -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679171839"><span class="annot"><span class="annottext">HeaderName -&gt; TaskStatus -&gt; [Header]
 (HeaderName -&gt; TaskStatus -&gt; [Header]) -&gt; ToHeader TaskStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; TaskStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; TaskStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679171792"><span class="annot"><span class="annottext">TaskStatus -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679171836"><span class="annot"><span class="annottext">TaskStatus -&gt; QueryString
 (TaskStatus -&gt; QueryString) -&gt; ToQuery TaskStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: TaskStatus -&gt; QueryString
 $ctoQuery :: TaskStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679171787"><span id="local-6989586621679171789"><span class="annot"><span class="annottext">Value -&gt; Parser [TaskStatus]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679171831"><span id="local-6989586621679171833"><span class="annot"><span class="annottext">Value -&gt; Parser [TaskStatus]
 Value -&gt; Parser TaskStatus
 (Value -&gt; Parser TaskStatus)
 -&gt; (Value -&gt; Parser [TaskStatus]) -&gt; FromJSON TaskStatus
@@ -196,7 +196,7 @@ $cparseJSONList :: Value -&gt; Parser [TaskStatus]
 parseJSON :: Value -&gt; Parser TaskStatus
 $cparseJSON :: Value -&gt; Parser TaskStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679171782"><span id="local-6989586621679171784"><span class="annot"><span class="annottext">FromJSONKeyFunction [TaskStatus]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679171826"><span id="local-6989586621679171828"><span class="annot"><span class="annottext">FromJSONKeyFunction [TaskStatus]
 FromJSONKeyFunction TaskStatus
 FromJSONKeyFunction TaskStatus
 -&gt; FromJSONKeyFunction [TaskStatus] -&gt; FromJSONKey TaskStatus
@@ -207,7 +207,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [TaskStatus]
 fromJSONKey :: FromJSONKeyFunction TaskStatus
 $cfromJSONKey :: FromJSONKeyFunction TaskStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679171773"><span id="local-6989586621679171775"><span id="local-6989586621679171777"><span id="local-6989586621679171779"><span class="annot"><span class="annottext">[TaskStatus] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679171817"><span id="local-6989586621679171819"><span id="local-6989586621679171821"><span id="local-6989586621679171823"><span class="annot"><span class="annottext">[TaskStatus] -&gt; Encoding
 [TaskStatus] -&gt; Value
 TaskStatus -&gt; Encoding
 TaskStatus -&gt; Value
@@ -231,7 +231,7 @@ $ctoEncoding :: TaskStatus -&gt; Encoding
 toJSON :: TaskStatus -&gt; Value
 $ctoJSON :: TaskStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679171768"><span id="local-6989586621679171770"><span class="annot"><span class="annottext">ToJSONKeyFunction [TaskStatus]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679171812"><span id="local-6989586621679171814"><span class="annot"><span class="annottext">ToJSONKeyFunction [TaskStatus]
 ToJSONKeyFunction TaskStatus
 ToJSONKeyFunction TaskStatus
 -&gt; ToJSONKeyFunction [TaskStatus] -&gt; ToJSONKey TaskStatus
@@ -242,13 +242,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [TaskStatus]
 toJSONKey :: ToJSONKeyFunction TaskStatus
 $ctoJSONKey :: ToJSONKeyFunction TaskStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679171765"><span class="annot"><span class="annottext">[Node] -&gt; Either String TaskStatus
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679171809"><span class="annot"><span class="annottext">[Node] -&gt; Either String TaskStatus
 ([Node] -&gt; Either String TaskStatus) -&gt; FromXML TaskStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String TaskStatus
 $cparseXML :: [Node] -&gt; Either String TaskStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679171762"><span class="annot"><span class="annottext">TaskStatus -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679171806"><span class="annot"><span class="annottext">TaskStatus -&gt; XML
 (TaskStatus -&gt; XML) -&gt; ToXML TaskStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: TaskStatus -&gt; XML

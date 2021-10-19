@@ -47,12 +47,12 @@
 </span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.html"><span class="hs-identifier">Network.AWS.Route53AutoNaming.Types</span></a></span><span>
 </span><span id="line-48"></span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newDeleteService' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621679229469"><span id="local-6989586621679229470"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteService"><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteService.html#DeleteService"><span class="hs-identifier hs-var">DeleteService</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteService%27"><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteService.html#DeleteService%27"><span class="hs-identifier hs-var">DeleteService'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679229622"><span id="local-6989586621679229623"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteService"><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteService.html#DeleteService"><span class="hs-identifier hs-var">DeleteService</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteService%27"><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteService.html#DeleteService%27"><span class="hs-identifier hs-var">DeleteService'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the service that you want to delete.</span><span>
 </span><span id="line-52"></span><span>    </span><span id="%24sel%3Aid%3ADeleteService%27"><span class="annot"><span class="annottext">DeleteService -&gt; Text
 </span><a href="Network.AWS.Route53AutoNaming.DeleteService.html#%24sel%3Aid%3ADeleteService%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679229463"><span id="local-6989586621679229465"><span class="annot"><span class="annottext">DeleteService -&gt; DeleteService -&gt; Bool
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679229616"><span id="local-6989586621679229618"><span class="annot"><span class="annottext">DeleteService -&gt; DeleteService -&gt; Bool
 (DeleteService -&gt; DeleteService -&gt; Bool)
 -&gt; (DeleteService -&gt; DeleteService -&gt; Bool) -&gt; Eq DeleteService
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -60,7 +60,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteService -&gt; DeleteService -&gt; Bool
 == :: DeleteService -&gt; DeleteService -&gt; Bool
 $c== :: DeleteService -&gt; DeleteService -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229454"><span id="local-6989586621679229456"><span id="local-6989586621679229458"><span id="local-6989586621679229460"><span class="annot"><span class="annottext">ReadPrec [DeleteService]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229607"><span id="local-6989586621679229609"><span id="local-6989586621679229611"><span id="local-6989586621679229613"><span class="annot"><span class="annottext">ReadPrec [DeleteService]
 ReadPrec DeleteService
 Int -&gt; ReadS DeleteService
 ReadS [DeleteService]
@@ -80,7 +80,7 @@ readList :: ReadS [DeleteService]
 $creadList :: ReadS [DeleteService]
 readsPrec :: Int -&gt; ReadS DeleteService
 $creadsPrec :: Int -&gt; ReadS DeleteService
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229447"><span id="local-6989586621679229449"><span id="local-6989586621679229451"><span class="annot"><span class="annottext">Int -&gt; DeleteService -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229600"><span id="local-6989586621679229602"><span id="local-6989586621679229604"><span class="annot"><span class="annottext">Int -&gt; DeleteService -&gt; ShowS
 [DeleteService] -&gt; ShowS
 DeleteService -&gt; String
 (Int -&gt; DeleteService -&gt; ShowS)
@@ -120,11 +120,11 @@ $cfrom :: forall x. DeleteService -&gt; Rep DeleteService x
 </span><span id="line-67"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteService.html#DeleteService"><span class="hs-identifier hs-type">DeleteService</span></a></span><span>
 </span><span id="line-69"></span><span id="newDeleteService"><span class="annot"><span class="annottext">newDeleteService :: Text -&gt; DeleteService
-</span><a href="Network.AWS.Route53AutoNaming.DeleteService.html#newDeleteService"><span class="hs-identifier hs-var hs-var">newDeleteService</span></a></span></span><span> </span><span id="local-6989586621679229442"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679229442"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeleteService' :: Text -&gt; DeleteService
+</span><a href="Network.AWS.Route53AutoNaming.DeleteService.html#newDeleteService"><span class="hs-identifier hs-var hs-var">newDeleteService</span></a></span></span><span> </span><span id="local-6989586621679229595"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229595"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeleteService' :: Text -&gt; DeleteService
 </span><a href="Network.AWS.Route53AutoNaming.DeleteService.html#DeleteService%27"><span class="hs-identifier hs-type">DeleteService'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:DeleteService' :: Text
 </span><a href="Network.AWS.Route53AutoNaming.DeleteService.html#%24sel%3Aid%3ADeleteService%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679229442"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679229595"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-70"></span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- | The ID of the service that you want to delete.</span><span>
 </span><span id="line-72"></span><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteService.html#deleteService_id"><span class="hs-identifier hs-type">deleteService_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteService.html#DeleteService"><span class="hs-identifier hs-type">DeleteService</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -133,27 +133,27 @@ $cfrom :: forall x. DeleteService -&gt; Rep DeleteService x
 -&gt; (DeleteService -&gt; Text -&gt; DeleteService)
 -&gt; Lens DeleteService DeleteService Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteService.html#DeleteService%27"><span class="hs-identifier hs-type">DeleteService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229439"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteService.html#DeleteService%27"><span class="hs-identifier hs-type">DeleteService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229592"><span class="annot"><span class="annottext">Text
 id :: Text
 $sel:id:DeleteService' :: DeleteService -&gt; Text
-</span><a href="#local-6989586621679229439"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679229439"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229438"><span class="annot"><span class="annottext">s :: DeleteService
-</span><a href="#local-6989586621679229438"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteService.html#DeleteService%27"><span class="hs-identifier hs-type">DeleteService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229437"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679229437"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteService
-</span><a href="#local-6989586621679229438"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:DeleteService' :: Text
+</span><a href="#local-6989586621679229592"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229592"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229591"><span class="annot"><span class="annottext">s :: DeleteService
+</span><a href="#local-6989586621679229591"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteService.html#DeleteService%27"><span class="hs-identifier hs-type">DeleteService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229590"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229590"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteService
+</span><a href="#local-6989586621679229591"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:DeleteService' :: Text
 </span><a href="Network.AWS.Route53AutoNaming.DeleteService.html#%24sel%3Aid%3ADeleteService%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679229437"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteService.html#DeleteService"><span class="hs-identifier hs-type">DeleteService</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679229590"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteService.html#DeleteService"><span class="hs-identifier hs-type">DeleteService</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteService.html#DeleteService"><span class="hs-identifier hs-type">DeleteService</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-76"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-77"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteService.html#DeleteService"><span class="hs-identifier hs-type">DeleteService</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>      </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteService.html#DeleteServiceResponse"><span class="hs-identifier hs-type">DeleteServiceResponse</span></a></span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679229433"><span class="annot"><span class="annottext">request :: DeleteService -&gt; Request DeleteService
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679229586"><span class="annot"><span class="annottext">request :: DeleteService -&gt; Request DeleteService
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteService -&gt; Request DeleteService
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Route53AutoNaming.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679229429"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679229582"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteService
 -&gt; ClientResponse ClientBody
@@ -177,10 +177,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679229426"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679229426"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679229425"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679229425"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679229424"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679229424"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679229579"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679229579"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679229578"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679229578"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679229577"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679229577"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-83"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteServiceResponse
 </span><a href="Network.AWS.Route53AutoNaming.DeleteService.html#DeleteServiceResponse%27"><span class="hs-identifier hs-var">DeleteServiceResponse'</span></a></span><span>
 </span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteServiceResponse)
@@ -191,15 +191,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679229426"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679229579"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229417"><span id="local-6989586621679229419"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteService.html#DeleteService"><span class="hs-identifier hs-type">DeleteService</span></a></span></span></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229570"><span id="local-6989586621679229572"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteService.html#DeleteService"><span class="hs-identifier hs-type">DeleteService</span></a></span></span></span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229414"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteService.html#DeleteService"><span class="hs-identifier hs-type">DeleteService</span></a></span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229567"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteService.html#DeleteService"><span class="hs-identifier hs-type">DeleteService</span></a></span></span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteService.html#DeleteService"><span class="hs-identifier hs-type">DeleteService</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679229410"><span class="annot"><span class="annottext">toHeaders :: DeleteService -&gt; ResponseHeaders
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679229563"><span class="annot"><span class="annottext">toHeaders :: DeleteService -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteService -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -226,12 +226,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-103"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229400"><span id="local-6989586621679229402"><span id="local-6989586621679229404"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteService.html#DeleteService"><span class="hs-identifier hs-type">DeleteService</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679229398"><span class="annot"><span class="annottext">toJSON :: DeleteService -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteService.html#DeleteService%27"><span class="hs-identifier hs-type">DeleteService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229396"><span class="annot"><span class="annottext">Text
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229553"><span id="local-6989586621679229555"><span id="local-6989586621679229557"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteService.html#DeleteService"><span class="hs-identifier hs-type">DeleteService</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679229551"><span class="annot"><span class="annottext">toJSON :: DeleteService -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteService.html#DeleteService%27"><span class="hs-identifier hs-type">DeleteService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229549"><span class="annot"><span class="annottext">Text
 id :: Text
 $sel:id:DeleteService' :: DeleteService -&gt; Text
-</span><a href="#local-6989586621679229396"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679229549"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -242,17 +242,17 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Id&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679229396"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679229549"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteService.html#DeleteService"><span class="hs-identifier hs-type">DeleteService</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679229390"><span class="annot"><span class="annottext">toPath :: DeleteService -&gt; ByteString
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679229543"><span class="annot"><span class="annottext">toPath :: DeleteService -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteService -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteService.html#DeleteService"><span class="hs-identifier hs-type">DeleteService</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679229386"><span class="annot"><span class="annottext">toQuery :: DeleteService -&gt; QueryString
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679229539"><span class="annot"><span class="annottext">toQuery :: DeleteService -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteService -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -260,12 +260,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-comment">-- | /See:/ 'newDeleteServiceResponse' smart constructor.</span><span>
-</span><span id="line-118"></span><span id="local-6989586621679229383"><span id="local-6989586621679229384"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteServiceResponse"><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteService.html#DeleteServiceResponse"><span class="hs-identifier hs-var">DeleteServiceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteServiceResponse%27"><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteService.html#DeleteServiceResponse%27"><span class="hs-identifier hs-var">DeleteServiceResponse'</span></a></span></span><span>
+</span><span id="line-118"></span><span id="local-6989586621679229536"><span id="local-6989586621679229537"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteServiceResponse"><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteService.html#DeleteServiceResponse"><span class="hs-identifier hs-var">DeleteServiceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteServiceResponse%27"><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteService.html#DeleteServiceResponse%27"><span class="hs-identifier hs-var">DeleteServiceResponse'</span></a></span></span><span>
 </span><span id="line-119"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-120"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteServiceResponse%27"><span class="annot"><span class="annottext">DeleteServiceResponse -&gt; Int
 </span><a href="Network.AWS.Route53AutoNaming.DeleteService.html#%24sel%3AhttpStatus%3ADeleteServiceResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-121"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-122"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679229378"><span id="local-6989586621679229380"><span class="annot"><span class="annottext">DeleteServiceResponse -&gt; DeleteServiceResponse -&gt; Bool
+</span><span id="line-122"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679229531"><span id="local-6989586621679229533"><span class="annot"><span class="annottext">DeleteServiceResponse -&gt; DeleteServiceResponse -&gt; Bool
 (DeleteServiceResponse -&gt; DeleteServiceResponse -&gt; Bool)
 -&gt; (DeleteServiceResponse -&gt; DeleteServiceResponse -&gt; Bool)
 -&gt; Eq DeleteServiceResponse
@@ -274,7 +274,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteServiceResponse -&gt; DeleteServiceResponse -&gt; Bool
 == :: DeleteServiceResponse -&gt; DeleteServiceResponse -&gt; Bool
 $c== :: DeleteServiceResponse -&gt; DeleteServiceResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229370"><span id="local-6989586621679229372"><span id="local-6989586621679229374"><span id="local-6989586621679229376"><span class="annot"><span class="annottext">ReadPrec [DeleteServiceResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229523"><span id="local-6989586621679229525"><span id="local-6989586621679229527"><span id="local-6989586621679229529"><span class="annot"><span class="annottext">ReadPrec [DeleteServiceResponse]
 ReadPrec DeleteServiceResponse
 Int -&gt; ReadS DeleteServiceResponse
 ReadS [DeleteServiceResponse]
@@ -294,7 +294,7 @@ readList :: ReadS [DeleteServiceResponse]
 $creadList :: ReadS [DeleteServiceResponse]
 readsPrec :: Int -&gt; ReadS DeleteServiceResponse
 $creadsPrec :: Int -&gt; ReadS DeleteServiceResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229364"><span id="local-6989586621679229366"><span id="local-6989586621679229368"><span class="annot"><span class="annottext">Int -&gt; DeleteServiceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229517"><span id="local-6989586621679229519"><span id="local-6989586621679229521"><span class="annot"><span class="annottext">Int -&gt; DeleteServiceResponse -&gt; ShowS
 [DeleteServiceResponse] -&gt; ShowS
 DeleteServiceResponse -&gt; String
 (Int -&gt; DeleteServiceResponse -&gt; ShowS)
@@ -334,12 +334,12 @@ $cfrom :: forall x. DeleteServiceResponse -&gt; Rep DeleteServiceResponse x
 </span><span id="line-135"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-136"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteService.html#DeleteServiceResponse"><span class="hs-identifier hs-type">DeleteServiceResponse</span></a></span><span>
 </span><span id="line-137"></span><span id="newDeleteServiceResponse"><span class="annot"><span class="annottext">newDeleteServiceResponse :: Int -&gt; DeleteServiceResponse
-</span><a href="Network.AWS.Route53AutoNaming.DeleteService.html#newDeleteServiceResponse"><span class="hs-identifier hs-var hs-var">newDeleteServiceResponse</span></a></span></span><span> </span><span id="local-6989586621679229361"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679229361"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Route53AutoNaming.DeleteService.html#newDeleteServiceResponse"><span class="hs-identifier hs-var hs-var">newDeleteServiceResponse</span></a></span></span><span> </span><span id="local-6989586621679229514"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679229514"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-138"></span><span>  </span><span class="annot"><span class="annottext">DeleteServiceResponse' :: Int -&gt; DeleteServiceResponse
 </span><a href="Network.AWS.Route53AutoNaming.DeleteService.html#DeleteServiceResponse%27"><span class="hs-identifier hs-type">DeleteServiceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteServiceResponse' :: Int
 </span><a href="Network.AWS.Route53AutoNaming.DeleteService.html#%24sel%3AhttpStatus%3ADeleteServiceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679229361"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679229514"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-141"></span><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteService.html#deleteServiceResponse_httpStatus"><span class="hs-identifier hs-type">deleteServiceResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteService.html#DeleteServiceResponse"><span class="hs-identifier hs-type">DeleteServiceResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -348,16 +348,16 @@ $cfrom :: forall x. DeleteServiceResponse -&gt; Rep DeleteServiceResponse x
 -&gt; (DeleteServiceResponse -&gt; Int -&gt; DeleteServiceResponse)
 -&gt; Lens DeleteServiceResponse DeleteServiceResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteService.html#DeleteServiceResponse%27"><span class="hs-identifier hs-type">DeleteServiceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229360"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteService.html#DeleteServiceResponse%27"><span class="hs-identifier hs-type">DeleteServiceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229513"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteServiceResponse' :: DeleteServiceResponse -&gt; Int
-</span><a href="#local-6989586621679229360"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679229360"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229359"><span class="annot"><span class="annottext">s :: DeleteServiceResponse
-</span><a href="#local-6989586621679229359"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteService.html#DeleteServiceResponse%27"><span class="hs-identifier hs-type">DeleteServiceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229358"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679229358"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteServiceResponse
-</span><a href="#local-6989586621679229359"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteServiceResponse' :: Int
+</span><a href="#local-6989586621679229513"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679229513"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229512"><span class="annot"><span class="annottext">s :: DeleteServiceResponse
+</span><a href="#local-6989586621679229512"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteService.html#DeleteServiceResponse%27"><span class="hs-identifier hs-type">DeleteServiceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229511"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679229511"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteServiceResponse
+</span><a href="#local-6989586621679229512"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteServiceResponse' :: Int
 </span><a href="Network.AWS.Route53AutoNaming.DeleteService.html#%24sel%3AhttpStatus%3ADeleteServiceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679229358"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteService.html#DeleteServiceResponse"><span class="hs-identifier hs-type">DeleteServiceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679229511"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteService.html#DeleteServiceResponse"><span class="hs-identifier hs-type">DeleteServiceResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>
-</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229356"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteService.html#DeleteServiceResponse"><span class="hs-identifier hs-type">DeleteServiceResponse</span></a></span></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229509"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.DeleteService.html#DeleteServiceResponse"><span class="hs-identifier hs-type">DeleteServiceResponse</span></a></span></span><span>
 </span><span id="line-145"></span></pre></body></html>

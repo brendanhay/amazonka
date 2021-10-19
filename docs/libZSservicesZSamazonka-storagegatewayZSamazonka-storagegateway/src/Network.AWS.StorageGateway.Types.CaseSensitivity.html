@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679366894"><span id="local-6989586621679366895"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CaseSensitivity"><span class="annot"><a href="Network.AWS.StorageGateway.Types.CaseSensitivity.html#CaseSensitivity"><span class="hs-identifier hs-var">CaseSensitivity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CaseSensitivity%27"><span class="annot"><a href="Network.AWS.StorageGateway.Types.CaseSensitivity.html#CaseSensitivity%27"><span class="hs-identifier hs-var">CaseSensitivity'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679371153"><span id="local-6989586621679371154"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CaseSensitivity"><span class="annot"><a href="Network.AWS.StorageGateway.Types.CaseSensitivity.html#CaseSensitivity"><span class="hs-identifier hs-var">CaseSensitivity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CaseSensitivity%27"><span class="annot"><a href="Network.AWS.StorageGateway.Types.CaseSensitivity.html#CaseSensitivity%27"><span class="hs-identifier hs-var">CaseSensitivity'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCaseSensitivity"><span class="annot"><span class="annottext">CaseSensitivity -&gt; Text
 </span><a href="Network.AWS.StorageGateway.Types.CaseSensitivity.html#fromCaseSensitivity"><span class="hs-identifier hs-var hs-var">fromCaseSensitivity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679366886"><span id="local-6989586621679366888"><span id="local-6989586621679366890"><span class="annot"><span class="annottext">Int -&gt; CaseSensitivity -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679371145"><span id="local-6989586621679371147"><span id="local-6989586621679371149"><span class="annot"><span class="annottext">Int -&gt; CaseSensitivity -&gt; ShowS
 [CaseSensitivity] -&gt; ShowS
 CaseSensitivity -&gt; String
 (Int -&gt; CaseSensitivity -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: CaseSensitivity -&gt; String
 showsPrec :: Int -&gt; CaseSensitivity -&gt; ShowS
 $cshowsPrec :: Int -&gt; CaseSensitivity -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679366877"><span id="local-6989586621679366879"><span id="local-6989586621679366881"><span id="local-6989586621679366883"><span class="annot"><span class="annottext">ReadPrec [CaseSensitivity]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679371136"><span id="local-6989586621679371138"><span id="local-6989586621679371140"><span id="local-6989586621679371142"><span class="annot"><span class="annottext">ReadPrec [CaseSensitivity]
 ReadPrec CaseSensitivity
 Int -&gt; ReadS CaseSensitivity
 ReadS [CaseSensitivity]
@@ -72,7 +72,7 @@ $creadList :: ReadS [CaseSensitivity]
 readsPrec :: Int -&gt; ReadS CaseSensitivity
 $creadsPrec :: Int -&gt; ReadS CaseSensitivity
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679366872"><span id="local-6989586621679366874"><span class="annot"><span class="annottext">CaseSensitivity -&gt; CaseSensitivity -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679371131"><span id="local-6989586621679371133"><span class="annot"><span class="annottext">CaseSensitivity -&gt; CaseSensitivity -&gt; Bool
 (CaseSensitivity -&gt; CaseSensitivity -&gt; Bool)
 -&gt; (CaseSensitivity -&gt; CaseSensitivity -&gt; Bool)
 -&gt; Eq CaseSensitivity
@@ -82,7 +82,7 @@ $c/= :: CaseSensitivity -&gt; CaseSensitivity -&gt; Bool
 == :: CaseSensitivity -&gt; CaseSensitivity -&gt; Bool
 $c== :: CaseSensitivity -&gt; CaseSensitivity -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679366856"><span id="local-6989586621679366858"><span id="local-6989586621679366860"><span id="local-6989586621679366862"><span id="local-6989586621679366864"><span id="local-6989586621679366866"><span id="local-6989586621679366868"><span class="annot"><span class="annottext">Eq CaseSensitivity
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679371115"><span id="local-6989586621679371117"><span id="local-6989586621679371119"><span id="local-6989586621679371121"><span id="local-6989586621679371123"><span id="local-6989586621679371125"><span id="local-6989586621679371127"><span class="annot"><span class="annottext">Eq CaseSensitivity
 Eq CaseSensitivity
 -&gt; (CaseSensitivity -&gt; CaseSensitivity -&gt; Ordering)
 -&gt; (CaseSensitivity -&gt; CaseSensitivity -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. CaseSensitivity -&gt; Rep CaseSensitivity x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679366848"><span id="local-6989586621679366850"><span class="annot"><span class="annottext">Int -&gt; CaseSensitivity -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679371107"><span id="local-6989586621679371109"><span class="annot"><span class="annottext">Int -&gt; CaseSensitivity -&gt; Int
 CaseSensitivity -&gt; Int
 (Int -&gt; CaseSensitivity -&gt; Int)
 -&gt; (CaseSensitivity -&gt; Int) -&gt; Hashable CaseSensitivity
@@ -143,50 +143,50 @@ $chash :: CaseSensitivity -&gt; Int
 hashWithSalt :: Int -&gt; CaseSensitivity -&gt; Int
 $chashWithSalt :: Int -&gt; CaseSensitivity -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679366845"><span class="annot"><span class="annottext">CaseSensitivity -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679371104"><span class="annot"><span class="annottext">CaseSensitivity -&gt; ()
 (CaseSensitivity -&gt; ()) -&gt; NFData CaseSensitivity
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: CaseSensitivity -&gt; ()
 $crnf :: CaseSensitivity -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679366842"><span class="annot"><span class="annottext">Text -&gt; Either String CaseSensitivity
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679371101"><span class="annot"><span class="annottext">Text -&gt; Either String CaseSensitivity
 (Text -&gt; Either String CaseSensitivity) -&gt; FromText CaseSensitivity
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String CaseSensitivity
 $cfromText :: Text -&gt; Either String CaseSensitivity
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679366839"><span class="annot"><span class="annottext">CaseSensitivity -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679371098"><span class="annot"><span class="annottext">CaseSensitivity -&gt; Text
 (CaseSensitivity -&gt; Text) -&gt; ToText CaseSensitivity
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: CaseSensitivity -&gt; Text
 $ctoText :: CaseSensitivity -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679366836"><span class="annot"><span class="annottext">CaseSensitivity -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679371095"><span class="annot"><span class="annottext">CaseSensitivity -&gt; ByteString
 (CaseSensitivity -&gt; ByteString) -&gt; ToByteString CaseSensitivity
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: CaseSensitivity -&gt; ByteString
 $ctoBS :: CaseSensitivity -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679366833"><span class="annot"><span class="annottext">CaseSensitivity -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679371092"><span class="annot"><span class="annottext">CaseSensitivity -&gt; ByteStringBuilder
 (CaseSensitivity -&gt; ByteStringBuilder) -&gt; ToLog CaseSensitivity
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: CaseSensitivity -&gt; ByteStringBuilder
 $cbuild :: CaseSensitivity -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679366830"><span class="annot"><span class="annottext">HeaderName -&gt; CaseSensitivity -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679371089"><span class="annot"><span class="annottext">HeaderName -&gt; CaseSensitivity -&gt; [Header]
 (HeaderName -&gt; CaseSensitivity -&gt; [Header])
 -&gt; ToHeader CaseSensitivity
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; CaseSensitivity -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; CaseSensitivity -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679366827"><span class="annot"><span class="annottext">CaseSensitivity -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679371086"><span class="annot"><span class="annottext">CaseSensitivity -&gt; QueryString
 (CaseSensitivity -&gt; QueryString) -&gt; ToQuery CaseSensitivity
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: CaseSensitivity -&gt; QueryString
 $ctoQuery :: CaseSensitivity -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679366822"><span id="local-6989586621679366824"><span class="annot"><span class="annottext">Value -&gt; Parser [CaseSensitivity]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679371081"><span id="local-6989586621679371083"><span class="annot"><span class="annottext">Value -&gt; Parser [CaseSensitivity]
 Value -&gt; Parser CaseSensitivity
 (Value -&gt; Parser CaseSensitivity)
 -&gt; (Value -&gt; Parser [CaseSensitivity]) -&gt; FromJSON CaseSensitivity
@@ -197,7 +197,7 @@ $cparseJSONList :: Value -&gt; Parser [CaseSensitivity]
 parseJSON :: Value -&gt; Parser CaseSensitivity
 $cparseJSON :: Value -&gt; Parser CaseSensitivity
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679366817"><span id="local-6989586621679366819"><span class="annot"><span class="annottext">FromJSONKeyFunction [CaseSensitivity]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679371076"><span id="local-6989586621679371078"><span class="annot"><span class="annottext">FromJSONKeyFunction [CaseSensitivity]
 FromJSONKeyFunction CaseSensitivity
 FromJSONKeyFunction CaseSensitivity
 -&gt; FromJSONKeyFunction [CaseSensitivity]
@@ -209,7 +209,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [CaseSensitivity]
 fromJSONKey :: FromJSONKeyFunction CaseSensitivity
 $cfromJSONKey :: FromJSONKeyFunction CaseSensitivity
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679366808"><span id="local-6989586621679366810"><span id="local-6989586621679366812"><span id="local-6989586621679366814"><span class="annot"><span class="annottext">[CaseSensitivity] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679371067"><span id="local-6989586621679371069"><span id="local-6989586621679371071"><span id="local-6989586621679371073"><span class="annot"><span class="annottext">[CaseSensitivity] -&gt; Encoding
 [CaseSensitivity] -&gt; Value
 CaseSensitivity -&gt; Encoding
 CaseSensitivity -&gt; Value
@@ -233,7 +233,7 @@ $ctoEncoding :: CaseSensitivity -&gt; Encoding
 toJSON :: CaseSensitivity -&gt; Value
 $ctoJSON :: CaseSensitivity -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679366803"><span id="local-6989586621679366805"><span class="annot"><span class="annottext">ToJSONKeyFunction [CaseSensitivity]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679371062"><span id="local-6989586621679371064"><span class="annot"><span class="annottext">ToJSONKeyFunction [CaseSensitivity]
 ToJSONKeyFunction CaseSensitivity
 ToJSONKeyFunction CaseSensitivity
 -&gt; ToJSONKeyFunction [CaseSensitivity] -&gt; ToJSONKey CaseSensitivity
@@ -244,14 +244,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [CaseSensitivity]
 toJSONKey :: ToJSONKeyFunction CaseSensitivity
 $ctoJSONKey :: ToJSONKeyFunction CaseSensitivity
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679366800"><span class="annot"><span class="annottext">[Node] -&gt; Either String CaseSensitivity
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679371059"><span class="annot"><span class="annottext">[Node] -&gt; Either String CaseSensitivity
 ([Node] -&gt; Either String CaseSensitivity)
 -&gt; FromXML CaseSensitivity
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String CaseSensitivity
 $cparseXML :: [Node] -&gt; Either String CaseSensitivity
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679366797"><span class="annot"><span class="annottext">CaseSensitivity -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679371056"><span class="annot"><span class="annottext">CaseSensitivity -&gt; XML
 (CaseSensitivity -&gt; XML) -&gt; ToXML CaseSensitivity
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: CaseSensitivity -&gt; XML

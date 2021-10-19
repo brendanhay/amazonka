@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-comment">-- | Enable Deblock (InputDeblockFilter) to produce smoother motion in the</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- output. Default is disabled. Only manually controllable for MPEG2 and</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- uncompressed video inputs.</span><span>
-</span><span id="line-35"></span><span id="local-6989586621679975502"><span id="local-6989586621679975503"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InputDeblockFilter"><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputDeblockFilter.html#InputDeblockFilter"><span class="hs-identifier hs-var">InputDeblockFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InputDeblockFilter%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputDeblockFilter.html#InputDeblockFilter%27"><span class="hs-identifier hs-var">InputDeblockFilter'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679980127"><span id="local-6989586621679980128"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InputDeblockFilter"><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputDeblockFilter.html#InputDeblockFilter"><span class="hs-identifier hs-var">InputDeblockFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InputDeblockFilter%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputDeblockFilter.html#InputDeblockFilter%27"><span class="hs-identifier hs-var">InputDeblockFilter'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromInputDeblockFilter"><span class="annot"><span class="annottext">InputDeblockFilter -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.InputDeblockFilter.html#fromInputDeblockFilter"><span class="hs-identifier hs-var hs-var">fromInputDeblockFilter</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679975494"><span id="local-6989586621679975496"><span id="local-6989586621679975498"><span class="annot"><span class="annottext">Int -&gt; InputDeblockFilter -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679980119"><span id="local-6989586621679980121"><span id="local-6989586621679980123"><span class="annot"><span class="annottext">Int -&gt; InputDeblockFilter -&gt; ShowS
 [InputDeblockFilter] -&gt; ShowS
 InputDeblockFilter -&gt; String
 (Int -&gt; InputDeblockFilter -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: InputDeblockFilter -&gt; String
 showsPrec :: Int -&gt; InputDeblockFilter -&gt; ShowS
 $cshowsPrec :: Int -&gt; InputDeblockFilter -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679975485"><span id="local-6989586621679975487"><span id="local-6989586621679975489"><span id="local-6989586621679975491"><span class="annot"><span class="annottext">ReadPrec [InputDeblockFilter]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679980110"><span id="local-6989586621679980112"><span id="local-6989586621679980114"><span id="local-6989586621679980116"><span class="annot"><span class="annottext">ReadPrec [InputDeblockFilter]
 ReadPrec InputDeblockFilter
 Int -&gt; ReadS InputDeblockFilter
 ReadS [InputDeblockFilter]
@@ -75,7 +75,7 @@ $creadList :: ReadS [InputDeblockFilter]
 readsPrec :: Int -&gt; ReadS InputDeblockFilter
 $creadsPrec :: Int -&gt; ReadS InputDeblockFilter
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679975480"><span id="local-6989586621679975482"><span class="annot"><span class="annottext">InputDeblockFilter -&gt; InputDeblockFilter -&gt; Bool
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679980105"><span id="local-6989586621679980107"><span class="annot"><span class="annottext">InputDeblockFilter -&gt; InputDeblockFilter -&gt; Bool
 (InputDeblockFilter -&gt; InputDeblockFilter -&gt; Bool)
 -&gt; (InputDeblockFilter -&gt; InputDeblockFilter -&gt; Bool)
 -&gt; Eq InputDeblockFilter
@@ -85,7 +85,7 @@ $c/= :: InputDeblockFilter -&gt; InputDeblockFilter -&gt; Bool
 == :: InputDeblockFilter -&gt; InputDeblockFilter -&gt; Bool
 $c== :: InputDeblockFilter -&gt; InputDeblockFilter -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679975464"><span id="local-6989586621679975466"><span id="local-6989586621679975468"><span id="local-6989586621679975470"><span id="local-6989586621679975472"><span id="local-6989586621679975474"><span id="local-6989586621679975476"><span class="annot"><span class="annottext">Eq InputDeblockFilter
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679980089"><span id="local-6989586621679980091"><span id="local-6989586621679980093"><span id="local-6989586621679980095"><span id="local-6989586621679980097"><span id="local-6989586621679980099"><span id="local-6989586621679980101"><span class="annot"><span class="annottext">Eq InputDeblockFilter
 Eq InputDeblockFilter
 -&gt; (InputDeblockFilter -&gt; InputDeblockFilter -&gt; Ordering)
 -&gt; (InputDeblockFilter -&gt; InputDeblockFilter -&gt; Bool)
@@ -136,7 +136,7 @@ $cfrom :: forall x. InputDeblockFilter -&gt; Rep InputDeblockFilter x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679975456"><span id="local-6989586621679975458"><span class="annot"><span class="annottext">Int -&gt; InputDeblockFilter -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679980081"><span id="local-6989586621679980083"><span class="annot"><span class="annottext">Int -&gt; InputDeblockFilter -&gt; Int
 InputDeblockFilter -&gt; Int
 (Int -&gt; InputDeblockFilter -&gt; Int)
 -&gt; (InputDeblockFilter -&gt; Int) -&gt; Hashable InputDeblockFilter
@@ -146,53 +146,53 @@ $chash :: InputDeblockFilter -&gt; Int
 hashWithSalt :: Int -&gt; InputDeblockFilter -&gt; Int
 $chashWithSalt :: Int -&gt; InputDeblockFilter -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679975453"><span class="annot"><span class="annottext">InputDeblockFilter -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679980078"><span class="annot"><span class="annottext">InputDeblockFilter -&gt; ()
 (InputDeblockFilter -&gt; ()) -&gt; NFData InputDeblockFilter
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: InputDeblockFilter -&gt; ()
 $crnf :: InputDeblockFilter -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679975450"><span class="annot"><span class="annottext">Text -&gt; Either String InputDeblockFilter
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679980075"><span class="annot"><span class="annottext">Text -&gt; Either String InputDeblockFilter
 (Text -&gt; Either String InputDeblockFilter)
 -&gt; FromText InputDeblockFilter
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String InputDeblockFilter
 $cfromText :: Text -&gt; Either String InputDeblockFilter
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679975447"><span class="annot"><span class="annottext">InputDeblockFilter -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679980072"><span class="annot"><span class="annottext">InputDeblockFilter -&gt; Text
 (InputDeblockFilter -&gt; Text) -&gt; ToText InputDeblockFilter
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: InputDeblockFilter -&gt; Text
 $ctoText :: InputDeblockFilter -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679975444"><span class="annot"><span class="annottext">InputDeblockFilter -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679980069"><span class="annot"><span class="annottext">InputDeblockFilter -&gt; ByteString
 (InputDeblockFilter -&gt; ByteString)
 -&gt; ToByteString InputDeblockFilter
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: InputDeblockFilter -&gt; ByteString
 $ctoBS :: InputDeblockFilter -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679975441"><span class="annot"><span class="annottext">InputDeblockFilter -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679980066"><span class="annot"><span class="annottext">InputDeblockFilter -&gt; ByteStringBuilder
 (InputDeblockFilter -&gt; ByteStringBuilder)
 -&gt; ToLog InputDeblockFilter
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: InputDeblockFilter -&gt; ByteStringBuilder
 $cbuild :: InputDeblockFilter -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679975438"><span class="annot"><span class="annottext">HeaderName -&gt; InputDeblockFilter -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679980063"><span class="annot"><span class="annottext">HeaderName -&gt; InputDeblockFilter -&gt; [Header]
 (HeaderName -&gt; InputDeblockFilter -&gt; [Header])
 -&gt; ToHeader InputDeblockFilter
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; InputDeblockFilter -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; InputDeblockFilter -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679975435"><span class="annot"><span class="annottext">InputDeblockFilter -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679980060"><span class="annot"><span class="annottext">InputDeblockFilter -&gt; QueryString
 (InputDeblockFilter -&gt; QueryString) -&gt; ToQuery InputDeblockFilter
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: InputDeblockFilter -&gt; QueryString
 $ctoQuery :: InputDeblockFilter -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679975430"><span id="local-6989586621679975432"><span class="annot"><span class="annottext">Value -&gt; Parser [InputDeblockFilter]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679980055"><span id="local-6989586621679980057"><span class="annot"><span class="annottext">Value -&gt; Parser [InputDeblockFilter]
 Value -&gt; Parser InputDeblockFilter
 (Value -&gt; Parser InputDeblockFilter)
 -&gt; (Value -&gt; Parser [InputDeblockFilter])
@@ -204,7 +204,7 @@ $cparseJSONList :: Value -&gt; Parser [InputDeblockFilter]
 parseJSON :: Value -&gt; Parser InputDeblockFilter
 $cparseJSON :: Value -&gt; Parser InputDeblockFilter
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679975425"><span id="local-6989586621679975427"><span class="annot"><span class="annottext">FromJSONKeyFunction [InputDeblockFilter]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679980050"><span id="local-6989586621679980052"><span class="annot"><span class="annottext">FromJSONKeyFunction [InputDeblockFilter]
 FromJSONKeyFunction InputDeblockFilter
 FromJSONKeyFunction InputDeblockFilter
 -&gt; FromJSONKeyFunction [InputDeblockFilter]
@@ -216,7 +216,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [InputDeblockFilter]
 fromJSONKey :: FromJSONKeyFunction InputDeblockFilter
 $cfromJSONKey :: FromJSONKeyFunction InputDeblockFilter
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679975416"><span id="local-6989586621679975418"><span id="local-6989586621679975420"><span id="local-6989586621679975422"><span class="annot"><span class="annottext">[InputDeblockFilter] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679980041"><span id="local-6989586621679980043"><span id="local-6989586621679980045"><span id="local-6989586621679980047"><span class="annot"><span class="annottext">[InputDeblockFilter] -&gt; Encoding
 [InputDeblockFilter] -&gt; Value
 InputDeblockFilter -&gt; Encoding
 InputDeblockFilter -&gt; Value
@@ -240,7 +240,7 @@ $ctoEncoding :: InputDeblockFilter -&gt; Encoding
 toJSON :: InputDeblockFilter -&gt; Value
 $ctoJSON :: InputDeblockFilter -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679975411"><span id="local-6989586621679975413"><span class="annot"><span class="annottext">ToJSONKeyFunction [InputDeblockFilter]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679980036"><span id="local-6989586621679980038"><span class="annot"><span class="annottext">ToJSONKeyFunction [InputDeblockFilter]
 ToJSONKeyFunction InputDeblockFilter
 ToJSONKeyFunction InputDeblockFilter
 -&gt; ToJSONKeyFunction [InputDeblockFilter]
@@ -252,14 +252,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [InputDeblockFilter]
 toJSONKey :: ToJSONKeyFunction InputDeblockFilter
 $ctoJSONKey :: ToJSONKeyFunction InputDeblockFilter
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679975408"><span class="annot"><span class="annottext">[Node] -&gt; Either String InputDeblockFilter
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679980033"><span class="annot"><span class="annottext">[Node] -&gt; Either String InputDeblockFilter
 ([Node] -&gt; Either String InputDeblockFilter)
 -&gt; FromXML InputDeblockFilter
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String InputDeblockFilter
 $cparseXML :: [Node] -&gt; Either String InputDeblockFilter
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679975405"><span class="annot"><span class="annottext">InputDeblockFilter -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679980030"><span class="annot"><span class="annottext">InputDeblockFilter -&gt; XML
 (InputDeblockFilter -&gt; XML) -&gt; ToXML InputDeblockFilter
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: InputDeblockFilter -&gt; XML

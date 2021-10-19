@@ -49,12 +49,12 @@
 </span><span id="line-49"></span><span class="hs-comment">-- | Represents a request to the get test operation.</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- /See:/ 'newGetTest' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679382146"><span id="local-6989586621679382147"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetTest"><span class="annot"><a href="Network.AWS.DeviceFarm.GetTest.html#GetTest"><span class="hs-identifier hs-var">GetTest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetTest%27"><span class="annot"><a href="Network.AWS.DeviceFarm.GetTest.html#GetTest%27"><span class="hs-identifier hs-var">GetTest'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679382425"><span id="local-6989586621679382426"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetTest"><span class="annot"><a href="Network.AWS.DeviceFarm.GetTest.html#GetTest"><span class="hs-identifier hs-var">GetTest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetTest%27"><span class="annot"><a href="Network.AWS.DeviceFarm.GetTest.html#GetTest%27"><span class="hs-identifier hs-var">GetTest'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The test\'s ARN.</span><span>
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3Aarn%3AGetTest%27"><span class="annot"><span class="annottext">GetTest -&gt; Text
 </span><a href="Network.AWS.DeviceFarm.GetTest.html#%24sel%3Aarn%3AGetTest%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679382140"><span id="local-6989586621679382142"><span class="annot"><span class="annottext">GetTest -&gt; GetTest -&gt; Bool
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679382419"><span id="local-6989586621679382421"><span class="annot"><span class="annottext">GetTest -&gt; GetTest -&gt; Bool
 (GetTest -&gt; GetTest -&gt; Bool)
 -&gt; (GetTest -&gt; GetTest -&gt; Bool) -&gt; Eq GetTest
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -62,7 +62,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetTest -&gt; GetTest -&gt; Bool
 == :: GetTest -&gt; GetTest -&gt; Bool
 $c== :: GetTest -&gt; GetTest -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679382131"><span id="local-6989586621679382133"><span id="local-6989586621679382135"><span id="local-6989586621679382137"><span class="annot"><span class="annottext">ReadPrec [GetTest]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679382410"><span id="local-6989586621679382412"><span id="local-6989586621679382414"><span id="local-6989586621679382416"><span class="annot"><span class="annottext">ReadPrec [GetTest]
 ReadPrec GetTest
 Int -&gt; ReadS GetTest
 ReadS [GetTest]
@@ -82,7 +82,7 @@ readList :: ReadS [GetTest]
 $creadList :: ReadS [GetTest]
 readsPrec :: Int -&gt; ReadS GetTest
 $creadsPrec :: Int -&gt; ReadS GetTest
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679382124"><span id="local-6989586621679382126"><span id="local-6989586621679382128"><span class="annot"><span class="annottext">Int -&gt; GetTest -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679382403"><span id="local-6989586621679382405"><span id="local-6989586621679382407"><span class="annot"><span class="annottext">Int -&gt; GetTest -&gt; ShowS
 [GetTest] -&gt; ShowS
 GetTest -&gt; String
 (Int -&gt; GetTest -&gt; ShowS)
@@ -119,11 +119,11 @@ $cfrom :: forall x. GetTest -&gt; Rep GetTest x
 </span><span id="line-69"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTest.html#GetTest"><span class="hs-identifier hs-type">GetTest</span></a></span><span>
 </span><span id="line-71"></span><span id="newGetTest"><span class="annot"><span class="annottext">newGetTest :: Text -&gt; GetTest
-</span><a href="Network.AWS.DeviceFarm.GetTest.html#newGetTest"><span class="hs-identifier hs-var hs-var">newGetTest</span></a></span></span><span> </span><span id="local-6989586621679382119"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679382119"><span class="hs-identifier hs-var">pArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">GetTest' :: Text -&gt; GetTest
+</span><a href="Network.AWS.DeviceFarm.GetTest.html#newGetTest"><span class="hs-identifier hs-var hs-var">newGetTest</span></a></span></span><span> </span><span id="local-6989586621679382398"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679382398"><span class="hs-identifier hs-var">pArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">GetTest' :: Text -&gt; GetTest
 </span><a href="Network.AWS.DeviceFarm.GetTest.html#GetTest%27"><span class="hs-identifier hs-type">GetTest'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:GetTest' :: Text
 </span><a href="Network.AWS.DeviceFarm.GetTest.html#%24sel%3Aarn%3AGetTest%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679382119"><span class="hs-identifier hs-var">pArn_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679382398"><span class="hs-identifier hs-var">pArn_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-72"></span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- | The test\'s ARN.</span><span>
 </span><span id="line-74"></span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTest.html#getTest_arn"><span class="hs-identifier hs-type">getTest_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTest.html#GetTest"><span class="hs-identifier hs-type">GetTest</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -131,25 +131,25 @@ $cfrom :: forall x. GetTest -&gt; Rep GetTest x
 </span><a href="Network.AWS.DeviceFarm.GetTest.html#getTest_arn"><span class="hs-identifier hs-var hs-var">getTest_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetTest -&gt; Text)
 -&gt; (GetTest -&gt; Text -&gt; GetTest) -&gt; Lens GetTest GetTest Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTest.html#GetTest%27"><span class="hs-identifier hs-type">GetTest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679382116"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTest.html#GetTest%27"><span class="hs-identifier hs-type">GetTest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679382395"><span class="annot"><span class="annottext">Text
 arn :: Text
 $sel:arn:GetTest' :: GetTest -&gt; Text
-</span><a href="#local-6989586621679382116"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679382116"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679382115"><span class="annot"><span class="annottext">s :: GetTest
-</span><a href="#local-6989586621679382115"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTest.html#GetTest%27"><span class="hs-identifier hs-type">GetTest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679382114"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679382114"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTest
-</span><a href="#local-6989586621679382115"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:GetTest' :: Text
+</span><a href="#local-6989586621679382395"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679382395"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679382394"><span class="annot"><span class="annottext">s :: GetTest
+</span><a href="#local-6989586621679382394"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTest.html#GetTest%27"><span class="hs-identifier hs-type">GetTest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679382393"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679382393"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTest
+</span><a href="#local-6989586621679382394"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:GetTest' :: Text
 </span><a href="Network.AWS.DeviceFarm.GetTest.html#%24sel%3Aarn%3AGetTest%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679382114"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTest.html#GetTest"><span class="hs-identifier hs-type">GetTest</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679382393"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTest.html#GetTest"><span class="hs-identifier hs-type">GetTest</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTest.html#GetTest"><span class="hs-identifier hs-type">GetTest</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-78"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTest.html#GetTest"><span class="hs-identifier hs-type">GetTest</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTest.html#GetTestResponse"><span class="hs-identifier hs-type">GetTestResponse</span></a></span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679382110"><span class="annot"><span class="annottext">request :: GetTest -&gt; Request GetTest
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679382389"><span class="annot"><span class="annottext">request :: GetTest -&gt; Request GetTest
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetTest -&gt; Request GetTest
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DeviceFarm.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679382106"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679382385"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetTest
 -&gt; ClientResponse ClientBody
@@ -173,10 +173,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679382103"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679382103"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679382102"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679382102"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679382101"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679382101"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679382382"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679382382"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679382381"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679382381"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679382380"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679382380"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-83"></span><span>          </span><span class="annot"><span class="annottext">Maybe Test -&gt; Int -&gt; GetTestResponse
 </span><a href="Network.AWS.DeviceFarm.GetTest.html#GetTestResponse%27"><span class="hs-identifier hs-var">GetTestResponse'</span></a></span><span>
 </span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Test -&gt; Int -&gt; GetTestResponse)
@@ -184,7 +184,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; GetTestResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679382101"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Test)
+</span><a href="#local-6989586621679382380"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Test)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;test&quot;</span></span><span class="hs-special">)</span><span>
@@ -196,15 +196,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679382103"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679382382"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679382093"><span id="local-6989586621679382095"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTest.html#GetTest"><span class="hs-identifier hs-type">GetTest</span></a></span></span></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679382372"><span id="local-6989586621679382374"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTest.html#GetTest"><span class="hs-identifier hs-type">GetTest</span></a></span></span></span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679382090"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTest.html#GetTest"><span class="hs-identifier hs-type">GetTest</span></a></span></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679382369"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTest.html#GetTest"><span class="hs-identifier hs-type">GetTest</span></a></span></span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTest.html#GetTest"><span class="hs-identifier hs-type">GetTest</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679382086"><span class="annot"><span class="annottext">toHeaders :: GetTest -&gt; ResponseHeaders
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679382365"><span class="annot"><span class="annottext">toHeaders :: GetTest -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetTest -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -231,12 +231,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-104"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-105"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679382076"><span id="local-6989586621679382078"><span id="local-6989586621679382080"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTest.html#GetTest"><span class="hs-identifier hs-type">GetTest</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679382074"><span class="annot"><span class="annottext">toJSON :: GetTest -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTest.html#GetTest%27"><span class="hs-identifier hs-type">GetTest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679382072"><span class="annot"><span class="annottext">Text
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679382355"><span id="local-6989586621679382357"><span id="local-6989586621679382359"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTest.html#GetTest"><span class="hs-identifier hs-type">GetTest</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679382353"><span class="annot"><span class="annottext">toJSON :: GetTest -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTest.html#GetTest%27"><span class="hs-identifier hs-type">GetTest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679382351"><span class="annot"><span class="annottext">Text
 arn :: Text
 $sel:arn:GetTest' :: GetTest -&gt; Text
-</span><a href="#local-6989586621679382072"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679382351"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -248,18 +248,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;arn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679382072"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679382351"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTest.html#GetTest"><span class="hs-identifier hs-type">GetTest</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679382066"><span class="annot"><span class="annottext">toPath :: GetTest -&gt; ByteString
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679382345"><span class="annot"><span class="annottext">toPath :: GetTest -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetTest -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTest.html#GetTest"><span class="hs-identifier hs-type">GetTest</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679382062"><span class="annot"><span class="annottext">toQuery :: GetTest -&gt; QueryString
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679382341"><span class="annot"><span class="annottext">toQuery :: GetTest -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetTest -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -269,7 +269,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-120"></span><span class="hs-comment">-- | Represents the result of a get test request.</span><span>
 </span><span id="line-121"></span><span class="hs-comment">--</span><span>
 </span><span id="line-122"></span><span class="hs-comment">-- /See:/ 'newGetTestResponse' smart constructor.</span><span>
-</span><span id="line-123"></span><span id="local-6989586621679382059"><span id="local-6989586621679382060"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetTestResponse"><span class="annot"><a href="Network.AWS.DeviceFarm.GetTest.html#GetTestResponse"><span class="hs-identifier hs-var">GetTestResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetTestResponse%27"><span class="annot"><a href="Network.AWS.DeviceFarm.GetTest.html#GetTestResponse%27"><span class="hs-identifier hs-var">GetTestResponse'</span></a></span></span><span>
+</span><span id="line-123"></span><span id="local-6989586621679382338"><span id="local-6989586621679382339"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetTestResponse"><span class="annot"><a href="Network.AWS.DeviceFarm.GetTest.html#GetTestResponse"><span class="hs-identifier hs-var">GetTestResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetTestResponse%27"><span class="annot"><a href="Network.AWS.DeviceFarm.GetTest.html#GetTestResponse%27"><span class="hs-identifier hs-var">GetTestResponse'</span></a></span></span><span>
 </span><span id="line-124"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A test condition that is evaluated.</span><span>
 </span><span id="line-125"></span><span>    </span><span id="%24sel%3Atest%3AGetTestResponse%27"><span class="annot"><span class="annottext">GetTestResponse -&gt; Maybe Test
 </span><a href="Network.AWS.DeviceFarm.GetTest.html#%24sel%3Atest%3AGetTestResponse%27"><span class="hs-identifier hs-var hs-var">test</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Test.html#Test"><span class="hs-identifier hs-type">Test</span></a></span><span class="hs-special">,</span><span>
@@ -277,7 +277,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-127"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetTestResponse%27"><span class="annot"><span class="annottext">GetTestResponse -&gt; Int
 </span><a href="Network.AWS.DeviceFarm.GetTest.html#%24sel%3AhttpStatus%3AGetTestResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-128"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-129"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679382053"><span id="local-6989586621679382055"><span class="annot"><span class="annottext">GetTestResponse -&gt; GetTestResponse -&gt; Bool
+</span><span id="line-129"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679382332"><span id="local-6989586621679382334"><span class="annot"><span class="annottext">GetTestResponse -&gt; GetTestResponse -&gt; Bool
 (GetTestResponse -&gt; GetTestResponse -&gt; Bool)
 -&gt; (GetTestResponse -&gt; GetTestResponse -&gt; Bool)
 -&gt; Eq GetTestResponse
@@ -286,7 +286,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetTestResponse -&gt; GetTestResponse -&gt; Bool
 == :: GetTestResponse -&gt; GetTestResponse -&gt; Bool
 $c== :: GetTestResponse -&gt; GetTestResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679382045"><span id="local-6989586621679382047"><span id="local-6989586621679382049"><span id="local-6989586621679382051"><span class="annot"><span class="annottext">ReadPrec [GetTestResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679382324"><span id="local-6989586621679382326"><span id="local-6989586621679382328"><span id="local-6989586621679382330"><span class="annot"><span class="annottext">ReadPrec [GetTestResponse]
 ReadPrec GetTestResponse
 Int -&gt; ReadS GetTestResponse
 ReadS [GetTestResponse]
@@ -306,7 +306,7 @@ readList :: ReadS [GetTestResponse]
 $creadList :: ReadS [GetTestResponse]
 readsPrec :: Int -&gt; ReadS GetTestResponse
 $creadsPrec :: Int -&gt; ReadS GetTestResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679382039"><span id="local-6989586621679382041"><span id="local-6989586621679382043"><span class="annot"><span class="annottext">Int -&gt; GetTestResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679382318"><span id="local-6989586621679382320"><span id="local-6989586621679382322"><span class="annot"><span class="annottext">Int -&gt; GetTestResponse -&gt; ShowS
 [GetTestResponse] -&gt; ShowS
 GetTestResponse -&gt; String
 (Int -&gt; GetTestResponse -&gt; ShowS)
@@ -348,8 +348,8 @@ $cfrom :: forall x. GetTestResponse -&gt; Rep GetTestResponse x
 </span><span id="line-144"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-145"></span><span>  </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTest.html#GetTestResponse"><span class="hs-identifier hs-type">GetTestResponse</span></a></span><span>
 </span><span id="line-146"></span><span id="newGetTestResponse"><span class="annot"><span class="annottext">newGetTestResponse :: Int -&gt; GetTestResponse
-</span><a href="Network.AWS.DeviceFarm.GetTest.html#newGetTestResponse"><span class="hs-identifier hs-var hs-var">newGetTestResponse</span></a></span></span><span> </span><span id="local-6989586621679382036"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679382036"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DeviceFarm.GetTest.html#newGetTestResponse"><span class="hs-identifier hs-var hs-var">newGetTestResponse</span></a></span></span><span> </span><span id="local-6989586621679382315"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679382315"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-147"></span><span>  </span><span class="annot"><span class="annottext">GetTestResponse' :: Maybe Test -&gt; Int -&gt; GetTestResponse
 </span><a href="Network.AWS.DeviceFarm.GetTest.html#GetTestResponse%27"><span class="hs-identifier hs-type">GetTestResponse'</span></a></span><span>
 </span><span id="line-148"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:test:GetTestResponse' :: Maybe Test
@@ -358,7 +358,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-149"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetTestResponse' :: Int
 </span><a href="Network.AWS.DeviceFarm.GetTest.html#%24sel%3AhttpStatus%3AGetTestResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679382036"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679382315"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-150"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-comment">-- | A test condition that is evaluated.</span><span>
@@ -369,16 +369,16 @@ forall a. Maybe a
 -&gt; (GetTestResponse -&gt; Maybe Test -&gt; GetTestResponse)
 -&gt; Lens GetTestResponse GetTestResponse (Maybe Test) (Maybe Test)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTest.html#GetTestResponse%27"><span class="hs-identifier hs-type">GetTestResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679382035"><span class="annot"><span class="annottext">Maybe Test
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTest.html#GetTestResponse%27"><span class="hs-identifier hs-type">GetTestResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679382314"><span class="annot"><span class="annottext">Maybe Test
 test :: Maybe Test
 $sel:test:GetTestResponse' :: GetTestResponse -&gt; Maybe Test
-</span><a href="#local-6989586621679382035"><span class="hs-identifier hs-var hs-var">test</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Test
-</span><a href="#local-6989586621679382035"><span class="hs-identifier hs-var">test</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679382034"><span class="annot"><span class="annottext">s :: GetTestResponse
-</span><a href="#local-6989586621679382034"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTest.html#GetTestResponse%27"><span class="hs-identifier hs-type">GetTestResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679382033"><span class="annot"><span class="annottext">Maybe Test
-</span><a href="#local-6989586621679382033"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTestResponse
-</span><a href="#local-6989586621679382034"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:test:GetTestResponse' :: Maybe Test
+</span><a href="#local-6989586621679382314"><span class="hs-identifier hs-var hs-var">test</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Test
+</span><a href="#local-6989586621679382314"><span class="hs-identifier hs-var">test</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679382313"><span class="annot"><span class="annottext">s :: GetTestResponse
+</span><a href="#local-6989586621679382313"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTest.html#GetTestResponse%27"><span class="hs-identifier hs-type">GetTestResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679382312"><span class="annot"><span class="annottext">Maybe Test
+</span><a href="#local-6989586621679382312"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTestResponse
+</span><a href="#local-6989586621679382313"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:test:GetTestResponse' :: Maybe Test
 </span><a href="Network.AWS.DeviceFarm.GetTest.html#%24sel%3Atest%3AGetTestResponse%27"><span class="hs-identifier hs-var">test</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Test
-</span><a href="#local-6989586621679382033"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTest.html#GetTestResponse"><span class="hs-identifier hs-type">GetTestResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679382312"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTest.html#GetTestResponse"><span class="hs-identifier hs-type">GetTestResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>
 </span><span id="line-156"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-157"></span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTest.html#getTestResponse_httpStatus"><span class="hs-identifier hs-type">getTestResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTest.html#GetTestResponse"><span class="hs-identifier hs-type">GetTestResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -387,16 +387,16 @@ $sel:test:GetTestResponse' :: GetTestResponse -&gt; Maybe Test
 -&gt; (GetTestResponse -&gt; Int -&gt; GetTestResponse)
 -&gt; Lens GetTestResponse GetTestResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTest.html#GetTestResponse%27"><span class="hs-identifier hs-type">GetTestResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679382032"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTest.html#GetTestResponse%27"><span class="hs-identifier hs-type">GetTestResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679382311"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetTestResponse' :: GetTestResponse -&gt; Int
-</span><a href="#local-6989586621679382032"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679382032"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679382031"><span class="annot"><span class="annottext">s :: GetTestResponse
-</span><a href="#local-6989586621679382031"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTest.html#GetTestResponse%27"><span class="hs-identifier hs-type">GetTestResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679382030"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679382030"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTestResponse
-</span><a href="#local-6989586621679382031"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetTestResponse' :: Int
+</span><a href="#local-6989586621679382311"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679382311"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679382310"><span class="annot"><span class="annottext">s :: GetTestResponse
+</span><a href="#local-6989586621679382310"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTest.html#GetTestResponse%27"><span class="hs-identifier hs-type">GetTestResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679382309"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679382309"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTestResponse
+</span><a href="#local-6989586621679382310"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetTestResponse' :: Int
 </span><a href="Network.AWS.DeviceFarm.GetTest.html#%24sel%3AhttpStatus%3AGetTestResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679382030"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTest.html#GetTestResponse"><span class="hs-identifier hs-type">GetTestResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679382309"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTest.html#GetTestResponse"><span class="hs-identifier hs-type">GetTestResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span><span>
-</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679382028"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTest.html#GetTestResponse"><span class="hs-identifier hs-type">GetTestResponse</span></a></span></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679382307"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTest.html#GetTestResponse"><span class="hs-identifier hs-type">GetTestResponse</span></a></span></span><span>
 </span><span id="line-161"></span></pre></body></html>

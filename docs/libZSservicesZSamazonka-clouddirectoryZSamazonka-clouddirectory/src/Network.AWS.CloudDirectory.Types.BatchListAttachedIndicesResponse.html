@@ -27,15 +27,15 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Represents the output of a ListAttachedIndices response operation.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newBatchListAttachedIndicesResponse' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679329497"><span id="local-6989586621679329498"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchListAttachedIndicesResponse"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchListAttachedIndicesResponse.html#BatchListAttachedIndicesResponse"><span class="hs-identifier hs-var">BatchListAttachedIndicesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchListAttachedIndicesResponse%27"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchListAttachedIndicesResponse.html#BatchListAttachedIndicesResponse%27"><span class="hs-identifier hs-var">BatchListAttachedIndicesResponse'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The pagination token.</span><span>
-</span><span id="line-32"></span><span>    </span><span id="%24sel%3AnextToken%3ABatchListAttachedIndicesResponse%27"><span class="annot"><span class="annottext">BatchListAttachedIndicesResponse -&gt; Maybe Text
-</span><a href="Network.AWS.CloudDirectory.Types.BatchListAttachedIndicesResponse.html#%24sel%3AnextToken%3ABatchListAttachedIndicesResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The indices attached to the specified object.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AindexAttachments%3ABatchListAttachedIndicesResponse%27"><span class="annot"><span class="annottext">BatchListAttachedIndicesResponse -&gt; Maybe [IndexAttachment]
-</span><a href="Network.AWS.CloudDirectory.Types.BatchListAttachedIndicesResponse.html#%24sel%3AindexAttachments%3ABatchListAttachedIndicesResponse%27"><span class="hs-identifier hs-var hs-var">indexAttachments</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.IndexAttachment.html#IndexAttachment"><span class="hs-identifier hs-type">IndexAttachment</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679329858"><span id="local-6989586621679329859"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchListAttachedIndicesResponse"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchListAttachedIndicesResponse.html#BatchListAttachedIndicesResponse"><span class="hs-identifier hs-var">BatchListAttachedIndicesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchListAttachedIndicesResponse%27"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchListAttachedIndicesResponse.html#BatchListAttachedIndicesResponse%27"><span class="hs-identifier hs-var">BatchListAttachedIndicesResponse'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The indices attached to the specified object.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AindexAttachments%3ABatchListAttachedIndicesResponse%27"><span class="annot"><span class="annottext">BatchListAttachedIndicesResponse -&gt; Maybe [IndexAttachment]
+</span><a href="Network.AWS.CloudDirectory.Types.BatchListAttachedIndicesResponse.html#%24sel%3AindexAttachments%3ABatchListAttachedIndicesResponse%27"><span class="hs-identifier hs-var hs-var">indexAttachments</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.IndexAttachment.html#IndexAttachment"><span class="hs-identifier hs-type">IndexAttachment</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The pagination token.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AnextToken%3ABatchListAttachedIndicesResponse%27"><span class="annot"><span class="annottext">BatchListAttachedIndicesResponse -&gt; Maybe Text
+</span><a href="Network.AWS.CloudDirectory.Types.BatchListAttachedIndicesResponse.html#%24sel%3AnextToken%3ABatchListAttachedIndicesResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679329490"><span id="local-6989586621679329492"><span class="annot"><span class="annottext">BatchListAttachedIndicesResponse
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679329851"><span id="local-6989586621679329853"><span class="annot"><span class="annottext">BatchListAttachedIndicesResponse
 -&gt; BatchListAttachedIndicesResponse -&gt; Bool
 (BatchListAttachedIndicesResponse
  -&gt; BatchListAttachedIndicesResponse -&gt; Bool)
@@ -51,7 +51,7 @@ $c/= :: BatchListAttachedIndicesResponse
 -&gt; BatchListAttachedIndicesResponse -&gt; Bool
 $c== :: BatchListAttachedIndicesResponse
 -&gt; BatchListAttachedIndicesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679329481"><span id="local-6989586621679329483"><span id="local-6989586621679329485"><span id="local-6989586621679329487"><span class="annot"><span class="annottext">ReadPrec [BatchListAttachedIndicesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679329842"><span id="local-6989586621679329844"><span id="local-6989586621679329846"><span id="local-6989586621679329848"><span class="annot"><span class="annottext">ReadPrec [BatchListAttachedIndicesResponse]
 ReadPrec BatchListAttachedIndicesResponse
 Int -&gt; ReadS BatchListAttachedIndicesResponse
 ReadS [BatchListAttachedIndicesResponse]
@@ -71,7 +71,7 @@ readList :: ReadS [BatchListAttachedIndicesResponse]
 $creadList :: ReadS [BatchListAttachedIndicesResponse]
 readsPrec :: Int -&gt; ReadS BatchListAttachedIndicesResponse
 $creadsPrec :: Int -&gt; ReadS BatchListAttachedIndicesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679329474"><span id="local-6989586621679329476"><span id="local-6989586621679329478"><span class="annot"><span class="annottext">Int -&gt; BatchListAttachedIndicesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679329835"><span id="local-6989586621679329837"><span id="local-6989586621679329839"><span class="annot"><span class="annottext">Int -&gt; BatchListAttachedIndicesResponse -&gt; ShowS
 [BatchListAttachedIndicesResponse] -&gt; ShowS
 BatchListAttachedIndicesResponse -&gt; String
 (Int -&gt; BatchListAttachedIndicesResponse -&gt; ShowS)
@@ -117,55 +117,30 @@ BatchListAttachedIndicesResponse
 </span><span id="line-43"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-44"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-45"></span><span class="hs-comment">--</span><span>
-</span><span id="line-46"></span><span class="hs-comment">-- 'nextToken', 'batchListAttachedIndicesResponse_nextToken' - The pagination token.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- 'indexAttachments', 'batchListAttachedIndicesResponse_indexAttachments' - The indices attached to the specified object.</span><span>
 </span><span id="line-47"></span><span class="hs-comment">--</span><span>
-</span><span id="line-48"></span><span class="hs-comment">-- 'indexAttachments', 'batchListAttachedIndicesResponse_indexAttachments' - The indices attached to the specified object.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'nextToken', 'batchListAttachedIndicesResponse_nextToken' - The pagination token.</span><span>
 </span><span id="line-49"></span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchListAttachedIndicesResponse.html#newBatchListAttachedIndicesResponse"><span class="hs-identifier hs-type">newBatchListAttachedIndicesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-50"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchListAttachedIndicesResponse.html#BatchListAttachedIndicesResponse"><span class="hs-identifier hs-type">BatchListAttachedIndicesResponse</span></a></span><span>
 </span><span id="line-51"></span><span id="newBatchListAttachedIndicesResponse"><span class="annot"><span class="annottext">newBatchListAttachedIndicesResponse :: BatchListAttachedIndicesResponse
 </span><a href="Network.AWS.CloudDirectory.Types.BatchListAttachedIndicesResponse.html#newBatchListAttachedIndicesResponse"><span class="hs-identifier hs-var hs-var">newBatchListAttachedIndicesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-52"></span><span>  </span><span class="annot"><span class="annottext">BatchListAttachedIndicesResponse' :: Maybe Text
--&gt; Maybe [IndexAttachment] -&gt; BatchListAttachedIndicesResponse
+</span><span id="line-52"></span><span>  </span><span class="annot"><span class="annottext">BatchListAttachedIndicesResponse' :: Maybe [IndexAttachment]
+-&gt; Maybe Text -&gt; BatchListAttachedIndicesResponse
 </span><a href="Network.AWS.CloudDirectory.Types.BatchListAttachedIndicesResponse.html#BatchListAttachedIndicesResponse%27"><span class="hs-identifier hs-type">BatchListAttachedIndicesResponse'</span></a></span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:BatchListAttachedIndicesResponse' :: Maybe Text
-</span><a href="Network.AWS.CloudDirectory.Types.BatchListAttachedIndicesResponse.html#%24sel%3AnextToken%3ABatchListAttachedIndicesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-54"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-53"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:indexAttachments:BatchListAttachedIndicesResponse' :: Maybe [IndexAttachment]
+</span><a href="Network.AWS.CloudDirectory.Types.BatchListAttachedIndicesResponse.html#%24sel%3AindexAttachments%3ABatchListAttachedIndicesResponse%27"><span class="hs-identifier hs-var">indexAttachments</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-54"></span><span>        </span><span class="annot"><span class="annottext">Maybe [IndexAttachment]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span class="annot"><span class="annottext">$sel:indexAttachments:BatchListAttachedIndicesResponse' :: Maybe [IndexAttachment]
-</span><a href="Network.AWS.CloudDirectory.Types.BatchListAttachedIndicesResponse.html#%24sel%3AindexAttachments%3ABatchListAttachedIndicesResponse%27"><span class="hs-identifier hs-var">indexAttachments</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [IndexAttachment]
+</span><span id="line-55"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:BatchListAttachedIndicesResponse' :: Maybe Text
+</span><a href="Network.AWS.CloudDirectory.Types.BatchListAttachedIndicesResponse.html#%24sel%3AnextToken%3ABatchListAttachedIndicesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-57"></span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- | The pagination token.</span><span>
-</span><span id="line-59"></span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchListAttachedIndicesResponse.html#batchListAttachedIndicesResponse_nextToken"><span class="hs-identifier hs-type">batchListAttachedIndicesResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchListAttachedIndicesResponse.html#BatchListAttachedIndicesResponse"><span class="hs-identifier hs-type">BatchListAttachedIndicesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-60"></span><span id="batchListAttachedIndicesResponse_nextToken"><span class="annot"><span class="annottext">batchListAttachedIndicesResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; BatchListAttachedIndicesResponse
--&gt; f BatchListAttachedIndicesResponse
-</span><a href="Network.AWS.CloudDirectory.Types.BatchListAttachedIndicesResponse.html#batchListAttachedIndicesResponse_nextToken"><span class="hs-identifier hs-var hs-var">batchListAttachedIndicesResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchListAttachedIndicesResponse -&gt; Maybe Text)
--&gt; (BatchListAttachedIndicesResponse
-    -&gt; Maybe Text -&gt; BatchListAttachedIndicesResponse)
--&gt; Lens
-     BatchListAttachedIndicesResponse
-     BatchListAttachedIndicesResponse
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchListAttachedIndicesResponse.html#BatchListAttachedIndicesResponse%27"><span class="hs-identifier hs-type">BatchListAttachedIndicesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679329465"><span class="annot"><span class="annottext">Maybe Text
-nextToken :: Maybe Text
-$sel:nextToken:BatchListAttachedIndicesResponse' :: BatchListAttachedIndicesResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679329465"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679329465"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679329464"><span class="annot"><span class="annottext">s :: BatchListAttachedIndicesResponse
-</span><a href="#local-6989586621679329464"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchListAttachedIndicesResponse.html#BatchListAttachedIndicesResponse%27"><span class="hs-identifier hs-type">BatchListAttachedIndicesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679329463"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679329463"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchListAttachedIndicesResponse
-</span><a href="#local-6989586621679329464"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:BatchListAttachedIndicesResponse' :: Maybe Text
-</span><a href="Network.AWS.CloudDirectory.Types.BatchListAttachedIndicesResponse.html#%24sel%3AnextToken%3ABatchListAttachedIndicesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679329463"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchListAttachedIndicesResponse.html#BatchListAttachedIndicesResponse"><span class="hs-identifier hs-type">BatchListAttachedIndicesResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- | The indices attached to the specified object.</span><span>
-</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchListAttachedIndicesResponse.html#batchListAttachedIndicesResponse_indexAttachments"><span class="hs-identifier hs-type">batchListAttachedIndicesResponse_indexAttachments</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchListAttachedIndicesResponse.html#BatchListAttachedIndicesResponse"><span class="hs-identifier hs-type">BatchListAttachedIndicesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.IndexAttachment.html#IndexAttachment"><span class="hs-identifier hs-type">IndexAttachment</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-64"></span><span id="batchListAttachedIndicesResponse_indexAttachments"><span class="annot"><span class="annottext">batchListAttachedIndicesResponse_indexAttachments :: (Maybe [IndexAttachment] -&gt; f (Maybe [IndexAttachment]))
+</span><span id="line-58"></span><span class="hs-comment">-- | The indices attached to the specified object.</span><span>
+</span><span id="line-59"></span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchListAttachedIndicesResponse.html#batchListAttachedIndicesResponse_indexAttachments"><span class="hs-identifier hs-type">batchListAttachedIndicesResponse_indexAttachments</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchListAttachedIndicesResponse.html#BatchListAttachedIndicesResponse"><span class="hs-identifier hs-type">BatchListAttachedIndicesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.IndexAttachment.html#IndexAttachment"><span class="hs-identifier hs-type">IndexAttachment</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span id="batchListAttachedIndicesResponse_indexAttachments"><span class="annot"><span class="annottext">batchListAttachedIndicesResponse_indexAttachments :: (Maybe [IndexAttachment] -&gt; f (Maybe [IndexAttachment]))
 -&gt; BatchListAttachedIndicesResponse
 -&gt; f BatchListAttachedIndicesResponse
 </span><a href="Network.AWS.CloudDirectory.Types.BatchListAttachedIndicesResponse.html#batchListAttachedIndicesResponse_indexAttachments"><span class="hs-identifier hs-var hs-var">batchListAttachedIndicesResponse_indexAttachments</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchListAttachedIndicesResponse -&gt; Maybe [IndexAttachment])
@@ -177,16 +152,16 @@ $sel:nextToken:BatchListAttachedIndicesResponse' :: BatchListAttachedIndicesResp
      (Maybe [IndexAttachment])
      (Maybe [IndexAttachment])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchListAttachedIndicesResponse.html#BatchListAttachedIndicesResponse%27"><span class="hs-identifier hs-type">BatchListAttachedIndicesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679329461"><span class="annot"><span class="annottext">Maybe [IndexAttachment]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchListAttachedIndicesResponse.html#BatchListAttachedIndicesResponse%27"><span class="hs-identifier hs-type">BatchListAttachedIndicesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679329826"><span class="annot"><span class="annottext">Maybe [IndexAttachment]
 indexAttachments :: Maybe [IndexAttachment]
 $sel:indexAttachments:BatchListAttachedIndicesResponse' :: BatchListAttachedIndicesResponse -&gt; Maybe [IndexAttachment]
-</span><a href="#local-6989586621679329461"><span class="hs-identifier hs-var hs-var">indexAttachments</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [IndexAttachment]
-</span><a href="#local-6989586621679329461"><span class="hs-identifier hs-var">indexAttachments</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679329460"><span class="annot"><span class="annottext">s :: BatchListAttachedIndicesResponse
-</span><a href="#local-6989586621679329460"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchListAttachedIndicesResponse.html#BatchListAttachedIndicesResponse%27"><span class="hs-identifier hs-type">BatchListAttachedIndicesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679329459"><span class="annot"><span class="annottext">Maybe [IndexAttachment]
-</span><a href="#local-6989586621679329459"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchListAttachedIndicesResponse
-</span><a href="#local-6989586621679329460"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:indexAttachments:BatchListAttachedIndicesResponse' :: Maybe [IndexAttachment]
+</span><a href="#local-6989586621679329826"><span class="hs-identifier hs-var hs-var">indexAttachments</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [IndexAttachment]
+</span><a href="#local-6989586621679329826"><span class="hs-identifier hs-var">indexAttachments</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679329825"><span class="annot"><span class="annottext">s :: BatchListAttachedIndicesResponse
+</span><a href="#local-6989586621679329825"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchListAttachedIndicesResponse.html#BatchListAttachedIndicesResponse%27"><span class="hs-identifier hs-type">BatchListAttachedIndicesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679329824"><span class="annot"><span class="annottext">Maybe [IndexAttachment]
+</span><a href="#local-6989586621679329824"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchListAttachedIndicesResponse
+</span><a href="#local-6989586621679329825"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:indexAttachments:BatchListAttachedIndicesResponse' :: Maybe [IndexAttachment]
 </span><a href="Network.AWS.CloudDirectory.Types.BatchListAttachedIndicesResponse.html#%24sel%3AindexAttachments%3ABatchListAttachedIndicesResponse%27"><span class="hs-identifier hs-var">indexAttachments</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [IndexAttachment]
-</span><a href="#local-6989586621679329459"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchListAttachedIndicesResponse.html#BatchListAttachedIndicesResponse"><span class="hs-identifier hs-type">BatchListAttachedIndicesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [IndexAttachment] -&gt; f (Maybe [IndexAttachment]))
+</span><a href="#local-6989586621679329824"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchListAttachedIndicesResponse.html#BatchListAttachedIndicesResponse"><span class="hs-identifier hs-type">BatchListAttachedIndicesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [IndexAttachment] -&gt; f (Maybe [IndexAttachment]))
  -&gt; BatchListAttachedIndicesResponse
  -&gt; f BatchListAttachedIndicesResponse)
 -&gt; ((Maybe [IndexAttachment] -&gt; f (Maybe [IndexAttachment]))
@@ -213,14 +188,39 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [IndexAttachment]
   [IndexAttachment]
   [IndexAttachment]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | The pagination token.</span><span>
+</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchListAttachedIndicesResponse.html#batchListAttachedIndicesResponse_nextToken"><span class="hs-identifier hs-type">batchListAttachedIndicesResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchListAttachedIndicesResponse.html#BatchListAttachedIndicesResponse"><span class="hs-identifier hs-type">BatchListAttachedIndicesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span id="batchListAttachedIndicesResponse_nextToken"><span class="annot"><span class="annottext">batchListAttachedIndicesResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; BatchListAttachedIndicesResponse
+-&gt; f BatchListAttachedIndicesResponse
+</span><a href="Network.AWS.CloudDirectory.Types.BatchListAttachedIndicesResponse.html#batchListAttachedIndicesResponse_nextToken"><span class="hs-identifier hs-var hs-var">batchListAttachedIndicesResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchListAttachedIndicesResponse -&gt; Maybe Text)
+-&gt; (BatchListAttachedIndicesResponse
+    -&gt; Maybe Text -&gt; BatchListAttachedIndicesResponse)
+-&gt; Lens
+     BatchListAttachedIndicesResponse
+     BatchListAttachedIndicesResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchListAttachedIndicesResponse.html#BatchListAttachedIndicesResponse%27"><span class="hs-identifier hs-type">BatchListAttachedIndicesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679329819"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:BatchListAttachedIndicesResponse' :: BatchListAttachedIndicesResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679329819"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679329819"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679329818"><span class="annot"><span class="annottext">s :: BatchListAttachedIndicesResponse
+</span><a href="#local-6989586621679329818"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchListAttachedIndicesResponse.html#BatchListAttachedIndicesResponse%27"><span class="hs-identifier hs-type">BatchListAttachedIndicesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679329817"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679329817"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchListAttachedIndicesResponse
+</span><a href="#local-6989586621679329818"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:BatchListAttachedIndicesResponse' :: Maybe Text
+</span><a href="Network.AWS.CloudDirectory.Types.BatchListAttachedIndicesResponse.html#%24sel%3AnextToken%3ABatchListAttachedIndicesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679329817"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchListAttachedIndicesResponse.html#BatchListAttachedIndicesResponse"><span class="hs-identifier hs-type">BatchListAttachedIndicesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>
 </span><span id="line-66"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-67"></span><span>  </span><span id="local-6989586621679329453"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679329814"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
 </span><span id="line-68"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchListAttachedIndicesResponse.html#BatchListAttachedIndicesResponse"><span class="hs-identifier hs-type">BatchListAttachedIndicesResponse</span></a></span></span><span>
 </span><span id="line-69"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621679329451"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BatchListAttachedIndicesResponse
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679329812"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BatchListAttachedIndicesResponse
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser BatchListAttachedIndicesResponse)
@@ -230,46 +230,43 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;BatchListAttachedIndicesResponse&quot;</span></span><span>
-</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679329448"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679329448"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-74"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe [IndexAttachment] -&gt; BatchListAttachedIndicesResponse
+</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679329809"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679329809"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-74"></span><span>          </span><span class="annot"><span class="annottext">Maybe [IndexAttachment]
+-&gt; Maybe Text -&gt; BatchListAttachedIndicesResponse
 </span><a href="Network.AWS.CloudDirectory.Types.BatchListAttachedIndicesResponse.html#BatchListAttachedIndicesResponse%27"><span class="hs-identifier hs-var">BatchListAttachedIndicesResponse'</span></a></span><span>
-</span><span id="line-75"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe [IndexAttachment] -&gt; BatchListAttachedIndicesResponse)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe [IndexAttachment] -&gt; BatchListAttachedIndicesResponse)
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679329448"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-76"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe [IndexAttachment] -&gt; BatchListAttachedIndicesResponse)
+</span><span id="line-75"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [IndexAttachment]
+ -&gt; Maybe Text -&gt; BatchListAttachedIndicesResponse)
 -&gt; Parser (Maybe [IndexAttachment])
--&gt; Parser BatchListAttachedIndicesResponse
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679329448"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [IndexAttachment]))
+-&gt; Parser (Maybe Text -&gt; BatchListAttachedIndicesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679329809"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [IndexAttachment]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IndexAttachments&quot;</span></span><span>
-</span><span id="line-77"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [IndexAttachment]))
+</span><span id="line-76"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [IndexAttachment]))
 -&gt; Maybe [IndexAttachment] -&gt; Parser (Maybe [IndexAttachment])
 forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [IndexAttachment]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-78"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; BatchListAttachedIndicesResponse)
+-&gt; Parser (Maybe Text) -&gt; Parser BatchListAttachedIndicesResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679329809"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679329441"><span id="local-6989586621679329443"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679329802"><span id="local-6989586621679329804"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-83"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchListAttachedIndicesResponse.html#BatchListAttachedIndicesResponse"><span class="hs-identifier hs-type">BatchListAttachedIndicesResponse</span></a></span></span></span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679329438"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679329799"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-87"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchListAttachedIndicesResponse.html#BatchListAttachedIndicesResponse"><span class="hs-identifier hs-type">BatchListAttachedIndicesResponse</span></a></span></span><span>
 </span><span id="line-88"></span></pre></body></html>

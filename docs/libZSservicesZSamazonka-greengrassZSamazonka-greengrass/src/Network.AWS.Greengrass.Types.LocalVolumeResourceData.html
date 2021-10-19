@@ -27,20 +27,20 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Attributes that define a local volume resource.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newLocalVolumeResourceData' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679344108"><span id="local-6989586621679344109"></span></span><span class="hs-keyword">data</span><span> </span><span id="LocalVolumeResourceData"><span class="annot"><a href="Network.AWS.Greengrass.Types.LocalVolumeResourceData.html#LocalVolumeResourceData"><span class="hs-identifier hs-var">LocalVolumeResourceData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LocalVolumeResourceData%27"><span class="annot"><a href="Network.AWS.Greengrass.Types.LocalVolumeResourceData.html#LocalVolumeResourceData%27"><span class="hs-identifier hs-var">LocalVolumeResourceData'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The absolute local path of the resource inside the Lambda environment.</span><span>
-</span><span id="line-32"></span><span>    </span><span id="%24sel%3AdestinationPath%3ALocalVolumeResourceData%27"><span class="annot"><span class="annottext">LocalVolumeResourceData -&gt; Maybe Text
+</span><span id="line-30"></span><span id="local-6989586621679344363"><span id="local-6989586621679344364"></span></span><span class="hs-keyword">data</span><span> </span><span id="LocalVolumeResourceData"><span class="annot"><a href="Network.AWS.Greengrass.Types.LocalVolumeResourceData.html#LocalVolumeResourceData"><span class="hs-identifier hs-var">LocalVolumeResourceData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LocalVolumeResourceData%27"><span class="annot"><a href="Network.AWS.Greengrass.Types.LocalVolumeResourceData.html#LocalVolumeResourceData%27"><span class="hs-identifier hs-var">LocalVolumeResourceData'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Allows you to configure additional group privileges for the Lambda</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- process. This field is optional.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AgroupOwnerSetting%3ALocalVolumeResourceData%27"><span class="annot"><span class="annottext">LocalVolumeResourceData -&gt; Maybe GroupOwnerSetting
+</span><a href="Network.AWS.Greengrass.Types.LocalVolumeResourceData.html#%24sel%3AgroupOwnerSetting%3ALocalVolumeResourceData%27"><span class="hs-identifier hs-var hs-var">groupOwnerSetting</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.GroupOwnerSetting.html#GroupOwnerSetting"><span class="hs-identifier hs-type">GroupOwnerSetting</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The absolute local path of the resource inside the Lambda environment.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AdestinationPath%3ALocalVolumeResourceData%27"><span class="annot"><span class="annottext">LocalVolumeResourceData -&gt; Maybe Text
 </span><a href="Network.AWS.Greengrass.Types.LocalVolumeResourceData.html#%24sel%3AdestinationPath%3ALocalVolumeResourceData%27"><span class="hs-identifier hs-var hs-var">destinationPath</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The local absolute path of the volume resource on the host. The source</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- path for a volume resource type cannot start with \'\'\/sys\'\'.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AsourcePath%3ALocalVolumeResourceData%27"><span class="annot"><span class="annottext">LocalVolumeResourceData -&gt; Maybe Text
-</span><a href="Network.AWS.Greengrass.Types.LocalVolumeResourceData.html#%24sel%3AsourcePath%3ALocalVolumeResourceData%27"><span class="hs-identifier hs-var hs-var">sourcePath</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Allows you to configure additional group privileges for the Lambda</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- process. This field is optional.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AgroupOwnerSetting%3ALocalVolumeResourceData%27"><span class="annot"><span class="annottext">LocalVolumeResourceData -&gt; Maybe GroupOwnerSetting
-</span><a href="Network.AWS.Greengrass.Types.LocalVolumeResourceData.html#%24sel%3AgroupOwnerSetting%3ALocalVolumeResourceData%27"><span class="hs-identifier hs-var hs-var">groupOwnerSetting</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.GroupOwnerSetting.html#GroupOwnerSetting"><span class="hs-identifier hs-type">GroupOwnerSetting</span></a></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The local absolute path of the volume resource on the host. The source</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- path for a volume resource type cannot start with \'\'\/sys\'\'.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AsourcePath%3ALocalVolumeResourceData%27"><span class="annot"><span class="annottext">LocalVolumeResourceData -&gt; Maybe Text
+</span><a href="Network.AWS.Greengrass.Types.LocalVolumeResourceData.html#%24sel%3AsourcePath%3ALocalVolumeResourceData%27"><span class="hs-identifier hs-var hs-var">sourcePath</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679344100"><span id="local-6989586621679344102"><span class="annot"><span class="annottext">LocalVolumeResourceData -&gt; LocalVolumeResourceData -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679344355"><span id="local-6989586621679344357"><span class="annot"><span class="annottext">LocalVolumeResourceData -&gt; LocalVolumeResourceData -&gt; Bool
 (LocalVolumeResourceData -&gt; LocalVolumeResourceData -&gt; Bool)
 -&gt; (LocalVolumeResourceData -&gt; LocalVolumeResourceData -&gt; Bool)
 -&gt; Eq LocalVolumeResourceData
@@ -49,7 +49,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: LocalVolumeResourceData -&gt; LocalVolumeResourceData -&gt; Bool
 == :: LocalVolumeResourceData -&gt; LocalVolumeResourceData -&gt; Bool
 $c== :: LocalVolumeResourceData -&gt; LocalVolumeResourceData -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679344091"><span id="local-6989586621679344093"><span id="local-6989586621679344095"><span id="local-6989586621679344097"><span class="annot"><span class="annottext">ReadPrec [LocalVolumeResourceData]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679344346"><span id="local-6989586621679344348"><span id="local-6989586621679344350"><span id="local-6989586621679344352"><span class="annot"><span class="annottext">ReadPrec [LocalVolumeResourceData]
 ReadPrec LocalVolumeResourceData
 Int -&gt; ReadS LocalVolumeResourceData
 ReadS [LocalVolumeResourceData]
@@ -69,7 +69,7 @@ readList :: ReadS [LocalVolumeResourceData]
 $creadList :: ReadS [LocalVolumeResourceData]
 readsPrec :: Int -&gt; ReadS LocalVolumeResourceData
 $creadsPrec :: Int -&gt; ReadS LocalVolumeResourceData
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679344084"><span id="local-6989586621679344086"><span id="local-6989586621679344088"><span class="annot"><span class="annottext">Int -&gt; LocalVolumeResourceData -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679344339"><span id="local-6989586621679344341"><span id="local-6989586621679344343"><span class="annot"><span class="annottext">Int -&gt; LocalVolumeResourceData -&gt; ShowS
 [LocalVolumeResourceData] -&gt; ShowS
 LocalVolumeResourceData -&gt; String
 (Int -&gt; LocalVolumeResourceData -&gt; ShowS)
@@ -105,88 +105,39 @@ $cfrom :: forall x. LocalVolumeResourceData -&gt; Rep LocalVolumeResourceData x
 </span><span id="line-47"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-48"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-49"></span><span class="hs-comment">--</span><span>
-</span><span id="line-50"></span><span class="hs-comment">-- 'destinationPath', 'localVolumeResourceData_destinationPath' - The absolute local path of the resource inside the Lambda environment.</span><span>
-</span><span id="line-51"></span><span class="hs-comment">--</span><span>
-</span><span id="line-52"></span><span class="hs-comment">-- 'sourcePath', 'localVolumeResourceData_sourcePath' - The local absolute path of the volume resource on the host. The source</span><span>
-</span><span id="line-53"></span><span class="hs-comment">-- path for a volume resource type cannot start with \'\'\/sys\'\'.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'groupOwnerSetting', 'localVolumeResourceData_groupOwnerSetting' - Allows you to configure additional group privileges for the Lambda</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- process. This field is optional.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'destinationPath', 'localVolumeResourceData_destinationPath' - The absolute local path of the resource inside the Lambda environment.</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- 'groupOwnerSetting', 'localVolumeResourceData_groupOwnerSetting' - Allows you to configure additional group privileges for the Lambda</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- process. This field is optional.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'sourcePath', 'localVolumeResourceData_sourcePath' - The local absolute path of the volume resource on the host. The source</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- path for a volume resource type cannot start with \'\'\/sys\'\'.</span><span>
 </span><span id="line-57"></span><span class="annot"><a href="Network.AWS.Greengrass.Types.LocalVolumeResourceData.html#newLocalVolumeResourceData"><span class="hs-identifier hs-type">newLocalVolumeResourceData</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-58"></span><span>  </span><span class="annot"><a href="Network.AWS.Greengrass.Types.LocalVolumeResourceData.html#LocalVolumeResourceData"><span class="hs-identifier hs-type">LocalVolumeResourceData</span></a></span><span>
 </span><span id="line-59"></span><span id="newLocalVolumeResourceData"><span class="annot"><span class="annottext">newLocalVolumeResourceData :: LocalVolumeResourceData
 </span><a href="Network.AWS.Greengrass.Types.LocalVolumeResourceData.html#newLocalVolumeResourceData"><span class="hs-identifier hs-var hs-var">newLocalVolumeResourceData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-60"></span><span>  </span><span class="annot"><span class="annottext">LocalVolumeResourceData' :: Maybe Text
--&gt; Maybe Text -&gt; Maybe GroupOwnerSetting -&gt; LocalVolumeResourceData
+</span><span id="line-60"></span><span>  </span><span class="annot"><span class="annottext">LocalVolumeResourceData' :: Maybe GroupOwnerSetting
+-&gt; Maybe Text -&gt; Maybe Text -&gt; LocalVolumeResourceData
 </span><a href="Network.AWS.Greengrass.Types.LocalVolumeResourceData.html#LocalVolumeResourceData%27"><span class="hs-identifier hs-type">LocalVolumeResourceData'</span></a></span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:destinationPath:LocalVolumeResourceData' :: Maybe Text
-</span><a href="Network.AWS.Greengrass.Types.LocalVolumeResourceData.html#%24sel%3AdestinationPath%3ALocalVolumeResourceData%27"><span class="hs-identifier hs-var">destinationPath</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-62"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-61"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:groupOwnerSetting:LocalVolumeResourceData' :: Maybe GroupOwnerSetting
+</span><a href="Network.AWS.Greengrass.Types.LocalVolumeResourceData.html#%24sel%3AgroupOwnerSetting%3ALocalVolumeResourceData%27"><span class="hs-identifier hs-var">groupOwnerSetting</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-62"></span><span>        </span><span class="annot"><span class="annottext">Maybe GroupOwnerSetting
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourcePath:LocalVolumeResourceData' :: Maybe Text
+</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:destinationPath:LocalVolumeResourceData' :: Maybe Text
+</span><a href="Network.AWS.Greengrass.Types.LocalVolumeResourceData.html#%24sel%3AdestinationPath%3ALocalVolumeResourceData%27"><span class="hs-identifier hs-var">destinationPath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourcePath:LocalVolumeResourceData' :: Maybe Text
 </span><a href="Network.AWS.Greengrass.Types.LocalVolumeResourceData.html#%24sel%3AsourcePath%3ALocalVolumeResourceData%27"><span class="hs-identifier hs-var">sourcePath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:groupOwnerSetting:LocalVolumeResourceData' :: Maybe GroupOwnerSetting
-</span><a href="Network.AWS.Greengrass.Types.LocalVolumeResourceData.html#%24sel%3AgroupOwnerSetting%3ALocalVolumeResourceData%27"><span class="hs-identifier hs-var">groupOwnerSetting</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GroupOwnerSetting
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-65"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- | The absolute local path of the resource inside the Lambda environment.</span><span>
-</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.Greengrass.Types.LocalVolumeResourceData.html#localVolumeResourceData_destinationPath"><span class="hs-identifier hs-type">localVolumeResourceData_destinationPath</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.LocalVolumeResourceData.html#LocalVolumeResourceData"><span class="hs-identifier hs-type">LocalVolumeResourceData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-69"></span><span id="localVolumeResourceData_destinationPath"><span class="annot"><span class="annottext">localVolumeResourceData_destinationPath :: (Maybe Text -&gt; f (Maybe Text))
--&gt; LocalVolumeResourceData -&gt; f LocalVolumeResourceData
-</span><a href="Network.AWS.Greengrass.Types.LocalVolumeResourceData.html#localVolumeResourceData_destinationPath"><span class="hs-identifier hs-var hs-var">localVolumeResourceData_destinationPath</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LocalVolumeResourceData -&gt; Maybe Text)
--&gt; (LocalVolumeResourceData
-    -&gt; Maybe Text -&gt; LocalVolumeResourceData)
--&gt; Lens
-     LocalVolumeResourceData
-     LocalVolumeResourceData
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.Types.LocalVolumeResourceData.html#LocalVolumeResourceData%27"><span class="hs-identifier hs-type">LocalVolumeResourceData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344075"><span class="annot"><span class="annottext">Maybe Text
-destinationPath :: Maybe Text
-$sel:destinationPath:LocalVolumeResourceData' :: LocalVolumeResourceData -&gt; Maybe Text
-</span><a href="#local-6989586621679344075"><span class="hs-identifier hs-var hs-var">destinationPath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679344075"><span class="hs-identifier hs-var">destinationPath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679344074"><span class="annot"><span class="annottext">s :: LocalVolumeResourceData
-</span><a href="#local-6989586621679344074"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.Types.LocalVolumeResourceData.html#LocalVolumeResourceData%27"><span class="hs-identifier hs-type">LocalVolumeResourceData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679344073"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679344073"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LocalVolumeResourceData
-</span><a href="#local-6989586621679344074"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationPath:LocalVolumeResourceData' :: Maybe Text
-</span><a href="Network.AWS.Greengrass.Types.LocalVolumeResourceData.html#%24sel%3AdestinationPath%3ALocalVolumeResourceData%27"><span class="hs-identifier hs-var">destinationPath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679344073"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.LocalVolumeResourceData.html#LocalVolumeResourceData"><span class="hs-identifier hs-type">LocalVolumeResourceData</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- | The local absolute path of the volume resource on the host. The source</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- path for a volume resource type cannot start with \'\'\/sys\'\'.</span><span>
-</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.Greengrass.Types.LocalVolumeResourceData.html#localVolumeResourceData_sourcePath"><span class="hs-identifier hs-type">localVolumeResourceData_sourcePath</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.LocalVolumeResourceData.html#LocalVolumeResourceData"><span class="hs-identifier hs-type">LocalVolumeResourceData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-74"></span><span id="localVolumeResourceData_sourcePath"><span class="annot"><span class="annottext">localVolumeResourceData_sourcePath :: (Maybe Text -&gt; f (Maybe Text))
--&gt; LocalVolumeResourceData -&gt; f LocalVolumeResourceData
-</span><a href="Network.AWS.Greengrass.Types.LocalVolumeResourceData.html#localVolumeResourceData_sourcePath"><span class="hs-identifier hs-var hs-var">localVolumeResourceData_sourcePath</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LocalVolumeResourceData -&gt; Maybe Text)
--&gt; (LocalVolumeResourceData
-    -&gt; Maybe Text -&gt; LocalVolumeResourceData)
--&gt; Lens
-     LocalVolumeResourceData
-     LocalVolumeResourceData
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.Types.LocalVolumeResourceData.html#LocalVolumeResourceData%27"><span class="hs-identifier hs-type">LocalVolumeResourceData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344071"><span class="annot"><span class="annottext">Maybe Text
-sourcePath :: Maybe Text
-$sel:sourcePath:LocalVolumeResourceData' :: LocalVolumeResourceData -&gt; Maybe Text
-</span><a href="#local-6989586621679344071"><span class="hs-identifier hs-var hs-var">sourcePath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679344071"><span class="hs-identifier hs-var">sourcePath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679344070"><span class="annot"><span class="annottext">s :: LocalVolumeResourceData
-</span><a href="#local-6989586621679344070"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.Types.LocalVolumeResourceData.html#LocalVolumeResourceData%27"><span class="hs-identifier hs-type">LocalVolumeResourceData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679344069"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679344069"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LocalVolumeResourceData
-</span><a href="#local-6989586621679344070"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourcePath:LocalVolumeResourceData' :: Maybe Text
-</span><a href="Network.AWS.Greengrass.Types.LocalVolumeResourceData.html#%24sel%3AsourcePath%3ALocalVolumeResourceData%27"><span class="hs-identifier hs-var">sourcePath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679344069"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.LocalVolumeResourceData.html#LocalVolumeResourceData"><span class="hs-identifier hs-type">LocalVolumeResourceData</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- | Allows you to configure additional group privileges for the Lambda</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- process. This field is optional.</span><span>
-</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.Greengrass.Types.LocalVolumeResourceData.html#localVolumeResourceData_groupOwnerSetting"><span class="hs-identifier hs-type">localVolumeResourceData_groupOwnerSetting</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.LocalVolumeResourceData.html#LocalVolumeResourceData"><span class="hs-identifier hs-type">LocalVolumeResourceData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.GroupOwnerSetting.html#GroupOwnerSetting"><span class="hs-identifier hs-type">GroupOwnerSetting</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-79"></span><span id="localVolumeResourceData_groupOwnerSetting"><span class="annot"><span class="annottext">localVolumeResourceData_groupOwnerSetting :: (Maybe GroupOwnerSetting -&gt; f (Maybe GroupOwnerSetting))
+</span><span id="line-67"></span><span class="hs-comment">-- | Allows you to configure additional group privileges for the Lambda</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- process. This field is optional.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Network.AWS.Greengrass.Types.LocalVolumeResourceData.html#localVolumeResourceData_groupOwnerSetting"><span class="hs-identifier hs-type">localVolumeResourceData_groupOwnerSetting</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.LocalVolumeResourceData.html#LocalVolumeResourceData"><span class="hs-identifier hs-type">LocalVolumeResourceData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.GroupOwnerSetting.html#GroupOwnerSetting"><span class="hs-identifier hs-type">GroupOwnerSetting</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span id="localVolumeResourceData_groupOwnerSetting"><span class="annot"><span class="annottext">localVolumeResourceData_groupOwnerSetting :: (Maybe GroupOwnerSetting -&gt; f (Maybe GroupOwnerSetting))
 -&gt; LocalVolumeResourceData -&gt; f LocalVolumeResourceData
 </span><a href="Network.AWS.Greengrass.Types.LocalVolumeResourceData.html#localVolumeResourceData_groupOwnerSetting"><span class="hs-identifier hs-var hs-var">localVolumeResourceData_groupOwnerSetting</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LocalVolumeResourceData -&gt; Maybe GroupOwnerSetting)
 -&gt; (LocalVolumeResourceData
@@ -197,19 +148,68 @@ $sel:sourcePath:LocalVolumeResourceData' :: LocalVolumeResourceData -&gt; Maybe 
      (Maybe GroupOwnerSetting)
      (Maybe GroupOwnerSetting)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.Types.LocalVolumeResourceData.html#LocalVolumeResourceData%27"><span class="hs-identifier hs-type">LocalVolumeResourceData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344067"><span class="annot"><span class="annottext">Maybe GroupOwnerSetting
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.Types.LocalVolumeResourceData.html#LocalVolumeResourceData%27"><span class="hs-identifier hs-type">LocalVolumeResourceData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344330"><span class="annot"><span class="annottext">Maybe GroupOwnerSetting
 groupOwnerSetting :: Maybe GroupOwnerSetting
 $sel:groupOwnerSetting:LocalVolumeResourceData' :: LocalVolumeResourceData -&gt; Maybe GroupOwnerSetting
-</span><a href="#local-6989586621679344067"><span class="hs-identifier hs-var hs-var">groupOwnerSetting</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GroupOwnerSetting
-</span><a href="#local-6989586621679344067"><span class="hs-identifier hs-var">groupOwnerSetting</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679344066"><span class="annot"><span class="annottext">s :: LocalVolumeResourceData
-</span><a href="#local-6989586621679344066"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.Types.LocalVolumeResourceData.html#LocalVolumeResourceData%27"><span class="hs-identifier hs-type">LocalVolumeResourceData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679344065"><span class="annot"><span class="annottext">Maybe GroupOwnerSetting
-</span><a href="#local-6989586621679344065"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LocalVolumeResourceData
-</span><a href="#local-6989586621679344066"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupOwnerSetting:LocalVolumeResourceData' :: Maybe GroupOwnerSetting
+</span><a href="#local-6989586621679344330"><span class="hs-identifier hs-var hs-var">groupOwnerSetting</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GroupOwnerSetting
+</span><a href="#local-6989586621679344330"><span class="hs-identifier hs-var">groupOwnerSetting</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679344329"><span class="annot"><span class="annottext">s :: LocalVolumeResourceData
+</span><a href="#local-6989586621679344329"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.Types.LocalVolumeResourceData.html#LocalVolumeResourceData%27"><span class="hs-identifier hs-type">LocalVolumeResourceData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679344328"><span class="annot"><span class="annottext">Maybe GroupOwnerSetting
+</span><a href="#local-6989586621679344328"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LocalVolumeResourceData
+</span><a href="#local-6989586621679344329"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupOwnerSetting:LocalVolumeResourceData' :: Maybe GroupOwnerSetting
 </span><a href="Network.AWS.Greengrass.Types.LocalVolumeResourceData.html#%24sel%3AgroupOwnerSetting%3ALocalVolumeResourceData%27"><span class="hs-identifier hs-var">groupOwnerSetting</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GroupOwnerSetting
-</span><a href="#local-6989586621679344065"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.LocalVolumeResourceData.html#LocalVolumeResourceData"><span class="hs-identifier hs-type">LocalVolumeResourceData</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679344328"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.LocalVolumeResourceData.html#LocalVolumeResourceData"><span class="hs-identifier hs-type">LocalVolumeResourceData</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- | The absolute local path of the resource inside the Lambda environment.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.Greengrass.Types.LocalVolumeResourceData.html#localVolumeResourceData_destinationPath"><span class="hs-identifier hs-type">localVolumeResourceData_destinationPath</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.LocalVolumeResourceData.html#LocalVolumeResourceData"><span class="hs-identifier hs-type">LocalVolumeResourceData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span id="localVolumeResourceData_destinationPath"><span class="annot"><span class="annottext">localVolumeResourceData_destinationPath :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; LocalVolumeResourceData -&gt; f LocalVolumeResourceData
+</span><a href="Network.AWS.Greengrass.Types.LocalVolumeResourceData.html#localVolumeResourceData_destinationPath"><span class="hs-identifier hs-var hs-var">localVolumeResourceData_destinationPath</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LocalVolumeResourceData -&gt; Maybe Text)
+-&gt; (LocalVolumeResourceData
+    -&gt; Maybe Text -&gt; LocalVolumeResourceData)
+-&gt; Lens
+     LocalVolumeResourceData
+     LocalVolumeResourceData
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.Types.LocalVolumeResourceData.html#LocalVolumeResourceData%27"><span class="hs-identifier hs-type">LocalVolumeResourceData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344326"><span class="annot"><span class="annottext">Maybe Text
+destinationPath :: Maybe Text
+$sel:destinationPath:LocalVolumeResourceData' :: LocalVolumeResourceData -&gt; Maybe Text
+</span><a href="#local-6989586621679344326"><span class="hs-identifier hs-var hs-var">destinationPath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679344326"><span class="hs-identifier hs-var">destinationPath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679344325"><span class="annot"><span class="annottext">s :: LocalVolumeResourceData
+</span><a href="#local-6989586621679344325"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.Types.LocalVolumeResourceData.html#LocalVolumeResourceData%27"><span class="hs-identifier hs-type">LocalVolumeResourceData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679344324"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679344324"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LocalVolumeResourceData
+</span><a href="#local-6989586621679344325"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationPath:LocalVolumeResourceData' :: Maybe Text
+</span><a href="Network.AWS.Greengrass.Types.LocalVolumeResourceData.html#%24sel%3AdestinationPath%3ALocalVolumeResourceData%27"><span class="hs-identifier hs-var">destinationPath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679344324"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.LocalVolumeResourceData.html#LocalVolumeResourceData"><span class="hs-identifier hs-type">LocalVolumeResourceData</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | The local absolute path of the volume resource on the host. The source</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- path for a volume resource type cannot start with \'\'\/sys\'\'.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.Greengrass.Types.LocalVolumeResourceData.html#localVolumeResourceData_sourcePath"><span class="hs-identifier hs-type">localVolumeResourceData_sourcePath</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.LocalVolumeResourceData.html#LocalVolumeResourceData"><span class="hs-identifier hs-type">LocalVolumeResourceData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span id="localVolumeResourceData_sourcePath"><span class="annot"><span class="annottext">localVolumeResourceData_sourcePath :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; LocalVolumeResourceData -&gt; f LocalVolumeResourceData
+</span><a href="Network.AWS.Greengrass.Types.LocalVolumeResourceData.html#localVolumeResourceData_sourcePath"><span class="hs-identifier hs-var hs-var">localVolumeResourceData_sourcePath</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LocalVolumeResourceData -&gt; Maybe Text)
+-&gt; (LocalVolumeResourceData
+    -&gt; Maybe Text -&gt; LocalVolumeResourceData)
+-&gt; Lens
+     LocalVolumeResourceData
+     LocalVolumeResourceData
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.Types.LocalVolumeResourceData.html#LocalVolumeResourceData%27"><span class="hs-identifier hs-type">LocalVolumeResourceData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344322"><span class="annot"><span class="annottext">Maybe Text
+sourcePath :: Maybe Text
+$sel:sourcePath:LocalVolumeResourceData' :: LocalVolumeResourceData -&gt; Maybe Text
+</span><a href="#local-6989586621679344322"><span class="hs-identifier hs-var hs-var">sourcePath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679344322"><span class="hs-identifier hs-var">sourcePath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679344321"><span class="annot"><span class="annottext">s :: LocalVolumeResourceData
+</span><a href="#local-6989586621679344321"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.Types.LocalVolumeResourceData.html#LocalVolumeResourceData%27"><span class="hs-identifier hs-type">LocalVolumeResourceData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679344320"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679344320"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LocalVolumeResourceData
+</span><a href="#local-6989586621679344321"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourcePath:LocalVolumeResourceData' :: Maybe Text
+</span><a href="Network.AWS.Greengrass.Types.LocalVolumeResourceData.html#%24sel%3AsourcePath%3ALocalVolumeResourceData%27"><span class="hs-identifier hs-var">sourcePath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679344320"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.LocalVolumeResourceData.html#LocalVolumeResourceData"><span class="hs-identifier hs-type">LocalVolumeResourceData</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679344062"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.LocalVolumeResourceData.html#LocalVolumeResourceData"><span class="hs-identifier hs-type">LocalVolumeResourceData</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679344060"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LocalVolumeResourceData
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679344317"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.LocalVolumeResourceData.html#LocalVolumeResourceData"><span class="hs-identifier hs-type">LocalVolumeResourceData</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679344315"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LocalVolumeResourceData
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser LocalVolumeResourceData)
@@ -219,89 +219,84 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;LocalVolumeResourceData&quot;</span></span><span>
-</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679344057"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679344057"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-86"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe Text -&gt; Maybe GroupOwnerSetting -&gt; LocalVolumeResourceData
+</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679344312"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679344312"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>          </span><span class="annot"><span class="annottext">Maybe GroupOwnerSetting
+-&gt; Maybe Text -&gt; Maybe Text -&gt; LocalVolumeResourceData
 </span><a href="Network.AWS.Greengrass.Types.LocalVolumeResourceData.html#LocalVolumeResourceData%27"><span class="hs-identifier hs-var">LocalVolumeResourceData'</span></a></span><span>
-</span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe Text
- -&gt; Maybe GroupOwnerSetting
- -&gt; LocalVolumeResourceData)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe Text -&gt; Maybe GroupOwnerSetting -&gt; LocalVolumeResourceData)
+</span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">(Maybe GroupOwnerSetting
+ -&gt; Maybe Text -&gt; Maybe Text -&gt; LocalVolumeResourceData)
+-&gt; Parser (Maybe GroupOwnerSetting)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; LocalVolumeResourceData)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679344057"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;DestinationPath&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text -&gt; Maybe GroupOwnerSetting -&gt; LocalVolumeResourceData)
--&gt; Parser (Maybe Text)
--&gt; Parser (Maybe GroupOwnerSetting -&gt; LocalVolumeResourceData)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679344057"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;SourcePath&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe GroupOwnerSetting -&gt; LocalVolumeResourceData)
--&gt; Parser (Maybe GroupOwnerSetting)
--&gt; Parser LocalVolumeResourceData
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679344057"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe GroupOwnerSetting)
+</span><a href="#local-6989586621679344312"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe GroupOwnerSetting)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;GroupOwnerSetting&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; LocalVolumeResourceData)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; LocalVolumeResourceData)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679344312"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DestinationPath&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; LocalVolumeResourceData)
+-&gt; Parser (Maybe Text) -&gt; Parser LocalVolumeResourceData
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679344312"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SourcePath&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679344051"><span id="local-6989586621679344053"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.LocalVolumeResourceData.html#LocalVolumeResourceData"><span class="hs-identifier hs-type">LocalVolumeResourceData</span></a></span></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679344306"><span id="local-6989586621679344308"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.LocalVolumeResourceData.html#LocalVolumeResourceData"><span class="hs-identifier hs-type">LocalVolumeResourceData</span></a></span></span></span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679344048"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.LocalVolumeResourceData.html#LocalVolumeResourceData"><span class="hs-identifier hs-type">LocalVolumeResourceData</span></a></span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679344303"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.LocalVolumeResourceData.html#LocalVolumeResourceData"><span class="hs-identifier hs-type">LocalVolumeResourceData</span></a></span></span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679344040"><span id="local-6989586621679344042"><span id="local-6989586621679344044"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.LocalVolumeResourceData.html#LocalVolumeResourceData"><span class="hs-identifier hs-type">LocalVolumeResourceData</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679344038"><span class="annot"><span class="annottext">toJSON :: LocalVolumeResourceData -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.LocalVolumeResourceData.html#LocalVolumeResourceData%27"><span class="hs-identifier hs-type">LocalVolumeResourceData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344034"><span id="local-6989586621679344035"><span id="local-6989586621679344036"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679344295"><span id="local-6989586621679344297"><span id="local-6989586621679344299"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.LocalVolumeResourceData.html#LocalVolumeResourceData"><span class="hs-identifier hs-type">LocalVolumeResourceData</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679344293"><span class="annot"><span class="annottext">toJSON :: LocalVolumeResourceData -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.LocalVolumeResourceData.html#LocalVolumeResourceData%27"><span class="hs-identifier hs-type">LocalVolumeResourceData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344289"><span id="local-6989586621679344290"><span id="local-6989586621679344291"><span class="annot"><span class="annottext">Maybe Text
 Maybe GroupOwnerSetting
-groupOwnerSetting :: Maybe GroupOwnerSetting
 sourcePath :: Maybe Text
 destinationPath :: Maybe Text
-$sel:groupOwnerSetting:LocalVolumeResourceData' :: LocalVolumeResourceData -&gt; Maybe GroupOwnerSetting
+groupOwnerSetting :: Maybe GroupOwnerSetting
 $sel:sourcePath:LocalVolumeResourceData' :: LocalVolumeResourceData -&gt; Maybe Text
 $sel:destinationPath:LocalVolumeResourceData' :: LocalVolumeResourceData -&gt; Maybe Text
-</span><a href="#local-6989586621679344034"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:groupOwnerSetting:LocalVolumeResourceData' :: LocalVolumeResourceData -&gt; Maybe GroupOwnerSetting
+</span><a href="#local-6989586621679344289"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-100"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GroupOwnerSetting&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; GroupOwnerSetting -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>              </span><span class="annot"><span class="annottext">(GroupOwnerSetting -&gt; Pair)
+-&gt; Maybe GroupOwnerSetting -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe GroupOwnerSetting
+</span><a href="#local-6989586621679344291"><span class="hs-identifier hs-var">groupOwnerSetting</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DestinationPath&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-101"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+</span><span id="line-103"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679344036"><span class="hs-identifier hs-var">destinationPath</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-102"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679344290"><span class="hs-identifier hs-var">destinationPath</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SourcePath&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679344035"><span class="hs-identifier hs-var">sourcePath</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-103"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;GroupOwnerSetting&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; GroupOwnerSetting -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-104"></span><span>              </span><span class="annot"><span class="annottext">(GroupOwnerSetting -&gt; Pair)
--&gt; Maybe GroupOwnerSetting -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe GroupOwnerSetting
-</span><a href="#local-6989586621679344034"><span class="hs-identifier hs-var">groupOwnerSetting</span></a></span><span>
+</span><a href="#local-6989586621679344289"><span class="hs-identifier hs-var">sourcePath</span></a></span><span>
 </span><span id="line-105"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span></pre></body></html>

@@ -33,13 +33,13 @@
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-35"></span><span>
-</span><span id="line-36"></span><span id="local-6989586621679244566"><span id="local-6989586621679244567"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AppStatus"><span class="annot"><a href="Network.AWS.SMS.Types.AppStatus.html#AppStatus"><span class="hs-identifier hs-var">AppStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AppStatus%27"><span class="annot"><a href="Network.AWS.SMS.Types.AppStatus.html#AppStatus%27"><span class="hs-identifier hs-var">AppStatus'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679244695"><span id="local-6989586621679244696"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AppStatus"><span class="annot"><a href="Network.AWS.SMS.Types.AppStatus.html#AppStatus"><span class="hs-identifier hs-var">AppStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AppStatus%27"><span class="annot"><a href="Network.AWS.SMS.Types.AppStatus.html#AppStatus%27"><span class="hs-identifier hs-var">AppStatus'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAppStatus"><span class="annot"><span class="annottext">AppStatus -&gt; Text
 </span><a href="Network.AWS.SMS.Types.AppStatus.html#fromAppStatus"><span class="hs-identifier hs-var hs-var">fromAppStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679244558"><span id="local-6989586621679244560"><span id="local-6989586621679244562"><span class="annot"><span class="annottext">Int -&gt; AppStatus -&gt; ShowS
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679244687"><span id="local-6989586621679244689"><span id="local-6989586621679244691"><span class="annot"><span class="annottext">Int -&gt; AppStatus -&gt; ShowS
 [AppStatus] -&gt; ShowS
 AppStatus -&gt; String
 (Int -&gt; AppStatus -&gt; ShowS)
@@ -55,7 +55,7 @@ $cshow :: AppStatus -&gt; String
 showsPrec :: Int -&gt; AppStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; AppStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679244549"><span id="local-6989586621679244551"><span id="local-6989586621679244553"><span id="local-6989586621679244555"><span class="annot"><span class="annottext">ReadPrec [AppStatus]
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679244678"><span id="local-6989586621679244680"><span id="local-6989586621679244682"><span id="local-6989586621679244684"><span class="annot"><span class="annottext">ReadPrec [AppStatus]
 ReadPrec AppStatus
 Int -&gt; ReadS AppStatus
 ReadS [AppStatus]
@@ -76,7 +76,7 @@ $creadList :: ReadS [AppStatus]
 readsPrec :: Int -&gt; ReadS AppStatus
 $creadsPrec :: Int -&gt; ReadS AppStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679244544"><span id="local-6989586621679244546"><span class="annot"><span class="annottext">AppStatus -&gt; AppStatus -&gt; Bool
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679244673"><span id="local-6989586621679244675"><span class="annot"><span class="annottext">AppStatus -&gt; AppStatus -&gt; Bool
 (AppStatus -&gt; AppStatus -&gt; Bool)
 -&gt; (AppStatus -&gt; AppStatus -&gt; Bool) -&gt; Eq AppStatus
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -85,7 +85,7 @@ $c/= :: AppStatus -&gt; AppStatus -&gt; Bool
 == :: AppStatus -&gt; AppStatus -&gt; Bool
 $c== :: AppStatus -&gt; AppStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679244528"><span id="local-6989586621679244530"><span id="local-6989586621679244532"><span id="local-6989586621679244534"><span id="local-6989586621679244536"><span id="local-6989586621679244538"><span id="local-6989586621679244540"><span class="annot"><span class="annottext">Eq AppStatus
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679244657"><span id="local-6989586621679244659"><span id="local-6989586621679244661"><span id="local-6989586621679244663"><span id="local-6989586621679244665"><span id="local-6989586621679244667"><span id="local-6989586621679244669"><span class="annot"><span class="annottext">Eq AppStatus
 Eq AppStatus
 -&gt; (AppStatus -&gt; AppStatus -&gt; Ordering)
 -&gt; (AppStatus -&gt; AppStatus -&gt; Bool)
@@ -135,7 +135,7 @@ $cfrom :: forall x. AppStatus -&gt; Rep AppStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679244520"><span id="local-6989586621679244522"><span class="annot"><span class="annottext">Int -&gt; AppStatus -&gt; Int
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679244649"><span id="local-6989586621679244651"><span class="annot"><span class="annottext">Int -&gt; AppStatus -&gt; Int
 AppStatus -&gt; Int
 (Int -&gt; AppStatus -&gt; Int)
 -&gt; (AppStatus -&gt; Int) -&gt; Hashable AppStatus
@@ -145,49 +145,49 @@ $chash :: AppStatus -&gt; Int
 hashWithSalt :: Int -&gt; AppStatus -&gt; Int
 $chashWithSalt :: Int -&gt; AppStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679244517"><span class="annot"><span class="annottext">AppStatus -&gt; ()
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679244646"><span class="annot"><span class="annottext">AppStatus -&gt; ()
 (AppStatus -&gt; ()) -&gt; NFData AppStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AppStatus -&gt; ()
 $crnf :: AppStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679244514"><span class="annot"><span class="annottext">Text -&gt; Either String AppStatus
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679244643"><span class="annot"><span class="annottext">Text -&gt; Either String AppStatus
 (Text -&gt; Either String AppStatus) -&gt; FromText AppStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AppStatus
 $cfromText :: Text -&gt; Either String AppStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679244511"><span class="annot"><span class="annottext">AppStatus -&gt; Text
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679244640"><span class="annot"><span class="annottext">AppStatus -&gt; Text
 (AppStatus -&gt; Text) -&gt; ToText AppStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AppStatus -&gt; Text
 $ctoText :: AppStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679244508"><span class="annot"><span class="annottext">AppStatus -&gt; ByteString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679244637"><span class="annot"><span class="annottext">AppStatus -&gt; ByteString
 (AppStatus -&gt; ByteString) -&gt; ToByteString AppStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AppStatus -&gt; ByteString
 $ctoBS :: AppStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679244505"><span class="annot"><span class="annottext">AppStatus -&gt; ByteStringBuilder
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679244634"><span class="annot"><span class="annottext">AppStatus -&gt; ByteStringBuilder
 (AppStatus -&gt; ByteStringBuilder) -&gt; ToLog AppStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AppStatus -&gt; ByteStringBuilder
 $cbuild :: AppStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679244502"><span class="annot"><span class="annottext">HeaderName -&gt; AppStatus -&gt; [Header]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679244631"><span class="annot"><span class="annottext">HeaderName -&gt; AppStatus -&gt; [Header]
 (HeaderName -&gt; AppStatus -&gt; [Header]) -&gt; ToHeader AppStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AppStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AppStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679244499"><span class="annot"><span class="annottext">AppStatus -&gt; QueryString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679244628"><span class="annot"><span class="annottext">AppStatus -&gt; QueryString
 (AppStatus -&gt; QueryString) -&gt; ToQuery AppStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AppStatus -&gt; QueryString
 $ctoQuery :: AppStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679244494"><span id="local-6989586621679244496"><span class="annot"><span class="annottext">Value -&gt; Parser [AppStatus]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679244623"><span id="local-6989586621679244625"><span class="annot"><span class="annottext">Value -&gt; Parser [AppStatus]
 Value -&gt; Parser AppStatus
 (Value -&gt; Parser AppStatus)
 -&gt; (Value -&gt; Parser [AppStatus]) -&gt; FromJSON AppStatus
@@ -198,7 +198,7 @@ $cparseJSONList :: Value -&gt; Parser [AppStatus]
 parseJSON :: Value -&gt; Parser AppStatus
 $cparseJSON :: Value -&gt; Parser AppStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679244489"><span id="local-6989586621679244491"><span class="annot"><span class="annottext">FromJSONKeyFunction [AppStatus]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679244618"><span id="local-6989586621679244620"><span class="annot"><span class="annottext">FromJSONKeyFunction [AppStatus]
 FromJSONKeyFunction AppStatus
 FromJSONKeyFunction AppStatus
 -&gt; FromJSONKeyFunction [AppStatus] -&gt; FromJSONKey AppStatus
@@ -209,7 +209,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AppStatus]
 fromJSONKey :: FromJSONKeyFunction AppStatus
 $cfromJSONKey :: FromJSONKeyFunction AppStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679244480"><span id="local-6989586621679244482"><span id="local-6989586621679244484"><span id="local-6989586621679244486"><span class="annot"><span class="annottext">[AppStatus] -&gt; Encoding
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679244609"><span id="local-6989586621679244611"><span id="local-6989586621679244613"><span id="local-6989586621679244615"><span class="annot"><span class="annottext">[AppStatus] -&gt; Encoding
 [AppStatus] -&gt; Value
 AppStatus -&gt; Encoding
 AppStatus -&gt; Value
@@ -233,7 +233,7 @@ $ctoEncoding :: AppStatus -&gt; Encoding
 toJSON :: AppStatus -&gt; Value
 $ctoJSON :: AppStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679244475"><span id="local-6989586621679244477"><span class="annot"><span class="annottext">ToJSONKeyFunction [AppStatus]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679244604"><span id="local-6989586621679244606"><span class="annot"><span class="annottext">ToJSONKeyFunction [AppStatus]
 ToJSONKeyFunction AppStatus
 ToJSONKeyFunction AppStatus
 -&gt; ToJSONKeyFunction [AppStatus] -&gt; ToJSONKey AppStatus
@@ -244,13 +244,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AppStatus]
 toJSONKey :: ToJSONKeyFunction AppStatus
 $ctoJSONKey :: ToJSONKeyFunction AppStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679244472"><span class="annot"><span class="annottext">[Node] -&gt; Either String AppStatus
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679244601"><span class="annot"><span class="annottext">[Node] -&gt; Either String AppStatus
 ([Node] -&gt; Either String AppStatus) -&gt; FromXML AppStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AppStatus
 $cparseXML :: [Node] -&gt; Either String AppStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679244469"><span class="annot"><span class="annottext">AppStatus -&gt; XML
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679244598"><span class="annot"><span class="annottext">AppStatus -&gt; XML
 (AppStatus -&gt; XML) -&gt; ToXML AppStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: AppStatus -&gt; XML

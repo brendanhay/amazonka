@@ -48,13 +48,13 @@
 </span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.html"><span class="hs-identifier">Network.AWS.StorageGateway.Types</span></a></span><span>
 </span><span id="line-49"></span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newDescribeFileSystemAssociations' smart constructor.</span><span>
-</span><span id="line-51"></span><span id="local-6989586621679382214"><span id="local-6989586621679382215"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeFileSystemAssociations"><span class="annot"><a href="Network.AWS.StorageGateway.DescribeFileSystemAssociations.html#DescribeFileSystemAssociations"><span class="hs-identifier hs-var">DescribeFileSystemAssociations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeFileSystemAssociations%27"><span class="annot"><a href="Network.AWS.StorageGateway.DescribeFileSystemAssociations.html#DescribeFileSystemAssociations%27"><span class="hs-identifier hs-var">DescribeFileSystemAssociations'</span></a></span></span><span>
+</span><span id="line-51"></span><span id="local-6989586621679386758"><span id="local-6989586621679386759"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeFileSystemAssociations"><span class="annot"><a href="Network.AWS.StorageGateway.DescribeFileSystemAssociations.html#DescribeFileSystemAssociations"><span class="hs-identifier hs-var">DescribeFileSystemAssociations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeFileSystemAssociations%27"><span class="annot"><a href="Network.AWS.StorageGateway.DescribeFileSystemAssociations.html#DescribeFileSystemAssociations%27"><span class="hs-identifier hs-var">DescribeFileSystemAssociations'</span></a></span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array containing the Amazon Resource Name (ARN) of each file system</span><span>
 </span><span id="line-53"></span><span>    </span><span class="hs-comment">-- association to be described.</span><span>
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3AfileSystemAssociationARNList%3ADescribeFileSystemAssociations%27"><span class="annot"><span class="annottext">DescribeFileSystemAssociations -&gt; NonEmpty Text
 </span><a href="Network.AWS.StorageGateway.DescribeFileSystemAssociations.html#%24sel%3AfileSystemAssociationARNList%3ADescribeFileSystemAssociations%27"><span class="hs-identifier hs-var hs-var">fileSystemAssociationARNList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679382208"><span id="local-6989586621679382210"><span class="annot"><span class="annottext">DescribeFileSystemAssociations
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679386752"><span id="local-6989586621679386754"><span class="annot"><span class="annottext">DescribeFileSystemAssociations
 -&gt; DescribeFileSystemAssociations -&gt; Bool
 (DescribeFileSystemAssociations
  -&gt; DescribeFileSystemAssociations -&gt; Bool)
@@ -70,7 +70,7 @@ $c/= :: DescribeFileSystemAssociations
 -&gt; DescribeFileSystemAssociations -&gt; Bool
 $c== :: DescribeFileSystemAssociations
 -&gt; DescribeFileSystemAssociations -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679382199"><span id="local-6989586621679382201"><span id="local-6989586621679382203"><span id="local-6989586621679382205"><span class="annot"><span class="annottext">ReadPrec [DescribeFileSystemAssociations]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386743"><span id="local-6989586621679386745"><span id="local-6989586621679386747"><span id="local-6989586621679386749"><span class="annot"><span class="annottext">ReadPrec [DescribeFileSystemAssociations]
 ReadPrec DescribeFileSystemAssociations
 Int -&gt; ReadS DescribeFileSystemAssociations
 ReadS [DescribeFileSystemAssociations]
@@ -90,7 +90,7 @@ readList :: ReadS [DescribeFileSystemAssociations]
 $creadList :: ReadS [DescribeFileSystemAssociations]
 readsPrec :: Int -&gt; ReadS DescribeFileSystemAssociations
 $creadsPrec :: Int -&gt; ReadS DescribeFileSystemAssociations
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679382192"><span id="local-6989586621679382194"><span id="local-6989586621679382196"><span class="annot"><span class="annottext">Int -&gt; DescribeFileSystemAssociations -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386736"><span id="local-6989586621679386738"><span id="local-6989586621679386740"><span class="annot"><span class="annottext">Int -&gt; DescribeFileSystemAssociations -&gt; ShowS
 [DescribeFileSystemAssociations] -&gt; ShowS
 DescribeFileSystemAssociations -&gt; String
 (Int -&gt; DescribeFileSystemAssociations -&gt; ShowS)
@@ -144,22 +144,22 @@ DescribeFileSystemAssociations
 </span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeFileSystemAssociations.html#DescribeFileSystemAssociations"><span class="hs-identifier hs-type">DescribeFileSystemAssociations</span></a></span><span>
 </span><span id="line-72"></span><span id="newDescribeFileSystemAssociations"><span class="annot"><span class="annottext">newDescribeFileSystemAssociations :: NonEmpty Text -&gt; DescribeFileSystemAssociations
 </span><a href="Network.AWS.StorageGateway.DescribeFileSystemAssociations.html#newDescribeFileSystemAssociations"><span class="hs-identifier hs-var hs-var">newDescribeFileSystemAssociations</span></a></span></span><span>
-</span><span id="line-73"></span><span>  </span><span id="local-6989586621679382187"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679382187"><span class="hs-identifier hs-var">pFileSystemAssociationARNList_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>  </span><span id="local-6989586621679386731"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679386731"><span class="hs-identifier hs-var">pFileSystemAssociationARNList_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>    </span><span class="annot"><span class="annottext">DescribeFileSystemAssociations' :: NonEmpty Text -&gt; DescribeFileSystemAssociations
 </span><a href="Network.AWS.StorageGateway.DescribeFileSystemAssociations.html#DescribeFileSystemAssociations%27"><span class="hs-identifier hs-type">DescribeFileSystemAssociations'</span></a></span><span>
 </span><span id="line-75"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:fileSystemAssociationARNList:DescribeFileSystemAssociations' :: NonEmpty Text
 </span><a href="Network.AWS.StorageGateway.DescribeFileSystemAssociations.html#%24sel%3AfileSystemAssociationARNList%3ADescribeFileSystemAssociations%27"><span class="hs-identifier hs-var">fileSystemAssociationARNList</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>          </span><span class="annot"><span class="annottext">Tagged (NonEmpty Text) (Identity (NonEmpty Text))
 -&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text))
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-77"></span><span>            </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Text) (Identity (NonEmpty Text))
  -&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text)))
 -&gt; NonEmpty Text -&gt; NonEmpty Text
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679382187"><span class="hs-identifier hs-var">pFileSystemAssociationARNList_</span></a></span><span>
+</span><a href="#local-6989586621679386731"><span class="hs-identifier hs-var">pFileSystemAssociationARNList_</span></a></span><span>
 </span><span id="line-78"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- | An array containing the Amazon Resource Name (ARN) of each file system</span><span>
@@ -177,16 +177,16 @@ forall t b. AReview t b -&gt; b -&gt; t
      (NonEmpty Text)
      (NonEmpty Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeFileSystemAssociations.html#DescribeFileSystemAssociations%27"><span class="hs-identifier hs-type">DescribeFileSystemAssociations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679382182"><span class="annot"><span class="annottext">NonEmpty Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeFileSystemAssociations.html#DescribeFileSystemAssociations%27"><span class="hs-identifier hs-type">DescribeFileSystemAssociations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386726"><span class="annot"><span class="annottext">NonEmpty Text
 fileSystemAssociationARNList :: NonEmpty Text
 $sel:fileSystemAssociationARNList:DescribeFileSystemAssociations' :: DescribeFileSystemAssociations -&gt; NonEmpty Text
-</span><a href="#local-6989586621679382182"><span class="hs-identifier hs-var hs-var">fileSystemAssociationARNList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679382182"><span class="hs-identifier hs-var">fileSystemAssociationARNList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679382181"><span class="annot"><span class="annottext">s :: DescribeFileSystemAssociations
-</span><a href="#local-6989586621679382181"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeFileSystemAssociations.html#DescribeFileSystemAssociations%27"><span class="hs-identifier hs-type">DescribeFileSystemAssociations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679382180"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679382180"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFileSystemAssociations
-</span><a href="#local-6989586621679382181"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fileSystemAssociationARNList:DescribeFileSystemAssociations' :: NonEmpty Text
+</span><a href="#local-6989586621679386726"><span class="hs-identifier hs-var hs-var">fileSystemAssociationARNList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679386726"><span class="hs-identifier hs-var">fileSystemAssociationARNList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386725"><span class="annot"><span class="annottext">s :: DescribeFileSystemAssociations
+</span><a href="#local-6989586621679386725"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeFileSystemAssociations.html#DescribeFileSystemAssociations%27"><span class="hs-identifier hs-type">DescribeFileSystemAssociations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386724"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679386724"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFileSystemAssociations
+</span><a href="#local-6989586621679386725"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fileSystemAssociationARNList:DescribeFileSystemAssociations' :: NonEmpty Text
 </span><a href="Network.AWS.StorageGateway.DescribeFileSystemAssociations.html#%24sel%3AfileSystemAssociationARNList%3ADescribeFileSystemAssociations%27"><span class="hs-identifier hs-var">fileSystemAssociationARNList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679382180"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeFileSystemAssociations.html#DescribeFileSystemAssociations"><span class="hs-identifier hs-type">DescribeFileSystemAssociations</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
+</span><a href="#local-6989586621679386724"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeFileSystemAssociations.html#DescribeFileSystemAssociations"><span class="hs-identifier hs-type">DescribeFileSystemAssociations</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
  -&gt; DescribeFileSystemAssociations
  -&gt; f DescribeFileSystemAssociations)
 -&gt; ((NonEmpty Text -&gt; f (NonEmpty Text))
@@ -197,8 +197,8 @@ $sel:fileSystemAssociationARNList:DescribeFileSystemAssociations' :: DescribeFil
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; f (NonEmpty Text))
 -&gt; NonEmpty Text -&gt; f (NonEmpty Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-86"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
@@ -207,7 +207,7 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 </span><span id="line-89"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-90"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeFileSystemAssociations.html#DescribeFileSystemAssociations"><span class="hs-identifier hs-type">DescribeFileSystemAssociations</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-91"></span><span>      </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeFileSystemAssociations.html#DescribeFileSystemAssociationsResponse"><span class="hs-identifier hs-type">DescribeFileSystemAssociationsResponse</span></a></span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679382175"><span class="annot"><span class="annottext">request :: DescribeFileSystemAssociations
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679386719"><span class="annot"><span class="annottext">request :: DescribeFileSystemAssociations
 -&gt; Request DescribeFileSystemAssociations
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DescribeFileSystemAssociations
@@ -215,7 +215,7 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.StorageGateway.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679382171"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679386715"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeFileSystemAssociations
 -&gt; ClientResponse ClientBody
@@ -243,10 +243,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679382168"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679382168"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679382167"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679382167"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679382166"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679382166"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679386712"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679386712"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679386711"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679386711"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679386710"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679386710"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-96"></span><span>          </span><span class="annot"><span class="annottext">Maybe [FileSystemAssociationInfo]
 -&gt; Int -&gt; DescribeFileSystemAssociationsResponse
 </span><a href="Network.AWS.StorageGateway.DescribeFileSystemAssociations.html#DescribeFileSystemAssociationsResponse%27"><span class="hs-identifier hs-var">DescribeFileSystemAssociationsResponse'</span></a></span><span>
@@ -256,7 +256,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DescribeFileSystemAssociationsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679382166"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679386710"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text
 -&gt; Either String (Maybe (Maybe [FileSystemAssociationInfo]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
@@ -279,22 +279,22 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679382168"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679386712"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679382157"><span id="local-6989586621679382159"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679386701"><span id="local-6989586621679386703"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-105"></span><span>    </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeFileSystemAssociations.html#DescribeFileSystemAssociations"><span class="hs-identifier hs-type">DescribeFileSystemAssociations</span></a></span></span></span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679382154"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679386698"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-109"></span><span>    </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeFileSystemAssociations.html#DescribeFileSystemAssociations"><span class="hs-identifier hs-type">DescribeFileSystemAssociations</span></a></span></span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-112"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
 </span><span id="line-113"></span><span>    </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeFileSystemAssociations.html#DescribeFileSystemAssociations"><span class="hs-identifier hs-type">DescribeFileSystemAssociations</span></a></span><span>
 </span><span id="line-114"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679382150"><span class="annot"><span class="annottext">toHeaders :: DescribeFileSystemAssociations -&gt; ResponseHeaders
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679386694"><span class="annot"><span class="annottext">toHeaders :: DescribeFileSystemAssociations -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
 -&gt; DescribeFileSystemAssociations -&gt; ResponseHeaders
@@ -322,12 +322,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-126"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679382140"><span id="local-6989586621679382142"><span id="local-6989586621679382144"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeFileSystemAssociations.html#DescribeFileSystemAssociations"><span class="hs-identifier hs-type">DescribeFileSystemAssociations</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679382138"><span class="annot"><span class="annottext">toJSON :: DescribeFileSystemAssociations -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeFileSystemAssociations.html#DescribeFileSystemAssociations%27"><span class="hs-identifier hs-type">DescribeFileSystemAssociations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679382136"><span class="annot"><span class="annottext">NonEmpty Text
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386684"><span id="local-6989586621679386686"><span id="local-6989586621679386688"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeFileSystemAssociations.html#DescribeFileSystemAssociations"><span class="hs-identifier hs-type">DescribeFileSystemAssociations</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679386682"><span class="annot"><span class="annottext">toJSON :: DescribeFileSystemAssociations -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeFileSystemAssociations.html#DescribeFileSystemAssociations%27"><span class="hs-identifier hs-type">DescribeFileSystemAssociations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386680"><span class="annot"><span class="annottext">NonEmpty Text
 fileSystemAssociationARNList :: NonEmpty Text
 $sel:fileSystemAssociationARNList:DescribeFileSystemAssociations' :: DescribeFileSystemAssociations -&gt; NonEmpty Text
-</span><a href="#local-6989586621679382136"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679386680"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-132"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -341,20 +341,20 @@ forall a. a -&gt; Maybe a
 </span><span id="line-135"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679382136"><span class="hs-identifier hs-var">fileSystemAssociationARNList</span></a></span><span>
+</span><a href="#local-6989586621679386680"><span class="hs-identifier hs-var">fileSystemAssociationARNList</span></a></span><span>
 </span><span id="line-136"></span><span>              </span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-138"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeFileSystemAssociations.html#DescribeFileSystemAssociations"><span class="hs-identifier hs-type">DescribeFileSystemAssociations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621679382130"><span class="annot"><span class="annottext">toPath :: DescribeFileSystemAssociations -&gt; ByteString
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679386674"><span class="annot"><span class="annottext">toPath :: DescribeFileSystemAssociations -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeFileSystemAssociations -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeFileSystemAssociations.html#DescribeFileSystemAssociations"><span class="hs-identifier hs-type">DescribeFileSystemAssociations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-144"></span><span>  </span><span id="local-6989586621679382126"><span class="annot"><span class="annottext">toQuery :: DescribeFileSystemAssociations -&gt; QueryString
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679386670"><span class="annot"><span class="annottext">toQuery :: DescribeFileSystemAssociations -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeFileSystemAssociations -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -362,7 +362,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-comment">-- | /See:/ 'newDescribeFileSystemAssociationsResponse' smart constructor.</span><span>
-</span><span id="line-147"></span><span id="local-6989586621679382123"><span id="local-6989586621679382124"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeFileSystemAssociationsResponse"><span class="annot"><a href="Network.AWS.StorageGateway.DescribeFileSystemAssociations.html#DescribeFileSystemAssociationsResponse"><span class="hs-identifier hs-var">DescribeFileSystemAssociationsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeFileSystemAssociationsResponse%27"><span class="annot"><a href="Network.AWS.StorageGateway.DescribeFileSystemAssociations.html#DescribeFileSystemAssociationsResponse%27"><span class="hs-identifier hs-var">DescribeFileSystemAssociationsResponse'</span></a></span></span><span>
+</span><span id="line-147"></span><span id="local-6989586621679386667"><span id="local-6989586621679386668"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeFileSystemAssociationsResponse"><span class="annot"><a href="Network.AWS.StorageGateway.DescribeFileSystemAssociations.html#DescribeFileSystemAssociationsResponse"><span class="hs-identifier hs-var">DescribeFileSystemAssociationsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeFileSystemAssociationsResponse%27"><span class="annot"><a href="Network.AWS.StorageGateway.DescribeFileSystemAssociations.html#DescribeFileSystemAssociationsResponse%27"><span class="hs-identifier hs-var">DescribeFileSystemAssociationsResponse'</span></a></span></span><span>
 </span><span id="line-148"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array containing the @FileSystemAssociationInfo@ data type of each</span><span>
 </span><span id="line-149"></span><span>    </span><span class="hs-comment">-- file system association to be described.</span><span>
 </span><span id="line-150"></span><span>    </span><span id="%24sel%3AfileSystemAssociationInfoList%3ADescribeFileSystemAssociationsResponse%27"><span class="annot"><span class="annottext">DescribeFileSystemAssociationsResponse
@@ -372,7 +372,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-152"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeFileSystemAssociationsResponse%27"><span class="annot"><span class="annottext">DescribeFileSystemAssociationsResponse -&gt; Int
 </span><a href="Network.AWS.StorageGateway.DescribeFileSystemAssociations.html#%24sel%3AhttpStatus%3ADescribeFileSystemAssociationsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-153"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-154"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679382117"><span id="local-6989586621679382119"><span class="annot"><span class="annottext">DescribeFileSystemAssociationsResponse
+</span><span id="line-154"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679386661"><span id="local-6989586621679386663"><span class="annot"><span class="annottext">DescribeFileSystemAssociationsResponse
 -&gt; DescribeFileSystemAssociationsResponse -&gt; Bool
 (DescribeFileSystemAssociationsResponse
  -&gt; DescribeFileSystemAssociationsResponse -&gt; Bool)
@@ -388,7 +388,7 @@ $c/= :: DescribeFileSystemAssociationsResponse
 -&gt; DescribeFileSystemAssociationsResponse -&gt; Bool
 $c== :: DescribeFileSystemAssociationsResponse
 -&gt; DescribeFileSystemAssociationsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679382109"><span id="local-6989586621679382111"><span id="local-6989586621679382113"><span id="local-6989586621679382115"><span class="annot"><span class="annottext">ReadPrec [DescribeFileSystemAssociationsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386653"><span id="local-6989586621679386655"><span id="local-6989586621679386657"><span id="local-6989586621679386659"><span class="annot"><span class="annottext">ReadPrec [DescribeFileSystemAssociationsResponse]
 ReadPrec DescribeFileSystemAssociationsResponse
 Int -&gt; ReadS DescribeFileSystemAssociationsResponse
 ReadS [DescribeFileSystemAssociationsResponse]
@@ -408,7 +408,7 @@ readList :: ReadS [DescribeFileSystemAssociationsResponse]
 $creadList :: ReadS [DescribeFileSystemAssociationsResponse]
 readsPrec :: Int -&gt; ReadS DescribeFileSystemAssociationsResponse
 $creadsPrec :: Int -&gt; ReadS DescribeFileSystemAssociationsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679382103"><span id="local-6989586621679382105"><span id="local-6989586621679382107"><span class="annot"><span class="annottext">Int -&gt; DescribeFileSystemAssociationsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386647"><span id="local-6989586621679386649"><span id="local-6989586621679386651"><span class="annot"><span class="annottext">Int -&gt; DescribeFileSystemAssociationsResponse -&gt; ShowS
 [DescribeFileSystemAssociationsResponse] -&gt; ShowS
 DescribeFileSystemAssociationsResponse -&gt; String
 (Int -&gt; DescribeFileSystemAssociationsResponse -&gt; ShowS)
@@ -464,8 +464,8 @@ DescribeFileSystemAssociationsResponse
 </span><span id="line-171"></span><span>  </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeFileSystemAssociations.html#DescribeFileSystemAssociationsResponse"><span class="hs-identifier hs-type">DescribeFileSystemAssociationsResponse</span></a></span><span>
 </span><span id="line-172"></span><span id="newDescribeFileSystemAssociationsResponse"><span class="annot"><span class="annottext">newDescribeFileSystemAssociationsResponse :: Int -&gt; DescribeFileSystemAssociationsResponse
 </span><a href="Network.AWS.StorageGateway.DescribeFileSystemAssociations.html#newDescribeFileSystemAssociationsResponse"><span class="hs-identifier hs-var hs-var">newDescribeFileSystemAssociationsResponse</span></a></span></span><span>
-</span><span id="line-173"></span><span>  </span><span id="local-6989586621679382100"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679382100"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679386644"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679386644"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-174"></span><span>    </span><span class="annot"><span class="annottext">DescribeFileSystemAssociationsResponse' :: Maybe [FileSystemAssociationInfo]
 -&gt; Int -&gt; DescribeFileSystemAssociationsResponse
 </span><a href="Network.AWS.StorageGateway.DescribeFileSystemAssociations.html#DescribeFileSystemAssociationsResponse%27"><span class="hs-identifier hs-type">DescribeFileSystemAssociationsResponse'</span></a></span><span>
@@ -476,7 +476,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-177"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeFileSystemAssociationsResponse' :: Int
 </span><a href="Network.AWS.StorageGateway.DescribeFileSystemAssociations.html#%24sel%3AhttpStatus%3ADescribeFileSystemAssociationsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679382100"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679386644"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-178"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-comment">-- | An array containing the @FileSystemAssociationInfo@ data type of each</span><span>
@@ -497,17 +497,17 @@ forall a. Maybe a
      (Maybe [FileSystemAssociationInfo])
      (Maybe [FileSystemAssociationInfo])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeFileSystemAssociations.html#DescribeFileSystemAssociationsResponse%27"><span class="hs-identifier hs-type">DescribeFileSystemAssociationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679382099"><span class="annot"><span class="annottext">Maybe [FileSystemAssociationInfo]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeFileSystemAssociations.html#DescribeFileSystemAssociationsResponse%27"><span class="hs-identifier hs-type">DescribeFileSystemAssociationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386643"><span class="annot"><span class="annottext">Maybe [FileSystemAssociationInfo]
 fileSystemAssociationInfoList :: Maybe [FileSystemAssociationInfo]
 $sel:fileSystemAssociationInfoList:DescribeFileSystemAssociationsResponse' :: DescribeFileSystemAssociationsResponse
 -&gt; Maybe [FileSystemAssociationInfo]
-</span><a href="#local-6989586621679382099"><span class="hs-identifier hs-var hs-var">fileSystemAssociationInfoList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [FileSystemAssociationInfo]
-</span><a href="#local-6989586621679382099"><span class="hs-identifier hs-var">fileSystemAssociationInfoList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679382098"><span class="annot"><span class="annottext">s :: DescribeFileSystemAssociationsResponse
-</span><a href="#local-6989586621679382098"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeFileSystemAssociations.html#DescribeFileSystemAssociationsResponse%27"><span class="hs-identifier hs-type">DescribeFileSystemAssociationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679382097"><span class="annot"><span class="annottext">Maybe [FileSystemAssociationInfo]
-</span><a href="#local-6989586621679382097"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFileSystemAssociationsResponse
-</span><a href="#local-6989586621679382098"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fileSystemAssociationInfoList:DescribeFileSystemAssociationsResponse' :: Maybe [FileSystemAssociationInfo]
+</span><a href="#local-6989586621679386643"><span class="hs-identifier hs-var hs-var">fileSystemAssociationInfoList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [FileSystemAssociationInfo]
+</span><a href="#local-6989586621679386643"><span class="hs-identifier hs-var">fileSystemAssociationInfoList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386642"><span class="annot"><span class="annottext">s :: DescribeFileSystemAssociationsResponse
+</span><a href="#local-6989586621679386642"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeFileSystemAssociations.html#DescribeFileSystemAssociationsResponse%27"><span class="hs-identifier hs-type">DescribeFileSystemAssociationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386641"><span class="annot"><span class="annottext">Maybe [FileSystemAssociationInfo]
+</span><a href="#local-6989586621679386641"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFileSystemAssociationsResponse
+</span><a href="#local-6989586621679386642"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fileSystemAssociationInfoList:DescribeFileSystemAssociationsResponse' :: Maybe [FileSystemAssociationInfo]
 </span><a href="Network.AWS.StorageGateway.DescribeFileSystemAssociations.html#%24sel%3AfileSystemAssociationInfoList%3ADescribeFileSystemAssociationsResponse%27"><span class="hs-identifier hs-var">fileSystemAssociationInfoList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [FileSystemAssociationInfo]
-</span><a href="#local-6989586621679382097"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeFileSystemAssociations.html#DescribeFileSystemAssociationsResponse"><span class="hs-identifier hs-type">DescribeFileSystemAssociationsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [FileSystemAssociationInfo]
+</span><a href="#local-6989586621679386641"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeFileSystemAssociations.html#DescribeFileSystemAssociationsResponse"><span class="hs-identifier hs-type">DescribeFileSystemAssociationsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [FileSystemAssociationInfo]
   -&gt; f (Maybe [FileSystemAssociationInfo]))
  -&gt; DescribeFileSystemAssociationsResponse
  -&gt; f DescribeFileSystemAssociationsResponse)
@@ -538,8 +538,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [FileSystemAssociationInfo]
   [FileSystemAssociationInfo]
   [FileSystemAssociationInfo]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-184"></span><span>
 </span><span id="line-185"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-186"></span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeFileSystemAssociations.html#describeFileSystemAssociationsResponse_httpStatus"><span class="hs-identifier hs-type">describeFileSystemAssociationsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeFileSystemAssociations.html#DescribeFileSystemAssociationsResponse"><span class="hs-identifier hs-type">DescribeFileSystemAssociationsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -555,18 +555,18 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeFileSystemAssociations.html#DescribeFileSystemAssociationsResponse%27"><span class="hs-identifier hs-type">DescribeFileSystemAssociationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679382095"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeFileSystemAssociations.html#DescribeFileSystemAssociationsResponse%27"><span class="hs-identifier hs-type">DescribeFileSystemAssociationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386639"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeFileSystemAssociationsResponse' :: DescribeFileSystemAssociationsResponse -&gt; Int
-</span><a href="#local-6989586621679382095"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679382095"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679382094"><span class="annot"><span class="annottext">s :: DescribeFileSystemAssociationsResponse
-</span><a href="#local-6989586621679382094"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeFileSystemAssociations.html#DescribeFileSystemAssociationsResponse%27"><span class="hs-identifier hs-type">DescribeFileSystemAssociationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679382093"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679382093"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFileSystemAssociationsResponse
-</span><a href="#local-6989586621679382094"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeFileSystemAssociationsResponse' :: Int
+</span><a href="#local-6989586621679386639"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679386639"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386638"><span class="annot"><span class="annottext">s :: DescribeFileSystemAssociationsResponse
+</span><a href="#local-6989586621679386638"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeFileSystemAssociations.html#DescribeFileSystemAssociationsResponse%27"><span class="hs-identifier hs-type">DescribeFileSystemAssociationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386637"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679386637"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFileSystemAssociationsResponse
+</span><a href="#local-6989586621679386638"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeFileSystemAssociationsResponse' :: Int
 </span><a href="Network.AWS.StorageGateway.DescribeFileSystemAssociations.html#%24sel%3AhttpStatus%3ADescribeFileSystemAssociationsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679382093"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeFileSystemAssociations.html#DescribeFileSystemAssociationsResponse"><span class="hs-identifier hs-type">DescribeFileSystemAssociationsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679386637"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeFileSystemAssociations.html#DescribeFileSystemAssociationsResponse"><span class="hs-identifier hs-type">DescribeFileSystemAssociationsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-188"></span><span>
 </span><span id="line-189"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-190"></span><span>  </span><span id="local-6989586621679382091"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-190"></span><span>  </span><span id="local-6989586621679386635"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-191"></span><span>    </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeFileSystemAssociations.html#DescribeFileSystemAssociationsResponse"><span class="hs-identifier hs-type">DescribeFileSystemAssociationsResponse</span></a></span></span><span>
 </span><span id="line-192"></span></pre></body></html>

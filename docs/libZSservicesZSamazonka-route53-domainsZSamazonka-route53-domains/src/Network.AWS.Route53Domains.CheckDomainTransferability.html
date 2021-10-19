@@ -50,7 +50,7 @@
 </span><span id="line-50"></span><span class="hs-comment">-- | The CheckDomainTransferability request contains the following elements.</span><span>
 </span><span id="line-51"></span><span class="hs-comment">--</span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- /See:/ 'newCheckDomainTransferability' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621679216071"><span id="local-6989586621679216072"></span></span><span class="hs-keyword">data</span><span> </span><span id="CheckDomainTransferability"><span class="annot"><a href="Network.AWS.Route53Domains.CheckDomainTransferability.html#CheckDomainTransferability"><span class="hs-identifier hs-var">CheckDomainTransferability</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CheckDomainTransferability%27"><span class="annot"><a href="Network.AWS.Route53Domains.CheckDomainTransferability.html#CheckDomainTransferability%27"><span class="hs-identifier hs-var">CheckDomainTransferability'</span></a></span></span><span>
+</span><span id="line-53"></span><span id="local-6989586621679216138"><span id="local-6989586621679216139"></span></span><span class="hs-keyword">data</span><span> </span><span id="CheckDomainTransferability"><span class="annot"><a href="Network.AWS.Route53Domains.CheckDomainTransferability.html#CheckDomainTransferability"><span class="hs-identifier hs-var">CheckDomainTransferability</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CheckDomainTransferability%27"><span class="annot"><a href="Network.AWS.Route53Domains.CheckDomainTransferability.html#CheckDomainTransferability%27"><span class="hs-identifier hs-var">CheckDomainTransferability'</span></a></span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If the registrar for the top-level domain (TLD) requires an</span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-comment">-- authorization code to transfer the domain, the code that you got from</span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-comment">-- the current registrar for the domain.</span><span>
@@ -76,7 +76,7 @@
 </span><span id="line-75"></span><span>    </span><span id="%24sel%3AdomainName%3ACheckDomainTransferability%27"><span class="annot"><span class="annottext">CheckDomainTransferability -&gt; Text
 </span><a href="Network.AWS.Route53Domains.CheckDomainTransferability.html#%24sel%3AdomainName%3ACheckDomainTransferability%27"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-76"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-77"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679216064"><span id="local-6989586621679216066"><span class="annot"><span class="annottext">CheckDomainTransferability -&gt; CheckDomainTransferability -&gt; Bool
+</span><span id="line-77"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679216131"><span id="local-6989586621679216133"><span class="annot"><span class="annottext">CheckDomainTransferability -&gt; CheckDomainTransferability -&gt; Bool
 (CheckDomainTransferability -&gt; CheckDomainTransferability -&gt; Bool)
 -&gt; (CheckDomainTransferability
     -&gt; CheckDomainTransferability -&gt; Bool)
@@ -86,7 +86,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CheckDomainTransferability -&gt; CheckDomainTransferability -&gt; Bool
 == :: CheckDomainTransferability -&gt; CheckDomainTransferability -&gt; Bool
 $c== :: CheckDomainTransferability -&gt; CheckDomainTransferability -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679216057"><span id="local-6989586621679216059"><span id="local-6989586621679216061"><span class="annot"><span class="annottext">Int -&gt; CheckDomainTransferability -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679216124"><span id="local-6989586621679216126"><span id="local-6989586621679216128"><span class="annot"><span class="annottext">Int -&gt; CheckDomainTransferability -&gt; ShowS
 [CheckDomainTransferability] -&gt; ShowS
 CheckDomainTransferability -&gt; String
 (Int -&gt; CheckDomainTransferability -&gt; ShowS)
@@ -152,8 +152,8 @@ CheckDomainTransferability -&gt; Rep CheckDomainTransferability x
 </span><span id="line-110"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-111"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53Domains.CheckDomainTransferability.html#CheckDomainTransferability"><span class="hs-identifier hs-type">CheckDomainTransferability</span></a></span><span>
 </span><span id="line-112"></span><span id="newCheckDomainTransferability"><span class="annot"><span class="annottext">newCheckDomainTransferability :: Text -&gt; CheckDomainTransferability
-</span><a href="Network.AWS.Route53Domains.CheckDomainTransferability.html#newCheckDomainTransferability"><span class="hs-identifier hs-var hs-var">newCheckDomainTransferability</span></a></span></span><span> </span><span id="local-6989586621679216052"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679216052"><span class="hs-identifier hs-var">pDomainName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Route53Domains.CheckDomainTransferability.html#newCheckDomainTransferability"><span class="hs-identifier hs-var hs-var">newCheckDomainTransferability</span></a></span></span><span> </span><span id="local-6989586621679216119"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679216119"><span class="hs-identifier hs-var">pDomainName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-113"></span><span>  </span><span class="annot"><span class="annottext">CheckDomainTransferability' :: Maybe (Sensitive Text) -&gt; Text -&gt; CheckDomainTransferability
 </span><a href="Network.AWS.Route53Domains.CheckDomainTransferability.html#CheckDomainTransferability%27"><span class="hs-identifier hs-type">CheckDomainTransferability'</span></a></span><span>
 </span><span id="line-114"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:authCode:CheckDomainTransferability' :: Maybe (Sensitive Text)
@@ -163,7 +163,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:domainName:CheckDomainTransferability' :: Text
 </span><a href="Network.AWS.Route53Domains.CheckDomainTransferability.html#%24sel%3AdomainName%3ACheckDomainTransferability%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679216052"><span class="hs-identifier hs-var">pDomainName_</span></a></span><span>
+</span><a href="#local-6989586621679216119"><span class="hs-identifier hs-var">pDomainName_</span></a></span><span>
 </span><span id="line-117"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- | If the registrar for the top-level domain (TLD) requires an</span><span>
@@ -181,16 +181,16 @@ forall a. Maybe a
      (Maybe (Sensitive Text))
      (Maybe (Sensitive Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.CheckDomainTransferability.html#CheckDomainTransferability%27"><span class="hs-identifier hs-type">CheckDomainTransferability'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216049"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.CheckDomainTransferability.html#CheckDomainTransferability%27"><span class="hs-identifier hs-type">CheckDomainTransferability'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216116"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 authCode :: Maybe (Sensitive Text)
 $sel:authCode:CheckDomainTransferability' :: CheckDomainTransferability -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679216049"><span class="hs-identifier hs-var hs-var">authCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679216049"><span class="hs-identifier hs-var">authCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679216048"><span class="annot"><span class="annottext">s :: CheckDomainTransferability
-</span><a href="#local-6989586621679216048"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.CheckDomainTransferability.html#CheckDomainTransferability%27"><span class="hs-identifier hs-type">CheckDomainTransferability'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679216047"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679216047"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CheckDomainTransferability
-</span><a href="#local-6989586621679216048"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authCode:CheckDomainTransferability' :: Maybe (Sensitive Text)
+</span><a href="#local-6989586621679216116"><span class="hs-identifier hs-var hs-var">authCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679216116"><span class="hs-identifier hs-var">authCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679216115"><span class="annot"><span class="annottext">s :: CheckDomainTransferability
+</span><a href="#local-6989586621679216115"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.CheckDomainTransferability.html#CheckDomainTransferability%27"><span class="hs-identifier hs-type">CheckDomainTransferability'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679216114"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679216114"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CheckDomainTransferability
+</span><a href="#local-6989586621679216115"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authCode:CheckDomainTransferability' :: Maybe (Sensitive Text)
 </span><a href="Network.AWS.Route53Domains.CheckDomainTransferability.html#%24sel%3AauthCode%3ACheckDomainTransferability%27"><span class="hs-identifier hs-var">authCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679216047"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.CheckDomainTransferability.html#CheckDomainTransferability"><span class="hs-identifier hs-type">CheckDomainTransferability</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+</span><a href="#local-6989586621679216114"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.CheckDomainTransferability.html#CheckDomainTransferability"><span class="hs-identifier hs-type">CheckDomainTransferability</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
  -&gt; CheckDomainTransferability -&gt; f CheckDomainTransferability)
 -&gt; ((Maybe Text -&gt; f (Maybe Text))
     -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
@@ -237,28 +237,28 @@ forall a. Iso' (Sensitive a) a
 -&gt; Lens
      CheckDomainTransferability CheckDomainTransferability Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.CheckDomainTransferability.html#CheckDomainTransferability%27"><span class="hs-identifier hs-type">CheckDomainTransferability'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216043"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.CheckDomainTransferability.html#CheckDomainTransferability%27"><span class="hs-identifier hs-type">CheckDomainTransferability'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216110"><span class="annot"><span class="annottext">Text
 domainName :: Text
 $sel:domainName:CheckDomainTransferability' :: CheckDomainTransferability -&gt; Text
-</span><a href="#local-6989586621679216043"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679216043"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679216042"><span class="annot"><span class="annottext">s :: CheckDomainTransferability
-</span><a href="#local-6989586621679216042"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.CheckDomainTransferability.html#CheckDomainTransferability%27"><span class="hs-identifier hs-type">CheckDomainTransferability'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679216041"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679216041"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CheckDomainTransferability
-</span><a href="#local-6989586621679216042"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainName:CheckDomainTransferability' :: Text
+</span><a href="#local-6989586621679216110"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679216110"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679216109"><span class="annot"><span class="annottext">s :: CheckDomainTransferability
+</span><a href="#local-6989586621679216109"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.CheckDomainTransferability.html#CheckDomainTransferability%27"><span class="hs-identifier hs-type">CheckDomainTransferability'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679216108"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679216108"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CheckDomainTransferability
+</span><a href="#local-6989586621679216109"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainName:CheckDomainTransferability' :: Text
 </span><a href="Network.AWS.Route53Domains.CheckDomainTransferability.html#%24sel%3AdomainName%3ACheckDomainTransferability%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679216041"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.CheckDomainTransferability.html#CheckDomainTransferability"><span class="hs-identifier hs-type">CheckDomainTransferability</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679216108"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.CheckDomainTransferability.html#CheckDomainTransferability"><span class="hs-identifier hs-type">CheckDomainTransferability</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.CheckDomainTransferability.html#CheckDomainTransferability"><span class="hs-identifier hs-type">CheckDomainTransferability</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-146"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-147"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.CheckDomainTransferability.html#CheckDomainTransferability"><span class="hs-identifier hs-type">CheckDomainTransferability</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-148"></span><span>      </span><span class="annot"><a href="Network.AWS.Route53Domains.CheckDomainTransferability.html#CheckDomainTransferabilityResponse"><span class="hs-identifier hs-type">CheckDomainTransferabilityResponse</span></a></span><span>
-</span><span id="line-149"></span><span>  </span><span id="local-6989586621679216037"><span class="annot"><span class="annottext">request :: CheckDomainTransferability -&gt; Request CheckDomainTransferability
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679216104"><span class="annot"><span class="annottext">request :: CheckDomainTransferability -&gt; Request CheckDomainTransferability
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; CheckDomainTransferability -&gt; Request CheckDomainTransferability
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Route53Domains.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679216033"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679216100"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CheckDomainTransferability
 -&gt; ClientResponse ClientBody
@@ -284,10 +284,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-152"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679216030"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679216030"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679216029"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679216029"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679216028"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679216028"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-152"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679216097"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679216097"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679216096"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679216096"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679216095"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679216095"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-153"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DomainTransferability -&gt; CheckDomainTransferabilityResponse
 </span><a href="Network.AWS.Route53Domains.CheckDomainTransferability.html#CheckDomainTransferabilityResponse%27"><span class="hs-identifier hs-var">CheckDomainTransferabilityResponse'</span></a></span><span>
 </span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">(Int
@@ -302,7 +302,7 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679216030"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679216097"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
   (DomainTransferability -&gt; CheckDomainTransferabilityResponse)
@@ -310,18 +310,18 @@ forall a. Enum a =&gt; a -&gt; Int
 -&gt; Either String CheckDomainTransferabilityResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679216028"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String DomainTransferability
+</span><a href="#local-6989586621679216095"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String DomainTransferability
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Transferability&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span><span>
-</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679216020"><span id="local-6989586621679216022"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.CheckDomainTransferability.html#CheckDomainTransferability"><span class="hs-identifier hs-type">CheckDomainTransferability</span></a></span></span></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679216087"><span id="local-6989586621679216089"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.CheckDomainTransferability.html#CheckDomainTransferability"><span class="hs-identifier hs-type">CheckDomainTransferability</span></a></span></span></span><span>
 </span><span id="line-159"></span><span>
-</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679216017"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.CheckDomainTransferability.html#CheckDomainTransferability"><span class="hs-identifier hs-type">CheckDomainTransferability</span></a></span></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679216084"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.CheckDomainTransferability.html#CheckDomainTransferability"><span class="hs-identifier hs-type">CheckDomainTransferability</span></a></span></span><span>
 </span><span id="line-161"></span><span>
 </span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.CheckDomainTransferability.html#CheckDomainTransferability"><span class="hs-identifier hs-type">CheckDomainTransferability</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-163"></span><span>  </span><span id="local-6989586621679216013"><span class="annot"><span class="annottext">toHeaders :: CheckDomainTransferability -&gt; ResponseHeaders
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679216080"><span class="annot"><span class="annottext">toHeaders :: CheckDomainTransferability -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-164"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CheckDomainTransferability -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -348,15 +348,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-174"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-175"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>
-</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679216003"><span id="local-6989586621679216005"><span id="local-6989586621679216007"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.CheckDomainTransferability.html#CheckDomainTransferability"><span class="hs-identifier hs-type">CheckDomainTransferability</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-178"></span><span>  </span><span id="local-6989586621679216001"><span class="annot"><span class="annottext">toJSON :: CheckDomainTransferability -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.CheckDomainTransferability.html#CheckDomainTransferability%27"><span class="hs-identifier hs-type">CheckDomainTransferability'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215998"><span id="local-6989586621679215999"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679216070"><span id="local-6989586621679216072"><span id="local-6989586621679216074"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.CheckDomainTransferability.html#CheckDomainTransferability"><span class="hs-identifier hs-type">CheckDomainTransferability</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679216068"><span class="annot"><span class="annottext">toJSON :: CheckDomainTransferability -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.CheckDomainTransferability.html#CheckDomainTransferability%27"><span class="hs-identifier hs-type">CheckDomainTransferability'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216065"><span id="local-6989586621679216066"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 Text
 domainName :: Text
 authCode :: Maybe (Sensitive Text)
 $sel:domainName:CheckDomainTransferability' :: CheckDomainTransferability -&gt; Text
 $sel:authCode:CheckDomainTransferability' :: CheckDomainTransferability -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679215998"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679216065"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-179"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-180"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -368,26 +368,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Sensitive Text -&gt; Pair) -&gt; Maybe (Sensitive Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679215999"><span class="hs-identifier hs-var">authCode</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679216066"><span class="hs-identifier hs-var">authCode</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-182"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DomainName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679215998"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679216065"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-183"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-184"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-185"></span><span>
 </span><span id="line-186"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.CheckDomainTransferability.html#CheckDomainTransferability"><span class="hs-identifier hs-type">CheckDomainTransferability</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-187"></span><span>  </span><span id="local-6989586621679215992"><span class="annot"><span class="annottext">toPath :: CheckDomainTransferability -&gt; ByteString
+</span><span id="line-187"></span><span>  </span><span id="local-6989586621679216059"><span class="annot"><span class="annottext">toPath :: CheckDomainTransferability -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CheckDomainTransferability -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-188"></span><span>
 </span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.CheckDomainTransferability.html#CheckDomainTransferability"><span class="hs-identifier hs-type">CheckDomainTransferability</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-190"></span><span>  </span><span id="local-6989586621679215988"><span class="annot"><span class="annottext">toQuery :: CheckDomainTransferability -&gt; QueryString
+</span><span id="line-190"></span><span>  </span><span id="local-6989586621679216055"><span class="annot"><span class="annottext">toQuery :: CheckDomainTransferability -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CheckDomainTransferability -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -397,7 +397,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-192"></span><span class="hs-comment">-- | The CheckDomainTransferability response includes the following elements.</span><span>
 </span><span id="line-193"></span><span class="hs-comment">--</span><span>
 </span><span id="line-194"></span><span class="hs-comment">-- /See:/ 'newCheckDomainTransferabilityResponse' smart constructor.</span><span>
-</span><span id="line-195"></span><span id="local-6989586621679215985"><span id="local-6989586621679215986"></span></span><span class="hs-keyword">data</span><span> </span><span id="CheckDomainTransferabilityResponse"><span class="annot"><a href="Network.AWS.Route53Domains.CheckDomainTransferability.html#CheckDomainTransferabilityResponse"><span class="hs-identifier hs-var">CheckDomainTransferabilityResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CheckDomainTransferabilityResponse%27"><span class="annot"><a href="Network.AWS.Route53Domains.CheckDomainTransferability.html#CheckDomainTransferabilityResponse%27"><span class="hs-identifier hs-var">CheckDomainTransferabilityResponse'</span></a></span></span><span>
+</span><span id="line-195"></span><span id="local-6989586621679216052"><span id="local-6989586621679216053"></span></span><span class="hs-keyword">data</span><span> </span><span id="CheckDomainTransferabilityResponse"><span class="annot"><a href="Network.AWS.Route53Domains.CheckDomainTransferability.html#CheckDomainTransferabilityResponse"><span class="hs-identifier hs-var">CheckDomainTransferabilityResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CheckDomainTransferabilityResponse%27"><span class="annot"><a href="Network.AWS.Route53Domains.CheckDomainTransferability.html#CheckDomainTransferabilityResponse%27"><span class="hs-identifier hs-var">CheckDomainTransferabilityResponse'</span></a></span></span><span>
 </span><span id="line-196"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-197"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACheckDomainTransferabilityResponse%27"><span class="annot"><span class="annottext">CheckDomainTransferabilityResponse -&gt; Int
 </span><a href="Network.AWS.Route53Domains.CheckDomainTransferability.html#%24sel%3AhttpStatus%3ACheckDomainTransferabilityResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -406,7 +406,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-200"></span><span>    </span><span id="%24sel%3Atransferability%3ACheckDomainTransferabilityResponse%27"><span class="annot"><span class="annottext">CheckDomainTransferabilityResponse -&gt; DomainTransferability
 </span><a href="Network.AWS.Route53Domains.CheckDomainTransferability.html#%24sel%3Atransferability%3ACheckDomainTransferabilityResponse%27"><span class="hs-identifier hs-var hs-var">transferability</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.DomainTransferability.html#DomainTransferability"><span class="hs-identifier hs-type">DomainTransferability</span></a></span><span>
 </span><span id="line-201"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-202"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679215979"><span id="local-6989586621679215981"><span class="annot"><span class="annottext">CheckDomainTransferabilityResponse
+</span><span id="line-202"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679216046"><span id="local-6989586621679216048"><span class="annot"><span class="annottext">CheckDomainTransferabilityResponse
 -&gt; CheckDomainTransferabilityResponse -&gt; Bool
 (CheckDomainTransferabilityResponse
  -&gt; CheckDomainTransferabilityResponse -&gt; Bool)
@@ -422,7 +422,7 @@ $c/= :: CheckDomainTransferabilityResponse
 -&gt; CheckDomainTransferabilityResponse -&gt; Bool
 $c== :: CheckDomainTransferabilityResponse
 -&gt; CheckDomainTransferabilityResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215971"><span id="local-6989586621679215973"><span id="local-6989586621679215975"><span id="local-6989586621679215977"><span class="annot"><span class="annottext">ReadPrec [CheckDomainTransferabilityResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679216038"><span id="local-6989586621679216040"><span id="local-6989586621679216042"><span id="local-6989586621679216044"><span class="annot"><span class="annottext">ReadPrec [CheckDomainTransferabilityResponse]
 ReadPrec CheckDomainTransferabilityResponse
 Int -&gt; ReadS CheckDomainTransferabilityResponse
 ReadS [CheckDomainTransferabilityResponse]
@@ -442,7 +442,7 @@ readList :: ReadS [CheckDomainTransferabilityResponse]
 $creadList :: ReadS [CheckDomainTransferabilityResponse]
 readsPrec :: Int -&gt; ReadS CheckDomainTransferabilityResponse
 $creadsPrec :: Int -&gt; ReadS CheckDomainTransferabilityResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215964"><span id="local-6989586621679215966"><span id="local-6989586621679215968"><span class="annot"><span class="annottext">Int -&gt; CheckDomainTransferabilityResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679216031"><span id="local-6989586621679216033"><span id="local-6989586621679216035"><span class="annot"><span class="annottext">Int -&gt; CheckDomainTransferabilityResponse -&gt; ShowS
 [CheckDomainTransferabilityResponse] -&gt; ShowS
 CheckDomainTransferabilityResponse -&gt; String
 (Int -&gt; CheckDomainTransferabilityResponse -&gt; ShowS)
@@ -500,19 +500,19 @@ CheckDomainTransferabilityResponse
 </span><span id="line-221"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53Domains.CheckDomainTransferability.html#CheckDomainTransferabilityResponse"><span class="hs-identifier hs-type">CheckDomainTransferabilityResponse</span></a></span><span>
 </span><span id="line-222"></span><span id="newCheckDomainTransferabilityResponse"><span class="annot"><span class="annottext">newCheckDomainTransferabilityResponse :: Int -&gt; DomainTransferability -&gt; CheckDomainTransferabilityResponse
 </span><a href="Network.AWS.Route53Domains.CheckDomainTransferability.html#newCheckDomainTransferabilityResponse"><span class="hs-identifier hs-var hs-var">newCheckDomainTransferabilityResponse</span></a></span></span><span>
-</span><span id="line-223"></span><span>  </span><span id="local-6989586621679215961"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679215961"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
-</span><span id="line-224"></span><span>  </span><span id="local-6989586621679215960"><span class="annot"><span class="annottext">DomainTransferability
-</span><a href="#local-6989586621679215960"><span class="hs-identifier hs-var">pTransferability_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-223"></span><span>  </span><span id="local-6989586621679216028"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679216028"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-224"></span><span>  </span><span id="local-6989586621679216027"><span class="annot"><span class="annottext">DomainTransferability
+</span><a href="#local-6989586621679216027"><span class="hs-identifier hs-var">pTransferability_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-225"></span><span>    </span><span class="annot"><span class="annottext">CheckDomainTransferabilityResponse' :: Int -&gt; DomainTransferability -&gt; CheckDomainTransferabilityResponse
 </span><a href="Network.AWS.Route53Domains.CheckDomainTransferability.html#CheckDomainTransferabilityResponse%27"><span class="hs-identifier hs-type">CheckDomainTransferabilityResponse'</span></a></span><span>
 </span><span id="line-226"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:CheckDomainTransferabilityResponse' :: Int
 </span><a href="Network.AWS.Route53Domains.CheckDomainTransferability.html#%24sel%3AhttpStatus%3ACheckDomainTransferabilityResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-227"></span><span>          </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679215961"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679216028"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-228"></span><span>        </span><span class="annot"><span class="annottext">$sel:transferability:CheckDomainTransferabilityResponse' :: DomainTransferability
 </span><a href="Network.AWS.Route53Domains.CheckDomainTransferability.html#%24sel%3Atransferability%3ACheckDomainTransferabilityResponse%27"><span class="hs-identifier hs-var">transferability</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DomainTransferability
-</span><a href="#local-6989586621679215960"><span class="hs-identifier hs-var">pTransferability_</span></a></span><span>
+</span><a href="#local-6989586621679216027"><span class="hs-identifier hs-var">pTransferability_</span></a></span><span>
 </span><span id="line-229"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-230"></span><span>
 </span><span id="line-231"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -529,16 +529,16 @@ CheckDomainTransferabilityResponse
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.CheckDomainTransferability.html#CheckDomainTransferabilityResponse%27"><span class="hs-identifier hs-type">CheckDomainTransferabilityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215959"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.CheckDomainTransferability.html#CheckDomainTransferabilityResponse%27"><span class="hs-identifier hs-type">CheckDomainTransferabilityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216026"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CheckDomainTransferabilityResponse' :: CheckDomainTransferabilityResponse -&gt; Int
-</span><a href="#local-6989586621679215959"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679215959"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215958"><span class="annot"><span class="annottext">s :: CheckDomainTransferabilityResponse
-</span><a href="#local-6989586621679215958"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.CheckDomainTransferability.html#CheckDomainTransferabilityResponse%27"><span class="hs-identifier hs-type">CheckDomainTransferabilityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215957"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679215957"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CheckDomainTransferabilityResponse
-</span><a href="#local-6989586621679215958"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CheckDomainTransferabilityResponse' :: Int
+</span><a href="#local-6989586621679216026"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679216026"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679216025"><span class="annot"><span class="annottext">s :: CheckDomainTransferabilityResponse
+</span><a href="#local-6989586621679216025"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.CheckDomainTransferability.html#CheckDomainTransferabilityResponse%27"><span class="hs-identifier hs-type">CheckDomainTransferabilityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679216024"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679216024"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CheckDomainTransferabilityResponse
+</span><a href="#local-6989586621679216025"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CheckDomainTransferabilityResponse' :: Int
 </span><a href="Network.AWS.Route53Domains.CheckDomainTransferability.html#%24sel%3AhttpStatus%3ACheckDomainTransferabilityResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679215957"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.CheckDomainTransferability.html#CheckDomainTransferabilityResponse"><span class="hs-identifier hs-type">CheckDomainTransferabilityResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679216024"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.CheckDomainTransferability.html#CheckDomainTransferabilityResponse"><span class="hs-identifier hs-type">CheckDomainTransferabilityResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-234"></span><span>
 </span><span id="line-235"></span><span class="hs-comment">-- | A complex type that contains information about whether the specified</span><span>
 </span><span id="line-236"></span><span class="hs-comment">-- domain can be transferred to Route 53.</span><span>
@@ -555,18 +555,18 @@ $sel:httpStatus:CheckDomainTransferabilityResponse' :: CheckDomainTransferabilit
      DomainTransferability
      DomainTransferability
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.CheckDomainTransferability.html#CheckDomainTransferabilityResponse%27"><span class="hs-identifier hs-type">CheckDomainTransferabilityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215956"><span class="annot"><span class="annottext">DomainTransferability
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.CheckDomainTransferability.html#CheckDomainTransferabilityResponse%27"><span class="hs-identifier hs-type">CheckDomainTransferabilityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216023"><span class="annot"><span class="annottext">DomainTransferability
 transferability :: DomainTransferability
 $sel:transferability:CheckDomainTransferabilityResponse' :: CheckDomainTransferabilityResponse -&gt; DomainTransferability
-</span><a href="#local-6989586621679215956"><span class="hs-identifier hs-var hs-var">transferability</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainTransferability
-</span><a href="#local-6989586621679215956"><span class="hs-identifier hs-var">transferability</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215955"><span class="annot"><span class="annottext">s :: CheckDomainTransferabilityResponse
-</span><a href="#local-6989586621679215955"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.CheckDomainTransferability.html#CheckDomainTransferabilityResponse%27"><span class="hs-identifier hs-type">CheckDomainTransferabilityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215954"><span class="annot"><span class="annottext">DomainTransferability
-</span><a href="#local-6989586621679215954"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CheckDomainTransferabilityResponse
-</span><a href="#local-6989586621679215955"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transferability:CheckDomainTransferabilityResponse' :: DomainTransferability
+</span><a href="#local-6989586621679216023"><span class="hs-identifier hs-var hs-var">transferability</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainTransferability
+</span><a href="#local-6989586621679216023"><span class="hs-identifier hs-var">transferability</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679216022"><span class="annot"><span class="annottext">s :: CheckDomainTransferabilityResponse
+</span><a href="#local-6989586621679216022"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.CheckDomainTransferability.html#CheckDomainTransferabilityResponse%27"><span class="hs-identifier hs-type">CheckDomainTransferabilityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679216021"><span class="annot"><span class="annottext">DomainTransferability
+</span><a href="#local-6989586621679216021"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CheckDomainTransferabilityResponse
+</span><a href="#local-6989586621679216022"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transferability:CheckDomainTransferabilityResponse' :: DomainTransferability
 </span><a href="Network.AWS.Route53Domains.CheckDomainTransferability.html#%24sel%3Atransferability%3ACheckDomainTransferabilityResponse%27"><span class="hs-identifier hs-var">transferability</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DomainTransferability
-</span><a href="#local-6989586621679215954"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.CheckDomainTransferability.html#CheckDomainTransferabilityResponse"><span class="hs-identifier hs-type">CheckDomainTransferabilityResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679216021"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.CheckDomainTransferability.html#CheckDomainTransferabilityResponse"><span class="hs-identifier hs-type">CheckDomainTransferabilityResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-239"></span><span>
 </span><span id="line-240"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-241"></span><span>  </span><span id="local-6989586621679215952"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-241"></span><span>  </span><span id="local-6989586621679216019"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-242"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53Domains.CheckDomainTransferability.html#CheckDomainTransferabilityResponse"><span class="hs-identifier hs-type">CheckDomainTransferabilityResponse</span></a></span></span><span>
 </span><span id="line-243"></span></pre></body></html>

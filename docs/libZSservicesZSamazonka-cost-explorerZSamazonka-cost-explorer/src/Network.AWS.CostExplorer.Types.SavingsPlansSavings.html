@@ -27,18 +27,18 @@
 </span><span id="line-27"></span><span class="hs-comment">-- On-Demand rate of the usage accrued in an account.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newSavingsPlansSavings' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679336467"><span id="local-6989586621679336468"></span></span><span class="hs-keyword">data</span><span> </span><span id="SavingsPlansSavings"><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansSavings.html#SavingsPlansSavings"><span class="hs-identifier hs-var">SavingsPlansSavings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SavingsPlansSavings%27"><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansSavings.html#SavingsPlansSavings%27"><span class="hs-identifier hs-var">SavingsPlansSavings'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | How much the amount that the usage would have cost if it was accrued at</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- the On-Demand rate.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AonDemandCostEquivalent%3ASavingsPlansSavings%27"><span class="annot"><span class="annottext">SavingsPlansSavings -&gt; Maybe Text
-</span><a href="Network.AWS.CostExplorer.Types.SavingsPlansSavings.html#%24sel%3AonDemandCostEquivalent%3ASavingsPlansSavings%27"><span class="hs-identifier hs-var hs-var">onDemandCostEquivalent</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The savings amount that you\'re accumulating for the usage that\'s</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- covered by a Savings Plans, when compared to the On-Demand equivalent of</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- the same usage.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AnetSavings%3ASavingsPlansSavings%27"><span class="annot"><span class="annottext">SavingsPlansSavings -&gt; Maybe Text
-</span><a href="Network.AWS.CostExplorer.Types.SavingsPlansSavings.html#%24sel%3AnetSavings%3ASavingsPlansSavings%27"><span class="hs-identifier hs-var hs-var">netSavings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679336806"><span id="local-6989586621679336807"></span></span><span class="hs-keyword">data</span><span> </span><span id="SavingsPlansSavings"><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansSavings.html#SavingsPlansSavings"><span class="hs-identifier hs-var">SavingsPlansSavings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SavingsPlansSavings%27"><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansSavings.html#SavingsPlansSavings%27"><span class="hs-identifier hs-var">SavingsPlansSavings'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The savings amount that you\'re accumulating for the usage that\'s</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- covered by a Savings Plans, when compared to the On-Demand equivalent of</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- the same usage.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AnetSavings%3ASavingsPlansSavings%27"><span class="annot"><span class="annottext">SavingsPlansSavings -&gt; Maybe Text
+</span><a href="Network.AWS.CostExplorer.Types.SavingsPlansSavings.html#%24sel%3AnetSavings%3ASavingsPlansSavings%27"><span class="hs-identifier hs-var hs-var">netSavings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | How much the amount that the usage would have cost if it was accrued at</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- the On-Demand rate.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AonDemandCostEquivalent%3ASavingsPlansSavings%27"><span class="annot"><span class="annottext">SavingsPlansSavings -&gt; Maybe Text
+</span><a href="Network.AWS.CostExplorer.Types.SavingsPlansSavings.html#%24sel%3AonDemandCostEquivalent%3ASavingsPlansSavings%27"><span class="hs-identifier hs-var hs-var">onDemandCostEquivalent</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679336460"><span id="local-6989586621679336462"><span class="annot"><span class="annottext">SavingsPlansSavings -&gt; SavingsPlansSavings -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679336799"><span id="local-6989586621679336801"><span class="annot"><span class="annottext">SavingsPlansSavings -&gt; SavingsPlansSavings -&gt; Bool
 (SavingsPlansSavings -&gt; SavingsPlansSavings -&gt; Bool)
 -&gt; (SavingsPlansSavings -&gt; SavingsPlansSavings -&gt; Bool)
 -&gt; Eq SavingsPlansSavings
@@ -47,7 +47,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SavingsPlansSavings -&gt; SavingsPlansSavings -&gt; Bool
 == :: SavingsPlansSavings -&gt; SavingsPlansSavings -&gt; Bool
 $c== :: SavingsPlansSavings -&gt; SavingsPlansSavings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679336451"><span id="local-6989586621679336453"><span id="local-6989586621679336455"><span id="local-6989586621679336457"><span class="annot"><span class="annottext">ReadPrec [SavingsPlansSavings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679336790"><span id="local-6989586621679336792"><span id="local-6989586621679336794"><span id="local-6989586621679336796"><span class="annot"><span class="annottext">ReadPrec [SavingsPlansSavings]
 ReadPrec SavingsPlansSavings
 Int -&gt; ReadS SavingsPlansSavings
 ReadS [SavingsPlansSavings]
@@ -67,7 +67,7 @@ readList :: ReadS [SavingsPlansSavings]
 $creadList :: ReadS [SavingsPlansSavings]
 readsPrec :: Int -&gt; ReadS SavingsPlansSavings
 $creadsPrec :: Int -&gt; ReadS SavingsPlansSavings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679336444"><span id="local-6989586621679336446"><span id="local-6989586621679336448"><span class="annot"><span class="annottext">Int -&gt; SavingsPlansSavings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679336783"><span id="local-6989586621679336785"><span id="local-6989586621679336787"><span class="annot"><span class="annottext">Int -&gt; SavingsPlansSavings -&gt; ShowS
 [SavingsPlansSavings] -&gt; ShowS
 SavingsPlansSavings -&gt; String
 (Int -&gt; SavingsPlansSavings -&gt; ShowS)
@@ -101,107 +101,106 @@ $cfrom :: forall x. SavingsPlansSavings -&gt; Rep SavingsPlansSavings x
 </span><span id="line-46"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-47"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-48"></span><span class="hs-comment">--</span><span>
-</span><span id="line-49"></span><span class="hs-comment">-- 'onDemandCostEquivalent', 'savingsPlansSavings_onDemandCostEquivalent' - How much the amount that the usage would have cost if it was accrued at</span><span>
-</span><span id="line-50"></span><span class="hs-comment">-- the On-Demand rate.</span><span>
-</span><span id="line-51"></span><span class="hs-comment">--</span><span>
-</span><span id="line-52"></span><span class="hs-comment">-- 'netSavings', 'savingsPlansSavings_netSavings' - The savings amount that you\'re accumulating for the usage that\'s</span><span>
-</span><span id="line-53"></span><span class="hs-comment">-- covered by a Savings Plans, when compared to the On-Demand equivalent of</span><span>
-</span><span id="line-54"></span><span class="hs-comment">-- the same usage.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'netSavings', 'savingsPlansSavings_netSavings' - The savings amount that you\'re accumulating for the usage that\'s</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- covered by a Savings Plans, when compared to the On-Demand equivalent of</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- the same usage.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'onDemandCostEquivalent', 'savingsPlansSavings_onDemandCostEquivalent' - How much the amount that the usage would have cost if it was accrued at</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- the On-Demand rate.</span><span>
 </span><span id="line-55"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansSavings.html#newSavingsPlansSavings"><span class="hs-identifier hs-type">newSavingsPlansSavings</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-56"></span><span>  </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansSavings.html#SavingsPlansSavings"><span class="hs-identifier hs-type">SavingsPlansSavings</span></a></span><span>
 </span><span id="line-57"></span><span id="newSavingsPlansSavings"><span class="annot"><span class="annottext">newSavingsPlansSavings :: SavingsPlansSavings
 </span><a href="Network.AWS.CostExplorer.Types.SavingsPlansSavings.html#newSavingsPlansSavings"><span class="hs-identifier hs-var hs-var">newSavingsPlansSavings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-58"></span><span>  </span><span class="annot"><span class="annottext">SavingsPlansSavings' :: Maybe Text -&gt; Maybe Text -&gt; SavingsPlansSavings
 </span><a href="Network.AWS.CostExplorer.Types.SavingsPlansSavings.html#SavingsPlansSavings%27"><span class="hs-identifier hs-type">SavingsPlansSavings'</span></a></span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:onDemandCostEquivalent:SavingsPlansSavings' :: Maybe Text
-</span><a href="Network.AWS.CostExplorer.Types.SavingsPlansSavings.html#%24sel%3AonDemandCostEquivalent%3ASavingsPlansSavings%27"><span class="hs-identifier hs-var">onDemandCostEquivalent</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-60"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:netSavings:SavingsPlansSavings' :: Maybe Text
+</span><span id="line-59"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:netSavings:SavingsPlansSavings' :: Maybe Text
 </span><a href="Network.AWS.CostExplorer.Types.SavingsPlansSavings.html#%24sel%3AnetSavings%3ASavingsPlansSavings%27"><span class="hs-identifier hs-var">netSavings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- | How much the amount that the usage would have cost if it was accrued at</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- the On-Demand rate.</span><span>
-</span><span id="line-66"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansSavings.html#savingsPlansSavings_onDemandCostEquivalent"><span class="hs-identifier hs-type">savingsPlansSavings_onDemandCostEquivalent</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansSavings.html#SavingsPlansSavings"><span class="hs-identifier hs-type">SavingsPlansSavings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-67"></span><span id="savingsPlansSavings_onDemandCostEquivalent"><span class="annot"><span class="annottext">savingsPlansSavings_onDemandCostEquivalent :: (Maybe Text -&gt; f (Maybe Text))
--&gt; SavingsPlansSavings -&gt; f SavingsPlansSavings
-</span><a href="Network.AWS.CostExplorer.Types.SavingsPlansSavings.html#savingsPlansSavings_onDemandCostEquivalent"><span class="hs-identifier hs-var hs-var">savingsPlansSavings_onDemandCostEquivalent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SavingsPlansSavings -&gt; Maybe Text)
--&gt; (SavingsPlansSavings -&gt; Maybe Text -&gt; SavingsPlansSavings)
--&gt; Lens
-     SavingsPlansSavings SavingsPlansSavings (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansSavings.html#SavingsPlansSavings%27"><span class="hs-identifier hs-type">SavingsPlansSavings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679336435"><span class="annot"><span class="annottext">Maybe Text
-onDemandCostEquivalent :: Maybe Text
-$sel:onDemandCostEquivalent:SavingsPlansSavings' :: SavingsPlansSavings -&gt; Maybe Text
-</span><a href="#local-6989586621679336435"><span class="hs-identifier hs-var hs-var">onDemandCostEquivalent</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679336435"><span class="hs-identifier hs-var">onDemandCostEquivalent</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679336434"><span class="annot"><span class="annottext">s :: SavingsPlansSavings
-</span><a href="#local-6989586621679336434"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansSavings.html#SavingsPlansSavings%27"><span class="hs-identifier hs-type">SavingsPlansSavings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679336433"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679336433"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SavingsPlansSavings
-</span><a href="#local-6989586621679336434"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:onDemandCostEquivalent:SavingsPlansSavings' :: Maybe Text
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:onDemandCostEquivalent:SavingsPlansSavings' :: Maybe Text
 </span><a href="Network.AWS.CostExplorer.Types.SavingsPlansSavings.html#%24sel%3AonDemandCostEquivalent%3ASavingsPlansSavings%27"><span class="hs-identifier hs-var">onDemandCostEquivalent</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679336433"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansSavings.html#SavingsPlansSavings"><span class="hs-identifier hs-type">SavingsPlansSavings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- | The savings amount that you\'re accumulating for the usage that\'s</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- covered by a Savings Plans, when compared to the On-Demand equivalent of</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- the same usage.</span><span>
-</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansSavings.html#savingsPlansSavings_netSavings"><span class="hs-identifier hs-type">savingsPlansSavings_netSavings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansSavings.html#SavingsPlansSavings"><span class="hs-identifier hs-type">SavingsPlansSavings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-73"></span><span id="savingsPlansSavings_netSavings"><span class="annot"><span class="annottext">savingsPlansSavings_netSavings :: (Maybe Text -&gt; f (Maybe Text))
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- | The savings amount that you\'re accumulating for the usage that\'s</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- covered by a Savings Plans, when compared to the On-Demand equivalent of</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- the same usage.</span><span>
+</span><span id="line-66"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansSavings.html#savingsPlansSavings_netSavings"><span class="hs-identifier hs-type">savingsPlansSavings_netSavings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansSavings.html#SavingsPlansSavings"><span class="hs-identifier hs-type">SavingsPlansSavings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span id="savingsPlansSavings_netSavings"><span class="annot"><span class="annottext">savingsPlansSavings_netSavings :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; SavingsPlansSavings -&gt; f SavingsPlansSavings
 </span><a href="Network.AWS.CostExplorer.Types.SavingsPlansSavings.html#savingsPlansSavings_netSavings"><span class="hs-identifier hs-var hs-var">savingsPlansSavings_netSavings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SavingsPlansSavings -&gt; Maybe Text)
 -&gt; (SavingsPlansSavings -&gt; Maybe Text -&gt; SavingsPlansSavings)
 -&gt; Lens
      SavingsPlansSavings SavingsPlansSavings (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansSavings.html#SavingsPlansSavings%27"><span class="hs-identifier hs-type">SavingsPlansSavings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679336431"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansSavings.html#SavingsPlansSavings%27"><span class="hs-identifier hs-type">SavingsPlansSavings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679336774"><span class="annot"><span class="annottext">Maybe Text
 netSavings :: Maybe Text
 $sel:netSavings:SavingsPlansSavings' :: SavingsPlansSavings -&gt; Maybe Text
-</span><a href="#local-6989586621679336431"><span class="hs-identifier hs-var hs-var">netSavings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679336431"><span class="hs-identifier hs-var">netSavings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679336430"><span class="annot"><span class="annottext">s :: SavingsPlansSavings
-</span><a href="#local-6989586621679336430"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansSavings.html#SavingsPlansSavings%27"><span class="hs-identifier hs-type">SavingsPlansSavings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679336429"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679336429"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SavingsPlansSavings
-</span><a href="#local-6989586621679336430"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:netSavings:SavingsPlansSavings' :: Maybe Text
+</span><a href="#local-6989586621679336774"><span class="hs-identifier hs-var hs-var">netSavings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679336774"><span class="hs-identifier hs-var">netSavings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679336773"><span class="annot"><span class="annottext">s :: SavingsPlansSavings
+</span><a href="#local-6989586621679336773"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansSavings.html#SavingsPlansSavings%27"><span class="hs-identifier hs-type">SavingsPlansSavings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679336772"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679336772"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SavingsPlansSavings
+</span><a href="#local-6989586621679336773"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:netSavings:SavingsPlansSavings' :: Maybe Text
 </span><a href="Network.AWS.CostExplorer.Types.SavingsPlansSavings.html#%24sel%3AnetSavings%3ASavingsPlansSavings%27"><span class="hs-identifier hs-var">netSavings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679336429"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansSavings.html#SavingsPlansSavings"><span class="hs-identifier hs-type">SavingsPlansSavings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679336426"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansSavings.html#SavingsPlansSavings"><span class="hs-identifier hs-type">SavingsPlansSavings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-76"></span><span>  </span><span id="local-6989586621679336424"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SavingsPlansSavings
+</span><a href="#local-6989586621679336772"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansSavings.html#SavingsPlansSavings"><span class="hs-identifier hs-type">SavingsPlansSavings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- | How much the amount that the usage would have cost if it was accrued at</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- the On-Demand rate.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansSavings.html#savingsPlansSavings_onDemandCostEquivalent"><span class="hs-identifier hs-type">savingsPlansSavings_onDemandCostEquivalent</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansSavings.html#SavingsPlansSavings"><span class="hs-identifier hs-type">SavingsPlansSavings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span id="savingsPlansSavings_onDemandCostEquivalent"><span class="annot"><span class="annottext">savingsPlansSavings_onDemandCostEquivalent :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SavingsPlansSavings -&gt; f SavingsPlansSavings
+</span><a href="Network.AWS.CostExplorer.Types.SavingsPlansSavings.html#savingsPlansSavings_onDemandCostEquivalent"><span class="hs-identifier hs-var hs-var">savingsPlansSavings_onDemandCostEquivalent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SavingsPlansSavings -&gt; Maybe Text)
+-&gt; (SavingsPlansSavings -&gt; Maybe Text -&gt; SavingsPlansSavings)
+-&gt; Lens
+     SavingsPlansSavings SavingsPlansSavings (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansSavings.html#SavingsPlansSavings%27"><span class="hs-identifier hs-type">SavingsPlansSavings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679336770"><span class="annot"><span class="annottext">Maybe Text
+onDemandCostEquivalent :: Maybe Text
+$sel:onDemandCostEquivalent:SavingsPlansSavings' :: SavingsPlansSavings -&gt; Maybe Text
+</span><a href="#local-6989586621679336770"><span class="hs-identifier hs-var hs-var">onDemandCostEquivalent</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679336770"><span class="hs-identifier hs-var">onDemandCostEquivalent</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679336769"><span class="annot"><span class="annottext">s :: SavingsPlansSavings
+</span><a href="#local-6989586621679336769"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansSavings.html#SavingsPlansSavings%27"><span class="hs-identifier hs-type">SavingsPlansSavings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679336768"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679336768"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SavingsPlansSavings
+</span><a href="#local-6989586621679336769"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:onDemandCostEquivalent:SavingsPlansSavings' :: Maybe Text
+</span><a href="Network.AWS.CostExplorer.Types.SavingsPlansSavings.html#%24sel%3AonDemandCostEquivalent%3ASavingsPlansSavings%27"><span class="hs-identifier hs-var">onDemandCostEquivalent</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679336768"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansSavings.html#SavingsPlansSavings"><span class="hs-identifier hs-type">SavingsPlansSavings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679336765"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansSavings.html#SavingsPlansSavings"><span class="hs-identifier hs-type">SavingsPlansSavings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679336763"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SavingsPlansSavings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-77"></span><span>    </span><span class="annot"><span class="annottext">String
+</span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser SavingsPlansSavings)
 -&gt; Value
 -&gt; Parser SavingsPlansSavings
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
-</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;SavingsPlansSavings&quot;</span></span><span>
-</span><span id="line-79"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679336421"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679336421"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-80"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; SavingsPlansSavings
+</span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679336760"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679336760"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-79"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; SavingsPlansSavings
 </span><a href="Network.AWS.CostExplorer.Types.SavingsPlansSavings.html#SavingsPlansSavings%27"><span class="hs-identifier hs-var">SavingsPlansSavings'</span></a></span><span>
-</span><span id="line-81"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; SavingsPlansSavings)
+</span><span id="line-80"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; SavingsPlansSavings)
 -&gt; Parser (Maybe Text)
 -&gt; Parser (Maybe Text -&gt; SavingsPlansSavings)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679336421"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;OnDemandCostEquivalent&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; SavingsPlansSavings)
--&gt; Parser (Maybe Text) -&gt; Parser SavingsPlansSavings
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679336421"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679336760"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NetSavings&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-83"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679336415"><span id="local-6989586621679336417"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansSavings.html#SavingsPlansSavings"><span class="hs-identifier hs-type">SavingsPlansSavings</span></a></span></span></span><span>
-</span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679336412"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansSavings.html#SavingsPlansSavings"><span class="hs-identifier hs-type">SavingsPlansSavings</span></a></span></span><span>
-</span><span id="line-88"></span></pre></body></html>
+</span><span id="line-81"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; SavingsPlansSavings)
+-&gt; Parser (Maybe Text) -&gt; Parser SavingsPlansSavings
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679336760"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OnDemandCostEquivalent&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679336754"><span id="local-6989586621679336756"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansSavings.html#SavingsPlansSavings"><span class="hs-identifier hs-type">SavingsPlansSavings</span></a></span></span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679336751"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansSavings.html#SavingsPlansSavings"><span class="hs-identifier hs-type">SavingsPlansSavings</span></a></span></span><span>
+</span><span id="line-87"></span></pre></body></html>

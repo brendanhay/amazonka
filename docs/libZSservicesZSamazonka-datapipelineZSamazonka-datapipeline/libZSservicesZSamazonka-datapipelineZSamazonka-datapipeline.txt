@@ -2,7 +2,7 @@
 -- See Hoogle, http://www.haskell.org/hoogle/
 
 @package libZSservicesZSamazonka-datapipelineZSamazonka-datapipeline
-@version 1.6.1
+@version 2.0
 
 
 module Network.AWS.DataPipeline.Types.Field
@@ -15,11 +15,11 @@ module Network.AWS.DataPipeline.Types.Field
 data Field
 Field' :: Maybe Text -> Maybe Text -> Text -> Field
 
--- | The field value, expressed as a String.
-[$sel:stringValue:Field'] :: Field -> Maybe Text
-
 -- | The field value, expressed as the identifier of another object.
 [$sel:refValue:Field'] :: Field -> Maybe Text
+
+-- | The field value, expressed as a String.
+[$sel:stringValue:Field'] :: Field -> Maybe Text
 
 -- | The field identifier.
 [$sel:key:Field'] :: Field -> Text
@@ -32,20 +32,20 @@ Field' :: Maybe Text -> Maybe Text -> Text -> Field
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:stringValue:Field'</a>, <a>field_stringValue</a> - The field
---   value, expressed as a String.
---   
 --   <a>$sel:refValue:Field'</a>, <a>field_refValue</a> - The field value,
 --   expressed as the identifier of another object.
+--   
+--   <a>$sel:stringValue:Field'</a>, <a>field_stringValue</a> - The field
+--   value, expressed as a String.
 --   
 --   <a>$sel:key:Field'</a>, <a>field_key</a> - The field identifier.
 newField :: Text -> Field
 
--- | The field value, expressed as a String.
-field_stringValue :: Lens' Field (Maybe Text)
-
 -- | The field value, expressed as the identifier of another object.
 field_refValue :: Lens' Field (Maybe Text)
+
+-- | The field value, expressed as a String.
+field_stringValue :: Lens' Field (Maybe Text)
 
 -- | The field identifier.
 field_key :: Lens' Field Text
@@ -73,14 +73,14 @@ module Network.AWS.DataPipeline.Types.InstanceIdentity
 data InstanceIdentity
 InstanceIdentity' :: Maybe Text -> Maybe Text -> InstanceIdentity
 
+-- | A signature which can be used to verify the accuracy and authenticity
+--   of the information provided in the instance identity document.
+[$sel:signature:InstanceIdentity'] :: InstanceIdentity -> Maybe Text
+
 -- | A description of an EC2 instance that is generated when the instance
 --   is launched and exposed to the instance via the instance metadata
 --   service in the form of a JSON representation of an object.
 [$sel:document:InstanceIdentity'] :: InstanceIdentity -> Maybe Text
-
--- | A signature which can be used to verify the accuracy and authenticity
---   of the information provided in the instance identity document.
-[$sel:signature:InstanceIdentity'] :: InstanceIdentity -> Maybe Text
 
 -- | Create a value of <a>InstanceIdentity</a> with all optional fields
 --   omitted.
@@ -91,26 +91,26 @@ InstanceIdentity' :: Maybe Text -> Maybe Text -> InstanceIdentity
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
+--   <a>$sel:signature:InstanceIdentity'</a>,
+--   <a>instanceIdentity_signature</a> - A signature which can be used to
+--   verify the accuracy and authenticity of the information provided in
+--   the instance identity document.
+--   
 --   <a>$sel:document:InstanceIdentity'</a>,
 --   <a>instanceIdentity_document</a> - A description of an EC2 instance
 --   that is generated when the instance is launched and exposed to the
 --   instance via the instance metadata service in the form of a JSON
 --   representation of an object.
---   
---   <a>$sel:signature:InstanceIdentity'</a>,
---   <a>instanceIdentity_signature</a> - A signature which can be used to
---   verify the accuracy and authenticity of the information provided in
---   the instance identity document.
 newInstanceIdentity :: InstanceIdentity
+
+-- | A signature which can be used to verify the accuracy and authenticity
+--   of the information provided in the instance identity document.
+instanceIdentity_signature :: Lens' InstanceIdentity (Maybe Text)
 
 -- | A description of an EC2 instance that is generated when the instance
 --   is launched and exposed to the instance via the instance metadata
 --   service in the form of a JSON representation of an object.
 instanceIdentity_document :: Lens' InstanceIdentity (Maybe Text)
-
--- | A signature which can be used to verify the accuracy and authenticity
---   of the information provided in the instance identity document.
-instanceIdentity_signature :: Lens' InstanceIdentity (Maybe Text)
 instance GHC.Generics.Generic Network.AWS.DataPipeline.Types.InstanceIdentity.InstanceIdentity
 instance GHC.Show.Show Network.AWS.DataPipeline.Types.InstanceIdentity.InstanceIdentity
 instance GHC.Read.Read Network.AWS.DataPipeline.Types.InstanceIdentity.InstanceIdentity
@@ -451,12 +451,12 @@ module Network.AWS.DataPipeline.Types.PipelineIdName
 data PipelineIdName
 PipelineIdName' :: Maybe Text -> Maybe Text -> PipelineIdName
 
+-- | The name of the pipeline.
+[$sel:name:PipelineIdName'] :: PipelineIdName -> Maybe Text
+
 -- | The ID of the pipeline that was assigned by AWS Data Pipeline. This is
 --   a string of the form <tt>df-297EG78HU43EEXAMPLE</tt>.
 [$sel:id:PipelineIdName'] :: PipelineIdName -> Maybe Text
-
--- | The name of the pipeline.
-[$sel:name:PipelineIdName'] :: PipelineIdName -> Maybe Text
 
 -- | Create a value of <a>PipelineIdName</a> with all optional fields
 --   omitted.
@@ -467,20 +467,20 @@ PipelineIdName' :: Maybe Text -> Maybe Text -> PipelineIdName
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
+--   <a>$sel:name:PipelineIdName'</a>, <a>pipelineIdName_name</a> - The
+--   name of the pipeline.
+--   
 --   <a>$sel:id:PipelineIdName'</a>, <a>pipelineIdName_id</a> - The ID of
 --   the pipeline that was assigned by AWS Data Pipeline. This is a string
 --   of the form <tt>df-297EG78HU43EEXAMPLE</tt>.
---   
---   <a>$sel:name:PipelineIdName'</a>, <a>pipelineIdName_name</a> - The
---   name of the pipeline.
 newPipelineIdName :: PipelineIdName
+
+-- | The name of the pipeline.
+pipelineIdName_name :: Lens' PipelineIdName (Maybe Text)
 
 -- | The ID of the pipeline that was assigned by AWS Data Pipeline. This is
 --   a string of the form <tt>df-297EG78HU43EEXAMPLE</tt>.
 pipelineIdName_id :: Lens' PipelineIdName (Maybe Text)
-
--- | The name of the pipeline.
-pipelineIdName_name :: Lens' PipelineIdName (Maybe Text)
 instance GHC.Generics.Generic Network.AWS.DataPipeline.Types.PipelineIdName.PipelineIdName
 instance GHC.Show.Show Network.AWS.DataPipeline.Types.PipelineIdName.PipelineIdName
 instance GHC.Read.Read Network.AWS.DataPipeline.Types.PipelineIdName.PipelineIdName
@@ -699,16 +699,16 @@ module Network.AWS.DataPipeline.Types.PipelineDescription
 --   
 --   <i>See:</i> <a>newPipelineDescription</a> smart constructor.
 data PipelineDescription
-PipelineDescription' :: Maybe [Tag] -> Maybe Text -> Text -> Text -> [Field] -> PipelineDescription
+PipelineDescription' :: Maybe Text -> Maybe [Tag] -> Text -> Text -> [Field] -> PipelineDescription
+
+-- | Description of the pipeline.
+[$sel:description:PipelineDescription'] :: PipelineDescription -> Maybe Text
 
 -- | A list of tags to associated with a pipeline. Tags let you control
 --   access to pipelines. For more information, see <a>Controlling User
 --   Access to Pipelines</a> in the <i>AWS Data Pipeline Developer
 --   Guide</i>.
 [$sel:tags:PipelineDescription'] :: PipelineDescription -> Maybe [Tag]
-
--- | Description of the pipeline.
-[$sel:description:PipelineDescription'] :: PipelineDescription -> Maybe Text
 
 -- | The pipeline identifier that was assigned by AWS Data Pipeline. This
 --   is a string of the form <tt>df-297EG78HU43EEXAMPLE</tt>.
@@ -730,14 +730,14 @@ PipelineDescription' :: Maybe [Tag] -> Maybe Text -> Text -> Text -> [Field] -> 
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
+--   <a>$sel:description:PipelineDescription'</a>,
+--   <a>pipelineDescription_description</a> - Description of the pipeline.
+--   
 --   <a>$sel:tags:PipelineDescription'</a>, <a>pipelineDescription_tags</a>
 --   - A list of tags to associated with a pipeline. Tags let you control
 --   access to pipelines. For more information, see <a>Controlling User
 --   Access to Pipelines</a> in the <i>AWS Data Pipeline Developer
 --   Guide</i>.
---   
---   <a>$sel:description:PipelineDescription'</a>,
---   <a>pipelineDescription_description</a> - Description of the pipeline.
 --   
 --   <a>$sel:pipelineId:PipelineDescription'</a>,
 --   <a>pipelineDescription_pipelineId</a> - The pipeline identifier that
@@ -753,14 +753,14 @@ PipelineDescription' :: Maybe [Tag] -> Maybe Text -> Text -> Text -> [Field] -> 
 --   @pipelineState.
 newPipelineDescription :: Text -> Text -> PipelineDescription
 
+-- | Description of the pipeline.
+pipelineDescription_description :: Lens' PipelineDescription (Maybe Text)
+
 -- | A list of tags to associated with a pipeline. Tags let you control
 --   access to pipelines. For more information, see <a>Controlling User
 --   Access to Pipelines</a> in the <i>AWS Data Pipeline Developer
 --   Guide</i>.
 pipelineDescription_tags :: Lens' PipelineDescription (Maybe [Tag])
-
--- | Description of the pipeline.
-pipelineDescription_description :: Lens' PipelineDescription (Maybe Text)
 
 -- | The pipeline identifier that was assigned by AWS Data Pipeline. This
 --   is a string of the form <tt>df-297EG78HU43EEXAMPLE</tt>.
@@ -788,22 +788,22 @@ module Network.AWS.DataPipeline.Types.TaskObject
 --   
 --   <i>See:</i> <a>newTaskObject</a> smart constructor.
 data TaskObject
-TaskObject' :: Maybe Text -> Maybe (HashMap Text PipelineObject) -> Maybe Text -> Maybe Text -> TaskObject
+TaskObject' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe (HashMap Text PipelineObject) -> TaskObject
 
 -- | The ID of the pipeline that provided the task.
 [$sel:pipelineId:TaskObject'] :: TaskObject -> Maybe Text
 
--- | Connection information for the location where the task runner will
---   publish the output of the task.
-[$sel:objects:TaskObject'] :: TaskObject -> Maybe (HashMap Text PipelineObject)
+-- | The ID of the pipeline task attempt object. AWS Data Pipeline uses
+--   this value to track how many times a task is attempted.
+[$sel:attemptId:TaskObject'] :: TaskObject -> Maybe Text
 
 -- | An internal identifier for the task. This ID is passed to the
 --   SetTaskStatus and ReportTaskProgress actions.
 [$sel:taskId:TaskObject'] :: TaskObject -> Maybe Text
 
--- | The ID of the pipeline task attempt object. AWS Data Pipeline uses
---   this value to track how many times a task is attempted.
-[$sel:attemptId:TaskObject'] :: TaskObject -> Maybe Text
+-- | Connection information for the location where the task runner will
+--   publish the output of the task.
+[$sel:objects:TaskObject'] :: TaskObject -> Maybe (HashMap Text PipelineObject)
 
 -- | Create a value of <a>TaskObject</a> with all optional fields omitted.
 --   
@@ -816,33 +816,33 @@ TaskObject' :: Maybe Text -> Maybe (HashMap Text PipelineObject) -> Maybe Text -
 --   <a>$sel:pipelineId:TaskObject'</a>, <a>taskObject_pipelineId</a> - The
 --   ID of the pipeline that provided the task.
 --   
---   <a>$sel:objects:TaskObject'</a>, <a>taskObject_objects</a> -
---   Connection information for the location where the task runner will
---   publish the output of the task.
+--   <a>$sel:attemptId:TaskObject'</a>, <a>taskObject_attemptId</a> - The
+--   ID of the pipeline task attempt object. AWS Data Pipeline uses this
+--   value to track how many times a task is attempted.
 --   
 --   <a>$sel:taskId:TaskObject'</a>, <a>taskObject_taskId</a> - An internal
 --   identifier for the task. This ID is passed to the SetTaskStatus and
 --   ReportTaskProgress actions.
 --   
---   <a>$sel:attemptId:TaskObject'</a>, <a>taskObject_attemptId</a> - The
---   ID of the pipeline task attempt object. AWS Data Pipeline uses this
---   value to track how many times a task is attempted.
+--   <a>$sel:objects:TaskObject'</a>, <a>taskObject_objects</a> -
+--   Connection information for the location where the task runner will
+--   publish the output of the task.
 newTaskObject :: TaskObject
 
 -- | The ID of the pipeline that provided the task.
 taskObject_pipelineId :: Lens' TaskObject (Maybe Text)
 
--- | Connection information for the location where the task runner will
---   publish the output of the task.
-taskObject_objects :: Lens' TaskObject (Maybe (HashMap Text PipelineObject))
+-- | The ID of the pipeline task attempt object. AWS Data Pipeline uses
+--   this value to track how many times a task is attempted.
+taskObject_attemptId :: Lens' TaskObject (Maybe Text)
 
 -- | An internal identifier for the task. This ID is passed to the
 --   SetTaskStatus and ReportTaskProgress actions.
 taskObject_taskId :: Lens' TaskObject (Maybe Text)
 
--- | The ID of the pipeline task attempt object. AWS Data Pipeline uses
---   this value to track how many times a task is attempted.
-taskObject_attemptId :: Lens' TaskObject (Maybe Text)
+-- | Connection information for the location where the task runner will
+--   publish the output of the task.
+taskObject_objects :: Lens' TaskObject (Maybe (HashMap Text PipelineObject))
 instance GHC.Generics.Generic Network.AWS.DataPipeline.Types.TaskObject.TaskObject
 instance GHC.Show.Show Network.AWS.DataPipeline.Types.TaskObject.TaskObject
 instance GHC.Read.Read Network.AWS.DataPipeline.Types.TaskObject.TaskObject
@@ -979,24 +979,24 @@ module Network.AWS.DataPipeline.Types
 --   configuration.
 defaultService :: Service
 
--- | The specified task was not found.
-_TaskNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
-
 -- | The request was not valid. Verify that your request was properly
 --   formatted, that the signature was generated with the correct
 --   credentials, and that you haven't exceeded any of the service limits
 --   for your account.
 _InvalidRequestException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | The specified pipeline was not found. Verify that you used the correct
---   user and account identifiers.
-_PipelineNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | An internal service error occurred.
+_InternalServiceError :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | The specified pipeline has been deleted.
 _PipelineDeletedException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | An internal service error occurred.
-_InternalServiceError :: AsError a => Getting (First ServiceError) a ServiceError
+-- | The specified pipeline was not found. Verify that you used the correct
+--   user and account identifiers.
+_PipelineNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | The specified task was not found.
+_TaskNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 newtype OperatorType
 OperatorType' :: Text -> OperatorType
 [fromOperatorType] :: OperatorType -> Text
@@ -1020,11 +1020,11 @@ pattern TaskStatus_FINISHED :: TaskStatus
 data Field
 Field' :: Maybe Text -> Maybe Text -> Text -> Field
 
--- | The field value, expressed as a String.
-[$sel:stringValue:Field'] :: Field -> Maybe Text
-
 -- | The field value, expressed as the identifier of another object.
 [$sel:refValue:Field'] :: Field -> Maybe Text
+
+-- | The field value, expressed as a String.
+[$sel:stringValue:Field'] :: Field -> Maybe Text
 
 -- | The field identifier.
 [$sel:key:Field'] :: Field -> Text
@@ -1037,20 +1037,20 @@ Field' :: Maybe Text -> Maybe Text -> Text -> Field
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:stringValue:Field'</a>, <a>field_stringValue</a> - The field
---   value, expressed as a String.
---   
 --   <a>$sel:refValue:Field'</a>, <a>field_refValue</a> - The field value,
 --   expressed as the identifier of another object.
+--   
+--   <a>$sel:stringValue:Field'</a>, <a>field_stringValue</a> - The field
+--   value, expressed as a String.
 --   
 --   <a>$sel:key:Field'</a>, <a>field_key</a> - The field identifier.
 newField :: Text -> Field
 
--- | The field value, expressed as a String.
-field_stringValue :: Lens' Field (Maybe Text)
-
 -- | The field value, expressed as the identifier of another object.
 field_refValue :: Lens' Field (Maybe Text)
+
+-- | The field value, expressed as a String.
+field_stringValue :: Lens' Field (Maybe Text)
 
 -- | The field identifier.
 field_key :: Lens' Field Text
@@ -1067,14 +1067,14 @@ field_key :: Lens' Field Text
 data InstanceIdentity
 InstanceIdentity' :: Maybe Text -> Maybe Text -> InstanceIdentity
 
+-- | A signature which can be used to verify the accuracy and authenticity
+--   of the information provided in the instance identity document.
+[$sel:signature:InstanceIdentity'] :: InstanceIdentity -> Maybe Text
+
 -- | A description of an EC2 instance that is generated when the instance
 --   is launched and exposed to the instance via the instance metadata
 --   service in the form of a JSON representation of an object.
 [$sel:document:InstanceIdentity'] :: InstanceIdentity -> Maybe Text
-
--- | A signature which can be used to verify the accuracy and authenticity
---   of the information provided in the instance identity document.
-[$sel:signature:InstanceIdentity'] :: InstanceIdentity -> Maybe Text
 
 -- | Create a value of <a>InstanceIdentity</a> with all optional fields
 --   omitted.
@@ -1085,26 +1085,26 @@ InstanceIdentity' :: Maybe Text -> Maybe Text -> InstanceIdentity
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
+--   <a>$sel:signature:InstanceIdentity'</a>,
+--   <a>instanceIdentity_signature</a> - A signature which can be used to
+--   verify the accuracy and authenticity of the information provided in
+--   the instance identity document.
+--   
 --   <a>$sel:document:InstanceIdentity'</a>,
 --   <a>instanceIdentity_document</a> - A description of an EC2 instance
 --   that is generated when the instance is launched and exposed to the
 --   instance via the instance metadata service in the form of a JSON
 --   representation of an object.
---   
---   <a>$sel:signature:InstanceIdentity'</a>,
---   <a>instanceIdentity_signature</a> - A signature which can be used to
---   verify the accuracy and authenticity of the information provided in
---   the instance identity document.
 newInstanceIdentity :: InstanceIdentity
+
+-- | A signature which can be used to verify the accuracy and authenticity
+--   of the information provided in the instance identity document.
+instanceIdentity_signature :: Lens' InstanceIdentity (Maybe Text)
 
 -- | A description of an EC2 instance that is generated when the instance
 --   is launched and exposed to the instance via the instance metadata
 --   service in the form of a JSON representation of an object.
 instanceIdentity_document :: Lens' InstanceIdentity (Maybe Text)
-
--- | A signature which can be used to verify the accuracy and authenticity
---   of the information provided in the instance identity document.
-instanceIdentity_signature :: Lens' InstanceIdentity (Maybe Text)
 
 -- | Contains a logical operation for comparing the value of a field with a
 --   specified value.
@@ -1360,16 +1360,16 @@ parameterValue_stringValue :: Lens' ParameterValue Text
 --   
 --   <i>See:</i> <a>newPipelineDescription</a> smart constructor.
 data PipelineDescription
-PipelineDescription' :: Maybe [Tag] -> Maybe Text -> Text -> Text -> [Field] -> PipelineDescription
+PipelineDescription' :: Maybe Text -> Maybe [Tag] -> Text -> Text -> [Field] -> PipelineDescription
+
+-- | Description of the pipeline.
+[$sel:description:PipelineDescription'] :: PipelineDescription -> Maybe Text
 
 -- | A list of tags to associated with a pipeline. Tags let you control
 --   access to pipelines. For more information, see <a>Controlling User
 --   Access to Pipelines</a> in the <i>AWS Data Pipeline Developer
 --   Guide</i>.
 [$sel:tags:PipelineDescription'] :: PipelineDescription -> Maybe [Tag]
-
--- | Description of the pipeline.
-[$sel:description:PipelineDescription'] :: PipelineDescription -> Maybe Text
 
 -- | The pipeline identifier that was assigned by AWS Data Pipeline. This
 --   is a string of the form <tt>df-297EG78HU43EEXAMPLE</tt>.
@@ -1391,14 +1391,14 @@ PipelineDescription' :: Maybe [Tag] -> Maybe Text -> Text -> Text -> [Field] -> 
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
+--   <a>$sel:description:PipelineDescription'</a>,
+--   <a>pipelineDescription_description</a> - Description of the pipeline.
+--   
 --   <a>$sel:tags:PipelineDescription'</a>, <a>pipelineDescription_tags</a>
 --   - A list of tags to associated with a pipeline. Tags let you control
 --   access to pipelines. For more information, see <a>Controlling User
 --   Access to Pipelines</a> in the <i>AWS Data Pipeline Developer
 --   Guide</i>.
---   
---   <a>$sel:description:PipelineDescription'</a>,
---   <a>pipelineDescription_description</a> - Description of the pipeline.
 --   
 --   <a>$sel:pipelineId:PipelineDescription'</a>,
 --   <a>pipelineDescription_pipelineId</a> - The pipeline identifier that
@@ -1414,14 +1414,14 @@ PipelineDescription' :: Maybe [Tag] -> Maybe Text -> Text -> Text -> [Field] -> 
 --   @pipelineState.
 newPipelineDescription :: Text -> Text -> PipelineDescription
 
+-- | Description of the pipeline.
+pipelineDescription_description :: Lens' PipelineDescription (Maybe Text)
+
 -- | A list of tags to associated with a pipeline. Tags let you control
 --   access to pipelines. For more information, see <a>Controlling User
 --   Access to Pipelines</a> in the <i>AWS Data Pipeline Developer
 --   Guide</i>.
 pipelineDescription_tags :: Lens' PipelineDescription (Maybe [Tag])
-
--- | Description of the pipeline.
-pipelineDescription_description :: Lens' PipelineDescription (Maybe Text)
 
 -- | The pipeline identifier that was assigned by AWS Data Pipeline. This
 --   is a string of the form <tt>df-297EG78HU43EEXAMPLE</tt>.
@@ -1440,12 +1440,12 @@ pipelineDescription_fields :: Lens' PipelineDescription [Field]
 data PipelineIdName
 PipelineIdName' :: Maybe Text -> Maybe Text -> PipelineIdName
 
+-- | The name of the pipeline.
+[$sel:name:PipelineIdName'] :: PipelineIdName -> Maybe Text
+
 -- | The ID of the pipeline that was assigned by AWS Data Pipeline. This is
 --   a string of the form <tt>df-297EG78HU43EEXAMPLE</tt>.
 [$sel:id:PipelineIdName'] :: PipelineIdName -> Maybe Text
-
--- | The name of the pipeline.
-[$sel:name:PipelineIdName'] :: PipelineIdName -> Maybe Text
 
 -- | Create a value of <a>PipelineIdName</a> with all optional fields
 --   omitted.
@@ -1456,20 +1456,20 @@ PipelineIdName' :: Maybe Text -> Maybe Text -> PipelineIdName
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
+--   <a>$sel:name:PipelineIdName'</a>, <a>pipelineIdName_name</a> - The
+--   name of the pipeline.
+--   
 --   <a>$sel:id:PipelineIdName'</a>, <a>pipelineIdName_id</a> - The ID of
 --   the pipeline that was assigned by AWS Data Pipeline. This is a string
 --   of the form <tt>df-297EG78HU43EEXAMPLE</tt>.
---   
---   <a>$sel:name:PipelineIdName'</a>, <a>pipelineIdName_name</a> - The
---   name of the pipeline.
 newPipelineIdName :: PipelineIdName
+
+-- | The name of the pipeline.
+pipelineIdName_name :: Lens' PipelineIdName (Maybe Text)
 
 -- | The ID of the pipeline that was assigned by AWS Data Pipeline. This is
 --   a string of the form <tt>df-297EG78HU43EEXAMPLE</tt>.
 pipelineIdName_id :: Lens' PipelineIdName (Maybe Text)
-
--- | The name of the pipeline.
-pipelineIdName_name :: Lens' PipelineIdName (Maybe Text)
 
 -- | Contains information about a pipeline object. This can be a logical,
 --   physical, or physical attempt pipeline object. The complete set of
@@ -1637,22 +1637,22 @@ tag_value :: Lens' Tag Text
 --   
 --   <i>See:</i> <a>newTaskObject</a> smart constructor.
 data TaskObject
-TaskObject' :: Maybe Text -> Maybe (HashMap Text PipelineObject) -> Maybe Text -> Maybe Text -> TaskObject
+TaskObject' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe (HashMap Text PipelineObject) -> TaskObject
 
 -- | The ID of the pipeline that provided the task.
 [$sel:pipelineId:TaskObject'] :: TaskObject -> Maybe Text
 
--- | Connection information for the location where the task runner will
---   publish the output of the task.
-[$sel:objects:TaskObject'] :: TaskObject -> Maybe (HashMap Text PipelineObject)
+-- | The ID of the pipeline task attempt object. AWS Data Pipeline uses
+--   this value to track how many times a task is attempted.
+[$sel:attemptId:TaskObject'] :: TaskObject -> Maybe Text
 
 -- | An internal identifier for the task. This ID is passed to the
 --   SetTaskStatus and ReportTaskProgress actions.
 [$sel:taskId:TaskObject'] :: TaskObject -> Maybe Text
 
--- | The ID of the pipeline task attempt object. AWS Data Pipeline uses
---   this value to track how many times a task is attempted.
-[$sel:attemptId:TaskObject'] :: TaskObject -> Maybe Text
+-- | Connection information for the location where the task runner will
+--   publish the output of the task.
+[$sel:objects:TaskObject'] :: TaskObject -> Maybe (HashMap Text PipelineObject)
 
 -- | Create a value of <a>TaskObject</a> with all optional fields omitted.
 --   
@@ -1665,33 +1665,33 @@ TaskObject' :: Maybe Text -> Maybe (HashMap Text PipelineObject) -> Maybe Text -
 --   <a>$sel:pipelineId:TaskObject'</a>, <a>taskObject_pipelineId</a> - The
 --   ID of the pipeline that provided the task.
 --   
---   <a>$sel:objects:TaskObject'</a>, <a>taskObject_objects</a> -
---   Connection information for the location where the task runner will
---   publish the output of the task.
+--   <a>$sel:attemptId:TaskObject'</a>, <a>taskObject_attemptId</a> - The
+--   ID of the pipeline task attempt object. AWS Data Pipeline uses this
+--   value to track how many times a task is attempted.
 --   
 --   <a>$sel:taskId:TaskObject'</a>, <a>taskObject_taskId</a> - An internal
 --   identifier for the task. This ID is passed to the SetTaskStatus and
 --   ReportTaskProgress actions.
 --   
---   <a>$sel:attemptId:TaskObject'</a>, <a>taskObject_attemptId</a> - The
---   ID of the pipeline task attempt object. AWS Data Pipeline uses this
---   value to track how many times a task is attempted.
+--   <a>$sel:objects:TaskObject'</a>, <a>taskObject_objects</a> -
+--   Connection information for the location where the task runner will
+--   publish the output of the task.
 newTaskObject :: TaskObject
 
 -- | The ID of the pipeline that provided the task.
 taskObject_pipelineId :: Lens' TaskObject (Maybe Text)
 
--- | Connection information for the location where the task runner will
---   publish the output of the task.
-taskObject_objects :: Lens' TaskObject (Maybe (HashMap Text PipelineObject))
+-- | The ID of the pipeline task attempt object. AWS Data Pipeline uses
+--   this value to track how many times a task is attempted.
+taskObject_attemptId :: Lens' TaskObject (Maybe Text)
 
 -- | An internal identifier for the task. This ID is passed to the
 --   SetTaskStatus and ReportTaskProgress actions.
 taskObject_taskId :: Lens' TaskObject (Maybe Text)
 
--- | The ID of the pipeline task attempt object. AWS Data Pipeline uses
---   this value to track how many times a task is attempted.
-taskObject_attemptId :: Lens' TaskObject (Maybe Text)
+-- | Connection information for the location where the task runner will
+--   publish the output of the task.
+taskObject_objects :: Lens' TaskObject (Maybe (HashMap Text PipelineObject))
 
 -- | Defines a validation error. Validation errors prevent pipeline
 --   activation. The set of validation errors that can be returned are
@@ -1787,17 +1787,17 @@ SetTaskStatus' :: Maybe Text -> Maybe Text -> Maybe Text -> Text -> TaskStatus -
 --   The web service does not parse this value.
 [$sel:errorStackTrace:SetTaskStatus'] :: SetTaskStatus -> Maybe Text
 
--- | If an error occurred during the task, this value specifies a text
---   description of the error. This value is set on the physical attempt
---   object. It is used to display error information to the user. The web
---   service does not parse this value.
-[$sel:errorMessage:SetTaskStatus'] :: SetTaskStatus -> Maybe Text
-
 -- | If an error occurred during the task, this value specifies the error
 --   code. This value is set on the physical attempt object. It is used to
 --   display error information to the user. It should not start with string
 --   "Service_" which is reserved by the system.
 [$sel:errorId:SetTaskStatus'] :: SetTaskStatus -> Maybe Text
+
+-- | If an error occurred during the task, this value specifies a text
+--   description of the error. This value is set on the physical attempt
+--   object. It is used to display error information to the user. The web
+--   service does not parse this value.
+[$sel:errorMessage:SetTaskStatus'] :: SetTaskStatus -> Maybe Text
 
 -- | The ID of the task assigned to the task runner. This value is provided
 --   in the response for PollForTask.
@@ -1824,17 +1824,17 @@ SetTaskStatus' :: Maybe Text -> Maybe Text -> Maybe Text -> Text -> TaskStatus -
 --   display error information to the user. The web service does not parse
 --   this value.
 --   
---   <a>$sel:errorMessage:SetTaskStatus'</a>,
---   <a>setTaskStatus_errorMessage</a> - If an error occurred during the
---   task, this value specifies a text description of the error. This value
---   is set on the physical attempt object. It is used to display error
---   information to the user. The web service does not parse this value.
---   
 --   <a>$sel:errorId:SetTaskStatus'</a>, <a>setTaskStatus_errorId</a> - If
 --   an error occurred during the task, this value specifies the error
 --   code. This value is set on the physical attempt object. It is used to
 --   display error information to the user. It should not start with string
 --   "Service_" which is reserved by the system.
+--   
+--   <a>$sel:errorMessage:SetTaskStatus'</a>,
+--   <a>setTaskStatus_errorMessage</a> - If an error occurred during the
+--   task, this value specifies a text description of the error. This value
+--   is set on the physical attempt object. It is used to display error
+--   information to the user. The web service does not parse this value.
 --   
 --   <a>$sel:taskId:SetTaskStatus'</a>, <a>setTaskStatus_taskId</a> - The
 --   ID of the task assigned to the task runner. This value is provided in
@@ -1852,17 +1852,17 @@ newSetTaskStatus :: Text -> TaskStatus -> SetTaskStatus
 --   The web service does not parse this value.
 setTaskStatus_errorStackTrace :: Lens' SetTaskStatus (Maybe Text)
 
--- | If an error occurred during the task, this value specifies a text
---   description of the error. This value is set on the physical attempt
---   object. It is used to display error information to the user. The web
---   service does not parse this value.
-setTaskStatus_errorMessage :: Lens' SetTaskStatus (Maybe Text)
-
 -- | If an error occurred during the task, this value specifies the error
 --   code. This value is set on the physical attempt object. It is used to
 --   display error information to the user. It should not start with string
 --   "Service_" which is reserved by the system.
 setTaskStatus_errorId :: Lens' SetTaskStatus (Maybe Text)
+
+-- | If an error occurred during the task, this value specifies a text
+--   description of the error. This value is set on the physical attempt
+--   object. It is used to display error information to the user. The web
+--   service does not parse this value.
+setTaskStatus_errorMessage :: Lens' SetTaskStatus (Maybe Text)
 
 -- | The ID of the task assigned to the task runner. This value is provided
 --   in the response for PollForTask.
@@ -2343,7 +2343,7 @@ module Network.AWS.DataPipeline.QueryObjects
 --   
 --   <i>See:</i> <a>newQueryObjects</a> smart constructor.
 data QueryObjects
-QueryObjects' :: Maybe Query -> Maybe Int -> Maybe Text -> Text -> Text -> QueryObjects
+QueryObjects' :: Maybe Query -> Maybe Text -> Maybe Int -> Text -> Text -> QueryObjects
 
 -- | The query that defines the objects to be returned. The <tt>Query</tt>
 --   object can contain a maximum of ten selectors. The conditions in the
@@ -2351,15 +2351,15 @@ QueryObjects' :: Maybe Query -> Maybe Int -> Maybe Text -> Text -> Text -> Query
 --   filters can be applied to components, instances, and attempts.
 [$sel:query:QueryObjects'] :: QueryObjects -> Maybe Query
 
--- | The maximum number of object names that <tt>QueryObjects</tt> will
---   return in a single call. The default value is 100.
-[$sel:limit:QueryObjects'] :: QueryObjects -> Maybe Int
-
 -- | The starting point for the results to be returned. For the first call,
 --   this value should be empty. As long as there are more results,
 --   continue to call <tt>QueryObjects</tt> with the marker value from the
 --   previous call to retrieve the next set of results.
 [$sel:marker:QueryObjects'] :: QueryObjects -> Maybe Text
+
+-- | The maximum number of object names that <tt>QueryObjects</tt> will
+--   return in a single call. The default value is 100.
+[$sel:limit:QueryObjects'] :: QueryObjects -> Maybe Int
 
 -- | The ID of the pipeline.
 [$sel:pipelineId:QueryObjects'] :: QueryObjects -> Text
@@ -2384,15 +2384,15 @@ QueryObjects' :: Maybe Query -> Maybe Int -> Maybe Text -> Text -> Text -> Query
 --   limited to top-level String fields in the object. These filters can be
 --   applied to components, instances, and attempts.
 --   
---   <a>$sel:limit:QueryObjects'</a>, <a>queryObjects_limit</a> - The
---   maximum number of object names that <tt>QueryObjects</tt> will return
---   in a single call. The default value is 100.
---   
 --   <a>$sel:marker:QueryObjects'</a>, <a>queryObjects_marker</a> - The
 --   starting point for the results to be returned. For the first call,
 --   this value should be empty. As long as there are more results,
 --   continue to call <tt>QueryObjects</tt> with the marker value from the
 --   previous call to retrieve the next set of results.
+--   
+--   <a>$sel:limit:QueryObjects'</a>, <a>queryObjects_limit</a> - The
+--   maximum number of object names that <tt>QueryObjects</tt> will return
+--   in a single call. The default value is 100.
 --   
 --   <a>$sel:pipelineId:QueryObjects'</a>, <a>queryObjects_pipelineId</a> -
 --   The ID of the pipeline.
@@ -2409,15 +2409,15 @@ newQueryObjects :: Text -> Text -> QueryObjects
 --   filters can be applied to components, instances, and attempts.
 queryObjects_query :: Lens' QueryObjects (Maybe Query)
 
--- | The maximum number of object names that <tt>QueryObjects</tt> will
---   return in a single call. The default value is 100.
-queryObjects_limit :: Lens' QueryObjects (Maybe Int)
-
 -- | The starting point for the results to be returned. For the first call,
 --   this value should be empty. As long as there are more results,
 --   continue to call <tt>QueryObjects</tt> with the marker value from the
 --   previous call to retrieve the next set of results.
 queryObjects_marker :: Lens' QueryObjects (Maybe Text)
+
+-- | The maximum number of object names that <tt>QueryObjects</tt> will
+--   return in a single call. The default value is 100.
+queryObjects_limit :: Lens' QueryObjects (Maybe Int)
 
 -- | The ID of the pipeline.
 queryObjects_pipelineId :: Lens' QueryObjects Text
@@ -2431,14 +2431,14 @@ queryObjects_sphere :: Lens' QueryObjects Text
 --   
 --   <i>See:</i> <a>newQueryObjectsResponse</a> smart constructor.
 data QueryObjectsResponse
-QueryObjectsResponse' :: Maybe [Text] -> Maybe Bool -> Maybe Text -> Int -> QueryObjectsResponse
-
--- | The identifiers that match the query selectors.
-[$sel:ids:QueryObjectsResponse'] :: QueryObjectsResponse -> Maybe [Text]
+QueryObjectsResponse' :: Maybe Bool -> Maybe [Text] -> Maybe Text -> Int -> QueryObjectsResponse
 
 -- | Indicates whether there are more results that can be obtained by a
 --   subsequent call.
 [$sel:hasMoreResults:QueryObjectsResponse'] :: QueryObjectsResponse -> Maybe Bool
+
+-- | The identifiers that match the query selectors.
+[$sel:ids:QueryObjectsResponse'] :: QueryObjectsResponse -> Maybe [Text]
 
 -- | The starting point for the next page of results. To view the next page
 --   of results, call <tt>QueryObjects</tt> again with this marker value.
@@ -2457,12 +2457,12 @@ QueryObjectsResponse' :: Maybe [Text] -> Maybe Bool -> Maybe Text -> Int -> Quer
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:ids:QueryObjectsResponse'</a>, <a>queryObjectsResponse_ids</a>
---   - The identifiers that match the query selectors.
---   
 --   <a>$sel:hasMoreResults:QueryObjectsResponse'</a>,
 --   <a>queryObjectsResponse_hasMoreResults</a> - Indicates whether there
 --   are more results that can be obtained by a subsequent call.
+--   
+--   <a>$sel:ids:QueryObjectsResponse'</a>, <a>queryObjectsResponse_ids</a>
+--   - The identifiers that match the query selectors.
 --   
 --   <a>$sel:marker:QueryObjects'</a>, <a>queryObjectsResponse_marker</a> -
 --   The starting point for the next page of results. To view the next page
@@ -2474,12 +2474,12 @@ QueryObjectsResponse' :: Maybe [Text] -> Maybe Bool -> Maybe Text -> Int -> Quer
 --   code.
 newQueryObjectsResponse :: Int -> QueryObjectsResponse
 
--- | The identifiers that match the query selectors.
-queryObjectsResponse_ids :: Lens' QueryObjectsResponse (Maybe [Text])
-
 -- | Indicates whether there are more results that can be obtained by a
 --   subsequent call.
 queryObjectsResponse_hasMoreResults :: Lens' QueryObjectsResponse (Maybe Bool)
+
+-- | The identifiers that match the query selectors.
+queryObjectsResponse_ids :: Lens' QueryObjectsResponse (Maybe [Text])
 
 -- | The starting point for the next page of results. To view the next page
 --   of results, call <tt>QueryObjects</tt> again with this marker value.
@@ -2531,13 +2531,13 @@ module Network.AWS.DataPipeline.PutPipelineDefinition
 --   
 --   <i>See:</i> <a>newPutPipelineDefinition</a> smart constructor.
 data PutPipelineDefinition
-PutPipelineDefinition' :: Maybe [ParameterValue] -> Maybe [ParameterObject] -> Text -> [PipelineObject] -> PutPipelineDefinition
-
--- | The parameter values used with the pipeline.
-[$sel:parameterValues:PutPipelineDefinition'] :: PutPipelineDefinition -> Maybe [ParameterValue]
+PutPipelineDefinition' :: Maybe [ParameterObject] -> Maybe [ParameterValue] -> Text -> [PipelineObject] -> PutPipelineDefinition
 
 -- | The parameter objects used with the pipeline.
 [$sel:parameterObjects:PutPipelineDefinition'] :: PutPipelineDefinition -> Maybe [ParameterObject]
+
+-- | The parameter values used with the pipeline.
+[$sel:parameterValues:PutPipelineDefinition'] :: PutPipelineDefinition -> Maybe [ParameterValue]
 
 -- | The ID of the pipeline.
 [$sel:pipelineId:PutPipelineDefinition'] :: PutPipelineDefinition -> Text
@@ -2555,12 +2555,12 @@ PutPipelineDefinition' :: Maybe [ParameterValue] -> Maybe [ParameterObject] -> T
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:parameterValues:PutPipelineDefinition'</a>,
---   <a>putPipelineDefinition_parameterValues</a> - The parameter values
---   used with the pipeline.
---   
 --   <a>$sel:parameterObjects:PutPipelineDefinition'</a>,
 --   <a>putPipelineDefinition_parameterObjects</a> - The parameter objects
+--   used with the pipeline.
+--   
+--   <a>$sel:parameterValues:PutPipelineDefinition'</a>,
+--   <a>putPipelineDefinition_parameterValues</a> - The parameter values
 --   used with the pipeline.
 --   
 --   <a>$sel:pipelineId:PutPipelineDefinition'</a>,
@@ -2572,11 +2572,11 @@ PutPipelineDefinition' :: Maybe [ParameterValue] -> Maybe [ParameterObject] -> T
 --   definition.
 newPutPipelineDefinition :: Text -> PutPipelineDefinition
 
--- | The parameter values used with the pipeline.
-putPipelineDefinition_parameterValues :: Lens' PutPipelineDefinition (Maybe [ParameterValue])
-
 -- | The parameter objects used with the pipeline.
 putPipelineDefinition_parameterObjects :: Lens' PutPipelineDefinition (Maybe [ParameterObject])
+
+-- | The parameter values used with the pipeline.
+putPipelineDefinition_parameterValues :: Lens' PutPipelineDefinition (Maybe [ParameterValue])
 
 -- | The ID of the pipeline.
 putPipelineDefinition_pipelineId :: Lens' PutPipelineDefinition Text
@@ -3010,16 +3010,16 @@ getPipelineDefinition_pipelineId :: Lens' GetPipelineDefinition Text
 --   
 --   <i>See:</i> <a>newGetPipelineDefinitionResponse</a> smart constructor.
 data GetPipelineDefinitionResponse
-GetPipelineDefinitionResponse' :: Maybe [ParameterValue] -> Maybe [ParameterObject] -> Maybe [PipelineObject] -> Int -> GetPipelineDefinitionResponse
+GetPipelineDefinitionResponse' :: Maybe [PipelineObject] -> Maybe [ParameterObject] -> Maybe [ParameterValue] -> Int -> GetPipelineDefinitionResponse
 
--- | The parameter values used in the pipeline definition.
-[$sel:parameterValues:GetPipelineDefinitionResponse'] :: GetPipelineDefinitionResponse -> Maybe [ParameterValue]
+-- | The objects defined in the pipeline.
+[$sel:pipelineObjects:GetPipelineDefinitionResponse'] :: GetPipelineDefinitionResponse -> Maybe [PipelineObject]
 
 -- | The parameter objects used in the pipeline definition.
 [$sel:parameterObjects:GetPipelineDefinitionResponse'] :: GetPipelineDefinitionResponse -> Maybe [ParameterObject]
 
--- | The objects defined in the pipeline.
-[$sel:pipelineObjects:GetPipelineDefinitionResponse'] :: GetPipelineDefinitionResponse -> Maybe [PipelineObject]
+-- | The parameter values used in the pipeline definition.
+[$sel:parameterValues:GetPipelineDefinitionResponse'] :: GetPipelineDefinitionResponse -> Maybe [ParameterValue]
 
 -- | The response's http status code.
 [$sel:httpStatus:GetPipelineDefinitionResponse'] :: GetPipelineDefinitionResponse -> Int
@@ -3033,31 +3033,31 @@ GetPipelineDefinitionResponse' :: Maybe [ParameterValue] -> Maybe [ParameterObje
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:parameterValues:GetPipelineDefinitionResponse'</a>,
---   <a>getPipelineDefinitionResponse_parameterValues</a> - The parameter
---   values used in the pipeline definition.
+--   <a>$sel:pipelineObjects:GetPipelineDefinitionResponse'</a>,
+--   <a>getPipelineDefinitionResponse_pipelineObjects</a> - The objects
+--   defined in the pipeline.
 --   
 --   <a>$sel:parameterObjects:GetPipelineDefinitionResponse'</a>,
 --   <a>getPipelineDefinitionResponse_parameterObjects</a> - The parameter
 --   objects used in the pipeline definition.
 --   
---   <a>$sel:pipelineObjects:GetPipelineDefinitionResponse'</a>,
---   <a>getPipelineDefinitionResponse_pipelineObjects</a> - The objects
---   defined in the pipeline.
+--   <a>$sel:parameterValues:GetPipelineDefinitionResponse'</a>,
+--   <a>getPipelineDefinitionResponse_parameterValues</a> - The parameter
+--   values used in the pipeline definition.
 --   
 --   <a>$sel:httpStatus:GetPipelineDefinitionResponse'</a>,
 --   <a>getPipelineDefinitionResponse_httpStatus</a> - The response's http
 --   status code.
 newGetPipelineDefinitionResponse :: Int -> GetPipelineDefinitionResponse
 
--- | The parameter values used in the pipeline definition.
-getPipelineDefinitionResponse_parameterValues :: Lens' GetPipelineDefinitionResponse (Maybe [ParameterValue])
+-- | The objects defined in the pipeline.
+getPipelineDefinitionResponse_pipelineObjects :: Lens' GetPipelineDefinitionResponse (Maybe [PipelineObject])
 
 -- | The parameter objects used in the pipeline definition.
 getPipelineDefinitionResponse_parameterObjects :: Lens' GetPipelineDefinitionResponse (Maybe [ParameterObject])
 
--- | The objects defined in the pipeline.
-getPipelineDefinitionResponse_pipelineObjects :: Lens' GetPipelineDefinitionResponse (Maybe [PipelineObject])
+-- | The parameter values used in the pipeline definition.
+getPipelineDefinitionResponse_parameterValues :: Lens' GetPipelineDefinitionResponse (Maybe [ParameterValue])
 
 -- | The response's http status code.
 getPipelineDefinitionResponse_httpStatus :: Lens' GetPipelineDefinitionResponse Int
@@ -3600,16 +3600,16 @@ module Network.AWS.DataPipeline.CreatePipeline
 --   
 --   <i>See:</i> <a>newCreatePipeline</a> smart constructor.
 data CreatePipeline
-CreatePipeline' :: Maybe [Tag] -> Maybe Text -> Text -> Text -> CreatePipeline
+CreatePipeline' :: Maybe Text -> Maybe [Tag] -> Text -> Text -> CreatePipeline
+
+-- | The description for the pipeline.
+[$sel:description:CreatePipeline'] :: CreatePipeline -> Maybe Text
 
 -- | A list of tags to associate with the pipeline at creation. Tags let
 --   you control access to pipelines. For more information, see
 --   <a>Controlling User Access to Pipelines</a> in the <i>AWS Data
 --   Pipeline Developer Guide</i>.
 [$sel:tags:CreatePipeline'] :: CreatePipeline -> Maybe [Tag]
-
--- | The description for the pipeline.
-[$sel:description:CreatePipeline'] :: CreatePipeline -> Maybe Text
 
 -- | The name for the pipeline. You can use the same name for multiple
 --   pipelines associated with your AWS account, because AWS Data Pipeline
@@ -3640,14 +3640,14 @@ CreatePipeline' :: Maybe [Tag] -> Maybe Text -> Text -> Text -> CreatePipeline
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
+--   <a>$sel:description:CreatePipeline'</a>,
+--   <a>createPipeline_description</a> - The description for the pipeline.
+--   
 --   <a>$sel:tags:CreatePipeline'</a>, <a>createPipeline_tags</a> - A list
 --   of tags to associate with the pipeline at creation. Tags let you
 --   control access to pipelines. For more information, see <a>Controlling
 --   User Access to Pipelines</a> in the <i>AWS Data Pipeline Developer
 --   Guide</i>.
---   
---   <a>$sel:description:CreatePipeline'</a>,
---   <a>createPipeline_description</a> - The description for the pipeline.
 --   
 --   <a>$sel:name:CreatePipeline'</a>, <a>createPipeline_name</a> - The
 --   name for the pipeline. You can use the same name for multiple
@@ -3670,14 +3670,14 @@ CreatePipeline' :: Maybe [Tag] -> Maybe Text -> Text -> Text -> CreatePipeline
 --   credentials.
 newCreatePipeline :: Text -> Text -> CreatePipeline
 
+-- | The description for the pipeline.
+createPipeline_description :: Lens' CreatePipeline (Maybe Text)
+
 -- | A list of tags to associate with the pipeline at creation. Tags let
 --   you control access to pipelines. For more information, see
 --   <a>Controlling User Access to Pipelines</a> in the <i>AWS Data
 --   Pipeline Developer Guide</i>.
 createPipeline_tags :: Lens' CreatePipeline (Maybe [Tag])
-
--- | The description for the pipeline.
-createPipeline_description :: Lens' CreatePipeline (Maybe Text)
 
 -- | The name for the pipeline. You can use the same name for multiple
 --   pipelines associated with your AWS account, because AWS Data Pipeline
@@ -3847,14 +3847,14 @@ module Network.AWS.DataPipeline.ActivatePipeline
 --   
 --   <i>See:</i> <a>newActivatePipeline</a> smart constructor.
 data ActivatePipeline
-ActivatePipeline' :: Maybe [ParameterValue] -> Maybe POSIX -> Text -> ActivatePipeline
-
--- | A list of parameter values to pass to the pipeline at activation.
-[$sel:parameterValues:ActivatePipeline'] :: ActivatePipeline -> Maybe [ParameterValue]
+ActivatePipeline' :: Maybe POSIX -> Maybe [ParameterValue] -> Text -> ActivatePipeline
 
 -- | The date and time to resume the pipeline. By default, the pipeline
 --   resumes from the last completed execution.
 [$sel:startTimestamp:ActivatePipeline'] :: ActivatePipeline -> Maybe POSIX
+
+-- | A list of parameter values to pass to the pipeline at activation.
+[$sel:parameterValues:ActivatePipeline'] :: ActivatePipeline -> Maybe [ParameterValue]
 
 -- | The ID of the pipeline.
 [$sel:pipelineId:ActivatePipeline'] :: ActivatePipeline -> Text
@@ -3868,25 +3868,25 @@ ActivatePipeline' :: Maybe [ParameterValue] -> Maybe POSIX -> Text -> ActivatePi
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:parameterValues:ActivatePipeline'</a>,
---   <a>activatePipeline_parameterValues</a> - A list of parameter values
---   to pass to the pipeline at activation.
---   
 --   <a>$sel:startTimestamp:ActivatePipeline'</a>,
 --   <a>activatePipeline_startTimestamp</a> - The date and time to resume
 --   the pipeline. By default, the pipeline resumes from the last completed
 --   execution.
 --   
+--   <a>$sel:parameterValues:ActivatePipeline'</a>,
+--   <a>activatePipeline_parameterValues</a> - A list of parameter values
+--   to pass to the pipeline at activation.
+--   
 --   <a>$sel:pipelineId:ActivatePipeline'</a>,
 --   <a>activatePipeline_pipelineId</a> - The ID of the pipeline.
 newActivatePipeline :: Text -> ActivatePipeline
 
--- | A list of parameter values to pass to the pipeline at activation.
-activatePipeline_parameterValues :: Lens' ActivatePipeline (Maybe [ParameterValue])
-
 -- | The date and time to resume the pipeline. By default, the pipeline
 --   resumes from the last completed execution.
 activatePipeline_startTimestamp :: Lens' ActivatePipeline (Maybe UTCTime)
+
+-- | A list of parameter values to pass to the pipeline at activation.
+activatePipeline_parameterValues :: Lens' ActivatePipeline (Maybe [ParameterValue])
 
 -- | The ID of the pipeline.
 activatePipeline_pipelineId :: Lens' ActivatePipeline Text
@@ -3942,13 +3942,13 @@ module Network.AWS.DataPipeline.ValidatePipelineDefinition
 --   
 --   <i>See:</i> <a>newValidatePipelineDefinition</a> smart constructor.
 data ValidatePipelineDefinition
-ValidatePipelineDefinition' :: Maybe [ParameterValue] -> Maybe [ParameterObject] -> Text -> [PipelineObject] -> ValidatePipelineDefinition
-
--- | The parameter values used with the pipeline.
-[$sel:parameterValues:ValidatePipelineDefinition'] :: ValidatePipelineDefinition -> Maybe [ParameterValue]
+ValidatePipelineDefinition' :: Maybe [ParameterObject] -> Maybe [ParameterValue] -> Text -> [PipelineObject] -> ValidatePipelineDefinition
 
 -- | The parameter objects used with the pipeline.
 [$sel:parameterObjects:ValidatePipelineDefinition'] :: ValidatePipelineDefinition -> Maybe [ParameterObject]
+
+-- | The parameter values used with the pipeline.
+[$sel:parameterValues:ValidatePipelineDefinition'] :: ValidatePipelineDefinition -> Maybe [ParameterValue]
 
 -- | The ID of the pipeline.
 [$sel:pipelineId:ValidatePipelineDefinition'] :: ValidatePipelineDefinition -> Text
@@ -3966,13 +3966,13 @@ ValidatePipelineDefinition' :: Maybe [ParameterValue] -> Maybe [ParameterObject]
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:parameterValues:ValidatePipelineDefinition'</a>,
---   <a>validatePipelineDefinition_parameterValues</a> - The parameter
---   values used with the pipeline.
---   
 --   <a>$sel:parameterObjects:ValidatePipelineDefinition'</a>,
 --   <a>validatePipelineDefinition_parameterObjects</a> - The parameter
 --   objects used with the pipeline.
+--   
+--   <a>$sel:parameterValues:ValidatePipelineDefinition'</a>,
+--   <a>validatePipelineDefinition_parameterValues</a> - The parameter
+--   values used with the pipeline.
 --   
 --   <a>$sel:pipelineId:ValidatePipelineDefinition'</a>,
 --   <a>validatePipelineDefinition_pipelineId</a> - The ID of the pipeline.
@@ -3982,11 +3982,11 @@ ValidatePipelineDefinition' :: Maybe [ParameterValue] -> Maybe [ParameterObject]
 --   define the pipeline changes to validate against the pipeline.
 newValidatePipelineDefinition :: Text -> ValidatePipelineDefinition
 
--- | The parameter values used with the pipeline.
-validatePipelineDefinition_parameterValues :: Lens' ValidatePipelineDefinition (Maybe [ParameterValue])
-
 -- | The parameter objects used with the pipeline.
 validatePipelineDefinition_parameterObjects :: Lens' ValidatePipelineDefinition (Maybe [ParameterObject])
+
+-- | The parameter values used with the pipeline.
+validatePipelineDefinition_parameterValues :: Lens' ValidatePipelineDefinition (Maybe [ParameterValue])
 
 -- | The ID of the pipeline.
 validatePipelineDefinition_pipelineId :: Lens' ValidatePipelineDefinition Text
@@ -4071,14 +4071,16 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.DataPipeline.ValidatePipelin
 
 module Network.AWS.DataPipeline.Lens
 
--- | The ID of the pipeline.
-removeTags_pipelineId :: Lens' RemoveTags Text
-
--- | The keys of the tags to remove.
-removeTags_tagKeys :: Lens' RemoveTags [Text]
+-- | The IDs of the pipelines to describe. You can pass as many as 25
+--   identifiers in a single call. To obtain pipeline IDs, call
+--   ListPipelines.
+describePipelines_pipelineIds :: Lens' DescribePipelines [Text]
 
 -- | The response's http status code.
-removeTagsResponse_httpStatus :: Lens' RemoveTagsResponse Int
+describePipelinesResponse_httpStatus :: Lens' DescribePipelinesResponse Int
+
+-- | An array of descriptions for the specified pipelines.
+describePipelinesResponse_pipelineDescriptionList :: Lens' DescribePipelinesResponse [PipelineDescription]
 
 -- | The query that defines the objects to be returned. The <tt>Query</tt>
 --   object can contain a maximum of ten selectors. The conditions in the
@@ -4086,15 +4088,15 @@ removeTagsResponse_httpStatus :: Lens' RemoveTagsResponse Int
 --   filters can be applied to components, instances, and attempts.
 queryObjects_query :: Lens' QueryObjects (Maybe Query)
 
--- | The maximum number of object names that <tt>QueryObjects</tt> will
---   return in a single call. The default value is 100.
-queryObjects_limit :: Lens' QueryObjects (Maybe Int)
-
 -- | The starting point for the results to be returned. For the first call,
 --   this value should be empty. As long as there are more results,
 --   continue to call <tt>QueryObjects</tt> with the marker value from the
 --   previous call to retrieve the next set of results.
 queryObjects_marker :: Lens' QueryObjects (Maybe Text)
+
+-- | The maximum number of object names that <tt>QueryObjects</tt> will
+--   return in a single call. The default value is 100.
+queryObjects_limit :: Lens' QueryObjects (Maybe Int)
 
 -- | The ID of the pipeline.
 queryObjects_pipelineId :: Lens' QueryObjects Text
@@ -4104,12 +4106,12 @@ queryObjects_pipelineId :: Lens' QueryObjects Text
 --   <tt>ATTEMPT</tt>.
 queryObjects_sphere :: Lens' QueryObjects Text
 
--- | The identifiers that match the query selectors.
-queryObjectsResponse_ids :: Lens' QueryObjectsResponse (Maybe [Text])
-
 -- | Indicates whether there are more results that can be obtained by a
 --   subsequent call.
 queryObjectsResponse_hasMoreResults :: Lens' QueryObjectsResponse (Maybe Bool)
+
+-- | The identifiers that match the query selectors.
+queryObjectsResponse_ids :: Lens' QueryObjectsResponse (Maybe [Text])
 
 -- | The starting point for the next page of results. To view the next page
 --   of results, call <tt>QueryObjects</tt> again with this marker value.
@@ -4118,6 +4120,41 @@ queryObjectsResponse_marker :: Lens' QueryObjectsResponse (Maybe Text)
 
 -- | The response's http status code.
 queryObjectsResponse_httpStatus :: Lens' QueryObjectsResponse Int
+
+-- | The ID of the pipeline.
+removeTags_pipelineId :: Lens' RemoveTags Text
+
+-- | The keys of the tags to remove.
+removeTags_tagKeys :: Lens' RemoveTags [Text]
+
+-- | The response's http status code.
+removeTagsResponse_httpStatus :: Lens' RemoveTagsResponse Int
+
+-- | The ID of the pipeline.
+deletePipeline_pipelineId :: Lens' DeletePipeline Text
+
+-- | The starting point for the results to be returned. For the first call,
+--   this value should be empty. As long as there are more results,
+--   continue to call <tt>ListPipelines</tt> with the marker value from the
+--   previous call to retrieve the next set of results.
+listPipelines_marker :: Lens' ListPipelines (Maybe Text)
+
+-- | Indicates whether there are more results that can be obtained by a
+--   subsequent call.
+listPipelinesResponse_hasMoreResults :: Lens' ListPipelinesResponse (Maybe Bool)
+
+-- | The starting point for the next page of results. To view the next page
+--   of results, call <tt>ListPipelinesOutput</tt> again with this marker
+--   value. If the value is null, there are no more results.
+listPipelinesResponse_marker :: Lens' ListPipelinesResponse (Maybe Text)
+
+-- | The response's http status code.
+listPipelinesResponse_httpStatus :: Lens' ListPipelinesResponse Int
+
+-- | The pipeline identifiers. If you require additional information about
+--   the pipelines, you can use these identifiers to call DescribePipelines
+--   and GetPipelineDefinition.
+listPipelinesResponse_pipelineIdList :: Lens' ListPipelinesResponse [PipelineIdName]
 
 -- | The ID of the pipeline.
 evaluateExpression_pipelineId :: Lens' EvaluateExpression Text
@@ -4134,115 +4171,77 @@ evaluateExpressionResponse_httpStatus :: Lens' EvaluateExpressionResponse Int
 -- | The evaluated expression.
 evaluateExpressionResponse_evaluatedExpression :: Lens' EvaluateExpressionResponse Text
 
--- | Key-value pairs that define the properties of the
---   ReportTaskProgressInput object.
-reportTaskProgress_fields :: Lens' ReportTaskProgress (Maybe [Field])
-
--- | The ID of the task assigned to the task runner. This value is provided
---   in the response for PollForTask.
-reportTaskProgress_taskId :: Lens' ReportTaskProgress Text
-
--- | The response's http status code.
-reportTaskProgressResponse_httpStatus :: Lens' ReportTaskProgressResponse Int
-
--- | If true, the calling task runner should cancel processing of the task.
---   The task runner does not need to call SetTaskStatus for canceled
---   tasks.
-reportTaskProgressResponse_canceled :: Lens' ReportTaskProgressResponse Bool
-
--- | A list of tags to associate with the pipeline at creation. Tags let
---   you control access to pipelines. For more information, see
---   <a>Controlling User Access to Pipelines</a> in the <i>AWS Data
---   Pipeline Developer Guide</i>.
-createPipeline_tags :: Lens' CreatePipeline (Maybe [Tag])
-
--- | The description for the pipeline.
-createPipeline_description :: Lens' CreatePipeline (Maybe Text)
-
--- | The name for the pipeline. You can use the same name for multiple
---   pipelines associated with your AWS account, because AWS Data Pipeline
---   assigns each pipeline a unique pipeline identifier.
-createPipeline_name :: Lens' CreatePipeline Text
-
--- | A unique identifier. This identifier is not the same as the pipeline
---   identifier assigned by AWS Data Pipeline. You are responsible for
---   defining the format and ensuring the uniqueness of this identifier.
---   You use this parameter to ensure idempotency during repeated calls to
---   <tt>CreatePipeline</tt>. For example, if the first call to
---   <tt>CreatePipeline</tt> does not succeed, you can pass in the same
---   unique identifier and pipeline name combination on a subsequent call
---   to <tt>CreatePipeline</tt>. <tt>CreatePipeline</tt> ensures that if a
---   pipeline already exists with the same name and unique identifier, a
---   new pipeline is not created. Instead, you'll receive the pipeline
---   identifier from the previous attempt. The uniqueness of the name and
---   unique identifier combination is scoped to the AWS account or IAM user
---   credentials.
-createPipeline_uniqueId :: Lens' CreatePipeline Text
-
--- | The response's http status code.
-createPipelineResponse_httpStatus :: Lens' CreatePipelineResponse Int
-
--- | The ID that AWS Data Pipeline assigns the newly created pipeline. For
---   example, <tt>df-06372391ZG65EXAMPLE</tt>.
-createPipelineResponse_pipelineId :: Lens' CreatePipelineResponse Text
+-- | The version of the pipeline definition to retrieve. Set this parameter
+--   to <tt>latest</tt> (default) to use the last definition saved to the
+--   pipeline or <tt>active</tt> to use the last definition that was
+--   activated.
+getPipelineDefinition_version :: Lens' GetPipelineDefinition (Maybe Text)
 
 -- | The ID of the pipeline.
-deletePipeline_pipelineId :: Lens' DeletePipeline Text
+getPipelineDefinition_pipelineId :: Lens' GetPipelineDefinition Text
 
--- | If an error occurred during the task, this value specifies the stack
---   trace associated with the error. This value is set on the physical
---   attempt object. It is used to display error information to the user.
---   The web service does not parse this value.
-setTaskStatus_errorStackTrace :: Lens' SetTaskStatus (Maybe Text)
+-- | The objects defined in the pipeline.
+getPipelineDefinitionResponse_pipelineObjects :: Lens' GetPipelineDefinitionResponse (Maybe [PipelineObject])
 
--- | If an error occurred during the task, this value specifies a text
---   description of the error. This value is set on the physical attempt
---   object. It is used to display error information to the user. The web
---   service does not parse this value.
-setTaskStatus_errorMessage :: Lens' SetTaskStatus (Maybe Text)
+-- | The parameter objects used in the pipeline definition.
+getPipelineDefinitionResponse_parameterObjects :: Lens' GetPipelineDefinitionResponse (Maybe [ParameterObject])
 
--- | If an error occurred during the task, this value specifies the error
---   code. This value is set on the physical attempt object. It is used to
---   display error information to the user. It should not start with string
---   "Service_" which is reserved by the system.
-setTaskStatus_errorId :: Lens' SetTaskStatus (Maybe Text)
-
--- | The ID of the task assigned to the task runner. This value is provided
---   in the response for PollForTask.
-setTaskStatus_taskId :: Lens' SetTaskStatus Text
-
--- | If <tt>FINISHED</tt>, the task successfully completed. If
---   <tt>FAILED</tt>, the task ended unsuccessfully. Preconditions use
---   false.
-setTaskStatus_taskStatus :: Lens' SetTaskStatus TaskStatus
+-- | The parameter values used in the pipeline definition.
+getPipelineDefinitionResponse_parameterValues :: Lens' GetPipelineDefinitionResponse (Maybe [ParameterValue])
 
 -- | The response's http status code.
-setTaskStatusResponse_httpStatus :: Lens' SetTaskStatusResponse Int
+getPipelineDefinitionResponse_httpStatus :: Lens' GetPipelineDefinitionResponse Int
 
--- | The public DNS name of the task runner.
-reportTaskRunnerHeartbeat_hostname :: Lens' ReportTaskRunnerHeartbeat (Maybe Text)
+-- | The public DNS name of the calling task runner.
+pollForTask_hostname :: Lens' PollForTask (Maybe Text)
+
+-- | Identity information for the EC2 instance that is hosting the task
+--   runner. You can get this value from the instance using
+--   <tt>http://169.254.169.254/latest/meta-data/instance-id</tt>. For more
+--   information, see <a>Instance Metadata</a> in the <i>Amazon Elastic
+--   Compute Cloud User Guide.</i> Passing in this value proves that your
+--   task runner is running on an EC2 instance, and ensures the proper AWS
+--   Data Pipeline service charges are applied to your pipeline.
+pollForTask_instanceIdentity :: Lens' PollForTask (Maybe InstanceIdentity)
 
 -- | The type of task the task runner is configured to accept and process.
 --   The worker group is set as a field on objects in the pipeline when
 --   they are created. You can only specify a single value for
---   <tt>workerGroup</tt>. There are no wildcard values permitted in
---   <tt>workerGroup</tt>; the string must be an exact, case-sensitive,
---   match.
-reportTaskRunnerHeartbeat_workerGroup :: Lens' ReportTaskRunnerHeartbeat (Maybe Text)
+--   <tt>workerGroup</tt> in the call to <tt>PollForTask</tt>. There are no
+--   wildcard values permitted in <tt>workerGroup</tt>; the string must be
+--   an exact, case-sensitive, match.
+pollForTask_workerGroup :: Lens' PollForTask Text
 
--- | The ID of the task runner. This value should be unique across your AWS
---   account. In the case of AWS Data Pipeline Task Runner launched on a
---   resource managed by AWS Data Pipeline, the web service provides a
---   unique identifier when it launches the application. If you have
---   written a custom task runner, you should assign a unique identifier
---   for the task runner.
-reportTaskRunnerHeartbeat_taskrunnerId :: Lens' ReportTaskRunnerHeartbeat Text
+-- | The information needed to complete the task that is being assigned to
+--   the task runner. One of the fields returned in this object is
+--   <tt>taskId</tt>, which contains an identifier for the task being
+--   assigned. The calling task runner uses <tt>taskId</tt> in subsequent
+--   calls to ReportTaskProgress and SetTaskStatus.
+pollForTaskResponse_taskObject :: Lens' PollForTaskResponse (Maybe TaskObject)
 
 -- | The response's http status code.
-reportTaskRunnerHeartbeatResponse_httpStatus :: Lens' ReportTaskRunnerHeartbeatResponse Int
+pollForTaskResponse_httpStatus :: Lens' PollForTaskResponse Int
 
--- | Indicates whether the calling task runner should terminate.
-reportTaskRunnerHeartbeatResponse_terminate :: Lens' ReportTaskRunnerHeartbeatResponse Bool
+-- | Indicates whether to cancel any running objects. The default is true,
+--   which sets the state of any running objects to <tt>CANCELED</tt>. If
+--   this value is false, the pipeline is deactivated after all running
+--   objects finish.
+deactivatePipeline_cancelActive :: Lens' DeactivatePipeline (Maybe Bool)
+
+-- | The ID of the pipeline.
+deactivatePipeline_pipelineId :: Lens' DeactivatePipeline Text
+
+-- | The response's http status code.
+deactivatePipelineResponse_httpStatus :: Lens' DeactivatePipelineResponse Int
+
+-- | The ID of the pipeline.
+addTags_pipelineId :: Lens' AddTags Text
+
+-- | The tags to add, as key/value pairs.
+addTags_tags :: Lens' AddTags [Tag]
+
+-- | The response's http status code.
+addTagsResponse_httpStatus :: Lens' AddTagsResponse Int
 
 -- | Indicates whether any expressions in the object should be evaluated
 --   when the object descriptions are returned.
@@ -4276,107 +4275,144 @@ describeObjectsResponse_httpStatus :: Lens' DescribeObjectsResponse Int
 -- | An array of object definitions.
 describeObjectsResponse_pipelineObjects :: Lens' DescribeObjectsResponse [PipelineObject]
 
--- | The ID of the pipeline.
-addTags_pipelineId :: Lens' AddTags Text
-
--- | The tags to add, as key/value pairs.
-addTags_tags :: Lens' AddTags [Tag]
-
--- | The response's http status code.
-addTagsResponse_httpStatus :: Lens' AddTagsResponse Int
-
--- | The IDs of the pipelines to describe. You can pass as many as 25
---   identifiers in a single call. To obtain pipeline IDs, call
---   ListPipelines.
-describePipelines_pipelineIds :: Lens' DescribePipelines [Text]
-
--- | The response's http status code.
-describePipelinesResponse_httpStatus :: Lens' DescribePipelinesResponse Int
-
--- | An array of descriptions for the specified pipelines.
-describePipelinesResponse_pipelineDescriptionList :: Lens' DescribePipelinesResponse [PipelineDescription]
-
--- | The public DNS name of the calling task runner.
-pollForTask_hostname :: Lens' PollForTask (Maybe Text)
-
--- | Identity information for the EC2 instance that is hosting the task
---   runner. You can get this value from the instance using
---   <tt>http://169.254.169.254/latest/meta-data/instance-id</tt>. For more
---   information, see <a>Instance Metadata</a> in the <i>Amazon Elastic
---   Compute Cloud User Guide.</i> Passing in this value proves that your
---   task runner is running on an EC2 instance, and ensures the proper AWS
---   Data Pipeline service charges are applied to your pipeline.
-pollForTask_instanceIdentity :: Lens' PollForTask (Maybe InstanceIdentity)
+-- | The public DNS name of the task runner.
+reportTaskRunnerHeartbeat_hostname :: Lens' ReportTaskRunnerHeartbeat (Maybe Text)
 
 -- | The type of task the task runner is configured to accept and process.
 --   The worker group is set as a field on objects in the pipeline when
 --   they are created. You can only specify a single value for
---   <tt>workerGroup</tt> in the call to <tt>PollForTask</tt>. There are no
---   wildcard values permitted in <tt>workerGroup</tt>; the string must be
---   an exact, case-sensitive, match.
-pollForTask_workerGroup :: Lens' PollForTask Text
+--   <tt>workerGroup</tt>. There are no wildcard values permitted in
+--   <tt>workerGroup</tt>; the string must be an exact, case-sensitive,
+--   match.
+reportTaskRunnerHeartbeat_workerGroup :: Lens' ReportTaskRunnerHeartbeat (Maybe Text)
 
--- | The information needed to complete the task that is being assigned to
---   the task runner. One of the fields returned in this object is
---   <tt>taskId</tt>, which contains an identifier for the task being
---   assigned. The calling task runner uses <tt>taskId</tt> in subsequent
---   calls to ReportTaskProgress and SetTaskStatus.
-pollForTaskResponse_taskObject :: Lens' PollForTaskResponse (Maybe TaskObject)
+-- | The ID of the task runner. This value should be unique across your AWS
+--   account. In the case of AWS Data Pipeline Task Runner launched on a
+--   resource managed by AWS Data Pipeline, the web service provides a
+--   unique identifier when it launches the application. If you have
+--   written a custom task runner, you should assign a unique identifier
+--   for the task runner.
+reportTaskRunnerHeartbeat_taskrunnerId :: Lens' ReportTaskRunnerHeartbeat Text
 
 -- | The response's http status code.
-pollForTaskResponse_httpStatus :: Lens' PollForTaskResponse Int
+reportTaskRunnerHeartbeatResponse_httpStatus :: Lens' ReportTaskRunnerHeartbeatResponse Int
 
--- | The parameter values used with the pipeline.
-validatePipelineDefinition_parameterValues :: Lens' ValidatePipelineDefinition (Maybe [ParameterValue])
+-- | Indicates whether the calling task runner should terminate.
+reportTaskRunnerHeartbeatResponse_terminate :: Lens' ReportTaskRunnerHeartbeatResponse Bool
 
--- | The parameter objects used with the pipeline.
-validatePipelineDefinition_parameterObjects :: Lens' ValidatePipelineDefinition (Maybe [ParameterObject])
+-- | The date and time to resume the pipeline. By default, the pipeline
+--   resumes from the last completed execution.
+activatePipeline_startTimestamp :: Lens' ActivatePipeline (Maybe UTCTime)
+
+-- | A list of parameter values to pass to the pipeline at activation.
+activatePipeline_parameterValues :: Lens' ActivatePipeline (Maybe [ParameterValue])
 
 -- | The ID of the pipeline.
-validatePipelineDefinition_pipelineId :: Lens' ValidatePipelineDefinition Text
-
--- | The objects that define the pipeline changes to validate against the
---   pipeline.
-validatePipelineDefinition_pipelineObjects :: Lens' ValidatePipelineDefinition [PipelineObject]
-
--- | Any validation errors that were found.
-validatePipelineDefinitionResponse_validationErrors :: Lens' ValidatePipelineDefinitionResponse (Maybe [ValidationError])
-
--- | Any validation warnings that were found.
-validatePipelineDefinitionResponse_validationWarnings :: Lens' ValidatePipelineDefinitionResponse (Maybe [ValidationWarning])
+activatePipeline_pipelineId :: Lens' ActivatePipeline Text
 
 -- | The response's http status code.
-validatePipelineDefinitionResponse_httpStatus :: Lens' ValidatePipelineDefinitionResponse Int
+activatePipelineResponse_httpStatus :: Lens' ActivatePipelineResponse Int
 
--- | Indicates whether there were validation errors.
-validatePipelineDefinitionResponse_errored :: Lens' ValidatePipelineDefinitionResponse Bool
+-- | If an error occurred during the task, this value specifies the stack
+--   trace associated with the error. This value is set on the physical
+--   attempt object. It is used to display error information to the user.
+--   The web service does not parse this value.
+setTaskStatus_errorStackTrace :: Lens' SetTaskStatus (Maybe Text)
 
--- | The version of the pipeline definition to retrieve. Set this parameter
---   to <tt>latest</tt> (default) to use the last definition saved to the
---   pipeline or <tt>active</tt> to use the last definition that was
---   activated.
-getPipelineDefinition_version :: Lens' GetPipelineDefinition (Maybe Text)
+-- | If an error occurred during the task, this value specifies the error
+--   code. This value is set on the physical attempt object. It is used to
+--   display error information to the user. It should not start with string
+--   "Service_" which is reserved by the system.
+setTaskStatus_errorId :: Lens' SetTaskStatus (Maybe Text)
 
--- | The ID of the pipeline.
-getPipelineDefinition_pipelineId :: Lens' GetPipelineDefinition Text
+-- | If an error occurred during the task, this value specifies a text
+--   description of the error. This value is set on the physical attempt
+--   object. It is used to display error information to the user. The web
+--   service does not parse this value.
+setTaskStatus_errorMessage :: Lens' SetTaskStatus (Maybe Text)
 
--- | The parameter values used in the pipeline definition.
-getPipelineDefinitionResponse_parameterValues :: Lens' GetPipelineDefinitionResponse (Maybe [ParameterValue])
+-- | The ID of the task assigned to the task runner. This value is provided
+--   in the response for PollForTask.
+setTaskStatus_taskId :: Lens' SetTaskStatus Text
 
--- | The parameter objects used in the pipeline definition.
-getPipelineDefinitionResponse_parameterObjects :: Lens' GetPipelineDefinitionResponse (Maybe [ParameterObject])
-
--- | The objects defined in the pipeline.
-getPipelineDefinitionResponse_pipelineObjects :: Lens' GetPipelineDefinitionResponse (Maybe [PipelineObject])
+-- | If <tt>FINISHED</tt>, the task successfully completed. If
+--   <tt>FAILED</tt>, the task ended unsuccessfully. Preconditions use
+--   false.
+setTaskStatus_taskStatus :: Lens' SetTaskStatus TaskStatus
 
 -- | The response's http status code.
-getPipelineDefinitionResponse_httpStatus :: Lens' GetPipelineDefinitionResponse Int
+setTaskStatusResponse_httpStatus :: Lens' SetTaskStatusResponse Int
 
--- | The parameter values used with the pipeline.
-putPipelineDefinition_parameterValues :: Lens' PutPipelineDefinition (Maybe [ParameterValue])
+-- | The ID of the pipeline that contains the objects.
+setStatus_pipelineId :: Lens' SetStatus Text
+
+-- | The IDs of the objects. The corresponding objects can be either
+--   physical or components, but not a mix of both types.
+setStatus_objectIds :: Lens' SetStatus [Text]
+
+-- | The status to be set on all the objects specified in
+--   <tt>objectIds</tt>. For components, use <tt>PAUSE</tt> or
+--   <tt>RESUME</tt>. For instances, use <tt>TRY_CANCEL</tt>,
+--   <tt>RERUN</tt>, or <tt>MARK_FINISHED</tt>.
+setStatus_status :: Lens' SetStatus Text
+
+-- | Key-value pairs that define the properties of the
+--   ReportTaskProgressInput object.
+reportTaskProgress_fields :: Lens' ReportTaskProgress (Maybe [Field])
+
+-- | The ID of the task assigned to the task runner. This value is provided
+--   in the response for PollForTask.
+reportTaskProgress_taskId :: Lens' ReportTaskProgress Text
+
+-- | The response's http status code.
+reportTaskProgressResponse_httpStatus :: Lens' ReportTaskProgressResponse Int
+
+-- | If true, the calling task runner should cancel processing of the task.
+--   The task runner does not need to call SetTaskStatus for canceled
+--   tasks.
+reportTaskProgressResponse_canceled :: Lens' ReportTaskProgressResponse Bool
+
+-- | The description for the pipeline.
+createPipeline_description :: Lens' CreatePipeline (Maybe Text)
+
+-- | A list of tags to associate with the pipeline at creation. Tags let
+--   you control access to pipelines. For more information, see
+--   <a>Controlling User Access to Pipelines</a> in the <i>AWS Data
+--   Pipeline Developer Guide</i>.
+createPipeline_tags :: Lens' CreatePipeline (Maybe [Tag])
+
+-- | The name for the pipeline. You can use the same name for multiple
+--   pipelines associated with your AWS account, because AWS Data Pipeline
+--   assigns each pipeline a unique pipeline identifier.
+createPipeline_name :: Lens' CreatePipeline Text
+
+-- | A unique identifier. This identifier is not the same as the pipeline
+--   identifier assigned by AWS Data Pipeline. You are responsible for
+--   defining the format and ensuring the uniqueness of this identifier.
+--   You use this parameter to ensure idempotency during repeated calls to
+--   <tt>CreatePipeline</tt>. For example, if the first call to
+--   <tt>CreatePipeline</tt> does not succeed, you can pass in the same
+--   unique identifier and pipeline name combination on a subsequent call
+--   to <tt>CreatePipeline</tt>. <tt>CreatePipeline</tt> ensures that if a
+--   pipeline already exists with the same name and unique identifier, a
+--   new pipeline is not created. Instead, you'll receive the pipeline
+--   identifier from the previous attempt. The uniqueness of the name and
+--   unique identifier combination is scoped to the AWS account or IAM user
+--   credentials.
+createPipeline_uniqueId :: Lens' CreatePipeline Text
+
+-- | The response's http status code.
+createPipelineResponse_httpStatus :: Lens' CreatePipelineResponse Int
+
+-- | The ID that AWS Data Pipeline assigns the newly created pipeline. For
+--   example, <tt>df-06372391ZG65EXAMPLE</tt>.
+createPipelineResponse_pipelineId :: Lens' CreatePipelineResponse Text
 
 -- | The parameter objects used with the pipeline.
 putPipelineDefinition_parameterObjects :: Lens' PutPipelineDefinition (Maybe [ParameterObject])
+
+-- | The parameter values used with the pipeline.
+putPipelineDefinition_parameterValues :: Lens' PutPipelineDefinition (Maybe [ParameterValue])
 
 -- | The ID of the pipeline.
 putPipelineDefinition_pipelineId :: Lens' PutPipelineDefinition Text
@@ -4402,84 +4438,48 @@ putPipelineDefinitionResponse_httpStatus :: Lens' PutPipelineDefinitionResponse 
 --   corrected pipeline.
 putPipelineDefinitionResponse_errored :: Lens' PutPipelineDefinitionResponse Bool
 
--- | The ID of the pipeline that contains the objects.
-setStatus_pipelineId :: Lens' SetStatus Text
+-- | The parameter objects used with the pipeline.
+validatePipelineDefinition_parameterObjects :: Lens' ValidatePipelineDefinition (Maybe [ParameterObject])
 
--- | The IDs of the objects. The corresponding objects can be either
---   physical or components, but not a mix of both types.
-setStatus_objectIds :: Lens' SetStatus [Text]
-
--- | The status to be set on all the objects specified in
---   <tt>objectIds</tt>. For components, use <tt>PAUSE</tt> or
---   <tt>RESUME</tt>. For instances, use <tt>TRY_CANCEL</tt>,
---   <tt>RERUN</tt>, or <tt>MARK_FINISHED</tt>.
-setStatus_status :: Lens' SetStatus Text
-
--- | The starting point for the results to be returned. For the first call,
---   this value should be empty. As long as there are more results,
---   continue to call <tt>ListPipelines</tt> with the marker value from the
---   previous call to retrieve the next set of results.
-listPipelines_marker :: Lens' ListPipelines (Maybe Text)
-
--- | Indicates whether there are more results that can be obtained by a
---   subsequent call.
-listPipelinesResponse_hasMoreResults :: Lens' ListPipelinesResponse (Maybe Bool)
-
--- | The starting point for the next page of results. To view the next page
---   of results, call <tt>ListPipelinesOutput</tt> again with this marker
---   value. If the value is null, there are no more results.
-listPipelinesResponse_marker :: Lens' ListPipelinesResponse (Maybe Text)
-
--- | The response's http status code.
-listPipelinesResponse_httpStatus :: Lens' ListPipelinesResponse Int
-
--- | The pipeline identifiers. If you require additional information about
---   the pipelines, you can use these identifiers to call DescribePipelines
---   and GetPipelineDefinition.
-listPipelinesResponse_pipelineIdList :: Lens' ListPipelinesResponse [PipelineIdName]
-
--- | A list of parameter values to pass to the pipeline at activation.
-activatePipeline_parameterValues :: Lens' ActivatePipeline (Maybe [ParameterValue])
-
--- | The date and time to resume the pipeline. By default, the pipeline
---   resumes from the last completed execution.
-activatePipeline_startTimestamp :: Lens' ActivatePipeline (Maybe UTCTime)
+-- | The parameter values used with the pipeline.
+validatePipelineDefinition_parameterValues :: Lens' ValidatePipelineDefinition (Maybe [ParameterValue])
 
 -- | The ID of the pipeline.
-activatePipeline_pipelineId :: Lens' ActivatePipeline Text
+validatePipelineDefinition_pipelineId :: Lens' ValidatePipelineDefinition Text
+
+-- | The objects that define the pipeline changes to validate against the
+--   pipeline.
+validatePipelineDefinition_pipelineObjects :: Lens' ValidatePipelineDefinition [PipelineObject]
+
+-- | Any validation errors that were found.
+validatePipelineDefinitionResponse_validationErrors :: Lens' ValidatePipelineDefinitionResponse (Maybe [ValidationError])
+
+-- | Any validation warnings that were found.
+validatePipelineDefinitionResponse_validationWarnings :: Lens' ValidatePipelineDefinitionResponse (Maybe [ValidationWarning])
 
 -- | The response's http status code.
-activatePipelineResponse_httpStatus :: Lens' ActivatePipelineResponse Int
+validatePipelineDefinitionResponse_httpStatus :: Lens' ValidatePipelineDefinitionResponse Int
 
--- | Indicates whether to cancel any running objects. The default is true,
---   which sets the state of any running objects to <tt>CANCELED</tt>. If
---   this value is false, the pipeline is deactivated after all running
---   objects finish.
-deactivatePipeline_cancelActive :: Lens' DeactivatePipeline (Maybe Bool)
-
--- | The ID of the pipeline.
-deactivatePipeline_pipelineId :: Lens' DeactivatePipeline Text
-
--- | The response's http status code.
-deactivatePipelineResponse_httpStatus :: Lens' DeactivatePipelineResponse Int
-
--- | The field value, expressed as a String.
-field_stringValue :: Lens' Field (Maybe Text)
+-- | Indicates whether there were validation errors.
+validatePipelineDefinitionResponse_errored :: Lens' ValidatePipelineDefinitionResponse Bool
 
 -- | The field value, expressed as the identifier of another object.
 field_refValue :: Lens' Field (Maybe Text)
 
+-- | The field value, expressed as a String.
+field_stringValue :: Lens' Field (Maybe Text)
+
 -- | The field identifier.
 field_key :: Lens' Field Text
+
+-- | A signature which can be used to verify the accuracy and authenticity
+--   of the information provided in the instance identity document.
+instanceIdentity_signature :: Lens' InstanceIdentity (Maybe Text)
 
 -- | A description of an EC2 instance that is generated when the instance
 --   is launched and exposed to the instance via the instance metadata
 --   service in the form of a JSON representation of an object.
 instanceIdentity_document :: Lens' InstanceIdentity (Maybe Text)
-
--- | A signature which can be used to verify the accuracy and authenticity
---   of the information provided in the instance identity document.
-instanceIdentity_signature :: Lens' InstanceIdentity (Maybe Text)
 
 -- | The value that the actual field value will be compared with.
 operator_values :: Lens' Operator (Maybe [Text])
@@ -4542,14 +4542,14 @@ parameterValue_id :: Lens' ParameterValue Text
 -- | The field value, expressed as a String.
 parameterValue_stringValue :: Lens' ParameterValue Text
 
+-- | Description of the pipeline.
+pipelineDescription_description :: Lens' PipelineDescription (Maybe Text)
+
 -- | A list of tags to associated with a pipeline. Tags let you control
 --   access to pipelines. For more information, see <a>Controlling User
 --   Access to Pipelines</a> in the <i>AWS Data Pipeline Developer
 --   Guide</i>.
 pipelineDescription_tags :: Lens' PipelineDescription (Maybe [Tag])
-
--- | Description of the pipeline.
-pipelineDescription_description :: Lens' PipelineDescription (Maybe Text)
 
 -- | The pipeline identifier that was assigned by AWS Data Pipeline. This
 --   is a string of the form <tt>df-297EG78HU43EEXAMPLE</tt>.
@@ -4562,12 +4562,12 @@ pipelineDescription_name :: Lens' PipelineDescription Text
 --   @userId, @accountId, and @pipelineState.
 pipelineDescription_fields :: Lens' PipelineDescription [Field]
 
+-- | The name of the pipeline.
+pipelineIdName_name :: Lens' PipelineIdName (Maybe Text)
+
 -- | The ID of the pipeline that was assigned by AWS Data Pipeline. This is
 --   a string of the form <tt>df-297EG78HU43EEXAMPLE</tt>.
 pipelineIdName_id :: Lens' PipelineIdName (Maybe Text)
-
--- | The name of the pipeline.
-pipelineIdName_name :: Lens' PipelineIdName (Maybe Text)
 
 -- | The ID of the object.
 pipelineObject_id :: Lens' PipelineObject Text
@@ -4604,17 +4604,17 @@ tag_value :: Lens' Tag Text
 -- | The ID of the pipeline that provided the task.
 taskObject_pipelineId :: Lens' TaskObject (Maybe Text)
 
--- | Connection information for the location where the task runner will
---   publish the output of the task.
-taskObject_objects :: Lens' TaskObject (Maybe (HashMap Text PipelineObject))
+-- | The ID of the pipeline task attempt object. AWS Data Pipeline uses
+--   this value to track how many times a task is attempted.
+taskObject_attemptId :: Lens' TaskObject (Maybe Text)
 
 -- | An internal identifier for the task. This ID is passed to the
 --   SetTaskStatus and ReportTaskProgress actions.
 taskObject_taskId :: Lens' TaskObject (Maybe Text)
 
--- | The ID of the pipeline task attempt object. AWS Data Pipeline uses
---   this value to track how many times a task is attempted.
-taskObject_attemptId :: Lens' TaskObject (Maybe Text)
+-- | Connection information for the location where the task runner will
+--   publish the output of the task.
+taskObject_objects :: Lens' TaskObject (Maybe (HashMap Text PipelineObject))
 
 -- | The identifier of the object that contains the validation error.
 validationError_id :: Lens' ValidationError (Maybe Text)
@@ -4665,24 +4665,141 @@ module Network.AWS.DataPipeline
 --   configuration.
 defaultService :: Service
 
--- | The specified task was not found.
-_TaskNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
-
 -- | The request was not valid. Verify that your request was properly
 --   formatted, that the signature was generated with the correct
 --   credentials, and that you haven't exceeded any of the service limits
 --   for your account.
 _InvalidRequestException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | The specified pipeline was not found. Verify that you used the correct
---   user and account identifiers.
-_PipelineNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | An internal service error occurred.
+_InternalServiceError :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | The specified pipeline has been deleted.
 _PipelineDeletedException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | An internal service error occurred.
-_InternalServiceError :: AsError a => Getting (First ServiceError) a ServiceError
+-- | The specified pipeline was not found. Verify that you used the correct
+--   user and account identifiers.
+_PipelineNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | The specified task was not found.
+_TaskNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | Contains the parameters for DescribePipelines.
+--   
+--   <i>See:</i> <a>newDescribePipelines</a> smart constructor.
+data DescribePipelines
+DescribePipelines' :: [Text] -> DescribePipelines
+
+-- | Create a value of <a>DescribePipelines</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:pipelineIds:DescribePipelines'</a>,
+--   <a>describePipelines_pipelineIds</a> - The IDs of the pipelines to
+--   describe. You can pass as many as 25 identifiers in a single call. To
+--   obtain pipeline IDs, call ListPipelines.
+newDescribePipelines :: DescribePipelines
+
+-- | Contains the output of DescribePipelines.
+--   
+--   <i>See:</i> <a>newDescribePipelinesResponse</a> smart constructor.
+data DescribePipelinesResponse
+DescribePipelinesResponse' :: Int -> [PipelineDescription] -> DescribePipelinesResponse
+
+-- | Create a value of <a>DescribePipelinesResponse</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:httpStatus:DescribePipelinesResponse'</a>,
+--   <a>describePipelinesResponse_httpStatus</a> - The response's http
+--   status code.
+--   
+--   <a>$sel:pipelineDescriptionList:DescribePipelinesResponse'</a>,
+--   <a>describePipelinesResponse_pipelineDescriptionList</a> - An array of
+--   descriptions for the specified pipelines.
+newDescribePipelinesResponse :: Int -> DescribePipelinesResponse
+
+-- | Contains the parameters for QueryObjects.
+--   
+--   <i>See:</i> <a>newQueryObjects</a> smart constructor.
+data QueryObjects
+QueryObjects' :: Maybe Query -> Maybe Text -> Maybe Int -> Text -> Text -> QueryObjects
+
+-- | Create a value of <a>QueryObjects</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:query:QueryObjects'</a>, <a>queryObjects_query</a> - The query
+--   that defines the objects to be returned. The <tt>Query</tt> object can
+--   contain a maximum of ten selectors. The conditions in the query are
+--   limited to top-level String fields in the object. These filters can be
+--   applied to components, instances, and attempts.
+--   
+--   <a>$sel:marker:QueryObjects'</a>, <a>queryObjects_marker</a> - The
+--   starting point for the results to be returned. For the first call,
+--   this value should be empty. As long as there are more results,
+--   continue to call <tt>QueryObjects</tt> with the marker value from the
+--   previous call to retrieve the next set of results.
+--   
+--   <a>$sel:limit:QueryObjects'</a>, <a>queryObjects_limit</a> - The
+--   maximum number of object names that <tt>QueryObjects</tt> will return
+--   in a single call. The default value is 100.
+--   
+--   <a>$sel:pipelineId:QueryObjects'</a>, <a>queryObjects_pipelineId</a> -
+--   The ID of the pipeline.
+--   
+--   <a>$sel:sphere:QueryObjects'</a>, <a>queryObjects_sphere</a> -
+--   Indicates whether the query applies to components or instances. The
+--   possible values are: <tt>COMPONENT</tt>, <tt>INSTANCE</tt>, and
+--   <tt>ATTEMPT</tt>.
+newQueryObjects :: Text -> Text -> QueryObjects
+
+-- | Contains the output of QueryObjects.
+--   
+--   <i>See:</i> <a>newQueryObjectsResponse</a> smart constructor.
+data QueryObjectsResponse
+QueryObjectsResponse' :: Maybe Bool -> Maybe [Text] -> Maybe Text -> Int -> QueryObjectsResponse
+
+-- | Create a value of <a>QueryObjectsResponse</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:hasMoreResults:QueryObjectsResponse'</a>,
+--   <a>queryObjectsResponse_hasMoreResults</a> - Indicates whether there
+--   are more results that can be obtained by a subsequent call.
+--   
+--   <a>$sel:ids:QueryObjectsResponse'</a>, <a>queryObjectsResponse_ids</a>
+--   - The identifiers that match the query selectors.
+--   
+--   <a>$sel:marker:QueryObjects'</a>, <a>queryObjectsResponse_marker</a> -
+--   The starting point for the next page of results. To view the next page
+--   of results, call <tt>QueryObjects</tt> again with this marker value.
+--   If the value is null, there are no more results.
+--   
+--   <a>$sel:httpStatus:QueryObjectsResponse'</a>,
+--   <a>queryObjectsResponse_httpStatus</a> - The response's http status
+--   code.
+newQueryObjectsResponse :: Int -> QueryObjectsResponse
 
 -- | Contains the parameters for RemoveTags.
 --   
@@ -4725,13 +4842,13 @@ RemoveTagsResponse' :: Int -> RemoveTagsResponse
 --   code.
 newRemoveTagsResponse :: Int -> RemoveTagsResponse
 
--- | Contains the parameters for QueryObjects.
+-- | Contains the parameters for DeletePipeline.
 --   
---   <i>See:</i> <a>newQueryObjects</a> smart constructor.
-data QueryObjects
-QueryObjects' :: Maybe Query -> Maybe Int -> Maybe Text -> Text -> Text -> QueryObjects
+--   <i>See:</i> <a>newDeletePipeline</a> smart constructor.
+data DeletePipeline
+DeletePipeline' :: Text -> DeletePipeline
 
--- | Create a value of <a>QueryObjects</a> with all optional fields
+-- | Create a value of <a>DeletePipeline</a> with all optional fields
 --   omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
@@ -4740,39 +4857,51 @@ QueryObjects' :: Maybe Query -> Maybe Int -> Maybe Text -> Text -> Text -> Query
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:query:QueryObjects'</a>, <a>queryObjects_query</a> - The query
---   that defines the objects to be returned. The <tt>Query</tt> object can
---   contain a maximum of ten selectors. The conditions in the query are
---   limited to top-level String fields in the object. These filters can be
---   applied to components, instances, and attempts.
+--   <a>$sel:pipelineId:DeletePipeline'</a>,
+--   <a>deletePipeline_pipelineId</a> - The ID of the pipeline.
+newDeletePipeline :: Text -> DeletePipeline
+
+-- | <i>See:</i> <a>newDeletePipelineResponse</a> smart constructor.
+data DeletePipelineResponse
+DeletePipelineResponse' :: DeletePipelineResponse
+
+-- | Create a value of <a>DeletePipelineResponse</a> with all optional
+--   fields omitted.
 --   
---   <a>$sel:limit:QueryObjects'</a>, <a>queryObjects_limit</a> - The
---   maximum number of object names that <tt>QueryObjects</tt> will return
---   in a single call. The default value is 100.
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+newDeletePipelineResponse :: DeletePipelineResponse
+
+-- | Contains the parameters for ListPipelines.
 --   
---   <a>$sel:marker:QueryObjects'</a>, <a>queryObjects_marker</a> - The
+--   <i>See:</i> <a>newListPipelines</a> smart constructor.
+data ListPipelines
+ListPipelines' :: Maybe Text -> ListPipelines
+
+-- | Create a value of <a>ListPipelines</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:marker:ListPipelines'</a>, <a>listPipelines_marker</a> - The
 --   starting point for the results to be returned. For the first call,
 --   this value should be empty. As long as there are more results,
---   continue to call <tt>QueryObjects</tt> with the marker value from the
+--   continue to call <tt>ListPipelines</tt> with the marker value from the
 --   previous call to retrieve the next set of results.
---   
---   <a>$sel:pipelineId:QueryObjects'</a>, <a>queryObjects_pipelineId</a> -
---   The ID of the pipeline.
---   
---   <a>$sel:sphere:QueryObjects'</a>, <a>queryObjects_sphere</a> -
---   Indicates whether the query applies to components or instances. The
---   possible values are: <tt>COMPONENT</tt>, <tt>INSTANCE</tt>, and
---   <tt>ATTEMPT</tt>.
-newQueryObjects :: Text -> Text -> QueryObjects
+newListPipelines :: ListPipelines
 
--- | Contains the output of QueryObjects.
+-- | Contains the output of ListPipelines.
 --   
---   <i>See:</i> <a>newQueryObjectsResponse</a> smart constructor.
-data QueryObjectsResponse
-QueryObjectsResponse' :: Maybe [Text] -> Maybe Bool -> Maybe Text -> Int -> QueryObjectsResponse
+--   <i>See:</i> <a>newListPipelinesResponse</a> smart constructor.
+data ListPipelinesResponse
+ListPipelinesResponse' :: Maybe Bool -> Maybe Text -> Int -> [PipelineIdName] -> ListPipelinesResponse
 
--- | Create a value of <a>QueryObjectsResponse</a> with all optional fields
---   omitted.
+-- | Create a value of <a>ListPipelinesResponse</a> with all optional
+--   fields omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
@@ -4780,22 +4909,25 @@ QueryObjectsResponse' :: Maybe [Text] -> Maybe Bool -> Maybe Text -> Int -> Quer
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:ids:QueryObjectsResponse'</a>, <a>queryObjectsResponse_ids</a>
---   - The identifiers that match the query selectors.
---   
---   <a>$sel:hasMoreResults:QueryObjectsResponse'</a>,
---   <a>queryObjectsResponse_hasMoreResults</a> - Indicates whether there
+--   <a>$sel:hasMoreResults:ListPipelinesResponse'</a>,
+--   <a>listPipelinesResponse_hasMoreResults</a> - Indicates whether there
 --   are more results that can be obtained by a subsequent call.
 --   
---   <a>$sel:marker:QueryObjects'</a>, <a>queryObjectsResponse_marker</a> -
---   The starting point for the next page of results. To view the next page
---   of results, call <tt>QueryObjects</tt> again with this marker value.
---   If the value is null, there are no more results.
+--   <a>$sel:marker:ListPipelines'</a>, <a>listPipelinesResponse_marker</a>
+--   - The starting point for the next page of results. To view the next
+--   page of results, call <tt>ListPipelinesOutput</tt> again with this
+--   marker value. If the value is null, there are no more results.
 --   
---   <a>$sel:httpStatus:QueryObjectsResponse'</a>,
---   <a>queryObjectsResponse_httpStatus</a> - The response's http status
+--   <a>$sel:httpStatus:ListPipelinesResponse'</a>,
+--   <a>listPipelinesResponse_httpStatus</a> - The response's http status
 --   code.
-newQueryObjectsResponse :: Int -> QueryObjectsResponse
+--   
+--   <a>$sel:pipelineIdList:ListPipelinesResponse'</a>,
+--   <a>listPipelinesResponse_pipelineIdList</a> - The pipeline
+--   identifiers. If you require additional information about the
+--   pipelines, you can use these identifiers to call DescribePipelines and
+--   GetPipelineDefinition.
+newListPipelinesResponse :: Int -> ListPipelinesResponse
 
 -- | Contains the parameters for EvaluateExpression.
 --   
@@ -4846,37 +4978,13 @@ EvaluateExpressionResponse' :: Int -> Text -> EvaluateExpressionResponse
 --   expression.
 newEvaluateExpressionResponse :: Int -> Text -> EvaluateExpressionResponse
 
--- | Contains the parameters for ReportTaskProgress.
+-- | Contains the parameters for GetPipelineDefinition.
 --   
---   <i>See:</i> <a>newReportTaskProgress</a> smart constructor.
-data ReportTaskProgress
-ReportTaskProgress' :: Maybe [Field] -> Text -> ReportTaskProgress
+--   <i>See:</i> <a>newGetPipelineDefinition</a> smart constructor.
+data GetPipelineDefinition
+GetPipelineDefinition' :: Maybe Text -> Text -> GetPipelineDefinition
 
--- | Create a value of <a>ReportTaskProgress</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:fields:ReportTaskProgress'</a>,
---   <a>reportTaskProgress_fields</a> - Key-value pairs that define the
---   properties of the ReportTaskProgressInput object.
---   
---   <a>$sel:taskId:ReportTaskProgress'</a>,
---   <a>reportTaskProgress_taskId</a> - The ID of the task assigned to the
---   task runner. This value is provided in the response for PollForTask.
-newReportTaskProgress :: Text -> ReportTaskProgress
-
--- | Contains the output of ReportTaskProgress.
---   
---   <i>See:</i> <a>newReportTaskProgressResponse</a> smart constructor.
-data ReportTaskProgressResponse
-ReportTaskProgressResponse' :: Int -> Bool -> ReportTaskProgressResponse
-
--- | Create a value of <a>ReportTaskProgressResponse</a> with all optional
+-- | Create a value of <a>GetPipelineDefinition</a> with all optional
 --   fields omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
@@ -4885,224 +4993,23 @@ ReportTaskProgressResponse' :: Int -> Bool -> ReportTaskProgressResponse
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:httpStatus:ReportTaskProgressResponse'</a>,
---   <a>reportTaskProgressResponse_httpStatus</a> - The response's http
---   status code.
+--   <a>$sel:version:GetPipelineDefinition'</a>,
+--   <a>getPipelineDefinition_version</a> - The version of the pipeline
+--   definition to retrieve. Set this parameter to <tt>latest</tt>
+--   (default) to use the last definition saved to the pipeline or
+--   <tt>active</tt> to use the last definition that was activated.
 --   
---   <a>$sel:canceled:ReportTaskProgressResponse'</a>,
---   <a>reportTaskProgressResponse_canceled</a> - If true, the calling task
---   runner should cancel processing of the task. The task runner does not
---   need to call SetTaskStatus for canceled tasks.
-newReportTaskProgressResponse :: Int -> Bool -> ReportTaskProgressResponse
+--   <a>$sel:pipelineId:GetPipelineDefinition'</a>,
+--   <a>getPipelineDefinition_pipelineId</a> - The ID of the pipeline.
+newGetPipelineDefinition :: Text -> GetPipelineDefinition
 
--- | Contains the parameters for CreatePipeline.
+-- | Contains the output of GetPipelineDefinition.
 --   
---   <i>See:</i> <a>newCreatePipeline</a> smart constructor.
-data CreatePipeline
-CreatePipeline' :: Maybe [Tag] -> Maybe Text -> Text -> Text -> CreatePipeline
+--   <i>See:</i> <a>newGetPipelineDefinitionResponse</a> smart constructor.
+data GetPipelineDefinitionResponse
+GetPipelineDefinitionResponse' :: Maybe [PipelineObject] -> Maybe [ParameterObject] -> Maybe [ParameterValue] -> Int -> GetPipelineDefinitionResponse
 
--- | Create a value of <a>CreatePipeline</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:tags:CreatePipeline'</a>, <a>createPipeline_tags</a> - A list
---   of tags to associate with the pipeline at creation. Tags let you
---   control access to pipelines. For more information, see <a>Controlling
---   User Access to Pipelines</a> in the <i>AWS Data Pipeline Developer
---   Guide</i>.
---   
---   <a>$sel:description:CreatePipeline'</a>,
---   <a>createPipeline_description</a> - The description for the pipeline.
---   
---   <a>$sel:name:CreatePipeline'</a>, <a>createPipeline_name</a> - The
---   name for the pipeline. You can use the same name for multiple
---   pipelines associated with your AWS account, because AWS Data Pipeline
---   assigns each pipeline a unique pipeline identifier.
---   
---   <a>$sel:uniqueId:CreatePipeline'</a>, <a>createPipeline_uniqueId</a> -
---   A unique identifier. This identifier is not the same as the pipeline
---   identifier assigned by AWS Data Pipeline. You are responsible for
---   defining the format and ensuring the uniqueness of this identifier.
---   You use this parameter to ensure idempotency during repeated calls to
---   <tt>CreatePipeline</tt>. For example, if the first call to
---   <tt>CreatePipeline</tt> does not succeed, you can pass in the same
---   unique identifier and pipeline name combination on a subsequent call
---   to <tt>CreatePipeline</tt>. <tt>CreatePipeline</tt> ensures that if a
---   pipeline already exists with the same name and unique identifier, a
---   new pipeline is not created. Instead, you'll receive the pipeline
---   identifier from the previous attempt. The uniqueness of the name and
---   unique identifier combination is scoped to the AWS account or IAM user
---   credentials.
-newCreatePipeline :: Text -> Text -> CreatePipeline
-
--- | Contains the output of CreatePipeline.
---   
---   <i>See:</i> <a>newCreatePipelineResponse</a> smart constructor.
-data CreatePipelineResponse
-CreatePipelineResponse' :: Int -> Text -> CreatePipelineResponse
-
--- | Create a value of <a>CreatePipelineResponse</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:httpStatus:CreatePipelineResponse'</a>,
---   <a>createPipelineResponse_httpStatus</a> - The response's http status
---   code.
---   
---   <a>$sel:pipelineId:CreatePipelineResponse'</a>,
---   <a>createPipelineResponse_pipelineId</a> - The ID that AWS Data
---   Pipeline assigns the newly created pipeline. For example,
---   <tt>df-06372391ZG65EXAMPLE</tt>.
-newCreatePipelineResponse :: Int -> Text -> CreatePipelineResponse
-
--- | Contains the parameters for DeletePipeline.
---   
---   <i>See:</i> <a>newDeletePipeline</a> smart constructor.
-data DeletePipeline
-DeletePipeline' :: Text -> DeletePipeline
-
--- | Create a value of <a>DeletePipeline</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:pipelineId:DeletePipeline'</a>,
---   <a>deletePipeline_pipelineId</a> - The ID of the pipeline.
-newDeletePipeline :: Text -> DeletePipeline
-
--- | <i>See:</i> <a>newDeletePipelineResponse</a> smart constructor.
-data DeletePipelineResponse
-DeletePipelineResponse' :: DeletePipelineResponse
-
--- | Create a value of <a>DeletePipelineResponse</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
-newDeletePipelineResponse :: DeletePipelineResponse
-
--- | Contains the parameters for SetTaskStatus.
---   
---   <i>See:</i> <a>newSetTaskStatus</a> smart constructor.
-data SetTaskStatus
-SetTaskStatus' :: Maybe Text -> Maybe Text -> Maybe Text -> Text -> TaskStatus -> SetTaskStatus
-
--- | Create a value of <a>SetTaskStatus</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:errorStackTrace:SetTaskStatus'</a>,
---   <a>setTaskStatus_errorStackTrace</a> - If an error occurred during the
---   task, this value specifies the stack trace associated with the error.
---   This value is set on the physical attempt object. It is used to
---   display error information to the user. The web service does not parse
---   this value.
---   
---   <a>$sel:errorMessage:SetTaskStatus'</a>,
---   <a>setTaskStatus_errorMessage</a> - If an error occurred during the
---   task, this value specifies a text description of the error. This value
---   is set on the physical attempt object. It is used to display error
---   information to the user. The web service does not parse this value.
---   
---   <a>$sel:errorId:SetTaskStatus'</a>, <a>setTaskStatus_errorId</a> - If
---   an error occurred during the task, this value specifies the error
---   code. This value is set on the physical attempt object. It is used to
---   display error information to the user. It should not start with string
---   "Service_" which is reserved by the system.
---   
---   <a>$sel:taskId:SetTaskStatus'</a>, <a>setTaskStatus_taskId</a> - The
---   ID of the task assigned to the task runner. This value is provided in
---   the response for PollForTask.
---   
---   <a>$sel:taskStatus:SetTaskStatus'</a>, <a>setTaskStatus_taskStatus</a>
---   - If <tt>FINISHED</tt>, the task successfully completed. If
---   <tt>FAILED</tt>, the task ended unsuccessfully. Preconditions use
---   false.
-newSetTaskStatus :: Text -> TaskStatus -> SetTaskStatus
-
--- | Contains the output of SetTaskStatus.
---   
---   <i>See:</i> <a>newSetTaskStatusResponse</a> smart constructor.
-data SetTaskStatusResponse
-SetTaskStatusResponse' :: Int -> SetTaskStatusResponse
-
--- | Create a value of <a>SetTaskStatusResponse</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:httpStatus:SetTaskStatusResponse'</a>,
---   <a>setTaskStatusResponse_httpStatus</a> - The response's http status
---   code.
-newSetTaskStatusResponse :: Int -> SetTaskStatusResponse
-
--- | Contains the parameters for ReportTaskRunnerHeartbeat.
---   
---   <i>See:</i> <a>newReportTaskRunnerHeartbeat</a> smart constructor.
-data ReportTaskRunnerHeartbeat
-ReportTaskRunnerHeartbeat' :: Maybe Text -> Maybe Text -> Text -> ReportTaskRunnerHeartbeat
-
--- | Create a value of <a>ReportTaskRunnerHeartbeat</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:hostname:ReportTaskRunnerHeartbeat'</a>,
---   <a>reportTaskRunnerHeartbeat_hostname</a> - The public DNS name of the
---   task runner.
---   
---   <a>$sel:workerGroup:ReportTaskRunnerHeartbeat'</a>,
---   <a>reportTaskRunnerHeartbeat_workerGroup</a> - The type of task the
---   task runner is configured to accept and process. The worker group is
---   set as a field on objects in the pipeline when they are created. You
---   can only specify a single value for <tt>workerGroup</tt>. There are no
---   wildcard values permitted in <tt>workerGroup</tt>; the string must be
---   an exact, case-sensitive, match.
---   
---   <a>$sel:taskrunnerId:ReportTaskRunnerHeartbeat'</a>,
---   <a>reportTaskRunnerHeartbeat_taskrunnerId</a> - The ID of the task
---   runner. This value should be unique across your AWS account. In the
---   case of AWS Data Pipeline Task Runner launched on a resource managed
---   by AWS Data Pipeline, the web service provides a unique identifier
---   when it launches the application. If you have written a custom task
---   runner, you should assign a unique identifier for the task runner.
-newReportTaskRunnerHeartbeat :: Text -> ReportTaskRunnerHeartbeat
-
--- | Contains the output of ReportTaskRunnerHeartbeat.
---   
---   <i>See:</i> <a>newReportTaskRunnerHeartbeatResponse</a> smart
---   constructor.
-data ReportTaskRunnerHeartbeatResponse
-ReportTaskRunnerHeartbeatResponse' :: Int -> Bool -> ReportTaskRunnerHeartbeatResponse
-
--- | Create a value of <a>ReportTaskRunnerHeartbeatResponse</a> with all
+-- | Create a value of <a>GetPipelineDefinitionResponse</a> with all
 --   optional fields omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
@@ -5111,14 +5018,171 @@ ReportTaskRunnerHeartbeatResponse' :: Int -> Bool -> ReportTaskRunnerHeartbeatRe
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:httpStatus:ReportTaskRunnerHeartbeatResponse'</a>,
---   <a>reportTaskRunnerHeartbeatResponse_httpStatus</a> - The response's
---   http status code.
+--   <a>$sel:pipelineObjects:GetPipelineDefinitionResponse'</a>,
+--   <a>getPipelineDefinitionResponse_pipelineObjects</a> - The objects
+--   defined in the pipeline.
 --   
---   <a>$sel:terminate:ReportTaskRunnerHeartbeatResponse'</a>,
---   <a>reportTaskRunnerHeartbeatResponse_terminate</a> - Indicates whether
---   the calling task runner should terminate.
-newReportTaskRunnerHeartbeatResponse :: Int -> Bool -> ReportTaskRunnerHeartbeatResponse
+--   <a>$sel:parameterObjects:GetPipelineDefinitionResponse'</a>,
+--   <a>getPipelineDefinitionResponse_parameterObjects</a> - The parameter
+--   objects used in the pipeline definition.
+--   
+--   <a>$sel:parameterValues:GetPipelineDefinitionResponse'</a>,
+--   <a>getPipelineDefinitionResponse_parameterValues</a> - The parameter
+--   values used in the pipeline definition.
+--   
+--   <a>$sel:httpStatus:GetPipelineDefinitionResponse'</a>,
+--   <a>getPipelineDefinitionResponse_httpStatus</a> - The response's http
+--   status code.
+newGetPipelineDefinitionResponse :: Int -> GetPipelineDefinitionResponse
+
+-- | Contains the parameters for PollForTask.
+--   
+--   <i>See:</i> <a>newPollForTask</a> smart constructor.
+data PollForTask
+PollForTask' :: Maybe Text -> Maybe InstanceIdentity -> Text -> PollForTask
+
+-- | Create a value of <a>PollForTask</a> with all optional fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:hostname:PollForTask'</a>, <a>pollForTask_hostname</a> - The
+--   public DNS name of the calling task runner.
+--   
+--   <a>$sel:instanceIdentity:PollForTask'</a>,
+--   <a>pollForTask_instanceIdentity</a> - Identity information for the EC2
+--   instance that is hosting the task runner. You can get this value from
+--   the instance using
+--   <tt>http://169.254.169.254/latest/meta-data/instance-id</tt>. For more
+--   information, see <a>Instance Metadata</a> in the <i>Amazon Elastic
+--   Compute Cloud User Guide.</i> Passing in this value proves that your
+--   task runner is running on an EC2 instance, and ensures the proper AWS
+--   Data Pipeline service charges are applied to your pipeline.
+--   
+--   <a>$sel:workerGroup:PollForTask'</a>, <a>pollForTask_workerGroup</a> -
+--   The type of task the task runner is configured to accept and process.
+--   The worker group is set as a field on objects in the pipeline when
+--   they are created. You can only specify a single value for
+--   <tt>workerGroup</tt> in the call to <tt>PollForTask</tt>. There are no
+--   wildcard values permitted in <tt>workerGroup</tt>; the string must be
+--   an exact, case-sensitive, match.
+newPollForTask :: Text -> PollForTask
+
+-- | Contains the output of PollForTask.
+--   
+--   <i>See:</i> <a>newPollForTaskResponse</a> smart constructor.
+data PollForTaskResponse
+PollForTaskResponse' :: Maybe TaskObject -> Int -> PollForTaskResponse
+
+-- | Create a value of <a>PollForTaskResponse</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:taskObject:PollForTaskResponse'</a>,
+--   <a>pollForTaskResponse_taskObject</a> - The information needed to
+--   complete the task that is being assigned to the task runner. One of
+--   the fields returned in this object is <tt>taskId</tt>, which contains
+--   an identifier for the task being assigned. The calling task runner
+--   uses <tt>taskId</tt> in subsequent calls to ReportTaskProgress and
+--   SetTaskStatus.
+--   
+--   <a>$sel:httpStatus:PollForTaskResponse'</a>,
+--   <a>pollForTaskResponse_httpStatus</a> - The response's http status
+--   code.
+newPollForTaskResponse :: Int -> PollForTaskResponse
+
+-- | Contains the parameters for DeactivatePipeline.
+--   
+--   <i>See:</i> <a>newDeactivatePipeline</a> smart constructor.
+data DeactivatePipeline
+DeactivatePipeline' :: Maybe Bool -> Text -> DeactivatePipeline
+
+-- | Create a value of <a>DeactivatePipeline</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:cancelActive:DeactivatePipeline'</a>,
+--   <a>deactivatePipeline_cancelActive</a> - Indicates whether to cancel
+--   any running objects. The default is true, which sets the state of any
+--   running objects to <tt>CANCELED</tt>. If this value is false, the
+--   pipeline is deactivated after all running objects finish.
+--   
+--   <a>$sel:pipelineId:DeactivatePipeline'</a>,
+--   <a>deactivatePipeline_pipelineId</a> - The ID of the pipeline.
+newDeactivatePipeline :: Text -> DeactivatePipeline
+
+-- | Contains the output of DeactivatePipeline.
+--   
+--   <i>See:</i> <a>newDeactivatePipelineResponse</a> smart constructor.
+data DeactivatePipelineResponse
+DeactivatePipelineResponse' :: Int -> DeactivatePipelineResponse
+
+-- | Create a value of <a>DeactivatePipelineResponse</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:httpStatus:DeactivatePipelineResponse'</a>,
+--   <a>deactivatePipelineResponse_httpStatus</a> - The response's http
+--   status code.
+newDeactivatePipelineResponse :: Int -> DeactivatePipelineResponse
+
+-- | Contains the parameters for AddTags.
+--   
+--   <i>See:</i> <a>newAddTags</a> smart constructor.
+data AddTags
+AddTags' :: Text -> [Tag] -> AddTags
+
+-- | Create a value of <a>AddTags</a> with all optional fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:pipelineId:AddTags'</a>, <a>addTags_pipelineId</a> - The ID of
+--   the pipeline.
+--   
+--   <a>$sel:tags:AddTags'</a>, <a>addTags_tags</a> - The tags to add, as
+--   key/value pairs.
+newAddTags :: Text -> AddTags
+
+-- | Contains the output of AddTags.
+--   
+--   <i>See:</i> <a>newAddTagsResponse</a> smart constructor.
+data AddTagsResponse
+AddTagsResponse' :: Int -> AddTagsResponse
+
+-- | Create a value of <a>AddTagsResponse</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:httpStatus:AddTagsResponse'</a>,
+--   <a>addTagsResponse_httpStatus</a> - The response's http status code.
+newAddTagsResponse :: Int -> AddTagsResponse
 
 -- | Contains the parameters for DescribeObjects.
 --   
@@ -5190,74 +5254,13 @@ DescribeObjectsResponse' :: Maybe Bool -> Maybe Text -> Int -> [PipelineObject] 
 --   definitions.
 newDescribeObjectsResponse :: Int -> DescribeObjectsResponse
 
--- | Contains the parameters for AddTags.
+-- | Contains the parameters for ReportTaskRunnerHeartbeat.
 --   
---   <i>See:</i> <a>newAddTags</a> smart constructor.
-data AddTags
-AddTags' :: Text -> [Tag] -> AddTags
+--   <i>See:</i> <a>newReportTaskRunnerHeartbeat</a> smart constructor.
+data ReportTaskRunnerHeartbeat
+ReportTaskRunnerHeartbeat' :: Maybe Text -> Maybe Text -> Text -> ReportTaskRunnerHeartbeat
 
--- | Create a value of <a>AddTags</a> with all optional fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:pipelineId:AddTags'</a>, <a>addTags_pipelineId</a> - The ID of
---   the pipeline.
---   
---   <a>$sel:tags:AddTags'</a>, <a>addTags_tags</a> - The tags to add, as
---   key/value pairs.
-newAddTags :: Text -> AddTags
-
--- | Contains the output of AddTags.
---   
---   <i>See:</i> <a>newAddTagsResponse</a> smart constructor.
-data AddTagsResponse
-AddTagsResponse' :: Int -> AddTagsResponse
-
--- | Create a value of <a>AddTagsResponse</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:httpStatus:AddTagsResponse'</a>,
---   <a>addTagsResponse_httpStatus</a> - The response's http status code.
-newAddTagsResponse :: Int -> AddTagsResponse
-
--- | Contains the parameters for DescribePipelines.
---   
---   <i>See:</i> <a>newDescribePipelines</a> smart constructor.
-data DescribePipelines
-DescribePipelines' :: [Text] -> DescribePipelines
-
--- | Create a value of <a>DescribePipelines</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:pipelineIds:DescribePipelines'</a>,
---   <a>describePipelines_pipelineIds</a> - The IDs of the pipelines to
---   describe. You can pass as many as 25 identifiers in a single call. To
---   obtain pipeline IDs, call ListPipelines.
-newDescribePipelines :: DescribePipelines
-
--- | Contains the output of DescribePipelines.
---   
---   <i>See:</i> <a>newDescribePipelinesResponse</a> smart constructor.
-data DescribePipelinesResponse
-DescribePipelinesResponse' :: Int -> [PipelineDescription] -> DescribePipelinesResponse
-
--- | Create a value of <a>DescribePipelinesResponse</a> with all optional
+-- | Create a value of <a>ReportTaskRunnerHeartbeat</a> with all optional
 --   fields omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
@@ -5266,58 +5269,59 @@ DescribePipelinesResponse' :: Int -> [PipelineDescription] -> DescribePipelinesR
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:httpStatus:DescribePipelinesResponse'</a>,
---   <a>describePipelinesResponse_httpStatus</a> - The response's http
---   status code.
+--   <a>$sel:hostname:ReportTaskRunnerHeartbeat'</a>,
+--   <a>reportTaskRunnerHeartbeat_hostname</a> - The public DNS name of the
+--   task runner.
 --   
---   <a>$sel:pipelineDescriptionList:DescribePipelinesResponse'</a>,
---   <a>describePipelinesResponse_pipelineDescriptionList</a> - An array of
---   descriptions for the specified pipelines.
-newDescribePipelinesResponse :: Int -> DescribePipelinesResponse
-
--- | Contains the parameters for PollForTask.
---   
---   <i>See:</i> <a>newPollForTask</a> smart constructor.
-data PollForTask
-PollForTask' :: Maybe Text -> Maybe InstanceIdentity -> Text -> PollForTask
-
--- | Create a value of <a>PollForTask</a> with all optional fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:hostname:PollForTask'</a>, <a>pollForTask_hostname</a> - The
---   public DNS name of the calling task runner.
---   
---   <a>$sel:instanceIdentity:PollForTask'</a>,
---   <a>pollForTask_instanceIdentity</a> - Identity information for the EC2
---   instance that is hosting the task runner. You can get this value from
---   the instance using
---   <tt>http://169.254.169.254/latest/meta-data/instance-id</tt>. For more
---   information, see <a>Instance Metadata</a> in the <i>Amazon Elastic
---   Compute Cloud User Guide.</i> Passing in this value proves that your
---   task runner is running on an EC2 instance, and ensures the proper AWS
---   Data Pipeline service charges are applied to your pipeline.
---   
---   <a>$sel:workerGroup:PollForTask'</a>, <a>pollForTask_workerGroup</a> -
---   The type of task the task runner is configured to accept and process.
---   The worker group is set as a field on objects in the pipeline when
---   they are created. You can only specify a single value for
---   <tt>workerGroup</tt> in the call to <tt>PollForTask</tt>. There are no
+--   <a>$sel:workerGroup:ReportTaskRunnerHeartbeat'</a>,
+--   <a>reportTaskRunnerHeartbeat_workerGroup</a> - The type of task the
+--   task runner is configured to accept and process. The worker group is
+--   set as a field on objects in the pipeline when they are created. You
+--   can only specify a single value for <tt>workerGroup</tt>. There are no
 --   wildcard values permitted in <tt>workerGroup</tt>; the string must be
 --   an exact, case-sensitive, match.
-newPollForTask :: Text -> PollForTask
-
--- | Contains the output of PollForTask.
 --   
---   <i>See:</i> <a>newPollForTaskResponse</a> smart constructor.
-data PollForTaskResponse
-PollForTaskResponse' :: Maybe TaskObject -> Int -> PollForTaskResponse
+--   <a>$sel:taskrunnerId:ReportTaskRunnerHeartbeat'</a>,
+--   <a>reportTaskRunnerHeartbeat_taskrunnerId</a> - The ID of the task
+--   runner. This value should be unique across your AWS account. In the
+--   case of AWS Data Pipeline Task Runner launched on a resource managed
+--   by AWS Data Pipeline, the web service provides a unique identifier
+--   when it launches the application. If you have written a custom task
+--   runner, you should assign a unique identifier for the task runner.
+newReportTaskRunnerHeartbeat :: Text -> ReportTaskRunnerHeartbeat
 
--- | Create a value of <a>PollForTaskResponse</a> with all optional fields
+-- | Contains the output of ReportTaskRunnerHeartbeat.
+--   
+--   <i>See:</i> <a>newReportTaskRunnerHeartbeatResponse</a> smart
+--   constructor.
+data ReportTaskRunnerHeartbeatResponse
+ReportTaskRunnerHeartbeatResponse' :: Int -> Bool -> ReportTaskRunnerHeartbeatResponse
+
+-- | Create a value of <a>ReportTaskRunnerHeartbeatResponse</a> with all
+--   optional fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:httpStatus:ReportTaskRunnerHeartbeatResponse'</a>,
+--   <a>reportTaskRunnerHeartbeatResponse_httpStatus</a> - The response's
+--   http status code.
+--   
+--   <a>$sel:terminate:ReportTaskRunnerHeartbeatResponse'</a>,
+--   <a>reportTaskRunnerHeartbeatResponse_terminate</a> - Indicates whether
+--   the calling task runner should terminate.
+newReportTaskRunnerHeartbeatResponse :: Int -> Bool -> ReportTaskRunnerHeartbeatResponse
+
+-- | Contains the parameters for ActivatePipeline.
+--   
+--   <i>See:</i> <a>newActivatePipeline</a> smart constructor.
+data ActivatePipeline
+ActivatePipeline' :: Maybe POSIX -> Maybe [ParameterValue] -> Text -> ActivatePipeline
+
+-- | Create a value of <a>ActivatePipeline</a> with all optional fields
 --   omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
@@ -5326,26 +5330,26 @@ PollForTaskResponse' :: Maybe TaskObject -> Int -> PollForTaskResponse
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:taskObject:PollForTaskResponse'</a>,
---   <a>pollForTaskResponse_taskObject</a> - The information needed to
---   complete the task that is being assigned to the task runner. One of
---   the fields returned in this object is <tt>taskId</tt>, which contains
---   an identifier for the task being assigned. The calling task runner
---   uses <tt>taskId</tt> in subsequent calls to ReportTaskProgress and
---   SetTaskStatus.
+--   <a>$sel:startTimestamp:ActivatePipeline'</a>,
+--   <a>activatePipeline_startTimestamp</a> - The date and time to resume
+--   the pipeline. By default, the pipeline resumes from the last completed
+--   execution.
 --   
---   <a>$sel:httpStatus:PollForTaskResponse'</a>,
---   <a>pollForTaskResponse_httpStatus</a> - The response's http status
---   code.
-newPollForTaskResponse :: Int -> PollForTaskResponse
-
--- | Contains the parameters for ValidatePipelineDefinition.
+--   <a>$sel:parameterValues:ActivatePipeline'</a>,
+--   <a>activatePipeline_parameterValues</a> - A list of parameter values
+--   to pass to the pipeline at activation.
 --   
---   <i>See:</i> <a>newValidatePipelineDefinition</a> smart constructor.
-data ValidatePipelineDefinition
-ValidatePipelineDefinition' :: Maybe [ParameterValue] -> Maybe [ParameterObject] -> Text -> [PipelineObject] -> ValidatePipelineDefinition
+--   <a>$sel:pipelineId:ActivatePipeline'</a>,
+--   <a>activatePipeline_pipelineId</a> - The ID of the pipeline.
+newActivatePipeline :: Text -> ActivatePipeline
 
--- | Create a value of <a>ValidatePipelineDefinition</a> with all optional
+-- | Contains the output of ActivatePipeline.
+--   
+--   <i>See:</i> <a>newActivatePipelineResponse</a> smart constructor.
+data ActivatePipelineResponse
+ActivatePipelineResponse' :: Int -> ActivatePipelineResponse
+
+-- | Create a value of <a>ActivatePipelineResponse</a> with all optional
 --   fields omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
@@ -5354,117 +5358,237 @@ ValidatePipelineDefinition' :: Maybe [ParameterValue] -> Maybe [ParameterObject]
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:parameterValues:ValidatePipelineDefinition'</a>,
---   <a>validatePipelineDefinition_parameterValues</a> - The parameter
---   values used with the pipeline.
---   
---   <a>$sel:parameterObjects:ValidatePipelineDefinition'</a>,
---   <a>validatePipelineDefinition_parameterObjects</a> - The parameter
---   objects used with the pipeline.
---   
---   <a>$sel:pipelineId:ValidatePipelineDefinition'</a>,
---   <a>validatePipelineDefinition_pipelineId</a> - The ID of the pipeline.
---   
---   <a>$sel:pipelineObjects:ValidatePipelineDefinition'</a>,
---   <a>validatePipelineDefinition_pipelineObjects</a> - The objects that
---   define the pipeline changes to validate against the pipeline.
-newValidatePipelineDefinition :: Text -> ValidatePipelineDefinition
-
--- | Contains the output of ValidatePipelineDefinition.
---   
---   <i>See:</i> <a>newValidatePipelineDefinitionResponse</a> smart
---   constructor.
-data ValidatePipelineDefinitionResponse
-ValidatePipelineDefinitionResponse' :: Maybe [ValidationError] -> Maybe [ValidationWarning] -> Int -> Bool -> ValidatePipelineDefinitionResponse
-
--- | Create a value of <a>ValidatePipelineDefinitionResponse</a> with all
---   optional fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:validationErrors:ValidatePipelineDefinitionResponse'</a>,
---   <a>validatePipelineDefinitionResponse_validationErrors</a> - Any
---   validation errors that were found.
---   
---   <a>$sel:validationWarnings:ValidatePipelineDefinitionResponse'</a>,
---   <a>validatePipelineDefinitionResponse_validationWarnings</a> - Any
---   validation warnings that were found.
---   
---   <a>$sel:httpStatus:ValidatePipelineDefinitionResponse'</a>,
---   <a>validatePipelineDefinitionResponse_httpStatus</a> - The response's
---   http status code.
---   
---   <a>$sel:errored:ValidatePipelineDefinitionResponse'</a>,
---   <a>validatePipelineDefinitionResponse_errored</a> - Indicates whether
---   there were validation errors.
-newValidatePipelineDefinitionResponse :: Int -> Bool -> ValidatePipelineDefinitionResponse
-
--- | Contains the parameters for GetPipelineDefinition.
---   
---   <i>See:</i> <a>newGetPipelineDefinition</a> smart constructor.
-data GetPipelineDefinition
-GetPipelineDefinition' :: Maybe Text -> Text -> GetPipelineDefinition
-
--- | Create a value of <a>GetPipelineDefinition</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:version:GetPipelineDefinition'</a>,
---   <a>getPipelineDefinition_version</a> - The version of the pipeline
---   definition to retrieve. Set this parameter to <tt>latest</tt>
---   (default) to use the last definition saved to the pipeline or
---   <tt>active</tt> to use the last definition that was activated.
---   
---   <a>$sel:pipelineId:GetPipelineDefinition'</a>,
---   <a>getPipelineDefinition_pipelineId</a> - The ID of the pipeline.
-newGetPipelineDefinition :: Text -> GetPipelineDefinition
-
--- | Contains the output of GetPipelineDefinition.
---   
---   <i>See:</i> <a>newGetPipelineDefinitionResponse</a> smart constructor.
-data GetPipelineDefinitionResponse
-GetPipelineDefinitionResponse' :: Maybe [ParameterValue] -> Maybe [ParameterObject] -> Maybe [PipelineObject] -> Int -> GetPipelineDefinitionResponse
-
--- | Create a value of <a>GetPipelineDefinitionResponse</a> with all
---   optional fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:parameterValues:GetPipelineDefinitionResponse'</a>,
---   <a>getPipelineDefinitionResponse_parameterValues</a> - The parameter
---   values used in the pipeline definition.
---   
---   <a>$sel:parameterObjects:GetPipelineDefinitionResponse'</a>,
---   <a>getPipelineDefinitionResponse_parameterObjects</a> - The parameter
---   objects used in the pipeline definition.
---   
---   <a>$sel:pipelineObjects:GetPipelineDefinitionResponse'</a>,
---   <a>getPipelineDefinitionResponse_pipelineObjects</a> - The objects
---   defined in the pipeline.
---   
---   <a>$sel:httpStatus:GetPipelineDefinitionResponse'</a>,
---   <a>getPipelineDefinitionResponse_httpStatus</a> - The response's http
+--   <a>$sel:httpStatus:ActivatePipelineResponse'</a>,
+--   <a>activatePipelineResponse_httpStatus</a> - The response's http
 --   status code.
-newGetPipelineDefinitionResponse :: Int -> GetPipelineDefinitionResponse
+newActivatePipelineResponse :: Int -> ActivatePipelineResponse
+
+-- | Contains the parameters for SetTaskStatus.
+--   
+--   <i>See:</i> <a>newSetTaskStatus</a> smart constructor.
+data SetTaskStatus
+SetTaskStatus' :: Maybe Text -> Maybe Text -> Maybe Text -> Text -> TaskStatus -> SetTaskStatus
+
+-- | Create a value of <a>SetTaskStatus</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:errorStackTrace:SetTaskStatus'</a>,
+--   <a>setTaskStatus_errorStackTrace</a> - If an error occurred during the
+--   task, this value specifies the stack trace associated with the error.
+--   This value is set on the physical attempt object. It is used to
+--   display error information to the user. The web service does not parse
+--   this value.
+--   
+--   <a>$sel:errorId:SetTaskStatus'</a>, <a>setTaskStatus_errorId</a> - If
+--   an error occurred during the task, this value specifies the error
+--   code. This value is set on the physical attempt object. It is used to
+--   display error information to the user. It should not start with string
+--   "Service_" which is reserved by the system.
+--   
+--   <a>$sel:errorMessage:SetTaskStatus'</a>,
+--   <a>setTaskStatus_errorMessage</a> - If an error occurred during the
+--   task, this value specifies a text description of the error. This value
+--   is set on the physical attempt object. It is used to display error
+--   information to the user. The web service does not parse this value.
+--   
+--   <a>$sel:taskId:SetTaskStatus'</a>, <a>setTaskStatus_taskId</a> - The
+--   ID of the task assigned to the task runner. This value is provided in
+--   the response for PollForTask.
+--   
+--   <a>$sel:taskStatus:SetTaskStatus'</a>, <a>setTaskStatus_taskStatus</a>
+--   - If <tt>FINISHED</tt>, the task successfully completed. If
+--   <tt>FAILED</tt>, the task ended unsuccessfully. Preconditions use
+--   false.
+newSetTaskStatus :: Text -> TaskStatus -> SetTaskStatus
+
+-- | Contains the output of SetTaskStatus.
+--   
+--   <i>See:</i> <a>newSetTaskStatusResponse</a> smart constructor.
+data SetTaskStatusResponse
+SetTaskStatusResponse' :: Int -> SetTaskStatusResponse
+
+-- | Create a value of <a>SetTaskStatusResponse</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:httpStatus:SetTaskStatusResponse'</a>,
+--   <a>setTaskStatusResponse_httpStatus</a> - The response's http status
+--   code.
+newSetTaskStatusResponse :: Int -> SetTaskStatusResponse
+
+-- | Contains the parameters for SetStatus.
+--   
+--   <i>See:</i> <a>newSetStatus</a> smart constructor.
+data SetStatus
+SetStatus' :: Text -> [Text] -> Text -> SetStatus
+
+-- | Create a value of <a>SetStatus</a> with all optional fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:pipelineId:SetStatus'</a>, <a>setStatus_pipelineId</a> - The
+--   ID of the pipeline that contains the objects.
+--   
+--   <a>$sel:objectIds:SetStatus'</a>, <a>setStatus_objectIds</a> - The IDs
+--   of the objects. The corresponding objects can be either physical or
+--   components, but not a mix of both types.
+--   
+--   <a>$sel:status:SetStatus'</a>, <a>setStatus_status</a> - The status to
+--   be set on all the objects specified in <tt>objectIds</tt>. For
+--   components, use <tt>PAUSE</tt> or <tt>RESUME</tt>. For instances, use
+--   <tt>TRY_CANCEL</tt>, <tt>RERUN</tt>, or <tt>MARK_FINISHED</tt>.
+newSetStatus :: Text -> Text -> SetStatus
+
+-- | <i>See:</i> <a>newSetStatusResponse</a> smart constructor.
+data SetStatusResponse
+SetStatusResponse' :: SetStatusResponse
+
+-- | Create a value of <a>SetStatusResponse</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+newSetStatusResponse :: SetStatusResponse
+
+-- | Contains the parameters for ReportTaskProgress.
+--   
+--   <i>See:</i> <a>newReportTaskProgress</a> smart constructor.
+data ReportTaskProgress
+ReportTaskProgress' :: Maybe [Field] -> Text -> ReportTaskProgress
+
+-- | Create a value of <a>ReportTaskProgress</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:fields:ReportTaskProgress'</a>,
+--   <a>reportTaskProgress_fields</a> - Key-value pairs that define the
+--   properties of the ReportTaskProgressInput object.
+--   
+--   <a>$sel:taskId:ReportTaskProgress'</a>,
+--   <a>reportTaskProgress_taskId</a> - The ID of the task assigned to the
+--   task runner. This value is provided in the response for PollForTask.
+newReportTaskProgress :: Text -> ReportTaskProgress
+
+-- | Contains the output of ReportTaskProgress.
+--   
+--   <i>See:</i> <a>newReportTaskProgressResponse</a> smart constructor.
+data ReportTaskProgressResponse
+ReportTaskProgressResponse' :: Int -> Bool -> ReportTaskProgressResponse
+
+-- | Create a value of <a>ReportTaskProgressResponse</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:httpStatus:ReportTaskProgressResponse'</a>,
+--   <a>reportTaskProgressResponse_httpStatus</a> - The response's http
+--   status code.
+--   
+--   <a>$sel:canceled:ReportTaskProgressResponse'</a>,
+--   <a>reportTaskProgressResponse_canceled</a> - If true, the calling task
+--   runner should cancel processing of the task. The task runner does not
+--   need to call SetTaskStatus for canceled tasks.
+newReportTaskProgressResponse :: Int -> Bool -> ReportTaskProgressResponse
+
+-- | Contains the parameters for CreatePipeline.
+--   
+--   <i>See:</i> <a>newCreatePipeline</a> smart constructor.
+data CreatePipeline
+CreatePipeline' :: Maybe Text -> Maybe [Tag] -> Text -> Text -> CreatePipeline
+
+-- | Create a value of <a>CreatePipeline</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:description:CreatePipeline'</a>,
+--   <a>createPipeline_description</a> - The description for the pipeline.
+--   
+--   <a>$sel:tags:CreatePipeline'</a>, <a>createPipeline_tags</a> - A list
+--   of tags to associate with the pipeline at creation. Tags let you
+--   control access to pipelines. For more information, see <a>Controlling
+--   User Access to Pipelines</a> in the <i>AWS Data Pipeline Developer
+--   Guide</i>.
+--   
+--   <a>$sel:name:CreatePipeline'</a>, <a>createPipeline_name</a> - The
+--   name for the pipeline. You can use the same name for multiple
+--   pipelines associated with your AWS account, because AWS Data Pipeline
+--   assigns each pipeline a unique pipeline identifier.
+--   
+--   <a>$sel:uniqueId:CreatePipeline'</a>, <a>createPipeline_uniqueId</a> -
+--   A unique identifier. This identifier is not the same as the pipeline
+--   identifier assigned by AWS Data Pipeline. You are responsible for
+--   defining the format and ensuring the uniqueness of this identifier.
+--   You use this parameter to ensure idempotency during repeated calls to
+--   <tt>CreatePipeline</tt>. For example, if the first call to
+--   <tt>CreatePipeline</tt> does not succeed, you can pass in the same
+--   unique identifier and pipeline name combination on a subsequent call
+--   to <tt>CreatePipeline</tt>. <tt>CreatePipeline</tt> ensures that if a
+--   pipeline already exists with the same name and unique identifier, a
+--   new pipeline is not created. Instead, you'll receive the pipeline
+--   identifier from the previous attempt. The uniqueness of the name and
+--   unique identifier combination is scoped to the AWS account or IAM user
+--   credentials.
+newCreatePipeline :: Text -> Text -> CreatePipeline
+
+-- | Contains the output of CreatePipeline.
+--   
+--   <i>See:</i> <a>newCreatePipelineResponse</a> smart constructor.
+data CreatePipelineResponse
+CreatePipelineResponse' :: Int -> Text -> CreatePipelineResponse
+
+-- | Create a value of <a>CreatePipelineResponse</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:httpStatus:CreatePipelineResponse'</a>,
+--   <a>createPipelineResponse_httpStatus</a> - The response's http status
+--   code.
+--   
+--   <a>$sel:pipelineId:CreatePipelineResponse'</a>,
+--   <a>createPipelineResponse_pipelineId</a> - The ID that AWS Data
+--   Pipeline assigns the newly created pipeline. For example,
+--   <tt>df-06372391ZG65EXAMPLE</tt>.
+newCreatePipelineResponse :: Int -> Text -> CreatePipelineResponse
 
 -- | Contains the parameters for PutPipelineDefinition.
 --   
 --   <i>See:</i> <a>newPutPipelineDefinition</a> smart constructor.
 data PutPipelineDefinition
-PutPipelineDefinition' :: Maybe [ParameterValue] -> Maybe [ParameterObject] -> Text -> [PipelineObject] -> PutPipelineDefinition
+PutPipelineDefinition' :: Maybe [ParameterObject] -> Maybe [ParameterValue] -> Text -> [PipelineObject] -> PutPipelineDefinition
 
 -- | Create a value of <a>PutPipelineDefinition</a> with all optional
 --   fields omitted.
@@ -5475,12 +5599,12 @@ PutPipelineDefinition' :: Maybe [ParameterValue] -> Maybe [ParameterObject] -> T
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:parameterValues:PutPipelineDefinition'</a>,
---   <a>putPipelineDefinition_parameterValues</a> - The parameter values
---   used with the pipeline.
---   
 --   <a>$sel:parameterObjects:PutPipelineDefinition'</a>,
 --   <a>putPipelineDefinition_parameterObjects</a> - The parameter objects
+--   used with the pipeline.
+--   
+--   <a>$sel:parameterValues:PutPipelineDefinition'</a>,
+--   <a>putPipelineDefinition_parameterValues</a> - The parameter values
 --   used with the pipeline.
 --   
 --   <a>$sel:pipelineId:PutPipelineDefinition'</a>,
@@ -5528,73 +5652,13 @@ PutPipelineDefinitionResponse' :: Maybe [ValidationError] -> Maybe [ValidationWa
 --   <tt>PutPipelineDefinition</tt> to commit the corrected pipeline.
 newPutPipelineDefinitionResponse :: Int -> Bool -> PutPipelineDefinitionResponse
 
--- | Contains the parameters for SetStatus.
+-- | Contains the parameters for ValidatePipelineDefinition.
 --   
---   <i>See:</i> <a>newSetStatus</a> smart constructor.
-data SetStatus
-SetStatus' :: Text -> [Text] -> Text -> SetStatus
+--   <i>See:</i> <a>newValidatePipelineDefinition</a> smart constructor.
+data ValidatePipelineDefinition
+ValidatePipelineDefinition' :: Maybe [ParameterObject] -> Maybe [ParameterValue] -> Text -> [PipelineObject] -> ValidatePipelineDefinition
 
--- | Create a value of <a>SetStatus</a> with all optional fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:pipelineId:SetStatus'</a>, <a>setStatus_pipelineId</a> - The
---   ID of the pipeline that contains the objects.
---   
---   <a>$sel:objectIds:SetStatus'</a>, <a>setStatus_objectIds</a> - The IDs
---   of the objects. The corresponding objects can be either physical or
---   components, but not a mix of both types.
---   
---   <a>$sel:status:SetStatus'</a>, <a>setStatus_status</a> - The status to
---   be set on all the objects specified in <tt>objectIds</tt>. For
---   components, use <tt>PAUSE</tt> or <tt>RESUME</tt>. For instances, use
---   <tt>TRY_CANCEL</tt>, <tt>RERUN</tt>, or <tt>MARK_FINISHED</tt>.
-newSetStatus :: Text -> Text -> SetStatus
-
--- | <i>See:</i> <a>newSetStatusResponse</a> smart constructor.
-data SetStatusResponse
-SetStatusResponse' :: SetStatusResponse
-
--- | Create a value of <a>SetStatusResponse</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
-newSetStatusResponse :: SetStatusResponse
-
--- | Contains the parameters for ListPipelines.
---   
---   <i>See:</i> <a>newListPipelines</a> smart constructor.
-data ListPipelines
-ListPipelines' :: Maybe Text -> ListPipelines
-
--- | Create a value of <a>ListPipelines</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:marker:ListPipelines'</a>, <a>listPipelines_marker</a> - The
---   starting point for the results to be returned. For the first call,
---   this value should be empty. As long as there are more results,
---   continue to call <tt>ListPipelines</tt> with the marker value from the
---   previous call to retrieve the next set of results.
-newListPipelines :: ListPipelines
-
--- | Contains the output of ListPipelines.
---   
---   <i>See:</i> <a>newListPipelinesResponse</a> smart constructor.
-data ListPipelinesResponse
-ListPipelinesResponse' :: Maybe Bool -> Maybe Text -> Int -> [PipelineIdName] -> ListPipelinesResponse
-
--- | Create a value of <a>ListPipelinesResponse</a> with all optional
+-- | Create a value of <a>ValidatePipelineDefinition</a> with all optional
 --   fields omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
@@ -5603,34 +5667,31 @@ ListPipelinesResponse' :: Maybe Bool -> Maybe Text -> Int -> [PipelineIdName] ->
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:hasMoreResults:ListPipelinesResponse'</a>,
---   <a>listPipelinesResponse_hasMoreResults</a> - Indicates whether there
---   are more results that can be obtained by a subsequent call.
+--   <a>$sel:parameterObjects:ValidatePipelineDefinition'</a>,
+--   <a>validatePipelineDefinition_parameterObjects</a> - The parameter
+--   objects used with the pipeline.
 --   
---   <a>$sel:marker:ListPipelines'</a>, <a>listPipelinesResponse_marker</a>
---   - The starting point for the next page of results. To view the next
---   page of results, call <tt>ListPipelinesOutput</tt> again with this
---   marker value. If the value is null, there are no more results.
+--   <a>$sel:parameterValues:ValidatePipelineDefinition'</a>,
+--   <a>validatePipelineDefinition_parameterValues</a> - The parameter
+--   values used with the pipeline.
 --   
---   <a>$sel:httpStatus:ListPipelinesResponse'</a>,
---   <a>listPipelinesResponse_httpStatus</a> - The response's http status
---   code.
+--   <a>$sel:pipelineId:ValidatePipelineDefinition'</a>,
+--   <a>validatePipelineDefinition_pipelineId</a> - The ID of the pipeline.
 --   
---   <a>$sel:pipelineIdList:ListPipelinesResponse'</a>,
---   <a>listPipelinesResponse_pipelineIdList</a> - The pipeline
---   identifiers. If you require additional information about the
---   pipelines, you can use these identifiers to call DescribePipelines and
---   GetPipelineDefinition.
-newListPipelinesResponse :: Int -> ListPipelinesResponse
+--   <a>$sel:pipelineObjects:ValidatePipelineDefinition'</a>,
+--   <a>validatePipelineDefinition_pipelineObjects</a> - The objects that
+--   define the pipeline changes to validate against the pipeline.
+newValidatePipelineDefinition :: Text -> ValidatePipelineDefinition
 
--- | Contains the parameters for ActivatePipeline.
+-- | Contains the output of ValidatePipelineDefinition.
 --   
---   <i>See:</i> <a>newActivatePipeline</a> smart constructor.
-data ActivatePipeline
-ActivatePipeline' :: Maybe [ParameterValue] -> Maybe POSIX -> Text -> ActivatePipeline
+--   <i>See:</i> <a>newValidatePipelineDefinitionResponse</a> smart
+--   constructor.
+data ValidatePipelineDefinitionResponse
+ValidatePipelineDefinitionResponse' :: Maybe [ValidationError] -> Maybe [ValidationWarning] -> Int -> Bool -> ValidatePipelineDefinitionResponse
 
--- | Create a value of <a>ActivatePipeline</a> with all optional fields
---   omitted.
+-- | Create a value of <a>ValidatePipelineDefinitionResponse</a> with all
+--   optional fields omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
@@ -5638,83 +5699,22 @@ ActivatePipeline' :: Maybe [ParameterValue] -> Maybe POSIX -> Text -> ActivatePi
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:parameterValues:ActivatePipeline'</a>,
---   <a>activatePipeline_parameterValues</a> - A list of parameter values
---   to pass to the pipeline at activation.
+--   <a>$sel:validationErrors:ValidatePipelineDefinitionResponse'</a>,
+--   <a>validatePipelineDefinitionResponse_validationErrors</a> - Any
+--   validation errors that were found.
 --   
---   <a>$sel:startTimestamp:ActivatePipeline'</a>,
---   <a>activatePipeline_startTimestamp</a> - The date and time to resume
---   the pipeline. By default, the pipeline resumes from the last completed
---   execution.
+--   <a>$sel:validationWarnings:ValidatePipelineDefinitionResponse'</a>,
+--   <a>validatePipelineDefinitionResponse_validationWarnings</a> - Any
+--   validation warnings that were found.
 --   
---   <a>$sel:pipelineId:ActivatePipeline'</a>,
---   <a>activatePipeline_pipelineId</a> - The ID of the pipeline.
-newActivatePipeline :: Text -> ActivatePipeline
-
--- | Contains the output of ActivatePipeline.
+--   <a>$sel:httpStatus:ValidatePipelineDefinitionResponse'</a>,
+--   <a>validatePipelineDefinitionResponse_httpStatus</a> - The response's
+--   http status code.
 --   
---   <i>See:</i> <a>newActivatePipelineResponse</a> smart constructor.
-data ActivatePipelineResponse
-ActivatePipelineResponse' :: Int -> ActivatePipelineResponse
-
--- | Create a value of <a>ActivatePipelineResponse</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:httpStatus:ActivatePipelineResponse'</a>,
---   <a>activatePipelineResponse_httpStatus</a> - The response's http
---   status code.
-newActivatePipelineResponse :: Int -> ActivatePipelineResponse
-
--- | Contains the parameters for DeactivatePipeline.
---   
---   <i>See:</i> <a>newDeactivatePipeline</a> smart constructor.
-data DeactivatePipeline
-DeactivatePipeline' :: Maybe Bool -> Text -> DeactivatePipeline
-
--- | Create a value of <a>DeactivatePipeline</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:cancelActive:DeactivatePipeline'</a>,
---   <a>deactivatePipeline_cancelActive</a> - Indicates whether to cancel
---   any running objects. The default is true, which sets the state of any
---   running objects to <tt>CANCELED</tt>. If this value is false, the
---   pipeline is deactivated after all running objects finish.
---   
---   <a>$sel:pipelineId:DeactivatePipeline'</a>,
---   <a>deactivatePipeline_pipelineId</a> - The ID of the pipeline.
-newDeactivatePipeline :: Text -> DeactivatePipeline
-
--- | Contains the output of DeactivatePipeline.
---   
---   <i>See:</i> <a>newDeactivatePipelineResponse</a> smart constructor.
-data DeactivatePipelineResponse
-DeactivatePipelineResponse' :: Int -> DeactivatePipelineResponse
-
--- | Create a value of <a>DeactivatePipelineResponse</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:httpStatus:DeactivatePipelineResponse'</a>,
---   <a>deactivatePipelineResponse_httpStatus</a> - The response's http
---   status code.
-newDeactivatePipelineResponse :: Int -> DeactivatePipelineResponse
+--   <a>$sel:errored:ValidatePipelineDefinitionResponse'</a>,
+--   <a>validatePipelineDefinitionResponse_errored</a> - Indicates whether
+--   there were validation errors.
+newValidatePipelineDefinitionResponse :: Int -> Bool -> ValidatePipelineDefinitionResponse
 newtype OperatorType
 OperatorType' :: Text -> OperatorType
 [fromOperatorType] :: OperatorType -> Text
@@ -5746,11 +5746,11 @@ Field' :: Maybe Text -> Maybe Text -> Text -> Field
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:stringValue:Field'</a>, <a>field_stringValue</a> - The field
---   value, expressed as a String.
---   
 --   <a>$sel:refValue:Field'</a>, <a>field_refValue</a> - The field value,
 --   expressed as the identifier of another object.
+--   
+--   <a>$sel:stringValue:Field'</a>, <a>field_stringValue</a> - The field
+--   value, expressed as a String.
 --   
 --   <a>$sel:key:Field'</a>, <a>field_key</a> - The field identifier.
 newField :: Text -> Field
@@ -5776,16 +5776,16 @@ InstanceIdentity' :: Maybe Text -> Maybe Text -> InstanceIdentity
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
+--   <a>$sel:signature:InstanceIdentity'</a>,
+--   <a>instanceIdentity_signature</a> - A signature which can be used to
+--   verify the accuracy and authenticity of the information provided in
+--   the instance identity document.
+--   
 --   <a>$sel:document:InstanceIdentity'</a>,
 --   <a>instanceIdentity_document</a> - A description of an EC2 instance
 --   that is generated when the instance is launched and exposed to the
 --   instance via the instance metadata service in the form of a JSON
 --   representation of an object.
---   
---   <a>$sel:signature:InstanceIdentity'</a>,
---   <a>instanceIdentity_signature</a> - A signature which can be used to
---   verify the accuracy and authenticity of the information provided in
---   the instance identity document.
 newInstanceIdentity :: InstanceIdentity
 
 -- | Contains a logical operation for comparing the value of a field with a
@@ -5920,7 +5920,7 @@ newParameterValue :: Text -> Text -> ParameterValue
 --   
 --   <i>See:</i> <a>newPipelineDescription</a> smart constructor.
 data PipelineDescription
-PipelineDescription' :: Maybe [Tag] -> Maybe Text -> Text -> Text -> [Field] -> PipelineDescription
+PipelineDescription' :: Maybe Text -> Maybe [Tag] -> Text -> Text -> [Field] -> PipelineDescription
 
 -- | Create a value of <a>PipelineDescription</a> with all optional fields
 --   omitted.
@@ -5931,14 +5931,14 @@ PipelineDescription' :: Maybe [Tag] -> Maybe Text -> Text -> Text -> [Field] -> 
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
+--   <a>$sel:description:PipelineDescription'</a>,
+--   <a>pipelineDescription_description</a> - Description of the pipeline.
+--   
 --   <a>$sel:tags:PipelineDescription'</a>, <a>pipelineDescription_tags</a>
 --   - A list of tags to associated with a pipeline. Tags let you control
 --   access to pipelines. For more information, see <a>Controlling User
 --   Access to Pipelines</a> in the <i>AWS Data Pipeline Developer
 --   Guide</i>.
---   
---   <a>$sel:description:PipelineDescription'</a>,
---   <a>pipelineDescription_description</a> - Description of the pipeline.
 --   
 --   <a>$sel:pipelineId:PipelineDescription'</a>,
 --   <a>pipelineDescription_pipelineId</a> - The pipeline identifier that
@@ -5969,12 +5969,12 @@ PipelineIdName' :: Maybe Text -> Maybe Text -> PipelineIdName
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
+--   <a>$sel:name:PipelineIdName'</a>, <a>pipelineIdName_name</a> - The
+--   name of the pipeline.
+--   
 --   <a>$sel:id:PipelineIdName'</a>, <a>pipelineIdName_id</a> - The ID of
 --   the pipeline that was assigned by AWS Data Pipeline. This is a string
 --   of the form <tt>df-297EG78HU43EEXAMPLE</tt>.
---   
---   <a>$sel:name:PipelineIdName'</a>, <a>pipelineIdName_name</a> - The
---   name of the pipeline.
 newPipelineIdName :: PipelineIdName
 
 -- | Contains information about a pipeline object. This can be a logical,
@@ -6081,7 +6081,7 @@ newTag :: Text -> Text -> Tag
 --   
 --   <i>See:</i> <a>newTaskObject</a> smart constructor.
 data TaskObject
-TaskObject' :: Maybe Text -> Maybe (HashMap Text PipelineObject) -> Maybe Text -> Maybe Text -> TaskObject
+TaskObject' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe (HashMap Text PipelineObject) -> TaskObject
 
 -- | Create a value of <a>TaskObject</a> with all optional fields omitted.
 --   
@@ -6094,17 +6094,17 @@ TaskObject' :: Maybe Text -> Maybe (HashMap Text PipelineObject) -> Maybe Text -
 --   <a>$sel:pipelineId:TaskObject'</a>, <a>taskObject_pipelineId</a> - The
 --   ID of the pipeline that provided the task.
 --   
---   <a>$sel:objects:TaskObject'</a>, <a>taskObject_objects</a> -
---   Connection information for the location where the task runner will
---   publish the output of the task.
+--   <a>$sel:attemptId:TaskObject'</a>, <a>taskObject_attemptId</a> - The
+--   ID of the pipeline task attempt object. AWS Data Pipeline uses this
+--   value to track how many times a task is attempted.
 --   
 --   <a>$sel:taskId:TaskObject'</a>, <a>taskObject_taskId</a> - An internal
 --   identifier for the task. This ID is passed to the SetTaskStatus and
 --   ReportTaskProgress actions.
 --   
---   <a>$sel:attemptId:TaskObject'</a>, <a>taskObject_attemptId</a> - The
---   ID of the pipeline task attempt object. AWS Data Pipeline uses this
---   value to track how many times a task is attempted.
+--   <a>$sel:objects:TaskObject'</a>, <a>taskObject_objects</a> -
+--   Connection information for the location where the task runner will
+--   publish the output of the task.
 newTaskObject :: TaskObject
 
 -- | Defines a validation error. Validation errors prevent pipeline

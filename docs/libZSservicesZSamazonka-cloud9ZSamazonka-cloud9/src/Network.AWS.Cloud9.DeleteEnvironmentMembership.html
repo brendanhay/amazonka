@@ -47,7 +47,7 @@
 </span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-48"></span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newDeleteEnvironmentMembership' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621679169503"><span id="local-6989586621679169504"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteEnvironmentMembership"><span class="annot"><a href="Network.AWS.Cloud9.DeleteEnvironmentMembership.html#DeleteEnvironmentMembership"><span class="hs-identifier hs-var">DeleteEnvironmentMembership</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteEnvironmentMembership%27"><span class="annot"><a href="Network.AWS.Cloud9.DeleteEnvironmentMembership.html#DeleteEnvironmentMembership%27"><span class="hs-identifier hs-var">DeleteEnvironmentMembership'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679169547"><span id="local-6989586621679169548"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteEnvironmentMembership"><span class="annot"><a href="Network.AWS.Cloud9.DeleteEnvironmentMembership.html#DeleteEnvironmentMembership"><span class="hs-identifier hs-var">DeleteEnvironmentMembership</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteEnvironmentMembership%27"><span class="annot"><a href="Network.AWS.Cloud9.DeleteEnvironmentMembership.html#DeleteEnvironmentMembership%27"><span class="hs-identifier hs-var">DeleteEnvironmentMembership'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the environment to delete the environment member from.</span><span>
 </span><span id="line-52"></span><span>    </span><span id="%24sel%3AenvironmentId%3ADeleteEnvironmentMembership%27"><span class="annot"><span class="annottext">DeleteEnvironmentMembership -&gt; Text
 </span><a href="Network.AWS.Cloud9.DeleteEnvironmentMembership.html#%24sel%3AenvironmentId%3ADeleteEnvironmentMembership%27"><span class="hs-identifier hs-var hs-var">environmentId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -56,7 +56,7 @@
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3AuserArn%3ADeleteEnvironmentMembership%27"><span class="annot"><span class="annottext">DeleteEnvironmentMembership -&gt; Text
 </span><a href="Network.AWS.Cloud9.DeleteEnvironmentMembership.html#%24sel%3AuserArn%3ADeleteEnvironmentMembership%27"><span class="hs-identifier hs-var hs-var">userArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679169496"><span id="local-6989586621679169498"><span class="annot"><span class="annottext">DeleteEnvironmentMembership -&gt; DeleteEnvironmentMembership -&gt; Bool
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679169540"><span id="local-6989586621679169542"><span class="annot"><span class="annottext">DeleteEnvironmentMembership -&gt; DeleteEnvironmentMembership -&gt; Bool
 (DeleteEnvironmentMembership
  -&gt; DeleteEnvironmentMembership -&gt; Bool)
 -&gt; (DeleteEnvironmentMembership
@@ -67,7 +67,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteEnvironmentMembership -&gt; DeleteEnvironmentMembership -&gt; Bool
 == :: DeleteEnvironmentMembership -&gt; DeleteEnvironmentMembership -&gt; Bool
 $c== :: DeleteEnvironmentMembership -&gt; DeleteEnvironmentMembership -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679169487"><span id="local-6989586621679169489"><span id="local-6989586621679169491"><span id="local-6989586621679169493"><span class="annot"><span class="annottext">ReadPrec [DeleteEnvironmentMembership]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679169531"><span id="local-6989586621679169533"><span id="local-6989586621679169535"><span id="local-6989586621679169537"><span class="annot"><span class="annottext">ReadPrec [DeleteEnvironmentMembership]
 ReadPrec DeleteEnvironmentMembership
 Int -&gt; ReadS DeleteEnvironmentMembership
 ReadS [DeleteEnvironmentMembership]
@@ -87,7 +87,7 @@ readList :: ReadS [DeleteEnvironmentMembership]
 $creadList :: ReadS [DeleteEnvironmentMembership]
 readsPrec :: Int -&gt; ReadS DeleteEnvironmentMembership
 $creadsPrec :: Int -&gt; ReadS DeleteEnvironmentMembership
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679169480"><span id="local-6989586621679169482"><span id="local-6989586621679169484"><span class="annot"><span class="annottext">Int -&gt; DeleteEnvironmentMembership -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679169524"><span id="local-6989586621679169526"><span id="local-6989586621679169528"><span class="annot"><span class="annottext">Int -&gt; DeleteEnvironmentMembership -&gt; ShowS
 [DeleteEnvironmentMembership] -&gt; ShowS
 DeleteEnvironmentMembership -&gt; String
 (Int -&gt; DeleteEnvironmentMembership -&gt; ShowS)
@@ -139,19 +139,19 @@ DeleteEnvironmentMembership -&gt; Rep DeleteEnvironmentMembership x
 </span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.Cloud9.DeleteEnvironmentMembership.html#DeleteEnvironmentMembership"><span class="hs-identifier hs-type">DeleteEnvironmentMembership</span></a></span><span>
 </span><span id="line-77"></span><span id="newDeleteEnvironmentMembership"><span class="annot"><span class="annottext">newDeleteEnvironmentMembership :: Text -&gt; Text -&gt; DeleteEnvironmentMembership
 </span><a href="Network.AWS.Cloud9.DeleteEnvironmentMembership.html#newDeleteEnvironmentMembership"><span class="hs-identifier hs-var hs-var">newDeleteEnvironmentMembership</span></a></span></span><span>
-</span><span id="line-78"></span><span>  </span><span id="local-6989586621679169475"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679169475"><span class="hs-identifier hs-var">pEnvironmentId_</span></a></span></span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679169474"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679169474"><span class="hs-identifier hs-var">pUserArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679169519"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679169519"><span class="hs-identifier hs-var">pEnvironmentId_</span></a></span></span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679169518"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679169518"><span class="hs-identifier hs-var">pUserArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>    </span><span class="annot"><span class="annottext">DeleteEnvironmentMembership' :: Text -&gt; Text -&gt; DeleteEnvironmentMembership
 </span><a href="Network.AWS.Cloud9.DeleteEnvironmentMembership.html#DeleteEnvironmentMembership%27"><span class="hs-identifier hs-type">DeleteEnvironmentMembership'</span></a></span><span>
 </span><span id="line-81"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:environmentId:DeleteEnvironmentMembership' :: Text
 </span><a href="Network.AWS.Cloud9.DeleteEnvironmentMembership.html#%24sel%3AenvironmentId%3ADeleteEnvironmentMembership%27"><span class="hs-identifier hs-var">environmentId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679169475"><span class="hs-identifier hs-var">pEnvironmentId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679169519"><span class="hs-identifier hs-var">pEnvironmentId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-83"></span><span>        </span><span class="annot"><span class="annottext">$sel:userArn:DeleteEnvironmentMembership' :: Text
 </span><a href="Network.AWS.Cloud9.DeleteEnvironmentMembership.html#%24sel%3AuserArn%3ADeleteEnvironmentMembership%27"><span class="hs-identifier hs-var">userArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679169474"><span class="hs-identifier hs-var">pUserArn_</span></a></span><span>
+</span><a href="#local-6989586621679169518"><span class="hs-identifier hs-var">pUserArn_</span></a></span><span>
 </span><span id="line-84"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- | The ID of the environment to delete the environment member from.</span><span>
@@ -164,16 +164,16 @@ DeleteEnvironmentMembership -&gt; Rep DeleteEnvironmentMembership x
 -&gt; Lens
      DeleteEnvironmentMembership DeleteEnvironmentMembership Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Cloud9.DeleteEnvironmentMembership.html#DeleteEnvironmentMembership%27"><span class="hs-identifier hs-type">DeleteEnvironmentMembership'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679169471"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Cloud9.DeleteEnvironmentMembership.html#DeleteEnvironmentMembership%27"><span class="hs-identifier hs-type">DeleteEnvironmentMembership'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679169515"><span class="annot"><span class="annottext">Text
 environmentId :: Text
 $sel:environmentId:DeleteEnvironmentMembership' :: DeleteEnvironmentMembership -&gt; Text
-</span><a href="#local-6989586621679169471"><span class="hs-identifier hs-var hs-var">environmentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679169471"><span class="hs-identifier hs-var">environmentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679169470"><span class="annot"><span class="annottext">s :: DeleteEnvironmentMembership
-</span><a href="#local-6989586621679169470"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Cloud9.DeleteEnvironmentMembership.html#DeleteEnvironmentMembership%27"><span class="hs-identifier hs-type">DeleteEnvironmentMembership'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679169469"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679169469"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteEnvironmentMembership
-</span><a href="#local-6989586621679169470"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:environmentId:DeleteEnvironmentMembership' :: Text
+</span><a href="#local-6989586621679169515"><span class="hs-identifier hs-var hs-var">environmentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679169515"><span class="hs-identifier hs-var">environmentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679169514"><span class="annot"><span class="annottext">s :: DeleteEnvironmentMembership
+</span><a href="#local-6989586621679169514"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Cloud9.DeleteEnvironmentMembership.html#DeleteEnvironmentMembership%27"><span class="hs-identifier hs-type">DeleteEnvironmentMembership'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679169513"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679169513"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteEnvironmentMembership
+</span><a href="#local-6989586621679169514"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:environmentId:DeleteEnvironmentMembership' :: Text
 </span><a href="Network.AWS.Cloud9.DeleteEnvironmentMembership.html#%24sel%3AenvironmentId%3ADeleteEnvironmentMembership%27"><span class="hs-identifier hs-var">environmentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679169469"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Cloud9.DeleteEnvironmentMembership.html#DeleteEnvironmentMembership"><span class="hs-identifier hs-type">DeleteEnvironmentMembership</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679169513"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Cloud9.DeleteEnvironmentMembership.html#DeleteEnvironmentMembership"><span class="hs-identifier hs-type">DeleteEnvironmentMembership</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the environment member to delete from</span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- the environment.</span><span>
@@ -186,29 +186,29 @@ $sel:environmentId:DeleteEnvironmentMembership' :: DeleteEnvironmentMembership -
 -&gt; Lens
      DeleteEnvironmentMembership DeleteEnvironmentMembership Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Cloud9.DeleteEnvironmentMembership.html#DeleteEnvironmentMembership%27"><span class="hs-identifier hs-type">DeleteEnvironmentMembership'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679169468"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Cloud9.DeleteEnvironmentMembership.html#DeleteEnvironmentMembership%27"><span class="hs-identifier hs-type">DeleteEnvironmentMembership'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679169512"><span class="annot"><span class="annottext">Text
 userArn :: Text
 $sel:userArn:DeleteEnvironmentMembership' :: DeleteEnvironmentMembership -&gt; Text
-</span><a href="#local-6989586621679169468"><span class="hs-identifier hs-var hs-var">userArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679169468"><span class="hs-identifier hs-var">userArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679169467"><span class="annot"><span class="annottext">s :: DeleteEnvironmentMembership
-</span><a href="#local-6989586621679169467"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Cloud9.DeleteEnvironmentMembership.html#DeleteEnvironmentMembership%27"><span class="hs-identifier hs-type">DeleteEnvironmentMembership'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679169466"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679169466"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteEnvironmentMembership
-</span><a href="#local-6989586621679169467"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userArn:DeleteEnvironmentMembership' :: Text
+</span><a href="#local-6989586621679169512"><span class="hs-identifier hs-var hs-var">userArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679169512"><span class="hs-identifier hs-var">userArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679169511"><span class="annot"><span class="annottext">s :: DeleteEnvironmentMembership
+</span><a href="#local-6989586621679169511"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Cloud9.DeleteEnvironmentMembership.html#DeleteEnvironmentMembership%27"><span class="hs-identifier hs-type">DeleteEnvironmentMembership'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679169510"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679169510"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteEnvironmentMembership
+</span><a href="#local-6989586621679169511"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userArn:DeleteEnvironmentMembership' :: Text
 </span><a href="Network.AWS.Cloud9.DeleteEnvironmentMembership.html#%24sel%3AuserArn%3ADeleteEnvironmentMembership%27"><span class="hs-identifier hs-var">userArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679169466"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Cloud9.DeleteEnvironmentMembership.html#DeleteEnvironmentMembership"><span class="hs-identifier hs-type">DeleteEnvironmentMembership</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679169510"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Cloud9.DeleteEnvironmentMembership.html#DeleteEnvironmentMembership"><span class="hs-identifier hs-type">DeleteEnvironmentMembership</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Cloud9.DeleteEnvironmentMembership.html#DeleteEnvironmentMembership"><span class="hs-identifier hs-type">DeleteEnvironmentMembership</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-96"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-97"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Cloud9.DeleteEnvironmentMembership.html#DeleteEnvironmentMembership"><span class="hs-identifier hs-type">DeleteEnvironmentMembership</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>      </span><span class="annot"><a href="Network.AWS.Cloud9.DeleteEnvironmentMembership.html#DeleteEnvironmentMembershipResponse"><span class="hs-identifier hs-type">DeleteEnvironmentMembershipResponse</span></a></span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679169462"><span class="annot"><span class="annottext">request :: DeleteEnvironmentMembership -&gt; Request DeleteEnvironmentMembership
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679169506"><span class="annot"><span class="annottext">request :: DeleteEnvironmentMembership -&gt; Request DeleteEnvironmentMembership
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DeleteEnvironmentMembership
 -&gt; Request DeleteEnvironmentMembership
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Cloud9.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679169458"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679169502"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteEnvironmentMembership
 -&gt; ClientResponse ClientBody
@@ -234,10 +234,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679169455"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679169455"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679169454"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679169454"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679169453"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679169453"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679169499"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679169499"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679169498"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679169498"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679169497"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679169497"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-103"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteEnvironmentMembershipResponse
 </span><a href="Network.AWS.Cloud9.DeleteEnvironmentMembership.html#DeleteEnvironmentMembershipResponse%27"><span class="hs-identifier hs-var">DeleteEnvironmentMembershipResponse'</span></a></span><span>
 </span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteEnvironmentMembershipResponse)
@@ -249,15 +249,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679169455"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679169499"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679169446"><span id="local-6989586621679169448"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Cloud9.DeleteEnvironmentMembership.html#DeleteEnvironmentMembership"><span class="hs-identifier hs-type">DeleteEnvironmentMembership</span></a></span></span></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679169490"><span id="local-6989586621679169492"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Cloud9.DeleteEnvironmentMembership.html#DeleteEnvironmentMembership"><span class="hs-identifier hs-type">DeleteEnvironmentMembership</span></a></span></span></span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679169443"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Cloud9.DeleteEnvironmentMembership.html#DeleteEnvironmentMembership"><span class="hs-identifier hs-type">DeleteEnvironmentMembership</span></a></span></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679169487"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Cloud9.DeleteEnvironmentMembership.html#DeleteEnvironmentMembership"><span class="hs-identifier hs-type">DeleteEnvironmentMembership</span></a></span></span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Cloud9.DeleteEnvironmentMembership.html#DeleteEnvironmentMembership"><span class="hs-identifier hs-type">DeleteEnvironmentMembership</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679169439"><span class="annot"><span class="annottext">toHeaders :: DeleteEnvironmentMembership -&gt; ResponseHeaders
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679169483"><span class="annot"><span class="annottext">toHeaders :: DeleteEnvironmentMembership -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteEnvironmentMembership -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -284,14 +284,14 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-123"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-124"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679169429"><span id="local-6989586621679169431"><span id="local-6989586621679169433"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Cloud9.DeleteEnvironmentMembership.html#DeleteEnvironmentMembership"><span class="hs-identifier hs-type">DeleteEnvironmentMembership</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679169427"><span class="annot"><span class="annottext">toJSON :: DeleteEnvironmentMembership -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Cloud9.DeleteEnvironmentMembership.html#DeleteEnvironmentMembership%27"><span class="hs-identifier hs-type">DeleteEnvironmentMembership'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679169424"><span id="local-6989586621679169425"><span class="annot"><span class="annottext">Text
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679169473"><span id="local-6989586621679169475"><span id="local-6989586621679169477"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Cloud9.DeleteEnvironmentMembership.html#DeleteEnvironmentMembership"><span class="hs-identifier hs-type">DeleteEnvironmentMembership</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679169471"><span class="annot"><span class="annottext">toJSON :: DeleteEnvironmentMembership -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Cloud9.DeleteEnvironmentMembership.html#DeleteEnvironmentMembership%27"><span class="hs-identifier hs-type">DeleteEnvironmentMembership'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679169468"><span id="local-6989586621679169469"><span class="annot"><span class="annottext">Text
 userArn :: Text
 environmentId :: Text
 $sel:userArn:DeleteEnvironmentMembership' :: DeleteEnvironmentMembership -&gt; Text
 $sel:environmentId:DeleteEnvironmentMembership' :: DeleteEnvironmentMembership -&gt; Text
-</span><a href="#local-6989586621679169424"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679169468"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-128"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-129"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -304,26 +304,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;environmentId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679169425"><span class="hs-identifier hs-var">environmentId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679169469"><span class="hs-identifier hs-var">environmentId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;userArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679169424"><span class="hs-identifier hs-var">userArn</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679169468"><span class="hs-identifier hs-var">userArn</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-134"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Cloud9.DeleteEnvironmentMembership.html#DeleteEnvironmentMembership"><span class="hs-identifier hs-type">DeleteEnvironmentMembership</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679169418"><span class="annot"><span class="annottext">toPath :: DeleteEnvironmentMembership -&gt; ByteString
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679169462"><span class="annot"><span class="annottext">toPath :: DeleteEnvironmentMembership -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteEnvironmentMembership -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Cloud9.DeleteEnvironmentMembership.html#DeleteEnvironmentMembership"><span class="hs-identifier hs-type">DeleteEnvironmentMembership</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679169414"><span class="annot"><span class="annottext">toQuery :: DeleteEnvironmentMembership -&gt; QueryString
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679169458"><span class="annot"><span class="annottext">toQuery :: DeleteEnvironmentMembership -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteEnvironmentMembership -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -331,12 +331,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- | /See:/ 'newDeleteEnvironmentMembershipResponse' smart constructor.</span><span>
-</span><span id="line-143"></span><span id="local-6989586621679169411"><span id="local-6989586621679169412"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteEnvironmentMembershipResponse"><span class="annot"><a href="Network.AWS.Cloud9.DeleteEnvironmentMembership.html#DeleteEnvironmentMembershipResponse"><span class="hs-identifier hs-var">DeleteEnvironmentMembershipResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteEnvironmentMembershipResponse%27"><span class="annot"><a href="Network.AWS.Cloud9.DeleteEnvironmentMembership.html#DeleteEnvironmentMembershipResponse%27"><span class="hs-identifier hs-var">DeleteEnvironmentMembershipResponse'</span></a></span></span><span>
+</span><span id="line-143"></span><span id="local-6989586621679169455"><span id="local-6989586621679169456"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteEnvironmentMembershipResponse"><span class="annot"><a href="Network.AWS.Cloud9.DeleteEnvironmentMembership.html#DeleteEnvironmentMembershipResponse"><span class="hs-identifier hs-var">DeleteEnvironmentMembershipResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteEnvironmentMembershipResponse%27"><span class="annot"><a href="Network.AWS.Cloud9.DeleteEnvironmentMembership.html#DeleteEnvironmentMembershipResponse%27"><span class="hs-identifier hs-var">DeleteEnvironmentMembershipResponse'</span></a></span></span><span>
 </span><span id="line-144"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-145"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteEnvironmentMembershipResponse%27"><span class="annot"><span class="annottext">DeleteEnvironmentMembershipResponse -&gt; Int
 </span><a href="Network.AWS.Cloud9.DeleteEnvironmentMembership.html#%24sel%3AhttpStatus%3ADeleteEnvironmentMembershipResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-146"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-147"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679169406"><span id="local-6989586621679169408"><span class="annot"><span class="annottext">DeleteEnvironmentMembershipResponse
+</span><span id="line-147"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679169450"><span id="local-6989586621679169452"><span class="annot"><span class="annottext">DeleteEnvironmentMembershipResponse
 -&gt; DeleteEnvironmentMembershipResponse -&gt; Bool
 (DeleteEnvironmentMembershipResponse
  -&gt; DeleteEnvironmentMembershipResponse -&gt; Bool)
@@ -352,7 +352,7 @@ $c/= :: DeleteEnvironmentMembershipResponse
 -&gt; DeleteEnvironmentMembershipResponse -&gt; Bool
 $c== :: DeleteEnvironmentMembershipResponse
 -&gt; DeleteEnvironmentMembershipResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679169398"><span id="local-6989586621679169400"><span id="local-6989586621679169402"><span id="local-6989586621679169404"><span class="annot"><span class="annottext">ReadPrec [DeleteEnvironmentMembershipResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679169442"><span id="local-6989586621679169444"><span id="local-6989586621679169446"><span id="local-6989586621679169448"><span class="annot"><span class="annottext">ReadPrec [DeleteEnvironmentMembershipResponse]
 ReadPrec DeleteEnvironmentMembershipResponse
 Int -&gt; ReadS DeleteEnvironmentMembershipResponse
 ReadS [DeleteEnvironmentMembershipResponse]
@@ -372,7 +372,7 @@ readList :: ReadS [DeleteEnvironmentMembershipResponse]
 $creadList :: ReadS [DeleteEnvironmentMembershipResponse]
 readsPrec :: Int -&gt; ReadS DeleteEnvironmentMembershipResponse
 $creadsPrec :: Int -&gt; ReadS DeleteEnvironmentMembershipResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679169392"><span id="local-6989586621679169394"><span id="local-6989586621679169396"><span class="annot"><span class="annottext">Int -&gt; DeleteEnvironmentMembershipResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679169436"><span id="local-6989586621679169438"><span id="local-6989586621679169440"><span class="annot"><span class="annottext">Int -&gt; DeleteEnvironmentMembershipResponse -&gt; ShowS
 [DeleteEnvironmentMembershipResponse] -&gt; ShowS
 DeleteEnvironmentMembershipResponse -&gt; String
 (Int -&gt; DeleteEnvironmentMembershipResponse -&gt; ShowS)
@@ -424,14 +424,14 @@ DeleteEnvironmentMembershipResponse
 </span><span id="line-160"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-161"></span><span>  </span><span class="annot"><a href="Network.AWS.Cloud9.DeleteEnvironmentMembership.html#DeleteEnvironmentMembershipResponse"><span class="hs-identifier hs-type">DeleteEnvironmentMembershipResponse</span></a></span><span>
 </span><span id="line-162"></span><span id="newDeleteEnvironmentMembershipResponse"><span class="annot"><span class="annottext">newDeleteEnvironmentMembershipResponse :: Int -&gt; DeleteEnvironmentMembershipResponse
-</span><a href="Network.AWS.Cloud9.DeleteEnvironmentMembership.html#newDeleteEnvironmentMembershipResponse"><span class="hs-identifier hs-var hs-var">newDeleteEnvironmentMembershipResponse</span></a></span></span><span> </span><span id="local-6989586621679169389"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679169389"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Cloud9.DeleteEnvironmentMembership.html#newDeleteEnvironmentMembershipResponse"><span class="hs-identifier hs-var hs-var">newDeleteEnvironmentMembershipResponse</span></a></span></span><span> </span><span id="local-6989586621679169433"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679169433"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-163"></span><span>  </span><span class="annot"><span class="annottext">DeleteEnvironmentMembershipResponse' :: Int -&gt; DeleteEnvironmentMembershipResponse
 </span><a href="Network.AWS.Cloud9.DeleteEnvironmentMembership.html#DeleteEnvironmentMembershipResponse%27"><span class="hs-identifier hs-type">DeleteEnvironmentMembershipResponse'</span></a></span><span>
 </span><span id="line-164"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteEnvironmentMembershipResponse' :: Int
 </span><a href="Network.AWS.Cloud9.DeleteEnvironmentMembership.html#%24sel%3AhttpStatus%3ADeleteEnvironmentMembershipResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-165"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679169389"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679169433"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-166"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-167"></span><span>
 </span><span id="line-168"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -448,18 +448,18 @@ DeleteEnvironmentMembershipResponse
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Cloud9.DeleteEnvironmentMembership.html#DeleteEnvironmentMembershipResponse%27"><span class="hs-identifier hs-type">DeleteEnvironmentMembershipResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679169388"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Cloud9.DeleteEnvironmentMembership.html#DeleteEnvironmentMembershipResponse%27"><span class="hs-identifier hs-type">DeleteEnvironmentMembershipResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679169432"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteEnvironmentMembershipResponse' :: DeleteEnvironmentMembershipResponse -&gt; Int
-</span><a href="#local-6989586621679169388"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679169388"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679169387"><span class="annot"><span class="annottext">s :: DeleteEnvironmentMembershipResponse
-</span><a href="#local-6989586621679169387"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Cloud9.DeleteEnvironmentMembership.html#DeleteEnvironmentMembershipResponse%27"><span class="hs-identifier hs-type">DeleteEnvironmentMembershipResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679169386"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679169386"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteEnvironmentMembershipResponse
-</span><a href="#local-6989586621679169387"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteEnvironmentMembershipResponse' :: Int
+</span><a href="#local-6989586621679169432"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679169432"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679169431"><span class="annot"><span class="annottext">s :: DeleteEnvironmentMembershipResponse
+</span><a href="#local-6989586621679169431"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Cloud9.DeleteEnvironmentMembership.html#DeleteEnvironmentMembershipResponse%27"><span class="hs-identifier hs-type">DeleteEnvironmentMembershipResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679169430"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679169430"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteEnvironmentMembershipResponse
+</span><a href="#local-6989586621679169431"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteEnvironmentMembershipResponse' :: Int
 </span><a href="Network.AWS.Cloud9.DeleteEnvironmentMembership.html#%24sel%3AhttpStatus%3ADeleteEnvironmentMembershipResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679169386"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Cloud9.DeleteEnvironmentMembership.html#DeleteEnvironmentMembershipResponse"><span class="hs-identifier hs-type">DeleteEnvironmentMembershipResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679169430"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Cloud9.DeleteEnvironmentMembership.html#DeleteEnvironmentMembershipResponse"><span class="hs-identifier hs-type">DeleteEnvironmentMembershipResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-171"></span><span>
 </span><span id="line-172"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-173"></span><span>  </span><span id="local-6989586621679169384"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679169428"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-174"></span><span>    </span><span class="annot"><a href="Network.AWS.Cloud9.DeleteEnvironmentMembership.html#DeleteEnvironmentMembershipResponse"><span class="hs-identifier hs-type">DeleteEnvironmentMembershipResponse</span></a></span></span><span>
 </span><span id="line-175"></span></pre></body></html>

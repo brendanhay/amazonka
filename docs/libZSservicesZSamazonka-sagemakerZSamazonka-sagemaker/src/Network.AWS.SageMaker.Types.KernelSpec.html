@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | The specification of a Jupyter kernel.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newKernelSpec' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621680311064"><span id="local-6989586621680311065"></span></span><span class="hs-keyword">data</span><span> </span><span id="KernelSpec"><span class="annot"><a href="Network.AWS.SageMaker.Types.KernelSpec.html#KernelSpec"><span class="hs-identifier hs-var">KernelSpec</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="KernelSpec%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.KernelSpec.html#KernelSpec%27"><span class="hs-identifier hs-var">KernelSpec'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621680312439"><span id="local-6989586621680312440"></span></span><span class="hs-keyword">data</span><span> </span><span id="KernelSpec"><span class="annot"><a href="Network.AWS.SageMaker.Types.KernelSpec.html#KernelSpec"><span class="hs-identifier hs-var">KernelSpec</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="KernelSpec%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.KernelSpec.html#KernelSpec%27"><span class="hs-identifier hs-var">KernelSpec'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The display name of the kernel.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AdisplayName%3AKernelSpec%27"><span class="annot"><span class="annottext">KernelSpec -&gt; Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.KernelSpec.html#%24sel%3AdisplayName%3AKernelSpec%27"><span class="hs-identifier hs-var hs-var">displayName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -35,7 +35,7 @@
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Aname%3AKernelSpec%27"><span class="annot"><span class="annottext">KernelSpec -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.KernelSpec.html#%24sel%3Aname%3AKernelSpec%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680311057"><span id="local-6989586621680311059"><span class="annot"><span class="annottext">KernelSpec -&gt; KernelSpec -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680312432"><span id="local-6989586621680312434"><span class="annot"><span class="annottext">KernelSpec -&gt; KernelSpec -&gt; Bool
 (KernelSpec -&gt; KernelSpec -&gt; Bool)
 -&gt; (KernelSpec -&gt; KernelSpec -&gt; Bool) -&gt; Eq KernelSpec
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: KernelSpec -&gt; KernelSpec -&gt; Bool
 == :: KernelSpec -&gt; KernelSpec -&gt; Bool
 $c== :: KernelSpec -&gt; KernelSpec -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680311048"><span id="local-6989586621680311050"><span id="local-6989586621680311052"><span id="local-6989586621680311054"><span class="annot"><span class="annottext">ReadPrec [KernelSpec]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680312423"><span id="local-6989586621680312425"><span id="local-6989586621680312427"><span id="local-6989586621680312429"><span class="annot"><span class="annottext">ReadPrec [KernelSpec]
 ReadPrec KernelSpec
 Int -&gt; ReadS KernelSpec
 ReadS [KernelSpec]
@@ -63,7 +63,7 @@ readList :: ReadS [KernelSpec]
 $creadList :: ReadS [KernelSpec]
 readsPrec :: Int -&gt; ReadS KernelSpec
 $creadsPrec :: Int -&gt; ReadS KernelSpec
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680311041"><span id="local-6989586621680311043"><span id="local-6989586621680311045"><span class="annot"><span class="annottext">Int -&gt; KernelSpec -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680312416"><span id="local-6989586621680312418"><span id="local-6989586621680312420"><span class="annot"><span class="annottext">Int -&gt; KernelSpec -&gt; ShowS
 [KernelSpec] -&gt; ShowS
 KernelSpec -&gt; String
 (Int -&gt; KernelSpec -&gt; ShowS)
@@ -105,8 +105,8 @@ $cfrom :: forall x. KernelSpec -&gt; Rep KernelSpec x
 </span><span id="line-52"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-53"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.KernelSpec.html#KernelSpec"><span class="hs-identifier hs-type">KernelSpec</span></a></span><span>
 </span><span id="line-54"></span><span id="newKernelSpec"><span class="annot"><span class="annottext">newKernelSpec :: Text -&gt; KernelSpec
-</span><a href="Network.AWS.SageMaker.Types.KernelSpec.html#newKernelSpec"><span class="hs-identifier hs-var hs-var">newKernelSpec</span></a></span></span><span> </span><span id="local-6989586621680311035"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680311035"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SageMaker.Types.KernelSpec.html#newKernelSpec"><span class="hs-identifier hs-var hs-var">newKernelSpec</span></a></span></span><span> </span><span id="local-6989586621680312410"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680312410"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">KernelSpec' :: Maybe Text -&gt; Text -&gt; KernelSpec
 </span><a href="Network.AWS.SageMaker.Types.KernelSpec.html#KernelSpec%27"><span class="hs-identifier hs-type">KernelSpec'</span></a></span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:displayName:KernelSpec' :: Maybe Text
@@ -115,7 +115,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:KernelSpec' :: Text
 </span><a href="Network.AWS.SageMaker.Types.KernelSpec.html#%24sel%3Aname%3AKernelSpec%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680311035"><span class="hs-identifier hs-var">pName_</span></a></span><span>
+</span><a href="#local-6989586621680312410"><span class="hs-identifier hs-var">pName_</span></a></span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- | The display name of the kernel.</span><span>
@@ -125,16 +125,16 @@ forall a. Maybe a
 -&gt; (KernelSpec -&gt; Maybe Text -&gt; KernelSpec)
 -&gt; Lens KernelSpec KernelSpec (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.KernelSpec.html#KernelSpec%27"><span class="hs-identifier hs-type">KernelSpec'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680311031"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.KernelSpec.html#KernelSpec%27"><span class="hs-identifier hs-type">KernelSpec'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680312406"><span class="annot"><span class="annottext">Maybe Text
 displayName :: Maybe Text
 $sel:displayName:KernelSpec' :: KernelSpec -&gt; Maybe Text
-</span><a href="#local-6989586621680311031"><span class="hs-identifier hs-var hs-var">displayName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680311031"><span class="hs-identifier hs-var">displayName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680311030"><span class="annot"><span class="annottext">s :: KernelSpec
-</span><a href="#local-6989586621680311030"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.KernelSpec.html#KernelSpec%27"><span class="hs-identifier hs-type">KernelSpec'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680311029"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680311029"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KernelSpec
-</span><a href="#local-6989586621680311030"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:displayName:KernelSpec' :: Maybe Text
+</span><a href="#local-6989586621680312406"><span class="hs-identifier hs-var hs-var">displayName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680312406"><span class="hs-identifier hs-var">displayName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680312405"><span class="annot"><span class="annottext">s :: KernelSpec
+</span><a href="#local-6989586621680312405"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.KernelSpec.html#KernelSpec%27"><span class="hs-identifier hs-type">KernelSpec'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680312404"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680312404"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KernelSpec
+</span><a href="#local-6989586621680312405"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:displayName:KernelSpec' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.KernelSpec.html#%24sel%3AdisplayName%3AKernelSpec%27"><span class="hs-identifier hs-var">displayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680311029"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.KernelSpec.html#KernelSpec"><span class="hs-identifier hs-type">KernelSpec</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680312404"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.KernelSpec.html#KernelSpec"><span class="hs-identifier hs-type">KernelSpec</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- | The name of the Jupyter kernel in the image. This value is case</span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- sensitive.</span><span>
@@ -144,19 +144,19 @@ $sel:displayName:KernelSpec' :: KernelSpec -&gt; Maybe Text
 -&gt; (KernelSpec -&gt; Text -&gt; KernelSpec)
 -&gt; Lens KernelSpec KernelSpec Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.KernelSpec.html#KernelSpec%27"><span class="hs-identifier hs-type">KernelSpec'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680311027"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.KernelSpec.html#KernelSpec%27"><span class="hs-identifier hs-type">KernelSpec'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680312402"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:KernelSpec' :: KernelSpec -&gt; Text
-</span><a href="#local-6989586621680311027"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680311027"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680311026"><span class="annot"><span class="annottext">s :: KernelSpec
-</span><a href="#local-6989586621680311026"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.KernelSpec.html#KernelSpec%27"><span class="hs-identifier hs-type">KernelSpec'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680311025"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680311025"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KernelSpec
-</span><a href="#local-6989586621680311026"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:KernelSpec' :: Text
+</span><a href="#local-6989586621680312402"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680312402"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680312401"><span class="annot"><span class="annottext">s :: KernelSpec
+</span><a href="#local-6989586621680312401"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.KernelSpec.html#KernelSpec%27"><span class="hs-identifier hs-type">KernelSpec'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680312400"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680312400"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KernelSpec
+</span><a href="#local-6989586621680312401"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:KernelSpec' :: Text
 </span><a href="Network.AWS.SageMaker.Types.KernelSpec.html#%24sel%3Aname%3AKernelSpec%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680311025"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.KernelSpec.html#KernelSpec"><span class="hs-identifier hs-type">KernelSpec</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680312400"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.KernelSpec.html#KernelSpec"><span class="hs-identifier hs-type">KernelSpec</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680311022"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.KernelSpec.html#KernelSpec"><span class="hs-identifier hs-type">KernelSpec</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621680311020"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser KernelSpec
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680312397"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.KernelSpec.html#KernelSpec"><span class="hs-identifier hs-type">KernelSpec</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621680312395"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser KernelSpec
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser KernelSpec) -&gt; Value -&gt; Parser KernelSpec
@@ -164,40 +164,40 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;KernelSpec&quot;</span></span><span>
-</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680311017"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680311017"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680312392"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680312392"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-74"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Text -&gt; KernelSpec
 </span><a href="Network.AWS.SageMaker.Types.KernelSpec.html#KernelSpec%27"><span class="hs-identifier hs-var">KernelSpec'</span></a></span><span>
 </span><span id="line-75"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Text -&gt; KernelSpec)
 -&gt; Parser (Maybe Text) -&gt; Parser (Text -&gt; KernelSpec)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680311017"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680312392"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DisplayName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; KernelSpec) -&gt; Parser Text -&gt; Parser KernelSpec
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680311017"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621680312392"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680311010"><span id="local-6989586621680311012"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.KernelSpec.html#KernelSpec"><span class="hs-identifier hs-type">KernelSpec</span></a></span></span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680312385"><span id="local-6989586621680312387"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.KernelSpec.html#KernelSpec"><span class="hs-identifier hs-type">KernelSpec</span></a></span></span></span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680311007"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.KernelSpec.html#KernelSpec"><span class="hs-identifier hs-type">KernelSpec</span></a></span></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680312382"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.KernelSpec.html#KernelSpec"><span class="hs-identifier hs-type">KernelSpec</span></a></span></span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680310999"><span id="local-6989586621680311001"><span id="local-6989586621680311003"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.KernelSpec.html#KernelSpec"><span class="hs-identifier hs-type">KernelSpec</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621680310997"><span class="annot"><span class="annottext">toJSON :: KernelSpec -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.KernelSpec.html#KernelSpec%27"><span class="hs-identifier hs-type">KernelSpec'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680310994"><span id="local-6989586621680310995"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680312374"><span id="local-6989586621680312376"><span id="local-6989586621680312378"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.KernelSpec.html#KernelSpec"><span class="hs-identifier hs-type">KernelSpec</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621680312372"><span class="annot"><span class="annottext">toJSON :: KernelSpec -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.KernelSpec.html#KernelSpec%27"><span class="hs-identifier hs-type">KernelSpec'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680312369"><span id="local-6989586621680312370"><span class="annot"><span class="annottext">Maybe Text
 Text
 name :: Text
 displayName :: Maybe Text
 $sel:name:KernelSpec' :: KernelSpec -&gt; Text
 $sel:displayName:KernelSpec' :: KernelSpec -&gt; Maybe Text
-</span><a href="#local-6989586621680310994"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680312369"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -209,14 +209,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680310995"><span class="hs-identifier hs-var">displayName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680312370"><span class="hs-identifier hs-var">displayName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680310994"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680312369"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-90"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span></pre></body></html>

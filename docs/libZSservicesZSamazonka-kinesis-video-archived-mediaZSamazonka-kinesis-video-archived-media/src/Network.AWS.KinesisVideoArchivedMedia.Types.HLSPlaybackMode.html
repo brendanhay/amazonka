@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679164774"><span id="local-6989586621679164775"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HLSPlaybackMode"><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.Types.HLSPlaybackMode.html#HLSPlaybackMode"><span class="hs-identifier hs-var">HLSPlaybackMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HLSPlaybackMode%27"><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.Types.HLSPlaybackMode.html#HLSPlaybackMode%27"><span class="hs-identifier hs-var">HLSPlaybackMode'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679164785"><span id="local-6989586621679164786"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HLSPlaybackMode"><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.Types.HLSPlaybackMode.html#HLSPlaybackMode"><span class="hs-identifier hs-var">HLSPlaybackMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HLSPlaybackMode%27"><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.Types.HLSPlaybackMode.html#HLSPlaybackMode%27"><span class="hs-identifier hs-var">HLSPlaybackMode'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromHLSPlaybackMode"><span class="annot"><span class="annottext">HLSPlaybackMode -&gt; Text
 </span><a href="Network.AWS.KinesisVideoArchivedMedia.Types.HLSPlaybackMode.html#fromHLSPlaybackMode"><span class="hs-identifier hs-var hs-var">fromHLSPlaybackMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679164766"><span id="local-6989586621679164768"><span id="local-6989586621679164770"><span class="annot"><span class="annottext">Int -&gt; HLSPlaybackMode -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679164777"><span id="local-6989586621679164779"><span id="local-6989586621679164781"><span class="annot"><span class="annottext">Int -&gt; HLSPlaybackMode -&gt; ShowS
 [HLSPlaybackMode] -&gt; ShowS
 HLSPlaybackMode -&gt; String
 (Int -&gt; HLSPlaybackMode -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: HLSPlaybackMode -&gt; String
 showsPrec :: Int -&gt; HLSPlaybackMode -&gt; ShowS
 $cshowsPrec :: Int -&gt; HLSPlaybackMode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679164757"><span id="local-6989586621679164759"><span id="local-6989586621679164761"><span id="local-6989586621679164763"><span class="annot"><span class="annottext">ReadPrec [HLSPlaybackMode]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679164768"><span id="local-6989586621679164770"><span id="local-6989586621679164772"><span id="local-6989586621679164774"><span class="annot"><span class="annottext">ReadPrec [HLSPlaybackMode]
 ReadPrec HLSPlaybackMode
 Int -&gt; ReadS HLSPlaybackMode
 ReadS [HLSPlaybackMode]
@@ -73,7 +73,7 @@ $creadList :: ReadS [HLSPlaybackMode]
 readsPrec :: Int -&gt; ReadS HLSPlaybackMode
 $creadsPrec :: Int -&gt; ReadS HLSPlaybackMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679164752"><span id="local-6989586621679164754"><span class="annot"><span class="annottext">HLSPlaybackMode -&gt; HLSPlaybackMode -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679164763"><span id="local-6989586621679164765"><span class="annot"><span class="annottext">HLSPlaybackMode -&gt; HLSPlaybackMode -&gt; Bool
 (HLSPlaybackMode -&gt; HLSPlaybackMode -&gt; Bool)
 -&gt; (HLSPlaybackMode -&gt; HLSPlaybackMode -&gt; Bool)
 -&gt; Eq HLSPlaybackMode
@@ -83,7 +83,7 @@ $c/= :: HLSPlaybackMode -&gt; HLSPlaybackMode -&gt; Bool
 == :: HLSPlaybackMode -&gt; HLSPlaybackMode -&gt; Bool
 $c== :: HLSPlaybackMode -&gt; HLSPlaybackMode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679164736"><span id="local-6989586621679164738"><span id="local-6989586621679164740"><span id="local-6989586621679164742"><span id="local-6989586621679164744"><span id="local-6989586621679164746"><span id="local-6989586621679164748"><span class="annot"><span class="annottext">Eq HLSPlaybackMode
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679164747"><span id="local-6989586621679164749"><span id="local-6989586621679164751"><span id="local-6989586621679164753"><span id="local-6989586621679164755"><span id="local-6989586621679164757"><span id="local-6989586621679164759"><span class="annot"><span class="annottext">Eq HLSPlaybackMode
 Eq HLSPlaybackMode
 -&gt; (HLSPlaybackMode -&gt; HLSPlaybackMode -&gt; Ordering)
 -&gt; (HLSPlaybackMode -&gt; HLSPlaybackMode -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. HLSPlaybackMode -&gt; Rep HLSPlaybackMode x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679164728"><span id="local-6989586621679164730"><span class="annot"><span class="annottext">Int -&gt; HLSPlaybackMode -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679164739"><span id="local-6989586621679164741"><span class="annot"><span class="annottext">Int -&gt; HLSPlaybackMode -&gt; Int
 HLSPlaybackMode -&gt; Int
 (Int -&gt; HLSPlaybackMode -&gt; Int)
 -&gt; (HLSPlaybackMode -&gt; Int) -&gt; Hashable HLSPlaybackMode
@@ -144,50 +144,50 @@ $chash :: HLSPlaybackMode -&gt; Int
 hashWithSalt :: Int -&gt; HLSPlaybackMode -&gt; Int
 $chashWithSalt :: Int -&gt; HLSPlaybackMode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679164725"><span class="annot"><span class="annottext">HLSPlaybackMode -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679164736"><span class="annot"><span class="annottext">HLSPlaybackMode -&gt; ()
 (HLSPlaybackMode -&gt; ()) -&gt; NFData HLSPlaybackMode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: HLSPlaybackMode -&gt; ()
 $crnf :: HLSPlaybackMode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679164722"><span class="annot"><span class="annottext">Text -&gt; Either String HLSPlaybackMode
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679164733"><span class="annot"><span class="annottext">Text -&gt; Either String HLSPlaybackMode
 (Text -&gt; Either String HLSPlaybackMode) -&gt; FromText HLSPlaybackMode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String HLSPlaybackMode
 $cfromText :: Text -&gt; Either String HLSPlaybackMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679164719"><span class="annot"><span class="annottext">HLSPlaybackMode -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679164730"><span class="annot"><span class="annottext">HLSPlaybackMode -&gt; Text
 (HLSPlaybackMode -&gt; Text) -&gt; ToText HLSPlaybackMode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: HLSPlaybackMode -&gt; Text
 $ctoText :: HLSPlaybackMode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679164716"><span class="annot"><span class="annottext">HLSPlaybackMode -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679164727"><span class="annot"><span class="annottext">HLSPlaybackMode -&gt; ByteString
 (HLSPlaybackMode -&gt; ByteString) -&gt; ToByteString HLSPlaybackMode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: HLSPlaybackMode -&gt; ByteString
 $ctoBS :: HLSPlaybackMode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679164713"><span class="annot"><span class="annottext">HLSPlaybackMode -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679164724"><span class="annot"><span class="annottext">HLSPlaybackMode -&gt; ByteStringBuilder
 (HLSPlaybackMode -&gt; ByteStringBuilder) -&gt; ToLog HLSPlaybackMode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: HLSPlaybackMode -&gt; ByteStringBuilder
 $cbuild :: HLSPlaybackMode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679164710"><span class="annot"><span class="annottext">HeaderName -&gt; HLSPlaybackMode -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679164721"><span class="annot"><span class="annottext">HeaderName -&gt; HLSPlaybackMode -&gt; [Header]
 (HeaderName -&gt; HLSPlaybackMode -&gt; [Header])
 -&gt; ToHeader HLSPlaybackMode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; HLSPlaybackMode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; HLSPlaybackMode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679164707"><span class="annot"><span class="annottext">HLSPlaybackMode -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679164718"><span class="annot"><span class="annottext">HLSPlaybackMode -&gt; QueryString
 (HLSPlaybackMode -&gt; QueryString) -&gt; ToQuery HLSPlaybackMode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: HLSPlaybackMode -&gt; QueryString
 $ctoQuery :: HLSPlaybackMode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679164702"><span id="local-6989586621679164704"><span class="annot"><span class="annottext">Value -&gt; Parser [HLSPlaybackMode]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679164713"><span id="local-6989586621679164715"><span class="annot"><span class="annottext">Value -&gt; Parser [HLSPlaybackMode]
 Value -&gt; Parser HLSPlaybackMode
 (Value -&gt; Parser HLSPlaybackMode)
 -&gt; (Value -&gt; Parser [HLSPlaybackMode]) -&gt; FromJSON HLSPlaybackMode
@@ -198,7 +198,7 @@ $cparseJSONList :: Value -&gt; Parser [HLSPlaybackMode]
 parseJSON :: Value -&gt; Parser HLSPlaybackMode
 $cparseJSON :: Value -&gt; Parser HLSPlaybackMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679164697"><span id="local-6989586621679164699"><span class="annot"><span class="annottext">FromJSONKeyFunction [HLSPlaybackMode]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679164708"><span id="local-6989586621679164710"><span class="annot"><span class="annottext">FromJSONKeyFunction [HLSPlaybackMode]
 FromJSONKeyFunction HLSPlaybackMode
 FromJSONKeyFunction HLSPlaybackMode
 -&gt; FromJSONKeyFunction [HLSPlaybackMode]
@@ -210,7 +210,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [HLSPlaybackMode]
 fromJSONKey :: FromJSONKeyFunction HLSPlaybackMode
 $cfromJSONKey :: FromJSONKeyFunction HLSPlaybackMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679164688"><span id="local-6989586621679164690"><span id="local-6989586621679164692"><span id="local-6989586621679164694"><span class="annot"><span class="annottext">[HLSPlaybackMode] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679164699"><span id="local-6989586621679164701"><span id="local-6989586621679164703"><span id="local-6989586621679164705"><span class="annot"><span class="annottext">[HLSPlaybackMode] -&gt; Encoding
 [HLSPlaybackMode] -&gt; Value
 HLSPlaybackMode -&gt; Encoding
 HLSPlaybackMode -&gt; Value
@@ -234,7 +234,7 @@ $ctoEncoding :: HLSPlaybackMode -&gt; Encoding
 toJSON :: HLSPlaybackMode -&gt; Value
 $ctoJSON :: HLSPlaybackMode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679164683"><span id="local-6989586621679164685"><span class="annot"><span class="annottext">ToJSONKeyFunction [HLSPlaybackMode]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679164694"><span id="local-6989586621679164696"><span class="annot"><span class="annottext">ToJSONKeyFunction [HLSPlaybackMode]
 ToJSONKeyFunction HLSPlaybackMode
 ToJSONKeyFunction HLSPlaybackMode
 -&gt; ToJSONKeyFunction [HLSPlaybackMode] -&gt; ToJSONKey HLSPlaybackMode
@@ -245,14 +245,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [HLSPlaybackMode]
 toJSONKey :: ToJSONKeyFunction HLSPlaybackMode
 $ctoJSONKey :: ToJSONKeyFunction HLSPlaybackMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679164680"><span class="annot"><span class="annottext">[Node] -&gt; Either String HLSPlaybackMode
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679164691"><span class="annot"><span class="annottext">[Node] -&gt; Either String HLSPlaybackMode
 ([Node] -&gt; Either String HLSPlaybackMode)
 -&gt; FromXML HLSPlaybackMode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String HLSPlaybackMode
 $cparseXML :: [Node] -&gt; Either String HLSPlaybackMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679164677"><span class="annot"><span class="annottext">HLSPlaybackMode -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679164688"><span class="annot"><span class="annottext">HLSPlaybackMode -&gt; XML
 (HLSPlaybackMode -&gt; XML) -&gt; ToXML HLSPlaybackMode
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: HLSPlaybackMode -&gt; XML

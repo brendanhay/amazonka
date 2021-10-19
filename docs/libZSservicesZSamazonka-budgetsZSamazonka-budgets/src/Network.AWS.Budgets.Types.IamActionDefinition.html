@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | The AWS Identity and Access Management (IAM) action definition details.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newIamActionDefinition' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679206915"><span id="local-6989586621679206916"></span></span><span class="hs-keyword">data</span><span> </span><span id="IamActionDefinition"><span class="annot"><a href="Network.AWS.Budgets.Types.IamActionDefinition.html#IamActionDefinition"><span class="hs-identifier hs-var">IamActionDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IamActionDefinition%27"><span class="annot"><a href="Network.AWS.Budgets.Types.IamActionDefinition.html#IamActionDefinition%27"><span class="hs-identifier hs-var">IamActionDefinition'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679207011"><span id="local-6989586621679207012"></span></span><span class="hs-keyword">data</span><span> </span><span id="IamActionDefinition"><span class="annot"><a href="Network.AWS.Budgets.Types.IamActionDefinition.html#IamActionDefinition"><span class="hs-identifier hs-var">IamActionDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IamActionDefinition%27"><span class="annot"><a href="Network.AWS.Budgets.Types.IamActionDefinition.html#IamActionDefinition%27"><span class="hs-identifier hs-var">IamActionDefinition'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of groups to be attached. There must be at least one group.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3Agroups%3AIamActionDefinition%27"><span class="annot"><span class="annottext">IamActionDefinition -&gt; Maybe (NonEmpty Text)
 </span><a href="Network.AWS.Budgets.Types.IamActionDefinition.html#%24sel%3Agroups%3AIamActionDefinition%27"><span class="hs-identifier hs-var hs-var">groups</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -40,7 +40,7 @@
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3ApolicyArn%3AIamActionDefinition%27"><span class="annot"><span class="annottext">IamActionDefinition -&gt; Text
 </span><a href="Network.AWS.Budgets.Types.IamActionDefinition.html#%24sel%3ApolicyArn%3AIamActionDefinition%27"><span class="hs-identifier hs-var hs-var">policyArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679206906"><span id="local-6989586621679206908"><span class="annot"><span class="annottext">IamActionDefinition -&gt; IamActionDefinition -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679207002"><span id="local-6989586621679207004"><span class="annot"><span class="annottext">IamActionDefinition -&gt; IamActionDefinition -&gt; Bool
 (IamActionDefinition -&gt; IamActionDefinition -&gt; Bool)
 -&gt; (IamActionDefinition -&gt; IamActionDefinition -&gt; Bool)
 -&gt; Eq IamActionDefinition
@@ -49,7 +49,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: IamActionDefinition -&gt; IamActionDefinition -&gt; Bool
 == :: IamActionDefinition -&gt; IamActionDefinition -&gt; Bool
 $c== :: IamActionDefinition -&gt; IamActionDefinition -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679206897"><span id="local-6989586621679206899"><span id="local-6989586621679206901"><span id="local-6989586621679206903"><span class="annot"><span class="annottext">ReadPrec [IamActionDefinition]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679206993"><span id="local-6989586621679206995"><span id="local-6989586621679206997"><span id="local-6989586621679206999"><span class="annot"><span class="annottext">ReadPrec [IamActionDefinition]
 ReadPrec IamActionDefinition
 Int -&gt; ReadS IamActionDefinition
 ReadS [IamActionDefinition]
@@ -69,7 +69,7 @@ readList :: ReadS [IamActionDefinition]
 $creadList :: ReadS [IamActionDefinition]
 readsPrec :: Int -&gt; ReadS IamActionDefinition
 $creadsPrec :: Int -&gt; ReadS IamActionDefinition
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679206890"><span id="local-6989586621679206892"><span id="local-6989586621679206894"><span class="annot"><span class="annottext">Int -&gt; IamActionDefinition -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679206986"><span id="local-6989586621679206988"><span id="local-6989586621679206990"><span class="annot"><span class="annottext">Int -&gt; IamActionDefinition -&gt; ShowS
 [IamActionDefinition] -&gt; ShowS
 IamActionDefinition -&gt; String
 (Int -&gt; IamActionDefinition -&gt; ShowS)
@@ -115,8 +115,8 @@ $cfrom :: forall x. IamActionDefinition -&gt; Rep IamActionDefinition x
 </span><span id="line-58"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-59"></span><span>  </span><span class="annot"><a href="Network.AWS.Budgets.Types.IamActionDefinition.html#IamActionDefinition"><span class="hs-identifier hs-type">IamActionDefinition</span></a></span><span>
 </span><span id="line-60"></span><span id="newIamActionDefinition"><span class="annot"><span class="annottext">newIamActionDefinition :: Text -&gt; IamActionDefinition
-</span><a href="Network.AWS.Budgets.Types.IamActionDefinition.html#newIamActionDefinition"><span class="hs-identifier hs-var hs-var">newIamActionDefinition</span></a></span></span><span> </span><span id="local-6989586621679206884"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679206884"><span class="hs-identifier hs-var">pPolicyArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Budgets.Types.IamActionDefinition.html#newIamActionDefinition"><span class="hs-identifier hs-var hs-var">newIamActionDefinition</span></a></span></span><span> </span><span id="local-6989586621679206980"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679206980"><span class="hs-identifier hs-var">pPolicyArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-61"></span><span>  </span><span class="annot"><span class="annottext">IamActionDefinition' :: Maybe (NonEmpty Text)
 -&gt; Maybe (NonEmpty Text)
 -&gt; Maybe (NonEmpty Text)
@@ -137,7 +137,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:policyArn:IamActionDefinition' :: Text
 </span><a href="Network.AWS.Budgets.Types.IamActionDefinition.html#%24sel%3ApolicyArn%3AIamActionDefinition%27"><span class="hs-identifier hs-var">policyArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679206884"><span class="hs-identifier hs-var">pPolicyArn_</span></a></span><span>
+</span><a href="#local-6989586621679206980"><span class="hs-identifier hs-var">pPolicyArn_</span></a></span><span>
 </span><span id="line-66"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-67"></span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- | A list of groups to be attached. There must be at least one group.</span><span>
@@ -153,16 +153,16 @@ forall a. Maybe a
      (Maybe (NonEmpty Text))
      (Maybe (NonEmpty Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.Types.IamActionDefinition.html#IamActionDefinition%27"><span class="hs-identifier hs-type">IamActionDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206880"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.Types.IamActionDefinition.html#IamActionDefinition%27"><span class="hs-identifier hs-type">IamActionDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206976"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
 groups :: Maybe (NonEmpty Text)
 $sel:groups:IamActionDefinition' :: IamActionDefinition -&gt; Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679206880"><span class="hs-identifier hs-var hs-var">groups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679206880"><span class="hs-identifier hs-var">groups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206879"><span class="annot"><span class="annottext">s :: IamActionDefinition
-</span><a href="#local-6989586621679206879"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.Types.IamActionDefinition.html#IamActionDefinition%27"><span class="hs-identifier hs-type">IamActionDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206878"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679206878"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IamActionDefinition
-</span><a href="#local-6989586621679206879"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groups:IamActionDefinition' :: Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679206976"><span class="hs-identifier hs-var hs-var">groups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679206976"><span class="hs-identifier hs-var">groups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206975"><span class="annot"><span class="annottext">s :: IamActionDefinition
+</span><a href="#local-6989586621679206975"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.Types.IamActionDefinition.html#IamActionDefinition%27"><span class="hs-identifier hs-type">IamActionDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206974"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679206974"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IamActionDefinition
+</span><a href="#local-6989586621679206975"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groups:IamActionDefinition' :: Maybe (NonEmpty Text)
 </span><a href="Network.AWS.Budgets.Types.IamActionDefinition.html#%24sel%3Agroups%3AIamActionDefinition%27"><span class="hs-identifier hs-var">groups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679206878"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.IamActionDefinition.html#IamActionDefinition"><span class="hs-identifier hs-type">IamActionDefinition</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+</span><a href="#local-6989586621679206974"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.IamActionDefinition.html#IamActionDefinition"><span class="hs-identifier hs-type">IamActionDefinition</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
  -&gt; IamActionDefinition -&gt; f IamActionDefinition)
 -&gt; ((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
     -&gt; Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
@@ -182,8 +182,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
   (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- | A list of roles to be attached. There must be at least one role.</span><span>
 </span><span id="line-73"></span><span class="annot"><a href="Network.AWS.Budgets.Types.IamActionDefinition.html#iamActionDefinition_roles"><span class="hs-identifier hs-type">iamActionDefinition_roles</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.IamActionDefinition.html#IamActionDefinition"><span class="hs-identifier hs-type">IamActionDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
@@ -198,16 +198,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe (NonEmpty Text))
      (Maybe (NonEmpty Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.Types.IamActionDefinition.html#IamActionDefinition%27"><span class="hs-identifier hs-type">IamActionDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206873"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.Types.IamActionDefinition.html#IamActionDefinition%27"><span class="hs-identifier hs-type">IamActionDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206969"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
 roles :: Maybe (NonEmpty Text)
 $sel:roles:IamActionDefinition' :: IamActionDefinition -&gt; Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679206873"><span class="hs-identifier hs-var hs-var">roles</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679206873"><span class="hs-identifier hs-var">roles</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206872"><span class="annot"><span class="annottext">s :: IamActionDefinition
-</span><a href="#local-6989586621679206872"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.Types.IamActionDefinition.html#IamActionDefinition%27"><span class="hs-identifier hs-type">IamActionDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206871"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679206871"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IamActionDefinition
-</span><a href="#local-6989586621679206872"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roles:IamActionDefinition' :: Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679206969"><span class="hs-identifier hs-var hs-var">roles</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679206969"><span class="hs-identifier hs-var">roles</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206968"><span class="annot"><span class="annottext">s :: IamActionDefinition
+</span><a href="#local-6989586621679206968"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.Types.IamActionDefinition.html#IamActionDefinition%27"><span class="hs-identifier hs-type">IamActionDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206967"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679206967"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IamActionDefinition
+</span><a href="#local-6989586621679206968"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roles:IamActionDefinition' :: Maybe (NonEmpty Text)
 </span><a href="Network.AWS.Budgets.Types.IamActionDefinition.html#%24sel%3Aroles%3AIamActionDefinition%27"><span class="hs-identifier hs-var">roles</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679206871"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.IamActionDefinition.html#IamActionDefinition"><span class="hs-identifier hs-type">IamActionDefinition</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+</span><a href="#local-6989586621679206967"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.IamActionDefinition.html#IamActionDefinition"><span class="hs-identifier hs-type">IamActionDefinition</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
  -&gt; IamActionDefinition -&gt; f IamActionDefinition)
 -&gt; ((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
     -&gt; Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
@@ -227,8 +227,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
   (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- | A list of users to be attached. There must be at least one user.</span><span>
 </span><span id="line-77"></span><span class="annot"><a href="Network.AWS.Budgets.Types.IamActionDefinition.html#iamActionDefinition_users"><span class="hs-identifier hs-type">iamActionDefinition_users</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.IamActionDefinition.html#IamActionDefinition"><span class="hs-identifier hs-type">IamActionDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
@@ -243,16 +243,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe (NonEmpty Text))
      (Maybe (NonEmpty Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.Types.IamActionDefinition.html#IamActionDefinition%27"><span class="hs-identifier hs-type">IamActionDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206869"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.Types.IamActionDefinition.html#IamActionDefinition%27"><span class="hs-identifier hs-type">IamActionDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206965"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
 users :: Maybe (NonEmpty Text)
 $sel:users:IamActionDefinition' :: IamActionDefinition -&gt; Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679206869"><span class="hs-identifier hs-var hs-var">users</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679206869"><span class="hs-identifier hs-var">users</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206868"><span class="annot"><span class="annottext">s :: IamActionDefinition
-</span><a href="#local-6989586621679206868"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.Types.IamActionDefinition.html#IamActionDefinition%27"><span class="hs-identifier hs-type">IamActionDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206867"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679206867"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IamActionDefinition
-</span><a href="#local-6989586621679206868"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:users:IamActionDefinition' :: Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679206965"><span class="hs-identifier hs-var hs-var">users</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679206965"><span class="hs-identifier hs-var">users</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206964"><span class="annot"><span class="annottext">s :: IamActionDefinition
+</span><a href="#local-6989586621679206964"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.Types.IamActionDefinition.html#IamActionDefinition%27"><span class="hs-identifier hs-type">IamActionDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206963"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679206963"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IamActionDefinition
+</span><a href="#local-6989586621679206964"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:users:IamActionDefinition' :: Maybe (NonEmpty Text)
 </span><a href="Network.AWS.Budgets.Types.IamActionDefinition.html#%24sel%3Ausers%3AIamActionDefinition%27"><span class="hs-identifier hs-var">users</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679206867"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.IamActionDefinition.html#IamActionDefinition"><span class="hs-identifier hs-type">IamActionDefinition</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+</span><a href="#local-6989586621679206963"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.IamActionDefinition.html#IamActionDefinition"><span class="hs-identifier hs-type">IamActionDefinition</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
  -&gt; IamActionDefinition -&gt; f IamActionDefinition)
 -&gt; ((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
     -&gt; Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
@@ -272,8 +272,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
   (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the policy to be attached.</span><span>
 </span><span id="line-81"></span><span class="annot"><a href="Network.AWS.Budgets.Types.IamActionDefinition.html#iamActionDefinition_policyArn"><span class="hs-identifier hs-type">iamActionDefinition_policyArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.IamActionDefinition.html#IamActionDefinition"><span class="hs-identifier hs-type">IamActionDefinition</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -282,19 +282,19 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (IamActionDefinition -&gt; Text -&gt; IamActionDefinition)
 -&gt; Lens IamActionDefinition IamActionDefinition Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.Types.IamActionDefinition.html#IamActionDefinition%27"><span class="hs-identifier hs-type">IamActionDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206865"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.Types.IamActionDefinition.html#IamActionDefinition%27"><span class="hs-identifier hs-type">IamActionDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206961"><span class="annot"><span class="annottext">Text
 policyArn :: Text
 $sel:policyArn:IamActionDefinition' :: IamActionDefinition -&gt; Text
-</span><a href="#local-6989586621679206865"><span class="hs-identifier hs-var hs-var">policyArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679206865"><span class="hs-identifier hs-var">policyArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206864"><span class="annot"><span class="annottext">s :: IamActionDefinition
-</span><a href="#local-6989586621679206864"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.Types.IamActionDefinition.html#IamActionDefinition%27"><span class="hs-identifier hs-type">IamActionDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206863"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679206863"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IamActionDefinition
-</span><a href="#local-6989586621679206864"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyArn:IamActionDefinition' :: Text
+</span><a href="#local-6989586621679206961"><span class="hs-identifier hs-var hs-var">policyArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679206961"><span class="hs-identifier hs-var">policyArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206960"><span class="annot"><span class="annottext">s :: IamActionDefinition
+</span><a href="#local-6989586621679206960"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.Types.IamActionDefinition.html#IamActionDefinition%27"><span class="hs-identifier hs-type">IamActionDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206959"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679206959"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IamActionDefinition
+</span><a href="#local-6989586621679206960"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyArn:IamActionDefinition' :: Text
 </span><a href="Network.AWS.Budgets.Types.IamActionDefinition.html#%24sel%3ApolicyArn%3AIamActionDefinition%27"><span class="hs-identifier hs-var">policyArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679206863"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.IamActionDefinition.html#IamActionDefinition"><span class="hs-identifier hs-type">IamActionDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679206959"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.IamActionDefinition.html#IamActionDefinition"><span class="hs-identifier hs-type">IamActionDefinition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679206860"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.IamActionDefinition.html#IamActionDefinition"><span class="hs-identifier hs-type">IamActionDefinition</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679206858"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser IamActionDefinition
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679206956"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.IamActionDefinition.html#IamActionDefinition"><span class="hs-identifier hs-type">IamActionDefinition</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679206954"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser IamActionDefinition
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser IamActionDefinition)
@@ -304,8 +304,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;IamActionDefinition&quot;</span></span><span>
-</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679206855"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679206855"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679206951"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679206951"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-89"></span><span>          </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
 -&gt; Maybe (NonEmpty Text)
 -&gt; Maybe (NonEmpty Text)
@@ -323,7 +323,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Maybe (NonEmpty Text) -&gt; Text -&gt; IamActionDefinition)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679206855"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty Text))
+</span><a href="#local-6989586621679206951"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty Text))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Groups&quot;</span></span><span class="hs-special">)</span><span>
@@ -334,7 +334,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe (NonEmpty Text) -&gt; Text -&gt; IamActionDefinition)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679206855"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty Text))
+</span><a href="#local-6989586621679206951"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty Text))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Roles&quot;</span></span><span class="hs-special">)</span><span>
@@ -343,7 +343,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Text -&gt; IamActionDefinition)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679206855"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty Text))
+</span><a href="#local-6989586621679206951"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty Text))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Users&quot;</span></span><span class="hs-special">)</span><span>
@@ -351,19 +351,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Text -&gt; Parser IamActionDefinition
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679206855"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679206951"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PolicyArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679206848"><span id="local-6989586621679206850"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.IamActionDefinition.html#IamActionDefinition"><span class="hs-identifier hs-type">IamActionDefinition</span></a></span></span></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679206944"><span id="local-6989586621679206946"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.IamActionDefinition.html#IamActionDefinition"><span class="hs-identifier hs-type">IamActionDefinition</span></a></span></span></span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679206845"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.IamActionDefinition.html#IamActionDefinition"><span class="hs-identifier hs-type">IamActionDefinition</span></a></span></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679206941"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.IamActionDefinition.html#IamActionDefinition"><span class="hs-identifier hs-type">IamActionDefinition</span></a></span></span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679206837"><span id="local-6989586621679206839"><span id="local-6989586621679206841"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.IamActionDefinition.html#IamActionDefinition"><span class="hs-identifier hs-type">IamActionDefinition</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679206835"><span class="annot"><span class="annottext">toJSON :: IamActionDefinition -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.IamActionDefinition.html#IamActionDefinition%27"><span class="hs-identifier hs-type">IamActionDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206830"><span id="local-6989586621679206831"><span id="local-6989586621679206832"><span id="local-6989586621679206833"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679206933"><span id="local-6989586621679206935"><span id="local-6989586621679206937"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.IamActionDefinition.html#IamActionDefinition"><span class="hs-identifier hs-type">IamActionDefinition</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679206931"><span class="annot"><span class="annottext">toJSON :: IamActionDefinition -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.IamActionDefinition.html#IamActionDefinition%27"><span class="hs-identifier hs-type">IamActionDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206926"><span id="local-6989586621679206927"><span id="local-6989586621679206928"><span id="local-6989586621679206929"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
 Text
 policyArn :: Text
 users :: Maybe (NonEmpty Text)
@@ -373,7 +373,7 @@ $sel:policyArn:IamActionDefinition' :: IamActionDefinition -&gt; Text
 $sel:users:IamActionDefinition' :: IamActionDefinition -&gt; Maybe (NonEmpty Text)
 $sel:roles:IamActionDefinition' :: IamActionDefinition -&gt; Maybe (NonEmpty Text)
 $sel:groups:IamActionDefinition' :: IamActionDefinition -&gt; Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679206830"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679206926"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-103"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -385,28 +385,28 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; Pair) -&gt; Maybe (NonEmpty Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679206833"><span class="hs-identifier hs-var">groups</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679206929"><span class="hs-identifier hs-var">groups</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-105"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Roles&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; Pair) -&gt; Maybe (NonEmpty Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679206832"><span class="hs-identifier hs-var">roles</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679206928"><span class="hs-identifier hs-var">roles</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-106"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Users&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; Pair) -&gt; Maybe (NonEmpty Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679206831"><span class="hs-identifier hs-var">users</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679206927"><span class="hs-identifier hs-var">users</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PolicyArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679206830"><span class="hs-identifier hs-var">policyArn</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679206926"><span class="hs-identifier hs-var">policyArn</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span></pre></body></html>

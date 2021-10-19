@@ -70,8 +70,8 @@
 </span><span id="line-70"></span><span>    </span><span class="annot"><a href="Network.AWS.GameLift.StopFleetActions.html#newStopFleetActionsResponse"><span class="hs-identifier">newStopFleetActionsResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-73"></span><span>    </span><span class="annot"><a href="Network.AWS.GameLift.StopFleetActions.html#stopFleetActionsResponse_fleetId"><span class="hs-identifier">stopFleetActionsResponse_fleetId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-74"></span><span>    </span><span class="annot"><a href="Network.AWS.GameLift.StopFleetActions.html#stopFleetActionsResponse_fleetArn"><span class="hs-identifier">stopFleetActionsResponse_fleetArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><a href="Network.AWS.GameLift.StopFleetActions.html#stopFleetActionsResponse_fleetArn"><span class="hs-identifier">stopFleetActionsResponse_fleetArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="annot"><a href="Network.AWS.GameLift.StopFleetActions.html#stopFleetActionsResponse_fleetId"><span class="hs-identifier">stopFleetActionsResponse_fleetId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-75"></span><span>    </span><span class="annot"><a href="Network.AWS.GameLift.StopFleetActions.html#stopFleetActionsResponse_httpStatus"><span class="hs-identifier">stopFleetActionsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-76"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span class="hs-keyword">where</span><span>
@@ -86,7 +86,7 @@
 </span><span id="line-86"></span><span class="hs-comment">-- | Represents the input for a request operation.</span><span>
 </span><span id="line-87"></span><span class="hs-comment">--</span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- /See:/ 'newStopFleetActions' smart constructor.</span><span>
-</span><span id="line-89"></span><span id="local-6989586621679444232"><span id="local-6989586621679444233"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopFleetActions"><span class="annot"><a href="Network.AWS.GameLift.StopFleetActions.html#StopFleetActions"><span class="hs-identifier hs-var">StopFleetActions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopFleetActions%27"><span class="annot"><a href="Network.AWS.GameLift.StopFleetActions.html#StopFleetActions%27"><span class="hs-identifier hs-var">StopFleetActions'</span></a></span></span><span>
+</span><span id="line-89"></span><span id="local-6989586621679444699"><span id="local-6989586621679444700"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopFleetActions"><span class="annot"><a href="Network.AWS.GameLift.StopFleetActions.html#StopFleetActions"><span class="hs-identifier hs-var">StopFleetActions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopFleetActions%27"><span class="annot"><a href="Network.AWS.GameLift.StopFleetActions.html#StopFleetActions%27"><span class="hs-identifier hs-var">StopFleetActions'</span></a></span></span><span>
 </span><span id="line-90"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The fleet location to stop fleet actions for. Specify a location in the</span><span>
 </span><span id="line-91"></span><span>    </span><span class="hs-comment">-- form of an AWS Region code, such as @us-west-2@.</span><span>
 </span><span id="line-92"></span><span>    </span><span id="%24sel%3Alocation%3AStopFleetActions%27"><span class="annot"><span class="annottext">StopFleetActions -&gt; Maybe Text
@@ -99,7 +99,7 @@
 </span><span id="line-97"></span><span>    </span><span id="%24sel%3Aactions%3AStopFleetActions%27"><span class="annot"><span class="annottext">StopFleetActions -&gt; NonEmpty FleetAction
 </span><a href="Network.AWS.GameLift.StopFleetActions.html#%24sel%3Aactions%3AStopFleetActions%27"><span class="hs-identifier hs-var hs-var">actions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.FleetAction.html#FleetAction"><span class="hs-identifier hs-type">FleetAction</span></a></span><span>
 </span><span id="line-98"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-99"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679444224"><span id="local-6989586621679444226"><span class="annot"><span class="annottext">StopFleetActions -&gt; StopFleetActions -&gt; Bool
+</span><span id="line-99"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679444691"><span id="local-6989586621679444693"><span class="annot"><span class="annottext">StopFleetActions -&gt; StopFleetActions -&gt; Bool
 (StopFleetActions -&gt; StopFleetActions -&gt; Bool)
 -&gt; (StopFleetActions -&gt; StopFleetActions -&gt; Bool)
 -&gt; Eq StopFleetActions
@@ -108,7 +108,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StopFleetActions -&gt; StopFleetActions -&gt; Bool
 == :: StopFleetActions -&gt; StopFleetActions -&gt; Bool
 $c== :: StopFleetActions -&gt; StopFleetActions -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679444215"><span id="local-6989586621679444217"><span id="local-6989586621679444219"><span id="local-6989586621679444221"><span class="annot"><span class="annottext">ReadPrec [StopFleetActions]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679444682"><span id="local-6989586621679444684"><span id="local-6989586621679444686"><span id="local-6989586621679444688"><span class="annot"><span class="annottext">ReadPrec [StopFleetActions]
 ReadPrec StopFleetActions
 Int -&gt; ReadS StopFleetActions
 ReadS [StopFleetActions]
@@ -128,7 +128,7 @@ readList :: ReadS [StopFleetActions]
 $creadList :: ReadS [StopFleetActions]
 readsPrec :: Int -&gt; ReadS StopFleetActions
 $creadsPrec :: Int -&gt; ReadS StopFleetActions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679444208"><span id="local-6989586621679444210"><span id="local-6989586621679444212"><span class="annot"><span class="annottext">Int -&gt; StopFleetActions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679444675"><span id="local-6989586621679444677"><span id="local-6989586621679444679"><span class="annot"><span class="annottext">Int -&gt; StopFleetActions -&gt; ShowS
 [StopFleetActions] -&gt; ShowS
 StopFleetActions -&gt; String
 (Int -&gt; StopFleetActions -&gt; ShowS)
@@ -176,9 +176,9 @@ $cfrom :: forall x. StopFleetActions -&gt; Rep StopFleetActions x
 </span><span id="line-120"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.FleetAction.html#FleetAction"><span class="hs-identifier hs-type">FleetAction</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-121"></span><span>  </span><span class="annot"><a href="Network.AWS.GameLift.StopFleetActions.html#StopFleetActions"><span class="hs-identifier hs-type">StopFleetActions</span></a></span><span>
 </span><span id="line-122"></span><span id="newStopFleetActions"><span class="annot"><span class="annottext">newStopFleetActions :: Text -&gt; NonEmpty FleetAction -&gt; StopFleetActions
-</span><a href="Network.AWS.GameLift.StopFleetActions.html#newStopFleetActions"><span class="hs-identifier hs-var hs-var">newStopFleetActions</span></a></span></span><span> </span><span id="local-6989586621679444203"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679444203"><span class="hs-identifier hs-var">pFleetId_</span></a></span></span><span> </span><span id="local-6989586621679444202"><span class="annot"><span class="annottext">NonEmpty FleetAction
-</span><a href="#local-6989586621679444202"><span class="hs-identifier hs-var">pActions_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.GameLift.StopFleetActions.html#newStopFleetActions"><span class="hs-identifier hs-var hs-var">newStopFleetActions</span></a></span></span><span> </span><span id="local-6989586621679444670"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679444670"><span class="hs-identifier hs-var">pFleetId_</span></a></span></span><span> </span><span id="local-6989586621679444669"><span class="annot"><span class="annottext">NonEmpty FleetAction
+</span><a href="#local-6989586621679444669"><span class="hs-identifier hs-var">pActions_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-123"></span><span>  </span><span class="annot"><span class="annottext">StopFleetActions' :: Maybe Text -&gt; Text -&gt; NonEmpty FleetAction -&gt; StopFleetActions
 </span><a href="Network.AWS.GameLift.StopFleetActions.html#StopFleetActions%27"><span class="hs-identifier hs-type">StopFleetActions'</span></a></span><span>
 </span><span id="line-124"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:location:StopFleetActions' :: Maybe Text
@@ -187,17 +187,17 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">$sel:fleetId:StopFleetActions' :: Text
 </span><a href="Network.AWS.GameLift.StopFleetActions.html#%24sel%3AfleetId%3AStopFleetActions%27"><span class="hs-identifier hs-var">fleetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679444203"><span class="hs-identifier hs-var">pFleetId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679444670"><span class="hs-identifier hs-var">pFleetId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">$sel:actions:StopFleetActions' :: NonEmpty FleetAction
 </span><a href="Network.AWS.GameLift.StopFleetActions.html#%24sel%3Aactions%3AStopFleetActions%27"><span class="hs-identifier hs-var">actions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged (NonEmpty FleetAction) (Identity (NonEmpty FleetAction))
 -&gt; Tagged (NonEmpty FleetAction) (Identity (NonEmpty FleetAction))
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty FleetAction) (Identity (NonEmpty FleetAction))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty FleetAction) (Identity (NonEmpty FleetAction))
  -&gt; Tagged (NonEmpty FleetAction) (Identity (NonEmpty FleetAction)))
 -&gt; NonEmpty FleetAction -&gt; NonEmpty FleetAction
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty FleetAction
-</span><a href="#local-6989586621679444202"><span class="hs-identifier hs-var">pActions_</span></a></span><span>
+</span><a href="#local-6989586621679444669"><span class="hs-identifier hs-var">pActions_</span></a></span><span>
 </span><span id="line-127"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-comment">-- | The fleet location to stop fleet actions for. Specify a location in the</span><span>
@@ -209,16 +209,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; (StopFleetActions -&gt; Maybe Text -&gt; StopFleetActions)
 -&gt; Lens StopFleetActions StopFleetActions (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.StopFleetActions.html#StopFleetActions%27"><span class="hs-identifier hs-type">StopFleetActions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679444197"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.StopFleetActions.html#StopFleetActions%27"><span class="hs-identifier hs-type">StopFleetActions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679444664"><span class="annot"><span class="annottext">Maybe Text
 location :: Maybe Text
 $sel:location:StopFleetActions' :: StopFleetActions -&gt; Maybe Text
-</span><a href="#local-6989586621679444197"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679444197"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679444196"><span class="annot"><span class="annottext">s :: StopFleetActions
-</span><a href="#local-6989586621679444196"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.StopFleetActions.html#StopFleetActions%27"><span class="hs-identifier hs-type">StopFleetActions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679444195"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679444195"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopFleetActions
-</span><a href="#local-6989586621679444196"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:location:StopFleetActions' :: Maybe Text
+</span><a href="#local-6989586621679444664"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679444664"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679444663"><span class="annot"><span class="annottext">s :: StopFleetActions
+</span><a href="#local-6989586621679444663"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.StopFleetActions.html#StopFleetActions%27"><span class="hs-identifier hs-type">StopFleetActions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679444662"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679444662"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopFleetActions
+</span><a href="#local-6989586621679444663"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:location:StopFleetActions' :: Maybe Text
 </span><a href="Network.AWS.GameLift.StopFleetActions.html#%24sel%3Alocation%3AStopFleetActions%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679444195"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StopFleetActions.html#StopFleetActions"><span class="hs-identifier hs-type">StopFleetActions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679444662"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StopFleetActions.html#StopFleetActions"><span class="hs-identifier hs-type">StopFleetActions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-comment">-- | A unique identifier for the fleet to stop actions on. You can use either</span><span>
 </span><span id="line-135"></span><span class="hs-comment">-- the fleet ID or ARN value.</span><span>
@@ -228,16 +228,16 @@ $sel:location:StopFleetActions' :: StopFleetActions -&gt; Maybe Text
 -&gt; (StopFleetActions -&gt; Text -&gt; StopFleetActions)
 -&gt; Lens StopFleetActions StopFleetActions Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.StopFleetActions.html#StopFleetActions%27"><span class="hs-identifier hs-type">StopFleetActions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679444194"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.StopFleetActions.html#StopFleetActions%27"><span class="hs-identifier hs-type">StopFleetActions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679444661"><span class="annot"><span class="annottext">Text
 fleetId :: Text
 $sel:fleetId:StopFleetActions' :: StopFleetActions -&gt; Text
-</span><a href="#local-6989586621679444194"><span class="hs-identifier hs-var hs-var">fleetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679444194"><span class="hs-identifier hs-var">fleetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679444193"><span class="annot"><span class="annottext">s :: StopFleetActions
-</span><a href="#local-6989586621679444193"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.StopFleetActions.html#StopFleetActions%27"><span class="hs-identifier hs-type">StopFleetActions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679444192"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679444192"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopFleetActions
-</span><a href="#local-6989586621679444193"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fleetId:StopFleetActions' :: Text
+</span><a href="#local-6989586621679444661"><span class="hs-identifier hs-var hs-var">fleetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679444661"><span class="hs-identifier hs-var">fleetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679444660"><span class="annot"><span class="annottext">s :: StopFleetActions
+</span><a href="#local-6989586621679444660"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.StopFleetActions.html#StopFleetActions%27"><span class="hs-identifier hs-type">StopFleetActions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679444659"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679444659"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopFleetActions
+</span><a href="#local-6989586621679444660"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fleetId:StopFleetActions' :: Text
 </span><a href="Network.AWS.GameLift.StopFleetActions.html#%24sel%3AfleetId%3AStopFleetActions%27"><span class="hs-identifier hs-var">fleetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679444192"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StopFleetActions.html#StopFleetActions"><span class="hs-identifier hs-type">StopFleetActions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679444659"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StopFleetActions.html#StopFleetActions"><span class="hs-identifier hs-type">StopFleetActions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-comment">-- | List of actions to suspend on the fleet.</span><span>
 </span><span id="line-140"></span><span class="annot"><a href="Network.AWS.GameLift.StopFleetActions.html#stopFleetActions_actions"><span class="hs-identifier hs-type">stopFleetActions_actions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StopFleetActions.html#StopFleetActions"><span class="hs-identifier hs-type">StopFleetActions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.FleetAction.html#FleetAction"><span class="hs-identifier hs-type">FleetAction</span></a></span><span class="hs-special">)</span><span>
@@ -251,16 +251,16 @@ $sel:fleetId:StopFleetActions' :: StopFleetActions -&gt; Text
      (NonEmpty FleetAction)
      (NonEmpty FleetAction)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.StopFleetActions.html#StopFleetActions%27"><span class="hs-identifier hs-type">StopFleetActions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679444191"><span class="annot"><span class="annottext">NonEmpty FleetAction
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.StopFleetActions.html#StopFleetActions%27"><span class="hs-identifier hs-type">StopFleetActions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679444658"><span class="annot"><span class="annottext">NonEmpty FleetAction
 actions :: NonEmpty FleetAction
 $sel:actions:StopFleetActions' :: StopFleetActions -&gt; NonEmpty FleetAction
-</span><a href="#local-6989586621679444191"><span class="hs-identifier hs-var hs-var">actions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty FleetAction
-</span><a href="#local-6989586621679444191"><span class="hs-identifier hs-var">actions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679444190"><span class="annot"><span class="annottext">s :: StopFleetActions
-</span><a href="#local-6989586621679444190"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.StopFleetActions.html#StopFleetActions%27"><span class="hs-identifier hs-type">StopFleetActions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679444189"><span class="annot"><span class="annottext">NonEmpty FleetAction
-</span><a href="#local-6989586621679444189"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopFleetActions
-</span><a href="#local-6989586621679444190"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actions:StopFleetActions' :: NonEmpty FleetAction
+</span><a href="#local-6989586621679444658"><span class="hs-identifier hs-var hs-var">actions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty FleetAction
+</span><a href="#local-6989586621679444658"><span class="hs-identifier hs-var">actions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679444657"><span class="annot"><span class="annottext">s :: StopFleetActions
+</span><a href="#local-6989586621679444657"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.StopFleetActions.html#StopFleetActions%27"><span class="hs-identifier hs-type">StopFleetActions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679444656"><span class="annot"><span class="annottext">NonEmpty FleetAction
+</span><a href="#local-6989586621679444656"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopFleetActions
+</span><a href="#local-6989586621679444657"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actions:StopFleetActions' :: NonEmpty FleetAction
 </span><a href="Network.AWS.GameLift.StopFleetActions.html#%24sel%3Aactions%3AStopFleetActions%27"><span class="hs-identifier hs-var">actions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty FleetAction
-</span><a href="#local-6989586621679444189"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StopFleetActions.html#StopFleetActions"><span class="hs-identifier hs-type">StopFleetActions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty FleetAction -&gt; f (NonEmpty FleetAction))
+</span><a href="#local-6989586621679444656"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StopFleetActions.html#StopFleetActions"><span class="hs-identifier hs-type">StopFleetActions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty FleetAction -&gt; f (NonEmpty FleetAction))
  -&gt; StopFleetActions -&gt; f StopFleetActions)
 -&gt; ((NonEmpty FleetAction -&gt; f (NonEmpty FleetAction))
     -&gt; NonEmpty FleetAction -&gt; f (NonEmpty FleetAction))
@@ -270,19 +270,19 @@ $sel:actions:StopFleetActions' :: StopFleetActions -&gt; NonEmpty FleetAction
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty FleetAction -&gt; f (NonEmpty FleetAction))
 -&gt; NonEmpty FleetAction -&gt; f (NonEmpty FleetAction)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StopFleetActions.html#StopFleetActions"><span class="hs-identifier hs-type">StopFleetActions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-144"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-145"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StopFleetActions.html#StopFleetActions"><span class="hs-identifier hs-type">StopFleetActions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-146"></span><span>      </span><span class="annot"><a href="Network.AWS.GameLift.StopFleetActions.html#StopFleetActionsResponse"><span class="hs-identifier hs-type">StopFleetActionsResponse</span></a></span><span>
-</span><span id="line-147"></span><span>  </span><span id="local-6989586621679444184"><span class="annot"><span class="annottext">request :: StopFleetActions -&gt; Request StopFleetActions
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679444651"><span class="annot"><span class="annottext">request :: StopFleetActions -&gt; Request StopFleetActions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; StopFleetActions -&gt; Request StopFleetActions
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.GameLift.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-148"></span><span>  </span><span id="local-6989586621679444180"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679444647"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy StopFleetActions
 -&gt; ClientResponse ClientBody
@@ -306,10 +306,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-150"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679444177"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679444177"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679444176"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679444176"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679444175"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679444175"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-150"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679444644"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679444644"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679444643"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679444643"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679444642"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679444642"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-151"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Int -&gt; StopFleetActionsResponse
 </span><a href="Network.AWS.GameLift.StopFleetActions.html#StopFleetActionsResponse%27"><span class="hs-identifier hs-var">StopFleetActionsResponse'</span></a></span><span>
 </span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Int -&gt; StopFleetActionsResponse)
@@ -317,19 +317,19 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe Text -&gt; Int -&gt; StopFleetActionsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679444175"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679444642"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;FleetId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;FleetArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; StopFleetActionsResponse)
 -&gt; Either String (Maybe Text)
 -&gt; Either String (Int -&gt; StopFleetActionsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679444175"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679444642"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;FleetArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;FleetId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; StopFleetActionsResponse)
 -&gt; Either String Int -&gt; Either String StopFleetActionsResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -338,15 +338,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679444177"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679444644"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>
-</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679444167"><span id="local-6989586621679444169"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StopFleetActions.html#StopFleetActions"><span class="hs-identifier hs-type">StopFleetActions</span></a></span></span></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679444634"><span id="local-6989586621679444636"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StopFleetActions.html#StopFleetActions"><span class="hs-identifier hs-type">StopFleetActions</span></a></span></span></span><span>
 </span><span id="line-158"></span><span>
-</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679444164"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StopFleetActions.html#StopFleetActions"><span class="hs-identifier hs-type">StopFleetActions</span></a></span></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679444631"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StopFleetActions.html#StopFleetActions"><span class="hs-identifier hs-type">StopFleetActions</span></a></span></span><span>
 </span><span id="line-160"></span><span>
 </span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StopFleetActions.html#StopFleetActions"><span class="hs-identifier hs-type">StopFleetActions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-162"></span><span>  </span><span id="local-6989586621679444160"><span class="annot"><span class="annottext">toHeaders :: StopFleetActions -&gt; ResponseHeaders
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679444627"><span class="annot"><span class="annottext">toHeaders :: StopFleetActions -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-163"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; StopFleetActions -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -371,9 +371,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-171"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-172"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-173"></span><span>
-</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679444150"><span id="local-6989586621679444152"><span id="local-6989586621679444154"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StopFleetActions.html#StopFleetActions"><span class="hs-identifier hs-type">StopFleetActions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-175"></span><span>  </span><span id="local-6989586621679444148"><span class="annot"><span class="annottext">toJSON :: StopFleetActions -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StopFleetActions.html#StopFleetActions%27"><span class="hs-identifier hs-type">StopFleetActions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679444144"><span id="local-6989586621679444145"><span id="local-6989586621679444146"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679444617"><span id="local-6989586621679444619"><span id="local-6989586621679444621"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StopFleetActions.html#StopFleetActions"><span class="hs-identifier hs-type">StopFleetActions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621679444615"><span class="annot"><span class="annottext">toJSON :: StopFleetActions -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StopFleetActions.html#StopFleetActions%27"><span class="hs-identifier hs-type">StopFleetActions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679444611"><span id="local-6989586621679444612"><span id="local-6989586621679444613"><span class="annot"><span class="annottext">Maybe Text
 NonEmpty FleetAction
 Text
 actions :: NonEmpty FleetAction
@@ -382,7 +382,7 @@ location :: Maybe Text
 $sel:actions:StopFleetActions' :: StopFleetActions -&gt; NonEmpty FleetAction
 $sel:fleetId:StopFleetActions' :: StopFleetActions -&gt; Text
 $sel:location:StopFleetActions' :: StopFleetActions -&gt; Maybe Text
-</span><a href="#local-6989586621679444144"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679444611"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-176"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-177"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -394,33 +394,33 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679444146"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679444613"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-179"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FleetId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679444145"><span class="hs-identifier hs-var">fleetId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679444612"><span class="hs-identifier hs-var">fleetId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-180"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Actions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty FleetAction -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty FleetAction
-</span><a href="#local-6989586621679444144"><span class="hs-identifier hs-var">actions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679444611"><span class="hs-identifier hs-var">actions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-181"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-182"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-183"></span><span>
 </span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StopFleetActions.html#StopFleetActions"><span class="hs-identifier hs-type">StopFleetActions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-185"></span><span>  </span><span id="local-6989586621679444138"><span class="annot"><span class="annottext">toPath :: StopFleetActions -&gt; ByteString
+</span><span id="line-185"></span><span>  </span><span id="local-6989586621679444605"><span class="annot"><span class="annottext">toPath :: StopFleetActions -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StopFleetActions -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-186"></span><span>
 </span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StopFleetActions.html#StopFleetActions"><span class="hs-identifier hs-type">StopFleetActions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-188"></span><span>  </span><span id="local-6989586621679444134"><span class="annot"><span class="annottext">toQuery :: StopFleetActions -&gt; QueryString
+</span><span id="line-188"></span><span>  </span><span id="local-6989586621679444601"><span class="annot"><span class="annottext">toQuery :: StopFleetActions -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; StopFleetActions -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -430,22 +430,22 @@ forall a. Monoid a =&gt; a
 </span><span id="line-190"></span><span class="hs-comment">-- | Represents the input for a request operation.</span><span>
 </span><span id="line-191"></span><span class="hs-comment">--</span><span>
 </span><span id="line-192"></span><span class="hs-comment">-- /See:/ 'newStopFleetActionsResponse' smart constructor.</span><span>
-</span><span id="line-193"></span><span id="local-6989586621679444131"><span id="local-6989586621679444132"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopFleetActionsResponse"><span class="annot"><a href="Network.AWS.GameLift.StopFleetActions.html#StopFleetActionsResponse"><span class="hs-identifier hs-var">StopFleetActionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopFleetActionsResponse%27"><span class="annot"><a href="Network.AWS.GameLift.StopFleetActions.html#StopFleetActionsResponse%27"><span class="hs-identifier hs-var">StopFleetActionsResponse'</span></a></span></span><span>
-</span><span id="line-194"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A unique identifier for the fleet to stop actions on.</span><span>
-</span><span id="line-195"></span><span>    </span><span id="%24sel%3AfleetId%3AStopFleetActionsResponse%27"><span class="annot"><span class="annottext">StopFleetActionsResponse -&gt; Maybe Text
-</span><a href="Network.AWS.GameLift.StopFleetActions.html#%24sel%3AfleetId%3AStopFleetActionsResponse%27"><span class="hs-identifier hs-var hs-var">fleetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-196"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name</span><span>
-</span><span id="line-197"></span><span>    </span><span class="hs-comment">-- (&lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN&gt;)</span><span>
-</span><span id="line-198"></span><span>    </span><span class="hs-comment">-- that is assigned to a GameLift fleet resource and uniquely identifies</span><span>
-</span><span id="line-199"></span><span>    </span><span class="hs-comment">-- it. ARNs are unique across all Regions. Format is</span><span>
-</span><span id="line-200"></span><span>    </span><span class="hs-comment">-- @arn:aws:gamelift:\&lt;region&gt;::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.</span><span>
-</span><span id="line-201"></span><span>    </span><span id="%24sel%3AfleetArn%3AStopFleetActionsResponse%27"><span class="annot"><span class="annottext">StopFleetActionsResponse -&gt; Maybe Text
+</span><span id="line-193"></span><span id="local-6989586621679444598"><span id="local-6989586621679444599"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopFleetActionsResponse"><span class="annot"><a href="Network.AWS.GameLift.StopFleetActions.html#StopFleetActionsResponse"><span class="hs-identifier hs-var">StopFleetActionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopFleetActionsResponse%27"><span class="annot"><a href="Network.AWS.GameLift.StopFleetActions.html#StopFleetActionsResponse%27"><span class="hs-identifier hs-var">StopFleetActionsResponse'</span></a></span></span><span>
+</span><span id="line-194"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name</span><span>
+</span><span id="line-195"></span><span>    </span><span class="hs-comment">-- (&lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN&gt;)</span><span>
+</span><span id="line-196"></span><span>    </span><span class="hs-comment">-- that is assigned to a GameLift fleet resource and uniquely identifies</span><span>
+</span><span id="line-197"></span><span>    </span><span class="hs-comment">-- it. ARNs are unique across all Regions. Format is</span><span>
+</span><span id="line-198"></span><span>    </span><span class="hs-comment">-- @arn:aws:gamelift:\&lt;region&gt;::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.</span><span>
+</span><span id="line-199"></span><span>    </span><span id="%24sel%3AfleetArn%3AStopFleetActionsResponse%27"><span class="annot"><span class="annottext">StopFleetActionsResponse -&gt; Maybe Text
 </span><a href="Network.AWS.GameLift.StopFleetActions.html#%24sel%3AfleetArn%3AStopFleetActionsResponse%27"><span class="hs-identifier hs-var hs-var">fleetArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>    </span><span class="hs-comment">-- | A unique identifier for the fleet to stop actions on.</span><span>
+</span><span id="line-201"></span><span>    </span><span id="%24sel%3AfleetId%3AStopFleetActionsResponse%27"><span class="annot"><span class="annottext">StopFleetActionsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.GameLift.StopFleetActions.html#%24sel%3AfleetId%3AStopFleetActionsResponse%27"><span class="hs-identifier hs-var hs-var">fleetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-202"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-203"></span><span>    </span><span id="%24sel%3AhttpStatus%3AStopFleetActionsResponse%27"><span class="annot"><span class="annottext">StopFleetActionsResponse -&gt; Int
 </span><a href="Network.AWS.GameLift.StopFleetActions.html#%24sel%3AhttpStatus%3AStopFleetActionsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-204"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-205"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679444124"><span id="local-6989586621679444126"><span class="annot"><span class="annottext">StopFleetActionsResponse -&gt; StopFleetActionsResponse -&gt; Bool
+</span><span id="line-205"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679444591"><span id="local-6989586621679444593"><span class="annot"><span class="annottext">StopFleetActionsResponse -&gt; StopFleetActionsResponse -&gt; Bool
 (StopFleetActionsResponse -&gt; StopFleetActionsResponse -&gt; Bool)
 -&gt; (StopFleetActionsResponse -&gt; StopFleetActionsResponse -&gt; Bool)
 -&gt; Eq StopFleetActionsResponse
@@ -454,7 +454,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StopFleetActionsResponse -&gt; StopFleetActionsResponse -&gt; Bool
 == :: StopFleetActionsResponse -&gt; StopFleetActionsResponse -&gt; Bool
 $c== :: StopFleetActionsResponse -&gt; StopFleetActionsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679444116"><span id="local-6989586621679444118"><span id="local-6989586621679444120"><span id="local-6989586621679444122"><span class="annot"><span class="annottext">ReadPrec [StopFleetActionsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679444583"><span id="local-6989586621679444585"><span id="local-6989586621679444587"><span id="local-6989586621679444589"><span class="annot"><span class="annottext">ReadPrec [StopFleetActionsResponse]
 ReadPrec StopFleetActionsResponse
 Int -&gt; ReadS StopFleetActionsResponse
 ReadS [StopFleetActionsResponse]
@@ -474,7 +474,7 @@ readList :: ReadS [StopFleetActionsResponse]
 $creadList :: ReadS [StopFleetActionsResponse]
 readsPrec :: Int -&gt; ReadS StopFleetActionsResponse
 $creadsPrec :: Int -&gt; ReadS StopFleetActionsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679444110"><span id="local-6989586621679444112"><span id="local-6989586621679444114"><span class="annot"><span class="annottext">Int -&gt; StopFleetActionsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679444577"><span id="local-6989586621679444579"><span id="local-6989586621679444581"><span class="annot"><span class="annottext">Int -&gt; StopFleetActionsResponse -&gt; ShowS
 [StopFleetActionsResponse] -&gt; ShowS
 StopFleetActionsResponse -&gt; String
 (Int -&gt; StopFleetActionsResponse -&gt; ShowS)
@@ -514,13 +514,13 @@ StopFleetActionsResponse -&gt; Rep StopFleetActionsResponse x
 </span><span id="line-212"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-213"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-214"></span><span class="hs-comment">--</span><span>
-</span><span id="line-215"></span><span class="hs-comment">-- 'fleetId', 'stopFleetActionsResponse_fleetId' - A unique identifier for the fleet to stop actions on.</span><span>
-</span><span id="line-216"></span><span class="hs-comment">--</span><span>
-</span><span id="line-217"></span><span class="hs-comment">-- 'fleetArn', 'stopFleetActionsResponse_fleetArn' - The Amazon Resource Name</span><span>
-</span><span id="line-218"></span><span class="hs-comment">-- (&lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN&gt;)</span><span>
-</span><span id="line-219"></span><span class="hs-comment">-- that is assigned to a GameLift fleet resource and uniquely identifies</span><span>
-</span><span id="line-220"></span><span class="hs-comment">-- it. ARNs are unique across all Regions. Format is</span><span>
-</span><span id="line-221"></span><span class="hs-comment">-- @arn:aws:gamelift:\&lt;region&gt;::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- 'fleetArn', 'stopFleetActionsResponse_fleetArn' - The Amazon Resource Name</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- (&lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN&gt;)</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- that is assigned to a GameLift fleet resource and uniquely identifies</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- it. ARNs are unique across all Regions. Format is</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- @arn:aws:gamelift:\&lt;region&gt;::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.</span><span>
+</span><span id="line-220"></span><span class="hs-comment">--</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- 'fleetId', 'stopFleetActionsResponse_fleetId' - A unique identifier for the fleet to stop actions on.</span><span>
 </span><span id="line-222"></span><span class="hs-comment">--</span><span>
 </span><span id="line-223"></span><span class="hs-comment">-- 'httpStatus', 'stopFleetActionsResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-224"></span><span class="annot"><a href="Network.AWS.GameLift.StopFleetActions.html#newStopFleetActionsResponse"><span class="hs-identifier hs-type">newStopFleetActionsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -528,55 +528,31 @@ StopFleetActionsResponse -&gt; Rep StopFleetActionsResponse x
 </span><span id="line-226"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-227"></span><span>  </span><span class="annot"><a href="Network.AWS.GameLift.StopFleetActions.html#StopFleetActionsResponse"><span class="hs-identifier hs-type">StopFleetActionsResponse</span></a></span><span>
 </span><span id="line-228"></span><span id="newStopFleetActionsResponse"><span class="annot"><span class="annottext">newStopFleetActionsResponse :: Int -&gt; StopFleetActionsResponse
-</span><a href="Network.AWS.GameLift.StopFleetActions.html#newStopFleetActionsResponse"><span class="hs-identifier hs-var hs-var">newStopFleetActionsResponse</span></a></span></span><span> </span><span id="local-6989586621679444107"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679444107"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.GameLift.StopFleetActions.html#newStopFleetActionsResponse"><span class="hs-identifier hs-var hs-var">newStopFleetActionsResponse</span></a></span></span><span> </span><span id="local-6989586621679444574"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679444574"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-229"></span><span>  </span><span class="annot"><span class="annottext">StopFleetActionsResponse' :: Maybe Text -&gt; Maybe Text -&gt; Int -&gt; StopFleetActionsResponse
 </span><a href="Network.AWS.GameLift.StopFleetActions.html#StopFleetActionsResponse%27"><span class="hs-identifier hs-type">StopFleetActionsResponse'</span></a></span><span>
-</span><span id="line-230"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:fleetId:StopFleetActionsResponse' :: Maybe Text
-</span><a href="Network.AWS.GameLift.StopFleetActions.html#%24sel%3AfleetId%3AStopFleetActionsResponse%27"><span class="hs-identifier hs-var">fleetId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-230"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:fleetArn:StopFleetActionsResponse' :: Maybe Text
+</span><a href="Network.AWS.GameLift.StopFleetActions.html#%24sel%3AfleetArn%3AStopFleetActionsResponse%27"><span class="hs-identifier hs-var">fleetArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-231"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-232"></span><span>      </span><span class="annot"><span class="annottext">$sel:fleetArn:StopFleetActionsResponse' :: Maybe Text
-</span><a href="Network.AWS.GameLift.StopFleetActions.html#%24sel%3AfleetArn%3AStopFleetActionsResponse%27"><span class="hs-identifier hs-var">fleetArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-232"></span><span>      </span><span class="annot"><span class="annottext">$sel:fleetId:StopFleetActionsResponse' :: Maybe Text
+</span><a href="Network.AWS.GameLift.StopFleetActions.html#%24sel%3AfleetId%3AStopFleetActionsResponse%27"><span class="hs-identifier hs-var">fleetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-233"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:StopFleetActionsResponse' :: Int
 </span><a href="Network.AWS.GameLift.StopFleetActions.html#%24sel%3AhttpStatus%3AStopFleetActionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679444107"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679444574"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-234"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-235"></span><span>
-</span><span id="line-236"></span><span class="hs-comment">-- | A unique identifier for the fleet to stop actions on.</span><span>
-</span><span id="line-237"></span><span class="annot"><a href="Network.AWS.GameLift.StopFleetActions.html#stopFleetActionsResponse_fleetId"><span class="hs-identifier hs-type">stopFleetActionsResponse_fleetId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StopFleetActions.html#StopFleetActionsResponse"><span class="hs-identifier hs-type">StopFleetActionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-238"></span><span id="stopFleetActionsResponse_fleetId"><span class="annot"><span class="annottext">stopFleetActionsResponse_fleetId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; StopFleetActionsResponse -&gt; f StopFleetActionsResponse
-</span><a href="Network.AWS.GameLift.StopFleetActions.html#stopFleetActionsResponse_fleetId"><span class="hs-identifier hs-var hs-var">stopFleetActionsResponse_fleetId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StopFleetActionsResponse -&gt; Maybe Text)
--&gt; (StopFleetActionsResponse
-    -&gt; Maybe Text -&gt; StopFleetActionsResponse)
--&gt; Lens
-     StopFleetActionsResponse
-     StopFleetActionsResponse
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.StopFleetActions.html#StopFleetActionsResponse%27"><span class="hs-identifier hs-type">StopFleetActionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679444106"><span class="annot"><span class="annottext">Maybe Text
-fleetId :: Maybe Text
-$sel:fleetId:StopFleetActionsResponse' :: StopFleetActionsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679444106"><span class="hs-identifier hs-var hs-var">fleetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679444106"><span class="hs-identifier hs-var">fleetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679444105"><span class="annot"><span class="annottext">s :: StopFleetActionsResponse
-</span><a href="#local-6989586621679444105"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.StopFleetActions.html#StopFleetActionsResponse%27"><span class="hs-identifier hs-type">StopFleetActionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679444104"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679444104"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopFleetActionsResponse
-</span><a href="#local-6989586621679444105"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fleetId:StopFleetActionsResponse' :: Maybe Text
-</span><a href="Network.AWS.GameLift.StopFleetActions.html#%24sel%3AfleetId%3AStopFleetActionsResponse%27"><span class="hs-identifier hs-var">fleetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679444104"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StopFleetActions.html#StopFleetActionsResponse"><span class="hs-identifier hs-type">StopFleetActionsResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-239"></span><span>
-</span><span id="line-240"></span><span class="hs-comment">-- | The Amazon Resource Name</span><span>
-</span><span id="line-241"></span><span class="hs-comment">-- (&lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN&gt;)</span><span>
-</span><span id="line-242"></span><span class="hs-comment">-- that is assigned to a GameLift fleet resource and uniquely identifies</span><span>
-</span><span id="line-243"></span><span class="hs-comment">-- it. ARNs are unique across all Regions. Format is</span><span>
-</span><span id="line-244"></span><span class="hs-comment">-- @arn:aws:gamelift:\&lt;region&gt;::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.</span><span>
-</span><span id="line-245"></span><span class="annot"><a href="Network.AWS.GameLift.StopFleetActions.html#stopFleetActionsResponse_fleetArn"><span class="hs-identifier hs-type">stopFleetActionsResponse_fleetArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StopFleetActions.html#StopFleetActionsResponse"><span class="hs-identifier hs-type">StopFleetActionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-246"></span><span id="stopFleetActionsResponse_fleetArn"><span class="annot"><span class="annottext">stopFleetActionsResponse_fleetArn :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-236"></span><span class="hs-comment">-- | The Amazon Resource Name</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- (&lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN&gt;)</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- that is assigned to a GameLift fleet resource and uniquely identifies</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- it. ARNs are unique across all Regions. Format is</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- @arn:aws:gamelift:\&lt;region&gt;::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.</span><span>
+</span><span id="line-241"></span><span class="annot"><a href="Network.AWS.GameLift.StopFleetActions.html#stopFleetActionsResponse_fleetArn"><span class="hs-identifier hs-type">stopFleetActionsResponse_fleetArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StopFleetActions.html#StopFleetActionsResponse"><span class="hs-identifier hs-type">StopFleetActionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-242"></span><span id="stopFleetActionsResponse_fleetArn"><span class="annot"><span class="annottext">stopFleetActionsResponse_fleetArn :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; StopFleetActionsResponse -&gt; f StopFleetActionsResponse
 </span><a href="Network.AWS.GameLift.StopFleetActions.html#stopFleetActionsResponse_fleetArn"><span class="hs-identifier hs-var hs-var">stopFleetActionsResponse_fleetArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StopFleetActionsResponse -&gt; Maybe Text)
 -&gt; (StopFleetActionsResponse
@@ -587,16 +563,40 @@ $sel:fleetId:StopFleetActionsResponse' :: StopFleetActionsResponse -&gt; Maybe T
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.StopFleetActions.html#StopFleetActionsResponse%27"><span class="hs-identifier hs-type">StopFleetActionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679444103"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.StopFleetActions.html#StopFleetActionsResponse%27"><span class="hs-identifier hs-type">StopFleetActionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679444573"><span class="annot"><span class="annottext">Maybe Text
 fleetArn :: Maybe Text
 $sel:fleetArn:StopFleetActionsResponse' :: StopFleetActionsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679444103"><span class="hs-identifier hs-var hs-var">fleetArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679444103"><span class="hs-identifier hs-var">fleetArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679444102"><span class="annot"><span class="annottext">s :: StopFleetActionsResponse
-</span><a href="#local-6989586621679444102"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.StopFleetActions.html#StopFleetActionsResponse%27"><span class="hs-identifier hs-type">StopFleetActionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679444101"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679444101"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopFleetActionsResponse
-</span><a href="#local-6989586621679444102"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fleetArn:StopFleetActionsResponse' :: Maybe Text
+</span><a href="#local-6989586621679444573"><span class="hs-identifier hs-var hs-var">fleetArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679444573"><span class="hs-identifier hs-var">fleetArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679444572"><span class="annot"><span class="annottext">s :: StopFleetActionsResponse
+</span><a href="#local-6989586621679444572"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.StopFleetActions.html#StopFleetActionsResponse%27"><span class="hs-identifier hs-type">StopFleetActionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679444571"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679444571"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopFleetActionsResponse
+</span><a href="#local-6989586621679444572"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fleetArn:StopFleetActionsResponse' :: Maybe Text
 </span><a href="Network.AWS.GameLift.StopFleetActions.html#%24sel%3AfleetArn%3AStopFleetActionsResponse%27"><span class="hs-identifier hs-var">fleetArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679444101"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StopFleetActions.html#StopFleetActionsResponse"><span class="hs-identifier hs-type">StopFleetActionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679444571"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StopFleetActions.html#StopFleetActionsResponse"><span class="hs-identifier hs-type">StopFleetActionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-243"></span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- | A unique identifier for the fleet to stop actions on.</span><span>
+</span><span id="line-245"></span><span class="annot"><a href="Network.AWS.GameLift.StopFleetActions.html#stopFleetActionsResponse_fleetId"><span class="hs-identifier hs-type">stopFleetActionsResponse_fleetId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StopFleetActions.html#StopFleetActionsResponse"><span class="hs-identifier hs-type">StopFleetActionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-246"></span><span id="stopFleetActionsResponse_fleetId"><span class="annot"><span class="annottext">stopFleetActionsResponse_fleetId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; StopFleetActionsResponse -&gt; f StopFleetActionsResponse
+</span><a href="Network.AWS.GameLift.StopFleetActions.html#stopFleetActionsResponse_fleetId"><span class="hs-identifier hs-var hs-var">stopFleetActionsResponse_fleetId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StopFleetActionsResponse -&gt; Maybe Text)
+-&gt; (StopFleetActionsResponse
+    -&gt; Maybe Text -&gt; StopFleetActionsResponse)
+-&gt; Lens
+     StopFleetActionsResponse
+     StopFleetActionsResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.StopFleetActions.html#StopFleetActionsResponse%27"><span class="hs-identifier hs-type">StopFleetActionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679444570"><span class="annot"><span class="annottext">Maybe Text
+fleetId :: Maybe Text
+$sel:fleetId:StopFleetActionsResponse' :: StopFleetActionsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679444570"><span class="hs-identifier hs-var hs-var">fleetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679444570"><span class="hs-identifier hs-var">fleetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679444569"><span class="annot"><span class="annottext">s :: StopFleetActionsResponse
+</span><a href="#local-6989586621679444569"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.StopFleetActions.html#StopFleetActionsResponse%27"><span class="hs-identifier hs-type">StopFleetActionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679444568"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679444568"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopFleetActionsResponse
+</span><a href="#local-6989586621679444569"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fleetId:StopFleetActionsResponse' :: Maybe Text
+</span><a href="Network.AWS.GameLift.StopFleetActions.html#%24sel%3AfleetId%3AStopFleetActionsResponse%27"><span class="hs-identifier hs-var">fleetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679444568"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StopFleetActions.html#StopFleetActionsResponse"><span class="hs-identifier hs-type">StopFleetActionsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-247"></span><span>
 </span><span id="line-248"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-249"></span><span class="annot"><a href="Network.AWS.GameLift.StopFleetActions.html#stopFleetActionsResponse_httpStatus"><span class="hs-identifier hs-type">stopFleetActionsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StopFleetActions.html#StopFleetActionsResponse"><span class="hs-identifier hs-type">StopFleetActionsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -606,16 +606,16 @@ $sel:fleetArn:StopFleetActionsResponse' :: StopFleetActionsResponse -&gt; Maybe 
 -&gt; (StopFleetActionsResponse -&gt; Int -&gt; StopFleetActionsResponse)
 -&gt; Lens StopFleetActionsResponse StopFleetActionsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.StopFleetActions.html#StopFleetActionsResponse%27"><span class="hs-identifier hs-type">StopFleetActionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679444100"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.StopFleetActions.html#StopFleetActionsResponse%27"><span class="hs-identifier hs-type">StopFleetActionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679444567"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:StopFleetActionsResponse' :: StopFleetActionsResponse -&gt; Int
-</span><a href="#local-6989586621679444100"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679444100"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679444099"><span class="annot"><span class="annottext">s :: StopFleetActionsResponse
-</span><a href="#local-6989586621679444099"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.StopFleetActions.html#StopFleetActionsResponse%27"><span class="hs-identifier hs-type">StopFleetActionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679444098"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679444098"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopFleetActionsResponse
-</span><a href="#local-6989586621679444099"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StopFleetActionsResponse' :: Int
+</span><a href="#local-6989586621679444567"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679444567"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679444566"><span class="annot"><span class="annottext">s :: StopFleetActionsResponse
+</span><a href="#local-6989586621679444566"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.StopFleetActions.html#StopFleetActionsResponse%27"><span class="hs-identifier hs-type">StopFleetActionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679444565"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679444565"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopFleetActionsResponse
+</span><a href="#local-6989586621679444566"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StopFleetActionsResponse' :: Int
 </span><a href="Network.AWS.GameLift.StopFleetActions.html#%24sel%3AhttpStatus%3AStopFleetActionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679444098"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StopFleetActions.html#StopFleetActionsResponse"><span class="hs-identifier hs-type">StopFleetActionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679444565"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StopFleetActions.html#StopFleetActionsResponse"><span class="hs-identifier hs-type">StopFleetActionsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-251"></span><span>
-</span><span id="line-252"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679444096"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StopFleetActions.html#StopFleetActionsResponse"><span class="hs-identifier hs-type">StopFleetActionsResponse</span></a></span></span><span>
+</span><span id="line-252"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679444563"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StopFleetActions.html#StopFleetActionsResponse"><span class="hs-identifier hs-type">StopFleetActionsResponse</span></a></span></span><span>
 </span><span id="line-253"></span></pre></body></html>

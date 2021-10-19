@@ -30,10 +30,10 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679326014"><span id="local-6989586621679326015"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Context"><span class="annot"><a href="Network.AWS.CostExplorer.Types.Context.html#Context"><span class="hs-identifier hs-var">Context</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Context%27"><span class="annot"><a href="Network.AWS.CostExplorer.Types.Context.html#Context%27"><span class="hs-identifier hs-var">Context'</span></a></span></span><span> </span><span class="hs-special">{</span><span id="fromContext"><span class="annot"><span class="annottext">Context -&gt; Text
+</span><span id="line-33"></span><span id="local-6989586621679326339"><span id="local-6989586621679326340"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Context"><span class="annot"><a href="Network.AWS.CostExplorer.Types.Context.html#Context"><span class="hs-identifier hs-var">Context</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Context%27"><span class="annot"><a href="Network.AWS.CostExplorer.Types.Context.html#Context%27"><span class="hs-identifier hs-var">Context'</span></a></span></span><span> </span><span class="hs-special">{</span><span id="fromContext"><span class="annot"><span class="annottext">Context -&gt; Text
 </span><a href="Network.AWS.CostExplorer.Types.Context.html#fromContext"><span class="hs-identifier hs-var hs-var">fromContext</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span class="hs-special">}</span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679326006"><span id="local-6989586621679326008"><span id="local-6989586621679326010"><span class="annot"><span class="annottext">Int -&gt; Context -&gt; ShowS
+</span><span id="line-35"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679326331"><span id="local-6989586621679326333"><span id="local-6989586621679326335"><span class="annot"><span class="annottext">Int -&gt; Context -&gt; ShowS
 [Context] -&gt; ShowS
 Context -&gt; String
 (Int -&gt; Context -&gt; ShowS)
@@ -47,7 +47,7 @@ $cshow :: Context -&gt; String
 showsPrec :: Int -&gt; Context -&gt; ShowS
 $cshowsPrec :: Int -&gt; Context -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>      </span><span id="local-6989586621679325997"><span id="local-6989586621679325999"><span id="local-6989586621679326001"><span id="local-6989586621679326003"><span class="annot"><span class="annottext">ReadPrec [Context]
+</span><span id="line-36"></span><span>      </span><span id="local-6989586621679326322"><span id="local-6989586621679326324"><span id="local-6989586621679326326"><span id="local-6989586621679326328"><span class="annot"><span class="annottext">ReadPrec [Context]
 ReadPrec Context
 Int -&gt; ReadS Context
 ReadS [Context]
@@ -68,7 +68,7 @@ $creadList :: ReadS [Context]
 readsPrec :: Int -&gt; ReadS Context
 $creadsPrec :: Int -&gt; ReadS Context
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>      </span><span id="local-6989586621679325992"><span id="local-6989586621679325994"><span class="annot"><span class="annottext">Context -&gt; Context -&gt; Bool
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679326317"><span id="local-6989586621679326319"><span class="annot"><span class="annottext">Context -&gt; Context -&gt; Bool
 (Context -&gt; Context -&gt; Bool)
 -&gt; (Context -&gt; Context -&gt; Bool) -&gt; Eq Context
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -77,7 +77,7 @@ $c/= :: Context -&gt; Context -&gt; Bool
 == :: Context -&gt; Context -&gt; Bool
 $c== :: Context -&gt; Context -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679325976"><span id="local-6989586621679325978"><span id="local-6989586621679325980"><span id="local-6989586621679325982"><span id="local-6989586621679325984"><span id="local-6989586621679325986"><span id="local-6989586621679325988"><span class="annot"><span class="annottext">Eq Context
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679326301"><span id="local-6989586621679326303"><span id="local-6989586621679326305"><span id="local-6989586621679326307"><span id="local-6989586621679326309"><span id="local-6989586621679326311"><span id="local-6989586621679326313"><span class="annot"><span class="annottext">Eq Context
 Eq Context
 -&gt; (Context -&gt; Context -&gt; Ordering)
 -&gt; (Context -&gt; Context -&gt; Bool)
@@ -127,7 +127,7 @@ $cfrom :: forall x. Context -&gt; Rep Context x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-40"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679325968"><span id="local-6989586621679325970"><span class="annot"><span class="annottext">Int -&gt; Context -&gt; Int
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679326293"><span id="local-6989586621679326295"><span class="annot"><span class="annottext">Int -&gt; Context -&gt; Int
 Context -&gt; Int
 (Int -&gt; Context -&gt; Int) -&gt; (Context -&gt; Int) -&gt; Hashable Context
 forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
@@ -136,49 +136,49 @@ $chash :: Context -&gt; Int
 hashWithSalt :: Int -&gt; Context -&gt; Int
 $chashWithSalt :: Int -&gt; Context -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679325965"><span class="annot"><span class="annottext">Context -&gt; ()
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679326290"><span class="annot"><span class="annottext">Context -&gt; ()
 (Context -&gt; ()) -&gt; NFData Context
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: Context -&gt; ()
 $crnf :: Context -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679325962"><span class="annot"><span class="annottext">Text -&gt; Either String Context
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679326287"><span class="annot"><span class="annottext">Text -&gt; Either String Context
 (Text -&gt; Either String Context) -&gt; FromText Context
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String Context
 $cfromText :: Text -&gt; Either String Context
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679325959"><span class="annot"><span class="annottext">Context -&gt; Text
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679326284"><span class="annot"><span class="annottext">Context -&gt; Text
 (Context -&gt; Text) -&gt; ToText Context
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: Context -&gt; Text
 $ctoText :: Context -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679325956"><span class="annot"><span class="annottext">Context -&gt; ByteString
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679326281"><span class="annot"><span class="annottext">Context -&gt; ByteString
 (Context -&gt; ByteString) -&gt; ToByteString Context
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: Context -&gt; ByteString
 $ctoBS :: Context -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679325953"><span class="annot"><span class="annottext">Context -&gt; ByteStringBuilder
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679326278"><span class="annot"><span class="annottext">Context -&gt; ByteStringBuilder
 (Context -&gt; ByteStringBuilder) -&gt; ToLog Context
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: Context -&gt; ByteStringBuilder
 $cbuild :: Context -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679325950"><span class="annot"><span class="annottext">HeaderName -&gt; Context -&gt; [Header]
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679326275"><span class="annot"><span class="annottext">HeaderName -&gt; Context -&gt; [Header]
 (HeaderName -&gt; Context -&gt; [Header]) -&gt; ToHeader Context
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; Context -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; Context -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679325947"><span class="annot"><span class="annottext">Context -&gt; QueryString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679326272"><span class="annot"><span class="annottext">Context -&gt; QueryString
 (Context -&gt; QueryString) -&gt; ToQuery Context
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: Context -&gt; QueryString
 $ctoQuery :: Context -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679325942"><span id="local-6989586621679325944"><span class="annot"><span class="annottext">Value -&gt; Parser [Context]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679326267"><span id="local-6989586621679326269"><span class="annot"><span class="annottext">Value -&gt; Parser [Context]
 Value -&gt; Parser Context
 (Value -&gt; Parser Context)
 -&gt; (Value -&gt; Parser [Context]) -&gt; FromJSON Context
@@ -189,7 +189,7 @@ $cparseJSONList :: Value -&gt; Parser [Context]
 parseJSON :: Value -&gt; Parser Context
 $cparseJSON :: Value -&gt; Parser Context
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679325937"><span id="local-6989586621679325939"><span class="annot"><span class="annottext">FromJSONKeyFunction [Context]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679326262"><span id="local-6989586621679326264"><span class="annot"><span class="annottext">FromJSONKeyFunction [Context]
 FromJSONKeyFunction Context
 FromJSONKeyFunction Context
 -&gt; FromJSONKeyFunction [Context] -&gt; FromJSONKey Context
@@ -200,7 +200,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [Context]
 fromJSONKey :: FromJSONKeyFunction Context
 $cfromJSONKey :: FromJSONKeyFunction Context
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679325928"><span id="local-6989586621679325930"><span id="local-6989586621679325932"><span id="local-6989586621679325934"><span class="annot"><span class="annottext">[Context] -&gt; Encoding
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679326253"><span id="local-6989586621679326255"><span id="local-6989586621679326257"><span id="local-6989586621679326259"><span class="annot"><span class="annottext">[Context] -&gt; Encoding
 [Context] -&gt; Value
 Context -&gt; Encoding
 Context -&gt; Value
@@ -224,7 +224,7 @@ $ctoEncoding :: Context -&gt; Encoding
 toJSON :: Context -&gt; Value
 $ctoJSON :: Context -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679325923"><span id="local-6989586621679325925"><span class="annot"><span class="annottext">ToJSONKeyFunction [Context]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679326248"><span id="local-6989586621679326250"><span class="annot"><span class="annottext">ToJSONKeyFunction [Context]
 ToJSONKeyFunction Context
 ToJSONKeyFunction Context
 -&gt; ToJSONKeyFunction [Context] -&gt; ToJSONKey Context
@@ -235,13 +235,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [Context]
 toJSONKey :: ToJSONKeyFunction Context
 $ctoJSONKey :: ToJSONKeyFunction Context
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679325920"><span class="annot"><span class="annottext">[Node] -&gt; Either String Context
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679326245"><span class="annot"><span class="annottext">[Node] -&gt; Either String Context
 ([Node] -&gt; Either String Context) -&gt; FromXML Context
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String Context
 $cparseXML :: [Node] -&gt; Either String Context
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679325917"><span class="annot"><span class="annottext">Context -&gt; XML
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679326242"><span class="annot"><span class="annottext">Context -&gt; XML
 (Context -&gt; XML) -&gt; ToXML Context
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: Context -&gt; XML

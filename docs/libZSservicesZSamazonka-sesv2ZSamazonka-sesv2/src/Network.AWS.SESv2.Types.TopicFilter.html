@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Used for filtering by a specific topic preference.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newTopicFilter' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679332092"><span id="local-6989586621679332093"></span></span><span class="hs-keyword">data</span><span> </span><span id="TopicFilter"><span class="annot"><a href="Network.AWS.SESv2.Types.TopicFilter.html#TopicFilter"><span class="hs-identifier hs-var">TopicFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TopicFilter%27"><span class="annot"><a href="Network.AWS.SESv2.Types.TopicFilter.html#TopicFilter%27"><span class="hs-identifier hs-var">TopicFilter'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679334608"><span id="local-6989586621679334609"></span></span><span class="hs-keyword">data</span><span> </span><span id="TopicFilter"><span class="annot"><a href="Network.AWS.SESv2.Types.TopicFilter.html#TopicFilter"><span class="hs-identifier hs-var">TopicFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TopicFilter%27"><span class="annot"><a href="Network.AWS.SESv2.Types.TopicFilter.html#TopicFilter%27"><span class="hs-identifier hs-var">TopicFilter'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of a topic on which you wish to apply the filter.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AtopicName%3ATopicFilter%27"><span class="annot"><span class="annottext">TopicFilter -&gt; Maybe Text
 </span><a href="Network.AWS.SESv2.Types.TopicFilter.html#%24sel%3AtopicName%3ATopicFilter%27"><span class="hs-identifier hs-var hs-var">topicName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -36,7 +36,7 @@
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AuseDefaultIfPreferenceUnavailable%3ATopicFilter%27"><span class="annot"><span class="annottext">TopicFilter -&gt; Maybe Bool
 </span><a href="Network.AWS.SESv2.Types.TopicFilter.html#%24sel%3AuseDefaultIfPreferenceUnavailable%3ATopicFilter%27"><span class="hs-identifier hs-var hs-var">useDefaultIfPreferenceUnavailable</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679332085"><span id="local-6989586621679332087"><span class="annot"><span class="annottext">TopicFilter -&gt; TopicFilter -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679334601"><span id="local-6989586621679334603"><span class="annot"><span class="annottext">TopicFilter -&gt; TopicFilter -&gt; Bool
 (TopicFilter -&gt; TopicFilter -&gt; Bool)
 -&gt; (TopicFilter -&gt; TopicFilter -&gt; Bool) -&gt; Eq TopicFilter
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TopicFilter -&gt; TopicFilter -&gt; Bool
 == :: TopicFilter -&gt; TopicFilter -&gt; Bool
 $c== :: TopicFilter -&gt; TopicFilter -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679332076"><span id="local-6989586621679332078"><span id="local-6989586621679332080"><span id="local-6989586621679332082"><span class="annot"><span class="annottext">ReadPrec [TopicFilter]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679334592"><span id="local-6989586621679334594"><span id="local-6989586621679334596"><span id="local-6989586621679334598"><span class="annot"><span class="annottext">ReadPrec [TopicFilter]
 ReadPrec TopicFilter
 Int -&gt; ReadS TopicFilter
 ReadS [TopicFilter]
@@ -64,7 +64,7 @@ readList :: ReadS [TopicFilter]
 $creadList :: ReadS [TopicFilter]
 readsPrec :: Int -&gt; ReadS TopicFilter
 $creadsPrec :: Int -&gt; ReadS TopicFilter
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679332069"><span id="local-6989586621679332071"><span id="local-6989586621679332073"><span class="annot"><span class="annottext">Int -&gt; TopicFilter -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679334585"><span id="local-6989586621679334587"><span id="local-6989586621679334589"><span class="annot"><span class="annottext">Int -&gt; TopicFilter -&gt; ShowS
 [TopicFilter] -&gt; ShowS
 TopicFilter -&gt; String
 (Int -&gt; TopicFilter -&gt; ShowS)
@@ -126,16 +126,16 @@ forall a. Maybe a
 -&gt; (TopicFilter -&gt; Maybe Text -&gt; TopicFilter)
 -&gt; Lens TopicFilter TopicFilter (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.TopicFilter.html#TopicFilter%27"><span class="hs-identifier hs-type">TopicFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679332060"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.TopicFilter.html#TopicFilter%27"><span class="hs-identifier hs-type">TopicFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679334576"><span class="annot"><span class="annottext">Maybe Text
 topicName :: Maybe Text
 $sel:topicName:TopicFilter' :: TopicFilter -&gt; Maybe Text
-</span><a href="#local-6989586621679332060"><span class="hs-identifier hs-var hs-var">topicName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679332060"><span class="hs-identifier hs-var">topicName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679332059"><span class="annot"><span class="annottext">s :: TopicFilter
-</span><a href="#local-6989586621679332059"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.TopicFilter.html#TopicFilter%27"><span class="hs-identifier hs-type">TopicFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679332058"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679332058"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TopicFilter
-</span><a href="#local-6989586621679332059"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:topicName:TopicFilter' :: Maybe Text
+</span><a href="#local-6989586621679334576"><span class="hs-identifier hs-var hs-var">topicName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679334576"><span class="hs-identifier hs-var">topicName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679334575"><span class="annot"><span class="annottext">s :: TopicFilter
+</span><a href="#local-6989586621679334575"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.TopicFilter.html#TopicFilter%27"><span class="hs-identifier hs-type">TopicFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679334574"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679334574"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TopicFilter
+</span><a href="#local-6989586621679334575"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:topicName:TopicFilter' :: Maybe Text
 </span><a href="Network.AWS.SESv2.Types.TopicFilter.html#%24sel%3AtopicName%3ATopicFilter%27"><span class="hs-identifier hs-var">topicName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679332058"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.TopicFilter.html#TopicFilter"><span class="hs-identifier hs-type">TopicFilter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679334574"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.TopicFilter.html#TopicFilter"><span class="hs-identifier hs-type">TopicFilter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- | Notes that the default subscription status should be applied to a</span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- contact because the contact has not noted their preference for</span><span>
@@ -146,30 +146,30 @@ $sel:topicName:TopicFilter' :: TopicFilter -&gt; Maybe Text
 -&gt; (TopicFilter -&gt; Maybe Bool -&gt; TopicFilter)
 -&gt; Lens TopicFilter TopicFilter (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.TopicFilter.html#TopicFilter%27"><span class="hs-identifier hs-type">TopicFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679332056"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.TopicFilter.html#TopicFilter%27"><span class="hs-identifier hs-type">TopicFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679334572"><span class="annot"><span class="annottext">Maybe Bool
 useDefaultIfPreferenceUnavailable :: Maybe Bool
 $sel:useDefaultIfPreferenceUnavailable:TopicFilter' :: TopicFilter -&gt; Maybe Bool
-</span><a href="#local-6989586621679332056"><span class="hs-identifier hs-var hs-var">useDefaultIfPreferenceUnavailable</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679332056"><span class="hs-identifier hs-var">useDefaultIfPreferenceUnavailable</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679332055"><span class="annot"><span class="annottext">s :: TopicFilter
-</span><a href="#local-6989586621679332055"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.TopicFilter.html#TopicFilter%27"><span class="hs-identifier hs-type">TopicFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679332054"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679332054"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TopicFilter
-</span><a href="#local-6989586621679332055"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:useDefaultIfPreferenceUnavailable:TopicFilter' :: Maybe Bool
+</span><a href="#local-6989586621679334572"><span class="hs-identifier hs-var hs-var">useDefaultIfPreferenceUnavailable</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679334572"><span class="hs-identifier hs-var">useDefaultIfPreferenceUnavailable</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679334571"><span class="annot"><span class="annottext">s :: TopicFilter
+</span><a href="#local-6989586621679334571"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.TopicFilter.html#TopicFilter%27"><span class="hs-identifier hs-type">TopicFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679334570"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679334570"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TopicFilter
+</span><a href="#local-6989586621679334571"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:useDefaultIfPreferenceUnavailable:TopicFilter' :: Maybe Bool
 </span><a href="Network.AWS.SESv2.Types.TopicFilter.html#%24sel%3AuseDefaultIfPreferenceUnavailable%3ATopicFilter%27"><span class="hs-identifier hs-var">useDefaultIfPreferenceUnavailable</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679332054"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.TopicFilter.html#TopicFilter"><span class="hs-identifier hs-type">TopicFilter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679334570"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.TopicFilter.html#TopicFilter"><span class="hs-identifier hs-type">TopicFilter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679332050"><span id="local-6989586621679332052"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.TopicFilter.html#TopicFilter"><span class="hs-identifier hs-type">TopicFilter</span></a></span></span></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679334566"><span id="local-6989586621679334568"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.TopicFilter.html#TopicFilter"><span class="hs-identifier hs-type">TopicFilter</span></a></span></span></span><span>
 </span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679332047"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.TopicFilter.html#TopicFilter"><span class="hs-identifier hs-type">TopicFilter</span></a></span></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679334563"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.TopicFilter.html#TopicFilter"><span class="hs-identifier hs-type">TopicFilter</span></a></span></span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679332039"><span id="local-6989586621679332041"><span id="local-6989586621679332043"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.TopicFilter.html#TopicFilter"><span class="hs-identifier hs-type">TopicFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-75"></span><span>  </span><span id="local-6989586621679332037"><span class="annot"><span class="annottext">toJSON :: TopicFilter -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.TopicFilter.html#TopicFilter%27"><span class="hs-identifier hs-type">TopicFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679332034"><span id="local-6989586621679332035"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679334555"><span id="local-6989586621679334557"><span id="local-6989586621679334559"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.TopicFilter.html#TopicFilter"><span class="hs-identifier hs-type">TopicFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679334553"><span class="annot"><span class="annottext">toJSON :: TopicFilter -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.TopicFilter.html#TopicFilter%27"><span class="hs-identifier hs-type">TopicFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679334550"><span id="local-6989586621679334551"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Text
 useDefaultIfPreferenceUnavailable :: Maybe Bool
 topicName :: Maybe Text
 $sel:useDefaultIfPreferenceUnavailable:TopicFilter' :: TopicFilter -&gt; Maybe Bool
 $sel:topicName:TopicFilter' :: TopicFilter -&gt; Maybe Text
-</span><a href="#local-6989586621679332034"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679334550"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-77"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -181,7 +181,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679332035"><span class="hs-identifier hs-var">topicName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679334551"><span class="hs-identifier hs-var">topicName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-79"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;UseDefaultIfPreferenceUnavailable&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -189,7 +189,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-80"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679332034"><span class="hs-identifier hs-var">useDefaultIfPreferenceUnavailable</span></a></span><span>
+</span><a href="#local-6989586621679334550"><span class="hs-identifier hs-var">useDefaultIfPreferenceUnavailable</span></a></span><span>
 </span><span id="line-81"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-82"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span></pre></body></html>

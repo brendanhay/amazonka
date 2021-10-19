@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679265397"><span id="local-6989586621679265398"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="UserStatusType"><span class="annot"><a href="Network.AWS.WorkDocs.Types.UserStatusType.html#UserStatusType"><span class="hs-identifier hs-var">UserStatusType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UserStatusType%27"><span class="annot"><a href="Network.AWS.WorkDocs.Types.UserStatusType.html#UserStatusType%27"><span class="hs-identifier hs-var">UserStatusType'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679265526"><span id="local-6989586621679265527"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="UserStatusType"><span class="annot"><a href="Network.AWS.WorkDocs.Types.UserStatusType.html#UserStatusType"><span class="hs-identifier hs-var">UserStatusType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UserStatusType%27"><span class="annot"><a href="Network.AWS.WorkDocs.Types.UserStatusType.html#UserStatusType%27"><span class="hs-identifier hs-var">UserStatusType'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromUserStatusType"><span class="annot"><span class="annottext">UserStatusType -&gt; Text
 </span><a href="Network.AWS.WorkDocs.Types.UserStatusType.html#fromUserStatusType"><span class="hs-identifier hs-var hs-var">fromUserStatusType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679265389"><span id="local-6989586621679265391"><span id="local-6989586621679265393"><span class="annot"><span class="annottext">Int -&gt; UserStatusType -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679265518"><span id="local-6989586621679265520"><span id="local-6989586621679265522"><span class="annot"><span class="annottext">Int -&gt; UserStatusType -&gt; ShowS
 [UserStatusType] -&gt; ShowS
 UserStatusType -&gt; String
 (Int -&gt; UserStatusType -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: UserStatusType -&gt; String
 showsPrec :: Int -&gt; UserStatusType -&gt; ShowS
 $cshowsPrec :: Int -&gt; UserStatusType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679265380"><span id="local-6989586621679265382"><span id="local-6989586621679265384"><span id="local-6989586621679265386"><span class="annot"><span class="annottext">ReadPrec [UserStatusType]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679265509"><span id="local-6989586621679265511"><span id="local-6989586621679265513"><span id="local-6989586621679265515"><span class="annot"><span class="annottext">ReadPrec [UserStatusType]
 ReadPrec UserStatusType
 Int -&gt; ReadS UserStatusType
 ReadS [UserStatusType]
@@ -73,7 +73,7 @@ $creadList :: ReadS [UserStatusType]
 readsPrec :: Int -&gt; ReadS UserStatusType
 $creadsPrec :: Int -&gt; ReadS UserStatusType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679265375"><span id="local-6989586621679265377"><span class="annot"><span class="annottext">UserStatusType -&gt; UserStatusType -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679265504"><span id="local-6989586621679265506"><span class="annot"><span class="annottext">UserStatusType -&gt; UserStatusType -&gt; Bool
 (UserStatusType -&gt; UserStatusType -&gt; Bool)
 -&gt; (UserStatusType -&gt; UserStatusType -&gt; Bool) -&gt; Eq UserStatusType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ $c/= :: UserStatusType -&gt; UserStatusType -&gt; Bool
 == :: UserStatusType -&gt; UserStatusType -&gt; Bool
 $c== :: UserStatusType -&gt; UserStatusType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679265359"><span id="local-6989586621679265361"><span id="local-6989586621679265363"><span id="local-6989586621679265365"><span id="local-6989586621679265367"><span id="local-6989586621679265369"><span id="local-6989586621679265371"><span class="annot"><span class="annottext">Eq UserStatusType
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679265488"><span id="local-6989586621679265490"><span id="local-6989586621679265492"><span id="local-6989586621679265494"><span id="local-6989586621679265496"><span id="local-6989586621679265498"><span id="local-6989586621679265500"><span class="annot"><span class="annottext">Eq UserStatusType
 Eq UserStatusType
 -&gt; (UserStatusType -&gt; UserStatusType -&gt; Ordering)
 -&gt; (UserStatusType -&gt; UserStatusType -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. UserStatusType -&gt; Rep UserStatusType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679265351"><span id="local-6989586621679265353"><span class="annot"><span class="annottext">Int -&gt; UserStatusType -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679265480"><span id="local-6989586621679265482"><span class="annot"><span class="annottext">Int -&gt; UserStatusType -&gt; Int
 UserStatusType -&gt; Int
 (Int -&gt; UserStatusType -&gt; Int)
 -&gt; (UserStatusType -&gt; Int) -&gt; Hashable UserStatusType
@@ -143,50 +143,50 @@ $chash :: UserStatusType -&gt; Int
 hashWithSalt :: Int -&gt; UserStatusType -&gt; Int
 $chashWithSalt :: Int -&gt; UserStatusType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679265348"><span class="annot"><span class="annottext">UserStatusType -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679265477"><span class="annot"><span class="annottext">UserStatusType -&gt; ()
 (UserStatusType -&gt; ()) -&gt; NFData UserStatusType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: UserStatusType -&gt; ()
 $crnf :: UserStatusType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679265345"><span class="annot"><span class="annottext">Text -&gt; Either String UserStatusType
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679265474"><span class="annot"><span class="annottext">Text -&gt; Either String UserStatusType
 (Text -&gt; Either String UserStatusType) -&gt; FromText UserStatusType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String UserStatusType
 $cfromText :: Text -&gt; Either String UserStatusType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679265342"><span class="annot"><span class="annottext">UserStatusType -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679265471"><span class="annot"><span class="annottext">UserStatusType -&gt; Text
 (UserStatusType -&gt; Text) -&gt; ToText UserStatusType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: UserStatusType -&gt; Text
 $ctoText :: UserStatusType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679265339"><span class="annot"><span class="annottext">UserStatusType -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679265468"><span class="annot"><span class="annottext">UserStatusType -&gt; ByteString
 (UserStatusType -&gt; ByteString) -&gt; ToByteString UserStatusType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: UserStatusType -&gt; ByteString
 $ctoBS :: UserStatusType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679265336"><span class="annot"><span class="annottext">UserStatusType -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679265465"><span class="annot"><span class="annottext">UserStatusType -&gt; ByteStringBuilder
 (UserStatusType -&gt; ByteStringBuilder) -&gt; ToLog UserStatusType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: UserStatusType -&gt; ByteStringBuilder
 $cbuild :: UserStatusType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679265333"><span class="annot"><span class="annottext">HeaderName -&gt; UserStatusType -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679265462"><span class="annot"><span class="annottext">HeaderName -&gt; UserStatusType -&gt; [Header]
 (HeaderName -&gt; UserStatusType -&gt; [Header])
 -&gt; ToHeader UserStatusType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; UserStatusType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; UserStatusType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679265330"><span class="annot"><span class="annottext">UserStatusType -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679265459"><span class="annot"><span class="annottext">UserStatusType -&gt; QueryString
 (UserStatusType -&gt; QueryString) -&gt; ToQuery UserStatusType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: UserStatusType -&gt; QueryString
 $ctoQuery :: UserStatusType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679265325"><span id="local-6989586621679265327"><span class="annot"><span class="annottext">Value -&gt; Parser [UserStatusType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679265454"><span id="local-6989586621679265456"><span class="annot"><span class="annottext">Value -&gt; Parser [UserStatusType]
 Value -&gt; Parser UserStatusType
 (Value -&gt; Parser UserStatusType)
 -&gt; (Value -&gt; Parser [UserStatusType]) -&gt; FromJSON UserStatusType
@@ -197,7 +197,7 @@ $cparseJSONList :: Value -&gt; Parser [UserStatusType]
 parseJSON :: Value -&gt; Parser UserStatusType
 $cparseJSON :: Value -&gt; Parser UserStatusType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679265320"><span id="local-6989586621679265322"><span class="annot"><span class="annottext">FromJSONKeyFunction [UserStatusType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679265449"><span id="local-6989586621679265451"><span class="annot"><span class="annottext">FromJSONKeyFunction [UserStatusType]
 FromJSONKeyFunction UserStatusType
 FromJSONKeyFunction UserStatusType
 -&gt; FromJSONKeyFunction [UserStatusType]
@@ -209,7 +209,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [UserStatusType]
 fromJSONKey :: FromJSONKeyFunction UserStatusType
 $cfromJSONKey :: FromJSONKeyFunction UserStatusType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679265311"><span id="local-6989586621679265313"><span id="local-6989586621679265315"><span id="local-6989586621679265317"><span class="annot"><span class="annottext">[UserStatusType] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679265440"><span id="local-6989586621679265442"><span id="local-6989586621679265444"><span id="local-6989586621679265446"><span class="annot"><span class="annottext">[UserStatusType] -&gt; Encoding
 [UserStatusType] -&gt; Value
 UserStatusType -&gt; Encoding
 UserStatusType -&gt; Value
@@ -233,7 +233,7 @@ $ctoEncoding :: UserStatusType -&gt; Encoding
 toJSON :: UserStatusType -&gt; Value
 $ctoJSON :: UserStatusType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679265306"><span id="local-6989586621679265308"><span class="annot"><span class="annottext">ToJSONKeyFunction [UserStatusType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679265435"><span id="local-6989586621679265437"><span class="annot"><span class="annottext">ToJSONKeyFunction [UserStatusType]
 ToJSONKeyFunction UserStatusType
 ToJSONKeyFunction UserStatusType
 -&gt; ToJSONKeyFunction [UserStatusType] -&gt; ToJSONKey UserStatusType
@@ -244,13 +244,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [UserStatusType]
 toJSONKey :: ToJSONKeyFunction UserStatusType
 $ctoJSONKey :: ToJSONKeyFunction UserStatusType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679265303"><span class="annot"><span class="annottext">[Node] -&gt; Either String UserStatusType
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679265432"><span class="annot"><span class="annottext">[Node] -&gt; Either String UserStatusType
 ([Node] -&gt; Either String UserStatusType) -&gt; FromXML UserStatusType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String UserStatusType
 $cparseXML :: [Node] -&gt; Either String UserStatusType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679265300"><span class="annot"><span class="annottext">UserStatusType -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679265429"><span class="annot"><span class="annottext">UserStatusType -&gt; XML
 (UserStatusType -&gt; XML) -&gt; ToXML UserStatusType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: UserStatusType -&gt; XML

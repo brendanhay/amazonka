@@ -26,29 +26,29 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | An object that contains inbox placement data for an email provider.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newPlacementStatistics' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679327987"><span id="local-6989586621679327988"></span></span><span class="hs-keyword">data</span><span> </span><span id="PlacementStatistics"><span class="annot"><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#PlacementStatistics"><span class="hs-identifier hs-var">PlacementStatistics</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PlacementStatistics%27"><span class="annot"><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#PlacementStatistics%27"><span class="hs-identifier hs-var">PlacementStatistics'</span></a></span></span><span>
-</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The percentage of emails that arrived in recipients\' spam or junk mail</span><span>
-</span><span id="line-31"></span><span>    </span><span class="hs-comment">-- folders during the predictive inbox placement test.</span><span>
-</span><span id="line-32"></span><span>    </span><span id="%24sel%3AspamPercentage%3APlacementStatistics%27"><span class="annot"><span class="annottext">PlacementStatistics -&gt; Maybe Double
+</span><span id="line-29"></span><span id="local-6989586621679330495"><span id="local-6989586621679330496"></span></span><span class="hs-keyword">data</span><span> </span><span id="PlacementStatistics"><span class="annot"><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#PlacementStatistics"><span class="hs-identifier hs-var">PlacementStatistics</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PlacementStatistics%27"><span class="annot"><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#PlacementStatistics%27"><span class="hs-identifier hs-var">PlacementStatistics'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The percentage of emails that didn\'t arrive in recipients\' inboxes at</span><span>
+</span><span id="line-31"></span><span>    </span><span class="hs-comment">-- all during the predictive inbox placement test.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AmissingPercentage%3APlacementStatistics%27"><span class="annot"><span class="annottext">PlacementStatistics -&gt; Maybe Double
+</span><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#%24sel%3AmissingPercentage%3APlacementStatistics%27"><span class="hs-identifier hs-var hs-var">missingPercentage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The percentage of emails that arrived in recipients\' spam or junk mail</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- folders during the predictive inbox placement test.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AspamPercentage%3APlacementStatistics%27"><span class="annot"><span class="annottext">PlacementStatistics -&gt; Maybe Double
 </span><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#%24sel%3AspamPercentage%3APlacementStatistics%27"><span class="hs-identifier hs-var hs-var">spamPercentage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The percentage of emails that were authenticated by using DomainKeys</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- Identified Mail (DKIM) during the predictive inbox placement test.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AdkimPercentage%3APlacementStatistics%27"><span class="annot"><span class="annottext">PlacementStatistics -&gt; Maybe Double
-</span><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#%24sel%3AdkimPercentage%3APlacementStatistics%27"><span class="hs-identifier hs-var hs-var">dkimPercentage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The percentage of emails that were authenticated by using Sender Policy</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">-- Framework (SPF) during the predictive inbox placement test.</span><span>
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3AspfPercentage%3APlacementStatistics%27"><span class="annot"><span class="annottext">PlacementStatistics -&gt; Maybe Double
 </span><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#%24sel%3AspfPercentage%3APlacementStatistics%27"><span class="hs-identifier hs-var hs-var">spfPercentage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The percentage of emails that arrived in recipients\' inboxes during the</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- predictive inbox placement test.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3AinboxPercentage%3APlacementStatistics%27"><span class="annot"><span class="annottext">PlacementStatistics -&gt; Maybe Double
-</span><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#%24sel%3AinboxPercentage%3APlacementStatistics%27"><span class="hs-identifier hs-var hs-var">inboxPercentage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The percentage of emails that didn\'t arrive in recipients\' inboxes at</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- all during the predictive inbox placement test.</span><span>
-</span><span id="line-44"></span><span>    </span><span id="%24sel%3AmissingPercentage%3APlacementStatistics%27"><span class="annot"><span class="annottext">PlacementStatistics -&gt; Maybe Double
-</span><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#%24sel%3AmissingPercentage%3APlacementStatistics%27"><span class="hs-identifier hs-var hs-var">missingPercentage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The percentage of emails that were authenticated by using DomainKeys</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- Identified Mail (DKIM) during the predictive inbox placement test.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AdkimPercentage%3APlacementStatistics%27"><span class="annot"><span class="annottext">PlacementStatistics -&gt; Maybe Double
+</span><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#%24sel%3AdkimPercentage%3APlacementStatistics%27"><span class="hs-identifier hs-var hs-var">dkimPercentage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The percentage of emails that arrived in recipients\' inboxes during the</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- predictive inbox placement test.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AinboxPercentage%3APlacementStatistics%27"><span class="annot"><span class="annottext">PlacementStatistics -&gt; Maybe Double
+</span><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#%24sel%3AinboxPercentage%3APlacementStatistics%27"><span class="hs-identifier hs-var hs-var">inboxPercentage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679327977"><span id="local-6989586621679327979"><span class="annot"><span class="annottext">PlacementStatistics -&gt; PlacementStatistics -&gt; Bool
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679330485"><span id="local-6989586621679330487"><span class="annot"><span class="annottext">PlacementStatistics -&gt; PlacementStatistics -&gt; Bool
 (PlacementStatistics -&gt; PlacementStatistics -&gt; Bool)
 -&gt; (PlacementStatistics -&gt; PlacementStatistics -&gt; Bool)
 -&gt; Eq PlacementStatistics
@@ -57,7 +57,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PlacementStatistics -&gt; PlacementStatistics -&gt; Bool
 == :: PlacementStatistics -&gt; PlacementStatistics -&gt; Bool
 $c== :: PlacementStatistics -&gt; PlacementStatistics -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679327968"><span id="local-6989586621679327970"><span id="local-6989586621679327972"><span id="local-6989586621679327974"><span class="annot"><span class="annottext">ReadPrec [PlacementStatistics]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679330476"><span id="local-6989586621679330478"><span id="local-6989586621679330480"><span id="local-6989586621679330482"><span class="annot"><span class="annottext">ReadPrec [PlacementStatistics]
 ReadPrec PlacementStatistics
 Int -&gt; ReadS PlacementStatistics
 ReadS [PlacementStatistics]
@@ -77,7 +77,7 @@ readList :: ReadS [PlacementStatistics]
 $creadList :: ReadS [PlacementStatistics]
 readsPrec :: Int -&gt; ReadS PlacementStatistics
 $creadsPrec :: Int -&gt; ReadS PlacementStatistics
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679327961"><span id="local-6989586621679327963"><span id="local-6989586621679327965"><span class="annot"><span class="annottext">Int -&gt; PlacementStatistics -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679330469"><span id="local-6989586621679330471"><span id="local-6989586621679330473"><span class="annot"><span class="annottext">Int -&gt; PlacementStatistics -&gt; ShowS
 [PlacementStatistics] -&gt; ShowS
 PlacementStatistics -&gt; String
 (Int -&gt; PlacementStatistics -&gt; ShowS)
@@ -111,20 +111,20 @@ $cfrom :: forall x. PlacementStatistics -&gt; Rep PlacementStatistics x
 </span><span id="line-53"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- 'spamPercentage', 'placementStatistics_spamPercentage' - The percentage of emails that arrived in recipients\' spam or junk mail</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- folders during the predictive inbox placement test.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'missingPercentage', 'placementStatistics_missingPercentage' - The percentage of emails that didn\'t arrive in recipients\' inboxes at</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- all during the predictive inbox placement test.</span><span>
 </span><span id="line-58"></span><span class="hs-comment">--</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- 'dkimPercentage', 'placementStatistics_dkimPercentage' - The percentage of emails that were authenticated by using DomainKeys</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- Identified Mail (DKIM) during the predictive inbox placement test.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'spamPercentage', 'placementStatistics_spamPercentage' - The percentage of emails that arrived in recipients\' spam or junk mail</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- folders during the predictive inbox placement test.</span><span>
 </span><span id="line-61"></span><span class="hs-comment">--</span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- 'spfPercentage', 'placementStatistics_spfPercentage' - The percentage of emails that were authenticated by using Sender Policy</span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- Framework (SPF) during the predictive inbox placement test.</span><span>
 </span><span id="line-64"></span><span class="hs-comment">--</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- 'inboxPercentage', 'placementStatistics_inboxPercentage' - The percentage of emails that arrived in recipients\' inboxes during the</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- predictive inbox placement test.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'dkimPercentage', 'placementStatistics_dkimPercentage' - The percentage of emails that were authenticated by using DomainKeys</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Identified Mail (DKIM) during the predictive inbox placement test.</span><span>
 </span><span id="line-67"></span><span class="hs-comment">--</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- 'missingPercentage', 'placementStatistics_missingPercentage' - The percentage of emails that didn\'t arrive in recipients\' inboxes at</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- all during the predictive inbox placement test.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'inboxPercentage', 'placementStatistics_inboxPercentage' - The percentage of emails that arrived in recipients\' inboxes during the</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- predictive inbox placement test.</span><span>
 </span><span id="line-70"></span><span class="annot"><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#newPlacementStatistics"><span class="hs-identifier hs-type">newPlacementStatistics</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#PlacementStatistics"><span class="hs-identifier hs-type">PlacementStatistics</span></a></span><span>
 </span><span id="line-72"></span><span id="newPlacementStatistics"><span class="annot"><span class="annottext">newPlacementStatistics :: PlacementStatistics
@@ -136,33 +136,57 @@ $cfrom :: forall x. PlacementStatistics -&gt; Rep PlacementStatistics x
 -&gt; Maybe Double
 -&gt; PlacementStatistics
 </span><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#PlacementStatistics%27"><span class="hs-identifier hs-type">PlacementStatistics'</span></a></span><span>
-</span><span id="line-74"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:spamPercentage:PlacementStatistics' :: Maybe Double
-</span><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#%24sel%3AspamPercentage%3APlacementStatistics%27"><span class="hs-identifier hs-var">spamPercentage</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:missingPercentage:PlacementStatistics' :: Maybe Double
+</span><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#%24sel%3AmissingPercentage%3APlacementStatistics%27"><span class="hs-identifier hs-var">missingPercentage</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>        </span><span class="annot"><span class="annottext">Maybe Double
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:dkimPercentage:PlacementStatistics' :: Maybe Double
-</span><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#%24sel%3AdkimPercentage%3APlacementStatistics%27"><span class="hs-identifier hs-var">dkimPercentage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:spamPercentage:PlacementStatistics' :: Maybe Double
+</span><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#%24sel%3AspamPercentage%3APlacementStatistics%27"><span class="hs-identifier hs-var">spamPercentage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:spfPercentage:PlacementStatistics' :: Maybe Double
 </span><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#%24sel%3AspfPercentage%3APlacementStatistics%27"><span class="hs-identifier hs-var">spfPercentage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:inboxPercentage:PlacementStatistics' :: Maybe Double
-</span><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#%24sel%3AinboxPercentage%3APlacementStatistics%27"><span class="hs-identifier hs-var">inboxPercentage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:dkimPercentage:PlacementStatistics' :: Maybe Double
+</span><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#%24sel%3AdkimPercentage%3APlacementStatistics%27"><span class="hs-identifier hs-var">dkimPercentage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:missingPercentage:PlacementStatistics' :: Maybe Double
-</span><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#%24sel%3AmissingPercentage%3APlacementStatistics%27"><span class="hs-identifier hs-var">missingPercentage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:inboxPercentage:PlacementStatistics' :: Maybe Double
+</span><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#%24sel%3AinboxPercentage%3APlacementStatistics%27"><span class="hs-identifier hs-var">inboxPercentage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-80"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- | The percentage of emails that arrived in recipients\' spam or junk mail</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- folders during the predictive inbox placement test.</span><span>
-</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#placementStatistics_spamPercentage"><span class="hs-identifier hs-type">placementStatistics_spamPercentage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#PlacementStatistics"><span class="hs-identifier hs-type">PlacementStatistics</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
-</span><span id="line-85"></span><span id="placementStatistics_spamPercentage"><span class="annot"><span class="annottext">placementStatistics_spamPercentage :: (Maybe Double -&gt; f (Maybe Double))
+</span><span id="line-82"></span><span class="hs-comment">-- | The percentage of emails that didn\'t arrive in recipients\' inboxes at</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- all during the predictive inbox placement test.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#placementStatistics_missingPercentage"><span class="hs-identifier hs-type">placementStatistics_missingPercentage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#PlacementStatistics"><span class="hs-identifier hs-type">PlacementStatistics</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span id="placementStatistics_missingPercentage"><span class="annot"><span class="annottext">placementStatistics_missingPercentage :: (Maybe Double -&gt; f (Maybe Double))
+-&gt; PlacementStatistics -&gt; f PlacementStatistics
+</span><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#placementStatistics_missingPercentage"><span class="hs-identifier hs-var hs-var">placementStatistics_missingPercentage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PlacementStatistics -&gt; Maybe Double)
+-&gt; (PlacementStatistics -&gt; Maybe Double -&gt; PlacementStatistics)
+-&gt; Lens
+     PlacementStatistics
+     PlacementStatistics
+     (Maybe Double)
+     (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#PlacementStatistics%27"><span class="hs-identifier hs-type">PlacementStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330460"><span class="annot"><span class="annottext">Maybe Double
+missingPercentage :: Maybe Double
+$sel:missingPercentage:PlacementStatistics' :: PlacementStatistics -&gt; Maybe Double
+</span><a href="#local-6989586621679330460"><span class="hs-identifier hs-var hs-var">missingPercentage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679330460"><span class="hs-identifier hs-var">missingPercentage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330459"><span class="annot"><span class="annottext">s :: PlacementStatistics
+</span><a href="#local-6989586621679330459"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#PlacementStatistics%27"><span class="hs-identifier hs-type">PlacementStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330458"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679330458"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PlacementStatistics
+</span><a href="#local-6989586621679330459"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:missingPercentage:PlacementStatistics' :: Maybe Double
+</span><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#%24sel%3AmissingPercentage%3APlacementStatistics%27"><span class="hs-identifier hs-var">missingPercentage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679330458"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#PlacementStatistics"><span class="hs-identifier hs-type">PlacementStatistics</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | The percentage of emails that arrived in recipients\' spam or junk mail</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- folders during the predictive inbox placement test.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#placementStatistics_spamPercentage"><span class="hs-identifier hs-type">placementStatistics_spamPercentage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#PlacementStatistics"><span class="hs-identifier hs-type">PlacementStatistics</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="placementStatistics_spamPercentage"><span class="annot"><span class="annottext">placementStatistics_spamPercentage :: (Maybe Double -&gt; f (Maybe Double))
 -&gt; PlacementStatistics -&gt; f PlacementStatistics
 </span><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#placementStatistics_spamPercentage"><span class="hs-identifier hs-var hs-var">placementStatistics_spamPercentage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PlacementStatistics -&gt; Maybe Double)
 -&gt; (PlacementStatistics -&gt; Maybe Double -&gt; PlacementStatistics)
@@ -172,40 +196,16 @@ forall a. Maybe a
      (Maybe Double)
      (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#PlacementStatistics%27"><span class="hs-identifier hs-type">PlacementStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679327952"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#PlacementStatistics%27"><span class="hs-identifier hs-type">PlacementStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330456"><span class="annot"><span class="annottext">Maybe Double
 spamPercentage :: Maybe Double
 $sel:spamPercentage:PlacementStatistics' :: PlacementStatistics -&gt; Maybe Double
-</span><a href="#local-6989586621679327952"><span class="hs-identifier hs-var hs-var">spamPercentage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679327952"><span class="hs-identifier hs-var">spamPercentage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679327951"><span class="annot"><span class="annottext">s :: PlacementStatistics
-</span><a href="#local-6989586621679327951"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#PlacementStatistics%27"><span class="hs-identifier hs-type">PlacementStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679327950"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679327950"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PlacementStatistics
-</span><a href="#local-6989586621679327951"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:spamPercentage:PlacementStatistics' :: Maybe Double
+</span><a href="#local-6989586621679330456"><span class="hs-identifier hs-var hs-var">spamPercentage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679330456"><span class="hs-identifier hs-var">spamPercentage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330455"><span class="annot"><span class="annottext">s :: PlacementStatistics
+</span><a href="#local-6989586621679330455"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#PlacementStatistics%27"><span class="hs-identifier hs-type">PlacementStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330454"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679330454"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PlacementStatistics
+</span><a href="#local-6989586621679330455"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:spamPercentage:PlacementStatistics' :: Maybe Double
 </span><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#%24sel%3AspamPercentage%3APlacementStatistics%27"><span class="hs-identifier hs-var">spamPercentage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679327950"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#PlacementStatistics"><span class="hs-identifier hs-type">PlacementStatistics</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- | The percentage of emails that were authenticated by using DomainKeys</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- Identified Mail (DKIM) during the predictive inbox placement test.</span><span>
-</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#placementStatistics_dkimPercentage"><span class="hs-identifier hs-type">placementStatistics_dkimPercentage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#PlacementStatistics"><span class="hs-identifier hs-type">PlacementStatistics</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
-</span><span id="line-90"></span><span id="placementStatistics_dkimPercentage"><span class="annot"><span class="annottext">placementStatistics_dkimPercentage :: (Maybe Double -&gt; f (Maybe Double))
--&gt; PlacementStatistics -&gt; f PlacementStatistics
-</span><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#placementStatistics_dkimPercentage"><span class="hs-identifier hs-var hs-var">placementStatistics_dkimPercentage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PlacementStatistics -&gt; Maybe Double)
--&gt; (PlacementStatistics -&gt; Maybe Double -&gt; PlacementStatistics)
--&gt; Lens
-     PlacementStatistics
-     PlacementStatistics
-     (Maybe Double)
-     (Maybe Double)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#PlacementStatistics%27"><span class="hs-identifier hs-type">PlacementStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679327948"><span class="annot"><span class="annottext">Maybe Double
-dkimPercentage :: Maybe Double
-$sel:dkimPercentage:PlacementStatistics' :: PlacementStatistics -&gt; Maybe Double
-</span><a href="#local-6989586621679327948"><span class="hs-identifier hs-var hs-var">dkimPercentage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679327948"><span class="hs-identifier hs-var">dkimPercentage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679327947"><span class="annot"><span class="annottext">s :: PlacementStatistics
-</span><a href="#local-6989586621679327947"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#PlacementStatistics%27"><span class="hs-identifier hs-type">PlacementStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679327946"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679327946"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PlacementStatistics
-</span><a href="#local-6989586621679327947"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dkimPercentage:PlacementStatistics' :: Maybe Double
-</span><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#%24sel%3AdkimPercentage%3APlacementStatistics%27"><span class="hs-identifier hs-var">dkimPercentage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679327946"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#PlacementStatistics"><span class="hs-identifier hs-type">PlacementStatistics</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679330454"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#PlacementStatistics"><span class="hs-identifier hs-type">PlacementStatistics</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- | The percentage of emails that were authenticated by using Sender Policy</span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- Framework (SPF) during the predictive inbox placement test.</span><span>
@@ -220,21 +220,45 @@ $sel:dkimPercentage:PlacementStatistics' :: PlacementStatistics -&gt; Maybe Doub
      (Maybe Double)
      (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#PlacementStatistics%27"><span class="hs-identifier hs-type">PlacementStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679327944"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#PlacementStatistics%27"><span class="hs-identifier hs-type">PlacementStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330452"><span class="annot"><span class="annottext">Maybe Double
 spfPercentage :: Maybe Double
 $sel:spfPercentage:PlacementStatistics' :: PlacementStatistics -&gt; Maybe Double
-</span><a href="#local-6989586621679327944"><span class="hs-identifier hs-var hs-var">spfPercentage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679327944"><span class="hs-identifier hs-var">spfPercentage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679327943"><span class="annot"><span class="annottext">s :: PlacementStatistics
-</span><a href="#local-6989586621679327943"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#PlacementStatistics%27"><span class="hs-identifier hs-type">PlacementStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679327942"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679327942"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PlacementStatistics
-</span><a href="#local-6989586621679327943"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:spfPercentage:PlacementStatistics' :: Maybe Double
+</span><a href="#local-6989586621679330452"><span class="hs-identifier hs-var hs-var">spfPercentage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679330452"><span class="hs-identifier hs-var">spfPercentage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330451"><span class="annot"><span class="annottext">s :: PlacementStatistics
+</span><a href="#local-6989586621679330451"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#PlacementStatistics%27"><span class="hs-identifier hs-type">PlacementStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330450"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679330450"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PlacementStatistics
+</span><a href="#local-6989586621679330451"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:spfPercentage:PlacementStatistics' :: Maybe Double
 </span><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#%24sel%3AspfPercentage%3APlacementStatistics%27"><span class="hs-identifier hs-var">spfPercentage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679327942"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#PlacementStatistics"><span class="hs-identifier hs-type">PlacementStatistics</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679330450"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#PlacementStatistics"><span class="hs-identifier hs-type">PlacementStatistics</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- | The percentage of emails that arrived in recipients\' inboxes during the</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- predictive inbox placement test.</span><span>
-</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#placementStatistics_inboxPercentage"><span class="hs-identifier hs-type">placementStatistics_inboxPercentage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#PlacementStatistics"><span class="hs-identifier hs-type">PlacementStatistics</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
-</span><span id="line-100"></span><span id="placementStatistics_inboxPercentage"><span class="annot"><span class="annottext">placementStatistics_inboxPercentage :: (Maybe Double -&gt; f (Maybe Double))
+</span><span id="line-97"></span><span class="hs-comment">-- | The percentage of emails that were authenticated by using DomainKeys</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- Identified Mail (DKIM) during the predictive inbox placement test.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#placementStatistics_dkimPercentage"><span class="hs-identifier hs-type">placementStatistics_dkimPercentage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#PlacementStatistics"><span class="hs-identifier hs-type">PlacementStatistics</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="placementStatistics_dkimPercentage"><span class="annot"><span class="annottext">placementStatistics_dkimPercentage :: (Maybe Double -&gt; f (Maybe Double))
+-&gt; PlacementStatistics -&gt; f PlacementStatistics
+</span><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#placementStatistics_dkimPercentage"><span class="hs-identifier hs-var hs-var">placementStatistics_dkimPercentage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PlacementStatistics -&gt; Maybe Double)
+-&gt; (PlacementStatistics -&gt; Maybe Double -&gt; PlacementStatistics)
+-&gt; Lens
+     PlacementStatistics
+     PlacementStatistics
+     (Maybe Double)
+     (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#PlacementStatistics%27"><span class="hs-identifier hs-type">PlacementStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330448"><span class="annot"><span class="annottext">Maybe Double
+dkimPercentage :: Maybe Double
+$sel:dkimPercentage:PlacementStatistics' :: PlacementStatistics -&gt; Maybe Double
+</span><a href="#local-6989586621679330448"><span class="hs-identifier hs-var hs-var">dkimPercentage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679330448"><span class="hs-identifier hs-var">dkimPercentage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330447"><span class="annot"><span class="annottext">s :: PlacementStatistics
+</span><a href="#local-6989586621679330447"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#PlacementStatistics%27"><span class="hs-identifier hs-type">PlacementStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330446"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679330446"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PlacementStatistics
+</span><a href="#local-6989586621679330447"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dkimPercentage:PlacementStatistics' :: Maybe Double
+</span><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#%24sel%3AdkimPercentage%3APlacementStatistics%27"><span class="hs-identifier hs-var">dkimPercentage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679330446"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#PlacementStatistics"><span class="hs-identifier hs-type">PlacementStatistics</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | The percentage of emails that arrived in recipients\' inboxes during the</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- predictive inbox placement test.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#placementStatistics_inboxPercentage"><span class="hs-identifier hs-type">placementStatistics_inboxPercentage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#PlacementStatistics"><span class="hs-identifier hs-type">PlacementStatistics</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="placementStatistics_inboxPercentage"><span class="annot"><span class="annottext">placementStatistics_inboxPercentage :: (Maybe Double -&gt; f (Maybe Double))
 -&gt; PlacementStatistics -&gt; f PlacementStatistics
 </span><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#placementStatistics_inboxPercentage"><span class="hs-identifier hs-var hs-var">placementStatistics_inboxPercentage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PlacementStatistics -&gt; Maybe Double)
 -&gt; (PlacementStatistics -&gt; Maybe Double -&gt; PlacementStatistics)
@@ -244,43 +268,19 @@ $sel:spfPercentage:PlacementStatistics' :: PlacementStatistics -&gt; Maybe Doubl
      (Maybe Double)
      (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#PlacementStatistics%27"><span class="hs-identifier hs-type">PlacementStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679327940"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#PlacementStatistics%27"><span class="hs-identifier hs-type">PlacementStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330444"><span class="annot"><span class="annottext">Maybe Double
 inboxPercentage :: Maybe Double
 $sel:inboxPercentage:PlacementStatistics' :: PlacementStatistics -&gt; Maybe Double
-</span><a href="#local-6989586621679327940"><span class="hs-identifier hs-var hs-var">inboxPercentage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679327940"><span class="hs-identifier hs-var">inboxPercentage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679327939"><span class="annot"><span class="annottext">s :: PlacementStatistics
-</span><a href="#local-6989586621679327939"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#PlacementStatistics%27"><span class="hs-identifier hs-type">PlacementStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679327938"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679327938"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PlacementStatistics
-</span><a href="#local-6989586621679327939"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inboxPercentage:PlacementStatistics' :: Maybe Double
+</span><a href="#local-6989586621679330444"><span class="hs-identifier hs-var hs-var">inboxPercentage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679330444"><span class="hs-identifier hs-var">inboxPercentage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330443"><span class="annot"><span class="annottext">s :: PlacementStatistics
+</span><a href="#local-6989586621679330443"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#PlacementStatistics%27"><span class="hs-identifier hs-type">PlacementStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330442"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679330442"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PlacementStatistics
+</span><a href="#local-6989586621679330443"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inboxPercentage:PlacementStatistics' :: Maybe Double
 </span><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#%24sel%3AinboxPercentage%3APlacementStatistics%27"><span class="hs-identifier hs-var">inboxPercentage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679327938"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#PlacementStatistics"><span class="hs-identifier hs-type">PlacementStatistics</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- | The percentage of emails that didn\'t arrive in recipients\' inboxes at</span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- all during the predictive inbox placement test.</span><span>
-</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#placementStatistics_missingPercentage"><span class="hs-identifier hs-type">placementStatistics_missingPercentage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#PlacementStatistics"><span class="hs-identifier hs-type">PlacementStatistics</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
-</span><span id="line-105"></span><span id="placementStatistics_missingPercentage"><span class="annot"><span class="annottext">placementStatistics_missingPercentage :: (Maybe Double -&gt; f (Maybe Double))
--&gt; PlacementStatistics -&gt; f PlacementStatistics
-</span><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#placementStatistics_missingPercentage"><span class="hs-identifier hs-var hs-var">placementStatistics_missingPercentage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PlacementStatistics -&gt; Maybe Double)
--&gt; (PlacementStatistics -&gt; Maybe Double -&gt; PlacementStatistics)
--&gt; Lens
-     PlacementStatistics
-     PlacementStatistics
-     (Maybe Double)
-     (Maybe Double)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#PlacementStatistics%27"><span class="hs-identifier hs-type">PlacementStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679327936"><span class="annot"><span class="annottext">Maybe Double
-missingPercentage :: Maybe Double
-$sel:missingPercentage:PlacementStatistics' :: PlacementStatistics -&gt; Maybe Double
-</span><a href="#local-6989586621679327936"><span class="hs-identifier hs-var hs-var">missingPercentage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679327936"><span class="hs-identifier hs-var">missingPercentage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679327935"><span class="annot"><span class="annottext">s :: PlacementStatistics
-</span><a href="#local-6989586621679327935"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#PlacementStatistics%27"><span class="hs-identifier hs-type">PlacementStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679327934"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679327934"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PlacementStatistics
-</span><a href="#local-6989586621679327935"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:missingPercentage:PlacementStatistics' :: Maybe Double
-</span><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#%24sel%3AmissingPercentage%3APlacementStatistics%27"><span class="hs-identifier hs-var">missingPercentage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679327934"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#PlacementStatistics"><span class="hs-identifier hs-type">PlacementStatistics</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679330442"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#PlacementStatistics"><span class="hs-identifier hs-type">PlacementStatistics</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679327931"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#PlacementStatistics"><span class="hs-identifier hs-type">PlacementStatistics</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679327929"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PlacementStatistics
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679330439"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#PlacementStatistics"><span class="hs-identifier hs-type">PlacementStatistics</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679330437"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PlacementStatistics
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser PlacementStatistics)
@@ -290,8 +290,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;PlacementStatistics&quot;</span></span><span>
-</span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679327926"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679327926"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679330434"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679330434"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-112"></span><span>          </span><span class="annot"><span class="annottext">Maybe Double
 -&gt; Maybe Double
 -&gt; Maybe Double
@@ -314,10 +314,10 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; PlacementStatistics)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679327926"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+</span><a href="#local-6989586621679330434"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;SpamPercentage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;MissingPercentage&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Double
    -&gt; Maybe Double
@@ -330,10 +330,10 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Maybe Double -&gt; Maybe Double -&gt; PlacementStatistics)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679327926"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+</span><a href="#local-6989586621679330434"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;DkimPercentage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;SpamPercentage&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Double
    -&gt; Maybe Double -&gt; Maybe Double -&gt; PlacementStatistics)
@@ -341,7 +341,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Double -&gt; Maybe Double -&gt; PlacementStatistics)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679327926"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+</span><a href="#local-6989586621679330434"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SpfPercentage&quot;</span></span><span class="hs-special">)</span><span>
@@ -350,21 +350,21 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Double -&gt; PlacementStatistics)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679327926"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+</span><a href="#local-6989586621679330434"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;InboxPercentage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;DkimPercentage&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Double -&gt; PlacementStatistics)
 -&gt; Parser (Maybe Double) -&gt; Parser PlacementStatistics
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679327926"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+</span><a href="#local-6989586621679330434"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;MissingPercentage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;InboxPercentage&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679327920"><span id="local-6989586621679327922"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#PlacementStatistics"><span class="hs-identifier hs-type">PlacementStatistics</span></a></span></span></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679330428"><span id="local-6989586621679330430"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#PlacementStatistics"><span class="hs-identifier hs-type">PlacementStatistics</span></a></span></span></span><span>
 </span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679327917"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#PlacementStatistics"><span class="hs-identifier hs-type">PlacementStatistics</span></a></span></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679330425"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.PlacementStatistics.html#PlacementStatistics"><span class="hs-identifier hs-type">PlacementStatistics</span></a></span></span><span>
 </span><span id="line-123"></span></pre></body></html>

@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Information about the virtual interface failover test.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newVirtualInterfaceTestHistory' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679283911"><span id="local-6989586621679283912"></span></span><span class="hs-keyword">data</span><span> </span><span id="VirtualInterfaceTestHistory"><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#VirtualInterfaceTestHistory"><span class="hs-identifier hs-var">VirtualInterfaceTestHistory</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VirtualInterfaceTestHistory%27"><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#VirtualInterfaceTestHistory%27"><span class="hs-identifier hs-var">VirtualInterfaceTestHistory'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679284151"><span id="local-6989586621679284152"></span></span><span class="hs-keyword">data</span><span> </span><span id="VirtualInterfaceTestHistory"><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#VirtualInterfaceTestHistory"><span class="hs-identifier hs-var">VirtualInterfaceTestHistory</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VirtualInterfaceTestHistory%27"><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#VirtualInterfaceTestHistory%27"><span class="hs-identifier hs-var">VirtualInterfaceTestHistory'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The BGP peers that were put in the DOWN state as part of the virtual</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- interface failover test.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AbgpPeers%3AVirtualInterfaceTestHistory%27"><span class="annot"><span class="annottext">VirtualInterfaceTestHistory -&gt; Maybe [Text]
@@ -34,26 +34,26 @@
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The status of the virtual interface failover test.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Astatus%3AVirtualInterfaceTestHistory%27"><span class="annot"><span class="annottext">VirtualInterfaceTestHistory -&gt; Maybe Text
 </span><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#%24sel%3Astatus%3AVirtualInterfaceTestHistory%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The ID of the virtual interface failover test.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AtestId%3AVirtualInterfaceTestHistory%27"><span class="annot"><span class="annottext">VirtualInterfaceTestHistory -&gt; Maybe Text
-</span><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#%24sel%3AtestId%3AVirtualInterfaceTestHistory%27"><span class="hs-identifier hs-var hs-var">testId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The time that the virtual interface failover test ran in minutes.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AtestDurationInMinutes%3AVirtualInterfaceTestHistory%27"><span class="annot"><span class="annottext">VirtualInterfaceTestHistory -&gt; Maybe Int
+</span><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#%24sel%3AtestDurationInMinutes%3AVirtualInterfaceTestHistory%27"><span class="hs-identifier hs-var hs-var">testDurationInMinutes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The time that the virtual interface moves to the DOWN state.</span><span>
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3AstartTime%3AVirtualInterfaceTestHistory%27"><span class="annot"><span class="annottext">VirtualInterfaceTestHistory -&gt; Maybe POSIX
 </span><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#%24sel%3AstartTime%3AVirtualInterfaceTestHistory%27"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The time that the virtual interface moves out of the DOWN state.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3AendTime%3AVirtualInterfaceTestHistory%27"><span class="annot"><span class="annottext">VirtualInterfaceTestHistory -&gt; Maybe POSIX
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The ID of the virtual interface failover test.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AtestId%3AVirtualInterfaceTestHistory%27"><span class="annot"><span class="annottext">VirtualInterfaceTestHistory -&gt; Maybe Text
+</span><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#%24sel%3AtestId%3AVirtualInterfaceTestHistory%27"><span class="hs-identifier hs-var hs-var">testId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The time that the virtual interface moves out of the DOWN state.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AendTime%3AVirtualInterfaceTestHistory%27"><span class="annot"><span class="annottext">VirtualInterfaceTestHistory -&gt; Maybe POSIX
 </span><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#%24sel%3AendTime%3AVirtualInterfaceTestHistory%27"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The ID of the tested virtual interface.</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3AvirtualInterfaceId%3AVirtualInterfaceTestHistory%27"><span class="annot"><span class="annottext">VirtualInterfaceTestHistory -&gt; Maybe Text
-</span><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#%24sel%3AvirtualInterfaceId%3AVirtualInterfaceTestHistory%27"><span class="hs-identifier hs-var hs-var">virtualInterfaceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The owner ID of the tested virtual interface.</span><span>
 </span><span id="line-44"></span><span>    </span><span id="%24sel%3AownerAccount%3AVirtualInterfaceTestHistory%27"><span class="annot"><span class="annottext">VirtualInterfaceTestHistory -&gt; Maybe Text
 </span><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#%24sel%3AownerAccount%3AVirtualInterfaceTestHistory%27"><span class="hs-identifier hs-var hs-var">ownerAccount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The time that the virtual interface failover test ran in minutes.</span><span>
-</span><span id="line-46"></span><span>    </span><span id="%24sel%3AtestDurationInMinutes%3AVirtualInterfaceTestHistory%27"><span class="annot"><span class="annottext">VirtualInterfaceTestHistory -&gt; Maybe Int
-</span><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#%24sel%3AtestDurationInMinutes%3AVirtualInterfaceTestHistory%27"><span class="hs-identifier hs-var hs-var">testDurationInMinutes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The ID of the tested virtual interface.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AvirtualInterfaceId%3AVirtualInterfaceTestHistory%27"><span class="annot"><span class="annottext">VirtualInterfaceTestHistory -&gt; Maybe Text
+</span><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#%24sel%3AvirtualInterfaceId%3AVirtualInterfaceTestHistory%27"><span class="hs-identifier hs-var hs-var">virtualInterfaceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679283898"><span id="local-6989586621679283900"><span class="annot"><span class="annottext">VirtualInterfaceTestHistory -&gt; VirtualInterfaceTestHistory -&gt; Bool
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679284138"><span id="local-6989586621679284140"><span class="annot"><span class="annottext">VirtualInterfaceTestHistory -&gt; VirtualInterfaceTestHistory -&gt; Bool
 (VirtualInterfaceTestHistory
  -&gt; VirtualInterfaceTestHistory -&gt; Bool)
 -&gt; (VirtualInterfaceTestHistory
@@ -64,7 +64,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: VirtualInterfaceTestHistory -&gt; VirtualInterfaceTestHistory -&gt; Bool
 == :: VirtualInterfaceTestHistory -&gt; VirtualInterfaceTestHistory -&gt; Bool
 $c== :: VirtualInterfaceTestHistory -&gt; VirtualInterfaceTestHistory -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679283889"><span id="local-6989586621679283891"><span id="local-6989586621679283893"><span id="local-6989586621679283895"><span class="annot"><span class="annottext">ReadPrec [VirtualInterfaceTestHistory]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679284129"><span id="local-6989586621679284131"><span id="local-6989586621679284133"><span id="local-6989586621679284135"><span class="annot"><span class="annottext">ReadPrec [VirtualInterfaceTestHistory]
 ReadPrec VirtualInterfaceTestHistory
 Int -&gt; ReadS VirtualInterfaceTestHistory
 ReadS [VirtualInterfaceTestHistory]
@@ -84,7 +84,7 @@ readList :: ReadS [VirtualInterfaceTestHistory]
 $creadList :: ReadS [VirtualInterfaceTestHistory]
 readsPrec :: Int -&gt; ReadS VirtualInterfaceTestHistory
 $creadsPrec :: Int -&gt; ReadS VirtualInterfaceTestHistory
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679283882"><span id="local-6989586621679283884"><span id="local-6989586621679283886"><span class="annot"><span class="annottext">Int -&gt; VirtualInterfaceTestHistory -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679284122"><span id="local-6989586621679284124"><span id="local-6989586621679284126"><span class="annot"><span class="annottext">Int -&gt; VirtualInterfaceTestHistory -&gt; ShowS
 [VirtualInterfaceTestHistory] -&gt; ShowS
 VirtualInterfaceTestHistory -&gt; String
 (Int -&gt; VirtualInterfaceTestHistory -&gt; ShowS)
@@ -129,29 +129,29 @@ VirtualInterfaceTestHistory -&gt; Rep VirtualInterfaceTestHistory x
 </span><span id="line-60"></span><span class="hs-comment">--</span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- 'status', 'virtualInterfaceTestHistory_status' - The status of the virtual interface failover test.</span><span>
 </span><span id="line-62"></span><span class="hs-comment">--</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- 'testId', 'virtualInterfaceTestHistory_testId' - The ID of the virtual interface failover test.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'testDurationInMinutes', 'virtualInterfaceTestHistory_testDurationInMinutes' - The time that the virtual interface failover test ran in minutes.</span><span>
 </span><span id="line-64"></span><span class="hs-comment">--</span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- 'startTime', 'virtualInterfaceTestHistory_startTime' - The time that the virtual interface moves to the DOWN state.</span><span>
 </span><span id="line-66"></span><span class="hs-comment">--</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- 'endTime', 'virtualInterfaceTestHistory_endTime' - The time that the virtual interface moves out of the DOWN state.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'testId', 'virtualInterfaceTestHistory_testId' - The ID of the virtual interface failover test.</span><span>
 </span><span id="line-68"></span><span class="hs-comment">--</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- 'virtualInterfaceId', 'virtualInterfaceTestHistory_virtualInterfaceId' - The ID of the tested virtual interface.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'endTime', 'virtualInterfaceTestHistory_endTime' - The time that the virtual interface moves out of the DOWN state.</span><span>
 </span><span id="line-70"></span><span class="hs-comment">--</span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- 'ownerAccount', 'virtualInterfaceTestHistory_ownerAccount' - The owner ID of the tested virtual interface.</span><span>
 </span><span id="line-72"></span><span class="hs-comment">--</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- 'testDurationInMinutes', 'virtualInterfaceTestHistory_testDurationInMinutes' - The time that the virtual interface failover test ran in minutes.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'virtualInterfaceId', 'virtualInterfaceTestHistory_virtualInterfaceId' - The ID of the tested virtual interface.</span><span>
 </span><span id="line-74"></span><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#newVirtualInterfaceTestHistory"><span class="hs-identifier hs-type">newVirtualInterfaceTestHistory</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#VirtualInterfaceTestHistory"><span class="hs-identifier hs-type">VirtualInterfaceTestHistory</span></a></span><span>
 </span><span id="line-76"></span><span id="newVirtualInterfaceTestHistory"><span class="annot"><span class="annottext">newVirtualInterfaceTestHistory :: VirtualInterfaceTestHistory
 </span><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#newVirtualInterfaceTestHistory"><span class="hs-identifier hs-var hs-var">newVirtualInterfaceTestHistory</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>  </span><span class="annot"><span class="annottext">VirtualInterfaceTestHistory' :: Maybe [Text]
 -&gt; Maybe Text
--&gt; Maybe Text
--&gt; Maybe POSIX
--&gt; Maybe POSIX
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Maybe Int
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; VirtualInterfaceTestHistory
 </span><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#VirtualInterfaceTestHistory%27"><span class="hs-identifier hs-type">VirtualInterfaceTestHistory'</span></a></span><span>
 </span><span id="line-78"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:bgpPeers:VirtualInterfaceTestHistory' :: Maybe [Text]
@@ -163,28 +163,28 @@ forall a. Maybe a
 </span><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#%24sel%3Astatus%3AVirtualInterfaceTestHistory%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:testId:VirtualInterfaceTestHistory' :: Maybe Text
-</span><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#%24sel%3AtestId%3AVirtualInterfaceTestHistory%27"><span class="hs-identifier hs-var">testId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:testDurationInMinutes:VirtualInterfaceTestHistory' :: Maybe Int
+</span><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#%24sel%3AtestDurationInMinutes%3AVirtualInterfaceTestHistory%27"><span class="hs-identifier hs-var">testDurationInMinutes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:startTime:VirtualInterfaceTestHistory' :: Maybe POSIX
 </span><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#%24sel%3AstartTime%3AVirtualInterfaceTestHistory%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:endTime:VirtualInterfaceTestHistory' :: Maybe POSIX
-</span><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#%24sel%3AendTime%3AVirtualInterfaceTestHistory%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:testId:VirtualInterfaceTestHistory' :: Maybe Text
+</span><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#%24sel%3AtestId%3AVirtualInterfaceTestHistory%27"><span class="hs-identifier hs-var">testId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:virtualInterfaceId:VirtualInterfaceTestHistory' :: Maybe Text
-</span><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#%24sel%3AvirtualInterfaceId%3AVirtualInterfaceTestHistory%27"><span class="hs-identifier hs-var">virtualInterfaceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:endTime:VirtualInterfaceTestHistory' :: Maybe POSIX
+</span><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#%24sel%3AendTime%3AVirtualInterfaceTestHistory%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:ownerAccount:VirtualInterfaceTestHistory' :: Maybe Text
 </span><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#%24sel%3AownerAccount%3AVirtualInterfaceTestHistory%27"><span class="hs-identifier hs-var">ownerAccount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:testDurationInMinutes:VirtualInterfaceTestHistory' :: Maybe Int
-</span><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#%24sel%3AtestDurationInMinutes%3AVirtualInterfaceTestHistory%27"><span class="hs-identifier hs-var">testDurationInMinutes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:virtualInterfaceId:VirtualInterfaceTestHistory' :: Maybe Text
+</span><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#%24sel%3AvirtualInterfaceId%3AVirtualInterfaceTestHistory%27"><span class="hs-identifier hs-var">virtualInterfaceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-87"></span><span>    </span><span class="hs-special">}</span><span>
@@ -203,16 +203,16 @@ forall a. Maybe a
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#VirtualInterfaceTestHistory%27"><span class="hs-identifier hs-type">VirtualInterfaceTestHistory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283873"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#VirtualInterfaceTestHistory%27"><span class="hs-identifier hs-type">VirtualInterfaceTestHistory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284113"><span class="annot"><span class="annottext">Maybe [Text]
 bgpPeers :: Maybe [Text]
 $sel:bgpPeers:VirtualInterfaceTestHistory' :: VirtualInterfaceTestHistory -&gt; Maybe [Text]
-</span><a href="#local-6989586621679283873"><span class="hs-identifier hs-var hs-var">bgpPeers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679283873"><span class="hs-identifier hs-var">bgpPeers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283872"><span class="annot"><span class="annottext">s :: VirtualInterfaceTestHistory
-</span><a href="#local-6989586621679283872"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#VirtualInterfaceTestHistory%27"><span class="hs-identifier hs-type">VirtualInterfaceTestHistory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283871"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679283871"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VirtualInterfaceTestHistory
-</span><a href="#local-6989586621679283872"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bgpPeers:VirtualInterfaceTestHistory' :: Maybe [Text]
+</span><a href="#local-6989586621679284113"><span class="hs-identifier hs-var hs-var">bgpPeers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679284113"><span class="hs-identifier hs-var">bgpPeers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284112"><span class="annot"><span class="annottext">s :: VirtualInterfaceTestHistory
+</span><a href="#local-6989586621679284112"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#VirtualInterfaceTestHistory%27"><span class="hs-identifier hs-type">VirtualInterfaceTestHistory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284111"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679284111"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VirtualInterfaceTestHistory
+</span><a href="#local-6989586621679284112"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bgpPeers:VirtualInterfaceTestHistory' :: Maybe [Text]
 </span><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#%24sel%3AbgpPeers%3AVirtualInterfaceTestHistory%27"><span class="hs-identifier hs-var">bgpPeers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679283871"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#VirtualInterfaceTestHistory"><span class="hs-identifier hs-type">VirtualInterfaceTestHistory</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679284111"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#VirtualInterfaceTestHistory"><span class="hs-identifier hs-type">VirtualInterfaceTestHistory</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; VirtualInterfaceTestHistory -&gt; f VirtualInterfaceTestHistory)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -226,8 +226,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- | The status of the virtual interface failover test.</span><span>
 </span><span id="line-95"></span><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#virtualInterfaceTestHistory_status"><span class="hs-identifier hs-type">virtualInterfaceTestHistory_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#VirtualInterfaceTestHistory"><span class="hs-identifier hs-type">VirtualInterfaceTestHistory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -242,40 +242,40 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#VirtualInterfaceTestHistory%27"><span class="hs-identifier hs-type">VirtualInterfaceTestHistory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283866"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#VirtualInterfaceTestHistory%27"><span class="hs-identifier hs-type">VirtualInterfaceTestHistory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284106"><span class="annot"><span class="annottext">Maybe Text
 status :: Maybe Text
 $sel:status:VirtualInterfaceTestHistory' :: VirtualInterfaceTestHistory -&gt; Maybe Text
-</span><a href="#local-6989586621679283866"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679283866"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283865"><span class="annot"><span class="annottext">s :: VirtualInterfaceTestHistory
-</span><a href="#local-6989586621679283865"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#VirtualInterfaceTestHistory%27"><span class="hs-identifier hs-type">VirtualInterfaceTestHistory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283864"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679283864"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VirtualInterfaceTestHistory
-</span><a href="#local-6989586621679283865"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:VirtualInterfaceTestHistory' :: Maybe Text
+</span><a href="#local-6989586621679284106"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679284106"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284105"><span class="annot"><span class="annottext">s :: VirtualInterfaceTestHistory
+</span><a href="#local-6989586621679284105"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#VirtualInterfaceTestHistory%27"><span class="hs-identifier hs-type">VirtualInterfaceTestHistory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284104"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679284104"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VirtualInterfaceTestHistory
+</span><a href="#local-6989586621679284105"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:VirtualInterfaceTestHistory' :: Maybe Text
 </span><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#%24sel%3Astatus%3AVirtualInterfaceTestHistory%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679283864"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#VirtualInterfaceTestHistory"><span class="hs-identifier hs-type">VirtualInterfaceTestHistory</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679284104"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#VirtualInterfaceTestHistory"><span class="hs-identifier hs-type">VirtualInterfaceTestHistory</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- | The ID of the virtual interface failover test.</span><span>
-</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#virtualInterfaceTestHistory_testId"><span class="hs-identifier hs-type">virtualInterfaceTestHistory_testId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#VirtualInterfaceTestHistory"><span class="hs-identifier hs-type">VirtualInterfaceTestHistory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-100"></span><span id="virtualInterfaceTestHistory_testId"><span class="annot"><span class="annottext">virtualInterfaceTestHistory_testId :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-98"></span><span class="hs-comment">-- | The time that the virtual interface failover test ran in minutes.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#virtualInterfaceTestHistory_testDurationInMinutes"><span class="hs-identifier hs-type">virtualInterfaceTestHistory_testDurationInMinutes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#VirtualInterfaceTestHistory"><span class="hs-identifier hs-type">VirtualInterfaceTestHistory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="virtualInterfaceTestHistory_testDurationInMinutes"><span class="annot"><span class="annottext">virtualInterfaceTestHistory_testDurationInMinutes :: (Maybe Int -&gt; f (Maybe Int))
 -&gt; VirtualInterfaceTestHistory -&gt; f VirtualInterfaceTestHistory
-</span><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#virtualInterfaceTestHistory_testId"><span class="hs-identifier hs-var hs-var">virtualInterfaceTestHistory_testId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VirtualInterfaceTestHistory -&gt; Maybe Text)
+</span><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#virtualInterfaceTestHistory_testDurationInMinutes"><span class="hs-identifier hs-var hs-var">virtualInterfaceTestHistory_testDurationInMinutes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VirtualInterfaceTestHistory -&gt; Maybe Int)
 -&gt; (VirtualInterfaceTestHistory
-    -&gt; Maybe Text -&gt; VirtualInterfaceTestHistory)
+    -&gt; Maybe Int -&gt; VirtualInterfaceTestHistory)
 -&gt; Lens
      VirtualInterfaceTestHistory
      VirtualInterfaceTestHistory
-     (Maybe Text)
-     (Maybe Text)
+     (Maybe Int)
+     (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#VirtualInterfaceTestHistory%27"><span class="hs-identifier hs-type">VirtualInterfaceTestHistory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283862"><span class="annot"><span class="annottext">Maybe Text
-testId :: Maybe Text
-$sel:testId:VirtualInterfaceTestHistory' :: VirtualInterfaceTestHistory -&gt; Maybe Text
-</span><a href="#local-6989586621679283862"><span class="hs-identifier hs-var hs-var">testId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679283862"><span class="hs-identifier hs-var">testId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283861"><span class="annot"><span class="annottext">s :: VirtualInterfaceTestHistory
-</span><a href="#local-6989586621679283861"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#VirtualInterfaceTestHistory%27"><span class="hs-identifier hs-type">VirtualInterfaceTestHistory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283860"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679283860"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VirtualInterfaceTestHistory
-</span><a href="#local-6989586621679283861"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:testId:VirtualInterfaceTestHistory' :: Maybe Text
-</span><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#%24sel%3AtestId%3AVirtualInterfaceTestHistory%27"><span class="hs-identifier hs-var">testId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679283860"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#VirtualInterfaceTestHistory"><span class="hs-identifier hs-type">VirtualInterfaceTestHistory</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#VirtualInterfaceTestHistory%27"><span class="hs-identifier hs-type">VirtualInterfaceTestHistory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284102"><span class="annot"><span class="annottext">Maybe Int
+testDurationInMinutes :: Maybe Int
+$sel:testDurationInMinutes:VirtualInterfaceTestHistory' :: VirtualInterfaceTestHistory -&gt; Maybe Int
+</span><a href="#local-6989586621679284102"><span class="hs-identifier hs-var hs-var">testDurationInMinutes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679284102"><span class="hs-identifier hs-var">testDurationInMinutes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284101"><span class="annot"><span class="annottext">s :: VirtualInterfaceTestHistory
+</span><a href="#local-6989586621679284101"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#VirtualInterfaceTestHistory%27"><span class="hs-identifier hs-type">VirtualInterfaceTestHistory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284100"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679284100"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VirtualInterfaceTestHistory
+</span><a href="#local-6989586621679284101"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:testDurationInMinutes:VirtualInterfaceTestHistory' :: Maybe Int
+</span><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#%24sel%3AtestDurationInMinutes%3AVirtualInterfaceTestHistory%27"><span class="hs-identifier hs-var">testDurationInMinutes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679284100"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#VirtualInterfaceTestHistory"><span class="hs-identifier hs-type">VirtualInterfaceTestHistory</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-comment">-- | The time that the virtual interface moves to the DOWN state.</span><span>
 </span><span id="line-103"></span><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#virtualInterfaceTestHistory_startTime"><span class="hs-identifier hs-type">virtualInterfaceTestHistory_startTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#VirtualInterfaceTestHistory"><span class="hs-identifier hs-type">VirtualInterfaceTestHistory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
@@ -290,16 +290,16 @@ $sel:testId:VirtualInterfaceTestHistory' :: VirtualInterfaceTestHistory -&gt; Ma
      (Maybe POSIX)
      (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#VirtualInterfaceTestHistory%27"><span class="hs-identifier hs-type">VirtualInterfaceTestHistory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283858"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#VirtualInterfaceTestHistory%27"><span class="hs-identifier hs-type">VirtualInterfaceTestHistory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284098"><span class="annot"><span class="annottext">Maybe POSIX
 startTime :: Maybe POSIX
 $sel:startTime:VirtualInterfaceTestHistory' :: VirtualInterfaceTestHistory -&gt; Maybe POSIX
-</span><a href="#local-6989586621679283858"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679283858"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283857"><span class="annot"><span class="annottext">s :: VirtualInterfaceTestHistory
-</span><a href="#local-6989586621679283857"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#VirtualInterfaceTestHistory%27"><span class="hs-identifier hs-type">VirtualInterfaceTestHistory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283856"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679283856"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VirtualInterfaceTestHistory
-</span><a href="#local-6989586621679283857"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:VirtualInterfaceTestHistory' :: Maybe POSIX
+</span><a href="#local-6989586621679284098"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679284098"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284097"><span class="annot"><span class="annottext">s :: VirtualInterfaceTestHistory
+</span><a href="#local-6989586621679284097"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#VirtualInterfaceTestHistory%27"><span class="hs-identifier hs-type">VirtualInterfaceTestHistory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284096"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679284096"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VirtualInterfaceTestHistory
+</span><a href="#local-6989586621679284097"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:VirtualInterfaceTestHistory' :: Maybe POSIX
 </span><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#%24sel%3AstartTime%3AVirtualInterfaceTestHistory%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679283856"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#VirtualInterfaceTestHistory"><span class="hs-identifier hs-type">VirtualInterfaceTestHistory</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679284096"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#VirtualInterfaceTestHistory"><span class="hs-identifier hs-type">VirtualInterfaceTestHistory</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; VirtualInterfaceTestHistory -&gt; f VirtualInterfaceTestHistory)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -316,9 +316,33 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- | The time that the virtual interface moves out of the DOWN state.</span><span>
-</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#virtualInterfaceTestHistory_endTime"><span class="hs-identifier hs-type">virtualInterfaceTestHistory_endTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#VirtualInterfaceTestHistory"><span class="hs-identifier hs-type">VirtualInterfaceTestHistory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-108"></span><span id="virtualInterfaceTestHistory_endTime"><span class="annot"><span class="annottext">virtualInterfaceTestHistory_endTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span id="line-106"></span><span class="hs-comment">-- | The ID of the virtual interface failover test.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#virtualInterfaceTestHistory_testId"><span class="hs-identifier hs-type">virtualInterfaceTestHistory_testId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#VirtualInterfaceTestHistory"><span class="hs-identifier hs-type">VirtualInterfaceTestHistory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span id="virtualInterfaceTestHistory_testId"><span class="annot"><span class="annottext">virtualInterfaceTestHistory_testId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; VirtualInterfaceTestHistory -&gt; f VirtualInterfaceTestHistory
+</span><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#virtualInterfaceTestHistory_testId"><span class="hs-identifier hs-var hs-var">virtualInterfaceTestHistory_testId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VirtualInterfaceTestHistory -&gt; Maybe Text)
+-&gt; (VirtualInterfaceTestHistory
+    -&gt; Maybe Text -&gt; VirtualInterfaceTestHistory)
+-&gt; Lens
+     VirtualInterfaceTestHistory
+     VirtualInterfaceTestHistory
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#VirtualInterfaceTestHistory%27"><span class="hs-identifier hs-type">VirtualInterfaceTestHistory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284093"><span class="annot"><span class="annottext">Maybe Text
+testId :: Maybe Text
+$sel:testId:VirtualInterfaceTestHistory' :: VirtualInterfaceTestHistory -&gt; Maybe Text
+</span><a href="#local-6989586621679284093"><span class="hs-identifier hs-var hs-var">testId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679284093"><span class="hs-identifier hs-var">testId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284092"><span class="annot"><span class="annottext">s :: VirtualInterfaceTestHistory
+</span><a href="#local-6989586621679284092"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#VirtualInterfaceTestHistory%27"><span class="hs-identifier hs-type">VirtualInterfaceTestHistory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284091"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679284091"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VirtualInterfaceTestHistory
+</span><a href="#local-6989586621679284092"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:testId:VirtualInterfaceTestHistory' :: Maybe Text
+</span><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#%24sel%3AtestId%3AVirtualInterfaceTestHistory%27"><span class="hs-identifier hs-var">testId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679284091"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#VirtualInterfaceTestHistory"><span class="hs-identifier hs-type">VirtualInterfaceTestHistory</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | The time that the virtual interface moves out of the DOWN state.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#virtualInterfaceTestHistory_endTime"><span class="hs-identifier hs-type">virtualInterfaceTestHistory_endTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#VirtualInterfaceTestHistory"><span class="hs-identifier hs-type">VirtualInterfaceTestHistory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="virtualInterfaceTestHistory_endTime"><span class="annot"><span class="annottext">virtualInterfaceTestHistory_endTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; VirtualInterfaceTestHistory -&gt; f VirtualInterfaceTestHistory
 </span><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#virtualInterfaceTestHistory_endTime"><span class="hs-identifier hs-var hs-var">virtualInterfaceTestHistory_endTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VirtualInterfaceTestHistory -&gt; Maybe POSIX)
 -&gt; (VirtualInterfaceTestHistory
@@ -329,16 +353,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
      (Maybe POSIX)
      (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#VirtualInterfaceTestHistory%27"><span class="hs-identifier hs-type">VirtualInterfaceTestHistory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283853"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#VirtualInterfaceTestHistory%27"><span class="hs-identifier hs-type">VirtualInterfaceTestHistory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284089"><span class="annot"><span class="annottext">Maybe POSIX
 endTime :: Maybe POSIX
 $sel:endTime:VirtualInterfaceTestHistory' :: VirtualInterfaceTestHistory -&gt; Maybe POSIX
-</span><a href="#local-6989586621679283853"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679283853"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283852"><span class="annot"><span class="annottext">s :: VirtualInterfaceTestHistory
-</span><a href="#local-6989586621679283852"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#VirtualInterfaceTestHistory%27"><span class="hs-identifier hs-type">VirtualInterfaceTestHistory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283851"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679283851"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VirtualInterfaceTestHistory
-</span><a href="#local-6989586621679283852"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endTime:VirtualInterfaceTestHistory' :: Maybe POSIX
+</span><a href="#local-6989586621679284089"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679284089"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284088"><span class="annot"><span class="annottext">s :: VirtualInterfaceTestHistory
+</span><a href="#local-6989586621679284088"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#VirtualInterfaceTestHistory%27"><span class="hs-identifier hs-type">VirtualInterfaceTestHistory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284087"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679284087"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VirtualInterfaceTestHistory
+</span><a href="#local-6989586621679284088"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endTime:VirtualInterfaceTestHistory' :: Maybe POSIX
 </span><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#%24sel%3AendTime%3AVirtualInterfaceTestHistory%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679283851"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#VirtualInterfaceTestHistory"><span class="hs-identifier hs-type">VirtualInterfaceTestHistory</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679284087"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#VirtualInterfaceTestHistory"><span class="hs-identifier hs-type">VirtualInterfaceTestHistory</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; VirtualInterfaceTestHistory -&gt; f VirtualInterfaceTestHistory)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -354,30 +378,6 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- | The ID of the tested virtual interface.</span><span>
-</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#virtualInterfaceTestHistory_virtualInterfaceId"><span class="hs-identifier hs-type">virtualInterfaceTestHistory_virtualInterfaceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#VirtualInterfaceTestHistory"><span class="hs-identifier hs-type">VirtualInterfaceTestHistory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-112"></span><span id="virtualInterfaceTestHistory_virtualInterfaceId"><span class="annot"><span class="annottext">virtualInterfaceTestHistory_virtualInterfaceId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; VirtualInterfaceTestHistory -&gt; f VirtualInterfaceTestHistory
-</span><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#virtualInterfaceTestHistory_virtualInterfaceId"><span class="hs-identifier hs-var hs-var">virtualInterfaceTestHistory_virtualInterfaceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VirtualInterfaceTestHistory -&gt; Maybe Text)
--&gt; (VirtualInterfaceTestHistory
-    -&gt; Maybe Text -&gt; VirtualInterfaceTestHistory)
--&gt; Lens
-     VirtualInterfaceTestHistory
-     VirtualInterfaceTestHistory
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#VirtualInterfaceTestHistory%27"><span class="hs-identifier hs-type">VirtualInterfaceTestHistory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283849"><span class="annot"><span class="annottext">Maybe Text
-virtualInterfaceId :: Maybe Text
-$sel:virtualInterfaceId:VirtualInterfaceTestHistory' :: VirtualInterfaceTestHistory -&gt; Maybe Text
-</span><a href="#local-6989586621679283849"><span class="hs-identifier hs-var hs-var">virtualInterfaceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679283849"><span class="hs-identifier hs-var">virtualInterfaceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283848"><span class="annot"><span class="annottext">s :: VirtualInterfaceTestHistory
-</span><a href="#local-6989586621679283848"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#VirtualInterfaceTestHistory%27"><span class="hs-identifier hs-type">VirtualInterfaceTestHistory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283847"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679283847"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VirtualInterfaceTestHistory
-</span><a href="#local-6989586621679283848"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:virtualInterfaceId:VirtualInterfaceTestHistory' :: Maybe Text
-</span><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#%24sel%3AvirtualInterfaceId%3AVirtualInterfaceTestHistory%27"><span class="hs-identifier hs-var">virtualInterfaceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679283847"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#VirtualInterfaceTestHistory"><span class="hs-identifier hs-type">VirtualInterfaceTestHistory</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-comment">-- | The owner ID of the tested virtual interface.</span><span>
 </span><span id="line-115"></span><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#virtualInterfaceTestHistory_ownerAccount"><span class="hs-identifier hs-type">virtualInterfaceTestHistory_ownerAccount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#VirtualInterfaceTestHistory"><span class="hs-identifier hs-type">VirtualInterfaceTestHistory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -392,43 +392,43 @@ $sel:virtualInterfaceId:VirtualInterfaceTestHistory' :: VirtualInterfaceTestHist
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#VirtualInterfaceTestHistory%27"><span class="hs-identifier hs-type">VirtualInterfaceTestHistory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283845"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#VirtualInterfaceTestHistory%27"><span class="hs-identifier hs-type">VirtualInterfaceTestHistory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284085"><span class="annot"><span class="annottext">Maybe Text
 ownerAccount :: Maybe Text
 $sel:ownerAccount:VirtualInterfaceTestHistory' :: VirtualInterfaceTestHistory -&gt; Maybe Text
-</span><a href="#local-6989586621679283845"><span class="hs-identifier hs-var hs-var">ownerAccount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679283845"><span class="hs-identifier hs-var">ownerAccount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283844"><span class="annot"><span class="annottext">s :: VirtualInterfaceTestHistory
-</span><a href="#local-6989586621679283844"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#VirtualInterfaceTestHistory%27"><span class="hs-identifier hs-type">VirtualInterfaceTestHistory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283843"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679283843"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VirtualInterfaceTestHistory
-</span><a href="#local-6989586621679283844"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ownerAccount:VirtualInterfaceTestHistory' :: Maybe Text
+</span><a href="#local-6989586621679284085"><span class="hs-identifier hs-var hs-var">ownerAccount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679284085"><span class="hs-identifier hs-var">ownerAccount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284084"><span class="annot"><span class="annottext">s :: VirtualInterfaceTestHistory
+</span><a href="#local-6989586621679284084"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#VirtualInterfaceTestHistory%27"><span class="hs-identifier hs-type">VirtualInterfaceTestHistory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284083"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679284083"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VirtualInterfaceTestHistory
+</span><a href="#local-6989586621679284084"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ownerAccount:VirtualInterfaceTestHistory' :: Maybe Text
 </span><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#%24sel%3AownerAccount%3AVirtualInterfaceTestHistory%27"><span class="hs-identifier hs-var">ownerAccount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679283843"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#VirtualInterfaceTestHistory"><span class="hs-identifier hs-type">VirtualInterfaceTestHistory</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679284083"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#VirtualInterfaceTestHistory"><span class="hs-identifier hs-type">VirtualInterfaceTestHistory</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- | The time that the virtual interface failover test ran in minutes.</span><span>
-</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#virtualInterfaceTestHistory_testDurationInMinutes"><span class="hs-identifier hs-type">virtualInterfaceTestHistory_testDurationInMinutes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#VirtualInterfaceTestHistory"><span class="hs-identifier hs-type">VirtualInterfaceTestHistory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-120"></span><span id="virtualInterfaceTestHistory_testDurationInMinutes"><span class="annot"><span class="annottext">virtualInterfaceTestHistory_testDurationInMinutes :: (Maybe Int -&gt; f (Maybe Int))
+</span><span id="line-118"></span><span class="hs-comment">-- | The ID of the tested virtual interface.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#virtualInterfaceTestHistory_virtualInterfaceId"><span class="hs-identifier hs-type">virtualInterfaceTestHistory_virtualInterfaceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#VirtualInterfaceTestHistory"><span class="hs-identifier hs-type">VirtualInterfaceTestHistory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span id="virtualInterfaceTestHistory_virtualInterfaceId"><span class="annot"><span class="annottext">virtualInterfaceTestHistory_virtualInterfaceId :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; VirtualInterfaceTestHistory -&gt; f VirtualInterfaceTestHistory
-</span><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#virtualInterfaceTestHistory_testDurationInMinutes"><span class="hs-identifier hs-var hs-var">virtualInterfaceTestHistory_testDurationInMinutes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VirtualInterfaceTestHistory -&gt; Maybe Int)
+</span><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#virtualInterfaceTestHistory_virtualInterfaceId"><span class="hs-identifier hs-var hs-var">virtualInterfaceTestHistory_virtualInterfaceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VirtualInterfaceTestHistory -&gt; Maybe Text)
 -&gt; (VirtualInterfaceTestHistory
-    -&gt; Maybe Int -&gt; VirtualInterfaceTestHistory)
+    -&gt; Maybe Text -&gt; VirtualInterfaceTestHistory)
 -&gt; Lens
      VirtualInterfaceTestHistory
      VirtualInterfaceTestHistory
-     (Maybe Int)
-     (Maybe Int)
+     (Maybe Text)
+     (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#VirtualInterfaceTestHistory%27"><span class="hs-identifier hs-type">VirtualInterfaceTestHistory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283841"><span class="annot"><span class="annottext">Maybe Int
-testDurationInMinutes :: Maybe Int
-$sel:testDurationInMinutes:VirtualInterfaceTestHistory' :: VirtualInterfaceTestHistory -&gt; Maybe Int
-</span><a href="#local-6989586621679283841"><span class="hs-identifier hs-var hs-var">testDurationInMinutes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679283841"><span class="hs-identifier hs-var">testDurationInMinutes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283840"><span class="annot"><span class="annottext">s :: VirtualInterfaceTestHistory
-</span><a href="#local-6989586621679283840"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#VirtualInterfaceTestHistory%27"><span class="hs-identifier hs-type">VirtualInterfaceTestHistory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283839"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679283839"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VirtualInterfaceTestHistory
-</span><a href="#local-6989586621679283840"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:testDurationInMinutes:VirtualInterfaceTestHistory' :: Maybe Int
-</span><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#%24sel%3AtestDurationInMinutes%3AVirtualInterfaceTestHistory%27"><span class="hs-identifier hs-var">testDurationInMinutes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679283839"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#VirtualInterfaceTestHistory"><span class="hs-identifier hs-type">VirtualInterfaceTestHistory</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#VirtualInterfaceTestHistory%27"><span class="hs-identifier hs-type">VirtualInterfaceTestHistory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284081"><span class="annot"><span class="annottext">Maybe Text
+virtualInterfaceId :: Maybe Text
+$sel:virtualInterfaceId:VirtualInterfaceTestHistory' :: VirtualInterfaceTestHistory -&gt; Maybe Text
+</span><a href="#local-6989586621679284081"><span class="hs-identifier hs-var hs-var">virtualInterfaceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679284081"><span class="hs-identifier hs-var">virtualInterfaceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284080"><span class="annot"><span class="annottext">s :: VirtualInterfaceTestHistory
+</span><a href="#local-6989586621679284080"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#VirtualInterfaceTestHistory%27"><span class="hs-identifier hs-type">VirtualInterfaceTestHistory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284079"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679284079"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VirtualInterfaceTestHistory
+</span><a href="#local-6989586621679284080"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:virtualInterfaceId:VirtualInterfaceTestHistory' :: Maybe Text
+</span><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#%24sel%3AvirtualInterfaceId%3AVirtualInterfaceTestHistory%27"><span class="hs-identifier hs-var">virtualInterfaceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679284079"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#VirtualInterfaceTestHistory"><span class="hs-identifier hs-type">VirtualInterfaceTestHistory</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283836"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#VirtualInterfaceTestHistory"><span class="hs-identifier hs-type">VirtualInterfaceTestHistory</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679283834"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser VirtualInterfaceTestHistory
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679284076"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#VirtualInterfaceTestHistory"><span class="hs-identifier hs-type">VirtualInterfaceTestHistory</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679284074"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser VirtualInterfaceTestHistory
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser VirtualInterfaceTestHistory)
@@ -438,40 +438,40 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;VirtualInterfaceTestHistory&quot;</span></span><span>
-</span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679283831"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679283831"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679284071"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679284071"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-127"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text]
 -&gt; Maybe Text
--&gt; Maybe Text
--&gt; Maybe POSIX
--&gt; Maybe POSIX
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Maybe Int
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; VirtualInterfaceTestHistory
 </span><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#VirtualInterfaceTestHistory%27"><span class="hs-identifier hs-var">VirtualInterfaceTestHistory'</span></a></span><span>
 </span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text]
  -&gt; Maybe Text
- -&gt; Maybe Text
- -&gt; Maybe POSIX
- -&gt; Maybe POSIX
- -&gt; Maybe Text
- -&gt; Maybe Text
  -&gt; Maybe Int
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe Text
  -&gt; VirtualInterfaceTestHistory)
 -&gt; Parser (Maybe [Text])
 -&gt; Parser
      (Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe POSIX
-      -&gt; Maybe POSIX
-      -&gt; Maybe Text
-      -&gt; Maybe Text
       -&gt; Maybe Int
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
       -&gt; VirtualInterfaceTestHistory)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679283831"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679284071"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;bgpPeers&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
@@ -482,117 +482,117 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe POSIX
-   -&gt; Maybe POSIX
-   -&gt; Maybe Text
-   -&gt; Maybe Text
    -&gt; Maybe Int
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
    -&gt; VirtualInterfaceTestHistory)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
-     (Maybe Text
+     (Maybe Int
       -&gt; Maybe POSIX
+      -&gt; Maybe Text
       -&gt; Maybe POSIX
       -&gt; Maybe Text
       -&gt; Maybe Text
-      -&gt; Maybe Int
       -&gt; VirtualInterfaceTestHistory)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679283831"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679284071"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
+  (Maybe Int
    -&gt; Maybe POSIX
+   -&gt; Maybe Text
    -&gt; Maybe POSIX
    -&gt; Maybe Text
    -&gt; Maybe Text
-   -&gt; Maybe Int
    -&gt; VirtualInterfaceTestHistory)
--&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Int)
 -&gt; Parser
      (Maybe POSIX
+      -&gt; Maybe Text
       -&gt; Maybe POSIX
       -&gt; Maybe Text
       -&gt; Maybe Text
-      -&gt; Maybe Int
       -&gt; VirtualInterfaceTestHistory)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679283831"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679284071"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;testId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;testDurationInMinutes&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe POSIX
+   -&gt; Maybe Text
    -&gt; Maybe POSIX
    -&gt; Maybe Text
    -&gt; Maybe Text
-   -&gt; Maybe Int
-   -&gt; VirtualInterfaceTestHistory)
--&gt; Parser (Maybe POSIX)
--&gt; Parser
-     (Maybe POSIX
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Int
-      -&gt; VirtualInterfaceTestHistory)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679283831"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;startTime&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe POSIX
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Int
    -&gt; VirtualInterfaceTestHistory)
 -&gt; Parser (Maybe POSIX)
 -&gt; Parser
      (Maybe Text
-      -&gt; Maybe Text -&gt; Maybe Int -&gt; VirtualInterfaceTestHistory)
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; VirtualInterfaceTestHistory)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679283831"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679284071"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;startTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; VirtualInterfaceTestHistory)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; VirtualInterfaceTestHistory)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679284071"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;testId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; VirtualInterfaceTestHistory)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; VirtualInterfaceTestHistory)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679284071"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;endTime&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe Text -&gt; Maybe Int -&gt; VirtualInterfaceTestHistory)
+</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; VirtualInterfaceTestHistory)
 -&gt; Parser (Maybe Text)
--&gt; Parser (Maybe Text -&gt; Maybe Int -&gt; VirtualInterfaceTestHistory)
+-&gt; Parser (Maybe Text -&gt; VirtualInterfaceTestHistory)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679283831"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;virtualInterfaceId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Int -&gt; VirtualInterfaceTestHistory)
--&gt; Parser (Maybe Text)
--&gt; Parser (Maybe Int -&gt; VirtualInterfaceTestHistory)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679283831"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679284071"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ownerAccount&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Int -&gt; VirtualInterfaceTestHistory)
--&gt; Parser (Maybe Int) -&gt; Parser VirtualInterfaceTestHistory
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; VirtualInterfaceTestHistory)
+-&gt; Parser (Maybe Text) -&gt; Parser VirtualInterfaceTestHistory
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679283831"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679284071"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;testDurationInMinutes&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;virtualInterfaceId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
-</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283824"><span id="local-6989586621679283826"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#VirtualInterfaceTestHistory"><span class="hs-identifier hs-type">VirtualInterfaceTestHistory</span></a></span></span></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679284064"><span id="local-6989586621679284066"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#VirtualInterfaceTestHistory"><span class="hs-identifier hs-type">VirtualInterfaceTestHistory</span></a></span></span></span><span>
 </span><span id="line-139"></span><span>
-</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283821"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#VirtualInterfaceTestHistory"><span class="hs-identifier hs-type">VirtualInterfaceTestHistory</span></a></span></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679284061"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory.html#VirtualInterfaceTestHistory"><span class="hs-identifier hs-type">VirtualInterfaceTestHistory</span></a></span></span><span>
 </span><span id="line-141"></span></pre></body></html>

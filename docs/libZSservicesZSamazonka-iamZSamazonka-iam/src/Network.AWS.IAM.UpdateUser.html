@@ -41,8 +41,8 @@
 </span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.IAM.UpdateUser.html#newUpdateUser"><span class="hs-identifier">newUpdateUser</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-42"></span><span>
 </span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.IAM.UpdateUser.html#updateUser_newPath"><span class="hs-identifier">updateUser_newPath</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.IAM.UpdateUser.html#updateUser_newUserName"><span class="hs-identifier">updateUser_newUserName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.IAM.UpdateUser.html#updateUser_newUserName"><span class="hs-identifier">updateUser_newUserName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.IAM.UpdateUser.html#updateUser_newPath"><span class="hs-identifier">updateUser_newPath</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.IAM.UpdateUser.html#updateUser_userName"><span class="hs-identifier">updateUser_userName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-47"></span><span>
 </span><span id="line-48"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
@@ -59,27 +59,27 @@
 </span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- | /See:/ 'newUpdateUser' smart constructor.</span><span>
-</span><span id="line-62"></span><span id="local-6989586621679464893"><span id="local-6989586621679464894"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateUser"><span class="annot"><a href="Network.AWS.IAM.UpdateUser.html#UpdateUser"><span class="hs-identifier hs-var">UpdateUser</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateUser%27"><span class="annot"><a href="Network.AWS.IAM.UpdateUser.html#UpdateUser%27"><span class="hs-identifier hs-var">UpdateUser'</span></a></span></span><span>
-</span><span id="line-63"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | New path for the IAM user. Include this parameter only if you\'re</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- changing the user\'s path.</span><span>
+</span><span id="line-62"></span><span id="local-6989586621679465545"><span id="local-6989586621679465546"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateUser"><span class="annot"><a href="Network.AWS.IAM.UpdateUser.html#UpdateUser"><span class="hs-identifier hs-var">UpdateUser</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateUser%27"><span class="annot"><a href="Network.AWS.IAM.UpdateUser.html#UpdateUser%27"><span class="hs-identifier hs-var">UpdateUser'</span></a></span></span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | New name for the user. Include this parameter only if you\'re changing</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- the user\'s name.</span><span>
 </span><span id="line-65"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- This parameter allows (through its</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- &lt;http://wikipedia.org/wiki/regex regex pattern&gt;) a string of characters</span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- consisting of either a forward slash (\/) by itself or a string that</span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- must begin and end with forward slashes. In addition, it can contain any</span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- ASCII character from the ! (@\\u0021@) through the DEL character</span><span>
-</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- (@\\u007F@), including most punctuation characters, digits, and upper</span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- and lowercased letters.</span><span>
-</span><span id="line-73"></span><span>    </span><span id="%24sel%3AnewPath%27%3AUpdateUser%27"><span class="annot"><span class="annottext">UpdateUser -&gt; Maybe Text
-</span><a href="Network.AWS.IAM.UpdateUser.html#%24sel%3AnewPath%27%3AUpdateUser%27"><span class="hs-identifier hs-var hs-var">newPath'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | New name for the user. Include this parameter only if you\'re changing</span><span>
-</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- the user\'s name.</span><span>
-</span><span id="line-76"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- IAM user, group, role, and policy names must be unique within the</span><span>
-</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- account. Names are not distinguished by case. For example, you cannot</span><span>
-</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- create resources named both \&quot;MyResource\&quot; and \&quot;myresource\&quot;.</span><span>
-</span><span id="line-80"></span><span>    </span><span id="%24sel%3AnewUserName%27%3AUpdateUser%27"><span class="annot"><span class="annottext">UpdateUser -&gt; Maybe Text
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- IAM user, group, role, and policy names must be unique within the</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- account. Names are not distinguished by case. For example, you cannot</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- create resources named both \&quot;MyResource\&quot; and \&quot;myresource\&quot;.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AnewUserName%27%3AUpdateUser%27"><span class="annot"><span class="annottext">UpdateUser -&gt; Maybe Text
 </span><a href="Network.AWS.IAM.UpdateUser.html#%24sel%3AnewUserName%27%3AUpdateUser%27"><span class="hs-identifier hs-var hs-var">newUserName'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | New path for the IAM user. Include this parameter only if you\'re</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- changing the user\'s path.</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- This parameter allows (through its</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- &lt;http://wikipedia.org/wiki/regex regex pattern&gt;) a string of characters</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- consisting of either a forward slash (\/) by itself or a string that</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- must begin and end with forward slashes. In addition, it can contain any</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- ASCII character from the ! (@\\u0021@) through the DEL character</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- (@\\u007F@), including most punctuation characters, digits, and upper</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- and lowercased letters.</span><span>
+</span><span id="line-80"></span><span>    </span><span id="%24sel%3AnewPath%27%3AUpdateUser%27"><span class="annot"><span class="annottext">UpdateUser -&gt; Maybe Text
+</span><a href="Network.AWS.IAM.UpdateUser.html#%24sel%3AnewPath%27%3AUpdateUser%27"><span class="hs-identifier hs-var hs-var">newPath'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-81"></span><span>    </span><span class="hs-comment">-- | Name of the user to update. If you\'re changing the name of the user,</span><span>
 </span><span id="line-82"></span><span>    </span><span class="hs-comment">-- this is the original user name.</span><span>
 </span><span id="line-83"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -90,7 +90,7 @@
 </span><span id="line-88"></span><span>    </span><span id="%24sel%3AuserName%3AUpdateUser%27"><span class="annot"><span class="annottext">UpdateUser -&gt; Text
 </span><a href="Network.AWS.IAM.UpdateUser.html#%24sel%3AuserName%3AUpdateUser%27"><span class="hs-identifier hs-var hs-var">userName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-89"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-90"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679464885"><span id="local-6989586621679464887"><span class="annot"><span class="annottext">UpdateUser -&gt; UpdateUser -&gt; Bool
+</span><span id="line-90"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679465537"><span id="local-6989586621679465539"><span class="annot"><span class="annottext">UpdateUser -&gt; UpdateUser -&gt; Bool
 (UpdateUser -&gt; UpdateUser -&gt; Bool)
 -&gt; (UpdateUser -&gt; UpdateUser -&gt; Bool) -&gt; Eq UpdateUser
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -98,7 +98,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateUser -&gt; UpdateUser -&gt; Bool
 == :: UpdateUser -&gt; UpdateUser -&gt; Bool
 $c== :: UpdateUser -&gt; UpdateUser -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679464876"><span id="local-6989586621679464878"><span id="local-6989586621679464880"><span id="local-6989586621679464882"><span class="annot"><span class="annottext">ReadPrec [UpdateUser]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679465528"><span id="local-6989586621679465530"><span id="local-6989586621679465532"><span id="local-6989586621679465534"><span class="annot"><span class="annottext">ReadPrec [UpdateUser]
 ReadPrec UpdateUser
 Int -&gt; ReadS UpdateUser
 ReadS [UpdateUser]
@@ -118,7 +118,7 @@ readList :: ReadS [UpdateUser]
 $creadList :: ReadS [UpdateUser]
 readsPrec :: Int -&gt; ReadS UpdateUser
 $creadsPrec :: Int -&gt; ReadS UpdateUser
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679464869"><span id="local-6989586621679464871"><span id="local-6989586621679464873"><span class="annot"><span class="annottext">Int -&gt; UpdateUser -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679465521"><span id="local-6989586621679465523"><span id="local-6989586621679465525"><span class="annot"><span class="annottext">Int -&gt; UpdateUser -&gt; ShowS
 [UpdateUser] -&gt; ShowS
 UpdateUser -&gt; String
 (Int -&gt; UpdateUser -&gt; ShowS)
@@ -151,23 +151,23 @@ $cfrom :: forall x. UpdateUser -&gt; Rep UpdateUser x
 </span><span id="line-97"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-99"></span><span class="hs-comment">--</span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- 'newPath'', 'updateUser_newPath' - New path for the IAM user. Include this parameter only if you\'re</span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- changing the user\'s path.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'newUserName'', 'updateUser_newUserName' - New name for the user. Include this parameter only if you\'re changing</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- the user\'s name.</span><span>
 </span><span id="line-102"></span><span class="hs-comment">--</span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- This parameter allows (through its</span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- &lt;http://wikipedia.org/wiki/regex regex pattern&gt;) a string of characters</span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- consisting of either a forward slash (\/) by itself or a string that</span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- must begin and end with forward slashes. In addition, it can contain any</span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- ASCII character from the ! (@\\u0021@) through the DEL character</span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- (@\\u007F@), including most punctuation characters, digits, and upper</span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- and lowercased letters.</span><span>
-</span><span id="line-110"></span><span class="hs-comment">--</span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- 'newUserName'', 'updateUser_newUserName' - New name for the user. Include this parameter only if you\'re changing</span><span>
-</span><span id="line-112"></span><span class="hs-comment">-- the user\'s name.</span><span>
-</span><span id="line-113"></span><span class="hs-comment">--</span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- IAM user, group, role, and policy names must be unique within the</span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- account. Names are not distinguished by case. For example, you cannot</span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- create resources named both \&quot;MyResource\&quot; and \&quot;myresource\&quot;.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- IAM user, group, role, and policy names must be unique within the</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- account. Names are not distinguished by case. For example, you cannot</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- create resources named both \&quot;MyResource\&quot; and \&quot;myresource\&quot;.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- 'newPath'', 'updateUser_newPath' - New path for the IAM user. Include this parameter only if you\'re</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- changing the user\'s path.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- This parameter allows (through its</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- &lt;http://wikipedia.org/wiki/regex regex pattern&gt;) a string of characters</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- consisting of either a forward slash (\/) by itself or a string that</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- must begin and end with forward slashes. In addition, it can contain any</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- ASCII character from the ! (@\\u0021@) through the DEL character</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- (@\\u007F@), including most punctuation characters, digits, and upper</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- and lowercased letters.</span><span>
 </span><span id="line-117"></span><span class="hs-comment">--</span><span>
 </span><span id="line-118"></span><span class="hs-comment">-- 'userName', 'updateUser_userName' - Name of the user to update. If you\'re changing the name of the user,</span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- this is the original user name.</span><span>
@@ -181,72 +181,72 @@ $cfrom :: forall x. UpdateUser -&gt; Rep UpdateUser x
 </span><span id="line-127"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-128"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.UpdateUser.html#UpdateUser"><span class="hs-identifier hs-type">UpdateUser</span></a></span><span>
 </span><span id="line-129"></span><span id="newUpdateUser"><span class="annot"><span class="annottext">newUpdateUser :: Text -&gt; UpdateUser
-</span><a href="Network.AWS.IAM.UpdateUser.html#newUpdateUser"><span class="hs-identifier hs-var hs-var">newUpdateUser</span></a></span></span><span> </span><span id="local-6989586621679464864"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679464864"><span class="hs-identifier hs-var">pUserName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IAM.UpdateUser.html#newUpdateUser"><span class="hs-identifier hs-var hs-var">newUpdateUser</span></a></span></span><span> </span><span id="local-6989586621679465516"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679465516"><span class="hs-identifier hs-var">pUserName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-130"></span><span>  </span><span class="annot"><span class="annottext">UpdateUser' :: Maybe Text -&gt; Maybe Text -&gt; Text -&gt; UpdateUser
 </span><a href="Network.AWS.IAM.UpdateUser.html#UpdateUser%27"><span class="hs-identifier hs-type">UpdateUser'</span></a></span><span>
-</span><span id="line-131"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:newPath':UpdateUser' :: Maybe Text
-</span><a href="Network.AWS.IAM.UpdateUser.html#%24sel%3AnewPath%27%3AUpdateUser%27"><span class="hs-identifier hs-var">newPath'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-131"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:newUserName':UpdateUser' :: Maybe Text
+</span><a href="Network.AWS.IAM.UpdateUser.html#%24sel%3AnewUserName%27%3AUpdateUser%27"><span class="hs-identifier hs-var">newUserName'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">$sel:newUserName':UpdateUser' :: Maybe Text
-</span><a href="Network.AWS.IAM.UpdateUser.html#%24sel%3AnewUserName%27%3AUpdateUser%27"><span class="hs-identifier hs-var">newUserName'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">$sel:newPath':UpdateUser' :: Maybe Text
+</span><a href="Network.AWS.IAM.UpdateUser.html#%24sel%3AnewPath%27%3AUpdateUser%27"><span class="hs-identifier hs-var">newPath'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-133"></span><span>      </span><span class="annot"><span class="annottext">$sel:userName:UpdateUser' :: Text
 </span><a href="Network.AWS.IAM.UpdateUser.html#%24sel%3AuserName%3AUpdateUser%27"><span class="hs-identifier hs-var">userName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679464864"><span class="hs-identifier hs-var">pUserName_</span></a></span><span>
+</span><a href="#local-6989586621679465516"><span class="hs-identifier hs-var">pUserName_</span></a></span><span>
 </span><span id="line-134"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-135"></span><span>
-</span><span id="line-136"></span><span class="hs-comment">-- | New path for the IAM user. Include this parameter only if you\'re</span><span>
-</span><span id="line-137"></span><span class="hs-comment">-- changing the user\'s path.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | New name for the user. Include this parameter only if you\'re changing</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- the user\'s name.</span><span>
 </span><span id="line-138"></span><span class="hs-comment">--</span><span>
-</span><span id="line-139"></span><span class="hs-comment">-- This parameter allows (through its</span><span>
-</span><span id="line-140"></span><span class="hs-comment">-- &lt;http://wikipedia.org/wiki/regex regex pattern&gt;) a string of characters</span><span>
-</span><span id="line-141"></span><span class="hs-comment">-- consisting of either a forward slash (\/) by itself or a string that</span><span>
-</span><span id="line-142"></span><span class="hs-comment">-- must begin and end with forward slashes. In addition, it can contain any</span><span>
-</span><span id="line-143"></span><span class="hs-comment">-- ASCII character from the ! (@\\u0021@) through the DEL character</span><span>
-</span><span id="line-144"></span><span class="hs-comment">-- (@\\u007F@), including most punctuation characters, digits, and upper</span><span>
-</span><span id="line-145"></span><span class="hs-comment">-- and lowercased letters.</span><span>
-</span><span id="line-146"></span><span class="annot"><a href="Network.AWS.IAM.UpdateUser.html#updateUser_newPath"><span class="hs-identifier hs-type">updateUser_newPath</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateUser.html#UpdateUser"><span class="hs-identifier hs-type">UpdateUser</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-147"></span><span id="updateUser_newPath"><span class="annot"><span class="annottext">updateUser_newPath :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateUser -&gt; f UpdateUser
-</span><a href="Network.AWS.IAM.UpdateUser.html#updateUser_newPath"><span class="hs-identifier hs-var hs-var">updateUser_newPath</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateUser -&gt; Maybe Text)
--&gt; (UpdateUser -&gt; Maybe Text -&gt; UpdateUser)
--&gt; Lens UpdateUser UpdateUser (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.UpdateUser.html#UpdateUser%27"><span class="hs-identifier hs-type">UpdateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679464861"><span class="annot"><span class="annottext">Maybe Text
-newPath' :: Maybe Text
-$sel:newPath':UpdateUser' :: UpdateUser -&gt; Maybe Text
-</span><a href="#local-6989586621679464861"><span class="hs-identifier hs-var hs-var">newPath'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679464861"><span class="hs-identifier hs-var">newPath'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679464860"><span class="annot"><span class="annottext">s :: UpdateUser
-</span><a href="#local-6989586621679464860"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.UpdateUser.html#UpdateUser%27"><span class="hs-identifier hs-type">UpdateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679464859"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679464859"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateUser
-</span><a href="#local-6989586621679464860"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:newPath':UpdateUser' :: Maybe Text
-</span><a href="Network.AWS.IAM.UpdateUser.html#%24sel%3AnewPath%27%3AUpdateUser%27"><span class="hs-identifier hs-var">newPath'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679464859"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateUser.html#UpdateUser"><span class="hs-identifier hs-type">UpdateUser</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-148"></span><span>
-</span><span id="line-149"></span><span class="hs-comment">-- | New name for the user. Include this parameter only if you\'re changing</span><span>
-</span><span id="line-150"></span><span class="hs-comment">-- the user\'s name.</span><span>
-</span><span id="line-151"></span><span class="hs-comment">--</span><span>
-</span><span id="line-152"></span><span class="hs-comment">-- IAM user, group, role, and policy names must be unique within the</span><span>
-</span><span id="line-153"></span><span class="hs-comment">-- account. Names are not distinguished by case. For example, you cannot</span><span>
-</span><span id="line-154"></span><span class="hs-comment">-- create resources named both \&quot;MyResource\&quot; and \&quot;myresource\&quot;.</span><span>
-</span><span id="line-155"></span><span class="annot"><a href="Network.AWS.IAM.UpdateUser.html#updateUser_newUserName"><span class="hs-identifier hs-type">updateUser_newUserName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateUser.html#UpdateUser"><span class="hs-identifier hs-type">UpdateUser</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-156"></span><span id="updateUser_newUserName"><span class="annot"><span class="annottext">updateUser_newUserName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateUser -&gt; f UpdateUser
+</span><span id="line-139"></span><span class="hs-comment">-- IAM user, group, role, and policy names must be unique within the</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- account. Names are not distinguished by case. For example, you cannot</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- create resources named both \&quot;MyResource\&quot; and \&quot;myresource\&quot;.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Network.AWS.IAM.UpdateUser.html#updateUser_newUserName"><span class="hs-identifier hs-type">updateUser_newUserName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateUser.html#UpdateUser"><span class="hs-identifier hs-type">UpdateUser</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span id="updateUser_newUserName"><span class="annot"><span class="annottext">updateUser_newUserName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateUser -&gt; f UpdateUser
 </span><a href="Network.AWS.IAM.UpdateUser.html#updateUser_newUserName"><span class="hs-identifier hs-var hs-var">updateUser_newUserName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateUser -&gt; Maybe Text)
 -&gt; (UpdateUser -&gt; Maybe Text -&gt; UpdateUser)
 -&gt; Lens UpdateUser UpdateUser (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.UpdateUser.html#UpdateUser%27"><span class="hs-identifier hs-type">UpdateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679464858"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.UpdateUser.html#UpdateUser%27"><span class="hs-identifier hs-type">UpdateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465513"><span class="annot"><span class="annottext">Maybe Text
 newUserName' :: Maybe Text
 $sel:newUserName':UpdateUser' :: UpdateUser -&gt; Maybe Text
-</span><a href="#local-6989586621679464858"><span class="hs-identifier hs-var hs-var">newUserName'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679464858"><span class="hs-identifier hs-var">newUserName'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679464857"><span class="annot"><span class="annottext">s :: UpdateUser
-</span><a href="#local-6989586621679464857"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.UpdateUser.html#UpdateUser%27"><span class="hs-identifier hs-type">UpdateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679464856"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679464856"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateUser
-</span><a href="#local-6989586621679464857"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:newUserName':UpdateUser' :: Maybe Text
+</span><a href="#local-6989586621679465513"><span class="hs-identifier hs-var hs-var">newUserName'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679465513"><span class="hs-identifier hs-var">newUserName'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679465512"><span class="annot"><span class="annottext">s :: UpdateUser
+</span><a href="#local-6989586621679465512"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.UpdateUser.html#UpdateUser%27"><span class="hs-identifier hs-type">UpdateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679465511"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679465511"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateUser
+</span><a href="#local-6989586621679465512"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:newUserName':UpdateUser' :: Maybe Text
 </span><a href="Network.AWS.IAM.UpdateUser.html#%24sel%3AnewUserName%27%3AUpdateUser%27"><span class="hs-identifier hs-var">newUserName'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679464856"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateUser.html#UpdateUser"><span class="hs-identifier hs-type">UpdateUser</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679465511"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateUser.html#UpdateUser"><span class="hs-identifier hs-type">UpdateUser</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | New path for the IAM user. Include this parameter only if you\'re</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- changing the user\'s path.</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- This parameter allows (through its</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- &lt;http://wikipedia.org/wiki/regex regex pattern&gt;) a string of characters</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- consisting of either a forward slash (\/) by itself or a string that</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- must begin and end with forward slashes. In addition, it can contain any</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- ASCII character from the ! (@\\u0021@) through the DEL character</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- (@\\u007F@), including most punctuation characters, digits, and upper</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- and lowercased letters.</span><span>
+</span><span id="line-155"></span><span class="annot"><a href="Network.AWS.IAM.UpdateUser.html#updateUser_newPath"><span class="hs-identifier hs-type">updateUser_newPath</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateUser.html#UpdateUser"><span class="hs-identifier hs-type">UpdateUser</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span id="updateUser_newPath"><span class="annot"><span class="annottext">updateUser_newPath :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateUser -&gt; f UpdateUser
+</span><a href="Network.AWS.IAM.UpdateUser.html#updateUser_newPath"><span class="hs-identifier hs-var hs-var">updateUser_newPath</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateUser -&gt; Maybe Text)
+-&gt; (UpdateUser -&gt; Maybe Text -&gt; UpdateUser)
+-&gt; Lens UpdateUser UpdateUser (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.UpdateUser.html#UpdateUser%27"><span class="hs-identifier hs-type">UpdateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465510"><span class="annot"><span class="annottext">Maybe Text
+newPath' :: Maybe Text
+$sel:newPath':UpdateUser' :: UpdateUser -&gt; Maybe Text
+</span><a href="#local-6989586621679465510"><span class="hs-identifier hs-var hs-var">newPath'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679465510"><span class="hs-identifier hs-var">newPath'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679465509"><span class="annot"><span class="annottext">s :: UpdateUser
+</span><a href="#local-6989586621679465509"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.UpdateUser.html#UpdateUser%27"><span class="hs-identifier hs-type">UpdateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679465508"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679465508"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateUser
+</span><a href="#local-6989586621679465509"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:newPath':UpdateUser' :: Maybe Text
+</span><a href="Network.AWS.IAM.UpdateUser.html#%24sel%3AnewPath%27%3AUpdateUser%27"><span class="hs-identifier hs-var">newPath'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679465508"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateUser.html#UpdateUser"><span class="hs-identifier hs-type">UpdateUser</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span><span>
 </span><span id="line-158"></span><span class="hs-comment">-- | Name of the user to update. If you\'re changing the name of the user,</span><span>
 </span><span id="line-159"></span><span class="hs-comment">-- this is the original user name.</span><span>
@@ -261,25 +261,25 @@ $sel:newUserName':UpdateUser' :: UpdateUser -&gt; Maybe Text
 -&gt; (UpdateUser -&gt; Text -&gt; UpdateUser)
 -&gt; Lens UpdateUser UpdateUser Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.UpdateUser.html#UpdateUser%27"><span class="hs-identifier hs-type">UpdateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679464855"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.UpdateUser.html#UpdateUser%27"><span class="hs-identifier hs-type">UpdateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465507"><span class="annot"><span class="annottext">Text
 userName :: Text
 $sel:userName:UpdateUser' :: UpdateUser -&gt; Text
-</span><a href="#local-6989586621679464855"><span class="hs-identifier hs-var hs-var">userName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679464855"><span class="hs-identifier hs-var">userName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679464854"><span class="annot"><span class="annottext">s :: UpdateUser
-</span><a href="#local-6989586621679464854"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.UpdateUser.html#UpdateUser%27"><span class="hs-identifier hs-type">UpdateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679464853"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679464853"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateUser
-</span><a href="#local-6989586621679464854"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userName:UpdateUser' :: Text
+</span><a href="#local-6989586621679465507"><span class="hs-identifier hs-var hs-var">userName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679465507"><span class="hs-identifier hs-var">userName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679465506"><span class="annot"><span class="annottext">s :: UpdateUser
+</span><a href="#local-6989586621679465506"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.UpdateUser.html#UpdateUser%27"><span class="hs-identifier hs-type">UpdateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679465505"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679465505"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateUser
+</span><a href="#local-6989586621679465506"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userName:UpdateUser' :: Text
 </span><a href="Network.AWS.IAM.UpdateUser.html#%24sel%3AuserName%3AUpdateUser%27"><span class="hs-identifier hs-var">userName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679464853"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateUser.html#UpdateUser"><span class="hs-identifier hs-type">UpdateUser</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679465505"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateUser.html#UpdateUser"><span class="hs-identifier hs-type">UpdateUser</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-167"></span><span>
 </span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateUser.html#UpdateUser"><span class="hs-identifier hs-type">UpdateUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-169"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateUser.html#UpdateUser"><span class="hs-identifier hs-type">UpdateUser</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateUser.html#UpdateUserResponse"><span class="hs-identifier hs-type">UpdateUserResponse</span></a></span><span>
-</span><span id="line-170"></span><span>  </span><span id="local-6989586621679464849"><span class="annot"><span class="annottext">request :: UpdateUser -&gt; Request UpdateUser
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679465501"><span class="annot"><span class="annottext">request :: UpdateUser -&gt; Request UpdateUser
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateUser -&gt; Request UpdateUser
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IAM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-171"></span><span>  </span><span id="local-6989586621679464845"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621679465497"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateUser
 -&gt; ClientResponse ClientBody
@@ -302,12 +302,12 @@ AWSResponse a
 UpdateUserResponse
 </span><a href="Network.AWS.IAM.UpdateUser.html#UpdateUserResponse%27"><span class="hs-identifier hs-var">UpdateUserResponse'</span></a></span><span>
 </span><span id="line-172"></span><span>
-</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679464838"><span id="local-6989586621679464840"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateUser.html#UpdateUser"><span class="hs-identifier hs-type">UpdateUser</span></a></span></span></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679465490"><span id="local-6989586621679465492"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateUser.html#UpdateUser"><span class="hs-identifier hs-type">UpdateUser</span></a></span></span></span><span>
 </span><span id="line-174"></span><span>
-</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679464835"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateUser.html#UpdateUser"><span class="hs-identifier hs-type">UpdateUser</span></a></span></span><span>
+</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679465487"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateUser.html#UpdateUser"><span class="hs-identifier hs-type">UpdateUser</span></a></span></span><span>
 </span><span id="line-176"></span><span>
 </span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateUser.html#UpdateUser"><span class="hs-identifier hs-type">UpdateUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-178"></span><span>  </span><span id="local-6989586621679464831"><span class="annot"><span class="annottext">toHeaders :: UpdateUser -&gt; [Header]
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679465483"><span class="annot"><span class="annottext">toHeaders :: UpdateUser -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; UpdateUser -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
@@ -315,23 +315,23 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateUser.html#UpdateUser"><span class="hs-identifier hs-type">UpdateUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-181"></span><span>  </span><span id="local-6989586621679464826"><span class="annot"><span class="annottext">toPath :: UpdateUser -&gt; ByteString
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679465478"><span class="annot"><span class="annottext">toPath :: UpdateUser -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateUser -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-182"></span><span>
 </span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateUser.html#UpdateUser"><span class="hs-identifier hs-type">UpdateUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-184"></span><span>  </span><span id="local-6989586621679464822"><span class="annot"><span class="annottext">toQuery :: UpdateUser -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateUser.html#UpdateUser%27"><span class="hs-identifier hs-type">UpdateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679464818"><span id="local-6989586621679464819"><span id="local-6989586621679464820"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679465474"><span class="annot"><span class="annottext">toQuery :: UpdateUser -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateUser.html#UpdateUser%27"><span class="hs-identifier hs-type">UpdateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465470"><span id="local-6989586621679465471"><span id="local-6989586621679465472"><span class="annot"><span class="annottext">Maybe Text
 Text
 userName :: Text
-newUserName' :: Maybe Text
 newPath' :: Maybe Text
+newUserName' :: Maybe Text
 $sel:userName:UpdateUser' :: UpdateUser -&gt; Text
-$sel:newUserName':UpdateUser' :: UpdateUser -&gt; Maybe Text
 $sel:newPath':UpdateUser' :: UpdateUser -&gt; Maybe Text
-</span><a href="#local-6989586621679464818"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:newUserName':UpdateUser' :: UpdateUser -&gt; Maybe Text
+</span><a href="#local-6989586621679465470"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-185"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -348,27 +348,27 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;2010-05-08&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-190"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;NewPath&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679464820"><span class="hs-identifier hs-var">newPath'</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-191"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;NewUserName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679464819"><span class="hs-identifier hs-var">newUserName'</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679465472"><span class="hs-identifier hs-var">newUserName'</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;NewPath&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679465471"><span class="hs-identifier hs-var">newPath'</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-192"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;UserName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679464818"><span class="hs-identifier hs-var">userName</span></a></span><span>
+</span><a href="#local-6989586621679465470"><span class="hs-identifier hs-var">userName</span></a></span><span>
 </span><span id="line-193"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-194"></span><span>
 </span><span id="line-195"></span><span class="hs-comment">-- | /See:/ 'newUpdateUserResponse' smart constructor.</span><span>
-</span><span id="line-196"></span><span id="local-6989586621679464815"><span id="local-6989586621679464816"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateUserResponse"><span class="annot"><a href="Network.AWS.IAM.UpdateUser.html#UpdateUserResponse"><span class="hs-identifier hs-var">UpdateUserResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateUserResponse%27"><span class="annot"><a href="Network.AWS.IAM.UpdateUser.html#UpdateUserResponse%27"><span class="hs-identifier hs-var">UpdateUserResponse'</span></a></span></span><span>
+</span><span id="line-196"></span><span id="local-6989586621679465467"><span id="local-6989586621679465468"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateUserResponse"><span class="annot"><a href="Network.AWS.IAM.UpdateUser.html#UpdateUserResponse"><span class="hs-identifier hs-var">UpdateUserResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateUserResponse%27"><span class="annot"><a href="Network.AWS.IAM.UpdateUser.html#UpdateUserResponse%27"><span class="hs-identifier hs-var">UpdateUserResponse'</span></a></span></span><span>
 </span><span id="line-197"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-198"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-199"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679464811"><span id="local-6989586621679464813"><span class="annot"><span class="annottext">UpdateUserResponse -&gt; UpdateUserResponse -&gt; Bool
+</span><span id="line-199"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679465463"><span id="local-6989586621679465465"><span class="annot"><span class="annottext">UpdateUserResponse -&gt; UpdateUserResponse -&gt; Bool
 (UpdateUserResponse -&gt; UpdateUserResponse -&gt; Bool)
 -&gt; (UpdateUserResponse -&gt; UpdateUserResponse -&gt; Bool)
 -&gt; Eq UpdateUserResponse
@@ -377,7 +377,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateUserResponse -&gt; UpdateUserResponse -&gt; Bool
 == :: UpdateUserResponse -&gt; UpdateUserResponse -&gt; Bool
 $c== :: UpdateUserResponse -&gt; UpdateUserResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679464803"><span id="local-6989586621679464805"><span id="local-6989586621679464807"><span id="local-6989586621679464809"><span class="annot"><span class="annottext">ReadPrec [UpdateUserResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679465455"><span id="local-6989586621679465457"><span id="local-6989586621679465459"><span id="local-6989586621679465461"><span class="annot"><span class="annottext">ReadPrec [UpdateUserResponse]
 ReadPrec UpdateUserResponse
 Int -&gt; ReadS UpdateUserResponse
 ReadS [UpdateUserResponse]
@@ -397,7 +397,7 @@ readList :: ReadS [UpdateUserResponse]
 $creadList :: ReadS [UpdateUserResponse]
 readsPrec :: Int -&gt; ReadS UpdateUserResponse
 $creadsPrec :: Int -&gt; ReadS UpdateUserResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679464797"><span id="local-6989586621679464799"><span id="local-6989586621679464801"><span class="annot"><span class="annottext">Int -&gt; UpdateUserResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679465449"><span id="local-6989586621679465451"><span id="local-6989586621679465453"><span class="annot"><span class="annottext">Int -&gt; UpdateUserResponse -&gt; ShowS
 [UpdateUserResponse] -&gt; ShowS
 UpdateUserResponse -&gt; String
 (Int -&gt; UpdateUserResponse -&gt; ShowS)
@@ -433,5 +433,5 @@ $cfrom :: forall x. UpdateUserResponse -&gt; Rep UpdateUserResponse x
 </span><a href="Network.AWS.IAM.UpdateUser.html#newUpdateUserResponse"><span class="hs-identifier hs-var hs-var">newUpdateUserResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">UpdateUserResponse
 </span><a href="Network.AWS.IAM.UpdateUser.html#UpdateUserResponse%27"><span class="hs-identifier hs-var">UpdateUserResponse'</span></a></span><span>
 </span><span id="line-208"></span><span>
-</span><span id="line-209"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679464793"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateUser.html#UpdateUserResponse"><span class="hs-identifier hs-type">UpdateUserResponse</span></a></span></span><span>
+</span><span id="line-209"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679465445"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateUser.html#UpdateUserResponse"><span class="hs-identifier hs-type">UpdateUserResponse</span></a></span></span><span>
 </span><span id="line-210"></span></pre></body></html>

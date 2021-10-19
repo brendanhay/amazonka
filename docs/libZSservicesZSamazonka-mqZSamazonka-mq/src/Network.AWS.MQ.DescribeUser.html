@@ -36,10 +36,10 @@
 </span><span id="line-36"></span><span>
 </span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
 </span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#describeUserResponse_groups"><span class="hs-identifier">describeUserResponse_groups</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#describeUserResponse_brokerId"><span class="hs-identifier">describeUserResponse_brokerId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#describeUserResponse_pending"><span class="hs-identifier">describeUserResponse_pending</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#describeUserResponse_pending"><span class="hs-identifier">describeUserResponse_pending</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#describeUserResponse_consoleAccess"><span class="hs-identifier">describeUserResponse_consoleAccess</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#describeUserResponse_username"><span class="hs-identifier">describeUserResponse_username</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#describeUserResponse_consoleAccess"><span class="hs-identifier">describeUserResponse_consoleAccess</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#describeUserResponse_brokerId"><span class="hs-identifier">describeUserResponse_brokerId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#describeUserResponse_httpStatus"><span class="hs-identifier">describeUserResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span class="hs-keyword">where</span><span>
@@ -52,7 +52,7 @@
 </span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newDescribeUser' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679227074"><span id="local-6989586621679227075"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeUser"><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#DescribeUser"><span class="hs-identifier hs-var">DescribeUser</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeUser%27"><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#DescribeUser%27"><span class="hs-identifier hs-var">DescribeUser'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679227243"><span id="local-6989586621679227244"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeUser"><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#DescribeUser"><span class="hs-identifier hs-var">DescribeUser</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeUser%27"><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#DescribeUser%27"><span class="hs-identifier hs-var">DescribeUser'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The username of the ActiveMQ user. This value can contain only</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">-- alphanumeric characters, dashes, periods, underscores, and tildes (- . _</span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-comment">-- ~). This value must be 2-100 characters long.</span><span>
@@ -62,7 +62,7 @@
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3AbrokerId%3ADescribeUser%27"><span class="annot"><span class="annottext">DescribeUser -&gt; Text
 </span><a href="Network.AWS.MQ.DescribeUser.html#%24sel%3AbrokerId%3ADescribeUser%27"><span class="hs-identifier hs-var hs-var">brokerId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679227067"><span id="local-6989586621679227069"><span class="annot"><span class="annottext">DescribeUser -&gt; DescribeUser -&gt; Bool
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679227236"><span id="local-6989586621679227238"><span class="annot"><span class="annottext">DescribeUser -&gt; DescribeUser -&gt; Bool
 (DescribeUser -&gt; DescribeUser -&gt; Bool)
 -&gt; (DescribeUser -&gt; DescribeUser -&gt; Bool) -&gt; Eq DescribeUser
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -70,7 +70,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeUser -&gt; DescribeUser -&gt; Bool
 == :: DescribeUser -&gt; DescribeUser -&gt; Bool
 $c== :: DescribeUser -&gt; DescribeUser -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679227058"><span id="local-6989586621679227060"><span id="local-6989586621679227062"><span id="local-6989586621679227064"><span class="annot"><span class="annottext">ReadPrec [DescribeUser]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679227227"><span id="local-6989586621679227229"><span id="local-6989586621679227231"><span id="local-6989586621679227233"><span class="annot"><span class="annottext">ReadPrec [DescribeUser]
 ReadPrec DescribeUser
 Int -&gt; ReadS DescribeUser
 ReadS [DescribeUser]
@@ -90,7 +90,7 @@ readList :: ReadS [DescribeUser]
 $creadList :: ReadS [DescribeUser]
 readsPrec :: Int -&gt; ReadS DescribeUser
 $creadsPrec :: Int -&gt; ReadS DescribeUser
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679227051"><span id="local-6989586621679227053"><span id="local-6989586621679227055"><span class="annot"><span class="annottext">Int -&gt; DescribeUser -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679227220"><span id="local-6989586621679227222"><span id="local-6989586621679227224"><span class="annot"><span class="annottext">Int -&gt; DescribeUser -&gt; ShowS
 [DescribeUser] -&gt; ShowS
 DescribeUser -&gt; String
 (Int -&gt; DescribeUser -&gt; ShowS)
@@ -136,17 +136,17 @@ $cfrom :: forall x. DescribeUser -&gt; Rep DescribeUser x
 </span><span id="line-82"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#DescribeUser"><span class="hs-identifier hs-type">DescribeUser</span></a></span><span>
 </span><span id="line-84"></span><span id="newDescribeUser"><span class="annot"><span class="annottext">newDescribeUser :: Text -&gt; Text -&gt; DescribeUser
-</span><a href="Network.AWS.MQ.DescribeUser.html#newDescribeUser"><span class="hs-identifier hs-var hs-var">newDescribeUser</span></a></span></span><span> </span><span id="local-6989586621679227046"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679227046"><span class="hs-identifier hs-var">pUsername_</span></a></span></span><span> </span><span id="local-6989586621679227045"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679227045"><span class="hs-identifier hs-var">pBrokerId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MQ.DescribeUser.html#newDescribeUser"><span class="hs-identifier hs-var hs-var">newDescribeUser</span></a></span></span><span> </span><span id="local-6989586621679227215"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679227215"><span class="hs-identifier hs-var">pUsername_</span></a></span></span><span> </span><span id="local-6989586621679227214"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679227214"><span class="hs-identifier hs-var">pBrokerId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>  </span><span class="annot"><span class="annottext">DescribeUser' :: Text -&gt; Text -&gt; DescribeUser
 </span><a href="Network.AWS.MQ.DescribeUser.html#DescribeUser%27"><span class="hs-identifier hs-type">DescribeUser'</span></a></span><span>
 </span><span id="line-86"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:username:DescribeUser' :: Text
 </span><a href="Network.AWS.MQ.DescribeUser.html#%24sel%3Ausername%3ADescribeUser%27"><span class="hs-identifier hs-var">username</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679227046"><span class="hs-identifier hs-var">pUsername_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679227215"><span class="hs-identifier hs-var">pUsername_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:brokerId:DescribeUser' :: Text
 </span><a href="Network.AWS.MQ.DescribeUser.html#%24sel%3AbrokerId%3ADescribeUser%27"><span class="hs-identifier hs-var">brokerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679227045"><span class="hs-identifier hs-var">pBrokerId_</span></a></span><span>
+</span><a href="#local-6989586621679227214"><span class="hs-identifier hs-var">pBrokerId_</span></a></span><span>
 </span><span id="line-88"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- | The username of the ActiveMQ user. This value can contain only</span><span>
@@ -158,16 +158,16 @@ $cfrom :: forall x. DescribeUser -&gt; Rep DescribeUser x
 -&gt; (DescribeUser -&gt; Text -&gt; DescribeUser)
 -&gt; Lens DescribeUser DescribeUser Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#DescribeUser%27"><span class="hs-identifier hs-type">DescribeUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227042"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#DescribeUser%27"><span class="hs-identifier hs-type">DescribeUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227211"><span class="annot"><span class="annottext">Text
 username :: Text
 $sel:username:DescribeUser' :: DescribeUser -&gt; Text
-</span><a href="#local-6989586621679227042"><span class="hs-identifier hs-var hs-var">username</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679227042"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227041"><span class="annot"><span class="annottext">s :: DescribeUser
-</span><a href="#local-6989586621679227041"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#DescribeUser%27"><span class="hs-identifier hs-type">DescribeUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227040"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679227040"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUser
-</span><a href="#local-6989586621679227041"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:username:DescribeUser' :: Text
+</span><a href="#local-6989586621679227211"><span class="hs-identifier hs-var hs-var">username</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679227211"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227210"><span class="annot"><span class="annottext">s :: DescribeUser
+</span><a href="#local-6989586621679227210"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#DescribeUser%27"><span class="hs-identifier hs-type">DescribeUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227209"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679227209"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUser
+</span><a href="#local-6989586621679227210"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:username:DescribeUser' :: Text
 </span><a href="Network.AWS.MQ.DescribeUser.html#%24sel%3Ausername%3ADescribeUser%27"><span class="hs-identifier hs-var">username</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679227040"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#DescribeUser"><span class="hs-identifier hs-type">DescribeUser</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679227209"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#DescribeUser"><span class="hs-identifier hs-type">DescribeUser</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- | The unique ID that Amazon MQ generates for the broker.</span><span>
 </span><span id="line-97"></span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#describeUser_brokerId"><span class="hs-identifier hs-type">describeUser_brokerId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#DescribeUser"><span class="hs-identifier hs-type">DescribeUser</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -176,25 +176,25 @@ $sel:username:DescribeUser' :: DescribeUser -&gt; Text
 -&gt; (DescribeUser -&gt; Text -&gt; DescribeUser)
 -&gt; Lens DescribeUser DescribeUser Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#DescribeUser%27"><span class="hs-identifier hs-type">DescribeUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227039"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#DescribeUser%27"><span class="hs-identifier hs-type">DescribeUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227208"><span class="annot"><span class="annottext">Text
 brokerId :: Text
 $sel:brokerId:DescribeUser' :: DescribeUser -&gt; Text
-</span><a href="#local-6989586621679227039"><span class="hs-identifier hs-var hs-var">brokerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679227039"><span class="hs-identifier hs-var">brokerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227038"><span class="annot"><span class="annottext">s :: DescribeUser
-</span><a href="#local-6989586621679227038"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#DescribeUser%27"><span class="hs-identifier hs-type">DescribeUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227037"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679227037"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUser
-</span><a href="#local-6989586621679227038"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:brokerId:DescribeUser' :: Text
+</span><a href="#local-6989586621679227208"><span class="hs-identifier hs-var hs-var">brokerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679227208"><span class="hs-identifier hs-var">brokerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227207"><span class="annot"><span class="annottext">s :: DescribeUser
+</span><a href="#local-6989586621679227207"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#DescribeUser%27"><span class="hs-identifier hs-type">DescribeUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227206"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679227206"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUser
+</span><a href="#local-6989586621679227207"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:brokerId:DescribeUser' :: Text
 </span><a href="Network.AWS.MQ.DescribeUser.html#%24sel%3AbrokerId%3ADescribeUser%27"><span class="hs-identifier hs-var">brokerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679227037"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#DescribeUser"><span class="hs-identifier hs-type">DescribeUser</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679227206"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#DescribeUser"><span class="hs-identifier hs-type">DescribeUser</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#DescribeUser"><span class="hs-identifier hs-type">DescribeUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-101"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#DescribeUser"><span class="hs-identifier hs-type">DescribeUser</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#DescribeUserResponse"><span class="hs-identifier hs-type">DescribeUserResponse</span></a></span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679227033"><span class="annot"><span class="annottext">request :: DescribeUser -&gt; Request DescribeUser
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679227202"><span class="annot"><span class="annottext">request :: DescribeUser -&gt; Request DescribeUser
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeUser -&gt; Request DescribeUser
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.MQ.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679227029"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679227198"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeUser
 -&gt; ClientResponse ClientBody
@@ -218,37 +218,37 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679227026"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679227026"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679227025"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679227025"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679227024"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679227024"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679227195"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679227195"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679227194"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679227194"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679227193"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679227193"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-106"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text]
--&gt; Maybe Text
 -&gt; Maybe UserPendingChanges
--&gt; Maybe Text
 -&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Int
 -&gt; DescribeUserResponse
 </span><a href="Network.AWS.MQ.DescribeUser.html#DescribeUserResponse%27"><span class="hs-identifier hs-var">DescribeUserResponse'</span></a></span><span>
 </span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text]
- -&gt; Maybe Text
  -&gt; Maybe UserPendingChanges
- -&gt; Maybe Text
  -&gt; Maybe Bool
+ -&gt; Maybe Text
+ -&gt; Maybe Text
  -&gt; Int
  -&gt; DescribeUserResponse)
 -&gt; Either String (Maybe [Text])
 -&gt; Either
      String
-     (Maybe Text
-      -&gt; Maybe UserPendingChanges
-      -&gt; Maybe Text
+     (Maybe UserPendingChanges
       -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Text
       -&gt; Int
       -&gt; DescribeUserResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679227024"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679227193"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;groups&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Text]))
@@ -259,55 +259,55 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe Text
-   -&gt; Maybe UserPendingChanges
-   -&gt; Maybe Text
+  (Maybe UserPendingChanges
    -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Text
    -&gt; Int
    -&gt; DescribeUserResponse)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String
-     (Maybe UserPendingChanges
-      -&gt; Maybe Text -&gt; Maybe Bool -&gt; Int -&gt; DescribeUserResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679227024"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;brokerId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe UserPendingChanges
-   -&gt; Maybe Text -&gt; Maybe Bool -&gt; Int -&gt; DescribeUserResponse)
 -&gt; Either String (Maybe UserPendingChanges)
 -&gt; Either
-     String (Maybe Text -&gt; Maybe Bool -&gt; Int -&gt; DescribeUserResponse)
+     String
+     (Maybe Bool
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; DescribeUserResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679227024"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe UserPendingChanges)
+</span><a href="#local-6989586621679227193"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe UserPendingChanges)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;pending&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String (Maybe Text -&gt; Maybe Bool -&gt; Int -&gt; DescribeUserResponse)
--&gt; Either String (Maybe Text)
--&gt; Either String (Maybe Bool -&gt; Int -&gt; DescribeUserResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679227024"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;username&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Bool -&gt; Int -&gt; DescribeUserResponse)
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Bool
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; DescribeUserResponse)
 -&gt; Either String (Maybe Bool)
--&gt; Either String (Int -&gt; DescribeUserResponse)
+-&gt; Either
+     String (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; DescribeUserResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679227024"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Bool)
+</span><a href="#local-6989586621679227193"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;consoleAccess&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; DescribeUserResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Text -&gt; Int -&gt; DescribeUserResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679227193"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;username&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; DescribeUserResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; DescribeUserResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679227193"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;brokerId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeUserResponse)
 -&gt; Either String Int -&gt; Either String DescribeUserResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -316,15 +316,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679227026"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679227195"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679227015"><span id="local-6989586621679227017"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#DescribeUser"><span class="hs-identifier hs-type">DescribeUser</span></a></span></span></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679227184"><span id="local-6989586621679227186"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#DescribeUser"><span class="hs-identifier hs-type">DescribeUser</span></a></span></span></span><span>
 </span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679227012"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#DescribeUser"><span class="hs-identifier hs-type">DescribeUser</span></a></span></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679227181"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#DescribeUser"><span class="hs-identifier hs-type">DescribeUser</span></a></span></span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#DescribeUser"><span class="hs-identifier hs-type">DescribeUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679227008"><span class="annot"><span class="annottext">toHeaders :: DescribeUser -&gt; ResponseHeaders
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679227177"><span class="annot"><span class="annottext">toHeaders :: DescribeUser -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeUser -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -344,13 +344,13 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-128"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#DescribeUser"><span class="hs-identifier hs-type">DescribeUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679227002"><span class="annot"><span class="annottext">toPath :: DescribeUser -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#DescribeUser%27"><span class="hs-identifier hs-type">DescribeUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226999"><span id="local-6989586621679227000"><span class="annot"><span class="annottext">Text
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679227171"><span class="annot"><span class="annottext">toPath :: DescribeUser -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#DescribeUser%27"><span class="hs-identifier hs-type">DescribeUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227168"><span id="local-6989586621679227169"><span class="annot"><span class="annottext">Text
 brokerId :: Text
 username :: Text
 $sel:brokerId:DescribeUser' :: DescribeUser -&gt; Text
 $sel:username:DescribeUser' :: DescribeUser -&gt; Text
-</span><a href="#local-6989586621679226999"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679227168"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-132"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -359,17 +359,17 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-134"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679226999"><span class="hs-identifier hs-var">brokerId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679227168"><span class="hs-identifier hs-var">brokerId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-135"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/users/&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-136"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679227000"><span class="hs-identifier hs-var">username</span></a></span><span>
+</span><a href="#local-6989586621679227169"><span class="hs-identifier hs-var">username</span></a></span><span>
 </span><span id="line-137"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#DescribeUser"><span class="hs-identifier hs-type">DescribeUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679226995"><span class="annot"><span class="annottext">toQuery :: DescribeUser -&gt; QueryString
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679227164"><span class="annot"><span class="annottext">toQuery :: DescribeUser -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeUser -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -377,32 +377,32 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- | /See:/ 'newDescribeUserResponse' smart constructor.</span><span>
-</span><span id="line-143"></span><span id="local-6989586621679226992"><span id="local-6989586621679226993"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeUserResponse"><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#DescribeUserResponse"><span class="hs-identifier hs-var">DescribeUserResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeUserResponse%27"><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#DescribeUserResponse%27"><span class="hs-identifier hs-var">DescribeUserResponse'</span></a></span></span><span>
+</span><span id="line-143"></span><span id="local-6989586621679227161"><span id="local-6989586621679227162"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeUserResponse"><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#DescribeUserResponse"><span class="hs-identifier hs-var">DescribeUserResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeUserResponse%27"><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#DescribeUserResponse%27"><span class="hs-identifier hs-var">DescribeUserResponse'</span></a></span></span><span>
 </span><span id="line-144"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The list of groups (20 maximum) to which the ActiveMQ user belongs. This</span><span>
 </span><span id="line-145"></span><span>    </span><span class="hs-comment">-- value can contain only alphanumeric characters, dashes, periods,</span><span>
 </span><span id="line-146"></span><span>    </span><span class="hs-comment">-- underscores, and tildes (- . _ ~). This value must be 2-100 characters</span><span>
 </span><span id="line-147"></span><span>    </span><span class="hs-comment">-- long.</span><span>
 </span><span id="line-148"></span><span>    </span><span id="%24sel%3Agroups%3ADescribeUserResponse%27"><span class="annot"><span class="annottext">DescribeUserResponse -&gt; Maybe [Text]
 </span><a href="Network.AWS.MQ.DescribeUser.html#%24sel%3Agroups%3ADescribeUserResponse%27"><span class="hs-identifier hs-var hs-var">groups</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-149"></span><span>    </span><span class="hs-comment">-- | Required. The unique ID that Amazon MQ generates for the broker.</span><span>
-</span><span id="line-150"></span><span>    </span><span id="%24sel%3AbrokerId%3ADescribeUserResponse%27"><span class="annot"><span class="annottext">DescribeUserResponse -&gt; Maybe Text
-</span><a href="Network.AWS.MQ.DescribeUser.html#%24sel%3AbrokerId%3ADescribeUserResponse%27"><span class="hs-identifier hs-var hs-var">brokerId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-151"></span><span>    </span><span class="hs-comment">-- | The status of the changes pending for the ActiveMQ user.</span><span>
-</span><span id="line-152"></span><span>    </span><span id="%24sel%3Apending%3ADescribeUserResponse%27"><span class="annot"><span class="annottext">DescribeUserResponse -&gt; Maybe UserPendingChanges
+</span><span id="line-149"></span><span>    </span><span class="hs-comment">-- | The status of the changes pending for the ActiveMQ user.</span><span>
+</span><span id="line-150"></span><span>    </span><span id="%24sel%3Apending%3ADescribeUserResponse%27"><span class="annot"><span class="annottext">DescribeUserResponse -&gt; Maybe UserPendingChanges
 </span><a href="Network.AWS.MQ.DescribeUser.html#%24sel%3Apending%3ADescribeUserResponse%27"><span class="hs-identifier hs-var hs-var">pending</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.UserPendingChanges.html#UserPendingChanges"><span class="hs-identifier hs-type">UserPendingChanges</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-comment">-- | Enables access to the the ActiveMQ Web Console for the ActiveMQ user.</span><span>
+</span><span id="line-152"></span><span>    </span><span id="%24sel%3AconsoleAccess%3ADescribeUserResponse%27"><span class="annot"><span class="annottext">DescribeUserResponse -&gt; Maybe Bool
+</span><a href="Network.AWS.MQ.DescribeUser.html#%24sel%3AconsoleAccess%3ADescribeUserResponse%27"><span class="hs-identifier hs-var hs-var">consoleAccess</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
 </span><span id="line-153"></span><span>    </span><span class="hs-comment">-- | Required. The username of the ActiveMQ user. This value can contain only</span><span>
 </span><span id="line-154"></span><span>    </span><span class="hs-comment">-- alphanumeric characters, dashes, periods, underscores, and tildes (- . _</span><span>
 </span><span id="line-155"></span><span>    </span><span class="hs-comment">-- ~). This value must be 2-100 characters long.</span><span>
 </span><span id="line-156"></span><span>    </span><span id="%24sel%3Ausername%3ADescribeUserResponse%27"><span class="annot"><span class="annottext">DescribeUserResponse -&gt; Maybe Text
 </span><a href="Network.AWS.MQ.DescribeUser.html#%24sel%3Ausername%3ADescribeUserResponse%27"><span class="hs-identifier hs-var hs-var">username</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-157"></span><span>    </span><span class="hs-comment">-- | Enables access to the the ActiveMQ Web Console for the ActiveMQ user.</span><span>
-</span><span id="line-158"></span><span>    </span><span id="%24sel%3AconsoleAccess%3ADescribeUserResponse%27"><span class="annot"><span class="annottext">DescribeUserResponse -&gt; Maybe Bool
-</span><a href="Network.AWS.MQ.DescribeUser.html#%24sel%3AconsoleAccess%3ADescribeUserResponse%27"><span class="hs-identifier hs-var hs-var">consoleAccess</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-comment">-- | Required. The unique ID that Amazon MQ generates for the broker.</span><span>
+</span><span id="line-158"></span><span>    </span><span id="%24sel%3AbrokerId%3ADescribeUserResponse%27"><span class="annot"><span class="annottext">DescribeUserResponse -&gt; Maybe Text
+</span><a href="Network.AWS.MQ.DescribeUser.html#%24sel%3AbrokerId%3ADescribeUserResponse%27"><span class="hs-identifier hs-var hs-var">brokerId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-159"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-160"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeUserResponse%27"><span class="annot"><span class="annottext">DescribeUserResponse -&gt; Int
 </span><a href="Network.AWS.MQ.DescribeUser.html#%24sel%3AhttpStatus%3ADescribeUserResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-161"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-162"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679226982"><span id="local-6989586621679226984"><span class="annot"><span class="annottext">DescribeUserResponse -&gt; DescribeUserResponse -&gt; Bool
+</span><span id="line-162"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679227151"><span id="local-6989586621679227153"><span class="annot"><span class="annottext">DescribeUserResponse -&gt; DescribeUserResponse -&gt; Bool
 (DescribeUserResponse -&gt; DescribeUserResponse -&gt; Bool)
 -&gt; (DescribeUserResponse -&gt; DescribeUserResponse -&gt; Bool)
 -&gt; Eq DescribeUserResponse
@@ -411,7 +411,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeUserResponse -&gt; DescribeUserResponse -&gt; Bool
 == :: DescribeUserResponse -&gt; DescribeUserResponse -&gt; Bool
 $c== :: DescribeUserResponse -&gt; DescribeUserResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226974"><span id="local-6989586621679226976"><span id="local-6989586621679226978"><span id="local-6989586621679226980"><span class="annot"><span class="annottext">ReadPrec [DescribeUserResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679227143"><span id="local-6989586621679227145"><span id="local-6989586621679227147"><span id="local-6989586621679227149"><span class="annot"><span class="annottext">ReadPrec [DescribeUserResponse]
 ReadPrec DescribeUserResponse
 Int -&gt; ReadS DescribeUserResponse
 ReadS [DescribeUserResponse]
@@ -431,7 +431,7 @@ readList :: ReadS [DescribeUserResponse]
 $creadList :: ReadS [DescribeUserResponse]
 readsPrec :: Int -&gt; ReadS DescribeUserResponse
 $creadsPrec :: Int -&gt; ReadS DescribeUserResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226968"><span id="local-6989586621679226970"><span id="local-6989586621679226972"><span class="annot"><span class="annottext">Int -&gt; DescribeUserResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679227137"><span id="local-6989586621679227139"><span id="local-6989586621679227141"><span class="annot"><span class="annottext">Int -&gt; DescribeUserResponse -&gt; ShowS
 [DescribeUserResponse] -&gt; ShowS
 DescribeUserResponse -&gt; String
 (Int -&gt; DescribeUserResponse -&gt; ShowS)
@@ -470,15 +470,15 @@ $cfrom :: forall x. DescribeUserResponse -&gt; Rep DescribeUserResponse x
 </span><span id="line-174"></span><span class="hs-comment">-- underscores, and tildes (- . _ ~). This value must be 2-100 characters</span><span>
 </span><span id="line-175"></span><span class="hs-comment">-- long.</span><span>
 </span><span id="line-176"></span><span class="hs-comment">--</span><span>
-</span><span id="line-177"></span><span class="hs-comment">-- 'brokerId', 'describeUserResponse_brokerId' - Required. The unique ID that Amazon MQ generates for the broker.</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- 'pending', 'describeUserResponse_pending' - The status of the changes pending for the ActiveMQ user.</span><span>
 </span><span id="line-178"></span><span class="hs-comment">--</span><span>
-</span><span id="line-179"></span><span class="hs-comment">-- 'pending', 'describeUserResponse_pending' - The status of the changes pending for the ActiveMQ user.</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- 'consoleAccess', 'describeUserResponse_consoleAccess' - Enables access to the the ActiveMQ Web Console for the ActiveMQ user.</span><span>
 </span><span id="line-180"></span><span class="hs-comment">--</span><span>
 </span><span id="line-181"></span><span class="hs-comment">-- 'username', 'describeUserResponse_username' - Required. The username of the ActiveMQ user. This value can contain only</span><span>
 </span><span id="line-182"></span><span class="hs-comment">-- alphanumeric characters, dashes, periods, underscores, and tildes (- . _</span><span>
 </span><span id="line-183"></span><span class="hs-comment">-- ~). This value must be 2-100 characters long.</span><span>
 </span><span id="line-184"></span><span class="hs-comment">--</span><span>
-</span><span id="line-185"></span><span class="hs-comment">-- 'consoleAccess', 'describeUserResponse_consoleAccess' - Enables access to the the ActiveMQ Web Console for the ActiveMQ user.</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- 'brokerId', 'describeUserResponse_brokerId' - Required. The unique ID that Amazon MQ generates for the broker.</span><span>
 </span><span id="line-186"></span><span class="hs-comment">--</span><span>
 </span><span id="line-187"></span><span class="hs-comment">-- 'httpStatus', 'describeUserResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-188"></span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#newDescribeUserResponse"><span class="hs-identifier hs-type">newDescribeUserResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -486,13 +486,13 @@ $cfrom :: forall x. DescribeUserResponse -&gt; Rep DescribeUserResponse x
 </span><span id="line-190"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-191"></span><span>  </span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#DescribeUserResponse"><span class="hs-identifier hs-type">DescribeUserResponse</span></a></span><span>
 </span><span id="line-192"></span><span id="newDescribeUserResponse"><span class="annot"><span class="annottext">newDescribeUserResponse :: Int -&gt; DescribeUserResponse
-</span><a href="Network.AWS.MQ.DescribeUser.html#newDescribeUserResponse"><span class="hs-identifier hs-var hs-var">newDescribeUserResponse</span></a></span></span><span> </span><span id="local-6989586621679226965"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679226965"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MQ.DescribeUser.html#newDescribeUserResponse"><span class="hs-identifier hs-var hs-var">newDescribeUserResponse</span></a></span></span><span> </span><span id="local-6989586621679227134"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679227134"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-193"></span><span>  </span><span class="annot"><span class="annottext">DescribeUserResponse' :: Maybe [Text]
--&gt; Maybe Text
 -&gt; Maybe UserPendingChanges
--&gt; Maybe Text
 -&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Int
 -&gt; DescribeUserResponse
 </span><a href="Network.AWS.MQ.DescribeUser.html#DescribeUserResponse%27"><span class="hs-identifier hs-type">DescribeUserResponse'</span></a></span><span>
@@ -500,25 +500,25 @@ $cfrom :: forall x. DescribeUserResponse -&gt; Rep DescribeUserResponse x
 </span><a href="Network.AWS.MQ.DescribeUser.html#%24sel%3Agroups%3ADescribeUserResponse%27"><span class="hs-identifier hs-var">groups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-195"></span><span>      </span><span class="annot"><span class="annottext">$sel:brokerId:DescribeUserResponse' :: Maybe Text
-</span><a href="Network.AWS.MQ.DescribeUser.html#%24sel%3AbrokerId%3ADescribeUserResponse%27"><span class="hs-identifier hs-var">brokerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-195"></span><span>      </span><span class="annot"><span class="annottext">$sel:pending:DescribeUserResponse' :: Maybe UserPendingChanges
+</span><a href="Network.AWS.MQ.DescribeUser.html#%24sel%3Apending%3ADescribeUserResponse%27"><span class="hs-identifier hs-var">pending</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UserPendingChanges
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-196"></span><span>      </span><span class="annot"><span class="annottext">$sel:pending:DescribeUserResponse' :: Maybe UserPendingChanges
-</span><a href="Network.AWS.MQ.DescribeUser.html#%24sel%3Apending%3ADescribeUserResponse%27"><span class="hs-identifier hs-var">pending</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UserPendingChanges
+</span><span id="line-196"></span><span>      </span><span class="annot"><span class="annottext">$sel:consoleAccess:DescribeUserResponse' :: Maybe Bool
+</span><a href="Network.AWS.MQ.DescribeUser.html#%24sel%3AconsoleAccess%3ADescribeUserResponse%27"><span class="hs-identifier hs-var">consoleAccess</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-197"></span><span>      </span><span class="annot"><span class="annottext">$sel:username:DescribeUserResponse' :: Maybe Text
 </span><a href="Network.AWS.MQ.DescribeUser.html#%24sel%3Ausername%3ADescribeUserResponse%27"><span class="hs-identifier hs-var">username</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-198"></span><span>      </span><span class="annot"><span class="annottext">$sel:consoleAccess:DescribeUserResponse' :: Maybe Bool
-</span><a href="Network.AWS.MQ.DescribeUser.html#%24sel%3AconsoleAccess%3ADescribeUserResponse%27"><span class="hs-identifier hs-var">consoleAccess</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-198"></span><span>      </span><span class="annot"><span class="annottext">$sel:brokerId:DescribeUserResponse' :: Maybe Text
+</span><a href="Network.AWS.MQ.DescribeUser.html#%24sel%3AbrokerId%3ADescribeUserResponse%27"><span class="hs-identifier hs-var">brokerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-199"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeUserResponse' :: Int
 </span><a href="Network.AWS.MQ.DescribeUser.html#%24sel%3AhttpStatus%3ADescribeUserResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679226965"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679227134"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-200"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-201"></span><span>
 </span><span id="line-202"></span><span class="hs-comment">-- | The list of groups (20 maximum) to which the ActiveMQ user belongs. This</span><span>
@@ -536,16 +536,16 @@ forall a. Maybe a
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#DescribeUserResponse%27"><span class="hs-identifier hs-type">DescribeUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226964"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#DescribeUserResponse%27"><span class="hs-identifier hs-type">DescribeUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227133"><span class="annot"><span class="annottext">Maybe [Text]
 groups :: Maybe [Text]
 $sel:groups:DescribeUserResponse' :: DescribeUserResponse -&gt; Maybe [Text]
-</span><a href="#local-6989586621679226964"><span class="hs-identifier hs-var hs-var">groups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679226964"><span class="hs-identifier hs-var">groups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226963"><span class="annot"><span class="annottext">s :: DescribeUserResponse
-</span><a href="#local-6989586621679226963"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#DescribeUserResponse%27"><span class="hs-identifier hs-type">DescribeUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226962"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679226962"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUserResponse
-</span><a href="#local-6989586621679226963"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groups:DescribeUserResponse' :: Maybe [Text]
+</span><a href="#local-6989586621679227133"><span class="hs-identifier hs-var hs-var">groups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679227133"><span class="hs-identifier hs-var">groups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227132"><span class="annot"><span class="annottext">s :: DescribeUserResponse
+</span><a href="#local-6989586621679227132"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#DescribeUserResponse%27"><span class="hs-identifier hs-type">DescribeUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227131"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679227131"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUserResponse
+</span><a href="#local-6989586621679227132"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groups:DescribeUserResponse' :: Maybe [Text]
 </span><a href="Network.AWS.MQ.DescribeUser.html#%24sel%3Agroups%3ADescribeUserResponse%27"><span class="hs-identifier hs-var">groups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679226962"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#DescribeUserResponse"><span class="hs-identifier hs-type">DescribeUserResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679227131"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#DescribeUserResponse"><span class="hs-identifier hs-type">DescribeUserResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; DescribeUserResponse -&gt; f DescribeUserResponse)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -559,32 +559,12 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-208"></span><span>
-</span><span id="line-209"></span><span class="hs-comment">-- | Required. The unique ID that Amazon MQ generates for the broker.</span><span>
-</span><span id="line-210"></span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#describeUserResponse_brokerId"><span class="hs-identifier hs-type">describeUserResponse_brokerId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#DescribeUserResponse"><span class="hs-identifier hs-type">DescribeUserResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-211"></span><span id="describeUserResponse_brokerId"><span class="annot"><span class="annottext">describeUserResponse_brokerId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; DescribeUserResponse -&gt; f DescribeUserResponse
-</span><a href="Network.AWS.MQ.DescribeUser.html#describeUserResponse_brokerId"><span class="hs-identifier hs-var hs-var">describeUserResponse_brokerId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeUserResponse -&gt; Maybe Text)
--&gt; (DescribeUserResponse -&gt; Maybe Text -&gt; DescribeUserResponse)
--&gt; Lens
-     DescribeUserResponse DescribeUserResponse (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#DescribeUserResponse%27"><span class="hs-identifier hs-type">DescribeUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226958"><span class="annot"><span class="annottext">Maybe Text
-brokerId :: Maybe Text
-$sel:brokerId:DescribeUserResponse' :: DescribeUserResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679226958"><span class="hs-identifier hs-var hs-var">brokerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679226958"><span class="hs-identifier hs-var">brokerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226957"><span class="annot"><span class="annottext">s :: DescribeUserResponse
-</span><a href="#local-6989586621679226957"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#DescribeUserResponse%27"><span class="hs-identifier hs-type">DescribeUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226956"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679226956"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUserResponse
-</span><a href="#local-6989586621679226957"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:brokerId:DescribeUserResponse' :: Maybe Text
-</span><a href="Network.AWS.MQ.DescribeUser.html#%24sel%3AbrokerId%3ADescribeUserResponse%27"><span class="hs-identifier hs-var">brokerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679226956"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#DescribeUserResponse"><span class="hs-identifier hs-type">DescribeUserResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-212"></span><span>
-</span><span id="line-213"></span><span class="hs-comment">-- | The status of the changes pending for the ActiveMQ user.</span><span>
-</span><span id="line-214"></span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#describeUserResponse_pending"><span class="hs-identifier hs-type">describeUserResponse_pending</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#DescribeUserResponse"><span class="hs-identifier hs-type">DescribeUserResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.UserPendingChanges.html#UserPendingChanges"><span class="hs-identifier hs-type">UserPendingChanges</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-215"></span><span id="describeUserResponse_pending"><span class="annot"><span class="annottext">describeUserResponse_pending :: (Maybe UserPendingChanges -&gt; f (Maybe UserPendingChanges))
+</span><span id="line-209"></span><span class="hs-comment">-- | The status of the changes pending for the ActiveMQ user.</span><span>
+</span><span id="line-210"></span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#describeUserResponse_pending"><span class="hs-identifier hs-type">describeUserResponse_pending</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#DescribeUserResponse"><span class="hs-identifier hs-type">DescribeUserResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.UserPendingChanges.html#UserPendingChanges"><span class="hs-identifier hs-type">UserPendingChanges</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span id="describeUserResponse_pending"><span class="annot"><span class="annottext">describeUserResponse_pending :: (Maybe UserPendingChanges -&gt; f (Maybe UserPendingChanges))
 -&gt; DescribeUserResponse -&gt; f DescribeUserResponse
 </span><a href="Network.AWS.MQ.DescribeUser.html#describeUserResponse_pending"><span class="hs-identifier hs-var hs-var">describeUserResponse_pending</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeUserResponse -&gt; Maybe UserPendingChanges)
 -&gt; (DescribeUserResponse
@@ -595,16 +575,36 @@ $sel:brokerId:DescribeUserResponse' :: DescribeUserResponse -&gt; Maybe Text
      (Maybe UserPendingChanges)
      (Maybe UserPendingChanges)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#DescribeUserResponse%27"><span class="hs-identifier hs-type">DescribeUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226955"><span class="annot"><span class="annottext">Maybe UserPendingChanges
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#DescribeUserResponse%27"><span class="hs-identifier hs-type">DescribeUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227127"><span class="annot"><span class="annottext">Maybe UserPendingChanges
 pending :: Maybe UserPendingChanges
 $sel:pending:DescribeUserResponse' :: DescribeUserResponse -&gt; Maybe UserPendingChanges
-</span><a href="#local-6989586621679226955"><span class="hs-identifier hs-var hs-var">pending</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe UserPendingChanges
-</span><a href="#local-6989586621679226955"><span class="hs-identifier hs-var">pending</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226954"><span class="annot"><span class="annottext">s :: DescribeUserResponse
-</span><a href="#local-6989586621679226954"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#DescribeUserResponse%27"><span class="hs-identifier hs-type">DescribeUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226953"><span class="annot"><span class="annottext">Maybe UserPendingChanges
-</span><a href="#local-6989586621679226953"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUserResponse
-</span><a href="#local-6989586621679226954"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pending:DescribeUserResponse' :: Maybe UserPendingChanges
+</span><a href="#local-6989586621679227127"><span class="hs-identifier hs-var hs-var">pending</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe UserPendingChanges
+</span><a href="#local-6989586621679227127"><span class="hs-identifier hs-var">pending</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227126"><span class="annot"><span class="annottext">s :: DescribeUserResponse
+</span><a href="#local-6989586621679227126"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#DescribeUserResponse%27"><span class="hs-identifier hs-type">DescribeUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227125"><span class="annot"><span class="annottext">Maybe UserPendingChanges
+</span><a href="#local-6989586621679227125"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUserResponse
+</span><a href="#local-6989586621679227126"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pending:DescribeUserResponse' :: Maybe UserPendingChanges
 </span><a href="Network.AWS.MQ.DescribeUser.html#%24sel%3Apending%3ADescribeUserResponse%27"><span class="hs-identifier hs-var">pending</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UserPendingChanges
-</span><a href="#local-6989586621679226953"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#DescribeUserResponse"><span class="hs-identifier hs-type">DescribeUserResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679227125"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#DescribeUserResponse"><span class="hs-identifier hs-type">DescribeUserResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- | Enables access to the the ActiveMQ Web Console for the ActiveMQ user.</span><span>
+</span><span id="line-214"></span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#describeUserResponse_consoleAccess"><span class="hs-identifier hs-type">describeUserResponse_consoleAccess</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#DescribeUserResponse"><span class="hs-identifier hs-type">DescribeUserResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span id="describeUserResponse_consoleAccess"><span class="annot"><span class="annottext">describeUserResponse_consoleAccess :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; DescribeUserResponse -&gt; f DescribeUserResponse
+</span><a href="Network.AWS.MQ.DescribeUser.html#describeUserResponse_consoleAccess"><span class="hs-identifier hs-var hs-var">describeUserResponse_consoleAccess</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeUserResponse -&gt; Maybe Bool)
+-&gt; (DescribeUserResponse -&gt; Maybe Bool -&gt; DescribeUserResponse)
+-&gt; Lens
+     DescribeUserResponse DescribeUserResponse (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#DescribeUserResponse%27"><span class="hs-identifier hs-type">DescribeUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227124"><span class="annot"><span class="annottext">Maybe Bool
+consoleAccess :: Maybe Bool
+$sel:consoleAccess:DescribeUserResponse' :: DescribeUserResponse -&gt; Maybe Bool
+</span><a href="#local-6989586621679227124"><span class="hs-identifier hs-var hs-var">consoleAccess</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679227124"><span class="hs-identifier hs-var">consoleAccess</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227123"><span class="annot"><span class="annottext">s :: DescribeUserResponse
+</span><a href="#local-6989586621679227123"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#DescribeUserResponse%27"><span class="hs-identifier hs-type">DescribeUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227122"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679227122"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUserResponse
+</span><a href="#local-6989586621679227123"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:consoleAccess:DescribeUserResponse' :: Maybe Bool
+</span><a href="Network.AWS.MQ.DescribeUser.html#%24sel%3AconsoleAccess%3ADescribeUserResponse%27"><span class="hs-identifier hs-var">consoleAccess</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679227122"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#DescribeUserResponse"><span class="hs-identifier hs-type">DescribeUserResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-216"></span><span>
 </span><span id="line-217"></span><span class="hs-comment">-- | Required. The username of the ActiveMQ user. This value can contain only</span><span>
 </span><span id="line-218"></span><span class="hs-comment">-- alphanumeric characters, dashes, periods, underscores, and tildes (- . _</span><span>
@@ -617,36 +617,36 @@ $sel:pending:DescribeUserResponse' :: DescribeUserResponse -&gt; Maybe UserPendi
 -&gt; Lens
      DescribeUserResponse DescribeUserResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#DescribeUserResponse%27"><span class="hs-identifier hs-type">DescribeUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226952"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#DescribeUserResponse%27"><span class="hs-identifier hs-type">DescribeUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227121"><span class="annot"><span class="annottext">Maybe Text
 username :: Maybe Text
 $sel:username:DescribeUserResponse' :: DescribeUserResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679226952"><span class="hs-identifier hs-var hs-var">username</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679226952"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226951"><span class="annot"><span class="annottext">s :: DescribeUserResponse
-</span><a href="#local-6989586621679226951"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#DescribeUserResponse%27"><span class="hs-identifier hs-type">DescribeUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226950"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679226950"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUserResponse
-</span><a href="#local-6989586621679226951"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:username:DescribeUserResponse' :: Maybe Text
+</span><a href="#local-6989586621679227121"><span class="hs-identifier hs-var hs-var">username</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679227121"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227120"><span class="annot"><span class="annottext">s :: DescribeUserResponse
+</span><a href="#local-6989586621679227120"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#DescribeUserResponse%27"><span class="hs-identifier hs-type">DescribeUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227119"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679227119"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUserResponse
+</span><a href="#local-6989586621679227120"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:username:DescribeUserResponse' :: Maybe Text
 </span><a href="Network.AWS.MQ.DescribeUser.html#%24sel%3Ausername%3ADescribeUserResponse%27"><span class="hs-identifier hs-var">username</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679226950"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#DescribeUserResponse"><span class="hs-identifier hs-type">DescribeUserResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679227119"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#DescribeUserResponse"><span class="hs-identifier hs-type">DescribeUserResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-222"></span><span>
-</span><span id="line-223"></span><span class="hs-comment">-- | Enables access to the the ActiveMQ Web Console for the ActiveMQ user.</span><span>
-</span><span id="line-224"></span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#describeUserResponse_consoleAccess"><span class="hs-identifier hs-type">describeUserResponse_consoleAccess</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#DescribeUserResponse"><span class="hs-identifier hs-type">DescribeUserResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-225"></span><span id="describeUserResponse_consoleAccess"><span class="annot"><span class="annottext">describeUserResponse_consoleAccess :: (Maybe Bool -&gt; f (Maybe Bool))
+</span><span id="line-223"></span><span class="hs-comment">-- | Required. The unique ID that Amazon MQ generates for the broker.</span><span>
+</span><span id="line-224"></span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#describeUserResponse_brokerId"><span class="hs-identifier hs-type">describeUserResponse_brokerId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#DescribeUserResponse"><span class="hs-identifier hs-type">DescribeUserResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span id="describeUserResponse_brokerId"><span class="annot"><span class="annottext">describeUserResponse_brokerId :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; DescribeUserResponse -&gt; f DescribeUserResponse
-</span><a href="Network.AWS.MQ.DescribeUser.html#describeUserResponse_consoleAccess"><span class="hs-identifier hs-var hs-var">describeUserResponse_consoleAccess</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeUserResponse -&gt; Maybe Bool)
--&gt; (DescribeUserResponse -&gt; Maybe Bool -&gt; DescribeUserResponse)
+</span><a href="Network.AWS.MQ.DescribeUser.html#describeUserResponse_brokerId"><span class="hs-identifier hs-var hs-var">describeUserResponse_brokerId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeUserResponse -&gt; Maybe Text)
+-&gt; (DescribeUserResponse -&gt; Maybe Text -&gt; DescribeUserResponse)
 -&gt; Lens
-     DescribeUserResponse DescribeUserResponse (Maybe Bool) (Maybe Bool)
+     DescribeUserResponse DescribeUserResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#DescribeUserResponse%27"><span class="hs-identifier hs-type">DescribeUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226949"><span class="annot"><span class="annottext">Maybe Bool
-consoleAccess :: Maybe Bool
-$sel:consoleAccess:DescribeUserResponse' :: DescribeUserResponse -&gt; Maybe Bool
-</span><a href="#local-6989586621679226949"><span class="hs-identifier hs-var hs-var">consoleAccess</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679226949"><span class="hs-identifier hs-var">consoleAccess</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226948"><span class="annot"><span class="annottext">s :: DescribeUserResponse
-</span><a href="#local-6989586621679226948"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#DescribeUserResponse%27"><span class="hs-identifier hs-type">DescribeUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226947"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679226947"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUserResponse
-</span><a href="#local-6989586621679226948"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:consoleAccess:DescribeUserResponse' :: Maybe Bool
-</span><a href="Network.AWS.MQ.DescribeUser.html#%24sel%3AconsoleAccess%3ADescribeUserResponse%27"><span class="hs-identifier hs-var">consoleAccess</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679226947"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#DescribeUserResponse"><span class="hs-identifier hs-type">DescribeUserResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#DescribeUserResponse%27"><span class="hs-identifier hs-type">DescribeUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227118"><span class="annot"><span class="annottext">Maybe Text
+brokerId :: Maybe Text
+$sel:brokerId:DescribeUserResponse' :: DescribeUserResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679227118"><span class="hs-identifier hs-var hs-var">brokerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679227118"><span class="hs-identifier hs-var">brokerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227117"><span class="annot"><span class="annottext">s :: DescribeUserResponse
+</span><a href="#local-6989586621679227117"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#DescribeUserResponse%27"><span class="hs-identifier hs-type">DescribeUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227116"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679227116"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUserResponse
+</span><a href="#local-6989586621679227117"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:brokerId:DescribeUserResponse' :: Maybe Text
+</span><a href="Network.AWS.MQ.DescribeUser.html#%24sel%3AbrokerId%3ADescribeUserResponse%27"><span class="hs-identifier hs-var">brokerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679227116"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#DescribeUserResponse"><span class="hs-identifier hs-type">DescribeUserResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-226"></span><span>
 </span><span id="line-227"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-228"></span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#describeUserResponse_httpStatus"><span class="hs-identifier hs-type">describeUserResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#DescribeUserResponse"><span class="hs-identifier hs-type">DescribeUserResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -655,16 +655,16 @@ $sel:consoleAccess:DescribeUserResponse' :: DescribeUserResponse -&gt; Maybe Boo
 -&gt; (DescribeUserResponse -&gt; Int -&gt; DescribeUserResponse)
 -&gt; Lens DescribeUserResponse DescribeUserResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#DescribeUserResponse%27"><span class="hs-identifier hs-type">DescribeUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226946"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#DescribeUserResponse%27"><span class="hs-identifier hs-type">DescribeUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227115"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeUserResponse' :: DescribeUserResponse -&gt; Int
-</span><a href="#local-6989586621679226946"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679226946"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226945"><span class="annot"><span class="annottext">s :: DescribeUserResponse
-</span><a href="#local-6989586621679226945"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#DescribeUserResponse%27"><span class="hs-identifier hs-type">DescribeUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226944"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679226944"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUserResponse
-</span><a href="#local-6989586621679226945"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeUserResponse' :: Int
+</span><a href="#local-6989586621679227115"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679227115"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227114"><span class="annot"><span class="annottext">s :: DescribeUserResponse
+</span><a href="#local-6989586621679227114"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#DescribeUserResponse%27"><span class="hs-identifier hs-type">DescribeUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227113"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679227113"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUserResponse
+</span><a href="#local-6989586621679227114"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeUserResponse' :: Int
 </span><a href="Network.AWS.MQ.DescribeUser.html#%24sel%3AhttpStatus%3ADescribeUserResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679226944"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#DescribeUserResponse"><span class="hs-identifier hs-type">DescribeUserResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679227113"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#DescribeUserResponse"><span class="hs-identifier hs-type">DescribeUserResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-230"></span><span>
-</span><span id="line-231"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226942"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#DescribeUserResponse"><span class="hs-identifier hs-type">DescribeUserResponse</span></a></span></span><span>
+</span><span id="line-231"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679227111"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.DescribeUser.html#DescribeUserResponse"><span class="hs-identifier hs-type">DescribeUserResponse</span></a></span></span><span>
 </span><span id="line-232"></span></pre></body></html>

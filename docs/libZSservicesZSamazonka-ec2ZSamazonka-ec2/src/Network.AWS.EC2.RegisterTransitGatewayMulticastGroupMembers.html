@@ -37,10 +37,10 @@
 </span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#newRegisterTransitGatewayMulticastGroupMembers"><span class="hs-identifier">newRegisterTransitGatewayMulticastGroupMembers</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-38"></span><span>
 </span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#registerTransitGatewayMulticastGroupMembers_transitGatewayMulticastDomainId"><span class="hs-identifier">registerTransitGatewayMulticastGroupMembers_transitGatewayMulticastDomainId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#registerTransitGatewayMulticastGroupMembers_dryRun"><span class="hs-identifier">registerTransitGatewayMulticastGroupMembers_dryRun</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#registerTransitGatewayMulticastGroupMembers_networkInterfaceIds"><span class="hs-identifier">registerTransitGatewayMulticastGroupMembers_networkInterfaceIds</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#registerTransitGatewayMulticastGroupMembers_groupIpAddress"><span class="hs-identifier">registerTransitGatewayMulticastGroupMembers_groupIpAddress</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#registerTransitGatewayMulticastGroupMembers_networkInterfaceIds"><span class="hs-identifier">registerTransitGatewayMulticastGroupMembers_networkInterfaceIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#registerTransitGatewayMulticastGroupMembers_transitGatewayMulticastDomainId"><span class="hs-identifier">registerTransitGatewayMulticastGroupMembers_transitGatewayMulticastDomainId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#registerTransitGatewayMulticastGroupMembers_groupIpAddress"><span class="hs-identifier">registerTransitGatewayMulticastGroupMembers_groupIpAddress</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#registerTransitGatewayMulticastGroupMembers_dryRun"><span class="hs-identifier">registerTransitGatewayMulticastGroupMembers_dryRun</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-44"></span><span>
 </span><span id="line-45"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
 </span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#RegisterTransitGatewayMulticastGroupMembersResponse"><span class="hs-identifier">RegisterTransitGatewayMulticastGroupMembersResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -60,25 +60,25 @@
 </span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-61"></span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- | /See:/ 'newRegisterTransitGatewayMulticastGroupMembers' smart constructor.</span><span>
-</span><span id="line-63"></span><span id="local-6989586621681175325"><span id="local-6989586621681175326"></span></span><span class="hs-keyword">data</span><span> </span><span id="RegisterTransitGatewayMulticastGroupMembers"><span class="annot"><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#RegisterTransitGatewayMulticastGroupMembers"><span class="hs-identifier hs-var">RegisterTransitGatewayMulticastGroupMembers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RegisterTransitGatewayMulticastGroupMembers%27"><span class="annot"><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#RegisterTransitGatewayMulticastGroupMembers%27"><span class="hs-identifier hs-var">RegisterTransitGatewayMulticastGroupMembers'</span></a></span></span><span>
-</span><span id="line-64"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the transit gateway multicast domain.</span><span>
-</span><span id="line-65"></span><span>    </span><span id="%24sel%3AtransitGatewayMulticastDomainId%3ARegisterTransitGatewayMulticastGroupMembers%27"><span class="annot"><span class="annottext">RegisterTransitGatewayMulticastGroupMembers -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#%24sel%3AtransitGatewayMulticastDomainId%3ARegisterTransitGatewayMulticastGroupMembers%27"><span class="hs-identifier hs-var hs-var">transitGatewayMulticastDomainId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
-</span><span id="line-70"></span><span>    </span><span id="%24sel%3AdryRun%3ARegisterTransitGatewayMulticastGroupMembers%27"><span class="annot"><span class="annottext">RegisterTransitGatewayMulticastGroupMembers -&gt; Maybe Bool
-</span><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#%24sel%3AdryRun%3ARegisterTransitGatewayMulticastGroupMembers%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | The group members\' network interface IDs to register with the transit</span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- gateway multicast group.</span><span>
-</span><span id="line-73"></span><span>    </span><span id="%24sel%3AnetworkInterfaceIds%3ARegisterTransitGatewayMulticastGroupMembers%27"><span class="annot"><span class="annottext">RegisterTransitGatewayMulticastGroupMembers -&gt; Maybe [Text]
+</span><span id="line-63"></span><span id="local-6989586621681210695"><span id="local-6989586621681210696"></span></span><span class="hs-keyword">data</span><span> </span><span id="RegisterTransitGatewayMulticastGroupMembers"><span class="annot"><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#RegisterTransitGatewayMulticastGroupMembers"><span class="hs-identifier hs-var">RegisterTransitGatewayMulticastGroupMembers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RegisterTransitGatewayMulticastGroupMembers%27"><span class="annot"><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#RegisterTransitGatewayMulticastGroupMembers%27"><span class="hs-identifier hs-var">RegisterTransitGatewayMulticastGroupMembers'</span></a></span></span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The group members\' network interface IDs to register with the transit</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- gateway multicast group.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AnetworkInterfaceIds%3ARegisterTransitGatewayMulticastGroupMembers%27"><span class="annot"><span class="annottext">RegisterTransitGatewayMulticastGroupMembers -&gt; Maybe [Text]
 </span><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#%24sel%3AnetworkInterfaceIds%3ARegisterTransitGatewayMulticastGroupMembers%27"><span class="hs-identifier hs-var hs-var">networkInterfaceIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | The IP address assigned to the transit gateway multicast group.</span><span>
-</span><span id="line-75"></span><span>    </span><span id="%24sel%3AgroupIpAddress%3ARegisterTransitGatewayMulticastGroupMembers%27"><span class="annot"><span class="annottext">RegisterTransitGatewayMulticastGroupMembers -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#%24sel%3AgroupIpAddress%3ARegisterTransitGatewayMulticastGroupMembers%27"><span class="hs-identifier hs-var hs-var">groupIpAddress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The ID of the transit gateway multicast domain.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AtransitGatewayMulticastDomainId%3ARegisterTransitGatewayMulticastGroupMembers%27"><span class="annot"><span class="annottext">RegisterTransitGatewayMulticastGroupMembers -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#%24sel%3AtransitGatewayMulticastDomainId%3ARegisterTransitGatewayMulticastGroupMembers%27"><span class="hs-identifier hs-var hs-var">transitGatewayMulticastDomainId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The IP address assigned to the transit gateway multicast group.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AgroupIpAddress%3ARegisterTransitGatewayMulticastGroupMembers%27"><span class="annot"><span class="annottext">RegisterTransitGatewayMulticastGroupMembers -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#%24sel%3AgroupIpAddress%3ARegisterTransitGatewayMulticastGroupMembers%27"><span class="hs-identifier hs-var hs-var">groupIpAddress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3AdryRun%3ARegisterTransitGatewayMulticastGroupMembers%27"><span class="annot"><span class="annottext">RegisterTransitGatewayMulticastGroupMembers -&gt; Maybe Bool
+</span><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#%24sel%3AdryRun%3ARegisterTransitGatewayMulticastGroupMembers%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-76"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-77"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681175316"><span id="local-6989586621681175318"><span class="annot"><span class="annottext">RegisterTransitGatewayMulticastGroupMembers
+</span><span id="line-77"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681210686"><span id="local-6989586621681210688"><span class="annot"><span class="annottext">RegisterTransitGatewayMulticastGroupMembers
 -&gt; RegisterTransitGatewayMulticastGroupMembers -&gt; Bool
 (RegisterTransitGatewayMulticastGroupMembers
  -&gt; RegisterTransitGatewayMulticastGroupMembers -&gt; Bool)
@@ -94,7 +94,7 @@ $c/= :: RegisterTransitGatewayMulticastGroupMembers
 -&gt; RegisterTransitGatewayMulticastGroupMembers -&gt; Bool
 $c== :: RegisterTransitGatewayMulticastGroupMembers
 -&gt; RegisterTransitGatewayMulticastGroupMembers -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681175307"><span id="local-6989586621681175309"><span id="local-6989586621681175311"><span id="local-6989586621681175313"><span class="annot"><span class="annottext">ReadPrec [RegisterTransitGatewayMulticastGroupMembers]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681210677"><span id="local-6989586621681210679"><span id="local-6989586621681210681"><span id="local-6989586621681210683"><span class="annot"><span class="annottext">ReadPrec [RegisterTransitGatewayMulticastGroupMembers]
 ReadPrec RegisterTransitGatewayMulticastGroupMembers
 Int -&gt; ReadS RegisterTransitGatewayMulticastGroupMembers
 ReadS [RegisterTransitGatewayMulticastGroupMembers]
@@ -114,7 +114,7 @@ readList :: ReadS [RegisterTransitGatewayMulticastGroupMembers]
 $creadList :: ReadS [RegisterTransitGatewayMulticastGroupMembers]
 readsPrec :: Int -&gt; ReadS RegisterTransitGatewayMulticastGroupMembers
 $creadsPrec :: Int -&gt; ReadS RegisterTransitGatewayMulticastGroupMembers
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681175300"><span id="local-6989586621681175302"><span id="local-6989586621681175304"><span class="annot"><span class="annottext">Int -&gt; RegisterTransitGatewayMulticastGroupMembers -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681210670"><span id="local-6989586621681210672"><span id="local-6989586621681210674"><span class="annot"><span class="annottext">Int -&gt; RegisterTransitGatewayMulticastGroupMembers -&gt; ShowS
 [RegisterTransitGatewayMulticastGroupMembers] -&gt; ShowS
 RegisterTransitGatewayMulticastGroupMembers -&gt; String
 (Int -&gt; RegisterTransitGatewayMulticastGroupMembers -&gt; ShowS)
@@ -160,105 +160,52 @@ RegisterTransitGatewayMulticastGroupMembers
 </span><span id="line-84"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-86"></span><span class="hs-comment">--</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- 'transitGatewayMulticastDomainId', 'registerTransitGatewayMulticastGroupMembers_transitGatewayMulticastDomainId' - The ID of the transit gateway multicast domain.</span><span>
-</span><span id="line-88"></span><span class="hs-comment">--</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- 'dryRun', 'registerTransitGatewayMulticastGroupMembers_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'networkInterfaceIds', 'registerTransitGatewayMulticastGroupMembers_networkInterfaceIds' - The group members\' network interface IDs to register with the transit</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- gateway multicast group.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'transitGatewayMulticastDomainId', 'registerTransitGatewayMulticastGroupMembers_transitGatewayMulticastDomainId' - The ID of the transit gateway multicast domain.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'groupIpAddress', 'registerTransitGatewayMulticastGroupMembers_groupIpAddress' - The IP address assigned to the transit gateway multicast group.</span><span>
 </span><span id="line-93"></span><span class="hs-comment">--</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- 'networkInterfaceIds', 'registerTransitGatewayMulticastGroupMembers_networkInterfaceIds' - The group members\' network interface IDs to register with the transit</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- gateway multicast group.</span><span>
-</span><span id="line-96"></span><span class="hs-comment">--</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- 'groupIpAddress', 'registerTransitGatewayMulticastGroupMembers_groupIpAddress' - The IP address assigned to the transit gateway multicast group.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'dryRun', 'registerTransitGatewayMulticastGroupMembers_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
 </span><span id="line-98"></span><span class="annot"><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#newRegisterTransitGatewayMulticastGroupMembers"><span class="hs-identifier hs-type">newRegisterTransitGatewayMulticastGroupMembers</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-99"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#RegisterTransitGatewayMulticastGroupMembers"><span class="hs-identifier hs-type">RegisterTransitGatewayMulticastGroupMembers</span></a></span><span>
 </span><span id="line-100"></span><span id="newRegisterTransitGatewayMulticastGroupMembers"><span class="annot"><span class="annottext">newRegisterTransitGatewayMulticastGroupMembers :: RegisterTransitGatewayMulticastGroupMembers
 </span><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#newRegisterTransitGatewayMulticastGroupMembers"><span class="hs-identifier hs-var hs-var">newRegisterTransitGatewayMulticastGroupMembers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-101"></span><span>  </span><span class="annot"><span class="annottext">RegisterTransitGatewayMulticastGroupMembers' :: Maybe Text
--&gt; Maybe Bool
--&gt; Maybe [Text]
+</span><span id="line-101"></span><span>  </span><span class="annot"><span class="annottext">RegisterTransitGatewayMulticastGroupMembers' :: Maybe [Text]
 -&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Bool
 -&gt; RegisterTransitGatewayMulticastGroupMembers
 </span><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#RegisterTransitGatewayMulticastGroupMembers%27"><span class="hs-identifier hs-type">RegisterTransitGatewayMulticastGroupMembers'</span></a></span><span>
-</span><span id="line-102"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:transitGatewayMulticastDomainId:RegisterTransitGatewayMulticastGroupMembers' :: Maybe Text
-</span><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#%24sel%3AtransitGatewayMulticastDomainId%3ARegisterTransitGatewayMulticastGroupMembers%27"><span class="hs-identifier hs-var">transitGatewayMulticastDomainId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-103"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:dryRun:RegisterTransitGatewayMulticastGroupMembers' :: Maybe Bool
-</span><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#%24sel%3AdryRun%3ARegisterTransitGatewayMulticastGroupMembers%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:networkInterfaceIds:RegisterTransitGatewayMulticastGroupMembers' :: Maybe [Text]
+</span><span id="line-102"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:networkInterfaceIds:RegisterTransitGatewayMulticastGroupMembers' :: Maybe [Text]
 </span><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#%24sel%3AnetworkInterfaceIds%3ARegisterTransitGatewayMulticastGroupMembers%27"><span class="hs-identifier hs-var">networkInterfaceIds</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-106"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-103"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:groupIpAddress:RegisterTransitGatewayMulticastGroupMembers' :: Maybe Text
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:transitGatewayMulticastDomainId:RegisterTransitGatewayMulticastGroupMembers' :: Maybe Text
+</span><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#%24sel%3AtransitGatewayMulticastDomainId%3ARegisterTransitGatewayMulticastGroupMembers%27"><span class="hs-identifier hs-var">transitGatewayMulticastDomainId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:groupIpAddress:RegisterTransitGatewayMulticastGroupMembers' :: Maybe Text
 </span><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#%24sel%3AgroupIpAddress%3ARegisterTransitGatewayMulticastGroupMembers%27"><span class="hs-identifier hs-var">groupIpAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-108"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-107"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:dryRun:RegisterTransitGatewayMulticastGroupMembers' :: Maybe Bool
+</span><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#%24sel%3AdryRun%3ARegisterTransitGatewayMulticastGroupMembers%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-109"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- | The ID of the transit gateway multicast domain.</span><span>
-</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#registerTransitGatewayMulticastGroupMembers_transitGatewayMulticastDomainId"><span class="hs-identifier hs-type">registerTransitGatewayMulticastGroupMembers_transitGatewayMulticastDomainId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#RegisterTransitGatewayMulticastGroupMembers"><span class="hs-identifier hs-type">RegisterTransitGatewayMulticastGroupMembers</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-113"></span><span id="registerTransitGatewayMulticastGroupMembers_transitGatewayMulticastDomainId"><span class="annot"><span class="annottext">registerTransitGatewayMulticastGroupMembers_transitGatewayMulticastDomainId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; RegisterTransitGatewayMulticastGroupMembers
--&gt; f RegisterTransitGatewayMulticastGroupMembers
-</span><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#registerTransitGatewayMulticastGroupMembers_transitGatewayMulticastDomainId"><span class="hs-identifier hs-var hs-var">registerTransitGatewayMulticastGroupMembers_transitGatewayMulticastDomainId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegisterTransitGatewayMulticastGroupMembers -&gt; Maybe Text)
--&gt; (RegisterTransitGatewayMulticastGroupMembers
-    -&gt; Maybe Text -&gt; RegisterTransitGatewayMulticastGroupMembers)
--&gt; Lens
-     RegisterTransitGatewayMulticastGroupMembers
-     RegisterTransitGatewayMulticastGroupMembers
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#RegisterTransitGatewayMulticastGroupMembers%27"><span class="hs-identifier hs-type">RegisterTransitGatewayMulticastGroupMembers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681175293"><span class="annot"><span class="annottext">Maybe Text
-transitGatewayMulticastDomainId :: Maybe Text
-$sel:transitGatewayMulticastDomainId:RegisterTransitGatewayMulticastGroupMembers' :: RegisterTransitGatewayMulticastGroupMembers -&gt; Maybe Text
-</span><a href="#local-6989586621681175293"><span class="hs-identifier hs-var hs-var">transitGatewayMulticastDomainId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681175293"><span class="hs-identifier hs-var">transitGatewayMulticastDomainId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681175292"><span class="annot"><span class="annottext">s :: RegisterTransitGatewayMulticastGroupMembers
-</span><a href="#local-6989586621681175292"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#RegisterTransitGatewayMulticastGroupMembers%27"><span class="hs-identifier hs-type">RegisterTransitGatewayMulticastGroupMembers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681175291"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681175291"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterTransitGatewayMulticastGroupMembers
-</span><a href="#local-6989586621681175292"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transitGatewayMulticastDomainId:RegisterTransitGatewayMulticastGroupMembers' :: Maybe Text
-</span><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#%24sel%3AtransitGatewayMulticastDomainId%3ARegisterTransitGatewayMulticastGroupMembers%27"><span class="hs-identifier hs-var">transitGatewayMulticastDomainId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681175291"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#RegisterTransitGatewayMulticastGroupMembers"><span class="hs-identifier hs-type">RegisterTransitGatewayMulticastGroupMembers</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
-</span><span id="line-117"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
-</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#registerTransitGatewayMulticastGroupMembers_dryRun"><span class="hs-identifier hs-type">registerTransitGatewayMulticastGroupMembers_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#RegisterTransitGatewayMulticastGroupMembers"><span class="hs-identifier hs-type">RegisterTransitGatewayMulticastGroupMembers</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-120"></span><span id="registerTransitGatewayMulticastGroupMembers_dryRun"><span class="annot"><span class="annottext">registerTransitGatewayMulticastGroupMembers_dryRun :: (Maybe Bool -&gt; f (Maybe Bool))
--&gt; RegisterTransitGatewayMulticastGroupMembers
--&gt; f RegisterTransitGatewayMulticastGroupMembers
-</span><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#registerTransitGatewayMulticastGroupMembers_dryRun"><span class="hs-identifier hs-var hs-var">registerTransitGatewayMulticastGroupMembers_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegisterTransitGatewayMulticastGroupMembers -&gt; Maybe Bool)
--&gt; (RegisterTransitGatewayMulticastGroupMembers
-    -&gt; Maybe Bool -&gt; RegisterTransitGatewayMulticastGroupMembers)
--&gt; Lens
-     RegisterTransitGatewayMulticastGroupMembers
-     RegisterTransitGatewayMulticastGroupMembers
-     (Maybe Bool)
-     (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#RegisterTransitGatewayMulticastGroupMembers%27"><span class="hs-identifier hs-type">RegisterTransitGatewayMulticastGroupMembers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681175290"><span class="annot"><span class="annottext">Maybe Bool
-dryRun :: Maybe Bool
-$sel:dryRun:RegisterTransitGatewayMulticastGroupMembers' :: RegisterTransitGatewayMulticastGroupMembers -&gt; Maybe Bool
-</span><a href="#local-6989586621681175290"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681175290"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681175289"><span class="annot"><span class="annottext">s :: RegisterTransitGatewayMulticastGroupMembers
-</span><a href="#local-6989586621681175289"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#RegisterTransitGatewayMulticastGroupMembers%27"><span class="hs-identifier hs-type">RegisterTransitGatewayMulticastGroupMembers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681175288"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681175288"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterTransitGatewayMulticastGroupMembers
-</span><a href="#local-6989586621681175289"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:RegisterTransitGatewayMulticastGroupMembers' :: Maybe Bool
-</span><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#%24sel%3AdryRun%3ARegisterTransitGatewayMulticastGroupMembers%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681175288"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#RegisterTransitGatewayMulticastGroupMembers"><span class="hs-identifier hs-type">RegisterTransitGatewayMulticastGroupMembers</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- | The group members\' network interface IDs to register with the transit</span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- gateway multicast group.</span><span>
-</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#registerTransitGatewayMulticastGroupMembers_networkInterfaceIds"><span class="hs-identifier hs-type">registerTransitGatewayMulticastGroupMembers_networkInterfaceIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#RegisterTransitGatewayMulticastGroupMembers"><span class="hs-identifier hs-type">RegisterTransitGatewayMulticastGroupMembers</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-125"></span><span id="registerTransitGatewayMulticastGroupMembers_networkInterfaceIds"><span class="annot"><span class="annottext">registerTransitGatewayMulticastGroupMembers_networkInterfaceIds :: (Maybe [Text] -&gt; f (Maybe [Text]))
+</span><span id="line-111"></span><span class="hs-comment">-- | The group members\' network interface IDs to register with the transit</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- gateway multicast group.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#registerTransitGatewayMulticastGroupMembers_networkInterfaceIds"><span class="hs-identifier hs-type">registerTransitGatewayMulticastGroupMembers_networkInterfaceIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#RegisterTransitGatewayMulticastGroupMembers"><span class="hs-identifier hs-type">RegisterTransitGatewayMulticastGroupMembers</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span id="registerTransitGatewayMulticastGroupMembers_networkInterfaceIds"><span class="annot"><span class="annottext">registerTransitGatewayMulticastGroupMembers_networkInterfaceIds :: (Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; RegisterTransitGatewayMulticastGroupMembers
 -&gt; f RegisterTransitGatewayMulticastGroupMembers
 </span><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#registerTransitGatewayMulticastGroupMembers_networkInterfaceIds"><span class="hs-identifier hs-var hs-var">registerTransitGatewayMulticastGroupMembers_networkInterfaceIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegisterTransitGatewayMulticastGroupMembers -&gt; Maybe [Text])
@@ -270,16 +217,16 @@ $sel:dryRun:RegisterTransitGatewayMulticastGroupMembers' :: RegisterTransitGatew
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#RegisterTransitGatewayMulticastGroupMembers%27"><span class="hs-identifier hs-type">RegisterTransitGatewayMulticastGroupMembers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681175287"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#RegisterTransitGatewayMulticastGroupMembers%27"><span class="hs-identifier hs-type">RegisterTransitGatewayMulticastGroupMembers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681210663"><span class="annot"><span class="annottext">Maybe [Text]
 networkInterfaceIds :: Maybe [Text]
 $sel:networkInterfaceIds:RegisterTransitGatewayMulticastGroupMembers' :: RegisterTransitGatewayMulticastGroupMembers -&gt; Maybe [Text]
-</span><a href="#local-6989586621681175287"><span class="hs-identifier hs-var hs-var">networkInterfaceIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681175287"><span class="hs-identifier hs-var">networkInterfaceIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681175286"><span class="annot"><span class="annottext">s :: RegisterTransitGatewayMulticastGroupMembers
-</span><a href="#local-6989586621681175286"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#RegisterTransitGatewayMulticastGroupMembers%27"><span class="hs-identifier hs-type">RegisterTransitGatewayMulticastGroupMembers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681175285"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681175285"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterTransitGatewayMulticastGroupMembers
-</span><a href="#local-6989586621681175286"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkInterfaceIds:RegisterTransitGatewayMulticastGroupMembers' :: Maybe [Text]
+</span><a href="#local-6989586621681210663"><span class="hs-identifier hs-var hs-var">networkInterfaceIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681210663"><span class="hs-identifier hs-var">networkInterfaceIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681210662"><span class="annot"><span class="annottext">s :: RegisterTransitGatewayMulticastGroupMembers
+</span><a href="#local-6989586621681210662"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#RegisterTransitGatewayMulticastGroupMembers%27"><span class="hs-identifier hs-type">RegisterTransitGatewayMulticastGroupMembers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681210661"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681210661"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterTransitGatewayMulticastGroupMembers
+</span><a href="#local-6989586621681210662"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkInterfaceIds:RegisterTransitGatewayMulticastGroupMembers' :: Maybe [Text]
 </span><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#%24sel%3AnetworkInterfaceIds%3ARegisterTransitGatewayMulticastGroupMembers%27"><span class="hs-identifier hs-var">networkInterfaceIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681175285"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#RegisterTransitGatewayMulticastGroupMembers"><span class="hs-identifier hs-type">RegisterTransitGatewayMulticastGroupMembers</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621681210661"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#RegisterTransitGatewayMulticastGroupMembers"><span class="hs-identifier hs-type">RegisterTransitGatewayMulticastGroupMembers</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; RegisterTransitGatewayMulticastGroupMembers
  -&gt; f RegisterTransitGatewayMulticastGroupMembers)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
@@ -294,12 +241,37 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-comment">-- | The IP address assigned to the transit gateway multicast group.</span><span>
-</span><span id="line-128"></span><span class="annot"><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#registerTransitGatewayMulticastGroupMembers_groupIpAddress"><span class="hs-identifier hs-type">registerTransitGatewayMulticastGroupMembers_groupIpAddress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#RegisterTransitGatewayMulticastGroupMembers"><span class="hs-identifier hs-type">RegisterTransitGatewayMulticastGroupMembers</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-129"></span><span id="registerTransitGatewayMulticastGroupMembers_groupIpAddress"><span class="annot"><span class="annottext">registerTransitGatewayMulticastGroupMembers_groupIpAddress :: (Maybe Text -&gt; f (Maybe Text))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | The ID of the transit gateway multicast domain.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#registerTransitGatewayMulticastGroupMembers_transitGatewayMulticastDomainId"><span class="hs-identifier hs-type">registerTransitGatewayMulticastGroupMembers_transitGatewayMulticastDomainId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#RegisterTransitGatewayMulticastGroupMembers"><span class="hs-identifier hs-type">RegisterTransitGatewayMulticastGroupMembers</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="registerTransitGatewayMulticastGroupMembers_transitGatewayMulticastDomainId"><span class="annot"><span class="annottext">registerTransitGatewayMulticastGroupMembers_transitGatewayMulticastDomainId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RegisterTransitGatewayMulticastGroupMembers
+-&gt; f RegisterTransitGatewayMulticastGroupMembers
+</span><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#registerTransitGatewayMulticastGroupMembers_transitGatewayMulticastDomainId"><span class="hs-identifier hs-var hs-var">registerTransitGatewayMulticastGroupMembers_transitGatewayMulticastDomainId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegisterTransitGatewayMulticastGroupMembers -&gt; Maybe Text)
+-&gt; (RegisterTransitGatewayMulticastGroupMembers
+    -&gt; Maybe Text -&gt; RegisterTransitGatewayMulticastGroupMembers)
+-&gt; Lens
+     RegisterTransitGatewayMulticastGroupMembers
+     RegisterTransitGatewayMulticastGroupMembers
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#RegisterTransitGatewayMulticastGroupMembers%27"><span class="hs-identifier hs-type">RegisterTransitGatewayMulticastGroupMembers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681210657"><span class="annot"><span class="annottext">Maybe Text
+transitGatewayMulticastDomainId :: Maybe Text
+$sel:transitGatewayMulticastDomainId:RegisterTransitGatewayMulticastGroupMembers' :: RegisterTransitGatewayMulticastGroupMembers -&gt; Maybe Text
+</span><a href="#local-6989586621681210657"><span class="hs-identifier hs-var hs-var">transitGatewayMulticastDomainId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681210657"><span class="hs-identifier hs-var">transitGatewayMulticastDomainId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681210656"><span class="annot"><span class="annottext">s :: RegisterTransitGatewayMulticastGroupMembers
+</span><a href="#local-6989586621681210656"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#RegisterTransitGatewayMulticastGroupMembers%27"><span class="hs-identifier hs-type">RegisterTransitGatewayMulticastGroupMembers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681210655"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681210655"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterTransitGatewayMulticastGroupMembers
+</span><a href="#local-6989586621681210656"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transitGatewayMulticastDomainId:RegisterTransitGatewayMulticastGroupMembers' :: Maybe Text
+</span><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#%24sel%3AtransitGatewayMulticastDomainId%3ARegisterTransitGatewayMulticastGroupMembers%27"><span class="hs-identifier hs-var">transitGatewayMulticastDomainId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681210655"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#RegisterTransitGatewayMulticastGroupMembers"><span class="hs-identifier hs-type">RegisterTransitGatewayMulticastGroupMembers</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | The IP address assigned to the transit gateway multicast group.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#registerTransitGatewayMulticastGroupMembers_groupIpAddress"><span class="hs-identifier hs-type">registerTransitGatewayMulticastGroupMembers_groupIpAddress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#RegisterTransitGatewayMulticastGroupMembers"><span class="hs-identifier hs-type">RegisterTransitGatewayMulticastGroupMembers</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span id="registerTransitGatewayMulticastGroupMembers_groupIpAddress"><span class="annot"><span class="annottext">registerTransitGatewayMulticastGroupMembers_groupIpAddress :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; RegisterTransitGatewayMulticastGroupMembers
 -&gt; f RegisterTransitGatewayMulticastGroupMembers
 </span><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#registerTransitGatewayMulticastGroupMembers_groupIpAddress"><span class="hs-identifier hs-var hs-var">registerTransitGatewayMulticastGroupMembers_groupIpAddress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegisterTransitGatewayMulticastGroupMembers -&gt; Maybe Text)
@@ -311,16 +283,44 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#RegisterTransitGatewayMulticastGroupMembers%27"><span class="hs-identifier hs-type">RegisterTransitGatewayMulticastGroupMembers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681175281"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#RegisterTransitGatewayMulticastGroupMembers%27"><span class="hs-identifier hs-type">RegisterTransitGatewayMulticastGroupMembers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681210654"><span class="annot"><span class="annottext">Maybe Text
 groupIpAddress :: Maybe Text
 $sel:groupIpAddress:RegisterTransitGatewayMulticastGroupMembers' :: RegisterTransitGatewayMulticastGroupMembers -&gt; Maybe Text
-</span><a href="#local-6989586621681175281"><span class="hs-identifier hs-var hs-var">groupIpAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681175281"><span class="hs-identifier hs-var">groupIpAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681175280"><span class="annot"><span class="annottext">s :: RegisterTransitGatewayMulticastGroupMembers
-</span><a href="#local-6989586621681175280"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#RegisterTransitGatewayMulticastGroupMembers%27"><span class="hs-identifier hs-type">RegisterTransitGatewayMulticastGroupMembers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681175279"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681175279"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterTransitGatewayMulticastGroupMembers
-</span><a href="#local-6989586621681175280"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupIpAddress:RegisterTransitGatewayMulticastGroupMembers' :: Maybe Text
+</span><a href="#local-6989586621681210654"><span class="hs-identifier hs-var hs-var">groupIpAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681210654"><span class="hs-identifier hs-var">groupIpAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681210653"><span class="annot"><span class="annottext">s :: RegisterTransitGatewayMulticastGroupMembers
+</span><a href="#local-6989586621681210653"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#RegisterTransitGatewayMulticastGroupMembers%27"><span class="hs-identifier hs-type">RegisterTransitGatewayMulticastGroupMembers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681210652"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681210652"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterTransitGatewayMulticastGroupMembers
+</span><a href="#local-6989586621681210653"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupIpAddress:RegisterTransitGatewayMulticastGroupMembers' :: Maybe Text
 </span><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#%24sel%3AgroupIpAddress%3ARegisterTransitGatewayMulticastGroupMembers%27"><span class="hs-identifier hs-var">groupIpAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681175279"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#RegisterTransitGatewayMulticastGroupMembers"><span class="hs-identifier hs-type">RegisterTransitGatewayMulticastGroupMembers</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681210652"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#RegisterTransitGatewayMulticastGroupMembers"><span class="hs-identifier hs-type">RegisterTransitGatewayMulticastGroupMembers</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#registerTransitGatewayMulticastGroupMembers_dryRun"><span class="hs-identifier hs-type">registerTransitGatewayMulticastGroupMembers_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#RegisterTransitGatewayMulticastGroupMembers"><span class="hs-identifier hs-type">RegisterTransitGatewayMulticastGroupMembers</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span id="registerTransitGatewayMulticastGroupMembers_dryRun"><span class="annot"><span class="annottext">registerTransitGatewayMulticastGroupMembers_dryRun :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; RegisterTransitGatewayMulticastGroupMembers
+-&gt; f RegisterTransitGatewayMulticastGroupMembers
+</span><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#registerTransitGatewayMulticastGroupMembers_dryRun"><span class="hs-identifier hs-var hs-var">registerTransitGatewayMulticastGroupMembers_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegisterTransitGatewayMulticastGroupMembers -&gt; Maybe Bool)
+-&gt; (RegisterTransitGatewayMulticastGroupMembers
+    -&gt; Maybe Bool -&gt; RegisterTransitGatewayMulticastGroupMembers)
+-&gt; Lens
+     RegisterTransitGatewayMulticastGroupMembers
+     RegisterTransitGatewayMulticastGroupMembers
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#RegisterTransitGatewayMulticastGroupMembers%27"><span class="hs-identifier hs-type">RegisterTransitGatewayMulticastGroupMembers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681210651"><span class="annot"><span class="annottext">Maybe Bool
+dryRun :: Maybe Bool
+$sel:dryRun:RegisterTransitGatewayMulticastGroupMembers' :: RegisterTransitGatewayMulticastGroupMembers -&gt; Maybe Bool
+</span><a href="#local-6989586621681210651"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681210651"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681210650"><span class="annot"><span class="annottext">s :: RegisterTransitGatewayMulticastGroupMembers
+</span><a href="#local-6989586621681210650"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#RegisterTransitGatewayMulticastGroupMembers%27"><span class="hs-identifier hs-type">RegisterTransitGatewayMulticastGroupMembers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681210649"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681210649"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterTransitGatewayMulticastGroupMembers
+</span><a href="#local-6989586621681210650"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:RegisterTransitGatewayMulticastGroupMembers' :: Maybe Bool
+</span><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#%24sel%3AdryRun%3ARegisterTransitGatewayMulticastGroupMembers%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681210649"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#RegisterTransitGatewayMulticastGroupMembers"><span class="hs-identifier hs-type">RegisterTransitGatewayMulticastGroupMembers</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>
 </span><span id="line-131"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-132"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
@@ -330,7 +330,7 @@ $sel:groupIpAddress:RegisterTransitGatewayMulticastGroupMembers' :: RegisterTran
 </span><span id="line-136"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span>
 </span><span id="line-137"></span><span>      </span><span class="annot"><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#RegisterTransitGatewayMulticastGroupMembers"><span class="hs-identifier hs-type">RegisterTransitGatewayMulticastGroupMembers</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-138"></span><span>      </span><span class="annot"><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#RegisterTransitGatewayMulticastGroupMembersResponse"><span class="hs-identifier hs-type">RegisterTransitGatewayMulticastGroupMembersResponse</span></a></span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621681175275"><span class="annot"><span class="annottext">request :: RegisterTransitGatewayMulticastGroupMembers
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621681210645"><span class="annot"><span class="annottext">request :: RegisterTransitGatewayMulticastGroupMembers
 -&gt; Request RegisterTransitGatewayMulticastGroupMembers
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; RegisterTransitGatewayMulticastGroupMembers
@@ -338,7 +338,7 @@ $sel:groupIpAddress:RegisterTransitGatewayMulticastGroupMembers' :: RegisterTran
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621681175271"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621681210641"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy RegisterTransitGatewayMulticastGroupMembers
 -&gt; ClientResponse ClientBody
@@ -369,10 +369,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
-</span><span id="line-142"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681175268"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681175268"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681175267"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621681175267"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681175266"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681175266"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-142"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681210638"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681210638"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681210637"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681210637"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681210636"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681210636"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-143"></span><span>          </span><span class="annot"><span class="annottext">Maybe TransitGatewayMulticastRegisteredGroupMembers
 -&gt; Int -&gt; RegisterTransitGatewayMulticastGroupMembersResponse
 </span><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#RegisterTransitGatewayMulticastGroupMembersResponse%27"><span class="hs-identifier hs-var">RegisterTransitGatewayMulticastGroupMembersResponse'</span></a></span><span>
@@ -384,7 +384,7 @@ MonadResource m =&gt;
      String (Int -&gt; RegisterTransitGatewayMulticastGroupMembersResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681175266"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681210636"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
 -&gt; Text
 -&gt; Either
      String (Maybe TransitGatewayMulticastRegisteredGroupMembers)
@@ -402,22 +402,22 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681175268"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681210638"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-149"></span><span>  </span><span id="local-6989586621681175258"><span id="local-6989586621681175260"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621681210628"><span id="local-6989586621681210630"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-150"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#RegisterTransitGatewayMulticastGroupMembers"><span class="hs-identifier hs-type">RegisterTransitGatewayMulticastGroupMembers</span></a></span></span></span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-153"></span><span>  </span><span id="local-6989586621681175255"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621681210625"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-154"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#RegisterTransitGatewayMulticastGroupMembers"><span class="hs-identifier hs-type">RegisterTransitGatewayMulticastGroupMembers</span></a></span></span><span>
 </span><span id="line-155"></span><span>
 </span><span id="line-156"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-157"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
 </span><span id="line-158"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#RegisterTransitGatewayMulticastGroupMembers"><span class="hs-identifier hs-type">RegisterTransitGatewayMulticastGroupMembers</span></a></span><span>
 </span><span id="line-159"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-160"></span><span>  </span><span id="local-6989586621681175251"><span class="annot"><span class="annottext">toHeaders :: RegisterTransitGatewayMulticastGroupMembers -&gt; ResponseHeaders
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621681210621"><span class="annot"><span class="annottext">toHeaders :: RegisterTransitGatewayMulticastGroupMembers -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 -&gt; RegisterTransitGatewayMulticastGroupMembers -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -429,7 +429,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-163"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
 </span><span id="line-164"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#RegisterTransitGatewayMulticastGroupMembers"><span class="hs-identifier hs-type">RegisterTransitGatewayMulticastGroupMembers</span></a></span><span>
 </span><span id="line-165"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-166"></span><span>  </span><span id="local-6989586621681175246"><span class="annot"><span class="annottext">toPath :: RegisterTransitGatewayMulticastGroupMembers -&gt; ByteString
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621681210616"><span class="annot"><span class="annottext">toPath :: RegisterTransitGatewayMulticastGroupMembers -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
 -&gt; RegisterTransitGatewayMulticastGroupMembers -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
@@ -440,20 +440,20 @@ forall a b. a -&gt; b -&gt; a
 </span><span id="line-169"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
 </span><span id="line-170"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#RegisterTransitGatewayMulticastGroupMembers"><span class="hs-identifier hs-type">RegisterTransitGatewayMulticastGroupMembers</span></a></span><span>
 </span><span id="line-171"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-172"></span><span>  </span><span id="local-6989586621681175242"><span class="annot"><span class="annottext">toQuery :: RegisterTransitGatewayMulticastGroupMembers -&gt; QueryString
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621681210612"><span class="annot"><span class="annottext">toQuery :: RegisterTransitGatewayMulticastGroupMembers -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span>
-</span><span id="line-173"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#RegisterTransitGatewayMulticastGroupMembers%27"><span class="hs-identifier hs-type">RegisterTransitGatewayMulticastGroupMembers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681175237"><span id="local-6989586621681175238"><span id="local-6989586621681175239"><span id="local-6989586621681175240"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-173"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#RegisterTransitGatewayMulticastGroupMembers%27"><span class="hs-identifier hs-type">RegisterTransitGatewayMulticastGroupMembers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681210607"><span id="local-6989586621681210608"><span id="local-6989586621681210609"><span id="local-6989586621681210610"><span class="annot"><span class="annottext">Maybe Bool
 Maybe [Text]
 Maybe Text
-groupIpAddress :: Maybe Text
-networkInterfaceIds :: Maybe [Text]
 dryRun :: Maybe Bool
+groupIpAddress :: Maybe Text
 transitGatewayMulticastDomainId :: Maybe Text
-$sel:groupIpAddress:RegisterTransitGatewayMulticastGroupMembers' :: RegisterTransitGatewayMulticastGroupMembers -&gt; Maybe Text
-$sel:networkInterfaceIds:RegisterTransitGatewayMulticastGroupMembers' :: RegisterTransitGatewayMulticastGroupMembers -&gt; Maybe [Text]
+networkInterfaceIds :: Maybe [Text]
 $sel:dryRun:RegisterTransitGatewayMulticastGroupMembers' :: RegisterTransitGatewayMulticastGroupMembers -&gt; Maybe Bool
+$sel:groupIpAddress:RegisterTransitGatewayMulticastGroupMembers' :: RegisterTransitGatewayMulticastGroupMembers -&gt; Maybe Text
 $sel:transitGatewayMulticastDomainId:RegisterTransitGatewayMulticastGroupMembers' :: RegisterTransitGatewayMulticastGroupMembers -&gt; Maybe Text
-</span><a href="#local-6989586621681175237"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:networkInterfaceIds:RegisterTransitGatewayMulticastGroupMembers' :: RegisterTransitGatewayMulticastGroupMembers -&gt; Maybe [Text]
+</span><a href="#local-6989586621681210607"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-174"></span><span>      </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -471,40 +471,40 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;2016-11-15&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-181"></span><span>          </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;TransitGatewayMulticastDomainId&quot;</span></span><span>
-</span><span id="line-182"></span><span>            </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681175240"><span class="hs-identifier hs-var">transitGatewayMulticastDomainId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-183"></span><span>          </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681175239"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-184"></span><span>          </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+</span><span id="line-181"></span><span>          </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
 forall a. ToQuery a =&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
-</span><span id="line-185"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [Text] -&gt; QueryString
+</span><span id="line-182"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [Text] -&gt; QueryString
 forall a.
 (IsList a, ToQuery (Item a)) =&gt;
 ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;NetworkInterfaceIds&quot;</span></span><span>
-</span><span id="line-186"></span><span>                </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
+</span><span id="line-183"></span><span>                </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681175238"><span class="hs-identifier hs-var">networkInterfaceIds</span></a></span><span>
-</span><span id="line-187"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-188"></span><span>          </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621681210610"><span class="hs-identifier hs-var">networkInterfaceIds</span></a></span><span>
+</span><span id="line-184"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>          </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;TransitGatewayMulticastDomainId&quot;</span></span><span>
+</span><span id="line-186"></span><span>            </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681210609"><span class="hs-identifier hs-var">transitGatewayMulticastDomainId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>          </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;GroupIpAddress&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681175237"><span class="hs-identifier hs-var">groupIpAddress</span></a></span><span>
+</span><a href="#local-6989586621681210608"><span class="hs-identifier hs-var">groupIpAddress</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>          </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681210607"><span class="hs-identifier hs-var">dryRun</span></a></span><span>
 </span><span id="line-189"></span><span>        </span><span class="hs-special">]</span><span>
 </span><span id="line-190"></span><span>
 </span><span id="line-191"></span><span class="hs-comment">-- | /See:/ 'newRegisterTransitGatewayMulticastGroupMembersResponse' smart constructor.</span><span>
-</span><span id="line-192"></span><span id="local-6989586621681175233"><span id="local-6989586621681175234"></span></span><span class="hs-keyword">data</span><span> </span><span id="RegisterTransitGatewayMulticastGroupMembersResponse"><span class="annot"><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#RegisterTransitGatewayMulticastGroupMembersResponse"><span class="hs-identifier hs-var">RegisterTransitGatewayMulticastGroupMembersResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RegisterTransitGatewayMulticastGroupMembersResponse%27"><span class="annot"><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#RegisterTransitGatewayMulticastGroupMembersResponse%27"><span class="hs-identifier hs-var">RegisterTransitGatewayMulticastGroupMembersResponse'</span></a></span></span><span>
+</span><span id="line-192"></span><span id="local-6989586621681210603"><span id="local-6989586621681210604"></span></span><span class="hs-keyword">data</span><span> </span><span id="RegisterTransitGatewayMulticastGroupMembersResponse"><span class="annot"><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#RegisterTransitGatewayMulticastGroupMembersResponse"><span class="hs-identifier hs-var">RegisterTransitGatewayMulticastGroupMembersResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RegisterTransitGatewayMulticastGroupMembersResponse%27"><span class="annot"><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#RegisterTransitGatewayMulticastGroupMembersResponse%27"><span class="hs-identifier hs-var">RegisterTransitGatewayMulticastGroupMembersResponse'</span></a></span></span><span>
 </span><span id="line-193"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the registered transit gateway multicast group</span><span>
 </span><span id="line-194"></span><span>    </span><span class="hs-comment">-- members.</span><span>
 </span><span id="line-195"></span><span>    </span><span id="%24sel%3AregisteredMulticastGroupMembers%3ARegisterTransitGatewayMulticastGroupMembersResponse%27"><span class="annot"><span class="annottext">RegisterTransitGatewayMulticastGroupMembersResponse
@@ -514,7 +514,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-197"></span><span>    </span><span id="%24sel%3AhttpStatus%3ARegisterTransitGatewayMulticastGroupMembersResponse%27"><span class="annot"><span class="annottext">RegisterTransitGatewayMulticastGroupMembersResponse -&gt; Int
 </span><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#%24sel%3AhttpStatus%3ARegisterTransitGatewayMulticastGroupMembersResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-198"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-199"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681175227"><span id="local-6989586621681175229"><span class="annot"><span class="annottext">RegisterTransitGatewayMulticastGroupMembersResponse
+</span><span id="line-199"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681210597"><span id="local-6989586621681210599"><span class="annot"><span class="annottext">RegisterTransitGatewayMulticastGroupMembersResponse
 -&gt; RegisterTransitGatewayMulticastGroupMembersResponse -&gt; Bool
 (RegisterTransitGatewayMulticastGroupMembersResponse
  -&gt; RegisterTransitGatewayMulticastGroupMembersResponse -&gt; Bool)
@@ -530,7 +530,7 @@ $c/= :: RegisterTransitGatewayMulticastGroupMembersResponse
 -&gt; RegisterTransitGatewayMulticastGroupMembersResponse -&gt; Bool
 $c== :: RegisterTransitGatewayMulticastGroupMembersResponse
 -&gt; RegisterTransitGatewayMulticastGroupMembersResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681175219"><span id="local-6989586621681175221"><span id="local-6989586621681175223"><span id="local-6989586621681175225"><span class="annot"><span class="annottext">ReadPrec [RegisterTransitGatewayMulticastGroupMembersResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681210589"><span id="local-6989586621681210591"><span id="local-6989586621681210593"><span id="local-6989586621681210595"><span class="annot"><span class="annottext">ReadPrec [RegisterTransitGatewayMulticastGroupMembersResponse]
 ReadPrec RegisterTransitGatewayMulticastGroupMembersResponse
 Int -&gt; ReadS RegisterTransitGatewayMulticastGroupMembersResponse
 ReadS [RegisterTransitGatewayMulticastGroupMembersResponse]
@@ -550,7 +550,7 @@ readList :: ReadS [RegisterTransitGatewayMulticastGroupMembersResponse]
 $creadList :: ReadS [RegisterTransitGatewayMulticastGroupMembersResponse]
 readsPrec :: Int -&gt; ReadS RegisterTransitGatewayMulticastGroupMembersResponse
 $creadsPrec :: Int -&gt; ReadS RegisterTransitGatewayMulticastGroupMembersResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681175213"><span id="local-6989586621681175215"><span id="local-6989586621681175217"><span class="annot"><span class="annottext">Int -&gt; RegisterTransitGatewayMulticastGroupMembersResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681210583"><span id="local-6989586621681210585"><span id="local-6989586621681210587"><span class="annot"><span class="annottext">Int -&gt; RegisterTransitGatewayMulticastGroupMembersResponse -&gt; ShowS
 [RegisterTransitGatewayMulticastGroupMembersResponse] -&gt; ShowS
 RegisterTransitGatewayMulticastGroupMembersResponse -&gt; String
 (Int
@@ -607,8 +607,8 @@ RegisterTransitGatewayMulticastGroupMembersResponse
 </span><span id="line-216"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#RegisterTransitGatewayMulticastGroupMembersResponse"><span class="hs-identifier hs-type">RegisterTransitGatewayMulticastGroupMembersResponse</span></a></span><span>
 </span><span id="line-217"></span><span id="newRegisterTransitGatewayMulticastGroupMembersResponse"><span class="annot"><span class="annottext">newRegisterTransitGatewayMulticastGroupMembersResponse :: Int -&gt; RegisterTransitGatewayMulticastGroupMembersResponse
 </span><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#newRegisterTransitGatewayMulticastGroupMembersResponse"><span class="hs-identifier hs-var hs-var">newRegisterTransitGatewayMulticastGroupMembersResponse</span></a></span></span><span>
-</span><span id="line-218"></span><span>  </span><span id="local-6989586621681175210"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681175210"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-218"></span><span>  </span><span id="local-6989586621681210580"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681210580"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-219"></span><span>    </span><span class="annot"><span class="annottext">RegisterTransitGatewayMulticastGroupMembersResponse' :: Maybe TransitGatewayMulticastRegisteredGroupMembers
 -&gt; Int -&gt; RegisterTransitGatewayMulticastGroupMembersResponse
 </span><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#RegisterTransitGatewayMulticastGroupMembersResponse%27"><span class="hs-identifier hs-type">RegisterTransitGatewayMulticastGroupMembersResponse'</span></a></span><span>
@@ -620,7 +620,7 @@ forall a. Maybe a
 </span><span id="line-222"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:RegisterTransitGatewayMulticastGroupMembersResponse' :: Int
 </span><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#%24sel%3AhttpStatus%3ARegisterTransitGatewayMulticastGroupMembersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-223"></span><span>          </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681175210"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621681210580"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-224"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-225"></span><span>
 </span><span id="line-226"></span><span class="hs-comment">-- | Information about the registered transit gateway multicast group</span><span>
@@ -641,17 +641,17 @@ forall a. Maybe a
      (Maybe TransitGatewayMulticastRegisteredGroupMembers)
      (Maybe TransitGatewayMulticastRegisteredGroupMembers)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#RegisterTransitGatewayMulticastGroupMembersResponse%27"><span class="hs-identifier hs-type">RegisterTransitGatewayMulticastGroupMembersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681175209"><span class="annot"><span class="annottext">Maybe TransitGatewayMulticastRegisteredGroupMembers
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#RegisterTransitGatewayMulticastGroupMembersResponse%27"><span class="hs-identifier hs-type">RegisterTransitGatewayMulticastGroupMembersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681210579"><span class="annot"><span class="annottext">Maybe TransitGatewayMulticastRegisteredGroupMembers
 registeredMulticastGroupMembers :: Maybe TransitGatewayMulticastRegisteredGroupMembers
 $sel:registeredMulticastGroupMembers:RegisterTransitGatewayMulticastGroupMembersResponse' :: RegisterTransitGatewayMulticastGroupMembersResponse
 -&gt; Maybe TransitGatewayMulticastRegisteredGroupMembers
-</span><a href="#local-6989586621681175209"><span class="hs-identifier hs-var hs-var">registeredMulticastGroupMembers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TransitGatewayMulticastRegisteredGroupMembers
-</span><a href="#local-6989586621681175209"><span class="hs-identifier hs-var">registeredMulticastGroupMembers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681175208"><span class="annot"><span class="annottext">s :: RegisterTransitGatewayMulticastGroupMembersResponse
-</span><a href="#local-6989586621681175208"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#RegisterTransitGatewayMulticastGroupMembersResponse%27"><span class="hs-identifier hs-type">RegisterTransitGatewayMulticastGroupMembersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681175207"><span class="annot"><span class="annottext">Maybe TransitGatewayMulticastRegisteredGroupMembers
-</span><a href="#local-6989586621681175207"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterTransitGatewayMulticastGroupMembersResponse
-</span><a href="#local-6989586621681175208"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registeredMulticastGroupMembers:RegisterTransitGatewayMulticastGroupMembersResponse' :: Maybe TransitGatewayMulticastRegisteredGroupMembers
+</span><a href="#local-6989586621681210579"><span class="hs-identifier hs-var hs-var">registeredMulticastGroupMembers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TransitGatewayMulticastRegisteredGroupMembers
+</span><a href="#local-6989586621681210579"><span class="hs-identifier hs-var">registeredMulticastGroupMembers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681210578"><span class="annot"><span class="annottext">s :: RegisterTransitGatewayMulticastGroupMembersResponse
+</span><a href="#local-6989586621681210578"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#RegisterTransitGatewayMulticastGroupMembersResponse%27"><span class="hs-identifier hs-type">RegisterTransitGatewayMulticastGroupMembersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681210577"><span class="annot"><span class="annottext">Maybe TransitGatewayMulticastRegisteredGroupMembers
+</span><a href="#local-6989586621681210577"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterTransitGatewayMulticastGroupMembersResponse
+</span><a href="#local-6989586621681210578"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registeredMulticastGroupMembers:RegisterTransitGatewayMulticastGroupMembersResponse' :: Maybe TransitGatewayMulticastRegisteredGroupMembers
 </span><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#%24sel%3AregisteredMulticastGroupMembers%3ARegisterTransitGatewayMulticastGroupMembersResponse%27"><span class="hs-identifier hs-var">registeredMulticastGroupMembers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TransitGatewayMulticastRegisteredGroupMembers
-</span><a href="#local-6989586621681175207"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#RegisterTransitGatewayMulticastGroupMembersResponse"><span class="hs-identifier hs-type">RegisterTransitGatewayMulticastGroupMembersResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681210577"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#RegisterTransitGatewayMulticastGroupMembersResponse"><span class="hs-identifier hs-type">RegisterTransitGatewayMulticastGroupMembersResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-230"></span><span>
 </span><span id="line-231"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-232"></span><span class="annot"><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#registerTransitGatewayMulticastGroupMembersResponse_httpStatus"><span class="hs-identifier hs-type">registerTransitGatewayMulticastGroupMembersResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#RegisterTransitGatewayMulticastGroupMembersResponse"><span class="hs-identifier hs-type">RegisterTransitGatewayMulticastGroupMembersResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -667,18 +667,18 @@ $sel:registeredMulticastGroupMembers:RegisterTransitGatewayMulticastGroupMembers
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#RegisterTransitGatewayMulticastGroupMembersResponse%27"><span class="hs-identifier hs-type">RegisterTransitGatewayMulticastGroupMembersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681175206"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#RegisterTransitGatewayMulticastGroupMembersResponse%27"><span class="hs-identifier hs-type">RegisterTransitGatewayMulticastGroupMembersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681210576"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:RegisterTransitGatewayMulticastGroupMembersResponse' :: RegisterTransitGatewayMulticastGroupMembersResponse -&gt; Int
-</span><a href="#local-6989586621681175206"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681175206"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681175205"><span class="annot"><span class="annottext">s :: RegisterTransitGatewayMulticastGroupMembersResponse
-</span><a href="#local-6989586621681175205"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#RegisterTransitGatewayMulticastGroupMembersResponse%27"><span class="hs-identifier hs-type">RegisterTransitGatewayMulticastGroupMembersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681175204"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681175204"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterTransitGatewayMulticastGroupMembersResponse
-</span><a href="#local-6989586621681175205"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RegisterTransitGatewayMulticastGroupMembersResponse' :: Int
+</span><a href="#local-6989586621681210576"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681210576"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681210575"><span class="annot"><span class="annottext">s :: RegisterTransitGatewayMulticastGroupMembersResponse
+</span><a href="#local-6989586621681210575"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#RegisterTransitGatewayMulticastGroupMembersResponse%27"><span class="hs-identifier hs-type">RegisterTransitGatewayMulticastGroupMembersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681210574"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681210574"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterTransitGatewayMulticastGroupMembersResponse
+</span><a href="#local-6989586621681210575"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RegisterTransitGatewayMulticastGroupMembersResponse' :: Int
 </span><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#%24sel%3AhttpStatus%3ARegisterTransitGatewayMulticastGroupMembersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681175204"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#RegisterTransitGatewayMulticastGroupMembersResponse"><span class="hs-identifier hs-type">RegisterTransitGatewayMulticastGroupMembersResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681210574"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#RegisterTransitGatewayMulticastGroupMembersResponse"><span class="hs-identifier hs-type">RegisterTransitGatewayMulticastGroupMembersResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-234"></span><span>
 </span><span id="line-235"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-236"></span><span>  </span><span id="local-6989586621681175202"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-236"></span><span>  </span><span id="local-6989586621681210572"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-237"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers.html#RegisterTransitGatewayMulticastGroupMembersResponse"><span class="hs-identifier hs-type">RegisterTransitGatewayMulticastGroupMembersResponse</span></a></span></span><span>
 </span><span id="line-238"></span></pre></body></html>

@@ -27,39 +27,39 @@
 </span><span id="line-27"></span><span class="hs-comment">-- defined in the request filter.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newSeveritySummary' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679814406"><span id="local-6989586621679814407"></span></span><span class="hs-keyword">data</span><span> </span><span id="SeveritySummary"><span class="annot"><a href="Network.AWS.SSM.Types.SeveritySummary.html#SeveritySummary"><span class="hs-identifier hs-var">SeveritySummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SeveritySummary%27"><span class="annot"><a href="Network.AWS.SSM.Types.SeveritySummary.html#SeveritySummary%27"><span class="hs-identifier hs-var">SeveritySummary'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679816106"><span id="local-6989586621679816107"></span></span><span class="hs-keyword">data</span><span> </span><span id="SeveritySummary"><span class="annot"><a href="Network.AWS.SSM.Types.SeveritySummary.html#SeveritySummary"><span class="hs-identifier hs-var">SeveritySummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SeveritySummary%27"><span class="annot"><a href="Network.AWS.SSM.Types.SeveritySummary.html#SeveritySummary%27"><span class="hs-identifier hs-var">SeveritySummary'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The total number of resources or compliance items that have a severity</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- level of low. Low severity is determined by the organization that</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- published the compliance items.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AlowCount%3ASeveritySummary%27"><span class="annot"><span class="annottext">SeveritySummary -&gt; Maybe Int
 </span><a href="Network.AWS.SSM.Types.SeveritySummary.html#%24sel%3AlowCount%3ASeveritySummary%27"><span class="hs-identifier hs-var hs-var">lowCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The total number of resources or compliance items that have a severity</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- level of medium. Medium severity is determined by the organization that</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- published the compliance items.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AmediumCount%3ASeveritySummary%27"><span class="annot"><span class="annottext">SeveritySummary -&gt; Maybe Int
-</span><a href="Network.AWS.SSM.Types.SeveritySummary.html#%24sel%3AmediumCount%3ASeveritySummary%27"><span class="hs-identifier hs-var hs-var">mediumCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The total number of resources or compliance items that have a severity</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- level of critical. Critical severity is determined by the organization</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- that published the compliance items.</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3AcriticalCount%3ASeveritySummary%27"><span class="annot"><span class="annottext">SeveritySummary -&gt; Maybe Int
-</span><a href="Network.AWS.SSM.Types.SeveritySummary.html#%24sel%3AcriticalCount%3ASeveritySummary%27"><span class="hs-identifier hs-var hs-var">criticalCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The total number of resources or compliance items that have a severity</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- level of high. High severity is determined by the organization that</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- published the compliance items.</span><span>
-</span><span id="line-46"></span><span>    </span><span id="%24sel%3AhighCount%3ASeveritySummary%27"><span class="annot"><span class="annottext">SeveritySummary -&gt; Maybe Int
-</span><a href="Network.AWS.SSM.Types.SeveritySummary.html#%24sel%3AhighCount%3ASeveritySummary%27"><span class="hs-identifier hs-var hs-var">highCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The total number of resources or compliance items that have a severity</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- level of unspecified. Unspecified severity is determined by the</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- organization that published the compliance items.</span><span>
-</span><span id="line-50"></span><span>    </span><span id="%24sel%3AunspecifiedCount%3ASeveritySummary%27"><span class="annot"><span class="annottext">SeveritySummary -&gt; Maybe Int
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- level of unspecified. Unspecified severity is determined by the</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- organization that published the compliance items.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AunspecifiedCount%3ASeveritySummary%27"><span class="annot"><span class="annottext">SeveritySummary -&gt; Maybe Int
 </span><a href="Network.AWS.SSM.Types.SeveritySummary.html#%24sel%3AunspecifiedCount%3ASeveritySummary%27"><span class="hs-identifier hs-var hs-var">unspecifiedCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The total number of resources or compliance items that have a severity</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- level of high. High severity is determined by the organization that</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- published the compliance items.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AhighCount%3ASeveritySummary%27"><span class="annot"><span class="annottext">SeveritySummary -&gt; Maybe Int
+</span><a href="Network.AWS.SSM.Types.SeveritySummary.html#%24sel%3AhighCount%3ASeveritySummary%27"><span class="hs-identifier hs-var hs-var">highCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The total number of resources or compliance items that have a severity</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- level of medium. Medium severity is determined by the organization that</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- published the compliance items.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AmediumCount%3ASeveritySummary%27"><span class="annot"><span class="annottext">SeveritySummary -&gt; Maybe Int
+</span><a href="Network.AWS.SSM.Types.SeveritySummary.html#%24sel%3AmediumCount%3ASeveritySummary%27"><span class="hs-identifier hs-var hs-var">mediumCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The total number of resources or compliance items that have a severity</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- level of informational. Informational severity is determined by the</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- organization that published the compliance items.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AinformationalCount%3ASeveritySummary%27"><span class="annot"><span class="annottext">SeveritySummary -&gt; Maybe Int
+</span><a href="Network.AWS.SSM.Types.SeveritySummary.html#%24sel%3AinformationalCount%3ASeveritySummary%27"><span class="hs-identifier hs-var hs-var">informationalCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
 </span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The total number of resources or compliance items that have a severity</span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- level of informational. Informational severity is determined by the</span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- organization that published the compliance items.</span><span>
-</span><span id="line-54"></span><span>    </span><span id="%24sel%3AinformationalCount%3ASeveritySummary%27"><span class="annot"><span class="annottext">SeveritySummary -&gt; Maybe Int
-</span><a href="Network.AWS.SSM.Types.SeveritySummary.html#%24sel%3AinformationalCount%3ASeveritySummary%27"><span class="hs-identifier hs-var hs-var">informationalCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- level of critical. Critical severity is determined by the organization</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- that published the compliance items.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AcriticalCount%3ASeveritySummary%27"><span class="annot"><span class="annottext">SeveritySummary -&gt; Maybe Int
+</span><a href="Network.AWS.SSM.Types.SeveritySummary.html#%24sel%3AcriticalCount%3ASeveritySummary%27"><span class="hs-identifier hs-var hs-var">criticalCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679814395"><span id="local-6989586621679814397"><span class="annot"><span class="annottext">SeveritySummary -&gt; SeveritySummary -&gt; Bool
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679816095"><span id="local-6989586621679816097"><span class="annot"><span class="annottext">SeveritySummary -&gt; SeveritySummary -&gt; Bool
 (SeveritySummary -&gt; SeveritySummary -&gt; Bool)
 -&gt; (SeveritySummary -&gt; SeveritySummary -&gt; Bool)
 -&gt; Eq SeveritySummary
@@ -68,7 +68,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SeveritySummary -&gt; SeveritySummary -&gt; Bool
 == :: SeveritySummary -&gt; SeveritySummary -&gt; Bool
 $c== :: SeveritySummary -&gt; SeveritySummary -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679814386"><span id="local-6989586621679814388"><span id="local-6989586621679814390"><span id="local-6989586621679814392"><span class="annot"><span class="annottext">ReadPrec [SeveritySummary]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679816086"><span id="local-6989586621679816088"><span id="local-6989586621679816090"><span id="local-6989586621679816092"><span class="annot"><span class="annottext">ReadPrec [SeveritySummary]
 ReadPrec SeveritySummary
 Int -&gt; ReadS SeveritySummary
 ReadS [SeveritySummary]
@@ -88,7 +88,7 @@ readList :: ReadS [SeveritySummary]
 $creadList :: ReadS [SeveritySummary]
 readsPrec :: Int -&gt; ReadS SeveritySummary
 $creadsPrec :: Int -&gt; ReadS SeveritySummary
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679814379"><span id="local-6989586621679814381"><span id="local-6989586621679814383"><span class="annot"><span class="annottext">Int -&gt; SeveritySummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679816079"><span id="local-6989586621679816081"><span id="local-6989586621679816083"><span class="annot"><span class="annottext">Int -&gt; SeveritySummary -&gt; ShowS
 [SeveritySummary] -&gt; ShowS
 SeveritySummary -&gt; String
 (Int -&gt; SeveritySummary -&gt; ShowS)
@@ -126,25 +126,25 @@ $cfrom :: forall x. SeveritySummary -&gt; Rep SeveritySummary x
 </span><span id="line-67"></span><span class="hs-comment">-- level of low. Low severity is determined by the organization that</span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- published the compliance items.</span><span>
 </span><span id="line-69"></span><span class="hs-comment">--</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- 'mediumCount', 'severitySummary_mediumCount' - The total number of resources or compliance items that have a severity</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- level of medium. Medium severity is determined by the organization that</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- published the compliance items.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'unspecifiedCount', 'severitySummary_unspecifiedCount' - The total number of resources or compliance items that have a severity</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- level of unspecified. Unspecified severity is determined by the</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- organization that published the compliance items.</span><span>
 </span><span id="line-73"></span><span class="hs-comment">--</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- 'criticalCount', 'severitySummary_criticalCount' - The total number of resources or compliance items that have a severity</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- level of critical. Critical severity is determined by the organization</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- that published the compliance items.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'highCount', 'severitySummary_highCount' - The total number of resources or compliance items that have a severity</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- level of high. High severity is determined by the organization that</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- published the compliance items.</span><span>
 </span><span id="line-77"></span><span class="hs-comment">--</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- 'highCount', 'severitySummary_highCount' - The total number of resources or compliance items that have a severity</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- level of high. High severity is determined by the organization that</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'mediumCount', 'severitySummary_mediumCount' - The total number of resources or compliance items that have a severity</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- level of medium. Medium severity is determined by the organization that</span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- published the compliance items.</span><span>
 </span><span id="line-81"></span><span class="hs-comment">--</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- 'unspecifiedCount', 'severitySummary_unspecifiedCount' - The total number of resources or compliance items that have a severity</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- level of unspecified. Unspecified severity is determined by the</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'informationalCount', 'severitySummary_informationalCount' - The total number of resources or compliance items that have a severity</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- level of informational. Informational severity is determined by the</span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- organization that published the compliance items.</span><span>
 </span><span id="line-85"></span><span class="hs-comment">--</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- 'informationalCount', 'severitySummary_informationalCount' - The total number of resources or compliance items that have a severity</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- level of informational. Informational severity is determined by the</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- organization that published the compliance items.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'criticalCount', 'severitySummary_criticalCount' - The total number of resources or compliance items that have a severity</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- level of critical. Critical severity is determined by the organization</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- that published the compliance items.</span><span>
 </span><span id="line-89"></span><span class="annot"><a href="Network.AWS.SSM.Types.SeveritySummary.html#newSeveritySummary"><span class="hs-identifier hs-type">newSeveritySummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-90"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.Types.SeveritySummary.html#SeveritySummary"><span class="hs-identifier hs-type">SeveritySummary</span></a></span><span>
 </span><span id="line-91"></span><span id="newSeveritySummary"><span class="annot"><span class="annottext">newSeveritySummary :: SeveritySummary
@@ -161,24 +161,24 @@ $cfrom :: forall x. SeveritySummary -&gt; Rep SeveritySummary x
 </span><a href="Network.AWS.SSM.Types.SeveritySummary.html#%24sel%3AlowCount%3ASeveritySummary%27"><span class="hs-identifier hs-var">lowCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:mediumCount:SeveritySummary' :: Maybe Int
-</span><a href="Network.AWS.SSM.Types.SeveritySummary.html#%24sel%3AmediumCount%3ASeveritySummary%27"><span class="hs-identifier hs-var">mediumCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:criticalCount:SeveritySummary' :: Maybe Int
-</span><a href="Network.AWS.SSM.Types.SeveritySummary.html#%24sel%3AcriticalCount%3ASeveritySummary%27"><span class="hs-identifier hs-var">criticalCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:highCount:SeveritySummary' :: Maybe Int
-</span><a href="Network.AWS.SSM.Types.SeveritySummary.html#%24sel%3AhighCount%3ASeveritySummary%27"><span class="hs-identifier hs-var">highCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:unspecifiedCount:SeveritySummary' :: Maybe Int
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:unspecifiedCount:SeveritySummary' :: Maybe Int
 </span><a href="Network.AWS.SSM.Types.SeveritySummary.html#%24sel%3AunspecifiedCount%3ASeveritySummary%27"><span class="hs-identifier hs-var">unspecifiedCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:informationalCount:SeveritySummary' :: Maybe Int
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:highCount:SeveritySummary' :: Maybe Int
+</span><a href="Network.AWS.SSM.Types.SeveritySummary.html#%24sel%3AhighCount%3ASeveritySummary%27"><span class="hs-identifier hs-var">highCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:mediumCount:SeveritySummary' :: Maybe Int
+</span><a href="Network.AWS.SSM.Types.SeveritySummary.html#%24sel%3AmediumCount%3ASeveritySummary%27"><span class="hs-identifier hs-var">mediumCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:informationalCount:SeveritySummary' :: Maybe Int
 </span><a href="Network.AWS.SSM.Types.SeveritySummary.html#%24sel%3AinformationalCount%3ASeveritySummary%27"><span class="hs-identifier hs-var">informationalCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:criticalCount:SeveritySummary' :: Maybe Int
+</span><a href="Network.AWS.SSM.Types.SeveritySummary.html#%24sel%3AcriticalCount%3ASeveritySummary%27"><span class="hs-identifier hs-var">criticalCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-99"></span><span>    </span><span class="hs-special">}</span><span>
@@ -193,124 +193,124 @@ forall a. Maybe a
 -&gt; (SeveritySummary -&gt; Maybe Int -&gt; SeveritySummary)
 -&gt; Lens SeveritySummary SeveritySummary (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.SeveritySummary.html#SeveritySummary%27"><span class="hs-identifier hs-type">SeveritySummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679814370"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.SeveritySummary.html#SeveritySummary%27"><span class="hs-identifier hs-type">SeveritySummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679816070"><span class="annot"><span class="annottext">Maybe Int
 lowCount :: Maybe Int
 $sel:lowCount:SeveritySummary' :: SeveritySummary -&gt; Maybe Int
-</span><a href="#local-6989586621679814370"><span class="hs-identifier hs-var hs-var">lowCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679814370"><span class="hs-identifier hs-var">lowCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679814369"><span class="annot"><span class="annottext">s :: SeveritySummary
-</span><a href="#local-6989586621679814369"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.SeveritySummary.html#SeveritySummary%27"><span class="hs-identifier hs-type">SeveritySummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679814368"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679814368"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SeveritySummary
-</span><a href="#local-6989586621679814369"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lowCount:SeveritySummary' :: Maybe Int
+</span><a href="#local-6989586621679816070"><span class="hs-identifier hs-var hs-var">lowCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679816070"><span class="hs-identifier hs-var">lowCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679816069"><span class="annot"><span class="annottext">s :: SeveritySummary
+</span><a href="#local-6989586621679816069"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.SeveritySummary.html#SeveritySummary%27"><span class="hs-identifier hs-type">SeveritySummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679816068"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679816068"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SeveritySummary
+</span><a href="#local-6989586621679816069"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lowCount:SeveritySummary' :: Maybe Int
 </span><a href="Network.AWS.SSM.Types.SeveritySummary.html#%24sel%3AlowCount%3ASeveritySummary%27"><span class="hs-identifier hs-var">lowCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679814368"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.SeveritySummary.html#SeveritySummary"><span class="hs-identifier hs-type">SeveritySummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679816068"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.SeveritySummary.html#SeveritySummary"><span class="hs-identifier hs-type">SeveritySummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-comment">-- | The total number of resources or compliance items that have a severity</span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- level of medium. Medium severity is determined by the organization that</span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- published the compliance items.</span><span>
-</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.SSM.Types.SeveritySummary.html#severitySummary_mediumCount"><span class="hs-identifier hs-type">severitySummary_mediumCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.SeveritySummary.html#SeveritySummary"><span class="hs-identifier hs-type">SeveritySummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-111"></span><span id="severitySummary_mediumCount"><span class="annot"><span class="annottext">severitySummary_mediumCount :: (Maybe Int -&gt; f (Maybe Int))
--&gt; SeveritySummary -&gt; f SeveritySummary
-</span><a href="Network.AWS.SSM.Types.SeveritySummary.html#severitySummary_mediumCount"><span class="hs-identifier hs-var hs-var">severitySummary_mediumCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SeveritySummary -&gt; Maybe Int)
--&gt; (SeveritySummary -&gt; Maybe Int -&gt; SeveritySummary)
--&gt; Lens SeveritySummary SeveritySummary (Maybe Int) (Maybe Int)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.SeveritySummary.html#SeveritySummary%27"><span class="hs-identifier hs-type">SeveritySummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679814366"><span class="annot"><span class="annottext">Maybe Int
-mediumCount :: Maybe Int
-$sel:mediumCount:SeveritySummary' :: SeveritySummary -&gt; Maybe Int
-</span><a href="#local-6989586621679814366"><span class="hs-identifier hs-var hs-var">mediumCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679814366"><span class="hs-identifier hs-var">mediumCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679814365"><span class="annot"><span class="annottext">s :: SeveritySummary
-</span><a href="#local-6989586621679814365"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.SeveritySummary.html#SeveritySummary%27"><span class="hs-identifier hs-type">SeveritySummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679814364"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679814364"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SeveritySummary
-</span><a href="#local-6989586621679814365"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mediumCount:SeveritySummary' :: Maybe Int
-</span><a href="Network.AWS.SSM.Types.SeveritySummary.html#%24sel%3AmediumCount%3ASeveritySummary%27"><span class="hs-identifier hs-var">mediumCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679814364"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.SeveritySummary.html#SeveritySummary"><span class="hs-identifier hs-type">SeveritySummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- | The total number of resources or compliance items that have a severity</span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- level of critical. Critical severity is determined by the organization</span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- that published the compliance items.</span><span>
-</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.SSM.Types.SeveritySummary.html#severitySummary_criticalCount"><span class="hs-identifier hs-type">severitySummary_criticalCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.SeveritySummary.html#SeveritySummary"><span class="hs-identifier hs-type">SeveritySummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-117"></span><span id="severitySummary_criticalCount"><span class="annot"><span class="annottext">severitySummary_criticalCount :: (Maybe Int -&gt; f (Maybe Int))
--&gt; SeveritySummary -&gt; f SeveritySummary
-</span><a href="Network.AWS.SSM.Types.SeveritySummary.html#severitySummary_criticalCount"><span class="hs-identifier hs-var hs-var">severitySummary_criticalCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SeveritySummary -&gt; Maybe Int)
--&gt; (SeveritySummary -&gt; Maybe Int -&gt; SeveritySummary)
--&gt; Lens SeveritySummary SeveritySummary (Maybe Int) (Maybe Int)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.SeveritySummary.html#SeveritySummary%27"><span class="hs-identifier hs-type">SeveritySummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679814362"><span class="annot"><span class="annottext">Maybe Int
-criticalCount :: Maybe Int
-$sel:criticalCount:SeveritySummary' :: SeveritySummary -&gt; Maybe Int
-</span><a href="#local-6989586621679814362"><span class="hs-identifier hs-var hs-var">criticalCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679814362"><span class="hs-identifier hs-var">criticalCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679814361"><span class="annot"><span class="annottext">s :: SeveritySummary
-</span><a href="#local-6989586621679814361"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.SeveritySummary.html#SeveritySummary%27"><span class="hs-identifier hs-type">SeveritySummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679814360"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679814360"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SeveritySummary
-</span><a href="#local-6989586621679814361"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:criticalCount:SeveritySummary' :: Maybe Int
-</span><a href="Network.AWS.SSM.Types.SeveritySummary.html#%24sel%3AcriticalCount%3ASeveritySummary%27"><span class="hs-identifier hs-var">criticalCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679814360"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.SeveritySummary.html#SeveritySummary"><span class="hs-identifier hs-type">SeveritySummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- | The total number of resources or compliance items that have a severity</span><span>
-</span><span id="line-120"></span><span class="hs-comment">-- level of high. High severity is determined by the organization that</span><span>
-</span><span id="line-121"></span><span class="hs-comment">-- published the compliance items.</span><span>
-</span><span id="line-122"></span><span class="annot"><a href="Network.AWS.SSM.Types.SeveritySummary.html#severitySummary_highCount"><span class="hs-identifier hs-type">severitySummary_highCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.SeveritySummary.html#SeveritySummary"><span class="hs-identifier hs-type">SeveritySummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-123"></span><span id="severitySummary_highCount"><span class="annot"><span class="annottext">severitySummary_highCount :: (Maybe Int -&gt; f (Maybe Int))
--&gt; SeveritySummary -&gt; f SeveritySummary
-</span><a href="Network.AWS.SSM.Types.SeveritySummary.html#severitySummary_highCount"><span class="hs-identifier hs-var hs-var">severitySummary_highCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SeveritySummary -&gt; Maybe Int)
--&gt; (SeveritySummary -&gt; Maybe Int -&gt; SeveritySummary)
--&gt; Lens SeveritySummary SeveritySummary (Maybe Int) (Maybe Int)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.SeveritySummary.html#SeveritySummary%27"><span class="hs-identifier hs-type">SeveritySummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679814358"><span class="annot"><span class="annottext">Maybe Int
-highCount :: Maybe Int
-$sel:highCount:SeveritySummary' :: SeveritySummary -&gt; Maybe Int
-</span><a href="#local-6989586621679814358"><span class="hs-identifier hs-var hs-var">highCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679814358"><span class="hs-identifier hs-var">highCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679814357"><span class="annot"><span class="annottext">s :: SeveritySummary
-</span><a href="#local-6989586621679814357"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.SeveritySummary.html#SeveritySummary%27"><span class="hs-identifier hs-type">SeveritySummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679814356"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679814356"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SeveritySummary
-</span><a href="#local-6989586621679814357"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:highCount:SeveritySummary' :: Maybe Int
-</span><a href="Network.AWS.SSM.Types.SeveritySummary.html#%24sel%3AhighCount%3ASeveritySummary%27"><span class="hs-identifier hs-var">highCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679814356"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.SeveritySummary.html#SeveritySummary"><span class="hs-identifier hs-type">SeveritySummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-comment">-- | The total number of resources or compliance items that have a severity</span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- level of unspecified. Unspecified severity is determined by the</span><span>
-</span><span id="line-127"></span><span class="hs-comment">-- organization that published the compliance items.</span><span>
-</span><span id="line-128"></span><span class="annot"><a href="Network.AWS.SSM.Types.SeveritySummary.html#severitySummary_unspecifiedCount"><span class="hs-identifier hs-type">severitySummary_unspecifiedCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.SeveritySummary.html#SeveritySummary"><span class="hs-identifier hs-type">SeveritySummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-129"></span><span id="severitySummary_unspecifiedCount"><span class="annot"><span class="annottext">severitySummary_unspecifiedCount :: (Maybe Int -&gt; f (Maybe Int))
+</span><span id="line-108"></span><span class="hs-comment">-- level of unspecified. Unspecified severity is determined by the</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- organization that published the compliance items.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.SSM.Types.SeveritySummary.html#severitySummary_unspecifiedCount"><span class="hs-identifier hs-type">severitySummary_unspecifiedCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.SeveritySummary.html#SeveritySummary"><span class="hs-identifier hs-type">SeveritySummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span id="severitySummary_unspecifiedCount"><span class="annot"><span class="annottext">severitySummary_unspecifiedCount :: (Maybe Int -&gt; f (Maybe Int))
 -&gt; SeveritySummary -&gt; f SeveritySummary
 </span><a href="Network.AWS.SSM.Types.SeveritySummary.html#severitySummary_unspecifiedCount"><span class="hs-identifier hs-var hs-var">severitySummary_unspecifiedCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SeveritySummary -&gt; Maybe Int)
 -&gt; (SeveritySummary -&gt; Maybe Int -&gt; SeveritySummary)
 -&gt; Lens SeveritySummary SeveritySummary (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.SeveritySummary.html#SeveritySummary%27"><span class="hs-identifier hs-type">SeveritySummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679814354"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.SeveritySummary.html#SeveritySummary%27"><span class="hs-identifier hs-type">SeveritySummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679816066"><span class="annot"><span class="annottext">Maybe Int
 unspecifiedCount :: Maybe Int
 $sel:unspecifiedCount:SeveritySummary' :: SeveritySummary -&gt; Maybe Int
-</span><a href="#local-6989586621679814354"><span class="hs-identifier hs-var hs-var">unspecifiedCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679814354"><span class="hs-identifier hs-var">unspecifiedCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679814353"><span class="annot"><span class="annottext">s :: SeveritySummary
-</span><a href="#local-6989586621679814353"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.SeveritySummary.html#SeveritySummary%27"><span class="hs-identifier hs-type">SeveritySummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679814352"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679814352"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SeveritySummary
-</span><a href="#local-6989586621679814353"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unspecifiedCount:SeveritySummary' :: Maybe Int
+</span><a href="#local-6989586621679816066"><span class="hs-identifier hs-var hs-var">unspecifiedCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679816066"><span class="hs-identifier hs-var">unspecifiedCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679816065"><span class="annot"><span class="annottext">s :: SeveritySummary
+</span><a href="#local-6989586621679816065"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.SeveritySummary.html#SeveritySummary%27"><span class="hs-identifier hs-type">SeveritySummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679816064"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679816064"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SeveritySummary
+</span><a href="#local-6989586621679816065"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unspecifiedCount:SeveritySummary' :: Maybe Int
 </span><a href="Network.AWS.SSM.Types.SeveritySummary.html#%24sel%3AunspecifiedCount%3ASeveritySummary%27"><span class="hs-identifier hs-var">unspecifiedCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679814352"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.SeveritySummary.html#SeveritySummary"><span class="hs-identifier hs-type">SeveritySummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-130"></span><span>
-</span><span id="line-131"></span><span class="hs-comment">-- | The total number of resources or compliance items that have a severity</span><span>
-</span><span id="line-132"></span><span class="hs-comment">-- level of informational. Informational severity is determined by the</span><span>
-</span><span id="line-133"></span><span class="hs-comment">-- organization that published the compliance items.</span><span>
-</span><span id="line-134"></span><span class="annot"><a href="Network.AWS.SSM.Types.SeveritySummary.html#severitySummary_informationalCount"><span class="hs-identifier hs-type">severitySummary_informationalCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.SeveritySummary.html#SeveritySummary"><span class="hs-identifier hs-type">SeveritySummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-135"></span><span id="severitySummary_informationalCount"><span class="annot"><span class="annottext">severitySummary_informationalCount :: (Maybe Int -&gt; f (Maybe Int))
+</span><a href="#local-6989586621679816064"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.SeveritySummary.html#SeveritySummary"><span class="hs-identifier hs-type">SeveritySummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | The total number of resources or compliance items that have a severity</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- level of high. High severity is determined by the organization that</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- published the compliance items.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.SSM.Types.SeveritySummary.html#severitySummary_highCount"><span class="hs-identifier hs-type">severitySummary_highCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.SeveritySummary.html#SeveritySummary"><span class="hs-identifier hs-type">SeveritySummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span id="severitySummary_highCount"><span class="annot"><span class="annottext">severitySummary_highCount :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; SeveritySummary -&gt; f SeveritySummary
+</span><a href="Network.AWS.SSM.Types.SeveritySummary.html#severitySummary_highCount"><span class="hs-identifier hs-var hs-var">severitySummary_highCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SeveritySummary -&gt; Maybe Int)
+-&gt; (SeveritySummary -&gt; Maybe Int -&gt; SeveritySummary)
+-&gt; Lens SeveritySummary SeveritySummary (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.SeveritySummary.html#SeveritySummary%27"><span class="hs-identifier hs-type">SeveritySummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679816062"><span class="annot"><span class="annottext">Maybe Int
+highCount :: Maybe Int
+$sel:highCount:SeveritySummary' :: SeveritySummary -&gt; Maybe Int
+</span><a href="#local-6989586621679816062"><span class="hs-identifier hs-var hs-var">highCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679816062"><span class="hs-identifier hs-var">highCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679816061"><span class="annot"><span class="annottext">s :: SeveritySummary
+</span><a href="#local-6989586621679816061"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.SeveritySummary.html#SeveritySummary%27"><span class="hs-identifier hs-type">SeveritySummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679816060"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679816060"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SeveritySummary
+</span><a href="#local-6989586621679816061"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:highCount:SeveritySummary' :: Maybe Int
+</span><a href="Network.AWS.SSM.Types.SeveritySummary.html#%24sel%3AhighCount%3ASeveritySummary%27"><span class="hs-identifier hs-var">highCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679816060"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.SeveritySummary.html#SeveritySummary"><span class="hs-identifier hs-type">SeveritySummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | The total number of resources or compliance items that have a severity</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- level of medium. Medium severity is determined by the organization that</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- published the compliance items.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Network.AWS.SSM.Types.SeveritySummary.html#severitySummary_mediumCount"><span class="hs-identifier hs-type">severitySummary_mediumCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.SeveritySummary.html#SeveritySummary"><span class="hs-identifier hs-type">SeveritySummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span id="severitySummary_mediumCount"><span class="annot"><span class="annottext">severitySummary_mediumCount :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; SeveritySummary -&gt; f SeveritySummary
+</span><a href="Network.AWS.SSM.Types.SeveritySummary.html#severitySummary_mediumCount"><span class="hs-identifier hs-var hs-var">severitySummary_mediumCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SeveritySummary -&gt; Maybe Int)
+-&gt; (SeveritySummary -&gt; Maybe Int -&gt; SeveritySummary)
+-&gt; Lens SeveritySummary SeveritySummary (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.SeveritySummary.html#SeveritySummary%27"><span class="hs-identifier hs-type">SeveritySummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679816058"><span class="annot"><span class="annottext">Maybe Int
+mediumCount :: Maybe Int
+$sel:mediumCount:SeveritySummary' :: SeveritySummary -&gt; Maybe Int
+</span><a href="#local-6989586621679816058"><span class="hs-identifier hs-var hs-var">mediumCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679816058"><span class="hs-identifier hs-var">mediumCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679816057"><span class="annot"><span class="annottext">s :: SeveritySummary
+</span><a href="#local-6989586621679816057"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.SeveritySummary.html#SeveritySummary%27"><span class="hs-identifier hs-type">SeveritySummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679816056"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679816056"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SeveritySummary
+</span><a href="#local-6989586621679816057"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mediumCount:SeveritySummary' :: Maybe Int
+</span><a href="Network.AWS.SSM.Types.SeveritySummary.html#%24sel%3AmediumCount%3ASeveritySummary%27"><span class="hs-identifier hs-var">mediumCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679816056"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.SeveritySummary.html#SeveritySummary"><span class="hs-identifier hs-type">SeveritySummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | The total number of resources or compliance items that have a severity</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- level of informational. Informational severity is determined by the</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- organization that published the compliance items.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Network.AWS.SSM.Types.SeveritySummary.html#severitySummary_informationalCount"><span class="hs-identifier hs-type">severitySummary_informationalCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.SeveritySummary.html#SeveritySummary"><span class="hs-identifier hs-type">SeveritySummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span id="severitySummary_informationalCount"><span class="annot"><span class="annottext">severitySummary_informationalCount :: (Maybe Int -&gt; f (Maybe Int))
 -&gt; SeveritySummary -&gt; f SeveritySummary
 </span><a href="Network.AWS.SSM.Types.SeveritySummary.html#severitySummary_informationalCount"><span class="hs-identifier hs-var hs-var">severitySummary_informationalCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SeveritySummary -&gt; Maybe Int)
 -&gt; (SeveritySummary -&gt; Maybe Int -&gt; SeveritySummary)
 -&gt; Lens SeveritySummary SeveritySummary (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.SeveritySummary.html#SeveritySummary%27"><span class="hs-identifier hs-type">SeveritySummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679814350"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.SeveritySummary.html#SeveritySummary%27"><span class="hs-identifier hs-type">SeveritySummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679816054"><span class="annot"><span class="annottext">Maybe Int
 informationalCount :: Maybe Int
 $sel:informationalCount:SeveritySummary' :: SeveritySummary -&gt; Maybe Int
-</span><a href="#local-6989586621679814350"><span class="hs-identifier hs-var hs-var">informationalCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679814350"><span class="hs-identifier hs-var">informationalCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679814349"><span class="annot"><span class="annottext">s :: SeveritySummary
-</span><a href="#local-6989586621679814349"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.SeveritySummary.html#SeveritySummary%27"><span class="hs-identifier hs-type">SeveritySummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679814348"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679814348"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SeveritySummary
-</span><a href="#local-6989586621679814349"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:informationalCount:SeveritySummary' :: Maybe Int
+</span><a href="#local-6989586621679816054"><span class="hs-identifier hs-var hs-var">informationalCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679816054"><span class="hs-identifier hs-var">informationalCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679816053"><span class="annot"><span class="annottext">s :: SeveritySummary
+</span><a href="#local-6989586621679816053"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.SeveritySummary.html#SeveritySummary%27"><span class="hs-identifier hs-type">SeveritySummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679816052"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679816052"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SeveritySummary
+</span><a href="#local-6989586621679816053"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:informationalCount:SeveritySummary' :: Maybe Int
 </span><a href="Network.AWS.SSM.Types.SeveritySummary.html#%24sel%3AinformationalCount%3ASeveritySummary%27"><span class="hs-identifier hs-var">informationalCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679814348"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.SeveritySummary.html#SeveritySummary"><span class="hs-identifier hs-type">SeveritySummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679816052"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.SeveritySummary.html#SeveritySummary"><span class="hs-identifier hs-type">SeveritySummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | The total number of resources or compliance items that have a severity</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- level of critical. Critical severity is determined by the organization</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- that published the compliance items.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Network.AWS.SSM.Types.SeveritySummary.html#severitySummary_criticalCount"><span class="hs-identifier hs-type">severitySummary_criticalCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.SeveritySummary.html#SeveritySummary"><span class="hs-identifier hs-type">SeveritySummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span id="severitySummary_criticalCount"><span class="annot"><span class="annottext">severitySummary_criticalCount :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; SeveritySummary -&gt; f SeveritySummary
+</span><a href="Network.AWS.SSM.Types.SeveritySummary.html#severitySummary_criticalCount"><span class="hs-identifier hs-var hs-var">severitySummary_criticalCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SeveritySummary -&gt; Maybe Int)
+-&gt; (SeveritySummary -&gt; Maybe Int -&gt; SeveritySummary)
+-&gt; Lens SeveritySummary SeveritySummary (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.SeveritySummary.html#SeveritySummary%27"><span class="hs-identifier hs-type">SeveritySummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679816050"><span class="annot"><span class="annottext">Maybe Int
+criticalCount :: Maybe Int
+$sel:criticalCount:SeveritySummary' :: SeveritySummary -&gt; Maybe Int
+</span><a href="#local-6989586621679816050"><span class="hs-identifier hs-var hs-var">criticalCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679816050"><span class="hs-identifier hs-var">criticalCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679816049"><span class="annot"><span class="annottext">s :: SeveritySummary
+</span><a href="#local-6989586621679816049"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.SeveritySummary.html#SeveritySummary%27"><span class="hs-identifier hs-type">SeveritySummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679816048"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679816048"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SeveritySummary
+</span><a href="#local-6989586621679816049"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:criticalCount:SeveritySummary' :: Maybe Int
+</span><a href="Network.AWS.SSM.Types.SeveritySummary.html#%24sel%3AcriticalCount%3ASeveritySummary%27"><span class="hs-identifier hs-var">criticalCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679816048"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.SeveritySummary.html#SeveritySummary"><span class="hs-identifier hs-type">SeveritySummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>
-</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679814345"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.SeveritySummary.html#SeveritySummary"><span class="hs-identifier hs-type">SeveritySummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679814343"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SeveritySummary
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679816045"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.SeveritySummary.html#SeveritySummary"><span class="hs-identifier hs-type">SeveritySummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679816043"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SeveritySummary
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-139"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser SeveritySummary)
@@ -320,8 +320,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;SeveritySummary&quot;</span></span><span>
-</span><span id="line-141"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679814340"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679814340"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679816040"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679816040"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-142"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int
 -&gt; Maybe Int
 -&gt; Maybe Int
@@ -347,7 +347,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; SeveritySummary)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679814340"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679816040"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LowCount&quot;</span></span><span class="hs-special">)</span><span>
@@ -364,10 +364,10 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Maybe Int -&gt; Maybe Int -&gt; Maybe Int -&gt; SeveritySummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679814340"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679816040"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;MediumCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;UnspecifiedCount&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Int
    -&gt; Maybe Int -&gt; Maybe Int -&gt; Maybe Int -&gt; SeveritySummary)
@@ -375,38 +375,38 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Int -&gt; Maybe Int -&gt; Maybe Int -&gt; SeveritySummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679814340"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679816040"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;CriticalCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;HighCount&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Int -&gt; Maybe Int -&gt; Maybe Int -&gt; SeveritySummary)
 -&gt; Parser (Maybe Int)
 -&gt; Parser (Maybe Int -&gt; Maybe Int -&gt; SeveritySummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679814340"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679816040"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;HighCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;MediumCount&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Int -&gt; Maybe Int -&gt; SeveritySummary)
 -&gt; Parser (Maybe Int) -&gt; Parser (Maybe Int -&gt; SeveritySummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679814340"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679816040"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;UnspecifiedCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;InformationalCount&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Int -&gt; SeveritySummary)
 -&gt; Parser (Maybe Int) -&gt; Parser SeveritySummary
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679814340"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679816040"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;InformationalCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;CriticalCount&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>
-</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679814334"><span id="local-6989586621679814336"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.SeveritySummary.html#SeveritySummary"><span class="hs-identifier hs-type">SeveritySummary</span></a></span></span></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679816034"><span id="local-6989586621679816036"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.SeveritySummary.html#SeveritySummary"><span class="hs-identifier hs-type">SeveritySummary</span></a></span></span></span><span>
 </span><span id="line-152"></span><span>
-</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679814331"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.SeveritySummary.html#SeveritySummary"><span class="hs-identifier hs-type">SeveritySummary</span></a></span></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679816031"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.SeveritySummary.html#SeveritySummary"><span class="hs-identifier hs-type">SeveritySummary</span></a></span></span><span>
 </span><span id="line-154"></span></pre></body></html>

@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Frame Capture Group Settings</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newFrameCaptureGroupSettings' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679908644"><span id="local-6989586621679908645"></span></span><span class="hs-keyword">data</span><span> </span><span id="FrameCaptureGroupSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.FrameCaptureGroupSettings.html#FrameCaptureGroupSettings"><span class="hs-identifier hs-var">FrameCaptureGroupSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FrameCaptureGroupSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.FrameCaptureGroupSettings.html#FrameCaptureGroupSettings%27"><span class="hs-identifier hs-var">FrameCaptureGroupSettings'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679916144"><span id="local-6989586621679916145"></span></span><span class="hs-keyword">data</span><span> </span><span id="FrameCaptureGroupSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.FrameCaptureGroupSettings.html#FrameCaptureGroupSettings"><span class="hs-identifier hs-var">FrameCaptureGroupSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FrameCaptureGroupSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.FrameCaptureGroupSettings.html#FrameCaptureGroupSettings%27"><span class="hs-identifier hs-var">FrameCaptureGroupSettings'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Parameters that control interactions with the CDN.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AframeCaptureCdnSettings%3AFrameCaptureGroupSettings%27"><span class="annot"><span class="annottext">FrameCaptureGroupSettings -&gt; Maybe FrameCaptureCdnSettings
 </span><a href="Network.AWS.MediaLive.Types.FrameCaptureGroupSettings.html#%24sel%3AframeCaptureCdnSettings%3AFrameCaptureGroupSettings%27"><span class="hs-identifier hs-var hs-var">frameCaptureCdnSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.FrameCaptureCdnSettings.html#FrameCaptureCdnSettings"><span class="hs-identifier hs-type">FrameCaptureCdnSettings</span></a></span><span class="hs-special">,</span><span>
@@ -44,7 +44,7 @@
 </span><span id="line-43"></span><span>    </span><span id="%24sel%3Adestination%3AFrameCaptureGroupSettings%27"><span class="annot"><span class="annottext">FrameCaptureGroupSettings -&gt; OutputLocationRef
 </span><a href="Network.AWS.MediaLive.Types.FrameCaptureGroupSettings.html#%24sel%3Adestination%3AFrameCaptureGroupSettings%27"><span class="hs-identifier hs-var hs-var">destination</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputLocationRef.html#OutputLocationRef"><span class="hs-identifier hs-type">OutputLocationRef</span></a></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679908637"><span id="local-6989586621679908639"><span class="annot"><span class="annottext">FrameCaptureGroupSettings -&gt; FrameCaptureGroupSettings -&gt; Bool
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679916137"><span id="local-6989586621679916139"><span class="annot"><span class="annottext">FrameCaptureGroupSettings -&gt; FrameCaptureGroupSettings -&gt; Bool
 (FrameCaptureGroupSettings -&gt; FrameCaptureGroupSettings -&gt; Bool)
 -&gt; (FrameCaptureGroupSettings -&gt; FrameCaptureGroupSettings -&gt; Bool)
 -&gt; Eq FrameCaptureGroupSettings
@@ -53,7 +53,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: FrameCaptureGroupSettings -&gt; FrameCaptureGroupSettings -&gt; Bool
 == :: FrameCaptureGroupSettings -&gt; FrameCaptureGroupSettings -&gt; Bool
 $c== :: FrameCaptureGroupSettings -&gt; FrameCaptureGroupSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679908628"><span id="local-6989586621679908630"><span id="local-6989586621679908632"><span id="local-6989586621679908634"><span class="annot"><span class="annottext">ReadPrec [FrameCaptureGroupSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679916128"><span id="local-6989586621679916130"><span id="local-6989586621679916132"><span id="local-6989586621679916134"><span class="annot"><span class="annottext">ReadPrec [FrameCaptureGroupSettings]
 ReadPrec FrameCaptureGroupSettings
 Int -&gt; ReadS FrameCaptureGroupSettings
 ReadS [FrameCaptureGroupSettings]
@@ -73,7 +73,7 @@ readList :: ReadS [FrameCaptureGroupSettings]
 $creadList :: ReadS [FrameCaptureGroupSettings]
 readsPrec :: Int -&gt; ReadS FrameCaptureGroupSettings
 $creadsPrec :: Int -&gt; ReadS FrameCaptureGroupSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679908621"><span id="local-6989586621679908623"><span id="local-6989586621679908625"><span class="annot"><span class="annottext">Int -&gt; FrameCaptureGroupSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679916121"><span id="local-6989586621679916123"><span id="local-6989586621679916125"><span class="annot"><span class="annottext">Int -&gt; FrameCaptureGroupSettings -&gt; ShowS
 [FrameCaptureGroupSettings] -&gt; ShowS
 FrameCaptureGroupSettings -&gt; String
 (Int -&gt; FrameCaptureGroupSettings -&gt; ShowS)
@@ -129,8 +129,8 @@ FrameCaptureGroupSettings -&gt; Rep FrameCaptureGroupSettings x
 </span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputLocationRef.html#OutputLocationRef"><span class="hs-identifier hs-type">OutputLocationRef</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.FrameCaptureGroupSettings.html#FrameCaptureGroupSettings"><span class="hs-identifier hs-type">FrameCaptureGroupSettings</span></a></span><span>
 </span><span id="line-70"></span><span id="newFrameCaptureGroupSettings"><span class="annot"><span class="annottext">newFrameCaptureGroupSettings :: OutputLocationRef -&gt; FrameCaptureGroupSettings
-</span><a href="Network.AWS.MediaLive.Types.FrameCaptureGroupSettings.html#newFrameCaptureGroupSettings"><span class="hs-identifier hs-var hs-var">newFrameCaptureGroupSettings</span></a></span></span><span> </span><span id="local-6989586621679908615"><span class="annot"><span class="annottext">OutputLocationRef
-</span><a href="#local-6989586621679908615"><span class="hs-identifier hs-var">pDestination_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MediaLive.Types.FrameCaptureGroupSettings.html#newFrameCaptureGroupSettings"><span class="hs-identifier hs-var hs-var">newFrameCaptureGroupSettings</span></a></span></span><span> </span><span id="local-6989586621679916115"><span class="annot"><span class="annottext">OutputLocationRef
+</span><a href="#local-6989586621679916115"><span class="hs-identifier hs-var">pDestination_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>  </span><span class="annot"><span class="annottext">FrameCaptureGroupSettings' :: Maybe FrameCaptureCdnSettings
 -&gt; OutputLocationRef -&gt; FrameCaptureGroupSettings
 </span><a href="Network.AWS.MediaLive.Types.FrameCaptureGroupSettings.html#FrameCaptureGroupSettings%27"><span class="hs-identifier hs-type">FrameCaptureGroupSettings'</span></a></span><span>
@@ -141,7 +141,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:destination:FrameCaptureGroupSettings' :: OutputLocationRef
 </span><a href="Network.AWS.MediaLive.Types.FrameCaptureGroupSettings.html#%24sel%3Adestination%3AFrameCaptureGroupSettings%27"><span class="hs-identifier hs-var">destination</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">OutputLocationRef
-</span><a href="#local-6989586621679908615"><span class="hs-identifier hs-var">pDestination_</span></a></span><span>
+</span><a href="#local-6989586621679916115"><span class="hs-identifier hs-var">pDestination_</span></a></span><span>
 </span><span id="line-75"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- | Parameters that control interactions with the CDN.</span><span>
@@ -158,16 +158,16 @@ forall a. Maybe a
      (Maybe FrameCaptureCdnSettings)
      (Maybe FrameCaptureCdnSettings)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.FrameCaptureGroupSettings.html#FrameCaptureGroupSettings%27"><span class="hs-identifier hs-type">FrameCaptureGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679908611"><span class="annot"><span class="annottext">Maybe FrameCaptureCdnSettings
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.FrameCaptureGroupSettings.html#FrameCaptureGroupSettings%27"><span class="hs-identifier hs-type">FrameCaptureGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679916111"><span class="annot"><span class="annottext">Maybe FrameCaptureCdnSettings
 frameCaptureCdnSettings :: Maybe FrameCaptureCdnSettings
 $sel:frameCaptureCdnSettings:FrameCaptureGroupSettings' :: FrameCaptureGroupSettings -&gt; Maybe FrameCaptureCdnSettings
-</span><a href="#local-6989586621679908611"><span class="hs-identifier hs-var hs-var">frameCaptureCdnSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FrameCaptureCdnSettings
-</span><a href="#local-6989586621679908611"><span class="hs-identifier hs-var">frameCaptureCdnSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679908610"><span class="annot"><span class="annottext">s :: FrameCaptureGroupSettings
-</span><a href="#local-6989586621679908610"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.FrameCaptureGroupSettings.html#FrameCaptureGroupSettings%27"><span class="hs-identifier hs-type">FrameCaptureGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679908609"><span class="annot"><span class="annottext">Maybe FrameCaptureCdnSettings
-</span><a href="#local-6989586621679908609"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FrameCaptureGroupSettings
-</span><a href="#local-6989586621679908610"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:frameCaptureCdnSettings:FrameCaptureGroupSettings' :: Maybe FrameCaptureCdnSettings
+</span><a href="#local-6989586621679916111"><span class="hs-identifier hs-var hs-var">frameCaptureCdnSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FrameCaptureCdnSettings
+</span><a href="#local-6989586621679916111"><span class="hs-identifier hs-var">frameCaptureCdnSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679916110"><span class="annot"><span class="annottext">s :: FrameCaptureGroupSettings
+</span><a href="#local-6989586621679916110"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.FrameCaptureGroupSettings.html#FrameCaptureGroupSettings%27"><span class="hs-identifier hs-type">FrameCaptureGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679916109"><span class="annot"><span class="annottext">Maybe FrameCaptureCdnSettings
+</span><a href="#local-6989586621679916109"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FrameCaptureGroupSettings
+</span><a href="#local-6989586621679916110"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:frameCaptureCdnSettings:FrameCaptureGroupSettings' :: Maybe FrameCaptureCdnSettings
 </span><a href="Network.AWS.MediaLive.Types.FrameCaptureGroupSettings.html#%24sel%3AframeCaptureCdnSettings%3AFrameCaptureGroupSettings%27"><span class="hs-identifier hs-var">frameCaptureCdnSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FrameCaptureCdnSettings
-</span><a href="#local-6989586621679908609"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.FrameCaptureGroupSettings.html#FrameCaptureGroupSettings"><span class="hs-identifier hs-type">FrameCaptureGroupSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679916109"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.FrameCaptureGroupSettings.html#FrameCaptureGroupSettings"><span class="hs-identifier hs-type">FrameCaptureGroupSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- | The destination for the frame capture files. Either the URI for an</span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- Amazon S3 bucket and object, plus a file name prefix (for example,</span><span>
@@ -190,19 +190,19 @@ $sel:frameCaptureCdnSettings:FrameCaptureGroupSettings' :: FrameCaptureGroupSett
      OutputLocationRef
      OutputLocationRef
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.FrameCaptureGroupSettings.html#FrameCaptureGroupSettings%27"><span class="hs-identifier hs-type">FrameCaptureGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679908607"><span class="annot"><span class="annottext">OutputLocationRef
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.FrameCaptureGroupSettings.html#FrameCaptureGroupSettings%27"><span class="hs-identifier hs-type">FrameCaptureGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679916107"><span class="annot"><span class="annottext">OutputLocationRef
 destination :: OutputLocationRef
 $sel:destination:FrameCaptureGroupSettings' :: FrameCaptureGroupSettings -&gt; OutputLocationRef
-</span><a href="#local-6989586621679908607"><span class="hs-identifier hs-var hs-var">destination</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputLocationRef
-</span><a href="#local-6989586621679908607"><span class="hs-identifier hs-var">destination</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679908606"><span class="annot"><span class="annottext">s :: FrameCaptureGroupSettings
-</span><a href="#local-6989586621679908606"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.FrameCaptureGroupSettings.html#FrameCaptureGroupSettings%27"><span class="hs-identifier hs-type">FrameCaptureGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679908605"><span class="annot"><span class="annottext">OutputLocationRef
-</span><a href="#local-6989586621679908605"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FrameCaptureGroupSettings
-</span><a href="#local-6989586621679908606"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destination:FrameCaptureGroupSettings' :: OutputLocationRef
+</span><a href="#local-6989586621679916107"><span class="hs-identifier hs-var hs-var">destination</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputLocationRef
+</span><a href="#local-6989586621679916107"><span class="hs-identifier hs-var">destination</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679916106"><span class="annot"><span class="annottext">s :: FrameCaptureGroupSettings
+</span><a href="#local-6989586621679916106"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.FrameCaptureGroupSettings.html#FrameCaptureGroupSettings%27"><span class="hs-identifier hs-type">FrameCaptureGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679916105"><span class="annot"><span class="annottext">OutputLocationRef
+</span><a href="#local-6989586621679916105"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FrameCaptureGroupSettings
+</span><a href="#local-6989586621679916106"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destination:FrameCaptureGroupSettings' :: OutputLocationRef
 </span><a href="Network.AWS.MediaLive.Types.FrameCaptureGroupSettings.html#%24sel%3Adestination%3AFrameCaptureGroupSettings%27"><span class="hs-identifier hs-var">destination</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">OutputLocationRef
-</span><a href="#local-6989586621679908605"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.FrameCaptureGroupSettings.html#FrameCaptureGroupSettings"><span class="hs-identifier hs-type">FrameCaptureGroupSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679916105"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.FrameCaptureGroupSettings.html#FrameCaptureGroupSettings"><span class="hs-identifier hs-type">FrameCaptureGroupSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679908602"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.FrameCaptureGroupSettings.html#FrameCaptureGroupSettings"><span class="hs-identifier hs-type">FrameCaptureGroupSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679908600"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser FrameCaptureGroupSettings
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679916102"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.FrameCaptureGroupSettings.html#FrameCaptureGroupSettings"><span class="hs-identifier hs-type">FrameCaptureGroupSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679916100"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser FrameCaptureGroupSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser FrameCaptureGroupSettings)
@@ -212,8 +212,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;FrameCaptureGroupSettings&quot;</span></span><span>
-</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679908597"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679908597"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679916097"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679916097"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-98"></span><span>          </span><span class="annot"><span class="annottext">Maybe FrameCaptureCdnSettings
 -&gt; OutputLocationRef -&gt; FrameCaptureGroupSettings
 </span><a href="Network.AWS.MediaLive.Types.FrameCaptureGroupSettings.html#FrameCaptureGroupSettings%27"><span class="hs-identifier hs-var">FrameCaptureGroupSettings'</span></a></span><span>
@@ -223,7 +223,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (OutputLocationRef -&gt; FrameCaptureGroupSettings)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679908597"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe FrameCaptureCdnSettings)
+</span><a href="#local-6989586621679916097"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe FrameCaptureCdnSettings)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;frameCaptureCdnSettings&quot;</span></span><span class="hs-special">)</span><span>
@@ -231,25 +231,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser OutputLocationRef -&gt; Parser FrameCaptureGroupSettings
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679908597"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser OutputLocationRef
+</span><a href="#local-6989586621679916097"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser OutputLocationRef
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;destination&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679908590"><span id="local-6989586621679908592"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.FrameCaptureGroupSettings.html#FrameCaptureGroupSettings"><span class="hs-identifier hs-type">FrameCaptureGroupSettings</span></a></span></span></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679916090"><span id="local-6989586621679916092"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.FrameCaptureGroupSettings.html#FrameCaptureGroupSettings"><span class="hs-identifier hs-type">FrameCaptureGroupSettings</span></a></span></span></span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679908587"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.FrameCaptureGroupSettings.html#FrameCaptureGroupSettings"><span class="hs-identifier hs-type">FrameCaptureGroupSettings</span></a></span></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679916087"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.FrameCaptureGroupSettings.html#FrameCaptureGroupSettings"><span class="hs-identifier hs-type">FrameCaptureGroupSettings</span></a></span></span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679908579"><span id="local-6989586621679908581"><span id="local-6989586621679908583"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.FrameCaptureGroupSettings.html#FrameCaptureGroupSettings"><span class="hs-identifier hs-type">FrameCaptureGroupSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679908577"><span class="annot"><span class="annottext">toJSON :: FrameCaptureGroupSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.FrameCaptureGroupSettings.html#FrameCaptureGroupSettings%27"><span class="hs-identifier hs-type">FrameCaptureGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679908574"><span id="local-6989586621679908575"><span class="annot"><span class="annottext">Maybe FrameCaptureCdnSettings
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679916079"><span id="local-6989586621679916081"><span id="local-6989586621679916083"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.FrameCaptureGroupSettings.html#FrameCaptureGroupSettings"><span class="hs-identifier hs-type">FrameCaptureGroupSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679916077"><span class="annot"><span class="annottext">toJSON :: FrameCaptureGroupSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.FrameCaptureGroupSettings.html#FrameCaptureGroupSettings%27"><span class="hs-identifier hs-type">FrameCaptureGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679916074"><span id="local-6989586621679916075"><span class="annot"><span class="annottext">Maybe FrameCaptureCdnSettings
 OutputLocationRef
 destination :: OutputLocationRef
 frameCaptureCdnSettings :: Maybe FrameCaptureCdnSettings
 $sel:destination:FrameCaptureGroupSettings' :: FrameCaptureGroupSettings -&gt; OutputLocationRef
 $sel:frameCaptureCdnSettings:FrameCaptureGroupSettings' :: FrameCaptureGroupSettings -&gt; Maybe FrameCaptureCdnSettings
-</span><a href="#local-6989586621679908574"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679916074"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -263,14 +263,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe FrameCaptureCdnSettings -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe FrameCaptureCdnSettings
-</span><a href="#local-6989586621679908575"><span class="hs-identifier hs-var">frameCaptureCdnSettings</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679916075"><span class="hs-identifier hs-var">frameCaptureCdnSettings</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;destination&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; OutputLocationRef -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">OutputLocationRef
-</span><a href="#local-6989586621679908574"><span class="hs-identifier hs-var">destination</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679916074"><span class="hs-identifier hs-var">destination</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-115"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span></pre></body></html>

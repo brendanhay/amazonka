@@ -36,8 +36,8 @@
 </span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#newListPlatformVersions"><span class="hs-identifier">newListPlatformVersions</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-37"></span><span>
 </span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#listPlatformVersions_nextToken"><span class="hs-identifier">listPlatformVersions_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#listPlatformVersions_filters"><span class="hs-identifier">listPlatformVersions_filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#listPlatformVersions_filters"><span class="hs-identifier">listPlatformVersions_filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#listPlatformVersions_nextToken"><span class="hs-identifier">listPlatformVersions_nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#listPlatformVersions_maxRecords"><span class="hs-identifier">listPlatformVersions_maxRecords</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-42"></span><span>
 </span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
@@ -59,24 +59,24 @@
 </span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- | /See:/ 'newListPlatformVersions' smart constructor.</span><span>
-</span><span id="line-62"></span><span id="local-6989586621679310835"><span id="local-6989586621679310836"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListPlatformVersions"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#ListPlatformVersions"><span class="hs-identifier hs-var">ListPlatformVersions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListPlatformVersions%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#ListPlatformVersions%27"><span class="hs-identifier hs-var">ListPlatformVersions'</span></a></span></span><span>
-</span><span id="line-63"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | For a paginated request. Specify a token from a previous response page</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- to retrieve the next response page. All other parameter values must be</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- identical to the ones specified in the initial request.</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- If no @NextToken@ is specified, the first page is retrieved.</span><span>
-</span><span id="line-68"></span><span>    </span><span id="%24sel%3AnextToken%3AListPlatformVersions%27"><span class="annot"><span class="annottext">ListPlatformVersions -&gt; Maybe Text
-</span><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#%24sel%3AnextToken%3AListPlatformVersions%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | Criteria for restricting the resulting list of platform versions. The</span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- filter is interpreted as a logical conjunction (AND) of the separate</span><span>
-</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- @PlatformFilter@ terms.</span><span>
-</span><span id="line-72"></span><span>    </span><span id="%24sel%3Afilters%3AListPlatformVersions%27"><span class="annot"><span class="annottext">ListPlatformVersions -&gt; Maybe [PlatformFilter]
+</span><span id="line-62"></span><span id="local-6989586621679311134"><span id="local-6989586621679311135"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListPlatformVersions"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#ListPlatformVersions"><span class="hs-identifier hs-var">ListPlatformVersions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListPlatformVersions%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#ListPlatformVersions%27"><span class="hs-identifier hs-var">ListPlatformVersions'</span></a></span></span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Criteria for restricting the resulting list of platform versions. The</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- filter is interpreted as a logical conjunction (AND) of the separate</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- @PlatformFilter@ terms.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3Afilters%3AListPlatformVersions%27"><span class="annot"><span class="annottext">ListPlatformVersions -&gt; Maybe [PlatformFilter]
 </span><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#%24sel%3Afilters%3AListPlatformVersions%27"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.PlatformFilter.html#PlatformFilter"><span class="hs-identifier hs-type">PlatformFilter</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | For a paginated request. Specify a token from a previous response page</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- to retrieve the next response page. All other parameter values must be</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- identical to the ones specified in the initial request.</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- If no @NextToken@ is specified, the first page is retrieved.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AnextToken%3AListPlatformVersions%27"><span class="annot"><span class="annottext">ListPlatformVersions -&gt; Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#%24sel%3AnextToken%3AListPlatformVersions%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | The maximum number of platform version values returned in one call.</span><span>
 </span><span id="line-74"></span><span>    </span><span id="%24sel%3AmaxRecords%3AListPlatformVersions%27"><span class="annot"><span class="annottext">ListPlatformVersions -&gt; Maybe Natural
 </span><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#%24sel%3AmaxRecords%3AListPlatformVersions%27"><span class="hs-identifier hs-var hs-var">maxRecords</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-75"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-76"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679310827"><span id="local-6989586621679310829"><span class="annot"><span class="annottext">ListPlatformVersions -&gt; ListPlatformVersions -&gt; Bool
+</span><span id="line-76"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679311126"><span id="local-6989586621679311128"><span class="annot"><span class="annottext">ListPlatformVersions -&gt; ListPlatformVersions -&gt; Bool
 (ListPlatformVersions -&gt; ListPlatformVersions -&gt; Bool)
 -&gt; (ListPlatformVersions -&gt; ListPlatformVersions -&gt; Bool)
 -&gt; Eq ListPlatformVersions
@@ -85,7 +85,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListPlatformVersions -&gt; ListPlatformVersions -&gt; Bool
 == :: ListPlatformVersions -&gt; ListPlatformVersions -&gt; Bool
 $c== :: ListPlatformVersions -&gt; ListPlatformVersions -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310818"><span id="local-6989586621679310820"><span id="local-6989586621679310822"><span id="local-6989586621679310824"><span class="annot"><span class="annottext">ReadPrec [ListPlatformVersions]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311117"><span id="local-6989586621679311119"><span id="local-6989586621679311121"><span id="local-6989586621679311123"><span class="annot"><span class="annottext">ReadPrec [ListPlatformVersions]
 ReadPrec ListPlatformVersions
 Int -&gt; ReadS ListPlatformVersions
 ReadS [ListPlatformVersions]
@@ -105,7 +105,7 @@ readList :: ReadS [ListPlatformVersions]
 $creadList :: ReadS [ListPlatformVersions]
 readsPrec :: Int -&gt; ReadS ListPlatformVersions
 $creadsPrec :: Int -&gt; ReadS ListPlatformVersions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310811"><span id="local-6989586621679310813"><span id="local-6989586621679310815"><span class="annot"><span class="annottext">Int -&gt; ListPlatformVersions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311110"><span id="local-6989586621679311112"><span id="local-6989586621679311114"><span class="annot"><span class="annottext">Int -&gt; ListPlatformVersions -&gt; ShowS
 [ListPlatformVersions] -&gt; ShowS
 ListPlatformVersions -&gt; String
 (Int -&gt; ListPlatformVersions -&gt; ShowS)
@@ -139,30 +139,30 @@ $cfrom :: forall x. ListPlatformVersions -&gt; Rep ListPlatformVersions x
 </span><span id="line-83"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-85"></span><span class="hs-comment">--</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- 'nextToken', 'listPlatformVersions_nextToken' - For a paginated request. Specify a token from a previous response page</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- to retrieve the next response page. All other parameter values must be</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- identical to the ones specified in the initial request.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'filters', 'listPlatformVersions_filters' - Criteria for restricting the resulting list of platform versions. The</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- filter is interpreted as a logical conjunction (AND) of the separate</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- @PlatformFilter@ terms.</span><span>
 </span><span id="line-89"></span><span class="hs-comment">--</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- If no @NextToken@ is specified, the first page is retrieved.</span><span>
-</span><span id="line-91"></span><span class="hs-comment">--</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- 'filters', 'listPlatformVersions_filters' - Criteria for restricting the resulting list of platform versions. The</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- filter is interpreted as a logical conjunction (AND) of the separate</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- @PlatformFilter@ terms.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'nextToken', 'listPlatformVersions_nextToken' - For a paginated request. Specify a token from a previous response page</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- to retrieve the next response page. All other parameter values must be</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- identical to the ones specified in the initial request.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- If no @NextToken@ is specified, the first page is retrieved.</span><span>
 </span><span id="line-95"></span><span class="hs-comment">--</span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- 'maxRecords', 'listPlatformVersions_maxRecords' - The maximum number of platform version values returned in one call.</span><span>
 </span><span id="line-97"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#newListPlatformVersions"><span class="hs-identifier hs-type">newListPlatformVersions</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-98"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#ListPlatformVersions"><span class="hs-identifier hs-type">ListPlatformVersions</span></a></span><span>
 </span><span id="line-99"></span><span id="newListPlatformVersions"><span class="annot"><span class="annottext">newListPlatformVersions :: ListPlatformVersions
 </span><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#newListPlatformVersions"><span class="hs-identifier hs-var hs-var">newListPlatformVersions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-100"></span><span>  </span><span class="annot"><span class="annottext">ListPlatformVersions' :: Maybe Text
--&gt; Maybe [PlatformFilter] -&gt; Maybe Natural -&gt; ListPlatformVersions
+</span><span id="line-100"></span><span>  </span><span class="annot"><span class="annottext">ListPlatformVersions' :: Maybe [PlatformFilter]
+-&gt; Maybe Text -&gt; Maybe Natural -&gt; ListPlatformVersions
 </span><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#ListPlatformVersions%27"><span class="hs-identifier hs-type">ListPlatformVersions'</span></a></span><span>
-</span><span id="line-101"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListPlatformVersions' :: Maybe Text
-</span><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#%24sel%3AnextToken%3AListPlatformVersions%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-101"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:filters:ListPlatformVersions' :: Maybe [PlatformFilter]
+</span><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#%24sel%3Afilters%3AListPlatformVersions%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PlatformFilter]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:filters:ListPlatformVersions' :: Maybe [PlatformFilter]
-</span><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#%24sel%3Afilters%3AListPlatformVersions%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PlatformFilter]
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListPlatformVersions' :: Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#%24sel%3AnextToken%3AListPlatformVersions%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxRecords:ListPlatformVersions' :: Maybe Natural
@@ -171,35 +171,11 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-104"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- | For a paginated request. Specify a token from a previous response page</span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- to retrieve the next response page. All other parameter values must be</span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- identical to the ones specified in the initial request.</span><span>
-</span><span id="line-109"></span><span class="hs-comment">--</span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- If no @NextToken@ is specified, the first page is retrieved.</span><span>
-</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#listPlatformVersions_nextToken"><span class="hs-identifier hs-type">listPlatformVersions_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#ListPlatformVersions"><span class="hs-identifier hs-type">ListPlatformVersions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-112"></span><span id="listPlatformVersions_nextToken"><span class="annot"><span class="annottext">listPlatformVersions_nextToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ListPlatformVersions -&gt; f ListPlatformVersions
-</span><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#listPlatformVersions_nextToken"><span class="hs-identifier hs-var hs-var">listPlatformVersions_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPlatformVersions -&gt; Maybe Text)
--&gt; (ListPlatformVersions -&gt; Maybe Text -&gt; ListPlatformVersions)
--&gt; Lens
-     ListPlatformVersions ListPlatformVersions (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#ListPlatformVersions%27"><span class="hs-identifier hs-type">ListPlatformVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310805"><span class="annot"><span class="annottext">Maybe Text
-nextToken :: Maybe Text
-$sel:nextToken:ListPlatformVersions' :: ListPlatformVersions -&gt; Maybe Text
-</span><a href="#local-6989586621679310805"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679310805"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310804"><span class="annot"><span class="annottext">s :: ListPlatformVersions
-</span><a href="#local-6989586621679310804"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#ListPlatformVersions%27"><span class="hs-identifier hs-type">ListPlatformVersions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310803"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679310803"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPlatformVersions
-</span><a href="#local-6989586621679310804"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListPlatformVersions' :: Maybe Text
-</span><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#%24sel%3AnextToken%3AListPlatformVersions%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679310803"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#ListPlatformVersions"><span class="hs-identifier hs-type">ListPlatformVersions</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- | Criteria for restricting the resulting list of platform versions. The</span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- filter is interpreted as a logical conjunction (AND) of the separate</span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- @PlatformFilter@ terms.</span><span>
-</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#listPlatformVersions_filters"><span class="hs-identifier hs-type">listPlatformVersions_filters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#ListPlatformVersions"><span class="hs-identifier hs-type">ListPlatformVersions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.PlatformFilter.html#PlatformFilter"><span class="hs-identifier hs-type">PlatformFilter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-118"></span><span id="listPlatformVersions_filters"><span class="annot"><span class="annottext">listPlatformVersions_filters :: (Maybe [PlatformFilter] -&gt; f (Maybe [PlatformFilter]))
+</span><span id="line-106"></span><span class="hs-comment">-- | Criteria for restricting the resulting list of platform versions. The</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- filter is interpreted as a logical conjunction (AND) of the separate</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- @PlatformFilter@ terms.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#listPlatformVersions_filters"><span class="hs-identifier hs-type">listPlatformVersions_filters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#ListPlatformVersions"><span class="hs-identifier hs-type">ListPlatformVersions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.PlatformFilter.html#PlatformFilter"><span class="hs-identifier hs-type">PlatformFilter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="listPlatformVersions_filters"><span class="annot"><span class="annottext">listPlatformVersions_filters :: (Maybe [PlatformFilter] -&gt; f (Maybe [PlatformFilter]))
 -&gt; ListPlatformVersions -&gt; f ListPlatformVersions
 </span><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#listPlatformVersions_filters"><span class="hs-identifier hs-var hs-var">listPlatformVersions_filters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPlatformVersions -&gt; Maybe [PlatformFilter])
 -&gt; (ListPlatformVersions
@@ -210,16 +186,16 @@ $sel:nextToken:ListPlatformVersions' :: ListPlatformVersions -&gt; Maybe Text
      (Maybe [PlatformFilter])
      (Maybe [PlatformFilter])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#ListPlatformVersions%27"><span class="hs-identifier hs-type">ListPlatformVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310802"><span class="annot"><span class="annottext">Maybe [PlatformFilter]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#ListPlatformVersions%27"><span class="hs-identifier hs-type">ListPlatformVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311104"><span class="annot"><span class="annottext">Maybe [PlatformFilter]
 filters :: Maybe [PlatformFilter]
 $sel:filters:ListPlatformVersions' :: ListPlatformVersions -&gt; Maybe [PlatformFilter]
-</span><a href="#local-6989586621679310802"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PlatformFilter]
-</span><a href="#local-6989586621679310802"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310801"><span class="annot"><span class="annottext">s :: ListPlatformVersions
-</span><a href="#local-6989586621679310801"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#ListPlatformVersions%27"><span class="hs-identifier hs-type">ListPlatformVersions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310800"><span class="annot"><span class="annottext">Maybe [PlatformFilter]
-</span><a href="#local-6989586621679310800"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPlatformVersions
-</span><a href="#local-6989586621679310801"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:ListPlatformVersions' :: Maybe [PlatformFilter]
+</span><a href="#local-6989586621679311104"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PlatformFilter]
+</span><a href="#local-6989586621679311104"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311103"><span class="annot"><span class="annottext">s :: ListPlatformVersions
+</span><a href="#local-6989586621679311103"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#ListPlatformVersions%27"><span class="hs-identifier hs-type">ListPlatformVersions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311102"><span class="annot"><span class="annottext">Maybe [PlatformFilter]
+</span><a href="#local-6989586621679311102"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPlatformVersions
+</span><a href="#local-6989586621679311103"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:ListPlatformVersions' :: Maybe [PlatformFilter]
 </span><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#%24sel%3Afilters%3AListPlatformVersions%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PlatformFilter]
-</span><a href="#local-6989586621679310800"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#ListPlatformVersions"><span class="hs-identifier hs-type">ListPlatformVersions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PlatformFilter] -&gt; f (Maybe [PlatformFilter]))
+</span><a href="#local-6989586621679311102"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#ListPlatformVersions"><span class="hs-identifier hs-type">ListPlatformVersions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PlatformFilter] -&gt; f (Maybe [PlatformFilter]))
  -&gt; ListPlatformVersions -&gt; f ListPlatformVersions)
 -&gt; ((Maybe [PlatformFilter] -&gt; f (Maybe [PlatformFilter]))
     -&gt; Maybe [PlatformFilter] -&gt; f (Maybe [PlatformFilter]))
@@ -239,8 +215,32 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
   [PlatformFilter] [PlatformFilter] [PlatformFilter] [PlatformFilter]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | For a paginated request. Specify a token from a previous response page</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- to retrieve the next response page. All other parameter values must be</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- identical to the ones specified in the initial request.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- If no @NextToken@ is specified, the first page is retrieved.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#listPlatformVersions_nextToken"><span class="hs-identifier hs-type">listPlatformVersions_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#ListPlatformVersions"><span class="hs-identifier hs-type">ListPlatformVersions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="listPlatformVersions_nextToken"><span class="annot"><span class="annottext">listPlatformVersions_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListPlatformVersions -&gt; f ListPlatformVersions
+</span><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#listPlatformVersions_nextToken"><span class="hs-identifier hs-var hs-var">listPlatformVersions_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPlatformVersions -&gt; Maybe Text)
+-&gt; (ListPlatformVersions -&gt; Maybe Text -&gt; ListPlatformVersions)
+-&gt; Lens
+     ListPlatformVersions ListPlatformVersions (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#ListPlatformVersions%27"><span class="hs-identifier hs-type">ListPlatformVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311098"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListPlatformVersions' :: ListPlatformVersions -&gt; Maybe Text
+</span><a href="#local-6989586621679311098"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679311098"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311097"><span class="annot"><span class="annottext">s :: ListPlatformVersions
+</span><a href="#local-6989586621679311097"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#ListPlatformVersions%27"><span class="hs-identifier hs-type">ListPlatformVersions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311096"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679311096"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPlatformVersions
+</span><a href="#local-6989586621679311097"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListPlatformVersions' :: Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#%24sel%3AnextToken%3AListPlatformVersions%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679311096"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#ListPlatformVersions"><span class="hs-identifier hs-type">ListPlatformVersions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-comment">-- | The maximum number of platform version values returned in one call.</span><span>
 </span><span id="line-121"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#listPlatformVersions_maxRecords"><span class="hs-identifier hs-type">listPlatformVersions_maxRecords</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#ListPlatformVersions"><span class="hs-identifier hs-type">ListPlatformVersions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -254,29 +254,29 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#ListPlatformVersions%27"><span class="hs-identifier hs-type">ListPlatformVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310796"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#ListPlatformVersions%27"><span class="hs-identifier hs-type">ListPlatformVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311095"><span class="annot"><span class="annottext">Maybe Natural
 maxRecords :: Maybe Natural
 $sel:maxRecords:ListPlatformVersions' :: ListPlatformVersions -&gt; Maybe Natural
-</span><a href="#local-6989586621679310796"><span class="hs-identifier hs-var hs-var">maxRecords</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679310796"><span class="hs-identifier hs-var">maxRecords</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310795"><span class="annot"><span class="annottext">s :: ListPlatformVersions
-</span><a href="#local-6989586621679310795"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#ListPlatformVersions%27"><span class="hs-identifier hs-type">ListPlatformVersions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310794"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679310794"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPlatformVersions
-</span><a href="#local-6989586621679310795"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxRecords:ListPlatformVersions' :: Maybe Natural
+</span><a href="#local-6989586621679311095"><span class="hs-identifier hs-var hs-var">maxRecords</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679311095"><span class="hs-identifier hs-var">maxRecords</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311094"><span class="annot"><span class="annottext">s :: ListPlatformVersions
+</span><a href="#local-6989586621679311094"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#ListPlatformVersions%27"><span class="hs-identifier hs-type">ListPlatformVersions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311093"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679311093"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPlatformVersions
+</span><a href="#local-6989586621679311094"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxRecords:ListPlatformVersions' :: Maybe Natural
 </span><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#%24sel%3AmaxRecords%3AListPlatformVersions%27"><span class="hs-identifier hs-var">maxRecords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679310794"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#ListPlatformVersions"><span class="hs-identifier hs-type">ListPlatformVersions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679311093"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#ListPlatformVersions"><span class="hs-identifier hs-type">ListPlatformVersions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#ListPlatformVersions"><span class="hs-identifier hs-type">ListPlatformVersions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679310790"><span class="annot"><span class="annottext">page :: ListPlatformVersions
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679311089"><span class="annot"><span class="annottext">page :: ListPlatformVersions
 -&gt; AWSResponse ListPlatformVersions -&gt; Maybe ListPlatformVersions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679310788"><span class="annot"><span class="annottext">ListPlatformVersions
-</span><a href="#local-6989586621679310788"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679310787"><span class="annot"><span class="annottext">AWSResponse ListPlatformVersions
-</span><a href="#local-6989586621679310787"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679311087"><span class="annot"><span class="annottext">ListPlatformVersions
+</span><a href="#local-6989586621679311087"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679311086"><span class="annot"><span class="annottext">AWSResponse ListPlatformVersions
+</span><a href="#local-6989586621679311086"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-126"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-127"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListPlatformVersions
 ListPlatformVersionsResponse
-</span><a href="#local-6989586621679310787"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679311086"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">ListPlatformVersionsResponse
 -&gt; Getting (First Text) ListPlatformVersionsResponse Text
 -&gt; Maybe Text
@@ -306,7 +306,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-133"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListPlatformVersions
 ListPlatformVersionsResponse
-</span><a href="#local-6989586621679310787"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679311086"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">ListPlatformVersionsResponse
 -&gt; Getting
      (First [PlatformSummary])
@@ -352,7 +352,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-140"></span><span>        </span><span class="annot"><span class="annottext">ListPlatformVersions
-</span><a href="#local-6989586621679310788"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679311087"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-141"></span><span>          </span><span class="annot"><span class="annottext">ListPlatformVersions
 -&gt; (ListPlatformVersions -&gt; ListPlatformVersions)
 -&gt; ListPlatformVersions
@@ -368,7 +368,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListPlatformVersions
 ListPlatformVersionsResponse
-</span><a href="#local-6989586621679310787"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679311086"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-143"></span><span>          </span><span class="annot"><span class="annottext">ListPlatformVersionsResponse
 -&gt; Getting (First Text) ListPlatformVersionsResponse Text
 -&gt; Maybe Text
@@ -394,12 +394,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-147"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-148"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#ListPlatformVersions"><span class="hs-identifier hs-type">ListPlatformVersions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-149"></span><span>      </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#ListPlatformVersionsResponse"><span class="hs-identifier hs-type">ListPlatformVersionsResponse</span></a></span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679310778"><span class="annot"><span class="annottext">request :: ListPlatformVersions -&gt; Request ListPlatformVersions
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679311077"><span class="annot"><span class="annottext">request :: ListPlatformVersions -&gt; Request ListPlatformVersions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListPlatformVersions -&gt; Request ListPlatformVersions
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.ElasticBeanstalk.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-151"></span><span>  </span><span id="local-6989586621679310774"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679311073"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListPlatformVersions
 -&gt; ClientResponse ClientBody
@@ -430,10 +430,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-153"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ListPlatformVersionsResult&quot;</span></span><span>
-</span><span id="line-154"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679310771"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679310771"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679310770"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679310770"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679310769"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679310769"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-154"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679311070"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679311070"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679311069"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679311069"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679311068"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679311068"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-155"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe [PlatformSummary] -&gt; Int -&gt; ListPlatformVersionsResponse
 </span><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#ListPlatformVersionsResponse%27"><span class="hs-identifier hs-var">ListPlatformVersionsResponse'</span></a></span><span>
@@ -445,7 +445,7 @@ Text
      (Maybe [PlatformSummary] -&gt; Int -&gt; ListPlatformVersionsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679310769"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679311068"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -456,7 +456,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; ListPlatformVersionsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679310769"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679311068"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PlatformSummaryList&quot;</span></span><span>
@@ -487,15 +487,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679310771"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679311070"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-162"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>
-</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310758"><span id="local-6989586621679310760"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#ListPlatformVersions"><span class="hs-identifier hs-type">ListPlatformVersions</span></a></span></span></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311057"><span id="local-6989586621679311059"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#ListPlatformVersions"><span class="hs-identifier hs-type">ListPlatformVersions</span></a></span></span></span><span>
 </span><span id="line-165"></span><span>
-</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310755"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#ListPlatformVersions"><span class="hs-identifier hs-type">ListPlatformVersions</span></a></span></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311054"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#ListPlatformVersions"><span class="hs-identifier hs-type">ListPlatformVersions</span></a></span></span><span>
 </span><span id="line-167"></span><span>
 </span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#ListPlatformVersions"><span class="hs-identifier hs-type">ListPlatformVersions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-169"></span><span>  </span><span id="local-6989586621679310751"><span class="annot"><span class="annottext">toHeaders :: ListPlatformVersions -&gt; ResponseHeaders
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679311050"><span class="annot"><span class="annottext">toHeaders :: ListPlatformVersions -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListPlatformVersions -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -503,24 +503,24 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-170"></span><span>
 </span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#ListPlatformVersions"><span class="hs-identifier hs-type">ListPlatformVersions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-172"></span><span>  </span><span id="local-6989586621679310746"><span class="annot"><span class="annottext">toPath :: ListPlatformVersions -&gt; ByteString
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679311045"><span class="annot"><span class="annottext">toPath :: ListPlatformVersions -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListPlatformVersions -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-173"></span><span>
 </span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#ListPlatformVersions"><span class="hs-identifier hs-type">ListPlatformVersions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-175"></span><span>  </span><span id="local-6989586621679310742"><span class="annot"><span class="annottext">toQuery :: ListPlatformVersions -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#ListPlatformVersions%27"><span class="hs-identifier hs-type">ListPlatformVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310738"><span id="local-6989586621679310739"><span id="local-6989586621679310740"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621679311041"><span class="annot"><span class="annottext">toQuery :: ListPlatformVersions -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#ListPlatformVersions%27"><span class="hs-identifier hs-type">ListPlatformVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311037"><span id="local-6989586621679311038"><span id="local-6989586621679311039"><span class="annot"><span class="annottext">Maybe Natural
 Maybe [PlatformFilter]
 Maybe Text
 maxRecords :: Maybe Natural
-filters :: Maybe [PlatformFilter]
 nextToken :: Maybe Text
+filters :: Maybe [PlatformFilter]
 $sel:maxRecords:ListPlatformVersions' :: ListPlatformVersions -&gt; Maybe Natural
-$sel:filters:ListPlatformVersions' :: ListPlatformVersions -&gt; Maybe [PlatformFilter]
 $sel:nextToken:ListPlatformVersions' :: ListPlatformVersions -&gt; Maybe Text
-</span><a href="#local-6989586621679310738"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:filters:ListPlatformVersions' :: ListPlatformVersions -&gt; Maybe [PlatformFilter]
+</span><a href="#local-6989586621679311037"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-176"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -537,18 +537,13 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;2010-12-01&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-181"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679310740"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-182"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Filters&quot;</span></span><span>
-</span><span id="line-183"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+</span><span id="line-182"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
 forall a. ToQuery a =&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
-</span><span id="line-184"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; [PlatformFilter] -&gt; QueryString
+</span><span id="line-183"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; [PlatformFilter] -&gt; QueryString
 forall a.
 (IsList a, ToQuery (Item a)) =&gt;
 ByteString -&gt; a -&gt; QueryString
@@ -557,16 +552,21 @@ ByteString -&gt; a -&gt; QueryString
 -&gt; Maybe [PlatformFilter] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [PlatformFilter]
-</span><a href="#local-6989586621679310739"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679311039"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679311038"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-185"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;MaxRecords&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679310738"><span class="hs-identifier hs-var">maxRecords</span></a></span><span>
+</span><a href="#local-6989586621679311037"><span class="hs-identifier hs-var">maxRecords</span></a></span><span>
 </span><span id="line-186"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-187"></span><span>
 </span><span id="line-188"></span><span class="hs-comment">-- | /See:/ 'newListPlatformVersionsResponse' smart constructor.</span><span>
-</span><span id="line-189"></span><span id="local-6989586621679310734"><span id="local-6989586621679310735"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListPlatformVersionsResponse"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#ListPlatformVersionsResponse"><span class="hs-identifier hs-var">ListPlatformVersionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListPlatformVersionsResponse%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#ListPlatformVersionsResponse%27"><span class="hs-identifier hs-var">ListPlatformVersionsResponse'</span></a></span></span><span>
+</span><span id="line-189"></span><span id="local-6989586621679311033"><span id="local-6989586621679311034"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListPlatformVersionsResponse"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#ListPlatformVersionsResponse"><span class="hs-identifier hs-var">ListPlatformVersionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListPlatformVersionsResponse%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#ListPlatformVersionsResponse%27"><span class="hs-identifier hs-var">ListPlatformVersionsResponse'</span></a></span></span><span>
 </span><span id="line-190"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | In a paginated request, if this value isn\'t @null@, it\'s the token</span><span>
 </span><span id="line-191"></span><span>    </span><span class="hs-comment">-- that you can pass in a subsequent request to get the next response page.</span><span>
 </span><span id="line-192"></span><span>    </span><span id="%24sel%3AnextToken%3AListPlatformVersionsResponse%27"><span class="annot"><span class="annottext">ListPlatformVersionsResponse -&gt; Maybe Text
@@ -578,7 +578,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-196"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListPlatformVersionsResponse%27"><span class="annot"><span class="annottext">ListPlatformVersionsResponse -&gt; Int
 </span><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#%24sel%3AhttpStatus%3AListPlatformVersionsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-197"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-198"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679310727"><span id="local-6989586621679310729"><span class="annot"><span class="annottext">ListPlatformVersionsResponse
+</span><span id="line-198"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679311026"><span id="local-6989586621679311028"><span class="annot"><span class="annottext">ListPlatformVersionsResponse
 -&gt; ListPlatformVersionsResponse -&gt; Bool
 (ListPlatformVersionsResponse
  -&gt; ListPlatformVersionsResponse -&gt; Bool)
@@ -594,7 +594,7 @@ $c/= :: ListPlatformVersionsResponse
 -&gt; ListPlatformVersionsResponse -&gt; Bool
 $c== :: ListPlatformVersionsResponse
 -&gt; ListPlatformVersionsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310719"><span id="local-6989586621679310721"><span id="local-6989586621679310723"><span id="local-6989586621679310725"><span class="annot"><span class="annottext">ReadPrec [ListPlatformVersionsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311018"><span id="local-6989586621679311020"><span id="local-6989586621679311022"><span id="local-6989586621679311024"><span class="annot"><span class="annottext">ReadPrec [ListPlatformVersionsResponse]
 ReadPrec ListPlatformVersionsResponse
 Int -&gt; ReadS ListPlatformVersionsResponse
 ReadS [ListPlatformVersionsResponse]
@@ -614,7 +614,7 @@ readList :: ReadS [ListPlatformVersionsResponse]
 $creadList :: ReadS [ListPlatformVersionsResponse]
 readsPrec :: Int -&gt; ReadS ListPlatformVersionsResponse
 $creadsPrec :: Int -&gt; ReadS ListPlatformVersionsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310713"><span id="local-6989586621679310715"><span id="local-6989586621679310717"><span class="annot"><span class="annottext">Int -&gt; ListPlatformVersionsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311012"><span id="local-6989586621679311014"><span id="local-6989586621679311016"><span class="annot"><span class="annottext">Int -&gt; ListPlatformVersionsResponse -&gt; ShowS
 [ListPlatformVersionsResponse] -&gt; ShowS
 ListPlatformVersionsResponse -&gt; String
 (Int -&gt; ListPlatformVersionsResponse -&gt; ShowS)
@@ -665,8 +665,8 @@ ListPlatformVersionsResponse -&gt; Rep ListPlatformVersionsResponse x
 </span><span id="line-216"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-217"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#ListPlatformVersionsResponse"><span class="hs-identifier hs-type">ListPlatformVersionsResponse</span></a></span><span>
 </span><span id="line-218"></span><span id="newListPlatformVersionsResponse"><span class="annot"><span class="annottext">newListPlatformVersionsResponse :: Int -&gt; ListPlatformVersionsResponse
-</span><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#newListPlatformVersionsResponse"><span class="hs-identifier hs-var hs-var">newListPlatformVersionsResponse</span></a></span></span><span> </span><span id="local-6989586621679310710"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679310710"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#newListPlatformVersionsResponse"><span class="hs-identifier hs-var hs-var">newListPlatformVersionsResponse</span></a></span></span><span> </span><span id="local-6989586621679311009"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679311009"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-219"></span><span>  </span><span class="annot"><span class="annottext">ListPlatformVersionsResponse' :: Maybe Text
 -&gt; Maybe [PlatformSummary] -&gt; Int -&gt; ListPlatformVersionsResponse
 </span><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#ListPlatformVersionsResponse%27"><span class="hs-identifier hs-type">ListPlatformVersionsResponse'</span></a></span><span>
@@ -681,7 +681,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-223"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListPlatformVersionsResponse' :: Int
 </span><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#%24sel%3AhttpStatus%3AListPlatformVersionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679310710"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679311009"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-224"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-225"></span><span>
 </span><span id="line-226"></span><span class="hs-comment">-- | In a paginated request, if this value isn\'t @null@, it\'s the token</span><span>
@@ -694,16 +694,16 @@ forall a. Maybe a
     -&gt; Maybe Text -&gt; ListPlatformVersionsResponse)
 -&gt; Lens' ListPlatformVersionsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#ListPlatformVersionsResponse%27"><span class="hs-identifier hs-type">ListPlatformVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310709"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#ListPlatformVersionsResponse%27"><span class="hs-identifier hs-type">ListPlatformVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311008"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListPlatformVersionsResponse' :: ListPlatformVersionsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679310709"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679310709"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310708"><span class="annot"><span class="annottext">s :: ListPlatformVersionsResponse
-</span><a href="#local-6989586621679310708"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#ListPlatformVersionsResponse%27"><span class="hs-identifier hs-type">ListPlatformVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310707"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679310707"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPlatformVersionsResponse
-</span><a href="#local-6989586621679310708"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListPlatformVersionsResponse' :: Maybe Text
+</span><a href="#local-6989586621679311008"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679311008"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311007"><span class="annot"><span class="annottext">s :: ListPlatformVersionsResponse
+</span><a href="#local-6989586621679311007"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#ListPlatformVersionsResponse%27"><span class="hs-identifier hs-type">ListPlatformVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311006"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679311006"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPlatformVersionsResponse
+</span><a href="#local-6989586621679311007"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListPlatformVersionsResponse' :: Maybe Text
 </span><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#%24sel%3AnextToken%3AListPlatformVersionsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679310707"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#ListPlatformVersionsResponse"><span class="hs-identifier hs-type">ListPlatformVersionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679311006"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#ListPlatformVersionsResponse"><span class="hs-identifier hs-type">ListPlatformVersionsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-230"></span><span>
 </span><span id="line-231"></span><span class="hs-comment">-- | Summary information about the platform versions.</span><span>
 </span><span id="line-232"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#listPlatformVersionsResponse_platformSummaryList"><span class="hs-identifier hs-type">listPlatformVersionsResponse_platformSummaryList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#ListPlatformVersionsResponse"><span class="hs-identifier hs-type">ListPlatformVersionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.PlatformSummary.html#PlatformSummary"><span class="hs-identifier hs-type">PlatformSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -714,16 +714,16 @@ $sel:nextToken:ListPlatformVersionsResponse' :: ListPlatformVersionsResponse -&g
     -&gt; Maybe [PlatformSummary] -&gt; ListPlatformVersionsResponse)
 -&gt; Lens' ListPlatformVersionsResponse (Maybe [PlatformSummary])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#ListPlatformVersionsResponse%27"><span class="hs-identifier hs-type">ListPlatformVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310706"><span class="annot"><span class="annottext">Maybe [PlatformSummary]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#ListPlatformVersionsResponse%27"><span class="hs-identifier hs-type">ListPlatformVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311005"><span class="annot"><span class="annottext">Maybe [PlatformSummary]
 platformSummaryList :: Maybe [PlatformSummary]
 $sel:platformSummaryList:ListPlatformVersionsResponse' :: ListPlatformVersionsResponse -&gt; Maybe [PlatformSummary]
-</span><a href="#local-6989586621679310706"><span class="hs-identifier hs-var hs-var">platformSummaryList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PlatformSummary]
-</span><a href="#local-6989586621679310706"><span class="hs-identifier hs-var">platformSummaryList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310705"><span class="annot"><span class="annottext">s :: ListPlatformVersionsResponse
-</span><a href="#local-6989586621679310705"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#ListPlatformVersionsResponse%27"><span class="hs-identifier hs-type">ListPlatformVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310704"><span class="annot"><span class="annottext">Maybe [PlatformSummary]
-</span><a href="#local-6989586621679310704"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPlatformVersionsResponse
-</span><a href="#local-6989586621679310705"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:platformSummaryList:ListPlatformVersionsResponse' :: Maybe [PlatformSummary]
+</span><a href="#local-6989586621679311005"><span class="hs-identifier hs-var hs-var">platformSummaryList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PlatformSummary]
+</span><a href="#local-6989586621679311005"><span class="hs-identifier hs-var">platformSummaryList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311004"><span class="annot"><span class="annottext">s :: ListPlatformVersionsResponse
+</span><a href="#local-6989586621679311004"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#ListPlatformVersionsResponse%27"><span class="hs-identifier hs-type">ListPlatformVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311003"><span class="annot"><span class="annottext">Maybe [PlatformSummary]
+</span><a href="#local-6989586621679311003"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPlatformVersionsResponse
+</span><a href="#local-6989586621679311004"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:platformSummaryList:ListPlatformVersionsResponse' :: Maybe [PlatformSummary]
 </span><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#%24sel%3AplatformSummaryList%3AListPlatformVersionsResponse%27"><span class="hs-identifier hs-var">platformSummaryList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PlatformSummary]
-</span><a href="#local-6989586621679310704"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#ListPlatformVersionsResponse"><span class="hs-identifier hs-type">ListPlatformVersionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PlatformSummary] -&gt; f (Maybe [PlatformSummary]))
+</span><a href="#local-6989586621679311003"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#ListPlatformVersionsResponse"><span class="hs-identifier hs-type">ListPlatformVersionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PlatformSummary] -&gt; f (Maybe [PlatformSummary]))
  -&gt; ListPlatformVersionsResponse -&gt; f ListPlatformVersionsResponse)
 -&gt; ((Maybe [PlatformSummary] -&gt; f (Maybe [PlatformSummary]))
     -&gt; Maybe [PlatformSummary] -&gt; f (Maybe [PlatformSummary]))
@@ -749,8 +749,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [PlatformSummary]
   [PlatformSummary]
   [PlatformSummary]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-234"></span><span>
 </span><span id="line-235"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-236"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#listPlatformVersionsResponse_httpStatus"><span class="hs-identifier hs-type">listPlatformVersionsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#ListPlatformVersionsResponse"><span class="hs-identifier hs-type">ListPlatformVersionsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -762,16 +762,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; Lens
      ListPlatformVersionsResponse ListPlatformVersionsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#ListPlatformVersionsResponse%27"><span class="hs-identifier hs-type">ListPlatformVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310703"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#ListPlatformVersionsResponse%27"><span class="hs-identifier hs-type">ListPlatformVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311002"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListPlatformVersionsResponse' :: ListPlatformVersionsResponse -&gt; Int
-</span><a href="#local-6989586621679310703"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679310703"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310702"><span class="annot"><span class="annottext">s :: ListPlatformVersionsResponse
-</span><a href="#local-6989586621679310702"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#ListPlatformVersionsResponse%27"><span class="hs-identifier hs-type">ListPlatformVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310701"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679310701"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPlatformVersionsResponse
-</span><a href="#local-6989586621679310702"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListPlatformVersionsResponse' :: Int
+</span><a href="#local-6989586621679311002"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679311002"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311001"><span class="annot"><span class="annottext">s :: ListPlatformVersionsResponse
+</span><a href="#local-6989586621679311001"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#ListPlatformVersionsResponse%27"><span class="hs-identifier hs-type">ListPlatformVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311000"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679311000"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPlatformVersionsResponse
+</span><a href="#local-6989586621679311001"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListPlatformVersionsResponse' :: Int
 </span><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#%24sel%3AhttpStatus%3AListPlatformVersionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679310701"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#ListPlatformVersionsResponse"><span class="hs-identifier hs-type">ListPlatformVersionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679311000"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#ListPlatformVersionsResponse"><span class="hs-identifier hs-type">ListPlatformVersionsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-238"></span><span>
-</span><span id="line-239"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310699"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#ListPlatformVersionsResponse"><span class="hs-identifier hs-type">ListPlatformVersionsResponse</span></a></span></span><span>
+</span><span id="line-239"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310998"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.ListPlatformVersions.html#ListPlatformVersionsResponse"><span class="hs-identifier hs-type">ListPlatformVersionsResponse</span></a></span></span><span>
 </span><span id="line-240"></span></pre></body></html>

@@ -29,40 +29,40 @@
 </span><span id="line-29"></span><span class="hs-comment">-- | Describes a reserved node offering.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newReservedNodeOffering' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679494769"><span id="local-6989586621679494770"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReservedNodeOffering"><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#ReservedNodeOffering"><span class="hs-identifier hs-var">ReservedNodeOffering</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReservedNodeOffering%27"><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#ReservedNodeOffering%27"><span class="hs-identifier hs-var">ReservedNodeOffering'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679495415"><span id="local-6989586621679495416"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReservedNodeOffering"><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#ReservedNodeOffering"><span class="hs-identifier hs-var">ReservedNodeOffering</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReservedNodeOffering%27"><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#ReservedNodeOffering%27"><span class="hs-identifier hs-var">ReservedNodeOffering'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AreservedNodeOfferingType%3AReservedNodeOffering%27"><span class="annot"><span class="annottext">ReservedNodeOffering -&gt; Maybe ReservedNodeOfferingType
 </span><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#%24sel%3AreservedNodeOfferingType%3AReservedNodeOffering%27"><span class="hs-identifier hs-var hs-var">reservedNodeOfferingType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOfferingType.html#ReservedNodeOfferingType"><span class="hs-identifier hs-type">ReservedNodeOfferingType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The offering identifier.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AreservedNodeOfferingId%3AReservedNodeOffering%27"><span class="annot"><span class="annottext">ReservedNodeOffering -&gt; Maybe Text
-</span><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#%24sel%3AreservedNodeOfferingId%3AReservedNodeOffering%27"><span class="hs-identifier hs-var hs-var">reservedNodeOfferingId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The duration, in seconds, for which the offering will reserve the node.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3Aduration%3AReservedNodeOffering%27"><span class="annot"><span class="annottext">ReservedNodeOffering -&gt; Maybe Int
-</span><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#%24sel%3Aduration%3AReservedNodeOffering%27"><span class="hs-identifier hs-var hs-var">duration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The currency code for the compute nodes offering.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3AcurrencyCode%3AReservedNodeOffering%27"><span class="annot"><span class="annottext">ReservedNodeOffering -&gt; Maybe Text
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The currency code for the compute nodes offering.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AcurrencyCode%3AReservedNodeOffering%27"><span class="annot"><span class="annottext">ReservedNodeOffering -&gt; Maybe Text
 </span><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#%24sel%3AcurrencyCode%3AReservedNodeOffering%27"><span class="hs-identifier hs-var hs-var">currencyCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The upfront fixed charge you will pay to purchase the specific reserved</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- node offering.</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3AfixedPrice%3AReservedNodeOffering%27"><span class="annot"><span class="annottext">ReservedNodeOffering -&gt; Maybe Double
-</span><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#%24sel%3AfixedPrice%3AReservedNodeOffering%27"><span class="hs-identifier hs-var hs-var">fixedPrice</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The rate you are charged for each hour the cluster that is using the</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- offering is running.</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3AusagePrice%3AReservedNodeOffering%27"><span class="annot"><span class="annottext">ReservedNodeOffering -&gt; Maybe Double
-</span><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#%24sel%3AusagePrice%3AReservedNodeOffering%27"><span class="hs-identifier hs-var hs-var">usagePrice</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The anticipated utilization of the reserved node, as defined in the</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- reserved node offering.</span><span>
-</span><span id="line-48"></span><span>    </span><span id="%24sel%3AofferingType%3AReservedNodeOffering%27"><span class="annot"><span class="annottext">ReservedNodeOffering -&gt; Maybe Text
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The offering identifier.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AreservedNodeOfferingId%3AReservedNodeOffering%27"><span class="annot"><span class="annottext">ReservedNodeOffering -&gt; Maybe Text
+</span><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#%24sel%3AreservedNodeOfferingId%3AReservedNodeOffering%27"><span class="hs-identifier hs-var hs-var">reservedNodeOfferingId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The charge to your account regardless of whether you are creating any</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- clusters using the node offering. Recurring charges are only in effect</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- for heavy-utilization reserved nodes.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3ArecurringCharges%3AReservedNodeOffering%27"><span class="annot"><span class="annottext">ReservedNodeOffering -&gt; Maybe [RecurringCharge]
+</span><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#%24sel%3ArecurringCharges%3AReservedNodeOffering%27"><span class="hs-identifier hs-var hs-var">recurringCharges</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Redshift.Types.RecurringCharge.html#RecurringCharge"><span class="hs-identifier hs-type">RecurringCharge</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The anticipated utilization of the reserved node, as defined in the</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- reserved node offering.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AofferingType%3AReservedNodeOffering%27"><span class="annot"><span class="annottext">ReservedNodeOffering -&gt; Maybe Text
 </span><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#%24sel%3AofferingType%3AReservedNodeOffering%27"><span class="hs-identifier hs-var hs-var">offeringType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The node type offered by the reserved node offering.</span><span>
-</span><span id="line-50"></span><span>    </span><span id="%24sel%3AnodeType%3AReservedNodeOffering%27"><span class="annot"><span class="annottext">ReservedNodeOffering -&gt; Maybe Text
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The rate you are charged for each hour the cluster that is using the</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- offering is running.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AusagePrice%3AReservedNodeOffering%27"><span class="annot"><span class="annottext">ReservedNodeOffering -&gt; Maybe Double
+</span><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#%24sel%3AusagePrice%3AReservedNodeOffering%27"><span class="hs-identifier hs-var hs-var">usagePrice</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The node type offered by the reserved node offering.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AnodeType%3AReservedNodeOffering%27"><span class="annot"><span class="annottext">ReservedNodeOffering -&gt; Maybe Text
 </span><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#%24sel%3AnodeType%3AReservedNodeOffering%27"><span class="hs-identifier hs-var hs-var">nodeType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The charge to your account regardless of whether you are creating any</span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- clusters using the node offering. Recurring charges are only in effect</span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- for heavy-utilization reserved nodes.</span><span>
-</span><span id="line-54"></span><span>    </span><span id="%24sel%3ArecurringCharges%3AReservedNodeOffering%27"><span class="annot"><span class="annottext">ReservedNodeOffering -&gt; Maybe [RecurringCharge]
-</span><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#%24sel%3ArecurringCharges%3AReservedNodeOffering%27"><span class="hs-identifier hs-var hs-var">recurringCharges</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Redshift.Types.RecurringCharge.html#RecurringCharge"><span class="hs-identifier hs-type">RecurringCharge</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The upfront fixed charge you will pay to purchase the specific reserved</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- node offering.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AfixedPrice%3AReservedNodeOffering%27"><span class="annot"><span class="annottext">ReservedNodeOffering -&gt; Maybe Double
+</span><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#%24sel%3AfixedPrice%3AReservedNodeOffering%27"><span class="hs-identifier hs-var hs-var">fixedPrice</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The duration, in seconds, for which the offering will reserve the node.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3Aduration%3AReservedNodeOffering%27"><span class="annot"><span class="annottext">ReservedNodeOffering -&gt; Maybe Int
+</span><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#%24sel%3Aduration%3AReservedNodeOffering%27"><span class="hs-identifier hs-var hs-var">duration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679494755"><span id="local-6989586621679494757"><span class="annot"><span class="annottext">ReservedNodeOffering -&gt; ReservedNodeOffering -&gt; Bool
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679495401"><span id="local-6989586621679495403"><span class="annot"><span class="annottext">ReservedNodeOffering -&gt; ReservedNodeOffering -&gt; Bool
 (ReservedNodeOffering -&gt; ReservedNodeOffering -&gt; Bool)
 -&gt; (ReservedNodeOffering -&gt; ReservedNodeOffering -&gt; Bool)
 -&gt; Eq ReservedNodeOffering
@@ -71,7 +71,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ReservedNodeOffering -&gt; ReservedNodeOffering -&gt; Bool
 == :: ReservedNodeOffering -&gt; ReservedNodeOffering -&gt; Bool
 $c== :: ReservedNodeOffering -&gt; ReservedNodeOffering -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679494746"><span id="local-6989586621679494748"><span id="local-6989586621679494750"><span id="local-6989586621679494752"><span class="annot"><span class="annottext">ReadPrec [ReservedNodeOffering]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679495392"><span id="local-6989586621679495394"><span id="local-6989586621679495396"><span id="local-6989586621679495398"><span class="annot"><span class="annottext">ReadPrec [ReservedNodeOffering]
 ReadPrec ReservedNodeOffering
 Int -&gt; ReadS ReservedNodeOffering
 ReadS [ReservedNodeOffering]
@@ -91,7 +91,7 @@ readList :: ReadS [ReservedNodeOffering]
 $creadList :: ReadS [ReservedNodeOffering]
 readsPrec :: Int -&gt; ReadS ReservedNodeOffering
 $creadsPrec :: Int -&gt; ReadS ReservedNodeOffering
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679494739"><span id="local-6989586621679494741"><span id="local-6989586621679494743"><span class="annot"><span class="annottext">Int -&gt; ReservedNodeOffering -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679495385"><span id="local-6989586621679495387"><span id="local-6989586621679495389"><span class="annot"><span class="annottext">Int -&gt; ReservedNodeOffering -&gt; ShowS
 [ReservedNodeOffering] -&gt; ShowS
 ReservedNodeOffering -&gt; String
 (Int -&gt; ReservedNodeOffering -&gt; ShowS)
@@ -127,39 +127,39 @@ $cfrom :: forall x. ReservedNodeOffering -&gt; Rep ReservedNodeOffering x
 </span><span id="line-65"></span><span class="hs-comment">--</span><span>
 </span><span id="line-66"></span><span class="hs-comment">-- 'reservedNodeOfferingType', 'reservedNodeOffering_reservedNodeOfferingType' -</span><span>
 </span><span id="line-67"></span><span class="hs-comment">--</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- 'reservedNodeOfferingId', 'reservedNodeOffering_reservedNodeOfferingId' - The offering identifier.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'currencyCode', 'reservedNodeOffering_currencyCode' - The currency code for the compute nodes offering.</span><span>
 </span><span id="line-69"></span><span class="hs-comment">--</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- 'duration', 'reservedNodeOffering_duration' - The duration, in seconds, for which the offering will reserve the node.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'reservedNodeOfferingId', 'reservedNodeOffering_reservedNodeOfferingId' - The offering identifier.</span><span>
 </span><span id="line-71"></span><span class="hs-comment">--</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- 'currencyCode', 'reservedNodeOffering_currencyCode' - The currency code for the compute nodes offering.</span><span>
-</span><span id="line-73"></span><span class="hs-comment">--</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- 'fixedPrice', 'reservedNodeOffering_fixedPrice' - The upfront fixed charge you will pay to purchase the specific reserved</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- node offering.</span><span>
-</span><span id="line-76"></span><span class="hs-comment">--</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- 'usagePrice', 'reservedNodeOffering_usagePrice' - The rate you are charged for each hour the cluster that is using the</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- offering is running.</span><span>
-</span><span id="line-79"></span><span class="hs-comment">--</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- 'offeringType', 'reservedNodeOffering_offeringType' - The anticipated utilization of the reserved node, as defined in the</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- reserved node offering.</span><span>
-</span><span id="line-82"></span><span class="hs-comment">--</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- 'nodeType', 'reservedNodeOffering_nodeType' - The node type offered by the reserved node offering.</span><span>
-</span><span id="line-84"></span><span class="hs-comment">--</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- 'recurringCharges', 'reservedNodeOffering_recurringCharges' - The charge to your account regardless of whether you are creating any</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- clusters using the node offering. Recurring charges are only in effect</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- for heavy-utilization reserved nodes.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'recurringCharges', 'reservedNodeOffering_recurringCharges' - The charge to your account regardless of whether you are creating any</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- clusters using the node offering. Recurring charges are only in effect</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- for heavy-utilization reserved nodes.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'offeringType', 'reservedNodeOffering_offeringType' - The anticipated utilization of the reserved node, as defined in the</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- reserved node offering.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'usagePrice', 'reservedNodeOffering_usagePrice' - The rate you are charged for each hour the cluster that is using the</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- offering is running.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'nodeType', 'reservedNodeOffering_nodeType' - The node type offered by the reserved node offering.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'fixedPrice', 'reservedNodeOffering_fixedPrice' - The upfront fixed charge you will pay to purchase the specific reserved</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- node offering.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'duration', 'reservedNodeOffering_duration' - The duration, in seconds, for which the offering will reserve the node.</span><span>
 </span><span id="line-88"></span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#newReservedNodeOffering"><span class="hs-identifier hs-type">newReservedNodeOffering</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-89"></span><span>  </span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#ReservedNodeOffering"><span class="hs-identifier hs-type">ReservedNodeOffering</span></a></span><span>
 </span><span id="line-90"></span><span id="newReservedNodeOffering"><span class="annot"><span class="annottext">newReservedNodeOffering :: ReservedNodeOffering
 </span><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#newReservedNodeOffering"><span class="hs-identifier hs-var hs-var">newReservedNodeOffering</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-91"></span><span>  </span><span class="annot"><span class="annottext">ReservedNodeOffering' :: Maybe ReservedNodeOfferingType
 -&gt; Maybe Text
--&gt; Maybe Int
--&gt; Maybe Text
--&gt; Maybe Double
--&gt; Maybe Double
--&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe [RecurringCharge]
+-&gt; Maybe Text
+-&gt; Maybe Double
+-&gt; Maybe Text
+-&gt; Maybe Double
+-&gt; Maybe Int
 -&gt; ReservedNodeOffering
 </span><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#ReservedNodeOffering%27"><span class="hs-identifier hs-type">ReservedNodeOffering'</span></a></span><span>
 </span><span id="line-92"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:reservedNodeOfferingType:ReservedNodeOffering' :: Maybe ReservedNodeOfferingType
@@ -167,36 +167,36 @@ $cfrom :: forall x. ReservedNodeOffering -&gt; Rep ReservedNodeOffering x
 </span><span id="line-93"></span><span>        </span><span class="annot"><span class="annottext">Maybe ReservedNodeOfferingType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:reservedNodeOfferingId:ReservedNodeOffering' :: Maybe Text
-</span><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#%24sel%3AreservedNodeOfferingId%3AReservedNodeOffering%27"><span class="hs-identifier hs-var">reservedNodeOfferingId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:duration:ReservedNodeOffering' :: Maybe Int
-</span><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#%24sel%3Aduration%3AReservedNodeOffering%27"><span class="hs-identifier hs-var">duration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:currencyCode:ReservedNodeOffering' :: Maybe Text
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:currencyCode:ReservedNodeOffering' :: Maybe Text
 </span><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#%24sel%3AcurrencyCode%3AReservedNodeOffering%27"><span class="hs-identifier hs-var">currencyCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:fixedPrice:ReservedNodeOffering' :: Maybe Double
-</span><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#%24sel%3AfixedPrice%3AReservedNodeOffering%27"><span class="hs-identifier hs-var">fixedPrice</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:reservedNodeOfferingId:ReservedNodeOffering' :: Maybe Text
+</span><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#%24sel%3AreservedNodeOfferingId%3AReservedNodeOffering%27"><span class="hs-identifier hs-var">reservedNodeOfferingId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:recurringCharges:ReservedNodeOffering' :: Maybe [RecurringCharge]
+</span><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#%24sel%3ArecurringCharges%3AReservedNodeOffering%27"><span class="hs-identifier hs-var">recurringCharges</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [RecurringCharge]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:offeringType:ReservedNodeOffering' :: Maybe Text
+</span><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#%24sel%3AofferingType%3AReservedNodeOffering%27"><span class="hs-identifier hs-var">offeringType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:usagePrice:ReservedNodeOffering' :: Maybe Double
 </span><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#%24sel%3AusagePrice%3AReservedNodeOffering%27"><span class="hs-identifier hs-var">usagePrice</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:offeringType:ReservedNodeOffering' :: Maybe Text
-</span><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#%24sel%3AofferingType%3AReservedNodeOffering%27"><span class="hs-identifier hs-var">offeringType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:nodeType:ReservedNodeOffering' :: Maybe Text
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:nodeType:ReservedNodeOffering' :: Maybe Text
 </span><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#%24sel%3AnodeType%3AReservedNodeOffering%27"><span class="hs-identifier hs-var">nodeType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:recurringCharges:ReservedNodeOffering' :: Maybe [RecurringCharge]
-</span><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#%24sel%3ArecurringCharges%3AReservedNodeOffering%27"><span class="hs-identifier hs-var">recurringCharges</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [RecurringCharge]
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:fixedPrice:ReservedNodeOffering' :: Maybe Double
+</span><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#%24sel%3AfixedPrice%3AReservedNodeOffering%27"><span class="hs-identifier hs-var">fixedPrice</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:duration:ReservedNodeOffering' :: Maybe Int
+</span><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#%24sel%3Aduration%3AReservedNodeOffering%27"><span class="hs-identifier hs-var">duration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-102"></span><span>    </span><span class="hs-special">}</span><span>
@@ -215,171 +215,62 @@ forall a. Maybe a
      (Maybe ReservedNodeOfferingType)
      (Maybe ReservedNodeOfferingType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#ReservedNodeOffering%27"><span class="hs-identifier hs-type">ReservedNodeOffering'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679494730"><span class="annot"><span class="annottext">Maybe ReservedNodeOfferingType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#ReservedNodeOffering%27"><span class="hs-identifier hs-type">ReservedNodeOffering'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679495376"><span class="annot"><span class="annottext">Maybe ReservedNodeOfferingType
 reservedNodeOfferingType :: Maybe ReservedNodeOfferingType
 $sel:reservedNodeOfferingType:ReservedNodeOffering' :: ReservedNodeOffering -&gt; Maybe ReservedNodeOfferingType
-</span><a href="#local-6989586621679494730"><span class="hs-identifier hs-var hs-var">reservedNodeOfferingType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReservedNodeOfferingType
-</span><a href="#local-6989586621679494730"><span class="hs-identifier hs-var">reservedNodeOfferingType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679494729"><span class="annot"><span class="annottext">s :: ReservedNodeOffering
-</span><a href="#local-6989586621679494729"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#ReservedNodeOffering%27"><span class="hs-identifier hs-type">ReservedNodeOffering'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679494728"><span class="annot"><span class="annottext">Maybe ReservedNodeOfferingType
-</span><a href="#local-6989586621679494728"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservedNodeOffering
-</span><a href="#local-6989586621679494729"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reservedNodeOfferingType:ReservedNodeOffering' :: Maybe ReservedNodeOfferingType
+</span><a href="#local-6989586621679495376"><span class="hs-identifier hs-var hs-var">reservedNodeOfferingType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReservedNodeOfferingType
+</span><a href="#local-6989586621679495376"><span class="hs-identifier hs-var">reservedNodeOfferingType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679495375"><span class="annot"><span class="annottext">s :: ReservedNodeOffering
+</span><a href="#local-6989586621679495375"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#ReservedNodeOffering%27"><span class="hs-identifier hs-type">ReservedNodeOffering'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679495374"><span class="annot"><span class="annottext">Maybe ReservedNodeOfferingType
+</span><a href="#local-6989586621679495374"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservedNodeOffering
+</span><a href="#local-6989586621679495375"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reservedNodeOfferingType:ReservedNodeOffering' :: Maybe ReservedNodeOfferingType
 </span><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#%24sel%3AreservedNodeOfferingType%3AReservedNodeOffering%27"><span class="hs-identifier hs-var">reservedNodeOfferingType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReservedNodeOfferingType
-</span><a href="#local-6989586621679494728"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#ReservedNodeOffering"><span class="hs-identifier hs-type">ReservedNodeOffering</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679495374"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#ReservedNodeOffering"><span class="hs-identifier hs-type">ReservedNodeOffering</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- | The offering identifier.</span><span>
-</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#reservedNodeOffering_reservedNodeOfferingId"><span class="hs-identifier hs-type">reservedNodeOffering_reservedNodeOfferingId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#ReservedNodeOffering"><span class="hs-identifier hs-type">ReservedNodeOffering</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-110"></span><span id="reservedNodeOffering_reservedNodeOfferingId"><span class="annot"><span class="annottext">reservedNodeOffering_reservedNodeOfferingId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ReservedNodeOffering -&gt; f ReservedNodeOffering
-</span><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#reservedNodeOffering_reservedNodeOfferingId"><span class="hs-identifier hs-var hs-var">reservedNodeOffering_reservedNodeOfferingId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReservedNodeOffering -&gt; Maybe Text)
--&gt; (ReservedNodeOffering -&gt; Maybe Text -&gt; ReservedNodeOffering)
--&gt; Lens
-     ReservedNodeOffering ReservedNodeOffering (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#ReservedNodeOffering%27"><span class="hs-identifier hs-type">ReservedNodeOffering'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679494726"><span class="annot"><span class="annottext">Maybe Text
-reservedNodeOfferingId :: Maybe Text
-$sel:reservedNodeOfferingId:ReservedNodeOffering' :: ReservedNodeOffering -&gt; Maybe Text
-</span><a href="#local-6989586621679494726"><span class="hs-identifier hs-var hs-var">reservedNodeOfferingId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679494726"><span class="hs-identifier hs-var">reservedNodeOfferingId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679494725"><span class="annot"><span class="annottext">s :: ReservedNodeOffering
-</span><a href="#local-6989586621679494725"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#ReservedNodeOffering%27"><span class="hs-identifier hs-type">ReservedNodeOffering'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679494724"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679494724"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservedNodeOffering
-</span><a href="#local-6989586621679494725"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reservedNodeOfferingId:ReservedNodeOffering' :: Maybe Text
-</span><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#%24sel%3AreservedNodeOfferingId%3AReservedNodeOffering%27"><span class="hs-identifier hs-var">reservedNodeOfferingId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679494724"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#ReservedNodeOffering"><span class="hs-identifier hs-type">ReservedNodeOffering</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-comment">-- | The duration, in seconds, for which the offering will reserve the node.</span><span>
-</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#reservedNodeOffering_duration"><span class="hs-identifier hs-type">reservedNodeOffering_duration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#ReservedNodeOffering"><span class="hs-identifier hs-type">ReservedNodeOffering</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-114"></span><span id="reservedNodeOffering_duration"><span class="annot"><span class="annottext">reservedNodeOffering_duration :: (Maybe Int -&gt; f (Maybe Int))
--&gt; ReservedNodeOffering -&gt; f ReservedNodeOffering
-</span><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#reservedNodeOffering_duration"><span class="hs-identifier hs-var hs-var">reservedNodeOffering_duration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReservedNodeOffering -&gt; Maybe Int)
--&gt; (ReservedNodeOffering -&gt; Maybe Int -&gt; ReservedNodeOffering)
--&gt; Lens
-     ReservedNodeOffering ReservedNodeOffering (Maybe Int) (Maybe Int)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#ReservedNodeOffering%27"><span class="hs-identifier hs-type">ReservedNodeOffering'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679494722"><span class="annot"><span class="annottext">Maybe Int
-duration :: Maybe Int
-$sel:duration:ReservedNodeOffering' :: ReservedNodeOffering -&gt; Maybe Int
-</span><a href="#local-6989586621679494722"><span class="hs-identifier hs-var hs-var">duration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679494722"><span class="hs-identifier hs-var">duration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679494721"><span class="annot"><span class="annottext">s :: ReservedNodeOffering
-</span><a href="#local-6989586621679494721"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#ReservedNodeOffering%27"><span class="hs-identifier hs-type">ReservedNodeOffering'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679494720"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679494720"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservedNodeOffering
-</span><a href="#local-6989586621679494721"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:duration:ReservedNodeOffering' :: Maybe Int
-</span><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#%24sel%3Aduration%3AReservedNodeOffering%27"><span class="hs-identifier hs-var">duration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679494720"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#ReservedNodeOffering"><span class="hs-identifier hs-type">ReservedNodeOffering</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- | The currency code for the compute nodes offering.</span><span>
-</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#reservedNodeOffering_currencyCode"><span class="hs-identifier hs-type">reservedNodeOffering_currencyCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#ReservedNodeOffering"><span class="hs-identifier hs-type">ReservedNodeOffering</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-118"></span><span id="reservedNodeOffering_currencyCode"><span class="annot"><span class="annottext">reservedNodeOffering_currencyCode :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-108"></span><span class="hs-comment">-- | The currency code for the compute nodes offering.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#reservedNodeOffering_currencyCode"><span class="hs-identifier hs-type">reservedNodeOffering_currencyCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#ReservedNodeOffering"><span class="hs-identifier hs-type">ReservedNodeOffering</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="reservedNodeOffering_currencyCode"><span class="annot"><span class="annottext">reservedNodeOffering_currencyCode :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ReservedNodeOffering -&gt; f ReservedNodeOffering
 </span><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#reservedNodeOffering_currencyCode"><span class="hs-identifier hs-var hs-var">reservedNodeOffering_currencyCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReservedNodeOffering -&gt; Maybe Text)
 -&gt; (ReservedNodeOffering -&gt; Maybe Text -&gt; ReservedNodeOffering)
 -&gt; Lens
      ReservedNodeOffering ReservedNodeOffering (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#ReservedNodeOffering%27"><span class="hs-identifier hs-type">ReservedNodeOffering'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679494718"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#ReservedNodeOffering%27"><span class="hs-identifier hs-type">ReservedNodeOffering'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679495372"><span class="annot"><span class="annottext">Maybe Text
 currencyCode :: Maybe Text
 $sel:currencyCode:ReservedNodeOffering' :: ReservedNodeOffering -&gt; Maybe Text
-</span><a href="#local-6989586621679494718"><span class="hs-identifier hs-var hs-var">currencyCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679494718"><span class="hs-identifier hs-var">currencyCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679494717"><span class="annot"><span class="annottext">s :: ReservedNodeOffering
-</span><a href="#local-6989586621679494717"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#ReservedNodeOffering%27"><span class="hs-identifier hs-type">ReservedNodeOffering'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679494716"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679494716"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservedNodeOffering
-</span><a href="#local-6989586621679494717"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:currencyCode:ReservedNodeOffering' :: Maybe Text
+</span><a href="#local-6989586621679495372"><span class="hs-identifier hs-var hs-var">currencyCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679495372"><span class="hs-identifier hs-var">currencyCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679495371"><span class="annot"><span class="annottext">s :: ReservedNodeOffering
+</span><a href="#local-6989586621679495371"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#ReservedNodeOffering%27"><span class="hs-identifier hs-type">ReservedNodeOffering'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679495370"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679495370"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservedNodeOffering
+</span><a href="#local-6989586621679495371"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:currencyCode:ReservedNodeOffering' :: Maybe Text
 </span><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#%24sel%3AcurrencyCode%3AReservedNodeOffering%27"><span class="hs-identifier hs-var">currencyCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679494716"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#ReservedNodeOffering"><span class="hs-identifier hs-type">ReservedNodeOffering</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-comment">-- | The upfront fixed charge you will pay to purchase the specific reserved</span><span>
-</span><span id="line-121"></span><span class="hs-comment">-- node offering.</span><span>
-</span><span id="line-122"></span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#reservedNodeOffering_fixedPrice"><span class="hs-identifier hs-type">reservedNodeOffering_fixedPrice</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#ReservedNodeOffering"><span class="hs-identifier hs-type">ReservedNodeOffering</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
-</span><span id="line-123"></span><span id="reservedNodeOffering_fixedPrice"><span class="annot"><span class="annottext">reservedNodeOffering_fixedPrice :: (Maybe Double -&gt; f (Maybe Double))
+</span><a href="#local-6989586621679495370"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#ReservedNodeOffering"><span class="hs-identifier hs-type">ReservedNodeOffering</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | The offering identifier.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#reservedNodeOffering_reservedNodeOfferingId"><span class="hs-identifier hs-type">reservedNodeOffering_reservedNodeOfferingId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#ReservedNodeOffering"><span class="hs-identifier hs-type">ReservedNodeOffering</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span id="reservedNodeOffering_reservedNodeOfferingId"><span class="annot"><span class="annottext">reservedNodeOffering_reservedNodeOfferingId :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ReservedNodeOffering -&gt; f ReservedNodeOffering
-</span><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#reservedNodeOffering_fixedPrice"><span class="hs-identifier hs-var hs-var">reservedNodeOffering_fixedPrice</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReservedNodeOffering -&gt; Maybe Double)
--&gt; (ReservedNodeOffering -&gt; Maybe Double -&gt; ReservedNodeOffering)
--&gt; Lens
-     ReservedNodeOffering
-     ReservedNodeOffering
-     (Maybe Double)
-     (Maybe Double)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#ReservedNodeOffering%27"><span class="hs-identifier hs-type">ReservedNodeOffering'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679494714"><span class="annot"><span class="annottext">Maybe Double
-fixedPrice :: Maybe Double
-$sel:fixedPrice:ReservedNodeOffering' :: ReservedNodeOffering -&gt; Maybe Double
-</span><a href="#local-6989586621679494714"><span class="hs-identifier hs-var hs-var">fixedPrice</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679494714"><span class="hs-identifier hs-var">fixedPrice</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679494713"><span class="annot"><span class="annottext">s :: ReservedNodeOffering
-</span><a href="#local-6989586621679494713"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#ReservedNodeOffering%27"><span class="hs-identifier hs-type">ReservedNodeOffering'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679494712"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679494712"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservedNodeOffering
-</span><a href="#local-6989586621679494713"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fixedPrice:ReservedNodeOffering' :: Maybe Double
-</span><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#%24sel%3AfixedPrice%3AReservedNodeOffering%27"><span class="hs-identifier hs-var">fixedPrice</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679494712"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#ReservedNodeOffering"><span class="hs-identifier hs-type">ReservedNodeOffering</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-comment">-- | The rate you are charged for each hour the cluster that is using the</span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- offering is running.</span><span>
-</span><span id="line-127"></span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#reservedNodeOffering_usagePrice"><span class="hs-identifier hs-type">reservedNodeOffering_usagePrice</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#ReservedNodeOffering"><span class="hs-identifier hs-type">ReservedNodeOffering</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
-</span><span id="line-128"></span><span id="reservedNodeOffering_usagePrice"><span class="annot"><span class="annottext">reservedNodeOffering_usagePrice :: (Maybe Double -&gt; f (Maybe Double))
--&gt; ReservedNodeOffering -&gt; f ReservedNodeOffering
-</span><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#reservedNodeOffering_usagePrice"><span class="hs-identifier hs-var hs-var">reservedNodeOffering_usagePrice</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReservedNodeOffering -&gt; Maybe Double)
--&gt; (ReservedNodeOffering -&gt; Maybe Double -&gt; ReservedNodeOffering)
--&gt; Lens
-     ReservedNodeOffering
-     ReservedNodeOffering
-     (Maybe Double)
-     (Maybe Double)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#ReservedNodeOffering%27"><span class="hs-identifier hs-type">ReservedNodeOffering'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679494710"><span class="annot"><span class="annottext">Maybe Double
-usagePrice :: Maybe Double
-$sel:usagePrice:ReservedNodeOffering' :: ReservedNodeOffering -&gt; Maybe Double
-</span><a href="#local-6989586621679494710"><span class="hs-identifier hs-var hs-var">usagePrice</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679494710"><span class="hs-identifier hs-var">usagePrice</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679494709"><span class="annot"><span class="annottext">s :: ReservedNodeOffering
-</span><a href="#local-6989586621679494709"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#ReservedNodeOffering%27"><span class="hs-identifier hs-type">ReservedNodeOffering'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679494708"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679494708"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservedNodeOffering
-</span><a href="#local-6989586621679494709"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:usagePrice:ReservedNodeOffering' :: Maybe Double
-</span><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#%24sel%3AusagePrice%3AReservedNodeOffering%27"><span class="hs-identifier hs-var">usagePrice</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679494708"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#ReservedNodeOffering"><span class="hs-identifier hs-type">ReservedNodeOffering</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- | The anticipated utilization of the reserved node, as defined in the</span><span>
-</span><span id="line-131"></span><span class="hs-comment">-- reserved node offering.</span><span>
-</span><span id="line-132"></span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#reservedNodeOffering_offeringType"><span class="hs-identifier hs-type">reservedNodeOffering_offeringType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#ReservedNodeOffering"><span class="hs-identifier hs-type">ReservedNodeOffering</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-133"></span><span id="reservedNodeOffering_offeringType"><span class="annot"><span class="annottext">reservedNodeOffering_offeringType :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ReservedNodeOffering -&gt; f ReservedNodeOffering
-</span><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#reservedNodeOffering_offeringType"><span class="hs-identifier hs-var hs-var">reservedNodeOffering_offeringType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReservedNodeOffering -&gt; Maybe Text)
+</span><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#reservedNodeOffering_reservedNodeOfferingId"><span class="hs-identifier hs-var hs-var">reservedNodeOffering_reservedNodeOfferingId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReservedNodeOffering -&gt; Maybe Text)
 -&gt; (ReservedNodeOffering -&gt; Maybe Text -&gt; ReservedNodeOffering)
 -&gt; Lens
      ReservedNodeOffering ReservedNodeOffering (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#ReservedNodeOffering%27"><span class="hs-identifier hs-type">ReservedNodeOffering'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679494706"><span class="annot"><span class="annottext">Maybe Text
-offeringType :: Maybe Text
-$sel:offeringType:ReservedNodeOffering' :: ReservedNodeOffering -&gt; Maybe Text
-</span><a href="#local-6989586621679494706"><span class="hs-identifier hs-var hs-var">offeringType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679494706"><span class="hs-identifier hs-var">offeringType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679494705"><span class="annot"><span class="annottext">s :: ReservedNodeOffering
-</span><a href="#local-6989586621679494705"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#ReservedNodeOffering%27"><span class="hs-identifier hs-type">ReservedNodeOffering'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679494704"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679494704"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservedNodeOffering
-</span><a href="#local-6989586621679494705"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:offeringType:ReservedNodeOffering' :: Maybe Text
-</span><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#%24sel%3AofferingType%3AReservedNodeOffering%27"><span class="hs-identifier hs-var">offeringType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679494704"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#ReservedNodeOffering"><span class="hs-identifier hs-type">ReservedNodeOffering</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-134"></span><span>
-</span><span id="line-135"></span><span class="hs-comment">-- | The node type offered by the reserved node offering.</span><span>
-</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#reservedNodeOffering_nodeType"><span class="hs-identifier hs-type">reservedNodeOffering_nodeType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#ReservedNodeOffering"><span class="hs-identifier hs-type">ReservedNodeOffering</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-137"></span><span id="reservedNodeOffering_nodeType"><span class="annot"><span class="annottext">reservedNodeOffering_nodeType :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ReservedNodeOffering -&gt; f ReservedNodeOffering
-</span><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#reservedNodeOffering_nodeType"><span class="hs-identifier hs-var hs-var">reservedNodeOffering_nodeType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReservedNodeOffering -&gt; Maybe Text)
--&gt; (ReservedNodeOffering -&gt; Maybe Text -&gt; ReservedNodeOffering)
--&gt; Lens
-     ReservedNodeOffering ReservedNodeOffering (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#ReservedNodeOffering%27"><span class="hs-identifier hs-type">ReservedNodeOffering'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679494702"><span class="annot"><span class="annottext">Maybe Text
-nodeType :: Maybe Text
-$sel:nodeType:ReservedNodeOffering' :: ReservedNodeOffering -&gt; Maybe Text
-</span><a href="#local-6989586621679494702"><span class="hs-identifier hs-var hs-var">nodeType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679494702"><span class="hs-identifier hs-var">nodeType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679494701"><span class="annot"><span class="annottext">s :: ReservedNodeOffering
-</span><a href="#local-6989586621679494701"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#ReservedNodeOffering%27"><span class="hs-identifier hs-type">ReservedNodeOffering'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679494700"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679494700"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservedNodeOffering
-</span><a href="#local-6989586621679494701"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nodeType:ReservedNodeOffering' :: Maybe Text
-</span><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#%24sel%3AnodeType%3AReservedNodeOffering%27"><span class="hs-identifier hs-var">nodeType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679494700"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#ReservedNodeOffering"><span class="hs-identifier hs-type">ReservedNodeOffering</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-138"></span><span>
-</span><span id="line-139"></span><span class="hs-comment">-- | The charge to your account regardless of whether you are creating any</span><span>
-</span><span id="line-140"></span><span class="hs-comment">-- clusters using the node offering. Recurring charges are only in effect</span><span>
-</span><span id="line-141"></span><span class="hs-comment">-- for heavy-utilization reserved nodes.</span><span>
-</span><span id="line-142"></span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#reservedNodeOffering_recurringCharges"><span class="hs-identifier hs-type">reservedNodeOffering_recurringCharges</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#ReservedNodeOffering"><span class="hs-identifier hs-type">ReservedNodeOffering</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Redshift.Types.RecurringCharge.html#RecurringCharge"><span class="hs-identifier hs-type">RecurringCharge</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-143"></span><span id="reservedNodeOffering_recurringCharges"><span class="annot"><span class="annottext">reservedNodeOffering_recurringCharges :: (Maybe [RecurringCharge] -&gt; f (Maybe [RecurringCharge]))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#ReservedNodeOffering%27"><span class="hs-identifier hs-type">ReservedNodeOffering'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679495368"><span class="annot"><span class="annottext">Maybe Text
+reservedNodeOfferingId :: Maybe Text
+$sel:reservedNodeOfferingId:ReservedNodeOffering' :: ReservedNodeOffering -&gt; Maybe Text
+</span><a href="#local-6989586621679495368"><span class="hs-identifier hs-var hs-var">reservedNodeOfferingId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679495368"><span class="hs-identifier hs-var">reservedNodeOfferingId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679495367"><span class="annot"><span class="annottext">s :: ReservedNodeOffering
+</span><a href="#local-6989586621679495367"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#ReservedNodeOffering%27"><span class="hs-identifier hs-type">ReservedNodeOffering'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679495366"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679495366"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservedNodeOffering
+</span><a href="#local-6989586621679495367"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reservedNodeOfferingId:ReservedNodeOffering' :: Maybe Text
+</span><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#%24sel%3AreservedNodeOfferingId%3AReservedNodeOffering%27"><span class="hs-identifier hs-var">reservedNodeOfferingId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679495366"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#ReservedNodeOffering"><span class="hs-identifier hs-type">ReservedNodeOffering</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | The charge to your account regardless of whether you are creating any</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- clusters using the node offering. Recurring charges are only in effect</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- for heavy-utilization reserved nodes.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#reservedNodeOffering_recurringCharges"><span class="hs-identifier hs-type">reservedNodeOffering_recurringCharges</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#ReservedNodeOffering"><span class="hs-identifier hs-type">ReservedNodeOffering</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Redshift.Types.RecurringCharge.html#RecurringCharge"><span class="hs-identifier hs-type">RecurringCharge</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span id="reservedNodeOffering_recurringCharges"><span class="annot"><span class="annottext">reservedNodeOffering_recurringCharges :: (Maybe [RecurringCharge] -&gt; f (Maybe [RecurringCharge]))
 -&gt; ReservedNodeOffering -&gt; f ReservedNodeOffering
 </span><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#reservedNodeOffering_recurringCharges"><span class="hs-identifier hs-var hs-var">reservedNodeOffering_recurringCharges</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReservedNodeOffering -&gt; Maybe [RecurringCharge])
 -&gt; (ReservedNodeOffering
@@ -390,16 +281,16 @@ $sel:nodeType:ReservedNodeOffering' :: ReservedNodeOffering -&gt; Maybe Text
      (Maybe [RecurringCharge])
      (Maybe [RecurringCharge])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#ReservedNodeOffering%27"><span class="hs-identifier hs-type">ReservedNodeOffering'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679494698"><span class="annot"><span class="annottext">Maybe [RecurringCharge]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#ReservedNodeOffering%27"><span class="hs-identifier hs-type">ReservedNodeOffering'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679495364"><span class="annot"><span class="annottext">Maybe [RecurringCharge]
 recurringCharges :: Maybe [RecurringCharge]
 $sel:recurringCharges:ReservedNodeOffering' :: ReservedNodeOffering -&gt; Maybe [RecurringCharge]
-</span><a href="#local-6989586621679494698"><span class="hs-identifier hs-var hs-var">recurringCharges</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [RecurringCharge]
-</span><a href="#local-6989586621679494698"><span class="hs-identifier hs-var">recurringCharges</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679494697"><span class="annot"><span class="annottext">s :: ReservedNodeOffering
-</span><a href="#local-6989586621679494697"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#ReservedNodeOffering%27"><span class="hs-identifier hs-type">ReservedNodeOffering'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679494696"><span class="annot"><span class="annottext">Maybe [RecurringCharge]
-</span><a href="#local-6989586621679494696"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservedNodeOffering
-</span><a href="#local-6989586621679494697"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:recurringCharges:ReservedNodeOffering' :: Maybe [RecurringCharge]
+</span><a href="#local-6989586621679495364"><span class="hs-identifier hs-var hs-var">recurringCharges</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [RecurringCharge]
+</span><a href="#local-6989586621679495364"><span class="hs-identifier hs-var">recurringCharges</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679495363"><span class="annot"><span class="annottext">s :: ReservedNodeOffering
+</span><a href="#local-6989586621679495363"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#ReservedNodeOffering%27"><span class="hs-identifier hs-type">ReservedNodeOffering'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679495362"><span class="annot"><span class="annottext">Maybe [RecurringCharge]
+</span><a href="#local-6989586621679495362"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservedNodeOffering
+</span><a href="#local-6989586621679495363"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:recurringCharges:ReservedNodeOffering' :: Maybe [RecurringCharge]
 </span><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#%24sel%3ArecurringCharges%3AReservedNodeOffering%27"><span class="hs-identifier hs-var">recurringCharges</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [RecurringCharge]
-</span><a href="#local-6989586621679494696"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#ReservedNodeOffering"><span class="hs-identifier hs-type">ReservedNodeOffering</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [RecurringCharge] -&gt; f (Maybe [RecurringCharge]))
+</span><a href="#local-6989586621679495362"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#ReservedNodeOffering"><span class="hs-identifier hs-type">ReservedNodeOffering</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [RecurringCharge] -&gt; f (Maybe [RecurringCharge]))
  -&gt; ReservedNodeOffering -&gt; f ReservedNodeOffering)
 -&gt; ((Maybe [RecurringCharge] -&gt; f (Maybe [RecurringCharge]))
     -&gt; Maybe [RecurringCharge] -&gt; f (Maybe [RecurringCharge]))
@@ -425,210 +316,245 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [RecurringCharge]
   [RecurringCharge]
   [RecurringCharge]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | The anticipated utilization of the reserved node, as defined in the</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- reserved node offering.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#reservedNodeOffering_offeringType"><span class="hs-identifier hs-type">reservedNodeOffering_offeringType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#ReservedNodeOffering"><span class="hs-identifier hs-type">ReservedNodeOffering</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span id="reservedNodeOffering_offeringType"><span class="annot"><span class="annottext">reservedNodeOffering_offeringType :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ReservedNodeOffering -&gt; f ReservedNodeOffering
+</span><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#reservedNodeOffering_offeringType"><span class="hs-identifier hs-var hs-var">reservedNodeOffering_offeringType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReservedNodeOffering -&gt; Maybe Text)
+-&gt; (ReservedNodeOffering -&gt; Maybe Text -&gt; ReservedNodeOffering)
+-&gt; Lens
+     ReservedNodeOffering ReservedNodeOffering (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#ReservedNodeOffering%27"><span class="hs-identifier hs-type">ReservedNodeOffering'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679495357"><span class="annot"><span class="annottext">Maybe Text
+offeringType :: Maybe Text
+$sel:offeringType:ReservedNodeOffering' :: ReservedNodeOffering -&gt; Maybe Text
+</span><a href="#local-6989586621679495357"><span class="hs-identifier hs-var hs-var">offeringType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679495357"><span class="hs-identifier hs-var">offeringType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679495356"><span class="annot"><span class="annottext">s :: ReservedNodeOffering
+</span><a href="#local-6989586621679495356"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#ReservedNodeOffering%27"><span class="hs-identifier hs-type">ReservedNodeOffering'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679495355"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679495355"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservedNodeOffering
+</span><a href="#local-6989586621679495356"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:offeringType:ReservedNodeOffering' :: Maybe Text
+</span><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#%24sel%3AofferingType%3AReservedNodeOffering%27"><span class="hs-identifier hs-var">offeringType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679495355"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#ReservedNodeOffering"><span class="hs-identifier hs-type">ReservedNodeOffering</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | The rate you are charged for each hour the cluster that is using the</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- offering is running.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#reservedNodeOffering_usagePrice"><span class="hs-identifier hs-type">reservedNodeOffering_usagePrice</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#ReservedNodeOffering"><span class="hs-identifier hs-type">ReservedNodeOffering</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="reservedNodeOffering_usagePrice"><span class="annot"><span class="annottext">reservedNodeOffering_usagePrice :: (Maybe Double -&gt; f (Maybe Double))
+-&gt; ReservedNodeOffering -&gt; f ReservedNodeOffering
+</span><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#reservedNodeOffering_usagePrice"><span class="hs-identifier hs-var hs-var">reservedNodeOffering_usagePrice</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReservedNodeOffering -&gt; Maybe Double)
+-&gt; (ReservedNodeOffering -&gt; Maybe Double -&gt; ReservedNodeOffering)
+-&gt; Lens
+     ReservedNodeOffering
+     ReservedNodeOffering
+     (Maybe Double)
+     (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#ReservedNodeOffering%27"><span class="hs-identifier hs-type">ReservedNodeOffering'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679495353"><span class="annot"><span class="annottext">Maybe Double
+usagePrice :: Maybe Double
+$sel:usagePrice:ReservedNodeOffering' :: ReservedNodeOffering -&gt; Maybe Double
+</span><a href="#local-6989586621679495353"><span class="hs-identifier hs-var hs-var">usagePrice</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679495353"><span class="hs-identifier hs-var">usagePrice</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679495352"><span class="annot"><span class="annottext">s :: ReservedNodeOffering
+</span><a href="#local-6989586621679495352"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#ReservedNodeOffering%27"><span class="hs-identifier hs-type">ReservedNodeOffering'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679495351"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679495351"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservedNodeOffering
+</span><a href="#local-6989586621679495352"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:usagePrice:ReservedNodeOffering' :: Maybe Double
+</span><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#%24sel%3AusagePrice%3AReservedNodeOffering%27"><span class="hs-identifier hs-var">usagePrice</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679495351"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#ReservedNodeOffering"><span class="hs-identifier hs-type">ReservedNodeOffering</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | The node type offered by the reserved node offering.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#reservedNodeOffering_nodeType"><span class="hs-identifier hs-type">reservedNodeOffering_nodeType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#ReservedNodeOffering"><span class="hs-identifier hs-type">ReservedNodeOffering</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span id="reservedNodeOffering_nodeType"><span class="annot"><span class="annottext">reservedNodeOffering_nodeType :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ReservedNodeOffering -&gt; f ReservedNodeOffering
+</span><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#reservedNodeOffering_nodeType"><span class="hs-identifier hs-var hs-var">reservedNodeOffering_nodeType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReservedNodeOffering -&gt; Maybe Text)
+-&gt; (ReservedNodeOffering -&gt; Maybe Text -&gt; ReservedNodeOffering)
+-&gt; Lens
+     ReservedNodeOffering ReservedNodeOffering (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#ReservedNodeOffering%27"><span class="hs-identifier hs-type">ReservedNodeOffering'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679495349"><span class="annot"><span class="annottext">Maybe Text
+nodeType :: Maybe Text
+$sel:nodeType:ReservedNodeOffering' :: ReservedNodeOffering -&gt; Maybe Text
+</span><a href="#local-6989586621679495349"><span class="hs-identifier hs-var hs-var">nodeType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679495349"><span class="hs-identifier hs-var">nodeType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679495348"><span class="annot"><span class="annottext">s :: ReservedNodeOffering
+</span><a href="#local-6989586621679495348"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#ReservedNodeOffering%27"><span class="hs-identifier hs-type">ReservedNodeOffering'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679495347"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679495347"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservedNodeOffering
+</span><a href="#local-6989586621679495348"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nodeType:ReservedNodeOffering' :: Maybe Text
+</span><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#%24sel%3AnodeType%3AReservedNodeOffering%27"><span class="hs-identifier hs-var">nodeType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679495347"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#ReservedNodeOffering"><span class="hs-identifier hs-type">ReservedNodeOffering</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | The upfront fixed charge you will pay to purchase the specific reserved</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- node offering.</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#reservedNodeOffering_fixedPrice"><span class="hs-identifier hs-type">reservedNodeOffering_fixedPrice</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#ReservedNodeOffering"><span class="hs-identifier hs-type">ReservedNodeOffering</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span id="reservedNodeOffering_fixedPrice"><span class="annot"><span class="annottext">reservedNodeOffering_fixedPrice :: (Maybe Double -&gt; f (Maybe Double))
+-&gt; ReservedNodeOffering -&gt; f ReservedNodeOffering
+</span><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#reservedNodeOffering_fixedPrice"><span class="hs-identifier hs-var hs-var">reservedNodeOffering_fixedPrice</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReservedNodeOffering -&gt; Maybe Double)
+-&gt; (ReservedNodeOffering -&gt; Maybe Double -&gt; ReservedNodeOffering)
+-&gt; Lens
+     ReservedNodeOffering
+     ReservedNodeOffering
+     (Maybe Double)
+     (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#ReservedNodeOffering%27"><span class="hs-identifier hs-type">ReservedNodeOffering'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679495345"><span class="annot"><span class="annottext">Maybe Double
+fixedPrice :: Maybe Double
+$sel:fixedPrice:ReservedNodeOffering' :: ReservedNodeOffering -&gt; Maybe Double
+</span><a href="#local-6989586621679495345"><span class="hs-identifier hs-var hs-var">fixedPrice</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679495345"><span class="hs-identifier hs-var">fixedPrice</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679495344"><span class="annot"><span class="annottext">s :: ReservedNodeOffering
+</span><a href="#local-6989586621679495344"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#ReservedNodeOffering%27"><span class="hs-identifier hs-type">ReservedNodeOffering'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679495343"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679495343"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservedNodeOffering
+</span><a href="#local-6989586621679495344"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fixedPrice:ReservedNodeOffering' :: Maybe Double
+</span><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#%24sel%3AfixedPrice%3AReservedNodeOffering%27"><span class="hs-identifier hs-var">fixedPrice</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679495343"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#ReservedNodeOffering"><span class="hs-identifier hs-type">ReservedNodeOffering</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | The duration, in seconds, for which the offering will reserve the node.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#reservedNodeOffering_duration"><span class="hs-identifier hs-type">reservedNodeOffering_duration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#ReservedNodeOffering"><span class="hs-identifier hs-type">ReservedNodeOffering</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span id="reservedNodeOffering_duration"><span class="annot"><span class="annottext">reservedNodeOffering_duration :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; ReservedNodeOffering -&gt; f ReservedNodeOffering
+</span><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#reservedNodeOffering_duration"><span class="hs-identifier hs-var hs-var">reservedNodeOffering_duration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReservedNodeOffering -&gt; Maybe Int)
+-&gt; (ReservedNodeOffering -&gt; Maybe Int -&gt; ReservedNodeOffering)
+-&gt; Lens
+     ReservedNodeOffering ReservedNodeOffering (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#ReservedNodeOffering%27"><span class="hs-identifier hs-type">ReservedNodeOffering'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679495341"><span class="annot"><span class="annottext">Maybe Int
+duration :: Maybe Int
+$sel:duration:ReservedNodeOffering' :: ReservedNodeOffering -&gt; Maybe Int
+</span><a href="#local-6989586621679495341"><span class="hs-identifier hs-var hs-var">duration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679495341"><span class="hs-identifier hs-var">duration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679495340"><span class="annot"><span class="annottext">s :: ReservedNodeOffering
+</span><a href="#local-6989586621679495340"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#ReservedNodeOffering%27"><span class="hs-identifier hs-type">ReservedNodeOffering'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679495339"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679495339"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservedNodeOffering
+</span><a href="#local-6989586621679495340"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:duration:ReservedNodeOffering' :: Maybe Int
+</span><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#%24sel%3Aduration%3AReservedNodeOffering%27"><span class="hs-identifier hs-var">duration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679495339"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#ReservedNodeOffering"><span class="hs-identifier hs-type">ReservedNodeOffering</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#ReservedNodeOffering"><span class="hs-identifier hs-type">ReservedNodeOffering</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-146"></span><span>  </span><span id="local-6989586621679494690"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ReservedNodeOffering
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679494688"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679494688"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679495336"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ReservedNodeOffering
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679495334"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679495334"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-147"></span><span>    </span><span class="annot"><span class="annottext">Maybe ReservedNodeOfferingType
--&gt; Maybe Text
--&gt; Maybe Int
--&gt; Maybe Text
--&gt; Maybe Double
--&gt; Maybe Double
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe [RecurringCharge]
+-&gt; Maybe Text
+-&gt; Maybe Double
+-&gt; Maybe Text
+-&gt; Maybe Double
+-&gt; Maybe Int
 -&gt; ReservedNodeOffering
 </span><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#ReservedNodeOffering%27"><span class="hs-identifier hs-var">ReservedNodeOffering'</span></a></span><span>
 </span><span id="line-148"></span><span>      </span><span class="annot"><span class="annottext">(Maybe ReservedNodeOfferingType
  -&gt; Maybe Text
- -&gt; Maybe Int
- -&gt; Maybe Text
- -&gt; Maybe Double
- -&gt; Maybe Double
- -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe [RecurringCharge]
+ -&gt; Maybe Text
+ -&gt; Maybe Double
+ -&gt; Maybe Text
+ -&gt; Maybe Double
+ -&gt; Maybe Int
  -&gt; ReservedNodeOffering)
 -&gt; Either String (Maybe ReservedNodeOfferingType)
 -&gt; Either
      String
      (Maybe Text
-      -&gt; Maybe Int
-      -&gt; Maybe Text
-      -&gt; Maybe Double
-      -&gt; Maybe Double
-      -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe [RecurringCharge]
+      -&gt; Maybe Text
+      -&gt; Maybe Double
+      -&gt; Maybe Text
+      -&gt; Maybe Double
+      -&gt; Maybe Int
       -&gt; ReservedNodeOffering)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679494688"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ReservedNodeOfferingType)
+</span><a href="#local-6989586621679495334"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ReservedNodeOfferingType)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ReservedNodeOfferingType&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
   (Maybe Text
-   -&gt; Maybe Int
-   -&gt; Maybe Text
-   -&gt; Maybe Double
-   -&gt; Maybe Double
-   -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe [RecurringCharge]
+   -&gt; Maybe Text
+   -&gt; Maybe Double
+   -&gt; Maybe Text
+   -&gt; Maybe Double
+   -&gt; Maybe Int
    -&gt; ReservedNodeOffering)
 -&gt; Either String (Maybe Text)
--&gt; Either
-     String
-     (Maybe Int
-      -&gt; Maybe Text
-      -&gt; Maybe Double
-      -&gt; Maybe Double
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe [RecurringCharge]
-      -&gt; ReservedNodeOffering)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679494688"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ReservedNodeOfferingId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-150"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe Int
-   -&gt; Maybe Text
-   -&gt; Maybe Double
-   -&gt; Maybe Double
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe [RecurringCharge]
-   -&gt; ReservedNodeOffering)
--&gt; Either String (Maybe Int)
 -&gt; Either
      String
      (Maybe Text
-      -&gt; Maybe Double
-      -&gt; Maybe Double
-      -&gt; Maybe Text
-      -&gt; Maybe Text
       -&gt; Maybe [RecurringCharge]
+      -&gt; Maybe Text
+      -&gt; Maybe Double
+      -&gt; Maybe Text
+      -&gt; Maybe Double
+      -&gt; Maybe Int
       -&gt; ReservedNodeOffering)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679494688"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Duration&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-151"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe Text
-   -&gt; Maybe Double
-   -&gt; Maybe Double
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe [RecurringCharge]
-   -&gt; ReservedNodeOffering)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String
-     (Maybe Double
-      -&gt; Maybe Double
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe [RecurringCharge]
-      -&gt; ReservedNodeOffering)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679494688"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679495334"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CurrencyCode&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-152"></span><span>      </span><span class="annot"><span class="annottext">Either
+</span><span id="line-150"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe Double
+  (Maybe Text
+   -&gt; Maybe [RecurringCharge]
+   -&gt; Maybe Text
    -&gt; Maybe Double
    -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe [RecurringCharge]
+   -&gt; Maybe Double
+   -&gt; Maybe Int
    -&gt; ReservedNodeOffering)
--&gt; Either String (Maybe Double)
+-&gt; Either String (Maybe Text)
 -&gt; Either
      String
-     (Maybe Double
+     (Maybe [RecurringCharge]
       -&gt; Maybe Text
+      -&gt; Maybe Double
       -&gt; Maybe Text
-      -&gt; Maybe [RecurringCharge]
+      -&gt; Maybe Double
+      -&gt; Maybe Int
       -&gt; ReservedNodeOffering)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679494688"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Double)
+</span><a href="#local-6989586621679495334"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;FixedPrice&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-153"></span><span>      </span><span class="annot"><span class="annottext">Either
+</span><span class="hs-string">&quot;ReservedNodeOfferingId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe Double
+  (Maybe [RecurringCharge]
    -&gt; Maybe Text
+   -&gt; Maybe Double
    -&gt; Maybe Text
-   -&gt; Maybe [RecurringCharge]
+   -&gt; Maybe Double
+   -&gt; Maybe Int
    -&gt; ReservedNodeOffering)
--&gt; Either String (Maybe Double)
+-&gt; Either String (Maybe [RecurringCharge])
 -&gt; Either
      String
      (Maybe Text
-      -&gt; Maybe Text -&gt; Maybe [RecurringCharge] -&gt; ReservedNodeOffering)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679494688"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Double)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;UsagePrice&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-154"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe Text
-   -&gt; Maybe Text -&gt; Maybe [RecurringCharge] -&gt; ReservedNodeOffering)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String
-     (Maybe Text -&gt; Maybe [RecurringCharge] -&gt; ReservedNodeOffering)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679494688"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;OfferingType&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-155"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe Text -&gt; Maybe [RecurringCharge] -&gt; ReservedNodeOffering)
--&gt; Either String (Maybe Text)
--&gt; Either String (Maybe [RecurringCharge] -&gt; ReservedNodeOffering)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679494688"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NodeType&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-156"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe [RecurringCharge] -&gt; ReservedNodeOffering)
--&gt; Either String (Maybe [RecurringCharge])
--&gt; Either String ReservedNodeOffering
+      -&gt; Maybe Double
+      -&gt; Maybe Text
+      -&gt; Maybe Double
+      -&gt; Maybe Int
+      -&gt; ReservedNodeOffering)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679494688"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679495334"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RecurringCharges&quot;</span></span><span>
-</span><span id="line-157"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+</span><span id="line-152"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
 forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-158"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+</span><span id="line-153"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
 -&gt; ([Node] -&gt; Either String (Maybe [RecurringCharge]))
 -&gt; Either String (Maybe [RecurringCharge])
 forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
@@ -641,9 +567,71 @@ Applicative f =&gt;
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RecurringCharge&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-159"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Double
+   -&gt; Maybe Text
+   -&gt; Maybe Double
+   -&gt; Maybe Int
+   -&gt; ReservedNodeOffering)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Double
+      -&gt; Maybe Text -&gt; Maybe Double -&gt; Maybe Int -&gt; ReservedNodeOffering)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679495334"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OfferingType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Double
+   -&gt; Maybe Text -&gt; Maybe Double -&gt; Maybe Int -&gt; ReservedNodeOffering)
+-&gt; Either String (Maybe Double)
+-&gt; Either
+     String
+     (Maybe Text -&gt; Maybe Double -&gt; Maybe Int -&gt; ReservedNodeOffering)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679495334"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Double)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UsagePrice&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text -&gt; Maybe Double -&gt; Maybe Int -&gt; ReservedNodeOffering)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe Double -&gt; Maybe Int -&gt; ReservedNodeOffering)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679495334"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NodeType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Double -&gt; Maybe Int -&gt; ReservedNodeOffering)
+-&gt; Either String (Maybe Double)
+-&gt; Either String (Maybe Int -&gt; ReservedNodeOffering)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679495334"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Double)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FixedPrice&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Int -&gt; ReservedNodeOffering)
+-&gt; Either String (Maybe Int) -&gt; Either String ReservedNodeOffering
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679495334"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Duration&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-160"></span><span>
-</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679494679"><span id="local-6989586621679494681"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#ReservedNodeOffering"><span class="hs-identifier hs-type">ReservedNodeOffering</span></a></span></span></span><span>
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679495325"><span id="local-6989586621679495327"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#ReservedNodeOffering"><span class="hs-identifier hs-type">ReservedNodeOffering</span></a></span></span></span><span>
 </span><span id="line-162"></span><span>
-</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679494676"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#ReservedNodeOffering"><span class="hs-identifier hs-type">ReservedNodeOffering</span></a></span></span><span>
+</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679495322"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOffering.html#ReservedNodeOffering"><span class="hs-identifier hs-type">ReservedNodeOffering</span></a></span></span><span>
 </span><span id="line-164"></span></pre></body></html>

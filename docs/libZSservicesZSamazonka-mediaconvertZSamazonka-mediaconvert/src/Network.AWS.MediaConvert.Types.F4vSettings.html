@@ -27,14 +27,14 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Settings for F4v container</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newF4vSettings' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679959437"><span id="local-6989586621679959438"></span></span><span class="hs-keyword">data</span><span> </span><span id="F4vSettings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.F4vSettings.html#F4vSettings"><span class="hs-identifier hs-var">F4vSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="F4vSettings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.F4vSettings.html#F4vSettings%27"><span class="hs-identifier hs-var">F4vSettings'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679964061"><span id="local-6989586621679964062"></span></span><span class="hs-keyword">data</span><span> </span><span id="F4vSettings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.F4vSettings.html#F4vSettings"><span class="hs-identifier hs-var">F4vSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="F4vSettings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.F4vSettings.html#F4vSettings%27"><span class="hs-identifier hs-var">F4vSettings'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If set to PROGRESSIVE_DOWNLOAD, the MOOV atom is relocated to the</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- beginning of the archive as required for progressive downloading.</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- Otherwise it is placed normally at the end.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AmoovPlacement%3AF4vSettings%27"><span class="annot"><span class="annottext">F4vSettings -&gt; Maybe F4vMoovPlacement
 </span><a href="Network.AWS.MediaConvert.Types.F4vSettings.html#%24sel%3AmoovPlacement%3AF4vSettings%27"><span class="hs-identifier hs-var hs-var">moovPlacement</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.F4vMoovPlacement.html#F4vMoovPlacement"><span class="hs-identifier hs-type">F4vMoovPlacement</span></a></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679959431"><span id="local-6989586621679959433"><span class="annot"><span class="annottext">F4vSettings -&gt; F4vSettings -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679964055"><span id="local-6989586621679964057"><span class="annot"><span class="annottext">F4vSettings -&gt; F4vSettings -&gt; Bool
 (F4vSettings -&gt; F4vSettings -&gt; Bool)
 -&gt; (F4vSettings -&gt; F4vSettings -&gt; Bool) -&gt; Eq F4vSettings
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -42,7 +42,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: F4vSettings -&gt; F4vSettings -&gt; Bool
 == :: F4vSettings -&gt; F4vSettings -&gt; Bool
 $c== :: F4vSettings -&gt; F4vSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679959422"><span id="local-6989586621679959424"><span id="local-6989586621679959426"><span id="local-6989586621679959428"><span class="annot"><span class="annottext">ReadPrec [F4vSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679964046"><span id="local-6989586621679964048"><span id="local-6989586621679964050"><span id="local-6989586621679964052"><span class="annot"><span class="annottext">ReadPrec [F4vSettings]
 ReadPrec F4vSettings
 Int -&gt; ReadS F4vSettings
 ReadS [F4vSettings]
@@ -62,7 +62,7 @@ readList :: ReadS [F4vSettings]
 $creadList :: ReadS [F4vSettings]
 readsPrec :: Int -&gt; ReadS F4vSettings
 $creadsPrec :: Int -&gt; ReadS F4vSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679959415"><span id="local-6989586621679959417"><span id="local-6989586621679959419"><span class="annot"><span class="annottext">Int -&gt; F4vSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679964039"><span id="local-6989586621679964041"><span id="local-6989586621679964043"><span class="annot"><span class="annottext">Int -&gt; F4vSettings -&gt; ShowS
 [F4vSettings] -&gt; ShowS
 F4vSettings -&gt; String
 (Int -&gt; F4vSettings -&gt; ShowS)
@@ -123,19 +123,19 @@ forall a. Maybe a
      (Maybe F4vMoovPlacement)
      (Maybe F4vMoovPlacement)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.F4vSettings.html#F4vSettings%27"><span class="hs-identifier hs-type">F4vSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679959406"><span class="annot"><span class="annottext">Maybe F4vMoovPlacement
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.F4vSettings.html#F4vSettings%27"><span class="hs-identifier hs-type">F4vSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679964030"><span class="annot"><span class="annottext">Maybe F4vMoovPlacement
 moovPlacement :: Maybe F4vMoovPlacement
 $sel:moovPlacement:F4vSettings' :: F4vSettings -&gt; Maybe F4vMoovPlacement
-</span><a href="#local-6989586621679959406"><span class="hs-identifier hs-var hs-var">moovPlacement</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe F4vMoovPlacement
-</span><a href="#local-6989586621679959406"><span class="hs-identifier hs-var">moovPlacement</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679959405"><span class="annot"><span class="annottext">s :: F4vSettings
-</span><a href="#local-6989586621679959405"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.F4vSettings.html#F4vSettings%27"><span class="hs-identifier hs-type">F4vSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679959404"><span class="annot"><span class="annottext">Maybe F4vMoovPlacement
-</span><a href="#local-6989586621679959404"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">F4vSettings
-</span><a href="#local-6989586621679959405"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:moovPlacement:F4vSettings' :: Maybe F4vMoovPlacement
+</span><a href="#local-6989586621679964030"><span class="hs-identifier hs-var hs-var">moovPlacement</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe F4vMoovPlacement
+</span><a href="#local-6989586621679964030"><span class="hs-identifier hs-var">moovPlacement</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679964029"><span class="annot"><span class="annottext">s :: F4vSettings
+</span><a href="#local-6989586621679964029"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.F4vSettings.html#F4vSettings%27"><span class="hs-identifier hs-type">F4vSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679964028"><span class="annot"><span class="annottext">Maybe F4vMoovPlacement
+</span><a href="#local-6989586621679964028"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">F4vSettings
+</span><a href="#local-6989586621679964029"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:moovPlacement:F4vSettings' :: Maybe F4vMoovPlacement
 </span><a href="Network.AWS.MediaConvert.Types.F4vSettings.html#%24sel%3AmoovPlacement%3AF4vSettings%27"><span class="hs-identifier hs-var">moovPlacement</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe F4vMoovPlacement
-</span><a href="#local-6989586621679959404"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.F4vSettings.html#F4vSettings"><span class="hs-identifier hs-type">F4vSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679964028"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.F4vSettings.html#F4vSettings"><span class="hs-identifier hs-type">F4vSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-59"></span><span>
-</span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679959401"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.F4vSettings.html#F4vSettings"><span class="hs-identifier hs-type">F4vSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-61"></span><span>  </span><span id="local-6989586621679959399"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser F4vSettings
+</span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679964025"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.F4vSettings.html#F4vSettings"><span class="hs-identifier hs-type">F4vSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-61"></span><span>  </span><span id="local-6989586621679964023"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser F4vSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-62"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser F4vSettings) -&gt; Value -&gt; Parser F4vSettings
@@ -143,30 +143,30 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;F4vSettings&quot;</span></span><span>
-</span><span id="line-64"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679959396"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679959396"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-64"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679964020"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679964020"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-65"></span><span>          </span><span class="annot"><span class="annottext">Maybe F4vMoovPlacement -&gt; F4vSettings
 </span><a href="Network.AWS.MediaConvert.Types.F4vSettings.html#F4vSettings%27"><span class="hs-identifier hs-var">F4vSettings'</span></a></span><span>
 </span><span id="line-66"></span><span>            </span><span class="annot"><span class="annottext">(Maybe F4vMoovPlacement -&gt; F4vSettings)
 -&gt; Parser (Maybe F4vMoovPlacement) -&gt; Parser F4vSettings
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679959396"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe F4vMoovPlacement)
+</span><a href="#local-6989586621679964020"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe F4vMoovPlacement)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;moovPlacement&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679959390"><span id="local-6989586621679959392"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.F4vSettings.html#F4vSettings"><span class="hs-identifier hs-type">F4vSettings</span></a></span></span></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679964014"><span id="local-6989586621679964016"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.F4vSettings.html#F4vSettings"><span class="hs-identifier hs-type">F4vSettings</span></a></span></span></span><span>
 </span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679959387"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.F4vSettings.html#F4vSettings"><span class="hs-identifier hs-type">F4vSettings</span></a></span></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679964011"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.F4vSettings.html#F4vSettings"><span class="hs-identifier hs-type">F4vSettings</span></a></span></span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679959379"><span id="local-6989586621679959381"><span id="local-6989586621679959383"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.F4vSettings.html#F4vSettings"><span class="hs-identifier hs-type">F4vSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-74"></span><span>  </span><span id="local-6989586621679959377"><span class="annot"><span class="annottext">toJSON :: F4vSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.F4vSettings.html#F4vSettings%27"><span class="hs-identifier hs-type">F4vSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679959375"><span class="annot"><span class="annottext">Maybe F4vMoovPlacement
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679964003"><span id="local-6989586621679964005"><span id="local-6989586621679964007"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.F4vSettings.html#F4vSettings"><span class="hs-identifier hs-type">F4vSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679964001"><span class="annot"><span class="annottext">toJSON :: F4vSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.F4vSettings.html#F4vSettings%27"><span class="hs-identifier hs-type">F4vSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679963999"><span class="annot"><span class="annottext">Maybe F4vMoovPlacement
 moovPlacement :: Maybe F4vMoovPlacement
 $sel:moovPlacement:F4vSettings' :: F4vSettings -&gt; Maybe F4vMoovPlacement
-</span><a href="#local-6989586621679959375"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679963999"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-76"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -179,7 +179,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-78"></span><span>              </span><span class="annot"><span class="annottext">(F4vMoovPlacement -&gt; Pair) -&gt; Maybe F4vMoovPlacement -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe F4vMoovPlacement
-</span><a href="#local-6989586621679959375"><span class="hs-identifier hs-var">moovPlacement</span></a></span><span>
+</span><a href="#local-6989586621679963999"><span class="hs-identifier hs-var">moovPlacement</span></a></span><span>
 </span><span id="line-79"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-80"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span></pre></body></html>

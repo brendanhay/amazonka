@@ -28,19 +28,19 @@
 </span><span id="line-28"></span><span class="hs-comment">-- the pipeline.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newArtifact' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679280233"><span id="local-6989586621679280234"></span></span><span class="hs-keyword">data</span><span> </span><span id="Artifact"><span class="annot"><a href="Network.AWS.CodePipeline.Types.Artifact.html#Artifact"><span class="hs-identifier hs-var">Artifact</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Artifact%27"><span class="annot"><a href="Network.AWS.CodePipeline.Types.Artifact.html#Artifact%27"><span class="hs-identifier hs-var">Artifact'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The artifact\'s name.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3Aname%3AArtifact%27"><span class="annot"><span class="annottext">Artifact -&gt; Maybe Text
+</span><span id="line-31"></span><span id="local-6989586621679280437"><span id="local-6989586621679280438"></span></span><span class="hs-keyword">data</span><span> </span><span id="Artifact"><span class="annot"><a href="Network.AWS.CodePipeline.Types.Artifact.html#Artifact"><span class="hs-identifier hs-var">Artifact</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Artifact%27"><span class="annot"><a href="Network.AWS.CodePipeline.Types.Artifact.html#Artifact%27"><span class="hs-identifier hs-var">Artifact'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The location of an artifact.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Alocation%3AArtifact%27"><span class="annot"><span class="annottext">Artifact -&gt; Maybe ArtifactLocation
+</span><a href="Network.AWS.CodePipeline.Types.Artifact.html#%24sel%3Alocation%3AArtifact%27"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ArtifactLocation.html#ArtifactLocation"><span class="hs-identifier hs-type">ArtifactLocation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The artifact\'s name.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Aname%3AArtifact%27"><span class="annot"><span class="annottext">Artifact -&gt; Maybe Text
 </span><a href="Network.AWS.CodePipeline.Types.Artifact.html#%24sel%3Aname%3AArtifact%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The artifact\'s revision ID. Depending on the type of object, this could</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- be a commit ID (GitHub) or a revision ID (Amazon S3).</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3Arevision%3AArtifact%27"><span class="annot"><span class="annottext">Artifact -&gt; Maybe Text
-</span><a href="Network.AWS.CodePipeline.Types.Artifact.html#%24sel%3Arevision%3AArtifact%27"><span class="hs-identifier hs-var hs-var">revision</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The location of an artifact.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3Alocation%3AArtifact%27"><span class="annot"><span class="annottext">Artifact -&gt; Maybe ArtifactLocation
-</span><a href="Network.AWS.CodePipeline.Types.Artifact.html#%24sel%3Alocation%3AArtifact%27"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ArtifactLocation.html#ArtifactLocation"><span class="hs-identifier hs-type">ArtifactLocation</span></a></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The artifact\'s revision ID. Depending on the type of object, this could</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- be a commit ID (GitHub) or a revision ID (Amazon S3).</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Arevision%3AArtifact%27"><span class="annot"><span class="annottext">Artifact -&gt; Maybe Text
+</span><a href="Network.AWS.CodePipeline.Types.Artifact.html#%24sel%3Arevision%3AArtifact%27"><span class="hs-identifier hs-var hs-var">revision</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679280225"><span id="local-6989586621679280227"><span class="annot"><span class="annottext">Artifact -&gt; Artifact -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679280429"><span id="local-6989586621679280431"><span class="annot"><span class="annottext">Artifact -&gt; Artifact -&gt; Bool
 (Artifact -&gt; Artifact -&gt; Bool)
 -&gt; (Artifact -&gt; Artifact -&gt; Bool) -&gt; Eq Artifact
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -48,7 +48,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Artifact -&gt; Artifact -&gt; Bool
 == :: Artifact -&gt; Artifact -&gt; Bool
 $c== :: Artifact -&gt; Artifact -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679280216"><span id="local-6989586621679280218"><span id="local-6989586621679280220"><span id="local-6989586621679280222"><span class="annot"><span class="annottext">ReadPrec [Artifact]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679280420"><span id="local-6989586621679280422"><span id="local-6989586621679280424"><span id="local-6989586621679280426"><span class="annot"><span class="annottext">ReadPrec [Artifact]
 ReadPrec Artifact
 Int -&gt; ReadS Artifact
 ReadS [Artifact]
@@ -68,7 +68,7 @@ readList :: ReadS [Artifact]
 $creadList :: ReadS [Artifact]
 readsPrec :: Int -&gt; ReadS Artifact
 $creadsPrec :: Int -&gt; ReadS Artifact
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679280209"><span id="local-6989586621679280211"><span id="local-6989586621679280213"><span class="annot"><span class="annottext">Int -&gt; Artifact -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679280413"><span id="local-6989586621679280415"><span id="local-6989586621679280417"><span class="annot"><span class="annottext">Int -&gt; Artifact -&gt; ShowS
 [Artifact] -&gt; ShowS
 Artifact -&gt; String
 (Int -&gt; Artifact -&gt; ShowS)
@@ -99,130 +99,129 @@ $cfrom :: forall x. Artifact -&gt; Rep Artifact x
 </span><span id="line-47"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-48"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-49"></span><span class="hs-comment">--</span><span>
-</span><span id="line-50"></span><span class="hs-comment">-- 'name', 'artifact_name' - The artifact\'s name.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'location', 'artifact_location' - The location of an artifact.</span><span>
 </span><span id="line-51"></span><span class="hs-comment">--</span><span>
-</span><span id="line-52"></span><span class="hs-comment">-- 'revision', 'artifact_revision' - The artifact\'s revision ID. Depending on the type of object, this could</span><span>
-</span><span id="line-53"></span><span class="hs-comment">-- be a commit ID (GitHub) or a revision ID (Amazon S3).</span><span>
-</span><span id="line-54"></span><span class="hs-comment">--</span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- 'location', 'artifact_location' - The location of an artifact.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'name', 'artifact_name' - The artifact\'s name.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'revision', 'artifact_revision' - The artifact\'s revision ID. Depending on the type of object, this could</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- be a commit ID (GitHub) or a revision ID (Amazon S3).</span><span>
 </span><span id="line-56"></span><span class="annot"><a href="Network.AWS.CodePipeline.Types.Artifact.html#newArtifact"><span class="hs-identifier hs-type">newArtifact</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-57"></span><span>  </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.Artifact.html#Artifact"><span class="hs-identifier hs-type">Artifact</span></a></span><span>
 </span><span id="line-58"></span><span id="newArtifact"><span class="annot"><span class="annottext">newArtifact :: Artifact
 </span><a href="Network.AWS.CodePipeline.Types.Artifact.html#newArtifact"><span class="hs-identifier hs-var hs-var">newArtifact</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-59"></span><span>  </span><span class="annot"><span class="annottext">Artifact' :: Maybe Text -&gt; Maybe Text -&gt; Maybe ArtifactLocation -&gt; Artifact
+</span><span id="line-59"></span><span>  </span><span class="annot"><span class="annottext">Artifact' :: Maybe ArtifactLocation -&gt; Maybe Text -&gt; Maybe Text -&gt; Artifact
 </span><a href="Network.AWS.CodePipeline.Types.Artifact.html#Artifact%27"><span class="hs-identifier hs-type">Artifact'</span></a></span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:name:Artifact' :: Maybe Text
+</span><span id="line-60"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:location:Artifact' :: Maybe ArtifactLocation
+</span><a href="Network.AWS.CodePipeline.Types.Artifact.html#%24sel%3Alocation%3AArtifact%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ArtifactLocation
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:Artifact' :: Maybe Text
 </span><a href="Network.AWS.CodePipeline.Types.Artifact.html#%24sel%3Aname%3AArtifact%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:revision:Artifact' :: Maybe Text
+</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:revision:Artifact' :: Maybe Text
 </span><a href="Network.AWS.CodePipeline.Types.Artifact.html#%24sel%3Arevision%3AArtifact%27"><span class="hs-identifier hs-var">revision</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:location:Artifact' :: Maybe ArtifactLocation
-</span><a href="Network.AWS.CodePipeline.Types.Artifact.html#%24sel%3Alocation%3AArtifact%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ArtifactLocation
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-63"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- | The artifact\'s name.</span><span>
-</span><span id="line-66"></span><span class="annot"><a href="Network.AWS.CodePipeline.Types.Artifact.html#artifact_name"><span class="hs-identifier hs-type">artifact_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.Artifact.html#Artifact"><span class="hs-identifier hs-type">Artifact</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-67"></span><span id="artifact_name"><span class="annot"><span class="annottext">artifact_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Artifact -&gt; f Artifact
-</span><a href="Network.AWS.CodePipeline.Types.Artifact.html#artifact_name"><span class="hs-identifier hs-var hs-var">artifact_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Artifact -&gt; Maybe Text)
--&gt; (Artifact -&gt; Maybe Text -&gt; Artifact)
--&gt; Lens Artifact Artifact (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.Artifact.html#Artifact%27"><span class="hs-identifier hs-type">Artifact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280200"><span class="annot"><span class="annottext">Maybe Text
-name :: Maybe Text
-$sel:name:Artifact' :: Artifact -&gt; Maybe Text
-</span><a href="#local-6989586621679280200"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679280200"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280199"><span class="annot"><span class="annottext">s :: Artifact
-</span><a href="#local-6989586621679280199"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.Artifact.html#Artifact%27"><span class="hs-identifier hs-type">Artifact'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280198"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679280198"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Artifact
-</span><a href="#local-6989586621679280199"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Artifact' :: Maybe Text
-</span><a href="Network.AWS.CodePipeline.Types.Artifact.html#%24sel%3Aname%3AArtifact%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679280198"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.Artifact.html#Artifact"><span class="hs-identifier hs-type">Artifact</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- | The artifact\'s revision ID. Depending on the type of object, this could</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- be a commit ID (GitHub) or a revision ID (Amazon S3).</span><span>
-</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.CodePipeline.Types.Artifact.html#artifact_revision"><span class="hs-identifier hs-type">artifact_revision</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.Artifact.html#Artifact"><span class="hs-identifier hs-type">Artifact</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-72"></span><span id="artifact_revision"><span class="annot"><span class="annottext">artifact_revision :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Artifact -&gt; f Artifact
-</span><a href="Network.AWS.CodePipeline.Types.Artifact.html#artifact_revision"><span class="hs-identifier hs-var hs-var">artifact_revision</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Artifact -&gt; Maybe Text)
--&gt; (Artifact -&gt; Maybe Text -&gt; Artifact)
--&gt; Lens Artifact Artifact (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.Artifact.html#Artifact%27"><span class="hs-identifier hs-type">Artifact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280196"><span class="annot"><span class="annottext">Maybe Text
-revision :: Maybe Text
-$sel:revision:Artifact' :: Artifact -&gt; Maybe Text
-</span><a href="#local-6989586621679280196"><span class="hs-identifier hs-var hs-var">revision</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679280196"><span class="hs-identifier hs-var">revision</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280195"><span class="annot"><span class="annottext">s :: Artifact
-</span><a href="#local-6989586621679280195"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.Artifact.html#Artifact%27"><span class="hs-identifier hs-type">Artifact'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280194"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679280194"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Artifact
-</span><a href="#local-6989586621679280195"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:revision:Artifact' :: Maybe Text
-</span><a href="Network.AWS.CodePipeline.Types.Artifact.html#%24sel%3Arevision%3AArtifact%27"><span class="hs-identifier hs-var">revision</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679280194"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.Artifact.html#Artifact"><span class="hs-identifier hs-type">Artifact</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- | The location of an artifact.</span><span>
-</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.CodePipeline.Types.Artifact.html#artifact_location"><span class="hs-identifier hs-type">artifact_location</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.Artifact.html#Artifact"><span class="hs-identifier hs-type">Artifact</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ArtifactLocation.html#ArtifactLocation"><span class="hs-identifier hs-type">ArtifactLocation</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-76"></span><span id="artifact_location"><span class="annot"><span class="annottext">artifact_location :: (Maybe ArtifactLocation -&gt; f (Maybe ArtifactLocation))
+</span><span id="line-65"></span><span class="hs-comment">-- | The location of an artifact.</span><span>
+</span><span id="line-66"></span><span class="annot"><a href="Network.AWS.CodePipeline.Types.Artifact.html#artifact_location"><span class="hs-identifier hs-type">artifact_location</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.Artifact.html#Artifact"><span class="hs-identifier hs-type">Artifact</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ArtifactLocation.html#ArtifactLocation"><span class="hs-identifier hs-type">ArtifactLocation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span id="artifact_location"><span class="annot"><span class="annottext">artifact_location :: (Maybe ArtifactLocation -&gt; f (Maybe ArtifactLocation))
 -&gt; Artifact -&gt; f Artifact
 </span><a href="Network.AWS.CodePipeline.Types.Artifact.html#artifact_location"><span class="hs-identifier hs-var hs-var">artifact_location</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Artifact -&gt; Maybe ArtifactLocation)
 -&gt; (Artifact -&gt; Maybe ArtifactLocation -&gt; Artifact)
 -&gt; Lens
      Artifact Artifact (Maybe ArtifactLocation) (Maybe ArtifactLocation)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.Artifact.html#Artifact%27"><span class="hs-identifier hs-type">Artifact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280192"><span class="annot"><span class="annottext">Maybe ArtifactLocation
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.Artifact.html#Artifact%27"><span class="hs-identifier hs-type">Artifact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280404"><span class="annot"><span class="annottext">Maybe ArtifactLocation
 location :: Maybe ArtifactLocation
 $sel:location:Artifact' :: Artifact -&gt; Maybe ArtifactLocation
-</span><a href="#local-6989586621679280192"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ArtifactLocation
-</span><a href="#local-6989586621679280192"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280191"><span class="annot"><span class="annottext">s :: Artifact
-</span><a href="#local-6989586621679280191"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.Artifact.html#Artifact%27"><span class="hs-identifier hs-type">Artifact'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280190"><span class="annot"><span class="annottext">Maybe ArtifactLocation
-</span><a href="#local-6989586621679280190"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Artifact
-</span><a href="#local-6989586621679280191"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:location:Artifact' :: Maybe ArtifactLocation
+</span><a href="#local-6989586621679280404"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ArtifactLocation
+</span><a href="#local-6989586621679280404"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280403"><span class="annot"><span class="annottext">s :: Artifact
+</span><a href="#local-6989586621679280403"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.Artifact.html#Artifact%27"><span class="hs-identifier hs-type">Artifact'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280402"><span class="annot"><span class="annottext">Maybe ArtifactLocation
+</span><a href="#local-6989586621679280402"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Artifact
+</span><a href="#local-6989586621679280403"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:location:Artifact' :: Maybe ArtifactLocation
 </span><a href="Network.AWS.CodePipeline.Types.Artifact.html#%24sel%3Alocation%3AArtifact%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ArtifactLocation
-</span><a href="#local-6989586621679280190"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.Artifact.html#Artifact"><span class="hs-identifier hs-type">Artifact</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679280402"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.Artifact.html#Artifact"><span class="hs-identifier hs-type">Artifact</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- | The artifact\'s name.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Network.AWS.CodePipeline.Types.Artifact.html#artifact_name"><span class="hs-identifier hs-type">artifact_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.Artifact.html#Artifact"><span class="hs-identifier hs-type">Artifact</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span id="artifact_name"><span class="annot"><span class="annottext">artifact_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Artifact -&gt; f Artifact
+</span><a href="Network.AWS.CodePipeline.Types.Artifact.html#artifact_name"><span class="hs-identifier hs-var hs-var">artifact_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Artifact -&gt; Maybe Text)
+-&gt; (Artifact -&gt; Maybe Text -&gt; Artifact)
+-&gt; Lens Artifact Artifact (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.Artifact.html#Artifact%27"><span class="hs-identifier hs-type">Artifact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280400"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:Artifact' :: Artifact -&gt; Maybe Text
+</span><a href="#local-6989586621679280400"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280400"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280399"><span class="annot"><span class="annottext">s :: Artifact
+</span><a href="#local-6989586621679280399"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.Artifact.html#Artifact%27"><span class="hs-identifier hs-type">Artifact'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280398"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280398"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Artifact
+</span><a href="#local-6989586621679280399"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Artifact' :: Maybe Text
+</span><a href="Network.AWS.CodePipeline.Types.Artifact.html#%24sel%3Aname%3AArtifact%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280398"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.Artifact.html#Artifact"><span class="hs-identifier hs-type">Artifact</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- | The artifact\'s revision ID. Depending on the type of object, this could</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- be a commit ID (GitHub) or a revision ID (Amazon S3).</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.CodePipeline.Types.Artifact.html#artifact_revision"><span class="hs-identifier hs-type">artifact_revision</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.Artifact.html#Artifact"><span class="hs-identifier hs-type">Artifact</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span id="artifact_revision"><span class="annot"><span class="annottext">artifact_revision :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Artifact -&gt; f Artifact
+</span><a href="Network.AWS.CodePipeline.Types.Artifact.html#artifact_revision"><span class="hs-identifier hs-var hs-var">artifact_revision</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Artifact -&gt; Maybe Text)
+-&gt; (Artifact -&gt; Maybe Text -&gt; Artifact)
+-&gt; Lens Artifact Artifact (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.Artifact.html#Artifact%27"><span class="hs-identifier hs-type">Artifact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280396"><span class="annot"><span class="annottext">Maybe Text
+revision :: Maybe Text
+$sel:revision:Artifact' :: Artifact -&gt; Maybe Text
+</span><a href="#local-6989586621679280396"><span class="hs-identifier hs-var hs-var">revision</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280396"><span class="hs-identifier hs-var">revision</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280395"><span class="annot"><span class="annottext">s :: Artifact
+</span><a href="#local-6989586621679280395"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.Artifact.html#Artifact%27"><span class="hs-identifier hs-type">Artifact'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280394"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280394"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Artifact
+</span><a href="#local-6989586621679280395"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:revision:Artifact' :: Maybe Text
+</span><a href="Network.AWS.CodePipeline.Types.Artifact.html#%24sel%3Arevision%3AArtifact%27"><span class="hs-identifier hs-var">revision</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280394"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.Artifact.html#Artifact"><span class="hs-identifier hs-type">Artifact</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679280187"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.Artifact.html#Artifact"><span class="hs-identifier hs-type">Artifact</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679280185"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Artifact
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679280391"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.Artifact.html#Artifact"><span class="hs-identifier hs-type">Artifact</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679280389"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Artifact
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Artifact) -&gt; Value -&gt; Parser Artifact
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Artifact&quot;</span></span><span>
-</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679280182"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679280182"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-83"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Maybe ArtifactLocation -&gt; Artifact
+</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679280386"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679280386"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>          </span><span class="annot"><span class="annottext">Maybe ArtifactLocation -&gt; Maybe Text -&gt; Maybe Text -&gt; Artifact
 </span><a href="Network.AWS.CodePipeline.Types.Artifact.html#Artifact%27"><span class="hs-identifier hs-var">Artifact'</span></a></span><span>
-</span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Maybe ArtifactLocation -&gt; Artifact)
--&gt; Parser (Maybe Text)
--&gt; Parser (Maybe Text -&gt; Maybe ArtifactLocation -&gt; Artifact)
+</span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ArtifactLocation -&gt; Maybe Text -&gt; Maybe Text -&gt; Artifact)
+-&gt; Parser (Maybe ArtifactLocation)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Artifact)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679280182"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe ArtifactLocation -&gt; Artifact)
--&gt; Parser (Maybe Text)
--&gt; Parser (Maybe ArtifactLocation -&gt; Artifact)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679280182"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;revision&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe ArtifactLocation -&gt; Artifact)
--&gt; Parser (Maybe ArtifactLocation) -&gt; Parser Artifact
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679280182"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ArtifactLocation)
+</span><a href="#local-6989586621679280386"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ArtifactLocation)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;location&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Artifact)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; Artifact)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679280386"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Artifact)
+-&gt; Parser (Maybe Text) -&gt; Parser Artifact
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679280386"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;revision&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679280176"><span id="local-6989586621679280178"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.Artifact.html#Artifact"><span class="hs-identifier hs-type">Artifact</span></a></span></span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679280380"><span id="local-6989586621679280382"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.Artifact.html#Artifact"><span class="hs-identifier hs-type">Artifact</span></a></span></span></span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679280173"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.Artifact.html#Artifact"><span class="hs-identifier hs-type">Artifact</span></a></span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679280377"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.Artifact.html#Artifact"><span class="hs-identifier hs-type">Artifact</span></a></span></span><span>
 </span><span id="line-92"></span></pre></body></html>

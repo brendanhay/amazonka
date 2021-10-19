@@ -43,9 +43,9 @@
 </span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.DeregisterType.html#newDeregisterType"><span class="hs-identifier">newDeregisterType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-44"></span><span>
 </span><span id="line-45"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.DeregisterType.html#deregisterType_typeName"><span class="hs-identifier">deregisterType_typeName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.DeregisterType.html#deregisterType_arn"><span class="hs-identifier">deregisterType_arn</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.DeregisterType.html#deregisterType_versionId"><span class="hs-identifier">deregisterType_versionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.DeregisterType.html#deregisterType_versionId"><span class="hs-identifier">deregisterType_versionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.DeregisterType.html#deregisterType_typeName"><span class="hs-identifier">deregisterType_typeName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.DeregisterType.html#deregisterType_arn"><span class="hs-identifier">deregisterType_arn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.DeregisterType.html#deregisterType_type"><span class="hs-identifier">deregisterType_type</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
@@ -65,29 +65,29 @@
 </span><span id="line-65"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- | /See:/ 'newDeregisterType' smart constructor.</span><span>
-</span><span id="line-68"></span><span id="local-6989586621679440615"><span id="local-6989586621679440616"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeregisterType"><span class="annot"><a href="Network.AWS.CloudFormation.DeregisterType.html#DeregisterType"><span class="hs-identifier hs-var">DeregisterType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeregisterType%27"><span class="annot"><a href="Network.AWS.CloudFormation.DeregisterType.html#DeregisterType%27"><span class="hs-identifier hs-var">DeregisterType'</span></a></span></span><span>
-</span><span id="line-69"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the extension.</span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- Conditional: You must specify either @TypeName@ and @Type@, or @Arn@.</span><span>
-</span><span id="line-72"></span><span>    </span><span id="%24sel%3AtypeName%3ADeregisterType%27"><span class="annot"><span class="annottext">DeregisterType -&gt; Maybe Text
-</span><a href="Network.AWS.CloudFormation.DeregisterType.html#%24sel%3AtypeName%3ADeregisterType%27"><span class="hs-identifier hs-var hs-var">typeName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the extension.</span><span>
+</span><span id="line-68"></span><span id="local-6989586621679441057"><span id="local-6989586621679441058"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeregisterType"><span class="annot"><a href="Network.AWS.CloudFormation.DeregisterType.html#DeregisterType"><span class="hs-identifier hs-var">DeregisterType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeregisterType%27"><span class="annot"><a href="Network.AWS.CloudFormation.DeregisterType.html#DeregisterType%27"><span class="hs-identifier hs-var">DeregisterType'</span></a></span></span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of a specific version of the extension. The version ID is the</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- value at the end of the Amazon Resource Name (ARN) assigned to the</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- extension version when it is registered.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AversionId%3ADeregisterType%27"><span class="annot"><span class="annottext">DeregisterType -&gt; Maybe Text
+</span><a href="Network.AWS.CloudFormation.DeregisterType.html#%24sel%3AversionId%3ADeregisterType%27"><span class="hs-identifier hs-var hs-var">versionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | The name of the extension.</span><span>
 </span><span id="line-74"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-75"></span><span>    </span><span class="hs-comment">-- Conditional: You must specify either @TypeName@ and @Type@, or @Arn@.</span><span>
-</span><span id="line-76"></span><span>    </span><span id="%24sel%3Aarn%3ADeregisterType%27"><span class="annot"><span class="annottext">DeregisterType -&gt; Maybe Text
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3AtypeName%3ADeregisterType%27"><span class="annot"><span class="annottext">DeregisterType -&gt; Maybe Text
+</span><a href="Network.AWS.CloudFormation.DeregisterType.html#%24sel%3AtypeName%3ADeregisterType%27"><span class="hs-identifier hs-var hs-var">typeName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the extension.</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- Conditional: You must specify either @TypeName@ and @Type@, or @Arn@.</span><span>
+</span><span id="line-80"></span><span>    </span><span id="%24sel%3Aarn%3ADeregisterType%27"><span class="annot"><span class="annottext">DeregisterType -&gt; Maybe Text
 </span><a href="Network.AWS.CloudFormation.DeregisterType.html#%24sel%3Aarn%3ADeregisterType%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | The ID of a specific version of the extension. The version ID is the</span><span>
-</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- value at the end of the Amazon Resource Name (ARN) assigned to the</span><span>
-</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- extension version when it is registered.</span><span>
-</span><span id="line-80"></span><span>    </span><span id="%24sel%3AversionId%3ADeregisterType%27"><span class="annot"><span class="annottext">DeregisterType -&gt; Maybe Text
-</span><a href="Network.AWS.CloudFormation.DeregisterType.html#%24sel%3AversionId%3ADeregisterType%27"><span class="hs-identifier hs-var hs-var">versionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-81"></span><span>    </span><span class="hs-comment">-- | The kind of extension.</span><span>
 </span><span id="line-82"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-83"></span><span>    </span><span class="hs-comment">-- Conditional: You must specify either @TypeName@ and @Type@, or @Arn@.</span><span>
 </span><span id="line-84"></span><span>    </span><span id="%24sel%3Atype%27%3ADeregisterType%27"><span class="annot"><span class="annottext">DeregisterType -&gt; Maybe RegistryType
 </span><a href="Network.AWS.CloudFormation.DeregisterType.html#%24sel%3Atype%27%3ADeregisterType%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.RegistryType.html#RegistryType"><span class="hs-identifier hs-type">RegistryType</span></a></span><span>
 </span><span id="line-85"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-86"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679440606"><span id="local-6989586621679440608"><span class="annot"><span class="annottext">DeregisterType -&gt; DeregisterType -&gt; Bool
+</span><span id="line-86"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679441048"><span id="local-6989586621679441050"><span class="annot"><span class="annottext">DeregisterType -&gt; DeregisterType -&gt; Bool
 (DeregisterType -&gt; DeregisterType -&gt; Bool)
 -&gt; (DeregisterType -&gt; DeregisterType -&gt; Bool) -&gt; Eq DeregisterType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -95,7 +95,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeregisterType -&gt; DeregisterType -&gt; Bool
 == :: DeregisterType -&gt; DeregisterType -&gt; Bool
 $c== :: DeregisterType -&gt; DeregisterType -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679440597"><span id="local-6989586621679440599"><span id="local-6989586621679440601"><span id="local-6989586621679440603"><span class="annot"><span class="annottext">ReadPrec [DeregisterType]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679441039"><span id="local-6989586621679441041"><span id="local-6989586621679441043"><span id="local-6989586621679441045"><span class="annot"><span class="annottext">ReadPrec [DeregisterType]
 ReadPrec DeregisterType
 Int -&gt; ReadS DeregisterType
 ReadS [DeregisterType]
@@ -115,7 +115,7 @@ readList :: ReadS [DeregisterType]
 $creadList :: ReadS [DeregisterType]
 readsPrec :: Int -&gt; ReadS DeregisterType
 $creadsPrec :: Int -&gt; ReadS DeregisterType
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679440590"><span id="local-6989586621679440592"><span id="local-6989586621679440594"><span class="annot"><span class="annottext">Int -&gt; DeregisterType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679441032"><span id="local-6989586621679441034"><span id="local-6989586621679441036"><span class="annot"><span class="annottext">Int -&gt; DeregisterType -&gt; ShowS
 [DeregisterType] -&gt; ShowS
 DeregisterType -&gt; String
 (Int -&gt; DeregisterType -&gt; ShowS)
@@ -149,17 +149,17 @@ $cfrom :: forall x. DeregisterType -&gt; Rep DeregisterType x
 </span><span id="line-93"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-95"></span><span class="hs-comment">--</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- 'typeName', 'deregisterType_typeName' - The name of the extension.</span><span>
-</span><span id="line-97"></span><span class="hs-comment">--</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- Conditional: You must specify either @TypeName@ and @Type@, or @Arn@.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'versionId', 'deregisterType_versionId' - The ID of a specific version of the extension. The version ID is the</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- value at the end of the Amazon Resource Name (ARN) assigned to the</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- extension version when it is registered.</span><span>
 </span><span id="line-99"></span><span class="hs-comment">--</span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- 'arn', 'deregisterType_arn' - The Amazon Resource Name (ARN) of the extension.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'typeName', 'deregisterType_typeName' - The name of the extension.</span><span>
 </span><span id="line-101"></span><span class="hs-comment">--</span><span>
 </span><span id="line-102"></span><span class="hs-comment">-- Conditional: You must specify either @TypeName@ and @Type@, or @Arn@.</span><span>
 </span><span id="line-103"></span><span class="hs-comment">--</span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- 'versionId', 'deregisterType_versionId' - The ID of a specific version of the extension. The version ID is the</span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- value at the end of the Amazon Resource Name (ARN) assigned to the</span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- extension version when it is registered.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- 'arn', 'deregisterType_arn' - The Amazon Resource Name (ARN) of the extension.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- Conditional: You must specify either @TypeName@ and @Type@, or @Arn@.</span><span>
 </span><span id="line-107"></span><span class="hs-comment">--</span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- 'type'', 'deregisterType_type' - The kind of extension.</span><span>
 </span><span id="line-109"></span><span class="hs-comment">--</span><span>
@@ -171,16 +171,16 @@ $cfrom :: forall x. DeregisterType -&gt; Rep DeregisterType x
 </span><span id="line-114"></span><span>  </span><span class="annot"><span class="annottext">DeregisterType' :: Maybe Text
 -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe RegistryType -&gt; DeregisterType
 </span><a href="Network.AWS.CloudFormation.DeregisterType.html#DeregisterType%27"><span class="hs-identifier hs-type">DeregisterType'</span></a></span><span>
-</span><span id="line-115"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:typeName:DeregisterType' :: Maybe Text
+</span><span id="line-115"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:versionId:DeregisterType' :: Maybe Text
+</span><a href="Network.AWS.CloudFormation.DeregisterType.html#%24sel%3AversionId%3ADeregisterType%27"><span class="hs-identifier hs-var">versionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:typeName:DeregisterType' :: Maybe Text
 </span><a href="Network.AWS.CloudFormation.DeregisterType.html#%24sel%3AtypeName%3ADeregisterType%27"><span class="hs-identifier hs-var">typeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:DeregisterType' :: Maybe Text
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:DeregisterType' :: Maybe Text
 </span><a href="Network.AWS.CloudFormation.DeregisterType.html#%24sel%3Aarn%3ADeregisterType%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:versionId:DeregisterType' :: Maybe Text
-</span><a href="Network.AWS.CloudFormation.DeregisterType.html#%24sel%3AversionId%3ADeregisterType%27"><span class="hs-identifier hs-var">versionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':DeregisterType' :: Maybe RegistryType
@@ -189,68 +189,68 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-119"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-comment">-- | The name of the extension.</span><span>
-</span><span id="line-122"></span><span class="hs-comment">--</span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- Conditional: You must specify either @TypeName@ and @Type@, or @Arn@.</span><span>
-</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.CloudFormation.DeregisterType.html#deregisterType_typeName"><span class="hs-identifier hs-type">deregisterType_typeName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DeregisterType.html#DeregisterType"><span class="hs-identifier hs-type">DeregisterType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-125"></span><span id="deregisterType_typeName"><span class="annot"><span class="annottext">deregisterType_typeName :: (Maybe Text -&gt; f (Maybe Text))
--&gt; DeregisterType -&gt; f DeregisterType
-</span><a href="Network.AWS.CloudFormation.DeregisterType.html#deregisterType_typeName"><span class="hs-identifier hs-var hs-var">deregisterType_typeName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeregisterType -&gt; Maybe Text)
--&gt; (DeregisterType -&gt; Maybe Text -&gt; DeregisterType)
--&gt; Lens DeregisterType DeregisterType (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.DeregisterType.html#DeregisterType%27"><span class="hs-identifier hs-type">DeregisterType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440583"><span class="annot"><span class="annottext">Maybe Text
-typeName :: Maybe Text
-$sel:typeName:DeregisterType' :: DeregisterType -&gt; Maybe Text
-</span><a href="#local-6989586621679440583"><span class="hs-identifier hs-var hs-var">typeName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440583"><span class="hs-identifier hs-var">typeName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440582"><span class="annot"><span class="annottext">s :: DeregisterType
-</span><a href="#local-6989586621679440582"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.DeregisterType.html#DeregisterType%27"><span class="hs-identifier hs-type">DeregisterType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440581"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440581"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeregisterType
-</span><a href="#local-6989586621679440582"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:typeName:DeregisterType' :: Maybe Text
-</span><a href="Network.AWS.CloudFormation.DeregisterType.html#%24sel%3AtypeName%3ADeregisterType%27"><span class="hs-identifier hs-var">typeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440581"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DeregisterType.html#DeregisterType"><span class="hs-identifier hs-type">DeregisterType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the extension.</span><span>
-</span><span id="line-128"></span><span class="hs-comment">--</span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- Conditional: You must specify either @TypeName@ and @Type@, or @Arn@.</span><span>
-</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.CloudFormation.DeregisterType.html#deregisterType_arn"><span class="hs-identifier hs-type">deregisterType_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DeregisterType.html#DeregisterType"><span class="hs-identifier hs-type">DeregisterType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-131"></span><span id="deregisterType_arn"><span class="annot"><span class="annottext">deregisterType_arn :: (Maybe Text -&gt; f (Maybe Text))
--&gt; DeregisterType -&gt; f DeregisterType
-</span><a href="Network.AWS.CloudFormation.DeregisterType.html#deregisterType_arn"><span class="hs-identifier hs-var hs-var">deregisterType_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeregisterType -&gt; Maybe Text)
--&gt; (DeregisterType -&gt; Maybe Text -&gt; DeregisterType)
--&gt; Lens DeregisterType DeregisterType (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.DeregisterType.html#DeregisterType%27"><span class="hs-identifier hs-type">DeregisterType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440580"><span class="annot"><span class="annottext">Maybe Text
-arn :: Maybe Text
-$sel:arn:DeregisterType' :: DeregisterType -&gt; Maybe Text
-</span><a href="#local-6989586621679440580"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440580"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440579"><span class="annot"><span class="annottext">s :: DeregisterType
-</span><a href="#local-6989586621679440579"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.DeregisterType.html#DeregisterType%27"><span class="hs-identifier hs-type">DeregisterType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440578"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440578"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeregisterType
-</span><a href="#local-6989586621679440579"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:DeregisterType' :: Maybe Text
-</span><a href="Network.AWS.CloudFormation.DeregisterType.html#%24sel%3Aarn%3ADeregisterType%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440578"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DeregisterType.html#DeregisterType"><span class="hs-identifier hs-type">DeregisterType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-132"></span><span>
-</span><span id="line-133"></span><span class="hs-comment">-- | The ID of a specific version of the extension. The version ID is the</span><span>
-</span><span id="line-134"></span><span class="hs-comment">-- value at the end of the Amazon Resource Name (ARN) assigned to the</span><span>
-</span><span id="line-135"></span><span class="hs-comment">-- extension version when it is registered.</span><span>
-</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.CloudFormation.DeregisterType.html#deregisterType_versionId"><span class="hs-identifier hs-type">deregisterType_versionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DeregisterType.html#DeregisterType"><span class="hs-identifier hs-type">DeregisterType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-137"></span><span id="deregisterType_versionId"><span class="annot"><span class="annottext">deregisterType_versionId :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-121"></span><span class="hs-comment">-- | The ID of a specific version of the extension. The version ID is the</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- value at the end of the Amazon Resource Name (ARN) assigned to the</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- extension version when it is registered.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.CloudFormation.DeregisterType.html#deregisterType_versionId"><span class="hs-identifier hs-type">deregisterType_versionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DeregisterType.html#DeregisterType"><span class="hs-identifier hs-type">DeregisterType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span id="deregisterType_versionId"><span class="annot"><span class="annottext">deregisterType_versionId :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; DeregisterType -&gt; f DeregisterType
 </span><a href="Network.AWS.CloudFormation.DeregisterType.html#deregisterType_versionId"><span class="hs-identifier hs-var hs-var">deregisterType_versionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeregisterType -&gt; Maybe Text)
 -&gt; (DeregisterType -&gt; Maybe Text -&gt; DeregisterType)
 -&gt; Lens DeregisterType DeregisterType (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.DeregisterType.html#DeregisterType%27"><span class="hs-identifier hs-type">DeregisterType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440577"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.DeregisterType.html#DeregisterType%27"><span class="hs-identifier hs-type">DeregisterType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679441025"><span class="annot"><span class="annottext">Maybe Text
 versionId :: Maybe Text
 $sel:versionId:DeregisterType' :: DeregisterType -&gt; Maybe Text
-</span><a href="#local-6989586621679440577"><span class="hs-identifier hs-var hs-var">versionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440577"><span class="hs-identifier hs-var">versionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440576"><span class="annot"><span class="annottext">s :: DeregisterType
-</span><a href="#local-6989586621679440576"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.DeregisterType.html#DeregisterType%27"><span class="hs-identifier hs-type">DeregisterType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440575"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440575"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeregisterType
-</span><a href="#local-6989586621679440576"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:versionId:DeregisterType' :: Maybe Text
+</span><a href="#local-6989586621679441025"><span class="hs-identifier hs-var hs-var">versionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679441025"><span class="hs-identifier hs-var">versionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679441024"><span class="annot"><span class="annottext">s :: DeregisterType
+</span><a href="#local-6989586621679441024"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.DeregisterType.html#DeregisterType%27"><span class="hs-identifier hs-type">DeregisterType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679441023"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679441023"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeregisterType
+</span><a href="#local-6989586621679441024"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:versionId:DeregisterType' :: Maybe Text
 </span><a href="Network.AWS.CloudFormation.DeregisterType.html#%24sel%3AversionId%3ADeregisterType%27"><span class="hs-identifier hs-var">versionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440575"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DeregisterType.html#DeregisterType"><span class="hs-identifier hs-type">DeregisterType</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679441023"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DeregisterType.html#DeregisterType"><span class="hs-identifier hs-type">DeregisterType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | The name of the extension.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- Conditional: You must specify either @TypeName@ and @Type@, or @Arn@.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.CloudFormation.DeregisterType.html#deregisterType_typeName"><span class="hs-identifier hs-type">deregisterType_typeName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DeregisterType.html#DeregisterType"><span class="hs-identifier hs-type">DeregisterType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span id="deregisterType_typeName"><span class="annot"><span class="annottext">deregisterType_typeName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DeregisterType -&gt; f DeregisterType
+</span><a href="Network.AWS.CloudFormation.DeregisterType.html#deregisterType_typeName"><span class="hs-identifier hs-var hs-var">deregisterType_typeName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeregisterType -&gt; Maybe Text)
+-&gt; (DeregisterType -&gt; Maybe Text -&gt; DeregisterType)
+-&gt; Lens DeregisterType DeregisterType (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.DeregisterType.html#DeregisterType%27"><span class="hs-identifier hs-type">DeregisterType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679441022"><span class="annot"><span class="annottext">Maybe Text
+typeName :: Maybe Text
+$sel:typeName:DeregisterType' :: DeregisterType -&gt; Maybe Text
+</span><a href="#local-6989586621679441022"><span class="hs-identifier hs-var hs-var">typeName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679441022"><span class="hs-identifier hs-var">typeName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679441021"><span class="annot"><span class="annottext">s :: DeregisterType
+</span><a href="#local-6989586621679441021"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.DeregisterType.html#DeregisterType%27"><span class="hs-identifier hs-type">DeregisterType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679441020"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679441020"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeregisterType
+</span><a href="#local-6989586621679441021"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:typeName:DeregisterType' :: Maybe Text
+</span><a href="Network.AWS.CloudFormation.DeregisterType.html#%24sel%3AtypeName%3ADeregisterType%27"><span class="hs-identifier hs-var">typeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679441020"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DeregisterType.html#DeregisterType"><span class="hs-identifier hs-type">DeregisterType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the extension.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- Conditional: You must specify either @TypeName@ and @Type@, or @Arn@.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.CloudFormation.DeregisterType.html#deregisterType_arn"><span class="hs-identifier hs-type">deregisterType_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DeregisterType.html#DeregisterType"><span class="hs-identifier hs-type">DeregisterType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span id="deregisterType_arn"><span class="annot"><span class="annottext">deregisterType_arn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DeregisterType -&gt; f DeregisterType
+</span><a href="Network.AWS.CloudFormation.DeregisterType.html#deregisterType_arn"><span class="hs-identifier hs-var hs-var">deregisterType_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeregisterType -&gt; Maybe Text)
+-&gt; (DeregisterType -&gt; Maybe Text -&gt; DeregisterType)
+-&gt; Lens DeregisterType DeregisterType (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.DeregisterType.html#DeregisterType%27"><span class="hs-identifier hs-type">DeregisterType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679441019"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:DeregisterType' :: DeregisterType -&gt; Maybe Text
+</span><a href="#local-6989586621679441019"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679441019"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679441018"><span class="annot"><span class="annottext">s :: DeregisterType
+</span><a href="#local-6989586621679441018"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.DeregisterType.html#DeregisterType%27"><span class="hs-identifier hs-type">DeregisterType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679441017"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679441017"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeregisterType
+</span><a href="#local-6989586621679441018"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:DeregisterType' :: Maybe Text
+</span><a href="Network.AWS.CloudFormation.DeregisterType.html#%24sel%3Aarn%3ADeregisterType%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679441017"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DeregisterType.html#DeregisterType"><span class="hs-identifier hs-type">DeregisterType</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-comment">-- | The kind of extension.</span><span>
 </span><span id="line-140"></span><span class="hs-comment">--</span><span>
@@ -266,27 +266,27 @@ $sel:versionId:DeregisterType' :: DeregisterType -&gt; Maybe Text
      (Maybe RegistryType)
      (Maybe RegistryType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.DeregisterType.html#DeregisterType%27"><span class="hs-identifier hs-type">DeregisterType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440574"><span class="annot"><span class="annottext">Maybe RegistryType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.DeregisterType.html#DeregisterType%27"><span class="hs-identifier hs-type">DeregisterType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679441016"><span class="annot"><span class="annottext">Maybe RegistryType
 type' :: Maybe RegistryType
 $sel:type':DeregisterType' :: DeregisterType -&gt; Maybe RegistryType
-</span><a href="#local-6989586621679440574"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RegistryType
-</span><a href="#local-6989586621679440574"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440573"><span class="annot"><span class="annottext">s :: DeregisterType
-</span><a href="#local-6989586621679440573"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.DeregisterType.html#DeregisterType%27"><span class="hs-identifier hs-type">DeregisterType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440572"><span class="annot"><span class="annottext">Maybe RegistryType
-</span><a href="#local-6989586621679440572"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeregisterType
-</span><a href="#local-6989586621679440573"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':DeregisterType' :: Maybe RegistryType
+</span><a href="#local-6989586621679441016"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RegistryType
+</span><a href="#local-6989586621679441016"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679441015"><span class="annot"><span class="annottext">s :: DeregisterType
+</span><a href="#local-6989586621679441015"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.DeregisterType.html#DeregisterType%27"><span class="hs-identifier hs-type">DeregisterType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679441014"><span class="annot"><span class="annottext">Maybe RegistryType
+</span><a href="#local-6989586621679441014"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeregisterType
+</span><a href="#local-6989586621679441015"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':DeregisterType' :: Maybe RegistryType
 </span><a href="Network.AWS.CloudFormation.DeregisterType.html#%24sel%3Atype%27%3ADeregisterType%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RegistryType
-</span><a href="#local-6989586621679440572"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DeregisterType.html#DeregisterType"><span class="hs-identifier hs-type">DeregisterType</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679441014"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DeregisterType.html#DeregisterType"><span class="hs-identifier hs-type">DeregisterType</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DeregisterType.html#DeregisterType"><span class="hs-identifier hs-type">DeregisterType</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-146"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-147"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DeregisterType.html#DeregisterType"><span class="hs-identifier hs-type">DeregisterType</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-148"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudFormation.DeregisterType.html#DeregisterTypeResponse"><span class="hs-identifier hs-type">DeregisterTypeResponse</span></a></span><span>
-</span><span id="line-149"></span><span>  </span><span id="local-6989586621679440568"><span class="annot"><span class="annottext">request :: DeregisterType -&gt; Request DeregisterType
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679441010"><span class="annot"><span class="annottext">request :: DeregisterType -&gt; Request DeregisterType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeregisterType -&gt; Request DeregisterType
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudFormation.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679440564"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679441006"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeregisterType
 -&gt; ClientResponse ClientBody
@@ -315,10 +315,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-152"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DeregisterTypeResult&quot;</span></span><span>
-</span><span id="line-153"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679440561"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679440561"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679440560"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679440560"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679440559"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679440559"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-153"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679441003"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679441003"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679441002"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679441002"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679441001"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679441001"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-154"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeregisterTypeResponse
 </span><a href="Network.AWS.CloudFormation.DeregisterType.html#DeregisterTypeResponse%27"><span class="hs-identifier hs-var">DeregisterTypeResponse'</span></a></span><span>
 </span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeregisterTypeResponse)
@@ -329,15 +329,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679440561"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679441003"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span><span>
-</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679440552"><span id="local-6989586621679440554"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DeregisterType.html#DeregisterType"><span class="hs-identifier hs-type">DeregisterType</span></a></span></span></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679440994"><span id="local-6989586621679440996"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DeregisterType.html#DeregisterType"><span class="hs-identifier hs-type">DeregisterType</span></a></span></span></span><span>
 </span><span id="line-159"></span><span>
-</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679440549"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DeregisterType.html#DeregisterType"><span class="hs-identifier hs-type">DeregisterType</span></a></span></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679440991"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DeregisterType.html#DeregisterType"><span class="hs-identifier hs-type">DeregisterType</span></a></span></span><span>
 </span><span id="line-161"></span><span>
 </span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DeregisterType.html#DeregisterType"><span class="hs-identifier hs-type">DeregisterType</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-163"></span><span>  </span><span id="local-6989586621679440545"><span class="annot"><span class="annottext">toHeaders :: DeregisterType -&gt; ResponseHeaders
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679440987"><span class="annot"><span class="annottext">toHeaders :: DeregisterType -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeregisterType -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -345,25 +345,25 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-164"></span><span>
 </span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DeregisterType.html#DeregisterType"><span class="hs-identifier hs-type">DeregisterType</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-166"></span><span>  </span><span id="local-6989586621679440540"><span class="annot"><span class="annottext">toPath :: DeregisterType -&gt; ByteString
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679440982"><span class="annot"><span class="annottext">toPath :: DeregisterType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeregisterType -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-167"></span><span>
 </span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DeregisterType.html#DeregisterType"><span class="hs-identifier hs-type">DeregisterType</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-169"></span><span>  </span><span id="local-6989586621679440536"><span class="annot"><span class="annottext">toQuery :: DeregisterType -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DeregisterType.html#DeregisterType%27"><span class="hs-identifier hs-type">DeregisterType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440531"><span id="local-6989586621679440532"><span id="local-6989586621679440533"><span id="local-6989586621679440534"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679440978"><span class="annot"><span class="annottext">toQuery :: DeregisterType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DeregisterType.html#DeregisterType%27"><span class="hs-identifier hs-type">DeregisterType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440973"><span id="local-6989586621679440974"><span id="local-6989586621679440975"><span id="local-6989586621679440976"><span class="annot"><span class="annottext">Maybe Text
 Maybe RegistryType
 type' :: Maybe RegistryType
-versionId :: Maybe Text
 arn :: Maybe Text
 typeName :: Maybe Text
+versionId :: Maybe Text
 $sel:type':DeregisterType' :: DeregisterType -&gt; Maybe RegistryType
-$sel:versionId:DeregisterType' :: DeregisterType -&gt; Maybe Text
 $sel:arn:DeregisterType' :: DeregisterType -&gt; Maybe Text
 $sel:typeName:DeregisterType' :: DeregisterType -&gt; Maybe Text
-</span><a href="#local-6989586621679440531"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:versionId:DeregisterType' :: DeregisterType -&gt; Maybe Text
+</span><a href="#local-6989586621679440973"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-170"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -380,34 +380,34 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;2010-05-15&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-175"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;TypeName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440534"><span class="hs-identifier hs-var">typeName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-176"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;Arn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440533"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-177"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;VersionId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440532"><span class="hs-identifier hs-var">versionId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679440976"><span class="hs-identifier hs-var">versionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;TypeName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679440975"><span class="hs-identifier hs-var">typeName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Arn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679440974"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-178"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Type&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe RegistryType -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe RegistryType
-</span><a href="#local-6989586621679440531"><span class="hs-identifier hs-var">type'</span></a></span><span>
+</span><a href="#local-6989586621679440973"><span class="hs-identifier hs-var">type'</span></a></span><span>
 </span><span id="line-179"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-180"></span><span>
 </span><span id="line-181"></span><span class="hs-comment">-- | /See:/ 'newDeregisterTypeResponse' smart constructor.</span><span>
-</span><span id="line-182"></span><span id="local-6989586621679440528"><span id="local-6989586621679440529"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeregisterTypeResponse"><span class="annot"><a href="Network.AWS.CloudFormation.DeregisterType.html#DeregisterTypeResponse"><span class="hs-identifier hs-var">DeregisterTypeResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeregisterTypeResponse%27"><span class="annot"><a href="Network.AWS.CloudFormation.DeregisterType.html#DeregisterTypeResponse%27"><span class="hs-identifier hs-var">DeregisterTypeResponse'</span></a></span></span><span>
+</span><span id="line-182"></span><span id="local-6989586621679440970"><span id="local-6989586621679440971"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeregisterTypeResponse"><span class="annot"><a href="Network.AWS.CloudFormation.DeregisterType.html#DeregisterTypeResponse"><span class="hs-identifier hs-var">DeregisterTypeResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeregisterTypeResponse%27"><span class="annot"><a href="Network.AWS.CloudFormation.DeregisterType.html#DeregisterTypeResponse%27"><span class="hs-identifier hs-var">DeregisterTypeResponse'</span></a></span></span><span>
 </span><span id="line-183"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-184"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeregisterTypeResponse%27"><span class="annot"><span class="annottext">DeregisterTypeResponse -&gt; Int
 </span><a href="Network.AWS.CloudFormation.DeregisterType.html#%24sel%3AhttpStatus%3ADeregisterTypeResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-185"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-186"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679440523"><span id="local-6989586621679440525"><span class="annot"><span class="annottext">DeregisterTypeResponse -&gt; DeregisterTypeResponse -&gt; Bool
+</span><span id="line-186"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679440965"><span id="local-6989586621679440967"><span class="annot"><span class="annottext">DeregisterTypeResponse -&gt; DeregisterTypeResponse -&gt; Bool
 (DeregisterTypeResponse -&gt; DeregisterTypeResponse -&gt; Bool)
 -&gt; (DeregisterTypeResponse -&gt; DeregisterTypeResponse -&gt; Bool)
 -&gt; Eq DeregisterTypeResponse
@@ -416,7 +416,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeregisterTypeResponse -&gt; DeregisterTypeResponse -&gt; Bool
 == :: DeregisterTypeResponse -&gt; DeregisterTypeResponse -&gt; Bool
 $c== :: DeregisterTypeResponse -&gt; DeregisterTypeResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679440515"><span id="local-6989586621679440517"><span id="local-6989586621679440519"><span id="local-6989586621679440521"><span class="annot"><span class="annottext">ReadPrec [DeregisterTypeResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679440957"><span id="local-6989586621679440959"><span id="local-6989586621679440961"><span id="local-6989586621679440963"><span class="annot"><span class="annottext">ReadPrec [DeregisterTypeResponse]
 ReadPrec DeregisterTypeResponse
 Int -&gt; ReadS DeregisterTypeResponse
 ReadS [DeregisterTypeResponse]
@@ -436,7 +436,7 @@ readList :: ReadS [DeregisterTypeResponse]
 $creadList :: ReadS [DeregisterTypeResponse]
 readsPrec :: Int -&gt; ReadS DeregisterTypeResponse
 $creadsPrec :: Int -&gt; ReadS DeregisterTypeResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679440509"><span id="local-6989586621679440511"><span id="local-6989586621679440513"><span class="annot"><span class="annottext">Int -&gt; DeregisterTypeResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679440951"><span id="local-6989586621679440953"><span id="local-6989586621679440955"><span class="annot"><span class="annottext">Int -&gt; DeregisterTypeResponse -&gt; ShowS
 [DeregisterTypeResponse] -&gt; ShowS
 DeregisterTypeResponse -&gt; String
 (Int -&gt; DeregisterTypeResponse -&gt; ShowS)
@@ -477,12 +477,12 @@ $cfrom :: forall x. DeregisterTypeResponse -&gt; Rep DeregisterTypeResponse x
 </span><span id="line-199"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-200"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFormation.DeregisterType.html#DeregisterTypeResponse"><span class="hs-identifier hs-type">DeregisterTypeResponse</span></a></span><span>
 </span><span id="line-201"></span><span id="newDeregisterTypeResponse"><span class="annot"><span class="annottext">newDeregisterTypeResponse :: Int -&gt; DeregisterTypeResponse
-</span><a href="Network.AWS.CloudFormation.DeregisterType.html#newDeregisterTypeResponse"><span class="hs-identifier hs-var hs-var">newDeregisterTypeResponse</span></a></span></span><span> </span><span id="local-6989586621679440506"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679440506"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudFormation.DeregisterType.html#newDeregisterTypeResponse"><span class="hs-identifier hs-var hs-var">newDeregisterTypeResponse</span></a></span></span><span> </span><span id="local-6989586621679440948"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679440948"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-202"></span><span>  </span><span class="annot"><span class="annottext">DeregisterTypeResponse' :: Int -&gt; DeregisterTypeResponse
 </span><a href="Network.AWS.CloudFormation.DeregisterType.html#DeregisterTypeResponse%27"><span class="hs-identifier hs-type">DeregisterTypeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeregisterTypeResponse' :: Int
 </span><a href="Network.AWS.CloudFormation.DeregisterType.html#%24sel%3AhttpStatus%3ADeregisterTypeResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679440506"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679440948"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-203"></span><span>
 </span><span id="line-204"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-205"></span><span class="annot"><a href="Network.AWS.CloudFormation.DeregisterType.html#deregisterTypeResponse_httpStatus"><span class="hs-identifier hs-type">deregisterTypeResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DeregisterType.html#DeregisterTypeResponse"><span class="hs-identifier hs-type">DeregisterTypeResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -492,16 +492,16 @@ $cfrom :: forall x. DeregisterTypeResponse -&gt; Rep DeregisterTypeResponse x
 -&gt; (DeregisterTypeResponse -&gt; Int -&gt; DeregisterTypeResponse)
 -&gt; Lens DeregisterTypeResponse DeregisterTypeResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.DeregisterType.html#DeregisterTypeResponse%27"><span class="hs-identifier hs-type">DeregisterTypeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440505"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.DeregisterType.html#DeregisterTypeResponse%27"><span class="hs-identifier hs-type">DeregisterTypeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440947"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeregisterTypeResponse' :: DeregisterTypeResponse -&gt; Int
-</span><a href="#local-6989586621679440505"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679440505"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440504"><span class="annot"><span class="annottext">s :: DeregisterTypeResponse
-</span><a href="#local-6989586621679440504"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.DeregisterType.html#DeregisterTypeResponse%27"><span class="hs-identifier hs-type">DeregisterTypeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440503"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679440503"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeregisterTypeResponse
-</span><a href="#local-6989586621679440504"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeregisterTypeResponse' :: Int
+</span><a href="#local-6989586621679440947"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679440947"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440946"><span class="annot"><span class="annottext">s :: DeregisterTypeResponse
+</span><a href="#local-6989586621679440946"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.DeregisterType.html#DeregisterTypeResponse%27"><span class="hs-identifier hs-type">DeregisterTypeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440945"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679440945"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeregisterTypeResponse
+</span><a href="#local-6989586621679440946"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeregisterTypeResponse' :: Int
 </span><a href="Network.AWS.CloudFormation.DeregisterType.html#%24sel%3AhttpStatus%3ADeregisterTypeResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679440503"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DeregisterType.html#DeregisterTypeResponse"><span class="hs-identifier hs-type">DeregisterTypeResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679440945"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DeregisterType.html#DeregisterTypeResponse"><span class="hs-identifier hs-type">DeregisterTypeResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-207"></span><span>
-</span><span id="line-208"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679440501"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DeregisterType.html#DeregisterTypeResponse"><span class="hs-identifier hs-type">DeregisterTypeResponse</span></a></span></span><span>
+</span><span id="line-208"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679440943"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DeregisterType.html#DeregisterTypeResponse"><span class="hs-identifier hs-type">DeregisterTypeResponse</span></a></span></span><span>
 </span><span id="line-209"></span></pre></body></html>

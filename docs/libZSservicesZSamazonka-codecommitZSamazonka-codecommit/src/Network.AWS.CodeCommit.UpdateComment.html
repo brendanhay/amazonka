@@ -48,7 +48,7 @@
 </span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-49"></span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newUpdateComment' smart constructor.</span><span>
-</span><span id="line-51"></span><span id="local-6989586621679373733"><span id="local-6989586621679373734"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateComment"><span class="annot"><a href="Network.AWS.CodeCommit.UpdateComment.html#UpdateComment"><span class="hs-identifier hs-var">UpdateComment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateComment%27"><span class="annot"><a href="Network.AWS.CodeCommit.UpdateComment.html#UpdateComment%27"><span class="hs-identifier hs-var">UpdateComment'</span></a></span></span><span>
+</span><span id="line-51"></span><span id="local-6989586621679374055"><span id="local-6989586621679374056"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateComment"><span class="annot"><a href="Network.AWS.CodeCommit.UpdateComment.html#UpdateComment"><span class="hs-identifier hs-var">UpdateComment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateComment%27"><span class="annot"><a href="Network.AWS.CodeCommit.UpdateComment.html#UpdateComment%27"><span class="hs-identifier hs-var">UpdateComment'</span></a></span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The system-generated ID of the comment you want to update. To get this</span><span>
 </span><span id="line-53"></span><span>    </span><span class="hs-comment">-- ID, use GetCommentsForComparedCommit or GetCommentsForPullRequest.</span><span>
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3AcommentId%3AUpdateComment%27"><span class="annot"><span class="annottext">UpdateComment -&gt; Text
@@ -57,7 +57,7 @@
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3Acontent%3AUpdateComment%27"><span class="annot"><span class="annottext">UpdateComment -&gt; Text
 </span><a href="Network.AWS.CodeCommit.UpdateComment.html#%24sel%3Acontent%3AUpdateComment%27"><span class="hs-identifier hs-var hs-var">content</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679373726"><span id="local-6989586621679373728"><span class="annot"><span class="annottext">UpdateComment -&gt; UpdateComment -&gt; Bool
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679374048"><span id="local-6989586621679374050"><span class="annot"><span class="annottext">UpdateComment -&gt; UpdateComment -&gt; Bool
 (UpdateComment -&gt; UpdateComment -&gt; Bool)
 -&gt; (UpdateComment -&gt; UpdateComment -&gt; Bool) -&gt; Eq UpdateComment
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -65,7 +65,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateComment -&gt; UpdateComment -&gt; Bool
 == :: UpdateComment -&gt; UpdateComment -&gt; Bool
 $c== :: UpdateComment -&gt; UpdateComment -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373717"><span id="local-6989586621679373719"><span id="local-6989586621679373721"><span id="local-6989586621679373723"><span class="annot"><span class="annottext">ReadPrec [UpdateComment]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679374039"><span id="local-6989586621679374041"><span id="local-6989586621679374043"><span id="local-6989586621679374045"><span class="annot"><span class="annottext">ReadPrec [UpdateComment]
 ReadPrec UpdateComment
 Int -&gt; ReadS UpdateComment
 ReadS [UpdateComment]
@@ -85,7 +85,7 @@ readList :: ReadS [UpdateComment]
 $creadList :: ReadS [UpdateComment]
 readsPrec :: Int -&gt; ReadS UpdateComment
 $creadsPrec :: Int -&gt; ReadS UpdateComment
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373710"><span id="local-6989586621679373712"><span id="local-6989586621679373714"><span class="annot"><span class="annottext">Int -&gt; UpdateComment -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679374032"><span id="local-6989586621679374034"><span id="local-6989586621679374036"><span class="annot"><span class="annottext">Int -&gt; UpdateComment -&gt; ShowS
 [UpdateComment] -&gt; ShowS
 UpdateComment -&gt; String
 (Int -&gt; UpdateComment -&gt; ShowS)
@@ -130,17 +130,17 @@ $cfrom :: forall x. UpdateComment -&gt; Rep UpdateComment x
 </span><span id="line-76"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdateComment.html#UpdateComment"><span class="hs-identifier hs-type">UpdateComment</span></a></span><span>
 </span><span id="line-78"></span><span id="newUpdateComment"><span class="annot"><span class="annottext">newUpdateComment :: Text -&gt; Text -&gt; UpdateComment
-</span><a href="Network.AWS.CodeCommit.UpdateComment.html#newUpdateComment"><span class="hs-identifier hs-var hs-var">newUpdateComment</span></a></span></span><span> </span><span id="local-6989586621679373705"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679373705"><span class="hs-identifier hs-var">pCommentId_</span></a></span></span><span> </span><span id="local-6989586621679373704"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679373704"><span class="hs-identifier hs-var">pContent_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodeCommit.UpdateComment.html#newUpdateComment"><span class="hs-identifier hs-var hs-var">newUpdateComment</span></a></span></span><span> </span><span id="local-6989586621679374027"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679374027"><span class="hs-identifier hs-var">pCommentId_</span></a></span></span><span> </span><span id="local-6989586621679374026"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679374026"><span class="hs-identifier hs-var">pContent_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>  </span><span class="annot"><span class="annottext">UpdateComment' :: Text -&gt; Text -&gt; UpdateComment
 </span><a href="Network.AWS.CodeCommit.UpdateComment.html#UpdateComment%27"><span class="hs-identifier hs-type">UpdateComment'</span></a></span><span>
 </span><span id="line-80"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:commentId:UpdateComment' :: Text
 </span><a href="Network.AWS.CodeCommit.UpdateComment.html#%24sel%3AcommentId%3AUpdateComment%27"><span class="hs-identifier hs-var">commentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679373705"><span class="hs-identifier hs-var">pCommentId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679374027"><span class="hs-identifier hs-var">pCommentId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:content:UpdateComment' :: Text
 </span><a href="Network.AWS.CodeCommit.UpdateComment.html#%24sel%3Acontent%3AUpdateComment%27"><span class="hs-identifier hs-var">content</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679373704"><span class="hs-identifier hs-var">pContent_</span></a></span><span>
+</span><a href="#local-6989586621679374026"><span class="hs-identifier hs-var">pContent_</span></a></span><span>
 </span><span id="line-82"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- | The system-generated ID of the comment you want to update. To get this</span><span>
@@ -151,16 +151,16 @@ $cfrom :: forall x. UpdateComment -&gt; Rep UpdateComment x
 -&gt; (UpdateComment -&gt; Text -&gt; UpdateComment)
 -&gt; Lens UpdateComment UpdateComment Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.UpdateComment.html#UpdateComment%27"><span class="hs-identifier hs-type">UpdateComment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373701"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.UpdateComment.html#UpdateComment%27"><span class="hs-identifier hs-type">UpdateComment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374023"><span class="annot"><span class="annottext">Text
 commentId :: Text
 $sel:commentId:UpdateComment' :: UpdateComment -&gt; Text
-</span><a href="#local-6989586621679373701"><span class="hs-identifier hs-var hs-var">commentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679373701"><span class="hs-identifier hs-var">commentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373700"><span class="annot"><span class="annottext">s :: UpdateComment
-</span><a href="#local-6989586621679373700"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.UpdateComment.html#UpdateComment%27"><span class="hs-identifier hs-type">UpdateComment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373699"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679373699"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateComment
-</span><a href="#local-6989586621679373700"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:commentId:UpdateComment' :: Text
+</span><a href="#local-6989586621679374023"><span class="hs-identifier hs-var hs-var">commentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679374023"><span class="hs-identifier hs-var">commentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374022"><span class="annot"><span class="annottext">s :: UpdateComment
+</span><a href="#local-6989586621679374022"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.UpdateComment.html#UpdateComment%27"><span class="hs-identifier hs-type">UpdateComment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374021"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679374021"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateComment
+</span><a href="#local-6989586621679374022"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:commentId:UpdateComment' :: Text
 </span><a href="Network.AWS.CodeCommit.UpdateComment.html#%24sel%3AcommentId%3AUpdateComment%27"><span class="hs-identifier hs-var">commentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679373699"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdateComment.html#UpdateComment"><span class="hs-identifier hs-type">UpdateComment</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679374021"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdateComment.html#UpdateComment"><span class="hs-identifier hs-type">UpdateComment</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- | The updated content to replace the existing content of the comment.</span><span>
 </span><span id="line-90"></span><span class="annot"><a href="Network.AWS.CodeCommit.UpdateComment.html#updateComment_content"><span class="hs-identifier hs-type">updateComment_content</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdateComment.html#UpdateComment"><span class="hs-identifier hs-type">UpdateComment</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -169,27 +169,27 @@ $sel:commentId:UpdateComment' :: UpdateComment -&gt; Text
 -&gt; (UpdateComment -&gt; Text -&gt; UpdateComment)
 -&gt; Lens UpdateComment UpdateComment Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.UpdateComment.html#UpdateComment%27"><span class="hs-identifier hs-type">UpdateComment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373698"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.UpdateComment.html#UpdateComment%27"><span class="hs-identifier hs-type">UpdateComment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374020"><span class="annot"><span class="annottext">Text
 content :: Text
 $sel:content:UpdateComment' :: UpdateComment -&gt; Text
-</span><a href="#local-6989586621679373698"><span class="hs-identifier hs-var hs-var">content</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679373698"><span class="hs-identifier hs-var">content</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373697"><span class="annot"><span class="annottext">s :: UpdateComment
-</span><a href="#local-6989586621679373697"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.UpdateComment.html#UpdateComment%27"><span class="hs-identifier hs-type">UpdateComment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373696"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679373696"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateComment
-</span><a href="#local-6989586621679373697"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:content:UpdateComment' :: Text
+</span><a href="#local-6989586621679374020"><span class="hs-identifier hs-var hs-var">content</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679374020"><span class="hs-identifier hs-var">content</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374019"><span class="annot"><span class="annottext">s :: UpdateComment
+</span><a href="#local-6989586621679374019"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.UpdateComment.html#UpdateComment%27"><span class="hs-identifier hs-type">UpdateComment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374018"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679374018"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateComment
+</span><a href="#local-6989586621679374019"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:content:UpdateComment' :: Text
 </span><a href="Network.AWS.CodeCommit.UpdateComment.html#%24sel%3Acontent%3AUpdateComment%27"><span class="hs-identifier hs-var">content</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679373696"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdateComment.html#UpdateComment"><span class="hs-identifier hs-type">UpdateComment</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679374018"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdateComment.html#UpdateComment"><span class="hs-identifier hs-type">UpdateComment</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdateComment.html#UpdateComment"><span class="hs-identifier hs-type">UpdateComment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-94"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-95"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdateComment.html#UpdateComment"><span class="hs-identifier hs-type">UpdateComment</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>      </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdateComment.html#UpdateCommentResponse"><span class="hs-identifier hs-type">UpdateCommentResponse</span></a></span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679373692"><span class="annot"><span class="annottext">request :: UpdateComment -&gt; Request UpdateComment
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679374014"><span class="annot"><span class="annottext">request :: UpdateComment -&gt; Request UpdateComment
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateComment -&gt; Request UpdateComment
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CodeCommit.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679373688"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679374010"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateComment
 -&gt; ClientResponse ClientBody
@@ -213,10 +213,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679373685"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679373685"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679373684"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679373684"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679373683"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679373683"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679374007"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679374007"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679374006"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679374006"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679374005"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679374005"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-101"></span><span>          </span><span class="annot"><span class="annottext">Maybe Comment -&gt; Int -&gt; UpdateCommentResponse
 </span><a href="Network.AWS.CodeCommit.UpdateComment.html#UpdateCommentResponse%27"><span class="hs-identifier hs-var">UpdateCommentResponse'</span></a></span><span>
 </span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Comment -&gt; Int -&gt; UpdateCommentResponse)
@@ -224,7 +224,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; UpdateCommentResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679373683"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Comment)
+</span><a href="#local-6989586621679374005"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Comment)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;comment&quot;</span></span><span class="hs-special">)</span><span>
@@ -236,15 +236,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679373685"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679374007"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373675"><span id="local-6989586621679373677"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdateComment.html#UpdateComment"><span class="hs-identifier hs-type">UpdateComment</span></a></span></span></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373997"><span id="local-6989586621679373999"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdateComment.html#UpdateComment"><span class="hs-identifier hs-type">UpdateComment</span></a></span></span></span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373672"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdateComment.html#UpdateComment"><span class="hs-identifier hs-type">UpdateComment</span></a></span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373994"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdateComment.html#UpdateComment"><span class="hs-identifier hs-type">UpdateComment</span></a></span></span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdateComment.html#UpdateComment"><span class="hs-identifier hs-type">UpdateComment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679373668"><span class="annot"><span class="annottext">toHeaders :: UpdateComment -&gt; ResponseHeaders
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679373990"><span class="annot"><span class="annottext">toHeaders :: UpdateComment -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateComment -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -271,14 +271,14 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-122"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373658"><span id="local-6989586621679373660"><span id="local-6989586621679373662"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdateComment.html#UpdateComment"><span class="hs-identifier hs-type">UpdateComment</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679373656"><span class="annot"><span class="annottext">toJSON :: UpdateComment -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdateComment.html#UpdateComment%27"><span class="hs-identifier hs-type">UpdateComment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373653"><span id="local-6989586621679373654"><span class="annot"><span class="annottext">Text
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373980"><span id="local-6989586621679373982"><span id="local-6989586621679373984"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdateComment.html#UpdateComment"><span class="hs-identifier hs-type">UpdateComment</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679373978"><span class="annot"><span class="annottext">toJSON :: UpdateComment -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdateComment.html#UpdateComment%27"><span class="hs-identifier hs-type">UpdateComment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373975"><span id="local-6989586621679373976"><span class="annot"><span class="annottext">Text
 content :: Text
 commentId :: Text
 $sel:content:UpdateComment' :: UpdateComment -&gt; Text
 $sel:commentId:UpdateComment' :: UpdateComment -&gt; Text
-</span><a href="#local-6989586621679373653"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679373975"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-127"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-128"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -290,26 +290,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;commentId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679373654"><span class="hs-identifier hs-var">commentId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679373976"><span class="hs-identifier hs-var">commentId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;content&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679373653"><span class="hs-identifier hs-var">content</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679373975"><span class="hs-identifier hs-var">content</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-132"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdateComment.html#UpdateComment"><span class="hs-identifier hs-type">UpdateComment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679373647"><span class="annot"><span class="annottext">toPath :: UpdateComment -&gt; ByteString
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679373969"><span class="annot"><span class="annottext">toPath :: UpdateComment -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateComment -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdateComment.html#UpdateComment"><span class="hs-identifier hs-type">UpdateComment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679373643"><span class="annot"><span class="annottext">toQuery :: UpdateComment -&gt; QueryString
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679373965"><span class="annot"><span class="annottext">toQuery :: UpdateComment -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateComment -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -317,7 +317,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-comment">-- | /See:/ 'newUpdateCommentResponse' smart constructor.</span><span>
-</span><span id="line-141"></span><span id="local-6989586621679373640"><span id="local-6989586621679373641"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateCommentResponse"><span class="annot"><a href="Network.AWS.CodeCommit.UpdateComment.html#UpdateCommentResponse"><span class="hs-identifier hs-var">UpdateCommentResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateCommentResponse%27"><span class="annot"><a href="Network.AWS.CodeCommit.UpdateComment.html#UpdateCommentResponse%27"><span class="hs-identifier hs-var">UpdateCommentResponse'</span></a></span></span><span>
+</span><span id="line-141"></span><span id="local-6989586621679373962"><span id="local-6989586621679373963"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateCommentResponse"><span class="annot"><a href="Network.AWS.CodeCommit.UpdateComment.html#UpdateCommentResponse"><span class="hs-identifier hs-var">UpdateCommentResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateCommentResponse%27"><span class="annot"><a href="Network.AWS.CodeCommit.UpdateComment.html#UpdateCommentResponse%27"><span class="hs-identifier hs-var">UpdateCommentResponse'</span></a></span></span><span>
 </span><span id="line-142"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the updated comment.</span><span>
 </span><span id="line-143"></span><span>    </span><span id="%24sel%3Acomment%3AUpdateCommentResponse%27"><span class="annot"><span class="annottext">UpdateCommentResponse -&gt; Maybe Comment
 </span><a href="Network.AWS.CodeCommit.UpdateComment.html#%24sel%3Acomment%3AUpdateCommentResponse%27"><span class="hs-identifier hs-var hs-var">comment</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Comment.html#Comment"><span class="hs-identifier hs-type">Comment</span></a></span><span class="hs-special">,</span><span>
@@ -325,7 +325,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-145"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateCommentResponse%27"><span class="annot"><span class="annottext">UpdateCommentResponse -&gt; Int
 </span><a href="Network.AWS.CodeCommit.UpdateComment.html#%24sel%3AhttpStatus%3AUpdateCommentResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-146"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-147"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679373634"><span id="local-6989586621679373636"><span class="annot"><span class="annottext">UpdateCommentResponse -&gt; UpdateCommentResponse -&gt; Bool
+</span><span id="line-147"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679373956"><span id="local-6989586621679373958"><span class="annot"><span class="annottext">UpdateCommentResponse -&gt; UpdateCommentResponse -&gt; Bool
 (UpdateCommentResponse -&gt; UpdateCommentResponse -&gt; Bool)
 -&gt; (UpdateCommentResponse -&gt; UpdateCommentResponse -&gt; Bool)
 -&gt; Eq UpdateCommentResponse
@@ -334,7 +334,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateCommentResponse -&gt; UpdateCommentResponse -&gt; Bool
 == :: UpdateCommentResponse -&gt; UpdateCommentResponse -&gt; Bool
 $c== :: UpdateCommentResponse -&gt; UpdateCommentResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373626"><span id="local-6989586621679373628"><span id="local-6989586621679373630"><span id="local-6989586621679373632"><span class="annot"><span class="annottext">ReadPrec [UpdateCommentResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373948"><span id="local-6989586621679373950"><span id="local-6989586621679373952"><span id="local-6989586621679373954"><span class="annot"><span class="annottext">ReadPrec [UpdateCommentResponse]
 ReadPrec UpdateCommentResponse
 Int -&gt; ReadS UpdateCommentResponse
 ReadS [UpdateCommentResponse]
@@ -354,7 +354,7 @@ readList :: ReadS [UpdateCommentResponse]
 $creadList :: ReadS [UpdateCommentResponse]
 readsPrec :: Int -&gt; ReadS UpdateCommentResponse
 $creadsPrec :: Int -&gt; ReadS UpdateCommentResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373620"><span id="local-6989586621679373622"><span id="local-6989586621679373624"><span class="annot"><span class="annottext">Int -&gt; UpdateCommentResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373942"><span id="local-6989586621679373944"><span id="local-6989586621679373946"><span class="annot"><span class="annottext">Int -&gt; UpdateCommentResponse -&gt; ShowS
 [UpdateCommentResponse] -&gt; ShowS
 UpdateCommentResponse -&gt; String
 (Int -&gt; UpdateCommentResponse -&gt; ShowS)
@@ -396,8 +396,8 @@ $cfrom :: forall x. UpdateCommentResponse -&gt; Rep UpdateCommentResponse x
 </span><span id="line-162"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-163"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdateComment.html#UpdateCommentResponse"><span class="hs-identifier hs-type">UpdateCommentResponse</span></a></span><span>
 </span><span id="line-164"></span><span id="newUpdateCommentResponse"><span class="annot"><span class="annottext">newUpdateCommentResponse :: Int -&gt; UpdateCommentResponse
-</span><a href="Network.AWS.CodeCommit.UpdateComment.html#newUpdateCommentResponse"><span class="hs-identifier hs-var hs-var">newUpdateCommentResponse</span></a></span></span><span> </span><span id="local-6989586621679373617"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679373617"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodeCommit.UpdateComment.html#newUpdateCommentResponse"><span class="hs-identifier hs-var hs-var">newUpdateCommentResponse</span></a></span></span><span> </span><span id="local-6989586621679373939"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679373939"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-165"></span><span>  </span><span class="annot"><span class="annottext">UpdateCommentResponse' :: Maybe Comment -&gt; Int -&gt; UpdateCommentResponse
 </span><a href="Network.AWS.CodeCommit.UpdateComment.html#UpdateCommentResponse%27"><span class="hs-identifier hs-type">UpdateCommentResponse'</span></a></span><span>
 </span><span id="line-166"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:comment:UpdateCommentResponse' :: Maybe Comment
@@ -406,7 +406,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-167"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateCommentResponse' :: Int
 </span><a href="Network.AWS.CodeCommit.UpdateComment.html#%24sel%3AhttpStatus%3AUpdateCommentResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679373617"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679373939"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-168"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-169"></span><span>
 </span><span id="line-170"></span><span class="hs-comment">-- | Information about the updated comment.</span><span>
@@ -422,16 +422,16 @@ forall a. Maybe a
      (Maybe Comment)
      (Maybe Comment)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.UpdateComment.html#UpdateCommentResponse%27"><span class="hs-identifier hs-type">UpdateCommentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373616"><span class="annot"><span class="annottext">Maybe Comment
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.UpdateComment.html#UpdateCommentResponse%27"><span class="hs-identifier hs-type">UpdateCommentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373938"><span class="annot"><span class="annottext">Maybe Comment
 comment :: Maybe Comment
 $sel:comment:UpdateCommentResponse' :: UpdateCommentResponse -&gt; Maybe Comment
-</span><a href="#local-6989586621679373616"><span class="hs-identifier hs-var hs-var">comment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Comment
-</span><a href="#local-6989586621679373616"><span class="hs-identifier hs-var">comment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373615"><span class="annot"><span class="annottext">s :: UpdateCommentResponse
-</span><a href="#local-6989586621679373615"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.UpdateComment.html#UpdateCommentResponse%27"><span class="hs-identifier hs-type">UpdateCommentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373614"><span class="annot"><span class="annottext">Maybe Comment
-</span><a href="#local-6989586621679373614"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateCommentResponse
-</span><a href="#local-6989586621679373615"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:comment:UpdateCommentResponse' :: Maybe Comment
+</span><a href="#local-6989586621679373938"><span class="hs-identifier hs-var hs-var">comment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Comment
+</span><a href="#local-6989586621679373938"><span class="hs-identifier hs-var">comment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373937"><span class="annot"><span class="annottext">s :: UpdateCommentResponse
+</span><a href="#local-6989586621679373937"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.UpdateComment.html#UpdateCommentResponse%27"><span class="hs-identifier hs-type">UpdateCommentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373936"><span class="annot"><span class="annottext">Maybe Comment
+</span><a href="#local-6989586621679373936"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateCommentResponse
+</span><a href="#local-6989586621679373937"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:comment:UpdateCommentResponse' :: Maybe Comment
 </span><a href="Network.AWS.CodeCommit.UpdateComment.html#%24sel%3Acomment%3AUpdateCommentResponse%27"><span class="hs-identifier hs-var">comment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Comment
-</span><a href="#local-6989586621679373614"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdateComment.html#UpdateCommentResponse"><span class="hs-identifier hs-type">UpdateCommentResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679373936"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdateComment.html#UpdateCommentResponse"><span class="hs-identifier hs-type">UpdateCommentResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-173"></span><span>
 </span><span id="line-174"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-175"></span><span class="annot"><a href="Network.AWS.CodeCommit.UpdateComment.html#updateCommentResponse_httpStatus"><span class="hs-identifier hs-type">updateCommentResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdateComment.html#UpdateCommentResponse"><span class="hs-identifier hs-type">UpdateCommentResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -440,16 +440,16 @@ $sel:comment:UpdateCommentResponse' :: UpdateCommentResponse -&gt; Maybe Comment
 -&gt; (UpdateCommentResponse -&gt; Int -&gt; UpdateCommentResponse)
 -&gt; Lens UpdateCommentResponse UpdateCommentResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.UpdateComment.html#UpdateCommentResponse%27"><span class="hs-identifier hs-type">UpdateCommentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373613"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.UpdateComment.html#UpdateCommentResponse%27"><span class="hs-identifier hs-type">UpdateCommentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373935"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:UpdateCommentResponse' :: UpdateCommentResponse -&gt; Int
-</span><a href="#local-6989586621679373613"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679373613"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373612"><span class="annot"><span class="annottext">s :: UpdateCommentResponse
-</span><a href="#local-6989586621679373612"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.UpdateComment.html#UpdateCommentResponse%27"><span class="hs-identifier hs-type">UpdateCommentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373611"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679373611"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateCommentResponse
-</span><a href="#local-6989586621679373612"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateCommentResponse' :: Int
+</span><a href="#local-6989586621679373935"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679373935"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373934"><span class="annot"><span class="annottext">s :: UpdateCommentResponse
+</span><a href="#local-6989586621679373934"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.UpdateComment.html#UpdateCommentResponse%27"><span class="hs-identifier hs-type">UpdateCommentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373933"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679373933"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateCommentResponse
+</span><a href="#local-6989586621679373934"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateCommentResponse' :: Int
 </span><a href="Network.AWS.CodeCommit.UpdateComment.html#%24sel%3AhttpStatus%3AUpdateCommentResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679373611"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdateComment.html#UpdateCommentResponse"><span class="hs-identifier hs-type">UpdateCommentResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679373933"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdateComment.html#UpdateCommentResponse"><span class="hs-identifier hs-type">UpdateCommentResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-177"></span><span>
-</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373609"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdateComment.html#UpdateCommentResponse"><span class="hs-identifier hs-type">UpdateCommentResponse</span></a></span></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373931"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdateComment.html#UpdateCommentResponse"><span class="hs-identifier hs-type">UpdateCommentResponse</span></a></span></span><span>
 </span><span id="line-179"></span></pre></body></html>

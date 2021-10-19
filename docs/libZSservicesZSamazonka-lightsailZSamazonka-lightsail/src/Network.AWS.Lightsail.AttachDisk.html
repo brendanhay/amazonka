@@ -55,7 +55,7 @@
 </span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newAttachDisk' smart constructor.</span><span>
-</span><span id="line-58"></span><span id="local-6989586621679662496"><span id="local-6989586621679662497"></span></span><span class="hs-keyword">data</span><span> </span><span id="AttachDisk"><span class="annot"><a href="Network.AWS.Lightsail.AttachDisk.html#AttachDisk"><span class="hs-identifier hs-var">AttachDisk</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AttachDisk%27"><span class="annot"><a href="Network.AWS.Lightsail.AttachDisk.html#AttachDisk%27"><span class="hs-identifier hs-var">AttachDisk'</span></a></span></span><span>
+</span><span id="line-58"></span><span id="local-6989586621679663557"><span id="local-6989586621679663558"></span></span><span class="hs-keyword">data</span><span> </span><span id="AttachDisk"><span class="annot"><a href="Network.AWS.Lightsail.AttachDisk.html#AttachDisk"><span class="hs-identifier hs-var">AttachDisk</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AttachDisk%27"><span class="annot"><a href="Network.AWS.Lightsail.AttachDisk.html#AttachDisk%27"><span class="hs-identifier hs-var">AttachDisk'</span></a></span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique Lightsail disk name (e.g., @my-disk@).</span><span>
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3AdiskName%3AAttachDisk%27"><span class="annot"><span class="annottext">AttachDisk -&gt; Text
 </span><a href="Network.AWS.Lightsail.AttachDisk.html#%24sel%3AdiskName%3AAttachDisk%27"><span class="hs-identifier hs-var hs-var">diskName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -67,7 +67,7 @@
 </span><span id="line-65"></span><span>    </span><span id="%24sel%3AdiskPath%3AAttachDisk%27"><span class="annot"><span class="annottext">AttachDisk -&gt; Text
 </span><a href="Network.AWS.Lightsail.AttachDisk.html#%24sel%3AdiskPath%3AAttachDisk%27"><span class="hs-identifier hs-var hs-var">diskPath</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679662488"><span id="local-6989586621679662490"><span class="annot"><span class="annottext">AttachDisk -&gt; AttachDisk -&gt; Bool
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679663549"><span id="local-6989586621679663551"><span class="annot"><span class="annottext">AttachDisk -&gt; AttachDisk -&gt; Bool
 (AttachDisk -&gt; AttachDisk -&gt; Bool)
 -&gt; (AttachDisk -&gt; AttachDisk -&gt; Bool) -&gt; Eq AttachDisk
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -75,7 +75,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AttachDisk -&gt; AttachDisk -&gt; Bool
 == :: AttachDisk -&gt; AttachDisk -&gt; Bool
 $c== :: AttachDisk -&gt; AttachDisk -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679662479"><span id="local-6989586621679662481"><span id="local-6989586621679662483"><span id="local-6989586621679662485"><span class="annot"><span class="annottext">ReadPrec [AttachDisk]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679663540"><span id="local-6989586621679663542"><span id="local-6989586621679663544"><span id="local-6989586621679663546"><span class="annot"><span class="annottext">ReadPrec [AttachDisk]
 ReadPrec AttachDisk
 Int -&gt; ReadS AttachDisk
 ReadS [AttachDisk]
@@ -95,7 +95,7 @@ readList :: ReadS [AttachDisk]
 $creadList :: ReadS [AttachDisk]
 readsPrec :: Int -&gt; ReadS AttachDisk
 $creadsPrec :: Int -&gt; ReadS AttachDisk
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679662472"><span id="local-6989586621679662474"><span id="local-6989586621679662476"><span class="annot"><span class="annottext">Int -&gt; AttachDisk -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679663533"><span id="local-6989586621679663535"><span id="local-6989586621679663537"><span class="annot"><span class="annottext">Int -&gt; AttachDisk -&gt; ShowS
 [AttachDisk] -&gt; ShowS
 AttachDisk -&gt; String
 (Int -&gt; AttachDisk -&gt; ShowS)
@@ -143,21 +143,21 @@ $cfrom :: forall x. AttachDisk -&gt; Rep AttachDisk x
 </span><span id="line-89"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-90"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.AttachDisk.html#AttachDisk"><span class="hs-identifier hs-type">AttachDisk</span></a></span><span>
 </span><span id="line-91"></span><span id="newAttachDisk"><span class="annot"><span class="annottext">newAttachDisk :: Text -&gt; Text -&gt; Text -&gt; AttachDisk
-</span><a href="Network.AWS.Lightsail.AttachDisk.html#newAttachDisk"><span class="hs-identifier hs-var hs-var">newAttachDisk</span></a></span></span><span> </span><span id="local-6989586621679662467"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679662467"><span class="hs-identifier hs-var">pDiskName_</span></a></span></span><span> </span><span id="local-6989586621679662466"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679662466"><span class="hs-identifier hs-var">pInstanceName_</span></a></span></span><span> </span><span id="local-6989586621679662465"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679662465"><span class="hs-identifier hs-var">pDiskPath_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lightsail.AttachDisk.html#newAttachDisk"><span class="hs-identifier hs-var hs-var">newAttachDisk</span></a></span></span><span> </span><span id="local-6989586621679663528"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679663528"><span class="hs-identifier hs-var">pDiskName_</span></a></span></span><span> </span><span id="local-6989586621679663527"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679663527"><span class="hs-identifier hs-var">pInstanceName_</span></a></span></span><span> </span><span id="local-6989586621679663526"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679663526"><span class="hs-identifier hs-var">pDiskPath_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-92"></span><span>  </span><span class="annot"><span class="annottext">AttachDisk' :: Text -&gt; Text -&gt; Text -&gt; AttachDisk
 </span><a href="Network.AWS.Lightsail.AttachDisk.html#AttachDisk%27"><span class="hs-identifier hs-type">AttachDisk'</span></a></span><span>
 </span><span id="line-93"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:diskName:AttachDisk' :: Text
 </span><a href="Network.AWS.Lightsail.AttachDisk.html#%24sel%3AdiskName%3AAttachDisk%27"><span class="hs-identifier hs-var">diskName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679662467"><span class="hs-identifier hs-var">pDiskName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679663528"><span class="hs-identifier hs-var">pDiskName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceName:AttachDisk' :: Text
 </span><a href="Network.AWS.Lightsail.AttachDisk.html#%24sel%3AinstanceName%3AAttachDisk%27"><span class="hs-identifier hs-var">instanceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679662466"><span class="hs-identifier hs-var">pInstanceName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679663527"><span class="hs-identifier hs-var">pInstanceName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:diskPath:AttachDisk' :: Text
 </span><a href="Network.AWS.Lightsail.AttachDisk.html#%24sel%3AdiskPath%3AAttachDisk%27"><span class="hs-identifier hs-var">diskPath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679662465"><span class="hs-identifier hs-var">pDiskPath_</span></a></span><span>
+</span><a href="#local-6989586621679663526"><span class="hs-identifier hs-var">pDiskPath_</span></a></span><span>
 </span><span id="line-96"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- | The unique Lightsail disk name (e.g., @my-disk@).</span><span>
@@ -167,16 +167,16 @@ $cfrom :: forall x. AttachDisk -&gt; Rep AttachDisk x
 -&gt; (AttachDisk -&gt; Text -&gt; AttachDisk)
 -&gt; Lens AttachDisk AttachDisk Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.AttachDisk.html#AttachDisk%27"><span class="hs-identifier hs-type">AttachDisk'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679662462"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.AttachDisk.html#AttachDisk%27"><span class="hs-identifier hs-type">AttachDisk'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679663523"><span class="annot"><span class="annottext">Text
 diskName :: Text
 $sel:diskName:AttachDisk' :: AttachDisk -&gt; Text
-</span><a href="#local-6989586621679662462"><span class="hs-identifier hs-var hs-var">diskName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679662462"><span class="hs-identifier hs-var">diskName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679662461"><span class="annot"><span class="annottext">s :: AttachDisk
-</span><a href="#local-6989586621679662461"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.AttachDisk.html#AttachDisk%27"><span class="hs-identifier hs-type">AttachDisk'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679662460"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679662460"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttachDisk
-</span><a href="#local-6989586621679662461"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:diskName:AttachDisk' :: Text
+</span><a href="#local-6989586621679663523"><span class="hs-identifier hs-var hs-var">diskName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679663523"><span class="hs-identifier hs-var">diskName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679663522"><span class="annot"><span class="annottext">s :: AttachDisk
+</span><a href="#local-6989586621679663522"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.AttachDisk.html#AttachDisk%27"><span class="hs-identifier hs-type">AttachDisk'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679663521"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679663521"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttachDisk
+</span><a href="#local-6989586621679663522"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:diskName:AttachDisk' :: Text
 </span><a href="Network.AWS.Lightsail.AttachDisk.html#%24sel%3AdiskName%3AAttachDisk%27"><span class="hs-identifier hs-var">diskName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679662460"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AttachDisk.html#AttachDisk"><span class="hs-identifier hs-type">AttachDisk</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679663521"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AttachDisk.html#AttachDisk"><span class="hs-identifier hs-type">AttachDisk</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-comment">-- | The name of the Lightsail instance where you want to utilize the storage</span><span>
 </span><span id="line-103"></span><span class="hs-comment">-- disk.</span><span>
@@ -186,16 +186,16 @@ $sel:diskName:AttachDisk' :: AttachDisk -&gt; Text
 -&gt; (AttachDisk -&gt; Text -&gt; AttachDisk)
 -&gt; Lens AttachDisk AttachDisk Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.AttachDisk.html#AttachDisk%27"><span class="hs-identifier hs-type">AttachDisk'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679662459"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.AttachDisk.html#AttachDisk%27"><span class="hs-identifier hs-type">AttachDisk'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679663520"><span class="annot"><span class="annottext">Text
 instanceName :: Text
 $sel:instanceName:AttachDisk' :: AttachDisk -&gt; Text
-</span><a href="#local-6989586621679662459"><span class="hs-identifier hs-var hs-var">instanceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679662459"><span class="hs-identifier hs-var">instanceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679662458"><span class="annot"><span class="annottext">s :: AttachDisk
-</span><a href="#local-6989586621679662458"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.AttachDisk.html#AttachDisk%27"><span class="hs-identifier hs-type">AttachDisk'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679662457"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679662457"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttachDisk
-</span><a href="#local-6989586621679662458"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceName:AttachDisk' :: Text
+</span><a href="#local-6989586621679663520"><span class="hs-identifier hs-var hs-var">instanceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679663520"><span class="hs-identifier hs-var">instanceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679663519"><span class="annot"><span class="annottext">s :: AttachDisk
+</span><a href="#local-6989586621679663519"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.AttachDisk.html#AttachDisk%27"><span class="hs-identifier hs-type">AttachDisk'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679663518"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679663518"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttachDisk
+</span><a href="#local-6989586621679663519"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceName:AttachDisk' :: Text
 </span><a href="Network.AWS.Lightsail.AttachDisk.html#%24sel%3AinstanceName%3AAttachDisk%27"><span class="hs-identifier hs-var">instanceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679662457"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AttachDisk.html#AttachDisk"><span class="hs-identifier hs-type">AttachDisk</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679663518"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AttachDisk.html#AttachDisk"><span class="hs-identifier hs-type">AttachDisk</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-comment">-- | The disk path to expose to the instance (e.g., @\/dev\/xvdf@).</span><span>
 </span><span id="line-108"></span><span class="annot"><a href="Network.AWS.Lightsail.AttachDisk.html#attachDisk_diskPath"><span class="hs-identifier hs-type">attachDisk_diskPath</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AttachDisk.html#AttachDisk"><span class="hs-identifier hs-type">AttachDisk</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -204,25 +204,25 @@ $sel:instanceName:AttachDisk' :: AttachDisk -&gt; Text
 -&gt; (AttachDisk -&gt; Text -&gt; AttachDisk)
 -&gt; Lens AttachDisk AttachDisk Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.AttachDisk.html#AttachDisk%27"><span class="hs-identifier hs-type">AttachDisk'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679662456"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.AttachDisk.html#AttachDisk%27"><span class="hs-identifier hs-type">AttachDisk'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679663517"><span class="annot"><span class="annottext">Text
 diskPath :: Text
 $sel:diskPath:AttachDisk' :: AttachDisk -&gt; Text
-</span><a href="#local-6989586621679662456"><span class="hs-identifier hs-var hs-var">diskPath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679662456"><span class="hs-identifier hs-var">diskPath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679662455"><span class="annot"><span class="annottext">s :: AttachDisk
-</span><a href="#local-6989586621679662455"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.AttachDisk.html#AttachDisk%27"><span class="hs-identifier hs-type">AttachDisk'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679662454"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679662454"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttachDisk
-</span><a href="#local-6989586621679662455"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:diskPath:AttachDisk' :: Text
+</span><a href="#local-6989586621679663517"><span class="hs-identifier hs-var hs-var">diskPath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679663517"><span class="hs-identifier hs-var">diskPath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679663516"><span class="annot"><span class="annottext">s :: AttachDisk
+</span><a href="#local-6989586621679663516"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.AttachDisk.html#AttachDisk%27"><span class="hs-identifier hs-type">AttachDisk'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679663515"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679663515"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttachDisk
+</span><a href="#local-6989586621679663516"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:diskPath:AttachDisk' :: Text
 </span><a href="Network.AWS.Lightsail.AttachDisk.html#%24sel%3AdiskPath%3AAttachDisk%27"><span class="hs-identifier hs-var">diskPath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679662454"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AttachDisk.html#AttachDisk"><span class="hs-identifier hs-type">AttachDisk</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679663515"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AttachDisk.html#AttachDisk"><span class="hs-identifier hs-type">AttachDisk</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AttachDisk.html#AttachDisk"><span class="hs-identifier hs-type">AttachDisk</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-112"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AttachDisk.html#AttachDisk"><span class="hs-identifier hs-type">AttachDisk</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AttachDisk.html#AttachDiskResponse"><span class="hs-identifier hs-type">AttachDiskResponse</span></a></span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679662450"><span class="annot"><span class="annottext">request :: AttachDisk -&gt; Request AttachDisk
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679663511"><span class="annot"><span class="annottext">request :: AttachDisk -&gt; Request AttachDisk
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; AttachDisk -&gt; Request AttachDisk
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Lightsail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679662446"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679663507"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy AttachDisk
 -&gt; ClientResponse ClientBody
@@ -246,10 +246,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679662443"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679662443"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679662442"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679662442"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679662441"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679662441"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679663504"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679663504"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679663503"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679663503"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679663502"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679663502"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-117"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Operation] -&gt; Int -&gt; AttachDiskResponse
 </span><a href="Network.AWS.Lightsail.AttachDisk.html#AttachDiskResponse%27"><span class="hs-identifier hs-var">AttachDiskResponse'</span></a></span><span>
 </span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Operation] -&gt; Int -&gt; AttachDiskResponse)
@@ -257,7 +257,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; AttachDiskResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679662441"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Operation]))
+</span><a href="#local-6989586621679663502"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Operation]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;operations&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Operation]))
@@ -274,15 +274,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679662443"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679663504"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679662432"><span id="local-6989586621679662434"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AttachDisk.html#AttachDisk"><span class="hs-identifier hs-type">AttachDisk</span></a></span></span></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679663493"><span id="local-6989586621679663495"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AttachDisk.html#AttachDisk"><span class="hs-identifier hs-type">AttachDisk</span></a></span></span></span><span>
 </span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679662429"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AttachDisk.html#AttachDisk"><span class="hs-identifier hs-type">AttachDisk</span></a></span></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679663490"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AttachDisk.html#AttachDisk"><span class="hs-identifier hs-type">AttachDisk</span></a></span></span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AttachDisk.html#AttachDisk"><span class="hs-identifier hs-type">AttachDisk</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679662425"><span class="annot"><span class="annottext">toHeaders :: AttachDisk -&gt; ResponseHeaders
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679663486"><span class="annot"><span class="annottext">toHeaders :: AttachDisk -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-128"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; AttachDisk -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -309,16 +309,16 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-138"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-139"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>
-</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679662415"><span id="local-6989586621679662417"><span id="local-6989586621679662419"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AttachDisk.html#AttachDisk"><span class="hs-identifier hs-type">AttachDisk</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679662413"><span class="annot"><span class="annottext">toJSON :: AttachDisk -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AttachDisk.html#AttachDisk%27"><span class="hs-identifier hs-type">AttachDisk'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679662409"><span id="local-6989586621679662410"><span id="local-6989586621679662411"><span class="annot"><span class="annottext">Text
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679663476"><span id="local-6989586621679663478"><span id="local-6989586621679663480"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AttachDisk.html#AttachDisk"><span class="hs-identifier hs-type">AttachDisk</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679663474"><span class="annot"><span class="annottext">toJSON :: AttachDisk -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AttachDisk.html#AttachDisk%27"><span class="hs-identifier hs-type">AttachDisk'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679663470"><span id="local-6989586621679663471"><span id="local-6989586621679663472"><span class="annot"><span class="annottext">Text
 diskPath :: Text
 instanceName :: Text
 diskName :: Text
 $sel:diskPath:AttachDisk' :: AttachDisk -&gt; Text
 $sel:instanceName:AttachDisk' :: AttachDisk -&gt; Text
 $sel:diskName:AttachDisk' :: AttachDisk -&gt; Text
-</span><a href="#local-6989586621679662409"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679663470"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-143"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-144"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -330,33 +330,33 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;diskName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679662411"><span class="hs-identifier hs-var">diskName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679663472"><span class="hs-identifier hs-var">diskName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;instanceName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679662410"><span class="hs-identifier hs-var">instanceName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679663471"><span class="hs-identifier hs-var">instanceName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;diskPath&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679662409"><span class="hs-identifier hs-var">diskPath</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679663470"><span class="hs-identifier hs-var">diskPath</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-149"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AttachDisk.html#AttachDisk"><span class="hs-identifier hs-type">AttachDisk</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-152"></span><span>  </span><span id="local-6989586621679662403"><span class="annot"><span class="annottext">toPath :: AttachDisk -&gt; ByteString
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679663464"><span class="annot"><span class="annottext">toPath :: AttachDisk -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; AttachDisk -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-153"></span><span>
 </span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AttachDisk.html#AttachDisk"><span class="hs-identifier hs-type">AttachDisk</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-155"></span><span>  </span><span id="local-6989586621679662399"><span class="annot"><span class="annottext">toQuery :: AttachDisk -&gt; QueryString
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679663460"><span class="annot"><span class="annottext">toQuery :: AttachDisk -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; AttachDisk -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -364,7 +364,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-comment">-- | /See:/ 'newAttachDiskResponse' smart constructor.</span><span>
-</span><span id="line-158"></span><span id="local-6989586621679662396"><span id="local-6989586621679662397"></span></span><span class="hs-keyword">data</span><span> </span><span id="AttachDiskResponse"><span class="annot"><a href="Network.AWS.Lightsail.AttachDisk.html#AttachDiskResponse"><span class="hs-identifier hs-var">AttachDiskResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AttachDiskResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.AttachDisk.html#AttachDiskResponse%27"><span class="hs-identifier hs-var">AttachDiskResponse'</span></a></span></span><span>
+</span><span id="line-158"></span><span id="local-6989586621679663457"><span id="local-6989586621679663458"></span></span><span class="hs-keyword">data</span><span> </span><span id="AttachDiskResponse"><span class="annot"><a href="Network.AWS.Lightsail.AttachDisk.html#AttachDiskResponse"><span class="hs-identifier hs-var">AttachDiskResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AttachDiskResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.AttachDisk.html#AttachDiskResponse%27"><span class="hs-identifier hs-var">AttachDiskResponse'</span></a></span></span><span>
 </span><span id="line-159"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of objects that describe the result of the action, such as the</span><span>
 </span><span id="line-160"></span><span>    </span><span class="hs-comment">-- status of the request, the timestamp of the request, and the resources</span><span>
 </span><span id="line-161"></span><span>    </span><span class="hs-comment">-- affected by the request.</span><span>
@@ -374,7 +374,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-164"></span><span>    </span><span id="%24sel%3AhttpStatus%3AAttachDiskResponse%27"><span class="annot"><span class="annottext">AttachDiskResponse -&gt; Int
 </span><a href="Network.AWS.Lightsail.AttachDisk.html#%24sel%3AhttpStatus%3AAttachDiskResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-165"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-166"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679662390"><span id="local-6989586621679662392"><span class="annot"><span class="annottext">AttachDiskResponse -&gt; AttachDiskResponse -&gt; Bool
+</span><span id="line-166"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679663451"><span id="local-6989586621679663453"><span class="annot"><span class="annottext">AttachDiskResponse -&gt; AttachDiskResponse -&gt; Bool
 (AttachDiskResponse -&gt; AttachDiskResponse -&gt; Bool)
 -&gt; (AttachDiskResponse -&gt; AttachDiskResponse -&gt; Bool)
 -&gt; Eq AttachDiskResponse
@@ -383,7 +383,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AttachDiskResponse -&gt; AttachDiskResponse -&gt; Bool
 == :: AttachDiskResponse -&gt; AttachDiskResponse -&gt; Bool
 $c== :: AttachDiskResponse -&gt; AttachDiskResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679662382"><span id="local-6989586621679662384"><span id="local-6989586621679662386"><span id="local-6989586621679662388"><span class="annot"><span class="annottext">ReadPrec [AttachDiskResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679663443"><span id="local-6989586621679663445"><span id="local-6989586621679663447"><span id="local-6989586621679663449"><span class="annot"><span class="annottext">ReadPrec [AttachDiskResponse]
 ReadPrec AttachDiskResponse
 Int -&gt; ReadS AttachDiskResponse
 ReadS [AttachDiskResponse]
@@ -403,7 +403,7 @@ readList :: ReadS [AttachDiskResponse]
 $creadList :: ReadS [AttachDiskResponse]
 readsPrec :: Int -&gt; ReadS AttachDiskResponse
 $creadsPrec :: Int -&gt; ReadS AttachDiskResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679662376"><span id="local-6989586621679662378"><span id="local-6989586621679662380"><span class="annot"><span class="annottext">Int -&gt; AttachDiskResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679663437"><span id="local-6989586621679663439"><span id="local-6989586621679663441"><span class="annot"><span class="annottext">Int -&gt; AttachDiskResponse -&gt; ShowS
 [AttachDiskResponse] -&gt; ShowS
 AttachDiskResponse -&gt; String
 (Int -&gt; AttachDiskResponse -&gt; ShowS)
@@ -447,8 +447,8 @@ $cfrom :: forall x. AttachDiskResponse -&gt; Rep AttachDiskResponse x
 </span><span id="line-183"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-184"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.AttachDisk.html#AttachDiskResponse"><span class="hs-identifier hs-type">AttachDiskResponse</span></a></span><span>
 </span><span id="line-185"></span><span id="newAttachDiskResponse"><span class="annot"><span class="annottext">newAttachDiskResponse :: Int -&gt; AttachDiskResponse
-</span><a href="Network.AWS.Lightsail.AttachDisk.html#newAttachDiskResponse"><span class="hs-identifier hs-var hs-var">newAttachDiskResponse</span></a></span></span><span> </span><span id="local-6989586621679662373"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679662373"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lightsail.AttachDisk.html#newAttachDiskResponse"><span class="hs-identifier hs-var hs-var">newAttachDiskResponse</span></a></span></span><span> </span><span id="local-6989586621679663434"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679663434"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-186"></span><span>  </span><span class="annot"><span class="annottext">AttachDiskResponse' :: Maybe [Operation] -&gt; Int -&gt; AttachDiskResponse
 </span><a href="Network.AWS.Lightsail.AttachDisk.html#AttachDiskResponse%27"><span class="hs-identifier hs-type">AttachDiskResponse'</span></a></span><span>
 </span><span id="line-187"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:operations:AttachDiskResponse' :: Maybe [Operation]
@@ -457,7 +457,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-188"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:AttachDiskResponse' :: Int
 </span><a href="Network.AWS.Lightsail.AttachDisk.html#%24sel%3AhttpStatus%3AAttachDiskResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679662373"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679663434"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-189"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-190"></span><span>
 </span><span id="line-191"></span><span class="hs-comment">-- | An array of objects that describe the result of the action, such as the</span><span>
@@ -474,16 +474,16 @@ forall a. Maybe a
      (Maybe [Operation])
      (Maybe [Operation])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.AttachDisk.html#AttachDiskResponse%27"><span class="hs-identifier hs-type">AttachDiskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679662372"><span class="annot"><span class="annottext">Maybe [Operation]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.AttachDisk.html#AttachDiskResponse%27"><span class="hs-identifier hs-type">AttachDiskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679663433"><span class="annot"><span class="annottext">Maybe [Operation]
 operations :: Maybe [Operation]
 $sel:operations:AttachDiskResponse' :: AttachDiskResponse -&gt; Maybe [Operation]
-</span><a href="#local-6989586621679662372"><span class="hs-identifier hs-var hs-var">operations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Operation]
-</span><a href="#local-6989586621679662372"><span class="hs-identifier hs-var">operations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679662371"><span class="annot"><span class="annottext">s :: AttachDiskResponse
-</span><a href="#local-6989586621679662371"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.AttachDisk.html#AttachDiskResponse%27"><span class="hs-identifier hs-type">AttachDiskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679662370"><span class="annot"><span class="annottext">Maybe [Operation]
-</span><a href="#local-6989586621679662370"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttachDiskResponse
-</span><a href="#local-6989586621679662371"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operations:AttachDiskResponse' :: Maybe [Operation]
+</span><a href="#local-6989586621679663433"><span class="hs-identifier hs-var hs-var">operations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Operation]
+</span><a href="#local-6989586621679663433"><span class="hs-identifier hs-var">operations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679663432"><span class="annot"><span class="annottext">s :: AttachDiskResponse
+</span><a href="#local-6989586621679663432"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.AttachDisk.html#AttachDiskResponse%27"><span class="hs-identifier hs-type">AttachDiskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679663431"><span class="annot"><span class="annottext">Maybe [Operation]
+</span><a href="#local-6989586621679663431"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttachDiskResponse
+</span><a href="#local-6989586621679663432"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operations:AttachDiskResponse' :: Maybe [Operation]
 </span><a href="Network.AWS.Lightsail.AttachDisk.html#%24sel%3Aoperations%3AAttachDiskResponse%27"><span class="hs-identifier hs-var">operations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Operation]
-</span><a href="#local-6989586621679662370"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AttachDisk.html#AttachDiskResponse"><span class="hs-identifier hs-type">AttachDiskResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Operation] -&gt; f (Maybe [Operation]))
+</span><a href="#local-6989586621679663431"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AttachDisk.html#AttachDiskResponse"><span class="hs-identifier hs-type">AttachDiskResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Operation] -&gt; f (Maybe [Operation]))
  -&gt; AttachDiskResponse -&gt; f AttachDiskResponse)
 -&gt; ((Maybe [Operation] -&gt; f (Maybe [Operation]))
     -&gt; Maybe [Operation] -&gt; f (Maybe [Operation]))
@@ -501,8 +501,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Operation] [Operation] [Operation] [Operation]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-196"></span><span>
 </span><span id="line-197"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-198"></span><span class="annot"><a href="Network.AWS.Lightsail.AttachDisk.html#attachDiskResponse_httpStatus"><span class="hs-identifier hs-type">attachDiskResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AttachDisk.html#AttachDiskResponse"><span class="hs-identifier hs-type">AttachDiskResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -511,16 +511,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (AttachDiskResponse -&gt; Int -&gt; AttachDiskResponse)
 -&gt; Lens AttachDiskResponse AttachDiskResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.AttachDisk.html#AttachDiskResponse%27"><span class="hs-identifier hs-type">AttachDiskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679662366"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.AttachDisk.html#AttachDiskResponse%27"><span class="hs-identifier hs-type">AttachDiskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679663427"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:AttachDiskResponse' :: AttachDiskResponse -&gt; Int
-</span><a href="#local-6989586621679662366"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679662366"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679662365"><span class="annot"><span class="annottext">s :: AttachDiskResponse
-</span><a href="#local-6989586621679662365"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.AttachDisk.html#AttachDiskResponse%27"><span class="hs-identifier hs-type">AttachDiskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679662364"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679662364"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttachDiskResponse
-</span><a href="#local-6989586621679662365"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AttachDiskResponse' :: Int
+</span><a href="#local-6989586621679663427"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679663427"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679663426"><span class="annot"><span class="annottext">s :: AttachDiskResponse
+</span><a href="#local-6989586621679663426"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.AttachDisk.html#AttachDiskResponse%27"><span class="hs-identifier hs-type">AttachDiskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679663425"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679663425"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttachDiskResponse
+</span><a href="#local-6989586621679663426"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AttachDiskResponse' :: Int
 </span><a href="Network.AWS.Lightsail.AttachDisk.html#%24sel%3AhttpStatus%3AAttachDiskResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679662364"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AttachDisk.html#AttachDiskResponse"><span class="hs-identifier hs-type">AttachDiskResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679663425"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AttachDisk.html#AttachDiskResponse"><span class="hs-identifier hs-type">AttachDiskResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-200"></span><span>
-</span><span id="line-201"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679662362"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AttachDisk.html#AttachDiskResponse"><span class="hs-identifier hs-type">AttachDiskResponse</span></a></span></span><span>
+</span><span id="line-201"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679663423"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AttachDisk.html#AttachDiskResponse"><span class="hs-identifier hs-type">AttachDiskResponse</span></a></span></span><span>
 </span><span id="line-202"></span></pre></body></html>

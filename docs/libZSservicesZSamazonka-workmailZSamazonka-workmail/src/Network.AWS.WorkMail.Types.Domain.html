@@ -32,7 +32,7 @@
 </span><span id="line-32"></span><span class="hs-comment">-- in the /Amazon WorkMail Administrator Guide/.</span><span>
 </span><span id="line-33"></span><span class="hs-comment">--</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newDomain' smart constructor.</span><span>
-</span><span id="line-35"></span><span id="local-6989586621679258604"><span id="local-6989586621679258605"></span></span><span class="hs-keyword">data</span><span> </span><span id="Domain"><span class="annot"><a href="Network.AWS.WorkMail.Types.Domain.html#Domain"><span class="hs-identifier hs-var">Domain</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Domain%27"><span class="annot"><a href="Network.AWS.WorkMail.Types.Domain.html#Domain%27"><span class="hs-identifier hs-var">Domain'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679279088"><span id="local-6989586621679279089"></span></span><span class="hs-keyword">data</span><span> </span><span id="Domain"><span class="annot"><a href="Network.AWS.WorkMail.Types.Domain.html#Domain"><span class="hs-identifier hs-var">Domain</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Domain%27"><span class="annot"><a href="Network.AWS.WorkMail.Types.Domain.html#Domain%27"><span class="hs-identifier hs-var">Domain'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The hosted zone ID for a domain hosted in Route 53. Required when</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">-- configuring a domain hosted in Route 53.</span><span>
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3AhostedZoneId%3ADomain%27"><span class="annot"><span class="annottext">Domain -&gt; Maybe Text
@@ -41,7 +41,7 @@
 </span><span id="line-40"></span><span>    </span><span id="%24sel%3AdomainName%3ADomain%27"><span class="annot"><span class="annottext">Domain -&gt; Maybe Text
 </span><a href="Network.AWS.WorkMail.Types.Domain.html#%24sel%3AdomainName%3ADomain%27"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679258597"><span id="local-6989586621679258599"><span class="annot"><span class="annottext">Domain -&gt; Domain -&gt; Bool
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679279081"><span id="local-6989586621679279083"><span class="annot"><span class="annottext">Domain -&gt; Domain -&gt; Bool
 (Domain -&gt; Domain -&gt; Bool)
 -&gt; (Domain -&gt; Domain -&gt; Bool) -&gt; Eq Domain
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -49,7 +49,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Domain -&gt; Domain -&gt; Bool
 == :: Domain -&gt; Domain -&gt; Bool
 $c== :: Domain -&gt; Domain -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258588"><span id="local-6989586621679258590"><span id="local-6989586621679258592"><span id="local-6989586621679258594"><span class="annot"><span class="annottext">ReadPrec [Domain]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279072"><span id="local-6989586621679279074"><span id="local-6989586621679279076"><span id="local-6989586621679279078"><span class="annot"><span class="annottext">ReadPrec [Domain]
 ReadPrec Domain
 Int -&gt; ReadS Domain
 ReadS [Domain]
@@ -69,7 +69,7 @@ readList :: ReadS [Domain]
 $creadList :: ReadS [Domain]
 readsPrec :: Int -&gt; ReadS Domain
 $creadsPrec :: Int -&gt; ReadS Domain
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258581"><span id="local-6989586621679258583"><span id="local-6989586621679258585"><span class="annot"><span class="annottext">Int -&gt; Domain -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279065"><span id="local-6989586621679279067"><span id="local-6989586621679279069"><span class="annot"><span class="annottext">Int -&gt; Domain -&gt; ShowS
 [Domain] -&gt; ShowS
 Domain -&gt; String
 (Int -&gt; Domain -&gt; ShowS)
@@ -128,16 +128,16 @@ forall a. Maybe a
 -&gt; (Domain -&gt; Maybe Text -&gt; Domain)
 -&gt; Lens Domain Domain (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.Types.Domain.html#Domain%27"><span class="hs-identifier hs-type">Domain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258572"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.Types.Domain.html#Domain%27"><span class="hs-identifier hs-type">Domain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279056"><span class="annot"><span class="annottext">Maybe Text
 hostedZoneId :: Maybe Text
 $sel:hostedZoneId:Domain' :: Domain -&gt; Maybe Text
-</span><a href="#local-6989586621679258572"><span class="hs-identifier hs-var hs-var">hostedZoneId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679258572"><span class="hs-identifier hs-var">hostedZoneId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258571"><span class="annot"><span class="annottext">s :: Domain
-</span><a href="#local-6989586621679258571"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.Types.Domain.html#Domain%27"><span class="hs-identifier hs-type">Domain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258570"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679258570"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Domain
-</span><a href="#local-6989586621679258571"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hostedZoneId:Domain' :: Maybe Text
+</span><a href="#local-6989586621679279056"><span class="hs-identifier hs-var hs-var">hostedZoneId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279056"><span class="hs-identifier hs-var">hostedZoneId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279055"><span class="annot"><span class="annottext">s :: Domain
+</span><a href="#local-6989586621679279055"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.Types.Domain.html#Domain%27"><span class="hs-identifier hs-type">Domain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279054"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279054"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Domain
+</span><a href="#local-6989586621679279055"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hostedZoneId:Domain' :: Maybe Text
 </span><a href="Network.AWS.WorkMail.Types.Domain.html#%24sel%3AhostedZoneId%3ADomain%27"><span class="hs-identifier hs-var">hostedZoneId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679258570"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.Domain.html#Domain"><span class="hs-identifier hs-type">Domain</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679279054"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.Domain.html#Domain"><span class="hs-identifier hs-type">Domain</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- | The fully qualified domain name.</span><span>
 </span><span id="line-70"></span><span class="annot"><a href="Network.AWS.WorkMail.Types.Domain.html#domain_domainName"><span class="hs-identifier hs-type">domain_domainName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.Domain.html#Domain"><span class="hs-identifier hs-type">Domain</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -146,29 +146,29 @@ $sel:hostedZoneId:Domain' :: Domain -&gt; Maybe Text
 -&gt; (Domain -&gt; Maybe Text -&gt; Domain)
 -&gt; Lens Domain Domain (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.Types.Domain.html#Domain%27"><span class="hs-identifier hs-type">Domain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258568"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.Types.Domain.html#Domain%27"><span class="hs-identifier hs-type">Domain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279052"><span class="annot"><span class="annottext">Maybe Text
 domainName :: Maybe Text
 $sel:domainName:Domain' :: Domain -&gt; Maybe Text
-</span><a href="#local-6989586621679258568"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679258568"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258567"><span class="annot"><span class="annottext">s :: Domain
-</span><a href="#local-6989586621679258567"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.Types.Domain.html#Domain%27"><span class="hs-identifier hs-type">Domain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258566"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679258566"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Domain
-</span><a href="#local-6989586621679258567"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainName:Domain' :: Maybe Text
+</span><a href="#local-6989586621679279052"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279052"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279051"><span class="annot"><span class="annottext">s :: Domain
+</span><a href="#local-6989586621679279051"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.Types.Domain.html#Domain%27"><span class="hs-identifier hs-type">Domain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279050"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279050"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Domain
+</span><a href="#local-6989586621679279051"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainName:Domain' :: Maybe Text
 </span><a href="Network.AWS.WorkMail.Types.Domain.html#%24sel%3AdomainName%3ADomain%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679258566"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.Domain.html#Domain"><span class="hs-identifier hs-type">Domain</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679279050"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.Domain.html#Domain"><span class="hs-identifier hs-type">Domain</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258562"><span id="local-6989586621679258564"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.Domain.html#Domain"><span class="hs-identifier hs-type">Domain</span></a></span></span></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279046"><span id="local-6989586621679279048"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.Domain.html#Domain"><span class="hs-identifier hs-type">Domain</span></a></span></span></span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258559"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.Domain.html#Domain"><span class="hs-identifier hs-type">Domain</span></a></span></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279043"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.Domain.html#Domain"><span class="hs-identifier hs-type">Domain</span></a></span></span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258551"><span id="local-6989586621679258553"><span id="local-6989586621679258555"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.Domain.html#Domain"><span class="hs-identifier hs-type">Domain</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-78"></span><span>  </span><span id="local-6989586621679258549"><span class="annot"><span class="annottext">toJSON :: Domain -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.Domain.html#Domain%27"><span class="hs-identifier hs-type">Domain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258546"><span id="local-6989586621679258547"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279035"><span id="local-6989586621679279037"><span id="local-6989586621679279039"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.Domain.html#Domain"><span class="hs-identifier hs-type">Domain</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679279033"><span class="annot"><span class="annottext">toJSON :: Domain -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.Domain.html#Domain%27"><span class="hs-identifier hs-type">Domain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279030"><span id="local-6989586621679279031"><span class="annot"><span class="annottext">Maybe Text
 domainName :: Maybe Text
 hostedZoneId :: Maybe Text
 $sel:domainName:Domain' :: Domain -&gt; Maybe Text
 $sel:hostedZoneId:Domain' :: Domain -&gt; Maybe Text
-</span><a href="#local-6989586621679258546"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679279030"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -180,14 +180,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679258547"><span class="hs-identifier hs-var">hostedZoneId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679279031"><span class="hs-identifier hs-var">hostedZoneId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-82"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DomainName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679258546"><span class="hs-identifier hs-var">domainName</span></a></span><span>
+</span><a href="#local-6989586621679279030"><span class="hs-identifier hs-var">domainName</span></a></span><span>
 </span><span id="line-83"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-84"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span></pre></body></html>

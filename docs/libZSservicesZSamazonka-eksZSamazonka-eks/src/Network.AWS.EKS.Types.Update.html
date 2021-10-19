@@ -30,27 +30,27 @@
 </span><span id="line-30"></span><span class="hs-comment">-- | An object representing an asynchronous update.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newUpdate' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679270380"><span id="local-6989586621679270381"></span></span><span class="hs-keyword">data</span><span> </span><span id="Update"><span class="annot"><a href="Network.AWS.EKS.Types.Update.html#Update"><span class="hs-identifier hs-var">Update</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Update%27"><span class="annot"><a href="Network.AWS.EKS.Types.Update.html#Update%27"><span class="hs-identifier hs-var">Update'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679270649"><span id="local-6989586621679270650"></span></span><span class="hs-keyword">data</span><span> </span><span id="Update"><span class="annot"><a href="Network.AWS.EKS.Types.Update.html#Update"><span class="hs-identifier hs-var">Update</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Update%27"><span class="annot"><a href="Network.AWS.EKS.Types.Update.html#Update%27"><span class="hs-identifier hs-var">Update'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The current status of the update.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3Astatus%3AUpdate%27"><span class="annot"><span class="annottext">Update -&gt; Maybe UpdateStatus
 </span><a href="Network.AWS.EKS.Types.Update.html#%24sel%3Astatus%3AUpdate%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.UpdateStatus.html#UpdateStatus"><span class="hs-identifier hs-type">UpdateStatus</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | A UUID that is used to track the update.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3Aid%3AUpdate%27"><span class="annot"><span class="annottext">Update -&gt; Maybe Text
-</span><a href="Network.AWS.EKS.Types.Update.html#%24sel%3Aid%3AUpdate%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The Unix epoch timestamp in seconds for when the update was created.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3AcreatedAt%3AUpdate%27"><span class="annot"><span class="annottext">Update -&gt; Maybe POSIX
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The Unix epoch timestamp in seconds for when the update was created.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AcreatedAt%3AUpdate%27"><span class="annot"><span class="annottext">Update -&gt; Maybe POSIX
 </span><a href="Network.AWS.EKS.Types.Update.html#%24sel%3AcreatedAt%3AUpdate%27"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | A key-value map that contains the parameters associated with the update.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3Aparams%3AUpdate%27"><span class="annot"><span class="annottext">Update -&gt; Maybe [UpdateParam]
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | A key-value map that contains the parameters associated with the update.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3Aparams%3AUpdate%27"><span class="annot"><span class="annottext">Update -&gt; Maybe [UpdateParam]
 </span><a href="Network.AWS.EKS.Types.Update.html#%24sel%3Aparams%3AUpdate%27"><span class="hs-identifier hs-var hs-var">params</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EKS.Types.UpdateParam.html#UpdateParam"><span class="hs-identifier hs-type">UpdateParam</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | Any errors associated with a @Failed@ update.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3Aerrors%3AUpdate%27"><span class="annot"><span class="annottext">Update -&gt; Maybe [ErrorDetail]
-</span><a href="Network.AWS.EKS.Types.Update.html#%24sel%3Aerrors%3AUpdate%27"><span class="hs-identifier hs-var hs-var">errors</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EKS.Types.ErrorDetail.html#ErrorDetail"><span class="hs-identifier hs-type">ErrorDetail</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The type of the update.</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3Atype%27%3AUpdate%27"><span class="annot"><span class="annottext">Update -&gt; Maybe UpdateType
-</span><a href="Network.AWS.EKS.Types.Update.html#%24sel%3Atype%27%3AUpdate%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.UpdateType.html#UpdateType"><span class="hs-identifier hs-type">UpdateType</span></a></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | A UUID that is used to track the update.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Aid%3AUpdate%27"><span class="annot"><span class="annottext">Update -&gt; Maybe Text
+</span><a href="Network.AWS.EKS.Types.Update.html#%24sel%3Aid%3AUpdate%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The type of the update.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Atype%27%3AUpdate%27"><span class="annot"><span class="annottext">Update -&gt; Maybe UpdateType
+</span><a href="Network.AWS.EKS.Types.Update.html#%24sel%3Atype%27%3AUpdate%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.UpdateType.html#UpdateType"><span class="hs-identifier hs-type">UpdateType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | Any errors associated with a @Failed@ update.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3Aerrors%3AUpdate%27"><span class="annot"><span class="annottext">Update -&gt; Maybe [ErrorDetail]
+</span><a href="Network.AWS.EKS.Types.Update.html#%24sel%3Aerrors%3AUpdate%27"><span class="hs-identifier hs-var hs-var">errors</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EKS.Types.ErrorDetail.html#ErrorDetail"><span class="hs-identifier hs-type">ErrorDetail</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679270369"><span id="local-6989586621679270371"><span class="annot"><span class="annottext">Update -&gt; Update -&gt; Bool
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679270638"><span id="local-6989586621679270640"><span class="annot"><span class="annottext">Update -&gt; Update -&gt; Bool
 (Update -&gt; Update -&gt; Bool)
 -&gt; (Update -&gt; Update -&gt; Bool) -&gt; Eq Update
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -58,7 +58,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Update -&gt; Update -&gt; Bool
 == :: Update -&gt; Update -&gt; Bool
 $c== :: Update -&gt; Update -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270360"><span id="local-6989586621679270362"><span id="local-6989586621679270364"><span id="local-6989586621679270366"><span class="annot"><span class="annottext">ReadPrec [Update]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270629"><span id="local-6989586621679270631"><span id="local-6989586621679270633"><span id="local-6989586621679270635"><span class="annot"><span class="annottext">ReadPrec [Update]
 ReadPrec Update
 Int -&gt; ReadS Update
 ReadS [Update]
@@ -78,7 +78,7 @@ readList :: ReadS [Update]
 $creadList :: ReadS [Update]
 readsPrec :: Int -&gt; ReadS Update
 $creadsPrec :: Int -&gt; ReadS Update
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270353"><span id="local-6989586621679270355"><span id="local-6989586621679270357"><span class="annot"><span class="annottext">Int -&gt; Update -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270622"><span id="local-6989586621679270624"><span id="local-6989586621679270626"><span class="annot"><span class="annottext">Int -&gt; Update -&gt; ShowS
 [Update] -&gt; ShowS
 Update -&gt; String
 (Int -&gt; Update -&gt; ShowS)
@@ -111,49 +111,49 @@ $cfrom :: forall x. Update -&gt; Rep Update x
 </span><span id="line-56"></span><span class="hs-comment">--</span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- 'status', 'update_status' - The current status of the update.</span><span>
 </span><span id="line-58"></span><span class="hs-comment">--</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- 'id', 'update_id' - A UUID that is used to track the update.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'createdAt', 'update_createdAt' - The Unix epoch timestamp in seconds for when the update was created.</span><span>
 </span><span id="line-60"></span><span class="hs-comment">--</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- 'createdAt', 'update_createdAt' - The Unix epoch timestamp in seconds for when the update was created.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'params', 'update_params' - A key-value map that contains the parameters associated with the update.</span><span>
 </span><span id="line-62"></span><span class="hs-comment">--</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- 'params', 'update_params' - A key-value map that contains the parameters associated with the update.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'id', 'update_id' - A UUID that is used to track the update.</span><span>
 </span><span id="line-64"></span><span class="hs-comment">--</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- 'errors', 'update_errors' - Any errors associated with a @Failed@ update.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'type'', 'update_type' - The type of the update.</span><span>
 </span><span id="line-66"></span><span class="hs-comment">--</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- 'type'', 'update_type' - The type of the update.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'errors', 'update_errors' - Any errors associated with a @Failed@ update.</span><span>
 </span><span id="line-68"></span><span class="annot"><a href="Network.AWS.EKS.Types.Update.html#newUpdate"><span class="hs-identifier hs-type">newUpdate</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.EKS.Types.Update.html#Update"><span class="hs-identifier hs-type">Update</span></a></span><span>
 </span><span id="line-70"></span><span id="newUpdate"><span class="annot"><span class="annottext">newUpdate :: Update
 </span><a href="Network.AWS.EKS.Types.Update.html#newUpdate"><span class="hs-identifier hs-var hs-var">newUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>  </span><span class="annot"><span class="annottext">Update' :: Maybe UpdateStatus
--&gt; Maybe Text
 -&gt; Maybe POSIX
 -&gt; Maybe [UpdateParam]
--&gt; Maybe [ErrorDetail]
+-&gt; Maybe Text
 -&gt; Maybe UpdateType
+-&gt; Maybe [ErrorDetail]
 -&gt; Update
 </span><a href="Network.AWS.EKS.Types.Update.html#Update%27"><span class="hs-identifier hs-type">Update'</span></a></span><span>
 </span><span id="line-72"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:Update' :: Maybe UpdateStatus
 </span><a href="Network.AWS.EKS.Types.Update.html#%24sel%3Astatus%3AUpdate%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UpdateStatus
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:Update' :: Maybe Text
-</span><a href="Network.AWS.EKS.Types.Update.html#%24sel%3Aid%3AUpdate%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdAt:Update' :: Maybe POSIX
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdAt:Update' :: Maybe POSIX
 </span><a href="Network.AWS.EKS.Types.Update.html#%24sel%3AcreatedAt%3AUpdate%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:params:Update' :: Maybe [UpdateParam]
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:params:Update' :: Maybe [UpdateParam]
 </span><a href="Network.AWS.EKS.Types.Update.html#%24sel%3Aparams%3AUpdate%27"><span class="hs-identifier hs-var">params</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [UpdateParam]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:errors:Update' :: Maybe [ErrorDetail]
-</span><a href="Network.AWS.EKS.Types.Update.html#%24sel%3Aerrors%3AUpdate%27"><span class="hs-identifier hs-var">errors</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ErrorDetail]
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:Update' :: Maybe Text
+</span><a href="Network.AWS.EKS.Types.Update.html#%24sel%3Aid%3AUpdate%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':Update' :: Maybe UpdateType
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':Update' :: Maybe UpdateType
 </span><a href="Network.AWS.EKS.Types.Update.html#%24sel%3Atype%27%3AUpdate%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UpdateType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:errors:Update' :: Maybe [ErrorDetail]
+</span><a href="Network.AWS.EKS.Types.Update.html#%24sel%3Aerrors%3AUpdate%27"><span class="hs-identifier hs-var">errors</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ErrorDetail]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-78"></span><span>    </span><span class="hs-special">}</span><span>
@@ -166,52 +166,34 @@ forall a. Maybe a
 -&gt; (Update -&gt; Maybe UpdateStatus -&gt; Update)
 -&gt; Lens Update Update (Maybe UpdateStatus) (Maybe UpdateStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.Update.html#Update%27"><span class="hs-identifier hs-type">Update'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270344"><span class="annot"><span class="annottext">Maybe UpdateStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.Update.html#Update%27"><span class="hs-identifier hs-type">Update'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270613"><span class="annot"><span class="annottext">Maybe UpdateStatus
 status :: Maybe UpdateStatus
 $sel:status:Update' :: Update -&gt; Maybe UpdateStatus
-</span><a href="#local-6989586621679270344"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe UpdateStatus
-</span><a href="#local-6989586621679270344"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270343"><span class="annot"><span class="annottext">s :: Update
-</span><a href="#local-6989586621679270343"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.Update.html#Update%27"><span class="hs-identifier hs-type">Update'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270342"><span class="annot"><span class="annottext">Maybe UpdateStatus
-</span><a href="#local-6989586621679270342"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Update
-</span><a href="#local-6989586621679270343"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:Update' :: Maybe UpdateStatus
+</span><a href="#local-6989586621679270613"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe UpdateStatus
+</span><a href="#local-6989586621679270613"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270612"><span class="annot"><span class="annottext">s :: Update
+</span><a href="#local-6989586621679270612"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.Update.html#Update%27"><span class="hs-identifier hs-type">Update'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270611"><span class="annot"><span class="annottext">Maybe UpdateStatus
+</span><a href="#local-6989586621679270611"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Update
+</span><a href="#local-6989586621679270612"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:Update' :: Maybe UpdateStatus
 </span><a href="Network.AWS.EKS.Types.Update.html#%24sel%3Astatus%3AUpdate%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UpdateStatus
-</span><a href="#local-6989586621679270342"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.Update.html#Update"><span class="hs-identifier hs-type">Update</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679270611"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.Update.html#Update"><span class="hs-identifier hs-type">Update</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- | A UUID that is used to track the update.</span><span>
-</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.EKS.Types.Update.html#update_id"><span class="hs-identifier hs-type">update_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.Update.html#Update"><span class="hs-identifier hs-type">Update</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-86"></span><span id="update_id"><span class="annot"><span class="annottext">update_id :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Update -&gt; f Update
-</span><a href="Network.AWS.EKS.Types.Update.html#update_id"><span class="hs-identifier hs-var hs-var">update_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Update -&gt; Maybe Text)
--&gt; (Update -&gt; Maybe Text -&gt; Update)
--&gt; Lens Update Update (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.Update.html#Update%27"><span class="hs-identifier hs-type">Update'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270340"><span class="annot"><span class="annottext">Maybe Text
-id :: Maybe Text
-$sel:id:Update' :: Update -&gt; Maybe Text
-</span><a href="#local-6989586621679270340"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679270340"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270339"><span class="annot"><span class="annottext">s :: Update
-</span><a href="#local-6989586621679270339"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.Update.html#Update%27"><span class="hs-identifier hs-type">Update'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270338"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679270338"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Update
-</span><a href="#local-6989586621679270339"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:Update' :: Maybe Text
-</span><a href="Network.AWS.EKS.Types.Update.html#%24sel%3Aid%3AUpdate%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679270338"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.Update.html#Update"><span class="hs-identifier hs-type">Update</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- | The Unix epoch timestamp in seconds for when the update was created.</span><span>
-</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.EKS.Types.Update.html#update_createdAt"><span class="hs-identifier hs-type">update_createdAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.Update.html#Update"><span class="hs-identifier hs-type">Update</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-90"></span><span id="update_createdAt"><span class="annot"><span class="annottext">update_createdAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Update -&gt; f Update
+</span><span id="line-84"></span><span class="hs-comment">-- | The Unix epoch timestamp in seconds for when the update was created.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.EKS.Types.Update.html#update_createdAt"><span class="hs-identifier hs-type">update_createdAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.Update.html#Update"><span class="hs-identifier hs-type">Update</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span id="update_createdAt"><span class="annot"><span class="annottext">update_createdAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Update -&gt; f Update
 </span><a href="Network.AWS.EKS.Types.Update.html#update_createdAt"><span class="hs-identifier hs-var hs-var">update_createdAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Update -&gt; Maybe POSIX)
 -&gt; (Update -&gt; Maybe POSIX -&gt; Update)
 -&gt; Lens Update Update (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.Update.html#Update%27"><span class="hs-identifier hs-type">Update'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270336"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.Update.html#Update%27"><span class="hs-identifier hs-type">Update'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270609"><span class="annot"><span class="annottext">Maybe POSIX
 createdAt :: Maybe POSIX
 $sel:createdAt:Update' :: Update -&gt; Maybe POSIX
-</span><a href="#local-6989586621679270336"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679270336"><span class="hs-identifier hs-var">createdAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270335"><span class="annot"><span class="annottext">s :: Update
-</span><a href="#local-6989586621679270335"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.Update.html#Update%27"><span class="hs-identifier hs-type">Update'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270334"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679270334"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Update
-</span><a href="#local-6989586621679270335"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAt:Update' :: Maybe POSIX
+</span><a href="#local-6989586621679270609"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679270609"><span class="hs-identifier hs-var">createdAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270608"><span class="annot"><span class="annottext">s :: Update
+</span><a href="#local-6989586621679270608"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.Update.html#Update%27"><span class="hs-identifier hs-type">Update'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270607"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679270607"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Update
+</span><a href="#local-6989586621679270608"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAt:Update' :: Maybe POSIX
 </span><a href="Network.AWS.EKS.Types.Update.html#%24sel%3AcreatedAt%3AUpdate%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679270334"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.Update.html#Update"><span class="hs-identifier hs-type">Update</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Update -&gt; f Update)
+</span><a href="#local-6989586621679270607"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.Update.html#Update"><span class="hs-identifier hs-type">Update</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Update -&gt; f Update)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
 -&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -226,25 +208,25 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- | A key-value map that contains the parameters associated with the update.</span><span>
-</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.EKS.Types.Update.html#update_params"><span class="hs-identifier hs-type">update_params</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.Update.html#Update"><span class="hs-identifier hs-type">Update</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EKS.Types.UpdateParam.html#UpdateParam"><span class="hs-identifier hs-type">UpdateParam</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-94"></span><span id="update_params"><span class="annot"><span class="annottext">update_params :: (Maybe [UpdateParam] -&gt; f (Maybe [UpdateParam]))
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | A key-value map that contains the parameters associated with the update.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.EKS.Types.Update.html#update_params"><span class="hs-identifier hs-type">update_params</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.Update.html#Update"><span class="hs-identifier hs-type">Update</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EKS.Types.UpdateParam.html#UpdateParam"><span class="hs-identifier hs-type">UpdateParam</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="update_params"><span class="annot"><span class="annottext">update_params :: (Maybe [UpdateParam] -&gt; f (Maybe [UpdateParam]))
 -&gt; Update -&gt; f Update
 </span><a href="Network.AWS.EKS.Types.Update.html#update_params"><span class="hs-identifier hs-var hs-var">update_params</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Update -&gt; Maybe [UpdateParam])
 -&gt; (Update -&gt; Maybe [UpdateParam] -&gt; Update)
 -&gt; Lens Update Update (Maybe [UpdateParam]) (Maybe [UpdateParam])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.Update.html#Update%27"><span class="hs-identifier hs-type">Update'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270329"><span class="annot"><span class="annottext">Maybe [UpdateParam]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.Update.html#Update%27"><span class="hs-identifier hs-type">Update'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270602"><span class="annot"><span class="annottext">Maybe [UpdateParam]
 params :: Maybe [UpdateParam]
 $sel:params:Update' :: Update -&gt; Maybe [UpdateParam]
-</span><a href="#local-6989586621679270329"><span class="hs-identifier hs-var hs-var">params</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [UpdateParam]
-</span><a href="#local-6989586621679270329"><span class="hs-identifier hs-var">params</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270328"><span class="annot"><span class="annottext">s :: Update
-</span><a href="#local-6989586621679270328"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.Update.html#Update%27"><span class="hs-identifier hs-type">Update'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270327"><span class="annot"><span class="annottext">Maybe [UpdateParam]
-</span><a href="#local-6989586621679270327"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Update
-</span><a href="#local-6989586621679270328"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:params:Update' :: Maybe [UpdateParam]
+</span><a href="#local-6989586621679270602"><span class="hs-identifier hs-var hs-var">params</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [UpdateParam]
+</span><a href="#local-6989586621679270602"><span class="hs-identifier hs-var">params</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270601"><span class="annot"><span class="annottext">s :: Update
+</span><a href="#local-6989586621679270601"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.Update.html#Update%27"><span class="hs-identifier hs-type">Update'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270600"><span class="annot"><span class="annottext">Maybe [UpdateParam]
+</span><a href="#local-6989586621679270600"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Update
+</span><a href="#local-6989586621679270601"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:params:Update' :: Maybe [UpdateParam]
 </span><a href="Network.AWS.EKS.Types.Update.html#%24sel%3Aparams%3AUpdate%27"><span class="hs-identifier hs-var">params</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [UpdateParam]
-</span><a href="#local-6989586621679270327"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.Update.html#Update"><span class="hs-identifier hs-type">Update</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [UpdateParam] -&gt; f (Maybe [UpdateParam]))
+</span><a href="#local-6989586621679270600"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.Update.html#Update"><span class="hs-identifier hs-type">Update</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [UpdateParam] -&gt; f (Maybe [UpdateParam]))
  -&gt; Update -&gt; f Update)
 -&gt; ((Maybe [UpdateParam] -&gt; f (Maybe [UpdateParam]))
     -&gt; Maybe [UpdateParam] -&gt; f (Maybe [UpdateParam]))
@@ -262,27 +244,63 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [UpdateParam] [UpdateParam] [UpdateParam] [UpdateParam]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | A UUID that is used to track the update.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.EKS.Types.Update.html#update_id"><span class="hs-identifier hs-type">update_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.Update.html#Update"><span class="hs-identifier hs-type">Update</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span id="update_id"><span class="annot"><span class="annottext">update_id :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Update -&gt; f Update
+</span><a href="Network.AWS.EKS.Types.Update.html#update_id"><span class="hs-identifier hs-var hs-var">update_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Update -&gt; Maybe Text)
+-&gt; (Update -&gt; Maybe Text -&gt; Update)
+-&gt; Lens Update Update (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.Update.html#Update%27"><span class="hs-identifier hs-type">Update'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270597"><span class="annot"><span class="annottext">Maybe Text
+id :: Maybe Text
+$sel:id:Update' :: Update -&gt; Maybe Text
+</span><a href="#local-6989586621679270597"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679270597"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270596"><span class="annot"><span class="annottext">s :: Update
+</span><a href="#local-6989586621679270596"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.Update.html#Update%27"><span class="hs-identifier hs-type">Update'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270595"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679270595"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Update
+</span><a href="#local-6989586621679270596"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:Update' :: Maybe Text
+</span><a href="Network.AWS.EKS.Types.Update.html#%24sel%3Aid%3AUpdate%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679270595"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.Update.html#Update"><span class="hs-identifier hs-type">Update</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- | Any errors associated with a @Failed@ update.</span><span>
-</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.EKS.Types.Update.html#update_errors"><span class="hs-identifier hs-type">update_errors</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.Update.html#Update"><span class="hs-identifier hs-type">Update</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EKS.Types.ErrorDetail.html#ErrorDetail"><span class="hs-identifier hs-type">ErrorDetail</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-98"></span><span id="update_errors"><span class="annot"><span class="annottext">update_errors :: (Maybe [ErrorDetail] -&gt; f (Maybe [ErrorDetail]))
+</span><span id="line-96"></span><span class="hs-comment">-- | The type of the update.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.EKS.Types.Update.html#update_type"><span class="hs-identifier hs-type">update_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.Update.html#Update"><span class="hs-identifier hs-type">Update</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.UpdateType.html#UpdateType"><span class="hs-identifier hs-type">UpdateType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="update_type"><span class="annot"><span class="annottext">update_type :: (Maybe UpdateType -&gt; f (Maybe UpdateType)) -&gt; Update -&gt; f Update
+</span><a href="Network.AWS.EKS.Types.Update.html#update_type"><span class="hs-identifier hs-var hs-var">update_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Update -&gt; Maybe UpdateType)
+-&gt; (Update -&gt; Maybe UpdateType -&gt; Update)
+-&gt; Lens Update Update (Maybe UpdateType) (Maybe UpdateType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.Update.html#Update%27"><span class="hs-identifier hs-type">Update'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270593"><span class="annot"><span class="annottext">Maybe UpdateType
+type' :: Maybe UpdateType
+$sel:type':Update' :: Update -&gt; Maybe UpdateType
+</span><a href="#local-6989586621679270593"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe UpdateType
+</span><a href="#local-6989586621679270593"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270592"><span class="annot"><span class="annottext">s :: Update
+</span><a href="#local-6989586621679270592"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.Update.html#Update%27"><span class="hs-identifier hs-type">Update'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270591"><span class="annot"><span class="annottext">Maybe UpdateType
+</span><a href="#local-6989586621679270591"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Update
+</span><a href="#local-6989586621679270592"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':Update' :: Maybe UpdateType
+</span><a href="Network.AWS.EKS.Types.Update.html#%24sel%3Atype%27%3AUpdate%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UpdateType
+</span><a href="#local-6989586621679270591"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.Update.html#Update"><span class="hs-identifier hs-type">Update</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | Any errors associated with a @Failed@ update.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.EKS.Types.Update.html#update_errors"><span class="hs-identifier hs-type">update_errors</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.Update.html#Update"><span class="hs-identifier hs-type">Update</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EKS.Types.ErrorDetail.html#ErrorDetail"><span class="hs-identifier hs-type">ErrorDetail</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span id="update_errors"><span class="annot"><span class="annottext">update_errors :: (Maybe [ErrorDetail] -&gt; f (Maybe [ErrorDetail]))
 -&gt; Update -&gt; f Update
 </span><a href="Network.AWS.EKS.Types.Update.html#update_errors"><span class="hs-identifier hs-var hs-var">update_errors</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Update -&gt; Maybe [ErrorDetail])
 -&gt; (Update -&gt; Maybe [ErrorDetail] -&gt; Update)
 -&gt; Lens Update Update (Maybe [ErrorDetail]) (Maybe [ErrorDetail])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.Update.html#Update%27"><span class="hs-identifier hs-type">Update'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270324"><span class="annot"><span class="annottext">Maybe [ErrorDetail]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.Update.html#Update%27"><span class="hs-identifier hs-type">Update'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270589"><span class="annot"><span class="annottext">Maybe [ErrorDetail]
 errors :: Maybe [ErrorDetail]
 $sel:errors:Update' :: Update -&gt; Maybe [ErrorDetail]
-</span><a href="#local-6989586621679270324"><span class="hs-identifier hs-var hs-var">errors</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ErrorDetail]
-</span><a href="#local-6989586621679270324"><span class="hs-identifier hs-var">errors</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270323"><span class="annot"><span class="annottext">s :: Update
-</span><a href="#local-6989586621679270323"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.Update.html#Update%27"><span class="hs-identifier hs-type">Update'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270322"><span class="annot"><span class="annottext">Maybe [ErrorDetail]
-</span><a href="#local-6989586621679270322"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Update
-</span><a href="#local-6989586621679270323"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errors:Update' :: Maybe [ErrorDetail]
+</span><a href="#local-6989586621679270589"><span class="hs-identifier hs-var hs-var">errors</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ErrorDetail]
+</span><a href="#local-6989586621679270589"><span class="hs-identifier hs-var">errors</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270588"><span class="annot"><span class="annottext">s :: Update
+</span><a href="#local-6989586621679270588"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.Update.html#Update%27"><span class="hs-identifier hs-type">Update'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270587"><span class="annot"><span class="annottext">Maybe [ErrorDetail]
+</span><a href="#local-6989586621679270587"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Update
+</span><a href="#local-6989586621679270588"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errors:Update' :: Maybe [ErrorDetail]
 </span><a href="Network.AWS.EKS.Types.Update.html#%24sel%3Aerrors%3AUpdate%27"><span class="hs-identifier hs-var">errors</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ErrorDetail]
-</span><a href="#local-6989586621679270322"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.Update.html#Update"><span class="hs-identifier hs-type">Update</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ErrorDetail] -&gt; f (Maybe [ErrorDetail]))
+</span><a href="#local-6989586621679270587"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.Update.html#Update"><span class="hs-identifier hs-type">Update</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ErrorDetail] -&gt; f (Maybe [ErrorDetail]))
  -&gt; Update -&gt; f Update)
 -&gt; ((Maybe [ErrorDetail] -&gt; f (Maybe [ErrorDetail]))
     -&gt; Maybe [ErrorDetail] -&gt; f (Maybe [ErrorDetail]))
@@ -300,110 +318,74 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [ErrorDetail] [ErrorDetail] [ErrorDetail] [ErrorDetail]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- | The type of the update.</span><span>
-</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.EKS.Types.Update.html#update_type"><span class="hs-identifier hs-type">update_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.Update.html#Update"><span class="hs-identifier hs-type">Update</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.UpdateType.html#UpdateType"><span class="hs-identifier hs-type">UpdateType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-102"></span><span id="update_type"><span class="annot"><span class="annottext">update_type :: (Maybe UpdateType -&gt; f (Maybe UpdateType)) -&gt; Update -&gt; f Update
-</span><a href="Network.AWS.EKS.Types.Update.html#update_type"><span class="hs-identifier hs-var hs-var">update_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Update -&gt; Maybe UpdateType)
--&gt; (Update -&gt; Maybe UpdateType -&gt; Update)
--&gt; Lens Update Update (Maybe UpdateType) (Maybe UpdateType)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.Update.html#Update%27"><span class="hs-identifier hs-type">Update'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270320"><span class="annot"><span class="annottext">Maybe UpdateType
-type' :: Maybe UpdateType
-$sel:type':Update' :: Update -&gt; Maybe UpdateType
-</span><a href="#local-6989586621679270320"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe UpdateType
-</span><a href="#local-6989586621679270320"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270319"><span class="annot"><span class="annottext">s :: Update
-</span><a href="#local-6989586621679270319"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.Update.html#Update%27"><span class="hs-identifier hs-type">Update'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270318"><span class="annot"><span class="annottext">Maybe UpdateType
-</span><a href="#local-6989586621679270318"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Update
-</span><a href="#local-6989586621679270319"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':Update' :: Maybe UpdateType
-</span><a href="Network.AWS.EKS.Types.Update.html#%24sel%3Atype%27%3AUpdate%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UpdateType
-</span><a href="#local-6989586621679270318"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.Update.html#Update"><span class="hs-identifier hs-type">Update</span></a></span><span class="hs-special">)</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270315"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.Update.html#Update"><span class="hs-identifier hs-type">Update</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679270313"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Update
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270584"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.Update.html#Update"><span class="hs-identifier hs-type">Update</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679270582"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Update
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Update) -&gt; Value -&gt; Parser Update
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Update&quot;</span></span><span>
-</span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679270310"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679270310"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679270579"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679270579"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-109"></span><span>          </span><span class="annot"><span class="annottext">Maybe UpdateStatus
--&gt; Maybe Text
 -&gt; Maybe POSIX
 -&gt; Maybe [UpdateParam]
--&gt; Maybe [ErrorDetail]
+-&gt; Maybe Text
 -&gt; Maybe UpdateType
+-&gt; Maybe [ErrorDetail]
 -&gt; Update
 </span><a href="Network.AWS.EKS.Types.Update.html#Update%27"><span class="hs-identifier hs-var">Update'</span></a></span><span>
 </span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">(Maybe UpdateStatus
- -&gt; Maybe Text
  -&gt; Maybe POSIX
  -&gt; Maybe [UpdateParam]
- -&gt; Maybe [ErrorDetail]
+ -&gt; Maybe Text
  -&gt; Maybe UpdateType
+ -&gt; Maybe [ErrorDetail]
  -&gt; Update)
 -&gt; Parser (Maybe UpdateStatus)
 -&gt; Parser
-     (Maybe Text
-      -&gt; Maybe POSIX
+     (Maybe POSIX
       -&gt; Maybe [UpdateParam]
-      -&gt; Maybe [ErrorDetail]
+      -&gt; Maybe Text
       -&gt; Maybe UpdateType
+      -&gt; Maybe [ErrorDetail]
       -&gt; Update)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679270310"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe UpdateStatus)
+</span><a href="#local-6989586621679270579"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe UpdateStatus)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe POSIX
-   -&gt; Maybe [UpdateParam]
-   -&gt; Maybe [ErrorDetail]
-   -&gt; Maybe UpdateType
-   -&gt; Update)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe POSIX
-      -&gt; Maybe [UpdateParam]
-      -&gt; Maybe [ErrorDetail]
-      -&gt; Maybe UpdateType
-      -&gt; Update)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679270310"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;id&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe POSIX
    -&gt; Maybe [UpdateParam]
-   -&gt; Maybe [ErrorDetail]
+   -&gt; Maybe Text
    -&gt; Maybe UpdateType
+   -&gt; Maybe [ErrorDetail]
    -&gt; Update)
 -&gt; Parser (Maybe POSIX)
 -&gt; Parser
      (Maybe [UpdateParam]
-      -&gt; Maybe [ErrorDetail] -&gt; Maybe UpdateType -&gt; Update)
+      -&gt; Maybe Text -&gt; Maybe UpdateType -&gt; Maybe [ErrorDetail] -&gt; Update)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679270310"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679270579"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;createdAt&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe [UpdateParam]
-   -&gt; Maybe [ErrorDetail] -&gt; Maybe UpdateType -&gt; Update)
+   -&gt; Maybe Text -&gt; Maybe UpdateType -&gt; Maybe [ErrorDetail] -&gt; Update)
 -&gt; Parser (Maybe [UpdateParam])
--&gt; Parser (Maybe [ErrorDetail] -&gt; Maybe UpdateType -&gt; Update)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe UpdateType -&gt; Maybe [ErrorDetail] -&gt; Update)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679270310"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [UpdateParam]))
+</span><a href="#local-6989586621679270579"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [UpdateParam]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;params&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [UpdateParam]))
@@ -412,12 +394,30 @@ forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [UpdateParam]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [ErrorDetail] -&gt; Maybe UpdateType -&gt; Update)
--&gt; Parser (Maybe [ErrorDetail])
--&gt; Parser (Maybe UpdateType -&gt; Update)
+</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; Maybe UpdateType -&gt; Maybe [ErrorDetail] -&gt; Update)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe UpdateType -&gt; Maybe [ErrorDetail] -&gt; Update)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679270310"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [ErrorDetail]))
+</span><a href="#local-6989586621679270579"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe UpdateType -&gt; Maybe [ErrorDetail] -&gt; Update)
+-&gt; Parser (Maybe UpdateType)
+-&gt; Parser (Maybe [ErrorDetail] -&gt; Update)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679270579"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe UpdateType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;type&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [ErrorDetail] -&gt; Update)
+-&gt; Parser (Maybe [ErrorDetail]) -&gt; Parser Update
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679270579"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [ErrorDetail]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;errors&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [ErrorDetail]))
@@ -426,17 +426,9 @@ forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ErrorDetail]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe UpdateType -&gt; Update)
--&gt; Parser (Maybe UpdateType) -&gt; Parser Update
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679270310"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe UpdateType)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;type&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270303"><span id="local-6989586621679270305"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.Update.html#Update"><span class="hs-identifier hs-type">Update</span></a></span></span></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270572"><span id="local-6989586621679270574"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.Update.html#Update"><span class="hs-identifier hs-type">Update</span></a></span></span></span><span>
 </span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270300"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.Update.html#Update"><span class="hs-identifier hs-type">Update</span></a></span></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270569"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.Update.html#Update"><span class="hs-identifier hs-type">Update</span></a></span></span><span>
 </span><span id="line-121"></span></pre></body></html>

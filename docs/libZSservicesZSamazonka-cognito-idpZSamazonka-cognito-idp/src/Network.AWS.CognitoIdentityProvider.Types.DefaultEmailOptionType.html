@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679426401"><span id="local-6989586621679426402"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DefaultEmailOptionType"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DefaultEmailOptionType.html#DefaultEmailOptionType"><span class="hs-identifier hs-var">DefaultEmailOptionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DefaultEmailOptionType%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DefaultEmailOptionType.html#DefaultEmailOptionType%27"><span class="hs-identifier hs-var">DefaultEmailOptionType'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679426851"><span id="local-6989586621679426852"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DefaultEmailOptionType"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DefaultEmailOptionType.html#DefaultEmailOptionType"><span class="hs-identifier hs-var">DefaultEmailOptionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DefaultEmailOptionType%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DefaultEmailOptionType.html#DefaultEmailOptionType%27"><span class="hs-identifier hs-var">DefaultEmailOptionType'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDefaultEmailOptionType"><span class="annot"><span class="annottext">DefaultEmailOptionType -&gt; Text
 </span><a href="Network.AWS.CognitoIdentityProvider.Types.DefaultEmailOptionType.html#fromDefaultEmailOptionType"><span class="hs-identifier hs-var hs-var">fromDefaultEmailOptionType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679426393"><span id="local-6989586621679426395"><span id="local-6989586621679426397"><span class="annot"><span class="annottext">Int -&gt; DefaultEmailOptionType -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679426843"><span id="local-6989586621679426845"><span id="local-6989586621679426847"><span class="annot"><span class="annottext">Int -&gt; DefaultEmailOptionType -&gt; ShowS
 [DefaultEmailOptionType] -&gt; ShowS
 DefaultEmailOptionType -&gt; String
 (Int -&gt; DefaultEmailOptionType -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: DefaultEmailOptionType -&gt; String
 showsPrec :: Int -&gt; DefaultEmailOptionType -&gt; ShowS
 $cshowsPrec :: Int -&gt; DefaultEmailOptionType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679426384"><span id="local-6989586621679426386"><span id="local-6989586621679426388"><span id="local-6989586621679426390"><span class="annot"><span class="annottext">ReadPrec [DefaultEmailOptionType]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679426834"><span id="local-6989586621679426836"><span id="local-6989586621679426838"><span id="local-6989586621679426840"><span class="annot"><span class="annottext">ReadPrec [DefaultEmailOptionType]
 ReadPrec DefaultEmailOptionType
 Int -&gt; ReadS DefaultEmailOptionType
 ReadS [DefaultEmailOptionType]
@@ -72,7 +72,7 @@ $creadList :: ReadS [DefaultEmailOptionType]
 readsPrec :: Int -&gt; ReadS DefaultEmailOptionType
 $creadsPrec :: Int -&gt; ReadS DefaultEmailOptionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679426379"><span id="local-6989586621679426381"><span class="annot"><span class="annottext">DefaultEmailOptionType -&gt; DefaultEmailOptionType -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679426829"><span id="local-6989586621679426831"><span class="annot"><span class="annottext">DefaultEmailOptionType -&gt; DefaultEmailOptionType -&gt; Bool
 (DefaultEmailOptionType -&gt; DefaultEmailOptionType -&gt; Bool)
 -&gt; (DefaultEmailOptionType -&gt; DefaultEmailOptionType -&gt; Bool)
 -&gt; Eq DefaultEmailOptionType
@@ -82,7 +82,7 @@ $c/= :: DefaultEmailOptionType -&gt; DefaultEmailOptionType -&gt; Bool
 == :: DefaultEmailOptionType -&gt; DefaultEmailOptionType -&gt; Bool
 $c== :: DefaultEmailOptionType -&gt; DefaultEmailOptionType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679426363"><span id="local-6989586621679426365"><span id="local-6989586621679426367"><span id="local-6989586621679426369"><span id="local-6989586621679426371"><span id="local-6989586621679426373"><span id="local-6989586621679426375"><span class="annot"><span class="annottext">Eq DefaultEmailOptionType
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679426813"><span id="local-6989586621679426815"><span id="local-6989586621679426817"><span id="local-6989586621679426819"><span id="local-6989586621679426821"><span id="local-6989586621679426823"><span id="local-6989586621679426825"><span class="annot"><span class="annottext">Eq DefaultEmailOptionType
 Eq DefaultEmailOptionType
 -&gt; (DefaultEmailOptionType -&gt; DefaultEmailOptionType -&gt; Ordering)
 -&gt; (DefaultEmailOptionType -&gt; DefaultEmailOptionType -&gt; Bool)
@@ -141,7 +141,7 @@ $cfrom :: forall x. DefaultEmailOptionType -&gt; Rep DefaultEmailOptionType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679426355"><span id="local-6989586621679426357"><span class="annot"><span class="annottext">Int -&gt; DefaultEmailOptionType -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679426805"><span id="local-6989586621679426807"><span class="annot"><span class="annottext">Int -&gt; DefaultEmailOptionType -&gt; Int
 DefaultEmailOptionType -&gt; Int
 (Int -&gt; DefaultEmailOptionType -&gt; Int)
 -&gt; (DefaultEmailOptionType -&gt; Int)
@@ -152,54 +152,54 @@ $chash :: DefaultEmailOptionType -&gt; Int
 hashWithSalt :: Int -&gt; DefaultEmailOptionType -&gt; Int
 $chashWithSalt :: Int -&gt; DefaultEmailOptionType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679426352"><span class="annot"><span class="annottext">DefaultEmailOptionType -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679426802"><span class="annot"><span class="annottext">DefaultEmailOptionType -&gt; ()
 (DefaultEmailOptionType -&gt; ()) -&gt; NFData DefaultEmailOptionType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: DefaultEmailOptionType -&gt; ()
 $crnf :: DefaultEmailOptionType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679426349"><span class="annot"><span class="annottext">Text -&gt; Either String DefaultEmailOptionType
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679426799"><span class="annot"><span class="annottext">Text -&gt; Either String DefaultEmailOptionType
 (Text -&gt; Either String DefaultEmailOptionType)
 -&gt; FromText DefaultEmailOptionType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String DefaultEmailOptionType
 $cfromText :: Text -&gt; Either String DefaultEmailOptionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679426346"><span class="annot"><span class="annottext">DefaultEmailOptionType -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679426796"><span class="annot"><span class="annottext">DefaultEmailOptionType -&gt; Text
 (DefaultEmailOptionType -&gt; Text) -&gt; ToText DefaultEmailOptionType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: DefaultEmailOptionType -&gt; Text
 $ctoText :: DefaultEmailOptionType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679426343"><span class="annot"><span class="annottext">DefaultEmailOptionType -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679426793"><span class="annot"><span class="annottext">DefaultEmailOptionType -&gt; ByteString
 (DefaultEmailOptionType -&gt; ByteString)
 -&gt; ToByteString DefaultEmailOptionType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: DefaultEmailOptionType -&gt; ByteString
 $ctoBS :: DefaultEmailOptionType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679426340"><span class="annot"><span class="annottext">DefaultEmailOptionType -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679426790"><span class="annot"><span class="annottext">DefaultEmailOptionType -&gt; ByteStringBuilder
 (DefaultEmailOptionType -&gt; ByteStringBuilder)
 -&gt; ToLog DefaultEmailOptionType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: DefaultEmailOptionType -&gt; ByteStringBuilder
 $cbuild :: DefaultEmailOptionType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679426337"><span class="annot"><span class="annottext">HeaderName -&gt; DefaultEmailOptionType -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679426787"><span class="annot"><span class="annottext">HeaderName -&gt; DefaultEmailOptionType -&gt; [Header]
 (HeaderName -&gt; DefaultEmailOptionType -&gt; [Header])
 -&gt; ToHeader DefaultEmailOptionType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; DefaultEmailOptionType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; DefaultEmailOptionType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679426334"><span class="annot"><span class="annottext">DefaultEmailOptionType -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679426784"><span class="annot"><span class="annottext">DefaultEmailOptionType -&gt; QueryString
 (DefaultEmailOptionType -&gt; QueryString)
 -&gt; ToQuery DefaultEmailOptionType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: DefaultEmailOptionType -&gt; QueryString
 $ctoQuery :: DefaultEmailOptionType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679426329"><span id="local-6989586621679426331"><span class="annot"><span class="annottext">Value -&gt; Parser [DefaultEmailOptionType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679426779"><span id="local-6989586621679426781"><span class="annot"><span class="annottext">Value -&gt; Parser [DefaultEmailOptionType]
 Value -&gt; Parser DefaultEmailOptionType
 (Value -&gt; Parser DefaultEmailOptionType)
 -&gt; (Value -&gt; Parser [DefaultEmailOptionType])
@@ -211,7 +211,7 @@ $cparseJSONList :: Value -&gt; Parser [DefaultEmailOptionType]
 parseJSON :: Value -&gt; Parser DefaultEmailOptionType
 $cparseJSON :: Value -&gt; Parser DefaultEmailOptionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679426324"><span id="local-6989586621679426326"><span class="annot"><span class="annottext">FromJSONKeyFunction [DefaultEmailOptionType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679426774"><span id="local-6989586621679426776"><span class="annot"><span class="annottext">FromJSONKeyFunction [DefaultEmailOptionType]
 FromJSONKeyFunction DefaultEmailOptionType
 FromJSONKeyFunction DefaultEmailOptionType
 -&gt; FromJSONKeyFunction [DefaultEmailOptionType]
@@ -223,7 +223,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [DefaultEmailOptionType]
 fromJSONKey :: FromJSONKeyFunction DefaultEmailOptionType
 $cfromJSONKey :: FromJSONKeyFunction DefaultEmailOptionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679426315"><span id="local-6989586621679426317"><span id="local-6989586621679426319"><span id="local-6989586621679426321"><span class="annot"><span class="annottext">[DefaultEmailOptionType] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679426765"><span id="local-6989586621679426767"><span id="local-6989586621679426769"><span id="local-6989586621679426771"><span class="annot"><span class="annottext">[DefaultEmailOptionType] -&gt; Encoding
 [DefaultEmailOptionType] -&gt; Value
 DefaultEmailOptionType -&gt; Encoding
 DefaultEmailOptionType -&gt; Value
@@ -247,7 +247,7 @@ $ctoEncoding :: DefaultEmailOptionType -&gt; Encoding
 toJSON :: DefaultEmailOptionType -&gt; Value
 $ctoJSON :: DefaultEmailOptionType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679426310"><span id="local-6989586621679426312"><span class="annot"><span class="annottext">ToJSONKeyFunction [DefaultEmailOptionType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679426760"><span id="local-6989586621679426762"><span class="annot"><span class="annottext">ToJSONKeyFunction [DefaultEmailOptionType]
 ToJSONKeyFunction DefaultEmailOptionType
 ToJSONKeyFunction DefaultEmailOptionType
 -&gt; ToJSONKeyFunction [DefaultEmailOptionType]
@@ -259,14 +259,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [DefaultEmailOptionType]
 toJSONKey :: ToJSONKeyFunction DefaultEmailOptionType
 $ctoJSONKey :: ToJSONKeyFunction DefaultEmailOptionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679426307"><span class="annot"><span class="annottext">[Node] -&gt; Either String DefaultEmailOptionType
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679426757"><span class="annot"><span class="annottext">[Node] -&gt; Either String DefaultEmailOptionType
 ([Node] -&gt; Either String DefaultEmailOptionType)
 -&gt; FromXML DefaultEmailOptionType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String DefaultEmailOptionType
 $cparseXML :: [Node] -&gt; Either String DefaultEmailOptionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679426304"><span class="annot"><span class="annottext">DefaultEmailOptionType -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679426754"><span class="annot"><span class="annottext">DefaultEmailOptionType -&gt; XML
 (DefaultEmailOptionType -&gt; XML) -&gt; ToXML DefaultEmailOptionType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: DefaultEmailOptionType -&gt; XML

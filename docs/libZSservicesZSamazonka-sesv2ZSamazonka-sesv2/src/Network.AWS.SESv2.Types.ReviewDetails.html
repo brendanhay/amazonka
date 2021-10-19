@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | An object that contains information about your account details review.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newReviewDetails' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679328921"><span id="local-6989586621679328922"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReviewDetails"><span class="annot"><a href="Network.AWS.SESv2.Types.ReviewDetails.html#ReviewDetails"><span class="hs-identifier hs-var">ReviewDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReviewDetails%27"><span class="annot"><a href="Network.AWS.SESv2.Types.ReviewDetails.html#ReviewDetails%27"><span class="hs-identifier hs-var">ReviewDetails'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679331430"><span id="local-6989586621679331431"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReviewDetails"><span class="annot"><a href="Network.AWS.SESv2.Types.ReviewDetails.html#ReviewDetails"><span class="hs-identifier hs-var">ReviewDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReviewDetails%27"><span class="annot"><a href="Network.AWS.SESv2.Types.ReviewDetails.html#ReviewDetails%27"><span class="hs-identifier hs-var">ReviewDetails'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of the latest review of your account. The status can be one</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- of the following:</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -48,7 +48,7 @@
 </span><span id="line-47"></span><span>    </span><span id="%24sel%3AcaseId%3AReviewDetails%27"><span class="annot"><span class="annottext">ReviewDetails -&gt; Maybe Text
 </span><a href="Network.AWS.SESv2.Types.ReviewDetails.html#%24sel%3AcaseId%3AReviewDetails%27"><span class="hs-identifier hs-var hs-var">caseId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679328914"><span id="local-6989586621679328916"><span class="annot"><span class="annottext">ReviewDetails -&gt; ReviewDetails -&gt; Bool
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679331423"><span id="local-6989586621679331425"><span class="annot"><span class="annottext">ReviewDetails -&gt; ReviewDetails -&gt; Bool
 (ReviewDetails -&gt; ReviewDetails -&gt; Bool)
 -&gt; (ReviewDetails -&gt; ReviewDetails -&gt; Bool) -&gt; Eq ReviewDetails
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -56,7 +56,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ReviewDetails -&gt; ReviewDetails -&gt; Bool
 == :: ReviewDetails -&gt; ReviewDetails -&gt; Bool
 $c== :: ReviewDetails -&gt; ReviewDetails -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679328905"><span id="local-6989586621679328907"><span id="local-6989586621679328909"><span id="local-6989586621679328911"><span class="annot"><span class="annottext">ReadPrec [ReviewDetails]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679331414"><span id="local-6989586621679331416"><span id="local-6989586621679331418"><span id="local-6989586621679331420"><span class="annot"><span class="annottext">ReadPrec [ReviewDetails]
 ReadPrec ReviewDetails
 Int -&gt; ReadS ReviewDetails
 ReadS [ReviewDetails]
@@ -76,7 +76,7 @@ readList :: ReadS [ReviewDetails]
 $creadList :: ReadS [ReviewDetails]
 readsPrec :: Int -&gt; ReadS ReviewDetails
 $creadsPrec :: Int -&gt; ReadS ReviewDetails
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679328898"><span id="local-6989586621679328900"><span id="local-6989586621679328902"><span class="annot"><span class="annottext">Int -&gt; ReviewDetails -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679331407"><span id="local-6989586621679331409"><span id="local-6989586621679331411"><span class="annot"><span class="annottext">Int -&gt; ReviewDetails -&gt; ShowS
 [ReviewDetails] -&gt; ShowS
 ReviewDetails -&gt; String
 (Int -&gt; ReviewDetails -&gt; ShowS)
@@ -167,16 +167,16 @@ forall a. Maybe a
      (Maybe ReviewStatus)
      (Maybe ReviewStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.ReviewDetails.html#ReviewDetails%27"><span class="hs-identifier hs-type">ReviewDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679328889"><span class="annot"><span class="annottext">Maybe ReviewStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.ReviewDetails.html#ReviewDetails%27"><span class="hs-identifier hs-type">ReviewDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331398"><span class="annot"><span class="annottext">Maybe ReviewStatus
 status :: Maybe ReviewStatus
 $sel:status:ReviewDetails' :: ReviewDetails -&gt; Maybe ReviewStatus
-</span><a href="#local-6989586621679328889"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReviewStatus
-</span><a href="#local-6989586621679328889"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679328888"><span class="annot"><span class="annottext">s :: ReviewDetails
-</span><a href="#local-6989586621679328888"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.ReviewDetails.html#ReviewDetails%27"><span class="hs-identifier hs-type">ReviewDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679328887"><span class="annot"><span class="annottext">Maybe ReviewStatus
-</span><a href="#local-6989586621679328887"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReviewDetails
-</span><a href="#local-6989586621679328888"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ReviewDetails' :: Maybe ReviewStatus
+</span><a href="#local-6989586621679331398"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReviewStatus
+</span><a href="#local-6989586621679331398"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331397"><span class="annot"><span class="annottext">s :: ReviewDetails
+</span><a href="#local-6989586621679331397"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.ReviewDetails.html#ReviewDetails%27"><span class="hs-identifier hs-type">ReviewDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331396"><span class="annot"><span class="annottext">Maybe ReviewStatus
+</span><a href="#local-6989586621679331396"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReviewDetails
+</span><a href="#local-6989586621679331397"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ReviewDetails' :: Maybe ReviewStatus
 </span><a href="Network.AWS.SESv2.Types.ReviewDetails.html#%24sel%3Astatus%3AReviewDetails%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReviewStatus
-</span><a href="#local-6989586621679328887"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ReviewDetails.html#ReviewDetails"><span class="hs-identifier hs-type">ReviewDetails</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679331396"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ReviewDetails.html#ReviewDetails"><span class="hs-identifier hs-type">ReviewDetails</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-comment">-- | The associated support center case ID (if any).</span><span>
 </span><span id="line-101"></span><span class="annot"><a href="Network.AWS.SESv2.Types.ReviewDetails.html#reviewDetails_caseId"><span class="hs-identifier hs-type">reviewDetails_caseId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ReviewDetails.html#ReviewDetails"><span class="hs-identifier hs-type">ReviewDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -185,19 +185,19 @@ $sel:status:ReviewDetails' :: ReviewDetails -&gt; Maybe ReviewStatus
 -&gt; (ReviewDetails -&gt; Maybe Text -&gt; ReviewDetails)
 -&gt; Lens ReviewDetails ReviewDetails (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.ReviewDetails.html#ReviewDetails%27"><span class="hs-identifier hs-type">ReviewDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679328885"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.ReviewDetails.html#ReviewDetails%27"><span class="hs-identifier hs-type">ReviewDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331394"><span class="annot"><span class="annottext">Maybe Text
 caseId :: Maybe Text
 $sel:caseId:ReviewDetails' :: ReviewDetails -&gt; Maybe Text
-</span><a href="#local-6989586621679328885"><span class="hs-identifier hs-var hs-var">caseId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679328885"><span class="hs-identifier hs-var">caseId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679328884"><span class="annot"><span class="annottext">s :: ReviewDetails
-</span><a href="#local-6989586621679328884"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.ReviewDetails.html#ReviewDetails%27"><span class="hs-identifier hs-type">ReviewDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679328883"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679328883"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReviewDetails
-</span><a href="#local-6989586621679328884"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:caseId:ReviewDetails' :: Maybe Text
+</span><a href="#local-6989586621679331394"><span class="hs-identifier hs-var hs-var">caseId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679331394"><span class="hs-identifier hs-var">caseId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331393"><span class="annot"><span class="annottext">s :: ReviewDetails
+</span><a href="#local-6989586621679331393"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.ReviewDetails.html#ReviewDetails%27"><span class="hs-identifier hs-type">ReviewDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331392"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679331392"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReviewDetails
+</span><a href="#local-6989586621679331393"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:caseId:ReviewDetails' :: Maybe Text
 </span><a href="Network.AWS.SESv2.Types.ReviewDetails.html#%24sel%3AcaseId%3AReviewDetails%27"><span class="hs-identifier hs-var">caseId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679328883"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ReviewDetails.html#ReviewDetails"><span class="hs-identifier hs-type">ReviewDetails</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679331392"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ReviewDetails.html#ReviewDetails"><span class="hs-identifier hs-type">ReviewDetails</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679328880"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ReviewDetails.html#ReviewDetails"><span class="hs-identifier hs-type">ReviewDetails</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679328878"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ReviewDetails
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679331389"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ReviewDetails.html#ReviewDetails"><span class="hs-identifier hs-type">ReviewDetails</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679331387"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ReviewDetails
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ReviewDetails)
@@ -207,8 +207,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ReviewDetails&quot;</span></span><span>
-</span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679328875"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679328875"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679331384"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679331384"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-109"></span><span>          </span><span class="annot"><span class="annottext">Maybe ReviewStatus -&gt; Maybe Text -&gt; ReviewDetails
 </span><a href="Network.AWS.SESv2.Types.ReviewDetails.html#ReviewDetails%27"><span class="hs-identifier hs-var">ReviewDetails'</span></a></span><span>
 </span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ReviewStatus -&gt; Maybe Text -&gt; ReviewDetails)
@@ -216,7 +216,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; ReviewDetails)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679328875"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ReviewStatus)
+</span><a href="#local-6989586621679331384"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ReviewStatus)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
@@ -224,13 +224,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser ReviewDetails
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679328875"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679331384"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CaseId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679328869"><span id="local-6989586621679328871"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ReviewDetails.html#ReviewDetails"><span class="hs-identifier hs-type">ReviewDetails</span></a></span></span></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679331378"><span id="local-6989586621679331380"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ReviewDetails.html#ReviewDetails"><span class="hs-identifier hs-type">ReviewDetails</span></a></span></span></span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679328866"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ReviewDetails.html#ReviewDetails"><span class="hs-identifier hs-type">ReviewDetails</span></a></span></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679331375"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ReviewDetails.html#ReviewDetails"><span class="hs-identifier hs-type">ReviewDetails</span></a></span></span><span>
 </span><span id="line-117"></span></pre></body></html>

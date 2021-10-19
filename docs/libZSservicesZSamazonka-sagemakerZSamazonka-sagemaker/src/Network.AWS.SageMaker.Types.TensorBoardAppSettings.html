@@ -27,13 +27,13 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | The TensorBoard app settings.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newTensorBoardAppSettings' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621680345854"><span id="local-6989586621680345855"></span></span><span class="hs-keyword">data</span><span> </span><span id="TensorBoardAppSettings"><span class="annot"><a href="Network.AWS.SageMaker.Types.TensorBoardAppSettings.html#TensorBoardAppSettings"><span class="hs-identifier hs-var">TensorBoardAppSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TensorBoardAppSettings%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.TensorBoardAppSettings.html#TensorBoardAppSettings%27"><span class="hs-identifier hs-var">TensorBoardAppSettings'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621680347274"><span id="local-6989586621680347275"></span></span><span class="hs-keyword">data</span><span> </span><span id="TensorBoardAppSettings"><span class="annot"><a href="Network.AWS.SageMaker.Types.TensorBoardAppSettings.html#TensorBoardAppSettings"><span class="hs-identifier hs-var">TensorBoardAppSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TensorBoardAppSettings%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.TensorBoardAppSettings.html#TensorBoardAppSettings%27"><span class="hs-identifier hs-var">TensorBoardAppSettings'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The default instance type and the Amazon Resource Name (ARN) of the</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- SageMaker image created on the instance.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AdefaultResourceSpec%3ATensorBoardAppSettings%27"><span class="annot"><span class="annottext">TensorBoardAppSettings -&gt; Maybe ResourceSpec
 </span><a href="Network.AWS.SageMaker.Types.TensorBoardAppSettings.html#%24sel%3AdefaultResourceSpec%3ATensorBoardAppSettings%27"><span class="hs-identifier hs-var hs-var">defaultResourceSpec</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceSpec.html#ResourceSpec"><span class="hs-identifier hs-type">ResourceSpec</span></a></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680345848"><span id="local-6989586621680345850"><span class="annot"><span class="annottext">TensorBoardAppSettings -&gt; TensorBoardAppSettings -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680347268"><span id="local-6989586621680347270"><span class="annot"><span class="annottext">TensorBoardAppSettings -&gt; TensorBoardAppSettings -&gt; Bool
 (TensorBoardAppSettings -&gt; TensorBoardAppSettings -&gt; Bool)
 -&gt; (TensorBoardAppSettings -&gt; TensorBoardAppSettings -&gt; Bool)
 -&gt; Eq TensorBoardAppSettings
@@ -42,7 +42,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TensorBoardAppSettings -&gt; TensorBoardAppSettings -&gt; Bool
 == :: TensorBoardAppSettings -&gt; TensorBoardAppSettings -&gt; Bool
 $c== :: TensorBoardAppSettings -&gt; TensorBoardAppSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680345839"><span id="local-6989586621680345841"><span id="local-6989586621680345843"><span id="local-6989586621680345845"><span class="annot"><span class="annottext">ReadPrec [TensorBoardAppSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680347259"><span id="local-6989586621680347261"><span id="local-6989586621680347263"><span id="local-6989586621680347265"><span class="annot"><span class="annottext">ReadPrec [TensorBoardAppSettings]
 ReadPrec TensorBoardAppSettings
 Int -&gt; ReadS TensorBoardAppSettings
 ReadS [TensorBoardAppSettings]
@@ -62,7 +62,7 @@ readList :: ReadS [TensorBoardAppSettings]
 $creadList :: ReadS [TensorBoardAppSettings]
 readsPrec :: Int -&gt; ReadS TensorBoardAppSettings
 $creadsPrec :: Int -&gt; ReadS TensorBoardAppSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680345832"><span id="local-6989586621680345834"><span id="local-6989586621680345836"><span class="annot"><span class="annottext">Int -&gt; TensorBoardAppSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680347252"><span id="local-6989586621680347254"><span id="local-6989586621680347256"><span class="annot"><span class="annottext">Int -&gt; TensorBoardAppSettings -&gt; ShowS
 [TensorBoardAppSettings] -&gt; ShowS
 TensorBoardAppSettings -&gt; String
 (Int -&gt; TensorBoardAppSettings -&gt; ShowS)
@@ -126,19 +126,19 @@ forall a. Maybe a
      (Maybe ResourceSpec)
      (Maybe ResourceSpec)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TensorBoardAppSettings.html#TensorBoardAppSettings%27"><span class="hs-identifier hs-type">TensorBoardAppSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680345823"><span class="annot"><span class="annottext">Maybe ResourceSpec
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TensorBoardAppSettings.html#TensorBoardAppSettings%27"><span class="hs-identifier hs-type">TensorBoardAppSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680347243"><span class="annot"><span class="annottext">Maybe ResourceSpec
 defaultResourceSpec :: Maybe ResourceSpec
 $sel:defaultResourceSpec:TensorBoardAppSettings' :: TensorBoardAppSettings -&gt; Maybe ResourceSpec
-</span><a href="#local-6989586621680345823"><span class="hs-identifier hs-var hs-var">defaultResourceSpec</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceSpec
-</span><a href="#local-6989586621680345823"><span class="hs-identifier hs-var">defaultResourceSpec</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680345822"><span class="annot"><span class="annottext">s :: TensorBoardAppSettings
-</span><a href="#local-6989586621680345822"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TensorBoardAppSettings.html#TensorBoardAppSettings%27"><span class="hs-identifier hs-type">TensorBoardAppSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680345821"><span class="annot"><span class="annottext">Maybe ResourceSpec
-</span><a href="#local-6989586621680345821"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TensorBoardAppSettings
-</span><a href="#local-6989586621680345822"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultResourceSpec:TensorBoardAppSettings' :: Maybe ResourceSpec
+</span><a href="#local-6989586621680347243"><span class="hs-identifier hs-var hs-var">defaultResourceSpec</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceSpec
+</span><a href="#local-6989586621680347243"><span class="hs-identifier hs-var">defaultResourceSpec</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680347242"><span class="annot"><span class="annottext">s :: TensorBoardAppSettings
+</span><a href="#local-6989586621680347242"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TensorBoardAppSettings.html#TensorBoardAppSettings%27"><span class="hs-identifier hs-type">TensorBoardAppSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680347241"><span class="annot"><span class="annottext">Maybe ResourceSpec
+</span><a href="#local-6989586621680347241"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TensorBoardAppSettings
+</span><a href="#local-6989586621680347242"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultResourceSpec:TensorBoardAppSettings' :: Maybe ResourceSpec
 </span><a href="Network.AWS.SageMaker.Types.TensorBoardAppSettings.html#%24sel%3AdefaultResourceSpec%3ATensorBoardAppSettings%27"><span class="hs-identifier hs-var">defaultResourceSpec</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceSpec
-</span><a href="#local-6989586621680345821"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TensorBoardAppSettings.html#TensorBoardAppSettings"><span class="hs-identifier hs-type">TensorBoardAppSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680347241"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TensorBoardAppSettings.html#TensorBoardAppSettings"><span class="hs-identifier hs-type">TensorBoardAppSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-59"></span><span>
-</span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680345818"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TensorBoardAppSettings.html#TensorBoardAppSettings"><span class="hs-identifier hs-type">TensorBoardAppSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-61"></span><span>  </span><span id="local-6989586621680345816"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TensorBoardAppSettings
+</span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680347238"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TensorBoardAppSettings.html#TensorBoardAppSettings"><span class="hs-identifier hs-type">TensorBoardAppSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-61"></span><span>  </span><span id="local-6989586621680347236"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TensorBoardAppSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-62"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser TensorBoardAppSettings)
@@ -148,30 +148,30 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;TensorBoardAppSettings&quot;</span></span><span>
-</span><span id="line-64"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680345813"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680345813"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-64"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680347233"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680347233"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-65"></span><span>          </span><span class="annot"><span class="annottext">Maybe ResourceSpec -&gt; TensorBoardAppSettings
 </span><a href="Network.AWS.SageMaker.Types.TensorBoardAppSettings.html#TensorBoardAppSettings%27"><span class="hs-identifier hs-var">TensorBoardAppSettings'</span></a></span><span>
 </span><span id="line-66"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ResourceSpec -&gt; TensorBoardAppSettings)
 -&gt; Parser (Maybe ResourceSpec) -&gt; Parser TensorBoardAppSettings
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680345813"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ResourceSpec)
+</span><a href="#local-6989586621680347233"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ResourceSpec)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DefaultResourceSpec&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680345807"><span id="local-6989586621680345809"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TensorBoardAppSettings.html#TensorBoardAppSettings"><span class="hs-identifier hs-type">TensorBoardAppSettings</span></a></span></span></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680347227"><span id="local-6989586621680347229"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TensorBoardAppSettings.html#TensorBoardAppSettings"><span class="hs-identifier hs-type">TensorBoardAppSettings</span></a></span></span></span><span>
 </span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680345804"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TensorBoardAppSettings.html#TensorBoardAppSettings"><span class="hs-identifier hs-type">TensorBoardAppSettings</span></a></span></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680347224"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TensorBoardAppSettings.html#TensorBoardAppSettings"><span class="hs-identifier hs-type">TensorBoardAppSettings</span></a></span></span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680345796"><span id="local-6989586621680345798"><span id="local-6989586621680345800"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TensorBoardAppSettings.html#TensorBoardAppSettings"><span class="hs-identifier hs-type">TensorBoardAppSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-74"></span><span>  </span><span id="local-6989586621680345794"><span class="annot"><span class="annottext">toJSON :: TensorBoardAppSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TensorBoardAppSettings.html#TensorBoardAppSettings%27"><span class="hs-identifier hs-type">TensorBoardAppSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680345792"><span class="annot"><span class="annottext">Maybe ResourceSpec
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680347216"><span id="local-6989586621680347218"><span id="local-6989586621680347220"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TensorBoardAppSettings.html#TensorBoardAppSettings"><span class="hs-identifier hs-type">TensorBoardAppSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621680347214"><span class="annot"><span class="annottext">toJSON :: TensorBoardAppSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TensorBoardAppSettings.html#TensorBoardAppSettings%27"><span class="hs-identifier hs-type">TensorBoardAppSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680347212"><span class="annot"><span class="annottext">Maybe ResourceSpec
 defaultResourceSpec :: Maybe ResourceSpec
 $sel:defaultResourceSpec:TensorBoardAppSettings' :: TensorBoardAppSettings -&gt; Maybe ResourceSpec
-</span><a href="#local-6989586621680345792"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680347212"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-76"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -184,7 +184,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-78"></span><span>              </span><span class="annot"><span class="annottext">(ResourceSpec -&gt; Pair) -&gt; Maybe ResourceSpec -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ResourceSpec
-</span><a href="#local-6989586621680345792"><span class="hs-identifier hs-var">defaultResourceSpec</span></a></span><span>
+</span><a href="#local-6989586621680347212"><span class="hs-identifier hs-var">defaultResourceSpec</span></a></span><span>
 </span><span id="line-79"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-80"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span></pre></body></html>

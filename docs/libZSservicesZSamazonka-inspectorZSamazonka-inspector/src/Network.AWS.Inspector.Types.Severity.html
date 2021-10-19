@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-34"></span><span>
-</span><span id="line-35"></span><span id="local-6989586621679248377"><span id="local-6989586621679248378"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Severity"><span class="annot"><a href="Network.AWS.Inspector.Types.Severity.html#Severity"><span class="hs-identifier hs-var">Severity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Severity%27"><span class="annot"><a href="Network.AWS.Inspector.Types.Severity.html#Severity%27"><span class="hs-identifier hs-var">Severity'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679248738"><span id="local-6989586621679248739"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Severity"><span class="annot"><a href="Network.AWS.Inspector.Types.Severity.html#Severity"><span class="hs-identifier hs-var">Severity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Severity%27"><span class="annot"><a href="Network.AWS.Inspector.Types.Severity.html#Severity%27"><span class="hs-identifier hs-var">Severity'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSeverity"><span class="annot"><span class="annottext">Severity -&gt; Text
 </span><a href="Network.AWS.Inspector.Types.Severity.html#fromSeverity"><span class="hs-identifier hs-var hs-var">fromSeverity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679248369"><span id="local-6989586621679248371"><span id="local-6989586621679248373"><span class="annot"><span class="annottext">Int -&gt; Severity -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679248730"><span id="local-6989586621679248732"><span id="local-6989586621679248734"><span class="annot"><span class="annottext">Int -&gt; Severity -&gt; ShowS
 [Severity] -&gt; ShowS
 Severity -&gt; String
 (Int -&gt; Severity -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: Severity -&gt; String
 showsPrec :: Int -&gt; Severity -&gt; ShowS
 $cshowsPrec :: Int -&gt; Severity -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679248360"><span id="local-6989586621679248362"><span id="local-6989586621679248364"><span id="local-6989586621679248366"><span class="annot"><span class="annottext">ReadPrec [Severity]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679248721"><span id="local-6989586621679248723"><span id="local-6989586621679248725"><span id="local-6989586621679248727"><span class="annot"><span class="annottext">ReadPrec [Severity]
 ReadPrec Severity
 Int -&gt; ReadS Severity
 ReadS [Severity]
@@ -73,7 +73,7 @@ $creadList :: ReadS [Severity]
 readsPrec :: Int -&gt; ReadS Severity
 $creadsPrec :: Int -&gt; ReadS Severity
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679248355"><span id="local-6989586621679248357"><span class="annot"><span class="annottext">Severity -&gt; Severity -&gt; Bool
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679248716"><span id="local-6989586621679248718"><span class="annot"><span class="annottext">Severity -&gt; Severity -&gt; Bool
 (Severity -&gt; Severity -&gt; Bool)
 -&gt; (Severity -&gt; Severity -&gt; Bool) -&gt; Eq Severity
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ $c/= :: Severity -&gt; Severity -&gt; Bool
 == :: Severity -&gt; Severity -&gt; Bool
 $c== :: Severity -&gt; Severity -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679248339"><span id="local-6989586621679248341"><span id="local-6989586621679248343"><span id="local-6989586621679248345"><span id="local-6989586621679248347"><span id="local-6989586621679248349"><span id="local-6989586621679248351"><span class="annot"><span class="annottext">Eq Severity
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679248700"><span id="local-6989586621679248702"><span id="local-6989586621679248704"><span id="local-6989586621679248706"><span id="local-6989586621679248708"><span id="local-6989586621679248710"><span id="local-6989586621679248712"><span class="annot"><span class="annottext">Eq Severity
 Eq Severity
 -&gt; (Severity -&gt; Severity -&gt; Ordering)
 -&gt; (Severity -&gt; Severity -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. Severity -&gt; Rep Severity x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679248331"><span id="local-6989586621679248333"><span class="annot"><span class="annottext">Int -&gt; Severity -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679248692"><span id="local-6989586621679248694"><span class="annot"><span class="annottext">Int -&gt; Severity -&gt; Int
 Severity -&gt; Int
 (Int -&gt; Severity -&gt; Int) -&gt; (Severity -&gt; Int) -&gt; Hashable Severity
 forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
@@ -141,49 +141,49 @@ $chash :: Severity -&gt; Int
 hashWithSalt :: Int -&gt; Severity -&gt; Int
 $chashWithSalt :: Int -&gt; Severity -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679248328"><span class="annot"><span class="annottext">Severity -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679248689"><span class="annot"><span class="annottext">Severity -&gt; ()
 (Severity -&gt; ()) -&gt; NFData Severity
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: Severity -&gt; ()
 $crnf :: Severity -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679248325"><span class="annot"><span class="annottext">Text -&gt; Either String Severity
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679248686"><span class="annot"><span class="annottext">Text -&gt; Either String Severity
 (Text -&gt; Either String Severity) -&gt; FromText Severity
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String Severity
 $cfromText :: Text -&gt; Either String Severity
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679248322"><span class="annot"><span class="annottext">Severity -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679248683"><span class="annot"><span class="annottext">Severity -&gt; Text
 (Severity -&gt; Text) -&gt; ToText Severity
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: Severity -&gt; Text
 $ctoText :: Severity -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679248319"><span class="annot"><span class="annottext">Severity -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679248680"><span class="annot"><span class="annottext">Severity -&gt; ByteString
 (Severity -&gt; ByteString) -&gt; ToByteString Severity
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: Severity -&gt; ByteString
 $ctoBS :: Severity -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679248316"><span class="annot"><span class="annottext">Severity -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679248677"><span class="annot"><span class="annottext">Severity -&gt; ByteStringBuilder
 (Severity -&gt; ByteStringBuilder) -&gt; ToLog Severity
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: Severity -&gt; ByteStringBuilder
 $cbuild :: Severity -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679248313"><span class="annot"><span class="annottext">HeaderName -&gt; Severity -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679248674"><span class="annot"><span class="annottext">HeaderName -&gt; Severity -&gt; [Header]
 (HeaderName -&gt; Severity -&gt; [Header]) -&gt; ToHeader Severity
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; Severity -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; Severity -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679248310"><span class="annot"><span class="annottext">Severity -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679248671"><span class="annot"><span class="annottext">Severity -&gt; QueryString
 (Severity -&gt; QueryString) -&gt; ToQuery Severity
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: Severity -&gt; QueryString
 $ctoQuery :: Severity -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679248305"><span id="local-6989586621679248307"><span class="annot"><span class="annottext">Value -&gt; Parser [Severity]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679248666"><span id="local-6989586621679248668"><span class="annot"><span class="annottext">Value -&gt; Parser [Severity]
 Value -&gt; Parser Severity
 (Value -&gt; Parser Severity)
 -&gt; (Value -&gt; Parser [Severity]) -&gt; FromJSON Severity
@@ -194,7 +194,7 @@ $cparseJSONList :: Value -&gt; Parser [Severity]
 parseJSON :: Value -&gt; Parser Severity
 $cparseJSON :: Value -&gt; Parser Severity
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679248300"><span id="local-6989586621679248302"><span class="annot"><span class="annottext">FromJSONKeyFunction [Severity]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679248661"><span id="local-6989586621679248663"><span class="annot"><span class="annottext">FromJSONKeyFunction [Severity]
 FromJSONKeyFunction Severity
 FromJSONKeyFunction Severity
 -&gt; FromJSONKeyFunction [Severity] -&gt; FromJSONKey Severity
@@ -205,7 +205,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [Severity]
 fromJSONKey :: FromJSONKeyFunction Severity
 $cfromJSONKey :: FromJSONKeyFunction Severity
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679248291"><span id="local-6989586621679248293"><span id="local-6989586621679248295"><span id="local-6989586621679248297"><span class="annot"><span class="annottext">[Severity] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679248652"><span id="local-6989586621679248654"><span id="local-6989586621679248656"><span id="local-6989586621679248658"><span class="annot"><span class="annottext">[Severity] -&gt; Encoding
 [Severity] -&gt; Value
 Severity -&gt; Encoding
 Severity -&gt; Value
@@ -229,7 +229,7 @@ $ctoEncoding :: Severity -&gt; Encoding
 toJSON :: Severity -&gt; Value
 $ctoJSON :: Severity -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679248286"><span id="local-6989586621679248288"><span class="annot"><span class="annottext">ToJSONKeyFunction [Severity]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679248647"><span id="local-6989586621679248649"><span class="annot"><span class="annottext">ToJSONKeyFunction [Severity]
 ToJSONKeyFunction Severity
 ToJSONKeyFunction Severity
 -&gt; ToJSONKeyFunction [Severity] -&gt; ToJSONKey Severity
@@ -240,13 +240,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [Severity]
 toJSONKey :: ToJSONKeyFunction Severity
 $ctoJSONKey :: ToJSONKeyFunction Severity
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679248283"><span class="annot"><span class="annottext">[Node] -&gt; Either String Severity
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679248644"><span class="annot"><span class="annottext">[Node] -&gt; Either String Severity
 ([Node] -&gt; Either String Severity) -&gt; FromXML Severity
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String Severity
 $cparseXML :: [Node] -&gt; Either String Severity
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679248280"><span class="annot"><span class="annottext">Severity -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679248641"><span class="annot"><span class="annottext">Severity -&gt; XML
 (Severity -&gt; XML) -&gt; ToXML Severity
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: Severity -&gt; XML

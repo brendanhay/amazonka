@@ -93,10 +93,10 @@
 </span><span id="line-93"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#newListResourceRecordSets"><span class="hs-identifier">newListResourceRecordSets</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-96"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#listResourceRecordSets_startRecordIdentifier"><span class="hs-identifier">listResourceRecordSets_startRecordIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#listResourceRecordSets_startRecordName"><span class="hs-identifier">listResourceRecordSets_startRecordName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-97"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#listResourceRecordSets_startRecordType"><span class="hs-identifier">listResourceRecordSets_startRecordType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-98"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#listResourceRecordSets_maxItems"><span class="hs-identifier">listResourceRecordSets_maxItems</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-99"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#listResourceRecordSets_startRecordName"><span class="hs-identifier">listResourceRecordSets_startRecordName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#listResourceRecordSets_startRecordIdentifier"><span class="hs-identifier">listResourceRecordSets_startRecordIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#listResourceRecordSets_maxItems"><span class="hs-identifier">listResourceRecordSets_maxItems</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-100"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#listResourceRecordSets_hostedZoneId"><span class="hs-identifier">listResourceRecordSets_hostedZoneId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
@@ -105,8 +105,8 @@
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
 </span><span id="line-107"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#listResourceRecordSetsResponse_nextRecordType"><span class="hs-identifier">listResourceRecordSetsResponse_nextRecordType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-108"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#listResourceRecordSetsResponse_nextRecordIdentifier"><span class="hs-identifier">listResourceRecordSetsResponse_nextRecordIdentifier</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-109"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#listResourceRecordSetsResponse_nextRecordName"><span class="hs-identifier">listResourceRecordSetsResponse_nextRecordName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#listResourceRecordSetsResponse_nextRecordName"><span class="hs-identifier">listResourceRecordSetsResponse_nextRecordName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#listResourceRecordSetsResponse_nextRecordIdentifier"><span class="hs-identifier">listResourceRecordSetsResponse_nextRecordIdentifier</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-110"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#listResourceRecordSetsResponse_httpStatus"><span class="hs-identifier">listResourceRecordSetsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-111"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#listResourceRecordSetsResponse_resourceRecordSets"><span class="hs-identifier">listResourceRecordSetsResponse_resourceRecordSets</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-112"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#listResourceRecordSetsResponse_isTruncated"><span class="hs-identifier">listResourceRecordSetsResponse_isTruncated</span></a></span><span class="hs-special">,</span><span>
@@ -125,13 +125,13 @@
 </span><span id="line-125"></span><span class="hs-comment">-- specified hosted zone.</span><span>
 </span><span id="line-126"></span><span class="hs-comment">--</span><span>
 </span><span id="line-127"></span><span class="hs-comment">-- /See:/ 'newListResourceRecordSets' smart constructor.</span><span>
-</span><span id="line-128"></span><span id="local-6989586621679302589"><span id="local-6989586621679302590"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListResourceRecordSets"><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSets"><span class="hs-identifier hs-var">ListResourceRecordSets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListResourceRecordSets%27"><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSets%27"><span class="hs-identifier hs-var">ListResourceRecordSets'</span></a></span></span><span>
-</span><span id="line-129"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | /Resource record sets that have a routing policy other than simple:/ If</span><span>
-</span><span id="line-130"></span><span>    </span><span class="hs-comment">-- results were truncated for a given DNS name and type, specify the value</span><span>
-</span><span id="line-131"></span><span>    </span><span class="hs-comment">-- of @NextRecordIdentifier@ from the previous response to get the next</span><span>
-</span><span id="line-132"></span><span>    </span><span class="hs-comment">-- resource record set that has the current DNS name and type.</span><span>
-</span><span id="line-133"></span><span>    </span><span id="%24sel%3AstartRecordIdentifier%3AListResourceRecordSets%27"><span class="annot"><span class="annottext">ListResourceRecordSets -&gt; Maybe Text
-</span><a href="Network.AWS.Route53.ListResourceRecordSets.html#%24sel%3AstartRecordIdentifier%3AListResourceRecordSets%27"><span class="hs-identifier hs-var hs-var">startRecordIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span id="local-6989586621679302760"><span id="local-6989586621679302761"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListResourceRecordSets"><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSets"><span class="hs-identifier hs-var">ListResourceRecordSets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListResourceRecordSets%27"><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSets%27"><span class="hs-identifier hs-var">ListResourceRecordSets'</span></a></span></span><span>
+</span><span id="line-129"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The first name in the lexicographic ordering of resource record sets</span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-comment">-- that you want to list. If the specified record name doesn\'t exist, the</span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-comment">-- results begin with the first resource record set that has a name greater</span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-comment">-- than the value of @name@.</span><span>
+</span><span id="line-133"></span><span>    </span><span id="%24sel%3AstartRecordName%3AListResourceRecordSets%27"><span class="annot"><span class="annottext">ListResourceRecordSets -&gt; Maybe Text
+</span><a href="Network.AWS.Route53.ListResourceRecordSets.html#%24sel%3AstartRecordName%3AListResourceRecordSets%27"><span class="hs-identifier hs-var hs-var">startRecordName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-134"></span><span>    </span><span class="hs-comment">-- | The type of resource record set to begin the record listing from.</span><span>
 </span><span id="line-135"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-136"></span><span>    </span><span class="hs-comment">-- Valid values for basic resource record sets: @A@ | @AAAA@ | @CAA@ |</span><span>
@@ -163,26 +163,26 @@
 </span><span id="line-162"></span><span>    </span><span class="hs-comment">-- @InvalidInput@ error.</span><span>
 </span><span id="line-163"></span><span>    </span><span id="%24sel%3AstartRecordType%3AListResourceRecordSets%27"><span class="annot"><span class="annottext">ListResourceRecordSets -&gt; Maybe RRType
 </span><a href="Network.AWS.Route53.ListResourceRecordSets.html#%24sel%3AstartRecordType%3AListResourceRecordSets%27"><span class="hs-identifier hs-var hs-var">startRecordType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.RRType.html#RRType"><span class="hs-identifier hs-type">RRType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-164"></span><span>    </span><span class="hs-comment">-- | (Optional) The maximum number of resource records sets to include in the</span><span>
-</span><span id="line-165"></span><span>    </span><span class="hs-comment">-- response body for this request. If the response includes more than</span><span>
-</span><span id="line-166"></span><span>    </span><span class="hs-comment">-- @maxitems@ resource record sets, the value of the @IsTruncated@ element</span><span>
-</span><span id="line-167"></span><span>    </span><span class="hs-comment">-- in the response is @true@, and the values of the @NextRecordName@ and</span><span>
-</span><span id="line-168"></span><span>    </span><span class="hs-comment">-- @NextRecordType@ elements in the response identify the first resource</span><span>
-</span><span id="line-169"></span><span>    </span><span class="hs-comment">-- record set in the next group of @maxitems@ resource record sets.</span><span>
-</span><span id="line-170"></span><span>    </span><span id="%24sel%3AmaxItems%3AListResourceRecordSets%27"><span class="annot"><span class="annottext">ListResourceRecordSets -&gt; Maybe Text
+</span><span id="line-164"></span><span>    </span><span class="hs-comment">-- | /Resource record sets that have a routing policy other than simple:/ If</span><span>
+</span><span id="line-165"></span><span>    </span><span class="hs-comment">-- results were truncated for a given DNS name and type, specify the value</span><span>
+</span><span id="line-166"></span><span>    </span><span class="hs-comment">-- of @NextRecordIdentifier@ from the previous response to get the next</span><span>
+</span><span id="line-167"></span><span>    </span><span class="hs-comment">-- resource record set that has the current DNS name and type.</span><span>
+</span><span id="line-168"></span><span>    </span><span id="%24sel%3AstartRecordIdentifier%3AListResourceRecordSets%27"><span class="annot"><span class="annottext">ListResourceRecordSets -&gt; Maybe Text
+</span><a href="Network.AWS.Route53.ListResourceRecordSets.html#%24sel%3AstartRecordIdentifier%3AListResourceRecordSets%27"><span class="hs-identifier hs-var hs-var">startRecordIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>    </span><span class="hs-comment">-- | (Optional) The maximum number of resource records sets to include in the</span><span>
+</span><span id="line-170"></span><span>    </span><span class="hs-comment">-- response body for this request. If the response includes more than</span><span>
+</span><span id="line-171"></span><span>    </span><span class="hs-comment">-- @maxitems@ resource record sets, the value of the @IsTruncated@ element</span><span>
+</span><span id="line-172"></span><span>    </span><span class="hs-comment">-- in the response is @true@, and the values of the @NextRecordName@ and</span><span>
+</span><span id="line-173"></span><span>    </span><span class="hs-comment">-- @NextRecordType@ elements in the response identify the first resource</span><span>
+</span><span id="line-174"></span><span>    </span><span class="hs-comment">-- record set in the next group of @maxitems@ resource record sets.</span><span>
+</span><span id="line-175"></span><span>    </span><span id="%24sel%3AmaxItems%3AListResourceRecordSets%27"><span class="annot"><span class="annottext">ListResourceRecordSets -&gt; Maybe Text
 </span><a href="Network.AWS.Route53.ListResourceRecordSets.html#%24sel%3AmaxItems%3AListResourceRecordSets%27"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-171"></span><span>    </span><span class="hs-comment">-- | The first name in the lexicographic ordering of resource record sets</span><span>
-</span><span id="line-172"></span><span>    </span><span class="hs-comment">-- that you want to list. If the specified record name doesn\'t exist, the</span><span>
-</span><span id="line-173"></span><span>    </span><span class="hs-comment">-- results begin with the first resource record set that has a name greater</span><span>
-</span><span id="line-174"></span><span>    </span><span class="hs-comment">-- than the value of @name@.</span><span>
-</span><span id="line-175"></span><span>    </span><span id="%24sel%3AstartRecordName%3AListResourceRecordSets%27"><span class="annot"><span class="annottext">ListResourceRecordSets -&gt; Maybe Text
-</span><a href="Network.AWS.Route53.ListResourceRecordSets.html#%24sel%3AstartRecordName%3AListResourceRecordSets%27"><span class="hs-identifier hs-var hs-var">startRecordName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-176"></span><span>    </span><span class="hs-comment">-- | The ID of the hosted zone that contains the resource record sets that</span><span>
 </span><span id="line-177"></span><span>    </span><span class="hs-comment">-- you want to list.</span><span>
 </span><span id="line-178"></span><span>    </span><span id="%24sel%3AhostedZoneId%3AListResourceRecordSets%27"><span class="annot"><span class="annottext">ListResourceRecordSets -&gt; ResourceId
 </span><a href="Network.AWS.Route53.ListResourceRecordSets.html#%24sel%3AhostedZoneId%3AListResourceRecordSets%27"><span class="hs-identifier hs-var hs-var">hostedZoneId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Internal.html#ResourceId"><span class="hs-identifier hs-type">ResourceId</span></a></span><span>
 </span><span id="line-179"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-180"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679302579"><span id="local-6989586621679302581"><span class="annot"><span class="annottext">ListResourceRecordSets -&gt; ListResourceRecordSets -&gt; Bool
+</span><span id="line-180"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679302750"><span id="local-6989586621679302752"><span class="annot"><span class="annottext">ListResourceRecordSets -&gt; ListResourceRecordSets -&gt; Bool
 (ListResourceRecordSets -&gt; ListResourceRecordSets -&gt; Bool)
 -&gt; (ListResourceRecordSets -&gt; ListResourceRecordSets -&gt; Bool)
 -&gt; Eq ListResourceRecordSets
@@ -191,7 +191,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListResourceRecordSets -&gt; ListResourceRecordSets -&gt; Bool
 == :: ListResourceRecordSets -&gt; ListResourceRecordSets -&gt; Bool
 $c== :: ListResourceRecordSets -&gt; ListResourceRecordSets -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302570"><span id="local-6989586621679302572"><span id="local-6989586621679302574"><span id="local-6989586621679302576"><span class="annot"><span class="annottext">ReadPrec [ListResourceRecordSets]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302741"><span id="local-6989586621679302743"><span id="local-6989586621679302745"><span id="local-6989586621679302747"><span class="annot"><span class="annottext">ReadPrec [ListResourceRecordSets]
 ReadPrec ListResourceRecordSets
 Int -&gt; ReadS ListResourceRecordSets
 ReadS [ListResourceRecordSets]
@@ -211,7 +211,7 @@ readList :: ReadS [ListResourceRecordSets]
 $creadList :: ReadS [ListResourceRecordSets]
 readsPrec :: Int -&gt; ReadS ListResourceRecordSets
 $creadsPrec :: Int -&gt; ReadS ListResourceRecordSets
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302563"><span id="local-6989586621679302565"><span id="local-6989586621679302567"><span class="annot"><span class="annottext">Int -&gt; ListResourceRecordSets -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302734"><span id="local-6989586621679302736"><span id="local-6989586621679302738"><span class="annot"><span class="annottext">Int -&gt; ListResourceRecordSets -&gt; ShowS
 [ListResourceRecordSets] -&gt; ShowS
 ListResourceRecordSets -&gt; String
 (Int -&gt; ListResourceRecordSets -&gt; ShowS)
@@ -246,10 +246,10 @@ $cfrom :: forall x. ListResourceRecordSets -&gt; Rep ListResourceRecordSets x
 </span><span id="line-187"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-188"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-189"></span><span class="hs-comment">--</span><span>
-</span><span id="line-190"></span><span class="hs-comment">-- 'startRecordIdentifier', 'listResourceRecordSets_startRecordIdentifier' - /Resource record sets that have a routing policy other than simple:/ If</span><span>
-</span><span id="line-191"></span><span class="hs-comment">-- results were truncated for a given DNS name and type, specify the value</span><span>
-</span><span id="line-192"></span><span class="hs-comment">-- of @NextRecordIdentifier@ from the previous response to get the next</span><span>
-</span><span id="line-193"></span><span class="hs-comment">-- resource record set that has the current DNS name and type.</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- 'startRecordName', 'listResourceRecordSets_startRecordName' - The first name in the lexicographic ordering of resource record sets</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- that you want to list. If the specified record name doesn\'t exist, the</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- results begin with the first resource record set that has a name greater</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- than the value of @name@.</span><span>
 </span><span id="line-194"></span><span class="hs-comment">--</span><span>
 </span><span id="line-195"></span><span class="hs-comment">-- 'startRecordType', 'listResourceRecordSets_startRecordType' - The type of resource record set to begin the record listing from.</span><span>
 </span><span id="line-196"></span><span class="hs-comment">--</span><span>
@@ -281,17 +281,17 @@ $cfrom :: forall x. ListResourceRecordSets -&gt; Rep ListResourceRecordSets x
 </span><span id="line-222"></span><span class="hs-comment">-- Constraint: Specifying @type@ without specifying @name@ returns an</span><span>
 </span><span id="line-223"></span><span class="hs-comment">-- @InvalidInput@ error.</span><span>
 </span><span id="line-224"></span><span class="hs-comment">--</span><span>
-</span><span id="line-225"></span><span class="hs-comment">-- 'maxItems', 'listResourceRecordSets_maxItems' - (Optional) The maximum number of resource records sets to include in the</span><span>
-</span><span id="line-226"></span><span class="hs-comment">-- response body for this request. If the response includes more than</span><span>
-</span><span id="line-227"></span><span class="hs-comment">-- @maxitems@ resource record sets, the value of the @IsTruncated@ element</span><span>
-</span><span id="line-228"></span><span class="hs-comment">-- in the response is @true@, and the values of the @NextRecordName@ and</span><span>
-</span><span id="line-229"></span><span class="hs-comment">-- @NextRecordType@ elements in the response identify the first resource</span><span>
-</span><span id="line-230"></span><span class="hs-comment">-- record set in the next group of @maxitems@ resource record sets.</span><span>
-</span><span id="line-231"></span><span class="hs-comment">--</span><span>
-</span><span id="line-232"></span><span class="hs-comment">-- 'startRecordName', 'listResourceRecordSets_startRecordName' - The first name in the lexicographic ordering of resource record sets</span><span>
-</span><span id="line-233"></span><span class="hs-comment">-- that you want to list. If the specified record name doesn\'t exist, the</span><span>
-</span><span id="line-234"></span><span class="hs-comment">-- results begin with the first resource record set that has a name greater</span><span>
-</span><span id="line-235"></span><span class="hs-comment">-- than the value of @name@.</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- 'startRecordIdentifier', 'listResourceRecordSets_startRecordIdentifier' - /Resource record sets that have a routing policy other than simple:/ If</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- results were truncated for a given DNS name and type, specify the value</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- of @NextRecordIdentifier@ from the previous response to get the next</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- resource record set that has the current DNS name and type.</span><span>
+</span><span id="line-229"></span><span class="hs-comment">--</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- 'maxItems', 'listResourceRecordSets_maxItems' - (Optional) The maximum number of resource records sets to include in the</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- response body for this request. If the response includes more than</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- @maxitems@ resource record sets, the value of the @IsTruncated@ element</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- in the response is @true@, and the values of the @NextRecordName@ and</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- @NextRecordType@ elements in the response identify the first resource</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- record set in the next group of @maxitems@ resource record sets.</span><span>
 </span><span id="line-236"></span><span class="hs-comment">--</span><span>
 </span><span id="line-237"></span><span class="hs-comment">-- 'hostedZoneId', 'listResourceRecordSets_hostedZoneId' - The ID of the hosted zone that contains the resource record sets that</span><span>
 </span><span id="line-238"></span><span class="hs-comment">-- you want to list.</span><span>
@@ -300,8 +300,8 @@ $cfrom :: forall x. ListResourceRecordSets -&gt; Rep ListResourceRecordSets x
 </span><span id="line-241"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53.Internal.html#ResourceId"><span class="hs-identifier hs-type">ResourceId</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-242"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSets"><span class="hs-identifier hs-type">ListResourceRecordSets</span></a></span><span>
 </span><span id="line-243"></span><span id="newListResourceRecordSets"><span class="annot"><span class="annottext">newListResourceRecordSets :: ResourceId -&gt; ListResourceRecordSets
-</span><a href="Network.AWS.Route53.ListResourceRecordSets.html#newListResourceRecordSets"><span class="hs-identifier hs-var hs-var">newListResourceRecordSets</span></a></span></span><span> </span><span id="local-6989586621679302558"><span class="annot"><span class="annottext">ResourceId
-</span><a href="#local-6989586621679302558"><span class="hs-identifier hs-var">pHostedZoneId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Route53.ListResourceRecordSets.html#newListResourceRecordSets"><span class="hs-identifier hs-var hs-var">newListResourceRecordSets</span></a></span></span><span> </span><span id="local-6989586621679302729"><span class="annot"><span class="annottext">ResourceId
+</span><a href="#local-6989586621679302729"><span class="hs-identifier hs-var">pHostedZoneId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-244"></span><span>  </span><span class="annot"><span class="annottext">ListResourceRecordSets' :: Maybe Text
 -&gt; Maybe RRType
 -&gt; Maybe Text
@@ -309,8 +309,8 @@ $cfrom :: forall x. ListResourceRecordSets -&gt; Rep ListResourceRecordSets x
 -&gt; ResourceId
 -&gt; ListResourceRecordSets
 </span><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSets%27"><span class="hs-identifier hs-type">ListResourceRecordSets'</span></a></span><span>
-</span><span id="line-245"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:startRecordIdentifier:ListResourceRecordSets' :: Maybe Text
-</span><a href="Network.AWS.Route53.ListResourceRecordSets.html#%24sel%3AstartRecordIdentifier%3AListResourceRecordSets%27"><span class="hs-identifier hs-var">startRecordIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-245"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:startRecordName:ListResourceRecordSets' :: Maybe Text
+</span><a href="Network.AWS.Route53.ListResourceRecordSets.html#%24sel%3AstartRecordName%3AListResourceRecordSets%27"><span class="hs-identifier hs-var">startRecordName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-246"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
@@ -318,27 +318,27 @@ forall a. Maybe a
 </span><a href="Network.AWS.Route53.ListResourceRecordSets.html#%24sel%3AstartRecordType%3AListResourceRecordSets%27"><span class="hs-identifier hs-var">startRecordType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RRType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-248"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxItems:ListResourceRecordSets' :: Maybe Text
-</span><a href="Network.AWS.Route53.ListResourceRecordSets.html#%24sel%3AmaxItems%3AListResourceRecordSets%27"><span class="hs-identifier hs-var">maxItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-248"></span><span>      </span><span class="annot"><span class="annottext">$sel:startRecordIdentifier:ListResourceRecordSets' :: Maybe Text
+</span><a href="Network.AWS.Route53.ListResourceRecordSets.html#%24sel%3AstartRecordIdentifier%3AListResourceRecordSets%27"><span class="hs-identifier hs-var">startRecordIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-249"></span><span>      </span><span class="annot"><span class="annottext">$sel:startRecordName:ListResourceRecordSets' :: Maybe Text
-</span><a href="Network.AWS.Route53.ListResourceRecordSets.html#%24sel%3AstartRecordName%3AListResourceRecordSets%27"><span class="hs-identifier hs-var">startRecordName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-249"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxItems:ListResourceRecordSets' :: Maybe Text
+</span><a href="Network.AWS.Route53.ListResourceRecordSets.html#%24sel%3AmaxItems%3AListResourceRecordSets%27"><span class="hs-identifier hs-var">maxItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-250"></span><span>      </span><span class="annot"><span class="annottext">$sel:hostedZoneId:ListResourceRecordSets' :: ResourceId
 </span><a href="Network.AWS.Route53.ListResourceRecordSets.html#%24sel%3AhostedZoneId%3AListResourceRecordSets%27"><span class="hs-identifier hs-var">hostedZoneId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResourceId
-</span><a href="#local-6989586621679302558"><span class="hs-identifier hs-var">pHostedZoneId_</span></a></span><span>
+</span><a href="#local-6989586621679302729"><span class="hs-identifier hs-var">pHostedZoneId_</span></a></span><span>
 </span><span id="line-251"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-252"></span><span>
-</span><span id="line-253"></span><span class="hs-comment">-- | /Resource record sets that have a routing policy other than simple:/ If</span><span>
-</span><span id="line-254"></span><span class="hs-comment">-- results were truncated for a given DNS name and type, specify the value</span><span>
-</span><span id="line-255"></span><span class="hs-comment">-- of @NextRecordIdentifier@ from the previous response to get the next</span><span>
-</span><span id="line-256"></span><span class="hs-comment">-- resource record set that has the current DNS name and type.</span><span>
-</span><span id="line-257"></span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#listResourceRecordSets_startRecordIdentifier"><span class="hs-identifier hs-type">listResourceRecordSets_startRecordIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSets"><span class="hs-identifier hs-type">ListResourceRecordSets</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-258"></span><span id="listResourceRecordSets_startRecordIdentifier"><span class="annot"><span class="annottext">listResourceRecordSets_startRecordIdentifier :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-253"></span><span class="hs-comment">-- | The first name in the lexicographic ordering of resource record sets</span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- that you want to list. If the specified record name doesn\'t exist, the</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- results begin with the first resource record set that has a name greater</span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- than the value of @name@.</span><span>
+</span><span id="line-257"></span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#listResourceRecordSets_startRecordName"><span class="hs-identifier hs-type">listResourceRecordSets_startRecordName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSets"><span class="hs-identifier hs-type">ListResourceRecordSets</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-258"></span><span id="listResourceRecordSets_startRecordName"><span class="annot"><span class="annottext">listResourceRecordSets_startRecordName :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ListResourceRecordSets -&gt; f ListResourceRecordSets
-</span><a href="Network.AWS.Route53.ListResourceRecordSets.html#listResourceRecordSets_startRecordIdentifier"><span class="hs-identifier hs-var hs-var">listResourceRecordSets_startRecordIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListResourceRecordSets -&gt; Maybe Text)
+</span><a href="Network.AWS.Route53.ListResourceRecordSets.html#listResourceRecordSets_startRecordName"><span class="hs-identifier hs-var hs-var">listResourceRecordSets_startRecordName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListResourceRecordSets -&gt; Maybe Text)
 -&gt; (ListResourceRecordSets -&gt; Maybe Text -&gt; ListResourceRecordSets)
 -&gt; Lens
      ListResourceRecordSets
@@ -346,16 +346,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSets%27"><span class="hs-identifier hs-type">ListResourceRecordSets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302556"><span class="annot"><span class="annottext">Maybe Text
-startRecordIdentifier :: Maybe Text
-$sel:startRecordIdentifier:ListResourceRecordSets' :: ListResourceRecordSets -&gt; Maybe Text
-</span><a href="#local-6989586621679302556"><span class="hs-identifier hs-var hs-var">startRecordIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302556"><span class="hs-identifier hs-var">startRecordIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302555"><span class="annot"><span class="annottext">s :: ListResourceRecordSets
-</span><a href="#local-6989586621679302555"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSets%27"><span class="hs-identifier hs-type">ListResourceRecordSets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302554"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302554"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListResourceRecordSets
-</span><a href="#local-6989586621679302555"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startRecordIdentifier:ListResourceRecordSets' :: Maybe Text
-</span><a href="Network.AWS.Route53.ListResourceRecordSets.html#%24sel%3AstartRecordIdentifier%3AListResourceRecordSets%27"><span class="hs-identifier hs-var">startRecordIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302554"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSets"><span class="hs-identifier hs-type">ListResourceRecordSets</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSets%27"><span class="hs-identifier hs-type">ListResourceRecordSets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302727"><span class="annot"><span class="annottext">Maybe Text
+startRecordName :: Maybe Text
+$sel:startRecordName:ListResourceRecordSets' :: ListResourceRecordSets -&gt; Maybe Text
+</span><a href="#local-6989586621679302727"><span class="hs-identifier hs-var hs-var">startRecordName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302727"><span class="hs-identifier hs-var">startRecordName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302726"><span class="annot"><span class="annottext">s :: ListResourceRecordSets
+</span><a href="#local-6989586621679302726"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSets%27"><span class="hs-identifier hs-type">ListResourceRecordSets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302725"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302725"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListResourceRecordSets
+</span><a href="#local-6989586621679302726"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startRecordName:ListResourceRecordSets' :: Maybe Text
+</span><a href="Network.AWS.Route53.ListResourceRecordSets.html#%24sel%3AstartRecordName%3AListResourceRecordSets%27"><span class="hs-identifier hs-var">startRecordName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302725"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSets"><span class="hs-identifier hs-type">ListResourceRecordSets</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-259"></span><span>
 </span><span id="line-260"></span><span class="hs-comment">-- | The type of resource record set to begin the record listing from.</span><span>
 </span><span id="line-261"></span><span class="hs-comment">--</span><span>
@@ -398,25 +398,51 @@ $sel:startRecordIdentifier:ListResourceRecordSets' :: ListResourceRecordSets -&g
      (Maybe RRType)
      (Maybe RRType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSets%27"><span class="hs-identifier hs-type">ListResourceRecordSets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302553"><span class="annot"><span class="annottext">Maybe RRType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSets%27"><span class="hs-identifier hs-type">ListResourceRecordSets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302724"><span class="annot"><span class="annottext">Maybe RRType
 startRecordType :: Maybe RRType
 $sel:startRecordType:ListResourceRecordSets' :: ListResourceRecordSets -&gt; Maybe RRType
-</span><a href="#local-6989586621679302553"><span class="hs-identifier hs-var hs-var">startRecordType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RRType
-</span><a href="#local-6989586621679302553"><span class="hs-identifier hs-var">startRecordType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302552"><span class="annot"><span class="annottext">s :: ListResourceRecordSets
-</span><a href="#local-6989586621679302552"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSets%27"><span class="hs-identifier hs-type">ListResourceRecordSets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302551"><span class="annot"><span class="annottext">Maybe RRType
-</span><a href="#local-6989586621679302551"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListResourceRecordSets
-</span><a href="#local-6989586621679302552"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startRecordType:ListResourceRecordSets' :: Maybe RRType
+</span><a href="#local-6989586621679302724"><span class="hs-identifier hs-var hs-var">startRecordType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RRType
+</span><a href="#local-6989586621679302724"><span class="hs-identifier hs-var">startRecordType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302723"><span class="annot"><span class="annottext">s :: ListResourceRecordSets
+</span><a href="#local-6989586621679302723"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSets%27"><span class="hs-identifier hs-type">ListResourceRecordSets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302722"><span class="annot"><span class="annottext">Maybe RRType
+</span><a href="#local-6989586621679302722"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListResourceRecordSets
+</span><a href="#local-6989586621679302723"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startRecordType:ListResourceRecordSets' :: Maybe RRType
 </span><a href="Network.AWS.Route53.ListResourceRecordSets.html#%24sel%3AstartRecordType%3AListResourceRecordSets%27"><span class="hs-identifier hs-var">startRecordType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RRType
-</span><a href="#local-6989586621679302551"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSets"><span class="hs-identifier hs-type">ListResourceRecordSets</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679302722"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSets"><span class="hs-identifier hs-type">ListResourceRecordSets</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-291"></span><span>
-</span><span id="line-292"></span><span class="hs-comment">-- | (Optional) The maximum number of resource records sets to include in the</span><span>
-</span><span id="line-293"></span><span class="hs-comment">-- response body for this request. If the response includes more than</span><span>
-</span><span id="line-294"></span><span class="hs-comment">-- @maxitems@ resource record sets, the value of the @IsTruncated@ element</span><span>
-</span><span id="line-295"></span><span class="hs-comment">-- in the response is @true@, and the values of the @NextRecordName@ and</span><span>
-</span><span id="line-296"></span><span class="hs-comment">-- @NextRecordType@ elements in the response identify the first resource</span><span>
-</span><span id="line-297"></span><span class="hs-comment">-- record set in the next group of @maxitems@ resource record sets.</span><span>
-</span><span id="line-298"></span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#listResourceRecordSets_maxItems"><span class="hs-identifier hs-type">listResourceRecordSets_maxItems</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSets"><span class="hs-identifier hs-type">ListResourceRecordSets</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-299"></span><span id="listResourceRecordSets_maxItems"><span class="annot"><span class="annottext">listResourceRecordSets_maxItems :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-292"></span><span class="hs-comment">-- | /Resource record sets that have a routing policy other than simple:/ If</span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- results were truncated for a given DNS name and type, specify the value</span><span>
+</span><span id="line-294"></span><span class="hs-comment">-- of @NextRecordIdentifier@ from the previous response to get the next</span><span>
+</span><span id="line-295"></span><span class="hs-comment">-- resource record set that has the current DNS name and type.</span><span>
+</span><span id="line-296"></span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#listResourceRecordSets_startRecordIdentifier"><span class="hs-identifier hs-type">listResourceRecordSets_startRecordIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSets"><span class="hs-identifier hs-type">ListResourceRecordSets</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-297"></span><span id="listResourceRecordSets_startRecordIdentifier"><span class="annot"><span class="annottext">listResourceRecordSets_startRecordIdentifier :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListResourceRecordSets -&gt; f ListResourceRecordSets
+</span><a href="Network.AWS.Route53.ListResourceRecordSets.html#listResourceRecordSets_startRecordIdentifier"><span class="hs-identifier hs-var hs-var">listResourceRecordSets_startRecordIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListResourceRecordSets -&gt; Maybe Text)
+-&gt; (ListResourceRecordSets -&gt; Maybe Text -&gt; ListResourceRecordSets)
+-&gt; Lens
+     ListResourceRecordSets
+     ListResourceRecordSets
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSets%27"><span class="hs-identifier hs-type">ListResourceRecordSets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302721"><span class="annot"><span class="annottext">Maybe Text
+startRecordIdentifier :: Maybe Text
+$sel:startRecordIdentifier:ListResourceRecordSets' :: ListResourceRecordSets -&gt; Maybe Text
+</span><a href="#local-6989586621679302721"><span class="hs-identifier hs-var hs-var">startRecordIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302721"><span class="hs-identifier hs-var">startRecordIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302720"><span class="annot"><span class="annottext">s :: ListResourceRecordSets
+</span><a href="#local-6989586621679302720"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSets%27"><span class="hs-identifier hs-type">ListResourceRecordSets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302719"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302719"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListResourceRecordSets
+</span><a href="#local-6989586621679302720"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startRecordIdentifier:ListResourceRecordSets' :: Maybe Text
+</span><a href="Network.AWS.Route53.ListResourceRecordSets.html#%24sel%3AstartRecordIdentifier%3AListResourceRecordSets%27"><span class="hs-identifier hs-var">startRecordIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302719"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSets"><span class="hs-identifier hs-type">ListResourceRecordSets</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-298"></span><span>
+</span><span id="line-299"></span><span class="hs-comment">-- | (Optional) The maximum number of resource records sets to include in the</span><span>
+</span><span id="line-300"></span><span class="hs-comment">-- response body for this request. If the response includes more than</span><span>
+</span><span id="line-301"></span><span class="hs-comment">-- @maxitems@ resource record sets, the value of the @IsTruncated@ element</span><span>
+</span><span id="line-302"></span><span class="hs-comment">-- in the response is @true@, and the values of the @NextRecordName@ and</span><span>
+</span><span id="line-303"></span><span class="hs-comment">-- @NextRecordType@ elements in the response identify the first resource</span><span>
+</span><span id="line-304"></span><span class="hs-comment">-- record set in the next group of @maxitems@ resource record sets.</span><span>
+</span><span id="line-305"></span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#listResourceRecordSets_maxItems"><span class="hs-identifier hs-type">listResourceRecordSets_maxItems</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSets"><span class="hs-identifier hs-type">ListResourceRecordSets</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-306"></span><span id="listResourceRecordSets_maxItems"><span class="annot"><span class="annottext">listResourceRecordSets_maxItems :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ListResourceRecordSets -&gt; f ListResourceRecordSets
 </span><a href="Network.AWS.Route53.ListResourceRecordSets.html#listResourceRecordSets_maxItems"><span class="hs-identifier hs-var hs-var">listResourceRecordSets_maxItems</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListResourceRecordSets -&gt; Maybe Text)
 -&gt; (ListResourceRecordSets -&gt; Maybe Text -&gt; ListResourceRecordSets)
@@ -426,42 +452,16 @@ $sel:startRecordType:ListResourceRecordSets' :: ListResourceRecordSets -&gt; May
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSets%27"><span class="hs-identifier hs-type">ListResourceRecordSets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302550"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSets%27"><span class="hs-identifier hs-type">ListResourceRecordSets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302718"><span class="annot"><span class="annottext">Maybe Text
 maxItems :: Maybe Text
 $sel:maxItems:ListResourceRecordSets' :: ListResourceRecordSets -&gt; Maybe Text
-</span><a href="#local-6989586621679302550"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302550"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302549"><span class="annot"><span class="annottext">s :: ListResourceRecordSets
-</span><a href="#local-6989586621679302549"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSets%27"><span class="hs-identifier hs-type">ListResourceRecordSets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302548"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302548"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListResourceRecordSets
-</span><a href="#local-6989586621679302549"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxItems:ListResourceRecordSets' :: Maybe Text
+</span><a href="#local-6989586621679302718"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302718"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302717"><span class="annot"><span class="annottext">s :: ListResourceRecordSets
+</span><a href="#local-6989586621679302717"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSets%27"><span class="hs-identifier hs-type">ListResourceRecordSets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302716"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302716"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListResourceRecordSets
+</span><a href="#local-6989586621679302717"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxItems:ListResourceRecordSets' :: Maybe Text
 </span><a href="Network.AWS.Route53.ListResourceRecordSets.html#%24sel%3AmaxItems%3AListResourceRecordSets%27"><span class="hs-identifier hs-var">maxItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302548"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSets"><span class="hs-identifier hs-type">ListResourceRecordSets</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-300"></span><span>
-</span><span id="line-301"></span><span class="hs-comment">-- | The first name in the lexicographic ordering of resource record sets</span><span>
-</span><span id="line-302"></span><span class="hs-comment">-- that you want to list. If the specified record name doesn\'t exist, the</span><span>
-</span><span id="line-303"></span><span class="hs-comment">-- results begin with the first resource record set that has a name greater</span><span>
-</span><span id="line-304"></span><span class="hs-comment">-- than the value of @name@.</span><span>
-</span><span id="line-305"></span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#listResourceRecordSets_startRecordName"><span class="hs-identifier hs-type">listResourceRecordSets_startRecordName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSets"><span class="hs-identifier hs-type">ListResourceRecordSets</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-306"></span><span id="listResourceRecordSets_startRecordName"><span class="annot"><span class="annottext">listResourceRecordSets_startRecordName :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ListResourceRecordSets -&gt; f ListResourceRecordSets
-</span><a href="Network.AWS.Route53.ListResourceRecordSets.html#listResourceRecordSets_startRecordName"><span class="hs-identifier hs-var hs-var">listResourceRecordSets_startRecordName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListResourceRecordSets -&gt; Maybe Text)
--&gt; (ListResourceRecordSets -&gt; Maybe Text -&gt; ListResourceRecordSets)
--&gt; Lens
-     ListResourceRecordSets
-     ListResourceRecordSets
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSets%27"><span class="hs-identifier hs-type">ListResourceRecordSets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302547"><span class="annot"><span class="annottext">Maybe Text
-startRecordName :: Maybe Text
-$sel:startRecordName:ListResourceRecordSets' :: ListResourceRecordSets -&gt; Maybe Text
-</span><a href="#local-6989586621679302547"><span class="hs-identifier hs-var hs-var">startRecordName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302547"><span class="hs-identifier hs-var">startRecordName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302546"><span class="annot"><span class="annottext">s :: ListResourceRecordSets
-</span><a href="#local-6989586621679302546"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSets%27"><span class="hs-identifier hs-type">ListResourceRecordSets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302545"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302545"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListResourceRecordSets
-</span><a href="#local-6989586621679302546"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startRecordName:ListResourceRecordSets' :: Maybe Text
-</span><a href="Network.AWS.Route53.ListResourceRecordSets.html#%24sel%3AstartRecordName%3AListResourceRecordSets%27"><span class="hs-identifier hs-var">startRecordName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302545"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSets"><span class="hs-identifier hs-type">ListResourceRecordSets</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679302716"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSets"><span class="hs-identifier hs-type">ListResourceRecordSets</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-307"></span><span>
 </span><span id="line-308"></span><span class="hs-comment">-- | The ID of the hosted zone that contains the resource record sets that</span><span>
 </span><span id="line-309"></span><span class="hs-comment">-- you want to list.</span><span>
@@ -473,30 +473,30 @@ $sel:startRecordName:ListResourceRecordSets' :: ListResourceRecordSets -&gt; May
 -&gt; Lens
      ListResourceRecordSets ListResourceRecordSets ResourceId ResourceId
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSets%27"><span class="hs-identifier hs-type">ListResourceRecordSets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302544"><span class="annot"><span class="annottext">ResourceId
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSets%27"><span class="hs-identifier hs-type">ListResourceRecordSets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302715"><span class="annot"><span class="annottext">ResourceId
 hostedZoneId :: ResourceId
 $sel:hostedZoneId:ListResourceRecordSets' :: ListResourceRecordSets -&gt; ResourceId
-</span><a href="#local-6989586621679302544"><span class="hs-identifier hs-var hs-var">hostedZoneId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceId
-</span><a href="#local-6989586621679302544"><span class="hs-identifier hs-var">hostedZoneId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302543"><span class="annot"><span class="annottext">s :: ListResourceRecordSets
-</span><a href="#local-6989586621679302543"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSets%27"><span class="hs-identifier hs-type">ListResourceRecordSets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302542"><span class="annot"><span class="annottext">ResourceId
-</span><a href="#local-6989586621679302542"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListResourceRecordSets
-</span><a href="#local-6989586621679302543"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hostedZoneId:ListResourceRecordSets' :: ResourceId
+</span><a href="#local-6989586621679302715"><span class="hs-identifier hs-var hs-var">hostedZoneId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceId
+</span><a href="#local-6989586621679302715"><span class="hs-identifier hs-var">hostedZoneId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302714"><span class="annot"><span class="annottext">s :: ListResourceRecordSets
+</span><a href="#local-6989586621679302714"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSets%27"><span class="hs-identifier hs-type">ListResourceRecordSets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302713"><span class="annot"><span class="annottext">ResourceId
+</span><a href="#local-6989586621679302713"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListResourceRecordSets
+</span><a href="#local-6989586621679302714"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hostedZoneId:ListResourceRecordSets' :: ResourceId
 </span><a href="Network.AWS.Route53.ListResourceRecordSets.html#%24sel%3AhostedZoneId%3AListResourceRecordSets%27"><span class="hs-identifier hs-var">hostedZoneId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResourceId
-</span><a href="#local-6989586621679302542"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSets"><span class="hs-identifier hs-type">ListResourceRecordSets</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679302713"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSets"><span class="hs-identifier hs-type">ListResourceRecordSets</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-312"></span><span>
 </span><span id="line-313"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSets"><span class="hs-identifier hs-type">ListResourceRecordSets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-314"></span><span>  </span><span id="local-6989586621679302538"><span class="annot"><span class="annottext">page :: ListResourceRecordSets
+</span><span id="line-314"></span><span>  </span><span id="local-6989586621679302709"><span class="annot"><span class="annottext">page :: ListResourceRecordSets
 -&gt; AWSResponse ListResourceRecordSets
 -&gt; Maybe ListResourceRecordSets
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679302536"><span class="annot"><span class="annottext">ListResourceRecordSets
-</span><a href="#local-6989586621679302536"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679302535"><span class="annot"><span class="annottext">AWSResponse ListResourceRecordSets
-</span><a href="#local-6989586621679302535"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679302707"><span class="annot"><span class="annottext">ListResourceRecordSets
+</span><a href="#local-6989586621679302707"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679302706"><span class="annot"><span class="annottext">AWSResponse ListResourceRecordSets
+</span><a href="#local-6989586621679302706"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-315"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-316"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListResourceRecordSets
 ListResourceRecordSetsResponse
-</span><a href="#local-6989586621679302535"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679302706"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-317"></span><span>            </span><span class="annot"><span class="annottext">ListResourceRecordSetsResponse
 -&gt; Getting Bool ListResourceRecordSetsResponse Bool -&gt; Bool
 forall s a. s -&gt; Getting a s a -&gt; a
@@ -512,7 +512,7 @@ forall a. Maybe a -&gt; Bool
 </span><span class="hs-identifier hs-var">Prelude.isNothing</span></span><span>
 </span><span id="line-321"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListResourceRecordSets
 ListResourceRecordSetsResponse
-</span><a href="#local-6989586621679302535"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679302706"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-322"></span><span>            </span><span class="annot"><span class="annottext">ListResourceRecordSetsResponse
 -&gt; Getting (First Text) ListResourceRecordSetsResponse Text
 -&gt; Maybe Text
@@ -540,7 +540,7 @@ forall a. Maybe a -&gt; Bool
 </span><span class="hs-identifier hs-var">Prelude.isNothing</span></span><span>
 </span><span id="line-326"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListResourceRecordSets
 ListResourceRecordSetsResponse
-</span><a href="#local-6989586621679302535"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679302706"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-327"></span><span>              </span><span class="annot"><span class="annottext">ListResourceRecordSetsResponse
 -&gt; Getting (First RRType) ListResourceRecordSetsResponse RRType
 -&gt; Maybe RRType
@@ -568,7 +568,7 @@ forall a. Maybe a -&gt; Bool
 </span><span class="hs-identifier hs-var">Prelude.isNothing</span></span><span>
 </span><span id="line-331"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListResourceRecordSets
 ListResourceRecordSetsResponse
-</span><a href="#local-6989586621679302535"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679302706"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-332"></span><span>              </span><span class="annot"><span class="annottext">ListResourceRecordSetsResponse
 -&gt; Getting (First Text) ListResourceRecordSetsResponse Text
 -&gt; Maybe Text
@@ -602,7 +602,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-338"></span><span>        </span><span class="annot"><span class="annottext">ListResourceRecordSets
-</span><a href="#local-6989586621679302536"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679302707"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-339"></span><span>          </span><span class="annot"><span class="annottext">ListResourceRecordSets
 -&gt; (ListResourceRecordSets -&gt; ListResourceRecordSets)
 -&gt; ListResourceRecordSets
@@ -621,7 +621,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListResourceRecordSets
 ListResourceRecordSetsResponse
-</span><a href="#local-6989586621679302535"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679302706"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-341"></span><span>          </span><span class="annot"><span class="annottext">ListResourceRecordSetsResponse
 -&gt; Getting (First Text) ListResourceRecordSetsResponse Text
 -&gt; Maybe Text
@@ -660,7 +660,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListResourceRecordSets
 ListResourceRecordSetsResponse
-</span><a href="#local-6989586621679302535"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679302706"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-345"></span><span>          </span><span class="annot"><span class="annottext">ListResourceRecordSetsResponse
 -&gt; Getting (First RRType) ListResourceRecordSetsResponse RRType
 -&gt; Maybe RRType
@@ -699,7 +699,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListResourceRecordSets
 ListResourceRecordSetsResponse
-</span><a href="#local-6989586621679302535"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679302706"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-349"></span><span>          </span><span class="annot"><span class="annottext">ListResourceRecordSetsResponse
 -&gt; Getting (First Text) ListResourceRecordSetsResponse Text
 -&gt; Maybe Text
@@ -725,12 +725,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-353"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-354"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSets"><span class="hs-identifier hs-type">ListResourceRecordSets</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-355"></span><span>      </span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSetsResponse"><span class="hs-identifier hs-type">ListResourceRecordSetsResponse</span></a></span><span>
-</span><span id="line-356"></span><span>  </span><span id="local-6989586621679302522"><span class="annot"><span class="annottext">request :: ListResourceRecordSets -&gt; Request ListResourceRecordSets
+</span><span id="line-356"></span><span>  </span><span id="local-6989586621679302693"><span class="annot"><span class="annottext">request :: ListResourceRecordSets -&gt; Request ListResourceRecordSets
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListResourceRecordSets -&gt; Request ListResourceRecordSets
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Route53.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-357"></span><span>  </span><span id="local-6989586621679302518"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-357"></span><span>  </span><span id="local-6989586621679302689"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListResourceRecordSets
 -&gt; ClientResponse ClientBody
@@ -756,10 +756,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
-</span><span id="line-359"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679302515"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679302515"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679302514"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679302514"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679302513"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679302513"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-359"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679302686"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679302686"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679302685"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679302685"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679302684"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679302684"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-360"></span><span>          </span><span class="annot"><span class="annottext">Maybe RRType
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -789,7 +789,7 @@ MonadResource m =&gt;
       -&gt; ListResourceRecordSetsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679302513"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe RRType)
+</span><a href="#local-6989586621679302684"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe RRType)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextRecordType&quot;</span></span><span class="hs-special">)</span><span>
@@ -813,10 +813,10 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; ListResourceRecordSetsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679302513"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679302684"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NextRecordIdentifier&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;NextRecordName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-363"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
   (Maybe Text
@@ -835,10 +835,10 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; ListResourceRecordSetsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679302513"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679302684"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NextRecordName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;NextRecordIdentifier&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-364"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
   (Int
@@ -857,7 +857,7 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679302515"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679302686"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-365"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
   ([ResourceRecordSet]
@@ -866,7 +866,7 @@ forall a. Enum a =&gt; a -&gt; Int
 -&gt; Either String (Bool -&gt; Text -&gt; ListResourceRecordSetsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679302513"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679302684"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ResourceRecordSets&quot;</span></span><span>
@@ -889,7 +889,7 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 -&gt; Either String (Text -&gt; ListResourceRecordSetsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679302513"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Bool
+</span><a href="#local-6989586621679302684"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Bool
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IsTruncated&quot;</span></span><span class="hs-special">)</span><span>
@@ -898,18 +898,18 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String ListResourceRecordSetsResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679302513"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679302684"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxItems&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-371"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-372"></span><span>
-</span><span id="line-373"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302502"><span id="local-6989586621679302504"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSets"><span class="hs-identifier hs-type">ListResourceRecordSets</span></a></span></span></span><span>
+</span><span id="line-373"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302673"><span id="local-6989586621679302675"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSets"><span class="hs-identifier hs-type">ListResourceRecordSets</span></a></span></span></span><span>
 </span><span id="line-374"></span><span>
-</span><span id="line-375"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302499"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSets"><span class="hs-identifier hs-type">ListResourceRecordSets</span></a></span></span><span>
+</span><span id="line-375"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302670"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSets"><span class="hs-identifier hs-type">ListResourceRecordSets</span></a></span></span><span>
 </span><span id="line-376"></span><span>
 </span><span id="line-377"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSets"><span class="hs-identifier hs-type">ListResourceRecordSets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-378"></span><span>  </span><span id="local-6989586621679302495"><span class="annot"><span class="annottext">toHeaders :: ListResourceRecordSets -&gt; ResponseHeaders
+</span><span id="line-378"></span><span>  </span><span id="local-6989586621679302666"><span class="annot"><span class="annottext">toHeaders :: ListResourceRecordSets -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListResourceRecordSets -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -917,21 +917,21 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-379"></span><span>
 </span><span id="line-380"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSets"><span class="hs-identifier hs-type">ListResourceRecordSets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-381"></span><span>  </span><span id="local-6989586621679302490"><span class="annot"><span class="annottext">toPath :: ListResourceRecordSets -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSets%27"><span class="hs-identifier hs-type">ListResourceRecordSets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302484"><span id="local-6989586621679302485"><span id="local-6989586621679302486"><span id="local-6989586621679302487"><span id="local-6989586621679302488"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-381"></span><span>  </span><span id="local-6989586621679302661"><span class="annot"><span class="annottext">toPath :: ListResourceRecordSets -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSets%27"><span class="hs-identifier hs-type">ListResourceRecordSets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302655"><span id="local-6989586621679302656"><span id="local-6989586621679302657"><span id="local-6989586621679302658"><span id="local-6989586621679302659"><span class="annot"><span class="annottext">Maybe Text
 Maybe RRType
 ResourceId
 hostedZoneId :: ResourceId
-startRecordName :: Maybe Text
 maxItems :: Maybe Text
-startRecordType :: Maybe RRType
 startRecordIdentifier :: Maybe Text
+startRecordType :: Maybe RRType
+startRecordName :: Maybe Text
 $sel:hostedZoneId:ListResourceRecordSets' :: ListResourceRecordSets -&gt; ResourceId
-$sel:startRecordName:ListResourceRecordSets' :: ListResourceRecordSets -&gt; Maybe Text
 $sel:maxItems:ListResourceRecordSets' :: ListResourceRecordSets -&gt; Maybe Text
-$sel:startRecordType:ListResourceRecordSets' :: ListResourceRecordSets -&gt; Maybe RRType
 $sel:startRecordIdentifier:ListResourceRecordSets' :: ListResourceRecordSets -&gt; Maybe Text
-</span><a href="#local-6989586621679302484"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:startRecordType:ListResourceRecordSets' :: ListResourceRecordSets -&gt; Maybe RRType
+$sel:startRecordName:ListResourceRecordSets' :: ListResourceRecordSets -&gt; Maybe Text
+</span><a href="#local-6989586621679302655"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-382"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -940,77 +940,77 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-384"></span><span>        </span><span class="annot"><span class="annottext">ResourceId -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">ResourceId
-</span><a href="#local-6989586621679302484"><span class="hs-identifier hs-var">hostedZoneId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679302655"><span class="hs-identifier hs-var">hostedZoneId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-385"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/rrset&quot;</span></span><span>
 </span><span id="line-386"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-387"></span><span>
 </span><span id="line-388"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSets"><span class="hs-identifier hs-type">ListResourceRecordSets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-389"></span><span>  </span><span id="local-6989586621679302480"><span class="annot"><span class="annottext">toQuery :: ListResourceRecordSets -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSets%27"><span class="hs-identifier hs-type">ListResourceRecordSets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302474"><span id="local-6989586621679302475"><span id="local-6989586621679302476"><span id="local-6989586621679302477"><span id="local-6989586621679302478"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-389"></span><span>  </span><span id="local-6989586621679302651"><span class="annot"><span class="annottext">toQuery :: ListResourceRecordSets -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSets%27"><span class="hs-identifier hs-type">ListResourceRecordSets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302645"><span id="local-6989586621679302646"><span id="local-6989586621679302647"><span id="local-6989586621679302648"><span id="local-6989586621679302649"><span class="annot"><span class="annottext">Maybe Text
 Maybe RRType
 ResourceId
 hostedZoneId :: ResourceId
-startRecordName :: Maybe Text
 maxItems :: Maybe Text
-startRecordType :: Maybe RRType
 startRecordIdentifier :: Maybe Text
+startRecordType :: Maybe RRType
+startRecordName :: Maybe Text
 $sel:hostedZoneId:ListResourceRecordSets' :: ListResourceRecordSets -&gt; ResourceId
-$sel:startRecordName:ListResourceRecordSets' :: ListResourceRecordSets -&gt; Maybe Text
 $sel:maxItems:ListResourceRecordSets' :: ListResourceRecordSets -&gt; Maybe Text
-$sel:startRecordType:ListResourceRecordSets' :: ListResourceRecordSets -&gt; Maybe RRType
 $sel:startRecordIdentifier:ListResourceRecordSets' :: ListResourceRecordSets -&gt; Maybe Text
-</span><a href="#local-6989586621679302474"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:startRecordType:ListResourceRecordSets' :: ListResourceRecordSets -&gt; Maybe RRType
+$sel:startRecordName:ListResourceRecordSets' :: ListResourceRecordSets -&gt; Maybe Text
+</span><a href="#local-6989586621679302645"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-390"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
 </span><span id="line-391"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;identifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+</span><span class="hs-string">&quot;name&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302478"><span class="hs-identifier hs-var">startRecordIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679302649"><span class="hs-identifier hs-var">startRecordName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-392"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;type&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe RRType -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe RRType
-</span><a href="#local-6989586621679302477"><span class="hs-identifier hs-var">startRecordType</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679302648"><span class="hs-identifier hs-var">startRecordType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-393"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;identifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302647"><span class="hs-identifier hs-var">startRecordIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-394"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;maxitems&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302476"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-394"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;name&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302475"><span class="hs-identifier hs-var">startRecordName</span></a></span><span>
+</span><a href="#local-6989586621679302646"><span class="hs-identifier hs-var">maxItems</span></a></span><span>
 </span><span id="line-395"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-396"></span><span>
 </span><span id="line-397"></span><span class="hs-comment">-- | A complex type that contains list information for the resource record</span><span>
 </span><span id="line-398"></span><span class="hs-comment">-- set.</span><span>
 </span><span id="line-399"></span><span class="hs-comment">--</span><span>
 </span><span id="line-400"></span><span class="hs-comment">-- /See:/ 'newListResourceRecordSetsResponse' smart constructor.</span><span>
-</span><span id="line-401"></span><span id="local-6989586621679302471"><span id="local-6989586621679302472"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListResourceRecordSetsResponse"><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSetsResponse"><span class="hs-identifier hs-var">ListResourceRecordSetsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListResourceRecordSetsResponse%27"><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSetsResponse%27"><span class="hs-identifier hs-var">ListResourceRecordSetsResponse'</span></a></span></span><span>
+</span><span id="line-401"></span><span id="local-6989586621679302642"><span id="local-6989586621679302643"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListResourceRecordSetsResponse"><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSetsResponse"><span class="hs-identifier hs-var">ListResourceRecordSetsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListResourceRecordSetsResponse%27"><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSetsResponse%27"><span class="hs-identifier hs-var">ListResourceRecordSetsResponse'</span></a></span></span><span>
 </span><span id="line-402"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If the results were truncated, the type of the next record in the list.</span><span>
 </span><span id="line-403"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-404"></span><span>    </span><span class="hs-comment">-- This element is present only if @IsTruncated@ is true.</span><span>
 </span><span id="line-405"></span><span>    </span><span id="%24sel%3AnextRecordType%3AListResourceRecordSetsResponse%27"><span class="annot"><span class="annottext">ListResourceRecordSetsResponse -&gt; Maybe RRType
 </span><a href="Network.AWS.Route53.ListResourceRecordSets.html#%24sel%3AnextRecordType%3AListResourceRecordSetsResponse%27"><span class="hs-identifier hs-var hs-var">nextRecordType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.RRType.html#RRType"><span class="hs-identifier hs-type">RRType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-406"></span><span>    </span><span class="hs-comment">-- | /Resource record sets that have a routing policy other than simple:/ If</span><span>
-</span><span id="line-407"></span><span>    </span><span class="hs-comment">-- results were truncated for a given DNS name and type, the value of</span><span>
-</span><span id="line-408"></span><span>    </span><span class="hs-comment">-- @SetIdentifier@ for the next resource record set that has the current</span><span>
-</span><span id="line-409"></span><span>    </span><span class="hs-comment">-- DNS name and type.</span><span>
-</span><span id="line-410"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-411"></span><span>    </span><span class="hs-comment">-- For information about routing policies, see</span><span>
-</span><span id="line-412"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html Choosing a Routing Policy&gt;</span><span>
-</span><span id="line-413"></span><span>    </span><span class="hs-comment">-- in the /Amazon Route 53 Developer Guide/.</span><span>
-</span><span id="line-414"></span><span>    </span><span id="%24sel%3AnextRecordIdentifier%3AListResourceRecordSetsResponse%27"><span class="annot"><span class="annottext">ListResourceRecordSetsResponse -&gt; Maybe Text
-</span><a href="Network.AWS.Route53.ListResourceRecordSets.html#%24sel%3AnextRecordIdentifier%3AListResourceRecordSetsResponse%27"><span class="hs-identifier hs-var hs-var">nextRecordIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-415"></span><span>    </span><span class="hs-comment">-- | If the results were truncated, the name of the next record in the list.</span><span>
-</span><span id="line-416"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-417"></span><span>    </span><span class="hs-comment">-- This element is present only if @IsTruncated@ is true.</span><span>
-</span><span id="line-418"></span><span>    </span><span id="%24sel%3AnextRecordName%3AListResourceRecordSetsResponse%27"><span class="annot"><span class="annottext">ListResourceRecordSetsResponse -&gt; Maybe Text
+</span><span id="line-406"></span><span>    </span><span class="hs-comment">-- | If the results were truncated, the name of the next record in the list.</span><span>
+</span><span id="line-407"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-408"></span><span>    </span><span class="hs-comment">-- This element is present only if @IsTruncated@ is true.</span><span>
+</span><span id="line-409"></span><span>    </span><span id="%24sel%3AnextRecordName%3AListResourceRecordSetsResponse%27"><span class="annot"><span class="annottext">ListResourceRecordSetsResponse -&gt; Maybe Text
 </span><a href="Network.AWS.Route53.ListResourceRecordSets.html#%24sel%3AnextRecordName%3AListResourceRecordSetsResponse%27"><span class="hs-identifier hs-var hs-var">nextRecordName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-410"></span><span>    </span><span class="hs-comment">-- | /Resource record sets that have a routing policy other than simple:/ If</span><span>
+</span><span id="line-411"></span><span>    </span><span class="hs-comment">-- results were truncated for a given DNS name and type, the value of</span><span>
+</span><span id="line-412"></span><span>    </span><span class="hs-comment">-- @SetIdentifier@ for the next resource record set that has the current</span><span>
+</span><span id="line-413"></span><span>    </span><span class="hs-comment">-- DNS name and type.</span><span>
+</span><span id="line-414"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-415"></span><span>    </span><span class="hs-comment">-- For information about routing policies, see</span><span>
+</span><span id="line-416"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html Choosing a Routing Policy&gt;</span><span>
+</span><span id="line-417"></span><span>    </span><span class="hs-comment">-- in the /Amazon Route 53 Developer Guide/.</span><span>
+</span><span id="line-418"></span><span>    </span><span id="%24sel%3AnextRecordIdentifier%3AListResourceRecordSetsResponse%27"><span class="annot"><span class="annottext">ListResourceRecordSetsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Route53.ListResourceRecordSets.html#%24sel%3AnextRecordIdentifier%3AListResourceRecordSetsResponse%27"><span class="hs-identifier hs-var hs-var">nextRecordIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-419"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-420"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListResourceRecordSetsResponse%27"><span class="annot"><span class="annottext">ListResourceRecordSetsResponse -&gt; Int
 </span><a href="Network.AWS.Route53.ListResourceRecordSets.html#%24sel%3AhttpStatus%3AListResourceRecordSetsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -1026,7 +1026,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-428"></span><span>    </span><span id="%24sel%3AmaxItems%3AListResourceRecordSetsResponse%27"><span class="annot"><span class="annottext">ListResourceRecordSetsResponse -&gt; Text
 </span><a href="Network.AWS.Route53.ListResourceRecordSets.html#%24sel%3AmaxItems%3AListResourceRecordSetsResponse%27"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-429"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-430"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679302460"><span id="local-6989586621679302462"><span class="annot"><span class="annottext">ListResourceRecordSetsResponse
+</span><span id="line-430"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679302631"><span id="local-6989586621679302633"><span class="annot"><span class="annottext">ListResourceRecordSetsResponse
 -&gt; ListResourceRecordSetsResponse -&gt; Bool
 (ListResourceRecordSetsResponse
  -&gt; ListResourceRecordSetsResponse -&gt; Bool)
@@ -1042,7 +1042,7 @@ $c/= :: ListResourceRecordSetsResponse
 -&gt; ListResourceRecordSetsResponse -&gt; Bool
 $c== :: ListResourceRecordSetsResponse
 -&gt; ListResourceRecordSetsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302452"><span id="local-6989586621679302454"><span id="local-6989586621679302456"><span id="local-6989586621679302458"><span class="annot"><span class="annottext">ReadPrec [ListResourceRecordSetsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302623"><span id="local-6989586621679302625"><span id="local-6989586621679302627"><span id="local-6989586621679302629"><span class="annot"><span class="annottext">ReadPrec [ListResourceRecordSetsResponse]
 ReadPrec ListResourceRecordSetsResponse
 Int -&gt; ReadS ListResourceRecordSetsResponse
 ReadS [ListResourceRecordSetsResponse]
@@ -1062,7 +1062,7 @@ readList :: ReadS [ListResourceRecordSetsResponse]
 $creadList :: ReadS [ListResourceRecordSetsResponse]
 readsPrec :: Int -&gt; ReadS ListResourceRecordSetsResponse
 $creadsPrec :: Int -&gt; ReadS ListResourceRecordSetsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302446"><span id="local-6989586621679302448"><span id="local-6989586621679302450"><span class="annot"><span class="annottext">Int -&gt; ListResourceRecordSetsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302617"><span id="local-6989586621679302619"><span id="local-6989586621679302621"><span class="annot"><span class="annottext">Int -&gt; ListResourceRecordSetsResponse -&gt; ShowS
 [ListResourceRecordSetsResponse] -&gt; ShowS
 ListResourceRecordSetsResponse -&gt; String
 (Int -&gt; ListResourceRecordSetsResponse -&gt; ShowS)
@@ -1112,18 +1112,18 @@ ListResourceRecordSetsResponse
 </span><span id="line-441"></span><span class="hs-comment">--</span><span>
 </span><span id="line-442"></span><span class="hs-comment">-- This element is present only if @IsTruncated@ is true.</span><span>
 </span><span id="line-443"></span><span class="hs-comment">--</span><span>
-</span><span id="line-444"></span><span class="hs-comment">-- 'nextRecordIdentifier', 'listResourceRecordSetsResponse_nextRecordIdentifier' - /Resource record sets that have a routing policy other than simple:/ If</span><span>
-</span><span id="line-445"></span><span class="hs-comment">-- results were truncated for a given DNS name and type, the value of</span><span>
-</span><span id="line-446"></span><span class="hs-comment">-- @SetIdentifier@ for the next resource record set that has the current</span><span>
-</span><span id="line-447"></span><span class="hs-comment">-- DNS name and type.</span><span>
-</span><span id="line-448"></span><span class="hs-comment">--</span><span>
-</span><span id="line-449"></span><span class="hs-comment">-- For information about routing policies, see</span><span>
-</span><span id="line-450"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html Choosing a Routing Policy&gt;</span><span>
-</span><span id="line-451"></span><span class="hs-comment">-- in the /Amazon Route 53 Developer Guide/.</span><span>
+</span><span id="line-444"></span><span class="hs-comment">-- 'nextRecordName', 'listResourceRecordSetsResponse_nextRecordName' - If the results were truncated, the name of the next record in the list.</span><span>
+</span><span id="line-445"></span><span class="hs-comment">--</span><span>
+</span><span id="line-446"></span><span class="hs-comment">-- This element is present only if @IsTruncated@ is true.</span><span>
+</span><span id="line-447"></span><span class="hs-comment">--</span><span>
+</span><span id="line-448"></span><span class="hs-comment">-- 'nextRecordIdentifier', 'listResourceRecordSetsResponse_nextRecordIdentifier' - /Resource record sets that have a routing policy other than simple:/ If</span><span>
+</span><span id="line-449"></span><span class="hs-comment">-- results were truncated for a given DNS name and type, the value of</span><span>
+</span><span id="line-450"></span><span class="hs-comment">-- @SetIdentifier@ for the next resource record set that has the current</span><span>
+</span><span id="line-451"></span><span class="hs-comment">-- DNS name and type.</span><span>
 </span><span id="line-452"></span><span class="hs-comment">--</span><span>
-</span><span id="line-453"></span><span class="hs-comment">-- 'nextRecordName', 'listResourceRecordSetsResponse_nextRecordName' - If the results were truncated, the name of the next record in the list.</span><span>
-</span><span id="line-454"></span><span class="hs-comment">--</span><span>
-</span><span id="line-455"></span><span class="hs-comment">-- This element is present only if @IsTruncated@ is true.</span><span>
+</span><span id="line-453"></span><span class="hs-comment">-- For information about routing policies, see</span><span>
+</span><span id="line-454"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html Choosing a Routing Policy&gt;</span><span>
+</span><span id="line-455"></span><span class="hs-comment">-- in the /Amazon Route 53 Developer Guide/.</span><span>
 </span><span id="line-456"></span><span class="hs-comment">--</span><span>
 </span><span id="line-457"></span><span class="hs-comment">-- 'httpStatus', 'listResourceRecordSetsResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-458"></span><span class="hs-comment">--</span><span>
@@ -1144,12 +1144,12 @@ ListResourceRecordSetsResponse
 </span><span id="line-473"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSetsResponse"><span class="hs-identifier hs-type">ListResourceRecordSetsResponse</span></a></span><span>
 </span><span id="line-474"></span><span id="newListResourceRecordSetsResponse"><span class="annot"><span class="annottext">newListResourceRecordSetsResponse :: Int -&gt; Bool -&gt; Text -&gt; ListResourceRecordSetsResponse
 </span><a href="Network.AWS.Route53.ListResourceRecordSets.html#newListResourceRecordSetsResponse"><span class="hs-identifier hs-var hs-var">newListResourceRecordSetsResponse</span></a></span></span><span>
-</span><span id="line-475"></span><span>  </span><span id="local-6989586621679302443"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679302443"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
-</span><span id="line-476"></span><span>  </span><span id="local-6989586621679302442"><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679302442"><span class="hs-identifier hs-var">pIsTruncated_</span></a></span></span><span>
-</span><span id="line-477"></span><span>  </span><span id="local-6989586621679302441"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679302441"><span class="hs-identifier hs-var">pMaxItems_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-475"></span><span>  </span><span id="local-6989586621679302614"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679302614"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-476"></span><span>  </span><span id="local-6989586621679302613"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679302613"><span class="hs-identifier hs-var">pIsTruncated_</span></a></span></span><span>
+</span><span id="line-477"></span><span>  </span><span id="local-6989586621679302612"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302612"><span class="hs-identifier hs-var">pMaxItems_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-478"></span><span>    </span><span class="annot"><span class="annottext">ListResourceRecordSetsResponse' :: Maybe RRType
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -1164,27 +1164,27 @@ ListResourceRecordSetsResponse
 </span><span id="line-480"></span><span>          </span><span class="annot"><span class="annottext">Maybe RRType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-481"></span><span>        </span><span class="annot"><span class="annottext">$sel:nextRecordIdentifier:ListResourceRecordSetsResponse' :: Maybe Text
-</span><a href="Network.AWS.Route53.ListResourceRecordSets.html#%24sel%3AnextRecordIdentifier%3AListResourceRecordSetsResponse%27"><span class="hs-identifier hs-var">nextRecordIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-481"></span><span>        </span><span class="annot"><span class="annottext">$sel:nextRecordName:ListResourceRecordSetsResponse' :: Maybe Text
+</span><a href="Network.AWS.Route53.ListResourceRecordSets.html#%24sel%3AnextRecordName%3AListResourceRecordSetsResponse%27"><span class="hs-identifier hs-var">nextRecordName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-482"></span><span>        </span><span class="annot"><span class="annottext">$sel:nextRecordName:ListResourceRecordSetsResponse' :: Maybe Text
-</span><a href="Network.AWS.Route53.ListResourceRecordSets.html#%24sel%3AnextRecordName%3AListResourceRecordSetsResponse%27"><span class="hs-identifier hs-var">nextRecordName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-482"></span><span>        </span><span class="annot"><span class="annottext">$sel:nextRecordIdentifier:ListResourceRecordSetsResponse' :: Maybe Text
+</span><a href="Network.AWS.Route53.ListResourceRecordSets.html#%24sel%3AnextRecordIdentifier%3AListResourceRecordSetsResponse%27"><span class="hs-identifier hs-var">nextRecordIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-483"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:ListResourceRecordSetsResponse' :: Int
 </span><a href="Network.AWS.Route53.ListResourceRecordSets.html#%24sel%3AhttpStatus%3AListResourceRecordSetsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679302443"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679302614"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-484"></span><span>        </span><span class="annot"><span class="annottext">$sel:resourceRecordSets:ListResourceRecordSetsResponse' :: [ResourceRecordSet]
 </span><a href="Network.AWS.Route53.ListResourceRecordSets.html#%24sel%3AresourceRecordSets%3AListResourceRecordSetsResponse%27"><span class="hs-identifier hs-var">resourceRecordSets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[ResourceRecordSet]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
 </span><span id="line-485"></span><span>        </span><span class="annot"><span class="annottext">$sel:isTruncated:ListResourceRecordSetsResponse' :: Bool
 </span><a href="Network.AWS.Route53.ListResourceRecordSets.html#%24sel%3AisTruncated%3AListResourceRecordSetsResponse%27"><span class="hs-identifier hs-var">isTruncated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679302442"><span class="hs-identifier hs-var">pIsTruncated_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679302613"><span class="hs-identifier hs-var">pIsTruncated_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-486"></span><span>        </span><span class="annot"><span class="annottext">$sel:maxItems:ListResourceRecordSetsResponse' :: Text
 </span><a href="Network.AWS.Route53.ListResourceRecordSets.html#%24sel%3AmaxItems%3AListResourceRecordSetsResponse%27"><span class="hs-identifier hs-var">maxItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679302441"><span class="hs-identifier hs-var">pMaxItems_</span></a></span><span>
+</span><a href="#local-6989586621679302612"><span class="hs-identifier hs-var">pMaxItems_</span></a></span><span>
 </span><span id="line-487"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-488"></span><span>
 </span><span id="line-489"></span><span class="hs-comment">-- | If the results were truncated, the type of the next record in the list.</span><span>
@@ -1199,50 +1199,22 @@ forall a. Monoid a =&gt; a
     -&gt; Maybe RRType -&gt; ListResourceRecordSetsResponse)
 -&gt; Lens' ListResourceRecordSetsResponse (Maybe RRType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSetsResponse%27"><span class="hs-identifier hs-type">ListResourceRecordSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302440"><span class="annot"><span class="annottext">Maybe RRType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSetsResponse%27"><span class="hs-identifier hs-type">ListResourceRecordSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302611"><span class="annot"><span class="annottext">Maybe RRType
 nextRecordType :: Maybe RRType
 $sel:nextRecordType:ListResourceRecordSetsResponse' :: ListResourceRecordSetsResponse -&gt; Maybe RRType
-</span><a href="#local-6989586621679302440"><span class="hs-identifier hs-var hs-var">nextRecordType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RRType
-</span><a href="#local-6989586621679302440"><span class="hs-identifier hs-var">nextRecordType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302439"><span class="annot"><span class="annottext">s :: ListResourceRecordSetsResponse
-</span><a href="#local-6989586621679302439"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSetsResponse%27"><span class="hs-identifier hs-type">ListResourceRecordSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302438"><span class="annot"><span class="annottext">Maybe RRType
-</span><a href="#local-6989586621679302438"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListResourceRecordSetsResponse
-</span><a href="#local-6989586621679302439"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextRecordType:ListResourceRecordSetsResponse' :: Maybe RRType
+</span><a href="#local-6989586621679302611"><span class="hs-identifier hs-var hs-var">nextRecordType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RRType
+</span><a href="#local-6989586621679302611"><span class="hs-identifier hs-var">nextRecordType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302610"><span class="annot"><span class="annottext">s :: ListResourceRecordSetsResponse
+</span><a href="#local-6989586621679302610"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSetsResponse%27"><span class="hs-identifier hs-type">ListResourceRecordSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302609"><span class="annot"><span class="annottext">Maybe RRType
+</span><a href="#local-6989586621679302609"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListResourceRecordSetsResponse
+</span><a href="#local-6989586621679302610"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextRecordType:ListResourceRecordSetsResponse' :: Maybe RRType
 </span><a href="Network.AWS.Route53.ListResourceRecordSets.html#%24sel%3AnextRecordType%3AListResourceRecordSetsResponse%27"><span class="hs-identifier hs-var">nextRecordType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RRType
-</span><a href="#local-6989586621679302438"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSetsResponse"><span class="hs-identifier hs-type">ListResourceRecordSetsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679302609"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSetsResponse"><span class="hs-identifier hs-type">ListResourceRecordSetsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-494"></span><span>
-</span><span id="line-495"></span><span class="hs-comment">-- | /Resource record sets that have a routing policy other than simple:/ If</span><span>
-</span><span id="line-496"></span><span class="hs-comment">-- results were truncated for a given DNS name and type, the value of</span><span>
-</span><span id="line-497"></span><span class="hs-comment">-- @SetIdentifier@ for the next resource record set that has the current</span><span>
-</span><span id="line-498"></span><span class="hs-comment">-- DNS name and type.</span><span>
-</span><span id="line-499"></span><span class="hs-comment">--</span><span>
-</span><span id="line-500"></span><span class="hs-comment">-- For information about routing policies, see</span><span>
-</span><span id="line-501"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html Choosing a Routing Policy&gt;</span><span>
-</span><span id="line-502"></span><span class="hs-comment">-- in the /Amazon Route 53 Developer Guide/.</span><span>
-</span><span id="line-503"></span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#listResourceRecordSetsResponse_nextRecordIdentifier"><span class="hs-identifier hs-type">listResourceRecordSetsResponse_nextRecordIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSetsResponse"><span class="hs-identifier hs-type">ListResourceRecordSetsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-504"></span><span id="listResourceRecordSetsResponse_nextRecordIdentifier"><span class="annot"><span class="annottext">listResourceRecordSetsResponse_nextRecordIdentifier :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ListResourceRecordSetsResponse
--&gt; f ListResourceRecordSetsResponse
-</span><a href="Network.AWS.Route53.ListResourceRecordSets.html#listResourceRecordSetsResponse_nextRecordIdentifier"><span class="hs-identifier hs-var hs-var">listResourceRecordSetsResponse_nextRecordIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListResourceRecordSetsResponse -&gt; Maybe Text)
--&gt; (ListResourceRecordSetsResponse
-    -&gt; Maybe Text -&gt; ListResourceRecordSetsResponse)
--&gt; Lens' ListResourceRecordSetsResponse (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSetsResponse%27"><span class="hs-identifier hs-type">ListResourceRecordSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302437"><span class="annot"><span class="annottext">Maybe Text
-nextRecordIdentifier :: Maybe Text
-$sel:nextRecordIdentifier:ListResourceRecordSetsResponse' :: ListResourceRecordSetsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679302437"><span class="hs-identifier hs-var hs-var">nextRecordIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302437"><span class="hs-identifier hs-var">nextRecordIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302436"><span class="annot"><span class="annottext">s :: ListResourceRecordSetsResponse
-</span><a href="#local-6989586621679302436"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSetsResponse%27"><span class="hs-identifier hs-type">ListResourceRecordSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302435"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302435"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListResourceRecordSetsResponse
-</span><a href="#local-6989586621679302436"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextRecordIdentifier:ListResourceRecordSetsResponse' :: Maybe Text
-</span><a href="Network.AWS.Route53.ListResourceRecordSets.html#%24sel%3AnextRecordIdentifier%3AListResourceRecordSetsResponse%27"><span class="hs-identifier hs-var">nextRecordIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302435"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSetsResponse"><span class="hs-identifier hs-type">ListResourceRecordSetsResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-505"></span><span>
-</span><span id="line-506"></span><span class="hs-comment">-- | If the results were truncated, the name of the next record in the list.</span><span>
-</span><span id="line-507"></span><span class="hs-comment">--</span><span>
-</span><span id="line-508"></span><span class="hs-comment">-- This element is present only if @IsTruncated@ is true.</span><span>
-</span><span id="line-509"></span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#listResourceRecordSetsResponse_nextRecordName"><span class="hs-identifier hs-type">listResourceRecordSetsResponse_nextRecordName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSetsResponse"><span class="hs-identifier hs-type">ListResourceRecordSetsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-510"></span><span id="listResourceRecordSetsResponse_nextRecordName"><span class="annot"><span class="annottext">listResourceRecordSetsResponse_nextRecordName :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-495"></span><span class="hs-comment">-- | If the results were truncated, the name of the next record in the list.</span><span>
+</span><span id="line-496"></span><span class="hs-comment">--</span><span>
+</span><span id="line-497"></span><span class="hs-comment">-- This element is present only if @IsTruncated@ is true.</span><span>
+</span><span id="line-498"></span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#listResourceRecordSetsResponse_nextRecordName"><span class="hs-identifier hs-type">listResourceRecordSetsResponse_nextRecordName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSetsResponse"><span class="hs-identifier hs-type">ListResourceRecordSetsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-499"></span><span id="listResourceRecordSetsResponse_nextRecordName"><span class="annot"><span class="annottext">listResourceRecordSetsResponse_nextRecordName :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ListResourceRecordSetsResponse
 -&gt; f ListResourceRecordSetsResponse
 </span><a href="Network.AWS.Route53.ListResourceRecordSets.html#listResourceRecordSetsResponse_nextRecordName"><span class="hs-identifier hs-var hs-var">listResourceRecordSetsResponse_nextRecordName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListResourceRecordSetsResponse -&gt; Maybe Text)
@@ -1250,16 +1222,44 @@ $sel:nextRecordIdentifier:ListResourceRecordSetsResponse' :: ListResourceRecordS
     -&gt; Maybe Text -&gt; ListResourceRecordSetsResponse)
 -&gt; Lens' ListResourceRecordSetsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSetsResponse%27"><span class="hs-identifier hs-type">ListResourceRecordSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302434"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSetsResponse%27"><span class="hs-identifier hs-type">ListResourceRecordSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302608"><span class="annot"><span class="annottext">Maybe Text
 nextRecordName :: Maybe Text
 $sel:nextRecordName:ListResourceRecordSetsResponse' :: ListResourceRecordSetsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679302434"><span class="hs-identifier hs-var hs-var">nextRecordName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302434"><span class="hs-identifier hs-var">nextRecordName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302433"><span class="annot"><span class="annottext">s :: ListResourceRecordSetsResponse
-</span><a href="#local-6989586621679302433"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSetsResponse%27"><span class="hs-identifier hs-type">ListResourceRecordSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302432"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302432"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListResourceRecordSetsResponse
-</span><a href="#local-6989586621679302433"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextRecordName:ListResourceRecordSetsResponse' :: Maybe Text
+</span><a href="#local-6989586621679302608"><span class="hs-identifier hs-var hs-var">nextRecordName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302608"><span class="hs-identifier hs-var">nextRecordName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302607"><span class="annot"><span class="annottext">s :: ListResourceRecordSetsResponse
+</span><a href="#local-6989586621679302607"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSetsResponse%27"><span class="hs-identifier hs-type">ListResourceRecordSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302606"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302606"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListResourceRecordSetsResponse
+</span><a href="#local-6989586621679302607"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextRecordName:ListResourceRecordSetsResponse' :: Maybe Text
 </span><a href="Network.AWS.Route53.ListResourceRecordSets.html#%24sel%3AnextRecordName%3AListResourceRecordSetsResponse%27"><span class="hs-identifier hs-var">nextRecordName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302432"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSetsResponse"><span class="hs-identifier hs-type">ListResourceRecordSetsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679302606"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSetsResponse"><span class="hs-identifier hs-type">ListResourceRecordSetsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-500"></span><span>
+</span><span id="line-501"></span><span class="hs-comment">-- | /Resource record sets that have a routing policy other than simple:/ If</span><span>
+</span><span id="line-502"></span><span class="hs-comment">-- results were truncated for a given DNS name and type, the value of</span><span>
+</span><span id="line-503"></span><span class="hs-comment">-- @SetIdentifier@ for the next resource record set that has the current</span><span>
+</span><span id="line-504"></span><span class="hs-comment">-- DNS name and type.</span><span>
+</span><span id="line-505"></span><span class="hs-comment">--</span><span>
+</span><span id="line-506"></span><span class="hs-comment">-- For information about routing policies, see</span><span>
+</span><span id="line-507"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html Choosing a Routing Policy&gt;</span><span>
+</span><span id="line-508"></span><span class="hs-comment">-- in the /Amazon Route 53 Developer Guide/.</span><span>
+</span><span id="line-509"></span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#listResourceRecordSetsResponse_nextRecordIdentifier"><span class="hs-identifier hs-type">listResourceRecordSetsResponse_nextRecordIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSetsResponse"><span class="hs-identifier hs-type">ListResourceRecordSetsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-510"></span><span id="listResourceRecordSetsResponse_nextRecordIdentifier"><span class="annot"><span class="annottext">listResourceRecordSetsResponse_nextRecordIdentifier :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListResourceRecordSetsResponse
+-&gt; f ListResourceRecordSetsResponse
+</span><a href="Network.AWS.Route53.ListResourceRecordSets.html#listResourceRecordSetsResponse_nextRecordIdentifier"><span class="hs-identifier hs-var hs-var">listResourceRecordSetsResponse_nextRecordIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListResourceRecordSetsResponse -&gt; Maybe Text)
+-&gt; (ListResourceRecordSetsResponse
+    -&gt; Maybe Text -&gt; ListResourceRecordSetsResponse)
+-&gt; Lens' ListResourceRecordSetsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSetsResponse%27"><span class="hs-identifier hs-type">ListResourceRecordSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302605"><span class="annot"><span class="annottext">Maybe Text
+nextRecordIdentifier :: Maybe Text
+$sel:nextRecordIdentifier:ListResourceRecordSetsResponse' :: ListResourceRecordSetsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679302605"><span class="hs-identifier hs-var hs-var">nextRecordIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302605"><span class="hs-identifier hs-var">nextRecordIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302604"><span class="annot"><span class="annottext">s :: ListResourceRecordSetsResponse
+</span><a href="#local-6989586621679302604"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSetsResponse%27"><span class="hs-identifier hs-type">ListResourceRecordSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302603"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302603"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListResourceRecordSetsResponse
+</span><a href="#local-6989586621679302604"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextRecordIdentifier:ListResourceRecordSetsResponse' :: Maybe Text
+</span><a href="Network.AWS.Route53.ListResourceRecordSets.html#%24sel%3AnextRecordIdentifier%3AListResourceRecordSetsResponse%27"><span class="hs-identifier hs-var">nextRecordIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302603"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSetsResponse"><span class="hs-identifier hs-type">ListResourceRecordSetsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-511"></span><span>
 </span><span id="line-512"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-513"></span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#listResourceRecordSetsResponse_httpStatus"><span class="hs-identifier hs-type">listResourceRecordSetsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSetsResponse"><span class="hs-identifier hs-type">ListResourceRecordSetsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -1275,16 +1275,16 @@ $sel:nextRecordName:ListResourceRecordSetsResponse' :: ListResourceRecordSetsRes
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSetsResponse%27"><span class="hs-identifier hs-type">ListResourceRecordSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302431"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSetsResponse%27"><span class="hs-identifier hs-type">ListResourceRecordSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302602"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListResourceRecordSetsResponse' :: ListResourceRecordSetsResponse -&gt; Int
-</span><a href="#local-6989586621679302431"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679302431"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302430"><span class="annot"><span class="annottext">s :: ListResourceRecordSetsResponse
-</span><a href="#local-6989586621679302430"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSetsResponse%27"><span class="hs-identifier hs-type">ListResourceRecordSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302429"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679302429"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListResourceRecordSetsResponse
-</span><a href="#local-6989586621679302430"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListResourceRecordSetsResponse' :: Int
+</span><a href="#local-6989586621679302602"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679302602"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302601"><span class="annot"><span class="annottext">s :: ListResourceRecordSetsResponse
+</span><a href="#local-6989586621679302601"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSetsResponse%27"><span class="hs-identifier hs-type">ListResourceRecordSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302600"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679302600"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListResourceRecordSetsResponse
+</span><a href="#local-6989586621679302601"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListResourceRecordSetsResponse' :: Int
 </span><a href="Network.AWS.Route53.ListResourceRecordSets.html#%24sel%3AhttpStatus%3AListResourceRecordSetsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679302429"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSetsResponse"><span class="hs-identifier hs-type">ListResourceRecordSetsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679302600"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSetsResponse"><span class="hs-identifier hs-type">ListResourceRecordSetsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-515"></span><span>
 </span><span id="line-516"></span><span class="hs-comment">-- | Information about multiple resource record sets.</span><span>
 </span><span id="line-517"></span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#listResourceRecordSetsResponse_resourceRecordSets"><span class="hs-identifier hs-type">listResourceRecordSetsResponse_resourceRecordSets</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSetsResponse"><span class="hs-identifier hs-type">ListResourceRecordSetsResponse</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet"><span class="hs-identifier hs-type">ResourceRecordSet</span></a></span><span class="hs-special">]</span><span>
@@ -1300,16 +1300,16 @@ $sel:httpStatus:ListResourceRecordSetsResponse' :: ListResourceRecordSetsRespons
      [ResourceRecordSet]
      [ResourceRecordSet]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSetsResponse%27"><span class="hs-identifier hs-type">ListResourceRecordSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302428"><span class="annot"><span class="annottext">[ResourceRecordSet]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSetsResponse%27"><span class="hs-identifier hs-type">ListResourceRecordSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302599"><span class="annot"><span class="annottext">[ResourceRecordSet]
 resourceRecordSets :: [ResourceRecordSet]
 $sel:resourceRecordSets:ListResourceRecordSetsResponse' :: ListResourceRecordSetsResponse -&gt; [ResourceRecordSet]
-</span><a href="#local-6989586621679302428"><span class="hs-identifier hs-var hs-var">resourceRecordSets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[ResourceRecordSet]
-</span><a href="#local-6989586621679302428"><span class="hs-identifier hs-var">resourceRecordSets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302427"><span class="annot"><span class="annottext">s :: ListResourceRecordSetsResponse
-</span><a href="#local-6989586621679302427"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSetsResponse%27"><span class="hs-identifier hs-type">ListResourceRecordSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302426"><span class="annot"><span class="annottext">[ResourceRecordSet]
-</span><a href="#local-6989586621679302426"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListResourceRecordSetsResponse
-</span><a href="#local-6989586621679302427"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceRecordSets:ListResourceRecordSetsResponse' :: [ResourceRecordSet]
+</span><a href="#local-6989586621679302599"><span class="hs-identifier hs-var hs-var">resourceRecordSets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[ResourceRecordSet]
+</span><a href="#local-6989586621679302599"><span class="hs-identifier hs-var">resourceRecordSets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302598"><span class="annot"><span class="annottext">s :: ListResourceRecordSetsResponse
+</span><a href="#local-6989586621679302598"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSetsResponse%27"><span class="hs-identifier hs-type">ListResourceRecordSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302597"><span class="annot"><span class="annottext">[ResourceRecordSet]
+</span><a href="#local-6989586621679302597"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListResourceRecordSetsResponse
+</span><a href="#local-6989586621679302598"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceRecordSets:ListResourceRecordSetsResponse' :: [ResourceRecordSet]
 </span><a href="Network.AWS.Route53.ListResourceRecordSets.html#%24sel%3AresourceRecordSets%3AListResourceRecordSetsResponse%27"><span class="hs-identifier hs-var">resourceRecordSets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[ResourceRecordSet]
-</span><a href="#local-6989586621679302426"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSetsResponse"><span class="hs-identifier hs-type">ListResourceRecordSetsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([ResourceRecordSet] -&gt; f [ResourceRecordSet])
+</span><a href="#local-6989586621679302597"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSetsResponse"><span class="hs-identifier hs-type">ListResourceRecordSetsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([ResourceRecordSet] -&gt; f [ResourceRecordSet])
  -&gt; ListResourceRecordSetsResponse
  -&gt; f ListResourceRecordSetsResponse)
 -&gt; (([ResourceRecordSet] -&gt; f [ResourceRecordSet])
@@ -1320,8 +1320,8 @@ $sel:resourceRecordSets:ListResourceRecordSetsResponse' :: ListResourceRecordSet
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([ResourceRecordSet] -&gt; f [ResourceRecordSet])
 -&gt; [ResourceRecordSet] -&gt; f [ResourceRecordSet]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-519"></span><span>
 </span><span id="line-520"></span><span class="hs-comment">-- | A flag that indicates whether more resource record sets remain to be</span><span>
 </span><span id="line-521"></span><span class="hs-comment">-- listed. If your results were truncated, you can make a follow-up</span><span>
@@ -1335,16 +1335,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
     -&gt; Bool -&gt; ListResourceRecordSetsResponse)
 -&gt; Lens' ListResourceRecordSetsResponse Bool
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSetsResponse%27"><span class="hs-identifier hs-type">ListResourceRecordSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302424"><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSetsResponse%27"><span class="hs-identifier hs-type">ListResourceRecordSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302595"><span class="annot"><span class="annottext">Bool
 isTruncated :: Bool
 $sel:isTruncated:ListResourceRecordSetsResponse' :: ListResourceRecordSetsResponse -&gt; Bool
-</span><a href="#local-6989586621679302424"><span class="hs-identifier hs-var hs-var">isTruncated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679302424"><span class="hs-identifier hs-var">isTruncated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302423"><span class="annot"><span class="annottext">s :: ListResourceRecordSetsResponse
-</span><a href="#local-6989586621679302423"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSetsResponse%27"><span class="hs-identifier hs-type">ListResourceRecordSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302422"><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679302422"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListResourceRecordSetsResponse
-</span><a href="#local-6989586621679302423"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isTruncated:ListResourceRecordSetsResponse' :: Bool
+</span><a href="#local-6989586621679302595"><span class="hs-identifier hs-var hs-var">isTruncated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679302595"><span class="hs-identifier hs-var">isTruncated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302594"><span class="annot"><span class="annottext">s :: ListResourceRecordSetsResponse
+</span><a href="#local-6989586621679302594"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSetsResponse%27"><span class="hs-identifier hs-type">ListResourceRecordSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302593"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679302593"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListResourceRecordSetsResponse
+</span><a href="#local-6989586621679302594"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isTruncated:ListResourceRecordSetsResponse' :: Bool
 </span><a href="Network.AWS.Route53.ListResourceRecordSets.html#%24sel%3AisTruncated%3AListResourceRecordSetsResponse%27"><span class="hs-identifier hs-var">isTruncated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679302422"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSetsResponse"><span class="hs-identifier hs-type">ListResourceRecordSetsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679302593"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSetsResponse"><span class="hs-identifier hs-type">ListResourceRecordSetsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-525"></span><span>
 </span><span id="line-526"></span><span class="hs-comment">-- | The maximum number of records you requested.</span><span>
 </span><span id="line-527"></span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#listResourceRecordSetsResponse_maxItems"><span class="hs-identifier hs-type">listResourceRecordSetsResponse_maxItems</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSetsResponse"><span class="hs-identifier hs-type">ListResourceRecordSetsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -1360,18 +1360,18 @@ $sel:isTruncated:ListResourceRecordSetsResponse' :: ListResourceRecordSetsRespon
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSetsResponse%27"><span class="hs-identifier hs-type">ListResourceRecordSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302421"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSetsResponse%27"><span class="hs-identifier hs-type">ListResourceRecordSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302592"><span class="annot"><span class="annottext">Text
 maxItems :: Text
 $sel:maxItems:ListResourceRecordSetsResponse' :: ListResourceRecordSetsResponse -&gt; Text
-</span><a href="#local-6989586621679302421"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679302421"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302420"><span class="annot"><span class="annottext">s :: ListResourceRecordSetsResponse
-</span><a href="#local-6989586621679302420"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSetsResponse%27"><span class="hs-identifier hs-type">ListResourceRecordSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302419"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679302419"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListResourceRecordSetsResponse
-</span><a href="#local-6989586621679302420"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxItems:ListResourceRecordSetsResponse' :: Text
+</span><a href="#local-6989586621679302592"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302592"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302591"><span class="annot"><span class="annottext">s :: ListResourceRecordSetsResponse
+</span><a href="#local-6989586621679302591"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSetsResponse%27"><span class="hs-identifier hs-type">ListResourceRecordSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302590"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302590"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListResourceRecordSetsResponse
+</span><a href="#local-6989586621679302591"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxItems:ListResourceRecordSetsResponse' :: Text
 </span><a href="Network.AWS.Route53.ListResourceRecordSets.html#%24sel%3AmaxItems%3AListResourceRecordSetsResponse%27"><span class="hs-identifier hs-var">maxItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679302419"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSetsResponse"><span class="hs-identifier hs-type">ListResourceRecordSetsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679302590"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSetsResponse"><span class="hs-identifier hs-type">ListResourceRecordSetsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-529"></span><span>
 </span><span id="line-530"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-531"></span><span>  </span><span id="local-6989586621679302417"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-531"></span><span>  </span><span id="local-6989586621679302588"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-532"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53.ListResourceRecordSets.html#ListResourceRecordSetsResponse"><span class="hs-identifier hs-type">ListResourceRecordSetsResponse</span></a></span></span><span>
 </span><span id="line-533"></span></pre></body></html>

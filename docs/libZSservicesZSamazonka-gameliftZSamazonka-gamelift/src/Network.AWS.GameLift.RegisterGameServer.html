@@ -80,7 +80,7 @@
 </span><span id="line-80"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- | /See:/ 'newRegisterGameServer' smart constructor.</span><span>
-</span><span id="line-83"></span><span id="local-6989586621679446451"><span id="local-6989586621679446452"></span></span><span class="hs-keyword">data</span><span> </span><span id="RegisterGameServer"><span class="annot"><a href="Network.AWS.GameLift.RegisterGameServer.html#RegisterGameServer"><span class="hs-identifier hs-var">RegisterGameServer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RegisterGameServer%27"><span class="annot"><a href="Network.AWS.GameLift.RegisterGameServer.html#RegisterGameServer%27"><span class="hs-identifier hs-var">RegisterGameServer'</span></a></span></span><span>
+</span><span id="line-83"></span><span id="local-6989586621679446930"><span id="local-6989586621679446931"></span></span><span class="hs-keyword">data</span><span> </span><span id="RegisterGameServer"><span class="annot"><a href="Network.AWS.GameLift.RegisterGameServer.html#RegisterGameServer"><span class="hs-identifier hs-var">RegisterGameServer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RegisterGameServer%27"><span class="annot"><a href="Network.AWS.GameLift.RegisterGameServer.html#RegisterGameServer%27"><span class="hs-identifier hs-var">RegisterGameServer'</span></a></span></span><span>
 </span><span id="line-84"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A set of custom game server properties, formatted as a single string</span><span>
 </span><span id="line-85"></span><span>    </span><span class="hs-comment">-- value. This data is passed to a game client or service when it requests</span><span>
 </span><span id="line-86"></span><span>    </span><span class="hs-comment">-- information on game servers using ListGameServers or ClaimGameServer.</span><span>
@@ -106,7 +106,7 @@
 </span><span id="line-102"></span><span>    </span><span id="%24sel%3AinstanceId%3ARegisterGameServer%27"><span class="annot"><span class="annottext">RegisterGameServer -&gt; Text
 </span><a href="Network.AWS.GameLift.RegisterGameServer.html#%24sel%3AinstanceId%3ARegisterGameServer%27"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-103"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-104"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679446441"><span id="local-6989586621679446443"><span class="annot"><span class="annottext">RegisterGameServer -&gt; RegisterGameServer -&gt; Bool
+</span><span id="line-104"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679446920"><span id="local-6989586621679446922"><span class="annot"><span class="annottext">RegisterGameServer -&gt; RegisterGameServer -&gt; Bool
 (RegisterGameServer -&gt; RegisterGameServer -&gt; Bool)
 -&gt; (RegisterGameServer -&gt; RegisterGameServer -&gt; Bool)
 -&gt; Eq RegisterGameServer
@@ -115,7 +115,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RegisterGameServer -&gt; RegisterGameServer -&gt; Bool
 == :: RegisterGameServer -&gt; RegisterGameServer -&gt; Bool
 $c== :: RegisterGameServer -&gt; RegisterGameServer -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679446432"><span id="local-6989586621679446434"><span id="local-6989586621679446436"><span id="local-6989586621679446438"><span class="annot"><span class="annottext">ReadPrec [RegisterGameServer]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679446911"><span id="local-6989586621679446913"><span id="local-6989586621679446915"><span id="local-6989586621679446917"><span class="annot"><span class="annottext">ReadPrec [RegisterGameServer]
 ReadPrec RegisterGameServer
 Int -&gt; ReadS RegisterGameServer
 ReadS [RegisterGameServer]
@@ -135,7 +135,7 @@ readList :: ReadS [RegisterGameServer]
 $creadList :: ReadS [RegisterGameServer]
 readsPrec :: Int -&gt; ReadS RegisterGameServer
 $creadsPrec :: Int -&gt; ReadS RegisterGameServer
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679446425"><span id="local-6989586621679446427"><span id="local-6989586621679446429"><span class="annot"><span class="annottext">Int -&gt; RegisterGameServer -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679446904"><span id="local-6989586621679446906"><span id="local-6989586621679446908"><span class="annot"><span class="annottext">Int -&gt; RegisterGameServer -&gt; ShowS
 [RegisterGameServer] -&gt; ShowS
 RegisterGameServer -&gt; String
 (Int -&gt; RegisterGameServer -&gt; ShowS)
@@ -197,12 +197,12 @@ $cfrom :: forall x. RegisterGameServer -&gt; Rep RegisterGameServer x
 </span><span id="line-139"></span><span>  </span><span class="annot"><a href="Network.AWS.GameLift.RegisterGameServer.html#RegisterGameServer"><span class="hs-identifier hs-type">RegisterGameServer</span></a></span><span>
 </span><span id="line-140"></span><span id="newRegisterGameServer"><span class="annot"><span class="annottext">newRegisterGameServer :: Text -&gt; Text -&gt; Text -&gt; RegisterGameServer
 </span><a href="Network.AWS.GameLift.RegisterGameServer.html#newRegisterGameServer"><span class="hs-identifier hs-var hs-var">newRegisterGameServer</span></a></span></span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621679446420"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679446420"><span class="hs-identifier hs-var">pGameServerGroupName_</span></a></span></span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679446419"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679446419"><span class="hs-identifier hs-var">pGameServerId_</span></a></span></span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679446418"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679446418"><span class="hs-identifier hs-var">pInstanceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679446899"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679446899"><span class="hs-identifier hs-var">pGameServerGroupName_</span></a></span></span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679446898"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679446898"><span class="hs-identifier hs-var">pGameServerId_</span></a></span></span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679446897"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679446897"><span class="hs-identifier hs-var">pInstanceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-144"></span><span>    </span><span class="annot"><span class="annottext">RegisterGameServer' :: Maybe Text
 -&gt; Maybe Text -&gt; Text -&gt; Text -&gt; Text -&gt; RegisterGameServer
 </span><a href="Network.AWS.GameLift.RegisterGameServer.html#RegisterGameServer%27"><span class="hs-identifier hs-type">RegisterGameServer'</span></a></span><span>
@@ -217,13 +217,13 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-148"></span><span>        </span><span class="annot"><span class="annottext">$sel:gameServerGroupName:RegisterGameServer' :: Text
 </span><a href="Network.AWS.GameLift.RegisterGameServer.html#%24sel%3AgameServerGroupName%3ARegisterGameServer%27"><span class="hs-identifier hs-var">gameServerGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679446420"><span class="hs-identifier hs-var">pGameServerGroupName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679446899"><span class="hs-identifier hs-var">pGameServerGroupName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-149"></span><span>        </span><span class="annot"><span class="annottext">$sel:gameServerId:RegisterGameServer' :: Text
 </span><a href="Network.AWS.GameLift.RegisterGameServer.html#%24sel%3AgameServerId%3ARegisterGameServer%27"><span class="hs-identifier hs-var">gameServerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679446419"><span class="hs-identifier hs-var">pGameServerId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679446898"><span class="hs-identifier hs-var">pGameServerId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-150"></span><span>        </span><span class="annot"><span class="annottext">$sel:instanceId:RegisterGameServer' :: Text
 </span><a href="Network.AWS.GameLift.RegisterGameServer.html#%24sel%3AinstanceId%3ARegisterGameServer%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679446418"><span class="hs-identifier hs-var">pInstanceId_</span></a></span><span>
+</span><a href="#local-6989586621679446897"><span class="hs-identifier hs-var">pInstanceId_</span></a></span><span>
 </span><span id="line-151"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-152"></span><span>
 </span><span id="line-153"></span><span class="hs-comment">-- | A set of custom game server properties, formatted as a single string</span><span>
@@ -237,16 +237,16 @@ forall a. Maybe a
 -&gt; Lens
      RegisterGameServer RegisterGameServer (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.RegisterGameServer.html#RegisterGameServer%27"><span class="hs-identifier hs-type">RegisterGameServer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679446415"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.RegisterGameServer.html#RegisterGameServer%27"><span class="hs-identifier hs-type">RegisterGameServer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679446894"><span class="annot"><span class="annottext">Maybe Text
 gameServerData :: Maybe Text
 $sel:gameServerData:RegisterGameServer' :: RegisterGameServer -&gt; Maybe Text
-</span><a href="#local-6989586621679446415"><span class="hs-identifier hs-var hs-var">gameServerData</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679446415"><span class="hs-identifier hs-var">gameServerData</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679446414"><span class="annot"><span class="annottext">s :: RegisterGameServer
-</span><a href="#local-6989586621679446414"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.RegisterGameServer.html#RegisterGameServer%27"><span class="hs-identifier hs-type">RegisterGameServer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679446413"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679446413"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterGameServer
-</span><a href="#local-6989586621679446414"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gameServerData:RegisterGameServer' :: Maybe Text
+</span><a href="#local-6989586621679446894"><span class="hs-identifier hs-var hs-var">gameServerData</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679446894"><span class="hs-identifier hs-var">gameServerData</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679446893"><span class="annot"><span class="annottext">s :: RegisterGameServer
+</span><a href="#local-6989586621679446893"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.RegisterGameServer.html#RegisterGameServer%27"><span class="hs-identifier hs-type">RegisterGameServer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679446892"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679446892"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterGameServer
+</span><a href="#local-6989586621679446893"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gameServerData:RegisterGameServer' :: Maybe Text
 </span><a href="Network.AWS.GameLift.RegisterGameServer.html#%24sel%3AgameServerData%3ARegisterGameServer%27"><span class="hs-identifier hs-var">gameServerData</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679446413"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.RegisterGameServer.html#RegisterGameServer"><span class="hs-identifier hs-type">RegisterGameServer</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679446892"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.RegisterGameServer.html#RegisterGameServer"><span class="hs-identifier hs-type">RegisterGameServer</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>
 </span><span id="line-159"></span><span class="hs-comment">-- | Information that is needed to make inbound client connections to the</span><span>
 </span><span id="line-160"></span><span class="hs-comment">-- game server. This might include the IP address and port, DNS name, and</span><span>
@@ -259,16 +259,16 @@ $sel:gameServerData:RegisterGameServer' :: RegisterGameServer -&gt; Maybe Text
 -&gt; Lens
      RegisterGameServer RegisterGameServer (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.RegisterGameServer.html#RegisterGameServer%27"><span class="hs-identifier hs-type">RegisterGameServer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679446412"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.RegisterGameServer.html#RegisterGameServer%27"><span class="hs-identifier hs-type">RegisterGameServer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679446891"><span class="annot"><span class="annottext">Maybe Text
 connectionInfo :: Maybe Text
 $sel:connectionInfo:RegisterGameServer' :: RegisterGameServer -&gt; Maybe Text
-</span><a href="#local-6989586621679446412"><span class="hs-identifier hs-var hs-var">connectionInfo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679446412"><span class="hs-identifier hs-var">connectionInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679446411"><span class="annot"><span class="annottext">s :: RegisterGameServer
-</span><a href="#local-6989586621679446411"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.RegisterGameServer.html#RegisterGameServer%27"><span class="hs-identifier hs-type">RegisterGameServer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679446410"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679446410"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterGameServer
-</span><a href="#local-6989586621679446411"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionInfo:RegisterGameServer' :: Maybe Text
+</span><a href="#local-6989586621679446891"><span class="hs-identifier hs-var hs-var">connectionInfo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679446891"><span class="hs-identifier hs-var">connectionInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679446890"><span class="annot"><span class="annottext">s :: RegisterGameServer
+</span><a href="#local-6989586621679446890"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.RegisterGameServer.html#RegisterGameServer%27"><span class="hs-identifier hs-type">RegisterGameServer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679446889"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679446889"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterGameServer
+</span><a href="#local-6989586621679446890"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionInfo:RegisterGameServer' :: Maybe Text
 </span><a href="Network.AWS.GameLift.RegisterGameServer.html#%24sel%3AconnectionInfo%3ARegisterGameServer%27"><span class="hs-identifier hs-var">connectionInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679446410"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.RegisterGameServer.html#RegisterGameServer"><span class="hs-identifier hs-type">RegisterGameServer</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679446889"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.RegisterGameServer.html#RegisterGameServer"><span class="hs-identifier hs-type">RegisterGameServer</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-164"></span><span>
 </span><span id="line-165"></span><span class="hs-comment">-- | A unique identifier for the game server group where the game server is</span><span>
 </span><span id="line-166"></span><span class="hs-comment">-- running. Use either the GameServerGroup name or ARN value.</span><span>
@@ -278,16 +278,16 @@ $sel:connectionInfo:RegisterGameServer' :: RegisterGameServer -&gt; Maybe Text
 -&gt; (RegisterGameServer -&gt; Text -&gt; RegisterGameServer)
 -&gt; Lens RegisterGameServer RegisterGameServer Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.RegisterGameServer.html#RegisterGameServer%27"><span class="hs-identifier hs-type">RegisterGameServer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679446409"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.RegisterGameServer.html#RegisterGameServer%27"><span class="hs-identifier hs-type">RegisterGameServer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679446888"><span class="annot"><span class="annottext">Text
 gameServerGroupName :: Text
 $sel:gameServerGroupName:RegisterGameServer' :: RegisterGameServer -&gt; Text
-</span><a href="#local-6989586621679446409"><span class="hs-identifier hs-var hs-var">gameServerGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679446409"><span class="hs-identifier hs-var">gameServerGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679446408"><span class="annot"><span class="annottext">s :: RegisterGameServer
-</span><a href="#local-6989586621679446408"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.RegisterGameServer.html#RegisterGameServer%27"><span class="hs-identifier hs-type">RegisterGameServer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679446407"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679446407"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterGameServer
-</span><a href="#local-6989586621679446408"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gameServerGroupName:RegisterGameServer' :: Text
+</span><a href="#local-6989586621679446888"><span class="hs-identifier hs-var hs-var">gameServerGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679446888"><span class="hs-identifier hs-var">gameServerGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679446887"><span class="annot"><span class="annottext">s :: RegisterGameServer
+</span><a href="#local-6989586621679446887"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.RegisterGameServer.html#RegisterGameServer%27"><span class="hs-identifier hs-type">RegisterGameServer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679446886"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679446886"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterGameServer
+</span><a href="#local-6989586621679446887"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gameServerGroupName:RegisterGameServer' :: Text
 </span><a href="Network.AWS.GameLift.RegisterGameServer.html#%24sel%3AgameServerGroupName%3ARegisterGameServer%27"><span class="hs-identifier hs-var">gameServerGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679446407"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.RegisterGameServer.html#RegisterGameServer"><span class="hs-identifier hs-type">RegisterGameServer</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679446886"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.RegisterGameServer.html#RegisterGameServer"><span class="hs-identifier hs-type">RegisterGameServer</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-169"></span><span>
 </span><span id="line-170"></span><span class="hs-comment">-- | A custom string that uniquely identifies the game server to register.</span><span>
 </span><span id="line-171"></span><span class="hs-comment">-- Game server IDs are developer-defined and must be unique across all game</span><span>
@@ -298,16 +298,16 @@ $sel:gameServerGroupName:RegisterGameServer' :: RegisterGameServer -&gt; Text
 -&gt; (RegisterGameServer -&gt; Text -&gt; RegisterGameServer)
 -&gt; Lens RegisterGameServer RegisterGameServer Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.RegisterGameServer.html#RegisterGameServer%27"><span class="hs-identifier hs-type">RegisterGameServer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679446406"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.RegisterGameServer.html#RegisterGameServer%27"><span class="hs-identifier hs-type">RegisterGameServer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679446885"><span class="annot"><span class="annottext">Text
 gameServerId :: Text
 $sel:gameServerId:RegisterGameServer' :: RegisterGameServer -&gt; Text
-</span><a href="#local-6989586621679446406"><span class="hs-identifier hs-var hs-var">gameServerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679446406"><span class="hs-identifier hs-var">gameServerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679446405"><span class="annot"><span class="annottext">s :: RegisterGameServer
-</span><a href="#local-6989586621679446405"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.RegisterGameServer.html#RegisterGameServer%27"><span class="hs-identifier hs-type">RegisterGameServer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679446404"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679446404"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterGameServer
-</span><a href="#local-6989586621679446405"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gameServerId:RegisterGameServer' :: Text
+</span><a href="#local-6989586621679446885"><span class="hs-identifier hs-var hs-var">gameServerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679446885"><span class="hs-identifier hs-var">gameServerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679446884"><span class="annot"><span class="annottext">s :: RegisterGameServer
+</span><a href="#local-6989586621679446884"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.RegisterGameServer.html#RegisterGameServer%27"><span class="hs-identifier hs-type">RegisterGameServer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679446883"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679446883"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterGameServer
+</span><a href="#local-6989586621679446884"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gameServerId:RegisterGameServer' :: Text
 </span><a href="Network.AWS.GameLift.RegisterGameServer.html#%24sel%3AgameServerId%3ARegisterGameServer%27"><span class="hs-identifier hs-var">gameServerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679446404"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.RegisterGameServer.html#RegisterGameServer"><span class="hs-identifier hs-type">RegisterGameServer</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679446883"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.RegisterGameServer.html#RegisterGameServer"><span class="hs-identifier hs-type">RegisterGameServer</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-175"></span><span>
 </span><span id="line-176"></span><span class="hs-comment">-- | The unique identifier for the instance where the game server is running.</span><span>
 </span><span id="line-177"></span><span class="hs-comment">-- This ID is available in the instance metadata. EC2 instance IDs use a</span><span>
@@ -318,27 +318,27 @@ $sel:gameServerId:RegisterGameServer' :: RegisterGameServer -&gt; Text
 -&gt; (RegisterGameServer -&gt; Text -&gt; RegisterGameServer)
 -&gt; Lens RegisterGameServer RegisterGameServer Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.RegisterGameServer.html#RegisterGameServer%27"><span class="hs-identifier hs-type">RegisterGameServer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679446403"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.RegisterGameServer.html#RegisterGameServer%27"><span class="hs-identifier hs-type">RegisterGameServer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679446882"><span class="annot"><span class="annottext">Text
 instanceId :: Text
 $sel:instanceId:RegisterGameServer' :: RegisterGameServer -&gt; Text
-</span><a href="#local-6989586621679446403"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679446403"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679446402"><span class="annot"><span class="annottext">s :: RegisterGameServer
-</span><a href="#local-6989586621679446402"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.RegisterGameServer.html#RegisterGameServer%27"><span class="hs-identifier hs-type">RegisterGameServer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679446401"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679446401"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterGameServer
-</span><a href="#local-6989586621679446402"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:RegisterGameServer' :: Text
+</span><a href="#local-6989586621679446882"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679446882"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679446881"><span class="annot"><span class="annottext">s :: RegisterGameServer
+</span><a href="#local-6989586621679446881"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.RegisterGameServer.html#RegisterGameServer%27"><span class="hs-identifier hs-type">RegisterGameServer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679446880"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679446880"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterGameServer
+</span><a href="#local-6989586621679446881"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:RegisterGameServer' :: Text
 </span><a href="Network.AWS.GameLift.RegisterGameServer.html#%24sel%3AinstanceId%3ARegisterGameServer%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679446401"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.RegisterGameServer.html#RegisterGameServer"><span class="hs-identifier hs-type">RegisterGameServer</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679446880"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.RegisterGameServer.html#RegisterGameServer"><span class="hs-identifier hs-type">RegisterGameServer</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-181"></span><span>
 </span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.RegisterGameServer.html#RegisterGameServer"><span class="hs-identifier hs-type">RegisterGameServer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-183"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-184"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.RegisterGameServer.html#RegisterGameServer"><span class="hs-identifier hs-type">RegisterGameServer</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-185"></span><span>      </span><span class="annot"><a href="Network.AWS.GameLift.RegisterGameServer.html#RegisterGameServerResponse"><span class="hs-identifier hs-type">RegisterGameServerResponse</span></a></span><span>
-</span><span id="line-186"></span><span>  </span><span id="local-6989586621679446397"><span class="annot"><span class="annottext">request :: RegisterGameServer -&gt; Request RegisterGameServer
+</span><span id="line-186"></span><span>  </span><span id="local-6989586621679446876"><span class="annot"><span class="annottext">request :: RegisterGameServer -&gt; Request RegisterGameServer
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; RegisterGameServer -&gt; Request RegisterGameServer
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.GameLift.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-187"></span><span>  </span><span id="local-6989586621679446393"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-187"></span><span>  </span><span id="local-6989586621679446872"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy RegisterGameServer
 -&gt; ClientResponse ClientBody
@@ -364,10 +364,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-189"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679446390"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679446390"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679446389"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679446389"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679446388"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679446388"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-189"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679446869"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679446869"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679446868"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679446868"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679446867"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679446867"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-190"></span><span>          </span><span class="annot"><span class="annottext">Maybe GameServer -&gt; Int -&gt; RegisterGameServerResponse
 </span><a href="Network.AWS.GameLift.RegisterGameServer.html#RegisterGameServerResponse%27"><span class="hs-identifier hs-var">RegisterGameServerResponse'</span></a></span><span>
 </span><span id="line-191"></span><span>            </span><span class="annot"><span class="annottext">(Maybe GameServer -&gt; Int -&gt; RegisterGameServerResponse)
@@ -375,7 +375,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; RegisterGameServerResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679446388"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe GameServer)
+</span><a href="#local-6989586621679446867"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe GameServer)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;GameServer&quot;</span></span><span class="hs-special">)</span><span>
@@ -387,15 +387,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679446390"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679446869"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-193"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-194"></span><span>
-</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679446380"><span id="local-6989586621679446382"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.RegisterGameServer.html#RegisterGameServer"><span class="hs-identifier hs-type">RegisterGameServer</span></a></span></span></span><span>
+</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679446859"><span id="local-6989586621679446861"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.RegisterGameServer.html#RegisterGameServer"><span class="hs-identifier hs-type">RegisterGameServer</span></a></span></span></span><span>
 </span><span id="line-196"></span><span>
-</span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679446377"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.RegisterGameServer.html#RegisterGameServer"><span class="hs-identifier hs-type">RegisterGameServer</span></a></span></span><span>
+</span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679446856"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.RegisterGameServer.html#RegisterGameServer"><span class="hs-identifier hs-type">RegisterGameServer</span></a></span></span><span>
 </span><span id="line-198"></span><span>
 </span><span id="line-199"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.RegisterGameServer.html#RegisterGameServer"><span class="hs-identifier hs-type">RegisterGameServer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-200"></span><span>  </span><span id="local-6989586621679446373"><span class="annot"><span class="annottext">toHeaders :: RegisterGameServer -&gt; ResponseHeaders
+</span><span id="line-200"></span><span>  </span><span id="local-6989586621679446852"><span class="annot"><span class="annottext">toHeaders :: RegisterGameServer -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-201"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; RegisterGameServer -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -422,9 +422,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-211"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-212"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-213"></span><span>
-</span><span id="line-214"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679446363"><span id="local-6989586621679446365"><span id="local-6989586621679446367"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.RegisterGameServer.html#RegisterGameServer"><span class="hs-identifier hs-type">RegisterGameServer</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-215"></span><span>  </span><span id="local-6989586621679446361"><span class="annot"><span class="annottext">toJSON :: RegisterGameServer -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.RegisterGameServer.html#RegisterGameServer%27"><span class="hs-identifier hs-type">RegisterGameServer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679446355"><span id="local-6989586621679446356"><span id="local-6989586621679446357"><span id="local-6989586621679446358"><span id="local-6989586621679446359"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-214"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679446842"><span id="local-6989586621679446844"><span id="local-6989586621679446846"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.RegisterGameServer.html#RegisterGameServer"><span class="hs-identifier hs-type">RegisterGameServer</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-215"></span><span>  </span><span id="local-6989586621679446840"><span class="annot"><span class="annottext">toJSON :: RegisterGameServer -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.RegisterGameServer.html#RegisterGameServer%27"><span class="hs-identifier hs-type">RegisterGameServer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679446834"><span id="local-6989586621679446835"><span id="local-6989586621679446836"><span id="local-6989586621679446837"><span id="local-6989586621679446838"><span class="annot"><span class="annottext">Maybe Text
 Text
 instanceId :: Text
 gameServerId :: Text
@@ -436,7 +436,7 @@ $sel:gameServerId:RegisterGameServer' :: RegisterGameServer -&gt; Text
 $sel:gameServerGroupName:RegisterGameServer' :: RegisterGameServer -&gt; Text
 $sel:connectionInfo:RegisterGameServer' :: RegisterGameServer -&gt; Maybe Text
 $sel:gameServerData:RegisterGameServer' :: RegisterGameServer -&gt; Maybe Text
-</span><a href="#local-6989586621679446355"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679446834"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-216"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-217"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -449,7 +449,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-219"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679446359"><span class="hs-identifier hs-var">gameServerData</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679446838"><span class="hs-identifier hs-var">gameServerData</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-220"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ConnectionInfo&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -457,7 +457,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-221"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679446358"><span class="hs-identifier hs-var">connectionInfo</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679446837"><span class="hs-identifier hs-var">connectionInfo</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-222"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -465,33 +465,33 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;GameServerGroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679446357"><span class="hs-identifier hs-var">gameServerGroupName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679446836"><span class="hs-identifier hs-var">gameServerGroupName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-224"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;GameServerId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679446356"><span class="hs-identifier hs-var">gameServerId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679446835"><span class="hs-identifier hs-var">gameServerId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-225"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;InstanceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679446355"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679446834"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-226"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-227"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-228"></span><span>
 </span><span id="line-229"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.RegisterGameServer.html#RegisterGameServer"><span class="hs-identifier hs-type">RegisterGameServer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-230"></span><span>  </span><span id="local-6989586621679446349"><span class="annot"><span class="annottext">toPath :: RegisterGameServer -&gt; ByteString
+</span><span id="line-230"></span><span>  </span><span id="local-6989586621679446828"><span class="annot"><span class="annottext">toPath :: RegisterGameServer -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; RegisterGameServer -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-231"></span><span>
 </span><span id="line-232"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.RegisterGameServer.html#RegisterGameServer"><span class="hs-identifier hs-type">RegisterGameServer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-233"></span><span>  </span><span id="local-6989586621679446345"><span class="annot"><span class="annottext">toQuery :: RegisterGameServer -&gt; QueryString
+</span><span id="line-233"></span><span>  </span><span id="local-6989586621679446824"><span class="annot"><span class="annottext">toQuery :: RegisterGameServer -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; RegisterGameServer -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -499,7 +499,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-234"></span><span>
 </span><span id="line-235"></span><span class="hs-comment">-- | /See:/ 'newRegisterGameServerResponse' smart constructor.</span><span>
-</span><span id="line-236"></span><span id="local-6989586621679446342"><span id="local-6989586621679446343"></span></span><span class="hs-keyword">data</span><span> </span><span id="RegisterGameServerResponse"><span class="annot"><a href="Network.AWS.GameLift.RegisterGameServer.html#RegisterGameServerResponse"><span class="hs-identifier hs-var">RegisterGameServerResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RegisterGameServerResponse%27"><span class="annot"><a href="Network.AWS.GameLift.RegisterGameServer.html#RegisterGameServerResponse%27"><span class="hs-identifier hs-var">RegisterGameServerResponse'</span></a></span></span><span>
+</span><span id="line-236"></span><span id="local-6989586621679446821"><span id="local-6989586621679446822"></span></span><span class="hs-keyword">data</span><span> </span><span id="RegisterGameServerResponse"><span class="annot"><a href="Network.AWS.GameLift.RegisterGameServer.html#RegisterGameServerResponse"><span class="hs-identifier hs-var">RegisterGameServerResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RegisterGameServerResponse%27"><span class="annot"><a href="Network.AWS.GameLift.RegisterGameServer.html#RegisterGameServerResponse%27"><span class="hs-identifier hs-var">RegisterGameServerResponse'</span></a></span></span><span>
 </span><span id="line-237"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Object that describes the newly registered game server.</span><span>
 </span><span id="line-238"></span><span>    </span><span id="%24sel%3AgameServer%3ARegisterGameServerResponse%27"><span class="annot"><span class="annottext">RegisterGameServerResponse -&gt; Maybe GameServer
 </span><a href="Network.AWS.GameLift.RegisterGameServer.html#%24sel%3AgameServer%3ARegisterGameServerResponse%27"><span class="hs-identifier hs-var hs-var">gameServer</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.GameServer.html#GameServer"><span class="hs-identifier hs-type">GameServer</span></a></span><span class="hs-special">,</span><span>
@@ -507,7 +507,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-240"></span><span>    </span><span id="%24sel%3AhttpStatus%3ARegisterGameServerResponse%27"><span class="annot"><span class="annottext">RegisterGameServerResponse -&gt; Int
 </span><a href="Network.AWS.GameLift.RegisterGameServer.html#%24sel%3AhttpStatus%3ARegisterGameServerResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-241"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-242"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679446336"><span id="local-6989586621679446338"><span class="annot"><span class="annottext">RegisterGameServerResponse -&gt; RegisterGameServerResponse -&gt; Bool
+</span><span id="line-242"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679446815"><span id="local-6989586621679446817"><span class="annot"><span class="annottext">RegisterGameServerResponse -&gt; RegisterGameServerResponse -&gt; Bool
 (RegisterGameServerResponse -&gt; RegisterGameServerResponse -&gt; Bool)
 -&gt; (RegisterGameServerResponse
     -&gt; RegisterGameServerResponse -&gt; Bool)
@@ -517,7 +517,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RegisterGameServerResponse -&gt; RegisterGameServerResponse -&gt; Bool
 == :: RegisterGameServerResponse -&gt; RegisterGameServerResponse -&gt; Bool
 $c== :: RegisterGameServerResponse -&gt; RegisterGameServerResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679446328"><span id="local-6989586621679446330"><span id="local-6989586621679446332"><span id="local-6989586621679446334"><span class="annot"><span class="annottext">ReadPrec [RegisterGameServerResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679446807"><span id="local-6989586621679446809"><span id="local-6989586621679446811"><span id="local-6989586621679446813"><span class="annot"><span class="annottext">ReadPrec [RegisterGameServerResponse]
 ReadPrec RegisterGameServerResponse
 Int -&gt; ReadS RegisterGameServerResponse
 ReadS [RegisterGameServerResponse]
@@ -537,7 +537,7 @@ readList :: ReadS [RegisterGameServerResponse]
 $creadList :: ReadS [RegisterGameServerResponse]
 readsPrec :: Int -&gt; ReadS RegisterGameServerResponse
 $creadsPrec :: Int -&gt; ReadS RegisterGameServerResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679446322"><span id="local-6989586621679446324"><span id="local-6989586621679446326"><span class="annot"><span class="annottext">Int -&gt; RegisterGameServerResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679446801"><span id="local-6989586621679446803"><span id="local-6989586621679446805"><span class="annot"><span class="annottext">Int -&gt; RegisterGameServerResponse -&gt; ShowS
 [RegisterGameServerResponse] -&gt; ShowS
 RegisterGameServerResponse -&gt; String
 (Int -&gt; RegisterGameServerResponse -&gt; ShowS)
@@ -585,8 +585,8 @@ RegisterGameServerResponse -&gt; Rep RegisterGameServerResponse x
 </span><span id="line-257"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-258"></span><span>  </span><span class="annot"><a href="Network.AWS.GameLift.RegisterGameServer.html#RegisterGameServerResponse"><span class="hs-identifier hs-type">RegisterGameServerResponse</span></a></span><span>
 </span><span id="line-259"></span><span id="newRegisterGameServerResponse"><span class="annot"><span class="annottext">newRegisterGameServerResponse :: Int -&gt; RegisterGameServerResponse
-</span><a href="Network.AWS.GameLift.RegisterGameServer.html#newRegisterGameServerResponse"><span class="hs-identifier hs-var hs-var">newRegisterGameServerResponse</span></a></span></span><span> </span><span id="local-6989586621679446319"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679446319"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.GameLift.RegisterGameServer.html#newRegisterGameServerResponse"><span class="hs-identifier hs-var hs-var">newRegisterGameServerResponse</span></a></span></span><span> </span><span id="local-6989586621679446798"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679446798"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-260"></span><span>  </span><span class="annot"><span class="annottext">RegisterGameServerResponse' :: Maybe GameServer -&gt; Int -&gt; RegisterGameServerResponse
 </span><a href="Network.AWS.GameLift.RegisterGameServer.html#RegisterGameServerResponse%27"><span class="hs-identifier hs-type">RegisterGameServerResponse'</span></a></span><span>
 </span><span id="line-261"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:gameServer:RegisterGameServerResponse' :: Maybe GameServer
@@ -596,7 +596,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-263"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:RegisterGameServerResponse' :: Int
 </span><a href="Network.AWS.GameLift.RegisterGameServer.html#%24sel%3AhttpStatus%3ARegisterGameServerResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679446319"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679446798"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-264"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-265"></span><span>
 </span><span id="line-266"></span><span class="hs-comment">-- | Object that describes the newly registered game server.</span><span>
@@ -612,16 +612,16 @@ forall a. Maybe a
      (Maybe GameServer)
      (Maybe GameServer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.RegisterGameServer.html#RegisterGameServerResponse%27"><span class="hs-identifier hs-type">RegisterGameServerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679446318"><span class="annot"><span class="annottext">Maybe GameServer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.RegisterGameServer.html#RegisterGameServerResponse%27"><span class="hs-identifier hs-type">RegisterGameServerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679446797"><span class="annot"><span class="annottext">Maybe GameServer
 gameServer :: Maybe GameServer
 $sel:gameServer:RegisterGameServerResponse' :: RegisterGameServerResponse -&gt; Maybe GameServer
-</span><a href="#local-6989586621679446318"><span class="hs-identifier hs-var hs-var">gameServer</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GameServer
-</span><a href="#local-6989586621679446318"><span class="hs-identifier hs-var">gameServer</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679446317"><span class="annot"><span class="annottext">s :: RegisterGameServerResponse
-</span><a href="#local-6989586621679446317"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.RegisterGameServer.html#RegisterGameServerResponse%27"><span class="hs-identifier hs-type">RegisterGameServerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679446316"><span class="annot"><span class="annottext">Maybe GameServer
-</span><a href="#local-6989586621679446316"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterGameServerResponse
-</span><a href="#local-6989586621679446317"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gameServer:RegisterGameServerResponse' :: Maybe GameServer
+</span><a href="#local-6989586621679446797"><span class="hs-identifier hs-var hs-var">gameServer</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GameServer
+</span><a href="#local-6989586621679446797"><span class="hs-identifier hs-var">gameServer</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679446796"><span class="annot"><span class="annottext">s :: RegisterGameServerResponse
+</span><a href="#local-6989586621679446796"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.RegisterGameServer.html#RegisterGameServerResponse%27"><span class="hs-identifier hs-type">RegisterGameServerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679446795"><span class="annot"><span class="annottext">Maybe GameServer
+</span><a href="#local-6989586621679446795"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterGameServerResponse
+</span><a href="#local-6989586621679446796"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gameServer:RegisterGameServerResponse' :: Maybe GameServer
 </span><a href="Network.AWS.GameLift.RegisterGameServer.html#%24sel%3AgameServer%3ARegisterGameServerResponse%27"><span class="hs-identifier hs-var">gameServer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GameServer
-</span><a href="#local-6989586621679446316"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.RegisterGameServer.html#RegisterGameServerResponse"><span class="hs-identifier hs-type">RegisterGameServerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679446795"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.RegisterGameServer.html#RegisterGameServerResponse"><span class="hs-identifier hs-type">RegisterGameServerResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-269"></span><span>
 </span><span id="line-270"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-271"></span><span class="annot"><a href="Network.AWS.GameLift.RegisterGameServer.html#registerGameServerResponse_httpStatus"><span class="hs-identifier hs-type">registerGameServerResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.RegisterGameServer.html#RegisterGameServerResponse"><span class="hs-identifier hs-type">RegisterGameServerResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -633,16 +633,16 @@ $sel:gameServer:RegisterGameServerResponse' :: RegisterGameServerResponse -&gt; 
 -&gt; Lens
      RegisterGameServerResponse RegisterGameServerResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.RegisterGameServer.html#RegisterGameServerResponse%27"><span class="hs-identifier hs-type">RegisterGameServerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679446315"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.RegisterGameServer.html#RegisterGameServerResponse%27"><span class="hs-identifier hs-type">RegisterGameServerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679446794"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:RegisterGameServerResponse' :: RegisterGameServerResponse -&gt; Int
-</span><a href="#local-6989586621679446315"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679446315"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679446314"><span class="annot"><span class="annottext">s :: RegisterGameServerResponse
-</span><a href="#local-6989586621679446314"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.RegisterGameServer.html#RegisterGameServerResponse%27"><span class="hs-identifier hs-type">RegisterGameServerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679446313"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679446313"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterGameServerResponse
-</span><a href="#local-6989586621679446314"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RegisterGameServerResponse' :: Int
+</span><a href="#local-6989586621679446794"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679446794"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679446793"><span class="annot"><span class="annottext">s :: RegisterGameServerResponse
+</span><a href="#local-6989586621679446793"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.RegisterGameServer.html#RegisterGameServerResponse%27"><span class="hs-identifier hs-type">RegisterGameServerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679446792"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679446792"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterGameServerResponse
+</span><a href="#local-6989586621679446793"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RegisterGameServerResponse' :: Int
 </span><a href="Network.AWS.GameLift.RegisterGameServer.html#%24sel%3AhttpStatus%3ARegisterGameServerResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679446313"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.RegisterGameServer.html#RegisterGameServerResponse"><span class="hs-identifier hs-type">RegisterGameServerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679446792"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.RegisterGameServer.html#RegisterGameServerResponse"><span class="hs-identifier hs-type">RegisterGameServerResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-273"></span><span>
-</span><span id="line-274"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679446311"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.RegisterGameServer.html#RegisterGameServerResponse"><span class="hs-identifier hs-type">RegisterGameServerResponse</span></a></span></span><span>
+</span><span id="line-274"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679446790"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.RegisterGameServer.html#RegisterGameServerResponse"><span class="hs-identifier hs-type">RegisterGameServerResponse</span></a></span></span><span>
 </span><span id="line-275"></span></pre></body></html>

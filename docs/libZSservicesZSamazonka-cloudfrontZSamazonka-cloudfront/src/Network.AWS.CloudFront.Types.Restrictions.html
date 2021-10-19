@@ -28,14 +28,14 @@
 </span><span id="line-28"></span><span class="hs-comment">-- distribution of your content.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newRestrictions' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679401263"><span id="local-6989586621679401264"></span></span><span class="hs-keyword">data</span><span> </span><span id="Restrictions"><span class="annot"><a href="Network.AWS.CloudFront.Types.Restrictions.html#Restrictions"><span class="hs-identifier hs-var">Restrictions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Restrictions%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.Restrictions.html#Restrictions%27"><span class="hs-identifier hs-var">Restrictions'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679401525"><span id="local-6989586621679401526"></span></span><span class="hs-keyword">data</span><span> </span><span id="Restrictions"><span class="annot"><a href="Network.AWS.CloudFront.Types.Restrictions.html#Restrictions"><span class="hs-identifier hs-var">Restrictions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Restrictions%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.Restrictions.html#Restrictions%27"><span class="hs-identifier hs-var">Restrictions'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A complex type that controls the countries in which your content is</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- distributed. CloudFront determines the location of your users using</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- @MaxMind@ GeoIP databases.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AgeoRestriction%3ARestrictions%27"><span class="annot"><span class="annottext">Restrictions -&gt; GeoRestriction
 </span><a href="Network.AWS.CloudFront.Types.Restrictions.html#%24sel%3AgeoRestriction%3ARestrictions%27"><span class="hs-identifier hs-var hs-var">geoRestriction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.GeoRestriction.html#GeoRestriction"><span class="hs-identifier hs-type">GeoRestriction</span></a></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679401257"><span id="local-6989586621679401259"><span class="annot"><span class="annottext">Restrictions -&gt; Restrictions -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679401519"><span id="local-6989586621679401521"><span class="annot"><span class="annottext">Restrictions -&gt; Restrictions -&gt; Bool
 (Restrictions -&gt; Restrictions -&gt; Bool)
 -&gt; (Restrictions -&gt; Restrictions -&gt; Bool) -&gt; Eq Restrictions
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Restrictions -&gt; Restrictions -&gt; Bool
 == :: Restrictions -&gt; Restrictions -&gt; Bool
 $c== :: Restrictions -&gt; Restrictions -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679401248"><span id="local-6989586621679401250"><span id="local-6989586621679401252"><span id="local-6989586621679401254"><span class="annot"><span class="annottext">ReadPrec [Restrictions]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679401510"><span id="local-6989586621679401512"><span id="local-6989586621679401514"><span id="local-6989586621679401516"><span class="annot"><span class="annottext">ReadPrec [Restrictions]
 ReadPrec Restrictions
 Int -&gt; ReadS Restrictions
 ReadS [Restrictions]
@@ -63,7 +63,7 @@ readList :: ReadS [Restrictions]
 $creadList :: ReadS [Restrictions]
 readsPrec :: Int -&gt; ReadS Restrictions
 $creadsPrec :: Int -&gt; ReadS Restrictions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679401241"><span id="local-6989586621679401243"><span id="local-6989586621679401245"><span class="annot"><span class="annottext">Int -&gt; Restrictions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679401503"><span id="local-6989586621679401505"><span id="local-6989586621679401507"><span class="annot"><span class="annottext">Int -&gt; Restrictions -&gt; ShowS
 [Restrictions] -&gt; ShowS
 Restrictions -&gt; String
 (Int -&gt; Restrictions -&gt; ShowS)
@@ -105,12 +105,12 @@ $cfrom :: forall x. Restrictions -&gt; Rep Restrictions x
 </span><span id="line-52"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.Types.GeoRestriction.html#GeoRestriction"><span class="hs-identifier hs-type">GeoRestriction</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-53"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Restrictions.html#Restrictions"><span class="hs-identifier hs-type">Restrictions</span></a></span><span>
 </span><span id="line-54"></span><span id="newRestrictions"><span class="annot"><span class="annottext">newRestrictions :: GeoRestriction -&gt; Restrictions
-</span><a href="Network.AWS.CloudFront.Types.Restrictions.html#newRestrictions"><span class="hs-identifier hs-var hs-var">newRestrictions</span></a></span></span><span> </span><span id="local-6989586621679401235"><span class="annot"><span class="annottext">GeoRestriction
-</span><a href="#local-6989586621679401235"><span class="hs-identifier hs-var">pGeoRestriction_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudFront.Types.Restrictions.html#newRestrictions"><span class="hs-identifier hs-var hs-var">newRestrictions</span></a></span></span><span> </span><span id="local-6989586621679401497"><span class="annot"><span class="annottext">GeoRestriction
+</span><a href="#local-6989586621679401497"><span class="hs-identifier hs-var">pGeoRestriction_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">Restrictions' :: GeoRestriction -&gt; Restrictions
 </span><a href="Network.AWS.CloudFront.Types.Restrictions.html#Restrictions%27"><span class="hs-identifier hs-type">Restrictions'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:geoRestriction:Restrictions' :: GeoRestriction
 </span><a href="Network.AWS.CloudFront.Types.Restrictions.html#%24sel%3AgeoRestriction%3ARestrictions%27"><span class="hs-identifier hs-var">geoRestriction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">GeoRestriction
-</span><a href="#local-6989586621679401235"><span class="hs-identifier hs-var">pGeoRestriction_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679401497"><span class="hs-identifier hs-var">pGeoRestriction_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- | A complex type that controls the countries in which your content is</span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- distributed. CloudFront determines the location of your users using</span><span>
@@ -122,42 +122,42 @@ $cfrom :: forall x. Restrictions -&gt; Rep Restrictions x
 -&gt; (Restrictions -&gt; GeoRestriction -&gt; Restrictions)
 -&gt; Lens Restrictions Restrictions GeoRestriction GeoRestriction
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Restrictions.html#Restrictions%27"><span class="hs-identifier hs-type">Restrictions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401231"><span class="annot"><span class="annottext">GeoRestriction
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Restrictions.html#Restrictions%27"><span class="hs-identifier hs-type">Restrictions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401493"><span class="annot"><span class="annottext">GeoRestriction
 geoRestriction :: GeoRestriction
 $sel:geoRestriction:Restrictions' :: Restrictions -&gt; GeoRestriction
-</span><a href="#local-6989586621679401231"><span class="hs-identifier hs-var hs-var">geoRestriction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GeoRestriction
-</span><a href="#local-6989586621679401231"><span class="hs-identifier hs-var">geoRestriction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401230"><span class="annot"><span class="annottext">s :: Restrictions
-</span><a href="#local-6989586621679401230"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Restrictions.html#Restrictions%27"><span class="hs-identifier hs-type">Restrictions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401229"><span class="annot"><span class="annottext">GeoRestriction
-</span><a href="#local-6989586621679401229"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Restrictions
-</span><a href="#local-6989586621679401230"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:geoRestriction:Restrictions' :: GeoRestriction
+</span><a href="#local-6989586621679401493"><span class="hs-identifier hs-var hs-var">geoRestriction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GeoRestriction
+</span><a href="#local-6989586621679401493"><span class="hs-identifier hs-var">geoRestriction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401492"><span class="annot"><span class="annottext">s :: Restrictions
+</span><a href="#local-6989586621679401492"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Restrictions.html#Restrictions%27"><span class="hs-identifier hs-type">Restrictions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401491"><span class="annot"><span class="annottext">GeoRestriction
+</span><a href="#local-6989586621679401491"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Restrictions
+</span><a href="#local-6989586621679401492"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:geoRestriction:Restrictions' :: GeoRestriction
 </span><a href="Network.AWS.CloudFront.Types.Restrictions.html#%24sel%3AgeoRestriction%3ARestrictions%27"><span class="hs-identifier hs-var">geoRestriction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">GeoRestriction
-</span><a href="#local-6989586621679401229"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Restrictions.html#Restrictions"><span class="hs-identifier hs-type">Restrictions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679401491"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Restrictions.html#Restrictions"><span class="hs-identifier hs-type">Restrictions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-62"></span><span>
 </span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Restrictions.html#Restrictions"><span class="hs-identifier hs-type">Restrictions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-64"></span><span>  </span><span id="local-6989586621679401226"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Restrictions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679401224"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679401224"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-64"></span><span>  </span><span id="local-6989586621679401488"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Restrictions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679401486"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679401486"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-65"></span><span>    </span><span class="annot"><span class="annottext">GeoRestriction -&gt; Restrictions
 </span><a href="Network.AWS.CloudFront.Types.Restrictions.html#Restrictions%27"><span class="hs-identifier hs-var">Restrictions'</span></a></span><span>
 </span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">(GeoRestriction -&gt; Restrictions)
 -&gt; Either String GeoRestriction -&gt; Either String Restrictions
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679401224"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String GeoRestriction
+</span><a href="#local-6989586621679401486"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String GeoRestriction
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;GeoRestriction&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679401218"><span id="local-6989586621679401220"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Restrictions.html#Restrictions"><span class="hs-identifier hs-type">Restrictions</span></a></span></span></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679401480"><span id="local-6989586621679401482"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Restrictions.html#Restrictions"><span class="hs-identifier hs-type">Restrictions</span></a></span></span></span><span>
 </span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679401215"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Restrictions.html#Restrictions"><span class="hs-identifier hs-type">Restrictions</span></a></span></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679401477"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Restrictions.html#Restrictions"><span class="hs-identifier hs-type">Restrictions</span></a></span></span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Restrictions.html#Restrictions"><span class="hs-identifier hs-type">Restrictions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-73"></span><span>  </span><span id="local-6989586621679401211"><span class="annot"><span class="annottext">toXML :: Restrictions -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Restrictions.html#Restrictions%27"><span class="hs-identifier hs-type">Restrictions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401209"><span class="annot"><span class="annottext">GeoRestriction
+</span><span id="line-73"></span><span>  </span><span id="local-6989586621679401473"><span class="annot"><span class="annottext">toXML :: Restrictions -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Restrictions.html#Restrictions%27"><span class="hs-identifier hs-type">Restrictions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401471"><span class="annot"><span class="annottext">GeoRestriction
 geoRestriction :: GeoRestriction
 $sel:geoRestriction:Restrictions' :: Restrictions -&gt; GeoRestriction
-</span><a href="#local-6989586621679401209"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679401471"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -165,5 +165,5 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;GeoRestriction&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; GeoRestriction -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">GeoRestriction
-</span><a href="#local-6989586621679401209"><span class="hs-identifier hs-var">geoRestriction</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679401471"><span class="hs-identifier hs-var">geoRestriction</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-76"></span></pre></body></html>

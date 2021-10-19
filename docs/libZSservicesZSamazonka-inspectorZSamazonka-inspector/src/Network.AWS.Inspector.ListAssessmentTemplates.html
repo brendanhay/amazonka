@@ -31,9 +31,9 @@
 </span><span id="line-31"></span><span>
 </span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
 </span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#listAssessmentTemplates_nextToken"><span class="hs-identifier">listAssessmentTemplates_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#listAssessmentTemplates_maxResults"><span class="hs-identifier">listAssessmentTemplates_maxResults</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#listAssessmentTemplates_assessmentTargetArns"><span class="hs-identifier">listAssessmentTemplates_assessmentTargetArns</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#listAssessmentTemplates_filter"><span class="hs-identifier">listAssessmentTemplates_filter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#listAssessmentTemplates_filter"><span class="hs-identifier">listAssessmentTemplates_filter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#listAssessmentTemplates_maxResults"><span class="hs-identifier">listAssessmentTemplates_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#listAssessmentTemplates_assessmentTargetArns"><span class="hs-identifier">listAssessmentTemplates_assessmentTargetArns</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-37"></span><span>
 </span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
 </span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#ListAssessmentTemplatesResponse"><span class="hs-identifier">ListAssessmentTemplatesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -54,7 +54,7 @@
 </span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-55"></span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newListAssessmentTemplates' smart constructor.</span><span>
-</span><span id="line-57"></span><span id="local-6989586621679253736"><span id="local-6989586621679253737"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListAssessmentTemplates"><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#ListAssessmentTemplates"><span class="hs-identifier hs-var">ListAssessmentTemplates</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListAssessmentTemplates%27"><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#ListAssessmentTemplates%27"><span class="hs-identifier hs-var">ListAssessmentTemplates'</span></a></span></span><span>
+</span><span id="line-57"></span><span id="local-6989586621679254123"><span id="local-6989586621679254124"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListAssessmentTemplates"><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#ListAssessmentTemplates"><span class="hs-identifier hs-var">ListAssessmentTemplates</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListAssessmentTemplates%27"><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#ListAssessmentTemplates%27"><span class="hs-identifier hs-var">ListAssessmentTemplates'</span></a></span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | You can use this parameter when paginating results. Set the value of</span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-comment">-- this parameter to null on your first call to the</span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-comment">-- __ListAssessmentTemplates__ action. Subsequent calls to the action fill</span><span>
@@ -62,24 +62,24 @@
 </span><span id="line-62"></span><span>    </span><span class="hs-comment">-- previous response to continue listing data.</span><span>
 </span><span id="line-63"></span><span>    </span><span id="%24sel%3AnextToken%3AListAssessmentTemplates%27"><span class="annot"><span class="annottext">ListAssessmentTemplates -&gt; Maybe Text
 </span><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#%24sel%3AnextToken%3AListAssessmentTemplates%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | You can use this parameter to indicate the maximum number of items you</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- want in the response. The default value is 10. The maximum value is 500.</span><span>
-</span><span id="line-66"></span><span>    </span><span id="%24sel%3AmaxResults%3AListAssessmentTemplates%27"><span class="annot"><span class="annottext">ListAssessmentTemplates -&gt; Maybe Int
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | You can use this parameter to specify a subset of data to be included in</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- the action\'s response.</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- For a record to match a filter, all specified filter attributes must</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- match. When multiple values are specified for a filter attribute, any of</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- the values can match.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3Afilter%27%3AListAssessmentTemplates%27"><span class="annot"><span class="annottext">ListAssessmentTemplates -&gt; Maybe AssessmentTemplateFilter
+</span><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#%24sel%3Afilter%27%3AListAssessmentTemplates%27"><span class="hs-identifier hs-var hs-var">filter'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentTemplateFilter.html#AssessmentTemplateFilter"><span class="hs-identifier hs-type">AssessmentTemplateFilter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | You can use this parameter to indicate the maximum number of items you</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- want in the response. The default value is 10. The maximum value is 500.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3AmaxResults%3AListAssessmentTemplates%27"><span class="annot"><span class="annottext">ListAssessmentTemplates -&gt; Maybe Int
 </span><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#%24sel%3AmaxResults%3AListAssessmentTemplates%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | A list of ARNs that specifies the assessment targets whose assessment</span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- templates you want to list.</span><span>
-</span><span id="line-69"></span><span>    </span><span id="%24sel%3AassessmentTargetArns%3AListAssessmentTemplates%27"><span class="annot"><span class="annottext">ListAssessmentTemplates -&gt; Maybe [Text]
-</span><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#%24sel%3AassessmentTargetArns%3AListAssessmentTemplates%27"><span class="hs-identifier hs-var hs-var">assessmentTargetArns</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | You can use this parameter to specify a subset of data to be included in</span><span>
-</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- the action\'s response.</span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- For a record to match a filter, all specified filter attributes must</span><span>
-</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- match. When multiple values are specified for a filter attribute, any of</span><span>
-</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- the values can match.</span><span>
-</span><span id="line-76"></span><span>    </span><span id="%24sel%3Afilter%27%3AListAssessmentTemplates%27"><span class="annot"><span class="annottext">ListAssessmentTemplates -&gt; Maybe AssessmentTemplateFilter
-</span><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#%24sel%3Afilter%27%3AListAssessmentTemplates%27"><span class="hs-identifier hs-var hs-var">filter'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentTemplateFilter.html#AssessmentTemplateFilter"><span class="hs-identifier hs-type">AssessmentTemplateFilter</span></a></span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | A list of ARNs that specifies the assessment targets whose assessment</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- templates you want to list.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3AassessmentTargetArns%3AListAssessmentTemplates%27"><span class="annot"><span class="annottext">ListAssessmentTemplates -&gt; Maybe [Text]
+</span><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#%24sel%3AassessmentTargetArns%3AListAssessmentTemplates%27"><span class="hs-identifier hs-var hs-var">assessmentTargetArns</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-77"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-78"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679253727"><span id="local-6989586621679253729"><span class="annot"><span class="annottext">ListAssessmentTemplates -&gt; ListAssessmentTemplates -&gt; Bool
+</span><span id="line-78"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679254114"><span id="local-6989586621679254116"><span class="annot"><span class="annottext">ListAssessmentTemplates -&gt; ListAssessmentTemplates -&gt; Bool
 (ListAssessmentTemplates -&gt; ListAssessmentTemplates -&gt; Bool)
 -&gt; (ListAssessmentTemplates -&gt; ListAssessmentTemplates -&gt; Bool)
 -&gt; Eq ListAssessmentTemplates
@@ -88,7 +88,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListAssessmentTemplates -&gt; ListAssessmentTemplates -&gt; Bool
 == :: ListAssessmentTemplates -&gt; ListAssessmentTemplates -&gt; Bool
 $c== :: ListAssessmentTemplates -&gt; ListAssessmentTemplates -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679253718"><span id="local-6989586621679253720"><span id="local-6989586621679253722"><span id="local-6989586621679253724"><span class="annot"><span class="annottext">ReadPrec [ListAssessmentTemplates]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679254105"><span id="local-6989586621679254107"><span id="local-6989586621679254109"><span id="local-6989586621679254111"><span class="annot"><span class="annottext">ReadPrec [ListAssessmentTemplates]
 ReadPrec ListAssessmentTemplates
 Int -&gt; ReadS ListAssessmentTemplates
 ReadS [ListAssessmentTemplates]
@@ -108,7 +108,7 @@ readList :: ReadS [ListAssessmentTemplates]
 $creadList :: ReadS [ListAssessmentTemplates]
 readsPrec :: Int -&gt; ReadS ListAssessmentTemplates
 $creadsPrec :: Int -&gt; ReadS ListAssessmentTemplates
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679253711"><span id="local-6989586621679253713"><span id="local-6989586621679253715"><span class="annot"><span class="annottext">Int -&gt; ListAssessmentTemplates -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679254098"><span id="local-6989586621679254100"><span id="local-6989586621679254102"><span class="annot"><span class="annottext">Int -&gt; ListAssessmentTemplates -&gt; ShowS
 [ListAssessmentTemplates] -&gt; ShowS
 ListAssessmentTemplates -&gt; String
 (Int -&gt; ListAssessmentTemplates -&gt; ShowS)
@@ -150,26 +150,26 @@ $cfrom :: forall x. ListAssessmentTemplates -&gt; Rep ListAssessmentTemplates x
 </span><span id="line-91"></span><span class="hs-comment">-- __nextToken__ in the request with the value of __NextToken__ from the</span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- previous response to continue listing data.</span><span>
 </span><span id="line-93"></span><span class="hs-comment">--</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- 'maxResults', 'listAssessmentTemplates_maxResults' - You can use this parameter to indicate the maximum number of items you</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- want in the response. The default value is 10. The maximum value is 500.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'filter'', 'listAssessmentTemplates_filter' - You can use this parameter to specify a subset of data to be included in</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- the action\'s response.</span><span>
 </span><span id="line-96"></span><span class="hs-comment">--</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- 'assessmentTargetArns', 'listAssessmentTemplates_assessmentTargetArns' - A list of ARNs that specifies the assessment targets whose assessment</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- templates you want to list.</span><span>
-</span><span id="line-99"></span><span class="hs-comment">--</span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- 'filter'', 'listAssessmentTemplates_filter' - You can use this parameter to specify a subset of data to be included in</span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- the action\'s response.</span><span>
-</span><span id="line-102"></span><span class="hs-comment">--</span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- For a record to match a filter, all specified filter attributes must</span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- match. When multiple values are specified for a filter attribute, any of</span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- the values can match.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- For a record to match a filter, all specified filter attributes must</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- match. When multiple values are specified for a filter attribute, any of</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- the values can match.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'maxResults', 'listAssessmentTemplates_maxResults' - You can use this parameter to indicate the maximum number of items you</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- want in the response. The default value is 10. The maximum value is 500.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- 'assessmentTargetArns', 'listAssessmentTemplates_assessmentTargetArns' - A list of ARNs that specifies the assessment targets whose assessment</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- templates you want to list.</span><span>
 </span><span id="line-106"></span><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#newListAssessmentTemplates"><span class="hs-identifier hs-type">newListAssessmentTemplates</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-107"></span><span>  </span><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#ListAssessmentTemplates"><span class="hs-identifier hs-type">ListAssessmentTemplates</span></a></span><span>
 </span><span id="line-108"></span><span id="newListAssessmentTemplates"><span class="annot"><span class="annottext">newListAssessmentTemplates :: ListAssessmentTemplates
 </span><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#newListAssessmentTemplates"><span class="hs-identifier hs-var hs-var">newListAssessmentTemplates</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-109"></span><span>  </span><span class="annot"><span class="annottext">ListAssessmentTemplates' :: Maybe Text
+-&gt; Maybe AssessmentTemplateFilter
 -&gt; Maybe Int
 -&gt; Maybe [Text]
--&gt; Maybe AssessmentTemplateFilter
 -&gt; ListAssessmentTemplates
 </span><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#ListAssessmentTemplates%27"><span class="hs-identifier hs-type">ListAssessmentTemplates'</span></a></span><span>
 </span><span id="line-110"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListAssessmentTemplates' :: Maybe Text
@@ -177,16 +177,16 @@ $cfrom :: forall x. ListAssessmentTemplates -&gt; Rep ListAssessmentTemplates x
 </span><span id="line-111"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListAssessmentTemplates' :: Maybe Int
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:filter':ListAssessmentTemplates' :: Maybe AssessmentTemplateFilter
+</span><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#%24sel%3Afilter%27%3AListAssessmentTemplates%27"><span class="hs-identifier hs-var">filter'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AssessmentTemplateFilter
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListAssessmentTemplates' :: Maybe Int
 </span><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#%24sel%3AmaxResults%3AListAssessmentTemplates%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:assessmentTargetArns:ListAssessmentTemplates' :: Maybe [Text]
+</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:assessmentTargetArns:ListAssessmentTemplates' :: Maybe [Text]
 </span><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#%24sel%3AassessmentTargetArns%3AListAssessmentTemplates%27"><span class="hs-identifier hs-var">assessmentTargetArns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:filter':ListAssessmentTemplates' :: Maybe AssessmentTemplateFilter
-</span><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#%24sel%3Afilter%27%3AListAssessmentTemplates%27"><span class="hs-identifier hs-var">filter'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AssessmentTemplateFilter
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-115"></span><span>    </span><span class="hs-special">}</span><span>
@@ -208,21 +208,51 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#ListAssessmentTemplates%27"><span class="hs-identifier hs-type">ListAssessmentTemplates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253705"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#ListAssessmentTemplates%27"><span class="hs-identifier hs-type">ListAssessmentTemplates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254092"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListAssessmentTemplates' :: ListAssessmentTemplates -&gt; Maybe Text
-</span><a href="#local-6989586621679253705"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679253705"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253704"><span class="annot"><span class="annottext">s :: ListAssessmentTemplates
-</span><a href="#local-6989586621679253704"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#ListAssessmentTemplates%27"><span class="hs-identifier hs-type">ListAssessmentTemplates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253703"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679253703"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAssessmentTemplates
-</span><a href="#local-6989586621679253704"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListAssessmentTemplates' :: Maybe Text
+</span><a href="#local-6989586621679254092"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679254092"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254091"><span class="annot"><span class="annottext">s :: ListAssessmentTemplates
+</span><a href="#local-6989586621679254091"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#ListAssessmentTemplates%27"><span class="hs-identifier hs-type">ListAssessmentTemplates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254090"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679254090"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAssessmentTemplates
+</span><a href="#local-6989586621679254091"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListAssessmentTemplates' :: Maybe Text
 </span><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#%24sel%3AnextToken%3AListAssessmentTemplates%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679253703"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#ListAssessmentTemplates"><span class="hs-identifier hs-type">ListAssessmentTemplates</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679254090"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#ListAssessmentTemplates"><span class="hs-identifier hs-type">ListAssessmentTemplates</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-comment">-- | You can use this parameter to indicate the maximum number of items you</span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- want in the response. The default value is 10. The maximum value is 500.</span><span>
-</span><span id="line-127"></span><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#listAssessmentTemplates_maxResults"><span class="hs-identifier hs-type">listAssessmentTemplates_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#ListAssessmentTemplates"><span class="hs-identifier hs-type">ListAssessmentTemplates</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-128"></span><span id="listAssessmentTemplates_maxResults"><span class="annot"><span class="annottext">listAssessmentTemplates_maxResults :: (Maybe Int -&gt; f (Maybe Int))
+</span><span id="line-125"></span><span class="hs-comment">-- | You can use this parameter to specify a subset of data to be included in</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- the action\'s response.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- For a record to match a filter, all specified filter attributes must</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- match. When multiple values are specified for a filter attribute, any of</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- the values can match.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#listAssessmentTemplates_filter"><span class="hs-identifier hs-type">listAssessmentTemplates_filter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#ListAssessmentTemplates"><span class="hs-identifier hs-type">ListAssessmentTemplates</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentTemplateFilter.html#AssessmentTemplateFilter"><span class="hs-identifier hs-type">AssessmentTemplateFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span id="listAssessmentTemplates_filter"><span class="annot"><span class="annottext">listAssessmentTemplates_filter :: (Maybe AssessmentTemplateFilter
+ -&gt; f (Maybe AssessmentTemplateFilter))
+-&gt; ListAssessmentTemplates -&gt; f ListAssessmentTemplates
+</span><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#listAssessmentTemplates_filter"><span class="hs-identifier hs-var hs-var">listAssessmentTemplates_filter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAssessmentTemplates -&gt; Maybe AssessmentTemplateFilter)
+-&gt; (ListAssessmentTemplates
+    -&gt; Maybe AssessmentTemplateFilter -&gt; ListAssessmentTemplates)
+-&gt; Lens
+     ListAssessmentTemplates
+     ListAssessmentTemplates
+     (Maybe AssessmentTemplateFilter)
+     (Maybe AssessmentTemplateFilter)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#ListAssessmentTemplates%27"><span class="hs-identifier hs-type">ListAssessmentTemplates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254089"><span class="annot"><span class="annottext">Maybe AssessmentTemplateFilter
+filter' :: Maybe AssessmentTemplateFilter
+$sel:filter':ListAssessmentTemplates' :: ListAssessmentTemplates -&gt; Maybe AssessmentTemplateFilter
+</span><a href="#local-6989586621679254089"><span class="hs-identifier hs-var hs-var">filter'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AssessmentTemplateFilter
+</span><a href="#local-6989586621679254089"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254088"><span class="annot"><span class="annottext">s :: ListAssessmentTemplates
+</span><a href="#local-6989586621679254088"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#ListAssessmentTemplates%27"><span class="hs-identifier hs-type">ListAssessmentTemplates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254087"><span class="annot"><span class="annottext">Maybe AssessmentTemplateFilter
+</span><a href="#local-6989586621679254087"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAssessmentTemplates
+</span><a href="#local-6989586621679254088"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filter':ListAssessmentTemplates' :: Maybe AssessmentTemplateFilter
+</span><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#%24sel%3Afilter%27%3AListAssessmentTemplates%27"><span class="hs-identifier hs-var">filter'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AssessmentTemplateFilter
+</span><a href="#local-6989586621679254087"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#ListAssessmentTemplates"><span class="hs-identifier hs-type">ListAssessmentTemplates</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | You can use this parameter to indicate the maximum number of items you</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- want in the response. The default value is 10. The maximum value is 500.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#listAssessmentTemplates_maxResults"><span class="hs-identifier hs-type">listAssessmentTemplates_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#ListAssessmentTemplates"><span class="hs-identifier hs-type">ListAssessmentTemplates</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span id="listAssessmentTemplates_maxResults"><span class="annot"><span class="annottext">listAssessmentTemplates_maxResults :: (Maybe Int -&gt; f (Maybe Int))
 -&gt; ListAssessmentTemplates -&gt; f ListAssessmentTemplates
 </span><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#listAssessmentTemplates_maxResults"><span class="hs-identifier hs-var hs-var">listAssessmentTemplates_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAssessmentTemplates -&gt; Maybe Int)
 -&gt; (ListAssessmentTemplates
@@ -233,21 +263,21 @@ $sel:nextToken:ListAssessmentTemplates' :: ListAssessmentTemplates -&gt; Maybe T
      (Maybe Int)
      (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#ListAssessmentTemplates%27"><span class="hs-identifier hs-type">ListAssessmentTemplates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253702"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#ListAssessmentTemplates%27"><span class="hs-identifier hs-type">ListAssessmentTemplates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254086"><span class="annot"><span class="annottext">Maybe Int
 maxResults :: Maybe Int
 $sel:maxResults:ListAssessmentTemplates' :: ListAssessmentTemplates -&gt; Maybe Int
-</span><a href="#local-6989586621679253702"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679253702"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253701"><span class="annot"><span class="annottext">s :: ListAssessmentTemplates
-</span><a href="#local-6989586621679253701"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#ListAssessmentTemplates%27"><span class="hs-identifier hs-type">ListAssessmentTemplates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253700"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679253700"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAssessmentTemplates
-</span><a href="#local-6989586621679253701"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListAssessmentTemplates' :: Maybe Int
+</span><a href="#local-6989586621679254086"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679254086"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254085"><span class="annot"><span class="annottext">s :: ListAssessmentTemplates
+</span><a href="#local-6989586621679254085"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#ListAssessmentTemplates%27"><span class="hs-identifier hs-type">ListAssessmentTemplates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254084"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679254084"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAssessmentTemplates
+</span><a href="#local-6989586621679254085"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListAssessmentTemplates' :: Maybe Int
 </span><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#%24sel%3AmaxResults%3AListAssessmentTemplates%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679253700"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#ListAssessmentTemplates"><span class="hs-identifier hs-type">ListAssessmentTemplates</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- | A list of ARNs that specifies the assessment targets whose assessment</span><span>
-</span><span id="line-131"></span><span class="hs-comment">-- templates you want to list.</span><span>
-</span><span id="line-132"></span><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#listAssessmentTemplates_assessmentTargetArns"><span class="hs-identifier hs-type">listAssessmentTemplates_assessmentTargetArns</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#ListAssessmentTemplates"><span class="hs-identifier hs-type">ListAssessmentTemplates</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-133"></span><span id="listAssessmentTemplates_assessmentTargetArns"><span class="annot"><span class="annottext">listAssessmentTemplates_assessmentTargetArns :: (Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679254084"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#ListAssessmentTemplates"><span class="hs-identifier hs-type">ListAssessmentTemplates</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | A list of ARNs that specifies the assessment targets whose assessment</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- templates you want to list.</span><span>
+</span><span id="line-141"></span><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#listAssessmentTemplates_assessmentTargetArns"><span class="hs-identifier hs-type">listAssessmentTemplates_assessmentTargetArns</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#ListAssessmentTemplates"><span class="hs-identifier hs-type">ListAssessmentTemplates</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span id="listAssessmentTemplates_assessmentTargetArns"><span class="annot"><span class="annottext">listAssessmentTemplates_assessmentTargetArns :: (Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; ListAssessmentTemplates -&gt; f ListAssessmentTemplates
 </span><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#listAssessmentTemplates_assessmentTargetArns"><span class="hs-identifier hs-var hs-var">listAssessmentTemplates_assessmentTargetArns</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAssessmentTemplates -&gt; Maybe [Text])
 -&gt; (ListAssessmentTemplates
@@ -258,16 +288,16 @@ $sel:maxResults:ListAssessmentTemplates' :: ListAssessmentTemplates -&gt; Maybe 
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#ListAssessmentTemplates%27"><span class="hs-identifier hs-type">ListAssessmentTemplates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253699"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#ListAssessmentTemplates%27"><span class="hs-identifier hs-type">ListAssessmentTemplates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254083"><span class="annot"><span class="annottext">Maybe [Text]
 assessmentTargetArns :: Maybe [Text]
 $sel:assessmentTargetArns:ListAssessmentTemplates' :: ListAssessmentTemplates -&gt; Maybe [Text]
-</span><a href="#local-6989586621679253699"><span class="hs-identifier hs-var hs-var">assessmentTargetArns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679253699"><span class="hs-identifier hs-var">assessmentTargetArns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253698"><span class="annot"><span class="annottext">s :: ListAssessmentTemplates
-</span><a href="#local-6989586621679253698"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#ListAssessmentTemplates%27"><span class="hs-identifier hs-type">ListAssessmentTemplates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253697"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679253697"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAssessmentTemplates
-</span><a href="#local-6989586621679253698"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assessmentTargetArns:ListAssessmentTemplates' :: Maybe [Text]
+</span><a href="#local-6989586621679254083"><span class="hs-identifier hs-var hs-var">assessmentTargetArns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679254083"><span class="hs-identifier hs-var">assessmentTargetArns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254082"><span class="annot"><span class="annottext">s :: ListAssessmentTemplates
+</span><a href="#local-6989586621679254082"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#ListAssessmentTemplates%27"><span class="hs-identifier hs-type">ListAssessmentTemplates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254081"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679254081"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAssessmentTemplates
+</span><a href="#local-6989586621679254082"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assessmentTargetArns:ListAssessmentTemplates' :: Maybe [Text]
 </span><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#%24sel%3AassessmentTargetArns%3AListAssessmentTemplates%27"><span class="hs-identifier hs-var">assessmentTargetArns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679253697"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#ListAssessmentTemplates"><span class="hs-identifier hs-type">ListAssessmentTemplates</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679254081"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#ListAssessmentTemplates"><span class="hs-identifier hs-type">ListAssessmentTemplates</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; ListAssessmentTemplates -&gt; f ListAssessmentTemplates)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -281,52 +311,22 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-134"></span><span>
-</span><span id="line-135"></span><span class="hs-comment">-- | You can use this parameter to specify a subset of data to be included in</span><span>
-</span><span id="line-136"></span><span class="hs-comment">-- the action\'s response.</span><span>
-</span><span id="line-137"></span><span class="hs-comment">--</span><span>
-</span><span id="line-138"></span><span class="hs-comment">-- For a record to match a filter, all specified filter attributes must</span><span>
-</span><span id="line-139"></span><span class="hs-comment">-- match. When multiple values are specified for a filter attribute, any of</span><span>
-</span><span id="line-140"></span><span class="hs-comment">-- the values can match.</span><span>
-</span><span id="line-141"></span><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#listAssessmentTemplates_filter"><span class="hs-identifier hs-type">listAssessmentTemplates_filter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#ListAssessmentTemplates"><span class="hs-identifier hs-type">ListAssessmentTemplates</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentTemplateFilter.html#AssessmentTemplateFilter"><span class="hs-identifier hs-type">AssessmentTemplateFilter</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-142"></span><span id="listAssessmentTemplates_filter"><span class="annot"><span class="annottext">listAssessmentTemplates_filter :: (Maybe AssessmentTemplateFilter
- -&gt; f (Maybe AssessmentTemplateFilter))
--&gt; ListAssessmentTemplates -&gt; f ListAssessmentTemplates
-</span><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#listAssessmentTemplates_filter"><span class="hs-identifier hs-var hs-var">listAssessmentTemplates_filter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAssessmentTemplates -&gt; Maybe AssessmentTemplateFilter)
--&gt; (ListAssessmentTemplates
-    -&gt; Maybe AssessmentTemplateFilter -&gt; ListAssessmentTemplates)
--&gt; Lens
-     ListAssessmentTemplates
-     ListAssessmentTemplates
-     (Maybe AssessmentTemplateFilter)
-     (Maybe AssessmentTemplateFilter)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#ListAssessmentTemplates%27"><span class="hs-identifier hs-type">ListAssessmentTemplates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253693"><span class="annot"><span class="annottext">Maybe AssessmentTemplateFilter
-filter' :: Maybe AssessmentTemplateFilter
-$sel:filter':ListAssessmentTemplates' :: ListAssessmentTemplates -&gt; Maybe AssessmentTemplateFilter
-</span><a href="#local-6989586621679253693"><span class="hs-identifier hs-var hs-var">filter'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AssessmentTemplateFilter
-</span><a href="#local-6989586621679253693"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253692"><span class="annot"><span class="annottext">s :: ListAssessmentTemplates
-</span><a href="#local-6989586621679253692"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#ListAssessmentTemplates%27"><span class="hs-identifier hs-type">ListAssessmentTemplates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253691"><span class="annot"><span class="annottext">Maybe AssessmentTemplateFilter
-</span><a href="#local-6989586621679253691"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAssessmentTemplates
-</span><a href="#local-6989586621679253692"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filter':ListAssessmentTemplates' :: Maybe AssessmentTemplateFilter
-</span><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#%24sel%3Afilter%27%3AListAssessmentTemplates%27"><span class="hs-identifier hs-var">filter'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AssessmentTemplateFilter
-</span><a href="#local-6989586621679253691"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#ListAssessmentTemplates"><span class="hs-identifier hs-type">ListAssessmentTemplates</span></a></span><span class="hs-special">)</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#ListAssessmentTemplates"><span class="hs-identifier hs-type">ListAssessmentTemplates</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621679253687"><span class="annot"><span class="annottext">page :: ListAssessmentTemplates
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679254074"><span class="annot"><span class="annottext">page :: ListAssessmentTemplates
 -&gt; AWSResponse ListAssessmentTemplates
 -&gt; Maybe ListAssessmentTemplates
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679253685"><span class="annot"><span class="annottext">ListAssessmentTemplates
-</span><a href="#local-6989586621679253685"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679253684"><span class="annot"><span class="annottext">AWSResponse ListAssessmentTemplates
-</span><a href="#local-6989586621679253684"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679254072"><span class="annot"><span class="annottext">ListAssessmentTemplates
+</span><a href="#local-6989586621679254072"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679254071"><span class="annot"><span class="annottext">AWSResponse ListAssessmentTemplates
+</span><a href="#local-6989586621679254071"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-146"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-147"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListAssessmentTemplates
 ListAssessmentTemplatesResponse
-</span><a href="#local-6989586621679253684"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679254071"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">ListAssessmentTemplatesResponse
 -&gt; Getting (First Text) ListAssessmentTemplatesResponse Text
 -&gt; Maybe Text
@@ -356,7 +356,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-153"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListAssessmentTemplates
 ListAssessmentTemplatesResponse
-</span><a href="#local-6989586621679253684"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679254071"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">ListAssessmentTemplatesResponse
 -&gt; Getting [Text] ListAssessmentTemplatesResponse [Text] -&gt; [Text]
 forall s a. s -&gt; Getting a s a -&gt; a
@@ -376,7 +376,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-159"></span><span>        </span><span class="annot"><span class="annottext">ListAssessmentTemplates
-</span><a href="#local-6989586621679253685"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679254072"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-160"></span><span>          </span><span class="annot"><span class="annottext">ListAssessmentTemplates
 -&gt; (ListAssessmentTemplates -&gt; ListAssessmentTemplates)
 -&gt; ListAssessmentTemplates
@@ -395,7 +395,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListAssessmentTemplates
 ListAssessmentTemplatesResponse
-</span><a href="#local-6989586621679253684"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679254071"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-162"></span><span>          </span><span class="annot"><span class="annottext">ListAssessmentTemplatesResponse
 -&gt; Getting (First Text) ListAssessmentTemplatesResponse Text
 -&gt; Maybe Text
@@ -421,13 +421,13 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-166"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-167"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#ListAssessmentTemplates"><span class="hs-identifier hs-type">ListAssessmentTemplates</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-168"></span><span>      </span><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#ListAssessmentTemplatesResponse"><span class="hs-identifier hs-type">ListAssessmentTemplatesResponse</span></a></span><span>
-</span><span id="line-169"></span><span>  </span><span id="local-6989586621679253674"><span class="annot"><span class="annottext">request :: ListAssessmentTemplates -&gt; Request ListAssessmentTemplates
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679254061"><span class="annot"><span class="annottext">request :: ListAssessmentTemplates -&gt; Request ListAssessmentTemplates
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; ListAssessmentTemplates -&gt; Request ListAssessmentTemplates
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Inspector.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-170"></span><span>  </span><span id="local-6989586621679253670"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679254057"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListAssessmentTemplates
 -&gt; ClientResponse ClientBody
@@ -453,10 +453,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-172"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679253667"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679253667"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679253666"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679253666"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679253665"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679253665"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-172"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679254054"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679254054"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679254053"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679254053"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679254052"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679254052"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-173"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; [Text] -&gt; ListAssessmentTemplatesResponse
 </span><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#ListAssessmentTemplatesResponse%27"><span class="hs-identifier hs-var">ListAssessmentTemplatesResponse'</span></a></span><span>
 </span><span id="line-174"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; [Text] -&gt; ListAssessmentTemplatesResponse)
@@ -464,7 +464,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; [Text] -&gt; ListAssessmentTemplatesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679253665"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679254052"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -477,13 +477,13 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679253667"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679254054"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>            </span><span class="annot"><span class="annottext">Either String ([Text] -&gt; ListAssessmentTemplatesResponse)
 -&gt; Either String [Text]
 -&gt; Either String ListAssessmentTemplatesResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679253665"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [Text])
+</span><a href="#local-6989586621679254052"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [Text])
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;assessmentTemplateArns&quot;</span></span><span>
@@ -495,12 +495,12 @@ forall a. Monoid a =&gt; a
 </span><span id="line-178"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-179"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-180"></span><span>
-</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253656"><span id="local-6989586621679253658"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#ListAssessmentTemplates"><span class="hs-identifier hs-type">ListAssessmentTemplates</span></a></span></span></span><span>
+</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254043"><span id="local-6989586621679254045"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#ListAssessmentTemplates"><span class="hs-identifier hs-type">ListAssessmentTemplates</span></a></span></span></span><span>
 </span><span id="line-182"></span><span>
-</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253653"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#ListAssessmentTemplates"><span class="hs-identifier hs-type">ListAssessmentTemplates</span></a></span></span><span>
+</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254040"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#ListAssessmentTemplates"><span class="hs-identifier hs-type">ListAssessmentTemplates</span></a></span></span><span>
 </span><span id="line-184"></span><span>
 </span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#ListAssessmentTemplates"><span class="hs-identifier hs-type">ListAssessmentTemplates</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-186"></span><span>  </span><span id="local-6989586621679253649"><span class="annot"><span class="annottext">toHeaders :: ListAssessmentTemplates -&gt; ResponseHeaders
+</span><span id="line-186"></span><span>  </span><span id="local-6989586621679254036"><span class="annot"><span class="annottext">toHeaders :: ListAssessmentTemplates -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-187"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListAssessmentTemplates -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -527,21 +527,21 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-197"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-198"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-199"></span><span>
-</span><span id="line-200"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253639"><span id="local-6989586621679253641"><span id="local-6989586621679253643"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#ListAssessmentTemplates"><span class="hs-identifier hs-type">ListAssessmentTemplates</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-201"></span><span>  </span><span id="local-6989586621679253637"><span class="annot"><span class="annottext">toJSON :: ListAssessmentTemplates -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#ListAssessmentTemplates%27"><span class="hs-identifier hs-type">ListAssessmentTemplates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253632"><span id="local-6989586621679253633"><span id="local-6989586621679253634"><span id="local-6989586621679253635"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-200"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254026"><span id="local-6989586621679254028"><span id="local-6989586621679254030"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#ListAssessmentTemplates"><span class="hs-identifier hs-type">ListAssessmentTemplates</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-201"></span><span>  </span><span id="local-6989586621679254024"><span class="annot"><span class="annottext">toJSON :: ListAssessmentTemplates -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#ListAssessmentTemplates%27"><span class="hs-identifier hs-type">ListAssessmentTemplates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254019"><span id="local-6989586621679254020"><span id="local-6989586621679254021"><span id="local-6989586621679254022"><span class="annot"><span class="annottext">Maybe Int
 Maybe [Text]
 Maybe Text
 Maybe AssessmentTemplateFilter
-filter' :: Maybe AssessmentTemplateFilter
 assessmentTargetArns :: Maybe [Text]
 maxResults :: Maybe Int
+filter' :: Maybe AssessmentTemplateFilter
 nextToken :: Maybe Text
-$sel:filter':ListAssessmentTemplates' :: ListAssessmentTemplates -&gt; Maybe AssessmentTemplateFilter
 $sel:assessmentTargetArns:ListAssessmentTemplates' :: ListAssessmentTemplates -&gt; Maybe [Text]
 $sel:maxResults:ListAssessmentTemplates' :: ListAssessmentTemplates -&gt; Maybe Int
+$sel:filter':ListAssessmentTemplates' :: ListAssessmentTemplates -&gt; Maybe AssessmentTemplateFilter
 $sel:nextToken:ListAssessmentTemplates' :: ListAssessmentTemplates -&gt; Maybe Text
-</span><a href="#local-6989586621679253632"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679254019"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-202"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-203"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -553,42 +553,42 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679253635"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679254022"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-205"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679253634"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-206"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;assessmentTargetArns&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-207"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679253633"><span class="hs-identifier hs-var">assessmentTargetArns</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-208"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;filter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AssessmentTemplateFilter -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(AssessmentTemplateFilter -&gt; Pair)
 -&gt; Maybe AssessmentTemplateFilter -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AssessmentTemplateFilter
-</span><a href="#local-6989586621679253632"><span class="hs-identifier hs-var">filter'</span></a></span><span>
+</span><a href="#local-6989586621679254021"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679254020"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;assessmentTargetArns&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679254019"><span class="hs-identifier hs-var">assessmentTargetArns</span></a></span><span>
 </span><span id="line-209"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-210"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-211"></span><span>
 </span><span id="line-212"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#ListAssessmentTemplates"><span class="hs-identifier hs-type">ListAssessmentTemplates</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-213"></span><span>  </span><span id="local-6989586621679253626"><span class="annot"><span class="annottext">toPath :: ListAssessmentTemplates -&gt; ByteString
+</span><span id="line-213"></span><span>  </span><span id="local-6989586621679254013"><span class="annot"><span class="annottext">toPath :: ListAssessmentTemplates -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListAssessmentTemplates -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-214"></span><span>
 </span><span id="line-215"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#ListAssessmentTemplates"><span class="hs-identifier hs-type">ListAssessmentTemplates</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-216"></span><span>  </span><span id="local-6989586621679253622"><span class="annot"><span class="annottext">toQuery :: ListAssessmentTemplates -&gt; QueryString
+</span><span id="line-216"></span><span>  </span><span id="local-6989586621679254009"><span class="annot"><span class="annottext">toQuery :: ListAssessmentTemplates -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListAssessmentTemplates -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -596,7 +596,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-217"></span><span>
 </span><span id="line-218"></span><span class="hs-comment">-- | /See:/ 'newListAssessmentTemplatesResponse' smart constructor.</span><span>
-</span><span id="line-219"></span><span id="local-6989586621679253619"><span id="local-6989586621679253620"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListAssessmentTemplatesResponse"><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#ListAssessmentTemplatesResponse"><span class="hs-identifier hs-var">ListAssessmentTemplatesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListAssessmentTemplatesResponse%27"><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#ListAssessmentTemplatesResponse%27"><span class="hs-identifier hs-var">ListAssessmentTemplatesResponse'</span></a></span></span><span>
+</span><span id="line-219"></span><span id="local-6989586621679254006"><span id="local-6989586621679254007"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListAssessmentTemplatesResponse"><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#ListAssessmentTemplatesResponse"><span class="hs-identifier hs-var">ListAssessmentTemplatesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListAssessmentTemplatesResponse%27"><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#ListAssessmentTemplatesResponse%27"><span class="hs-identifier hs-var">ListAssessmentTemplatesResponse'</span></a></span></span><span>
 </span><span id="line-220"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | When a response is generated, if there is more data to be listed, this</span><span>
 </span><span id="line-221"></span><span>    </span><span class="hs-comment">-- parameter is present in the response and contains the value to use for</span><span>
 </span><span id="line-222"></span><span>    </span><span class="hs-comment">-- the __nextToken__ parameter in a subsequent pagination request. If there</span><span>
@@ -611,7 +611,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-229"></span><span>    </span><span id="%24sel%3AassessmentTemplateArns%3AListAssessmentTemplatesResponse%27"><span class="annot"><span class="annottext">ListAssessmentTemplatesResponse -&gt; [Text]
 </span><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#%24sel%3AassessmentTemplateArns%3AListAssessmentTemplatesResponse%27"><span class="hs-identifier hs-var hs-var">assessmentTemplateArns</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-230"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-231"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679253612"><span id="local-6989586621679253614"><span class="annot"><span class="annottext">ListAssessmentTemplatesResponse
+</span><span id="line-231"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679253999"><span id="local-6989586621679254001"><span class="annot"><span class="annottext">ListAssessmentTemplatesResponse
 -&gt; ListAssessmentTemplatesResponse -&gt; Bool
 (ListAssessmentTemplatesResponse
  -&gt; ListAssessmentTemplatesResponse -&gt; Bool)
@@ -627,7 +627,7 @@ $c/= :: ListAssessmentTemplatesResponse
 -&gt; ListAssessmentTemplatesResponse -&gt; Bool
 $c== :: ListAssessmentTemplatesResponse
 -&gt; ListAssessmentTemplatesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679253604"><span id="local-6989586621679253606"><span id="local-6989586621679253608"><span id="local-6989586621679253610"><span class="annot"><span class="annottext">ReadPrec [ListAssessmentTemplatesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679253991"><span id="local-6989586621679253993"><span id="local-6989586621679253995"><span id="local-6989586621679253997"><span class="annot"><span class="annottext">ReadPrec [ListAssessmentTemplatesResponse]
 ReadPrec ListAssessmentTemplatesResponse
 Int -&gt; ReadS ListAssessmentTemplatesResponse
 ReadS [ListAssessmentTemplatesResponse]
@@ -647,7 +647,7 @@ readList :: ReadS [ListAssessmentTemplatesResponse]
 $creadList :: ReadS [ListAssessmentTemplatesResponse]
 readsPrec :: Int -&gt; ReadS ListAssessmentTemplatesResponse
 $creadsPrec :: Int -&gt; ReadS ListAssessmentTemplatesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679253598"><span id="local-6989586621679253600"><span id="local-6989586621679253602"><span class="annot"><span class="annottext">Int -&gt; ListAssessmentTemplatesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679253985"><span id="local-6989586621679253987"><span id="local-6989586621679253989"><span class="annot"><span class="annottext">Int -&gt; ListAssessmentTemplatesResponse -&gt; ShowS
 [ListAssessmentTemplatesResponse] -&gt; ShowS
 ListAssessmentTemplatesResponse -&gt; String
 (Int -&gt; ListAssessmentTemplatesResponse -&gt; ShowS)
@@ -707,8 +707,8 @@ ListAssessmentTemplatesResponse
 </span><span id="line-252"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-253"></span><span>  </span><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#ListAssessmentTemplatesResponse"><span class="hs-identifier hs-type">ListAssessmentTemplatesResponse</span></a></span><span>
 </span><span id="line-254"></span><span id="newListAssessmentTemplatesResponse"><span class="annot"><span class="annottext">newListAssessmentTemplatesResponse :: Int -&gt; ListAssessmentTemplatesResponse
-</span><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#newListAssessmentTemplatesResponse"><span class="hs-identifier hs-var hs-var">newListAssessmentTemplatesResponse</span></a></span></span><span> </span><span id="local-6989586621679253595"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679253595"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#newListAssessmentTemplatesResponse"><span class="hs-identifier hs-var hs-var">newListAssessmentTemplatesResponse</span></a></span></span><span> </span><span id="local-6989586621679253982"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679253982"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-255"></span><span>  </span><span class="annot"><span class="annottext">ListAssessmentTemplatesResponse' :: Maybe Text -&gt; Int -&gt; [Text] -&gt; ListAssessmentTemplatesResponse
 </span><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#ListAssessmentTemplatesResponse%27"><span class="hs-identifier hs-type">ListAssessmentTemplatesResponse'</span></a></span><span>
 </span><span id="line-256"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListAssessmentTemplatesResponse' :: Maybe Text
@@ -718,7 +718,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-258"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListAssessmentTemplatesResponse' :: Int
 </span><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#%24sel%3AhttpStatus%3AListAssessmentTemplatesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679253595"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679253982"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-259"></span><span>      </span><span class="annot"><span class="annottext">$sel:assessmentTemplateArns:ListAssessmentTemplatesResponse' :: [Text]
 </span><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#%24sel%3AassessmentTemplateArns%3AListAssessmentTemplatesResponse%27"><span class="hs-identifier hs-var">assessmentTemplateArns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
 forall a. Monoid a =&gt; a
@@ -738,16 +738,16 @@ forall a. Monoid a =&gt; a
     -&gt; Maybe Text -&gt; ListAssessmentTemplatesResponse)
 -&gt; Lens' ListAssessmentTemplatesResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#ListAssessmentTemplatesResponse%27"><span class="hs-identifier hs-type">ListAssessmentTemplatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253594"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#ListAssessmentTemplatesResponse%27"><span class="hs-identifier hs-type">ListAssessmentTemplatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253981"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListAssessmentTemplatesResponse' :: ListAssessmentTemplatesResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679253594"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679253594"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253593"><span class="annot"><span class="annottext">s :: ListAssessmentTemplatesResponse
-</span><a href="#local-6989586621679253593"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#ListAssessmentTemplatesResponse%27"><span class="hs-identifier hs-type">ListAssessmentTemplatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253592"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679253592"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAssessmentTemplatesResponse
-</span><a href="#local-6989586621679253593"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListAssessmentTemplatesResponse' :: Maybe Text
+</span><a href="#local-6989586621679253981"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253981"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253980"><span class="annot"><span class="annottext">s :: ListAssessmentTemplatesResponse
+</span><a href="#local-6989586621679253980"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#ListAssessmentTemplatesResponse%27"><span class="hs-identifier hs-type">ListAssessmentTemplatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253979"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253979"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAssessmentTemplatesResponse
+</span><a href="#local-6989586621679253980"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListAssessmentTemplatesResponse' :: Maybe Text
 </span><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#%24sel%3AnextToken%3AListAssessmentTemplatesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679253592"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#ListAssessmentTemplatesResponse"><span class="hs-identifier hs-type">ListAssessmentTemplatesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679253979"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#ListAssessmentTemplatesResponse"><span class="hs-identifier hs-type">ListAssessmentTemplatesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-268"></span><span>
 </span><span id="line-269"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-270"></span><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#listAssessmentTemplatesResponse_httpStatus"><span class="hs-identifier hs-type">listAssessmentTemplatesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#ListAssessmentTemplatesResponse"><span class="hs-identifier hs-type">ListAssessmentTemplatesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -763,16 +763,16 @@ $sel:nextToken:ListAssessmentTemplatesResponse' :: ListAssessmentTemplatesRespon
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#ListAssessmentTemplatesResponse%27"><span class="hs-identifier hs-type">ListAssessmentTemplatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253591"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#ListAssessmentTemplatesResponse%27"><span class="hs-identifier hs-type">ListAssessmentTemplatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253978"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListAssessmentTemplatesResponse' :: ListAssessmentTemplatesResponse -&gt; Int
-</span><a href="#local-6989586621679253591"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679253591"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253590"><span class="annot"><span class="annottext">s :: ListAssessmentTemplatesResponse
-</span><a href="#local-6989586621679253590"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#ListAssessmentTemplatesResponse%27"><span class="hs-identifier hs-type">ListAssessmentTemplatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253589"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679253589"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAssessmentTemplatesResponse
-</span><a href="#local-6989586621679253590"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListAssessmentTemplatesResponse' :: Int
+</span><a href="#local-6989586621679253978"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679253978"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253977"><span class="annot"><span class="annottext">s :: ListAssessmentTemplatesResponse
+</span><a href="#local-6989586621679253977"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#ListAssessmentTemplatesResponse%27"><span class="hs-identifier hs-type">ListAssessmentTemplatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253976"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679253976"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAssessmentTemplatesResponse
+</span><a href="#local-6989586621679253977"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListAssessmentTemplatesResponse' :: Int
 </span><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#%24sel%3AhttpStatus%3AListAssessmentTemplatesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679253589"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#ListAssessmentTemplatesResponse"><span class="hs-identifier hs-type">ListAssessmentTemplatesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679253976"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#ListAssessmentTemplatesResponse"><span class="hs-identifier hs-type">ListAssessmentTemplatesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-272"></span><span>
 </span><span id="line-273"></span><span class="hs-comment">-- | A list of ARNs that specifies the assessment templates returned by the</span><span>
 </span><span id="line-274"></span><span class="hs-comment">-- action.</span><span>
@@ -785,16 +785,16 @@ $sel:httpStatus:ListAssessmentTemplatesResponse' :: ListAssessmentTemplatesRespo
     -&gt; [Text] -&gt; ListAssessmentTemplatesResponse)
 -&gt; Lens' ListAssessmentTemplatesResponse [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#ListAssessmentTemplatesResponse%27"><span class="hs-identifier hs-type">ListAssessmentTemplatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253588"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#ListAssessmentTemplatesResponse%27"><span class="hs-identifier hs-type">ListAssessmentTemplatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253975"><span class="annot"><span class="annottext">[Text]
 assessmentTemplateArns :: [Text]
 $sel:assessmentTemplateArns:ListAssessmentTemplatesResponse' :: ListAssessmentTemplatesResponse -&gt; [Text]
-</span><a href="#local-6989586621679253588"><span class="hs-identifier hs-var hs-var">assessmentTemplateArns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679253588"><span class="hs-identifier hs-var">assessmentTemplateArns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253587"><span class="annot"><span class="annottext">s :: ListAssessmentTemplatesResponse
-</span><a href="#local-6989586621679253587"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#ListAssessmentTemplatesResponse%27"><span class="hs-identifier hs-type">ListAssessmentTemplatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253586"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679253586"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAssessmentTemplatesResponse
-</span><a href="#local-6989586621679253587"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assessmentTemplateArns:ListAssessmentTemplatesResponse' :: [Text]
+</span><a href="#local-6989586621679253975"><span class="hs-identifier hs-var hs-var">assessmentTemplateArns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679253975"><span class="hs-identifier hs-var">assessmentTemplateArns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253974"><span class="annot"><span class="annottext">s :: ListAssessmentTemplatesResponse
+</span><a href="#local-6989586621679253974"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#ListAssessmentTemplatesResponse%27"><span class="hs-identifier hs-type">ListAssessmentTemplatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253973"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679253973"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAssessmentTemplatesResponse
+</span><a href="#local-6989586621679253974"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assessmentTemplateArns:ListAssessmentTemplatesResponse' :: [Text]
 </span><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#%24sel%3AassessmentTemplateArns%3AListAssessmentTemplatesResponse%27"><span class="hs-identifier hs-var">assessmentTemplateArns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679253586"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#ListAssessmentTemplatesResponse"><span class="hs-identifier hs-type">ListAssessmentTemplatesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+</span><a href="#local-6989586621679253973"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#ListAssessmentTemplatesResponse"><span class="hs-identifier hs-type">ListAssessmentTemplatesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
  -&gt; ListAssessmentTemplatesResponse
  -&gt; f ListAssessmentTemplatesResponse)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
@@ -803,10 +803,10 @@ $sel:assessmentTemplateArns:ListAssessmentTemplatesResponse' :: ListAssessmentTe
 -&gt; f ListAssessmentTemplatesResponse
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-277"></span><span>
 </span><span id="line-278"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-279"></span><span>  </span><span id="local-6989586621679253584"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-279"></span><span>  </span><span id="local-6989586621679253971"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-280"></span><span>    </span><span class="annot"><a href="Network.AWS.Inspector.ListAssessmentTemplates.html#ListAssessmentTemplatesResponse"><span class="hs-identifier hs-type">ListAssessmentTemplatesResponse</span></a></span></span><span>
 </span><span id="line-281"></span></pre></body></html>

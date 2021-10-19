@@ -51,7 +51,7 @@
 </span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-52"></span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newPutFunctionCodeSigningConfig' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679297938"><span id="local-6989586621679297939"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutFunctionCodeSigningConfig"><span class="annot"><a href="Network.AWS.Lambda.PutFunctionCodeSigningConfig.html#PutFunctionCodeSigningConfig"><span class="hs-identifier hs-var">PutFunctionCodeSigningConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutFunctionCodeSigningConfig%27"><span class="annot"><a href="Network.AWS.Lambda.PutFunctionCodeSigningConfig.html#PutFunctionCodeSigningConfig%27"><span class="hs-identifier hs-var">PutFunctionCodeSigningConfig'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679302824"><span id="local-6989586621679302825"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutFunctionCodeSigningConfig"><span class="annot"><a href="Network.AWS.Lambda.PutFunctionCodeSigningConfig.html#PutFunctionCodeSigningConfig"><span class="hs-identifier hs-var">PutFunctionCodeSigningConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutFunctionCodeSigningConfig%27"><span class="annot"><a href="Network.AWS.Lambda.PutFunctionCodeSigningConfig.html#PutFunctionCodeSigningConfig%27"><span class="hs-identifier hs-var">PutFunctionCodeSigningConfig'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The The Amazon Resource Name (ARN) of the code signing configuration.</span><span>
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3AcodeSigningConfigArn%3APutFunctionCodeSigningConfig%27"><span class="annot"><span class="annottext">PutFunctionCodeSigningConfig -&gt; Text
 </span><a href="Network.AWS.Lambda.PutFunctionCodeSigningConfig.html#%24sel%3AcodeSigningConfigArn%3APutFunctionCodeSigningConfig%27"><span class="hs-identifier hs-var hs-var">codeSigningConfigArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -71,7 +71,7 @@
 </span><span id="line-70"></span><span>    </span><span id="%24sel%3AfunctionName%3APutFunctionCodeSigningConfig%27"><span class="annot"><span class="annottext">PutFunctionCodeSigningConfig -&gt; Text
 </span><a href="Network.AWS.Lambda.PutFunctionCodeSigningConfig.html#%24sel%3AfunctionName%3APutFunctionCodeSigningConfig%27"><span class="hs-identifier hs-var hs-var">functionName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-71"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679297931"><span id="local-6989586621679297933"><span class="annot"><span class="annottext">PutFunctionCodeSigningConfig
+</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679302817"><span id="local-6989586621679302819"><span class="annot"><span class="annottext">PutFunctionCodeSigningConfig
 -&gt; PutFunctionCodeSigningConfig -&gt; Bool
 (PutFunctionCodeSigningConfig
  -&gt; PutFunctionCodeSigningConfig -&gt; Bool)
@@ -87,7 +87,7 @@ $c/= :: PutFunctionCodeSigningConfig
 -&gt; PutFunctionCodeSigningConfig -&gt; Bool
 $c== :: PutFunctionCodeSigningConfig
 -&gt; PutFunctionCodeSigningConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297922"><span id="local-6989586621679297924"><span id="local-6989586621679297926"><span id="local-6989586621679297928"><span class="annot"><span class="annottext">ReadPrec [PutFunctionCodeSigningConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302808"><span id="local-6989586621679302810"><span id="local-6989586621679302812"><span id="local-6989586621679302814"><span class="annot"><span class="annottext">ReadPrec [PutFunctionCodeSigningConfig]
 ReadPrec PutFunctionCodeSigningConfig
 Int -&gt; ReadS PutFunctionCodeSigningConfig
 ReadS [PutFunctionCodeSigningConfig]
@@ -107,7 +107,7 @@ readList :: ReadS [PutFunctionCodeSigningConfig]
 $creadList :: ReadS [PutFunctionCodeSigningConfig]
 readsPrec :: Int -&gt; ReadS PutFunctionCodeSigningConfig
 $creadsPrec :: Int -&gt; ReadS PutFunctionCodeSigningConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297915"><span id="local-6989586621679297917"><span id="local-6989586621679297919"><span class="annot"><span class="annottext">Int -&gt; PutFunctionCodeSigningConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302801"><span id="local-6989586621679302803"><span id="local-6989586621679302805"><span class="annot"><span class="annottext">Int -&gt; PutFunctionCodeSigningConfig -&gt; ShowS
 [PutFunctionCodeSigningConfig] -&gt; ShowS
 PutFunctionCodeSigningConfig -&gt; String
 (Int -&gt; PutFunctionCodeSigningConfig -&gt; ShowS)
@@ -170,19 +170,19 @@ PutFunctionCodeSigningConfig -&gt; Rep PutFunctionCodeSigningConfig x
 </span><span id="line-102"></span><span>  </span><span class="annot"><a href="Network.AWS.Lambda.PutFunctionCodeSigningConfig.html#PutFunctionCodeSigningConfig"><span class="hs-identifier hs-type">PutFunctionCodeSigningConfig</span></a></span><span>
 </span><span id="line-103"></span><span id="newPutFunctionCodeSigningConfig"><span class="annot"><span class="annottext">newPutFunctionCodeSigningConfig :: Text -&gt; Text -&gt; PutFunctionCodeSigningConfig
 </span><a href="Network.AWS.Lambda.PutFunctionCodeSigningConfig.html#newPutFunctionCodeSigningConfig"><span class="hs-identifier hs-var hs-var">newPutFunctionCodeSigningConfig</span></a></span></span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679297910"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679297910"><span class="hs-identifier hs-var">pCodeSigningConfigArn_</span></a></span></span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679297909"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679297909"><span class="hs-identifier hs-var">pFunctionName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679302796"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302796"><span class="hs-identifier hs-var">pCodeSigningConfigArn_</span></a></span></span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679302795"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302795"><span class="hs-identifier hs-var">pFunctionName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">PutFunctionCodeSigningConfig' :: Text -&gt; Text -&gt; PutFunctionCodeSigningConfig
 </span><a href="Network.AWS.Lambda.PutFunctionCodeSigningConfig.html#PutFunctionCodeSigningConfig%27"><span class="hs-identifier hs-type">PutFunctionCodeSigningConfig'</span></a></span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:codeSigningConfigArn:PutFunctionCodeSigningConfig' :: Text
 </span><a href="Network.AWS.Lambda.PutFunctionCodeSigningConfig.html#%24sel%3AcodeSigningConfigArn%3APutFunctionCodeSigningConfig%27"><span class="hs-identifier hs-var">codeSigningConfigArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-108"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679297910"><span class="hs-identifier hs-var">pCodeSigningConfigArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679302796"><span class="hs-identifier hs-var">pCodeSigningConfigArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-109"></span><span>        </span><span class="annot"><span class="annottext">$sel:functionName:PutFunctionCodeSigningConfig' :: Text
 </span><a href="Network.AWS.Lambda.PutFunctionCodeSigningConfig.html#%24sel%3AfunctionName%3APutFunctionCodeSigningConfig%27"><span class="hs-identifier hs-var">functionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679297909"><span class="hs-identifier hs-var">pFunctionName_</span></a></span><span>
+</span><a href="#local-6989586621679302795"><span class="hs-identifier hs-var">pFunctionName_</span></a></span><span>
 </span><span id="line-110"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-comment">-- | The The Amazon Resource Name (ARN) of the code signing configuration.</span><span>
@@ -195,16 +195,16 @@ PutFunctionCodeSigningConfig -&gt; Rep PutFunctionCodeSigningConfig x
 -&gt; Lens
      PutFunctionCodeSigningConfig PutFunctionCodeSigningConfig Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.PutFunctionCodeSigningConfig.html#PutFunctionCodeSigningConfig%27"><span class="hs-identifier hs-type">PutFunctionCodeSigningConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297906"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.PutFunctionCodeSigningConfig.html#PutFunctionCodeSigningConfig%27"><span class="hs-identifier hs-type">PutFunctionCodeSigningConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302792"><span class="annot"><span class="annottext">Text
 codeSigningConfigArn :: Text
 $sel:codeSigningConfigArn:PutFunctionCodeSigningConfig' :: PutFunctionCodeSigningConfig -&gt; Text
-</span><a href="#local-6989586621679297906"><span class="hs-identifier hs-var hs-var">codeSigningConfigArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679297906"><span class="hs-identifier hs-var">codeSigningConfigArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297905"><span class="annot"><span class="annottext">s :: PutFunctionCodeSigningConfig
-</span><a href="#local-6989586621679297905"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.PutFunctionCodeSigningConfig.html#PutFunctionCodeSigningConfig%27"><span class="hs-identifier hs-type">PutFunctionCodeSigningConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297904"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679297904"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutFunctionCodeSigningConfig
-</span><a href="#local-6989586621679297905"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:codeSigningConfigArn:PutFunctionCodeSigningConfig' :: Text
+</span><a href="#local-6989586621679302792"><span class="hs-identifier hs-var hs-var">codeSigningConfigArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302792"><span class="hs-identifier hs-var">codeSigningConfigArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302791"><span class="annot"><span class="annottext">s :: PutFunctionCodeSigningConfig
+</span><a href="#local-6989586621679302791"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.PutFunctionCodeSigningConfig.html#PutFunctionCodeSigningConfig%27"><span class="hs-identifier hs-type">PutFunctionCodeSigningConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302790"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302790"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutFunctionCodeSigningConfig
+</span><a href="#local-6989586621679302791"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:codeSigningConfigArn:PutFunctionCodeSigningConfig' :: Text
 </span><a href="Network.AWS.Lambda.PutFunctionCodeSigningConfig.html#%24sel%3AcodeSigningConfigArn%3APutFunctionCodeSigningConfig%27"><span class="hs-identifier hs-var">codeSigningConfigArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679297904"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.PutFunctionCodeSigningConfig.html#PutFunctionCodeSigningConfig"><span class="hs-identifier hs-type">PutFunctionCodeSigningConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679302790"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.PutFunctionCodeSigningConfig.html#PutFunctionCodeSigningConfig"><span class="hs-identifier hs-type">PutFunctionCodeSigningConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-comment">-- | The name of the Lambda function.</span><span>
 </span><span id="line-117"></span><span class="hs-comment">--</span><span>
@@ -228,22 +228,22 @@ $sel:codeSigningConfigArn:PutFunctionCodeSigningConfig' :: PutFunctionCodeSignin
 -&gt; Lens
      PutFunctionCodeSigningConfig PutFunctionCodeSigningConfig Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.PutFunctionCodeSigningConfig.html#PutFunctionCodeSigningConfig%27"><span class="hs-identifier hs-type">PutFunctionCodeSigningConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297903"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.PutFunctionCodeSigningConfig.html#PutFunctionCodeSigningConfig%27"><span class="hs-identifier hs-type">PutFunctionCodeSigningConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302789"><span class="annot"><span class="annottext">Text
 functionName :: Text
 $sel:functionName:PutFunctionCodeSigningConfig' :: PutFunctionCodeSigningConfig -&gt; Text
-</span><a href="#local-6989586621679297903"><span class="hs-identifier hs-var hs-var">functionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679297903"><span class="hs-identifier hs-var">functionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297902"><span class="annot"><span class="annottext">s :: PutFunctionCodeSigningConfig
-</span><a href="#local-6989586621679297902"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.PutFunctionCodeSigningConfig.html#PutFunctionCodeSigningConfig%27"><span class="hs-identifier hs-type">PutFunctionCodeSigningConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297901"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679297901"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutFunctionCodeSigningConfig
-</span><a href="#local-6989586621679297902"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:functionName:PutFunctionCodeSigningConfig' :: Text
+</span><a href="#local-6989586621679302789"><span class="hs-identifier hs-var hs-var">functionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302789"><span class="hs-identifier hs-var">functionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302788"><span class="annot"><span class="annottext">s :: PutFunctionCodeSigningConfig
+</span><a href="#local-6989586621679302788"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.PutFunctionCodeSigningConfig.html#PutFunctionCodeSigningConfig%27"><span class="hs-identifier hs-type">PutFunctionCodeSigningConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302787"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302787"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutFunctionCodeSigningConfig
+</span><a href="#local-6989586621679302788"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:functionName:PutFunctionCodeSigningConfig' :: Text
 </span><a href="Network.AWS.Lambda.PutFunctionCodeSigningConfig.html#%24sel%3AfunctionName%3APutFunctionCodeSigningConfig%27"><span class="hs-identifier hs-var">functionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679297901"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.PutFunctionCodeSigningConfig.html#PutFunctionCodeSigningConfig"><span class="hs-identifier hs-type">PutFunctionCodeSigningConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679302787"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.PutFunctionCodeSigningConfig.html#PutFunctionCodeSigningConfig"><span class="hs-identifier hs-type">PutFunctionCodeSigningConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.PutFunctionCodeSigningConfig.html#PutFunctionCodeSigningConfig"><span class="hs-identifier hs-type">PutFunctionCodeSigningConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-133"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-134"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.PutFunctionCodeSigningConfig.html#PutFunctionCodeSigningConfig"><span class="hs-identifier hs-type">PutFunctionCodeSigningConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-135"></span><span>      </span><span class="annot"><a href="Network.AWS.Lambda.PutFunctionCodeSigningConfig.html#PutFunctionCodeSigningConfigResponse"><span class="hs-identifier hs-type">PutFunctionCodeSigningConfigResponse</span></a></span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679297897"><span class="annot"><span class="annottext">request :: PutFunctionCodeSigningConfig
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679302783"><span class="annot"><span class="annottext">request :: PutFunctionCodeSigningConfig
 -&gt; Request PutFunctionCodeSigningConfig
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; PutFunctionCodeSigningConfig
@@ -251,7 +251,7 @@ $sel:functionName:PutFunctionCodeSigningConfig' :: PutFunctionCodeSigningConfig 
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Lambda.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679297893"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679302779"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy PutFunctionCodeSigningConfig
 -&gt; ClientResponse ClientBody
@@ -277,10 +277,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-139"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679297890"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679297890"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679297889"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679297889"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679297888"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679297888"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679302776"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679302776"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679302775"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679302775"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679302774"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679302774"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-140"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Text -&gt; Text -&gt; PutFunctionCodeSigningConfigResponse
 </span><a href="Network.AWS.Lambda.PutFunctionCodeSigningConfig.html#PutFunctionCodeSigningConfigResponse%27"><span class="hs-identifier hs-var">PutFunctionCodeSigningConfigResponse'</span></a></span><span>
 </span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; Text -&gt; Text -&gt; PutFunctionCodeSigningConfigResponse)
@@ -293,14 +293,14 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679297890"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679302776"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">Either
   String (Text -&gt; Text -&gt; PutFunctionCodeSigningConfigResponse)
 -&gt; Either String Text
 -&gt; Either String (Text -&gt; PutFunctionCodeSigningConfigResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679297888"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679302774"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CodeSigningConfigArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -309,34 +309,34 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 -&gt; Either String PutFunctionCodeSigningConfigResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679297888"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679302774"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FunctionName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-147"></span><span>  </span><span id="local-6989586621679297880"><span id="local-6989586621679297882"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679302766"><span id="local-6989586621679302768"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-148"></span><span>    </span><span class="annot"><a href="Network.AWS.Lambda.PutFunctionCodeSigningConfig.html#PutFunctionCodeSigningConfig"><span class="hs-identifier hs-type">PutFunctionCodeSigningConfig</span></a></span></span></span><span>
 </span><span id="line-149"></span><span>
-</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297877"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.PutFunctionCodeSigningConfig.html#PutFunctionCodeSigningConfig"><span class="hs-identifier hs-type">PutFunctionCodeSigningConfig</span></a></span></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302763"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.PutFunctionCodeSigningConfig.html#PutFunctionCodeSigningConfig"><span class="hs-identifier hs-type">PutFunctionCodeSigningConfig</span></a></span></span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.PutFunctionCodeSigningConfig.html#PutFunctionCodeSigningConfig"><span class="hs-identifier hs-type">PutFunctionCodeSigningConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-153"></span><span>  </span><span id="local-6989586621679297873"><span class="annot"><span class="annottext">toHeaders :: PutFunctionCodeSigningConfig -&gt; ResponseHeaders
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679302759"><span class="annot"><span class="annottext">toHeaders :: PutFunctionCodeSigningConfig -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; PutFunctionCodeSigningConfig -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-154"></span><span>
-</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297864"><span id="local-6989586621679297866"><span id="local-6989586621679297868"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.PutFunctionCodeSigningConfig.html#PutFunctionCodeSigningConfig"><span class="hs-identifier hs-type">PutFunctionCodeSigningConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-156"></span><span>  </span><span id="local-6989586621679297862"><span class="annot"><span class="annottext">toJSON :: PutFunctionCodeSigningConfig -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.PutFunctionCodeSigningConfig.html#PutFunctionCodeSigningConfig%27"><span class="hs-identifier hs-type">PutFunctionCodeSigningConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297859"><span id="local-6989586621679297860"><span class="annot"><span class="annottext">Text
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302750"><span id="local-6989586621679302752"><span id="local-6989586621679302754"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.PutFunctionCodeSigningConfig.html#PutFunctionCodeSigningConfig"><span class="hs-identifier hs-type">PutFunctionCodeSigningConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679302748"><span class="annot"><span class="annottext">toJSON :: PutFunctionCodeSigningConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.PutFunctionCodeSigningConfig.html#PutFunctionCodeSigningConfig%27"><span class="hs-identifier hs-type">PutFunctionCodeSigningConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302745"><span id="local-6989586621679302746"><span class="annot"><span class="annottext">Text
 functionName :: Text
 codeSigningConfigArn :: Text
 $sel:functionName:PutFunctionCodeSigningConfig' :: PutFunctionCodeSigningConfig -&gt; Text
 $sel:codeSigningConfigArn:PutFunctionCodeSigningConfig' :: PutFunctionCodeSigningConfig -&gt; Text
-</span><a href="#local-6989586621679297859"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679302745"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-157"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-158"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -350,19 +350,19 @@ forall a. a -&gt; Maybe a
 </span><span id="line-161"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679297860"><span class="hs-identifier hs-var">codeSigningConfigArn</span></a></span><span>
+</span><a href="#local-6989586621679302746"><span class="hs-identifier hs-var">codeSigningConfigArn</span></a></span><span>
 </span><span id="line-162"></span><span>              </span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-164"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-165"></span><span>
 </span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.PutFunctionCodeSigningConfig.html#PutFunctionCodeSigningConfig"><span class="hs-identifier hs-type">PutFunctionCodeSigningConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-167"></span><span>  </span><span id="local-6989586621679297853"><span class="annot"><span class="annottext">toPath :: PutFunctionCodeSigningConfig -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.PutFunctionCodeSigningConfig.html#PutFunctionCodeSigningConfig%27"><span class="hs-identifier hs-type">PutFunctionCodeSigningConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297850"><span id="local-6989586621679297851"><span class="annot"><span class="annottext">Text
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679302739"><span class="annot"><span class="annottext">toPath :: PutFunctionCodeSigningConfig -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.PutFunctionCodeSigningConfig.html#PutFunctionCodeSigningConfig%27"><span class="hs-identifier hs-type">PutFunctionCodeSigningConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302736"><span id="local-6989586621679302737"><span class="annot"><span class="annottext">Text
 functionName :: Text
 codeSigningConfigArn :: Text
 $sel:functionName:PutFunctionCodeSigningConfig' :: PutFunctionCodeSigningConfig -&gt; Text
 $sel:codeSigningConfigArn:PutFunctionCodeSigningConfig' :: PutFunctionCodeSigningConfig -&gt; Text
-</span><a href="#local-6989586621679297850"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679302736"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-168"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -371,13 +371,13 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-170"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679297850"><span class="hs-identifier hs-var">functionName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679302736"><span class="hs-identifier hs-var">functionName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-171"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/code-signing-config&quot;</span></span><span>
 </span><span id="line-172"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-173"></span><span>
 </span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.PutFunctionCodeSigningConfig.html#PutFunctionCodeSigningConfig"><span class="hs-identifier hs-type">PutFunctionCodeSigningConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-175"></span><span>  </span><span id="local-6989586621679297846"><span class="annot"><span class="annottext">toQuery :: PutFunctionCodeSigningConfig -&gt; QueryString
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621679302732"><span class="annot"><span class="annottext">toQuery :: PutFunctionCodeSigningConfig -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; PutFunctionCodeSigningConfig -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -385,7 +385,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-176"></span><span>
 </span><span id="line-177"></span><span class="hs-comment">-- | /See:/ 'newPutFunctionCodeSigningConfigResponse' smart constructor.</span><span>
-</span><span id="line-178"></span><span id="local-6989586621679297843"><span id="local-6989586621679297844"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutFunctionCodeSigningConfigResponse"><span class="annot"><a href="Network.AWS.Lambda.PutFunctionCodeSigningConfig.html#PutFunctionCodeSigningConfigResponse"><span class="hs-identifier hs-var">PutFunctionCodeSigningConfigResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutFunctionCodeSigningConfigResponse%27"><span class="annot"><a href="Network.AWS.Lambda.PutFunctionCodeSigningConfig.html#PutFunctionCodeSigningConfigResponse%27"><span class="hs-identifier hs-var">PutFunctionCodeSigningConfigResponse'</span></a></span></span><span>
+</span><span id="line-178"></span><span id="local-6989586621679302729"><span id="local-6989586621679302730"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutFunctionCodeSigningConfigResponse"><span class="annot"><a href="Network.AWS.Lambda.PutFunctionCodeSigningConfig.html#PutFunctionCodeSigningConfigResponse"><span class="hs-identifier hs-var">PutFunctionCodeSigningConfigResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutFunctionCodeSigningConfigResponse%27"><span class="annot"><a href="Network.AWS.Lambda.PutFunctionCodeSigningConfig.html#PutFunctionCodeSigningConfigResponse%27"><span class="hs-identifier hs-var">PutFunctionCodeSigningConfigResponse'</span></a></span></span><span>
 </span><span id="line-179"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-180"></span><span>    </span><span id="%24sel%3AhttpStatus%3APutFunctionCodeSigningConfigResponse%27"><span class="annot"><span class="annottext">PutFunctionCodeSigningConfigResponse -&gt; Int
 </span><a href="Network.AWS.Lambda.PutFunctionCodeSigningConfig.html#%24sel%3AhttpStatus%3APutFunctionCodeSigningConfigResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -408,7 +408,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-196"></span><span>    </span><span id="%24sel%3AfunctionName%3APutFunctionCodeSigningConfigResponse%27"><span class="annot"><span class="annottext">PutFunctionCodeSigningConfigResponse -&gt; Text
 </span><a href="Network.AWS.Lambda.PutFunctionCodeSigningConfig.html#%24sel%3AfunctionName%3APutFunctionCodeSigningConfigResponse%27"><span class="hs-identifier hs-var hs-var">functionName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-197"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-198"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679297836"><span id="local-6989586621679297838"><span class="annot"><span class="annottext">PutFunctionCodeSigningConfigResponse
+</span><span id="line-198"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679302722"><span id="local-6989586621679302724"><span class="annot"><span class="annottext">PutFunctionCodeSigningConfigResponse
 -&gt; PutFunctionCodeSigningConfigResponse -&gt; Bool
 (PutFunctionCodeSigningConfigResponse
  -&gt; PutFunctionCodeSigningConfigResponse -&gt; Bool)
@@ -424,7 +424,7 @@ $c/= :: PutFunctionCodeSigningConfigResponse
 -&gt; PutFunctionCodeSigningConfigResponse -&gt; Bool
 $c== :: PutFunctionCodeSigningConfigResponse
 -&gt; PutFunctionCodeSigningConfigResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297828"><span id="local-6989586621679297830"><span id="local-6989586621679297832"><span id="local-6989586621679297834"><span class="annot"><span class="annottext">ReadPrec [PutFunctionCodeSigningConfigResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302714"><span id="local-6989586621679302716"><span id="local-6989586621679302718"><span id="local-6989586621679302720"><span class="annot"><span class="annottext">ReadPrec [PutFunctionCodeSigningConfigResponse]
 ReadPrec PutFunctionCodeSigningConfigResponse
 Int -&gt; ReadS PutFunctionCodeSigningConfigResponse
 ReadS [PutFunctionCodeSigningConfigResponse]
@@ -444,7 +444,7 @@ readList :: ReadS [PutFunctionCodeSigningConfigResponse]
 $creadList :: ReadS [PutFunctionCodeSigningConfigResponse]
 readsPrec :: Int -&gt; ReadS PutFunctionCodeSigningConfigResponse
 $creadsPrec :: Int -&gt; ReadS PutFunctionCodeSigningConfigResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297822"><span id="local-6989586621679297824"><span id="local-6989586621679297826"><span class="annot"><span class="annottext">Int -&gt; PutFunctionCodeSigningConfigResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302708"><span id="local-6989586621679302710"><span id="local-6989586621679302712"><span class="annot"><span class="annottext">Int -&gt; PutFunctionCodeSigningConfigResponse -&gt; ShowS
 [PutFunctionCodeSigningConfigResponse] -&gt; ShowS
 PutFunctionCodeSigningConfigResponse -&gt; String
 (Int -&gt; PutFunctionCodeSigningConfigResponse -&gt; ShowS)
@@ -517,25 +517,25 @@ PutFunctionCodeSigningConfigResponse
 </span><span id="line-232"></span><span>  </span><span class="annot"><a href="Network.AWS.Lambda.PutFunctionCodeSigningConfig.html#PutFunctionCodeSigningConfigResponse"><span class="hs-identifier hs-type">PutFunctionCodeSigningConfigResponse</span></a></span><span>
 </span><span id="line-233"></span><span id="newPutFunctionCodeSigningConfigResponse"><span class="annot"><span class="annottext">newPutFunctionCodeSigningConfigResponse :: Int -&gt; Text -&gt; Text -&gt; PutFunctionCodeSigningConfigResponse
 </span><a href="Network.AWS.Lambda.PutFunctionCodeSigningConfig.html#newPutFunctionCodeSigningConfigResponse"><span class="hs-identifier hs-var hs-var">newPutFunctionCodeSigningConfigResponse</span></a></span></span><span>
-</span><span id="line-234"></span><span>  </span><span id="local-6989586621679297819"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679297819"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
-</span><span id="line-235"></span><span>  </span><span id="local-6989586621679297818"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679297818"><span class="hs-identifier hs-var">pCodeSigningConfigArn_</span></a></span></span><span>
-</span><span id="line-236"></span><span>  </span><span id="local-6989586621679297817"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679297817"><span class="hs-identifier hs-var">pFunctionName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-234"></span><span>  </span><span id="local-6989586621679302705"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679302705"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-235"></span><span>  </span><span id="local-6989586621679302704"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302704"><span class="hs-identifier hs-var">pCodeSigningConfigArn_</span></a></span></span><span>
+</span><span id="line-236"></span><span>  </span><span id="local-6989586621679302703"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302703"><span class="hs-identifier hs-var">pFunctionName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-237"></span><span>    </span><span class="annot"><span class="annottext">PutFunctionCodeSigningConfigResponse' :: Int -&gt; Text -&gt; Text -&gt; PutFunctionCodeSigningConfigResponse
 </span><a href="Network.AWS.Lambda.PutFunctionCodeSigningConfig.html#PutFunctionCodeSigningConfigResponse%27"><span class="hs-identifier hs-type">PutFunctionCodeSigningConfigResponse'</span></a></span><span>
 </span><span id="line-238"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:PutFunctionCodeSigningConfigResponse' :: Int
 </span><a href="Network.AWS.Lambda.PutFunctionCodeSigningConfig.html#%24sel%3AhttpStatus%3APutFunctionCodeSigningConfigResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-239"></span><span>          </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679297819"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679302705"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-240"></span><span>        </span><span class="annot"><span class="annottext">$sel:codeSigningConfigArn:PutFunctionCodeSigningConfigResponse' :: Text
 </span><a href="Network.AWS.Lambda.PutFunctionCodeSigningConfig.html#%24sel%3AcodeSigningConfigArn%3APutFunctionCodeSigningConfigResponse%27"><span class="hs-identifier hs-var">codeSigningConfigArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-241"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679297818"><span class="hs-identifier hs-var">pCodeSigningConfigArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679302704"><span class="hs-identifier hs-var">pCodeSigningConfigArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-242"></span><span>        </span><span class="annot"><span class="annottext">$sel:functionName:PutFunctionCodeSigningConfigResponse' :: Text
 </span><a href="Network.AWS.Lambda.PutFunctionCodeSigningConfig.html#%24sel%3AfunctionName%3APutFunctionCodeSigningConfigResponse%27"><span class="hs-identifier hs-var">functionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679297817"><span class="hs-identifier hs-var">pFunctionName_</span></a></span><span>
+</span><a href="#local-6989586621679302703"><span class="hs-identifier hs-var">pFunctionName_</span></a></span><span>
 </span><span id="line-243"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-244"></span><span>
 </span><span id="line-245"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -552,16 +552,16 @@ PutFunctionCodeSigningConfigResponse
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.PutFunctionCodeSigningConfig.html#PutFunctionCodeSigningConfigResponse%27"><span class="hs-identifier hs-type">PutFunctionCodeSigningConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297816"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.PutFunctionCodeSigningConfig.html#PutFunctionCodeSigningConfigResponse%27"><span class="hs-identifier hs-type">PutFunctionCodeSigningConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302702"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:PutFunctionCodeSigningConfigResponse' :: PutFunctionCodeSigningConfigResponse -&gt; Int
-</span><a href="#local-6989586621679297816"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679297816"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297815"><span class="annot"><span class="annottext">s :: PutFunctionCodeSigningConfigResponse
-</span><a href="#local-6989586621679297815"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.PutFunctionCodeSigningConfig.html#PutFunctionCodeSigningConfigResponse%27"><span class="hs-identifier hs-type">PutFunctionCodeSigningConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297814"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679297814"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutFunctionCodeSigningConfigResponse
-</span><a href="#local-6989586621679297815"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutFunctionCodeSigningConfigResponse' :: Int
+</span><a href="#local-6989586621679302702"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679302702"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302701"><span class="annot"><span class="annottext">s :: PutFunctionCodeSigningConfigResponse
+</span><a href="#local-6989586621679302701"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.PutFunctionCodeSigningConfig.html#PutFunctionCodeSigningConfigResponse%27"><span class="hs-identifier hs-type">PutFunctionCodeSigningConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302700"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679302700"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutFunctionCodeSigningConfigResponse
+</span><a href="#local-6989586621679302701"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutFunctionCodeSigningConfigResponse' :: Int
 </span><a href="Network.AWS.Lambda.PutFunctionCodeSigningConfig.html#%24sel%3AhttpStatus%3APutFunctionCodeSigningConfigResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679297814"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.PutFunctionCodeSigningConfig.html#PutFunctionCodeSigningConfigResponse"><span class="hs-identifier hs-type">PutFunctionCodeSigningConfigResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679302700"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.PutFunctionCodeSigningConfig.html#PutFunctionCodeSigningConfigResponse"><span class="hs-identifier hs-type">PutFunctionCodeSigningConfigResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-248"></span><span>
 </span><span id="line-249"></span><span class="hs-comment">-- | The The Amazon Resource Name (ARN) of the code signing configuration.</span><span>
 </span><span id="line-250"></span><span class="annot"><a href="Network.AWS.Lambda.PutFunctionCodeSigningConfig.html#putFunctionCodeSigningConfigResponse_codeSigningConfigArn"><span class="hs-identifier hs-type">putFunctionCodeSigningConfigResponse_codeSigningConfigArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.PutFunctionCodeSigningConfig.html#PutFunctionCodeSigningConfigResponse"><span class="hs-identifier hs-type">PutFunctionCodeSigningConfigResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -577,16 +577,16 @@ $sel:httpStatus:PutFunctionCodeSigningConfigResponse' :: PutFunctionCodeSigningC
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.PutFunctionCodeSigningConfig.html#PutFunctionCodeSigningConfigResponse%27"><span class="hs-identifier hs-type">PutFunctionCodeSigningConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297813"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.PutFunctionCodeSigningConfig.html#PutFunctionCodeSigningConfigResponse%27"><span class="hs-identifier hs-type">PutFunctionCodeSigningConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302699"><span class="annot"><span class="annottext">Text
 codeSigningConfigArn :: Text
 $sel:codeSigningConfigArn:PutFunctionCodeSigningConfigResponse' :: PutFunctionCodeSigningConfigResponse -&gt; Text
-</span><a href="#local-6989586621679297813"><span class="hs-identifier hs-var hs-var">codeSigningConfigArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679297813"><span class="hs-identifier hs-var">codeSigningConfigArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297812"><span class="annot"><span class="annottext">s :: PutFunctionCodeSigningConfigResponse
-</span><a href="#local-6989586621679297812"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.PutFunctionCodeSigningConfig.html#PutFunctionCodeSigningConfigResponse%27"><span class="hs-identifier hs-type">PutFunctionCodeSigningConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297811"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679297811"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutFunctionCodeSigningConfigResponse
-</span><a href="#local-6989586621679297812"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:codeSigningConfigArn:PutFunctionCodeSigningConfigResponse' :: Text
+</span><a href="#local-6989586621679302699"><span class="hs-identifier hs-var hs-var">codeSigningConfigArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302699"><span class="hs-identifier hs-var">codeSigningConfigArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302698"><span class="annot"><span class="annottext">s :: PutFunctionCodeSigningConfigResponse
+</span><a href="#local-6989586621679302698"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.PutFunctionCodeSigningConfig.html#PutFunctionCodeSigningConfigResponse%27"><span class="hs-identifier hs-type">PutFunctionCodeSigningConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302697"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302697"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutFunctionCodeSigningConfigResponse
+</span><a href="#local-6989586621679302698"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:codeSigningConfigArn:PutFunctionCodeSigningConfigResponse' :: Text
 </span><a href="Network.AWS.Lambda.PutFunctionCodeSigningConfig.html#%24sel%3AcodeSigningConfigArn%3APutFunctionCodeSigningConfigResponse%27"><span class="hs-identifier hs-var">codeSigningConfigArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679297811"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.PutFunctionCodeSigningConfig.html#PutFunctionCodeSigningConfigResponse"><span class="hs-identifier hs-type">PutFunctionCodeSigningConfigResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679302697"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.PutFunctionCodeSigningConfig.html#PutFunctionCodeSigningConfigResponse"><span class="hs-identifier hs-type">PutFunctionCodeSigningConfigResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-252"></span><span>
 </span><span id="line-253"></span><span class="hs-comment">-- | The name of the Lambda function.</span><span>
 </span><span id="line-254"></span><span class="hs-comment">--</span><span>
@@ -614,18 +614,18 @@ $sel:codeSigningConfigArn:PutFunctionCodeSigningConfigResponse' :: PutFunctionCo
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.PutFunctionCodeSigningConfig.html#PutFunctionCodeSigningConfigResponse%27"><span class="hs-identifier hs-type">PutFunctionCodeSigningConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297810"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.PutFunctionCodeSigningConfig.html#PutFunctionCodeSigningConfigResponse%27"><span class="hs-identifier hs-type">PutFunctionCodeSigningConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302696"><span class="annot"><span class="annottext">Text
 functionName :: Text
 $sel:functionName:PutFunctionCodeSigningConfigResponse' :: PutFunctionCodeSigningConfigResponse -&gt; Text
-</span><a href="#local-6989586621679297810"><span class="hs-identifier hs-var hs-var">functionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679297810"><span class="hs-identifier hs-var">functionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297809"><span class="annot"><span class="annottext">s :: PutFunctionCodeSigningConfigResponse
-</span><a href="#local-6989586621679297809"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.PutFunctionCodeSigningConfig.html#PutFunctionCodeSigningConfigResponse%27"><span class="hs-identifier hs-type">PutFunctionCodeSigningConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297808"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679297808"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutFunctionCodeSigningConfigResponse
-</span><a href="#local-6989586621679297809"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:functionName:PutFunctionCodeSigningConfigResponse' :: Text
+</span><a href="#local-6989586621679302696"><span class="hs-identifier hs-var hs-var">functionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302696"><span class="hs-identifier hs-var">functionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302695"><span class="annot"><span class="annottext">s :: PutFunctionCodeSigningConfigResponse
+</span><a href="#local-6989586621679302695"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.PutFunctionCodeSigningConfig.html#PutFunctionCodeSigningConfigResponse%27"><span class="hs-identifier hs-type">PutFunctionCodeSigningConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302694"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302694"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutFunctionCodeSigningConfigResponse
+</span><a href="#local-6989586621679302695"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:functionName:PutFunctionCodeSigningConfigResponse' :: Text
 </span><a href="Network.AWS.Lambda.PutFunctionCodeSigningConfig.html#%24sel%3AfunctionName%3APutFunctionCodeSigningConfigResponse%27"><span class="hs-identifier hs-var">functionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679297808"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.PutFunctionCodeSigningConfig.html#PutFunctionCodeSigningConfigResponse"><span class="hs-identifier hs-type">PutFunctionCodeSigningConfigResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679302694"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.PutFunctionCodeSigningConfig.html#PutFunctionCodeSigningConfigResponse"><span class="hs-identifier hs-type">PutFunctionCodeSigningConfigResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-268"></span><span>
 </span><span id="line-269"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-270"></span><span>  </span><span id="local-6989586621679297806"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-270"></span><span>  </span><span id="local-6989586621679302692"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-271"></span><span>    </span><span class="annot"><a href="Network.AWS.Lambda.PutFunctionCodeSigningConfig.html#PutFunctionCodeSigningConfigResponse"><span class="hs-identifier hs-type">PutFunctionCodeSigningConfigResponse</span></a></span></span><span>
 </span><span id="line-272"></span></pre></body></html>

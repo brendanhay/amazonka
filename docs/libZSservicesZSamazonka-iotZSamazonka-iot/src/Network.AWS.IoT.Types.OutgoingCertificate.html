@@ -26,27 +26,27 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | A certificate that has been transferred but not yet accepted.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newOutgoingCertificate' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679790932"><span id="local-6989586621679790933"></span></span><span class="hs-keyword">data</span><span> </span><span id="OutgoingCertificate"><span class="annot"><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#OutgoingCertificate"><span class="hs-identifier hs-var">OutgoingCertificate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OutgoingCertificate%27"><span class="annot"><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#OutgoingCertificate%27"><span class="hs-identifier hs-var">OutgoingCertificate'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679791791"><span id="local-6989586621679791792"></span></span><span class="hs-keyword">data</span><span> </span><span id="OutgoingCertificate"><span class="annot"><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#OutgoingCertificate"><span class="hs-identifier hs-var">OutgoingCertificate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OutgoingCertificate%27"><span class="annot"><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#OutgoingCertificate%27"><span class="hs-identifier hs-var">OutgoingCertificate'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The date the transfer was initiated.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AtransferDate%3AOutgoingCertificate%27"><span class="annot"><span class="annottext">OutgoingCertificate -&gt; Maybe POSIX
 </span><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#%24sel%3AtransferDate%3AOutgoingCertificate%27"><span class="hs-identifier hs-var hs-var">transferDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The certificate ARN.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AcertificateArn%3AOutgoingCertificate%27"><span class="annot"><span class="annottext">OutgoingCertificate -&gt; Maybe Text
 </span><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#%24sel%3AcertificateArn%3AOutgoingCertificate%27"><span class="hs-identifier hs-var hs-var">certificateArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The transfer message.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AtransferMessage%3AOutgoingCertificate%27"><span class="annot"><span class="annottext">OutgoingCertificate -&gt; Maybe Text
-</span><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#%24sel%3AtransferMessage%3AOutgoingCertificate%27"><span class="hs-identifier hs-var hs-var">transferMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The certificate creation date.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AcreationDate%3AOutgoingCertificate%27"><span class="annot"><span class="annottext">OutgoingCertificate -&gt; Maybe POSIX
-</span><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#%24sel%3AcreationDate%3AOutgoingCertificate%27"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The Amazon Web Services account to which the transfer was made.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3AtransferredTo%3AOutgoingCertificate%27"><span class="annot"><span class="annottext">OutgoingCertificate -&gt; Maybe Text
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The certificate ID.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AcertificateId%3AOutgoingCertificate%27"><span class="annot"><span class="annottext">OutgoingCertificate -&gt; Maybe Text
+</span><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#%24sel%3AcertificateId%3AOutgoingCertificate%27"><span class="hs-identifier hs-var hs-var">certificateId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The Amazon Web Services account to which the transfer was made.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AtransferredTo%3AOutgoingCertificate%27"><span class="annot"><span class="annottext">OutgoingCertificate -&gt; Maybe Text
 </span><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#%24sel%3AtransferredTo%3AOutgoingCertificate%27"><span class="hs-identifier hs-var hs-var">transferredTo</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The certificate ID.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3AcertificateId%3AOutgoingCertificate%27"><span class="annot"><span class="annottext">OutgoingCertificate -&gt; Maybe Text
-</span><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#%24sel%3AcertificateId%3AOutgoingCertificate%27"><span class="hs-identifier hs-var hs-var">certificateId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The certificate creation date.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AcreationDate%3AOutgoingCertificate%27"><span class="annot"><span class="annottext">OutgoingCertificate -&gt; Maybe POSIX
+</span><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#%24sel%3AcreationDate%3AOutgoingCertificate%27"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The transfer message.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AtransferMessage%3AOutgoingCertificate%27"><span class="annot"><span class="annottext">OutgoingCertificate -&gt; Maybe Text
+</span><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#%24sel%3AtransferMessage%3AOutgoingCertificate%27"><span class="hs-identifier hs-var hs-var">transferMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679790921"><span id="local-6989586621679790923"><span class="annot"><span class="annottext">OutgoingCertificate -&gt; OutgoingCertificate -&gt; Bool
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679791780"><span id="local-6989586621679791782"><span class="annot"><span class="annottext">OutgoingCertificate -&gt; OutgoingCertificate -&gt; Bool
 (OutgoingCertificate -&gt; OutgoingCertificate -&gt; Bool)
 -&gt; (OutgoingCertificate -&gt; OutgoingCertificate -&gt; Bool)
 -&gt; Eq OutgoingCertificate
@@ -55,7 +55,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: OutgoingCertificate -&gt; OutgoingCertificate -&gt; Bool
 == :: OutgoingCertificate -&gt; OutgoingCertificate -&gt; Bool
 $c== :: OutgoingCertificate -&gt; OutgoingCertificate -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679790912"><span id="local-6989586621679790914"><span id="local-6989586621679790916"><span id="local-6989586621679790918"><span class="annot"><span class="annottext">ReadPrec [OutgoingCertificate]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679791771"><span id="local-6989586621679791773"><span id="local-6989586621679791775"><span id="local-6989586621679791777"><span class="annot"><span class="annottext">ReadPrec [OutgoingCertificate]
 ReadPrec OutgoingCertificate
 Int -&gt; ReadS OutgoingCertificate
 ReadS [OutgoingCertificate]
@@ -75,7 +75,7 @@ readList :: ReadS [OutgoingCertificate]
 $creadList :: ReadS [OutgoingCertificate]
 readsPrec :: Int -&gt; ReadS OutgoingCertificate
 $creadsPrec :: Int -&gt; ReadS OutgoingCertificate
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679790905"><span id="local-6989586621679790907"><span id="local-6989586621679790909"><span class="annot"><span class="annottext">Int -&gt; OutgoingCertificate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679791764"><span id="local-6989586621679791766"><span id="local-6989586621679791768"><span class="annot"><span class="annottext">Int -&gt; OutgoingCertificate -&gt; ShowS
 [OutgoingCertificate] -&gt; ShowS
 OutgoingCertificate -&gt; String
 (Int -&gt; OutgoingCertificate -&gt; ShowS)
@@ -113,13 +113,13 @@ $cfrom :: forall x. OutgoingCertificate -&gt; Rep OutgoingCertificate x
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- 'certificateArn', 'outgoingCertificate_certificateArn' - The certificate ARN.</span><span>
 </span><span id="line-56"></span><span class="hs-comment">--</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- 'transferMessage', 'outgoingCertificate_transferMessage' - The transfer message.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'certificateId', 'outgoingCertificate_certificateId' - The certificate ID.</span><span>
 </span><span id="line-58"></span><span class="hs-comment">--</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- 'creationDate', 'outgoingCertificate_creationDate' - The certificate creation date.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'transferredTo', 'outgoingCertificate_transferredTo' - The Amazon Web Services account to which the transfer was made.</span><span>
 </span><span id="line-60"></span><span class="hs-comment">--</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- 'transferredTo', 'outgoingCertificate_transferredTo' - The Amazon Web Services account to which the transfer was made.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'creationDate', 'outgoingCertificate_creationDate' - The certificate creation date.</span><span>
 </span><span id="line-62"></span><span class="hs-comment">--</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- 'certificateId', 'outgoingCertificate_certificateId' - The certificate ID.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'transferMessage', 'outgoingCertificate_transferMessage' - The transfer message.</span><span>
 </span><span id="line-64"></span><span class="annot"><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#newOutgoingCertificate"><span class="hs-identifier hs-type">newOutgoingCertificate</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-65"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#OutgoingCertificate"><span class="hs-identifier hs-type">OutgoingCertificate</span></a></span><span>
 </span><span id="line-66"></span><span id="newOutgoingCertificate"><span class="annot"><span class="annottext">newOutgoingCertificate :: OutgoingCertificate
@@ -127,8 +127,8 @@ $cfrom :: forall x. OutgoingCertificate -&gt; Rep OutgoingCertificate x
 </span><span id="line-67"></span><span>  </span><span class="annot"><span class="annottext">OutgoingCertificate' :: Maybe POSIX
 -&gt; Maybe Text
 -&gt; Maybe Text
--&gt; Maybe POSIX
 -&gt; Maybe Text
+-&gt; Maybe POSIX
 -&gt; Maybe Text
 -&gt; OutgoingCertificate
 </span><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#OutgoingCertificate%27"><span class="hs-identifier hs-type">OutgoingCertificate'</span></a></span><span>
@@ -141,20 +141,20 @@ forall a. Maybe a
 </span><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#%24sel%3AcertificateArn%3AOutgoingCertificate%27"><span class="hs-identifier hs-var">certificateArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:transferMessage:OutgoingCertificate' :: Maybe Text
-</span><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#%24sel%3AtransferMessage%3AOutgoingCertificate%27"><span class="hs-identifier hs-var">transferMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:certificateId:OutgoingCertificate' :: Maybe Text
+</span><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#%24sel%3AcertificateId%3AOutgoingCertificate%27"><span class="hs-identifier hs-var">certificateId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:creationDate:OutgoingCertificate' :: Maybe POSIX
-</span><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#%24sel%3AcreationDate%3AOutgoingCertificate%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:transferredTo:OutgoingCertificate' :: Maybe Text
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:transferredTo:OutgoingCertificate' :: Maybe Text
 </span><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#%24sel%3AtransferredTo%3AOutgoingCertificate%27"><span class="hs-identifier hs-var">transferredTo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:certificateId:OutgoingCertificate' :: Maybe Text
-</span><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#%24sel%3AcertificateId%3AOutgoingCertificate%27"><span class="hs-identifier hs-var">certificateId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:creationDate:OutgoingCertificate' :: Maybe POSIX
+</span><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#%24sel%3AcreationDate%3AOutgoingCertificate%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:transferMessage:OutgoingCertificate' :: Maybe Text
+</span><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#%24sel%3AtransferMessage%3AOutgoingCertificate%27"><span class="hs-identifier hs-var">transferMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-75"></span><span>    </span><span class="hs-special">}</span><span>
@@ -168,16 +168,16 @@ forall a. Maybe a
 -&gt; Lens
      OutgoingCertificate OutgoingCertificate (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#OutgoingCertificate%27"><span class="hs-identifier hs-type">OutgoingCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679790896"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#OutgoingCertificate%27"><span class="hs-identifier hs-type">OutgoingCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679791755"><span class="annot"><span class="annottext">Maybe POSIX
 transferDate :: Maybe POSIX
 $sel:transferDate:OutgoingCertificate' :: OutgoingCertificate -&gt; Maybe POSIX
-</span><a href="#local-6989586621679790896"><span class="hs-identifier hs-var hs-var">transferDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679790896"><span class="hs-identifier hs-var">transferDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679790895"><span class="annot"><span class="annottext">s :: OutgoingCertificate
-</span><a href="#local-6989586621679790895"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#OutgoingCertificate%27"><span class="hs-identifier hs-type">OutgoingCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679790894"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679790894"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutgoingCertificate
-</span><a href="#local-6989586621679790895"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transferDate:OutgoingCertificate' :: Maybe POSIX
+</span><a href="#local-6989586621679791755"><span class="hs-identifier hs-var hs-var">transferDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679791755"><span class="hs-identifier hs-var">transferDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679791754"><span class="annot"><span class="annottext">s :: OutgoingCertificate
+</span><a href="#local-6989586621679791754"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#OutgoingCertificate%27"><span class="hs-identifier hs-type">OutgoingCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679791753"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679791753"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutgoingCertificate
+</span><a href="#local-6989586621679791754"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transferDate:OutgoingCertificate' :: Maybe POSIX
 </span><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#%24sel%3AtransferDate%3AOutgoingCertificate%27"><span class="hs-identifier hs-var">transferDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679790894"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#OutgoingCertificate"><span class="hs-identifier hs-type">OutgoingCertificate</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679791753"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#OutgoingCertificate"><span class="hs-identifier hs-type">OutgoingCertificate</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; OutgoingCertificate -&gt; f OutgoingCertificate)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -203,56 +203,76 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; Lens
      OutgoingCertificate OutgoingCertificate (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#OutgoingCertificate%27"><span class="hs-identifier hs-type">OutgoingCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679790889"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#OutgoingCertificate%27"><span class="hs-identifier hs-type">OutgoingCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679791748"><span class="annot"><span class="annottext">Maybe Text
 certificateArn :: Maybe Text
 $sel:certificateArn:OutgoingCertificate' :: OutgoingCertificate -&gt; Maybe Text
-</span><a href="#local-6989586621679790889"><span class="hs-identifier hs-var hs-var">certificateArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679790889"><span class="hs-identifier hs-var">certificateArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679790888"><span class="annot"><span class="annottext">s :: OutgoingCertificate
-</span><a href="#local-6989586621679790888"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#OutgoingCertificate%27"><span class="hs-identifier hs-type">OutgoingCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679790887"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679790887"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutgoingCertificate
-</span><a href="#local-6989586621679790888"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateArn:OutgoingCertificate' :: Maybe Text
+</span><a href="#local-6989586621679791748"><span class="hs-identifier hs-var hs-var">certificateArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679791748"><span class="hs-identifier hs-var">certificateArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679791747"><span class="annot"><span class="annottext">s :: OutgoingCertificate
+</span><a href="#local-6989586621679791747"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#OutgoingCertificate%27"><span class="hs-identifier hs-type">OutgoingCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679791746"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679791746"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutgoingCertificate
+</span><a href="#local-6989586621679791747"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateArn:OutgoingCertificate' :: Maybe Text
 </span><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#%24sel%3AcertificateArn%3AOutgoingCertificate%27"><span class="hs-identifier hs-var">certificateArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679790887"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#OutgoingCertificate"><span class="hs-identifier hs-type">OutgoingCertificate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679791746"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#OutgoingCertificate"><span class="hs-identifier hs-type">OutgoingCertificate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- | The transfer message.</span><span>
-</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#outgoingCertificate_transferMessage"><span class="hs-identifier hs-type">outgoingCertificate_transferMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#OutgoingCertificate"><span class="hs-identifier hs-type">OutgoingCertificate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-87"></span><span id="outgoingCertificate_transferMessage"><span class="annot"><span class="annottext">outgoingCertificate_transferMessage :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-85"></span><span class="hs-comment">-- | The certificate ID.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#outgoingCertificate_certificateId"><span class="hs-identifier hs-type">outgoingCertificate_certificateId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#OutgoingCertificate"><span class="hs-identifier hs-type">OutgoingCertificate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span id="outgoingCertificate_certificateId"><span class="annot"><span class="annottext">outgoingCertificate_certificateId :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; OutgoingCertificate -&gt; f OutgoingCertificate
-</span><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#outgoingCertificate_transferMessage"><span class="hs-identifier hs-var hs-var">outgoingCertificate_transferMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OutgoingCertificate -&gt; Maybe Text)
+</span><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#outgoingCertificate_certificateId"><span class="hs-identifier hs-var hs-var">outgoingCertificate_certificateId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OutgoingCertificate -&gt; Maybe Text)
 -&gt; (OutgoingCertificate -&gt; Maybe Text -&gt; OutgoingCertificate)
 -&gt; Lens
      OutgoingCertificate OutgoingCertificate (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#OutgoingCertificate%27"><span class="hs-identifier hs-type">OutgoingCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679790885"><span class="annot"><span class="annottext">Maybe Text
-transferMessage :: Maybe Text
-$sel:transferMessage:OutgoingCertificate' :: OutgoingCertificate -&gt; Maybe Text
-</span><a href="#local-6989586621679790885"><span class="hs-identifier hs-var hs-var">transferMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679790885"><span class="hs-identifier hs-var">transferMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679790884"><span class="annot"><span class="annottext">s :: OutgoingCertificate
-</span><a href="#local-6989586621679790884"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#OutgoingCertificate%27"><span class="hs-identifier hs-type">OutgoingCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679790883"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679790883"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutgoingCertificate
-</span><a href="#local-6989586621679790884"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transferMessage:OutgoingCertificate' :: Maybe Text
-</span><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#%24sel%3AtransferMessage%3AOutgoingCertificate%27"><span class="hs-identifier hs-var">transferMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679790883"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#OutgoingCertificate"><span class="hs-identifier hs-type">OutgoingCertificate</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#OutgoingCertificate%27"><span class="hs-identifier hs-type">OutgoingCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679791744"><span class="annot"><span class="annottext">Maybe Text
+certificateId :: Maybe Text
+$sel:certificateId:OutgoingCertificate' :: OutgoingCertificate -&gt; Maybe Text
+</span><a href="#local-6989586621679791744"><span class="hs-identifier hs-var hs-var">certificateId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679791744"><span class="hs-identifier hs-var">certificateId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679791743"><span class="annot"><span class="annottext">s :: OutgoingCertificate
+</span><a href="#local-6989586621679791743"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#OutgoingCertificate%27"><span class="hs-identifier hs-type">OutgoingCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679791742"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679791742"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutgoingCertificate
+</span><a href="#local-6989586621679791743"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateId:OutgoingCertificate' :: Maybe Text
+</span><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#%24sel%3AcertificateId%3AOutgoingCertificate%27"><span class="hs-identifier hs-var">certificateId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679791742"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#OutgoingCertificate"><span class="hs-identifier hs-type">OutgoingCertificate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- | The certificate creation date.</span><span>
-</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#outgoingCertificate_creationDate"><span class="hs-identifier hs-type">outgoingCertificate_creationDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#OutgoingCertificate"><span class="hs-identifier hs-type">OutgoingCertificate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-91"></span><span id="outgoingCertificate_creationDate"><span class="annot"><span class="annottext">outgoingCertificate_creationDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span id="line-89"></span><span class="hs-comment">-- | The Amazon Web Services account to which the transfer was made.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#outgoingCertificate_transferredTo"><span class="hs-identifier hs-type">outgoingCertificate_transferredTo</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#OutgoingCertificate"><span class="hs-identifier hs-type">OutgoingCertificate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span id="outgoingCertificate_transferredTo"><span class="annot"><span class="annottext">outgoingCertificate_transferredTo :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; OutgoingCertificate -&gt; f OutgoingCertificate
+</span><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#outgoingCertificate_transferredTo"><span class="hs-identifier hs-var hs-var">outgoingCertificate_transferredTo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OutgoingCertificate -&gt; Maybe Text)
+-&gt; (OutgoingCertificate -&gt; Maybe Text -&gt; OutgoingCertificate)
+-&gt; Lens
+     OutgoingCertificate OutgoingCertificate (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#OutgoingCertificate%27"><span class="hs-identifier hs-type">OutgoingCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679791740"><span class="annot"><span class="annottext">Maybe Text
+transferredTo :: Maybe Text
+$sel:transferredTo:OutgoingCertificate' :: OutgoingCertificate -&gt; Maybe Text
+</span><a href="#local-6989586621679791740"><span class="hs-identifier hs-var hs-var">transferredTo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679791740"><span class="hs-identifier hs-var">transferredTo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679791739"><span class="annot"><span class="annottext">s :: OutgoingCertificate
+</span><a href="#local-6989586621679791739"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#OutgoingCertificate%27"><span class="hs-identifier hs-type">OutgoingCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679791738"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679791738"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutgoingCertificate
+</span><a href="#local-6989586621679791739"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transferredTo:OutgoingCertificate' :: Maybe Text
+</span><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#%24sel%3AtransferredTo%3AOutgoingCertificate%27"><span class="hs-identifier hs-var">transferredTo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679791738"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#OutgoingCertificate"><span class="hs-identifier hs-type">OutgoingCertificate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | The certificate creation date.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#outgoingCertificate_creationDate"><span class="hs-identifier hs-type">outgoingCertificate_creationDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#OutgoingCertificate"><span class="hs-identifier hs-type">OutgoingCertificate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="outgoingCertificate_creationDate"><span class="annot"><span class="annottext">outgoingCertificate_creationDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; OutgoingCertificate -&gt; f OutgoingCertificate
 </span><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#outgoingCertificate_creationDate"><span class="hs-identifier hs-var hs-var">outgoingCertificate_creationDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OutgoingCertificate -&gt; Maybe POSIX)
 -&gt; (OutgoingCertificate -&gt; Maybe POSIX -&gt; OutgoingCertificate)
 -&gt; Lens
      OutgoingCertificate OutgoingCertificate (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#OutgoingCertificate%27"><span class="hs-identifier hs-type">OutgoingCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679790881"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#OutgoingCertificate%27"><span class="hs-identifier hs-type">OutgoingCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679791736"><span class="annot"><span class="annottext">Maybe POSIX
 creationDate :: Maybe POSIX
 $sel:creationDate:OutgoingCertificate' :: OutgoingCertificate -&gt; Maybe POSIX
-</span><a href="#local-6989586621679790881"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679790881"><span class="hs-identifier hs-var">creationDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679790880"><span class="annot"><span class="annottext">s :: OutgoingCertificate
-</span><a href="#local-6989586621679790880"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#OutgoingCertificate%27"><span class="hs-identifier hs-type">OutgoingCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679790879"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679790879"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutgoingCertificate
-</span><a href="#local-6989586621679790880"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationDate:OutgoingCertificate' :: Maybe POSIX
+</span><a href="#local-6989586621679791736"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679791736"><span class="hs-identifier hs-var">creationDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679791735"><span class="annot"><span class="annottext">s :: OutgoingCertificate
+</span><a href="#local-6989586621679791735"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#OutgoingCertificate%27"><span class="hs-identifier hs-type">OutgoingCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679791734"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679791734"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutgoingCertificate
+</span><a href="#local-6989586621679791735"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationDate:OutgoingCertificate' :: Maybe POSIX
 </span><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#%24sel%3AcreationDate%3AOutgoingCertificate%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679790879"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#OutgoingCertificate"><span class="hs-identifier hs-type">OutgoingCertificate</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679791734"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#OutgoingCertificate"><span class="hs-identifier hs-type">OutgoingCertificate</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; OutgoingCertificate -&gt; f OutgoingCertificate)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -268,49 +288,29 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- | The Amazon Web Services account to which the transfer was made.</span><span>
-</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#outgoingCertificate_transferredTo"><span class="hs-identifier hs-type">outgoingCertificate_transferredTo</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#OutgoingCertificate"><span class="hs-identifier hs-type">OutgoingCertificate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-95"></span><span id="outgoingCertificate_transferredTo"><span class="annot"><span class="annottext">outgoingCertificate_transferredTo :: (Maybe Text -&gt; f (Maybe Text))
--&gt; OutgoingCertificate -&gt; f OutgoingCertificate
-</span><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#outgoingCertificate_transferredTo"><span class="hs-identifier hs-var hs-var">outgoingCertificate_transferredTo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OutgoingCertificate -&gt; Maybe Text)
--&gt; (OutgoingCertificate -&gt; Maybe Text -&gt; OutgoingCertificate)
--&gt; Lens
-     OutgoingCertificate OutgoingCertificate (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#OutgoingCertificate%27"><span class="hs-identifier hs-type">OutgoingCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679790877"><span class="annot"><span class="annottext">Maybe Text
-transferredTo :: Maybe Text
-$sel:transferredTo:OutgoingCertificate' :: OutgoingCertificate -&gt; Maybe Text
-</span><a href="#local-6989586621679790877"><span class="hs-identifier hs-var hs-var">transferredTo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679790877"><span class="hs-identifier hs-var">transferredTo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679790876"><span class="annot"><span class="annottext">s :: OutgoingCertificate
-</span><a href="#local-6989586621679790876"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#OutgoingCertificate%27"><span class="hs-identifier hs-type">OutgoingCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679790875"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679790875"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutgoingCertificate
-</span><a href="#local-6989586621679790876"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transferredTo:OutgoingCertificate' :: Maybe Text
-</span><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#%24sel%3AtransferredTo%3AOutgoingCertificate%27"><span class="hs-identifier hs-var">transferredTo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679790875"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#OutgoingCertificate"><span class="hs-identifier hs-type">OutgoingCertificate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- | The certificate ID.</span><span>
-</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#outgoingCertificate_certificateId"><span class="hs-identifier hs-type">outgoingCertificate_certificateId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#OutgoingCertificate"><span class="hs-identifier hs-type">OutgoingCertificate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-99"></span><span id="outgoingCertificate_certificateId"><span class="annot"><span class="annottext">outgoingCertificate_certificateId :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-97"></span><span class="hs-comment">-- | The transfer message.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#outgoingCertificate_transferMessage"><span class="hs-identifier hs-type">outgoingCertificate_transferMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#OutgoingCertificate"><span class="hs-identifier hs-type">OutgoingCertificate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="outgoingCertificate_transferMessage"><span class="annot"><span class="annottext">outgoingCertificate_transferMessage :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; OutgoingCertificate -&gt; f OutgoingCertificate
-</span><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#outgoingCertificate_certificateId"><span class="hs-identifier hs-var hs-var">outgoingCertificate_certificateId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OutgoingCertificate -&gt; Maybe Text)
+</span><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#outgoingCertificate_transferMessage"><span class="hs-identifier hs-var hs-var">outgoingCertificate_transferMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OutgoingCertificate -&gt; Maybe Text)
 -&gt; (OutgoingCertificate -&gt; Maybe Text -&gt; OutgoingCertificate)
 -&gt; Lens
      OutgoingCertificate OutgoingCertificate (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#OutgoingCertificate%27"><span class="hs-identifier hs-type">OutgoingCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679790873"><span class="annot"><span class="annottext">Maybe Text
-certificateId :: Maybe Text
-$sel:certificateId:OutgoingCertificate' :: OutgoingCertificate -&gt; Maybe Text
-</span><a href="#local-6989586621679790873"><span class="hs-identifier hs-var hs-var">certificateId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679790873"><span class="hs-identifier hs-var">certificateId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679790872"><span class="annot"><span class="annottext">s :: OutgoingCertificate
-</span><a href="#local-6989586621679790872"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#OutgoingCertificate%27"><span class="hs-identifier hs-type">OutgoingCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679790871"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679790871"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutgoingCertificate
-</span><a href="#local-6989586621679790872"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateId:OutgoingCertificate' :: Maybe Text
-</span><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#%24sel%3AcertificateId%3AOutgoingCertificate%27"><span class="hs-identifier hs-var">certificateId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679790871"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#OutgoingCertificate"><span class="hs-identifier hs-type">OutgoingCertificate</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#OutgoingCertificate%27"><span class="hs-identifier hs-type">OutgoingCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679791732"><span class="annot"><span class="annottext">Maybe Text
+transferMessage :: Maybe Text
+$sel:transferMessage:OutgoingCertificate' :: OutgoingCertificate -&gt; Maybe Text
+</span><a href="#local-6989586621679791732"><span class="hs-identifier hs-var hs-var">transferMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679791732"><span class="hs-identifier hs-var">transferMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679791731"><span class="annot"><span class="annottext">s :: OutgoingCertificate
+</span><a href="#local-6989586621679791731"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#OutgoingCertificate%27"><span class="hs-identifier hs-type">OutgoingCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679791730"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679791730"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutgoingCertificate
+</span><a href="#local-6989586621679791731"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transferMessage:OutgoingCertificate' :: Maybe Text
+</span><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#%24sel%3AtransferMessage%3AOutgoingCertificate%27"><span class="hs-identifier hs-var">transferMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679791730"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#OutgoingCertificate"><span class="hs-identifier hs-type">OutgoingCertificate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679790868"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#OutgoingCertificate"><span class="hs-identifier hs-type">OutgoingCertificate</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679790866"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser OutgoingCertificate
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679791727"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#OutgoingCertificate"><span class="hs-identifier hs-type">OutgoingCertificate</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679791725"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser OutgoingCertificate
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser OutgoingCertificate)
@@ -320,96 +320,96 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;OutgoingCertificate&quot;</span></span><span>
-</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679790863"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679790863"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679791722"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679791722"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-106"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
 -&gt; Maybe Text
 -&gt; Maybe Text
--&gt; Maybe POSIX
 -&gt; Maybe Text
+-&gt; Maybe POSIX
 -&gt; Maybe Text
 -&gt; OutgoingCertificate
 </span><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#OutgoingCertificate%27"><span class="hs-identifier hs-var">OutgoingCertificate'</span></a></span><span>
 </span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
  -&gt; Maybe Text
  -&gt; Maybe Text
- -&gt; Maybe POSIX
  -&gt; Maybe Text
+ -&gt; Maybe POSIX
  -&gt; Maybe Text
  -&gt; OutgoingCertificate)
 -&gt; Parser (Maybe POSIX)
 -&gt; Parser
      (Maybe Text
       -&gt; Maybe Text
-      -&gt; Maybe POSIX
       -&gt; Maybe Text
+      -&gt; Maybe POSIX
       -&gt; Maybe Text
       -&gt; OutgoingCertificate)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679790863"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679791722"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;transferDate&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
    -&gt; Maybe Text
-   -&gt; Maybe POSIX
    -&gt; Maybe Text
+   -&gt; Maybe POSIX
    -&gt; Maybe Text
    -&gt; OutgoingCertificate)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
      (Maybe Text
-      -&gt; Maybe POSIX -&gt; Maybe Text -&gt; Maybe Text -&gt; OutgoingCertificate)
+      -&gt; Maybe Text -&gt; Maybe POSIX -&gt; Maybe Text -&gt; OutgoingCertificate)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679790863"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679791722"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;certificateArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
-   -&gt; Maybe POSIX -&gt; Maybe Text -&gt; Maybe Text -&gt; OutgoingCertificate)
+   -&gt; Maybe Text -&gt; Maybe POSIX -&gt; Maybe Text -&gt; OutgoingCertificate)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
-     (Maybe POSIX -&gt; Maybe Text -&gt; Maybe Text -&gt; OutgoingCertificate)
+     (Maybe Text -&gt; Maybe POSIX -&gt; Maybe Text -&gt; OutgoingCertificate)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679790863"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679791722"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;transferMessage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;certificateId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe POSIX -&gt; Maybe Text -&gt; Maybe Text -&gt; OutgoingCertificate)
--&gt; Parser (Maybe POSIX)
--&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; OutgoingCertificate)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679790863"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;creationDate&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; OutgoingCertificate)
+  (Maybe Text -&gt; Maybe POSIX -&gt; Maybe Text -&gt; OutgoingCertificate)
 -&gt; Parser (Maybe Text)
--&gt; Parser (Maybe Text -&gt; OutgoingCertificate)
+-&gt; Parser (Maybe POSIX -&gt; Maybe Text -&gt; OutgoingCertificate)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679790863"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679791722"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;transferredTo&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; Maybe Text -&gt; OutgoingCertificate)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser (Maybe Text -&gt; OutgoingCertificate)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679791722"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;creationDate&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; OutgoingCertificate)
 -&gt; Parser (Maybe Text) -&gt; Parser OutgoingCertificate
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679790863"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679791722"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;certificateId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;transferMessage&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679790857"><span id="local-6989586621679790859"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#OutgoingCertificate"><span class="hs-identifier hs-type">OutgoingCertificate</span></a></span></span></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679791716"><span id="local-6989586621679791718"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#OutgoingCertificate"><span class="hs-identifier hs-type">OutgoingCertificate</span></a></span></span></span><span>
 </span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679790854"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#OutgoingCertificate"><span class="hs-identifier hs-type">OutgoingCertificate</span></a></span></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679791713"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.OutgoingCertificate.html#OutgoingCertificate"><span class="hs-identifier hs-type">OutgoingCertificate</span></a></span></span><span>
 </span><span id="line-118"></span></pre></body></html>

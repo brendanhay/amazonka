@@ -15,37 +15,37 @@
 </span><span id="line-15"></span><span>
 </span><span id="line-16"></span><span class="hs-comment">-- Resides here since it's unsafe without the use of enforceChunks,</span><span>
 </span><span id="line-17"></span><span class="hs-comment">-- which incurs extra dependencies not desired in core.</span><span>
-</span><span id="line-18"></span><span class="hs-keyword">class</span><span> </span><span id="ToChunkedBody"><span class="annot"><a href="Network.AWS.S3.Encryption.Body.html#ToChunkedBody"><span class="hs-identifier hs-var">ToChunkedBody</span></a></span></span><span> </span><span id="local-6989586621679167316"><span class="annot"><a href="#local-6989586621679167316"><span class="hs-identifier hs-type">a</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-19"></span><span>  </span><span id="toChunked"><span class="annot"><a href="Network.AWS.S3.Encryption.Body.html#toChunked"><span class="hs-identifier hs-type">toChunked</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="#local-6989586621679167316"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">ChunkedBody</span></span><span>
+</span><span id="line-18"></span><span class="hs-keyword">class</span><span> </span><span id="ToChunkedBody"><span class="annot"><a href="Network.AWS.S3.Encryption.Body.html#ToChunkedBody"><span class="hs-identifier hs-var">ToChunkedBody</span></a></span></span><span> </span><span id="local-6989586621679167315"><span class="annot"><a href="#local-6989586621679167315"><span class="hs-identifier hs-type">a</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-19"></span><span>  </span><span id="toChunked"><span class="annot"><a href="Network.AWS.S3.Encryption.Body.html#toChunked"><span class="hs-identifier hs-type">toChunked</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="#local-6989586621679167315"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">ChunkedBody</span></span><span>
 </span><span id="line-20"></span><span>
 </span><span id="line-21"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.S3.Encryption.Body.html#ToChunkedBody"><span class="hs-identifier hs-type">ToChunkedBody</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">ChunkedBody</span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-22"></span><span>  </span><span id="local-6989586621679167278"><span class="annot"><span class="annottext">toChunked :: ChunkedBody -&gt; ChunkedBody
-</span><a href="#local-6989586621679167278"><span class="hs-identifier hs-var hs-var hs-var hs-var">toChunked</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ChunkedBody -&gt; ChunkedBody
+</span><span id="line-22"></span><span>  </span><span id="local-6989586621679167277"><span class="annot"><span class="annottext">toChunked :: ChunkedBody -&gt; ChunkedBody
+</span><a href="#local-6989586621679167277"><span class="hs-identifier hs-var hs-var hs-var hs-var">toChunked</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ChunkedBody -&gt; ChunkedBody
 forall a. a -&gt; a
 </span><span class="hs-identifier hs-var">id</span></span><span>
 </span><span id="line-23"></span><span>
 </span><span id="line-24"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.S3.Encryption.Body.html#ToChunkedBody"><span class="hs-identifier hs-type">ToChunkedBody</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">HashedBody</span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-25"></span><span>  </span><span id="local-6989586621679167275"><span class="annot"><span class="annottext">toChunked :: HashedBody -&gt; ChunkedBody
-</span><a href="#local-6989586621679167275"><span class="hs-identifier hs-var hs-var hs-var hs-var">toChunked</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-glyph">\</span><span class="hs-glyph">case</span><span>
+</span><span id="line-25"></span><span>  </span><span id="local-6989586621679167274"><span class="annot"><span class="annottext">toChunked :: HashedBody -&gt; ChunkedBody
+</span><a href="#local-6989586621679167274"><span class="hs-identifier hs-var hs-var hs-var hs-var">toChunked</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-glyph">\</span><span class="hs-glyph">case</span><span>
 </span><span id="line-26"></span><span>    </span><span class="annot"><span class="hs-identifier hs-type">HashedStream</span></span><span> </span><span class="annot"><span class="annottext">Digest SHA256
-</span><span class="hs-identifier">_</span></span><span> </span><span id="local-6989586621679167273"><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679167273"><span class="hs-identifier hs-var">n</span></a></span></span><span> </span><span id="local-6989586621679167272"><span class="annot"><span class="annottext">ConduitM () ByteString (ResourceT IO) ()
-</span><a href="#local-6989586621679167272"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer -&gt; ConduitM () ByteString (ResourceT IO) () -&gt; ChunkedBody
+</span><span class="hs-identifier">_</span></span><span> </span><span id="local-6989586621679167272"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679167272"><span class="hs-identifier hs-var">n</span></a></span></span><span> </span><span id="local-6989586621679167271"><span class="annot"><span class="annottext">ConduitM () ByteString (ResourceT IO) ()
+</span><a href="#local-6989586621679167271"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer -&gt; ConduitM () ByteString (ResourceT IO) () -&gt; ChunkedBody
 forall a.
 Integral a =&gt;
 a -&gt; ConduitM () ByteString (ResourceT IO) () -&gt; ChunkedBody
 </span><a href="Network.AWS.S3.Encryption.Body.html#enforceChunks"><span class="hs-identifier hs-var">enforceChunks</span></a></span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679167273"><span class="hs-identifier hs-var">n</span></a></span><span> </span><span class="annot"><span class="annottext">ConduitM () ByteString (ResourceT IO) ()
-</span><a href="#local-6989586621679167272"><span class="hs-identifier hs-var">s</span></a></span><span>
+</span><a href="#local-6989586621679167272"><span class="hs-identifier hs-var">n</span></a></span><span> </span><span class="annot"><span class="annottext">ConduitM () ByteString (ResourceT IO) ()
+</span><a href="#local-6989586621679167271"><span class="hs-identifier hs-var">s</span></a></span><span>
 </span><span id="line-27"></span><span>    </span><span class="annot"><span class="hs-identifier hs-type">HashedBytes</span></span><span> </span><span class="annot"><span class="annottext">Digest SHA256
-</span><span class="hs-identifier">_</span></span><span> </span><span id="local-6989586621679167269"><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679167269"><span class="hs-identifier hs-var">b</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int -&gt; ConduitM () ByteString (ResourceT IO) () -&gt; ChunkedBody
+</span><span class="hs-identifier">_</span></span><span> </span><span id="local-6989586621679167268"><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679167268"><span class="hs-identifier hs-var">b</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int -&gt; ConduitM () ByteString (ResourceT IO) () -&gt; ChunkedBody
 forall a.
 Integral a =&gt;
 a -&gt; ConduitM () ByteString (ResourceT IO) () -&gt; ChunkedBody
 </span><a href="Network.AWS.S3.Encryption.Body.html#enforceChunks"><span class="hs-identifier hs-var">enforceChunks</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; Int
 </span><span class="hs-identifier hs-var">BS.length</span></span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679167269"><span class="hs-identifier hs-var">b</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">(ByteString -&gt; ConduitM () ByteString (ResourceT IO) ())
+</span><a href="#local-6989586621679167268"><span class="hs-identifier hs-var">b</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">(ByteString -&gt; ConduitM () ByteString (ResourceT IO) ())
 -&gt; [ByteString] -&gt; ConduitM () ByteString (ResourceT IO) ()
 forall (t :: * -&gt; *) (m :: * -&gt; *) a b.
 (Foldable t, Monad m) =&gt;
@@ -53,29 +53,29 @@ forall (t :: * -&gt; *) (m :: * -&gt; *) a b.
 </span><span class="hs-identifier hs-var">mapM_</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ConduitM () ByteString (ResourceT IO) ()
 forall (m :: * -&gt; *) o i. Monad m =&gt; o -&gt; ConduitT i o m ()
 </span><span class="hs-identifier hs-var">Conduit.yield</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679167269"><span class="hs-identifier hs-var">b</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679167268"><span class="hs-identifier hs-var">b</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
 </span><span id="line-28"></span><span>
 </span><span id="line-29"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.S3.Encryption.Body.html#ToChunkedBody"><span class="hs-identifier hs-type">ToChunkedBody</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">RequestBody</span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-30"></span><span>  </span><span id="local-6989586621679167264"><span class="annot"><span class="annottext">toChunked :: RequestBody -&gt; ChunkedBody
-</span><a href="#local-6989586621679167264"><span class="hs-identifier hs-var hs-var hs-var hs-var">toChunked</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-glyph">\</span><span class="hs-glyph">case</span><span>
-</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-identifier hs-type">Chunked</span></span><span> </span><span id="local-6989586621679167262"><span class="annot"><span class="annottext">ChunkedBody
-</span><a href="#local-6989586621679167262"><span class="hs-identifier hs-var">c</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChunkedBody
-</span><a href="#local-6989586621679167262"><span class="hs-identifier hs-var">c</span></a></span><span>
-</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-identifier hs-type">Hashed</span></span><span> </span><span id="local-6989586621679167260"><span class="annot"><span class="annottext">HashedBody
-</span><a href="#local-6989586621679167260"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashedBody -&gt; ChunkedBody
+</span><span id="line-30"></span><span>  </span><span id="local-6989586621679167263"><span class="annot"><span class="annottext">toChunked :: RequestBody -&gt; ChunkedBody
+</span><a href="#local-6989586621679167263"><span class="hs-identifier hs-var hs-var hs-var hs-var">toChunked</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-glyph">\</span><span class="hs-glyph">case</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-identifier hs-type">Chunked</span></span><span> </span><span id="local-6989586621679167261"><span class="annot"><span class="annottext">ChunkedBody
+</span><a href="#local-6989586621679167261"><span class="hs-identifier hs-var">c</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChunkedBody
+</span><a href="#local-6989586621679167261"><span class="hs-identifier hs-var">c</span></a></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-identifier hs-type">Hashed</span></span><span> </span><span id="local-6989586621679167259"><span class="annot"><span class="annottext">HashedBody
+</span><a href="#local-6989586621679167259"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashedBody -&gt; ChunkedBody
 forall a. ToChunkedBody a =&gt; a -&gt; ChunkedBody
 </span><a href="Network.AWS.S3.Encryption.Body.html#toChunked"><span class="hs-identifier hs-var">toChunked</span></a></span><span> </span><span class="annot"><span class="annottext">HashedBody
-</span><a href="#local-6989586621679167260"><span class="hs-identifier hs-var">h</span></a></span><span>
+</span><a href="#local-6989586621679167259"><span class="hs-identifier hs-var">h</span></a></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621679167308"><span class="annot"><a href="Network.AWS.S3.Encryption.Body.html#enforceChunks"><span class="hs-identifier hs-type">enforceChunks</span></a></span><span> </span><span class="hs-glyph">::</span><span>
-</span><span id="line-35"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Integral</span></span><span> </span><span class="annot"><a href="#local-6989586621679167308"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span>
-</span><span id="line-36"></span><span>  </span><span class="annot"><a href="#local-6989586621679167308"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-34"></span><span id="local-6989586621679167307"><span class="annot"><a href="Network.AWS.S3.Encryption.Body.html#enforceChunks"><span class="hs-identifier hs-type">enforceChunks</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Integral</span></span><span> </span><span class="annot"><a href="#local-6989586621679167307"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span>
+</span><span id="line-36"></span><span>  </span><span class="annot"><a href="#local-6989586621679167307"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-37"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Conduit.ConduitT</span></span><span> </span><span class="hs-special">(</span><span class="hs-special">)</span><span> </span><span class="annot"><span class="hs-identifier hs-type">ByteString</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Conduit.ResourceT</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">IO</span></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-special">)</span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-38"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">ChunkedBody</span></span></span><span>
 </span><span id="line-39"></span><span id="enforceChunks"><span class="annot"><span class="annottext">enforceChunks :: a -&gt; ConduitM () ByteString (ResourceT IO) () -&gt; ChunkedBody
-</span><a href="Network.AWS.S3.Encryption.Body.html#enforceChunks"><span class="hs-identifier hs-var hs-var">enforceChunks</span></a></span></span><span> </span><span id="local-6989586621679167259"><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679167259"><span class="hs-identifier hs-var">size</span></a></span></span><span> </span><span id="local-6989586621679167258"><span class="annot"><span class="annottext">ConduitM () ByteString (ResourceT IO) ()
-</span><a href="#local-6989586621679167258"><span class="hs-identifier hs-var">c</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.S3.Encryption.Body.html#enforceChunks"><span class="hs-identifier hs-var hs-var">enforceChunks</span></a></span></span><span> </span><span id="local-6989586621679167258"><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679167258"><span class="hs-identifier hs-var">size</span></a></span></span><span> </span><span id="local-6989586621679167257"><span class="annot"><span class="annottext">ConduitM () ByteString (ResourceT IO) ()
+</span><a href="#local-6989586621679167257"><span class="hs-identifier hs-var">c</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-40"></span><span>  </span><span class="annot"><span class="annottext">ChunkSize
 -&gt; Integer
 -&gt; ConduitM () ByteString (ResourceT IO) ()
@@ -84,12 +84,12 @@ forall a. ToChunkedBody a =&gt; a -&gt; ChunkedBody
 </span><span class="hs-identifier hs-var">defaultChunkSize</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; Integer
 forall a b. (Integral a, Num b) =&gt; a -&gt; b
 </span><span class="hs-identifier hs-var">fromIntegral</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679167259"><span class="hs-identifier hs-var">size</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ConduitM () ByteString (ResourceT IO) () -&gt; ChunkedBody)
+</span><a href="#local-6989586621679167258"><span class="hs-identifier hs-var">size</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ConduitM () ByteString (ResourceT IO) () -&gt; ChunkedBody)
 -&gt; ConduitM () ByteString (ResourceT IO) () -&gt; ChunkedBody
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">$</span></span><span>
 </span><span id="line-41"></span><span>    </span><span class="annot"><span class="annottext">ConduitM () ByteString (ResourceT IO) ()
-</span><a href="#local-6989586621679167258"><span class="hs-identifier hs-var">c</span></a></span><span> </span><span class="annot"><span class="annottext">ConduitM () ByteString (ResourceT IO) ()
+</span><a href="#local-6989586621679167257"><span class="hs-identifier hs-var">c</span></a></span><span> </span><span class="annot"><span class="annottext">ConduitM () ByteString (ResourceT IO) ()
 -&gt; ConduitM ByteString ByteString (ResourceT IO) ()
 -&gt; ConduitM () ByteString (ResourceT IO) ()
 forall (m :: * -&gt; *) a b c r.

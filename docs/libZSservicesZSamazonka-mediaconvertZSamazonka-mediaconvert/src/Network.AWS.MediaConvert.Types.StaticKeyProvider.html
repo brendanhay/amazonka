@@ -26,26 +26,26 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Use these settings to set up encryption with a static key provider.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newStaticKeyProvider' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621680001008"><span id="local-6989586621680001009"></span></span><span class="hs-keyword">data</span><span> </span><span id="StaticKeyProvider"><span class="annot"><a href="Network.AWS.MediaConvert.Types.StaticKeyProvider.html#StaticKeyProvider"><span class="hs-identifier hs-var">StaticKeyProvider</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StaticKeyProvider%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.StaticKeyProvider.html#StaticKeyProvider%27"><span class="hs-identifier hs-var">StaticKeyProvider'</span></a></span></span><span>
-</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Relates to DRM implementation. Sets the value of the KEYFORMAT</span><span>
-</span><span id="line-31"></span><span>    </span><span class="hs-comment">-- attribute. Must be \'identity\' or a reverse DNS string. May be omitted</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- to indicate an implicit value of \'identity\'.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AkeyFormat%3AStaticKeyProvider%27"><span class="annot"><span class="annottext">StaticKeyProvider -&gt; Maybe Text
-</span><a href="Network.AWS.MediaConvert.Types.StaticKeyProvider.html#%24sel%3AkeyFormat%3AStaticKeyProvider%27"><span class="hs-identifier hs-var hs-var">keyFormat</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | Relates to DRM implementation. Use a 32-character hexidecimal string to</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- specify Key Value (StaticKeyValue).</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AstaticKeyValue%3AStaticKeyProvider%27"><span class="annot"><span class="annottext">StaticKeyProvider -&gt; Maybe Text
+</span><span id="line-29"></span><span id="local-6989586621680005936"><span id="local-6989586621680005937"></span></span><span class="hs-keyword">data</span><span> </span><span id="StaticKeyProvider"><span class="annot"><a href="Network.AWS.MediaConvert.Types.StaticKeyProvider.html#StaticKeyProvider"><span class="hs-identifier hs-var">StaticKeyProvider</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StaticKeyProvider%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.StaticKeyProvider.html#StaticKeyProvider%27"><span class="hs-identifier hs-var">StaticKeyProvider'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Relates to DRM implementation. Use a 32-character hexidecimal string to</span><span>
+</span><span id="line-31"></span><span>    </span><span class="hs-comment">-- specify Key Value (StaticKeyValue).</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AstaticKeyValue%3AStaticKeyProvider%27"><span class="annot"><span class="annottext">StaticKeyProvider -&gt; Maybe Text
 </span><a href="Network.AWS.MediaConvert.Types.StaticKeyProvider.html#%24sel%3AstaticKeyValue%3AStaticKeyProvider%27"><span class="hs-identifier hs-var hs-var">staticKeyValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | Relates to DRM implementation. The location of the license server used</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- for protecting content.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3Aurl%3AStaticKeyProvider%27"><span class="annot"><span class="annottext">StaticKeyProvider -&gt; Maybe Text
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | Relates to DRM implementation. The location of the license server used</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- for protecting content.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Aurl%3AStaticKeyProvider%27"><span class="annot"><span class="annottext">StaticKeyProvider -&gt; Maybe Text
 </span><a href="Network.AWS.MediaConvert.Types.StaticKeyProvider.html#%24sel%3Aurl%3AStaticKeyProvider%27"><span class="hs-identifier hs-var hs-var">url</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Relates to DRM implementation. Sets the value of the KEYFORMAT</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- attribute. Must be \'identity\' or a reverse DNS string. May be omitted</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- to indicate an implicit value of \'identity\'.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AkeyFormat%3AStaticKeyProvider%27"><span class="annot"><span class="annottext">StaticKeyProvider -&gt; Maybe Text
+</span><a href="Network.AWS.MediaConvert.Types.StaticKeyProvider.html#%24sel%3AkeyFormat%3AStaticKeyProvider%27"><span class="hs-identifier hs-var hs-var">keyFormat</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | Relates to DRM implementation. Either a single positive integer version</span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-comment">-- value or a slash delimited list of version values (1\/2\/3).</span><span>
 </span><span id="line-42"></span><span>    </span><span id="%24sel%3AkeyFormatVersions%3AStaticKeyProvider%27"><span class="annot"><span class="annottext">StaticKeyProvider -&gt; Maybe Text
 </span><a href="Network.AWS.MediaConvert.Types.StaticKeyProvider.html#%24sel%3AkeyFormatVersions%3AStaticKeyProvider%27"><span class="hs-identifier hs-var hs-var">keyFormatVersions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680000999"><span id="local-6989586621680001001"><span class="annot"><span class="annottext">StaticKeyProvider -&gt; StaticKeyProvider -&gt; Bool
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680005927"><span id="local-6989586621680005929"><span class="annot"><span class="annottext">StaticKeyProvider -&gt; StaticKeyProvider -&gt; Bool
 (StaticKeyProvider -&gt; StaticKeyProvider -&gt; Bool)
 -&gt; (StaticKeyProvider -&gt; StaticKeyProvider -&gt; Bool)
 -&gt; Eq StaticKeyProvider
@@ -54,7 +54,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StaticKeyProvider -&gt; StaticKeyProvider -&gt; Bool
 == :: StaticKeyProvider -&gt; StaticKeyProvider -&gt; Bool
 $c== :: StaticKeyProvider -&gt; StaticKeyProvider -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680000990"><span id="local-6989586621680000992"><span id="local-6989586621680000994"><span id="local-6989586621680000996"><span class="annot"><span class="annottext">ReadPrec [StaticKeyProvider]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680005918"><span id="local-6989586621680005920"><span id="local-6989586621680005922"><span id="local-6989586621680005924"><span class="annot"><span class="annottext">ReadPrec [StaticKeyProvider]
 ReadPrec StaticKeyProvider
 Int -&gt; ReadS StaticKeyProvider
 ReadS [StaticKeyProvider]
@@ -74,7 +74,7 @@ readList :: ReadS [StaticKeyProvider]
 $creadList :: ReadS [StaticKeyProvider]
 readsPrec :: Int -&gt; ReadS StaticKeyProvider
 $creadsPrec :: Int -&gt; ReadS StaticKeyProvider
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680000983"><span id="local-6989586621680000985"><span id="local-6989586621680000987"><span class="annot"><span class="annottext">Int -&gt; StaticKeyProvider -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680005911"><span id="local-6989586621680005913"><span id="local-6989586621680005915"><span class="annot"><span class="annottext">Int -&gt; StaticKeyProvider -&gt; ShowS
 [StaticKeyProvider] -&gt; ShowS
 StaticKeyProvider -&gt; String
 (Int -&gt; StaticKeyProvider -&gt; ShowS)
@@ -108,15 +108,15 @@ $cfrom :: forall x. StaticKeyProvider -&gt; Rep StaticKeyProvider x
 </span><span id="line-51"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-53"></span><span class="hs-comment">--</span><span>
-</span><span id="line-54"></span><span class="hs-comment">-- 'keyFormat', 'staticKeyProvider_keyFormat' - Relates to DRM implementation. Sets the value of the KEYFORMAT</span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- attribute. Must be \'identity\' or a reverse DNS string. May be omitted</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- to indicate an implicit value of \'identity\'.</span><span>
-</span><span id="line-57"></span><span class="hs-comment">--</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- 'staticKeyValue', 'staticKeyProvider_staticKeyValue' - Relates to DRM implementation. Use a 32-character hexidecimal string to</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- specify Key Value (StaticKeyValue).</span><span>
-</span><span id="line-60"></span><span class="hs-comment">--</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- 'url', 'staticKeyProvider_url' - Relates to DRM implementation. The location of the license server used</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- for protecting content.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'staticKeyValue', 'staticKeyProvider_staticKeyValue' - Relates to DRM implementation. Use a 32-character hexidecimal string to</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- specify Key Value (StaticKeyValue).</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'url', 'staticKeyProvider_url' - Relates to DRM implementation. The location of the license server used</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- for protecting content.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'keyFormat', 'staticKeyProvider_keyFormat' - Relates to DRM implementation. Sets the value of the KEYFORMAT</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- attribute. Must be \'identity\' or a reverse DNS string. May be omitted</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- to indicate an implicit value of \'identity\'.</span><span>
 </span><span id="line-63"></span><span class="hs-comment">--</span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- 'keyFormatVersions', 'staticKeyProvider_keyFormatVersions' - Relates to DRM implementation. Either a single positive integer version</span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- value or a slash delimited list of version values (1\/2\/3).</span><span>
@@ -127,215 +127,216 @@ $cfrom :: forall x. StaticKeyProvider -&gt; Rep StaticKeyProvider x
 </span><span id="line-69"></span><span>  </span><span class="annot"><span class="annottext">StaticKeyProvider' :: Maybe Text
 -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; StaticKeyProvider
 </span><a href="Network.AWS.MediaConvert.Types.StaticKeyProvider.html#StaticKeyProvider%27"><span class="hs-identifier hs-type">StaticKeyProvider'</span></a></span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:keyFormat:StaticKeyProvider' :: Maybe Text
-</span><a href="Network.AWS.MediaConvert.Types.StaticKeyProvider.html#%24sel%3AkeyFormat%3AStaticKeyProvider%27"><span class="hs-identifier hs-var">keyFormat</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:staticKeyValue:StaticKeyProvider' :: Maybe Text
-</span><a href="Network.AWS.MediaConvert.Types.StaticKeyProvider.html#%24sel%3AstaticKeyValue%3AStaticKeyProvider%27"><span class="hs-identifier hs-var">staticKeyValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-70"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:staticKeyValue:StaticKeyProvider' :: Maybe Text
+</span><a href="Network.AWS.MediaConvert.Types.StaticKeyProvider.html#%24sel%3AstaticKeyValue%3AStaticKeyProvider%27"><span class="hs-identifier hs-var">staticKeyValue</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-71"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:url:StaticKeyProvider' :: Maybe Text
 </span><a href="Network.AWS.MediaConvert.Types.StaticKeyProvider.html#%24sel%3Aurl%3AStaticKeyProvider%27"><span class="hs-identifier hs-var">url</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:keyFormatVersions:StaticKeyProvider' :: Maybe Text
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:keyFormat:StaticKeyProvider' :: Maybe Text
+</span><a href="Network.AWS.MediaConvert.Types.StaticKeyProvider.html#%24sel%3AkeyFormat%3AStaticKeyProvider%27"><span class="hs-identifier hs-var">keyFormat</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:keyFormatVersions:StaticKeyProvider' :: Maybe Text
 </span><a href="Network.AWS.MediaConvert.Types.StaticKeyProvider.html#%24sel%3AkeyFormatVersions%3AStaticKeyProvider%27"><span class="hs-identifier hs-var">keyFormatVersions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-74"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- | Relates to DRM implementation. Sets the value of the KEYFORMAT</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- attribute. Must be \'identity\' or a reverse DNS string. May be omitted</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- to indicate an implicit value of \'identity\'.</span><span>
-</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.StaticKeyProvider.html#staticKeyProvider_keyFormat"><span class="hs-identifier hs-type">staticKeyProvider_keyFormat</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.StaticKeyProvider.html#StaticKeyProvider"><span class="hs-identifier hs-type">StaticKeyProvider</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-80"></span><span id="staticKeyProvider_keyFormat"><span class="annot"><span class="annottext">staticKeyProvider_keyFormat :: (Maybe Text -&gt; f (Maybe Text))
--&gt; StaticKeyProvider -&gt; f StaticKeyProvider
-</span><a href="Network.AWS.MediaConvert.Types.StaticKeyProvider.html#staticKeyProvider_keyFormat"><span class="hs-identifier hs-var hs-var">staticKeyProvider_keyFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StaticKeyProvider -&gt; Maybe Text)
--&gt; (StaticKeyProvider -&gt; Maybe Text -&gt; StaticKeyProvider)
--&gt; Lens
-     StaticKeyProvider StaticKeyProvider (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.StaticKeyProvider.html#StaticKeyProvider%27"><span class="hs-identifier hs-type">StaticKeyProvider'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680000974"><span class="annot"><span class="annottext">Maybe Text
-keyFormat :: Maybe Text
-$sel:keyFormat:StaticKeyProvider' :: StaticKeyProvider -&gt; Maybe Text
-</span><a href="#local-6989586621680000974"><span class="hs-identifier hs-var hs-var">keyFormat</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680000974"><span class="hs-identifier hs-var">keyFormat</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680000973"><span class="annot"><span class="annottext">s :: StaticKeyProvider
-</span><a href="#local-6989586621680000973"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.StaticKeyProvider.html#StaticKeyProvider%27"><span class="hs-identifier hs-type">StaticKeyProvider'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680000972"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680000972"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StaticKeyProvider
-</span><a href="#local-6989586621680000973"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyFormat:StaticKeyProvider' :: Maybe Text
-</span><a href="Network.AWS.MediaConvert.Types.StaticKeyProvider.html#%24sel%3AkeyFormat%3AStaticKeyProvider%27"><span class="hs-identifier hs-var">keyFormat</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680000972"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.StaticKeyProvider.html#StaticKeyProvider"><span class="hs-identifier hs-type">StaticKeyProvider</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- | Relates to DRM implementation. Use a 32-character hexidecimal string to</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- specify Key Value (StaticKeyValue).</span><span>
-</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.StaticKeyProvider.html#staticKeyProvider_staticKeyValue"><span class="hs-identifier hs-type">staticKeyProvider_staticKeyValue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.StaticKeyProvider.html#StaticKeyProvider"><span class="hs-identifier hs-type">StaticKeyProvider</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-85"></span><span id="staticKeyProvider_staticKeyValue"><span class="annot"><span class="annottext">staticKeyProvider_staticKeyValue :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-75"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | Relates to DRM implementation. Use a 32-character hexidecimal string to</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- specify Key Value (StaticKeyValue).</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.StaticKeyProvider.html#staticKeyProvider_staticKeyValue"><span class="hs-identifier hs-type">staticKeyProvider_staticKeyValue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.StaticKeyProvider.html#StaticKeyProvider"><span class="hs-identifier hs-type">StaticKeyProvider</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span id="staticKeyProvider_staticKeyValue"><span class="annot"><span class="annottext">staticKeyProvider_staticKeyValue :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; StaticKeyProvider -&gt; f StaticKeyProvider
 </span><a href="Network.AWS.MediaConvert.Types.StaticKeyProvider.html#staticKeyProvider_staticKeyValue"><span class="hs-identifier hs-var hs-var">staticKeyProvider_staticKeyValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StaticKeyProvider -&gt; Maybe Text)
 -&gt; (StaticKeyProvider -&gt; Maybe Text -&gt; StaticKeyProvider)
 -&gt; Lens
      StaticKeyProvider StaticKeyProvider (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.StaticKeyProvider.html#StaticKeyProvider%27"><span class="hs-identifier hs-type">StaticKeyProvider'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680000970"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.StaticKeyProvider.html#StaticKeyProvider%27"><span class="hs-identifier hs-type">StaticKeyProvider'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680005902"><span class="annot"><span class="annottext">Maybe Text
 staticKeyValue :: Maybe Text
 $sel:staticKeyValue:StaticKeyProvider' :: StaticKeyProvider -&gt; Maybe Text
-</span><a href="#local-6989586621680000970"><span class="hs-identifier hs-var hs-var">staticKeyValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680000970"><span class="hs-identifier hs-var">staticKeyValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680000969"><span class="annot"><span class="annottext">s :: StaticKeyProvider
-</span><a href="#local-6989586621680000969"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.StaticKeyProvider.html#StaticKeyProvider%27"><span class="hs-identifier hs-type">StaticKeyProvider'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680000968"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680000968"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StaticKeyProvider
-</span><a href="#local-6989586621680000969"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:staticKeyValue:StaticKeyProvider' :: Maybe Text
+</span><a href="#local-6989586621680005902"><span class="hs-identifier hs-var hs-var">staticKeyValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680005902"><span class="hs-identifier hs-var">staticKeyValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680005901"><span class="annot"><span class="annottext">s :: StaticKeyProvider
+</span><a href="#local-6989586621680005901"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.StaticKeyProvider.html#StaticKeyProvider%27"><span class="hs-identifier hs-type">StaticKeyProvider'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680005900"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680005900"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StaticKeyProvider
+</span><a href="#local-6989586621680005901"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:staticKeyValue:StaticKeyProvider' :: Maybe Text
 </span><a href="Network.AWS.MediaConvert.Types.StaticKeyProvider.html#%24sel%3AstaticKeyValue%3AStaticKeyProvider%27"><span class="hs-identifier hs-var">staticKeyValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680000968"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.StaticKeyProvider.html#StaticKeyProvider"><span class="hs-identifier hs-type">StaticKeyProvider</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- | Relates to DRM implementation. The location of the license server used</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- for protecting content.</span><span>
-</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.StaticKeyProvider.html#staticKeyProvider_url"><span class="hs-identifier hs-type">staticKeyProvider_url</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.StaticKeyProvider.html#StaticKeyProvider"><span class="hs-identifier hs-type">StaticKeyProvider</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-90"></span><span id="staticKeyProvider_url"><span class="annot"><span class="annottext">staticKeyProvider_url :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621680005900"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.StaticKeyProvider.html#StaticKeyProvider"><span class="hs-identifier hs-type">StaticKeyProvider</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | Relates to DRM implementation. The location of the license server used</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- for protecting content.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.StaticKeyProvider.html#staticKeyProvider_url"><span class="hs-identifier hs-type">staticKeyProvider_url</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.StaticKeyProvider.html#StaticKeyProvider"><span class="hs-identifier hs-type">StaticKeyProvider</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span id="staticKeyProvider_url"><span class="annot"><span class="annottext">staticKeyProvider_url :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; StaticKeyProvider -&gt; f StaticKeyProvider
 </span><a href="Network.AWS.MediaConvert.Types.StaticKeyProvider.html#staticKeyProvider_url"><span class="hs-identifier hs-var hs-var">staticKeyProvider_url</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StaticKeyProvider -&gt; Maybe Text)
 -&gt; (StaticKeyProvider -&gt; Maybe Text -&gt; StaticKeyProvider)
 -&gt; Lens
      StaticKeyProvider StaticKeyProvider (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.StaticKeyProvider.html#StaticKeyProvider%27"><span class="hs-identifier hs-type">StaticKeyProvider'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680000966"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.StaticKeyProvider.html#StaticKeyProvider%27"><span class="hs-identifier hs-type">StaticKeyProvider'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680005898"><span class="annot"><span class="annottext">Maybe Text
 url :: Maybe Text
 $sel:url:StaticKeyProvider' :: StaticKeyProvider -&gt; Maybe Text
-</span><a href="#local-6989586621680000966"><span class="hs-identifier hs-var hs-var">url</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680000966"><span class="hs-identifier hs-var">url</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680000965"><span class="annot"><span class="annottext">s :: StaticKeyProvider
-</span><a href="#local-6989586621680000965"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.StaticKeyProvider.html#StaticKeyProvider%27"><span class="hs-identifier hs-type">StaticKeyProvider'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680000964"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680000964"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StaticKeyProvider
-</span><a href="#local-6989586621680000965"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:url:StaticKeyProvider' :: Maybe Text
+</span><a href="#local-6989586621680005898"><span class="hs-identifier hs-var hs-var">url</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680005898"><span class="hs-identifier hs-var">url</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680005897"><span class="annot"><span class="annottext">s :: StaticKeyProvider
+</span><a href="#local-6989586621680005897"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.StaticKeyProvider.html#StaticKeyProvider%27"><span class="hs-identifier hs-type">StaticKeyProvider'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680005896"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680005896"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StaticKeyProvider
+</span><a href="#local-6989586621680005897"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:url:StaticKeyProvider' :: Maybe Text
 </span><a href="Network.AWS.MediaConvert.Types.StaticKeyProvider.html#%24sel%3Aurl%3AStaticKeyProvider%27"><span class="hs-identifier hs-var">url</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680000964"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.StaticKeyProvider.html#StaticKeyProvider"><span class="hs-identifier hs-type">StaticKeyProvider</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- | Relates to DRM implementation. Either a single positive integer version</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- value or a slash delimited list of version values (1\/2\/3).</span><span>
-</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.StaticKeyProvider.html#staticKeyProvider_keyFormatVersions"><span class="hs-identifier hs-type">staticKeyProvider_keyFormatVersions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.StaticKeyProvider.html#StaticKeyProvider"><span class="hs-identifier hs-type">StaticKeyProvider</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-95"></span><span id="staticKeyProvider_keyFormatVersions"><span class="annot"><span class="annottext">staticKeyProvider_keyFormatVersions :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621680005896"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.StaticKeyProvider.html#StaticKeyProvider"><span class="hs-identifier hs-type">StaticKeyProvider</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | Relates to DRM implementation. Sets the value of the KEYFORMAT</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- attribute. Must be \'identity\' or a reverse DNS string. May be omitted</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- to indicate an implicit value of \'identity\'.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.StaticKeyProvider.html#staticKeyProvider_keyFormat"><span class="hs-identifier hs-type">staticKeyProvider_keyFormat</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.StaticKeyProvider.html#StaticKeyProvider"><span class="hs-identifier hs-type">StaticKeyProvider</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span id="staticKeyProvider_keyFormat"><span class="annot"><span class="annottext">staticKeyProvider_keyFormat :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; StaticKeyProvider -&gt; f StaticKeyProvider
+</span><a href="Network.AWS.MediaConvert.Types.StaticKeyProvider.html#staticKeyProvider_keyFormat"><span class="hs-identifier hs-var hs-var">staticKeyProvider_keyFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StaticKeyProvider -&gt; Maybe Text)
+-&gt; (StaticKeyProvider -&gt; Maybe Text -&gt; StaticKeyProvider)
+-&gt; Lens
+     StaticKeyProvider StaticKeyProvider (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.StaticKeyProvider.html#StaticKeyProvider%27"><span class="hs-identifier hs-type">StaticKeyProvider'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680005894"><span class="annot"><span class="annottext">Maybe Text
+keyFormat :: Maybe Text
+$sel:keyFormat:StaticKeyProvider' :: StaticKeyProvider -&gt; Maybe Text
+</span><a href="#local-6989586621680005894"><span class="hs-identifier hs-var hs-var">keyFormat</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680005894"><span class="hs-identifier hs-var">keyFormat</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680005893"><span class="annot"><span class="annottext">s :: StaticKeyProvider
+</span><a href="#local-6989586621680005893"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.StaticKeyProvider.html#StaticKeyProvider%27"><span class="hs-identifier hs-type">StaticKeyProvider'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680005892"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680005892"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StaticKeyProvider
+</span><a href="#local-6989586621680005893"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyFormat:StaticKeyProvider' :: Maybe Text
+</span><a href="Network.AWS.MediaConvert.Types.StaticKeyProvider.html#%24sel%3AkeyFormat%3AStaticKeyProvider%27"><span class="hs-identifier hs-var">keyFormat</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680005892"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.StaticKeyProvider.html#StaticKeyProvider"><span class="hs-identifier hs-type">StaticKeyProvider</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | Relates to DRM implementation. Either a single positive integer version</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- value or a slash delimited list of version values (1\/2\/3).</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.StaticKeyProvider.html#staticKeyProvider_keyFormatVersions"><span class="hs-identifier hs-type">staticKeyProvider_keyFormatVersions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.StaticKeyProvider.html#StaticKeyProvider"><span class="hs-identifier hs-type">StaticKeyProvider</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="staticKeyProvider_keyFormatVersions"><span class="annot"><span class="annottext">staticKeyProvider_keyFormatVersions :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; StaticKeyProvider -&gt; f StaticKeyProvider
 </span><a href="Network.AWS.MediaConvert.Types.StaticKeyProvider.html#staticKeyProvider_keyFormatVersions"><span class="hs-identifier hs-var hs-var">staticKeyProvider_keyFormatVersions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StaticKeyProvider -&gt; Maybe Text)
 -&gt; (StaticKeyProvider -&gt; Maybe Text -&gt; StaticKeyProvider)
 -&gt; Lens
      StaticKeyProvider StaticKeyProvider (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.StaticKeyProvider.html#StaticKeyProvider%27"><span class="hs-identifier hs-type">StaticKeyProvider'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680000962"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.StaticKeyProvider.html#StaticKeyProvider%27"><span class="hs-identifier hs-type">StaticKeyProvider'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680005890"><span class="annot"><span class="annottext">Maybe Text
 keyFormatVersions :: Maybe Text
 $sel:keyFormatVersions:StaticKeyProvider' :: StaticKeyProvider -&gt; Maybe Text
-</span><a href="#local-6989586621680000962"><span class="hs-identifier hs-var hs-var">keyFormatVersions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680000962"><span class="hs-identifier hs-var">keyFormatVersions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680000961"><span class="annot"><span class="annottext">s :: StaticKeyProvider
-</span><a href="#local-6989586621680000961"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.StaticKeyProvider.html#StaticKeyProvider%27"><span class="hs-identifier hs-type">StaticKeyProvider'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680000960"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680000960"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StaticKeyProvider
-</span><a href="#local-6989586621680000961"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyFormatVersions:StaticKeyProvider' :: Maybe Text
+</span><a href="#local-6989586621680005890"><span class="hs-identifier hs-var hs-var">keyFormatVersions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680005890"><span class="hs-identifier hs-var">keyFormatVersions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680005889"><span class="annot"><span class="annottext">s :: StaticKeyProvider
+</span><a href="#local-6989586621680005889"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.StaticKeyProvider.html#StaticKeyProvider%27"><span class="hs-identifier hs-type">StaticKeyProvider'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680005888"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680005888"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StaticKeyProvider
+</span><a href="#local-6989586621680005889"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyFormatVersions:StaticKeyProvider' :: Maybe Text
 </span><a href="Network.AWS.MediaConvert.Types.StaticKeyProvider.html#%24sel%3AkeyFormatVersions%3AStaticKeyProvider%27"><span class="hs-identifier hs-var">keyFormatVersions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680000960"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.StaticKeyProvider.html#StaticKeyProvider"><span class="hs-identifier hs-type">StaticKeyProvider</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680000957"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.StaticKeyProvider.html#StaticKeyProvider"><span class="hs-identifier hs-type">StaticKeyProvider</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621680000955"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser StaticKeyProvider
+</span><a href="#local-6989586621680005888"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.StaticKeyProvider.html#StaticKeyProvider"><span class="hs-identifier hs-type">StaticKeyProvider</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680005885"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.StaticKeyProvider.html#StaticKeyProvider"><span class="hs-identifier hs-type">StaticKeyProvider</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621680005883"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser StaticKeyProvider
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">String
+</span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser StaticKeyProvider)
 -&gt; Value
 -&gt; Parser StaticKeyProvider
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
-</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;StaticKeyProvider&quot;</span></span><span>
-</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680000952"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680000952"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-102"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680005880"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680005880"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-103"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; StaticKeyProvider
 </span><a href="Network.AWS.MediaConvert.Types.StaticKeyProvider.html#StaticKeyProvider%27"><span class="hs-identifier hs-var">StaticKeyProvider'</span></a></span><span>
-</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
  -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; StaticKeyProvider)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
      (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; StaticKeyProvider)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680000952"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680005880"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;keyFormat&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span class="hs-string">&quot;staticKeyValue&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; StaticKeyProvider)
 -&gt; Parser (Maybe Text)
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; StaticKeyProvider)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680000952"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;staticKeyValue&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; StaticKeyProvider)
--&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; StaticKeyProvider)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680000952"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680005880"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;url&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; StaticKeyProvider)
+</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; StaticKeyProvider)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; StaticKeyProvider)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680005880"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;keyFormat&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; StaticKeyProvider)
 -&gt; Parser (Maybe Text) -&gt; Parser StaticKeyProvider
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680000952"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680005880"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;keyFormatVersions&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680000946"><span id="local-6989586621680000948"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.StaticKeyProvider.html#StaticKeyProvider"><span class="hs-identifier hs-type">StaticKeyProvider</span></a></span></span></span><span>
-</span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680000943"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.StaticKeyProvider.html#StaticKeyProvider"><span class="hs-identifier hs-type">StaticKeyProvider</span></a></span></span><span>
-</span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680000935"><span id="local-6989586621680000937"><span id="local-6989586621680000939"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.StaticKeyProvider.html#StaticKeyProvider"><span class="hs-identifier hs-type">StaticKeyProvider</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621680000933"><span class="annot"><span class="annottext">toJSON :: StaticKeyProvider -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.StaticKeyProvider.html#StaticKeyProvider%27"><span class="hs-identifier hs-type">StaticKeyProvider'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680000928"><span id="local-6989586621680000929"><span id="local-6989586621680000930"><span id="local-6989586621680000931"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-108"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680005874"><span id="local-6989586621680005876"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.StaticKeyProvider.html#StaticKeyProvider"><span class="hs-identifier hs-type">StaticKeyProvider</span></a></span></span></span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680005871"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.StaticKeyProvider.html#StaticKeyProvider"><span class="hs-identifier hs-type">StaticKeyProvider</span></a></span></span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680005863"><span id="local-6989586621680005865"><span id="local-6989586621680005867"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.StaticKeyProvider.html#StaticKeyProvider"><span class="hs-identifier hs-type">StaticKeyProvider</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621680005861"><span class="annot"><span class="annottext">toJSON :: StaticKeyProvider -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.StaticKeyProvider.html#StaticKeyProvider%27"><span class="hs-identifier hs-type">StaticKeyProvider'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680005856"><span id="local-6989586621680005857"><span id="local-6989586621680005858"><span id="local-6989586621680005859"><span class="annot"><span class="annottext">Maybe Text
 keyFormatVersions :: Maybe Text
+keyFormat :: Maybe Text
 url :: Maybe Text
 staticKeyValue :: Maybe Text
-keyFormat :: Maybe Text
 $sel:keyFormatVersions:StaticKeyProvider' :: StaticKeyProvider -&gt; Maybe Text
+$sel:keyFormat:StaticKeyProvider' :: StaticKeyProvider -&gt; Maybe Text
 $sel:url:StaticKeyProvider' :: StaticKeyProvider -&gt; Maybe Text
 $sel:staticKeyValue:StaticKeyProvider' :: StaticKeyProvider -&gt; Maybe Text
-$sel:keyFormat:StaticKeyProvider' :: StaticKeyProvider -&gt; Maybe Text
-</span><a href="#local-6989586621680000928"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><a href="#local-6989586621680005856"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
-</span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+</span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
-</span><span id="line-117"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;keyFormat&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680000931"><span class="hs-identifier hs-var">keyFormat</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-118"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span id="line-118"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;staticKeyValue&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680000930"><span class="hs-identifier hs-var">staticKeyValue</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680005859"><span class="hs-identifier hs-var">staticKeyValue</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-120"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;url&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680000929"><span class="hs-identifier hs-var">url</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680005858"><span class="hs-identifier hs-var">url</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-121"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;keyFormat&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680005857"><span class="hs-identifier hs-var">keyFormat</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;keyFormatVersions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-122"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+</span><span id="line-123"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680000928"><span class="hs-identifier hs-var">keyFormatVersions</span></a></span><span>
-</span><span id="line-123"></span><span>          </span><span class="hs-special">]</span><span>
-</span><span id="line-124"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-125"></span></pre></body></html>
+</span><a href="#local-6989586621680005856"><span class="hs-identifier hs-var">keyFormatVersions</span></a></span><span>
+</span><span id="line-124"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-125"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span></pre></body></html>

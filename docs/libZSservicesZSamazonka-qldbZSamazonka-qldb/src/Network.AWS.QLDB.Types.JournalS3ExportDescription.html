@@ -30,7 +30,7 @@
 </span><span id="line-30"></span><span class="hs-comment">-- original export creation request.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newJournalS3ExportDescription' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679183271"><span id="local-6989586621679183272"></span></span><span class="hs-keyword">data</span><span> </span><span id="JournalS3ExportDescription"><span class="annot"><a href="Network.AWS.QLDB.Types.JournalS3ExportDescription.html#JournalS3ExportDescription"><span class="hs-identifier hs-var">JournalS3ExportDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="JournalS3ExportDescription%27"><span class="annot"><a href="Network.AWS.QLDB.Types.JournalS3ExportDescription.html#JournalS3ExportDescription%27"><span class="hs-identifier hs-var">JournalS3ExportDescription'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679183308"><span id="local-6989586621679183309"></span></span><span class="hs-keyword">data</span><span> </span><span id="JournalS3ExportDescription"><span class="annot"><a href="Network.AWS.QLDB.Types.JournalS3ExportDescription.html#JournalS3ExportDescription"><span class="hs-identifier hs-var">JournalS3ExportDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="JournalS3ExportDescription%27"><span class="annot"><a href="Network.AWS.QLDB.Types.JournalS3ExportDescription.html#JournalS3ExportDescription%27"><span class="hs-identifier hs-var">JournalS3ExportDescription'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the ledger.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AledgerName%3AJournalS3ExportDescription%27"><span class="annot"><span class="annottext">JournalS3ExportDescription -&gt; Text
 </span><a href="Network.AWS.QLDB.Types.JournalS3ExportDescription.html#%24sel%3AledgerName%3AJournalS3ExportDescription%27"><span class="hs-identifier hs-var hs-var">ledgerName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -66,7 +66,7 @@
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AroleArn%3AJournalS3ExportDescription%27"><span class="annot"><span class="annottext">JournalS3ExportDescription -&gt; Text
 </span><a href="Network.AWS.QLDB.Types.JournalS3ExportDescription.html#%24sel%3AroleArn%3AJournalS3ExportDescription%27"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679183258"><span id="local-6989586621679183260"><span class="annot"><span class="annottext">JournalS3ExportDescription -&gt; JournalS3ExportDescription -&gt; Bool
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679183295"><span id="local-6989586621679183297"><span class="annot"><span class="annottext">JournalS3ExportDescription -&gt; JournalS3ExportDescription -&gt; Bool
 (JournalS3ExportDescription -&gt; JournalS3ExportDescription -&gt; Bool)
 -&gt; (JournalS3ExportDescription
     -&gt; JournalS3ExportDescription -&gt; Bool)
@@ -76,7 +76,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: JournalS3ExportDescription -&gt; JournalS3ExportDescription -&gt; Bool
 == :: JournalS3ExportDescription -&gt; JournalS3ExportDescription -&gt; Bool
 $c== :: JournalS3ExportDescription -&gt; JournalS3ExportDescription -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679183249"><span id="local-6989586621679183251"><span id="local-6989586621679183253"><span id="local-6989586621679183255"><span class="annot"><span class="annottext">ReadPrec [JournalS3ExportDescription]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679183286"><span id="local-6989586621679183288"><span id="local-6989586621679183290"><span id="local-6989586621679183292"><span class="annot"><span class="annottext">ReadPrec [JournalS3ExportDescription]
 ReadPrec JournalS3ExportDescription
 Int -&gt; ReadS JournalS3ExportDescription
 ReadS [JournalS3ExportDescription]
@@ -96,7 +96,7 @@ readList :: ReadS [JournalS3ExportDescription]
 $creadList :: ReadS [JournalS3ExportDescription]
 readsPrec :: Int -&gt; ReadS JournalS3ExportDescription
 $creadsPrec :: Int -&gt; ReadS JournalS3ExportDescription
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679183242"><span id="local-6989586621679183244"><span id="local-6989586621679183246"><span class="annot"><span class="annottext">Int -&gt; JournalS3ExportDescription -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679183279"><span id="local-6989586621679183281"><span id="local-6989586621679183283"><span class="annot"><span class="annottext">Int -&gt; JournalS3ExportDescription -&gt; ShowS
 [JournalS3ExportDescription] -&gt; ShowS
 JournalS3ExportDescription -&gt; String
 (Int -&gt; JournalS3ExportDescription -&gt; ShowS)
@@ -190,22 +190,22 @@ JournalS3ExportDescription -&gt; Rep JournalS3ExportDescription x
 -&gt; Text
 -&gt; JournalS3ExportDescription
 </span><a href="Network.AWS.QLDB.Types.JournalS3ExportDescription.html#newJournalS3ExportDescription"><span class="hs-identifier hs-var hs-var">newJournalS3ExportDescription</span></a></span></span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679183236"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679183236"><span class="hs-identifier hs-var">pLedgerName_</span></a></span></span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679183235"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679183235"><span class="hs-identifier hs-var">pExportId_</span></a></span></span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679183234"><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679183234"><span class="hs-identifier hs-var">pExportCreationTime_</span></a></span></span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679183233"><span class="annot"><span class="annottext">ExportStatus
-</span><a href="#local-6989586621679183233"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679183232"><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679183232"><span class="hs-identifier hs-var">pInclusiveStartTime_</span></a></span></span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679183231"><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679183231"><span class="hs-identifier hs-var">pExclusiveEndTime_</span></a></span></span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679183230"><span class="annot"><span class="annottext">S3ExportConfiguration
-</span><a href="#local-6989586621679183230"><span class="hs-identifier hs-var">pS3ExportConfiguration_</span></a></span></span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679183229"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679183229"><span class="hs-identifier hs-var">pRoleArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679183273"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679183273"><span class="hs-identifier hs-var">pLedgerName_</span></a></span></span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679183272"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679183272"><span class="hs-identifier hs-var">pExportId_</span></a></span></span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679183271"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679183271"><span class="hs-identifier hs-var">pExportCreationTime_</span></a></span></span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679183270"><span class="annot"><span class="annottext">ExportStatus
+</span><a href="#local-6989586621679183270"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679183269"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679183269"><span class="hs-identifier hs-var">pInclusiveStartTime_</span></a></span></span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679183268"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679183268"><span class="hs-identifier hs-var">pExclusiveEndTime_</span></a></span></span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679183267"><span class="annot"><span class="annottext">S3ExportConfiguration
+</span><a href="#local-6989586621679183267"><span class="hs-identifier hs-var">pS3ExportConfiguration_</span></a></span></span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679183266"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679183266"><span class="hs-identifier hs-var">pRoleArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">JournalS3ExportDescription' :: Text
 -&gt; Text
 -&gt; POSIX
@@ -219,10 +219,10 @@ JournalS3ExportDescription -&gt; Rep JournalS3ExportDescription x
 </span><span id="line-125"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:ledgerName:JournalS3ExportDescription' :: Text
 </span><a href="Network.AWS.QLDB.Types.JournalS3ExportDescription.html#%24sel%3AledgerName%3AJournalS3ExportDescription%27"><span class="hs-identifier hs-var">ledgerName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-126"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679183236"><span class="hs-identifier hs-var">pLedgerName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679183273"><span class="hs-identifier hs-var">pLedgerName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-127"></span><span>        </span><span class="annot"><span class="annottext">$sel:exportId:JournalS3ExportDescription' :: Text
 </span><a href="Network.AWS.QLDB.Types.JournalS3ExportDescription.html#%24sel%3AexportId%3AJournalS3ExportDescription%27"><span class="hs-identifier hs-var">exportId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679183235"><span class="hs-identifier hs-var">pExportId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679183272"><span class="hs-identifier hs-var">pExportId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-128"></span><span>        </span><span class="annot"><span class="annottext">$sel:exportCreationTime:JournalS3ExportDescription' :: POSIX
 </span><a href="Network.AWS.QLDB.Types.JournalS3ExportDescription.html#%24sel%3AexportCreationTime%3AJournalS3ExportDescription%27"><span class="hs-identifier hs-var">exportCreationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-129"></span><span>          </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
@@ -232,10 +232,10 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; UTCTime -&gt; POSIX
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679183234"><span class="hs-identifier hs-var">pExportCreationTime_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679183271"><span class="hs-identifier hs-var">pExportCreationTime_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-130"></span><span>        </span><span class="annot"><span class="annottext">$sel:status:JournalS3ExportDescription' :: ExportStatus
 </span><a href="Network.AWS.QLDB.Types.JournalS3ExportDescription.html#%24sel%3Astatus%3AJournalS3ExportDescription%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ExportStatus
-</span><a href="#local-6989586621679183233"><span class="hs-identifier hs-var">pStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679183270"><span class="hs-identifier hs-var">pStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-131"></span><span>        </span><span class="annot"><span class="annottext">$sel:inclusiveStartTime:JournalS3ExportDescription' :: POSIX
 </span><a href="Network.AWS.QLDB.Types.JournalS3ExportDescription.html#%24sel%3AinclusiveStartTime%3AJournalS3ExportDescription%27"><span class="hs-identifier hs-var">inclusiveStartTime</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-132"></span><span>          </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
@@ -245,7 +245,7 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; UTCTime -&gt; POSIX
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679183232"><span class="hs-identifier hs-var">pInclusiveStartTime_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679183269"><span class="hs-identifier hs-var">pInclusiveStartTime_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-133"></span><span>        </span><span class="annot"><span class="annottext">$sel:exclusiveEndTime:JournalS3ExportDescription' :: POSIX
 </span><a href="Network.AWS.QLDB.Types.JournalS3ExportDescription.html#%24sel%3AexclusiveEndTime%3AJournalS3ExportDescription%27"><span class="hs-identifier hs-var">exclusiveEndTime</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-134"></span><span>          </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
@@ -255,13 +255,13 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; UTCTime -&gt; POSIX
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679183231"><span class="hs-identifier hs-var">pExclusiveEndTime_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679183268"><span class="hs-identifier hs-var">pExclusiveEndTime_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-135"></span><span>        </span><span class="annot"><span class="annottext">$sel:s3ExportConfiguration:JournalS3ExportDescription' :: S3ExportConfiguration
 </span><a href="Network.AWS.QLDB.Types.JournalS3ExportDescription.html#%24sel%3As3ExportConfiguration%3AJournalS3ExportDescription%27"><span class="hs-identifier hs-var">s3ExportConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">S3ExportConfiguration
-</span><a href="#local-6989586621679183230"><span class="hs-identifier hs-var">pS3ExportConfiguration_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679183267"><span class="hs-identifier hs-var">pS3ExportConfiguration_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-136"></span><span>        </span><span class="annot"><span class="annottext">$sel:roleArn:JournalS3ExportDescription' :: Text
 </span><a href="Network.AWS.QLDB.Types.JournalS3ExportDescription.html#%24sel%3AroleArn%3AJournalS3ExportDescription%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679183229"><span class="hs-identifier hs-var">pRoleArn_</span></a></span><span>
+</span><a href="#local-6989586621679183266"><span class="hs-identifier hs-var">pRoleArn_</span></a></span><span>
 </span><span id="line-137"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-comment">-- | The name of the ledger.</span><span>
@@ -274,16 +274,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; Lens
      JournalS3ExportDescription JournalS3ExportDescription Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.Types.JournalS3ExportDescription.html#JournalS3ExportDescription%27"><span class="hs-identifier hs-type">JournalS3ExportDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679183223"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.Types.JournalS3ExportDescription.html#JournalS3ExportDescription%27"><span class="hs-identifier hs-type">JournalS3ExportDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679183260"><span class="annot"><span class="annottext">Text
 ledgerName :: Text
 $sel:ledgerName:JournalS3ExportDescription' :: JournalS3ExportDescription -&gt; Text
-</span><a href="#local-6989586621679183223"><span class="hs-identifier hs-var hs-var">ledgerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679183223"><span class="hs-identifier hs-var">ledgerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679183222"><span class="annot"><span class="annottext">s :: JournalS3ExportDescription
-</span><a href="#local-6989586621679183222"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.Types.JournalS3ExportDescription.html#JournalS3ExportDescription%27"><span class="hs-identifier hs-type">JournalS3ExportDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679183221"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679183221"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JournalS3ExportDescription
-</span><a href="#local-6989586621679183222"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ledgerName:JournalS3ExportDescription' :: Text
+</span><a href="#local-6989586621679183260"><span class="hs-identifier hs-var hs-var">ledgerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679183260"><span class="hs-identifier hs-var">ledgerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679183259"><span class="annot"><span class="annottext">s :: JournalS3ExportDescription
+</span><a href="#local-6989586621679183259"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.Types.JournalS3ExportDescription.html#JournalS3ExportDescription%27"><span class="hs-identifier hs-type">JournalS3ExportDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679183258"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679183258"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JournalS3ExportDescription
+</span><a href="#local-6989586621679183259"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ledgerName:JournalS3ExportDescription' :: Text
 </span><a href="Network.AWS.QLDB.Types.JournalS3ExportDescription.html#%24sel%3AledgerName%3AJournalS3ExportDescription%27"><span class="hs-identifier hs-var">ledgerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679183221"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.JournalS3ExportDescription.html#JournalS3ExportDescription"><span class="hs-identifier hs-type">JournalS3ExportDescription</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679183258"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.JournalS3ExportDescription.html#JournalS3ExportDescription"><span class="hs-identifier hs-type">JournalS3ExportDescription</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-comment">-- | The UUID (represented in Base62-encoded text) of the journal export job.</span><span>
 </span><span id="line-144"></span><span class="annot"><a href="Network.AWS.QLDB.Types.JournalS3ExportDescription.html#journalS3ExportDescription_exportId"><span class="hs-identifier hs-type">journalS3ExportDescription_exportId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.JournalS3ExportDescription.html#JournalS3ExportDescription"><span class="hs-identifier hs-type">JournalS3ExportDescription</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -295,16 +295,16 @@ $sel:ledgerName:JournalS3ExportDescription' :: JournalS3ExportDescription -&gt; 
 -&gt; Lens
      JournalS3ExportDescription JournalS3ExportDescription Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.Types.JournalS3ExportDescription.html#JournalS3ExportDescription%27"><span class="hs-identifier hs-type">JournalS3ExportDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679183219"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.Types.JournalS3ExportDescription.html#JournalS3ExportDescription%27"><span class="hs-identifier hs-type">JournalS3ExportDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679183256"><span class="annot"><span class="annottext">Text
 exportId :: Text
 $sel:exportId:JournalS3ExportDescription' :: JournalS3ExportDescription -&gt; Text
-</span><a href="#local-6989586621679183219"><span class="hs-identifier hs-var hs-var">exportId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679183219"><span class="hs-identifier hs-var">exportId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679183218"><span class="annot"><span class="annottext">s :: JournalS3ExportDescription
-</span><a href="#local-6989586621679183218"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.Types.JournalS3ExportDescription.html#JournalS3ExportDescription%27"><span class="hs-identifier hs-type">JournalS3ExportDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679183217"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679183217"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JournalS3ExportDescription
-</span><a href="#local-6989586621679183218"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exportId:JournalS3ExportDescription' :: Text
+</span><a href="#local-6989586621679183256"><span class="hs-identifier hs-var hs-var">exportId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679183256"><span class="hs-identifier hs-var">exportId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679183255"><span class="annot"><span class="annottext">s :: JournalS3ExportDescription
+</span><a href="#local-6989586621679183255"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.Types.JournalS3ExportDescription.html#JournalS3ExportDescription%27"><span class="hs-identifier hs-type">JournalS3ExportDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679183254"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679183254"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JournalS3ExportDescription
+</span><a href="#local-6989586621679183255"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exportId:JournalS3ExportDescription' :: Text
 </span><a href="Network.AWS.QLDB.Types.JournalS3ExportDescription.html#%24sel%3AexportId%3AJournalS3ExportDescription%27"><span class="hs-identifier hs-var">exportId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679183217"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.JournalS3ExportDescription.html#JournalS3ExportDescription"><span class="hs-identifier hs-type">JournalS3ExportDescription</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679183254"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.JournalS3ExportDescription.html#JournalS3ExportDescription"><span class="hs-identifier hs-type">JournalS3ExportDescription</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-comment">-- | The date and time, in epoch time format, when the export job was</span><span>
 </span><span id="line-148"></span><span class="hs-comment">-- created. (Epoch time format is the number of seconds elapsed since</span><span>
@@ -318,16 +318,16 @@ $sel:exportId:JournalS3ExportDescription' :: JournalS3ExportDescription -&gt; Te
 -&gt; Lens
      JournalS3ExportDescription JournalS3ExportDescription POSIX POSIX
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.Types.JournalS3ExportDescription.html#JournalS3ExportDescription%27"><span class="hs-identifier hs-type">JournalS3ExportDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679183215"><span class="annot"><span class="annottext">POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.Types.JournalS3ExportDescription.html#JournalS3ExportDescription%27"><span class="hs-identifier hs-type">JournalS3ExportDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679183252"><span class="annot"><span class="annottext">POSIX
 exportCreationTime :: POSIX
 $sel:exportCreationTime:JournalS3ExportDescription' :: JournalS3ExportDescription -&gt; POSIX
-</span><a href="#local-6989586621679183215"><span class="hs-identifier hs-var hs-var">exportCreationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679183215"><span class="hs-identifier hs-var">exportCreationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679183214"><span class="annot"><span class="annottext">s :: JournalS3ExportDescription
-</span><a href="#local-6989586621679183214"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.Types.JournalS3ExportDescription.html#JournalS3ExportDescription%27"><span class="hs-identifier hs-type">JournalS3ExportDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679183213"><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679183213"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JournalS3ExportDescription
-</span><a href="#local-6989586621679183214"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exportCreationTime:JournalS3ExportDescription' :: POSIX
+</span><a href="#local-6989586621679183252"><span class="hs-identifier hs-var hs-var">exportCreationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679183252"><span class="hs-identifier hs-var">exportCreationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679183251"><span class="annot"><span class="annottext">s :: JournalS3ExportDescription
+</span><a href="#local-6989586621679183251"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.Types.JournalS3ExportDescription.html#JournalS3ExportDescription%27"><span class="hs-identifier hs-type">JournalS3ExportDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679183250"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679183250"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JournalS3ExportDescription
+</span><a href="#local-6989586621679183251"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exportCreationTime:JournalS3ExportDescription' :: POSIX
 </span><a href="Network.AWS.QLDB.Types.JournalS3ExportDescription.html#%24sel%3AexportCreationTime%3AJournalS3ExportDescription%27"><span class="hs-identifier hs-var">exportCreationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679183213"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.JournalS3ExportDescription.html#JournalS3ExportDescription"><span class="hs-identifier hs-type">JournalS3ExportDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX)
+</span><a href="#local-6989586621679183250"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.JournalS3ExportDescription.html#JournalS3ExportDescription"><span class="hs-identifier hs-type">JournalS3ExportDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX)
  -&gt; JournalS3ExportDescription -&gt; f JournalS3ExportDescription)
 -&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
 -&gt; (UTCTime -&gt; f UTCTime)
@@ -351,16 +351,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
      ExportStatus
      ExportStatus
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.Types.JournalS3ExportDescription.html#JournalS3ExportDescription%27"><span class="hs-identifier hs-type">JournalS3ExportDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679183210"><span class="annot"><span class="annottext">ExportStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.Types.JournalS3ExportDescription.html#JournalS3ExportDescription%27"><span class="hs-identifier hs-type">JournalS3ExportDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679183247"><span class="annot"><span class="annottext">ExportStatus
 status :: ExportStatus
 $sel:status:JournalS3ExportDescription' :: JournalS3ExportDescription -&gt; ExportStatus
-</span><a href="#local-6989586621679183210"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportStatus
-</span><a href="#local-6989586621679183210"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679183209"><span class="annot"><span class="annottext">s :: JournalS3ExportDescription
-</span><a href="#local-6989586621679183209"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.Types.JournalS3ExportDescription.html#JournalS3ExportDescription%27"><span class="hs-identifier hs-type">JournalS3ExportDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679183208"><span class="annot"><span class="annottext">ExportStatus
-</span><a href="#local-6989586621679183208"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JournalS3ExportDescription
-</span><a href="#local-6989586621679183209"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:JournalS3ExportDescription' :: ExportStatus
+</span><a href="#local-6989586621679183247"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportStatus
+</span><a href="#local-6989586621679183247"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679183246"><span class="annot"><span class="annottext">s :: JournalS3ExportDescription
+</span><a href="#local-6989586621679183246"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.Types.JournalS3ExportDescription.html#JournalS3ExportDescription%27"><span class="hs-identifier hs-type">JournalS3ExportDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679183245"><span class="annot"><span class="annottext">ExportStatus
+</span><a href="#local-6989586621679183245"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JournalS3ExportDescription
+</span><a href="#local-6989586621679183246"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:JournalS3ExportDescription' :: ExportStatus
 </span><a href="Network.AWS.QLDB.Types.JournalS3ExportDescription.html#%24sel%3Astatus%3AJournalS3ExportDescription%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ExportStatus
-</span><a href="#local-6989586621679183208"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.JournalS3ExportDescription.html#JournalS3ExportDescription"><span class="hs-identifier hs-type">JournalS3ExportDescription</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679183245"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.JournalS3ExportDescription.html#JournalS3ExportDescription"><span class="hs-identifier hs-type">JournalS3ExportDescription</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-comment">-- | The inclusive start date and time for the range of journal contents that</span><span>
 </span><span id="line-158"></span><span class="hs-comment">-- are specified in the original export request.</span><span>
@@ -373,16 +373,16 @@ $sel:status:JournalS3ExportDescription' :: JournalS3ExportDescription -&gt; Expo
 -&gt; Lens
      JournalS3ExportDescription JournalS3ExportDescription POSIX POSIX
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.Types.JournalS3ExportDescription.html#JournalS3ExportDescription%27"><span class="hs-identifier hs-type">JournalS3ExportDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679183206"><span class="annot"><span class="annottext">POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.Types.JournalS3ExportDescription.html#JournalS3ExportDescription%27"><span class="hs-identifier hs-type">JournalS3ExportDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679183243"><span class="annot"><span class="annottext">POSIX
 inclusiveStartTime :: POSIX
 $sel:inclusiveStartTime:JournalS3ExportDescription' :: JournalS3ExportDescription -&gt; POSIX
-</span><a href="#local-6989586621679183206"><span class="hs-identifier hs-var hs-var">inclusiveStartTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679183206"><span class="hs-identifier hs-var">inclusiveStartTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679183205"><span class="annot"><span class="annottext">s :: JournalS3ExportDescription
-</span><a href="#local-6989586621679183205"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.Types.JournalS3ExportDescription.html#JournalS3ExportDescription%27"><span class="hs-identifier hs-type">JournalS3ExportDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679183204"><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679183204"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JournalS3ExportDescription
-</span><a href="#local-6989586621679183205"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inclusiveStartTime:JournalS3ExportDescription' :: POSIX
+</span><a href="#local-6989586621679183243"><span class="hs-identifier hs-var hs-var">inclusiveStartTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679183243"><span class="hs-identifier hs-var">inclusiveStartTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679183242"><span class="annot"><span class="annottext">s :: JournalS3ExportDescription
+</span><a href="#local-6989586621679183242"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.Types.JournalS3ExportDescription.html#JournalS3ExportDescription%27"><span class="hs-identifier hs-type">JournalS3ExportDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679183241"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679183241"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JournalS3ExportDescription
+</span><a href="#local-6989586621679183242"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inclusiveStartTime:JournalS3ExportDescription' :: POSIX
 </span><a href="Network.AWS.QLDB.Types.JournalS3ExportDescription.html#%24sel%3AinclusiveStartTime%3AJournalS3ExportDescription%27"><span class="hs-identifier hs-var">inclusiveStartTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679183204"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.JournalS3ExportDescription.html#JournalS3ExportDescription"><span class="hs-identifier hs-type">JournalS3ExportDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX)
+</span><a href="#local-6989586621679183241"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.JournalS3ExportDescription.html#JournalS3ExportDescription"><span class="hs-identifier hs-type">JournalS3ExportDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX)
  -&gt; JournalS3ExportDescription -&gt; f JournalS3ExportDescription)
 -&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
 -&gt; (UTCTime -&gt; f UTCTime)
@@ -404,16 +404,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; Lens
      JournalS3ExportDescription JournalS3ExportDescription POSIX POSIX
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.Types.JournalS3ExportDescription.html#JournalS3ExportDescription%27"><span class="hs-identifier hs-type">JournalS3ExportDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679183202"><span class="annot"><span class="annottext">POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.Types.JournalS3ExportDescription.html#JournalS3ExportDescription%27"><span class="hs-identifier hs-type">JournalS3ExportDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679183239"><span class="annot"><span class="annottext">POSIX
 exclusiveEndTime :: POSIX
 $sel:exclusiveEndTime:JournalS3ExportDescription' :: JournalS3ExportDescription -&gt; POSIX
-</span><a href="#local-6989586621679183202"><span class="hs-identifier hs-var hs-var">exclusiveEndTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679183202"><span class="hs-identifier hs-var">exclusiveEndTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679183201"><span class="annot"><span class="annottext">s :: JournalS3ExportDescription
-</span><a href="#local-6989586621679183201"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.Types.JournalS3ExportDescription.html#JournalS3ExportDescription%27"><span class="hs-identifier hs-type">JournalS3ExportDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679183200"><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679183200"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JournalS3ExportDescription
-</span><a href="#local-6989586621679183201"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exclusiveEndTime:JournalS3ExportDescription' :: POSIX
+</span><a href="#local-6989586621679183239"><span class="hs-identifier hs-var hs-var">exclusiveEndTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679183239"><span class="hs-identifier hs-var">exclusiveEndTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679183238"><span class="annot"><span class="annottext">s :: JournalS3ExportDescription
+</span><a href="#local-6989586621679183238"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.Types.JournalS3ExportDescription.html#JournalS3ExportDescription%27"><span class="hs-identifier hs-type">JournalS3ExportDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679183237"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679183237"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JournalS3ExportDescription
+</span><a href="#local-6989586621679183238"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exclusiveEndTime:JournalS3ExportDescription' :: POSIX
 </span><a href="Network.AWS.QLDB.Types.JournalS3ExportDescription.html#%24sel%3AexclusiveEndTime%3AJournalS3ExportDescription%27"><span class="hs-identifier hs-var">exclusiveEndTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679183200"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.JournalS3ExportDescription.html#JournalS3ExportDescription"><span class="hs-identifier hs-type">JournalS3ExportDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX)
+</span><a href="#local-6989586621679183237"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.JournalS3ExportDescription.html#JournalS3ExportDescription"><span class="hs-identifier hs-type">JournalS3ExportDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX)
  -&gt; JournalS3ExportDescription -&gt; f JournalS3ExportDescription)
 -&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
 -&gt; (UTCTime -&gt; f UTCTime)
@@ -437,16 +437,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
      S3ExportConfiguration
      S3ExportConfiguration
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.Types.JournalS3ExportDescription.html#JournalS3ExportDescription%27"><span class="hs-identifier hs-type">JournalS3ExportDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679183198"><span class="annot"><span class="annottext">S3ExportConfiguration
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.Types.JournalS3ExportDescription.html#JournalS3ExportDescription%27"><span class="hs-identifier hs-type">JournalS3ExportDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679183235"><span class="annot"><span class="annottext">S3ExportConfiguration
 s3ExportConfiguration :: S3ExportConfiguration
 $sel:s3ExportConfiguration:JournalS3ExportDescription' :: JournalS3ExportDescription -&gt; S3ExportConfiguration
-</span><a href="#local-6989586621679183198"><span class="hs-identifier hs-var hs-var">s3ExportConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3ExportConfiguration
-</span><a href="#local-6989586621679183198"><span class="hs-identifier hs-var">s3ExportConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679183197"><span class="annot"><span class="annottext">s :: JournalS3ExportDescription
-</span><a href="#local-6989586621679183197"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.Types.JournalS3ExportDescription.html#JournalS3ExportDescription%27"><span class="hs-identifier hs-type">JournalS3ExportDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679183196"><span class="annot"><span class="annottext">S3ExportConfiguration
-</span><a href="#local-6989586621679183196"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JournalS3ExportDescription
-</span><a href="#local-6989586621679183197"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3ExportConfiguration:JournalS3ExportDescription' :: S3ExportConfiguration
+</span><a href="#local-6989586621679183235"><span class="hs-identifier hs-var hs-var">s3ExportConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3ExportConfiguration
+</span><a href="#local-6989586621679183235"><span class="hs-identifier hs-var">s3ExportConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679183234"><span class="annot"><span class="annottext">s :: JournalS3ExportDescription
+</span><a href="#local-6989586621679183234"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.Types.JournalS3ExportDescription.html#JournalS3ExportDescription%27"><span class="hs-identifier hs-type">JournalS3ExportDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679183233"><span class="annot"><span class="annottext">S3ExportConfiguration
+</span><a href="#local-6989586621679183233"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JournalS3ExportDescription
+</span><a href="#local-6989586621679183234"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3ExportConfiguration:JournalS3ExportDescription' :: S3ExportConfiguration
 </span><a href="Network.AWS.QLDB.Types.JournalS3ExportDescription.html#%24sel%3As3ExportConfiguration%3AJournalS3ExportDescription%27"><span class="hs-identifier hs-var">s3ExportConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">S3ExportConfiguration
-</span><a href="#local-6989586621679183196"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.JournalS3ExportDescription.html#JournalS3ExportDescription"><span class="hs-identifier hs-type">JournalS3ExportDescription</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679183233"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.JournalS3ExportDescription.html#JournalS3ExportDescription"><span class="hs-identifier hs-type">JournalS3ExportDescription</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>
 </span><span id="line-171"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the IAM role that grants QLDB</span><span>
 </span><span id="line-172"></span><span class="hs-comment">-- permissions for a journal export job to do the following:</span><span>
@@ -465,19 +465,19 @@ $sel:s3ExportConfiguration:JournalS3ExportDescription' :: JournalS3ExportDescrip
 -&gt; Lens
      JournalS3ExportDescription JournalS3ExportDescription Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.Types.JournalS3ExportDescription.html#JournalS3ExportDescription%27"><span class="hs-identifier hs-type">JournalS3ExportDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679183194"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.Types.JournalS3ExportDescription.html#JournalS3ExportDescription%27"><span class="hs-identifier hs-type">JournalS3ExportDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679183231"><span class="annot"><span class="annottext">Text
 roleArn :: Text
 $sel:roleArn:JournalS3ExportDescription' :: JournalS3ExportDescription -&gt; Text
-</span><a href="#local-6989586621679183194"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679183194"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679183193"><span class="annot"><span class="annottext">s :: JournalS3ExportDescription
-</span><a href="#local-6989586621679183193"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.Types.JournalS3ExportDescription.html#JournalS3ExportDescription%27"><span class="hs-identifier hs-type">JournalS3ExportDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679183192"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679183192"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JournalS3ExportDescription
-</span><a href="#local-6989586621679183193"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:JournalS3ExportDescription' :: Text
+</span><a href="#local-6989586621679183231"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679183231"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679183230"><span class="annot"><span class="annottext">s :: JournalS3ExportDescription
+</span><a href="#local-6989586621679183230"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.Types.JournalS3ExportDescription.html#JournalS3ExportDescription%27"><span class="hs-identifier hs-type">JournalS3ExportDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679183229"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679183229"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JournalS3ExportDescription
+</span><a href="#local-6989586621679183230"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:JournalS3ExportDescription' :: Text
 </span><a href="Network.AWS.QLDB.Types.JournalS3ExportDescription.html#%24sel%3AroleArn%3AJournalS3ExportDescription%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679183192"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.JournalS3ExportDescription.html#JournalS3ExportDescription"><span class="hs-identifier hs-type">JournalS3ExportDescription</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679183229"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.JournalS3ExportDescription.html#JournalS3ExportDescription"><span class="hs-identifier hs-type">JournalS3ExportDescription</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-181"></span><span>
-</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679183189"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.JournalS3ExportDescription.html#JournalS3ExportDescription"><span class="hs-identifier hs-type">JournalS3ExportDescription</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-183"></span><span>  </span><span id="local-6989586621679183187"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser JournalS3ExportDescription
+</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679183226"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.JournalS3ExportDescription.html#JournalS3ExportDescription"><span class="hs-identifier hs-type">JournalS3ExportDescription</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-183"></span><span>  </span><span id="local-6989586621679183224"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser JournalS3ExportDescription
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-184"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser JournalS3ExportDescription)
@@ -487,8 +487,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-185"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;JournalS3ExportDescription&quot;</span></span><span>
-</span><span id="line-186"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679183184"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679183184"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-186"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679183221"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679183221"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-187"></span><span>          </span><span class="annot"><span class="annottext">Text
 -&gt; Text
 -&gt; POSIX
@@ -520,7 +520,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; JournalS3ExportDescription)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679183184"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679183221"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LedgerName&quot;</span></span><span class="hs-special">)</span><span>
@@ -544,7 +544,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
       -&gt; JournalS3ExportDescription)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679183184"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679183221"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ExportId&quot;</span></span><span class="hs-special">)</span><span>
@@ -566,7 +566,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
       -&gt; JournalS3ExportDescription)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679183184"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+</span><a href="#local-6989586621679183221"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ExportCreationTime&quot;</span></span><span class="hs-special">)</span><span>
@@ -586,7 +586,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
       -&gt; JournalS3ExportDescription)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679183184"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ExportStatus
+</span><a href="#local-6989586621679183221"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ExportStatus
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
@@ -602,7 +602,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
       -&gt; S3ExportConfiguration -&gt; Text -&gt; JournalS3ExportDescription)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679183184"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+</span><a href="#local-6989586621679183221"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;InclusiveStartTime&quot;</span></span><span class="hs-special">)</span><span>
@@ -614,7 +614,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
      (S3ExportConfiguration -&gt; Text -&gt; JournalS3ExportDescription)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679183184"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+</span><a href="#local-6989586621679183221"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ExclusiveEndTime&quot;</span></span><span class="hs-special">)</span><span>
@@ -624,7 +624,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser (Text -&gt; JournalS3ExportDescription)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679183184"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser S3ExportConfiguration
+</span><a href="#local-6989586621679183221"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser S3ExportConfiguration
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;S3ExportConfiguration&quot;</span></span><span class="hs-special">)</span><span>
@@ -632,13 +632,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser JournalS3ExportDescription
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679183184"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679183221"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RoleArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-196"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-197"></span><span>
-</span><span id="line-198"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679183178"><span id="local-6989586621679183180"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.JournalS3ExportDescription.html#JournalS3ExportDescription"><span class="hs-identifier hs-type">JournalS3ExportDescription</span></a></span></span></span><span>
+</span><span id="line-198"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679183215"><span id="local-6989586621679183217"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.JournalS3ExportDescription.html#JournalS3ExportDescription"><span class="hs-identifier hs-type">JournalS3ExportDescription</span></a></span></span></span><span>
 </span><span id="line-199"></span><span>
-</span><span id="line-200"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679183175"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.JournalS3ExportDescription.html#JournalS3ExportDescription"><span class="hs-identifier hs-type">JournalS3ExportDescription</span></a></span></span><span>
+</span><span id="line-200"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679183212"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.JournalS3ExportDescription.html#JournalS3ExportDescription"><span class="hs-identifier hs-type">JournalS3ExportDescription</span></a></span></span><span>
 </span><span id="line-201"></span></pre></body></html>

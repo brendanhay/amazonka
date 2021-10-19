@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- | M2ts Scte35 Control</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679894652"><span id="local-6989586621679894653"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="M2tsScte35Control"><span class="annot"><a href="Network.AWS.MediaLive.Types.M2tsScte35Control.html#M2tsScte35Control"><span class="hs-identifier hs-var">M2tsScte35Control</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="M2tsScte35Control%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.M2tsScte35Control.html#M2tsScte35Control%27"><span class="hs-identifier hs-var">M2tsScte35Control'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679901321"><span id="local-6989586621679901322"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="M2tsScte35Control"><span class="annot"><a href="Network.AWS.MediaLive.Types.M2tsScte35Control.html#M2tsScte35Control"><span class="hs-identifier hs-var">M2tsScte35Control</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="M2tsScte35Control%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.M2tsScte35Control.html#M2tsScte35Control%27"><span class="hs-identifier hs-var">M2tsScte35Control'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromM2tsScte35Control"><span class="annot"><span class="annottext">M2tsScte35Control -&gt; Text
 </span><a href="Network.AWS.MediaLive.Types.M2tsScte35Control.html#fromM2tsScte35Control"><span class="hs-identifier hs-var hs-var">fromM2tsScte35Control</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679894644"><span id="local-6989586621679894646"><span id="local-6989586621679894648"><span class="annot"><span class="annottext">Int -&gt; M2tsScte35Control -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679901313"><span id="local-6989586621679901315"><span id="local-6989586621679901317"><span class="annot"><span class="annottext">Int -&gt; M2tsScte35Control -&gt; ShowS
 [M2tsScte35Control] -&gt; ShowS
 M2tsScte35Control -&gt; String
 (Int -&gt; M2tsScte35Control -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: M2tsScte35Control -&gt; String
 showsPrec :: Int -&gt; M2tsScte35Control -&gt; ShowS
 $cshowsPrec :: Int -&gt; M2tsScte35Control -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679894635"><span id="local-6989586621679894637"><span id="local-6989586621679894639"><span id="local-6989586621679894641"><span class="annot"><span class="annottext">ReadPrec [M2tsScte35Control]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679901304"><span id="local-6989586621679901306"><span id="local-6989586621679901308"><span id="local-6989586621679901310"><span class="annot"><span class="annottext">ReadPrec [M2tsScte35Control]
 ReadPrec M2tsScte35Control
 Int -&gt; ReadS M2tsScte35Control
 ReadS [M2tsScte35Control]
@@ -73,7 +73,7 @@ $creadList :: ReadS [M2tsScte35Control]
 readsPrec :: Int -&gt; ReadS M2tsScte35Control
 $creadsPrec :: Int -&gt; ReadS M2tsScte35Control
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679894630"><span id="local-6989586621679894632"><span class="annot"><span class="annottext">M2tsScte35Control -&gt; M2tsScte35Control -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679901299"><span id="local-6989586621679901301"><span class="annot"><span class="annottext">M2tsScte35Control -&gt; M2tsScte35Control -&gt; Bool
 (M2tsScte35Control -&gt; M2tsScte35Control -&gt; Bool)
 -&gt; (M2tsScte35Control -&gt; M2tsScte35Control -&gt; Bool)
 -&gt; Eq M2tsScte35Control
@@ -83,7 +83,7 @@ $c/= :: M2tsScte35Control -&gt; M2tsScte35Control -&gt; Bool
 == :: M2tsScte35Control -&gt; M2tsScte35Control -&gt; Bool
 $c== :: M2tsScte35Control -&gt; M2tsScte35Control -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679894614"><span id="local-6989586621679894616"><span id="local-6989586621679894618"><span id="local-6989586621679894620"><span id="local-6989586621679894622"><span id="local-6989586621679894624"><span id="local-6989586621679894626"><span class="annot"><span class="annottext">Eq M2tsScte35Control
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679901283"><span id="local-6989586621679901285"><span id="local-6989586621679901287"><span id="local-6989586621679901289"><span id="local-6989586621679901291"><span id="local-6989586621679901293"><span id="local-6989586621679901295"><span class="annot"><span class="annottext">Eq M2tsScte35Control
 Eq M2tsScte35Control
 -&gt; (M2tsScte35Control -&gt; M2tsScte35Control -&gt; Ordering)
 -&gt; (M2tsScte35Control -&gt; M2tsScte35Control -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. M2tsScte35Control -&gt; Rep M2tsScte35Control x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679894606"><span id="local-6989586621679894608"><span class="annot"><span class="annottext">Int -&gt; M2tsScte35Control -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679901275"><span id="local-6989586621679901277"><span class="annot"><span class="annottext">Int -&gt; M2tsScte35Control -&gt; Int
 M2tsScte35Control -&gt; Int
 (Int -&gt; M2tsScte35Control -&gt; Int)
 -&gt; (M2tsScte35Control -&gt; Int) -&gt; Hashable M2tsScte35Control
@@ -144,51 +144,51 @@ $chash :: M2tsScte35Control -&gt; Int
 hashWithSalt :: Int -&gt; M2tsScte35Control -&gt; Int
 $chashWithSalt :: Int -&gt; M2tsScte35Control -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679894603"><span class="annot"><span class="annottext">M2tsScte35Control -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679901272"><span class="annot"><span class="annottext">M2tsScte35Control -&gt; ()
 (M2tsScte35Control -&gt; ()) -&gt; NFData M2tsScte35Control
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: M2tsScte35Control -&gt; ()
 $crnf :: M2tsScte35Control -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679894600"><span class="annot"><span class="annottext">Text -&gt; Either String M2tsScte35Control
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679901269"><span class="annot"><span class="annottext">Text -&gt; Either String M2tsScte35Control
 (Text -&gt; Either String M2tsScte35Control)
 -&gt; FromText M2tsScte35Control
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String M2tsScte35Control
 $cfromText :: Text -&gt; Either String M2tsScte35Control
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679894597"><span class="annot"><span class="annottext">M2tsScte35Control -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679901266"><span class="annot"><span class="annottext">M2tsScte35Control -&gt; Text
 (M2tsScte35Control -&gt; Text) -&gt; ToText M2tsScte35Control
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: M2tsScte35Control -&gt; Text
 $ctoText :: M2tsScte35Control -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679894594"><span class="annot"><span class="annottext">M2tsScte35Control -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679901263"><span class="annot"><span class="annottext">M2tsScte35Control -&gt; ByteString
 (M2tsScte35Control -&gt; ByteString) -&gt; ToByteString M2tsScte35Control
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: M2tsScte35Control -&gt; ByteString
 $ctoBS :: M2tsScte35Control -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679894591"><span class="annot"><span class="annottext">M2tsScte35Control -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679901260"><span class="annot"><span class="annottext">M2tsScte35Control -&gt; ByteStringBuilder
 (M2tsScte35Control -&gt; ByteStringBuilder) -&gt; ToLog M2tsScte35Control
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: M2tsScte35Control -&gt; ByteStringBuilder
 $cbuild :: M2tsScte35Control -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679894588"><span class="annot"><span class="annottext">HeaderName -&gt; M2tsScte35Control -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679901257"><span class="annot"><span class="annottext">HeaderName -&gt; M2tsScte35Control -&gt; [Header]
 (HeaderName -&gt; M2tsScte35Control -&gt; [Header])
 -&gt; ToHeader M2tsScte35Control
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; M2tsScte35Control -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; M2tsScte35Control -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679894585"><span class="annot"><span class="annottext">M2tsScte35Control -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679901254"><span class="annot"><span class="annottext">M2tsScte35Control -&gt; QueryString
 (M2tsScte35Control -&gt; QueryString) -&gt; ToQuery M2tsScte35Control
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: M2tsScte35Control -&gt; QueryString
 $ctoQuery :: M2tsScte35Control -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679894580"><span id="local-6989586621679894582"><span class="annot"><span class="annottext">Value -&gt; Parser [M2tsScte35Control]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679901249"><span id="local-6989586621679901251"><span class="annot"><span class="annottext">Value -&gt; Parser [M2tsScte35Control]
 Value -&gt; Parser M2tsScte35Control
 (Value -&gt; Parser M2tsScte35Control)
 -&gt; (Value -&gt; Parser [M2tsScte35Control])
@@ -200,7 +200,7 @@ $cparseJSONList :: Value -&gt; Parser [M2tsScte35Control]
 parseJSON :: Value -&gt; Parser M2tsScte35Control
 $cparseJSON :: Value -&gt; Parser M2tsScte35Control
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679894575"><span id="local-6989586621679894577"><span class="annot"><span class="annottext">FromJSONKeyFunction [M2tsScte35Control]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679901244"><span id="local-6989586621679901246"><span class="annot"><span class="annottext">FromJSONKeyFunction [M2tsScte35Control]
 FromJSONKeyFunction M2tsScte35Control
 FromJSONKeyFunction M2tsScte35Control
 -&gt; FromJSONKeyFunction [M2tsScte35Control]
@@ -212,7 +212,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [M2tsScte35Control]
 fromJSONKey :: FromJSONKeyFunction M2tsScte35Control
 $cfromJSONKey :: FromJSONKeyFunction M2tsScte35Control
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679894566"><span id="local-6989586621679894568"><span id="local-6989586621679894570"><span id="local-6989586621679894572"><span class="annot"><span class="annottext">[M2tsScte35Control] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679901235"><span id="local-6989586621679901237"><span id="local-6989586621679901239"><span id="local-6989586621679901241"><span class="annot"><span class="annottext">[M2tsScte35Control] -&gt; Encoding
 [M2tsScte35Control] -&gt; Value
 M2tsScte35Control -&gt; Encoding
 M2tsScte35Control -&gt; Value
@@ -236,7 +236,7 @@ $ctoEncoding :: M2tsScte35Control -&gt; Encoding
 toJSON :: M2tsScte35Control -&gt; Value
 $ctoJSON :: M2tsScte35Control -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679894561"><span id="local-6989586621679894563"><span class="annot"><span class="annottext">ToJSONKeyFunction [M2tsScte35Control]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679901230"><span id="local-6989586621679901232"><span class="annot"><span class="annottext">ToJSONKeyFunction [M2tsScte35Control]
 ToJSONKeyFunction M2tsScte35Control
 ToJSONKeyFunction M2tsScte35Control
 -&gt; ToJSONKeyFunction [M2tsScte35Control]
@@ -248,14 +248,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [M2tsScte35Control]
 toJSONKey :: ToJSONKeyFunction M2tsScte35Control
 $ctoJSONKey :: ToJSONKeyFunction M2tsScte35Control
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679894558"><span class="annot"><span class="annottext">[Node] -&gt; Either String M2tsScte35Control
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679901227"><span class="annot"><span class="annottext">[Node] -&gt; Either String M2tsScte35Control
 ([Node] -&gt; Either String M2tsScte35Control)
 -&gt; FromXML M2tsScte35Control
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String M2tsScte35Control
 $cparseXML :: [Node] -&gt; Either String M2tsScte35Control
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679894555"><span class="annot"><span class="annottext">M2tsScte35Control -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679901224"><span class="annot"><span class="annottext">M2tsScte35Control -&gt; XML
 (M2tsScte35Control -&gt; XML) -&gt; ToXML M2tsScte35Control
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: M2tsScte35Control -&gt; XML

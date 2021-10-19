@@ -28,50 +28,50 @@
 </span><span id="line-28"></span><span class="hs-comment">-- private server (or /instance/).</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newBundle' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679611634"><span id="local-6989586621679611635"></span></span><span class="hs-keyword">data</span><span> </span><span id="Bundle"><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle"><span class="hs-identifier hs-var">Bundle</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Bundle%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle%27"><span class="hs-identifier hs-var">Bundle'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A numeric value that represents the power of the bundle (e.g., @500@).</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- You can use the bundle\'s power value in conjunction with a blueprint\'s</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- minimum power value to determine whether the blueprint will run on the</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- bundle. For example, you need a bundle with a power value of 500 or more</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- to create an instance that uses a blueprint with a minimum power value</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- of 500.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3Apower%3ABundle%27"><span class="annot"><span class="annottext">Bundle -&gt; Maybe Int
-</span><a href="Network.AWS.Lightsail.Types.Bundle.html#%24sel%3Apower%3ABundle%27"><span class="hs-identifier hs-var hs-var">power</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The amount of RAM in GB (e.g., @2.0@).</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3AramSizeInGb%3ABundle%27"><span class="annot"><span class="annottext">Bundle -&gt; Maybe Double
-</span><a href="Network.AWS.Lightsail.Types.Bundle.html#%24sel%3AramSizeInGb%3ABundle%27"><span class="hs-identifier hs-var hs-var">ramSizeInGb</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The Amazon EC2 instance type (e.g., @t2.micro@).</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3AinstanceType%3ABundle%27"><span class="annot"><span class="annottext">Bundle -&gt; Maybe Text
-</span><a href="Network.AWS.Lightsail.Types.Bundle.html#%24sel%3AinstanceType%3ABundle%27"><span class="hs-identifier hs-var hs-var">instanceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The bundle ID (e.g., @micro_1_0@).</span><span>
-</span><span id="line-44"></span><span>    </span><span id="%24sel%3AbundleId%3ABundle%27"><span class="annot"><span class="annottext">Bundle -&gt; Maybe Text
-</span><a href="Network.AWS.Lightsail.Types.Bundle.html#%24sel%3AbundleId%3ABundle%27"><span class="hs-identifier hs-var hs-var">bundleId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | A Boolean value indicating whether the bundle is active.</span><span>
-</span><span id="line-46"></span><span>    </span><span id="%24sel%3AisActive%3ABundle%27"><span class="annot"><span class="annottext">Bundle -&gt; Maybe Bool
-</span><a href="Network.AWS.Lightsail.Types.Bundle.html#%24sel%3AisActive%3ABundle%27"><span class="hs-identifier hs-var hs-var">isActive</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | A friendly name for the bundle (e.g., @Micro@).</span><span>
-</span><span id="line-48"></span><span>    </span><span id="%24sel%3Aname%3ABundle%27"><span class="annot"><span class="annottext">Bundle -&gt; Maybe Text
-</span><a href="Network.AWS.Lightsail.Types.Bundle.html#%24sel%3Aname%3ABundle%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The data transfer rate per month in GB (e.g., @2000@).</span><span>
-</span><span id="line-50"></span><span>    </span><span id="%24sel%3AtransferPerMonthInGb%3ABundle%27"><span class="annot"><span class="annottext">Bundle -&gt; Maybe Int
-</span><a href="Network.AWS.Lightsail.Types.Bundle.html#%24sel%3AtransferPerMonthInGb%3ABundle%27"><span class="hs-identifier hs-var hs-var">transferPerMonthInGb</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The number of vCPUs included in the bundle (e.g., @2@).</span><span>
-</span><span id="line-52"></span><span>    </span><span id="%24sel%3AcpuCount%3ABundle%27"><span class="annot"><span class="annottext">Bundle -&gt; Maybe Int
+</span><span id="line-31"></span><span id="local-6989586621679612528"><span id="local-6989586621679612529"></span></span><span class="hs-keyword">data</span><span> </span><span id="Bundle"><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle"><span class="hs-identifier hs-var">Bundle</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Bundle%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle%27"><span class="hs-identifier hs-var">Bundle'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of vCPUs included in the bundle (e.g., @2@).</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AcpuCount%3ABundle%27"><span class="annot"><span class="annottext">Bundle -&gt; Maybe Int
 </span><a href="Network.AWS.Lightsail.Types.Bundle.html#%24sel%3AcpuCount%3ABundle%27"><span class="hs-identifier hs-var hs-var">cpuCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The price in US dollars (e.g., @5.0@) of the bundle.</span><span>
-</span><span id="line-54"></span><span>    </span><span id="%24sel%3Aprice%3ABundle%27"><span class="annot"><span class="annottext">Bundle -&gt; Maybe Double
-</span><a href="Network.AWS.Lightsail.Types.Bundle.html#%24sel%3Aprice%3ABundle%27"><span class="hs-identifier hs-var hs-var">price</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The operating system platform (Linux\/Unix-based or Windows</span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- Server-based) that the bundle supports. You can only launch a @WINDOWS@</span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- bundle on a blueprint that supports the @WINDOWS@ platform. @LINUX_UNIX@</span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- blueprints require a @LINUX_UNIX@ bundle.</span><span>
-</span><span id="line-59"></span><span>    </span><span id="%24sel%3AsupportedPlatforms%3ABundle%27"><span class="annot"><span class="annottext">Bundle -&gt; Maybe [InstancePlatform]
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The data transfer rate per month in GB (e.g., @2000@).</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AtransferPerMonthInGb%3ABundle%27"><span class="annot"><span class="annottext">Bundle -&gt; Maybe Int
+</span><a href="Network.AWS.Lightsail.Types.Bundle.html#%24sel%3AtransferPerMonthInGb%3ABundle%27"><span class="hs-identifier hs-var hs-var">transferPerMonthInGb</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The bundle ID (e.g., @micro_1_0@).</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AbundleId%3ABundle%27"><span class="annot"><span class="annottext">Bundle -&gt; Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.Bundle.html#%24sel%3AbundleId%3ABundle%27"><span class="hs-identifier hs-var hs-var">bundleId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The Amazon EC2 instance type (e.g., @t2.micro@).</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AinstanceType%3ABundle%27"><span class="annot"><span class="annottext">Bundle -&gt; Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.Bundle.html#%24sel%3AinstanceType%3ABundle%27"><span class="hs-identifier hs-var hs-var">instanceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | A friendly name for the bundle (e.g., @Micro@).</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Aname%3ABundle%27"><span class="annot"><span class="annottext">Bundle -&gt; Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.Bundle.html#%24sel%3Aname%3ABundle%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | A numeric value that represents the power of the bundle (e.g., @500@).</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- You can use the bundle\'s power value in conjunction with a blueprint\'s</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- minimum power value to determine whether the blueprint will run on the</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- bundle. For example, you need a bundle with a power value of 500 or more</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- to create an instance that uses a blueprint with a minimum power value</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- of 500.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3Apower%3ABundle%27"><span class="annot"><span class="annottext">Bundle -&gt; Maybe Int
+</span><a href="Network.AWS.Lightsail.Types.Bundle.html#%24sel%3Apower%3ABundle%27"><span class="hs-identifier hs-var hs-var">power</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The size of the SSD (e.g., @30@).</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AdiskSizeInGb%3ABundle%27"><span class="annot"><span class="annottext">Bundle -&gt; Maybe Int
+</span><a href="Network.AWS.Lightsail.Types.Bundle.html#%24sel%3AdiskSizeInGb%3ABundle%27"><span class="hs-identifier hs-var hs-var">diskSizeInGb</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The operating system platform (Linux\/Unix-based or Windows</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- Server-based) that the bundle supports. You can only launch a @WINDOWS@</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- bundle on a blueprint that supports the @WINDOWS@ platform. @LINUX_UNIX@</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- blueprints require a @LINUX_UNIX@ bundle.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AsupportedPlatforms%3ABundle%27"><span class="annot"><span class="annottext">Bundle -&gt; Maybe [InstancePlatform]
 </span><a href="Network.AWS.Lightsail.Types.Bundle.html#%24sel%3AsupportedPlatforms%3ABundle%27"><span class="hs-identifier hs-var hs-var">supportedPlatforms</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstancePlatform.html#InstancePlatform"><span class="hs-identifier hs-type">InstancePlatform</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The size of the SSD (e.g., @30@).</span><span>
-</span><span id="line-61"></span><span>    </span><span id="%24sel%3AdiskSizeInGb%3ABundle%27"><span class="annot"><span class="annottext">Bundle -&gt; Maybe Int
-</span><a href="Network.AWS.Lightsail.Types.Bundle.html#%24sel%3AdiskSizeInGb%3ABundle%27"><span class="hs-identifier hs-var hs-var">diskSizeInGb</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The price in US dollars (e.g., @5.0@) of the bundle.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3Aprice%3ABundle%27"><span class="annot"><span class="annottext">Bundle -&gt; Maybe Double
+</span><a href="Network.AWS.Lightsail.Types.Bundle.html#%24sel%3Aprice%3ABundle%27"><span class="hs-identifier hs-var hs-var">price</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | A Boolean value indicating whether the bundle is active.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AisActive%3ABundle%27"><span class="annot"><span class="annottext">Bundle -&gt; Maybe Bool
+</span><a href="Network.AWS.Lightsail.Types.Bundle.html#%24sel%3AisActive%3ABundle%27"><span class="hs-identifier hs-var hs-var">isActive</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The amount of RAM in GB (e.g., @2.0@).</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AramSizeInGb%3ABundle%27"><span class="annot"><span class="annottext">Bundle -&gt; Maybe Double
+</span><a href="Network.AWS.Lightsail.Types.Bundle.html#%24sel%3AramSizeInGb%3ABundle%27"><span class="hs-identifier hs-var hs-var">ramSizeInGb</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679611618"><span id="local-6989586621679611620"><span class="annot"><span class="annottext">Bundle -&gt; Bundle -&gt; Bool
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679612512"><span id="local-6989586621679612514"><span class="annot"><span class="annottext">Bundle -&gt; Bundle -&gt; Bool
 (Bundle -&gt; Bundle -&gt; Bool)
 -&gt; (Bundle -&gt; Bundle -&gt; Bool) -&gt; Eq Bundle
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -79,7 +79,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Bundle -&gt; Bundle -&gt; Bool
 == :: Bundle -&gt; Bundle -&gt; Bool
 $c== :: Bundle -&gt; Bundle -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679611609"><span id="local-6989586621679611611"><span id="local-6989586621679611613"><span id="local-6989586621679611615"><span class="annot"><span class="annottext">ReadPrec [Bundle]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679612503"><span id="local-6989586621679612505"><span id="local-6989586621679612507"><span id="local-6989586621679612509"><span class="annot"><span class="annottext">ReadPrec [Bundle]
 ReadPrec Bundle
 Int -&gt; ReadS Bundle
 ReadS [Bundle]
@@ -99,7 +99,7 @@ readList :: ReadS [Bundle]
 $creadList :: ReadS [Bundle]
 readsPrec :: Int -&gt; ReadS Bundle
 $creadsPrec :: Int -&gt; ReadS Bundle
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679611602"><span id="local-6989586621679611604"><span id="local-6989586621679611606"><span class="annot"><span class="annottext">Int -&gt; Bundle -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679612496"><span id="local-6989586621679612498"><span id="local-6989586621679612500"><span class="annot"><span class="annottext">Int -&gt; Bundle -&gt; ShowS
 [Bundle] -&gt; ShowS
 Bundle -&gt; String
 (Int -&gt; Bundle -&gt; ShowS)
@@ -130,287 +130,251 @@ $cfrom :: forall x. Bundle -&gt; Rep Bundle x
 </span><span id="line-70"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-72"></span><span class="hs-comment">--</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- 'power', 'bundle_power' - A numeric value that represents the power of the bundle (e.g., @500@).</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- You can use the bundle\'s power value in conjunction with a blueprint\'s</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- minimum power value to determine whether the blueprint will run on the</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- bundle. For example, you need a bundle with a power value of 500 or more</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- to create an instance that uses a blueprint with a minimum power value</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- of 500.</span><span>
-</span><span id="line-79"></span><span class="hs-comment">--</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- 'ramSizeInGb', 'bundle_ramSizeInGb' - The amount of RAM in GB (e.g., @2.0@).</span><span>
-</span><span id="line-81"></span><span class="hs-comment">--</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- 'instanceType', 'bundle_instanceType' - The Amazon EC2 instance type (e.g., @t2.micro@).</span><span>
-</span><span id="line-83"></span><span class="hs-comment">--</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- 'bundleId', 'bundle_bundleId' - The bundle ID (e.g., @micro_1_0@).</span><span>
-</span><span id="line-85"></span><span class="hs-comment">--</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- 'isActive', 'bundle_isActive' - A Boolean value indicating whether the bundle is active.</span><span>
-</span><span id="line-87"></span><span class="hs-comment">--</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- 'name', 'bundle_name' - A friendly name for the bundle (e.g., @Micro@).</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'cpuCount', 'bundle_cpuCount' - The number of vCPUs included in the bundle (e.g., @2@).</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'transferPerMonthInGb', 'bundle_transferPerMonthInGb' - The data transfer rate per month in GB (e.g., @2000@).</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'bundleId', 'bundle_bundleId' - The bundle ID (e.g., @micro_1_0@).</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'instanceType', 'bundle_instanceType' - The Amazon EC2 instance type (e.g., @t2.micro@).</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'name', 'bundle_name' - A friendly name for the bundle (e.g., @Micro@).</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'power', 'bundle_power' - A numeric value that represents the power of the bundle (e.g., @500@).</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- You can use the bundle\'s power value in conjunction with a blueprint\'s</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- minimum power value to determine whether the blueprint will run on the</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- bundle. For example, you need a bundle with a power value of 500 or more</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- to create an instance that uses a blueprint with a minimum power value</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- of 500.</span><span>
 </span><span id="line-89"></span><span class="hs-comment">--</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- 'transferPerMonthInGb', 'bundle_transferPerMonthInGb' - The data transfer rate per month in GB (e.g., @2000@).</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'diskSizeInGb', 'bundle_diskSizeInGb' - The size of the SSD (e.g., @30@).</span><span>
 </span><span id="line-91"></span><span class="hs-comment">--</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- 'cpuCount', 'bundle_cpuCount' - The number of vCPUs included in the bundle (e.g., @2@).</span><span>
-</span><span id="line-93"></span><span class="hs-comment">--</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- 'price', 'bundle_price' - The price in US dollars (e.g., @5.0@) of the bundle.</span><span>
-</span><span id="line-95"></span><span class="hs-comment">--</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- 'supportedPlatforms', 'bundle_supportedPlatforms' - The operating system platform (Linux\/Unix-based or Windows</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- Server-based) that the bundle supports. You can only launch a @WINDOWS@</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- bundle on a blueprint that supports the @WINDOWS@ platform. @LINUX_UNIX@</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- blueprints require a @LINUX_UNIX@ bundle.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'supportedPlatforms', 'bundle_supportedPlatforms' - The operating system platform (Linux\/Unix-based or Windows</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- Server-based) that the bundle supports. You can only launch a @WINDOWS@</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- bundle on a blueprint that supports the @WINDOWS@ platform. @LINUX_UNIX@</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- blueprints require a @LINUX_UNIX@ bundle.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'price', 'bundle_price' - The price in US dollars (e.g., @5.0@) of the bundle.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'isActive', 'bundle_isActive' - A Boolean value indicating whether the bundle is active.</span><span>
 </span><span id="line-100"></span><span class="hs-comment">--</span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- 'diskSizeInGb', 'bundle_diskSizeInGb' - The size of the SSD (e.g., @30@).</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'ramSizeInGb', 'bundle_ramSizeInGb' - The amount of RAM in GB (e.g., @2.0@).</span><span>
 </span><span id="line-102"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#newBundle"><span class="hs-identifier hs-type">newBundle</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-103"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle"><span class="hs-identifier hs-type">Bundle</span></a></span><span>
 </span><span id="line-104"></span><span id="newBundle"><span class="annot"><span class="annottext">newBundle :: Bundle
 </span><a href="Network.AWS.Lightsail.Types.Bundle.html#newBundle"><span class="hs-identifier hs-var hs-var">newBundle</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-105"></span><span>  </span><span class="annot"><span class="annottext">Bundle' :: Maybe Int
--&gt; Maybe Double
+-&gt; Maybe Int
 -&gt; Maybe Text
 -&gt; Maybe Text
--&gt; Maybe Bool
 -&gt; Maybe Text
 -&gt; Maybe Int
 -&gt; Maybe Int
--&gt; Maybe Double
 -&gt; Maybe [InstancePlatform]
--&gt; Maybe Int
+-&gt; Maybe Double
+-&gt; Maybe Bool
+-&gt; Maybe Double
 -&gt; Bundle
 </span><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle%27"><span class="hs-identifier hs-type">Bundle'</span></a></span><span>
-</span><span id="line-106"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:power:Bundle' :: Maybe Int
-</span><a href="Network.AWS.Lightsail.Types.Bundle.html#%24sel%3Apower%3ABundle%27"><span class="hs-identifier hs-var">power</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-106"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:cpuCount:Bundle' :: Maybe Int
+</span><a href="Network.AWS.Lightsail.Types.Bundle.html#%24sel%3AcpuCount%3ABundle%27"><span class="hs-identifier hs-var">cpuCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:ramSizeInGb:Bundle' :: Maybe Double
-</span><a href="Network.AWS.Lightsail.Types.Bundle.html#%24sel%3AramSizeInGb%3ABundle%27"><span class="hs-identifier hs-var">ramSizeInGb</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceType:Bundle' :: Maybe Text
-</span><a href="Network.AWS.Lightsail.Types.Bundle.html#%24sel%3AinstanceType%3ABundle%27"><span class="hs-identifier hs-var">instanceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:bundleId:Bundle' :: Maybe Text
-</span><a href="Network.AWS.Lightsail.Types.Bundle.html#%24sel%3AbundleId%3ABundle%27"><span class="hs-identifier hs-var">bundleId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:isActive:Bundle' :: Maybe Bool
-</span><a href="Network.AWS.Lightsail.Types.Bundle.html#%24sel%3AisActive%3ABundle%27"><span class="hs-identifier hs-var">isActive</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:Bundle' :: Maybe Text
-</span><a href="Network.AWS.Lightsail.Types.Bundle.html#%24sel%3Aname%3ABundle%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:transferPerMonthInGb:Bundle' :: Maybe Int
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:transferPerMonthInGb:Bundle' :: Maybe Int
 </span><a href="Network.AWS.Lightsail.Types.Bundle.html#%24sel%3AtransferPerMonthInGb%3ABundle%27"><span class="hs-identifier hs-var">transferPerMonthInGb</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:cpuCount:Bundle' :: Maybe Int
-</span><a href="Network.AWS.Lightsail.Types.Bundle.html#%24sel%3AcpuCount%3ABundle%27"><span class="hs-identifier hs-var">cpuCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:bundleId:Bundle' :: Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.Bundle.html#%24sel%3AbundleId%3ABundle%27"><span class="hs-identifier hs-var">bundleId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceType:Bundle' :: Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.Bundle.html#%24sel%3AinstanceType%3ABundle%27"><span class="hs-identifier hs-var">instanceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:Bundle' :: Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.Bundle.html#%24sel%3Aname%3ABundle%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:power:Bundle' :: Maybe Int
+</span><a href="Network.AWS.Lightsail.Types.Bundle.html#%24sel%3Apower%3ABundle%27"><span class="hs-identifier hs-var">power</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:diskSizeInGb:Bundle' :: Maybe Int
+</span><a href="Network.AWS.Lightsail.Types.Bundle.html#%24sel%3AdiskSizeInGb%3ABundle%27"><span class="hs-identifier hs-var">diskSizeInGb</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:supportedPlatforms:Bundle' :: Maybe [InstancePlatform]
+</span><a href="Network.AWS.Lightsail.Types.Bundle.html#%24sel%3AsupportedPlatforms%3ABundle%27"><span class="hs-identifier hs-var">supportedPlatforms</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [InstancePlatform]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:price:Bundle' :: Maybe Double
 </span><a href="Network.AWS.Lightsail.Types.Bundle.html#%24sel%3Aprice%3ABundle%27"><span class="hs-identifier hs-var">price</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:supportedPlatforms:Bundle' :: Maybe [InstancePlatform]
-</span><a href="Network.AWS.Lightsail.Types.Bundle.html#%24sel%3AsupportedPlatforms%3ABundle%27"><span class="hs-identifier hs-var">supportedPlatforms</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [InstancePlatform]
+</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:isActive:Bundle' :: Maybe Bool
+</span><a href="Network.AWS.Lightsail.Types.Bundle.html#%24sel%3AisActive%3ABundle%27"><span class="hs-identifier hs-var">isActive</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:diskSizeInGb:Bundle' :: Maybe Int
-</span><a href="Network.AWS.Lightsail.Types.Bundle.html#%24sel%3AdiskSizeInGb%3ABundle%27"><span class="hs-identifier hs-var">diskSizeInGb</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:ramSizeInGb:Bundle' :: Maybe Double
+</span><a href="Network.AWS.Lightsail.Types.Bundle.html#%24sel%3AramSizeInGb%3ABundle%27"><span class="hs-identifier hs-var">ramSizeInGb</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-117"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- | A numeric value that represents the power of the bundle (e.g., @500@).</span><span>
-</span><span id="line-120"></span><span class="hs-comment">-- You can use the bundle\'s power value in conjunction with a blueprint\'s</span><span>
-</span><span id="line-121"></span><span class="hs-comment">-- minimum power value to determine whether the blueprint will run on the</span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- bundle. For example, you need a bundle with a power value of 500 or more</span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- to create an instance that uses a blueprint with a minimum power value</span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- of 500.</span><span>
-</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#bundle_power"><span class="hs-identifier hs-type">bundle_power</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle"><span class="hs-identifier hs-type">Bundle</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-126"></span><span id="bundle_power"><span class="annot"><span class="annottext">bundle_power :: (Maybe Int -&gt; f (Maybe Int)) -&gt; Bundle -&gt; f Bundle
-</span><a href="Network.AWS.Lightsail.Types.Bundle.html#bundle_power"><span class="hs-identifier hs-var hs-var">bundle_power</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Bundle -&gt; Maybe Int)
--&gt; (Bundle -&gt; Maybe Int -&gt; Bundle)
--&gt; Lens Bundle Bundle (Maybe Int) (Maybe Int)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle%27"><span class="hs-identifier hs-type">Bundle'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679611593"><span class="annot"><span class="annottext">Maybe Int
-power :: Maybe Int
-$sel:power:Bundle' :: Bundle -&gt; Maybe Int
-</span><a href="#local-6989586621679611593"><span class="hs-identifier hs-var hs-var">power</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679611593"><span class="hs-identifier hs-var">power</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679611592"><span class="annot"><span class="annottext">s :: Bundle
-</span><a href="#local-6989586621679611592"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle%27"><span class="hs-identifier hs-type">Bundle'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679611591"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679611591"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bundle
-</span><a href="#local-6989586621679611592"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:power:Bundle' :: Maybe Int
-</span><a href="Network.AWS.Lightsail.Types.Bundle.html#%24sel%3Apower%3ABundle%27"><span class="hs-identifier hs-var">power</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679611591"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle"><span class="hs-identifier hs-type">Bundle</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- | The amount of RAM in GB (e.g., @2.0@).</span><span>
-</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#bundle_ramSizeInGb"><span class="hs-identifier hs-type">bundle_ramSizeInGb</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle"><span class="hs-identifier hs-type">Bundle</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
-</span><span id="line-130"></span><span id="bundle_ramSizeInGb"><span class="annot"><span class="annottext">bundle_ramSizeInGb :: (Maybe Double -&gt; f (Maybe Double)) -&gt; Bundle -&gt; f Bundle
-</span><a href="Network.AWS.Lightsail.Types.Bundle.html#bundle_ramSizeInGb"><span class="hs-identifier hs-var hs-var">bundle_ramSizeInGb</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Bundle -&gt; Maybe Double)
--&gt; (Bundle -&gt; Maybe Double -&gt; Bundle)
--&gt; Lens Bundle Bundle (Maybe Double) (Maybe Double)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle%27"><span class="hs-identifier hs-type">Bundle'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679611589"><span class="annot"><span class="annottext">Maybe Double
-ramSizeInGb :: Maybe Double
-$sel:ramSizeInGb:Bundle' :: Bundle -&gt; Maybe Double
-</span><a href="#local-6989586621679611589"><span class="hs-identifier hs-var hs-var">ramSizeInGb</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679611589"><span class="hs-identifier hs-var">ramSizeInGb</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679611588"><span class="annot"><span class="annottext">s :: Bundle
-</span><a href="#local-6989586621679611588"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle%27"><span class="hs-identifier hs-type">Bundle'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679611587"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679611587"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bundle
-</span><a href="#local-6989586621679611588"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ramSizeInGb:Bundle' :: Maybe Double
-</span><a href="Network.AWS.Lightsail.Types.Bundle.html#%24sel%3AramSizeInGb%3ABundle%27"><span class="hs-identifier hs-var">ramSizeInGb</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679611587"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle"><span class="hs-identifier hs-type">Bundle</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-131"></span><span>
-</span><span id="line-132"></span><span class="hs-comment">-- | The Amazon EC2 instance type (e.g., @t2.micro@).</span><span>
-</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#bundle_instanceType"><span class="hs-identifier hs-type">bundle_instanceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle"><span class="hs-identifier hs-type">Bundle</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-134"></span><span id="bundle_instanceType"><span class="annot"><span class="annottext">bundle_instanceType :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Bundle -&gt; f Bundle
-</span><a href="Network.AWS.Lightsail.Types.Bundle.html#bundle_instanceType"><span class="hs-identifier hs-var hs-var">bundle_instanceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Bundle -&gt; Maybe Text)
--&gt; (Bundle -&gt; Maybe Text -&gt; Bundle)
--&gt; Lens Bundle Bundle (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle%27"><span class="hs-identifier hs-type">Bundle'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679611585"><span class="annot"><span class="annottext">Maybe Text
-instanceType :: Maybe Text
-$sel:instanceType:Bundle' :: Bundle -&gt; Maybe Text
-</span><a href="#local-6989586621679611585"><span class="hs-identifier hs-var hs-var">instanceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679611585"><span class="hs-identifier hs-var">instanceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679611584"><span class="annot"><span class="annottext">s :: Bundle
-</span><a href="#local-6989586621679611584"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle%27"><span class="hs-identifier hs-type">Bundle'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679611583"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679611583"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bundle
-</span><a href="#local-6989586621679611584"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceType:Bundle' :: Maybe Text
-</span><a href="Network.AWS.Lightsail.Types.Bundle.html#%24sel%3AinstanceType%3ABundle%27"><span class="hs-identifier hs-var">instanceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679611583"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle"><span class="hs-identifier hs-type">Bundle</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-135"></span><span>
-</span><span id="line-136"></span><span class="hs-comment">-- | The bundle ID (e.g., @micro_1_0@).</span><span>
-</span><span id="line-137"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#bundle_bundleId"><span class="hs-identifier hs-type">bundle_bundleId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle"><span class="hs-identifier hs-type">Bundle</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-138"></span><span id="bundle_bundleId"><span class="annot"><span class="annottext">bundle_bundleId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Bundle -&gt; f Bundle
-</span><a href="Network.AWS.Lightsail.Types.Bundle.html#bundle_bundleId"><span class="hs-identifier hs-var hs-var">bundle_bundleId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Bundle -&gt; Maybe Text)
--&gt; (Bundle -&gt; Maybe Text -&gt; Bundle)
--&gt; Lens Bundle Bundle (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle%27"><span class="hs-identifier hs-type">Bundle'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679611581"><span class="annot"><span class="annottext">Maybe Text
-bundleId :: Maybe Text
-$sel:bundleId:Bundle' :: Bundle -&gt; Maybe Text
-</span><a href="#local-6989586621679611581"><span class="hs-identifier hs-var hs-var">bundleId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679611581"><span class="hs-identifier hs-var">bundleId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679611580"><span class="annot"><span class="annottext">s :: Bundle
-</span><a href="#local-6989586621679611580"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle%27"><span class="hs-identifier hs-type">Bundle'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679611579"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679611579"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bundle
-</span><a href="#local-6989586621679611580"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bundleId:Bundle' :: Maybe Text
-</span><a href="Network.AWS.Lightsail.Types.Bundle.html#%24sel%3AbundleId%3ABundle%27"><span class="hs-identifier hs-var">bundleId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679611579"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle"><span class="hs-identifier hs-type">Bundle</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-139"></span><span>
-</span><span id="line-140"></span><span class="hs-comment">-- | A Boolean value indicating whether the bundle is active.</span><span>
-</span><span id="line-141"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#bundle_isActive"><span class="hs-identifier hs-type">bundle_isActive</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle"><span class="hs-identifier hs-type">Bundle</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-142"></span><span id="bundle_isActive"><span class="annot"><span class="annottext">bundle_isActive :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; Bundle -&gt; f Bundle
-</span><a href="Network.AWS.Lightsail.Types.Bundle.html#bundle_isActive"><span class="hs-identifier hs-var hs-var">bundle_isActive</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Bundle -&gt; Maybe Bool)
--&gt; (Bundle -&gt; Maybe Bool -&gt; Bundle)
--&gt; Lens Bundle Bundle (Maybe Bool) (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle%27"><span class="hs-identifier hs-type">Bundle'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679611577"><span class="annot"><span class="annottext">Maybe Bool
-isActive :: Maybe Bool
-$sel:isActive:Bundle' :: Bundle -&gt; Maybe Bool
-</span><a href="#local-6989586621679611577"><span class="hs-identifier hs-var hs-var">isActive</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679611577"><span class="hs-identifier hs-var">isActive</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679611576"><span class="annot"><span class="annottext">s :: Bundle
-</span><a href="#local-6989586621679611576"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle%27"><span class="hs-identifier hs-type">Bundle'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679611575"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679611575"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bundle
-</span><a href="#local-6989586621679611576"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isActive:Bundle' :: Maybe Bool
-</span><a href="Network.AWS.Lightsail.Types.Bundle.html#%24sel%3AisActive%3ABundle%27"><span class="hs-identifier hs-var">isActive</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679611575"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle"><span class="hs-identifier hs-type">Bundle</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-143"></span><span>
-</span><span id="line-144"></span><span class="hs-comment">-- | A friendly name for the bundle (e.g., @Micro@).</span><span>
-</span><span id="line-145"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#bundle_name"><span class="hs-identifier hs-type">bundle_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle"><span class="hs-identifier hs-type">Bundle</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-146"></span><span id="bundle_name"><span class="annot"><span class="annottext">bundle_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Bundle -&gt; f Bundle
-</span><a href="Network.AWS.Lightsail.Types.Bundle.html#bundle_name"><span class="hs-identifier hs-var hs-var">bundle_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Bundle -&gt; Maybe Text)
--&gt; (Bundle -&gt; Maybe Text -&gt; Bundle)
--&gt; Lens Bundle Bundle (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle%27"><span class="hs-identifier hs-type">Bundle'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679611573"><span class="annot"><span class="annottext">Maybe Text
-name :: Maybe Text
-$sel:name:Bundle' :: Bundle -&gt; Maybe Text
-</span><a href="#local-6989586621679611573"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679611573"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679611572"><span class="annot"><span class="annottext">s :: Bundle
-</span><a href="#local-6989586621679611572"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle%27"><span class="hs-identifier hs-type">Bundle'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679611571"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679611571"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bundle
-</span><a href="#local-6989586621679611572"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Bundle' :: Maybe Text
-</span><a href="Network.AWS.Lightsail.Types.Bundle.html#%24sel%3Aname%3ABundle%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679611571"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle"><span class="hs-identifier hs-type">Bundle</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-147"></span><span>
-</span><span id="line-148"></span><span class="hs-comment">-- | The data transfer rate per month in GB (e.g., @2000@).</span><span>
-</span><span id="line-149"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#bundle_transferPerMonthInGb"><span class="hs-identifier hs-type">bundle_transferPerMonthInGb</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle"><span class="hs-identifier hs-type">Bundle</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-150"></span><span id="bundle_transferPerMonthInGb"><span class="annot"><span class="annottext">bundle_transferPerMonthInGb :: (Maybe Int -&gt; f (Maybe Int)) -&gt; Bundle -&gt; f Bundle
-</span><a href="Network.AWS.Lightsail.Types.Bundle.html#bundle_transferPerMonthInGb"><span class="hs-identifier hs-var hs-var">bundle_transferPerMonthInGb</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Bundle -&gt; Maybe Int)
--&gt; (Bundle -&gt; Maybe Int -&gt; Bundle)
--&gt; Lens Bundle Bundle (Maybe Int) (Maybe Int)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle%27"><span class="hs-identifier hs-type">Bundle'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679611569"><span class="annot"><span class="annottext">Maybe Int
-transferPerMonthInGb :: Maybe Int
-$sel:transferPerMonthInGb:Bundle' :: Bundle -&gt; Maybe Int
-</span><a href="#local-6989586621679611569"><span class="hs-identifier hs-var hs-var">transferPerMonthInGb</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679611569"><span class="hs-identifier hs-var">transferPerMonthInGb</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679611568"><span class="annot"><span class="annottext">s :: Bundle
-</span><a href="#local-6989586621679611568"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle%27"><span class="hs-identifier hs-type">Bundle'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679611567"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679611567"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bundle
-</span><a href="#local-6989586621679611568"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transferPerMonthInGb:Bundle' :: Maybe Int
-</span><a href="Network.AWS.Lightsail.Types.Bundle.html#%24sel%3AtransferPerMonthInGb%3ABundle%27"><span class="hs-identifier hs-var">transferPerMonthInGb</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679611567"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle"><span class="hs-identifier hs-type">Bundle</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-151"></span><span>
-</span><span id="line-152"></span><span class="hs-comment">-- | The number of vCPUs included in the bundle (e.g., @2@).</span><span>
-</span><span id="line-153"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#bundle_cpuCount"><span class="hs-identifier hs-type">bundle_cpuCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle"><span class="hs-identifier hs-type">Bundle</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-154"></span><span id="bundle_cpuCount"><span class="annot"><span class="annottext">bundle_cpuCount :: (Maybe Int -&gt; f (Maybe Int)) -&gt; Bundle -&gt; f Bundle
+</span><span id="line-119"></span><span class="hs-comment">-- | The number of vCPUs included in the bundle (e.g., @2@).</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#bundle_cpuCount"><span class="hs-identifier hs-type">bundle_cpuCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle"><span class="hs-identifier hs-type">Bundle</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="bundle_cpuCount"><span class="annot"><span class="annottext">bundle_cpuCount :: (Maybe Int -&gt; f (Maybe Int)) -&gt; Bundle -&gt; f Bundle
 </span><a href="Network.AWS.Lightsail.Types.Bundle.html#bundle_cpuCount"><span class="hs-identifier hs-var hs-var">bundle_cpuCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Bundle -&gt; Maybe Int)
 -&gt; (Bundle -&gt; Maybe Int -&gt; Bundle)
 -&gt; Lens Bundle Bundle (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle%27"><span class="hs-identifier hs-type">Bundle'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679611565"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle%27"><span class="hs-identifier hs-type">Bundle'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679612487"><span class="annot"><span class="annottext">Maybe Int
 cpuCount :: Maybe Int
 $sel:cpuCount:Bundle' :: Bundle -&gt; Maybe Int
-</span><a href="#local-6989586621679611565"><span class="hs-identifier hs-var hs-var">cpuCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679611565"><span class="hs-identifier hs-var">cpuCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679611564"><span class="annot"><span class="annottext">s :: Bundle
-</span><a href="#local-6989586621679611564"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle%27"><span class="hs-identifier hs-type">Bundle'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679611563"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679611563"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bundle
-</span><a href="#local-6989586621679611564"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cpuCount:Bundle' :: Maybe Int
+</span><a href="#local-6989586621679612487"><span class="hs-identifier hs-var hs-var">cpuCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679612487"><span class="hs-identifier hs-var">cpuCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679612486"><span class="annot"><span class="annottext">s :: Bundle
+</span><a href="#local-6989586621679612486"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle%27"><span class="hs-identifier hs-type">Bundle'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679612485"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679612485"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bundle
+</span><a href="#local-6989586621679612486"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cpuCount:Bundle' :: Maybe Int
 </span><a href="Network.AWS.Lightsail.Types.Bundle.html#%24sel%3AcpuCount%3ABundle%27"><span class="hs-identifier hs-var">cpuCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679611563"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle"><span class="hs-identifier hs-type">Bundle</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-155"></span><span>
-</span><span id="line-156"></span><span class="hs-comment">-- | The price in US dollars (e.g., @5.0@) of the bundle.</span><span>
-</span><span id="line-157"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#bundle_price"><span class="hs-identifier hs-type">bundle_price</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle"><span class="hs-identifier hs-type">Bundle</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
-</span><span id="line-158"></span><span id="bundle_price"><span class="annot"><span class="annottext">bundle_price :: (Maybe Double -&gt; f (Maybe Double)) -&gt; Bundle -&gt; f Bundle
-</span><a href="Network.AWS.Lightsail.Types.Bundle.html#bundle_price"><span class="hs-identifier hs-var hs-var">bundle_price</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Bundle -&gt; Maybe Double)
--&gt; (Bundle -&gt; Maybe Double -&gt; Bundle)
--&gt; Lens Bundle Bundle (Maybe Double) (Maybe Double)
+</span><a href="#local-6989586621679612485"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle"><span class="hs-identifier hs-type">Bundle</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | The data transfer rate per month in GB (e.g., @2000@).</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#bundle_transferPerMonthInGb"><span class="hs-identifier hs-type">bundle_transferPerMonthInGb</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle"><span class="hs-identifier hs-type">Bundle</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span id="bundle_transferPerMonthInGb"><span class="annot"><span class="annottext">bundle_transferPerMonthInGb :: (Maybe Int -&gt; f (Maybe Int)) -&gt; Bundle -&gt; f Bundle
+</span><a href="Network.AWS.Lightsail.Types.Bundle.html#bundle_transferPerMonthInGb"><span class="hs-identifier hs-var hs-var">bundle_transferPerMonthInGb</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Bundle -&gt; Maybe Int)
+-&gt; (Bundle -&gt; Maybe Int -&gt; Bundle)
+-&gt; Lens Bundle Bundle (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle%27"><span class="hs-identifier hs-type">Bundle'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679611561"><span class="annot"><span class="annottext">Maybe Double
-price :: Maybe Double
-$sel:price:Bundle' :: Bundle -&gt; Maybe Double
-</span><a href="#local-6989586621679611561"><span class="hs-identifier hs-var hs-var">price</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679611561"><span class="hs-identifier hs-var">price</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679611560"><span class="annot"><span class="annottext">s :: Bundle
-</span><a href="#local-6989586621679611560"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle%27"><span class="hs-identifier hs-type">Bundle'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679611559"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679611559"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bundle
-</span><a href="#local-6989586621679611560"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:price:Bundle' :: Maybe Double
-</span><a href="Network.AWS.Lightsail.Types.Bundle.html#%24sel%3Aprice%3ABundle%27"><span class="hs-identifier hs-var">price</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679611559"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle"><span class="hs-identifier hs-type">Bundle</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-159"></span><span>
-</span><span id="line-160"></span><span class="hs-comment">-- | The operating system platform (Linux\/Unix-based or Windows</span><span>
-</span><span id="line-161"></span><span class="hs-comment">-- Server-based) that the bundle supports. You can only launch a @WINDOWS@</span><span>
-</span><span id="line-162"></span><span class="hs-comment">-- bundle on a blueprint that supports the @WINDOWS@ platform. @LINUX_UNIX@</span><span>
-</span><span id="line-163"></span><span class="hs-comment">-- blueprints require a @LINUX_UNIX@ bundle.</span><span>
-</span><span id="line-164"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#bundle_supportedPlatforms"><span class="hs-identifier hs-type">bundle_supportedPlatforms</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle"><span class="hs-identifier hs-type">Bundle</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstancePlatform.html#InstancePlatform"><span class="hs-identifier hs-type">InstancePlatform</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-165"></span><span id="bundle_supportedPlatforms"><span class="annot"><span class="annottext">bundle_supportedPlatforms :: (Maybe [InstancePlatform] -&gt; f (Maybe [InstancePlatform]))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle%27"><span class="hs-identifier hs-type">Bundle'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679612483"><span class="annot"><span class="annottext">Maybe Int
+transferPerMonthInGb :: Maybe Int
+$sel:transferPerMonthInGb:Bundle' :: Bundle -&gt; Maybe Int
+</span><a href="#local-6989586621679612483"><span class="hs-identifier hs-var hs-var">transferPerMonthInGb</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679612483"><span class="hs-identifier hs-var">transferPerMonthInGb</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679612482"><span class="annot"><span class="annottext">s :: Bundle
+</span><a href="#local-6989586621679612482"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle%27"><span class="hs-identifier hs-type">Bundle'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679612481"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679612481"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bundle
+</span><a href="#local-6989586621679612482"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transferPerMonthInGb:Bundle' :: Maybe Int
+</span><a href="Network.AWS.Lightsail.Types.Bundle.html#%24sel%3AtransferPerMonthInGb%3ABundle%27"><span class="hs-identifier hs-var">transferPerMonthInGb</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679612481"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle"><span class="hs-identifier hs-type">Bundle</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | The bundle ID (e.g., @micro_1_0@).</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#bundle_bundleId"><span class="hs-identifier hs-type">bundle_bundleId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle"><span class="hs-identifier hs-type">Bundle</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span id="bundle_bundleId"><span class="annot"><span class="annottext">bundle_bundleId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Bundle -&gt; f Bundle
+</span><a href="Network.AWS.Lightsail.Types.Bundle.html#bundle_bundleId"><span class="hs-identifier hs-var hs-var">bundle_bundleId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Bundle -&gt; Maybe Text)
+-&gt; (Bundle -&gt; Maybe Text -&gt; Bundle)
+-&gt; Lens Bundle Bundle (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle%27"><span class="hs-identifier hs-type">Bundle'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679612479"><span class="annot"><span class="annottext">Maybe Text
+bundleId :: Maybe Text
+$sel:bundleId:Bundle' :: Bundle -&gt; Maybe Text
+</span><a href="#local-6989586621679612479"><span class="hs-identifier hs-var hs-var">bundleId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679612479"><span class="hs-identifier hs-var">bundleId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679612478"><span class="annot"><span class="annottext">s :: Bundle
+</span><a href="#local-6989586621679612478"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle%27"><span class="hs-identifier hs-type">Bundle'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679612477"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679612477"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bundle
+</span><a href="#local-6989586621679612478"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bundleId:Bundle' :: Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.Bundle.html#%24sel%3AbundleId%3ABundle%27"><span class="hs-identifier hs-var">bundleId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679612477"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle"><span class="hs-identifier hs-type">Bundle</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | The Amazon EC2 instance type (e.g., @t2.micro@).</span><span>
+</span><span id="line-132"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#bundle_instanceType"><span class="hs-identifier hs-type">bundle_instanceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle"><span class="hs-identifier hs-type">Bundle</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span id="bundle_instanceType"><span class="annot"><span class="annottext">bundle_instanceType :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Bundle -&gt; f Bundle
+</span><a href="Network.AWS.Lightsail.Types.Bundle.html#bundle_instanceType"><span class="hs-identifier hs-var hs-var">bundle_instanceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Bundle -&gt; Maybe Text)
+-&gt; (Bundle -&gt; Maybe Text -&gt; Bundle)
+-&gt; Lens Bundle Bundle (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle%27"><span class="hs-identifier hs-type">Bundle'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679612475"><span class="annot"><span class="annottext">Maybe Text
+instanceType :: Maybe Text
+$sel:instanceType:Bundle' :: Bundle -&gt; Maybe Text
+</span><a href="#local-6989586621679612475"><span class="hs-identifier hs-var hs-var">instanceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679612475"><span class="hs-identifier hs-var">instanceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679612474"><span class="annot"><span class="annottext">s :: Bundle
+</span><a href="#local-6989586621679612474"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle%27"><span class="hs-identifier hs-type">Bundle'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679612473"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679612473"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bundle
+</span><a href="#local-6989586621679612474"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceType:Bundle' :: Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.Bundle.html#%24sel%3AinstanceType%3ABundle%27"><span class="hs-identifier hs-var">instanceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679612473"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle"><span class="hs-identifier hs-type">Bundle</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- | A friendly name for the bundle (e.g., @Micro@).</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#bundle_name"><span class="hs-identifier hs-type">bundle_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle"><span class="hs-identifier hs-type">Bundle</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span id="bundle_name"><span class="annot"><span class="annottext">bundle_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Bundle -&gt; f Bundle
+</span><a href="Network.AWS.Lightsail.Types.Bundle.html#bundle_name"><span class="hs-identifier hs-var hs-var">bundle_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Bundle -&gt; Maybe Text)
+-&gt; (Bundle -&gt; Maybe Text -&gt; Bundle)
+-&gt; Lens Bundle Bundle (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle%27"><span class="hs-identifier hs-type">Bundle'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679612471"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:Bundle' :: Bundle -&gt; Maybe Text
+</span><a href="#local-6989586621679612471"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679612471"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679612470"><span class="annot"><span class="annottext">s :: Bundle
+</span><a href="#local-6989586621679612470"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle%27"><span class="hs-identifier hs-type">Bundle'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679612469"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679612469"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bundle
+</span><a href="#local-6989586621679612470"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Bundle' :: Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.Bundle.html#%24sel%3Aname%3ABundle%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679612469"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle"><span class="hs-identifier hs-type">Bundle</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | A numeric value that represents the power of the bundle (e.g., @500@).</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- You can use the bundle\'s power value in conjunction with a blueprint\'s</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- minimum power value to determine whether the blueprint will run on the</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- bundle. For example, you need a bundle with a power value of 500 or more</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- to create an instance that uses a blueprint with a minimum power value</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- of 500.</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#bundle_power"><span class="hs-identifier hs-type">bundle_power</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle"><span class="hs-identifier hs-type">Bundle</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span id="bundle_power"><span class="annot"><span class="annottext">bundle_power :: (Maybe Int -&gt; f (Maybe Int)) -&gt; Bundle -&gt; f Bundle
+</span><a href="Network.AWS.Lightsail.Types.Bundle.html#bundle_power"><span class="hs-identifier hs-var hs-var">bundle_power</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Bundle -&gt; Maybe Int)
+-&gt; (Bundle -&gt; Maybe Int -&gt; Bundle)
+-&gt; Lens Bundle Bundle (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle%27"><span class="hs-identifier hs-type">Bundle'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679612467"><span class="annot"><span class="annottext">Maybe Int
+power :: Maybe Int
+$sel:power:Bundle' :: Bundle -&gt; Maybe Int
+</span><a href="#local-6989586621679612467"><span class="hs-identifier hs-var hs-var">power</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679612467"><span class="hs-identifier hs-var">power</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679612466"><span class="annot"><span class="annottext">s :: Bundle
+</span><a href="#local-6989586621679612466"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle%27"><span class="hs-identifier hs-type">Bundle'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679612465"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679612465"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bundle
+</span><a href="#local-6989586621679612466"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:power:Bundle' :: Maybe Int
+</span><a href="Network.AWS.Lightsail.Types.Bundle.html#%24sel%3Apower%3ABundle%27"><span class="hs-identifier hs-var">power</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679612465"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle"><span class="hs-identifier hs-type">Bundle</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- | The size of the SSD (e.g., @30@).</span><span>
+</span><span id="line-149"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#bundle_diskSizeInGb"><span class="hs-identifier hs-type">bundle_diskSizeInGb</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle"><span class="hs-identifier hs-type">Bundle</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span id="bundle_diskSizeInGb"><span class="annot"><span class="annottext">bundle_diskSizeInGb :: (Maybe Int -&gt; f (Maybe Int)) -&gt; Bundle -&gt; f Bundle
+</span><a href="Network.AWS.Lightsail.Types.Bundle.html#bundle_diskSizeInGb"><span class="hs-identifier hs-var hs-var">bundle_diskSizeInGb</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Bundle -&gt; Maybe Int)
+-&gt; (Bundle -&gt; Maybe Int -&gt; Bundle)
+-&gt; Lens Bundle Bundle (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle%27"><span class="hs-identifier hs-type">Bundle'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679612463"><span class="annot"><span class="annottext">Maybe Int
+diskSizeInGb :: Maybe Int
+$sel:diskSizeInGb:Bundle' :: Bundle -&gt; Maybe Int
+</span><a href="#local-6989586621679612463"><span class="hs-identifier hs-var hs-var">diskSizeInGb</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679612463"><span class="hs-identifier hs-var">diskSizeInGb</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679612462"><span class="annot"><span class="annottext">s :: Bundle
+</span><a href="#local-6989586621679612462"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle%27"><span class="hs-identifier hs-type">Bundle'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679612461"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679612461"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bundle
+</span><a href="#local-6989586621679612462"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:diskSizeInGb:Bundle' :: Maybe Int
+</span><a href="Network.AWS.Lightsail.Types.Bundle.html#%24sel%3AdiskSizeInGb%3ABundle%27"><span class="hs-identifier hs-var">diskSizeInGb</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679612461"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle"><span class="hs-identifier hs-type">Bundle</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- | The operating system platform (Linux\/Unix-based or Windows</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- Server-based) that the bundle supports. You can only launch a @WINDOWS@</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- bundle on a blueprint that supports the @WINDOWS@ platform. @LINUX_UNIX@</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- blueprints require a @LINUX_UNIX@ bundle.</span><span>
+</span><span id="line-156"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#bundle_supportedPlatforms"><span class="hs-identifier hs-type">bundle_supportedPlatforms</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle"><span class="hs-identifier hs-type">Bundle</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstancePlatform.html#InstancePlatform"><span class="hs-identifier hs-type">InstancePlatform</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span id="bundle_supportedPlatforms"><span class="annot"><span class="annottext">bundle_supportedPlatforms :: (Maybe [InstancePlatform] -&gt; f (Maybe [InstancePlatform]))
 -&gt; Bundle -&gt; f Bundle
 </span><a href="Network.AWS.Lightsail.Types.Bundle.html#bundle_supportedPlatforms"><span class="hs-identifier hs-var hs-var">bundle_supportedPlatforms</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Bundle -&gt; Maybe [InstancePlatform])
 -&gt; (Bundle -&gt; Maybe [InstancePlatform] -&gt; Bundle)
 -&gt; Lens
      Bundle Bundle (Maybe [InstancePlatform]) (Maybe [InstancePlatform])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle%27"><span class="hs-identifier hs-type">Bundle'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679611557"><span class="annot"><span class="annottext">Maybe [InstancePlatform]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle%27"><span class="hs-identifier hs-type">Bundle'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679612459"><span class="annot"><span class="annottext">Maybe [InstancePlatform]
 supportedPlatforms :: Maybe [InstancePlatform]
 $sel:supportedPlatforms:Bundle' :: Bundle -&gt; Maybe [InstancePlatform]
-</span><a href="#local-6989586621679611557"><span class="hs-identifier hs-var hs-var">supportedPlatforms</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [InstancePlatform]
-</span><a href="#local-6989586621679611557"><span class="hs-identifier hs-var">supportedPlatforms</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679611556"><span class="annot"><span class="annottext">s :: Bundle
-</span><a href="#local-6989586621679611556"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle%27"><span class="hs-identifier hs-type">Bundle'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679611555"><span class="annot"><span class="annottext">Maybe [InstancePlatform]
-</span><a href="#local-6989586621679611555"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bundle
-</span><a href="#local-6989586621679611556"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:supportedPlatforms:Bundle' :: Maybe [InstancePlatform]
+</span><a href="#local-6989586621679612459"><span class="hs-identifier hs-var hs-var">supportedPlatforms</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [InstancePlatform]
+</span><a href="#local-6989586621679612459"><span class="hs-identifier hs-var">supportedPlatforms</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679612458"><span class="annot"><span class="annottext">s :: Bundle
+</span><a href="#local-6989586621679612458"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle%27"><span class="hs-identifier hs-type">Bundle'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679612457"><span class="annot"><span class="annottext">Maybe [InstancePlatform]
+</span><a href="#local-6989586621679612457"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bundle
+</span><a href="#local-6989586621679612458"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:supportedPlatforms:Bundle' :: Maybe [InstancePlatform]
 </span><a href="Network.AWS.Lightsail.Types.Bundle.html#%24sel%3AsupportedPlatforms%3ABundle%27"><span class="hs-identifier hs-var">supportedPlatforms</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [InstancePlatform]
-</span><a href="#local-6989586621679611555"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle"><span class="hs-identifier hs-type">Bundle</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [InstancePlatform] -&gt; f (Maybe [InstancePlatform]))
+</span><a href="#local-6989586621679612457"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle"><span class="hs-identifier hs-type">Bundle</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [InstancePlatform] -&gt; f (Maybe [InstancePlatform]))
  -&gt; Bundle -&gt; f Bundle)
 -&gt; ((Maybe [InstancePlatform] -&gt; f (Maybe [InstancePlatform]))
     -&gt; Maybe [InstancePlatform] -&gt; f (Maybe [InstancePlatform]))
@@ -436,276 +400,310 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [InstancePlatform]
   [InstancePlatform]
   [InstancePlatform]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-166"></span><span>
-</span><span id="line-167"></span><span class="hs-comment">-- | The size of the SSD (e.g., @30@).</span><span>
-</span><span id="line-168"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#bundle_diskSizeInGb"><span class="hs-identifier hs-type">bundle_diskSizeInGb</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle"><span class="hs-identifier hs-type">Bundle</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-169"></span><span id="bundle_diskSizeInGb"><span class="annot"><span class="annottext">bundle_diskSizeInGb :: (Maybe Int -&gt; f (Maybe Int)) -&gt; Bundle -&gt; f Bundle
-</span><a href="Network.AWS.Lightsail.Types.Bundle.html#bundle_diskSizeInGb"><span class="hs-identifier hs-var hs-var">bundle_diskSizeInGb</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Bundle -&gt; Maybe Int)
--&gt; (Bundle -&gt; Maybe Int -&gt; Bundle)
--&gt; Lens Bundle Bundle (Maybe Int) (Maybe Int)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- | The price in US dollars (e.g., @5.0@) of the bundle.</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#bundle_price"><span class="hs-identifier hs-type">bundle_price</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle"><span class="hs-identifier hs-type">Bundle</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span id="bundle_price"><span class="annot"><span class="annottext">bundle_price :: (Maybe Double -&gt; f (Maybe Double)) -&gt; Bundle -&gt; f Bundle
+</span><a href="Network.AWS.Lightsail.Types.Bundle.html#bundle_price"><span class="hs-identifier hs-var hs-var">bundle_price</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Bundle -&gt; Maybe Double)
+-&gt; (Bundle -&gt; Maybe Double -&gt; Bundle)
+-&gt; Lens Bundle Bundle (Maybe Double) (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle%27"><span class="hs-identifier hs-type">Bundle'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679611550"><span class="annot"><span class="annottext">Maybe Int
-diskSizeInGb :: Maybe Int
-$sel:diskSizeInGb:Bundle' :: Bundle -&gt; Maybe Int
-</span><a href="#local-6989586621679611550"><span class="hs-identifier hs-var hs-var">diskSizeInGb</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679611550"><span class="hs-identifier hs-var">diskSizeInGb</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679611549"><span class="annot"><span class="annottext">s :: Bundle
-</span><a href="#local-6989586621679611549"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle%27"><span class="hs-identifier hs-type">Bundle'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679611548"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679611548"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bundle
-</span><a href="#local-6989586621679611549"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:diskSizeInGb:Bundle' :: Maybe Int
-</span><a href="Network.AWS.Lightsail.Types.Bundle.html#%24sel%3AdiskSizeInGb%3ABundle%27"><span class="hs-identifier hs-var">diskSizeInGb</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679611548"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle"><span class="hs-identifier hs-type">Bundle</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle%27"><span class="hs-identifier hs-type">Bundle'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679612452"><span class="annot"><span class="annottext">Maybe Double
+price :: Maybe Double
+$sel:price:Bundle' :: Bundle -&gt; Maybe Double
+</span><a href="#local-6989586621679612452"><span class="hs-identifier hs-var hs-var">price</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679612452"><span class="hs-identifier hs-var">price</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679612451"><span class="annot"><span class="annottext">s :: Bundle
+</span><a href="#local-6989586621679612451"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle%27"><span class="hs-identifier hs-type">Bundle'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679612450"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679612450"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bundle
+</span><a href="#local-6989586621679612451"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:price:Bundle' :: Maybe Double
+</span><a href="Network.AWS.Lightsail.Types.Bundle.html#%24sel%3Aprice%3ABundle%27"><span class="hs-identifier hs-var">price</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679612450"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle"><span class="hs-identifier hs-type">Bundle</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | A Boolean value indicating whether the bundle is active.</span><span>
+</span><span id="line-164"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#bundle_isActive"><span class="hs-identifier hs-type">bundle_isActive</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle"><span class="hs-identifier hs-type">Bundle</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span id="bundle_isActive"><span class="annot"><span class="annottext">bundle_isActive :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; Bundle -&gt; f Bundle
+</span><a href="Network.AWS.Lightsail.Types.Bundle.html#bundle_isActive"><span class="hs-identifier hs-var hs-var">bundle_isActive</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Bundle -&gt; Maybe Bool)
+-&gt; (Bundle -&gt; Maybe Bool -&gt; Bundle)
+-&gt; Lens Bundle Bundle (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle%27"><span class="hs-identifier hs-type">Bundle'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679612448"><span class="annot"><span class="annottext">Maybe Bool
+isActive :: Maybe Bool
+$sel:isActive:Bundle' :: Bundle -&gt; Maybe Bool
+</span><a href="#local-6989586621679612448"><span class="hs-identifier hs-var hs-var">isActive</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679612448"><span class="hs-identifier hs-var">isActive</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679612447"><span class="annot"><span class="annottext">s :: Bundle
+</span><a href="#local-6989586621679612447"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle%27"><span class="hs-identifier hs-type">Bundle'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679612446"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679612446"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bundle
+</span><a href="#local-6989586621679612447"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isActive:Bundle' :: Maybe Bool
+</span><a href="Network.AWS.Lightsail.Types.Bundle.html#%24sel%3AisActive%3ABundle%27"><span class="hs-identifier hs-var">isActive</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679612446"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle"><span class="hs-identifier hs-type">Bundle</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- | The amount of RAM in GB (e.g., @2.0@).</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#bundle_ramSizeInGb"><span class="hs-identifier hs-type">bundle_ramSizeInGb</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle"><span class="hs-identifier hs-type">Bundle</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span id="bundle_ramSizeInGb"><span class="annot"><span class="annottext">bundle_ramSizeInGb :: (Maybe Double -&gt; f (Maybe Double)) -&gt; Bundle -&gt; f Bundle
+</span><a href="Network.AWS.Lightsail.Types.Bundle.html#bundle_ramSizeInGb"><span class="hs-identifier hs-var hs-var">bundle_ramSizeInGb</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Bundle -&gt; Maybe Double)
+-&gt; (Bundle -&gt; Maybe Double -&gt; Bundle)
+-&gt; Lens Bundle Bundle (Maybe Double) (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle%27"><span class="hs-identifier hs-type">Bundle'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679612444"><span class="annot"><span class="annottext">Maybe Double
+ramSizeInGb :: Maybe Double
+$sel:ramSizeInGb:Bundle' :: Bundle -&gt; Maybe Double
+</span><a href="#local-6989586621679612444"><span class="hs-identifier hs-var hs-var">ramSizeInGb</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679612444"><span class="hs-identifier hs-var">ramSizeInGb</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679612443"><span class="annot"><span class="annottext">s :: Bundle
+</span><a href="#local-6989586621679612443"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle%27"><span class="hs-identifier hs-type">Bundle'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679612442"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679612442"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bundle
+</span><a href="#local-6989586621679612443"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ramSizeInGb:Bundle' :: Maybe Double
+</span><a href="Network.AWS.Lightsail.Types.Bundle.html#%24sel%3AramSizeInGb%3ABundle%27"><span class="hs-identifier hs-var">ramSizeInGb</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679612442"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle"><span class="hs-identifier hs-type">Bundle</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>
-</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679611545"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle"><span class="hs-identifier hs-type">Bundle</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-172"></span><span>  </span><span id="local-6989586621679611543"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Bundle
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679612439"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle"><span class="hs-identifier hs-type">Bundle</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679612437"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Bundle
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-173"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Bundle) -&gt; Value -&gt; Parser Bundle
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-174"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Bundle&quot;</span></span><span>
-</span><span id="line-175"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679611540"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679611540"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-175"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679612434"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679612434"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-176"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int
--&gt; Maybe Double
+-&gt; Maybe Int
 -&gt; Maybe Text
 -&gt; Maybe Text
--&gt; Maybe Bool
 -&gt; Maybe Text
 -&gt; Maybe Int
 -&gt; Maybe Int
--&gt; Maybe Double
 -&gt; Maybe [InstancePlatform]
--&gt; Maybe Int
+-&gt; Maybe Double
+-&gt; Maybe Bool
+-&gt; Maybe Double
 -&gt; Bundle
 </span><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle%27"><span class="hs-identifier hs-var">Bundle'</span></a></span><span>
 </span><span id="line-177"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Int
- -&gt; Maybe Double
+ -&gt; Maybe Int
  -&gt; Maybe Text
  -&gt; Maybe Text
- -&gt; Maybe Bool
  -&gt; Maybe Text
  -&gt; Maybe Int
  -&gt; Maybe Int
- -&gt; Maybe Double
  -&gt; Maybe [InstancePlatform]
- -&gt; Maybe Int
+ -&gt; Maybe Double
+ -&gt; Maybe Bool
+ -&gt; Maybe Double
  -&gt; Bundle)
 -&gt; Parser (Maybe Int)
 -&gt; Parser
-     (Maybe Double
+     (Maybe Int
       -&gt; Maybe Text
       -&gt; Maybe Text
-      -&gt; Maybe Bool
       -&gt; Maybe Text
       -&gt; Maybe Int
       -&gt; Maybe Int
-      -&gt; Maybe Double
       -&gt; Maybe [InstancePlatform]
-      -&gt; Maybe Int
+      -&gt; Maybe Double
+      -&gt; Maybe Bool
+      -&gt; Maybe Double
       -&gt; Bundle)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679611540"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;power&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-178"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Double
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Bool
-   -&gt; Maybe Text
-   -&gt; Maybe Int
-   -&gt; Maybe Int
-   -&gt; Maybe Double
-   -&gt; Maybe [InstancePlatform]
-   -&gt; Maybe Int
-   -&gt; Bundle)
--&gt; Parser (Maybe Double)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Bool
-      -&gt; Maybe Text
-      -&gt; Maybe Int
-      -&gt; Maybe Int
-      -&gt; Maybe Double
-      -&gt; Maybe [InstancePlatform]
-      -&gt; Maybe Int
-      -&gt; Bundle)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679611540"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ramSizeInGb&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-179"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Bool
-   -&gt; Maybe Text
-   -&gt; Maybe Int
-   -&gt; Maybe Int
-   -&gt; Maybe Double
-   -&gt; Maybe [InstancePlatform]
-   -&gt; Maybe Int
-   -&gt; Bundle)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe Bool
-      -&gt; Maybe Text
-      -&gt; Maybe Int
-      -&gt; Maybe Int
-      -&gt; Maybe Double
-      -&gt; Maybe [InstancePlatform]
-      -&gt; Maybe Int
-      -&gt; Bundle)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679611540"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;instanceType&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-180"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe Bool
-   -&gt; Maybe Text
-   -&gt; Maybe Int
-   -&gt; Maybe Int
-   -&gt; Maybe Double
-   -&gt; Maybe [InstancePlatform]
-   -&gt; Maybe Int
-   -&gt; Bundle)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe Bool
-      -&gt; Maybe Text
-      -&gt; Maybe Int
-      -&gt; Maybe Int
-      -&gt; Maybe Double
-      -&gt; Maybe [InstancePlatform]
-      -&gt; Maybe Int
-      -&gt; Bundle)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679611540"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;bundleId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-181"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Bool
-   -&gt; Maybe Text
-   -&gt; Maybe Int
-   -&gt; Maybe Int
-   -&gt; Maybe Double
-   -&gt; Maybe [InstancePlatform]
-   -&gt; Maybe Int
-   -&gt; Bundle)
--&gt; Parser (Maybe Bool)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe Int
-      -&gt; Maybe Int
-      -&gt; Maybe Double
-      -&gt; Maybe [InstancePlatform]
-      -&gt; Maybe Int
-      -&gt; Bundle)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679611540"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;isActive&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-182"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe Int
-   -&gt; Maybe Int
-   -&gt; Maybe Double
-   -&gt; Maybe [InstancePlatform]
-   -&gt; Maybe Int
-   -&gt; Bundle)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe Int
-      -&gt; Maybe Int
-      -&gt; Maybe Double
-      -&gt; Maybe [InstancePlatform]
-      -&gt; Maybe Int
-      -&gt; Bundle)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679611540"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-183"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Int
-   -&gt; Maybe Int
-   -&gt; Maybe Double
-   -&gt; Maybe [InstancePlatform]
-   -&gt; Maybe Int
-   -&gt; Bundle)
--&gt; Parser (Maybe Int)
--&gt; Parser
-     (Maybe Int
-      -&gt; Maybe Double -&gt; Maybe [InstancePlatform] -&gt; Maybe Int -&gt; Bundle)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679611540"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;transferPerMonthInGb&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-184"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Int
-   -&gt; Maybe Double -&gt; Maybe [InstancePlatform] -&gt; Maybe Int -&gt; Bundle)
--&gt; Parser (Maybe Int)
--&gt; Parser
-     (Maybe Double -&gt; Maybe [InstancePlatform] -&gt; Maybe Int -&gt; Bundle)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679611540"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679612434"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;cpuCount&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-185"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Double -&gt; Maybe [InstancePlatform] -&gt; Maybe Int -&gt; Bundle)
--&gt; Parser (Maybe Double)
--&gt; Parser (Maybe [InstancePlatform] -&gt; Maybe Int -&gt; Bundle)
+</span><span id="line-178"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe [InstancePlatform]
+   -&gt; Maybe Double
+   -&gt; Maybe Bool
+   -&gt; Maybe Double
+   -&gt; Bundle)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe [InstancePlatform]
+      -&gt; Maybe Double
+      -&gt; Maybe Bool
+      -&gt; Maybe Double
+      -&gt; Bundle)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679611540"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+</span><a href="#local-6989586621679612434"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;price&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-186"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [InstancePlatform] -&gt; Maybe Int -&gt; Bundle)
+</span><span class="hs-string">&quot;transferPerMonthInGb&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe [InstancePlatform]
+   -&gt; Maybe Double
+   -&gt; Maybe Bool
+   -&gt; Maybe Double
+   -&gt; Bundle)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe [InstancePlatform]
+      -&gt; Maybe Double
+      -&gt; Maybe Bool
+      -&gt; Maybe Double
+      -&gt; Bundle)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679612434"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;bundleId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe [InstancePlatform]
+   -&gt; Maybe Double
+   -&gt; Maybe Bool
+   -&gt; Maybe Double
+   -&gt; Bundle)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe [InstancePlatform]
+      -&gt; Maybe Double
+      -&gt; Maybe Bool
+      -&gt; Maybe Double
+      -&gt; Bundle)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679612434"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;instanceType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe [InstancePlatform]
+   -&gt; Maybe Double
+   -&gt; Maybe Bool
+   -&gt; Maybe Double
+   -&gt; Bundle)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe [InstancePlatform]
+      -&gt; Maybe Double
+      -&gt; Maybe Bool
+      -&gt; Maybe Double
+      -&gt; Bundle)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679612434"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe [InstancePlatform]
+   -&gt; Maybe Double
+   -&gt; Maybe Bool
+   -&gt; Maybe Double
+   -&gt; Bundle)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe Int
+      -&gt; Maybe [InstancePlatform]
+      -&gt; Maybe Double
+      -&gt; Maybe Bool
+      -&gt; Maybe Double
+      -&gt; Bundle)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679612434"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;power&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe [InstancePlatform]
+   -&gt; Maybe Double
+   -&gt; Maybe Bool
+   -&gt; Maybe Double
+   -&gt; Bundle)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe [InstancePlatform]
+      -&gt; Maybe Double -&gt; Maybe Bool -&gt; Maybe Double -&gt; Bundle)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679612434"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;diskSizeInGb&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [InstancePlatform]
+   -&gt; Maybe Double -&gt; Maybe Bool -&gt; Maybe Double -&gt; Bundle)
 -&gt; Parser (Maybe [InstancePlatform])
--&gt; Parser (Maybe Int -&gt; Bundle)
+-&gt; Parser (Maybe Double -&gt; Maybe Bool -&gt; Maybe Double -&gt; Bundle)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679611540"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [InstancePlatform]))
+</span><a href="#local-6989586621679612434"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [InstancePlatform]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;supportedPlatforms&quot;</span></span><span>
-</span><span id="line-187"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [InstancePlatform]))
+</span><span id="line-185"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [InstancePlatform]))
 -&gt; Maybe [InstancePlatform] -&gt; Parser (Maybe [InstancePlatform])
 forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [InstancePlatform]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-188"></span><span>                        </span><span class="hs-special">)</span><span>
-</span><span id="line-189"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Int -&gt; Bundle) -&gt; Parser (Maybe Int) -&gt; Parser Bundle
+</span><span id="line-186"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Double -&gt; Maybe Bool -&gt; Maybe Double -&gt; Bundle)
+-&gt; Parser (Maybe Double)
+-&gt; Parser (Maybe Bool -&gt; Maybe Double -&gt; Bundle)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679611540"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679612434"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;diskSizeInGb&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;price&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Bool -&gt; Maybe Double -&gt; Bundle)
+-&gt; Parser (Maybe Bool) -&gt; Parser (Maybe Double -&gt; Bundle)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679612434"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;isActive&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Double -&gt; Bundle)
+-&gt; Parser (Maybe Double) -&gt; Parser Bundle
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679612434"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ramSizeInGb&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-190"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-191"></span><span>
-</span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679611533"><span id="local-6989586621679611535"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle"><span class="hs-identifier hs-type">Bundle</span></a></span></span></span><span>
+</span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679612427"><span id="local-6989586621679612429"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle"><span class="hs-identifier hs-type">Bundle</span></a></span></span></span><span>
 </span><span id="line-193"></span><span>
-</span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679611530"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle"><span class="hs-identifier hs-type">Bundle</span></a></span></span><span>
+</span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679612424"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Bundle.html#Bundle"><span class="hs-identifier hs-type">Bundle</span></a></span></span><span>
 </span><span id="line-195"></span></pre></body></html>

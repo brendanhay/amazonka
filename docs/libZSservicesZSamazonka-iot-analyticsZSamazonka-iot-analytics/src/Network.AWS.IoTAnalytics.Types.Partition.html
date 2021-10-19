@@ -26,12 +26,12 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | A partition dimension defined by an attribute.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newPartition' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679257422"><span id="local-6989586621679257423"></span></span><span class="hs-keyword">data</span><span> </span><span id="Partition"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Partition.html#Partition"><span class="hs-identifier hs-var">Partition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Partition%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Partition.html#Partition%27"><span class="hs-identifier hs-var">Partition'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679257624"><span id="local-6989586621679257625"></span></span><span class="hs-keyword">data</span><span> </span><span id="Partition"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Partition.html#Partition"><span class="hs-identifier hs-var">Partition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Partition%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Partition.html#Partition%27"><span class="hs-identifier hs-var">Partition'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the attribute that defines a partition dimension.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AattributeName%3APartition%27"><span class="annot"><span class="annottext">Partition -&gt; Text
 </span><a href="Network.AWS.IoTAnalytics.Types.Partition.html#%24sel%3AattributeName%3APartition%27"><span class="hs-identifier hs-var hs-var">attributeName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679257416"><span id="local-6989586621679257418"><span class="annot"><span class="annottext">Partition -&gt; Partition -&gt; Bool
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679257618"><span id="local-6989586621679257620"><span class="annot"><span class="annottext">Partition -&gt; Partition -&gt; Bool
 (Partition -&gt; Partition -&gt; Bool)
 -&gt; (Partition -&gt; Partition -&gt; Bool) -&gt; Eq Partition
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -39,7 +39,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Partition -&gt; Partition -&gt; Bool
 == :: Partition -&gt; Partition -&gt; Bool
 $c== :: Partition -&gt; Partition -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679257407"><span id="local-6989586621679257409"><span id="local-6989586621679257411"><span id="local-6989586621679257413"><span class="annot"><span class="annottext">ReadPrec [Partition]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679257609"><span id="local-6989586621679257611"><span id="local-6989586621679257613"><span id="local-6989586621679257615"><span class="annot"><span class="annottext">ReadPrec [Partition]
 ReadPrec Partition
 Int -&gt; ReadS Partition
 ReadS [Partition]
@@ -59,7 +59,7 @@ readList :: ReadS [Partition]
 $creadList :: ReadS [Partition]
 readsPrec :: Int -&gt; ReadS Partition
 $creadsPrec :: Int -&gt; ReadS Partition
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679257400"><span id="local-6989586621679257402"><span id="local-6989586621679257404"><span class="annot"><span class="annottext">Int -&gt; Partition -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679257602"><span id="local-6989586621679257604"><span id="local-6989586621679257606"><span class="annot"><span class="annottext">Int -&gt; Partition -&gt; ShowS
 [Partition] -&gt; ShowS
 Partition -&gt; String
 (Int -&gt; Partition -&gt; ShowS)
@@ -98,12 +98,12 @@ $cfrom :: forall x. Partition -&gt; Rep Partition x
 </span><span id="line-46"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-47"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Partition.html#Partition"><span class="hs-identifier hs-type">Partition</span></a></span><span>
 </span><span id="line-48"></span><span id="newPartition"><span class="annot"><span class="annottext">newPartition :: Text -&gt; Partition
-</span><a href="Network.AWS.IoTAnalytics.Types.Partition.html#newPartition"><span class="hs-identifier hs-var hs-var">newPartition</span></a></span></span><span> </span><span id="local-6989586621679257394"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679257394"><span class="hs-identifier hs-var">pAttributeName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoTAnalytics.Types.Partition.html#newPartition"><span class="hs-identifier hs-var hs-var">newPartition</span></a></span></span><span> </span><span id="local-6989586621679257596"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679257596"><span class="hs-identifier hs-var">pAttributeName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-49"></span><span>  </span><span class="annot"><span class="annottext">Partition' :: Text -&gt; Partition
 </span><a href="Network.AWS.IoTAnalytics.Types.Partition.html#Partition%27"><span class="hs-identifier hs-type">Partition'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributeName:Partition' :: Text
 </span><a href="Network.AWS.IoTAnalytics.Types.Partition.html#%24sel%3AattributeName%3APartition%27"><span class="hs-identifier hs-var">attributeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679257394"><span class="hs-identifier hs-var">pAttributeName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679257596"><span class="hs-identifier hs-var">pAttributeName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | The name of the attribute that defines a partition dimension.</span><span>
 </span><span id="line-52"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Partition.html#partition_attributeName"><span class="hs-identifier hs-type">partition_attributeName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Partition.html#Partition"><span class="hs-identifier hs-type">Partition</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -112,47 +112,47 @@ $cfrom :: forall x. Partition -&gt; Rep Partition x
 -&gt; (Partition -&gt; Text -&gt; Partition)
 -&gt; Lens Partition Partition Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Partition.html#Partition%27"><span class="hs-identifier hs-type">Partition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257390"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Partition.html#Partition%27"><span class="hs-identifier hs-type">Partition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257592"><span class="annot"><span class="annottext">Text
 attributeName :: Text
 $sel:attributeName:Partition' :: Partition -&gt; Text
-</span><a href="#local-6989586621679257390"><span class="hs-identifier hs-var hs-var">attributeName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679257390"><span class="hs-identifier hs-var">attributeName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257389"><span class="annot"><span class="annottext">s :: Partition
-</span><a href="#local-6989586621679257389"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Partition.html#Partition%27"><span class="hs-identifier hs-type">Partition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257388"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679257388"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Partition
-</span><a href="#local-6989586621679257389"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributeName:Partition' :: Text
+</span><a href="#local-6989586621679257592"><span class="hs-identifier hs-var hs-var">attributeName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679257592"><span class="hs-identifier hs-var">attributeName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257591"><span class="annot"><span class="annottext">s :: Partition
+</span><a href="#local-6989586621679257591"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Partition.html#Partition%27"><span class="hs-identifier hs-type">Partition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257590"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679257590"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Partition
+</span><a href="#local-6989586621679257591"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributeName:Partition' :: Text
 </span><a href="Network.AWS.IoTAnalytics.Types.Partition.html#%24sel%3AattributeName%3APartition%27"><span class="hs-identifier hs-var">attributeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679257388"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Partition.html#Partition"><span class="hs-identifier hs-type">Partition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679257590"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Partition.html#Partition"><span class="hs-identifier hs-type">Partition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-54"></span><span>
-</span><span id="line-55"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257385"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Partition.html#Partition"><span class="hs-identifier hs-type">Partition</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-56"></span><span>  </span><span id="local-6989586621679257383"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Partition
+</span><span id="line-55"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257587"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Partition.html#Partition"><span class="hs-identifier hs-type">Partition</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-56"></span><span>  </span><span id="local-6989586621679257585"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Partition
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-57"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Partition) -&gt; Value -&gt; Parser Partition
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Partition&quot;</span></span><span>
-</span><span id="line-59"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679257380"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679257380"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-59"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679257582"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679257582"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-60"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; Partition
 </span><a href="Network.AWS.IoTAnalytics.Types.Partition.html#Partition%27"><span class="hs-identifier hs-var">Partition'</span></a></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Partition) -&gt; Parser Text -&gt; Parser Partition
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679257380"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679257582"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;attributeName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257374"><span id="local-6989586621679257376"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Partition.html#Partition"><span class="hs-identifier hs-type">Partition</span></a></span></span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257576"><span id="local-6989586621679257578"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Partition.html#Partition"><span class="hs-identifier hs-type">Partition</span></a></span></span></span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257371"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Partition.html#Partition"><span class="hs-identifier hs-type">Partition</span></a></span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257573"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Partition.html#Partition"><span class="hs-identifier hs-type">Partition</span></a></span></span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257363"><span id="local-6989586621679257365"><span id="local-6989586621679257367"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Partition.html#Partition"><span class="hs-identifier hs-type">Partition</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-68"></span><span>  </span><span id="local-6989586621679257361"><span class="annot"><span class="annottext">toJSON :: Partition -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Partition.html#Partition%27"><span class="hs-identifier hs-type">Partition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257359"><span class="annot"><span class="annottext">Text
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257565"><span id="local-6989586621679257567"><span id="local-6989586621679257569"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Partition.html#Partition"><span class="hs-identifier hs-type">Partition</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621679257563"><span class="annot"><span class="annottext">toJSON :: Partition -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Partition.html#Partition%27"><span class="hs-identifier hs-type">Partition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257561"><span class="annot"><span class="annottext">Text
 attributeName :: Text
 $sel:attributeName:Partition' :: Partition -&gt; Text
-</span><a href="#local-6989586621679257359"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679257561"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-69"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -165,7 +165,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;attributeName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679257359"><span class="hs-identifier hs-var">attributeName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679257561"><span class="hs-identifier hs-var">attributeName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-74"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span></pre></body></html>

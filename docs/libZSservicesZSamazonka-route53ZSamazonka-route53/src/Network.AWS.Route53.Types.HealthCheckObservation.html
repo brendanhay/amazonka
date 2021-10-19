@@ -30,21 +30,21 @@
 </span><span id="line-30"></span><span class="hs-comment">-- Amazon Route 53 health checker.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newHealthCheckObservation' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679297934"><span id="local-6989586621679297935"></span></span><span class="hs-keyword">data</span><span> </span><span id="HealthCheckObservation"><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckObservation.html#HealthCheckObservation"><span class="hs-identifier hs-var">HealthCheckObservation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HealthCheckObservation%27"><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckObservation.html#HealthCheckObservation%27"><span class="hs-identifier hs-var">HealthCheckObservation'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679298086"><span id="local-6989586621679298087"></span></span><span class="hs-keyword">data</span><span> </span><span id="HealthCheckObservation"><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckObservation.html#HealthCheckObservation"><span class="hs-identifier hs-var">HealthCheckObservation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HealthCheckObservation%27"><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckObservation.html#HealthCheckObservation%27"><span class="hs-identifier hs-var">HealthCheckObservation'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The IP address of the Amazon Route 53 health checker that provided the</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- failure reason in @StatusReport@.</span><span>
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3AiPAddress%3AHealthCheckObservation%27"><span class="annot"><span class="annottext">HealthCheckObservation -&gt; Maybe Text
 </span><a href="Network.AWS.Route53.Types.HealthCheckObservation.html#%24sel%3AiPAddress%3AHealthCheckObservation%27"><span class="hs-identifier hs-var hs-var">iPAddress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The region of the Amazon Route 53 health checker that provided the</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- status in @StatusReport@.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3Aregion%3AHealthCheckObservation%27"><span class="annot"><span class="annottext">HealthCheckObservation -&gt; Maybe HealthCheckRegion
-</span><a href="Network.AWS.Route53.Types.HealthCheckObservation.html#%24sel%3Aregion%3AHealthCheckObservation%27"><span class="hs-identifier hs-var hs-var">region</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckRegion.html#HealthCheckRegion"><span class="hs-identifier hs-type">HealthCheckRegion</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | A complex type that contains the last failure reason as reported by one</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- Amazon Route 53 health checker and the time of the failed health check.</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3AstatusReport%3AHealthCheckObservation%27"><span class="annot"><span class="annottext">HealthCheckObservation -&gt; Maybe StatusReport
-</span><a href="Network.AWS.Route53.Types.HealthCheckObservation.html#%24sel%3AstatusReport%3AHealthCheckObservation%27"><span class="hs-identifier hs-var hs-var">statusReport</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.StatusReport.html#StatusReport"><span class="hs-identifier hs-type">StatusReport</span></a></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | A complex type that contains the last failure reason as reported by one</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- Amazon Route 53 health checker and the time of the failed health check.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AstatusReport%3AHealthCheckObservation%27"><span class="annot"><span class="annottext">HealthCheckObservation -&gt; Maybe StatusReport
+</span><a href="Network.AWS.Route53.Types.HealthCheckObservation.html#%24sel%3AstatusReport%3AHealthCheckObservation%27"><span class="hs-identifier hs-var hs-var">statusReport</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.StatusReport.html#StatusReport"><span class="hs-identifier hs-type">StatusReport</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The region of the Amazon Route 53 health checker that provided the</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- status in @StatusReport@.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3Aregion%3AHealthCheckObservation%27"><span class="annot"><span class="annottext">HealthCheckObservation -&gt; Maybe HealthCheckRegion
+</span><a href="Network.AWS.Route53.Types.HealthCheckObservation.html#%24sel%3Aregion%3AHealthCheckObservation%27"><span class="hs-identifier hs-var hs-var">region</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckRegion.html#HealthCheckRegion"><span class="hs-identifier hs-type">HealthCheckRegion</span></a></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679297926"><span id="local-6989586621679297928"><span class="annot"><span class="annottext">HealthCheckObservation -&gt; HealthCheckObservation -&gt; Bool
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679298078"><span id="local-6989586621679298080"><span class="annot"><span class="annottext">HealthCheckObservation -&gt; HealthCheckObservation -&gt; Bool
 (HealthCheckObservation -&gt; HealthCheckObservation -&gt; Bool)
 -&gt; (HealthCheckObservation -&gt; HealthCheckObservation -&gt; Bool)
 -&gt; Eq HealthCheckObservation
@@ -53,7 +53,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: HealthCheckObservation -&gt; HealthCheckObservation -&gt; Bool
 == :: HealthCheckObservation -&gt; HealthCheckObservation -&gt; Bool
 $c== :: HealthCheckObservation -&gt; HealthCheckObservation -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297917"><span id="local-6989586621679297919"><span id="local-6989586621679297921"><span id="local-6989586621679297923"><span class="annot"><span class="annottext">ReadPrec [HealthCheckObservation]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679298069"><span id="local-6989586621679298071"><span id="local-6989586621679298073"><span id="local-6989586621679298075"><span class="annot"><span class="annottext">ReadPrec [HealthCheckObservation]
 ReadPrec HealthCheckObservation
 Int -&gt; ReadS HealthCheckObservation
 ReadS [HealthCheckObservation]
@@ -73,7 +73,7 @@ readList :: ReadS [HealthCheckObservation]
 $creadList :: ReadS [HealthCheckObservation]
 readsPrec :: Int -&gt; ReadS HealthCheckObservation
 $creadsPrec :: Int -&gt; ReadS HealthCheckObservation
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297910"><span id="local-6989586621679297912"><span id="local-6989586621679297914"><span class="annot"><span class="annottext">Int -&gt; HealthCheckObservation -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679298062"><span id="local-6989586621679298064"><span id="local-6989586621679298066"><span class="annot"><span class="annottext">Int -&gt; HealthCheckObservation -&gt; ShowS
 [HealthCheckObservation] -&gt; ShowS
 HealthCheckObservation -&gt; String
 (Int -&gt; HealthCheckObservation -&gt; ShowS)
@@ -111,18 +111,18 @@ $cfrom :: forall x. HealthCheckObservation -&gt; Rep HealthCheckObservation x
 </span><span id="line-54"></span><span class="hs-comment">-- 'iPAddress', 'healthCheckObservation_iPAddress' - The IP address of the Amazon Route 53 health checker that provided the</span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- failure reason in @StatusReport@.</span><span>
 </span><span id="line-56"></span><span class="hs-comment">--</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- 'region', 'healthCheckObservation_region' - The region of the Amazon Route 53 health checker that provided the</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- status in @StatusReport@.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'statusReport', 'healthCheckObservation_statusReport' - A complex type that contains the last failure reason as reported by one</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Amazon Route 53 health checker and the time of the failed health check.</span><span>
 </span><span id="line-59"></span><span class="hs-comment">--</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- 'statusReport', 'healthCheckObservation_statusReport' - A complex type that contains the last failure reason as reported by one</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- Amazon Route 53 health checker and the time of the failed health check.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'region', 'healthCheckObservation_region' - The region of the Amazon Route 53 health checker that provided the</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- status in @StatusReport@.</span><span>
 </span><span id="line-62"></span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckObservation.html#newHealthCheckObservation"><span class="hs-identifier hs-type">newHealthCheckObservation</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-63"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckObservation.html#HealthCheckObservation"><span class="hs-identifier hs-type">HealthCheckObservation</span></a></span><span>
 </span><span id="line-64"></span><span id="newHealthCheckObservation"><span class="annot"><span class="annottext">newHealthCheckObservation :: HealthCheckObservation
 </span><a href="Network.AWS.Route53.Types.HealthCheckObservation.html#newHealthCheckObservation"><span class="hs-identifier hs-var hs-var">newHealthCheckObservation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-65"></span><span>  </span><span class="annot"><span class="annottext">HealthCheckObservation' :: Maybe Text
--&gt; Maybe HealthCheckRegion
 -&gt; Maybe StatusReport
+-&gt; Maybe HealthCheckRegion
 -&gt; HealthCheckObservation
 </span><a href="Network.AWS.Route53.Types.HealthCheckObservation.html#HealthCheckObservation%27"><span class="hs-identifier hs-type">HealthCheckObservation'</span></a></span><span>
 </span><span id="line-66"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:iPAddress:HealthCheckObservation' :: Maybe Text
@@ -130,12 +130,12 @@ $cfrom :: forall x. HealthCheckObservation -&gt; Rep HealthCheckObservation x
 </span><span id="line-67"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:region:HealthCheckObservation' :: Maybe HealthCheckRegion
-</span><a href="Network.AWS.Route53.Types.HealthCheckObservation.html#%24sel%3Aregion%3AHealthCheckObservation%27"><span class="hs-identifier hs-var">region</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HealthCheckRegion
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:statusReport:HealthCheckObservation' :: Maybe StatusReport
+</span><a href="Network.AWS.Route53.Types.HealthCheckObservation.html#%24sel%3AstatusReport%3AHealthCheckObservation%27"><span class="hs-identifier hs-var">statusReport</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StatusReport
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:statusReport:HealthCheckObservation' :: Maybe StatusReport
-</span><a href="Network.AWS.Route53.Types.HealthCheckObservation.html#%24sel%3AstatusReport%3AHealthCheckObservation%27"><span class="hs-identifier hs-var">statusReport</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StatusReport
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:region:HealthCheckObservation' :: Maybe HealthCheckRegion
+</span><a href="Network.AWS.Route53.Types.HealthCheckObservation.html#%24sel%3Aregion%3AHealthCheckObservation%27"><span class="hs-identifier hs-var">region</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HealthCheckRegion
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-70"></span><span>    </span><span class="hs-special">}</span><span>
@@ -153,46 +153,21 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckObservation.html#HealthCheckObservation%27"><span class="hs-identifier hs-type">HealthCheckObservation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297901"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckObservation.html#HealthCheckObservation%27"><span class="hs-identifier hs-type">HealthCheckObservation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298053"><span class="annot"><span class="annottext">Maybe Text
 iPAddress :: Maybe Text
 $sel:iPAddress:HealthCheckObservation' :: HealthCheckObservation -&gt; Maybe Text
-</span><a href="#local-6989586621679297901"><span class="hs-identifier hs-var hs-var">iPAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679297901"><span class="hs-identifier hs-var">iPAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297900"><span class="annot"><span class="annottext">s :: HealthCheckObservation
-</span><a href="#local-6989586621679297900"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckObservation.html#HealthCheckObservation%27"><span class="hs-identifier hs-type">HealthCheckObservation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297899"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679297899"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HealthCheckObservation
-</span><a href="#local-6989586621679297900"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iPAddress:HealthCheckObservation' :: Maybe Text
+</span><a href="#local-6989586621679298053"><span class="hs-identifier hs-var hs-var">iPAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298053"><span class="hs-identifier hs-var">iPAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298052"><span class="annot"><span class="annottext">s :: HealthCheckObservation
+</span><a href="#local-6989586621679298052"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckObservation.html#HealthCheckObservation%27"><span class="hs-identifier hs-type">HealthCheckObservation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298051"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298051"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HealthCheckObservation
+</span><a href="#local-6989586621679298052"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iPAddress:HealthCheckObservation' :: Maybe Text
 </span><a href="Network.AWS.Route53.Types.HealthCheckObservation.html#%24sel%3AiPAddress%3AHealthCheckObservation%27"><span class="hs-identifier hs-var">iPAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679297899"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckObservation.html#HealthCheckObservation"><span class="hs-identifier hs-type">HealthCheckObservation</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679298051"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckObservation.html#HealthCheckObservation"><span class="hs-identifier hs-type">HealthCheckObservation</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- | The region of the Amazon Route 53 health checker that provided the</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- status in @StatusReport@.</span><span>
-</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckObservation.html#healthCheckObservation_region"><span class="hs-identifier hs-type">healthCheckObservation_region</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckObservation.html#HealthCheckObservation"><span class="hs-identifier hs-type">HealthCheckObservation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckRegion.html#HealthCheckRegion"><span class="hs-identifier hs-type">HealthCheckRegion</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-80"></span><span id="healthCheckObservation_region"><span class="annot"><span class="annottext">healthCheckObservation_region :: (Maybe HealthCheckRegion -&gt; f (Maybe HealthCheckRegion))
--&gt; HealthCheckObservation -&gt; f HealthCheckObservation
-</span><a href="Network.AWS.Route53.Types.HealthCheckObservation.html#healthCheckObservation_region"><span class="hs-identifier hs-var hs-var">healthCheckObservation_region</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HealthCheckObservation -&gt; Maybe HealthCheckRegion)
--&gt; (HealthCheckObservation
-    -&gt; Maybe HealthCheckRegion -&gt; HealthCheckObservation)
--&gt; Lens
-     HealthCheckObservation
-     HealthCheckObservation
-     (Maybe HealthCheckRegion)
-     (Maybe HealthCheckRegion)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckObservation.html#HealthCheckObservation%27"><span class="hs-identifier hs-type">HealthCheckObservation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297897"><span class="annot"><span class="annottext">Maybe HealthCheckRegion
-region :: Maybe HealthCheckRegion
-$sel:region:HealthCheckObservation' :: HealthCheckObservation -&gt; Maybe HealthCheckRegion
-</span><a href="#local-6989586621679297897"><span class="hs-identifier hs-var hs-var">region</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HealthCheckRegion
-</span><a href="#local-6989586621679297897"><span class="hs-identifier hs-var">region</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297896"><span class="annot"><span class="annottext">s :: HealthCheckObservation
-</span><a href="#local-6989586621679297896"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckObservation.html#HealthCheckObservation%27"><span class="hs-identifier hs-type">HealthCheckObservation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297895"><span class="annot"><span class="annottext">Maybe HealthCheckRegion
-</span><a href="#local-6989586621679297895"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HealthCheckObservation
-</span><a href="#local-6989586621679297896"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:region:HealthCheckObservation' :: Maybe HealthCheckRegion
-</span><a href="Network.AWS.Route53.Types.HealthCheckObservation.html#%24sel%3Aregion%3AHealthCheckObservation%27"><span class="hs-identifier hs-var">region</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HealthCheckRegion
-</span><a href="#local-6989586621679297895"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckObservation.html#HealthCheckObservation"><span class="hs-identifier hs-type">HealthCheckObservation</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- | A complex type that contains the last failure reason as reported by one</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- Amazon Route 53 health checker and the time of the failed health check.</span><span>
-</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckObservation.html#healthCheckObservation_statusReport"><span class="hs-identifier hs-type">healthCheckObservation_statusReport</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckObservation.html#HealthCheckObservation"><span class="hs-identifier hs-type">HealthCheckObservation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.StatusReport.html#StatusReport"><span class="hs-identifier hs-type">StatusReport</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-85"></span><span id="healthCheckObservation_statusReport"><span class="annot"><span class="annottext">healthCheckObservation_statusReport :: (Maybe StatusReport -&gt; f (Maybe StatusReport))
+</span><span id="line-77"></span><span class="hs-comment">-- | A complex type that contains the last failure reason as reported by one</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- Amazon Route 53 health checker and the time of the failed health check.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckObservation.html#healthCheckObservation_statusReport"><span class="hs-identifier hs-type">healthCheckObservation_statusReport</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckObservation.html#HealthCheckObservation"><span class="hs-identifier hs-type">HealthCheckObservation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.StatusReport.html#StatusReport"><span class="hs-identifier hs-type">StatusReport</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span id="healthCheckObservation_statusReport"><span class="annot"><span class="annottext">healthCheckObservation_statusReport :: (Maybe StatusReport -&gt; f (Maybe StatusReport))
 -&gt; HealthCheckObservation -&gt; f HealthCheckObservation
 </span><a href="Network.AWS.Route53.Types.HealthCheckObservation.html#healthCheckObservation_statusReport"><span class="hs-identifier hs-var hs-var">healthCheckObservation_statusReport</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HealthCheckObservation -&gt; Maybe StatusReport)
 -&gt; (HealthCheckObservation
@@ -203,64 +178,90 @@ $sel:region:HealthCheckObservation' :: HealthCheckObservation -&gt; Maybe Health
      (Maybe StatusReport)
      (Maybe StatusReport)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckObservation.html#HealthCheckObservation%27"><span class="hs-identifier hs-type">HealthCheckObservation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297893"><span class="annot"><span class="annottext">Maybe StatusReport
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckObservation.html#HealthCheckObservation%27"><span class="hs-identifier hs-type">HealthCheckObservation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298049"><span class="annot"><span class="annottext">Maybe StatusReport
 statusReport :: Maybe StatusReport
 $sel:statusReport:HealthCheckObservation' :: HealthCheckObservation -&gt; Maybe StatusReport
-</span><a href="#local-6989586621679297893"><span class="hs-identifier hs-var hs-var">statusReport</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StatusReport
-</span><a href="#local-6989586621679297893"><span class="hs-identifier hs-var">statusReport</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297892"><span class="annot"><span class="annottext">s :: HealthCheckObservation
-</span><a href="#local-6989586621679297892"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckObservation.html#HealthCheckObservation%27"><span class="hs-identifier hs-type">HealthCheckObservation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297891"><span class="annot"><span class="annottext">Maybe StatusReport
-</span><a href="#local-6989586621679297891"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HealthCheckObservation
-</span><a href="#local-6989586621679297892"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusReport:HealthCheckObservation' :: Maybe StatusReport
+</span><a href="#local-6989586621679298049"><span class="hs-identifier hs-var hs-var">statusReport</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StatusReport
+</span><a href="#local-6989586621679298049"><span class="hs-identifier hs-var">statusReport</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298048"><span class="annot"><span class="annottext">s :: HealthCheckObservation
+</span><a href="#local-6989586621679298048"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckObservation.html#HealthCheckObservation%27"><span class="hs-identifier hs-type">HealthCheckObservation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298047"><span class="annot"><span class="annottext">Maybe StatusReport
+</span><a href="#local-6989586621679298047"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HealthCheckObservation
+</span><a href="#local-6989586621679298048"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusReport:HealthCheckObservation' :: Maybe StatusReport
 </span><a href="Network.AWS.Route53.Types.HealthCheckObservation.html#%24sel%3AstatusReport%3AHealthCheckObservation%27"><span class="hs-identifier hs-var">statusReport</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StatusReport
-</span><a href="#local-6989586621679297891"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckObservation.html#HealthCheckObservation"><span class="hs-identifier hs-type">HealthCheckObservation</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679298047"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckObservation.html#HealthCheckObservation"><span class="hs-identifier hs-type">HealthCheckObservation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | The region of the Amazon Route 53 health checker that provided the</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- status in @StatusReport@.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckObservation.html#healthCheckObservation_region"><span class="hs-identifier hs-type">healthCheckObservation_region</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckObservation.html#HealthCheckObservation"><span class="hs-identifier hs-type">HealthCheckObservation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckRegion.html#HealthCheckRegion"><span class="hs-identifier hs-type">HealthCheckRegion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span id="healthCheckObservation_region"><span class="annot"><span class="annottext">healthCheckObservation_region :: (Maybe HealthCheckRegion -&gt; f (Maybe HealthCheckRegion))
+-&gt; HealthCheckObservation -&gt; f HealthCheckObservation
+</span><a href="Network.AWS.Route53.Types.HealthCheckObservation.html#healthCheckObservation_region"><span class="hs-identifier hs-var hs-var">healthCheckObservation_region</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HealthCheckObservation -&gt; Maybe HealthCheckRegion)
+-&gt; (HealthCheckObservation
+    -&gt; Maybe HealthCheckRegion -&gt; HealthCheckObservation)
+-&gt; Lens
+     HealthCheckObservation
+     HealthCheckObservation
+     (Maybe HealthCheckRegion)
+     (Maybe HealthCheckRegion)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckObservation.html#HealthCheckObservation%27"><span class="hs-identifier hs-type">HealthCheckObservation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298045"><span class="annot"><span class="annottext">Maybe HealthCheckRegion
+region :: Maybe HealthCheckRegion
+$sel:region:HealthCheckObservation' :: HealthCheckObservation -&gt; Maybe HealthCheckRegion
+</span><a href="#local-6989586621679298045"><span class="hs-identifier hs-var hs-var">region</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HealthCheckRegion
+</span><a href="#local-6989586621679298045"><span class="hs-identifier hs-var">region</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298044"><span class="annot"><span class="annottext">s :: HealthCheckObservation
+</span><a href="#local-6989586621679298044"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckObservation.html#HealthCheckObservation%27"><span class="hs-identifier hs-type">HealthCheckObservation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298043"><span class="annot"><span class="annottext">Maybe HealthCheckRegion
+</span><a href="#local-6989586621679298043"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HealthCheckObservation
+</span><a href="#local-6989586621679298044"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:region:HealthCheckObservation' :: Maybe HealthCheckRegion
+</span><a href="Network.AWS.Route53.Types.HealthCheckObservation.html#%24sel%3Aregion%3AHealthCheckObservation%27"><span class="hs-identifier hs-var">region</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HealthCheckRegion
+</span><a href="#local-6989586621679298043"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckObservation.html#HealthCheckObservation"><span class="hs-identifier hs-type">HealthCheckObservation</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckObservation.html#HealthCheckObservation"><span class="hs-identifier hs-type">HealthCheckObservation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679297888"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String HealthCheckObservation
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679297886"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679297886"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679298040"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String HealthCheckObservation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679298038"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679298038"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-89"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe HealthCheckRegion
 -&gt; Maybe StatusReport
+-&gt; Maybe HealthCheckRegion
 -&gt; HealthCheckObservation
 </span><a href="Network.AWS.Route53.Types.HealthCheckObservation.html#HealthCheckObservation%27"><span class="hs-identifier hs-var">HealthCheckObservation'</span></a></span><span>
 </span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe HealthCheckRegion
  -&gt; Maybe StatusReport
+ -&gt; Maybe HealthCheckRegion
  -&gt; HealthCheckObservation)
 -&gt; Either String (Maybe Text)
 -&gt; Either
      String
-     (Maybe HealthCheckRegion
-      -&gt; Maybe StatusReport -&gt; HealthCheckObservation)
+     (Maybe StatusReport
+      -&gt; Maybe HealthCheckRegion -&gt; HealthCheckObservation)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679297886"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679298038"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IPAddress&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe HealthCheckRegion
-   -&gt; Maybe StatusReport -&gt; HealthCheckObservation)
--&gt; Either String (Maybe HealthCheckRegion)
--&gt; Either String (Maybe StatusReport -&gt; HealthCheckObservation)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679297886"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe HealthCheckRegion)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Region&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe StatusReport -&gt; HealthCheckObservation)
+  (Maybe StatusReport
+   -&gt; Maybe HealthCheckRegion -&gt; HealthCheckObservation)
 -&gt; Either String (Maybe StatusReport)
--&gt; Either String HealthCheckObservation
+-&gt; Either
+     String (Maybe HealthCheckRegion -&gt; HealthCheckObservation)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679297886"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe StatusReport)
+</span><a href="#local-6989586621679298038"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe StatusReport)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StatusReport&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe HealthCheckRegion -&gt; HealthCheckObservation)
+-&gt; Either String (Maybe HealthCheckRegion)
+-&gt; Either String HealthCheckObservation
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679298038"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe HealthCheckRegion)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Region&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297880"><span id="local-6989586621679297882"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckObservation.html#HealthCheckObservation"><span class="hs-identifier hs-type">HealthCheckObservation</span></a></span></span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298032"><span id="local-6989586621679298034"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckObservation.html#HealthCheckObservation"><span class="hs-identifier hs-type">HealthCheckObservation</span></a></span></span></span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297877"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckObservation.html#HealthCheckObservation"><span class="hs-identifier hs-type">HealthCheckObservation</span></a></span></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298029"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckObservation.html#HealthCheckObservation"><span class="hs-identifier hs-type">HealthCheckObservation</span></a></span></span><span>
 </span><span id="line-97"></span></pre></body></html>

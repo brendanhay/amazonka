@@ -38,8 +38,8 @@
 </span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.BatchGetTriggers.html#newBatchGetTriggersResponse"><span class="hs-identifier">newBatchGetTriggersResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-39"></span><span>
 </span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.BatchGetTriggers.html#batchGetTriggersResponse_triggers"><span class="hs-identifier">batchGetTriggersResponse_triggers</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.BatchGetTriggers.html#batchGetTriggersResponse_triggersNotFound"><span class="hs-identifier">batchGetTriggersResponse_triggersNotFound</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.BatchGetTriggers.html#batchGetTriggersResponse_triggersNotFound"><span class="hs-identifier">batchGetTriggersResponse_triggersNotFound</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.BatchGetTriggers.html#batchGetTriggersResponse_triggers"><span class="hs-identifier">batchGetTriggersResponse_triggers</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.BatchGetTriggers.html#batchGetTriggersResponse_httpStatus"><span class="hs-identifier">batchGetTriggersResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span class="hs-keyword">where</span><span>
@@ -52,13 +52,13 @@
 </span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newBatchGetTriggers' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679741862"><span id="local-6989586621679741863"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchGetTriggers"><span class="annot"><a href="Network.AWS.Glue.BatchGetTriggers.html#BatchGetTriggers"><span class="hs-identifier hs-var">BatchGetTriggers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchGetTriggers%27"><span class="annot"><a href="Network.AWS.Glue.BatchGetTriggers.html#BatchGetTriggers%27"><span class="hs-identifier hs-var">BatchGetTriggers'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679743695"><span id="local-6989586621679743696"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchGetTriggers"><span class="annot"><a href="Network.AWS.Glue.BatchGetTriggers.html#BatchGetTriggers"><span class="hs-identifier hs-var">BatchGetTriggers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchGetTriggers%27"><span class="annot"><a href="Network.AWS.Glue.BatchGetTriggers.html#BatchGetTriggers%27"><span class="hs-identifier hs-var">BatchGetTriggers'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of trigger names, which may be the names returned from the</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">-- @ListTriggers@ operation.</span><span>
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AtriggerNames%3ABatchGetTriggers%27"><span class="annot"><span class="annottext">BatchGetTriggers -&gt; [Text]
 </span><a href="Network.AWS.Glue.BatchGetTriggers.html#%24sel%3AtriggerNames%3ABatchGetTriggers%27"><span class="hs-identifier hs-var hs-var">triggerNames</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679741856"><span id="local-6989586621679741858"><span class="annot"><span class="annottext">BatchGetTriggers -&gt; BatchGetTriggers -&gt; Bool
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679743689"><span id="local-6989586621679743691"><span class="annot"><span class="annottext">BatchGetTriggers -&gt; BatchGetTriggers -&gt; Bool
 (BatchGetTriggers -&gt; BatchGetTriggers -&gt; Bool)
 -&gt; (BatchGetTriggers -&gt; BatchGetTriggers -&gt; Bool)
 -&gt; Eq BatchGetTriggers
@@ -67,7 +67,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: BatchGetTriggers -&gt; BatchGetTriggers -&gt; Bool
 == :: BatchGetTriggers -&gt; BatchGetTriggers -&gt; Bool
 $c== :: BatchGetTriggers -&gt; BatchGetTriggers -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679741847"><span id="local-6989586621679741849"><span id="local-6989586621679741851"><span id="local-6989586621679741853"><span class="annot"><span class="annottext">ReadPrec [BatchGetTriggers]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679743680"><span id="local-6989586621679743682"><span id="local-6989586621679743684"><span id="local-6989586621679743686"><span class="annot"><span class="annottext">ReadPrec [BatchGetTriggers]
 ReadPrec BatchGetTriggers
 Int -&gt; ReadS BatchGetTriggers
 ReadS [BatchGetTriggers]
@@ -87,7 +87,7 @@ readList :: ReadS [BatchGetTriggers]
 $creadList :: ReadS [BatchGetTriggers]
 readsPrec :: Int -&gt; ReadS BatchGetTriggers
 $creadsPrec :: Int -&gt; ReadS BatchGetTriggers
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679741840"><span id="local-6989586621679741842"><span id="local-6989586621679741844"><span class="annot"><span class="annottext">Int -&gt; BatchGetTriggers -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679743673"><span id="local-6989586621679743675"><span id="local-6989586621679743677"><span class="annot"><span class="annottext">Int -&gt; BatchGetTriggers -&gt; ShowS
 [BatchGetTriggers] -&gt; ShowS
 BatchGetTriggers -&gt; String
 (Int -&gt; BatchGetTriggers -&gt; ShowS)
@@ -141,35 +141,35 @@ forall a. Monoid a =&gt; a
 -&gt; (BatchGetTriggers -&gt; [Text] -&gt; BatchGetTriggers)
 -&gt; Lens BatchGetTriggers BatchGetTriggers [Text] [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.BatchGetTriggers.html#BatchGetTriggers%27"><span class="hs-identifier hs-type">BatchGetTriggers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679741833"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.BatchGetTriggers.html#BatchGetTriggers%27"><span class="hs-identifier hs-type">BatchGetTriggers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679743666"><span class="annot"><span class="annottext">[Text]
 triggerNames :: [Text]
 $sel:triggerNames:BatchGetTriggers' :: BatchGetTriggers -&gt; [Text]
-</span><a href="#local-6989586621679741833"><span class="hs-identifier hs-var hs-var">triggerNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679741833"><span class="hs-identifier hs-var">triggerNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679741832"><span class="annot"><span class="annottext">s :: BatchGetTriggers
-</span><a href="#local-6989586621679741832"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.BatchGetTriggers.html#BatchGetTriggers%27"><span class="hs-identifier hs-type">BatchGetTriggers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679741831"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679741831"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetTriggers
-</span><a href="#local-6989586621679741832"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:triggerNames:BatchGetTriggers' :: [Text]
+</span><a href="#local-6989586621679743666"><span class="hs-identifier hs-var hs-var">triggerNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679743666"><span class="hs-identifier hs-var">triggerNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679743665"><span class="annot"><span class="annottext">s :: BatchGetTriggers
+</span><a href="#local-6989586621679743665"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.BatchGetTriggers.html#BatchGetTriggers%27"><span class="hs-identifier hs-type">BatchGetTriggers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679743664"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679743664"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetTriggers
+</span><a href="#local-6989586621679743665"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:triggerNames:BatchGetTriggers' :: [Text]
 </span><a href="Network.AWS.Glue.BatchGetTriggers.html#%24sel%3AtriggerNames%3ABatchGetTriggers%27"><span class="hs-identifier hs-var">triggerNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679741831"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchGetTriggers.html#BatchGetTriggers"><span class="hs-identifier hs-type">BatchGetTriggers</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; BatchGetTriggers -&gt; f BatchGetTriggers)
+</span><a href="#local-6989586621679743664"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchGetTriggers.html#BatchGetTriggers"><span class="hs-identifier hs-type">BatchGetTriggers</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; BatchGetTriggers -&gt; f BatchGetTriggers)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
 -&gt; BatchGetTriggers
 -&gt; f BatchGetTriggers
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchGetTriggers.html#BatchGetTriggers"><span class="hs-identifier hs-type">BatchGetTriggers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-83"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-84"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchGetTriggers.html#BatchGetTriggers"><span class="hs-identifier hs-type">BatchGetTriggers</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>      </span><span class="annot"><a href="Network.AWS.Glue.BatchGetTriggers.html#BatchGetTriggersResponse"><span class="hs-identifier hs-type">BatchGetTriggersResponse</span></a></span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679741825"><span class="annot"><span class="annottext">request :: BatchGetTriggers -&gt; Request BatchGetTriggers
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679743658"><span class="annot"><span class="annottext">request :: BatchGetTriggers -&gt; Request BatchGetTriggers
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; BatchGetTriggers -&gt; Request BatchGetTriggers
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Glue.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679741821"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679743654"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy BatchGetTriggers
 -&gt; ClientResponse ClientBody
@@ -193,19 +193,36 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679741818"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679741818"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679741817"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679741817"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679741816"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679741816"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-90"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Trigger] -&gt; Maybe [Text] -&gt; Int -&gt; BatchGetTriggersResponse
+</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679743651"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679743651"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679743650"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679743650"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679743649"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679743649"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-90"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; Maybe [Trigger] -&gt; Int -&gt; BatchGetTriggersResponse
 </span><a href="Network.AWS.Glue.BatchGetTriggers.html#BatchGetTriggersResponse%27"><span class="hs-identifier hs-var">BatchGetTriggersResponse'</span></a></span><span>
-</span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Trigger]
- -&gt; Maybe [Text] -&gt; Int -&gt; BatchGetTriggersResponse)
--&gt; Either String (Maybe [Trigger])
--&gt; Either String (Maybe [Text] -&gt; Int -&gt; BatchGetTriggersResponse)
+</span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text]
+ -&gt; Maybe [Trigger] -&gt; Int -&gt; BatchGetTriggersResponse)
+-&gt; Either String (Maybe [Text])
+-&gt; Either
+     String (Maybe [Trigger] -&gt; Int -&gt; BatchGetTriggersResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679741816"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Trigger]))
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679743649"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TriggersNotFound&quot;</span></span><span>
+</span><span id="line-92"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Either String (Maybe [Text])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-93"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe [Trigger] -&gt; Int -&gt; BatchGetTriggersResponse)
+-&gt; Either String (Maybe [Trigger])
+-&gt; Either String (Int -&gt; BatchGetTriggersResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679743649"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Trigger]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Triggers&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Trigger]))
@@ -214,22 +231,6 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Trigger]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe [Text] -&gt; Int -&gt; BatchGetTriggersResponse)
--&gt; Either String (Maybe [Text])
--&gt; Either String (Int -&gt; BatchGetTriggersResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679741816"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;TriggersNotFound&quot;</span></span><span>
-</span><span id="line-93"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Text]))
--&gt; Maybe [Text] -&gt; Either String (Maybe [Text])
-forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
-</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-forall a. Monoid a =&gt; a
-</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-94"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; BatchGetTriggersResponse)
 -&gt; Either String Int -&gt; Either String BatchGetTriggersResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -238,15 +239,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679741818"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679743651"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679741807"><span id="local-6989586621679741809"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchGetTriggers.html#BatchGetTriggers"><span class="hs-identifier hs-type">BatchGetTriggers</span></a></span></span></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679743640"><span id="local-6989586621679743642"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchGetTriggers.html#BatchGetTriggers"><span class="hs-identifier hs-type">BatchGetTriggers</span></a></span></span></span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679741804"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchGetTriggers.html#BatchGetTriggers"><span class="hs-identifier hs-type">BatchGetTriggers</span></a></span></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679743637"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchGetTriggers.html#BatchGetTriggers"><span class="hs-identifier hs-type">BatchGetTriggers</span></a></span></span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchGetTriggers.html#BatchGetTriggers"><span class="hs-identifier hs-type">BatchGetTriggers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679741800"><span class="annot"><span class="annottext">toHeaders :: BatchGetTriggers -&gt; ResponseHeaders
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679743633"><span class="annot"><span class="annottext">toHeaders :: BatchGetTriggers -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; BatchGetTriggers -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -271,12 +272,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-112"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679741790"><span id="local-6989586621679741792"><span id="local-6989586621679741794"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchGetTriggers.html#BatchGetTriggers"><span class="hs-identifier hs-type">BatchGetTriggers</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679741788"><span class="annot"><span class="annottext">toJSON :: BatchGetTriggers -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchGetTriggers.html#BatchGetTriggers%27"><span class="hs-identifier hs-type">BatchGetTriggers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679741786"><span class="annot"><span class="annottext">[Text]
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679743623"><span id="local-6989586621679743625"><span id="local-6989586621679743627"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchGetTriggers.html#BatchGetTriggers"><span class="hs-identifier hs-type">BatchGetTriggers</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679743621"><span class="annot"><span class="annottext">toJSON :: BatchGetTriggers -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchGetTriggers.html#BatchGetTriggers%27"><span class="hs-identifier hs-type">BatchGetTriggers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679743619"><span class="annot"><span class="annottext">[Text]
 triggerNames :: [Text]
 $sel:triggerNames:BatchGetTriggers' :: BatchGetTriggers -&gt; [Text]
-</span><a href="#local-6989586621679741786"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679743619"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -288,18 +289,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;TriggerNames&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679741786"><span class="hs-identifier hs-var">triggerNames</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679743619"><span class="hs-identifier hs-var">triggerNames</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchGetTriggers.html#BatchGetTriggers"><span class="hs-identifier hs-type">BatchGetTriggers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679741780"><span class="annot"><span class="annottext">toPath :: BatchGetTriggers -&gt; ByteString
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679743613"><span class="annot"><span class="annottext">toPath :: BatchGetTriggers -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; BatchGetTriggers -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchGetTriggers.html#BatchGetTriggers"><span class="hs-identifier hs-type">BatchGetTriggers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679741776"><span class="annot"><span class="annottext">toQuery :: BatchGetTriggers -&gt; QueryString
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679743609"><span class="annot"><span class="annottext">toQuery :: BatchGetTriggers -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; BatchGetTriggers -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -307,18 +308,18 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-comment">-- | /See:/ 'newBatchGetTriggersResponse' smart constructor.</span><span>
-</span><span id="line-129"></span><span id="local-6989586621679741773"><span id="local-6989586621679741774"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchGetTriggersResponse"><span class="annot"><a href="Network.AWS.Glue.BatchGetTriggers.html#BatchGetTriggersResponse"><span class="hs-identifier hs-var">BatchGetTriggersResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchGetTriggersResponse%27"><span class="annot"><a href="Network.AWS.Glue.BatchGetTriggers.html#BatchGetTriggersResponse%27"><span class="hs-identifier hs-var">BatchGetTriggersResponse'</span></a></span></span><span>
-</span><span id="line-130"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of trigger definitions.</span><span>
-</span><span id="line-131"></span><span>    </span><span id="%24sel%3Atriggers%3ABatchGetTriggersResponse%27"><span class="annot"><span class="annottext">BatchGetTriggersResponse -&gt; Maybe [Trigger]
-</span><a href="Network.AWS.Glue.BatchGetTriggers.html#%24sel%3Atriggers%3ABatchGetTriggersResponse%27"><span class="hs-identifier hs-var hs-var">triggers</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.Trigger.html#Trigger"><span class="hs-identifier hs-type">Trigger</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-132"></span><span>    </span><span class="hs-comment">-- | A list of names of triggers not found.</span><span>
-</span><span id="line-133"></span><span>    </span><span id="%24sel%3AtriggersNotFound%3ABatchGetTriggersResponse%27"><span class="annot"><span class="annottext">BatchGetTriggersResponse -&gt; Maybe [Text]
+</span><span id="line-129"></span><span id="local-6989586621679743606"><span id="local-6989586621679743607"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchGetTriggersResponse"><span class="annot"><a href="Network.AWS.Glue.BatchGetTriggers.html#BatchGetTriggersResponse"><span class="hs-identifier hs-var">BatchGetTriggersResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchGetTriggersResponse%27"><span class="annot"><a href="Network.AWS.Glue.BatchGetTriggers.html#BatchGetTriggersResponse%27"><span class="hs-identifier hs-var">BatchGetTriggersResponse'</span></a></span></span><span>
+</span><span id="line-130"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of names of triggers not found.</span><span>
+</span><span id="line-131"></span><span>    </span><span id="%24sel%3AtriggersNotFound%3ABatchGetTriggersResponse%27"><span class="annot"><span class="annottext">BatchGetTriggersResponse -&gt; Maybe [Text]
 </span><a href="Network.AWS.Glue.BatchGetTriggers.html#%24sel%3AtriggersNotFound%3ABatchGetTriggersResponse%27"><span class="hs-identifier hs-var hs-var">triggersNotFound</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-comment">-- | A list of trigger definitions.</span><span>
+</span><span id="line-133"></span><span>    </span><span id="%24sel%3Atriggers%3ABatchGetTriggersResponse%27"><span class="annot"><span class="annottext">BatchGetTriggersResponse -&gt; Maybe [Trigger]
+</span><a href="Network.AWS.Glue.BatchGetTriggers.html#%24sel%3Atriggers%3ABatchGetTriggersResponse%27"><span class="hs-identifier hs-var hs-var">triggers</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.Trigger.html#Trigger"><span class="hs-identifier hs-type">Trigger</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
 </span><span id="line-134"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-135"></span><span>    </span><span id="%24sel%3AhttpStatus%3ABatchGetTriggersResponse%27"><span class="annot"><span class="annottext">BatchGetTriggersResponse -&gt; Int
 </span><a href="Network.AWS.Glue.BatchGetTriggers.html#%24sel%3AhttpStatus%3ABatchGetTriggersResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-136"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-137"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679741766"><span id="local-6989586621679741768"><span class="annot"><span class="annottext">BatchGetTriggersResponse -&gt; BatchGetTriggersResponse -&gt; Bool
+</span><span id="line-137"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679743599"><span id="local-6989586621679743601"><span class="annot"><span class="annottext">BatchGetTriggersResponse -&gt; BatchGetTriggersResponse -&gt; Bool
 (BatchGetTriggersResponse -&gt; BatchGetTriggersResponse -&gt; Bool)
 -&gt; (BatchGetTriggersResponse -&gt; BatchGetTriggersResponse -&gt; Bool)
 -&gt; Eq BatchGetTriggersResponse
@@ -327,7 +328,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: BatchGetTriggersResponse -&gt; BatchGetTriggersResponse -&gt; Bool
 == :: BatchGetTriggersResponse -&gt; BatchGetTriggersResponse -&gt; Bool
 $c== :: BatchGetTriggersResponse -&gt; BatchGetTriggersResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679741758"><span id="local-6989586621679741760"><span id="local-6989586621679741762"><span id="local-6989586621679741764"><span class="annot"><span class="annottext">ReadPrec [BatchGetTriggersResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679743591"><span id="local-6989586621679743593"><span id="local-6989586621679743595"><span id="local-6989586621679743597"><span class="annot"><span class="annottext">ReadPrec [BatchGetTriggersResponse]
 ReadPrec BatchGetTriggersResponse
 Int -&gt; ReadS BatchGetTriggersResponse
 ReadS [BatchGetTriggersResponse]
@@ -347,7 +348,7 @@ readList :: ReadS [BatchGetTriggersResponse]
 $creadList :: ReadS [BatchGetTriggersResponse]
 readsPrec :: Int -&gt; ReadS BatchGetTriggersResponse
 $creadsPrec :: Int -&gt; ReadS BatchGetTriggersResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679741752"><span id="local-6989586621679741754"><span id="local-6989586621679741756"><span class="annot"><span class="annottext">Int -&gt; BatchGetTriggersResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679743585"><span id="local-6989586621679743587"><span id="local-6989586621679743589"><span class="annot"><span class="annottext">Int -&gt; BatchGetTriggersResponse -&gt; ShowS
 [BatchGetTriggersResponse] -&gt; ShowS
 BatchGetTriggersResponse -&gt; String
 (Int -&gt; BatchGetTriggersResponse -&gt; ShowS)
@@ -387,9 +388,9 @@ BatchGetTriggersResponse -&gt; Rep BatchGetTriggersResponse x
 </span><span id="line-144"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-145"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-146"></span><span class="hs-comment">--</span><span>
-</span><span id="line-147"></span><span class="hs-comment">-- 'triggers', 'batchGetTriggersResponse_triggers' - A list of trigger definitions.</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- 'triggersNotFound', 'batchGetTriggersResponse_triggersNotFound' - A list of names of triggers not found.</span><span>
 </span><span id="line-148"></span><span class="hs-comment">--</span><span>
-</span><span id="line-149"></span><span class="hs-comment">-- 'triggersNotFound', 'batchGetTriggersResponse_triggersNotFound' - A list of names of triggers not found.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- 'triggers', 'batchGetTriggersResponse_triggers' - A list of trigger definitions.</span><span>
 </span><span id="line-150"></span><span class="hs-comment">--</span><span>
 </span><span id="line-151"></span><span class="hs-comment">-- 'httpStatus', 'batchGetTriggersResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-152"></span><span class="annot"><a href="Network.AWS.Glue.BatchGetTriggers.html#newBatchGetTriggersResponse"><span class="hs-identifier hs-type">newBatchGetTriggersResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -397,27 +398,66 @@ BatchGetTriggersResponse -&gt; Rep BatchGetTriggersResponse x
 </span><span id="line-154"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-155"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.BatchGetTriggers.html#BatchGetTriggersResponse"><span class="hs-identifier hs-type">BatchGetTriggersResponse</span></a></span><span>
 </span><span id="line-156"></span><span id="newBatchGetTriggersResponse"><span class="annot"><span class="annottext">newBatchGetTriggersResponse :: Int -&gt; BatchGetTriggersResponse
-</span><a href="Network.AWS.Glue.BatchGetTriggers.html#newBatchGetTriggersResponse"><span class="hs-identifier hs-var hs-var">newBatchGetTriggersResponse</span></a></span></span><span> </span><span id="local-6989586621679741749"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679741749"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-157"></span><span>  </span><span class="annot"><span class="annottext">BatchGetTriggersResponse' :: Maybe [Trigger] -&gt; Maybe [Text] -&gt; Int -&gt; BatchGetTriggersResponse
+</span><a href="Network.AWS.Glue.BatchGetTriggers.html#newBatchGetTriggersResponse"><span class="hs-identifier hs-var hs-var">newBatchGetTriggersResponse</span></a></span></span><span> </span><span id="local-6989586621679743582"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679743582"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-157"></span><span>  </span><span class="annot"><span class="annottext">BatchGetTriggersResponse' :: Maybe [Text] -&gt; Maybe [Trigger] -&gt; Int -&gt; BatchGetTriggersResponse
 </span><a href="Network.AWS.Glue.BatchGetTriggers.html#BatchGetTriggersResponse%27"><span class="hs-identifier hs-type">BatchGetTriggersResponse'</span></a></span><span>
-</span><span id="line-158"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:triggers:BatchGetTriggersResponse' :: Maybe [Trigger]
-</span><a href="Network.AWS.Glue.BatchGetTriggers.html#%24sel%3Atriggers%3ABatchGetTriggersResponse%27"><span class="hs-identifier hs-var">triggers</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-159"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Trigger]
+</span><span id="line-158"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:triggersNotFound:BatchGetTriggersResponse' :: Maybe [Text]
+</span><a href="Network.AWS.Glue.BatchGetTriggers.html#%24sel%3AtriggersNotFound%3ABatchGetTriggersResponse%27"><span class="hs-identifier hs-var">triggersNotFound</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-159"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-160"></span><span>      </span><span class="annot"><span class="annottext">$sel:triggersNotFound:BatchGetTriggersResponse' :: Maybe [Text]
-</span><a href="Network.AWS.Glue.BatchGetTriggers.html#%24sel%3AtriggersNotFound%3ABatchGetTriggersResponse%27"><span class="hs-identifier hs-var">triggersNotFound</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-160"></span><span>      </span><span class="annot"><span class="annottext">$sel:triggers:BatchGetTriggersResponse' :: Maybe [Trigger]
+</span><a href="Network.AWS.Glue.BatchGetTriggers.html#%24sel%3Atriggers%3ABatchGetTriggersResponse%27"><span class="hs-identifier hs-var">triggers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Trigger]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-161"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:BatchGetTriggersResponse' :: Int
 </span><a href="Network.AWS.Glue.BatchGetTriggers.html#%24sel%3AhttpStatus%3ABatchGetTriggersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679741749"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679743582"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-162"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-163"></span><span>
-</span><span id="line-164"></span><span class="hs-comment">-- | A list of trigger definitions.</span><span>
-</span><span id="line-165"></span><span class="annot"><a href="Network.AWS.Glue.BatchGetTriggers.html#batchGetTriggersResponse_triggers"><span class="hs-identifier hs-type">batchGetTriggersResponse_triggers</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchGetTriggers.html#BatchGetTriggersResponse"><span class="hs-identifier hs-type">BatchGetTriggersResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.Trigger.html#Trigger"><span class="hs-identifier hs-type">Trigger</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-166"></span><span id="batchGetTriggersResponse_triggers"><span class="annot"><span class="annottext">batchGetTriggersResponse_triggers :: (Maybe [Trigger] -&gt; f (Maybe [Trigger]))
+</span><span id="line-164"></span><span class="hs-comment">-- | A list of names of triggers not found.</span><span>
+</span><span id="line-165"></span><span class="annot"><a href="Network.AWS.Glue.BatchGetTriggers.html#batchGetTriggersResponse_triggersNotFound"><span class="hs-identifier hs-type">batchGetTriggersResponse_triggersNotFound</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchGetTriggers.html#BatchGetTriggersResponse"><span class="hs-identifier hs-type">BatchGetTriggersResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span id="batchGetTriggersResponse_triggersNotFound"><span class="annot"><span class="annottext">batchGetTriggersResponse_triggersNotFound :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; BatchGetTriggersResponse -&gt; f BatchGetTriggersResponse
+</span><a href="Network.AWS.Glue.BatchGetTriggers.html#batchGetTriggersResponse_triggersNotFound"><span class="hs-identifier hs-var hs-var">batchGetTriggersResponse_triggersNotFound</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchGetTriggersResponse -&gt; Maybe [Text])
+-&gt; (BatchGetTriggersResponse
+    -&gt; Maybe [Text] -&gt; BatchGetTriggersResponse)
+-&gt; Lens
+     BatchGetTriggersResponse
+     BatchGetTriggersResponse
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.BatchGetTriggers.html#BatchGetTriggersResponse%27"><span class="hs-identifier hs-type">BatchGetTriggersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679743581"><span class="annot"><span class="annottext">Maybe [Text]
+triggersNotFound :: Maybe [Text]
+$sel:triggersNotFound:BatchGetTriggersResponse' :: BatchGetTriggersResponse -&gt; Maybe [Text]
+</span><a href="#local-6989586621679743581"><span class="hs-identifier hs-var hs-var">triggersNotFound</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679743581"><span class="hs-identifier hs-var">triggersNotFound</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679743580"><span class="annot"><span class="annottext">s :: BatchGetTriggersResponse
+</span><a href="#local-6989586621679743580"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.BatchGetTriggers.html#BatchGetTriggersResponse%27"><span class="hs-identifier hs-type">BatchGetTriggersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679743579"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679743579"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetTriggersResponse
+</span><a href="#local-6989586621679743580"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:triggersNotFound:BatchGetTriggersResponse' :: Maybe [Text]
+</span><a href="Network.AWS.Glue.BatchGetTriggers.html#%24sel%3AtriggersNotFound%3ABatchGetTriggersResponse%27"><span class="hs-identifier hs-var">triggersNotFound</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679743579"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchGetTriggers.html#BatchGetTriggersResponse"><span class="hs-identifier hs-type">BatchGetTriggersResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; BatchGetTriggersResponse -&gt; f BatchGetTriggersResponse)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; BatchGetTriggersResponse
+-&gt; f BatchGetTriggersResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- | A list of trigger definitions.</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Network.AWS.Glue.BatchGetTriggers.html#batchGetTriggersResponse_triggers"><span class="hs-identifier hs-type">batchGetTriggersResponse_triggers</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchGetTriggers.html#BatchGetTriggersResponse"><span class="hs-identifier hs-type">BatchGetTriggersResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.Trigger.html#Trigger"><span class="hs-identifier hs-type">Trigger</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span id="batchGetTriggersResponse_triggers"><span class="annot"><span class="annottext">batchGetTriggersResponse_triggers :: (Maybe [Trigger] -&gt; f (Maybe [Trigger]))
 -&gt; BatchGetTriggersResponse -&gt; f BatchGetTriggersResponse
 </span><a href="Network.AWS.Glue.BatchGetTriggers.html#batchGetTriggersResponse_triggers"><span class="hs-identifier hs-var hs-var">batchGetTriggersResponse_triggers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchGetTriggersResponse -&gt; Maybe [Trigger])
 -&gt; (BatchGetTriggersResponse
@@ -428,16 +468,16 @@ forall a. Maybe a
      (Maybe [Trigger])
      (Maybe [Trigger])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.BatchGetTriggers.html#BatchGetTriggersResponse%27"><span class="hs-identifier hs-type">BatchGetTriggersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679741748"><span class="annot"><span class="annottext">Maybe [Trigger]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.BatchGetTriggers.html#BatchGetTriggersResponse%27"><span class="hs-identifier hs-type">BatchGetTriggersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679743577"><span class="annot"><span class="annottext">Maybe [Trigger]
 triggers :: Maybe [Trigger]
 $sel:triggers:BatchGetTriggersResponse' :: BatchGetTriggersResponse -&gt; Maybe [Trigger]
-</span><a href="#local-6989586621679741748"><span class="hs-identifier hs-var hs-var">triggers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Trigger]
-</span><a href="#local-6989586621679741748"><span class="hs-identifier hs-var">triggers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679741747"><span class="annot"><span class="annottext">s :: BatchGetTriggersResponse
-</span><a href="#local-6989586621679741747"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.BatchGetTriggers.html#BatchGetTriggersResponse%27"><span class="hs-identifier hs-type">BatchGetTriggersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679741746"><span class="annot"><span class="annottext">Maybe [Trigger]
-</span><a href="#local-6989586621679741746"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetTriggersResponse
-</span><a href="#local-6989586621679741747"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:triggers:BatchGetTriggersResponse' :: Maybe [Trigger]
+</span><a href="#local-6989586621679743577"><span class="hs-identifier hs-var hs-var">triggers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Trigger]
+</span><a href="#local-6989586621679743577"><span class="hs-identifier hs-var">triggers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679743576"><span class="annot"><span class="annottext">s :: BatchGetTriggersResponse
+</span><a href="#local-6989586621679743576"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.BatchGetTriggers.html#BatchGetTriggersResponse%27"><span class="hs-identifier hs-type">BatchGetTriggersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679743575"><span class="annot"><span class="annottext">Maybe [Trigger]
+</span><a href="#local-6989586621679743575"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetTriggersResponse
+</span><a href="#local-6989586621679743576"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:triggers:BatchGetTriggersResponse' :: Maybe [Trigger]
 </span><a href="Network.AWS.Glue.BatchGetTriggers.html#%24sel%3Atriggers%3ABatchGetTriggersResponse%27"><span class="hs-identifier hs-var">triggers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Trigger]
-</span><a href="#local-6989586621679741746"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchGetTriggers.html#BatchGetTriggersResponse"><span class="hs-identifier hs-type">BatchGetTriggersResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Trigger] -&gt; f (Maybe [Trigger]))
+</span><a href="#local-6989586621679743575"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchGetTriggers.html#BatchGetTriggersResponse"><span class="hs-identifier hs-type">BatchGetTriggersResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Trigger] -&gt; f (Maybe [Trigger]))
  -&gt; BatchGetTriggersResponse -&gt; f BatchGetTriggersResponse)
 -&gt; ((Maybe [Trigger] -&gt; f (Maybe [Trigger]))
     -&gt; Maybe [Trigger] -&gt; f (Maybe [Trigger]))
@@ -455,47 +495,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Trigger] [Trigger] [Trigger] [Trigger]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-167"></span><span>
-</span><span id="line-168"></span><span class="hs-comment">-- | A list of names of triggers not found.</span><span>
-</span><span id="line-169"></span><span class="annot"><a href="Network.AWS.Glue.BatchGetTriggers.html#batchGetTriggersResponse_triggersNotFound"><span class="hs-identifier hs-type">batchGetTriggersResponse_triggersNotFound</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchGetTriggers.html#BatchGetTriggersResponse"><span class="hs-identifier hs-type">BatchGetTriggersResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-170"></span><span id="batchGetTriggersResponse_triggersNotFound"><span class="annot"><span class="annottext">batchGetTriggersResponse_triggersNotFound :: (Maybe [Text] -&gt; f (Maybe [Text]))
--&gt; BatchGetTriggersResponse -&gt; f BatchGetTriggersResponse
-</span><a href="Network.AWS.Glue.BatchGetTriggers.html#batchGetTriggersResponse_triggersNotFound"><span class="hs-identifier hs-var hs-var">batchGetTriggersResponse_triggersNotFound</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchGetTriggersResponse -&gt; Maybe [Text])
--&gt; (BatchGetTriggersResponse
-    -&gt; Maybe [Text] -&gt; BatchGetTriggersResponse)
--&gt; Lens
-     BatchGetTriggersResponse
-     BatchGetTriggersResponse
-     (Maybe [Text])
-     (Maybe [Text])
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.BatchGetTriggers.html#BatchGetTriggersResponse%27"><span class="hs-identifier hs-type">BatchGetTriggersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679741744"><span class="annot"><span class="annottext">Maybe [Text]
-triggersNotFound :: Maybe [Text]
-$sel:triggersNotFound:BatchGetTriggersResponse' :: BatchGetTriggersResponse -&gt; Maybe [Text]
-</span><a href="#local-6989586621679741744"><span class="hs-identifier hs-var hs-var">triggersNotFound</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679741744"><span class="hs-identifier hs-var">triggersNotFound</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679741743"><span class="annot"><span class="annottext">s :: BatchGetTriggersResponse
-</span><a href="#local-6989586621679741743"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.BatchGetTriggers.html#BatchGetTriggersResponse%27"><span class="hs-identifier hs-type">BatchGetTriggersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679741742"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679741742"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetTriggersResponse
-</span><a href="#local-6989586621679741743"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:triggersNotFound:BatchGetTriggersResponse' :: Maybe [Text]
-</span><a href="Network.AWS.Glue.BatchGetTriggers.html#%24sel%3AtriggersNotFound%3ABatchGetTriggersResponse%27"><span class="hs-identifier hs-var">triggersNotFound</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679741742"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchGetTriggers.html#BatchGetTriggersResponse"><span class="hs-identifier hs-type">BatchGetTriggersResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
- -&gt; BatchGetTriggersResponse -&gt; f BatchGetTriggersResponse)
--&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
-    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
--&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
--&gt; BatchGetTriggersResponse
--&gt; f BatchGetTriggersResponse
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
--&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-171"></span><span>
 </span><span id="line-172"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-173"></span><span class="annot"><a href="Network.AWS.Glue.BatchGetTriggers.html#batchGetTriggersResponse_httpStatus"><span class="hs-identifier hs-type">batchGetTriggersResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchGetTriggers.html#BatchGetTriggersResponse"><span class="hs-identifier hs-type">BatchGetTriggersResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -505,16 +506,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (BatchGetTriggersResponse -&gt; Int -&gt; BatchGetTriggersResponse)
 -&gt; Lens BatchGetTriggersResponse BatchGetTriggersResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.BatchGetTriggers.html#BatchGetTriggersResponse%27"><span class="hs-identifier hs-type">BatchGetTriggersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679741741"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.BatchGetTriggers.html#BatchGetTriggersResponse%27"><span class="hs-identifier hs-type">BatchGetTriggersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679743574"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:BatchGetTriggersResponse' :: BatchGetTriggersResponse -&gt; Int
-</span><a href="#local-6989586621679741741"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679741741"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679741740"><span class="annot"><span class="annottext">s :: BatchGetTriggersResponse
-</span><a href="#local-6989586621679741740"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.BatchGetTriggers.html#BatchGetTriggersResponse%27"><span class="hs-identifier hs-type">BatchGetTriggersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679741739"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679741739"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetTriggersResponse
-</span><a href="#local-6989586621679741740"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:BatchGetTriggersResponse' :: Int
+</span><a href="#local-6989586621679743574"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679743574"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679743573"><span class="annot"><span class="annottext">s :: BatchGetTriggersResponse
+</span><a href="#local-6989586621679743573"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.BatchGetTriggers.html#BatchGetTriggersResponse%27"><span class="hs-identifier hs-type">BatchGetTriggersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679743572"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679743572"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetTriggersResponse
+</span><a href="#local-6989586621679743573"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:BatchGetTriggersResponse' :: Int
 </span><a href="Network.AWS.Glue.BatchGetTriggers.html#%24sel%3AhttpStatus%3ABatchGetTriggersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679741739"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchGetTriggers.html#BatchGetTriggersResponse"><span class="hs-identifier hs-type">BatchGetTriggersResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679743572"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchGetTriggers.html#BatchGetTriggersResponse"><span class="hs-identifier hs-type">BatchGetTriggersResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-175"></span><span>
-</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679741737"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchGetTriggers.html#BatchGetTriggersResponse"><span class="hs-identifier hs-type">BatchGetTriggersResponse</span></a></span></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679743570"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchGetTriggers.html#BatchGetTriggersResponse"><span class="hs-identifier hs-type">BatchGetTriggersResponse</span></a></span></span><span>
 </span><span id="line-177"></span></pre></body></html>

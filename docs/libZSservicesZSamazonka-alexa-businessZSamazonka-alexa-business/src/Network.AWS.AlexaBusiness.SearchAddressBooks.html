@@ -28,10 +28,10 @@
 </span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#newSearchAddressBooks"><span class="hs-identifier">newSearchAddressBooks</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-29"></span><span>
 </span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#searchAddressBooks_nextToken"><span class="hs-identifier">searchAddressBooks_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#searchAddressBooks_filters"><span class="hs-identifier">searchAddressBooks_filters</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#searchAddressBooks_sortCriteria"><span class="hs-identifier">searchAddressBooks_sortCriteria</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#searchAddressBooks_maxResults"><span class="hs-identifier">searchAddressBooks_maxResults</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#searchAddressBooks_filters"><span class="hs-identifier">searchAddressBooks_filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#searchAddressBooks_nextToken"><span class="hs-identifier">searchAddressBooks_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#searchAddressBooks_maxResults"><span class="hs-identifier">searchAddressBooks_maxResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-35"></span><span>
 </span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
 </span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooksResponse"><span class="hs-identifier">SearchAddressBooksResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -53,28 +53,28 @@
 </span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newSearchAddressBooks' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679378822"><span id="local-6989586621679378823"></span></span><span class="hs-keyword">data</span><span> </span><span id="SearchAddressBooks"><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooks"><span class="hs-identifier hs-var">SearchAddressBooks</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SearchAddressBooks%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooks%27"><span class="hs-identifier hs-var">SearchAddressBooks'</span></a></span></span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An optional token returned from a prior request. Use this token for</span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- pagination of results from this action. If this parameter is specified,</span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- the response only includes results beyond the token, up to the value</span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- specified by MaxResults.</span><span>
-</span><span id="line-61"></span><span>    </span><span id="%24sel%3AnextToken%3ASearchAddressBooks%27"><span class="annot"><span class="annottext">SearchAddressBooks -&gt; Maybe Text
-</span><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#%24sel%3AnextToken%3ASearchAddressBooks%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The sort order to use in listing the specified set of address books. The</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- supported sort key is AddressBookName.</span><span>
-</span><span id="line-64"></span><span>    </span><span id="%24sel%3AsortCriteria%3ASearchAddressBooks%27"><span class="annot"><span class="annottext">SearchAddressBooks -&gt; Maybe [Sort]
+</span><span id="line-56"></span><span id="local-6989586621679379163"><span id="local-6989586621679379164"></span></span><span class="hs-keyword">data</span><span> </span><span id="SearchAddressBooks"><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooks"><span class="hs-identifier hs-var">SearchAddressBooks</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SearchAddressBooks%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooks%27"><span class="hs-identifier hs-var">SearchAddressBooks'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The filters to use to list a specified set of address books. The</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- supported filter key is AddressBookName.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3Afilters%3ASearchAddressBooks%27"><span class="annot"><span class="annottext">SearchAddressBooks -&gt; Maybe [Filter]
+</span><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#%24sel%3Afilters%3ASearchAddressBooks%27"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The sort order to use in listing the specified set of address books. The</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- supported sort key is AddressBookName.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AsortCriteria%3ASearchAddressBooks%27"><span class="annot"><span class="annottext">SearchAddressBooks -&gt; Maybe [Sort]
 </span><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#%24sel%3AsortCriteria%3ASearchAddressBooks%27"><span class="hs-identifier hs-var hs-var">sortCriteria</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Sort.html#Sort"><span class="hs-identifier hs-type">Sort</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The maximum number of results to include in the response. If more</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- results exist than the specified MaxResults value, a token is included</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- in the response so that the remaining results can be retrieved.</span><span>
-</span><span id="line-68"></span><span>    </span><span id="%24sel%3AmaxResults%3ASearchAddressBooks%27"><span class="annot"><span class="annottext">SearchAddressBooks -&gt; Maybe Natural
-</span><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#%24sel%3AmaxResults%3ASearchAddressBooks%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The filters to use to list a specified set of address books. The</span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- supported filter key is AddressBookName.</span><span>
-</span><span id="line-71"></span><span>    </span><span id="%24sel%3Afilters%3ASearchAddressBooks%27"><span class="annot"><span class="annottext">SearchAddressBooks -&gt; Maybe [Filter]
-</span><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#%24sel%3Afilters%3ASearchAddressBooks%27"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | An optional token returned from a prior request. Use this token for</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- pagination of results from this action. If this parameter is specified,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- the response only includes results beyond the token, up to the value</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- specified by MaxResults.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AnextToken%3ASearchAddressBooks%27"><span class="annot"><span class="annottext">SearchAddressBooks -&gt; Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#%24sel%3AnextToken%3ASearchAddressBooks%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | The maximum number of results to include in the response. If more</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- results exist than the specified MaxResults value, a token is included</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- in the response so that the remaining results can be retrieved.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AmaxResults%3ASearchAddressBooks%27"><span class="annot"><span class="annottext">SearchAddressBooks -&gt; Maybe Natural
+</span><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#%24sel%3AmaxResults%3ASearchAddressBooks%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-72"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679378813"><span id="local-6989586621679378815"><span class="annot"><span class="annottext">SearchAddressBooks -&gt; SearchAddressBooks -&gt; Bool
+</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679379154"><span id="local-6989586621679379156"><span class="annot"><span class="annottext">SearchAddressBooks -&gt; SearchAddressBooks -&gt; Bool
 (SearchAddressBooks -&gt; SearchAddressBooks -&gt; Bool)
 -&gt; (SearchAddressBooks -&gt; SearchAddressBooks -&gt; Bool)
 -&gt; Eq SearchAddressBooks
@@ -83,7 +83,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SearchAddressBooks -&gt; SearchAddressBooks -&gt; Bool
 == :: SearchAddressBooks -&gt; SearchAddressBooks -&gt; Bool
 $c== :: SearchAddressBooks -&gt; SearchAddressBooks -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679378804"><span id="local-6989586621679378806"><span id="local-6989586621679378808"><span id="local-6989586621679378810"><span class="annot"><span class="annottext">ReadPrec [SearchAddressBooks]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679379145"><span id="local-6989586621679379147"><span id="local-6989586621679379149"><span id="local-6989586621679379151"><span class="annot"><span class="annottext">ReadPrec [SearchAddressBooks]
 ReadPrec SearchAddressBooks
 Int -&gt; ReadS SearchAddressBooks
 ReadS [SearchAddressBooks]
@@ -103,7 +103,7 @@ readList :: ReadS [SearchAddressBooks]
 $creadList :: ReadS [SearchAddressBooks]
 readsPrec :: Int -&gt; ReadS SearchAddressBooks
 $creadsPrec :: Int -&gt; ReadS SearchAddressBooks
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679378797"><span id="local-6989586621679378799"><span id="local-6989586621679378801"><span class="annot"><span class="annottext">Int -&gt; SearchAddressBooks -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679379138"><span id="local-6989586621679379140"><span id="local-6989586621679379142"><span class="annot"><span class="annottext">Int -&gt; SearchAddressBooks -&gt; ShowS
 [SearchAddressBooks] -&gt; ShowS
 SearchAddressBooks -&gt; String
 (Int -&gt; SearchAddressBooks -&gt; ShowS)
@@ -137,136 +137,52 @@ $cfrom :: forall x. SearchAddressBooks -&gt; Rep SearchAddressBooks x
 </span><span id="line-80"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-82"></span><span class="hs-comment">--</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- 'nextToken', 'searchAddressBooks_nextToken' - An optional token returned from a prior request. Use this token for</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- pagination of results from this action. If this parameter is specified,</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- the response only includes results beyond the token, up to the value</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- specified by MaxResults.</span><span>
-</span><span id="line-87"></span><span class="hs-comment">--</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- 'sortCriteria', 'searchAddressBooks_sortCriteria' - The sort order to use in listing the specified set of address books. The</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- supported sort key is AddressBookName.</span><span>
-</span><span id="line-90"></span><span class="hs-comment">--</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- 'maxResults', 'searchAddressBooks_maxResults' - The maximum number of results to include in the response. If more</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- results exist than the specified MaxResults value, a token is included</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- in the response so that the remaining results can be retrieved.</span><span>
-</span><span id="line-94"></span><span class="hs-comment">--</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- 'filters', 'searchAddressBooks_filters' - The filters to use to list a specified set of address books. The</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- supported filter key is AddressBookName.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'filters', 'searchAddressBooks_filters' - The filters to use to list a specified set of address books. The</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- supported filter key is AddressBookName.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'sortCriteria', 'searchAddressBooks_sortCriteria' - The sort order to use in listing the specified set of address books. The</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- supported sort key is AddressBookName.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'nextToken', 'searchAddressBooks_nextToken' - An optional token returned from a prior request. Use this token for</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- pagination of results from this action. If this parameter is specified,</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- the response only includes results beyond the token, up to the value</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- specified by MaxResults.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'maxResults', 'searchAddressBooks_maxResults' - The maximum number of results to include in the response. If more</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- results exist than the specified MaxResults value, a token is included</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- in the response so that the remaining results can be retrieved.</span><span>
 </span><span id="line-97"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#newSearchAddressBooks"><span class="hs-identifier hs-type">newSearchAddressBooks</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-98"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooks"><span class="hs-identifier hs-type">SearchAddressBooks</span></a></span><span>
 </span><span id="line-99"></span><span id="newSearchAddressBooks"><span class="annot"><span class="annottext">newSearchAddressBooks :: SearchAddressBooks
 </span><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#newSearchAddressBooks"><span class="hs-identifier hs-var hs-var">newSearchAddressBooks</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-100"></span><span>  </span><span class="annot"><span class="annottext">SearchAddressBooks' :: Maybe Text
+</span><span id="line-100"></span><span>  </span><span class="annot"><span class="annottext">SearchAddressBooks' :: Maybe [Filter]
 -&gt; Maybe [Sort]
+-&gt; Maybe Text
 -&gt; Maybe Natural
--&gt; Maybe [Filter]
 -&gt; SearchAddressBooks
 </span><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooks%27"><span class="hs-identifier hs-type">SearchAddressBooks'</span></a></span><span>
-</span><span id="line-101"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:SearchAddressBooks' :: Maybe Text
-</span><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#%24sel%3AnextToken%3ASearchAddressBooks%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-101"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:filters:SearchAddressBooks' :: Maybe [Filter]
+</span><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#%24sel%3Afilters%3ASearchAddressBooks%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:sortCriteria:SearchAddressBooks' :: Maybe [Sort]
 </span><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#%24sel%3AsortCriteria%3ASearchAddressBooks%27"><span class="hs-identifier hs-var">sortCriteria</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Sort]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:SearchAddressBooks' :: Maybe Natural
-</span><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#%24sel%3AmaxResults%3ASearchAddressBooks%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:SearchAddressBooks' :: Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#%24sel%3AnextToken%3ASearchAddressBooks%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:filters:SearchAddressBooks' :: Maybe [Filter]
-</span><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#%24sel%3Afilters%3ASearchAddressBooks%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:SearchAddressBooks' :: Maybe Natural
+</span><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#%24sel%3AmaxResults%3ASearchAddressBooks%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-105"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- | An optional token returned from a prior request. Use this token for</span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- pagination of results from this action. If this parameter is specified,</span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- the response only includes results beyond the token, up to the value</span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- specified by MaxResults.</span><span>
-</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#searchAddressBooks_nextToken"><span class="hs-identifier hs-type">searchAddressBooks_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooks"><span class="hs-identifier hs-type">SearchAddressBooks</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-112"></span><span id="searchAddressBooks_nextToken"><span class="annot"><span class="annottext">searchAddressBooks_nextToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; SearchAddressBooks -&gt; f SearchAddressBooks
-</span><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#searchAddressBooks_nextToken"><span class="hs-identifier hs-var hs-var">searchAddressBooks_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchAddressBooks -&gt; Maybe Text)
--&gt; (SearchAddressBooks -&gt; Maybe Text -&gt; SearchAddressBooks)
--&gt; Lens
-     SearchAddressBooks SearchAddressBooks (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooks%27"><span class="hs-identifier hs-type">SearchAddressBooks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378790"><span class="annot"><span class="annottext">Maybe Text
-nextToken :: Maybe Text
-$sel:nextToken:SearchAddressBooks' :: SearchAddressBooks -&gt; Maybe Text
-</span><a href="#local-6989586621679378790"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679378790"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378789"><span class="annot"><span class="annottext">s :: SearchAddressBooks
-</span><a href="#local-6989586621679378789"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooks%27"><span class="hs-identifier hs-type">SearchAddressBooks'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378788"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679378788"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchAddressBooks
-</span><a href="#local-6989586621679378789"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:SearchAddressBooks' :: Maybe Text
-</span><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#%24sel%3AnextToken%3ASearchAddressBooks%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679378788"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooks"><span class="hs-identifier hs-type">SearchAddressBooks</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- | The sort order to use in listing the specified set of address books. The</span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- supported sort key is AddressBookName.</span><span>
-</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#searchAddressBooks_sortCriteria"><span class="hs-identifier hs-type">searchAddressBooks_sortCriteria</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooks"><span class="hs-identifier hs-type">SearchAddressBooks</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Sort.html#Sort"><span class="hs-identifier hs-type">Sort</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-117"></span><span id="searchAddressBooks_sortCriteria"><span class="annot"><span class="annottext">searchAddressBooks_sortCriteria :: (Maybe [Sort] -&gt; f (Maybe [Sort]))
--&gt; SearchAddressBooks -&gt; f SearchAddressBooks
-</span><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#searchAddressBooks_sortCriteria"><span class="hs-identifier hs-var hs-var">searchAddressBooks_sortCriteria</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchAddressBooks -&gt; Maybe [Sort])
--&gt; (SearchAddressBooks -&gt; Maybe [Sort] -&gt; SearchAddressBooks)
--&gt; Lens
-     SearchAddressBooks SearchAddressBooks (Maybe [Sort]) (Maybe [Sort])
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooks%27"><span class="hs-identifier hs-type">SearchAddressBooks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378787"><span class="annot"><span class="annottext">Maybe [Sort]
-sortCriteria :: Maybe [Sort]
-$sel:sortCriteria:SearchAddressBooks' :: SearchAddressBooks -&gt; Maybe [Sort]
-</span><a href="#local-6989586621679378787"><span class="hs-identifier hs-var hs-var">sortCriteria</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Sort]
-</span><a href="#local-6989586621679378787"><span class="hs-identifier hs-var">sortCriteria</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378786"><span class="annot"><span class="annottext">s :: SearchAddressBooks
-</span><a href="#local-6989586621679378786"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooks%27"><span class="hs-identifier hs-type">SearchAddressBooks'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378785"><span class="annot"><span class="annottext">Maybe [Sort]
-</span><a href="#local-6989586621679378785"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchAddressBooks
-</span><a href="#local-6989586621679378786"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortCriteria:SearchAddressBooks' :: Maybe [Sort]
-</span><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#%24sel%3AsortCriteria%3ASearchAddressBooks%27"><span class="hs-identifier hs-var">sortCriteria</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Sort]
-</span><a href="#local-6989586621679378785"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooks"><span class="hs-identifier hs-type">SearchAddressBooks</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Sort] -&gt; f (Maybe [Sort]))
- -&gt; SearchAddressBooks -&gt; f SearchAddressBooks)
--&gt; ((Maybe [Sort] -&gt; f (Maybe [Sort]))
-    -&gt; Maybe [Sort] -&gt; f (Maybe [Sort]))
--&gt; (Maybe [Sort] -&gt; f (Maybe [Sort]))
--&gt; SearchAddressBooks
--&gt; f SearchAddressBooks
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Sort] [Sort] [Sort] [Sort]
--&gt; Iso (Maybe [Sort]) (Maybe [Sort]) (Maybe [Sort]) (Maybe [Sort])
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Sort] [Sort] [Sort] [Sort]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- | The maximum number of results to include in the response. If more</span><span>
-</span><span id="line-120"></span><span class="hs-comment">-- results exist than the specified MaxResults value, a token is included</span><span>
-</span><span id="line-121"></span><span class="hs-comment">-- in the response so that the remaining results can be retrieved.</span><span>
-</span><span id="line-122"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#searchAddressBooks_maxResults"><span class="hs-identifier hs-type">searchAddressBooks_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooks"><span class="hs-identifier hs-type">SearchAddressBooks</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-123"></span><span id="searchAddressBooks_maxResults"><span class="annot"><span class="annottext">searchAddressBooks_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
--&gt; SearchAddressBooks -&gt; f SearchAddressBooks
-</span><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#searchAddressBooks_maxResults"><span class="hs-identifier hs-var hs-var">searchAddressBooks_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchAddressBooks -&gt; Maybe Natural)
--&gt; (SearchAddressBooks -&gt; Maybe Natural -&gt; SearchAddressBooks)
--&gt; Lens
-     SearchAddressBooks
-     SearchAddressBooks
-     (Maybe Natural)
-     (Maybe Natural)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooks%27"><span class="hs-identifier hs-type">SearchAddressBooks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378781"><span class="annot"><span class="annottext">Maybe Natural
-maxResults :: Maybe Natural
-$sel:maxResults:SearchAddressBooks' :: SearchAddressBooks -&gt; Maybe Natural
-</span><a href="#local-6989586621679378781"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679378781"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378780"><span class="annot"><span class="annottext">s :: SearchAddressBooks
-</span><a href="#local-6989586621679378780"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooks%27"><span class="hs-identifier hs-type">SearchAddressBooks'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378779"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679378779"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchAddressBooks
-</span><a href="#local-6989586621679378780"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:SearchAddressBooks' :: Maybe Natural
-</span><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#%24sel%3AmaxResults%3ASearchAddressBooks%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679378779"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooks"><span class="hs-identifier hs-type">SearchAddressBooks</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-comment">-- | The filters to use to list a specified set of address books. The</span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- supported filter key is AddressBookName.</span><span>
-</span><span id="line-127"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#searchAddressBooks_filters"><span class="hs-identifier hs-type">searchAddressBooks_filters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooks"><span class="hs-identifier hs-type">SearchAddressBooks</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-128"></span><span id="searchAddressBooks_filters"><span class="annot"><span class="annottext">searchAddressBooks_filters :: (Maybe [Filter] -&gt; f (Maybe [Filter]))
+</span><span id="line-107"></span><span class="hs-comment">-- | The filters to use to list a specified set of address books. The</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- supported filter key is AddressBookName.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#searchAddressBooks_filters"><span class="hs-identifier hs-type">searchAddressBooks_filters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooks"><span class="hs-identifier hs-type">SearchAddressBooks</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="searchAddressBooks_filters"><span class="annot"><span class="annottext">searchAddressBooks_filters :: (Maybe [Filter] -&gt; f (Maybe [Filter]))
 -&gt; SearchAddressBooks -&gt; f SearchAddressBooks
 </span><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#searchAddressBooks_filters"><span class="hs-identifier hs-var hs-var">searchAddressBooks_filters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchAddressBooks -&gt; Maybe [Filter])
 -&gt; (SearchAddressBooks -&gt; Maybe [Filter] -&gt; SearchAddressBooks)
@@ -276,16 +192,16 @@ $sel:maxResults:SearchAddressBooks' :: SearchAddressBooks -&gt; Maybe Natural
      (Maybe [Filter])
      (Maybe [Filter])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooks%27"><span class="hs-identifier hs-type">SearchAddressBooks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378778"><span class="annot"><span class="annottext">Maybe [Filter]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooks%27"><span class="hs-identifier hs-type">SearchAddressBooks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379131"><span class="annot"><span class="annottext">Maybe [Filter]
 filters :: Maybe [Filter]
 $sel:filters:SearchAddressBooks' :: SearchAddressBooks -&gt; Maybe [Filter]
-</span><a href="#local-6989586621679378778"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621679378778"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378777"><span class="annot"><span class="annottext">s :: SearchAddressBooks
-</span><a href="#local-6989586621679378777"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooks%27"><span class="hs-identifier hs-type">SearchAddressBooks'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378776"><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621679378776"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchAddressBooks
-</span><a href="#local-6989586621679378777"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:SearchAddressBooks' :: Maybe [Filter]
+</span><a href="#local-6989586621679379131"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621679379131"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679379130"><span class="annot"><span class="annottext">s :: SearchAddressBooks
+</span><a href="#local-6989586621679379130"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooks%27"><span class="hs-identifier hs-type">SearchAddressBooks'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679379129"><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621679379129"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchAddressBooks
+</span><a href="#local-6989586621679379130"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:SearchAddressBooks' :: Maybe [Filter]
 </span><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#%24sel%3Afilters%3ASearchAddressBooks%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621679378776"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooks"><span class="hs-identifier hs-type">SearchAddressBooks</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Filter] -&gt; f (Maybe [Filter]))
+</span><a href="#local-6989586621679379129"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooks"><span class="hs-identifier hs-type">SearchAddressBooks</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Filter] -&gt; f (Maybe [Filter]))
  -&gt; SearchAddressBooks -&gt; f SearchAddressBooks)
 -&gt; ((Maybe [Filter] -&gt; f (Maybe [Filter]))
     -&gt; Maybe [Filter] -&gt; f (Maybe [Filter]))
@@ -300,19 +216,103 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Filter] [Filter] [Filter] [Filter]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | The sort order to use in listing the specified set of address books. The</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- supported sort key is AddressBookName.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#searchAddressBooks_sortCriteria"><span class="hs-identifier hs-type">searchAddressBooks_sortCriteria</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooks"><span class="hs-identifier hs-type">SearchAddressBooks</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Sort.html#Sort"><span class="hs-identifier hs-type">Sort</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span id="searchAddressBooks_sortCriteria"><span class="annot"><span class="annottext">searchAddressBooks_sortCriteria :: (Maybe [Sort] -&gt; f (Maybe [Sort]))
+-&gt; SearchAddressBooks -&gt; f SearchAddressBooks
+</span><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#searchAddressBooks_sortCriteria"><span class="hs-identifier hs-var hs-var">searchAddressBooks_sortCriteria</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchAddressBooks -&gt; Maybe [Sort])
+-&gt; (SearchAddressBooks -&gt; Maybe [Sort] -&gt; SearchAddressBooks)
+-&gt; Lens
+     SearchAddressBooks SearchAddressBooks (Maybe [Sort]) (Maybe [Sort])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooks%27"><span class="hs-identifier hs-type">SearchAddressBooks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379125"><span class="annot"><span class="annottext">Maybe [Sort]
+sortCriteria :: Maybe [Sort]
+$sel:sortCriteria:SearchAddressBooks' :: SearchAddressBooks -&gt; Maybe [Sort]
+</span><a href="#local-6989586621679379125"><span class="hs-identifier hs-var hs-var">sortCriteria</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Sort]
+</span><a href="#local-6989586621679379125"><span class="hs-identifier hs-var">sortCriteria</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679379124"><span class="annot"><span class="annottext">s :: SearchAddressBooks
+</span><a href="#local-6989586621679379124"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooks%27"><span class="hs-identifier hs-type">SearchAddressBooks'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679379123"><span class="annot"><span class="annottext">Maybe [Sort]
+</span><a href="#local-6989586621679379123"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchAddressBooks
+</span><a href="#local-6989586621679379124"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortCriteria:SearchAddressBooks' :: Maybe [Sort]
+</span><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#%24sel%3AsortCriteria%3ASearchAddressBooks%27"><span class="hs-identifier hs-var">sortCriteria</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Sort]
+</span><a href="#local-6989586621679379123"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooks"><span class="hs-identifier hs-type">SearchAddressBooks</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Sort] -&gt; f (Maybe [Sort]))
+ -&gt; SearchAddressBooks -&gt; f SearchAddressBooks)
+-&gt; ((Maybe [Sort] -&gt; f (Maybe [Sort]))
+    -&gt; Maybe [Sort] -&gt; f (Maybe [Sort]))
+-&gt; (Maybe [Sort] -&gt; f (Maybe [Sort]))
+-&gt; SearchAddressBooks
+-&gt; f SearchAddressBooks
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Sort] [Sort] [Sort] [Sort]
+-&gt; Iso (Maybe [Sort]) (Maybe [Sort]) (Maybe [Sort]) (Maybe [Sort])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Sort] [Sort] [Sort] [Sort]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | An optional token returned from a prior request. Use this token for</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- pagination of results from this action. If this parameter is specified,</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- the response only includes results beyond the token, up to the value</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- specified by MaxResults.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#searchAddressBooks_nextToken"><span class="hs-identifier hs-type">searchAddressBooks_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooks"><span class="hs-identifier hs-type">SearchAddressBooks</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span id="searchAddressBooks_nextToken"><span class="annot"><span class="annottext">searchAddressBooks_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SearchAddressBooks -&gt; f SearchAddressBooks
+</span><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#searchAddressBooks_nextToken"><span class="hs-identifier hs-var hs-var">searchAddressBooks_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchAddressBooks -&gt; Maybe Text)
+-&gt; (SearchAddressBooks -&gt; Maybe Text -&gt; SearchAddressBooks)
+-&gt; Lens
+     SearchAddressBooks SearchAddressBooks (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooks%27"><span class="hs-identifier hs-type">SearchAddressBooks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379122"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:SearchAddressBooks' :: SearchAddressBooks -&gt; Maybe Text
+</span><a href="#local-6989586621679379122"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679379122"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679379121"><span class="annot"><span class="annottext">s :: SearchAddressBooks
+</span><a href="#local-6989586621679379121"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooks%27"><span class="hs-identifier hs-type">SearchAddressBooks'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679379120"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679379120"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchAddressBooks
+</span><a href="#local-6989586621679379121"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:SearchAddressBooks' :: Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#%24sel%3AnextToken%3ASearchAddressBooks%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679379120"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooks"><span class="hs-identifier hs-type">SearchAddressBooks</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | The maximum number of results to include in the response. If more</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- results exist than the specified MaxResults value, a token is included</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- in the response so that the remaining results can be retrieved.</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#searchAddressBooks_maxResults"><span class="hs-identifier hs-type">searchAddressBooks_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooks"><span class="hs-identifier hs-type">SearchAddressBooks</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span id="searchAddressBooks_maxResults"><span class="annot"><span class="annottext">searchAddressBooks_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; SearchAddressBooks -&gt; f SearchAddressBooks
+</span><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#searchAddressBooks_maxResults"><span class="hs-identifier hs-var hs-var">searchAddressBooks_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchAddressBooks -&gt; Maybe Natural)
+-&gt; (SearchAddressBooks -&gt; Maybe Natural -&gt; SearchAddressBooks)
+-&gt; Lens
+     SearchAddressBooks
+     SearchAddressBooks
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooks%27"><span class="hs-identifier hs-type">SearchAddressBooks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379119"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:SearchAddressBooks' :: SearchAddressBooks -&gt; Maybe Natural
+</span><a href="#local-6989586621679379119"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679379119"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679379118"><span class="annot"><span class="annottext">s :: SearchAddressBooks
+</span><a href="#local-6989586621679379118"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooks%27"><span class="hs-identifier hs-type">SearchAddressBooks'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679379117"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679379117"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchAddressBooks
+</span><a href="#local-6989586621679379118"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:SearchAddressBooks' :: Maybe Natural
+</span><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#%24sel%3AmaxResults%3ASearchAddressBooks%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679379117"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooks"><span class="hs-identifier hs-type">SearchAddressBooks</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooks"><span class="hs-identifier hs-type">SearchAddressBooks</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-131"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-132"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooks"><span class="hs-identifier hs-type">SearchAddressBooks</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-133"></span><span>      </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooksResponse"><span class="hs-identifier hs-type">SearchAddressBooksResponse</span></a></span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679378772"><span class="annot"><span class="annottext">request :: SearchAddressBooks -&gt; Request SearchAddressBooks
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679379113"><span class="annot"><span class="annottext">request :: SearchAddressBooks -&gt; Request SearchAddressBooks
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; SearchAddressBooks -&gt; Request SearchAddressBooks
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.AlexaBusiness.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679378768"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679379109"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy SearchAddressBooks
 -&gt; ClientResponse ClientBody
@@ -338,10 +338,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-137"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679378765"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679378765"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679378764"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679378764"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679378763"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679378763"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-137"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679379106"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679379106"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679379105"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679379105"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679379104"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679379104"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-138"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe [AddressBookData]
 -&gt; Maybe Int
@@ -360,7 +360,7 @@ MonadResource m =&gt;
       -&gt; Maybe Int -&gt; Int -&gt; SearchAddressBooksResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679378763"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679379104"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -372,7 +372,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Int -&gt; Int -&gt; SearchAddressBooksResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679378763"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [AddressBookData]))
+</span><a href="#local-6989586621679379104"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [AddressBookData]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AddressBooks&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [AddressBookData]))
@@ -387,7 +387,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Int -&gt; SearchAddressBooksResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679378763"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Int)
+</span><a href="#local-6989586621679379104"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TotalCount&quot;</span></span><span class="hs-special">)</span><span>
@@ -399,15 +399,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679378765"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679379106"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>
-</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679378754"><span id="local-6989586621679378756"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooks"><span class="hs-identifier hs-type">SearchAddressBooks</span></a></span></span></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679379095"><span id="local-6989586621679379097"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooks"><span class="hs-identifier hs-type">SearchAddressBooks</span></a></span></span></span><span>
 </span><span id="line-146"></span><span>
-</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679378751"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooks"><span class="hs-identifier hs-type">SearchAddressBooks</span></a></span></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679379092"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooks"><span class="hs-identifier hs-type">SearchAddressBooks</span></a></span></span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooks"><span class="hs-identifier hs-type">SearchAddressBooks</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679378747"><span class="annot"><span class="annottext">toHeaders :: SearchAddressBooks -&gt; ResponseHeaders
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679379088"><span class="annot"><span class="annottext">toHeaders :: SearchAddressBooks -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-151"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; SearchAddressBooks -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -434,66 +434,66 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-161"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-162"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>
-</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679378737"><span id="local-6989586621679378739"><span id="local-6989586621679378741"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooks"><span class="hs-identifier hs-type">SearchAddressBooks</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-165"></span><span>  </span><span id="local-6989586621679378735"><span class="annot"><span class="annottext">toJSON :: SearchAddressBooks -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooks%27"><span class="hs-identifier hs-type">SearchAddressBooks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378730"><span id="local-6989586621679378731"><span id="local-6989586621679378732"><span id="local-6989586621679378733"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679379078"><span id="local-6989586621679379080"><span id="local-6989586621679379082"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooks"><span class="hs-identifier hs-type">SearchAddressBooks</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679379076"><span class="annot"><span class="annottext">toJSON :: SearchAddressBooks -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooks%27"><span class="hs-identifier hs-type">SearchAddressBooks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379071"><span id="local-6989586621679379072"><span id="local-6989586621679379073"><span id="local-6989586621679379074"><span class="annot"><span class="annottext">Maybe Natural
 Maybe [Filter]
 Maybe [Sort]
 Maybe Text
-filters :: Maybe [Filter]
 maxResults :: Maybe Natural
-sortCriteria :: Maybe [Sort]
 nextToken :: Maybe Text
-$sel:filters:SearchAddressBooks' :: SearchAddressBooks -&gt; Maybe [Filter]
+sortCriteria :: Maybe [Sort]
+filters :: Maybe [Filter]
 $sel:maxResults:SearchAddressBooks' :: SearchAddressBooks -&gt; Maybe Natural
-$sel:sortCriteria:SearchAddressBooks' :: SearchAddressBooks -&gt; Maybe [Sort]
 $sel:nextToken:SearchAddressBooks' :: SearchAddressBooks -&gt; Maybe Text
-</span><a href="#local-6989586621679378730"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:sortCriteria:SearchAddressBooks' :: SearchAddressBooks -&gt; Maybe [Sort]
+$sel:filters:SearchAddressBooks' :: SearchAddressBooks -&gt; Maybe [Filter]
+</span><a href="#local-6989586621679379071"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-166"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-167"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-168"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+</span><span class="hs-string">&quot;Filters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Filter] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Filter] -&gt; Pair) -&gt; Maybe [Filter] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679378733"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621679379074"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-169"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SortCriteria&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Sort] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Sort] -&gt; Pair) -&gt; Maybe [Sort] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Sort]
-</span><a href="#local-6989586621679378732"><span class="hs-identifier hs-var">sortCriteria</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679379073"><span class="hs-identifier hs-var">sortCriteria</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-170"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679379072"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679378731"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-171"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Filters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Filter] -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Filter] -&gt; Pair) -&gt; Maybe [Filter] -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621679378730"><span class="hs-identifier hs-var">filters</span></a></span><span>
+</span><a href="#local-6989586621679379071"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-172"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-173"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>
 </span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooks"><span class="hs-identifier hs-type">SearchAddressBooks</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-176"></span><span>  </span><span id="local-6989586621679378724"><span class="annot"><span class="annottext">toPath :: SearchAddressBooks -&gt; ByteString
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679379065"><span class="annot"><span class="annottext">toPath :: SearchAddressBooks -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; SearchAddressBooks -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-177"></span><span>
 </span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooks"><span class="hs-identifier hs-type">SearchAddressBooks</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-179"></span><span>  </span><span id="local-6989586621679378720"><span class="annot"><span class="annottext">toQuery :: SearchAddressBooks -&gt; QueryString
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679379061"><span class="annot"><span class="annottext">toQuery :: SearchAddressBooks -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; SearchAddressBooks -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -501,7 +501,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-180"></span><span>
 </span><span id="line-181"></span><span class="hs-comment">-- | /See:/ 'newSearchAddressBooksResponse' smart constructor.</span><span>
-</span><span id="line-182"></span><span id="local-6989586621679378717"><span id="local-6989586621679378718"></span></span><span class="hs-keyword">data</span><span> </span><span id="SearchAddressBooksResponse"><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooksResponse"><span class="hs-identifier hs-var">SearchAddressBooksResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SearchAddressBooksResponse%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooksResponse%27"><span class="hs-identifier hs-var">SearchAddressBooksResponse'</span></a></span></span><span>
+</span><span id="line-182"></span><span id="local-6989586621679379058"><span id="local-6989586621679379059"></span></span><span class="hs-keyword">data</span><span> </span><span id="SearchAddressBooksResponse"><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooksResponse"><span class="hs-identifier hs-var">SearchAddressBooksResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SearchAddressBooksResponse%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooksResponse%27"><span class="hs-identifier hs-var">SearchAddressBooksResponse'</span></a></span></span><span>
 </span><span id="line-183"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token returned to indicate that there is more data available.</span><span>
 </span><span id="line-184"></span><span>    </span><span id="%24sel%3AnextToken%3ASearchAddressBooksResponse%27"><span class="annot"><span class="annottext">SearchAddressBooksResponse -&gt; Maybe Text
 </span><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#%24sel%3AnextToken%3ASearchAddressBooksResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -516,7 +516,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-191"></span><span>    </span><span id="%24sel%3AhttpStatus%3ASearchAddressBooksResponse%27"><span class="annot"><span class="annottext">SearchAddressBooksResponse -&gt; Int
 </span><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#%24sel%3AhttpStatus%3ASearchAddressBooksResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-192"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-193"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679378709"><span id="local-6989586621679378711"><span class="annot"><span class="annottext">SearchAddressBooksResponse -&gt; SearchAddressBooksResponse -&gt; Bool
+</span><span id="line-193"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679379050"><span id="local-6989586621679379052"><span class="annot"><span class="annottext">SearchAddressBooksResponse -&gt; SearchAddressBooksResponse -&gt; Bool
 (SearchAddressBooksResponse -&gt; SearchAddressBooksResponse -&gt; Bool)
 -&gt; (SearchAddressBooksResponse
     -&gt; SearchAddressBooksResponse -&gt; Bool)
@@ -526,7 +526,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SearchAddressBooksResponse -&gt; SearchAddressBooksResponse -&gt; Bool
 == :: SearchAddressBooksResponse -&gt; SearchAddressBooksResponse -&gt; Bool
 $c== :: SearchAddressBooksResponse -&gt; SearchAddressBooksResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679378701"><span id="local-6989586621679378703"><span id="local-6989586621679378705"><span id="local-6989586621679378707"><span class="annot"><span class="annottext">ReadPrec [SearchAddressBooksResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679379042"><span id="local-6989586621679379044"><span id="local-6989586621679379046"><span id="local-6989586621679379048"><span class="annot"><span class="annottext">ReadPrec [SearchAddressBooksResponse]
 ReadPrec SearchAddressBooksResponse
 Int -&gt; ReadS SearchAddressBooksResponse
 ReadS [SearchAddressBooksResponse]
@@ -546,7 +546,7 @@ readList :: ReadS [SearchAddressBooksResponse]
 $creadList :: ReadS [SearchAddressBooksResponse]
 readsPrec :: Int -&gt; ReadS SearchAddressBooksResponse
 $creadsPrec :: Int -&gt; ReadS SearchAddressBooksResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679378695"><span id="local-6989586621679378697"><span id="local-6989586621679378699"><span class="annot"><span class="annottext">Int -&gt; SearchAddressBooksResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679379036"><span id="local-6989586621679379038"><span id="local-6989586621679379040"><span class="annot"><span class="annottext">Int -&gt; SearchAddressBooksResponse -&gt; ShowS
 [SearchAddressBooksResponse] -&gt; ShowS
 SearchAddressBooksResponse -&gt; String
 (Int -&gt; SearchAddressBooksResponse -&gt; ShowS)
@@ -599,8 +599,8 @@ SearchAddressBooksResponse -&gt; Rep SearchAddressBooksResponse x
 </span><span id="line-213"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-214"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooksResponse"><span class="hs-identifier hs-type">SearchAddressBooksResponse</span></a></span><span>
 </span><span id="line-215"></span><span id="newSearchAddressBooksResponse"><span class="annot"><span class="annottext">newSearchAddressBooksResponse :: Int -&gt; SearchAddressBooksResponse
-</span><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#newSearchAddressBooksResponse"><span class="hs-identifier hs-var hs-var">newSearchAddressBooksResponse</span></a></span></span><span> </span><span id="local-6989586621679378692"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679378692"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#newSearchAddressBooksResponse"><span class="hs-identifier hs-var hs-var">newSearchAddressBooksResponse</span></a></span></span><span> </span><span id="local-6989586621679379033"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679379033"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-216"></span><span>  </span><span class="annot"><span class="annottext">SearchAddressBooksResponse' :: Maybe Text
 -&gt; Maybe [AddressBookData]
 -&gt; Maybe Int
@@ -622,7 +622,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-221"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:SearchAddressBooksResponse' :: Int
 </span><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#%24sel%3AhttpStatus%3ASearchAddressBooksResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679378692"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679379033"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-222"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-223"></span><span>
 </span><span id="line-224"></span><span class="hs-comment">-- | The token returned to indicate that there is more data available.</span><span>
@@ -638,16 +638,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooksResponse%27"><span class="hs-identifier hs-type">SearchAddressBooksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378691"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooksResponse%27"><span class="hs-identifier hs-type">SearchAddressBooksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379032"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:SearchAddressBooksResponse' :: SearchAddressBooksResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679378691"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679378691"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378690"><span class="annot"><span class="annottext">s :: SearchAddressBooksResponse
-</span><a href="#local-6989586621679378690"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooksResponse%27"><span class="hs-identifier hs-type">SearchAddressBooksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378689"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679378689"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchAddressBooksResponse
-</span><a href="#local-6989586621679378690"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:SearchAddressBooksResponse' :: Maybe Text
+</span><a href="#local-6989586621679379032"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679379032"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679379031"><span class="annot"><span class="annottext">s :: SearchAddressBooksResponse
+</span><a href="#local-6989586621679379031"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooksResponse%27"><span class="hs-identifier hs-type">SearchAddressBooksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679379030"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679379030"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchAddressBooksResponse
+</span><a href="#local-6989586621679379031"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:SearchAddressBooksResponse' :: Maybe Text
 </span><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#%24sel%3AnextToken%3ASearchAddressBooksResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679378689"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooksResponse"><span class="hs-identifier hs-type">SearchAddressBooksResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679379030"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooksResponse"><span class="hs-identifier hs-type">SearchAddressBooksResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-227"></span><span>
 </span><span id="line-228"></span><span class="hs-comment">-- | The address books that meet the specified set of filter criteria, in</span><span>
 </span><span id="line-229"></span><span class="hs-comment">-- sort order.</span><span>
@@ -663,16 +663,16 @@ $sel:nextToken:SearchAddressBooksResponse' :: SearchAddressBooksResponse -&gt; M
      (Maybe [AddressBookData])
      (Maybe [AddressBookData])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooksResponse%27"><span class="hs-identifier hs-type">SearchAddressBooksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378688"><span class="annot"><span class="annottext">Maybe [AddressBookData]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooksResponse%27"><span class="hs-identifier hs-type">SearchAddressBooksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379029"><span class="annot"><span class="annottext">Maybe [AddressBookData]
 addressBooks :: Maybe [AddressBookData]
 $sel:addressBooks:SearchAddressBooksResponse' :: SearchAddressBooksResponse -&gt; Maybe [AddressBookData]
-</span><a href="#local-6989586621679378688"><span class="hs-identifier hs-var hs-var">addressBooks</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AddressBookData]
-</span><a href="#local-6989586621679378688"><span class="hs-identifier hs-var">addressBooks</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378687"><span class="annot"><span class="annottext">s :: SearchAddressBooksResponse
-</span><a href="#local-6989586621679378687"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooksResponse%27"><span class="hs-identifier hs-type">SearchAddressBooksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378686"><span class="annot"><span class="annottext">Maybe [AddressBookData]
-</span><a href="#local-6989586621679378686"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchAddressBooksResponse
-</span><a href="#local-6989586621679378687"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:addressBooks:SearchAddressBooksResponse' :: Maybe [AddressBookData]
+</span><a href="#local-6989586621679379029"><span class="hs-identifier hs-var hs-var">addressBooks</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AddressBookData]
+</span><a href="#local-6989586621679379029"><span class="hs-identifier hs-var">addressBooks</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679379028"><span class="annot"><span class="annottext">s :: SearchAddressBooksResponse
+</span><a href="#local-6989586621679379028"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooksResponse%27"><span class="hs-identifier hs-type">SearchAddressBooksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679379027"><span class="annot"><span class="annottext">Maybe [AddressBookData]
+</span><a href="#local-6989586621679379027"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchAddressBooksResponse
+</span><a href="#local-6989586621679379028"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:addressBooks:SearchAddressBooksResponse' :: Maybe [AddressBookData]
 </span><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#%24sel%3AaddressBooks%3ASearchAddressBooksResponse%27"><span class="hs-identifier hs-var">addressBooks</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AddressBookData]
-</span><a href="#local-6989586621679378686"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooksResponse"><span class="hs-identifier hs-type">SearchAddressBooksResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AddressBookData] -&gt; f (Maybe [AddressBookData]))
+</span><a href="#local-6989586621679379027"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooksResponse"><span class="hs-identifier hs-type">SearchAddressBooksResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AddressBookData] -&gt; f (Maybe [AddressBookData]))
  -&gt; SearchAddressBooksResponse -&gt; f SearchAddressBooksResponse)
 -&gt; ((Maybe [AddressBookData] -&gt; f (Maybe [AddressBookData]))
     -&gt; Maybe [AddressBookData] -&gt; f (Maybe [AddressBookData]))
@@ -698,8 +698,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [AddressBookData]
   [AddressBookData]
   [AddressBookData]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-232"></span><span>
 </span><span id="line-233"></span><span class="hs-comment">-- | The total number of address books returned.</span><span>
 </span><span id="line-234"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#searchAddressBooksResponse_totalCount"><span class="hs-identifier hs-type">searchAddressBooksResponse_totalCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooksResponse"><span class="hs-identifier hs-type">SearchAddressBooksResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
@@ -714,16 +714,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe Int)
      (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooksResponse%27"><span class="hs-identifier hs-type">SearchAddressBooksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378685"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooksResponse%27"><span class="hs-identifier hs-type">SearchAddressBooksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379026"><span class="annot"><span class="annottext">Maybe Int
 totalCount :: Maybe Int
 $sel:totalCount:SearchAddressBooksResponse' :: SearchAddressBooksResponse -&gt; Maybe Int
-</span><a href="#local-6989586621679378685"><span class="hs-identifier hs-var hs-var">totalCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679378685"><span class="hs-identifier hs-var">totalCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378684"><span class="annot"><span class="annottext">s :: SearchAddressBooksResponse
-</span><a href="#local-6989586621679378684"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooksResponse%27"><span class="hs-identifier hs-type">SearchAddressBooksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378683"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679378683"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchAddressBooksResponse
-</span><a href="#local-6989586621679378684"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:totalCount:SearchAddressBooksResponse' :: Maybe Int
+</span><a href="#local-6989586621679379026"><span class="hs-identifier hs-var hs-var">totalCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679379026"><span class="hs-identifier hs-var">totalCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679379025"><span class="annot"><span class="annottext">s :: SearchAddressBooksResponse
+</span><a href="#local-6989586621679379025"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooksResponse%27"><span class="hs-identifier hs-type">SearchAddressBooksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679379024"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679379024"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchAddressBooksResponse
+</span><a href="#local-6989586621679379025"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:totalCount:SearchAddressBooksResponse' :: Maybe Int
 </span><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#%24sel%3AtotalCount%3ASearchAddressBooksResponse%27"><span class="hs-identifier hs-var">totalCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679378683"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooksResponse"><span class="hs-identifier hs-type">SearchAddressBooksResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679379024"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooksResponse"><span class="hs-identifier hs-type">SearchAddressBooksResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-236"></span><span>
 </span><span id="line-237"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-238"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#searchAddressBooksResponse_httpStatus"><span class="hs-identifier hs-type">searchAddressBooksResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooksResponse"><span class="hs-identifier hs-type">SearchAddressBooksResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -735,16 +735,16 @@ $sel:totalCount:SearchAddressBooksResponse' :: SearchAddressBooksResponse -&gt; 
 -&gt; Lens
      SearchAddressBooksResponse SearchAddressBooksResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooksResponse%27"><span class="hs-identifier hs-type">SearchAddressBooksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378682"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooksResponse%27"><span class="hs-identifier hs-type">SearchAddressBooksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379023"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:SearchAddressBooksResponse' :: SearchAddressBooksResponse -&gt; Int
-</span><a href="#local-6989586621679378682"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679378682"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378681"><span class="annot"><span class="annottext">s :: SearchAddressBooksResponse
-</span><a href="#local-6989586621679378681"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooksResponse%27"><span class="hs-identifier hs-type">SearchAddressBooksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378680"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679378680"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchAddressBooksResponse
-</span><a href="#local-6989586621679378681"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:SearchAddressBooksResponse' :: Int
+</span><a href="#local-6989586621679379023"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679379023"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679379022"><span class="annot"><span class="annottext">s :: SearchAddressBooksResponse
+</span><a href="#local-6989586621679379022"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooksResponse%27"><span class="hs-identifier hs-type">SearchAddressBooksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679379021"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679379021"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchAddressBooksResponse
+</span><a href="#local-6989586621679379022"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:SearchAddressBooksResponse' :: Int
 </span><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#%24sel%3AhttpStatus%3ASearchAddressBooksResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679378680"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooksResponse"><span class="hs-identifier hs-type">SearchAddressBooksResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679379021"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooksResponse"><span class="hs-identifier hs-type">SearchAddressBooksResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-240"></span><span>
-</span><span id="line-241"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679378678"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooksResponse"><span class="hs-identifier hs-type">SearchAddressBooksResponse</span></a></span></span><span>
+</span><span id="line-241"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679379019"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SearchAddressBooks.html#SearchAddressBooksResponse"><span class="hs-identifier hs-type">SearchAddressBooksResponse</span></a></span></span><span>
 </span><span id="line-242"></span></pre></body></html>

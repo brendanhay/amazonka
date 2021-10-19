@@ -27,12 +27,12 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | A set of patch filters, typically used for approval rules.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newPatchFilterGroup' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679807245"><span id="local-6989586621679807246"></span></span><span class="hs-keyword">data</span><span> </span><span id="PatchFilterGroup"><span class="annot"><a href="Network.AWS.SSM.Types.PatchFilterGroup.html#PatchFilterGroup"><span class="hs-identifier hs-var">PatchFilterGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PatchFilterGroup%27"><span class="annot"><a href="Network.AWS.SSM.Types.PatchFilterGroup.html#PatchFilterGroup%27"><span class="hs-identifier hs-var">PatchFilterGroup'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679808926"><span id="local-6989586621679808927"></span></span><span class="hs-keyword">data</span><span> </span><span id="PatchFilterGroup"><span class="annot"><a href="Network.AWS.SSM.Types.PatchFilterGroup.html#PatchFilterGroup"><span class="hs-identifier hs-var">PatchFilterGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PatchFilterGroup%27"><span class="annot"><a href="Network.AWS.SSM.Types.PatchFilterGroup.html#PatchFilterGroup%27"><span class="hs-identifier hs-var">PatchFilterGroup'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The set of patch filters that make up the group.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3ApatchFilters%3APatchFilterGroup%27"><span class="annot"><span class="annottext">PatchFilterGroup -&gt; [PatchFilter]
 </span><a href="Network.AWS.SSM.Types.PatchFilterGroup.html#%24sel%3ApatchFilters%3APatchFilterGroup%27"><span class="hs-identifier hs-var hs-var">patchFilters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SSM.Types.PatchFilter.html#PatchFilter"><span class="hs-identifier hs-type">PatchFilter</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679807239"><span id="local-6989586621679807241"><span class="annot"><span class="annottext">PatchFilterGroup -&gt; PatchFilterGroup -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679808920"><span id="local-6989586621679808922"><span class="annot"><span class="annottext">PatchFilterGroup -&gt; PatchFilterGroup -&gt; Bool
 (PatchFilterGroup -&gt; PatchFilterGroup -&gt; Bool)
 -&gt; (PatchFilterGroup -&gt; PatchFilterGroup -&gt; Bool)
 -&gt; Eq PatchFilterGroup
@@ -41,7 +41,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PatchFilterGroup -&gt; PatchFilterGroup -&gt; Bool
 == :: PatchFilterGroup -&gt; PatchFilterGroup -&gt; Bool
 $c== :: PatchFilterGroup -&gt; PatchFilterGroup -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679807230"><span id="local-6989586621679807232"><span id="local-6989586621679807234"><span id="local-6989586621679807236"><span class="annot"><span class="annottext">ReadPrec [PatchFilterGroup]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679808911"><span id="local-6989586621679808913"><span id="local-6989586621679808915"><span id="local-6989586621679808917"><span class="annot"><span class="annottext">ReadPrec [PatchFilterGroup]
 ReadPrec PatchFilterGroup
 Int -&gt; ReadS PatchFilterGroup
 ReadS [PatchFilterGroup]
@@ -61,7 +61,7 @@ readList :: ReadS [PatchFilterGroup]
 $creadList :: ReadS [PatchFilterGroup]
 readsPrec :: Int -&gt; ReadS PatchFilterGroup
 $creadsPrec :: Int -&gt; ReadS PatchFilterGroup
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679807223"><span id="local-6989586621679807225"><span id="local-6989586621679807227"><span class="annot"><span class="annottext">Int -&gt; PatchFilterGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679808904"><span id="local-6989586621679808906"><span id="local-6989586621679808908"><span class="annot"><span class="annottext">Int -&gt; PatchFilterGroup -&gt; ShowS
 [PatchFilterGroup] -&gt; ShowS
 PatchFilterGroup -&gt; String
 (Int -&gt; PatchFilterGroup -&gt; ShowS)
@@ -115,16 +115,16 @@ forall a. Monoid a =&gt; a
 -&gt; Lens
      PatchFilterGroup PatchFilterGroup [PatchFilter] [PatchFilter]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.PatchFilterGroup.html#PatchFilterGroup%27"><span class="hs-identifier hs-type">PatchFilterGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679807214"><span class="annot"><span class="annottext">[PatchFilter]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.PatchFilterGroup.html#PatchFilterGroup%27"><span class="hs-identifier hs-type">PatchFilterGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679808895"><span class="annot"><span class="annottext">[PatchFilter]
 patchFilters :: [PatchFilter]
 $sel:patchFilters:PatchFilterGroup' :: PatchFilterGroup -&gt; [PatchFilter]
-</span><a href="#local-6989586621679807214"><span class="hs-identifier hs-var hs-var">patchFilters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[PatchFilter]
-</span><a href="#local-6989586621679807214"><span class="hs-identifier hs-var">patchFilters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679807213"><span class="annot"><span class="annottext">s :: PatchFilterGroup
-</span><a href="#local-6989586621679807213"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.PatchFilterGroup.html#PatchFilterGroup%27"><span class="hs-identifier hs-type">PatchFilterGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679807212"><span class="annot"><span class="annottext">[PatchFilter]
-</span><a href="#local-6989586621679807212"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PatchFilterGroup
-</span><a href="#local-6989586621679807213"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:patchFilters:PatchFilterGroup' :: [PatchFilter]
+</span><a href="#local-6989586621679808895"><span class="hs-identifier hs-var hs-var">patchFilters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[PatchFilter]
+</span><a href="#local-6989586621679808895"><span class="hs-identifier hs-var">patchFilters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679808894"><span class="annot"><span class="annottext">s :: PatchFilterGroup
+</span><a href="#local-6989586621679808894"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.PatchFilterGroup.html#PatchFilterGroup%27"><span class="hs-identifier hs-type">PatchFilterGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679808893"><span class="annot"><span class="annottext">[PatchFilter]
+</span><a href="#local-6989586621679808893"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PatchFilterGroup
+</span><a href="#local-6989586621679808894"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:patchFilters:PatchFilterGroup' :: [PatchFilter]
 </span><a href="Network.AWS.SSM.Types.PatchFilterGroup.html#%24sel%3ApatchFilters%3APatchFilterGroup%27"><span class="hs-identifier hs-var">patchFilters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[PatchFilter]
-</span><a href="#local-6989586621679807212"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchFilterGroup.html#PatchFilterGroup"><span class="hs-identifier hs-type">PatchFilterGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([PatchFilter] -&gt; f [PatchFilter])
+</span><a href="#local-6989586621679808893"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchFilterGroup.html#PatchFilterGroup"><span class="hs-identifier hs-type">PatchFilterGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([PatchFilter] -&gt; f [PatchFilter])
  -&gt; PatchFilterGroup -&gt; f PatchFilterGroup)
 -&gt; (([PatchFilter] -&gt; f [PatchFilter])
     -&gt; [PatchFilter] -&gt; f [PatchFilter])
@@ -134,11 +134,11 @@ $sel:patchFilters:PatchFilterGroup' :: PatchFilterGroup -&gt; [PatchFilter]
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([PatchFilter] -&gt; f [PatchFilter])
 -&gt; [PatchFilter] -&gt; f [PatchFilter]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-53"></span><span>
-</span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679807207"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchFilterGroup.html#PatchFilterGroup"><span class="hs-identifier hs-type">PatchFilterGroup</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-55"></span><span>  </span><span id="local-6989586621679807205"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PatchFilterGroup
+</span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679808888"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchFilterGroup.html#PatchFilterGroup"><span class="hs-identifier hs-type">PatchFilterGroup</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-55"></span><span>  </span><span id="local-6989586621679808886"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PatchFilterGroup
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-56"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser PatchFilterGroup)
@@ -148,15 +148,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;PatchFilterGroup&quot;</span></span><span>
-</span><span id="line-58"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679807202"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679807202"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-58"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679808883"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679808883"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-59"></span><span>          </span><span class="annot"><span class="annottext">[PatchFilter] -&gt; PatchFilterGroup
 </span><a href="Network.AWS.SSM.Types.PatchFilterGroup.html#PatchFilterGroup%27"><span class="hs-identifier hs-var">PatchFilterGroup'</span></a></span><span>
 </span><span id="line-60"></span><span>            </span><span class="annot"><span class="annottext">([PatchFilter] -&gt; PatchFilterGroup)
 -&gt; Parser [PatchFilter] -&gt; Parser PatchFilterGroup
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679807202"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [PatchFilter])
+</span><a href="#local-6989586621679808883"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [PatchFilter])
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PatchFilters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe [PatchFilter])
@@ -167,16 +167,16 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679807195"><span id="local-6989586621679807197"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchFilterGroup.html#PatchFilterGroup"><span class="hs-identifier hs-type">PatchFilterGroup</span></a></span></span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679808876"><span id="local-6989586621679808878"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchFilterGroup.html#PatchFilterGroup"><span class="hs-identifier hs-type">PatchFilterGroup</span></a></span></span></span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679807192"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchFilterGroup.html#PatchFilterGroup"><span class="hs-identifier hs-type">PatchFilterGroup</span></a></span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679808873"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchFilterGroup.html#PatchFilterGroup"><span class="hs-identifier hs-type">PatchFilterGroup</span></a></span></span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679807184"><span id="local-6989586621679807186"><span id="local-6989586621679807188"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchFilterGroup.html#PatchFilterGroup"><span class="hs-identifier hs-type">PatchFilterGroup</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-68"></span><span>  </span><span id="local-6989586621679807182"><span class="annot"><span class="annottext">toJSON :: PatchFilterGroup -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchFilterGroup.html#PatchFilterGroup%27"><span class="hs-identifier hs-type">PatchFilterGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679807180"><span class="annot"><span class="annottext">[PatchFilter]
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679808865"><span id="local-6989586621679808867"><span id="local-6989586621679808869"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchFilterGroup.html#PatchFilterGroup"><span class="hs-identifier hs-type">PatchFilterGroup</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621679808863"><span class="annot"><span class="annottext">toJSON :: PatchFilterGroup -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchFilterGroup.html#PatchFilterGroup%27"><span class="hs-identifier hs-type">PatchFilterGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679808861"><span class="annot"><span class="annottext">[PatchFilter]
 patchFilters :: [PatchFilter]
 $sel:patchFilters:PatchFilterGroup' :: PatchFilterGroup -&gt; [PatchFilter]
-</span><a href="#local-6989586621679807180"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679808861"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-69"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -188,6 +188,6 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;PatchFilters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [PatchFilter] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[PatchFilter]
-</span><a href="#local-6989586621679807180"><span class="hs-identifier hs-var">patchFilters</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679808861"><span class="hs-identifier hs-var">patchFilters</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-72"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span></pre></body></html>

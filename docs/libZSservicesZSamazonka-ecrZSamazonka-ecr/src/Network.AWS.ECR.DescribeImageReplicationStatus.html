@@ -36,8 +36,8 @@
 </span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#newDescribeImageReplicationStatusResponse"><span class="hs-identifier">newDescribeImageReplicationStatusResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-37"></span><span>
 </span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#describeImageReplicationStatusResponse_repositoryName"><span class="hs-identifier">describeImageReplicationStatusResponse_repositoryName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#describeImageReplicationStatusResponse_imageId"><span class="hs-identifier">describeImageReplicationStatusResponse_imageId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#describeImageReplicationStatusResponse_imageId"><span class="hs-identifier">describeImageReplicationStatusResponse_imageId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#describeImageReplicationStatusResponse_repositoryName"><span class="hs-identifier">describeImageReplicationStatusResponse_repositoryName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#describeImageReplicationStatusResponse_replicationStatuses"><span class="hs-identifier">describeImageReplicationStatusResponse_replicationStatuses</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#describeImageReplicationStatusResponse_httpStatus"><span class="hs-identifier">describeImageReplicationStatusResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">)</span><span>
@@ -51,7 +51,7 @@
 </span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-52"></span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newDescribeImageReplicationStatus' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679242342"><span id="local-6989586621679242343"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeImageReplicationStatus"><span class="annot"><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#DescribeImageReplicationStatus"><span class="hs-identifier hs-var">DescribeImageReplicationStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeImageReplicationStatus%27"><span class="annot"><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#DescribeImageReplicationStatus%27"><span class="hs-identifier hs-var">DescribeImageReplicationStatus'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679242503"><span id="local-6989586621679242504"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeImageReplicationStatus"><span class="annot"><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#DescribeImageReplicationStatus"><span class="hs-identifier hs-var">DescribeImageReplicationStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeImageReplicationStatus%27"><span class="annot"><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#DescribeImageReplicationStatus%27"><span class="hs-identifier hs-var">DescribeImageReplicationStatus'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Web Services account ID associated with the registry. If you</span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-comment">-- do not specify a registry, the default registry is assumed.</span><span>
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3AregistryId%3ADescribeImageReplicationStatus%27"><span class="annot"><span class="annottext">DescribeImageReplicationStatus -&gt; Maybe Text
@@ -62,7 +62,7 @@
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3AimageId%3ADescribeImageReplicationStatus%27"><span class="annot"><span class="annottext">DescribeImageReplicationStatus -&gt; ImageIdentifier
 </span><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#%24sel%3AimageId%3ADescribeImageReplicationStatus%27"><span class="hs-identifier hs-var hs-var">imageId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ImageIdentifier.html#ImageIdentifier"><span class="hs-identifier hs-type">ImageIdentifier</span></a></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679242334"><span id="local-6989586621679242336"><span class="annot"><span class="annottext">DescribeImageReplicationStatus
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679242495"><span id="local-6989586621679242497"><span class="annot"><span class="annottext">DescribeImageReplicationStatus
 -&gt; DescribeImageReplicationStatus -&gt; Bool
 (DescribeImageReplicationStatus
  -&gt; DescribeImageReplicationStatus -&gt; Bool)
@@ -78,7 +78,7 @@ $c/= :: DescribeImageReplicationStatus
 -&gt; DescribeImageReplicationStatus -&gt; Bool
 $c== :: DescribeImageReplicationStatus
 -&gt; DescribeImageReplicationStatus -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679242325"><span id="local-6989586621679242327"><span id="local-6989586621679242329"><span id="local-6989586621679242331"><span class="annot"><span class="annottext">ReadPrec [DescribeImageReplicationStatus]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679242486"><span id="local-6989586621679242488"><span id="local-6989586621679242490"><span id="local-6989586621679242492"><span class="annot"><span class="annottext">ReadPrec [DescribeImageReplicationStatus]
 ReadPrec DescribeImageReplicationStatus
 Int -&gt; ReadS DescribeImageReplicationStatus
 ReadS [DescribeImageReplicationStatus]
@@ -98,7 +98,7 @@ readList :: ReadS [DescribeImageReplicationStatus]
 $creadList :: ReadS [DescribeImageReplicationStatus]
 readsPrec :: Int -&gt; ReadS DescribeImageReplicationStatus
 $creadsPrec :: Int -&gt; ReadS DescribeImageReplicationStatus
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679242318"><span id="local-6989586621679242320"><span id="local-6989586621679242322"><span class="annot"><span class="annottext">Int -&gt; DescribeImageReplicationStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679242479"><span id="local-6989586621679242481"><span id="local-6989586621679242483"><span class="annot"><span class="annottext">Int -&gt; DescribeImageReplicationStatus -&gt; ShowS
 [DescribeImageReplicationStatus] -&gt; ShowS
 DescribeImageReplicationStatus -&gt; String
 (Int -&gt; DescribeImageReplicationStatus -&gt; ShowS)
@@ -158,10 +158,10 @@ DescribeImageReplicationStatus
 </span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#DescribeImageReplicationStatus"><span class="hs-identifier hs-type">DescribeImageReplicationStatus</span></a></span><span>
 </span><span id="line-84"></span><span id="newDescribeImageReplicationStatus"><span class="annot"><span class="annottext">newDescribeImageReplicationStatus :: Text -&gt; ImageIdentifier -&gt; DescribeImageReplicationStatus
 </span><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#newDescribeImageReplicationStatus"><span class="hs-identifier hs-var hs-var">newDescribeImageReplicationStatus</span></a></span></span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679242313"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679242313"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span></span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679242312"><span class="annot"><span class="annottext">ImageIdentifier
-</span><a href="#local-6989586621679242312"><span class="hs-identifier hs-var">pImageId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679242474"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679242474"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span></span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679242473"><span class="annot"><span class="annottext">ImageIdentifier
+</span><a href="#local-6989586621679242473"><span class="hs-identifier hs-var">pImageId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>    </span><span class="annot"><span class="annottext">DescribeImageReplicationStatus' :: Maybe Text
 -&gt; Text -&gt; ImageIdentifier -&gt; DescribeImageReplicationStatus
 </span><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#DescribeImageReplicationStatus%27"><span class="hs-identifier hs-type">DescribeImageReplicationStatus'</span></a></span><span>
@@ -172,10 +172,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-90"></span><span>        </span><span class="annot"><span class="annottext">$sel:repositoryName:DescribeImageReplicationStatus' :: Text
 </span><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#%24sel%3ArepositoryName%3ADescribeImageReplicationStatus%27"><span class="hs-identifier hs-var">repositoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679242313"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679242474"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-91"></span><span>        </span><span class="annot"><span class="annottext">$sel:imageId:DescribeImageReplicationStatus' :: ImageIdentifier
 </span><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#%24sel%3AimageId%3ADescribeImageReplicationStatus%27"><span class="hs-identifier hs-var">imageId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ImageIdentifier
-</span><a href="#local-6989586621679242312"><span class="hs-identifier hs-var">pImageId_</span></a></span><span>
+</span><a href="#local-6989586621679242473"><span class="hs-identifier hs-var">pImageId_</span></a></span><span>
 </span><span id="line-92"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- | The Amazon Web Services account ID associated with the registry. If you</span><span>
@@ -193,16 +193,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#DescribeImageReplicationStatus%27"><span class="hs-identifier hs-type">DescribeImageReplicationStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242309"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#DescribeImageReplicationStatus%27"><span class="hs-identifier hs-type">DescribeImageReplicationStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242470"><span class="annot"><span class="annottext">Maybe Text
 registryId :: Maybe Text
 $sel:registryId:DescribeImageReplicationStatus' :: DescribeImageReplicationStatus -&gt; Maybe Text
-</span><a href="#local-6989586621679242309"><span class="hs-identifier hs-var hs-var">registryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679242309"><span class="hs-identifier hs-var">registryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679242308"><span class="annot"><span class="annottext">s :: DescribeImageReplicationStatus
-</span><a href="#local-6989586621679242308"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#DescribeImageReplicationStatus%27"><span class="hs-identifier hs-type">DescribeImageReplicationStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679242307"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679242307"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImageReplicationStatus
-</span><a href="#local-6989586621679242308"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registryId:DescribeImageReplicationStatus' :: Maybe Text
+</span><a href="#local-6989586621679242470"><span class="hs-identifier hs-var hs-var">registryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679242470"><span class="hs-identifier hs-var">registryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679242469"><span class="annot"><span class="annottext">s :: DescribeImageReplicationStatus
+</span><a href="#local-6989586621679242469"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#DescribeImageReplicationStatus%27"><span class="hs-identifier hs-type">DescribeImageReplicationStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679242468"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679242468"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImageReplicationStatus
+</span><a href="#local-6989586621679242469"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registryId:DescribeImageReplicationStatus' :: Maybe Text
 </span><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#%24sel%3AregistryId%3ADescribeImageReplicationStatus%27"><span class="hs-identifier hs-var">registryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679242307"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#DescribeImageReplicationStatus"><span class="hs-identifier hs-type">DescribeImageReplicationStatus</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679242468"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#DescribeImageReplicationStatus"><span class="hs-identifier hs-type">DescribeImageReplicationStatus</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- | The name of the repository that the image is in.</span><span>
 </span><span id="line-100"></span><span class="annot"><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#describeImageReplicationStatus_repositoryName"><span class="hs-identifier hs-type">describeImageReplicationStatus_repositoryName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#DescribeImageReplicationStatus"><span class="hs-identifier hs-type">DescribeImageReplicationStatus</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -218,16 +218,16 @@ $sel:registryId:DescribeImageReplicationStatus' :: DescribeImageReplicationStatu
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#DescribeImageReplicationStatus%27"><span class="hs-identifier hs-type">DescribeImageReplicationStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242306"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#DescribeImageReplicationStatus%27"><span class="hs-identifier hs-type">DescribeImageReplicationStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242467"><span class="annot"><span class="annottext">Text
 repositoryName :: Text
 $sel:repositoryName:DescribeImageReplicationStatus' :: DescribeImageReplicationStatus -&gt; Text
-</span><a href="#local-6989586621679242306"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679242306"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679242305"><span class="annot"><span class="annottext">s :: DescribeImageReplicationStatus
-</span><a href="#local-6989586621679242305"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#DescribeImageReplicationStatus%27"><span class="hs-identifier hs-type">DescribeImageReplicationStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679242304"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679242304"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImageReplicationStatus
-</span><a href="#local-6989586621679242305"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoryName:DescribeImageReplicationStatus' :: Text
+</span><a href="#local-6989586621679242467"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679242467"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679242466"><span class="annot"><span class="annottext">s :: DescribeImageReplicationStatus
+</span><a href="#local-6989586621679242466"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#DescribeImageReplicationStatus%27"><span class="hs-identifier hs-type">DescribeImageReplicationStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679242465"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679242465"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImageReplicationStatus
+</span><a href="#local-6989586621679242466"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoryName:DescribeImageReplicationStatus' :: Text
 </span><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#%24sel%3ArepositoryName%3ADescribeImageReplicationStatus%27"><span class="hs-identifier hs-var">repositoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679242304"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#DescribeImageReplicationStatus"><span class="hs-identifier hs-type">DescribeImageReplicationStatus</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679242465"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#DescribeImageReplicationStatus"><span class="hs-identifier hs-type">DescribeImageReplicationStatus</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-comment">-- | Undocumented member.</span><span>
 </span><span id="line-104"></span><span class="annot"><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#describeImageReplicationStatus_imageId"><span class="hs-identifier hs-type">describeImageReplicationStatus_imageId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#DescribeImageReplicationStatus"><span class="hs-identifier hs-type">DescribeImageReplicationStatus</span></a></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ImageIdentifier.html#ImageIdentifier"><span class="hs-identifier hs-type">ImageIdentifier</span></a></span><span>
@@ -243,16 +243,16 @@ $sel:repositoryName:DescribeImageReplicationStatus' :: DescribeImageReplicationS
      ImageIdentifier
      ImageIdentifier
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#DescribeImageReplicationStatus%27"><span class="hs-identifier hs-type">DescribeImageReplicationStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242303"><span class="annot"><span class="annottext">ImageIdentifier
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#DescribeImageReplicationStatus%27"><span class="hs-identifier hs-type">DescribeImageReplicationStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242464"><span class="annot"><span class="annottext">ImageIdentifier
 imageId :: ImageIdentifier
 $sel:imageId:DescribeImageReplicationStatus' :: DescribeImageReplicationStatus -&gt; ImageIdentifier
-</span><a href="#local-6989586621679242303"><span class="hs-identifier hs-var hs-var">imageId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImageIdentifier
-</span><a href="#local-6989586621679242303"><span class="hs-identifier hs-var">imageId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679242302"><span class="annot"><span class="annottext">s :: DescribeImageReplicationStatus
-</span><a href="#local-6989586621679242302"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#DescribeImageReplicationStatus%27"><span class="hs-identifier hs-type">DescribeImageReplicationStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679242301"><span class="annot"><span class="annottext">ImageIdentifier
-</span><a href="#local-6989586621679242301"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImageReplicationStatus
-</span><a href="#local-6989586621679242302"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageId:DescribeImageReplicationStatus' :: ImageIdentifier
+</span><a href="#local-6989586621679242464"><span class="hs-identifier hs-var hs-var">imageId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImageIdentifier
+</span><a href="#local-6989586621679242464"><span class="hs-identifier hs-var">imageId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679242463"><span class="annot"><span class="annottext">s :: DescribeImageReplicationStatus
+</span><a href="#local-6989586621679242463"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#DescribeImageReplicationStatus%27"><span class="hs-identifier hs-type">DescribeImageReplicationStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679242462"><span class="annot"><span class="annottext">ImageIdentifier
+</span><a href="#local-6989586621679242462"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImageReplicationStatus
+</span><a href="#local-6989586621679242463"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageId:DescribeImageReplicationStatus' :: ImageIdentifier
 </span><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#%24sel%3AimageId%3ADescribeImageReplicationStatus%27"><span class="hs-identifier hs-var">imageId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ImageIdentifier
-</span><a href="#local-6989586621679242301"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#DescribeImageReplicationStatus"><span class="hs-identifier hs-type">DescribeImageReplicationStatus</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679242462"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#DescribeImageReplicationStatus"><span class="hs-identifier hs-type">DescribeImageReplicationStatus</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-108"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
@@ -261,7 +261,7 @@ $sel:imageId:DescribeImageReplicationStatus' :: DescribeImageReplicationStatus -
 </span><span id="line-111"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-112"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#DescribeImageReplicationStatus"><span class="hs-identifier hs-type">DescribeImageReplicationStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-113"></span><span>      </span><span class="annot"><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#DescribeImageReplicationStatusResponse"><span class="hs-identifier hs-type">DescribeImageReplicationStatusResponse</span></a></span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679242297"><span class="annot"><span class="annottext">request :: DescribeImageReplicationStatus
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679242458"><span class="annot"><span class="annottext">request :: DescribeImageReplicationStatus
 -&gt; Request DescribeImageReplicationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DescribeImageReplicationStatus
@@ -269,7 +269,7 @@ $sel:imageId:DescribeImageReplicationStatus' :: DescribeImageReplicationStatus -
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.ECR.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679242293"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679242454"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeImageReplicationStatus
 -&gt; ClientResponse ClientBody
@@ -297,51 +297,51 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679242290"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679242290"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679242289"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679242289"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679242288"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679242288"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-118"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe ImageIdentifier
+</span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679242451"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679242451"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679242450"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679242450"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679242449"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679242449"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-118"></span><span>          </span><span class="annot"><span class="annottext">Maybe ImageIdentifier
+-&gt; Maybe Text
 -&gt; Maybe [ImageReplicationStatus]
 -&gt; Int
 -&gt; DescribeImageReplicationStatusResponse
 </span><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#DescribeImageReplicationStatusResponse%27"><span class="hs-identifier hs-var">DescribeImageReplicationStatusResponse'</span></a></span><span>
-</span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe ImageIdentifier
+</span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ImageIdentifier
+ -&gt; Maybe Text
  -&gt; Maybe [ImageReplicationStatus]
  -&gt; Int
  -&gt; DescribeImageReplicationStatusResponse)
--&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe ImageIdentifier)
 -&gt; Either
      String
-     (Maybe ImageIdentifier
+     (Maybe Text
       -&gt; Maybe [ImageReplicationStatus]
       -&gt; Int
       -&gt; DescribeImageReplicationStatusResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679242288"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679242449"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ImageIdentifier)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;repositoryName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;imageId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe ImageIdentifier
+  (Maybe Text
    -&gt; Maybe [ImageReplicationStatus]
    -&gt; Int
    -&gt; DescribeImageReplicationStatusResponse)
--&gt; Either String (Maybe ImageIdentifier)
+-&gt; Either String (Maybe Text)
 -&gt; Either
      String
      (Maybe [ImageReplicationStatus]
       -&gt; Int -&gt; DescribeImageReplicationStatusResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679242288"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ImageIdentifier)
+</span><a href="#local-6989586621679242449"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;imageId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;repositoryName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
   (Maybe [ImageReplicationStatus]
@@ -350,7 +350,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; DescribeImageReplicationStatusResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679242288"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679242449"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Either String (Maybe (Maybe [ImageReplicationStatus]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -372,22 +372,22 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679242290"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679242451"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679242279"><span id="local-6989586621679242281"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679242440"><span id="local-6989586621679242442"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-129"></span><span>    </span><span class="annot"><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#DescribeImageReplicationStatus"><span class="hs-identifier hs-type">DescribeImageReplicationStatus</span></a></span></span></span><span>
 </span><span id="line-130"></span><span>
 </span><span id="line-131"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-132"></span><span>  </span><span id="local-6989586621679242276"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679242437"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-133"></span><span>    </span><span class="annot"><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#DescribeImageReplicationStatus"><span class="hs-identifier hs-type">DescribeImageReplicationStatus</span></a></span></span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-136"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
 </span><span id="line-137"></span><span>    </span><span class="annot"><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#DescribeImageReplicationStatus"><span class="hs-identifier hs-type">DescribeImageReplicationStatus</span></a></span><span>
 </span><span id="line-138"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679242272"><span class="annot"><span class="annottext">toHeaders :: DescribeImageReplicationStatus -&gt; ResponseHeaders
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679242433"><span class="annot"><span class="annottext">toHeaders :: DescribeImageReplicationStatus -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-140"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
 -&gt; DescribeImageReplicationStatus -&gt; ResponseHeaders
@@ -415,9 +415,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-150"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-151"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-152"></span><span>
-</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679242262"><span id="local-6989586621679242264"><span id="local-6989586621679242266"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#DescribeImageReplicationStatus"><span class="hs-identifier hs-type">DescribeImageReplicationStatus</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-154"></span><span>  </span><span id="local-6989586621679242260"><span class="annot"><span class="annottext">toJSON :: DescribeImageReplicationStatus -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#DescribeImageReplicationStatus%27"><span class="hs-identifier hs-type">DescribeImageReplicationStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242256"><span id="local-6989586621679242257"><span id="local-6989586621679242258"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679242423"><span id="local-6989586621679242425"><span id="local-6989586621679242427"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#DescribeImageReplicationStatus"><span class="hs-identifier hs-type">DescribeImageReplicationStatus</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679242421"><span class="annot"><span class="annottext">toJSON :: DescribeImageReplicationStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#DescribeImageReplicationStatus%27"><span class="hs-identifier hs-type">DescribeImageReplicationStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242417"><span id="local-6989586621679242418"><span id="local-6989586621679242419"><span class="annot"><span class="annottext">Maybe Text
 Text
 ImageIdentifier
 imageId :: ImageIdentifier
@@ -426,7 +426,7 @@ registryId :: Maybe Text
 $sel:imageId:DescribeImageReplicationStatus' :: DescribeImageReplicationStatus -&gt; ImageIdentifier
 $sel:repositoryName:DescribeImageReplicationStatus' :: DescribeImageReplicationStatus -&gt; Text
 $sel:registryId:DescribeImageReplicationStatus' :: DescribeImageReplicationStatus -&gt; Maybe Text
-</span><a href="#local-6989586621679242256"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679242417"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-155"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-156"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -438,7 +438,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679242258"><span class="hs-identifier hs-var">registryId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679242419"><span class="hs-identifier hs-var">registryId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -446,26 +446,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;repositoryName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679242257"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679242418"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;imageId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ImageIdentifier -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ImageIdentifier
-</span><a href="#local-6989586621679242256"><span class="hs-identifier hs-var">imageId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679242417"><span class="hs-identifier hs-var">imageId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-161"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-162"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>
 </span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#DescribeImageReplicationStatus"><span class="hs-identifier hs-type">DescribeImageReplicationStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-165"></span><span>  </span><span id="local-6989586621679242250"><span class="annot"><span class="annottext">toPath :: DescribeImageReplicationStatus -&gt; ByteString
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679242411"><span class="annot"><span class="annottext">toPath :: DescribeImageReplicationStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeImageReplicationStatus -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-166"></span><span>
 </span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#DescribeImageReplicationStatus"><span class="hs-identifier hs-type">DescribeImageReplicationStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-168"></span><span>  </span><span id="local-6989586621679242246"><span class="annot"><span class="annottext">toQuery :: DescribeImageReplicationStatus -&gt; QueryString
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621679242407"><span class="annot"><span class="annottext">toQuery :: DescribeImageReplicationStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeImageReplicationStatus -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -473,12 +473,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-169"></span><span>
 </span><span id="line-170"></span><span class="hs-comment">-- | /See:/ 'newDescribeImageReplicationStatusResponse' smart constructor.</span><span>
-</span><span id="line-171"></span><span id="local-6989586621679242243"><span id="local-6989586621679242244"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeImageReplicationStatusResponse"><span class="annot"><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#DescribeImageReplicationStatusResponse"><span class="hs-identifier hs-var">DescribeImageReplicationStatusResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeImageReplicationStatusResponse%27"><span class="annot"><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#DescribeImageReplicationStatusResponse%27"><span class="hs-identifier hs-var">DescribeImageReplicationStatusResponse'</span></a></span></span><span>
-</span><span id="line-172"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The repository name associated with the request.</span><span>
-</span><span id="line-173"></span><span>    </span><span id="%24sel%3ArepositoryName%3ADescribeImageReplicationStatusResponse%27"><span class="annot"><span class="annottext">DescribeImageReplicationStatusResponse -&gt; Maybe Text
-</span><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#%24sel%3ArepositoryName%3ADescribeImageReplicationStatusResponse%27"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-174"></span><span>    </span><span id="%24sel%3AimageId%3ADescribeImageReplicationStatusResponse%27"><span class="annot"><span class="annottext">DescribeImageReplicationStatusResponse -&gt; Maybe ImageIdentifier
+</span><span id="line-171"></span><span id="local-6989586621679242404"><span id="local-6989586621679242405"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeImageReplicationStatusResponse"><span class="annot"><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#DescribeImageReplicationStatusResponse"><span class="hs-identifier hs-var">DescribeImageReplicationStatusResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeImageReplicationStatusResponse%27"><span class="annot"><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#DescribeImageReplicationStatusResponse%27"><span class="hs-identifier hs-var">DescribeImageReplicationStatusResponse'</span></a></span></span><span>
+</span><span id="line-172"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AimageId%3ADescribeImageReplicationStatusResponse%27"><span class="annot"><span class="annottext">DescribeImageReplicationStatusResponse -&gt; Maybe ImageIdentifier
 </span><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#%24sel%3AimageId%3ADescribeImageReplicationStatusResponse%27"><span class="hs-identifier hs-var hs-var">imageId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ImageIdentifier.html#ImageIdentifier"><span class="hs-identifier hs-type">ImageIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>    </span><span class="hs-comment">-- | The repository name associated with the request.</span><span>
+</span><span id="line-174"></span><span>    </span><span id="%24sel%3ArepositoryName%3ADescribeImageReplicationStatusResponse%27"><span class="annot"><span class="annottext">DescribeImageReplicationStatusResponse -&gt; Maybe Text
+</span><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#%24sel%3ArepositoryName%3ADescribeImageReplicationStatusResponse%27"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-175"></span><span>    </span><span class="hs-comment">-- | The replication status details for the images in the specified</span><span>
 </span><span id="line-176"></span><span>    </span><span class="hs-comment">-- repository.</span><span>
 </span><span id="line-177"></span><span>    </span><span id="%24sel%3AreplicationStatuses%3ADescribeImageReplicationStatusResponse%27"><span class="annot"><span class="annottext">DescribeImageReplicationStatusResponse
@@ -488,7 +488,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-179"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeImageReplicationStatusResponse%27"><span class="annot"><span class="annottext">DescribeImageReplicationStatusResponse -&gt; Int
 </span><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#%24sel%3AhttpStatus%3ADescribeImageReplicationStatusResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-180"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-181"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679242235"><span id="local-6989586621679242237"><span class="annot"><span class="annottext">DescribeImageReplicationStatusResponse
+</span><span id="line-181"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679242396"><span id="local-6989586621679242398"><span class="annot"><span class="annottext">DescribeImageReplicationStatusResponse
 -&gt; DescribeImageReplicationStatusResponse -&gt; Bool
 (DescribeImageReplicationStatusResponse
  -&gt; DescribeImageReplicationStatusResponse -&gt; Bool)
@@ -504,7 +504,7 @@ $c/= :: DescribeImageReplicationStatusResponse
 -&gt; DescribeImageReplicationStatusResponse -&gt; Bool
 $c== :: DescribeImageReplicationStatusResponse
 -&gt; DescribeImageReplicationStatusResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679242227"><span id="local-6989586621679242229"><span id="local-6989586621679242231"><span id="local-6989586621679242233"><span class="annot"><span class="annottext">ReadPrec [DescribeImageReplicationStatusResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679242388"><span id="local-6989586621679242390"><span id="local-6989586621679242392"><span id="local-6989586621679242394"><span class="annot"><span class="annottext">ReadPrec [DescribeImageReplicationStatusResponse]
 ReadPrec DescribeImageReplicationStatusResponse
 Int -&gt; ReadS DescribeImageReplicationStatusResponse
 ReadS [DescribeImageReplicationStatusResponse]
@@ -524,7 +524,7 @@ readList :: ReadS [DescribeImageReplicationStatusResponse]
 $creadList :: ReadS [DescribeImageReplicationStatusResponse]
 readsPrec :: Int -&gt; ReadS DescribeImageReplicationStatusResponse
 $creadsPrec :: Int -&gt; ReadS DescribeImageReplicationStatusResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679242221"><span id="local-6989586621679242223"><span id="local-6989586621679242225"><span class="annot"><span class="annottext">Int -&gt; DescribeImageReplicationStatusResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679242382"><span id="local-6989586621679242384"><span id="local-6989586621679242386"><span class="annot"><span class="annottext">Int -&gt; DescribeImageReplicationStatusResponse -&gt; ShowS
 [DescribeImageReplicationStatusResponse] -&gt; ShowS
 DescribeImageReplicationStatusResponse -&gt; String
 (Int -&gt; DescribeImageReplicationStatusResponse -&gt; ShowS)
@@ -570,9 +570,9 @@ DescribeImageReplicationStatusResponse
 </span><span id="line-188"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-189"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-190"></span><span class="hs-comment">--</span><span>
-</span><span id="line-191"></span><span class="hs-comment">-- 'repositoryName', 'describeImageReplicationStatusResponse_repositoryName' - The repository name associated with the request.</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- 'imageId', 'describeImageReplicationStatusResponse_imageId' - Undocumented member.</span><span>
 </span><span id="line-192"></span><span class="hs-comment">--</span><span>
-</span><span id="line-193"></span><span class="hs-comment">-- 'imageId', 'describeImageReplicationStatusResponse_imageId' - Undocumented member.</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- 'repositoryName', 'describeImageReplicationStatusResponse_repositoryName' - The repository name associated with the request.</span><span>
 </span><span id="line-194"></span><span class="hs-comment">--</span><span>
 </span><span id="line-195"></span><span class="hs-comment">-- 'replicationStatuses', 'describeImageReplicationStatusResponse_replicationStatuses' - The replication status details for the images in the specified</span><span>
 </span><span id="line-196"></span><span class="hs-comment">-- repository.</span><span>
@@ -584,21 +584,21 @@ DescribeImageReplicationStatusResponse
 </span><span id="line-202"></span><span>  </span><span class="annot"><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#DescribeImageReplicationStatusResponse"><span class="hs-identifier hs-type">DescribeImageReplicationStatusResponse</span></a></span><span>
 </span><span id="line-203"></span><span id="newDescribeImageReplicationStatusResponse"><span class="annot"><span class="annottext">newDescribeImageReplicationStatusResponse :: Int -&gt; DescribeImageReplicationStatusResponse
 </span><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#newDescribeImageReplicationStatusResponse"><span class="hs-identifier hs-var hs-var">newDescribeImageReplicationStatusResponse</span></a></span></span><span>
-</span><span id="line-204"></span><span>  </span><span id="local-6989586621679242218"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679242218"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-205"></span><span>    </span><span class="annot"><span class="annottext">DescribeImageReplicationStatusResponse' :: Maybe Text
--&gt; Maybe ImageIdentifier
+</span><span id="line-204"></span><span>  </span><span id="local-6989586621679242379"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679242379"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-205"></span><span>    </span><span class="annot"><span class="annottext">DescribeImageReplicationStatusResponse' :: Maybe ImageIdentifier
+-&gt; Maybe Text
 -&gt; Maybe [ImageReplicationStatus]
 -&gt; Int
 -&gt; DescribeImageReplicationStatusResponse
 </span><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#DescribeImageReplicationStatusResponse%27"><span class="hs-identifier hs-type">DescribeImageReplicationStatusResponse'</span></a></span><span>
-</span><span id="line-206"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:repositoryName:DescribeImageReplicationStatusResponse' :: Maybe Text
-</span><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#%24sel%3ArepositoryName%3ADescribeImageReplicationStatusResponse%27"><span class="hs-identifier hs-var">repositoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-207"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-206"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:imageId:DescribeImageReplicationStatusResponse' :: Maybe ImageIdentifier
+</span><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#%24sel%3AimageId%3ADescribeImageReplicationStatusResponse%27"><span class="hs-identifier hs-var">imageId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-207"></span><span>          </span><span class="annot"><span class="annottext">Maybe ImageIdentifier
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-208"></span><span>        </span><span class="annot"><span class="annottext">$sel:imageId:DescribeImageReplicationStatusResponse' :: Maybe ImageIdentifier
-</span><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#%24sel%3AimageId%3ADescribeImageReplicationStatusResponse%27"><span class="hs-identifier hs-var">imageId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ImageIdentifier
+</span><span id="line-208"></span><span>        </span><span class="annot"><span class="annottext">$sel:repositoryName:DescribeImageReplicationStatusResponse' :: Maybe Text
+</span><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#%24sel%3ArepositoryName%3ADescribeImageReplicationStatusResponse%27"><span class="hs-identifier hs-var">repositoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-209"></span><span>        </span><span class="annot"><span class="annottext">$sel:replicationStatuses:DescribeImageReplicationStatusResponse' :: Maybe [ImageReplicationStatus]
@@ -608,37 +608,12 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-211"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeImageReplicationStatusResponse' :: Int
 </span><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#%24sel%3AhttpStatus%3ADescribeImageReplicationStatusResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679242218"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679242379"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-212"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-213"></span><span>
-</span><span id="line-214"></span><span class="hs-comment">-- | The repository name associated with the request.</span><span>
-</span><span id="line-215"></span><span class="annot"><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#describeImageReplicationStatusResponse_repositoryName"><span class="hs-identifier hs-type">describeImageReplicationStatusResponse_repositoryName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#DescribeImageReplicationStatusResponse"><span class="hs-identifier hs-type">DescribeImageReplicationStatusResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-216"></span><span id="describeImageReplicationStatusResponse_repositoryName"><span class="annot"><span class="annottext">describeImageReplicationStatusResponse_repositoryName :: (Maybe Text -&gt; f (Maybe Text))
--&gt; DescribeImageReplicationStatusResponse
--&gt; f DescribeImageReplicationStatusResponse
-</span><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#describeImageReplicationStatusResponse_repositoryName"><span class="hs-identifier hs-var hs-var">describeImageReplicationStatusResponse_repositoryName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeImageReplicationStatusResponse -&gt; Maybe Text)
--&gt; (DescribeImageReplicationStatusResponse
-    -&gt; Maybe Text -&gt; DescribeImageReplicationStatusResponse)
--&gt; Lens
-     DescribeImageReplicationStatusResponse
-     DescribeImageReplicationStatusResponse
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#DescribeImageReplicationStatusResponse%27"><span class="hs-identifier hs-type">DescribeImageReplicationStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242217"><span class="annot"><span class="annottext">Maybe Text
-repositoryName :: Maybe Text
-$sel:repositoryName:DescribeImageReplicationStatusResponse' :: DescribeImageReplicationStatusResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679242217"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679242217"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679242216"><span class="annot"><span class="annottext">s :: DescribeImageReplicationStatusResponse
-</span><a href="#local-6989586621679242216"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#DescribeImageReplicationStatusResponse%27"><span class="hs-identifier hs-type">DescribeImageReplicationStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679242215"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679242215"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImageReplicationStatusResponse
-</span><a href="#local-6989586621679242216"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoryName:DescribeImageReplicationStatusResponse' :: Maybe Text
-</span><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#%24sel%3ArepositoryName%3ADescribeImageReplicationStatusResponse%27"><span class="hs-identifier hs-var">repositoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679242215"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#DescribeImageReplicationStatusResponse"><span class="hs-identifier hs-type">DescribeImageReplicationStatusResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-217"></span><span>
-</span><span id="line-218"></span><span class="hs-comment">-- | Undocumented member.</span><span>
-</span><span id="line-219"></span><span class="annot"><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#describeImageReplicationStatusResponse_imageId"><span class="hs-identifier hs-type">describeImageReplicationStatusResponse_imageId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#DescribeImageReplicationStatusResponse"><span class="hs-identifier hs-type">DescribeImageReplicationStatusResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ImageIdentifier.html#ImageIdentifier"><span class="hs-identifier hs-type">ImageIdentifier</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-220"></span><span id="describeImageReplicationStatusResponse_imageId"><span class="annot"><span class="annottext">describeImageReplicationStatusResponse_imageId :: (Maybe ImageIdentifier -&gt; f (Maybe ImageIdentifier))
+</span><span id="line-214"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-215"></span><span class="annot"><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#describeImageReplicationStatusResponse_imageId"><span class="hs-identifier hs-type">describeImageReplicationStatusResponse_imageId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#DescribeImageReplicationStatusResponse"><span class="hs-identifier hs-type">DescribeImageReplicationStatusResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ImageIdentifier.html#ImageIdentifier"><span class="hs-identifier hs-type">ImageIdentifier</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span id="describeImageReplicationStatusResponse_imageId"><span class="annot"><span class="annottext">describeImageReplicationStatusResponse_imageId :: (Maybe ImageIdentifier -&gt; f (Maybe ImageIdentifier))
 -&gt; DescribeImageReplicationStatusResponse
 -&gt; f DescribeImageReplicationStatusResponse
 </span><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#describeImageReplicationStatusResponse_imageId"><span class="hs-identifier hs-var hs-var">describeImageReplicationStatusResponse_imageId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeImageReplicationStatusResponse -&gt; Maybe ImageIdentifier)
@@ -650,16 +625,41 @@ $sel:repositoryName:DescribeImageReplicationStatusResponse' :: DescribeImageRepl
      (Maybe ImageIdentifier)
      (Maybe ImageIdentifier)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#DescribeImageReplicationStatusResponse%27"><span class="hs-identifier hs-type">DescribeImageReplicationStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242214"><span class="annot"><span class="annottext">Maybe ImageIdentifier
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#DescribeImageReplicationStatusResponse%27"><span class="hs-identifier hs-type">DescribeImageReplicationStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242378"><span class="annot"><span class="annottext">Maybe ImageIdentifier
 imageId :: Maybe ImageIdentifier
 $sel:imageId:DescribeImageReplicationStatusResponse' :: DescribeImageReplicationStatusResponse -&gt; Maybe ImageIdentifier
-</span><a href="#local-6989586621679242214"><span class="hs-identifier hs-var hs-var">imageId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ImageIdentifier
-</span><a href="#local-6989586621679242214"><span class="hs-identifier hs-var">imageId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679242213"><span class="annot"><span class="annottext">s :: DescribeImageReplicationStatusResponse
-</span><a href="#local-6989586621679242213"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#DescribeImageReplicationStatusResponse%27"><span class="hs-identifier hs-type">DescribeImageReplicationStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679242212"><span class="annot"><span class="annottext">Maybe ImageIdentifier
-</span><a href="#local-6989586621679242212"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImageReplicationStatusResponse
-</span><a href="#local-6989586621679242213"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageId:DescribeImageReplicationStatusResponse' :: Maybe ImageIdentifier
+</span><a href="#local-6989586621679242378"><span class="hs-identifier hs-var hs-var">imageId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ImageIdentifier
+</span><a href="#local-6989586621679242378"><span class="hs-identifier hs-var">imageId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679242377"><span class="annot"><span class="annottext">s :: DescribeImageReplicationStatusResponse
+</span><a href="#local-6989586621679242377"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#DescribeImageReplicationStatusResponse%27"><span class="hs-identifier hs-type">DescribeImageReplicationStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679242376"><span class="annot"><span class="annottext">Maybe ImageIdentifier
+</span><a href="#local-6989586621679242376"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImageReplicationStatusResponse
+</span><a href="#local-6989586621679242377"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageId:DescribeImageReplicationStatusResponse' :: Maybe ImageIdentifier
 </span><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#%24sel%3AimageId%3ADescribeImageReplicationStatusResponse%27"><span class="hs-identifier hs-var">imageId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ImageIdentifier
-</span><a href="#local-6989586621679242212"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#DescribeImageReplicationStatusResponse"><span class="hs-identifier hs-type">DescribeImageReplicationStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679242376"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#DescribeImageReplicationStatusResponse"><span class="hs-identifier hs-type">DescribeImageReplicationStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- | The repository name associated with the request.</span><span>
+</span><span id="line-219"></span><span class="annot"><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#describeImageReplicationStatusResponse_repositoryName"><span class="hs-identifier hs-type">describeImageReplicationStatusResponse_repositoryName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#DescribeImageReplicationStatusResponse"><span class="hs-identifier hs-type">DescribeImageReplicationStatusResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span id="describeImageReplicationStatusResponse_repositoryName"><span class="annot"><span class="annottext">describeImageReplicationStatusResponse_repositoryName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeImageReplicationStatusResponse
+-&gt; f DescribeImageReplicationStatusResponse
+</span><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#describeImageReplicationStatusResponse_repositoryName"><span class="hs-identifier hs-var hs-var">describeImageReplicationStatusResponse_repositoryName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeImageReplicationStatusResponse -&gt; Maybe Text)
+-&gt; (DescribeImageReplicationStatusResponse
+    -&gt; Maybe Text -&gt; DescribeImageReplicationStatusResponse)
+-&gt; Lens
+     DescribeImageReplicationStatusResponse
+     DescribeImageReplicationStatusResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#DescribeImageReplicationStatusResponse%27"><span class="hs-identifier hs-type">DescribeImageReplicationStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242375"><span class="annot"><span class="annottext">Maybe Text
+repositoryName :: Maybe Text
+$sel:repositoryName:DescribeImageReplicationStatusResponse' :: DescribeImageReplicationStatusResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679242375"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679242375"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679242374"><span class="annot"><span class="annottext">s :: DescribeImageReplicationStatusResponse
+</span><a href="#local-6989586621679242374"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#DescribeImageReplicationStatusResponse%27"><span class="hs-identifier hs-type">DescribeImageReplicationStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679242373"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679242373"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImageReplicationStatusResponse
+</span><a href="#local-6989586621679242374"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoryName:DescribeImageReplicationStatusResponse' :: Maybe Text
+</span><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#%24sel%3ArepositoryName%3ADescribeImageReplicationStatusResponse%27"><span class="hs-identifier hs-var">repositoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679242373"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#DescribeImageReplicationStatusResponse"><span class="hs-identifier hs-type">DescribeImageReplicationStatusResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-221"></span><span>
 </span><span id="line-222"></span><span class="hs-comment">-- | The replication status details for the images in the specified</span><span>
 </span><span id="line-223"></span><span class="hs-comment">-- repository.</span><span>
@@ -679,17 +679,17 @@ $sel:imageId:DescribeImageReplicationStatusResponse' :: DescribeImageReplication
      (Maybe [ImageReplicationStatus])
      (Maybe [ImageReplicationStatus])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#DescribeImageReplicationStatusResponse%27"><span class="hs-identifier hs-type">DescribeImageReplicationStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242211"><span class="annot"><span class="annottext">Maybe [ImageReplicationStatus]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#DescribeImageReplicationStatusResponse%27"><span class="hs-identifier hs-type">DescribeImageReplicationStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242372"><span class="annot"><span class="annottext">Maybe [ImageReplicationStatus]
 replicationStatuses :: Maybe [ImageReplicationStatus]
 $sel:replicationStatuses:DescribeImageReplicationStatusResponse' :: DescribeImageReplicationStatusResponse
 -&gt; Maybe [ImageReplicationStatus]
-</span><a href="#local-6989586621679242211"><span class="hs-identifier hs-var hs-var">replicationStatuses</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ImageReplicationStatus]
-</span><a href="#local-6989586621679242211"><span class="hs-identifier hs-var">replicationStatuses</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679242210"><span class="annot"><span class="annottext">s :: DescribeImageReplicationStatusResponse
-</span><a href="#local-6989586621679242210"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#DescribeImageReplicationStatusResponse%27"><span class="hs-identifier hs-type">DescribeImageReplicationStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679242209"><span class="annot"><span class="annottext">Maybe [ImageReplicationStatus]
-</span><a href="#local-6989586621679242209"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImageReplicationStatusResponse
-</span><a href="#local-6989586621679242210"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicationStatuses:DescribeImageReplicationStatusResponse' :: Maybe [ImageReplicationStatus]
+</span><a href="#local-6989586621679242372"><span class="hs-identifier hs-var hs-var">replicationStatuses</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ImageReplicationStatus]
+</span><a href="#local-6989586621679242372"><span class="hs-identifier hs-var">replicationStatuses</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679242371"><span class="annot"><span class="annottext">s :: DescribeImageReplicationStatusResponse
+</span><a href="#local-6989586621679242371"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#DescribeImageReplicationStatusResponse%27"><span class="hs-identifier hs-type">DescribeImageReplicationStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679242370"><span class="annot"><span class="annottext">Maybe [ImageReplicationStatus]
+</span><a href="#local-6989586621679242370"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImageReplicationStatusResponse
+</span><a href="#local-6989586621679242371"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicationStatuses:DescribeImageReplicationStatusResponse' :: Maybe [ImageReplicationStatus]
 </span><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#%24sel%3AreplicationStatuses%3ADescribeImageReplicationStatusResponse%27"><span class="hs-identifier hs-var">replicationStatuses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ImageReplicationStatus]
-</span><a href="#local-6989586621679242209"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#DescribeImageReplicationStatusResponse"><span class="hs-identifier hs-type">DescribeImageReplicationStatusResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ImageReplicationStatus]
+</span><a href="#local-6989586621679242370"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#DescribeImageReplicationStatusResponse"><span class="hs-identifier hs-type">DescribeImageReplicationStatusResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ImageReplicationStatus]
   -&gt; f (Maybe [ImageReplicationStatus]))
  -&gt; DescribeImageReplicationStatusResponse
  -&gt; f DescribeImageReplicationStatusResponse)
@@ -720,8 +720,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [ImageReplicationStatus]
   [ImageReplicationStatus]
   [ImageReplicationStatus]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-226"></span><span>
 </span><span id="line-227"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-228"></span><span class="annot"><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#describeImageReplicationStatusResponse_httpStatus"><span class="hs-identifier hs-type">describeImageReplicationStatusResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#DescribeImageReplicationStatusResponse"><span class="hs-identifier hs-type">DescribeImageReplicationStatusResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -737,18 +737,18 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#DescribeImageReplicationStatusResponse%27"><span class="hs-identifier hs-type">DescribeImageReplicationStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242205"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#DescribeImageReplicationStatusResponse%27"><span class="hs-identifier hs-type">DescribeImageReplicationStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242366"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeImageReplicationStatusResponse' :: DescribeImageReplicationStatusResponse -&gt; Int
-</span><a href="#local-6989586621679242205"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679242205"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679242204"><span class="annot"><span class="annottext">s :: DescribeImageReplicationStatusResponse
-</span><a href="#local-6989586621679242204"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#DescribeImageReplicationStatusResponse%27"><span class="hs-identifier hs-type">DescribeImageReplicationStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679242203"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679242203"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImageReplicationStatusResponse
-</span><a href="#local-6989586621679242204"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeImageReplicationStatusResponse' :: Int
+</span><a href="#local-6989586621679242366"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679242366"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679242365"><span class="annot"><span class="annottext">s :: DescribeImageReplicationStatusResponse
+</span><a href="#local-6989586621679242365"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#DescribeImageReplicationStatusResponse%27"><span class="hs-identifier hs-type">DescribeImageReplicationStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679242364"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679242364"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImageReplicationStatusResponse
+</span><a href="#local-6989586621679242365"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeImageReplicationStatusResponse' :: Int
 </span><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#%24sel%3AhttpStatus%3ADescribeImageReplicationStatusResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679242203"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#DescribeImageReplicationStatusResponse"><span class="hs-identifier hs-type">DescribeImageReplicationStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679242364"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#DescribeImageReplicationStatusResponse"><span class="hs-identifier hs-type">DescribeImageReplicationStatusResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-230"></span><span>
 </span><span id="line-231"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-232"></span><span>  </span><span id="local-6989586621679242201"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-232"></span><span>  </span><span id="local-6989586621679242362"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-233"></span><span>    </span><span class="annot"><a href="Network.AWS.ECR.DescribeImageReplicationStatus.html#DescribeImageReplicationStatusResponse"><span class="hs-identifier hs-type">DescribeImageReplicationStatusResponse</span></a></span></span><span>
 </span><span id="line-234"></span></pre></body></html>

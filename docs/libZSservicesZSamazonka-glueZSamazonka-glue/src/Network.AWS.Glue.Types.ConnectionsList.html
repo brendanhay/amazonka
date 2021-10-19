@@ -26,12 +26,12 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Specifies the connections used by a job.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newConnectionsList' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679680705"><span id="local-6989586621679680706"></span></span><span class="hs-keyword">data</span><span> </span><span id="ConnectionsList"><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionsList.html#ConnectionsList"><span class="hs-identifier hs-var">ConnectionsList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConnectionsList%27"><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionsList.html#ConnectionsList%27"><span class="hs-identifier hs-var">ConnectionsList'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679682350"><span id="local-6989586621679682351"></span></span><span class="hs-keyword">data</span><span> </span><span id="ConnectionsList"><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionsList.html#ConnectionsList"><span class="hs-identifier hs-var">ConnectionsList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConnectionsList%27"><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionsList.html#ConnectionsList%27"><span class="hs-identifier hs-var">ConnectionsList'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of connections used by the job.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3Aconnections%3AConnectionsList%27"><span class="annot"><span class="annottext">ConnectionsList -&gt; Maybe [Text]
 </span><a href="Network.AWS.Glue.Types.ConnectionsList.html#%24sel%3Aconnections%3AConnectionsList%27"><span class="hs-identifier hs-var hs-var">connections</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679680699"><span id="local-6989586621679680701"><span class="annot"><span class="annottext">ConnectionsList -&gt; ConnectionsList -&gt; Bool
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679682344"><span id="local-6989586621679682346"><span class="annot"><span class="annottext">ConnectionsList -&gt; ConnectionsList -&gt; Bool
 (ConnectionsList -&gt; ConnectionsList -&gt; Bool)
 -&gt; (ConnectionsList -&gt; ConnectionsList -&gt; Bool)
 -&gt; Eq ConnectionsList
@@ -40,7 +40,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ConnectionsList -&gt; ConnectionsList -&gt; Bool
 == :: ConnectionsList -&gt; ConnectionsList -&gt; Bool
 $c== :: ConnectionsList -&gt; ConnectionsList -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679680690"><span id="local-6989586621679680692"><span id="local-6989586621679680694"><span id="local-6989586621679680696"><span class="annot"><span class="annottext">ReadPrec [ConnectionsList]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679682335"><span id="local-6989586621679682337"><span id="local-6989586621679682339"><span id="local-6989586621679682341"><span class="annot"><span class="annottext">ReadPrec [ConnectionsList]
 ReadPrec ConnectionsList
 Int -&gt; ReadS ConnectionsList
 ReadS [ConnectionsList]
@@ -60,7 +60,7 @@ readList :: ReadS [ConnectionsList]
 $creadList :: ReadS [ConnectionsList]
 readsPrec :: Int -&gt; ReadS ConnectionsList
 $creadsPrec :: Int -&gt; ReadS ConnectionsList
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679680683"><span id="local-6989586621679680685"><span id="local-6989586621679680687"><span class="annot"><span class="annottext">Int -&gt; ConnectionsList -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679682328"><span id="local-6989586621679682330"><span id="local-6989586621679682332"><span class="annot"><span class="annottext">Int -&gt; ConnectionsList -&gt; ShowS
 [ConnectionsList] -&gt; ShowS
 ConnectionsList -&gt; String
 (Int -&gt; ConnectionsList -&gt; ShowS)
@@ -114,16 +114,16 @@ forall a. Maybe a
 -&gt; Lens
      ConnectionsList ConnectionsList (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionsList.html#ConnectionsList%27"><span class="hs-identifier hs-type">ConnectionsList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679680674"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionsList.html#ConnectionsList%27"><span class="hs-identifier hs-type">ConnectionsList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679682319"><span class="annot"><span class="annottext">Maybe [Text]
 connections :: Maybe [Text]
 $sel:connections:ConnectionsList' :: ConnectionsList -&gt; Maybe [Text]
-</span><a href="#local-6989586621679680674"><span class="hs-identifier hs-var hs-var">connections</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679680674"><span class="hs-identifier hs-var">connections</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679680673"><span class="annot"><span class="annottext">s :: ConnectionsList
-</span><a href="#local-6989586621679680673"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionsList.html#ConnectionsList%27"><span class="hs-identifier hs-type">ConnectionsList'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679680672"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679680672"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectionsList
-</span><a href="#local-6989586621679680673"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connections:ConnectionsList' :: Maybe [Text]
+</span><a href="#local-6989586621679682319"><span class="hs-identifier hs-var hs-var">connections</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679682319"><span class="hs-identifier hs-var">connections</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679682318"><span class="annot"><span class="annottext">s :: ConnectionsList
+</span><a href="#local-6989586621679682318"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionsList.html#ConnectionsList%27"><span class="hs-identifier hs-type">ConnectionsList'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679682317"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679682317"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectionsList
+</span><a href="#local-6989586621679682318"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connections:ConnectionsList' :: Maybe [Text]
 </span><a href="Network.AWS.Glue.Types.ConnectionsList.html#%24sel%3Aconnections%3AConnectionsList%27"><span class="hs-identifier hs-var">connections</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679680672"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionsList.html#ConnectionsList"><span class="hs-identifier hs-type">ConnectionsList</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679682317"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionsList.html#ConnectionsList"><span class="hs-identifier hs-type">ConnectionsList</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; ConnectionsList -&gt; f ConnectionsList)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -137,11 +137,11 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-52"></span><span>
-</span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679680666"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionsList.html#ConnectionsList"><span class="hs-identifier hs-type">ConnectionsList</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-54"></span><span>  </span><span id="local-6989586621679680664"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ConnectionsList
+</span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679682311"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionsList.html#ConnectionsList"><span class="hs-identifier hs-type">ConnectionsList</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-54"></span><span>  </span><span id="local-6989586621679682309"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ConnectionsList
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ConnectionsList)
@@ -151,15 +151,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ConnectionsList&quot;</span></span><span>
-</span><span id="line-57"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679680661"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679680661"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-57"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679682306"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679682306"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-58"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; ConnectionsList
 </span><a href="Network.AWS.Glue.Types.ConnectionsList.html#ConnectionsList%27"><span class="hs-identifier hs-var">ConnectionsList'</span></a></span><span>
 </span><span id="line-59"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; ConnectionsList)
 -&gt; Parser (Maybe [Text]) -&gt; Parser ConnectionsList
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679680661"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679682306"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Connections&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
@@ -170,16 +170,16 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679680654"><span id="local-6989586621679680656"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionsList.html#ConnectionsList"><span class="hs-identifier hs-type">ConnectionsList</span></a></span></span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679682299"><span id="local-6989586621679682301"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionsList.html#ConnectionsList"><span class="hs-identifier hs-type">ConnectionsList</span></a></span></span></span><span>
 </span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679680651"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionsList.html#ConnectionsList"><span class="hs-identifier hs-type">ConnectionsList</span></a></span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679682296"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionsList.html#ConnectionsList"><span class="hs-identifier hs-type">ConnectionsList</span></a></span></span><span>
 </span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679680643"><span id="local-6989586621679680645"><span id="local-6989586621679680647"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionsList.html#ConnectionsList"><span class="hs-identifier hs-type">ConnectionsList</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-67"></span><span>  </span><span id="local-6989586621679680641"><span class="annot"><span class="annottext">toJSON :: ConnectionsList -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionsList.html#ConnectionsList%27"><span class="hs-identifier hs-type">ConnectionsList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679680639"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679682288"><span id="local-6989586621679682290"><span id="local-6989586621679682292"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionsList.html#ConnectionsList"><span class="hs-identifier hs-type">ConnectionsList</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679682286"><span class="annot"><span class="annottext">toJSON :: ConnectionsList -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionsList.html#ConnectionsList%27"><span class="hs-identifier hs-type">ConnectionsList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679682284"><span class="annot"><span class="annottext">Maybe [Text]
 connections :: Maybe [Text]
 $sel:connections:ConnectionsList' :: ConnectionsList -&gt; Maybe [Text]
-</span><a href="#local-6989586621679680639"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679682284"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -191,6 +191,6 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679680639"><span class="hs-identifier hs-var">connections</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679682284"><span class="hs-identifier hs-var">connections</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-71"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span></pre></body></html>

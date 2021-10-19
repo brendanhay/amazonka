@@ -44,7 +44,7 @@
 </span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-45"></span><span>
 </span><span id="line-46"></span><span class="hs-comment">-- | /See:/ 'newDeletePolicy' smart constructor.</span><span>
-</span><span id="line-47"></span><span id="local-6989586621679257495"><span id="local-6989586621679257496"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeletePolicy"><span class="annot"><a href="Network.AWS.FMS.DeletePolicy.html#DeletePolicy"><span class="hs-identifier hs-var">DeletePolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeletePolicy%27"><span class="annot"><a href="Network.AWS.FMS.DeletePolicy.html#DeletePolicy%27"><span class="hs-identifier hs-var">DeletePolicy'</span></a></span></span><span>
+</span><span id="line-47"></span><span id="local-6989586621679257759"><span id="local-6989586621679257760"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeletePolicy"><span class="annot"><a href="Network.AWS.FMS.DeletePolicy.html#DeletePolicy"><span class="hs-identifier hs-var">DeletePolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeletePolicy%27"><span class="annot"><a href="Network.AWS.FMS.DeletePolicy.html#DeletePolicy%27"><span class="hs-identifier hs-var">DeletePolicy'</span></a></span></span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If @True@, the request performs cleanup according to the policy type.</span><span>
 </span><span id="line-49"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-50"></span><span>    </span><span class="hs-comment">-- For WAF and Shield Advanced policies, the cleanup does the following:</span><span>
@@ -79,7 +79,7 @@
 </span><span id="line-78"></span><span>    </span><span id="%24sel%3ApolicyId%3ADeletePolicy%27"><span class="annot"><span class="annottext">DeletePolicy -&gt; Text
 </span><a href="Network.AWS.FMS.DeletePolicy.html#%24sel%3ApolicyId%3ADeletePolicy%27"><span class="hs-identifier hs-var hs-var">policyId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-79"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-80"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679257488"><span id="local-6989586621679257490"><span class="annot"><span class="annottext">DeletePolicy -&gt; DeletePolicy -&gt; Bool
+</span><span id="line-80"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679257752"><span id="local-6989586621679257754"><span class="annot"><span class="annottext">DeletePolicy -&gt; DeletePolicy -&gt; Bool
 (DeletePolicy -&gt; DeletePolicy -&gt; Bool)
 -&gt; (DeletePolicy -&gt; DeletePolicy -&gt; Bool) -&gt; Eq DeletePolicy
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -87,7 +87,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeletePolicy -&gt; DeletePolicy -&gt; Bool
 == :: DeletePolicy -&gt; DeletePolicy -&gt; Bool
 $c== :: DeletePolicy -&gt; DeletePolicy -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679257479"><span id="local-6989586621679257481"><span id="local-6989586621679257483"><span id="local-6989586621679257485"><span class="annot"><span class="annottext">ReadPrec [DeletePolicy]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679257743"><span id="local-6989586621679257745"><span id="local-6989586621679257747"><span id="local-6989586621679257749"><span class="annot"><span class="annottext">ReadPrec [DeletePolicy]
 ReadPrec DeletePolicy
 Int -&gt; ReadS DeletePolicy
 ReadS [DeletePolicy]
@@ -107,7 +107,7 @@ readList :: ReadS [DeletePolicy]
 $creadList :: ReadS [DeletePolicy]
 readsPrec :: Int -&gt; ReadS DeletePolicy
 $creadsPrec :: Int -&gt; ReadS DeletePolicy
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679257472"><span id="local-6989586621679257474"><span id="local-6989586621679257476"><span class="annot"><span class="annottext">Int -&gt; DeletePolicy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679257736"><span id="local-6989586621679257738"><span id="local-6989586621679257740"><span class="annot"><span class="annottext">Int -&gt; DeletePolicy -&gt; ShowS
 [DeletePolicy] -&gt; ShowS
 DeletePolicy -&gt; String
 (Int -&gt; DeletePolicy -&gt; ShowS)
@@ -176,8 +176,8 @@ $cfrom :: forall x. DeletePolicy -&gt; Rep DeletePolicy x
 </span><span id="line-122"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-123"></span><span>  </span><span class="annot"><a href="Network.AWS.FMS.DeletePolicy.html#DeletePolicy"><span class="hs-identifier hs-type">DeletePolicy</span></a></span><span>
 </span><span id="line-124"></span><span id="newDeletePolicy"><span class="annot"><span class="annottext">newDeletePolicy :: Text -&gt; DeletePolicy
-</span><a href="Network.AWS.FMS.DeletePolicy.html#newDeletePolicy"><span class="hs-identifier hs-var hs-var">newDeletePolicy</span></a></span></span><span> </span><span id="local-6989586621679257467"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679257467"><span class="hs-identifier hs-var">pPolicyId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.FMS.DeletePolicy.html#newDeletePolicy"><span class="hs-identifier hs-var hs-var">newDeletePolicy</span></a></span></span><span> </span><span id="local-6989586621679257731"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679257731"><span class="hs-identifier hs-var">pPolicyId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-125"></span><span>  </span><span class="annot"><span class="annottext">DeletePolicy' :: Maybe Bool -&gt; Text -&gt; DeletePolicy
 </span><a href="Network.AWS.FMS.DeletePolicy.html#DeletePolicy%27"><span class="hs-identifier hs-type">DeletePolicy'</span></a></span><span>
 </span><span id="line-126"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:deleteAllPolicyResources:DeletePolicy' :: Maybe Bool
@@ -187,7 +187,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-128"></span><span>      </span><span class="annot"><span class="annottext">$sel:policyId:DeletePolicy' :: Text
 </span><a href="Network.AWS.FMS.DeletePolicy.html#%24sel%3ApolicyId%3ADeletePolicy%27"><span class="hs-identifier hs-var">policyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679257467"><span class="hs-identifier hs-var">pPolicyId_</span></a></span><span>
+</span><a href="#local-6989586621679257731"><span class="hs-identifier hs-var">pPolicyId_</span></a></span><span>
 </span><span id="line-129"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-130"></span><span>
 </span><span id="line-131"></span><span class="hs-comment">-- | If @True@, the request performs cleanup according to the policy type.</span><span>
@@ -223,16 +223,16 @@ forall a. Maybe a
 -&gt; (DeletePolicy -&gt; Maybe Bool -&gt; DeletePolicy)
 -&gt; Lens DeletePolicy DeletePolicy (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.DeletePolicy.html#DeletePolicy%27"><span class="hs-identifier hs-type">DeletePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257464"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.DeletePolicy.html#DeletePolicy%27"><span class="hs-identifier hs-type">DeletePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257728"><span class="annot"><span class="annottext">Maybe Bool
 deleteAllPolicyResources :: Maybe Bool
 $sel:deleteAllPolicyResources:DeletePolicy' :: DeletePolicy -&gt; Maybe Bool
-</span><a href="#local-6989586621679257464"><span class="hs-identifier hs-var hs-var">deleteAllPolicyResources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679257464"><span class="hs-identifier hs-var">deleteAllPolicyResources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257463"><span class="annot"><span class="annottext">s :: DeletePolicy
-</span><a href="#local-6989586621679257463"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.DeletePolicy.html#DeletePolicy%27"><span class="hs-identifier hs-type">DeletePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257462"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679257462"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeletePolicy
-</span><a href="#local-6989586621679257463"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deleteAllPolicyResources:DeletePolicy' :: Maybe Bool
+</span><a href="#local-6989586621679257728"><span class="hs-identifier hs-var hs-var">deleteAllPolicyResources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679257728"><span class="hs-identifier hs-var">deleteAllPolicyResources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257727"><span class="annot"><span class="annottext">s :: DeletePolicy
+</span><a href="#local-6989586621679257727"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.DeletePolicy.html#DeletePolicy%27"><span class="hs-identifier hs-type">DeletePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257726"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679257726"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeletePolicy
+</span><a href="#local-6989586621679257727"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deleteAllPolicyResources:DeletePolicy' :: Maybe Bool
 </span><a href="Network.AWS.FMS.DeletePolicy.html#%24sel%3AdeleteAllPolicyResources%3ADeletePolicy%27"><span class="hs-identifier hs-var">deleteAllPolicyResources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679257462"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.DeletePolicy.html#DeletePolicy"><span class="hs-identifier hs-type">DeletePolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679257726"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.DeletePolicy.html#DeletePolicy"><span class="hs-identifier hs-type">DeletePolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-160"></span><span>
 </span><span id="line-161"></span><span class="hs-comment">-- | The ID of the policy that you want to delete. You can retrieve this ID</span><span>
 </span><span id="line-162"></span><span class="hs-comment">-- from @PutPolicy@ and @ListPolicies@.</span><span>
@@ -242,25 +242,25 @@ $sel:deleteAllPolicyResources:DeletePolicy' :: DeletePolicy -&gt; Maybe Bool
 -&gt; (DeletePolicy -&gt; Text -&gt; DeletePolicy)
 -&gt; Lens DeletePolicy DeletePolicy Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.DeletePolicy.html#DeletePolicy%27"><span class="hs-identifier hs-type">DeletePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257461"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.DeletePolicy.html#DeletePolicy%27"><span class="hs-identifier hs-type">DeletePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257725"><span class="annot"><span class="annottext">Text
 policyId :: Text
 $sel:policyId:DeletePolicy' :: DeletePolicy -&gt; Text
-</span><a href="#local-6989586621679257461"><span class="hs-identifier hs-var hs-var">policyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679257461"><span class="hs-identifier hs-var">policyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257460"><span class="annot"><span class="annottext">s :: DeletePolicy
-</span><a href="#local-6989586621679257460"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.DeletePolicy.html#DeletePolicy%27"><span class="hs-identifier hs-type">DeletePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257459"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679257459"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeletePolicy
-</span><a href="#local-6989586621679257460"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyId:DeletePolicy' :: Text
+</span><a href="#local-6989586621679257725"><span class="hs-identifier hs-var hs-var">policyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679257725"><span class="hs-identifier hs-var">policyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257724"><span class="annot"><span class="annottext">s :: DeletePolicy
+</span><a href="#local-6989586621679257724"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.DeletePolicy.html#DeletePolicy%27"><span class="hs-identifier hs-type">DeletePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257723"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679257723"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeletePolicy
+</span><a href="#local-6989586621679257724"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyId:DeletePolicy' :: Text
 </span><a href="Network.AWS.FMS.DeletePolicy.html#%24sel%3ApolicyId%3ADeletePolicy%27"><span class="hs-identifier hs-var">policyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679257459"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.DeletePolicy.html#DeletePolicy"><span class="hs-identifier hs-type">DeletePolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679257723"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.DeletePolicy.html#DeletePolicy"><span class="hs-identifier hs-type">DeletePolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-165"></span><span>
 </span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.DeletePolicy.html#DeletePolicy"><span class="hs-identifier hs-type">DeletePolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-167"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.DeletePolicy.html#DeletePolicy"><span class="hs-identifier hs-type">DeletePolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.FMS.DeletePolicy.html#DeletePolicyResponse"><span class="hs-identifier hs-type">DeletePolicyResponse</span></a></span><span>
-</span><span id="line-168"></span><span>  </span><span id="local-6989586621679257455"><span class="annot"><span class="annottext">request :: DeletePolicy -&gt; Request DeletePolicy
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621679257719"><span class="annot"><span class="annottext">request :: DeletePolicy -&gt; Request DeletePolicy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeletePolicy -&gt; Request DeletePolicy
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.FMS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-169"></span><span>  </span><span id="local-6989586621679257451"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679257715"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeletePolicy
 -&gt; ClientResponse ClientBody
@@ -283,12 +283,12 @@ AWSResponse a
 DeletePolicyResponse
 </span><a href="Network.AWS.FMS.DeletePolicy.html#DeletePolicyResponse%27"><span class="hs-identifier hs-var">DeletePolicyResponse'</span></a></span><span>
 </span><span id="line-170"></span><span>
-</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257444"><span id="local-6989586621679257446"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.DeletePolicy.html#DeletePolicy"><span class="hs-identifier hs-type">DeletePolicy</span></a></span></span></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257708"><span id="local-6989586621679257710"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.DeletePolicy.html#DeletePolicy"><span class="hs-identifier hs-type">DeletePolicy</span></a></span></span></span><span>
 </span><span id="line-172"></span><span>
-</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257441"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.DeletePolicy.html#DeletePolicy"><span class="hs-identifier hs-type">DeletePolicy</span></a></span></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257705"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.DeletePolicy.html#DeletePolicy"><span class="hs-identifier hs-type">DeletePolicy</span></a></span></span><span>
 </span><span id="line-174"></span><span>
 </span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.DeletePolicy.html#DeletePolicy"><span class="hs-identifier hs-type">DeletePolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-176"></span><span>  </span><span id="local-6989586621679257437"><span class="annot"><span class="annottext">toHeaders :: DeletePolicy -&gt; [Header]
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679257701"><span class="annot"><span class="annottext">toHeaders :: DeletePolicy -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-177"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; DeletePolicy -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -315,15 +315,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-187"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-188"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-189"></span><span>
-</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257427"><span id="local-6989586621679257429"><span id="local-6989586621679257431"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.DeletePolicy.html#DeletePolicy"><span class="hs-identifier hs-type">DeletePolicy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-191"></span><span>  </span><span id="local-6989586621679257425"><span class="annot"><span class="annottext">toJSON :: DeletePolicy -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.DeletePolicy.html#DeletePolicy%27"><span class="hs-identifier hs-type">DeletePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257422"><span id="local-6989586621679257423"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257691"><span id="local-6989586621679257693"><span id="local-6989586621679257695"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.DeletePolicy.html#DeletePolicy"><span class="hs-identifier hs-type">DeletePolicy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-191"></span><span>  </span><span id="local-6989586621679257689"><span class="annot"><span class="annottext">toJSON :: DeletePolicy -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.DeletePolicy.html#DeletePolicy%27"><span class="hs-identifier hs-type">DeletePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257686"><span id="local-6989586621679257687"><span class="annot"><span class="annottext">Maybe Bool
 Text
 policyId :: Text
 deleteAllPolicyResources :: Maybe Bool
 $sel:policyId:DeletePolicy' :: DeletePolicy -&gt; Text
 $sel:deleteAllPolicyResources:DeletePolicy' :: DeletePolicy -&gt; Maybe Bool
-</span><a href="#local-6989586621679257422"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679257686"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-192"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-193"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -336,26 +336,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-195"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679257423"><span class="hs-identifier hs-var">deleteAllPolicyResources</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679257687"><span class="hs-identifier hs-var">deleteAllPolicyResources</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-196"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PolicyId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679257422"><span class="hs-identifier hs-var">policyId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679257686"><span class="hs-identifier hs-var">policyId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-197"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-198"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-199"></span><span>
 </span><span id="line-200"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.DeletePolicy.html#DeletePolicy"><span class="hs-identifier hs-type">DeletePolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-201"></span><span>  </span><span id="local-6989586621679257415"><span class="annot"><span class="annottext">toPath :: DeletePolicy -&gt; ByteString
+</span><span id="line-201"></span><span>  </span><span id="local-6989586621679257679"><span class="annot"><span class="annottext">toPath :: DeletePolicy -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeletePolicy -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-202"></span><span>
 </span><span id="line-203"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.DeletePolicy.html#DeletePolicy"><span class="hs-identifier hs-type">DeletePolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-204"></span><span>  </span><span id="local-6989586621679257411"><span class="annot"><span class="annottext">toQuery :: DeletePolicy -&gt; QueryString
+</span><span id="line-204"></span><span>  </span><span id="local-6989586621679257675"><span class="annot"><span class="annottext">toQuery :: DeletePolicy -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeletePolicy -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -363,10 +363,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-205"></span><span>
 </span><span id="line-206"></span><span class="hs-comment">-- | /See:/ 'newDeletePolicyResponse' smart constructor.</span><span>
-</span><span id="line-207"></span><span id="local-6989586621679257408"><span id="local-6989586621679257409"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeletePolicyResponse"><span class="annot"><a href="Network.AWS.FMS.DeletePolicy.html#DeletePolicyResponse"><span class="hs-identifier hs-var">DeletePolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeletePolicyResponse%27"><span class="annot"><a href="Network.AWS.FMS.DeletePolicy.html#DeletePolicyResponse%27"><span class="hs-identifier hs-var">DeletePolicyResponse'</span></a></span></span><span>
+</span><span id="line-207"></span><span id="local-6989586621679257672"><span id="local-6989586621679257673"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeletePolicyResponse"><span class="annot"><a href="Network.AWS.FMS.DeletePolicy.html#DeletePolicyResponse"><span class="hs-identifier hs-var">DeletePolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeletePolicyResponse%27"><span class="annot"><a href="Network.AWS.FMS.DeletePolicy.html#DeletePolicyResponse%27"><span class="hs-identifier hs-var">DeletePolicyResponse'</span></a></span></span><span>
 </span><span id="line-208"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-209"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-210"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679257404"><span id="local-6989586621679257406"><span class="annot"><span class="annottext">DeletePolicyResponse -&gt; DeletePolicyResponse -&gt; Bool
+</span><span id="line-210"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679257668"><span id="local-6989586621679257670"><span class="annot"><span class="annottext">DeletePolicyResponse -&gt; DeletePolicyResponse -&gt; Bool
 (DeletePolicyResponse -&gt; DeletePolicyResponse -&gt; Bool)
 -&gt; (DeletePolicyResponse -&gt; DeletePolicyResponse -&gt; Bool)
 -&gt; Eq DeletePolicyResponse
@@ -375,7 +375,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeletePolicyResponse -&gt; DeletePolicyResponse -&gt; Bool
 == :: DeletePolicyResponse -&gt; DeletePolicyResponse -&gt; Bool
 $c== :: DeletePolicyResponse -&gt; DeletePolicyResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679257396"><span id="local-6989586621679257398"><span id="local-6989586621679257400"><span id="local-6989586621679257402"><span class="annot"><span class="annottext">ReadPrec [DeletePolicyResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679257660"><span id="local-6989586621679257662"><span id="local-6989586621679257664"><span id="local-6989586621679257666"><span class="annot"><span class="annottext">ReadPrec [DeletePolicyResponse]
 ReadPrec DeletePolicyResponse
 Int -&gt; ReadS DeletePolicyResponse
 ReadS [DeletePolicyResponse]
@@ -395,7 +395,7 @@ readList :: ReadS [DeletePolicyResponse]
 $creadList :: ReadS [DeletePolicyResponse]
 readsPrec :: Int -&gt; ReadS DeletePolicyResponse
 $creadsPrec :: Int -&gt; ReadS DeletePolicyResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679257390"><span id="local-6989586621679257392"><span id="local-6989586621679257394"><span class="annot"><span class="annottext">Int -&gt; DeletePolicyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679257654"><span id="local-6989586621679257656"><span id="local-6989586621679257658"><span class="annot"><span class="annottext">Int -&gt; DeletePolicyResponse -&gt; ShowS
 [DeletePolicyResponse] -&gt; ShowS
 DeletePolicyResponse -&gt; String
 (Int -&gt; DeletePolicyResponse -&gt; ShowS)
@@ -431,5 +431,5 @@ $cfrom :: forall x. DeletePolicyResponse -&gt; Rep DeletePolicyResponse x
 </span><a href="Network.AWS.FMS.DeletePolicy.html#newDeletePolicyResponse"><span class="hs-identifier hs-var hs-var">newDeletePolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeletePolicyResponse
 </span><a href="Network.AWS.FMS.DeletePolicy.html#DeletePolicyResponse%27"><span class="hs-identifier hs-var">DeletePolicyResponse'</span></a></span><span>
 </span><span id="line-219"></span><span>
-</span><span id="line-220"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257386"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.DeletePolicy.html#DeletePolicyResponse"><span class="hs-identifier hs-type">DeletePolicyResponse</span></a></span></span><span>
+</span><span id="line-220"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257650"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.DeletePolicy.html#DeletePolicyResponse"><span class="hs-identifier hs-type">DeletePolicyResponse</span></a></span></span><span>
 </span><span id="line-221"></span></pre></body></html>

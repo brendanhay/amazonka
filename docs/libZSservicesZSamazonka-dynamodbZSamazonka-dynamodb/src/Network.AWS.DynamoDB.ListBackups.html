@@ -38,20 +38,20 @@
 </span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#newListBackups"><span class="hs-identifier">newListBackups</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-39"></span><span>
 </span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#listBackups_tableName"><span class="hs-identifier">listBackups_tableName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#listBackups_backupType"><span class="hs-identifier">listBackups_backupType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#listBackups_timeRangeLowerBound"><span class="hs-identifier">listBackups_timeRangeLowerBound</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#listBackups_timeRangeUpperBound"><span class="hs-identifier">listBackups_timeRangeUpperBound</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#listBackups_timeRangeLowerBound"><span class="hs-identifier">listBackups_timeRangeLowerBound</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#listBackups_limit"><span class="hs-identifier">listBackups_limit</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#listBackups_exclusiveStartBackupArn"><span class="hs-identifier">listBackups_exclusiveStartBackupArn</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#listBackups_limit"><span class="hs-identifier">listBackups_limit</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#listBackups_timeRangeUpperBound"><span class="hs-identifier">listBackups_timeRangeUpperBound</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#listBackups_backupType"><span class="hs-identifier">listBackups_backupType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#listBackups_tableName"><span class="hs-identifier">listBackups_tableName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-47"></span><span>
 </span><span id="line-48"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
 </span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackupsResponse"><span class="hs-identifier">ListBackupsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#newListBackupsResponse"><span class="hs-identifier">newListBackupsResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-51"></span><span>
 </span><span id="line-52"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#listBackupsResponse_lastEvaluatedBackupArn"><span class="hs-identifier">listBackupsResponse_lastEvaluatedBackupArn</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#listBackupsResponse_backupSummaries"><span class="hs-identifier">listBackupsResponse_backupSummaries</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#listBackupsResponse_backupSummaries"><span class="hs-identifier">listBackupsResponse_backupSummaries</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#listBackupsResponse_lastEvaluatedBackupArn"><span class="hs-identifier">listBackupsResponse_lastEvaluatedBackupArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-55"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#listBackupsResponse_httpStatus"><span class="hs-identifier">listBackupsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-57"></span><span class="hs-keyword">where</span><span>
@@ -64,41 +64,41 @@
 </span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-65"></span><span>
 </span><span id="line-66"></span><span class="hs-comment">-- | /See:/ 'newListBackups' smart constructor.</span><span>
-</span><span id="line-67"></span><span id="local-6989586621679389001"><span id="local-6989586621679389002"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListBackups"><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackups"><span class="hs-identifier hs-var">ListBackups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListBackups%27"><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackups%27"><span class="hs-identifier hs-var">ListBackups'</span></a></span></span><span>
-</span><span id="line-68"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The backups from the table specified by @TableName@ are listed.</span><span>
-</span><span id="line-69"></span><span>    </span><span id="%24sel%3AtableName%3AListBackups%27"><span class="annot"><span class="annottext">ListBackups -&gt; Maybe Text
-</span><a href="Network.AWS.DynamoDB.ListBackups.html#%24sel%3AtableName%3AListBackups%27"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | The backups from the table specified by @BackupType@ are listed.</span><span>
-</span><span id="line-71"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- Where @BackupType@ can be:</span><span>
-</span><span id="line-73"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- -   @USER@ - On-demand backup created by you.</span><span>
-</span><span id="line-75"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- -   @SYSTEM@ - On-demand backup automatically created by DynamoDB.</span><span>
-</span><span id="line-77"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- -   @ALL@ - All types of on-demand backups (USER and SYSTEM).</span><span>
-</span><span id="line-79"></span><span>    </span><span id="%24sel%3AbackupType%3AListBackups%27"><span class="annot"><span class="annottext">ListBackups -&gt; Maybe BackupTypeFilter
-</span><a href="Network.AWS.DynamoDB.ListBackups.html#%24sel%3AbackupType%3AListBackups%27"><span class="hs-identifier hs-var hs-var">backupType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.BackupTypeFilter.html#BackupTypeFilter"><span class="hs-identifier hs-type">BackupTypeFilter</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- | Only backups created after this time are listed. @TimeRangeLowerBound@</span><span>
-</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- is inclusive.</span><span>
-</span><span id="line-82"></span><span>    </span><span id="%24sel%3AtimeRangeLowerBound%3AListBackups%27"><span class="annot"><span class="annottext">ListBackups -&gt; Maybe POSIX
+</span><span id="line-67"></span><span id="local-6989586621679389722"><span id="local-6989586621679389723"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListBackups"><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackups"><span class="hs-identifier hs-var">ListBackups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListBackups%27"><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackups%27"><span class="hs-identifier hs-var">ListBackups'</span></a></span></span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Only backups created before this time are listed. @TimeRangeUpperBound@</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- is exclusive.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AtimeRangeUpperBound%3AListBackups%27"><span class="annot"><span class="annottext">ListBackups -&gt; Maybe POSIX
+</span><a href="Network.AWS.DynamoDB.ListBackups.html#%24sel%3AtimeRangeUpperBound%3AListBackups%27"><span class="hs-identifier hs-var hs-var">timeRangeUpperBound</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | Only backups created after this time are listed. @TimeRangeLowerBound@</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- is inclusive.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3AtimeRangeLowerBound%3AListBackups%27"><span class="annot"><span class="annottext">ListBackups -&gt; Maybe POSIX
 </span><a href="Network.AWS.DynamoDB.ListBackups.html#%24sel%3AtimeRangeLowerBound%3AListBackups%27"><span class="hs-identifier hs-var hs-var">timeRangeLowerBound</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- | @LastEvaluatedBackupArn@ is the Amazon Resource Name (ARN) of the backup</span><span>
-</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- last evaluated when the current page of results was returned, inclusive</span><span>
-</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- of the current page of results. This value may be specified as the</span><span>
-</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- @ExclusiveStartBackupArn@ of a new @ListBackups@ operation in order to</span><span>
-</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- fetch the next page of results.</span><span>
-</span><span id="line-88"></span><span>    </span><span id="%24sel%3AexclusiveStartBackupArn%3AListBackups%27"><span class="annot"><span class="annottext">ListBackups -&gt; Maybe Text
-</span><a href="Network.AWS.DynamoDB.ListBackups.html#%24sel%3AexclusiveStartBackupArn%3AListBackups%27"><span class="hs-identifier hs-var hs-var">exclusiveStartBackupArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- | Maximum number of backups to return at once.</span><span>
-</span><span id="line-90"></span><span>    </span><span id="%24sel%3Alimit%3AListBackups%27"><span class="annot"><span class="annottext">ListBackups -&gt; Maybe Natural
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | Maximum number of backups to return at once.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3Alimit%3AListBackups%27"><span class="annot"><span class="annottext">ListBackups -&gt; Maybe Natural
 </span><a href="Network.AWS.DynamoDB.ListBackups.html#%24sel%3Alimit%3AListBackups%27"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- | Only backups created before this time are listed. @TimeRangeUpperBound@</span><span>
-</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- is exclusive.</span><span>
-</span><span id="line-93"></span><span>    </span><span id="%24sel%3AtimeRangeUpperBound%3AListBackups%27"><span class="annot"><span class="annottext">ListBackups -&gt; Maybe POSIX
-</span><a href="Network.AWS.DynamoDB.ListBackups.html#%24sel%3AtimeRangeUpperBound%3AListBackups%27"><span class="hs-identifier hs-var hs-var">timeRangeUpperBound</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | @LastEvaluatedBackupArn@ is the Amazon Resource Name (ARN) of the backup</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- last evaluated when the current page of results was returned, inclusive</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- of the current page of results. This value may be specified as the</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- @ExclusiveStartBackupArn@ of a new @ListBackups@ operation in order to</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- fetch the next page of results.</span><span>
+</span><span id="line-81"></span><span>    </span><span id="%24sel%3AexclusiveStartBackupArn%3AListBackups%27"><span class="annot"><span class="annottext">ListBackups -&gt; Maybe Text
+</span><a href="Network.AWS.DynamoDB.ListBackups.html#%24sel%3AexclusiveStartBackupArn%3AListBackups%27"><span class="hs-identifier hs-var hs-var">exclusiveStartBackupArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- | The backups from the table specified by @BackupType@ are listed.</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- Where @BackupType@ can be:</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- -   @USER@ - On-demand backup created by you.</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- -   @SYSTEM@ - On-demand backup automatically created by DynamoDB.</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- -   @ALL@ - All types of on-demand backups (USER and SYSTEM).</span><span>
+</span><span id="line-91"></span><span>    </span><span id="%24sel%3AbackupType%3AListBackups%27"><span class="annot"><span class="annottext">ListBackups -&gt; Maybe BackupTypeFilter
+</span><a href="Network.AWS.DynamoDB.ListBackups.html#%24sel%3AbackupType%3AListBackups%27"><span class="hs-identifier hs-var hs-var">backupType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.BackupTypeFilter.html#BackupTypeFilter"><span class="hs-identifier hs-type">BackupTypeFilter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- | The backups from the table specified by @TableName@ are listed.</span><span>
+</span><span id="line-93"></span><span>    </span><span id="%24sel%3AtableName%3AListBackups%27"><span class="annot"><span class="annottext">ListBackups -&gt; Maybe Text
+</span><a href="Network.AWS.DynamoDB.ListBackups.html#%24sel%3AtableName%3AListBackups%27"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-94"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-95"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679388990"><span id="local-6989586621679388992"><span class="annot"><span class="annottext">ListBackups -&gt; ListBackups -&gt; Bool
+</span><span id="line-95"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679389711"><span id="local-6989586621679389713"><span class="annot"><span class="annottext">ListBackups -&gt; ListBackups -&gt; Bool
 (ListBackups -&gt; ListBackups -&gt; Bool)
 -&gt; (ListBackups -&gt; ListBackups -&gt; Bool) -&gt; Eq ListBackups
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -106,7 +106,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListBackups -&gt; ListBackups -&gt; Bool
 == :: ListBackups -&gt; ListBackups -&gt; Bool
 $c== :: ListBackups -&gt; ListBackups -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388981"><span id="local-6989586621679388983"><span id="local-6989586621679388985"><span id="local-6989586621679388987"><span class="annot"><span class="annottext">ReadPrec [ListBackups]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389702"><span id="local-6989586621679389704"><span id="local-6989586621679389706"><span id="local-6989586621679389708"><span class="annot"><span class="annottext">ReadPrec [ListBackups]
 ReadPrec ListBackups
 Int -&gt; ReadS ListBackups
 ReadS [ListBackups]
@@ -126,7 +126,7 @@ readList :: ReadS [ListBackups]
 $creadList :: ReadS [ListBackups]
 readsPrec :: Int -&gt; ReadS ListBackups
 $creadsPrec :: Int -&gt; ReadS ListBackups
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388974"><span id="local-6989586621679388976"><span id="local-6989586621679388978"><span class="annot"><span class="annottext">Int -&gt; ListBackups -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389695"><span id="local-6989586621679389697"><span id="local-6989586621679389699"><span class="annot"><span class="annottext">Int -&gt; ListBackups -&gt; ShowS
 [ListBackups] -&gt; ShowS
 ListBackups -&gt; String
 (Int -&gt; ListBackups -&gt; ShowS)
@@ -160,98 +160,189 @@ $cfrom :: forall x. ListBackups -&gt; Rep ListBackups x
 </span><span id="line-102"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-103"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-104"></span><span class="hs-comment">--</span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- 'tableName', 'listBackups_tableName' - The backups from the table specified by @TableName@ are listed.</span><span>
-</span><span id="line-106"></span><span class="hs-comment">--</span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- 'backupType', 'listBackups_backupType' - The backups from the table specified by @BackupType@ are listed.</span><span>
-</span><span id="line-108"></span><span class="hs-comment">--</span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- Where @BackupType@ can be:</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'timeRangeUpperBound', 'listBackups_timeRangeUpperBound' - Only backups created before this time are listed. @TimeRangeUpperBound@</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- is exclusive.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'timeRangeLowerBound', 'listBackups_timeRangeLowerBound' - Only backups created after this time are listed. @TimeRangeLowerBound@</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- is inclusive.</span><span>
 </span><span id="line-110"></span><span class="hs-comment">--</span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- -   @USER@ - On-demand backup created by you.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- 'limit', 'listBackups_limit' - Maximum number of backups to return at once.</span><span>
 </span><span id="line-112"></span><span class="hs-comment">--</span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- -   @SYSTEM@ - On-demand backup automatically created by DynamoDB.</span><span>
-</span><span id="line-114"></span><span class="hs-comment">--</span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- -   @ALL@ - All types of on-demand backups (USER and SYSTEM).</span><span>
-</span><span id="line-116"></span><span class="hs-comment">--</span><span>
-</span><span id="line-117"></span><span class="hs-comment">-- 'timeRangeLowerBound', 'listBackups_timeRangeLowerBound' - Only backups created after this time are listed. @TimeRangeLowerBound@</span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- is inclusive.</span><span>
-</span><span id="line-119"></span><span class="hs-comment">--</span><span>
-</span><span id="line-120"></span><span class="hs-comment">-- 'exclusiveStartBackupArn', 'listBackups_exclusiveStartBackupArn' - @LastEvaluatedBackupArn@ is the Amazon Resource Name (ARN) of the backup</span><span>
-</span><span id="line-121"></span><span class="hs-comment">-- last evaluated when the current page of results was returned, inclusive</span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- of the current page of results. This value may be specified as the</span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- @ExclusiveStartBackupArn@ of a new @ListBackups@ operation in order to</span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- fetch the next page of results.</span><span>
-</span><span id="line-125"></span><span class="hs-comment">--</span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- 'limit', 'listBackups_limit' - Maximum number of backups to return at once.</span><span>
-</span><span id="line-127"></span><span class="hs-comment">--</span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- 'timeRangeUpperBound', 'listBackups_timeRangeUpperBound' - Only backups created before this time are listed. @TimeRangeUpperBound@</span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- is exclusive.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- 'exclusiveStartBackupArn', 'listBackups_exclusiveStartBackupArn' - @LastEvaluatedBackupArn@ is the Amazon Resource Name (ARN) of the backup</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- last evaluated when the current page of results was returned, inclusive</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- of the current page of results. This value may be specified as the</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- @ExclusiveStartBackupArn@ of a new @ListBackups@ operation in order to</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- fetch the next page of results.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- 'backupType', 'listBackups_backupType' - The backups from the table specified by @BackupType@ are listed.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- Where @BackupType@ can be:</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- -   @USER@ - On-demand backup created by you.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- -   @SYSTEM@ - On-demand backup automatically created by DynamoDB.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- -   @ALL@ - All types of on-demand backups (USER and SYSTEM).</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- 'tableName', 'listBackups_tableName' - The backups from the table specified by @TableName@ are listed.</span><span>
 </span><span id="line-130"></span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#newListBackups"><span class="hs-identifier hs-type">newListBackups</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-131"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackups"><span class="hs-identifier hs-type">ListBackups</span></a></span><span>
 </span><span id="line-132"></span><span id="newListBackups"><span class="annot"><span class="annottext">newListBackups :: ListBackups
 </span><a href="Network.AWS.DynamoDB.ListBackups.html#newListBackups"><span class="hs-identifier hs-var hs-var">newListBackups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-133"></span><span>  </span><span class="annot"><span class="annottext">ListBackups' :: Maybe Text
--&gt; Maybe BackupTypeFilter
+</span><span id="line-133"></span><span>  </span><span class="annot"><span class="annottext">ListBackups' :: Maybe POSIX
 -&gt; Maybe POSIX
--&gt; Maybe Text
 -&gt; Maybe Natural
--&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe BackupTypeFilter
+-&gt; Maybe Text
 -&gt; ListBackups
 </span><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackups%27"><span class="hs-identifier hs-type">ListBackups'</span></a></span><span>
-</span><span id="line-134"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tableName:ListBackups' :: Maybe Text
-</span><a href="Network.AWS.DynamoDB.ListBackups.html#%24sel%3AtableName%3AListBackups%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-134"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:timeRangeUpperBound:ListBackups' :: Maybe POSIX
+</span><a href="Network.AWS.DynamoDB.ListBackups.html#%24sel%3AtimeRangeUpperBound%3AListBackups%27"><span class="hs-identifier hs-var">timeRangeUpperBound</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-135"></span><span>      </span><span class="annot"><span class="annottext">$sel:backupType:ListBackups' :: Maybe BackupTypeFilter
-</span><a href="Network.AWS.DynamoDB.ListBackups.html#%24sel%3AbackupType%3AListBackups%27"><span class="hs-identifier hs-var">backupType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BackupTypeFilter
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-136"></span><span>      </span><span class="annot"><span class="annottext">$sel:timeRangeLowerBound:ListBackups' :: Maybe POSIX
+</span><span id="line-135"></span><span>      </span><span class="annot"><span class="annottext">$sel:timeRangeLowerBound:ListBackups' :: Maybe POSIX
 </span><a href="Network.AWS.DynamoDB.ListBackups.html#%24sel%3AtimeRangeLowerBound%3AListBackups%27"><span class="hs-identifier hs-var">timeRangeLowerBound</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>      </span><span class="annot"><span class="annottext">$sel:limit:ListBackups' :: Maybe Natural
+</span><a href="Network.AWS.DynamoDB.ListBackups.html#%24sel%3Alimit%3AListBackups%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-137"></span><span>      </span><span class="annot"><span class="annottext">$sel:exclusiveStartBackupArn:ListBackups' :: Maybe Text
 </span><a href="Network.AWS.DynamoDB.ListBackups.html#%24sel%3AexclusiveStartBackupArn%3AListBackups%27"><span class="hs-identifier hs-var">exclusiveStartBackupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-138"></span><span>      </span><span class="annot"><span class="annottext">$sel:limit:ListBackups' :: Maybe Natural
-</span><a href="Network.AWS.DynamoDB.ListBackups.html#%24sel%3Alimit%3AListBackups%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-138"></span><span>      </span><span class="annot"><span class="annottext">$sel:backupType:ListBackups' :: Maybe BackupTypeFilter
+</span><a href="Network.AWS.DynamoDB.ListBackups.html#%24sel%3AbackupType%3AListBackups%27"><span class="hs-identifier hs-var">backupType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BackupTypeFilter
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-139"></span><span>      </span><span class="annot"><span class="annottext">$sel:timeRangeUpperBound:ListBackups' :: Maybe POSIX
-</span><a href="Network.AWS.DynamoDB.ListBackups.html#%24sel%3AtimeRangeUpperBound%3AListBackups%27"><span class="hs-identifier hs-var">timeRangeUpperBound</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><span id="line-139"></span><span>      </span><span class="annot"><span class="annottext">$sel:tableName:ListBackups' :: Maybe Text
+</span><a href="Network.AWS.DynamoDB.ListBackups.html#%24sel%3AtableName%3AListBackups%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-140"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-comment">-- | The backups from the table specified by @TableName@ are listed.</span><span>
-</span><span id="line-143"></span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#listBackups_tableName"><span class="hs-identifier hs-type">listBackups_tableName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackups"><span class="hs-identifier hs-type">ListBackups</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-144"></span><span id="listBackups_tableName"><span class="annot"><span class="annottext">listBackups_tableName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ListBackups -&gt; f ListBackups
-</span><a href="Network.AWS.DynamoDB.ListBackups.html#listBackups_tableName"><span class="hs-identifier hs-var hs-var">listBackups_tableName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListBackups -&gt; Maybe Text)
+</span><span id="line-142"></span><span class="hs-comment">-- | Only backups created before this time are listed. @TimeRangeUpperBound@</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- is exclusive.</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#listBackups_timeRangeUpperBound"><span class="hs-identifier hs-type">listBackups_timeRangeUpperBound</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackups"><span class="hs-identifier hs-type">ListBackups</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span id="listBackups_timeRangeUpperBound"><span class="annot"><span class="annottext">listBackups_timeRangeUpperBound :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ListBackups -&gt; f ListBackups
+</span><a href="Network.AWS.DynamoDB.ListBackups.html#listBackups_timeRangeUpperBound"><span class="hs-identifier hs-var hs-var">listBackups_timeRangeUpperBound</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListBackups -&gt; Maybe POSIX)
+-&gt; (ListBackups -&gt; Maybe POSIX -&gt; ListBackups)
+-&gt; Lens ListBackups ListBackups (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackups%27"><span class="hs-identifier hs-type">ListBackups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389689"><span class="annot"><span class="annottext">Maybe POSIX
+timeRangeUpperBound :: Maybe POSIX
+$sel:timeRangeUpperBound:ListBackups' :: ListBackups -&gt; Maybe POSIX
+</span><a href="#local-6989586621679389689"><span class="hs-identifier hs-var hs-var">timeRangeUpperBound</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679389689"><span class="hs-identifier hs-var">timeRangeUpperBound</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389688"><span class="annot"><span class="annottext">s :: ListBackups
+</span><a href="#local-6989586621679389688"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackups%27"><span class="hs-identifier hs-type">ListBackups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389687"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679389687"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBackups
+</span><a href="#local-6989586621679389688"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timeRangeUpperBound:ListBackups' :: Maybe POSIX
+</span><a href="Network.AWS.DynamoDB.ListBackups.html#%24sel%3AtimeRangeUpperBound%3AListBackups%27"><span class="hs-identifier hs-var">timeRangeUpperBound</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679389687"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackups"><span class="hs-identifier hs-type">ListBackups</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; ListBackups -&gt; f ListBackups)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ListBackups
+-&gt; f ListBackups
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- | Only backups created after this time are listed. @TimeRangeLowerBound@</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- is inclusive.</span><span>
+</span><span id="line-149"></span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#listBackups_timeRangeLowerBound"><span class="hs-identifier hs-type">listBackups_timeRangeLowerBound</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackups"><span class="hs-identifier hs-type">ListBackups</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span id="listBackups_timeRangeLowerBound"><span class="annot"><span class="annottext">listBackups_timeRangeLowerBound :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ListBackups -&gt; f ListBackups
+</span><a href="Network.AWS.DynamoDB.ListBackups.html#listBackups_timeRangeLowerBound"><span class="hs-identifier hs-var hs-var">listBackups_timeRangeLowerBound</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListBackups -&gt; Maybe POSIX)
+-&gt; (ListBackups -&gt; Maybe POSIX -&gt; ListBackups)
+-&gt; Lens ListBackups ListBackups (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackups%27"><span class="hs-identifier hs-type">ListBackups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389683"><span class="annot"><span class="annottext">Maybe POSIX
+timeRangeLowerBound :: Maybe POSIX
+$sel:timeRangeLowerBound:ListBackups' :: ListBackups -&gt; Maybe POSIX
+</span><a href="#local-6989586621679389683"><span class="hs-identifier hs-var hs-var">timeRangeLowerBound</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679389683"><span class="hs-identifier hs-var">timeRangeLowerBound</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389682"><span class="annot"><span class="annottext">s :: ListBackups
+</span><a href="#local-6989586621679389682"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackups%27"><span class="hs-identifier hs-type">ListBackups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389681"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679389681"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBackups
+</span><a href="#local-6989586621679389682"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timeRangeLowerBound:ListBackups' :: Maybe POSIX
+</span><a href="Network.AWS.DynamoDB.ListBackups.html#%24sel%3AtimeRangeLowerBound%3AListBackups%27"><span class="hs-identifier hs-var">timeRangeLowerBound</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679389681"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackups"><span class="hs-identifier hs-type">ListBackups</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; ListBackups -&gt; f ListBackups)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ListBackups
+-&gt; f ListBackups
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- | Maximum number of backups to return at once.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#listBackups_limit"><span class="hs-identifier hs-type">listBackups_limit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackups"><span class="hs-identifier hs-type">ListBackups</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span id="listBackups_limit"><span class="annot"><span class="annottext">listBackups_limit :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListBackups -&gt; f ListBackups
+</span><a href="Network.AWS.DynamoDB.ListBackups.html#listBackups_limit"><span class="hs-identifier hs-var hs-var">listBackups_limit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListBackups -&gt; Maybe Natural)
+-&gt; (ListBackups -&gt; Maybe Natural -&gt; ListBackups)
+-&gt; Lens ListBackups ListBackups (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackups%27"><span class="hs-identifier hs-type">ListBackups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389680"><span class="annot"><span class="annottext">Maybe Natural
+limit :: Maybe Natural
+$sel:limit:ListBackups' :: ListBackups -&gt; Maybe Natural
+</span><a href="#local-6989586621679389680"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679389680"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389679"><span class="annot"><span class="annottext">s :: ListBackups
+</span><a href="#local-6989586621679389679"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackups%27"><span class="hs-identifier hs-type">ListBackups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389678"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679389678"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBackups
+</span><a href="#local-6989586621679389679"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:ListBackups' :: Maybe Natural
+</span><a href="Network.AWS.DynamoDB.ListBackups.html#%24sel%3Alimit%3AListBackups%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679389678"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackups"><span class="hs-identifier hs-type">ListBackups</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- | @LastEvaluatedBackupArn@ is the Amazon Resource Name (ARN) of the backup</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- last evaluated when the current page of results was returned, inclusive</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- of the current page of results. This value may be specified as the</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- @ExclusiveStartBackupArn@ of a new @ListBackups@ operation in order to</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- fetch the next page of results.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#listBackups_exclusiveStartBackupArn"><span class="hs-identifier hs-type">listBackups_exclusiveStartBackupArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackups"><span class="hs-identifier hs-type">ListBackups</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span id="listBackups_exclusiveStartBackupArn"><span class="annot"><span class="annottext">listBackups_exclusiveStartBackupArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ListBackups -&gt; f ListBackups
+</span><a href="Network.AWS.DynamoDB.ListBackups.html#listBackups_exclusiveStartBackupArn"><span class="hs-identifier hs-var hs-var">listBackups_exclusiveStartBackupArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListBackups -&gt; Maybe Text)
 -&gt; (ListBackups -&gt; Maybe Text -&gt; ListBackups)
 -&gt; Lens ListBackups ListBackups (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackups%27"><span class="hs-identifier hs-type">ListBackups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388968"><span class="annot"><span class="annottext">Maybe Text
-tableName :: Maybe Text
-$sel:tableName:ListBackups' :: ListBackups -&gt; Maybe Text
-</span><a href="#local-6989586621679388968"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679388968"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388967"><span class="annot"><span class="annottext">s :: ListBackups
-</span><a href="#local-6989586621679388967"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackups%27"><span class="hs-identifier hs-type">ListBackups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388966"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679388966"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBackups
-</span><a href="#local-6989586621679388967"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableName:ListBackups' :: Maybe Text
-</span><a href="Network.AWS.DynamoDB.ListBackups.html#%24sel%3AtableName%3AListBackups%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679388966"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackups"><span class="hs-identifier hs-type">ListBackups</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-145"></span><span>
-</span><span id="line-146"></span><span class="hs-comment">-- | The backups from the table specified by @BackupType@ are listed.</span><span>
-</span><span id="line-147"></span><span class="hs-comment">--</span><span>
-</span><span id="line-148"></span><span class="hs-comment">-- Where @BackupType@ can be:</span><span>
-</span><span id="line-149"></span><span class="hs-comment">--</span><span>
-</span><span id="line-150"></span><span class="hs-comment">-- -   @USER@ - On-demand backup created by you.</span><span>
-</span><span id="line-151"></span><span class="hs-comment">--</span><span>
-</span><span id="line-152"></span><span class="hs-comment">-- -   @SYSTEM@ - On-demand backup automatically created by DynamoDB.</span><span>
-</span><span id="line-153"></span><span class="hs-comment">--</span><span>
-</span><span id="line-154"></span><span class="hs-comment">-- -   @ALL@ - All types of on-demand backups (USER and SYSTEM).</span><span>
-</span><span id="line-155"></span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#listBackups_backupType"><span class="hs-identifier hs-type">listBackups_backupType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackups"><span class="hs-identifier hs-type">ListBackups</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.BackupTypeFilter.html#BackupTypeFilter"><span class="hs-identifier hs-type">BackupTypeFilter</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-156"></span><span id="listBackups_backupType"><span class="annot"><span class="annottext">listBackups_backupType :: (Maybe BackupTypeFilter -&gt; f (Maybe BackupTypeFilter))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackups%27"><span class="hs-identifier hs-type">ListBackups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389677"><span class="annot"><span class="annottext">Maybe Text
+exclusiveStartBackupArn :: Maybe Text
+$sel:exclusiveStartBackupArn:ListBackups' :: ListBackups -&gt; Maybe Text
+</span><a href="#local-6989586621679389677"><span class="hs-identifier hs-var hs-var">exclusiveStartBackupArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679389677"><span class="hs-identifier hs-var">exclusiveStartBackupArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389676"><span class="annot"><span class="annottext">s :: ListBackups
+</span><a href="#local-6989586621679389676"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackups%27"><span class="hs-identifier hs-type">ListBackups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389675"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679389675"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBackups
+</span><a href="#local-6989586621679389676"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exclusiveStartBackupArn:ListBackups' :: Maybe Text
+</span><a href="Network.AWS.DynamoDB.ListBackups.html#%24sel%3AexclusiveStartBackupArn%3AListBackups%27"><span class="hs-identifier hs-var">exclusiveStartBackupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679389675"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackups"><span class="hs-identifier hs-type">ListBackups</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- | The backups from the table specified by @BackupType@ are listed.</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- Where @BackupType@ can be:</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- -   @USER@ - On-demand backup created by you.</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- -   @SYSTEM@ - On-demand backup automatically created by DynamoDB.</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- -   @ALL@ - All types of on-demand backups (USER and SYSTEM).</span><span>
+</span><span id="line-173"></span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#listBackups_backupType"><span class="hs-identifier hs-type">listBackups_backupType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackups"><span class="hs-identifier hs-type">ListBackups</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.BackupTypeFilter.html#BackupTypeFilter"><span class="hs-identifier hs-type">BackupTypeFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span id="listBackups_backupType"><span class="annot"><span class="annottext">listBackups_backupType :: (Maybe BackupTypeFilter -&gt; f (Maybe BackupTypeFilter))
 -&gt; ListBackups -&gt; f ListBackups
 </span><a href="Network.AWS.DynamoDB.ListBackups.html#listBackups_backupType"><span class="hs-identifier hs-var hs-var">listBackups_backupType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListBackups -&gt; Maybe BackupTypeFilter)
 -&gt; (ListBackups -&gt; Maybe BackupTypeFilter -&gt; ListBackups)
@@ -261,137 +352,46 @@ $sel:tableName:ListBackups' :: ListBackups -&gt; Maybe Text
      (Maybe BackupTypeFilter)
      (Maybe BackupTypeFilter)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackups%27"><span class="hs-identifier hs-type">ListBackups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388965"><span class="annot"><span class="annottext">Maybe BackupTypeFilter
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackups%27"><span class="hs-identifier hs-type">ListBackups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389674"><span class="annot"><span class="annottext">Maybe BackupTypeFilter
 backupType :: Maybe BackupTypeFilter
 $sel:backupType:ListBackups' :: ListBackups -&gt; Maybe BackupTypeFilter
-</span><a href="#local-6989586621679388965"><span class="hs-identifier hs-var hs-var">backupType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BackupTypeFilter
-</span><a href="#local-6989586621679388965"><span class="hs-identifier hs-var">backupType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388964"><span class="annot"><span class="annottext">s :: ListBackups
-</span><a href="#local-6989586621679388964"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackups%27"><span class="hs-identifier hs-type">ListBackups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388963"><span class="annot"><span class="annottext">Maybe BackupTypeFilter
-</span><a href="#local-6989586621679388963"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBackups
-</span><a href="#local-6989586621679388964"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:backupType:ListBackups' :: Maybe BackupTypeFilter
+</span><a href="#local-6989586621679389674"><span class="hs-identifier hs-var hs-var">backupType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BackupTypeFilter
+</span><a href="#local-6989586621679389674"><span class="hs-identifier hs-var">backupType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389673"><span class="annot"><span class="annottext">s :: ListBackups
+</span><a href="#local-6989586621679389673"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackups%27"><span class="hs-identifier hs-type">ListBackups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389672"><span class="annot"><span class="annottext">Maybe BackupTypeFilter
+</span><a href="#local-6989586621679389672"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBackups
+</span><a href="#local-6989586621679389673"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:backupType:ListBackups' :: Maybe BackupTypeFilter
 </span><a href="Network.AWS.DynamoDB.ListBackups.html#%24sel%3AbackupType%3AListBackups%27"><span class="hs-identifier hs-var">backupType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BackupTypeFilter
-</span><a href="#local-6989586621679388963"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackups"><span class="hs-identifier hs-type">ListBackups</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-157"></span><span>
-</span><span id="line-158"></span><span class="hs-comment">-- | Only backups created after this time are listed. @TimeRangeLowerBound@</span><span>
-</span><span id="line-159"></span><span class="hs-comment">-- is inclusive.</span><span>
-</span><span id="line-160"></span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#listBackups_timeRangeLowerBound"><span class="hs-identifier hs-type">listBackups_timeRangeLowerBound</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackups"><span class="hs-identifier hs-type">ListBackups</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-161"></span><span id="listBackups_timeRangeLowerBound"><span class="annot"><span class="annottext">listBackups_timeRangeLowerBound :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; ListBackups -&gt; f ListBackups
-</span><a href="Network.AWS.DynamoDB.ListBackups.html#listBackups_timeRangeLowerBound"><span class="hs-identifier hs-var hs-var">listBackups_timeRangeLowerBound</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListBackups -&gt; Maybe POSIX)
--&gt; (ListBackups -&gt; Maybe POSIX -&gt; ListBackups)
--&gt; Lens ListBackups ListBackups (Maybe POSIX) (Maybe POSIX)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackups%27"><span class="hs-identifier hs-type">ListBackups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388962"><span class="annot"><span class="annottext">Maybe POSIX
-timeRangeLowerBound :: Maybe POSIX
-$sel:timeRangeLowerBound:ListBackups' :: ListBackups -&gt; Maybe POSIX
-</span><a href="#local-6989586621679388962"><span class="hs-identifier hs-var hs-var">timeRangeLowerBound</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679388962"><span class="hs-identifier hs-var">timeRangeLowerBound</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388961"><span class="annot"><span class="annottext">s :: ListBackups
-</span><a href="#local-6989586621679388961"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackups%27"><span class="hs-identifier hs-type">ListBackups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388960"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679388960"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBackups
-</span><a href="#local-6989586621679388961"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timeRangeLowerBound:ListBackups' :: Maybe POSIX
-</span><a href="Network.AWS.DynamoDB.ListBackups.html#%24sel%3AtimeRangeLowerBound%3AListBackups%27"><span class="hs-identifier hs-var">timeRangeLowerBound</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679388960"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackups"><span class="hs-identifier hs-type">ListBackups</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; ListBackups -&gt; f ListBackups)
--&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
-    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
--&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; ListBackups
--&gt; f ListBackups
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
--&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
-forall (a :: Format). Iso' (Time a) UTCTime
-</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-162"></span><span>
-</span><span id="line-163"></span><span class="hs-comment">-- | @LastEvaluatedBackupArn@ is the Amazon Resource Name (ARN) of the backup</span><span>
-</span><span id="line-164"></span><span class="hs-comment">-- last evaluated when the current page of results was returned, inclusive</span><span>
-</span><span id="line-165"></span><span class="hs-comment">-- of the current page of results. This value may be specified as the</span><span>
-</span><span id="line-166"></span><span class="hs-comment">-- @ExclusiveStartBackupArn@ of a new @ListBackups@ operation in order to</span><span>
-</span><span id="line-167"></span><span class="hs-comment">-- fetch the next page of results.</span><span>
-</span><span id="line-168"></span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#listBackups_exclusiveStartBackupArn"><span class="hs-identifier hs-type">listBackups_exclusiveStartBackupArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackups"><span class="hs-identifier hs-type">ListBackups</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-169"></span><span id="listBackups_exclusiveStartBackupArn"><span class="annot"><span class="annottext">listBackups_exclusiveStartBackupArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ListBackups -&gt; f ListBackups
-</span><a href="Network.AWS.DynamoDB.ListBackups.html#listBackups_exclusiveStartBackupArn"><span class="hs-identifier hs-var hs-var">listBackups_exclusiveStartBackupArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListBackups -&gt; Maybe Text)
+</span><a href="#local-6989586621679389672"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackups"><span class="hs-identifier hs-type">ListBackups</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- | The backups from the table specified by @TableName@ are listed.</span><span>
+</span><span id="line-177"></span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#listBackups_tableName"><span class="hs-identifier hs-type">listBackups_tableName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackups"><span class="hs-identifier hs-type">ListBackups</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span id="listBackups_tableName"><span class="annot"><span class="annottext">listBackups_tableName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ListBackups -&gt; f ListBackups
+</span><a href="Network.AWS.DynamoDB.ListBackups.html#listBackups_tableName"><span class="hs-identifier hs-var hs-var">listBackups_tableName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListBackups -&gt; Maybe Text)
 -&gt; (ListBackups -&gt; Maybe Text -&gt; ListBackups)
 -&gt; Lens ListBackups ListBackups (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackups%27"><span class="hs-identifier hs-type">ListBackups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388956"><span class="annot"><span class="annottext">Maybe Text
-exclusiveStartBackupArn :: Maybe Text
-$sel:exclusiveStartBackupArn:ListBackups' :: ListBackups -&gt; Maybe Text
-</span><a href="#local-6989586621679388956"><span class="hs-identifier hs-var hs-var">exclusiveStartBackupArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679388956"><span class="hs-identifier hs-var">exclusiveStartBackupArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388955"><span class="annot"><span class="annottext">s :: ListBackups
-</span><a href="#local-6989586621679388955"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackups%27"><span class="hs-identifier hs-type">ListBackups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388954"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679388954"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBackups
-</span><a href="#local-6989586621679388955"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exclusiveStartBackupArn:ListBackups' :: Maybe Text
-</span><a href="Network.AWS.DynamoDB.ListBackups.html#%24sel%3AexclusiveStartBackupArn%3AListBackups%27"><span class="hs-identifier hs-var">exclusiveStartBackupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679388954"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackups"><span class="hs-identifier hs-type">ListBackups</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-170"></span><span>
-</span><span id="line-171"></span><span class="hs-comment">-- | Maximum number of backups to return at once.</span><span>
-</span><span id="line-172"></span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#listBackups_limit"><span class="hs-identifier hs-type">listBackups_limit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackups"><span class="hs-identifier hs-type">ListBackups</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-173"></span><span id="listBackups_limit"><span class="annot"><span class="annottext">listBackups_limit :: (Maybe Natural -&gt; f (Maybe Natural))
--&gt; ListBackups -&gt; f ListBackups
-</span><a href="Network.AWS.DynamoDB.ListBackups.html#listBackups_limit"><span class="hs-identifier hs-var hs-var">listBackups_limit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListBackups -&gt; Maybe Natural)
--&gt; (ListBackups -&gt; Maybe Natural -&gt; ListBackups)
--&gt; Lens ListBackups ListBackups (Maybe Natural) (Maybe Natural)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackups%27"><span class="hs-identifier hs-type">ListBackups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388953"><span class="annot"><span class="annottext">Maybe Natural
-limit :: Maybe Natural
-$sel:limit:ListBackups' :: ListBackups -&gt; Maybe Natural
-</span><a href="#local-6989586621679388953"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679388953"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388952"><span class="annot"><span class="annottext">s :: ListBackups
-</span><a href="#local-6989586621679388952"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackups%27"><span class="hs-identifier hs-type">ListBackups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388951"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679388951"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBackups
-</span><a href="#local-6989586621679388952"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:ListBackups' :: Maybe Natural
-</span><a href="Network.AWS.DynamoDB.ListBackups.html#%24sel%3Alimit%3AListBackups%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679388951"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackups"><span class="hs-identifier hs-type">ListBackups</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-174"></span><span>
-</span><span id="line-175"></span><span class="hs-comment">-- | Only backups created before this time are listed. @TimeRangeUpperBound@</span><span>
-</span><span id="line-176"></span><span class="hs-comment">-- is exclusive.</span><span>
-</span><span id="line-177"></span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#listBackups_timeRangeUpperBound"><span class="hs-identifier hs-type">listBackups_timeRangeUpperBound</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackups"><span class="hs-identifier hs-type">ListBackups</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-178"></span><span id="listBackups_timeRangeUpperBound"><span class="annot"><span class="annottext">listBackups_timeRangeUpperBound :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; ListBackups -&gt; f ListBackups
-</span><a href="Network.AWS.DynamoDB.ListBackups.html#listBackups_timeRangeUpperBound"><span class="hs-identifier hs-var hs-var">listBackups_timeRangeUpperBound</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListBackups -&gt; Maybe POSIX)
--&gt; (ListBackups -&gt; Maybe POSIX -&gt; ListBackups)
--&gt; Lens ListBackups ListBackups (Maybe POSIX) (Maybe POSIX)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackups%27"><span class="hs-identifier hs-type">ListBackups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388950"><span class="annot"><span class="annottext">Maybe POSIX
-timeRangeUpperBound :: Maybe POSIX
-$sel:timeRangeUpperBound:ListBackups' :: ListBackups -&gt; Maybe POSIX
-</span><a href="#local-6989586621679388950"><span class="hs-identifier hs-var hs-var">timeRangeUpperBound</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679388950"><span class="hs-identifier hs-var">timeRangeUpperBound</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388949"><span class="annot"><span class="annottext">s :: ListBackups
-</span><a href="#local-6989586621679388949"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackups%27"><span class="hs-identifier hs-type">ListBackups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388948"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679388948"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBackups
-</span><a href="#local-6989586621679388949"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timeRangeUpperBound:ListBackups' :: Maybe POSIX
-</span><a href="Network.AWS.DynamoDB.ListBackups.html#%24sel%3AtimeRangeUpperBound%3AListBackups%27"><span class="hs-identifier hs-var">timeRangeUpperBound</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679388948"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackups"><span class="hs-identifier hs-type">ListBackups</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; ListBackups -&gt; f ListBackups)
--&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
-    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
--&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; ListBackups
--&gt; f ListBackups
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
--&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
-forall (a :: Format). Iso' (Time a) UTCTime
-</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackups%27"><span class="hs-identifier hs-type">ListBackups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389671"><span class="annot"><span class="annottext">Maybe Text
+tableName :: Maybe Text
+$sel:tableName:ListBackups' :: ListBackups -&gt; Maybe Text
+</span><a href="#local-6989586621679389671"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679389671"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389670"><span class="annot"><span class="annottext">s :: ListBackups
+</span><a href="#local-6989586621679389670"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackups%27"><span class="hs-identifier hs-type">ListBackups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389669"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679389669"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBackups
+</span><a href="#local-6989586621679389670"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableName:ListBackups' :: Maybe Text
+</span><a href="Network.AWS.DynamoDB.ListBackups.html#%24sel%3AtableName%3AListBackups%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679389669"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackups"><span class="hs-identifier hs-type">ListBackups</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackups"><span class="hs-identifier hs-type">ListBackups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-181"></span><span>  </span><span id="local-6989586621679388944"><span class="annot"><span class="annottext">page :: ListBackups -&gt; AWSResponse ListBackups -&gt; Maybe ListBackups
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679388942"><span class="annot"><span class="annottext">ListBackups
-</span><a href="#local-6989586621679388942"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679388941"><span class="annot"><span class="annottext">AWSResponse ListBackups
-</span><a href="#local-6989586621679388941"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679389665"><span class="annot"><span class="annottext">page :: ListBackups -&gt; AWSResponse ListBackups -&gt; Maybe ListBackups
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679389663"><span class="annot"><span class="annottext">ListBackups
+</span><a href="#local-6989586621679389663"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679389662"><span class="annot"><span class="annottext">AWSResponse ListBackups
+</span><a href="#local-6989586621679389662"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-182"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-183"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListBackups
 ListBackupsResponse
-</span><a href="#local-6989586621679388941"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679389662"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-184"></span><span>            </span><span class="annot"><span class="annottext">ListBackupsResponse
 -&gt; Getting (First Text) ListBackupsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -418,7 +418,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-189"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListBackups
 ListBackupsResponse
-</span><a href="#local-6989586621679388941"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679389662"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-190"></span><span>            </span><span class="annot"><span class="annottext">ListBackupsResponse
 -&gt; Getting
      (First [BackupSummary]) ListBackupsResponse [BackupSummary]
@@ -459,7 +459,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-196"></span><span>        </span><span class="annot"><span class="annottext">ListBackups
-</span><a href="#local-6989586621679388942"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679389663"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-197"></span><span>          </span><span class="annot"><span class="annottext">ListBackups -&gt; (ListBackups -&gt; ListBackups) -&gt; ListBackups
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
@@ -472,7 +472,7 @@ Lens ListBackups ListBackups (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListBackups
 ListBackupsResponse
-</span><a href="#local-6989586621679388941"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679389662"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-199"></span><span>          </span><span class="annot"><span class="annottext">ListBackupsResponse
 -&gt; Getting (First Text) ListBackupsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -493,12 +493,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-201"></span><span>
 </span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackups"><span class="hs-identifier hs-type">ListBackups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-203"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackups"><span class="hs-identifier hs-type">ListBackups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackupsResponse"><span class="hs-identifier hs-type">ListBackupsResponse</span></a></span><span>
-</span><span id="line-204"></span><span>  </span><span id="local-6989586621679388932"><span class="annot"><span class="annottext">request :: ListBackups -&gt; Request ListBackups
+</span><span id="line-204"></span><span>  </span><span id="local-6989586621679389653"><span class="annot"><span class="annottext">request :: ListBackups -&gt; Request ListBackups
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListBackups -&gt; Request ListBackups
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DynamoDB.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-205"></span><span>  </span><span id="local-6989586621679388928"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-205"></span><span>  </span><span id="local-6989586621679389649"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListBackups
 -&gt; ClientResponse ClientBody
@@ -522,38 +522,37 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-207"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679388925"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679388925"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679388924"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679388924"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679388923"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679388923"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-208"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [BackupSummary] -&gt; Int -&gt; ListBackupsResponse
+</span><span id="line-207"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679389646"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679389646"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679389645"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679389645"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679389644"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679389644"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-208"></span><span>          </span><span class="annot"><span class="annottext">Maybe [BackupSummary] -&gt; Maybe Text -&gt; Int -&gt; ListBackupsResponse
 </span><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackupsResponse%27"><span class="hs-identifier hs-var">ListBackupsResponse'</span></a></span><span>
-</span><span id="line-209"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [BackupSummary] -&gt; Int -&gt; ListBackupsResponse)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String (Maybe [BackupSummary] -&gt; Int -&gt; ListBackupsResponse)
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679388923"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;LastEvaluatedBackupArn&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-210"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe [BackupSummary] -&gt; Int -&gt; ListBackupsResponse)
+</span><span id="line-209"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [BackupSummary] -&gt; Maybe Text -&gt; Int -&gt; ListBackupsResponse)
 -&gt; Either String (Maybe [BackupSummary])
--&gt; Either String (Int -&gt; ListBackupsResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679388923"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [BackupSummary]))
+-&gt; Either String (Maybe Text -&gt; Int -&gt; ListBackupsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679389644"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [BackupSummary]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BackupSummaries&quot;</span></span><span>
-</span><span id="line-211"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [BackupSummary]))
+</span><span id="line-210"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [BackupSummary]))
 -&gt; Maybe [BackupSummary] -&gt; Either String (Maybe [BackupSummary])
 forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [BackupSummary]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-212"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; ListBackupsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; ListBackupsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679389644"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastEvaluatedBackupArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-213"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListBackupsResponse)
 -&gt; Either String Int -&gt; Either String ListBackupsResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -562,15 +561,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679388925"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679389646"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-214"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-215"></span><span>
-</span><span id="line-216"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388914"><span id="local-6989586621679388916"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackups"><span class="hs-identifier hs-type">ListBackups</span></a></span></span></span><span>
+</span><span id="line-216"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389635"><span id="local-6989586621679389637"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackups"><span class="hs-identifier hs-type">ListBackups</span></a></span></span></span><span>
 </span><span id="line-217"></span><span>
-</span><span id="line-218"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388911"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackups"><span class="hs-identifier hs-type">ListBackups</span></a></span></span><span>
+</span><span id="line-218"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389632"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackups"><span class="hs-identifier hs-type">ListBackups</span></a></span></span><span>
 </span><span id="line-219"></span><span>
 </span><span id="line-220"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackups"><span class="hs-identifier hs-type">ListBackups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-221"></span><span>  </span><span id="local-6989586621679388907"><span class="annot"><span class="annottext">toHeaders :: ListBackups -&gt; ResponseHeaders
+</span><span id="line-221"></span><span>  </span><span id="local-6989586621679389628"><span class="annot"><span class="annottext">toHeaders :: ListBackups -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-222"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListBackups -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -597,44 +596,38 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-232"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-233"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-234"></span><span>
-</span><span id="line-235"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388897"><span id="local-6989586621679388899"><span id="local-6989586621679388901"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackups"><span class="hs-identifier hs-type">ListBackups</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-236"></span><span>  </span><span id="local-6989586621679388895"><span class="annot"><span class="annottext">toJSON :: ListBackups -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackups%27"><span class="hs-identifier hs-type">ListBackups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388888"><span id="local-6989586621679388889"><span id="local-6989586621679388890"><span id="local-6989586621679388891"><span id="local-6989586621679388892"><span id="local-6989586621679388893"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-235"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389618"><span id="local-6989586621679389620"><span id="local-6989586621679389622"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackups"><span class="hs-identifier hs-type">ListBackups</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-236"></span><span>  </span><span id="local-6989586621679389616"><span class="annot"><span class="annottext">toJSON :: ListBackups -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackups%27"><span class="hs-identifier hs-type">ListBackups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389609"><span id="local-6989586621679389610"><span id="local-6989586621679389611"><span id="local-6989586621679389612"><span id="local-6989586621679389613"><span id="local-6989586621679389614"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Maybe POSIX
 Maybe BackupTypeFilter
-timeRangeUpperBound :: Maybe POSIX
-limit :: Maybe Natural
-exclusiveStartBackupArn :: Maybe Text
-timeRangeLowerBound :: Maybe POSIX
-backupType :: Maybe BackupTypeFilter
 tableName :: Maybe Text
-$sel:timeRangeUpperBound:ListBackups' :: ListBackups -&gt; Maybe POSIX
-$sel:limit:ListBackups' :: ListBackups -&gt; Maybe Natural
-$sel:exclusiveStartBackupArn:ListBackups' :: ListBackups -&gt; Maybe Text
-$sel:timeRangeLowerBound:ListBackups' :: ListBackups -&gt; Maybe POSIX
-$sel:backupType:ListBackups' :: ListBackups -&gt; Maybe BackupTypeFilter
+backupType :: Maybe BackupTypeFilter
+exclusiveStartBackupArn :: Maybe Text
+limit :: Maybe Natural
+timeRangeLowerBound :: Maybe POSIX
+timeRangeUpperBound :: Maybe POSIX
 $sel:tableName:ListBackups' :: ListBackups -&gt; Maybe Text
-</span><a href="#local-6989586621679388888"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:backupType:ListBackups' :: ListBackups -&gt; Maybe BackupTypeFilter
+$sel:exclusiveStartBackupArn:ListBackups' :: ListBackups -&gt; Maybe Text
+$sel:limit:ListBackups' :: ListBackups -&gt; Maybe Natural
+$sel:timeRangeLowerBound:ListBackups' :: ListBackups -&gt; Maybe POSIX
+$sel:timeRangeUpperBound:ListBackups' :: ListBackups -&gt; Maybe POSIX
+</span><a href="#local-6989586621679389609"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-237"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-238"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-239"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;TableName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+</span><span class="hs-string">&quot;TimeRangeUpperBound&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span>              </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679388893"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-240"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;BackupType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; BackupTypeFilter -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(BackupTypeFilter -&gt; Pair) -&gt; Maybe BackupTypeFilter -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe BackupTypeFilter
-</span><a href="#local-6989586621679388892"><span class="hs-identifier hs-var">backupType</span></a></span><span class="hs-special">,</span><span>
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679389614"><span class="hs-identifier hs-var">timeRangeUpperBound</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-241"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TimeRangeLowerBound&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -642,42 +635,48 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-242"></span><span>              </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679388891"><span class="hs-identifier hs-var">timeRangeLowerBound</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679389613"><span class="hs-identifier hs-var">timeRangeLowerBound</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-243"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ExclusiveStartBackupArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-244"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679388890"><span class="hs-identifier hs-var">exclusiveStartBackupArn</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-245"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Limit&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679388889"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-246"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;TimeRangeUpperBound&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
+</span><a href="#local-6989586621679389612"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-244"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ExclusiveStartBackupArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-247"></span><span>              </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
+</span><span id="line-245"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679388888"><span class="hs-identifier hs-var">timeRangeUpperBound</span></a></span><span>
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679389611"><span class="hs-identifier hs-var">exclusiveStartBackupArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-246"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BackupType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; BackupTypeFilter -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(BackupTypeFilter -&gt; Pair) -&gt; Maybe BackupTypeFilter -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe BackupTypeFilter
+</span><a href="#local-6989586621679389610"><span class="hs-identifier hs-var">backupType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-247"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TableName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679389609"><span class="hs-identifier hs-var">tableName</span></a></span><span>
 </span><span id="line-248"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-249"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-250"></span><span>
 </span><span id="line-251"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackups"><span class="hs-identifier hs-type">ListBackups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-252"></span><span>  </span><span id="local-6989586621679388882"><span class="annot"><span class="annottext">toPath :: ListBackups -&gt; ByteString
+</span><span id="line-252"></span><span>  </span><span id="local-6989586621679389603"><span class="annot"><span class="annottext">toPath :: ListBackups -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListBackups -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-253"></span><span>
 </span><span id="line-254"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackups"><span class="hs-identifier hs-type">ListBackups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-255"></span><span>  </span><span id="local-6989586621679388878"><span class="annot"><span class="annottext">toQuery :: ListBackups -&gt; QueryString
+</span><span id="line-255"></span><span>  </span><span id="local-6989586621679389599"><span class="annot"><span class="annottext">toQuery :: ListBackups -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListBackups -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -685,29 +684,29 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-256"></span><span>
 </span><span id="line-257"></span><span class="hs-comment">-- | /See:/ 'newListBackupsResponse' smart constructor.</span><span>
-</span><span id="line-258"></span><span id="local-6989586621679388875"><span id="local-6989586621679388876"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListBackupsResponse"><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackupsResponse"><span class="hs-identifier hs-var">ListBackupsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListBackupsResponse%27"><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackupsResponse%27"><span class="hs-identifier hs-var">ListBackupsResponse'</span></a></span></span><span>
-</span><span id="line-259"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the backup last evaluated when the current page of results</span><span>
-</span><span id="line-260"></span><span>    </span><span class="hs-comment">-- was returned, inclusive of the current page of results. This value may</span><span>
-</span><span id="line-261"></span><span>    </span><span class="hs-comment">-- be specified as the @ExclusiveStartBackupArn@ of a new @ListBackups@</span><span>
-</span><span id="line-262"></span><span>    </span><span class="hs-comment">-- operation in order to fetch the next page of results.</span><span>
-</span><span id="line-263"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-264"></span><span>    </span><span class="hs-comment">-- If @LastEvaluatedBackupArn@ is empty, then the last page of results has</span><span>
-</span><span id="line-265"></span><span>    </span><span class="hs-comment">-- been processed and there are no more results to be retrieved.</span><span>
-</span><span id="line-266"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-267"></span><span>    </span><span class="hs-comment">-- If @LastEvaluatedBackupArn@ is not empty, this may or may not indicate</span><span>
-</span><span id="line-268"></span><span>    </span><span class="hs-comment">-- that there is more data to be returned. All results are guaranteed to</span><span>
-</span><span id="line-269"></span><span>    </span><span class="hs-comment">-- have been returned if and only if no value for @LastEvaluatedBackupArn@</span><span>
-</span><span id="line-270"></span><span>    </span><span class="hs-comment">-- is returned.</span><span>
-</span><span id="line-271"></span><span>    </span><span id="%24sel%3AlastEvaluatedBackupArn%3AListBackupsResponse%27"><span class="annot"><span class="annottext">ListBackupsResponse -&gt; Maybe Text
-</span><a href="Network.AWS.DynamoDB.ListBackups.html#%24sel%3AlastEvaluatedBackupArn%3AListBackupsResponse%27"><span class="hs-identifier hs-var hs-var">lastEvaluatedBackupArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-272"></span><span>    </span><span class="hs-comment">-- | List of @BackupSummary@ objects.</span><span>
-</span><span id="line-273"></span><span>    </span><span id="%24sel%3AbackupSummaries%3AListBackupsResponse%27"><span class="annot"><span class="annottext">ListBackupsResponse -&gt; Maybe [BackupSummary]
+</span><span id="line-258"></span><span id="local-6989586621679389596"><span id="local-6989586621679389597"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListBackupsResponse"><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackupsResponse"><span class="hs-identifier hs-var">ListBackupsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListBackupsResponse%27"><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackupsResponse%27"><span class="hs-identifier hs-var">ListBackupsResponse'</span></a></span></span><span>
+</span><span id="line-259"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | List of @BackupSummary@ objects.</span><span>
+</span><span id="line-260"></span><span>    </span><span id="%24sel%3AbackupSummaries%3AListBackupsResponse%27"><span class="annot"><span class="annottext">ListBackupsResponse -&gt; Maybe [BackupSummary]
 </span><a href="Network.AWS.DynamoDB.ListBackups.html#%24sel%3AbackupSummaries%3AListBackupsResponse%27"><span class="hs-identifier hs-var hs-var">backupSummaries</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.BackupSummary.html#BackupSummary"><span class="hs-identifier hs-type">BackupSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-261"></span><span>    </span><span class="hs-comment">-- | The ARN of the backup last evaluated when the current page of results</span><span>
+</span><span id="line-262"></span><span>    </span><span class="hs-comment">-- was returned, inclusive of the current page of results. This value may</span><span>
+</span><span id="line-263"></span><span>    </span><span class="hs-comment">-- be specified as the @ExclusiveStartBackupArn@ of a new @ListBackups@</span><span>
+</span><span id="line-264"></span><span>    </span><span class="hs-comment">-- operation in order to fetch the next page of results.</span><span>
+</span><span id="line-265"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-266"></span><span>    </span><span class="hs-comment">-- If @LastEvaluatedBackupArn@ is empty, then the last page of results has</span><span>
+</span><span id="line-267"></span><span>    </span><span class="hs-comment">-- been processed and there are no more results to be retrieved.</span><span>
+</span><span id="line-268"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-269"></span><span>    </span><span class="hs-comment">-- If @LastEvaluatedBackupArn@ is not empty, this may or may not indicate</span><span>
+</span><span id="line-270"></span><span>    </span><span class="hs-comment">-- that there is more data to be returned. All results are guaranteed to</span><span>
+</span><span id="line-271"></span><span>    </span><span class="hs-comment">-- have been returned if and only if no value for @LastEvaluatedBackupArn@</span><span>
+</span><span id="line-272"></span><span>    </span><span class="hs-comment">-- is returned.</span><span>
+</span><span id="line-273"></span><span>    </span><span id="%24sel%3AlastEvaluatedBackupArn%3AListBackupsResponse%27"><span class="annot"><span class="annottext">ListBackupsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.DynamoDB.ListBackups.html#%24sel%3AlastEvaluatedBackupArn%3AListBackupsResponse%27"><span class="hs-identifier hs-var hs-var">lastEvaluatedBackupArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-274"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-275"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListBackupsResponse%27"><span class="annot"><span class="annottext">ListBackupsResponse -&gt; Int
 </span><a href="Network.AWS.DynamoDB.ListBackups.html#%24sel%3AhttpStatus%3AListBackupsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-276"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-277"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679388868"><span id="local-6989586621679388870"><span class="annot"><span class="annottext">ListBackupsResponse -&gt; ListBackupsResponse -&gt; Bool
+</span><span id="line-277"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679389589"><span id="local-6989586621679389591"><span class="annot"><span class="annottext">ListBackupsResponse -&gt; ListBackupsResponse -&gt; Bool
 (ListBackupsResponse -&gt; ListBackupsResponse -&gt; Bool)
 -&gt; (ListBackupsResponse -&gt; ListBackupsResponse -&gt; Bool)
 -&gt; Eq ListBackupsResponse
@@ -716,7 +715,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListBackupsResponse -&gt; ListBackupsResponse -&gt; Bool
 == :: ListBackupsResponse -&gt; ListBackupsResponse -&gt; Bool
 $c== :: ListBackupsResponse -&gt; ListBackupsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388860"><span id="local-6989586621679388862"><span id="local-6989586621679388864"><span id="local-6989586621679388866"><span class="annot"><span class="annottext">ReadPrec [ListBackupsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389581"><span id="local-6989586621679389583"><span id="local-6989586621679389585"><span id="local-6989586621679389587"><span class="annot"><span class="annottext">ReadPrec [ListBackupsResponse]
 ReadPrec ListBackupsResponse
 Int -&gt; ReadS ListBackupsResponse
 ReadS [ListBackupsResponse]
@@ -736,7 +735,7 @@ readList :: ReadS [ListBackupsResponse]
 $creadList :: ReadS [ListBackupsResponse]
 readsPrec :: Int -&gt; ReadS ListBackupsResponse
 $creadsPrec :: Int -&gt; ReadS ListBackupsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388854"><span id="local-6989586621679388856"><span id="local-6989586621679388858"><span class="annot"><span class="annottext">Int -&gt; ListBackupsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389575"><span id="local-6989586621679389577"><span id="local-6989586621679389579"><span class="annot"><span class="annottext">Int -&gt; ListBackupsResponse -&gt; ShowS
 [ListBackupsResponse] -&gt; ShowS
 ListBackupsResponse -&gt; String
 (Int -&gt; ListBackupsResponse -&gt; ShowS)
@@ -770,20 +769,20 @@ $cfrom :: forall x. ListBackupsResponse -&gt; Rep ListBackupsResponse x
 </span><span id="line-284"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-285"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-286"></span><span class="hs-comment">--</span><span>
-</span><span id="line-287"></span><span class="hs-comment">-- 'lastEvaluatedBackupArn', 'listBackupsResponse_lastEvaluatedBackupArn' - The ARN of the backup last evaluated when the current page of results</span><span>
-</span><span id="line-288"></span><span class="hs-comment">-- was returned, inclusive of the current page of results. This value may</span><span>
-</span><span id="line-289"></span><span class="hs-comment">-- be specified as the @ExclusiveStartBackupArn@ of a new @ListBackups@</span><span>
-</span><span id="line-290"></span><span class="hs-comment">-- operation in order to fetch the next page of results.</span><span>
-</span><span id="line-291"></span><span class="hs-comment">--</span><span>
-</span><span id="line-292"></span><span class="hs-comment">-- If @LastEvaluatedBackupArn@ is empty, then the last page of results has</span><span>
-</span><span id="line-293"></span><span class="hs-comment">-- been processed and there are no more results to be retrieved.</span><span>
-</span><span id="line-294"></span><span class="hs-comment">--</span><span>
-</span><span id="line-295"></span><span class="hs-comment">-- If @LastEvaluatedBackupArn@ is not empty, this may or may not indicate</span><span>
-</span><span id="line-296"></span><span class="hs-comment">-- that there is more data to be returned. All results are guaranteed to</span><span>
-</span><span id="line-297"></span><span class="hs-comment">-- have been returned if and only if no value for @LastEvaluatedBackupArn@</span><span>
-</span><span id="line-298"></span><span class="hs-comment">-- is returned.</span><span>
-</span><span id="line-299"></span><span class="hs-comment">--</span><span>
-</span><span id="line-300"></span><span class="hs-comment">-- 'backupSummaries', 'listBackupsResponse_backupSummaries' - List of @BackupSummary@ objects.</span><span>
+</span><span id="line-287"></span><span class="hs-comment">-- 'backupSummaries', 'listBackupsResponse_backupSummaries' - List of @BackupSummary@ objects.</span><span>
+</span><span id="line-288"></span><span class="hs-comment">--</span><span>
+</span><span id="line-289"></span><span class="hs-comment">-- 'lastEvaluatedBackupArn', 'listBackupsResponse_lastEvaluatedBackupArn' - The ARN of the backup last evaluated when the current page of results</span><span>
+</span><span id="line-290"></span><span class="hs-comment">-- was returned, inclusive of the current page of results. This value may</span><span>
+</span><span id="line-291"></span><span class="hs-comment">-- be specified as the @ExclusiveStartBackupArn@ of a new @ListBackups@</span><span>
+</span><span id="line-292"></span><span class="hs-comment">-- operation in order to fetch the next page of results.</span><span>
+</span><span id="line-293"></span><span class="hs-comment">--</span><span>
+</span><span id="line-294"></span><span class="hs-comment">-- If @LastEvaluatedBackupArn@ is empty, then the last page of results has</span><span>
+</span><span id="line-295"></span><span class="hs-comment">-- been processed and there are no more results to be retrieved.</span><span>
+</span><span id="line-296"></span><span class="hs-comment">--</span><span>
+</span><span id="line-297"></span><span class="hs-comment">-- If @LastEvaluatedBackupArn@ is not empty, this may or may not indicate</span><span>
+</span><span id="line-298"></span><span class="hs-comment">-- that there is more data to be returned. All results are guaranteed to</span><span>
+</span><span id="line-299"></span><span class="hs-comment">-- have been returned if and only if no value for @LastEvaluatedBackupArn@</span><span>
+</span><span id="line-300"></span><span class="hs-comment">-- is returned.</span><span>
 </span><span id="line-301"></span><span class="hs-comment">--</span><span>
 </span><span id="line-302"></span><span class="hs-comment">-- 'httpStatus', 'listBackupsResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-303"></span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#newListBackupsResponse"><span class="hs-identifier hs-type">newListBackupsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -791,73 +790,43 @@ $cfrom :: forall x. ListBackupsResponse -&gt; Rep ListBackupsResponse x
 </span><span id="line-305"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-306"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackupsResponse"><span class="hs-identifier hs-type">ListBackupsResponse</span></a></span><span>
 </span><span id="line-307"></span><span id="newListBackupsResponse"><span class="annot"><span class="annottext">newListBackupsResponse :: Int -&gt; ListBackupsResponse
-</span><a href="Network.AWS.DynamoDB.ListBackups.html#newListBackupsResponse"><span class="hs-identifier hs-var hs-var">newListBackupsResponse</span></a></span></span><span> </span><span id="local-6989586621679388851"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679388851"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-308"></span><span>  </span><span class="annot"><span class="annottext">ListBackupsResponse' :: Maybe Text -&gt; Maybe [BackupSummary] -&gt; Int -&gt; ListBackupsResponse
+</span><a href="Network.AWS.DynamoDB.ListBackups.html#newListBackupsResponse"><span class="hs-identifier hs-var hs-var">newListBackupsResponse</span></a></span></span><span> </span><span id="local-6989586621679389572"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679389572"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-308"></span><span>  </span><span class="annot"><span class="annottext">ListBackupsResponse' :: Maybe [BackupSummary] -&gt; Maybe Text -&gt; Int -&gt; ListBackupsResponse
 </span><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackupsResponse%27"><span class="hs-identifier hs-type">ListBackupsResponse'</span></a></span><span>
-</span><span id="line-309"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:lastEvaluatedBackupArn:ListBackupsResponse' :: Maybe Text
-</span><a href="Network.AWS.DynamoDB.ListBackups.html#%24sel%3AlastEvaluatedBackupArn%3AListBackupsResponse%27"><span class="hs-identifier hs-var">lastEvaluatedBackupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-310"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-309"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:backupSummaries:ListBackupsResponse' :: Maybe [BackupSummary]
+</span><a href="Network.AWS.DynamoDB.ListBackups.html#%24sel%3AbackupSummaries%3AListBackupsResponse%27"><span class="hs-identifier hs-var">backupSummaries</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-310"></span><span>        </span><span class="annot"><span class="annottext">Maybe [BackupSummary]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-311"></span><span>      </span><span class="annot"><span class="annottext">$sel:backupSummaries:ListBackupsResponse' :: Maybe [BackupSummary]
-</span><a href="Network.AWS.DynamoDB.ListBackups.html#%24sel%3AbackupSummaries%3AListBackupsResponse%27"><span class="hs-identifier hs-var">backupSummaries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [BackupSummary]
+</span><span id="line-311"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastEvaluatedBackupArn:ListBackupsResponse' :: Maybe Text
+</span><a href="Network.AWS.DynamoDB.ListBackups.html#%24sel%3AlastEvaluatedBackupArn%3AListBackupsResponse%27"><span class="hs-identifier hs-var">lastEvaluatedBackupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-312"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListBackupsResponse' :: Int
 </span><a href="Network.AWS.DynamoDB.ListBackups.html#%24sel%3AhttpStatus%3AListBackupsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679388851"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679389572"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-313"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-314"></span><span>
-</span><span id="line-315"></span><span class="hs-comment">-- | The ARN of the backup last evaluated when the current page of results</span><span>
-</span><span id="line-316"></span><span class="hs-comment">-- was returned, inclusive of the current page of results. This value may</span><span>
-</span><span id="line-317"></span><span class="hs-comment">-- be specified as the @ExclusiveStartBackupArn@ of a new @ListBackups@</span><span>
-</span><span id="line-318"></span><span class="hs-comment">-- operation in order to fetch the next page of results.</span><span>
-</span><span id="line-319"></span><span class="hs-comment">--</span><span>
-</span><span id="line-320"></span><span class="hs-comment">-- If @LastEvaluatedBackupArn@ is empty, then the last page of results has</span><span>
-</span><span id="line-321"></span><span class="hs-comment">-- been processed and there are no more results to be retrieved.</span><span>
-</span><span id="line-322"></span><span class="hs-comment">--</span><span>
-</span><span id="line-323"></span><span class="hs-comment">-- If @LastEvaluatedBackupArn@ is not empty, this may or may not indicate</span><span>
-</span><span id="line-324"></span><span class="hs-comment">-- that there is more data to be returned. All results are guaranteed to</span><span>
-</span><span id="line-325"></span><span class="hs-comment">-- have been returned if and only if no value for @LastEvaluatedBackupArn@</span><span>
-</span><span id="line-326"></span><span class="hs-comment">-- is returned.</span><span>
-</span><span id="line-327"></span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#listBackupsResponse_lastEvaluatedBackupArn"><span class="hs-identifier hs-type">listBackupsResponse_lastEvaluatedBackupArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackupsResponse"><span class="hs-identifier hs-type">ListBackupsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-328"></span><span id="listBackupsResponse_lastEvaluatedBackupArn"><span class="annot"><span class="annottext">listBackupsResponse_lastEvaluatedBackupArn :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ListBackupsResponse -&gt; f ListBackupsResponse
-</span><a href="Network.AWS.DynamoDB.ListBackups.html#listBackupsResponse_lastEvaluatedBackupArn"><span class="hs-identifier hs-var hs-var">listBackupsResponse_lastEvaluatedBackupArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListBackupsResponse -&gt; Maybe Text)
--&gt; (ListBackupsResponse -&gt; Maybe Text -&gt; ListBackupsResponse)
--&gt; Lens' ListBackupsResponse (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackupsResponse%27"><span class="hs-identifier hs-type">ListBackupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388850"><span class="annot"><span class="annottext">Maybe Text
-lastEvaluatedBackupArn :: Maybe Text
-$sel:lastEvaluatedBackupArn:ListBackupsResponse' :: ListBackupsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679388850"><span class="hs-identifier hs-var hs-var">lastEvaluatedBackupArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679388850"><span class="hs-identifier hs-var">lastEvaluatedBackupArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388849"><span class="annot"><span class="annottext">s :: ListBackupsResponse
-</span><a href="#local-6989586621679388849"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackupsResponse%27"><span class="hs-identifier hs-type">ListBackupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388848"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679388848"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBackupsResponse
-</span><a href="#local-6989586621679388849"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastEvaluatedBackupArn:ListBackupsResponse' :: Maybe Text
-</span><a href="Network.AWS.DynamoDB.ListBackups.html#%24sel%3AlastEvaluatedBackupArn%3AListBackupsResponse%27"><span class="hs-identifier hs-var">lastEvaluatedBackupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679388848"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackupsResponse"><span class="hs-identifier hs-type">ListBackupsResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-329"></span><span>
-</span><span id="line-330"></span><span class="hs-comment">-- | List of @BackupSummary@ objects.</span><span>
-</span><span id="line-331"></span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#listBackupsResponse_backupSummaries"><span class="hs-identifier hs-type">listBackupsResponse_backupSummaries</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackupsResponse"><span class="hs-identifier hs-type">ListBackupsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.BackupSummary.html#BackupSummary"><span class="hs-identifier hs-type">BackupSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-332"></span><span id="listBackupsResponse_backupSummaries"><span class="annot"><span class="annottext">listBackupsResponse_backupSummaries :: (Maybe [BackupSummary] -&gt; f (Maybe [BackupSummary]))
+</span><span id="line-315"></span><span class="hs-comment">-- | List of @BackupSummary@ objects.</span><span>
+</span><span id="line-316"></span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#listBackupsResponse_backupSummaries"><span class="hs-identifier hs-type">listBackupsResponse_backupSummaries</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackupsResponse"><span class="hs-identifier hs-type">ListBackupsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.BackupSummary.html#BackupSummary"><span class="hs-identifier hs-type">BackupSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-317"></span><span id="listBackupsResponse_backupSummaries"><span class="annot"><span class="annottext">listBackupsResponse_backupSummaries :: (Maybe [BackupSummary] -&gt; f (Maybe [BackupSummary]))
 -&gt; ListBackupsResponse -&gt; f ListBackupsResponse
 </span><a href="Network.AWS.DynamoDB.ListBackups.html#listBackupsResponse_backupSummaries"><span class="hs-identifier hs-var hs-var">listBackupsResponse_backupSummaries</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListBackupsResponse -&gt; Maybe [BackupSummary])
 -&gt; (ListBackupsResponse
     -&gt; Maybe [BackupSummary] -&gt; ListBackupsResponse)
 -&gt; Lens' ListBackupsResponse (Maybe [BackupSummary])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackupsResponse%27"><span class="hs-identifier hs-type">ListBackupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388847"><span class="annot"><span class="annottext">Maybe [BackupSummary]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackupsResponse%27"><span class="hs-identifier hs-type">ListBackupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389571"><span class="annot"><span class="annottext">Maybe [BackupSummary]
 backupSummaries :: Maybe [BackupSummary]
 $sel:backupSummaries:ListBackupsResponse' :: ListBackupsResponse -&gt; Maybe [BackupSummary]
-</span><a href="#local-6989586621679388847"><span class="hs-identifier hs-var hs-var">backupSummaries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [BackupSummary]
-</span><a href="#local-6989586621679388847"><span class="hs-identifier hs-var">backupSummaries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388846"><span class="annot"><span class="annottext">s :: ListBackupsResponse
-</span><a href="#local-6989586621679388846"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackupsResponse%27"><span class="hs-identifier hs-type">ListBackupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388845"><span class="annot"><span class="annottext">Maybe [BackupSummary]
-</span><a href="#local-6989586621679388845"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBackupsResponse
-</span><a href="#local-6989586621679388846"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:backupSummaries:ListBackupsResponse' :: Maybe [BackupSummary]
+</span><a href="#local-6989586621679389571"><span class="hs-identifier hs-var hs-var">backupSummaries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [BackupSummary]
+</span><a href="#local-6989586621679389571"><span class="hs-identifier hs-var">backupSummaries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389570"><span class="annot"><span class="annottext">s :: ListBackupsResponse
+</span><a href="#local-6989586621679389570"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackupsResponse%27"><span class="hs-identifier hs-type">ListBackupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389569"><span class="annot"><span class="annottext">Maybe [BackupSummary]
+</span><a href="#local-6989586621679389569"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBackupsResponse
+</span><a href="#local-6989586621679389570"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:backupSummaries:ListBackupsResponse' :: Maybe [BackupSummary]
 </span><a href="Network.AWS.DynamoDB.ListBackups.html#%24sel%3AbackupSummaries%3AListBackupsResponse%27"><span class="hs-identifier hs-var">backupSummaries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [BackupSummary]
-</span><a href="#local-6989586621679388845"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackupsResponse"><span class="hs-identifier hs-type">ListBackupsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [BackupSummary] -&gt; f (Maybe [BackupSummary]))
+</span><a href="#local-6989586621679389569"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackupsResponse"><span class="hs-identifier hs-type">ListBackupsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [BackupSummary] -&gt; f (Maybe [BackupSummary]))
  -&gt; ListBackupsResponse -&gt; f ListBackupsResponse)
 -&gt; ((Maybe [BackupSummary] -&gt; f (Maybe [BackupSummary]))
     -&gt; Maybe [BackupSummary] -&gt; f (Maybe [BackupSummary]))
@@ -877,8 +846,38 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
   [BackupSummary] [BackupSummary] [BackupSummary] [BackupSummary]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-318"></span><span>
+</span><span id="line-319"></span><span class="hs-comment">-- | The ARN of the backup last evaluated when the current page of results</span><span>
+</span><span id="line-320"></span><span class="hs-comment">-- was returned, inclusive of the current page of results. This value may</span><span>
+</span><span id="line-321"></span><span class="hs-comment">-- be specified as the @ExclusiveStartBackupArn@ of a new @ListBackups@</span><span>
+</span><span id="line-322"></span><span class="hs-comment">-- operation in order to fetch the next page of results.</span><span>
+</span><span id="line-323"></span><span class="hs-comment">--</span><span>
+</span><span id="line-324"></span><span class="hs-comment">-- If @LastEvaluatedBackupArn@ is empty, then the last page of results has</span><span>
+</span><span id="line-325"></span><span class="hs-comment">-- been processed and there are no more results to be retrieved.</span><span>
+</span><span id="line-326"></span><span class="hs-comment">--</span><span>
+</span><span id="line-327"></span><span class="hs-comment">-- If @LastEvaluatedBackupArn@ is not empty, this may or may not indicate</span><span>
+</span><span id="line-328"></span><span class="hs-comment">-- that there is more data to be returned. All results are guaranteed to</span><span>
+</span><span id="line-329"></span><span class="hs-comment">-- have been returned if and only if no value for @LastEvaluatedBackupArn@</span><span>
+</span><span id="line-330"></span><span class="hs-comment">-- is returned.</span><span>
+</span><span id="line-331"></span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#listBackupsResponse_lastEvaluatedBackupArn"><span class="hs-identifier hs-type">listBackupsResponse_lastEvaluatedBackupArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackupsResponse"><span class="hs-identifier hs-type">ListBackupsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-332"></span><span id="listBackupsResponse_lastEvaluatedBackupArn"><span class="annot"><span class="annottext">listBackupsResponse_lastEvaluatedBackupArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListBackupsResponse -&gt; f ListBackupsResponse
+</span><a href="Network.AWS.DynamoDB.ListBackups.html#listBackupsResponse_lastEvaluatedBackupArn"><span class="hs-identifier hs-var hs-var">listBackupsResponse_lastEvaluatedBackupArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListBackupsResponse -&gt; Maybe Text)
+-&gt; (ListBackupsResponse -&gt; Maybe Text -&gt; ListBackupsResponse)
+-&gt; Lens' ListBackupsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackupsResponse%27"><span class="hs-identifier hs-type">ListBackupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389567"><span class="annot"><span class="annottext">Maybe Text
+lastEvaluatedBackupArn :: Maybe Text
+$sel:lastEvaluatedBackupArn:ListBackupsResponse' :: ListBackupsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679389567"><span class="hs-identifier hs-var hs-var">lastEvaluatedBackupArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679389567"><span class="hs-identifier hs-var">lastEvaluatedBackupArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389566"><span class="annot"><span class="annottext">s :: ListBackupsResponse
+</span><a href="#local-6989586621679389566"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackupsResponse%27"><span class="hs-identifier hs-type">ListBackupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389565"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679389565"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBackupsResponse
+</span><a href="#local-6989586621679389566"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastEvaluatedBackupArn:ListBackupsResponse' :: Maybe Text
+</span><a href="Network.AWS.DynamoDB.ListBackups.html#%24sel%3AlastEvaluatedBackupArn%3AListBackupsResponse%27"><span class="hs-identifier hs-var">lastEvaluatedBackupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679389565"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackupsResponse"><span class="hs-identifier hs-type">ListBackupsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-333"></span><span>
 </span><span id="line-334"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-335"></span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#listBackupsResponse_httpStatus"><span class="hs-identifier hs-type">listBackupsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackupsResponse"><span class="hs-identifier hs-type">ListBackupsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -887,16 +886,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (ListBackupsResponse -&gt; Int -&gt; ListBackupsResponse)
 -&gt; Lens ListBackupsResponse ListBackupsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackupsResponse%27"><span class="hs-identifier hs-type">ListBackupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388843"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackupsResponse%27"><span class="hs-identifier hs-type">ListBackupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389564"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListBackupsResponse' :: ListBackupsResponse -&gt; Int
-</span><a href="#local-6989586621679388843"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679388843"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388842"><span class="annot"><span class="annottext">s :: ListBackupsResponse
-</span><a href="#local-6989586621679388842"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackupsResponse%27"><span class="hs-identifier hs-type">ListBackupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388841"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679388841"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBackupsResponse
-</span><a href="#local-6989586621679388842"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListBackupsResponse' :: Int
+</span><a href="#local-6989586621679389564"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679389564"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389563"><span class="annot"><span class="annottext">s :: ListBackupsResponse
+</span><a href="#local-6989586621679389563"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackupsResponse%27"><span class="hs-identifier hs-type">ListBackupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389562"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679389562"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBackupsResponse
+</span><a href="#local-6989586621679389563"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListBackupsResponse' :: Int
 </span><a href="Network.AWS.DynamoDB.ListBackups.html#%24sel%3AhttpStatus%3AListBackupsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679388841"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackupsResponse"><span class="hs-identifier hs-type">ListBackupsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679389562"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackupsResponse"><span class="hs-identifier hs-type">ListBackupsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-337"></span><span>
-</span><span id="line-338"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388839"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackupsResponse"><span class="hs-identifier hs-type">ListBackupsResponse</span></a></span></span><span>
+</span><span id="line-338"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389560"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListBackups.html#ListBackupsResponse"><span class="hs-identifier hs-type">ListBackupsResponse</span></a></span></span><span>
 </span><span id="line-339"></span></pre></body></html>

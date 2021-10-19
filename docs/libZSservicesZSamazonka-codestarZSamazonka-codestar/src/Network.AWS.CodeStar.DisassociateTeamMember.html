@@ -51,7 +51,7 @@
 </span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-52"></span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newDisassociateTeamMember' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679176448"><span id="local-6989586621679176449"></span></span><span class="hs-keyword">data</span><span> </span><span id="DisassociateTeamMember"><span class="annot"><a href="Network.AWS.CodeStar.DisassociateTeamMember.html#DisassociateTeamMember"><span class="hs-identifier hs-var">DisassociateTeamMember</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DisassociateTeamMember%27"><span class="annot"><a href="Network.AWS.CodeStar.DisassociateTeamMember.html#DisassociateTeamMember%27"><span class="hs-identifier hs-var">DisassociateTeamMember'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679176496"><span id="local-6989586621679176497"></span></span><span class="hs-keyword">data</span><span> </span><span id="DisassociateTeamMember"><span class="annot"><a href="Network.AWS.CodeStar.DisassociateTeamMember.html#DisassociateTeamMember"><span class="hs-identifier hs-var">DisassociateTeamMember</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DisassociateTeamMember%27"><span class="annot"><a href="Network.AWS.CodeStar.DisassociateTeamMember.html#DisassociateTeamMember%27"><span class="hs-identifier hs-var">DisassociateTeamMember'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the AWS CodeStar project from which you want to remove a team</span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-comment">-- member.</span><span>
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3AprojectId%3ADisassociateTeamMember%27"><span class="annot"><span class="annottext">DisassociateTeamMember -&gt; Text
@@ -61,7 +61,7 @@
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3AuserArn%3ADisassociateTeamMember%27"><span class="annot"><span class="annottext">DisassociateTeamMember -&gt; Text
 </span><a href="Network.AWS.CodeStar.DisassociateTeamMember.html#%24sel%3AuserArn%3ADisassociateTeamMember%27"><span class="hs-identifier hs-var hs-var">userArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679176441"><span id="local-6989586621679176443"><span class="annot"><span class="annottext">DisassociateTeamMember -&gt; DisassociateTeamMember -&gt; Bool
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679176489"><span id="local-6989586621679176491"><span class="annot"><span class="annottext">DisassociateTeamMember -&gt; DisassociateTeamMember -&gt; Bool
 (DisassociateTeamMember -&gt; DisassociateTeamMember -&gt; Bool)
 -&gt; (DisassociateTeamMember -&gt; DisassociateTeamMember -&gt; Bool)
 -&gt; Eq DisassociateTeamMember
@@ -70,7 +70,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DisassociateTeamMember -&gt; DisassociateTeamMember -&gt; Bool
 == :: DisassociateTeamMember -&gt; DisassociateTeamMember -&gt; Bool
 $c== :: DisassociateTeamMember -&gt; DisassociateTeamMember -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679176432"><span id="local-6989586621679176434"><span id="local-6989586621679176436"><span id="local-6989586621679176438"><span class="annot"><span class="annottext">ReadPrec [DisassociateTeamMember]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679176480"><span id="local-6989586621679176482"><span id="local-6989586621679176484"><span id="local-6989586621679176486"><span class="annot"><span class="annottext">ReadPrec [DisassociateTeamMember]
 ReadPrec DisassociateTeamMember
 Int -&gt; ReadS DisassociateTeamMember
 ReadS [DisassociateTeamMember]
@@ -90,7 +90,7 @@ readList :: ReadS [DisassociateTeamMember]
 $creadList :: ReadS [DisassociateTeamMember]
 readsPrec :: Int -&gt; ReadS DisassociateTeamMember
 $creadsPrec :: Int -&gt; ReadS DisassociateTeamMember
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679176425"><span id="local-6989586621679176427"><span id="local-6989586621679176429"><span class="annot"><span class="annottext">Int -&gt; DisassociateTeamMember -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679176473"><span id="local-6989586621679176475"><span id="local-6989586621679176477"><span class="annot"><span class="annottext">Int -&gt; DisassociateTeamMember -&gt; ShowS
 [DisassociateTeamMember] -&gt; ShowS
 DisassociateTeamMember -&gt; String
 (Int -&gt; DisassociateTeamMember -&gt; ShowS)
@@ -137,17 +137,17 @@ $cfrom :: forall x. DisassociateTeamMember -&gt; Rep DisassociateTeamMember x
 </span><span id="line-81"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeStar.DisassociateTeamMember.html#DisassociateTeamMember"><span class="hs-identifier hs-type">DisassociateTeamMember</span></a></span><span>
 </span><span id="line-83"></span><span id="newDisassociateTeamMember"><span class="annot"><span class="annottext">newDisassociateTeamMember :: Text -&gt; Text -&gt; DisassociateTeamMember
-</span><a href="Network.AWS.CodeStar.DisassociateTeamMember.html#newDisassociateTeamMember"><span class="hs-identifier hs-var hs-var">newDisassociateTeamMember</span></a></span></span><span> </span><span id="local-6989586621679176420"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679176420"><span class="hs-identifier hs-var">pProjectId_</span></a></span></span><span> </span><span id="local-6989586621679176419"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679176419"><span class="hs-identifier hs-var">pUserArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodeStar.DisassociateTeamMember.html#newDisassociateTeamMember"><span class="hs-identifier hs-var hs-var">newDisassociateTeamMember</span></a></span></span><span> </span><span id="local-6989586621679176468"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679176468"><span class="hs-identifier hs-var">pProjectId_</span></a></span></span><span> </span><span id="local-6989586621679176467"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679176467"><span class="hs-identifier hs-var">pUserArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>  </span><span class="annot"><span class="annottext">DisassociateTeamMember' :: Text -&gt; Text -&gt; DisassociateTeamMember
 </span><a href="Network.AWS.CodeStar.DisassociateTeamMember.html#DisassociateTeamMember%27"><span class="hs-identifier hs-type">DisassociateTeamMember'</span></a></span><span>
 </span><span id="line-85"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:projectId:DisassociateTeamMember' :: Text
 </span><a href="Network.AWS.CodeStar.DisassociateTeamMember.html#%24sel%3AprojectId%3ADisassociateTeamMember%27"><span class="hs-identifier hs-var">projectId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679176420"><span class="hs-identifier hs-var">pProjectId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679176468"><span class="hs-identifier hs-var">pProjectId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:userArn:DisassociateTeamMember' :: Text
 </span><a href="Network.AWS.CodeStar.DisassociateTeamMember.html#%24sel%3AuserArn%3ADisassociateTeamMember%27"><span class="hs-identifier hs-var">userArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679176419"><span class="hs-identifier hs-var">pUserArn_</span></a></span><span>
+</span><a href="#local-6989586621679176467"><span class="hs-identifier hs-var">pUserArn_</span></a></span><span>
 </span><span id="line-87"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- | The ID of the AWS CodeStar project from which you want to remove a team</span><span>
@@ -159,16 +159,16 @@ $cfrom :: forall x. DisassociateTeamMember -&gt; Rep DisassociateTeamMember x
 -&gt; (DisassociateTeamMember -&gt; Text -&gt; DisassociateTeamMember)
 -&gt; Lens DisassociateTeamMember DisassociateTeamMember Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.DisassociateTeamMember.html#DisassociateTeamMember%27"><span class="hs-identifier hs-type">DisassociateTeamMember'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176416"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.DisassociateTeamMember.html#DisassociateTeamMember%27"><span class="hs-identifier hs-type">DisassociateTeamMember'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176464"><span class="annot"><span class="annottext">Text
 projectId :: Text
 $sel:projectId:DisassociateTeamMember' :: DisassociateTeamMember -&gt; Text
-</span><a href="#local-6989586621679176416"><span class="hs-identifier hs-var hs-var">projectId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679176416"><span class="hs-identifier hs-var">projectId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176415"><span class="annot"><span class="annottext">s :: DisassociateTeamMember
-</span><a href="#local-6989586621679176415"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.DisassociateTeamMember.html#DisassociateTeamMember%27"><span class="hs-identifier hs-type">DisassociateTeamMember'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176414"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679176414"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisassociateTeamMember
-</span><a href="#local-6989586621679176415"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectId:DisassociateTeamMember' :: Text
+</span><a href="#local-6989586621679176464"><span class="hs-identifier hs-var hs-var">projectId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679176464"><span class="hs-identifier hs-var">projectId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176463"><span class="annot"><span class="annottext">s :: DisassociateTeamMember
+</span><a href="#local-6989586621679176463"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.DisassociateTeamMember.html#DisassociateTeamMember%27"><span class="hs-identifier hs-type">DisassociateTeamMember'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176462"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679176462"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisassociateTeamMember
+</span><a href="#local-6989586621679176463"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectId:DisassociateTeamMember' :: Text
 </span><a href="Network.AWS.CodeStar.DisassociateTeamMember.html#%24sel%3AprojectId%3ADisassociateTeamMember%27"><span class="hs-identifier hs-var">projectId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679176414"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.DisassociateTeamMember.html#DisassociateTeamMember"><span class="hs-identifier hs-type">DisassociateTeamMember</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679176462"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.DisassociateTeamMember.html#DisassociateTeamMember"><span class="hs-identifier hs-type">DisassociateTeamMember</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the IAM user or group whom you want to</span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- remove from the project.</span><span>
@@ -179,27 +179,27 @@ $sel:projectId:DisassociateTeamMember' :: DisassociateTeamMember -&gt; Text
 -&gt; (DisassociateTeamMember -&gt; Text -&gt; DisassociateTeamMember)
 -&gt; Lens DisassociateTeamMember DisassociateTeamMember Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.DisassociateTeamMember.html#DisassociateTeamMember%27"><span class="hs-identifier hs-type">DisassociateTeamMember'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176413"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.DisassociateTeamMember.html#DisassociateTeamMember%27"><span class="hs-identifier hs-type">DisassociateTeamMember'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176461"><span class="annot"><span class="annottext">Text
 userArn :: Text
 $sel:userArn:DisassociateTeamMember' :: DisassociateTeamMember -&gt; Text
-</span><a href="#local-6989586621679176413"><span class="hs-identifier hs-var hs-var">userArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679176413"><span class="hs-identifier hs-var">userArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176412"><span class="annot"><span class="annottext">s :: DisassociateTeamMember
-</span><a href="#local-6989586621679176412"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.DisassociateTeamMember.html#DisassociateTeamMember%27"><span class="hs-identifier hs-type">DisassociateTeamMember'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176411"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679176411"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisassociateTeamMember
-</span><a href="#local-6989586621679176412"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userArn:DisassociateTeamMember' :: Text
+</span><a href="#local-6989586621679176461"><span class="hs-identifier hs-var hs-var">userArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679176461"><span class="hs-identifier hs-var">userArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176460"><span class="annot"><span class="annottext">s :: DisassociateTeamMember
+</span><a href="#local-6989586621679176460"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.DisassociateTeamMember.html#DisassociateTeamMember%27"><span class="hs-identifier hs-type">DisassociateTeamMember'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176459"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679176459"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisassociateTeamMember
+</span><a href="#local-6989586621679176460"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userArn:DisassociateTeamMember' :: Text
 </span><a href="Network.AWS.CodeStar.DisassociateTeamMember.html#%24sel%3AuserArn%3ADisassociateTeamMember%27"><span class="hs-identifier hs-var">userArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679176411"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.DisassociateTeamMember.html#DisassociateTeamMember"><span class="hs-identifier hs-type">DisassociateTeamMember</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679176459"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.DisassociateTeamMember.html#DisassociateTeamMember"><span class="hs-identifier hs-type">DisassociateTeamMember</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.DisassociateTeamMember.html#DisassociateTeamMember"><span class="hs-identifier hs-type">DisassociateTeamMember</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-100"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-101"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.DisassociateTeamMember.html#DisassociateTeamMember"><span class="hs-identifier hs-type">DisassociateTeamMember</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>      </span><span class="annot"><a href="Network.AWS.CodeStar.DisassociateTeamMember.html#DisassociateTeamMemberResponse"><span class="hs-identifier hs-type">DisassociateTeamMemberResponse</span></a></span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679176407"><span class="annot"><span class="annottext">request :: DisassociateTeamMember -&gt; Request DisassociateTeamMember
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679176455"><span class="annot"><span class="annottext">request :: DisassociateTeamMember -&gt; Request DisassociateTeamMember
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DisassociateTeamMember -&gt; Request DisassociateTeamMember
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CodeStar.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679176403"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679176451"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DisassociateTeamMember
 -&gt; ClientResponse ClientBody
@@ -225,10 +225,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679176400"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679176400"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679176399"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679176399"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679176398"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679176398"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679176448"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679176448"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679176447"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679176447"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679176446"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679176446"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-107"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DisassociateTeamMemberResponse
 </span><a href="Network.AWS.CodeStar.DisassociateTeamMember.html#DisassociateTeamMemberResponse%27"><span class="hs-identifier hs-var">DisassociateTeamMemberResponse'</span></a></span><span>
 </span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DisassociateTeamMemberResponse)
@@ -240,15 +240,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679176400"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679176448"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679176391"><span id="local-6989586621679176393"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.DisassociateTeamMember.html#DisassociateTeamMember"><span class="hs-identifier hs-type">DisassociateTeamMember</span></a></span></span></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679176439"><span id="local-6989586621679176441"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.DisassociateTeamMember.html#DisassociateTeamMember"><span class="hs-identifier hs-type">DisassociateTeamMember</span></a></span></span></span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679176388"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.DisassociateTeamMember.html#DisassociateTeamMember"><span class="hs-identifier hs-type">DisassociateTeamMember</span></a></span></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679176436"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.DisassociateTeamMember.html#DisassociateTeamMember"><span class="hs-identifier hs-type">DisassociateTeamMember</span></a></span></span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.DisassociateTeamMember.html#DisassociateTeamMember"><span class="hs-identifier hs-type">DisassociateTeamMember</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679176384"><span class="annot"><span class="annottext">toHeaders :: DisassociateTeamMember -&gt; ResponseHeaders
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679176432"><span class="annot"><span class="annottext">toHeaders :: DisassociateTeamMember -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DisassociateTeamMember -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -275,14 +275,14 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-127"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-128"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679176374"><span id="local-6989586621679176376"><span id="local-6989586621679176378"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.DisassociateTeamMember.html#DisassociateTeamMember"><span class="hs-identifier hs-type">DisassociateTeamMember</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679176372"><span class="annot"><span class="annottext">toJSON :: DisassociateTeamMember -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.DisassociateTeamMember.html#DisassociateTeamMember%27"><span class="hs-identifier hs-type">DisassociateTeamMember'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176369"><span id="local-6989586621679176370"><span class="annot"><span class="annottext">Text
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679176422"><span id="local-6989586621679176424"><span id="local-6989586621679176426"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.DisassociateTeamMember.html#DisassociateTeamMember"><span class="hs-identifier hs-type">DisassociateTeamMember</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679176420"><span class="annot"><span class="annottext">toJSON :: DisassociateTeamMember -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.DisassociateTeamMember.html#DisassociateTeamMember%27"><span class="hs-identifier hs-type">DisassociateTeamMember'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176417"><span id="local-6989586621679176418"><span class="annot"><span class="annottext">Text
 userArn :: Text
 projectId :: Text
 $sel:userArn:DisassociateTeamMember' :: DisassociateTeamMember -&gt; Text
 $sel:projectId:DisassociateTeamMember' :: DisassociateTeamMember -&gt; Text
-</span><a href="#local-6989586621679176369"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679176417"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-132"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-133"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -294,26 +294,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;projectId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679176370"><span class="hs-identifier hs-var">projectId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679176418"><span class="hs-identifier hs-var">projectId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;userArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679176369"><span class="hs-identifier hs-var">userArn</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679176417"><span class="hs-identifier hs-var">userArn</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-137"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.DisassociateTeamMember.html#DisassociateTeamMember"><span class="hs-identifier hs-type">DisassociateTeamMember</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679176363"><span class="annot"><span class="annottext">toPath :: DisassociateTeamMember -&gt; ByteString
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679176411"><span class="annot"><span class="annottext">toPath :: DisassociateTeamMember -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DisassociateTeamMember -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.DisassociateTeamMember.html#DisassociateTeamMember"><span class="hs-identifier hs-type">DisassociateTeamMember</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679176359"><span class="annot"><span class="annottext">toQuery :: DisassociateTeamMember -&gt; QueryString
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679176407"><span class="annot"><span class="annottext">toQuery :: DisassociateTeamMember -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DisassociateTeamMember -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -321,12 +321,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-comment">-- | /See:/ 'newDisassociateTeamMemberResponse' smart constructor.</span><span>
-</span><span id="line-146"></span><span id="local-6989586621679176356"><span id="local-6989586621679176357"></span></span><span class="hs-keyword">data</span><span> </span><span id="DisassociateTeamMemberResponse"><span class="annot"><a href="Network.AWS.CodeStar.DisassociateTeamMember.html#DisassociateTeamMemberResponse"><span class="hs-identifier hs-var">DisassociateTeamMemberResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DisassociateTeamMemberResponse%27"><span class="annot"><a href="Network.AWS.CodeStar.DisassociateTeamMember.html#DisassociateTeamMemberResponse%27"><span class="hs-identifier hs-var">DisassociateTeamMemberResponse'</span></a></span></span><span>
+</span><span id="line-146"></span><span id="local-6989586621679176404"><span id="local-6989586621679176405"></span></span><span class="hs-keyword">data</span><span> </span><span id="DisassociateTeamMemberResponse"><span class="annot"><a href="Network.AWS.CodeStar.DisassociateTeamMember.html#DisassociateTeamMemberResponse"><span class="hs-identifier hs-var">DisassociateTeamMemberResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DisassociateTeamMemberResponse%27"><span class="annot"><a href="Network.AWS.CodeStar.DisassociateTeamMember.html#DisassociateTeamMemberResponse%27"><span class="hs-identifier hs-var">DisassociateTeamMemberResponse'</span></a></span></span><span>
 </span><span id="line-147"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-148"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADisassociateTeamMemberResponse%27"><span class="annot"><span class="annottext">DisassociateTeamMemberResponse -&gt; Int
 </span><a href="Network.AWS.CodeStar.DisassociateTeamMember.html#%24sel%3AhttpStatus%3ADisassociateTeamMemberResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-149"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-150"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679176351"><span id="local-6989586621679176353"><span class="annot"><span class="annottext">DisassociateTeamMemberResponse
+</span><span id="line-150"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679176399"><span id="local-6989586621679176401"><span class="annot"><span class="annottext">DisassociateTeamMemberResponse
 -&gt; DisassociateTeamMemberResponse -&gt; Bool
 (DisassociateTeamMemberResponse
  -&gt; DisassociateTeamMemberResponse -&gt; Bool)
@@ -342,7 +342,7 @@ $c/= :: DisassociateTeamMemberResponse
 -&gt; DisassociateTeamMemberResponse -&gt; Bool
 $c== :: DisassociateTeamMemberResponse
 -&gt; DisassociateTeamMemberResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679176343"><span id="local-6989586621679176345"><span id="local-6989586621679176347"><span id="local-6989586621679176349"><span class="annot"><span class="annottext">ReadPrec [DisassociateTeamMemberResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679176391"><span id="local-6989586621679176393"><span id="local-6989586621679176395"><span id="local-6989586621679176397"><span class="annot"><span class="annottext">ReadPrec [DisassociateTeamMemberResponse]
 ReadPrec DisassociateTeamMemberResponse
 Int -&gt; ReadS DisassociateTeamMemberResponse
 ReadS [DisassociateTeamMemberResponse]
@@ -362,7 +362,7 @@ readList :: ReadS [DisassociateTeamMemberResponse]
 $creadList :: ReadS [DisassociateTeamMemberResponse]
 readsPrec :: Int -&gt; ReadS DisassociateTeamMemberResponse
 $creadsPrec :: Int -&gt; ReadS DisassociateTeamMemberResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679176337"><span id="local-6989586621679176339"><span id="local-6989586621679176341"><span class="annot"><span class="annottext">Int -&gt; DisassociateTeamMemberResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679176385"><span id="local-6989586621679176387"><span id="local-6989586621679176389"><span class="annot"><span class="annottext">Int -&gt; DisassociateTeamMemberResponse -&gt; ShowS
 [DisassociateTeamMemberResponse] -&gt; ShowS
 DisassociateTeamMemberResponse -&gt; String
 (Int -&gt; DisassociateTeamMemberResponse -&gt; ShowS)
@@ -414,14 +414,14 @@ DisassociateTeamMemberResponse
 </span><span id="line-163"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-164"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeStar.DisassociateTeamMember.html#DisassociateTeamMemberResponse"><span class="hs-identifier hs-type">DisassociateTeamMemberResponse</span></a></span><span>
 </span><span id="line-165"></span><span id="newDisassociateTeamMemberResponse"><span class="annot"><span class="annottext">newDisassociateTeamMemberResponse :: Int -&gt; DisassociateTeamMemberResponse
-</span><a href="Network.AWS.CodeStar.DisassociateTeamMember.html#newDisassociateTeamMemberResponse"><span class="hs-identifier hs-var hs-var">newDisassociateTeamMemberResponse</span></a></span></span><span> </span><span id="local-6989586621679176334"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679176334"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodeStar.DisassociateTeamMember.html#newDisassociateTeamMemberResponse"><span class="hs-identifier hs-var hs-var">newDisassociateTeamMemberResponse</span></a></span></span><span> </span><span id="local-6989586621679176382"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679176382"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-166"></span><span>  </span><span class="annot"><span class="annottext">DisassociateTeamMemberResponse' :: Int -&gt; DisassociateTeamMemberResponse
 </span><a href="Network.AWS.CodeStar.DisassociateTeamMember.html#DisassociateTeamMemberResponse%27"><span class="hs-identifier hs-type">DisassociateTeamMemberResponse'</span></a></span><span>
 </span><span id="line-167"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DisassociateTeamMemberResponse' :: Int
 </span><a href="Network.AWS.CodeStar.DisassociateTeamMember.html#%24sel%3AhttpStatus%3ADisassociateTeamMemberResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-168"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679176334"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679176382"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-169"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-170"></span><span>
 </span><span id="line-171"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -438,18 +438,18 @@ DisassociateTeamMemberResponse
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.DisassociateTeamMember.html#DisassociateTeamMemberResponse%27"><span class="hs-identifier hs-type">DisassociateTeamMemberResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176333"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.DisassociateTeamMember.html#DisassociateTeamMemberResponse%27"><span class="hs-identifier hs-type">DisassociateTeamMemberResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176381"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DisassociateTeamMemberResponse' :: DisassociateTeamMemberResponse -&gt; Int
-</span><a href="#local-6989586621679176333"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679176333"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176332"><span class="annot"><span class="annottext">s :: DisassociateTeamMemberResponse
-</span><a href="#local-6989586621679176332"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.DisassociateTeamMember.html#DisassociateTeamMemberResponse%27"><span class="hs-identifier hs-type">DisassociateTeamMemberResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176331"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679176331"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisassociateTeamMemberResponse
-</span><a href="#local-6989586621679176332"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DisassociateTeamMemberResponse' :: Int
+</span><a href="#local-6989586621679176381"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679176381"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176380"><span class="annot"><span class="annottext">s :: DisassociateTeamMemberResponse
+</span><a href="#local-6989586621679176380"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.DisassociateTeamMember.html#DisassociateTeamMemberResponse%27"><span class="hs-identifier hs-type">DisassociateTeamMemberResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176379"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679176379"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisassociateTeamMemberResponse
+</span><a href="#local-6989586621679176380"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DisassociateTeamMemberResponse' :: Int
 </span><a href="Network.AWS.CodeStar.DisassociateTeamMember.html#%24sel%3AhttpStatus%3ADisassociateTeamMemberResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679176331"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.DisassociateTeamMember.html#DisassociateTeamMemberResponse"><span class="hs-identifier hs-type">DisassociateTeamMemberResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679176379"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.DisassociateTeamMember.html#DisassociateTeamMemberResponse"><span class="hs-identifier hs-type">DisassociateTeamMemberResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>
 </span><span id="line-175"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-176"></span><span>  </span><span id="local-6989586621679176329"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679176377"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-177"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStar.DisassociateTeamMember.html#DisassociateTeamMemberResponse"><span class="hs-identifier hs-type">DisassociateTeamMemberResponse</span></a></span></span><span>
 </span><span id="line-178"></span></pre></body></html>

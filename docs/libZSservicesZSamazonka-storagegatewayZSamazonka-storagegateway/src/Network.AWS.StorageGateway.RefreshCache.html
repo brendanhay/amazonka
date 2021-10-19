@@ -88,7 +88,7 @@
 </span><span id="line-88"></span><span class="hs-comment">-- | RefreshCacheInput</span><span>
 </span><span id="line-89"></span><span class="hs-comment">--</span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- /See:/ 'newRefreshCache' smart constructor.</span><span>
-</span><span id="line-91"></span><span id="local-6989586621679374519"><span id="local-6989586621679374520"></span></span><span class="hs-keyword">data</span><span> </span><span id="RefreshCache"><span class="annot"><a href="Network.AWS.StorageGateway.RefreshCache.html#RefreshCache"><span class="hs-identifier hs-var">RefreshCache</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RefreshCache%27"><span class="annot"><a href="Network.AWS.StorageGateway.RefreshCache.html#RefreshCache%27"><span class="hs-identifier hs-var">RefreshCache'</span></a></span></span><span>
+</span><span id="line-91"></span><span id="local-6989586621679379031"><span id="local-6989586621679379032"></span></span><span class="hs-keyword">data</span><span> </span><span id="RefreshCache"><span class="annot"><a href="Network.AWS.StorageGateway.RefreshCache.html#RefreshCache"><span class="hs-identifier hs-var">RefreshCache</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RefreshCache%27"><span class="annot"><a href="Network.AWS.StorageGateway.RefreshCache.html#RefreshCache%27"><span class="hs-identifier hs-var">RefreshCache'</span></a></span></span><span>
 </span><span id="line-92"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A comma-separated list of the paths of folders to refresh in the cache.</span><span>
 </span><span id="line-93"></span><span>    </span><span class="hs-comment">-- The default is [@\&quot;\/\&quot;@]. The default refreshes objects and folders at</span><span>
 </span><span id="line-94"></span><span>    </span><span class="hs-comment">-- the root of the Amazon S3 bucket. If @Recursive@ is set to @true@, the</span><span>
@@ -110,7 +110,7 @@
 </span><span id="line-108"></span><span>    </span><span id="%24sel%3AfileShareARN%3ARefreshCache%27"><span class="annot"><span class="annottext">RefreshCache -&gt; Text
 </span><a href="Network.AWS.StorageGateway.RefreshCache.html#%24sel%3AfileShareARN%3ARefreshCache%27"><span class="hs-identifier hs-var hs-var">fileShareARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-109"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-110"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679374511"><span id="local-6989586621679374513"><span class="annot"><span class="annottext">RefreshCache -&gt; RefreshCache -&gt; Bool
+</span><span id="line-110"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679379023"><span id="local-6989586621679379025"><span class="annot"><span class="annottext">RefreshCache -&gt; RefreshCache -&gt; Bool
 (RefreshCache -&gt; RefreshCache -&gt; Bool)
 -&gt; (RefreshCache -&gt; RefreshCache -&gt; Bool) -&gt; Eq RefreshCache
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -118,7 +118,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RefreshCache -&gt; RefreshCache -&gt; Bool
 == :: RefreshCache -&gt; RefreshCache -&gt; Bool
 $c== :: RefreshCache -&gt; RefreshCache -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679374502"><span id="local-6989586621679374504"><span id="local-6989586621679374506"><span id="local-6989586621679374508"><span class="annot"><span class="annottext">ReadPrec [RefreshCache]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679379014"><span id="local-6989586621679379016"><span id="local-6989586621679379018"><span id="local-6989586621679379020"><span class="annot"><span class="annottext">ReadPrec [RefreshCache]
 ReadPrec RefreshCache
 Int -&gt; ReadS RefreshCache
 ReadS [RefreshCache]
@@ -138,7 +138,7 @@ readList :: ReadS [RefreshCache]
 $creadList :: ReadS [RefreshCache]
 readsPrec :: Int -&gt; ReadS RefreshCache
 $creadsPrec :: Int -&gt; ReadS RefreshCache
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679374495"><span id="local-6989586621679374497"><span id="local-6989586621679374499"><span class="annot"><span class="annottext">Int -&gt; RefreshCache -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679379007"><span id="local-6989586621679379009"><span id="local-6989586621679379011"><span class="annot"><span class="annottext">Int -&gt; RefreshCache -&gt; ShowS
 [RefreshCache] -&gt; ShowS
 RefreshCache -&gt; String
 (Int -&gt; RefreshCache -&gt; ShowS)
@@ -193,8 +193,8 @@ $cfrom :: forall x. RefreshCache -&gt; Rep RefreshCache x
 </span><span id="line-138"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-139"></span><span>  </span><span class="annot"><a href="Network.AWS.StorageGateway.RefreshCache.html#RefreshCache"><span class="hs-identifier hs-type">RefreshCache</span></a></span><span>
 </span><span id="line-140"></span><span id="newRefreshCache"><span class="annot"><span class="annottext">newRefreshCache :: Text -&gt; RefreshCache
-</span><a href="Network.AWS.StorageGateway.RefreshCache.html#newRefreshCache"><span class="hs-identifier hs-var hs-var">newRefreshCache</span></a></span></span><span> </span><span id="local-6989586621679374490"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679374490"><span class="hs-identifier hs-var">pFileShareARN_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.StorageGateway.RefreshCache.html#newRefreshCache"><span class="hs-identifier hs-var hs-var">newRefreshCache</span></a></span></span><span> </span><span id="local-6989586621679379002"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679379002"><span class="hs-identifier hs-var">pFileShareARN_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-141"></span><span>  </span><span class="annot"><span class="annottext">RefreshCache' :: Maybe (NonEmpty Text) -&gt; Maybe Bool -&gt; Text -&gt; RefreshCache
 </span><a href="Network.AWS.StorageGateway.RefreshCache.html#RefreshCache%27"><span class="hs-identifier hs-type">RefreshCache'</span></a></span><span>
 </span><span id="line-142"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:folderList:RefreshCache' :: Maybe (NonEmpty Text)
@@ -207,7 +207,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-144"></span><span>      </span><span class="annot"><span class="annottext">$sel:fileShareARN:RefreshCache' :: Text
 </span><a href="Network.AWS.StorageGateway.RefreshCache.html#%24sel%3AfileShareARN%3ARefreshCache%27"><span class="hs-identifier hs-var">fileShareARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679374490"><span class="hs-identifier hs-var">pFileShareARN_</span></a></span><span>
+</span><a href="#local-6989586621679379002"><span class="hs-identifier hs-var">pFileShareARN_</span></a></span><span>
 </span><span id="line-145"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-comment">-- | A comma-separated list of the paths of folders to refresh in the cache.</span><span>
@@ -225,16 +225,16 @@ forall a. Maybe a
      (Maybe (NonEmpty Text))
      (Maybe (NonEmpty Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.RefreshCache.html#RefreshCache%27"><span class="hs-identifier hs-type">RefreshCache'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374487"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.RefreshCache.html#RefreshCache%27"><span class="hs-identifier hs-type">RefreshCache'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378999"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
 folderList :: Maybe (NonEmpty Text)
 $sel:folderList:RefreshCache' :: RefreshCache -&gt; Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679374487"><span class="hs-identifier hs-var hs-var">folderList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679374487"><span class="hs-identifier hs-var">folderList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374486"><span class="annot"><span class="annottext">s :: RefreshCache
-</span><a href="#local-6989586621679374486"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.RefreshCache.html#RefreshCache%27"><span class="hs-identifier hs-type">RefreshCache'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374485"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679374485"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RefreshCache
-</span><a href="#local-6989586621679374486"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:folderList:RefreshCache' :: Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679378999"><span class="hs-identifier hs-var hs-var">folderList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679378999"><span class="hs-identifier hs-var">folderList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378998"><span class="annot"><span class="annottext">s :: RefreshCache
+</span><a href="#local-6989586621679378998"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.RefreshCache.html#RefreshCache%27"><span class="hs-identifier hs-type">RefreshCache'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378997"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679378997"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RefreshCache
+</span><a href="#local-6989586621679378998"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:folderList:RefreshCache' :: Maybe (NonEmpty Text)
 </span><a href="Network.AWS.StorageGateway.RefreshCache.html#%24sel%3AfolderList%3ARefreshCache%27"><span class="hs-identifier hs-var">folderList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679374485"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.RefreshCache.html#RefreshCache"><span class="hs-identifier hs-type">RefreshCache</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+</span><a href="#local-6989586621679378997"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.RefreshCache.html#RefreshCache"><span class="hs-identifier hs-type">RefreshCache</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
  -&gt; RefreshCache -&gt; f RefreshCache)
 -&gt; ((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
     -&gt; Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
@@ -254,8 +254,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
   (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-153"></span><span>
 </span><span id="line-154"></span><span class="hs-comment">-- | A value that specifies whether to recursively refresh folders in the</span><span>
 </span><span id="line-155"></span><span class="hs-comment">-- cache. The refresh includes folders that were in the cache the last time</span><span>
@@ -272,16 +272,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (RefreshCache -&gt; Maybe Bool -&gt; RefreshCache)
 -&gt; Lens RefreshCache RefreshCache (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.RefreshCache.html#RefreshCache%27"><span class="hs-identifier hs-type">RefreshCache'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374481"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.RefreshCache.html#RefreshCache%27"><span class="hs-identifier hs-type">RefreshCache'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378993"><span class="annot"><span class="annottext">Maybe Bool
 recursive :: Maybe Bool
 $sel:recursive:RefreshCache' :: RefreshCache -&gt; Maybe Bool
-</span><a href="#local-6989586621679374481"><span class="hs-identifier hs-var hs-var">recursive</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679374481"><span class="hs-identifier hs-var">recursive</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374480"><span class="annot"><span class="annottext">s :: RefreshCache
-</span><a href="#local-6989586621679374480"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.RefreshCache.html#RefreshCache%27"><span class="hs-identifier hs-type">RefreshCache'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374479"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679374479"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RefreshCache
-</span><a href="#local-6989586621679374480"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:recursive:RefreshCache' :: Maybe Bool
+</span><a href="#local-6989586621679378993"><span class="hs-identifier hs-var hs-var">recursive</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679378993"><span class="hs-identifier hs-var">recursive</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378992"><span class="annot"><span class="annottext">s :: RefreshCache
+</span><a href="#local-6989586621679378992"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.RefreshCache.html#RefreshCache%27"><span class="hs-identifier hs-type">RefreshCache'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378991"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679378991"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RefreshCache
+</span><a href="#local-6989586621679378992"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:recursive:RefreshCache' :: Maybe Bool
 </span><a href="Network.AWS.StorageGateway.RefreshCache.html#%24sel%3Arecursive%3ARefreshCache%27"><span class="hs-identifier hs-var">recursive</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679374479"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.RefreshCache.html#RefreshCache"><span class="hs-identifier hs-type">RefreshCache</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679378991"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.RefreshCache.html#RefreshCache"><span class="hs-identifier hs-type">RefreshCache</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-165"></span><span>
 </span><span id="line-166"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the file share you want to refresh.</span><span>
 </span><span id="line-167"></span><span class="annot"><a href="Network.AWS.StorageGateway.RefreshCache.html#refreshCache_fileShareARN"><span class="hs-identifier hs-type">refreshCache_fileShareARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.RefreshCache.html#RefreshCache"><span class="hs-identifier hs-type">RefreshCache</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -290,25 +290,25 @@ $sel:recursive:RefreshCache' :: RefreshCache -&gt; Maybe Bool
 -&gt; (RefreshCache -&gt; Text -&gt; RefreshCache)
 -&gt; Lens RefreshCache RefreshCache Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.RefreshCache.html#RefreshCache%27"><span class="hs-identifier hs-type">RefreshCache'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374478"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.RefreshCache.html#RefreshCache%27"><span class="hs-identifier hs-type">RefreshCache'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378990"><span class="annot"><span class="annottext">Text
 fileShareARN :: Text
 $sel:fileShareARN:RefreshCache' :: RefreshCache -&gt; Text
-</span><a href="#local-6989586621679374478"><span class="hs-identifier hs-var hs-var">fileShareARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679374478"><span class="hs-identifier hs-var">fileShareARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374477"><span class="annot"><span class="annottext">s :: RefreshCache
-</span><a href="#local-6989586621679374477"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.RefreshCache.html#RefreshCache%27"><span class="hs-identifier hs-type">RefreshCache'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374476"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679374476"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RefreshCache
-</span><a href="#local-6989586621679374477"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fileShareARN:RefreshCache' :: Text
+</span><a href="#local-6989586621679378990"><span class="hs-identifier hs-var hs-var">fileShareARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679378990"><span class="hs-identifier hs-var">fileShareARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378989"><span class="annot"><span class="annottext">s :: RefreshCache
+</span><a href="#local-6989586621679378989"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.RefreshCache.html#RefreshCache%27"><span class="hs-identifier hs-type">RefreshCache'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378988"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679378988"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RefreshCache
+</span><a href="#local-6989586621679378989"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fileShareARN:RefreshCache' :: Text
 </span><a href="Network.AWS.StorageGateway.RefreshCache.html#%24sel%3AfileShareARN%3ARefreshCache%27"><span class="hs-identifier hs-var">fileShareARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679374476"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.RefreshCache.html#RefreshCache"><span class="hs-identifier hs-type">RefreshCache</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679378988"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.RefreshCache.html#RefreshCache"><span class="hs-identifier hs-type">RefreshCache</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-169"></span><span>
 </span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.RefreshCache.html#RefreshCache"><span class="hs-identifier hs-type">RefreshCache</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-171"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.RefreshCache.html#RefreshCache"><span class="hs-identifier hs-type">RefreshCache</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.RefreshCache.html#RefreshCacheResponse"><span class="hs-identifier hs-type">RefreshCacheResponse</span></a></span><span>
-</span><span id="line-172"></span><span>  </span><span id="local-6989586621679374472"><span class="annot"><span class="annottext">request :: RefreshCache -&gt; Request RefreshCache
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679378984"><span class="annot"><span class="annottext">request :: RefreshCache -&gt; Request RefreshCache
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; RefreshCache -&gt; Request RefreshCache
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.StorageGateway.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-173"></span><span>  </span><span id="local-6989586621679374468"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679378980"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy RefreshCache
 -&gt; ClientResponse ClientBody
@@ -332,10 +332,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-175"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679374465"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679374465"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679374464"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679374464"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679374463"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679374463"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-175"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679378977"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679378977"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679378976"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679378976"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679378975"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679378975"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-176"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Int -&gt; RefreshCacheResponse
 </span><a href="Network.AWS.StorageGateway.RefreshCache.html#RefreshCacheResponse%27"><span class="hs-identifier hs-var">RefreshCacheResponse'</span></a></span><span>
 </span><span id="line-177"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Int -&gt; RefreshCacheResponse)
@@ -343,7 +343,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe Text -&gt; Int -&gt; RefreshCacheResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679374463"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679378975"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FileShareARN&quot;</span></span><span class="hs-special">)</span><span>
@@ -352,7 +352,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; RefreshCacheResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679374463"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679378975"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NotificationId&quot;</span></span><span class="hs-special">)</span><span>
@@ -364,15 +364,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679374465"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679378977"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-180"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-181"></span><span>
-</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679374455"><span id="local-6989586621679374457"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.RefreshCache.html#RefreshCache"><span class="hs-identifier hs-type">RefreshCache</span></a></span></span></span><span>
+</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679378967"><span id="local-6989586621679378969"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.RefreshCache.html#RefreshCache"><span class="hs-identifier hs-type">RefreshCache</span></a></span></span></span><span>
 </span><span id="line-183"></span><span>
-</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679374452"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.RefreshCache.html#RefreshCache"><span class="hs-identifier hs-type">RefreshCache</span></a></span></span><span>
+</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679378964"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.RefreshCache.html#RefreshCache"><span class="hs-identifier hs-type">RefreshCache</span></a></span></span><span>
 </span><span id="line-185"></span><span>
 </span><span id="line-186"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.RefreshCache.html#RefreshCache"><span class="hs-identifier hs-type">RefreshCache</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-187"></span><span>  </span><span id="local-6989586621679374448"><span class="annot"><span class="annottext">toHeaders :: RefreshCache -&gt; ResponseHeaders
+</span><span id="line-187"></span><span>  </span><span id="local-6989586621679378960"><span class="annot"><span class="annottext">toHeaders :: RefreshCache -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-188"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; RefreshCache -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -399,9 +399,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-198"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-199"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-200"></span><span>
-</span><span id="line-201"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679374438"><span id="local-6989586621679374440"><span id="local-6989586621679374442"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.RefreshCache.html#RefreshCache"><span class="hs-identifier hs-type">RefreshCache</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-202"></span><span>  </span><span id="local-6989586621679374436"><span class="annot"><span class="annottext">toJSON :: RefreshCache -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.RefreshCache.html#RefreshCache%27"><span class="hs-identifier hs-type">RefreshCache'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374432"><span id="local-6989586621679374433"><span id="local-6989586621679374434"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-201"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679378950"><span id="local-6989586621679378952"><span id="local-6989586621679378954"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.RefreshCache.html#RefreshCache"><span class="hs-identifier hs-type">RefreshCache</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-202"></span><span>  </span><span id="local-6989586621679378948"><span class="annot"><span class="annottext">toJSON :: RefreshCache -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.RefreshCache.html#RefreshCache%27"><span class="hs-identifier hs-type">RefreshCache'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378944"><span id="local-6989586621679378945"><span id="local-6989586621679378946"><span class="annot"><span class="annottext">Maybe Bool
 Maybe (NonEmpty Text)
 Text
 fileShareARN :: Text
@@ -410,7 +410,7 @@ folderList :: Maybe (NonEmpty Text)
 $sel:fileShareARN:RefreshCache' :: RefreshCache -&gt; Text
 $sel:recursive:RefreshCache' :: RefreshCache -&gt; Maybe Bool
 $sel:folderList:RefreshCache' :: RefreshCache -&gt; Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679374432"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679378944"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-203"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-204"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -422,33 +422,33 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; Pair) -&gt; Maybe (NonEmpty Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679374434"><span class="hs-identifier hs-var">folderList</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679378946"><span class="hs-identifier hs-var">folderList</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-206"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Recursive&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679374433"><span class="hs-identifier hs-var">recursive</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679378945"><span class="hs-identifier hs-var">recursive</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-207"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FileShareARN&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679374432"><span class="hs-identifier hs-var">fileShareARN</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679378944"><span class="hs-identifier hs-var">fileShareARN</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-208"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-209"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-210"></span><span>
 </span><span id="line-211"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.RefreshCache.html#RefreshCache"><span class="hs-identifier hs-type">RefreshCache</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-212"></span><span>  </span><span id="local-6989586621679374426"><span class="annot"><span class="annottext">toPath :: RefreshCache -&gt; ByteString
+</span><span id="line-212"></span><span>  </span><span id="local-6989586621679378938"><span class="annot"><span class="annottext">toPath :: RefreshCache -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; RefreshCache -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-213"></span><span>
 </span><span id="line-214"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.RefreshCache.html#RefreshCache"><span class="hs-identifier hs-type">RefreshCache</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-215"></span><span>  </span><span id="local-6989586621679374422"><span class="annot"><span class="annottext">toQuery :: RefreshCache -&gt; QueryString
+</span><span id="line-215"></span><span>  </span><span id="local-6989586621679378934"><span class="annot"><span class="annottext">toQuery :: RefreshCache -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; RefreshCache -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -458,7 +458,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-217"></span><span class="hs-comment">-- | RefreshCacheOutput</span><span>
 </span><span id="line-218"></span><span class="hs-comment">--</span><span>
 </span><span id="line-219"></span><span class="hs-comment">-- /See:/ 'newRefreshCacheResponse' smart constructor.</span><span>
-</span><span id="line-220"></span><span id="local-6989586621679374419"><span id="local-6989586621679374420"></span></span><span class="hs-keyword">data</span><span> </span><span id="RefreshCacheResponse"><span class="annot"><a href="Network.AWS.StorageGateway.RefreshCache.html#RefreshCacheResponse"><span class="hs-identifier hs-var">RefreshCacheResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RefreshCacheResponse%27"><span class="annot"><a href="Network.AWS.StorageGateway.RefreshCache.html#RefreshCacheResponse%27"><span class="hs-identifier hs-var">RefreshCacheResponse'</span></a></span></span><span>
+</span><span id="line-220"></span><span id="local-6989586621679378931"><span id="local-6989586621679378932"></span></span><span class="hs-keyword">data</span><span> </span><span id="RefreshCacheResponse"><span class="annot"><a href="Network.AWS.StorageGateway.RefreshCache.html#RefreshCacheResponse"><span class="hs-identifier hs-var">RefreshCacheResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RefreshCacheResponse%27"><span class="annot"><a href="Network.AWS.StorageGateway.RefreshCache.html#RefreshCacheResponse%27"><span class="hs-identifier hs-var">RefreshCacheResponse'</span></a></span></span><span>
 </span><span id="line-221"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AfileShareARN%3ARefreshCacheResponse%27"><span class="annot"><span class="annottext">RefreshCacheResponse -&gt; Maybe Text
 </span><a href="Network.AWS.StorageGateway.RefreshCache.html#%24sel%3AfileShareARN%3ARefreshCacheResponse%27"><span class="hs-identifier hs-var hs-var">fileShareARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-222"></span><span>    </span><span id="%24sel%3AnotificationId%3ARefreshCacheResponse%27"><span class="annot"><span class="annottext">RefreshCacheResponse -&gt; Maybe Text
@@ -467,7 +467,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-224"></span><span>    </span><span id="%24sel%3AhttpStatus%3ARefreshCacheResponse%27"><span class="annot"><span class="annottext">RefreshCacheResponse -&gt; Int
 </span><a href="Network.AWS.StorageGateway.RefreshCache.html#%24sel%3AhttpStatus%3ARefreshCacheResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-225"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-226"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679374412"><span id="local-6989586621679374414"><span class="annot"><span class="annottext">RefreshCacheResponse -&gt; RefreshCacheResponse -&gt; Bool
+</span><span id="line-226"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679378924"><span id="local-6989586621679378926"><span class="annot"><span class="annottext">RefreshCacheResponse -&gt; RefreshCacheResponse -&gt; Bool
 (RefreshCacheResponse -&gt; RefreshCacheResponse -&gt; Bool)
 -&gt; (RefreshCacheResponse -&gt; RefreshCacheResponse -&gt; Bool)
 -&gt; Eq RefreshCacheResponse
@@ -476,7 +476,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RefreshCacheResponse -&gt; RefreshCacheResponse -&gt; Bool
 == :: RefreshCacheResponse -&gt; RefreshCacheResponse -&gt; Bool
 $c== :: RefreshCacheResponse -&gt; RefreshCacheResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679374404"><span id="local-6989586621679374406"><span id="local-6989586621679374408"><span id="local-6989586621679374410"><span class="annot"><span class="annottext">ReadPrec [RefreshCacheResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679378916"><span id="local-6989586621679378918"><span id="local-6989586621679378920"><span id="local-6989586621679378922"><span class="annot"><span class="annottext">ReadPrec [RefreshCacheResponse]
 ReadPrec RefreshCacheResponse
 Int -&gt; ReadS RefreshCacheResponse
 ReadS [RefreshCacheResponse]
@@ -496,7 +496,7 @@ readList :: ReadS [RefreshCacheResponse]
 $creadList :: ReadS [RefreshCacheResponse]
 readsPrec :: Int -&gt; ReadS RefreshCacheResponse
 $creadsPrec :: Int -&gt; ReadS RefreshCacheResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679374398"><span id="local-6989586621679374400"><span id="local-6989586621679374402"><span class="annot"><span class="annottext">Int -&gt; RefreshCacheResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679378910"><span id="local-6989586621679378912"><span id="local-6989586621679378914"><span class="annot"><span class="annottext">Int -&gt; RefreshCacheResponse -&gt; ShowS
 [RefreshCacheResponse] -&gt; ShowS
 RefreshCacheResponse -&gt; String
 (Int -&gt; RefreshCacheResponse -&gt; ShowS)
@@ -540,8 +540,8 @@ $cfrom :: forall x. RefreshCacheResponse -&gt; Rep RefreshCacheResponse x
 </span><span id="line-243"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-244"></span><span>  </span><span class="annot"><a href="Network.AWS.StorageGateway.RefreshCache.html#RefreshCacheResponse"><span class="hs-identifier hs-type">RefreshCacheResponse</span></a></span><span>
 </span><span id="line-245"></span><span id="newRefreshCacheResponse"><span class="annot"><span class="annottext">newRefreshCacheResponse :: Int -&gt; RefreshCacheResponse
-</span><a href="Network.AWS.StorageGateway.RefreshCache.html#newRefreshCacheResponse"><span class="hs-identifier hs-var hs-var">newRefreshCacheResponse</span></a></span></span><span> </span><span id="local-6989586621679374395"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679374395"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.StorageGateway.RefreshCache.html#newRefreshCacheResponse"><span class="hs-identifier hs-var hs-var">newRefreshCacheResponse</span></a></span></span><span> </span><span id="local-6989586621679378907"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679378907"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-246"></span><span>  </span><span class="annot"><span class="annottext">RefreshCacheResponse' :: Maybe Text -&gt; Maybe Text -&gt; Int -&gt; RefreshCacheResponse
 </span><a href="Network.AWS.StorageGateway.RefreshCache.html#RefreshCacheResponse%27"><span class="hs-identifier hs-type">RefreshCacheResponse'</span></a></span><span>
 </span><span id="line-247"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:fileShareARN:RefreshCacheResponse' :: Maybe Text
@@ -555,7 +555,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-250"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:RefreshCacheResponse' :: Int
 </span><a href="Network.AWS.StorageGateway.RefreshCache.html#%24sel%3AhttpStatus%3ARefreshCacheResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679374395"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679378907"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-251"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-252"></span><span>
 </span><span id="line-253"></span><span class="hs-comment">-- | Undocumented member.</span><span>
@@ -567,16 +567,16 @@ forall a. Maybe a
 -&gt; Lens
      RefreshCacheResponse RefreshCacheResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.RefreshCache.html#RefreshCacheResponse%27"><span class="hs-identifier hs-type">RefreshCacheResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374394"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.RefreshCache.html#RefreshCacheResponse%27"><span class="hs-identifier hs-type">RefreshCacheResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378906"><span class="annot"><span class="annottext">Maybe Text
 fileShareARN :: Maybe Text
 $sel:fileShareARN:RefreshCacheResponse' :: RefreshCacheResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679374394"><span class="hs-identifier hs-var hs-var">fileShareARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679374394"><span class="hs-identifier hs-var">fileShareARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374393"><span class="annot"><span class="annottext">s :: RefreshCacheResponse
-</span><a href="#local-6989586621679374393"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.RefreshCache.html#RefreshCacheResponse%27"><span class="hs-identifier hs-type">RefreshCacheResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374392"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679374392"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RefreshCacheResponse
-</span><a href="#local-6989586621679374393"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fileShareARN:RefreshCacheResponse' :: Maybe Text
+</span><a href="#local-6989586621679378906"><span class="hs-identifier hs-var hs-var">fileShareARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679378906"><span class="hs-identifier hs-var">fileShareARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378905"><span class="annot"><span class="annottext">s :: RefreshCacheResponse
+</span><a href="#local-6989586621679378905"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.RefreshCache.html#RefreshCacheResponse%27"><span class="hs-identifier hs-type">RefreshCacheResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378904"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679378904"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RefreshCacheResponse
+</span><a href="#local-6989586621679378905"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fileShareARN:RefreshCacheResponse' :: Maybe Text
 </span><a href="Network.AWS.StorageGateway.RefreshCache.html#%24sel%3AfileShareARN%3ARefreshCacheResponse%27"><span class="hs-identifier hs-var">fileShareARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679374392"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.RefreshCache.html#RefreshCacheResponse"><span class="hs-identifier hs-type">RefreshCacheResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679378904"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.RefreshCache.html#RefreshCacheResponse"><span class="hs-identifier hs-type">RefreshCacheResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-256"></span><span>
 </span><span id="line-257"></span><span class="hs-comment">-- | Undocumented member.</span><span>
 </span><span id="line-258"></span><span class="annot"><a href="Network.AWS.StorageGateway.RefreshCache.html#refreshCacheResponse_notificationId"><span class="hs-identifier hs-type">refreshCacheResponse_notificationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.RefreshCache.html#RefreshCacheResponse"><span class="hs-identifier hs-type">RefreshCacheResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -587,16 +587,16 @@ $sel:fileShareARN:RefreshCacheResponse' :: RefreshCacheResponse -&gt; Maybe Text
 -&gt; Lens
      RefreshCacheResponse RefreshCacheResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.RefreshCache.html#RefreshCacheResponse%27"><span class="hs-identifier hs-type">RefreshCacheResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374391"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.RefreshCache.html#RefreshCacheResponse%27"><span class="hs-identifier hs-type">RefreshCacheResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378903"><span class="annot"><span class="annottext">Maybe Text
 notificationId :: Maybe Text
 $sel:notificationId:RefreshCacheResponse' :: RefreshCacheResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679374391"><span class="hs-identifier hs-var hs-var">notificationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679374391"><span class="hs-identifier hs-var">notificationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374390"><span class="annot"><span class="annottext">s :: RefreshCacheResponse
-</span><a href="#local-6989586621679374390"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.RefreshCache.html#RefreshCacheResponse%27"><span class="hs-identifier hs-type">RefreshCacheResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374389"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679374389"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RefreshCacheResponse
-</span><a href="#local-6989586621679374390"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notificationId:RefreshCacheResponse' :: Maybe Text
+</span><a href="#local-6989586621679378903"><span class="hs-identifier hs-var hs-var">notificationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679378903"><span class="hs-identifier hs-var">notificationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378902"><span class="annot"><span class="annottext">s :: RefreshCacheResponse
+</span><a href="#local-6989586621679378902"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.RefreshCache.html#RefreshCacheResponse%27"><span class="hs-identifier hs-type">RefreshCacheResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378901"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679378901"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RefreshCacheResponse
+</span><a href="#local-6989586621679378902"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notificationId:RefreshCacheResponse' :: Maybe Text
 </span><a href="Network.AWS.StorageGateway.RefreshCache.html#%24sel%3AnotificationId%3ARefreshCacheResponse%27"><span class="hs-identifier hs-var">notificationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679374389"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.RefreshCache.html#RefreshCacheResponse"><span class="hs-identifier hs-type">RefreshCacheResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679378901"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.RefreshCache.html#RefreshCacheResponse"><span class="hs-identifier hs-type">RefreshCacheResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-260"></span><span>
 </span><span id="line-261"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-262"></span><span class="annot"><a href="Network.AWS.StorageGateway.RefreshCache.html#refreshCacheResponse_httpStatus"><span class="hs-identifier hs-type">refreshCacheResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.RefreshCache.html#RefreshCacheResponse"><span class="hs-identifier hs-type">RefreshCacheResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -605,16 +605,16 @@ $sel:notificationId:RefreshCacheResponse' :: RefreshCacheResponse -&gt; Maybe Te
 -&gt; (RefreshCacheResponse -&gt; Int -&gt; RefreshCacheResponse)
 -&gt; Lens RefreshCacheResponse RefreshCacheResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.RefreshCache.html#RefreshCacheResponse%27"><span class="hs-identifier hs-type">RefreshCacheResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374388"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.RefreshCache.html#RefreshCacheResponse%27"><span class="hs-identifier hs-type">RefreshCacheResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378900"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:RefreshCacheResponse' :: RefreshCacheResponse -&gt; Int
-</span><a href="#local-6989586621679374388"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679374388"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374387"><span class="annot"><span class="annottext">s :: RefreshCacheResponse
-</span><a href="#local-6989586621679374387"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.RefreshCache.html#RefreshCacheResponse%27"><span class="hs-identifier hs-type">RefreshCacheResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374386"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679374386"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RefreshCacheResponse
-</span><a href="#local-6989586621679374387"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RefreshCacheResponse' :: Int
+</span><a href="#local-6989586621679378900"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679378900"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378899"><span class="annot"><span class="annottext">s :: RefreshCacheResponse
+</span><a href="#local-6989586621679378899"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.RefreshCache.html#RefreshCacheResponse%27"><span class="hs-identifier hs-type">RefreshCacheResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378898"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679378898"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RefreshCacheResponse
+</span><a href="#local-6989586621679378899"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RefreshCacheResponse' :: Int
 </span><a href="Network.AWS.StorageGateway.RefreshCache.html#%24sel%3AhttpStatus%3ARefreshCacheResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679374386"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.RefreshCache.html#RefreshCacheResponse"><span class="hs-identifier hs-type">RefreshCacheResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679378898"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.RefreshCache.html#RefreshCacheResponse"><span class="hs-identifier hs-type">RefreshCacheResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-264"></span><span>
-</span><span id="line-265"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679374384"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.RefreshCache.html#RefreshCacheResponse"><span class="hs-identifier hs-type">RefreshCacheResponse</span></a></span></span><span>
+</span><span id="line-265"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679378896"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.RefreshCache.html#RefreshCacheResponse"><span class="hs-identifier hs-type">RefreshCacheResponse</span></a></span></span><span>
 </span><span id="line-266"></span></pre></body></html>

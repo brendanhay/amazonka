@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679772707"><span id="local-6989586621679772708"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AggregationTypeName"><span class="annot"><a href="Network.AWS.IoT.Types.AggregationTypeName.html#AggregationTypeName"><span class="hs-identifier hs-var">AggregationTypeName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AggregationTypeName%27"><span class="annot"><a href="Network.AWS.IoT.Types.AggregationTypeName.html#AggregationTypeName%27"><span class="hs-identifier hs-var">AggregationTypeName'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679773548"><span id="local-6989586621679773549"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AggregationTypeName"><span class="annot"><a href="Network.AWS.IoT.Types.AggregationTypeName.html#AggregationTypeName"><span class="hs-identifier hs-var">AggregationTypeName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AggregationTypeName%27"><span class="annot"><a href="Network.AWS.IoT.Types.AggregationTypeName.html#AggregationTypeName%27"><span class="hs-identifier hs-var">AggregationTypeName'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAggregationTypeName"><span class="annot"><span class="annottext">AggregationTypeName -&gt; Text
 </span><a href="Network.AWS.IoT.Types.AggregationTypeName.html#fromAggregationTypeName"><span class="hs-identifier hs-var hs-var">fromAggregationTypeName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679772699"><span id="local-6989586621679772701"><span id="local-6989586621679772703"><span class="annot"><span class="annottext">Int -&gt; AggregationTypeName -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679773540"><span id="local-6989586621679773542"><span id="local-6989586621679773544"><span class="annot"><span class="annottext">Int -&gt; AggregationTypeName -&gt; ShowS
 [AggregationTypeName] -&gt; ShowS
 AggregationTypeName -&gt; String
 (Int -&gt; AggregationTypeName -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: AggregationTypeName -&gt; String
 showsPrec :: Int -&gt; AggregationTypeName -&gt; ShowS
 $cshowsPrec :: Int -&gt; AggregationTypeName -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679772690"><span id="local-6989586621679772692"><span id="local-6989586621679772694"><span id="local-6989586621679772696"><span class="annot"><span class="annottext">ReadPrec [AggregationTypeName]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679773531"><span id="local-6989586621679773533"><span id="local-6989586621679773535"><span id="local-6989586621679773537"><span class="annot"><span class="annottext">ReadPrec [AggregationTypeName]
 ReadPrec AggregationTypeName
 Int -&gt; ReadS AggregationTypeName
 ReadS [AggregationTypeName]
@@ -73,7 +73,7 @@ $creadList :: ReadS [AggregationTypeName]
 readsPrec :: Int -&gt; ReadS AggregationTypeName
 $creadsPrec :: Int -&gt; ReadS AggregationTypeName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679772685"><span id="local-6989586621679772687"><span class="annot"><span class="annottext">AggregationTypeName -&gt; AggregationTypeName -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679773526"><span id="local-6989586621679773528"><span class="annot"><span class="annottext">AggregationTypeName -&gt; AggregationTypeName -&gt; Bool
 (AggregationTypeName -&gt; AggregationTypeName -&gt; Bool)
 -&gt; (AggregationTypeName -&gt; AggregationTypeName -&gt; Bool)
 -&gt; Eq AggregationTypeName
@@ -83,7 +83,7 @@ $c/= :: AggregationTypeName -&gt; AggregationTypeName -&gt; Bool
 == :: AggregationTypeName -&gt; AggregationTypeName -&gt; Bool
 $c== :: AggregationTypeName -&gt; AggregationTypeName -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679772669"><span id="local-6989586621679772671"><span id="local-6989586621679772673"><span id="local-6989586621679772675"><span id="local-6989586621679772677"><span id="local-6989586621679772679"><span id="local-6989586621679772681"><span class="annot"><span class="annottext">Eq AggregationTypeName
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679773510"><span id="local-6989586621679773512"><span id="local-6989586621679773514"><span id="local-6989586621679773516"><span id="local-6989586621679773518"><span id="local-6989586621679773520"><span id="local-6989586621679773522"><span class="annot"><span class="annottext">Eq AggregationTypeName
 Eq AggregationTypeName
 -&gt; (AggregationTypeName -&gt; AggregationTypeName -&gt; Ordering)
 -&gt; (AggregationTypeName -&gt; AggregationTypeName -&gt; Bool)
@@ -136,7 +136,7 @@ $cfrom :: forall x. AggregationTypeName -&gt; Rep AggregationTypeName x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679772661"><span id="local-6989586621679772663"><span class="annot"><span class="annottext">Int -&gt; AggregationTypeName -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679773502"><span id="local-6989586621679773504"><span class="annot"><span class="annottext">Int -&gt; AggregationTypeName -&gt; Int
 AggregationTypeName -&gt; Int
 (Int -&gt; AggregationTypeName -&gt; Int)
 -&gt; (AggregationTypeName -&gt; Int) -&gt; Hashable AggregationTypeName
@@ -146,53 +146,53 @@ $chash :: AggregationTypeName -&gt; Int
 hashWithSalt :: Int -&gt; AggregationTypeName -&gt; Int
 $chashWithSalt :: Int -&gt; AggregationTypeName -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679772658"><span class="annot"><span class="annottext">AggregationTypeName -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679773499"><span class="annot"><span class="annottext">AggregationTypeName -&gt; ()
 (AggregationTypeName -&gt; ()) -&gt; NFData AggregationTypeName
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AggregationTypeName -&gt; ()
 $crnf :: AggregationTypeName -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679772655"><span class="annot"><span class="annottext">Text -&gt; Either String AggregationTypeName
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679773496"><span class="annot"><span class="annottext">Text -&gt; Either String AggregationTypeName
 (Text -&gt; Either String AggregationTypeName)
 -&gt; FromText AggregationTypeName
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AggregationTypeName
 $cfromText :: Text -&gt; Either String AggregationTypeName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679772652"><span class="annot"><span class="annottext">AggregationTypeName -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679773493"><span class="annot"><span class="annottext">AggregationTypeName -&gt; Text
 (AggregationTypeName -&gt; Text) -&gt; ToText AggregationTypeName
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AggregationTypeName -&gt; Text
 $ctoText :: AggregationTypeName -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679772649"><span class="annot"><span class="annottext">AggregationTypeName -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679773490"><span class="annot"><span class="annottext">AggregationTypeName -&gt; ByteString
 (AggregationTypeName -&gt; ByteString)
 -&gt; ToByteString AggregationTypeName
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AggregationTypeName -&gt; ByteString
 $ctoBS :: AggregationTypeName -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679772646"><span class="annot"><span class="annottext">AggregationTypeName -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679773487"><span class="annot"><span class="annottext">AggregationTypeName -&gt; ByteStringBuilder
 (AggregationTypeName -&gt; ByteStringBuilder)
 -&gt; ToLog AggregationTypeName
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AggregationTypeName -&gt; ByteStringBuilder
 $cbuild :: AggregationTypeName -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679772643"><span class="annot"><span class="annottext">HeaderName -&gt; AggregationTypeName -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679773484"><span class="annot"><span class="annottext">HeaderName -&gt; AggregationTypeName -&gt; [Header]
 (HeaderName -&gt; AggregationTypeName -&gt; [Header])
 -&gt; ToHeader AggregationTypeName
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AggregationTypeName -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AggregationTypeName -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679772640"><span class="annot"><span class="annottext">AggregationTypeName -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679773481"><span class="annot"><span class="annottext">AggregationTypeName -&gt; QueryString
 (AggregationTypeName -&gt; QueryString) -&gt; ToQuery AggregationTypeName
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AggregationTypeName -&gt; QueryString
 $ctoQuery :: AggregationTypeName -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679772635"><span id="local-6989586621679772637"><span class="annot"><span class="annottext">Value -&gt; Parser [AggregationTypeName]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679773476"><span id="local-6989586621679773478"><span class="annot"><span class="annottext">Value -&gt; Parser [AggregationTypeName]
 Value -&gt; Parser AggregationTypeName
 (Value -&gt; Parser AggregationTypeName)
 -&gt; (Value -&gt; Parser [AggregationTypeName])
@@ -204,7 +204,7 @@ $cparseJSONList :: Value -&gt; Parser [AggregationTypeName]
 parseJSON :: Value -&gt; Parser AggregationTypeName
 $cparseJSON :: Value -&gt; Parser AggregationTypeName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679772630"><span id="local-6989586621679772632"><span class="annot"><span class="annottext">FromJSONKeyFunction [AggregationTypeName]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679773471"><span id="local-6989586621679773473"><span class="annot"><span class="annottext">FromJSONKeyFunction [AggregationTypeName]
 FromJSONKeyFunction AggregationTypeName
 FromJSONKeyFunction AggregationTypeName
 -&gt; FromJSONKeyFunction [AggregationTypeName]
@@ -216,7 +216,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AggregationTypeName]
 fromJSONKey :: FromJSONKeyFunction AggregationTypeName
 $cfromJSONKey :: FromJSONKeyFunction AggregationTypeName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679772621"><span id="local-6989586621679772623"><span id="local-6989586621679772625"><span id="local-6989586621679772627"><span class="annot"><span class="annottext">[AggregationTypeName] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679773462"><span id="local-6989586621679773464"><span id="local-6989586621679773466"><span id="local-6989586621679773468"><span class="annot"><span class="annottext">[AggregationTypeName] -&gt; Encoding
 [AggregationTypeName] -&gt; Value
 AggregationTypeName -&gt; Encoding
 AggregationTypeName -&gt; Value
@@ -240,7 +240,7 @@ $ctoEncoding :: AggregationTypeName -&gt; Encoding
 toJSON :: AggregationTypeName -&gt; Value
 $ctoJSON :: AggregationTypeName -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679772616"><span id="local-6989586621679772618"><span class="annot"><span class="annottext">ToJSONKeyFunction [AggregationTypeName]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679773457"><span id="local-6989586621679773459"><span class="annot"><span class="annottext">ToJSONKeyFunction [AggregationTypeName]
 ToJSONKeyFunction AggregationTypeName
 ToJSONKeyFunction AggregationTypeName
 -&gt; ToJSONKeyFunction [AggregationTypeName]
@@ -252,14 +252,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AggregationTypeName]
 toJSONKey :: ToJSONKeyFunction AggregationTypeName
 $ctoJSONKey :: ToJSONKeyFunction AggregationTypeName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679772613"><span class="annot"><span class="annottext">[Node] -&gt; Either String AggregationTypeName
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679773454"><span class="annot"><span class="annottext">[Node] -&gt; Either String AggregationTypeName
 ([Node] -&gt; Either String AggregationTypeName)
 -&gt; FromXML AggregationTypeName
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AggregationTypeName
 $cparseXML :: [Node] -&gt; Either String AggregationTypeName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679772610"><span class="annot"><span class="annottext">AggregationTypeName -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679773451"><span class="annot"><span class="annottext">AggregationTypeName -&gt; XML
 (AggregationTypeName -&gt; XML) -&gt; ToXML AggregationTypeName
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: AggregationTypeName -&gt; XML

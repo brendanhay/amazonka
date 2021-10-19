@@ -36,9 +36,9 @@
 </span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#newGetAlarms"><span class="hs-identifier">newGetAlarms</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-37"></span><span>
 </span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#getAlarms_pageToken"><span class="hs-identifier">getAlarms_pageToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#getAlarms_alarmName"><span class="hs-identifier">getAlarms_alarmName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#getAlarms_monitoredResourceName"><span class="hs-identifier">getAlarms_monitoredResourceName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#getAlarms_alarmName"><span class="hs-identifier">getAlarms_alarmName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#getAlarms_monitoredResourceName"><span class="hs-identifier">getAlarms_monitoredResourceName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#getAlarms_pageToken"><span class="hs-identifier">getAlarms_pageToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-42"></span><span>
 </span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#GetAlarmsResponse"><span class="hs-identifier">GetAlarmsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -59,27 +59,27 @@
 </span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- | /See:/ 'newGetAlarms' smart constructor.</span><span>
-</span><span id="line-62"></span><span id="local-6989586621679648341"><span id="local-6989586621679648342"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetAlarms"><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#GetAlarms"><span class="hs-identifier hs-var">GetAlarms</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetAlarms%27"><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#GetAlarms%27"><span class="hs-identifier hs-var">GetAlarms'</span></a></span></span><span>
-</span><span id="line-63"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token to advance to the next page of results from your request.</span><span>
+</span><span id="line-62"></span><span id="local-6989586621679649352"><span id="local-6989586621679649353"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetAlarms"><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#GetAlarms"><span class="hs-identifier hs-var">GetAlarms</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetAlarms%27"><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#GetAlarms%27"><span class="hs-identifier hs-var">GetAlarms'</span></a></span></span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the alarm.</span><span>
 </span><span id="line-64"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- To get a page token, perform an initial @GetAlarms@ request. If your</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- results are paginated, the response will return a next page token that</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- you can specify as the page token in a subsequent request.</span><span>
-</span><span id="line-68"></span><span>    </span><span id="%24sel%3ApageToken%3AGetAlarms%27"><span class="annot"><span class="annottext">GetAlarms -&gt; Maybe Text
-</span><a href="Network.AWS.Lightsail.GetAlarms.html#%24sel%3ApageToken%3AGetAlarms%27"><span class="hs-identifier hs-var hs-var">pageToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The name of the alarm.</span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- Specify an alarm name to return information about a specific alarm.</span><span>
-</span><span id="line-72"></span><span>    </span><span id="%24sel%3AalarmName%3AGetAlarms%27"><span class="annot"><span class="annottext">GetAlarms -&gt; Maybe Text
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- Specify an alarm name to return information about a specific alarm.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AalarmName%3AGetAlarms%27"><span class="annot"><span class="annottext">GetAlarms -&gt; Maybe Text
 </span><a href="Network.AWS.Lightsail.GetAlarms.html#%24sel%3AalarmName%3AGetAlarms%27"><span class="hs-identifier hs-var hs-var">alarmName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | The name of the Lightsail resource being monitored by the alarm.</span><span>
-</span><span id="line-74"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- Specify a monitored resource name to return information about all alarms</span><span>
-</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- for a specific resource.</span><span>
-</span><span id="line-77"></span><span>    </span><span id="%24sel%3AmonitoredResourceName%3AGetAlarms%27"><span class="annot"><span class="annottext">GetAlarms -&gt; Maybe Text
-</span><a href="Network.AWS.Lightsail.GetAlarms.html#%24sel%3AmonitoredResourceName%3AGetAlarms%27"><span class="hs-identifier hs-var hs-var">monitoredResourceName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The name of the Lightsail resource being monitored by the alarm.</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- Specify a monitored resource name to return information about all alarms</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- for a specific resource.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AmonitoredResourceName%3AGetAlarms%27"><span class="annot"><span class="annottext">GetAlarms -&gt; Maybe Text
+</span><a href="Network.AWS.Lightsail.GetAlarms.html#%24sel%3AmonitoredResourceName%3AGetAlarms%27"><span class="hs-identifier hs-var hs-var">monitoredResourceName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | The token to advance to the next page of results from your request.</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- To get a page token, perform an initial @GetAlarms@ request. If your</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- results are paginated, the response will return a next page token that</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- you can specify as the page token in a subsequent request.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3ApageToken%3AGetAlarms%27"><span class="annot"><span class="annottext">GetAlarms -&gt; Maybe Text
+</span><a href="Network.AWS.Lightsail.GetAlarms.html#%24sel%3ApageToken%3AGetAlarms%27"><span class="hs-identifier hs-var hs-var">pageToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-78"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-79"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679648333"><span id="local-6989586621679648335"><span class="annot"><span class="annottext">GetAlarms -&gt; GetAlarms -&gt; Bool
+</span><span id="line-79"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679649344"><span id="local-6989586621679649346"><span class="annot"><span class="annottext">GetAlarms -&gt; GetAlarms -&gt; Bool
 (GetAlarms -&gt; GetAlarms -&gt; Bool)
 -&gt; (GetAlarms -&gt; GetAlarms -&gt; Bool) -&gt; Eq GetAlarms
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -87,7 +87,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetAlarms -&gt; GetAlarms -&gt; Bool
 == :: GetAlarms -&gt; GetAlarms -&gt; Bool
 $c== :: GetAlarms -&gt; GetAlarms -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679648324"><span id="local-6989586621679648326"><span id="local-6989586621679648328"><span id="local-6989586621679648330"><span class="annot"><span class="annottext">ReadPrec [GetAlarms]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679649335"><span id="local-6989586621679649337"><span id="local-6989586621679649339"><span id="local-6989586621679649341"><span class="annot"><span class="annottext">ReadPrec [GetAlarms]
 ReadPrec GetAlarms
 Int -&gt; ReadS GetAlarms
 ReadS [GetAlarms]
@@ -107,7 +107,7 @@ readList :: ReadS [GetAlarms]
 $creadList :: ReadS [GetAlarms]
 readsPrec :: Int -&gt; ReadS GetAlarms
 $creadsPrec :: Int -&gt; ReadS GetAlarms
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679648317"><span id="local-6989586621679648319"><span id="local-6989586621679648321"><span class="annot"><span class="annottext">Int -&gt; GetAlarms -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679649328"><span id="local-6989586621679649330"><span id="local-6989586621679649332"><span class="annot"><span class="annottext">Int -&gt; GetAlarms -&gt; ShowS
 [GetAlarms] -&gt; ShowS
 GetAlarms -&gt; String
 (Int -&gt; GetAlarms -&gt; ShowS)
@@ -140,111 +140,111 @@ $cfrom :: forall x. GetAlarms -&gt; Rep GetAlarms x
 </span><span id="line-86"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-88"></span><span class="hs-comment">--</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- 'pageToken', 'getAlarms_pageToken' - The token to advance to the next page of results from your request.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'alarmName', 'getAlarms_alarmName' - The name of the alarm.</span><span>
 </span><span id="line-90"></span><span class="hs-comment">--</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- To get a page token, perform an initial @GetAlarms@ request. If your</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- results are paginated, the response will return a next page token that</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- you can specify as the page token in a subsequent request.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- Specify an alarm name to return information about a specific alarm.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'monitoredResourceName', 'getAlarms_monitoredResourceName' - The name of the Lightsail resource being monitored by the alarm.</span><span>
 </span><span id="line-94"></span><span class="hs-comment">--</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- 'alarmName', 'getAlarms_alarmName' - The name of the alarm.</span><span>
-</span><span id="line-96"></span><span class="hs-comment">--</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- Specify an alarm name to return information about a specific alarm.</span><span>
-</span><span id="line-98"></span><span class="hs-comment">--</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- 'monitoredResourceName', 'getAlarms_monitoredResourceName' - The name of the Lightsail resource being monitored by the alarm.</span><span>
-</span><span id="line-100"></span><span class="hs-comment">--</span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- Specify a monitored resource name to return information about all alarms</span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- for a specific resource.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- Specify a monitored resource name to return information about all alarms</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- for a specific resource.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'pageToken', 'getAlarms_pageToken' - The token to advance to the next page of results from your request.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- To get a page token, perform an initial @GetAlarms@ request. If your</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- results are paginated, the response will return a next page token that</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- you can specify as the page token in a subsequent request.</span><span>
 </span><span id="line-103"></span><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#newGetAlarms"><span class="hs-identifier hs-type">newGetAlarms</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-104"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#GetAlarms"><span class="hs-identifier hs-type">GetAlarms</span></a></span><span>
 </span><span id="line-105"></span><span id="newGetAlarms"><span class="annot"><span class="annottext">newGetAlarms :: GetAlarms
 </span><a href="Network.AWS.Lightsail.GetAlarms.html#newGetAlarms"><span class="hs-identifier hs-var hs-var">newGetAlarms</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-106"></span><span>  </span><span class="annot"><span class="annottext">GetAlarms' :: Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; GetAlarms
 </span><a href="Network.AWS.Lightsail.GetAlarms.html#GetAlarms%27"><span class="hs-identifier hs-type">GetAlarms'</span></a></span><span>
-</span><span id="line-107"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:pageToken:GetAlarms' :: Maybe Text
-</span><a href="Network.AWS.Lightsail.GetAlarms.html#%24sel%3ApageToken%3AGetAlarms%27"><span class="hs-identifier hs-var">pageToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:alarmName:GetAlarms' :: Maybe Text
+</span><span id="line-107"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:alarmName:GetAlarms' :: Maybe Text
 </span><a href="Network.AWS.Lightsail.GetAlarms.html#%24sel%3AalarmName%3AGetAlarms%27"><span class="hs-identifier hs-var">alarmName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:monitoredResourceName:GetAlarms' :: Maybe Text
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:monitoredResourceName:GetAlarms' :: Maybe Text
 </span><a href="Network.AWS.Lightsail.GetAlarms.html#%24sel%3AmonitoredResourceName%3AGetAlarms%27"><span class="hs-identifier hs-var">monitoredResourceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:pageToken:GetAlarms' :: Maybe Text
+</span><a href="Network.AWS.Lightsail.GetAlarms.html#%24sel%3ApageToken%3AGetAlarms%27"><span class="hs-identifier hs-var">pageToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-110"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-comment">-- | The token to advance to the next page of results from your request.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | The name of the alarm.</span><span>
 </span><span id="line-113"></span><span class="hs-comment">--</span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- To get a page token, perform an initial @GetAlarms@ request. If your</span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- results are paginated, the response will return a next page token that</span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- you can specify as the page token in a subsequent request.</span><span>
-</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#getAlarms_pageToken"><span class="hs-identifier hs-type">getAlarms_pageToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#GetAlarms"><span class="hs-identifier hs-type">GetAlarms</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-118"></span><span id="getAlarms_pageToken"><span class="annot"><span class="annottext">getAlarms_pageToken :: (Maybe Text -&gt; f (Maybe Text)) -&gt; GetAlarms -&gt; f GetAlarms
-</span><a href="Network.AWS.Lightsail.GetAlarms.html#getAlarms_pageToken"><span class="hs-identifier hs-var hs-var">getAlarms_pageToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetAlarms -&gt; Maybe Text)
--&gt; (GetAlarms -&gt; Maybe Text -&gt; GetAlarms)
--&gt; Lens GetAlarms GetAlarms (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#GetAlarms%27"><span class="hs-identifier hs-type">GetAlarms'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679648310"><span class="annot"><span class="annottext">Maybe Text
-pageToken :: Maybe Text
-$sel:pageToken:GetAlarms' :: GetAlarms -&gt; Maybe Text
-</span><a href="#local-6989586621679648310"><span class="hs-identifier hs-var hs-var">pageToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679648310"><span class="hs-identifier hs-var">pageToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679648309"><span class="annot"><span class="annottext">s :: GetAlarms
-</span><a href="#local-6989586621679648309"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#GetAlarms%27"><span class="hs-identifier hs-type">GetAlarms'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679648308"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679648308"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAlarms
-</span><a href="#local-6989586621679648309"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pageToken:GetAlarms' :: Maybe Text
-</span><a href="Network.AWS.Lightsail.GetAlarms.html#%24sel%3ApageToken%3AGetAlarms%27"><span class="hs-identifier hs-var">pageToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679648308"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#GetAlarms"><span class="hs-identifier hs-type">GetAlarms</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-comment">-- | The name of the alarm.</span><span>
-</span><span id="line-121"></span><span class="hs-comment">--</span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- Specify an alarm name to return information about a specific alarm.</span><span>
-</span><span id="line-123"></span><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#getAlarms_alarmName"><span class="hs-identifier hs-type">getAlarms_alarmName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#GetAlarms"><span class="hs-identifier hs-type">GetAlarms</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-124"></span><span id="getAlarms_alarmName"><span class="annot"><span class="annottext">getAlarms_alarmName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; GetAlarms -&gt; f GetAlarms
+</span><span id="line-114"></span><span class="hs-comment">-- Specify an alarm name to return information about a specific alarm.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#getAlarms_alarmName"><span class="hs-identifier hs-type">getAlarms_alarmName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#GetAlarms"><span class="hs-identifier hs-type">GetAlarms</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span id="getAlarms_alarmName"><span class="annot"><span class="annottext">getAlarms_alarmName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; GetAlarms -&gt; f GetAlarms
 </span><a href="Network.AWS.Lightsail.GetAlarms.html#getAlarms_alarmName"><span class="hs-identifier hs-var hs-var">getAlarms_alarmName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetAlarms -&gt; Maybe Text)
 -&gt; (GetAlarms -&gt; Maybe Text -&gt; GetAlarms)
 -&gt; Lens GetAlarms GetAlarms (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#GetAlarms%27"><span class="hs-identifier hs-type">GetAlarms'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679648307"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#GetAlarms%27"><span class="hs-identifier hs-type">GetAlarms'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679649321"><span class="annot"><span class="annottext">Maybe Text
 alarmName :: Maybe Text
 $sel:alarmName:GetAlarms' :: GetAlarms -&gt; Maybe Text
-</span><a href="#local-6989586621679648307"><span class="hs-identifier hs-var hs-var">alarmName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679648307"><span class="hs-identifier hs-var">alarmName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679648306"><span class="annot"><span class="annottext">s :: GetAlarms
-</span><a href="#local-6989586621679648306"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#GetAlarms%27"><span class="hs-identifier hs-type">GetAlarms'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679648305"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679648305"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAlarms
-</span><a href="#local-6989586621679648306"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:alarmName:GetAlarms' :: Maybe Text
+</span><a href="#local-6989586621679649321"><span class="hs-identifier hs-var hs-var">alarmName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679649321"><span class="hs-identifier hs-var">alarmName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679649320"><span class="annot"><span class="annottext">s :: GetAlarms
+</span><a href="#local-6989586621679649320"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#GetAlarms%27"><span class="hs-identifier hs-type">GetAlarms'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679649319"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679649319"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAlarms
+</span><a href="#local-6989586621679649320"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:alarmName:GetAlarms' :: Maybe Text
 </span><a href="Network.AWS.Lightsail.GetAlarms.html#%24sel%3AalarmName%3AGetAlarms%27"><span class="hs-identifier hs-var">alarmName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679648305"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#GetAlarms"><span class="hs-identifier hs-type">GetAlarms</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- | The name of the Lightsail resource being monitored by the alarm.</span><span>
-</span><span id="line-127"></span><span class="hs-comment">--</span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- Specify a monitored resource name to return information about all alarms</span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- for a specific resource.</span><span>
-</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#getAlarms_monitoredResourceName"><span class="hs-identifier hs-type">getAlarms_monitoredResourceName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#GetAlarms"><span class="hs-identifier hs-type">GetAlarms</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-131"></span><span id="getAlarms_monitoredResourceName"><span class="annot"><span class="annottext">getAlarms_monitoredResourceName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; GetAlarms -&gt; f GetAlarms
+</span><a href="#local-6989586621679649319"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#GetAlarms"><span class="hs-identifier hs-type">GetAlarms</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | The name of the Lightsail resource being monitored by the alarm.</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- Specify a monitored resource name to return information about all alarms</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- for a specific resource.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#getAlarms_monitoredResourceName"><span class="hs-identifier hs-type">getAlarms_monitoredResourceName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#GetAlarms"><span class="hs-identifier hs-type">GetAlarms</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span id="getAlarms_monitoredResourceName"><span class="annot"><span class="annottext">getAlarms_monitoredResourceName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; GetAlarms -&gt; f GetAlarms
 </span><a href="Network.AWS.Lightsail.GetAlarms.html#getAlarms_monitoredResourceName"><span class="hs-identifier hs-var hs-var">getAlarms_monitoredResourceName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetAlarms -&gt; Maybe Text)
 -&gt; (GetAlarms -&gt; Maybe Text -&gt; GetAlarms)
 -&gt; Lens GetAlarms GetAlarms (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#GetAlarms%27"><span class="hs-identifier hs-type">GetAlarms'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679648304"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#GetAlarms%27"><span class="hs-identifier hs-type">GetAlarms'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679649318"><span class="annot"><span class="annottext">Maybe Text
 monitoredResourceName :: Maybe Text
 $sel:monitoredResourceName:GetAlarms' :: GetAlarms -&gt; Maybe Text
-</span><a href="#local-6989586621679648304"><span class="hs-identifier hs-var hs-var">monitoredResourceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679648304"><span class="hs-identifier hs-var">monitoredResourceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679648303"><span class="annot"><span class="annottext">s :: GetAlarms
-</span><a href="#local-6989586621679648303"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#GetAlarms%27"><span class="hs-identifier hs-type">GetAlarms'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679648302"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679648302"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAlarms
-</span><a href="#local-6989586621679648303"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:monitoredResourceName:GetAlarms' :: Maybe Text
+</span><a href="#local-6989586621679649318"><span class="hs-identifier hs-var hs-var">monitoredResourceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679649318"><span class="hs-identifier hs-var">monitoredResourceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679649317"><span class="annot"><span class="annottext">s :: GetAlarms
+</span><a href="#local-6989586621679649317"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#GetAlarms%27"><span class="hs-identifier hs-type">GetAlarms'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679649316"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679649316"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAlarms
+</span><a href="#local-6989586621679649317"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:monitoredResourceName:GetAlarms' :: Maybe Text
 </span><a href="Network.AWS.Lightsail.GetAlarms.html#%24sel%3AmonitoredResourceName%3AGetAlarms%27"><span class="hs-identifier hs-var">monitoredResourceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679648302"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#GetAlarms"><span class="hs-identifier hs-type">GetAlarms</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679649316"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#GetAlarms"><span class="hs-identifier hs-type">GetAlarms</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | The token to advance to the next page of results from your request.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- To get a page token, perform an initial @GetAlarms@ request. If your</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- results are paginated, the response will return a next page token that</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- you can specify as the page token in a subsequent request.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#getAlarms_pageToken"><span class="hs-identifier hs-type">getAlarms_pageToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#GetAlarms"><span class="hs-identifier hs-type">GetAlarms</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span id="getAlarms_pageToken"><span class="annot"><span class="annottext">getAlarms_pageToken :: (Maybe Text -&gt; f (Maybe Text)) -&gt; GetAlarms -&gt; f GetAlarms
+</span><a href="Network.AWS.Lightsail.GetAlarms.html#getAlarms_pageToken"><span class="hs-identifier hs-var hs-var">getAlarms_pageToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetAlarms -&gt; Maybe Text)
+-&gt; (GetAlarms -&gt; Maybe Text -&gt; GetAlarms)
+-&gt; Lens GetAlarms GetAlarms (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#GetAlarms%27"><span class="hs-identifier hs-type">GetAlarms'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679649315"><span class="annot"><span class="annottext">Maybe Text
+pageToken :: Maybe Text
+$sel:pageToken:GetAlarms' :: GetAlarms -&gt; Maybe Text
+</span><a href="#local-6989586621679649315"><span class="hs-identifier hs-var hs-var">pageToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679649315"><span class="hs-identifier hs-var">pageToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679649314"><span class="annot"><span class="annottext">s :: GetAlarms
+</span><a href="#local-6989586621679649314"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#GetAlarms%27"><span class="hs-identifier hs-type">GetAlarms'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679649313"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679649313"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAlarms
+</span><a href="#local-6989586621679649314"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pageToken:GetAlarms' :: Maybe Text
+</span><a href="Network.AWS.Lightsail.GetAlarms.html#%24sel%3ApageToken%3AGetAlarms%27"><span class="hs-identifier hs-var">pageToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679649313"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#GetAlarms"><span class="hs-identifier hs-type">GetAlarms</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#GetAlarms"><span class="hs-identifier hs-type">GetAlarms</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-134"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#GetAlarms"><span class="hs-identifier hs-type">GetAlarms</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#GetAlarmsResponse"><span class="hs-identifier hs-type">GetAlarmsResponse</span></a></span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679648298"><span class="annot"><span class="annottext">request :: GetAlarms -&gt; Request GetAlarms
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679649309"><span class="annot"><span class="annottext">request :: GetAlarms -&gt; Request GetAlarms
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetAlarms -&gt; Request GetAlarms
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Lightsail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679648294"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679649305"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetAlarms
 -&gt; ClientResponse ClientBody
@@ -268,10 +268,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-138"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679648291"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679648291"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679648290"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679648290"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679648289"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679648289"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-138"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679649302"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679649302"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679649301"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679649301"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679649300"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679649300"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-139"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [Alarm] -&gt; Int -&gt; GetAlarmsResponse
 </span><a href="Network.AWS.Lightsail.GetAlarms.html#GetAlarmsResponse%27"><span class="hs-identifier hs-var">GetAlarmsResponse'</span></a></span><span>
 </span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [Alarm] -&gt; Int -&gt; GetAlarmsResponse)
@@ -279,7 +279,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe [Alarm] -&gt; Int -&gt; GetAlarmsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679648289"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679649300"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextPageToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -288,7 +288,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; GetAlarmsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679648289"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Alarm]))
+</span><a href="#local-6989586621679649300"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Alarm]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;alarms&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Alarm]))
@@ -305,15 +305,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679648291"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679649302"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>
-</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679648280"><span id="local-6989586621679648282"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#GetAlarms"><span class="hs-identifier hs-type">GetAlarms</span></a></span></span></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679649291"><span id="local-6989586621679649293"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#GetAlarms"><span class="hs-identifier hs-type">GetAlarms</span></a></span></span></span><span>
 </span><span id="line-146"></span><span>
-</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679648277"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#GetAlarms"><span class="hs-identifier hs-type">GetAlarms</span></a></span></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679649288"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#GetAlarms"><span class="hs-identifier hs-type">GetAlarms</span></a></span></span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#GetAlarms"><span class="hs-identifier hs-type">GetAlarms</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679648273"><span class="annot"><span class="annottext">toHeaders :: GetAlarms -&gt; ResponseHeaders
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679649284"><span class="annot"><span class="annottext">toHeaders :: GetAlarms -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-151"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetAlarms -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -340,55 +340,55 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-161"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-162"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>
-</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679648263"><span id="local-6989586621679648265"><span id="local-6989586621679648267"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#GetAlarms"><span class="hs-identifier hs-type">GetAlarms</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-165"></span><span>  </span><span id="local-6989586621679648261"><span class="annot"><span class="annottext">toJSON :: GetAlarms -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#GetAlarms%27"><span class="hs-identifier hs-type">GetAlarms'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679648257"><span id="local-6989586621679648258"><span id="local-6989586621679648259"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679649274"><span id="local-6989586621679649276"><span id="local-6989586621679649278"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#GetAlarms"><span class="hs-identifier hs-type">GetAlarms</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679649272"><span class="annot"><span class="annottext">toJSON :: GetAlarms -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#GetAlarms%27"><span class="hs-identifier hs-type">GetAlarms'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679649268"><span id="local-6989586621679649269"><span id="local-6989586621679649270"><span class="annot"><span class="annottext">Maybe Text
+pageToken :: Maybe Text
 monitoredResourceName :: Maybe Text
 alarmName :: Maybe Text
-pageToken :: Maybe Text
+$sel:pageToken:GetAlarms' :: GetAlarms -&gt; Maybe Text
 $sel:monitoredResourceName:GetAlarms' :: GetAlarms -&gt; Maybe Text
 $sel:alarmName:GetAlarms' :: GetAlarms -&gt; Maybe Text
-$sel:pageToken:GetAlarms' :: GetAlarms -&gt; Maybe Text
-</span><a href="#local-6989586621679648257"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679649268"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-166"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-167"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-168"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;pageToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679648259"><span class="hs-identifier hs-var">pageToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-169"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;alarmName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679648258"><span class="hs-identifier hs-var">alarmName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-170"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679649270"><span class="hs-identifier hs-var">alarmName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;monitoredResourceName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-171"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+</span><span id="line-170"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679648257"><span class="hs-identifier hs-var">monitoredResourceName</span></a></span><span>
+</span><a href="#local-6989586621679649269"><span class="hs-identifier hs-var">monitoredResourceName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;pageToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679649268"><span class="hs-identifier hs-var">pageToken</span></a></span><span>
 </span><span id="line-172"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-173"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>
 </span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#GetAlarms"><span class="hs-identifier hs-type">GetAlarms</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-176"></span><span>  </span><span id="local-6989586621679648251"><span class="annot"><span class="annottext">toPath :: GetAlarms -&gt; ByteString
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679649262"><span class="annot"><span class="annottext">toPath :: GetAlarms -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetAlarms -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-177"></span><span>
 </span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#GetAlarms"><span class="hs-identifier hs-type">GetAlarms</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-179"></span><span>  </span><span id="local-6989586621679648247"><span class="annot"><span class="annottext">toQuery :: GetAlarms -&gt; QueryString
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679649258"><span class="annot"><span class="annottext">toQuery :: GetAlarms -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetAlarms -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -396,7 +396,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-180"></span><span>
 </span><span id="line-181"></span><span class="hs-comment">-- | /See:/ 'newGetAlarmsResponse' smart constructor.</span><span>
-</span><span id="line-182"></span><span id="local-6989586621679648244"><span id="local-6989586621679648245"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetAlarmsResponse"><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#GetAlarmsResponse"><span class="hs-identifier hs-var">GetAlarmsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetAlarmsResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#GetAlarmsResponse%27"><span class="hs-identifier hs-var">GetAlarmsResponse'</span></a></span></span><span>
+</span><span id="line-182"></span><span id="local-6989586621679649255"><span id="local-6989586621679649256"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetAlarmsResponse"><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#GetAlarmsResponse"><span class="hs-identifier hs-var">GetAlarmsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetAlarmsResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#GetAlarmsResponse%27"><span class="hs-identifier hs-var">GetAlarmsResponse'</span></a></span></span><span>
 </span><span id="line-183"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token to advance to the next page of results from your request.</span><span>
 </span><span id="line-184"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-185"></span><span>    </span><span class="hs-comment">-- A next page token is not returned if there are no more results to</span><span>
@@ -413,7 +413,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-194"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetAlarmsResponse%27"><span class="annot"><span class="annottext">GetAlarmsResponse -&gt; Int
 </span><a href="Network.AWS.Lightsail.GetAlarms.html#%24sel%3AhttpStatus%3AGetAlarmsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-195"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-196"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679648237"><span id="local-6989586621679648239"><span class="annot"><span class="annottext">GetAlarmsResponse -&gt; GetAlarmsResponse -&gt; Bool
+</span><span id="line-196"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679649248"><span id="local-6989586621679649250"><span class="annot"><span class="annottext">GetAlarmsResponse -&gt; GetAlarmsResponse -&gt; Bool
 (GetAlarmsResponse -&gt; GetAlarmsResponse -&gt; Bool)
 -&gt; (GetAlarmsResponse -&gt; GetAlarmsResponse -&gt; Bool)
 -&gt; Eq GetAlarmsResponse
@@ -422,7 +422,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetAlarmsResponse -&gt; GetAlarmsResponse -&gt; Bool
 == :: GetAlarmsResponse -&gt; GetAlarmsResponse -&gt; Bool
 $c== :: GetAlarmsResponse -&gt; GetAlarmsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679648229"><span id="local-6989586621679648231"><span id="local-6989586621679648233"><span id="local-6989586621679648235"><span class="annot"><span class="annottext">ReadPrec [GetAlarmsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679649240"><span id="local-6989586621679649242"><span id="local-6989586621679649244"><span id="local-6989586621679649246"><span class="annot"><span class="annottext">ReadPrec [GetAlarmsResponse]
 ReadPrec GetAlarmsResponse
 Int -&gt; ReadS GetAlarmsResponse
 ReadS [GetAlarmsResponse]
@@ -442,7 +442,7 @@ readList :: ReadS [GetAlarmsResponse]
 $creadList :: ReadS [GetAlarmsResponse]
 readsPrec :: Int -&gt; ReadS GetAlarmsResponse
 $creadsPrec :: Int -&gt; ReadS GetAlarmsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679648223"><span id="local-6989586621679648225"><span id="local-6989586621679648227"><span class="annot"><span class="annottext">Int -&gt; GetAlarmsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679649234"><span id="local-6989586621679649236"><span id="local-6989586621679649238"><span class="annot"><span class="annottext">Int -&gt; GetAlarmsResponse -&gt; ShowS
 [GetAlarmsResponse] -&gt; ShowS
 GetAlarmsResponse -&gt; String
 (Int -&gt; GetAlarmsResponse -&gt; ShowS)
@@ -492,8 +492,8 @@ $cfrom :: forall x. GetAlarmsResponse -&gt; Rep GetAlarmsResponse x
 </span><span id="line-219"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-220"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#GetAlarmsResponse"><span class="hs-identifier hs-type">GetAlarmsResponse</span></a></span><span>
 </span><span id="line-221"></span><span id="newGetAlarmsResponse"><span class="annot"><span class="annottext">newGetAlarmsResponse :: Int -&gt; GetAlarmsResponse
-</span><a href="Network.AWS.Lightsail.GetAlarms.html#newGetAlarmsResponse"><span class="hs-identifier hs-var hs-var">newGetAlarmsResponse</span></a></span></span><span> </span><span id="local-6989586621679648220"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679648220"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lightsail.GetAlarms.html#newGetAlarmsResponse"><span class="hs-identifier hs-var hs-var">newGetAlarmsResponse</span></a></span></span><span> </span><span id="local-6989586621679649231"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679649231"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-222"></span><span>  </span><span class="annot"><span class="annottext">GetAlarmsResponse' :: Maybe Text -&gt; Maybe [Alarm] -&gt; Int -&gt; GetAlarmsResponse
 </span><a href="Network.AWS.Lightsail.GetAlarms.html#GetAlarmsResponse%27"><span class="hs-identifier hs-type">GetAlarmsResponse'</span></a></span><span>
 </span><span id="line-223"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextPageToken:GetAlarmsResponse' :: Maybe Text
@@ -506,7 +506,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-225"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetAlarmsResponse' :: Int
 </span><a href="Network.AWS.Lightsail.GetAlarms.html#%24sel%3AhttpStatus%3AGetAlarmsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679648220"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679649231"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-226"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-227"></span><span>
 </span><span id="line-228"></span><span class="hs-comment">-- | The token to advance to the next page of results from your request.</span><span>
@@ -524,16 +524,16 @@ forall a. Maybe a
 -&gt; Lens
      GetAlarmsResponse GetAlarmsResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#GetAlarmsResponse%27"><span class="hs-identifier hs-type">GetAlarmsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679648219"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#GetAlarmsResponse%27"><span class="hs-identifier hs-type">GetAlarmsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679649230"><span class="annot"><span class="annottext">Maybe Text
 nextPageToken :: Maybe Text
 $sel:nextPageToken:GetAlarmsResponse' :: GetAlarmsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679648219"><span class="hs-identifier hs-var hs-var">nextPageToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679648219"><span class="hs-identifier hs-var">nextPageToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679648218"><span class="annot"><span class="annottext">s :: GetAlarmsResponse
-</span><a href="#local-6989586621679648218"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#GetAlarmsResponse%27"><span class="hs-identifier hs-type">GetAlarmsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679648217"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679648217"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAlarmsResponse
-</span><a href="#local-6989586621679648218"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextPageToken:GetAlarmsResponse' :: Maybe Text
+</span><a href="#local-6989586621679649230"><span class="hs-identifier hs-var hs-var">nextPageToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679649230"><span class="hs-identifier hs-var">nextPageToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679649229"><span class="annot"><span class="annottext">s :: GetAlarmsResponse
+</span><a href="#local-6989586621679649229"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#GetAlarmsResponse%27"><span class="hs-identifier hs-type">GetAlarmsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679649228"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679649228"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAlarmsResponse
+</span><a href="#local-6989586621679649229"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextPageToken:GetAlarmsResponse' :: Maybe Text
 </span><a href="Network.AWS.Lightsail.GetAlarms.html#%24sel%3AnextPageToken%3AGetAlarmsResponse%27"><span class="hs-identifier hs-var">nextPageToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679648217"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#GetAlarmsResponse"><span class="hs-identifier hs-type">GetAlarmsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679649228"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#GetAlarmsResponse"><span class="hs-identifier hs-type">GetAlarmsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-237"></span><span>
 </span><span id="line-238"></span><span class="hs-comment">-- | An array of objects that describe the alarms.</span><span>
 </span><span id="line-239"></span><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#getAlarmsResponse_alarms"><span class="hs-identifier hs-type">getAlarmsResponse_alarms</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#GetAlarmsResponse"><span class="hs-identifier hs-type">GetAlarmsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Alarm.html#Alarm"><span class="hs-identifier hs-type">Alarm</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -544,16 +544,16 @@ $sel:nextPageToken:GetAlarmsResponse' :: GetAlarmsResponse -&gt; Maybe Text
 -&gt; Lens
      GetAlarmsResponse GetAlarmsResponse (Maybe [Alarm]) (Maybe [Alarm])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#GetAlarmsResponse%27"><span class="hs-identifier hs-type">GetAlarmsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679648216"><span class="annot"><span class="annottext">Maybe [Alarm]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#GetAlarmsResponse%27"><span class="hs-identifier hs-type">GetAlarmsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679649227"><span class="annot"><span class="annottext">Maybe [Alarm]
 alarms :: Maybe [Alarm]
 $sel:alarms:GetAlarmsResponse' :: GetAlarmsResponse -&gt; Maybe [Alarm]
-</span><a href="#local-6989586621679648216"><span class="hs-identifier hs-var hs-var">alarms</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Alarm]
-</span><a href="#local-6989586621679648216"><span class="hs-identifier hs-var">alarms</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679648215"><span class="annot"><span class="annottext">s :: GetAlarmsResponse
-</span><a href="#local-6989586621679648215"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#GetAlarmsResponse%27"><span class="hs-identifier hs-type">GetAlarmsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679648214"><span class="annot"><span class="annottext">Maybe [Alarm]
-</span><a href="#local-6989586621679648214"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAlarmsResponse
-</span><a href="#local-6989586621679648215"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:alarms:GetAlarmsResponse' :: Maybe [Alarm]
+</span><a href="#local-6989586621679649227"><span class="hs-identifier hs-var hs-var">alarms</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Alarm]
+</span><a href="#local-6989586621679649227"><span class="hs-identifier hs-var">alarms</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679649226"><span class="annot"><span class="annottext">s :: GetAlarmsResponse
+</span><a href="#local-6989586621679649226"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#GetAlarmsResponse%27"><span class="hs-identifier hs-type">GetAlarmsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679649225"><span class="annot"><span class="annottext">Maybe [Alarm]
+</span><a href="#local-6989586621679649225"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAlarmsResponse
+</span><a href="#local-6989586621679649226"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:alarms:GetAlarmsResponse' :: Maybe [Alarm]
 </span><a href="Network.AWS.Lightsail.GetAlarms.html#%24sel%3Aalarms%3AGetAlarmsResponse%27"><span class="hs-identifier hs-var">alarms</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Alarm]
-</span><a href="#local-6989586621679648214"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#GetAlarmsResponse"><span class="hs-identifier hs-type">GetAlarmsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Alarm] -&gt; f (Maybe [Alarm]))
+</span><a href="#local-6989586621679649225"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#GetAlarmsResponse"><span class="hs-identifier hs-type">GetAlarmsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Alarm] -&gt; f (Maybe [Alarm]))
  -&gt; GetAlarmsResponse -&gt; f GetAlarmsResponse)
 -&gt; ((Maybe [Alarm] -&gt; f (Maybe [Alarm]))
     -&gt; Maybe [Alarm] -&gt; f (Maybe [Alarm]))
@@ -568,8 +568,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Alarm] [Alarm] [Alarm] [Alarm]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-241"></span><span>
 </span><span id="line-242"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-243"></span><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#getAlarmsResponse_httpStatus"><span class="hs-identifier hs-type">getAlarmsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#GetAlarmsResponse"><span class="hs-identifier hs-type">GetAlarmsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -578,16 +578,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (GetAlarmsResponse -&gt; Int -&gt; GetAlarmsResponse)
 -&gt; Lens GetAlarmsResponse GetAlarmsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#GetAlarmsResponse%27"><span class="hs-identifier hs-type">GetAlarmsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679648210"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#GetAlarmsResponse%27"><span class="hs-identifier hs-type">GetAlarmsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679649221"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetAlarmsResponse' :: GetAlarmsResponse -&gt; Int
-</span><a href="#local-6989586621679648210"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679648210"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679648209"><span class="annot"><span class="annottext">s :: GetAlarmsResponse
-</span><a href="#local-6989586621679648209"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#GetAlarmsResponse%27"><span class="hs-identifier hs-type">GetAlarmsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679648208"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679648208"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAlarmsResponse
-</span><a href="#local-6989586621679648209"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetAlarmsResponse' :: Int
+</span><a href="#local-6989586621679649221"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679649221"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679649220"><span class="annot"><span class="annottext">s :: GetAlarmsResponse
+</span><a href="#local-6989586621679649220"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#GetAlarmsResponse%27"><span class="hs-identifier hs-type">GetAlarmsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679649219"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679649219"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAlarmsResponse
+</span><a href="#local-6989586621679649220"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetAlarmsResponse' :: Int
 </span><a href="Network.AWS.Lightsail.GetAlarms.html#%24sel%3AhttpStatus%3AGetAlarmsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679648208"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#GetAlarmsResponse"><span class="hs-identifier hs-type">GetAlarmsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679649219"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#GetAlarmsResponse"><span class="hs-identifier hs-type">GetAlarmsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-245"></span><span>
-</span><span id="line-246"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679648206"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#GetAlarmsResponse"><span class="hs-identifier hs-type">GetAlarmsResponse</span></a></span></span><span>
+</span><span id="line-246"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679649217"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetAlarms.html#GetAlarmsResponse"><span class="hs-identifier hs-type">GetAlarmsResponse</span></a></span></span><span>
 </span><span id="line-247"></span></pre></body></html>

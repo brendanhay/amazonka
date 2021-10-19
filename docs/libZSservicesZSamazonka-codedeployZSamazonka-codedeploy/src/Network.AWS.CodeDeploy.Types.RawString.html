@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- same as the AppSpec file.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newRawString' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679310840"><span id="local-6989586621679310841"></span></span><span class="hs-keyword">data</span><span> </span><span id="RawString"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RawString.html#RawString"><span class="hs-identifier hs-var">RawString</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RawString%27"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RawString.html#RawString%27"><span class="hs-identifier hs-var">RawString'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679311126"><span id="local-6989586621679311127"></span></span><span class="hs-keyword">data</span><span> </span><span id="RawString"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RawString.html#RawString"><span class="hs-identifier hs-var">RawString</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RawString%27"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RawString.html#RawString%27"><span class="hs-identifier hs-var">RawString'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The YAML-formatted or JSON-formatted revision string. It includes</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- information about which Lambda function to update and optional Lambda</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- functions that validate deployment lifecycle events.</span><span>
@@ -38,7 +38,7 @@
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3Asha256%3ARawString%27"><span class="annot"><span class="annottext">RawString -&gt; Maybe Text
 </span><a href="Network.AWS.CodeDeploy.Types.RawString.html#%24sel%3Asha256%3ARawString%27"><span class="hs-identifier hs-var hs-var">sha256</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679310833"><span id="local-6989586621679310835"><span class="annot"><span class="annottext">RawString -&gt; RawString -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679311119"><span id="local-6989586621679311121"><span class="annot"><span class="annottext">RawString -&gt; RawString -&gt; Bool
 (RawString -&gt; RawString -&gt; Bool)
 -&gt; (RawString -&gt; RawString -&gt; Bool) -&gt; Eq RawString
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -46,7 +46,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RawString -&gt; RawString -&gt; Bool
 == :: RawString -&gt; RawString -&gt; Bool
 $c== :: RawString -&gt; RawString -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310824"><span id="local-6989586621679310826"><span id="local-6989586621679310828"><span id="local-6989586621679310830"><span class="annot"><span class="annottext">ReadPrec [RawString]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311110"><span id="local-6989586621679311112"><span id="local-6989586621679311114"><span id="local-6989586621679311116"><span class="annot"><span class="annottext">ReadPrec [RawString]
 ReadPrec RawString
 Int -&gt; ReadS RawString
 ReadS [RawString]
@@ -66,7 +66,7 @@ readList :: ReadS [RawString]
 $creadList :: ReadS [RawString]
 readsPrec :: Int -&gt; ReadS RawString
 $creadsPrec :: Int -&gt; ReadS RawString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310817"><span id="local-6989586621679310819"><span id="local-6989586621679310821"><span class="annot"><span class="annottext">Int -&gt; RawString -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311103"><span id="local-6989586621679311105"><span id="local-6989586621679311107"><span class="annot"><span class="annottext">Int -&gt; RawString -&gt; ShowS
 [RawString] -&gt; ShowS
 RawString -&gt; String
 (Int -&gt; RawString -&gt; ShowS)
@@ -129,16 +129,16 @@ forall a. Maybe a
 -&gt; (RawString -&gt; Maybe Text -&gt; RawString)
 -&gt; Lens RawString RawString (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RawString.html#RawString%27"><span class="hs-identifier hs-type">RawString'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310808"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RawString.html#RawString%27"><span class="hs-identifier hs-type">RawString'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311094"><span class="annot"><span class="annottext">Maybe Text
 content :: Maybe Text
 $sel:content:RawString' :: RawString -&gt; Maybe Text
-</span><a href="#local-6989586621679310808"><span class="hs-identifier hs-var hs-var">content</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679310808"><span class="hs-identifier hs-var">content</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310807"><span class="annot"><span class="annottext">s :: RawString
-</span><a href="#local-6989586621679310807"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RawString.html#RawString%27"><span class="hs-identifier hs-type">RawString'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310806"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679310806"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RawString
-</span><a href="#local-6989586621679310807"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:content:RawString' :: Maybe Text
+</span><a href="#local-6989586621679311094"><span class="hs-identifier hs-var hs-var">content</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679311094"><span class="hs-identifier hs-var">content</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311093"><span class="annot"><span class="annottext">s :: RawString
+</span><a href="#local-6989586621679311093"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RawString.html#RawString%27"><span class="hs-identifier hs-type">RawString'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311092"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679311092"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RawString
+</span><a href="#local-6989586621679311093"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:content:RawString' :: Maybe Text
 </span><a href="Network.AWS.CodeDeploy.Types.RawString.html#%24sel%3Acontent%3ARawString%27"><span class="hs-identifier hs-var">content</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679310806"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RawString.html#RawString"><span class="hs-identifier hs-type">RawString</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679311092"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RawString.html#RawString"><span class="hs-identifier hs-type">RawString</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- | The SHA256 hash value of the revision content.</span><span>
 </span><span id="line-69"></span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RawString.html#rawString_sha256"><span class="hs-identifier hs-type">rawString_sha256</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RawString.html#RawString"><span class="hs-identifier hs-type">RawString</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -147,34 +147,34 @@ $sel:content:RawString' :: RawString -&gt; Maybe Text
 -&gt; (RawString -&gt; Maybe Text -&gt; RawString)
 -&gt; Lens RawString RawString (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RawString.html#RawString%27"><span class="hs-identifier hs-type">RawString'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310804"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RawString.html#RawString%27"><span class="hs-identifier hs-type">RawString'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311090"><span class="annot"><span class="annottext">Maybe Text
 sha256 :: Maybe Text
 $sel:sha256:RawString' :: RawString -&gt; Maybe Text
-</span><a href="#local-6989586621679310804"><span class="hs-identifier hs-var hs-var">sha256</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679310804"><span class="hs-identifier hs-var">sha256</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310803"><span class="annot"><span class="annottext">s :: RawString
-</span><a href="#local-6989586621679310803"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RawString.html#RawString%27"><span class="hs-identifier hs-type">RawString'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310802"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679310802"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RawString
-</span><a href="#local-6989586621679310803"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sha256:RawString' :: Maybe Text
+</span><a href="#local-6989586621679311090"><span class="hs-identifier hs-var hs-var">sha256</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679311090"><span class="hs-identifier hs-var">sha256</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311089"><span class="annot"><span class="annottext">s :: RawString
+</span><a href="#local-6989586621679311089"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RawString.html#RawString%27"><span class="hs-identifier hs-type">RawString'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311088"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679311088"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RawString
+</span><a href="#local-6989586621679311089"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sha256:RawString' :: Maybe Text
 </span><a href="Network.AWS.CodeDeploy.Types.RawString.html#%24sel%3Asha256%3ARawString%27"><span class="hs-identifier hs-var">sha256</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679310802"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RawString.html#RawString"><span class="hs-identifier hs-type">RawString</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679311088"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RawString.html#RawString"><span class="hs-identifier hs-type">RawString</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310799"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RawString.html#RawString"><span class="hs-identifier hs-type">RawString</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-73"></span><span>  </span><span id="local-6989586621679310797"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RawString
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311085"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RawString.html#RawString"><span class="hs-identifier hs-type">RawString</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-73"></span><span>  </span><span id="local-6989586621679311083"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RawString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser RawString) -&gt; Value -&gt; Parser RawString
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;RawString&quot;</span></span><span>
-</span><span id="line-76"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679310794"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679310794"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679311080"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679311080"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-77"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; RawString
 </span><a href="Network.AWS.CodeDeploy.Types.RawString.html#RawString%27"><span class="hs-identifier hs-var">RawString'</span></a></span><span>
 </span><span id="line-78"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; RawString)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; RawString)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679310794"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679311080"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;content&quot;</span></span><span class="hs-special">)</span><span>
@@ -182,24 +182,24 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser RawString
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679310794"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679311080"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;sha256&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310788"><span id="local-6989586621679310790"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RawString.html#RawString"><span class="hs-identifier hs-type">RawString</span></a></span></span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311074"><span id="local-6989586621679311076"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RawString.html#RawString"><span class="hs-identifier hs-type">RawString</span></a></span></span></span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310785"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RawString.html#RawString"><span class="hs-identifier hs-type">RawString</span></a></span></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311071"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RawString.html#RawString"><span class="hs-identifier hs-type">RawString</span></a></span></span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310777"><span id="local-6989586621679310779"><span id="local-6989586621679310781"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RawString.html#RawString"><span class="hs-identifier hs-type">RawString</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679310775"><span class="annot"><span class="annottext">toJSON :: RawString -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RawString.html#RawString%27"><span class="hs-identifier hs-type">RawString'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310772"><span id="local-6989586621679310773"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311063"><span id="local-6989586621679311065"><span id="local-6989586621679311067"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RawString.html#RawString"><span class="hs-identifier hs-type">RawString</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679311061"><span class="annot"><span class="annottext">toJSON :: RawString -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RawString.html#RawString%27"><span class="hs-identifier hs-type">RawString'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311058"><span id="local-6989586621679311059"><span class="annot"><span class="annottext">Maybe Text
 sha256 :: Maybe Text
 content :: Maybe Text
 $sel:sha256:RawString' :: RawString -&gt; Maybe Text
 $sel:content:RawString' :: RawString -&gt; Maybe Text
-</span><a href="#local-6989586621679310772"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679311058"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -211,14 +211,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679310773"><span class="hs-identifier hs-var">content</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679311059"><span class="hs-identifier hs-var">content</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-91"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;sha256&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679310772"><span class="hs-identifier hs-var">sha256</span></a></span><span>
+</span><a href="#local-6989586621679311058"><span class="hs-identifier hs-var">sha256</span></a></span><span>
 </span><span id="line-92"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-93"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span></pre></body></html>

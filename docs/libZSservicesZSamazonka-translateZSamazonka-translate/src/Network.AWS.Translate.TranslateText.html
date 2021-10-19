@@ -55,7 +55,7 @@
 </span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Translate.Types.html"><span class="hs-identifier">Network.AWS.Translate.Types</span></a></span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newTranslateText' smart constructor.</span><span>
-</span><span id="line-58"></span><span id="local-6989586621679185366"><span id="local-6989586621679185367"></span></span><span class="hs-keyword">data</span><span> </span><span id="TranslateText"><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#TranslateText"><span class="hs-identifier hs-var">TranslateText</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TranslateText%27"><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#TranslateText%27"><span class="hs-identifier hs-var">TranslateText'</span></a></span></span><span>
+</span><span id="line-58"></span><span id="local-6989586621679185430"><span id="local-6989586621679185431"></span></span><span class="hs-keyword">data</span><span> </span><span id="TranslateText"><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#TranslateText"><span class="hs-identifier hs-var">TranslateText</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TranslateText%27"><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#TranslateText%27"><span class="hs-identifier hs-var">TranslateText'</span></a></span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the terminology list file to be used in the TranslateText</span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-comment">-- request. You can use 1 terminology list at most in a @TranslateText@</span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-comment">-- request. Terminology lists can contain a maximum of 256 terms.</span><span>
@@ -82,7 +82,7 @@
 </span><span id="line-79"></span><span>    </span><span id="%24sel%3AtargetLanguageCode%3ATranslateText%27"><span class="annot"><span class="annottext">TranslateText -&gt; Text
 </span><a href="Network.AWS.Translate.TranslateText.html#%24sel%3AtargetLanguageCode%3ATranslateText%27"><span class="hs-identifier hs-var hs-var">targetLanguageCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-80"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-81"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679185357"><span id="local-6989586621679185359"><span class="annot"><span class="annottext">TranslateText -&gt; TranslateText -&gt; Bool
+</span><span id="line-81"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679185421"><span id="local-6989586621679185423"><span class="annot"><span class="annottext">TranslateText -&gt; TranslateText -&gt; Bool
 (TranslateText -&gt; TranslateText -&gt; Bool)
 -&gt; (TranslateText -&gt; TranslateText -&gt; Bool) -&gt; Eq TranslateText
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -90,7 +90,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TranslateText -&gt; TranslateText -&gt; Bool
 == :: TranslateText -&gt; TranslateText -&gt; Bool
 $c== :: TranslateText -&gt; TranslateText -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679185348"><span id="local-6989586621679185350"><span id="local-6989586621679185352"><span id="local-6989586621679185354"><span class="annot"><span class="annottext">ReadPrec [TranslateText]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679185412"><span id="local-6989586621679185414"><span id="local-6989586621679185416"><span id="local-6989586621679185418"><span class="annot"><span class="annottext">ReadPrec [TranslateText]
 ReadPrec TranslateText
 Int -&gt; ReadS TranslateText
 ReadS [TranslateText]
@@ -110,7 +110,7 @@ readList :: ReadS [TranslateText]
 $creadList :: ReadS [TranslateText]
 readsPrec :: Int -&gt; ReadS TranslateText
 $creadsPrec :: Int -&gt; ReadS TranslateText
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679185341"><span id="local-6989586621679185343"><span id="local-6989586621679185345"><span class="annot"><span class="annottext">Int -&gt; TranslateText -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679185405"><span id="local-6989586621679185407"><span id="local-6989586621679185409"><span class="annot"><span class="annottext">Int -&gt; TranslateText -&gt; ShowS
 [TranslateText] -&gt; ShowS
 TranslateText -&gt; String
 (Int -&gt; TranslateText -&gt; ShowS)
@@ -174,12 +174,12 @@ $cfrom :: forall x. TranslateText -&gt; Rep TranslateText x
 </span><span id="line-118"></span><span>  </span><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#TranslateText"><span class="hs-identifier hs-type">TranslateText</span></a></span><span>
 </span><span id="line-119"></span><span id="newTranslateText"><span class="annot"><span class="annottext">newTranslateText :: Text -&gt; Text -&gt; Text -&gt; TranslateText
 </span><a href="Network.AWS.Translate.TranslateText.html#newTranslateText"><span class="hs-identifier hs-var hs-var">newTranslateText</span></a></span></span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679185336"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679185336"><span class="hs-identifier hs-var">pText_</span></a></span></span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679185335"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679185335"><span class="hs-identifier hs-var">pSourceLanguageCode_</span></a></span></span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679185334"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679185334"><span class="hs-identifier hs-var">pTargetLanguageCode_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679185400"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679185400"><span class="hs-identifier hs-var">pText_</span></a></span></span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679185399"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679185399"><span class="hs-identifier hs-var">pSourceLanguageCode_</span></a></span></span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679185398"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679185398"><span class="hs-identifier hs-var">pTargetLanguageCode_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">TranslateText' :: Maybe [Text] -&gt; Text -&gt; Text -&gt; Text -&gt; TranslateText
 </span><a href="Network.AWS.Translate.TranslateText.html#TranslateText%27"><span class="hs-identifier hs-type">TranslateText'</span></a></span><span>
 </span><span id="line-124"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:terminologyNames:TranslateText' :: Maybe [Text]
@@ -188,13 +188,13 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-125"></span><span>        </span><span class="annot"><span class="annottext">$sel:text:TranslateText' :: Text
 </span><a href="Network.AWS.Translate.TranslateText.html#%24sel%3Atext%3ATranslateText%27"><span class="hs-identifier hs-var">text</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679185336"><span class="hs-identifier hs-var">pText_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679185400"><span class="hs-identifier hs-var">pText_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-126"></span><span>        </span><span class="annot"><span class="annottext">$sel:sourceLanguageCode:TranslateText' :: Text
 </span><a href="Network.AWS.Translate.TranslateText.html#%24sel%3AsourceLanguageCode%3ATranslateText%27"><span class="hs-identifier hs-var">sourceLanguageCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679185335"><span class="hs-identifier hs-var">pSourceLanguageCode_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679185399"><span class="hs-identifier hs-var">pSourceLanguageCode_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-127"></span><span>        </span><span class="annot"><span class="annottext">$sel:targetLanguageCode:TranslateText' :: Text
 </span><a href="Network.AWS.Translate.TranslateText.html#%24sel%3AtargetLanguageCode%3ATranslateText%27"><span class="hs-identifier hs-var">targetLanguageCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679185334"><span class="hs-identifier hs-var">pTargetLanguageCode_</span></a></span><span>
+</span><a href="#local-6989586621679185398"><span class="hs-identifier hs-var">pTargetLanguageCode_</span></a></span><span>
 </span><span id="line-128"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-comment">-- | The name of the terminology list file to be used in the TranslateText</span><span>
@@ -207,16 +207,16 @@ forall a. Maybe a
 -&gt; (TranslateText -&gt; Maybe [Text] -&gt; TranslateText)
 -&gt; Lens TranslateText TranslateText (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#TranslateText%27"><span class="hs-identifier hs-type">TranslateText'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185331"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#TranslateText%27"><span class="hs-identifier hs-type">TranslateText'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185395"><span class="annot"><span class="annottext">Maybe [Text]
 terminologyNames :: Maybe [Text]
 $sel:terminologyNames:TranslateText' :: TranslateText -&gt; Maybe [Text]
-</span><a href="#local-6989586621679185331"><span class="hs-identifier hs-var hs-var">terminologyNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679185331"><span class="hs-identifier hs-var">terminologyNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185330"><span class="annot"><span class="annottext">s :: TranslateText
-</span><a href="#local-6989586621679185330"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#TranslateText%27"><span class="hs-identifier hs-type">TranslateText'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185329"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679185329"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TranslateText
-</span><a href="#local-6989586621679185330"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:terminologyNames:TranslateText' :: Maybe [Text]
+</span><a href="#local-6989586621679185395"><span class="hs-identifier hs-var hs-var">terminologyNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679185395"><span class="hs-identifier hs-var">terminologyNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185394"><span class="annot"><span class="annottext">s :: TranslateText
+</span><a href="#local-6989586621679185394"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#TranslateText%27"><span class="hs-identifier hs-type">TranslateText'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185393"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679185393"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TranslateText
+</span><a href="#local-6989586621679185394"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:terminologyNames:TranslateText' :: Maybe [Text]
 </span><a href="Network.AWS.Translate.TranslateText.html#%24sel%3AterminologyNames%3ATranslateText%27"><span class="hs-identifier hs-var">terminologyNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679185329"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#TranslateText"><span class="hs-identifier hs-type">TranslateText</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679185393"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#TranslateText"><span class="hs-identifier hs-type">TranslateText</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; TranslateText -&gt; f TranslateText)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -230,8 +230,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-comment">-- | The text to translate. The text string can be a maximum of 5,000 bytes</span><span>
 </span><span id="line-137"></span><span class="hs-comment">-- long. Depending on your character set, this may be fewer than 5,000</span><span>
@@ -242,16 +242,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (TranslateText -&gt; Text -&gt; TranslateText)
 -&gt; Lens TranslateText TranslateText Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#TranslateText%27"><span class="hs-identifier hs-type">TranslateText'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185325"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#TranslateText%27"><span class="hs-identifier hs-type">TranslateText'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185389"><span class="annot"><span class="annottext">Text
 text :: Text
 $sel:text:TranslateText' :: TranslateText -&gt; Text
-</span><a href="#local-6989586621679185325"><span class="hs-identifier hs-var hs-var">text</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679185325"><span class="hs-identifier hs-var">text</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185324"><span class="annot"><span class="annottext">s :: TranslateText
-</span><a href="#local-6989586621679185324"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#TranslateText%27"><span class="hs-identifier hs-type">TranslateText'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185323"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679185323"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TranslateText
-</span><a href="#local-6989586621679185324"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:text:TranslateText' :: Text
+</span><a href="#local-6989586621679185389"><span class="hs-identifier hs-var hs-var">text</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679185389"><span class="hs-identifier hs-var">text</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185388"><span class="annot"><span class="annottext">s :: TranslateText
+</span><a href="#local-6989586621679185388"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#TranslateText%27"><span class="hs-identifier hs-type">TranslateText'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185387"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679185387"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TranslateText
+</span><a href="#local-6989586621679185388"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:text:TranslateText' :: Text
 </span><a href="Network.AWS.Translate.TranslateText.html#%24sel%3Atext%3ATranslateText%27"><span class="hs-identifier hs-var">text</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679185323"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#TranslateText"><span class="hs-identifier hs-type">TranslateText</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679185387"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#TranslateText"><span class="hs-identifier hs-type">TranslateText</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- | The language code for the language of the source text. The language must</span><span>
 </span><span id="line-143"></span><span class="hs-comment">-- be a language supported by Amazon Translate. For a list of language</span><span>
@@ -268,16 +268,16 @@ $sel:text:TranslateText' :: TranslateText -&gt; Text
 -&gt; (TranslateText -&gt; Text -&gt; TranslateText)
 -&gt; Lens TranslateText TranslateText Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#TranslateText%27"><span class="hs-identifier hs-type">TranslateText'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185322"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#TranslateText%27"><span class="hs-identifier hs-type">TranslateText'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185386"><span class="annot"><span class="annottext">Text
 sourceLanguageCode :: Text
 $sel:sourceLanguageCode:TranslateText' :: TranslateText -&gt; Text
-</span><a href="#local-6989586621679185322"><span class="hs-identifier hs-var hs-var">sourceLanguageCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679185322"><span class="hs-identifier hs-var">sourceLanguageCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185321"><span class="annot"><span class="annottext">s :: TranslateText
-</span><a href="#local-6989586621679185321"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#TranslateText%27"><span class="hs-identifier hs-type">TranslateText'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185320"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679185320"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TranslateText
-</span><a href="#local-6989586621679185321"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceLanguageCode:TranslateText' :: Text
+</span><a href="#local-6989586621679185386"><span class="hs-identifier hs-var hs-var">sourceLanguageCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679185386"><span class="hs-identifier hs-var">sourceLanguageCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185385"><span class="annot"><span class="annottext">s :: TranslateText
+</span><a href="#local-6989586621679185385"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#TranslateText%27"><span class="hs-identifier hs-type">TranslateText'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185384"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679185384"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TranslateText
+</span><a href="#local-6989586621679185385"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceLanguageCode:TranslateText' :: Text
 </span><a href="Network.AWS.Translate.TranslateText.html#%24sel%3AsourceLanguageCode%3ATranslateText%27"><span class="hs-identifier hs-var">sourceLanguageCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679185320"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#TranslateText"><span class="hs-identifier hs-type">TranslateText</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679185384"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#TranslateText"><span class="hs-identifier hs-type">TranslateText</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>
 </span><span id="line-154"></span><span class="hs-comment">-- | The language code requested for the language of the target text. The</span><span>
 </span><span id="line-155"></span><span class="hs-comment">-- language must be a language supported by Amazon Translate.</span><span>
@@ -287,27 +287,27 @@ $sel:sourceLanguageCode:TranslateText' :: TranslateText -&gt; Text
 -&gt; (TranslateText -&gt; Text -&gt; TranslateText)
 -&gt; Lens TranslateText TranslateText Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#TranslateText%27"><span class="hs-identifier hs-type">TranslateText'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185319"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#TranslateText%27"><span class="hs-identifier hs-type">TranslateText'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185383"><span class="annot"><span class="annottext">Text
 targetLanguageCode :: Text
 $sel:targetLanguageCode:TranslateText' :: TranslateText -&gt; Text
-</span><a href="#local-6989586621679185319"><span class="hs-identifier hs-var hs-var">targetLanguageCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679185319"><span class="hs-identifier hs-var">targetLanguageCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185318"><span class="annot"><span class="annottext">s :: TranslateText
-</span><a href="#local-6989586621679185318"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#TranslateText%27"><span class="hs-identifier hs-type">TranslateText'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185317"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679185317"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TranslateText
-</span><a href="#local-6989586621679185318"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetLanguageCode:TranslateText' :: Text
+</span><a href="#local-6989586621679185383"><span class="hs-identifier hs-var hs-var">targetLanguageCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679185383"><span class="hs-identifier hs-var">targetLanguageCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185382"><span class="annot"><span class="annottext">s :: TranslateText
+</span><a href="#local-6989586621679185382"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#TranslateText%27"><span class="hs-identifier hs-type">TranslateText'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185381"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679185381"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TranslateText
+</span><a href="#local-6989586621679185382"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetLanguageCode:TranslateText' :: Text
 </span><a href="Network.AWS.Translate.TranslateText.html#%24sel%3AtargetLanguageCode%3ATranslateText%27"><span class="hs-identifier hs-var">targetLanguageCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679185317"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#TranslateText"><span class="hs-identifier hs-type">TranslateText</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679185381"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#TranslateText"><span class="hs-identifier hs-type">TranslateText</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>
 </span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#TranslateText"><span class="hs-identifier hs-type">TranslateText</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-160"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-161"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#TranslateText"><span class="hs-identifier hs-type">TranslateText</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-162"></span><span>      </span><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#TranslateTextResponse"><span class="hs-identifier hs-type">TranslateTextResponse</span></a></span><span>
-</span><span id="line-163"></span><span>  </span><span id="local-6989586621679185313"><span class="annot"><span class="annottext">request :: TranslateText -&gt; Request TranslateText
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679185377"><span class="annot"><span class="annottext">request :: TranslateText -&gt; Request TranslateText
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; TranslateText -&gt; Request TranslateText
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Translate.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-164"></span><span>  </span><span id="local-6989586621679185309"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621679185373"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy TranslateText
 -&gt; ClientResponse ClientBody
@@ -331,10 +331,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-166"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679185306"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679185306"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679185305"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679185305"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679185304"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679185304"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-166"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679185370"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679185370"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679185369"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679185369"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679185368"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679185368"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-167"></span><span>          </span><span class="annot"><span class="annottext">Maybe [AppliedTerminology]
 -&gt; Int -&gt; Text -&gt; Text -&gt; Text -&gt; TranslateTextResponse
 </span><a href="Network.AWS.Translate.TranslateText.html#TranslateTextResponse%27"><span class="hs-identifier hs-var">TranslateTextResponse'</span></a></span><span>
@@ -345,7 +345,7 @@ MonadResource m =&gt;
      String (Int -&gt; Text -&gt; Text -&gt; Text -&gt; TranslateTextResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679185304"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679185368"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Either String (Maybe (Maybe [AppliedTerminology]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -368,13 +368,13 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679185306"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679185370"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-172"></span><span>            </span><span class="annot"><span class="annottext">Either String (Text -&gt; Text -&gt; Text -&gt; TranslateTextResponse)
 -&gt; Either String Text
 -&gt; Either String (Text -&gt; Text -&gt; TranslateTextResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679185304"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679185368"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TranslatedText&quot;</span></span><span class="hs-special">)</span><span>
@@ -383,7 +383,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 -&gt; Either String (Text -&gt; TranslateTextResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679185304"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679185368"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SourceLanguageCode&quot;</span></span><span class="hs-special">)</span><span>
@@ -391,18 +391,18 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 -&gt; Either String Text -&gt; Either String TranslateTextResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679185304"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679185368"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TargetLanguageCode&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-175"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>
-</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679185294"><span id="local-6989586621679185296"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#TranslateText"><span class="hs-identifier hs-type">TranslateText</span></a></span></span></span><span>
+</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679185358"><span id="local-6989586621679185360"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#TranslateText"><span class="hs-identifier hs-type">TranslateText</span></a></span></span></span><span>
 </span><span id="line-178"></span><span>
-</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679185291"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#TranslateText"><span class="hs-identifier hs-type">TranslateText</span></a></span></span><span>
+</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679185355"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#TranslateText"><span class="hs-identifier hs-type">TranslateText</span></a></span></span><span>
 </span><span id="line-180"></span><span>
 </span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#TranslateText"><span class="hs-identifier hs-type">TranslateText</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-182"></span><span>  </span><span id="local-6989586621679185287"><span class="annot"><span class="annottext">toHeaders :: TranslateText -&gt; ResponseHeaders
+</span><span id="line-182"></span><span>  </span><span id="local-6989586621679185351"><span class="annot"><span class="annottext">toHeaders :: TranslateText -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-183"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; TranslateText -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -429,9 +429,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-193"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-194"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-195"></span><span>
-</span><span id="line-196"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679185277"><span id="local-6989586621679185279"><span id="local-6989586621679185281"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#TranslateText"><span class="hs-identifier hs-type">TranslateText</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-197"></span><span>  </span><span id="local-6989586621679185275"><span class="annot"><span class="annottext">toJSON :: TranslateText -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#TranslateText%27"><span class="hs-identifier hs-type">TranslateText'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185270"><span id="local-6989586621679185271"><span id="local-6989586621679185272"><span id="local-6989586621679185273"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-196"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679185341"><span id="local-6989586621679185343"><span id="local-6989586621679185345"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#TranslateText"><span class="hs-identifier hs-type">TranslateText</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-197"></span><span>  </span><span id="local-6989586621679185339"><span class="annot"><span class="annottext">toJSON :: TranslateText -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#TranslateText%27"><span class="hs-identifier hs-type">TranslateText'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185334"><span id="local-6989586621679185335"><span id="local-6989586621679185336"><span id="local-6989586621679185337"><span class="annot"><span class="annottext">Maybe [Text]
 Text
 targetLanguageCode :: Text
 sourceLanguageCode :: Text
@@ -441,7 +441,7 @@ $sel:targetLanguageCode:TranslateText' :: TranslateText -&gt; Text
 $sel:sourceLanguageCode:TranslateText' :: TranslateText -&gt; Text
 $sel:text:TranslateText' :: TranslateText -&gt; Text
 $sel:terminologyNames:TranslateText' :: TranslateText -&gt; Maybe [Text]
-</span><a href="#local-6989586621679185270"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679185334"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-198"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-199"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -454,14 +454,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-201"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679185273"><span class="hs-identifier hs-var">terminologyNames</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679185337"><span class="hs-identifier hs-var">terminologyNames</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-202"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Text&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679185272"><span class="hs-identifier hs-var">text</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679185336"><span class="hs-identifier hs-var">text</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-203"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -469,7 +469,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;SourceLanguageCode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679185271"><span class="hs-identifier hs-var">sourceLanguageCode</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679185335"><span class="hs-identifier hs-var">sourceLanguageCode</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-205"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -477,19 +477,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;TargetLanguageCode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679185270"><span class="hs-identifier hs-var">targetLanguageCode</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679185334"><span class="hs-identifier hs-var">targetLanguageCode</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-207"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-208"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-209"></span><span>
 </span><span id="line-210"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#TranslateText"><span class="hs-identifier hs-type">TranslateText</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-211"></span><span>  </span><span id="local-6989586621679185264"><span class="annot"><span class="annottext">toPath :: TranslateText -&gt; ByteString
+</span><span id="line-211"></span><span>  </span><span id="local-6989586621679185328"><span class="annot"><span class="annottext">toPath :: TranslateText -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; TranslateText -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-212"></span><span>
 </span><span id="line-213"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#TranslateText"><span class="hs-identifier hs-type">TranslateText</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-214"></span><span>  </span><span id="local-6989586621679185260"><span class="annot"><span class="annottext">toQuery :: TranslateText -&gt; QueryString
+</span><span id="line-214"></span><span>  </span><span id="local-6989586621679185324"><span class="annot"><span class="annottext">toQuery :: TranslateText -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; TranslateText -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -497,7 +497,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-215"></span><span>
 </span><span id="line-216"></span><span class="hs-comment">-- | /See:/ 'newTranslateTextResponse' smart constructor.</span><span>
-</span><span id="line-217"></span><span id="local-6989586621679185257"><span id="local-6989586621679185258"></span></span><span class="hs-keyword">data</span><span> </span><span id="TranslateTextResponse"><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#TranslateTextResponse"><span class="hs-identifier hs-var">TranslateTextResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TranslateTextResponse%27"><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#TranslateTextResponse%27"><span class="hs-identifier hs-var">TranslateTextResponse'</span></a></span></span><span>
+</span><span id="line-217"></span><span id="local-6989586621679185321"><span id="local-6989586621679185322"></span></span><span class="hs-keyword">data</span><span> </span><span id="TranslateTextResponse"><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#TranslateTextResponse"><span class="hs-identifier hs-var">TranslateTextResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TranslateTextResponse%27"><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#TranslateTextResponse%27"><span class="hs-identifier hs-var">TranslateTextResponse'</span></a></span></span><span>
 </span><span id="line-218"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The names of the custom terminologies applied to the input text by</span><span>
 </span><span id="line-219"></span><span>    </span><span class="hs-comment">-- Amazon Translate for the translated text response.</span><span>
 </span><span id="line-220"></span><span>    </span><span id="%24sel%3AappliedTerminologies%3ATranslateTextResponse%27"><span class="annot"><span class="annottext">TranslateTextResponse -&gt; Maybe [AppliedTerminology]
@@ -515,7 +515,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-228"></span><span>    </span><span id="%24sel%3AtargetLanguageCode%3ATranslateTextResponse%27"><span class="annot"><span class="annottext">TranslateTextResponse -&gt; Text
 </span><a href="Network.AWS.Translate.TranslateText.html#%24sel%3AtargetLanguageCode%3ATranslateTextResponse%27"><span class="hs-identifier hs-var hs-var">targetLanguageCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-229"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-230"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679185248"><span id="local-6989586621679185250"><span class="annot"><span class="annottext">TranslateTextResponse -&gt; TranslateTextResponse -&gt; Bool
+</span><span id="line-230"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679185312"><span id="local-6989586621679185314"><span class="annot"><span class="annottext">TranslateTextResponse -&gt; TranslateTextResponse -&gt; Bool
 (TranslateTextResponse -&gt; TranslateTextResponse -&gt; Bool)
 -&gt; (TranslateTextResponse -&gt; TranslateTextResponse -&gt; Bool)
 -&gt; Eq TranslateTextResponse
@@ -524,7 +524,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TranslateTextResponse -&gt; TranslateTextResponse -&gt; Bool
 == :: TranslateTextResponse -&gt; TranslateTextResponse -&gt; Bool
 $c== :: TranslateTextResponse -&gt; TranslateTextResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679185240"><span id="local-6989586621679185242"><span id="local-6989586621679185244"><span id="local-6989586621679185246"><span class="annot"><span class="annottext">ReadPrec [TranslateTextResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679185304"><span id="local-6989586621679185306"><span id="local-6989586621679185308"><span id="local-6989586621679185310"><span class="annot"><span class="annottext">ReadPrec [TranslateTextResponse]
 ReadPrec TranslateTextResponse
 Int -&gt; ReadS TranslateTextResponse
 ReadS [TranslateTextResponse]
@@ -544,7 +544,7 @@ readList :: ReadS [TranslateTextResponse]
 $creadList :: ReadS [TranslateTextResponse]
 readsPrec :: Int -&gt; ReadS TranslateTextResponse
 $creadsPrec :: Int -&gt; ReadS TranslateTextResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679185234"><span id="local-6989586621679185236"><span id="local-6989586621679185238"><span class="annot"><span class="annottext">Int -&gt; TranslateTextResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679185298"><span id="local-6989586621679185300"><span id="local-6989586621679185302"><span class="annot"><span class="annottext">Int -&gt; TranslateTextResponse -&gt; ShowS
 [TranslateTextResponse] -&gt; ShowS
 TranslateTextResponse -&gt; String
 (Int -&gt; TranslateTextResponse -&gt; ShowS)
@@ -600,14 +600,14 @@ $cfrom :: forall x. TranslateTextResponse -&gt; Rep TranslateTextResponse x
 </span><span id="line-259"></span><span>  </span><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#TranslateTextResponse"><span class="hs-identifier hs-type">TranslateTextResponse</span></a></span><span>
 </span><span id="line-260"></span><span id="newTranslateTextResponse"><span class="annot"><span class="annottext">newTranslateTextResponse :: Int -&gt; Text -&gt; Text -&gt; Text -&gt; TranslateTextResponse
 </span><a href="Network.AWS.Translate.TranslateText.html#newTranslateTextResponse"><span class="hs-identifier hs-var hs-var">newTranslateTextResponse</span></a></span></span><span>
-</span><span id="line-261"></span><span>  </span><span id="local-6989586621679185231"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679185231"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
-</span><span id="line-262"></span><span>  </span><span id="local-6989586621679185230"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679185230"><span class="hs-identifier hs-var">pTranslatedText_</span></a></span></span><span>
-</span><span id="line-263"></span><span>  </span><span id="local-6989586621679185229"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679185229"><span class="hs-identifier hs-var">pSourceLanguageCode_</span></a></span></span><span>
-</span><span id="line-264"></span><span>  </span><span id="local-6989586621679185228"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679185228"><span class="hs-identifier hs-var">pTargetLanguageCode_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-261"></span><span>  </span><span id="local-6989586621679185295"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679185295"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-262"></span><span>  </span><span id="local-6989586621679185294"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679185294"><span class="hs-identifier hs-var">pTranslatedText_</span></a></span></span><span>
+</span><span id="line-263"></span><span>  </span><span id="local-6989586621679185293"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679185293"><span class="hs-identifier hs-var">pSourceLanguageCode_</span></a></span></span><span>
+</span><span id="line-264"></span><span>  </span><span id="local-6989586621679185292"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679185292"><span class="hs-identifier hs-var">pTargetLanguageCode_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-265"></span><span>    </span><span class="annot"><span class="annottext">TranslateTextResponse' :: Maybe [AppliedTerminology]
 -&gt; Int -&gt; Text -&gt; Text -&gt; Text -&gt; TranslateTextResponse
 </span><a href="Network.AWS.Translate.TranslateText.html#TranslateTextResponse%27"><span class="hs-identifier hs-type">TranslateTextResponse'</span></a></span><span>
@@ -618,16 +618,16 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-268"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:TranslateTextResponse' :: Int
 </span><a href="Network.AWS.Translate.TranslateText.html#%24sel%3AhttpStatus%3ATranslateTextResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679185231"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679185295"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-269"></span><span>        </span><span class="annot"><span class="annottext">$sel:translatedText:TranslateTextResponse' :: Text
 </span><a href="Network.AWS.Translate.TranslateText.html#%24sel%3AtranslatedText%3ATranslateTextResponse%27"><span class="hs-identifier hs-var">translatedText</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679185230"><span class="hs-identifier hs-var">pTranslatedText_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679185294"><span class="hs-identifier hs-var">pTranslatedText_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-270"></span><span>        </span><span class="annot"><span class="annottext">$sel:sourceLanguageCode:TranslateTextResponse' :: Text
 </span><a href="Network.AWS.Translate.TranslateText.html#%24sel%3AsourceLanguageCode%3ATranslateTextResponse%27"><span class="hs-identifier hs-var">sourceLanguageCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679185229"><span class="hs-identifier hs-var">pSourceLanguageCode_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679185293"><span class="hs-identifier hs-var">pSourceLanguageCode_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-271"></span><span>        </span><span class="annot"><span class="annottext">$sel:targetLanguageCode:TranslateTextResponse' :: Text
 </span><a href="Network.AWS.Translate.TranslateText.html#%24sel%3AtargetLanguageCode%3ATranslateTextResponse%27"><span class="hs-identifier hs-var">targetLanguageCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679185228"><span class="hs-identifier hs-var">pTargetLanguageCode_</span></a></span><span>
+</span><a href="#local-6989586621679185292"><span class="hs-identifier hs-var">pTargetLanguageCode_</span></a></span><span>
 </span><span id="line-272"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-273"></span><span>
 </span><span id="line-274"></span><span class="hs-comment">-- | The names of the custom terminologies applied to the input text by</span><span>
@@ -644,16 +644,16 @@ forall a. Maybe a
      (Maybe [AppliedTerminology])
      (Maybe [AppliedTerminology])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#TranslateTextResponse%27"><span class="hs-identifier hs-type">TranslateTextResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185227"><span class="annot"><span class="annottext">Maybe [AppliedTerminology]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#TranslateTextResponse%27"><span class="hs-identifier hs-type">TranslateTextResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185291"><span class="annot"><span class="annottext">Maybe [AppliedTerminology]
 appliedTerminologies :: Maybe [AppliedTerminology]
 $sel:appliedTerminologies:TranslateTextResponse' :: TranslateTextResponse -&gt; Maybe [AppliedTerminology]
-</span><a href="#local-6989586621679185227"><span class="hs-identifier hs-var hs-var">appliedTerminologies</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AppliedTerminology]
-</span><a href="#local-6989586621679185227"><span class="hs-identifier hs-var">appliedTerminologies</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185226"><span class="annot"><span class="annottext">s :: TranslateTextResponse
-</span><a href="#local-6989586621679185226"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#TranslateTextResponse%27"><span class="hs-identifier hs-type">TranslateTextResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185225"><span class="annot"><span class="annottext">Maybe [AppliedTerminology]
-</span><a href="#local-6989586621679185225"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TranslateTextResponse
-</span><a href="#local-6989586621679185226"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appliedTerminologies:TranslateTextResponse' :: Maybe [AppliedTerminology]
+</span><a href="#local-6989586621679185291"><span class="hs-identifier hs-var hs-var">appliedTerminologies</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AppliedTerminology]
+</span><a href="#local-6989586621679185291"><span class="hs-identifier hs-var">appliedTerminologies</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185290"><span class="annot"><span class="annottext">s :: TranslateTextResponse
+</span><a href="#local-6989586621679185290"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#TranslateTextResponse%27"><span class="hs-identifier hs-type">TranslateTextResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185289"><span class="annot"><span class="annottext">Maybe [AppliedTerminology]
+</span><a href="#local-6989586621679185289"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TranslateTextResponse
+</span><a href="#local-6989586621679185290"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appliedTerminologies:TranslateTextResponse' :: Maybe [AppliedTerminology]
 </span><a href="Network.AWS.Translate.TranslateText.html#%24sel%3AappliedTerminologies%3ATranslateTextResponse%27"><span class="hs-identifier hs-var">appliedTerminologies</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AppliedTerminology]
-</span><a href="#local-6989586621679185225"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#TranslateTextResponse"><span class="hs-identifier hs-type">TranslateTextResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AppliedTerminology] -&gt; f (Maybe [AppliedTerminology]))
+</span><a href="#local-6989586621679185289"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#TranslateTextResponse"><span class="hs-identifier hs-type">TranslateTextResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AppliedTerminology] -&gt; f (Maybe [AppliedTerminology]))
  -&gt; TranslateTextResponse -&gt; f TranslateTextResponse)
 -&gt; ((Maybe [AppliedTerminology] -&gt; f (Maybe [AppliedTerminology]))
     -&gt; Maybe [AppliedTerminology] -&gt; f (Maybe [AppliedTerminology]))
@@ -679,8 +679,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [AppliedTerminology]
   [AppliedTerminology]
   [AppliedTerminology]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-278"></span><span>
 </span><span id="line-279"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-280"></span><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#translateTextResponse_httpStatus"><span class="hs-identifier hs-type">translateTextResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#TranslateTextResponse"><span class="hs-identifier hs-type">TranslateTextResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -689,16 +689,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (TranslateTextResponse -&gt; Int -&gt; TranslateTextResponse)
 -&gt; Lens TranslateTextResponse TranslateTextResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#TranslateTextResponse%27"><span class="hs-identifier hs-type">TranslateTextResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185224"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#TranslateTextResponse%27"><span class="hs-identifier hs-type">TranslateTextResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185288"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:TranslateTextResponse' :: TranslateTextResponse -&gt; Int
-</span><a href="#local-6989586621679185224"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679185224"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185223"><span class="annot"><span class="annottext">s :: TranslateTextResponse
-</span><a href="#local-6989586621679185223"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#TranslateTextResponse%27"><span class="hs-identifier hs-type">TranslateTextResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185222"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679185222"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TranslateTextResponse
-</span><a href="#local-6989586621679185223"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:TranslateTextResponse' :: Int
+</span><a href="#local-6989586621679185288"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679185288"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185287"><span class="annot"><span class="annottext">s :: TranslateTextResponse
+</span><a href="#local-6989586621679185287"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#TranslateTextResponse%27"><span class="hs-identifier hs-type">TranslateTextResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185286"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679185286"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TranslateTextResponse
+</span><a href="#local-6989586621679185287"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:TranslateTextResponse' :: Int
 </span><a href="Network.AWS.Translate.TranslateText.html#%24sel%3AhttpStatus%3ATranslateTextResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679185222"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#TranslateTextResponse"><span class="hs-identifier hs-type">TranslateTextResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679185286"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#TranslateTextResponse"><span class="hs-identifier hs-type">TranslateTextResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-282"></span><span>
 </span><span id="line-283"></span><span class="hs-comment">-- | The translated text.</span><span>
 </span><span id="line-284"></span><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#translateTextResponse_translatedText"><span class="hs-identifier hs-type">translateTextResponse_translatedText</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#TranslateTextResponse"><span class="hs-identifier hs-type">TranslateTextResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -708,16 +708,16 @@ $sel:httpStatus:TranslateTextResponse' :: TranslateTextResponse -&gt; Int
 -&gt; (TranslateTextResponse -&gt; Text -&gt; TranslateTextResponse)
 -&gt; Lens TranslateTextResponse TranslateTextResponse Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#TranslateTextResponse%27"><span class="hs-identifier hs-type">TranslateTextResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185221"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#TranslateTextResponse%27"><span class="hs-identifier hs-type">TranslateTextResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185285"><span class="annot"><span class="annottext">Text
 translatedText :: Text
 $sel:translatedText:TranslateTextResponse' :: TranslateTextResponse -&gt; Text
-</span><a href="#local-6989586621679185221"><span class="hs-identifier hs-var hs-var">translatedText</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679185221"><span class="hs-identifier hs-var">translatedText</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185220"><span class="annot"><span class="annottext">s :: TranslateTextResponse
-</span><a href="#local-6989586621679185220"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#TranslateTextResponse%27"><span class="hs-identifier hs-type">TranslateTextResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185219"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679185219"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TranslateTextResponse
-</span><a href="#local-6989586621679185220"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:translatedText:TranslateTextResponse' :: Text
+</span><a href="#local-6989586621679185285"><span class="hs-identifier hs-var hs-var">translatedText</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679185285"><span class="hs-identifier hs-var">translatedText</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185284"><span class="annot"><span class="annottext">s :: TranslateTextResponse
+</span><a href="#local-6989586621679185284"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#TranslateTextResponse%27"><span class="hs-identifier hs-type">TranslateTextResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185283"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679185283"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TranslateTextResponse
+</span><a href="#local-6989586621679185284"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:translatedText:TranslateTextResponse' :: Text
 </span><a href="Network.AWS.Translate.TranslateText.html#%24sel%3AtranslatedText%3ATranslateTextResponse%27"><span class="hs-identifier hs-var">translatedText</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679185219"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#TranslateTextResponse"><span class="hs-identifier hs-type">TranslateTextResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679185283"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#TranslateTextResponse"><span class="hs-identifier hs-type">TranslateTextResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-286"></span><span>
 </span><span id="line-287"></span><span class="hs-comment">-- | The language code for the language of the source text.</span><span>
 </span><span id="line-288"></span><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#translateTextResponse_sourceLanguageCode"><span class="hs-identifier hs-type">translateTextResponse_sourceLanguageCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#TranslateTextResponse"><span class="hs-identifier hs-type">TranslateTextResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -727,16 +727,16 @@ $sel:translatedText:TranslateTextResponse' :: TranslateTextResponse -&gt; Text
 -&gt; (TranslateTextResponse -&gt; Text -&gt; TranslateTextResponse)
 -&gt; Lens TranslateTextResponse TranslateTextResponse Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#TranslateTextResponse%27"><span class="hs-identifier hs-type">TranslateTextResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185218"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#TranslateTextResponse%27"><span class="hs-identifier hs-type">TranslateTextResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185282"><span class="annot"><span class="annottext">Text
 sourceLanguageCode :: Text
 $sel:sourceLanguageCode:TranslateTextResponse' :: TranslateTextResponse -&gt; Text
-</span><a href="#local-6989586621679185218"><span class="hs-identifier hs-var hs-var">sourceLanguageCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679185218"><span class="hs-identifier hs-var">sourceLanguageCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185217"><span class="annot"><span class="annottext">s :: TranslateTextResponse
-</span><a href="#local-6989586621679185217"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#TranslateTextResponse%27"><span class="hs-identifier hs-type">TranslateTextResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185216"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679185216"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TranslateTextResponse
-</span><a href="#local-6989586621679185217"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceLanguageCode:TranslateTextResponse' :: Text
+</span><a href="#local-6989586621679185282"><span class="hs-identifier hs-var hs-var">sourceLanguageCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679185282"><span class="hs-identifier hs-var">sourceLanguageCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185281"><span class="annot"><span class="annottext">s :: TranslateTextResponse
+</span><a href="#local-6989586621679185281"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#TranslateTextResponse%27"><span class="hs-identifier hs-type">TranslateTextResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185280"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679185280"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TranslateTextResponse
+</span><a href="#local-6989586621679185281"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceLanguageCode:TranslateTextResponse' :: Text
 </span><a href="Network.AWS.Translate.TranslateText.html#%24sel%3AsourceLanguageCode%3ATranslateTextResponse%27"><span class="hs-identifier hs-var">sourceLanguageCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679185216"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#TranslateTextResponse"><span class="hs-identifier hs-type">TranslateTextResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679185280"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#TranslateTextResponse"><span class="hs-identifier hs-type">TranslateTextResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-290"></span><span>
 </span><span id="line-291"></span><span class="hs-comment">-- | The language code for the language of the target text.</span><span>
 </span><span id="line-292"></span><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#translateTextResponse_targetLanguageCode"><span class="hs-identifier hs-type">translateTextResponse_targetLanguageCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#TranslateTextResponse"><span class="hs-identifier hs-type">TranslateTextResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -746,16 +746,16 @@ $sel:sourceLanguageCode:TranslateTextResponse' :: TranslateTextResponse -&gt; Te
 -&gt; (TranslateTextResponse -&gt; Text -&gt; TranslateTextResponse)
 -&gt; Lens TranslateTextResponse TranslateTextResponse Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#TranslateTextResponse%27"><span class="hs-identifier hs-type">TranslateTextResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185215"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#TranslateTextResponse%27"><span class="hs-identifier hs-type">TranslateTextResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185279"><span class="annot"><span class="annottext">Text
 targetLanguageCode :: Text
 $sel:targetLanguageCode:TranslateTextResponse' :: TranslateTextResponse -&gt; Text
-</span><a href="#local-6989586621679185215"><span class="hs-identifier hs-var hs-var">targetLanguageCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679185215"><span class="hs-identifier hs-var">targetLanguageCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185214"><span class="annot"><span class="annottext">s :: TranslateTextResponse
-</span><a href="#local-6989586621679185214"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#TranslateTextResponse%27"><span class="hs-identifier hs-type">TranslateTextResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185213"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679185213"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TranslateTextResponse
-</span><a href="#local-6989586621679185214"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetLanguageCode:TranslateTextResponse' :: Text
+</span><a href="#local-6989586621679185279"><span class="hs-identifier hs-var hs-var">targetLanguageCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679185279"><span class="hs-identifier hs-var">targetLanguageCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185278"><span class="annot"><span class="annottext">s :: TranslateTextResponse
+</span><a href="#local-6989586621679185278"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#TranslateTextResponse%27"><span class="hs-identifier hs-type">TranslateTextResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185277"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679185277"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TranslateTextResponse
+</span><a href="#local-6989586621679185278"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetLanguageCode:TranslateTextResponse' :: Text
 </span><a href="Network.AWS.Translate.TranslateText.html#%24sel%3AtargetLanguageCode%3ATranslateTextResponse%27"><span class="hs-identifier hs-var">targetLanguageCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679185213"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#TranslateTextResponse"><span class="hs-identifier hs-type">TranslateTextResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679185277"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#TranslateTextResponse"><span class="hs-identifier hs-type">TranslateTextResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-294"></span><span>
-</span><span id="line-295"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679185211"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#TranslateTextResponse"><span class="hs-identifier hs-type">TranslateTextResponse</span></a></span></span><span>
+</span><span id="line-295"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679185275"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Translate.TranslateText.html#TranslateTextResponse"><span class="hs-identifier hs-type">TranslateTextResponse</span></a></span></span><span>
 </span><span id="line-296"></span></pre></body></html>

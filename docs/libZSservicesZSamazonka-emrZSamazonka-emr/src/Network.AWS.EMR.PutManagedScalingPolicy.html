@@ -51,7 +51,7 @@
 </span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-52"></span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newPutManagedScalingPolicy' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679385196"><span id="local-6989586621679385197"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutManagedScalingPolicy"><span class="annot"><a href="Network.AWS.EMR.PutManagedScalingPolicy.html#PutManagedScalingPolicy"><span class="hs-identifier hs-var">PutManagedScalingPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutManagedScalingPolicy%27"><span class="annot"><a href="Network.AWS.EMR.PutManagedScalingPolicy.html#PutManagedScalingPolicy%27"><span class="hs-identifier hs-var">PutManagedScalingPolicy'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679385580"><span id="local-6989586621679385581"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutManagedScalingPolicy"><span class="annot"><a href="Network.AWS.EMR.PutManagedScalingPolicy.html#PutManagedScalingPolicy"><span class="hs-identifier hs-var">PutManagedScalingPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutManagedScalingPolicy%27"><span class="annot"><a href="Network.AWS.EMR.PutManagedScalingPolicy.html#PutManagedScalingPolicy%27"><span class="hs-identifier hs-var">PutManagedScalingPolicy'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies the ID of an EMR cluster where the managed scaling policy is</span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-comment">-- attached.</span><span>
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3AclusterId%3APutManagedScalingPolicy%27"><span class="annot"><span class="annottext">PutManagedScalingPolicy -&gt; Text
@@ -60,7 +60,7 @@
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AmanagedScalingPolicy%3APutManagedScalingPolicy%27"><span class="annot"><span class="annottext">PutManagedScalingPolicy -&gt; ManagedScalingPolicy
 </span><a href="Network.AWS.EMR.PutManagedScalingPolicy.html#%24sel%3AmanagedScalingPolicy%3APutManagedScalingPolicy%27"><span class="hs-identifier hs-var hs-var">managedScalingPolicy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.ManagedScalingPolicy.html#ManagedScalingPolicy"><span class="hs-identifier hs-type">ManagedScalingPolicy</span></a></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679385189"><span id="local-6989586621679385191"><span class="annot"><span class="annottext">PutManagedScalingPolicy -&gt; PutManagedScalingPolicy -&gt; Bool
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679385573"><span id="local-6989586621679385575"><span class="annot"><span class="annottext">PutManagedScalingPolicy -&gt; PutManagedScalingPolicy -&gt; Bool
 (PutManagedScalingPolicy -&gt; PutManagedScalingPolicy -&gt; Bool)
 -&gt; (PutManagedScalingPolicy -&gt; PutManagedScalingPolicy -&gt; Bool)
 -&gt; Eq PutManagedScalingPolicy
@@ -69,7 +69,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutManagedScalingPolicy -&gt; PutManagedScalingPolicy -&gt; Bool
 == :: PutManagedScalingPolicy -&gt; PutManagedScalingPolicy -&gt; Bool
 $c== :: PutManagedScalingPolicy -&gt; PutManagedScalingPolicy -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679385180"><span id="local-6989586621679385182"><span id="local-6989586621679385184"><span id="local-6989586621679385186"><span class="annot"><span class="annottext">ReadPrec [PutManagedScalingPolicy]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679385564"><span id="local-6989586621679385566"><span id="local-6989586621679385568"><span id="local-6989586621679385570"><span class="annot"><span class="annottext">ReadPrec [PutManagedScalingPolicy]
 ReadPrec PutManagedScalingPolicy
 Int -&gt; ReadS PutManagedScalingPolicy
 ReadS [PutManagedScalingPolicy]
@@ -89,7 +89,7 @@ readList :: ReadS [PutManagedScalingPolicy]
 $creadList :: ReadS [PutManagedScalingPolicy]
 readsPrec :: Int -&gt; ReadS PutManagedScalingPolicy
 $creadsPrec :: Int -&gt; ReadS PutManagedScalingPolicy
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679385173"><span id="local-6989586621679385175"><span id="local-6989586621679385177"><span class="annot"><span class="annottext">Int -&gt; PutManagedScalingPolicy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679385557"><span id="local-6989586621679385559"><span id="local-6989586621679385561"><span class="annot"><span class="annottext">Int -&gt; PutManagedScalingPolicy -&gt; ShowS
 [PutManagedScalingPolicy] -&gt; ShowS
 PutManagedScalingPolicy -&gt; String
 (Int -&gt; PutManagedScalingPolicy -&gt; ShowS)
@@ -137,18 +137,18 @@ $cfrom :: forall x. PutManagedScalingPolicy -&gt; Rep PutManagedScalingPolicy x
 </span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.EMR.PutManagedScalingPolicy.html#PutManagedScalingPolicy"><span class="hs-identifier hs-type">PutManagedScalingPolicy</span></a></span><span>
 </span><span id="line-81"></span><span id="newPutManagedScalingPolicy"><span class="annot"><span class="annottext">newPutManagedScalingPolicy :: Text -&gt; ManagedScalingPolicy -&gt; PutManagedScalingPolicy
 </span><a href="Network.AWS.EMR.PutManagedScalingPolicy.html#newPutManagedScalingPolicy"><span class="hs-identifier hs-var hs-var">newPutManagedScalingPolicy</span></a></span></span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679385168"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679385168"><span class="hs-identifier hs-var">pClusterId_</span></a></span></span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679385167"><span class="annot"><span class="annottext">ManagedScalingPolicy
-</span><a href="#local-6989586621679385167"><span class="hs-identifier hs-var">pManagedScalingPolicy_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679385552"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679385552"><span class="hs-identifier hs-var">pClusterId_</span></a></span></span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679385551"><span class="annot"><span class="annottext">ManagedScalingPolicy
+</span><a href="#local-6989586621679385551"><span class="hs-identifier hs-var">pManagedScalingPolicy_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">PutManagedScalingPolicy' :: Text -&gt; ManagedScalingPolicy -&gt; PutManagedScalingPolicy
 </span><a href="Network.AWS.EMR.PutManagedScalingPolicy.html#PutManagedScalingPolicy%27"><span class="hs-identifier hs-type">PutManagedScalingPolicy'</span></a></span><span>
 </span><span id="line-85"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:clusterId:PutManagedScalingPolicy' :: Text
 </span><a href="Network.AWS.EMR.PutManagedScalingPolicy.html#%24sel%3AclusterId%3APutManagedScalingPolicy%27"><span class="hs-identifier hs-var">clusterId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679385168"><span class="hs-identifier hs-var">pClusterId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679385552"><span class="hs-identifier hs-var">pClusterId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-86"></span><span>        </span><span class="annot"><span class="annottext">$sel:managedScalingPolicy:PutManagedScalingPolicy' :: ManagedScalingPolicy
 </span><a href="Network.AWS.EMR.PutManagedScalingPolicy.html#%24sel%3AmanagedScalingPolicy%3APutManagedScalingPolicy%27"><span class="hs-identifier hs-var">managedScalingPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ManagedScalingPolicy
-</span><a href="#local-6989586621679385167"><span class="hs-identifier hs-var">pManagedScalingPolicy_</span></a></span><span>
+</span><a href="#local-6989586621679385551"><span class="hs-identifier hs-var">pManagedScalingPolicy_</span></a></span><span>
 </span><span id="line-87"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- | Specifies the ID of an EMR cluster where the managed scaling policy is</span><span>
@@ -160,16 +160,16 @@ $cfrom :: forall x. PutManagedScalingPolicy -&gt; Rep PutManagedScalingPolicy x
 -&gt; (PutManagedScalingPolicy -&gt; Text -&gt; PutManagedScalingPolicy)
 -&gt; Lens PutManagedScalingPolicy PutManagedScalingPolicy Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.PutManagedScalingPolicy.html#PutManagedScalingPolicy%27"><span class="hs-identifier hs-type">PutManagedScalingPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679385164"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.PutManagedScalingPolicy.html#PutManagedScalingPolicy%27"><span class="hs-identifier hs-type">PutManagedScalingPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679385548"><span class="annot"><span class="annottext">Text
 clusterId :: Text
 $sel:clusterId:PutManagedScalingPolicy' :: PutManagedScalingPolicy -&gt; Text
-</span><a href="#local-6989586621679385164"><span class="hs-identifier hs-var hs-var">clusterId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679385164"><span class="hs-identifier hs-var">clusterId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679385163"><span class="annot"><span class="annottext">s :: PutManagedScalingPolicy
-</span><a href="#local-6989586621679385163"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.PutManagedScalingPolicy.html#PutManagedScalingPolicy%27"><span class="hs-identifier hs-type">PutManagedScalingPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679385162"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679385162"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutManagedScalingPolicy
-</span><a href="#local-6989586621679385163"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterId:PutManagedScalingPolicy' :: Text
+</span><a href="#local-6989586621679385548"><span class="hs-identifier hs-var hs-var">clusterId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679385548"><span class="hs-identifier hs-var">clusterId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679385547"><span class="annot"><span class="annottext">s :: PutManagedScalingPolicy
+</span><a href="#local-6989586621679385547"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.PutManagedScalingPolicy.html#PutManagedScalingPolicy%27"><span class="hs-identifier hs-type">PutManagedScalingPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679385546"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679385546"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutManagedScalingPolicy
+</span><a href="#local-6989586621679385547"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterId:PutManagedScalingPolicy' :: Text
 </span><a href="Network.AWS.EMR.PutManagedScalingPolicy.html#%24sel%3AclusterId%3APutManagedScalingPolicy%27"><span class="hs-identifier hs-var">clusterId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679385162"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.PutManagedScalingPolicy.html#PutManagedScalingPolicy"><span class="hs-identifier hs-type">PutManagedScalingPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679385546"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.PutManagedScalingPolicy.html#PutManagedScalingPolicy"><span class="hs-identifier hs-type">PutManagedScalingPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- | Specifies the constraints for the managed scaling policy.</span><span>
 </span><span id="line-95"></span><span class="annot"><a href="Network.AWS.EMR.PutManagedScalingPolicy.html#putManagedScalingPolicy_managedScalingPolicy"><span class="hs-identifier hs-type">putManagedScalingPolicy_managedScalingPolicy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.PutManagedScalingPolicy.html#PutManagedScalingPolicy"><span class="hs-identifier hs-type">PutManagedScalingPolicy</span></a></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.ManagedScalingPolicy.html#ManagedScalingPolicy"><span class="hs-identifier hs-type">ManagedScalingPolicy</span></a></span><span>
@@ -184,28 +184,28 @@ $sel:clusterId:PutManagedScalingPolicy' :: PutManagedScalingPolicy -&gt; Text
      ManagedScalingPolicy
      ManagedScalingPolicy
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.PutManagedScalingPolicy.html#PutManagedScalingPolicy%27"><span class="hs-identifier hs-type">PutManagedScalingPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679385161"><span class="annot"><span class="annottext">ManagedScalingPolicy
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.PutManagedScalingPolicy.html#PutManagedScalingPolicy%27"><span class="hs-identifier hs-type">PutManagedScalingPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679385545"><span class="annot"><span class="annottext">ManagedScalingPolicy
 managedScalingPolicy :: ManagedScalingPolicy
 $sel:managedScalingPolicy:PutManagedScalingPolicy' :: PutManagedScalingPolicy -&gt; ManagedScalingPolicy
-</span><a href="#local-6989586621679385161"><span class="hs-identifier hs-var hs-var">managedScalingPolicy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ManagedScalingPolicy
-</span><a href="#local-6989586621679385161"><span class="hs-identifier hs-var">managedScalingPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679385160"><span class="annot"><span class="annottext">s :: PutManagedScalingPolicy
-</span><a href="#local-6989586621679385160"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.PutManagedScalingPolicy.html#PutManagedScalingPolicy%27"><span class="hs-identifier hs-type">PutManagedScalingPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679385159"><span class="annot"><span class="annottext">ManagedScalingPolicy
-</span><a href="#local-6989586621679385159"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutManagedScalingPolicy
-</span><a href="#local-6989586621679385160"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:managedScalingPolicy:PutManagedScalingPolicy' :: ManagedScalingPolicy
+</span><a href="#local-6989586621679385545"><span class="hs-identifier hs-var hs-var">managedScalingPolicy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ManagedScalingPolicy
+</span><a href="#local-6989586621679385545"><span class="hs-identifier hs-var">managedScalingPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679385544"><span class="annot"><span class="annottext">s :: PutManagedScalingPolicy
+</span><a href="#local-6989586621679385544"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.PutManagedScalingPolicy.html#PutManagedScalingPolicy%27"><span class="hs-identifier hs-type">PutManagedScalingPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679385543"><span class="annot"><span class="annottext">ManagedScalingPolicy
+</span><a href="#local-6989586621679385543"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutManagedScalingPolicy
+</span><a href="#local-6989586621679385544"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:managedScalingPolicy:PutManagedScalingPolicy' :: ManagedScalingPolicy
 </span><a href="Network.AWS.EMR.PutManagedScalingPolicy.html#%24sel%3AmanagedScalingPolicy%3APutManagedScalingPolicy%27"><span class="hs-identifier hs-var">managedScalingPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ManagedScalingPolicy
-</span><a href="#local-6989586621679385159"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.PutManagedScalingPolicy.html#PutManagedScalingPolicy"><span class="hs-identifier hs-type">PutManagedScalingPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679385543"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.PutManagedScalingPolicy.html#PutManagedScalingPolicy"><span class="hs-identifier hs-type">PutManagedScalingPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.PutManagedScalingPolicy.html#PutManagedScalingPolicy"><span class="hs-identifier hs-type">PutManagedScalingPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-99"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-100"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.PutManagedScalingPolicy.html#PutManagedScalingPolicy"><span class="hs-identifier hs-type">PutManagedScalingPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-101"></span><span>      </span><span class="annot"><a href="Network.AWS.EMR.PutManagedScalingPolicy.html#PutManagedScalingPolicyResponse"><span class="hs-identifier hs-type">PutManagedScalingPolicyResponse</span></a></span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679385155"><span class="annot"><span class="annottext">request :: PutManagedScalingPolicy -&gt; Request PutManagedScalingPolicy
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679385539"><span class="annot"><span class="annottext">request :: PutManagedScalingPolicy -&gt; Request PutManagedScalingPolicy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; PutManagedScalingPolicy -&gt; Request PutManagedScalingPolicy
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.EMR.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679385151"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679385535"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy PutManagedScalingPolicy
 -&gt; ClientResponse ClientBody
@@ -231,10 +231,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679385148"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679385148"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679385147"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679385147"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679385146"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679385146"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679385532"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679385532"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679385531"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679385531"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679385530"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679385530"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-106"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; PutManagedScalingPolicyResponse
 </span><a href="Network.AWS.EMR.PutManagedScalingPolicy.html#PutManagedScalingPolicyResponse%27"><span class="hs-identifier hs-var">PutManagedScalingPolicyResponse'</span></a></span><span>
 </span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; PutManagedScalingPolicyResponse)
@@ -246,15 +246,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679385148"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679385532"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679385139"><span id="local-6989586621679385141"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.PutManagedScalingPolicy.html#PutManagedScalingPolicy"><span class="hs-identifier hs-type">PutManagedScalingPolicy</span></a></span></span></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679385523"><span id="local-6989586621679385525"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.PutManagedScalingPolicy.html#PutManagedScalingPolicy"><span class="hs-identifier hs-type">PutManagedScalingPolicy</span></a></span></span></span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679385136"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.PutManagedScalingPolicy.html#PutManagedScalingPolicy"><span class="hs-identifier hs-type">PutManagedScalingPolicy</span></a></span></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679385520"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.PutManagedScalingPolicy.html#PutManagedScalingPolicy"><span class="hs-identifier hs-type">PutManagedScalingPolicy</span></a></span></span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.PutManagedScalingPolicy.html#PutManagedScalingPolicy"><span class="hs-identifier hs-type">PutManagedScalingPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679385132"><span class="annot"><span class="annottext">toHeaders :: PutManagedScalingPolicy -&gt; ResponseHeaders
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679385516"><span class="annot"><span class="annottext">toHeaders :: PutManagedScalingPolicy -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; PutManagedScalingPolicy -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -281,15 +281,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-126"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679385122"><span id="local-6989586621679385124"><span id="local-6989586621679385126"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.PutManagedScalingPolicy.html#PutManagedScalingPolicy"><span class="hs-identifier hs-type">PutManagedScalingPolicy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679385120"><span class="annot"><span class="annottext">toJSON :: PutManagedScalingPolicy -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.PutManagedScalingPolicy.html#PutManagedScalingPolicy%27"><span class="hs-identifier hs-type">PutManagedScalingPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679385117"><span id="local-6989586621679385118"><span class="annot"><span class="annottext">Text
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679385506"><span id="local-6989586621679385508"><span id="local-6989586621679385510"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.PutManagedScalingPolicy.html#PutManagedScalingPolicy"><span class="hs-identifier hs-type">PutManagedScalingPolicy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679385504"><span class="annot"><span class="annottext">toJSON :: PutManagedScalingPolicy -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.PutManagedScalingPolicy.html#PutManagedScalingPolicy%27"><span class="hs-identifier hs-type">PutManagedScalingPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679385501"><span id="local-6989586621679385502"><span class="annot"><span class="annottext">Text
 ManagedScalingPolicy
 managedScalingPolicy :: ManagedScalingPolicy
 clusterId :: Text
 $sel:managedScalingPolicy:PutManagedScalingPolicy' :: PutManagedScalingPolicy -&gt; ManagedScalingPolicy
 $sel:clusterId:PutManagedScalingPolicy' :: PutManagedScalingPolicy -&gt; Text
-</span><a href="#local-6989586621679385117"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679385501"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-132"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -301,7 +301,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ClusterId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679385118"><span class="hs-identifier hs-var">clusterId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679385502"><span class="hs-identifier hs-var">clusterId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -310,20 +310,20 @@ forall a. a -&gt; Maybe a
 </span><span id="line-136"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; ManagedScalingPolicy -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ManagedScalingPolicy
-</span><a href="#local-6989586621679385117"><span class="hs-identifier hs-var">managedScalingPolicy</span></a></span><span>
+</span><a href="#local-6989586621679385501"><span class="hs-identifier hs-var">managedScalingPolicy</span></a></span><span>
 </span><span id="line-137"></span><span>              </span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-139"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.PutManagedScalingPolicy.html#PutManagedScalingPolicy"><span class="hs-identifier hs-type">PutManagedScalingPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679385111"><span class="annot"><span class="annottext">toPath :: PutManagedScalingPolicy -&gt; ByteString
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679385495"><span class="annot"><span class="annottext">toPath :: PutManagedScalingPolicy -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; PutManagedScalingPolicy -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.PutManagedScalingPolicy.html#PutManagedScalingPolicy"><span class="hs-identifier hs-type">PutManagedScalingPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621679385107"><span class="annot"><span class="annottext">toQuery :: PutManagedScalingPolicy -&gt; QueryString
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679385491"><span class="annot"><span class="annottext">toQuery :: PutManagedScalingPolicy -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; PutManagedScalingPolicy -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -331,12 +331,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-comment">-- | /See:/ 'newPutManagedScalingPolicyResponse' smart constructor.</span><span>
-</span><span id="line-148"></span><span id="local-6989586621679385104"><span id="local-6989586621679385105"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutManagedScalingPolicyResponse"><span class="annot"><a href="Network.AWS.EMR.PutManagedScalingPolicy.html#PutManagedScalingPolicyResponse"><span class="hs-identifier hs-var">PutManagedScalingPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutManagedScalingPolicyResponse%27"><span class="annot"><a href="Network.AWS.EMR.PutManagedScalingPolicy.html#PutManagedScalingPolicyResponse%27"><span class="hs-identifier hs-var">PutManagedScalingPolicyResponse'</span></a></span></span><span>
+</span><span id="line-148"></span><span id="local-6989586621679385488"><span id="local-6989586621679385489"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutManagedScalingPolicyResponse"><span class="annot"><a href="Network.AWS.EMR.PutManagedScalingPolicy.html#PutManagedScalingPolicyResponse"><span class="hs-identifier hs-var">PutManagedScalingPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutManagedScalingPolicyResponse%27"><span class="annot"><a href="Network.AWS.EMR.PutManagedScalingPolicy.html#PutManagedScalingPolicyResponse%27"><span class="hs-identifier hs-var">PutManagedScalingPolicyResponse'</span></a></span></span><span>
 </span><span id="line-149"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-150"></span><span>    </span><span id="%24sel%3AhttpStatus%3APutManagedScalingPolicyResponse%27"><span class="annot"><span class="annottext">PutManagedScalingPolicyResponse -&gt; Int
 </span><a href="Network.AWS.EMR.PutManagedScalingPolicy.html#%24sel%3AhttpStatus%3APutManagedScalingPolicyResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-151"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-152"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679385099"><span id="local-6989586621679385101"><span class="annot"><span class="annottext">PutManagedScalingPolicyResponse
+</span><span id="line-152"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679385483"><span id="local-6989586621679385485"><span class="annot"><span class="annottext">PutManagedScalingPolicyResponse
 -&gt; PutManagedScalingPolicyResponse -&gt; Bool
 (PutManagedScalingPolicyResponse
  -&gt; PutManagedScalingPolicyResponse -&gt; Bool)
@@ -352,7 +352,7 @@ $c/= :: PutManagedScalingPolicyResponse
 -&gt; PutManagedScalingPolicyResponse -&gt; Bool
 $c== :: PutManagedScalingPolicyResponse
 -&gt; PutManagedScalingPolicyResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679385091"><span id="local-6989586621679385093"><span id="local-6989586621679385095"><span id="local-6989586621679385097"><span class="annot"><span class="annottext">ReadPrec [PutManagedScalingPolicyResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679385475"><span id="local-6989586621679385477"><span id="local-6989586621679385479"><span id="local-6989586621679385481"><span class="annot"><span class="annottext">ReadPrec [PutManagedScalingPolicyResponse]
 ReadPrec PutManagedScalingPolicyResponse
 Int -&gt; ReadS PutManagedScalingPolicyResponse
 ReadS [PutManagedScalingPolicyResponse]
@@ -372,7 +372,7 @@ readList :: ReadS [PutManagedScalingPolicyResponse]
 $creadList :: ReadS [PutManagedScalingPolicyResponse]
 readsPrec :: Int -&gt; ReadS PutManagedScalingPolicyResponse
 $creadsPrec :: Int -&gt; ReadS PutManagedScalingPolicyResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679385085"><span id="local-6989586621679385087"><span id="local-6989586621679385089"><span class="annot"><span class="annottext">Int -&gt; PutManagedScalingPolicyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679385469"><span id="local-6989586621679385471"><span id="local-6989586621679385473"><span class="annot"><span class="annottext">Int -&gt; PutManagedScalingPolicyResponse -&gt; ShowS
 [PutManagedScalingPolicyResponse] -&gt; ShowS
 PutManagedScalingPolicyResponse -&gt; String
 (Int -&gt; PutManagedScalingPolicyResponse -&gt; ShowS)
@@ -424,14 +424,14 @@ PutManagedScalingPolicyResponse
 </span><span id="line-165"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-166"></span><span>  </span><span class="annot"><a href="Network.AWS.EMR.PutManagedScalingPolicy.html#PutManagedScalingPolicyResponse"><span class="hs-identifier hs-type">PutManagedScalingPolicyResponse</span></a></span><span>
 </span><span id="line-167"></span><span id="newPutManagedScalingPolicyResponse"><span class="annot"><span class="annottext">newPutManagedScalingPolicyResponse :: Int -&gt; PutManagedScalingPolicyResponse
-</span><a href="Network.AWS.EMR.PutManagedScalingPolicy.html#newPutManagedScalingPolicyResponse"><span class="hs-identifier hs-var hs-var">newPutManagedScalingPolicyResponse</span></a></span></span><span> </span><span id="local-6989586621679385082"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679385082"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EMR.PutManagedScalingPolicy.html#newPutManagedScalingPolicyResponse"><span class="hs-identifier hs-var hs-var">newPutManagedScalingPolicyResponse</span></a></span></span><span> </span><span id="local-6989586621679385466"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679385466"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-168"></span><span>  </span><span class="annot"><span class="annottext">PutManagedScalingPolicyResponse' :: Int -&gt; PutManagedScalingPolicyResponse
 </span><a href="Network.AWS.EMR.PutManagedScalingPolicy.html#PutManagedScalingPolicyResponse%27"><span class="hs-identifier hs-type">PutManagedScalingPolicyResponse'</span></a></span><span>
 </span><span id="line-169"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:PutManagedScalingPolicyResponse' :: Int
 </span><a href="Network.AWS.EMR.PutManagedScalingPolicy.html#%24sel%3AhttpStatus%3APutManagedScalingPolicyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-170"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679385082"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679385466"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-171"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-172"></span><span>
 </span><span id="line-173"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -448,18 +448,18 @@ PutManagedScalingPolicyResponse
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.PutManagedScalingPolicy.html#PutManagedScalingPolicyResponse%27"><span class="hs-identifier hs-type">PutManagedScalingPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679385081"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.PutManagedScalingPolicy.html#PutManagedScalingPolicyResponse%27"><span class="hs-identifier hs-type">PutManagedScalingPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679385465"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:PutManagedScalingPolicyResponse' :: PutManagedScalingPolicyResponse -&gt; Int
-</span><a href="#local-6989586621679385081"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679385081"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679385080"><span class="annot"><span class="annottext">s :: PutManagedScalingPolicyResponse
-</span><a href="#local-6989586621679385080"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.PutManagedScalingPolicy.html#PutManagedScalingPolicyResponse%27"><span class="hs-identifier hs-type">PutManagedScalingPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679385079"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679385079"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutManagedScalingPolicyResponse
-</span><a href="#local-6989586621679385080"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutManagedScalingPolicyResponse' :: Int
+</span><a href="#local-6989586621679385465"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679385465"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679385464"><span class="annot"><span class="annottext">s :: PutManagedScalingPolicyResponse
+</span><a href="#local-6989586621679385464"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.PutManagedScalingPolicy.html#PutManagedScalingPolicyResponse%27"><span class="hs-identifier hs-type">PutManagedScalingPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679385463"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679385463"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutManagedScalingPolicyResponse
+</span><a href="#local-6989586621679385464"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutManagedScalingPolicyResponse' :: Int
 </span><a href="Network.AWS.EMR.PutManagedScalingPolicy.html#%24sel%3AhttpStatus%3APutManagedScalingPolicyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679385079"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.PutManagedScalingPolicy.html#PutManagedScalingPolicyResponse"><span class="hs-identifier hs-type">PutManagedScalingPolicyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679385463"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.PutManagedScalingPolicy.html#PutManagedScalingPolicyResponse"><span class="hs-identifier hs-type">PutManagedScalingPolicyResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>
 </span><span id="line-177"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-178"></span><span>  </span><span id="local-6989586621679385077"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679385461"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-179"></span><span>    </span><span class="annot"><a href="Network.AWS.EMR.PutManagedScalingPolicy.html#PutManagedScalingPolicyResponse"><span class="hs-identifier hs-type">PutManagedScalingPolicyResponse</span></a></span></span><span>
 </span><span id="line-180"></span></pre></body></html>

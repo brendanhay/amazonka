@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Represents the properties of a global table.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newGlobalTable' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679376377"><span id="local-6989586621679376378"></span></span><span class="hs-keyword">data</span><span> </span><span id="GlobalTable"><span class="annot"><a href="Network.AWS.DynamoDB.Types.GlobalTable.html#GlobalTable"><span class="hs-identifier hs-var">GlobalTable</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GlobalTable%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.GlobalTable.html#GlobalTable%27"><span class="hs-identifier hs-var">GlobalTable'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679377061"><span id="local-6989586621679377062"></span></span><span class="hs-keyword">data</span><span> </span><span id="GlobalTable"><span class="annot"><a href="Network.AWS.DynamoDB.Types.GlobalTable.html#GlobalTable"><span class="hs-identifier hs-var">GlobalTable</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GlobalTable%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.GlobalTable.html#GlobalTable%27"><span class="hs-identifier hs-var">GlobalTable'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The global table name.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AglobalTableName%3AGlobalTable%27"><span class="annot"><span class="annottext">GlobalTable -&gt; Maybe Text
 </span><a href="Network.AWS.DynamoDB.Types.GlobalTable.html#%24sel%3AglobalTableName%3AGlobalTable%27"><span class="hs-identifier hs-var hs-var">globalTableName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -35,7 +35,7 @@
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AreplicationGroup%3AGlobalTable%27"><span class="annot"><span class="annottext">GlobalTable -&gt; Maybe [Replica]
 </span><a href="Network.AWS.DynamoDB.Types.GlobalTable.html#%24sel%3AreplicationGroup%3AGlobalTable%27"><span class="hs-identifier hs-var hs-var">replicationGroup</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Replica.html#Replica"><span class="hs-identifier hs-type">Replica</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679376370"><span id="local-6989586621679376372"><span class="annot"><span class="annottext">GlobalTable -&gt; GlobalTable -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679377054"><span id="local-6989586621679377056"><span class="annot"><span class="annottext">GlobalTable -&gt; GlobalTable -&gt; Bool
 (GlobalTable -&gt; GlobalTable -&gt; Bool)
 -&gt; (GlobalTable -&gt; GlobalTable -&gt; Bool) -&gt; Eq GlobalTable
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GlobalTable -&gt; GlobalTable -&gt; Bool
 == :: GlobalTable -&gt; GlobalTable -&gt; Bool
 $c== :: GlobalTable -&gt; GlobalTable -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679376361"><span id="local-6989586621679376363"><span id="local-6989586621679376365"><span id="local-6989586621679376367"><span class="annot"><span class="annottext">ReadPrec [GlobalTable]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679377045"><span id="local-6989586621679377047"><span id="local-6989586621679377049"><span id="local-6989586621679377051"><span class="annot"><span class="annottext">ReadPrec [GlobalTable]
 ReadPrec GlobalTable
 Int -&gt; ReadS GlobalTable
 ReadS [GlobalTable]
@@ -63,7 +63,7 @@ readList :: ReadS [GlobalTable]
 $creadList :: ReadS [GlobalTable]
 readsPrec :: Int -&gt; ReadS GlobalTable
 $creadsPrec :: Int -&gt; ReadS GlobalTable
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679376354"><span id="local-6989586621679376356"><span id="local-6989586621679376358"><span class="annot"><span class="annottext">Int -&gt; GlobalTable -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679377038"><span id="local-6989586621679377040"><span id="local-6989586621679377042"><span class="annot"><span class="annottext">Int -&gt; GlobalTable -&gt; ShowS
 [GlobalTable] -&gt; ShowS
 GlobalTable -&gt; String
 (Int -&gt; GlobalTable -&gt; ShowS)
@@ -123,16 +123,16 @@ forall a. Maybe a
 -&gt; (GlobalTable -&gt; Maybe Text -&gt; GlobalTable)
 -&gt; Lens GlobalTable GlobalTable (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.GlobalTable.html#GlobalTable%27"><span class="hs-identifier hs-type">GlobalTable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376345"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.GlobalTable.html#GlobalTable%27"><span class="hs-identifier hs-type">GlobalTable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377029"><span class="annot"><span class="annottext">Maybe Text
 globalTableName :: Maybe Text
 $sel:globalTableName:GlobalTable' :: GlobalTable -&gt; Maybe Text
-</span><a href="#local-6989586621679376345"><span class="hs-identifier hs-var hs-var">globalTableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679376345"><span class="hs-identifier hs-var">globalTableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376344"><span class="annot"><span class="annottext">s :: GlobalTable
-</span><a href="#local-6989586621679376344"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.GlobalTable.html#GlobalTable%27"><span class="hs-identifier hs-type">GlobalTable'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376343"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679376343"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GlobalTable
-</span><a href="#local-6989586621679376344"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:globalTableName:GlobalTable' :: Maybe Text
+</span><a href="#local-6989586621679377029"><span class="hs-identifier hs-var hs-var">globalTableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679377029"><span class="hs-identifier hs-var">globalTableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377028"><span class="annot"><span class="annottext">s :: GlobalTable
+</span><a href="#local-6989586621679377028"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.GlobalTable.html#GlobalTable%27"><span class="hs-identifier hs-type">GlobalTable'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377027"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679377027"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GlobalTable
+</span><a href="#local-6989586621679377028"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:globalTableName:GlobalTable' :: Maybe Text
 </span><a href="Network.AWS.DynamoDB.Types.GlobalTable.html#%24sel%3AglobalTableName%3AGlobalTable%27"><span class="hs-identifier hs-var">globalTableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679376343"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.GlobalTable.html#GlobalTable"><span class="hs-identifier hs-type">GlobalTable</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679377027"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.GlobalTable.html#GlobalTable"><span class="hs-identifier hs-type">GlobalTable</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- | The Regions where the global table has replicas.</span><span>
 </span><span id="line-62"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.GlobalTable.html#globalTable_replicationGroup"><span class="hs-identifier hs-type">globalTable_replicationGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.GlobalTable.html#GlobalTable"><span class="hs-identifier hs-type">GlobalTable</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Replica.html#Replica"><span class="hs-identifier hs-type">Replica</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -142,16 +142,16 @@ $sel:globalTableName:GlobalTable' :: GlobalTable -&gt; Maybe Text
 -&gt; (GlobalTable -&gt; Maybe [Replica] -&gt; GlobalTable)
 -&gt; Lens GlobalTable GlobalTable (Maybe [Replica]) (Maybe [Replica])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.GlobalTable.html#GlobalTable%27"><span class="hs-identifier hs-type">GlobalTable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376341"><span class="annot"><span class="annottext">Maybe [Replica]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.GlobalTable.html#GlobalTable%27"><span class="hs-identifier hs-type">GlobalTable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377025"><span class="annot"><span class="annottext">Maybe [Replica]
 replicationGroup :: Maybe [Replica]
 $sel:replicationGroup:GlobalTable' :: GlobalTable -&gt; Maybe [Replica]
-</span><a href="#local-6989586621679376341"><span class="hs-identifier hs-var hs-var">replicationGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Replica]
-</span><a href="#local-6989586621679376341"><span class="hs-identifier hs-var">replicationGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376340"><span class="annot"><span class="annottext">s :: GlobalTable
-</span><a href="#local-6989586621679376340"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.GlobalTable.html#GlobalTable%27"><span class="hs-identifier hs-type">GlobalTable'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376339"><span class="annot"><span class="annottext">Maybe [Replica]
-</span><a href="#local-6989586621679376339"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GlobalTable
-</span><a href="#local-6989586621679376340"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicationGroup:GlobalTable' :: Maybe [Replica]
+</span><a href="#local-6989586621679377025"><span class="hs-identifier hs-var hs-var">replicationGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Replica]
+</span><a href="#local-6989586621679377025"><span class="hs-identifier hs-var">replicationGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377024"><span class="annot"><span class="annottext">s :: GlobalTable
+</span><a href="#local-6989586621679377024"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.GlobalTable.html#GlobalTable%27"><span class="hs-identifier hs-type">GlobalTable'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377023"><span class="annot"><span class="annottext">Maybe [Replica]
+</span><a href="#local-6989586621679377023"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GlobalTable
+</span><a href="#local-6989586621679377024"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicationGroup:GlobalTable' :: Maybe [Replica]
 </span><a href="Network.AWS.DynamoDB.Types.GlobalTable.html#%24sel%3AreplicationGroup%3AGlobalTable%27"><span class="hs-identifier hs-var">replicationGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Replica]
-</span><a href="#local-6989586621679376339"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.GlobalTable.html#GlobalTable"><span class="hs-identifier hs-type">GlobalTable</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Replica] -&gt; f (Maybe [Replica]))
+</span><a href="#local-6989586621679377023"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.GlobalTable.html#GlobalTable"><span class="hs-identifier hs-type">GlobalTable</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Replica] -&gt; f (Maybe [Replica]))
  -&gt; GlobalTable -&gt; f GlobalTable)
 -&gt; ((Maybe [Replica] -&gt; f (Maybe [Replica]))
     -&gt; Maybe [Replica] -&gt; f (Maybe [Replica]))
@@ -169,11 +169,11 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Replica] [Replica] [Replica] [Replica]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679376333"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.GlobalTable.html#GlobalTable"><span class="hs-identifier hs-type">GlobalTable</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-66"></span><span>  </span><span id="local-6989586621679376331"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser GlobalTable
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679377017"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.GlobalTable.html#GlobalTable"><span class="hs-identifier hs-type">GlobalTable</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679377015"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser GlobalTable
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser GlobalTable) -&gt; Value -&gt; Parser GlobalTable
@@ -181,15 +181,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;GlobalTable&quot;</span></span><span>
-</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679376328"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679376328"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679377012"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679377012"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-70"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [Replica] -&gt; GlobalTable
 </span><a href="Network.AWS.DynamoDB.Types.GlobalTable.html#GlobalTable%27"><span class="hs-identifier hs-var">GlobalTable'</span></a></span><span>
 </span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [Replica] -&gt; GlobalTable)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe [Replica] -&gt; GlobalTable)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679376328"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679377012"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;GlobalTableName&quot;</span></span><span class="hs-special">)</span><span>
@@ -197,7 +197,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe [Replica]) -&gt; Parser GlobalTable
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679376328"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Replica]))
+</span><a href="#local-6989586621679377012"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Replica]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ReplicationGroup&quot;</span></span><span>
@@ -210,7 +210,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-74"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679376321"><span id="local-6989586621679376323"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.GlobalTable.html#GlobalTable"><span class="hs-identifier hs-type">GlobalTable</span></a></span></span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679377005"><span id="local-6989586621679377007"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.GlobalTable.html#GlobalTable"><span class="hs-identifier hs-type">GlobalTable</span></a></span></span></span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679376318"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.GlobalTable.html#GlobalTable"><span class="hs-identifier hs-type">GlobalTable</span></a></span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679377002"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.GlobalTable.html#GlobalTable"><span class="hs-identifier hs-type">GlobalTable</span></a></span></span><span>
 </span><span id="line-80"></span></pre></body></html>

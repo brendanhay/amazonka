@@ -56,7 +56,7 @@
 </span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-57"></span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newCreateDomainEntry' smart constructor.</span><span>
-</span><span id="line-59"></span><span id="local-6989586621679657850"><span id="local-6989586621679657851"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateDomainEntry"><span class="annot"><a href="Network.AWS.Lightsail.CreateDomainEntry.html#CreateDomainEntry"><span class="hs-identifier hs-var">CreateDomainEntry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateDomainEntry%27"><span class="annot"><a href="Network.AWS.Lightsail.CreateDomainEntry.html#CreateDomainEntry%27"><span class="hs-identifier hs-var">CreateDomainEntry'</span></a></span></span><span>
+</span><span id="line-59"></span><span id="local-6989586621679658895"><span id="local-6989586621679658896"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateDomainEntry"><span class="annot"><a href="Network.AWS.Lightsail.CreateDomainEntry.html#CreateDomainEntry"><span class="hs-identifier hs-var">CreateDomainEntry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateDomainEntry%27"><span class="annot"><a href="Network.AWS.Lightsail.CreateDomainEntry.html#CreateDomainEntry%27"><span class="hs-identifier hs-var">CreateDomainEntry'</span></a></span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The domain name (e.g., @example.com@) for which you want to create the</span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-comment">-- domain entry.</span><span>
 </span><span id="line-62"></span><span>    </span><span id="%24sel%3AdomainName%3ACreateDomainEntry%27"><span class="annot"><span class="annottext">CreateDomainEntry -&gt; Text
@@ -66,7 +66,7 @@
 </span><span id="line-65"></span><span>    </span><span id="%24sel%3AdomainEntry%3ACreateDomainEntry%27"><span class="annot"><span class="annottext">CreateDomainEntry -&gt; DomainEntry
 </span><a href="Network.AWS.Lightsail.CreateDomainEntry.html#%24sel%3AdomainEntry%3ACreateDomainEntry%27"><span class="hs-identifier hs-var hs-var">domainEntry</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.DomainEntry.html#DomainEntry"><span class="hs-identifier hs-type">DomainEntry</span></a></span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679657843"><span id="local-6989586621679657845"><span class="annot"><span class="annottext">CreateDomainEntry -&gt; CreateDomainEntry -&gt; Bool
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679658888"><span id="local-6989586621679658890"><span class="annot"><span class="annottext">CreateDomainEntry -&gt; CreateDomainEntry -&gt; Bool
 (CreateDomainEntry -&gt; CreateDomainEntry -&gt; Bool)
 -&gt; (CreateDomainEntry -&gt; CreateDomainEntry -&gt; Bool)
 -&gt; Eq CreateDomainEntry
@@ -75,7 +75,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateDomainEntry -&gt; CreateDomainEntry -&gt; Bool
 == :: CreateDomainEntry -&gt; CreateDomainEntry -&gt; Bool
 $c== :: CreateDomainEntry -&gt; CreateDomainEntry -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679657834"><span id="local-6989586621679657836"><span id="local-6989586621679657838"><span id="local-6989586621679657840"><span class="annot"><span class="annottext">ReadPrec [CreateDomainEntry]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679658879"><span id="local-6989586621679658881"><span id="local-6989586621679658883"><span id="local-6989586621679658885"><span class="annot"><span class="annottext">ReadPrec [CreateDomainEntry]
 ReadPrec CreateDomainEntry
 Int -&gt; ReadS CreateDomainEntry
 ReadS [CreateDomainEntry]
@@ -95,7 +95,7 @@ readList :: ReadS [CreateDomainEntry]
 $creadList :: ReadS [CreateDomainEntry]
 readsPrec :: Int -&gt; ReadS CreateDomainEntry
 $creadsPrec :: Int -&gt; ReadS CreateDomainEntry
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679657827"><span id="local-6989586621679657829"><span id="local-6989586621679657831"><span class="annot"><span class="annottext">Int -&gt; CreateDomainEntry -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679658872"><span id="local-6989586621679658874"><span id="local-6989586621679658876"><span class="annot"><span class="annottext">Int -&gt; CreateDomainEntry -&gt; ShowS
 [CreateDomainEntry] -&gt; ShowS
 CreateDomainEntry -&gt; String
 (Int -&gt; CreateDomainEntry -&gt; ShowS)
@@ -141,17 +141,17 @@ $cfrom :: forall x. CreateDomainEntry -&gt; Rep CreateDomainEntry x
 </span><span id="line-86"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.Types.DomainEntry.html#DomainEntry"><span class="hs-identifier hs-type">DomainEntry</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-87"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDomainEntry.html#CreateDomainEntry"><span class="hs-identifier hs-type">CreateDomainEntry</span></a></span><span>
 </span><span id="line-88"></span><span id="newCreateDomainEntry"><span class="annot"><span class="annottext">newCreateDomainEntry :: Text -&gt; DomainEntry -&gt; CreateDomainEntry
-</span><a href="Network.AWS.Lightsail.CreateDomainEntry.html#newCreateDomainEntry"><span class="hs-identifier hs-var hs-var">newCreateDomainEntry</span></a></span></span><span> </span><span id="local-6989586621679657822"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679657822"><span class="hs-identifier hs-var">pDomainName_</span></a></span></span><span> </span><span id="local-6989586621679657821"><span class="annot"><span class="annottext">DomainEntry
-</span><a href="#local-6989586621679657821"><span class="hs-identifier hs-var">pDomainEntry_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lightsail.CreateDomainEntry.html#newCreateDomainEntry"><span class="hs-identifier hs-var hs-var">newCreateDomainEntry</span></a></span></span><span> </span><span id="local-6989586621679658867"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679658867"><span class="hs-identifier hs-var">pDomainName_</span></a></span></span><span> </span><span id="local-6989586621679658866"><span class="annot"><span class="annottext">DomainEntry
+</span><a href="#local-6989586621679658866"><span class="hs-identifier hs-var">pDomainEntry_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-89"></span><span>  </span><span class="annot"><span class="annottext">CreateDomainEntry' :: Text -&gt; DomainEntry -&gt; CreateDomainEntry
 </span><a href="Network.AWS.Lightsail.CreateDomainEntry.html#CreateDomainEntry%27"><span class="hs-identifier hs-type">CreateDomainEntry'</span></a></span><span>
 </span><span id="line-90"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:domainName:CreateDomainEntry' :: Text
 </span><a href="Network.AWS.Lightsail.CreateDomainEntry.html#%24sel%3AdomainName%3ACreateDomainEntry%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679657822"><span class="hs-identifier hs-var">pDomainName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679658867"><span class="hs-identifier hs-var">pDomainName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:domainEntry:CreateDomainEntry' :: DomainEntry
 </span><a href="Network.AWS.Lightsail.CreateDomainEntry.html#%24sel%3AdomainEntry%3ACreateDomainEntry%27"><span class="hs-identifier hs-var">domainEntry</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DomainEntry
-</span><a href="#local-6989586621679657821"><span class="hs-identifier hs-var">pDomainEntry_</span></a></span><span>
+</span><a href="#local-6989586621679658866"><span class="hs-identifier hs-var">pDomainEntry_</span></a></span><span>
 </span><span id="line-92"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- | The domain name (e.g., @example.com@) for which you want to create the</span><span>
@@ -162,16 +162,16 @@ $cfrom :: forall x. CreateDomainEntry -&gt; Rep CreateDomainEntry x
 -&gt; (CreateDomainEntry -&gt; Text -&gt; CreateDomainEntry)
 -&gt; Lens CreateDomainEntry CreateDomainEntry Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CreateDomainEntry.html#CreateDomainEntry%27"><span class="hs-identifier hs-type">CreateDomainEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679657818"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CreateDomainEntry.html#CreateDomainEntry%27"><span class="hs-identifier hs-type">CreateDomainEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679658863"><span class="annot"><span class="annottext">Text
 domainName :: Text
 $sel:domainName:CreateDomainEntry' :: CreateDomainEntry -&gt; Text
-</span><a href="#local-6989586621679657818"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679657818"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679657817"><span class="annot"><span class="annottext">s :: CreateDomainEntry
-</span><a href="#local-6989586621679657817"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CreateDomainEntry.html#CreateDomainEntry%27"><span class="hs-identifier hs-type">CreateDomainEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679657816"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679657816"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDomainEntry
-</span><a href="#local-6989586621679657817"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainName:CreateDomainEntry' :: Text
+</span><a href="#local-6989586621679658863"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679658863"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679658862"><span class="annot"><span class="annottext">s :: CreateDomainEntry
+</span><a href="#local-6989586621679658862"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CreateDomainEntry.html#CreateDomainEntry%27"><span class="hs-identifier hs-type">CreateDomainEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679658861"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679658861"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDomainEntry
+</span><a href="#local-6989586621679658862"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainName:CreateDomainEntry' :: Text
 </span><a href="Network.AWS.Lightsail.CreateDomainEntry.html#%24sel%3AdomainName%3ACreateDomainEntry%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679657816"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDomainEntry.html#CreateDomainEntry"><span class="hs-identifier hs-type">CreateDomainEntry</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679658861"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDomainEntry.html#CreateDomainEntry"><span class="hs-identifier hs-type">CreateDomainEntry</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- | An array of key-value pairs containing information about the domain</span><span>
 </span><span id="line-100"></span><span class="hs-comment">-- entry request.</span><span>
@@ -182,27 +182,27 @@ $sel:domainName:CreateDomainEntry' :: CreateDomainEntry -&gt; Text
 -&gt; (CreateDomainEntry -&gt; DomainEntry -&gt; CreateDomainEntry)
 -&gt; Lens CreateDomainEntry CreateDomainEntry DomainEntry DomainEntry
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CreateDomainEntry.html#CreateDomainEntry%27"><span class="hs-identifier hs-type">CreateDomainEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679657815"><span class="annot"><span class="annottext">DomainEntry
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CreateDomainEntry.html#CreateDomainEntry%27"><span class="hs-identifier hs-type">CreateDomainEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679658860"><span class="annot"><span class="annottext">DomainEntry
 domainEntry :: DomainEntry
 $sel:domainEntry:CreateDomainEntry' :: CreateDomainEntry -&gt; DomainEntry
-</span><a href="#local-6989586621679657815"><span class="hs-identifier hs-var hs-var">domainEntry</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainEntry
-</span><a href="#local-6989586621679657815"><span class="hs-identifier hs-var">domainEntry</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679657814"><span class="annot"><span class="annottext">s :: CreateDomainEntry
-</span><a href="#local-6989586621679657814"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CreateDomainEntry.html#CreateDomainEntry%27"><span class="hs-identifier hs-type">CreateDomainEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679657813"><span class="annot"><span class="annottext">DomainEntry
-</span><a href="#local-6989586621679657813"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDomainEntry
-</span><a href="#local-6989586621679657814"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainEntry:CreateDomainEntry' :: DomainEntry
+</span><a href="#local-6989586621679658860"><span class="hs-identifier hs-var hs-var">domainEntry</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainEntry
+</span><a href="#local-6989586621679658860"><span class="hs-identifier hs-var">domainEntry</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679658859"><span class="annot"><span class="annottext">s :: CreateDomainEntry
+</span><a href="#local-6989586621679658859"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CreateDomainEntry.html#CreateDomainEntry%27"><span class="hs-identifier hs-type">CreateDomainEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679658858"><span class="annot"><span class="annottext">DomainEntry
+</span><a href="#local-6989586621679658858"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDomainEntry
+</span><a href="#local-6989586621679658859"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainEntry:CreateDomainEntry' :: DomainEntry
 </span><a href="Network.AWS.Lightsail.CreateDomainEntry.html#%24sel%3AdomainEntry%3ACreateDomainEntry%27"><span class="hs-identifier hs-var">domainEntry</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DomainEntry
-</span><a href="#local-6989586621679657813"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDomainEntry.html#CreateDomainEntry"><span class="hs-identifier hs-type">CreateDomainEntry</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679658858"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDomainEntry.html#CreateDomainEntry"><span class="hs-identifier hs-type">CreateDomainEntry</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDomainEntry.html#CreateDomainEntry"><span class="hs-identifier hs-type">CreateDomainEntry</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-105"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-106"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDomainEntry.html#CreateDomainEntry"><span class="hs-identifier hs-type">CreateDomainEntry</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>      </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDomainEntry.html#CreateDomainEntryResponse"><span class="hs-identifier hs-type">CreateDomainEntryResponse</span></a></span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679657809"><span class="annot"><span class="annottext">request :: CreateDomainEntry -&gt; Request CreateDomainEntry
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679658854"><span class="annot"><span class="annottext">request :: CreateDomainEntry -&gt; Request CreateDomainEntry
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateDomainEntry -&gt; Request CreateDomainEntry
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Lightsail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679657805"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679658850"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateDomainEntry
 -&gt; ClientResponse ClientBody
@@ -228,10 +228,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679657802"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679657802"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679657801"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679657801"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679657800"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679657800"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679658847"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679658847"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679658846"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679658846"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679658845"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679658845"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-112"></span><span>          </span><span class="annot"><span class="annottext">Maybe Operation -&gt; Int -&gt; CreateDomainEntryResponse
 </span><a href="Network.AWS.Lightsail.CreateDomainEntry.html#CreateDomainEntryResponse%27"><span class="hs-identifier hs-var">CreateDomainEntryResponse'</span></a></span><span>
 </span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Operation -&gt; Int -&gt; CreateDomainEntryResponse)
@@ -239,7 +239,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; CreateDomainEntryResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679657800"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Operation)
+</span><a href="#local-6989586621679658845"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Operation)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;operation&quot;</span></span><span class="hs-special">)</span><span>
@@ -251,15 +251,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679657802"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679658847"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679657792"><span id="local-6989586621679657794"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDomainEntry.html#CreateDomainEntry"><span class="hs-identifier hs-type">CreateDomainEntry</span></a></span></span></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679658837"><span id="local-6989586621679658839"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDomainEntry.html#CreateDomainEntry"><span class="hs-identifier hs-type">CreateDomainEntry</span></a></span></span></span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679657789"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDomainEntry.html#CreateDomainEntry"><span class="hs-identifier hs-type">CreateDomainEntry</span></a></span></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679658834"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDomainEntry.html#CreateDomainEntry"><span class="hs-identifier hs-type">CreateDomainEntry</span></a></span></span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDomainEntry.html#CreateDomainEntry"><span class="hs-identifier hs-type">CreateDomainEntry</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679657785"><span class="annot"><span class="annottext">toHeaders :: CreateDomainEntry -&gt; ResponseHeaders
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679658830"><span class="annot"><span class="annottext">toHeaders :: CreateDomainEntry -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateDomainEntry -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -286,15 +286,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-133"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-134"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>
-</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679657775"><span id="local-6989586621679657777"><span id="local-6989586621679657779"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDomainEntry.html#CreateDomainEntry"><span class="hs-identifier hs-type">CreateDomainEntry</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679657773"><span class="annot"><span class="annottext">toJSON :: CreateDomainEntry -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDomainEntry.html#CreateDomainEntry%27"><span class="hs-identifier hs-type">CreateDomainEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679657770"><span id="local-6989586621679657771"><span class="annot"><span class="annottext">Text
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679658820"><span id="local-6989586621679658822"><span id="local-6989586621679658824"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDomainEntry.html#CreateDomainEntry"><span class="hs-identifier hs-type">CreateDomainEntry</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679658818"><span class="annot"><span class="annottext">toJSON :: CreateDomainEntry -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDomainEntry.html#CreateDomainEntry%27"><span class="hs-identifier hs-type">CreateDomainEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679658815"><span id="local-6989586621679658816"><span class="annot"><span class="annottext">Text
 DomainEntry
 domainEntry :: DomainEntry
 domainName :: Text
 $sel:domainEntry:CreateDomainEntry' :: CreateDomainEntry -&gt; DomainEntry
 $sel:domainName:CreateDomainEntry' :: CreateDomainEntry -&gt; Text
-</span><a href="#local-6989586621679657770"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679658815"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-138"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-139"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -306,26 +306,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;domainName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679657771"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679658816"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;domainEntry&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DomainEntry -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">DomainEntry
-</span><a href="#local-6989586621679657770"><span class="hs-identifier hs-var">domainEntry</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679658815"><span class="hs-identifier hs-var">domainEntry</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-143"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDomainEntry.html#CreateDomainEntry"><span class="hs-identifier hs-type">CreateDomainEntry</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-146"></span><span>  </span><span id="local-6989586621679657764"><span class="annot"><span class="annottext">toPath :: CreateDomainEntry -&gt; ByteString
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679658809"><span class="annot"><span class="annottext">toPath :: CreateDomainEntry -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateDomainEntry -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDomainEntry.html#CreateDomainEntry"><span class="hs-identifier hs-type">CreateDomainEntry</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-149"></span><span>  </span><span id="local-6989586621679657760"><span class="annot"><span class="annottext">toQuery :: CreateDomainEntry -&gt; QueryString
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679658805"><span class="annot"><span class="annottext">toQuery :: CreateDomainEntry -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateDomainEntry -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -333,7 +333,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-comment">-- | /See:/ 'newCreateDomainEntryResponse' smart constructor.</span><span>
-</span><span id="line-152"></span><span id="local-6989586621679657757"><span id="local-6989586621679657758"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateDomainEntryResponse"><span class="annot"><a href="Network.AWS.Lightsail.CreateDomainEntry.html#CreateDomainEntryResponse"><span class="hs-identifier hs-var">CreateDomainEntryResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateDomainEntryResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.CreateDomainEntry.html#CreateDomainEntryResponse%27"><span class="hs-identifier hs-var">CreateDomainEntryResponse'</span></a></span></span><span>
+</span><span id="line-152"></span><span id="local-6989586621679658802"><span id="local-6989586621679658803"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateDomainEntryResponse"><span class="annot"><a href="Network.AWS.Lightsail.CreateDomainEntry.html#CreateDomainEntryResponse"><span class="hs-identifier hs-var">CreateDomainEntryResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateDomainEntryResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.CreateDomainEntry.html#CreateDomainEntryResponse%27"><span class="hs-identifier hs-var">CreateDomainEntryResponse'</span></a></span></span><span>
 </span><span id="line-153"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of objects that describe the result of the action, such as the</span><span>
 </span><span id="line-154"></span><span>    </span><span class="hs-comment">-- status of the request, the timestamp of the request, and the resources</span><span>
 </span><span id="line-155"></span><span>    </span><span class="hs-comment">-- affected by the request.</span><span>
@@ -343,7 +343,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-158"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateDomainEntryResponse%27"><span class="annot"><span class="annottext">CreateDomainEntryResponse -&gt; Int
 </span><a href="Network.AWS.Lightsail.CreateDomainEntry.html#%24sel%3AhttpStatus%3ACreateDomainEntryResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-159"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-160"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679657751"><span id="local-6989586621679657753"><span class="annot"><span class="annottext">CreateDomainEntryResponse -&gt; CreateDomainEntryResponse -&gt; Bool
+</span><span id="line-160"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679658796"><span id="local-6989586621679658798"><span class="annot"><span class="annottext">CreateDomainEntryResponse -&gt; CreateDomainEntryResponse -&gt; Bool
 (CreateDomainEntryResponse -&gt; CreateDomainEntryResponse -&gt; Bool)
 -&gt; (CreateDomainEntryResponse -&gt; CreateDomainEntryResponse -&gt; Bool)
 -&gt; Eq CreateDomainEntryResponse
@@ -352,7 +352,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateDomainEntryResponse -&gt; CreateDomainEntryResponse -&gt; Bool
 == :: CreateDomainEntryResponse -&gt; CreateDomainEntryResponse -&gt; Bool
 $c== :: CreateDomainEntryResponse -&gt; CreateDomainEntryResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679657743"><span id="local-6989586621679657745"><span id="local-6989586621679657747"><span id="local-6989586621679657749"><span class="annot"><span class="annottext">ReadPrec [CreateDomainEntryResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679658788"><span id="local-6989586621679658790"><span id="local-6989586621679658792"><span id="local-6989586621679658794"><span class="annot"><span class="annottext">ReadPrec [CreateDomainEntryResponse]
 ReadPrec CreateDomainEntryResponse
 Int -&gt; ReadS CreateDomainEntryResponse
 ReadS [CreateDomainEntryResponse]
@@ -372,7 +372,7 @@ readList :: ReadS [CreateDomainEntryResponse]
 $creadList :: ReadS [CreateDomainEntryResponse]
 readsPrec :: Int -&gt; ReadS CreateDomainEntryResponse
 $creadsPrec :: Int -&gt; ReadS CreateDomainEntryResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679657737"><span id="local-6989586621679657739"><span id="local-6989586621679657741"><span class="annot"><span class="annottext">Int -&gt; CreateDomainEntryResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679658782"><span id="local-6989586621679658784"><span id="local-6989586621679658786"><span class="annot"><span class="annottext">Int -&gt; CreateDomainEntryResponse -&gt; ShowS
 [CreateDomainEntryResponse] -&gt; ShowS
 CreateDomainEntryResponse -&gt; String
 (Int -&gt; CreateDomainEntryResponse -&gt; ShowS)
@@ -422,8 +422,8 @@ CreateDomainEntryResponse -&gt; Rep CreateDomainEntryResponse x
 </span><span id="line-177"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-178"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDomainEntry.html#CreateDomainEntryResponse"><span class="hs-identifier hs-type">CreateDomainEntryResponse</span></a></span><span>
 </span><span id="line-179"></span><span id="newCreateDomainEntryResponse"><span class="annot"><span class="annottext">newCreateDomainEntryResponse :: Int -&gt; CreateDomainEntryResponse
-</span><a href="Network.AWS.Lightsail.CreateDomainEntry.html#newCreateDomainEntryResponse"><span class="hs-identifier hs-var hs-var">newCreateDomainEntryResponse</span></a></span></span><span> </span><span id="local-6989586621679657734"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679657734"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lightsail.CreateDomainEntry.html#newCreateDomainEntryResponse"><span class="hs-identifier hs-var hs-var">newCreateDomainEntryResponse</span></a></span></span><span> </span><span id="local-6989586621679658779"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679658779"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-180"></span><span>  </span><span class="annot"><span class="annottext">CreateDomainEntryResponse' :: Maybe Operation -&gt; Int -&gt; CreateDomainEntryResponse
 </span><a href="Network.AWS.Lightsail.CreateDomainEntry.html#CreateDomainEntryResponse%27"><span class="hs-identifier hs-type">CreateDomainEntryResponse'</span></a></span><span>
 </span><span id="line-181"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:operation:CreateDomainEntryResponse' :: Maybe Operation
@@ -433,7 +433,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-183"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateDomainEntryResponse' :: Int
 </span><a href="Network.AWS.Lightsail.CreateDomainEntry.html#%24sel%3AhttpStatus%3ACreateDomainEntryResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679657734"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679658779"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-184"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-185"></span><span>
 </span><span id="line-186"></span><span class="hs-comment">-- | An array of objects that describe the result of the action, such as the</span><span>
@@ -451,16 +451,16 @@ forall a. Maybe a
      (Maybe Operation)
      (Maybe Operation)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CreateDomainEntry.html#CreateDomainEntryResponse%27"><span class="hs-identifier hs-type">CreateDomainEntryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679657733"><span class="annot"><span class="annottext">Maybe Operation
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CreateDomainEntry.html#CreateDomainEntryResponse%27"><span class="hs-identifier hs-type">CreateDomainEntryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679658778"><span class="annot"><span class="annottext">Maybe Operation
 operation :: Maybe Operation
 $sel:operation:CreateDomainEntryResponse' :: CreateDomainEntryResponse -&gt; Maybe Operation
-</span><a href="#local-6989586621679657733"><span class="hs-identifier hs-var hs-var">operation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Operation
-</span><a href="#local-6989586621679657733"><span class="hs-identifier hs-var">operation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679657732"><span class="annot"><span class="annottext">s :: CreateDomainEntryResponse
-</span><a href="#local-6989586621679657732"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CreateDomainEntry.html#CreateDomainEntryResponse%27"><span class="hs-identifier hs-type">CreateDomainEntryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679657731"><span class="annot"><span class="annottext">Maybe Operation
-</span><a href="#local-6989586621679657731"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDomainEntryResponse
-</span><a href="#local-6989586621679657732"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operation:CreateDomainEntryResponse' :: Maybe Operation
+</span><a href="#local-6989586621679658778"><span class="hs-identifier hs-var hs-var">operation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Operation
+</span><a href="#local-6989586621679658778"><span class="hs-identifier hs-var">operation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679658777"><span class="annot"><span class="annottext">s :: CreateDomainEntryResponse
+</span><a href="#local-6989586621679658777"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CreateDomainEntry.html#CreateDomainEntryResponse%27"><span class="hs-identifier hs-type">CreateDomainEntryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679658776"><span class="annot"><span class="annottext">Maybe Operation
+</span><a href="#local-6989586621679658776"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDomainEntryResponse
+</span><a href="#local-6989586621679658777"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operation:CreateDomainEntryResponse' :: Maybe Operation
 </span><a href="Network.AWS.Lightsail.CreateDomainEntry.html#%24sel%3Aoperation%3ACreateDomainEntryResponse%27"><span class="hs-identifier hs-var">operation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Operation
-</span><a href="#local-6989586621679657731"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDomainEntry.html#CreateDomainEntryResponse"><span class="hs-identifier hs-type">CreateDomainEntryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679658776"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDomainEntry.html#CreateDomainEntryResponse"><span class="hs-identifier hs-type">CreateDomainEntryResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-191"></span><span>
 </span><span id="line-192"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-193"></span><span class="annot"><a href="Network.AWS.Lightsail.CreateDomainEntry.html#createDomainEntryResponse_httpStatus"><span class="hs-identifier hs-type">createDomainEntryResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDomainEntry.html#CreateDomainEntryResponse"><span class="hs-identifier hs-type">CreateDomainEntryResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -470,16 +470,16 @@ $sel:operation:CreateDomainEntryResponse' :: CreateDomainEntryResponse -&gt; May
 -&gt; (CreateDomainEntryResponse -&gt; Int -&gt; CreateDomainEntryResponse)
 -&gt; Lens CreateDomainEntryResponse CreateDomainEntryResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CreateDomainEntry.html#CreateDomainEntryResponse%27"><span class="hs-identifier hs-type">CreateDomainEntryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679657730"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CreateDomainEntry.html#CreateDomainEntryResponse%27"><span class="hs-identifier hs-type">CreateDomainEntryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679658775"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateDomainEntryResponse' :: CreateDomainEntryResponse -&gt; Int
-</span><a href="#local-6989586621679657730"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679657730"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679657729"><span class="annot"><span class="annottext">s :: CreateDomainEntryResponse
-</span><a href="#local-6989586621679657729"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CreateDomainEntry.html#CreateDomainEntryResponse%27"><span class="hs-identifier hs-type">CreateDomainEntryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679657728"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679657728"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDomainEntryResponse
-</span><a href="#local-6989586621679657729"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateDomainEntryResponse' :: Int
+</span><a href="#local-6989586621679658775"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679658775"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679658774"><span class="annot"><span class="annottext">s :: CreateDomainEntryResponse
+</span><a href="#local-6989586621679658774"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CreateDomainEntry.html#CreateDomainEntryResponse%27"><span class="hs-identifier hs-type">CreateDomainEntryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679658773"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679658773"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDomainEntryResponse
+</span><a href="#local-6989586621679658774"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateDomainEntryResponse' :: Int
 </span><a href="Network.AWS.Lightsail.CreateDomainEntry.html#%24sel%3AhttpStatus%3ACreateDomainEntryResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679657728"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDomainEntry.html#CreateDomainEntryResponse"><span class="hs-identifier hs-type">CreateDomainEntryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679658773"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDomainEntry.html#CreateDomainEntryResponse"><span class="hs-identifier hs-type">CreateDomainEntryResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-195"></span><span>
-</span><span id="line-196"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679657726"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDomainEntry.html#CreateDomainEntryResponse"><span class="hs-identifier hs-type">CreateDomainEntryResponse</span></a></span></span><span>
+</span><span id="line-196"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679658771"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDomainEntry.html#CreateDomainEntryResponse"><span class="hs-identifier hs-type">CreateDomainEntryResponse</span></a></span></span><span>
 </span><span id="line-197"></span></pre></body></html>

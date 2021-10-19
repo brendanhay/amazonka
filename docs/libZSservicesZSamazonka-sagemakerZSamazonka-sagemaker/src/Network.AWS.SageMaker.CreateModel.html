@@ -58,12 +58,12 @@
 </span><span id="line-58"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#newCreateModel"><span class="hs-identifier">newCreateModel</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#createModel_vpcConfig"><span class="hs-identifier">createModel_vpcConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#createModel_primaryContainer"><span class="hs-identifier">createModel_primaryContainer</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-62"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#createModel_enableNetworkIsolation"><span class="hs-identifier">createModel_enableNetworkIsolation</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#createModel_primaryContainer"><span class="hs-identifier">createModel_primaryContainer</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#createModel_containers"><span class="hs-identifier">createModel_containers</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#createModel_tags"><span class="hs-identifier">createModel_tags</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#createModel_inferenceExecutionConfig"><span class="hs-identifier">createModel_inferenceExecutionConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#createModel_containers"><span class="hs-identifier">createModel_containers</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#createModel_vpcConfig"><span class="hs-identifier">createModel_vpcConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#createModel_inferenceExecutionConfig"><span class="hs-identifier">createModel_inferenceExecutionConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#createModel_tags"><span class="hs-identifier">createModel_tags</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-67"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#createModel_modelName"><span class="hs-identifier">createModel_modelName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-68"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#createModel_executionRoleArn"><span class="hs-identifier">createModel_executionRoleArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-69"></span><span>
@@ -85,38 +85,38 @@
 </span><span id="line-85"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.html"><span class="hs-identifier">Network.AWS.SageMaker.Types</span></a></span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- | /See:/ 'newCreateModel' smart constructor.</span><span>
-</span><span id="line-88"></span><span id="local-6989586621680416383"><span id="local-6989586621680416384"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateModel"><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModel"><span class="hs-identifier hs-var">CreateModel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateModel%27"><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModel%27"><span class="hs-identifier hs-var">CreateModel'</span></a></span></span><span>
-</span><span id="line-89"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A VpcConfig object that specifies the VPC that you want your model to</span><span>
-</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- connect to. Control access to and from your model container by</span><span>
-</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- configuring the VPC. @VpcConfig@ is used in hosting services and in</span><span>
-</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- batch transform. For more information, see</span><span>
-</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html Protect Endpoints by Using an Amazon Virtual Private Cloud&gt;</span><span>
-</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- and</span><span>
-</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/dg/batch-vpc.html Protect Data in Batch Transform Jobs by Using an Amazon Virtual Private Cloud&gt;.</span><span>
-</span><span id="line-96"></span><span>    </span><span id="%24sel%3AvpcConfig%3ACreateModel%27"><span class="annot"><span class="annottext">CreateModel -&gt; Maybe VpcConfig
-</span><a href="Network.AWS.SageMaker.CreateModel.html#%24sel%3AvpcConfig%3ACreateModel%27"><span class="hs-identifier hs-var hs-var">vpcConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.VpcConfig.html#VpcConfig"><span class="hs-identifier hs-type">VpcConfig</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- | Isolates the model container. No inbound or outbound network calls can</span><span>
-</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- be made to or from the model container.</span><span>
-</span><span id="line-99"></span><span>    </span><span id="%24sel%3AenableNetworkIsolation%3ACreateModel%27"><span class="annot"><span class="annottext">CreateModel -&gt; Maybe Bool
-</span><a href="Network.AWS.SageMaker.CreateModel.html#%24sel%3AenableNetworkIsolation%3ACreateModel%27"><span class="hs-identifier hs-var hs-var">enableNetworkIsolation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- | The location of the primary docker image containing inference code,</span><span>
-</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- associated artifacts, and custom environment map that the inference code</span><span>
-</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- uses when the model is deployed for predictions.</span><span>
-</span><span id="line-103"></span><span>    </span><span id="%24sel%3AprimaryContainer%3ACreateModel%27"><span class="annot"><span class="annottext">CreateModel -&gt; Maybe ContainerDefinition
+</span><span id="line-88"></span><span id="local-6989586621680418028"><span id="local-6989586621680418029"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateModel"><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModel"><span class="hs-identifier hs-var">CreateModel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateModel%27"><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModel%27"><span class="hs-identifier hs-var">CreateModel'</span></a></span></span><span>
+</span><span id="line-89"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The location of the primary docker image containing inference code,</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- associated artifacts, and custom environment map that the inference code</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- uses when the model is deployed for predictions.</span><span>
+</span><span id="line-92"></span><span>    </span><span id="%24sel%3AprimaryContainer%3ACreateModel%27"><span class="annot"><span class="annottext">CreateModel -&gt; Maybe ContainerDefinition
 </span><a href="Network.AWS.SageMaker.CreateModel.html#%24sel%3AprimaryContainer%3ACreateModel%27"><span class="hs-identifier hs-var hs-var">primaryContainer</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContainerDefinition.html#ContainerDefinition"><span class="hs-identifier hs-type">ContainerDefinition</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- | Specifies the containers in the inference pipeline.</span><span>
-</span><span id="line-105"></span><span>    </span><span id="%24sel%3Acontainers%3ACreateModel%27"><span class="annot"><span class="annottext">CreateModel -&gt; Maybe [ContainerDefinition]
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- | Isolates the model container. No inbound or outbound network calls can</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- be made to or from the model container.</span><span>
+</span><span id="line-95"></span><span>    </span><span id="%24sel%3AenableNetworkIsolation%3ACreateModel%27"><span class="annot"><span class="annottext">CreateModel -&gt; Maybe Bool
+</span><a href="Network.AWS.SageMaker.CreateModel.html#%24sel%3AenableNetworkIsolation%3ACreateModel%27"><span class="hs-identifier hs-var hs-var">enableNetworkIsolation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- | Specifies the containers in the inference pipeline.</span><span>
+</span><span id="line-97"></span><span>    </span><span id="%24sel%3Acontainers%3ACreateModel%27"><span class="annot"><span class="annottext">CreateModel -&gt; Maybe [ContainerDefinition]
 </span><a href="Network.AWS.SageMaker.CreateModel.html#%24sel%3Acontainers%3ACreateModel%27"><span class="hs-identifier hs-var hs-var">containers</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContainerDefinition.html#ContainerDefinition"><span class="hs-identifier hs-type">ContainerDefinition</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- | An array of key-value pairs. You can use tags to categorize your Amazon</span><span>
-</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- Web Services resources in different ways, for example, by purpose,</span><span>
-</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- owner, or environment. For more information, see</span><span>
-</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources&gt;.</span><span>
-</span><span id="line-110"></span><span>    </span><span id="%24sel%3Atags%3ACreateModel%27"><span class="annot"><span class="annottext">CreateModel -&gt; Maybe [Tag]
-</span><a href="Network.AWS.SageMaker.CreateModel.html#%24sel%3Atags%3ACreateModel%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- | Specifies details of how containers in a multi-container endpoint are</span><span>
-</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- called.</span><span>
-</span><span id="line-113"></span><span>    </span><span id="%24sel%3AinferenceExecutionConfig%3ACreateModel%27"><span class="annot"><span class="annottext">CreateModel -&gt; Maybe InferenceExecutionConfig
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- | A VpcConfig object that specifies the VPC that you want your model to</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- connect to. Control access to and from your model container by</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- configuring the VPC. @VpcConfig@ is used in hosting services and in</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- batch transform. For more information, see</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html Protect Endpoints by Using an Amazon Virtual Private Cloud&gt;</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- and</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/dg/batch-vpc.html Protect Data in Batch Transform Jobs by Using an Amazon Virtual Private Cloud&gt;.</span><span>
+</span><span id="line-105"></span><span>    </span><span id="%24sel%3AvpcConfig%3ACreateModel%27"><span class="annot"><span class="annottext">CreateModel -&gt; Maybe VpcConfig
+</span><a href="Network.AWS.SageMaker.CreateModel.html#%24sel%3AvpcConfig%3ACreateModel%27"><span class="hs-identifier hs-var hs-var">vpcConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.VpcConfig.html#VpcConfig"><span class="hs-identifier hs-type">VpcConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- | Specifies details of how containers in a multi-container endpoint are</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- called.</span><span>
+</span><span id="line-108"></span><span>    </span><span id="%24sel%3AinferenceExecutionConfig%3ACreateModel%27"><span class="annot"><span class="annottext">CreateModel -&gt; Maybe InferenceExecutionConfig
 </span><a href="Network.AWS.SageMaker.CreateModel.html#%24sel%3AinferenceExecutionConfig%3ACreateModel%27"><span class="hs-identifier hs-var hs-var">inferenceExecutionConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.InferenceExecutionConfig.html#InferenceExecutionConfig"><span class="hs-identifier hs-type">InferenceExecutionConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- | An array of key-value pairs. You can use tags to categorize your Amazon</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- Web Services resources in different ways, for example, by purpose,</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- owner, or environment. For more information, see</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources&gt;.</span><span>
+</span><span id="line-113"></span><span>    </span><span id="%24sel%3Atags%3ACreateModel%27"><span class="annot"><span class="annottext">CreateModel -&gt; Maybe [Tag]
+</span><a href="Network.AWS.SageMaker.CreateModel.html#%24sel%3Atags%3ACreateModel%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
 </span><span id="line-114"></span><span>    </span><span class="hs-comment">-- | The name of the new model.</span><span>
 </span><span id="line-115"></span><span>    </span><span id="%24sel%3AmodelName%3ACreateModel%27"><span class="annot"><span class="annottext">CreateModel -&gt; Text
 </span><a href="Network.AWS.SageMaker.CreateModel.html#%24sel%3AmodelName%3ACreateModel%27"><span class="hs-identifier hs-var hs-var">modelName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -131,7 +131,7 @@
 </span><span id="line-124"></span><span>    </span><span id="%24sel%3AexecutionRoleArn%3ACreateModel%27"><span class="annot"><span class="annottext">CreateModel -&gt; Text
 </span><a href="Network.AWS.SageMaker.CreateModel.html#%24sel%3AexecutionRoleArn%3ACreateModel%27"><span class="hs-identifier hs-var hs-var">executionRoleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-125"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-126"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680416370"><span id="local-6989586621680416372"><span class="annot"><span class="annottext">CreateModel -&gt; CreateModel -&gt; Bool
+</span><span id="line-126"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680418015"><span id="local-6989586621680418017"><span class="annot"><span class="annottext">CreateModel -&gt; CreateModel -&gt; Bool
 (CreateModel -&gt; CreateModel -&gt; Bool)
 -&gt; (CreateModel -&gt; CreateModel -&gt; Bool) -&gt; Eq CreateModel
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -139,7 +139,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateModel -&gt; CreateModel -&gt; Bool
 == :: CreateModel -&gt; CreateModel -&gt; Bool
 $c== :: CreateModel -&gt; CreateModel -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680416361"><span id="local-6989586621680416363"><span id="local-6989586621680416365"><span id="local-6989586621680416367"><span class="annot"><span class="annottext">ReadPrec [CreateModel]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680418006"><span id="local-6989586621680418008"><span id="local-6989586621680418010"><span id="local-6989586621680418012"><span class="annot"><span class="annottext">ReadPrec [CreateModel]
 ReadPrec CreateModel
 Int -&gt; ReadS CreateModel
 ReadS [CreateModel]
@@ -159,7 +159,7 @@ readList :: ReadS [CreateModel]
 $creadList :: ReadS [CreateModel]
 readsPrec :: Int -&gt; ReadS CreateModel
 $creadsPrec :: Int -&gt; ReadS CreateModel
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680416354"><span id="local-6989586621680416356"><span id="local-6989586621680416358"><span class="annot"><span class="annottext">Int -&gt; CreateModel -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680417999"><span id="local-6989586621680418001"><span id="local-6989586621680418003"><span class="annot"><span class="annottext">Int -&gt; CreateModel -&gt; ShowS
 [CreateModel] -&gt; ShowS
 CreateModel -&gt; String
 (Int -&gt; CreateModel -&gt; ShowS)
@@ -193,30 +193,30 @@ $cfrom :: forall x. CreateModel -&gt; Rep CreateModel x
 </span><span id="line-133"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-134"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-135"></span><span class="hs-comment">--</span><span>
-</span><span id="line-136"></span><span class="hs-comment">-- 'vpcConfig', 'createModel_vpcConfig' - A VpcConfig object that specifies the VPC that you want your model to</span><span>
-</span><span id="line-137"></span><span class="hs-comment">-- connect to. Control access to and from your model container by</span><span>
-</span><span id="line-138"></span><span class="hs-comment">-- configuring the VPC. @VpcConfig@ is used in hosting services and in</span><span>
-</span><span id="line-139"></span><span class="hs-comment">-- batch transform. For more information, see</span><span>
-</span><span id="line-140"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html Protect Endpoints by Using an Amazon Virtual Private Cloud&gt;</span><span>
-</span><span id="line-141"></span><span class="hs-comment">-- and</span><span>
-</span><span id="line-142"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/dg/batch-vpc.html Protect Data in Batch Transform Jobs by Using an Amazon Virtual Private Cloud&gt;.</span><span>
-</span><span id="line-143"></span><span class="hs-comment">--</span><span>
-</span><span id="line-144"></span><span class="hs-comment">-- 'enableNetworkIsolation', 'createModel_enableNetworkIsolation' - Isolates the model container. No inbound or outbound network calls can</span><span>
-</span><span id="line-145"></span><span class="hs-comment">-- be made to or from the model container.</span><span>
-</span><span id="line-146"></span><span class="hs-comment">--</span><span>
-</span><span id="line-147"></span><span class="hs-comment">-- 'primaryContainer', 'createModel_primaryContainer' - The location of the primary docker image containing inference code,</span><span>
-</span><span id="line-148"></span><span class="hs-comment">-- associated artifacts, and custom environment map that the inference code</span><span>
-</span><span id="line-149"></span><span class="hs-comment">-- uses when the model is deployed for predictions.</span><span>
-</span><span id="line-150"></span><span class="hs-comment">--</span><span>
-</span><span id="line-151"></span><span class="hs-comment">-- 'containers', 'createModel_containers' - Specifies the containers in the inference pipeline.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- 'primaryContainer', 'createModel_primaryContainer' - The location of the primary docker image containing inference code,</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- associated artifacts, and custom environment map that the inference code</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- uses when the model is deployed for predictions.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- 'enableNetworkIsolation', 'createModel_enableNetworkIsolation' - Isolates the model container. No inbound or outbound network calls can</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- be made to or from the model container.</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- 'containers', 'createModel_containers' - Specifies the containers in the inference pipeline.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- 'vpcConfig', 'createModel_vpcConfig' - A VpcConfig object that specifies the VPC that you want your model to</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- connect to. Control access to and from your model container by</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- configuring the VPC. @VpcConfig@ is used in hosting services and in</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- batch transform. For more information, see</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html Protect Endpoints by Using an Amazon Virtual Private Cloud&gt;</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- and</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/dg/batch-vpc.html Protect Data in Batch Transform Jobs by Using an Amazon Virtual Private Cloud&gt;.</span><span>
 </span><span id="line-152"></span><span class="hs-comment">--</span><span>
-</span><span id="line-153"></span><span class="hs-comment">-- 'tags', 'createModel_tags' - An array of key-value pairs. You can use tags to categorize your Amazon</span><span>
-</span><span id="line-154"></span><span class="hs-comment">-- Web Services resources in different ways, for example, by purpose,</span><span>
-</span><span id="line-155"></span><span class="hs-comment">-- owner, or environment. For more information, see</span><span>
-</span><span id="line-156"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources&gt;.</span><span>
-</span><span id="line-157"></span><span class="hs-comment">--</span><span>
-</span><span id="line-158"></span><span class="hs-comment">-- 'inferenceExecutionConfig', 'createModel_inferenceExecutionConfig' - Specifies details of how containers in a multi-container endpoint are</span><span>
-</span><span id="line-159"></span><span class="hs-comment">-- called.</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- 'inferenceExecutionConfig', 'createModel_inferenceExecutionConfig' - Specifies details of how containers in a multi-container endpoint are</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- called.</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- 'tags', 'createModel_tags' - An array of key-value pairs. You can use tags to categorize your Amazon</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- Web Services resources in different ways, for example, by purpose,</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- owner, or environment. For more information, see</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources&gt;.</span><span>
 </span><span id="line-160"></span><span class="hs-comment">--</span><span>
 </span><span id="line-161"></span><span class="hs-comment">-- 'modelName', 'createModel_modelName' - The name of the new model.</span><span>
 </span><span id="line-162"></span><span class="hs-comment">--</span><span>
@@ -235,100 +235,56 @@ $cfrom :: forall x. CreateModel -&gt; Rep CreateModel x
 </span><span id="line-175"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-176"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModel"><span class="hs-identifier hs-type">CreateModel</span></a></span><span>
 </span><span id="line-177"></span><span id="newCreateModel"><span class="annot"><span class="annottext">newCreateModel :: Text -&gt; Text -&gt; CreateModel
-</span><a href="Network.AWS.SageMaker.CreateModel.html#newCreateModel"><span class="hs-identifier hs-var hs-var">newCreateModel</span></a></span></span><span> </span><span id="local-6989586621680416349"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680416349"><span class="hs-identifier hs-var">pModelName_</span></a></span></span><span> </span><span id="local-6989586621680416348"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680416348"><span class="hs-identifier hs-var">pExecutionRoleArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-178"></span><span>  </span><span class="annot"><span class="annottext">CreateModel' :: Maybe VpcConfig
+</span><a href="Network.AWS.SageMaker.CreateModel.html#newCreateModel"><span class="hs-identifier hs-var hs-var">newCreateModel</span></a></span></span><span> </span><span id="local-6989586621680417994"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680417994"><span class="hs-identifier hs-var">pModelName_</span></a></span></span><span> </span><span id="local-6989586621680417993"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680417993"><span class="hs-identifier hs-var">pExecutionRoleArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-178"></span><span>  </span><span class="annot"><span class="annottext">CreateModel' :: Maybe ContainerDefinition
 -&gt; Maybe Bool
--&gt; Maybe ContainerDefinition
 -&gt; Maybe [ContainerDefinition]
--&gt; Maybe [Tag]
+-&gt; Maybe VpcConfig
 -&gt; Maybe InferenceExecutionConfig
+-&gt; Maybe [Tag]
 -&gt; Text
 -&gt; Text
 -&gt; CreateModel
 </span><a href="Network.AWS.SageMaker.CreateModel.html#CreateModel%27"><span class="hs-identifier hs-type">CreateModel'</span></a></span><span>
-</span><span id="line-179"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:vpcConfig:CreateModel' :: Maybe VpcConfig
-</span><a href="Network.AWS.SageMaker.CreateModel.html#%24sel%3AvpcConfig%3ACreateModel%27"><span class="hs-identifier hs-var">vpcConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VpcConfig
+</span><span id="line-179"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:primaryContainer:CreateModel' :: Maybe ContainerDefinition
+</span><a href="Network.AWS.SageMaker.CreateModel.html#%24sel%3AprimaryContainer%3ACreateModel%27"><span class="hs-identifier hs-var">primaryContainer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ContainerDefinition
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-180"></span><span>      </span><span class="annot"><span class="annottext">$sel:enableNetworkIsolation:CreateModel' :: Maybe Bool
 </span><a href="Network.AWS.SageMaker.CreateModel.html#%24sel%3AenableNetworkIsolation%3ACreateModel%27"><span class="hs-identifier hs-var">enableNetworkIsolation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-181"></span><span>      </span><span class="annot"><span class="annottext">$sel:primaryContainer:CreateModel' :: Maybe ContainerDefinition
-</span><a href="Network.AWS.SageMaker.CreateModel.html#%24sel%3AprimaryContainer%3ACreateModel%27"><span class="hs-identifier hs-var">primaryContainer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ContainerDefinition
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-182"></span><span>      </span><span class="annot"><span class="annottext">$sel:containers:CreateModel' :: Maybe [ContainerDefinition]
+</span><span id="line-181"></span><span>      </span><span class="annot"><span class="annottext">$sel:containers:CreateModel' :: Maybe [ContainerDefinition]
 </span><a href="Network.AWS.SageMaker.CreateModel.html#%24sel%3Acontainers%3ACreateModel%27"><span class="hs-identifier hs-var">containers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ContainerDefinition]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-183"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:CreateModel' :: Maybe [Tag]
-</span><a href="Network.AWS.SageMaker.CreateModel.html#%24sel%3Atags%3ACreateModel%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span id="line-182"></span><span>      </span><span class="annot"><span class="annottext">$sel:vpcConfig:CreateModel' :: Maybe VpcConfig
+</span><a href="Network.AWS.SageMaker.CreateModel.html#%24sel%3AvpcConfig%3ACreateModel%27"><span class="hs-identifier hs-var">vpcConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VpcConfig
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-184"></span><span>      </span><span class="annot"><span class="annottext">$sel:inferenceExecutionConfig:CreateModel' :: Maybe InferenceExecutionConfig
+</span><span id="line-183"></span><span>      </span><span class="annot"><span class="annottext">$sel:inferenceExecutionConfig:CreateModel' :: Maybe InferenceExecutionConfig
 </span><a href="Network.AWS.SageMaker.CreateModel.html#%24sel%3AinferenceExecutionConfig%3ACreateModel%27"><span class="hs-identifier hs-var">inferenceExecutionConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InferenceExecutionConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:CreateModel' :: Maybe [Tag]
+</span><a href="Network.AWS.SageMaker.CreateModel.html#%24sel%3Atags%3ACreateModel%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-185"></span><span>      </span><span class="annot"><span class="annottext">$sel:modelName:CreateModel' :: Text
 </span><a href="Network.AWS.SageMaker.CreateModel.html#%24sel%3AmodelName%3ACreateModel%27"><span class="hs-identifier hs-var">modelName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680416349"><span class="hs-identifier hs-var">pModelName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680417994"><span class="hs-identifier hs-var">pModelName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-186"></span><span>      </span><span class="annot"><span class="annottext">$sel:executionRoleArn:CreateModel' :: Text
 </span><a href="Network.AWS.SageMaker.CreateModel.html#%24sel%3AexecutionRoleArn%3ACreateModel%27"><span class="hs-identifier hs-var">executionRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680416348"><span class="hs-identifier hs-var">pExecutionRoleArn_</span></a></span><span>
+</span><a href="#local-6989586621680417993"><span class="hs-identifier hs-var">pExecutionRoleArn_</span></a></span><span>
 </span><span id="line-187"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-188"></span><span>
-</span><span id="line-189"></span><span class="hs-comment">-- | A VpcConfig object that specifies the VPC that you want your model to</span><span>
-</span><span id="line-190"></span><span class="hs-comment">-- connect to. Control access to and from your model container by</span><span>
-</span><span id="line-191"></span><span class="hs-comment">-- configuring the VPC. @VpcConfig@ is used in hosting services and in</span><span>
-</span><span id="line-192"></span><span class="hs-comment">-- batch transform. For more information, see</span><span>
-</span><span id="line-193"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html Protect Endpoints by Using an Amazon Virtual Private Cloud&gt;</span><span>
-</span><span id="line-194"></span><span class="hs-comment">-- and</span><span>
-</span><span id="line-195"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/dg/batch-vpc.html Protect Data in Batch Transform Jobs by Using an Amazon Virtual Private Cloud&gt;.</span><span>
-</span><span id="line-196"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#createModel_vpcConfig"><span class="hs-identifier hs-type">createModel_vpcConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModel"><span class="hs-identifier hs-type">CreateModel</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.VpcConfig.html#VpcConfig"><span class="hs-identifier hs-type">VpcConfig</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-197"></span><span id="createModel_vpcConfig"><span class="annot"><span class="annottext">createModel_vpcConfig :: (Maybe VpcConfig -&gt; f (Maybe VpcConfig))
--&gt; CreateModel -&gt; f CreateModel
-</span><a href="Network.AWS.SageMaker.CreateModel.html#createModel_vpcConfig"><span class="hs-identifier hs-var hs-var">createModel_vpcConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateModel -&gt; Maybe VpcConfig)
--&gt; (CreateModel -&gt; Maybe VpcConfig -&gt; CreateModel)
--&gt; Lens CreateModel CreateModel (Maybe VpcConfig) (Maybe VpcConfig)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModel%27"><span class="hs-identifier hs-type">CreateModel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680416345"><span class="annot"><span class="annottext">Maybe VpcConfig
-vpcConfig :: Maybe VpcConfig
-$sel:vpcConfig:CreateModel' :: CreateModel -&gt; Maybe VpcConfig
-</span><a href="#local-6989586621680416345"><span class="hs-identifier hs-var hs-var">vpcConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VpcConfig
-</span><a href="#local-6989586621680416345"><span class="hs-identifier hs-var">vpcConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680416344"><span class="annot"><span class="annottext">s :: CreateModel
-</span><a href="#local-6989586621680416344"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModel%27"><span class="hs-identifier hs-type">CreateModel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680416343"><span class="annot"><span class="annottext">Maybe VpcConfig
-</span><a href="#local-6989586621680416343"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModel
-</span><a href="#local-6989586621680416344"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcConfig:CreateModel' :: Maybe VpcConfig
-</span><a href="Network.AWS.SageMaker.CreateModel.html#%24sel%3AvpcConfig%3ACreateModel%27"><span class="hs-identifier hs-var">vpcConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VpcConfig
-</span><a href="#local-6989586621680416343"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModel"><span class="hs-identifier hs-type">CreateModel</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-198"></span><span>
-</span><span id="line-199"></span><span class="hs-comment">-- | Isolates the model container. No inbound or outbound network calls can</span><span>
-</span><span id="line-200"></span><span class="hs-comment">-- be made to or from the model container.</span><span>
-</span><span id="line-201"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#createModel_enableNetworkIsolation"><span class="hs-identifier hs-type">createModel_enableNetworkIsolation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModel"><span class="hs-identifier hs-type">CreateModel</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-202"></span><span id="createModel_enableNetworkIsolation"><span class="annot"><span class="annottext">createModel_enableNetworkIsolation :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; CreateModel -&gt; f CreateModel
-</span><a href="Network.AWS.SageMaker.CreateModel.html#createModel_enableNetworkIsolation"><span class="hs-identifier hs-var hs-var">createModel_enableNetworkIsolation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateModel -&gt; Maybe Bool)
--&gt; (CreateModel -&gt; Maybe Bool -&gt; CreateModel)
--&gt; Lens CreateModel CreateModel (Maybe Bool) (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModel%27"><span class="hs-identifier hs-type">CreateModel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680416342"><span class="annot"><span class="annottext">Maybe Bool
-enableNetworkIsolation :: Maybe Bool
-$sel:enableNetworkIsolation:CreateModel' :: CreateModel -&gt; Maybe Bool
-</span><a href="#local-6989586621680416342"><span class="hs-identifier hs-var hs-var">enableNetworkIsolation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621680416342"><span class="hs-identifier hs-var">enableNetworkIsolation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680416341"><span class="annot"><span class="annottext">s :: CreateModel
-</span><a href="#local-6989586621680416341"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModel%27"><span class="hs-identifier hs-type">CreateModel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680416340"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621680416340"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModel
-</span><a href="#local-6989586621680416341"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enableNetworkIsolation:CreateModel' :: Maybe Bool
-</span><a href="Network.AWS.SageMaker.CreateModel.html#%24sel%3AenableNetworkIsolation%3ACreateModel%27"><span class="hs-identifier hs-var">enableNetworkIsolation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621680416340"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModel"><span class="hs-identifier hs-type">CreateModel</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-203"></span><span>
-</span><span id="line-204"></span><span class="hs-comment">-- | The location of the primary docker image containing inference code,</span><span>
-</span><span id="line-205"></span><span class="hs-comment">-- associated artifacts, and custom environment map that the inference code</span><span>
-</span><span id="line-206"></span><span class="hs-comment">-- uses when the model is deployed for predictions.</span><span>
-</span><span id="line-207"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#createModel_primaryContainer"><span class="hs-identifier hs-type">createModel_primaryContainer</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModel"><span class="hs-identifier hs-type">CreateModel</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContainerDefinition.html#ContainerDefinition"><span class="hs-identifier hs-type">ContainerDefinition</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-208"></span><span id="createModel_primaryContainer"><span class="annot"><span class="annottext">createModel_primaryContainer :: (Maybe ContainerDefinition -&gt; f (Maybe ContainerDefinition))
+</span><span id="line-189"></span><span class="hs-comment">-- | The location of the primary docker image containing inference code,</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- associated artifacts, and custom environment map that the inference code</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- uses when the model is deployed for predictions.</span><span>
+</span><span id="line-192"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#createModel_primaryContainer"><span class="hs-identifier hs-type">createModel_primaryContainer</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModel"><span class="hs-identifier hs-type">CreateModel</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContainerDefinition.html#ContainerDefinition"><span class="hs-identifier hs-type">ContainerDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span id="createModel_primaryContainer"><span class="annot"><span class="annottext">createModel_primaryContainer :: (Maybe ContainerDefinition -&gt; f (Maybe ContainerDefinition))
 -&gt; CreateModel -&gt; f CreateModel
 </span><a href="Network.AWS.SageMaker.CreateModel.html#createModel_primaryContainer"><span class="hs-identifier hs-var hs-var">createModel_primaryContainer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateModel -&gt; Maybe ContainerDefinition)
 -&gt; (CreateModel -&gt; Maybe ContainerDefinition -&gt; CreateModel)
@@ -338,20 +294,39 @@ $sel:enableNetworkIsolation:CreateModel' :: CreateModel -&gt; Maybe Bool
      (Maybe ContainerDefinition)
      (Maybe ContainerDefinition)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModel%27"><span class="hs-identifier hs-type">CreateModel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680416339"><span class="annot"><span class="annottext">Maybe ContainerDefinition
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModel%27"><span class="hs-identifier hs-type">CreateModel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680417990"><span class="annot"><span class="annottext">Maybe ContainerDefinition
 primaryContainer :: Maybe ContainerDefinition
 $sel:primaryContainer:CreateModel' :: CreateModel -&gt; Maybe ContainerDefinition
-</span><a href="#local-6989586621680416339"><span class="hs-identifier hs-var hs-var">primaryContainer</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ContainerDefinition
-</span><a href="#local-6989586621680416339"><span class="hs-identifier hs-var">primaryContainer</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680416338"><span class="annot"><span class="annottext">s :: CreateModel
-</span><a href="#local-6989586621680416338"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModel%27"><span class="hs-identifier hs-type">CreateModel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680416337"><span class="annot"><span class="annottext">Maybe ContainerDefinition
-</span><a href="#local-6989586621680416337"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModel
-</span><a href="#local-6989586621680416338"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:primaryContainer:CreateModel' :: Maybe ContainerDefinition
+</span><a href="#local-6989586621680417990"><span class="hs-identifier hs-var hs-var">primaryContainer</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ContainerDefinition
+</span><a href="#local-6989586621680417990"><span class="hs-identifier hs-var">primaryContainer</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680417989"><span class="annot"><span class="annottext">s :: CreateModel
+</span><a href="#local-6989586621680417989"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModel%27"><span class="hs-identifier hs-type">CreateModel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680417988"><span class="annot"><span class="annottext">Maybe ContainerDefinition
+</span><a href="#local-6989586621680417988"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModel
+</span><a href="#local-6989586621680417989"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:primaryContainer:CreateModel' :: Maybe ContainerDefinition
 </span><a href="Network.AWS.SageMaker.CreateModel.html#%24sel%3AprimaryContainer%3ACreateModel%27"><span class="hs-identifier hs-var">primaryContainer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ContainerDefinition
-</span><a href="#local-6989586621680416337"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModel"><span class="hs-identifier hs-type">CreateModel</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-209"></span><span>
-</span><span id="line-210"></span><span class="hs-comment">-- | Specifies the containers in the inference pipeline.</span><span>
-</span><span id="line-211"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#createModel_containers"><span class="hs-identifier hs-type">createModel_containers</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModel"><span class="hs-identifier hs-type">CreateModel</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContainerDefinition.html#ContainerDefinition"><span class="hs-identifier hs-type">ContainerDefinition</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-212"></span><span id="createModel_containers"><span class="annot"><span class="annottext">createModel_containers :: (Maybe [ContainerDefinition] -&gt; f (Maybe [ContainerDefinition]))
+</span><a href="#local-6989586621680417988"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModel"><span class="hs-identifier hs-type">CreateModel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- | Isolates the model container. No inbound or outbound network calls can</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- be made to or from the model container.</span><span>
+</span><span id="line-197"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#createModel_enableNetworkIsolation"><span class="hs-identifier hs-type">createModel_enableNetworkIsolation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModel"><span class="hs-identifier hs-type">CreateModel</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span id="createModel_enableNetworkIsolation"><span class="annot"><span class="annottext">createModel_enableNetworkIsolation :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; CreateModel -&gt; f CreateModel
+</span><a href="Network.AWS.SageMaker.CreateModel.html#createModel_enableNetworkIsolation"><span class="hs-identifier hs-var hs-var">createModel_enableNetworkIsolation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateModel -&gt; Maybe Bool)
+-&gt; (CreateModel -&gt; Maybe Bool -&gt; CreateModel)
+-&gt; Lens CreateModel CreateModel (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModel%27"><span class="hs-identifier hs-type">CreateModel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680417987"><span class="annot"><span class="annottext">Maybe Bool
+enableNetworkIsolation :: Maybe Bool
+$sel:enableNetworkIsolation:CreateModel' :: CreateModel -&gt; Maybe Bool
+</span><a href="#local-6989586621680417987"><span class="hs-identifier hs-var hs-var">enableNetworkIsolation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621680417987"><span class="hs-identifier hs-var">enableNetworkIsolation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680417986"><span class="annot"><span class="annottext">s :: CreateModel
+</span><a href="#local-6989586621680417986"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModel%27"><span class="hs-identifier hs-type">CreateModel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680417985"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621680417985"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModel
+</span><a href="#local-6989586621680417986"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enableNetworkIsolation:CreateModel' :: Maybe Bool
+</span><a href="Network.AWS.SageMaker.CreateModel.html#%24sel%3AenableNetworkIsolation%3ACreateModel%27"><span class="hs-identifier hs-var">enableNetworkIsolation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621680417985"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModel"><span class="hs-identifier hs-type">CreateModel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- | Specifies the containers in the inference pipeline.</span><span>
+</span><span id="line-201"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#createModel_containers"><span class="hs-identifier hs-type">createModel_containers</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModel"><span class="hs-identifier hs-type">CreateModel</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContainerDefinition.html#ContainerDefinition"><span class="hs-identifier hs-type">ContainerDefinition</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span id="createModel_containers"><span class="annot"><span class="annottext">createModel_containers :: (Maybe [ContainerDefinition] -&gt; f (Maybe [ContainerDefinition]))
 -&gt; CreateModel -&gt; f CreateModel
 </span><a href="Network.AWS.SageMaker.CreateModel.html#createModel_containers"><span class="hs-identifier hs-var hs-var">createModel_containers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateModel -&gt; Maybe [ContainerDefinition])
 -&gt; (CreateModel -&gt; Maybe [ContainerDefinition] -&gt; CreateModel)
@@ -361,16 +336,16 @@ $sel:primaryContainer:CreateModel' :: CreateModel -&gt; Maybe ContainerDefinitio
      (Maybe [ContainerDefinition])
      (Maybe [ContainerDefinition])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModel%27"><span class="hs-identifier hs-type">CreateModel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680416336"><span class="annot"><span class="annottext">Maybe [ContainerDefinition]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModel%27"><span class="hs-identifier hs-type">CreateModel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680417984"><span class="annot"><span class="annottext">Maybe [ContainerDefinition]
 containers :: Maybe [ContainerDefinition]
 $sel:containers:CreateModel' :: CreateModel -&gt; Maybe [ContainerDefinition]
-</span><a href="#local-6989586621680416336"><span class="hs-identifier hs-var hs-var">containers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ContainerDefinition]
-</span><a href="#local-6989586621680416336"><span class="hs-identifier hs-var">containers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680416335"><span class="annot"><span class="annottext">s :: CreateModel
-</span><a href="#local-6989586621680416335"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModel%27"><span class="hs-identifier hs-type">CreateModel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680416334"><span class="annot"><span class="annottext">Maybe [ContainerDefinition]
-</span><a href="#local-6989586621680416334"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModel
-</span><a href="#local-6989586621680416335"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containers:CreateModel' :: Maybe [ContainerDefinition]
+</span><a href="#local-6989586621680417984"><span class="hs-identifier hs-var hs-var">containers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ContainerDefinition]
+</span><a href="#local-6989586621680417984"><span class="hs-identifier hs-var">containers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680417983"><span class="annot"><span class="annottext">s :: CreateModel
+</span><a href="#local-6989586621680417983"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModel%27"><span class="hs-identifier hs-type">CreateModel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680417982"><span class="annot"><span class="annottext">Maybe [ContainerDefinition]
+</span><a href="#local-6989586621680417982"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModel
+</span><a href="#local-6989586621680417983"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containers:CreateModel' :: Maybe [ContainerDefinition]
 </span><a href="Network.AWS.SageMaker.CreateModel.html#%24sel%3Acontainers%3ACreateModel%27"><span class="hs-identifier hs-var">containers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ContainerDefinition]
-</span><a href="#local-6989586621680416334"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModel"><span class="hs-identifier hs-type">CreateModel</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ContainerDefinition] -&gt; f (Maybe [ContainerDefinition]))
+</span><a href="#local-6989586621680417982"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModel"><span class="hs-identifier hs-type">CreateModel</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ContainerDefinition] -&gt; f (Maybe [ContainerDefinition]))
  -&gt; CreateModel -&gt; f CreateModel)
 -&gt; ((Maybe [ContainerDefinition]
      -&gt; f (Maybe [ContainerDefinition]))
@@ -397,29 +372,79 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [ContainerDefinition]
   [ContainerDefinition]
   [ContainerDefinition]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- | A VpcConfig object that specifies the VPC that you want your model to</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- connect to. Control access to and from your model container by</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- configuring the VPC. @VpcConfig@ is used in hosting services and in</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- batch transform. For more information, see</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html Protect Endpoints by Using an Amazon Virtual Private Cloud&gt;</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- and</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/dg/batch-vpc.html Protect Data in Batch Transform Jobs by Using an Amazon Virtual Private Cloud&gt;.</span><span>
+</span><span id="line-211"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#createModel_vpcConfig"><span class="hs-identifier hs-type">createModel_vpcConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModel"><span class="hs-identifier hs-type">CreateModel</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.VpcConfig.html#VpcConfig"><span class="hs-identifier hs-type">VpcConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span id="createModel_vpcConfig"><span class="annot"><span class="annottext">createModel_vpcConfig :: (Maybe VpcConfig -&gt; f (Maybe VpcConfig))
+-&gt; CreateModel -&gt; f CreateModel
+</span><a href="Network.AWS.SageMaker.CreateModel.html#createModel_vpcConfig"><span class="hs-identifier hs-var hs-var">createModel_vpcConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateModel -&gt; Maybe VpcConfig)
+-&gt; (CreateModel -&gt; Maybe VpcConfig -&gt; CreateModel)
+-&gt; Lens CreateModel CreateModel (Maybe VpcConfig) (Maybe VpcConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModel%27"><span class="hs-identifier hs-type">CreateModel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680417978"><span class="annot"><span class="annottext">Maybe VpcConfig
+vpcConfig :: Maybe VpcConfig
+$sel:vpcConfig:CreateModel' :: CreateModel -&gt; Maybe VpcConfig
+</span><a href="#local-6989586621680417978"><span class="hs-identifier hs-var hs-var">vpcConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VpcConfig
+</span><a href="#local-6989586621680417978"><span class="hs-identifier hs-var">vpcConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680417977"><span class="annot"><span class="annottext">s :: CreateModel
+</span><a href="#local-6989586621680417977"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModel%27"><span class="hs-identifier hs-type">CreateModel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680417976"><span class="annot"><span class="annottext">Maybe VpcConfig
+</span><a href="#local-6989586621680417976"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModel
+</span><a href="#local-6989586621680417977"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcConfig:CreateModel' :: Maybe VpcConfig
+</span><a href="Network.AWS.SageMaker.CreateModel.html#%24sel%3AvpcConfig%3ACreateModel%27"><span class="hs-identifier hs-var">vpcConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VpcConfig
+</span><a href="#local-6989586621680417976"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModel"><span class="hs-identifier hs-type">CreateModel</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-213"></span><span>
-</span><span id="line-214"></span><span class="hs-comment">-- | An array of key-value pairs. You can use tags to categorize your Amazon</span><span>
-</span><span id="line-215"></span><span class="hs-comment">-- Web Services resources in different ways, for example, by purpose,</span><span>
-</span><span id="line-216"></span><span class="hs-comment">-- owner, or environment. For more information, see</span><span>
-</span><span id="line-217"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources&gt;.</span><span>
-</span><span id="line-218"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#createModel_tags"><span class="hs-identifier hs-type">createModel_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModel"><span class="hs-identifier hs-type">CreateModel</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-219"></span><span id="createModel_tags"><span class="annot"><span class="annottext">createModel_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; CreateModel -&gt; f CreateModel
+</span><span id="line-214"></span><span class="hs-comment">-- | Specifies details of how containers in a multi-container endpoint are</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- called.</span><span>
+</span><span id="line-216"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#createModel_inferenceExecutionConfig"><span class="hs-identifier hs-type">createModel_inferenceExecutionConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModel"><span class="hs-identifier hs-type">CreateModel</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.InferenceExecutionConfig.html#InferenceExecutionConfig"><span class="hs-identifier hs-type">InferenceExecutionConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span id="createModel_inferenceExecutionConfig"><span class="annot"><span class="annottext">createModel_inferenceExecutionConfig :: (Maybe InferenceExecutionConfig
+ -&gt; f (Maybe InferenceExecutionConfig))
+-&gt; CreateModel -&gt; f CreateModel
+</span><a href="Network.AWS.SageMaker.CreateModel.html#createModel_inferenceExecutionConfig"><span class="hs-identifier hs-var hs-var">createModel_inferenceExecutionConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateModel -&gt; Maybe InferenceExecutionConfig)
+-&gt; (CreateModel -&gt; Maybe InferenceExecutionConfig -&gt; CreateModel)
+-&gt; Lens
+     CreateModel
+     CreateModel
+     (Maybe InferenceExecutionConfig)
+     (Maybe InferenceExecutionConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModel%27"><span class="hs-identifier hs-type">CreateModel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680417975"><span class="annot"><span class="annottext">Maybe InferenceExecutionConfig
+inferenceExecutionConfig :: Maybe InferenceExecutionConfig
+$sel:inferenceExecutionConfig:CreateModel' :: CreateModel -&gt; Maybe InferenceExecutionConfig
+</span><a href="#local-6989586621680417975"><span class="hs-identifier hs-var hs-var">inferenceExecutionConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InferenceExecutionConfig
+</span><a href="#local-6989586621680417975"><span class="hs-identifier hs-var">inferenceExecutionConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680417974"><span class="annot"><span class="annottext">s :: CreateModel
+</span><a href="#local-6989586621680417974"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModel%27"><span class="hs-identifier hs-type">CreateModel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680417973"><span class="annot"><span class="annottext">Maybe InferenceExecutionConfig
+</span><a href="#local-6989586621680417973"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModel
+</span><a href="#local-6989586621680417974"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inferenceExecutionConfig:CreateModel' :: Maybe InferenceExecutionConfig
+</span><a href="Network.AWS.SageMaker.CreateModel.html#%24sel%3AinferenceExecutionConfig%3ACreateModel%27"><span class="hs-identifier hs-var">inferenceExecutionConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InferenceExecutionConfig
+</span><a href="#local-6989586621680417973"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModel"><span class="hs-identifier hs-type">CreateModel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- | An array of key-value pairs. You can use tags to categorize your Amazon</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- Web Services resources in different ways, for example, by purpose,</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- owner, or environment. For more information, see</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources&gt;.</span><span>
+</span><span id="line-223"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#createModel_tags"><span class="hs-identifier hs-type">createModel_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModel"><span class="hs-identifier hs-type">CreateModel</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span id="createModel_tags"><span class="annot"><span class="annottext">createModel_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; CreateModel -&gt; f CreateModel
 </span><a href="Network.AWS.SageMaker.CreateModel.html#createModel_tags"><span class="hs-identifier hs-var hs-var">createModel_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateModel -&gt; Maybe [Tag])
 -&gt; (CreateModel -&gt; Maybe [Tag] -&gt; CreateModel)
 -&gt; Lens CreateModel CreateModel (Maybe [Tag]) (Maybe [Tag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModel%27"><span class="hs-identifier hs-type">CreateModel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680416330"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModel%27"><span class="hs-identifier hs-type">CreateModel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680417972"><span class="annot"><span class="annottext">Maybe [Tag]
 tags :: Maybe [Tag]
 $sel:tags:CreateModel' :: CreateModel -&gt; Maybe [Tag]
-</span><a href="#local-6989586621680416330"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621680416330"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680416329"><span class="annot"><span class="annottext">s :: CreateModel
-</span><a href="#local-6989586621680416329"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModel%27"><span class="hs-identifier hs-type">CreateModel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680416328"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621680416328"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModel
-</span><a href="#local-6989586621680416329"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateModel' :: Maybe [Tag]
+</span><a href="#local-6989586621680417972"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621680417972"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680417971"><span class="annot"><span class="annottext">s :: CreateModel
+</span><a href="#local-6989586621680417971"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModel%27"><span class="hs-identifier hs-type">CreateModel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680417970"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621680417970"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModel
+</span><a href="#local-6989586621680417971"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateModel' :: Maybe [Tag]
 </span><a href="Network.AWS.SageMaker.CreateModel.html#%24sel%3Atags%3ACreateModel%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621680416328"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModel"><span class="hs-identifier hs-type">CreateModel</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; CreateModel -&gt; f CreateModel)
+</span><a href="#local-6989586621680417970"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModel"><span class="hs-identifier hs-type">CreateModel</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; CreateModel -&gt; f CreateModel)
 -&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
     -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
 -&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
@@ -432,33 +457,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-220"></span><span>
-</span><span id="line-221"></span><span class="hs-comment">-- | Specifies details of how containers in a multi-container endpoint are</span><span>
-</span><span id="line-222"></span><span class="hs-comment">-- called.</span><span>
-</span><span id="line-223"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#createModel_inferenceExecutionConfig"><span class="hs-identifier hs-type">createModel_inferenceExecutionConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModel"><span class="hs-identifier hs-type">CreateModel</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.InferenceExecutionConfig.html#InferenceExecutionConfig"><span class="hs-identifier hs-type">InferenceExecutionConfig</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-224"></span><span id="createModel_inferenceExecutionConfig"><span class="annot"><span class="annottext">createModel_inferenceExecutionConfig :: (Maybe InferenceExecutionConfig
- -&gt; f (Maybe InferenceExecutionConfig))
--&gt; CreateModel -&gt; f CreateModel
-</span><a href="Network.AWS.SageMaker.CreateModel.html#createModel_inferenceExecutionConfig"><span class="hs-identifier hs-var hs-var">createModel_inferenceExecutionConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateModel -&gt; Maybe InferenceExecutionConfig)
--&gt; (CreateModel -&gt; Maybe InferenceExecutionConfig -&gt; CreateModel)
--&gt; Lens
-     CreateModel
-     CreateModel
-     (Maybe InferenceExecutionConfig)
-     (Maybe InferenceExecutionConfig)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModel%27"><span class="hs-identifier hs-type">CreateModel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680416327"><span class="annot"><span class="annottext">Maybe InferenceExecutionConfig
-inferenceExecutionConfig :: Maybe InferenceExecutionConfig
-$sel:inferenceExecutionConfig:CreateModel' :: CreateModel -&gt; Maybe InferenceExecutionConfig
-</span><a href="#local-6989586621680416327"><span class="hs-identifier hs-var hs-var">inferenceExecutionConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InferenceExecutionConfig
-</span><a href="#local-6989586621680416327"><span class="hs-identifier hs-var">inferenceExecutionConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680416326"><span class="annot"><span class="annottext">s :: CreateModel
-</span><a href="#local-6989586621680416326"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModel%27"><span class="hs-identifier hs-type">CreateModel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680416325"><span class="annot"><span class="annottext">Maybe InferenceExecutionConfig
-</span><a href="#local-6989586621680416325"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModel
-</span><a href="#local-6989586621680416326"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inferenceExecutionConfig:CreateModel' :: Maybe InferenceExecutionConfig
-</span><a href="Network.AWS.SageMaker.CreateModel.html#%24sel%3AinferenceExecutionConfig%3ACreateModel%27"><span class="hs-identifier hs-var">inferenceExecutionConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InferenceExecutionConfig
-</span><a href="#local-6989586621680416325"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModel"><span class="hs-identifier hs-type">CreateModel</span></a></span><span class="hs-special">)</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-225"></span><span>
 </span><span id="line-226"></span><span class="hs-comment">-- | The name of the new model.</span><span>
 </span><span id="line-227"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#createModel_modelName"><span class="hs-identifier hs-type">createModel_modelName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModel"><span class="hs-identifier hs-type">CreateModel</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -467,16 +467,16 @@ $sel:inferenceExecutionConfig:CreateModel' :: CreateModel -&gt; Maybe InferenceE
 -&gt; (CreateModel -&gt; Text -&gt; CreateModel)
 -&gt; Lens CreateModel CreateModel Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModel%27"><span class="hs-identifier hs-type">CreateModel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680416324"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModel%27"><span class="hs-identifier hs-type">CreateModel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680417969"><span class="annot"><span class="annottext">Text
 modelName :: Text
 $sel:modelName:CreateModel' :: CreateModel -&gt; Text
-</span><a href="#local-6989586621680416324"><span class="hs-identifier hs-var hs-var">modelName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680416324"><span class="hs-identifier hs-var">modelName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680416323"><span class="annot"><span class="annottext">s :: CreateModel
-</span><a href="#local-6989586621680416323"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModel%27"><span class="hs-identifier hs-type">CreateModel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680416322"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680416322"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModel
-</span><a href="#local-6989586621680416323"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelName:CreateModel' :: Text
+</span><a href="#local-6989586621680417969"><span class="hs-identifier hs-var hs-var">modelName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680417969"><span class="hs-identifier hs-var">modelName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680417968"><span class="annot"><span class="annottext">s :: CreateModel
+</span><a href="#local-6989586621680417968"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModel%27"><span class="hs-identifier hs-type">CreateModel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680417967"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680417967"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModel
+</span><a href="#local-6989586621680417968"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelName:CreateModel' :: Text
 </span><a href="Network.AWS.SageMaker.CreateModel.html#%24sel%3AmodelName%3ACreateModel%27"><span class="hs-identifier hs-var">modelName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680416322"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModel"><span class="hs-identifier hs-type">CreateModel</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680417967"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModel"><span class="hs-identifier hs-type">CreateModel</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-229"></span><span>
 </span><span id="line-230"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the IAM role that Amazon SageMaker can</span><span>
 </span><span id="line-231"></span><span class="hs-comment">-- assume to access model artifacts and docker image for deployment on ML</span><span>
@@ -492,25 +492,25 @@ $sel:modelName:CreateModel' :: CreateModel -&gt; Text
 -&gt; (CreateModel -&gt; Text -&gt; CreateModel)
 -&gt; Lens CreateModel CreateModel Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModel%27"><span class="hs-identifier hs-type">CreateModel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680416321"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModel%27"><span class="hs-identifier hs-type">CreateModel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680417966"><span class="annot"><span class="annottext">Text
 executionRoleArn :: Text
 $sel:executionRoleArn:CreateModel' :: CreateModel -&gt; Text
-</span><a href="#local-6989586621680416321"><span class="hs-identifier hs-var hs-var">executionRoleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680416321"><span class="hs-identifier hs-var">executionRoleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680416320"><span class="annot"><span class="annottext">s :: CreateModel
-</span><a href="#local-6989586621680416320"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModel%27"><span class="hs-identifier hs-type">CreateModel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680416319"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680416319"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModel
-</span><a href="#local-6989586621680416320"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:executionRoleArn:CreateModel' :: Text
+</span><a href="#local-6989586621680417966"><span class="hs-identifier hs-var hs-var">executionRoleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680417966"><span class="hs-identifier hs-var">executionRoleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680417965"><span class="annot"><span class="annottext">s :: CreateModel
+</span><a href="#local-6989586621680417965"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModel%27"><span class="hs-identifier hs-type">CreateModel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680417964"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680417964"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModel
+</span><a href="#local-6989586621680417965"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:executionRoleArn:CreateModel' :: Text
 </span><a href="Network.AWS.SageMaker.CreateModel.html#%24sel%3AexecutionRoleArn%3ACreateModel%27"><span class="hs-identifier hs-var">executionRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680416319"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModel"><span class="hs-identifier hs-type">CreateModel</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680417964"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModel"><span class="hs-identifier hs-type">CreateModel</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-240"></span><span>
 </span><span id="line-241"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModel"><span class="hs-identifier hs-type">CreateModel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-242"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModel"><span class="hs-identifier hs-type">CreateModel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModelResponse"><span class="hs-identifier hs-type">CreateModelResponse</span></a></span><span>
-</span><span id="line-243"></span><span>  </span><span id="local-6989586621680416315"><span class="annot"><span class="annottext">request :: CreateModel -&gt; Request CreateModel
+</span><span id="line-243"></span><span>  </span><span id="local-6989586621680417960"><span class="annot"><span class="annottext">request :: CreateModel -&gt; Request CreateModel
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateModel -&gt; Request CreateModel
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SageMaker.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-244"></span><span>  </span><span id="local-6989586621680416311"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-244"></span><span>  </span><span id="local-6989586621680417956"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateModel
 -&gt; ClientResponse ClientBody
@@ -534,10 +534,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-246"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680416308"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680416308"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680416307"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621680416307"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680416306"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680416306"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-246"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680417953"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680417953"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680417952"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621680417952"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680417951"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680417951"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-247"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Text -&gt; CreateModelResponse
 </span><a href="Network.AWS.SageMaker.CreateModel.html#CreateModelResponse%27"><span class="hs-identifier hs-var">CreateModelResponse'</span></a></span><span>
 </span><span id="line-248"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; Text -&gt; CreateModelResponse)
@@ -548,23 +548,23 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680416308"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680417953"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-249"></span><span>            </span><span class="annot"><span class="annottext">Either String (Text -&gt; CreateModelResponse)
 -&gt; Either String Text -&gt; Either String CreateModelResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680416306"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621680417951"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ModelArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-250"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-251"></span><span>
-</span><span id="line-252"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680416298"><span id="local-6989586621680416300"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModel"><span class="hs-identifier hs-type">CreateModel</span></a></span></span></span><span>
+</span><span id="line-252"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680417943"><span id="local-6989586621680417945"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModel"><span class="hs-identifier hs-type">CreateModel</span></a></span></span></span><span>
 </span><span id="line-253"></span><span>
-</span><span id="line-254"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680416295"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModel"><span class="hs-identifier hs-type">CreateModel</span></a></span></span><span>
+</span><span id="line-254"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680417940"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModel"><span class="hs-identifier hs-type">CreateModel</span></a></span></span><span>
 </span><span id="line-255"></span><span>
 </span><span id="line-256"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModel"><span class="hs-identifier hs-type">CreateModel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-257"></span><span>  </span><span id="local-6989586621680416291"><span class="annot"><span class="annottext">toHeaders :: CreateModel -&gt; ResponseHeaders
+</span><span id="line-257"></span><span>  </span><span id="local-6989586621680417936"><span class="annot"><span class="annottext">toHeaders :: CreateModel -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-258"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateModel -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -589,9 +589,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-266"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-267"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-268"></span><span>
-</span><span id="line-269"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680416281"><span id="local-6989586621680416283"><span id="local-6989586621680416285"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModel"><span class="hs-identifier hs-type">CreateModel</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-270"></span><span>  </span><span id="local-6989586621680416279"><span class="annot"><span class="annottext">toJSON :: CreateModel -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModel%27"><span class="hs-identifier hs-type">CreateModel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680416270"><span id="local-6989586621680416271"><span id="local-6989586621680416272"><span id="local-6989586621680416273"><span id="local-6989586621680416274"><span id="local-6989586621680416275"><span id="local-6989586621680416276"><span id="local-6989586621680416277"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-269"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680417926"><span id="local-6989586621680417928"><span id="local-6989586621680417930"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModel"><span class="hs-identifier hs-type">CreateModel</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-270"></span><span>  </span><span id="local-6989586621680417924"><span class="annot"><span class="annottext">toJSON :: CreateModel -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModel%27"><span class="hs-identifier hs-type">CreateModel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680417915"><span id="local-6989586621680417916"><span id="local-6989586621680417917"><span id="local-6989586621680417918"><span id="local-6989586621680417919"><span id="local-6989586621680417920"><span id="local-6989586621680417921"><span id="local-6989586621680417922"><span class="annot"><span class="annottext">Maybe Bool
 Maybe [ContainerDefinition]
 Maybe [Tag]
 Maybe InferenceExecutionConfig
@@ -600,81 +600,81 @@ Maybe VpcConfig
 Text
 executionRoleArn :: Text
 modelName :: Text
-inferenceExecutionConfig :: Maybe InferenceExecutionConfig
 tags :: Maybe [Tag]
-containers :: Maybe [ContainerDefinition]
-primaryContainer :: Maybe ContainerDefinition
-enableNetworkIsolation :: Maybe Bool
+inferenceExecutionConfig :: Maybe InferenceExecutionConfig
 vpcConfig :: Maybe VpcConfig
+containers :: Maybe [ContainerDefinition]
+enableNetworkIsolation :: Maybe Bool
+primaryContainer :: Maybe ContainerDefinition
 $sel:executionRoleArn:CreateModel' :: CreateModel -&gt; Text
 $sel:modelName:CreateModel' :: CreateModel -&gt; Text
-$sel:inferenceExecutionConfig:CreateModel' :: CreateModel -&gt; Maybe InferenceExecutionConfig
 $sel:tags:CreateModel' :: CreateModel -&gt; Maybe [Tag]
-$sel:containers:CreateModel' :: CreateModel -&gt; Maybe [ContainerDefinition]
-$sel:primaryContainer:CreateModel' :: CreateModel -&gt; Maybe ContainerDefinition
-$sel:enableNetworkIsolation:CreateModel' :: CreateModel -&gt; Maybe Bool
+$sel:inferenceExecutionConfig:CreateModel' :: CreateModel -&gt; Maybe InferenceExecutionConfig
 $sel:vpcConfig:CreateModel' :: CreateModel -&gt; Maybe VpcConfig
-</span><a href="#local-6989586621680416270"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:containers:CreateModel' :: CreateModel -&gt; Maybe [ContainerDefinition]
+$sel:enableNetworkIsolation:CreateModel' :: CreateModel -&gt; Maybe Bool
+$sel:primaryContainer:CreateModel' :: CreateModel -&gt; Maybe ContainerDefinition
+</span><a href="#local-6989586621680417915"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-271"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-272"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-273"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;VpcConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; VpcConfig -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(VpcConfig -&gt; Pair) -&gt; Maybe VpcConfig -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe VpcConfig
-</span><a href="#local-6989586621680416277"><span class="hs-identifier hs-var">vpcConfig</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-274"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;EnableNetworkIsolation&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-275"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621680416276"><span class="hs-identifier hs-var">enableNetworkIsolation</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-276"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PrimaryContainer&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ContainerDefinition -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-277"></span><span>              </span><span class="annot"><span class="annottext">(ContainerDefinition -&gt; Pair)
+</span><span id="line-274"></span><span>              </span><span class="annot"><span class="annottext">(ContainerDefinition -&gt; Pair)
 -&gt; Maybe ContainerDefinition -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ContainerDefinition
-</span><a href="#local-6989586621680416275"><span class="hs-identifier hs-var">primaryContainer</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-278"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680417922"><span class="hs-identifier hs-var">primaryContainer</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-275"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EnableNetworkIsolation&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-276"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621680417921"><span class="hs-identifier hs-var">enableNetworkIsolation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-277"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Containers&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [ContainerDefinition] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([ContainerDefinition] -&gt; Pair)
 -&gt; Maybe [ContainerDefinition] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ContainerDefinition]
-</span><a href="#local-6989586621680416274"><span class="hs-identifier hs-var">containers</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680417920"><span class="hs-identifier hs-var">containers</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-278"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VpcConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; VpcConfig -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(VpcConfig -&gt; Pair) -&gt; Maybe VpcConfig -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe VpcConfig
+</span><a href="#local-6989586621680417919"><span class="hs-identifier hs-var">vpcConfig</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-279"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InferenceExecutionConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; InferenceExecutionConfig -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-280"></span><span>              </span><span class="annot"><span class="annottext">(InferenceExecutionConfig -&gt; Pair)
+-&gt; Maybe InferenceExecutionConfig -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe InferenceExecutionConfig
+</span><a href="#local-6989586621680417918"><span class="hs-identifier hs-var">inferenceExecutionConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-281"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621680416273"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-280"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;InferenceExecutionConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; InferenceExecutionConfig -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-281"></span><span>              </span><span class="annot"><span class="annottext">(InferenceExecutionConfig -&gt; Pair)
--&gt; Maybe InferenceExecutionConfig -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe InferenceExecutionConfig
-</span><a href="#local-6989586621680416272"><span class="hs-identifier hs-var">inferenceExecutionConfig</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680417917"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-282"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ModelName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680416271"><span class="hs-identifier hs-var">modelName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680417916"><span class="hs-identifier hs-var">modelName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-283"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -682,19 +682,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ExecutionRoleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680416270"><span class="hs-identifier hs-var">executionRoleArn</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680417915"><span class="hs-identifier hs-var">executionRoleArn</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-285"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-286"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-287"></span><span>
 </span><span id="line-288"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModel"><span class="hs-identifier hs-type">CreateModel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-289"></span><span>  </span><span id="local-6989586621680416264"><span class="annot"><span class="annottext">toPath :: CreateModel -&gt; ByteString
+</span><span id="line-289"></span><span>  </span><span id="local-6989586621680417909"><span class="annot"><span class="annottext">toPath :: CreateModel -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateModel -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-290"></span><span>
 </span><span id="line-291"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModel"><span class="hs-identifier hs-type">CreateModel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-292"></span><span>  </span><span id="local-6989586621680416260"><span class="annot"><span class="annottext">toQuery :: CreateModel -&gt; QueryString
+</span><span id="line-292"></span><span>  </span><span id="local-6989586621680417905"><span class="annot"><span class="annottext">toQuery :: CreateModel -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateModel -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -702,7 +702,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-293"></span><span>
 </span><span id="line-294"></span><span class="hs-comment">-- | /See:/ 'newCreateModelResponse' smart constructor.</span><span>
-</span><span id="line-295"></span><span id="local-6989586621680416257"><span id="local-6989586621680416258"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateModelResponse"><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModelResponse"><span class="hs-identifier hs-var">CreateModelResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateModelResponse%27"><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModelResponse%27"><span class="hs-identifier hs-var">CreateModelResponse'</span></a></span></span><span>
+</span><span id="line-295"></span><span id="local-6989586621680417902"><span id="local-6989586621680417903"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateModelResponse"><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModelResponse"><span class="hs-identifier hs-var">CreateModelResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateModelResponse%27"><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModelResponse%27"><span class="hs-identifier hs-var">CreateModelResponse'</span></a></span></span><span>
 </span><span id="line-296"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-297"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateModelResponse%27"><span class="annot"><span class="annottext">CreateModelResponse -&gt; Int
 </span><a href="Network.AWS.SageMaker.CreateModel.html#%24sel%3AhttpStatus%3ACreateModelResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -710,7 +710,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-299"></span><span>    </span><span id="%24sel%3AmodelArn%3ACreateModelResponse%27"><span class="annot"><span class="annottext">CreateModelResponse -&gt; Text
 </span><a href="Network.AWS.SageMaker.CreateModel.html#%24sel%3AmodelArn%3ACreateModelResponse%27"><span class="hs-identifier hs-var hs-var">modelArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-300"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-301"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680416251"><span id="local-6989586621680416253"><span class="annot"><span class="annottext">CreateModelResponse -&gt; CreateModelResponse -&gt; Bool
+</span><span id="line-301"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680417896"><span id="local-6989586621680417898"><span class="annot"><span class="annottext">CreateModelResponse -&gt; CreateModelResponse -&gt; Bool
 (CreateModelResponse -&gt; CreateModelResponse -&gt; Bool)
 -&gt; (CreateModelResponse -&gt; CreateModelResponse -&gt; Bool)
 -&gt; Eq CreateModelResponse
@@ -719,7 +719,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateModelResponse -&gt; CreateModelResponse -&gt; Bool
 == :: CreateModelResponse -&gt; CreateModelResponse -&gt; Bool
 $c== :: CreateModelResponse -&gt; CreateModelResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680416243"><span id="local-6989586621680416245"><span id="local-6989586621680416247"><span id="local-6989586621680416249"><span class="annot"><span class="annottext">ReadPrec [CreateModelResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680417888"><span id="local-6989586621680417890"><span id="local-6989586621680417892"><span id="local-6989586621680417894"><span class="annot"><span class="annottext">ReadPrec [CreateModelResponse]
 ReadPrec CreateModelResponse
 Int -&gt; ReadS CreateModelResponse
 ReadS [CreateModelResponse]
@@ -739,7 +739,7 @@ readList :: ReadS [CreateModelResponse]
 $creadList :: ReadS [CreateModelResponse]
 readsPrec :: Int -&gt; ReadS CreateModelResponse
 $creadsPrec :: Int -&gt; ReadS CreateModelResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680416237"><span id="local-6989586621680416239"><span id="local-6989586621680416241"><span class="annot"><span class="annottext">Int -&gt; CreateModelResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680417882"><span id="local-6989586621680417884"><span id="local-6989586621680417886"><span class="annot"><span class="annottext">Int -&gt; CreateModelResponse -&gt; ShowS
 [CreateModelResponse] -&gt; ShowS
 CreateModelResponse -&gt; String
 (Int -&gt; CreateModelResponse -&gt; ShowS)
@@ -783,17 +783,17 @@ $cfrom :: forall x. CreateModelResponse -&gt; Rep CreateModelResponse x
 </span><span id="line-318"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-319"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModelResponse"><span class="hs-identifier hs-type">CreateModelResponse</span></a></span><span>
 </span><span id="line-320"></span><span id="newCreateModelResponse"><span class="annot"><span class="annottext">newCreateModelResponse :: Int -&gt; Text -&gt; CreateModelResponse
-</span><a href="Network.AWS.SageMaker.CreateModel.html#newCreateModelResponse"><span class="hs-identifier hs-var hs-var">newCreateModelResponse</span></a></span></span><span> </span><span id="local-6989586621680416234"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680416234"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621680416233"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680416233"><span class="hs-identifier hs-var">pModelArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SageMaker.CreateModel.html#newCreateModelResponse"><span class="hs-identifier hs-var hs-var">newCreateModelResponse</span></a></span></span><span> </span><span id="local-6989586621680417879"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680417879"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621680417878"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680417878"><span class="hs-identifier hs-var">pModelArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-321"></span><span>  </span><span class="annot"><span class="annottext">CreateModelResponse' :: Int -&gt; Text -&gt; CreateModelResponse
 </span><a href="Network.AWS.SageMaker.CreateModel.html#CreateModelResponse%27"><span class="hs-identifier hs-type">CreateModelResponse'</span></a></span><span>
 </span><span id="line-322"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateModelResponse' :: Int
 </span><a href="Network.AWS.SageMaker.CreateModel.html#%24sel%3AhttpStatus%3ACreateModelResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680416234"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680417879"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-323"></span><span>      </span><span class="annot"><span class="annottext">$sel:modelArn:CreateModelResponse' :: Text
 </span><a href="Network.AWS.SageMaker.CreateModel.html#%24sel%3AmodelArn%3ACreateModelResponse%27"><span class="hs-identifier hs-var">modelArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680416233"><span class="hs-identifier hs-var">pModelArn_</span></a></span><span>
+</span><a href="#local-6989586621680417878"><span class="hs-identifier hs-var">pModelArn_</span></a></span><span>
 </span><span id="line-324"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-325"></span><span>
 </span><span id="line-326"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -803,16 +803,16 @@ $cfrom :: forall x. CreateModelResponse -&gt; Rep CreateModelResponse x
 -&gt; (CreateModelResponse -&gt; Int -&gt; CreateModelResponse)
 -&gt; Lens CreateModelResponse CreateModelResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModelResponse%27"><span class="hs-identifier hs-type">CreateModelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680416232"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModelResponse%27"><span class="hs-identifier hs-type">CreateModelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680417877"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateModelResponse' :: CreateModelResponse -&gt; Int
-</span><a href="#local-6989586621680416232"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680416232"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680416231"><span class="annot"><span class="annottext">s :: CreateModelResponse
-</span><a href="#local-6989586621680416231"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModelResponse%27"><span class="hs-identifier hs-type">CreateModelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680416230"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680416230"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModelResponse
-</span><a href="#local-6989586621680416231"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateModelResponse' :: Int
+</span><a href="#local-6989586621680417877"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680417877"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680417876"><span class="annot"><span class="annottext">s :: CreateModelResponse
+</span><a href="#local-6989586621680417876"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModelResponse%27"><span class="hs-identifier hs-type">CreateModelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680417875"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680417875"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModelResponse
+</span><a href="#local-6989586621680417876"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateModelResponse' :: Int
 </span><a href="Network.AWS.SageMaker.CreateModel.html#%24sel%3AhttpStatus%3ACreateModelResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680416230"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModelResponse"><span class="hs-identifier hs-type">CreateModelResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680417875"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModelResponse"><span class="hs-identifier hs-type">CreateModelResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-329"></span><span>
 </span><span id="line-330"></span><span class="hs-comment">-- | The ARN of the model created in Amazon SageMaker.</span><span>
 </span><span id="line-331"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#createModelResponse_modelArn"><span class="hs-identifier hs-type">createModelResponse_modelArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModelResponse"><span class="hs-identifier hs-type">CreateModelResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -821,16 +821,16 @@ $sel:httpStatus:CreateModelResponse' :: CreateModelResponse -&gt; Int
 -&gt; (CreateModelResponse -&gt; Text -&gt; CreateModelResponse)
 -&gt; Lens CreateModelResponse CreateModelResponse Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModelResponse%27"><span class="hs-identifier hs-type">CreateModelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680416229"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModelResponse%27"><span class="hs-identifier hs-type">CreateModelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680417874"><span class="annot"><span class="annottext">Text
 modelArn :: Text
 $sel:modelArn:CreateModelResponse' :: CreateModelResponse -&gt; Text
-</span><a href="#local-6989586621680416229"><span class="hs-identifier hs-var hs-var">modelArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680416229"><span class="hs-identifier hs-var">modelArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680416228"><span class="annot"><span class="annottext">s :: CreateModelResponse
-</span><a href="#local-6989586621680416228"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModelResponse%27"><span class="hs-identifier hs-type">CreateModelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680416227"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680416227"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModelResponse
-</span><a href="#local-6989586621680416228"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelArn:CreateModelResponse' :: Text
+</span><a href="#local-6989586621680417874"><span class="hs-identifier hs-var hs-var">modelArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680417874"><span class="hs-identifier hs-var">modelArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680417873"><span class="annot"><span class="annottext">s :: CreateModelResponse
+</span><a href="#local-6989586621680417873"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModelResponse%27"><span class="hs-identifier hs-type">CreateModelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680417872"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680417872"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModelResponse
+</span><a href="#local-6989586621680417873"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelArn:CreateModelResponse' :: Text
 </span><a href="Network.AWS.SageMaker.CreateModel.html#%24sel%3AmodelArn%3ACreateModelResponse%27"><span class="hs-identifier hs-var">modelArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680416227"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModelResponse"><span class="hs-identifier hs-type">CreateModelResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680417872"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModelResponse"><span class="hs-identifier hs-type">CreateModelResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-333"></span><span>
-</span><span id="line-334"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680416225"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModelResponse"><span class="hs-identifier hs-type">CreateModelResponse</span></a></span></span><span>
+</span><span id="line-334"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680417870"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModel.html#CreateModelResponse"><span class="hs-identifier hs-type">CreateModelResponse</span></a></span></span><span>
 </span><span id="line-335"></span></pre></body></html>

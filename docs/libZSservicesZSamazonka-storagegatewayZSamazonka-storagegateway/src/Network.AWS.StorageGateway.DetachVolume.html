@@ -55,7 +55,7 @@
 </span><span id="line-55"></span><span class="hs-comment">-- | AttachVolumeInput</span><span>
 </span><span id="line-56"></span><span class="hs-comment">--</span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- /See:/ 'newDetachVolume' smart constructor.</span><span>
-</span><span id="line-58"></span><span id="local-6989586621679378577"><span id="local-6989586621679378578"></span></span><span class="hs-keyword">data</span><span> </span><span id="DetachVolume"><span class="annot"><a href="Network.AWS.StorageGateway.DetachVolume.html#DetachVolume"><span class="hs-identifier hs-var">DetachVolume</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DetachVolume%27"><span class="annot"><a href="Network.AWS.StorageGateway.DetachVolume.html#DetachVolume%27"><span class="hs-identifier hs-var">DetachVolume'</span></a></span></span><span>
+</span><span id="line-58"></span><span id="local-6989586621679383103"><span id="local-6989586621679383104"></span></span><span class="hs-keyword">data</span><span> </span><span id="DetachVolume"><span class="annot"><a href="Network.AWS.StorageGateway.DetachVolume.html#DetachVolume"><span class="hs-identifier hs-var">DetachVolume</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DetachVolume%27"><span class="annot"><a href="Network.AWS.StorageGateway.DetachVolume.html#DetachVolume%27"><span class="hs-identifier hs-var">DetachVolume'</span></a></span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Set to @true@ to forcibly remove the iSCSI connection of the target</span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-comment">-- volume and detach the volume. The default is @false@. If this value is</span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-comment">-- set to @false@, you must manually disconnect the iSCSI connection from</span><span>
@@ -68,7 +68,7 @@
 </span><span id="line-67"></span><span>    </span><span id="%24sel%3AvolumeARN%3ADetachVolume%27"><span class="annot"><span class="annottext">DetachVolume -&gt; Text
 </span><a href="Network.AWS.StorageGateway.DetachVolume.html#%24sel%3AvolumeARN%3ADetachVolume%27"><span class="hs-identifier hs-var hs-var">volumeARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-68"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679378570"><span id="local-6989586621679378572"><span class="annot"><span class="annottext">DetachVolume -&gt; DetachVolume -&gt; Bool
+</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679383096"><span id="local-6989586621679383098"><span class="annot"><span class="annottext">DetachVolume -&gt; DetachVolume -&gt; Bool
 (DetachVolume -&gt; DetachVolume -&gt; Bool)
 -&gt; (DetachVolume -&gt; DetachVolume -&gt; Bool) -&gt; Eq DetachVolume
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -76,7 +76,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DetachVolume -&gt; DetachVolume -&gt; Bool
 == :: DetachVolume -&gt; DetachVolume -&gt; Bool
 $c== :: DetachVolume -&gt; DetachVolume -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679378561"><span id="local-6989586621679378563"><span id="local-6989586621679378565"><span id="local-6989586621679378567"><span class="annot"><span class="annottext">ReadPrec [DetachVolume]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383087"><span id="local-6989586621679383089"><span id="local-6989586621679383091"><span id="local-6989586621679383093"><span class="annot"><span class="annottext">ReadPrec [DetachVolume]
 ReadPrec DetachVolume
 Int -&gt; ReadS DetachVolume
 ReadS [DetachVolume]
@@ -96,7 +96,7 @@ readList :: ReadS [DetachVolume]
 $creadList :: ReadS [DetachVolume]
 readsPrec :: Int -&gt; ReadS DetachVolume
 $creadsPrec :: Int -&gt; ReadS DetachVolume
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679378554"><span id="local-6989586621679378556"><span id="local-6989586621679378558"><span class="annot"><span class="annottext">Int -&gt; DetachVolume -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383080"><span id="local-6989586621679383082"><span id="local-6989586621679383084"><span class="annot"><span class="annottext">Int -&gt; DetachVolume -&gt; ShowS
 [DetachVolume] -&gt; ShowS
 DetachVolume -&gt; String
 (Int -&gt; DetachVolume -&gt; ShowS)
@@ -143,8 +143,8 @@ $cfrom :: forall x. DetachVolume -&gt; Rep DetachVolume x
 </span><span id="line-89"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-90"></span><span>  </span><span class="annot"><a href="Network.AWS.StorageGateway.DetachVolume.html#DetachVolume"><span class="hs-identifier hs-type">DetachVolume</span></a></span><span>
 </span><span id="line-91"></span><span id="newDetachVolume"><span class="annot"><span class="annottext">newDetachVolume :: Text -&gt; DetachVolume
-</span><a href="Network.AWS.StorageGateway.DetachVolume.html#newDetachVolume"><span class="hs-identifier hs-var hs-var">newDetachVolume</span></a></span></span><span> </span><span id="local-6989586621679378549"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679378549"><span class="hs-identifier hs-var">pVolumeARN_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.StorageGateway.DetachVolume.html#newDetachVolume"><span class="hs-identifier hs-var hs-var">newDetachVolume</span></a></span></span><span> </span><span id="local-6989586621679383075"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679383075"><span class="hs-identifier hs-var">pVolumeARN_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-92"></span><span>  </span><span class="annot"><span class="annottext">DetachVolume' :: Maybe Bool -&gt; Text -&gt; DetachVolume
 </span><a href="Network.AWS.StorageGateway.DetachVolume.html#DetachVolume%27"><span class="hs-identifier hs-type">DetachVolume'</span></a></span><span>
 </span><span id="line-93"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:forceDetach:DetachVolume' :: Maybe Bool
@@ -153,7 +153,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:volumeARN:DetachVolume' :: Text
 </span><a href="Network.AWS.StorageGateway.DetachVolume.html#%24sel%3AvolumeARN%3ADetachVolume%27"><span class="hs-identifier hs-var">volumeARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679378549"><span class="hs-identifier hs-var">pVolumeARN_</span></a></span><span>
+</span><a href="#local-6989586621679383075"><span class="hs-identifier hs-var">pVolumeARN_</span></a></span><span>
 </span><span id="line-95"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- | Set to @true@ to forcibly remove the iSCSI connection of the target</span><span>
@@ -168,16 +168,16 @@ forall a. Maybe a
 -&gt; (DetachVolume -&gt; Maybe Bool -&gt; DetachVolume)
 -&gt; Lens DetachVolume DetachVolume (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.DetachVolume.html#DetachVolume%27"><span class="hs-identifier hs-type">DetachVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378546"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.DetachVolume.html#DetachVolume%27"><span class="hs-identifier hs-type">DetachVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383072"><span class="annot"><span class="annottext">Maybe Bool
 forceDetach :: Maybe Bool
 $sel:forceDetach:DetachVolume' :: DetachVolume -&gt; Maybe Bool
-</span><a href="#local-6989586621679378546"><span class="hs-identifier hs-var hs-var">forceDetach</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679378546"><span class="hs-identifier hs-var">forceDetach</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378545"><span class="annot"><span class="annottext">s :: DetachVolume
-</span><a href="#local-6989586621679378545"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.DetachVolume.html#DetachVolume%27"><span class="hs-identifier hs-type">DetachVolume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378544"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679378544"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetachVolume
-</span><a href="#local-6989586621679378545"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:forceDetach:DetachVolume' :: Maybe Bool
+</span><a href="#local-6989586621679383072"><span class="hs-identifier hs-var hs-var">forceDetach</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679383072"><span class="hs-identifier hs-var">forceDetach</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383071"><span class="annot"><span class="annottext">s :: DetachVolume
+</span><a href="#local-6989586621679383071"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.DetachVolume.html#DetachVolume%27"><span class="hs-identifier hs-type">DetachVolume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383070"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679383070"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetachVolume
+</span><a href="#local-6989586621679383071"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:forceDetach:DetachVolume' :: Maybe Bool
 </span><a href="Network.AWS.StorageGateway.DetachVolume.html#%24sel%3AforceDetach%3ADetachVolume%27"><span class="hs-identifier hs-var">forceDetach</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679378544"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DetachVolume.html#DetachVolume"><span class="hs-identifier hs-type">DetachVolume</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679383070"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DetachVolume.html#DetachVolume"><span class="hs-identifier hs-type">DetachVolume</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the volume to detach from the gateway.</span><span>
 </span><span id="line-107"></span><span class="annot"><a href="Network.AWS.StorageGateway.DetachVolume.html#detachVolume_volumeARN"><span class="hs-identifier hs-type">detachVolume_volumeARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DetachVolume.html#DetachVolume"><span class="hs-identifier hs-type">DetachVolume</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -186,25 +186,25 @@ $sel:forceDetach:DetachVolume' :: DetachVolume -&gt; Maybe Bool
 -&gt; (DetachVolume -&gt; Text -&gt; DetachVolume)
 -&gt; Lens DetachVolume DetachVolume Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.DetachVolume.html#DetachVolume%27"><span class="hs-identifier hs-type">DetachVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378543"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.DetachVolume.html#DetachVolume%27"><span class="hs-identifier hs-type">DetachVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383069"><span class="annot"><span class="annottext">Text
 volumeARN :: Text
 $sel:volumeARN:DetachVolume' :: DetachVolume -&gt; Text
-</span><a href="#local-6989586621679378543"><span class="hs-identifier hs-var hs-var">volumeARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679378543"><span class="hs-identifier hs-var">volumeARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378542"><span class="annot"><span class="annottext">s :: DetachVolume
-</span><a href="#local-6989586621679378542"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.DetachVolume.html#DetachVolume%27"><span class="hs-identifier hs-type">DetachVolume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378541"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679378541"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetachVolume
-</span><a href="#local-6989586621679378542"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:volumeARN:DetachVolume' :: Text
+</span><a href="#local-6989586621679383069"><span class="hs-identifier hs-var hs-var">volumeARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679383069"><span class="hs-identifier hs-var">volumeARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383068"><span class="annot"><span class="annottext">s :: DetachVolume
+</span><a href="#local-6989586621679383068"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.DetachVolume.html#DetachVolume%27"><span class="hs-identifier hs-type">DetachVolume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383067"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679383067"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetachVolume
+</span><a href="#local-6989586621679383068"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:volumeARN:DetachVolume' :: Text
 </span><a href="Network.AWS.StorageGateway.DetachVolume.html#%24sel%3AvolumeARN%3ADetachVolume%27"><span class="hs-identifier hs-var">volumeARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679378541"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DetachVolume.html#DetachVolume"><span class="hs-identifier hs-type">DetachVolume</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679383067"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DetachVolume.html#DetachVolume"><span class="hs-identifier hs-type">DetachVolume</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DetachVolume.html#DetachVolume"><span class="hs-identifier hs-type">DetachVolume</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-111"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DetachVolume.html#DetachVolume"><span class="hs-identifier hs-type">DetachVolume</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DetachVolume.html#DetachVolumeResponse"><span class="hs-identifier hs-type">DetachVolumeResponse</span></a></span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679378537"><span class="annot"><span class="annottext">request :: DetachVolume -&gt; Request DetachVolume
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679383063"><span class="annot"><span class="annottext">request :: DetachVolume -&gt; Request DetachVolume
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DetachVolume -&gt; Request DetachVolume
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.StorageGateway.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679378533"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679383059"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DetachVolume
 -&gt; ClientResponse ClientBody
@@ -228,10 +228,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-115"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679378530"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679378530"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679378529"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679378529"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679378528"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679378528"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679383056"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679383056"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679383055"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679383055"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679383054"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679383054"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-116"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; DetachVolumeResponse
 </span><a href="Network.AWS.StorageGateway.DetachVolume.html#DetachVolumeResponse%27"><span class="hs-identifier hs-var">DetachVolumeResponse'</span></a></span><span>
 </span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; DetachVolumeResponse)
@@ -239,7 +239,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DetachVolumeResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679378528"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679383054"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;VolumeARN&quot;</span></span><span class="hs-special">)</span><span>
@@ -251,15 +251,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679378530"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679383056"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679378520"><span id="local-6989586621679378522"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DetachVolume.html#DetachVolume"><span class="hs-identifier hs-type">DetachVolume</span></a></span></span></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383046"><span id="local-6989586621679383048"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DetachVolume.html#DetachVolume"><span class="hs-identifier hs-type">DetachVolume</span></a></span></span></span><span>
 </span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679378517"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DetachVolume.html#DetachVolume"><span class="hs-identifier hs-type">DetachVolume</span></a></span></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383043"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DetachVolume.html#DetachVolume"><span class="hs-identifier hs-type">DetachVolume</span></a></span></span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DetachVolume.html#DetachVolume"><span class="hs-identifier hs-type">DetachVolume</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679378513"><span class="annot"><span class="annottext">toHeaders :: DetachVolume -&gt; ResponseHeaders
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679383039"><span class="annot"><span class="annottext">toHeaders :: DetachVolume -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-127"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DetachVolume -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -286,15 +286,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-137"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-138"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>
-</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679378503"><span id="local-6989586621679378505"><span id="local-6989586621679378507"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DetachVolume.html#DetachVolume"><span class="hs-identifier hs-type">DetachVolume</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621679378501"><span class="annot"><span class="annottext">toJSON :: DetachVolume -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DetachVolume.html#DetachVolume%27"><span class="hs-identifier hs-type">DetachVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378498"><span id="local-6989586621679378499"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383029"><span id="local-6989586621679383031"><span id="local-6989586621679383033"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DetachVolume.html#DetachVolume"><span class="hs-identifier hs-type">DetachVolume</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679383027"><span class="annot"><span class="annottext">toJSON :: DetachVolume -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DetachVolume.html#DetachVolume%27"><span class="hs-identifier hs-type">DetachVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383024"><span id="local-6989586621679383025"><span class="annot"><span class="annottext">Maybe Bool
 Text
 volumeARN :: Text
 forceDetach :: Maybe Bool
 $sel:volumeARN:DetachVolume' :: DetachVolume -&gt; Text
 $sel:forceDetach:DetachVolume' :: DetachVolume -&gt; Maybe Bool
-</span><a href="#local-6989586621679378498"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679383024"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-142"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-143"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -306,26 +306,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679378499"><span class="hs-identifier hs-var">forceDetach</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679383025"><span class="hs-identifier hs-var">forceDetach</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;VolumeARN&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679378498"><span class="hs-identifier hs-var">volumeARN</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679383024"><span class="hs-identifier hs-var">volumeARN</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-147"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DetachVolume.html#DetachVolume"><span class="hs-identifier hs-type">DetachVolume</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679378492"><span class="annot"><span class="annottext">toPath :: DetachVolume -&gt; ByteString
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679383018"><span class="annot"><span class="annottext">toPath :: DetachVolume -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DetachVolume -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DetachVolume.html#DetachVolume"><span class="hs-identifier hs-type">DetachVolume</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-153"></span><span>  </span><span id="local-6989586621679378488"><span class="annot"><span class="annottext">toQuery :: DetachVolume -&gt; QueryString
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679383014"><span class="annot"><span class="annottext">toQuery :: DetachVolume -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DetachVolume -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -335,7 +335,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-155"></span><span class="hs-comment">-- | AttachVolumeOutput</span><span>
 </span><span id="line-156"></span><span class="hs-comment">--</span><span>
 </span><span id="line-157"></span><span class="hs-comment">-- /See:/ 'newDetachVolumeResponse' smart constructor.</span><span>
-</span><span id="line-158"></span><span id="local-6989586621679378485"><span id="local-6989586621679378486"></span></span><span class="hs-keyword">data</span><span> </span><span id="DetachVolumeResponse"><span class="annot"><a href="Network.AWS.StorageGateway.DetachVolume.html#DetachVolumeResponse"><span class="hs-identifier hs-var">DetachVolumeResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DetachVolumeResponse%27"><span class="annot"><a href="Network.AWS.StorageGateway.DetachVolume.html#DetachVolumeResponse%27"><span class="hs-identifier hs-var">DetachVolumeResponse'</span></a></span></span><span>
+</span><span id="line-158"></span><span id="local-6989586621679383011"><span id="local-6989586621679383012"></span></span><span class="hs-keyword">data</span><span> </span><span id="DetachVolumeResponse"><span class="annot"><a href="Network.AWS.StorageGateway.DetachVolume.html#DetachVolumeResponse"><span class="hs-identifier hs-var">DetachVolumeResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DetachVolumeResponse%27"><span class="annot"><a href="Network.AWS.StorageGateway.DetachVolume.html#DetachVolumeResponse%27"><span class="hs-identifier hs-var">DetachVolumeResponse'</span></a></span></span><span>
 </span><span id="line-159"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the volume that was detached.</span><span>
 </span><span id="line-160"></span><span>    </span><span id="%24sel%3AvolumeARN%3ADetachVolumeResponse%27"><span class="annot"><span class="annottext">DetachVolumeResponse -&gt; Maybe Text
 </span><a href="Network.AWS.StorageGateway.DetachVolume.html#%24sel%3AvolumeARN%3ADetachVolumeResponse%27"><span class="hs-identifier hs-var hs-var">volumeARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -343,7 +343,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-162"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADetachVolumeResponse%27"><span class="annot"><span class="annottext">DetachVolumeResponse -&gt; Int
 </span><a href="Network.AWS.StorageGateway.DetachVolume.html#%24sel%3AhttpStatus%3ADetachVolumeResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-163"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-164"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679378479"><span id="local-6989586621679378481"><span class="annot"><span class="annottext">DetachVolumeResponse -&gt; DetachVolumeResponse -&gt; Bool
+</span><span id="line-164"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679383005"><span id="local-6989586621679383007"><span class="annot"><span class="annottext">DetachVolumeResponse -&gt; DetachVolumeResponse -&gt; Bool
 (DetachVolumeResponse -&gt; DetachVolumeResponse -&gt; Bool)
 -&gt; (DetachVolumeResponse -&gt; DetachVolumeResponse -&gt; Bool)
 -&gt; Eq DetachVolumeResponse
@@ -352,7 +352,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DetachVolumeResponse -&gt; DetachVolumeResponse -&gt; Bool
 == :: DetachVolumeResponse -&gt; DetachVolumeResponse -&gt; Bool
 $c== :: DetachVolumeResponse -&gt; DetachVolumeResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679378471"><span id="local-6989586621679378473"><span id="local-6989586621679378475"><span id="local-6989586621679378477"><span class="annot"><span class="annottext">ReadPrec [DetachVolumeResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679382997"><span id="local-6989586621679382999"><span id="local-6989586621679383001"><span id="local-6989586621679383003"><span class="annot"><span class="annottext">ReadPrec [DetachVolumeResponse]
 ReadPrec DetachVolumeResponse
 Int -&gt; ReadS DetachVolumeResponse
 ReadS [DetachVolumeResponse]
@@ -372,7 +372,7 @@ readList :: ReadS [DetachVolumeResponse]
 $creadList :: ReadS [DetachVolumeResponse]
 readsPrec :: Int -&gt; ReadS DetachVolumeResponse
 $creadsPrec :: Int -&gt; ReadS DetachVolumeResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679378465"><span id="local-6989586621679378467"><span id="local-6989586621679378469"><span class="annot"><span class="annottext">Int -&gt; DetachVolumeResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679382991"><span id="local-6989586621679382993"><span id="local-6989586621679382995"><span class="annot"><span class="annottext">Int -&gt; DetachVolumeResponse -&gt; ShowS
 [DetachVolumeResponse] -&gt; ShowS
 DetachVolumeResponse -&gt; String
 (Int -&gt; DetachVolumeResponse -&gt; ShowS)
@@ -414,8 +414,8 @@ $cfrom :: forall x. DetachVolumeResponse -&gt; Rep DetachVolumeResponse x
 </span><span id="line-179"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-180"></span><span>  </span><span class="annot"><a href="Network.AWS.StorageGateway.DetachVolume.html#DetachVolumeResponse"><span class="hs-identifier hs-type">DetachVolumeResponse</span></a></span><span>
 </span><span id="line-181"></span><span id="newDetachVolumeResponse"><span class="annot"><span class="annottext">newDetachVolumeResponse :: Int -&gt; DetachVolumeResponse
-</span><a href="Network.AWS.StorageGateway.DetachVolume.html#newDetachVolumeResponse"><span class="hs-identifier hs-var hs-var">newDetachVolumeResponse</span></a></span></span><span> </span><span id="local-6989586621679378462"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679378462"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.StorageGateway.DetachVolume.html#newDetachVolumeResponse"><span class="hs-identifier hs-var hs-var">newDetachVolumeResponse</span></a></span></span><span> </span><span id="local-6989586621679382988"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679382988"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-182"></span><span>  </span><span class="annot"><span class="annottext">DetachVolumeResponse' :: Maybe Text -&gt; Int -&gt; DetachVolumeResponse
 </span><a href="Network.AWS.StorageGateway.DetachVolume.html#DetachVolumeResponse%27"><span class="hs-identifier hs-type">DetachVolumeResponse'</span></a></span><span>
 </span><span id="line-183"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:volumeARN:DetachVolumeResponse' :: Maybe Text
@@ -424,7 +424,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-184"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DetachVolumeResponse' :: Int
 </span><a href="Network.AWS.StorageGateway.DetachVolume.html#%24sel%3AhttpStatus%3ADetachVolumeResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679378462"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679382988"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-185"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-186"></span><span>
 </span><span id="line-187"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the volume that was detached.</span><span>
@@ -436,16 +436,16 @@ forall a. Maybe a
 -&gt; Lens
      DetachVolumeResponse DetachVolumeResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.DetachVolume.html#DetachVolumeResponse%27"><span class="hs-identifier hs-type">DetachVolumeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378461"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.DetachVolume.html#DetachVolumeResponse%27"><span class="hs-identifier hs-type">DetachVolumeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679382987"><span class="annot"><span class="annottext">Maybe Text
 volumeARN :: Maybe Text
 $sel:volumeARN:DetachVolumeResponse' :: DetachVolumeResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679378461"><span class="hs-identifier hs-var hs-var">volumeARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679378461"><span class="hs-identifier hs-var">volumeARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378460"><span class="annot"><span class="annottext">s :: DetachVolumeResponse
-</span><a href="#local-6989586621679378460"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.DetachVolume.html#DetachVolumeResponse%27"><span class="hs-identifier hs-type">DetachVolumeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378459"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679378459"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetachVolumeResponse
-</span><a href="#local-6989586621679378460"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:volumeARN:DetachVolumeResponse' :: Maybe Text
+</span><a href="#local-6989586621679382987"><span class="hs-identifier hs-var hs-var">volumeARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679382987"><span class="hs-identifier hs-var">volumeARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679382986"><span class="annot"><span class="annottext">s :: DetachVolumeResponse
+</span><a href="#local-6989586621679382986"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.DetachVolume.html#DetachVolumeResponse%27"><span class="hs-identifier hs-type">DetachVolumeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679382985"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679382985"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetachVolumeResponse
+</span><a href="#local-6989586621679382986"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:volumeARN:DetachVolumeResponse' :: Maybe Text
 </span><a href="Network.AWS.StorageGateway.DetachVolume.html#%24sel%3AvolumeARN%3ADetachVolumeResponse%27"><span class="hs-identifier hs-var">volumeARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679378459"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DetachVolume.html#DetachVolumeResponse"><span class="hs-identifier hs-type">DetachVolumeResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679382985"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DetachVolume.html#DetachVolumeResponse"><span class="hs-identifier hs-type">DetachVolumeResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-190"></span><span>
 </span><span id="line-191"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-192"></span><span class="annot"><a href="Network.AWS.StorageGateway.DetachVolume.html#detachVolumeResponse_httpStatus"><span class="hs-identifier hs-type">detachVolumeResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DetachVolume.html#DetachVolumeResponse"><span class="hs-identifier hs-type">DetachVolumeResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -454,16 +454,16 @@ $sel:volumeARN:DetachVolumeResponse' :: DetachVolumeResponse -&gt; Maybe Text
 -&gt; (DetachVolumeResponse -&gt; Int -&gt; DetachVolumeResponse)
 -&gt; Lens DetachVolumeResponse DetachVolumeResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.DetachVolume.html#DetachVolumeResponse%27"><span class="hs-identifier hs-type">DetachVolumeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378458"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.DetachVolume.html#DetachVolumeResponse%27"><span class="hs-identifier hs-type">DetachVolumeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679382984"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DetachVolumeResponse' :: DetachVolumeResponse -&gt; Int
-</span><a href="#local-6989586621679378458"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679378458"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378457"><span class="annot"><span class="annottext">s :: DetachVolumeResponse
-</span><a href="#local-6989586621679378457"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.DetachVolume.html#DetachVolumeResponse%27"><span class="hs-identifier hs-type">DetachVolumeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378456"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679378456"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetachVolumeResponse
-</span><a href="#local-6989586621679378457"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DetachVolumeResponse' :: Int
+</span><a href="#local-6989586621679382984"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679382984"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679382983"><span class="annot"><span class="annottext">s :: DetachVolumeResponse
+</span><a href="#local-6989586621679382983"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.DetachVolume.html#DetachVolumeResponse%27"><span class="hs-identifier hs-type">DetachVolumeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679382982"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679382982"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetachVolumeResponse
+</span><a href="#local-6989586621679382983"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DetachVolumeResponse' :: Int
 </span><a href="Network.AWS.StorageGateway.DetachVolume.html#%24sel%3AhttpStatus%3ADetachVolumeResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679378456"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DetachVolume.html#DetachVolumeResponse"><span class="hs-identifier hs-type">DetachVolumeResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679382982"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DetachVolume.html#DetachVolumeResponse"><span class="hs-identifier hs-type">DetachVolumeResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-194"></span><span>
-</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679378454"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DetachVolume.html#DetachVolumeResponse"><span class="hs-identifier hs-type">DetachVolumeResponse</span></a></span></span><span>
+</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679382980"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DetachVolume.html#DetachVolumeResponse"><span class="hs-identifier hs-type">DetachVolumeResponse</span></a></span></span><span>
 </span><span id="line-196"></span></pre></body></html>

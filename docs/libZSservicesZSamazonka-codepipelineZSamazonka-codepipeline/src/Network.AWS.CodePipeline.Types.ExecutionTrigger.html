@@ -27,19 +27,19 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | The interaction or event that started a pipeline execution.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newExecutionTrigger' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679283543"><span id="local-6989586621679283544"></span></span><span class="hs-keyword">data</span><span> </span><span id="ExecutionTrigger"><span class="annot"><a href="Network.AWS.CodePipeline.Types.ExecutionTrigger.html#ExecutionTrigger"><span class="hs-identifier hs-var">ExecutionTrigger</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExecutionTrigger%27"><span class="annot"><a href="Network.AWS.CodePipeline.Types.ExecutionTrigger.html#ExecutionTrigger%27"><span class="hs-identifier hs-var">ExecutionTrigger'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Detail related to the event that started a pipeline execution, such as</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- the webhook ARN of the webhook that triggered the pipeline execution or</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- the user ARN for a user-initiated @start-pipeline-execution@ CLI</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- command.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AtriggerDetail%3AExecutionTrigger%27"><span class="annot"><span class="annottext">ExecutionTrigger -&gt; Maybe Text
-</span><a href="Network.AWS.CodePipeline.Types.ExecutionTrigger.html#%24sel%3AtriggerDetail%3AExecutionTrigger%27"><span class="hs-identifier hs-var hs-var">triggerDetail</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The type of change-detection method, command, or user interaction that</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- started a pipeline execution.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AtriggerType%3AExecutionTrigger%27"><span class="annot"><span class="annottext">ExecutionTrigger -&gt; Maybe TriggerType
-</span><a href="Network.AWS.CodePipeline.Types.ExecutionTrigger.html#%24sel%3AtriggerType%3AExecutionTrigger%27"><span class="hs-identifier hs-var hs-var">triggerType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.TriggerType.html#TriggerType"><span class="hs-identifier hs-type">TriggerType</span></a></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679283756"><span id="local-6989586621679283757"></span></span><span class="hs-keyword">data</span><span> </span><span id="ExecutionTrigger"><span class="annot"><a href="Network.AWS.CodePipeline.Types.ExecutionTrigger.html#ExecutionTrigger"><span class="hs-identifier hs-var">ExecutionTrigger</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExecutionTrigger%27"><span class="annot"><a href="Network.AWS.CodePipeline.Types.ExecutionTrigger.html#ExecutionTrigger%27"><span class="hs-identifier hs-var">ExecutionTrigger'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type of change-detection method, command, or user interaction that</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- started a pipeline execution.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AtriggerType%3AExecutionTrigger%27"><span class="annot"><span class="annottext">ExecutionTrigger -&gt; Maybe TriggerType
+</span><a href="Network.AWS.CodePipeline.Types.ExecutionTrigger.html#%24sel%3AtriggerType%3AExecutionTrigger%27"><span class="hs-identifier hs-var hs-var">triggerType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.TriggerType.html#TriggerType"><span class="hs-identifier hs-type">TriggerType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | Detail related to the event that started a pipeline execution, such as</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- the webhook ARN of the webhook that triggered the pipeline execution or</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- the user ARN for a user-initiated @start-pipeline-execution@ CLI</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- command.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AtriggerDetail%3AExecutionTrigger%27"><span class="annot"><span class="annottext">ExecutionTrigger -&gt; Maybe Text
+</span><a href="Network.AWS.CodePipeline.Types.ExecutionTrigger.html#%24sel%3AtriggerDetail%3AExecutionTrigger%27"><span class="hs-identifier hs-var hs-var">triggerDetail</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679283536"><span id="local-6989586621679283538"><span class="annot"><span class="annottext">ExecutionTrigger -&gt; ExecutionTrigger -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679283749"><span id="local-6989586621679283751"><span class="annot"><span class="annottext">ExecutionTrigger -&gt; ExecutionTrigger -&gt; Bool
 (ExecutionTrigger -&gt; ExecutionTrigger -&gt; Bool)
 -&gt; (ExecutionTrigger -&gt; ExecutionTrigger -&gt; Bool)
 -&gt; Eq ExecutionTrigger
@@ -48,7 +48,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ExecutionTrigger -&gt; ExecutionTrigger -&gt; Bool
 == :: ExecutionTrigger -&gt; ExecutionTrigger -&gt; Bool
 $c== :: ExecutionTrigger -&gt; ExecutionTrigger -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679283527"><span id="local-6989586621679283529"><span id="local-6989586621679283531"><span id="local-6989586621679283533"><span class="annot"><span class="annottext">ReadPrec [ExecutionTrigger]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679283740"><span id="local-6989586621679283742"><span id="local-6989586621679283744"><span id="local-6989586621679283746"><span class="annot"><span class="annottext">ReadPrec [ExecutionTrigger]
 ReadPrec ExecutionTrigger
 Int -&gt; ReadS ExecutionTrigger
 ReadS [ExecutionTrigger]
@@ -68,7 +68,7 @@ readList :: ReadS [ExecutionTrigger]
 $creadList :: ReadS [ExecutionTrigger]
 readsPrec :: Int -&gt; ReadS ExecutionTrigger
 $creadsPrec :: Int -&gt; ReadS ExecutionTrigger
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679283520"><span id="local-6989586621679283522"><span id="local-6989586621679283524"><span class="annot"><span class="annottext">Int -&gt; ExecutionTrigger -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679283733"><span id="local-6989586621679283735"><span id="local-6989586621679283737"><span class="annot"><span class="annottext">Int -&gt; ExecutionTrigger -&gt; ShowS
 [ExecutionTrigger] -&gt; ShowS
 ExecutionTrigger -&gt; String
 (Int -&gt; ExecutionTrigger -&gt; ShowS)
@@ -102,55 +102,33 @@ $cfrom :: forall x. ExecutionTrigger -&gt; Rep ExecutionTrigger x
 </span><span id="line-47"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-48"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-49"></span><span class="hs-comment">--</span><span>
-</span><span id="line-50"></span><span class="hs-comment">-- 'triggerDetail', 'executionTrigger_triggerDetail' - Detail related to the event that started a pipeline execution, such as</span><span>
-</span><span id="line-51"></span><span class="hs-comment">-- the webhook ARN of the webhook that triggered the pipeline execution or</span><span>
-</span><span id="line-52"></span><span class="hs-comment">-- the user ARN for a user-initiated @start-pipeline-execution@ CLI</span><span>
-</span><span id="line-53"></span><span class="hs-comment">-- command.</span><span>
-</span><span id="line-54"></span><span class="hs-comment">--</span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- 'triggerType', 'executionTrigger_triggerType' - The type of change-detection method, command, or user interaction that</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- started a pipeline execution.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'triggerType', 'executionTrigger_triggerType' - The type of change-detection method, command, or user interaction that</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- started a pipeline execution.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'triggerDetail', 'executionTrigger_triggerDetail' - Detail related to the event that started a pipeline execution, such as</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- the webhook ARN of the webhook that triggered the pipeline execution or</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- the user ARN for a user-initiated @start-pipeline-execution@ CLI</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- command.</span><span>
 </span><span id="line-57"></span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ExecutionTrigger.html#newExecutionTrigger"><span class="hs-identifier hs-type">newExecutionTrigger</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-58"></span><span>  </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ExecutionTrigger.html#ExecutionTrigger"><span class="hs-identifier hs-type">ExecutionTrigger</span></a></span><span>
 </span><span id="line-59"></span><span id="newExecutionTrigger"><span class="annot"><span class="annottext">newExecutionTrigger :: ExecutionTrigger
 </span><a href="Network.AWS.CodePipeline.Types.ExecutionTrigger.html#newExecutionTrigger"><span class="hs-identifier hs-var hs-var">newExecutionTrigger</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-60"></span><span>  </span><span class="annot"><span class="annottext">ExecutionTrigger' :: Maybe Text -&gt; Maybe TriggerType -&gt; ExecutionTrigger
+</span><span id="line-60"></span><span>  </span><span class="annot"><span class="annottext">ExecutionTrigger' :: Maybe TriggerType -&gt; Maybe Text -&gt; ExecutionTrigger
 </span><a href="Network.AWS.CodePipeline.Types.ExecutionTrigger.html#ExecutionTrigger%27"><span class="hs-identifier hs-type">ExecutionTrigger'</span></a></span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:triggerDetail:ExecutionTrigger' :: Maybe Text
-</span><a href="Network.AWS.CodePipeline.Types.ExecutionTrigger.html#%24sel%3AtriggerDetail%3AExecutionTrigger%27"><span class="hs-identifier hs-var">triggerDetail</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-61"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:triggerType:ExecutionTrigger' :: Maybe TriggerType
+</span><a href="Network.AWS.CodePipeline.Types.ExecutionTrigger.html#%24sel%3AtriggerType%3AExecutionTrigger%27"><span class="hs-identifier hs-var">triggerType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TriggerType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:triggerType:ExecutionTrigger' :: Maybe TriggerType
-</span><a href="Network.AWS.CodePipeline.Types.ExecutionTrigger.html#%24sel%3AtriggerType%3AExecutionTrigger%27"><span class="hs-identifier hs-var">triggerType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TriggerType
+</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:triggerDetail:ExecutionTrigger' :: Maybe Text
+</span><a href="Network.AWS.CodePipeline.Types.ExecutionTrigger.html#%24sel%3AtriggerDetail%3AExecutionTrigger%27"><span class="hs-identifier hs-var">triggerDetail</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-63"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- | Detail related to the event that started a pipeline execution, such as</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- the webhook ARN of the webhook that triggered the pipeline execution or</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- the user ARN for a user-initiated @start-pipeline-execution@ CLI</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- command.</span><span>
-</span><span id="line-69"></span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ExecutionTrigger.html#executionTrigger_triggerDetail"><span class="hs-identifier hs-type">executionTrigger_triggerDetail</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ExecutionTrigger.html#ExecutionTrigger"><span class="hs-identifier hs-type">ExecutionTrigger</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-70"></span><span id="executionTrigger_triggerDetail"><span class="annot"><span class="annottext">executionTrigger_triggerDetail :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ExecutionTrigger -&gt; f ExecutionTrigger
-</span><a href="Network.AWS.CodePipeline.Types.ExecutionTrigger.html#executionTrigger_triggerDetail"><span class="hs-identifier hs-var hs-var">executionTrigger_triggerDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExecutionTrigger -&gt; Maybe Text)
--&gt; (ExecutionTrigger -&gt; Maybe Text -&gt; ExecutionTrigger)
--&gt; Lens ExecutionTrigger ExecutionTrigger (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ExecutionTrigger.html#ExecutionTrigger%27"><span class="hs-identifier hs-type">ExecutionTrigger'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283511"><span class="annot"><span class="annottext">Maybe Text
-triggerDetail :: Maybe Text
-$sel:triggerDetail:ExecutionTrigger' :: ExecutionTrigger -&gt; Maybe Text
-</span><a href="#local-6989586621679283511"><span class="hs-identifier hs-var hs-var">triggerDetail</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679283511"><span class="hs-identifier hs-var">triggerDetail</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283510"><span class="annot"><span class="annottext">s :: ExecutionTrigger
-</span><a href="#local-6989586621679283510"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ExecutionTrigger.html#ExecutionTrigger%27"><span class="hs-identifier hs-type">ExecutionTrigger'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283509"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679283509"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecutionTrigger
-</span><a href="#local-6989586621679283510"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:triggerDetail:ExecutionTrigger' :: Maybe Text
-</span><a href="Network.AWS.CodePipeline.Types.ExecutionTrigger.html#%24sel%3AtriggerDetail%3AExecutionTrigger%27"><span class="hs-identifier hs-var">triggerDetail</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679283509"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ExecutionTrigger.html#ExecutionTrigger"><span class="hs-identifier hs-type">ExecutionTrigger</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- | The type of change-detection method, command, or user interaction that</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- started a pipeline execution.</span><span>
-</span><span id="line-74"></span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ExecutionTrigger.html#executionTrigger_triggerType"><span class="hs-identifier hs-type">executionTrigger_triggerType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ExecutionTrigger.html#ExecutionTrigger"><span class="hs-identifier hs-type">ExecutionTrigger</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.TriggerType.html#TriggerType"><span class="hs-identifier hs-type">TriggerType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-75"></span><span id="executionTrigger_triggerType"><span class="annot"><span class="annottext">executionTrigger_triggerType :: (Maybe TriggerType -&gt; f (Maybe TriggerType))
+</span><span id="line-65"></span><span class="hs-comment">-- | The type of change-detection method, command, or user interaction that</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- started a pipeline execution.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ExecutionTrigger.html#executionTrigger_triggerType"><span class="hs-identifier hs-type">executionTrigger_triggerType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ExecutionTrigger.html#ExecutionTrigger"><span class="hs-identifier hs-type">ExecutionTrigger</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.TriggerType.html#TriggerType"><span class="hs-identifier hs-type">TriggerType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span id="executionTrigger_triggerType"><span class="annot"><span class="annottext">executionTrigger_triggerType :: (Maybe TriggerType -&gt; f (Maybe TriggerType))
 -&gt; ExecutionTrigger -&gt; f ExecutionTrigger
 </span><a href="Network.AWS.CodePipeline.Types.ExecutionTrigger.html#executionTrigger_triggerType"><span class="hs-identifier hs-var hs-var">executionTrigger_triggerType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExecutionTrigger -&gt; Maybe TriggerType)
 -&gt; (ExecutionTrigger -&gt; Maybe TriggerType -&gt; ExecutionTrigger)
@@ -160,19 +138,41 @@ $sel:triggerDetail:ExecutionTrigger' :: ExecutionTrigger -&gt; Maybe Text
      (Maybe TriggerType)
      (Maybe TriggerType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ExecutionTrigger.html#ExecutionTrigger%27"><span class="hs-identifier hs-type">ExecutionTrigger'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283507"><span class="annot"><span class="annottext">Maybe TriggerType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ExecutionTrigger.html#ExecutionTrigger%27"><span class="hs-identifier hs-type">ExecutionTrigger'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283724"><span class="annot"><span class="annottext">Maybe TriggerType
 triggerType :: Maybe TriggerType
 $sel:triggerType:ExecutionTrigger' :: ExecutionTrigger -&gt; Maybe TriggerType
-</span><a href="#local-6989586621679283507"><span class="hs-identifier hs-var hs-var">triggerType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TriggerType
-</span><a href="#local-6989586621679283507"><span class="hs-identifier hs-var">triggerType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283506"><span class="annot"><span class="annottext">s :: ExecutionTrigger
-</span><a href="#local-6989586621679283506"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ExecutionTrigger.html#ExecutionTrigger%27"><span class="hs-identifier hs-type">ExecutionTrigger'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283505"><span class="annot"><span class="annottext">Maybe TriggerType
-</span><a href="#local-6989586621679283505"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecutionTrigger
-</span><a href="#local-6989586621679283506"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:triggerType:ExecutionTrigger' :: Maybe TriggerType
+</span><a href="#local-6989586621679283724"><span class="hs-identifier hs-var hs-var">triggerType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TriggerType
+</span><a href="#local-6989586621679283724"><span class="hs-identifier hs-var">triggerType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283723"><span class="annot"><span class="annottext">s :: ExecutionTrigger
+</span><a href="#local-6989586621679283723"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ExecutionTrigger.html#ExecutionTrigger%27"><span class="hs-identifier hs-type">ExecutionTrigger'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283722"><span class="annot"><span class="annottext">Maybe TriggerType
+</span><a href="#local-6989586621679283722"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecutionTrigger
+</span><a href="#local-6989586621679283723"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:triggerType:ExecutionTrigger' :: Maybe TriggerType
 </span><a href="Network.AWS.CodePipeline.Types.ExecutionTrigger.html#%24sel%3AtriggerType%3AExecutionTrigger%27"><span class="hs-identifier hs-var">triggerType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TriggerType
-</span><a href="#local-6989586621679283505"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ExecutionTrigger.html#ExecutionTrigger"><span class="hs-identifier hs-type">ExecutionTrigger</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679283722"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ExecutionTrigger.html#ExecutionTrigger"><span class="hs-identifier hs-type">ExecutionTrigger</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- | Detail related to the event that started a pipeline execution, such as</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- the webhook ARN of the webhook that triggered the pipeline execution or</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- the user ARN for a user-initiated @start-pipeline-execution@ CLI</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- command.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ExecutionTrigger.html#executionTrigger_triggerDetail"><span class="hs-identifier hs-type">executionTrigger_triggerDetail</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ExecutionTrigger.html#ExecutionTrigger"><span class="hs-identifier hs-type">ExecutionTrigger</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span id="executionTrigger_triggerDetail"><span class="annot"><span class="annottext">executionTrigger_triggerDetail :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ExecutionTrigger -&gt; f ExecutionTrigger
+</span><a href="Network.AWS.CodePipeline.Types.ExecutionTrigger.html#executionTrigger_triggerDetail"><span class="hs-identifier hs-var hs-var">executionTrigger_triggerDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExecutionTrigger -&gt; Maybe Text)
+-&gt; (ExecutionTrigger -&gt; Maybe Text -&gt; ExecutionTrigger)
+-&gt; Lens ExecutionTrigger ExecutionTrigger (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ExecutionTrigger.html#ExecutionTrigger%27"><span class="hs-identifier hs-type">ExecutionTrigger'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283720"><span class="annot"><span class="annottext">Maybe Text
+triggerDetail :: Maybe Text
+$sel:triggerDetail:ExecutionTrigger' :: ExecutionTrigger -&gt; Maybe Text
+</span><a href="#local-6989586621679283720"><span class="hs-identifier hs-var hs-var">triggerDetail</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679283720"><span class="hs-identifier hs-var">triggerDetail</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283719"><span class="annot"><span class="annottext">s :: ExecutionTrigger
+</span><a href="#local-6989586621679283719"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ExecutionTrigger.html#ExecutionTrigger%27"><span class="hs-identifier hs-type">ExecutionTrigger'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283718"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679283718"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecutionTrigger
+</span><a href="#local-6989586621679283719"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:triggerDetail:ExecutionTrigger' :: Maybe Text
+</span><a href="Network.AWS.CodePipeline.Types.ExecutionTrigger.html#%24sel%3AtriggerDetail%3AExecutionTrigger%27"><span class="hs-identifier hs-var">triggerDetail</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679283718"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ExecutionTrigger.html#ExecutionTrigger"><span class="hs-identifier hs-type">ExecutionTrigger</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283502"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ExecutionTrigger.html#ExecutionTrigger"><span class="hs-identifier hs-type">ExecutionTrigger</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-78"></span><span>  </span><span id="local-6989586621679283500"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ExecutionTrigger
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283715"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ExecutionTrigger.html#ExecutionTrigger"><span class="hs-identifier hs-type">ExecutionTrigger</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679283713"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ExecutionTrigger
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ExecutionTrigger)
@@ -182,30 +182,30 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ExecutionTrigger&quot;</span></span><span>
-</span><span id="line-81"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679283497"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679283497"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-82"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe TriggerType -&gt; ExecutionTrigger
+</span><span id="line-81"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679283710"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679283710"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-82"></span><span>          </span><span class="annot"><span class="annottext">Maybe TriggerType -&gt; Maybe Text -&gt; ExecutionTrigger
 </span><a href="Network.AWS.CodePipeline.Types.ExecutionTrigger.html#ExecutionTrigger%27"><span class="hs-identifier hs-var">ExecutionTrigger'</span></a></span><span>
-</span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe TriggerType -&gt; ExecutionTrigger)
--&gt; Parser (Maybe Text)
--&gt; Parser (Maybe TriggerType -&gt; ExecutionTrigger)
+</span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">(Maybe TriggerType -&gt; Maybe Text -&gt; ExecutionTrigger)
+-&gt; Parser (Maybe TriggerType)
+-&gt; Parser (Maybe Text -&gt; ExecutionTrigger)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679283497"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;triggerDetail&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe TriggerType -&gt; ExecutionTrigger)
--&gt; Parser (Maybe TriggerType) -&gt; Parser ExecutionTrigger
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679283497"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TriggerType)
+</span><a href="#local-6989586621679283710"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TriggerType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;triggerType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; ExecutionTrigger)
+-&gt; Parser (Maybe Text) -&gt; Parser ExecutionTrigger
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679283710"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;triggerDetail&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283491"><span id="local-6989586621679283493"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ExecutionTrigger.html#ExecutionTrigger"><span class="hs-identifier hs-type">ExecutionTrigger</span></a></span></span></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283704"><span id="local-6989586621679283706"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ExecutionTrigger.html#ExecutionTrigger"><span class="hs-identifier hs-type">ExecutionTrigger</span></a></span></span></span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283488"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ExecutionTrigger.html#ExecutionTrigger"><span class="hs-identifier hs-type">ExecutionTrigger</span></a></span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283701"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ExecutionTrigger.html#ExecutionTrigger"><span class="hs-identifier hs-type">ExecutionTrigger</span></a></span></span><span>
 </span><span id="line-90"></span></pre></body></html>

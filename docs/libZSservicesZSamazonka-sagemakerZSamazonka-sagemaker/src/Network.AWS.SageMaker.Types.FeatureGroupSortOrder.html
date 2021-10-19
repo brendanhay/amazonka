@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621680304013"><span id="local-6989586621680304014"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FeatureGroupSortOrder"><span class="annot"><a href="Network.AWS.SageMaker.Types.FeatureGroupSortOrder.html#FeatureGroupSortOrder"><span class="hs-identifier hs-var">FeatureGroupSortOrder</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FeatureGroupSortOrder%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.FeatureGroupSortOrder.html#FeatureGroupSortOrder%27"><span class="hs-identifier hs-var">FeatureGroupSortOrder'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621680305388"><span id="local-6989586621680305389"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FeatureGroupSortOrder"><span class="annot"><a href="Network.AWS.SageMaker.Types.FeatureGroupSortOrder.html#FeatureGroupSortOrder"><span class="hs-identifier hs-var">FeatureGroupSortOrder</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FeatureGroupSortOrder%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.FeatureGroupSortOrder.html#FeatureGroupSortOrder%27"><span class="hs-identifier hs-var">FeatureGroupSortOrder'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromFeatureGroupSortOrder"><span class="annot"><span class="annottext">FeatureGroupSortOrder -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.FeatureGroupSortOrder.html#fromFeatureGroupSortOrder"><span class="hs-identifier hs-var hs-var">fromFeatureGroupSortOrder</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680304005"><span id="local-6989586621680304007"><span id="local-6989586621680304009"><span class="annot"><span class="annottext">Int -&gt; FeatureGroupSortOrder -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680305380"><span id="local-6989586621680305382"><span id="local-6989586621680305384"><span class="annot"><span class="annottext">Int -&gt; FeatureGroupSortOrder -&gt; ShowS
 [FeatureGroupSortOrder] -&gt; ShowS
 FeatureGroupSortOrder -&gt; String
 (Int -&gt; FeatureGroupSortOrder -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: FeatureGroupSortOrder -&gt; String
 showsPrec :: Int -&gt; FeatureGroupSortOrder -&gt; ShowS
 $cshowsPrec :: Int -&gt; FeatureGroupSortOrder -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621680303996"><span id="local-6989586621680303998"><span id="local-6989586621680304000"><span id="local-6989586621680304002"><span class="annot"><span class="annottext">ReadPrec [FeatureGroupSortOrder]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621680305371"><span id="local-6989586621680305373"><span id="local-6989586621680305375"><span id="local-6989586621680305377"><span class="annot"><span class="annottext">ReadPrec [FeatureGroupSortOrder]
 ReadPrec FeatureGroupSortOrder
 Int -&gt; ReadS FeatureGroupSortOrder
 ReadS [FeatureGroupSortOrder]
@@ -72,7 +72,7 @@ $creadList :: ReadS [FeatureGroupSortOrder]
 readsPrec :: Int -&gt; ReadS FeatureGroupSortOrder
 $creadsPrec :: Int -&gt; ReadS FeatureGroupSortOrder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621680303991"><span id="local-6989586621680303993"><span class="annot"><span class="annottext">FeatureGroupSortOrder -&gt; FeatureGroupSortOrder -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621680305366"><span id="local-6989586621680305368"><span class="annot"><span class="annottext">FeatureGroupSortOrder -&gt; FeatureGroupSortOrder -&gt; Bool
 (FeatureGroupSortOrder -&gt; FeatureGroupSortOrder -&gt; Bool)
 -&gt; (FeatureGroupSortOrder -&gt; FeatureGroupSortOrder -&gt; Bool)
 -&gt; Eq FeatureGroupSortOrder
@@ -82,7 +82,7 @@ $c/= :: FeatureGroupSortOrder -&gt; FeatureGroupSortOrder -&gt; Bool
 == :: FeatureGroupSortOrder -&gt; FeatureGroupSortOrder -&gt; Bool
 $c== :: FeatureGroupSortOrder -&gt; FeatureGroupSortOrder -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621680303975"><span id="local-6989586621680303977"><span id="local-6989586621680303979"><span id="local-6989586621680303981"><span id="local-6989586621680303983"><span id="local-6989586621680303985"><span id="local-6989586621680303987"><span class="annot"><span class="annottext">Eq FeatureGroupSortOrder
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621680305350"><span id="local-6989586621680305352"><span id="local-6989586621680305354"><span id="local-6989586621680305356"><span id="local-6989586621680305358"><span id="local-6989586621680305360"><span id="local-6989586621680305362"><span class="annot"><span class="annottext">Eq FeatureGroupSortOrder
 Eq FeatureGroupSortOrder
 -&gt; (FeatureGroupSortOrder -&gt; FeatureGroupSortOrder -&gt; Ordering)
 -&gt; (FeatureGroupSortOrder -&gt; FeatureGroupSortOrder -&gt; Bool)
@@ -140,7 +140,7 @@ $cfrom :: forall x. FeatureGroupSortOrder -&gt; Rep FeatureGroupSortOrder x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680303967"><span id="local-6989586621680303969"><span class="annot"><span class="annottext">Int -&gt; FeatureGroupSortOrder -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680305342"><span id="local-6989586621680305344"><span class="annot"><span class="annottext">Int -&gt; FeatureGroupSortOrder -&gt; Int
 FeatureGroupSortOrder -&gt; Int
 (Int -&gt; FeatureGroupSortOrder -&gt; Int)
 -&gt; (FeatureGroupSortOrder -&gt; Int) -&gt; Hashable FeatureGroupSortOrder
@@ -150,54 +150,54 @@ $chash :: FeatureGroupSortOrder -&gt; Int
 hashWithSalt :: Int -&gt; FeatureGroupSortOrder -&gt; Int
 $chashWithSalt :: Int -&gt; FeatureGroupSortOrder -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621680303964"><span class="annot"><span class="annottext">FeatureGroupSortOrder -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621680305339"><span class="annot"><span class="annottext">FeatureGroupSortOrder -&gt; ()
 (FeatureGroupSortOrder -&gt; ()) -&gt; NFData FeatureGroupSortOrder
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: FeatureGroupSortOrder -&gt; ()
 $crnf :: FeatureGroupSortOrder -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621680303961"><span class="annot"><span class="annottext">Text -&gt; Either String FeatureGroupSortOrder
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621680305336"><span class="annot"><span class="annottext">Text -&gt; Either String FeatureGroupSortOrder
 (Text -&gt; Either String FeatureGroupSortOrder)
 -&gt; FromText FeatureGroupSortOrder
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String FeatureGroupSortOrder
 $cfromText :: Text -&gt; Either String FeatureGroupSortOrder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621680303958"><span class="annot"><span class="annottext">FeatureGroupSortOrder -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621680305333"><span class="annot"><span class="annottext">FeatureGroupSortOrder -&gt; Text
 (FeatureGroupSortOrder -&gt; Text) -&gt; ToText FeatureGroupSortOrder
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: FeatureGroupSortOrder -&gt; Text
 $ctoText :: FeatureGroupSortOrder -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621680303955"><span class="annot"><span class="annottext">FeatureGroupSortOrder -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680305330"><span class="annot"><span class="annottext">FeatureGroupSortOrder -&gt; ByteString
 (FeatureGroupSortOrder -&gt; ByteString)
 -&gt; ToByteString FeatureGroupSortOrder
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: FeatureGroupSortOrder -&gt; ByteString
 $ctoBS :: FeatureGroupSortOrder -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621680303952"><span class="annot"><span class="annottext">FeatureGroupSortOrder -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680305327"><span class="annot"><span class="annottext">FeatureGroupSortOrder -&gt; ByteStringBuilder
 (FeatureGroupSortOrder -&gt; ByteStringBuilder)
 -&gt; ToLog FeatureGroupSortOrder
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: FeatureGroupSortOrder -&gt; ByteStringBuilder
 $cbuild :: FeatureGroupSortOrder -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621680303949"><span class="annot"><span class="annottext">HeaderName -&gt; FeatureGroupSortOrder -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680305324"><span class="annot"><span class="annottext">HeaderName -&gt; FeatureGroupSortOrder -&gt; [Header]
 (HeaderName -&gt; FeatureGroupSortOrder -&gt; [Header])
 -&gt; ToHeader FeatureGroupSortOrder
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; FeatureGroupSortOrder -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; FeatureGroupSortOrder -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621680303946"><span class="annot"><span class="annottext">FeatureGroupSortOrder -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680305321"><span class="annot"><span class="annottext">FeatureGroupSortOrder -&gt; QueryString
 (FeatureGroupSortOrder -&gt; QueryString)
 -&gt; ToQuery FeatureGroupSortOrder
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: FeatureGroupSortOrder -&gt; QueryString
 $ctoQuery :: FeatureGroupSortOrder -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621680303941"><span id="local-6989586621680303943"><span class="annot"><span class="annottext">Value -&gt; Parser [FeatureGroupSortOrder]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680305316"><span id="local-6989586621680305318"><span class="annot"><span class="annottext">Value -&gt; Parser [FeatureGroupSortOrder]
 Value -&gt; Parser FeatureGroupSortOrder
 (Value -&gt; Parser FeatureGroupSortOrder)
 -&gt; (Value -&gt; Parser [FeatureGroupSortOrder])
@@ -209,7 +209,7 @@ $cparseJSONList :: Value -&gt; Parser [FeatureGroupSortOrder]
 parseJSON :: Value -&gt; Parser FeatureGroupSortOrder
 $cparseJSON :: Value -&gt; Parser FeatureGroupSortOrder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621680303936"><span id="local-6989586621680303938"><span class="annot"><span class="annottext">FromJSONKeyFunction [FeatureGroupSortOrder]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680305311"><span id="local-6989586621680305313"><span class="annot"><span class="annottext">FromJSONKeyFunction [FeatureGroupSortOrder]
 FromJSONKeyFunction FeatureGroupSortOrder
 FromJSONKeyFunction FeatureGroupSortOrder
 -&gt; FromJSONKeyFunction [FeatureGroupSortOrder]
@@ -221,7 +221,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [FeatureGroupSortOrder]
 fromJSONKey :: FromJSONKeyFunction FeatureGroupSortOrder
 $cfromJSONKey :: FromJSONKeyFunction FeatureGroupSortOrder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621680303927"><span id="local-6989586621680303929"><span id="local-6989586621680303931"><span id="local-6989586621680303933"><span class="annot"><span class="annottext">[FeatureGroupSortOrder] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680305302"><span id="local-6989586621680305304"><span id="local-6989586621680305306"><span id="local-6989586621680305308"><span class="annot"><span class="annottext">[FeatureGroupSortOrder] -&gt; Encoding
 [FeatureGroupSortOrder] -&gt; Value
 FeatureGroupSortOrder -&gt; Encoding
 FeatureGroupSortOrder -&gt; Value
@@ -245,7 +245,7 @@ $ctoEncoding :: FeatureGroupSortOrder -&gt; Encoding
 toJSON :: FeatureGroupSortOrder -&gt; Value
 $ctoJSON :: FeatureGroupSortOrder -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621680303922"><span id="local-6989586621680303924"><span class="annot"><span class="annottext">ToJSONKeyFunction [FeatureGroupSortOrder]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680305297"><span id="local-6989586621680305299"><span class="annot"><span class="annottext">ToJSONKeyFunction [FeatureGroupSortOrder]
 ToJSONKeyFunction FeatureGroupSortOrder
 ToJSONKeyFunction FeatureGroupSortOrder
 -&gt; ToJSONKeyFunction [FeatureGroupSortOrder]
@@ -257,14 +257,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [FeatureGroupSortOrder]
 toJSONKey :: ToJSONKeyFunction FeatureGroupSortOrder
 $ctoJSONKey :: ToJSONKeyFunction FeatureGroupSortOrder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680303919"><span class="annot"><span class="annottext">[Node] -&gt; Either String FeatureGroupSortOrder
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680305294"><span class="annot"><span class="annottext">[Node] -&gt; Either String FeatureGroupSortOrder
 ([Node] -&gt; Either String FeatureGroupSortOrder)
 -&gt; FromXML FeatureGroupSortOrder
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String FeatureGroupSortOrder
 $cparseXML :: [Node] -&gt; Either String FeatureGroupSortOrder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621680303916"><span class="annot"><span class="annottext">FeatureGroupSortOrder -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680305291"><span class="annot"><span class="annottext">FeatureGroupSortOrder -&gt; XML
 (FeatureGroupSortOrder -&gt; XML) -&gt; ToXML FeatureGroupSortOrder
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: FeatureGroupSortOrder -&gt; XML

@@ -52,12 +52,12 @@
 </span><span id="line-52"></span><span class="hs-comment">-- | Input to the @DeleteIdentities@ action.</span><span>
 </span><span id="line-53"></span><span class="hs-comment">--</span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- /See:/ 'newDeleteIdentities' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679188343"><span id="local-6989586621679188344"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteIdentities"><span class="annot"><a href="Network.AWS.CognitoIdentity.DeleteIdentities.html#DeleteIdentities"><span class="hs-identifier hs-var">DeleteIdentities</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteIdentities%27"><span class="annot"><a href="Network.AWS.CognitoIdentity.DeleteIdentities.html#DeleteIdentities%27"><span class="hs-identifier hs-var">DeleteIdentities'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679188523"><span id="local-6989586621679188524"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteIdentities"><span class="annot"><a href="Network.AWS.CognitoIdentity.DeleteIdentities.html#DeleteIdentities"><span class="hs-identifier hs-var">DeleteIdentities</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteIdentities%27"><span class="annot"><a href="Network.AWS.CognitoIdentity.DeleteIdentities.html#DeleteIdentities%27"><span class="hs-identifier hs-var">DeleteIdentities'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of 1-60 identities that you want to delete.</span><span>
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3AidentityIdsToDelete%3ADeleteIdentities%27"><span class="annot"><span class="annottext">DeleteIdentities -&gt; NonEmpty Text
 </span><a href="Network.AWS.CognitoIdentity.DeleteIdentities.html#%24sel%3AidentityIdsToDelete%3ADeleteIdentities%27"><span class="hs-identifier hs-var hs-var">identityIdsToDelete</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679188337"><span id="local-6989586621679188339"><span class="annot"><span class="annottext">DeleteIdentities -&gt; DeleteIdentities -&gt; Bool
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679188517"><span id="local-6989586621679188519"><span class="annot"><span class="annottext">DeleteIdentities -&gt; DeleteIdentities -&gt; Bool
 (DeleteIdentities -&gt; DeleteIdentities -&gt; Bool)
 -&gt; (DeleteIdentities -&gt; DeleteIdentities -&gt; Bool)
 -&gt; Eq DeleteIdentities
@@ -66,7 +66,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteIdentities -&gt; DeleteIdentities -&gt; Bool
 == :: DeleteIdentities -&gt; DeleteIdentities -&gt; Bool
 $c== :: DeleteIdentities -&gt; DeleteIdentities -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679188328"><span id="local-6989586621679188330"><span id="local-6989586621679188332"><span id="local-6989586621679188334"><span class="annot"><span class="annottext">ReadPrec [DeleteIdentities]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679188508"><span id="local-6989586621679188510"><span id="local-6989586621679188512"><span id="local-6989586621679188514"><span class="annot"><span class="annottext">ReadPrec [DeleteIdentities]
 ReadPrec DeleteIdentities
 Int -&gt; ReadS DeleteIdentities
 ReadS [DeleteIdentities]
@@ -86,7 +86,7 @@ readList :: ReadS [DeleteIdentities]
 $creadList :: ReadS [DeleteIdentities]
 readsPrec :: Int -&gt; ReadS DeleteIdentities
 $creadsPrec :: Int -&gt; ReadS DeleteIdentities
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679188321"><span id="local-6989586621679188323"><span id="local-6989586621679188325"><span class="annot"><span class="annottext">Int -&gt; DeleteIdentities -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679188501"><span id="local-6989586621679188503"><span id="local-6989586621679188505"><span class="annot"><span class="annottext">Int -&gt; DeleteIdentities -&gt; ShowS
 [DeleteIdentities] -&gt; ShowS
 DeleteIdentities -&gt; String
 (Int -&gt; DeleteIdentities -&gt; ShowS)
@@ -126,21 +126,21 @@ $cfrom :: forall x. DeleteIdentities -&gt; Rep DeleteIdentities x
 </span><span id="line-72"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentity.DeleteIdentities.html#DeleteIdentities"><span class="hs-identifier hs-type">DeleteIdentities</span></a></span><span>
 </span><span id="line-74"></span><span id="newDeleteIdentities"><span class="annot"><span class="annottext">newDeleteIdentities :: NonEmpty Text -&gt; DeleteIdentities
-</span><a href="Network.AWS.CognitoIdentity.DeleteIdentities.html#newDeleteIdentities"><span class="hs-identifier hs-var hs-var">newDeleteIdentities</span></a></span></span><span> </span><span id="local-6989586621679188316"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679188316"><span class="hs-identifier hs-var">pIdentityIdsToDelete_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CognitoIdentity.DeleteIdentities.html#newDeleteIdentities"><span class="hs-identifier hs-var hs-var">newDeleteIdentities</span></a></span></span><span> </span><span id="local-6989586621679188496"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679188496"><span class="hs-identifier hs-var">pIdentityIdsToDelete_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>  </span><span class="annot"><span class="annottext">DeleteIdentities' :: NonEmpty Text -&gt; DeleteIdentities
 </span><a href="Network.AWS.CognitoIdentity.DeleteIdentities.html#DeleteIdentities%27"><span class="hs-identifier hs-type">DeleteIdentities'</span></a></span><span>
 </span><span id="line-76"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:identityIdsToDelete:DeleteIdentities' :: NonEmpty Text
 </span><a href="Network.AWS.CognitoIdentity.DeleteIdentities.html#%24sel%3AidentityIdsToDelete%3ADeleteIdentities%27"><span class="hs-identifier hs-var">identityIdsToDelete</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>        </span><span class="annot"><span class="annottext">Tagged (NonEmpty Text) (Identity (NonEmpty Text))
 -&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text))
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Text) (Identity (NonEmpty Text))
  -&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text)))
 -&gt; NonEmpty Text -&gt; NonEmpty Text
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679188316"><span class="hs-identifier hs-var">pIdentityIdsToDelete_</span></a></span><span>
+</span><a href="#local-6989586621679188496"><span class="hs-identifier hs-var">pIdentityIdsToDelete_</span></a></span><span>
 </span><span id="line-78"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- | A list of 1-60 identities that you want to delete.</span><span>
@@ -152,16 +152,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; Lens
      DeleteIdentities DeleteIdentities (NonEmpty Text) (NonEmpty Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentity.DeleteIdentities.html#DeleteIdentities%27"><span class="hs-identifier hs-type">DeleteIdentities'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188311"><span class="annot"><span class="annottext">NonEmpty Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentity.DeleteIdentities.html#DeleteIdentities%27"><span class="hs-identifier hs-type">DeleteIdentities'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188491"><span class="annot"><span class="annottext">NonEmpty Text
 identityIdsToDelete :: NonEmpty Text
 $sel:identityIdsToDelete:DeleteIdentities' :: DeleteIdentities -&gt; NonEmpty Text
-</span><a href="#local-6989586621679188311"><span class="hs-identifier hs-var hs-var">identityIdsToDelete</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679188311"><span class="hs-identifier hs-var">identityIdsToDelete</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188310"><span class="annot"><span class="annottext">s :: DeleteIdentities
-</span><a href="#local-6989586621679188310"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentity.DeleteIdentities.html#DeleteIdentities%27"><span class="hs-identifier hs-type">DeleteIdentities'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679188309"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679188309"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteIdentities
-</span><a href="#local-6989586621679188310"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identityIdsToDelete:DeleteIdentities' :: NonEmpty Text
+</span><a href="#local-6989586621679188491"><span class="hs-identifier hs-var hs-var">identityIdsToDelete</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679188491"><span class="hs-identifier hs-var">identityIdsToDelete</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188490"><span class="annot"><span class="annottext">s :: DeleteIdentities
+</span><a href="#local-6989586621679188490"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentity.DeleteIdentities.html#DeleteIdentities%27"><span class="hs-identifier hs-type">DeleteIdentities'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679188489"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679188489"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteIdentities
+</span><a href="#local-6989586621679188490"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identityIdsToDelete:DeleteIdentities' :: NonEmpty Text
 </span><a href="Network.AWS.CognitoIdentity.DeleteIdentities.html#%24sel%3AidentityIdsToDelete%3ADeleteIdentities%27"><span class="hs-identifier hs-var">identityIdsToDelete</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679188309"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.DeleteIdentities.html#DeleteIdentities"><span class="hs-identifier hs-type">DeleteIdentities</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
+</span><a href="#local-6989586621679188489"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.DeleteIdentities.html#DeleteIdentities"><span class="hs-identifier hs-type">DeleteIdentities</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
  -&gt; DeleteIdentities -&gt; f DeleteIdentities)
 -&gt; ((NonEmpty Text -&gt; f (NonEmpty Text))
     -&gt; NonEmpty Text -&gt; f (NonEmpty Text))
@@ -171,19 +171,19 @@ $sel:identityIdsToDelete:DeleteIdentities' :: DeleteIdentities -&gt; NonEmpty Te
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; f (NonEmpty Text))
 -&gt; NonEmpty Text -&gt; f (NonEmpty Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.DeleteIdentities.html#DeleteIdentities"><span class="hs-identifier hs-type">DeleteIdentities</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-85"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-86"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.DeleteIdentities.html#DeleteIdentities"><span class="hs-identifier hs-type">DeleteIdentities</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>      </span><span class="annot"><a href="Network.AWS.CognitoIdentity.DeleteIdentities.html#DeleteIdentitiesResponse"><span class="hs-identifier hs-type">DeleteIdentitiesResponse</span></a></span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679188304"><span class="annot"><span class="annottext">request :: DeleteIdentities -&gt; Request DeleteIdentities
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679188484"><span class="annot"><span class="annottext">request :: DeleteIdentities -&gt; Request DeleteIdentities
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteIdentities -&gt; Request DeleteIdentities
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CognitoIdentity.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621679188300"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679188480"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteIdentities
 -&gt; ClientResponse ClientBody
@@ -207,10 +207,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-91"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679188297"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679188297"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679188296"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679188296"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679188295"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679188295"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679188477"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679188477"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679188476"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679188476"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679188475"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679188475"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-92"></span><span>          </span><span class="annot"><span class="annottext">Maybe [UnprocessedIdentityId] -&gt; Int -&gt; DeleteIdentitiesResponse
 </span><a href="Network.AWS.CognitoIdentity.DeleteIdentities.html#DeleteIdentitiesResponse%27"><span class="hs-identifier hs-var">DeleteIdentitiesResponse'</span></a></span><span>
 </span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [UnprocessedIdentityId] -&gt; Int -&gt; DeleteIdentitiesResponse)
@@ -218,7 +218,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DeleteIdentitiesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679188295"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679188475"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Either String (Maybe (Maybe [UnprocessedIdentityId]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -239,15 +239,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679188297"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679188477"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679188286"><span id="local-6989586621679188288"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.DeleteIdentities.html#DeleteIdentities"><span class="hs-identifier hs-type">DeleteIdentities</span></a></span></span></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679188466"><span id="local-6989586621679188468"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.DeleteIdentities.html#DeleteIdentities"><span class="hs-identifier hs-type">DeleteIdentities</span></a></span></span></span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679188283"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.DeleteIdentities.html#DeleteIdentities"><span class="hs-identifier hs-type">DeleteIdentities</span></a></span></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679188463"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.DeleteIdentities.html#DeleteIdentities"><span class="hs-identifier hs-type">DeleteIdentities</span></a></span></span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.DeleteIdentities.html#DeleteIdentities"><span class="hs-identifier hs-type">DeleteIdentities</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679188279"><span class="annot"><span class="annottext">toHeaders :: DeleteIdentities -&gt; ResponseHeaders
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679188459"><span class="annot"><span class="annottext">toHeaders :: DeleteIdentities -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteIdentities -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -274,12 +274,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-115"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-116"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679188269"><span id="local-6989586621679188271"><span id="local-6989586621679188273"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.DeleteIdentities.html#DeleteIdentities"><span class="hs-identifier hs-type">DeleteIdentities</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679188267"><span class="annot"><span class="annottext">toJSON :: DeleteIdentities -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.DeleteIdentities.html#DeleteIdentities%27"><span class="hs-identifier hs-type">DeleteIdentities'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188265"><span class="annot"><span class="annottext">NonEmpty Text
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679188449"><span id="local-6989586621679188451"><span id="local-6989586621679188453"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.DeleteIdentities.html#DeleteIdentities"><span class="hs-identifier hs-type">DeleteIdentities</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679188447"><span class="annot"><span class="annottext">toJSON :: DeleteIdentities -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.DeleteIdentities.html#DeleteIdentities%27"><span class="hs-identifier hs-type">DeleteIdentities'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188445"><span class="annot"><span class="annottext">NonEmpty Text
 identityIdsToDelete :: NonEmpty Text
 $sel:identityIdsToDelete:DeleteIdentities' :: DeleteIdentities -&gt; NonEmpty Text
-</span><a href="#local-6989586621679188265"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679188445"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -292,19 +292,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;IdentityIdsToDelete&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679188265"><span class="hs-identifier hs-var">identityIdsToDelete</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679188445"><span class="hs-identifier hs-var">identityIdsToDelete</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-125"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.DeleteIdentities.html#DeleteIdentities"><span class="hs-identifier hs-type">DeleteIdentities</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679188259"><span class="annot"><span class="annottext">toPath :: DeleteIdentities -&gt; ByteString
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679188439"><span class="annot"><span class="annottext">toPath :: DeleteIdentities -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteIdentities -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.DeleteIdentities.html#DeleteIdentities"><span class="hs-identifier hs-type">DeleteIdentities</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679188255"><span class="annot"><span class="annottext">toQuery :: DeleteIdentities -&gt; QueryString
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679188435"><span class="annot"><span class="annottext">toQuery :: DeleteIdentities -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteIdentities -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -314,7 +314,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-133"></span><span class="hs-comment">-- | Returned in response to a successful @DeleteIdentities@ operation.</span><span>
 </span><span id="line-134"></span><span class="hs-comment">--</span><span>
 </span><span id="line-135"></span><span class="hs-comment">-- /See:/ 'newDeleteIdentitiesResponse' smart constructor.</span><span>
-</span><span id="line-136"></span><span id="local-6989586621679188252"><span id="local-6989586621679188253"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteIdentitiesResponse"><span class="annot"><a href="Network.AWS.CognitoIdentity.DeleteIdentities.html#DeleteIdentitiesResponse"><span class="hs-identifier hs-var">DeleteIdentitiesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteIdentitiesResponse%27"><span class="annot"><a href="Network.AWS.CognitoIdentity.DeleteIdentities.html#DeleteIdentitiesResponse%27"><span class="hs-identifier hs-var">DeleteIdentitiesResponse'</span></a></span></span><span>
+</span><span id="line-136"></span><span id="local-6989586621679188432"><span id="local-6989586621679188433"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteIdentitiesResponse"><span class="annot"><a href="Network.AWS.CognitoIdentity.DeleteIdentities.html#DeleteIdentitiesResponse"><span class="hs-identifier hs-var">DeleteIdentitiesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteIdentitiesResponse%27"><span class="annot"><a href="Network.AWS.CognitoIdentity.DeleteIdentities.html#DeleteIdentitiesResponse%27"><span class="hs-identifier hs-var">DeleteIdentitiesResponse'</span></a></span></span><span>
 </span><span id="line-137"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of UnprocessedIdentityId objects, each of which contains an</span><span>
 </span><span id="line-138"></span><span>    </span><span class="hs-comment">-- ErrorCode and IdentityId.</span><span>
 </span><span id="line-139"></span><span>    </span><span id="%24sel%3AunprocessedIdentityIds%3ADeleteIdentitiesResponse%27"><span class="annot"><span class="annottext">DeleteIdentitiesResponse -&gt; Maybe [UnprocessedIdentityId]
@@ -323,7 +323,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-141"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteIdentitiesResponse%27"><span class="annot"><span class="annottext">DeleteIdentitiesResponse -&gt; Int
 </span><a href="Network.AWS.CognitoIdentity.DeleteIdentities.html#%24sel%3AhttpStatus%3ADeleteIdentitiesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-142"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-143"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679188246"><span id="local-6989586621679188248"><span class="annot"><span class="annottext">DeleteIdentitiesResponse -&gt; DeleteIdentitiesResponse -&gt; Bool
+</span><span id="line-143"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679188426"><span id="local-6989586621679188428"><span class="annot"><span class="annottext">DeleteIdentitiesResponse -&gt; DeleteIdentitiesResponse -&gt; Bool
 (DeleteIdentitiesResponse -&gt; DeleteIdentitiesResponse -&gt; Bool)
 -&gt; (DeleteIdentitiesResponse -&gt; DeleteIdentitiesResponse -&gt; Bool)
 -&gt; Eq DeleteIdentitiesResponse
@@ -332,7 +332,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteIdentitiesResponse -&gt; DeleteIdentitiesResponse -&gt; Bool
 == :: DeleteIdentitiesResponse -&gt; DeleteIdentitiesResponse -&gt; Bool
 $c== :: DeleteIdentitiesResponse -&gt; DeleteIdentitiesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679188238"><span id="local-6989586621679188240"><span id="local-6989586621679188242"><span id="local-6989586621679188244"><span class="annot"><span class="annottext">ReadPrec [DeleteIdentitiesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679188418"><span id="local-6989586621679188420"><span id="local-6989586621679188422"><span id="local-6989586621679188424"><span class="annot"><span class="annottext">ReadPrec [DeleteIdentitiesResponse]
 ReadPrec DeleteIdentitiesResponse
 Int -&gt; ReadS DeleteIdentitiesResponse
 ReadS [DeleteIdentitiesResponse]
@@ -352,7 +352,7 @@ readList :: ReadS [DeleteIdentitiesResponse]
 $creadList :: ReadS [DeleteIdentitiesResponse]
 readsPrec :: Int -&gt; ReadS DeleteIdentitiesResponse
 $creadsPrec :: Int -&gt; ReadS DeleteIdentitiesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679188232"><span id="local-6989586621679188234"><span id="local-6989586621679188236"><span class="annot"><span class="annottext">Int -&gt; DeleteIdentitiesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679188412"><span id="local-6989586621679188414"><span id="local-6989586621679188416"><span class="annot"><span class="annottext">Int -&gt; DeleteIdentitiesResponse -&gt; ShowS
 [DeleteIdentitiesResponse] -&gt; ShowS
 DeleteIdentitiesResponse -&gt; String
 (Int -&gt; DeleteIdentitiesResponse -&gt; ShowS)
@@ -401,8 +401,8 @@ DeleteIdentitiesResponse -&gt; Rep DeleteIdentitiesResponse x
 </span><span id="line-159"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-160"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentity.DeleteIdentities.html#DeleteIdentitiesResponse"><span class="hs-identifier hs-type">DeleteIdentitiesResponse</span></a></span><span>
 </span><span id="line-161"></span><span id="newDeleteIdentitiesResponse"><span class="annot"><span class="annottext">newDeleteIdentitiesResponse :: Int -&gt; DeleteIdentitiesResponse
-</span><a href="Network.AWS.CognitoIdentity.DeleteIdentities.html#newDeleteIdentitiesResponse"><span class="hs-identifier hs-var hs-var">newDeleteIdentitiesResponse</span></a></span></span><span> </span><span id="local-6989586621679188229"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679188229"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CognitoIdentity.DeleteIdentities.html#newDeleteIdentitiesResponse"><span class="hs-identifier hs-var hs-var">newDeleteIdentitiesResponse</span></a></span></span><span> </span><span id="local-6989586621679188409"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679188409"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-162"></span><span>  </span><span class="annot"><span class="annottext">DeleteIdentitiesResponse' :: Maybe [UnprocessedIdentityId] -&gt; Int -&gt; DeleteIdentitiesResponse
 </span><a href="Network.AWS.CognitoIdentity.DeleteIdentities.html#DeleteIdentitiesResponse%27"><span class="hs-identifier hs-type">DeleteIdentitiesResponse'</span></a></span><span>
 </span><span id="line-163"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:unprocessedIdentityIds:DeleteIdentitiesResponse' :: Maybe [UnprocessedIdentityId]
@@ -412,7 +412,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-165"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteIdentitiesResponse' :: Int
 </span><a href="Network.AWS.CognitoIdentity.DeleteIdentities.html#%24sel%3AhttpStatus%3ADeleteIdentitiesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679188229"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679188409"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-166"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-167"></span><span>
 </span><span id="line-168"></span><span class="hs-comment">-- | An array of UnprocessedIdentityId objects, each of which contains an</span><span>
@@ -430,16 +430,16 @@ forall a. Maybe a
      (Maybe [UnprocessedIdentityId])
      (Maybe [UnprocessedIdentityId])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentity.DeleteIdentities.html#DeleteIdentitiesResponse%27"><span class="hs-identifier hs-type">DeleteIdentitiesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188228"><span class="annot"><span class="annottext">Maybe [UnprocessedIdentityId]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentity.DeleteIdentities.html#DeleteIdentitiesResponse%27"><span class="hs-identifier hs-type">DeleteIdentitiesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188408"><span class="annot"><span class="annottext">Maybe [UnprocessedIdentityId]
 unprocessedIdentityIds :: Maybe [UnprocessedIdentityId]
 $sel:unprocessedIdentityIds:DeleteIdentitiesResponse' :: DeleteIdentitiesResponse -&gt; Maybe [UnprocessedIdentityId]
-</span><a href="#local-6989586621679188228"><span class="hs-identifier hs-var hs-var">unprocessedIdentityIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [UnprocessedIdentityId]
-</span><a href="#local-6989586621679188228"><span class="hs-identifier hs-var">unprocessedIdentityIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188227"><span class="annot"><span class="annottext">s :: DeleteIdentitiesResponse
-</span><a href="#local-6989586621679188227"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentity.DeleteIdentities.html#DeleteIdentitiesResponse%27"><span class="hs-identifier hs-type">DeleteIdentitiesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679188226"><span class="annot"><span class="annottext">Maybe [UnprocessedIdentityId]
-</span><a href="#local-6989586621679188226"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteIdentitiesResponse
-</span><a href="#local-6989586621679188227"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unprocessedIdentityIds:DeleteIdentitiesResponse' :: Maybe [UnprocessedIdentityId]
+</span><a href="#local-6989586621679188408"><span class="hs-identifier hs-var hs-var">unprocessedIdentityIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [UnprocessedIdentityId]
+</span><a href="#local-6989586621679188408"><span class="hs-identifier hs-var">unprocessedIdentityIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188407"><span class="annot"><span class="annottext">s :: DeleteIdentitiesResponse
+</span><a href="#local-6989586621679188407"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentity.DeleteIdentities.html#DeleteIdentitiesResponse%27"><span class="hs-identifier hs-type">DeleteIdentitiesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679188406"><span class="annot"><span class="annottext">Maybe [UnprocessedIdentityId]
+</span><a href="#local-6989586621679188406"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteIdentitiesResponse
+</span><a href="#local-6989586621679188407"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unprocessedIdentityIds:DeleteIdentitiesResponse' :: Maybe [UnprocessedIdentityId]
 </span><a href="Network.AWS.CognitoIdentity.DeleteIdentities.html#%24sel%3AunprocessedIdentityIds%3ADeleteIdentitiesResponse%27"><span class="hs-identifier hs-var">unprocessedIdentityIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [UnprocessedIdentityId]
-</span><a href="#local-6989586621679188226"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.DeleteIdentities.html#DeleteIdentitiesResponse"><span class="hs-identifier hs-type">DeleteIdentitiesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [UnprocessedIdentityId]
+</span><a href="#local-6989586621679188406"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.DeleteIdentities.html#DeleteIdentitiesResponse"><span class="hs-identifier hs-type">DeleteIdentitiesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [UnprocessedIdentityId]
   -&gt; f (Maybe [UnprocessedIdentityId]))
  -&gt; DeleteIdentitiesResponse -&gt; f DeleteIdentitiesResponse)
 -&gt; ((Maybe [UnprocessedIdentityId]
@@ -469,8 +469,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [UnprocessedIdentityId]
   [UnprocessedIdentityId]
   [UnprocessedIdentityId]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-172"></span><span>
 </span><span id="line-173"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-174"></span><span class="annot"><a href="Network.AWS.CognitoIdentity.DeleteIdentities.html#deleteIdentitiesResponse_httpStatus"><span class="hs-identifier hs-type">deleteIdentitiesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.DeleteIdentities.html#DeleteIdentitiesResponse"><span class="hs-identifier hs-type">DeleteIdentitiesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -480,16 +480,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (DeleteIdentitiesResponse -&gt; Int -&gt; DeleteIdentitiesResponse)
 -&gt; Lens DeleteIdentitiesResponse DeleteIdentitiesResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentity.DeleteIdentities.html#DeleteIdentitiesResponse%27"><span class="hs-identifier hs-type">DeleteIdentitiesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188224"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentity.DeleteIdentities.html#DeleteIdentitiesResponse%27"><span class="hs-identifier hs-type">DeleteIdentitiesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188404"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteIdentitiesResponse' :: DeleteIdentitiesResponse -&gt; Int
-</span><a href="#local-6989586621679188224"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679188224"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188223"><span class="annot"><span class="annottext">s :: DeleteIdentitiesResponse
-</span><a href="#local-6989586621679188223"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentity.DeleteIdentities.html#DeleteIdentitiesResponse%27"><span class="hs-identifier hs-type">DeleteIdentitiesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679188222"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679188222"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteIdentitiesResponse
-</span><a href="#local-6989586621679188223"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteIdentitiesResponse' :: Int
+</span><a href="#local-6989586621679188404"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679188404"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188403"><span class="annot"><span class="annottext">s :: DeleteIdentitiesResponse
+</span><a href="#local-6989586621679188403"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentity.DeleteIdentities.html#DeleteIdentitiesResponse%27"><span class="hs-identifier hs-type">DeleteIdentitiesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679188402"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679188402"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteIdentitiesResponse
+</span><a href="#local-6989586621679188403"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteIdentitiesResponse' :: Int
 </span><a href="Network.AWS.CognitoIdentity.DeleteIdentities.html#%24sel%3AhttpStatus%3ADeleteIdentitiesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679188222"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.DeleteIdentities.html#DeleteIdentitiesResponse"><span class="hs-identifier hs-type">DeleteIdentitiesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679188402"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.DeleteIdentities.html#DeleteIdentitiesResponse"><span class="hs-identifier hs-type">DeleteIdentitiesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>
-</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679188220"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.DeleteIdentities.html#DeleteIdentitiesResponse"><span class="hs-identifier hs-type">DeleteIdentitiesResponse</span></a></span></span><span>
+</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679188400"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.DeleteIdentities.html#DeleteIdentitiesResponse"><span class="hs-identifier hs-type">DeleteIdentitiesResponse</span></a></span></span><span>
 </span><span id="line-178"></span></pre></body></html>

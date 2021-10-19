@@ -30,10 +30,10 @@
 </span><span id="line-30"></span><span class="hs-comment">-- call analytics jobs where either the customer or agent was interrupted.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newInterruptionFilter' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679274471"><span id="local-6989586621679274472"></span></span><span class="hs-keyword">data</span><span> </span><span id="InterruptionFilter"><span class="annot"><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#InterruptionFilter"><span class="hs-identifier hs-var">InterruptionFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InterruptionFilter%27"><span class="annot"><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#InterruptionFilter%27"><span class="hs-identifier hs-var">InterruptionFilter'</span></a></span></span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The duration of the interruption.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3Athreshold%3AInterruptionFilter%27"><span class="annot"><span class="annottext">InterruptionFilter -&gt; Maybe Natural
-</span><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#%24sel%3Athreshold%3AInterruptionFilter%27"><span class="hs-identifier hs-var hs-var">threshold</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679274634"><span id="local-6989586621679274635"></span></span><span class="hs-keyword">data</span><span> </span><span id="InterruptionFilter"><span class="annot"><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#InterruptionFilter"><span class="hs-identifier hs-var">InterruptionFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InterruptionFilter%27"><span class="annot"><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#InterruptionFilter%27"><span class="hs-identifier hs-var">InterruptionFilter'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Indicates whether the caller or customer was interrupting.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AparticipantRole%3AInterruptionFilter%27"><span class="annot"><span class="annottext">InterruptionFilter -&gt; Maybe ParticipantRole
+</span><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#%24sel%3AparticipantRole%3AInterruptionFilter%27"><span class="hs-identifier hs-var hs-var">participantRole</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.ParticipantRole.html#ParticipantRole"><span class="hs-identifier hs-type">ParticipantRole</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | An object that allows percentages to specify the proportion of the call</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">-- where there was a interruption. For example, you can specify the first</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">-- half of the call. You can also specify the period of time between</span><span>
@@ -45,9 +45,9 @@
 </span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | Set to @TRUE@ to look for a time period where there was no interruption.</span><span>
 </span><span id="line-44"></span><span>    </span><span id="%24sel%3Anegate%3AInterruptionFilter%27"><span class="annot"><span class="annottext">InterruptionFilter -&gt; Maybe Bool
 </span><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#%24sel%3Anegate%3AInterruptionFilter%27"><span class="hs-identifier hs-var hs-var">negate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | Indicates whether the caller or customer was interrupting.</span><span>
-</span><span id="line-46"></span><span>    </span><span id="%24sel%3AparticipantRole%3AInterruptionFilter%27"><span class="annot"><span class="annottext">InterruptionFilter -&gt; Maybe ParticipantRole
-</span><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#%24sel%3AparticipantRole%3AInterruptionFilter%27"><span class="hs-identifier hs-var hs-var">participantRole</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.ParticipantRole.html#ParticipantRole"><span class="hs-identifier hs-type">ParticipantRole</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The duration of the interruption.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3Athreshold%3AInterruptionFilter%27"><span class="annot"><span class="annottext">InterruptionFilter -&gt; Maybe Natural
+</span><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#%24sel%3Athreshold%3AInterruptionFilter%27"><span class="hs-identifier hs-var hs-var">threshold</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
 </span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | An object you can use to specify a time range (in milliseconds) for when</span><span>
 </span><span id="line-48"></span><span>    </span><span class="hs-comment">-- you\'d want to find the interruption. For example, you could search for</span><span>
 </span><span id="line-49"></span><span>    </span><span class="hs-comment">-- an interruption between the 30,000 millisecond mark and the 45,000</span><span>
@@ -56,7 +56,7 @@
 </span><span id="line-52"></span><span>    </span><span id="%24sel%3AabsoluteTimeRange%3AInterruptionFilter%27"><span class="annot"><span class="annottext">InterruptionFilter -&gt; Maybe AbsoluteTimeRange
 </span><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#%24sel%3AabsoluteTimeRange%3AInterruptionFilter%27"><span class="hs-identifier hs-var hs-var">absoluteTimeRange</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.AbsoluteTimeRange.html#AbsoluteTimeRange"><span class="hs-identifier hs-type">AbsoluteTimeRange</span></a></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679274461"><span id="local-6989586621679274463"><span class="annot"><span class="annottext">InterruptionFilter -&gt; InterruptionFilter -&gt; Bool
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679274624"><span id="local-6989586621679274626"><span class="annot"><span class="annottext">InterruptionFilter -&gt; InterruptionFilter -&gt; Bool
 (InterruptionFilter -&gt; InterruptionFilter -&gt; Bool)
 -&gt; (InterruptionFilter -&gt; InterruptionFilter -&gt; Bool)
 -&gt; Eq InterruptionFilter
@@ -65,7 +65,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: InterruptionFilter -&gt; InterruptionFilter -&gt; Bool
 == :: InterruptionFilter -&gt; InterruptionFilter -&gt; Bool
 $c== :: InterruptionFilter -&gt; InterruptionFilter -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274452"><span id="local-6989586621679274454"><span id="local-6989586621679274456"><span id="local-6989586621679274458"><span class="annot"><span class="annottext">ReadPrec [InterruptionFilter]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274615"><span id="local-6989586621679274617"><span id="local-6989586621679274619"><span id="local-6989586621679274621"><span class="annot"><span class="annottext">ReadPrec [InterruptionFilter]
 ReadPrec InterruptionFilter
 Int -&gt; ReadS InterruptionFilter
 ReadS [InterruptionFilter]
@@ -85,7 +85,7 @@ readList :: ReadS [InterruptionFilter]
 $creadList :: ReadS [InterruptionFilter]
 readsPrec :: Int -&gt; ReadS InterruptionFilter
 $creadsPrec :: Int -&gt; ReadS InterruptionFilter
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274445"><span id="local-6989586621679274447"><span id="local-6989586621679274449"><span class="annot"><span class="annottext">Int -&gt; InterruptionFilter -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274608"><span id="local-6989586621679274610"><span id="local-6989586621679274612"><span class="annot"><span class="annottext">Int -&gt; InterruptionFilter -&gt; ShowS
 [InterruptionFilter] -&gt; ShowS
 InterruptionFilter -&gt; String
 (Int -&gt; InterruptionFilter -&gt; ShowS)
@@ -119,7 +119,7 @@ $cfrom :: forall x. InterruptionFilter -&gt; Rep InterruptionFilter x
 </span><span id="line-61"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-63"></span><span class="hs-comment">--</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- 'threshold', 'interruptionFilter_threshold' - The duration of the interruption.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'participantRole', 'interruptionFilter_participantRole' - Indicates whether the caller or customer was interrupting.</span><span>
 </span><span id="line-65"></span><span class="hs-comment">--</span><span>
 </span><span id="line-66"></span><span class="hs-comment">-- 'relativeTimeRange', 'interruptionFilter_relativeTimeRange' - An object that allows percentages to specify the proportion of the call</span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- where there was a interruption. For example, you can specify the first</span><span>
@@ -130,7 +130,7 @@ $cfrom :: forall x. InterruptionFilter -&gt; Rep InterruptionFilter x
 </span><span id="line-72"></span><span class="hs-comment">--</span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- 'negate', 'interruptionFilter_negate' - Set to @TRUE@ to look for a time period where there was no interruption.</span><span>
 </span><span id="line-74"></span><span class="hs-comment">--</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- 'participantRole', 'interruptionFilter_participantRole' - Indicates whether the caller or customer was interrupting.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'threshold', 'interruptionFilter_threshold' - The duration of the interruption.</span><span>
 </span><span id="line-76"></span><span class="hs-comment">--</span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- 'absoluteTimeRange', 'interruptionFilter_absoluteTimeRange' - An object you can use to specify a time range (in milliseconds) for when</span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- you\'d want to find the interruption. For example, you could search for</span><span>
@@ -141,110 +141,39 @@ $cfrom :: forall x. InterruptionFilter -&gt; Rep InterruptionFilter x
 </span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#InterruptionFilter"><span class="hs-identifier hs-type">InterruptionFilter</span></a></span><span>
 </span><span id="line-84"></span><span id="newInterruptionFilter"><span class="annot"><span class="annottext">newInterruptionFilter :: InterruptionFilter
 </span><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#newInterruptionFilter"><span class="hs-identifier hs-var hs-var">newInterruptionFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-85"></span><span>  </span><span class="annot"><span class="annottext">InterruptionFilter' :: Maybe Natural
+</span><span id="line-85"></span><span>  </span><span class="annot"><span class="annottext">InterruptionFilter' :: Maybe ParticipantRole
 -&gt; Maybe RelativeTimeRange
 -&gt; Maybe Bool
--&gt; Maybe ParticipantRole
+-&gt; Maybe Natural
 -&gt; Maybe AbsoluteTimeRange
 -&gt; InterruptionFilter
 </span><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#InterruptionFilter%27"><span class="hs-identifier hs-type">InterruptionFilter'</span></a></span><span>
-</span><span id="line-86"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:threshold:InterruptionFilter' :: Maybe Natural
-</span><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#%24sel%3Athreshold%3AInterruptionFilter%27"><span class="hs-identifier hs-var">threshold</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-86"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:participantRole:InterruptionFilter' :: Maybe ParticipantRole
+</span><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#%24sel%3AparticipantRole%3AInterruptionFilter%27"><span class="hs-identifier hs-var">participantRole</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>        </span><span class="annot"><span class="annottext">Maybe ParticipantRole
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:relativeTimeRange:InterruptionFilter' :: Maybe RelativeTimeRange
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:relativeTimeRange:InterruptionFilter' :: Maybe RelativeTimeRange
 </span><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#%24sel%3ArelativeTimeRange%3AInterruptionFilter%27"><span class="hs-identifier hs-var">relativeTimeRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RelativeTimeRange
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:negate:InterruptionFilter' :: Maybe Bool
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:negate:InterruptionFilter' :: Maybe Bool
 </span><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#%24sel%3Anegate%3AInterruptionFilter%27"><span class="hs-identifier hs-var">negate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:participantRole:InterruptionFilter' :: Maybe ParticipantRole
-</span><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#%24sel%3AparticipantRole%3AInterruptionFilter%27"><span class="hs-identifier hs-var">participantRole</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ParticipantRole
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:threshold:InterruptionFilter' :: Maybe Natural
+</span><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#%24sel%3Athreshold%3AInterruptionFilter%27"><span class="hs-identifier hs-var">threshold</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:absoluteTimeRange:InterruptionFilter' :: Maybe AbsoluteTimeRange
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:absoluteTimeRange:InterruptionFilter' :: Maybe AbsoluteTimeRange
 </span><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#%24sel%3AabsoluteTimeRange%3AInterruptionFilter%27"><span class="hs-identifier hs-var">absoluteTimeRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AbsoluteTimeRange
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-91"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- | The duration of the interruption.</span><span>
-</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#interruptionFilter_threshold"><span class="hs-identifier hs-type">interruptionFilter_threshold</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#InterruptionFilter"><span class="hs-identifier hs-type">InterruptionFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-95"></span><span id="interruptionFilter_threshold"><span class="annot"><span class="annottext">interruptionFilter_threshold :: (Maybe Natural -&gt; f (Maybe Natural))
--&gt; InterruptionFilter -&gt; f InterruptionFilter
-</span><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#interruptionFilter_threshold"><span class="hs-identifier hs-var hs-var">interruptionFilter_threshold</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InterruptionFilter -&gt; Maybe Natural)
--&gt; (InterruptionFilter -&gt; Maybe Natural -&gt; InterruptionFilter)
--&gt; Lens
-     InterruptionFilter
-     InterruptionFilter
-     (Maybe Natural)
-     (Maybe Natural)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#InterruptionFilter%27"><span class="hs-identifier hs-type">InterruptionFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274436"><span class="annot"><span class="annottext">Maybe Natural
-threshold :: Maybe Natural
-$sel:threshold:InterruptionFilter' :: InterruptionFilter -&gt; Maybe Natural
-</span><a href="#local-6989586621679274436"><span class="hs-identifier hs-var hs-var">threshold</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679274436"><span class="hs-identifier hs-var">threshold</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274435"><span class="annot"><span class="annottext">s :: InterruptionFilter
-</span><a href="#local-6989586621679274435"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#InterruptionFilter%27"><span class="hs-identifier hs-type">InterruptionFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274434"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679274434"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InterruptionFilter
-</span><a href="#local-6989586621679274435"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:threshold:InterruptionFilter' :: Maybe Natural
-</span><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#%24sel%3Athreshold%3AInterruptionFilter%27"><span class="hs-identifier hs-var">threshold</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679274434"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#InterruptionFilter"><span class="hs-identifier hs-type">InterruptionFilter</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- | An object that allows percentages to specify the proportion of the call</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- where there was a interruption. For example, you can specify the first</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- half of the call. You can also specify the period of time between</span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- halfway through to three-quarters of the way through the call. Because</span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- the length of conversation can vary between calls, you can apply</span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- relative time ranges across all calls.</span><span>
-</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#interruptionFilter_relativeTimeRange"><span class="hs-identifier hs-type">interruptionFilter_relativeTimeRange</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#InterruptionFilter"><span class="hs-identifier hs-type">InterruptionFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.RelativeTimeRange.html#RelativeTimeRange"><span class="hs-identifier hs-type">RelativeTimeRange</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-104"></span><span id="interruptionFilter_relativeTimeRange"><span class="annot"><span class="annottext">interruptionFilter_relativeTimeRange :: (Maybe RelativeTimeRange -&gt; f (Maybe RelativeTimeRange))
--&gt; InterruptionFilter -&gt; f InterruptionFilter
-</span><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#interruptionFilter_relativeTimeRange"><span class="hs-identifier hs-var hs-var">interruptionFilter_relativeTimeRange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InterruptionFilter -&gt; Maybe RelativeTimeRange)
--&gt; (InterruptionFilter
-    -&gt; Maybe RelativeTimeRange -&gt; InterruptionFilter)
--&gt; Lens
-     InterruptionFilter
-     InterruptionFilter
-     (Maybe RelativeTimeRange)
-     (Maybe RelativeTimeRange)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#InterruptionFilter%27"><span class="hs-identifier hs-type">InterruptionFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274432"><span class="annot"><span class="annottext">Maybe RelativeTimeRange
-relativeTimeRange :: Maybe RelativeTimeRange
-$sel:relativeTimeRange:InterruptionFilter' :: InterruptionFilter -&gt; Maybe RelativeTimeRange
-</span><a href="#local-6989586621679274432"><span class="hs-identifier hs-var hs-var">relativeTimeRange</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RelativeTimeRange
-</span><a href="#local-6989586621679274432"><span class="hs-identifier hs-var">relativeTimeRange</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274431"><span class="annot"><span class="annottext">s :: InterruptionFilter
-</span><a href="#local-6989586621679274431"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#InterruptionFilter%27"><span class="hs-identifier hs-type">InterruptionFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274430"><span class="annot"><span class="annottext">Maybe RelativeTimeRange
-</span><a href="#local-6989586621679274430"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InterruptionFilter
-</span><a href="#local-6989586621679274431"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:relativeTimeRange:InterruptionFilter' :: Maybe RelativeTimeRange
-</span><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#%24sel%3ArelativeTimeRange%3AInterruptionFilter%27"><span class="hs-identifier hs-var">relativeTimeRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RelativeTimeRange
-</span><a href="#local-6989586621679274430"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#InterruptionFilter"><span class="hs-identifier hs-type">InterruptionFilter</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- | Set to @TRUE@ to look for a time period where there was no interruption.</span><span>
-</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#interruptionFilter_negate"><span class="hs-identifier hs-type">interruptionFilter_negate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#InterruptionFilter"><span class="hs-identifier hs-type">InterruptionFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-108"></span><span id="interruptionFilter_negate"><span class="annot"><span class="annottext">interruptionFilter_negate :: (Maybe Bool -&gt; f (Maybe Bool))
--&gt; InterruptionFilter -&gt; f InterruptionFilter
-</span><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#interruptionFilter_negate"><span class="hs-identifier hs-var hs-var">interruptionFilter_negate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InterruptionFilter -&gt; Maybe Bool)
--&gt; (InterruptionFilter -&gt; Maybe Bool -&gt; InterruptionFilter)
--&gt; Lens
-     InterruptionFilter InterruptionFilter (Maybe Bool) (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#InterruptionFilter%27"><span class="hs-identifier hs-type">InterruptionFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274428"><span class="annot"><span class="annottext">Maybe Bool
-negate :: Maybe Bool
-$sel:negate:InterruptionFilter' :: InterruptionFilter -&gt; Maybe Bool
-</span><a href="#local-6989586621679274428"><span class="hs-identifier hs-var hs-var">negate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679274428"><span class="hs-identifier hs-var">negate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274427"><span class="annot"><span class="annottext">s :: InterruptionFilter
-</span><a href="#local-6989586621679274427"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#InterruptionFilter%27"><span class="hs-identifier hs-type">InterruptionFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274426"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679274426"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InterruptionFilter
-</span><a href="#local-6989586621679274427"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:negate:InterruptionFilter' :: Maybe Bool
-</span><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#%24sel%3Anegate%3AInterruptionFilter%27"><span class="hs-identifier hs-var">negate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679274426"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#InterruptionFilter"><span class="hs-identifier hs-type">InterruptionFilter</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- | Indicates whether the caller or customer was interrupting.</span><span>
-</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#interruptionFilter_participantRole"><span class="hs-identifier hs-type">interruptionFilter_participantRole</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#InterruptionFilter"><span class="hs-identifier hs-type">InterruptionFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.ParticipantRole.html#ParticipantRole"><span class="hs-identifier hs-type">ParticipantRole</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-112"></span><span id="interruptionFilter_participantRole"><span class="annot"><span class="annottext">interruptionFilter_participantRole :: (Maybe ParticipantRole -&gt; f (Maybe ParticipantRole))
+</span><span id="line-92"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | Indicates whether the caller or customer was interrupting.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#interruptionFilter_participantRole"><span class="hs-identifier hs-type">interruptionFilter_participantRole</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#InterruptionFilter"><span class="hs-identifier hs-type">InterruptionFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.ParticipantRole.html#ParticipantRole"><span class="hs-identifier hs-type">ParticipantRole</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="interruptionFilter_participantRole"><span class="annot"><span class="annottext">interruptionFilter_participantRole :: (Maybe ParticipantRole -&gt; f (Maybe ParticipantRole))
 -&gt; InterruptionFilter -&gt; f InterruptionFilter
 </span><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#interruptionFilter_participantRole"><span class="hs-identifier hs-var hs-var">interruptionFilter_participantRole</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InterruptionFilter -&gt; Maybe ParticipantRole)
 -&gt; (InterruptionFilter
@@ -255,24 +184,96 @@ $sel:negate:InterruptionFilter' :: InterruptionFilter -&gt; Maybe Bool
      (Maybe ParticipantRole)
      (Maybe ParticipantRole)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#InterruptionFilter%27"><span class="hs-identifier hs-type">InterruptionFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274424"><span class="annot"><span class="annottext">Maybe ParticipantRole
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#InterruptionFilter%27"><span class="hs-identifier hs-type">InterruptionFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274599"><span class="annot"><span class="annottext">Maybe ParticipantRole
 participantRole :: Maybe ParticipantRole
 $sel:participantRole:InterruptionFilter' :: InterruptionFilter -&gt; Maybe ParticipantRole
-</span><a href="#local-6989586621679274424"><span class="hs-identifier hs-var hs-var">participantRole</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ParticipantRole
-</span><a href="#local-6989586621679274424"><span class="hs-identifier hs-var">participantRole</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274423"><span class="annot"><span class="annottext">s :: InterruptionFilter
-</span><a href="#local-6989586621679274423"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#InterruptionFilter%27"><span class="hs-identifier hs-type">InterruptionFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274422"><span class="annot"><span class="annottext">Maybe ParticipantRole
-</span><a href="#local-6989586621679274422"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InterruptionFilter
-</span><a href="#local-6989586621679274423"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:participantRole:InterruptionFilter' :: Maybe ParticipantRole
+</span><a href="#local-6989586621679274599"><span class="hs-identifier hs-var hs-var">participantRole</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ParticipantRole
+</span><a href="#local-6989586621679274599"><span class="hs-identifier hs-var">participantRole</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274598"><span class="annot"><span class="annottext">s :: InterruptionFilter
+</span><a href="#local-6989586621679274598"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#InterruptionFilter%27"><span class="hs-identifier hs-type">InterruptionFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274597"><span class="annot"><span class="annottext">Maybe ParticipantRole
+</span><a href="#local-6989586621679274597"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InterruptionFilter
+</span><a href="#local-6989586621679274598"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:participantRole:InterruptionFilter' :: Maybe ParticipantRole
 </span><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#%24sel%3AparticipantRole%3AInterruptionFilter%27"><span class="hs-identifier hs-var">participantRole</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ParticipantRole
-</span><a href="#local-6989586621679274422"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#InterruptionFilter"><span class="hs-identifier hs-type">InterruptionFilter</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- | An object you can use to specify a time range (in milliseconds) for when</span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- you\'d want to find the interruption. For example, you could search for</span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- an interruption between the 30,000 millisecond mark and the 45,000</span><span>
-</span><span id="line-117"></span><span class="hs-comment">-- millisecond mark. You could also specify the time period as the first</span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- 15,000 milliseconds or the last 15,000 milliseconds.</span><span>
-</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#interruptionFilter_absoluteTimeRange"><span class="hs-identifier hs-type">interruptionFilter_absoluteTimeRange</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#InterruptionFilter"><span class="hs-identifier hs-type">InterruptionFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.AbsoluteTimeRange.html#AbsoluteTimeRange"><span class="hs-identifier hs-type">AbsoluteTimeRange</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-120"></span><span id="interruptionFilter_absoluteTimeRange"><span class="annot"><span class="annottext">interruptionFilter_absoluteTimeRange :: (Maybe AbsoluteTimeRange -&gt; f (Maybe AbsoluteTimeRange))
+</span><a href="#local-6989586621679274597"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#InterruptionFilter"><span class="hs-identifier hs-type">InterruptionFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | An object that allows percentages to specify the proportion of the call</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- where there was a interruption. For example, you can specify the first</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- half of the call. You can also specify the period of time between</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- halfway through to three-quarters of the way through the call. Because</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- the length of conversation can vary between calls, you can apply</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- relative time ranges across all calls.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#interruptionFilter_relativeTimeRange"><span class="hs-identifier hs-type">interruptionFilter_relativeTimeRange</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#InterruptionFilter"><span class="hs-identifier hs-type">InterruptionFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.RelativeTimeRange.html#RelativeTimeRange"><span class="hs-identifier hs-type">RelativeTimeRange</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="interruptionFilter_relativeTimeRange"><span class="annot"><span class="annottext">interruptionFilter_relativeTimeRange :: (Maybe RelativeTimeRange -&gt; f (Maybe RelativeTimeRange))
+-&gt; InterruptionFilter -&gt; f InterruptionFilter
+</span><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#interruptionFilter_relativeTimeRange"><span class="hs-identifier hs-var hs-var">interruptionFilter_relativeTimeRange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InterruptionFilter -&gt; Maybe RelativeTimeRange)
+-&gt; (InterruptionFilter
+    -&gt; Maybe RelativeTimeRange -&gt; InterruptionFilter)
+-&gt; Lens
+     InterruptionFilter
+     InterruptionFilter
+     (Maybe RelativeTimeRange)
+     (Maybe RelativeTimeRange)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#InterruptionFilter%27"><span class="hs-identifier hs-type">InterruptionFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274595"><span class="annot"><span class="annottext">Maybe RelativeTimeRange
+relativeTimeRange :: Maybe RelativeTimeRange
+$sel:relativeTimeRange:InterruptionFilter' :: InterruptionFilter -&gt; Maybe RelativeTimeRange
+</span><a href="#local-6989586621679274595"><span class="hs-identifier hs-var hs-var">relativeTimeRange</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RelativeTimeRange
+</span><a href="#local-6989586621679274595"><span class="hs-identifier hs-var">relativeTimeRange</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274594"><span class="annot"><span class="annottext">s :: InterruptionFilter
+</span><a href="#local-6989586621679274594"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#InterruptionFilter%27"><span class="hs-identifier hs-type">InterruptionFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274593"><span class="annot"><span class="annottext">Maybe RelativeTimeRange
+</span><a href="#local-6989586621679274593"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InterruptionFilter
+</span><a href="#local-6989586621679274594"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:relativeTimeRange:InterruptionFilter' :: Maybe RelativeTimeRange
+</span><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#%24sel%3ArelativeTimeRange%3AInterruptionFilter%27"><span class="hs-identifier hs-var">relativeTimeRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RelativeTimeRange
+</span><a href="#local-6989586621679274593"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#InterruptionFilter"><span class="hs-identifier hs-type">InterruptionFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | Set to @TRUE@ to look for a time period where there was no interruption.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#interruptionFilter_negate"><span class="hs-identifier hs-type">interruptionFilter_negate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#InterruptionFilter"><span class="hs-identifier hs-type">InterruptionFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span id="interruptionFilter_negate"><span class="annot"><span class="annottext">interruptionFilter_negate :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; InterruptionFilter -&gt; f InterruptionFilter
+</span><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#interruptionFilter_negate"><span class="hs-identifier hs-var hs-var">interruptionFilter_negate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InterruptionFilter -&gt; Maybe Bool)
+-&gt; (InterruptionFilter -&gt; Maybe Bool -&gt; InterruptionFilter)
+-&gt; Lens
+     InterruptionFilter InterruptionFilter (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#InterruptionFilter%27"><span class="hs-identifier hs-type">InterruptionFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274591"><span class="annot"><span class="annottext">Maybe Bool
+negate :: Maybe Bool
+$sel:negate:InterruptionFilter' :: InterruptionFilter -&gt; Maybe Bool
+</span><a href="#local-6989586621679274591"><span class="hs-identifier hs-var hs-var">negate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679274591"><span class="hs-identifier hs-var">negate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274590"><span class="annot"><span class="annottext">s :: InterruptionFilter
+</span><a href="#local-6989586621679274590"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#InterruptionFilter%27"><span class="hs-identifier hs-type">InterruptionFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274589"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679274589"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InterruptionFilter
+</span><a href="#local-6989586621679274590"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:negate:InterruptionFilter' :: Maybe Bool
+</span><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#%24sel%3Anegate%3AInterruptionFilter%27"><span class="hs-identifier hs-var">negate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679274589"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#InterruptionFilter"><span class="hs-identifier hs-type">InterruptionFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | The duration of the interruption.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#interruptionFilter_threshold"><span class="hs-identifier hs-type">interruptionFilter_threshold</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#InterruptionFilter"><span class="hs-identifier hs-type">InterruptionFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="interruptionFilter_threshold"><span class="annot"><span class="annottext">interruptionFilter_threshold :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; InterruptionFilter -&gt; f InterruptionFilter
+</span><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#interruptionFilter_threshold"><span class="hs-identifier hs-var hs-var">interruptionFilter_threshold</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InterruptionFilter -&gt; Maybe Natural)
+-&gt; (InterruptionFilter -&gt; Maybe Natural -&gt; InterruptionFilter)
+-&gt; Lens
+     InterruptionFilter
+     InterruptionFilter
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#InterruptionFilter%27"><span class="hs-identifier hs-type">InterruptionFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274587"><span class="annot"><span class="annottext">Maybe Natural
+threshold :: Maybe Natural
+$sel:threshold:InterruptionFilter' :: InterruptionFilter -&gt; Maybe Natural
+</span><a href="#local-6989586621679274587"><span class="hs-identifier hs-var hs-var">threshold</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679274587"><span class="hs-identifier hs-var">threshold</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274586"><span class="annot"><span class="annottext">s :: InterruptionFilter
+</span><a href="#local-6989586621679274586"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#InterruptionFilter%27"><span class="hs-identifier hs-type">InterruptionFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274585"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679274585"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InterruptionFilter
+</span><a href="#local-6989586621679274586"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:threshold:InterruptionFilter' :: Maybe Natural
+</span><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#%24sel%3Athreshold%3AInterruptionFilter%27"><span class="hs-identifier hs-var">threshold</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679274585"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#InterruptionFilter"><span class="hs-identifier hs-type">InterruptionFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | An object you can use to specify a time range (in milliseconds) for when</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- you\'d want to find the interruption. For example, you could search for</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- an interruption between the 30,000 millisecond mark and the 45,000</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- millisecond mark. You could also specify the time period as the first</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- 15,000 milliseconds or the last 15,000 milliseconds.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#interruptionFilter_absoluteTimeRange"><span class="hs-identifier hs-type">interruptionFilter_absoluteTimeRange</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#InterruptionFilter"><span class="hs-identifier hs-type">InterruptionFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.AbsoluteTimeRange.html#AbsoluteTimeRange"><span class="hs-identifier hs-type">AbsoluteTimeRange</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="interruptionFilter_absoluteTimeRange"><span class="annot"><span class="annottext">interruptionFilter_absoluteTimeRange :: (Maybe AbsoluteTimeRange -&gt; f (Maybe AbsoluteTimeRange))
 -&gt; InterruptionFilter -&gt; f InterruptionFilter
 </span><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#interruptionFilter_absoluteTimeRange"><span class="hs-identifier hs-var hs-var">interruptionFilter_absoluteTimeRange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InterruptionFilter -&gt; Maybe AbsoluteTimeRange)
 -&gt; (InterruptionFilter
@@ -283,177 +284,171 @@ $sel:participantRole:InterruptionFilter' :: InterruptionFilter -&gt; Maybe Parti
      (Maybe AbsoluteTimeRange)
      (Maybe AbsoluteTimeRange)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#InterruptionFilter%27"><span class="hs-identifier hs-type">InterruptionFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274420"><span class="annot"><span class="annottext">Maybe AbsoluteTimeRange
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#InterruptionFilter%27"><span class="hs-identifier hs-type">InterruptionFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274583"><span class="annot"><span class="annottext">Maybe AbsoluteTimeRange
 absoluteTimeRange :: Maybe AbsoluteTimeRange
 $sel:absoluteTimeRange:InterruptionFilter' :: InterruptionFilter -&gt; Maybe AbsoluteTimeRange
-</span><a href="#local-6989586621679274420"><span class="hs-identifier hs-var hs-var">absoluteTimeRange</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AbsoluteTimeRange
-</span><a href="#local-6989586621679274420"><span class="hs-identifier hs-var">absoluteTimeRange</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274419"><span class="annot"><span class="annottext">s :: InterruptionFilter
-</span><a href="#local-6989586621679274419"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#InterruptionFilter%27"><span class="hs-identifier hs-type">InterruptionFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274418"><span class="annot"><span class="annottext">Maybe AbsoluteTimeRange
-</span><a href="#local-6989586621679274418"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InterruptionFilter
-</span><a href="#local-6989586621679274419"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:absoluteTimeRange:InterruptionFilter' :: Maybe AbsoluteTimeRange
+</span><a href="#local-6989586621679274583"><span class="hs-identifier hs-var hs-var">absoluteTimeRange</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AbsoluteTimeRange
+</span><a href="#local-6989586621679274583"><span class="hs-identifier hs-var">absoluteTimeRange</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274582"><span class="annot"><span class="annottext">s :: InterruptionFilter
+</span><a href="#local-6989586621679274582"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#InterruptionFilter%27"><span class="hs-identifier hs-type">InterruptionFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274581"><span class="annot"><span class="annottext">Maybe AbsoluteTimeRange
+</span><a href="#local-6989586621679274581"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InterruptionFilter
+</span><a href="#local-6989586621679274582"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:absoluteTimeRange:InterruptionFilter' :: Maybe AbsoluteTimeRange
 </span><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#%24sel%3AabsoluteTimeRange%3AInterruptionFilter%27"><span class="hs-identifier hs-var">absoluteTimeRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AbsoluteTimeRange
-</span><a href="#local-6989586621679274418"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#InterruptionFilter"><span class="hs-identifier hs-type">InterruptionFilter</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274415"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#InterruptionFilter"><span class="hs-identifier hs-type">InterruptionFilter</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679274413"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InterruptionFilter
+</span><a href="#local-6989586621679274581"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#InterruptionFilter"><span class="hs-identifier hs-type">InterruptionFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274578"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#InterruptionFilter"><span class="hs-identifier hs-type">InterruptionFilter</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679274576"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InterruptionFilter
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">String
+</span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser InterruptionFilter)
 -&gt; Value
 -&gt; Parser InterruptionFilter
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
-</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;InterruptionFilter&quot;</span></span><span>
-</span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679274410"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679274410"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-127"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-127"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679274573"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679274573"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-128"></span><span>          </span><span class="annot"><span class="annottext">Maybe ParticipantRole
 -&gt; Maybe RelativeTimeRange
 -&gt; Maybe Bool
--&gt; Maybe ParticipantRole
+-&gt; Maybe Natural
 -&gt; Maybe AbsoluteTimeRange
 -&gt; InterruptionFilter
 </span><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#InterruptionFilter%27"><span class="hs-identifier hs-var">InterruptionFilter'</span></a></span><span>
-</span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Natural
+</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ParticipantRole
  -&gt; Maybe RelativeTimeRange
  -&gt; Maybe Bool
- -&gt; Maybe ParticipantRole
+ -&gt; Maybe Natural
  -&gt; Maybe AbsoluteTimeRange
  -&gt; InterruptionFilter)
--&gt; Parser (Maybe Natural)
+-&gt; Parser (Maybe ParticipantRole)
 -&gt; Parser
      (Maybe RelativeTimeRange
       -&gt; Maybe Bool
-      -&gt; Maybe ParticipantRole
+      -&gt; Maybe Natural
       -&gt; Maybe AbsoluteTimeRange
       -&gt; InterruptionFilter)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679274410"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679274573"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ParticipantRole)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Threshold&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span class="hs-string">&quot;ParticipantRole&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe RelativeTimeRange
    -&gt; Maybe Bool
-   -&gt; Maybe ParticipantRole
+   -&gt; Maybe Natural
    -&gt; Maybe AbsoluteTimeRange
    -&gt; InterruptionFilter)
 -&gt; Parser (Maybe RelativeTimeRange)
 -&gt; Parser
      (Maybe Bool
-      -&gt; Maybe ParticipantRole
-      -&gt; Maybe AbsoluteTimeRange
-      -&gt; InterruptionFilter)
+      -&gt; Maybe Natural -&gt; Maybe AbsoluteTimeRange -&gt; InterruptionFilter)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679274410"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RelativeTimeRange)
+</span><a href="#local-6989586621679274573"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RelativeTimeRange)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RelativeTimeRange&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Bool
-   -&gt; Maybe ParticipantRole
-   -&gt; Maybe AbsoluteTimeRange
-   -&gt; InterruptionFilter)
+   -&gt; Maybe Natural -&gt; Maybe AbsoluteTimeRange -&gt; InterruptionFilter)
 -&gt; Parser (Maybe Bool)
 -&gt; Parser
-     (Maybe ParticipantRole
-      -&gt; Maybe AbsoluteTimeRange -&gt; InterruptionFilter)
+     (Maybe Natural -&gt; Maybe AbsoluteTimeRange -&gt; InterruptionFilter)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679274410"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679274573"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Negate&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe ParticipantRole
-   -&gt; Maybe AbsoluteTimeRange -&gt; InterruptionFilter)
--&gt; Parser (Maybe ParticipantRole)
+</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural -&gt; Maybe AbsoluteTimeRange -&gt; InterruptionFilter)
+-&gt; Parser (Maybe Natural)
 -&gt; Parser (Maybe AbsoluteTimeRange -&gt; InterruptionFilter)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679274410"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ParticipantRole)
+</span><a href="#local-6989586621679274573"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ParticipantRole&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe AbsoluteTimeRange -&gt; InterruptionFilter)
+</span><span class="hs-string">&quot;Threshold&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe AbsoluteTimeRange -&gt; InterruptionFilter)
 -&gt; Parser (Maybe AbsoluteTimeRange) -&gt; Parser InterruptionFilter
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679274410"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AbsoluteTimeRange)
+</span><a href="#local-6989586621679274573"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AbsoluteTimeRange)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AbsoluteTimeRange&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-133"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-134"></span><span>
-</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274404"><span id="local-6989586621679274406"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#InterruptionFilter"><span class="hs-identifier hs-type">InterruptionFilter</span></a></span></span></span><span>
-</span><span id="line-136"></span><span>
-</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274401"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#InterruptionFilter"><span class="hs-identifier hs-type">InterruptionFilter</span></a></span></span><span>
-</span><span id="line-138"></span><span>
-</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274393"><span id="local-6989586621679274395"><span id="local-6989586621679274397"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#InterruptionFilter"><span class="hs-identifier hs-type">InterruptionFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679274391"><span class="annot"><span class="annottext">toJSON :: InterruptionFilter -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#InterruptionFilter%27"><span class="hs-identifier hs-type">InterruptionFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274385"><span id="local-6989586621679274386"><span id="local-6989586621679274387"><span id="local-6989586621679274388"><span id="local-6989586621679274389"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-134"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274567"><span id="local-6989586621679274569"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#InterruptionFilter"><span class="hs-identifier hs-type">InterruptionFilter</span></a></span></span></span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274564"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#InterruptionFilter"><span class="hs-identifier hs-type">InterruptionFilter</span></a></span></span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274556"><span id="local-6989586621679274558"><span id="local-6989586621679274560"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#InterruptionFilter"><span class="hs-identifier hs-type">InterruptionFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679274554"><span class="annot"><span class="annottext">toJSON :: InterruptionFilter -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#InterruptionFilter%27"><span class="hs-identifier hs-type">InterruptionFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274548"><span id="local-6989586621679274549"><span id="local-6989586621679274550"><span id="local-6989586621679274551"><span id="local-6989586621679274552"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Natural
 Maybe AbsoluteTimeRange
 Maybe ParticipantRole
 Maybe RelativeTimeRange
 absoluteTimeRange :: Maybe AbsoluteTimeRange
-participantRole :: Maybe ParticipantRole
+threshold :: Maybe Natural
 negate :: Maybe Bool
 relativeTimeRange :: Maybe RelativeTimeRange
-threshold :: Maybe Natural
+participantRole :: Maybe ParticipantRole
 $sel:absoluteTimeRange:InterruptionFilter' :: InterruptionFilter -&gt; Maybe AbsoluteTimeRange
-$sel:participantRole:InterruptionFilter' :: InterruptionFilter -&gt; Maybe ParticipantRole
+$sel:threshold:InterruptionFilter' :: InterruptionFilter -&gt; Maybe Natural
 $sel:negate:InterruptionFilter' :: InterruptionFilter -&gt; Maybe Bool
 $sel:relativeTimeRange:InterruptionFilter' :: InterruptionFilter -&gt; Maybe RelativeTimeRange
-$sel:threshold:InterruptionFilter' :: InterruptionFilter -&gt; Maybe Natural
-</span><a href="#local-6989586621679274385"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-141"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+$sel:participantRole:InterruptionFilter' :: InterruptionFilter -&gt; Maybe ParticipantRole
+</span><a href="#local-6989586621679274548"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-142"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
-</span><span id="line-142"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+</span><span id="line-143"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
-</span><span id="line-143"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Threshold&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+</span><span id="line-144"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ParticipantRole&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ParticipantRole -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>              </span><span class="annot"><span class="annottext">(ParticipantRole -&gt; Pair) -&gt; Maybe ParticipantRole -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679274389"><span class="hs-identifier hs-var">threshold</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-144"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ParticipantRole
+</span><a href="#local-6989586621679274552"><span class="hs-identifier hs-var">participantRole</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RelativeTimeRange&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; RelativeTimeRange -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-145"></span><span>              </span><span class="annot"><span class="annottext">(RelativeTimeRange -&gt; Pair)
+</span><span id="line-147"></span><span>              </span><span class="annot"><span class="annottext">(RelativeTimeRange -&gt; Pair)
 -&gt; Maybe RelativeTimeRange -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe RelativeTimeRange
-</span><a href="#local-6989586621679274388"><span class="hs-identifier hs-var">relativeTimeRange</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-146"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274551"><span class="hs-identifier hs-var">relativeTimeRange</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Negate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679274387"><span class="hs-identifier hs-var">negate</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-147"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ParticipantRole&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ParticipantRole -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-148"></span><span>              </span><span class="annot"><span class="annottext">(ParticipantRole -&gt; Pair) -&gt; Maybe ParticipantRole -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ParticipantRole
-</span><a href="#local-6989586621679274386"><span class="hs-identifier hs-var">participantRole</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679274550"><span class="hs-identifier hs-var">negate</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-149"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Threshold&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679274549"><span class="hs-identifier hs-var">threshold</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AbsoluteTimeRange&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AbsoluteTimeRange -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-150"></span><span>              </span><span class="annot"><span class="annottext">(AbsoluteTimeRange -&gt; Pair)
+</span><span id="line-151"></span><span>              </span><span class="annot"><span class="annottext">(AbsoluteTimeRange -&gt; Pair)
 -&gt; Maybe AbsoluteTimeRange -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AbsoluteTimeRange
-</span><a href="#local-6989586621679274385"><span class="hs-identifier hs-var">absoluteTimeRange</span></a></span><span>
-</span><span id="line-151"></span><span>          </span><span class="hs-special">]</span><span>
-</span><span id="line-152"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-153"></span></pre></body></html>
+</span><a href="#local-6989586621679274548"><span class="hs-identifier hs-var">absoluteTimeRange</span></a></span><span>
+</span><span id="line-152"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-153"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span></pre></body></html>

@@ -30,7 +30,7 @@
 </span><span id="line-30"></span><span class="hs-comment">-- object, use GetQueryResults.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newResultSet' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679218368"><span id="local-6989586621679218369"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResultSet"><span class="annot"><a href="Network.AWS.Athena.Types.ResultSet.html#ResultSet"><span class="hs-identifier hs-var">ResultSet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResultSet%27"><span class="annot"><a href="Network.AWS.Athena.Types.ResultSet.html#ResultSet%27"><span class="hs-identifier hs-var">ResultSet'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679218529"><span id="local-6989586621679218530"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResultSet"><span class="annot"><a href="Network.AWS.Athena.Types.ResultSet.html#ResultSet"><span class="hs-identifier hs-var">ResultSet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResultSet%27"><span class="annot"><a href="Network.AWS.Athena.Types.ResultSet.html#ResultSet%27"><span class="hs-identifier hs-var">ResultSet'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The rows in the table.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3Arows%3AResultSet%27"><span class="annot"><span class="annottext">ResultSet -&gt; Maybe [Row]
 </span><a href="Network.AWS.Athena.Types.ResultSet.html#%24sel%3Arows%3AResultSet%27"><span class="hs-identifier hs-var hs-var">rows</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Athena.Types.Row.html#Row"><span class="hs-identifier hs-type">Row</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -39,7 +39,7 @@
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3AresultSetMetadata%3AResultSet%27"><span class="annot"><span class="annottext">ResultSet -&gt; Maybe ResultSetMetadata
 </span><a href="Network.AWS.Athena.Types.ResultSet.html#%24sel%3AresultSetMetadata%3AResultSet%27"><span class="hs-identifier hs-var hs-var">resultSetMetadata</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ResultSetMetadata.html#ResultSetMetadata"><span class="hs-identifier hs-type">ResultSetMetadata</span></a></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679218361"><span id="local-6989586621679218363"><span class="annot"><span class="annottext">ResultSet -&gt; ResultSet -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679218522"><span id="local-6989586621679218524"><span class="annot"><span class="annottext">ResultSet -&gt; ResultSet -&gt; Bool
 (ResultSet -&gt; ResultSet -&gt; Bool)
 -&gt; (ResultSet -&gt; ResultSet -&gt; Bool) -&gt; Eq ResultSet
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -47,7 +47,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ResultSet -&gt; ResultSet -&gt; Bool
 == :: ResultSet -&gt; ResultSet -&gt; Bool
 $c== :: ResultSet -&gt; ResultSet -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679218352"><span id="local-6989586621679218354"><span id="local-6989586621679218356"><span id="local-6989586621679218358"><span class="annot"><span class="annottext">ReadPrec [ResultSet]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679218513"><span id="local-6989586621679218515"><span id="local-6989586621679218517"><span id="local-6989586621679218519"><span class="annot"><span class="annottext">ReadPrec [ResultSet]
 ReadPrec ResultSet
 Int -&gt; ReadS ResultSet
 ReadS [ResultSet]
@@ -67,7 +67,7 @@ readList :: ReadS [ResultSet]
 $creadList :: ReadS [ResultSet]
 readsPrec :: Int -&gt; ReadS ResultSet
 $creadsPrec :: Int -&gt; ReadS ResultSet
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679218345"><span id="local-6989586621679218347"><span id="local-6989586621679218349"><span class="annot"><span class="annottext">Int -&gt; ResultSet -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679218506"><span id="local-6989586621679218508"><span id="local-6989586621679218510"><span class="annot"><span class="annottext">Int -&gt; ResultSet -&gt; ShowS
 [ResultSet] -&gt; ShowS
 ResultSet -&gt; String
 (Int -&gt; ResultSet -&gt; ShowS)
@@ -127,16 +127,16 @@ forall a. Maybe a
 -&gt; (ResultSet -&gt; Maybe [Row] -&gt; ResultSet)
 -&gt; Lens ResultSet ResultSet (Maybe [Row]) (Maybe [Row])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.ResultSet.html#ResultSet%27"><span class="hs-identifier hs-type">ResultSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218336"><span class="annot"><span class="annottext">Maybe [Row]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.ResultSet.html#ResultSet%27"><span class="hs-identifier hs-type">ResultSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218497"><span class="annot"><span class="annottext">Maybe [Row]
 rows :: Maybe [Row]
 $sel:rows:ResultSet' :: ResultSet -&gt; Maybe [Row]
-</span><a href="#local-6989586621679218336"><span class="hs-identifier hs-var hs-var">rows</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Row]
-</span><a href="#local-6989586621679218336"><span class="hs-identifier hs-var">rows</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679218335"><span class="annot"><span class="annottext">s :: ResultSet
-</span><a href="#local-6989586621679218335"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.ResultSet.html#ResultSet%27"><span class="hs-identifier hs-type">ResultSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679218334"><span class="annot"><span class="annottext">Maybe [Row]
-</span><a href="#local-6989586621679218334"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResultSet
-</span><a href="#local-6989586621679218335"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rows:ResultSet' :: Maybe [Row]
+</span><a href="#local-6989586621679218497"><span class="hs-identifier hs-var hs-var">rows</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Row]
+</span><a href="#local-6989586621679218497"><span class="hs-identifier hs-var">rows</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679218496"><span class="annot"><span class="annottext">s :: ResultSet
+</span><a href="#local-6989586621679218496"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.ResultSet.html#ResultSet%27"><span class="hs-identifier hs-type">ResultSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679218495"><span class="annot"><span class="annottext">Maybe [Row]
+</span><a href="#local-6989586621679218495"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResultSet
+</span><a href="#local-6989586621679218496"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rows:ResultSet' :: Maybe [Row]
 </span><a href="Network.AWS.Athena.Types.ResultSet.html#%24sel%3Arows%3AResultSet%27"><span class="hs-identifier hs-var">rows</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Row]
-</span><a href="#local-6989586621679218334"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ResultSet.html#ResultSet"><span class="hs-identifier hs-type">ResultSet</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Row] -&gt; f (Maybe [Row])) -&gt; ResultSet -&gt; f ResultSet)
+</span><a href="#local-6989586621679218495"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ResultSet.html#ResultSet"><span class="hs-identifier hs-type">ResultSet</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Row] -&gt; f (Maybe [Row])) -&gt; ResultSet -&gt; f ResultSet)
 -&gt; ((Maybe [Row] -&gt; f (Maybe [Row]))
     -&gt; Maybe [Row] -&gt; f (Maybe [Row]))
 -&gt; (Maybe [Row] -&gt; f (Maybe [Row]))
@@ -149,8 +149,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Row] [Row] [Row] [Row]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-65"></span><span>
 </span><span id="line-66"></span><span class="hs-comment">-- | The metadata that describes the column structure and data types of a</span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- table of query results.</span><span>
@@ -165,27 +165,27 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe ResultSetMetadata)
      (Maybe ResultSetMetadata)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.ResultSet.html#ResultSet%27"><span class="hs-identifier hs-type">ResultSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218329"><span class="annot"><span class="annottext">Maybe ResultSetMetadata
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.ResultSet.html#ResultSet%27"><span class="hs-identifier hs-type">ResultSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218490"><span class="annot"><span class="annottext">Maybe ResultSetMetadata
 resultSetMetadata :: Maybe ResultSetMetadata
 $sel:resultSetMetadata:ResultSet' :: ResultSet -&gt; Maybe ResultSetMetadata
-</span><a href="#local-6989586621679218329"><span class="hs-identifier hs-var hs-var">resultSetMetadata</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResultSetMetadata
-</span><a href="#local-6989586621679218329"><span class="hs-identifier hs-var">resultSetMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679218328"><span class="annot"><span class="annottext">s :: ResultSet
-</span><a href="#local-6989586621679218328"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.ResultSet.html#ResultSet%27"><span class="hs-identifier hs-type">ResultSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679218327"><span class="annot"><span class="annottext">Maybe ResultSetMetadata
-</span><a href="#local-6989586621679218327"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResultSet
-</span><a href="#local-6989586621679218328"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resultSetMetadata:ResultSet' :: Maybe ResultSetMetadata
+</span><a href="#local-6989586621679218490"><span class="hs-identifier hs-var hs-var">resultSetMetadata</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResultSetMetadata
+</span><a href="#local-6989586621679218490"><span class="hs-identifier hs-var">resultSetMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679218489"><span class="annot"><span class="annottext">s :: ResultSet
+</span><a href="#local-6989586621679218489"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.ResultSet.html#ResultSet%27"><span class="hs-identifier hs-type">ResultSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679218488"><span class="annot"><span class="annottext">Maybe ResultSetMetadata
+</span><a href="#local-6989586621679218488"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResultSet
+</span><a href="#local-6989586621679218489"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resultSetMetadata:ResultSet' :: Maybe ResultSetMetadata
 </span><a href="Network.AWS.Athena.Types.ResultSet.html#%24sel%3AresultSetMetadata%3AResultSet%27"><span class="hs-identifier hs-var">resultSetMetadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResultSetMetadata
-</span><a href="#local-6989586621679218327"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ResultSet.html#ResultSet"><span class="hs-identifier hs-type">ResultSet</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679218488"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ResultSet.html#ResultSet"><span class="hs-identifier hs-type">ResultSet</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679218324"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ResultSet.html#ResultSet"><span class="hs-identifier hs-type">ResultSet</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-72"></span><span>  </span><span id="local-6989586621679218322"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ResultSet
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679218485"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ResultSet.html#ResultSet"><span class="hs-identifier hs-type">ResultSet</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621679218483"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ResultSet
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-73"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser ResultSet) -&gt; Value -&gt; Parser ResultSet
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ResultSet&quot;</span></span><span>
-</span><span id="line-75"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679218319"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679218319"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679218480"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679218480"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-76"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Row] -&gt; Maybe ResultSetMetadata -&gt; ResultSet
 </span><a href="Network.AWS.Athena.Types.ResultSet.html#ResultSet%27"><span class="hs-identifier hs-var">ResultSet'</span></a></span><span>
 </span><span id="line-77"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Row] -&gt; Maybe ResultSetMetadata -&gt; ResultSet)
@@ -193,7 +193,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe ResultSetMetadata -&gt; ResultSet)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679218319"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Row]))
+</span><a href="#local-6989586621679218480"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Row]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Rows&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Row])) -&gt; Maybe [Row] -&gt; Parser (Maybe [Row])
@@ -205,13 +205,13 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe ResultSetMetadata) -&gt; Parser ResultSet
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679218319"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ResultSetMetadata)
+</span><a href="#local-6989586621679218480"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ResultSetMetadata)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ResultSetMetadata&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679218312"><span id="local-6989586621679218314"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ResultSet.html#ResultSet"><span class="hs-identifier hs-type">ResultSet</span></a></span></span></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679218473"><span id="local-6989586621679218475"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ResultSet.html#ResultSet"><span class="hs-identifier hs-type">ResultSet</span></a></span></span></span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679218309"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ResultSet.html#ResultSet"><span class="hs-identifier hs-type">ResultSet</span></a></span></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679218470"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ResultSet.html#ResultSet"><span class="hs-identifier hs-type">ResultSet</span></a></span></span><span>
 </span><span id="line-84"></span></pre></body></html>

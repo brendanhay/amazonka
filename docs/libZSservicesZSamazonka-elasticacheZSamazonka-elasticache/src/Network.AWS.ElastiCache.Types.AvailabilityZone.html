@@ -26,12 +26,12 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Describes an Availability Zone in which the cluster is launched.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newAvailabilityZone' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679397491"><span id="local-6989586621679397492"></span></span><span class="hs-keyword">data</span><span> </span><span id="AvailabilityZone"><span class="annot"><a href="Network.AWS.ElastiCache.Types.AvailabilityZone.html#AvailabilityZone"><span class="hs-identifier hs-var">AvailabilityZone</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AvailabilityZone%27"><span class="annot"><a href="Network.AWS.ElastiCache.Types.AvailabilityZone.html#AvailabilityZone%27"><span class="hs-identifier hs-var">AvailabilityZone'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679398006"><span id="local-6989586621679398007"></span></span><span class="hs-keyword">data</span><span> </span><span id="AvailabilityZone"><span class="annot"><a href="Network.AWS.ElastiCache.Types.AvailabilityZone.html#AvailabilityZone"><span class="hs-identifier hs-var">AvailabilityZone</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AvailabilityZone%27"><span class="annot"><a href="Network.AWS.ElastiCache.Types.AvailabilityZone.html#AvailabilityZone%27"><span class="hs-identifier hs-var">AvailabilityZone'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the Availability Zone.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3Aname%3AAvailabilityZone%27"><span class="annot"><span class="annottext">AvailabilityZone -&gt; Maybe Text
 </span><a href="Network.AWS.ElastiCache.Types.AvailabilityZone.html#%24sel%3Aname%3AAvailabilityZone%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679397485"><span id="local-6989586621679397487"><span class="annot"><span class="annottext">AvailabilityZone -&gt; AvailabilityZone -&gt; Bool
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679398000"><span id="local-6989586621679398002"><span class="annot"><span class="annottext">AvailabilityZone -&gt; AvailabilityZone -&gt; Bool
 (AvailabilityZone -&gt; AvailabilityZone -&gt; Bool)
 -&gt; (AvailabilityZone -&gt; AvailabilityZone -&gt; Bool)
 -&gt; Eq AvailabilityZone
@@ -40,7 +40,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AvailabilityZone -&gt; AvailabilityZone -&gt; Bool
 == :: AvailabilityZone -&gt; AvailabilityZone -&gt; Bool
 $c== :: AvailabilityZone -&gt; AvailabilityZone -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679397476"><span id="local-6989586621679397478"><span id="local-6989586621679397480"><span id="local-6989586621679397482"><span class="annot"><span class="annottext">ReadPrec [AvailabilityZone]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679397991"><span id="local-6989586621679397993"><span id="local-6989586621679397995"><span id="local-6989586621679397997"><span class="annot"><span class="annottext">ReadPrec [AvailabilityZone]
 ReadPrec AvailabilityZone
 Int -&gt; ReadS AvailabilityZone
 ReadS [AvailabilityZone]
@@ -60,7 +60,7 @@ readList :: ReadS [AvailabilityZone]
 $creadList :: ReadS [AvailabilityZone]
 readsPrec :: Int -&gt; ReadS AvailabilityZone
 $creadsPrec :: Int -&gt; ReadS AvailabilityZone
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679397469"><span id="local-6989586621679397471"><span id="local-6989586621679397473"><span class="annot"><span class="annottext">Int -&gt; AvailabilityZone -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679397984"><span id="local-6989586621679397986"><span id="local-6989586621679397988"><span class="annot"><span class="annottext">Int -&gt; AvailabilityZone -&gt; ShowS
 [AvailabilityZone] -&gt; ShowS
 AvailabilityZone -&gt; String
 (Int -&gt; AvailabilityZone -&gt; ShowS)
@@ -113,32 +113,32 @@ forall a. Maybe a
 -&gt; (AvailabilityZone -&gt; Maybe Text -&gt; AvailabilityZone)
 -&gt; Lens AvailabilityZone AvailabilityZone (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.AvailabilityZone.html#AvailabilityZone%27"><span class="hs-identifier hs-type">AvailabilityZone'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397460"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.AvailabilityZone.html#AvailabilityZone%27"><span class="hs-identifier hs-type">AvailabilityZone'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397975"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 $sel:name:AvailabilityZone' :: AvailabilityZone -&gt; Maybe Text
-</span><a href="#local-6989586621679397460"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679397460"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397459"><span class="annot"><span class="annottext">s :: AvailabilityZone
-</span><a href="#local-6989586621679397459"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.AvailabilityZone.html#AvailabilityZone%27"><span class="hs-identifier hs-type">AvailabilityZone'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397458"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679397458"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AvailabilityZone
-</span><a href="#local-6989586621679397459"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:AvailabilityZone' :: Maybe Text
+</span><a href="#local-6989586621679397975"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679397975"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397974"><span class="annot"><span class="annottext">s :: AvailabilityZone
+</span><a href="#local-6989586621679397974"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.AvailabilityZone.html#AvailabilityZone%27"><span class="hs-identifier hs-type">AvailabilityZone'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397973"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679397973"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AvailabilityZone
+</span><a href="#local-6989586621679397974"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:AvailabilityZone' :: Maybe Text
 </span><a href="Network.AWS.ElastiCache.Types.AvailabilityZone.html#%24sel%3Aname%3AAvailabilityZone%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679397458"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.AvailabilityZone.html#AvailabilityZone"><span class="hs-identifier hs-type">AvailabilityZone</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679397973"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.AvailabilityZone.html#AvailabilityZone"><span class="hs-identifier hs-type">AvailabilityZone</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-52"></span><span>
 </span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.AvailabilityZone.html#AvailabilityZone"><span class="hs-identifier hs-type">AvailabilityZone</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-54"></span><span>  </span><span id="local-6989586621679397455"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String AvailabilityZone
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679397453"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679397453"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-54"></span><span>  </span><span id="local-6989586621679397970"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String AvailabilityZone
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679397968"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679397968"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; AvailabilityZone
 </span><a href="Network.AWS.ElastiCache.Types.AvailabilityZone.html#AvailabilityZone%27"><span class="hs-identifier hs-var">AvailabilityZone'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; AvailabilityZone)
 -&gt; Either String (Maybe Text) -&gt; Either String AvailabilityZone
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679397453"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679397968"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-56"></span><span>
-</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397447"><span id="local-6989586621679397449"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.AvailabilityZone.html#AvailabilityZone"><span class="hs-identifier hs-type">AvailabilityZone</span></a></span></span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397962"><span id="local-6989586621679397964"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.AvailabilityZone.html#AvailabilityZone"><span class="hs-identifier hs-type">AvailabilityZone</span></a></span></span></span><span>
 </span><span id="line-58"></span><span>
-</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397444"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.AvailabilityZone.html#AvailabilityZone"><span class="hs-identifier hs-type">AvailabilityZone</span></a></span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397959"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.AvailabilityZone.html#AvailabilityZone"><span class="hs-identifier hs-type">AvailabilityZone</span></a></span></span><span>
 </span><span id="line-60"></span></pre></body></html>

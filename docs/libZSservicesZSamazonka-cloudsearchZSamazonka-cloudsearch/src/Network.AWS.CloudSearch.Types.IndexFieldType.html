@@ -42,13 +42,13 @@
 </span><span id="line-42"></span><span class="hs-comment">-- type. For more information about the supported field types, see</span><span>
 </span><span id="line-43"></span><span class="hs-comment">-- &lt;http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-index-fields.html Configuring Index Fields&gt;</span><span>
 </span><span id="line-44"></span><span class="hs-comment">-- in the /Amazon CloudSearch Developer Guide/.</span><span>
-</span><span id="line-45"></span><span id="local-6989586621679207539"><span id="local-6989586621679207540"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="IndexFieldType"><span class="annot"><a href="Network.AWS.CloudSearch.Types.IndexFieldType.html#IndexFieldType"><span class="hs-identifier hs-var">IndexFieldType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IndexFieldType%27"><span class="annot"><a href="Network.AWS.CloudSearch.Types.IndexFieldType.html#IndexFieldType%27"><span class="hs-identifier hs-var">IndexFieldType'</span></a></span></span><span>
+</span><span id="line-45"></span><span id="local-6989586621679207592"><span id="local-6989586621679207593"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="IndexFieldType"><span class="annot"><a href="Network.AWS.CloudSearch.Types.IndexFieldType.html#IndexFieldType"><span class="hs-identifier hs-var">IndexFieldType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IndexFieldType%27"><span class="annot"><a href="Network.AWS.CloudSearch.Types.IndexFieldType.html#IndexFieldType%27"><span class="hs-identifier hs-var">IndexFieldType'</span></a></span></span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromIndexFieldType"><span class="annot"><span class="annottext">IndexFieldType -&gt; Text
 </span><a href="Network.AWS.CloudSearch.Types.IndexFieldType.html#fromIndexFieldType"><span class="hs-identifier hs-var hs-var">fromIndexFieldType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-47"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679207531"><span id="local-6989586621679207533"><span id="local-6989586621679207535"><span class="annot"><span class="annottext">Int -&gt; IndexFieldType -&gt; ShowS
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679207584"><span id="local-6989586621679207586"><span id="local-6989586621679207588"><span class="annot"><span class="annottext">Int -&gt; IndexFieldType -&gt; ShowS
 [IndexFieldType] -&gt; ShowS
 IndexFieldType -&gt; String
 (Int -&gt; IndexFieldType -&gt; ShowS)
@@ -64,7 +64,7 @@ $cshow :: IndexFieldType -&gt; String
 showsPrec :: Int -&gt; IndexFieldType -&gt; ShowS
 $cshowsPrec :: Int -&gt; IndexFieldType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679207522"><span id="local-6989586621679207524"><span id="local-6989586621679207526"><span id="local-6989586621679207528"><span class="annot"><span class="annottext">ReadPrec [IndexFieldType]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679207575"><span id="local-6989586621679207577"><span id="local-6989586621679207579"><span id="local-6989586621679207581"><span class="annot"><span class="annottext">ReadPrec [IndexFieldType]
 ReadPrec IndexFieldType
 Int -&gt; ReadS IndexFieldType
 ReadS [IndexFieldType]
@@ -85,7 +85,7 @@ $creadList :: ReadS [IndexFieldType]
 readsPrec :: Int -&gt; ReadS IndexFieldType
 $creadsPrec :: Int -&gt; ReadS IndexFieldType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679207517"><span id="local-6989586621679207519"><span class="annot"><span class="annottext">IndexFieldType -&gt; IndexFieldType -&gt; Bool
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679207570"><span id="local-6989586621679207572"><span class="annot"><span class="annottext">IndexFieldType -&gt; IndexFieldType -&gt; Bool
 (IndexFieldType -&gt; IndexFieldType -&gt; Bool)
 -&gt; (IndexFieldType -&gt; IndexFieldType -&gt; Bool) -&gt; Eq IndexFieldType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -94,7 +94,7 @@ $c/= :: IndexFieldType -&gt; IndexFieldType -&gt; Bool
 == :: IndexFieldType -&gt; IndexFieldType -&gt; Bool
 $c== :: IndexFieldType -&gt; IndexFieldType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679207501"><span id="local-6989586621679207503"><span id="local-6989586621679207505"><span id="local-6989586621679207507"><span id="local-6989586621679207509"><span id="local-6989586621679207511"><span id="local-6989586621679207513"><span class="annot"><span class="annottext">Eq IndexFieldType
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679207554"><span id="local-6989586621679207556"><span id="local-6989586621679207558"><span id="local-6989586621679207560"><span id="local-6989586621679207562"><span id="local-6989586621679207564"><span id="local-6989586621679207566"><span class="annot"><span class="annottext">Eq IndexFieldType
 Eq IndexFieldType
 -&gt; (IndexFieldType -&gt; IndexFieldType -&gt; Ordering)
 -&gt; (IndexFieldType -&gt; IndexFieldType -&gt; Bool)
@@ -145,7 +145,7 @@ $cfrom :: forall x. IndexFieldType -&gt; Rep IndexFieldType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679207493"><span id="local-6989586621679207495"><span class="annot"><span class="annottext">Int -&gt; IndexFieldType -&gt; Int
+</span><span id="line-57"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679207546"><span id="local-6989586621679207548"><span class="annot"><span class="annottext">Int -&gt; IndexFieldType -&gt; Int
 IndexFieldType -&gt; Int
 (Int -&gt; IndexFieldType -&gt; Int)
 -&gt; (IndexFieldType -&gt; Int) -&gt; Hashable IndexFieldType
@@ -155,50 +155,50 @@ $chash :: IndexFieldType -&gt; Int
 hashWithSalt :: Int -&gt; IndexFieldType -&gt; Int
 $chashWithSalt :: Int -&gt; IndexFieldType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679207490"><span class="annot"><span class="annottext">IndexFieldType -&gt; ()
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679207543"><span class="annot"><span class="annottext">IndexFieldType -&gt; ()
 (IndexFieldType -&gt; ()) -&gt; NFData IndexFieldType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: IndexFieldType -&gt; ()
 $crnf :: IndexFieldType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679207487"><span class="annot"><span class="annottext">Text -&gt; Either String IndexFieldType
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679207540"><span class="annot"><span class="annottext">Text -&gt; Either String IndexFieldType
 (Text -&gt; Either String IndexFieldType) -&gt; FromText IndexFieldType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String IndexFieldType
 $cfromText :: Text -&gt; Either String IndexFieldType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679207484"><span class="annot"><span class="annottext">IndexFieldType -&gt; Text
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679207537"><span class="annot"><span class="annottext">IndexFieldType -&gt; Text
 (IndexFieldType -&gt; Text) -&gt; ToText IndexFieldType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: IndexFieldType -&gt; Text
 $ctoText :: IndexFieldType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679207481"><span class="annot"><span class="annottext">IndexFieldType -&gt; ByteString
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679207534"><span class="annot"><span class="annottext">IndexFieldType -&gt; ByteString
 (IndexFieldType -&gt; ByteString) -&gt; ToByteString IndexFieldType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: IndexFieldType -&gt; ByteString
 $ctoBS :: IndexFieldType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679207478"><span class="annot"><span class="annottext">IndexFieldType -&gt; ByteStringBuilder
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679207531"><span class="annot"><span class="annottext">IndexFieldType -&gt; ByteStringBuilder
 (IndexFieldType -&gt; ByteStringBuilder) -&gt; ToLog IndexFieldType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: IndexFieldType -&gt; ByteStringBuilder
 $cbuild :: IndexFieldType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679207475"><span class="annot"><span class="annottext">HeaderName -&gt; IndexFieldType -&gt; [Header]
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679207528"><span class="annot"><span class="annottext">HeaderName -&gt; IndexFieldType -&gt; [Header]
 (HeaderName -&gt; IndexFieldType -&gt; [Header])
 -&gt; ToHeader IndexFieldType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; IndexFieldType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; IndexFieldType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679207472"><span class="annot"><span class="annottext">IndexFieldType -&gt; QueryString
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679207525"><span class="annot"><span class="annottext">IndexFieldType -&gt; QueryString
 (IndexFieldType -&gt; QueryString) -&gt; ToQuery IndexFieldType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: IndexFieldType -&gt; QueryString
 $ctoQuery :: IndexFieldType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679207467"><span id="local-6989586621679207469"><span class="annot"><span class="annottext">Value -&gt; Parser [IndexFieldType]
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679207520"><span id="local-6989586621679207522"><span class="annot"><span class="annottext">Value -&gt; Parser [IndexFieldType]
 Value -&gt; Parser IndexFieldType
 (Value -&gt; Parser IndexFieldType)
 -&gt; (Value -&gt; Parser [IndexFieldType]) -&gt; FromJSON IndexFieldType
@@ -209,7 +209,7 @@ $cparseJSONList :: Value -&gt; Parser [IndexFieldType]
 parseJSON :: Value -&gt; Parser IndexFieldType
 $cparseJSON :: Value -&gt; Parser IndexFieldType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679207462"><span id="local-6989586621679207464"><span class="annot"><span class="annottext">FromJSONKeyFunction [IndexFieldType]
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679207515"><span id="local-6989586621679207517"><span class="annot"><span class="annottext">FromJSONKeyFunction [IndexFieldType]
 FromJSONKeyFunction IndexFieldType
 FromJSONKeyFunction IndexFieldType
 -&gt; FromJSONKeyFunction [IndexFieldType]
@@ -221,7 +221,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [IndexFieldType]
 fromJSONKey :: FromJSONKeyFunction IndexFieldType
 $cfromJSONKey :: FromJSONKeyFunction IndexFieldType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621679207453"><span id="local-6989586621679207455"><span id="local-6989586621679207457"><span id="local-6989586621679207459"><span class="annot"><span class="annottext">[IndexFieldType] -&gt; Encoding
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679207506"><span id="local-6989586621679207508"><span id="local-6989586621679207510"><span id="local-6989586621679207512"><span class="annot"><span class="annottext">[IndexFieldType] -&gt; Encoding
 [IndexFieldType] -&gt; Value
 IndexFieldType -&gt; Encoding
 IndexFieldType -&gt; Value
@@ -245,7 +245,7 @@ $ctoEncoding :: IndexFieldType -&gt; Encoding
 toJSON :: IndexFieldType -&gt; Value
 $ctoJSON :: IndexFieldType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span id="local-6989586621679207448"><span id="local-6989586621679207450"><span class="annot"><span class="annottext">ToJSONKeyFunction [IndexFieldType]
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679207501"><span id="local-6989586621679207503"><span class="annot"><span class="annottext">ToJSONKeyFunction [IndexFieldType]
 ToJSONKeyFunction IndexFieldType
 ToJSONKeyFunction IndexFieldType
 -&gt; ToJSONKeyFunction [IndexFieldType] -&gt; ToJSONKey IndexFieldType
@@ -256,13 +256,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [IndexFieldType]
 toJSONKey :: ToJSONKeyFunction IndexFieldType
 $ctoJSONKey :: ToJSONKeyFunction IndexFieldType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span id="local-6989586621679207445"><span class="annot"><span class="annottext">[Node] -&gt; Either String IndexFieldType
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679207498"><span class="annot"><span class="annottext">[Node] -&gt; Either String IndexFieldType
 ([Node] -&gt; Either String IndexFieldType) -&gt; FromXML IndexFieldType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String IndexFieldType
 $cparseXML :: [Node] -&gt; Either String IndexFieldType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span id="local-6989586621679207442"><span class="annot"><span class="annottext">IndexFieldType -&gt; XML
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679207495"><span class="annot"><span class="annottext">IndexFieldType -&gt; XML
 (IndexFieldType -&gt; XML) -&gt; ToXML IndexFieldType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: IndexFieldType -&gt; XML

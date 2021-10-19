@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-34"></span><span>
-</span><span id="line-35"></span><span id="local-6989586621681071541"><span id="local-6989586621681071542"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ExportTaskState"><span class="annot"><a href="Network.AWS.EC2.Types.ExportTaskState.html#ExportTaskState"><span class="hs-identifier hs-var">ExportTaskState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExportTaskState%27"><span class="annot"><a href="Network.AWS.EC2.Types.ExportTaskState.html#ExportTaskState%27"><span class="hs-identifier hs-var">ExportTaskState'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621681105476"><span id="local-6989586621681105477"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ExportTaskState"><span class="annot"><a href="Network.AWS.EC2.Types.ExportTaskState.html#ExportTaskState"><span class="hs-identifier hs-var">ExportTaskState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExportTaskState%27"><span class="annot"><a href="Network.AWS.EC2.Types.ExportTaskState.html#ExportTaskState%27"><span class="hs-identifier hs-var">ExportTaskState'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromExportTaskState"><span class="annot"><span class="annottext">ExportTaskState -&gt; Text
 </span><a href="Network.AWS.EC2.Types.ExportTaskState.html#fromExportTaskState"><span class="hs-identifier hs-var hs-var">fromExportTaskState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681071533"><span id="local-6989586621681071535"><span id="local-6989586621681071537"><span class="annot"><span class="annottext">Int -&gt; ExportTaskState -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681105468"><span id="local-6989586621681105470"><span id="local-6989586621681105472"><span class="annot"><span class="annottext">Int -&gt; ExportTaskState -&gt; ShowS
 [ExportTaskState] -&gt; ShowS
 ExportTaskState -&gt; String
 (Int -&gt; ExportTaskState -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: ExportTaskState -&gt; String
 showsPrec :: Int -&gt; ExportTaskState -&gt; ShowS
 $cshowsPrec :: Int -&gt; ExportTaskState -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621681071524"><span id="local-6989586621681071526"><span id="local-6989586621681071528"><span id="local-6989586621681071530"><span class="annot"><span class="annottext">ReadPrec [ExportTaskState]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681105459"><span id="local-6989586621681105461"><span id="local-6989586621681105463"><span id="local-6989586621681105465"><span class="annot"><span class="annottext">ReadPrec [ExportTaskState]
 ReadPrec ExportTaskState
 Int -&gt; ReadS ExportTaskState
 ReadS [ExportTaskState]
@@ -75,7 +75,7 @@ $creadList :: ReadS [ExportTaskState]
 readsPrec :: Int -&gt; ReadS ExportTaskState
 $creadsPrec :: Int -&gt; ReadS ExportTaskState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621681071519"><span id="local-6989586621681071521"><span class="annot"><span class="annottext">ExportTaskState -&gt; ExportTaskState -&gt; Bool
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621681105454"><span id="local-6989586621681105456"><span class="annot"><span class="annottext">ExportTaskState -&gt; ExportTaskState -&gt; Bool
 (ExportTaskState -&gt; ExportTaskState -&gt; Bool)
 -&gt; (ExportTaskState -&gt; ExportTaskState -&gt; Bool)
 -&gt; Eq ExportTaskState
@@ -85,7 +85,7 @@ $c/= :: ExportTaskState -&gt; ExportTaskState -&gt; Bool
 == :: ExportTaskState -&gt; ExportTaskState -&gt; Bool
 $c== :: ExportTaskState -&gt; ExportTaskState -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621681071503"><span id="local-6989586621681071505"><span id="local-6989586621681071507"><span id="local-6989586621681071509"><span id="local-6989586621681071511"><span id="local-6989586621681071513"><span id="local-6989586621681071515"><span class="annot"><span class="annottext">Eq ExportTaskState
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621681105438"><span id="local-6989586621681105440"><span id="local-6989586621681105442"><span id="local-6989586621681105444"><span id="local-6989586621681105446"><span id="local-6989586621681105448"><span id="local-6989586621681105450"><span class="annot"><span class="annottext">Eq ExportTaskState
 Eq ExportTaskState
 -&gt; (ExportTaskState -&gt; ExportTaskState -&gt; Ordering)
 -&gt; (ExportTaskState -&gt; ExportTaskState -&gt; Bool)
@@ -136,7 +136,7 @@ $cfrom :: forall x. ExportTaskState -&gt; Rep ExportTaskState x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681071495"><span id="local-6989586621681071497"><span class="annot"><span class="annottext">Int -&gt; ExportTaskState -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681105430"><span id="local-6989586621681105432"><span class="annot"><span class="annottext">Int -&gt; ExportTaskState -&gt; Int
 ExportTaskState -&gt; Int
 (Int -&gt; ExportTaskState -&gt; Int)
 -&gt; (ExportTaskState -&gt; Int) -&gt; Hashable ExportTaskState
@@ -146,50 +146,50 @@ $chash :: ExportTaskState -&gt; Int
 hashWithSalt :: Int -&gt; ExportTaskState -&gt; Int
 $chashWithSalt :: Int -&gt; ExportTaskState -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621681071492"><span class="annot"><span class="annottext">ExportTaskState -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681105427"><span class="annot"><span class="annottext">ExportTaskState -&gt; ()
 (ExportTaskState -&gt; ()) -&gt; NFData ExportTaskState
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ExportTaskState -&gt; ()
 $crnf :: ExportTaskState -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681071489"><span class="annot"><span class="annottext">Text -&gt; Either String ExportTaskState
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681105424"><span class="annot"><span class="annottext">Text -&gt; Either String ExportTaskState
 (Text -&gt; Either String ExportTaskState) -&gt; FromText ExportTaskState
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ExportTaskState
 $cfromText :: Text -&gt; Either String ExportTaskState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681071486"><span class="annot"><span class="annottext">ExportTaskState -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681105421"><span class="annot"><span class="annottext">ExportTaskState -&gt; Text
 (ExportTaskState -&gt; Text) -&gt; ToText ExportTaskState
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ExportTaskState -&gt; Text
 $ctoText :: ExportTaskState -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681071483"><span class="annot"><span class="annottext">ExportTaskState -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681105418"><span class="annot"><span class="annottext">ExportTaskState -&gt; ByteString
 (ExportTaskState -&gt; ByteString) -&gt; ToByteString ExportTaskState
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ExportTaskState -&gt; ByteString
 $ctoBS :: ExportTaskState -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681071480"><span class="annot"><span class="annottext">ExportTaskState -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681105415"><span class="annot"><span class="annottext">ExportTaskState -&gt; ByteStringBuilder
 (ExportTaskState -&gt; ByteStringBuilder) -&gt; ToLog ExportTaskState
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ExportTaskState -&gt; ByteStringBuilder
 $cbuild :: ExportTaskState -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681071477"><span class="annot"><span class="annottext">HeaderName -&gt; ExportTaskState -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681105412"><span class="annot"><span class="annottext">HeaderName -&gt; ExportTaskState -&gt; [Header]
 (HeaderName -&gt; ExportTaskState -&gt; [Header])
 -&gt; ToHeader ExportTaskState
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ExportTaskState -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ExportTaskState -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681071474"><span class="annot"><span class="annottext">ExportTaskState -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681105409"><span class="annot"><span class="annottext">ExportTaskState -&gt; QueryString
 (ExportTaskState -&gt; QueryString) -&gt; ToQuery ExportTaskState
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ExportTaskState -&gt; QueryString
 $ctoQuery :: ExportTaskState -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681071469"><span id="local-6989586621681071471"><span class="annot"><span class="annottext">Value -&gt; Parser [ExportTaskState]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681105404"><span id="local-6989586621681105406"><span class="annot"><span class="annottext">Value -&gt; Parser [ExportTaskState]
 Value -&gt; Parser ExportTaskState
 (Value -&gt; Parser ExportTaskState)
 -&gt; (Value -&gt; Parser [ExportTaskState]) -&gt; FromJSON ExportTaskState
@@ -200,7 +200,7 @@ $cparseJSONList :: Value -&gt; Parser [ExportTaskState]
 parseJSON :: Value -&gt; Parser ExportTaskState
 $cparseJSON :: Value -&gt; Parser ExportTaskState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681071464"><span id="local-6989586621681071466"><span class="annot"><span class="annottext">FromJSONKeyFunction [ExportTaskState]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681105399"><span id="local-6989586621681105401"><span class="annot"><span class="annottext">FromJSONKeyFunction [ExportTaskState]
 FromJSONKeyFunction ExportTaskState
 FromJSONKeyFunction ExportTaskState
 -&gt; FromJSONKeyFunction [ExportTaskState]
@@ -212,7 +212,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ExportTaskState]
 fromJSONKey :: FromJSONKeyFunction ExportTaskState
 $cfromJSONKey :: FromJSONKeyFunction ExportTaskState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681071455"><span id="local-6989586621681071457"><span id="local-6989586621681071459"><span id="local-6989586621681071461"><span class="annot"><span class="annottext">[ExportTaskState] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681105390"><span id="local-6989586621681105392"><span id="local-6989586621681105394"><span id="local-6989586621681105396"><span class="annot"><span class="annottext">[ExportTaskState] -&gt; Encoding
 [ExportTaskState] -&gt; Value
 ExportTaskState -&gt; Encoding
 ExportTaskState -&gt; Value
@@ -236,7 +236,7 @@ $ctoEncoding :: ExportTaskState -&gt; Encoding
 toJSON :: ExportTaskState -&gt; Value
 $ctoJSON :: ExportTaskState -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621681071450"><span id="local-6989586621681071452"><span class="annot"><span class="annottext">ToJSONKeyFunction [ExportTaskState]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681105385"><span id="local-6989586621681105387"><span class="annot"><span class="annottext">ToJSONKeyFunction [ExportTaskState]
 ToJSONKeyFunction ExportTaskState
 ToJSONKeyFunction ExportTaskState
 -&gt; ToJSONKeyFunction [ExportTaskState] -&gt; ToJSONKey ExportTaskState
@@ -247,14 +247,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ExportTaskState]
 toJSONKey :: ToJSONKeyFunction ExportTaskState
 $ctoJSONKey :: ToJSONKeyFunction ExportTaskState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621681071447"><span class="annot"><span class="annottext">[Node] -&gt; Either String ExportTaskState
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621681105382"><span class="annot"><span class="annottext">[Node] -&gt; Either String ExportTaskState
 ([Node] -&gt; Either String ExportTaskState)
 -&gt; FromXML ExportTaskState
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ExportTaskState
 $cparseXML :: [Node] -&gt; Either String ExportTaskState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621681071444"><span class="annot"><span class="annottext">ExportTaskState -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621681105379"><span class="annot"><span class="annottext">ExportTaskState -&gt; XML
 (ExportTaskState -&gt; XML) -&gt; ToXML ExportTaskState
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ExportTaskState -&gt; XML

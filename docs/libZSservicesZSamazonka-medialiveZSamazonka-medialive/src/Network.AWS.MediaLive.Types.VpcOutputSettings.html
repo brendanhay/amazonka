@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- the output egress addresses will be created in a user specified VPC</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newVpcOutputSettings' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679923969"><span id="local-6989586621679923970"></span></span><span class="hs-keyword">data</span><span> </span><span id="VpcOutputSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.VpcOutputSettings.html#VpcOutputSettings"><span class="hs-identifier hs-var">VpcOutputSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VpcOutputSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.VpcOutputSettings.html#VpcOutputSettings%27"><span class="hs-identifier hs-var">VpcOutputSettings'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679931485"><span id="local-6989586621679931486"></span></span><span class="hs-keyword">data</span><span> </span><span id="VpcOutputSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.VpcOutputSettings.html#VpcOutputSettings"><span class="hs-identifier hs-var">VpcOutputSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VpcOutputSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.VpcOutputSettings.html#VpcOutputSettings%27"><span class="hs-identifier hs-var">VpcOutputSettings'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of up to 5 EC2 VPC security group IDs to attach to the Output VPC</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- network interfaces. If none are specified then the VPC default security</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- group will be used</span><span>
@@ -43,7 +43,7 @@
 </span><span id="line-41"></span><span>    </span><span id="%24sel%3AsubnetIds%3AVpcOutputSettings%27"><span class="annot"><span class="annottext">VpcOutputSettings -&gt; [Text]
 </span><a href="Network.AWS.MediaLive.Types.VpcOutputSettings.html#%24sel%3AsubnetIds%3AVpcOutputSettings%27"><span class="hs-identifier hs-var hs-var">subnetIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679923961"><span id="local-6989586621679923963"><span class="annot"><span class="annottext">VpcOutputSettings -&gt; VpcOutputSettings -&gt; Bool
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679931477"><span id="local-6989586621679931479"><span class="annot"><span class="annottext">VpcOutputSettings -&gt; VpcOutputSettings -&gt; Bool
 (VpcOutputSettings -&gt; VpcOutputSettings -&gt; Bool)
 -&gt; (VpcOutputSettings -&gt; VpcOutputSettings -&gt; Bool)
 -&gt; Eq VpcOutputSettings
@@ -52,7 +52,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: VpcOutputSettings -&gt; VpcOutputSettings -&gt; Bool
 == :: VpcOutputSettings -&gt; VpcOutputSettings -&gt; Bool
 $c== :: VpcOutputSettings -&gt; VpcOutputSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679923952"><span id="local-6989586621679923954"><span id="local-6989586621679923956"><span id="local-6989586621679923958"><span class="annot"><span class="annottext">ReadPrec [VpcOutputSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679931468"><span id="local-6989586621679931470"><span id="local-6989586621679931472"><span id="local-6989586621679931474"><span class="annot"><span class="annottext">ReadPrec [VpcOutputSettings]
 ReadPrec VpcOutputSettings
 Int -&gt; ReadS VpcOutputSettings
 ReadS [VpcOutputSettings]
@@ -72,7 +72,7 @@ readList :: ReadS [VpcOutputSettings]
 $creadList :: ReadS [VpcOutputSettings]
 readsPrec :: Int -&gt; ReadS VpcOutputSettings
 $creadsPrec :: Int -&gt; ReadS VpcOutputSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679923945"><span id="local-6989586621679923947"><span id="local-6989586621679923949"><span class="annot"><span class="annottext">Int -&gt; VpcOutputSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679931461"><span id="local-6989586621679931463"><span id="local-6989586621679931465"><span class="annot"><span class="annottext">Int -&gt; VpcOutputSettings -&gt; ShowS
 [VpcOutputSettings] -&gt; ShowS
 VpcOutputSettings -&gt; String
 (Int -&gt; VpcOutputSettings -&gt; ShowS)
@@ -148,16 +148,16 @@ forall a. Monoid a =&gt; a
 -&gt; Lens
      VpcOutputSettings VpcOutputSettings (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.VpcOutputSettings.html#VpcOutputSettings%27"><span class="hs-identifier hs-type">VpcOutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679923936"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.VpcOutputSettings.html#VpcOutputSettings%27"><span class="hs-identifier hs-type">VpcOutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679931452"><span class="annot"><span class="annottext">Maybe [Text]
 securityGroupIds :: Maybe [Text]
 $sel:securityGroupIds:VpcOutputSettings' :: VpcOutputSettings -&gt; Maybe [Text]
-</span><a href="#local-6989586621679923936"><span class="hs-identifier hs-var hs-var">securityGroupIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679923936"><span class="hs-identifier hs-var">securityGroupIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679923935"><span class="annot"><span class="annottext">s :: VpcOutputSettings
-</span><a href="#local-6989586621679923935"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.VpcOutputSettings.html#VpcOutputSettings%27"><span class="hs-identifier hs-type">VpcOutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679923934"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679923934"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpcOutputSettings
-</span><a href="#local-6989586621679923935"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:securityGroupIds:VpcOutputSettings' :: Maybe [Text]
+</span><a href="#local-6989586621679931452"><span class="hs-identifier hs-var hs-var">securityGroupIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679931452"><span class="hs-identifier hs-var">securityGroupIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679931451"><span class="annot"><span class="annottext">s :: VpcOutputSettings
+</span><a href="#local-6989586621679931451"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.VpcOutputSettings.html#VpcOutputSettings%27"><span class="hs-identifier hs-type">VpcOutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679931450"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679931450"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpcOutputSettings
+</span><a href="#local-6989586621679931451"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:securityGroupIds:VpcOutputSettings' :: Maybe [Text]
 </span><a href="Network.AWS.MediaLive.Types.VpcOutputSettings.html#%24sel%3AsecurityGroupIds%3AVpcOutputSettings%27"><span class="hs-identifier hs-var">securityGroupIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679923934"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VpcOutputSettings.html#VpcOutputSettings"><span class="hs-identifier hs-type">VpcOutputSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679931450"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VpcOutputSettings.html#VpcOutputSettings"><span class="hs-identifier hs-type">VpcOutputSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; VpcOutputSettings -&gt; f VpcOutputSettings)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -171,8 +171,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-78"></span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- | List of public address allocation ids to associate with ENIs that will</span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- be created in Output VPC. Must specify one for SINGLE_PIPELINE, two for</span><span>
@@ -185,16 +185,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; Lens
      VpcOutputSettings VpcOutputSettings (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.VpcOutputSettings.html#VpcOutputSettings%27"><span class="hs-identifier hs-type">VpcOutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679923929"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.VpcOutputSettings.html#VpcOutputSettings%27"><span class="hs-identifier hs-type">VpcOutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679931445"><span class="annot"><span class="annottext">Maybe [Text]
 publicAddressAllocationIds :: Maybe [Text]
 $sel:publicAddressAllocationIds:VpcOutputSettings' :: VpcOutputSettings -&gt; Maybe [Text]
-</span><a href="#local-6989586621679923929"><span class="hs-identifier hs-var hs-var">publicAddressAllocationIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679923929"><span class="hs-identifier hs-var">publicAddressAllocationIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679923928"><span class="annot"><span class="annottext">s :: VpcOutputSettings
-</span><a href="#local-6989586621679923928"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.VpcOutputSettings.html#VpcOutputSettings%27"><span class="hs-identifier hs-type">VpcOutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679923927"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679923927"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpcOutputSettings
-</span><a href="#local-6989586621679923928"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:publicAddressAllocationIds:VpcOutputSettings' :: Maybe [Text]
+</span><a href="#local-6989586621679931445"><span class="hs-identifier hs-var hs-var">publicAddressAllocationIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679931445"><span class="hs-identifier hs-var">publicAddressAllocationIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679931444"><span class="annot"><span class="annottext">s :: VpcOutputSettings
+</span><a href="#local-6989586621679931444"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.VpcOutputSettings.html#VpcOutputSettings%27"><span class="hs-identifier hs-type">VpcOutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679931443"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679931443"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpcOutputSettings
+</span><a href="#local-6989586621679931444"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:publicAddressAllocationIds:VpcOutputSettings' :: Maybe [Text]
 </span><a href="Network.AWS.MediaLive.Types.VpcOutputSettings.html#%24sel%3ApublicAddressAllocationIds%3AVpcOutputSettings%27"><span class="hs-identifier hs-var">publicAddressAllocationIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679923927"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VpcOutputSettings.html#VpcOutputSettings"><span class="hs-identifier hs-type">VpcOutputSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679931443"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VpcOutputSettings.html#VpcOutputSettings"><span class="hs-identifier hs-type">VpcOutputSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; VpcOutputSettings -&gt; f VpcOutputSettings)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -208,8 +208,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- | A list of VPC subnet IDs from the same VPC. If STANDARD channel, subnet</span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- IDs must be mapped to two unique availability zones (AZ).</span><span>
@@ -219,32 +219,32 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (VpcOutputSettings -&gt; [Text] -&gt; VpcOutputSettings)
 -&gt; Lens VpcOutputSettings VpcOutputSettings [Text] [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.VpcOutputSettings.html#VpcOutputSettings%27"><span class="hs-identifier hs-type">VpcOutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679923925"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.VpcOutputSettings.html#VpcOutputSettings%27"><span class="hs-identifier hs-type">VpcOutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679931441"><span class="annot"><span class="annottext">[Text]
 subnetIds :: [Text]
 $sel:subnetIds:VpcOutputSettings' :: VpcOutputSettings -&gt; [Text]
-</span><a href="#local-6989586621679923925"><span class="hs-identifier hs-var hs-var">subnetIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679923925"><span class="hs-identifier hs-var">subnetIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679923924"><span class="annot"><span class="annottext">s :: VpcOutputSettings
-</span><a href="#local-6989586621679923924"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.VpcOutputSettings.html#VpcOutputSettings%27"><span class="hs-identifier hs-type">VpcOutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679923923"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679923923"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpcOutputSettings
-</span><a href="#local-6989586621679923924"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnetIds:VpcOutputSettings' :: [Text]
+</span><a href="#local-6989586621679931441"><span class="hs-identifier hs-var hs-var">subnetIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679931441"><span class="hs-identifier hs-var">subnetIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679931440"><span class="annot"><span class="annottext">s :: VpcOutputSettings
+</span><a href="#local-6989586621679931440"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.VpcOutputSettings.html#VpcOutputSettings%27"><span class="hs-identifier hs-type">VpcOutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679931439"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679931439"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpcOutputSettings
+</span><a href="#local-6989586621679931440"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnetIds:VpcOutputSettings' :: [Text]
 </span><a href="Network.AWS.MediaLive.Types.VpcOutputSettings.html#%24sel%3AsubnetIds%3AVpcOutputSettings%27"><span class="hs-identifier hs-var">subnetIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679923923"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VpcOutputSettings.html#VpcOutputSettings"><span class="hs-identifier hs-type">VpcOutputSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; VpcOutputSettings -&gt; f VpcOutputSettings)
+</span><a href="#local-6989586621679931439"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VpcOutputSettings.html#VpcOutputSettings"><span class="hs-identifier hs-type">VpcOutputSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; VpcOutputSettings -&gt; f VpcOutputSettings)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
 -&gt; VpcOutputSettings
 -&gt; f VpcOutputSettings
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679923919"><span id="local-6989586621679923921"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VpcOutputSettings.html#VpcOutputSettings"><span class="hs-identifier hs-type">VpcOutputSettings</span></a></span></span></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679931435"><span id="local-6989586621679931437"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VpcOutputSettings.html#VpcOutputSettings"><span class="hs-identifier hs-type">VpcOutputSettings</span></a></span></span></span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679923916"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VpcOutputSettings.html#VpcOutputSettings"><span class="hs-identifier hs-type">VpcOutputSettings</span></a></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679931432"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VpcOutputSettings.html#VpcOutputSettings"><span class="hs-identifier hs-type">VpcOutputSettings</span></a></span></span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679923908"><span id="local-6989586621679923910"><span id="local-6989586621679923912"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VpcOutputSettings.html#VpcOutputSettings"><span class="hs-identifier hs-type">VpcOutputSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679923906"><span class="annot"><span class="annottext">toJSON :: VpcOutputSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VpcOutputSettings.html#VpcOutputSettings%27"><span class="hs-identifier hs-type">VpcOutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679923902"><span id="local-6989586621679923903"><span id="local-6989586621679923904"><span class="annot"><span class="annottext">[Text]
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679931424"><span id="local-6989586621679931426"><span id="local-6989586621679931428"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VpcOutputSettings.html#VpcOutputSettings"><span class="hs-identifier hs-type">VpcOutputSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679931422"><span class="annot"><span class="annottext">toJSON :: VpcOutputSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VpcOutputSettings.html#VpcOutputSettings%27"><span class="hs-identifier hs-type">VpcOutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679931418"><span id="local-6989586621679931419"><span id="local-6989586621679931420"><span class="annot"><span class="annottext">[Text]
 Maybe [Text]
 subnetIds :: [Text]
 publicAddressAllocationIds :: Maybe [Text]
@@ -252,7 +252,7 @@ securityGroupIds :: Maybe [Text]
 $sel:subnetIds:VpcOutputSettings' :: VpcOutputSettings -&gt; [Text]
 $sel:publicAddressAllocationIds:VpcOutputSettings' :: VpcOutputSettings -&gt; Maybe [Text]
 $sel:securityGroupIds:VpcOutputSettings' :: VpcOutputSettings -&gt; Maybe [Text]
-</span><a href="#local-6989586621679923902"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679931418"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -265,7 +265,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-99"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679923904"><span class="hs-identifier hs-var">securityGroupIds</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679931420"><span class="hs-identifier hs-var">securityGroupIds</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-100"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;publicAddressAllocationIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -273,14 +273,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-101"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679923903"><span class="hs-identifier hs-var">publicAddressAllocationIds</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679931419"><span class="hs-identifier hs-var">publicAddressAllocationIds</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;subnetIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679923902"><span class="hs-identifier hs-var">subnetIds</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679931418"><span class="hs-identifier hs-var">subnetIds</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span></pre></body></html>

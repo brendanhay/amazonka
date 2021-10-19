@@ -39,8 +39,8 @@
 </span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#newListAggregateDiscoveredResources"><span class="hs-identifier">newListAggregateDiscoveredResources</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-40"></span><span>
 </span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#listAggregateDiscoveredResources_nextToken"><span class="hs-identifier">listAggregateDiscoveredResources_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#listAggregateDiscoveredResources_filters"><span class="hs-identifier">listAggregateDiscoveredResources_filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#listAggregateDiscoveredResources_filters"><span class="hs-identifier">listAggregateDiscoveredResources_filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#listAggregateDiscoveredResources_nextToken"><span class="hs-identifier">listAggregateDiscoveredResources_nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#listAggregateDiscoveredResources_limit"><span class="hs-identifier">listAggregateDiscoveredResources_limit</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#listAggregateDiscoveredResources_configurationAggregatorName"><span class="hs-identifier">listAggregateDiscoveredResources_configurationAggregatorName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#listAggregateDiscoveredResources_resourceType"><span class="hs-identifier">listAggregateDiscoveredResources_resourceType</span></a></span><span class="hs-special">,</span><span>
@@ -64,14 +64,14 @@
 </span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-65"></span><span>
 </span><span id="line-66"></span><span class="hs-comment">-- | /See:/ 'newListAggregateDiscoveredResources' smart constructor.</span><span>
-</span><span id="line-67"></span><span id="local-6989586621679417569"><span id="local-6989586621679417570"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListAggregateDiscoveredResources"><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#ListAggregateDiscoveredResources"><span class="hs-identifier hs-var">ListAggregateDiscoveredResources</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListAggregateDiscoveredResources%27"><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#ListAggregateDiscoveredResources%27"><span class="hs-identifier hs-var">ListAggregateDiscoveredResources'</span></a></span></span><span>
-</span><span id="line-68"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The @nextToken@ string returned on a previous page that you use to get</span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- the next page of results in a paginated response.</span><span>
-</span><span id="line-70"></span><span>    </span><span id="%24sel%3AnextToken%3AListAggregateDiscoveredResources%27"><span class="annot"><span class="annottext">ListAggregateDiscoveredResources -&gt; Maybe Text
-</span><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#%24sel%3AnextToken%3AListAggregateDiscoveredResources%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | Filters the results based on the @ResourceFilters@ object.</span><span>
-</span><span id="line-72"></span><span>    </span><span id="%24sel%3Afilters%3AListAggregateDiscoveredResources%27"><span class="annot"><span class="annottext">ListAggregateDiscoveredResources -&gt; Maybe ResourceFilters
+</span><span id="line-67"></span><span id="local-6989586621679418202"><span id="local-6989586621679418203"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListAggregateDiscoveredResources"><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#ListAggregateDiscoveredResources"><span class="hs-identifier hs-var">ListAggregateDiscoveredResources</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListAggregateDiscoveredResources%27"><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#ListAggregateDiscoveredResources%27"><span class="hs-identifier hs-var">ListAggregateDiscoveredResources'</span></a></span></span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Filters the results based on the @ResourceFilters@ object.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3Afilters%3AListAggregateDiscoveredResources%27"><span class="annot"><span class="annottext">ListAggregateDiscoveredResources -&gt; Maybe ResourceFilters
 </span><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#%24sel%3Afilters%3AListAggregateDiscoveredResources%27"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ResourceFilters.html#ResourceFilters"><span class="hs-identifier hs-type">ResourceFilters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | The @nextToken@ string returned on a previous page that you use to get</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- the next page of results in a paginated response.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AnextToken%3AListAggregateDiscoveredResources%27"><span class="annot"><span class="annottext">ListAggregateDiscoveredResources -&gt; Maybe Text
+</span><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#%24sel%3AnextToken%3AListAggregateDiscoveredResources%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | The maximum number of resource identifiers returned on each page. You</span><span>
 </span><span id="line-74"></span><span>    </span><span class="hs-comment">-- cannot specify a number greater than 100. If you specify 0, Config uses</span><span>
 </span><span id="line-75"></span><span>    </span><span class="hs-comment">-- the default.</span><span>
@@ -84,7 +84,7 @@
 </span><span id="line-80"></span><span>    </span><span id="%24sel%3AresourceType%3AListAggregateDiscoveredResources%27"><span class="annot"><span class="annottext">ListAggregateDiscoveredResources -&gt; ResourceType
 </span><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#%24sel%3AresourceType%3AListAggregateDiscoveredResources%27"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ResourceType.html#ResourceType"><span class="hs-identifier hs-type">ResourceType</span></a></span><span>
 </span><span id="line-81"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-82"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679417559"><span id="local-6989586621679417561"><span class="annot"><span class="annottext">ListAggregateDiscoveredResources
+</span><span id="line-82"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679418192"><span id="local-6989586621679418194"><span class="annot"><span class="annottext">ListAggregateDiscoveredResources
 -&gt; ListAggregateDiscoveredResources -&gt; Bool
 (ListAggregateDiscoveredResources
  -&gt; ListAggregateDiscoveredResources -&gt; Bool)
@@ -100,7 +100,7 @@ $c/= :: ListAggregateDiscoveredResources
 -&gt; ListAggregateDiscoveredResources -&gt; Bool
 $c== :: ListAggregateDiscoveredResources
 -&gt; ListAggregateDiscoveredResources -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679417550"><span id="local-6989586621679417552"><span id="local-6989586621679417554"><span id="local-6989586621679417556"><span class="annot"><span class="annottext">ReadPrec [ListAggregateDiscoveredResources]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679418183"><span id="local-6989586621679418185"><span id="local-6989586621679418187"><span id="local-6989586621679418189"><span class="annot"><span class="annottext">ReadPrec [ListAggregateDiscoveredResources]
 ReadPrec ListAggregateDiscoveredResources
 Int -&gt; ReadS ListAggregateDiscoveredResources
 ReadS [ListAggregateDiscoveredResources]
@@ -120,7 +120,7 @@ readList :: ReadS [ListAggregateDiscoveredResources]
 $creadList :: ReadS [ListAggregateDiscoveredResources]
 readsPrec :: Int -&gt; ReadS ListAggregateDiscoveredResources
 $creadsPrec :: Int -&gt; ReadS ListAggregateDiscoveredResources
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679417543"><span id="local-6989586621679417545"><span id="local-6989586621679417547"><span class="annot"><span class="annottext">Int -&gt; ListAggregateDiscoveredResources -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679418176"><span id="local-6989586621679418178"><span id="local-6989586621679418180"><span class="annot"><span class="annottext">Int -&gt; ListAggregateDiscoveredResources -&gt; ShowS
 [ListAggregateDiscoveredResources] -&gt; ShowS
 ListAggregateDiscoveredResources -&gt; String
 (Int -&gt; ListAggregateDiscoveredResources -&gt; ShowS)
@@ -166,10 +166,10 @@ ListAggregateDiscoveredResources
 </span><span id="line-89"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-91"></span><span class="hs-comment">--</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- 'nextToken', 'listAggregateDiscoveredResources_nextToken' - The @nextToken@ string returned on a previous page that you use to get</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- the next page of results in a paginated response.</span><span>
-</span><span id="line-94"></span><span class="hs-comment">--</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- 'filters', 'listAggregateDiscoveredResources_filters' - Filters the results based on the @ResourceFilters@ object.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'filters', 'listAggregateDiscoveredResources_filters' - Filters the results based on the @ResourceFilters@ object.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'nextToken', 'listAggregateDiscoveredResources_nextToken' - The @nextToken@ string returned on a previous page that you use to get</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- the next page of results in a paginated response.</span><span>
 </span><span id="line-96"></span><span class="hs-comment">--</span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- 'limit', 'listAggregateDiscoveredResources_limit' - The maximum number of resource identifiers returned on each page. You</span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- cannot specify a number greater than 100. If you specify 0, Config uses</span><span>
@@ -186,24 +186,24 @@ ListAggregateDiscoveredResources
 </span><span id="line-109"></span><span>  </span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#ListAggregateDiscoveredResources"><span class="hs-identifier hs-type">ListAggregateDiscoveredResources</span></a></span><span>
 </span><span id="line-110"></span><span id="newListAggregateDiscoveredResources"><span class="annot"><span class="annottext">newListAggregateDiscoveredResources :: Text -&gt; ResourceType -&gt; ListAggregateDiscoveredResources
 </span><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#newListAggregateDiscoveredResources"><span class="hs-identifier hs-var hs-var">newListAggregateDiscoveredResources</span></a></span></span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679417538"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679417538"><span class="hs-identifier hs-var">pConfigurationAggregatorName_</span></a></span></span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679417537"><span class="annot"><span class="annottext">ResourceType
-</span><a href="#local-6989586621679417537"><span class="hs-identifier hs-var">pResourceType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">ListAggregateDiscoveredResources' :: Maybe Text
--&gt; Maybe ResourceFilters
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679418171"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679418171"><span class="hs-identifier hs-var">pConfigurationAggregatorName_</span></a></span></span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679418170"><span class="annot"><span class="annottext">ResourceType
+</span><a href="#local-6989586621679418170"><span class="hs-identifier hs-var">pResourceType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">ListAggregateDiscoveredResources' :: Maybe ResourceFilters
+-&gt; Maybe Text
 -&gt; Maybe Natural
 -&gt; Text
 -&gt; ResourceType
 -&gt; ListAggregateDiscoveredResources
 </span><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#ListAggregateDiscoveredResources%27"><span class="hs-identifier hs-type">ListAggregateDiscoveredResources'</span></a></span><span>
-</span><span id="line-114"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListAggregateDiscoveredResources' :: Maybe Text
-</span><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#%24sel%3AnextToken%3AListAggregateDiscoveredResources%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-115"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-114"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:filters:ListAggregateDiscoveredResources' :: Maybe ResourceFilters
+</span><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#%24sel%3Afilters%3AListAggregateDiscoveredResources%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-115"></span><span>          </span><span class="annot"><span class="annottext">Maybe ResourceFilters
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-116"></span><span>        </span><span class="annot"><span class="annottext">$sel:filters:ListAggregateDiscoveredResources' :: Maybe ResourceFilters
-</span><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#%24sel%3Afilters%3AListAggregateDiscoveredResources%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceFilters
+</span><span id="line-116"></span><span>        </span><span class="annot"><span class="annottext">$sel:nextToken:ListAggregateDiscoveredResources' :: Maybe Text
+</span><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#%24sel%3AnextToken%3AListAggregateDiscoveredResources%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-117"></span><span>        </span><span class="annot"><span class="annottext">$sel:limit:ListAggregateDiscoveredResources' :: Maybe Natural
@@ -213,41 +213,15 @@ forall a. Maybe a
 </span><span id="line-118"></span><span>        </span><span class="annot"><span class="annottext">$sel:configurationAggregatorName:ListAggregateDiscoveredResources' :: Text
 </span><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#%24sel%3AconfigurationAggregatorName%3AListAggregateDiscoveredResources%27"><span class="hs-identifier hs-var">configurationAggregatorName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-119"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679417538"><span class="hs-identifier hs-var">pConfigurationAggregatorName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679418171"><span class="hs-identifier hs-var">pConfigurationAggregatorName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-120"></span><span>        </span><span class="annot"><span class="annottext">$sel:resourceType:ListAggregateDiscoveredResources' :: ResourceType
 </span><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#%24sel%3AresourceType%3AListAggregateDiscoveredResources%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResourceType
-</span><a href="#local-6989586621679417537"><span class="hs-identifier hs-var">pResourceType_</span></a></span><span>
+</span><a href="#local-6989586621679418170"><span class="hs-identifier hs-var">pResourceType_</span></a></span><span>
 </span><span id="line-121"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- | The @nextToken@ string returned on a previous page that you use to get</span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- the next page of results in a paginated response.</span><span>
-</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#listAggregateDiscoveredResources_nextToken"><span class="hs-identifier hs-type">listAggregateDiscoveredResources_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#ListAggregateDiscoveredResources"><span class="hs-identifier hs-type">ListAggregateDiscoveredResources</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-126"></span><span id="listAggregateDiscoveredResources_nextToken"><span class="annot"><span class="annottext">listAggregateDiscoveredResources_nextToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ListAggregateDiscoveredResources
--&gt; f ListAggregateDiscoveredResources
-</span><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#listAggregateDiscoveredResources_nextToken"><span class="hs-identifier hs-var hs-var">listAggregateDiscoveredResources_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAggregateDiscoveredResources -&gt; Maybe Text)
--&gt; (ListAggregateDiscoveredResources
-    -&gt; Maybe Text -&gt; ListAggregateDiscoveredResources)
--&gt; Lens
-     ListAggregateDiscoveredResources
-     ListAggregateDiscoveredResources
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#ListAggregateDiscoveredResources%27"><span class="hs-identifier hs-type">ListAggregateDiscoveredResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679417535"><span class="annot"><span class="annottext">Maybe Text
-nextToken :: Maybe Text
-$sel:nextToken:ListAggregateDiscoveredResources' :: ListAggregateDiscoveredResources -&gt; Maybe Text
-</span><a href="#local-6989586621679417535"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679417535"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679417534"><span class="annot"><span class="annottext">s :: ListAggregateDiscoveredResources
-</span><a href="#local-6989586621679417534"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#ListAggregateDiscoveredResources%27"><span class="hs-identifier hs-type">ListAggregateDiscoveredResources'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679417533"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679417533"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAggregateDiscoveredResources
-</span><a href="#local-6989586621679417534"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListAggregateDiscoveredResources' :: Maybe Text
-</span><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#%24sel%3AnextToken%3AListAggregateDiscoveredResources%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679417533"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#ListAggregateDiscoveredResources"><span class="hs-identifier hs-type">ListAggregateDiscoveredResources</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- | Filters the results based on the @ResourceFilters@ object.</span><span>
-</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#listAggregateDiscoveredResources_filters"><span class="hs-identifier hs-type">listAggregateDiscoveredResources_filters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#ListAggregateDiscoveredResources"><span class="hs-identifier hs-type">ListAggregateDiscoveredResources</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ResourceFilters.html#ResourceFilters"><span class="hs-identifier hs-type">ResourceFilters</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-130"></span><span id="listAggregateDiscoveredResources_filters"><span class="annot"><span class="annottext">listAggregateDiscoveredResources_filters :: (Maybe ResourceFilters -&gt; f (Maybe ResourceFilters))
+</span><span id="line-123"></span><span class="hs-comment">-- | Filters the results based on the @ResourceFilters@ object.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#listAggregateDiscoveredResources_filters"><span class="hs-identifier hs-type">listAggregateDiscoveredResources_filters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#ListAggregateDiscoveredResources"><span class="hs-identifier hs-type">ListAggregateDiscoveredResources</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ResourceFilters.html#ResourceFilters"><span class="hs-identifier hs-type">ResourceFilters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span id="listAggregateDiscoveredResources_filters"><span class="annot"><span class="annottext">listAggregateDiscoveredResources_filters :: (Maybe ResourceFilters -&gt; f (Maybe ResourceFilters))
 -&gt; ListAggregateDiscoveredResources
 -&gt; f ListAggregateDiscoveredResources
 </span><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#listAggregateDiscoveredResources_filters"><span class="hs-identifier hs-var hs-var">listAggregateDiscoveredResources_filters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAggregateDiscoveredResources -&gt; Maybe ResourceFilters)
@@ -259,16 +233,42 @@ $sel:nextToken:ListAggregateDiscoveredResources' :: ListAggregateDiscoveredResou
      (Maybe ResourceFilters)
      (Maybe ResourceFilters)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#ListAggregateDiscoveredResources%27"><span class="hs-identifier hs-type">ListAggregateDiscoveredResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679417532"><span class="annot"><span class="annottext">Maybe ResourceFilters
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#ListAggregateDiscoveredResources%27"><span class="hs-identifier hs-type">ListAggregateDiscoveredResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679418168"><span class="annot"><span class="annottext">Maybe ResourceFilters
 filters :: Maybe ResourceFilters
 $sel:filters:ListAggregateDiscoveredResources' :: ListAggregateDiscoveredResources -&gt; Maybe ResourceFilters
-</span><a href="#local-6989586621679417532"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceFilters
-</span><a href="#local-6989586621679417532"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679417531"><span class="annot"><span class="annottext">s :: ListAggregateDiscoveredResources
-</span><a href="#local-6989586621679417531"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#ListAggregateDiscoveredResources%27"><span class="hs-identifier hs-type">ListAggregateDiscoveredResources'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679417530"><span class="annot"><span class="annottext">Maybe ResourceFilters
-</span><a href="#local-6989586621679417530"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAggregateDiscoveredResources
-</span><a href="#local-6989586621679417531"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:ListAggregateDiscoveredResources' :: Maybe ResourceFilters
+</span><a href="#local-6989586621679418168"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceFilters
+</span><a href="#local-6989586621679418168"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679418167"><span class="annot"><span class="annottext">s :: ListAggregateDiscoveredResources
+</span><a href="#local-6989586621679418167"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#ListAggregateDiscoveredResources%27"><span class="hs-identifier hs-type">ListAggregateDiscoveredResources'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679418166"><span class="annot"><span class="annottext">Maybe ResourceFilters
+</span><a href="#local-6989586621679418166"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAggregateDiscoveredResources
+</span><a href="#local-6989586621679418167"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:ListAggregateDiscoveredResources' :: Maybe ResourceFilters
 </span><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#%24sel%3Afilters%3AListAggregateDiscoveredResources%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceFilters
-</span><a href="#local-6989586621679417530"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#ListAggregateDiscoveredResources"><span class="hs-identifier hs-type">ListAggregateDiscoveredResources</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679418166"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#ListAggregateDiscoveredResources"><span class="hs-identifier hs-type">ListAggregateDiscoveredResources</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | The @nextToken@ string returned on a previous page that you use to get</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- the next page of results in a paginated response.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#listAggregateDiscoveredResources_nextToken"><span class="hs-identifier hs-type">listAggregateDiscoveredResources_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#ListAggregateDiscoveredResources"><span class="hs-identifier hs-type">ListAggregateDiscoveredResources</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="listAggregateDiscoveredResources_nextToken"><span class="annot"><span class="annottext">listAggregateDiscoveredResources_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListAggregateDiscoveredResources
+-&gt; f ListAggregateDiscoveredResources
+</span><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#listAggregateDiscoveredResources_nextToken"><span class="hs-identifier hs-var hs-var">listAggregateDiscoveredResources_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAggregateDiscoveredResources -&gt; Maybe Text)
+-&gt; (ListAggregateDiscoveredResources
+    -&gt; Maybe Text -&gt; ListAggregateDiscoveredResources)
+-&gt; Lens
+     ListAggregateDiscoveredResources
+     ListAggregateDiscoveredResources
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#ListAggregateDiscoveredResources%27"><span class="hs-identifier hs-type">ListAggregateDiscoveredResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679418165"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListAggregateDiscoveredResources' :: ListAggregateDiscoveredResources -&gt; Maybe Text
+</span><a href="#local-6989586621679418165"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679418165"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679418164"><span class="annot"><span class="annottext">s :: ListAggregateDiscoveredResources
+</span><a href="#local-6989586621679418164"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#ListAggregateDiscoveredResources%27"><span class="hs-identifier hs-type">ListAggregateDiscoveredResources'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679418163"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679418163"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAggregateDiscoveredResources
+</span><a href="#local-6989586621679418164"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListAggregateDiscoveredResources' :: Maybe Text
+</span><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#%24sel%3AnextToken%3AListAggregateDiscoveredResources%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679418163"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#ListAggregateDiscoveredResources"><span class="hs-identifier hs-type">ListAggregateDiscoveredResources</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-comment">-- | The maximum number of resource identifiers returned on each page. You</span><span>
 </span><span id="line-133"></span><span class="hs-comment">-- cannot specify a number greater than 100. If you specify 0, Config uses</span><span>
@@ -286,16 +286,16 @@ $sel:filters:ListAggregateDiscoveredResources' :: ListAggregateDiscoveredResourc
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#ListAggregateDiscoveredResources%27"><span class="hs-identifier hs-type">ListAggregateDiscoveredResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679417529"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#ListAggregateDiscoveredResources%27"><span class="hs-identifier hs-type">ListAggregateDiscoveredResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679418162"><span class="annot"><span class="annottext">Maybe Natural
 limit :: Maybe Natural
 $sel:limit:ListAggregateDiscoveredResources' :: ListAggregateDiscoveredResources -&gt; Maybe Natural
-</span><a href="#local-6989586621679417529"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679417529"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679417528"><span class="annot"><span class="annottext">s :: ListAggregateDiscoveredResources
-</span><a href="#local-6989586621679417528"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#ListAggregateDiscoveredResources%27"><span class="hs-identifier hs-type">ListAggregateDiscoveredResources'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679417527"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679417527"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAggregateDiscoveredResources
-</span><a href="#local-6989586621679417528"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:ListAggregateDiscoveredResources' :: Maybe Natural
+</span><a href="#local-6989586621679418162"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679418162"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679418161"><span class="annot"><span class="annottext">s :: ListAggregateDiscoveredResources
+</span><a href="#local-6989586621679418161"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#ListAggregateDiscoveredResources%27"><span class="hs-identifier hs-type">ListAggregateDiscoveredResources'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679418160"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679418160"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAggregateDiscoveredResources
+</span><a href="#local-6989586621679418161"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:ListAggregateDiscoveredResources' :: Maybe Natural
 </span><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#%24sel%3Alimit%3AListAggregateDiscoveredResources%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679417527"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#ListAggregateDiscoveredResources"><span class="hs-identifier hs-type">ListAggregateDiscoveredResources</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679418160"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#ListAggregateDiscoveredResources"><span class="hs-identifier hs-type">ListAggregateDiscoveredResources</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-comment">-- | The name of the configuration aggregator.</span><span>
 </span><span id="line-139"></span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#listAggregateDiscoveredResources_configurationAggregatorName"><span class="hs-identifier hs-type">listAggregateDiscoveredResources_configurationAggregatorName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#ListAggregateDiscoveredResources"><span class="hs-identifier hs-type">ListAggregateDiscoveredResources</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -311,16 +311,16 @@ $sel:limit:ListAggregateDiscoveredResources' :: ListAggregateDiscoveredResources
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#ListAggregateDiscoveredResources%27"><span class="hs-identifier hs-type">ListAggregateDiscoveredResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679417526"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#ListAggregateDiscoveredResources%27"><span class="hs-identifier hs-type">ListAggregateDiscoveredResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679418159"><span class="annot"><span class="annottext">Text
 configurationAggregatorName :: Text
 $sel:configurationAggregatorName:ListAggregateDiscoveredResources' :: ListAggregateDiscoveredResources -&gt; Text
-</span><a href="#local-6989586621679417526"><span class="hs-identifier hs-var hs-var">configurationAggregatorName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679417526"><span class="hs-identifier hs-var">configurationAggregatorName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679417525"><span class="annot"><span class="annottext">s :: ListAggregateDiscoveredResources
-</span><a href="#local-6989586621679417525"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#ListAggregateDiscoveredResources%27"><span class="hs-identifier hs-type">ListAggregateDiscoveredResources'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679417524"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679417524"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAggregateDiscoveredResources
-</span><a href="#local-6989586621679417525"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configurationAggregatorName:ListAggregateDiscoveredResources' :: Text
+</span><a href="#local-6989586621679418159"><span class="hs-identifier hs-var hs-var">configurationAggregatorName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679418159"><span class="hs-identifier hs-var">configurationAggregatorName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679418158"><span class="annot"><span class="annottext">s :: ListAggregateDiscoveredResources
+</span><a href="#local-6989586621679418158"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#ListAggregateDiscoveredResources%27"><span class="hs-identifier hs-type">ListAggregateDiscoveredResources'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679418157"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679418157"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAggregateDiscoveredResources
+</span><a href="#local-6989586621679418158"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configurationAggregatorName:ListAggregateDiscoveredResources' :: Text
 </span><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#%24sel%3AconfigurationAggregatorName%3AListAggregateDiscoveredResources%27"><span class="hs-identifier hs-var">configurationAggregatorName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679417524"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#ListAggregateDiscoveredResources"><span class="hs-identifier hs-type">ListAggregateDiscoveredResources</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679418157"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#ListAggregateDiscoveredResources"><span class="hs-identifier hs-type">ListAggregateDiscoveredResources</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- | The type of resources that you want Config to list in the response.</span><span>
 </span><span id="line-143"></span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#listAggregateDiscoveredResources_resourceType"><span class="hs-identifier hs-type">listAggregateDiscoveredResources_resourceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#ListAggregateDiscoveredResources"><span class="hs-identifier hs-type">ListAggregateDiscoveredResources</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ResourceType.html#ResourceType"><span class="hs-identifier hs-type">ResourceType</span></a></span><span>
@@ -336,33 +336,33 @@ $sel:configurationAggregatorName:ListAggregateDiscoveredResources' :: ListAggreg
      ResourceType
      ResourceType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#ListAggregateDiscoveredResources%27"><span class="hs-identifier hs-type">ListAggregateDiscoveredResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679417523"><span class="annot"><span class="annottext">ResourceType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#ListAggregateDiscoveredResources%27"><span class="hs-identifier hs-type">ListAggregateDiscoveredResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679418156"><span class="annot"><span class="annottext">ResourceType
 resourceType :: ResourceType
 $sel:resourceType:ListAggregateDiscoveredResources' :: ListAggregateDiscoveredResources -&gt; ResourceType
-</span><a href="#local-6989586621679417523"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceType
-</span><a href="#local-6989586621679417523"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679417522"><span class="annot"><span class="annottext">s :: ListAggregateDiscoveredResources
-</span><a href="#local-6989586621679417522"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#ListAggregateDiscoveredResources%27"><span class="hs-identifier hs-type">ListAggregateDiscoveredResources'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679417521"><span class="annot"><span class="annottext">ResourceType
-</span><a href="#local-6989586621679417521"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAggregateDiscoveredResources
-</span><a href="#local-6989586621679417522"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceType:ListAggregateDiscoveredResources' :: ResourceType
+</span><a href="#local-6989586621679418156"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceType
+</span><a href="#local-6989586621679418156"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679418155"><span class="annot"><span class="annottext">s :: ListAggregateDiscoveredResources
+</span><a href="#local-6989586621679418155"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#ListAggregateDiscoveredResources%27"><span class="hs-identifier hs-type">ListAggregateDiscoveredResources'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679418154"><span class="annot"><span class="annottext">ResourceType
+</span><a href="#local-6989586621679418154"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAggregateDiscoveredResources
+</span><a href="#local-6989586621679418155"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceType:ListAggregateDiscoveredResources' :: ResourceType
 </span><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#%24sel%3AresourceType%3AListAggregateDiscoveredResources%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResourceType
-</span><a href="#local-6989586621679417521"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#ListAggregateDiscoveredResources"><span class="hs-identifier hs-type">ListAggregateDiscoveredResources</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679418154"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#ListAggregateDiscoveredResources"><span class="hs-identifier hs-type">ListAggregateDiscoveredResources</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-147"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span>
 </span><span id="line-148"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#ListAggregateDiscoveredResources"><span class="hs-identifier hs-type">ListAggregateDiscoveredResources</span></a></span><span>
 </span><span id="line-149"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679417517"><span class="annot"><span class="annottext">page :: ListAggregateDiscoveredResources
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679418150"><span class="annot"><span class="annottext">page :: ListAggregateDiscoveredResources
 -&gt; AWSResponse ListAggregateDiscoveredResources
 -&gt; Maybe ListAggregateDiscoveredResources
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679417515"><span class="annot"><span class="annottext">ListAggregateDiscoveredResources
-</span><a href="#local-6989586621679417515"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679417514"><span class="annot"><span class="annottext">AWSResponse ListAggregateDiscoveredResources
-</span><a href="#local-6989586621679417514"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679418148"><span class="annot"><span class="annottext">ListAggregateDiscoveredResources
+</span><a href="#local-6989586621679418148"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679418147"><span class="annot"><span class="annottext">AWSResponse ListAggregateDiscoveredResources
+</span><a href="#local-6989586621679418147"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-151"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-152"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListAggregateDiscoveredResources
 ListAggregateDiscoveredResourcesResponse
-</span><a href="#local-6989586621679417514"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679418147"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">ListAggregateDiscoveredResourcesResponse
 -&gt; Getting
      (First Text) ListAggregateDiscoveredResourcesResponse Text
@@ -394,7 +394,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-158"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListAggregateDiscoveredResources
 ListAggregateDiscoveredResourcesResponse
-</span><a href="#local-6989586621679417514"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679418147"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">ListAggregateDiscoveredResourcesResponse
 -&gt; Getting
      (First [AggregateResourceIdentifier])
@@ -461,7 +461,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-165"></span><span>        </span><span class="annot"><span class="annottext">ListAggregateDiscoveredResources
-</span><a href="#local-6989586621679417515"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679418148"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-166"></span><span>          </span><span class="annot"><span class="annottext">ListAggregateDiscoveredResources
 -&gt; (ListAggregateDiscoveredResources
     -&gt; ListAggregateDiscoveredResources)
@@ -485,7 +485,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListAggregateDiscoveredResources
 ListAggregateDiscoveredResourcesResponse
-</span><a href="#local-6989586621679417514"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679418147"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-168"></span><span>          </span><span class="annot"><span class="annottext">ListAggregateDiscoveredResourcesResponse
 -&gt; Getting
      (First Text) ListAggregateDiscoveredResourcesResponse Text
@@ -516,7 +516,7 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-175"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-176"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#ListAggregateDiscoveredResources"><span class="hs-identifier hs-type">ListAggregateDiscoveredResources</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-177"></span><span>      </span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#ListAggregateDiscoveredResourcesResponse"><span class="hs-identifier hs-type">ListAggregateDiscoveredResourcesResponse</span></a></span><span>
-</span><span id="line-178"></span><span>  </span><span id="local-6989586621679417504"><span class="annot"><span class="annottext">request :: ListAggregateDiscoveredResources
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679418137"><span class="annot"><span class="annottext">request :: ListAggregateDiscoveredResources
 -&gt; Request ListAggregateDiscoveredResources
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; ListAggregateDiscoveredResources
@@ -524,7 +524,7 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Config.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-179"></span><span>  </span><span id="local-6989586621679417500"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679418133"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListAggregateDiscoveredResources
 -&gt; ClientResponse ClientBody
@@ -552,10 +552,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-181"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679417497"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679417497"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679417496"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679417496"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679417495"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679417495"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-181"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679418130"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679418130"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679418129"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679418129"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679418128"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679418128"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-182"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe [AggregateResourceIdentifier]
 -&gt; Int
@@ -572,7 +572,7 @@ MonadResource m =&gt;
       -&gt; Int -&gt; ListAggregateDiscoveredResourcesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679417495"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679418128"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -584,7 +584,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; ListAggregateDiscoveredResourcesResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679417495"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679418128"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text
 -&gt; Either String (Maybe (Maybe [AggregateResourceIdentifier]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
@@ -607,22 +607,22 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679417497"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679418130"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-188"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-189"></span><span>
 </span><span id="line-190"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-191"></span><span>  </span><span id="local-6989586621679417486"><span id="local-6989586621679417488"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-191"></span><span>  </span><span id="local-6989586621679418119"><span id="local-6989586621679418121"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-192"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#ListAggregateDiscoveredResources"><span class="hs-identifier hs-type">ListAggregateDiscoveredResources</span></a></span></span></span><span>
 </span><span id="line-193"></span><span>
 </span><span id="line-194"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-195"></span><span>  </span><span id="local-6989586621679417483"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-195"></span><span>  </span><span id="local-6989586621679418116"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-196"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#ListAggregateDiscoveredResources"><span class="hs-identifier hs-type">ListAggregateDiscoveredResources</span></a></span></span><span>
 </span><span id="line-197"></span><span>
 </span><span id="line-198"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-199"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
 </span><span id="line-200"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#ListAggregateDiscoveredResources"><span class="hs-identifier hs-type">ListAggregateDiscoveredResources</span></a></span><span>
 </span><span id="line-201"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-202"></span><span>  </span><span id="local-6989586621679417479"><span class="annot"><span class="annottext">toHeaders :: ListAggregateDiscoveredResources -&gt; ResponseHeaders
+</span><span id="line-202"></span><span>  </span><span id="local-6989586621679418112"><span class="annot"><span class="annottext">toHeaders :: ListAggregateDiscoveredResources -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-203"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
 -&gt; ListAggregateDiscoveredResources -&gt; ResponseHeaders
@@ -650,9 +650,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-213"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-214"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-215"></span><span>
-</span><span id="line-216"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679417469"><span id="local-6989586621679417471"><span id="local-6989586621679417473"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#ListAggregateDiscoveredResources"><span class="hs-identifier hs-type">ListAggregateDiscoveredResources</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-217"></span><span>  </span><span id="local-6989586621679417467"><span class="annot"><span class="annottext">toJSON :: ListAggregateDiscoveredResources -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#ListAggregateDiscoveredResources%27"><span class="hs-identifier hs-type">ListAggregateDiscoveredResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679417461"><span id="local-6989586621679417462"><span id="local-6989586621679417463"><span id="local-6989586621679417464"><span id="local-6989586621679417465"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-216"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679418102"><span id="local-6989586621679418104"><span id="local-6989586621679418106"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#ListAggregateDiscoveredResources"><span class="hs-identifier hs-type">ListAggregateDiscoveredResources</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-217"></span><span>  </span><span id="local-6989586621679418100"><span class="annot"><span class="annottext">toJSON :: ListAggregateDiscoveredResources -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#ListAggregateDiscoveredResources%27"><span class="hs-identifier hs-type">ListAggregateDiscoveredResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679418094"><span id="local-6989586621679418095"><span id="local-6989586621679418096"><span id="local-6989586621679418097"><span id="local-6989586621679418098"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Maybe ResourceFilters
 Text
@@ -660,40 +660,40 @@ ResourceType
 resourceType :: ResourceType
 configurationAggregatorName :: Text
 limit :: Maybe Natural
-filters :: Maybe ResourceFilters
 nextToken :: Maybe Text
+filters :: Maybe ResourceFilters
 $sel:resourceType:ListAggregateDiscoveredResources' :: ListAggregateDiscoveredResources -&gt; ResourceType
 $sel:configurationAggregatorName:ListAggregateDiscoveredResources' :: ListAggregateDiscoveredResources -&gt; Text
 $sel:limit:ListAggregateDiscoveredResources' :: ListAggregateDiscoveredResources -&gt; Maybe Natural
-$sel:filters:ListAggregateDiscoveredResources' :: ListAggregateDiscoveredResources -&gt; Maybe ResourceFilters
 $sel:nextToken:ListAggregateDiscoveredResources' :: ListAggregateDiscoveredResources -&gt; Maybe Text
-</span><a href="#local-6989586621679417461"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:filters:ListAggregateDiscoveredResources' :: ListAggregateDiscoveredResources -&gt; Maybe ResourceFilters
+</span><a href="#local-6989586621679418094"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-218"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-219"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-220"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679417465"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-221"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Filters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ResourceFilters -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ResourceFilters -&gt; Pair) -&gt; Maybe ResourceFilters -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ResourceFilters
-</span><a href="#local-6989586621679417464"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679418098"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-221"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679418097"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-222"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Limit&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679417463"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679418096"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-223"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -702,7 +702,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-225"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679417462"><span class="hs-identifier hs-var">configurationAggregatorName</span></a></span><span>
+</span><a href="#local-6989586621679418095"><span class="hs-identifier hs-var">configurationAggregatorName</span></a></span><span>
 </span><span id="line-226"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-227"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
@@ -710,12 +710,12 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ResourceType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ResourceType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ResourceType
-</span><a href="#local-6989586621679417461"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679418094"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-228"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-229"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-230"></span><span>
 </span><span id="line-231"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#ListAggregateDiscoveredResources"><span class="hs-identifier hs-type">ListAggregateDiscoveredResources</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-232"></span><span>  </span><span id="local-6989586621679417455"><span class="annot"><span class="annottext">toPath :: ListAggregateDiscoveredResources -&gt; ByteString
+</span><span id="line-232"></span><span>  </span><span id="local-6989586621679418088"><span class="annot"><span class="annottext">toPath :: ListAggregateDiscoveredResources -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListAggregateDiscoveredResources -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
@@ -725,7 +725,7 @@ forall a b. a -&gt; b -&gt; a
 </span><span id="line-235"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
 </span><span id="line-236"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#ListAggregateDiscoveredResources"><span class="hs-identifier hs-type">ListAggregateDiscoveredResources</span></a></span><span>
 </span><span id="line-237"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-238"></span><span>  </span><span id="local-6989586621679417451"><span class="annot"><span class="annottext">toQuery :: ListAggregateDiscoveredResources -&gt; QueryString
+</span><span id="line-238"></span><span>  </span><span id="local-6989586621679418084"><span class="annot"><span class="annottext">toQuery :: ListAggregateDiscoveredResources -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListAggregateDiscoveredResources -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -733,7 +733,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-239"></span><span>
 </span><span id="line-240"></span><span class="hs-comment">-- | /See:/ 'newListAggregateDiscoveredResourcesResponse' smart constructor.</span><span>
-</span><span id="line-241"></span><span id="local-6989586621679417448"><span id="local-6989586621679417449"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListAggregateDiscoveredResourcesResponse"><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#ListAggregateDiscoveredResourcesResponse"><span class="hs-identifier hs-var">ListAggregateDiscoveredResourcesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListAggregateDiscoveredResourcesResponse%27"><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#ListAggregateDiscoveredResourcesResponse%27"><span class="hs-identifier hs-var">ListAggregateDiscoveredResourcesResponse'</span></a></span></span><span>
+</span><span id="line-241"></span><span id="local-6989586621679418081"><span id="local-6989586621679418082"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListAggregateDiscoveredResourcesResponse"><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#ListAggregateDiscoveredResourcesResponse"><span class="hs-identifier hs-var">ListAggregateDiscoveredResourcesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListAggregateDiscoveredResourcesResponse%27"><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#ListAggregateDiscoveredResourcesResponse%27"><span class="hs-identifier hs-var">ListAggregateDiscoveredResourcesResponse'</span></a></span></span><span>
 </span><span id="line-242"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The @nextToken@ string returned on a previous page that you use to get</span><span>
 </span><span id="line-243"></span><span>    </span><span class="hs-comment">-- the next page of results in a paginated response.</span><span>
 </span><span id="line-244"></span><span>    </span><span id="%24sel%3AnextToken%3AListAggregateDiscoveredResourcesResponse%27"><span class="annot"><span class="annottext">ListAggregateDiscoveredResourcesResponse -&gt; Maybe Text
@@ -746,7 +746,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-248"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListAggregateDiscoveredResourcesResponse%27"><span class="annot"><span class="annottext">ListAggregateDiscoveredResourcesResponse -&gt; Int
 </span><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#%24sel%3AhttpStatus%3AListAggregateDiscoveredResourcesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-249"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-250"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679417441"><span id="local-6989586621679417443"><span class="annot"><span class="annottext">ListAggregateDiscoveredResourcesResponse
+</span><span id="line-250"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679418074"><span id="local-6989586621679418076"><span class="annot"><span class="annottext">ListAggregateDiscoveredResourcesResponse
 -&gt; ListAggregateDiscoveredResourcesResponse -&gt; Bool
 (ListAggregateDiscoveredResourcesResponse
  -&gt; ListAggregateDiscoveredResourcesResponse -&gt; Bool)
@@ -762,7 +762,7 @@ $c/= :: ListAggregateDiscoveredResourcesResponse
 -&gt; ListAggregateDiscoveredResourcesResponse -&gt; Bool
 $c== :: ListAggregateDiscoveredResourcesResponse
 -&gt; ListAggregateDiscoveredResourcesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679417433"><span id="local-6989586621679417435"><span id="local-6989586621679417437"><span id="local-6989586621679417439"><span class="annot"><span class="annottext">ReadPrec [ListAggregateDiscoveredResourcesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679418066"><span id="local-6989586621679418068"><span id="local-6989586621679418070"><span id="local-6989586621679418072"><span class="annot"><span class="annottext">ReadPrec [ListAggregateDiscoveredResourcesResponse]
 ReadPrec ListAggregateDiscoveredResourcesResponse
 Int -&gt; ReadS ListAggregateDiscoveredResourcesResponse
 ReadS [ListAggregateDiscoveredResourcesResponse]
@@ -782,7 +782,7 @@ readList :: ReadS [ListAggregateDiscoveredResourcesResponse]
 $creadList :: ReadS [ListAggregateDiscoveredResourcesResponse]
 readsPrec :: Int -&gt; ReadS ListAggregateDiscoveredResourcesResponse
 $creadsPrec :: Int -&gt; ReadS ListAggregateDiscoveredResourcesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679417427"><span id="local-6989586621679417429"><span id="local-6989586621679417431"><span class="annot"><span class="annottext">Int -&gt; ListAggregateDiscoveredResourcesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679418060"><span id="local-6989586621679418062"><span id="local-6989586621679418064"><span class="annot"><span class="annottext">Int -&gt; ListAggregateDiscoveredResourcesResponse -&gt; ShowS
 [ListAggregateDiscoveredResourcesResponse] -&gt; ShowS
 ListAggregateDiscoveredResourcesResponse -&gt; String
 (Int -&gt; ListAggregateDiscoveredResourcesResponse -&gt; ShowS)
@@ -840,8 +840,8 @@ ListAggregateDiscoveredResourcesResponse
 </span><span id="line-269"></span><span>  </span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#ListAggregateDiscoveredResourcesResponse"><span class="hs-identifier hs-type">ListAggregateDiscoveredResourcesResponse</span></a></span><span>
 </span><span id="line-270"></span><span id="newListAggregateDiscoveredResourcesResponse"><span class="annot"><span class="annottext">newListAggregateDiscoveredResourcesResponse :: Int -&gt; ListAggregateDiscoveredResourcesResponse
 </span><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#newListAggregateDiscoveredResourcesResponse"><span class="hs-identifier hs-var hs-var">newListAggregateDiscoveredResourcesResponse</span></a></span></span><span>
-</span><span id="line-271"></span><span>  </span><span id="local-6989586621679417424"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679417424"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-271"></span><span>  </span><span id="local-6989586621679418057"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679418057"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-272"></span><span>    </span><span class="annot"><span class="annottext">ListAggregateDiscoveredResourcesResponse' :: Maybe Text
 -&gt; Maybe [AggregateResourceIdentifier]
 -&gt; Int
@@ -859,7 +859,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-277"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:ListAggregateDiscoveredResourcesResponse' :: Int
 </span><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#%24sel%3AhttpStatus%3AListAggregateDiscoveredResourcesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679417424"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679418057"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-278"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-279"></span><span>
 </span><span id="line-280"></span><span class="hs-comment">-- | The @nextToken@ string returned on a previous page that you use to get</span><span>
@@ -873,16 +873,16 @@ forall a. Maybe a
     -&gt; Maybe Text -&gt; ListAggregateDiscoveredResourcesResponse)
 -&gt; Lens' ListAggregateDiscoveredResourcesResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#ListAggregateDiscoveredResourcesResponse%27"><span class="hs-identifier hs-type">ListAggregateDiscoveredResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679417423"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#ListAggregateDiscoveredResourcesResponse%27"><span class="hs-identifier hs-type">ListAggregateDiscoveredResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679418056"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListAggregateDiscoveredResourcesResponse' :: ListAggregateDiscoveredResourcesResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679417423"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679417423"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679417422"><span class="annot"><span class="annottext">s :: ListAggregateDiscoveredResourcesResponse
-</span><a href="#local-6989586621679417422"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#ListAggregateDiscoveredResourcesResponse%27"><span class="hs-identifier hs-type">ListAggregateDiscoveredResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679417421"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679417421"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAggregateDiscoveredResourcesResponse
-</span><a href="#local-6989586621679417422"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListAggregateDiscoveredResourcesResponse' :: Maybe Text
+</span><a href="#local-6989586621679418056"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679418056"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679418055"><span class="annot"><span class="annottext">s :: ListAggregateDiscoveredResourcesResponse
+</span><a href="#local-6989586621679418055"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#ListAggregateDiscoveredResourcesResponse%27"><span class="hs-identifier hs-type">ListAggregateDiscoveredResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679418054"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679418054"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAggregateDiscoveredResourcesResponse
+</span><a href="#local-6989586621679418055"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListAggregateDiscoveredResourcesResponse' :: Maybe Text
 </span><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#%24sel%3AnextToken%3AListAggregateDiscoveredResourcesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679417421"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#ListAggregateDiscoveredResourcesResponse"><span class="hs-identifier hs-type">ListAggregateDiscoveredResourcesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679418054"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#ListAggregateDiscoveredResourcesResponse"><span class="hs-identifier hs-type">ListAggregateDiscoveredResourcesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-284"></span><span>
 </span><span id="line-285"></span><span class="hs-comment">-- | Returns a list of @ResourceIdentifiers@ objects.</span><span>
 </span><span id="line-286"></span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#listAggregateDiscoveredResourcesResponse_resourceIdentifiers"><span class="hs-identifier hs-type">listAggregateDiscoveredResourcesResponse_resourceIdentifiers</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#ListAggregateDiscoveredResourcesResponse"><span class="hs-identifier hs-type">ListAggregateDiscoveredResourcesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Config.Types.AggregateResourceIdentifier.html#AggregateResourceIdentifier"><span class="hs-identifier hs-type">AggregateResourceIdentifier</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -899,17 +899,17 @@ $sel:nextToken:ListAggregateDiscoveredResourcesResponse' :: ListAggregateDiscove
      ListAggregateDiscoveredResourcesResponse
      (Maybe [AggregateResourceIdentifier])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#ListAggregateDiscoveredResourcesResponse%27"><span class="hs-identifier hs-type">ListAggregateDiscoveredResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679417420"><span class="annot"><span class="annottext">Maybe [AggregateResourceIdentifier]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#ListAggregateDiscoveredResourcesResponse%27"><span class="hs-identifier hs-type">ListAggregateDiscoveredResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679418053"><span class="annot"><span class="annottext">Maybe [AggregateResourceIdentifier]
 resourceIdentifiers :: Maybe [AggregateResourceIdentifier]
 $sel:resourceIdentifiers:ListAggregateDiscoveredResourcesResponse' :: ListAggregateDiscoveredResourcesResponse
 -&gt; Maybe [AggregateResourceIdentifier]
-</span><a href="#local-6989586621679417420"><span class="hs-identifier hs-var hs-var">resourceIdentifiers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AggregateResourceIdentifier]
-</span><a href="#local-6989586621679417420"><span class="hs-identifier hs-var">resourceIdentifiers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679417419"><span class="annot"><span class="annottext">s :: ListAggregateDiscoveredResourcesResponse
-</span><a href="#local-6989586621679417419"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#ListAggregateDiscoveredResourcesResponse%27"><span class="hs-identifier hs-type">ListAggregateDiscoveredResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679417418"><span class="annot"><span class="annottext">Maybe [AggregateResourceIdentifier]
-</span><a href="#local-6989586621679417418"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAggregateDiscoveredResourcesResponse
-</span><a href="#local-6989586621679417419"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceIdentifiers:ListAggregateDiscoveredResourcesResponse' :: Maybe [AggregateResourceIdentifier]
+</span><a href="#local-6989586621679418053"><span class="hs-identifier hs-var hs-var">resourceIdentifiers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AggregateResourceIdentifier]
+</span><a href="#local-6989586621679418053"><span class="hs-identifier hs-var">resourceIdentifiers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679418052"><span class="annot"><span class="annottext">s :: ListAggregateDiscoveredResourcesResponse
+</span><a href="#local-6989586621679418052"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#ListAggregateDiscoveredResourcesResponse%27"><span class="hs-identifier hs-type">ListAggregateDiscoveredResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679418051"><span class="annot"><span class="annottext">Maybe [AggregateResourceIdentifier]
+</span><a href="#local-6989586621679418051"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAggregateDiscoveredResourcesResponse
+</span><a href="#local-6989586621679418052"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceIdentifiers:ListAggregateDiscoveredResourcesResponse' :: Maybe [AggregateResourceIdentifier]
 </span><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#%24sel%3AresourceIdentifiers%3AListAggregateDiscoveredResourcesResponse%27"><span class="hs-identifier hs-var">resourceIdentifiers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AggregateResourceIdentifier]
-</span><a href="#local-6989586621679417418"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#ListAggregateDiscoveredResourcesResponse"><span class="hs-identifier hs-type">ListAggregateDiscoveredResourcesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AggregateResourceIdentifier]
+</span><a href="#local-6989586621679418051"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#ListAggregateDiscoveredResourcesResponse"><span class="hs-identifier hs-type">ListAggregateDiscoveredResourcesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AggregateResourceIdentifier]
   -&gt; f (Maybe [AggregateResourceIdentifier]))
  -&gt; ListAggregateDiscoveredResourcesResponse
  -&gt; f ListAggregateDiscoveredResourcesResponse)
@@ -940,8 +940,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [AggregateResourceIdentifier]
   [AggregateResourceIdentifier]
   [AggregateResourceIdentifier]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-288"></span><span>
 </span><span id="line-289"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-290"></span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#listAggregateDiscoveredResourcesResponse_httpStatus"><span class="hs-identifier hs-type">listAggregateDiscoveredResourcesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#ListAggregateDiscoveredResourcesResponse"><span class="hs-identifier hs-type">ListAggregateDiscoveredResourcesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -957,18 +957,18 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#ListAggregateDiscoveredResourcesResponse%27"><span class="hs-identifier hs-type">ListAggregateDiscoveredResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679417415"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#ListAggregateDiscoveredResourcesResponse%27"><span class="hs-identifier hs-type">ListAggregateDiscoveredResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679418048"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListAggregateDiscoveredResourcesResponse' :: ListAggregateDiscoveredResourcesResponse -&gt; Int
-</span><a href="#local-6989586621679417415"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679417415"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679417414"><span class="annot"><span class="annottext">s :: ListAggregateDiscoveredResourcesResponse
-</span><a href="#local-6989586621679417414"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#ListAggregateDiscoveredResourcesResponse%27"><span class="hs-identifier hs-type">ListAggregateDiscoveredResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679417413"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679417413"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAggregateDiscoveredResourcesResponse
-</span><a href="#local-6989586621679417414"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListAggregateDiscoveredResourcesResponse' :: Int
+</span><a href="#local-6989586621679418048"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679418048"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679418047"><span class="annot"><span class="annottext">s :: ListAggregateDiscoveredResourcesResponse
+</span><a href="#local-6989586621679418047"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#ListAggregateDiscoveredResourcesResponse%27"><span class="hs-identifier hs-type">ListAggregateDiscoveredResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679418046"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679418046"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAggregateDiscoveredResourcesResponse
+</span><a href="#local-6989586621679418047"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListAggregateDiscoveredResourcesResponse' :: Int
 </span><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#%24sel%3AhttpStatus%3AListAggregateDiscoveredResourcesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679417413"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#ListAggregateDiscoveredResourcesResponse"><span class="hs-identifier hs-type">ListAggregateDiscoveredResourcesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679418046"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#ListAggregateDiscoveredResourcesResponse"><span class="hs-identifier hs-type">ListAggregateDiscoveredResourcesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-292"></span><span>
 </span><span id="line-293"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-294"></span><span>  </span><span id="local-6989586621679417411"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-294"></span><span>  </span><span id="local-6989586621679418044"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-295"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.ListAggregateDiscoveredResources.html#ListAggregateDiscoveredResourcesResponse"><span class="hs-identifier hs-type">ListAggregateDiscoveredResourcesResponse</span></a></span></span><span>
 </span><span id="line-296"></span></pre></body></html>

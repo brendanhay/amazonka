@@ -28,16 +28,16 @@
 </span><span id="line-28"></span><span class="hs-comment">-- detection in a stored video.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newContentModerationDetection' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679325964"><span id="local-6989586621679325965"></span></span><span class="hs-keyword">data</span><span> </span><span id="ContentModerationDetection"><span class="annot"><a href="Network.AWS.Rekognition.Types.ContentModerationDetection.html#ContentModerationDetection"><span class="hs-identifier hs-var">ContentModerationDetection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContentModerationDetection%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.ContentModerationDetection.html#ContentModerationDetection%27"><span class="hs-identifier hs-var">ContentModerationDetection'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Time, in milliseconds from the beginning of the video, that the content</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- moderation label was detected.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3Atimestamp%3AContentModerationDetection%27"><span class="annot"><span class="annottext">ContentModerationDetection -&gt; Maybe Integer
-</span><a href="Network.AWS.Rekognition.Types.ContentModerationDetection.html#%24sel%3Atimestamp%3AContentModerationDetection%27"><span class="hs-identifier hs-var hs-var">timestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The content moderation label detected by in the stored video.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AmoderationLabel%3AContentModerationDetection%27"><span class="annot"><span class="annottext">ContentModerationDetection -&gt; Maybe ModerationLabel
-</span><a href="Network.AWS.Rekognition.Types.ContentModerationDetection.html#%24sel%3AmoderationLabel%3AContentModerationDetection%27"><span class="hs-identifier hs-var hs-var">moderationLabel</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ModerationLabel.html#ModerationLabel"><span class="hs-identifier hs-type">ModerationLabel</span></a></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679326243"><span id="local-6989586621679326244"></span></span><span class="hs-keyword">data</span><span> </span><span id="ContentModerationDetection"><span class="annot"><a href="Network.AWS.Rekognition.Types.ContentModerationDetection.html#ContentModerationDetection"><span class="hs-identifier hs-var">ContentModerationDetection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContentModerationDetection%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.ContentModerationDetection.html#ContentModerationDetection%27"><span class="hs-identifier hs-var">ContentModerationDetection'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The content moderation label detected by in the stored video.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AmoderationLabel%3AContentModerationDetection%27"><span class="annot"><span class="annottext">ContentModerationDetection -&gt; Maybe ModerationLabel
+</span><a href="Network.AWS.Rekognition.Types.ContentModerationDetection.html#%24sel%3AmoderationLabel%3AContentModerationDetection%27"><span class="hs-identifier hs-var hs-var">moderationLabel</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ModerationLabel.html#ModerationLabel"><span class="hs-identifier hs-type">ModerationLabel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | Time, in milliseconds from the beginning of the video, that the content</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- moderation label was detected.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Atimestamp%3AContentModerationDetection%27"><span class="annot"><span class="annottext">ContentModerationDetection -&gt; Maybe Integer
+</span><a href="Network.AWS.Rekognition.Types.ContentModerationDetection.html#%24sel%3Atimestamp%3AContentModerationDetection%27"><span class="hs-identifier hs-var hs-var">timestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679325957"><span id="local-6989586621679325959"><span class="annot"><span class="annottext">ContentModerationDetection -&gt; ContentModerationDetection -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679326236"><span id="local-6989586621679326238"><span class="annot"><span class="annottext">ContentModerationDetection -&gt; ContentModerationDetection -&gt; Bool
 (ContentModerationDetection -&gt; ContentModerationDetection -&gt; Bool)
 -&gt; (ContentModerationDetection
     -&gt; ContentModerationDetection -&gt; Bool)
@@ -47,7 +47,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ContentModerationDetection -&gt; ContentModerationDetection -&gt; Bool
 == :: ContentModerationDetection -&gt; ContentModerationDetection -&gt; Bool
 $c== :: ContentModerationDetection -&gt; ContentModerationDetection -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679325948"><span id="local-6989586621679325950"><span id="local-6989586621679325952"><span id="local-6989586621679325954"><span class="annot"><span class="annottext">ReadPrec [ContentModerationDetection]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326227"><span id="local-6989586621679326229"><span id="local-6989586621679326231"><span id="local-6989586621679326233"><span class="annot"><span class="annottext">ReadPrec [ContentModerationDetection]
 ReadPrec ContentModerationDetection
 Int -&gt; ReadS ContentModerationDetection
 ReadS [ContentModerationDetection]
@@ -67,7 +67,7 @@ readList :: ReadS [ContentModerationDetection]
 $creadList :: ReadS [ContentModerationDetection]
 readsPrec :: Int -&gt; ReadS ContentModerationDetection
 $creadsPrec :: Int -&gt; ReadS ContentModerationDetection
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679325941"><span id="local-6989586621679325943"><span id="local-6989586621679325945"><span class="annot"><span class="annottext">Int -&gt; ContentModerationDetection -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326220"><span id="local-6989586621679326222"><span id="local-6989586621679326224"><span class="annot"><span class="annottext">Int -&gt; ContentModerationDetection -&gt; ShowS
 [ContentModerationDetection] -&gt; ShowS
 ContentModerationDetection -&gt; String
 (Int -&gt; ContentModerationDetection -&gt; ShowS)
@@ -107,56 +107,31 @@ ContentModerationDetection -&gt; Rep ContentModerationDetection x
 </span><span id="line-45"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-46"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-47"></span><span class="hs-comment">--</span><span>
-</span><span id="line-48"></span><span class="hs-comment">-- 'timestamp', 'contentModerationDetection_timestamp' - Time, in milliseconds from the beginning of the video, that the content</span><span>
-</span><span id="line-49"></span><span class="hs-comment">-- moderation label was detected.</span><span>
-</span><span id="line-50"></span><span class="hs-comment">--</span><span>
-</span><span id="line-51"></span><span class="hs-comment">-- 'moderationLabel', 'contentModerationDetection_moderationLabel' - The content moderation label detected by in the stored video.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'moderationLabel', 'contentModerationDetection_moderationLabel' - The content moderation label detected by in the stored video.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'timestamp', 'contentModerationDetection_timestamp' - Time, in milliseconds from the beginning of the video, that the content</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- moderation label was detected.</span><span>
 </span><span id="line-52"></span><span class="annot"><a href="Network.AWS.Rekognition.Types.ContentModerationDetection.html#newContentModerationDetection"><span class="hs-identifier hs-type">newContentModerationDetection</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-53"></span><span>  </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ContentModerationDetection.html#ContentModerationDetection"><span class="hs-identifier hs-type">ContentModerationDetection</span></a></span><span>
 </span><span id="line-54"></span><span id="newContentModerationDetection"><span class="annot"><span class="annottext">newContentModerationDetection :: ContentModerationDetection
 </span><a href="Network.AWS.Rekognition.Types.ContentModerationDetection.html#newContentModerationDetection"><span class="hs-identifier hs-var hs-var">newContentModerationDetection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">ContentModerationDetection' :: Maybe Integer
--&gt; Maybe ModerationLabel -&gt; ContentModerationDetection
+</span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">ContentModerationDetection' :: Maybe ModerationLabel
+-&gt; Maybe Integer -&gt; ContentModerationDetection
 </span><a href="Network.AWS.Rekognition.Types.ContentModerationDetection.html#ContentModerationDetection%27"><span class="hs-identifier hs-type">ContentModerationDetection'</span></a></span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:timestamp:ContentModerationDetection' :: Maybe Integer
-</span><a href="Network.AWS.Rekognition.Types.ContentModerationDetection.html#%24sel%3Atimestamp%3AContentModerationDetection%27"><span class="hs-identifier hs-var">timestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-57"></span><span>        </span><span class="annot"><span class="annottext">Maybe Integer
+</span><span id="line-56"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:moderationLabel:ContentModerationDetection' :: Maybe ModerationLabel
+</span><a href="Network.AWS.Rekognition.Types.ContentModerationDetection.html#%24sel%3AmoderationLabel%3AContentModerationDetection%27"><span class="hs-identifier hs-var">moderationLabel</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-57"></span><span>        </span><span class="annot"><span class="annottext">Maybe ModerationLabel
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:moderationLabel:ContentModerationDetection' :: Maybe ModerationLabel
-</span><a href="Network.AWS.Rekognition.Types.ContentModerationDetection.html#%24sel%3AmoderationLabel%3AContentModerationDetection%27"><span class="hs-identifier hs-var">moderationLabel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ModerationLabel
+</span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:timestamp:ContentModerationDetection' :: Maybe Integer
+</span><a href="Network.AWS.Rekognition.Types.ContentModerationDetection.html#%24sel%3Atimestamp%3AContentModerationDetection%27"><span class="hs-identifier hs-var">timestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- | Time, in milliseconds from the beginning of the video, that the content</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- moderation label was detected.</span><span>
-</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.Rekognition.Types.ContentModerationDetection.html#contentModerationDetection_timestamp"><span class="hs-identifier hs-type">contentModerationDetection_timestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ContentModerationDetection.html#ContentModerationDetection"><span class="hs-identifier hs-type">ContentModerationDetection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
-</span><span id="line-64"></span><span id="contentModerationDetection_timestamp"><span class="annot"><span class="annottext">contentModerationDetection_timestamp :: (Maybe Integer -&gt; f (Maybe Integer))
--&gt; ContentModerationDetection -&gt; f ContentModerationDetection
-</span><a href="Network.AWS.Rekognition.Types.ContentModerationDetection.html#contentModerationDetection_timestamp"><span class="hs-identifier hs-var hs-var">contentModerationDetection_timestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContentModerationDetection -&gt; Maybe Integer)
--&gt; (ContentModerationDetection
-    -&gt; Maybe Integer -&gt; ContentModerationDetection)
--&gt; Lens
-     ContentModerationDetection
-     ContentModerationDetection
-     (Maybe Integer)
-     (Maybe Integer)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.ContentModerationDetection.html#ContentModerationDetection%27"><span class="hs-identifier hs-type">ContentModerationDetection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679325932"><span class="annot"><span class="annottext">Maybe Integer
-timestamp :: Maybe Integer
-$sel:timestamp:ContentModerationDetection' :: ContentModerationDetection -&gt; Maybe Integer
-</span><a href="#local-6989586621679325932"><span class="hs-identifier hs-var hs-var">timestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679325932"><span class="hs-identifier hs-var">timestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679325931"><span class="annot"><span class="annottext">s :: ContentModerationDetection
-</span><a href="#local-6989586621679325931"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.ContentModerationDetection.html#ContentModerationDetection%27"><span class="hs-identifier hs-type">ContentModerationDetection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679325930"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679325930"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContentModerationDetection
-</span><a href="#local-6989586621679325931"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timestamp:ContentModerationDetection' :: Maybe Integer
-</span><a href="Network.AWS.Rekognition.Types.ContentModerationDetection.html#%24sel%3Atimestamp%3AContentModerationDetection%27"><span class="hs-identifier hs-var">timestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679325930"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ContentModerationDetection.html#ContentModerationDetection"><span class="hs-identifier hs-type">ContentModerationDetection</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- | The content moderation label detected by in the stored video.</span><span>
-</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.Rekognition.Types.ContentModerationDetection.html#contentModerationDetection_moderationLabel"><span class="hs-identifier hs-type">contentModerationDetection_moderationLabel</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ContentModerationDetection.html#ContentModerationDetection"><span class="hs-identifier hs-type">ContentModerationDetection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ModerationLabel.html#ModerationLabel"><span class="hs-identifier hs-type">ModerationLabel</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-68"></span><span id="contentModerationDetection_moderationLabel"><span class="annot"><span class="annottext">contentModerationDetection_moderationLabel :: (Maybe ModerationLabel -&gt; f (Maybe ModerationLabel))
+</span><span id="line-61"></span><span class="hs-comment">-- | The content moderation label detected by in the stored video.</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.Rekognition.Types.ContentModerationDetection.html#contentModerationDetection_moderationLabel"><span class="hs-identifier hs-type">contentModerationDetection_moderationLabel</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ContentModerationDetection.html#ContentModerationDetection"><span class="hs-identifier hs-type">ContentModerationDetection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ModerationLabel.html#ModerationLabel"><span class="hs-identifier hs-type">ModerationLabel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span id="contentModerationDetection_moderationLabel"><span class="annot"><span class="annottext">contentModerationDetection_moderationLabel :: (Maybe ModerationLabel -&gt; f (Maybe ModerationLabel))
 -&gt; ContentModerationDetection -&gt; f ContentModerationDetection
 </span><a href="Network.AWS.Rekognition.Types.ContentModerationDetection.html#contentModerationDetection_moderationLabel"><span class="hs-identifier hs-var hs-var">contentModerationDetection_moderationLabel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContentModerationDetection -&gt; Maybe ModerationLabel)
 -&gt; (ContentModerationDetection
@@ -167,19 +142,44 @@ $sel:timestamp:ContentModerationDetection' :: ContentModerationDetection -&gt; M
      (Maybe ModerationLabel)
      (Maybe ModerationLabel)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.ContentModerationDetection.html#ContentModerationDetection%27"><span class="hs-identifier hs-type">ContentModerationDetection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679325928"><span class="annot"><span class="annottext">Maybe ModerationLabel
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.ContentModerationDetection.html#ContentModerationDetection%27"><span class="hs-identifier hs-type">ContentModerationDetection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326211"><span class="annot"><span class="annottext">Maybe ModerationLabel
 moderationLabel :: Maybe ModerationLabel
 $sel:moderationLabel:ContentModerationDetection' :: ContentModerationDetection -&gt; Maybe ModerationLabel
-</span><a href="#local-6989586621679325928"><span class="hs-identifier hs-var hs-var">moderationLabel</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ModerationLabel
-</span><a href="#local-6989586621679325928"><span class="hs-identifier hs-var">moderationLabel</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679325927"><span class="annot"><span class="annottext">s :: ContentModerationDetection
-</span><a href="#local-6989586621679325927"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.ContentModerationDetection.html#ContentModerationDetection%27"><span class="hs-identifier hs-type">ContentModerationDetection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679325926"><span class="annot"><span class="annottext">Maybe ModerationLabel
-</span><a href="#local-6989586621679325926"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContentModerationDetection
-</span><a href="#local-6989586621679325927"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:moderationLabel:ContentModerationDetection' :: Maybe ModerationLabel
+</span><a href="#local-6989586621679326211"><span class="hs-identifier hs-var hs-var">moderationLabel</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ModerationLabel
+</span><a href="#local-6989586621679326211"><span class="hs-identifier hs-var">moderationLabel</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326210"><span class="annot"><span class="annottext">s :: ContentModerationDetection
+</span><a href="#local-6989586621679326210"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.ContentModerationDetection.html#ContentModerationDetection%27"><span class="hs-identifier hs-type">ContentModerationDetection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326209"><span class="annot"><span class="annottext">Maybe ModerationLabel
+</span><a href="#local-6989586621679326209"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContentModerationDetection
+</span><a href="#local-6989586621679326210"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:moderationLabel:ContentModerationDetection' :: Maybe ModerationLabel
 </span><a href="Network.AWS.Rekognition.Types.ContentModerationDetection.html#%24sel%3AmoderationLabel%3AContentModerationDetection%27"><span class="hs-identifier hs-var">moderationLabel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ModerationLabel
-</span><a href="#local-6989586621679325926"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ContentModerationDetection.html#ContentModerationDetection"><span class="hs-identifier hs-type">ContentModerationDetection</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679326209"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ContentModerationDetection.html#ContentModerationDetection"><span class="hs-identifier hs-type">ContentModerationDetection</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- | Time, in milliseconds from the beginning of the video, that the content</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- moderation label was detected.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.Rekognition.Types.ContentModerationDetection.html#contentModerationDetection_timestamp"><span class="hs-identifier hs-type">contentModerationDetection_timestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ContentModerationDetection.html#ContentModerationDetection"><span class="hs-identifier hs-type">ContentModerationDetection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span id="contentModerationDetection_timestamp"><span class="annot"><span class="annottext">contentModerationDetection_timestamp :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; ContentModerationDetection -&gt; f ContentModerationDetection
+</span><a href="Network.AWS.Rekognition.Types.ContentModerationDetection.html#contentModerationDetection_timestamp"><span class="hs-identifier hs-var hs-var">contentModerationDetection_timestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContentModerationDetection -&gt; Maybe Integer)
+-&gt; (ContentModerationDetection
+    -&gt; Maybe Integer -&gt; ContentModerationDetection)
+-&gt; Lens
+     ContentModerationDetection
+     ContentModerationDetection
+     (Maybe Integer)
+     (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.ContentModerationDetection.html#ContentModerationDetection%27"><span class="hs-identifier hs-type">ContentModerationDetection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326207"><span class="annot"><span class="annottext">Maybe Integer
+timestamp :: Maybe Integer
+$sel:timestamp:ContentModerationDetection' :: ContentModerationDetection -&gt; Maybe Integer
+</span><a href="#local-6989586621679326207"><span class="hs-identifier hs-var hs-var">timestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679326207"><span class="hs-identifier hs-var">timestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326206"><span class="annot"><span class="annottext">s :: ContentModerationDetection
+</span><a href="#local-6989586621679326206"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.ContentModerationDetection.html#ContentModerationDetection%27"><span class="hs-identifier hs-type">ContentModerationDetection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326205"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679326205"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContentModerationDetection
+</span><a href="#local-6989586621679326206"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timestamp:ContentModerationDetection' :: Maybe Integer
+</span><a href="Network.AWS.Rekognition.Types.ContentModerationDetection.html#%24sel%3Atimestamp%3AContentModerationDetection%27"><span class="hs-identifier hs-var">timestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679326205"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ContentModerationDetection.html#ContentModerationDetection"><span class="hs-identifier hs-type">ContentModerationDetection</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679325923"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ContentModerationDetection.html#ContentModerationDetection"><span class="hs-identifier hs-type">ContentModerationDetection</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-71"></span><span>  </span><span id="local-6989586621679325921"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ContentModerationDetection
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326202"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ContentModerationDetection.html#ContentModerationDetection"><span class="hs-identifier hs-type">ContentModerationDetection</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621679326200"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ContentModerationDetection
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ContentModerationDetection)
@@ -189,33 +189,32 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ContentModerationDetection&quot;</span></span><span>
-</span><span id="line-74"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679325918"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679325918"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-75"></span><span>          </span><span class="annot"><span class="annottext">Maybe Integer
--&gt; Maybe ModerationLabel -&gt; ContentModerationDetection
+</span><span id="line-74"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679326197"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679326197"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>          </span><span class="annot"><span class="annottext">Maybe ModerationLabel
+-&gt; Maybe Integer -&gt; ContentModerationDetection
 </span><a href="Network.AWS.Rekognition.Types.ContentModerationDetection.html#ContentModerationDetection%27"><span class="hs-identifier hs-var">ContentModerationDetection'</span></a></span><span>
-</span><span id="line-76"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Integer
- -&gt; Maybe ModerationLabel -&gt; ContentModerationDetection)
--&gt; Parser (Maybe Integer)
--&gt; Parser (Maybe ModerationLabel -&gt; ContentModerationDetection)
+</span><span id="line-76"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ModerationLabel
+ -&gt; Maybe Integer -&gt; ContentModerationDetection)
+-&gt; Parser (Maybe ModerationLabel)
+-&gt; Parser (Maybe Integer -&gt; ContentModerationDetection)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679325918"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Timestamp&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-77"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe ModerationLabel -&gt; ContentModerationDetection)
--&gt; Parser (Maybe ModerationLabel)
--&gt; Parser ContentModerationDetection
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679325918"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ModerationLabel)
+</span><a href="#local-6989586621679326197"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ModerationLabel)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ModerationLabel&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Integer -&gt; ContentModerationDetection)
+-&gt; Parser (Maybe Integer) -&gt; Parser ContentModerationDetection
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679326197"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Timestamp&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679325912"><span id="local-6989586621679325914"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ContentModerationDetection.html#ContentModerationDetection"><span class="hs-identifier hs-type">ContentModerationDetection</span></a></span></span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326191"><span id="local-6989586621679326193"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ContentModerationDetection.html#ContentModerationDetection"><span class="hs-identifier hs-type">ContentModerationDetection</span></a></span></span></span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679325909"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ContentModerationDetection.html#ContentModerationDetection"><span class="hs-identifier hs-type">ContentModerationDetection</span></a></span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326188"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ContentModerationDetection.html#ContentModerationDetection"><span class="hs-identifier hs-type">ContentModerationDetection</span></a></span></span><span>
 </span><span id="line-83"></span></pre></body></html>

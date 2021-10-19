@@ -52,12 +52,12 @@
 </span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newCreateProject' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679348078"><span id="local-6989586621679348079"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateProject"><span class="annot"><a href="Network.AWS.Rekognition.CreateProject.html#CreateProject"><span class="hs-identifier hs-var">CreateProject</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateProject%27"><span class="annot"><a href="Network.AWS.Rekognition.CreateProject.html#CreateProject%27"><span class="hs-identifier hs-var">CreateProject'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679348407"><span id="local-6989586621679348408"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateProject"><span class="annot"><a href="Network.AWS.Rekognition.CreateProject.html#CreateProject"><span class="hs-identifier hs-var">CreateProject</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateProject%27"><span class="annot"><a href="Network.AWS.Rekognition.CreateProject.html#CreateProject%27"><span class="hs-identifier hs-var">CreateProject'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the project to create.</span><span>
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3AprojectName%3ACreateProject%27"><span class="annot"><span class="annottext">CreateProject -&gt; Text
 </span><a href="Network.AWS.Rekognition.CreateProject.html#%24sel%3AprojectName%3ACreateProject%27"><span class="hs-identifier hs-var hs-var">projectName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679348072"><span id="local-6989586621679348074"><span class="annot"><span class="annottext">CreateProject -&gt; CreateProject -&gt; Bool
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679348401"><span id="local-6989586621679348403"><span class="annot"><span class="annottext">CreateProject -&gt; CreateProject -&gt; Bool
 (CreateProject -&gt; CreateProject -&gt; Bool)
 -&gt; (CreateProject -&gt; CreateProject -&gt; Bool) -&gt; Eq CreateProject
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -65,7 +65,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateProject -&gt; CreateProject -&gt; Bool
 == :: CreateProject -&gt; CreateProject -&gt; Bool
 $c== :: CreateProject -&gt; CreateProject -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679348063"><span id="local-6989586621679348065"><span id="local-6989586621679348067"><span id="local-6989586621679348069"><span class="annot"><span class="annottext">ReadPrec [CreateProject]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679348392"><span id="local-6989586621679348394"><span id="local-6989586621679348396"><span id="local-6989586621679348398"><span class="annot"><span class="annottext">ReadPrec [CreateProject]
 ReadPrec CreateProject
 Int -&gt; ReadS CreateProject
 ReadS [CreateProject]
@@ -85,7 +85,7 @@ readList :: ReadS [CreateProject]
 $creadList :: ReadS [CreateProject]
 readsPrec :: Int -&gt; ReadS CreateProject
 $creadsPrec :: Int -&gt; ReadS CreateProject
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679348056"><span id="local-6989586621679348058"><span id="local-6989586621679348060"><span class="annot"><span class="annottext">Int -&gt; CreateProject -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679348385"><span id="local-6989586621679348387"><span id="local-6989586621679348389"><span class="annot"><span class="annottext">Int -&gt; CreateProject -&gt; ShowS
 [CreateProject] -&gt; ShowS
 CreateProject -&gt; String
 (Int -&gt; CreateProject -&gt; ShowS)
@@ -125,12 +125,12 @@ $cfrom :: forall x. CreateProject -&gt; Rep CreateProject x
 </span><span id="line-72"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.Rekognition.CreateProject.html#CreateProject"><span class="hs-identifier hs-type">CreateProject</span></a></span><span>
 </span><span id="line-74"></span><span id="newCreateProject"><span class="annot"><span class="annottext">newCreateProject :: Text -&gt; CreateProject
-</span><a href="Network.AWS.Rekognition.CreateProject.html#newCreateProject"><span class="hs-identifier hs-var hs-var">newCreateProject</span></a></span></span><span> </span><span id="local-6989586621679348051"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679348051"><span class="hs-identifier hs-var">pProjectName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Rekognition.CreateProject.html#newCreateProject"><span class="hs-identifier hs-var hs-var">newCreateProject</span></a></span></span><span> </span><span id="local-6989586621679348380"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679348380"><span class="hs-identifier hs-var">pProjectName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>  </span><span class="annot"><span class="annottext">CreateProject' :: Text -&gt; CreateProject
 </span><a href="Network.AWS.Rekognition.CreateProject.html#CreateProject%27"><span class="hs-identifier hs-type">CreateProject'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectName:CreateProject' :: Text
 </span><a href="Network.AWS.Rekognition.CreateProject.html#%24sel%3AprojectName%3ACreateProject%27"><span class="hs-identifier hs-var">projectName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679348051"><span class="hs-identifier hs-var">pProjectName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679348380"><span class="hs-identifier hs-var">pProjectName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- | The name of the project to create.</span><span>
 </span><span id="line-78"></span><span class="annot"><a href="Network.AWS.Rekognition.CreateProject.html#createProject_projectName"><span class="hs-identifier hs-type">createProject_projectName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.CreateProject.html#CreateProject"><span class="hs-identifier hs-type">CreateProject</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -139,27 +139,27 @@ $cfrom :: forall x. CreateProject -&gt; Rep CreateProject x
 -&gt; (CreateProject -&gt; Text -&gt; CreateProject)
 -&gt; Lens CreateProject CreateProject Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.CreateProject.html#CreateProject%27"><span class="hs-identifier hs-type">CreateProject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348048"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.CreateProject.html#CreateProject%27"><span class="hs-identifier hs-type">CreateProject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348377"><span class="annot"><span class="annottext">Text
 projectName :: Text
 $sel:projectName:CreateProject' :: CreateProject -&gt; Text
-</span><a href="#local-6989586621679348048"><span class="hs-identifier hs-var hs-var">projectName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679348048"><span class="hs-identifier hs-var">projectName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348047"><span class="annot"><span class="annottext">s :: CreateProject
-</span><a href="#local-6989586621679348047"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.CreateProject.html#CreateProject%27"><span class="hs-identifier hs-type">CreateProject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348046"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679348046"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProject
-</span><a href="#local-6989586621679348047"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectName:CreateProject' :: Text
+</span><a href="#local-6989586621679348377"><span class="hs-identifier hs-var hs-var">projectName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679348377"><span class="hs-identifier hs-var">projectName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348376"><span class="annot"><span class="annottext">s :: CreateProject
+</span><a href="#local-6989586621679348376"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.CreateProject.html#CreateProject%27"><span class="hs-identifier hs-type">CreateProject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348375"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679348375"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProject
+</span><a href="#local-6989586621679348376"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectName:CreateProject' :: Text
 </span><a href="Network.AWS.Rekognition.CreateProject.html#%24sel%3AprojectName%3ACreateProject%27"><span class="hs-identifier hs-var">projectName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679348046"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.CreateProject.html#CreateProject"><span class="hs-identifier hs-type">CreateProject</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679348375"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.CreateProject.html#CreateProject"><span class="hs-identifier hs-type">CreateProject</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.CreateProject.html#CreateProject"><span class="hs-identifier hs-type">CreateProject</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-82"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-83"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.CreateProject.html#CreateProject"><span class="hs-identifier hs-type">CreateProject</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>      </span><span class="annot"><a href="Network.AWS.Rekognition.CreateProject.html#CreateProjectResponse"><span class="hs-identifier hs-type">CreateProjectResponse</span></a></span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679348042"><span class="annot"><span class="annottext">request :: CreateProject -&gt; Request CreateProject
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679348371"><span class="annot"><span class="annottext">request :: CreateProject -&gt; Request CreateProject
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateProject -&gt; Request CreateProject
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Rekognition.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679348038"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679348367"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateProject
 -&gt; ClientResponse ClientBody
@@ -183,10 +183,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679348035"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679348035"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679348034"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679348034"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679348033"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679348033"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679348364"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679348364"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679348363"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679348363"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679348362"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679348362"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-89"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; CreateProjectResponse
 </span><a href="Network.AWS.Rekognition.CreateProject.html#CreateProjectResponse%27"><span class="hs-identifier hs-var">CreateProjectResponse'</span></a></span><span>
 </span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; CreateProjectResponse)
@@ -194,7 +194,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; CreateProjectResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679348033"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679348362"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ProjectArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -206,15 +206,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679348035"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679348364"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679348025"><span id="local-6989586621679348027"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.CreateProject.html#CreateProject"><span class="hs-identifier hs-type">CreateProject</span></a></span></span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679348354"><span id="local-6989586621679348356"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.CreateProject.html#CreateProject"><span class="hs-identifier hs-type">CreateProject</span></a></span></span></span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679348022"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.CreateProject.html#CreateProject"><span class="hs-identifier hs-type">CreateProject</span></a></span></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679348351"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.CreateProject.html#CreateProject"><span class="hs-identifier hs-type">CreateProject</span></a></span></span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.CreateProject.html#CreateProject"><span class="hs-identifier hs-type">CreateProject</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679348018"><span class="annot"><span class="annottext">toHeaders :: CreateProject -&gt; ResponseHeaders
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679348347"><span class="annot"><span class="annottext">toHeaders :: CreateProject -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateProject -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -241,12 +241,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-110"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679348008"><span id="local-6989586621679348010"><span id="local-6989586621679348012"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.CreateProject.html#CreateProject"><span class="hs-identifier hs-type">CreateProject</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679348006"><span class="annot"><span class="annottext">toJSON :: CreateProject -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.CreateProject.html#CreateProject%27"><span class="hs-identifier hs-type">CreateProject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348004"><span class="annot"><span class="annottext">Text
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679348337"><span id="local-6989586621679348339"><span id="local-6989586621679348341"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.CreateProject.html#CreateProject"><span class="hs-identifier hs-type">CreateProject</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679348335"><span class="annot"><span class="annottext">toJSON :: CreateProject -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.CreateProject.html#CreateProject%27"><span class="hs-identifier hs-type">CreateProject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348333"><span class="annot"><span class="annottext">Text
 projectName :: Text
 $sel:projectName:CreateProject' :: CreateProject -&gt; Text
-</span><a href="#local-6989586621679348004"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679348333"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -258,18 +258,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ProjectName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679348004"><span class="hs-identifier hs-var">projectName</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679348333"><span class="hs-identifier hs-var">projectName</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.CreateProject.html#CreateProject"><span class="hs-identifier hs-type">CreateProject</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679347998"><span class="annot"><span class="annottext">toPath :: CreateProject -&gt; ByteString
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679348327"><span class="annot"><span class="annottext">toPath :: CreateProject -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateProject -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.CreateProject.html#CreateProject"><span class="hs-identifier hs-type">CreateProject</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679347994"><span class="annot"><span class="annottext">toQuery :: CreateProject -&gt; QueryString
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679348323"><span class="annot"><span class="annottext">toQuery :: CreateProject -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateProject -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -277,7 +277,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-comment">-- | /See:/ 'newCreateProjectResponse' smart constructor.</span><span>
-</span><span id="line-127"></span><span id="local-6989586621679347991"><span id="local-6989586621679347992"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateProjectResponse"><span class="annot"><a href="Network.AWS.Rekognition.CreateProject.html#CreateProjectResponse"><span class="hs-identifier hs-var">CreateProjectResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateProjectResponse%27"><span class="annot"><a href="Network.AWS.Rekognition.CreateProject.html#CreateProjectResponse%27"><span class="hs-identifier hs-var">CreateProjectResponse'</span></a></span></span><span>
+</span><span id="line-127"></span><span id="local-6989586621679348320"><span id="local-6989586621679348321"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateProjectResponse"><span class="annot"><a href="Network.AWS.Rekognition.CreateProject.html#CreateProjectResponse"><span class="hs-identifier hs-var">CreateProjectResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateProjectResponse%27"><span class="annot"><a href="Network.AWS.Rekognition.CreateProject.html#CreateProjectResponse%27"><span class="hs-identifier hs-var">CreateProjectResponse'</span></a></span></span><span>
 </span><span id="line-128"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the new project. You can use the ARN</span><span>
 </span><span id="line-129"></span><span>    </span><span class="hs-comment">-- to configure IAM access to the project.</span><span>
 </span><span id="line-130"></span><span>    </span><span id="%24sel%3AprojectArn%3ACreateProjectResponse%27"><span class="annot"><span class="annottext">CreateProjectResponse -&gt; Maybe Text
@@ -286,7 +286,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-132"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateProjectResponse%27"><span class="annot"><span class="annottext">CreateProjectResponse -&gt; Int
 </span><a href="Network.AWS.Rekognition.CreateProject.html#%24sel%3AhttpStatus%3ACreateProjectResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-133"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-134"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679347985"><span id="local-6989586621679347987"><span class="annot"><span class="annottext">CreateProjectResponse -&gt; CreateProjectResponse -&gt; Bool
+</span><span id="line-134"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679348314"><span id="local-6989586621679348316"><span class="annot"><span class="annottext">CreateProjectResponse -&gt; CreateProjectResponse -&gt; Bool
 (CreateProjectResponse -&gt; CreateProjectResponse -&gt; Bool)
 -&gt; (CreateProjectResponse -&gt; CreateProjectResponse -&gt; Bool)
 -&gt; Eq CreateProjectResponse
@@ -295,7 +295,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateProjectResponse -&gt; CreateProjectResponse -&gt; Bool
 == :: CreateProjectResponse -&gt; CreateProjectResponse -&gt; Bool
 $c== :: CreateProjectResponse -&gt; CreateProjectResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679347977"><span id="local-6989586621679347979"><span id="local-6989586621679347981"><span id="local-6989586621679347983"><span class="annot"><span class="annottext">ReadPrec [CreateProjectResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679348306"><span id="local-6989586621679348308"><span id="local-6989586621679348310"><span id="local-6989586621679348312"><span class="annot"><span class="annottext">ReadPrec [CreateProjectResponse]
 ReadPrec CreateProjectResponse
 Int -&gt; ReadS CreateProjectResponse
 ReadS [CreateProjectResponse]
@@ -315,7 +315,7 @@ readList :: ReadS [CreateProjectResponse]
 $creadList :: ReadS [CreateProjectResponse]
 readsPrec :: Int -&gt; ReadS CreateProjectResponse
 $creadsPrec :: Int -&gt; ReadS CreateProjectResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679347971"><span id="local-6989586621679347973"><span id="local-6989586621679347975"><span class="annot"><span class="annottext">Int -&gt; CreateProjectResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679348300"><span id="local-6989586621679348302"><span id="local-6989586621679348304"><span class="annot"><span class="annottext">Int -&gt; CreateProjectResponse -&gt; ShowS
 [CreateProjectResponse] -&gt; ShowS
 CreateProjectResponse -&gt; String
 (Int -&gt; CreateProjectResponse -&gt; ShowS)
@@ -358,8 +358,8 @@ $cfrom :: forall x. CreateProjectResponse -&gt; Rep CreateProjectResponse x
 </span><span id="line-150"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-151"></span><span>  </span><span class="annot"><a href="Network.AWS.Rekognition.CreateProject.html#CreateProjectResponse"><span class="hs-identifier hs-type">CreateProjectResponse</span></a></span><span>
 </span><span id="line-152"></span><span id="newCreateProjectResponse"><span class="annot"><span class="annottext">newCreateProjectResponse :: Int -&gt; CreateProjectResponse
-</span><a href="Network.AWS.Rekognition.CreateProject.html#newCreateProjectResponse"><span class="hs-identifier hs-var hs-var">newCreateProjectResponse</span></a></span></span><span> </span><span id="local-6989586621679347968"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679347968"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Rekognition.CreateProject.html#newCreateProjectResponse"><span class="hs-identifier hs-var hs-var">newCreateProjectResponse</span></a></span></span><span> </span><span id="local-6989586621679348297"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679348297"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-153"></span><span>  </span><span class="annot"><span class="annottext">CreateProjectResponse' :: Maybe Text -&gt; Int -&gt; CreateProjectResponse
 </span><a href="Network.AWS.Rekognition.CreateProject.html#CreateProjectResponse%27"><span class="hs-identifier hs-type">CreateProjectResponse'</span></a></span><span>
 </span><span id="line-154"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:projectArn:CreateProjectResponse' :: Maybe Text
@@ -369,7 +369,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-156"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateProjectResponse' :: Int
 </span><a href="Network.AWS.Rekognition.CreateProject.html#%24sel%3AhttpStatus%3ACreateProjectResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679347968"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679348297"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-157"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-158"></span><span>
 </span><span id="line-159"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the new project. You can use the ARN</span><span>
@@ -385,16 +385,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.CreateProject.html#CreateProjectResponse%27"><span class="hs-identifier hs-type">CreateProjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347967"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.CreateProject.html#CreateProjectResponse%27"><span class="hs-identifier hs-type">CreateProjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348296"><span class="annot"><span class="annottext">Maybe Text
 projectArn :: Maybe Text
 $sel:projectArn:CreateProjectResponse' :: CreateProjectResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679347967"><span class="hs-identifier hs-var hs-var">projectArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679347967"><span class="hs-identifier hs-var">projectArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347966"><span class="annot"><span class="annottext">s :: CreateProjectResponse
-</span><a href="#local-6989586621679347966"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.CreateProject.html#CreateProjectResponse%27"><span class="hs-identifier hs-type">CreateProjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347965"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679347965"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProjectResponse
-</span><a href="#local-6989586621679347966"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectArn:CreateProjectResponse' :: Maybe Text
+</span><a href="#local-6989586621679348296"><span class="hs-identifier hs-var hs-var">projectArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679348296"><span class="hs-identifier hs-var">projectArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348295"><span class="annot"><span class="annottext">s :: CreateProjectResponse
+</span><a href="#local-6989586621679348295"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.CreateProject.html#CreateProjectResponse%27"><span class="hs-identifier hs-type">CreateProjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348294"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679348294"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProjectResponse
+</span><a href="#local-6989586621679348295"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectArn:CreateProjectResponse' :: Maybe Text
 </span><a href="Network.AWS.Rekognition.CreateProject.html#%24sel%3AprojectArn%3ACreateProjectResponse%27"><span class="hs-identifier hs-var">projectArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679347965"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.CreateProject.html#CreateProjectResponse"><span class="hs-identifier hs-type">CreateProjectResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679348294"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.CreateProject.html#CreateProjectResponse"><span class="hs-identifier hs-type">CreateProjectResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>
 </span><span id="line-164"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-165"></span><span class="annot"><a href="Network.AWS.Rekognition.CreateProject.html#createProjectResponse_httpStatus"><span class="hs-identifier hs-type">createProjectResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.CreateProject.html#CreateProjectResponse"><span class="hs-identifier hs-type">CreateProjectResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -403,16 +403,16 @@ $sel:projectArn:CreateProjectResponse' :: CreateProjectResponse -&gt; Maybe Text
 -&gt; (CreateProjectResponse -&gt; Int -&gt; CreateProjectResponse)
 -&gt; Lens CreateProjectResponse CreateProjectResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.CreateProject.html#CreateProjectResponse%27"><span class="hs-identifier hs-type">CreateProjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347964"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.CreateProject.html#CreateProjectResponse%27"><span class="hs-identifier hs-type">CreateProjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348293"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateProjectResponse' :: CreateProjectResponse -&gt; Int
-</span><a href="#local-6989586621679347964"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679347964"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347963"><span class="annot"><span class="annottext">s :: CreateProjectResponse
-</span><a href="#local-6989586621679347963"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.CreateProject.html#CreateProjectResponse%27"><span class="hs-identifier hs-type">CreateProjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347962"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679347962"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProjectResponse
-</span><a href="#local-6989586621679347963"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateProjectResponse' :: Int
+</span><a href="#local-6989586621679348293"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679348293"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348292"><span class="annot"><span class="annottext">s :: CreateProjectResponse
+</span><a href="#local-6989586621679348292"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.CreateProject.html#CreateProjectResponse%27"><span class="hs-identifier hs-type">CreateProjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348291"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679348291"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProjectResponse
+</span><a href="#local-6989586621679348292"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateProjectResponse' :: Int
 </span><a href="Network.AWS.Rekognition.CreateProject.html#%24sel%3AhttpStatus%3ACreateProjectResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679347962"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.CreateProject.html#CreateProjectResponse"><span class="hs-identifier hs-type">CreateProjectResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679348291"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.CreateProject.html#CreateProjectResponse"><span class="hs-identifier hs-type">CreateProjectResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-167"></span><span>
-</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679347960"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.CreateProject.html#CreateProjectResponse"><span class="hs-identifier hs-type">CreateProjectResponse</span></a></span></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679348289"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.CreateProject.html#CreateProjectResponse"><span class="hs-identifier hs-type">CreateProjectResponse</span></a></span></span><span>
 </span><span id="line-169"></span></pre></body></html>

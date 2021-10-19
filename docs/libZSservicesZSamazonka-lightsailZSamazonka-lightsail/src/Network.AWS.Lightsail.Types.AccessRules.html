@@ -34,40 +34,40 @@
 </span><span id="line-34"></span><span class="hs-comment">-- /Amazon Lightsail Developer Guide/.</span><span>
 </span><span id="line-35"></span><span class="hs-comment">--</span><span>
 </span><span id="line-36"></span><span class="hs-comment">-- /See:/ 'newAccessRules' smart constructor.</span><span>
-</span><span id="line-37"></span><span id="local-6989586621679602758"><span id="local-6989586621679602759"></span></span><span class="hs-keyword">data</span><span> </span><span id="AccessRules"><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessRules.html#AccessRules"><span class="hs-identifier hs-var">AccessRules</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AccessRules%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessRules.html#AccessRules%27"><span class="hs-identifier hs-var">AccessRules'</span></a></span></span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A Boolean value that indicates whether the access control list (ACL)</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- permissions that are applied to individual objects override the</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- @getObject@ option that is currently specified.</span><span>
+</span><span id="line-37"></span><span id="local-6989586621679603643"><span id="local-6989586621679603644"></span></span><span class="hs-keyword">data</span><span> </span><span id="AccessRules"><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessRules.html#AccessRules"><span class="hs-identifier hs-var">AccessRules</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AccessRules%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessRules.html#AccessRules%27"><span class="hs-identifier hs-var">AccessRules'</span></a></span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies the anonymous access to all objects in a bucket.</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- The following options can be specified:</span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- When this is true, you can use the</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObjectAcl.html PutObjectAcl&gt;</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- Amazon S3 API action to set individual objects to public (read-only)</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- using the @public-read@ ACL, or to private using the @private@ ACL.</span><span>
-</span><span id="line-46"></span><span>    </span><span id="%24sel%3AallowPublicOverrides%3AAccessRules%27"><span class="annot"><span class="annottext">AccessRules -&gt; Maybe Bool
-</span><a href="Network.AWS.Lightsail.Types.AccessRules.html#%24sel%3AallowPublicOverrides%3AAccessRules%27"><span class="hs-identifier hs-var hs-var">allowPublicOverrides</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | Specifies the anonymous access to all objects in a bucket.</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- -   @public@ - Sets all objects in the bucket to public (read-only),</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">--     making them readable by anyone in the world.</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">--     If the @getObject@ value is set to @public@, then all objects in the</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">--     bucket default to public regardless of the @allowPublicOverrides@</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">--     value.</span><span>
 </span><span id="line-48"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- The following options can be specified:</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- -   @public@ - Sets all objects in the bucket to public (read-only),</span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-comment">--     making them readable by anyone in the world.</span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-comment">--     If the @getObject@ value is set to @public@, then all objects in the</span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-comment">--     bucket default to public regardless of the @allowPublicOverrides@</span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-comment">--     value.</span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- -   @private@ - Sets all objects in the bucket to private, making them</span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-comment">--     readable only by you or anyone you give access to.</span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">--     If the @getObject@ value is set to @private@, and the</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">--     @allowPublicOverrides@ value is set to @true@, then all objects in</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">--     the bucket default to private unless they are configured with a</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">--     @public-read@ ACL. Individual objects with a @public-read@ ACL are</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">--     readable by anyone in the world.</span><span>
-</span><span id="line-66"></span><span>    </span><span id="%24sel%3AgetObject%3AAccessRules%27"><span class="annot"><span class="annottext">AccessRules -&gt; Maybe AccessType
-</span><a href="Network.AWS.Lightsail.Types.AccessRules.html#%24sel%3AgetObject%3AAccessRules%27"><span class="hs-identifier hs-var hs-var">getObject</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessType.html#AccessType"><span class="hs-identifier hs-type">AccessType</span></a></span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- -   @private@ - Sets all objects in the bucket to private, making them</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">--     readable only by you or anyone you give access to.</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">--     If the @getObject@ value is set to @private@, and the</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">--     @allowPublicOverrides@ value is set to @true@, then all objects in</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">--     the bucket default to private unless they are configured with a</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">--     @public-read@ ACL. Individual objects with a @public-read@ ACL are</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">--     readable by anyone in the world.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AgetObject%3AAccessRules%27"><span class="annot"><span class="annottext">AccessRules -&gt; Maybe AccessType
+</span><a href="Network.AWS.Lightsail.Types.AccessRules.html#%24sel%3AgetObject%3AAccessRules%27"><span class="hs-identifier hs-var hs-var">getObject</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessType.html#AccessType"><span class="hs-identifier hs-type">AccessType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | A Boolean value that indicates whether the access control list (ACL)</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- permissions that are applied to individual objects override the</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- @getObject@ option that is currently specified.</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- When this is true, you can use the</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObjectAcl.html PutObjectAcl&gt;</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- Amazon S3 API action to set individual objects to public (read-only)</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- using the @public-read@ ACL, or to private using the @private@ ACL.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AallowPublicOverrides%3AAccessRules%27"><span class="annot"><span class="annottext">AccessRules -&gt; Maybe Bool
+</span><a href="Network.AWS.Lightsail.Types.AccessRules.html#%24sel%3AallowPublicOverrides%3AAccessRules%27"><span class="hs-identifier hs-var hs-var">allowPublicOverrides</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679602751"><span id="local-6989586621679602753"><span class="annot"><span class="annottext">AccessRules -&gt; AccessRules -&gt; Bool
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679603636"><span id="local-6989586621679603638"><span class="annot"><span class="annottext">AccessRules -&gt; AccessRules -&gt; Bool
 (AccessRules -&gt; AccessRules -&gt; Bool)
 -&gt; (AccessRules -&gt; AccessRules -&gt; Bool) -&gt; Eq AccessRules
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -75,7 +75,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AccessRules -&gt; AccessRules -&gt; Bool
 == :: AccessRules -&gt; AccessRules -&gt; Bool
 $c== :: AccessRules -&gt; AccessRules -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679602742"><span id="local-6989586621679602744"><span id="local-6989586621679602746"><span id="local-6989586621679602748"><span class="annot"><span class="annottext">ReadPrec [AccessRules]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679603627"><span id="local-6989586621679603629"><span id="local-6989586621679603631"><span id="local-6989586621679603633"><span class="annot"><span class="annottext">ReadPrec [AccessRules]
 ReadPrec AccessRules
 Int -&gt; ReadS AccessRules
 ReadS [AccessRules]
@@ -95,7 +95,7 @@ readList :: ReadS [AccessRules]
 $creadList :: ReadS [AccessRules]
 readsPrec :: Int -&gt; ReadS AccessRules
 $creadsPrec :: Int -&gt; ReadS AccessRules
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679602735"><span id="local-6989586621679602737"><span id="local-6989586621679602739"><span class="annot"><span class="annottext">Int -&gt; AccessRules -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679603620"><span id="local-6989586621679603622"><span id="local-6989586621679603624"><span class="annot"><span class="annottext">Int -&gt; AccessRules -&gt; ShowS
 [AccessRules] -&gt; ShowS
 AccessRules -&gt; String
 (Int -&gt; AccessRules -&gt; ShowS)
@@ -129,178 +129,177 @@ $cfrom :: forall x. AccessRules -&gt; Rep AccessRules x
 </span><span id="line-75"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-77"></span><span class="hs-comment">--</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- 'allowPublicOverrides', 'accessRules_allowPublicOverrides' - A Boolean value that indicates whether the access control list (ACL)</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- permissions that are applied to individual objects override the</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- @getObject@ option that is currently specified.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'getObject', 'accessRules_getObject' - Specifies the anonymous access to all objects in a bucket.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- The following options can be specified:</span><span>
 </span><span id="line-81"></span><span class="hs-comment">--</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- When this is true, you can use the</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObjectAcl.html PutObjectAcl&gt;</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- Amazon S3 API action to set individual objects to public (read-only)</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- using the @public-read@ ACL, or to private using the @private@ ACL.</span><span>
-</span><span id="line-86"></span><span class="hs-comment">--</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- 'getObject', 'accessRules_getObject' - Specifies the anonymous access to all objects in a bucket.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- -   @public@ - Sets all objects in the bucket to public (read-only),</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--     making them readable by anyone in the world.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--     If the @getObject@ value is set to @public@, then all objects in the</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--     bucket default to public regardless of the @allowPublicOverrides@</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--     value.</span><span>
 </span><span id="line-88"></span><span class="hs-comment">--</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- The following options can be specified:</span><span>
-</span><span id="line-90"></span><span class="hs-comment">--</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- -   @public@ - Sets all objects in the bucket to public (read-only),</span><span>
-</span><span id="line-92"></span><span class="hs-comment">--     making them readable by anyone in the world.</span><span>
-</span><span id="line-93"></span><span class="hs-comment">--</span><span>
-</span><span id="line-94"></span><span class="hs-comment">--     If the @getObject@ value is set to @public@, then all objects in the</span><span>
-</span><span id="line-95"></span><span class="hs-comment">--     bucket default to public regardless of the @allowPublicOverrides@</span><span>
-</span><span id="line-96"></span><span class="hs-comment">--     value.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- -   @private@ - Sets all objects in the bucket to private, making them</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--     readable only by you or anyone you give access to.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--     If the @getObject@ value is set to @private@, and the</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--     @allowPublicOverrides@ value is set to @true@, then all objects in</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--     the bucket default to private unless they are configured with a</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--     @public-read@ ACL. Individual objects with a @public-read@ ACL are</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--     readable by anyone in the world.</span><span>
 </span><span id="line-97"></span><span class="hs-comment">--</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- -   @private@ - Sets all objects in the bucket to private, making them</span><span>
-</span><span id="line-99"></span><span class="hs-comment">--     readable only by you or anyone you give access to.</span><span>
-</span><span id="line-100"></span><span class="hs-comment">--</span><span>
-</span><span id="line-101"></span><span class="hs-comment">--     If the @getObject@ value is set to @private@, and the</span><span>
-</span><span id="line-102"></span><span class="hs-comment">--     @allowPublicOverrides@ value is set to @true@, then all objects in</span><span>
-</span><span id="line-103"></span><span class="hs-comment">--     the bucket default to private unless they are configured with a</span><span>
-</span><span id="line-104"></span><span class="hs-comment">--     @public-read@ ACL. Individual objects with a @public-read@ ACL are</span><span>
-</span><span id="line-105"></span><span class="hs-comment">--     readable by anyone in the world.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'allowPublicOverrides', 'accessRules_allowPublicOverrides' - A Boolean value that indicates whether the access control list (ACL)</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- permissions that are applied to individual objects override the</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- @getObject@ option that is currently specified.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- When this is true, you can use the</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObjectAcl.html PutObjectAcl&gt;</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- Amazon S3 API action to set individual objects to public (read-only)</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- using the @public-read@ ACL, or to private using the @private@ ACL.</span><span>
 </span><span id="line-106"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessRules.html#newAccessRules"><span class="hs-identifier hs-type">newAccessRules</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-107"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessRules.html#AccessRules"><span class="hs-identifier hs-type">AccessRules</span></a></span><span>
 </span><span id="line-108"></span><span id="newAccessRules"><span class="annot"><span class="annottext">newAccessRules :: AccessRules
 </span><a href="Network.AWS.Lightsail.Types.AccessRules.html#newAccessRules"><span class="hs-identifier hs-var hs-var">newAccessRules</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-109"></span><span>  </span><span class="annot"><span class="annottext">AccessRules' :: Maybe Bool -&gt; Maybe AccessType -&gt; AccessRules
+</span><span id="line-109"></span><span>  </span><span class="annot"><span class="annottext">AccessRules' :: Maybe AccessType -&gt; Maybe Bool -&gt; AccessRules
 </span><a href="Network.AWS.Lightsail.Types.AccessRules.html#AccessRules%27"><span class="hs-identifier hs-type">AccessRules'</span></a></span><span>
-</span><span id="line-110"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:allowPublicOverrides:AccessRules' :: Maybe Bool
-</span><a href="Network.AWS.Lightsail.Types.AccessRules.html#%24sel%3AallowPublicOverrides%3AAccessRules%27"><span class="hs-identifier hs-var">allowPublicOverrides</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-111"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:getObject:AccessRules' :: Maybe AccessType
+</span><span id="line-110"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:getObject:AccessRules' :: Maybe AccessType
 </span><a href="Network.AWS.Lightsail.Types.AccessRules.html#%24sel%3AgetObject%3AAccessRules%27"><span class="hs-identifier hs-var">getObject</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AccessType
 forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-113"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- | A Boolean value that indicates whether the access control list (ACL)</span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- permissions that are applied to individual objects override the</span><span>
-</span><span id="line-117"></span><span class="hs-comment">-- @getObject@ option that is currently specified.</span><span>
-</span><span id="line-118"></span><span class="hs-comment">--</span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- When this is true, you can use the</span><span>
-</span><span id="line-120"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObjectAcl.html PutObjectAcl&gt;</span><span>
-</span><span id="line-121"></span><span class="hs-comment">-- Amazon S3 API action to set individual objects to public (read-only)</span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- using the @public-read@ ACL, or to private using the @private@ ACL.</span><span>
-</span><span id="line-123"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessRules.html#accessRules_allowPublicOverrides"><span class="hs-identifier hs-type">accessRules_allowPublicOverrides</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessRules.html#AccessRules"><span class="hs-identifier hs-type">AccessRules</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-124"></span><span id="accessRules_allowPublicOverrides"><span class="annot"><span class="annottext">accessRules_allowPublicOverrides :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; AccessRules -&gt; f AccessRules
-</span><a href="Network.AWS.Lightsail.Types.AccessRules.html#accessRules_allowPublicOverrides"><span class="hs-identifier hs-var hs-var">accessRules_allowPublicOverrides</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccessRules -&gt; Maybe Bool)
--&gt; (AccessRules -&gt; Maybe Bool -&gt; AccessRules)
--&gt; Lens AccessRules AccessRules (Maybe Bool) (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessRules.html#AccessRules%27"><span class="hs-identifier hs-type">AccessRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679602726"><span class="annot"><span class="annottext">Maybe Bool
-allowPublicOverrides :: Maybe Bool
-$sel:allowPublicOverrides:AccessRules' :: AccessRules -&gt; Maybe Bool
-</span><a href="#local-6989586621679602726"><span class="hs-identifier hs-var hs-var">allowPublicOverrides</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679602726"><span class="hs-identifier hs-var">allowPublicOverrides</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679602725"><span class="annot"><span class="annottext">s :: AccessRules
-</span><a href="#local-6989586621679602725"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessRules.html#AccessRules%27"><span class="hs-identifier hs-type">AccessRules'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679602724"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679602724"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessRules
-</span><a href="#local-6989586621679602725"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allowPublicOverrides:AccessRules' :: Maybe Bool
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:allowPublicOverrides:AccessRules' :: Maybe Bool
 </span><a href="Network.AWS.Lightsail.Types.AccessRules.html#%24sel%3AallowPublicOverrides%3AAccessRules%27"><span class="hs-identifier hs-var">allowPublicOverrides</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679602724"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessRules.html#AccessRules"><span class="hs-identifier hs-type">AccessRules</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- | Specifies the anonymous access to all objects in a bucket.</span><span>
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | Specifies the anonymous access to all objects in a bucket.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- The following options can be specified:</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- -   @public@ - Sets all objects in the bucket to public (read-only),</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--     making them readable by anyone in the world.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--     If the @getObject@ value is set to @public@, then all objects in the</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--     bucket default to public regardless of the @allowPublicOverrides@</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--     value.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- -   @private@ - Sets all objects in the bucket to private, making them</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--     readable only by you or anyone you give access to.</span><span>
 </span><span id="line-127"></span><span class="hs-comment">--</span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- The following options can be specified:</span><span>
-</span><span id="line-129"></span><span class="hs-comment">--</span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- -   @public@ - Sets all objects in the bucket to public (read-only),</span><span>
-</span><span id="line-131"></span><span class="hs-comment">--     making them readable by anyone in the world.</span><span>
-</span><span id="line-132"></span><span class="hs-comment">--</span><span>
-</span><span id="line-133"></span><span class="hs-comment">--     If the @getObject@ value is set to @public@, then all objects in the</span><span>
-</span><span id="line-134"></span><span class="hs-comment">--     bucket default to public regardless of the @allowPublicOverrides@</span><span>
-</span><span id="line-135"></span><span class="hs-comment">--     value.</span><span>
-</span><span id="line-136"></span><span class="hs-comment">--</span><span>
-</span><span id="line-137"></span><span class="hs-comment">-- -   @private@ - Sets all objects in the bucket to private, making them</span><span>
-</span><span id="line-138"></span><span class="hs-comment">--     readable only by you or anyone you give access to.</span><span>
-</span><span id="line-139"></span><span class="hs-comment">--</span><span>
-</span><span id="line-140"></span><span class="hs-comment">--     If the @getObject@ value is set to @private@, and the</span><span>
-</span><span id="line-141"></span><span class="hs-comment">--     @allowPublicOverrides@ value is set to @true@, then all objects in</span><span>
-</span><span id="line-142"></span><span class="hs-comment">--     the bucket default to private unless they are configured with a</span><span>
-</span><span id="line-143"></span><span class="hs-comment">--     @public-read@ ACL. Individual objects with a @public-read@ ACL are</span><span>
-</span><span id="line-144"></span><span class="hs-comment">--     readable by anyone in the world.</span><span>
-</span><span id="line-145"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessRules.html#accessRules_getObject"><span class="hs-identifier hs-type">accessRules_getObject</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessRules.html#AccessRules"><span class="hs-identifier hs-type">AccessRules</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessType.html#AccessType"><span class="hs-identifier hs-type">AccessType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-146"></span><span id="accessRules_getObject"><span class="annot"><span class="annottext">accessRules_getObject :: (Maybe AccessType -&gt; f (Maybe AccessType))
+</span><span id="line-128"></span><span class="hs-comment">--     If the @getObject@ value is set to @private@, and the</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--     @allowPublicOverrides@ value is set to @true@, then all objects in</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--     the bucket default to private unless they are configured with a</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--     @public-read@ ACL. Individual objects with a @public-read@ ACL are</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--     readable by anyone in the world.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessRules.html#accessRules_getObject"><span class="hs-identifier hs-type">accessRules_getObject</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessRules.html#AccessRules"><span class="hs-identifier hs-type">AccessRules</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessType.html#AccessType"><span class="hs-identifier hs-type">AccessType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span id="accessRules_getObject"><span class="annot"><span class="annottext">accessRules_getObject :: (Maybe AccessType -&gt; f (Maybe AccessType))
 -&gt; AccessRules -&gt; f AccessRules
 </span><a href="Network.AWS.Lightsail.Types.AccessRules.html#accessRules_getObject"><span class="hs-identifier hs-var hs-var">accessRules_getObject</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccessRules -&gt; Maybe AccessType)
 -&gt; (AccessRules -&gt; Maybe AccessType -&gt; AccessRules)
 -&gt; Lens
      AccessRules AccessRules (Maybe AccessType) (Maybe AccessType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessRules.html#AccessRules%27"><span class="hs-identifier hs-type">AccessRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679602722"><span class="annot"><span class="annottext">Maybe AccessType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessRules.html#AccessRules%27"><span class="hs-identifier hs-type">AccessRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679603611"><span class="annot"><span class="annottext">Maybe AccessType
 getObject :: Maybe AccessType
 $sel:getObject:AccessRules' :: AccessRules -&gt; Maybe AccessType
-</span><a href="#local-6989586621679602722"><span class="hs-identifier hs-var hs-var">getObject</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AccessType
-</span><a href="#local-6989586621679602722"><span class="hs-identifier hs-var">getObject</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679602721"><span class="annot"><span class="annottext">s :: AccessRules
-</span><a href="#local-6989586621679602721"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessRules.html#AccessRules%27"><span class="hs-identifier hs-type">AccessRules'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679602720"><span class="annot"><span class="annottext">Maybe AccessType
-</span><a href="#local-6989586621679602720"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessRules
-</span><a href="#local-6989586621679602721"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:getObject:AccessRules' :: Maybe AccessType
+</span><a href="#local-6989586621679603611"><span class="hs-identifier hs-var hs-var">getObject</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AccessType
+</span><a href="#local-6989586621679603611"><span class="hs-identifier hs-var">getObject</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679603610"><span class="annot"><span class="annottext">s :: AccessRules
+</span><a href="#local-6989586621679603610"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessRules.html#AccessRules%27"><span class="hs-identifier hs-type">AccessRules'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679603609"><span class="annot"><span class="annottext">Maybe AccessType
+</span><a href="#local-6989586621679603609"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessRules
+</span><a href="#local-6989586621679603610"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:getObject:AccessRules' :: Maybe AccessType
 </span><a href="Network.AWS.Lightsail.Types.AccessRules.html#%24sel%3AgetObject%3AAccessRules%27"><span class="hs-identifier hs-var">getObject</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AccessType
-</span><a href="#local-6989586621679602720"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessRules.html#AccessRules"><span class="hs-identifier hs-type">AccessRules</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-147"></span><span>
-</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679602717"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessRules.html#AccessRules"><span class="hs-identifier hs-type">AccessRules</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-149"></span><span>  </span><span id="local-6989586621679602715"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AccessRules
+</span><a href="#local-6989586621679603609"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessRules.html#AccessRules"><span class="hs-identifier hs-type">AccessRules</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | A Boolean value that indicates whether the access control list (ACL)</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- permissions that are applied to individual objects override the</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- @getObject@ option that is currently specified.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- When this is true, you can use the</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObjectAcl.html PutObjectAcl&gt;</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- Amazon S3 API action to set individual objects to public (read-only)</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- using the @public-read@ ACL, or to private using the @private@ ACL.</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessRules.html#accessRules_allowPublicOverrides"><span class="hs-identifier hs-type">accessRules_allowPublicOverrides</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessRules.html#AccessRules"><span class="hs-identifier hs-type">AccessRules</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span id="accessRules_allowPublicOverrides"><span class="annot"><span class="annottext">accessRules_allowPublicOverrides :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; AccessRules -&gt; f AccessRules
+</span><a href="Network.AWS.Lightsail.Types.AccessRules.html#accessRules_allowPublicOverrides"><span class="hs-identifier hs-var hs-var">accessRules_allowPublicOverrides</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccessRules -&gt; Maybe Bool)
+-&gt; (AccessRules -&gt; Maybe Bool -&gt; AccessRules)
+-&gt; Lens AccessRules AccessRules (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessRules.html#AccessRules%27"><span class="hs-identifier hs-type">AccessRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679603607"><span class="annot"><span class="annottext">Maybe Bool
+allowPublicOverrides :: Maybe Bool
+$sel:allowPublicOverrides:AccessRules' :: AccessRules -&gt; Maybe Bool
+</span><a href="#local-6989586621679603607"><span class="hs-identifier hs-var hs-var">allowPublicOverrides</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679603607"><span class="hs-identifier hs-var">allowPublicOverrides</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679603606"><span class="annot"><span class="annottext">s :: AccessRules
+</span><a href="#local-6989586621679603606"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessRules.html#AccessRules%27"><span class="hs-identifier hs-type">AccessRules'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679603605"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679603605"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessRules
+</span><a href="#local-6989586621679603606"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allowPublicOverrides:AccessRules' :: Maybe Bool
+</span><a href="Network.AWS.Lightsail.Types.AccessRules.html#%24sel%3AallowPublicOverrides%3AAccessRules%27"><span class="hs-identifier hs-var">allowPublicOverrides</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679603605"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessRules.html#AccessRules"><span class="hs-identifier hs-type">AccessRules</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679603602"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessRules.html#AccessRules"><span class="hs-identifier hs-type">AccessRules</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679603600"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AccessRules
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-150"></span><span>    </span><span class="annot"><span class="annottext">String
+</span><span id="line-149"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AccessRules) -&gt; Value -&gt; Parser AccessRules
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
-</span><span id="line-151"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span id="line-150"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AccessRules&quot;</span></span><span>
-</span><span id="line-152"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679602712"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679602712"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-153"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool -&gt; Maybe AccessType -&gt; AccessRules
+</span><span id="line-151"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679603597"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679603597"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-152"></span><span>          </span><span class="annot"><span class="annottext">Maybe AccessType -&gt; Maybe Bool -&gt; AccessRules
 </span><a href="Network.AWS.Lightsail.Types.AccessRules.html#AccessRules%27"><span class="hs-identifier hs-var">AccessRules'</span></a></span><span>
-</span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Bool -&gt; Maybe AccessType -&gt; AccessRules)
--&gt; Parser (Maybe Bool) -&gt; Parser (Maybe AccessType -&gt; AccessRules)
+</span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">(Maybe AccessType -&gt; Maybe Bool -&gt; AccessRules)
+-&gt; Parser (Maybe AccessType) -&gt; Parser (Maybe Bool -&gt; AccessRules)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679602712"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;allowPublicOverrides&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe AccessType -&gt; AccessRules)
--&gt; Parser (Maybe AccessType) -&gt; Parser AccessRules
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679602712"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AccessType)
+</span><a href="#local-6989586621679603597"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AccessType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;getObject&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-156"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-157"></span><span>
-</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679602706"><span id="local-6989586621679602708"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessRules.html#AccessRules"><span class="hs-identifier hs-type">AccessRules</span></a></span></span></span><span>
-</span><span id="line-159"></span><span>
-</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679602703"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessRules.html#AccessRules"><span class="hs-identifier hs-type">AccessRules</span></a></span></span><span>
-</span><span id="line-161"></span><span>
-</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679602695"><span id="local-6989586621679602697"><span id="local-6989586621679602699"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessRules.html#AccessRules"><span class="hs-identifier hs-type">AccessRules</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-163"></span><span>  </span><span id="local-6989586621679602693"><span class="annot"><span class="annottext">toJSON :: AccessRules -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessRules.html#AccessRules%27"><span class="hs-identifier hs-type">AccessRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679602690"><span id="local-6989586621679602691"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Bool -&gt; AccessRules)
+-&gt; Parser (Maybe Bool) -&gt; Parser AccessRules
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679603597"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;allowPublicOverrides&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679603591"><span id="local-6989586621679603593"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessRules.html#AccessRules"><span class="hs-identifier hs-type">AccessRules</span></a></span></span></span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679603588"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessRules.html#AccessRules"><span class="hs-identifier hs-type">AccessRules</span></a></span></span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679603580"><span id="local-6989586621679603582"><span id="local-6989586621679603584"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessRules.html#AccessRules"><span class="hs-identifier hs-type">AccessRules</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679603578"><span class="annot"><span class="annottext">toJSON :: AccessRules -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessRules.html#AccessRules%27"><span class="hs-identifier hs-type">AccessRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679603575"><span id="local-6989586621679603576"><span class="annot"><span class="annottext">Maybe Bool
 Maybe AccessType
-getObject :: Maybe AccessType
 allowPublicOverrides :: Maybe Bool
-$sel:getObject:AccessRules' :: AccessRules -&gt; Maybe AccessType
+getObject :: Maybe AccessType
 $sel:allowPublicOverrides:AccessRules' :: AccessRules -&gt; Maybe Bool
-</span><a href="#local-6989586621679602690"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-164"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+$sel:getObject:AccessRules' :: AccessRules -&gt; Maybe AccessType
+</span><a href="#local-6989586621679603575"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-163"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
-</span><span id="line-165"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+</span><span id="line-164"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
-</span><span id="line-166"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span id="line-165"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;getObject&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AccessType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(AccessType -&gt; Pair) -&gt; Maybe AccessType -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AccessType
+</span><a href="#local-6989586621679603576"><span class="hs-identifier hs-var">getObject</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;allowPublicOverrides&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
 </span><span id="line-167"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679602691"><span class="hs-identifier hs-var">allowPublicOverrides</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-168"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;getObject&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AccessType -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(AccessType -&gt; Pair) -&gt; Maybe AccessType -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AccessType
-</span><a href="#local-6989586621679602690"><span class="hs-identifier hs-var">getObject</span></a></span><span>
-</span><span id="line-169"></span><span>          </span><span class="hs-special">]</span><span>
-</span><span id="line-170"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-171"></span></pre></body></html>
+</span><a href="#local-6989586621679603575"><span class="hs-identifier hs-var">allowPublicOverrides</span></a></span><span>
+</span><span id="line-168"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-169"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span></pre></body></html>

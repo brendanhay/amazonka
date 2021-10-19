@@ -38,24 +38,24 @@
 </span><span id="line-38"></span><span class="hs-comment">-- WorkGroupConfiguration$EnforceWorkGroupConfiguration.</span><span>
 </span><span id="line-39"></span><span class="hs-comment">--</span><span>
 </span><span id="line-40"></span><span class="hs-comment">-- /See:/ 'newWorkGroup' smart constructor.</span><span>
-</span><span id="line-41"></span><span id="local-6989586621679219750"><span id="local-6989586621679219751"></span></span><span class="hs-keyword">data</span><span> </span><span id="WorkGroup"><span class="annot"><a href="Network.AWS.Athena.Types.WorkGroup.html#WorkGroup"><span class="hs-identifier hs-var">WorkGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WorkGroup%27"><span class="annot"><a href="Network.AWS.Athena.Types.WorkGroup.html#WorkGroup%27"><span class="hs-identifier hs-var">WorkGroup'</span></a></span></span><span>
+</span><span id="line-41"></span><span id="local-6989586621679219914"><span id="local-6989586621679219915"></span></span><span class="hs-keyword">data</span><span> </span><span id="WorkGroup"><span class="annot"><a href="Network.AWS.Athena.Types.WorkGroup.html#WorkGroup"><span class="hs-identifier hs-var">WorkGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WorkGroup%27"><span class="annot"><a href="Network.AWS.Athena.Types.WorkGroup.html#WorkGroup%27"><span class="hs-identifier hs-var">WorkGroup'</span></a></span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The date and time the workgroup was created.</span><span>
 </span><span id="line-43"></span><span>    </span><span id="%24sel%3AcreationTime%3AWorkGroup%27"><span class="annot"><span class="annottext">WorkGroup -&gt; Maybe POSIX
 </span><a href="Network.AWS.Athena.Types.WorkGroup.html#%24sel%3AcreationTime%3AWorkGroup%27"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The configuration of the workgroup, which includes the location in</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- Amazon S3 where query results are stored, the encryption configuration,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- if any, used for query results; whether the Amazon CloudWatch Metrics</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- are enabled for the workgroup; whether workgroup settings override</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- client-side settings; and the data usage limits for the amount of data</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- scanned per query or per workgroup. The workgroup settings override is</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- specified in @EnforceWorkGroupConfiguration@ (true\/false) in the</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- @WorkGroupConfiguration@. See</span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- WorkGroupConfiguration$EnforceWorkGroupConfiguration.</span><span>
-</span><span id="line-53"></span><span>    </span><span id="%24sel%3Aconfiguration%3AWorkGroup%27"><span class="annot"><span class="annottext">WorkGroup -&gt; Maybe WorkGroupConfiguration
-</span><a href="Network.AWS.Athena.Types.WorkGroup.html#%24sel%3Aconfiguration%3AWorkGroup%27"><span class="hs-identifier hs-var hs-var">configuration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.WorkGroupConfiguration.html#WorkGroupConfiguration"><span class="hs-identifier hs-type">WorkGroupConfiguration</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The state of the workgroup: ENABLED or DISABLED.</span><span>
-</span><span id="line-55"></span><span>    </span><span id="%24sel%3Astate%3AWorkGroup%27"><span class="annot"><span class="annottext">WorkGroup -&gt; Maybe WorkGroupState
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The state of the workgroup: ENABLED or DISABLED.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3Astate%3AWorkGroup%27"><span class="annot"><span class="annottext">WorkGroup -&gt; Maybe WorkGroupState
 </span><a href="Network.AWS.Athena.Types.WorkGroup.html#%24sel%3Astate%3AWorkGroup%27"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.WorkGroupState.html#WorkGroupState"><span class="hs-identifier hs-type">WorkGroupState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The configuration of the workgroup, which includes the location in</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- Amazon S3 where query results are stored, the encryption configuration,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- if any, used for query results; whether the Amazon CloudWatch Metrics</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- are enabled for the workgroup; whether workgroup settings override</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- client-side settings; and the data usage limits for the amount of data</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- scanned per query or per workgroup. The workgroup settings override is</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- specified in @EnforceWorkGroupConfiguration@ (true\/false) in the</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- @WorkGroupConfiguration@. See</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- WorkGroupConfiguration$EnforceWorkGroupConfiguration.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3Aconfiguration%3AWorkGroup%27"><span class="annot"><span class="annottext">WorkGroup -&gt; Maybe WorkGroupConfiguration
+</span><a href="Network.AWS.Athena.Types.WorkGroup.html#%24sel%3Aconfiguration%3AWorkGroup%27"><span class="hs-identifier hs-var hs-var">configuration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.WorkGroupConfiguration.html#WorkGroupConfiguration"><span class="hs-identifier hs-type">WorkGroupConfiguration</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The workgroup description.</span><span>
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3Adescription%3AWorkGroup%27"><span class="annot"><span class="annottext">WorkGroup -&gt; Maybe Text
 </span><a href="Network.AWS.Athena.Types.WorkGroup.html#%24sel%3Adescription%3AWorkGroup%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -63,7 +63,7 @@
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3Aname%3AWorkGroup%27"><span class="annot"><span class="annottext">WorkGroup -&gt; Text
 </span><a href="Network.AWS.Athena.Types.WorkGroup.html#%24sel%3Aname%3AWorkGroup%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679219740"><span id="local-6989586621679219742"><span class="annot"><span class="annottext">WorkGroup -&gt; WorkGroup -&gt; Bool
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679219904"><span id="local-6989586621679219906"><span class="annot"><span class="annottext">WorkGroup -&gt; WorkGroup -&gt; Bool
 (WorkGroup -&gt; WorkGroup -&gt; Bool)
 -&gt; (WorkGroup -&gt; WorkGroup -&gt; Bool) -&gt; Eq WorkGroup
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -71,7 +71,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: WorkGroup -&gt; WorkGroup -&gt; Bool
 == :: WorkGroup -&gt; WorkGroup -&gt; Bool
 $c== :: WorkGroup -&gt; WorkGroup -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679219731"><span id="local-6989586621679219733"><span id="local-6989586621679219735"><span id="local-6989586621679219737"><span class="annot"><span class="annottext">ReadPrec [WorkGroup]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679219895"><span id="local-6989586621679219897"><span id="local-6989586621679219899"><span id="local-6989586621679219901"><span class="annot"><span class="annottext">ReadPrec [WorkGroup]
 ReadPrec WorkGroup
 Int -&gt; ReadS WorkGroup
 ReadS [WorkGroup]
@@ -91,7 +91,7 @@ readList :: ReadS [WorkGroup]
 $creadList :: ReadS [WorkGroup]
 readsPrec :: Int -&gt; ReadS WorkGroup
 $creadsPrec :: Int -&gt; ReadS WorkGroup
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679219724"><span id="local-6989586621679219726"><span id="local-6989586621679219728"><span class="annot"><span class="annottext">Int -&gt; WorkGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679219888"><span id="local-6989586621679219890"><span id="local-6989586621679219892"><span class="annot"><span class="annottext">Int -&gt; WorkGroup -&gt; ShowS
 [WorkGroup] -&gt; ShowS
 WorkGroup -&gt; String
 (Int -&gt; WorkGroup -&gt; ShowS)
@@ -126,17 +126,17 @@ $cfrom :: forall x. WorkGroup -&gt; Rep WorkGroup x
 </span><span id="line-70"></span><span class="hs-comment">--</span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- 'creationTime', 'workGroup_creationTime' - The date and time the workgroup was created.</span><span>
 </span><span id="line-72"></span><span class="hs-comment">--</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- 'configuration', 'workGroup_configuration' - The configuration of the workgroup, which includes the location in</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- Amazon S3 where query results are stored, the encryption configuration,</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- if any, used for query results; whether the Amazon CloudWatch Metrics</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- are enabled for the workgroup; whether workgroup settings override</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- client-side settings; and the data usage limits for the amount of data</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- scanned per query or per workgroup. The workgroup settings override is</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- specified in @EnforceWorkGroupConfiguration@ (true\/false) in the</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- @WorkGroupConfiguration@. See</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- WorkGroupConfiguration$EnforceWorkGroupConfiguration.</span><span>
-</span><span id="line-82"></span><span class="hs-comment">--</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- 'state', 'workGroup_state' - The state of the workgroup: ENABLED or DISABLED.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'state', 'workGroup_state' - The state of the workgroup: ENABLED or DISABLED.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'configuration', 'workGroup_configuration' - The configuration of the workgroup, which includes the location in</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- Amazon S3 where query results are stored, the encryption configuration,</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- if any, used for query results; whether the Amazon CloudWatch Metrics</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- are enabled for the workgroup; whether workgroup settings override</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- client-side settings; and the data usage limits for the amount of data</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- scanned per query or per workgroup. The workgroup settings override is</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- specified in @EnforceWorkGroupConfiguration@ (true\/false) in the</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- @WorkGroupConfiguration@. See</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- WorkGroupConfiguration$EnforceWorkGroupConfiguration.</span><span>
 </span><span id="line-84"></span><span class="hs-comment">--</span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- 'description', 'workGroup_description' - The workgroup description.</span><span>
 </span><span id="line-86"></span><span class="hs-comment">--</span><span>
@@ -146,11 +146,11 @@ $cfrom :: forall x. WorkGroup -&gt; Rep WorkGroup x
 </span><span id="line-90"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-91"></span><span>  </span><span class="annot"><a href="Network.AWS.Athena.Types.WorkGroup.html#WorkGroup"><span class="hs-identifier hs-type">WorkGroup</span></a></span><span>
 </span><span id="line-92"></span><span id="newWorkGroup"><span class="annot"><span class="annottext">newWorkGroup :: Text -&gt; WorkGroup
-</span><a href="Network.AWS.Athena.Types.WorkGroup.html#newWorkGroup"><span class="hs-identifier hs-var hs-var">newWorkGroup</span></a></span></span><span> </span><span id="local-6989586621679219718"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679219718"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Athena.Types.WorkGroup.html#newWorkGroup"><span class="hs-identifier hs-var hs-var">newWorkGroup</span></a></span></span><span> </span><span id="local-6989586621679219882"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679219882"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>  </span><span class="annot"><span class="annottext">WorkGroup' :: Maybe POSIX
--&gt; Maybe WorkGroupConfiguration
 -&gt; Maybe WorkGroupState
+-&gt; Maybe WorkGroupConfiguration
 -&gt; Maybe Text
 -&gt; Text
 -&gt; WorkGroup
@@ -159,12 +159,12 @@ $cfrom :: forall x. WorkGroup -&gt; Rep WorkGroup x
 </span><a href="Network.AWS.Athena.Types.WorkGroup.html#%24sel%3AcreationTime%3AWorkGroup%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:configuration:WorkGroup' :: Maybe WorkGroupConfiguration
-</span><a href="Network.AWS.Athena.Types.WorkGroup.html#%24sel%3Aconfiguration%3AWorkGroup%27"><span class="hs-identifier hs-var">configuration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe WorkGroupConfiguration
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:state:WorkGroup' :: Maybe WorkGroupState
+</span><a href="Network.AWS.Athena.Types.WorkGroup.html#%24sel%3Astate%3AWorkGroup%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe WorkGroupState
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:state:WorkGroup' :: Maybe WorkGroupState
-</span><a href="Network.AWS.Athena.Types.WorkGroup.html#%24sel%3Astate%3AWorkGroup%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe WorkGroupState
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:configuration:WorkGroup' :: Maybe WorkGroupConfiguration
+</span><a href="Network.AWS.Athena.Types.WorkGroup.html#%24sel%3Aconfiguration%3AWorkGroup%27"><span class="hs-identifier hs-var">configuration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe WorkGroupConfiguration
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:WorkGroup' :: Maybe Text
@@ -173,7 +173,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:WorkGroup' :: Text
 </span><a href="Network.AWS.Athena.Types.WorkGroup.html#%24sel%3Aname%3AWorkGroup%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679219718"><span class="hs-identifier hs-var">pName_</span></a></span><span>
+</span><a href="#local-6989586621679219882"><span class="hs-identifier hs-var">pName_</span></a></span><span>
 </span><span id="line-99"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- | The date and time the workgroup was created.</span><span>
@@ -183,16 +183,16 @@ forall a. Maybe a
 -&gt; (WorkGroup -&gt; Maybe POSIX -&gt; WorkGroup)
 -&gt; Lens WorkGroup WorkGroup (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.WorkGroup.html#WorkGroup%27"><span class="hs-identifier hs-type">WorkGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679219714"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.WorkGroup.html#WorkGroup%27"><span class="hs-identifier hs-type">WorkGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679219878"><span class="annot"><span class="annottext">Maybe POSIX
 creationTime :: Maybe POSIX
 $sel:creationTime:WorkGroup' :: WorkGroup -&gt; Maybe POSIX
-</span><a href="#local-6989586621679219714"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679219714"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679219713"><span class="annot"><span class="annottext">s :: WorkGroup
-</span><a href="#local-6989586621679219713"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.WorkGroup.html#WorkGroup%27"><span class="hs-identifier hs-type">WorkGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679219712"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679219712"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkGroup
-</span><a href="#local-6989586621679219713"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:WorkGroup' :: Maybe POSIX
+</span><a href="#local-6989586621679219878"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679219878"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679219877"><span class="annot"><span class="annottext">s :: WorkGroup
+</span><a href="#local-6989586621679219877"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.WorkGroup.html#WorkGroup%27"><span class="hs-identifier hs-type">WorkGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679219876"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679219876"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkGroup
+</span><a href="#local-6989586621679219877"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:WorkGroup' :: Maybe POSIX
 </span><a href="Network.AWS.Athena.Types.WorkGroup.html#%24sel%3AcreationTime%3AWorkGroup%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679219712"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.WorkGroup.html#WorkGroup"><span class="hs-identifier hs-type">WorkGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; WorkGroup -&gt; f WorkGroup)
+</span><a href="#local-6989586621679219876"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.WorkGroup.html#WorkGroup"><span class="hs-identifier hs-type">WorkGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; WorkGroup -&gt; f WorkGroup)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
 -&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -208,17 +208,37 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- | The configuration of the workgroup, which includes the location in</span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- Amazon S3 where query results are stored, the encryption configuration,</span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- if any, used for query results; whether the Amazon CloudWatch Metrics</span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- are enabled for the workgroup; whether workgroup settings override</span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- client-side settings; and the data usage limits for the amount of data</span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- scanned per query or per workgroup. The workgroup settings override is</span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- specified in @EnforceWorkGroupConfiguration@ (true\/false) in the</span><span>
-</span><span id="line-112"></span><span class="hs-comment">-- @WorkGroupConfiguration@. See</span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- WorkGroupConfiguration$EnforceWorkGroupConfiguration.</span><span>
-</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.Athena.Types.WorkGroup.html#workGroup_configuration"><span class="hs-identifier hs-type">workGroup_configuration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.WorkGroup.html#WorkGroup"><span class="hs-identifier hs-type">WorkGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.WorkGroupConfiguration.html#WorkGroupConfiguration"><span class="hs-identifier hs-type">WorkGroupConfiguration</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-115"></span><span id="workGroup_configuration"><span class="annot"><span class="annottext">workGroup_configuration :: (Maybe WorkGroupConfiguration -&gt; f (Maybe WorkGroupConfiguration))
+</span><span id="line-105"></span><span class="hs-comment">-- | The state of the workgroup: ENABLED or DISABLED.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.Athena.Types.WorkGroup.html#workGroup_state"><span class="hs-identifier hs-type">workGroup_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.WorkGroup.html#WorkGroup"><span class="hs-identifier hs-type">WorkGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.WorkGroupState.html#WorkGroupState"><span class="hs-identifier hs-type">WorkGroupState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span id="workGroup_state"><span class="annot"><span class="annottext">workGroup_state :: (Maybe WorkGroupState -&gt; f (Maybe WorkGroupState))
+-&gt; WorkGroup -&gt; f WorkGroup
+</span><a href="Network.AWS.Athena.Types.WorkGroup.html#workGroup_state"><span class="hs-identifier hs-var hs-var">workGroup_state</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkGroup -&gt; Maybe WorkGroupState)
+-&gt; (WorkGroup -&gt; Maybe WorkGroupState -&gt; WorkGroup)
+-&gt; Lens
+     WorkGroup WorkGroup (Maybe WorkGroupState) (Maybe WorkGroupState)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.WorkGroup.html#WorkGroup%27"><span class="hs-identifier hs-type">WorkGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679219871"><span class="annot"><span class="annottext">Maybe WorkGroupState
+state :: Maybe WorkGroupState
+$sel:state:WorkGroup' :: WorkGroup -&gt; Maybe WorkGroupState
+</span><a href="#local-6989586621679219871"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe WorkGroupState
+</span><a href="#local-6989586621679219871"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679219870"><span class="annot"><span class="annottext">s :: WorkGroup
+</span><a href="#local-6989586621679219870"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.WorkGroup.html#WorkGroup%27"><span class="hs-identifier hs-type">WorkGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679219869"><span class="annot"><span class="annottext">Maybe WorkGroupState
+</span><a href="#local-6989586621679219869"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkGroup
+</span><a href="#local-6989586621679219870"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:WorkGroup' :: Maybe WorkGroupState
+</span><a href="Network.AWS.Athena.Types.WorkGroup.html#%24sel%3Astate%3AWorkGroup%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe WorkGroupState
+</span><a href="#local-6989586621679219869"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.WorkGroup.html#WorkGroup"><span class="hs-identifier hs-type">WorkGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | The configuration of the workgroup, which includes the location in</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- Amazon S3 where query results are stored, the encryption configuration,</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- if any, used for query results; whether the Amazon CloudWatch Metrics</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- are enabled for the workgroup; whether workgroup settings override</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- client-side settings; and the data usage limits for the amount of data</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- scanned per query or per workgroup. The workgroup settings override is</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- specified in @EnforceWorkGroupConfiguration@ (true\/false) in the</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- @WorkGroupConfiguration@. See</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- WorkGroupConfiguration$EnforceWorkGroupConfiguration.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Network.AWS.Athena.Types.WorkGroup.html#workGroup_configuration"><span class="hs-identifier hs-type">workGroup_configuration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.WorkGroup.html#WorkGroup"><span class="hs-identifier hs-type">WorkGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.WorkGroupConfiguration.html#WorkGroupConfiguration"><span class="hs-identifier hs-type">WorkGroupConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span id="workGroup_configuration"><span class="annot"><span class="annottext">workGroup_configuration :: (Maybe WorkGroupConfiguration -&gt; f (Maybe WorkGroupConfiguration))
 -&gt; WorkGroup -&gt; f WorkGroup
 </span><a href="Network.AWS.Athena.Types.WorkGroup.html#workGroup_configuration"><span class="hs-identifier hs-var hs-var">workGroup_configuration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkGroup -&gt; Maybe WorkGroupConfiguration)
 -&gt; (WorkGroup -&gt; Maybe WorkGroupConfiguration -&gt; WorkGroup)
@@ -228,36 +248,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
      (Maybe WorkGroupConfiguration)
      (Maybe WorkGroupConfiguration)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.WorkGroup.html#WorkGroup%27"><span class="hs-identifier hs-type">WorkGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679219707"><span class="annot"><span class="annottext">Maybe WorkGroupConfiguration
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.WorkGroup.html#WorkGroup%27"><span class="hs-identifier hs-type">WorkGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679219867"><span class="annot"><span class="annottext">Maybe WorkGroupConfiguration
 configuration :: Maybe WorkGroupConfiguration
 $sel:configuration:WorkGroup' :: WorkGroup -&gt; Maybe WorkGroupConfiguration
-</span><a href="#local-6989586621679219707"><span class="hs-identifier hs-var hs-var">configuration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe WorkGroupConfiguration
-</span><a href="#local-6989586621679219707"><span class="hs-identifier hs-var">configuration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679219706"><span class="annot"><span class="annottext">s :: WorkGroup
-</span><a href="#local-6989586621679219706"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.WorkGroup.html#WorkGroup%27"><span class="hs-identifier hs-type">WorkGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679219705"><span class="annot"><span class="annottext">Maybe WorkGroupConfiguration
-</span><a href="#local-6989586621679219705"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkGroup
-</span><a href="#local-6989586621679219706"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configuration:WorkGroup' :: Maybe WorkGroupConfiguration
+</span><a href="#local-6989586621679219867"><span class="hs-identifier hs-var hs-var">configuration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe WorkGroupConfiguration
+</span><a href="#local-6989586621679219867"><span class="hs-identifier hs-var">configuration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679219866"><span class="annot"><span class="annottext">s :: WorkGroup
+</span><a href="#local-6989586621679219866"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.WorkGroup.html#WorkGroup%27"><span class="hs-identifier hs-type">WorkGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679219865"><span class="annot"><span class="annottext">Maybe WorkGroupConfiguration
+</span><a href="#local-6989586621679219865"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkGroup
+</span><a href="#local-6989586621679219866"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configuration:WorkGroup' :: Maybe WorkGroupConfiguration
 </span><a href="Network.AWS.Athena.Types.WorkGroup.html#%24sel%3Aconfiguration%3AWorkGroup%27"><span class="hs-identifier hs-var">configuration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe WorkGroupConfiguration
-</span><a href="#local-6989586621679219705"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.WorkGroup.html#WorkGroup"><span class="hs-identifier hs-type">WorkGroup</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-comment">-- | The state of the workgroup: ENABLED or DISABLED.</span><span>
-</span><span id="line-118"></span><span class="annot"><a href="Network.AWS.Athena.Types.WorkGroup.html#workGroup_state"><span class="hs-identifier hs-type">workGroup_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.WorkGroup.html#WorkGroup"><span class="hs-identifier hs-type">WorkGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.WorkGroupState.html#WorkGroupState"><span class="hs-identifier hs-type">WorkGroupState</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-119"></span><span id="workGroup_state"><span class="annot"><span class="annottext">workGroup_state :: (Maybe WorkGroupState -&gt; f (Maybe WorkGroupState))
--&gt; WorkGroup -&gt; f WorkGroup
-</span><a href="Network.AWS.Athena.Types.WorkGroup.html#workGroup_state"><span class="hs-identifier hs-var hs-var">workGroup_state</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkGroup -&gt; Maybe WorkGroupState)
--&gt; (WorkGroup -&gt; Maybe WorkGroupState -&gt; WorkGroup)
--&gt; Lens
-     WorkGroup WorkGroup (Maybe WorkGroupState) (Maybe WorkGroupState)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.WorkGroup.html#WorkGroup%27"><span class="hs-identifier hs-type">WorkGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679219703"><span class="annot"><span class="annottext">Maybe WorkGroupState
-state :: Maybe WorkGroupState
-$sel:state:WorkGroup' :: WorkGroup -&gt; Maybe WorkGroupState
-</span><a href="#local-6989586621679219703"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe WorkGroupState
-</span><a href="#local-6989586621679219703"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679219702"><span class="annot"><span class="annottext">s :: WorkGroup
-</span><a href="#local-6989586621679219702"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.WorkGroup.html#WorkGroup%27"><span class="hs-identifier hs-type">WorkGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679219701"><span class="annot"><span class="annottext">Maybe WorkGroupState
-</span><a href="#local-6989586621679219701"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkGroup
-</span><a href="#local-6989586621679219702"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:WorkGroup' :: Maybe WorkGroupState
-</span><a href="Network.AWS.Athena.Types.WorkGroup.html#%24sel%3Astate%3AWorkGroup%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe WorkGroupState
-</span><a href="#local-6989586621679219701"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.WorkGroup.html#WorkGroup"><span class="hs-identifier hs-type">WorkGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679219865"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.WorkGroup.html#WorkGroup"><span class="hs-identifier hs-type">WorkGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-comment">-- | The workgroup description.</span><span>
 </span><span id="line-122"></span><span class="annot"><a href="Network.AWS.Athena.Types.WorkGroup.html#workGroup_description"><span class="hs-identifier hs-type">workGroup_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.WorkGroup.html#WorkGroup"><span class="hs-identifier hs-type">WorkGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -266,16 +266,16 @@ $sel:state:WorkGroup' :: WorkGroup -&gt; Maybe WorkGroupState
 -&gt; (WorkGroup -&gt; Maybe Text -&gt; WorkGroup)
 -&gt; Lens WorkGroup WorkGroup (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.WorkGroup.html#WorkGroup%27"><span class="hs-identifier hs-type">WorkGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679219699"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.WorkGroup.html#WorkGroup%27"><span class="hs-identifier hs-type">WorkGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679219863"><span class="annot"><span class="annottext">Maybe Text
 description :: Maybe Text
 $sel:description:WorkGroup' :: WorkGroup -&gt; Maybe Text
-</span><a href="#local-6989586621679219699"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679219699"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679219698"><span class="annot"><span class="annottext">s :: WorkGroup
-</span><a href="#local-6989586621679219698"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.WorkGroup.html#WorkGroup%27"><span class="hs-identifier hs-type">WorkGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679219697"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679219697"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkGroup
-</span><a href="#local-6989586621679219698"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:WorkGroup' :: Maybe Text
+</span><a href="#local-6989586621679219863"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679219863"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679219862"><span class="annot"><span class="annottext">s :: WorkGroup
+</span><a href="#local-6989586621679219862"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.WorkGroup.html#WorkGroup%27"><span class="hs-identifier hs-type">WorkGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679219861"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679219861"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkGroup
+</span><a href="#local-6989586621679219862"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:WorkGroup' :: Maybe Text
 </span><a href="Network.AWS.Athena.Types.WorkGroup.html#%24sel%3Adescription%3AWorkGroup%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679219697"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.WorkGroup.html#WorkGroup"><span class="hs-identifier hs-type">WorkGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679219861"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.WorkGroup.html#WorkGroup"><span class="hs-identifier hs-type">WorkGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-comment">-- | The workgroup name.</span><span>
 </span><span id="line-126"></span><span class="annot"><a href="Network.AWS.Athena.Types.WorkGroup.html#workGroup_name"><span class="hs-identifier hs-type">workGroup_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.WorkGroup.html#WorkGroup"><span class="hs-identifier hs-type">WorkGroup</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -284,88 +284,90 @@ $sel:description:WorkGroup' :: WorkGroup -&gt; Maybe Text
 -&gt; (WorkGroup -&gt; Text -&gt; WorkGroup)
 -&gt; Lens WorkGroup WorkGroup Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.WorkGroup.html#WorkGroup%27"><span class="hs-identifier hs-type">WorkGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679219695"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.WorkGroup.html#WorkGroup%27"><span class="hs-identifier hs-type">WorkGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679219859"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:WorkGroup' :: WorkGroup -&gt; Text
-</span><a href="#local-6989586621679219695"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679219695"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679219694"><span class="annot"><span class="annottext">s :: WorkGroup
-</span><a href="#local-6989586621679219694"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.WorkGroup.html#WorkGroup%27"><span class="hs-identifier hs-type">WorkGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679219693"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679219693"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkGroup
-</span><a href="#local-6989586621679219694"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:WorkGroup' :: Text
+</span><a href="#local-6989586621679219859"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679219859"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679219858"><span class="annot"><span class="annottext">s :: WorkGroup
+</span><a href="#local-6989586621679219858"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.WorkGroup.html#WorkGroup%27"><span class="hs-identifier hs-type">WorkGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679219857"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679219857"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkGroup
+</span><a href="#local-6989586621679219858"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:WorkGroup' :: Text
 </span><a href="Network.AWS.Athena.Types.WorkGroup.html#%24sel%3Aname%3AWorkGroup%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679219693"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.WorkGroup.html#WorkGroup"><span class="hs-identifier hs-type">WorkGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679219857"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.WorkGroup.html#WorkGroup"><span class="hs-identifier hs-type">WorkGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679219690"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.WorkGroup.html#WorkGroup"><span class="hs-identifier hs-type">WorkGroup</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679219688"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser WorkGroup
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679219854"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.WorkGroup.html#WorkGroup"><span class="hs-identifier hs-type">WorkGroup</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679219852"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser WorkGroup
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser WorkGroup) -&gt; Value -&gt; Parser WorkGroup
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;WorkGroup&quot;</span></span><span>
-</span><span id="line-133"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679219685"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679219685"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-133"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679219849"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679219849"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-134"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
--&gt; Maybe WorkGroupConfiguration
 -&gt; Maybe WorkGroupState
+-&gt; Maybe WorkGroupConfiguration
 -&gt; Maybe Text
 -&gt; Text
 -&gt; WorkGroup
 </span><a href="Network.AWS.Athena.Types.WorkGroup.html#WorkGroup%27"><span class="hs-identifier hs-var">WorkGroup'</span></a></span><span>
 </span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
- -&gt; Maybe WorkGroupConfiguration
  -&gt; Maybe WorkGroupState
+ -&gt; Maybe WorkGroupConfiguration
  -&gt; Maybe Text
  -&gt; Text
  -&gt; WorkGroup)
 -&gt; Parser (Maybe POSIX)
 -&gt; Parser
-     (Maybe WorkGroupConfiguration
-      -&gt; Maybe WorkGroupState -&gt; Maybe Text -&gt; Text -&gt; WorkGroup)
+     (Maybe WorkGroupState
+      -&gt; Maybe WorkGroupConfiguration -&gt; Maybe Text -&gt; Text -&gt; WorkGroup)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679219685"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679219849"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CreationTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe WorkGroupConfiguration
-   -&gt; Maybe WorkGroupState -&gt; Maybe Text -&gt; Text -&gt; WorkGroup)
--&gt; Parser (Maybe WorkGroupConfiguration)
--&gt; Parser (Maybe WorkGroupState -&gt; Maybe Text -&gt; Text -&gt; WorkGroup)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679219685"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe WorkGroupConfiguration)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Configuration&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe WorkGroupState -&gt; Maybe Text -&gt; Text -&gt; WorkGroup)
+  (Maybe WorkGroupState
+   -&gt; Maybe WorkGroupConfiguration -&gt; Maybe Text -&gt; Text -&gt; WorkGroup)
 -&gt; Parser (Maybe WorkGroupState)
--&gt; Parser (Maybe Text -&gt; Text -&gt; WorkGroup)
+-&gt; Parser
+     (Maybe WorkGroupConfiguration -&gt; Maybe Text -&gt; Text -&gt; WorkGroup)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679219685"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe WorkGroupState)
+</span><a href="#local-6989586621679219849"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe WorkGroupState)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;State&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe WorkGroupConfiguration -&gt; Maybe Text -&gt; Text -&gt; WorkGroup)
+-&gt; Parser (Maybe WorkGroupConfiguration)
+-&gt; Parser (Maybe Text -&gt; Text -&gt; WorkGroup)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679219849"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe WorkGroupConfiguration)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Configuration&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Text -&gt; WorkGroup)
 -&gt; Parser (Maybe Text) -&gt; Parser (Text -&gt; WorkGroup)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679219685"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679219849"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; WorkGroup) -&gt; Parser Text -&gt; Parser WorkGroup
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679219685"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679219849"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679219678"><span id="local-6989586621679219680"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.WorkGroup.html#WorkGroup"><span class="hs-identifier hs-type">WorkGroup</span></a></span></span></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679219842"><span id="local-6989586621679219844"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.WorkGroup.html#WorkGroup"><span class="hs-identifier hs-type">WorkGroup</span></a></span></span></span><span>
 </span><span id="line-143"></span><span>
-</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679219675"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.WorkGroup.html#WorkGroup"><span class="hs-identifier hs-type">WorkGroup</span></a></span></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679219839"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.WorkGroup.html#WorkGroup"><span class="hs-identifier hs-type">WorkGroup</span></a></span></span><span>
 </span><span id="line-145"></span></pre></body></html>

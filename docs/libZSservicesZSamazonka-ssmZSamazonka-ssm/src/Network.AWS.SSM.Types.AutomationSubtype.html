@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-30"></span><span>
-</span><span id="line-31"></span><span id="local-6989586621679787580"><span id="local-6989586621679787581"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AutomationSubtype"><span class="annot"><a href="Network.AWS.SSM.Types.AutomationSubtype.html#AutomationSubtype"><span class="hs-identifier hs-var">AutomationSubtype</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AutomationSubtype%27"><span class="annot"><a href="Network.AWS.SSM.Types.AutomationSubtype.html#AutomationSubtype%27"><span class="hs-identifier hs-var">AutomationSubtype'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679789201"><span id="local-6989586621679789202"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AutomationSubtype"><span class="annot"><a href="Network.AWS.SSM.Types.AutomationSubtype.html#AutomationSubtype"><span class="hs-identifier hs-var">AutomationSubtype</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AutomationSubtype%27"><span class="annot"><a href="Network.AWS.SSM.Types.AutomationSubtype.html#AutomationSubtype%27"><span class="hs-identifier hs-var">AutomationSubtype'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAutomationSubtype"><span class="annot"><span class="annottext">AutomationSubtype -&gt; Text
 </span><a href="Network.AWS.SSM.Types.AutomationSubtype.html#fromAutomationSubtype"><span class="hs-identifier hs-var hs-var">fromAutomationSubtype</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679787572"><span id="local-6989586621679787574"><span id="local-6989586621679787576"><span class="annot"><span class="annottext">Int -&gt; AutomationSubtype -&gt; ShowS
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679789193"><span id="local-6989586621679789195"><span id="local-6989586621679789197"><span class="annot"><span class="annottext">Int -&gt; AutomationSubtype -&gt; ShowS
 [AutomationSubtype] -&gt; ShowS
 AutomationSubtype -&gt; String
 (Int -&gt; AutomationSubtype -&gt; ShowS)
@@ -50,7 +50,7 @@ $cshow :: AutomationSubtype -&gt; String
 showsPrec :: Int -&gt; AutomationSubtype -&gt; ShowS
 $cshowsPrec :: Int -&gt; AutomationSubtype -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>      </span><span id="local-6989586621679787563"><span id="local-6989586621679787565"><span id="local-6989586621679787567"><span id="local-6989586621679787569"><span class="annot"><span class="annottext">ReadPrec [AutomationSubtype]
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679789184"><span id="local-6989586621679789186"><span id="local-6989586621679789188"><span id="local-6989586621679789190"><span class="annot"><span class="annottext">ReadPrec [AutomationSubtype]
 ReadPrec AutomationSubtype
 Int -&gt; ReadS AutomationSubtype
 ReadS [AutomationSubtype]
@@ -71,7 +71,7 @@ $creadList :: ReadS [AutomationSubtype]
 readsPrec :: Int -&gt; ReadS AutomationSubtype
 $creadsPrec :: Int -&gt; ReadS AutomationSubtype
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679787558"><span id="local-6989586621679787560"><span class="annot"><span class="annottext">AutomationSubtype -&gt; AutomationSubtype -&gt; Bool
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679789179"><span id="local-6989586621679789181"><span class="annot"><span class="annottext">AutomationSubtype -&gt; AutomationSubtype -&gt; Bool
 (AutomationSubtype -&gt; AutomationSubtype -&gt; Bool)
 -&gt; (AutomationSubtype -&gt; AutomationSubtype -&gt; Bool)
 -&gt; Eq AutomationSubtype
@@ -81,7 +81,7 @@ $c/= :: AutomationSubtype -&gt; AutomationSubtype -&gt; Bool
 == :: AutomationSubtype -&gt; AutomationSubtype -&gt; Bool
 $c== :: AutomationSubtype -&gt; AutomationSubtype -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679787542"><span id="local-6989586621679787544"><span id="local-6989586621679787546"><span id="local-6989586621679787548"><span id="local-6989586621679787550"><span id="local-6989586621679787552"><span id="local-6989586621679787554"><span class="annot"><span class="annottext">Eq AutomationSubtype
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679789163"><span id="local-6989586621679789165"><span id="local-6989586621679789167"><span id="local-6989586621679789169"><span id="local-6989586621679789171"><span id="local-6989586621679789173"><span id="local-6989586621679789175"><span class="annot"><span class="annottext">Eq AutomationSubtype
 Eq AutomationSubtype
 -&gt; (AutomationSubtype -&gt; AutomationSubtype -&gt; Ordering)
 -&gt; (AutomationSubtype -&gt; AutomationSubtype -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. AutomationSubtype -&gt; Rep AutomationSubtype x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679787534"><span id="local-6989586621679787536"><span class="annot"><span class="annottext">Int -&gt; AutomationSubtype -&gt; Int
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679789155"><span id="local-6989586621679789157"><span class="annot"><span class="annottext">Int -&gt; AutomationSubtype -&gt; Int
 AutomationSubtype -&gt; Int
 (Int -&gt; AutomationSubtype -&gt; Int)
 -&gt; (AutomationSubtype -&gt; Int) -&gt; Hashable AutomationSubtype
@@ -142,51 +142,51 @@ $chash :: AutomationSubtype -&gt; Int
 hashWithSalt :: Int -&gt; AutomationSubtype -&gt; Int
 $chashWithSalt :: Int -&gt; AutomationSubtype -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679787531"><span class="annot"><span class="annottext">AutomationSubtype -&gt; ()
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679789152"><span class="annot"><span class="annottext">AutomationSubtype -&gt; ()
 (AutomationSubtype -&gt; ()) -&gt; NFData AutomationSubtype
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AutomationSubtype -&gt; ()
 $crnf :: AutomationSubtype -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679787528"><span class="annot"><span class="annottext">Text -&gt; Either String AutomationSubtype
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679789149"><span class="annot"><span class="annottext">Text -&gt; Either String AutomationSubtype
 (Text -&gt; Either String AutomationSubtype)
 -&gt; FromText AutomationSubtype
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AutomationSubtype
 $cfromText :: Text -&gt; Either String AutomationSubtype
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679787525"><span class="annot"><span class="annottext">AutomationSubtype -&gt; Text
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679789146"><span class="annot"><span class="annottext">AutomationSubtype -&gt; Text
 (AutomationSubtype -&gt; Text) -&gt; ToText AutomationSubtype
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AutomationSubtype -&gt; Text
 $ctoText :: AutomationSubtype -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679787522"><span class="annot"><span class="annottext">AutomationSubtype -&gt; ByteString
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679789143"><span class="annot"><span class="annottext">AutomationSubtype -&gt; ByteString
 (AutomationSubtype -&gt; ByteString) -&gt; ToByteString AutomationSubtype
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AutomationSubtype -&gt; ByteString
 $ctoBS :: AutomationSubtype -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679787519"><span class="annot"><span class="annottext">AutomationSubtype -&gt; ByteStringBuilder
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679789140"><span class="annot"><span class="annottext">AutomationSubtype -&gt; ByteStringBuilder
 (AutomationSubtype -&gt; ByteStringBuilder) -&gt; ToLog AutomationSubtype
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AutomationSubtype -&gt; ByteStringBuilder
 $cbuild :: AutomationSubtype -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679787516"><span class="annot"><span class="annottext">HeaderName -&gt; AutomationSubtype -&gt; [Header]
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679789137"><span class="annot"><span class="annottext">HeaderName -&gt; AutomationSubtype -&gt; [Header]
 (HeaderName -&gt; AutomationSubtype -&gt; [Header])
 -&gt; ToHeader AutomationSubtype
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AutomationSubtype -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AutomationSubtype -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679787513"><span class="annot"><span class="annottext">AutomationSubtype -&gt; QueryString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679789134"><span class="annot"><span class="annottext">AutomationSubtype -&gt; QueryString
 (AutomationSubtype -&gt; QueryString) -&gt; ToQuery AutomationSubtype
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AutomationSubtype -&gt; QueryString
 $ctoQuery :: AutomationSubtype -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679787508"><span id="local-6989586621679787510"><span class="annot"><span class="annottext">Value -&gt; Parser [AutomationSubtype]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679789129"><span id="local-6989586621679789131"><span class="annot"><span class="annottext">Value -&gt; Parser [AutomationSubtype]
 Value -&gt; Parser AutomationSubtype
 (Value -&gt; Parser AutomationSubtype)
 -&gt; (Value -&gt; Parser [AutomationSubtype])
@@ -198,7 +198,7 @@ $cparseJSONList :: Value -&gt; Parser [AutomationSubtype]
 parseJSON :: Value -&gt; Parser AutomationSubtype
 $cparseJSON :: Value -&gt; Parser AutomationSubtype
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679787503"><span id="local-6989586621679787505"><span class="annot"><span class="annottext">FromJSONKeyFunction [AutomationSubtype]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679789124"><span id="local-6989586621679789126"><span class="annot"><span class="annottext">FromJSONKeyFunction [AutomationSubtype]
 FromJSONKeyFunction AutomationSubtype
 FromJSONKeyFunction AutomationSubtype
 -&gt; FromJSONKeyFunction [AutomationSubtype]
@@ -210,7 +210,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AutomationSubtype]
 fromJSONKey :: FromJSONKeyFunction AutomationSubtype
 $cfromJSONKey :: FromJSONKeyFunction AutomationSubtype
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679787494"><span id="local-6989586621679787496"><span id="local-6989586621679787498"><span id="local-6989586621679787500"><span class="annot"><span class="annottext">[AutomationSubtype] -&gt; Encoding
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679789115"><span id="local-6989586621679789117"><span id="local-6989586621679789119"><span id="local-6989586621679789121"><span class="annot"><span class="annottext">[AutomationSubtype] -&gt; Encoding
 [AutomationSubtype] -&gt; Value
 AutomationSubtype -&gt; Encoding
 AutomationSubtype -&gt; Value
@@ -234,7 +234,7 @@ $ctoEncoding :: AutomationSubtype -&gt; Encoding
 toJSON :: AutomationSubtype -&gt; Value
 $ctoJSON :: AutomationSubtype -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679787489"><span id="local-6989586621679787491"><span class="annot"><span class="annottext">ToJSONKeyFunction [AutomationSubtype]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679789110"><span id="local-6989586621679789112"><span class="annot"><span class="annottext">ToJSONKeyFunction [AutomationSubtype]
 ToJSONKeyFunction AutomationSubtype
 ToJSONKeyFunction AutomationSubtype
 -&gt; ToJSONKeyFunction [AutomationSubtype]
@@ -246,14 +246,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AutomationSubtype]
 toJSONKey :: ToJSONKeyFunction AutomationSubtype
 $ctoJSONKey :: ToJSONKeyFunction AutomationSubtype
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679787486"><span class="annot"><span class="annottext">[Node] -&gt; Either String AutomationSubtype
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679789107"><span class="annot"><span class="annottext">[Node] -&gt; Either String AutomationSubtype
 ([Node] -&gt; Either String AutomationSubtype)
 -&gt; FromXML AutomationSubtype
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AutomationSubtype
 $cparseXML :: [Node] -&gt; Either String AutomationSubtype
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679787483"><span class="annot"><span class="annottext">AutomationSubtype -&gt; XML
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679789104"><span class="annot"><span class="annottext">AutomationSubtype -&gt; XML
 (AutomationSubtype -&gt; XML) -&gt; ToXML AutomationSubtype
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: AutomationSubtype -&gt; XML

@@ -36,26 +36,26 @@
 </span><span id="line-36"></span><span class="hs-comment">-- Reservation group.</span><span>
 </span><span id="line-37"></span><span class="hs-comment">--</span><span>
 </span><span id="line-38"></span><span class="hs-comment">-- /See:/ 'newCapacityReservationSpecificationResponse' smart constructor.</span><span>
-</span><span id="line-39"></span><span id="local-6989586621681058606"><span id="local-6989586621681058607"></span></span><span class="hs-keyword">data</span><span> </span><span id="CapacityReservationSpecificationResponse"><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationSpecificationResponse.html#CapacityReservationSpecificationResponse"><span class="hs-identifier hs-var">CapacityReservationSpecificationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CapacityReservationSpecificationResponse%27"><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationSpecificationResponse.html#CapacityReservationSpecificationResponse%27"><span class="hs-identifier hs-var">CapacityReservationSpecificationResponse'</span></a></span></span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Describes the instance\'s Capacity Reservation preferences. Possible</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- preferences include:</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- -   @open@ - The instance can run in any @open@ Capacity Reservation</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">--     that has matching attributes (instance type, platform, Availability</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">--     Zone).</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- -   @none@ - The instance avoids running in a Capacity Reservation even</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">--     if one is available. The instance runs in On-Demand capacity.</span><span>
-</span><span id="line-49"></span><span>    </span><span id="%24sel%3AcapacityReservationPreference%3ACapacityReservationSpecificationResponse%27"><span class="annot"><span class="annottext">CapacityReservationSpecificationResponse
--&gt; Maybe CapacityReservationPreference
-</span><a href="Network.AWS.EC2.Types.CapacityReservationSpecificationResponse.html#%24sel%3AcapacityReservationPreference%3ACapacityReservationSpecificationResponse%27"><span class="hs-identifier hs-var hs-var">capacityReservationPreference</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationPreference.html#CapacityReservationPreference"><span class="hs-identifier hs-type">CapacityReservationPreference</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | Information about the targeted Capacity Reservation or Capacity</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- Reservation group.</span><span>
-</span><span id="line-52"></span><span>    </span><span id="%24sel%3AcapacityReservationTarget%3ACapacityReservationSpecificationResponse%27"><span class="annot"><span class="annottext">CapacityReservationSpecificationResponse
+</span><span id="line-39"></span><span id="local-6989586621681092178"><span id="local-6989586621681092179"></span></span><span class="hs-keyword">data</span><span> </span><span id="CapacityReservationSpecificationResponse"><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationSpecificationResponse.html#CapacityReservationSpecificationResponse"><span class="hs-identifier hs-var">CapacityReservationSpecificationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CapacityReservationSpecificationResponse%27"><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationSpecificationResponse.html#CapacityReservationSpecificationResponse%27"><span class="hs-identifier hs-var">CapacityReservationSpecificationResponse'</span></a></span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the targeted Capacity Reservation or Capacity</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- Reservation group.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AcapacityReservationTarget%3ACapacityReservationSpecificationResponse%27"><span class="annot"><span class="annottext">CapacityReservationSpecificationResponse
 -&gt; Maybe CapacityReservationTargetResponse
-</span><a href="Network.AWS.EC2.Types.CapacityReservationSpecificationResponse.html#%24sel%3AcapacityReservationTarget%3ACapacityReservationSpecificationResponse%27"><span class="hs-identifier hs-var hs-var">capacityReservationTarget</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationTargetResponse.html#CapacityReservationTargetResponse"><span class="hs-identifier hs-type">CapacityReservationTargetResponse</span></a></span><span>
+</span><a href="Network.AWS.EC2.Types.CapacityReservationSpecificationResponse.html#%24sel%3AcapacityReservationTarget%3ACapacityReservationSpecificationResponse%27"><span class="hs-identifier hs-var hs-var">capacityReservationTarget</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationTargetResponse.html#CapacityReservationTargetResponse"><span class="hs-identifier hs-type">CapacityReservationTargetResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | Describes the instance\'s Capacity Reservation preferences. Possible</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- preferences include:</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- -   @open@ - The instance can run in any @open@ Capacity Reservation</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">--     that has matching attributes (instance type, platform, Availability</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">--     Zone).</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- -   @none@ - The instance avoids running in a Capacity Reservation even</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">--     if one is available. The instance runs in On-Demand capacity.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AcapacityReservationPreference%3ACapacityReservationSpecificationResponse%27"><span class="annot"><span class="annottext">CapacityReservationSpecificationResponse
+-&gt; Maybe CapacityReservationPreference
+</span><a href="Network.AWS.EC2.Types.CapacityReservationSpecificationResponse.html#%24sel%3AcapacityReservationPreference%3ACapacityReservationSpecificationResponse%27"><span class="hs-identifier hs-var hs-var">capacityReservationPreference</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationPreference.html#CapacityReservationPreference"><span class="hs-identifier hs-type">CapacityReservationPreference</span></a></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681058599"><span id="local-6989586621681058601"><span class="annot"><span class="annottext">CapacityReservationSpecificationResponse
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681092171"><span id="local-6989586621681092173"><span class="annot"><span class="annottext">CapacityReservationSpecificationResponse
 -&gt; CapacityReservationSpecificationResponse -&gt; Bool
 (CapacityReservationSpecificationResponse
  -&gt; CapacityReservationSpecificationResponse -&gt; Bool)
@@ -71,7 +71,7 @@ $c/= :: CapacityReservationSpecificationResponse
 -&gt; CapacityReservationSpecificationResponse -&gt; Bool
 $c== :: CapacityReservationSpecificationResponse
 -&gt; CapacityReservationSpecificationResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681058590"><span id="local-6989586621681058592"><span id="local-6989586621681058594"><span id="local-6989586621681058596"><span class="annot"><span class="annottext">ReadPrec [CapacityReservationSpecificationResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681092162"><span id="local-6989586621681092164"><span id="local-6989586621681092166"><span id="local-6989586621681092168"><span class="annot"><span class="annottext">ReadPrec [CapacityReservationSpecificationResponse]
 ReadPrec CapacityReservationSpecificationResponse
 Int -&gt; ReadS CapacityReservationSpecificationResponse
 ReadS [CapacityReservationSpecificationResponse]
@@ -91,7 +91,7 @@ readList :: ReadS [CapacityReservationSpecificationResponse]
 $creadList :: ReadS [CapacityReservationSpecificationResponse]
 readsPrec :: Int -&gt; ReadS CapacityReservationSpecificationResponse
 $creadsPrec :: Int -&gt; ReadS CapacityReservationSpecificationResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681058583"><span id="local-6989586621681058585"><span id="local-6989586621681058587"><span class="annot"><span class="annottext">Int -&gt; CapacityReservationSpecificationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681092155"><span id="local-6989586621681092157"><span id="local-6989586621681092159"><span class="annot"><span class="annottext">Int -&gt; CapacityReservationSpecificationResponse -&gt; ShowS
 [CapacityReservationSpecificationResponse] -&gt; ShowS
 CapacityReservationSpecificationResponse -&gt; String
 (Int -&gt; CapacityReservationSpecificationResponse -&gt; ShowS)
@@ -137,79 +137,42 @@ CapacityReservationSpecificationResponse
 </span><span id="line-61"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-63"></span><span class="hs-comment">--</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- 'capacityReservationPreference', 'capacityReservationSpecificationResponse_capacityReservationPreference' - Describes the instance\'s Capacity Reservation preferences. Possible</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- preferences include:</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'capacityReservationTarget', 'capacityReservationSpecificationResponse_capacityReservationTarget' - Information about the targeted Capacity Reservation or Capacity</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Reservation group.</span><span>
 </span><span id="line-66"></span><span class="hs-comment">--</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- -   @open@ - The instance can run in any @open@ Capacity Reservation</span><span>
-</span><span id="line-68"></span><span class="hs-comment">--     that has matching attributes (instance type, platform, Availability</span><span>
-</span><span id="line-69"></span><span class="hs-comment">--     Zone).</span><span>
-</span><span id="line-70"></span><span class="hs-comment">--</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- -   @none@ - The instance avoids running in a Capacity Reservation even</span><span>
-</span><span id="line-72"></span><span class="hs-comment">--     if one is available. The instance runs in On-Demand capacity.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'capacityReservationPreference', 'capacityReservationSpecificationResponse_capacityReservationPreference' - Describes the instance\'s Capacity Reservation preferences. Possible</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- preferences include:</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- -   @open@ - The instance can run in any @open@ Capacity Reservation</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--     that has matching attributes (instance type, platform, Availability</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--     Zone).</span><span>
 </span><span id="line-73"></span><span class="hs-comment">--</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- 'capacityReservationTarget', 'capacityReservationSpecificationResponse_capacityReservationTarget' - Information about the targeted Capacity Reservation or Capacity</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- Reservation group.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- -   @none@ - The instance avoids running in a Capacity Reservation even</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--     if one is available. The instance runs in On-Demand capacity.</span><span>
 </span><span id="line-76"></span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationSpecificationResponse.html#newCapacityReservationSpecificationResponse"><span class="hs-identifier hs-type">newCapacityReservationSpecificationResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationSpecificationResponse.html#CapacityReservationSpecificationResponse"><span class="hs-identifier hs-type">CapacityReservationSpecificationResponse</span></a></span><span>
 </span><span id="line-78"></span><span id="newCapacityReservationSpecificationResponse"><span class="annot"><span class="annottext">newCapacityReservationSpecificationResponse :: CapacityReservationSpecificationResponse
 </span><a href="Network.AWS.EC2.Types.CapacityReservationSpecificationResponse.html#newCapacityReservationSpecificationResponse"><span class="hs-identifier hs-var hs-var">newCapacityReservationSpecificationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-79"></span><span>  </span><span class="annot"><span class="annottext">CapacityReservationSpecificationResponse' :: Maybe CapacityReservationPreference
--&gt; Maybe CapacityReservationTargetResponse
+</span><span id="line-79"></span><span>  </span><span class="annot"><span class="annottext">CapacityReservationSpecificationResponse' :: Maybe CapacityReservationTargetResponse
+-&gt; Maybe CapacityReservationPreference
 -&gt; CapacityReservationSpecificationResponse
 </span><a href="Network.AWS.EC2.Types.CapacityReservationSpecificationResponse.html#CapacityReservationSpecificationResponse%27"><span class="hs-identifier hs-type">CapacityReservationSpecificationResponse'</span></a></span><span>
-</span><span id="line-80"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:capacityReservationPreference:CapacityReservationSpecificationResponse' :: Maybe CapacityReservationPreference
-</span><a href="Network.AWS.EC2.Types.CapacityReservationSpecificationResponse.html#%24sel%3AcapacityReservationPreference%3ACapacityReservationSpecificationResponse%27"><span class="hs-identifier hs-var">capacityReservationPreference</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-81"></span><span>        </span><span class="annot"><span class="annottext">Maybe CapacityReservationPreference
+</span><span id="line-80"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:capacityReservationTarget:CapacityReservationSpecificationResponse' :: Maybe CapacityReservationTargetResponse
+</span><a href="Network.AWS.EC2.Types.CapacityReservationSpecificationResponse.html#%24sel%3AcapacityReservationTarget%3ACapacityReservationSpecificationResponse%27"><span class="hs-identifier hs-var">capacityReservationTarget</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>        </span><span class="annot"><span class="annottext">Maybe CapacityReservationTargetResponse
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:capacityReservationTarget:CapacityReservationSpecificationResponse' :: Maybe CapacityReservationTargetResponse
-</span><a href="Network.AWS.EC2.Types.CapacityReservationSpecificationResponse.html#%24sel%3AcapacityReservationTarget%3ACapacityReservationSpecificationResponse%27"><span class="hs-identifier hs-var">capacityReservationTarget</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-83"></span><span>        </span><span class="annot"><span class="annottext">Maybe CapacityReservationTargetResponse
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:capacityReservationPreference:CapacityReservationSpecificationResponse' :: Maybe CapacityReservationPreference
+</span><a href="Network.AWS.EC2.Types.CapacityReservationSpecificationResponse.html#%24sel%3AcapacityReservationPreference%3ACapacityReservationSpecificationResponse%27"><span class="hs-identifier hs-var">capacityReservationPreference</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>        </span><span class="annot"><span class="annottext">Maybe CapacityReservationPreference
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-84"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- | Describes the instance\'s Capacity Reservation preferences. Possible</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- preferences include:</span><span>
-</span><span id="line-88"></span><span class="hs-comment">--</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- -   @open@ - The instance can run in any @open@ Capacity Reservation</span><span>
-</span><span id="line-90"></span><span class="hs-comment">--     that has matching attributes (instance type, platform, Availability</span><span>
-</span><span id="line-91"></span><span class="hs-comment">--     Zone).</span><span>
-</span><span id="line-92"></span><span class="hs-comment">--</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- -   @none@ - The instance avoids running in a Capacity Reservation even</span><span>
-</span><span id="line-94"></span><span class="hs-comment">--     if one is available. The instance runs in On-Demand capacity.</span><span>
-</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationSpecificationResponse.html#capacityReservationSpecificationResponse_capacityReservationPreference"><span class="hs-identifier hs-type">capacityReservationSpecificationResponse_capacityReservationPreference</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationSpecificationResponse.html#CapacityReservationSpecificationResponse"><span class="hs-identifier hs-type">CapacityReservationSpecificationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationPreference.html#CapacityReservationPreference"><span class="hs-identifier hs-type">CapacityReservationPreference</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-96"></span><span id="capacityReservationSpecificationResponse_capacityReservationPreference"><span class="annot"><span class="annottext">capacityReservationSpecificationResponse_capacityReservationPreference :: (Maybe CapacityReservationPreference
- -&gt; f (Maybe CapacityReservationPreference))
--&gt; CapacityReservationSpecificationResponse
--&gt; f CapacityReservationSpecificationResponse
-</span><a href="Network.AWS.EC2.Types.CapacityReservationSpecificationResponse.html#capacityReservationSpecificationResponse_capacityReservationPreference"><span class="hs-identifier hs-var hs-var">capacityReservationSpecificationResponse_capacityReservationPreference</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CapacityReservationSpecificationResponse
- -&gt; Maybe CapacityReservationPreference)
--&gt; (CapacityReservationSpecificationResponse
-    -&gt; Maybe CapacityReservationPreference
-    -&gt; CapacityReservationSpecificationResponse)
--&gt; Lens
-     CapacityReservationSpecificationResponse
-     CapacityReservationSpecificationResponse
-     (Maybe CapacityReservationPreference)
-     (Maybe CapacityReservationPreference)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationSpecificationResponse.html#CapacityReservationSpecificationResponse%27"><span class="hs-identifier hs-type">CapacityReservationSpecificationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681058574"><span class="annot"><span class="annottext">Maybe CapacityReservationPreference
-capacityReservationPreference :: Maybe CapacityReservationPreference
-$sel:capacityReservationPreference:CapacityReservationSpecificationResponse' :: CapacityReservationSpecificationResponse
--&gt; Maybe CapacityReservationPreference
-</span><a href="#local-6989586621681058574"><span class="hs-identifier hs-var hs-var">capacityReservationPreference</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CapacityReservationPreference
-</span><a href="#local-6989586621681058574"><span class="hs-identifier hs-var">capacityReservationPreference</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681058573"><span class="annot"><span class="annottext">s :: CapacityReservationSpecificationResponse
-</span><a href="#local-6989586621681058573"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationSpecificationResponse.html#CapacityReservationSpecificationResponse%27"><span class="hs-identifier hs-type">CapacityReservationSpecificationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681058572"><span class="annot"><span class="annottext">Maybe CapacityReservationPreference
-</span><a href="#local-6989586621681058572"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CapacityReservationSpecificationResponse
-</span><a href="#local-6989586621681058573"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:capacityReservationPreference:CapacityReservationSpecificationResponse' :: Maybe CapacityReservationPreference
-</span><a href="Network.AWS.EC2.Types.CapacityReservationSpecificationResponse.html#%24sel%3AcapacityReservationPreference%3ACapacityReservationSpecificationResponse%27"><span class="hs-identifier hs-var">capacityReservationPreference</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CapacityReservationPreference
-</span><a href="#local-6989586621681058572"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationSpecificationResponse.html#CapacityReservationSpecificationResponse"><span class="hs-identifier hs-type">CapacityReservationSpecificationResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- | Information about the targeted Capacity Reservation or Capacity</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- Reservation group.</span><span>
-</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationSpecificationResponse.html#capacityReservationSpecificationResponse_capacityReservationTarget"><span class="hs-identifier hs-type">capacityReservationSpecificationResponse_capacityReservationTarget</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationSpecificationResponse.html#CapacityReservationSpecificationResponse"><span class="hs-identifier hs-type">CapacityReservationSpecificationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationTargetResponse.html#CapacityReservationTargetResponse"><span class="hs-identifier hs-type">CapacityReservationTargetResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-101"></span><span id="capacityReservationSpecificationResponse_capacityReservationTarget"><span class="annot"><span class="annottext">capacityReservationSpecificationResponse_capacityReservationTarget :: (Maybe CapacityReservationTargetResponse
+</span><span id="line-86"></span><span class="hs-comment">-- | Information about the targeted Capacity Reservation or Capacity</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- Reservation group.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationSpecificationResponse.html#capacityReservationSpecificationResponse_capacityReservationTarget"><span class="hs-identifier hs-type">capacityReservationSpecificationResponse_capacityReservationTarget</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationSpecificationResponse.html#CapacityReservationSpecificationResponse"><span class="hs-identifier hs-type">CapacityReservationSpecificationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationTargetResponse.html#CapacityReservationTargetResponse"><span class="hs-identifier hs-type">CapacityReservationTargetResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span id="capacityReservationSpecificationResponse_capacityReservationTarget"><span class="annot"><span class="annottext">capacityReservationSpecificationResponse_capacityReservationTarget :: (Maybe CapacityReservationTargetResponse
  -&gt; f (Maybe CapacityReservationTargetResponse))
 -&gt; CapacityReservationSpecificationResponse
 -&gt; f CapacityReservationSpecificationResponse
@@ -224,63 +187,100 @@ $sel:capacityReservationPreference:CapacityReservationSpecificationResponse' :: 
      (Maybe CapacityReservationTargetResponse)
      (Maybe CapacityReservationTargetResponse)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationSpecificationResponse.html#CapacityReservationSpecificationResponse%27"><span class="hs-identifier hs-type">CapacityReservationSpecificationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681058570"><span class="annot"><span class="annottext">Maybe CapacityReservationTargetResponse
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationSpecificationResponse.html#CapacityReservationSpecificationResponse%27"><span class="hs-identifier hs-type">CapacityReservationSpecificationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681092146"><span class="annot"><span class="annottext">Maybe CapacityReservationTargetResponse
 capacityReservationTarget :: Maybe CapacityReservationTargetResponse
 $sel:capacityReservationTarget:CapacityReservationSpecificationResponse' :: CapacityReservationSpecificationResponse
 -&gt; Maybe CapacityReservationTargetResponse
-</span><a href="#local-6989586621681058570"><span class="hs-identifier hs-var hs-var">capacityReservationTarget</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CapacityReservationTargetResponse
-</span><a href="#local-6989586621681058570"><span class="hs-identifier hs-var">capacityReservationTarget</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681058569"><span class="annot"><span class="annottext">s :: CapacityReservationSpecificationResponse
-</span><a href="#local-6989586621681058569"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationSpecificationResponse.html#CapacityReservationSpecificationResponse%27"><span class="hs-identifier hs-type">CapacityReservationSpecificationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681058568"><span class="annot"><span class="annottext">Maybe CapacityReservationTargetResponse
-</span><a href="#local-6989586621681058568"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CapacityReservationSpecificationResponse
-</span><a href="#local-6989586621681058569"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:capacityReservationTarget:CapacityReservationSpecificationResponse' :: Maybe CapacityReservationTargetResponse
+</span><a href="#local-6989586621681092146"><span class="hs-identifier hs-var hs-var">capacityReservationTarget</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CapacityReservationTargetResponse
+</span><a href="#local-6989586621681092146"><span class="hs-identifier hs-var">capacityReservationTarget</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681092145"><span class="annot"><span class="annottext">s :: CapacityReservationSpecificationResponse
+</span><a href="#local-6989586621681092145"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationSpecificationResponse.html#CapacityReservationSpecificationResponse%27"><span class="hs-identifier hs-type">CapacityReservationSpecificationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681092144"><span class="annot"><span class="annottext">Maybe CapacityReservationTargetResponse
+</span><a href="#local-6989586621681092144"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CapacityReservationSpecificationResponse
+</span><a href="#local-6989586621681092145"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:capacityReservationTarget:CapacityReservationSpecificationResponse' :: Maybe CapacityReservationTargetResponse
 </span><a href="Network.AWS.EC2.Types.CapacityReservationSpecificationResponse.html#%24sel%3AcapacityReservationTarget%3ACapacityReservationSpecificationResponse%27"><span class="hs-identifier hs-var">capacityReservationTarget</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CapacityReservationTargetResponse
-</span><a href="#local-6989586621681058568"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationSpecificationResponse.html#CapacityReservationSpecificationResponse"><span class="hs-identifier hs-type">CapacityReservationSpecificationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681092144"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationSpecificationResponse.html#CapacityReservationSpecificationResponse"><span class="hs-identifier hs-type">CapacityReservationSpecificationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | Describes the instance\'s Capacity Reservation preferences. Possible</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- preferences include:</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- -   @open@ - The instance can run in any @open@ Capacity Reservation</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--     that has matching attributes (instance type, platform, Availability</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--     Zone).</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- -   @none@ - The instance avoids running in a Capacity Reservation even</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--     if one is available. The instance runs in On-Demand capacity.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationSpecificationResponse.html#capacityReservationSpecificationResponse_capacityReservationPreference"><span class="hs-identifier hs-type">capacityReservationSpecificationResponse_capacityReservationPreference</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationSpecificationResponse.html#CapacityReservationSpecificationResponse"><span class="hs-identifier hs-type">CapacityReservationSpecificationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationPreference.html#CapacityReservationPreference"><span class="hs-identifier hs-type">CapacityReservationPreference</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="capacityReservationSpecificationResponse_capacityReservationPreference"><span class="annot"><span class="annottext">capacityReservationSpecificationResponse_capacityReservationPreference :: (Maybe CapacityReservationPreference
+ -&gt; f (Maybe CapacityReservationPreference))
+-&gt; CapacityReservationSpecificationResponse
+-&gt; f CapacityReservationSpecificationResponse
+</span><a href="Network.AWS.EC2.Types.CapacityReservationSpecificationResponse.html#capacityReservationSpecificationResponse_capacityReservationPreference"><span class="hs-identifier hs-var hs-var">capacityReservationSpecificationResponse_capacityReservationPreference</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CapacityReservationSpecificationResponse
+ -&gt; Maybe CapacityReservationPreference)
+-&gt; (CapacityReservationSpecificationResponse
+    -&gt; Maybe CapacityReservationPreference
+    -&gt; CapacityReservationSpecificationResponse)
+-&gt; Lens
+     CapacityReservationSpecificationResponse
+     CapacityReservationSpecificationResponse
+     (Maybe CapacityReservationPreference)
+     (Maybe CapacityReservationPreference)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationSpecificationResponse.html#CapacityReservationSpecificationResponse%27"><span class="hs-identifier hs-type">CapacityReservationSpecificationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681092142"><span class="annot"><span class="annottext">Maybe CapacityReservationPreference
+capacityReservationPreference :: Maybe CapacityReservationPreference
+$sel:capacityReservationPreference:CapacityReservationSpecificationResponse' :: CapacityReservationSpecificationResponse
+-&gt; Maybe CapacityReservationPreference
+</span><a href="#local-6989586621681092142"><span class="hs-identifier hs-var hs-var">capacityReservationPreference</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CapacityReservationPreference
+</span><a href="#local-6989586621681092142"><span class="hs-identifier hs-var">capacityReservationPreference</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681092141"><span class="annot"><span class="annottext">s :: CapacityReservationSpecificationResponse
+</span><a href="#local-6989586621681092141"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationSpecificationResponse.html#CapacityReservationSpecificationResponse%27"><span class="hs-identifier hs-type">CapacityReservationSpecificationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681092140"><span class="annot"><span class="annottext">Maybe CapacityReservationPreference
+</span><a href="#local-6989586621681092140"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CapacityReservationSpecificationResponse
+</span><a href="#local-6989586621681092141"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:capacityReservationPreference:CapacityReservationSpecificationResponse' :: Maybe CapacityReservationPreference
+</span><a href="Network.AWS.EC2.Types.CapacityReservationSpecificationResponse.html#%24sel%3AcapacityReservationPreference%3ACapacityReservationSpecificationResponse%27"><span class="hs-identifier hs-var">capacityReservationPreference</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CapacityReservationPreference
+</span><a href="#local-6989586621681092140"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationSpecificationResponse.html#CapacityReservationSpecificationResponse"><span class="hs-identifier hs-type">CapacityReservationSpecificationResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-104"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span>
 </span><span id="line-105"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationSpecificationResponse.html#CapacityReservationSpecificationResponse"><span class="hs-identifier hs-type">CapacityReservationSpecificationResponse</span></a></span><span>
 </span><span id="line-106"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621681058565"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String CapacityReservationSpecificationResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681058563"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681058563"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">Maybe CapacityReservationPreference
--&gt; Maybe CapacityReservationTargetResponse
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621681092137"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String CapacityReservationSpecificationResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681092135"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681092135"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">Maybe CapacityReservationTargetResponse
+-&gt; Maybe CapacityReservationPreference
 -&gt; CapacityReservationSpecificationResponse
 </span><a href="Network.AWS.EC2.Types.CapacityReservationSpecificationResponse.html#CapacityReservationSpecificationResponse%27"><span class="hs-identifier hs-var">CapacityReservationSpecificationResponse'</span></a></span><span>
-</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">(Maybe CapacityReservationPreference
- -&gt; Maybe CapacityReservationTargetResponse
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">(Maybe CapacityReservationTargetResponse
+ -&gt; Maybe CapacityReservationPreference
  -&gt; CapacityReservationSpecificationResponse)
--&gt; Either String (Maybe CapacityReservationPreference)
+-&gt; Either String (Maybe CapacityReservationTargetResponse)
 -&gt; Either
      String
-     (Maybe CapacityReservationTargetResponse
+     (Maybe CapacityReservationPreference
       -&gt; CapacityReservationSpecificationResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681058563"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
--&gt; Text -&gt; Either String (Maybe CapacityReservationPreference)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;capacityReservationPreference&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-110"></span><span>        </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe CapacityReservationTargetResponse
-   -&gt; CapacityReservationSpecificationResponse)
--&gt; Either String (Maybe CapacityReservationTargetResponse)
--&gt; Either String CapacityReservationSpecificationResponse
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681058563"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681092135"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
 -&gt; Text -&gt; Either String (Maybe CapacityReservationTargetResponse)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;capacityReservationTarget&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>        </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe CapacityReservationPreference
+   -&gt; CapacityReservationSpecificationResponse)
+-&gt; Either String (Maybe CapacityReservationPreference)
+-&gt; Either String CapacityReservationSpecificationResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681092135"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
+-&gt; Text -&gt; Either String (Maybe CapacityReservationPreference)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;capacityReservationPreference&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621681058557"><span id="local-6989586621681058559"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621681092129"><span id="local-6989586621681092131"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-114"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationSpecificationResponse.html#CapacityReservationSpecificationResponse"><span class="hs-identifier hs-type">CapacityReservationSpecificationResponse</span></a></span></span></span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621681058554"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621681092126"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-118"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationSpecificationResponse.html#CapacityReservationSpecificationResponse"><span class="hs-identifier hs-type">CapacityReservationSpecificationResponse</span></a></span></span><span>
 </span><span id="line-119"></span></pre></body></html>

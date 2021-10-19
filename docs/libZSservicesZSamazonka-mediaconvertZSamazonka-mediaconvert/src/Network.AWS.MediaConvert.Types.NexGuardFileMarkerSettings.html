@@ -29,39 +29,39 @@
 </span><span id="line-29"></span><span class="hs-comment">-- (NGPR\/G2) and OTT Streaming workflows.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newNexGuardFileMarkerSettings' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621680009868"><span id="local-6989586621680009869"></span></span><span class="hs-keyword">data</span><span> </span><span id="NexGuardFileMarkerSettings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#NexGuardFileMarkerSettings"><span class="hs-identifier hs-var">NexGuardFileMarkerSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NexGuardFileMarkerSettings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#NexGuardFileMarkerSettings%27"><span class="hs-identifier hs-var">NexGuardFileMarkerSettings'</span></a></span></span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specify the payload ID that you want associated with this output. Valid</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- values vary depending on your Nagra NexGuard forensic watermarking</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- workflow. Required when you include Nagra NexGuard File Marker</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- watermarking (NexGuardWatermarkingSettings) in your job. For PreRelease</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- Content (NGPR\/G2), specify an integer from 1 through 4,194,303. You</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- must generate a unique ID for each asset you watermark, and keep a</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- record of which ID you have assigned to each asset. Neither Nagra nor</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- MediaConvert keep track of the relationship between output files and</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- your IDs. For OTT Streaming, create two adaptive bitrate (ABR) stacks</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- for each asset. Do this by setting up two output groups. For one output</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- group, set the value of Payload ID (payload) to 0 in every output. For</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- the other output group, set Payload ID (payload) to 1 in every output.</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3Apayload%3ANexGuardFileMarkerSettings%27"><span class="annot"><span class="annottext">NexGuardFileMarkerSettings -&gt; Maybe Natural
+</span><span id="line-32"></span><span id="local-6989586621680014802"><span id="local-6989586621680014803"></span></span><span class="hs-keyword">data</span><span> </span><span id="NexGuardFileMarkerSettings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#NexGuardFileMarkerSettings"><span class="hs-identifier hs-var">NexGuardFileMarkerSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NexGuardFileMarkerSettings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#NexGuardFileMarkerSettings%27"><span class="hs-identifier hs-var">NexGuardFileMarkerSettings'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Optional. Ignore this setting unless Nagra support directs you to</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- specify a value. When you don\'t specify a value here, the Nagra</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- NexGuard library uses its default value.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Astrength%3ANexGuardFileMarkerSettings%27"><span class="annot"><span class="annottext">NexGuardFileMarkerSettings -&gt; Maybe WatermarkingStrength
+</span><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#%24sel%3Astrength%3ANexGuardFileMarkerSettings%27"><span class="hs-identifier hs-var hs-var">strength</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.WatermarkingStrength.html#WatermarkingStrength"><span class="hs-identifier hs-type">WatermarkingStrength</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | Specify the payload ID that you want associated with this output. Valid</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- values vary depending on your Nagra NexGuard forensic watermarking</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- workflow. Required when you include Nagra NexGuard File Marker</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- watermarking (NexGuardWatermarkingSettings) in your job. For PreRelease</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- Content (NGPR\/G2), specify an integer from 1 through 4,194,303. You</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- must generate a unique ID for each asset you watermark, and keep a</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- record of which ID you have assigned to each asset. Neither Nagra nor</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- MediaConvert keep track of the relationship between output files and</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- your IDs. For OTT Streaming, create two adaptive bitrate (ABR) stacks</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- for each asset. Do this by setting up two output groups. For one output</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- group, set the value of Payload ID (payload) to 0 in every output. For</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- the other output group, set Payload ID (payload) to 1 in every output.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3Apayload%3ANexGuardFileMarkerSettings%27"><span class="annot"><span class="annottext">NexGuardFileMarkerSettings -&gt; Maybe Natural
 </span><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#%24sel%3Apayload%3ANexGuardFileMarkerSettings%27"><span class="hs-identifier hs-var hs-var">payload</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | Use the base64 license string that Nagra provides you. Enter it directly</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- in your JSON job specification or in the console. Required when you</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- include Nagra NexGuard File Marker watermarking</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- (NexGuardWatermarkingSettings) in your job.</span><span>
-</span><span id="line-50"></span><span>    </span><span id="%24sel%3Alicense%3ANexGuardFileMarkerSettings%27"><span class="annot"><span class="annottext">NexGuardFileMarkerSettings -&gt; Maybe Text
-</span><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#%24sel%3Alicense%3ANexGuardFileMarkerSettings%27"><span class="hs-identifier hs-var hs-var">license</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | Enter one of the watermarking preset strings that Nagra provides you.</span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- Required when you include Nagra NexGuard File Marker watermarking</span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- (NexGuardWatermarkingSettings) in your job.</span><span>
-</span><span id="line-54"></span><span>    </span><span id="%24sel%3Apreset%3ANexGuardFileMarkerSettings%27"><span class="annot"><span class="annottext">NexGuardFileMarkerSettings -&gt; Maybe Text
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | Enter one of the watermarking preset strings that Nagra provides you.</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- Required when you include Nagra NexGuard File Marker watermarking</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- (NexGuardWatermarkingSettings) in your job.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3Apreset%3ANexGuardFileMarkerSettings%27"><span class="annot"><span class="annottext">NexGuardFileMarkerSettings -&gt; Maybe Text
 </span><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#%24sel%3Apreset%3ANexGuardFileMarkerSettings%27"><span class="hs-identifier hs-var hs-var">preset</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | Optional. Ignore this setting unless Nagra support directs you to</span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- specify a value. When you don\'t specify a value here, the Nagra</span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- NexGuard library uses its default value.</span><span>
-</span><span id="line-58"></span><span>    </span><span id="%24sel%3Astrength%3ANexGuardFileMarkerSettings%27"><span class="annot"><span class="annottext">NexGuardFileMarkerSettings -&gt; Maybe WatermarkingStrength
-</span><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#%24sel%3Astrength%3ANexGuardFileMarkerSettings%27"><span class="hs-identifier hs-var hs-var">strength</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.WatermarkingStrength.html#WatermarkingStrength"><span class="hs-identifier hs-type">WatermarkingStrength</span></a></span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | Use the base64 license string that Nagra provides you. Enter it directly</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- in your JSON job specification or in the console. Required when you</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- include Nagra NexGuard File Marker watermarking</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- (NexGuardWatermarkingSettings) in your job.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3Alicense%3ANexGuardFileMarkerSettings%27"><span class="annot"><span class="annottext">NexGuardFileMarkerSettings -&gt; Maybe Text
+</span><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#%24sel%3Alicense%3ANexGuardFileMarkerSettings%27"><span class="hs-identifier hs-var hs-var">license</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680009859"><span id="local-6989586621680009861"><span class="annot"><span class="annottext">NexGuardFileMarkerSettings -&gt; NexGuardFileMarkerSettings -&gt; Bool
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680014793"><span id="local-6989586621680014795"><span class="annot"><span class="annottext">NexGuardFileMarkerSettings -&gt; NexGuardFileMarkerSettings -&gt; Bool
 (NexGuardFileMarkerSettings -&gt; NexGuardFileMarkerSettings -&gt; Bool)
 -&gt; (NexGuardFileMarkerSettings
     -&gt; NexGuardFileMarkerSettings -&gt; Bool)
@@ -71,7 +71,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: NexGuardFileMarkerSettings -&gt; NexGuardFileMarkerSettings -&gt; Bool
 == :: NexGuardFileMarkerSettings -&gt; NexGuardFileMarkerSettings -&gt; Bool
 $c== :: NexGuardFileMarkerSettings -&gt; NexGuardFileMarkerSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680009850"><span id="local-6989586621680009852"><span id="local-6989586621680009854"><span id="local-6989586621680009856"><span class="annot"><span class="annottext">ReadPrec [NexGuardFileMarkerSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680014784"><span id="local-6989586621680014786"><span id="local-6989586621680014788"><span id="local-6989586621680014790"><span class="annot"><span class="annottext">ReadPrec [NexGuardFileMarkerSettings]
 ReadPrec NexGuardFileMarkerSettings
 Int -&gt; ReadS NexGuardFileMarkerSettings
 ReadS [NexGuardFileMarkerSettings]
@@ -91,7 +91,7 @@ readList :: ReadS [NexGuardFileMarkerSettings]
 $creadList :: ReadS [NexGuardFileMarkerSettings]
 readsPrec :: Int -&gt; ReadS NexGuardFileMarkerSettings
 $creadsPrec :: Int -&gt; ReadS NexGuardFileMarkerSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680009843"><span id="local-6989586621680009845"><span id="local-6989586621680009847"><span class="annot"><span class="annottext">Int -&gt; NexGuardFileMarkerSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680014777"><span id="local-6989586621680014779"><span id="local-6989586621680014781"><span class="annot"><span class="annottext">Int -&gt; NexGuardFileMarkerSettings -&gt; ShowS
 [NexGuardFileMarkerSettings] -&gt; ShowS
 NexGuardFileMarkerSettings -&gt; String
 (Int -&gt; NexGuardFileMarkerSettings -&gt; ShowS)
@@ -131,153 +131,65 @@ NexGuardFileMarkerSettings -&gt; Rep NexGuardFileMarkerSettings x
 </span><span id="line-67"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-69"></span><span class="hs-comment">--</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- 'payload', 'nexGuardFileMarkerSettings_payload' - Specify the payload ID that you want associated with this output. Valid</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- values vary depending on your Nagra NexGuard forensic watermarking</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- workflow. Required when you include Nagra NexGuard File Marker</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- watermarking (NexGuardWatermarkingSettings) in your job. For PreRelease</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- Content (NGPR\/G2), specify an integer from 1 through 4,194,303. You</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- must generate a unique ID for each asset you watermark, and keep a</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- record of which ID you have assigned to each asset. Neither Nagra nor</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- MediaConvert keep track of the relationship between output files and</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- your IDs. For OTT Streaming, create two adaptive bitrate (ABR) stacks</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- for each asset. Do this by setting up two output groups. For one output</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- group, set the value of Payload ID (payload) to 0 in every output. For</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- the other output group, set Payload ID (payload) to 1 in every output.</span><span>
-</span><span id="line-82"></span><span class="hs-comment">--</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- 'license', 'nexGuardFileMarkerSettings_license' - Use the base64 license string that Nagra provides you. Enter it directly</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- in your JSON job specification or in the console. Required when you</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- include Nagra NexGuard File Marker watermarking</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- (NexGuardWatermarkingSettings) in your job.</span><span>
-</span><span id="line-87"></span><span class="hs-comment">--</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- 'preset', 'nexGuardFileMarkerSettings_preset' - Enter one of the watermarking preset strings that Nagra provides you.</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- Required when you include Nagra NexGuard File Marker watermarking</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- (NexGuardWatermarkingSettings) in your job.</span><span>
-</span><span id="line-91"></span><span class="hs-comment">--</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- 'strength', 'nexGuardFileMarkerSettings_strength' - Optional. Ignore this setting unless Nagra support directs you to</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- specify a value. When you don\'t specify a value here, the Nagra</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- NexGuard library uses its default value.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'strength', 'nexGuardFileMarkerSettings_strength' - Optional. Ignore this setting unless Nagra support directs you to</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- specify a value. When you don\'t specify a value here, the Nagra</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- NexGuard library uses its default value.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'payload', 'nexGuardFileMarkerSettings_payload' - Specify the payload ID that you want associated with this output. Valid</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- values vary depending on your Nagra NexGuard forensic watermarking</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- workflow. Required when you include Nagra NexGuard File Marker</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- watermarking (NexGuardWatermarkingSettings) in your job. For PreRelease</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- Content (NGPR\/G2), specify an integer from 1 through 4,194,303. You</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- must generate a unique ID for each asset you watermark, and keep a</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- record of which ID you have assigned to each asset. Neither Nagra nor</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- MediaConvert keep track of the relationship between output files and</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- your IDs. For OTT Streaming, create two adaptive bitrate (ABR) stacks</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- for each asset. Do this by setting up two output groups. For one output</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- group, set the value of Payload ID (payload) to 0 in every output. For</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- the other output group, set Payload ID (payload) to 1 in every output.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'preset', 'nexGuardFileMarkerSettings_preset' - Enter one of the watermarking preset strings that Nagra provides you.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- Required when you include Nagra NexGuard File Marker watermarking</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- (NexGuardWatermarkingSettings) in your job.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'license', 'nexGuardFileMarkerSettings_license' - Use the base64 license string that Nagra provides you. Enter it directly</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- in your JSON job specification or in the console. Required when you</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- include Nagra NexGuard File Marker watermarking</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- (NexGuardWatermarkingSettings) in your job.</span><span>
 </span><span id="line-95"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#newNexGuardFileMarkerSettings"><span class="hs-identifier hs-type">newNexGuardFileMarkerSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-96"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#NexGuardFileMarkerSettings"><span class="hs-identifier hs-type">NexGuardFileMarkerSettings</span></a></span><span>
 </span><span id="line-97"></span><span id="newNexGuardFileMarkerSettings"><span class="annot"><span class="annottext">newNexGuardFileMarkerSettings :: NexGuardFileMarkerSettings
 </span><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#newNexGuardFileMarkerSettings"><span class="hs-identifier hs-var hs-var">newNexGuardFileMarkerSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-98"></span><span>  </span><span class="annot"><span class="annottext">NexGuardFileMarkerSettings' :: Maybe Natural
+</span><span id="line-98"></span><span>  </span><span class="annot"><span class="annottext">NexGuardFileMarkerSettings' :: Maybe WatermarkingStrength
+-&gt; Maybe Natural
 -&gt; Maybe Text
 -&gt; Maybe Text
--&gt; Maybe WatermarkingStrength
 -&gt; NexGuardFileMarkerSettings
 </span><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#NexGuardFileMarkerSettings%27"><span class="hs-identifier hs-type">NexGuardFileMarkerSettings'</span></a></span><span>
-</span><span id="line-99"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:payload:NexGuardFileMarkerSettings' :: Maybe Natural
-</span><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#%24sel%3Apayload%3ANexGuardFileMarkerSettings%27"><span class="hs-identifier hs-var">payload</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-100"></span><span>        </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-99"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:strength:NexGuardFileMarkerSettings' :: Maybe WatermarkingStrength
+</span><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#%24sel%3Astrength%3ANexGuardFileMarkerSettings%27"><span class="hs-identifier hs-var">strength</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>        </span><span class="annot"><span class="annottext">Maybe WatermarkingStrength
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:license:NexGuardFileMarkerSettings' :: Maybe Text
-</span><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#%24sel%3Alicense%3ANexGuardFileMarkerSettings%27"><span class="hs-identifier hs-var">license</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:payload:NexGuardFileMarkerSettings' :: Maybe Natural
+</span><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#%24sel%3Apayload%3ANexGuardFileMarkerSettings%27"><span class="hs-identifier hs-var">payload</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:preset:NexGuardFileMarkerSettings' :: Maybe Text
 </span><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#%24sel%3Apreset%3ANexGuardFileMarkerSettings%27"><span class="hs-identifier hs-var">preset</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:strength:NexGuardFileMarkerSettings' :: Maybe WatermarkingStrength
-</span><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#%24sel%3Astrength%3ANexGuardFileMarkerSettings%27"><span class="hs-identifier hs-var">strength</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe WatermarkingStrength
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:license:NexGuardFileMarkerSettings' :: Maybe Text
+</span><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#%24sel%3Alicense%3ANexGuardFileMarkerSettings%27"><span class="hs-identifier hs-var">license</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-104"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- | Specify the payload ID that you want associated with this output. Valid</span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- values vary depending on your Nagra NexGuard forensic watermarking</span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- workflow. Required when you include Nagra NexGuard File Marker</span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- watermarking (NexGuardWatermarkingSettings) in your job. For PreRelease</span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- Content (NGPR\/G2), specify an integer from 1 through 4,194,303. You</span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- must generate a unique ID for each asset you watermark, and keep a</span><span>
-</span><span id="line-112"></span><span class="hs-comment">-- record of which ID you have assigned to each asset. Neither Nagra nor</span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- MediaConvert keep track of the relationship between output files and</span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- your IDs. For OTT Streaming, create two adaptive bitrate (ABR) stacks</span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- for each asset. Do this by setting up two output groups. For one output</span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- group, set the value of Payload ID (payload) to 0 in every output. For</span><span>
-</span><span id="line-117"></span><span class="hs-comment">-- the other output group, set Payload ID (payload) to 1 in every output.</span><span>
-</span><span id="line-118"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#nexGuardFileMarkerSettings_payload"><span class="hs-identifier hs-type">nexGuardFileMarkerSettings_payload</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#NexGuardFileMarkerSettings"><span class="hs-identifier hs-type">NexGuardFileMarkerSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-119"></span><span id="nexGuardFileMarkerSettings_payload"><span class="annot"><span class="annottext">nexGuardFileMarkerSettings_payload :: (Maybe Natural -&gt; f (Maybe Natural))
--&gt; NexGuardFileMarkerSettings -&gt; f NexGuardFileMarkerSettings
-</span><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#nexGuardFileMarkerSettings_payload"><span class="hs-identifier hs-var hs-var">nexGuardFileMarkerSettings_payload</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NexGuardFileMarkerSettings -&gt; Maybe Natural)
--&gt; (NexGuardFileMarkerSettings
-    -&gt; Maybe Natural -&gt; NexGuardFileMarkerSettings)
--&gt; Lens
-     NexGuardFileMarkerSettings
-     NexGuardFileMarkerSettings
-     (Maybe Natural)
-     (Maybe Natural)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#NexGuardFileMarkerSettings%27"><span class="hs-identifier hs-type">NexGuardFileMarkerSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680009834"><span class="annot"><span class="annottext">Maybe Natural
-payload :: Maybe Natural
-$sel:payload:NexGuardFileMarkerSettings' :: NexGuardFileMarkerSettings -&gt; Maybe Natural
-</span><a href="#local-6989586621680009834"><span class="hs-identifier hs-var hs-var">payload</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680009834"><span class="hs-identifier hs-var">payload</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680009833"><span class="annot"><span class="annottext">s :: NexGuardFileMarkerSettings
-</span><a href="#local-6989586621680009833"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#NexGuardFileMarkerSettings%27"><span class="hs-identifier hs-type">NexGuardFileMarkerSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680009832"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680009832"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NexGuardFileMarkerSettings
-</span><a href="#local-6989586621680009833"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:payload:NexGuardFileMarkerSettings' :: Maybe Natural
-</span><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#%24sel%3Apayload%3ANexGuardFileMarkerSettings%27"><span class="hs-identifier hs-var">payload</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680009832"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#NexGuardFileMarkerSettings"><span class="hs-identifier hs-type">NexGuardFileMarkerSettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-comment">-- | Use the base64 license string that Nagra provides you. Enter it directly</span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- in your JSON job specification or in the console. Required when you</span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- include Nagra NexGuard File Marker watermarking</span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- (NexGuardWatermarkingSettings) in your job.</span><span>
-</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#nexGuardFileMarkerSettings_license"><span class="hs-identifier hs-type">nexGuardFileMarkerSettings_license</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#NexGuardFileMarkerSettings"><span class="hs-identifier hs-type">NexGuardFileMarkerSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-126"></span><span id="nexGuardFileMarkerSettings_license"><span class="annot"><span class="annottext">nexGuardFileMarkerSettings_license :: (Maybe Text -&gt; f (Maybe Text))
--&gt; NexGuardFileMarkerSettings -&gt; f NexGuardFileMarkerSettings
-</span><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#nexGuardFileMarkerSettings_license"><span class="hs-identifier hs-var hs-var">nexGuardFileMarkerSettings_license</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NexGuardFileMarkerSettings -&gt; Maybe Text)
--&gt; (NexGuardFileMarkerSettings
-    -&gt; Maybe Text -&gt; NexGuardFileMarkerSettings)
--&gt; Lens
-     NexGuardFileMarkerSettings
-     NexGuardFileMarkerSettings
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#NexGuardFileMarkerSettings%27"><span class="hs-identifier hs-type">NexGuardFileMarkerSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680009830"><span class="annot"><span class="annottext">Maybe Text
-license :: Maybe Text
-$sel:license:NexGuardFileMarkerSettings' :: NexGuardFileMarkerSettings -&gt; Maybe Text
-</span><a href="#local-6989586621680009830"><span class="hs-identifier hs-var hs-var">license</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680009830"><span class="hs-identifier hs-var">license</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680009829"><span class="annot"><span class="annottext">s :: NexGuardFileMarkerSettings
-</span><a href="#local-6989586621680009829"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#NexGuardFileMarkerSettings%27"><span class="hs-identifier hs-type">NexGuardFileMarkerSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680009828"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680009828"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NexGuardFileMarkerSettings
-</span><a href="#local-6989586621680009829"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:license:NexGuardFileMarkerSettings' :: Maybe Text
-</span><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#%24sel%3Alicense%3ANexGuardFileMarkerSettings%27"><span class="hs-identifier hs-var">license</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680009828"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#NexGuardFileMarkerSettings"><span class="hs-identifier hs-type">NexGuardFileMarkerSettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- | Enter one of the watermarking preset strings that Nagra provides you.</span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- Required when you include Nagra NexGuard File Marker watermarking</span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- (NexGuardWatermarkingSettings) in your job.</span><span>
-</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#nexGuardFileMarkerSettings_preset"><span class="hs-identifier hs-type">nexGuardFileMarkerSettings_preset</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#NexGuardFileMarkerSettings"><span class="hs-identifier hs-type">NexGuardFileMarkerSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-132"></span><span id="nexGuardFileMarkerSettings_preset"><span class="annot"><span class="annottext">nexGuardFileMarkerSettings_preset :: (Maybe Text -&gt; f (Maybe Text))
--&gt; NexGuardFileMarkerSettings -&gt; f NexGuardFileMarkerSettings
-</span><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#nexGuardFileMarkerSettings_preset"><span class="hs-identifier hs-var hs-var">nexGuardFileMarkerSettings_preset</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NexGuardFileMarkerSettings -&gt; Maybe Text)
--&gt; (NexGuardFileMarkerSettings
-    -&gt; Maybe Text -&gt; NexGuardFileMarkerSettings)
--&gt; Lens
-     NexGuardFileMarkerSettings
-     NexGuardFileMarkerSettings
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#NexGuardFileMarkerSettings%27"><span class="hs-identifier hs-type">NexGuardFileMarkerSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680009826"><span class="annot"><span class="annottext">Maybe Text
-preset :: Maybe Text
-$sel:preset:NexGuardFileMarkerSettings' :: NexGuardFileMarkerSettings -&gt; Maybe Text
-</span><a href="#local-6989586621680009826"><span class="hs-identifier hs-var hs-var">preset</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680009826"><span class="hs-identifier hs-var">preset</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680009825"><span class="annot"><span class="annottext">s :: NexGuardFileMarkerSettings
-</span><a href="#local-6989586621680009825"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#NexGuardFileMarkerSettings%27"><span class="hs-identifier hs-type">NexGuardFileMarkerSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680009824"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680009824"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NexGuardFileMarkerSettings
-</span><a href="#local-6989586621680009825"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:preset:NexGuardFileMarkerSettings' :: Maybe Text
-</span><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#%24sel%3Apreset%3ANexGuardFileMarkerSettings%27"><span class="hs-identifier hs-var">preset</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680009824"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#NexGuardFileMarkerSettings"><span class="hs-identifier hs-type">NexGuardFileMarkerSettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-133"></span><span>
-</span><span id="line-134"></span><span class="hs-comment">-- | Optional. Ignore this setting unless Nagra support directs you to</span><span>
-</span><span id="line-135"></span><span class="hs-comment">-- specify a value. When you don\'t specify a value here, the Nagra</span><span>
-</span><span id="line-136"></span><span class="hs-comment">-- NexGuard library uses its default value.</span><span>
-</span><span id="line-137"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#nexGuardFileMarkerSettings_strength"><span class="hs-identifier hs-type">nexGuardFileMarkerSettings_strength</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#NexGuardFileMarkerSettings"><span class="hs-identifier hs-type">NexGuardFileMarkerSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.WatermarkingStrength.html#WatermarkingStrength"><span class="hs-identifier hs-type">WatermarkingStrength</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-138"></span><span id="nexGuardFileMarkerSettings_strength"><span class="annot"><span class="annottext">nexGuardFileMarkerSettings_strength :: (Maybe WatermarkingStrength -&gt; f (Maybe WatermarkingStrength))
+</span><span id="line-106"></span><span class="hs-comment">-- | Optional. Ignore this setting unless Nagra support directs you to</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- specify a value. When you don\'t specify a value here, the Nagra</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- NexGuard library uses its default value.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#nexGuardFileMarkerSettings_strength"><span class="hs-identifier hs-type">nexGuardFileMarkerSettings_strength</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#NexGuardFileMarkerSettings"><span class="hs-identifier hs-type">NexGuardFileMarkerSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.WatermarkingStrength.html#WatermarkingStrength"><span class="hs-identifier hs-type">WatermarkingStrength</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="nexGuardFileMarkerSettings_strength"><span class="annot"><span class="annottext">nexGuardFileMarkerSettings_strength :: (Maybe WatermarkingStrength -&gt; f (Maybe WatermarkingStrength))
 -&gt; NexGuardFileMarkerSettings -&gt; f NexGuardFileMarkerSettings
 </span><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#nexGuardFileMarkerSettings_strength"><span class="hs-identifier hs-var hs-var">nexGuardFileMarkerSettings_strength</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NexGuardFileMarkerSettings -&gt; Maybe WatermarkingStrength)
 -&gt; (NexGuardFileMarkerSettings
@@ -288,19 +200,107 @@ $sel:preset:NexGuardFileMarkerSettings' :: NexGuardFileMarkerSettings -&gt; Mayb
      (Maybe WatermarkingStrength)
      (Maybe WatermarkingStrength)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#NexGuardFileMarkerSettings%27"><span class="hs-identifier hs-type">NexGuardFileMarkerSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680009822"><span class="annot"><span class="annottext">Maybe WatermarkingStrength
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#NexGuardFileMarkerSettings%27"><span class="hs-identifier hs-type">NexGuardFileMarkerSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680014768"><span class="annot"><span class="annottext">Maybe WatermarkingStrength
 strength :: Maybe WatermarkingStrength
 $sel:strength:NexGuardFileMarkerSettings' :: NexGuardFileMarkerSettings -&gt; Maybe WatermarkingStrength
-</span><a href="#local-6989586621680009822"><span class="hs-identifier hs-var hs-var">strength</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe WatermarkingStrength
-</span><a href="#local-6989586621680009822"><span class="hs-identifier hs-var">strength</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680009821"><span class="annot"><span class="annottext">s :: NexGuardFileMarkerSettings
-</span><a href="#local-6989586621680009821"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#NexGuardFileMarkerSettings%27"><span class="hs-identifier hs-type">NexGuardFileMarkerSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680009820"><span class="annot"><span class="annottext">Maybe WatermarkingStrength
-</span><a href="#local-6989586621680009820"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NexGuardFileMarkerSettings
-</span><a href="#local-6989586621680009821"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:strength:NexGuardFileMarkerSettings' :: Maybe WatermarkingStrength
+</span><a href="#local-6989586621680014768"><span class="hs-identifier hs-var hs-var">strength</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe WatermarkingStrength
+</span><a href="#local-6989586621680014768"><span class="hs-identifier hs-var">strength</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680014767"><span class="annot"><span class="annottext">s :: NexGuardFileMarkerSettings
+</span><a href="#local-6989586621680014767"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#NexGuardFileMarkerSettings%27"><span class="hs-identifier hs-type">NexGuardFileMarkerSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680014766"><span class="annot"><span class="annottext">Maybe WatermarkingStrength
+</span><a href="#local-6989586621680014766"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NexGuardFileMarkerSettings
+</span><a href="#local-6989586621680014767"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:strength:NexGuardFileMarkerSettings' :: Maybe WatermarkingStrength
 </span><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#%24sel%3Astrength%3ANexGuardFileMarkerSettings%27"><span class="hs-identifier hs-var">strength</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe WatermarkingStrength
-</span><a href="#local-6989586621680009820"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#NexGuardFileMarkerSettings"><span class="hs-identifier hs-type">NexGuardFileMarkerSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680014766"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#NexGuardFileMarkerSettings"><span class="hs-identifier hs-type">NexGuardFileMarkerSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | Specify the payload ID that you want associated with this output. Valid</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- values vary depending on your Nagra NexGuard forensic watermarking</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- workflow. Required when you include Nagra NexGuard File Marker</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- watermarking (NexGuardWatermarkingSettings) in your job. For PreRelease</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- Content (NGPR\/G2), specify an integer from 1 through 4,194,303. You</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- must generate a unique ID for each asset you watermark, and keep a</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- record of which ID you have assigned to each asset. Neither Nagra nor</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- MediaConvert keep track of the relationship between output files and</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- your IDs. For OTT Streaming, create two adaptive bitrate (ABR) stacks</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- for each asset. Do this by setting up two output groups. For one output</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- group, set the value of Payload ID (payload) to 0 in every output. For</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- the other output group, set Payload ID (payload) to 1 in every output.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#nexGuardFileMarkerSettings_payload"><span class="hs-identifier hs-type">nexGuardFileMarkerSettings_payload</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#NexGuardFileMarkerSettings"><span class="hs-identifier hs-type">NexGuardFileMarkerSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span id="nexGuardFileMarkerSettings_payload"><span class="annot"><span class="annottext">nexGuardFileMarkerSettings_payload :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; NexGuardFileMarkerSettings -&gt; f NexGuardFileMarkerSettings
+</span><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#nexGuardFileMarkerSettings_payload"><span class="hs-identifier hs-var hs-var">nexGuardFileMarkerSettings_payload</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NexGuardFileMarkerSettings -&gt; Maybe Natural)
+-&gt; (NexGuardFileMarkerSettings
+    -&gt; Maybe Natural -&gt; NexGuardFileMarkerSettings)
+-&gt; Lens
+     NexGuardFileMarkerSettings
+     NexGuardFileMarkerSettings
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#NexGuardFileMarkerSettings%27"><span class="hs-identifier hs-type">NexGuardFileMarkerSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680014764"><span class="annot"><span class="annottext">Maybe Natural
+payload :: Maybe Natural
+$sel:payload:NexGuardFileMarkerSettings' :: NexGuardFileMarkerSettings -&gt; Maybe Natural
+</span><a href="#local-6989586621680014764"><span class="hs-identifier hs-var hs-var">payload</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680014764"><span class="hs-identifier hs-var">payload</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680014763"><span class="annot"><span class="annottext">s :: NexGuardFileMarkerSettings
+</span><a href="#local-6989586621680014763"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#NexGuardFileMarkerSettings%27"><span class="hs-identifier hs-type">NexGuardFileMarkerSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680014762"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680014762"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NexGuardFileMarkerSettings
+</span><a href="#local-6989586621680014763"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:payload:NexGuardFileMarkerSettings' :: Maybe Natural
+</span><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#%24sel%3Apayload%3ANexGuardFileMarkerSettings%27"><span class="hs-identifier hs-var">payload</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680014762"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#NexGuardFileMarkerSettings"><span class="hs-identifier hs-type">NexGuardFileMarkerSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | Enter one of the watermarking preset strings that Nagra provides you.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- Required when you include Nagra NexGuard File Marker watermarking</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- (NexGuardWatermarkingSettings) in your job.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#nexGuardFileMarkerSettings_preset"><span class="hs-identifier hs-type">nexGuardFileMarkerSettings_preset</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#NexGuardFileMarkerSettings"><span class="hs-identifier hs-type">NexGuardFileMarkerSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span id="nexGuardFileMarkerSettings_preset"><span class="annot"><span class="annottext">nexGuardFileMarkerSettings_preset :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; NexGuardFileMarkerSettings -&gt; f NexGuardFileMarkerSettings
+</span><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#nexGuardFileMarkerSettings_preset"><span class="hs-identifier hs-var hs-var">nexGuardFileMarkerSettings_preset</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NexGuardFileMarkerSettings -&gt; Maybe Text)
+-&gt; (NexGuardFileMarkerSettings
+    -&gt; Maybe Text -&gt; NexGuardFileMarkerSettings)
+-&gt; Lens
+     NexGuardFileMarkerSettings
+     NexGuardFileMarkerSettings
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#NexGuardFileMarkerSettings%27"><span class="hs-identifier hs-type">NexGuardFileMarkerSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680014760"><span class="annot"><span class="annottext">Maybe Text
+preset :: Maybe Text
+$sel:preset:NexGuardFileMarkerSettings' :: NexGuardFileMarkerSettings -&gt; Maybe Text
+</span><a href="#local-6989586621680014760"><span class="hs-identifier hs-var hs-var">preset</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680014760"><span class="hs-identifier hs-var">preset</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680014759"><span class="annot"><span class="annottext">s :: NexGuardFileMarkerSettings
+</span><a href="#local-6989586621680014759"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#NexGuardFileMarkerSettings%27"><span class="hs-identifier hs-type">NexGuardFileMarkerSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680014758"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680014758"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NexGuardFileMarkerSettings
+</span><a href="#local-6989586621680014759"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:preset:NexGuardFileMarkerSettings' :: Maybe Text
+</span><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#%24sel%3Apreset%3ANexGuardFileMarkerSettings%27"><span class="hs-identifier hs-var">preset</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680014758"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#NexGuardFileMarkerSettings"><span class="hs-identifier hs-type">NexGuardFileMarkerSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | Use the base64 license string that Nagra provides you. Enter it directly</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- in your JSON job specification or in the console. Required when you</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- include Nagra NexGuard File Marker watermarking</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- (NexGuardWatermarkingSettings) in your job.</span><span>
+</span><span id="line-137"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#nexGuardFileMarkerSettings_license"><span class="hs-identifier hs-type">nexGuardFileMarkerSettings_license</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#NexGuardFileMarkerSettings"><span class="hs-identifier hs-type">NexGuardFileMarkerSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span id="nexGuardFileMarkerSettings_license"><span class="annot"><span class="annottext">nexGuardFileMarkerSettings_license :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; NexGuardFileMarkerSettings -&gt; f NexGuardFileMarkerSettings
+</span><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#nexGuardFileMarkerSettings_license"><span class="hs-identifier hs-var hs-var">nexGuardFileMarkerSettings_license</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NexGuardFileMarkerSettings -&gt; Maybe Text)
+-&gt; (NexGuardFileMarkerSettings
+    -&gt; Maybe Text -&gt; NexGuardFileMarkerSettings)
+-&gt; Lens
+     NexGuardFileMarkerSettings
+     NexGuardFileMarkerSettings
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#NexGuardFileMarkerSettings%27"><span class="hs-identifier hs-type">NexGuardFileMarkerSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680014756"><span class="annot"><span class="annottext">Maybe Text
+license :: Maybe Text
+$sel:license:NexGuardFileMarkerSettings' :: NexGuardFileMarkerSettings -&gt; Maybe Text
+</span><a href="#local-6989586621680014756"><span class="hs-identifier hs-var hs-var">license</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680014756"><span class="hs-identifier hs-var">license</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680014755"><span class="annot"><span class="annottext">s :: NexGuardFileMarkerSettings
+</span><a href="#local-6989586621680014755"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#NexGuardFileMarkerSettings%27"><span class="hs-identifier hs-type">NexGuardFileMarkerSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680014754"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680014754"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NexGuardFileMarkerSettings
+</span><a href="#local-6989586621680014755"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:license:NexGuardFileMarkerSettings' :: Maybe Text
+</span><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#%24sel%3Alicense%3ANexGuardFileMarkerSettings%27"><span class="hs-identifier hs-var">license</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680014754"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#NexGuardFileMarkerSettings"><span class="hs-identifier hs-type">NexGuardFileMarkerSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>
-</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680009817"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#NexGuardFileMarkerSettings"><span class="hs-identifier hs-type">NexGuardFileMarkerSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621680009815"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser NexGuardFileMarkerSettings
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680014751"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#NexGuardFileMarkerSettings"><span class="hs-identifier hs-type">NexGuardFileMarkerSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621680014749"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser NexGuardFileMarkerSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-142"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser NexGuardFileMarkerSettings)
@@ -310,121 +310,111 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;NexGuardFileMarkerSettings&quot;</span></span><span>
-</span><span id="line-144"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680009812"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680009812"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-145"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-144"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680014746"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680014746"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-145"></span><span>          </span><span class="annot"><span class="annottext">Maybe WatermarkingStrength
+-&gt; Maybe Natural
 -&gt; Maybe Text
 -&gt; Maybe Text
--&gt; Maybe WatermarkingStrength
 -&gt; NexGuardFileMarkerSettings
 </span><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#NexGuardFileMarkerSettings%27"><span class="hs-identifier hs-var">NexGuardFileMarkerSettings'</span></a></span><span>
-</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Natural
+</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">(Maybe WatermarkingStrength
+ -&gt; Maybe Natural
  -&gt; Maybe Text
  -&gt; Maybe Text
- -&gt; Maybe WatermarkingStrength
  -&gt; NexGuardFileMarkerSettings)
--&gt; Parser (Maybe Natural)
+-&gt; Parser (Maybe WatermarkingStrength)
 -&gt; Parser
-     (Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe WatermarkingStrength
-      -&gt; NexGuardFileMarkerSettings)
+     (Maybe Natural
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; NexGuardFileMarkerSettings)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680009812"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;payload&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe WatermarkingStrength
-   -&gt; NexGuardFileMarkerSettings)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe WatermarkingStrength -&gt; NexGuardFileMarkerSettings)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680009812"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;license&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe WatermarkingStrength -&gt; NexGuardFileMarkerSettings)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe WatermarkingStrength -&gt; NexGuardFileMarkerSettings)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680009812"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;preset&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe WatermarkingStrength -&gt; NexGuardFileMarkerSettings)
--&gt; Parser (Maybe WatermarkingStrength)
--&gt; Parser NexGuardFileMarkerSettings
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680009812"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe WatermarkingStrength)
+</span><a href="#local-6989586621680014746"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe WatermarkingStrength)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;strength&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; NexGuardFileMarkerSettings)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; NexGuardFileMarkerSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680014746"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;payload&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; NexGuardFileMarkerSettings)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; NexGuardFileMarkerSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680014746"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;preset&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; NexGuardFileMarkerSettings)
+-&gt; Parser (Maybe Text) -&gt; Parser NexGuardFileMarkerSettings
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680014746"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;license&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-151"></span><span>
-</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680009806"><span id="local-6989586621680009808"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#NexGuardFileMarkerSettings"><span class="hs-identifier hs-type">NexGuardFileMarkerSettings</span></a></span></span></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680014740"><span id="local-6989586621680014742"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#NexGuardFileMarkerSettings"><span class="hs-identifier hs-type">NexGuardFileMarkerSettings</span></a></span></span></span><span>
 </span><span id="line-153"></span><span>
-</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680009803"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#NexGuardFileMarkerSettings"><span class="hs-identifier hs-type">NexGuardFileMarkerSettings</span></a></span></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680014737"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#NexGuardFileMarkerSettings"><span class="hs-identifier hs-type">NexGuardFileMarkerSettings</span></a></span></span><span>
 </span><span id="line-155"></span><span>
-</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680009795"><span id="local-6989586621680009797"><span id="local-6989586621680009799"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#NexGuardFileMarkerSettings"><span class="hs-identifier hs-type">NexGuardFileMarkerSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-157"></span><span>  </span><span id="local-6989586621680009793"><span class="annot"><span class="annottext">toJSON :: NexGuardFileMarkerSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#NexGuardFileMarkerSettings%27"><span class="hs-identifier hs-type">NexGuardFileMarkerSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680009788"><span id="local-6989586621680009789"><span id="local-6989586621680009790"><span id="local-6989586621680009791"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680014729"><span id="local-6989586621680014731"><span id="local-6989586621680014733"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#NexGuardFileMarkerSettings"><span class="hs-identifier hs-type">NexGuardFileMarkerSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621680014727"><span class="annot"><span class="annottext">toJSON :: NexGuardFileMarkerSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings.html#NexGuardFileMarkerSettings%27"><span class="hs-identifier hs-type">NexGuardFileMarkerSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680014722"><span id="local-6989586621680014723"><span id="local-6989586621680014724"><span id="local-6989586621680014725"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Maybe WatermarkingStrength
-strength :: Maybe WatermarkingStrength
-preset :: Maybe Text
 license :: Maybe Text
+preset :: Maybe Text
 payload :: Maybe Natural
-$sel:strength:NexGuardFileMarkerSettings' :: NexGuardFileMarkerSettings -&gt; Maybe WatermarkingStrength
-$sel:preset:NexGuardFileMarkerSettings' :: NexGuardFileMarkerSettings -&gt; Maybe Text
+strength :: Maybe WatermarkingStrength
 $sel:license:NexGuardFileMarkerSettings' :: NexGuardFileMarkerSettings -&gt; Maybe Text
+$sel:preset:NexGuardFileMarkerSettings' :: NexGuardFileMarkerSettings -&gt; Maybe Text
 $sel:payload:NexGuardFileMarkerSettings' :: NexGuardFileMarkerSettings -&gt; Maybe Natural
-</span><a href="#local-6989586621680009788"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:strength:NexGuardFileMarkerSettings' :: NexGuardFileMarkerSettings -&gt; Maybe WatermarkingStrength
+</span><a href="#local-6989586621680014722"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-158"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-159"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-160"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;payload&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680009791"><span class="hs-identifier hs-var">payload</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-161"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;license&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680009790"><span class="hs-identifier hs-var">license</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-162"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;preset&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680009789"><span class="hs-identifier hs-var">preset</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-163"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;strength&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; WatermarkingStrength -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(WatermarkingStrength -&gt; Pair)
 -&gt; Maybe WatermarkingStrength -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe WatermarkingStrength
-</span><a href="#local-6989586621680009788"><span class="hs-identifier hs-var">strength</span></a></span><span>
+</span><a href="#local-6989586621680014725"><span class="hs-identifier hs-var">strength</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;payload&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680014724"><span class="hs-identifier hs-var">payload</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;preset&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680014723"><span class="hs-identifier hs-var">preset</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;license&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680014722"><span class="hs-identifier hs-var">license</span></a></span><span>
 </span><span id="line-164"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-165"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-166"></span></pre></body></html>

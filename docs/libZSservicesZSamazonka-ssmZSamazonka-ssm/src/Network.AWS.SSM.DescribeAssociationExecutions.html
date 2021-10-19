@@ -29,9 +29,9 @@
 </span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#newDescribeAssociationExecutions"><span class="hs-identifier">newDescribeAssociationExecutions</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-30"></span><span>
 </span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#describeAssociationExecutions_nextToken"><span class="hs-identifier">describeAssociationExecutions_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#describeAssociationExecutions_maxResults"><span class="hs-identifier">describeAssociationExecutions_maxResults</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#describeAssociationExecutions_filters"><span class="hs-identifier">describeAssociationExecutions_filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#describeAssociationExecutions_filters"><span class="hs-identifier">describeAssociationExecutions_filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#describeAssociationExecutions_nextToken"><span class="hs-identifier">describeAssociationExecutions_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#describeAssociationExecutions_maxResults"><span class="hs-identifier">describeAssociationExecutions_maxResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#describeAssociationExecutions_associationId"><span class="hs-identifier">describeAssociationExecutions_associationId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-36"></span><span>
 </span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
@@ -53,32 +53,32 @@
 </span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.html"><span class="hs-identifier">Network.AWS.SSM.Types</span></a></span><span>
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newDescribeAssociationExecutions' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679846751"><span id="local-6989586621679846752"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeAssociationExecutions"><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#DescribeAssociationExecutions"><span class="hs-identifier hs-var">DescribeAssociationExecutions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeAssociationExecutions%27"><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#DescribeAssociationExecutions%27"><span class="hs-identifier hs-var">DescribeAssociationExecutions'</span></a></span></span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A token to start the list. Use this token to get the next set of</span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- results.</span><span>
-</span><span id="line-59"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeAssociationExecutions%27"><span class="annot"><span class="annottext">DescribeAssociationExecutions -&gt; Maybe Text
-</span><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#%24sel%3AnextToken%3ADescribeAssociationExecutions%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The maximum number of items to return for this call. The call also</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- returns a token that you can specify in a subsequent call to get the</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- next set of results.</span><span>
-</span><span id="line-63"></span><span>    </span><span id="%24sel%3AmaxResults%3ADescribeAssociationExecutions%27"><span class="annot"><span class="annottext">DescribeAssociationExecutions -&gt; Maybe Natural
-</span><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#%24sel%3AmaxResults%3ADescribeAssociationExecutions%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | Filters for the request. You can specify the following filters and</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- values.</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- ExecutionId (EQUAL)</span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- Status (EQUAL)</span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- CreatedTime (EQUAL, GREATER_THAN, LESS_THAN)</span><span>
-</span><span id="line-72"></span><span>    </span><span id="%24sel%3Afilters%3ADescribeAssociationExecutions%27"><span class="annot"><span class="annottext">DescribeAssociationExecutions
+</span><span id="line-56"></span><span id="local-6989586621679848570"><span id="local-6989586621679848571"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeAssociationExecutions"><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#DescribeAssociationExecutions"><span class="hs-identifier hs-var">DescribeAssociationExecutions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeAssociationExecutions%27"><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#DescribeAssociationExecutions%27"><span class="hs-identifier hs-var">DescribeAssociationExecutions'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Filters for the request. You can specify the following filters and</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- values.</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- ExecutionId (EQUAL)</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- Status (EQUAL)</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- CreatedTime (EQUAL, GREATER_THAN, LESS_THAN)</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3Afilters%3ADescribeAssociationExecutions%27"><span class="annot"><span class="annottext">DescribeAssociationExecutions
 -&gt; Maybe (NonEmpty AssociationExecutionFilter)
 </span><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#%24sel%3Afilters%3ADescribeAssociationExecutions%27"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionFilter.html#AssociationExecutionFilter"><span class="hs-identifier hs-type">AssociationExecutionFilter</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | A token to start the list. Use this token to get the next set of</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeAssociationExecutions%27"><span class="annot"><span class="annottext">DescribeAssociationExecutions -&gt; Maybe Text
+</span><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#%24sel%3AnextToken%3ADescribeAssociationExecutions%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The maximum number of items to return for this call. The call also</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- returns a token that you can specify in a subsequent call to get the</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- next set of results.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AmaxResults%3ADescribeAssociationExecutions%27"><span class="annot"><span class="annottext">DescribeAssociationExecutions -&gt; Maybe Natural
+</span><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#%24sel%3AmaxResults%3ADescribeAssociationExecutions%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
 </span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | The association ID for which you want to view execution history details.</span><span>
 </span><span id="line-74"></span><span>    </span><span id="%24sel%3AassociationId%3ADescribeAssociationExecutions%27"><span class="annot"><span class="annottext">DescribeAssociationExecutions -&gt; Text
 </span><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#%24sel%3AassociationId%3ADescribeAssociationExecutions%27"><span class="hs-identifier hs-var hs-var">associationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-75"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-76"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679846742"><span id="local-6989586621679846744"><span class="annot"><span class="annottext">DescribeAssociationExecutions
+</span><span id="line-76"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679848561"><span id="local-6989586621679848563"><span class="annot"><span class="annottext">DescribeAssociationExecutions
 -&gt; DescribeAssociationExecutions -&gt; Bool
 (DescribeAssociationExecutions
  -&gt; DescribeAssociationExecutions -&gt; Bool)
@@ -94,7 +94,7 @@ $c/= :: DescribeAssociationExecutions
 -&gt; DescribeAssociationExecutions -&gt; Bool
 $c== :: DescribeAssociationExecutions
 -&gt; DescribeAssociationExecutions -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679846733"><span id="local-6989586621679846735"><span id="local-6989586621679846737"><span id="local-6989586621679846739"><span class="annot"><span class="annottext">ReadPrec [DescribeAssociationExecutions]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679848552"><span id="local-6989586621679848554"><span id="local-6989586621679848556"><span id="local-6989586621679848558"><span class="annot"><span class="annottext">ReadPrec [DescribeAssociationExecutions]
 ReadPrec DescribeAssociationExecutions
 Int -&gt; ReadS DescribeAssociationExecutions
 ReadS [DescribeAssociationExecutions]
@@ -114,7 +114,7 @@ readList :: ReadS [DescribeAssociationExecutions]
 $creadList :: ReadS [DescribeAssociationExecutions]
 readsPrec :: Int -&gt; ReadS DescribeAssociationExecutions
 $creadsPrec :: Int -&gt; ReadS DescribeAssociationExecutions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679846726"><span id="local-6989586621679846728"><span id="local-6989586621679846730"><span class="annot"><span class="annottext">Int -&gt; DescribeAssociationExecutions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679848545"><span id="local-6989586621679848547"><span id="local-6989586621679848549"><span class="annot"><span class="annottext">Int -&gt; DescribeAssociationExecutions -&gt; ShowS
 [DescribeAssociationExecutions] -&gt; ShowS
 DescribeAssociationExecutions -&gt; String
 (Int -&gt; DescribeAssociationExecutions -&gt; ShowS)
@@ -160,21 +160,21 @@ DescribeAssociationExecutions
 </span><span id="line-83"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-85"></span><span class="hs-comment">--</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- 'nextToken', 'describeAssociationExecutions_nextToken' - A token to start the list. Use this token to get the next set of</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'filters', 'describeAssociationExecutions_filters' - Filters for the request. You can specify the following filters and</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- values.</span><span>
 </span><span id="line-88"></span><span class="hs-comment">--</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- 'maxResults', 'describeAssociationExecutions_maxResults' - The maximum number of items to return for this call. The call also</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- returns a token that you can specify in a subsequent call to get the</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- next set of results.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- ExecutionId (EQUAL)</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- Status (EQUAL)</span><span>
 </span><span id="line-92"></span><span class="hs-comment">--</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- 'filters', 'describeAssociationExecutions_filters' - Filters for the request. You can specify the following filters and</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- values.</span><span>
-</span><span id="line-95"></span><span class="hs-comment">--</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- ExecutionId (EQUAL)</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- CreatedTime (EQUAL, GREATER_THAN, LESS_THAN)</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'nextToken', 'describeAssociationExecutions_nextToken' - A token to start the list. Use this token to get the next set of</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- results.</span><span>
 </span><span id="line-97"></span><span class="hs-comment">--</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- Status (EQUAL)</span><span>
-</span><span id="line-99"></span><span class="hs-comment">--</span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- CreatedTime (EQUAL, GREATER_THAN, LESS_THAN)</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'maxResults', 'describeAssociationExecutions_maxResults' - The maximum number of items to return for this call. The call also</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- returns a token that you can specify in a subsequent call to get the</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- next set of results.</span><span>
 </span><span id="line-101"></span><span class="hs-comment">--</span><span>
 </span><span id="line-102"></span><span class="hs-comment">-- 'associationId', 'describeAssociationExecutions_associationId' - The association ID for which you want to view execution history details.</span><span>
 </span><span id="line-103"></span><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#newDescribeAssociationExecutions"><span class="hs-identifier hs-type">newDescribeAssociationExecutions</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -182,93 +182,42 @@ DescribeAssociationExecutions
 </span><span id="line-105"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-106"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#DescribeAssociationExecutions"><span class="hs-identifier hs-type">DescribeAssociationExecutions</span></a></span><span>
 </span><span id="line-107"></span><span id="newDescribeAssociationExecutions"><span class="annot"><span class="annottext">newDescribeAssociationExecutions :: Text -&gt; DescribeAssociationExecutions
-</span><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#newDescribeAssociationExecutions"><span class="hs-identifier hs-var hs-var">newDescribeAssociationExecutions</span></a></span></span><span> </span><span id="local-6989586621679846721"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679846721"><span class="hs-identifier hs-var">pAssociationId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-108"></span><span>  </span><span class="annot"><span class="annottext">DescribeAssociationExecutions' :: Maybe Text
+</span><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#newDescribeAssociationExecutions"><span class="hs-identifier hs-var hs-var">newDescribeAssociationExecutions</span></a></span></span><span> </span><span id="local-6989586621679848540"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679848540"><span class="hs-identifier hs-var">pAssociationId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>  </span><span class="annot"><span class="annottext">DescribeAssociationExecutions' :: Maybe (NonEmpty AssociationExecutionFilter)
+-&gt; Maybe Text
 -&gt; Maybe Natural
--&gt; Maybe (NonEmpty AssociationExecutionFilter)
 -&gt; Text
 -&gt; DescribeAssociationExecutions
 </span><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#DescribeAssociationExecutions%27"><span class="hs-identifier hs-type">DescribeAssociationExecutions'</span></a></span><span>
-</span><span id="line-109"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeAssociationExecutions' :: Maybe Text
-</span><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#%24sel%3AnextToken%3ADescribeAssociationExecutions%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-110"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-109"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:filters:DescribeAssociationExecutions' :: Maybe (NonEmpty AssociationExecutionFilter)
+</span><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#%24sel%3Afilters%3ADescribeAssociationExecutions%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>        </span><span class="annot"><span class="annottext">Maybe (NonEmpty AssociationExecutionFilter)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:DescribeAssociationExecutions' :: Maybe Natural
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeAssociationExecutions' :: Maybe Text
+</span><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#%24sel%3AnextToken%3ADescribeAssociationExecutions%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:DescribeAssociationExecutions' :: Maybe Natural
 </span><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#%24sel%3AmaxResults%3ADescribeAssociationExecutions%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:filters:DescribeAssociationExecutions' :: Maybe (NonEmpty AssociationExecutionFilter)
-</span><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#%24sel%3Afilters%3ADescribeAssociationExecutions%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty AssociationExecutionFilter)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:associationId:DescribeAssociationExecutions' :: Text
 </span><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#%24sel%3AassociationId%3ADescribeAssociationExecutions%27"><span class="hs-identifier hs-var">associationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679846721"><span class="hs-identifier hs-var">pAssociationId_</span></a></span><span>
+</span><a href="#local-6989586621679848540"><span class="hs-identifier hs-var">pAssociationId_</span></a></span><span>
 </span><span id="line-114"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- | A token to start the list. Use this token to get the next set of</span><span>
-</span><span id="line-117"></span><span class="hs-comment">-- results.</span><span>
-</span><span id="line-118"></span><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#describeAssociationExecutions_nextToken"><span class="hs-identifier hs-type">describeAssociationExecutions_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#DescribeAssociationExecutions"><span class="hs-identifier hs-type">DescribeAssociationExecutions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-119"></span><span id="describeAssociationExecutions_nextToken"><span class="annot"><span class="annottext">describeAssociationExecutions_nextToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; DescribeAssociationExecutions -&gt; f DescribeAssociationExecutions
-</span><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#describeAssociationExecutions_nextToken"><span class="hs-identifier hs-var hs-var">describeAssociationExecutions_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeAssociationExecutions -&gt; Maybe Text)
--&gt; (DescribeAssociationExecutions
-    -&gt; Maybe Text -&gt; DescribeAssociationExecutions)
--&gt; Lens
-     DescribeAssociationExecutions
-     DescribeAssociationExecutions
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#DescribeAssociationExecutions%27"><span class="hs-identifier hs-type">DescribeAssociationExecutions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679846719"><span class="annot"><span class="annottext">Maybe Text
-nextToken :: Maybe Text
-$sel:nextToken:DescribeAssociationExecutions' :: DescribeAssociationExecutions -&gt; Maybe Text
-</span><a href="#local-6989586621679846719"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679846719"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679846718"><span class="annot"><span class="annottext">s :: DescribeAssociationExecutions
-</span><a href="#local-6989586621679846718"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#DescribeAssociationExecutions%27"><span class="hs-identifier hs-type">DescribeAssociationExecutions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679846717"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679846717"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAssociationExecutions
-</span><a href="#local-6989586621679846718"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeAssociationExecutions' :: Maybe Text
-</span><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#%24sel%3AnextToken%3ADescribeAssociationExecutions%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679846717"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#DescribeAssociationExecutions"><span class="hs-identifier hs-type">DescribeAssociationExecutions</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-comment">-- | The maximum number of items to return for this call. The call also</span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- returns a token that you can specify in a subsequent call to get the</span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- next set of results.</span><span>
-</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#describeAssociationExecutions_maxResults"><span class="hs-identifier hs-type">describeAssociationExecutions_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#DescribeAssociationExecutions"><span class="hs-identifier hs-type">DescribeAssociationExecutions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-125"></span><span id="describeAssociationExecutions_maxResults"><span class="annot"><span class="annottext">describeAssociationExecutions_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
--&gt; DescribeAssociationExecutions -&gt; f DescribeAssociationExecutions
-</span><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#describeAssociationExecutions_maxResults"><span class="hs-identifier hs-var hs-var">describeAssociationExecutions_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeAssociationExecutions -&gt; Maybe Natural)
--&gt; (DescribeAssociationExecutions
-    -&gt; Maybe Natural -&gt; DescribeAssociationExecutions)
--&gt; Lens
-     DescribeAssociationExecutions
-     DescribeAssociationExecutions
-     (Maybe Natural)
-     (Maybe Natural)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#DescribeAssociationExecutions%27"><span class="hs-identifier hs-type">DescribeAssociationExecutions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679846716"><span class="annot"><span class="annottext">Maybe Natural
-maxResults :: Maybe Natural
-$sel:maxResults:DescribeAssociationExecutions' :: DescribeAssociationExecutions -&gt; Maybe Natural
-</span><a href="#local-6989586621679846716"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679846716"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679846715"><span class="annot"><span class="annottext">s :: DescribeAssociationExecutions
-</span><a href="#local-6989586621679846715"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#DescribeAssociationExecutions%27"><span class="hs-identifier hs-type">DescribeAssociationExecutions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679846714"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679846714"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAssociationExecutions
-</span><a href="#local-6989586621679846715"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:DescribeAssociationExecutions' :: Maybe Natural
-</span><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#%24sel%3AmaxResults%3ADescribeAssociationExecutions%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679846714"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#DescribeAssociationExecutions"><span class="hs-identifier hs-type">DescribeAssociationExecutions</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-comment">-- | Filters for the request. You can specify the following filters and</span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- values.</span><span>
-</span><span id="line-129"></span><span class="hs-comment">--</span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- ExecutionId (EQUAL)</span><span>
-</span><span id="line-131"></span><span class="hs-comment">--</span><span>
-</span><span id="line-132"></span><span class="hs-comment">-- Status (EQUAL)</span><span>
-</span><span id="line-133"></span><span class="hs-comment">--</span><span>
-</span><span id="line-134"></span><span class="hs-comment">-- CreatedTime (EQUAL, GREATER_THAN, LESS_THAN)</span><span>
-</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#describeAssociationExecutions_filters"><span class="hs-identifier hs-type">describeAssociationExecutions_filters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#DescribeAssociationExecutions"><span class="hs-identifier hs-type">DescribeAssociationExecutions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionFilter.html#AssociationExecutionFilter"><span class="hs-identifier hs-type">AssociationExecutionFilter</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-136"></span><span id="describeAssociationExecutions_filters"><span class="annot"><span class="annottext">describeAssociationExecutions_filters :: (Maybe (NonEmpty AssociationExecutionFilter)
+</span><span id="line-116"></span><span class="hs-comment">-- | Filters for the request. You can specify the following filters and</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- values.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- ExecutionId (EQUAL)</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- Status (EQUAL)</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- CreatedTime (EQUAL, GREATER_THAN, LESS_THAN)</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#describeAssociationExecutions_filters"><span class="hs-identifier hs-type">describeAssociationExecutions_filters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#DescribeAssociationExecutions"><span class="hs-identifier hs-type">DescribeAssociationExecutions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionFilter.html#AssociationExecutionFilter"><span class="hs-identifier hs-type">AssociationExecutionFilter</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span id="describeAssociationExecutions_filters"><span class="annot"><span class="annottext">describeAssociationExecutions_filters :: (Maybe (NonEmpty AssociationExecutionFilter)
  -&gt; f (Maybe (NonEmpty AssociationExecutionFilter)))
 -&gt; DescribeAssociationExecutions -&gt; f DescribeAssociationExecutions
 </span><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#describeAssociationExecutions_filters"><span class="hs-identifier hs-var hs-var">describeAssociationExecutions_filters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeAssociationExecutions
@@ -282,17 +231,17 @@ $sel:maxResults:DescribeAssociationExecutions' :: DescribeAssociationExecutions 
      (Maybe (NonEmpty AssociationExecutionFilter))
      (Maybe (NonEmpty AssociationExecutionFilter))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#DescribeAssociationExecutions%27"><span class="hs-identifier hs-type">DescribeAssociationExecutions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679846713"><span class="annot"><span class="annottext">Maybe (NonEmpty AssociationExecutionFilter)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#DescribeAssociationExecutions%27"><span class="hs-identifier hs-type">DescribeAssociationExecutions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679848538"><span class="annot"><span class="annottext">Maybe (NonEmpty AssociationExecutionFilter)
 filters :: Maybe (NonEmpty AssociationExecutionFilter)
 $sel:filters:DescribeAssociationExecutions' :: DescribeAssociationExecutions
 -&gt; Maybe (NonEmpty AssociationExecutionFilter)
-</span><a href="#local-6989586621679846713"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty AssociationExecutionFilter)
-</span><a href="#local-6989586621679846713"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679846712"><span class="annot"><span class="annottext">s :: DescribeAssociationExecutions
-</span><a href="#local-6989586621679846712"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#DescribeAssociationExecutions%27"><span class="hs-identifier hs-type">DescribeAssociationExecutions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679846711"><span class="annot"><span class="annottext">Maybe (NonEmpty AssociationExecutionFilter)
-</span><a href="#local-6989586621679846711"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAssociationExecutions
-</span><a href="#local-6989586621679846712"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:DescribeAssociationExecutions' :: Maybe (NonEmpty AssociationExecutionFilter)
+</span><a href="#local-6989586621679848538"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty AssociationExecutionFilter)
+</span><a href="#local-6989586621679848538"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679848537"><span class="annot"><span class="annottext">s :: DescribeAssociationExecutions
+</span><a href="#local-6989586621679848537"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#DescribeAssociationExecutions%27"><span class="hs-identifier hs-type">DescribeAssociationExecutions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679848536"><span class="annot"><span class="annottext">Maybe (NonEmpty AssociationExecutionFilter)
+</span><a href="#local-6989586621679848536"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAssociationExecutions
+</span><a href="#local-6989586621679848537"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:DescribeAssociationExecutions' :: Maybe (NonEmpty AssociationExecutionFilter)
 </span><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#%24sel%3Afilters%3ADescribeAssociationExecutions%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty AssociationExecutionFilter)
-</span><a href="#local-6989586621679846711"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#DescribeAssociationExecutions"><span class="hs-identifier hs-type">DescribeAssociationExecutions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty AssociationExecutionFilter)
+</span><a href="#local-6989586621679848536"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#DescribeAssociationExecutions"><span class="hs-identifier hs-type">DescribeAssociationExecutions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty AssociationExecutionFilter)
   -&gt; f (Maybe (NonEmpty AssociationExecutionFilter)))
  -&gt; DescribeAssociationExecutions
  -&gt; f DescribeAssociationExecutions)
@@ -323,8 +272,59 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (NonEmpty AssociationExecutionFilter)
   (NonEmpty AssociationExecutionFilter)
   (NonEmpty AssociationExecutionFilter)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | A token to start the list. Use this token to get the next set of</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#describeAssociationExecutions_nextToken"><span class="hs-identifier hs-type">describeAssociationExecutions_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#DescribeAssociationExecutions"><span class="hs-identifier hs-type">DescribeAssociationExecutions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="describeAssociationExecutions_nextToken"><span class="annot"><span class="annottext">describeAssociationExecutions_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeAssociationExecutions -&gt; f DescribeAssociationExecutions
+</span><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#describeAssociationExecutions_nextToken"><span class="hs-identifier hs-var hs-var">describeAssociationExecutions_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeAssociationExecutions -&gt; Maybe Text)
+-&gt; (DescribeAssociationExecutions
+    -&gt; Maybe Text -&gt; DescribeAssociationExecutions)
+-&gt; Lens
+     DescribeAssociationExecutions
+     DescribeAssociationExecutions
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#DescribeAssociationExecutions%27"><span class="hs-identifier hs-type">DescribeAssociationExecutions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679848532"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:DescribeAssociationExecutions' :: DescribeAssociationExecutions -&gt; Maybe Text
+</span><a href="#local-6989586621679848532"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679848532"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679848531"><span class="annot"><span class="annottext">s :: DescribeAssociationExecutions
+</span><a href="#local-6989586621679848531"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#DescribeAssociationExecutions%27"><span class="hs-identifier hs-type">DescribeAssociationExecutions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679848530"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679848530"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAssociationExecutions
+</span><a href="#local-6989586621679848531"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeAssociationExecutions' :: Maybe Text
+</span><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#%24sel%3AnextToken%3ADescribeAssociationExecutions%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679848530"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#DescribeAssociationExecutions"><span class="hs-identifier hs-type">DescribeAssociationExecutions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | The maximum number of items to return for this call. The call also</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- returns a token that you can specify in a subsequent call to get the</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- next set of results.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#describeAssociationExecutions_maxResults"><span class="hs-identifier hs-type">describeAssociationExecutions_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#DescribeAssociationExecutions"><span class="hs-identifier hs-type">DescribeAssociationExecutions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span id="describeAssociationExecutions_maxResults"><span class="annot"><span class="annottext">describeAssociationExecutions_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; DescribeAssociationExecutions -&gt; f DescribeAssociationExecutions
+</span><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#describeAssociationExecutions_maxResults"><span class="hs-identifier hs-var hs-var">describeAssociationExecutions_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeAssociationExecutions -&gt; Maybe Natural)
+-&gt; (DescribeAssociationExecutions
+    -&gt; Maybe Natural -&gt; DescribeAssociationExecutions)
+-&gt; Lens
+     DescribeAssociationExecutions
+     DescribeAssociationExecutions
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#DescribeAssociationExecutions%27"><span class="hs-identifier hs-type">DescribeAssociationExecutions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679848529"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:DescribeAssociationExecutions' :: DescribeAssociationExecutions -&gt; Maybe Natural
+</span><a href="#local-6989586621679848529"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679848529"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679848528"><span class="annot"><span class="annottext">s :: DescribeAssociationExecutions
+</span><a href="#local-6989586621679848528"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#DescribeAssociationExecutions%27"><span class="hs-identifier hs-type">DescribeAssociationExecutions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679848527"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679848527"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAssociationExecutions
+</span><a href="#local-6989586621679848528"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:DescribeAssociationExecutions' :: Maybe Natural
+</span><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#%24sel%3AmaxResults%3ADescribeAssociationExecutions%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679848527"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#DescribeAssociationExecutions"><span class="hs-identifier hs-type">DescribeAssociationExecutions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-comment">-- | The association ID for which you want to view execution history details.</span><span>
 </span><span id="line-139"></span><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#describeAssociationExecutions_associationId"><span class="hs-identifier hs-type">describeAssociationExecutions_associationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#DescribeAssociationExecutions"><span class="hs-identifier hs-type">DescribeAssociationExecutions</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -339,30 +339,30 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#DescribeAssociationExecutions%27"><span class="hs-identifier hs-type">DescribeAssociationExecutions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679846707"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#DescribeAssociationExecutions%27"><span class="hs-identifier hs-type">DescribeAssociationExecutions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679848526"><span class="annot"><span class="annottext">Text
 associationId :: Text
 $sel:associationId:DescribeAssociationExecutions' :: DescribeAssociationExecutions -&gt; Text
-</span><a href="#local-6989586621679846707"><span class="hs-identifier hs-var hs-var">associationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679846707"><span class="hs-identifier hs-var">associationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679846706"><span class="annot"><span class="annottext">s :: DescribeAssociationExecutions
-</span><a href="#local-6989586621679846706"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#DescribeAssociationExecutions%27"><span class="hs-identifier hs-type">DescribeAssociationExecutions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679846705"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679846705"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAssociationExecutions
-</span><a href="#local-6989586621679846706"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:associationId:DescribeAssociationExecutions' :: Text
+</span><a href="#local-6989586621679848526"><span class="hs-identifier hs-var hs-var">associationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679848526"><span class="hs-identifier hs-var">associationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679848525"><span class="annot"><span class="annottext">s :: DescribeAssociationExecutions
+</span><a href="#local-6989586621679848525"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#DescribeAssociationExecutions%27"><span class="hs-identifier hs-type">DescribeAssociationExecutions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679848524"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679848524"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAssociationExecutions
+</span><a href="#local-6989586621679848525"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:associationId:DescribeAssociationExecutions' :: Text
 </span><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#%24sel%3AassociationId%3ADescribeAssociationExecutions%27"><span class="hs-identifier hs-var">associationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679846705"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#DescribeAssociationExecutions"><span class="hs-identifier hs-type">DescribeAssociationExecutions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679848524"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#DescribeAssociationExecutions"><span class="hs-identifier hs-type">DescribeAssociationExecutions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#DescribeAssociationExecutions"><span class="hs-identifier hs-type">DescribeAssociationExecutions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679846701"><span class="annot"><span class="annottext">page :: DescribeAssociationExecutions
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679848520"><span class="annot"><span class="annottext">page :: DescribeAssociationExecutions
 -&gt; AWSResponse DescribeAssociationExecutions
 -&gt; Maybe DescribeAssociationExecutions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679846699"><span class="annot"><span class="annottext">DescribeAssociationExecutions
-</span><a href="#local-6989586621679846699"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679846698"><span class="annot"><span class="annottext">AWSResponse DescribeAssociationExecutions
-</span><a href="#local-6989586621679846698"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679848518"><span class="annot"><span class="annottext">DescribeAssociationExecutions
+</span><a href="#local-6989586621679848518"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679848517"><span class="annot"><span class="annottext">AWSResponse DescribeAssociationExecutions
+</span><a href="#local-6989586621679848517"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-144"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-145"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeAssociationExecutions
 DescribeAssociationExecutionsResponse
-</span><a href="#local-6989586621679846698"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679848517"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">DescribeAssociationExecutionsResponse
 -&gt; Getting (First Text) DescribeAssociationExecutionsResponse Text
 -&gt; Maybe Text
@@ -392,7 +392,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-151"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeAssociationExecutions
 DescribeAssociationExecutionsResponse
-</span><a href="#local-6989586621679846698"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679848517"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">DescribeAssociationExecutionsResponse
 -&gt; Getting
      (First [AssociationExecution])
@@ -451,7 +451,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-158"></span><span>        </span><span class="annot"><span class="annottext">DescribeAssociationExecutions
-</span><a href="#local-6989586621679846699"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679848518"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-159"></span><span>          </span><span class="annot"><span class="annottext">DescribeAssociationExecutions
 -&gt; (DescribeAssociationExecutions -&gt; DescribeAssociationExecutions)
 -&gt; DescribeAssociationExecutions
@@ -474,7 +474,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeAssociationExecutions
 DescribeAssociationExecutionsResponse
-</span><a href="#local-6989586621679846698"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679848517"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-161"></span><span>          </span><span class="annot"><span class="annottext">DescribeAssociationExecutionsResponse
 -&gt; Getting (First Text) DescribeAssociationExecutionsResponse Text
 -&gt; Maybe Text
@@ -503,7 +503,7 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-168"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-169"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#DescribeAssociationExecutions"><span class="hs-identifier hs-type">DescribeAssociationExecutions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-170"></span><span>      </span><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#DescribeAssociationExecutionsResponse"><span class="hs-identifier hs-type">DescribeAssociationExecutionsResponse</span></a></span><span>
-</span><span id="line-171"></span><span>  </span><span id="local-6989586621679846689"><span class="annot"><span class="annottext">request :: DescribeAssociationExecutions
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621679848508"><span class="annot"><span class="annottext">request :: DescribeAssociationExecutions
 -&gt; Request DescribeAssociationExecutions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DescribeAssociationExecutions
@@ -511,7 +511,7 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SSM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-172"></span><span>  </span><span id="local-6989586621679846685"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679848504"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeAssociationExecutions
 -&gt; ClientResponse ClientBody
@@ -537,10 +537,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-174"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679846682"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679846682"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679846681"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679846681"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679846680"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679846680"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-174"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679848501"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679848501"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679848500"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679848500"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679848499"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679848499"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-175"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe [AssociationExecution]
 -&gt; Int
@@ -557,7 +557,7 @@ MonadResource m =&gt;
       -&gt; Int -&gt; DescribeAssociationExecutionsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679846680"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679848499"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -569,7 +569,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; DescribeAssociationExecutionsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679846680"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679848499"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Either String (Maybe (Maybe [AssociationExecution]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -591,17 +591,17 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679846682"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679848501"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-181"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-182"></span><span>
 </span><span id="line-183"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-184"></span><span>  </span><span id="local-6989586621679846671"><span id="local-6989586621679846673"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679848490"><span id="local-6989586621679848492"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-185"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#DescribeAssociationExecutions"><span class="hs-identifier hs-type">DescribeAssociationExecutions</span></a></span></span></span><span>
 </span><span id="line-186"></span><span>
-</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679846668"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#DescribeAssociationExecutions"><span class="hs-identifier hs-type">DescribeAssociationExecutions</span></a></span></span><span>
+</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679848487"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#DescribeAssociationExecutions"><span class="hs-identifier hs-type">DescribeAssociationExecutions</span></a></span></span><span>
 </span><span id="line-188"></span><span>
 </span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#DescribeAssociationExecutions"><span class="hs-identifier hs-type">DescribeAssociationExecutions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-190"></span><span>  </span><span id="local-6989586621679846664"><span class="annot"><span class="annottext">toHeaders :: DescribeAssociationExecutions -&gt; ResponseHeaders
+</span><span id="line-190"></span><span>  </span><span id="local-6989586621679848483"><span class="annot"><span class="annottext">toHeaders :: DescribeAssociationExecutions -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-191"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeAssociationExecutions -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -628,49 +628,49 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-201"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-202"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-203"></span><span>
-</span><span id="line-204"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679846654"><span id="local-6989586621679846656"><span id="local-6989586621679846658"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#DescribeAssociationExecutions"><span class="hs-identifier hs-type">DescribeAssociationExecutions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-205"></span><span>  </span><span id="local-6989586621679846652"><span class="annot"><span class="annottext">toJSON :: DescribeAssociationExecutions -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#DescribeAssociationExecutions%27"><span class="hs-identifier hs-type">DescribeAssociationExecutions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679846647"><span id="local-6989586621679846648"><span id="local-6989586621679846649"><span id="local-6989586621679846650"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-204"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679848473"><span id="local-6989586621679848475"><span id="local-6989586621679848477"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#DescribeAssociationExecutions"><span class="hs-identifier hs-type">DescribeAssociationExecutions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-205"></span><span>  </span><span id="local-6989586621679848471"><span class="annot"><span class="annottext">toJSON :: DescribeAssociationExecutions -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#DescribeAssociationExecutions%27"><span class="hs-identifier hs-type">DescribeAssociationExecutions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679848466"><span id="local-6989586621679848467"><span id="local-6989586621679848468"><span id="local-6989586621679848469"><span class="annot"><span class="annottext">Maybe Natural
 Maybe (NonEmpty AssociationExecutionFilter)
 Maybe Text
 Text
 associationId :: Text
-filters :: Maybe (NonEmpty AssociationExecutionFilter)
 maxResults :: Maybe Natural
 nextToken :: Maybe Text
+filters :: Maybe (NonEmpty AssociationExecutionFilter)
 $sel:associationId:DescribeAssociationExecutions' :: DescribeAssociationExecutions -&gt; Text
-$sel:filters:DescribeAssociationExecutions' :: DescribeAssociationExecutions
--&gt; Maybe (NonEmpty AssociationExecutionFilter)
 $sel:maxResults:DescribeAssociationExecutions' :: DescribeAssociationExecutions -&gt; Maybe Natural
 $sel:nextToken:DescribeAssociationExecutions' :: DescribeAssociationExecutions -&gt; Maybe Text
-</span><a href="#local-6989586621679846647"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:filters:DescribeAssociationExecutions' :: DescribeAssociationExecutions
+-&gt; Maybe (NonEmpty AssociationExecutionFilter)
+</span><a href="#local-6989586621679848466"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-206"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-207"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-208"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679846650"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-209"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679846649"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-210"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Filters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty AssociationExecutionFilter -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(NonEmpty AssociationExecutionFilter -&gt; Pair)
 -&gt; Maybe (NonEmpty AssociationExecutionFilter) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty AssociationExecutionFilter)
-</span><a href="#local-6989586621679846648"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679848469"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679848468"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679848467"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-211"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -678,19 +678,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;AssociationId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679846647"><span class="hs-identifier hs-var">associationId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679848466"><span class="hs-identifier hs-var">associationId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-213"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-214"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-215"></span><span>
 </span><span id="line-216"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#DescribeAssociationExecutions"><span class="hs-identifier hs-type">DescribeAssociationExecutions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-217"></span><span>  </span><span id="local-6989586621679846641"><span class="annot"><span class="annottext">toPath :: DescribeAssociationExecutions -&gt; ByteString
+</span><span id="line-217"></span><span>  </span><span id="local-6989586621679848460"><span class="annot"><span class="annottext">toPath :: DescribeAssociationExecutions -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeAssociationExecutions -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-218"></span><span>
 </span><span id="line-219"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#DescribeAssociationExecutions"><span class="hs-identifier hs-type">DescribeAssociationExecutions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-220"></span><span>  </span><span id="local-6989586621679846637"><span class="annot"><span class="annottext">toQuery :: DescribeAssociationExecutions -&gt; QueryString
+</span><span id="line-220"></span><span>  </span><span id="local-6989586621679848456"><span class="annot"><span class="annottext">toQuery :: DescribeAssociationExecutions -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeAssociationExecutions -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -698,7 +698,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-221"></span><span>
 </span><span id="line-222"></span><span class="hs-comment">-- | /See:/ 'newDescribeAssociationExecutionsResponse' smart constructor.</span><span>
-</span><span id="line-223"></span><span id="local-6989586621679846634"><span id="local-6989586621679846635"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeAssociationExecutionsResponse"><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#DescribeAssociationExecutionsResponse"><span class="hs-identifier hs-var">DescribeAssociationExecutionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeAssociationExecutionsResponse%27"><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#DescribeAssociationExecutionsResponse%27"><span class="hs-identifier hs-var">DescribeAssociationExecutionsResponse'</span></a></span></span><span>
+</span><span id="line-223"></span><span id="local-6989586621679848453"><span id="local-6989586621679848454"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeAssociationExecutionsResponse"><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#DescribeAssociationExecutionsResponse"><span class="hs-identifier hs-var">DescribeAssociationExecutionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeAssociationExecutionsResponse%27"><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#DescribeAssociationExecutionsResponse%27"><span class="hs-identifier hs-var">DescribeAssociationExecutionsResponse'</span></a></span></span><span>
 </span><span id="line-224"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token for the next set of items to return. Use this token to get the</span><span>
 </span><span id="line-225"></span><span>    </span><span class="hs-comment">-- next set of results.</span><span>
 </span><span id="line-226"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeAssociationExecutionsResponse%27"><span class="annot"><span class="annottext">DescribeAssociationExecutionsResponse -&gt; Maybe Text
@@ -711,7 +711,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-230"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeAssociationExecutionsResponse%27"><span class="annot"><span class="annottext">DescribeAssociationExecutionsResponse -&gt; Int
 </span><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#%24sel%3AhttpStatus%3ADescribeAssociationExecutionsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-231"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-232"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679846627"><span id="local-6989586621679846629"><span class="annot"><span class="annottext">DescribeAssociationExecutionsResponse
+</span><span id="line-232"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679848446"><span id="local-6989586621679848448"><span class="annot"><span class="annottext">DescribeAssociationExecutionsResponse
 -&gt; DescribeAssociationExecutionsResponse -&gt; Bool
 (DescribeAssociationExecutionsResponse
  -&gt; DescribeAssociationExecutionsResponse -&gt; Bool)
@@ -727,7 +727,7 @@ $c/= :: DescribeAssociationExecutionsResponse
 -&gt; DescribeAssociationExecutionsResponse -&gt; Bool
 $c== :: DescribeAssociationExecutionsResponse
 -&gt; DescribeAssociationExecutionsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679846619"><span id="local-6989586621679846621"><span id="local-6989586621679846623"><span id="local-6989586621679846625"><span class="annot"><span class="annottext">ReadPrec [DescribeAssociationExecutionsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679848438"><span id="local-6989586621679848440"><span id="local-6989586621679848442"><span id="local-6989586621679848444"><span class="annot"><span class="annottext">ReadPrec [DescribeAssociationExecutionsResponse]
 ReadPrec DescribeAssociationExecutionsResponse
 Int -&gt; ReadS DescribeAssociationExecutionsResponse
 ReadS [DescribeAssociationExecutionsResponse]
@@ -747,7 +747,7 @@ readList :: ReadS [DescribeAssociationExecutionsResponse]
 $creadList :: ReadS [DescribeAssociationExecutionsResponse]
 readsPrec :: Int -&gt; ReadS DescribeAssociationExecutionsResponse
 $creadsPrec :: Int -&gt; ReadS DescribeAssociationExecutionsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679846613"><span id="local-6989586621679846615"><span id="local-6989586621679846617"><span class="annot"><span class="annottext">Int -&gt; DescribeAssociationExecutionsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679848432"><span id="local-6989586621679848434"><span id="local-6989586621679848436"><span class="annot"><span class="annottext">Int -&gt; DescribeAssociationExecutionsResponse -&gt; ShowS
 [DescribeAssociationExecutionsResponse] -&gt; ShowS
 DescribeAssociationExecutionsResponse -&gt; String
 (Int -&gt; DescribeAssociationExecutionsResponse -&gt; ShowS)
@@ -804,8 +804,8 @@ DescribeAssociationExecutionsResponse
 </span><span id="line-250"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-251"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#DescribeAssociationExecutionsResponse"><span class="hs-identifier hs-type">DescribeAssociationExecutionsResponse</span></a></span><span>
 </span><span id="line-252"></span><span id="newDescribeAssociationExecutionsResponse"><span class="annot"><span class="annottext">newDescribeAssociationExecutionsResponse :: Int -&gt; DescribeAssociationExecutionsResponse
-</span><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#newDescribeAssociationExecutionsResponse"><span class="hs-identifier hs-var hs-var">newDescribeAssociationExecutionsResponse</span></a></span></span><span> </span><span id="local-6989586621679846610"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679846610"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#newDescribeAssociationExecutionsResponse"><span class="hs-identifier hs-var hs-var">newDescribeAssociationExecutionsResponse</span></a></span></span><span> </span><span id="local-6989586621679848429"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679848429"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-253"></span><span>  </span><span class="annot"><span class="annottext">DescribeAssociationExecutionsResponse' :: Maybe Text
 -&gt; Maybe [AssociationExecution]
 -&gt; Int
@@ -823,7 +823,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-258"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeAssociationExecutionsResponse' :: Int
 </span><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#%24sel%3AhttpStatus%3ADescribeAssociationExecutionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679846610"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679848429"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-259"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-260"></span><span>
 </span><span id="line-261"></span><span class="hs-comment">-- | The token for the next set of items to return. Use this token to get the</span><span>
@@ -837,16 +837,16 @@ forall a. Maybe a
     -&gt; Maybe Text -&gt; DescribeAssociationExecutionsResponse)
 -&gt; Lens' DescribeAssociationExecutionsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#DescribeAssociationExecutionsResponse%27"><span class="hs-identifier hs-type">DescribeAssociationExecutionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679846609"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#DescribeAssociationExecutionsResponse%27"><span class="hs-identifier hs-type">DescribeAssociationExecutionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679848428"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:DescribeAssociationExecutionsResponse' :: DescribeAssociationExecutionsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679846609"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679846609"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679846608"><span class="annot"><span class="annottext">s :: DescribeAssociationExecutionsResponse
-</span><a href="#local-6989586621679846608"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#DescribeAssociationExecutionsResponse%27"><span class="hs-identifier hs-type">DescribeAssociationExecutionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679846607"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679846607"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAssociationExecutionsResponse
-</span><a href="#local-6989586621679846608"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeAssociationExecutionsResponse' :: Maybe Text
+</span><a href="#local-6989586621679848428"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679848428"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679848427"><span class="annot"><span class="annottext">s :: DescribeAssociationExecutionsResponse
+</span><a href="#local-6989586621679848427"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#DescribeAssociationExecutionsResponse%27"><span class="hs-identifier hs-type">DescribeAssociationExecutionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679848426"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679848426"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAssociationExecutionsResponse
+</span><a href="#local-6989586621679848427"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeAssociationExecutionsResponse' :: Maybe Text
 </span><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#%24sel%3AnextToken%3ADescribeAssociationExecutionsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679846607"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#DescribeAssociationExecutionsResponse"><span class="hs-identifier hs-type">DescribeAssociationExecutionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679848426"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#DescribeAssociationExecutionsResponse"><span class="hs-identifier hs-type">DescribeAssociationExecutionsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-265"></span><span>
 </span><span id="line-266"></span><span class="hs-comment">-- | A list of the executions for the specified association ID.</span><span>
 </span><span id="line-267"></span><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#describeAssociationExecutionsResponse_associationExecutions"><span class="hs-identifier hs-type">describeAssociationExecutionsResponse_associationExecutions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#DescribeAssociationExecutionsResponse"><span class="hs-identifier hs-type">DescribeAssociationExecutionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecution.html#AssociationExecution"><span class="hs-identifier hs-type">AssociationExecution</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -862,17 +862,17 @@ $sel:nextToken:DescribeAssociationExecutionsResponse' :: DescribeAssociationExec
      DescribeAssociationExecutionsResponse
      (Maybe [AssociationExecution])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#DescribeAssociationExecutionsResponse%27"><span class="hs-identifier hs-type">DescribeAssociationExecutionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679846606"><span class="annot"><span class="annottext">Maybe [AssociationExecution]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#DescribeAssociationExecutionsResponse%27"><span class="hs-identifier hs-type">DescribeAssociationExecutionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679848425"><span class="annot"><span class="annottext">Maybe [AssociationExecution]
 associationExecutions :: Maybe [AssociationExecution]
 $sel:associationExecutions:DescribeAssociationExecutionsResponse' :: DescribeAssociationExecutionsResponse
 -&gt; Maybe [AssociationExecution]
-</span><a href="#local-6989586621679846606"><span class="hs-identifier hs-var hs-var">associationExecutions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AssociationExecution]
-</span><a href="#local-6989586621679846606"><span class="hs-identifier hs-var">associationExecutions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679846605"><span class="annot"><span class="annottext">s :: DescribeAssociationExecutionsResponse
-</span><a href="#local-6989586621679846605"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#DescribeAssociationExecutionsResponse%27"><span class="hs-identifier hs-type">DescribeAssociationExecutionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679846604"><span class="annot"><span class="annottext">Maybe [AssociationExecution]
-</span><a href="#local-6989586621679846604"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAssociationExecutionsResponse
-</span><a href="#local-6989586621679846605"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:associationExecutions:DescribeAssociationExecutionsResponse' :: Maybe [AssociationExecution]
+</span><a href="#local-6989586621679848425"><span class="hs-identifier hs-var hs-var">associationExecutions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AssociationExecution]
+</span><a href="#local-6989586621679848425"><span class="hs-identifier hs-var">associationExecutions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679848424"><span class="annot"><span class="annottext">s :: DescribeAssociationExecutionsResponse
+</span><a href="#local-6989586621679848424"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#DescribeAssociationExecutionsResponse%27"><span class="hs-identifier hs-type">DescribeAssociationExecutionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679848423"><span class="annot"><span class="annottext">Maybe [AssociationExecution]
+</span><a href="#local-6989586621679848423"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAssociationExecutionsResponse
+</span><a href="#local-6989586621679848424"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:associationExecutions:DescribeAssociationExecutionsResponse' :: Maybe [AssociationExecution]
 </span><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#%24sel%3AassociationExecutions%3ADescribeAssociationExecutionsResponse%27"><span class="hs-identifier hs-var">associationExecutions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AssociationExecution]
-</span><a href="#local-6989586621679846604"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#DescribeAssociationExecutionsResponse"><span class="hs-identifier hs-type">DescribeAssociationExecutionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AssociationExecution] -&gt; f (Maybe [AssociationExecution]))
+</span><a href="#local-6989586621679848423"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#DescribeAssociationExecutionsResponse"><span class="hs-identifier hs-type">DescribeAssociationExecutionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AssociationExecution] -&gt; f (Maybe [AssociationExecution]))
  -&gt; DescribeAssociationExecutionsResponse
  -&gt; f DescribeAssociationExecutionsResponse)
 -&gt; ((Maybe [AssociationExecution]
@@ -902,8 +902,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [AssociationExecution]
   [AssociationExecution]
   [AssociationExecution]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-269"></span><span>
 </span><span id="line-270"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-271"></span><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#describeAssociationExecutionsResponse_httpStatus"><span class="hs-identifier hs-type">describeAssociationExecutionsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#DescribeAssociationExecutionsResponse"><span class="hs-identifier hs-type">DescribeAssociationExecutionsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -919,18 +919,18 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#DescribeAssociationExecutionsResponse%27"><span class="hs-identifier hs-type">DescribeAssociationExecutionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679846603"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#DescribeAssociationExecutionsResponse%27"><span class="hs-identifier hs-type">DescribeAssociationExecutionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679848422"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeAssociationExecutionsResponse' :: DescribeAssociationExecutionsResponse -&gt; Int
-</span><a href="#local-6989586621679846603"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679846603"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679846602"><span class="annot"><span class="annottext">s :: DescribeAssociationExecutionsResponse
-</span><a href="#local-6989586621679846602"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#DescribeAssociationExecutionsResponse%27"><span class="hs-identifier hs-type">DescribeAssociationExecutionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679846601"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679846601"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAssociationExecutionsResponse
-</span><a href="#local-6989586621679846602"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeAssociationExecutionsResponse' :: Int
+</span><a href="#local-6989586621679848422"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679848422"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679848421"><span class="annot"><span class="annottext">s :: DescribeAssociationExecutionsResponse
+</span><a href="#local-6989586621679848421"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#DescribeAssociationExecutionsResponse%27"><span class="hs-identifier hs-type">DescribeAssociationExecutionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679848420"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679848420"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAssociationExecutionsResponse
+</span><a href="#local-6989586621679848421"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeAssociationExecutionsResponse' :: Int
 </span><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#%24sel%3AhttpStatus%3ADescribeAssociationExecutionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679846601"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#DescribeAssociationExecutionsResponse"><span class="hs-identifier hs-type">DescribeAssociationExecutionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679848420"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#DescribeAssociationExecutionsResponse"><span class="hs-identifier hs-type">DescribeAssociationExecutionsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-273"></span><span>
 </span><span id="line-274"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-275"></span><span>  </span><span id="local-6989586621679846599"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-275"></span><span>  </span><span id="local-6989586621679848418"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-276"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.DescribeAssociationExecutions.html#DescribeAssociationExecutionsResponse"><span class="hs-identifier hs-type">DescribeAssociationExecutionsResponse</span></a></span></span><span>
 </span><span id="line-277"></span></pre></body></html>

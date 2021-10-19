@@ -40,22 +40,22 @@
 </span><span id="line-40"></span><span class="hs-comment">--     starting where the last API ended.</span><span>
 </span><span id="line-41"></span><span class="hs-comment">--</span><span>
 </span><span id="line-42"></span><span class="hs-comment">-- /See:/ 'newStartSelector' smart constructor.</span><span>
-</span><span id="line-43"></span><span id="local-6989586621679137846"><span id="local-6989586621679137847"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartSelector"><span class="annot"><a href="Network.AWS.KinesisVideoMedia.Types.StartSelector.html#StartSelector"><span class="hs-identifier hs-var">StartSelector</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartSelector%27"><span class="annot"><a href="Network.AWS.KinesisVideoMedia.Types.StartSelector.html#StartSelector%27"><span class="hs-identifier hs-var">StartSelector'</span></a></span></span><span>
-</span><span id="line-44"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies the fragment number from where you want the @GetMedia@ API to</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- start returning the fragments.</span><span>
-</span><span id="line-46"></span><span>    </span><span id="%24sel%3AafterFragmentNumber%3AStartSelector%27"><span class="annot"><span class="annottext">StartSelector -&gt; Maybe Text
-</span><a href="Network.AWS.KinesisVideoMedia.Types.StartSelector.html#%24sel%3AafterFragmentNumber%3AStartSelector%27"><span class="hs-identifier hs-var hs-var">afterFragmentNumber</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | A timestamp value. This value is required if you choose the</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- PRODUCER_TIMESTAMP or the SERVER_TIMESTAMP as the @startSelectorType@.</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- The @GetMedia@ API then starts with the chunk containing the fragment</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- that has the specified timestamp.</span><span>
-</span><span id="line-51"></span><span>    </span><span id="%24sel%3AstartTimestamp%3AStartSelector%27"><span class="annot"><span class="annottext">StartSelector -&gt; Maybe POSIX
-</span><a href="Network.AWS.KinesisVideoMedia.Types.StartSelector.html#%24sel%3AstartTimestamp%3AStartSelector%27"><span class="hs-identifier hs-var hs-var">startTimestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | Continuation token that Kinesis Video Streams returned in the previous</span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- @GetMedia@ response. The @GetMedia@ API then starts with the chunk</span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- identified by the continuation token.</span><span>
-</span><span id="line-55"></span><span>    </span><span id="%24sel%3AcontinuationToken%3AStartSelector%27"><span class="annot"><span class="annottext">StartSelector -&gt; Maybe Text
+</span><span id="line-43"></span><span id="local-6989586621679137845"><span id="local-6989586621679137846"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartSelector"><span class="annot"><a href="Network.AWS.KinesisVideoMedia.Types.StartSelector.html#StartSelector"><span class="hs-identifier hs-var">StartSelector</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartSelector%27"><span class="annot"><a href="Network.AWS.KinesisVideoMedia.Types.StartSelector.html#StartSelector%27"><span class="hs-identifier hs-var">StartSelector'</span></a></span></span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Continuation token that Kinesis Video Streams returned in the previous</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- @GetMedia@ response. The @GetMedia@ API then starts with the chunk</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- identified by the continuation token.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AcontinuationToken%3AStartSelector%27"><span class="annot"><span class="annottext">StartSelector -&gt; Maybe Text
 </span><a href="Network.AWS.KinesisVideoMedia.Types.StartSelector.html#%24sel%3AcontinuationToken%3AStartSelector%27"><span class="hs-identifier hs-var hs-var">continuationToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | Specifies the fragment number from where you want the @GetMedia@ API to</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- start returning the fragments.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AafterFragmentNumber%3AStartSelector%27"><span class="annot"><span class="annottext">StartSelector -&gt; Maybe Text
+</span><a href="Network.AWS.KinesisVideoMedia.Types.StartSelector.html#%24sel%3AafterFragmentNumber%3AStartSelector%27"><span class="hs-identifier hs-var hs-var">afterFragmentNumber</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | A timestamp value. This value is required if you choose the</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- PRODUCER_TIMESTAMP or the SERVER_TIMESTAMP as the @startSelectorType@.</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- The @GetMedia@ API then starts with the chunk containing the fragment</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- that has the specified timestamp.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AstartTimestamp%3AStartSelector%27"><span class="annot"><span class="annottext">StartSelector -&gt; Maybe POSIX
+</span><a href="Network.AWS.KinesisVideoMedia.Types.StartSelector.html#%24sel%3AstartTimestamp%3AStartSelector%27"><span class="hs-identifier hs-var hs-var">startTimestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | Identifies the fragment on the Kinesis video stream where you want to</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">-- start getting the data from.</span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -78,7 +78,7 @@
 </span><span id="line-75"></span><span>    </span><span id="%24sel%3AstartSelectorType%3AStartSelector%27"><span class="annot"><span class="annottext">StartSelector -&gt; StartSelectorType
 </span><a href="Network.AWS.KinesisVideoMedia.Types.StartSelector.html#%24sel%3AstartSelectorType%3AStartSelector%27"><span class="hs-identifier hs-var hs-var">startSelectorType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.Types.StartSelectorType.html#StartSelectorType"><span class="hs-identifier hs-type">StartSelectorType</span></a></span><span>
 </span><span id="line-76"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-77"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679137837"><span id="local-6989586621679137839"><span class="annot"><span class="annottext">StartSelector -&gt; StartSelector -&gt; Bool
+</span><span id="line-77"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679137836"><span id="local-6989586621679137838"><span class="annot"><span class="annottext">StartSelector -&gt; StartSelector -&gt; Bool
 (StartSelector -&gt; StartSelector -&gt; Bool)
 -&gt; (StartSelector -&gt; StartSelector -&gt; Bool) -&gt; Eq StartSelector
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -86,7 +86,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StartSelector -&gt; StartSelector -&gt; Bool
 == :: StartSelector -&gt; StartSelector -&gt; Bool
 $c== :: StartSelector -&gt; StartSelector -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679137828"><span id="local-6989586621679137830"><span id="local-6989586621679137832"><span id="local-6989586621679137834"><span class="annot"><span class="annottext">ReadPrec [StartSelector]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679137827"><span id="local-6989586621679137829"><span id="local-6989586621679137831"><span id="local-6989586621679137833"><span class="annot"><span class="annottext">ReadPrec [StartSelector]
 ReadPrec StartSelector
 Int -&gt; ReadS StartSelector
 ReadS [StartSelector]
@@ -106,7 +106,7 @@ readList :: ReadS [StartSelector]
 $creadList :: ReadS [StartSelector]
 readsPrec :: Int -&gt; ReadS StartSelector
 $creadsPrec :: Int -&gt; ReadS StartSelector
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679137821"><span id="local-6989586621679137823"><span id="local-6989586621679137825"><span class="annot"><span class="annottext">Int -&gt; StartSelector -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679137820"><span id="local-6989586621679137822"><span id="local-6989586621679137824"><span class="annot"><span class="annottext">Int -&gt; StartSelector -&gt; ShowS
 [StartSelector] -&gt; ShowS
 StartSelector -&gt; String
 (Int -&gt; StartSelector -&gt; ShowS)
@@ -140,17 +140,17 @@ $cfrom :: forall x. StartSelector -&gt; Rep StartSelector x
 </span><span id="line-84"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-86"></span><span class="hs-comment">--</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- 'afterFragmentNumber', 'startSelector_afterFragmentNumber' - Specifies the fragment number from where you want the @GetMedia@ API to</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- start returning the fragments.</span><span>
-</span><span id="line-89"></span><span class="hs-comment">--</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- 'startTimestamp', 'startSelector_startTimestamp' - A timestamp value. This value is required if you choose the</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- PRODUCER_TIMESTAMP or the SERVER_TIMESTAMP as the @startSelectorType@.</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- The @GetMedia@ API then starts with the chunk containing the fragment</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- that has the specified timestamp.</span><span>
-</span><span id="line-94"></span><span class="hs-comment">--</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- 'continuationToken', 'startSelector_continuationToken' - Continuation token that Kinesis Video Streams returned in the previous</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- @GetMedia@ response. The @GetMedia@ API then starts with the chunk</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- identified by the continuation token.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'continuationToken', 'startSelector_continuationToken' - Continuation token that Kinesis Video Streams returned in the previous</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- @GetMedia@ response. The @GetMedia@ API then starts with the chunk</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- identified by the continuation token.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'afterFragmentNumber', 'startSelector_afterFragmentNumber' - Specifies the fragment number from where you want the @GetMedia@ API to</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- start returning the fragments.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'startTimestamp', 'startSelector_startTimestamp' - A timestamp value. This value is required if you choose the</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- PRODUCER_TIMESTAMP or the SERVER_TIMESTAMP as the @startSelectorType@.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- The @GetMedia@ API then starts with the chunk containing the fragment</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- that has the specified timestamp.</span><span>
 </span><span id="line-98"></span><span class="hs-comment">--</span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- 'startSelectorType', 'startSelector_startSelectorType' - Identifies the fragment on the Kinesis video stream where you want to</span><span>
 </span><span id="line-100"></span><span class="hs-comment">-- start getting the data from.</span><span>
@@ -176,69 +176,88 @@ $cfrom :: forall x. StartSelector -&gt; Rep StartSelector x
 </span><span id="line-120"></span><span>  </span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.Types.StartSelectorType.html#StartSelectorType"><span class="hs-identifier hs-type">StartSelectorType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-121"></span><span>  </span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.Types.StartSelector.html#StartSelector"><span class="hs-identifier hs-type">StartSelector</span></a></span><span>
 </span><span id="line-122"></span><span id="newStartSelector"><span class="annot"><span class="annottext">newStartSelector :: StartSelectorType -&gt; StartSelector
-</span><a href="Network.AWS.KinesisVideoMedia.Types.StartSelector.html#newStartSelector"><span class="hs-identifier hs-var hs-var">newStartSelector</span></a></span></span><span> </span><span id="local-6989586621679137815"><span class="annot"><span class="annottext">StartSelectorType
-</span><a href="#local-6989586621679137815"><span class="hs-identifier hs-var">pStartSelectorType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.KinesisVideoMedia.Types.StartSelector.html#newStartSelector"><span class="hs-identifier hs-var hs-var">newStartSelector</span></a></span></span><span> </span><span id="local-6989586621679137814"><span class="annot"><span class="annottext">StartSelectorType
+</span><a href="#local-6989586621679137814"><span class="hs-identifier hs-var">pStartSelectorType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-123"></span><span>  </span><span class="annot"><span class="annottext">StartSelector' :: Maybe Text
--&gt; Maybe POSIX -&gt; Maybe Text -&gt; StartSelectorType -&gt; StartSelector
+-&gt; Maybe Text -&gt; Maybe POSIX -&gt; StartSelectorType -&gt; StartSelector
 </span><a href="Network.AWS.KinesisVideoMedia.Types.StartSelector.html#StartSelector%27"><span class="hs-identifier hs-type">StartSelector'</span></a></span><span>
-</span><span id="line-124"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:afterFragmentNumber:StartSelector' :: Maybe Text
-</span><a href="Network.AWS.KinesisVideoMedia.Types.StartSelector.html#%24sel%3AafterFragmentNumber%3AStartSelector%27"><span class="hs-identifier hs-var">afterFragmentNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-125"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-124"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:continuationToken:StartSelector' :: Maybe Text
+</span><a href="Network.AWS.KinesisVideoMedia.Types.StartSelector.html#%24sel%3AcontinuationToken%3AStartSelector%27"><span class="hs-identifier hs-var">continuationToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">$sel:afterFragmentNumber:StartSelector' :: Maybe Text
+</span><a href="Network.AWS.KinesisVideoMedia.Types.StartSelector.html#%24sel%3AafterFragmentNumber%3AStartSelector%27"><span class="hs-identifier hs-var">afterFragmentNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">$sel:startTimestamp:StartSelector' :: Maybe POSIX
 </span><a href="Network.AWS.KinesisVideoMedia.Types.StartSelector.html#%24sel%3AstartTimestamp%3AStartSelector%27"><span class="hs-identifier hs-var">startTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">$sel:continuationToken:StartSelector' :: Maybe Text
-</span><a href="Network.AWS.KinesisVideoMedia.Types.StartSelector.html#%24sel%3AcontinuationToken%3AStartSelector%27"><span class="hs-identifier hs-var">continuationToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-128"></span><span>      </span><span class="annot"><span class="annottext">$sel:startSelectorType:StartSelector' :: StartSelectorType
+</span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">$sel:startSelectorType:StartSelector' :: StartSelectorType
 </span><a href="Network.AWS.KinesisVideoMedia.Types.StartSelector.html#%24sel%3AstartSelectorType%3AStartSelector%27"><span class="hs-identifier hs-var">startSelectorType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">StartSelectorType
-</span><a href="#local-6989586621679137815"><span class="hs-identifier hs-var">pStartSelectorType_</span></a></span><span>
-</span><span id="line-129"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-130"></span><span>
-</span><span id="line-131"></span><span class="hs-comment">-- | Specifies the fragment number from where you want the @GetMedia@ API to</span><span>
-</span><span id="line-132"></span><span class="hs-comment">-- start returning the fragments.</span><span>
-</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.Types.StartSelector.html#startSelector_afterFragmentNumber"><span class="hs-identifier hs-type">startSelector_afterFragmentNumber</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.Types.StartSelector.html#StartSelector"><span class="hs-identifier hs-type">StartSelector</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-134"></span><span id="startSelector_afterFragmentNumber"><span class="annot"><span class="annottext">startSelector_afterFragmentNumber :: (Maybe Text -&gt; f (Maybe Text)) -&gt; StartSelector -&gt; f StartSelector
+</span><a href="#local-6989586621679137814"><span class="hs-identifier hs-var">pStartSelectorType_</span></a></span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- | Continuation token that Kinesis Video Streams returned in the previous</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- @GetMedia@ response. The @GetMedia@ API then starts with the chunk</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- identified by the continuation token.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.Types.StartSelector.html#startSelector_continuationToken"><span class="hs-identifier hs-type">startSelector_continuationToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.Types.StartSelector.html#StartSelector"><span class="hs-identifier hs-type">StartSelector</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span id="startSelector_continuationToken"><span class="annot"><span class="annottext">startSelector_continuationToken :: (Maybe Text -&gt; f (Maybe Text)) -&gt; StartSelector -&gt; f StartSelector
+</span><a href="Network.AWS.KinesisVideoMedia.Types.StartSelector.html#startSelector_continuationToken"><span class="hs-identifier hs-var hs-var">startSelector_continuationToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartSelector -&gt; Maybe Text)
+-&gt; (StartSelector -&gt; Maybe Text -&gt; StartSelector)
+-&gt; Lens StartSelector StartSelector (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.Types.StartSelector.html#StartSelector%27"><span class="hs-identifier hs-type">StartSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679137810"><span class="annot"><span class="annottext">Maybe Text
+continuationToken :: Maybe Text
+$sel:continuationToken:StartSelector' :: StartSelector -&gt; Maybe Text
+</span><a href="#local-6989586621679137810"><span class="hs-identifier hs-var hs-var">continuationToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679137810"><span class="hs-identifier hs-var">continuationToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679137809"><span class="annot"><span class="annottext">s :: StartSelector
+</span><a href="#local-6989586621679137809"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.Types.StartSelector.html#StartSelector%27"><span class="hs-identifier hs-type">StartSelector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679137808"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679137808"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartSelector
+</span><a href="#local-6989586621679137809"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:continuationToken:StartSelector' :: Maybe Text
+</span><a href="Network.AWS.KinesisVideoMedia.Types.StartSelector.html#%24sel%3AcontinuationToken%3AStartSelector%27"><span class="hs-identifier hs-var">continuationToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679137808"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.Types.StartSelector.html#StartSelector"><span class="hs-identifier hs-type">StartSelector</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | Specifies the fragment number from where you want the @GetMedia@ API to</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- start returning the fragments.</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.Types.StartSelector.html#startSelector_afterFragmentNumber"><span class="hs-identifier hs-type">startSelector_afterFragmentNumber</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.Types.StartSelector.html#StartSelector"><span class="hs-identifier hs-type">StartSelector</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span id="startSelector_afterFragmentNumber"><span class="annot"><span class="annottext">startSelector_afterFragmentNumber :: (Maybe Text -&gt; f (Maybe Text)) -&gt; StartSelector -&gt; f StartSelector
 </span><a href="Network.AWS.KinesisVideoMedia.Types.StartSelector.html#startSelector_afterFragmentNumber"><span class="hs-identifier hs-var hs-var">startSelector_afterFragmentNumber</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartSelector -&gt; Maybe Text)
 -&gt; (StartSelector -&gt; Maybe Text -&gt; StartSelector)
 -&gt; Lens StartSelector StartSelector (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.Types.StartSelector.html#StartSelector%27"><span class="hs-identifier hs-type">StartSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679137811"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.Types.StartSelector.html#StartSelector%27"><span class="hs-identifier hs-type">StartSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679137806"><span class="annot"><span class="annottext">Maybe Text
 afterFragmentNumber :: Maybe Text
 $sel:afterFragmentNumber:StartSelector' :: StartSelector -&gt; Maybe Text
-</span><a href="#local-6989586621679137811"><span class="hs-identifier hs-var hs-var">afterFragmentNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679137811"><span class="hs-identifier hs-var">afterFragmentNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679137810"><span class="annot"><span class="annottext">s :: StartSelector
-</span><a href="#local-6989586621679137810"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.Types.StartSelector.html#StartSelector%27"><span class="hs-identifier hs-type">StartSelector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679137809"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679137809"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartSelector
-</span><a href="#local-6989586621679137810"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:afterFragmentNumber:StartSelector' :: Maybe Text
+</span><a href="#local-6989586621679137806"><span class="hs-identifier hs-var hs-var">afterFragmentNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679137806"><span class="hs-identifier hs-var">afterFragmentNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679137805"><span class="annot"><span class="annottext">s :: StartSelector
+</span><a href="#local-6989586621679137805"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.Types.StartSelector.html#StartSelector%27"><span class="hs-identifier hs-type">StartSelector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679137804"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679137804"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartSelector
+</span><a href="#local-6989586621679137805"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:afterFragmentNumber:StartSelector' :: Maybe Text
 </span><a href="Network.AWS.KinesisVideoMedia.Types.StartSelector.html#%24sel%3AafterFragmentNumber%3AStartSelector%27"><span class="hs-identifier hs-var">afterFragmentNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679137809"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.Types.StartSelector.html#StartSelector"><span class="hs-identifier hs-type">StartSelector</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-135"></span><span>
-</span><span id="line-136"></span><span class="hs-comment">-- | A timestamp value. This value is required if you choose the</span><span>
-</span><span id="line-137"></span><span class="hs-comment">-- PRODUCER_TIMESTAMP or the SERVER_TIMESTAMP as the @startSelectorType@.</span><span>
-</span><span id="line-138"></span><span class="hs-comment">-- The @GetMedia@ API then starts with the chunk containing the fragment</span><span>
-</span><span id="line-139"></span><span class="hs-comment">-- that has the specified timestamp.</span><span>
-</span><span id="line-140"></span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.Types.StartSelector.html#startSelector_startTimestamp"><span class="hs-identifier hs-type">startSelector_startTimestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.Types.StartSelector.html#StartSelector"><span class="hs-identifier hs-type">StartSelector</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-141"></span><span id="startSelector_startTimestamp"><span class="annot"><span class="annottext">startSelector_startTimestamp :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><a href="#local-6989586621679137804"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.Types.StartSelector.html#StartSelector"><span class="hs-identifier hs-type">StartSelector</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | A timestamp value. This value is required if you choose the</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- PRODUCER_TIMESTAMP or the SERVER_TIMESTAMP as the @startSelectorType@.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- The @GetMedia@ API then starts with the chunk containing the fragment</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- that has the specified timestamp.</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.Types.StartSelector.html#startSelector_startTimestamp"><span class="hs-identifier hs-type">startSelector_startTimestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.Types.StartSelector.html#StartSelector"><span class="hs-identifier hs-type">StartSelector</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span id="startSelector_startTimestamp"><span class="annot"><span class="annottext">startSelector_startTimestamp :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; StartSelector -&gt; f StartSelector
 </span><a href="Network.AWS.KinesisVideoMedia.Types.StartSelector.html#startSelector_startTimestamp"><span class="hs-identifier hs-var hs-var">startSelector_startTimestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartSelector -&gt; Maybe POSIX)
 -&gt; (StartSelector -&gt; Maybe POSIX -&gt; StartSelector)
 -&gt; Lens StartSelector StartSelector (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.Types.StartSelector.html#StartSelector%27"><span class="hs-identifier hs-type">StartSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679137807"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.Types.StartSelector.html#StartSelector%27"><span class="hs-identifier hs-type">StartSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679137802"><span class="annot"><span class="annottext">Maybe POSIX
 startTimestamp :: Maybe POSIX
 $sel:startTimestamp:StartSelector' :: StartSelector -&gt; Maybe POSIX
-</span><a href="#local-6989586621679137807"><span class="hs-identifier hs-var hs-var">startTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679137807"><span class="hs-identifier hs-var">startTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679137806"><span class="annot"><span class="annottext">s :: StartSelector
-</span><a href="#local-6989586621679137806"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.Types.StartSelector.html#StartSelector%27"><span class="hs-identifier hs-type">StartSelector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679137805"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679137805"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartSelector
-</span><a href="#local-6989586621679137806"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTimestamp:StartSelector' :: Maybe POSIX
+</span><a href="#local-6989586621679137802"><span class="hs-identifier hs-var hs-var">startTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679137802"><span class="hs-identifier hs-var">startTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679137801"><span class="annot"><span class="annottext">s :: StartSelector
+</span><a href="#local-6989586621679137801"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.Types.StartSelector.html#StartSelector%27"><span class="hs-identifier hs-type">StartSelector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679137800"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679137800"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartSelector
+</span><a href="#local-6989586621679137801"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTimestamp:StartSelector' :: Maybe POSIX
 </span><a href="Network.AWS.KinesisVideoMedia.Types.StartSelector.html#%24sel%3AstartTimestamp%3AStartSelector%27"><span class="hs-identifier hs-var">startTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679137805"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.Types.StartSelector.html#StartSelector"><span class="hs-identifier hs-type">StartSelector</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679137800"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.Types.StartSelector.html#StartSelector"><span class="hs-identifier hs-type">StartSelector</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; StartSelector -&gt; f StartSelector)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -254,120 +273,100 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-142"></span><span>
-</span><span id="line-143"></span><span class="hs-comment">-- | Continuation token that Kinesis Video Streams returned in the previous</span><span>
-</span><span id="line-144"></span><span class="hs-comment">-- @GetMedia@ response. The @GetMedia@ API then starts with the chunk</span><span>
-</span><span id="line-145"></span><span class="hs-comment">-- identified by the continuation token.</span><span>
-</span><span id="line-146"></span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.Types.StartSelector.html#startSelector_continuationToken"><span class="hs-identifier hs-type">startSelector_continuationToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.Types.StartSelector.html#StartSelector"><span class="hs-identifier hs-type">StartSelector</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-147"></span><span id="startSelector_continuationToken"><span class="annot"><span class="annottext">startSelector_continuationToken :: (Maybe Text -&gt; f (Maybe Text)) -&gt; StartSelector -&gt; f StartSelector
-</span><a href="Network.AWS.KinesisVideoMedia.Types.StartSelector.html#startSelector_continuationToken"><span class="hs-identifier hs-var hs-var">startSelector_continuationToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartSelector -&gt; Maybe Text)
--&gt; (StartSelector -&gt; Maybe Text -&gt; StartSelector)
--&gt; Lens StartSelector StartSelector (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.Types.StartSelector.html#StartSelector%27"><span class="hs-identifier hs-type">StartSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679137800"><span class="annot"><span class="annottext">Maybe Text
-continuationToken :: Maybe Text
-$sel:continuationToken:StartSelector' :: StartSelector -&gt; Maybe Text
-</span><a href="#local-6989586621679137800"><span class="hs-identifier hs-var hs-var">continuationToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679137800"><span class="hs-identifier hs-var">continuationToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679137799"><span class="annot"><span class="annottext">s :: StartSelector
-</span><a href="#local-6989586621679137799"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.Types.StartSelector.html#StartSelector%27"><span class="hs-identifier hs-type">StartSelector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679137798"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679137798"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartSelector
-</span><a href="#local-6989586621679137799"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:continuationToken:StartSelector' :: Maybe Text
-</span><a href="Network.AWS.KinesisVideoMedia.Types.StartSelector.html#%24sel%3AcontinuationToken%3AStartSelector%27"><span class="hs-identifier hs-var">continuationToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679137798"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.Types.StartSelector.html#StartSelector"><span class="hs-identifier hs-type">StartSelector</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-148"></span><span>
-</span><span id="line-149"></span><span class="hs-comment">-- | Identifies the fragment on the Kinesis video stream where you want to</span><span>
-</span><span id="line-150"></span><span class="hs-comment">-- start getting the data from.</span><span>
-</span><span id="line-151"></span><span class="hs-comment">--</span><span>
-</span><span id="line-152"></span><span class="hs-comment">-- -   NOW - Start with the latest chunk on the stream.</span><span>
-</span><span id="line-153"></span><span class="hs-comment">--</span><span>
-</span><span id="line-154"></span><span class="hs-comment">-- -   EARLIEST - Start with earliest available chunk on the stream.</span><span>
-</span><span id="line-155"></span><span class="hs-comment">--</span><span>
-</span><span id="line-156"></span><span class="hs-comment">-- -   FRAGMENT_NUMBER - Start with the chunk after a specific fragment.</span><span>
-</span><span id="line-157"></span><span class="hs-comment">--     You must also specify the @AfterFragmentNumber@ parameter.</span><span>
-</span><span id="line-158"></span><span class="hs-comment">--</span><span>
-</span><span id="line-159"></span><span class="hs-comment">-- -   PRODUCER_TIMESTAMP or SERVER_TIMESTAMP - Start with the chunk</span><span>
-</span><span id="line-160"></span><span class="hs-comment">--     containing a fragment with the specified producer or server</span><span>
-</span><span id="line-161"></span><span class="hs-comment">--     timestamp. You specify the timestamp by adding @StartTimestamp@.</span><span>
-</span><span id="line-162"></span><span class="hs-comment">--</span><span>
-</span><span id="line-163"></span><span class="hs-comment">-- -   CONTINUATION_TOKEN - Read using the specified continuation token.</span><span>
-</span><span id="line-164"></span><span class="hs-comment">--</span><span>
-</span><span id="line-165"></span><span class="hs-comment">-- If you choose the NOW, EARLIEST, or CONTINUATION_TOKEN as the</span><span>
-</span><span id="line-166"></span><span class="hs-comment">-- @startSelectorType@, you don\'t provide any additional information in</span><span>
-</span><span id="line-167"></span><span class="hs-comment">-- the @startSelector@.</span><span>
-</span><span id="line-168"></span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.Types.StartSelector.html#startSelector_startSelectorType"><span class="hs-identifier hs-type">startSelector_startSelectorType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.Types.StartSelector.html#StartSelector"><span class="hs-identifier hs-type">StartSelector</span></a></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.Types.StartSelectorType.html#StartSelectorType"><span class="hs-identifier hs-type">StartSelectorType</span></a></span><span>
-</span><span id="line-169"></span><span id="startSelector_startSelectorType"><span class="annot"><span class="annottext">startSelector_startSelectorType :: (StartSelectorType -&gt; f StartSelectorType)
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- | Identifies the fragment on the Kinesis video stream where you want to</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- start getting the data from.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- -   NOW - Start with the latest chunk on the stream.</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- -   EARLIEST - Start with earliest available chunk on the stream.</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- -   FRAGMENT_NUMBER - Start with the chunk after a specific fragment.</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--     You must also specify the @AfterFragmentNumber@ parameter.</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- -   PRODUCER_TIMESTAMP or SERVER_TIMESTAMP - Start with the chunk</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--     containing a fragment with the specified producer or server</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--     timestamp. You specify the timestamp by adding @StartTimestamp@.</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- -   CONTINUATION_TOKEN - Read using the specified continuation token.</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- If you choose the NOW, EARLIEST, or CONTINUATION_TOKEN as the</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- @startSelectorType@, you don\'t provide any additional information in</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- the @startSelector@.</span><span>
+</span><span id="line-167"></span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.Types.StartSelector.html#startSelector_startSelectorType"><span class="hs-identifier hs-type">startSelector_startSelectorType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.Types.StartSelector.html#StartSelector"><span class="hs-identifier hs-type">StartSelector</span></a></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.Types.StartSelectorType.html#StartSelectorType"><span class="hs-identifier hs-type">StartSelectorType</span></a></span><span>
+</span><span id="line-168"></span><span id="startSelector_startSelectorType"><span class="annot"><span class="annottext">startSelector_startSelectorType :: (StartSelectorType -&gt; f StartSelectorType)
 -&gt; StartSelector -&gt; f StartSelector
 </span><a href="Network.AWS.KinesisVideoMedia.Types.StartSelector.html#startSelector_startSelectorType"><span class="hs-identifier hs-var hs-var">startSelector_startSelectorType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartSelector -&gt; StartSelectorType)
 -&gt; (StartSelector -&gt; StartSelectorType -&gt; StartSelector)
 -&gt; Lens
      StartSelector StartSelector StartSelectorType StartSelectorType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.Types.StartSelector.html#StartSelector%27"><span class="hs-identifier hs-type">StartSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679137796"><span class="annot"><span class="annottext">StartSelectorType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.Types.StartSelector.html#StartSelector%27"><span class="hs-identifier hs-type">StartSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679137795"><span class="annot"><span class="annottext">StartSelectorType
 startSelectorType :: StartSelectorType
 $sel:startSelectorType:StartSelector' :: StartSelector -&gt; StartSelectorType
-</span><a href="#local-6989586621679137796"><span class="hs-identifier hs-var hs-var">startSelectorType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartSelectorType
-</span><a href="#local-6989586621679137796"><span class="hs-identifier hs-var">startSelectorType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679137795"><span class="annot"><span class="annottext">s :: StartSelector
-</span><a href="#local-6989586621679137795"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.Types.StartSelector.html#StartSelector%27"><span class="hs-identifier hs-type">StartSelector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679137794"><span class="annot"><span class="annottext">StartSelectorType
-</span><a href="#local-6989586621679137794"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartSelector
-</span><a href="#local-6989586621679137795"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startSelectorType:StartSelector' :: StartSelectorType
+</span><a href="#local-6989586621679137795"><span class="hs-identifier hs-var hs-var">startSelectorType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartSelectorType
+</span><a href="#local-6989586621679137795"><span class="hs-identifier hs-var">startSelectorType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679137794"><span class="annot"><span class="annottext">s :: StartSelector
+</span><a href="#local-6989586621679137794"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.Types.StartSelector.html#StartSelector%27"><span class="hs-identifier hs-type">StartSelector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679137793"><span class="annot"><span class="annottext">StartSelectorType
+</span><a href="#local-6989586621679137793"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartSelector
+</span><a href="#local-6989586621679137794"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startSelectorType:StartSelector' :: StartSelectorType
 </span><a href="Network.AWS.KinesisVideoMedia.Types.StartSelector.html#%24sel%3AstartSelectorType%3AStartSelector%27"><span class="hs-identifier hs-var">startSelectorType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">StartSelectorType
-</span><a href="#local-6989586621679137794"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.Types.StartSelector.html#StartSelector"><span class="hs-identifier hs-type">StartSelector</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-170"></span><span>
-</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679137790"><span id="local-6989586621679137792"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.Types.StartSelector.html#StartSelector"><span class="hs-identifier hs-type">StartSelector</span></a></span></span></span><span>
-</span><span id="line-172"></span><span>
-</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679137787"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.Types.StartSelector.html#StartSelector"><span class="hs-identifier hs-type">StartSelector</span></a></span></span><span>
-</span><span id="line-174"></span><span>
-</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679137779"><span id="local-6989586621679137781"><span id="local-6989586621679137783"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.Types.StartSelector.html#StartSelector"><span class="hs-identifier hs-type">StartSelector</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-176"></span><span>  </span><span id="local-6989586621679137777"><span class="annot"><span class="annottext">toJSON :: StartSelector -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.Types.StartSelector.html#StartSelector%27"><span class="hs-identifier hs-type">StartSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679137772"><span id="local-6989586621679137773"><span id="local-6989586621679137774"><span id="local-6989586621679137775"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679137793"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.Types.StartSelector.html#StartSelector"><span class="hs-identifier hs-type">StartSelector</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679137789"><span id="local-6989586621679137791"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.Types.StartSelector.html#StartSelector"><span class="hs-identifier hs-type">StartSelector</span></a></span></span></span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679137786"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.Types.StartSelector.html#StartSelector"><span class="hs-identifier hs-type">StartSelector</span></a></span></span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679137778"><span id="local-6989586621679137780"><span id="local-6989586621679137782"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.Types.StartSelector.html#StartSelector"><span class="hs-identifier hs-type">StartSelector</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621679137776"><span class="annot"><span class="annottext">toJSON :: StartSelector -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.Types.StartSelector.html#StartSelector%27"><span class="hs-identifier hs-type">StartSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679137771"><span id="local-6989586621679137772"><span id="local-6989586621679137773"><span id="local-6989586621679137774"><span class="annot"><span class="annottext">Maybe Text
 Maybe POSIX
 StartSelectorType
 startSelectorType :: StartSelectorType
-continuationToken :: Maybe Text
 startTimestamp :: Maybe POSIX
 afterFragmentNumber :: Maybe Text
+continuationToken :: Maybe Text
 $sel:startSelectorType:StartSelector' :: StartSelector -&gt; StartSelectorType
-$sel:continuationToken:StartSelector' :: StartSelector -&gt; Maybe Text
 $sel:startTimestamp:StartSelector' :: StartSelector -&gt; Maybe POSIX
 $sel:afterFragmentNumber:StartSelector' :: StartSelector -&gt; Maybe Text
-</span><a href="#local-6989586621679137772"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-177"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+$sel:continuationToken:StartSelector' :: StartSelector -&gt; Maybe Text
+</span><a href="#local-6989586621679137771"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-176"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
-</span><span id="line-178"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+</span><span id="line-177"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
-</span><span id="line-179"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;AfterFragmentNumber&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-180"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679137775"><span class="hs-identifier hs-var">afterFragmentNumber</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-181"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;StartTimestamp&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-182"></span><span>              </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679137774"><span class="hs-identifier hs-var">startTimestamp</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-183"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span id="line-178"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ContinuationToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-184"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+</span><span id="line-179"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679137773"><span class="hs-identifier hs-var">continuationToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-185"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+</span><a href="#local-6989586621679137774"><span class="hs-identifier hs-var">continuationToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AfterFragmentNumber&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679137773"><span class="hs-identifier hs-var">afterFragmentNumber</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StartTimestamp&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>              </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679137772"><span class="hs-identifier hs-var">startTimestamp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
-</span><span id="line-186"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span id="line-185"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StartSelectorType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; StartSelectorType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">StartSelectorType
-</span><a href="#local-6989586621679137772"><span class="hs-identifier hs-var">startSelectorType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-187"></span><span>          </span><span class="hs-special">]</span><span>
-</span><span id="line-188"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-189"></span></pre></body></html>
+</span><a href="#local-6989586621679137771"><span class="hs-identifier hs-var">startSelectorType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-187"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span></pre></body></html>

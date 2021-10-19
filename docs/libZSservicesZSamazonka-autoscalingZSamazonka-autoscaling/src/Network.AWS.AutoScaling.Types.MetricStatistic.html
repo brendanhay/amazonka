@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-34"></span><span>
-</span><span id="line-35"></span><span id="local-6989586621679328592"><span id="local-6989586621679328593"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MetricStatistic"><span class="annot"><a href="Network.AWS.AutoScaling.Types.MetricStatistic.html#MetricStatistic"><span class="hs-identifier hs-var">MetricStatistic</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MetricStatistic%27"><span class="annot"><a href="Network.AWS.AutoScaling.Types.MetricStatistic.html#MetricStatistic%27"><span class="hs-identifier hs-var">MetricStatistic'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679329247"><span id="local-6989586621679329248"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MetricStatistic"><span class="annot"><a href="Network.AWS.AutoScaling.Types.MetricStatistic.html#MetricStatistic"><span class="hs-identifier hs-var">MetricStatistic</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MetricStatistic%27"><span class="annot"><a href="Network.AWS.AutoScaling.Types.MetricStatistic.html#MetricStatistic%27"><span class="hs-identifier hs-var">MetricStatistic'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMetricStatistic"><span class="annot"><span class="annottext">MetricStatistic -&gt; Text
 </span><a href="Network.AWS.AutoScaling.Types.MetricStatistic.html#fromMetricStatistic"><span class="hs-identifier hs-var hs-var">fromMetricStatistic</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679328584"><span id="local-6989586621679328586"><span id="local-6989586621679328588"><span class="annot"><span class="annottext">Int -&gt; MetricStatistic -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679329239"><span id="local-6989586621679329241"><span id="local-6989586621679329243"><span class="annot"><span class="annottext">Int -&gt; MetricStatistic -&gt; ShowS
 [MetricStatistic] -&gt; ShowS
 MetricStatistic -&gt; String
 (Int -&gt; MetricStatistic -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: MetricStatistic -&gt; String
 showsPrec :: Int -&gt; MetricStatistic -&gt; ShowS
 $cshowsPrec :: Int -&gt; MetricStatistic -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679328575"><span id="local-6989586621679328577"><span id="local-6989586621679328579"><span id="local-6989586621679328581"><span class="annot"><span class="annottext">ReadPrec [MetricStatistic]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679329230"><span id="local-6989586621679329232"><span id="local-6989586621679329234"><span id="local-6989586621679329236"><span class="annot"><span class="annottext">ReadPrec [MetricStatistic]
 ReadPrec MetricStatistic
 Int -&gt; ReadS MetricStatistic
 ReadS [MetricStatistic]
@@ -75,7 +75,7 @@ $creadList :: ReadS [MetricStatistic]
 readsPrec :: Int -&gt; ReadS MetricStatistic
 $creadsPrec :: Int -&gt; ReadS MetricStatistic
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679328570"><span id="local-6989586621679328572"><span class="annot"><span class="annottext">MetricStatistic -&gt; MetricStatistic -&gt; Bool
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679329225"><span id="local-6989586621679329227"><span class="annot"><span class="annottext">MetricStatistic -&gt; MetricStatistic -&gt; Bool
 (MetricStatistic -&gt; MetricStatistic -&gt; Bool)
 -&gt; (MetricStatistic -&gt; MetricStatistic -&gt; Bool)
 -&gt; Eq MetricStatistic
@@ -85,7 +85,7 @@ $c/= :: MetricStatistic -&gt; MetricStatistic -&gt; Bool
 == :: MetricStatistic -&gt; MetricStatistic -&gt; Bool
 $c== :: MetricStatistic -&gt; MetricStatistic -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679328554"><span id="local-6989586621679328556"><span id="local-6989586621679328558"><span id="local-6989586621679328560"><span id="local-6989586621679328562"><span id="local-6989586621679328564"><span id="local-6989586621679328566"><span class="annot"><span class="annottext">Eq MetricStatistic
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679329209"><span id="local-6989586621679329211"><span id="local-6989586621679329213"><span id="local-6989586621679329215"><span id="local-6989586621679329217"><span id="local-6989586621679329219"><span id="local-6989586621679329221"><span class="annot"><span class="annottext">Eq MetricStatistic
 Eq MetricStatistic
 -&gt; (MetricStatistic -&gt; MetricStatistic -&gt; Ordering)
 -&gt; (MetricStatistic -&gt; MetricStatistic -&gt; Bool)
@@ -136,7 +136,7 @@ $cfrom :: forall x. MetricStatistic -&gt; Rep MetricStatistic x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679328546"><span id="local-6989586621679328548"><span class="annot"><span class="annottext">Int -&gt; MetricStatistic -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679329201"><span id="local-6989586621679329203"><span class="annot"><span class="annottext">Int -&gt; MetricStatistic -&gt; Int
 MetricStatistic -&gt; Int
 (Int -&gt; MetricStatistic -&gt; Int)
 -&gt; (MetricStatistic -&gt; Int) -&gt; Hashable MetricStatistic
@@ -146,50 +146,50 @@ $chash :: MetricStatistic -&gt; Int
 hashWithSalt :: Int -&gt; MetricStatistic -&gt; Int
 $chashWithSalt :: Int -&gt; MetricStatistic -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679328543"><span class="annot"><span class="annottext">MetricStatistic -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679329198"><span class="annot"><span class="annottext">MetricStatistic -&gt; ()
 (MetricStatistic -&gt; ()) -&gt; NFData MetricStatistic
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: MetricStatistic -&gt; ()
 $crnf :: MetricStatistic -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679328540"><span class="annot"><span class="annottext">Text -&gt; Either String MetricStatistic
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679329195"><span class="annot"><span class="annottext">Text -&gt; Either String MetricStatistic
 (Text -&gt; Either String MetricStatistic) -&gt; FromText MetricStatistic
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String MetricStatistic
 $cfromText :: Text -&gt; Either String MetricStatistic
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679328537"><span class="annot"><span class="annottext">MetricStatistic -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679329192"><span class="annot"><span class="annottext">MetricStatistic -&gt; Text
 (MetricStatistic -&gt; Text) -&gt; ToText MetricStatistic
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: MetricStatistic -&gt; Text
 $ctoText :: MetricStatistic -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679328534"><span class="annot"><span class="annottext">MetricStatistic -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679329189"><span class="annot"><span class="annottext">MetricStatistic -&gt; ByteString
 (MetricStatistic -&gt; ByteString) -&gt; ToByteString MetricStatistic
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: MetricStatistic -&gt; ByteString
 $ctoBS :: MetricStatistic -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679328531"><span class="annot"><span class="annottext">MetricStatistic -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679329186"><span class="annot"><span class="annottext">MetricStatistic -&gt; ByteStringBuilder
 (MetricStatistic -&gt; ByteStringBuilder) -&gt; ToLog MetricStatistic
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: MetricStatistic -&gt; ByteStringBuilder
 $cbuild :: MetricStatistic -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679328528"><span class="annot"><span class="annottext">HeaderName -&gt; MetricStatistic -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679329183"><span class="annot"><span class="annottext">HeaderName -&gt; MetricStatistic -&gt; [Header]
 (HeaderName -&gt; MetricStatistic -&gt; [Header])
 -&gt; ToHeader MetricStatistic
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; MetricStatistic -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; MetricStatistic -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679328525"><span class="annot"><span class="annottext">MetricStatistic -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679329180"><span class="annot"><span class="annottext">MetricStatistic -&gt; QueryString
 (MetricStatistic -&gt; QueryString) -&gt; ToQuery MetricStatistic
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: MetricStatistic -&gt; QueryString
 $ctoQuery :: MetricStatistic -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679328520"><span id="local-6989586621679328522"><span class="annot"><span class="annottext">Value -&gt; Parser [MetricStatistic]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679329175"><span id="local-6989586621679329177"><span class="annot"><span class="annottext">Value -&gt; Parser [MetricStatistic]
 Value -&gt; Parser MetricStatistic
 (Value -&gt; Parser MetricStatistic)
 -&gt; (Value -&gt; Parser [MetricStatistic]) -&gt; FromJSON MetricStatistic
@@ -200,7 +200,7 @@ $cparseJSONList :: Value -&gt; Parser [MetricStatistic]
 parseJSON :: Value -&gt; Parser MetricStatistic
 $cparseJSON :: Value -&gt; Parser MetricStatistic
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679328515"><span id="local-6989586621679328517"><span class="annot"><span class="annottext">FromJSONKeyFunction [MetricStatistic]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679329170"><span id="local-6989586621679329172"><span class="annot"><span class="annottext">FromJSONKeyFunction [MetricStatistic]
 FromJSONKeyFunction MetricStatistic
 FromJSONKeyFunction MetricStatistic
 -&gt; FromJSONKeyFunction [MetricStatistic]
@@ -212,7 +212,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [MetricStatistic]
 fromJSONKey :: FromJSONKeyFunction MetricStatistic
 $cfromJSONKey :: FromJSONKeyFunction MetricStatistic
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679328506"><span id="local-6989586621679328508"><span id="local-6989586621679328510"><span id="local-6989586621679328512"><span class="annot"><span class="annottext">[MetricStatistic] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679329161"><span id="local-6989586621679329163"><span id="local-6989586621679329165"><span id="local-6989586621679329167"><span class="annot"><span class="annottext">[MetricStatistic] -&gt; Encoding
 [MetricStatistic] -&gt; Value
 MetricStatistic -&gt; Encoding
 MetricStatistic -&gt; Value
@@ -236,7 +236,7 @@ $ctoEncoding :: MetricStatistic -&gt; Encoding
 toJSON :: MetricStatistic -&gt; Value
 $ctoJSON :: MetricStatistic -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679328501"><span id="local-6989586621679328503"><span class="annot"><span class="annottext">ToJSONKeyFunction [MetricStatistic]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679329156"><span id="local-6989586621679329158"><span class="annot"><span class="annottext">ToJSONKeyFunction [MetricStatistic]
 ToJSONKeyFunction MetricStatistic
 ToJSONKeyFunction MetricStatistic
 -&gt; ToJSONKeyFunction [MetricStatistic] -&gt; ToJSONKey MetricStatistic
@@ -247,14 +247,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [MetricStatistic]
 toJSONKey :: ToJSONKeyFunction MetricStatistic
 $ctoJSONKey :: ToJSONKeyFunction MetricStatistic
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679328498"><span class="annot"><span class="annottext">[Node] -&gt; Either String MetricStatistic
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679329153"><span class="annot"><span class="annottext">[Node] -&gt; Either String MetricStatistic
 ([Node] -&gt; Either String MetricStatistic)
 -&gt; FromXML MetricStatistic
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String MetricStatistic
 $cparseXML :: [Node] -&gt; Either String MetricStatistic
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679328495"><span class="annot"><span class="annottext">MetricStatistic -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679329150"><span class="annot"><span class="annottext">MetricStatistic -&gt; XML
 (MetricStatistic -&gt; XML) -&gt; ToXML MetricStatistic
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: MetricStatistic -&gt; XML

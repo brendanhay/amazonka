@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679261802"><span id="local-6989586621679261803"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="S3BackupMode"><span class="annot"><a href="Network.AWS.Firehose.Types.S3BackupMode.html#S3BackupMode"><span class="hs-identifier hs-var">S3BackupMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="S3BackupMode%27"><span class="annot"><a href="Network.AWS.Firehose.Types.S3BackupMode.html#S3BackupMode%27"><span class="hs-identifier hs-var">S3BackupMode'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679276030"><span id="local-6989586621679276031"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="S3BackupMode"><span class="annot"><a href="Network.AWS.Firehose.Types.S3BackupMode.html#S3BackupMode"><span class="hs-identifier hs-var">S3BackupMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="S3BackupMode%27"><span class="annot"><a href="Network.AWS.Firehose.Types.S3BackupMode.html#S3BackupMode%27"><span class="hs-identifier hs-var">S3BackupMode'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromS3BackupMode"><span class="annot"><span class="annottext">S3BackupMode -&gt; Text
 </span><a href="Network.AWS.Firehose.Types.S3BackupMode.html#fromS3BackupMode"><span class="hs-identifier hs-var hs-var">fromS3BackupMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679261794"><span id="local-6989586621679261796"><span id="local-6989586621679261798"><span class="annot"><span class="annottext">Int -&gt; S3BackupMode -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679276022"><span id="local-6989586621679276024"><span id="local-6989586621679276026"><span class="annot"><span class="annottext">Int -&gt; S3BackupMode -&gt; ShowS
 [S3BackupMode] -&gt; ShowS
 S3BackupMode -&gt; String
 (Int -&gt; S3BackupMode -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: S3BackupMode -&gt; String
 showsPrec :: Int -&gt; S3BackupMode -&gt; ShowS
 $cshowsPrec :: Int -&gt; S3BackupMode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679261785"><span id="local-6989586621679261787"><span id="local-6989586621679261789"><span id="local-6989586621679261791"><span class="annot"><span class="annottext">ReadPrec [S3BackupMode]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679276013"><span id="local-6989586621679276015"><span id="local-6989586621679276017"><span id="local-6989586621679276019"><span class="annot"><span class="annottext">ReadPrec [S3BackupMode]
 ReadPrec S3BackupMode
 Int -&gt; ReadS S3BackupMode
 ReadS [S3BackupMode]
@@ -72,7 +72,7 @@ $creadList :: ReadS [S3BackupMode]
 readsPrec :: Int -&gt; ReadS S3BackupMode
 $creadsPrec :: Int -&gt; ReadS S3BackupMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679261780"><span id="local-6989586621679261782"><span class="annot"><span class="annottext">S3BackupMode -&gt; S3BackupMode -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679276008"><span id="local-6989586621679276010"><span class="annot"><span class="annottext">S3BackupMode -&gt; S3BackupMode -&gt; Bool
 (S3BackupMode -&gt; S3BackupMode -&gt; Bool)
 -&gt; (S3BackupMode -&gt; S3BackupMode -&gt; Bool) -&gt; Eq S3BackupMode
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: S3BackupMode -&gt; S3BackupMode -&gt; Bool
 == :: S3BackupMode -&gt; S3BackupMode -&gt; Bool
 $c== :: S3BackupMode -&gt; S3BackupMode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679261764"><span id="local-6989586621679261766"><span id="local-6989586621679261768"><span id="local-6989586621679261770"><span id="local-6989586621679261772"><span id="local-6989586621679261774"><span id="local-6989586621679261776"><span class="annot"><span class="annottext">Eq S3BackupMode
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679275992"><span id="local-6989586621679275994"><span id="local-6989586621679275996"><span id="local-6989586621679275998"><span id="local-6989586621679276000"><span id="local-6989586621679276002"><span id="local-6989586621679276004"><span class="annot"><span class="annottext">Eq S3BackupMode
 Eq S3BackupMode
 -&gt; (S3BackupMode -&gt; S3BackupMode -&gt; Ordering)
 -&gt; (S3BackupMode -&gt; S3BackupMode -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. S3BackupMode -&gt; Rep S3BackupMode x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679261756"><span id="local-6989586621679261758"><span class="annot"><span class="annottext">Int -&gt; S3BackupMode -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679275984"><span id="local-6989586621679275986"><span class="annot"><span class="annottext">Int -&gt; S3BackupMode -&gt; Int
 S3BackupMode -&gt; Int
 (Int -&gt; S3BackupMode -&gt; Int)
 -&gt; (S3BackupMode -&gt; Int) -&gt; Hashable S3BackupMode
@@ -142,49 +142,49 @@ $chash :: S3BackupMode -&gt; Int
 hashWithSalt :: Int -&gt; S3BackupMode -&gt; Int
 $chashWithSalt :: Int -&gt; S3BackupMode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679261753"><span class="annot"><span class="annottext">S3BackupMode -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679275981"><span class="annot"><span class="annottext">S3BackupMode -&gt; ()
 (S3BackupMode -&gt; ()) -&gt; NFData S3BackupMode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: S3BackupMode -&gt; ()
 $crnf :: S3BackupMode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679261750"><span class="annot"><span class="annottext">Text -&gt; Either String S3BackupMode
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679275978"><span class="annot"><span class="annottext">Text -&gt; Either String S3BackupMode
 (Text -&gt; Either String S3BackupMode) -&gt; FromText S3BackupMode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String S3BackupMode
 $cfromText :: Text -&gt; Either String S3BackupMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679261747"><span class="annot"><span class="annottext">S3BackupMode -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679275975"><span class="annot"><span class="annottext">S3BackupMode -&gt; Text
 (S3BackupMode -&gt; Text) -&gt; ToText S3BackupMode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: S3BackupMode -&gt; Text
 $ctoText :: S3BackupMode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679261744"><span class="annot"><span class="annottext">S3BackupMode -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679275972"><span class="annot"><span class="annottext">S3BackupMode -&gt; ByteString
 (S3BackupMode -&gt; ByteString) -&gt; ToByteString S3BackupMode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: S3BackupMode -&gt; ByteString
 $ctoBS :: S3BackupMode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679261741"><span class="annot"><span class="annottext">S3BackupMode -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679275969"><span class="annot"><span class="annottext">S3BackupMode -&gt; ByteStringBuilder
 (S3BackupMode -&gt; ByteStringBuilder) -&gt; ToLog S3BackupMode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: S3BackupMode -&gt; ByteStringBuilder
 $cbuild :: S3BackupMode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679261738"><span class="annot"><span class="annottext">HeaderName -&gt; S3BackupMode -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679275966"><span class="annot"><span class="annottext">HeaderName -&gt; S3BackupMode -&gt; [Header]
 (HeaderName -&gt; S3BackupMode -&gt; [Header]) -&gt; ToHeader S3BackupMode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; S3BackupMode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; S3BackupMode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679261735"><span class="annot"><span class="annottext">S3BackupMode -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679275963"><span class="annot"><span class="annottext">S3BackupMode -&gt; QueryString
 (S3BackupMode -&gt; QueryString) -&gt; ToQuery S3BackupMode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: S3BackupMode -&gt; QueryString
 $ctoQuery :: S3BackupMode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679261730"><span id="local-6989586621679261732"><span class="annot"><span class="annottext">Value -&gt; Parser [S3BackupMode]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679275958"><span id="local-6989586621679275960"><span class="annot"><span class="annottext">Value -&gt; Parser [S3BackupMode]
 Value -&gt; Parser S3BackupMode
 (Value -&gt; Parser S3BackupMode)
 -&gt; (Value -&gt; Parser [S3BackupMode]) -&gt; FromJSON S3BackupMode
@@ -195,7 +195,7 @@ $cparseJSONList :: Value -&gt; Parser [S3BackupMode]
 parseJSON :: Value -&gt; Parser S3BackupMode
 $cparseJSON :: Value -&gt; Parser S3BackupMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679261725"><span id="local-6989586621679261727"><span class="annot"><span class="annottext">FromJSONKeyFunction [S3BackupMode]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679275953"><span id="local-6989586621679275955"><span class="annot"><span class="annottext">FromJSONKeyFunction [S3BackupMode]
 FromJSONKeyFunction S3BackupMode
 FromJSONKeyFunction S3BackupMode
 -&gt; FromJSONKeyFunction [S3BackupMode] -&gt; FromJSONKey S3BackupMode
@@ -206,7 +206,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [S3BackupMode]
 fromJSONKey :: FromJSONKeyFunction S3BackupMode
 $cfromJSONKey :: FromJSONKeyFunction S3BackupMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679261716"><span id="local-6989586621679261718"><span id="local-6989586621679261720"><span id="local-6989586621679261722"><span class="annot"><span class="annottext">[S3BackupMode] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679275944"><span id="local-6989586621679275946"><span id="local-6989586621679275948"><span id="local-6989586621679275950"><span class="annot"><span class="annottext">[S3BackupMode] -&gt; Encoding
 [S3BackupMode] -&gt; Value
 S3BackupMode -&gt; Encoding
 S3BackupMode -&gt; Value
@@ -230,7 +230,7 @@ $ctoEncoding :: S3BackupMode -&gt; Encoding
 toJSON :: S3BackupMode -&gt; Value
 $ctoJSON :: S3BackupMode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679261711"><span id="local-6989586621679261713"><span class="annot"><span class="annottext">ToJSONKeyFunction [S3BackupMode]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679275939"><span id="local-6989586621679275941"><span class="annot"><span class="annottext">ToJSONKeyFunction [S3BackupMode]
 ToJSONKeyFunction S3BackupMode
 ToJSONKeyFunction S3BackupMode
 -&gt; ToJSONKeyFunction [S3BackupMode] -&gt; ToJSONKey S3BackupMode
@@ -241,13 +241,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [S3BackupMode]
 toJSONKey :: ToJSONKeyFunction S3BackupMode
 $ctoJSONKey :: ToJSONKeyFunction S3BackupMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679261708"><span class="annot"><span class="annottext">[Node] -&gt; Either String S3BackupMode
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679275936"><span class="annot"><span class="annottext">[Node] -&gt; Either String S3BackupMode
 ([Node] -&gt; Either String S3BackupMode) -&gt; FromXML S3BackupMode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String S3BackupMode
 $cparseXML :: [Node] -&gt; Either String S3BackupMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679261705"><span class="annot"><span class="annottext">S3BackupMode -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679275933"><span class="annot"><span class="annottext">S3BackupMode -&gt; XML
 (S3BackupMode -&gt; XML) -&gt; ToXML S3BackupMode
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: S3BackupMode -&gt; XML

@@ -39,13 +39,13 @@
 </span><span id="line-39"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-40"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-41"></span><span>
-</span><span id="line-42"></span><span id="local-6989586621679251715"><span id="local-6989586621679251716"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TargetHealthReasonEnum"><span class="annot"><a href="Network.AWS.ELBv2.Types.TargetHealthReasonEnum.html#TargetHealthReasonEnum"><span class="hs-identifier hs-var">TargetHealthReasonEnum</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TargetHealthReasonEnum%27"><span class="annot"><a href="Network.AWS.ELBv2.Types.TargetHealthReasonEnum.html#TargetHealthReasonEnum%27"><span class="hs-identifier hs-var">TargetHealthReasonEnum'</span></a></span></span><span>
+</span><span id="line-42"></span><span id="local-6989586621679254596"><span id="local-6989586621679254597"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TargetHealthReasonEnum"><span class="annot"><a href="Network.AWS.ELBv2.Types.TargetHealthReasonEnum.html#TargetHealthReasonEnum"><span class="hs-identifier hs-var">TargetHealthReasonEnum</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TargetHealthReasonEnum%27"><span class="annot"><a href="Network.AWS.ELBv2.Types.TargetHealthReasonEnum.html#TargetHealthReasonEnum%27"><span class="hs-identifier hs-var">TargetHealthReasonEnum'</span></a></span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTargetHealthReasonEnum"><span class="annot"><span class="annottext">TargetHealthReasonEnum -&gt; Text
 </span><a href="Network.AWS.ELBv2.Types.TargetHealthReasonEnum.html#fromTargetHealthReasonEnum"><span class="hs-identifier hs-var hs-var">fromTargetHealthReasonEnum</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-44"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679251707"><span id="local-6989586621679251709"><span id="local-6989586621679251711"><span class="annot"><span class="annottext">Int -&gt; TargetHealthReasonEnum -&gt; ShowS
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679254588"><span id="local-6989586621679254590"><span id="local-6989586621679254592"><span class="annot"><span class="annottext">Int -&gt; TargetHealthReasonEnum -&gt; ShowS
 [TargetHealthReasonEnum] -&gt; ShowS
 TargetHealthReasonEnum -&gt; String
 (Int -&gt; TargetHealthReasonEnum -&gt; ShowS)
@@ -61,7 +61,7 @@ $cshow :: TargetHealthReasonEnum -&gt; String
 showsPrec :: Int -&gt; TargetHealthReasonEnum -&gt; ShowS
 $cshowsPrec :: Int -&gt; TargetHealthReasonEnum -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679251698"><span id="local-6989586621679251700"><span id="local-6989586621679251702"><span id="local-6989586621679251704"><span class="annot"><span class="annottext">ReadPrec [TargetHealthReasonEnum]
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679254579"><span id="local-6989586621679254581"><span id="local-6989586621679254583"><span id="local-6989586621679254585"><span class="annot"><span class="annottext">ReadPrec [TargetHealthReasonEnum]
 ReadPrec TargetHealthReasonEnum
 Int -&gt; ReadS TargetHealthReasonEnum
 ReadS [TargetHealthReasonEnum]
@@ -82,7 +82,7 @@ $creadList :: ReadS [TargetHealthReasonEnum]
 readsPrec :: Int -&gt; ReadS TargetHealthReasonEnum
 $creadsPrec :: Int -&gt; ReadS TargetHealthReasonEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679251693"><span id="local-6989586621679251695"><span class="annot"><span class="annottext">TargetHealthReasonEnum -&gt; TargetHealthReasonEnum -&gt; Bool
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679254574"><span id="local-6989586621679254576"><span class="annot"><span class="annottext">TargetHealthReasonEnum -&gt; TargetHealthReasonEnum -&gt; Bool
 (TargetHealthReasonEnum -&gt; TargetHealthReasonEnum -&gt; Bool)
 -&gt; (TargetHealthReasonEnum -&gt; TargetHealthReasonEnum -&gt; Bool)
 -&gt; Eq TargetHealthReasonEnum
@@ -92,7 +92,7 @@ $c/= :: TargetHealthReasonEnum -&gt; TargetHealthReasonEnum -&gt; Bool
 == :: TargetHealthReasonEnum -&gt; TargetHealthReasonEnum -&gt; Bool
 $c== :: TargetHealthReasonEnum -&gt; TargetHealthReasonEnum -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679251677"><span id="local-6989586621679251679"><span id="local-6989586621679251681"><span id="local-6989586621679251683"><span id="local-6989586621679251685"><span id="local-6989586621679251687"><span id="local-6989586621679251689"><span class="annot"><span class="annottext">Eq TargetHealthReasonEnum
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679254558"><span id="local-6989586621679254560"><span id="local-6989586621679254562"><span id="local-6989586621679254564"><span id="local-6989586621679254566"><span id="local-6989586621679254568"><span id="local-6989586621679254570"><span class="annot"><span class="annottext">Eq TargetHealthReasonEnum
 Eq TargetHealthReasonEnum
 -&gt; (TargetHealthReasonEnum -&gt; TargetHealthReasonEnum -&gt; Ordering)
 -&gt; (TargetHealthReasonEnum -&gt; TargetHealthReasonEnum -&gt; Bool)
@@ -151,7 +151,7 @@ $cfrom :: forall x. TargetHealthReasonEnum -&gt; Rep TargetHealthReasonEnum x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-52"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679251669"><span id="local-6989586621679251671"><span class="annot"><span class="annottext">Int -&gt; TargetHealthReasonEnum -&gt; Int
+</span><span id="line-54"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679254550"><span id="local-6989586621679254552"><span class="annot"><span class="annottext">Int -&gt; TargetHealthReasonEnum -&gt; Int
 TargetHealthReasonEnum -&gt; Int
 (Int -&gt; TargetHealthReasonEnum -&gt; Int)
 -&gt; (TargetHealthReasonEnum -&gt; Int)
@@ -162,54 +162,54 @@ $chash :: TargetHealthReasonEnum -&gt; Int
 hashWithSalt :: Int -&gt; TargetHealthReasonEnum -&gt; Int
 $chashWithSalt :: Int -&gt; TargetHealthReasonEnum -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679251666"><span class="annot"><span class="annottext">TargetHealthReasonEnum -&gt; ()
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679254547"><span class="annot"><span class="annottext">TargetHealthReasonEnum -&gt; ()
 (TargetHealthReasonEnum -&gt; ()) -&gt; NFData TargetHealthReasonEnum
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: TargetHealthReasonEnum -&gt; ()
 $crnf :: TargetHealthReasonEnum -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679251663"><span class="annot"><span class="annottext">Text -&gt; Either String TargetHealthReasonEnum
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679254544"><span class="annot"><span class="annottext">Text -&gt; Either String TargetHealthReasonEnum
 (Text -&gt; Either String TargetHealthReasonEnum)
 -&gt; FromText TargetHealthReasonEnum
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String TargetHealthReasonEnum
 $cfromText :: Text -&gt; Either String TargetHealthReasonEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679251660"><span class="annot"><span class="annottext">TargetHealthReasonEnum -&gt; Text
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679254541"><span class="annot"><span class="annottext">TargetHealthReasonEnum -&gt; Text
 (TargetHealthReasonEnum -&gt; Text) -&gt; ToText TargetHealthReasonEnum
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: TargetHealthReasonEnum -&gt; Text
 $ctoText :: TargetHealthReasonEnum -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679251657"><span class="annot"><span class="annottext">TargetHealthReasonEnum -&gt; ByteString
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679254538"><span class="annot"><span class="annottext">TargetHealthReasonEnum -&gt; ByteString
 (TargetHealthReasonEnum -&gt; ByteString)
 -&gt; ToByteString TargetHealthReasonEnum
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: TargetHealthReasonEnum -&gt; ByteString
 $ctoBS :: TargetHealthReasonEnum -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679251654"><span class="annot"><span class="annottext">TargetHealthReasonEnum -&gt; ByteStringBuilder
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679254535"><span class="annot"><span class="annottext">TargetHealthReasonEnum -&gt; ByteStringBuilder
 (TargetHealthReasonEnum -&gt; ByteStringBuilder)
 -&gt; ToLog TargetHealthReasonEnum
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: TargetHealthReasonEnum -&gt; ByteStringBuilder
 $cbuild :: TargetHealthReasonEnum -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679251651"><span class="annot"><span class="annottext">HeaderName -&gt; TargetHealthReasonEnum -&gt; [Header]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679254532"><span class="annot"><span class="annottext">HeaderName -&gt; TargetHealthReasonEnum -&gt; [Header]
 (HeaderName -&gt; TargetHealthReasonEnum -&gt; [Header])
 -&gt; ToHeader TargetHealthReasonEnum
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; TargetHealthReasonEnum -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; TargetHealthReasonEnum -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679251648"><span class="annot"><span class="annottext">TargetHealthReasonEnum -&gt; QueryString
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679254529"><span class="annot"><span class="annottext">TargetHealthReasonEnum -&gt; QueryString
 (TargetHealthReasonEnum -&gt; QueryString)
 -&gt; ToQuery TargetHealthReasonEnum
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: TargetHealthReasonEnum -&gt; QueryString
 $ctoQuery :: TargetHealthReasonEnum -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679251643"><span id="local-6989586621679251645"><span class="annot"><span class="annottext">Value -&gt; Parser [TargetHealthReasonEnum]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679254524"><span id="local-6989586621679254526"><span class="annot"><span class="annottext">Value -&gt; Parser [TargetHealthReasonEnum]
 Value -&gt; Parser TargetHealthReasonEnum
 (Value -&gt; Parser TargetHealthReasonEnum)
 -&gt; (Value -&gt; Parser [TargetHealthReasonEnum])
@@ -221,7 +221,7 @@ $cparseJSONList :: Value -&gt; Parser [TargetHealthReasonEnum]
 parseJSON :: Value -&gt; Parser TargetHealthReasonEnum
 $cparseJSON :: Value -&gt; Parser TargetHealthReasonEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679251638"><span id="local-6989586621679251640"><span class="annot"><span class="annottext">FromJSONKeyFunction [TargetHealthReasonEnum]
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679254519"><span id="local-6989586621679254521"><span class="annot"><span class="annottext">FromJSONKeyFunction [TargetHealthReasonEnum]
 FromJSONKeyFunction TargetHealthReasonEnum
 FromJSONKeyFunction TargetHealthReasonEnum
 -&gt; FromJSONKeyFunction [TargetHealthReasonEnum]
@@ -233,7 +233,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [TargetHealthReasonEnum]
 fromJSONKey :: FromJSONKeyFunction TargetHealthReasonEnum
 $cfromJSONKey :: FromJSONKeyFunction TargetHealthReasonEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679251629"><span id="local-6989586621679251631"><span id="local-6989586621679251633"><span id="local-6989586621679251635"><span class="annot"><span class="annottext">[TargetHealthReasonEnum] -&gt; Encoding
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679254510"><span id="local-6989586621679254512"><span id="local-6989586621679254514"><span id="local-6989586621679254516"><span class="annot"><span class="annottext">[TargetHealthReasonEnum] -&gt; Encoding
 [TargetHealthReasonEnum] -&gt; Value
 TargetHealthReasonEnum -&gt; Encoding
 TargetHealthReasonEnum -&gt; Value
@@ -257,7 +257,7 @@ $ctoEncoding :: TargetHealthReasonEnum -&gt; Encoding
 toJSON :: TargetHealthReasonEnum -&gt; Value
 $ctoJSON :: TargetHealthReasonEnum -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679251624"><span id="local-6989586621679251626"><span class="annot"><span class="annottext">ToJSONKeyFunction [TargetHealthReasonEnum]
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679254505"><span id="local-6989586621679254507"><span class="annot"><span class="annottext">ToJSONKeyFunction [TargetHealthReasonEnum]
 ToJSONKeyFunction TargetHealthReasonEnum
 ToJSONKeyFunction TargetHealthReasonEnum
 -&gt; ToJSONKeyFunction [TargetHealthReasonEnum]
@@ -269,14 +269,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [TargetHealthReasonEnum]
 toJSONKey :: ToJSONKeyFunction TargetHealthReasonEnum
 $ctoJSONKey :: ToJSONKeyFunction TargetHealthReasonEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679251621"><span class="annot"><span class="annottext">[Node] -&gt; Either String TargetHealthReasonEnum
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679254502"><span class="annot"><span class="annottext">[Node] -&gt; Either String TargetHealthReasonEnum
 ([Node] -&gt; Either String TargetHealthReasonEnum)
 -&gt; FromXML TargetHealthReasonEnum
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String TargetHealthReasonEnum
 $cparseXML :: [Node] -&gt; Either String TargetHealthReasonEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621679251618"><span class="annot"><span class="annottext">TargetHealthReasonEnum -&gt; XML
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679254499"><span class="annot"><span class="annottext">TargetHealthReasonEnum -&gt; XML
 (TargetHealthReasonEnum -&gt; XML) -&gt; ToXML TargetHealthReasonEnum
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: TargetHealthReasonEnum -&gt; XML

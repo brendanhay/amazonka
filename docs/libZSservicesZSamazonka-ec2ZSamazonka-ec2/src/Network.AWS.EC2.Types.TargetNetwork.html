@@ -28,29 +28,29 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Describes a target network associated with a Client VPN endpoint.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newTargetNetwork' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621681130433"><span id="local-6989586621681130434"></span></span><span class="hs-keyword">data</span><span> </span><span id="TargetNetwork"><span class="annot"><a href="Network.AWS.EC2.Types.TargetNetwork.html#TargetNetwork"><span class="hs-identifier hs-var">TargetNetwork</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TargetNetwork%27"><span class="annot"><a href="Network.AWS.EC2.Types.TargetNetwork.html#TargetNetwork%27"><span class="hs-identifier hs-var">TargetNetwork'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the Client VPN endpoint with which the target network is</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- associated.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AclientVpnEndpointId%3ATargetNetwork%27"><span class="annot"><span class="annottext">TargetNetwork -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.TargetNetwork.html#%24sel%3AclientVpnEndpointId%3ATargetNetwork%27"><span class="hs-identifier hs-var hs-var">clientVpnEndpointId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The current state of the target network association.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3Astatus%3ATargetNetwork%27"><span class="annot"><span class="annottext">TargetNetwork -&gt; Maybe AssociationStatus
-</span><a href="Network.AWS.EC2.Types.TargetNetwork.html#%24sel%3Astatus%3ATargetNetwork%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AssociationStatus.html#AssociationStatus"><span class="hs-identifier hs-type">AssociationStatus</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The IDs of the security groups applied to the target network</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- association.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3AsecurityGroups%3ATargetNetwork%27"><span class="annot"><span class="annottext">TargetNetwork -&gt; Maybe [Text]
-</span><a href="Network.AWS.EC2.Types.TargetNetwork.html#%24sel%3AsecurityGroups%3ATargetNetwork%27"><span class="hs-identifier hs-var hs-var">securityGroups</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The ID of the association.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3AassociationId%3ATargetNetwork%27"><span class="annot"><span class="annottext">TargetNetwork -&gt; Maybe Text
+</span><span id="line-31"></span><span id="local-6989586621681165545"><span id="local-6989586621681165546"></span></span><span class="hs-keyword">data</span><span> </span><span id="TargetNetwork"><span class="annot"><a href="Network.AWS.EC2.Types.TargetNetwork.html#TargetNetwork"><span class="hs-identifier hs-var">TargetNetwork</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TargetNetwork%27"><span class="annot"><a href="Network.AWS.EC2.Types.TargetNetwork.html#TargetNetwork%27"><span class="hs-identifier hs-var">TargetNetwork'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the association.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AassociationId%3ATargetNetwork%27"><span class="annot"><span class="annottext">TargetNetwork -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.Types.TargetNetwork.html#%24sel%3AassociationId%3ATargetNetwork%27"><span class="hs-identifier hs-var hs-var">associationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The ID of the VPC in which the target network (subnet) is located.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3AvpcId%3ATargetNetwork%27"><span class="annot"><span class="annottext">TargetNetwork -&gt; Maybe Text
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The current state of the target network association.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Astatus%3ATargetNetwork%27"><span class="annot"><span class="annottext">TargetNetwork -&gt; Maybe AssociationStatus
+</span><a href="Network.AWS.EC2.Types.TargetNetwork.html#%24sel%3Astatus%3ATargetNetwork%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AssociationStatus.html#AssociationStatus"><span class="hs-identifier hs-type">AssociationStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The IDs of the security groups applied to the target network</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- association.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AsecurityGroups%3ATargetNetwork%27"><span class="annot"><span class="annottext">TargetNetwork -&gt; Maybe [Text]
+</span><a href="Network.AWS.EC2.Types.TargetNetwork.html#%24sel%3AsecurityGroups%3ATargetNetwork%27"><span class="hs-identifier hs-var hs-var">securityGroups</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The ID of the subnet specified as the target network.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AtargetNetworkId%3ATargetNetwork%27"><span class="annot"><span class="annottext">TargetNetwork -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.TargetNetwork.html#%24sel%3AtargetNetworkId%3ATargetNetwork%27"><span class="hs-identifier hs-var hs-var">targetNetworkId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The ID of the VPC in which the target network (subnet) is located.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AvpcId%3ATargetNetwork%27"><span class="annot"><span class="annottext">TargetNetwork -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.Types.TargetNetwork.html#%24sel%3AvpcId%3ATargetNetwork%27"><span class="hs-identifier hs-var hs-var">vpcId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The ID of the subnet specified as the target network.</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3AtargetNetworkId%3ATargetNetwork%27"><span class="annot"><span class="annottext">TargetNetwork -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.TargetNetwork.html#%24sel%3AtargetNetworkId%3ATargetNetwork%27"><span class="hs-identifier hs-var hs-var">targetNetworkId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The ID of the Client VPN endpoint with which the target network is</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- associated.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AclientVpnEndpointId%3ATargetNetwork%27"><span class="annot"><span class="annottext">TargetNetwork -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.TargetNetwork.html#%24sel%3AclientVpnEndpointId%3ATargetNetwork%27"><span class="hs-identifier hs-var hs-var">clientVpnEndpointId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681130422"><span id="local-6989586621681130424"><span class="annot"><span class="annottext">TargetNetwork -&gt; TargetNetwork -&gt; Bool
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681165534"><span id="local-6989586621681165536"><span class="annot"><span class="annottext">TargetNetwork -&gt; TargetNetwork -&gt; Bool
 (TargetNetwork -&gt; TargetNetwork -&gt; Bool)
 -&gt; (TargetNetwork -&gt; TargetNetwork -&gt; Bool) -&gt; Eq TargetNetwork
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -58,7 +58,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TargetNetwork -&gt; TargetNetwork -&gt; Bool
 == :: TargetNetwork -&gt; TargetNetwork -&gt; Bool
 $c== :: TargetNetwork -&gt; TargetNetwork -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681130413"><span id="local-6989586621681130415"><span id="local-6989586621681130417"><span id="local-6989586621681130419"><span class="annot"><span class="annottext">ReadPrec [TargetNetwork]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681165525"><span id="local-6989586621681165527"><span id="local-6989586621681165529"><span id="local-6989586621681165531"><span class="annot"><span class="annottext">ReadPrec [TargetNetwork]
 ReadPrec TargetNetwork
 Int -&gt; ReadS TargetNetwork
 ReadS [TargetNetwork]
@@ -78,7 +78,7 @@ readList :: ReadS [TargetNetwork]
 $creadList :: ReadS [TargetNetwork]
 readsPrec :: Int -&gt; ReadS TargetNetwork
 $creadsPrec :: Int -&gt; ReadS TargetNetwork
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681130406"><span id="local-6989586621681130408"><span id="local-6989586621681130410"><span class="annot"><span class="annottext">Int -&gt; TargetNetwork -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681165518"><span id="local-6989586621681165520"><span id="local-6989586621681165522"><span class="annot"><span class="annottext">Int -&gt; TargetNetwork -&gt; ShowS
 [TargetNetwork] -&gt; ShowS
 TargetNetwork -&gt; String
 (Int -&gt; TargetNetwork -&gt; ShowS)
@@ -112,19 +112,19 @@ $cfrom :: forall x. TargetNetwork -&gt; Rep TargetNetwork x
 </span><span id="line-54"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-56"></span><span class="hs-comment">--</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- 'clientVpnEndpointId', 'targetNetwork_clientVpnEndpointId' - The ID of the Client VPN endpoint with which the target network is</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- associated.</span><span>
-</span><span id="line-59"></span><span class="hs-comment">--</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- 'status', 'targetNetwork_status' - The current state of the target network association.</span><span>
-</span><span id="line-61"></span><span class="hs-comment">--</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- 'securityGroups', 'targetNetwork_securityGroups' - The IDs of the security groups applied to the target network</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- association.</span><span>
-</span><span id="line-64"></span><span class="hs-comment">--</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- 'associationId', 'targetNetwork_associationId' - The ID of the association.</span><span>
-</span><span id="line-66"></span><span class="hs-comment">--</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- 'vpcId', 'targetNetwork_vpcId' - The ID of the VPC in which the target network (subnet) is located.</span><span>
-</span><span id="line-68"></span><span class="hs-comment">--</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- 'targetNetworkId', 'targetNetwork_targetNetworkId' - The ID of the subnet specified as the target network.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'associationId', 'targetNetwork_associationId' - The ID of the association.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'status', 'targetNetwork_status' - The current state of the target network association.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'securityGroups', 'targetNetwork_securityGroups' - The IDs of the security groups applied to the target network</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- association.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'targetNetworkId', 'targetNetwork_targetNetworkId' - The ID of the subnet specified as the target network.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'vpcId', 'targetNetwork_vpcId' - The ID of the VPC in which the target network (subnet) is located.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'clientVpnEndpointId', 'targetNetwork_clientVpnEndpointId' - The ID of the Client VPN endpoint with which the target network is</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- associated.</span><span>
 </span><span id="line-70"></span><span class="annot"><a href="Network.AWS.EC2.Types.TargetNetwork.html#newTargetNetwork"><span class="hs-identifier hs-type">newTargetNetwork</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.TargetNetwork.html#TargetNetwork"><span class="hs-identifier hs-type">TargetNetwork</span></a></span><span>
 </span><span id="line-72"></span><span id="newTargetNetwork"><span class="annot"><span class="annottext">newTargetNetwork :: TargetNetwork
@@ -137,55 +137,53 @@ $cfrom :: forall x. TargetNetwork -&gt; Rep TargetNetwork x
 -&gt; Maybe Text
 -&gt; TargetNetwork
 </span><a href="Network.AWS.EC2.Types.TargetNetwork.html#TargetNetwork%27"><span class="hs-identifier hs-type">TargetNetwork'</span></a></span><span>
-</span><span id="line-74"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:clientVpnEndpointId:TargetNetwork' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.TargetNetwork.html#%24sel%3AclientVpnEndpointId%3ATargetNetwork%27"><span class="hs-identifier hs-var">clientVpnEndpointId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-75"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:TargetNetwork' :: Maybe AssociationStatus
-</span><a href="Network.AWS.EC2.Types.TargetNetwork.html#%24sel%3Astatus%3ATargetNetwork%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AssociationStatus
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:securityGroups:TargetNetwork' :: Maybe [Text]
-</span><a href="Network.AWS.EC2.Types.TargetNetwork.html#%24sel%3AsecurityGroups%3ATargetNetwork%27"><span class="hs-identifier hs-var">securityGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:associationId:TargetNetwork' :: Maybe Text
+</span><span id="line-74"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:associationId:TargetNetwork' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.TargetNetwork.html#%24sel%3AassociationId%3ATargetNetwork%27"><span class="hs-identifier hs-var">associationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:vpcId:TargetNetwork' :: Maybe Text
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:TargetNetwork' :: Maybe AssociationStatus
+</span><a href="Network.AWS.EC2.Types.TargetNetwork.html#%24sel%3Astatus%3ATargetNetwork%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AssociationStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:securityGroups:TargetNetwork' :: Maybe [Text]
+</span><a href="Network.AWS.EC2.Types.TargetNetwork.html#%24sel%3AsecurityGroups%3ATargetNetwork%27"><span class="hs-identifier hs-var">securityGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:targetNetworkId:TargetNetwork' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.TargetNetwork.html#%24sel%3AtargetNetworkId%3ATargetNetwork%27"><span class="hs-identifier hs-var">targetNetworkId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:vpcId:TargetNetwork' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.TargetNetwork.html#%24sel%3AvpcId%3ATargetNetwork%27"><span class="hs-identifier hs-var">vpcId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:targetNetworkId:TargetNetwork' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.TargetNetwork.html#%24sel%3AtargetNetworkId%3ATargetNetwork%27"><span class="hs-identifier hs-var">targetNetworkId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:clientVpnEndpointId:TargetNetwork' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.TargetNetwork.html#%24sel%3AclientVpnEndpointId%3ATargetNetwork%27"><span class="hs-identifier hs-var">clientVpnEndpointId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-81"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- | The ID of the Client VPN endpoint with which the target network is</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- associated.</span><span>
-</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.EC2.Types.TargetNetwork.html#targetNetwork_clientVpnEndpointId"><span class="hs-identifier hs-type">targetNetwork_clientVpnEndpointId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TargetNetwork.html#TargetNetwork"><span class="hs-identifier hs-type">TargetNetwork</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-86"></span><span id="targetNetwork_clientVpnEndpointId"><span class="annot"><span class="annottext">targetNetwork_clientVpnEndpointId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; TargetNetwork -&gt; f TargetNetwork
-</span><a href="Network.AWS.EC2.Types.TargetNetwork.html#targetNetwork_clientVpnEndpointId"><span class="hs-identifier hs-var hs-var">targetNetwork_clientVpnEndpointId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TargetNetwork -&gt; Maybe Text)
+</span><span id="line-80"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | The ID of the association.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.EC2.Types.TargetNetwork.html#targetNetwork_associationId"><span class="hs-identifier hs-type">targetNetwork_associationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TargetNetwork.html#TargetNetwork"><span class="hs-identifier hs-type">TargetNetwork</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span id="targetNetwork_associationId"><span class="annot"><span class="annottext">targetNetwork_associationId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; TargetNetwork -&gt; f TargetNetwork
+</span><a href="Network.AWS.EC2.Types.TargetNetwork.html#targetNetwork_associationId"><span class="hs-identifier hs-var hs-var">targetNetwork_associationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TargetNetwork -&gt; Maybe Text)
 -&gt; (TargetNetwork -&gt; Maybe Text -&gt; TargetNetwork)
 -&gt; Lens TargetNetwork TargetNetwork (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TargetNetwork.html#TargetNetwork%27"><span class="hs-identifier hs-type">TargetNetwork'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681130397"><span class="annot"><span class="annottext">Maybe Text
-clientVpnEndpointId :: Maybe Text
-$sel:clientVpnEndpointId:TargetNetwork' :: TargetNetwork -&gt; Maybe Text
-</span><a href="#local-6989586621681130397"><span class="hs-identifier hs-var hs-var">clientVpnEndpointId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681130397"><span class="hs-identifier hs-var">clientVpnEndpointId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681130396"><span class="annot"><span class="annottext">s :: TargetNetwork
-</span><a href="#local-6989586621681130396"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TargetNetwork.html#TargetNetwork%27"><span class="hs-identifier hs-type">TargetNetwork'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681130395"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681130395"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TargetNetwork
-</span><a href="#local-6989586621681130396"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientVpnEndpointId:TargetNetwork' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.TargetNetwork.html#%24sel%3AclientVpnEndpointId%3ATargetNetwork%27"><span class="hs-identifier hs-var">clientVpnEndpointId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681130395"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TargetNetwork.html#TargetNetwork"><span class="hs-identifier hs-type">TargetNetwork</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- | The current state of the target network association.</span><span>
-</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.EC2.Types.TargetNetwork.html#targetNetwork_status"><span class="hs-identifier hs-type">targetNetwork_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TargetNetwork.html#TargetNetwork"><span class="hs-identifier hs-type">TargetNetwork</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AssociationStatus.html#AssociationStatus"><span class="hs-identifier hs-type">AssociationStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-90"></span><span id="targetNetwork_status"><span class="annot"><span class="annottext">targetNetwork_status :: (Maybe AssociationStatus -&gt; f (Maybe AssociationStatus))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TargetNetwork.html#TargetNetwork%27"><span class="hs-identifier hs-type">TargetNetwork'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681165509"><span class="annot"><span class="annottext">Maybe Text
+associationId :: Maybe Text
+$sel:associationId:TargetNetwork' :: TargetNetwork -&gt; Maybe Text
+</span><a href="#local-6989586621681165509"><span class="hs-identifier hs-var hs-var">associationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681165509"><span class="hs-identifier hs-var">associationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681165508"><span class="annot"><span class="annottext">s :: TargetNetwork
+</span><a href="#local-6989586621681165508"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TargetNetwork.html#TargetNetwork%27"><span class="hs-identifier hs-type">TargetNetwork'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681165507"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681165507"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TargetNetwork
+</span><a href="#local-6989586621681165508"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:associationId:TargetNetwork' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.TargetNetwork.html#%24sel%3AassociationId%3ATargetNetwork%27"><span class="hs-identifier hs-var">associationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681165507"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TargetNetwork.html#TargetNetwork"><span class="hs-identifier hs-type">TargetNetwork</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | The current state of the target network association.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.EC2.Types.TargetNetwork.html#targetNetwork_status"><span class="hs-identifier hs-type">targetNetwork_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TargetNetwork.html#TargetNetwork"><span class="hs-identifier hs-type">TargetNetwork</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AssociationStatus.html#AssociationStatus"><span class="hs-identifier hs-type">AssociationStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="targetNetwork_status"><span class="annot"><span class="annottext">targetNetwork_status :: (Maybe AssociationStatus -&gt; f (Maybe AssociationStatus))
 -&gt; TargetNetwork -&gt; f TargetNetwork
 </span><a href="Network.AWS.EC2.Types.TargetNetwork.html#targetNetwork_status"><span class="hs-identifier hs-var hs-var">targetNetwork_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TargetNetwork -&gt; Maybe AssociationStatus)
 -&gt; (TargetNetwork -&gt; Maybe AssociationStatus -&gt; TargetNetwork)
@@ -195,36 +193,36 @@ $sel:clientVpnEndpointId:TargetNetwork' :: TargetNetwork -&gt; Maybe Text
      (Maybe AssociationStatus)
      (Maybe AssociationStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TargetNetwork.html#TargetNetwork%27"><span class="hs-identifier hs-type">TargetNetwork'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681130393"><span class="annot"><span class="annottext">Maybe AssociationStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TargetNetwork.html#TargetNetwork%27"><span class="hs-identifier hs-type">TargetNetwork'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681165505"><span class="annot"><span class="annottext">Maybe AssociationStatus
 status :: Maybe AssociationStatus
 $sel:status:TargetNetwork' :: TargetNetwork -&gt; Maybe AssociationStatus
-</span><a href="#local-6989586621681130393"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AssociationStatus
-</span><a href="#local-6989586621681130393"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681130392"><span class="annot"><span class="annottext">s :: TargetNetwork
-</span><a href="#local-6989586621681130392"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TargetNetwork.html#TargetNetwork%27"><span class="hs-identifier hs-type">TargetNetwork'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681130391"><span class="annot"><span class="annottext">Maybe AssociationStatus
-</span><a href="#local-6989586621681130391"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TargetNetwork
-</span><a href="#local-6989586621681130392"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:TargetNetwork' :: Maybe AssociationStatus
+</span><a href="#local-6989586621681165505"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AssociationStatus
+</span><a href="#local-6989586621681165505"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681165504"><span class="annot"><span class="annottext">s :: TargetNetwork
+</span><a href="#local-6989586621681165504"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TargetNetwork.html#TargetNetwork%27"><span class="hs-identifier hs-type">TargetNetwork'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681165503"><span class="annot"><span class="annottext">Maybe AssociationStatus
+</span><a href="#local-6989586621681165503"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TargetNetwork
+</span><a href="#local-6989586621681165504"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:TargetNetwork' :: Maybe AssociationStatus
 </span><a href="Network.AWS.EC2.Types.TargetNetwork.html#%24sel%3Astatus%3ATargetNetwork%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AssociationStatus
-</span><a href="#local-6989586621681130391"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TargetNetwork.html#TargetNetwork"><span class="hs-identifier hs-type">TargetNetwork</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- | The IDs of the security groups applied to the target network</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- association.</span><span>
-</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.EC2.Types.TargetNetwork.html#targetNetwork_securityGroups"><span class="hs-identifier hs-type">targetNetwork_securityGroups</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TargetNetwork.html#TargetNetwork"><span class="hs-identifier hs-type">TargetNetwork</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-95"></span><span id="targetNetwork_securityGroups"><span class="annot"><span class="annottext">targetNetwork_securityGroups :: (Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621681165503"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TargetNetwork.html#TargetNetwork"><span class="hs-identifier hs-type">TargetNetwork</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The IDs of the security groups applied to the target network</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- association.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.EC2.Types.TargetNetwork.html#targetNetwork_securityGroups"><span class="hs-identifier hs-type">targetNetwork_securityGroups</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TargetNetwork.html#TargetNetwork"><span class="hs-identifier hs-type">TargetNetwork</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span id="targetNetwork_securityGroups"><span class="annot"><span class="annottext">targetNetwork_securityGroups :: (Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; TargetNetwork -&gt; f TargetNetwork
 </span><a href="Network.AWS.EC2.Types.TargetNetwork.html#targetNetwork_securityGroups"><span class="hs-identifier hs-var hs-var">targetNetwork_securityGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TargetNetwork -&gt; Maybe [Text])
 -&gt; (TargetNetwork -&gt; Maybe [Text] -&gt; TargetNetwork)
 -&gt; Lens TargetNetwork TargetNetwork (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TargetNetwork.html#TargetNetwork%27"><span class="hs-identifier hs-type">TargetNetwork'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681130389"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TargetNetwork.html#TargetNetwork%27"><span class="hs-identifier hs-type">TargetNetwork'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681165501"><span class="annot"><span class="annottext">Maybe [Text]
 securityGroups :: Maybe [Text]
 $sel:securityGroups:TargetNetwork' :: TargetNetwork -&gt; Maybe [Text]
-</span><a href="#local-6989586621681130389"><span class="hs-identifier hs-var hs-var">securityGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681130389"><span class="hs-identifier hs-var">securityGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681130388"><span class="annot"><span class="annottext">s :: TargetNetwork
-</span><a href="#local-6989586621681130388"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TargetNetwork.html#TargetNetwork%27"><span class="hs-identifier hs-type">TargetNetwork'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681130387"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681130387"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TargetNetwork
-</span><a href="#local-6989586621681130388"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:securityGroups:TargetNetwork' :: Maybe [Text]
+</span><a href="#local-6989586621681165501"><span class="hs-identifier hs-var hs-var">securityGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681165501"><span class="hs-identifier hs-var">securityGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681165500"><span class="annot"><span class="annottext">s :: TargetNetwork
+</span><a href="#local-6989586621681165500"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TargetNetwork.html#TargetNetwork%27"><span class="hs-identifier hs-type">TargetNetwork'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681165499"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681165499"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TargetNetwork
+</span><a href="#local-6989586621681165500"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:securityGroups:TargetNetwork' :: Maybe [Text]
 </span><a href="Network.AWS.EC2.Types.TargetNetwork.html#%24sel%3AsecurityGroups%3ATargetNetwork%27"><span class="hs-identifier hs-var">securityGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681130387"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TargetNetwork.html#TargetNetwork"><span class="hs-identifier hs-type">TargetNetwork</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621681165499"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TargetNetwork.html#TargetNetwork"><span class="hs-identifier hs-type">TargetNetwork</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; TargetNetwork -&gt; f TargetNetwork)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -238,68 +236,69 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- | The ID of the association.</span><span>
-</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.EC2.Types.TargetNetwork.html#targetNetwork_associationId"><span class="hs-identifier hs-type">targetNetwork_associationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TargetNetwork.html#TargetNetwork"><span class="hs-identifier hs-type">TargetNetwork</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-99"></span><span id="targetNetwork_associationId"><span class="annot"><span class="annottext">targetNetwork_associationId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; TargetNetwork -&gt; f TargetNetwork
-</span><a href="Network.AWS.EC2.Types.TargetNetwork.html#targetNetwork_associationId"><span class="hs-identifier hs-var hs-var">targetNetwork_associationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TargetNetwork -&gt; Maybe Text)
--&gt; (TargetNetwork -&gt; Maybe Text -&gt; TargetNetwork)
--&gt; Lens TargetNetwork TargetNetwork (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TargetNetwork.html#TargetNetwork%27"><span class="hs-identifier hs-type">TargetNetwork'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681130382"><span class="annot"><span class="annottext">Maybe Text
-associationId :: Maybe Text
-$sel:associationId:TargetNetwork' :: TargetNetwork -&gt; Maybe Text
-</span><a href="#local-6989586621681130382"><span class="hs-identifier hs-var hs-var">associationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681130382"><span class="hs-identifier hs-var">associationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681130381"><span class="annot"><span class="annottext">s :: TargetNetwork
-</span><a href="#local-6989586621681130381"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TargetNetwork.html#TargetNetwork%27"><span class="hs-identifier hs-type">TargetNetwork'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681130380"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681130380"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TargetNetwork
-</span><a href="#local-6989586621681130381"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:associationId:TargetNetwork' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.TargetNetwork.html#%24sel%3AassociationId%3ATargetNetwork%27"><span class="hs-identifier hs-var">associationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681130380"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TargetNetwork.html#TargetNetwork"><span class="hs-identifier hs-type">TargetNetwork</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- | The ID of the VPC in which the target network (subnet) is located.</span><span>
-</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.EC2.Types.TargetNetwork.html#targetNetwork_vpcId"><span class="hs-identifier hs-type">targetNetwork_vpcId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TargetNetwork.html#TargetNetwork"><span class="hs-identifier hs-type">TargetNetwork</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-103"></span><span id="targetNetwork_vpcId"><span class="annot"><span class="annottext">targetNetwork_vpcId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; TargetNetwork -&gt; f TargetNetwork
-</span><a href="Network.AWS.EC2.Types.TargetNetwork.html#targetNetwork_vpcId"><span class="hs-identifier hs-var hs-var">targetNetwork_vpcId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TargetNetwork -&gt; Maybe Text)
--&gt; (TargetNetwork -&gt; Maybe Text -&gt; TargetNetwork)
--&gt; Lens TargetNetwork TargetNetwork (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TargetNetwork.html#TargetNetwork%27"><span class="hs-identifier hs-type">TargetNetwork'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681130378"><span class="annot"><span class="annottext">Maybe Text
-vpcId :: Maybe Text
-$sel:vpcId:TargetNetwork' :: TargetNetwork -&gt; Maybe Text
-</span><a href="#local-6989586621681130378"><span class="hs-identifier hs-var hs-var">vpcId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681130378"><span class="hs-identifier hs-var">vpcId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681130377"><span class="annot"><span class="annottext">s :: TargetNetwork
-</span><a href="#local-6989586621681130377"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TargetNetwork.html#TargetNetwork%27"><span class="hs-identifier hs-type">TargetNetwork'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681130376"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681130376"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TargetNetwork
-</span><a href="#local-6989586621681130377"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcId:TargetNetwork' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.TargetNetwork.html#%24sel%3AvpcId%3ATargetNetwork%27"><span class="hs-identifier hs-var">vpcId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681130376"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TargetNetwork.html#TargetNetwork"><span class="hs-identifier hs-type">TargetNetwork</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- | The ID of the subnet specified as the target network.</span><span>
-</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.EC2.Types.TargetNetwork.html#targetNetwork_targetNetworkId"><span class="hs-identifier hs-type">targetNetwork_targetNetworkId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TargetNetwork.html#TargetNetwork"><span class="hs-identifier hs-type">TargetNetwork</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-107"></span><span id="targetNetwork_targetNetworkId"><span class="annot"><span class="annottext">targetNetwork_targetNetworkId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; TargetNetwork -&gt; f TargetNetwork
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | The ID of the subnet specified as the target network.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.EC2.Types.TargetNetwork.html#targetNetwork_targetNetworkId"><span class="hs-identifier hs-type">targetNetwork_targetNetworkId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TargetNetwork.html#TargetNetwork"><span class="hs-identifier hs-type">TargetNetwork</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span id="targetNetwork_targetNetworkId"><span class="annot"><span class="annottext">targetNetwork_targetNetworkId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; TargetNetwork -&gt; f TargetNetwork
 </span><a href="Network.AWS.EC2.Types.TargetNetwork.html#targetNetwork_targetNetworkId"><span class="hs-identifier hs-var hs-var">targetNetwork_targetNetworkId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TargetNetwork -&gt; Maybe Text)
 -&gt; (TargetNetwork -&gt; Maybe Text -&gt; TargetNetwork)
 -&gt; Lens TargetNetwork TargetNetwork (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TargetNetwork.html#TargetNetwork%27"><span class="hs-identifier hs-type">TargetNetwork'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681130374"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TargetNetwork.html#TargetNetwork%27"><span class="hs-identifier hs-type">TargetNetwork'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681165494"><span class="annot"><span class="annottext">Maybe Text
 targetNetworkId :: Maybe Text
 $sel:targetNetworkId:TargetNetwork' :: TargetNetwork -&gt; Maybe Text
-</span><a href="#local-6989586621681130374"><span class="hs-identifier hs-var hs-var">targetNetworkId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681130374"><span class="hs-identifier hs-var">targetNetworkId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681130373"><span class="annot"><span class="annottext">s :: TargetNetwork
-</span><a href="#local-6989586621681130373"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TargetNetwork.html#TargetNetwork%27"><span class="hs-identifier hs-type">TargetNetwork'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681130372"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681130372"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TargetNetwork
-</span><a href="#local-6989586621681130373"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetNetworkId:TargetNetwork' :: Maybe Text
+</span><a href="#local-6989586621681165494"><span class="hs-identifier hs-var hs-var">targetNetworkId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681165494"><span class="hs-identifier hs-var">targetNetworkId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681165493"><span class="annot"><span class="annottext">s :: TargetNetwork
+</span><a href="#local-6989586621681165493"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TargetNetwork.html#TargetNetwork%27"><span class="hs-identifier hs-type">TargetNetwork'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681165492"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681165492"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TargetNetwork
+</span><a href="#local-6989586621681165493"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetNetworkId:TargetNetwork' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.TargetNetwork.html#%24sel%3AtargetNetworkId%3ATargetNetwork%27"><span class="hs-identifier hs-var">targetNetworkId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681130372"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TargetNetwork.html#TargetNetwork"><span class="hs-identifier hs-type">TargetNetwork</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TargetNetwork.html#TargetNetwork"><span class="hs-identifier hs-type">TargetNetwork</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621681130369"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String TargetNetwork
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681130367"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681130367"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681165492"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TargetNetwork.html#TargetNetwork"><span class="hs-identifier hs-type">TargetNetwork</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | The ID of the VPC in which the target network (subnet) is located.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.EC2.Types.TargetNetwork.html#targetNetwork_vpcId"><span class="hs-identifier hs-type">targetNetwork_vpcId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TargetNetwork.html#TargetNetwork"><span class="hs-identifier hs-type">TargetNetwork</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="targetNetwork_vpcId"><span class="annot"><span class="annottext">targetNetwork_vpcId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; TargetNetwork -&gt; f TargetNetwork
+</span><a href="Network.AWS.EC2.Types.TargetNetwork.html#targetNetwork_vpcId"><span class="hs-identifier hs-var hs-var">targetNetwork_vpcId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TargetNetwork -&gt; Maybe Text)
+-&gt; (TargetNetwork -&gt; Maybe Text -&gt; TargetNetwork)
+-&gt; Lens TargetNetwork TargetNetwork (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TargetNetwork.html#TargetNetwork%27"><span class="hs-identifier hs-type">TargetNetwork'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681165490"><span class="annot"><span class="annottext">Maybe Text
+vpcId :: Maybe Text
+$sel:vpcId:TargetNetwork' :: TargetNetwork -&gt; Maybe Text
+</span><a href="#local-6989586621681165490"><span class="hs-identifier hs-var hs-var">vpcId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681165490"><span class="hs-identifier hs-var">vpcId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681165489"><span class="annot"><span class="annottext">s :: TargetNetwork
+</span><a href="#local-6989586621681165489"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TargetNetwork.html#TargetNetwork%27"><span class="hs-identifier hs-type">TargetNetwork'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681165488"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681165488"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TargetNetwork
+</span><a href="#local-6989586621681165489"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcId:TargetNetwork' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.TargetNetwork.html#%24sel%3AvpcId%3ATargetNetwork%27"><span class="hs-identifier hs-var">vpcId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681165488"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TargetNetwork.html#TargetNetwork"><span class="hs-identifier hs-type">TargetNetwork</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | The ID of the Client VPN endpoint with which the target network is</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- associated.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.EC2.Types.TargetNetwork.html#targetNetwork_clientVpnEndpointId"><span class="hs-identifier hs-type">targetNetwork_clientVpnEndpointId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TargetNetwork.html#TargetNetwork"><span class="hs-identifier hs-type">TargetNetwork</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span id="targetNetwork_clientVpnEndpointId"><span class="annot"><span class="annottext">targetNetwork_clientVpnEndpointId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; TargetNetwork -&gt; f TargetNetwork
+</span><a href="Network.AWS.EC2.Types.TargetNetwork.html#targetNetwork_clientVpnEndpointId"><span class="hs-identifier hs-var hs-var">targetNetwork_clientVpnEndpointId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TargetNetwork -&gt; Maybe Text)
+-&gt; (TargetNetwork -&gt; Maybe Text -&gt; TargetNetwork)
+-&gt; Lens TargetNetwork TargetNetwork (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TargetNetwork.html#TargetNetwork%27"><span class="hs-identifier hs-type">TargetNetwork'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681165486"><span class="annot"><span class="annottext">Maybe Text
+clientVpnEndpointId :: Maybe Text
+$sel:clientVpnEndpointId:TargetNetwork' :: TargetNetwork -&gt; Maybe Text
+</span><a href="#local-6989586621681165486"><span class="hs-identifier hs-var hs-var">clientVpnEndpointId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681165486"><span class="hs-identifier hs-var">clientVpnEndpointId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681165485"><span class="annot"><span class="annottext">s :: TargetNetwork
+</span><a href="#local-6989586621681165485"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TargetNetwork.html#TargetNetwork%27"><span class="hs-identifier hs-type">TargetNetwork'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681165484"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681165484"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TargetNetwork
+</span><a href="#local-6989586621681165485"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientVpnEndpointId:TargetNetwork' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.TargetNetwork.html#%24sel%3AclientVpnEndpointId%3ATargetNetwork%27"><span class="hs-identifier hs-var">clientVpnEndpointId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681165484"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TargetNetwork.html#TargetNetwork"><span class="hs-identifier hs-type">TargetNetwork</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TargetNetwork.html#TargetNetwork"><span class="hs-identifier hs-type">TargetNetwork</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621681165481"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String TargetNetwork
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681165479"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681165479"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe AssociationStatus
 -&gt; Maybe [Text]
 -&gt; Maybe Text
@@ -307,7 +306,7 @@ $sel:targetNetworkId:TargetNetwork' :: TargetNetwork -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; TargetNetwork
 </span><a href="Network.AWS.EC2.Types.TargetNetwork.html#TargetNetwork%27"><span class="hs-identifier hs-var">TargetNetwork'</span></a></span><span>
-</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
  -&gt; Maybe AssociationStatus
  -&gt; Maybe [Text]
  -&gt; Maybe Text
@@ -325,11 +324,11 @@ $sel:targetNetworkId:TargetNetwork' :: TargetNetwork -&gt; Maybe Text
       -&gt; TargetNetwork)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681130367"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681165479"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;clientVpnEndpointId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">Either
+</span><span class="hs-string">&quot;associationId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
   (Maybe AssociationStatus
    -&gt; Maybe [Text]
@@ -344,11 +343,11 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; TargetNetwork)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681130367"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe AssociationStatus)
+</span><a href="#local-6989586621681165479"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe AssociationStatus)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">Either
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
   (Maybe [Text]
    -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; TargetNetwork)
@@ -357,7 +356,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
      String (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; TargetNetwork)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681130367"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621681165479"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;securityGroups&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -365,7 +364,7 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-115"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+</span><span id="line-114"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
 -&gt; ([Node] -&gt; Either String (Maybe [Text]))
 -&gt; Either String (Maybe [Text])
 forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
@@ -378,36 +377,36 @@ Applicative f =&gt;
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;item&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-116"></span><span>                  </span><span class="hs-special">)</span><span>
-</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">Either
+</span><span id="line-115"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">Either
   String (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; TargetNetwork)
 -&gt; Either String (Maybe Text)
 -&gt; Either String (Maybe Text -&gt; Maybe Text -&gt; TargetNetwork)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681130367"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681165479"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;associationId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Maybe Text -&gt; TargetNetwork)
+</span><span class="hs-string">&quot;targetNetworkId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Maybe Text -&gt; TargetNetwork)
 -&gt; Either String (Maybe Text)
 -&gt; Either String (Maybe Text -&gt; TargetNetwork)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681130367"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681165479"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;vpcId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; TargetNetwork)
+</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; TargetNetwork)
 -&gt; Either String (Maybe Text) -&gt; Either String TargetNetwork
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681130367"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681165479"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;targetNetworkId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681130358"><span id="local-6989586621681130360"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TargetNetwork.html#TargetNetwork"><span class="hs-identifier hs-type">TargetNetwork</span></a></span></span></span><span>
-</span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681130355"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TargetNetwork.html#TargetNetwork"><span class="hs-identifier hs-type">TargetNetwork</span></a></span></span><span>
-</span><span id="line-124"></span></pre></body></html>
+</span><span class="hs-string">&quot;clientVpnEndpointId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681165470"><span id="local-6989586621681165472"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TargetNetwork.html#TargetNetwork"><span class="hs-identifier hs-type">TargetNetwork</span></a></span></span></span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681165467"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TargetNetwork.html#TargetNetwork"><span class="hs-identifier hs-type">TargetNetwork</span></a></span></span><span>
+</span><span id="line-123"></span></pre></body></html>

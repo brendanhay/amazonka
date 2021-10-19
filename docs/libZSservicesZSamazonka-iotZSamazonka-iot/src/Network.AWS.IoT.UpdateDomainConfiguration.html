@@ -32,8 +32,8 @@
 </span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#newUpdateDomainConfiguration"><span class="hs-identifier">newUpdateDomainConfiguration</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-33"></span><span>
 </span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#updateDomainConfiguration_domainConfigurationStatus"><span class="hs-identifier">updateDomainConfiguration_domainConfigurationStatus</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#updateDomainConfiguration_authorizerConfig"><span class="hs-identifier">updateDomainConfiguration_authorizerConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#updateDomainConfiguration_authorizerConfig"><span class="hs-identifier">updateDomainConfiguration_authorizerConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#updateDomainConfiguration_domainConfigurationStatus"><span class="hs-identifier">updateDomainConfiguration_domainConfigurationStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#updateDomainConfiguration_removeAuthorizerConfig"><span class="hs-identifier">updateDomainConfiguration_removeAuthorizerConfig</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#updateDomainConfiguration_domainConfigurationName"><span class="hs-identifier">updateDomainConfiguration_domainConfigurationName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-39"></span><span>
@@ -42,8 +42,8 @@
 </span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#newUpdateDomainConfigurationResponse"><span class="hs-identifier">newUpdateDomainConfigurationResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-43"></span><span>
 </span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#updateDomainConfigurationResponse_domainConfigurationArn"><span class="hs-identifier">updateDomainConfigurationResponse_domainConfigurationArn</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#updateDomainConfigurationResponse_domainConfigurationName"><span class="hs-identifier">updateDomainConfigurationResponse_domainConfigurationName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#updateDomainConfigurationResponse_domainConfigurationName"><span class="hs-identifier">updateDomainConfigurationResponse_domainConfigurationName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#updateDomainConfigurationResponse_domainConfigurationArn"><span class="hs-identifier">updateDomainConfigurationResponse_domainConfigurationArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#updateDomainConfigurationResponse_httpStatus"><span class="hs-identifier">updateDomainConfigurationResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-49"></span><span class="hs-keyword">where</span><span>
@@ -56,13 +56,13 @@
 </span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-57"></span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newUpdateDomainConfiguration' smart constructor.</span><span>
-</span><span id="line-59"></span><span id="local-6989586621679858752"><span id="local-6989586621679858753"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateDomainConfiguration"><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#UpdateDomainConfiguration"><span class="hs-identifier hs-var">UpdateDomainConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateDomainConfiguration%27"><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#UpdateDomainConfiguration%27"><span class="hs-identifier hs-var">UpdateDomainConfiguration'</span></a></span></span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status to which the domain configuration should be updated.</span><span>
-</span><span id="line-61"></span><span>    </span><span id="%24sel%3AdomainConfigurationStatus%3AUpdateDomainConfiguration%27"><span class="annot"><span class="annottext">UpdateDomainConfiguration -&gt; Maybe DomainConfigurationStatus
-</span><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#%24sel%3AdomainConfigurationStatus%3AUpdateDomainConfiguration%27"><span class="hs-identifier hs-var hs-var">domainConfigurationStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.DomainConfigurationStatus.html#DomainConfigurationStatus"><span class="hs-identifier hs-type">DomainConfigurationStatus</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | An object that specifies the authorization service for a domain.</span><span>
-</span><span id="line-63"></span><span>    </span><span id="%24sel%3AauthorizerConfig%3AUpdateDomainConfiguration%27"><span class="annot"><span class="annottext">UpdateDomainConfiguration -&gt; Maybe AuthorizerConfig
+</span><span id="line-59"></span><span id="local-6989586621679859768"><span id="local-6989586621679859769"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateDomainConfiguration"><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#UpdateDomainConfiguration"><span class="hs-identifier hs-var">UpdateDomainConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateDomainConfiguration%27"><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#UpdateDomainConfiguration%27"><span class="hs-identifier hs-var">UpdateDomainConfiguration'</span></a></span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An object that specifies the authorization service for a domain.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AauthorizerConfig%3AUpdateDomainConfiguration%27"><span class="annot"><span class="annottext">UpdateDomainConfiguration -&gt; Maybe AuthorizerConfig
 </span><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#%24sel%3AauthorizerConfig%3AUpdateDomainConfiguration%27"><span class="hs-identifier hs-var hs-var">authorizerConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerConfig.html#AuthorizerConfig"><span class="hs-identifier hs-type">AuthorizerConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The status to which the domain configuration should be updated.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AdomainConfigurationStatus%3AUpdateDomainConfiguration%27"><span class="annot"><span class="annottext">UpdateDomainConfiguration -&gt; Maybe DomainConfigurationStatus
+</span><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#%24sel%3AdomainConfigurationStatus%3AUpdateDomainConfiguration%27"><span class="hs-identifier hs-var hs-var">domainConfigurationStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.DomainConfigurationStatus.html#DomainConfigurationStatus"><span class="hs-identifier hs-type">DomainConfigurationStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | Removes the authorization configuration from a domain.</span><span>
 </span><span id="line-65"></span><span>    </span><span id="%24sel%3AremoveAuthorizerConfig%3AUpdateDomainConfiguration%27"><span class="annot"><span class="annottext">UpdateDomainConfiguration -&gt; Maybe Bool
 </span><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#%24sel%3AremoveAuthorizerConfig%3AUpdateDomainConfiguration%27"><span class="hs-identifier hs-var hs-var">removeAuthorizerConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
@@ -70,7 +70,7 @@
 </span><span id="line-67"></span><span>    </span><span id="%24sel%3AdomainConfigurationName%3AUpdateDomainConfiguration%27"><span class="annot"><span class="annottext">UpdateDomainConfiguration -&gt; Text
 </span><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#%24sel%3AdomainConfigurationName%3AUpdateDomainConfiguration%27"><span class="hs-identifier hs-var hs-var">domainConfigurationName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-68"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679858743"><span id="local-6989586621679858745"><span class="annot"><span class="annottext">UpdateDomainConfiguration -&gt; UpdateDomainConfiguration -&gt; Bool
+</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679859759"><span id="local-6989586621679859761"><span class="annot"><span class="annottext">UpdateDomainConfiguration -&gt; UpdateDomainConfiguration -&gt; Bool
 (UpdateDomainConfiguration -&gt; UpdateDomainConfiguration -&gt; Bool)
 -&gt; (UpdateDomainConfiguration -&gt; UpdateDomainConfiguration -&gt; Bool)
 -&gt; Eq UpdateDomainConfiguration
@@ -79,7 +79,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateDomainConfiguration -&gt; UpdateDomainConfiguration -&gt; Bool
 == :: UpdateDomainConfiguration -&gt; UpdateDomainConfiguration -&gt; Bool
 $c== :: UpdateDomainConfiguration -&gt; UpdateDomainConfiguration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679858734"><span id="local-6989586621679858736"><span id="local-6989586621679858738"><span id="local-6989586621679858740"><span class="annot"><span class="annottext">ReadPrec [UpdateDomainConfiguration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679859750"><span id="local-6989586621679859752"><span id="local-6989586621679859754"><span id="local-6989586621679859756"><span class="annot"><span class="annottext">ReadPrec [UpdateDomainConfiguration]
 ReadPrec UpdateDomainConfiguration
 Int -&gt; ReadS UpdateDomainConfiguration
 ReadS [UpdateDomainConfiguration]
@@ -99,7 +99,7 @@ readList :: ReadS [UpdateDomainConfiguration]
 $creadList :: ReadS [UpdateDomainConfiguration]
 readsPrec :: Int -&gt; ReadS UpdateDomainConfiguration
 $creadsPrec :: Int -&gt; ReadS UpdateDomainConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679858727"><span id="local-6989586621679858729"><span id="local-6989586621679858731"><span class="annot"><span class="annottext">Int -&gt; UpdateDomainConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679859743"><span id="local-6989586621679859745"><span id="local-6989586621679859747"><span class="annot"><span class="annottext">Int -&gt; UpdateDomainConfiguration -&gt; ShowS
 [UpdateDomainConfiguration] -&gt; ShowS
 UpdateDomainConfiguration -&gt; String
 (Int -&gt; UpdateDomainConfiguration -&gt; ShowS)
@@ -139,9 +139,9 @@ UpdateDomainConfiguration -&gt; Rep UpdateDomainConfiguration x
 </span><span id="line-76"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-78"></span><span class="hs-comment">--</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- 'domainConfigurationStatus', 'updateDomainConfiguration_domainConfigurationStatus' - The status to which the domain configuration should be updated.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'authorizerConfig', 'updateDomainConfiguration_authorizerConfig' - An object that specifies the authorization service for a domain.</span><span>
 </span><span id="line-80"></span><span class="hs-comment">--</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- 'authorizerConfig', 'updateDomainConfiguration_authorizerConfig' - An object that specifies the authorization service for a domain.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'domainConfigurationStatus', 'updateDomainConfiguration_domainConfigurationStatus' - The status to which the domain configuration should be updated.</span><span>
 </span><span id="line-82"></span><span class="hs-comment">--</span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- 'removeAuthorizerConfig', 'updateDomainConfiguration_removeAuthorizerConfig' - Removes the authorization configuration from a domain.</span><span>
 </span><span id="line-84"></span><span class="hs-comment">--</span><span>
@@ -152,21 +152,21 @@ UpdateDomainConfiguration -&gt; Rep UpdateDomainConfiguration x
 </span><span id="line-89"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#UpdateDomainConfiguration"><span class="hs-identifier hs-type">UpdateDomainConfiguration</span></a></span><span>
 </span><span id="line-90"></span><span id="newUpdateDomainConfiguration"><span class="annot"><span class="annottext">newUpdateDomainConfiguration :: Text -&gt; UpdateDomainConfiguration
 </span><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#newUpdateDomainConfiguration"><span class="hs-identifier hs-var hs-var">newUpdateDomainConfiguration</span></a></span></span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679858722"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679858722"><span class="hs-identifier hs-var">pDomainConfigurationName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">UpdateDomainConfiguration' :: Maybe DomainConfigurationStatus
--&gt; Maybe AuthorizerConfig
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679859738"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679859738"><span class="hs-identifier hs-var">pDomainConfigurationName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">UpdateDomainConfiguration' :: Maybe AuthorizerConfig
+-&gt; Maybe DomainConfigurationStatus
 -&gt; Maybe Bool
 -&gt; Text
 -&gt; UpdateDomainConfiguration
 </span><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#UpdateDomainConfiguration%27"><span class="hs-identifier hs-type">UpdateDomainConfiguration'</span></a></span><span>
-</span><span id="line-93"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:domainConfigurationStatus:UpdateDomainConfiguration' :: Maybe DomainConfigurationStatus
-</span><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#%24sel%3AdomainConfigurationStatus%3AUpdateDomainConfiguration%27"><span class="hs-identifier hs-var">domainConfigurationStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-94"></span><span>          </span><span class="annot"><span class="annottext">Maybe DomainConfigurationStatus
+</span><span id="line-93"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:authorizerConfig:UpdateDomainConfiguration' :: Maybe AuthorizerConfig
+</span><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#%24sel%3AauthorizerConfig%3AUpdateDomainConfiguration%27"><span class="hs-identifier hs-var">authorizerConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>          </span><span class="annot"><span class="annottext">Maybe AuthorizerConfig
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-95"></span><span>        </span><span class="annot"><span class="annottext">$sel:authorizerConfig:UpdateDomainConfiguration' :: Maybe AuthorizerConfig
-</span><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#%24sel%3AauthorizerConfig%3AUpdateDomainConfiguration%27"><span class="hs-identifier hs-var">authorizerConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AuthorizerConfig
+</span><span id="line-95"></span><span>        </span><span class="annot"><span class="annottext">$sel:domainConfigurationStatus:UpdateDomainConfiguration' :: Maybe DomainConfigurationStatus
+</span><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#%24sel%3AdomainConfigurationStatus%3AUpdateDomainConfiguration%27"><span class="hs-identifier hs-var">domainConfigurationStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DomainConfigurationStatus
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-96"></span><span>        </span><span class="annot"><span class="annottext">$sel:removeAuthorizerConfig:UpdateDomainConfiguration' :: Maybe Bool
@@ -176,12 +176,36 @@ forall a. Maybe a
 </span><span id="line-97"></span><span>        </span><span class="annot"><span class="annottext">$sel:domainConfigurationName:UpdateDomainConfiguration' :: Text
 </span><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#%24sel%3AdomainConfigurationName%3AUpdateDomainConfiguration%27"><span class="hs-identifier hs-var">domainConfigurationName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679858722"><span class="hs-identifier hs-var">pDomainConfigurationName_</span></a></span><span>
+</span><a href="#local-6989586621679859738"><span class="hs-identifier hs-var">pDomainConfigurationName_</span></a></span><span>
 </span><span id="line-99"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- | The status to which the domain configuration should be updated.</span><span>
-</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#updateDomainConfiguration_domainConfigurationStatus"><span class="hs-identifier hs-type">updateDomainConfiguration_domainConfigurationStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#UpdateDomainConfiguration"><span class="hs-identifier hs-type">UpdateDomainConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.DomainConfigurationStatus.html#DomainConfigurationStatus"><span class="hs-identifier hs-type">DomainConfigurationStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-103"></span><span id="updateDomainConfiguration_domainConfigurationStatus"><span class="annot"><span class="annottext">updateDomainConfiguration_domainConfigurationStatus :: (Maybe DomainConfigurationStatus
+</span><span id="line-101"></span><span class="hs-comment">-- | An object that specifies the authorization service for a domain.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#updateDomainConfiguration_authorizerConfig"><span class="hs-identifier hs-type">updateDomainConfiguration_authorizerConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#UpdateDomainConfiguration"><span class="hs-identifier hs-type">UpdateDomainConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerConfig.html#AuthorizerConfig"><span class="hs-identifier hs-type">AuthorizerConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="updateDomainConfiguration_authorizerConfig"><span class="annot"><span class="annottext">updateDomainConfiguration_authorizerConfig :: (Maybe AuthorizerConfig -&gt; f (Maybe AuthorizerConfig))
+-&gt; UpdateDomainConfiguration -&gt; f UpdateDomainConfiguration
+</span><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#updateDomainConfiguration_authorizerConfig"><span class="hs-identifier hs-var hs-var">updateDomainConfiguration_authorizerConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDomainConfiguration -&gt; Maybe AuthorizerConfig)
+-&gt; (UpdateDomainConfiguration
+    -&gt; Maybe AuthorizerConfig -&gt; UpdateDomainConfiguration)
+-&gt; Lens
+     UpdateDomainConfiguration
+     UpdateDomainConfiguration
+     (Maybe AuthorizerConfig)
+     (Maybe AuthorizerConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#UpdateDomainConfiguration%27"><span class="hs-identifier hs-type">UpdateDomainConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679859735"><span class="annot"><span class="annottext">Maybe AuthorizerConfig
+authorizerConfig :: Maybe AuthorizerConfig
+$sel:authorizerConfig:UpdateDomainConfiguration' :: UpdateDomainConfiguration -&gt; Maybe AuthorizerConfig
+</span><a href="#local-6989586621679859735"><span class="hs-identifier hs-var hs-var">authorizerConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AuthorizerConfig
+</span><a href="#local-6989586621679859735"><span class="hs-identifier hs-var">authorizerConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679859734"><span class="annot"><span class="annottext">s :: UpdateDomainConfiguration
+</span><a href="#local-6989586621679859734"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#UpdateDomainConfiguration%27"><span class="hs-identifier hs-type">UpdateDomainConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679859733"><span class="annot"><span class="annottext">Maybe AuthorizerConfig
+</span><a href="#local-6989586621679859733"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDomainConfiguration
+</span><a href="#local-6989586621679859734"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authorizerConfig:UpdateDomainConfiguration' :: Maybe AuthorizerConfig
+</span><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#%24sel%3AauthorizerConfig%3AUpdateDomainConfiguration%27"><span class="hs-identifier hs-var">authorizerConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AuthorizerConfig
+</span><a href="#local-6989586621679859733"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#UpdateDomainConfiguration"><span class="hs-identifier hs-type">UpdateDomainConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | The status to which the domain configuration should be updated.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#updateDomainConfiguration_domainConfigurationStatus"><span class="hs-identifier hs-type">updateDomainConfiguration_domainConfigurationStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#UpdateDomainConfiguration"><span class="hs-identifier hs-type">UpdateDomainConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.DomainConfigurationStatus.html#DomainConfigurationStatus"><span class="hs-identifier hs-type">DomainConfigurationStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span id="updateDomainConfiguration_domainConfigurationStatus"><span class="annot"><span class="annottext">updateDomainConfiguration_domainConfigurationStatus :: (Maybe DomainConfigurationStatus
  -&gt; f (Maybe DomainConfigurationStatus))
 -&gt; UpdateDomainConfiguration -&gt; f UpdateDomainConfiguration
 </span><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#updateDomainConfiguration_domainConfigurationStatus"><span class="hs-identifier hs-var hs-var">updateDomainConfiguration_domainConfigurationStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDomainConfiguration -&gt; Maybe DomainConfigurationStatus)
@@ -193,40 +217,16 @@ forall a. Maybe a
      (Maybe DomainConfigurationStatus)
      (Maybe DomainConfigurationStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#UpdateDomainConfiguration%27"><span class="hs-identifier hs-type">UpdateDomainConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679858719"><span class="annot"><span class="annottext">Maybe DomainConfigurationStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#UpdateDomainConfiguration%27"><span class="hs-identifier hs-type">UpdateDomainConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679859732"><span class="annot"><span class="annottext">Maybe DomainConfigurationStatus
 domainConfigurationStatus :: Maybe DomainConfigurationStatus
 $sel:domainConfigurationStatus:UpdateDomainConfiguration' :: UpdateDomainConfiguration -&gt; Maybe DomainConfigurationStatus
-</span><a href="#local-6989586621679858719"><span class="hs-identifier hs-var hs-var">domainConfigurationStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DomainConfigurationStatus
-</span><a href="#local-6989586621679858719"><span class="hs-identifier hs-var">domainConfigurationStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679858718"><span class="annot"><span class="annottext">s :: UpdateDomainConfiguration
-</span><a href="#local-6989586621679858718"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#UpdateDomainConfiguration%27"><span class="hs-identifier hs-type">UpdateDomainConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679858717"><span class="annot"><span class="annottext">Maybe DomainConfigurationStatus
-</span><a href="#local-6989586621679858717"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDomainConfiguration
-</span><a href="#local-6989586621679858718"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainConfigurationStatus:UpdateDomainConfiguration' :: Maybe DomainConfigurationStatus
+</span><a href="#local-6989586621679859732"><span class="hs-identifier hs-var hs-var">domainConfigurationStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DomainConfigurationStatus
+</span><a href="#local-6989586621679859732"><span class="hs-identifier hs-var">domainConfigurationStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679859731"><span class="annot"><span class="annottext">s :: UpdateDomainConfiguration
+</span><a href="#local-6989586621679859731"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#UpdateDomainConfiguration%27"><span class="hs-identifier hs-type">UpdateDomainConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679859730"><span class="annot"><span class="annottext">Maybe DomainConfigurationStatus
+</span><a href="#local-6989586621679859730"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDomainConfiguration
+</span><a href="#local-6989586621679859731"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainConfigurationStatus:UpdateDomainConfiguration' :: Maybe DomainConfigurationStatus
 </span><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#%24sel%3AdomainConfigurationStatus%3AUpdateDomainConfiguration%27"><span class="hs-identifier hs-var">domainConfigurationStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DomainConfigurationStatus
-</span><a href="#local-6989586621679858717"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#UpdateDomainConfiguration"><span class="hs-identifier hs-type">UpdateDomainConfiguration</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- | An object that specifies the authorization service for a domain.</span><span>
-</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#updateDomainConfiguration_authorizerConfig"><span class="hs-identifier hs-type">updateDomainConfiguration_authorizerConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#UpdateDomainConfiguration"><span class="hs-identifier hs-type">UpdateDomainConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerConfig.html#AuthorizerConfig"><span class="hs-identifier hs-type">AuthorizerConfig</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-107"></span><span id="updateDomainConfiguration_authorizerConfig"><span class="annot"><span class="annottext">updateDomainConfiguration_authorizerConfig :: (Maybe AuthorizerConfig -&gt; f (Maybe AuthorizerConfig))
--&gt; UpdateDomainConfiguration -&gt; f UpdateDomainConfiguration
-</span><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#updateDomainConfiguration_authorizerConfig"><span class="hs-identifier hs-var hs-var">updateDomainConfiguration_authorizerConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDomainConfiguration -&gt; Maybe AuthorizerConfig)
--&gt; (UpdateDomainConfiguration
-    -&gt; Maybe AuthorizerConfig -&gt; UpdateDomainConfiguration)
--&gt; Lens
-     UpdateDomainConfiguration
-     UpdateDomainConfiguration
-     (Maybe AuthorizerConfig)
-     (Maybe AuthorizerConfig)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#UpdateDomainConfiguration%27"><span class="hs-identifier hs-type">UpdateDomainConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679858716"><span class="annot"><span class="annottext">Maybe AuthorizerConfig
-authorizerConfig :: Maybe AuthorizerConfig
-$sel:authorizerConfig:UpdateDomainConfiguration' :: UpdateDomainConfiguration -&gt; Maybe AuthorizerConfig
-</span><a href="#local-6989586621679858716"><span class="hs-identifier hs-var hs-var">authorizerConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AuthorizerConfig
-</span><a href="#local-6989586621679858716"><span class="hs-identifier hs-var">authorizerConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679858715"><span class="annot"><span class="annottext">s :: UpdateDomainConfiguration
-</span><a href="#local-6989586621679858715"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#UpdateDomainConfiguration%27"><span class="hs-identifier hs-type">UpdateDomainConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679858714"><span class="annot"><span class="annottext">Maybe AuthorizerConfig
-</span><a href="#local-6989586621679858714"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDomainConfiguration
-</span><a href="#local-6989586621679858715"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authorizerConfig:UpdateDomainConfiguration' :: Maybe AuthorizerConfig
-</span><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#%24sel%3AauthorizerConfig%3AUpdateDomainConfiguration%27"><span class="hs-identifier hs-var">authorizerConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AuthorizerConfig
-</span><a href="#local-6989586621679858714"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#UpdateDomainConfiguration"><span class="hs-identifier hs-type">UpdateDomainConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679859730"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#UpdateDomainConfiguration"><span class="hs-identifier hs-type">UpdateDomainConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- | Removes the authorization configuration from a domain.</span><span>
 </span><span id="line-110"></span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#updateDomainConfiguration_removeAuthorizerConfig"><span class="hs-identifier hs-type">updateDomainConfiguration_removeAuthorizerConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#UpdateDomainConfiguration"><span class="hs-identifier hs-type">UpdateDomainConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
@@ -241,16 +241,16 @@ $sel:authorizerConfig:UpdateDomainConfiguration' :: UpdateDomainConfiguration -&
      (Maybe Bool)
      (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#UpdateDomainConfiguration%27"><span class="hs-identifier hs-type">UpdateDomainConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679858713"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#UpdateDomainConfiguration%27"><span class="hs-identifier hs-type">UpdateDomainConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679859729"><span class="annot"><span class="annottext">Maybe Bool
 removeAuthorizerConfig :: Maybe Bool
 $sel:removeAuthorizerConfig:UpdateDomainConfiguration' :: UpdateDomainConfiguration -&gt; Maybe Bool
-</span><a href="#local-6989586621679858713"><span class="hs-identifier hs-var hs-var">removeAuthorizerConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679858713"><span class="hs-identifier hs-var">removeAuthorizerConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679858712"><span class="annot"><span class="annottext">s :: UpdateDomainConfiguration
-</span><a href="#local-6989586621679858712"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#UpdateDomainConfiguration%27"><span class="hs-identifier hs-type">UpdateDomainConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679858711"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679858711"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDomainConfiguration
-</span><a href="#local-6989586621679858712"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:removeAuthorizerConfig:UpdateDomainConfiguration' :: Maybe Bool
+</span><a href="#local-6989586621679859729"><span class="hs-identifier hs-var hs-var">removeAuthorizerConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679859729"><span class="hs-identifier hs-var">removeAuthorizerConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679859728"><span class="annot"><span class="annottext">s :: UpdateDomainConfiguration
+</span><a href="#local-6989586621679859728"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#UpdateDomainConfiguration%27"><span class="hs-identifier hs-type">UpdateDomainConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679859727"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679859727"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDomainConfiguration
+</span><a href="#local-6989586621679859728"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:removeAuthorizerConfig:UpdateDomainConfiguration' :: Maybe Bool
 </span><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#%24sel%3AremoveAuthorizerConfig%3AUpdateDomainConfiguration%27"><span class="hs-identifier hs-var">removeAuthorizerConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679858711"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#UpdateDomainConfiguration"><span class="hs-identifier hs-type">UpdateDomainConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679859727"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#UpdateDomainConfiguration"><span class="hs-identifier hs-type">UpdateDomainConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-comment">-- | The name of the domain configuration to be updated.</span><span>
 </span><span id="line-114"></span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#updateDomainConfiguration_domainConfigurationName"><span class="hs-identifier hs-type">updateDomainConfiguration_domainConfigurationName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#UpdateDomainConfiguration"><span class="hs-identifier hs-type">UpdateDomainConfiguration</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -261,28 +261,28 @@ $sel:removeAuthorizerConfig:UpdateDomainConfiguration' :: UpdateDomainConfigurat
 -&gt; Lens
      UpdateDomainConfiguration UpdateDomainConfiguration Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#UpdateDomainConfiguration%27"><span class="hs-identifier hs-type">UpdateDomainConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679858710"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#UpdateDomainConfiguration%27"><span class="hs-identifier hs-type">UpdateDomainConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679859726"><span class="annot"><span class="annottext">Text
 domainConfigurationName :: Text
 $sel:domainConfigurationName:UpdateDomainConfiguration' :: UpdateDomainConfiguration -&gt; Text
-</span><a href="#local-6989586621679858710"><span class="hs-identifier hs-var hs-var">domainConfigurationName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679858710"><span class="hs-identifier hs-var">domainConfigurationName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679858709"><span class="annot"><span class="annottext">s :: UpdateDomainConfiguration
-</span><a href="#local-6989586621679858709"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#UpdateDomainConfiguration%27"><span class="hs-identifier hs-type">UpdateDomainConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679858708"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679858708"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDomainConfiguration
-</span><a href="#local-6989586621679858709"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainConfigurationName:UpdateDomainConfiguration' :: Text
+</span><a href="#local-6989586621679859726"><span class="hs-identifier hs-var hs-var">domainConfigurationName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679859726"><span class="hs-identifier hs-var">domainConfigurationName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679859725"><span class="annot"><span class="annottext">s :: UpdateDomainConfiguration
+</span><a href="#local-6989586621679859725"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#UpdateDomainConfiguration%27"><span class="hs-identifier hs-type">UpdateDomainConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679859724"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679859724"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDomainConfiguration
+</span><a href="#local-6989586621679859725"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainConfigurationName:UpdateDomainConfiguration' :: Text
 </span><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#%24sel%3AdomainConfigurationName%3AUpdateDomainConfiguration%27"><span class="hs-identifier hs-var">domainConfigurationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679858708"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#UpdateDomainConfiguration"><span class="hs-identifier hs-type">UpdateDomainConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679859724"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#UpdateDomainConfiguration"><span class="hs-identifier hs-type">UpdateDomainConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#UpdateDomainConfiguration"><span class="hs-identifier hs-type">UpdateDomainConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-118"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-119"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#UpdateDomainConfiguration"><span class="hs-identifier hs-type">UpdateDomainConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-120"></span><span>      </span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#UpdateDomainConfigurationResponse"><span class="hs-identifier hs-type">UpdateDomainConfigurationResponse</span></a></span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679858704"><span class="annot"><span class="annottext">request :: UpdateDomainConfiguration -&gt; Request UpdateDomainConfiguration
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679859720"><span class="annot"><span class="annottext">request :: UpdateDomainConfiguration -&gt; Request UpdateDomainConfiguration
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; UpdateDomainConfiguration -&gt; Request UpdateDomainConfiguration
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IoT.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679858700"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679859716"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateDomainConfiguration
 -&gt; ClientResponse ClientBody
@@ -308,10 +308,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679858697"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679858697"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679858696"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679858696"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679858695"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679858695"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679859713"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679859713"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679859712"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679859712"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679859711"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679859711"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-125"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text -&gt; Int -&gt; UpdateDomainConfigurationResponse
 </span><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#UpdateDomainConfigurationResponse%27"><span class="hs-identifier hs-var">UpdateDomainConfigurationResponse'</span></a></span><span>
@@ -322,20 +322,20 @@ MonadResource m =&gt;
      String (Maybe Text -&gt; Int -&gt; UpdateDomainConfigurationResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679858695"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679859711"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;domainConfigurationArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;domainConfigurationName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">Either
   String (Maybe Text -&gt; Int -&gt; UpdateDomainConfigurationResponse)
 -&gt; Either String (Maybe Text)
 -&gt; Either String (Int -&gt; UpdateDomainConfigurationResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679858695"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679859711"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;domainConfigurationName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;domainConfigurationArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; UpdateDomainConfigurationResponse)
 -&gt; Either String Int
 -&gt; Either String UpdateDomainConfigurationResponse
@@ -345,58 +345,58 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679858697"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679859713"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>
-</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679858687"><span id="local-6989586621679858689"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#UpdateDomainConfiguration"><span class="hs-identifier hs-type">UpdateDomainConfiguration</span></a></span></span></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679859703"><span id="local-6989586621679859705"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#UpdateDomainConfiguration"><span class="hs-identifier hs-type">UpdateDomainConfiguration</span></a></span></span></span><span>
 </span><span id="line-132"></span><span>
-</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679858684"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#UpdateDomainConfiguration"><span class="hs-identifier hs-type">UpdateDomainConfiguration</span></a></span></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679859700"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#UpdateDomainConfiguration"><span class="hs-identifier hs-type">UpdateDomainConfiguration</span></a></span></span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#UpdateDomainConfiguration"><span class="hs-identifier hs-type">UpdateDomainConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679858680"><span class="annot"><span class="annottext">toHeaders :: UpdateDomainConfiguration -&gt; ResponseHeaders
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679859696"><span class="annot"><span class="annottext">toHeaders :: UpdateDomainConfiguration -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateDomainConfiguration -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-137"></span><span>
-</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679858671"><span id="local-6989586621679858673"><span id="local-6989586621679858675"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#UpdateDomainConfiguration"><span class="hs-identifier hs-type">UpdateDomainConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679858669"><span class="annot"><span class="annottext">toJSON :: UpdateDomainConfiguration -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#UpdateDomainConfiguration%27"><span class="hs-identifier hs-type">UpdateDomainConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679858664"><span id="local-6989586621679858665"><span id="local-6989586621679858666"><span id="local-6989586621679858667"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679859687"><span id="local-6989586621679859689"><span id="local-6989586621679859691"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#UpdateDomainConfiguration"><span class="hs-identifier hs-type">UpdateDomainConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679859685"><span class="annot"><span class="annottext">toJSON :: UpdateDomainConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#UpdateDomainConfiguration%27"><span class="hs-identifier hs-type">UpdateDomainConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679859680"><span id="local-6989586621679859681"><span id="local-6989586621679859682"><span id="local-6989586621679859683"><span class="annot"><span class="annottext">Maybe Bool
 Maybe AuthorizerConfig
 Maybe DomainConfigurationStatus
 Text
 domainConfigurationName :: Text
 removeAuthorizerConfig :: Maybe Bool
-authorizerConfig :: Maybe AuthorizerConfig
 domainConfigurationStatus :: Maybe DomainConfigurationStatus
+authorizerConfig :: Maybe AuthorizerConfig
 $sel:domainConfigurationName:UpdateDomainConfiguration' :: UpdateDomainConfiguration -&gt; Text
 $sel:removeAuthorizerConfig:UpdateDomainConfiguration' :: UpdateDomainConfiguration -&gt; Maybe Bool
-$sel:authorizerConfig:UpdateDomainConfiguration' :: UpdateDomainConfiguration -&gt; Maybe AuthorizerConfig
 $sel:domainConfigurationStatus:UpdateDomainConfiguration' :: UpdateDomainConfiguration -&gt; Maybe DomainConfigurationStatus
-</span><a href="#local-6989586621679858664"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:authorizerConfig:UpdateDomainConfiguration' :: UpdateDomainConfiguration -&gt; Maybe AuthorizerConfig
+</span><a href="#local-6989586621679859680"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-140"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-141"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-142"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;domainConfigurationStatus&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DomainConfigurationStatus -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-143"></span><span>              </span><span class="annot"><span class="annottext">(DomainConfigurationStatus -&gt; Pair)
--&gt; Maybe DomainConfigurationStatus -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DomainConfigurationStatus
-</span><a href="#local-6989586621679858667"><span class="hs-identifier hs-var">domainConfigurationStatus</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-144"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;authorizerConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AuthorizerConfig -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-145"></span><span>              </span><span class="annot"><span class="annottext">(AuthorizerConfig -&gt; Pair) -&gt; Maybe AuthorizerConfig -&gt; Maybe Pair
+</span><span id="line-143"></span><span>              </span><span class="annot"><span class="annottext">(AuthorizerConfig -&gt; Pair) -&gt; Maybe AuthorizerConfig -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AuthorizerConfig
-</span><a href="#local-6989586621679858666"><span class="hs-identifier hs-var">authorizerConfig</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679859683"><span class="hs-identifier hs-var">authorizerConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;domainConfigurationStatus&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DomainConfigurationStatus -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>              </span><span class="annot"><span class="annottext">(DomainConfigurationStatus -&gt; Pair)
+-&gt; Maybe DomainConfigurationStatus -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DomainConfigurationStatus
+</span><a href="#local-6989586621679859682"><span class="hs-identifier hs-var">domainConfigurationStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-146"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;removeAuthorizerConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -404,25 +404,25 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-147"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679858665"><span class="hs-identifier hs-var">removeAuthorizerConfig</span></a></span><span>
+</span><a href="#local-6989586621679859681"><span class="hs-identifier hs-var">removeAuthorizerConfig</span></a></span><span>
 </span><span id="line-148"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-149"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#UpdateDomainConfiguration"><span class="hs-identifier hs-type">UpdateDomainConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-152"></span><span>  </span><span id="local-6989586621679858658"><span class="annot"><span class="annottext">toPath :: UpdateDomainConfiguration -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#UpdateDomainConfiguration%27"><span class="hs-identifier hs-type">UpdateDomainConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679858653"><span id="local-6989586621679858654"><span id="local-6989586621679858655"><span id="local-6989586621679858656"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679859674"><span class="annot"><span class="annottext">toPath :: UpdateDomainConfiguration -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#UpdateDomainConfiguration%27"><span class="hs-identifier hs-type">UpdateDomainConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679859669"><span id="local-6989586621679859670"><span id="local-6989586621679859671"><span id="local-6989586621679859672"><span class="annot"><span class="annottext">Maybe Bool
 Maybe AuthorizerConfig
 Maybe DomainConfigurationStatus
 Text
 domainConfigurationName :: Text
 removeAuthorizerConfig :: Maybe Bool
-authorizerConfig :: Maybe AuthorizerConfig
 domainConfigurationStatus :: Maybe DomainConfigurationStatus
+authorizerConfig :: Maybe AuthorizerConfig
 $sel:domainConfigurationName:UpdateDomainConfiguration' :: UpdateDomainConfiguration -&gt; Text
 $sel:removeAuthorizerConfig:UpdateDomainConfiguration' :: UpdateDomainConfiguration -&gt; Maybe Bool
-$sel:authorizerConfig:UpdateDomainConfiguration' :: UpdateDomainConfiguration -&gt; Maybe AuthorizerConfig
 $sel:domainConfigurationStatus:UpdateDomainConfiguration' :: UpdateDomainConfiguration -&gt; Maybe DomainConfigurationStatus
-</span><a href="#local-6989586621679858653"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:authorizerConfig:UpdateDomainConfiguration' :: UpdateDomainConfiguration -&gt; Maybe AuthorizerConfig
+</span><a href="#local-6989586621679859669"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-153"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -431,11 +431,11 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-155"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679858653"><span class="hs-identifier hs-var">domainConfigurationName</span></a></span><span>
+</span><a href="#local-6989586621679859669"><span class="hs-identifier hs-var">domainConfigurationName</span></a></span><span>
 </span><span id="line-156"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-157"></span><span>
 </span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#UpdateDomainConfiguration"><span class="hs-identifier hs-type">UpdateDomainConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-159"></span><span>  </span><span id="local-6989586621679858649"><span class="annot"><span class="annottext">toQuery :: UpdateDomainConfiguration -&gt; QueryString
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679859665"><span class="annot"><span class="annottext">toQuery :: UpdateDomainConfiguration -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateDomainConfiguration -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -443,18 +443,18 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-160"></span><span>
 </span><span id="line-161"></span><span class="hs-comment">-- | /See:/ 'newUpdateDomainConfigurationResponse' smart constructor.</span><span>
-</span><span id="line-162"></span><span id="local-6989586621679858646"><span id="local-6989586621679858647"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateDomainConfigurationResponse"><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#UpdateDomainConfigurationResponse"><span class="hs-identifier hs-var">UpdateDomainConfigurationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateDomainConfigurationResponse%27"><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#UpdateDomainConfigurationResponse%27"><span class="hs-identifier hs-var">UpdateDomainConfigurationResponse'</span></a></span></span><span>
-</span><span id="line-163"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the domain configuration that was updated.</span><span>
-</span><span id="line-164"></span><span>    </span><span id="%24sel%3AdomainConfigurationArn%3AUpdateDomainConfigurationResponse%27"><span class="annot"><span class="annottext">UpdateDomainConfigurationResponse -&gt; Maybe Text
-</span><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#%24sel%3AdomainConfigurationArn%3AUpdateDomainConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">domainConfigurationArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-165"></span><span>    </span><span class="hs-comment">-- | The name of the domain configuration that was updated.</span><span>
-</span><span id="line-166"></span><span>    </span><span id="%24sel%3AdomainConfigurationName%3AUpdateDomainConfigurationResponse%27"><span class="annot"><span class="annottext">UpdateDomainConfigurationResponse -&gt; Maybe Text
+</span><span id="line-162"></span><span id="local-6989586621679859662"><span id="local-6989586621679859663"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateDomainConfigurationResponse"><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#UpdateDomainConfigurationResponse"><span class="hs-identifier hs-var">UpdateDomainConfigurationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateDomainConfigurationResponse%27"><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#UpdateDomainConfigurationResponse%27"><span class="hs-identifier hs-var">UpdateDomainConfigurationResponse'</span></a></span></span><span>
+</span><span id="line-163"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the domain configuration that was updated.</span><span>
+</span><span id="line-164"></span><span>    </span><span id="%24sel%3AdomainConfigurationName%3AUpdateDomainConfigurationResponse%27"><span class="annot"><span class="annottext">UpdateDomainConfigurationResponse -&gt; Maybe Text
 </span><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#%24sel%3AdomainConfigurationName%3AUpdateDomainConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">domainConfigurationName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>    </span><span class="hs-comment">-- | The ARN of the domain configuration that was updated.</span><span>
+</span><span id="line-166"></span><span>    </span><span id="%24sel%3AdomainConfigurationArn%3AUpdateDomainConfigurationResponse%27"><span class="annot"><span class="annottext">UpdateDomainConfigurationResponse -&gt; Maybe Text
+</span><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#%24sel%3AdomainConfigurationArn%3AUpdateDomainConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">domainConfigurationArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-167"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-168"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateDomainConfigurationResponse%27"><span class="annot"><span class="annottext">UpdateDomainConfigurationResponse -&gt; Int
 </span><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#%24sel%3AhttpStatus%3AUpdateDomainConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-169"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-170"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679858639"><span id="local-6989586621679858641"><span class="annot"><span class="annottext">UpdateDomainConfigurationResponse
+</span><span id="line-170"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679859655"><span id="local-6989586621679859657"><span class="annot"><span class="annottext">UpdateDomainConfigurationResponse
 -&gt; UpdateDomainConfigurationResponse -&gt; Bool
 (UpdateDomainConfigurationResponse
  -&gt; UpdateDomainConfigurationResponse -&gt; Bool)
@@ -470,7 +470,7 @@ $c/= :: UpdateDomainConfigurationResponse
 -&gt; UpdateDomainConfigurationResponse -&gt; Bool
 $c== :: UpdateDomainConfigurationResponse
 -&gt; UpdateDomainConfigurationResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679858631"><span id="local-6989586621679858633"><span id="local-6989586621679858635"><span id="local-6989586621679858637"><span class="annot"><span class="annottext">ReadPrec [UpdateDomainConfigurationResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679859647"><span id="local-6989586621679859649"><span id="local-6989586621679859651"><span id="local-6989586621679859653"><span class="annot"><span class="annottext">ReadPrec [UpdateDomainConfigurationResponse]
 ReadPrec UpdateDomainConfigurationResponse
 Int -&gt; ReadS UpdateDomainConfigurationResponse
 ReadS [UpdateDomainConfigurationResponse]
@@ -490,7 +490,7 @@ readList :: ReadS [UpdateDomainConfigurationResponse]
 $creadList :: ReadS [UpdateDomainConfigurationResponse]
 readsPrec :: Int -&gt; ReadS UpdateDomainConfigurationResponse
 $creadsPrec :: Int -&gt; ReadS UpdateDomainConfigurationResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679858625"><span id="local-6989586621679858627"><span id="local-6989586621679858629"><span class="annot"><span class="annottext">Int -&gt; UpdateDomainConfigurationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679859641"><span id="local-6989586621679859643"><span id="local-6989586621679859645"><span class="annot"><span class="annottext">Int -&gt; UpdateDomainConfigurationResponse -&gt; ShowS
 [UpdateDomainConfigurationResponse] -&gt; ShowS
 UpdateDomainConfigurationResponse -&gt; String
 (Int -&gt; UpdateDomainConfigurationResponse -&gt; ShowS)
@@ -536,9 +536,9 @@ UpdateDomainConfigurationResponse
 </span><span id="line-177"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-178"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-179"></span><span class="hs-comment">--</span><span>
-</span><span id="line-180"></span><span class="hs-comment">-- 'domainConfigurationArn', 'updateDomainConfigurationResponse_domainConfigurationArn' - The ARN of the domain configuration that was updated.</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- 'domainConfigurationName', 'updateDomainConfigurationResponse_domainConfigurationName' - The name of the domain configuration that was updated.</span><span>
 </span><span id="line-181"></span><span class="hs-comment">--</span><span>
-</span><span id="line-182"></span><span class="hs-comment">-- 'domainConfigurationName', 'updateDomainConfigurationResponse_domainConfigurationName' - The name of the domain configuration that was updated.</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- 'domainConfigurationArn', 'updateDomainConfigurationResponse_domainConfigurationArn' - The ARN of the domain configuration that was updated.</span><span>
 </span><span id="line-183"></span><span class="hs-comment">--</span><span>
 </span><span id="line-184"></span><span class="hs-comment">-- 'httpStatus', 'updateDomainConfigurationResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-185"></span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#newUpdateDomainConfigurationResponse"><span class="hs-identifier hs-type">newUpdateDomainConfigurationResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -546,54 +546,28 @@ UpdateDomainConfigurationResponse
 </span><span id="line-187"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-188"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#UpdateDomainConfigurationResponse"><span class="hs-identifier hs-type">UpdateDomainConfigurationResponse</span></a></span><span>
 </span><span id="line-189"></span><span id="newUpdateDomainConfigurationResponse"><span class="annot"><span class="annottext">newUpdateDomainConfigurationResponse :: Int -&gt; UpdateDomainConfigurationResponse
-</span><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#newUpdateDomainConfigurationResponse"><span class="hs-identifier hs-var hs-var">newUpdateDomainConfigurationResponse</span></a></span></span><span> </span><span id="local-6989586621679858622"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679858622"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#newUpdateDomainConfigurationResponse"><span class="hs-identifier hs-var hs-var">newUpdateDomainConfigurationResponse</span></a></span></span><span> </span><span id="local-6989586621679859638"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679859638"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-190"></span><span>  </span><span class="annot"><span class="annottext">UpdateDomainConfigurationResponse' :: Maybe Text
 -&gt; Maybe Text -&gt; Int -&gt; UpdateDomainConfigurationResponse
 </span><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#UpdateDomainConfigurationResponse%27"><span class="hs-identifier hs-type">UpdateDomainConfigurationResponse'</span></a></span><span>
-</span><span id="line-191"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:domainConfigurationArn:UpdateDomainConfigurationResponse' :: Maybe Text
-</span><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#%24sel%3AdomainConfigurationArn%3AUpdateDomainConfigurationResponse%27"><span class="hs-identifier hs-var">domainConfigurationArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-191"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:domainConfigurationName:UpdateDomainConfigurationResponse' :: Maybe Text
+</span><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#%24sel%3AdomainConfigurationName%3AUpdateDomainConfigurationResponse%27"><span class="hs-identifier hs-var">domainConfigurationName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-192"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-193"></span><span>      </span><span class="annot"><span class="annottext">$sel:domainConfigurationName:UpdateDomainConfigurationResponse' :: Maybe Text
-</span><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#%24sel%3AdomainConfigurationName%3AUpdateDomainConfigurationResponse%27"><span class="hs-identifier hs-var">domainConfigurationName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-194"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-193"></span><span>      </span><span class="annot"><span class="annottext">$sel:domainConfigurationArn:UpdateDomainConfigurationResponse' :: Maybe Text
+</span><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#%24sel%3AdomainConfigurationArn%3AUpdateDomainConfigurationResponse%27"><span class="hs-identifier hs-var">domainConfigurationArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-195"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateDomainConfigurationResponse' :: Int
+</span><span id="line-194"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateDomainConfigurationResponse' :: Int
 </span><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#%24sel%3AhttpStatus%3AUpdateDomainConfigurationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679858622"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
-</span><span id="line-196"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-197"></span><span>
-</span><span id="line-198"></span><span class="hs-comment">-- | The ARN of the domain configuration that was updated.</span><span>
-</span><span id="line-199"></span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#updateDomainConfigurationResponse_domainConfigurationArn"><span class="hs-identifier hs-type">updateDomainConfigurationResponse_domainConfigurationArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#UpdateDomainConfigurationResponse"><span class="hs-identifier hs-type">UpdateDomainConfigurationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-200"></span><span id="updateDomainConfigurationResponse_domainConfigurationArn"><span class="annot"><span class="annottext">updateDomainConfigurationResponse_domainConfigurationArn :: (Maybe Text -&gt; f (Maybe Text))
--&gt; UpdateDomainConfigurationResponse
--&gt; f UpdateDomainConfigurationResponse
-</span><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#updateDomainConfigurationResponse_domainConfigurationArn"><span class="hs-identifier hs-var hs-var">updateDomainConfigurationResponse_domainConfigurationArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDomainConfigurationResponse -&gt; Maybe Text)
--&gt; (UpdateDomainConfigurationResponse
-    -&gt; Maybe Text -&gt; UpdateDomainConfigurationResponse)
--&gt; Lens
-     UpdateDomainConfigurationResponse
-     UpdateDomainConfigurationResponse
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#UpdateDomainConfigurationResponse%27"><span class="hs-identifier hs-type">UpdateDomainConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679858621"><span class="annot"><span class="annottext">Maybe Text
-domainConfigurationArn :: Maybe Text
-$sel:domainConfigurationArn:UpdateDomainConfigurationResponse' :: UpdateDomainConfigurationResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679858621"><span class="hs-identifier hs-var hs-var">domainConfigurationArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679858621"><span class="hs-identifier hs-var">domainConfigurationArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679858620"><span class="annot"><span class="annottext">s :: UpdateDomainConfigurationResponse
-</span><a href="#local-6989586621679858620"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#UpdateDomainConfigurationResponse%27"><span class="hs-identifier hs-type">UpdateDomainConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679858619"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679858619"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDomainConfigurationResponse
-</span><a href="#local-6989586621679858620"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainConfigurationArn:UpdateDomainConfigurationResponse' :: Maybe Text
-</span><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#%24sel%3AdomainConfigurationArn%3AUpdateDomainConfigurationResponse%27"><span class="hs-identifier hs-var">domainConfigurationArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679858619"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#UpdateDomainConfigurationResponse"><span class="hs-identifier hs-type">UpdateDomainConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-201"></span><span>
-</span><span id="line-202"></span><span class="hs-comment">-- | The name of the domain configuration that was updated.</span><span>
-</span><span id="line-203"></span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#updateDomainConfigurationResponse_domainConfigurationName"><span class="hs-identifier hs-type">updateDomainConfigurationResponse_domainConfigurationName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#UpdateDomainConfigurationResponse"><span class="hs-identifier hs-type">UpdateDomainConfigurationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-204"></span><span id="updateDomainConfigurationResponse_domainConfigurationName"><span class="annot"><span class="annottext">updateDomainConfigurationResponse_domainConfigurationName :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621679859638"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-195"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- | The name of the domain configuration that was updated.</span><span>
+</span><span id="line-198"></span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#updateDomainConfigurationResponse_domainConfigurationName"><span class="hs-identifier hs-type">updateDomainConfigurationResponse_domainConfigurationName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#UpdateDomainConfigurationResponse"><span class="hs-identifier hs-type">UpdateDomainConfigurationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span id="updateDomainConfigurationResponse_domainConfigurationName"><span class="annot"><span class="annottext">updateDomainConfigurationResponse_domainConfigurationName :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; UpdateDomainConfigurationResponse
 -&gt; f UpdateDomainConfigurationResponse
 </span><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#updateDomainConfigurationResponse_domainConfigurationName"><span class="hs-identifier hs-var hs-var">updateDomainConfigurationResponse_domainConfigurationName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDomainConfigurationResponse -&gt; Maybe Text)
@@ -605,20 +579,45 @@ $sel:domainConfigurationArn:UpdateDomainConfigurationResponse' :: UpdateDomainCo
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#UpdateDomainConfigurationResponse%27"><span class="hs-identifier hs-type">UpdateDomainConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679858618"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#UpdateDomainConfigurationResponse%27"><span class="hs-identifier hs-type">UpdateDomainConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679859637"><span class="annot"><span class="annottext">Maybe Text
 domainConfigurationName :: Maybe Text
 $sel:domainConfigurationName:UpdateDomainConfigurationResponse' :: UpdateDomainConfigurationResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679858618"><span class="hs-identifier hs-var hs-var">domainConfigurationName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679858618"><span class="hs-identifier hs-var">domainConfigurationName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679858617"><span class="annot"><span class="annottext">s :: UpdateDomainConfigurationResponse
-</span><a href="#local-6989586621679858617"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#UpdateDomainConfigurationResponse%27"><span class="hs-identifier hs-type">UpdateDomainConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679858616"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679858616"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDomainConfigurationResponse
-</span><a href="#local-6989586621679858617"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainConfigurationName:UpdateDomainConfigurationResponse' :: Maybe Text
+</span><a href="#local-6989586621679859637"><span class="hs-identifier hs-var hs-var">domainConfigurationName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679859637"><span class="hs-identifier hs-var">domainConfigurationName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679859636"><span class="annot"><span class="annottext">s :: UpdateDomainConfigurationResponse
+</span><a href="#local-6989586621679859636"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#UpdateDomainConfigurationResponse%27"><span class="hs-identifier hs-type">UpdateDomainConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679859635"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679859635"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDomainConfigurationResponse
+</span><a href="#local-6989586621679859636"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainConfigurationName:UpdateDomainConfigurationResponse' :: Maybe Text
 </span><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#%24sel%3AdomainConfigurationName%3AUpdateDomainConfigurationResponse%27"><span class="hs-identifier hs-var">domainConfigurationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679858616"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#UpdateDomainConfigurationResponse"><span class="hs-identifier hs-type">UpdateDomainConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-205"></span><span>
-</span><span id="line-206"></span><span class="hs-comment">-- | The response's http status code.</span><span>
-</span><span id="line-207"></span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#updateDomainConfigurationResponse_httpStatus"><span class="hs-identifier hs-type">updateDomainConfigurationResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#UpdateDomainConfigurationResponse"><span class="hs-identifier hs-type">UpdateDomainConfigurationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
-</span><span id="line-208"></span><span id="updateDomainConfigurationResponse_httpStatus"><span class="annot"><span class="annottext">updateDomainConfigurationResponse_httpStatus :: (Int -&gt; f Int)
+</span><a href="#local-6989586621679859635"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#UpdateDomainConfigurationResponse"><span class="hs-identifier hs-type">UpdateDomainConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- | The ARN of the domain configuration that was updated.</span><span>
+</span><span id="line-202"></span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#updateDomainConfigurationResponse_domainConfigurationArn"><span class="hs-identifier hs-type">updateDomainConfigurationResponse_domainConfigurationArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#UpdateDomainConfigurationResponse"><span class="hs-identifier hs-type">UpdateDomainConfigurationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span id="updateDomainConfigurationResponse_domainConfigurationArn"><span class="annot"><span class="annottext">updateDomainConfigurationResponse_domainConfigurationArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateDomainConfigurationResponse
+-&gt; f UpdateDomainConfigurationResponse
+</span><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#updateDomainConfigurationResponse_domainConfigurationArn"><span class="hs-identifier hs-var hs-var">updateDomainConfigurationResponse_domainConfigurationArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDomainConfigurationResponse -&gt; Maybe Text)
+-&gt; (UpdateDomainConfigurationResponse
+    -&gt; Maybe Text -&gt; UpdateDomainConfigurationResponse)
+-&gt; Lens
+     UpdateDomainConfigurationResponse
+     UpdateDomainConfigurationResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#UpdateDomainConfigurationResponse%27"><span class="hs-identifier hs-type">UpdateDomainConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679859634"><span class="annot"><span class="annottext">Maybe Text
+domainConfigurationArn :: Maybe Text
+$sel:domainConfigurationArn:UpdateDomainConfigurationResponse' :: UpdateDomainConfigurationResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679859634"><span class="hs-identifier hs-var hs-var">domainConfigurationArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679859634"><span class="hs-identifier hs-var">domainConfigurationArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679859633"><span class="annot"><span class="annottext">s :: UpdateDomainConfigurationResponse
+</span><a href="#local-6989586621679859633"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#UpdateDomainConfigurationResponse%27"><span class="hs-identifier hs-type">UpdateDomainConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679859632"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679859632"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDomainConfigurationResponse
+</span><a href="#local-6989586621679859633"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainConfigurationArn:UpdateDomainConfigurationResponse' :: Maybe Text
+</span><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#%24sel%3AdomainConfigurationArn%3AUpdateDomainConfigurationResponse%27"><span class="hs-identifier hs-var">domainConfigurationArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679859632"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#UpdateDomainConfigurationResponse"><span class="hs-identifier hs-type">UpdateDomainConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-206"></span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#updateDomainConfigurationResponse_httpStatus"><span class="hs-identifier hs-type">updateDomainConfigurationResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#UpdateDomainConfigurationResponse"><span class="hs-identifier hs-type">UpdateDomainConfigurationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-207"></span><span id="updateDomainConfigurationResponse_httpStatus"><span class="annot"><span class="annottext">updateDomainConfigurationResponse_httpStatus :: (Int -&gt; f Int)
 -&gt; UpdateDomainConfigurationResponse
 -&gt; f UpdateDomainConfigurationResponse
 </span><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#updateDomainConfigurationResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateDomainConfigurationResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDomainConfigurationResponse -&gt; Int)
@@ -630,18 +629,18 @@ $sel:domainConfigurationName:UpdateDomainConfigurationResponse' :: UpdateDomainC
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#UpdateDomainConfigurationResponse%27"><span class="hs-identifier hs-type">UpdateDomainConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679858615"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#UpdateDomainConfigurationResponse%27"><span class="hs-identifier hs-type">UpdateDomainConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679859631"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:UpdateDomainConfigurationResponse' :: UpdateDomainConfigurationResponse -&gt; Int
-</span><a href="#local-6989586621679858615"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679858615"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679858614"><span class="annot"><span class="annottext">s :: UpdateDomainConfigurationResponse
-</span><a href="#local-6989586621679858614"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#UpdateDomainConfigurationResponse%27"><span class="hs-identifier hs-type">UpdateDomainConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679858613"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679858613"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDomainConfigurationResponse
-</span><a href="#local-6989586621679858614"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateDomainConfigurationResponse' :: Int
+</span><a href="#local-6989586621679859631"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679859631"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679859630"><span class="annot"><span class="annottext">s :: UpdateDomainConfigurationResponse
+</span><a href="#local-6989586621679859630"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#UpdateDomainConfigurationResponse%27"><span class="hs-identifier hs-type">UpdateDomainConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679859629"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679859629"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDomainConfigurationResponse
+</span><a href="#local-6989586621679859630"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateDomainConfigurationResponse' :: Int
 </span><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#%24sel%3AhttpStatus%3AUpdateDomainConfigurationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679858613"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#UpdateDomainConfigurationResponse"><span class="hs-identifier hs-type">UpdateDomainConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-209"></span><span>
-</span><span id="line-210"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-211"></span><span>  </span><span id="local-6989586621679858611"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
-</span><span id="line-212"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#UpdateDomainConfigurationResponse"><span class="hs-identifier hs-type">UpdateDomainConfigurationResponse</span></a></span></span><span>
-</span><span id="line-213"></span></pre></body></html>
+</span><a href="#local-6989586621679859629"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#UpdateDomainConfigurationResponse"><span class="hs-identifier hs-type">UpdateDomainConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span>
+</span><span id="line-209"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-210"></span><span>  </span><span id="local-6989586621679859627"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-211"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.UpdateDomainConfiguration.html#UpdateDomainConfigurationResponse"><span class="hs-identifier hs-type">UpdateDomainConfigurationResponse</span></a></span></span><span>
+</span><span id="line-212"></span></pre></body></html>

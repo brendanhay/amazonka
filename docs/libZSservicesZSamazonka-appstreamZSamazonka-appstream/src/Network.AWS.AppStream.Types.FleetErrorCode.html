@@ -57,13 +57,13 @@
 </span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-59"></span><span>
-</span><span id="line-60"></span><span id="local-6989586621679285877"><span id="local-6989586621679285878"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FleetErrorCode"><span class="annot"><a href="Network.AWS.AppStream.Types.FleetErrorCode.html#FleetErrorCode"><span class="hs-identifier hs-var">FleetErrorCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FleetErrorCode%27"><span class="annot"><a href="Network.AWS.AppStream.Types.FleetErrorCode.html#FleetErrorCode%27"><span class="hs-identifier hs-var">FleetErrorCode'</span></a></span></span><span>
+</span><span id="line-60"></span><span id="local-6989586621679286125"><span id="local-6989586621679286126"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FleetErrorCode"><span class="annot"><a href="Network.AWS.AppStream.Types.FleetErrorCode.html#FleetErrorCode"><span class="hs-identifier hs-var">FleetErrorCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FleetErrorCode%27"><span class="annot"><a href="Network.AWS.AppStream.Types.FleetErrorCode.html#FleetErrorCode%27"><span class="hs-identifier hs-var">FleetErrorCode'</span></a></span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromFleetErrorCode"><span class="annot"><span class="annottext">FleetErrorCode -&gt; Text
 </span><a href="Network.AWS.AppStream.Types.FleetErrorCode.html#fromFleetErrorCode"><span class="hs-identifier hs-var hs-var">fromFleetErrorCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-62"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679285869"><span id="local-6989586621679285871"><span id="local-6989586621679285873"><span class="annot"><span class="annottext">Int -&gt; FleetErrorCode -&gt; ShowS
+</span><span id="line-65"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679286117"><span id="local-6989586621679286119"><span id="local-6989586621679286121"><span class="annot"><span class="annottext">Int -&gt; FleetErrorCode -&gt; ShowS
 [FleetErrorCode] -&gt; ShowS
 FleetErrorCode -&gt; String
 (Int -&gt; FleetErrorCode -&gt; ShowS)
@@ -79,7 +79,7 @@ $cshow :: FleetErrorCode -&gt; String
 showsPrec :: Int -&gt; FleetErrorCode -&gt; ShowS
 $cshowsPrec :: Int -&gt; FleetErrorCode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679285860"><span id="local-6989586621679285862"><span id="local-6989586621679285864"><span id="local-6989586621679285866"><span class="annot"><span class="annottext">ReadPrec [FleetErrorCode]
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679286108"><span id="local-6989586621679286110"><span id="local-6989586621679286112"><span id="local-6989586621679286114"><span class="annot"><span class="annottext">ReadPrec [FleetErrorCode]
 ReadPrec FleetErrorCode
 Int -&gt; ReadS FleetErrorCode
 ReadS [FleetErrorCode]
@@ -100,7 +100,7 @@ $creadList :: ReadS [FleetErrorCode]
 readsPrec :: Int -&gt; ReadS FleetErrorCode
 $creadsPrec :: Int -&gt; ReadS FleetErrorCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621679285855"><span id="local-6989586621679285857"><span class="annot"><span class="annottext">FleetErrorCode -&gt; FleetErrorCode -&gt; Bool
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679286103"><span id="local-6989586621679286105"><span class="annot"><span class="annottext">FleetErrorCode -&gt; FleetErrorCode -&gt; Bool
 (FleetErrorCode -&gt; FleetErrorCode -&gt; Bool)
 -&gt; (FleetErrorCode -&gt; FleetErrorCode -&gt; Bool) -&gt; Eq FleetErrorCode
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -109,7 +109,7 @@ $c/= :: FleetErrorCode -&gt; FleetErrorCode -&gt; Bool
 == :: FleetErrorCode -&gt; FleetErrorCode -&gt; Bool
 $c== :: FleetErrorCode -&gt; FleetErrorCode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span id="local-6989586621679285839"><span id="local-6989586621679285841"><span id="local-6989586621679285843"><span id="local-6989586621679285845"><span id="local-6989586621679285847"><span id="local-6989586621679285849"><span id="local-6989586621679285851"><span class="annot"><span class="annottext">Eq FleetErrorCode
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679286087"><span id="local-6989586621679286089"><span id="local-6989586621679286091"><span id="local-6989586621679286093"><span id="local-6989586621679286095"><span id="local-6989586621679286097"><span id="local-6989586621679286099"><span class="annot"><span class="annottext">Eq FleetErrorCode
 Eq FleetErrorCode
 -&gt; (FleetErrorCode -&gt; FleetErrorCode -&gt; Ordering)
 -&gt; (FleetErrorCode -&gt; FleetErrorCode -&gt; Bool)
@@ -160,7 +160,7 @@ $cfrom :: forall x. FleetErrorCode -&gt; Rep FleetErrorCode x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-70"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679285831"><span id="local-6989586621679285833"><span class="annot"><span class="annottext">Int -&gt; FleetErrorCode -&gt; Int
+</span><span id="line-72"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679286079"><span id="local-6989586621679286081"><span class="annot"><span class="annottext">Int -&gt; FleetErrorCode -&gt; Int
 FleetErrorCode -&gt; Int
 (Int -&gt; FleetErrorCode -&gt; Int)
 -&gt; (FleetErrorCode -&gt; Int) -&gt; Hashable FleetErrorCode
@@ -170,50 +170,50 @@ $chash :: FleetErrorCode -&gt; Int
 hashWithSalt :: Int -&gt; FleetErrorCode -&gt; Int
 $chashWithSalt :: Int -&gt; FleetErrorCode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>      </span><span id="local-6989586621679285828"><span class="annot"><span class="annottext">FleetErrorCode -&gt; ()
+</span><span id="line-73"></span><span>      </span><span id="local-6989586621679286076"><span class="annot"><span class="annottext">FleetErrorCode -&gt; ()
 (FleetErrorCode -&gt; ()) -&gt; NFData FleetErrorCode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: FleetErrorCode -&gt; ()
 $crnf :: FleetErrorCode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-74"></span><span>      </span><span id="local-6989586621679285825"><span class="annot"><span class="annottext">Text -&gt; Either String FleetErrorCode
+</span><span id="line-74"></span><span>      </span><span id="local-6989586621679286073"><span class="annot"><span class="annottext">Text -&gt; Either String FleetErrorCode
 (Text -&gt; Either String FleetErrorCode) -&gt; FromText FleetErrorCode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String FleetErrorCode
 $cfromText :: Text -&gt; Either String FleetErrorCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-75"></span><span>      </span><span id="local-6989586621679285822"><span class="annot"><span class="annottext">FleetErrorCode -&gt; Text
+</span><span id="line-75"></span><span>      </span><span id="local-6989586621679286070"><span class="annot"><span class="annottext">FleetErrorCode -&gt; Text
 (FleetErrorCode -&gt; Text) -&gt; ToText FleetErrorCode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: FleetErrorCode -&gt; Text
 $ctoText :: FleetErrorCode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-76"></span><span>      </span><span id="local-6989586621679285819"><span class="annot"><span class="annottext">FleetErrorCode -&gt; ByteString
+</span><span id="line-76"></span><span>      </span><span id="local-6989586621679286067"><span class="annot"><span class="annottext">FleetErrorCode -&gt; ByteString
 (FleetErrorCode -&gt; ByteString) -&gt; ToByteString FleetErrorCode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: FleetErrorCode -&gt; ByteString
 $ctoBS :: FleetErrorCode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-77"></span><span>      </span><span id="local-6989586621679285816"><span class="annot"><span class="annottext">FleetErrorCode -&gt; ByteStringBuilder
+</span><span id="line-77"></span><span>      </span><span id="local-6989586621679286064"><span class="annot"><span class="annottext">FleetErrorCode -&gt; ByteStringBuilder
 (FleetErrorCode -&gt; ByteStringBuilder) -&gt; ToLog FleetErrorCode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: FleetErrorCode -&gt; ByteStringBuilder
 $cbuild :: FleetErrorCode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-78"></span><span>      </span><span id="local-6989586621679285813"><span class="annot"><span class="annottext">HeaderName -&gt; FleetErrorCode -&gt; [Header]
+</span><span id="line-78"></span><span>      </span><span id="local-6989586621679286061"><span class="annot"><span class="annottext">HeaderName -&gt; FleetErrorCode -&gt; [Header]
 (HeaderName -&gt; FleetErrorCode -&gt; [Header])
 -&gt; ToHeader FleetErrorCode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; FleetErrorCode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; FleetErrorCode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-79"></span><span>      </span><span id="local-6989586621679285810"><span class="annot"><span class="annottext">FleetErrorCode -&gt; QueryString
+</span><span id="line-79"></span><span>      </span><span id="local-6989586621679286058"><span class="annot"><span class="annottext">FleetErrorCode -&gt; QueryString
 (FleetErrorCode -&gt; QueryString) -&gt; ToQuery FleetErrorCode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: FleetErrorCode -&gt; QueryString
 $ctoQuery :: FleetErrorCode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-80"></span><span>      </span><span id="local-6989586621679285805"><span id="local-6989586621679285807"><span class="annot"><span class="annottext">Value -&gt; Parser [FleetErrorCode]
+</span><span id="line-80"></span><span>      </span><span id="local-6989586621679286053"><span id="local-6989586621679286055"><span class="annot"><span class="annottext">Value -&gt; Parser [FleetErrorCode]
 Value -&gt; Parser FleetErrorCode
 (Value -&gt; Parser FleetErrorCode)
 -&gt; (Value -&gt; Parser [FleetErrorCode]) -&gt; FromJSON FleetErrorCode
@@ -224,7 +224,7 @@ $cparseJSONList :: Value -&gt; Parser [FleetErrorCode]
 parseJSON :: Value -&gt; Parser FleetErrorCode
 $cparseJSON :: Value -&gt; Parser FleetErrorCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-81"></span><span>      </span><span id="local-6989586621679285800"><span id="local-6989586621679285802"><span class="annot"><span class="annottext">FromJSONKeyFunction [FleetErrorCode]
+</span><span id="line-81"></span><span>      </span><span id="local-6989586621679286048"><span id="local-6989586621679286050"><span class="annot"><span class="annottext">FromJSONKeyFunction [FleetErrorCode]
 FromJSONKeyFunction FleetErrorCode
 FromJSONKeyFunction FleetErrorCode
 -&gt; FromJSONKeyFunction [FleetErrorCode]
@@ -236,7 +236,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [FleetErrorCode]
 fromJSONKey :: FromJSONKeyFunction FleetErrorCode
 $cfromJSONKey :: FromJSONKeyFunction FleetErrorCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-82"></span><span>      </span><span id="local-6989586621679285791"><span id="local-6989586621679285793"><span id="local-6989586621679285795"><span id="local-6989586621679285797"><span class="annot"><span class="annottext">[FleetErrorCode] -&gt; Encoding
+</span><span id="line-82"></span><span>      </span><span id="local-6989586621679286039"><span id="local-6989586621679286041"><span id="local-6989586621679286043"><span id="local-6989586621679286045"><span class="annot"><span class="annottext">[FleetErrorCode] -&gt; Encoding
 [FleetErrorCode] -&gt; Value
 FleetErrorCode -&gt; Encoding
 FleetErrorCode -&gt; Value
@@ -260,7 +260,7 @@ $ctoEncoding :: FleetErrorCode -&gt; Encoding
 toJSON :: FleetErrorCode -&gt; Value
 $ctoJSON :: FleetErrorCode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-83"></span><span>      </span><span id="local-6989586621679285786"><span id="local-6989586621679285788"><span class="annot"><span class="annottext">ToJSONKeyFunction [FleetErrorCode]
+</span><span id="line-83"></span><span>      </span><span id="local-6989586621679286034"><span id="local-6989586621679286036"><span class="annot"><span class="annottext">ToJSONKeyFunction [FleetErrorCode]
 ToJSONKeyFunction FleetErrorCode
 ToJSONKeyFunction FleetErrorCode
 -&gt; ToJSONKeyFunction [FleetErrorCode] -&gt; ToJSONKey FleetErrorCode
@@ -271,13 +271,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [FleetErrorCode]
 toJSONKey :: ToJSONKeyFunction FleetErrorCode
 $ctoJSONKey :: ToJSONKeyFunction FleetErrorCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-84"></span><span>      </span><span id="local-6989586621679285783"><span class="annot"><span class="annottext">[Node] -&gt; Either String FleetErrorCode
+</span><span id="line-84"></span><span>      </span><span id="local-6989586621679286031"><span class="annot"><span class="annottext">[Node] -&gt; Either String FleetErrorCode
 ([Node] -&gt; Either String FleetErrorCode) -&gt; FromXML FleetErrorCode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String FleetErrorCode
 $cparseXML :: [Node] -&gt; Either String FleetErrorCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-85"></span><span>      </span><span id="local-6989586621679285780"><span class="annot"><span class="annottext">FleetErrorCode -&gt; XML
+</span><span id="line-85"></span><span>      </span><span id="local-6989586621679286028"><span class="annot"><span class="annottext">FleetErrorCode -&gt; XML
 (FleetErrorCode -&gt; XML) -&gt; ToXML FleetErrorCode
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: FleetErrorCode -&gt; XML

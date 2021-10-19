@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- This type of object is returned by RegisterStreamConsumer.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newConsumer' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679196509"><span id="local-6989586621679196510"></span></span><span class="hs-keyword">data</span><span> </span><span id="Consumer"><span class="annot"><a href="Network.AWS.Kinesis.Types.Consumer.html#Consumer"><span class="hs-identifier hs-var">Consumer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Consumer%27"><span class="annot"><a href="Network.AWS.Kinesis.Types.Consumer.html#Consumer%27"><span class="hs-identifier hs-var">Consumer'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679196600"><span id="local-6989586621679196601"></span></span><span class="hs-keyword">data</span><span> </span><span id="Consumer"><span class="annot"><a href="Network.AWS.Kinesis.Types.Consumer.html#Consumer"><span class="hs-identifier hs-var">Consumer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Consumer%27"><span class="annot"><a href="Network.AWS.Kinesis.Types.Consumer.html#Consumer%27"><span class="hs-identifier hs-var">Consumer'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the consumer is something you choose when you register the</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- consumer.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AconsumerName%3AConsumer%27"><span class="annot"><span class="annottext">Consumer -&gt; Text
@@ -49,7 +49,7 @@
 </span><span id="line-46"></span><span>    </span><span id="%24sel%3AconsumerCreationTimestamp%3AConsumer%27"><span class="annot"><span class="annottext">Consumer -&gt; POSIX
 </span><a href="Network.AWS.Kinesis.Types.Consumer.html#%24sel%3AconsumerCreationTimestamp%3AConsumer%27"><span class="hs-identifier hs-var hs-var">consumerCreationTimestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679196500"><span id="local-6989586621679196502"><span class="annot"><span class="annottext">Consumer -&gt; Consumer -&gt; Bool
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679196591"><span id="local-6989586621679196593"><span class="annot"><span class="annottext">Consumer -&gt; Consumer -&gt; Bool
 (Consumer -&gt; Consumer -&gt; Bool)
 -&gt; (Consumer -&gt; Consumer -&gt; Bool) -&gt; Eq Consumer
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -57,7 +57,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Consumer -&gt; Consumer -&gt; Bool
 == :: Consumer -&gt; Consumer -&gt; Bool
 $c== :: Consumer -&gt; Consumer -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679196491"><span id="local-6989586621679196493"><span id="local-6989586621679196495"><span id="local-6989586621679196497"><span class="annot"><span class="annottext">ReadPrec [Consumer]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679196582"><span id="local-6989586621679196584"><span id="local-6989586621679196586"><span id="local-6989586621679196588"><span class="annot"><span class="annottext">ReadPrec [Consumer]
 ReadPrec Consumer
 Int -&gt; ReadS Consumer
 ReadS [Consumer]
@@ -77,7 +77,7 @@ readList :: ReadS [Consumer]
 $creadList :: ReadS [Consumer]
 readsPrec :: Int -&gt; ReadS Consumer
 $creadsPrec :: Int -&gt; ReadS Consumer
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679196484"><span id="local-6989586621679196486"><span id="local-6989586621679196488"><span class="annot"><span class="annottext">Int -&gt; Consumer -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679196575"><span id="local-6989586621679196577"><span id="local-6989586621679196579"><span class="annot"><span class="annottext">Int -&gt; Consumer -&gt; ShowS
 [Consumer] -&gt; ShowS
 Consumer -&gt; String
 (Int -&gt; Consumer -&gt; ShowS)
@@ -135,25 +135,25 @@ $cfrom :: forall x. Consumer -&gt; Rep Consumer x
 </span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.Kinesis.Types.Consumer.html#Consumer"><span class="hs-identifier hs-type">Consumer</span></a></span><span>
 </span><span id="line-83"></span><span id="newConsumer"><span class="annot"><span class="annottext">newConsumer :: Text -&gt; Text -&gt; ConsumerStatus -&gt; UTCTime -&gt; Consumer
 </span><a href="Network.AWS.Kinesis.Types.Consumer.html#newConsumer"><span class="hs-identifier hs-var hs-var">newConsumer</span></a></span></span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679196478"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679196478"><span class="hs-identifier hs-var">pConsumerName_</span></a></span></span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679196477"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679196477"><span class="hs-identifier hs-var">pConsumerARN_</span></a></span></span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679196476"><span class="annot"><span class="annottext">ConsumerStatus
-</span><a href="#local-6989586621679196476"><span class="hs-identifier hs-var">pConsumerStatus_</span></a></span></span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679196475"><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679196475"><span class="hs-identifier hs-var">pConsumerCreationTimestamp_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679196569"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679196569"><span class="hs-identifier hs-var">pConsumerName_</span></a></span></span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679196568"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679196568"><span class="hs-identifier hs-var">pConsumerARN_</span></a></span></span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679196567"><span class="annot"><span class="annottext">ConsumerStatus
+</span><a href="#local-6989586621679196567"><span class="hs-identifier hs-var">pConsumerStatus_</span></a></span></span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679196566"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679196566"><span class="hs-identifier hs-var">pConsumerCreationTimestamp_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">Consumer' :: Text -&gt; Text -&gt; ConsumerStatus -&gt; POSIX -&gt; Consumer
 </span><a href="Network.AWS.Kinesis.Types.Consumer.html#Consumer%27"><span class="hs-identifier hs-type">Consumer'</span></a></span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:consumerName:Consumer' :: Text
 </span><a href="Network.AWS.Kinesis.Types.Consumer.html#%24sel%3AconsumerName%3AConsumer%27"><span class="hs-identifier hs-var">consumerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679196478"><span class="hs-identifier hs-var">pConsumerName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679196569"><span class="hs-identifier hs-var">pConsumerName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-90"></span><span>        </span><span class="annot"><span class="annottext">$sel:consumerARN:Consumer' :: Text
 </span><a href="Network.AWS.Kinesis.Types.Consumer.html#%24sel%3AconsumerARN%3AConsumer%27"><span class="hs-identifier hs-var">consumerARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679196477"><span class="hs-identifier hs-var">pConsumerARN_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679196568"><span class="hs-identifier hs-var">pConsumerARN_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-91"></span><span>        </span><span class="annot"><span class="annottext">$sel:consumerStatus:Consumer' :: ConsumerStatus
 </span><a href="Network.AWS.Kinesis.Types.Consumer.html#%24sel%3AconsumerStatus%3AConsumer%27"><span class="hs-identifier hs-var">consumerStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ConsumerStatus
-</span><a href="#local-6989586621679196476"><span class="hs-identifier hs-var">pConsumerStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679196567"><span class="hs-identifier hs-var">pConsumerStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-92"></span><span>        </span><span class="annot"><span class="annottext">$sel:consumerCreationTimestamp:Consumer' :: POSIX
 </span><a href="Network.AWS.Kinesis.Types.Consumer.html#%24sel%3AconsumerCreationTimestamp%3AConsumer%27"><span class="hs-identifier hs-var">consumerCreationTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>          </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
@@ -163,7 +163,7 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; UTCTime -&gt; POSIX
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679196475"><span class="hs-identifier hs-var">pConsumerCreationTimestamp_</span></a></span><span>
+</span><a href="#local-6989586621679196566"><span class="hs-identifier hs-var">pConsumerCreationTimestamp_</span></a></span><span>
 </span><span id="line-94"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- | The name of the consumer is something you choose when you register the</span><span>
@@ -174,16 +174,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; (Consumer -&gt; Text -&gt; Consumer)
 -&gt; Lens Consumer Consumer Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.Consumer.html#Consumer%27"><span class="hs-identifier hs-type">Consumer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679196469"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.Consumer.html#Consumer%27"><span class="hs-identifier hs-type">Consumer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679196560"><span class="annot"><span class="annottext">Text
 consumerName :: Text
 $sel:consumerName:Consumer' :: Consumer -&gt; Text
-</span><a href="#local-6989586621679196469"><span class="hs-identifier hs-var hs-var">consumerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679196469"><span class="hs-identifier hs-var">consumerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679196468"><span class="annot"><span class="annottext">s :: Consumer
-</span><a href="#local-6989586621679196468"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.Consumer.html#Consumer%27"><span class="hs-identifier hs-type">Consumer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679196467"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679196467"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Consumer
-</span><a href="#local-6989586621679196468"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:consumerName:Consumer' :: Text
+</span><a href="#local-6989586621679196560"><span class="hs-identifier hs-var hs-var">consumerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679196560"><span class="hs-identifier hs-var">consumerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679196559"><span class="annot"><span class="annottext">s :: Consumer
+</span><a href="#local-6989586621679196559"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.Consumer.html#Consumer%27"><span class="hs-identifier hs-type">Consumer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679196558"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679196558"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Consumer
+</span><a href="#local-6989586621679196559"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:consumerName:Consumer' :: Text
 </span><a href="Network.AWS.Kinesis.Types.Consumer.html#%24sel%3AconsumerName%3AConsumer%27"><span class="hs-identifier hs-var">consumerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679196467"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.Consumer.html#Consumer"><span class="hs-identifier hs-type">Consumer</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679196558"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.Consumer.html#Consumer"><span class="hs-identifier hs-type">Consumer</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- | When you register a consumer, Kinesis Data Streams generates an ARN for</span><span>
 </span><span id="line-102"></span><span class="hs-comment">-- it. You need this ARN to be able to call SubscribeToShard.</span><span>
@@ -198,16 +198,16 @@ $sel:consumerName:Consumer' :: Consumer -&gt; Text
 -&gt; (Consumer -&gt; Text -&gt; Consumer)
 -&gt; Lens Consumer Consumer Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.Consumer.html#Consumer%27"><span class="hs-identifier hs-type">Consumer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679196465"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.Consumer.html#Consumer%27"><span class="hs-identifier hs-type">Consumer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679196556"><span class="annot"><span class="annottext">Text
 consumerARN :: Text
 $sel:consumerARN:Consumer' :: Consumer -&gt; Text
-</span><a href="#local-6989586621679196465"><span class="hs-identifier hs-var hs-var">consumerARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679196465"><span class="hs-identifier hs-var">consumerARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679196464"><span class="annot"><span class="annottext">s :: Consumer
-</span><a href="#local-6989586621679196464"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.Consumer.html#Consumer%27"><span class="hs-identifier hs-type">Consumer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679196463"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679196463"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Consumer
-</span><a href="#local-6989586621679196464"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:consumerARN:Consumer' :: Text
+</span><a href="#local-6989586621679196556"><span class="hs-identifier hs-var hs-var">consumerARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679196556"><span class="hs-identifier hs-var">consumerARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679196555"><span class="annot"><span class="annottext">s :: Consumer
+</span><a href="#local-6989586621679196555"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.Consumer.html#Consumer%27"><span class="hs-identifier hs-type">Consumer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679196554"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679196554"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Consumer
+</span><a href="#local-6989586621679196555"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:consumerARN:Consumer' :: Text
 </span><a href="Network.AWS.Kinesis.Types.Consumer.html#%24sel%3AconsumerARN%3AConsumer%27"><span class="hs-identifier hs-var">consumerARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679196463"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.Consumer.html#Consumer"><span class="hs-identifier hs-type">Consumer</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679196554"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.Consumer.html#Consumer"><span class="hs-identifier hs-type">Consumer</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- | A consumer can\'t read data while in the @CREATING@ or @DELETING@</span><span>
 </span><span id="line-112"></span><span class="hs-comment">-- states.</span><span>
@@ -217,16 +217,16 @@ $sel:consumerARN:Consumer' :: Consumer -&gt; Text
 -&gt; (Consumer -&gt; ConsumerStatus -&gt; Consumer)
 -&gt; Lens Consumer Consumer ConsumerStatus ConsumerStatus
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.Consumer.html#Consumer%27"><span class="hs-identifier hs-type">Consumer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679196461"><span class="annot"><span class="annottext">ConsumerStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.Consumer.html#Consumer%27"><span class="hs-identifier hs-type">Consumer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679196552"><span class="annot"><span class="annottext">ConsumerStatus
 consumerStatus :: ConsumerStatus
 $sel:consumerStatus:Consumer' :: Consumer -&gt; ConsumerStatus
-</span><a href="#local-6989586621679196461"><span class="hs-identifier hs-var hs-var">consumerStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConsumerStatus
-</span><a href="#local-6989586621679196461"><span class="hs-identifier hs-var">consumerStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679196460"><span class="annot"><span class="annottext">s :: Consumer
-</span><a href="#local-6989586621679196460"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.Consumer.html#Consumer%27"><span class="hs-identifier hs-type">Consumer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679196459"><span class="annot"><span class="annottext">ConsumerStatus
-</span><a href="#local-6989586621679196459"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Consumer
-</span><a href="#local-6989586621679196460"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:consumerStatus:Consumer' :: ConsumerStatus
+</span><a href="#local-6989586621679196552"><span class="hs-identifier hs-var hs-var">consumerStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConsumerStatus
+</span><a href="#local-6989586621679196552"><span class="hs-identifier hs-var">consumerStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679196551"><span class="annot"><span class="annottext">s :: Consumer
+</span><a href="#local-6989586621679196551"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.Consumer.html#Consumer%27"><span class="hs-identifier hs-type">Consumer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679196550"><span class="annot"><span class="annottext">ConsumerStatus
+</span><a href="#local-6989586621679196550"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Consumer
+</span><a href="#local-6989586621679196551"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:consumerStatus:Consumer' :: ConsumerStatus
 </span><a href="Network.AWS.Kinesis.Types.Consumer.html#%24sel%3AconsumerStatus%3AConsumer%27"><span class="hs-identifier hs-var">consumerStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ConsumerStatus
-</span><a href="#local-6989586621679196459"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.Consumer.html#Consumer"><span class="hs-identifier hs-type">Consumer</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679196550"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.Consumer.html#Consumer"><span class="hs-identifier hs-type">Consumer</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-comment">-- |</span><span>
 </span><span id="line-117"></span><span class="annot"><a href="Network.AWS.Kinesis.Types.Consumer.html#consumer_consumerCreationTimestamp"><span class="hs-identifier hs-type">consumer_consumerCreationTimestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.Consumer.html#Consumer"><span class="hs-identifier hs-type">Consumer</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
@@ -235,16 +235,16 @@ $sel:consumerStatus:Consumer' :: Consumer -&gt; ConsumerStatus
 -&gt; (Consumer -&gt; POSIX -&gt; Consumer)
 -&gt; Lens Consumer Consumer POSIX POSIX
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.Consumer.html#Consumer%27"><span class="hs-identifier hs-type">Consumer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679196457"><span class="annot"><span class="annottext">POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.Consumer.html#Consumer%27"><span class="hs-identifier hs-type">Consumer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679196548"><span class="annot"><span class="annottext">POSIX
 consumerCreationTimestamp :: POSIX
 $sel:consumerCreationTimestamp:Consumer' :: Consumer -&gt; POSIX
-</span><a href="#local-6989586621679196457"><span class="hs-identifier hs-var hs-var">consumerCreationTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679196457"><span class="hs-identifier hs-var">consumerCreationTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679196456"><span class="annot"><span class="annottext">s :: Consumer
-</span><a href="#local-6989586621679196456"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.Consumer.html#Consumer%27"><span class="hs-identifier hs-type">Consumer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679196455"><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679196455"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Consumer
-</span><a href="#local-6989586621679196456"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:consumerCreationTimestamp:Consumer' :: POSIX
+</span><a href="#local-6989586621679196548"><span class="hs-identifier hs-var hs-var">consumerCreationTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679196548"><span class="hs-identifier hs-var">consumerCreationTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679196547"><span class="annot"><span class="annottext">s :: Consumer
+</span><a href="#local-6989586621679196547"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.Consumer.html#Consumer%27"><span class="hs-identifier hs-type">Consumer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679196546"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679196546"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Consumer
+</span><a href="#local-6989586621679196547"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:consumerCreationTimestamp:Consumer' :: POSIX
 </span><a href="Network.AWS.Kinesis.Types.Consumer.html#%24sel%3AconsumerCreationTimestamp%3AConsumer%27"><span class="hs-identifier hs-var">consumerCreationTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679196455"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.Consumer.html#Consumer"><span class="hs-identifier hs-type">Consumer</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; Consumer -&gt; f Consumer)
+</span><a href="#local-6989586621679196546"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.Consumer.html#Consumer"><span class="hs-identifier hs-type">Consumer</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; Consumer -&gt; f Consumer)
 -&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
 -&gt; (UTCTime -&gt; f UTCTime)
 -&gt; Consumer
@@ -254,16 +254,16 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679196451"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.Consumer.html#Consumer"><span class="hs-identifier hs-type">Consumer</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679196449"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Consumer
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679196542"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.Consumer.html#Consumer"><span class="hs-identifier hs-type">Consumer</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679196540"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Consumer
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Consumer) -&gt; Value -&gt; Parser Consumer
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Consumer&quot;</span></span><span>
-</span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679196446"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679196446"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679196537"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679196537"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-125"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; ConsumerStatus -&gt; POSIX -&gt; Consumer
 </span><a href="Network.AWS.Kinesis.Types.Consumer.html#Consumer%27"><span class="hs-identifier hs-var">Consumer'</span></a></span><span>
 </span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; Text -&gt; ConsumerStatus -&gt; POSIX -&gt; Consumer)
@@ -271,7 +271,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Text -&gt; ConsumerStatus -&gt; POSIX -&gt; Consumer)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679196446"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679196537"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ConsumerName&quot;</span></span><span class="hs-special">)</span><span>
@@ -279,7 +279,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser (ConsumerStatus -&gt; POSIX -&gt; Consumer)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679196446"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679196537"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ConsumerARN&quot;</span></span><span class="hs-special">)</span><span>
@@ -287,20 +287,20 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser ConsumerStatus -&gt; Parser (POSIX -&gt; Consumer)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679196446"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ConsumerStatus
+</span><a href="#local-6989586621679196537"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ConsumerStatus
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ConsumerStatus&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">Parser (POSIX -&gt; Consumer) -&gt; Parser POSIX -&gt; Parser Consumer
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679196446"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+</span><a href="#local-6989586621679196537"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ConsumerCreationTimestamp&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>
-</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679196440"><span id="local-6989586621679196442"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.Consumer.html#Consumer"><span class="hs-identifier hs-type">Consumer</span></a></span></span></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679196531"><span id="local-6989586621679196533"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.Consumer.html#Consumer"><span class="hs-identifier hs-type">Consumer</span></a></span></span></span><span>
 </span><span id="line-133"></span><span>
-</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679196437"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.Consumer.html#Consumer"><span class="hs-identifier hs-type">Consumer</span></a></span></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679196528"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.Consumer.html#Consumer"><span class="hs-identifier hs-type">Consumer</span></a></span></span><span>
 </span><span id="line-135"></span></pre></body></html>

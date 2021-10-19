@@ -26,12 +26,12 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | A structure that can contain a value in multiple encoding formats.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newValueHolder' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679183746"><span id="local-6989586621679183747"></span></span><span class="hs-keyword">data</span><span> </span><span id="ValueHolder"><span class="annot"><a href="Network.AWS.QLDB.Types.ValueHolder.html#ValueHolder"><span class="hs-identifier hs-var">ValueHolder</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ValueHolder%27"><span class="annot"><a href="Network.AWS.QLDB.Types.ValueHolder.html#ValueHolder%27"><span class="hs-identifier hs-var">ValueHolder'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679183783"><span id="local-6989586621679183784"></span></span><span class="hs-keyword">data</span><span> </span><span id="ValueHolder"><span class="annot"><a href="Network.AWS.QLDB.Types.ValueHolder.html#ValueHolder"><span class="hs-identifier hs-var">ValueHolder</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ValueHolder%27"><span class="annot"><a href="Network.AWS.QLDB.Types.ValueHolder.html#ValueHolder%27"><span class="hs-identifier hs-var">ValueHolder'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An Amazon Ion plaintext value contained in a @ValueHolder@ structure.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AionText%3AValueHolder%27"><span class="annot"><span class="annottext">ValueHolder -&gt; Maybe (Sensitive Text)
 </span><a href="Network.AWS.QLDB.Types.ValueHolder.html#%24sel%3AionText%3AValueHolder%27"><span class="hs-identifier hs-var hs-var">ionText</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679183740"><span id="local-6989586621679183742"><span class="annot"><span class="annottext">ValueHolder -&gt; ValueHolder -&gt; Bool
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679183777"><span id="local-6989586621679183779"><span class="annot"><span class="annottext">ValueHolder -&gt; ValueHolder -&gt; Bool
 (ValueHolder -&gt; ValueHolder -&gt; Bool)
 -&gt; (ValueHolder -&gt; ValueHolder -&gt; Bool) -&gt; Eq ValueHolder
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -39,7 +39,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ValueHolder -&gt; ValueHolder -&gt; Bool
 == :: ValueHolder -&gt; ValueHolder -&gt; Bool
 $c== :: ValueHolder -&gt; ValueHolder -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679183733"><span id="local-6989586621679183735"><span id="local-6989586621679183737"><span class="annot"><span class="annottext">Int -&gt; ValueHolder -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679183770"><span id="local-6989586621679183772"><span id="local-6989586621679183774"><span class="annot"><span class="annottext">Int -&gt; ValueHolder -&gt; ShowS
 [ValueHolder] -&gt; ShowS
 ValueHolder -&gt; String
 (Int -&gt; ValueHolder -&gt; ShowS)
@@ -95,16 +95,16 @@ forall a. Maybe a
      (Maybe (Sensitive Text))
      (Maybe (Sensitive Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.Types.ValueHolder.html#ValueHolder%27"><span class="hs-identifier hs-type">ValueHolder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679183724"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.Types.ValueHolder.html#ValueHolder%27"><span class="hs-identifier hs-type">ValueHolder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679183761"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 ionText :: Maybe (Sensitive Text)
 $sel:ionText:ValueHolder' :: ValueHolder -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679183724"><span class="hs-identifier hs-var hs-var">ionText</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679183724"><span class="hs-identifier hs-var">ionText</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679183723"><span class="annot"><span class="annottext">s :: ValueHolder
-</span><a href="#local-6989586621679183723"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.Types.ValueHolder.html#ValueHolder%27"><span class="hs-identifier hs-type">ValueHolder'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679183722"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679183722"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ValueHolder
-</span><a href="#local-6989586621679183723"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ionText:ValueHolder' :: Maybe (Sensitive Text)
+</span><a href="#local-6989586621679183761"><span class="hs-identifier hs-var hs-var">ionText</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679183761"><span class="hs-identifier hs-var">ionText</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679183760"><span class="annot"><span class="annottext">s :: ValueHolder
+</span><a href="#local-6989586621679183760"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.Types.ValueHolder.html#ValueHolder%27"><span class="hs-identifier hs-type">ValueHolder'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679183759"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679183759"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ValueHolder
+</span><a href="#local-6989586621679183760"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ionText:ValueHolder' :: Maybe (Sensitive Text)
 </span><a href="Network.AWS.QLDB.Types.ValueHolder.html#%24sel%3AionText%3AValueHolder%27"><span class="hs-identifier hs-var">ionText</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679183722"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.ValueHolder.html#ValueHolder"><span class="hs-identifier hs-type">ValueHolder</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+</span><a href="#local-6989586621679183759"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.ValueHolder.html#ValueHolder"><span class="hs-identifier hs-type">ValueHolder</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
  -&gt; ValueHolder -&gt; f ValueHolder)
 -&gt; ((Maybe Text -&gt; f (Maybe Text))
     -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
@@ -125,8 +125,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall a. Iso' (Sensitive a) a
 </span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
 </span><span id="line-52"></span><span>
-</span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679183716"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.ValueHolder.html#ValueHolder"><span class="hs-identifier hs-type">ValueHolder</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-54"></span><span>  </span><span id="local-6989586621679183714"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ValueHolder
+</span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679183753"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.ValueHolder.html#ValueHolder"><span class="hs-identifier hs-type">ValueHolder</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-54"></span><span>  </span><span id="local-6989586621679183751"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ValueHolder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ValueHolder) -&gt; Value -&gt; Parser ValueHolder
@@ -134,29 +134,29 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ValueHolder&quot;</span></span><span>
-</span><span id="line-57"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679183711"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679183711"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-57"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679183748"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679183748"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-58"></span><span>          </span><span class="annot"><span class="annottext">Maybe (Sensitive Text) -&gt; ValueHolder
 </span><a href="Network.AWS.QLDB.Types.ValueHolder.html#ValueHolder%27"><span class="hs-identifier hs-var">ValueHolder'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe (Sensitive Text) -&gt; ValueHolder)
 -&gt; Parser (Maybe (Sensitive Text)) -&gt; Parser ValueHolder
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679183711"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive Text))
+</span><a href="#local-6989586621679183748"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive Text))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IonText&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-59"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679183705"><span id="local-6989586621679183707"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.ValueHolder.html#ValueHolder"><span class="hs-identifier hs-type">ValueHolder</span></a></span></span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679183742"><span id="local-6989586621679183744"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.ValueHolder.html#ValueHolder"><span class="hs-identifier hs-type">ValueHolder</span></a></span></span></span><span>
 </span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679183702"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.ValueHolder.html#ValueHolder"><span class="hs-identifier hs-type">ValueHolder</span></a></span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679183739"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.ValueHolder.html#ValueHolder"><span class="hs-identifier hs-type">ValueHolder</span></a></span></span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679183694"><span id="local-6989586621679183696"><span id="local-6989586621679183698"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.ValueHolder.html#ValueHolder"><span class="hs-identifier hs-type">ValueHolder</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-66"></span><span>  </span><span id="local-6989586621679183692"><span class="annot"><span class="annottext">toJSON :: ValueHolder -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.ValueHolder.html#ValueHolder%27"><span class="hs-identifier hs-type">ValueHolder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679183690"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679183731"><span id="local-6989586621679183733"><span id="local-6989586621679183735"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.ValueHolder.html#ValueHolder"><span class="hs-identifier hs-type">ValueHolder</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679183729"><span class="annot"><span class="annottext">toJSON :: ValueHolder -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.ValueHolder.html#ValueHolder%27"><span class="hs-identifier hs-type">ValueHolder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679183727"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 ionText :: Maybe (Sensitive Text)
 $sel:ionText:ValueHolder' :: ValueHolder -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679183690"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679183727"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-68"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -168,6 +168,6 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Sensitive Text -&gt; Pair) -&gt; Maybe (Sensitive Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679183690"><span class="hs-identifier hs-var">ionText</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679183727"><span class="hs-identifier hs-var">ionText</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-70"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span></pre></body></html>

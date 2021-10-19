@@ -30,15 +30,15 @@
 </span><span id="line-30"></span><span class="hs-comment">-- grantee.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newAccessControlPolicy' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679559040"><span id="local-6989586621679559041"></span></span><span class="hs-keyword">data</span><span> </span><span id="AccessControlPolicy"><span class="annot"><a href="Network.AWS.S3.Types.AccessControlPolicy.html#AccessControlPolicy"><span class="hs-identifier hs-var">AccessControlPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AccessControlPolicy%27"><span class="annot"><a href="Network.AWS.S3.Types.AccessControlPolicy.html#AccessControlPolicy%27"><span class="hs-identifier hs-var">AccessControlPolicy'</span></a></span></span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Container for the bucket owner\'s display name and ID.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3Aowner%3AAccessControlPolicy%27"><span class="annot"><span class="annottext">AccessControlPolicy -&gt; Maybe Owner
-</span><a href="Network.AWS.S3.Types.AccessControlPolicy.html#%24sel%3Aowner%3AAccessControlPolicy%27"><span class="hs-identifier hs-var hs-var">owner</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Owner.html#Owner"><span class="hs-identifier hs-type">Owner</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | A list of grants.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3Agrants%3AAccessControlPolicy%27"><span class="annot"><span class="annottext">AccessControlPolicy -&gt; Maybe [Grant]
-</span><a href="Network.AWS.S3.Types.AccessControlPolicy.html#%24sel%3Agrants%3AAccessControlPolicy%27"><span class="hs-identifier hs-var hs-var">grants</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.S3.Types.Grant.html#Grant"><span class="hs-identifier hs-type">Grant</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679559700"><span id="local-6989586621679559701"></span></span><span class="hs-keyword">data</span><span> </span><span id="AccessControlPolicy"><span class="annot"><a href="Network.AWS.S3.Types.AccessControlPolicy.html#AccessControlPolicy"><span class="hs-identifier hs-var">AccessControlPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AccessControlPolicy%27"><span class="annot"><a href="Network.AWS.S3.Types.AccessControlPolicy.html#AccessControlPolicy%27"><span class="hs-identifier hs-var">AccessControlPolicy'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of grants.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Agrants%3AAccessControlPolicy%27"><span class="annot"><span class="annottext">AccessControlPolicy -&gt; Maybe [Grant]
+</span><a href="Network.AWS.S3.Types.AccessControlPolicy.html#%24sel%3Agrants%3AAccessControlPolicy%27"><span class="hs-identifier hs-var hs-var">grants</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.S3.Types.Grant.html#Grant"><span class="hs-identifier hs-type">Grant</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Container for the bucket owner\'s display name and ID.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Aowner%3AAccessControlPolicy%27"><span class="annot"><span class="annottext">AccessControlPolicy -&gt; Maybe Owner
+</span><a href="Network.AWS.S3.Types.AccessControlPolicy.html#%24sel%3Aowner%3AAccessControlPolicy%27"><span class="hs-identifier hs-var hs-var">owner</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Owner.html#Owner"><span class="hs-identifier hs-type">Owner</span></a></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679559033"><span id="local-6989586621679559035"><span class="annot"><span class="annottext">AccessControlPolicy -&gt; AccessControlPolicy -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679559693"><span id="local-6989586621679559695"><span class="annot"><span class="annottext">AccessControlPolicy -&gt; AccessControlPolicy -&gt; Bool
 (AccessControlPolicy -&gt; AccessControlPolicy -&gt; Bool)
 -&gt; (AccessControlPolicy -&gt; AccessControlPolicy -&gt; Bool)
 -&gt; Eq AccessControlPolicy
@@ -47,7 +47,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AccessControlPolicy -&gt; AccessControlPolicy -&gt; Bool
 == :: AccessControlPolicy -&gt; AccessControlPolicy -&gt; Bool
 $c== :: AccessControlPolicy -&gt; AccessControlPolicy -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679559024"><span id="local-6989586621679559026"><span id="local-6989586621679559028"><span id="local-6989586621679559030"><span class="annot"><span class="annottext">ReadPrec [AccessControlPolicy]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679559684"><span id="local-6989586621679559686"><span id="local-6989586621679559688"><span id="local-6989586621679559690"><span class="annot"><span class="annottext">ReadPrec [AccessControlPolicy]
 ReadPrec AccessControlPolicy
 Int -&gt; ReadS AccessControlPolicy
 ReadS [AccessControlPolicy]
@@ -67,7 +67,7 @@ readList :: ReadS [AccessControlPolicy]
 $creadList :: ReadS [AccessControlPolicy]
 readsPrec :: Int -&gt; ReadS AccessControlPolicy
 $creadsPrec :: Int -&gt; ReadS AccessControlPolicy
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679559017"><span id="local-6989586621679559019"><span id="local-6989586621679559021"><span class="annot"><span class="annottext">Int -&gt; AccessControlPolicy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679559677"><span id="local-6989586621679559679"><span id="local-6989586621679559681"><span class="annot"><span class="annottext">Int -&gt; AccessControlPolicy -&gt; ShowS
 [AccessControlPolicy] -&gt; ShowS
 AccessControlPolicy -&gt; String
 (Int -&gt; AccessControlPolicy -&gt; ShowS)
@@ -101,48 +101,28 @@ $cfrom :: forall x. AccessControlPolicy -&gt; Rep AccessControlPolicy x
 </span><span id="line-46"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-47"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-48"></span><span class="hs-comment">--</span><span>
-</span><span id="line-49"></span><span class="hs-comment">-- 'owner', 'accessControlPolicy_owner' - Container for the bucket owner\'s display name and ID.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'grants', 'accessControlPolicy_grants' - A list of grants.</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
-</span><span id="line-51"></span><span class="hs-comment">-- 'grants', 'accessControlPolicy_grants' - A list of grants.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'owner', 'accessControlPolicy_owner' - Container for the bucket owner\'s display name and ID.</span><span>
 </span><span id="line-52"></span><span class="annot"><a href="Network.AWS.S3.Types.AccessControlPolicy.html#newAccessControlPolicy"><span class="hs-identifier hs-type">newAccessControlPolicy</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-53"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Types.AccessControlPolicy.html#AccessControlPolicy"><span class="hs-identifier hs-type">AccessControlPolicy</span></a></span><span>
 </span><span id="line-54"></span><span id="newAccessControlPolicy"><span class="annot"><span class="annottext">newAccessControlPolicy :: AccessControlPolicy
 </span><a href="Network.AWS.S3.Types.AccessControlPolicy.html#newAccessControlPolicy"><span class="hs-identifier hs-var hs-var">newAccessControlPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">AccessControlPolicy' :: Maybe Owner -&gt; Maybe [Grant] -&gt; AccessControlPolicy
+</span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">AccessControlPolicy' :: Maybe [Grant] -&gt; Maybe Owner -&gt; AccessControlPolicy
 </span><a href="Network.AWS.S3.Types.AccessControlPolicy.html#AccessControlPolicy%27"><span class="hs-identifier hs-type">AccessControlPolicy'</span></a></span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:owner:AccessControlPolicy' :: Maybe Owner
-</span><a href="Network.AWS.S3.Types.AccessControlPolicy.html#%24sel%3Aowner%3AAccessControlPolicy%27"><span class="hs-identifier hs-var">owner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Owner
+</span><span id="line-56"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:grants:AccessControlPolicy' :: Maybe [Grant]
+</span><a href="Network.AWS.S3.Types.AccessControlPolicy.html#%24sel%3Agrants%3AAccessControlPolicy%27"><span class="hs-identifier hs-var">grants</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Grant]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">$sel:grants:AccessControlPolicy' :: Maybe [Grant]
-</span><a href="Network.AWS.S3.Types.AccessControlPolicy.html#%24sel%3Agrants%3AAccessControlPolicy%27"><span class="hs-identifier hs-var">grants</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Grant]
+</span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">$sel:owner:AccessControlPolicy' :: Maybe Owner
+</span><a href="Network.AWS.S3.Types.AccessControlPolicy.html#%24sel%3Aowner%3AAccessControlPolicy%27"><span class="hs-identifier hs-var">owner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Owner
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-59"></span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- | Container for the bucket owner\'s display name and ID.</span><span>
-</span><span id="line-61"></span><span class="annot"><a href="Network.AWS.S3.Types.AccessControlPolicy.html#accessControlPolicy_owner"><span class="hs-identifier hs-type">accessControlPolicy_owner</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.AccessControlPolicy.html#AccessControlPolicy"><span class="hs-identifier hs-type">AccessControlPolicy</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Owner.html#Owner"><span class="hs-identifier hs-type">Owner</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-62"></span><span id="accessControlPolicy_owner"><span class="annot"><span class="annottext">accessControlPolicy_owner :: (Maybe Owner -&gt; f (Maybe Owner))
--&gt; AccessControlPolicy -&gt; f AccessControlPolicy
-</span><a href="Network.AWS.S3.Types.AccessControlPolicy.html#accessControlPolicy_owner"><span class="hs-identifier hs-var hs-var">accessControlPolicy_owner</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccessControlPolicy -&gt; Maybe Owner)
--&gt; (AccessControlPolicy -&gt; Maybe Owner -&gt; AccessControlPolicy)
--&gt; Lens
-     AccessControlPolicy AccessControlPolicy (Maybe Owner) (Maybe Owner)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.AccessControlPolicy.html#AccessControlPolicy%27"><span class="hs-identifier hs-type">AccessControlPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679559008"><span class="annot"><span class="annottext">Maybe Owner
-owner :: Maybe Owner
-$sel:owner:AccessControlPolicy' :: AccessControlPolicy -&gt; Maybe Owner
-</span><a href="#local-6989586621679559008"><span class="hs-identifier hs-var hs-var">owner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Owner
-</span><a href="#local-6989586621679559008"><span class="hs-identifier hs-var">owner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679559007"><span class="annot"><span class="annottext">s :: AccessControlPolicy
-</span><a href="#local-6989586621679559007"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.AccessControlPolicy.html#AccessControlPolicy%27"><span class="hs-identifier hs-type">AccessControlPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679559006"><span class="annot"><span class="annottext">Maybe Owner
-</span><a href="#local-6989586621679559006"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessControlPolicy
-</span><a href="#local-6989586621679559007"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:owner:AccessControlPolicy' :: Maybe Owner
-</span><a href="Network.AWS.S3.Types.AccessControlPolicy.html#%24sel%3Aowner%3AAccessControlPolicy%27"><span class="hs-identifier hs-var">owner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Owner
-</span><a href="#local-6989586621679559006"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.AccessControlPolicy.html#AccessControlPolicy"><span class="hs-identifier hs-type">AccessControlPolicy</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- | A list of grants.</span><span>
-</span><span id="line-65"></span><span class="annot"><a href="Network.AWS.S3.Types.AccessControlPolicy.html#accessControlPolicy_grants"><span class="hs-identifier hs-type">accessControlPolicy_grants</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.AccessControlPolicy.html#AccessControlPolicy"><span class="hs-identifier hs-type">AccessControlPolicy</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.S3.Types.Grant.html#Grant"><span class="hs-identifier hs-type">Grant</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-66"></span><span id="accessControlPolicy_grants"><span class="annot"><span class="annottext">accessControlPolicy_grants :: (Maybe [Grant] -&gt; f (Maybe [Grant]))
+</span><span id="line-60"></span><span class="hs-comment">-- | A list of grants.</span><span>
+</span><span id="line-61"></span><span class="annot"><a href="Network.AWS.S3.Types.AccessControlPolicy.html#accessControlPolicy_grants"><span class="hs-identifier hs-type">accessControlPolicy_grants</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.AccessControlPolicy.html#AccessControlPolicy"><span class="hs-identifier hs-type">AccessControlPolicy</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.S3.Types.Grant.html#Grant"><span class="hs-identifier hs-type">Grant</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span id="accessControlPolicy_grants"><span class="annot"><span class="annottext">accessControlPolicy_grants :: (Maybe [Grant] -&gt; f (Maybe [Grant]))
 -&gt; AccessControlPolicy -&gt; f AccessControlPolicy
 </span><a href="Network.AWS.S3.Types.AccessControlPolicy.html#accessControlPolicy_grants"><span class="hs-identifier hs-var hs-var">accessControlPolicy_grants</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccessControlPolicy -&gt; Maybe [Grant])
 -&gt; (AccessControlPolicy -&gt; Maybe [Grant] -&gt; AccessControlPolicy)
@@ -152,16 +132,16 @@ $sel:owner:AccessControlPolicy' :: AccessControlPolicy -&gt; Maybe Owner
      (Maybe [Grant])
      (Maybe [Grant])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.AccessControlPolicy.html#AccessControlPolicy%27"><span class="hs-identifier hs-type">AccessControlPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679559004"><span class="annot"><span class="annottext">Maybe [Grant]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.AccessControlPolicy.html#AccessControlPolicy%27"><span class="hs-identifier hs-type">AccessControlPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679559668"><span class="annot"><span class="annottext">Maybe [Grant]
 grants :: Maybe [Grant]
 $sel:grants:AccessControlPolicy' :: AccessControlPolicy -&gt; Maybe [Grant]
-</span><a href="#local-6989586621679559004"><span class="hs-identifier hs-var hs-var">grants</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Grant]
-</span><a href="#local-6989586621679559004"><span class="hs-identifier hs-var">grants</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679559003"><span class="annot"><span class="annottext">s :: AccessControlPolicy
-</span><a href="#local-6989586621679559003"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.AccessControlPolicy.html#AccessControlPolicy%27"><span class="hs-identifier hs-type">AccessControlPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679559002"><span class="annot"><span class="annottext">Maybe [Grant]
-</span><a href="#local-6989586621679559002"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessControlPolicy
-</span><a href="#local-6989586621679559003"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:grants:AccessControlPolicy' :: Maybe [Grant]
+</span><a href="#local-6989586621679559668"><span class="hs-identifier hs-var hs-var">grants</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Grant]
+</span><a href="#local-6989586621679559668"><span class="hs-identifier hs-var">grants</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679559667"><span class="annot"><span class="annottext">s :: AccessControlPolicy
+</span><a href="#local-6989586621679559667"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.AccessControlPolicy.html#AccessControlPolicy%27"><span class="hs-identifier hs-type">AccessControlPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679559666"><span class="annot"><span class="annottext">Maybe [Grant]
+</span><a href="#local-6989586621679559666"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessControlPolicy
+</span><a href="#local-6989586621679559667"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:grants:AccessControlPolicy' :: Maybe [Grant]
 </span><a href="Network.AWS.S3.Types.AccessControlPolicy.html#%24sel%3Agrants%3AAccessControlPolicy%27"><span class="hs-identifier hs-var">grants</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Grant]
-</span><a href="#local-6989586621679559002"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.AccessControlPolicy.html#AccessControlPolicy"><span class="hs-identifier hs-type">AccessControlPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Grant] -&gt; f (Maybe [Grant]))
+</span><a href="#local-6989586621679559666"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.AccessControlPolicy.html#AccessControlPolicy"><span class="hs-identifier hs-type">AccessControlPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Grant] -&gt; f (Maybe [Grant]))
  -&gt; AccessControlPolicy -&gt; f AccessControlPolicy)
 -&gt; ((Maybe [Grant] -&gt; f (Maybe [Grant]))
     -&gt; Maybe [Grant] -&gt; f (Maybe [Grant]))
@@ -176,43 +156,63 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Grant] [Grant] [Grant] [Grant]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- | Container for the bucket owner\'s display name and ID.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Network.AWS.S3.Types.AccessControlPolicy.html#accessControlPolicy_owner"><span class="hs-identifier hs-type">accessControlPolicy_owner</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.AccessControlPolicy.html#AccessControlPolicy"><span class="hs-identifier hs-type">AccessControlPolicy</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Owner.html#Owner"><span class="hs-identifier hs-type">Owner</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span id="accessControlPolicy_owner"><span class="annot"><span class="annottext">accessControlPolicy_owner :: (Maybe Owner -&gt; f (Maybe Owner))
+-&gt; AccessControlPolicy -&gt; f AccessControlPolicy
+</span><a href="Network.AWS.S3.Types.AccessControlPolicy.html#accessControlPolicy_owner"><span class="hs-identifier hs-var hs-var">accessControlPolicy_owner</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccessControlPolicy -&gt; Maybe Owner)
+-&gt; (AccessControlPolicy -&gt; Maybe Owner -&gt; AccessControlPolicy)
+-&gt; Lens
+     AccessControlPolicy AccessControlPolicy (Maybe Owner) (Maybe Owner)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.AccessControlPolicy.html#AccessControlPolicy%27"><span class="hs-identifier hs-type">AccessControlPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679559661"><span class="annot"><span class="annottext">Maybe Owner
+owner :: Maybe Owner
+$sel:owner:AccessControlPolicy' :: AccessControlPolicy -&gt; Maybe Owner
+</span><a href="#local-6989586621679559661"><span class="hs-identifier hs-var hs-var">owner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Owner
+</span><a href="#local-6989586621679559661"><span class="hs-identifier hs-var">owner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679559660"><span class="annot"><span class="annottext">s :: AccessControlPolicy
+</span><a href="#local-6989586621679559660"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.AccessControlPolicy.html#AccessControlPolicy%27"><span class="hs-identifier hs-type">AccessControlPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679559659"><span class="annot"><span class="annottext">Maybe Owner
+</span><a href="#local-6989586621679559659"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessControlPolicy
+</span><a href="#local-6989586621679559660"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:owner:AccessControlPolicy' :: Maybe Owner
+</span><a href="Network.AWS.S3.Types.AccessControlPolicy.html#%24sel%3Aowner%3AAccessControlPolicy%27"><span class="hs-identifier hs-var">owner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Owner
+</span><a href="#local-6989586621679559659"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.AccessControlPolicy.html#AccessControlPolicy"><span class="hs-identifier hs-type">AccessControlPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679558995"><span id="local-6989586621679558997"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.AccessControlPolicy.html#AccessControlPolicy"><span class="hs-identifier hs-type">AccessControlPolicy</span></a></span></span></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679559655"><span id="local-6989586621679559657"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.AccessControlPolicy.html#AccessControlPolicy"><span class="hs-identifier hs-type">AccessControlPolicy</span></a></span></span></span><span>
 </span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679558992"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.AccessControlPolicy.html#AccessControlPolicy"><span class="hs-identifier hs-type">AccessControlPolicy</span></a></span></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679559652"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.AccessControlPolicy.html#AccessControlPolicy"><span class="hs-identifier hs-type">AccessControlPolicy</span></a></span></span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.AccessControlPolicy.html#AccessControlPolicy"><span class="hs-identifier hs-type">AccessControlPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-73"></span><span>  </span><span id="local-6989586621679558988"><span class="annot"><span class="annottext">toXML :: AccessControlPolicy -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.AccessControlPolicy.html#AccessControlPolicy%27"><span class="hs-identifier hs-type">AccessControlPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679558985"><span id="local-6989586621679558986"><span class="annot"><span class="annottext">Maybe [Grant]
+</span><span id="line-73"></span><span>  </span><span id="local-6989586621679559648"><span class="annot"><span class="annottext">toXML :: AccessControlPolicy -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.AccessControlPolicy.html#AccessControlPolicy%27"><span class="hs-identifier hs-type">AccessControlPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679559645"><span id="local-6989586621679559646"><span class="annot"><span class="annottext">Maybe [Grant]
 Maybe Owner
-grants :: Maybe [Grant]
 owner :: Maybe Owner
-$sel:grants:AccessControlPolicy' :: AccessControlPolicy -&gt; Maybe [Grant]
+grants :: Maybe [Grant]
 $sel:owner:AccessControlPolicy' :: AccessControlPolicy -&gt; Maybe Owner
-</span><a href="#local-6989586621679558985"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:grants:AccessControlPolicy' :: AccessControlPolicy -&gt; Maybe [Grant]
+</span><a href="#local-6989586621679559645"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
 </span><span id="line-75"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Name
-</span><span class="hs-string">&quot;Owner&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Owner -&gt; XML
-forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
-</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Owner
-</span><a href="#local-6989586621679558986"><span class="hs-identifier hs-var">owner</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-76"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;AccessControlList&quot;</span></span><span>
-</span><span id="line-77"></span><span>          </span><span class="annot"><span class="annottext">Name -&gt; XML -&gt; XML
+</span><span id="line-76"></span><span>          </span><span class="annot"><span class="annottext">Name -&gt; XML -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe XML -&gt; XML
 forall a. ToXML a =&gt; a -&gt; XML
 </span><span class="hs-identifier hs-var">Core.toXML</span></span><span>
-</span><span id="line-78"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Name -&gt; [Grant] -&gt; XML
+</span><span id="line-77"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Name -&gt; [Grant] -&gt; XML
 forall a. (IsList a, ToXML (Item a)) =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-identifier hs-var">Core.toXMLList</span></span><span> </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;Grant&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Grant] -&gt; XML) -&gt; Maybe [Grant] -&gt; Maybe XML
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Grant]
-</span><a href="#local-6989586621679558985"><span class="hs-identifier hs-var">grants</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679559646"><span class="hs-identifier hs-var">grants</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;Owner&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Owner -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Owner
+</span><a href="#local-6989586621679559645"><span class="hs-identifier hs-var">owner</span></a></span><span>
 </span><span id="line-79"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-80"></span></pre></body></html>

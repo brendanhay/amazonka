@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | An object representing the details of an update request.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newUpdateParam' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679269787"><span id="local-6989586621679269788"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateParam"><span class="annot"><a href="Network.AWS.EKS.Types.UpdateParam.html#UpdateParam"><span class="hs-identifier hs-var">UpdateParam</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateParam%27"><span class="annot"><a href="Network.AWS.EKS.Types.UpdateParam.html#UpdateParam%27"><span class="hs-identifier hs-var">UpdateParam'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679270055"><span id="local-6989586621679270056"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateParam"><span class="annot"><a href="Network.AWS.EKS.Types.UpdateParam.html#UpdateParam"><span class="hs-identifier hs-var">UpdateParam</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateParam%27"><span class="annot"><a href="Network.AWS.EKS.Types.UpdateParam.html#UpdateParam%27"><span class="hs-identifier hs-var">UpdateParam'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The value of the keys submitted as part of an update request.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Avalue%3AUpdateParam%27"><span class="annot"><span class="annottext">UpdateParam -&gt; Maybe Text
 </span><a href="Network.AWS.EKS.Types.UpdateParam.html#%24sel%3Avalue%3AUpdateParam%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -35,7 +35,7 @@
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Atype%27%3AUpdateParam%27"><span class="annot"><span class="annottext">UpdateParam -&gt; Maybe UpdateParamType
 </span><a href="Network.AWS.EKS.Types.UpdateParam.html#%24sel%3Atype%27%3AUpdateParam%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.UpdateParamType.html#UpdateParamType"><span class="hs-identifier hs-type">UpdateParamType</span></a></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679269780"><span id="local-6989586621679269782"><span class="annot"><span class="annottext">UpdateParam -&gt; UpdateParam -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679270048"><span id="local-6989586621679270050"><span class="annot"><span class="annottext">UpdateParam -&gt; UpdateParam -&gt; Bool
 (UpdateParam -&gt; UpdateParam -&gt; Bool)
 -&gt; (UpdateParam -&gt; UpdateParam -&gt; Bool) -&gt; Eq UpdateParam
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateParam -&gt; UpdateParam -&gt; Bool
 == :: UpdateParam -&gt; UpdateParam -&gt; Bool
 $c== :: UpdateParam -&gt; UpdateParam -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679269771"><span id="local-6989586621679269773"><span id="local-6989586621679269775"><span id="local-6989586621679269777"><span class="annot"><span class="annottext">ReadPrec [UpdateParam]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270039"><span id="local-6989586621679270041"><span id="local-6989586621679270043"><span id="local-6989586621679270045"><span class="annot"><span class="annottext">ReadPrec [UpdateParam]
 ReadPrec UpdateParam
 Int -&gt; ReadS UpdateParam
 ReadS [UpdateParam]
@@ -63,7 +63,7 @@ readList :: ReadS [UpdateParam]
 $creadList :: ReadS [UpdateParam]
 readsPrec :: Int -&gt; ReadS UpdateParam
 $creadsPrec :: Int -&gt; ReadS UpdateParam
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679269764"><span id="local-6989586621679269766"><span id="local-6989586621679269768"><span class="annot"><span class="annottext">Int -&gt; UpdateParam -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270032"><span id="local-6989586621679270034"><span id="local-6989586621679270036"><span class="annot"><span class="annottext">Int -&gt; UpdateParam -&gt; ShowS
 [UpdateParam] -&gt; ShowS
 UpdateParam -&gt; String
 (Int -&gt; UpdateParam -&gt; ShowS)
@@ -123,16 +123,16 @@ forall a. Maybe a
 -&gt; (UpdateParam -&gt; Maybe Text -&gt; UpdateParam)
 -&gt; Lens UpdateParam UpdateParam (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.UpdateParam.html#UpdateParam%27"><span class="hs-identifier hs-type">UpdateParam'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269755"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.UpdateParam.html#UpdateParam%27"><span class="hs-identifier hs-type">UpdateParam'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270023"><span class="annot"><span class="annottext">Maybe Text
 value :: Maybe Text
 $sel:value:UpdateParam' :: UpdateParam -&gt; Maybe Text
-</span><a href="#local-6989586621679269755"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679269755"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269754"><span class="annot"><span class="annottext">s :: UpdateParam
-</span><a href="#local-6989586621679269754"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.UpdateParam.html#UpdateParam%27"><span class="hs-identifier hs-type">UpdateParam'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269753"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679269753"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateParam
-</span><a href="#local-6989586621679269754"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:UpdateParam' :: Maybe Text
+</span><a href="#local-6989586621679270023"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679270023"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270022"><span class="annot"><span class="annottext">s :: UpdateParam
+</span><a href="#local-6989586621679270022"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.UpdateParam.html#UpdateParam%27"><span class="hs-identifier hs-type">UpdateParam'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270021"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679270021"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateParam
+</span><a href="#local-6989586621679270022"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:UpdateParam' :: Maybe Text
 </span><a href="Network.AWS.EKS.Types.UpdateParam.html#%24sel%3Avalue%3AUpdateParam%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679269753"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.UpdateParam.html#UpdateParam"><span class="hs-identifier hs-type">UpdateParam</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679270021"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.UpdateParam.html#UpdateParam"><span class="hs-identifier hs-type">UpdateParam</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- | The keys associated with an update request.</span><span>
 </span><span id="line-62"></span><span class="annot"><a href="Network.AWS.EKS.Types.UpdateParam.html#updateParam_type"><span class="hs-identifier hs-type">updateParam_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.UpdateParam.html#UpdateParam"><span class="hs-identifier hs-type">UpdateParam</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.UpdateParamType.html#UpdateParamType"><span class="hs-identifier hs-type">UpdateParamType</span></a></span><span class="hs-special">)</span><span>
@@ -146,19 +146,19 @@ $sel:value:UpdateParam' :: UpdateParam -&gt; Maybe Text
      (Maybe UpdateParamType)
      (Maybe UpdateParamType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.UpdateParam.html#UpdateParam%27"><span class="hs-identifier hs-type">UpdateParam'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269751"><span class="annot"><span class="annottext">Maybe UpdateParamType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.UpdateParam.html#UpdateParam%27"><span class="hs-identifier hs-type">UpdateParam'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270019"><span class="annot"><span class="annottext">Maybe UpdateParamType
 type' :: Maybe UpdateParamType
 $sel:type':UpdateParam' :: UpdateParam -&gt; Maybe UpdateParamType
-</span><a href="#local-6989586621679269751"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe UpdateParamType
-</span><a href="#local-6989586621679269751"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269750"><span class="annot"><span class="annottext">s :: UpdateParam
-</span><a href="#local-6989586621679269750"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.UpdateParam.html#UpdateParam%27"><span class="hs-identifier hs-type">UpdateParam'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269749"><span class="annot"><span class="annottext">Maybe UpdateParamType
-</span><a href="#local-6989586621679269749"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateParam
-</span><a href="#local-6989586621679269750"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':UpdateParam' :: Maybe UpdateParamType
+</span><a href="#local-6989586621679270019"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe UpdateParamType
+</span><a href="#local-6989586621679270019"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270018"><span class="annot"><span class="annottext">s :: UpdateParam
+</span><a href="#local-6989586621679270018"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.UpdateParam.html#UpdateParam%27"><span class="hs-identifier hs-type">UpdateParam'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270017"><span class="annot"><span class="annottext">Maybe UpdateParamType
+</span><a href="#local-6989586621679270017"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateParam
+</span><a href="#local-6989586621679270018"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':UpdateParam' :: Maybe UpdateParamType
 </span><a href="Network.AWS.EKS.Types.UpdateParam.html#%24sel%3Atype%27%3AUpdateParam%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UpdateParamType
-</span><a href="#local-6989586621679269749"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.UpdateParam.html#UpdateParam"><span class="hs-identifier hs-type">UpdateParam</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679270017"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.UpdateParam.html#UpdateParam"><span class="hs-identifier hs-type">UpdateParam</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679269746"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.UpdateParam.html#UpdateParam"><span class="hs-identifier hs-type">UpdateParam</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-66"></span><span>  </span><span id="local-6989586621679269744"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser UpdateParam
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270014"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.UpdateParam.html#UpdateParam"><span class="hs-identifier hs-type">UpdateParam</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679270012"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser UpdateParam
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser UpdateParam) -&gt; Value -&gt; Parser UpdateParam
@@ -166,8 +166,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;UpdateParam&quot;</span></span><span>
-</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679269741"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679269741"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679270009"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679270009"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-70"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe UpdateParamType -&gt; UpdateParam
 </span><a href="Network.AWS.EKS.Types.UpdateParam.html#UpdateParam%27"><span class="hs-identifier hs-var">UpdateParam'</span></a></span><span>
 </span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe UpdateParamType -&gt; UpdateParam)
@@ -175,20 +175,20 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe UpdateParamType -&gt; UpdateParam)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679269741"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679270009"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;value&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Parser (Maybe UpdateParamType -&gt; UpdateParam)
 -&gt; Parser (Maybe UpdateParamType) -&gt; Parser UpdateParam
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679269741"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe UpdateParamType)
+</span><a href="#local-6989586621679270009"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe UpdateParamType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;type&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679269735"><span id="local-6989586621679269737"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.UpdateParam.html#UpdateParam"><span class="hs-identifier hs-type">UpdateParam</span></a></span></span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270003"><span id="local-6989586621679270005"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.UpdateParam.html#UpdateParam"><span class="hs-identifier hs-type">UpdateParam</span></a></span></span></span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679269732"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.UpdateParam.html#UpdateParam"><span class="hs-identifier hs-type">UpdateParam</span></a></span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270000"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.UpdateParam.html#UpdateParam"><span class="hs-identifier hs-type">UpdateParam</span></a></span></span><span>
 </span><span id="line-77"></span></pre></body></html>

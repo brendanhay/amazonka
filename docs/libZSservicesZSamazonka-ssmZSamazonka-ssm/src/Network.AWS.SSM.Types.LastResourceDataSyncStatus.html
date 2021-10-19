@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679796779"><span id="local-6989586621679796780"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="LastResourceDataSyncStatus"><span class="annot"><a href="Network.AWS.SSM.Types.LastResourceDataSyncStatus.html#LastResourceDataSyncStatus"><span class="hs-identifier hs-var">LastResourceDataSyncStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LastResourceDataSyncStatus%27"><span class="annot"><a href="Network.AWS.SSM.Types.LastResourceDataSyncStatus.html#LastResourceDataSyncStatus%27"><span class="hs-identifier hs-var">LastResourceDataSyncStatus'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679798426"><span id="local-6989586621679798427"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="LastResourceDataSyncStatus"><span class="annot"><a href="Network.AWS.SSM.Types.LastResourceDataSyncStatus.html#LastResourceDataSyncStatus"><span class="hs-identifier hs-var">LastResourceDataSyncStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LastResourceDataSyncStatus%27"><span class="annot"><a href="Network.AWS.SSM.Types.LastResourceDataSyncStatus.html#LastResourceDataSyncStatus%27"><span class="hs-identifier hs-var">LastResourceDataSyncStatus'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromLastResourceDataSyncStatus"><span class="annot"><span class="annottext">LastResourceDataSyncStatus -&gt; Text
 </span><a href="Network.AWS.SSM.Types.LastResourceDataSyncStatus.html#fromLastResourceDataSyncStatus"><span class="hs-identifier hs-var hs-var">fromLastResourceDataSyncStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679796771"><span id="local-6989586621679796773"><span id="local-6989586621679796775"><span class="annot"><span class="annottext">Int -&gt; LastResourceDataSyncStatus -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679798418"><span id="local-6989586621679798420"><span id="local-6989586621679798422"><span class="annot"><span class="annottext">Int -&gt; LastResourceDataSyncStatus -&gt; ShowS
 [LastResourceDataSyncStatus] -&gt; ShowS
 LastResourceDataSyncStatus -&gt; String
 (Int -&gt; LastResourceDataSyncStatus -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: LastResourceDataSyncStatus -&gt; String
 showsPrec :: Int -&gt; LastResourceDataSyncStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; LastResourceDataSyncStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679796762"><span id="local-6989586621679796764"><span id="local-6989586621679796766"><span id="local-6989586621679796768"><span class="annot"><span class="annottext">ReadPrec [LastResourceDataSyncStatus]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679798409"><span id="local-6989586621679798411"><span id="local-6989586621679798413"><span id="local-6989586621679798415"><span class="annot"><span class="annottext">ReadPrec [LastResourceDataSyncStatus]
 ReadPrec LastResourceDataSyncStatus
 Int -&gt; ReadS LastResourceDataSyncStatus
 ReadS [LastResourceDataSyncStatus]
@@ -73,7 +73,7 @@ $creadList :: ReadS [LastResourceDataSyncStatus]
 readsPrec :: Int -&gt; ReadS LastResourceDataSyncStatus
 $creadsPrec :: Int -&gt; ReadS LastResourceDataSyncStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679796757"><span id="local-6989586621679796759"><span class="annot"><span class="annottext">LastResourceDataSyncStatus -&gt; LastResourceDataSyncStatus -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679798404"><span id="local-6989586621679798406"><span class="annot"><span class="annottext">LastResourceDataSyncStatus -&gt; LastResourceDataSyncStatus -&gt; Bool
 (LastResourceDataSyncStatus -&gt; LastResourceDataSyncStatus -&gt; Bool)
 -&gt; (LastResourceDataSyncStatus
     -&gt; LastResourceDataSyncStatus -&gt; Bool)
@@ -84,7 +84,7 @@ $c/= :: LastResourceDataSyncStatus -&gt; LastResourceDataSyncStatus -&gt; Bool
 == :: LastResourceDataSyncStatus -&gt; LastResourceDataSyncStatus -&gt; Bool
 $c== :: LastResourceDataSyncStatus -&gt; LastResourceDataSyncStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679796741"><span id="local-6989586621679796743"><span id="local-6989586621679796745"><span id="local-6989586621679796747"><span id="local-6989586621679796749"><span id="local-6989586621679796751"><span id="local-6989586621679796753"><span class="annot"><span class="annottext">Eq LastResourceDataSyncStatus
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679798388"><span id="local-6989586621679798390"><span id="local-6989586621679798392"><span id="local-6989586621679798394"><span id="local-6989586621679798396"><span id="local-6989586621679798398"><span id="local-6989586621679798400"><span class="annot"><span class="annottext">Eq LastResourceDataSyncStatus
 Eq LastResourceDataSyncStatus
 -&gt; (LastResourceDataSyncStatus
     -&gt; LastResourceDataSyncStatus -&gt; Ordering)
@@ -156,7 +156,7 @@ LastResourceDataSyncStatus -&gt; Rep LastResourceDataSyncStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679796733"><span id="local-6989586621679796735"><span class="annot"><span class="annottext">Int -&gt; LastResourceDataSyncStatus -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679798380"><span id="local-6989586621679798382"><span class="annot"><span class="annottext">Int -&gt; LastResourceDataSyncStatus -&gt; Int
 LastResourceDataSyncStatus -&gt; Int
 (Int -&gt; LastResourceDataSyncStatus -&gt; Int)
 -&gt; (LastResourceDataSyncStatus -&gt; Int)
@@ -167,56 +167,56 @@ $chash :: LastResourceDataSyncStatus -&gt; Int
 hashWithSalt :: Int -&gt; LastResourceDataSyncStatus -&gt; Int
 $chashWithSalt :: Int -&gt; LastResourceDataSyncStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679796730"><span class="annot"><span class="annottext">LastResourceDataSyncStatus -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679798377"><span class="annot"><span class="annottext">LastResourceDataSyncStatus -&gt; ()
 (LastResourceDataSyncStatus -&gt; ())
 -&gt; NFData LastResourceDataSyncStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: LastResourceDataSyncStatus -&gt; ()
 $crnf :: LastResourceDataSyncStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679796727"><span class="annot"><span class="annottext">Text -&gt; Either String LastResourceDataSyncStatus
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679798374"><span class="annot"><span class="annottext">Text -&gt; Either String LastResourceDataSyncStatus
 (Text -&gt; Either String LastResourceDataSyncStatus)
 -&gt; FromText LastResourceDataSyncStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String LastResourceDataSyncStatus
 $cfromText :: Text -&gt; Either String LastResourceDataSyncStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679796724"><span class="annot"><span class="annottext">LastResourceDataSyncStatus -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679798371"><span class="annot"><span class="annottext">LastResourceDataSyncStatus -&gt; Text
 (LastResourceDataSyncStatus -&gt; Text)
 -&gt; ToText LastResourceDataSyncStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: LastResourceDataSyncStatus -&gt; Text
 $ctoText :: LastResourceDataSyncStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679796721"><span class="annot"><span class="annottext">LastResourceDataSyncStatus -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679798368"><span class="annot"><span class="annottext">LastResourceDataSyncStatus -&gt; ByteString
 (LastResourceDataSyncStatus -&gt; ByteString)
 -&gt; ToByteString LastResourceDataSyncStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: LastResourceDataSyncStatus -&gt; ByteString
 $ctoBS :: LastResourceDataSyncStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679796718"><span class="annot"><span class="annottext">LastResourceDataSyncStatus -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679798365"><span class="annot"><span class="annottext">LastResourceDataSyncStatus -&gt; ByteStringBuilder
 (LastResourceDataSyncStatus -&gt; ByteStringBuilder)
 -&gt; ToLog LastResourceDataSyncStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: LastResourceDataSyncStatus -&gt; ByteStringBuilder
 $cbuild :: LastResourceDataSyncStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679796715"><span class="annot"><span class="annottext">HeaderName -&gt; LastResourceDataSyncStatus -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679798362"><span class="annot"><span class="annottext">HeaderName -&gt; LastResourceDataSyncStatus -&gt; [Header]
 (HeaderName -&gt; LastResourceDataSyncStatus -&gt; [Header])
 -&gt; ToHeader LastResourceDataSyncStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; LastResourceDataSyncStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; LastResourceDataSyncStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679796712"><span class="annot"><span class="annottext">LastResourceDataSyncStatus -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679798359"><span class="annot"><span class="annottext">LastResourceDataSyncStatus -&gt; QueryString
 (LastResourceDataSyncStatus -&gt; QueryString)
 -&gt; ToQuery LastResourceDataSyncStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: LastResourceDataSyncStatus -&gt; QueryString
 $ctoQuery :: LastResourceDataSyncStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679796707"><span id="local-6989586621679796709"><span class="annot"><span class="annottext">Value -&gt; Parser [LastResourceDataSyncStatus]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679798354"><span id="local-6989586621679798356"><span class="annot"><span class="annottext">Value -&gt; Parser [LastResourceDataSyncStatus]
 Value -&gt; Parser LastResourceDataSyncStatus
 (Value -&gt; Parser LastResourceDataSyncStatus)
 -&gt; (Value -&gt; Parser [LastResourceDataSyncStatus])
@@ -228,7 +228,7 @@ $cparseJSONList :: Value -&gt; Parser [LastResourceDataSyncStatus]
 parseJSON :: Value -&gt; Parser LastResourceDataSyncStatus
 $cparseJSON :: Value -&gt; Parser LastResourceDataSyncStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679796702"><span id="local-6989586621679796704"><span class="annot"><span class="annottext">FromJSONKeyFunction [LastResourceDataSyncStatus]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679798349"><span id="local-6989586621679798351"><span class="annot"><span class="annottext">FromJSONKeyFunction [LastResourceDataSyncStatus]
 FromJSONKeyFunction LastResourceDataSyncStatus
 FromJSONKeyFunction LastResourceDataSyncStatus
 -&gt; FromJSONKeyFunction [LastResourceDataSyncStatus]
@@ -240,7 +240,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [LastResourceDataSyncStatus]
 fromJSONKey :: FromJSONKeyFunction LastResourceDataSyncStatus
 $cfromJSONKey :: FromJSONKeyFunction LastResourceDataSyncStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679796693"><span id="local-6989586621679796695"><span id="local-6989586621679796697"><span id="local-6989586621679796699"><span class="annot"><span class="annottext">[LastResourceDataSyncStatus] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679798340"><span id="local-6989586621679798342"><span id="local-6989586621679798344"><span id="local-6989586621679798346"><span class="annot"><span class="annottext">[LastResourceDataSyncStatus] -&gt; Encoding
 [LastResourceDataSyncStatus] -&gt; Value
 LastResourceDataSyncStatus -&gt; Encoding
 LastResourceDataSyncStatus -&gt; Value
@@ -264,7 +264,7 @@ $ctoEncoding :: LastResourceDataSyncStatus -&gt; Encoding
 toJSON :: LastResourceDataSyncStatus -&gt; Value
 $ctoJSON :: LastResourceDataSyncStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679796688"><span id="local-6989586621679796690"><span class="annot"><span class="annottext">ToJSONKeyFunction [LastResourceDataSyncStatus]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679798335"><span id="local-6989586621679798337"><span class="annot"><span class="annottext">ToJSONKeyFunction [LastResourceDataSyncStatus]
 ToJSONKeyFunction LastResourceDataSyncStatus
 ToJSONKeyFunction LastResourceDataSyncStatus
 -&gt; ToJSONKeyFunction [LastResourceDataSyncStatus]
@@ -276,14 +276,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [LastResourceDataSyncStatus]
 toJSONKey :: ToJSONKeyFunction LastResourceDataSyncStatus
 $ctoJSONKey :: ToJSONKeyFunction LastResourceDataSyncStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679796685"><span class="annot"><span class="annottext">[Node] -&gt; Either String LastResourceDataSyncStatus
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679798332"><span class="annot"><span class="annottext">[Node] -&gt; Either String LastResourceDataSyncStatus
 ([Node] -&gt; Either String LastResourceDataSyncStatus)
 -&gt; FromXML LastResourceDataSyncStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String LastResourceDataSyncStatus
 $cparseXML :: [Node] -&gt; Either String LastResourceDataSyncStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679796682"><span class="annot"><span class="annottext">LastResourceDataSyncStatus -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679798329"><span class="annot"><span class="annottext">LastResourceDataSyncStatus -&gt; XML
 (LastResourceDataSyncStatus -&gt; XML)
 -&gt; ToXML LastResourceDataSyncStatus
 forall a. (a -&gt; XML) -&gt; ToXML a

@@ -40,8 +40,8 @@
 </span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#newUpdateGameSession"><span class="hs-identifier">newUpdateGameSession</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-41"></span><span>
 </span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#updateGameSession_playerSessionCreationPolicy"><span class="hs-identifier">updateGameSession_playerSessionCreationPolicy</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#updateGameSession_maximumPlayerSessionCount"><span class="hs-identifier">updateGameSession_maximumPlayerSessionCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#updateGameSession_maximumPlayerSessionCount"><span class="hs-identifier">updateGameSession_maximumPlayerSessionCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#updateGameSession_playerSessionCreationPolicy"><span class="hs-identifier">updateGameSession_playerSessionCreationPolicy</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#updateGameSession_name"><span class="hs-identifier">updateGameSession_name</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#updateGameSession_protectionPolicy"><span class="hs-identifier">updateGameSession_protectionPolicy</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#updateGameSession_gameSessionId"><span class="hs-identifier">updateGameSession_gameSessionId</span></a></span><span class="hs-special">,</span><span>
@@ -66,15 +66,15 @@
 </span><span id="line-66"></span><span class="hs-comment">-- | Represents the input for a request operation.</span><span>
 </span><span id="line-67"></span><span class="hs-comment">--</span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- /See:/ 'newUpdateGameSession' smart constructor.</span><span>
-</span><span id="line-69"></span><span id="local-6989586621679465111"><span id="local-6989586621679465112"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateGameSession"><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#UpdateGameSession"><span class="hs-identifier hs-var">UpdateGameSession</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateGameSession%27"><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#UpdateGameSession%27"><span class="hs-identifier hs-var">UpdateGameSession'</span></a></span></span><span>
-</span><span id="line-70"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A policy that determines whether the game session is accepting new</span><span>
-</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- players.</span><span>
-</span><span id="line-72"></span><span>    </span><span id="%24sel%3AplayerSessionCreationPolicy%3AUpdateGameSession%27"><span class="annot"><span class="annottext">UpdateGameSession -&gt; Maybe PlayerSessionCreationPolicy
-</span><a href="Network.AWS.GameLift.UpdateGameSession.html#%24sel%3AplayerSessionCreationPolicy%3AUpdateGameSession%27"><span class="hs-identifier hs-var hs-var">playerSessionCreationPolicy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.PlayerSessionCreationPolicy.html#PlayerSessionCreationPolicy"><span class="hs-identifier hs-type">PlayerSessionCreationPolicy</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | The maximum number of players that can be connected simultaneously to</span><span>
-</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- the game session.</span><span>
-</span><span id="line-75"></span><span>    </span><span id="%24sel%3AmaximumPlayerSessionCount%3AUpdateGameSession%27"><span class="annot"><span class="annottext">UpdateGameSession -&gt; Maybe Natural
+</span><span id="line-69"></span><span id="local-6989586621679465638"><span id="local-6989586621679465639"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateGameSession"><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#UpdateGameSession"><span class="hs-identifier hs-var">UpdateGameSession</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateGameSession%27"><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#UpdateGameSession%27"><span class="hs-identifier hs-var">UpdateGameSession'</span></a></span></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The maximum number of players that can be connected simultaneously to</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- the game session.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AmaximumPlayerSessionCount%3AUpdateGameSession%27"><span class="annot"><span class="annottext">UpdateGameSession -&gt; Maybe Natural
 </span><a href="Network.AWS.GameLift.UpdateGameSession.html#%24sel%3AmaximumPlayerSessionCount%3AUpdateGameSession%27"><span class="hs-identifier hs-var hs-var">maximumPlayerSessionCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | A policy that determines whether the game session is accepting new</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- players.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3AplayerSessionCreationPolicy%3AUpdateGameSession%27"><span class="annot"><span class="annottext">UpdateGameSession -&gt; Maybe PlayerSessionCreationPolicy
+</span><a href="Network.AWS.GameLift.UpdateGameSession.html#%24sel%3AplayerSessionCreationPolicy%3AUpdateGameSession%27"><span class="hs-identifier hs-var hs-var">playerSessionCreationPolicy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.PlayerSessionCreationPolicy.html#PlayerSessionCreationPolicy"><span class="hs-identifier hs-type">PlayerSessionCreationPolicy</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | A descriptive label that is associated with a game session. Session</span><span>
 </span><span id="line-77"></span><span>    </span><span class="hs-comment">-- names do not need to be unique.</span><span>
 </span><span id="line-78"></span><span>    </span><span id="%24sel%3Aname%3AUpdateGameSession%27"><span class="annot"><span class="annottext">UpdateGameSession -&gt; Maybe Text
@@ -92,7 +92,7 @@
 </span><span id="line-88"></span><span>    </span><span id="%24sel%3AgameSessionId%3AUpdateGameSession%27"><span class="annot"><span class="annottext">UpdateGameSession -&gt; Text
 </span><a href="Network.AWS.GameLift.UpdateGameSession.html#%24sel%3AgameSessionId%3AUpdateGameSession%27"><span class="hs-identifier hs-var hs-var">gameSessionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-89"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-90"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679465101"><span id="local-6989586621679465103"><span class="annot"><span class="annottext">UpdateGameSession -&gt; UpdateGameSession -&gt; Bool
+</span><span id="line-90"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679465628"><span id="local-6989586621679465630"><span class="annot"><span class="annottext">UpdateGameSession -&gt; UpdateGameSession -&gt; Bool
 (UpdateGameSession -&gt; UpdateGameSession -&gt; Bool)
 -&gt; (UpdateGameSession -&gt; UpdateGameSession -&gt; Bool)
 -&gt; Eq UpdateGameSession
@@ -101,7 +101,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateGameSession -&gt; UpdateGameSession -&gt; Bool
 == :: UpdateGameSession -&gt; UpdateGameSession -&gt; Bool
 $c== :: UpdateGameSession -&gt; UpdateGameSession -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679465092"><span id="local-6989586621679465094"><span id="local-6989586621679465096"><span id="local-6989586621679465098"><span class="annot"><span class="annottext">ReadPrec [UpdateGameSession]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679465619"><span id="local-6989586621679465621"><span id="local-6989586621679465623"><span id="local-6989586621679465625"><span class="annot"><span class="annottext">ReadPrec [UpdateGameSession]
 ReadPrec UpdateGameSession
 Int -&gt; ReadS UpdateGameSession
 ReadS [UpdateGameSession]
@@ -121,7 +121,7 @@ readList :: ReadS [UpdateGameSession]
 $creadList :: ReadS [UpdateGameSession]
 readsPrec :: Int -&gt; ReadS UpdateGameSession
 $creadsPrec :: Int -&gt; ReadS UpdateGameSession
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679465085"><span id="local-6989586621679465087"><span id="local-6989586621679465089"><span class="annot"><span class="annottext">Int -&gt; UpdateGameSession -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679465612"><span id="local-6989586621679465614"><span id="local-6989586621679465616"><span class="annot"><span class="annottext">Int -&gt; UpdateGameSession -&gt; ShowS
 [UpdateGameSession] -&gt; ShowS
 UpdateGameSession -&gt; String
 (Int -&gt; UpdateGameSession -&gt; ShowS)
@@ -155,11 +155,11 @@ $cfrom :: forall x. UpdateGameSession -&gt; Rep UpdateGameSession x
 </span><span id="line-97"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-99"></span><span class="hs-comment">--</span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- 'playerSessionCreationPolicy', 'updateGameSession_playerSessionCreationPolicy' - A policy that determines whether the game session is accepting new</span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- players.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'maximumPlayerSessionCount', 'updateGameSession_maximumPlayerSessionCount' - The maximum number of players that can be connected simultaneously to</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- the game session.</span><span>
 </span><span id="line-102"></span><span class="hs-comment">--</span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- 'maximumPlayerSessionCount', 'updateGameSession_maximumPlayerSessionCount' - The maximum number of players that can be connected simultaneously to</span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- the game session.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 'playerSessionCreationPolicy', 'updateGameSession_playerSessionCreationPolicy' - A policy that determines whether the game session is accepting new</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- players.</span><span>
 </span><span id="line-105"></span><span class="hs-comment">--</span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- 'name', 'updateGameSession_name' - A descriptive label that is associated with a game session. Session</span><span>
 </span><span id="line-107"></span><span class="hs-comment">-- names do not need to be unique.</span><span>
@@ -178,22 +178,22 @@ $cfrom :: forall x. UpdateGameSession -&gt; Rep UpdateGameSession x
 </span><span id="line-120"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-121"></span><span>  </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#UpdateGameSession"><span class="hs-identifier hs-type">UpdateGameSession</span></a></span><span>
 </span><span id="line-122"></span><span id="newUpdateGameSession"><span class="annot"><span class="annottext">newUpdateGameSession :: Text -&gt; UpdateGameSession
-</span><a href="Network.AWS.GameLift.UpdateGameSession.html#newUpdateGameSession"><span class="hs-identifier hs-var hs-var">newUpdateGameSession</span></a></span></span><span> </span><span id="local-6989586621679465080"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679465080"><span class="hs-identifier hs-var">pGameSessionId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-123"></span><span>  </span><span class="annot"><span class="annottext">UpdateGameSession' :: Maybe PlayerSessionCreationPolicy
--&gt; Maybe Natural
+</span><a href="Network.AWS.GameLift.UpdateGameSession.html#newUpdateGameSession"><span class="hs-identifier hs-var hs-var">newUpdateGameSession</span></a></span></span><span> </span><span id="local-6989586621679465607"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679465607"><span class="hs-identifier hs-var">pGameSessionId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>  </span><span class="annot"><span class="annottext">UpdateGameSession' :: Maybe Natural
+-&gt; Maybe PlayerSessionCreationPolicy
 -&gt; Maybe Text
 -&gt; Maybe ProtectionPolicy
 -&gt; Text
 -&gt; UpdateGameSession
 </span><a href="Network.AWS.GameLift.UpdateGameSession.html#UpdateGameSession%27"><span class="hs-identifier hs-type">UpdateGameSession'</span></a></span><span>
-</span><span id="line-124"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:playerSessionCreationPolicy:UpdateGameSession' :: Maybe PlayerSessionCreationPolicy
-</span><a href="Network.AWS.GameLift.UpdateGameSession.html#%24sel%3AplayerSessionCreationPolicy%3AUpdateGameSession%27"><span class="hs-identifier hs-var">playerSessionCreationPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-125"></span><span>        </span><span class="annot"><span class="annottext">Maybe PlayerSessionCreationPolicy
+</span><span id="line-124"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:maximumPlayerSessionCount:UpdateGameSession' :: Maybe Natural
+</span><a href="Network.AWS.GameLift.UpdateGameSession.html#%24sel%3AmaximumPlayerSessionCount%3AUpdateGameSession%27"><span class="hs-identifier hs-var">maximumPlayerSessionCount</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-125"></span><span>        </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">$sel:maximumPlayerSessionCount:UpdateGameSession' :: Maybe Natural
-</span><a href="Network.AWS.GameLift.UpdateGameSession.html#%24sel%3AmaximumPlayerSessionCount%3AUpdateGameSession%27"><span class="hs-identifier hs-var">maximumPlayerSessionCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">$sel:playerSessionCreationPolicy:UpdateGameSession' :: Maybe PlayerSessionCreationPolicy
+</span><a href="Network.AWS.GameLift.UpdateGameSession.html#%24sel%3AplayerSessionCreationPolicy%3AUpdateGameSession%27"><span class="hs-identifier hs-var">playerSessionCreationPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PlayerSessionCreationPolicy
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:UpdateGameSession' :: Maybe Text
@@ -206,13 +206,34 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-129"></span><span>      </span><span class="annot"><span class="annottext">$sel:gameSessionId:UpdateGameSession' :: Text
 </span><a href="Network.AWS.GameLift.UpdateGameSession.html#%24sel%3AgameSessionId%3AUpdateGameSession%27"><span class="hs-identifier hs-var">gameSessionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679465080"><span class="hs-identifier hs-var">pGameSessionId_</span></a></span><span>
+</span><a href="#local-6989586621679465607"><span class="hs-identifier hs-var">pGameSessionId_</span></a></span><span>
 </span><span id="line-130"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-131"></span><span>
-</span><span id="line-132"></span><span class="hs-comment">-- | A policy that determines whether the game session is accepting new</span><span>
-</span><span id="line-133"></span><span class="hs-comment">-- players.</span><span>
-</span><span id="line-134"></span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#updateGameSession_playerSessionCreationPolicy"><span class="hs-identifier hs-type">updateGameSession_playerSessionCreationPolicy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#UpdateGameSession"><span class="hs-identifier hs-type">UpdateGameSession</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.PlayerSessionCreationPolicy.html#PlayerSessionCreationPolicy"><span class="hs-identifier hs-type">PlayerSessionCreationPolicy</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-135"></span><span id="updateGameSession_playerSessionCreationPolicy"><span class="annot"><span class="annottext">updateGameSession_playerSessionCreationPolicy :: (Maybe PlayerSessionCreationPolicy
+</span><span id="line-132"></span><span class="hs-comment">-- | The maximum number of players that can be connected simultaneously to</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- the game session.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#updateGameSession_maximumPlayerSessionCount"><span class="hs-identifier hs-type">updateGameSession_maximumPlayerSessionCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#UpdateGameSession"><span class="hs-identifier hs-type">UpdateGameSession</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span id="updateGameSession_maximumPlayerSessionCount"><span class="annot"><span class="annottext">updateGameSession_maximumPlayerSessionCount :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; UpdateGameSession -&gt; f UpdateGameSession
+</span><a href="Network.AWS.GameLift.UpdateGameSession.html#updateGameSession_maximumPlayerSessionCount"><span class="hs-identifier hs-var hs-var">updateGameSession_maximumPlayerSessionCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateGameSession -&gt; Maybe Natural)
+-&gt; (UpdateGameSession -&gt; Maybe Natural -&gt; UpdateGameSession)
+-&gt; Lens
+     UpdateGameSession UpdateGameSession (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#UpdateGameSession%27"><span class="hs-identifier hs-type">UpdateGameSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465604"><span class="annot"><span class="annottext">Maybe Natural
+maximumPlayerSessionCount :: Maybe Natural
+$sel:maximumPlayerSessionCount:UpdateGameSession' :: UpdateGameSession -&gt; Maybe Natural
+</span><a href="#local-6989586621679465604"><span class="hs-identifier hs-var hs-var">maximumPlayerSessionCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679465604"><span class="hs-identifier hs-var">maximumPlayerSessionCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679465603"><span class="annot"><span class="annottext">s :: UpdateGameSession
+</span><a href="#local-6989586621679465603"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#UpdateGameSession%27"><span class="hs-identifier hs-type">UpdateGameSession'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679465602"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679465602"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGameSession
+</span><a href="#local-6989586621679465603"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maximumPlayerSessionCount:UpdateGameSession' :: Maybe Natural
+</span><a href="Network.AWS.GameLift.UpdateGameSession.html#%24sel%3AmaximumPlayerSessionCount%3AUpdateGameSession%27"><span class="hs-identifier hs-var">maximumPlayerSessionCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679465602"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#UpdateGameSession"><span class="hs-identifier hs-type">UpdateGameSession</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | A policy that determines whether the game session is accepting new</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- players.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#updateGameSession_playerSessionCreationPolicy"><span class="hs-identifier hs-type">updateGameSession_playerSessionCreationPolicy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#UpdateGameSession"><span class="hs-identifier hs-type">UpdateGameSession</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.PlayerSessionCreationPolicy.html#PlayerSessionCreationPolicy"><span class="hs-identifier hs-type">PlayerSessionCreationPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span id="updateGameSession_playerSessionCreationPolicy"><span class="annot"><span class="annottext">updateGameSession_playerSessionCreationPolicy :: (Maybe PlayerSessionCreationPolicy
  -&gt; f (Maybe PlayerSessionCreationPolicy))
 -&gt; UpdateGameSession -&gt; f UpdateGameSession
 </span><a href="Network.AWS.GameLift.UpdateGameSession.html#updateGameSession_playerSessionCreationPolicy"><span class="hs-identifier hs-var hs-var">updateGameSession_playerSessionCreationPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateGameSession -&gt; Maybe PlayerSessionCreationPolicy)
@@ -224,37 +245,16 @@ forall a. Maybe a
      (Maybe PlayerSessionCreationPolicy)
      (Maybe PlayerSessionCreationPolicy)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#UpdateGameSession%27"><span class="hs-identifier hs-type">UpdateGameSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465077"><span class="annot"><span class="annottext">Maybe PlayerSessionCreationPolicy
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#UpdateGameSession%27"><span class="hs-identifier hs-type">UpdateGameSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465601"><span class="annot"><span class="annottext">Maybe PlayerSessionCreationPolicy
 playerSessionCreationPolicy :: Maybe PlayerSessionCreationPolicy
 $sel:playerSessionCreationPolicy:UpdateGameSession' :: UpdateGameSession -&gt; Maybe PlayerSessionCreationPolicy
-</span><a href="#local-6989586621679465077"><span class="hs-identifier hs-var hs-var">playerSessionCreationPolicy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PlayerSessionCreationPolicy
-</span><a href="#local-6989586621679465077"><span class="hs-identifier hs-var">playerSessionCreationPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679465076"><span class="annot"><span class="annottext">s :: UpdateGameSession
-</span><a href="#local-6989586621679465076"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#UpdateGameSession%27"><span class="hs-identifier hs-type">UpdateGameSession'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679465075"><span class="annot"><span class="annottext">Maybe PlayerSessionCreationPolicy
-</span><a href="#local-6989586621679465075"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGameSession
-</span><a href="#local-6989586621679465076"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:playerSessionCreationPolicy:UpdateGameSession' :: Maybe PlayerSessionCreationPolicy
+</span><a href="#local-6989586621679465601"><span class="hs-identifier hs-var hs-var">playerSessionCreationPolicy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PlayerSessionCreationPolicy
+</span><a href="#local-6989586621679465601"><span class="hs-identifier hs-var">playerSessionCreationPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679465600"><span class="annot"><span class="annottext">s :: UpdateGameSession
+</span><a href="#local-6989586621679465600"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#UpdateGameSession%27"><span class="hs-identifier hs-type">UpdateGameSession'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679465599"><span class="annot"><span class="annottext">Maybe PlayerSessionCreationPolicy
+</span><a href="#local-6989586621679465599"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGameSession
+</span><a href="#local-6989586621679465600"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:playerSessionCreationPolicy:UpdateGameSession' :: Maybe PlayerSessionCreationPolicy
 </span><a href="Network.AWS.GameLift.UpdateGameSession.html#%24sel%3AplayerSessionCreationPolicy%3AUpdateGameSession%27"><span class="hs-identifier hs-var">playerSessionCreationPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PlayerSessionCreationPolicy
-</span><a href="#local-6989586621679465075"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#UpdateGameSession"><span class="hs-identifier hs-type">UpdateGameSession</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-136"></span><span>
-</span><span id="line-137"></span><span class="hs-comment">-- | The maximum number of players that can be connected simultaneously to</span><span>
-</span><span id="line-138"></span><span class="hs-comment">-- the game session.</span><span>
-</span><span id="line-139"></span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#updateGameSession_maximumPlayerSessionCount"><span class="hs-identifier hs-type">updateGameSession_maximumPlayerSessionCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#UpdateGameSession"><span class="hs-identifier hs-type">UpdateGameSession</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-140"></span><span id="updateGameSession_maximumPlayerSessionCount"><span class="annot"><span class="annottext">updateGameSession_maximumPlayerSessionCount :: (Maybe Natural -&gt; f (Maybe Natural))
--&gt; UpdateGameSession -&gt; f UpdateGameSession
-</span><a href="Network.AWS.GameLift.UpdateGameSession.html#updateGameSession_maximumPlayerSessionCount"><span class="hs-identifier hs-var hs-var">updateGameSession_maximumPlayerSessionCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateGameSession -&gt; Maybe Natural)
--&gt; (UpdateGameSession -&gt; Maybe Natural -&gt; UpdateGameSession)
--&gt; Lens
-     UpdateGameSession UpdateGameSession (Maybe Natural) (Maybe Natural)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#UpdateGameSession%27"><span class="hs-identifier hs-type">UpdateGameSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465074"><span class="annot"><span class="annottext">Maybe Natural
-maximumPlayerSessionCount :: Maybe Natural
-$sel:maximumPlayerSessionCount:UpdateGameSession' :: UpdateGameSession -&gt; Maybe Natural
-</span><a href="#local-6989586621679465074"><span class="hs-identifier hs-var hs-var">maximumPlayerSessionCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679465074"><span class="hs-identifier hs-var">maximumPlayerSessionCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679465073"><span class="annot"><span class="annottext">s :: UpdateGameSession
-</span><a href="#local-6989586621679465073"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#UpdateGameSession%27"><span class="hs-identifier hs-type">UpdateGameSession'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679465072"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679465072"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGameSession
-</span><a href="#local-6989586621679465073"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maximumPlayerSessionCount:UpdateGameSession' :: Maybe Natural
-</span><a href="Network.AWS.GameLift.UpdateGameSession.html#%24sel%3AmaximumPlayerSessionCount%3AUpdateGameSession%27"><span class="hs-identifier hs-var">maximumPlayerSessionCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679465072"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#UpdateGameSession"><span class="hs-identifier hs-type">UpdateGameSession</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679465599"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#UpdateGameSession"><span class="hs-identifier hs-type">UpdateGameSession</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- | A descriptive label that is associated with a game session. Session</span><span>
 </span><span id="line-143"></span><span class="hs-comment">-- names do not need to be unique.</span><span>
@@ -266,16 +266,16 @@ $sel:maximumPlayerSessionCount:UpdateGameSession' :: UpdateGameSession -&gt; May
 -&gt; Lens
      UpdateGameSession UpdateGameSession (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#UpdateGameSession%27"><span class="hs-identifier hs-type">UpdateGameSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465071"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#UpdateGameSession%27"><span class="hs-identifier hs-type">UpdateGameSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465598"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 $sel:name:UpdateGameSession' :: UpdateGameSession -&gt; Maybe Text
-</span><a href="#local-6989586621679465071"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679465071"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679465070"><span class="annot"><span class="annottext">s :: UpdateGameSession
-</span><a href="#local-6989586621679465070"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#UpdateGameSession%27"><span class="hs-identifier hs-type">UpdateGameSession'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679465069"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679465069"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGameSession
-</span><a href="#local-6989586621679465070"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:UpdateGameSession' :: Maybe Text
+</span><a href="#local-6989586621679465598"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679465598"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679465597"><span class="annot"><span class="annottext">s :: UpdateGameSession
+</span><a href="#local-6989586621679465597"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#UpdateGameSession%27"><span class="hs-identifier hs-type">UpdateGameSession'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679465596"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679465596"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGameSession
+</span><a href="#local-6989586621679465597"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:UpdateGameSession' :: Maybe Text
 </span><a href="Network.AWS.GameLift.UpdateGameSession.html#%24sel%3Aname%3AUpdateGameSession%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679465069"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#UpdateGameSession"><span class="hs-identifier hs-type">UpdateGameSession</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679465596"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#UpdateGameSession"><span class="hs-identifier hs-type">UpdateGameSession</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-comment">-- | Game session protection policy to apply to this game session only.</span><span>
 </span><span id="line-148"></span><span class="hs-comment">--</span><span>
@@ -296,16 +296,16 @@ $sel:name:UpdateGameSession' :: UpdateGameSession -&gt; Maybe Text
      (Maybe ProtectionPolicy)
      (Maybe ProtectionPolicy)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#UpdateGameSession%27"><span class="hs-identifier hs-type">UpdateGameSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465068"><span class="annot"><span class="annottext">Maybe ProtectionPolicy
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#UpdateGameSession%27"><span class="hs-identifier hs-type">UpdateGameSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465595"><span class="annot"><span class="annottext">Maybe ProtectionPolicy
 protectionPolicy :: Maybe ProtectionPolicy
 $sel:protectionPolicy:UpdateGameSession' :: UpdateGameSession -&gt; Maybe ProtectionPolicy
-</span><a href="#local-6989586621679465068"><span class="hs-identifier hs-var hs-var">protectionPolicy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ProtectionPolicy
-</span><a href="#local-6989586621679465068"><span class="hs-identifier hs-var">protectionPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679465067"><span class="annot"><span class="annottext">s :: UpdateGameSession
-</span><a href="#local-6989586621679465067"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#UpdateGameSession%27"><span class="hs-identifier hs-type">UpdateGameSession'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679465066"><span class="annot"><span class="annottext">Maybe ProtectionPolicy
-</span><a href="#local-6989586621679465066"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGameSession
-</span><a href="#local-6989586621679465067"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:protectionPolicy:UpdateGameSession' :: Maybe ProtectionPolicy
+</span><a href="#local-6989586621679465595"><span class="hs-identifier hs-var hs-var">protectionPolicy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ProtectionPolicy
+</span><a href="#local-6989586621679465595"><span class="hs-identifier hs-var">protectionPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679465594"><span class="annot"><span class="annottext">s :: UpdateGameSession
+</span><a href="#local-6989586621679465594"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#UpdateGameSession%27"><span class="hs-identifier hs-type">UpdateGameSession'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679465593"><span class="annot"><span class="annottext">Maybe ProtectionPolicy
+</span><a href="#local-6989586621679465593"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGameSession
+</span><a href="#local-6989586621679465594"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:protectionPolicy:UpdateGameSession' :: Maybe ProtectionPolicy
 </span><a href="Network.AWS.GameLift.UpdateGameSession.html#%24sel%3AprotectionPolicy%3AUpdateGameSession%27"><span class="hs-identifier hs-var">protectionPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProtectionPolicy
-</span><a href="#local-6989586621679465066"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#UpdateGameSession"><span class="hs-identifier hs-type">UpdateGameSession</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679465593"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#UpdateGameSession"><span class="hs-identifier hs-type">UpdateGameSession</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-comment">-- | A unique identifier for the game session to update.</span><span>
 </span><span id="line-158"></span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#updateGameSession_gameSessionId"><span class="hs-identifier hs-type">updateGameSession_gameSessionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#UpdateGameSession"><span class="hs-identifier hs-type">UpdateGameSession</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -314,27 +314,27 @@ $sel:protectionPolicy:UpdateGameSession' :: UpdateGameSession -&gt; Maybe Protec
 -&gt; (UpdateGameSession -&gt; Text -&gt; UpdateGameSession)
 -&gt; Lens UpdateGameSession UpdateGameSession Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#UpdateGameSession%27"><span class="hs-identifier hs-type">UpdateGameSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465065"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#UpdateGameSession%27"><span class="hs-identifier hs-type">UpdateGameSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465592"><span class="annot"><span class="annottext">Text
 gameSessionId :: Text
 $sel:gameSessionId:UpdateGameSession' :: UpdateGameSession -&gt; Text
-</span><a href="#local-6989586621679465065"><span class="hs-identifier hs-var hs-var">gameSessionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679465065"><span class="hs-identifier hs-var">gameSessionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679465064"><span class="annot"><span class="annottext">s :: UpdateGameSession
-</span><a href="#local-6989586621679465064"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#UpdateGameSession%27"><span class="hs-identifier hs-type">UpdateGameSession'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679465063"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679465063"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGameSession
-</span><a href="#local-6989586621679465064"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gameSessionId:UpdateGameSession' :: Text
+</span><a href="#local-6989586621679465592"><span class="hs-identifier hs-var hs-var">gameSessionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679465592"><span class="hs-identifier hs-var">gameSessionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679465591"><span class="annot"><span class="annottext">s :: UpdateGameSession
+</span><a href="#local-6989586621679465591"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#UpdateGameSession%27"><span class="hs-identifier hs-type">UpdateGameSession'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679465590"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679465590"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGameSession
+</span><a href="#local-6989586621679465591"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gameSessionId:UpdateGameSession' :: Text
 </span><a href="Network.AWS.GameLift.UpdateGameSession.html#%24sel%3AgameSessionId%3AUpdateGameSession%27"><span class="hs-identifier hs-var">gameSessionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679465063"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#UpdateGameSession"><span class="hs-identifier hs-type">UpdateGameSession</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679465590"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#UpdateGameSession"><span class="hs-identifier hs-type">UpdateGameSession</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-160"></span><span>
 </span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#UpdateGameSession"><span class="hs-identifier hs-type">UpdateGameSession</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-162"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-163"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#UpdateGameSession"><span class="hs-identifier hs-type">UpdateGameSession</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-164"></span><span>      </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#UpdateGameSessionResponse"><span class="hs-identifier hs-type">UpdateGameSessionResponse</span></a></span><span>
-</span><span id="line-165"></span><span>  </span><span id="local-6989586621679465059"><span class="annot"><span class="annottext">request :: UpdateGameSession -&gt; Request UpdateGameSession
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679465586"><span class="annot"><span class="annottext">request :: UpdateGameSession -&gt; Request UpdateGameSession
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateGameSession -&gt; Request UpdateGameSession
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.GameLift.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-166"></span><span>  </span><span id="local-6989586621679465055"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679465582"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateGameSession
 -&gt; ClientResponse ClientBody
@@ -360,10 +360,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-168"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679465052"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679465052"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679465051"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679465051"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679465050"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679465050"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-168"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679465579"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679465579"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679465578"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679465578"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679465577"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679465577"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-169"></span><span>          </span><span class="annot"><span class="annottext">Maybe GameSession -&gt; Int -&gt; UpdateGameSessionResponse
 </span><a href="Network.AWS.GameLift.UpdateGameSession.html#UpdateGameSessionResponse%27"><span class="hs-identifier hs-var">UpdateGameSessionResponse'</span></a></span><span>
 </span><span id="line-170"></span><span>            </span><span class="annot"><span class="annottext">(Maybe GameSession -&gt; Int -&gt; UpdateGameSessionResponse)
@@ -371,7 +371,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; UpdateGameSessionResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679465050"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe GameSession)
+</span><a href="#local-6989586621679465577"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe GameSession)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;GameSession&quot;</span></span><span class="hs-special">)</span><span>
@@ -383,15 +383,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679465052"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679465579"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-172"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-173"></span><span>
-</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679465042"><span id="local-6989586621679465044"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#UpdateGameSession"><span class="hs-identifier hs-type">UpdateGameSession</span></a></span></span></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679465569"><span id="local-6989586621679465571"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#UpdateGameSession"><span class="hs-identifier hs-type">UpdateGameSession</span></a></span></span></span><span>
 </span><span id="line-175"></span><span>
-</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679465039"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#UpdateGameSession"><span class="hs-identifier hs-type">UpdateGameSession</span></a></span></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679465566"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#UpdateGameSession"><span class="hs-identifier hs-type">UpdateGameSession</span></a></span></span><span>
 </span><span id="line-177"></span><span>
 </span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#UpdateGameSession"><span class="hs-identifier hs-type">UpdateGameSession</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-179"></span><span>  </span><span id="local-6989586621679465035"><span class="annot"><span class="annottext">toHeaders :: UpdateGameSession -&gt; ResponseHeaders
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679465562"><span class="annot"><span class="annottext">toHeaders :: UpdateGameSession -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-180"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateGameSession -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -416,9 +416,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-188"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-189"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-190"></span><span>
-</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679465025"><span id="local-6989586621679465027"><span id="local-6989586621679465029"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#UpdateGameSession"><span class="hs-identifier hs-type">UpdateGameSession</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-192"></span><span>  </span><span id="local-6989586621679465023"><span class="annot"><span class="annottext">toJSON :: UpdateGameSession -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#UpdateGameSession%27"><span class="hs-identifier hs-type">UpdateGameSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465017"><span id="local-6989586621679465018"><span id="local-6989586621679465019"><span id="local-6989586621679465020"><span id="local-6989586621679465021"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679465552"><span id="local-6989586621679465554"><span id="local-6989586621679465556"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#UpdateGameSession"><span class="hs-identifier hs-type">UpdateGameSession</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-192"></span><span>  </span><span id="local-6989586621679465550"><span class="annot"><span class="annottext">toJSON :: UpdateGameSession -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#UpdateGameSession%27"><span class="hs-identifier hs-type">UpdateGameSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465544"><span id="local-6989586621679465545"><span id="local-6989586621679465546"><span id="local-6989586621679465547"><span id="local-6989586621679465548"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Maybe PlayerSessionCreationPolicy
 Maybe ProtectionPolicy
@@ -426,43 +426,43 @@ Text
 gameSessionId :: Text
 protectionPolicy :: Maybe ProtectionPolicy
 name :: Maybe Text
-maximumPlayerSessionCount :: Maybe Natural
 playerSessionCreationPolicy :: Maybe PlayerSessionCreationPolicy
+maximumPlayerSessionCount :: Maybe Natural
 $sel:gameSessionId:UpdateGameSession' :: UpdateGameSession -&gt; Text
 $sel:protectionPolicy:UpdateGameSession' :: UpdateGameSession -&gt; Maybe ProtectionPolicy
 $sel:name:UpdateGameSession' :: UpdateGameSession -&gt; Maybe Text
-$sel:maximumPlayerSessionCount:UpdateGameSession' :: UpdateGameSession -&gt; Maybe Natural
 $sel:playerSessionCreationPolicy:UpdateGameSession' :: UpdateGameSession -&gt; Maybe PlayerSessionCreationPolicy
-</span><a href="#local-6989586621679465017"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:maximumPlayerSessionCount:UpdateGameSession' :: UpdateGameSession -&gt; Maybe Natural
+</span><a href="#local-6989586621679465544"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-193"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-194"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-195"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;PlayerSessionCreationPolicy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; PlayerSessionCreationPolicy -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-196"></span><span>              </span><span class="annot"><span class="annottext">(PlayerSessionCreationPolicy -&gt; Pair)
--&gt; Maybe PlayerSessionCreationPolicy -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe PlayerSessionCreationPolicy
-</span><a href="#local-6989586621679465021"><span class="hs-identifier hs-var">playerSessionCreationPolicy</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-197"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaximumPlayerSessionCount&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-198"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+</span><span id="line-196"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679465020"><span class="hs-identifier hs-var">maximumPlayerSessionCount</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679465548"><span class="hs-identifier hs-var">maximumPlayerSessionCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-197"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PlayerSessionCreationPolicy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; PlayerSessionCreationPolicy -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>              </span><span class="annot"><span class="annottext">(PlayerSessionCreationPolicy -&gt; Pair)
+-&gt; Maybe PlayerSessionCreationPolicy -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe PlayerSessionCreationPolicy
+</span><a href="#local-6989586621679465547"><span class="hs-identifier hs-var">playerSessionCreationPolicy</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-199"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679465019"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679465546"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-200"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ProtectionPolicy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ProtectionPolicy -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -470,7 +470,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-201"></span><span>              </span><span class="annot"><span class="annottext">(ProtectionPolicy -&gt; Pair) -&gt; Maybe ProtectionPolicy -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ProtectionPolicy
-</span><a href="#local-6989586621679465018"><span class="hs-identifier hs-var">protectionPolicy</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679465545"><span class="hs-identifier hs-var">protectionPolicy</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-202"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -478,19 +478,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;GameSessionId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679465017"><span class="hs-identifier hs-var">gameSessionId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679465544"><span class="hs-identifier hs-var">gameSessionId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-204"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-205"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-206"></span><span>
 </span><span id="line-207"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#UpdateGameSession"><span class="hs-identifier hs-type">UpdateGameSession</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-208"></span><span>  </span><span id="local-6989586621679465011"><span class="annot"><span class="annottext">toPath :: UpdateGameSession -&gt; ByteString
+</span><span id="line-208"></span><span>  </span><span id="local-6989586621679465538"><span class="annot"><span class="annottext">toPath :: UpdateGameSession -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateGameSession -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-209"></span><span>
 </span><span id="line-210"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#UpdateGameSession"><span class="hs-identifier hs-type">UpdateGameSession</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-211"></span><span>  </span><span id="local-6989586621679465007"><span class="annot"><span class="annottext">toQuery :: UpdateGameSession -&gt; QueryString
+</span><span id="line-211"></span><span>  </span><span id="local-6989586621679465534"><span class="annot"><span class="annottext">toQuery :: UpdateGameSession -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateGameSession -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -500,7 +500,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-213"></span><span class="hs-comment">-- | Represents the returned data in response to a request operation.</span><span>
 </span><span id="line-214"></span><span class="hs-comment">--</span><span>
 </span><span id="line-215"></span><span class="hs-comment">-- /See:/ 'newUpdateGameSessionResponse' smart constructor.</span><span>
-</span><span id="line-216"></span><span id="local-6989586621679465004"><span id="local-6989586621679465005"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateGameSessionResponse"><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#UpdateGameSessionResponse"><span class="hs-identifier hs-var">UpdateGameSessionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateGameSessionResponse%27"><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#UpdateGameSessionResponse%27"><span class="hs-identifier hs-var">UpdateGameSessionResponse'</span></a></span></span><span>
+</span><span id="line-216"></span><span id="local-6989586621679465531"><span id="local-6989586621679465532"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateGameSessionResponse"><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#UpdateGameSessionResponse"><span class="hs-identifier hs-var">UpdateGameSessionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateGameSessionResponse%27"><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#UpdateGameSessionResponse%27"><span class="hs-identifier hs-var">UpdateGameSessionResponse'</span></a></span></span><span>
 </span><span id="line-217"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The updated game session properties.</span><span>
 </span><span id="line-218"></span><span>    </span><span id="%24sel%3AgameSession%3AUpdateGameSessionResponse%27"><span class="annot"><span class="annottext">UpdateGameSessionResponse -&gt; Maybe GameSession
 </span><a href="Network.AWS.GameLift.UpdateGameSession.html#%24sel%3AgameSession%3AUpdateGameSessionResponse%27"><span class="hs-identifier hs-var hs-var">gameSession</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSession.html#GameSession"><span class="hs-identifier hs-type">GameSession</span></a></span><span class="hs-special">,</span><span>
@@ -508,7 +508,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-220"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateGameSessionResponse%27"><span class="annot"><span class="annottext">UpdateGameSessionResponse -&gt; Int
 </span><a href="Network.AWS.GameLift.UpdateGameSession.html#%24sel%3AhttpStatus%3AUpdateGameSessionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-221"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-222"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679464998"><span id="local-6989586621679465000"><span class="annot"><span class="annottext">UpdateGameSessionResponse -&gt; UpdateGameSessionResponse -&gt; Bool
+</span><span id="line-222"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679465525"><span id="local-6989586621679465527"><span class="annot"><span class="annottext">UpdateGameSessionResponse -&gt; UpdateGameSessionResponse -&gt; Bool
 (UpdateGameSessionResponse -&gt; UpdateGameSessionResponse -&gt; Bool)
 -&gt; (UpdateGameSessionResponse -&gt; UpdateGameSessionResponse -&gt; Bool)
 -&gt; Eq UpdateGameSessionResponse
@@ -517,7 +517,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateGameSessionResponse -&gt; UpdateGameSessionResponse -&gt; Bool
 == :: UpdateGameSessionResponse -&gt; UpdateGameSessionResponse -&gt; Bool
 $c== :: UpdateGameSessionResponse -&gt; UpdateGameSessionResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679464990"><span id="local-6989586621679464992"><span id="local-6989586621679464994"><span id="local-6989586621679464996"><span class="annot"><span class="annottext">ReadPrec [UpdateGameSessionResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679465517"><span id="local-6989586621679465519"><span id="local-6989586621679465521"><span id="local-6989586621679465523"><span class="annot"><span class="annottext">ReadPrec [UpdateGameSessionResponse]
 ReadPrec UpdateGameSessionResponse
 Int -&gt; ReadS UpdateGameSessionResponse
 ReadS [UpdateGameSessionResponse]
@@ -537,7 +537,7 @@ readList :: ReadS [UpdateGameSessionResponse]
 $creadList :: ReadS [UpdateGameSessionResponse]
 readsPrec :: Int -&gt; ReadS UpdateGameSessionResponse
 $creadsPrec :: Int -&gt; ReadS UpdateGameSessionResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679464984"><span id="local-6989586621679464986"><span id="local-6989586621679464988"><span class="annot"><span class="annottext">Int -&gt; UpdateGameSessionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679465511"><span id="local-6989586621679465513"><span id="local-6989586621679465515"><span class="annot"><span class="annottext">Int -&gt; UpdateGameSessionResponse -&gt; ShowS
 [UpdateGameSessionResponse] -&gt; ShowS
 UpdateGameSessionResponse -&gt; String
 (Int -&gt; UpdateGameSessionResponse -&gt; ShowS)
@@ -585,8 +585,8 @@ UpdateGameSessionResponse -&gt; Rep UpdateGameSessionResponse x
 </span><span id="line-237"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-238"></span><span>  </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#UpdateGameSessionResponse"><span class="hs-identifier hs-type">UpdateGameSessionResponse</span></a></span><span>
 </span><span id="line-239"></span><span id="newUpdateGameSessionResponse"><span class="annot"><span class="annottext">newUpdateGameSessionResponse :: Int -&gt; UpdateGameSessionResponse
-</span><a href="Network.AWS.GameLift.UpdateGameSession.html#newUpdateGameSessionResponse"><span class="hs-identifier hs-var hs-var">newUpdateGameSessionResponse</span></a></span></span><span> </span><span id="local-6989586621679464981"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679464981"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.GameLift.UpdateGameSession.html#newUpdateGameSessionResponse"><span class="hs-identifier hs-var hs-var">newUpdateGameSessionResponse</span></a></span></span><span> </span><span id="local-6989586621679465508"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679465508"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-240"></span><span>  </span><span class="annot"><span class="annottext">UpdateGameSessionResponse' :: Maybe GameSession -&gt; Int -&gt; UpdateGameSessionResponse
 </span><a href="Network.AWS.GameLift.UpdateGameSession.html#UpdateGameSessionResponse%27"><span class="hs-identifier hs-type">UpdateGameSessionResponse'</span></a></span><span>
 </span><span id="line-241"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:gameSession:UpdateGameSessionResponse' :: Maybe GameSession
@@ -596,7 +596,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-243"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateGameSessionResponse' :: Int
 </span><a href="Network.AWS.GameLift.UpdateGameSession.html#%24sel%3AhttpStatus%3AUpdateGameSessionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679464981"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679465508"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-244"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-245"></span><span>
 </span><span id="line-246"></span><span class="hs-comment">-- | The updated game session properties.</span><span>
@@ -612,16 +612,16 @@ forall a. Maybe a
      (Maybe GameSession)
      (Maybe GameSession)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#UpdateGameSessionResponse%27"><span class="hs-identifier hs-type">UpdateGameSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679464980"><span class="annot"><span class="annottext">Maybe GameSession
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#UpdateGameSessionResponse%27"><span class="hs-identifier hs-type">UpdateGameSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465507"><span class="annot"><span class="annottext">Maybe GameSession
 gameSession :: Maybe GameSession
 $sel:gameSession:UpdateGameSessionResponse' :: UpdateGameSessionResponse -&gt; Maybe GameSession
-</span><a href="#local-6989586621679464980"><span class="hs-identifier hs-var hs-var">gameSession</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GameSession
-</span><a href="#local-6989586621679464980"><span class="hs-identifier hs-var">gameSession</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679464979"><span class="annot"><span class="annottext">s :: UpdateGameSessionResponse
-</span><a href="#local-6989586621679464979"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#UpdateGameSessionResponse%27"><span class="hs-identifier hs-type">UpdateGameSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679464978"><span class="annot"><span class="annottext">Maybe GameSession
-</span><a href="#local-6989586621679464978"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGameSessionResponse
-</span><a href="#local-6989586621679464979"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gameSession:UpdateGameSessionResponse' :: Maybe GameSession
+</span><a href="#local-6989586621679465507"><span class="hs-identifier hs-var hs-var">gameSession</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GameSession
+</span><a href="#local-6989586621679465507"><span class="hs-identifier hs-var">gameSession</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679465506"><span class="annot"><span class="annottext">s :: UpdateGameSessionResponse
+</span><a href="#local-6989586621679465506"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#UpdateGameSessionResponse%27"><span class="hs-identifier hs-type">UpdateGameSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679465505"><span class="annot"><span class="annottext">Maybe GameSession
+</span><a href="#local-6989586621679465505"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGameSessionResponse
+</span><a href="#local-6989586621679465506"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gameSession:UpdateGameSessionResponse' :: Maybe GameSession
 </span><a href="Network.AWS.GameLift.UpdateGameSession.html#%24sel%3AgameSession%3AUpdateGameSessionResponse%27"><span class="hs-identifier hs-var">gameSession</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GameSession
-</span><a href="#local-6989586621679464978"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#UpdateGameSessionResponse"><span class="hs-identifier hs-type">UpdateGameSessionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679465505"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#UpdateGameSessionResponse"><span class="hs-identifier hs-type">UpdateGameSessionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-249"></span><span>
 </span><span id="line-250"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-251"></span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#updateGameSessionResponse_httpStatus"><span class="hs-identifier hs-type">updateGameSessionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#UpdateGameSessionResponse"><span class="hs-identifier hs-type">UpdateGameSessionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -631,16 +631,16 @@ $sel:gameSession:UpdateGameSessionResponse' :: UpdateGameSessionResponse -&gt; M
 -&gt; (UpdateGameSessionResponse -&gt; Int -&gt; UpdateGameSessionResponse)
 -&gt; Lens UpdateGameSessionResponse UpdateGameSessionResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#UpdateGameSessionResponse%27"><span class="hs-identifier hs-type">UpdateGameSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679464977"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#UpdateGameSessionResponse%27"><span class="hs-identifier hs-type">UpdateGameSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465504"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:UpdateGameSessionResponse' :: UpdateGameSessionResponse -&gt; Int
-</span><a href="#local-6989586621679464977"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679464977"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679464976"><span class="annot"><span class="annottext">s :: UpdateGameSessionResponse
-</span><a href="#local-6989586621679464976"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#UpdateGameSessionResponse%27"><span class="hs-identifier hs-type">UpdateGameSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679464975"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679464975"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGameSessionResponse
-</span><a href="#local-6989586621679464976"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateGameSessionResponse' :: Int
+</span><a href="#local-6989586621679465504"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679465504"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679465503"><span class="annot"><span class="annottext">s :: UpdateGameSessionResponse
+</span><a href="#local-6989586621679465503"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#UpdateGameSessionResponse%27"><span class="hs-identifier hs-type">UpdateGameSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679465502"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679465502"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGameSessionResponse
+</span><a href="#local-6989586621679465503"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateGameSessionResponse' :: Int
 </span><a href="Network.AWS.GameLift.UpdateGameSession.html#%24sel%3AhttpStatus%3AUpdateGameSessionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679464975"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#UpdateGameSessionResponse"><span class="hs-identifier hs-type">UpdateGameSessionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679465502"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#UpdateGameSessionResponse"><span class="hs-identifier hs-type">UpdateGameSessionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-253"></span><span>
-</span><span id="line-254"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679464973"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#UpdateGameSessionResponse"><span class="hs-identifier hs-type">UpdateGameSessionResponse</span></a></span></span><span>
+</span><span id="line-254"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679465500"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSession.html#UpdateGameSessionResponse"><span class="hs-identifier hs-type">UpdateGameSessionResponse</span></a></span></span><span>
 </span><span id="line-255"></span></pre></body></html>

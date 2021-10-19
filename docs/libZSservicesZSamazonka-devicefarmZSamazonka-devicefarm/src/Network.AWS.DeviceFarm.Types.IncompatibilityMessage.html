@@ -27,29 +27,29 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Represents information about incompatibility.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newIncompatibilityMessage' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679363311"><span id="local-6989586621679363312"></span></span><span class="hs-keyword">data</span><span> </span><span id="IncompatibilityMessage"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.IncompatibilityMessage.html#IncompatibilityMessage"><span class="hs-identifier hs-var">IncompatibilityMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IncompatibilityMessage%27"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.IncompatibilityMessage.html#IncompatibilityMessage%27"><span class="hs-identifier hs-var">IncompatibilityMessage'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A message about the incompatibility.</span><span>
-</span><span id="line-32"></span><span>    </span><span id="%24sel%3Amessage%3AIncompatibilityMessage%27"><span class="annot"><span class="annottext">IncompatibilityMessage -&gt; Maybe Text
-</span><a href="Network.AWS.DeviceFarm.Types.IncompatibilityMessage.html#%24sel%3Amessage%3AIncompatibilityMessage%27"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The type of incompatibility.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679363546"><span id="local-6989586621679363547"></span></span><span class="hs-keyword">data</span><span> </span><span id="IncompatibilityMessage"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.IncompatibilityMessage.html#IncompatibilityMessage"><span class="hs-identifier hs-var">IncompatibilityMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IncompatibilityMessage%27"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.IncompatibilityMessage.html#IncompatibilityMessage%27"><span class="hs-identifier hs-var">IncompatibilityMessage'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type of incompatibility.</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- Allowed values include:</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- Allowed values include:</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- -   ARN</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- -   ARN</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- -   FORM_FACTOR (for example, phone or tablet)</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- -   FORM_FACTOR (for example, phone or tablet)</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- -   MANUFACTURER</span><span>
 </span><span id="line-40"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- -   MANUFACTURER</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- -   PLATFORM (for example, Android or iOS)</span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- -   PLATFORM (for example, Android or iOS)</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- -   REMOTE_ACCESS_ENABLED</span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- -   REMOTE_ACCESS_ENABLED</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- -   APPIUM_VERSION</span><span>
-</span><span id="line-48"></span><span>    </span><span id="%24sel%3Atype%27%3AIncompatibilityMessage%27"><span class="annot"><span class="annottext">IncompatibilityMessage -&gt; Maybe DeviceAttribute
-</span><a href="Network.AWS.DeviceFarm.Types.IncompatibilityMessage.html#%24sel%3Atype%27%3AIncompatibilityMessage%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceAttribute.html#DeviceAttribute"><span class="hs-identifier hs-type">DeviceAttribute</span></a></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- -   APPIUM_VERSION</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3Atype%27%3AIncompatibilityMessage%27"><span class="annot"><span class="annottext">IncompatibilityMessage -&gt; Maybe DeviceAttribute
+</span><a href="Network.AWS.DeviceFarm.Types.IncompatibilityMessage.html#%24sel%3Atype%27%3AIncompatibilityMessage%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceAttribute.html#DeviceAttribute"><span class="hs-identifier hs-type">DeviceAttribute</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | A message about the incompatibility.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3Amessage%3AIncompatibilityMessage%27"><span class="annot"><span class="annottext">IncompatibilityMessage -&gt; Maybe Text
+</span><a href="Network.AWS.DeviceFarm.Types.IncompatibilityMessage.html#%24sel%3Amessage%3AIncompatibilityMessage%27"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679363304"><span id="local-6989586621679363306"><span class="annot"><span class="annottext">IncompatibilityMessage -&gt; IncompatibilityMessage -&gt; Bool
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679363539"><span id="local-6989586621679363541"><span class="annot"><span class="annottext">IncompatibilityMessage -&gt; IncompatibilityMessage -&gt; Bool
 (IncompatibilityMessage -&gt; IncompatibilityMessage -&gt; Bool)
 -&gt; (IncompatibilityMessage -&gt; IncompatibilityMessage -&gt; Bool)
 -&gt; Eq IncompatibilityMessage
@@ -58,7 +58,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: IncompatibilityMessage -&gt; IncompatibilityMessage -&gt; Bool
 == :: IncompatibilityMessage -&gt; IncompatibilityMessage -&gt; Bool
 $c== :: IncompatibilityMessage -&gt; IncompatibilityMessage -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679363295"><span id="local-6989586621679363297"><span id="local-6989586621679363299"><span id="local-6989586621679363301"><span class="annot"><span class="annottext">ReadPrec [IncompatibilityMessage]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679363530"><span id="local-6989586621679363532"><span id="local-6989586621679363534"><span id="local-6989586621679363536"><span class="annot"><span class="annottext">ReadPrec [IncompatibilityMessage]
 ReadPrec IncompatibilityMessage
 Int -&gt; ReadS IncompatibilityMessage
 ReadS [IncompatibilityMessage]
@@ -78,7 +78,7 @@ readList :: ReadS [IncompatibilityMessage]
 $creadList :: ReadS [IncompatibilityMessage]
 readsPrec :: Int -&gt; ReadS IncompatibilityMessage
 $creadsPrec :: Int -&gt; ReadS IncompatibilityMessage
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679363288"><span id="local-6989586621679363290"><span id="local-6989586621679363292"><span class="annot"><span class="annottext">Int -&gt; IncompatibilityMessage -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679363523"><span id="local-6989586621679363525"><span id="local-6989586621679363527"><span class="annot"><span class="annottext">Int -&gt; IncompatibilityMessage -&gt; ShowS
 [IncompatibilityMessage] -&gt; ShowS
 IncompatibilityMessage -&gt; String
 (Int -&gt; IncompatibilityMessage -&gt; ShowS)
@@ -113,79 +113,56 @@ $cfrom :: forall x. IncompatibilityMessage -&gt; Rep IncompatibilityMessage x
 </span><span id="line-57"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-59"></span><span class="hs-comment">--</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- 'message', 'incompatibilityMessage_message' - A message about the incompatibility.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'type'', 'incompatibilityMessage_type' - The type of incompatibility.</span><span>
 </span><span id="line-61"></span><span class="hs-comment">--</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- 'type'', 'incompatibilityMessage_type' - The type of incompatibility.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Allowed values include:</span><span>
 </span><span id="line-63"></span><span class="hs-comment">--</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- Allowed values include:</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- -   ARN</span><span>
 </span><span id="line-65"></span><span class="hs-comment">--</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- -   ARN</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- -   FORM_FACTOR (for example, phone or tablet)</span><span>
 </span><span id="line-67"></span><span class="hs-comment">--</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- -   FORM_FACTOR (for example, phone or tablet)</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- -   MANUFACTURER</span><span>
 </span><span id="line-69"></span><span class="hs-comment">--</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- -   MANUFACTURER</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- -   PLATFORM (for example, Android or iOS)</span><span>
 </span><span id="line-71"></span><span class="hs-comment">--</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- -   PLATFORM (for example, Android or iOS)</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- -   REMOTE_ACCESS_ENABLED</span><span>
 </span><span id="line-73"></span><span class="hs-comment">--</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- -   REMOTE_ACCESS_ENABLED</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- -   APPIUM_VERSION</span><span>
 </span><span id="line-75"></span><span class="hs-comment">--</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- -   APPIUM_VERSION</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'message', 'incompatibilityMessage_message' - A message about the incompatibility.</span><span>
 </span><span id="line-77"></span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.IncompatibilityMessage.html#newIncompatibilityMessage"><span class="hs-identifier hs-type">newIncompatibilityMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.IncompatibilityMessage.html#IncompatibilityMessage"><span class="hs-identifier hs-type">IncompatibilityMessage</span></a></span><span>
 </span><span id="line-79"></span><span id="newIncompatibilityMessage"><span class="annot"><span class="annottext">newIncompatibilityMessage :: IncompatibilityMessage
 </span><a href="Network.AWS.DeviceFarm.Types.IncompatibilityMessage.html#newIncompatibilityMessage"><span class="hs-identifier hs-var hs-var">newIncompatibilityMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">IncompatibilityMessage' :: Maybe Text -&gt; Maybe DeviceAttribute -&gt; IncompatibilityMessage
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">IncompatibilityMessage' :: Maybe DeviceAttribute -&gt; Maybe Text -&gt; IncompatibilityMessage
 </span><a href="Network.AWS.DeviceFarm.Types.IncompatibilityMessage.html#IncompatibilityMessage%27"><span class="hs-identifier hs-type">IncompatibilityMessage'</span></a></span><span>
-</span><span id="line-81"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:message:IncompatibilityMessage' :: Maybe Text
-</span><a href="Network.AWS.DeviceFarm.Types.IncompatibilityMessage.html#%24sel%3Amessage%3AIncompatibilityMessage%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-81"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:type':IncompatibilityMessage' :: Maybe DeviceAttribute
+</span><a href="Network.AWS.DeviceFarm.Types.IncompatibilityMessage.html#%24sel%3Atype%27%3AIncompatibilityMessage%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeviceAttribute
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':IncompatibilityMessage' :: Maybe DeviceAttribute
-</span><a href="Network.AWS.DeviceFarm.Types.IncompatibilityMessage.html#%24sel%3Atype%27%3AIncompatibilityMessage%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeviceAttribute
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:message:IncompatibilityMessage' :: Maybe Text
+</span><a href="Network.AWS.DeviceFarm.Types.IncompatibilityMessage.html#%24sel%3Amessage%3AIncompatibilityMessage%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-83"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- | A message about the incompatibility.</span><span>
-</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.IncompatibilityMessage.html#incompatibilityMessage_message"><span class="hs-identifier hs-type">incompatibilityMessage_message</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.IncompatibilityMessage.html#IncompatibilityMessage"><span class="hs-identifier hs-type">IncompatibilityMessage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-87"></span><span id="incompatibilityMessage_message"><span class="annot"><span class="annottext">incompatibilityMessage_message :: (Maybe Text -&gt; f (Maybe Text))
--&gt; IncompatibilityMessage -&gt; f IncompatibilityMessage
-</span><a href="Network.AWS.DeviceFarm.Types.IncompatibilityMessage.html#incompatibilityMessage_message"><span class="hs-identifier hs-var hs-var">incompatibilityMessage_message</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(IncompatibilityMessage -&gt; Maybe Text)
--&gt; (IncompatibilityMessage -&gt; Maybe Text -&gt; IncompatibilityMessage)
--&gt; Lens
-     IncompatibilityMessage
-     IncompatibilityMessage
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.IncompatibilityMessage.html#IncompatibilityMessage%27"><span class="hs-identifier hs-type">IncompatibilityMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679363279"><span class="annot"><span class="annottext">Maybe Text
-message :: Maybe Text
-$sel:message:IncompatibilityMessage' :: IncompatibilityMessage -&gt; Maybe Text
-</span><a href="#local-6989586621679363279"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679363279"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679363278"><span class="annot"><span class="annottext">s :: IncompatibilityMessage
-</span><a href="#local-6989586621679363278"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.IncompatibilityMessage.html#IncompatibilityMessage%27"><span class="hs-identifier hs-type">IncompatibilityMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679363277"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679363277"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IncompatibilityMessage
-</span><a href="#local-6989586621679363278"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:IncompatibilityMessage' :: Maybe Text
-</span><a href="Network.AWS.DeviceFarm.Types.IncompatibilityMessage.html#%24sel%3Amessage%3AIncompatibilityMessage%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679363277"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.IncompatibilityMessage.html#IncompatibilityMessage"><span class="hs-identifier hs-type">IncompatibilityMessage</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- | The type of incompatibility.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The type of incompatibility.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- Allowed values include:</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- -   ARN</span><span>
 </span><span id="line-90"></span><span class="hs-comment">--</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- Allowed values include:</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- -   FORM_FACTOR (for example, phone or tablet)</span><span>
 </span><span id="line-92"></span><span class="hs-comment">--</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- -   ARN</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- -   MANUFACTURER</span><span>
 </span><span id="line-94"></span><span class="hs-comment">--</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- -   FORM_FACTOR (for example, phone or tablet)</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- -   PLATFORM (for example, Android or iOS)</span><span>
 </span><span id="line-96"></span><span class="hs-comment">--</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- -   MANUFACTURER</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- -   REMOTE_ACCESS_ENABLED</span><span>
 </span><span id="line-98"></span><span class="hs-comment">--</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- -   PLATFORM (for example, Android or iOS)</span><span>
-</span><span id="line-100"></span><span class="hs-comment">--</span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- -   REMOTE_ACCESS_ENABLED</span><span>
-</span><span id="line-102"></span><span class="hs-comment">--</span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- -   APPIUM_VERSION</span><span>
-</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.IncompatibilityMessage.html#incompatibilityMessage_type"><span class="hs-identifier hs-type">incompatibilityMessage_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.IncompatibilityMessage.html#IncompatibilityMessage"><span class="hs-identifier hs-type">IncompatibilityMessage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceAttribute.html#DeviceAttribute"><span class="hs-identifier hs-type">DeviceAttribute</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-105"></span><span id="incompatibilityMessage_type"><span class="annot"><span class="annottext">incompatibilityMessage_type :: (Maybe DeviceAttribute -&gt; f (Maybe DeviceAttribute))
+</span><span id="line-99"></span><span class="hs-comment">-- -   APPIUM_VERSION</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.IncompatibilityMessage.html#incompatibilityMessage_type"><span class="hs-identifier hs-type">incompatibilityMessage_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.IncompatibilityMessage.html#IncompatibilityMessage"><span class="hs-identifier hs-type">IncompatibilityMessage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceAttribute.html#DeviceAttribute"><span class="hs-identifier hs-type">DeviceAttribute</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="incompatibilityMessage_type"><span class="annot"><span class="annottext">incompatibilityMessage_type :: (Maybe DeviceAttribute -&gt; f (Maybe DeviceAttribute))
 -&gt; IncompatibilityMessage -&gt; f IncompatibilityMessage
 </span><a href="Network.AWS.DeviceFarm.Types.IncompatibilityMessage.html#incompatibilityMessage_type"><span class="hs-identifier hs-var hs-var">incompatibilityMessage_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(IncompatibilityMessage -&gt; Maybe DeviceAttribute)
 -&gt; (IncompatibilityMessage
@@ -196,19 +173,42 @@ $sel:message:IncompatibilityMessage' :: IncompatibilityMessage -&gt; Maybe Text
      (Maybe DeviceAttribute)
      (Maybe DeviceAttribute)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.IncompatibilityMessage.html#IncompatibilityMessage%27"><span class="hs-identifier hs-type">IncompatibilityMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679363275"><span class="annot"><span class="annottext">Maybe DeviceAttribute
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.IncompatibilityMessage.html#IncompatibilityMessage%27"><span class="hs-identifier hs-type">IncompatibilityMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679363514"><span class="annot"><span class="annottext">Maybe DeviceAttribute
 type' :: Maybe DeviceAttribute
 $sel:type':IncompatibilityMessage' :: IncompatibilityMessage -&gt; Maybe DeviceAttribute
-</span><a href="#local-6989586621679363275"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DeviceAttribute
-</span><a href="#local-6989586621679363275"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679363274"><span class="annot"><span class="annottext">s :: IncompatibilityMessage
-</span><a href="#local-6989586621679363274"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.IncompatibilityMessage.html#IncompatibilityMessage%27"><span class="hs-identifier hs-type">IncompatibilityMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679363273"><span class="annot"><span class="annottext">Maybe DeviceAttribute
-</span><a href="#local-6989586621679363273"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IncompatibilityMessage
-</span><a href="#local-6989586621679363274"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':IncompatibilityMessage' :: Maybe DeviceAttribute
+</span><a href="#local-6989586621679363514"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DeviceAttribute
+</span><a href="#local-6989586621679363514"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679363513"><span class="annot"><span class="annottext">s :: IncompatibilityMessage
+</span><a href="#local-6989586621679363513"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.IncompatibilityMessage.html#IncompatibilityMessage%27"><span class="hs-identifier hs-type">IncompatibilityMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679363512"><span class="annot"><span class="annottext">Maybe DeviceAttribute
+</span><a href="#local-6989586621679363512"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IncompatibilityMessage
+</span><a href="#local-6989586621679363513"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':IncompatibilityMessage' :: Maybe DeviceAttribute
 </span><a href="Network.AWS.DeviceFarm.Types.IncompatibilityMessage.html#%24sel%3Atype%27%3AIncompatibilityMessage%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeviceAttribute
-</span><a href="#local-6989586621679363273"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.IncompatibilityMessage.html#IncompatibilityMessage"><span class="hs-identifier hs-type">IncompatibilityMessage</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679363512"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.IncompatibilityMessage.html#IncompatibilityMessage"><span class="hs-identifier hs-type">IncompatibilityMessage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | A message about the incompatibility.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.IncompatibilityMessage.html#incompatibilityMessage_message"><span class="hs-identifier hs-type">incompatibilityMessage_message</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.IncompatibilityMessage.html#IncompatibilityMessage"><span class="hs-identifier hs-type">IncompatibilityMessage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="incompatibilityMessage_message"><span class="annot"><span class="annottext">incompatibilityMessage_message :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; IncompatibilityMessage -&gt; f IncompatibilityMessage
+</span><a href="Network.AWS.DeviceFarm.Types.IncompatibilityMessage.html#incompatibilityMessage_message"><span class="hs-identifier hs-var hs-var">incompatibilityMessage_message</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(IncompatibilityMessage -&gt; Maybe Text)
+-&gt; (IncompatibilityMessage -&gt; Maybe Text -&gt; IncompatibilityMessage)
+-&gt; Lens
+     IncompatibilityMessage
+     IncompatibilityMessage
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.IncompatibilityMessage.html#IncompatibilityMessage%27"><span class="hs-identifier hs-type">IncompatibilityMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679363510"><span class="annot"><span class="annottext">Maybe Text
+message :: Maybe Text
+$sel:message:IncompatibilityMessage' :: IncompatibilityMessage -&gt; Maybe Text
+</span><a href="#local-6989586621679363510"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679363510"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679363509"><span class="annot"><span class="annottext">s :: IncompatibilityMessage
+</span><a href="#local-6989586621679363509"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.IncompatibilityMessage.html#IncompatibilityMessage%27"><span class="hs-identifier hs-type">IncompatibilityMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679363508"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679363508"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IncompatibilityMessage
+</span><a href="#local-6989586621679363509"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:IncompatibilityMessage' :: Maybe Text
+</span><a href="Network.AWS.DeviceFarm.Types.IncompatibilityMessage.html#%24sel%3Amessage%3AIncompatibilityMessage%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679363508"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.IncompatibilityMessage.html#IncompatibilityMessage"><span class="hs-identifier hs-type">IncompatibilityMessage</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679363270"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.IncompatibilityMessage.html#IncompatibilityMessage"><span class="hs-identifier hs-type">IncompatibilityMessage</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679363268"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser IncompatibilityMessage
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679363505"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.IncompatibilityMessage.html#IncompatibilityMessage"><span class="hs-identifier hs-type">IncompatibilityMessage</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679363503"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser IncompatibilityMessage
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser IncompatibilityMessage)
@@ -218,30 +218,30 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;IncompatibilityMessage&quot;</span></span><span>
-</span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679363265"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679363265"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-112"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe DeviceAttribute -&gt; IncompatibilityMessage
+</span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679363500"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679363500"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-112"></span><span>          </span><span class="annot"><span class="annottext">Maybe DeviceAttribute -&gt; Maybe Text -&gt; IncompatibilityMessage
 </span><a href="Network.AWS.DeviceFarm.Types.IncompatibilityMessage.html#IncompatibilityMessage%27"><span class="hs-identifier hs-var">IncompatibilityMessage'</span></a></span><span>
-</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe DeviceAttribute -&gt; IncompatibilityMessage)
--&gt; Parser (Maybe Text)
--&gt; Parser (Maybe DeviceAttribute -&gt; IncompatibilityMessage)
+</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">(Maybe DeviceAttribute -&gt; Maybe Text -&gt; IncompatibilityMessage)
+-&gt; Parser (Maybe DeviceAttribute)
+-&gt; Parser (Maybe Text -&gt; IncompatibilityMessage)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679363265"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;message&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe DeviceAttribute -&gt; IncompatibilityMessage)
--&gt; Parser (Maybe DeviceAttribute) -&gt; Parser IncompatibilityMessage
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679363265"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DeviceAttribute)
+</span><a href="#local-6989586621679363500"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DeviceAttribute)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;type&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; IncompatibilityMessage)
+-&gt; Parser (Maybe Text) -&gt; Parser IncompatibilityMessage
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679363500"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;message&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679363259"><span id="local-6989586621679363261"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.IncompatibilityMessage.html#IncompatibilityMessage"><span class="hs-identifier hs-type">IncompatibilityMessage</span></a></span></span></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679363494"><span id="local-6989586621679363496"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.IncompatibilityMessage.html#IncompatibilityMessage"><span class="hs-identifier hs-type">IncompatibilityMessage</span></a></span></span></span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679363256"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.IncompatibilityMessage.html#IncompatibilityMessage"><span class="hs-identifier hs-type">IncompatibilityMessage</span></a></span></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679363491"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.IncompatibilityMessage.html#IncompatibilityMessage"><span class="hs-identifier hs-type">IncompatibilityMessage</span></a></span></span><span>
 </span><span id="line-120"></span></pre></body></html>

@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-30"></span><span>
-</span><span id="line-31"></span><span id="local-6989586621679457870"><span id="local-6989586621679457871"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ProxyConfigurationType"><span class="annot"><a href="Network.AWS.ECS.Types.ProxyConfigurationType.html#ProxyConfigurationType"><span class="hs-identifier hs-var">ProxyConfigurationType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProxyConfigurationType%27"><span class="annot"><a href="Network.AWS.ECS.Types.ProxyConfigurationType.html#ProxyConfigurationType%27"><span class="hs-identifier hs-var">ProxyConfigurationType'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679458589"><span id="local-6989586621679458590"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ProxyConfigurationType"><span class="annot"><a href="Network.AWS.ECS.Types.ProxyConfigurationType.html#ProxyConfigurationType"><span class="hs-identifier hs-var">ProxyConfigurationType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProxyConfigurationType%27"><span class="annot"><a href="Network.AWS.ECS.Types.ProxyConfigurationType.html#ProxyConfigurationType%27"><span class="hs-identifier hs-var">ProxyConfigurationType'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromProxyConfigurationType"><span class="annot"><span class="annottext">ProxyConfigurationType -&gt; Text
 </span><a href="Network.AWS.ECS.Types.ProxyConfigurationType.html#fromProxyConfigurationType"><span class="hs-identifier hs-var hs-var">fromProxyConfigurationType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679457862"><span id="local-6989586621679457864"><span id="local-6989586621679457866"><span class="annot"><span class="annottext">Int -&gt; ProxyConfigurationType -&gt; ShowS
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679458581"><span id="local-6989586621679458583"><span id="local-6989586621679458585"><span class="annot"><span class="annottext">Int -&gt; ProxyConfigurationType -&gt; ShowS
 [ProxyConfigurationType] -&gt; ShowS
 ProxyConfigurationType -&gt; String
 (Int -&gt; ProxyConfigurationType -&gt; ShowS)
@@ -50,7 +50,7 @@ $cshow :: ProxyConfigurationType -&gt; String
 showsPrec :: Int -&gt; ProxyConfigurationType -&gt; ShowS
 $cshowsPrec :: Int -&gt; ProxyConfigurationType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>      </span><span id="local-6989586621679457853"><span id="local-6989586621679457855"><span id="local-6989586621679457857"><span id="local-6989586621679457859"><span class="annot"><span class="annottext">ReadPrec [ProxyConfigurationType]
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679458572"><span id="local-6989586621679458574"><span id="local-6989586621679458576"><span id="local-6989586621679458578"><span class="annot"><span class="annottext">ReadPrec [ProxyConfigurationType]
 ReadPrec ProxyConfigurationType
 Int -&gt; ReadS ProxyConfigurationType
 ReadS [ProxyConfigurationType]
@@ -71,7 +71,7 @@ $creadList :: ReadS [ProxyConfigurationType]
 readsPrec :: Int -&gt; ReadS ProxyConfigurationType
 $creadsPrec :: Int -&gt; ReadS ProxyConfigurationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679457848"><span id="local-6989586621679457850"><span class="annot"><span class="annottext">ProxyConfigurationType -&gt; ProxyConfigurationType -&gt; Bool
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679458567"><span id="local-6989586621679458569"><span class="annot"><span class="annottext">ProxyConfigurationType -&gt; ProxyConfigurationType -&gt; Bool
 (ProxyConfigurationType -&gt; ProxyConfigurationType -&gt; Bool)
 -&gt; (ProxyConfigurationType -&gt; ProxyConfigurationType -&gt; Bool)
 -&gt; Eq ProxyConfigurationType
@@ -81,7 +81,7 @@ $c/= :: ProxyConfigurationType -&gt; ProxyConfigurationType -&gt; Bool
 == :: ProxyConfigurationType -&gt; ProxyConfigurationType -&gt; Bool
 $c== :: ProxyConfigurationType -&gt; ProxyConfigurationType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679457832"><span id="local-6989586621679457834"><span id="local-6989586621679457836"><span id="local-6989586621679457838"><span id="local-6989586621679457840"><span id="local-6989586621679457842"><span id="local-6989586621679457844"><span class="annot"><span class="annottext">Eq ProxyConfigurationType
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679458551"><span id="local-6989586621679458553"><span id="local-6989586621679458555"><span id="local-6989586621679458557"><span id="local-6989586621679458559"><span id="local-6989586621679458561"><span id="local-6989586621679458563"><span class="annot"><span class="annottext">Eq ProxyConfigurationType
 Eq ProxyConfigurationType
 -&gt; (ProxyConfigurationType -&gt; ProxyConfigurationType -&gt; Ordering)
 -&gt; (ProxyConfigurationType -&gt; ProxyConfigurationType -&gt; Bool)
@@ -140,7 +140,7 @@ $cfrom :: forall x. ProxyConfigurationType -&gt; Rep ProxyConfigurationType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679457824"><span id="local-6989586621679457826"><span class="annot"><span class="annottext">Int -&gt; ProxyConfigurationType -&gt; Int
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679458543"><span id="local-6989586621679458545"><span class="annot"><span class="annottext">Int -&gt; ProxyConfigurationType -&gt; Int
 ProxyConfigurationType -&gt; Int
 (Int -&gt; ProxyConfigurationType -&gt; Int)
 -&gt; (ProxyConfigurationType -&gt; Int)
@@ -151,54 +151,54 @@ $chash :: ProxyConfigurationType -&gt; Int
 hashWithSalt :: Int -&gt; ProxyConfigurationType -&gt; Int
 $chashWithSalt :: Int -&gt; ProxyConfigurationType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679457821"><span class="annot"><span class="annottext">ProxyConfigurationType -&gt; ()
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679458540"><span class="annot"><span class="annottext">ProxyConfigurationType -&gt; ()
 (ProxyConfigurationType -&gt; ()) -&gt; NFData ProxyConfigurationType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ProxyConfigurationType -&gt; ()
 $crnf :: ProxyConfigurationType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679457818"><span class="annot"><span class="annottext">Text -&gt; Either String ProxyConfigurationType
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679458537"><span class="annot"><span class="annottext">Text -&gt; Either String ProxyConfigurationType
 (Text -&gt; Either String ProxyConfigurationType)
 -&gt; FromText ProxyConfigurationType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ProxyConfigurationType
 $cfromText :: Text -&gt; Either String ProxyConfigurationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679457815"><span class="annot"><span class="annottext">ProxyConfigurationType -&gt; Text
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679458534"><span class="annot"><span class="annottext">ProxyConfigurationType -&gt; Text
 (ProxyConfigurationType -&gt; Text) -&gt; ToText ProxyConfigurationType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ProxyConfigurationType -&gt; Text
 $ctoText :: ProxyConfigurationType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679457812"><span class="annot"><span class="annottext">ProxyConfigurationType -&gt; ByteString
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679458531"><span class="annot"><span class="annottext">ProxyConfigurationType -&gt; ByteString
 (ProxyConfigurationType -&gt; ByteString)
 -&gt; ToByteString ProxyConfigurationType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ProxyConfigurationType -&gt; ByteString
 $ctoBS :: ProxyConfigurationType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679457809"><span class="annot"><span class="annottext">ProxyConfigurationType -&gt; ByteStringBuilder
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679458528"><span class="annot"><span class="annottext">ProxyConfigurationType -&gt; ByteStringBuilder
 (ProxyConfigurationType -&gt; ByteStringBuilder)
 -&gt; ToLog ProxyConfigurationType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ProxyConfigurationType -&gt; ByteStringBuilder
 $cbuild :: ProxyConfigurationType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679457806"><span class="annot"><span class="annottext">HeaderName -&gt; ProxyConfigurationType -&gt; [Header]
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679458525"><span class="annot"><span class="annottext">HeaderName -&gt; ProxyConfigurationType -&gt; [Header]
 (HeaderName -&gt; ProxyConfigurationType -&gt; [Header])
 -&gt; ToHeader ProxyConfigurationType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ProxyConfigurationType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ProxyConfigurationType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679457803"><span class="annot"><span class="annottext">ProxyConfigurationType -&gt; QueryString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679458522"><span class="annot"><span class="annottext">ProxyConfigurationType -&gt; QueryString
 (ProxyConfigurationType -&gt; QueryString)
 -&gt; ToQuery ProxyConfigurationType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ProxyConfigurationType -&gt; QueryString
 $ctoQuery :: ProxyConfigurationType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679457798"><span id="local-6989586621679457800"><span class="annot"><span class="annottext">Value -&gt; Parser [ProxyConfigurationType]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679458517"><span id="local-6989586621679458519"><span class="annot"><span class="annottext">Value -&gt; Parser [ProxyConfigurationType]
 Value -&gt; Parser ProxyConfigurationType
 (Value -&gt; Parser ProxyConfigurationType)
 -&gt; (Value -&gt; Parser [ProxyConfigurationType])
@@ -210,7 +210,7 @@ $cparseJSONList :: Value -&gt; Parser [ProxyConfigurationType]
 parseJSON :: Value -&gt; Parser ProxyConfigurationType
 $cparseJSON :: Value -&gt; Parser ProxyConfigurationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679457793"><span id="local-6989586621679457795"><span class="annot"><span class="annottext">FromJSONKeyFunction [ProxyConfigurationType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679458512"><span id="local-6989586621679458514"><span class="annot"><span class="annottext">FromJSONKeyFunction [ProxyConfigurationType]
 FromJSONKeyFunction ProxyConfigurationType
 FromJSONKeyFunction ProxyConfigurationType
 -&gt; FromJSONKeyFunction [ProxyConfigurationType]
@@ -222,7 +222,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ProxyConfigurationType]
 fromJSONKey :: FromJSONKeyFunction ProxyConfigurationType
 $cfromJSONKey :: FromJSONKeyFunction ProxyConfigurationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679457784"><span id="local-6989586621679457786"><span id="local-6989586621679457788"><span id="local-6989586621679457790"><span class="annot"><span class="annottext">[ProxyConfigurationType] -&gt; Encoding
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679458503"><span id="local-6989586621679458505"><span id="local-6989586621679458507"><span id="local-6989586621679458509"><span class="annot"><span class="annottext">[ProxyConfigurationType] -&gt; Encoding
 [ProxyConfigurationType] -&gt; Value
 ProxyConfigurationType -&gt; Encoding
 ProxyConfigurationType -&gt; Value
@@ -246,7 +246,7 @@ $ctoEncoding :: ProxyConfigurationType -&gt; Encoding
 toJSON :: ProxyConfigurationType -&gt; Value
 $ctoJSON :: ProxyConfigurationType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679457779"><span id="local-6989586621679457781"><span class="annot"><span class="annottext">ToJSONKeyFunction [ProxyConfigurationType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679458498"><span id="local-6989586621679458500"><span class="annot"><span class="annottext">ToJSONKeyFunction [ProxyConfigurationType]
 ToJSONKeyFunction ProxyConfigurationType
 ToJSONKeyFunction ProxyConfigurationType
 -&gt; ToJSONKeyFunction [ProxyConfigurationType]
@@ -258,14 +258,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ProxyConfigurationType]
 toJSONKey :: ToJSONKeyFunction ProxyConfigurationType
 $ctoJSONKey :: ToJSONKeyFunction ProxyConfigurationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679457776"><span class="annot"><span class="annottext">[Node] -&gt; Either String ProxyConfigurationType
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679458495"><span class="annot"><span class="annottext">[Node] -&gt; Either String ProxyConfigurationType
 ([Node] -&gt; Either String ProxyConfigurationType)
 -&gt; FromXML ProxyConfigurationType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ProxyConfigurationType
 $cparseXML :: [Node] -&gt; Either String ProxyConfigurationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679457773"><span class="annot"><span class="annottext">ProxyConfigurationType -&gt; XML
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679458492"><span class="annot"><span class="annottext">ProxyConfigurationType -&gt; XML
 (ProxyConfigurationType -&gt; XML) -&gt; ToXML ProxyConfigurationType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ProxyConfigurationType -&gt; XML

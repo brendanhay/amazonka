@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679428010"><span id="local-6989586621679428011"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BalancingStrategy"><span class="annot"><a href="Network.AWS.GameLift.Types.BalancingStrategy.html#BalancingStrategy"><span class="hs-identifier hs-var">BalancingStrategy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BalancingStrategy%27"><span class="annot"><a href="Network.AWS.GameLift.Types.BalancingStrategy.html#BalancingStrategy%27"><span class="hs-identifier hs-var">BalancingStrategy'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679428454"><span id="local-6989586621679428455"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BalancingStrategy"><span class="annot"><a href="Network.AWS.GameLift.Types.BalancingStrategy.html#BalancingStrategy"><span class="hs-identifier hs-var">BalancingStrategy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BalancingStrategy%27"><span class="annot"><a href="Network.AWS.GameLift.Types.BalancingStrategy.html#BalancingStrategy%27"><span class="hs-identifier hs-var">BalancingStrategy'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromBalancingStrategy"><span class="annot"><span class="annottext">BalancingStrategy -&gt; Text
 </span><a href="Network.AWS.GameLift.Types.BalancingStrategy.html#fromBalancingStrategy"><span class="hs-identifier hs-var hs-var">fromBalancingStrategy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679428002"><span id="local-6989586621679428004"><span id="local-6989586621679428006"><span class="annot"><span class="annottext">Int -&gt; BalancingStrategy -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679428446"><span id="local-6989586621679428448"><span id="local-6989586621679428450"><span class="annot"><span class="annottext">Int -&gt; BalancingStrategy -&gt; ShowS
 [BalancingStrategy] -&gt; ShowS
 BalancingStrategy -&gt; String
 (Int -&gt; BalancingStrategy -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: BalancingStrategy -&gt; String
 showsPrec :: Int -&gt; BalancingStrategy -&gt; ShowS
 $cshowsPrec :: Int -&gt; BalancingStrategy -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679427993"><span id="local-6989586621679427995"><span id="local-6989586621679427997"><span id="local-6989586621679427999"><span class="annot"><span class="annottext">ReadPrec [BalancingStrategy]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679428437"><span id="local-6989586621679428439"><span id="local-6989586621679428441"><span id="local-6989586621679428443"><span class="annot"><span class="annottext">ReadPrec [BalancingStrategy]
 ReadPrec BalancingStrategy
 Int -&gt; ReadS BalancingStrategy
 ReadS [BalancingStrategy]
@@ -73,7 +73,7 @@ $creadList :: ReadS [BalancingStrategy]
 readsPrec :: Int -&gt; ReadS BalancingStrategy
 $creadsPrec :: Int -&gt; ReadS BalancingStrategy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679427988"><span id="local-6989586621679427990"><span class="annot"><span class="annottext">BalancingStrategy -&gt; BalancingStrategy -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679428432"><span id="local-6989586621679428434"><span class="annot"><span class="annottext">BalancingStrategy -&gt; BalancingStrategy -&gt; Bool
 (BalancingStrategy -&gt; BalancingStrategy -&gt; Bool)
 -&gt; (BalancingStrategy -&gt; BalancingStrategy -&gt; Bool)
 -&gt; Eq BalancingStrategy
@@ -83,7 +83,7 @@ $c/= :: BalancingStrategy -&gt; BalancingStrategy -&gt; Bool
 == :: BalancingStrategy -&gt; BalancingStrategy -&gt; Bool
 $c== :: BalancingStrategy -&gt; BalancingStrategy -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679427972"><span id="local-6989586621679427974"><span id="local-6989586621679427976"><span id="local-6989586621679427978"><span id="local-6989586621679427980"><span id="local-6989586621679427982"><span id="local-6989586621679427984"><span class="annot"><span class="annottext">Eq BalancingStrategy
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679428416"><span id="local-6989586621679428418"><span id="local-6989586621679428420"><span id="local-6989586621679428422"><span id="local-6989586621679428424"><span id="local-6989586621679428426"><span id="local-6989586621679428428"><span class="annot"><span class="annottext">Eq BalancingStrategy
 Eq BalancingStrategy
 -&gt; (BalancingStrategy -&gt; BalancingStrategy -&gt; Ordering)
 -&gt; (BalancingStrategy -&gt; BalancingStrategy -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. BalancingStrategy -&gt; Rep BalancingStrategy x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679427964"><span id="local-6989586621679427966"><span class="annot"><span class="annottext">Int -&gt; BalancingStrategy -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679428408"><span id="local-6989586621679428410"><span class="annot"><span class="annottext">Int -&gt; BalancingStrategy -&gt; Int
 BalancingStrategy -&gt; Int
 (Int -&gt; BalancingStrategy -&gt; Int)
 -&gt; (BalancingStrategy -&gt; Int) -&gt; Hashable BalancingStrategy
@@ -144,51 +144,51 @@ $chash :: BalancingStrategy -&gt; Int
 hashWithSalt :: Int -&gt; BalancingStrategy -&gt; Int
 $chashWithSalt :: Int -&gt; BalancingStrategy -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679427961"><span class="annot"><span class="annottext">BalancingStrategy -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679428405"><span class="annot"><span class="annottext">BalancingStrategy -&gt; ()
 (BalancingStrategy -&gt; ()) -&gt; NFData BalancingStrategy
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: BalancingStrategy -&gt; ()
 $crnf :: BalancingStrategy -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679427958"><span class="annot"><span class="annottext">Text -&gt; Either String BalancingStrategy
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679428402"><span class="annot"><span class="annottext">Text -&gt; Either String BalancingStrategy
 (Text -&gt; Either String BalancingStrategy)
 -&gt; FromText BalancingStrategy
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String BalancingStrategy
 $cfromText :: Text -&gt; Either String BalancingStrategy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679427955"><span class="annot"><span class="annottext">BalancingStrategy -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679428399"><span class="annot"><span class="annottext">BalancingStrategy -&gt; Text
 (BalancingStrategy -&gt; Text) -&gt; ToText BalancingStrategy
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: BalancingStrategy -&gt; Text
 $ctoText :: BalancingStrategy -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679427952"><span class="annot"><span class="annottext">BalancingStrategy -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679428396"><span class="annot"><span class="annottext">BalancingStrategy -&gt; ByteString
 (BalancingStrategy -&gt; ByteString) -&gt; ToByteString BalancingStrategy
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: BalancingStrategy -&gt; ByteString
 $ctoBS :: BalancingStrategy -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679427949"><span class="annot"><span class="annottext">BalancingStrategy -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679428393"><span class="annot"><span class="annottext">BalancingStrategy -&gt; ByteStringBuilder
 (BalancingStrategy -&gt; ByteStringBuilder) -&gt; ToLog BalancingStrategy
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: BalancingStrategy -&gt; ByteStringBuilder
 $cbuild :: BalancingStrategy -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679427946"><span class="annot"><span class="annottext">HeaderName -&gt; BalancingStrategy -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679428390"><span class="annot"><span class="annottext">HeaderName -&gt; BalancingStrategy -&gt; [Header]
 (HeaderName -&gt; BalancingStrategy -&gt; [Header])
 -&gt; ToHeader BalancingStrategy
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; BalancingStrategy -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; BalancingStrategy -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679427943"><span class="annot"><span class="annottext">BalancingStrategy -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679428387"><span class="annot"><span class="annottext">BalancingStrategy -&gt; QueryString
 (BalancingStrategy -&gt; QueryString) -&gt; ToQuery BalancingStrategy
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: BalancingStrategy -&gt; QueryString
 $ctoQuery :: BalancingStrategy -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679427938"><span id="local-6989586621679427940"><span class="annot"><span class="annottext">Value -&gt; Parser [BalancingStrategy]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679428382"><span id="local-6989586621679428384"><span class="annot"><span class="annottext">Value -&gt; Parser [BalancingStrategy]
 Value -&gt; Parser BalancingStrategy
 (Value -&gt; Parser BalancingStrategy)
 -&gt; (Value -&gt; Parser [BalancingStrategy])
@@ -200,7 +200,7 @@ $cparseJSONList :: Value -&gt; Parser [BalancingStrategy]
 parseJSON :: Value -&gt; Parser BalancingStrategy
 $cparseJSON :: Value -&gt; Parser BalancingStrategy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679427933"><span id="local-6989586621679427935"><span class="annot"><span class="annottext">FromJSONKeyFunction [BalancingStrategy]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679428377"><span id="local-6989586621679428379"><span class="annot"><span class="annottext">FromJSONKeyFunction [BalancingStrategy]
 FromJSONKeyFunction BalancingStrategy
 FromJSONKeyFunction BalancingStrategy
 -&gt; FromJSONKeyFunction [BalancingStrategy]
@@ -212,7 +212,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [BalancingStrategy]
 fromJSONKey :: FromJSONKeyFunction BalancingStrategy
 $cfromJSONKey :: FromJSONKeyFunction BalancingStrategy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679427924"><span id="local-6989586621679427926"><span id="local-6989586621679427928"><span id="local-6989586621679427930"><span class="annot"><span class="annottext">[BalancingStrategy] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679428368"><span id="local-6989586621679428370"><span id="local-6989586621679428372"><span id="local-6989586621679428374"><span class="annot"><span class="annottext">[BalancingStrategy] -&gt; Encoding
 [BalancingStrategy] -&gt; Value
 BalancingStrategy -&gt; Encoding
 BalancingStrategy -&gt; Value
@@ -236,7 +236,7 @@ $ctoEncoding :: BalancingStrategy -&gt; Encoding
 toJSON :: BalancingStrategy -&gt; Value
 $ctoJSON :: BalancingStrategy -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679427919"><span id="local-6989586621679427921"><span class="annot"><span class="annottext">ToJSONKeyFunction [BalancingStrategy]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679428363"><span id="local-6989586621679428365"><span class="annot"><span class="annottext">ToJSONKeyFunction [BalancingStrategy]
 ToJSONKeyFunction BalancingStrategy
 ToJSONKeyFunction BalancingStrategy
 -&gt; ToJSONKeyFunction [BalancingStrategy]
@@ -248,14 +248,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [BalancingStrategy]
 toJSONKey :: ToJSONKeyFunction BalancingStrategy
 $ctoJSONKey :: ToJSONKeyFunction BalancingStrategy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679427916"><span class="annot"><span class="annottext">[Node] -&gt; Either String BalancingStrategy
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679428360"><span class="annot"><span class="annottext">[Node] -&gt; Either String BalancingStrategy
 ([Node] -&gt; Either String BalancingStrategy)
 -&gt; FromXML BalancingStrategy
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String BalancingStrategy
 $cparseXML :: [Node] -&gt; Either String BalancingStrategy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679427913"><span class="annot"><span class="annottext">BalancingStrategy -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679428357"><span class="annot"><span class="annottext">BalancingStrategy -&gt; XML
 (BalancingStrategy -&gt; XML) -&gt; ToXML BalancingStrategy
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: BalancingStrategy -&gt; XML

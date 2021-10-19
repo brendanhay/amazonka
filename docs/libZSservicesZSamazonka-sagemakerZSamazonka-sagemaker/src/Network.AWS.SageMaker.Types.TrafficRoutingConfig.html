@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Currently, the @TrafficRoutingConfig@ API is not supported.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newTrafficRoutingConfig' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621680346266"><span id="local-6989586621680346267"></span></span><span class="hs-keyword">data</span><span> </span><span id="TrafficRoutingConfig"><span class="annot"><a href="Network.AWS.SageMaker.Types.TrafficRoutingConfig.html#TrafficRoutingConfig"><span class="hs-identifier hs-var">TrafficRoutingConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TrafficRoutingConfig%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.TrafficRoutingConfig.html#TrafficRoutingConfig%27"><span class="hs-identifier hs-var">TrafficRoutingConfig'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621680347686"><span id="local-6989586621680347687"></span></span><span class="hs-keyword">data</span><span> </span><span id="TrafficRoutingConfig"><span class="annot"><a href="Network.AWS.SageMaker.Types.TrafficRoutingConfig.html#TrafficRoutingConfig"><span class="hs-identifier hs-var">TrafficRoutingConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TrafficRoutingConfig%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.TrafficRoutingConfig.html#TrafficRoutingConfig%27"><span class="hs-identifier hs-var">TrafficRoutingConfig'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AcanarySize%3ATrafficRoutingConfig%27"><span class="annot"><span class="annottext">TrafficRoutingConfig -&gt; Maybe CapacitySize
 </span><a href="Network.AWS.SageMaker.Types.TrafficRoutingConfig.html#%24sel%3AcanarySize%3ATrafficRoutingConfig%27"><span class="hs-identifier hs-var hs-var">canarySize</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CapacitySize.html#CapacitySize"><span class="hs-identifier hs-type">CapacitySize</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Atype%27%3ATrafficRoutingConfig%27"><span class="annot"><span class="annottext">TrafficRoutingConfig -&gt; TrafficRoutingConfigType
@@ -36,7 +36,7 @@
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AwaitIntervalInSeconds%3ATrafficRoutingConfig%27"><span class="annot"><span class="annottext">TrafficRoutingConfig -&gt; Natural
 </span><a href="Network.AWS.SageMaker.Types.TrafficRoutingConfig.html#%24sel%3AwaitIntervalInSeconds%3ATrafficRoutingConfig%27"><span class="hs-identifier hs-var hs-var">waitIntervalInSeconds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680346258"><span id="local-6989586621680346260"><span class="annot"><span class="annottext">TrafficRoutingConfig -&gt; TrafficRoutingConfig -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680347678"><span id="local-6989586621680347680"><span class="annot"><span class="annottext">TrafficRoutingConfig -&gt; TrafficRoutingConfig -&gt; Bool
 (TrafficRoutingConfig -&gt; TrafficRoutingConfig -&gt; Bool)
 -&gt; (TrafficRoutingConfig -&gt; TrafficRoutingConfig -&gt; Bool)
 -&gt; Eq TrafficRoutingConfig
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TrafficRoutingConfig -&gt; TrafficRoutingConfig -&gt; Bool
 == :: TrafficRoutingConfig -&gt; TrafficRoutingConfig -&gt; Bool
 $c== :: TrafficRoutingConfig -&gt; TrafficRoutingConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680346249"><span id="local-6989586621680346251"><span id="local-6989586621680346253"><span id="local-6989586621680346255"><span class="annot"><span class="annottext">ReadPrec [TrafficRoutingConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680347669"><span id="local-6989586621680347671"><span id="local-6989586621680347673"><span id="local-6989586621680347675"><span class="annot"><span class="annottext">ReadPrec [TrafficRoutingConfig]
 ReadPrec TrafficRoutingConfig
 Int -&gt; ReadS TrafficRoutingConfig
 ReadS [TrafficRoutingConfig]
@@ -65,7 +65,7 @@ readList :: ReadS [TrafficRoutingConfig]
 $creadList :: ReadS [TrafficRoutingConfig]
 readsPrec :: Int -&gt; ReadS TrafficRoutingConfig
 $creadsPrec :: Int -&gt; ReadS TrafficRoutingConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680346242"><span id="local-6989586621680346244"><span id="local-6989586621680346246"><span class="annot"><span class="annottext">Int -&gt; TrafficRoutingConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680347662"><span id="local-6989586621680347664"><span id="local-6989586621680347666"><span class="annot"><span class="annottext">Int -&gt; TrafficRoutingConfig -&gt; ShowS
 [TrafficRoutingConfig] -&gt; ShowS
 TrafficRoutingConfig -&gt; String
 (Int -&gt; TrafficRoutingConfig -&gt; ShowS)
@@ -112,10 +112,10 @@ $cfrom :: forall x. TrafficRoutingConfig -&gt; Rep TrafficRoutingConfig x
 </span><span id="line-56"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrafficRoutingConfig.html#TrafficRoutingConfig"><span class="hs-identifier hs-type">TrafficRoutingConfig</span></a></span><span>
 </span><span id="line-57"></span><span id="newTrafficRoutingConfig"><span class="annot"><span class="annottext">newTrafficRoutingConfig :: TrafficRoutingConfigType -&gt; Natural -&gt; TrafficRoutingConfig
 </span><a href="Network.AWS.SageMaker.Types.TrafficRoutingConfig.html#newTrafficRoutingConfig"><span class="hs-identifier hs-var hs-var">newTrafficRoutingConfig</span></a></span></span><span>
-</span><span id="line-58"></span><span>  </span><span id="local-6989586621680346236"><span class="annot"><span class="annottext">TrafficRoutingConfigType
-</span><a href="#local-6989586621680346236"><span class="hs-identifier hs-var">pType_</span></a></span></span><span>
-</span><span id="line-59"></span><span>  </span><span id="local-6989586621680346235"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621680346235"><span class="hs-identifier hs-var">pWaitIntervalInSeconds_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-58"></span><span>  </span><span id="local-6989586621680347656"><span class="annot"><span class="annottext">TrafficRoutingConfigType
+</span><a href="#local-6989586621680347656"><span class="hs-identifier hs-var">pType_</span></a></span></span><span>
+</span><span id="line-59"></span><span>  </span><span id="local-6989586621680347655"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621680347655"><span class="hs-identifier hs-var">pWaitIntervalInSeconds_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-60"></span><span>    </span><span class="annot"><span class="annottext">TrafficRoutingConfig' :: Maybe CapacitySize
 -&gt; TrafficRoutingConfigType -&gt; Natural -&gt; TrafficRoutingConfig
 </span><a href="Network.AWS.SageMaker.Types.TrafficRoutingConfig.html#TrafficRoutingConfig%27"><span class="hs-identifier hs-type">TrafficRoutingConfig'</span></a></span><span>
@@ -125,10 +125,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-62"></span><span>        </span><span class="annot"><span class="annottext">$sel:type':TrafficRoutingConfig' :: TrafficRoutingConfigType
 </span><a href="Network.AWS.SageMaker.Types.TrafficRoutingConfig.html#%24sel%3Atype%27%3ATrafficRoutingConfig%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TrafficRoutingConfigType
-</span><a href="#local-6989586621680346236"><span class="hs-identifier hs-var">pType_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680347656"><span class="hs-identifier hs-var">pType_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-63"></span><span>        </span><span class="annot"><span class="annottext">$sel:waitIntervalInSeconds:TrafficRoutingConfig' :: Natural
 </span><a href="Network.AWS.SageMaker.Types.TrafficRoutingConfig.html#%24sel%3AwaitIntervalInSeconds%3ATrafficRoutingConfig%27"><span class="hs-identifier hs-var">waitIntervalInSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621680346235"><span class="hs-identifier hs-var">pWaitIntervalInSeconds_</span></a></span><span>
+</span><a href="#local-6989586621680347655"><span class="hs-identifier hs-var">pWaitIntervalInSeconds_</span></a></span><span>
 </span><span id="line-64"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-65"></span><span>
 </span><span id="line-66"></span><span class="hs-comment">-- |</span><span>
@@ -144,16 +144,16 @@ forall a. Maybe a
      (Maybe CapacitySize)
      (Maybe CapacitySize)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrafficRoutingConfig.html#TrafficRoutingConfig%27"><span class="hs-identifier hs-type">TrafficRoutingConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680346231"><span class="annot"><span class="annottext">Maybe CapacitySize
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrafficRoutingConfig.html#TrafficRoutingConfig%27"><span class="hs-identifier hs-type">TrafficRoutingConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680347651"><span class="annot"><span class="annottext">Maybe CapacitySize
 canarySize :: Maybe CapacitySize
 $sel:canarySize:TrafficRoutingConfig' :: TrafficRoutingConfig -&gt; Maybe CapacitySize
-</span><a href="#local-6989586621680346231"><span class="hs-identifier hs-var hs-var">canarySize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CapacitySize
-</span><a href="#local-6989586621680346231"><span class="hs-identifier hs-var">canarySize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680346230"><span class="annot"><span class="annottext">s :: TrafficRoutingConfig
-</span><a href="#local-6989586621680346230"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrafficRoutingConfig.html#TrafficRoutingConfig%27"><span class="hs-identifier hs-type">TrafficRoutingConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680346229"><span class="annot"><span class="annottext">Maybe CapacitySize
-</span><a href="#local-6989586621680346229"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrafficRoutingConfig
-</span><a href="#local-6989586621680346230"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:canarySize:TrafficRoutingConfig' :: Maybe CapacitySize
+</span><a href="#local-6989586621680347651"><span class="hs-identifier hs-var hs-var">canarySize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CapacitySize
+</span><a href="#local-6989586621680347651"><span class="hs-identifier hs-var">canarySize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680347650"><span class="annot"><span class="annottext">s :: TrafficRoutingConfig
+</span><a href="#local-6989586621680347650"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrafficRoutingConfig.html#TrafficRoutingConfig%27"><span class="hs-identifier hs-type">TrafficRoutingConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680347649"><span class="annot"><span class="annottext">Maybe CapacitySize
+</span><a href="#local-6989586621680347649"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrafficRoutingConfig
+</span><a href="#local-6989586621680347650"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:canarySize:TrafficRoutingConfig' :: Maybe CapacitySize
 </span><a href="Network.AWS.SageMaker.Types.TrafficRoutingConfig.html#%24sel%3AcanarySize%3ATrafficRoutingConfig%27"><span class="hs-identifier hs-var">canarySize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CapacitySize
-</span><a href="#local-6989586621680346229"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrafficRoutingConfig.html#TrafficRoutingConfig"><span class="hs-identifier hs-type">TrafficRoutingConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680347649"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrafficRoutingConfig.html#TrafficRoutingConfig"><span class="hs-identifier hs-type">TrafficRoutingConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-69"></span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- |</span><span>
 </span><span id="line-71"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrafficRoutingConfig.html#trafficRoutingConfig_type"><span class="hs-identifier hs-type">trafficRoutingConfig_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrafficRoutingConfig.html#TrafficRoutingConfig"><span class="hs-identifier hs-type">TrafficRoutingConfig</span></a></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrafficRoutingConfigType.html#TrafficRoutingConfigType"><span class="hs-identifier hs-type">TrafficRoutingConfigType</span></a></span><span>
@@ -168,16 +168,16 @@ $sel:canarySize:TrafficRoutingConfig' :: TrafficRoutingConfig -&gt; Maybe Capaci
      TrafficRoutingConfigType
      TrafficRoutingConfigType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrafficRoutingConfig.html#TrafficRoutingConfig%27"><span class="hs-identifier hs-type">TrafficRoutingConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680346227"><span class="annot"><span class="annottext">TrafficRoutingConfigType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrafficRoutingConfig.html#TrafficRoutingConfig%27"><span class="hs-identifier hs-type">TrafficRoutingConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680347647"><span class="annot"><span class="annottext">TrafficRoutingConfigType
 type' :: TrafficRoutingConfigType
 $sel:type':TrafficRoutingConfig' :: TrafficRoutingConfig -&gt; TrafficRoutingConfigType
-</span><a href="#local-6989586621680346227"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrafficRoutingConfigType
-</span><a href="#local-6989586621680346227"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680346226"><span class="annot"><span class="annottext">s :: TrafficRoutingConfig
-</span><a href="#local-6989586621680346226"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrafficRoutingConfig.html#TrafficRoutingConfig%27"><span class="hs-identifier hs-type">TrafficRoutingConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680346225"><span class="annot"><span class="annottext">TrafficRoutingConfigType
-</span><a href="#local-6989586621680346225"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrafficRoutingConfig
-</span><a href="#local-6989586621680346226"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':TrafficRoutingConfig' :: TrafficRoutingConfigType
+</span><a href="#local-6989586621680347647"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrafficRoutingConfigType
+</span><a href="#local-6989586621680347647"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680347646"><span class="annot"><span class="annottext">s :: TrafficRoutingConfig
+</span><a href="#local-6989586621680347646"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrafficRoutingConfig.html#TrafficRoutingConfig%27"><span class="hs-identifier hs-type">TrafficRoutingConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680347645"><span class="annot"><span class="annottext">TrafficRoutingConfigType
+</span><a href="#local-6989586621680347645"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrafficRoutingConfig
+</span><a href="#local-6989586621680347646"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':TrafficRoutingConfig' :: TrafficRoutingConfigType
 </span><a href="Network.AWS.SageMaker.Types.TrafficRoutingConfig.html#%24sel%3Atype%27%3ATrafficRoutingConfig%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TrafficRoutingConfigType
-</span><a href="#local-6989586621680346225"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrafficRoutingConfig.html#TrafficRoutingConfig"><span class="hs-identifier hs-type">TrafficRoutingConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680347645"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrafficRoutingConfig.html#TrafficRoutingConfig"><span class="hs-identifier hs-type">TrafficRoutingConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- |</span><span>
 </span><span id="line-75"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrafficRoutingConfig.html#trafficRoutingConfig_waitIntervalInSeconds"><span class="hs-identifier hs-type">trafficRoutingConfig_waitIntervalInSeconds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrafficRoutingConfig.html#TrafficRoutingConfig"><span class="hs-identifier hs-type">TrafficRoutingConfig</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
@@ -187,19 +187,19 @@ $sel:type':TrafficRoutingConfig' :: TrafficRoutingConfig -&gt; TrafficRoutingCon
 -&gt; (TrafficRoutingConfig -&gt; Natural -&gt; TrafficRoutingConfig)
 -&gt; Lens TrafficRoutingConfig TrafficRoutingConfig Natural Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrafficRoutingConfig.html#TrafficRoutingConfig%27"><span class="hs-identifier hs-type">TrafficRoutingConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680346223"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrafficRoutingConfig.html#TrafficRoutingConfig%27"><span class="hs-identifier hs-type">TrafficRoutingConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680347643"><span class="annot"><span class="annottext">Natural
 waitIntervalInSeconds :: Natural
 $sel:waitIntervalInSeconds:TrafficRoutingConfig' :: TrafficRoutingConfig -&gt; Natural
-</span><a href="#local-6989586621680346223"><span class="hs-identifier hs-var hs-var">waitIntervalInSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621680346223"><span class="hs-identifier hs-var">waitIntervalInSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680346222"><span class="annot"><span class="annottext">s :: TrafficRoutingConfig
-</span><a href="#local-6989586621680346222"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrafficRoutingConfig.html#TrafficRoutingConfig%27"><span class="hs-identifier hs-type">TrafficRoutingConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680346221"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621680346221"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrafficRoutingConfig
-</span><a href="#local-6989586621680346222"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:waitIntervalInSeconds:TrafficRoutingConfig' :: Natural
+</span><a href="#local-6989586621680347643"><span class="hs-identifier hs-var hs-var">waitIntervalInSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621680347643"><span class="hs-identifier hs-var">waitIntervalInSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680347642"><span class="annot"><span class="annottext">s :: TrafficRoutingConfig
+</span><a href="#local-6989586621680347642"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrafficRoutingConfig.html#TrafficRoutingConfig%27"><span class="hs-identifier hs-type">TrafficRoutingConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680347641"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621680347641"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrafficRoutingConfig
+</span><a href="#local-6989586621680347642"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:waitIntervalInSeconds:TrafficRoutingConfig' :: Natural
 </span><a href="Network.AWS.SageMaker.Types.TrafficRoutingConfig.html#%24sel%3AwaitIntervalInSeconds%3ATrafficRoutingConfig%27"><span class="hs-identifier hs-var">waitIntervalInSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621680346221"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrafficRoutingConfig.html#TrafficRoutingConfig"><span class="hs-identifier hs-type">TrafficRoutingConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680347641"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrafficRoutingConfig.html#TrafficRoutingConfig"><span class="hs-identifier hs-type">TrafficRoutingConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680346218"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrafficRoutingConfig.html#TrafficRoutingConfig"><span class="hs-identifier hs-type">TrafficRoutingConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621680346216"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TrafficRoutingConfig
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680347638"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrafficRoutingConfig.html#TrafficRoutingConfig"><span class="hs-identifier hs-type">TrafficRoutingConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621680347636"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TrafficRoutingConfig
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser TrafficRoutingConfig)
@@ -209,8 +209,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;TrafficRoutingConfig&quot;</span></span><span>
-</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680346213"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680346213"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680347633"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680347633"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-83"></span><span>          </span><span class="annot"><span class="annottext">Maybe CapacitySize
 -&gt; TrafficRoutingConfigType -&gt; Natural -&gt; TrafficRoutingConfig
 </span><a href="Network.AWS.SageMaker.Types.TrafficRoutingConfig.html#TrafficRoutingConfig%27"><span class="hs-identifier hs-var">TrafficRoutingConfig'</span></a></span><span>
@@ -221,7 +221,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
      (TrafficRoutingConfigType -&gt; Natural -&gt; TrafficRoutingConfig)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680346213"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CapacitySize)
+</span><a href="#local-6989586621680347633"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CapacitySize)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CanarySize&quot;</span></span><span class="hs-special">)</span><span>
@@ -231,7 +231,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Natural -&gt; TrafficRoutingConfig)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680346213"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser TrafficRoutingConfigType
+</span><a href="#local-6989586621680347633"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser TrafficRoutingConfigType
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span>
@@ -239,19 +239,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Natural -&gt; Parser TrafficRoutingConfig
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680346213"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
+</span><a href="#local-6989586621680347633"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;WaitIntervalInSeconds&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680346206"><span id="local-6989586621680346208"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrafficRoutingConfig.html#TrafficRoutingConfig"><span class="hs-identifier hs-type">TrafficRoutingConfig</span></a></span></span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680347626"><span id="local-6989586621680347628"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrafficRoutingConfig.html#TrafficRoutingConfig"><span class="hs-identifier hs-type">TrafficRoutingConfig</span></a></span></span></span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680346203"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrafficRoutingConfig.html#TrafficRoutingConfig"><span class="hs-identifier hs-type">TrafficRoutingConfig</span></a></span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680347623"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrafficRoutingConfig.html#TrafficRoutingConfig"><span class="hs-identifier hs-type">TrafficRoutingConfig</span></a></span></span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680346195"><span id="local-6989586621680346197"><span id="local-6989586621680346199"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrafficRoutingConfig.html#TrafficRoutingConfig"><span class="hs-identifier hs-type">TrafficRoutingConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621680346193"><span class="annot"><span class="annottext">toJSON :: TrafficRoutingConfig -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrafficRoutingConfig.html#TrafficRoutingConfig%27"><span class="hs-identifier hs-type">TrafficRoutingConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680346189"><span id="local-6989586621680346190"><span id="local-6989586621680346191"><span class="annot"><span class="annottext">Natural
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680347615"><span id="local-6989586621680347617"><span id="local-6989586621680347619"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrafficRoutingConfig.html#TrafficRoutingConfig"><span class="hs-identifier hs-type">TrafficRoutingConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621680347613"><span class="annot"><span class="annottext">toJSON :: TrafficRoutingConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrafficRoutingConfig.html#TrafficRoutingConfig%27"><span class="hs-identifier hs-type">TrafficRoutingConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680347609"><span id="local-6989586621680347610"><span id="local-6989586621680347611"><span class="annot"><span class="annottext">Natural
 Maybe CapacitySize
 TrafficRoutingConfigType
 waitIntervalInSeconds :: Natural
@@ -260,7 +260,7 @@ canarySize :: Maybe CapacitySize
 $sel:waitIntervalInSeconds:TrafficRoutingConfig' :: TrafficRoutingConfig -&gt; Natural
 $sel:type':TrafficRoutingConfig' :: TrafficRoutingConfig -&gt; TrafficRoutingConfigType
 $sel:canarySize:TrafficRoutingConfig' :: TrafficRoutingConfig -&gt; Maybe CapacitySize
-</span><a href="#local-6989586621680346189"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680347609"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -272,14 +272,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(CapacitySize -&gt; Pair) -&gt; Maybe CapacitySize -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CapacitySize
-</span><a href="#local-6989586621680346191"><span class="hs-identifier hs-var">canarySize</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680347611"><span class="hs-identifier hs-var">canarySize</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TrafficRoutingConfigType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">TrafficRoutingConfigType
-</span><a href="#local-6989586621680346190"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680347610"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -288,7 +288,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-101"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621680346189"><span class="hs-identifier hs-var">waitIntervalInSeconds</span></a></span><span>
+</span><a href="#local-6989586621680347609"><span class="hs-identifier hs-var">waitIntervalInSeconds</span></a></span><span>
 </span><span id="line-102"></span><span>              </span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>

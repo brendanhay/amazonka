@@ -47,12 +47,12 @@
 </span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.html"><span class="hs-identifier">Network.AWS.SSM.Types</span></a></span><span>
 </span><span id="line-48"></span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newDeletePatchBaseline' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621679848887"><span id="local-6989586621679848888"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeletePatchBaseline"><span class="annot"><a href="Network.AWS.SSM.DeletePatchBaseline.html#DeletePatchBaseline"><span class="hs-identifier hs-var">DeletePatchBaseline</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeletePatchBaseline%27"><span class="annot"><a href="Network.AWS.SSM.DeletePatchBaseline.html#DeletePatchBaseline%27"><span class="hs-identifier hs-var">DeletePatchBaseline'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679850709"><span id="local-6989586621679850710"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeletePatchBaseline"><span class="annot"><a href="Network.AWS.SSM.DeletePatchBaseline.html#DeletePatchBaseline"><span class="hs-identifier hs-var">DeletePatchBaseline</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeletePatchBaseline%27"><span class="annot"><a href="Network.AWS.SSM.DeletePatchBaseline.html#DeletePatchBaseline%27"><span class="hs-identifier hs-var">DeletePatchBaseline'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the patch baseline to delete.</span><span>
 </span><span id="line-52"></span><span>    </span><span id="%24sel%3AbaselineId%3ADeletePatchBaseline%27"><span class="annot"><span class="annottext">DeletePatchBaseline -&gt; Text
 </span><a href="Network.AWS.SSM.DeletePatchBaseline.html#%24sel%3AbaselineId%3ADeletePatchBaseline%27"><span class="hs-identifier hs-var hs-var">baselineId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679848881"><span id="local-6989586621679848883"><span class="annot"><span class="annottext">DeletePatchBaseline -&gt; DeletePatchBaseline -&gt; Bool
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679850703"><span id="local-6989586621679850705"><span class="annot"><span class="annottext">DeletePatchBaseline -&gt; DeletePatchBaseline -&gt; Bool
 (DeletePatchBaseline -&gt; DeletePatchBaseline -&gt; Bool)
 -&gt; (DeletePatchBaseline -&gt; DeletePatchBaseline -&gt; Bool)
 -&gt; Eq DeletePatchBaseline
@@ -61,7 +61,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeletePatchBaseline -&gt; DeletePatchBaseline -&gt; Bool
 == :: DeletePatchBaseline -&gt; DeletePatchBaseline -&gt; Bool
 $c== :: DeletePatchBaseline -&gt; DeletePatchBaseline -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679848872"><span id="local-6989586621679848874"><span id="local-6989586621679848876"><span id="local-6989586621679848878"><span class="annot"><span class="annottext">ReadPrec [DeletePatchBaseline]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679850694"><span id="local-6989586621679850696"><span id="local-6989586621679850698"><span id="local-6989586621679850700"><span class="annot"><span class="annottext">ReadPrec [DeletePatchBaseline]
 ReadPrec DeletePatchBaseline
 Int -&gt; ReadS DeletePatchBaseline
 ReadS [DeletePatchBaseline]
@@ -81,7 +81,7 @@ readList :: ReadS [DeletePatchBaseline]
 $creadList :: ReadS [DeletePatchBaseline]
 readsPrec :: Int -&gt; ReadS DeletePatchBaseline
 $creadsPrec :: Int -&gt; ReadS DeletePatchBaseline
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679848865"><span id="local-6989586621679848867"><span id="local-6989586621679848869"><span class="annot"><span class="annottext">Int -&gt; DeletePatchBaseline -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679850687"><span id="local-6989586621679850689"><span id="local-6989586621679850691"><span class="annot"><span class="annottext">Int -&gt; DeletePatchBaseline -&gt; ShowS
 [DeletePatchBaseline] -&gt; ShowS
 DeletePatchBaseline -&gt; String
 (Int -&gt; DeletePatchBaseline -&gt; ShowS)
@@ -121,12 +121,12 @@ $cfrom :: forall x. DeletePatchBaseline -&gt; Rep DeletePatchBaseline x
 </span><span id="line-67"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.DeletePatchBaseline.html#DeletePatchBaseline"><span class="hs-identifier hs-type">DeletePatchBaseline</span></a></span><span>
 </span><span id="line-69"></span><span id="newDeletePatchBaseline"><span class="annot"><span class="annottext">newDeletePatchBaseline :: Text -&gt; DeletePatchBaseline
-</span><a href="Network.AWS.SSM.DeletePatchBaseline.html#newDeletePatchBaseline"><span class="hs-identifier hs-var hs-var">newDeletePatchBaseline</span></a></span></span><span> </span><span id="local-6989586621679848860"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679848860"><span class="hs-identifier hs-var">pBaselineId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SSM.DeletePatchBaseline.html#newDeletePatchBaseline"><span class="hs-identifier hs-var hs-var">newDeletePatchBaseline</span></a></span></span><span> </span><span id="local-6989586621679850682"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679850682"><span class="hs-identifier hs-var">pBaselineId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">DeletePatchBaseline' :: Text -&gt; DeletePatchBaseline
 </span><a href="Network.AWS.SSM.DeletePatchBaseline.html#DeletePatchBaseline%27"><span class="hs-identifier hs-type">DeletePatchBaseline'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:baselineId:DeletePatchBaseline' :: Text
 </span><a href="Network.AWS.SSM.DeletePatchBaseline.html#%24sel%3AbaselineId%3ADeletePatchBaseline%27"><span class="hs-identifier hs-var">baselineId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679848860"><span class="hs-identifier hs-var">pBaselineId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679850682"><span class="hs-identifier hs-var">pBaselineId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- | The ID of the patch baseline to delete.</span><span>
 </span><span id="line-73"></span><span class="annot"><a href="Network.AWS.SSM.DeletePatchBaseline.html#deletePatchBaseline_baselineId"><span class="hs-identifier hs-type">deletePatchBaseline_baselineId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeletePatchBaseline.html#DeletePatchBaseline"><span class="hs-identifier hs-type">DeletePatchBaseline</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -135,27 +135,27 @@ $cfrom :: forall x. DeletePatchBaseline -&gt; Rep DeletePatchBaseline x
 -&gt; (DeletePatchBaseline -&gt; Text -&gt; DeletePatchBaseline)
 -&gt; Lens DeletePatchBaseline DeletePatchBaseline Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DeletePatchBaseline.html#DeletePatchBaseline%27"><span class="hs-identifier hs-type">DeletePatchBaseline'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679848857"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DeletePatchBaseline.html#DeletePatchBaseline%27"><span class="hs-identifier hs-type">DeletePatchBaseline'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679850679"><span class="annot"><span class="annottext">Text
 baselineId :: Text
 $sel:baselineId:DeletePatchBaseline' :: DeletePatchBaseline -&gt; Text
-</span><a href="#local-6989586621679848857"><span class="hs-identifier hs-var hs-var">baselineId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679848857"><span class="hs-identifier hs-var">baselineId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679848856"><span class="annot"><span class="annottext">s :: DeletePatchBaseline
-</span><a href="#local-6989586621679848856"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DeletePatchBaseline.html#DeletePatchBaseline%27"><span class="hs-identifier hs-type">DeletePatchBaseline'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679848855"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679848855"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeletePatchBaseline
-</span><a href="#local-6989586621679848856"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:baselineId:DeletePatchBaseline' :: Text
+</span><a href="#local-6989586621679850679"><span class="hs-identifier hs-var hs-var">baselineId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679850679"><span class="hs-identifier hs-var">baselineId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679850678"><span class="annot"><span class="annottext">s :: DeletePatchBaseline
+</span><a href="#local-6989586621679850678"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DeletePatchBaseline.html#DeletePatchBaseline%27"><span class="hs-identifier hs-type">DeletePatchBaseline'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679850677"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679850677"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeletePatchBaseline
+</span><a href="#local-6989586621679850678"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:baselineId:DeletePatchBaseline' :: Text
 </span><a href="Network.AWS.SSM.DeletePatchBaseline.html#%24sel%3AbaselineId%3ADeletePatchBaseline%27"><span class="hs-identifier hs-var">baselineId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679848855"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeletePatchBaseline.html#DeletePatchBaseline"><span class="hs-identifier hs-type">DeletePatchBaseline</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679850677"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeletePatchBaseline.html#DeletePatchBaseline"><span class="hs-identifier hs-type">DeletePatchBaseline</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeletePatchBaseline.html#DeletePatchBaseline"><span class="hs-identifier hs-type">DeletePatchBaseline</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-77"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-78"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeletePatchBaseline.html#DeletePatchBaseline"><span class="hs-identifier hs-type">DeletePatchBaseline</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>      </span><span class="annot"><a href="Network.AWS.SSM.DeletePatchBaseline.html#DeletePatchBaselineResponse"><span class="hs-identifier hs-type">DeletePatchBaselineResponse</span></a></span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679848851"><span class="annot"><span class="annottext">request :: DeletePatchBaseline -&gt; Request DeletePatchBaseline
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679850673"><span class="annot"><span class="annottext">request :: DeletePatchBaseline -&gt; Request DeletePatchBaseline
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeletePatchBaseline -&gt; Request DeletePatchBaseline
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SSM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679848847"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679850669"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeletePatchBaseline
 -&gt; ClientResponse ClientBody
@@ -181,10 +181,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679848844"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679848844"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679848843"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679848843"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679848842"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679848842"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679850666"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679850666"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679850665"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679850665"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679850664"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679850664"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-84"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; DeletePatchBaselineResponse
 </span><a href="Network.AWS.SSM.DeletePatchBaseline.html#DeletePatchBaselineResponse%27"><span class="hs-identifier hs-var">DeletePatchBaselineResponse'</span></a></span><span>
 </span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; DeletePatchBaselineResponse)
@@ -192,7 +192,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DeletePatchBaselineResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679848842"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679850664"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BaselineId&quot;</span></span><span class="hs-special">)</span><span>
@@ -204,15 +204,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679848844"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679850666"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679848834"><span id="local-6989586621679848836"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeletePatchBaseline.html#DeletePatchBaseline"><span class="hs-identifier hs-type">DeletePatchBaseline</span></a></span></span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679850656"><span id="local-6989586621679850658"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeletePatchBaseline.html#DeletePatchBaseline"><span class="hs-identifier hs-type">DeletePatchBaseline</span></a></span></span></span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679848831"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeletePatchBaseline.html#DeletePatchBaseline"><span class="hs-identifier hs-type">DeletePatchBaseline</span></a></span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679850653"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeletePatchBaseline.html#DeletePatchBaseline"><span class="hs-identifier hs-type">DeletePatchBaseline</span></a></span></span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeletePatchBaseline.html#DeletePatchBaseline"><span class="hs-identifier hs-type">DeletePatchBaseline</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679848827"><span class="annot"><span class="annottext">toHeaders :: DeletePatchBaseline -&gt; ResponseHeaders
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679850649"><span class="annot"><span class="annottext">toHeaders :: DeletePatchBaseline -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeletePatchBaseline -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -239,12 +239,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-105"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679848817"><span id="local-6989586621679848819"><span id="local-6989586621679848821"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeletePatchBaseline.html#DeletePatchBaseline"><span class="hs-identifier hs-type">DeletePatchBaseline</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679848815"><span class="annot"><span class="annottext">toJSON :: DeletePatchBaseline -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeletePatchBaseline.html#DeletePatchBaseline%27"><span class="hs-identifier hs-type">DeletePatchBaseline'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679848813"><span class="annot"><span class="annottext">Text
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679850639"><span id="local-6989586621679850641"><span id="local-6989586621679850643"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeletePatchBaseline.html#DeletePatchBaseline"><span class="hs-identifier hs-type">DeletePatchBaseline</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679850637"><span class="annot"><span class="annottext">toJSON :: DeletePatchBaseline -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeletePatchBaseline.html#DeletePatchBaseline%27"><span class="hs-identifier hs-type">DeletePatchBaseline'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679850635"><span class="annot"><span class="annottext">Text
 baselineId :: Text
 $sel:baselineId:DeletePatchBaseline' :: DeletePatchBaseline -&gt; Text
-</span><a href="#local-6989586621679848813"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679850635"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -256,18 +256,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;BaselineId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679848813"><span class="hs-identifier hs-var">baselineId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679850635"><span class="hs-identifier hs-var">baselineId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeletePatchBaseline.html#DeletePatchBaseline"><span class="hs-identifier hs-type">DeletePatchBaseline</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679848807"><span class="annot"><span class="annottext">toPath :: DeletePatchBaseline -&gt; ByteString
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679850629"><span class="annot"><span class="annottext">toPath :: DeletePatchBaseline -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeletePatchBaseline -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeletePatchBaseline.html#DeletePatchBaseline"><span class="hs-identifier hs-type">DeletePatchBaseline</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679848803"><span class="annot"><span class="annottext">toQuery :: DeletePatchBaseline -&gt; QueryString
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679850625"><span class="annot"><span class="annottext">toQuery :: DeletePatchBaseline -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeletePatchBaseline -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -275,7 +275,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-comment">-- | /See:/ 'newDeletePatchBaselineResponse' smart constructor.</span><span>
-</span><span id="line-122"></span><span id="local-6989586621679848800"><span id="local-6989586621679848801"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeletePatchBaselineResponse"><span class="annot"><a href="Network.AWS.SSM.DeletePatchBaseline.html#DeletePatchBaselineResponse"><span class="hs-identifier hs-var">DeletePatchBaselineResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeletePatchBaselineResponse%27"><span class="annot"><a href="Network.AWS.SSM.DeletePatchBaseline.html#DeletePatchBaselineResponse%27"><span class="hs-identifier hs-var">DeletePatchBaselineResponse'</span></a></span></span><span>
+</span><span id="line-122"></span><span id="local-6989586621679850622"><span id="local-6989586621679850623"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeletePatchBaselineResponse"><span class="annot"><a href="Network.AWS.SSM.DeletePatchBaseline.html#DeletePatchBaselineResponse"><span class="hs-identifier hs-var">DeletePatchBaselineResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeletePatchBaselineResponse%27"><span class="annot"><a href="Network.AWS.SSM.DeletePatchBaseline.html#DeletePatchBaselineResponse%27"><span class="hs-identifier hs-var">DeletePatchBaselineResponse'</span></a></span></span><span>
 </span><span id="line-123"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the deleted patch baseline.</span><span>
 </span><span id="line-124"></span><span>    </span><span id="%24sel%3AbaselineId%3ADeletePatchBaselineResponse%27"><span class="annot"><span class="annottext">DeletePatchBaselineResponse -&gt; Maybe Text
 </span><a href="Network.AWS.SSM.DeletePatchBaseline.html#%24sel%3AbaselineId%3ADeletePatchBaselineResponse%27"><span class="hs-identifier hs-var hs-var">baselineId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -283,7 +283,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-126"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeletePatchBaselineResponse%27"><span class="annot"><span class="annottext">DeletePatchBaselineResponse -&gt; Int
 </span><a href="Network.AWS.SSM.DeletePatchBaseline.html#%24sel%3AhttpStatus%3ADeletePatchBaselineResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-127"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-128"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679848794"><span id="local-6989586621679848796"><span class="annot"><span class="annottext">DeletePatchBaselineResponse -&gt; DeletePatchBaselineResponse -&gt; Bool
+</span><span id="line-128"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679850616"><span id="local-6989586621679850618"><span class="annot"><span class="annottext">DeletePatchBaselineResponse -&gt; DeletePatchBaselineResponse -&gt; Bool
 (DeletePatchBaselineResponse
  -&gt; DeletePatchBaselineResponse -&gt; Bool)
 -&gt; (DeletePatchBaselineResponse
@@ -294,7 +294,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeletePatchBaselineResponse -&gt; DeletePatchBaselineResponse -&gt; Bool
 == :: DeletePatchBaselineResponse -&gt; DeletePatchBaselineResponse -&gt; Bool
 $c== :: DeletePatchBaselineResponse -&gt; DeletePatchBaselineResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679848786"><span id="local-6989586621679848788"><span id="local-6989586621679848790"><span id="local-6989586621679848792"><span class="annot"><span class="annottext">ReadPrec [DeletePatchBaselineResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679850608"><span id="local-6989586621679850610"><span id="local-6989586621679850612"><span id="local-6989586621679850614"><span class="annot"><span class="annottext">ReadPrec [DeletePatchBaselineResponse]
 ReadPrec DeletePatchBaselineResponse
 Int -&gt; ReadS DeletePatchBaselineResponse
 ReadS [DeletePatchBaselineResponse]
@@ -314,7 +314,7 @@ readList :: ReadS [DeletePatchBaselineResponse]
 $creadList :: ReadS [DeletePatchBaselineResponse]
 readsPrec :: Int -&gt; ReadS DeletePatchBaselineResponse
 $creadsPrec :: Int -&gt; ReadS DeletePatchBaselineResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679848780"><span id="local-6989586621679848782"><span id="local-6989586621679848784"><span class="annot"><span class="annottext">Int -&gt; DeletePatchBaselineResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679850602"><span id="local-6989586621679850604"><span id="local-6989586621679850606"><span class="annot"><span class="annottext">Int -&gt; DeletePatchBaselineResponse -&gt; ShowS
 [DeletePatchBaselineResponse] -&gt; ShowS
 DeletePatchBaselineResponse -&gt; String
 (Int -&gt; DeletePatchBaselineResponse -&gt; ShowS)
@@ -362,8 +362,8 @@ DeletePatchBaselineResponse -&gt; Rep DeletePatchBaselineResponse x
 </span><span id="line-143"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-144"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.DeletePatchBaseline.html#DeletePatchBaselineResponse"><span class="hs-identifier hs-type">DeletePatchBaselineResponse</span></a></span><span>
 </span><span id="line-145"></span><span id="newDeletePatchBaselineResponse"><span class="annot"><span class="annottext">newDeletePatchBaselineResponse :: Int -&gt; DeletePatchBaselineResponse
-</span><a href="Network.AWS.SSM.DeletePatchBaseline.html#newDeletePatchBaselineResponse"><span class="hs-identifier hs-var hs-var">newDeletePatchBaselineResponse</span></a></span></span><span> </span><span id="local-6989586621679848777"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679848777"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SSM.DeletePatchBaseline.html#newDeletePatchBaselineResponse"><span class="hs-identifier hs-var hs-var">newDeletePatchBaselineResponse</span></a></span></span><span> </span><span id="local-6989586621679850599"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679850599"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-146"></span><span>  </span><span class="annot"><span class="annottext">DeletePatchBaselineResponse' :: Maybe Text -&gt; Int -&gt; DeletePatchBaselineResponse
 </span><a href="Network.AWS.SSM.DeletePatchBaseline.html#DeletePatchBaselineResponse%27"><span class="hs-identifier hs-type">DeletePatchBaselineResponse'</span></a></span><span>
 </span><span id="line-147"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:baselineId:DeletePatchBaselineResponse' :: Maybe Text
@@ -373,7 +373,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-149"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DeletePatchBaselineResponse' :: Int
 </span><a href="Network.AWS.SSM.DeletePatchBaseline.html#%24sel%3AhttpStatus%3ADeletePatchBaselineResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679848777"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679850599"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-150"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-comment">-- | The ID of the deleted patch baseline.</span><span>
@@ -389,16 +389,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DeletePatchBaseline.html#DeletePatchBaselineResponse%27"><span class="hs-identifier hs-type">DeletePatchBaselineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679848776"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DeletePatchBaseline.html#DeletePatchBaselineResponse%27"><span class="hs-identifier hs-type">DeletePatchBaselineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679850598"><span class="annot"><span class="annottext">Maybe Text
 baselineId :: Maybe Text
 $sel:baselineId:DeletePatchBaselineResponse' :: DeletePatchBaselineResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679848776"><span class="hs-identifier hs-var hs-var">baselineId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679848776"><span class="hs-identifier hs-var">baselineId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679848775"><span class="annot"><span class="annottext">s :: DeletePatchBaselineResponse
-</span><a href="#local-6989586621679848775"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DeletePatchBaseline.html#DeletePatchBaselineResponse%27"><span class="hs-identifier hs-type">DeletePatchBaselineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679848774"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679848774"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeletePatchBaselineResponse
-</span><a href="#local-6989586621679848775"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:baselineId:DeletePatchBaselineResponse' :: Maybe Text
+</span><a href="#local-6989586621679850598"><span class="hs-identifier hs-var hs-var">baselineId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679850598"><span class="hs-identifier hs-var">baselineId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679850597"><span class="annot"><span class="annottext">s :: DeletePatchBaselineResponse
+</span><a href="#local-6989586621679850597"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DeletePatchBaseline.html#DeletePatchBaselineResponse%27"><span class="hs-identifier hs-type">DeletePatchBaselineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679850596"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679850596"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeletePatchBaselineResponse
+</span><a href="#local-6989586621679850597"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:baselineId:DeletePatchBaselineResponse' :: Maybe Text
 </span><a href="Network.AWS.SSM.DeletePatchBaseline.html#%24sel%3AbaselineId%3ADeletePatchBaselineResponse%27"><span class="hs-identifier hs-var">baselineId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679848774"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeletePatchBaseline.html#DeletePatchBaselineResponse"><span class="hs-identifier hs-type">DeletePatchBaselineResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679850596"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeletePatchBaseline.html#DeletePatchBaselineResponse"><span class="hs-identifier hs-type">DeletePatchBaselineResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>
 </span><span id="line-156"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-157"></span><span class="annot"><a href="Network.AWS.SSM.DeletePatchBaseline.html#deletePatchBaselineResponse_httpStatus"><span class="hs-identifier hs-type">deletePatchBaselineResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeletePatchBaseline.html#DeletePatchBaselineResponse"><span class="hs-identifier hs-type">DeletePatchBaselineResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -410,16 +410,16 @@ $sel:baselineId:DeletePatchBaselineResponse' :: DeletePatchBaselineResponse -&gt
 -&gt; Lens
      DeletePatchBaselineResponse DeletePatchBaselineResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DeletePatchBaseline.html#DeletePatchBaselineResponse%27"><span class="hs-identifier hs-type">DeletePatchBaselineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679848773"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DeletePatchBaseline.html#DeletePatchBaselineResponse%27"><span class="hs-identifier hs-type">DeletePatchBaselineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679850595"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeletePatchBaselineResponse' :: DeletePatchBaselineResponse -&gt; Int
-</span><a href="#local-6989586621679848773"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679848773"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679848772"><span class="annot"><span class="annottext">s :: DeletePatchBaselineResponse
-</span><a href="#local-6989586621679848772"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DeletePatchBaseline.html#DeletePatchBaselineResponse%27"><span class="hs-identifier hs-type">DeletePatchBaselineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679848771"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679848771"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeletePatchBaselineResponse
-</span><a href="#local-6989586621679848772"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeletePatchBaselineResponse' :: Int
+</span><a href="#local-6989586621679850595"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679850595"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679850594"><span class="annot"><span class="annottext">s :: DeletePatchBaselineResponse
+</span><a href="#local-6989586621679850594"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DeletePatchBaseline.html#DeletePatchBaselineResponse%27"><span class="hs-identifier hs-type">DeletePatchBaselineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679850593"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679850593"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeletePatchBaselineResponse
+</span><a href="#local-6989586621679850594"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeletePatchBaselineResponse' :: Int
 </span><a href="Network.AWS.SSM.DeletePatchBaseline.html#%24sel%3AhttpStatus%3ADeletePatchBaselineResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679848771"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeletePatchBaseline.html#DeletePatchBaselineResponse"><span class="hs-identifier hs-type">DeletePatchBaselineResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679850593"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeletePatchBaseline.html#DeletePatchBaselineResponse"><span class="hs-identifier hs-type">DeletePatchBaselineResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span><span>
-</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679848769"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeletePatchBaseline.html#DeletePatchBaselineResponse"><span class="hs-identifier hs-type">DeletePatchBaselineResponse</span></a></span></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679850591"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeletePatchBaseline.html#DeletePatchBaselineResponse"><span class="hs-identifier hs-type">DeletePatchBaselineResponse</span></a></span></span><span>
 </span><span id="line-161"></span></pre></body></html>

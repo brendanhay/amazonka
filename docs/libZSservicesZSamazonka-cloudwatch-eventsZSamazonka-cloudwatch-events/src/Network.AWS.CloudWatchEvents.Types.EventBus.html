@@ -31,7 +31,7 @@
 </span><span id="line-31"></span><span class="hs-comment">-- partner. These events come from the partners services or applications.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newEventBus' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679302166"><span id="local-6989586621679302167"></span></span><span class="hs-keyword">data</span><span> </span><span id="EventBus"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventBus.html#EventBus"><span class="hs-identifier hs-var">EventBus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EventBus%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventBus.html#EventBus%27"><span class="hs-identifier hs-var">EventBus'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679302346"><span id="local-6989586621679302347"></span></span><span class="hs-keyword">data</span><span> </span><span id="EventBus"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventBus.html#EventBus"><span class="hs-identifier hs-var">EventBus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EventBus%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventBus.html#EventBus%27"><span class="hs-identifier hs-var">EventBus'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the event bus.</span><span>
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3Aarn%3AEventBus%27"><span class="annot"><span class="annottext">EventBus -&gt; Maybe Text
 </span><a href="Network.AWS.CloudWatchEvents.Types.EventBus.html#%24sel%3Aarn%3AEventBus%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -43,7 +43,7 @@
 </span><span id="line-41"></span><span>    </span><span id="%24sel%3Apolicy%3AEventBus%27"><span class="annot"><span class="annottext">EventBus -&gt; Maybe Text
 </span><a href="Network.AWS.CloudWatchEvents.Types.EventBus.html#%24sel%3Apolicy%3AEventBus%27"><span class="hs-identifier hs-var hs-var">policy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679302158"><span id="local-6989586621679302160"><span class="annot"><span class="annottext">EventBus -&gt; EventBus -&gt; Bool
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679302338"><span id="local-6989586621679302340"><span class="annot"><span class="annottext">EventBus -&gt; EventBus -&gt; Bool
 (EventBus -&gt; EventBus -&gt; Bool)
 -&gt; (EventBus -&gt; EventBus -&gt; Bool) -&gt; Eq EventBus
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -51,7 +51,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: EventBus -&gt; EventBus -&gt; Bool
 == :: EventBus -&gt; EventBus -&gt; Bool
 $c== :: EventBus -&gt; EventBus -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302149"><span id="local-6989586621679302151"><span id="local-6989586621679302153"><span id="local-6989586621679302155"><span class="annot"><span class="annottext">ReadPrec [EventBus]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302329"><span id="local-6989586621679302331"><span id="local-6989586621679302333"><span id="local-6989586621679302335"><span class="annot"><span class="annottext">ReadPrec [EventBus]
 ReadPrec EventBus
 Int -&gt; ReadS EventBus
 ReadS [EventBus]
@@ -71,7 +71,7 @@ readList :: ReadS [EventBus]
 $creadList :: ReadS [EventBus]
 readsPrec :: Int -&gt; ReadS EventBus
 $creadsPrec :: Int -&gt; ReadS EventBus
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302142"><span id="local-6989586621679302144"><span id="local-6989586621679302146"><span class="annot"><span class="annottext">Int -&gt; EventBus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302322"><span id="local-6989586621679302324"><span id="local-6989586621679302326"><span class="annot"><span class="annottext">Int -&gt; EventBus -&gt; ShowS
 [EventBus] -&gt; ShowS
 EventBus -&gt; String
 (Int -&gt; EventBus -&gt; ShowS)
@@ -135,16 +135,16 @@ forall a. Maybe a
 -&gt; (EventBus -&gt; Maybe Text -&gt; EventBus)
 -&gt; Lens EventBus EventBus (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventBus.html#EventBus%27"><span class="hs-identifier hs-type">EventBus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302133"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventBus.html#EventBus%27"><span class="hs-identifier hs-type">EventBus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302313"><span class="annot"><span class="annottext">Maybe Text
 arn :: Maybe Text
 $sel:arn:EventBus' :: EventBus -&gt; Maybe Text
-</span><a href="#local-6989586621679302133"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302133"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302132"><span class="annot"><span class="annottext">s :: EventBus
-</span><a href="#local-6989586621679302132"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventBus.html#EventBus%27"><span class="hs-identifier hs-type">EventBus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302131"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302131"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventBus
-</span><a href="#local-6989586621679302132"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:EventBus' :: Maybe Text
+</span><a href="#local-6989586621679302313"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302313"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302312"><span class="annot"><span class="annottext">s :: EventBus
+</span><a href="#local-6989586621679302312"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventBus.html#EventBus%27"><span class="hs-identifier hs-type">EventBus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302311"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302311"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventBus
+</span><a href="#local-6989586621679302312"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:EventBus' :: Maybe Text
 </span><a href="Network.AWS.CloudWatchEvents.Types.EventBus.html#%24sel%3Aarn%3AEventBus%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302131"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventBus.html#EventBus"><span class="hs-identifier hs-type">EventBus</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679302311"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventBus.html#EventBus"><span class="hs-identifier hs-type">EventBus</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- | The name of the event bus.</span><span>
 </span><span id="line-73"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventBus.html#eventBus_name"><span class="hs-identifier hs-type">eventBus_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventBus.html#EventBus"><span class="hs-identifier hs-type">EventBus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -153,16 +153,16 @@ $sel:arn:EventBus' :: EventBus -&gt; Maybe Text
 -&gt; (EventBus -&gt; Maybe Text -&gt; EventBus)
 -&gt; Lens EventBus EventBus (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventBus.html#EventBus%27"><span class="hs-identifier hs-type">EventBus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302129"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventBus.html#EventBus%27"><span class="hs-identifier hs-type">EventBus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302309"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 $sel:name:EventBus' :: EventBus -&gt; Maybe Text
-</span><a href="#local-6989586621679302129"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302129"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302128"><span class="annot"><span class="annottext">s :: EventBus
-</span><a href="#local-6989586621679302128"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventBus.html#EventBus%27"><span class="hs-identifier hs-type">EventBus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302127"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302127"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventBus
-</span><a href="#local-6989586621679302128"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:EventBus' :: Maybe Text
+</span><a href="#local-6989586621679302309"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302309"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302308"><span class="annot"><span class="annottext">s :: EventBus
+</span><a href="#local-6989586621679302308"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventBus.html#EventBus%27"><span class="hs-identifier hs-type">EventBus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302307"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302307"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventBus
+</span><a href="#local-6989586621679302308"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:EventBus' :: Maybe Text
 </span><a href="Network.AWS.CloudWatchEvents.Types.EventBus.html#%24sel%3Aname%3AEventBus%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302127"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventBus.html#EventBus"><span class="hs-identifier hs-type">EventBus</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679302307"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventBus.html#EventBus"><span class="hs-identifier hs-type">EventBus</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- | The permissions policy of the event bus, describing which other Amazon</span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- Web Services accounts can write events to this event bus.</span><span>
@@ -172,27 +172,27 @@ $sel:name:EventBus' :: EventBus -&gt; Maybe Text
 -&gt; (EventBus -&gt; Maybe Text -&gt; EventBus)
 -&gt; Lens EventBus EventBus (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventBus.html#EventBus%27"><span class="hs-identifier hs-type">EventBus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302125"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventBus.html#EventBus%27"><span class="hs-identifier hs-type">EventBus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302305"><span class="annot"><span class="annottext">Maybe Text
 policy :: Maybe Text
 $sel:policy:EventBus' :: EventBus -&gt; Maybe Text
-</span><a href="#local-6989586621679302125"><span class="hs-identifier hs-var hs-var">policy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302125"><span class="hs-identifier hs-var">policy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302124"><span class="annot"><span class="annottext">s :: EventBus
-</span><a href="#local-6989586621679302124"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventBus.html#EventBus%27"><span class="hs-identifier hs-type">EventBus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302123"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302123"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventBus
-</span><a href="#local-6989586621679302124"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policy:EventBus' :: Maybe Text
+</span><a href="#local-6989586621679302305"><span class="hs-identifier hs-var hs-var">policy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302305"><span class="hs-identifier hs-var">policy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302304"><span class="annot"><span class="annottext">s :: EventBus
+</span><a href="#local-6989586621679302304"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventBus.html#EventBus%27"><span class="hs-identifier hs-type">EventBus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302303"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302303"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventBus
+</span><a href="#local-6989586621679302304"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policy:EventBus' :: Maybe Text
 </span><a href="Network.AWS.CloudWatchEvents.Types.EventBus.html#%24sel%3Apolicy%3AEventBus%27"><span class="hs-identifier hs-var">policy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302123"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventBus.html#EventBus"><span class="hs-identifier hs-type">EventBus</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679302303"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventBus.html#EventBus"><span class="hs-identifier hs-type">EventBus</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302120"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventBus.html#EventBus"><span class="hs-identifier hs-type">EventBus</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679302118"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EventBus
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302300"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventBus.html#EventBus"><span class="hs-identifier hs-type">EventBus</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679302298"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EventBus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser EventBus) -&gt; Value -&gt; Parser EventBus
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;EventBus&quot;</span></span><span>
-</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679302115"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679302115"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679302295"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679302295"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-86"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; EventBus
 </span><a href="Network.AWS.CloudWatchEvents.Types.EventBus.html#EventBus%27"><span class="hs-identifier hs-var">EventBus'</span></a></span><span>
 </span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; EventBus)
@@ -200,7 +200,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; EventBus)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679302115"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679302295"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Arn&quot;</span></span><span class="hs-special">)</span><span>
@@ -208,7 +208,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; EventBus)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679302115"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679302295"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
@@ -216,13 +216,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser EventBus
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679302115"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679302295"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Policy&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302109"><span id="local-6989586621679302111"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventBus.html#EventBus"><span class="hs-identifier hs-type">EventBus</span></a></span></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302289"><span id="local-6989586621679302291"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventBus.html#EventBus"><span class="hs-identifier hs-type">EventBus</span></a></span></span></span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302106"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventBus.html#EventBus"><span class="hs-identifier hs-type">EventBus</span></a></span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302286"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventBus.html#EventBus"><span class="hs-identifier hs-type">EventBus</span></a></span></span><span>
 </span><span id="line-95"></span></pre></body></html>

@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-34"></span><span>
-</span><span id="line-35"></span><span id="local-6989586621679344430"><span id="local-6989586621679344431"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="LoggerLevel"><span class="annot"><a href="Network.AWS.Greengrass.Types.LoggerLevel.html#LoggerLevel"><span class="hs-identifier hs-var">LoggerLevel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LoggerLevel%27"><span class="annot"><a href="Network.AWS.Greengrass.Types.LoggerLevel.html#LoggerLevel%27"><span class="hs-identifier hs-var">LoggerLevel'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679344685"><span id="local-6989586621679344686"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="LoggerLevel"><span class="annot"><a href="Network.AWS.Greengrass.Types.LoggerLevel.html#LoggerLevel"><span class="hs-identifier hs-var">LoggerLevel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LoggerLevel%27"><span class="annot"><a href="Network.AWS.Greengrass.Types.LoggerLevel.html#LoggerLevel%27"><span class="hs-identifier hs-var">LoggerLevel'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromLoggerLevel"><span class="annot"><span class="annottext">LoggerLevel -&gt; Text
 </span><a href="Network.AWS.Greengrass.Types.LoggerLevel.html#fromLoggerLevel"><span class="hs-identifier hs-var hs-var">fromLoggerLevel</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679344422"><span id="local-6989586621679344424"><span id="local-6989586621679344426"><span class="annot"><span class="annottext">Int -&gt; LoggerLevel -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679344677"><span id="local-6989586621679344679"><span id="local-6989586621679344681"><span class="annot"><span class="annottext">Int -&gt; LoggerLevel -&gt; ShowS
 [LoggerLevel] -&gt; ShowS
 LoggerLevel -&gt; String
 (Int -&gt; LoggerLevel -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: LoggerLevel -&gt; String
 showsPrec :: Int -&gt; LoggerLevel -&gt; ShowS
 $cshowsPrec :: Int -&gt; LoggerLevel -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679344413"><span id="local-6989586621679344415"><span id="local-6989586621679344417"><span id="local-6989586621679344419"><span class="annot"><span class="annottext">ReadPrec [LoggerLevel]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679344668"><span id="local-6989586621679344670"><span id="local-6989586621679344672"><span id="local-6989586621679344674"><span class="annot"><span class="annottext">ReadPrec [LoggerLevel]
 ReadPrec LoggerLevel
 Int -&gt; ReadS LoggerLevel
 ReadS [LoggerLevel]
@@ -75,7 +75,7 @@ $creadList :: ReadS [LoggerLevel]
 readsPrec :: Int -&gt; ReadS LoggerLevel
 $creadsPrec :: Int -&gt; ReadS LoggerLevel
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679344408"><span id="local-6989586621679344410"><span class="annot"><span class="annottext">LoggerLevel -&gt; LoggerLevel -&gt; Bool
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679344663"><span id="local-6989586621679344665"><span class="annot"><span class="annottext">LoggerLevel -&gt; LoggerLevel -&gt; Bool
 (LoggerLevel -&gt; LoggerLevel -&gt; Bool)
 -&gt; (LoggerLevel -&gt; LoggerLevel -&gt; Bool) -&gt; Eq LoggerLevel
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -84,7 +84,7 @@ $c/= :: LoggerLevel -&gt; LoggerLevel -&gt; Bool
 == :: LoggerLevel -&gt; LoggerLevel -&gt; Bool
 $c== :: LoggerLevel -&gt; LoggerLevel -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679344392"><span id="local-6989586621679344394"><span id="local-6989586621679344396"><span id="local-6989586621679344398"><span id="local-6989586621679344400"><span id="local-6989586621679344402"><span id="local-6989586621679344404"><span class="annot"><span class="annottext">Eq LoggerLevel
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679344647"><span id="local-6989586621679344649"><span id="local-6989586621679344651"><span id="local-6989586621679344653"><span id="local-6989586621679344655"><span id="local-6989586621679344657"><span id="local-6989586621679344659"><span class="annot"><span class="annottext">Eq LoggerLevel
 Eq LoggerLevel
 -&gt; (LoggerLevel -&gt; LoggerLevel -&gt; Ordering)
 -&gt; (LoggerLevel -&gt; LoggerLevel -&gt; Bool)
@@ -135,7 +135,7 @@ $cfrom :: forall x. LoggerLevel -&gt; Rep LoggerLevel x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679344384"><span id="local-6989586621679344386"><span class="annot"><span class="annottext">Int -&gt; LoggerLevel -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679344639"><span id="local-6989586621679344641"><span class="annot"><span class="annottext">Int -&gt; LoggerLevel -&gt; Int
 LoggerLevel -&gt; Int
 (Int -&gt; LoggerLevel -&gt; Int)
 -&gt; (LoggerLevel -&gt; Int) -&gt; Hashable LoggerLevel
@@ -145,49 +145,49 @@ $chash :: LoggerLevel -&gt; Int
 hashWithSalt :: Int -&gt; LoggerLevel -&gt; Int
 $chashWithSalt :: Int -&gt; LoggerLevel -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679344381"><span class="annot"><span class="annottext">LoggerLevel -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679344636"><span class="annot"><span class="annottext">LoggerLevel -&gt; ()
 (LoggerLevel -&gt; ()) -&gt; NFData LoggerLevel
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: LoggerLevel -&gt; ()
 $crnf :: LoggerLevel -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679344378"><span class="annot"><span class="annottext">Text -&gt; Either String LoggerLevel
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679344633"><span class="annot"><span class="annottext">Text -&gt; Either String LoggerLevel
 (Text -&gt; Either String LoggerLevel) -&gt; FromText LoggerLevel
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String LoggerLevel
 $cfromText :: Text -&gt; Either String LoggerLevel
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679344375"><span class="annot"><span class="annottext">LoggerLevel -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679344630"><span class="annot"><span class="annottext">LoggerLevel -&gt; Text
 (LoggerLevel -&gt; Text) -&gt; ToText LoggerLevel
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: LoggerLevel -&gt; Text
 $ctoText :: LoggerLevel -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679344372"><span class="annot"><span class="annottext">LoggerLevel -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679344627"><span class="annot"><span class="annottext">LoggerLevel -&gt; ByteString
 (LoggerLevel -&gt; ByteString) -&gt; ToByteString LoggerLevel
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: LoggerLevel -&gt; ByteString
 $ctoBS :: LoggerLevel -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679344369"><span class="annot"><span class="annottext">LoggerLevel -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679344624"><span class="annot"><span class="annottext">LoggerLevel -&gt; ByteStringBuilder
 (LoggerLevel -&gt; ByteStringBuilder) -&gt; ToLog LoggerLevel
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: LoggerLevel -&gt; ByteStringBuilder
 $cbuild :: LoggerLevel -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679344366"><span class="annot"><span class="annottext">HeaderName -&gt; LoggerLevel -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679344621"><span class="annot"><span class="annottext">HeaderName -&gt; LoggerLevel -&gt; [Header]
 (HeaderName -&gt; LoggerLevel -&gt; [Header]) -&gt; ToHeader LoggerLevel
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; LoggerLevel -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; LoggerLevel -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679344363"><span class="annot"><span class="annottext">LoggerLevel -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679344618"><span class="annot"><span class="annottext">LoggerLevel -&gt; QueryString
 (LoggerLevel -&gt; QueryString) -&gt; ToQuery LoggerLevel
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: LoggerLevel -&gt; QueryString
 $ctoQuery :: LoggerLevel -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679344358"><span id="local-6989586621679344360"><span class="annot"><span class="annottext">Value -&gt; Parser [LoggerLevel]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679344613"><span id="local-6989586621679344615"><span class="annot"><span class="annottext">Value -&gt; Parser [LoggerLevel]
 Value -&gt; Parser LoggerLevel
 (Value -&gt; Parser LoggerLevel)
 -&gt; (Value -&gt; Parser [LoggerLevel]) -&gt; FromJSON LoggerLevel
@@ -198,7 +198,7 @@ $cparseJSONList :: Value -&gt; Parser [LoggerLevel]
 parseJSON :: Value -&gt; Parser LoggerLevel
 $cparseJSON :: Value -&gt; Parser LoggerLevel
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679344353"><span id="local-6989586621679344355"><span class="annot"><span class="annottext">FromJSONKeyFunction [LoggerLevel]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679344608"><span id="local-6989586621679344610"><span class="annot"><span class="annottext">FromJSONKeyFunction [LoggerLevel]
 FromJSONKeyFunction LoggerLevel
 FromJSONKeyFunction LoggerLevel
 -&gt; FromJSONKeyFunction [LoggerLevel] -&gt; FromJSONKey LoggerLevel
@@ -209,7 +209,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [LoggerLevel]
 fromJSONKey :: FromJSONKeyFunction LoggerLevel
 $cfromJSONKey :: FromJSONKeyFunction LoggerLevel
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679344344"><span id="local-6989586621679344346"><span id="local-6989586621679344348"><span id="local-6989586621679344350"><span class="annot"><span class="annottext">[LoggerLevel] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679344599"><span id="local-6989586621679344601"><span id="local-6989586621679344603"><span id="local-6989586621679344605"><span class="annot"><span class="annottext">[LoggerLevel] -&gt; Encoding
 [LoggerLevel] -&gt; Value
 LoggerLevel -&gt; Encoding
 LoggerLevel -&gt; Value
@@ -233,7 +233,7 @@ $ctoEncoding :: LoggerLevel -&gt; Encoding
 toJSON :: LoggerLevel -&gt; Value
 $ctoJSON :: LoggerLevel -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679344339"><span id="local-6989586621679344341"><span class="annot"><span class="annottext">ToJSONKeyFunction [LoggerLevel]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679344594"><span id="local-6989586621679344596"><span class="annot"><span class="annottext">ToJSONKeyFunction [LoggerLevel]
 ToJSONKeyFunction LoggerLevel
 ToJSONKeyFunction LoggerLevel
 -&gt; ToJSONKeyFunction [LoggerLevel] -&gt; ToJSONKey LoggerLevel
@@ -244,13 +244,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [LoggerLevel]
 toJSONKey :: ToJSONKeyFunction LoggerLevel
 $ctoJSONKey :: ToJSONKeyFunction LoggerLevel
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679344336"><span class="annot"><span class="annottext">[Node] -&gt; Either String LoggerLevel
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679344591"><span class="annot"><span class="annottext">[Node] -&gt; Either String LoggerLevel
 ([Node] -&gt; Either String LoggerLevel) -&gt; FromXML LoggerLevel
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String LoggerLevel
 $cparseXML :: [Node] -&gt; Either String LoggerLevel
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679344333"><span class="annot"><span class="annottext">LoggerLevel -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679344588"><span class="annot"><span class="annottext">LoggerLevel -&gt; XML
 (LoggerLevel -&gt; XML) -&gt; ToXML LoggerLevel
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: LoggerLevel -&gt; XML

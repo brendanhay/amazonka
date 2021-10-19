@@ -33,13 +33,13 @@
 </span><span id="line-33"></span><span>
 </span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
 </span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#createDocument_documentType"><span class="hs-identifier">createDocument_documentType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#createDocument_targetType"><span class="hs-identifier">createDocument_targetType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#createDocument_requires"><span class="hs-identifier">createDocument_requires</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#createDocument_versionName"><span class="hs-identifier">createDocument_versionName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#createDocument_attachments"><span class="hs-identifier">createDocument_attachments</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#createDocument_versionName"><span class="hs-identifier">createDocument_versionName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#createDocument_targetType"><span class="hs-identifier">createDocument_targetType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#createDocument_documentFormat"><span class="hs-identifier">createDocument_documentFormat</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#createDocument_tags"><span class="hs-identifier">createDocument_tags</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#createDocument_displayName"><span class="hs-identifier">createDocument_displayName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#createDocument_attachments"><span class="hs-identifier">createDocument_attachments</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#createDocument_displayName"><span class="hs-identifier">createDocument_displayName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#createDocument_requires"><span class="hs-identifier">createDocument_requires</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#createDocument_tags"><span class="hs-identifier">createDocument_tags</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#createDocument_content"><span class="hs-identifier">createDocument_content</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#createDocument_name"><span class="hs-identifier">createDocument_name</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-45"></span><span>
@@ -61,64 +61,64 @@
 </span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.html"><span class="hs-identifier">Network.AWS.SSM.Types</span></a></span><span>
 </span><span id="line-62"></span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- | /See:/ 'newCreateDocument' smart constructor.</span><span>
-</span><span id="line-64"></span><span id="local-6989586621679852240"><span id="local-6989586621679852241"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateDocument"><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument"><span class="hs-identifier hs-var">CreateDocument</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateDocument%27"><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument%27"><span class="hs-identifier hs-var">CreateDocument'</span></a></span></span><span>
+</span><span id="line-64"></span><span id="local-6989586621679854069"><span id="local-6989586621679854070"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateDocument"><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument"><span class="hs-identifier hs-var">CreateDocument</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateDocument%27"><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument%27"><span class="hs-identifier hs-var">CreateDocument'</span></a></span></span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type of document to create.</span><span>
 </span><span id="line-66"></span><span>    </span><span id="%24sel%3AdocumentType%3ACreateDocument%27"><span class="annot"><span class="annottext">CreateDocument -&gt; Maybe DocumentType
 </span><a href="Network.AWS.SSM.CreateDocument.html#%24sel%3AdocumentType%3ACreateDocument%27"><span class="hs-identifier hs-var hs-var">documentType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentType.html#DocumentType"><span class="hs-identifier hs-type">DocumentType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | Specify a target type to define the kinds of resources the document can</span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- run on. For example, to run a document on EC2 instances, specify the</span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- following value: @\/AWS::EC2::Instance@. If you specify a value of</span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- \'\/\' the document can run on all types of resources. If you don\'t</span><span>
-</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- specify a value, the document can\'t run on any resources. For a list of</span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- valid resource types, see</span><span>
-</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html Amazon Web Services resource and property types reference&gt;</span><span>
-</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- in the /CloudFormation User Guide/.</span><span>
-</span><span id="line-75"></span><span>    </span><span id="%24sel%3AtargetType%3ACreateDocument%27"><span class="annot"><span class="annottext">CreateDocument -&gt; Maybe Text
-</span><a href="Network.AWS.SSM.CreateDocument.html#%24sel%3AtargetType%3ACreateDocument%27"><span class="hs-identifier hs-var hs-var">targetType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | A list of SSM documents required by a document. This parameter is used</span><span>
-</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- exclusively by AppConfig. When a user creates an AppConfig configuration</span><span>
-</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- in an SSM document, the user must also specify a required document for</span><span>
-</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- validation purposes. In this case, an @ApplicationConfiguration@</span><span>
-</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- document requires an @ApplicationConfigurationSchema@ document for</span><span>
-</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- validation purposes. For more information, see</span><span>
-</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/appconfig/latest/userguide/what-is-appconfig.html What is AppConfig?&gt;</span><span>
-</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- in the /AppConfig User Guide/.</span><span>
-</span><span id="line-84"></span><span>    </span><span id="%24sel%3Arequires%3ACreateDocument%27"><span class="annot"><span class="annottext">CreateDocument -&gt; Maybe (NonEmpty DocumentRequires)
-</span><a href="Network.AWS.SSM.CreateDocument.html#%24sel%3Arequires%3ACreateDocument%27"><span class="hs-identifier hs-var hs-var">requires</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentRequires.html#DocumentRequires"><span class="hs-identifier hs-type">DocumentRequires</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- | An optional field specifying the version of the artifact you are</span><span>
-</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- creating with the document. For example, \&quot;Release 12, Update 6\&quot;. This</span><span>
-</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- value is unique across all versions of a document, and can\'t be</span><span>
-</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- changed.</span><span>
-</span><span id="line-89"></span><span>    </span><span id="%24sel%3AversionName%3ACreateDocument%27"><span class="annot"><span class="annottext">CreateDocument -&gt; Maybe Text
-</span><a href="Network.AWS.SSM.CreateDocument.html#%24sel%3AversionName%3ACreateDocument%27"><span class="hs-identifier hs-var hs-var">versionName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- | Specify the document format for the request. The document format can be</span><span>
-</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- JSON, YAML, or TEXT. JSON is the default format.</span><span>
-</span><span id="line-92"></span><span>    </span><span id="%24sel%3AdocumentFormat%3ACreateDocument%27"><span class="annot"><span class="annottext">CreateDocument -&gt; Maybe DocumentFormat
-</span><a href="Network.AWS.SSM.CreateDocument.html#%24sel%3AdocumentFormat%3ACreateDocument%27"><span class="hs-identifier hs-var hs-var">documentFormat</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentFormat.html#DocumentFormat"><span class="hs-identifier hs-type">DocumentFormat</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- | Optional metadata that you assign to a resource. Tags enable you to</span><span>
-</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- categorize a resource in different ways, such as by purpose, owner, or</span><span>
-</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- environment. For example, you might want to tag an SSM document to</span><span>
-</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- identify the types of targets or the environment where it will run. In</span><span>
-</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- this case, you could specify the following key-value pairs:</span><span>
-</span><span id="line-98"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- -   @Key=OS,Value=Windows@</span><span>
-</span><span id="line-100"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- -   @Key=Environment,Value=Production@</span><span>
-</span><span id="line-102"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- To add tags to an existing SSM document, use the AddTagsToResource</span><span>
-</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- operation.</span><span>
-</span><span id="line-105"></span><span>    </span><span id="%24sel%3Atags%3ACreateDocument%27"><span class="annot"><span class="annottext">CreateDocument -&gt; Maybe [Tag]
-</span><a href="Network.AWS.SSM.CreateDocument.html#%24sel%3Atags%3ACreateDocument%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SSM.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- | An optional field where you can specify a friendly name for the SSM</span><span>
-</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- document. This value can differ for each version of the document. You</span><span>
-</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- can update this value at a later time using the UpdateDocument</span><span>
-</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- operation.</span><span>
-</span><span id="line-110"></span><span>    </span><span id="%24sel%3AdisplayName%3ACreateDocument%27"><span class="annot"><span class="annottext">CreateDocument -&gt; Maybe Text
-</span><a href="Network.AWS.SSM.CreateDocument.html#%24sel%3AdisplayName%3ACreateDocument%27"><span class="hs-identifier hs-var hs-var">displayName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- | A list of key-value pairs that describe attachments to a version of a</span><span>
-</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- document.</span><span>
-</span><span id="line-113"></span><span>    </span><span id="%24sel%3Aattachments%3ACreateDocument%27"><span class="annot"><span class="annottext">CreateDocument -&gt; Maybe [AttachmentsSource]
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | A list of key-value pairs that describe attachments to a version of a</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- document.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3Aattachments%3ACreateDocument%27"><span class="annot"><span class="annottext">CreateDocument -&gt; Maybe [AttachmentsSource]
 </span><a href="Network.AWS.SSM.CreateDocument.html#%24sel%3Aattachments%3ACreateDocument%27"><span class="hs-identifier hs-var hs-var">attachments</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SSM.Types.AttachmentsSource.html#AttachmentsSource"><span class="hs-identifier hs-type">AttachmentsSource</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | An optional field specifying the version of the artifact you are</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- creating with the document. For example, \&quot;Release 12, Update 6\&quot;. This</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- value is unique across all versions of a document, and can\'t be</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- changed.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3AversionName%3ACreateDocument%27"><span class="annot"><span class="annottext">CreateDocument -&gt; Maybe Text
+</span><a href="Network.AWS.SSM.CreateDocument.html#%24sel%3AversionName%3ACreateDocument%27"><span class="hs-identifier hs-var hs-var">versionName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | Specify a target type to define the kinds of resources the document can</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- run on. For example, to run a document on EC2 instances, specify the</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- following value: @\/AWS::EC2::Instance@. If you specify a value of</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- \'\/\' the document can run on all types of resources. If you don\'t</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- specify a value, the document can\'t run on any resources. For a list of</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- valid resource types, see</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html Amazon Web Services resource and property types reference&gt;</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- in the /CloudFormation User Guide/.</span><span>
+</span><span id="line-83"></span><span>    </span><span id="%24sel%3AtargetType%3ACreateDocument%27"><span class="annot"><span class="annottext">CreateDocument -&gt; Maybe Text
+</span><a href="Network.AWS.SSM.CreateDocument.html#%24sel%3AtargetType%3ACreateDocument%27"><span class="hs-identifier hs-var hs-var">targetType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- | Specify the document format for the request. The document format can be</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- JSON, YAML, or TEXT. JSON is the default format.</span><span>
+</span><span id="line-86"></span><span>    </span><span id="%24sel%3AdocumentFormat%3ACreateDocument%27"><span class="annot"><span class="annottext">CreateDocument -&gt; Maybe DocumentFormat
+</span><a href="Network.AWS.SSM.CreateDocument.html#%24sel%3AdocumentFormat%3ACreateDocument%27"><span class="hs-identifier hs-var hs-var">documentFormat</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentFormat.html#DocumentFormat"><span class="hs-identifier hs-type">DocumentFormat</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- | An optional field where you can specify a friendly name for the SSM</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- document. This value can differ for each version of the document. You</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- can update this value at a later time using the UpdateDocument</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- operation.</span><span>
+</span><span id="line-91"></span><span>    </span><span id="%24sel%3AdisplayName%3ACreateDocument%27"><span class="annot"><span class="annottext">CreateDocument -&gt; Maybe Text
+</span><a href="Network.AWS.SSM.CreateDocument.html#%24sel%3AdisplayName%3ACreateDocument%27"><span class="hs-identifier hs-var hs-var">displayName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- | A list of SSM documents required by a document. This parameter is used</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- exclusively by AppConfig. When a user creates an AppConfig configuration</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- in an SSM document, the user must also specify a required document for</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- validation purposes. In this case, an @ApplicationConfiguration@</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- document requires an @ApplicationConfigurationSchema@ document for</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- validation purposes. For more information, see</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/appconfig/latest/userguide/what-is-appconfig.html What is AppConfig?&gt;</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- in the /AppConfig User Guide/.</span><span>
+</span><span id="line-100"></span><span>    </span><span id="%24sel%3Arequires%3ACreateDocument%27"><span class="annot"><span class="annottext">CreateDocument -&gt; Maybe (NonEmpty DocumentRequires)
+</span><a href="Network.AWS.SSM.CreateDocument.html#%24sel%3Arequires%3ACreateDocument%27"><span class="hs-identifier hs-var hs-var">requires</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentRequires.html#DocumentRequires"><span class="hs-identifier hs-type">DocumentRequires</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- | Optional metadata that you assign to a resource. Tags enable you to</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- categorize a resource in different ways, such as by purpose, owner, or</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- environment. For example, you might want to tag an SSM document to</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- identify the types of targets or the environment where it will run. In</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- this case, you could specify the following key-value pairs:</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- -   @Key=OS,Value=Windows@</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- -   @Key=Environment,Value=Production@</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- To add tags to an existing SSM document, use the AddTagsToResource</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- operation.</span><span>
+</span><span id="line-113"></span><span>    </span><span id="%24sel%3Atags%3ACreateDocument%27"><span class="annot"><span class="annottext">CreateDocument -&gt; Maybe [Tag]
+</span><a href="Network.AWS.SSM.CreateDocument.html#%24sel%3Atags%3ACreateDocument%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SSM.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
 </span><span id="line-114"></span><span>    </span><span class="hs-comment">-- | The content for the new SSM document in JSON or YAML format. We</span><span>
 </span><span id="line-115"></span><span>    </span><span class="hs-comment">-- recommend storing the contents for your new document in an external JSON</span><span>
 </span><span id="line-116"></span><span>    </span><span class="hs-comment">-- or YAML file and referencing the file in a command.</span><span>
@@ -146,7 +146,7 @@
 </span><span id="line-137"></span><span>    </span><span id="%24sel%3Aname%3ACreateDocument%27"><span class="annot"><span class="annottext">CreateDocument -&gt; Text
 </span><a href="Network.AWS.SSM.CreateDocument.html#%24sel%3Aname%3ACreateDocument%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-138"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-139"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679852225"><span id="local-6989586621679852227"><span class="annot"><span class="annottext">CreateDocument -&gt; CreateDocument -&gt; Bool
+</span><span id="line-139"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679854054"><span id="local-6989586621679854056"><span class="annot"><span class="annottext">CreateDocument -&gt; CreateDocument -&gt; Bool
 (CreateDocument -&gt; CreateDocument -&gt; Bool)
 -&gt; (CreateDocument -&gt; CreateDocument -&gt; Bool) -&gt; Eq CreateDocument
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -154,7 +154,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateDocument -&gt; CreateDocument -&gt; Bool
 == :: CreateDocument -&gt; CreateDocument -&gt; Bool
 $c== :: CreateDocument -&gt; CreateDocument -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679852216"><span id="local-6989586621679852218"><span id="local-6989586621679852220"><span id="local-6989586621679852222"><span class="annot"><span class="annottext">ReadPrec [CreateDocument]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679854045"><span id="local-6989586621679854047"><span id="local-6989586621679854049"><span id="local-6989586621679854051"><span class="annot"><span class="annottext">ReadPrec [CreateDocument]
 ReadPrec CreateDocument
 Int -&gt; ReadS CreateDocument
 ReadS [CreateDocument]
@@ -174,7 +174,7 @@ readList :: ReadS [CreateDocument]
 $creadList :: ReadS [CreateDocument]
 readsPrec :: Int -&gt; ReadS CreateDocument
 $creadsPrec :: Int -&gt; ReadS CreateDocument
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679852209"><span id="local-6989586621679852211"><span id="local-6989586621679852213"><span class="annot"><span class="annottext">Int -&gt; CreateDocument -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679854038"><span id="local-6989586621679854040"><span id="local-6989586621679854042"><span class="annot"><span class="annottext">Int -&gt; CreateDocument -&gt; ShowS
 [CreateDocument] -&gt; ShowS
 CreateDocument -&gt; String
 (Int -&gt; CreateDocument -&gt; ShowS)
@@ -210,52 +210,52 @@ $cfrom :: forall x. CreateDocument -&gt; Rep CreateDocument x
 </span><span id="line-148"></span><span class="hs-comment">--</span><span>
 </span><span id="line-149"></span><span class="hs-comment">-- 'documentType', 'createDocument_documentType' - The type of document to create.</span><span>
 </span><span id="line-150"></span><span class="hs-comment">--</span><span>
-</span><span id="line-151"></span><span class="hs-comment">-- 'targetType', 'createDocument_targetType' - Specify a target type to define the kinds of resources the document can</span><span>
-</span><span id="line-152"></span><span class="hs-comment">-- run on. For example, to run a document on EC2 instances, specify the</span><span>
-</span><span id="line-153"></span><span class="hs-comment">-- following value: @\/AWS::EC2::Instance@. If you specify a value of</span><span>
-</span><span id="line-154"></span><span class="hs-comment">-- \'\/\' the document can run on all types of resources. If you don\'t</span><span>
-</span><span id="line-155"></span><span class="hs-comment">-- specify a value, the document can\'t run on any resources. For a list of</span><span>
-</span><span id="line-156"></span><span class="hs-comment">-- valid resource types, see</span><span>
-</span><span id="line-157"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html Amazon Web Services resource and property types reference&gt;</span><span>
-</span><span id="line-158"></span><span class="hs-comment">-- in the /CloudFormation User Guide/.</span><span>
-</span><span id="line-159"></span><span class="hs-comment">--</span><span>
-</span><span id="line-160"></span><span class="hs-comment">-- 'requires', 'createDocument_requires' - A list of SSM documents required by a document. This parameter is used</span><span>
-</span><span id="line-161"></span><span class="hs-comment">-- exclusively by AppConfig. When a user creates an AppConfig configuration</span><span>
-</span><span id="line-162"></span><span class="hs-comment">-- in an SSM document, the user must also specify a required document for</span><span>
-</span><span id="line-163"></span><span class="hs-comment">-- validation purposes. In this case, an @ApplicationConfiguration@</span><span>
-</span><span id="line-164"></span><span class="hs-comment">-- document requires an @ApplicationConfigurationSchema@ document for</span><span>
-</span><span id="line-165"></span><span class="hs-comment">-- validation purposes. For more information, see</span><span>
-</span><span id="line-166"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/appconfig/latest/userguide/what-is-appconfig.html What is AppConfig?&gt;</span><span>
-</span><span id="line-167"></span><span class="hs-comment">-- in the /AppConfig User Guide/.</span><span>
-</span><span id="line-168"></span><span class="hs-comment">--</span><span>
-</span><span id="line-169"></span><span class="hs-comment">-- 'versionName', 'createDocument_versionName' - An optional field specifying the version of the artifact you are</span><span>
-</span><span id="line-170"></span><span class="hs-comment">-- creating with the document. For example, \&quot;Release 12, Update 6\&quot;. This</span><span>
-</span><span id="line-171"></span><span class="hs-comment">-- value is unique across all versions of a document, and can\'t be</span><span>
-</span><span id="line-172"></span><span class="hs-comment">-- changed.</span><span>
-</span><span id="line-173"></span><span class="hs-comment">--</span><span>
-</span><span id="line-174"></span><span class="hs-comment">-- 'documentFormat', 'createDocument_documentFormat' - Specify the document format for the request. The document format can be</span><span>
-</span><span id="line-175"></span><span class="hs-comment">-- JSON, YAML, or TEXT. JSON is the default format.</span><span>
-</span><span id="line-176"></span><span class="hs-comment">--</span><span>
-</span><span id="line-177"></span><span class="hs-comment">-- 'tags', 'createDocument_tags' - Optional metadata that you assign to a resource. Tags enable you to</span><span>
-</span><span id="line-178"></span><span class="hs-comment">-- categorize a resource in different ways, such as by purpose, owner, or</span><span>
-</span><span id="line-179"></span><span class="hs-comment">-- environment. For example, you might want to tag an SSM document to</span><span>
-</span><span id="line-180"></span><span class="hs-comment">-- identify the types of targets or the environment where it will run. In</span><span>
-</span><span id="line-181"></span><span class="hs-comment">-- this case, you could specify the following key-value pairs:</span><span>
-</span><span id="line-182"></span><span class="hs-comment">--</span><span>
-</span><span id="line-183"></span><span class="hs-comment">-- -   @Key=OS,Value=Windows@</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- 'attachments', 'createDocument_attachments' - A list of key-value pairs that describe attachments to a version of a</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- document.</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- 'versionName', 'createDocument_versionName' - An optional field specifying the version of the artifact you are</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- creating with the document. For example, \&quot;Release 12, Update 6\&quot;. This</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- value is unique across all versions of a document, and can\'t be</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- changed.</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- 'targetType', 'createDocument_targetType' - Specify a target type to define the kinds of resources the document can</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- run on. For example, to run a document on EC2 instances, specify the</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- following value: @\/AWS::EC2::Instance@. If you specify a value of</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- \'\/\' the document can run on all types of resources. If you don\'t</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- specify a value, the document can\'t run on any resources. For a list of</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- valid resource types, see</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html Amazon Web Services resource and property types reference&gt;</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- in the /CloudFormation User Guide/.</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- 'documentFormat', 'createDocument_documentFormat' - Specify the document format for the request. The document format can be</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- JSON, YAML, or TEXT. JSON is the default format.</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- 'displayName', 'createDocument_displayName' - An optional field where you can specify a friendly name for the SSM</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- document. This value can differ for each version of the document. You</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- can update this value at a later time using the UpdateDocument</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- operation.</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- 'requires', 'createDocument_requires' - A list of SSM documents required by a document. This parameter is used</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- exclusively by AppConfig. When a user creates an AppConfig configuration</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- in an SSM document, the user must also specify a required document for</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- validation purposes. In this case, an @ApplicationConfiguration@</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- document requires an @ApplicationConfigurationSchema@ document for</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- validation purposes. For more information, see</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/appconfig/latest/userguide/what-is-appconfig.html What is AppConfig?&gt;</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- in the /AppConfig User Guide/.</span><span>
 </span><span id="line-184"></span><span class="hs-comment">--</span><span>
-</span><span id="line-185"></span><span class="hs-comment">-- -   @Key=Environment,Value=Production@</span><span>
-</span><span id="line-186"></span><span class="hs-comment">--</span><span>
-</span><span id="line-187"></span><span class="hs-comment">-- To add tags to an existing SSM document, use the AddTagsToResource</span><span>
-</span><span id="line-188"></span><span class="hs-comment">-- operation.</span><span>
-</span><span id="line-189"></span><span class="hs-comment">--</span><span>
-</span><span id="line-190"></span><span class="hs-comment">-- 'displayName', 'createDocument_displayName' - An optional field where you can specify a friendly name for the SSM</span><span>
-</span><span id="line-191"></span><span class="hs-comment">-- document. This value can differ for each version of the document. You</span><span>
-</span><span id="line-192"></span><span class="hs-comment">-- can update this value at a later time using the UpdateDocument</span><span>
-</span><span id="line-193"></span><span class="hs-comment">-- operation.</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- 'tags', 'createDocument_tags' - Optional metadata that you assign to a resource. Tags enable you to</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- categorize a resource in different ways, such as by purpose, owner, or</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- environment. For example, you might want to tag an SSM document to</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- identify the types of targets or the environment where it will run. In</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- this case, you could specify the following key-value pairs:</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- -   @Key=OS,Value=Windows@</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- -   @Key=Environment,Value=Production@</span><span>
 </span><span id="line-194"></span><span class="hs-comment">--</span><span>
-</span><span id="line-195"></span><span class="hs-comment">-- 'attachments', 'createDocument_attachments' - A list of key-value pairs that describe attachments to a version of a</span><span>
-</span><span id="line-196"></span><span class="hs-comment">-- document.</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- To add tags to an existing SSM document, use the AddTagsToResource</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- operation.</span><span>
 </span><span id="line-197"></span><span class="hs-comment">--</span><span>
 </span><span id="line-198"></span><span class="hs-comment">-- 'content', 'createDocument_content' - The content for the new SSM document in JSON or YAML format. We</span><span>
 </span><span id="line-199"></span><span class="hs-comment">-- recommend storing the contents for your new document in an external JSON</span><span>
@@ -287,17 +287,17 @@ $cfrom :: forall x. CreateDocument -&gt; Rep CreateDocument x
 </span><span id="line-225"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-226"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument"><span class="hs-identifier hs-type">CreateDocument</span></a></span><span>
 </span><span id="line-227"></span><span id="newCreateDocument"><span class="annot"><span class="annottext">newCreateDocument :: Text -&gt; Text -&gt; CreateDocument
-</span><a href="Network.AWS.SSM.CreateDocument.html#newCreateDocument"><span class="hs-identifier hs-var hs-var">newCreateDocument</span></a></span></span><span> </span><span id="local-6989586621679852204"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679852204"><span class="hs-identifier hs-var">pContent_</span></a></span></span><span> </span><span id="local-6989586621679852203"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679852203"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SSM.CreateDocument.html#newCreateDocument"><span class="hs-identifier hs-var hs-var">newCreateDocument</span></a></span></span><span> </span><span id="local-6989586621679854033"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679854033"><span class="hs-identifier hs-var">pContent_</span></a></span></span><span> </span><span id="local-6989586621679854032"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679854032"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-228"></span><span>  </span><span class="annot"><span class="annottext">CreateDocument' :: Maybe DocumentType
+-&gt; Maybe [AttachmentsSource]
 -&gt; Maybe Text
--&gt; Maybe (NonEmpty DocumentRequires)
 -&gt; Maybe Text
 -&gt; Maybe DocumentFormat
--&gt; Maybe [Tag]
 -&gt; Maybe Text
--&gt; Maybe [AttachmentsSource]
+-&gt; Maybe (NonEmpty DocumentRequires)
+-&gt; Maybe [Tag]
 -&gt; Text
 -&gt; Text
 -&gt; CreateDocument
@@ -306,40 +306,40 @@ $cfrom :: forall x. CreateDocument -&gt; Rep CreateDocument x
 </span><a href="Network.AWS.SSM.CreateDocument.html#%24sel%3AdocumentType%3ACreateDocument%27"><span class="hs-identifier hs-var">documentType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DocumentType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-230"></span><span>      </span><span class="annot"><span class="annottext">$sel:targetType:CreateDocument' :: Maybe Text
-</span><a href="Network.AWS.SSM.CreateDocument.html#%24sel%3AtargetType%3ACreateDocument%27"><span class="hs-identifier hs-var">targetType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-230"></span><span>      </span><span class="annot"><span class="annottext">$sel:attachments:CreateDocument' :: Maybe [AttachmentsSource]
+</span><a href="Network.AWS.SSM.CreateDocument.html#%24sel%3Aattachments%3ACreateDocument%27"><span class="hs-identifier hs-var">attachments</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AttachmentsSource]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-231"></span><span>      </span><span class="annot"><span class="annottext">$sel:requires:CreateDocument' :: Maybe (NonEmpty DocumentRequires)
-</span><a href="Network.AWS.SSM.CreateDocument.html#%24sel%3Arequires%3ACreateDocument%27"><span class="hs-identifier hs-var">requires</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty DocumentRequires)
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-232"></span><span>      </span><span class="annot"><span class="annottext">$sel:versionName:CreateDocument' :: Maybe Text
+</span><span id="line-231"></span><span>      </span><span class="annot"><span class="annottext">$sel:versionName:CreateDocument' :: Maybe Text
 </span><a href="Network.AWS.SSM.CreateDocument.html#%24sel%3AversionName%3ACreateDocument%27"><span class="hs-identifier hs-var">versionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-232"></span><span>      </span><span class="annot"><span class="annottext">$sel:targetType:CreateDocument' :: Maybe Text
+</span><a href="Network.AWS.SSM.CreateDocument.html#%24sel%3AtargetType%3ACreateDocument%27"><span class="hs-identifier hs-var">targetType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-233"></span><span>      </span><span class="annot"><span class="annottext">$sel:documentFormat:CreateDocument' :: Maybe DocumentFormat
 </span><a href="Network.AWS.SSM.CreateDocument.html#%24sel%3AdocumentFormat%3ACreateDocument%27"><span class="hs-identifier hs-var">documentFormat</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DocumentFormat
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-234"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:CreateDocument' :: Maybe [Tag]
-</span><a href="Network.AWS.SSM.CreateDocument.html#%24sel%3Atags%3ACreateDocument%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-235"></span><span>      </span><span class="annot"><span class="annottext">$sel:displayName:CreateDocument' :: Maybe Text
+</span><span id="line-234"></span><span>      </span><span class="annot"><span class="annottext">$sel:displayName:CreateDocument' :: Maybe Text
 </span><a href="Network.AWS.SSM.CreateDocument.html#%24sel%3AdisplayName%3ACreateDocument%27"><span class="hs-identifier hs-var">displayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-236"></span><span>      </span><span class="annot"><span class="annottext">$sel:attachments:CreateDocument' :: Maybe [AttachmentsSource]
-</span><a href="Network.AWS.SSM.CreateDocument.html#%24sel%3Aattachments%3ACreateDocument%27"><span class="hs-identifier hs-var">attachments</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AttachmentsSource]
+</span><span id="line-235"></span><span>      </span><span class="annot"><span class="annottext">$sel:requires:CreateDocument' :: Maybe (NonEmpty DocumentRequires)
+</span><a href="Network.AWS.SSM.CreateDocument.html#%24sel%3Arequires%3ACreateDocument%27"><span class="hs-identifier hs-var">requires</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty DocumentRequires)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-236"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:CreateDocument' :: Maybe [Tag]
+</span><a href="Network.AWS.SSM.CreateDocument.html#%24sel%3Atags%3ACreateDocument%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-237"></span><span>      </span><span class="annot"><span class="annottext">$sel:content:CreateDocument' :: Text
 </span><a href="Network.AWS.SSM.CreateDocument.html#%24sel%3Acontent%3ACreateDocument%27"><span class="hs-identifier hs-var">content</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679852204"><span class="hs-identifier hs-var">pContent_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679854033"><span class="hs-identifier hs-var">pContent_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-238"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:CreateDocument' :: Text
 </span><a href="Network.AWS.SSM.CreateDocument.html#%24sel%3Aname%3ACreateDocument%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679852203"><span class="hs-identifier hs-var">pName_</span></a></span><span>
+</span><a href="#local-6989586621679854032"><span class="hs-identifier hs-var">pName_</span></a></span><span>
 </span><span id="line-239"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-240"></span><span>
 </span><span id="line-241"></span><span class="hs-comment">-- | The type of document to create.</span><span>
@@ -354,53 +354,172 @@ forall a. Maybe a
      (Maybe DocumentType)
      (Maybe DocumentType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument%27"><span class="hs-identifier hs-type">CreateDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679852200"><span class="annot"><span class="annottext">Maybe DocumentType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument%27"><span class="hs-identifier hs-type">CreateDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679854029"><span class="annot"><span class="annottext">Maybe DocumentType
 documentType :: Maybe DocumentType
 $sel:documentType:CreateDocument' :: CreateDocument -&gt; Maybe DocumentType
-</span><a href="#local-6989586621679852200"><span class="hs-identifier hs-var hs-var">documentType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DocumentType
-</span><a href="#local-6989586621679852200"><span class="hs-identifier hs-var">documentType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679852199"><span class="annot"><span class="annottext">s :: CreateDocument
-</span><a href="#local-6989586621679852199"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument%27"><span class="hs-identifier hs-type">CreateDocument'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679852198"><span class="annot"><span class="annottext">Maybe DocumentType
-</span><a href="#local-6989586621679852198"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDocument
-</span><a href="#local-6989586621679852199"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:documentType:CreateDocument' :: Maybe DocumentType
+</span><a href="#local-6989586621679854029"><span class="hs-identifier hs-var hs-var">documentType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DocumentType
+</span><a href="#local-6989586621679854029"><span class="hs-identifier hs-var">documentType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679854028"><span class="annot"><span class="annottext">s :: CreateDocument
+</span><a href="#local-6989586621679854028"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument%27"><span class="hs-identifier hs-type">CreateDocument'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679854027"><span class="annot"><span class="annottext">Maybe DocumentType
+</span><a href="#local-6989586621679854027"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDocument
+</span><a href="#local-6989586621679854028"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:documentType:CreateDocument' :: Maybe DocumentType
 </span><a href="Network.AWS.SSM.CreateDocument.html#%24sel%3AdocumentType%3ACreateDocument%27"><span class="hs-identifier hs-var">documentType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DocumentType
-</span><a href="#local-6989586621679852198"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument"><span class="hs-identifier hs-type">CreateDocument</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679854027"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument"><span class="hs-identifier hs-type">CreateDocument</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-244"></span><span>
-</span><span id="line-245"></span><span class="hs-comment">-- | Specify a target type to define the kinds of resources the document can</span><span>
-</span><span id="line-246"></span><span class="hs-comment">-- run on. For example, to run a document on EC2 instances, specify the</span><span>
-</span><span id="line-247"></span><span class="hs-comment">-- following value: @\/AWS::EC2::Instance@. If you specify a value of</span><span>
-</span><span id="line-248"></span><span class="hs-comment">-- \'\/\' the document can run on all types of resources. If you don\'t</span><span>
-</span><span id="line-249"></span><span class="hs-comment">-- specify a value, the document can\'t run on any resources. For a list of</span><span>
-</span><span id="line-250"></span><span class="hs-comment">-- valid resource types, see</span><span>
-</span><span id="line-251"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html Amazon Web Services resource and property types reference&gt;</span><span>
-</span><span id="line-252"></span><span class="hs-comment">-- in the /CloudFormation User Guide/.</span><span>
-</span><span id="line-253"></span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#createDocument_targetType"><span class="hs-identifier hs-type">createDocument_targetType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument"><span class="hs-identifier hs-type">CreateDocument</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-254"></span><span id="createDocument_targetType"><span class="annot"><span class="annottext">createDocument_targetType :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-245"></span><span class="hs-comment">-- | A list of key-value pairs that describe attachments to a version of a</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- document.</span><span>
+</span><span id="line-247"></span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#createDocument_attachments"><span class="hs-identifier hs-type">createDocument_attachments</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument"><span class="hs-identifier hs-type">CreateDocument</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SSM.Types.AttachmentsSource.html#AttachmentsSource"><span class="hs-identifier hs-type">AttachmentsSource</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-248"></span><span id="createDocument_attachments"><span class="annot"><span class="annottext">createDocument_attachments :: (Maybe [AttachmentsSource] -&gt; f (Maybe [AttachmentsSource]))
+-&gt; CreateDocument -&gt; f CreateDocument
+</span><a href="Network.AWS.SSM.CreateDocument.html#createDocument_attachments"><span class="hs-identifier hs-var hs-var">createDocument_attachments</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDocument -&gt; Maybe [AttachmentsSource])
+-&gt; (CreateDocument -&gt; Maybe [AttachmentsSource] -&gt; CreateDocument)
+-&gt; Lens
+     CreateDocument
+     CreateDocument
+     (Maybe [AttachmentsSource])
+     (Maybe [AttachmentsSource])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument%27"><span class="hs-identifier hs-type">CreateDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679854026"><span class="annot"><span class="annottext">Maybe [AttachmentsSource]
+attachments :: Maybe [AttachmentsSource]
+$sel:attachments:CreateDocument' :: CreateDocument -&gt; Maybe [AttachmentsSource]
+</span><a href="#local-6989586621679854026"><span class="hs-identifier hs-var hs-var">attachments</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AttachmentsSource]
+</span><a href="#local-6989586621679854026"><span class="hs-identifier hs-var">attachments</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679854025"><span class="annot"><span class="annottext">s :: CreateDocument
+</span><a href="#local-6989586621679854025"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument%27"><span class="hs-identifier hs-type">CreateDocument'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679854024"><span class="annot"><span class="annottext">Maybe [AttachmentsSource]
+</span><a href="#local-6989586621679854024"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDocument
+</span><a href="#local-6989586621679854025"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attachments:CreateDocument' :: Maybe [AttachmentsSource]
+</span><a href="Network.AWS.SSM.CreateDocument.html#%24sel%3Aattachments%3ACreateDocument%27"><span class="hs-identifier hs-var">attachments</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AttachmentsSource]
+</span><a href="#local-6989586621679854024"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument"><span class="hs-identifier hs-type">CreateDocument</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AttachmentsSource] -&gt; f (Maybe [AttachmentsSource]))
+ -&gt; CreateDocument -&gt; f CreateDocument)
+-&gt; ((Maybe [AttachmentsSource] -&gt; f (Maybe [AttachmentsSource]))
+    -&gt; Maybe [AttachmentsSource] -&gt; f (Maybe [AttachmentsSource]))
+-&gt; (Maybe [AttachmentsSource] -&gt; f (Maybe [AttachmentsSource]))
+-&gt; CreateDocument
+-&gt; f CreateDocument
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AttachmentsSource]
+  [AttachmentsSource]
+  [AttachmentsSource]
+  [AttachmentsSource]
+-&gt; Iso
+     (Maybe [AttachmentsSource])
+     (Maybe [AttachmentsSource])
+     (Maybe [AttachmentsSource])
+     (Maybe [AttachmentsSource])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AttachmentsSource]
+  [AttachmentsSource]
+  [AttachmentsSource]
+  [AttachmentsSource]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-249"></span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- | An optional field specifying the version of the artifact you are</span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- creating with the document. For example, \&quot;Release 12, Update 6\&quot;. This</span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- value is unique across all versions of a document, and can\'t be</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- changed.</span><span>
+</span><span id="line-254"></span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#createDocument_versionName"><span class="hs-identifier hs-type">createDocument_versionName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument"><span class="hs-identifier hs-type">CreateDocument</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-255"></span><span id="createDocument_versionName"><span class="annot"><span class="annottext">createDocument_versionName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateDocument -&gt; f CreateDocument
+</span><a href="Network.AWS.SSM.CreateDocument.html#createDocument_versionName"><span class="hs-identifier hs-var hs-var">createDocument_versionName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDocument -&gt; Maybe Text)
+-&gt; (CreateDocument -&gt; Maybe Text -&gt; CreateDocument)
+-&gt; Lens CreateDocument CreateDocument (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument%27"><span class="hs-identifier hs-type">CreateDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679854020"><span class="annot"><span class="annottext">Maybe Text
+versionName :: Maybe Text
+$sel:versionName:CreateDocument' :: CreateDocument -&gt; Maybe Text
+</span><a href="#local-6989586621679854020"><span class="hs-identifier hs-var hs-var">versionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679854020"><span class="hs-identifier hs-var">versionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679854019"><span class="annot"><span class="annottext">s :: CreateDocument
+</span><a href="#local-6989586621679854019"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument%27"><span class="hs-identifier hs-type">CreateDocument'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679854018"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679854018"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDocument
+</span><a href="#local-6989586621679854019"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:versionName:CreateDocument' :: Maybe Text
+</span><a href="Network.AWS.SSM.CreateDocument.html#%24sel%3AversionName%3ACreateDocument%27"><span class="hs-identifier hs-var">versionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679854018"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument"><span class="hs-identifier hs-type">CreateDocument</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-256"></span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- | Specify a target type to define the kinds of resources the document can</span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- run on. For example, to run a document on EC2 instances, specify the</span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- following value: @\/AWS::EC2::Instance@. If you specify a value of</span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- \'\/\' the document can run on all types of resources. If you don\'t</span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- specify a value, the document can\'t run on any resources. For a list of</span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- valid resource types, see</span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html Amazon Web Services resource and property types reference&gt;</span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- in the /CloudFormation User Guide/.</span><span>
+</span><span id="line-265"></span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#createDocument_targetType"><span class="hs-identifier hs-type">createDocument_targetType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument"><span class="hs-identifier hs-type">CreateDocument</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-266"></span><span id="createDocument_targetType"><span class="annot"><span class="annottext">createDocument_targetType :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; CreateDocument -&gt; f CreateDocument
 </span><a href="Network.AWS.SSM.CreateDocument.html#createDocument_targetType"><span class="hs-identifier hs-var hs-var">createDocument_targetType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDocument -&gt; Maybe Text)
 -&gt; (CreateDocument -&gt; Maybe Text -&gt; CreateDocument)
 -&gt; Lens CreateDocument CreateDocument (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument%27"><span class="hs-identifier hs-type">CreateDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679852197"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument%27"><span class="hs-identifier hs-type">CreateDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679854017"><span class="annot"><span class="annottext">Maybe Text
 targetType :: Maybe Text
 $sel:targetType:CreateDocument' :: CreateDocument -&gt; Maybe Text
-</span><a href="#local-6989586621679852197"><span class="hs-identifier hs-var hs-var">targetType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679852197"><span class="hs-identifier hs-var">targetType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679852196"><span class="annot"><span class="annottext">s :: CreateDocument
-</span><a href="#local-6989586621679852196"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument%27"><span class="hs-identifier hs-type">CreateDocument'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679852195"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679852195"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDocument
-</span><a href="#local-6989586621679852196"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetType:CreateDocument' :: Maybe Text
+</span><a href="#local-6989586621679854017"><span class="hs-identifier hs-var hs-var">targetType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679854017"><span class="hs-identifier hs-var">targetType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679854016"><span class="annot"><span class="annottext">s :: CreateDocument
+</span><a href="#local-6989586621679854016"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument%27"><span class="hs-identifier hs-type">CreateDocument'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679854015"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679854015"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDocument
+</span><a href="#local-6989586621679854016"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetType:CreateDocument' :: Maybe Text
 </span><a href="Network.AWS.SSM.CreateDocument.html#%24sel%3AtargetType%3ACreateDocument%27"><span class="hs-identifier hs-var">targetType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679852195"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument"><span class="hs-identifier hs-type">CreateDocument</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-255"></span><span>
-</span><span id="line-256"></span><span class="hs-comment">-- | A list of SSM documents required by a document. This parameter is used</span><span>
-</span><span id="line-257"></span><span class="hs-comment">-- exclusively by AppConfig. When a user creates an AppConfig configuration</span><span>
-</span><span id="line-258"></span><span class="hs-comment">-- in an SSM document, the user must also specify a required document for</span><span>
-</span><span id="line-259"></span><span class="hs-comment">-- validation purposes. In this case, an @ApplicationConfiguration@</span><span>
-</span><span id="line-260"></span><span class="hs-comment">-- document requires an @ApplicationConfigurationSchema@ document for</span><span>
-</span><span id="line-261"></span><span class="hs-comment">-- validation purposes. For more information, see</span><span>
-</span><span id="line-262"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/appconfig/latest/userguide/what-is-appconfig.html What is AppConfig?&gt;</span><span>
-</span><span id="line-263"></span><span class="hs-comment">-- in the /AppConfig User Guide/.</span><span>
-</span><span id="line-264"></span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#createDocument_requires"><span class="hs-identifier hs-type">createDocument_requires</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument"><span class="hs-identifier hs-type">CreateDocument</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentRequires.html#DocumentRequires"><span class="hs-identifier hs-type">DocumentRequires</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-265"></span><span id="createDocument_requires"><span class="annot"><span class="annottext">createDocument_requires :: (Maybe (NonEmpty DocumentRequires)
+</span><a href="#local-6989586621679854015"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument"><span class="hs-identifier hs-type">CreateDocument</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-267"></span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- | Specify the document format for the request. The document format can be</span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- JSON, YAML, or TEXT. JSON is the default format.</span><span>
+</span><span id="line-270"></span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#createDocument_documentFormat"><span class="hs-identifier hs-type">createDocument_documentFormat</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument"><span class="hs-identifier hs-type">CreateDocument</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentFormat.html#DocumentFormat"><span class="hs-identifier hs-type">DocumentFormat</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-271"></span><span id="createDocument_documentFormat"><span class="annot"><span class="annottext">createDocument_documentFormat :: (Maybe DocumentFormat -&gt; f (Maybe DocumentFormat))
+-&gt; CreateDocument -&gt; f CreateDocument
+</span><a href="Network.AWS.SSM.CreateDocument.html#createDocument_documentFormat"><span class="hs-identifier hs-var hs-var">createDocument_documentFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDocument -&gt; Maybe DocumentFormat)
+-&gt; (CreateDocument -&gt; Maybe DocumentFormat -&gt; CreateDocument)
+-&gt; Lens
+     CreateDocument
+     CreateDocument
+     (Maybe DocumentFormat)
+     (Maybe DocumentFormat)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument%27"><span class="hs-identifier hs-type">CreateDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679854014"><span class="annot"><span class="annottext">Maybe DocumentFormat
+documentFormat :: Maybe DocumentFormat
+$sel:documentFormat:CreateDocument' :: CreateDocument -&gt; Maybe DocumentFormat
+</span><a href="#local-6989586621679854014"><span class="hs-identifier hs-var hs-var">documentFormat</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DocumentFormat
+</span><a href="#local-6989586621679854014"><span class="hs-identifier hs-var">documentFormat</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679854013"><span class="annot"><span class="annottext">s :: CreateDocument
+</span><a href="#local-6989586621679854013"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument%27"><span class="hs-identifier hs-type">CreateDocument'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679854012"><span class="annot"><span class="annottext">Maybe DocumentFormat
+</span><a href="#local-6989586621679854012"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDocument
+</span><a href="#local-6989586621679854013"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:documentFormat:CreateDocument' :: Maybe DocumentFormat
+</span><a href="Network.AWS.SSM.CreateDocument.html#%24sel%3AdocumentFormat%3ACreateDocument%27"><span class="hs-identifier hs-var">documentFormat</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DocumentFormat
+</span><a href="#local-6989586621679854012"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument"><span class="hs-identifier hs-type">CreateDocument</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-272"></span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- | An optional field where you can specify a friendly name for the SSM</span><span>
+</span><span id="line-274"></span><span class="hs-comment">-- document. This value can differ for each version of the document. You</span><span>
+</span><span id="line-275"></span><span class="hs-comment">-- can update this value at a later time using the UpdateDocument</span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- operation.</span><span>
+</span><span id="line-277"></span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#createDocument_displayName"><span class="hs-identifier hs-type">createDocument_displayName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument"><span class="hs-identifier hs-type">CreateDocument</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-278"></span><span id="createDocument_displayName"><span class="annot"><span class="annottext">createDocument_displayName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateDocument -&gt; f CreateDocument
+</span><a href="Network.AWS.SSM.CreateDocument.html#createDocument_displayName"><span class="hs-identifier hs-var hs-var">createDocument_displayName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDocument -&gt; Maybe Text)
+-&gt; (CreateDocument -&gt; Maybe Text -&gt; CreateDocument)
+-&gt; Lens CreateDocument CreateDocument (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument%27"><span class="hs-identifier hs-type">CreateDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679854011"><span class="annot"><span class="annottext">Maybe Text
+displayName :: Maybe Text
+$sel:displayName:CreateDocument' :: CreateDocument -&gt; Maybe Text
+</span><a href="#local-6989586621679854011"><span class="hs-identifier hs-var hs-var">displayName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679854011"><span class="hs-identifier hs-var">displayName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679854010"><span class="annot"><span class="annottext">s :: CreateDocument
+</span><a href="#local-6989586621679854010"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument%27"><span class="hs-identifier hs-type">CreateDocument'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679854009"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679854009"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDocument
+</span><a href="#local-6989586621679854010"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:displayName:CreateDocument' :: Maybe Text
+</span><a href="Network.AWS.SSM.CreateDocument.html#%24sel%3AdisplayName%3ACreateDocument%27"><span class="hs-identifier hs-var">displayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679854009"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument"><span class="hs-identifier hs-type">CreateDocument</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-279"></span><span>
+</span><span id="line-280"></span><span class="hs-comment">-- | A list of SSM documents required by a document. This parameter is used</span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- exclusively by AppConfig. When a user creates an AppConfig configuration</span><span>
+</span><span id="line-282"></span><span class="hs-comment">-- in an SSM document, the user must also specify a required document for</span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- validation purposes. In this case, an @ApplicationConfiguration@</span><span>
+</span><span id="line-284"></span><span class="hs-comment">-- document requires an @ApplicationConfigurationSchema@ document for</span><span>
+</span><span id="line-285"></span><span class="hs-comment">-- validation purposes. For more information, see</span><span>
+</span><span id="line-286"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/appconfig/latest/userguide/what-is-appconfig.html What is AppConfig?&gt;</span><span>
+</span><span id="line-287"></span><span class="hs-comment">-- in the /AppConfig User Guide/.</span><span>
+</span><span id="line-288"></span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#createDocument_requires"><span class="hs-identifier hs-type">createDocument_requires</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument"><span class="hs-identifier hs-type">CreateDocument</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentRequires.html#DocumentRequires"><span class="hs-identifier hs-type">DocumentRequires</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-289"></span><span id="createDocument_requires"><span class="annot"><span class="annottext">createDocument_requires :: (Maybe (NonEmpty DocumentRequires)
  -&gt; f (Maybe (NonEmpty DocumentRequires)))
 -&gt; CreateDocument -&gt; f CreateDocument
 </span><a href="Network.AWS.SSM.CreateDocument.html#createDocument_requires"><span class="hs-identifier hs-var hs-var">createDocument_requires</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDocument -&gt; Maybe (NonEmpty DocumentRequires))
@@ -412,16 +531,16 @@ $sel:targetType:CreateDocument' :: CreateDocument -&gt; Maybe Text
      (Maybe (NonEmpty DocumentRequires))
      (Maybe (NonEmpty DocumentRequires))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument%27"><span class="hs-identifier hs-type">CreateDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679852194"><span class="annot"><span class="annottext">Maybe (NonEmpty DocumentRequires)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument%27"><span class="hs-identifier hs-type">CreateDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679854008"><span class="annot"><span class="annottext">Maybe (NonEmpty DocumentRequires)
 requires :: Maybe (NonEmpty DocumentRequires)
 $sel:requires:CreateDocument' :: CreateDocument -&gt; Maybe (NonEmpty DocumentRequires)
-</span><a href="#local-6989586621679852194"><span class="hs-identifier hs-var hs-var">requires</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty DocumentRequires)
-</span><a href="#local-6989586621679852194"><span class="hs-identifier hs-var">requires</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679852193"><span class="annot"><span class="annottext">s :: CreateDocument
-</span><a href="#local-6989586621679852193"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument%27"><span class="hs-identifier hs-type">CreateDocument'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679852192"><span class="annot"><span class="annottext">Maybe (NonEmpty DocumentRequires)
-</span><a href="#local-6989586621679852192"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDocument
-</span><a href="#local-6989586621679852193"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requires:CreateDocument' :: Maybe (NonEmpty DocumentRequires)
+</span><a href="#local-6989586621679854008"><span class="hs-identifier hs-var hs-var">requires</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty DocumentRequires)
+</span><a href="#local-6989586621679854008"><span class="hs-identifier hs-var">requires</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679854007"><span class="annot"><span class="annottext">s :: CreateDocument
+</span><a href="#local-6989586621679854007"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument%27"><span class="hs-identifier hs-type">CreateDocument'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679854006"><span class="annot"><span class="annottext">Maybe (NonEmpty DocumentRequires)
+</span><a href="#local-6989586621679854006"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDocument
+</span><a href="#local-6989586621679854007"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requires:CreateDocument' :: Maybe (NonEmpty DocumentRequires)
 </span><a href="Network.AWS.SSM.CreateDocument.html#%24sel%3Arequires%3ACreateDocument%27"><span class="hs-identifier hs-var">requires</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty DocumentRequires)
-</span><a href="#local-6989586621679852192"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument"><span class="hs-identifier hs-type">CreateDocument</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty DocumentRequires)
+</span><a href="#local-6989586621679854006"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument"><span class="hs-identifier hs-type">CreateDocument</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty DocumentRequires)
   -&gt; f (Maybe (NonEmpty DocumentRequires)))
  -&gt; CreateDocument -&gt; f CreateDocument)
 -&gt; ((Maybe (NonEmpty DocumentRequires)
@@ -451,84 +570,38 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (NonEmpty DocumentRequires)
   (NonEmpty DocumentRequires)
   (NonEmpty DocumentRequires)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-266"></span><span>
-</span><span id="line-267"></span><span class="hs-comment">-- | An optional field specifying the version of the artifact you are</span><span>
-</span><span id="line-268"></span><span class="hs-comment">-- creating with the document. For example, \&quot;Release 12, Update 6\&quot;. This</span><span>
-</span><span id="line-269"></span><span class="hs-comment">-- value is unique across all versions of a document, and can\'t be</span><span>
-</span><span id="line-270"></span><span class="hs-comment">-- changed.</span><span>
-</span><span id="line-271"></span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#createDocument_versionName"><span class="hs-identifier hs-type">createDocument_versionName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument"><span class="hs-identifier hs-type">CreateDocument</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-272"></span><span id="createDocument_versionName"><span class="annot"><span class="annottext">createDocument_versionName :: (Maybe Text -&gt; f (Maybe Text))
--&gt; CreateDocument -&gt; f CreateDocument
-</span><a href="Network.AWS.SSM.CreateDocument.html#createDocument_versionName"><span class="hs-identifier hs-var hs-var">createDocument_versionName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDocument -&gt; Maybe Text)
--&gt; (CreateDocument -&gt; Maybe Text -&gt; CreateDocument)
--&gt; Lens CreateDocument CreateDocument (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument%27"><span class="hs-identifier hs-type">CreateDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679852188"><span class="annot"><span class="annottext">Maybe Text
-versionName :: Maybe Text
-$sel:versionName:CreateDocument' :: CreateDocument -&gt; Maybe Text
-</span><a href="#local-6989586621679852188"><span class="hs-identifier hs-var hs-var">versionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679852188"><span class="hs-identifier hs-var">versionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679852187"><span class="annot"><span class="annottext">s :: CreateDocument
-</span><a href="#local-6989586621679852187"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument%27"><span class="hs-identifier hs-type">CreateDocument'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679852186"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679852186"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDocument
-</span><a href="#local-6989586621679852187"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:versionName:CreateDocument' :: Maybe Text
-</span><a href="Network.AWS.SSM.CreateDocument.html#%24sel%3AversionName%3ACreateDocument%27"><span class="hs-identifier hs-var">versionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679852186"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument"><span class="hs-identifier hs-type">CreateDocument</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-273"></span><span>
-</span><span id="line-274"></span><span class="hs-comment">-- | Specify the document format for the request. The document format can be</span><span>
-</span><span id="line-275"></span><span class="hs-comment">-- JSON, YAML, or TEXT. JSON is the default format.</span><span>
-</span><span id="line-276"></span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#createDocument_documentFormat"><span class="hs-identifier hs-type">createDocument_documentFormat</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument"><span class="hs-identifier hs-type">CreateDocument</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentFormat.html#DocumentFormat"><span class="hs-identifier hs-type">DocumentFormat</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-277"></span><span id="createDocument_documentFormat"><span class="annot"><span class="annottext">createDocument_documentFormat :: (Maybe DocumentFormat -&gt; f (Maybe DocumentFormat))
--&gt; CreateDocument -&gt; f CreateDocument
-</span><a href="Network.AWS.SSM.CreateDocument.html#createDocument_documentFormat"><span class="hs-identifier hs-var hs-var">createDocument_documentFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDocument -&gt; Maybe DocumentFormat)
--&gt; (CreateDocument -&gt; Maybe DocumentFormat -&gt; CreateDocument)
--&gt; Lens
-     CreateDocument
-     CreateDocument
-     (Maybe DocumentFormat)
-     (Maybe DocumentFormat)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument%27"><span class="hs-identifier hs-type">CreateDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679852185"><span class="annot"><span class="annottext">Maybe DocumentFormat
-documentFormat :: Maybe DocumentFormat
-$sel:documentFormat:CreateDocument' :: CreateDocument -&gt; Maybe DocumentFormat
-</span><a href="#local-6989586621679852185"><span class="hs-identifier hs-var hs-var">documentFormat</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DocumentFormat
-</span><a href="#local-6989586621679852185"><span class="hs-identifier hs-var">documentFormat</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679852184"><span class="annot"><span class="annottext">s :: CreateDocument
-</span><a href="#local-6989586621679852184"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument%27"><span class="hs-identifier hs-type">CreateDocument'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679852183"><span class="annot"><span class="annottext">Maybe DocumentFormat
-</span><a href="#local-6989586621679852183"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDocument
-</span><a href="#local-6989586621679852184"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:documentFormat:CreateDocument' :: Maybe DocumentFormat
-</span><a href="Network.AWS.SSM.CreateDocument.html#%24sel%3AdocumentFormat%3ACreateDocument%27"><span class="hs-identifier hs-var">documentFormat</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DocumentFormat
-</span><a href="#local-6989586621679852183"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument"><span class="hs-identifier hs-type">CreateDocument</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-278"></span><span>
-</span><span id="line-279"></span><span class="hs-comment">-- | Optional metadata that you assign to a resource. Tags enable you to</span><span>
-</span><span id="line-280"></span><span class="hs-comment">-- categorize a resource in different ways, such as by purpose, owner, or</span><span>
-</span><span id="line-281"></span><span class="hs-comment">-- environment. For example, you might want to tag an SSM document to</span><span>
-</span><span id="line-282"></span><span class="hs-comment">-- identify the types of targets or the environment where it will run. In</span><span>
-</span><span id="line-283"></span><span class="hs-comment">-- this case, you could specify the following key-value pairs:</span><span>
-</span><span id="line-284"></span><span class="hs-comment">--</span><span>
-</span><span id="line-285"></span><span class="hs-comment">-- -   @Key=OS,Value=Windows@</span><span>
-</span><span id="line-286"></span><span class="hs-comment">--</span><span>
-</span><span id="line-287"></span><span class="hs-comment">-- -   @Key=Environment,Value=Production@</span><span>
-</span><span id="line-288"></span><span class="hs-comment">--</span><span>
-</span><span id="line-289"></span><span class="hs-comment">-- To add tags to an existing SSM document, use the AddTagsToResource</span><span>
-</span><span id="line-290"></span><span class="hs-comment">-- operation.</span><span>
-</span><span id="line-291"></span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#createDocument_tags"><span class="hs-identifier hs-type">createDocument_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument"><span class="hs-identifier hs-type">CreateDocument</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SSM.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-292"></span><span id="createDocument_tags"><span class="annot"><span class="annottext">createDocument_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-290"></span><span>
+</span><span id="line-291"></span><span class="hs-comment">-- | Optional metadata that you assign to a resource. Tags enable you to</span><span>
+</span><span id="line-292"></span><span class="hs-comment">-- categorize a resource in different ways, such as by purpose, owner, or</span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- environment. For example, you might want to tag an SSM document to</span><span>
+</span><span id="line-294"></span><span class="hs-comment">-- identify the types of targets or the environment where it will run. In</span><span>
+</span><span id="line-295"></span><span class="hs-comment">-- this case, you could specify the following key-value pairs:</span><span>
+</span><span id="line-296"></span><span class="hs-comment">--</span><span>
+</span><span id="line-297"></span><span class="hs-comment">-- -   @Key=OS,Value=Windows@</span><span>
+</span><span id="line-298"></span><span class="hs-comment">--</span><span>
+</span><span id="line-299"></span><span class="hs-comment">-- -   @Key=Environment,Value=Production@</span><span>
+</span><span id="line-300"></span><span class="hs-comment">--</span><span>
+</span><span id="line-301"></span><span class="hs-comment">-- To add tags to an existing SSM document, use the AddTagsToResource</span><span>
+</span><span id="line-302"></span><span class="hs-comment">-- operation.</span><span>
+</span><span id="line-303"></span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#createDocument_tags"><span class="hs-identifier hs-type">createDocument_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument"><span class="hs-identifier hs-type">CreateDocument</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SSM.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-304"></span><span id="createDocument_tags"><span class="annot"><span class="annottext">createDocument_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
 -&gt; CreateDocument -&gt; f CreateDocument
 </span><a href="Network.AWS.SSM.CreateDocument.html#createDocument_tags"><span class="hs-identifier hs-var hs-var">createDocument_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDocument -&gt; Maybe [Tag])
 -&gt; (CreateDocument -&gt; Maybe [Tag] -&gt; CreateDocument)
 -&gt; Lens CreateDocument CreateDocument (Maybe [Tag]) (Maybe [Tag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument%27"><span class="hs-identifier hs-type">CreateDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679852182"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument%27"><span class="hs-identifier hs-type">CreateDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679854005"><span class="annot"><span class="annottext">Maybe [Tag]
 tags :: Maybe [Tag]
 $sel:tags:CreateDocument' :: CreateDocument -&gt; Maybe [Tag]
-</span><a href="#local-6989586621679852182"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679852182"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679852181"><span class="annot"><span class="annottext">s :: CreateDocument
-</span><a href="#local-6989586621679852181"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument%27"><span class="hs-identifier hs-type">CreateDocument'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679852180"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679852180"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDocument
-</span><a href="#local-6989586621679852181"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateDocument' :: Maybe [Tag]
+</span><a href="#local-6989586621679854005"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679854005"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679854004"><span class="annot"><span class="annottext">s :: CreateDocument
+</span><a href="#local-6989586621679854004"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument%27"><span class="hs-identifier hs-type">CreateDocument'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679854003"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679854003"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDocument
+</span><a href="#local-6989586621679854004"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateDocument' :: Maybe [Tag]
 </span><a href="Network.AWS.SSM.CreateDocument.html#%24sel%3Atags%3ACreateDocument%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679852180"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument"><span class="hs-identifier hs-type">CreateDocument</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+</span><a href="#local-6989586621679854003"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument"><span class="hs-identifier hs-type">CreateDocument</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
  -&gt; CreateDocument -&gt; f CreateDocument)
 -&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
     -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
@@ -542,81 +615,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-293"></span><span>
-</span><span id="line-294"></span><span class="hs-comment">-- | An optional field where you can specify a friendly name for the SSM</span><span>
-</span><span id="line-295"></span><span class="hs-comment">-- document. This value can differ for each version of the document. You</span><span>
-</span><span id="line-296"></span><span class="hs-comment">-- can update this value at a later time using the UpdateDocument</span><span>
-</span><span id="line-297"></span><span class="hs-comment">-- operation.</span><span>
-</span><span id="line-298"></span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#createDocument_displayName"><span class="hs-identifier hs-type">createDocument_displayName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument"><span class="hs-identifier hs-type">CreateDocument</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-299"></span><span id="createDocument_displayName"><span class="annot"><span class="annottext">createDocument_displayName :: (Maybe Text -&gt; f (Maybe Text))
--&gt; CreateDocument -&gt; f CreateDocument
-</span><a href="Network.AWS.SSM.CreateDocument.html#createDocument_displayName"><span class="hs-identifier hs-var hs-var">createDocument_displayName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDocument -&gt; Maybe Text)
--&gt; (CreateDocument -&gt; Maybe Text -&gt; CreateDocument)
--&gt; Lens CreateDocument CreateDocument (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument%27"><span class="hs-identifier hs-type">CreateDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679852179"><span class="annot"><span class="annottext">Maybe Text
-displayName :: Maybe Text
-$sel:displayName:CreateDocument' :: CreateDocument -&gt; Maybe Text
-</span><a href="#local-6989586621679852179"><span class="hs-identifier hs-var hs-var">displayName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679852179"><span class="hs-identifier hs-var">displayName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679852178"><span class="annot"><span class="annottext">s :: CreateDocument
-</span><a href="#local-6989586621679852178"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument%27"><span class="hs-identifier hs-type">CreateDocument'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679852177"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679852177"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDocument
-</span><a href="#local-6989586621679852178"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:displayName:CreateDocument' :: Maybe Text
-</span><a href="Network.AWS.SSM.CreateDocument.html#%24sel%3AdisplayName%3ACreateDocument%27"><span class="hs-identifier hs-var">displayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679852177"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument"><span class="hs-identifier hs-type">CreateDocument</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-300"></span><span>
-</span><span id="line-301"></span><span class="hs-comment">-- | A list of key-value pairs that describe attachments to a version of a</span><span>
-</span><span id="line-302"></span><span class="hs-comment">-- document.</span><span>
-</span><span id="line-303"></span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#createDocument_attachments"><span class="hs-identifier hs-type">createDocument_attachments</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument"><span class="hs-identifier hs-type">CreateDocument</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SSM.Types.AttachmentsSource.html#AttachmentsSource"><span class="hs-identifier hs-type">AttachmentsSource</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-304"></span><span id="createDocument_attachments"><span class="annot"><span class="annottext">createDocument_attachments :: (Maybe [AttachmentsSource] -&gt; f (Maybe [AttachmentsSource]))
--&gt; CreateDocument -&gt; f CreateDocument
-</span><a href="Network.AWS.SSM.CreateDocument.html#createDocument_attachments"><span class="hs-identifier hs-var hs-var">createDocument_attachments</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDocument -&gt; Maybe [AttachmentsSource])
--&gt; (CreateDocument -&gt; Maybe [AttachmentsSource] -&gt; CreateDocument)
--&gt; Lens
-     CreateDocument
-     CreateDocument
-     (Maybe [AttachmentsSource])
-     (Maybe [AttachmentsSource])
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument%27"><span class="hs-identifier hs-type">CreateDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679852176"><span class="annot"><span class="annottext">Maybe [AttachmentsSource]
-attachments :: Maybe [AttachmentsSource]
-$sel:attachments:CreateDocument' :: CreateDocument -&gt; Maybe [AttachmentsSource]
-</span><a href="#local-6989586621679852176"><span class="hs-identifier hs-var hs-var">attachments</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AttachmentsSource]
-</span><a href="#local-6989586621679852176"><span class="hs-identifier hs-var">attachments</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679852175"><span class="annot"><span class="annottext">s :: CreateDocument
-</span><a href="#local-6989586621679852175"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument%27"><span class="hs-identifier hs-type">CreateDocument'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679852174"><span class="annot"><span class="annottext">Maybe [AttachmentsSource]
-</span><a href="#local-6989586621679852174"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDocument
-</span><a href="#local-6989586621679852175"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attachments:CreateDocument' :: Maybe [AttachmentsSource]
-</span><a href="Network.AWS.SSM.CreateDocument.html#%24sel%3Aattachments%3ACreateDocument%27"><span class="hs-identifier hs-var">attachments</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AttachmentsSource]
-</span><a href="#local-6989586621679852174"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument"><span class="hs-identifier hs-type">CreateDocument</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AttachmentsSource] -&gt; f (Maybe [AttachmentsSource]))
- -&gt; CreateDocument -&gt; f CreateDocument)
--&gt; ((Maybe [AttachmentsSource] -&gt; f (Maybe [AttachmentsSource]))
-    -&gt; Maybe [AttachmentsSource] -&gt; f (Maybe [AttachmentsSource]))
--&gt; (Maybe [AttachmentsSource] -&gt; f (Maybe [AttachmentsSource]))
--&gt; CreateDocument
--&gt; f CreateDocument
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
-  [AttachmentsSource]
-  [AttachmentsSource]
-  [AttachmentsSource]
-  [AttachmentsSource]
--&gt; Iso
-     (Maybe [AttachmentsSource])
-     (Maybe [AttachmentsSource])
-     (Maybe [AttachmentsSource])
-     (Maybe [AttachmentsSource])
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
-  [AttachmentsSource]
-  [AttachmentsSource]
-  [AttachmentsSource]
-  [AttachmentsSource]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-305"></span><span>
 </span><span id="line-306"></span><span class="hs-comment">-- | The content for the new SSM document in JSON or YAML format. We</span><span>
 </span><span id="line-307"></span><span class="hs-comment">-- recommend storing the contents for your new document in an external JSON</span><span>
@@ -636,16 +636,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (CreateDocument -&gt; Text -&gt; CreateDocument)
 -&gt; Lens CreateDocument CreateDocument Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument%27"><span class="hs-identifier hs-type">CreateDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679852173"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument%27"><span class="hs-identifier hs-type">CreateDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679854002"><span class="annot"><span class="annottext">Text
 content :: Text
 $sel:content:CreateDocument' :: CreateDocument -&gt; Text
-</span><a href="#local-6989586621679852173"><span class="hs-identifier hs-var hs-var">content</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679852173"><span class="hs-identifier hs-var">content</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679852172"><span class="annot"><span class="annottext">s :: CreateDocument
-</span><a href="#local-6989586621679852172"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument%27"><span class="hs-identifier hs-type">CreateDocument'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679852171"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679852171"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDocument
-</span><a href="#local-6989586621679852172"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:content:CreateDocument' :: Text
+</span><a href="#local-6989586621679854002"><span class="hs-identifier hs-var hs-var">content</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679854002"><span class="hs-identifier hs-var">content</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679854001"><span class="annot"><span class="annottext">s :: CreateDocument
+</span><a href="#local-6989586621679854001"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument%27"><span class="hs-identifier hs-type">CreateDocument'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679854000"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679854000"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDocument
+</span><a href="#local-6989586621679854001"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:content:CreateDocument' :: Text
 </span><a href="Network.AWS.SSM.CreateDocument.html#%24sel%3Acontent%3ACreateDocument%27"><span class="hs-identifier hs-var">content</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679852171"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument"><span class="hs-identifier hs-type">CreateDocument</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679854000"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument"><span class="hs-identifier hs-type">CreateDocument</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-320"></span><span>
 </span><span id="line-321"></span><span class="hs-comment">-- | A name for the SSM document.</span><span>
 </span><span id="line-322"></span><span class="hs-comment">--</span><span>
@@ -663,27 +663,27 @@ $sel:content:CreateDocument' :: CreateDocument -&gt; Text
 -&gt; (CreateDocument -&gt; Text -&gt; CreateDocument)
 -&gt; Lens CreateDocument CreateDocument Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument%27"><span class="hs-identifier hs-type">CreateDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679852170"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument%27"><span class="hs-identifier hs-type">CreateDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679853999"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:CreateDocument' :: CreateDocument -&gt; Text
-</span><a href="#local-6989586621679852170"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679852170"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679852169"><span class="annot"><span class="annottext">s :: CreateDocument
-</span><a href="#local-6989586621679852169"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument%27"><span class="hs-identifier hs-type">CreateDocument'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679852168"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679852168"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDocument
-</span><a href="#local-6989586621679852169"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreateDocument' :: Text
+</span><a href="#local-6989586621679853999"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679853999"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679853998"><span class="annot"><span class="annottext">s :: CreateDocument
+</span><a href="#local-6989586621679853998"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument%27"><span class="hs-identifier hs-type">CreateDocument'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679853997"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679853997"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDocument
+</span><a href="#local-6989586621679853998"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreateDocument' :: Text
 </span><a href="Network.AWS.SSM.CreateDocument.html#%24sel%3Aname%3ACreateDocument%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679852168"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument"><span class="hs-identifier hs-type">CreateDocument</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679853997"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument"><span class="hs-identifier hs-type">CreateDocument</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-333"></span><span>
 </span><span id="line-334"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument"><span class="hs-identifier hs-type">CreateDocument</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-335"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-336"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument"><span class="hs-identifier hs-type">CreateDocument</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-337"></span><span>      </span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocumentResponse"><span class="hs-identifier hs-type">CreateDocumentResponse</span></a></span><span>
-</span><span id="line-338"></span><span>  </span><span id="local-6989586621679852164"><span class="annot"><span class="annottext">request :: CreateDocument -&gt; Request CreateDocument
+</span><span id="line-338"></span><span>  </span><span id="local-6989586621679853993"><span class="annot"><span class="annottext">request :: CreateDocument -&gt; Request CreateDocument
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateDocument -&gt; Request CreateDocument
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SSM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-339"></span><span>  </span><span id="local-6989586621679852160"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-339"></span><span>  </span><span id="local-6989586621679853989"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateDocument
 -&gt; ClientResponse ClientBody
@@ -707,10 +707,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-341"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679852157"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679852157"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679852156"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679852156"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679852155"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679852155"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-341"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679853986"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679853986"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679853985"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679853985"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679853984"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679853984"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-342"></span><span>          </span><span class="annot"><span class="annottext">Maybe DocumentDescription -&gt; Int -&gt; CreateDocumentResponse
 </span><a href="Network.AWS.SSM.CreateDocument.html#CreateDocumentResponse%27"><span class="hs-identifier hs-var">CreateDocumentResponse'</span></a></span><span>
 </span><span id="line-343"></span><span>            </span><span class="annot"><span class="annottext">(Maybe DocumentDescription -&gt; Int -&gt; CreateDocumentResponse)
@@ -718,7 +718,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; CreateDocumentResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679852155"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe DocumentDescription)
+</span><a href="#local-6989586621679853984"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe DocumentDescription)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DocumentDescription&quot;</span></span><span class="hs-special">)</span><span>
@@ -730,15 +730,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679852157"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679853986"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-345"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-346"></span><span>
-</span><span id="line-347"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679852147"><span id="local-6989586621679852149"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument"><span class="hs-identifier hs-type">CreateDocument</span></a></span></span></span><span>
+</span><span id="line-347"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679853976"><span id="local-6989586621679853978"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument"><span class="hs-identifier hs-type">CreateDocument</span></a></span></span></span><span>
 </span><span id="line-348"></span><span>
-</span><span id="line-349"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679852144"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument"><span class="hs-identifier hs-type">CreateDocument</span></a></span></span><span>
+</span><span id="line-349"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679853973"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument"><span class="hs-identifier hs-type">CreateDocument</span></a></span></span><span>
 </span><span id="line-350"></span><span>
 </span><span id="line-351"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument"><span class="hs-identifier hs-type">CreateDocument</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-352"></span><span>  </span><span id="local-6989586621679852140"><span class="annot"><span class="annottext">toHeaders :: CreateDocument -&gt; ResponseHeaders
+</span><span id="line-352"></span><span>  </span><span id="local-6989586621679853969"><span class="annot"><span class="annottext">toHeaders :: CreateDocument -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-353"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateDocument -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -763,9 +763,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-361"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-362"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-363"></span><span>
-</span><span id="line-364"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679852130"><span id="local-6989586621679852132"><span id="local-6989586621679852134"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument"><span class="hs-identifier hs-type">CreateDocument</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-365"></span><span>  </span><span id="local-6989586621679852128"><span class="annot"><span class="annottext">toJSON :: CreateDocument -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument%27"><span class="hs-identifier hs-type">CreateDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679852117"><span id="local-6989586621679852118"><span id="local-6989586621679852119"><span id="local-6989586621679852120"><span id="local-6989586621679852121"><span id="local-6989586621679852122"><span id="local-6989586621679852123"><span id="local-6989586621679852124"><span id="local-6989586621679852125"><span id="local-6989586621679852126"><span class="annot"><span class="annottext">Maybe [AttachmentsSource]
+</span><span id="line-364"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679853959"><span id="local-6989586621679853961"><span id="local-6989586621679853963"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument"><span class="hs-identifier hs-type">CreateDocument</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-365"></span><span>  </span><span id="local-6989586621679853957"><span class="annot"><span class="annottext">toJSON :: CreateDocument -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument%27"><span class="hs-identifier hs-type">CreateDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679853946"><span id="local-6989586621679853947"><span id="local-6989586621679853948"><span id="local-6989586621679853949"><span id="local-6989586621679853950"><span id="local-6989586621679853951"><span id="local-6989586621679853952"><span id="local-6989586621679853953"><span id="local-6989586621679853954"><span id="local-6989586621679853955"><span class="annot"><span class="annottext">Maybe [AttachmentsSource]
 Maybe [Tag]
 Maybe (NonEmpty DocumentRequires)
 Maybe Text
@@ -774,25 +774,25 @@ Maybe DocumentType
 Text
 name :: Text
 content :: Text
-attachments :: Maybe [AttachmentsSource]
-displayName :: Maybe Text
 tags :: Maybe [Tag]
-documentFormat :: Maybe DocumentFormat
-versionName :: Maybe Text
 requires :: Maybe (NonEmpty DocumentRequires)
+displayName :: Maybe Text
+documentFormat :: Maybe DocumentFormat
 targetType :: Maybe Text
+versionName :: Maybe Text
+attachments :: Maybe [AttachmentsSource]
 documentType :: Maybe DocumentType
 $sel:name:CreateDocument' :: CreateDocument -&gt; Text
 $sel:content:CreateDocument' :: CreateDocument -&gt; Text
-$sel:attachments:CreateDocument' :: CreateDocument -&gt; Maybe [AttachmentsSource]
-$sel:displayName:CreateDocument' :: CreateDocument -&gt; Maybe Text
 $sel:tags:CreateDocument' :: CreateDocument -&gt; Maybe [Tag]
-$sel:documentFormat:CreateDocument' :: CreateDocument -&gt; Maybe DocumentFormat
-$sel:versionName:CreateDocument' :: CreateDocument -&gt; Maybe Text
 $sel:requires:CreateDocument' :: CreateDocument -&gt; Maybe (NonEmpty DocumentRequires)
+$sel:displayName:CreateDocument' :: CreateDocument -&gt; Maybe Text
+$sel:documentFormat:CreateDocument' :: CreateDocument -&gt; Maybe DocumentFormat
 $sel:targetType:CreateDocument' :: CreateDocument -&gt; Maybe Text
+$sel:versionName:CreateDocument' :: CreateDocument -&gt; Maybe Text
+$sel:attachments:CreateDocument' :: CreateDocument -&gt; Maybe [AttachmentsSource]
 $sel:documentType:CreateDocument' :: CreateDocument -&gt; Maybe DocumentType
-</span><a href="#local-6989586621679852117"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679853946"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-366"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-367"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -804,29 +804,29 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(DocumentType -&gt; Pair) -&gt; Maybe DocumentType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DocumentType
-</span><a href="#local-6989586621679852126"><span class="hs-identifier hs-var">documentType</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679853955"><span class="hs-identifier hs-var">documentType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-369"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;TargetType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+</span><span class="hs-string">&quot;Attachments&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [AttachmentsSource] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([AttachmentsSource] -&gt; Pair)
+-&gt; Maybe [AttachmentsSource] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679852125"><span class="hs-identifier hs-var">targetType</span></a></span><span class="hs-special">,</span><span>
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AttachmentsSource]
+</span><a href="#local-6989586621679853954"><span class="hs-identifier hs-var">attachments</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-370"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Requires&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty DocumentRequires -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(NonEmpty DocumentRequires -&gt; Pair)
--&gt; Maybe (NonEmpty DocumentRequires) -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty DocumentRequires)
-</span><a href="#local-6989586621679852124"><span class="hs-identifier hs-var">requires</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-371"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;VersionName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679852123"><span class="hs-identifier hs-var">versionName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679853953"><span class="hs-identifier hs-var">versionName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-371"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TargetType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679853952"><span class="hs-identifier hs-var">targetType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-372"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DocumentFormat&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DocumentFormat -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -834,55 +834,55 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-373"></span><span>              </span><span class="annot"><span class="annottext">(DocumentFormat -&gt; Pair) -&gt; Maybe DocumentFormat -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DocumentFormat
-</span><a href="#local-6989586621679852122"><span class="hs-identifier hs-var">documentFormat</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679853951"><span class="hs-identifier hs-var">documentFormat</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-374"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679852121"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-375"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DisplayName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679852120"><span class="hs-identifier hs-var">displayName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-376"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Attachments&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [AttachmentsSource] -&gt; Pair
+</span><a href="#local-6989586621679853950"><span class="hs-identifier hs-var">displayName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-375"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Requires&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty DocumentRequires -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([AttachmentsSource] -&gt; Pair)
--&gt; Maybe [AttachmentsSource] -&gt; Maybe Pair
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(NonEmpty DocumentRequires -&gt; Pair)
+-&gt; Maybe (NonEmpty DocumentRequires) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AttachmentsSource]
-</span><a href="#local-6989586621679852119"><span class="hs-identifier hs-var">attachments</span></a></span><span class="hs-special">,</span><span>
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty DocumentRequires)
+</span><a href="#local-6989586621679853949"><span class="hs-identifier hs-var">requires</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-376"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679853948"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-377"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Content&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679852118"><span class="hs-identifier hs-var">content</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679853947"><span class="hs-identifier hs-var">content</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-378"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679852117"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679853946"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-379"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-380"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-381"></span><span>
 </span><span id="line-382"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument"><span class="hs-identifier hs-type">CreateDocument</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-383"></span><span>  </span><span id="local-6989586621679852111"><span class="annot"><span class="annottext">toPath :: CreateDocument -&gt; ByteString
+</span><span id="line-383"></span><span>  </span><span id="local-6989586621679853940"><span class="annot"><span class="annottext">toPath :: CreateDocument -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateDocument -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-384"></span><span>
 </span><span id="line-385"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocument"><span class="hs-identifier hs-type">CreateDocument</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-386"></span><span>  </span><span id="local-6989586621679852107"><span class="annot"><span class="annottext">toQuery :: CreateDocument -&gt; QueryString
+</span><span id="line-386"></span><span>  </span><span id="local-6989586621679853936"><span class="annot"><span class="annottext">toQuery :: CreateDocument -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateDocument -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -890,7 +890,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-387"></span><span>
 </span><span id="line-388"></span><span class="hs-comment">-- | /See:/ 'newCreateDocumentResponse' smart constructor.</span><span>
-</span><span id="line-389"></span><span id="local-6989586621679852104"><span id="local-6989586621679852105"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateDocumentResponse"><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocumentResponse"><span class="hs-identifier hs-var">CreateDocumentResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateDocumentResponse%27"><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocumentResponse%27"><span class="hs-identifier hs-var">CreateDocumentResponse'</span></a></span></span><span>
+</span><span id="line-389"></span><span id="local-6989586621679853933"><span id="local-6989586621679853934"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateDocumentResponse"><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocumentResponse"><span class="hs-identifier hs-var">CreateDocumentResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateDocumentResponse%27"><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocumentResponse%27"><span class="hs-identifier hs-var">CreateDocumentResponse'</span></a></span></span><span>
 </span><span id="line-390"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the SSM document.</span><span>
 </span><span id="line-391"></span><span>    </span><span id="%24sel%3AdocumentDescription%3ACreateDocumentResponse%27"><span class="annot"><span class="annottext">CreateDocumentResponse -&gt; Maybe DocumentDescription
 </span><a href="Network.AWS.SSM.CreateDocument.html#%24sel%3AdocumentDescription%3ACreateDocumentResponse%27"><span class="hs-identifier hs-var hs-var">documentDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentDescription.html#DocumentDescription"><span class="hs-identifier hs-type">DocumentDescription</span></a></span><span class="hs-special">,</span><span>
@@ -898,7 +898,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-393"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateDocumentResponse%27"><span class="annot"><span class="annottext">CreateDocumentResponse -&gt; Int
 </span><a href="Network.AWS.SSM.CreateDocument.html#%24sel%3AhttpStatus%3ACreateDocumentResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-394"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-395"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679852098"><span id="local-6989586621679852100"><span class="annot"><span class="annottext">CreateDocumentResponse -&gt; CreateDocumentResponse -&gt; Bool
+</span><span id="line-395"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679853927"><span id="local-6989586621679853929"><span class="annot"><span class="annottext">CreateDocumentResponse -&gt; CreateDocumentResponse -&gt; Bool
 (CreateDocumentResponse -&gt; CreateDocumentResponse -&gt; Bool)
 -&gt; (CreateDocumentResponse -&gt; CreateDocumentResponse -&gt; Bool)
 -&gt; Eq CreateDocumentResponse
@@ -907,7 +907,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateDocumentResponse -&gt; CreateDocumentResponse -&gt; Bool
 == :: CreateDocumentResponse -&gt; CreateDocumentResponse -&gt; Bool
 $c== :: CreateDocumentResponse -&gt; CreateDocumentResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679852090"><span id="local-6989586621679852092"><span id="local-6989586621679852094"><span id="local-6989586621679852096"><span class="annot"><span class="annottext">ReadPrec [CreateDocumentResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679853919"><span id="local-6989586621679853921"><span id="local-6989586621679853923"><span id="local-6989586621679853925"><span class="annot"><span class="annottext">ReadPrec [CreateDocumentResponse]
 ReadPrec CreateDocumentResponse
 Int -&gt; ReadS CreateDocumentResponse
 ReadS [CreateDocumentResponse]
@@ -927,7 +927,7 @@ readList :: ReadS [CreateDocumentResponse]
 $creadList :: ReadS [CreateDocumentResponse]
 readsPrec :: Int -&gt; ReadS CreateDocumentResponse
 $creadsPrec :: Int -&gt; ReadS CreateDocumentResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679852084"><span id="local-6989586621679852086"><span id="local-6989586621679852088"><span class="annot"><span class="annottext">Int -&gt; CreateDocumentResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679853913"><span id="local-6989586621679853915"><span id="local-6989586621679853917"><span class="annot"><span class="annottext">Int -&gt; CreateDocumentResponse -&gt; ShowS
 [CreateDocumentResponse] -&gt; ShowS
 CreateDocumentResponse -&gt; String
 (Int -&gt; CreateDocumentResponse -&gt; ShowS)
@@ -970,8 +970,8 @@ $cfrom :: forall x. CreateDocumentResponse -&gt; Rep CreateDocumentResponse x
 </span><span id="line-410"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-411"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocumentResponse"><span class="hs-identifier hs-type">CreateDocumentResponse</span></a></span><span>
 </span><span id="line-412"></span><span id="newCreateDocumentResponse"><span class="annot"><span class="annottext">newCreateDocumentResponse :: Int -&gt; CreateDocumentResponse
-</span><a href="Network.AWS.SSM.CreateDocument.html#newCreateDocumentResponse"><span class="hs-identifier hs-var hs-var">newCreateDocumentResponse</span></a></span></span><span> </span><span id="local-6989586621679852081"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679852081"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SSM.CreateDocument.html#newCreateDocumentResponse"><span class="hs-identifier hs-var hs-var">newCreateDocumentResponse</span></a></span></span><span> </span><span id="local-6989586621679853910"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679853910"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-413"></span><span>  </span><span class="annot"><span class="annottext">CreateDocumentResponse' :: Maybe DocumentDescription -&gt; Int -&gt; CreateDocumentResponse
 </span><a href="Network.AWS.SSM.CreateDocument.html#CreateDocumentResponse%27"><span class="hs-identifier hs-type">CreateDocumentResponse'</span></a></span><span>
 </span><span id="line-414"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:documentDescription:CreateDocumentResponse' :: Maybe DocumentDescription
@@ -981,7 +981,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-416"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateDocumentResponse' :: Int
 </span><a href="Network.AWS.SSM.CreateDocument.html#%24sel%3AhttpStatus%3ACreateDocumentResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679852081"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679853910"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-417"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-418"></span><span>
 </span><span id="line-419"></span><span class="hs-comment">-- | Information about the SSM document.</span><span>
@@ -997,16 +997,16 @@ forall a. Maybe a
      (Maybe DocumentDescription)
      (Maybe DocumentDescription)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocumentResponse%27"><span class="hs-identifier hs-type">CreateDocumentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679852080"><span class="annot"><span class="annottext">Maybe DocumentDescription
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocumentResponse%27"><span class="hs-identifier hs-type">CreateDocumentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679853909"><span class="annot"><span class="annottext">Maybe DocumentDescription
 documentDescription :: Maybe DocumentDescription
 $sel:documentDescription:CreateDocumentResponse' :: CreateDocumentResponse -&gt; Maybe DocumentDescription
-</span><a href="#local-6989586621679852080"><span class="hs-identifier hs-var hs-var">documentDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DocumentDescription
-</span><a href="#local-6989586621679852080"><span class="hs-identifier hs-var">documentDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679852079"><span class="annot"><span class="annottext">s :: CreateDocumentResponse
-</span><a href="#local-6989586621679852079"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocumentResponse%27"><span class="hs-identifier hs-type">CreateDocumentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679852078"><span class="annot"><span class="annottext">Maybe DocumentDescription
-</span><a href="#local-6989586621679852078"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDocumentResponse
-</span><a href="#local-6989586621679852079"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:documentDescription:CreateDocumentResponse' :: Maybe DocumentDescription
+</span><a href="#local-6989586621679853909"><span class="hs-identifier hs-var hs-var">documentDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DocumentDescription
+</span><a href="#local-6989586621679853909"><span class="hs-identifier hs-var">documentDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679853908"><span class="annot"><span class="annottext">s :: CreateDocumentResponse
+</span><a href="#local-6989586621679853908"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocumentResponse%27"><span class="hs-identifier hs-type">CreateDocumentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679853907"><span class="annot"><span class="annottext">Maybe DocumentDescription
+</span><a href="#local-6989586621679853907"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDocumentResponse
+</span><a href="#local-6989586621679853908"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:documentDescription:CreateDocumentResponse' :: Maybe DocumentDescription
 </span><a href="Network.AWS.SSM.CreateDocument.html#%24sel%3AdocumentDescription%3ACreateDocumentResponse%27"><span class="hs-identifier hs-var">documentDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DocumentDescription
-</span><a href="#local-6989586621679852078"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocumentResponse"><span class="hs-identifier hs-type">CreateDocumentResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679853907"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocumentResponse"><span class="hs-identifier hs-type">CreateDocumentResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-422"></span><span>
 </span><span id="line-423"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-424"></span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#createDocumentResponse_httpStatus"><span class="hs-identifier hs-type">createDocumentResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocumentResponse"><span class="hs-identifier hs-type">CreateDocumentResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -1016,16 +1016,16 @@ $sel:documentDescription:CreateDocumentResponse' :: CreateDocumentResponse -&gt;
 -&gt; (CreateDocumentResponse -&gt; Int -&gt; CreateDocumentResponse)
 -&gt; Lens CreateDocumentResponse CreateDocumentResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocumentResponse%27"><span class="hs-identifier hs-type">CreateDocumentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679852077"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocumentResponse%27"><span class="hs-identifier hs-type">CreateDocumentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679853906"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateDocumentResponse' :: CreateDocumentResponse -&gt; Int
-</span><a href="#local-6989586621679852077"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679852077"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679852076"><span class="annot"><span class="annottext">s :: CreateDocumentResponse
-</span><a href="#local-6989586621679852076"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocumentResponse%27"><span class="hs-identifier hs-type">CreateDocumentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679852075"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679852075"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDocumentResponse
-</span><a href="#local-6989586621679852076"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateDocumentResponse' :: Int
+</span><a href="#local-6989586621679853906"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679853906"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679853905"><span class="annot"><span class="annottext">s :: CreateDocumentResponse
+</span><a href="#local-6989586621679853905"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocumentResponse%27"><span class="hs-identifier hs-type">CreateDocumentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679853904"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679853904"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDocumentResponse
+</span><a href="#local-6989586621679853905"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateDocumentResponse' :: Int
 </span><a href="Network.AWS.SSM.CreateDocument.html#%24sel%3AhttpStatus%3ACreateDocumentResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679852075"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocumentResponse"><span class="hs-identifier hs-type">CreateDocumentResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679853904"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocumentResponse"><span class="hs-identifier hs-type">CreateDocumentResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-426"></span><span>
-</span><span id="line-427"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679852073"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocumentResponse"><span class="hs-identifier hs-type">CreateDocumentResponse</span></a></span></span><span>
+</span><span id="line-427"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679853902"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.CreateDocument.html#CreateDocumentResponse"><span class="hs-identifier hs-type">CreateDocumentResponse</span></a></span></span><span>
 </span><span id="line-428"></span></pre></body></html>

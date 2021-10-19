@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621679298743"><span id="local-6989586621679298744"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PublishingStatus"><span class="annot"><a href="Network.AWS.GuardDuty.Types.PublishingStatus.html#PublishingStatus"><span class="hs-identifier hs-var">PublishingStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PublishingStatus%27"><span class="annot"><a href="Network.AWS.GuardDuty.Types.PublishingStatus.html#PublishingStatus%27"><span class="hs-identifier hs-var">PublishingStatus'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679299028"><span id="local-6989586621679299029"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PublishingStatus"><span class="annot"><a href="Network.AWS.GuardDuty.Types.PublishingStatus.html#PublishingStatus"><span class="hs-identifier hs-var">PublishingStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PublishingStatus%27"><span class="annot"><a href="Network.AWS.GuardDuty.Types.PublishingStatus.html#PublishingStatus%27"><span class="hs-identifier hs-var">PublishingStatus'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromPublishingStatus"><span class="annot"><span class="annottext">PublishingStatus -&gt; Text
 </span><a href="Network.AWS.GuardDuty.Types.PublishingStatus.html#fromPublishingStatus"><span class="hs-identifier hs-var hs-var">fromPublishingStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679298735"><span id="local-6989586621679298737"><span id="local-6989586621679298739"><span class="annot"><span class="annottext">Int -&gt; PublishingStatus -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679299020"><span id="local-6989586621679299022"><span id="local-6989586621679299024"><span class="annot"><span class="annottext">Int -&gt; PublishingStatus -&gt; ShowS
 [PublishingStatus] -&gt; ShowS
 PublishingStatus -&gt; String
 (Int -&gt; PublishingStatus -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: PublishingStatus -&gt; String
 showsPrec :: Int -&gt; PublishingStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; PublishingStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679298726"><span id="local-6989586621679298728"><span id="local-6989586621679298730"><span id="local-6989586621679298732"><span class="annot"><span class="annottext">ReadPrec [PublishingStatus]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679299011"><span id="local-6989586621679299013"><span id="local-6989586621679299015"><span id="local-6989586621679299017"><span class="annot"><span class="annottext">ReadPrec [PublishingStatus]
 ReadPrec PublishingStatus
 Int -&gt; ReadS PublishingStatus
 ReadS [PublishingStatus]
@@ -74,7 +74,7 @@ $creadList :: ReadS [PublishingStatus]
 readsPrec :: Int -&gt; ReadS PublishingStatus
 $creadsPrec :: Int -&gt; ReadS PublishingStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679298721"><span id="local-6989586621679298723"><span class="annot"><span class="annottext">PublishingStatus -&gt; PublishingStatus -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679299006"><span id="local-6989586621679299008"><span class="annot"><span class="annottext">PublishingStatus -&gt; PublishingStatus -&gt; Bool
 (PublishingStatus -&gt; PublishingStatus -&gt; Bool)
 -&gt; (PublishingStatus -&gt; PublishingStatus -&gt; Bool)
 -&gt; Eq PublishingStatus
@@ -84,7 +84,7 @@ $c/= :: PublishingStatus -&gt; PublishingStatus -&gt; Bool
 == :: PublishingStatus -&gt; PublishingStatus -&gt; Bool
 $c== :: PublishingStatus -&gt; PublishingStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679298705"><span id="local-6989586621679298707"><span id="local-6989586621679298709"><span id="local-6989586621679298711"><span id="local-6989586621679298713"><span id="local-6989586621679298715"><span id="local-6989586621679298717"><span class="annot"><span class="annottext">Eq PublishingStatus
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679298990"><span id="local-6989586621679298992"><span id="local-6989586621679298994"><span id="local-6989586621679298996"><span id="local-6989586621679298998"><span id="local-6989586621679299000"><span id="local-6989586621679299002"><span class="annot"><span class="annottext">Eq PublishingStatus
 Eq PublishingStatus
 -&gt; (PublishingStatus -&gt; PublishingStatus -&gt; Ordering)
 -&gt; (PublishingStatus -&gt; PublishingStatus -&gt; Bool)
@@ -135,7 +135,7 @@ $cfrom :: forall x. PublishingStatus -&gt; Rep PublishingStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679298697"><span id="local-6989586621679298699"><span class="annot"><span class="annottext">Int -&gt; PublishingStatus -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679298982"><span id="local-6989586621679298984"><span class="annot"><span class="annottext">Int -&gt; PublishingStatus -&gt; Int
 PublishingStatus -&gt; Int
 (Int -&gt; PublishingStatus -&gt; Int)
 -&gt; (PublishingStatus -&gt; Int) -&gt; Hashable PublishingStatus
@@ -145,51 +145,51 @@ $chash :: PublishingStatus -&gt; Int
 hashWithSalt :: Int -&gt; PublishingStatus -&gt; Int
 $chashWithSalt :: Int -&gt; PublishingStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679298694"><span class="annot"><span class="annottext">PublishingStatus -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679298979"><span class="annot"><span class="annottext">PublishingStatus -&gt; ()
 (PublishingStatus -&gt; ()) -&gt; NFData PublishingStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: PublishingStatus -&gt; ()
 $crnf :: PublishingStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679298691"><span class="annot"><span class="annottext">Text -&gt; Either String PublishingStatus
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679298976"><span class="annot"><span class="annottext">Text -&gt; Either String PublishingStatus
 (Text -&gt; Either String PublishingStatus)
 -&gt; FromText PublishingStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String PublishingStatus
 $cfromText :: Text -&gt; Either String PublishingStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679298688"><span class="annot"><span class="annottext">PublishingStatus -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679298973"><span class="annot"><span class="annottext">PublishingStatus -&gt; Text
 (PublishingStatus -&gt; Text) -&gt; ToText PublishingStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: PublishingStatus -&gt; Text
 $ctoText :: PublishingStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679298685"><span class="annot"><span class="annottext">PublishingStatus -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679298970"><span class="annot"><span class="annottext">PublishingStatus -&gt; ByteString
 (PublishingStatus -&gt; ByteString) -&gt; ToByteString PublishingStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: PublishingStatus -&gt; ByteString
 $ctoBS :: PublishingStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679298682"><span class="annot"><span class="annottext">PublishingStatus -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679298967"><span class="annot"><span class="annottext">PublishingStatus -&gt; ByteStringBuilder
 (PublishingStatus -&gt; ByteStringBuilder) -&gt; ToLog PublishingStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: PublishingStatus -&gt; ByteStringBuilder
 $cbuild :: PublishingStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679298679"><span class="annot"><span class="annottext">HeaderName -&gt; PublishingStatus -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679298964"><span class="annot"><span class="annottext">HeaderName -&gt; PublishingStatus -&gt; [Header]
 (HeaderName -&gt; PublishingStatus -&gt; [Header])
 -&gt; ToHeader PublishingStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; PublishingStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; PublishingStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679298676"><span class="annot"><span class="annottext">PublishingStatus -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679298961"><span class="annot"><span class="annottext">PublishingStatus -&gt; QueryString
 (PublishingStatus -&gt; QueryString) -&gt; ToQuery PublishingStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: PublishingStatus -&gt; QueryString
 $ctoQuery :: PublishingStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679298671"><span id="local-6989586621679298673"><span class="annot"><span class="annottext">Value -&gt; Parser [PublishingStatus]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679298956"><span id="local-6989586621679298958"><span class="annot"><span class="annottext">Value -&gt; Parser [PublishingStatus]
 Value -&gt; Parser PublishingStatus
 (Value -&gt; Parser PublishingStatus)
 -&gt; (Value -&gt; Parser [PublishingStatus])
@@ -201,7 +201,7 @@ $cparseJSONList :: Value -&gt; Parser [PublishingStatus]
 parseJSON :: Value -&gt; Parser PublishingStatus
 $cparseJSON :: Value -&gt; Parser PublishingStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679298666"><span id="local-6989586621679298668"><span class="annot"><span class="annottext">FromJSONKeyFunction [PublishingStatus]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679298951"><span id="local-6989586621679298953"><span class="annot"><span class="annottext">FromJSONKeyFunction [PublishingStatus]
 FromJSONKeyFunction PublishingStatus
 FromJSONKeyFunction PublishingStatus
 -&gt; FromJSONKeyFunction [PublishingStatus]
@@ -213,7 +213,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [PublishingStatus]
 fromJSONKey :: FromJSONKeyFunction PublishingStatus
 $cfromJSONKey :: FromJSONKeyFunction PublishingStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679298657"><span id="local-6989586621679298659"><span id="local-6989586621679298661"><span id="local-6989586621679298663"><span class="annot"><span class="annottext">[PublishingStatus] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679298942"><span id="local-6989586621679298944"><span id="local-6989586621679298946"><span id="local-6989586621679298948"><span class="annot"><span class="annottext">[PublishingStatus] -&gt; Encoding
 [PublishingStatus] -&gt; Value
 PublishingStatus -&gt; Encoding
 PublishingStatus -&gt; Value
@@ -237,7 +237,7 @@ $ctoEncoding :: PublishingStatus -&gt; Encoding
 toJSON :: PublishingStatus -&gt; Value
 $ctoJSON :: PublishingStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679298652"><span id="local-6989586621679298654"><span class="annot"><span class="annottext">ToJSONKeyFunction [PublishingStatus]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679298937"><span id="local-6989586621679298939"><span class="annot"><span class="annottext">ToJSONKeyFunction [PublishingStatus]
 ToJSONKeyFunction PublishingStatus
 ToJSONKeyFunction PublishingStatus
 -&gt; ToJSONKeyFunction [PublishingStatus]
@@ -249,14 +249,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [PublishingStatus]
 toJSONKey :: ToJSONKeyFunction PublishingStatus
 $ctoJSONKey :: ToJSONKeyFunction PublishingStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679298649"><span class="annot"><span class="annottext">[Node] -&gt; Either String PublishingStatus
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679298934"><span class="annot"><span class="annottext">[Node] -&gt; Either String PublishingStatus
 ([Node] -&gt; Either String PublishingStatus)
 -&gt; FromXML PublishingStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String PublishingStatus
 $cparseXML :: [Node] -&gt; Either String PublishingStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679298646"><span class="annot"><span class="annottext">PublishingStatus -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679298931"><span class="annot"><span class="annottext">PublishingStatus -&gt; XML
 (PublishingStatus -&gt; XML) -&gt; ToXML PublishingStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: PublishingStatus -&gt; XML

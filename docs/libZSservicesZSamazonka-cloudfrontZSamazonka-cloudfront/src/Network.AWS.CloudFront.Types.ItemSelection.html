@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679393122"><span id="local-6989586621679393123"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ItemSelection"><span class="annot"><a href="Network.AWS.CloudFront.Types.ItemSelection.html#ItemSelection"><span class="hs-identifier hs-var">ItemSelection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ItemSelection%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.ItemSelection.html#ItemSelection%27"><span class="hs-identifier hs-var">ItemSelection'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679393360"><span id="local-6989586621679393361"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ItemSelection"><span class="annot"><a href="Network.AWS.CloudFront.Types.ItemSelection.html#ItemSelection"><span class="hs-identifier hs-var">ItemSelection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ItemSelection%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.ItemSelection.html#ItemSelection%27"><span class="hs-identifier hs-var">ItemSelection'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromItemSelection"><span class="annot"><span class="annottext">ItemSelection -&gt; Text
 </span><a href="Network.AWS.CloudFront.Types.ItemSelection.html#fromItemSelection"><span class="hs-identifier hs-var hs-var">fromItemSelection</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679393114"><span id="local-6989586621679393116"><span id="local-6989586621679393118"><span class="annot"><span class="annottext">Int -&gt; ItemSelection -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679393352"><span id="local-6989586621679393354"><span id="local-6989586621679393356"><span class="annot"><span class="annottext">Int -&gt; ItemSelection -&gt; ShowS
 [ItemSelection] -&gt; ShowS
 ItemSelection -&gt; String
 (Int -&gt; ItemSelection -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: ItemSelection -&gt; String
 showsPrec :: Int -&gt; ItemSelection -&gt; ShowS
 $cshowsPrec :: Int -&gt; ItemSelection -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679393105"><span id="local-6989586621679393107"><span id="local-6989586621679393109"><span id="local-6989586621679393111"><span class="annot"><span class="annottext">ReadPrec [ItemSelection]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679393343"><span id="local-6989586621679393345"><span id="local-6989586621679393347"><span id="local-6989586621679393349"><span class="annot"><span class="annottext">ReadPrec [ItemSelection]
 ReadPrec ItemSelection
 Int -&gt; ReadS ItemSelection
 ReadS [ItemSelection]
@@ -73,7 +73,7 @@ $creadList :: ReadS [ItemSelection]
 readsPrec :: Int -&gt; ReadS ItemSelection
 $creadsPrec :: Int -&gt; ReadS ItemSelection
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679393100"><span id="local-6989586621679393102"><span class="annot"><span class="annottext">ItemSelection -&gt; ItemSelection -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679393338"><span id="local-6989586621679393340"><span class="annot"><span class="annottext">ItemSelection -&gt; ItemSelection -&gt; Bool
 (ItemSelection -&gt; ItemSelection -&gt; Bool)
 -&gt; (ItemSelection -&gt; ItemSelection -&gt; Bool) -&gt; Eq ItemSelection
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ $c/= :: ItemSelection -&gt; ItemSelection -&gt; Bool
 == :: ItemSelection -&gt; ItemSelection -&gt; Bool
 $c== :: ItemSelection -&gt; ItemSelection -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679393084"><span id="local-6989586621679393086"><span id="local-6989586621679393088"><span id="local-6989586621679393090"><span id="local-6989586621679393092"><span id="local-6989586621679393094"><span id="local-6989586621679393096"><span class="annot"><span class="annottext">Eq ItemSelection
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679393322"><span id="local-6989586621679393324"><span id="local-6989586621679393326"><span id="local-6989586621679393328"><span id="local-6989586621679393330"><span id="local-6989586621679393332"><span id="local-6989586621679393334"><span class="annot"><span class="annottext">Eq ItemSelection
 Eq ItemSelection
 -&gt; (ItemSelection -&gt; ItemSelection -&gt; Ordering)
 -&gt; (ItemSelection -&gt; ItemSelection -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. ItemSelection -&gt; Rep ItemSelection x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679393076"><span id="local-6989586621679393078"><span class="annot"><span class="annottext">Int -&gt; ItemSelection -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679393314"><span id="local-6989586621679393316"><span class="annot"><span class="annottext">Int -&gt; ItemSelection -&gt; Int
 ItemSelection -&gt; Int
 (Int -&gt; ItemSelection -&gt; Int)
 -&gt; (ItemSelection -&gt; Int) -&gt; Hashable ItemSelection
@@ -143,49 +143,49 @@ $chash :: ItemSelection -&gt; Int
 hashWithSalt :: Int -&gt; ItemSelection -&gt; Int
 $chashWithSalt :: Int -&gt; ItemSelection -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679393073"><span class="annot"><span class="annottext">ItemSelection -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679393311"><span class="annot"><span class="annottext">ItemSelection -&gt; ()
 (ItemSelection -&gt; ()) -&gt; NFData ItemSelection
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ItemSelection -&gt; ()
 $crnf :: ItemSelection -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679393070"><span class="annot"><span class="annottext">Text -&gt; Either String ItemSelection
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679393308"><span class="annot"><span class="annottext">Text -&gt; Either String ItemSelection
 (Text -&gt; Either String ItemSelection) -&gt; FromText ItemSelection
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ItemSelection
 $cfromText :: Text -&gt; Either String ItemSelection
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679393067"><span class="annot"><span class="annottext">ItemSelection -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679393305"><span class="annot"><span class="annottext">ItemSelection -&gt; Text
 (ItemSelection -&gt; Text) -&gt; ToText ItemSelection
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ItemSelection -&gt; Text
 $ctoText :: ItemSelection -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679393064"><span class="annot"><span class="annottext">ItemSelection -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679393302"><span class="annot"><span class="annottext">ItemSelection -&gt; ByteString
 (ItemSelection -&gt; ByteString) -&gt; ToByteString ItemSelection
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ItemSelection -&gt; ByteString
 $ctoBS :: ItemSelection -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679393061"><span class="annot"><span class="annottext">ItemSelection -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679393299"><span class="annot"><span class="annottext">ItemSelection -&gt; ByteStringBuilder
 (ItemSelection -&gt; ByteStringBuilder) -&gt; ToLog ItemSelection
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ItemSelection -&gt; ByteStringBuilder
 $cbuild :: ItemSelection -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679393058"><span class="annot"><span class="annottext">HeaderName -&gt; ItemSelection -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679393296"><span class="annot"><span class="annottext">HeaderName -&gt; ItemSelection -&gt; [Header]
 (HeaderName -&gt; ItemSelection -&gt; [Header]) -&gt; ToHeader ItemSelection
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ItemSelection -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ItemSelection -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679393055"><span class="annot"><span class="annottext">ItemSelection -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679393293"><span class="annot"><span class="annottext">ItemSelection -&gt; QueryString
 (ItemSelection -&gt; QueryString) -&gt; ToQuery ItemSelection
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ItemSelection -&gt; QueryString
 $ctoQuery :: ItemSelection -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679393050"><span id="local-6989586621679393052"><span class="annot"><span class="annottext">Value -&gt; Parser [ItemSelection]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679393288"><span id="local-6989586621679393290"><span class="annot"><span class="annottext">Value -&gt; Parser [ItemSelection]
 Value -&gt; Parser ItemSelection
 (Value -&gt; Parser ItemSelection)
 -&gt; (Value -&gt; Parser [ItemSelection]) -&gt; FromJSON ItemSelection
@@ -196,7 +196,7 @@ $cparseJSONList :: Value -&gt; Parser [ItemSelection]
 parseJSON :: Value -&gt; Parser ItemSelection
 $cparseJSON :: Value -&gt; Parser ItemSelection
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679393045"><span id="local-6989586621679393047"><span class="annot"><span class="annottext">FromJSONKeyFunction [ItemSelection]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679393283"><span id="local-6989586621679393285"><span class="annot"><span class="annottext">FromJSONKeyFunction [ItemSelection]
 FromJSONKeyFunction ItemSelection
 FromJSONKeyFunction ItemSelection
 -&gt; FromJSONKeyFunction [ItemSelection] -&gt; FromJSONKey ItemSelection
@@ -207,7 +207,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ItemSelection]
 fromJSONKey :: FromJSONKeyFunction ItemSelection
 $cfromJSONKey :: FromJSONKeyFunction ItemSelection
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679393036"><span id="local-6989586621679393038"><span id="local-6989586621679393040"><span id="local-6989586621679393042"><span class="annot"><span class="annottext">[ItemSelection] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679393274"><span id="local-6989586621679393276"><span id="local-6989586621679393278"><span id="local-6989586621679393280"><span class="annot"><span class="annottext">[ItemSelection] -&gt; Encoding
 [ItemSelection] -&gt; Value
 ItemSelection -&gt; Encoding
 ItemSelection -&gt; Value
@@ -231,7 +231,7 @@ $ctoEncoding :: ItemSelection -&gt; Encoding
 toJSON :: ItemSelection -&gt; Value
 $ctoJSON :: ItemSelection -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679393031"><span id="local-6989586621679393033"><span class="annot"><span class="annottext">ToJSONKeyFunction [ItemSelection]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679393269"><span id="local-6989586621679393271"><span class="annot"><span class="annottext">ToJSONKeyFunction [ItemSelection]
 ToJSONKeyFunction ItemSelection
 ToJSONKeyFunction ItemSelection
 -&gt; ToJSONKeyFunction [ItemSelection] -&gt; ToJSONKey ItemSelection
@@ -242,13 +242,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ItemSelection]
 toJSONKey :: ToJSONKeyFunction ItemSelection
 $ctoJSONKey :: ToJSONKeyFunction ItemSelection
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679393028"><span class="annot"><span class="annottext">[Node] -&gt; Either String ItemSelection
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679393266"><span class="annot"><span class="annottext">[Node] -&gt; Either String ItemSelection
 ([Node] -&gt; Either String ItemSelection) -&gt; FromXML ItemSelection
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ItemSelection
 $cparseXML :: [Node] -&gt; Either String ItemSelection
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679393025"><span class="annot"><span class="annottext">ItemSelection -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679393263"><span class="annot"><span class="annottext">ItemSelection -&gt; XML
 (ItemSelection -&gt; XML) -&gt; ToXML ItemSelection
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ItemSelection -&gt; XML

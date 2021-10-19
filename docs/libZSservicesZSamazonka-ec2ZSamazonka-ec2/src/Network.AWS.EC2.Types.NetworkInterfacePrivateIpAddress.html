@@ -28,24 +28,24 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Describes the private IPv4 address of a network interface.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newNetworkInterfacePrivateIpAddress' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621681095432"><span id="local-6989586621681095433"></span></span><span class="hs-keyword">data</span><span> </span><span id="NetworkInterfacePrivateIpAddress"><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfacePrivateIpAddress.html#NetworkInterfacePrivateIpAddress"><span class="hs-identifier hs-var">NetworkInterfacePrivateIpAddress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NetworkInterfacePrivateIpAddress%27"><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfacePrivateIpAddress.html#NetworkInterfacePrivateIpAddress%27"><span class="hs-identifier hs-var">NetworkInterfacePrivateIpAddress'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621681130125"><span id="local-6989586621681130126"></span></span><span class="hs-keyword">data</span><span> </span><span id="NetworkInterfacePrivateIpAddress"><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfacePrivateIpAddress.html#NetworkInterfacePrivateIpAddress"><span class="hs-identifier hs-var">NetworkInterfacePrivateIpAddress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NetworkInterfacePrivateIpAddress%27"><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfacePrivateIpAddress.html#NetworkInterfacePrivateIpAddress%27"><span class="hs-identifier hs-var">NetworkInterfacePrivateIpAddress'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Indicates whether this IPv4 address is the primary private IPv4 address</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- of the network interface.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Aprimary%3ANetworkInterfacePrivateIpAddress%27"><span class="annot"><span class="annottext">NetworkInterfacePrivateIpAddress -&gt; Maybe Bool
 </span><a href="Network.AWS.EC2.Types.NetworkInterfacePrivateIpAddress.html#%24sel%3Aprimary%3ANetworkInterfacePrivateIpAddress%27"><span class="hs-identifier hs-var hs-var">primary</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The association information for an Elastic IP address (IPv4) associated</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- with the network interface.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3Aassociation%3ANetworkInterfacePrivateIpAddress%27"><span class="annot"><span class="annottext">NetworkInterfacePrivateIpAddress
--&gt; Maybe NetworkInterfaceAssociation
-</span><a href="Network.AWS.EC2.Types.NetworkInterfacePrivateIpAddress.html#%24sel%3Aassociation%3ANetworkInterfacePrivateIpAddress%27"><span class="hs-identifier hs-var hs-var">association</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfaceAssociation.html#NetworkInterfaceAssociation"><span class="hs-identifier hs-type">NetworkInterfaceAssociation</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The private DNS name.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3AprivateDnsName%3ANetworkInterfacePrivateIpAddress%27"><span class="annot"><span class="annottext">NetworkInterfacePrivateIpAddress -&gt; Maybe Text
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The private IPv4 address.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AprivateIpAddress%3ANetworkInterfacePrivateIpAddress%27"><span class="annot"><span class="annottext">NetworkInterfacePrivateIpAddress -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.NetworkInterfacePrivateIpAddress.html#%24sel%3AprivateIpAddress%3ANetworkInterfacePrivateIpAddress%27"><span class="hs-identifier hs-var hs-var">privateIpAddress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The private DNS name.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AprivateDnsName%3ANetworkInterfacePrivateIpAddress%27"><span class="annot"><span class="annottext">NetworkInterfacePrivateIpAddress -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.Types.NetworkInterfacePrivateIpAddress.html#%24sel%3AprivateDnsName%3ANetworkInterfacePrivateIpAddress%27"><span class="hs-identifier hs-var hs-var">privateDnsName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The private IPv4 address.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3AprivateIpAddress%3ANetworkInterfacePrivateIpAddress%27"><span class="annot"><span class="annottext">NetworkInterfacePrivateIpAddress -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.NetworkInterfacePrivateIpAddress.html#%24sel%3AprivateIpAddress%3ANetworkInterfacePrivateIpAddress%27"><span class="hs-identifier hs-var hs-var">privateIpAddress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The association information for an Elastic IP address (IPv4) associated</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- with the network interface.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Aassociation%3ANetworkInterfacePrivateIpAddress%27"><span class="annot"><span class="annottext">NetworkInterfacePrivateIpAddress
+-&gt; Maybe NetworkInterfaceAssociation
+</span><a href="Network.AWS.EC2.Types.NetworkInterfacePrivateIpAddress.html#%24sel%3Aassociation%3ANetworkInterfacePrivateIpAddress%27"><span class="hs-identifier hs-var hs-var">association</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfaceAssociation.html#NetworkInterfaceAssociation"><span class="hs-identifier hs-type">NetworkInterfaceAssociation</span></a></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681095423"><span id="local-6989586621681095425"><span class="annot"><span class="annottext">NetworkInterfacePrivateIpAddress
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681130116"><span id="local-6989586621681130118"><span class="annot"><span class="annottext">NetworkInterfacePrivateIpAddress
 -&gt; NetworkInterfacePrivateIpAddress -&gt; Bool
 (NetworkInterfacePrivateIpAddress
  -&gt; NetworkInterfacePrivateIpAddress -&gt; Bool)
@@ -61,7 +61,7 @@ $c/= :: NetworkInterfacePrivateIpAddress
 -&gt; NetworkInterfacePrivateIpAddress -&gt; Bool
 $c== :: NetworkInterfacePrivateIpAddress
 -&gt; NetworkInterfacePrivateIpAddress -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681095414"><span id="local-6989586621681095416"><span id="local-6989586621681095418"><span id="local-6989586621681095420"><span class="annot"><span class="annottext">ReadPrec [NetworkInterfacePrivateIpAddress]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681130107"><span id="local-6989586621681130109"><span id="local-6989586621681130111"><span id="local-6989586621681130113"><span class="annot"><span class="annottext">ReadPrec [NetworkInterfacePrivateIpAddress]
 ReadPrec NetworkInterfacePrivateIpAddress
 Int -&gt; ReadS NetworkInterfacePrivateIpAddress
 ReadS [NetworkInterfacePrivateIpAddress]
@@ -81,7 +81,7 @@ readList :: ReadS [NetworkInterfacePrivateIpAddress]
 $creadList :: ReadS [NetworkInterfacePrivateIpAddress]
 readsPrec :: Int -&gt; ReadS NetworkInterfacePrivateIpAddress
 $creadsPrec :: Int -&gt; ReadS NetworkInterfacePrivateIpAddress
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681095407"><span id="local-6989586621681095409"><span id="local-6989586621681095411"><span class="annot"><span class="annottext">Int -&gt; NetworkInterfacePrivateIpAddress -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681130100"><span id="local-6989586621681130102"><span id="local-6989586621681130104"><span class="annot"><span class="annottext">Int -&gt; NetworkInterfacePrivateIpAddress -&gt; ShowS
 [NetworkInterfacePrivateIpAddress] -&gt; ShowS
 NetworkInterfacePrivateIpAddress -&gt; String
 (Int -&gt; NetworkInterfacePrivateIpAddress -&gt; ShowS)
@@ -130,20 +130,20 @@ NetworkInterfacePrivateIpAddress
 </span><span id="line-53"></span><span class="hs-comment">-- 'primary', 'networkInterfacePrivateIpAddress_primary' - Indicates whether this IPv4 address is the primary private IPv4 address</span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- of the network interface.</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- 'association', 'networkInterfacePrivateIpAddress_association' - The association information for an Elastic IP address (IPv4) associated</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- with the network interface.</span><span>
-</span><span id="line-58"></span><span class="hs-comment">--</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- 'privateDnsName', 'networkInterfacePrivateIpAddress_privateDnsName' - The private DNS name.</span><span>
-</span><span id="line-60"></span><span class="hs-comment">--</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- 'privateIpAddress', 'networkInterfacePrivateIpAddress_privateIpAddress' - The private IPv4 address.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'privateIpAddress', 'networkInterfacePrivateIpAddress_privateIpAddress' - The private IPv4 address.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'privateDnsName', 'networkInterfacePrivateIpAddress_privateDnsName' - The private DNS name.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'association', 'networkInterfacePrivateIpAddress_association' - The association information for an Elastic IP address (IPv4) associated</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- with the network interface.</span><span>
 </span><span id="line-62"></span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfacePrivateIpAddress.html#newNetworkInterfacePrivateIpAddress"><span class="hs-identifier hs-type">newNetworkInterfacePrivateIpAddress</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-63"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfacePrivateIpAddress.html#NetworkInterfacePrivateIpAddress"><span class="hs-identifier hs-type">NetworkInterfacePrivateIpAddress</span></a></span><span>
 </span><span id="line-64"></span><span id="newNetworkInterfacePrivateIpAddress"><span class="annot"><span class="annottext">newNetworkInterfacePrivateIpAddress :: NetworkInterfacePrivateIpAddress
 </span><a href="Network.AWS.EC2.Types.NetworkInterfacePrivateIpAddress.html#newNetworkInterfacePrivateIpAddress"><span class="hs-identifier hs-var hs-var">newNetworkInterfacePrivateIpAddress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-65"></span><span>  </span><span class="annot"><span class="annottext">NetworkInterfacePrivateIpAddress' :: Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe NetworkInterfaceAssociation
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; NetworkInterfacePrivateIpAddress
 </span><a href="Network.AWS.EC2.Types.NetworkInterfacePrivateIpAddress.html#NetworkInterfacePrivateIpAddress%27"><span class="hs-identifier hs-type">NetworkInterfacePrivateIpAddress'</span></a></span><span>
 </span><span id="line-66"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:primary:NetworkInterfacePrivateIpAddress' :: Maybe Bool
@@ -151,16 +151,16 @@ NetworkInterfacePrivateIpAddress
 </span><span id="line-67"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:association:NetworkInterfacePrivateIpAddress' :: Maybe NetworkInterfaceAssociation
-</span><a href="Network.AWS.EC2.Types.NetworkInterfacePrivateIpAddress.html#%24sel%3Aassociation%3ANetworkInterfacePrivateIpAddress%27"><span class="hs-identifier hs-var">association</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkInterfaceAssociation
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:privateIpAddress:NetworkInterfacePrivateIpAddress' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.NetworkInterfacePrivateIpAddress.html#%24sel%3AprivateIpAddress%3ANetworkInterfacePrivateIpAddress%27"><span class="hs-identifier hs-var">privateIpAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:privateDnsName:NetworkInterfacePrivateIpAddress' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.NetworkInterfacePrivateIpAddress.html#%24sel%3AprivateDnsName%3ANetworkInterfacePrivateIpAddress%27"><span class="hs-identifier hs-var">privateDnsName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:privateIpAddress:NetworkInterfacePrivateIpAddress' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.NetworkInterfacePrivateIpAddress.html#%24sel%3AprivateIpAddress%3ANetworkInterfacePrivateIpAddress%27"><span class="hs-identifier hs-var">privateIpAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:association:NetworkInterfacePrivateIpAddress' :: Maybe NetworkInterfaceAssociation
+</span><a href="Network.AWS.EC2.Types.NetworkInterfacePrivateIpAddress.html#%24sel%3Aassociation%3ANetworkInterfacePrivateIpAddress%27"><span class="hs-identifier hs-var">association</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkInterfaceAssociation
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-71"></span><span>    </span><span class="hs-special">}</span><span>
@@ -180,21 +180,71 @@ forall a. Maybe a
      (Maybe Bool)
      (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfacePrivateIpAddress.html#NetworkInterfacePrivateIpAddress%27"><span class="hs-identifier hs-type">NetworkInterfacePrivateIpAddress'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681095398"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfacePrivateIpAddress.html#NetworkInterfacePrivateIpAddress%27"><span class="hs-identifier hs-type">NetworkInterfacePrivateIpAddress'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681130091"><span class="annot"><span class="annottext">Maybe Bool
 primary :: Maybe Bool
 $sel:primary:NetworkInterfacePrivateIpAddress' :: NetworkInterfacePrivateIpAddress -&gt; Maybe Bool
-</span><a href="#local-6989586621681095398"><span class="hs-identifier hs-var hs-var">primary</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681095398"><span class="hs-identifier hs-var">primary</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681095397"><span class="annot"><span class="annottext">s :: NetworkInterfacePrivateIpAddress
-</span><a href="#local-6989586621681095397"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfacePrivateIpAddress.html#NetworkInterfacePrivateIpAddress%27"><span class="hs-identifier hs-type">NetworkInterfacePrivateIpAddress'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681095396"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681095396"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NetworkInterfacePrivateIpAddress
-</span><a href="#local-6989586621681095397"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:primary:NetworkInterfacePrivateIpAddress' :: Maybe Bool
+</span><a href="#local-6989586621681130091"><span class="hs-identifier hs-var hs-var">primary</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681130091"><span class="hs-identifier hs-var">primary</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681130090"><span class="annot"><span class="annottext">s :: NetworkInterfacePrivateIpAddress
+</span><a href="#local-6989586621681130090"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfacePrivateIpAddress.html#NetworkInterfacePrivateIpAddress%27"><span class="hs-identifier hs-type">NetworkInterfacePrivateIpAddress'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681130089"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681130089"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NetworkInterfacePrivateIpAddress
+</span><a href="#local-6989586621681130090"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:primary:NetworkInterfacePrivateIpAddress' :: Maybe Bool
 </span><a href="Network.AWS.EC2.Types.NetworkInterfacePrivateIpAddress.html#%24sel%3Aprimary%3ANetworkInterfacePrivateIpAddress%27"><span class="hs-identifier hs-var">primary</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681095396"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfacePrivateIpAddress.html#NetworkInterfacePrivateIpAddress"><span class="hs-identifier hs-type">NetworkInterfacePrivateIpAddress</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681130089"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfacePrivateIpAddress.html#NetworkInterfacePrivateIpAddress"><span class="hs-identifier hs-type">NetworkInterfacePrivateIpAddress</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- | The association information for an Elastic IP address (IPv4) associated</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- with the network interface.</span><span>
-</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfacePrivateIpAddress.html#networkInterfacePrivateIpAddress_association"><span class="hs-identifier hs-type">networkInterfacePrivateIpAddress_association</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfacePrivateIpAddress.html#NetworkInterfacePrivateIpAddress"><span class="hs-identifier hs-type">NetworkInterfacePrivateIpAddress</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfaceAssociation.html#NetworkInterfaceAssociation"><span class="hs-identifier hs-type">NetworkInterfaceAssociation</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-81"></span><span id="networkInterfacePrivateIpAddress_association"><span class="annot"><span class="annottext">networkInterfacePrivateIpAddress_association :: (Maybe NetworkInterfaceAssociation
+</span><span id="line-78"></span><span class="hs-comment">-- | The private IPv4 address.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfacePrivateIpAddress.html#networkInterfacePrivateIpAddress_privateIpAddress"><span class="hs-identifier hs-type">networkInterfacePrivateIpAddress_privateIpAddress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfacePrivateIpAddress.html#NetworkInterfacePrivateIpAddress"><span class="hs-identifier hs-type">NetworkInterfacePrivateIpAddress</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span id="networkInterfacePrivateIpAddress_privateIpAddress"><span class="annot"><span class="annottext">networkInterfacePrivateIpAddress_privateIpAddress :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; NetworkInterfacePrivateIpAddress
+-&gt; f NetworkInterfacePrivateIpAddress
+</span><a href="Network.AWS.EC2.Types.NetworkInterfacePrivateIpAddress.html#networkInterfacePrivateIpAddress_privateIpAddress"><span class="hs-identifier hs-var hs-var">networkInterfacePrivateIpAddress_privateIpAddress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NetworkInterfacePrivateIpAddress -&gt; Maybe Text)
+-&gt; (NetworkInterfacePrivateIpAddress
+    -&gt; Maybe Text -&gt; NetworkInterfacePrivateIpAddress)
+-&gt; Lens
+     NetworkInterfacePrivateIpAddress
+     NetworkInterfacePrivateIpAddress
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfacePrivateIpAddress.html#NetworkInterfacePrivateIpAddress%27"><span class="hs-identifier hs-type">NetworkInterfacePrivateIpAddress'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681130087"><span class="annot"><span class="annottext">Maybe Text
+privateIpAddress :: Maybe Text
+$sel:privateIpAddress:NetworkInterfacePrivateIpAddress' :: NetworkInterfacePrivateIpAddress -&gt; Maybe Text
+</span><a href="#local-6989586621681130087"><span class="hs-identifier hs-var hs-var">privateIpAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681130087"><span class="hs-identifier hs-var">privateIpAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681130086"><span class="annot"><span class="annottext">s :: NetworkInterfacePrivateIpAddress
+</span><a href="#local-6989586621681130086"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfacePrivateIpAddress.html#NetworkInterfacePrivateIpAddress%27"><span class="hs-identifier hs-type">NetworkInterfacePrivateIpAddress'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681130085"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681130085"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NetworkInterfacePrivateIpAddress
+</span><a href="#local-6989586621681130086"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:privateIpAddress:NetworkInterfacePrivateIpAddress' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.NetworkInterfacePrivateIpAddress.html#%24sel%3AprivateIpAddress%3ANetworkInterfacePrivateIpAddress%27"><span class="hs-identifier hs-var">privateIpAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681130085"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfacePrivateIpAddress.html#NetworkInterfacePrivateIpAddress"><span class="hs-identifier hs-type">NetworkInterfacePrivateIpAddress</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | The private DNS name.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfacePrivateIpAddress.html#networkInterfacePrivateIpAddress_privateDnsName"><span class="hs-identifier hs-type">networkInterfacePrivateIpAddress_privateDnsName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfacePrivateIpAddress.html#NetworkInterfacePrivateIpAddress"><span class="hs-identifier hs-type">NetworkInterfacePrivateIpAddress</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span id="networkInterfacePrivateIpAddress_privateDnsName"><span class="annot"><span class="annottext">networkInterfacePrivateIpAddress_privateDnsName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; NetworkInterfacePrivateIpAddress
+-&gt; f NetworkInterfacePrivateIpAddress
+</span><a href="Network.AWS.EC2.Types.NetworkInterfacePrivateIpAddress.html#networkInterfacePrivateIpAddress_privateDnsName"><span class="hs-identifier hs-var hs-var">networkInterfacePrivateIpAddress_privateDnsName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NetworkInterfacePrivateIpAddress -&gt; Maybe Text)
+-&gt; (NetworkInterfacePrivateIpAddress
+    -&gt; Maybe Text -&gt; NetworkInterfacePrivateIpAddress)
+-&gt; Lens
+     NetworkInterfacePrivateIpAddress
+     NetworkInterfacePrivateIpAddress
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfacePrivateIpAddress.html#NetworkInterfacePrivateIpAddress%27"><span class="hs-identifier hs-type">NetworkInterfacePrivateIpAddress'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681130083"><span class="annot"><span class="annottext">Maybe Text
+privateDnsName :: Maybe Text
+$sel:privateDnsName:NetworkInterfacePrivateIpAddress' :: NetworkInterfacePrivateIpAddress -&gt; Maybe Text
+</span><a href="#local-6989586621681130083"><span class="hs-identifier hs-var hs-var">privateDnsName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681130083"><span class="hs-identifier hs-var">privateDnsName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681130082"><span class="annot"><span class="annottext">s :: NetworkInterfacePrivateIpAddress
+</span><a href="#local-6989586621681130082"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfacePrivateIpAddress.html#NetworkInterfacePrivateIpAddress%27"><span class="hs-identifier hs-type">NetworkInterfacePrivateIpAddress'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681130081"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681130081"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NetworkInterfacePrivateIpAddress
+</span><a href="#local-6989586621681130082"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:privateDnsName:NetworkInterfacePrivateIpAddress' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.NetworkInterfacePrivateIpAddress.html#%24sel%3AprivateDnsName%3ANetworkInterfacePrivateIpAddress%27"><span class="hs-identifier hs-var">privateDnsName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681130081"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfacePrivateIpAddress.html#NetworkInterfacePrivateIpAddress"><span class="hs-identifier hs-type">NetworkInterfacePrivateIpAddress</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | The association information for an Elastic IP address (IPv4) associated</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- with the network interface.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfacePrivateIpAddress.html#networkInterfacePrivateIpAddress_association"><span class="hs-identifier hs-type">networkInterfacePrivateIpAddress_association</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfacePrivateIpAddress.html#NetworkInterfacePrivateIpAddress"><span class="hs-identifier hs-type">NetworkInterfacePrivateIpAddress</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfaceAssociation.html#NetworkInterfaceAssociation"><span class="hs-identifier hs-type">NetworkInterfaceAssociation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span id="networkInterfacePrivateIpAddress_association"><span class="annot"><span class="annottext">networkInterfacePrivateIpAddress_association :: (Maybe NetworkInterfaceAssociation
  -&gt; f (Maybe NetworkInterfaceAssociation))
 -&gt; NetworkInterfacePrivateIpAddress
 -&gt; f NetworkInterfacePrivateIpAddress
@@ -209,137 +259,101 @@ $sel:primary:NetworkInterfacePrivateIpAddress' :: NetworkInterfacePrivateIpAddre
      (Maybe NetworkInterfaceAssociation)
      (Maybe NetworkInterfaceAssociation)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfacePrivateIpAddress.html#NetworkInterfacePrivateIpAddress%27"><span class="hs-identifier hs-type">NetworkInterfacePrivateIpAddress'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681095394"><span class="annot"><span class="annottext">Maybe NetworkInterfaceAssociation
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfacePrivateIpAddress.html#NetworkInterfacePrivateIpAddress%27"><span class="hs-identifier hs-type">NetworkInterfacePrivateIpAddress'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681130079"><span class="annot"><span class="annottext">Maybe NetworkInterfaceAssociation
 association :: Maybe NetworkInterfaceAssociation
 $sel:association:NetworkInterfacePrivateIpAddress' :: NetworkInterfacePrivateIpAddress
 -&gt; Maybe NetworkInterfaceAssociation
-</span><a href="#local-6989586621681095394"><span class="hs-identifier hs-var hs-var">association</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkInterfaceAssociation
-</span><a href="#local-6989586621681095394"><span class="hs-identifier hs-var">association</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681095393"><span class="annot"><span class="annottext">s :: NetworkInterfacePrivateIpAddress
-</span><a href="#local-6989586621681095393"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfacePrivateIpAddress.html#NetworkInterfacePrivateIpAddress%27"><span class="hs-identifier hs-type">NetworkInterfacePrivateIpAddress'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681095392"><span class="annot"><span class="annottext">Maybe NetworkInterfaceAssociation
-</span><a href="#local-6989586621681095392"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NetworkInterfacePrivateIpAddress
-</span><a href="#local-6989586621681095393"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:association:NetworkInterfacePrivateIpAddress' :: Maybe NetworkInterfaceAssociation
+</span><a href="#local-6989586621681130079"><span class="hs-identifier hs-var hs-var">association</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkInterfaceAssociation
+</span><a href="#local-6989586621681130079"><span class="hs-identifier hs-var">association</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681130078"><span class="annot"><span class="annottext">s :: NetworkInterfacePrivateIpAddress
+</span><a href="#local-6989586621681130078"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfacePrivateIpAddress.html#NetworkInterfacePrivateIpAddress%27"><span class="hs-identifier hs-type">NetworkInterfacePrivateIpAddress'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681130077"><span class="annot"><span class="annottext">Maybe NetworkInterfaceAssociation
+</span><a href="#local-6989586621681130077"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NetworkInterfacePrivateIpAddress
+</span><a href="#local-6989586621681130078"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:association:NetworkInterfacePrivateIpAddress' :: Maybe NetworkInterfaceAssociation
 </span><a href="Network.AWS.EC2.Types.NetworkInterfacePrivateIpAddress.html#%24sel%3Aassociation%3ANetworkInterfacePrivateIpAddress%27"><span class="hs-identifier hs-var">association</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkInterfaceAssociation
-</span><a href="#local-6989586621681095392"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfacePrivateIpAddress.html#NetworkInterfacePrivateIpAddress"><span class="hs-identifier hs-type">NetworkInterfacePrivateIpAddress</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- | The private DNS name.</span><span>
-</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfacePrivateIpAddress.html#networkInterfacePrivateIpAddress_privateDnsName"><span class="hs-identifier hs-type">networkInterfacePrivateIpAddress_privateDnsName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfacePrivateIpAddress.html#NetworkInterfacePrivateIpAddress"><span class="hs-identifier hs-type">NetworkInterfacePrivateIpAddress</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-85"></span><span id="networkInterfacePrivateIpAddress_privateDnsName"><span class="annot"><span class="annottext">networkInterfacePrivateIpAddress_privateDnsName :: (Maybe Text -&gt; f (Maybe Text))
--&gt; NetworkInterfacePrivateIpAddress
--&gt; f NetworkInterfacePrivateIpAddress
-</span><a href="Network.AWS.EC2.Types.NetworkInterfacePrivateIpAddress.html#networkInterfacePrivateIpAddress_privateDnsName"><span class="hs-identifier hs-var hs-var">networkInterfacePrivateIpAddress_privateDnsName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NetworkInterfacePrivateIpAddress -&gt; Maybe Text)
--&gt; (NetworkInterfacePrivateIpAddress
-    -&gt; Maybe Text -&gt; NetworkInterfacePrivateIpAddress)
--&gt; Lens
-     NetworkInterfacePrivateIpAddress
-     NetworkInterfacePrivateIpAddress
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfacePrivateIpAddress.html#NetworkInterfacePrivateIpAddress%27"><span class="hs-identifier hs-type">NetworkInterfacePrivateIpAddress'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681095390"><span class="annot"><span class="annottext">Maybe Text
-privateDnsName :: Maybe Text
-$sel:privateDnsName:NetworkInterfacePrivateIpAddress' :: NetworkInterfacePrivateIpAddress -&gt; Maybe Text
-</span><a href="#local-6989586621681095390"><span class="hs-identifier hs-var hs-var">privateDnsName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681095390"><span class="hs-identifier hs-var">privateDnsName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681095389"><span class="annot"><span class="annottext">s :: NetworkInterfacePrivateIpAddress
-</span><a href="#local-6989586621681095389"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfacePrivateIpAddress.html#NetworkInterfacePrivateIpAddress%27"><span class="hs-identifier hs-type">NetworkInterfacePrivateIpAddress'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681095388"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681095388"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NetworkInterfacePrivateIpAddress
-</span><a href="#local-6989586621681095389"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:privateDnsName:NetworkInterfacePrivateIpAddress' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.NetworkInterfacePrivateIpAddress.html#%24sel%3AprivateDnsName%3ANetworkInterfacePrivateIpAddress%27"><span class="hs-identifier hs-var">privateDnsName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681095388"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfacePrivateIpAddress.html#NetworkInterfacePrivateIpAddress"><span class="hs-identifier hs-type">NetworkInterfacePrivateIpAddress</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- | The private IPv4 address.</span><span>
-</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfacePrivateIpAddress.html#networkInterfacePrivateIpAddress_privateIpAddress"><span class="hs-identifier hs-type">networkInterfacePrivateIpAddress_privateIpAddress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfacePrivateIpAddress.html#NetworkInterfacePrivateIpAddress"><span class="hs-identifier hs-type">NetworkInterfacePrivateIpAddress</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-89"></span><span id="networkInterfacePrivateIpAddress_privateIpAddress"><span class="annot"><span class="annottext">networkInterfacePrivateIpAddress_privateIpAddress :: (Maybe Text -&gt; f (Maybe Text))
--&gt; NetworkInterfacePrivateIpAddress
--&gt; f NetworkInterfacePrivateIpAddress
-</span><a href="Network.AWS.EC2.Types.NetworkInterfacePrivateIpAddress.html#networkInterfacePrivateIpAddress_privateIpAddress"><span class="hs-identifier hs-var hs-var">networkInterfacePrivateIpAddress_privateIpAddress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NetworkInterfacePrivateIpAddress -&gt; Maybe Text)
--&gt; (NetworkInterfacePrivateIpAddress
-    -&gt; Maybe Text -&gt; NetworkInterfacePrivateIpAddress)
--&gt; Lens
-     NetworkInterfacePrivateIpAddress
-     NetworkInterfacePrivateIpAddress
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfacePrivateIpAddress.html#NetworkInterfacePrivateIpAddress%27"><span class="hs-identifier hs-type">NetworkInterfacePrivateIpAddress'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681095386"><span class="annot"><span class="annottext">Maybe Text
-privateIpAddress :: Maybe Text
-$sel:privateIpAddress:NetworkInterfacePrivateIpAddress' :: NetworkInterfacePrivateIpAddress -&gt; Maybe Text
-</span><a href="#local-6989586621681095386"><span class="hs-identifier hs-var hs-var">privateIpAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681095386"><span class="hs-identifier hs-var">privateIpAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681095385"><span class="annot"><span class="annottext">s :: NetworkInterfacePrivateIpAddress
-</span><a href="#local-6989586621681095385"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfacePrivateIpAddress.html#NetworkInterfacePrivateIpAddress%27"><span class="hs-identifier hs-type">NetworkInterfacePrivateIpAddress'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681095384"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681095384"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NetworkInterfacePrivateIpAddress
-</span><a href="#local-6989586621681095385"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:privateIpAddress:NetworkInterfacePrivateIpAddress' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.NetworkInterfacePrivateIpAddress.html#%24sel%3AprivateIpAddress%3ANetworkInterfacePrivateIpAddress%27"><span class="hs-identifier hs-var">privateIpAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681095384"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfacePrivateIpAddress.html#NetworkInterfacePrivateIpAddress"><span class="hs-identifier hs-type">NetworkInterfacePrivateIpAddress</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681130077"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfacePrivateIpAddress.html#NetworkInterfacePrivateIpAddress"><span class="hs-identifier hs-type">NetworkInterfacePrivateIpAddress</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-92"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span>
 </span><span id="line-93"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfacePrivateIpAddress.html#NetworkInterfacePrivateIpAddress"><span class="hs-identifier hs-type">NetworkInterfacePrivateIpAddress</span></a></span><span>
 </span><span id="line-94"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621681095381"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String NetworkInterfacePrivateIpAddress
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681095379"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681095379"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621681130074"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String NetworkInterfacePrivateIpAddress
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681130072"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681130072"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe NetworkInterfaceAssociation
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; NetworkInterfacePrivateIpAddress
 </span><a href="Network.AWS.EC2.Types.NetworkInterfacePrivateIpAddress.html#NetworkInterfacePrivateIpAddress%27"><span class="hs-identifier hs-var">NetworkInterfacePrivateIpAddress'</span></a></span><span>
 </span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Bool
+ -&gt; Maybe Text
+ -&gt; Maybe Text
  -&gt; Maybe NetworkInterfaceAssociation
- -&gt; Maybe Text
- -&gt; Maybe Text
  -&gt; NetworkInterfacePrivateIpAddress)
 -&gt; Either String (Maybe Bool)
 -&gt; Either
      String
-     (Maybe NetworkInterfaceAssociation
-      -&gt; Maybe Text -&gt; Maybe Text -&gt; NetworkInterfacePrivateIpAddress)
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe NetworkInterfaceAssociation
+      -&gt; NetworkInterfacePrivateIpAddress)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681095379"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+</span><a href="#local-6989586621681130072"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;primary&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe NetworkInterfaceAssociation
-   -&gt; Maybe Text -&gt; Maybe Text -&gt; NetworkInterfacePrivateIpAddress)
--&gt; Either String (Maybe NetworkInterfaceAssociation)
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe NetworkInterfaceAssociation
+   -&gt; NetworkInterfacePrivateIpAddress)
+-&gt; Either String (Maybe Text)
 -&gt; Either
      String
-     (Maybe Text -&gt; Maybe Text -&gt; NetworkInterfacePrivateIpAddress)
+     (Maybe Text
+      -&gt; Maybe NetworkInterfaceAssociation
+      -&gt; NetworkInterfacePrivateIpAddress)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681095379"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe NetworkInterfaceAssociation)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;association&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe Text -&gt; Maybe Text -&gt; NetworkInterfacePrivateIpAddress)
--&gt; Either String (Maybe Text)
--&gt; Either String (Maybe Text -&gt; NetworkInterfacePrivateIpAddress)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681095379"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;privateDnsName&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; NetworkInterfacePrivateIpAddress)
--&gt; Either String (Maybe Text)
--&gt; Either String NetworkInterfacePrivateIpAddress
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681095379"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681130072"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;privateIpAddress&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe NetworkInterfaceAssociation
+   -&gt; NetworkInterfacePrivateIpAddress)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe NetworkInterfaceAssociation
+      -&gt; NetworkInterfacePrivateIpAddress)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681130072"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;privateDnsName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe NetworkInterfaceAssociation
+   -&gt; NetworkInterfacePrivateIpAddress)
+-&gt; Either String (Maybe NetworkInterfaceAssociation)
+-&gt; Either String NetworkInterfacePrivateIpAddress
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681130072"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe NetworkInterfaceAssociation)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;association&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621681095373"><span id="local-6989586621681095375"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621681130066"><span id="local-6989586621681130068"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-104"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfacePrivateIpAddress.html#NetworkInterfacePrivateIpAddress"><span class="hs-identifier hs-type">NetworkInterfacePrivateIpAddress</span></a></span></span></span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621681095370"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621681130063"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-108"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfacePrivateIpAddress.html#NetworkInterfacePrivateIpAddress"><span class="hs-identifier hs-type">NetworkInterfacePrivateIpAddress</span></a></span></span><span>
 </span><span id="line-109"></span></pre></body></html>

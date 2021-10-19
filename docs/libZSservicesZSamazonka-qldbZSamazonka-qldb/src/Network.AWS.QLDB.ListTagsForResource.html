@@ -47,14 +47,14 @@
 </span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-48"></span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newListTagsForResource' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621679184636"><span id="local-6989586621679184637"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListTagsForResource"><span class="annot"><a href="Network.AWS.QLDB.ListTagsForResource.html#ListTagsForResource"><span class="hs-identifier hs-var">ListTagsForResource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListTagsForResource%27"><span class="annot"><a href="Network.AWS.QLDB.ListTagsForResource.html#ListTagsForResource%27"><span class="hs-identifier hs-var">ListTagsForResource'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679184677"><span id="local-6989586621679184678"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListTagsForResource"><span class="annot"><a href="Network.AWS.QLDB.ListTagsForResource.html#ListTagsForResource"><span class="hs-identifier hs-var">ListTagsForResource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListTagsForResource%27"><span class="annot"><a href="Network.AWS.QLDB.ListTagsForResource.html#ListTagsForResource%27"><span class="hs-identifier hs-var">ListTagsForResource'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) for which to list the tags. For example:</span><span>
 </span><span id="line-52"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-53"></span><span>    </span><span class="hs-comment">-- @arn:aws:qldb:us-east-1:123456789012:ledger\/exampleLedger@</span><span>
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3AresourceArn%3AListTagsForResource%27"><span class="annot"><span class="annottext">ListTagsForResource -&gt; Text
 </span><a href="Network.AWS.QLDB.ListTagsForResource.html#%24sel%3AresourceArn%3AListTagsForResource%27"><span class="hs-identifier hs-var hs-var">resourceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679184630"><span id="local-6989586621679184632"><span class="annot"><span class="annottext">ListTagsForResource -&gt; ListTagsForResource -&gt; Bool
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679184671"><span id="local-6989586621679184673"><span class="annot"><span class="annottext">ListTagsForResource -&gt; ListTagsForResource -&gt; Bool
 (ListTagsForResource -&gt; ListTagsForResource -&gt; Bool)
 -&gt; (ListTagsForResource -&gt; ListTagsForResource -&gt; Bool)
 -&gt; Eq ListTagsForResource
@@ -63,7 +63,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListTagsForResource -&gt; ListTagsForResource -&gt; Bool
 == :: ListTagsForResource -&gt; ListTagsForResource -&gt; Bool
 $c== :: ListTagsForResource -&gt; ListTagsForResource -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679184621"><span id="local-6989586621679184623"><span id="local-6989586621679184625"><span id="local-6989586621679184627"><span class="annot"><span class="annottext">ReadPrec [ListTagsForResource]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679184662"><span id="local-6989586621679184664"><span id="local-6989586621679184666"><span id="local-6989586621679184668"><span class="annot"><span class="annottext">ReadPrec [ListTagsForResource]
 ReadPrec ListTagsForResource
 Int -&gt; ReadS ListTagsForResource
 ReadS [ListTagsForResource]
@@ -83,7 +83,7 @@ readList :: ReadS [ListTagsForResource]
 $creadList :: ReadS [ListTagsForResource]
 readsPrec :: Int -&gt; ReadS ListTagsForResource
 $creadsPrec :: Int -&gt; ReadS ListTagsForResource
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679184614"><span id="local-6989586621679184616"><span id="local-6989586621679184618"><span class="annot"><span class="annottext">Int -&gt; ListTagsForResource -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679184655"><span id="local-6989586621679184657"><span id="local-6989586621679184659"><span class="annot"><span class="annottext">Int -&gt; ListTagsForResource -&gt; ShowS
 [ListTagsForResource] -&gt; ShowS
 ListTagsForResource -&gt; String
 (Int -&gt; ListTagsForResource -&gt; ShowS)
@@ -125,12 +125,12 @@ $cfrom :: forall x. ListTagsForResource -&gt; Rep ListTagsForResource x
 </span><span id="line-71"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.QLDB.ListTagsForResource.html#ListTagsForResource"><span class="hs-identifier hs-type">ListTagsForResource</span></a></span><span>
 </span><span id="line-73"></span><span id="newListTagsForResource"><span class="annot"><span class="annottext">newListTagsForResource :: Text -&gt; ListTagsForResource
-</span><a href="Network.AWS.QLDB.ListTagsForResource.html#newListTagsForResource"><span class="hs-identifier hs-var hs-var">newListTagsForResource</span></a></span></span><span> </span><span id="local-6989586621679184609"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679184609"><span class="hs-identifier hs-var">pResourceArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.QLDB.ListTagsForResource.html#newListTagsForResource"><span class="hs-identifier hs-var hs-var">newListTagsForResource</span></a></span></span><span> </span><span id="local-6989586621679184650"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679184650"><span class="hs-identifier hs-var">pResourceArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>  </span><span class="annot"><span class="annottext">ListTagsForResource' :: Text -&gt; ListTagsForResource
 </span><a href="Network.AWS.QLDB.ListTagsForResource.html#ListTagsForResource%27"><span class="hs-identifier hs-type">ListTagsForResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceArn:ListTagsForResource' :: Text
 </span><a href="Network.AWS.QLDB.ListTagsForResource.html#%24sel%3AresourceArn%3AListTagsForResource%27"><span class="hs-identifier hs-var">resourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679184609"><span class="hs-identifier hs-var">pResourceArn_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679184650"><span class="hs-identifier hs-var">pResourceArn_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) for which to list the tags. For example:</span><span>
 </span><span id="line-77"></span><span class="hs-comment">--</span><span>
@@ -141,27 +141,27 @@ $cfrom :: forall x. ListTagsForResource -&gt; Rep ListTagsForResource x
 -&gt; (ListTagsForResource -&gt; Text -&gt; ListTagsForResource)
 -&gt; Lens ListTagsForResource ListTagsForResource Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.ListTagsForResource.html#ListTagsForResource%27"><span class="hs-identifier hs-type">ListTagsForResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184606"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.ListTagsForResource.html#ListTagsForResource%27"><span class="hs-identifier hs-type">ListTagsForResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184647"><span class="annot"><span class="annottext">Text
 resourceArn :: Text
 $sel:resourceArn:ListTagsForResource' :: ListTagsForResource -&gt; Text
-</span><a href="#local-6989586621679184606"><span class="hs-identifier hs-var hs-var">resourceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679184606"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184605"><span class="annot"><span class="annottext">s :: ListTagsForResource
-</span><a href="#local-6989586621679184605"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.ListTagsForResource.html#ListTagsForResource%27"><span class="hs-identifier hs-type">ListTagsForResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184604"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679184604"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTagsForResource
-</span><a href="#local-6989586621679184605"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceArn:ListTagsForResource' :: Text
+</span><a href="#local-6989586621679184647"><span class="hs-identifier hs-var hs-var">resourceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679184647"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184646"><span class="annot"><span class="annottext">s :: ListTagsForResource
+</span><a href="#local-6989586621679184646"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.ListTagsForResource.html#ListTagsForResource%27"><span class="hs-identifier hs-type">ListTagsForResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184645"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679184645"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTagsForResource
+</span><a href="#local-6989586621679184646"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceArn:ListTagsForResource' :: Text
 </span><a href="Network.AWS.QLDB.ListTagsForResource.html#%24sel%3AresourceArn%3AListTagsForResource%27"><span class="hs-identifier hs-var">resourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679184604"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListTagsForResource.html#ListTagsForResource"><span class="hs-identifier hs-type">ListTagsForResource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679184645"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListTagsForResource.html#ListTagsForResource"><span class="hs-identifier hs-type">ListTagsForResource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListTagsForResource.html#ListTagsForResource"><span class="hs-identifier hs-type">ListTagsForResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-83"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-84"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListTagsForResource.html#ListTagsForResource"><span class="hs-identifier hs-type">ListTagsForResource</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>      </span><span class="annot"><a href="Network.AWS.QLDB.ListTagsForResource.html#ListTagsForResourceResponse"><span class="hs-identifier hs-type">ListTagsForResourceResponse</span></a></span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679184600"><span class="annot"><span class="annottext">request :: ListTagsForResource -&gt; Request ListTagsForResource
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679184641"><span class="annot"><span class="annottext">request :: ListTagsForResource -&gt; Request ListTagsForResource
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListTagsForResource -&gt; Request ListTagsForResource
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.QLDB.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679184596"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679184637"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListTagsForResource
 -&gt; ClientResponse ClientBody
@@ -187,10 +187,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679184593"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679184593"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679184592"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679184592"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679184591"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679184591"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679184634"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679184634"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679184633"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679184633"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679184632"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679184632"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-90"></span><span>          </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text) -&gt; Int -&gt; ListTagsForResourceResponse
 </span><a href="Network.AWS.QLDB.ListTagsForResource.html#ListTagsForResourceResponse%27"><span class="hs-identifier hs-var">ListTagsForResourceResponse'</span></a></span><span>
 </span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (HashMap Text Text) -&gt; Int -&gt; ListTagsForResourceResponse)
@@ -198,7 +198,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; ListTagsForResourceResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679184591"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679184632"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe (HashMap Text Text)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe (HashMap Text Text)))
@@ -216,15 +216,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679184593"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679184634"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679184582"><span id="local-6989586621679184584"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListTagsForResource.html#ListTagsForResource"><span class="hs-identifier hs-type">ListTagsForResource</span></a></span></span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679184623"><span id="local-6989586621679184625"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListTagsForResource.html#ListTagsForResource"><span class="hs-identifier hs-type">ListTagsForResource</span></a></span></span></span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679184579"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListTagsForResource.html#ListTagsForResource"><span class="hs-identifier hs-type">ListTagsForResource</span></a></span></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679184620"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListTagsForResource.html#ListTagsForResource"><span class="hs-identifier hs-type">ListTagsForResource</span></a></span></span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListTagsForResource.html#ListTagsForResource"><span class="hs-identifier hs-type">ListTagsForResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679184575"><span class="annot"><span class="annottext">toHeaders :: ListTagsForResource -&gt; ResponseHeaders
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679184616"><span class="annot"><span class="annottext">toHeaders :: ListTagsForResource -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListTagsForResource -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -244,21 +244,21 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-108"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListTagsForResource.html#ListTagsForResource"><span class="hs-identifier hs-type">ListTagsForResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679184569"><span class="annot"><span class="annottext">toPath :: ListTagsForResource -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListTagsForResource.html#ListTagsForResource%27"><span class="hs-identifier hs-type">ListTagsForResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184567"><span class="annot"><span class="annottext">Text
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679184610"><span class="annot"><span class="annottext">toPath :: ListTagsForResource -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListTagsForResource.html#ListTagsForResource%27"><span class="hs-identifier hs-type">ListTagsForResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184608"><span class="annot"><span class="annottext">Text
 resourceArn :: Text
 $sel:resourceArn:ListTagsForResource' :: ListTagsForResource -&gt; Text
-</span><a href="#local-6989586621679184567"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679184608"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/tags/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679184567"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679184608"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListTagsForResource.html#ListTagsForResource"><span class="hs-identifier hs-type">ListTagsForResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679184563"><span class="annot"><span class="annottext">toQuery :: ListTagsForResource -&gt; QueryString
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679184604"><span class="annot"><span class="annottext">toQuery :: ListTagsForResource -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListTagsForResource -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -266,7 +266,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-comment">-- | /See:/ 'newListTagsForResourceResponse' smart constructor.</span><span>
-</span><span id="line-118"></span><span id="local-6989586621679184560"><span id="local-6989586621679184561"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListTagsForResourceResponse"><span class="annot"><a href="Network.AWS.QLDB.ListTagsForResource.html#ListTagsForResourceResponse"><span class="hs-identifier hs-var">ListTagsForResourceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListTagsForResourceResponse%27"><span class="annot"><a href="Network.AWS.QLDB.ListTagsForResource.html#ListTagsForResourceResponse%27"><span class="hs-identifier hs-var">ListTagsForResourceResponse'</span></a></span></span><span>
+</span><span id="line-118"></span><span id="local-6989586621679184601"><span id="local-6989586621679184602"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListTagsForResourceResponse"><span class="annot"><a href="Network.AWS.QLDB.ListTagsForResource.html#ListTagsForResourceResponse"><span class="hs-identifier hs-var">ListTagsForResourceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListTagsForResourceResponse%27"><span class="annot"><a href="Network.AWS.QLDB.ListTagsForResource.html#ListTagsForResourceResponse%27"><span class="hs-identifier hs-var">ListTagsForResourceResponse'</span></a></span></span><span>
 </span><span id="line-119"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The tags that are currently associated with the specified Amazon QLDB</span><span>
 </span><span id="line-120"></span><span>    </span><span class="hs-comment">-- resource.</span><span>
 </span><span id="line-121"></span><span>    </span><span id="%24sel%3Atags%3AListTagsForResourceResponse%27"><span class="annot"><span class="annottext">ListTagsForResourceResponse -&gt; Maybe (HashMap Text Text)
@@ -275,7 +275,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-123"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListTagsForResourceResponse%27"><span class="annot"><span class="annottext">ListTagsForResourceResponse -&gt; Int
 </span><a href="Network.AWS.QLDB.ListTagsForResource.html#%24sel%3AhttpStatus%3AListTagsForResourceResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-124"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-125"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679184554"><span id="local-6989586621679184556"><span class="annot"><span class="annottext">ListTagsForResourceResponse -&gt; ListTagsForResourceResponse -&gt; Bool
+</span><span id="line-125"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679184595"><span id="local-6989586621679184597"><span class="annot"><span class="annottext">ListTagsForResourceResponse -&gt; ListTagsForResourceResponse -&gt; Bool
 (ListTagsForResourceResponse
  -&gt; ListTagsForResourceResponse -&gt; Bool)
 -&gt; (ListTagsForResourceResponse
@@ -286,7 +286,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListTagsForResourceResponse -&gt; ListTagsForResourceResponse -&gt; Bool
 == :: ListTagsForResourceResponse -&gt; ListTagsForResourceResponse -&gt; Bool
 $c== :: ListTagsForResourceResponse -&gt; ListTagsForResourceResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679184546"><span id="local-6989586621679184548"><span id="local-6989586621679184550"><span id="local-6989586621679184552"><span class="annot"><span class="annottext">ReadPrec [ListTagsForResourceResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679184587"><span id="local-6989586621679184589"><span id="local-6989586621679184591"><span id="local-6989586621679184593"><span class="annot"><span class="annottext">ReadPrec [ListTagsForResourceResponse]
 ReadPrec ListTagsForResourceResponse
 Int -&gt; ReadS ListTagsForResourceResponse
 ReadS [ListTagsForResourceResponse]
@@ -306,7 +306,7 @@ readList :: ReadS [ListTagsForResourceResponse]
 $creadList :: ReadS [ListTagsForResourceResponse]
 readsPrec :: Int -&gt; ReadS ListTagsForResourceResponse
 $creadsPrec :: Int -&gt; ReadS ListTagsForResourceResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679184540"><span id="local-6989586621679184542"><span id="local-6989586621679184544"><span class="annot"><span class="annottext">Int -&gt; ListTagsForResourceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679184581"><span id="local-6989586621679184583"><span id="local-6989586621679184585"><span class="annot"><span class="annottext">Int -&gt; ListTagsForResourceResponse -&gt; ShowS
 [ListTagsForResourceResponse] -&gt; ShowS
 ListTagsForResourceResponse -&gt; String
 (Int -&gt; ListTagsForResourceResponse -&gt; ShowS)
@@ -355,8 +355,8 @@ ListTagsForResourceResponse -&gt; Rep ListTagsForResourceResponse x
 </span><span id="line-141"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-142"></span><span>  </span><span class="annot"><a href="Network.AWS.QLDB.ListTagsForResource.html#ListTagsForResourceResponse"><span class="hs-identifier hs-type">ListTagsForResourceResponse</span></a></span><span>
 </span><span id="line-143"></span><span id="newListTagsForResourceResponse"><span class="annot"><span class="annottext">newListTagsForResourceResponse :: Int -&gt; ListTagsForResourceResponse
-</span><a href="Network.AWS.QLDB.ListTagsForResource.html#newListTagsForResourceResponse"><span class="hs-identifier hs-var hs-var">newListTagsForResourceResponse</span></a></span></span><span> </span><span id="local-6989586621679184537"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679184537"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.QLDB.ListTagsForResource.html#newListTagsForResourceResponse"><span class="hs-identifier hs-var hs-var">newListTagsForResourceResponse</span></a></span></span><span> </span><span id="local-6989586621679184578"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679184578"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-144"></span><span>  </span><span class="annot"><span class="annottext">ListTagsForResourceResponse' :: Maybe (HashMap Text Text) -&gt; Int -&gt; ListTagsForResourceResponse
 </span><a href="Network.AWS.QLDB.ListTagsForResource.html#ListTagsForResourceResponse%27"><span class="hs-identifier hs-type">ListTagsForResourceResponse'</span></a></span><span>
 </span><span id="line-145"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tags:ListTagsForResourceResponse' :: Maybe (HashMap Text Text)
@@ -366,7 +366,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-147"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListTagsForResourceResponse' :: Int
 </span><a href="Network.AWS.QLDB.ListTagsForResource.html#%24sel%3AhttpStatus%3AListTagsForResourceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679184537"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679184578"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-148"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-comment">-- | The tags that are currently associated with the specified Amazon QLDB</span><span>
@@ -383,16 +383,16 @@ forall a. Maybe a
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.ListTagsForResource.html#ListTagsForResourceResponse%27"><span class="hs-identifier hs-type">ListTagsForResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184536"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.ListTagsForResource.html#ListTagsForResourceResponse%27"><span class="hs-identifier hs-type">ListTagsForResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184577"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 tags :: Maybe (HashMap Text Text)
 $sel:tags:ListTagsForResourceResponse' :: ListTagsForResourceResponse -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679184536"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679184536"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184535"><span class="annot"><span class="annottext">s :: ListTagsForResourceResponse
-</span><a href="#local-6989586621679184535"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.ListTagsForResource.html#ListTagsForResourceResponse%27"><span class="hs-identifier hs-type">ListTagsForResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184534"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679184534"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTagsForResourceResponse
-</span><a href="#local-6989586621679184535"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:ListTagsForResourceResponse' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679184577"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679184577"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184576"><span class="annot"><span class="annottext">s :: ListTagsForResourceResponse
+</span><a href="#local-6989586621679184576"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.ListTagsForResource.html#ListTagsForResourceResponse%27"><span class="hs-identifier hs-type">ListTagsForResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184575"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679184575"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTagsForResourceResponse
+</span><a href="#local-6989586621679184576"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:ListTagsForResourceResponse' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.QLDB.ListTagsForResource.html#%24sel%3Atags%3AListTagsForResourceResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679184534"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListTagsForResource.html#ListTagsForResourceResponse"><span class="hs-identifier hs-type">ListTagsForResourceResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679184575"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListTagsForResource.html#ListTagsForResourceResponse"><span class="hs-identifier hs-type">ListTagsForResourceResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; ListTagsForResourceResponse -&gt; f ListTagsForResourceResponse)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -418,8 +418,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (HashMap Text Text)
   (HashMap Text Text)
   (HashMap Text Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-156"></span><span class="annot"><a href="Network.AWS.QLDB.ListTagsForResource.html#listTagsForResourceResponse_httpStatus"><span class="hs-identifier hs-type">listTagsForResourceResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListTagsForResource.html#ListTagsForResourceResponse"><span class="hs-identifier hs-type">ListTagsForResourceResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -431,16 +431,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; Lens
      ListTagsForResourceResponse ListTagsForResourceResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.ListTagsForResource.html#ListTagsForResourceResponse%27"><span class="hs-identifier hs-type">ListTagsForResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184530"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.ListTagsForResource.html#ListTagsForResourceResponse%27"><span class="hs-identifier hs-type">ListTagsForResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184571"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListTagsForResourceResponse' :: ListTagsForResourceResponse -&gt; Int
-</span><a href="#local-6989586621679184530"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679184530"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184529"><span class="annot"><span class="annottext">s :: ListTagsForResourceResponse
-</span><a href="#local-6989586621679184529"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.ListTagsForResource.html#ListTagsForResourceResponse%27"><span class="hs-identifier hs-type">ListTagsForResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184528"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679184528"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTagsForResourceResponse
-</span><a href="#local-6989586621679184529"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListTagsForResourceResponse' :: Int
+</span><a href="#local-6989586621679184571"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679184571"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184570"><span class="annot"><span class="annottext">s :: ListTagsForResourceResponse
+</span><a href="#local-6989586621679184570"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.ListTagsForResource.html#ListTagsForResourceResponse%27"><span class="hs-identifier hs-type">ListTagsForResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184569"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679184569"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTagsForResourceResponse
+</span><a href="#local-6989586621679184570"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListTagsForResourceResponse' :: Int
 </span><a href="Network.AWS.QLDB.ListTagsForResource.html#%24sel%3AhttpStatus%3AListTagsForResourceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679184528"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListTagsForResource.html#ListTagsForResourceResponse"><span class="hs-identifier hs-type">ListTagsForResourceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679184569"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListTagsForResource.html#ListTagsForResourceResponse"><span class="hs-identifier hs-type">ListTagsForResourceResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>
-</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679184526"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListTagsForResource.html#ListTagsForResourceResponse"><span class="hs-identifier hs-type">ListTagsForResourceResponse</span></a></span></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679184567"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListTagsForResource.html#ListTagsForResourceResponse"><span class="hs-identifier hs-type">ListTagsForResourceResponse</span></a></span></span><span>
 </span><span id="line-160"></span></pre></body></html>

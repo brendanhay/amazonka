@@ -50,7 +50,7 @@
 </span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-51"></span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newListTags' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621679384429"><span id="local-6989586621679384430"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListTags"><span class="annot"><a href="Network.AWS.OpsWorks.ListTags.html#ListTags"><span class="hs-identifier hs-var">ListTags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListTags%27"><span class="annot"><a href="Network.AWS.OpsWorks.ListTags.html#ListTags%27"><span class="hs-identifier hs-var">ListTags'</span></a></span></span><span>
+</span><span id="line-53"></span><span id="local-6989586621679384834"><span id="local-6989586621679384835"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListTags"><span class="annot"><a href="Network.AWS.OpsWorks.ListTags.html#ListTags"><span class="hs-identifier hs-var">ListTags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListTags%27"><span class="annot"><a href="Network.AWS.OpsWorks.ListTags.html#ListTags%27"><span class="hs-identifier hs-var">ListTags'</span></a></span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Do not use. A validation exception occurs if you add a @NextToken@</span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-comment">-- parameter to a @ListTagsRequest@ call.</span><span>
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3AnextToken%3AListTags%27"><span class="annot"><span class="annottext">ListTags -&gt; Maybe Text
@@ -63,7 +63,7 @@
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3AresourceArn%3AListTags%27"><span class="annot"><span class="annottext">ListTags -&gt; Text
 </span><a href="Network.AWS.OpsWorks.ListTags.html#%24sel%3AresourceArn%3AListTags%27"><span class="hs-identifier hs-var hs-var">resourceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679384421"><span id="local-6989586621679384423"><span class="annot"><span class="annottext">ListTags -&gt; ListTags -&gt; Bool
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679384826"><span id="local-6989586621679384828"><span class="annot"><span class="annottext">ListTags -&gt; ListTags -&gt; Bool
 (ListTags -&gt; ListTags -&gt; Bool)
 -&gt; (ListTags -&gt; ListTags -&gt; Bool) -&gt; Eq ListTags
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -71,7 +71,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListTags -&gt; ListTags -&gt; Bool
 == :: ListTags -&gt; ListTags -&gt; Bool
 $c== :: ListTags -&gt; ListTags -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679384412"><span id="local-6989586621679384414"><span id="local-6989586621679384416"><span id="local-6989586621679384418"><span class="annot"><span class="annottext">ReadPrec [ListTags]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679384817"><span id="local-6989586621679384819"><span id="local-6989586621679384821"><span id="local-6989586621679384823"><span class="annot"><span class="annottext">ReadPrec [ListTags]
 ReadPrec ListTags
 Int -&gt; ReadS ListTags
 ReadS [ListTags]
@@ -91,7 +91,7 @@ readList :: ReadS [ListTags]
 $creadList :: ReadS [ListTags]
 readsPrec :: Int -&gt; ReadS ListTags
 $creadsPrec :: Int -&gt; ReadS ListTags
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679384405"><span id="local-6989586621679384407"><span id="local-6989586621679384409"><span class="annot"><span class="annottext">Int -&gt; ListTags -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679384810"><span id="local-6989586621679384812"><span id="local-6989586621679384814"><span class="annot"><span class="annottext">Int -&gt; ListTags -&gt; ShowS
 [ListTags] -&gt; ShowS
 ListTags -&gt; String
 (Int -&gt; ListTags -&gt; ShowS)
@@ -134,8 +134,8 @@ $cfrom :: forall x. ListTags -&gt; Rep ListTags x
 </span><span id="line-82"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.OpsWorks.ListTags.html#ListTags"><span class="hs-identifier hs-type">ListTags</span></a></span><span>
 </span><span id="line-84"></span><span id="newListTags"><span class="annot"><span class="annottext">newListTags :: Text -&gt; ListTags
-</span><a href="Network.AWS.OpsWorks.ListTags.html#newListTags"><span class="hs-identifier hs-var hs-var">newListTags</span></a></span></span><span> </span><span id="local-6989586621679384400"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679384400"><span class="hs-identifier hs-var">pResourceArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.OpsWorks.ListTags.html#newListTags"><span class="hs-identifier hs-var hs-var">newListTags</span></a></span></span><span> </span><span id="local-6989586621679384805"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679384805"><span class="hs-identifier hs-var">pResourceArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>  </span><span class="annot"><span class="annottext">ListTags' :: Maybe Text -&gt; Maybe Int -&gt; Text -&gt; ListTags
 </span><a href="Network.AWS.OpsWorks.ListTags.html#ListTags%27"><span class="hs-identifier hs-type">ListTags'</span></a></span><span>
 </span><span id="line-86"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListTags' :: Maybe Text
@@ -148,7 +148,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceArn:ListTags' :: Text
 </span><a href="Network.AWS.OpsWorks.ListTags.html#%24sel%3AresourceArn%3AListTags%27"><span class="hs-identifier hs-var">resourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679384400"><span class="hs-identifier hs-var">pResourceArn_</span></a></span><span>
+</span><a href="#local-6989586621679384805"><span class="hs-identifier hs-var">pResourceArn_</span></a></span><span>
 </span><span id="line-89"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- | Do not use. A validation exception occurs if you add a @NextToken@</span><span>
@@ -159,16 +159,16 @@ forall a. Maybe a
 -&gt; (ListTags -&gt; Maybe Text -&gt; ListTags)
 -&gt; Lens ListTags ListTags (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.ListTags.html#ListTags%27"><span class="hs-identifier hs-type">ListTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384397"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.ListTags.html#ListTags%27"><span class="hs-identifier hs-type">ListTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384802"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListTags' :: ListTags -&gt; Maybe Text
-</span><a href="#local-6989586621679384397"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679384397"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679384396"><span class="annot"><span class="annottext">s :: ListTags
-</span><a href="#local-6989586621679384396"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.ListTags.html#ListTags%27"><span class="hs-identifier hs-type">ListTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679384395"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679384395"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTags
-</span><a href="#local-6989586621679384396"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListTags' :: Maybe Text
+</span><a href="#local-6989586621679384802"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679384802"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679384801"><span class="annot"><span class="annottext">s :: ListTags
+</span><a href="#local-6989586621679384801"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.ListTags.html#ListTags%27"><span class="hs-identifier hs-type">ListTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679384800"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679384800"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTags
+</span><a href="#local-6989586621679384801"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListTags' :: Maybe Text
 </span><a href="Network.AWS.OpsWorks.ListTags.html#%24sel%3AnextToken%3AListTags%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679384395"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.ListTags.html#ListTags"><span class="hs-identifier hs-type">ListTags</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679384800"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.ListTags.html#ListTags"><span class="hs-identifier hs-type">ListTags</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- | Do not use. A validation exception occurs if you add a @MaxResults@</span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- parameter to a @ListTagsRequest@ call.</span><span>
@@ -178,16 +178,16 @@ $sel:nextToken:ListTags' :: ListTags -&gt; Maybe Text
 -&gt; (ListTags -&gt; Maybe Int -&gt; ListTags)
 -&gt; Lens ListTags ListTags (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.ListTags.html#ListTags%27"><span class="hs-identifier hs-type">ListTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384394"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.ListTags.html#ListTags%27"><span class="hs-identifier hs-type">ListTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384799"><span class="annot"><span class="annottext">Maybe Int
 maxResults :: Maybe Int
 $sel:maxResults:ListTags' :: ListTags -&gt; Maybe Int
-</span><a href="#local-6989586621679384394"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679384394"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679384393"><span class="annot"><span class="annottext">s :: ListTags
-</span><a href="#local-6989586621679384393"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.ListTags.html#ListTags%27"><span class="hs-identifier hs-type">ListTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679384392"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679384392"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTags
-</span><a href="#local-6989586621679384393"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListTags' :: Maybe Int
+</span><a href="#local-6989586621679384799"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679384799"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679384798"><span class="annot"><span class="annottext">s :: ListTags
+</span><a href="#local-6989586621679384798"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.ListTags.html#ListTags%27"><span class="hs-identifier hs-type">ListTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679384797"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679384797"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTags
+</span><a href="#local-6989586621679384798"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListTags' :: Maybe Int
 </span><a href="Network.AWS.OpsWorks.ListTags.html#%24sel%3AmaxResults%3AListTags%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679384392"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.ListTags.html#ListTags"><span class="hs-identifier hs-type">ListTags</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679384797"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.ListTags.html#ListTags"><span class="hs-identifier hs-type">ListTags</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- | The stack or layer\'s Amazon Resource Number (ARN).</span><span>
 </span><span id="line-102"></span><span class="annot"><a href="Network.AWS.OpsWorks.ListTags.html#listTags_resourceArn"><span class="hs-identifier hs-type">listTags_resourceArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.ListTags.html#ListTags"><span class="hs-identifier hs-type">ListTags</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -196,25 +196,25 @@ $sel:maxResults:ListTags' :: ListTags -&gt; Maybe Int
 -&gt; (ListTags -&gt; Text -&gt; ListTags)
 -&gt; Lens ListTags ListTags Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.ListTags.html#ListTags%27"><span class="hs-identifier hs-type">ListTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384391"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.ListTags.html#ListTags%27"><span class="hs-identifier hs-type">ListTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384796"><span class="annot"><span class="annottext">Text
 resourceArn :: Text
 $sel:resourceArn:ListTags' :: ListTags -&gt; Text
-</span><a href="#local-6989586621679384391"><span class="hs-identifier hs-var hs-var">resourceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679384391"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679384390"><span class="annot"><span class="annottext">s :: ListTags
-</span><a href="#local-6989586621679384390"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.ListTags.html#ListTags%27"><span class="hs-identifier hs-type">ListTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679384389"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679384389"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTags
-</span><a href="#local-6989586621679384390"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceArn:ListTags' :: Text
+</span><a href="#local-6989586621679384796"><span class="hs-identifier hs-var hs-var">resourceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679384796"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679384795"><span class="annot"><span class="annottext">s :: ListTags
+</span><a href="#local-6989586621679384795"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.ListTags.html#ListTags%27"><span class="hs-identifier hs-type">ListTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679384794"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679384794"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTags
+</span><a href="#local-6989586621679384795"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceArn:ListTags' :: Text
 </span><a href="Network.AWS.OpsWorks.ListTags.html#%24sel%3AresourceArn%3AListTags%27"><span class="hs-identifier hs-var">resourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679384389"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.ListTags.html#ListTags"><span class="hs-identifier hs-type">ListTags</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679384794"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.ListTags.html#ListTags"><span class="hs-identifier hs-type">ListTags</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.ListTags.html#ListTags"><span class="hs-identifier hs-type">ListTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-106"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.ListTags.html#ListTags"><span class="hs-identifier hs-type">ListTags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.ListTags.html#ListTagsResponse"><span class="hs-identifier hs-type">ListTagsResponse</span></a></span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679384385"><span class="annot"><span class="annottext">request :: ListTags -&gt; Request ListTags
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679384790"><span class="annot"><span class="annottext">request :: ListTags -&gt; Request ListTags
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListTags -&gt; Request ListTags
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.OpsWorks.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679384381"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679384786"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListTags
 -&gt; ClientResponse ClientBody
@@ -238,10 +238,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679384378"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679384378"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679384377"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679384377"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679384376"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679384376"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679384783"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679384783"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679384782"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679384782"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679384781"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679384781"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-111"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe (HashMap Text Text) -&gt; Int -&gt; ListTagsResponse
 </span><a href="Network.AWS.OpsWorks.ListTags.html#ListTagsResponse%27"><span class="hs-identifier hs-var">ListTagsResponse'</span></a></span><span>
 </span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
@@ -251,7 +251,7 @@ MonadResource m =&gt;
      String (Maybe (HashMap Text Text) -&gt; Int -&gt; ListTagsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679384376"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679384781"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -261,7 +261,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; ListTagsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679384376"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679384781"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe (HashMap Text Text)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe (HashMap Text Text)))
@@ -279,15 +279,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679384378"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679384783"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679384367"><span id="local-6989586621679384369"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.ListTags.html#ListTags"><span class="hs-identifier hs-type">ListTags</span></a></span></span></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679384772"><span id="local-6989586621679384774"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.ListTags.html#ListTags"><span class="hs-identifier hs-type">ListTags</span></a></span></span></span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679384364"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.ListTags.html#ListTags"><span class="hs-identifier hs-type">ListTags</span></a></span></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679384769"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.ListTags.html#ListTags"><span class="hs-identifier hs-type">ListTags</span></a></span></span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.ListTags.html#ListTags"><span class="hs-identifier hs-type">ListTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679384360"><span class="annot"><span class="annottext">toHeaders :: ListTags -&gt; ResponseHeaders
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679384765"><span class="annot"><span class="annottext">toHeaders :: ListTags -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListTags -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -312,9 +312,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-131"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-132"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>
-</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679384350"><span id="local-6989586621679384352"><span id="local-6989586621679384354"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.ListTags.html#ListTags"><span class="hs-identifier hs-type">ListTags</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679384348"><span class="annot"><span class="annottext">toJSON :: ListTags -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.ListTags.html#ListTags%27"><span class="hs-identifier hs-type">ListTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384344"><span id="local-6989586621679384345"><span id="local-6989586621679384346"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679384755"><span id="local-6989586621679384757"><span id="local-6989586621679384759"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.ListTags.html#ListTags"><span class="hs-identifier hs-type">ListTags</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679384753"><span class="annot"><span class="annottext">toJSON :: ListTags -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.ListTags.html#ListTags%27"><span class="hs-identifier hs-type">ListTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384749"><span id="local-6989586621679384750"><span id="local-6989586621679384751"><span class="annot"><span class="annottext">Maybe Int
 Maybe Text
 Text
 resourceArn :: Text
@@ -323,7 +323,7 @@ nextToken :: Maybe Text
 $sel:resourceArn:ListTags' :: ListTags -&gt; Text
 $sel:maxResults:ListTags' :: ListTags -&gt; Maybe Int
 $sel:nextToken:ListTags' :: ListTags -&gt; Maybe Text
-</span><a href="#local-6989586621679384344"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679384749"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-136"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-137"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -335,33 +335,33 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679384346"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679384751"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-139"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679384345"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679384750"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ResourceArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679384344"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679384749"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-142"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.ListTags.html#ListTags"><span class="hs-identifier hs-type">ListTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621679384338"><span class="annot"><span class="annottext">toPath :: ListTags -&gt; ByteString
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679384743"><span class="annot"><span class="annottext">toPath :: ListTags -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListTags -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.ListTags.html#ListTags"><span class="hs-identifier hs-type">ListTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-148"></span><span>  </span><span id="local-6989586621679384334"><span class="annot"><span class="annottext">toQuery :: ListTags -&gt; QueryString
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679384739"><span class="annot"><span class="annottext">toQuery :: ListTags -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListTags -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -371,7 +371,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-150"></span><span class="hs-comment">-- | Contains the response to a @ListTags@ request.</span><span>
 </span><span id="line-151"></span><span class="hs-comment">--</span><span>
 </span><span id="line-152"></span><span class="hs-comment">-- /See:/ 'newListTagsResponse' smart constructor.</span><span>
-</span><span id="line-153"></span><span id="local-6989586621679384331"><span id="local-6989586621679384332"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListTagsResponse"><span class="annot"><a href="Network.AWS.OpsWorks.ListTags.html#ListTagsResponse"><span class="hs-identifier hs-var">ListTagsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListTagsResponse%27"><span class="annot"><a href="Network.AWS.OpsWorks.ListTags.html#ListTagsResponse%27"><span class="hs-identifier hs-var">ListTagsResponse'</span></a></span></span><span>
+</span><span id="line-153"></span><span id="local-6989586621679384736"><span id="local-6989586621679384737"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListTagsResponse"><span class="annot"><a href="Network.AWS.OpsWorks.ListTags.html#ListTagsResponse"><span class="hs-identifier hs-var">ListTagsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListTagsResponse%27"><span class="annot"><a href="Network.AWS.OpsWorks.ListTags.html#ListTagsResponse%27"><span class="hs-identifier hs-var">ListTagsResponse'</span></a></span></span><span>
 </span><span id="line-154"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If a paginated request does not return all of the remaining results,</span><span>
 </span><span id="line-155"></span><span>    </span><span class="hs-comment">-- this parameter is set to a token that you can assign to the request</span><span>
 </span><span id="line-156"></span><span>    </span><span class="hs-comment">-- object\'s @NextToken@ parameter to get the next set of results. If the</span><span>
@@ -387,7 +387,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-164"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListTagsResponse%27"><span class="annot"><span class="annottext">ListTagsResponse -&gt; Int
 </span><a href="Network.AWS.OpsWorks.ListTags.html#%24sel%3AhttpStatus%3AListTagsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-165"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-166"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679384324"><span id="local-6989586621679384326"><span class="annot"><span class="annottext">ListTagsResponse -&gt; ListTagsResponse -&gt; Bool
+</span><span id="line-166"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679384729"><span id="local-6989586621679384731"><span class="annot"><span class="annottext">ListTagsResponse -&gt; ListTagsResponse -&gt; Bool
 (ListTagsResponse -&gt; ListTagsResponse -&gt; Bool)
 -&gt; (ListTagsResponse -&gt; ListTagsResponse -&gt; Bool)
 -&gt; Eq ListTagsResponse
@@ -396,7 +396,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListTagsResponse -&gt; ListTagsResponse -&gt; Bool
 == :: ListTagsResponse -&gt; ListTagsResponse -&gt; Bool
 $c== :: ListTagsResponse -&gt; ListTagsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679384316"><span id="local-6989586621679384318"><span id="local-6989586621679384320"><span id="local-6989586621679384322"><span class="annot"><span class="annottext">ReadPrec [ListTagsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679384721"><span id="local-6989586621679384723"><span id="local-6989586621679384725"><span id="local-6989586621679384727"><span class="annot"><span class="annottext">ReadPrec [ListTagsResponse]
 ReadPrec ListTagsResponse
 Int -&gt; ReadS ListTagsResponse
 ReadS [ListTagsResponse]
@@ -416,7 +416,7 @@ readList :: ReadS [ListTagsResponse]
 $creadList :: ReadS [ListTagsResponse]
 readsPrec :: Int -&gt; ReadS ListTagsResponse
 $creadsPrec :: Int -&gt; ReadS ListTagsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679384310"><span id="local-6989586621679384312"><span id="local-6989586621679384314"><span class="annot"><span class="annottext">Int -&gt; ListTagsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679384715"><span id="local-6989586621679384717"><span id="local-6989586621679384719"><span class="annot"><span class="annottext">Int -&gt; ListTagsResponse -&gt; ShowS
 [ListTagsResponse] -&gt; ShowS
 ListTagsResponse -&gt; String
 (Int -&gt; ListTagsResponse -&gt; ShowS)
@@ -465,8 +465,8 @@ $cfrom :: forall x. ListTagsResponse -&gt; Rep ListTagsResponse x
 </span><span id="line-188"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-189"></span><span>  </span><span class="annot"><a href="Network.AWS.OpsWorks.ListTags.html#ListTagsResponse"><span class="hs-identifier hs-type">ListTagsResponse</span></a></span><span>
 </span><span id="line-190"></span><span id="newListTagsResponse"><span class="annot"><span class="annottext">newListTagsResponse :: Int -&gt; ListTagsResponse
-</span><a href="Network.AWS.OpsWorks.ListTags.html#newListTagsResponse"><span class="hs-identifier hs-var hs-var">newListTagsResponse</span></a></span></span><span> </span><span id="local-6989586621679384307"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679384307"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.OpsWorks.ListTags.html#newListTagsResponse"><span class="hs-identifier hs-var hs-var">newListTagsResponse</span></a></span></span><span> </span><span id="local-6989586621679384712"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679384712"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-191"></span><span>  </span><span class="annot"><span class="annottext">ListTagsResponse' :: Maybe Text -&gt; Maybe (HashMap Text Text) -&gt; Int -&gt; ListTagsResponse
 </span><a href="Network.AWS.OpsWorks.ListTags.html#ListTagsResponse%27"><span class="hs-identifier hs-type">ListTagsResponse'</span></a></span><span>
 </span><span id="line-192"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListTagsResponse' :: Maybe Text
@@ -479,7 +479,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-194"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListTagsResponse' :: Int
 </span><a href="Network.AWS.OpsWorks.ListTags.html#%24sel%3AhttpStatus%3AListTagsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679384307"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679384712"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-195"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-196"></span><span>
 </span><span id="line-197"></span><span class="hs-comment">-- | If a paginated request does not return all of the remaining results,</span><span>
@@ -494,16 +494,16 @@ forall a. Maybe a
 -&gt; (ListTagsResponse -&gt; Maybe Text -&gt; ListTagsResponse)
 -&gt; Lens ListTagsResponse ListTagsResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.ListTags.html#ListTagsResponse%27"><span class="hs-identifier hs-type">ListTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384306"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.ListTags.html#ListTagsResponse%27"><span class="hs-identifier hs-type">ListTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384711"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListTagsResponse' :: ListTagsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679384306"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679384306"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679384305"><span class="annot"><span class="annottext">s :: ListTagsResponse
-</span><a href="#local-6989586621679384305"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.ListTags.html#ListTagsResponse%27"><span class="hs-identifier hs-type">ListTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679384304"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679384304"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTagsResponse
-</span><a href="#local-6989586621679384305"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListTagsResponse' :: Maybe Text
+</span><a href="#local-6989586621679384711"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679384711"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679384710"><span class="annot"><span class="annottext">s :: ListTagsResponse
+</span><a href="#local-6989586621679384710"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.ListTags.html#ListTagsResponse%27"><span class="hs-identifier hs-type">ListTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679384709"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679384709"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTagsResponse
+</span><a href="#local-6989586621679384710"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListTagsResponse' :: Maybe Text
 </span><a href="Network.AWS.OpsWorks.ListTags.html#%24sel%3AnextToken%3AListTagsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679384304"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.ListTags.html#ListTagsResponse"><span class="hs-identifier hs-type">ListTagsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679384709"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.ListTags.html#ListTagsResponse"><span class="hs-identifier hs-type">ListTagsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-204"></span><span>
 </span><span id="line-205"></span><span class="hs-comment">-- | A set of key-value pairs that contain tag keys and tag values that are</span><span>
 </span><span id="line-206"></span><span class="hs-comment">-- attached to a stack or layer.</span><span>
@@ -519,16 +519,16 @@ $sel:nextToken:ListTagsResponse' :: ListTagsResponse -&gt; Maybe Text
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.ListTags.html#ListTagsResponse%27"><span class="hs-identifier hs-type">ListTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384303"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.ListTags.html#ListTagsResponse%27"><span class="hs-identifier hs-type">ListTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384708"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 tags :: Maybe (HashMap Text Text)
 $sel:tags:ListTagsResponse' :: ListTagsResponse -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679384303"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679384303"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679384302"><span class="annot"><span class="annottext">s :: ListTagsResponse
-</span><a href="#local-6989586621679384302"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.ListTags.html#ListTagsResponse%27"><span class="hs-identifier hs-type">ListTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679384301"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679384301"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTagsResponse
-</span><a href="#local-6989586621679384302"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:ListTagsResponse' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679384708"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679384708"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679384707"><span class="annot"><span class="annottext">s :: ListTagsResponse
+</span><a href="#local-6989586621679384707"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.ListTags.html#ListTagsResponse%27"><span class="hs-identifier hs-type">ListTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679384706"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679384706"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTagsResponse
+</span><a href="#local-6989586621679384707"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:ListTagsResponse' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.OpsWorks.ListTags.html#%24sel%3Atags%3AListTagsResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679384301"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.ListTags.html#ListTagsResponse"><span class="hs-identifier hs-type">ListTagsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679384706"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.ListTags.html#ListTagsResponse"><span class="hs-identifier hs-type">ListTagsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; ListTagsResponse -&gt; f ListTagsResponse)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -554,8 +554,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (HashMap Text Text)
   (HashMap Text Text)
   (HashMap Text Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-209"></span><span>
 </span><span id="line-210"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-211"></span><span class="annot"><a href="Network.AWS.OpsWorks.ListTags.html#listTagsResponse_httpStatus"><span class="hs-identifier hs-type">listTagsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.ListTags.html#ListTagsResponse"><span class="hs-identifier hs-type">ListTagsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -564,16 +564,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (ListTagsResponse -&gt; Int -&gt; ListTagsResponse)
 -&gt; Lens ListTagsResponse ListTagsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.ListTags.html#ListTagsResponse%27"><span class="hs-identifier hs-type">ListTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384297"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.ListTags.html#ListTagsResponse%27"><span class="hs-identifier hs-type">ListTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384702"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListTagsResponse' :: ListTagsResponse -&gt; Int
-</span><a href="#local-6989586621679384297"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679384297"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679384296"><span class="annot"><span class="annottext">s :: ListTagsResponse
-</span><a href="#local-6989586621679384296"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.ListTags.html#ListTagsResponse%27"><span class="hs-identifier hs-type">ListTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679384295"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679384295"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTagsResponse
-</span><a href="#local-6989586621679384296"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListTagsResponse' :: Int
+</span><a href="#local-6989586621679384702"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679384702"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679384701"><span class="annot"><span class="annottext">s :: ListTagsResponse
+</span><a href="#local-6989586621679384701"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.ListTags.html#ListTagsResponse%27"><span class="hs-identifier hs-type">ListTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679384700"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679384700"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTagsResponse
+</span><a href="#local-6989586621679384701"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListTagsResponse' :: Int
 </span><a href="Network.AWS.OpsWorks.ListTags.html#%24sel%3AhttpStatus%3AListTagsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679384295"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.ListTags.html#ListTagsResponse"><span class="hs-identifier hs-type">ListTagsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679384700"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.ListTags.html#ListTagsResponse"><span class="hs-identifier hs-type">ListTagsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-213"></span><span>
-</span><span id="line-214"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679384293"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.ListTags.html#ListTagsResponse"><span class="hs-identifier hs-type">ListTagsResponse</span></a></span></span><span>
+</span><span id="line-214"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679384698"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.ListTags.html#ListTagsResponse"><span class="hs-identifier hs-type">ListTagsResponse</span></a></span></span><span>
 </span><span id="line-215"></span></pre></body></html>

@@ -83,7 +83,7 @@
 </span><span id="line-83"></span><span class="hs-comment">-- |</span><span>
 </span><span id="line-84"></span><span class="hs-comment">--</span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- /See:/ 'newSendMessageBatch' smart constructor.</span><span>
-</span><span id="line-86"></span><span id="local-6989586621679177278"><span id="local-6989586621679177279"></span></span><span class="hs-keyword">data</span><span> </span><span id="SendMessageBatch"><span class="annot"><a href="Network.AWS.SQS.SendMessageBatch.html#SendMessageBatch"><span class="hs-identifier hs-var">SendMessageBatch</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SendMessageBatch%27"><span class="annot"><a href="Network.AWS.SQS.SendMessageBatch.html#SendMessageBatch%27"><span class="hs-identifier hs-var">SendMessageBatch'</span></a></span></span><span>
+</span><span id="line-86"></span><span id="local-6989586621679177423"><span id="local-6989586621679177424"></span></span><span class="hs-keyword">data</span><span> </span><span id="SendMessageBatch"><span class="annot"><a href="Network.AWS.SQS.SendMessageBatch.html#SendMessageBatch"><span class="hs-identifier hs-var">SendMessageBatch</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SendMessageBatch%27"><span class="annot"><a href="Network.AWS.SQS.SendMessageBatch.html#SendMessageBatch%27"><span class="hs-identifier hs-var">SendMessageBatch'</span></a></span></span><span>
 </span><span id="line-87"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The URL of the Amazon SQS queue to which batched messages are sent.</span><span>
 </span><span id="line-88"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-89"></span><span>    </span><span class="hs-comment">-- Queue URLs and names are case-sensitive.</span><span>
@@ -93,7 +93,7 @@
 </span><span id="line-92"></span><span>    </span><span id="%24sel%3Aentries%3ASendMessageBatch%27"><span class="annot"><span class="annottext">SendMessageBatch -&gt; [SendMessageBatchRequestEntry]
 </span><a href="Network.AWS.SQS.SendMessageBatch.html#%24sel%3Aentries%3ASendMessageBatch%27"><span class="hs-identifier hs-var hs-var">entries</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SQS.Types.SendMessageBatchRequestEntry.html#SendMessageBatchRequestEntry"><span class="hs-identifier hs-type">SendMessageBatchRequestEntry</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-93"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-94"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679177271"><span id="local-6989586621679177273"><span class="annot"><span class="annottext">SendMessageBatch -&gt; SendMessageBatch -&gt; Bool
+</span><span id="line-94"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679177416"><span id="local-6989586621679177418"><span class="annot"><span class="annottext">SendMessageBatch -&gt; SendMessageBatch -&gt; Bool
 (SendMessageBatch -&gt; SendMessageBatch -&gt; Bool)
 -&gt; (SendMessageBatch -&gt; SendMessageBatch -&gt; Bool)
 -&gt; Eq SendMessageBatch
@@ -102,7 +102,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SendMessageBatch -&gt; SendMessageBatch -&gt; Bool
 == :: SendMessageBatch -&gt; SendMessageBatch -&gt; Bool
 $c== :: SendMessageBatch -&gt; SendMessageBatch -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177262"><span id="local-6989586621679177264"><span id="local-6989586621679177266"><span id="local-6989586621679177268"><span class="annot"><span class="annottext">ReadPrec [SendMessageBatch]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177407"><span id="local-6989586621679177409"><span id="local-6989586621679177411"><span id="local-6989586621679177413"><span class="annot"><span class="annottext">ReadPrec [SendMessageBatch]
 ReadPrec SendMessageBatch
 Int -&gt; ReadS SendMessageBatch
 ReadS [SendMessageBatch]
@@ -122,7 +122,7 @@ readList :: ReadS [SendMessageBatch]
 $creadList :: ReadS [SendMessageBatch]
 readsPrec :: Int -&gt; ReadS SendMessageBatch
 $creadsPrec :: Int -&gt; ReadS SendMessageBatch
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177255"><span id="local-6989586621679177257"><span id="local-6989586621679177259"><span class="annot"><span class="annottext">Int -&gt; SendMessageBatch -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177400"><span id="local-6989586621679177402"><span id="local-6989586621679177404"><span class="annot"><span class="annottext">Int -&gt; SendMessageBatch -&gt; ShowS
 [SendMessageBatch] -&gt; ShowS
 SendMessageBatch -&gt; String
 (Int -&gt; SendMessageBatch -&gt; ShowS)
@@ -166,13 +166,13 @@ $cfrom :: forall x. SendMessageBatch -&gt; Rep SendMessageBatch x
 </span><span id="line-111"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-112"></span><span>  </span><span class="annot"><a href="Network.AWS.SQS.SendMessageBatch.html#SendMessageBatch"><span class="hs-identifier hs-type">SendMessageBatch</span></a></span><span>
 </span><span id="line-113"></span><span id="newSendMessageBatch"><span class="annot"><span class="annottext">newSendMessageBatch :: Text -&gt; SendMessageBatch
-</span><a href="Network.AWS.SQS.SendMessageBatch.html#newSendMessageBatch"><span class="hs-identifier hs-var hs-var">newSendMessageBatch</span></a></span></span><span> </span><span id="local-6989586621679177250"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679177250"><span class="hs-identifier hs-var">pQueueUrl_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SQS.SendMessageBatch.html#newSendMessageBatch"><span class="hs-identifier hs-var hs-var">newSendMessageBatch</span></a></span></span><span> </span><span id="local-6989586621679177395"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177395"><span class="hs-identifier hs-var">pQueueUrl_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>  </span><span class="annot"><span class="annottext">SendMessageBatch' :: Text -&gt; [SendMessageBatchRequestEntry] -&gt; SendMessageBatch
 </span><a href="Network.AWS.SQS.SendMessageBatch.html#SendMessageBatch%27"><span class="hs-identifier hs-type">SendMessageBatch'</span></a></span><span>
 </span><span id="line-115"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:queueUrl:SendMessageBatch' :: Text
 </span><a href="Network.AWS.SQS.SendMessageBatch.html#%24sel%3AqueueUrl%3ASendMessageBatch%27"><span class="hs-identifier hs-var">queueUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679177250"><span class="hs-identifier hs-var">pQueueUrl_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679177395"><span class="hs-identifier hs-var">pQueueUrl_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:entries:SendMessageBatch' :: [SendMessageBatchRequestEntry]
 </span><a href="Network.AWS.SQS.SendMessageBatch.html#%24sel%3Aentries%3ASendMessageBatch%27"><span class="hs-identifier hs-var">entries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[SendMessageBatchRequestEntry]
 forall a. Monoid a =&gt; a
@@ -188,16 +188,16 @@ forall a. Monoid a =&gt; a
 -&gt; (SendMessageBatch -&gt; Text -&gt; SendMessageBatch)
 -&gt; Lens SendMessageBatch SendMessageBatch Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SQS.SendMessageBatch.html#SendMessageBatch%27"><span class="hs-identifier hs-type">SendMessageBatch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177247"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SQS.SendMessageBatch.html#SendMessageBatch%27"><span class="hs-identifier hs-type">SendMessageBatch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177392"><span class="annot"><span class="annottext">Text
 queueUrl :: Text
 $sel:queueUrl:SendMessageBatch' :: SendMessageBatch -&gt; Text
-</span><a href="#local-6989586621679177247"><span class="hs-identifier hs-var hs-var">queueUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679177247"><span class="hs-identifier hs-var">queueUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177246"><span class="annot"><span class="annottext">s :: SendMessageBatch
-</span><a href="#local-6989586621679177246"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SQS.SendMessageBatch.html#SendMessageBatch%27"><span class="hs-identifier hs-type">SendMessageBatch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177245"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679177245"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendMessageBatch
-</span><a href="#local-6989586621679177246"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queueUrl:SendMessageBatch' :: Text
+</span><a href="#local-6989586621679177392"><span class="hs-identifier hs-var hs-var">queueUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177392"><span class="hs-identifier hs-var">queueUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177391"><span class="annot"><span class="annottext">s :: SendMessageBatch
+</span><a href="#local-6989586621679177391"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SQS.SendMessageBatch.html#SendMessageBatch%27"><span class="hs-identifier hs-type">SendMessageBatch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177390"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177390"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendMessageBatch
+</span><a href="#local-6989586621679177391"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queueUrl:SendMessageBatch' :: Text
 </span><a href="Network.AWS.SQS.SendMessageBatch.html#%24sel%3AqueueUrl%3ASendMessageBatch%27"><span class="hs-identifier hs-var">queueUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679177245"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SQS.SendMessageBatch.html#SendMessageBatch"><span class="hs-identifier hs-type">SendMessageBatch</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679177390"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SQS.SendMessageBatch.html#SendMessageBatch"><span class="hs-identifier hs-type">SendMessageBatch</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-comment">-- | A list of @ SendMessageBatchRequestEntry @ items.</span><span>
 </span><span id="line-126"></span><span class="annot"><a href="Network.AWS.SQS.SendMessageBatch.html#sendMessageBatch_entries"><span class="hs-identifier hs-type">sendMessageBatch_entries</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SQS.SendMessageBatch.html#SendMessageBatch"><span class="hs-identifier hs-type">SendMessageBatch</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SQS.Types.SendMessageBatchRequestEntry.html#SendMessageBatchRequestEntry"><span class="hs-identifier hs-type">SendMessageBatchRequestEntry</span></a></span><span class="hs-special">]</span><span>
@@ -213,16 +213,16 @@ $sel:queueUrl:SendMessageBatch' :: SendMessageBatch -&gt; Text
      [SendMessageBatchRequestEntry]
      [SendMessageBatchRequestEntry]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SQS.SendMessageBatch.html#SendMessageBatch%27"><span class="hs-identifier hs-type">SendMessageBatch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177244"><span class="annot"><span class="annottext">[SendMessageBatchRequestEntry]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SQS.SendMessageBatch.html#SendMessageBatch%27"><span class="hs-identifier hs-type">SendMessageBatch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177389"><span class="annot"><span class="annottext">[SendMessageBatchRequestEntry]
 entries :: [SendMessageBatchRequestEntry]
 $sel:entries:SendMessageBatch' :: SendMessageBatch -&gt; [SendMessageBatchRequestEntry]
-</span><a href="#local-6989586621679177244"><span class="hs-identifier hs-var hs-var">entries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[SendMessageBatchRequestEntry]
-</span><a href="#local-6989586621679177244"><span class="hs-identifier hs-var">entries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177243"><span class="annot"><span class="annottext">s :: SendMessageBatch
-</span><a href="#local-6989586621679177243"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SQS.SendMessageBatch.html#SendMessageBatch%27"><span class="hs-identifier hs-type">SendMessageBatch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177242"><span class="annot"><span class="annottext">[SendMessageBatchRequestEntry]
-</span><a href="#local-6989586621679177242"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendMessageBatch
-</span><a href="#local-6989586621679177243"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:entries:SendMessageBatch' :: [SendMessageBatchRequestEntry]
+</span><a href="#local-6989586621679177389"><span class="hs-identifier hs-var hs-var">entries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[SendMessageBatchRequestEntry]
+</span><a href="#local-6989586621679177389"><span class="hs-identifier hs-var">entries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177388"><span class="annot"><span class="annottext">s :: SendMessageBatch
+</span><a href="#local-6989586621679177388"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SQS.SendMessageBatch.html#SendMessageBatch%27"><span class="hs-identifier hs-type">SendMessageBatch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177387"><span class="annot"><span class="annottext">[SendMessageBatchRequestEntry]
+</span><a href="#local-6989586621679177387"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendMessageBatch
+</span><a href="#local-6989586621679177388"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:entries:SendMessageBatch' :: [SendMessageBatchRequestEntry]
 </span><a href="Network.AWS.SQS.SendMessageBatch.html#%24sel%3Aentries%3ASendMessageBatch%27"><span class="hs-identifier hs-var">entries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[SendMessageBatchRequestEntry]
-</span><a href="#local-6989586621679177242"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SQS.SendMessageBatch.html#SendMessageBatch"><span class="hs-identifier hs-type">SendMessageBatch</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([SendMessageBatchRequestEntry]
+</span><a href="#local-6989586621679177387"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SQS.SendMessageBatch.html#SendMessageBatch"><span class="hs-identifier hs-type">SendMessageBatch</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([SendMessageBatchRequestEntry]
   -&gt; f [SendMessageBatchRequestEntry])
  -&gt; SendMessageBatch -&gt; f SendMessageBatch)
 -&gt; (([SendMessageBatchRequestEntry]
@@ -238,19 +238,19 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
  -&gt; f [SendMessageBatchRequestEntry])
 -&gt; [SendMessageBatchRequestEntry]
 -&gt; f [SendMessageBatchRequestEntry]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SQS.SendMessageBatch.html#SendMessageBatch"><span class="hs-identifier hs-type">SendMessageBatch</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-130"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-131"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SQS.SendMessageBatch.html#SendMessageBatch"><span class="hs-identifier hs-type">SendMessageBatch</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-132"></span><span>      </span><span class="annot"><a href="Network.AWS.SQS.SendMessageBatch.html#SendMessageBatchResponse"><span class="hs-identifier hs-type">SendMessageBatchResponse</span></a></span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679177236"><span class="annot"><span class="annottext">request :: SendMessageBatch -&gt; Request SendMessageBatch
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679177381"><span class="annot"><span class="annottext">request :: SendMessageBatch -&gt; Request SendMessageBatch
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; SendMessageBatch -&gt; Request SendMessageBatch
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SQS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679177232"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679177377"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy SendMessageBatch
 -&gt; ClientResponse ClientBody
@@ -279,10 +279,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-136"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SendMessageBatchResult&quot;</span></span><span>
-</span><span id="line-137"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679177229"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679177229"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679177228"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679177228"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679177227"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679177227"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-137"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679177374"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679177374"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679177373"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679177373"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679177372"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679177372"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-138"></span><span>          </span><span class="annot"><span class="annottext">Int
 -&gt; [SendMessageBatchResultEntry]
 -&gt; [BatchResultErrorEntry]
@@ -303,7 +303,7 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679177229"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679177374"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
   ([SendMessageBatchResultEntry]
@@ -316,7 +316,7 @@ forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SendMessageBatchResultEntry&quot;</span></span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679177227"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679177372"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">Either String ([BatchResultErrorEntry] -&gt; SendMessageBatchResponse)
 -&gt; Either String [BatchResultErrorEntry]
 -&gt; Either String SendMessageBatchResponse
@@ -325,15 +325,15 @@ forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BatchResultErrorEntry&quot;</span></span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679177227"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679177372"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>
-</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177219"><span id="local-6989586621679177221"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SQS.SendMessageBatch.html#SendMessageBatch"><span class="hs-identifier hs-type">SendMessageBatch</span></a></span></span></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177364"><span id="local-6989586621679177366"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SQS.SendMessageBatch.html#SendMessageBatch"><span class="hs-identifier hs-type">SendMessageBatch</span></a></span></span></span><span>
 </span><span id="line-145"></span><span>
-</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177216"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SQS.SendMessageBatch.html#SendMessageBatch"><span class="hs-identifier hs-type">SendMessageBatch</span></a></span></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177361"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SQS.SendMessageBatch.html#SendMessageBatch"><span class="hs-identifier hs-type">SendMessageBatch</span></a></span></span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SQS.SendMessageBatch.html#SendMessageBatch"><span class="hs-identifier hs-type">SendMessageBatch</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-149"></span><span>  </span><span id="local-6989586621679177212"><span class="annot"><span class="annottext">toHeaders :: SendMessageBatch -&gt; ResponseHeaders
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679177357"><span class="annot"><span class="annottext">toHeaders :: SendMessageBatch -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; SendMessageBatch -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -341,21 +341,21 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SQS.SendMessageBatch.html#SendMessageBatch"><span class="hs-identifier hs-type">SendMessageBatch</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-152"></span><span>  </span><span id="local-6989586621679177207"><span class="annot"><span class="annottext">toPath :: SendMessageBatch -&gt; ByteString
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679177352"><span class="annot"><span class="annottext">toPath :: SendMessageBatch -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; SendMessageBatch -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-153"></span><span>
 </span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SQS.SendMessageBatch.html#SendMessageBatch"><span class="hs-identifier hs-type">SendMessageBatch</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-155"></span><span>  </span><span id="local-6989586621679177203"><span class="annot"><span class="annottext">toQuery :: SendMessageBatch -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SQS.SendMessageBatch.html#SendMessageBatch%27"><span class="hs-identifier hs-type">SendMessageBatch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177200"><span id="local-6989586621679177201"><span class="annot"><span class="annottext">[SendMessageBatchRequestEntry]
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679177348"><span class="annot"><span class="annottext">toQuery :: SendMessageBatch -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SQS.SendMessageBatch.html#SendMessageBatch%27"><span class="hs-identifier hs-type">SendMessageBatch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177345"><span id="local-6989586621679177346"><span class="annot"><span class="annottext">[SendMessageBatchRequestEntry]
 Text
 entries :: [SendMessageBatchRequestEntry]
 queueUrl :: Text
 $sel:entries:SendMessageBatch' :: SendMessageBatch -&gt; [SendMessageBatchRequestEntry]
 $sel:queueUrl:SendMessageBatch' :: SendMessageBatch -&gt; Text
-</span><a href="#local-6989586621679177200"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679177345"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-156"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -375,7 +375,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;QueueUrl&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679177201"><span class="hs-identifier hs-var">queueUrl</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679177346"><span class="hs-identifier hs-var">queueUrl</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-162"></span><span>        </span><span class="annot"><span class="annottext">ByteString -&gt; [SendMessageBatchRequestEntry] -&gt; QueryString
 forall a.
 (IsList a, ToQuery (Item a)) =&gt;
@@ -384,7 +384,7 @@ ByteString -&gt; a -&gt; QueryString
 </span><span id="line-163"></span><span>          </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;SendMessageBatchRequestEntry&quot;</span></span><span>
 </span><span id="line-164"></span><span>          </span><span class="annot"><span class="annottext">[SendMessageBatchRequestEntry]
-</span><a href="#local-6989586621679177200"><span class="hs-identifier hs-var">entries</span></a></span><span>
+</span><a href="#local-6989586621679177345"><span class="hs-identifier hs-var">entries</span></a></span><span>
 </span><span id="line-165"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-166"></span><span>
 </span><span id="line-167"></span><span class="hs-comment">-- | For each message in the batch, the response contains a</span><span>
@@ -392,7 +392,7 @@ ByteString -&gt; a -&gt; QueryString
 </span><span id="line-169"></span><span class="hs-comment">-- @ BatchResultErrorEntry @ tag if the message fails.</span><span>
 </span><span id="line-170"></span><span class="hs-comment">--</span><span>
 </span><span id="line-171"></span><span class="hs-comment">-- /See:/ 'newSendMessageBatchResponse' smart constructor.</span><span>
-</span><span id="line-172"></span><span id="local-6989586621679177196"><span id="local-6989586621679177197"></span></span><span class="hs-keyword">data</span><span> </span><span id="SendMessageBatchResponse"><span class="annot"><a href="Network.AWS.SQS.SendMessageBatch.html#SendMessageBatchResponse"><span class="hs-identifier hs-var">SendMessageBatchResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SendMessageBatchResponse%27"><span class="annot"><a href="Network.AWS.SQS.SendMessageBatch.html#SendMessageBatchResponse%27"><span class="hs-identifier hs-var">SendMessageBatchResponse'</span></a></span></span><span>
+</span><span id="line-172"></span><span id="local-6989586621679177341"><span id="local-6989586621679177342"></span></span><span class="hs-keyword">data</span><span> </span><span id="SendMessageBatchResponse"><span class="annot"><a href="Network.AWS.SQS.SendMessageBatch.html#SendMessageBatchResponse"><span class="hs-identifier hs-var">SendMessageBatchResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SendMessageBatchResponse%27"><span class="annot"><a href="Network.AWS.SQS.SendMessageBatch.html#SendMessageBatchResponse%27"><span class="hs-identifier hs-var">SendMessageBatchResponse'</span></a></span></span><span>
 </span><span id="line-173"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-174"></span><span>    </span><span id="%24sel%3AhttpStatus%3ASendMessageBatchResponse%27"><span class="annot"><span class="annottext">SendMessageBatchResponse -&gt; Int
 </span><a href="Network.AWS.SQS.SendMessageBatch.html#%24sel%3AhttpStatus%3ASendMessageBatchResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -404,7 +404,7 @@ ByteString -&gt; a -&gt; QueryString
 </span><span id="line-179"></span><span>    </span><span id="%24sel%3Afailed%3ASendMessageBatchResponse%27"><span class="annot"><span class="annottext">SendMessageBatchResponse -&gt; [BatchResultErrorEntry]
 </span><a href="Network.AWS.SQS.SendMessageBatch.html#%24sel%3Afailed%3ASendMessageBatchResponse%27"><span class="hs-identifier hs-var hs-var">failed</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SQS.Types.BatchResultErrorEntry.html#BatchResultErrorEntry"><span class="hs-identifier hs-type">BatchResultErrorEntry</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-180"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-181"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679177189"><span id="local-6989586621679177191"><span class="annot"><span class="annottext">SendMessageBatchResponse -&gt; SendMessageBatchResponse -&gt; Bool
+</span><span id="line-181"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679177334"><span id="local-6989586621679177336"><span class="annot"><span class="annottext">SendMessageBatchResponse -&gt; SendMessageBatchResponse -&gt; Bool
 (SendMessageBatchResponse -&gt; SendMessageBatchResponse -&gt; Bool)
 -&gt; (SendMessageBatchResponse -&gt; SendMessageBatchResponse -&gt; Bool)
 -&gt; Eq SendMessageBatchResponse
@@ -413,7 +413,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SendMessageBatchResponse -&gt; SendMessageBatchResponse -&gt; Bool
 == :: SendMessageBatchResponse -&gt; SendMessageBatchResponse -&gt; Bool
 $c== :: SendMessageBatchResponse -&gt; SendMessageBatchResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177181"><span id="local-6989586621679177183"><span id="local-6989586621679177185"><span id="local-6989586621679177187"><span class="annot"><span class="annottext">ReadPrec [SendMessageBatchResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177326"><span id="local-6989586621679177328"><span id="local-6989586621679177330"><span id="local-6989586621679177332"><span class="annot"><span class="annottext">ReadPrec [SendMessageBatchResponse]
 ReadPrec SendMessageBatchResponse
 Int -&gt; ReadS SendMessageBatchResponse
 ReadS [SendMessageBatchResponse]
@@ -433,7 +433,7 @@ readList :: ReadS [SendMessageBatchResponse]
 $creadList :: ReadS [SendMessageBatchResponse]
 readsPrec :: Int -&gt; ReadS SendMessageBatchResponse
 $creadsPrec :: Int -&gt; ReadS SendMessageBatchResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177175"><span id="local-6989586621679177177"><span id="local-6989586621679177179"><span class="annot"><span class="annottext">Int -&gt; SendMessageBatchResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177320"><span id="local-6989586621679177322"><span id="local-6989586621679177324"><span class="annot"><span class="annottext">Int -&gt; SendMessageBatchResponse -&gt; ShowS
 [SendMessageBatchResponse] -&gt; ShowS
 SendMessageBatchResponse -&gt; String
 (Int -&gt; SendMessageBatchResponse -&gt; ShowS)
@@ -484,8 +484,8 @@ SendMessageBatchResponse -&gt; Rep SendMessageBatchResponse x
 </span><span id="line-199"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-200"></span><span>  </span><span class="annot"><a href="Network.AWS.SQS.SendMessageBatch.html#SendMessageBatchResponse"><span class="hs-identifier hs-type">SendMessageBatchResponse</span></a></span><span>
 </span><span id="line-201"></span><span id="newSendMessageBatchResponse"><span class="annot"><span class="annottext">newSendMessageBatchResponse :: Int -&gt; SendMessageBatchResponse
-</span><a href="Network.AWS.SQS.SendMessageBatch.html#newSendMessageBatchResponse"><span class="hs-identifier hs-var hs-var">newSendMessageBatchResponse</span></a></span></span><span> </span><span id="local-6989586621679177172"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679177172"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SQS.SendMessageBatch.html#newSendMessageBatchResponse"><span class="hs-identifier hs-var hs-var">newSendMessageBatchResponse</span></a></span></span><span> </span><span id="local-6989586621679177317"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679177317"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-202"></span><span>  </span><span class="annot"><span class="annottext">SendMessageBatchResponse' :: Int
 -&gt; [SendMessageBatchResultEntry]
 -&gt; [BatchResultErrorEntry]
@@ -494,7 +494,7 @@ SendMessageBatchResponse -&gt; Rep SendMessageBatchResponse x
 </span><span id="line-203"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:SendMessageBatchResponse' :: Int
 </span><a href="Network.AWS.SQS.SendMessageBatch.html#%24sel%3AhttpStatus%3ASendMessageBatchResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-204"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679177172"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679177317"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-205"></span><span>      </span><span class="annot"><span class="annottext">$sel:successful:SendMessageBatchResponse' :: [SendMessageBatchResultEntry]
 </span><a href="Network.AWS.SQS.SendMessageBatch.html#%24sel%3Asuccessful%3ASendMessageBatchResponse%27"><span class="hs-identifier hs-var">successful</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[SendMessageBatchResultEntry]
 forall a. Monoid a =&gt; a
@@ -513,16 +513,16 @@ forall a. Monoid a =&gt; a
 -&gt; (SendMessageBatchResponse -&gt; Int -&gt; SendMessageBatchResponse)
 -&gt; Lens SendMessageBatchResponse SendMessageBatchResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SQS.SendMessageBatch.html#SendMessageBatchResponse%27"><span class="hs-identifier hs-type">SendMessageBatchResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177171"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SQS.SendMessageBatch.html#SendMessageBatchResponse%27"><span class="hs-identifier hs-type">SendMessageBatchResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177316"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:SendMessageBatchResponse' :: SendMessageBatchResponse -&gt; Int
-</span><a href="#local-6989586621679177171"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679177171"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177170"><span class="annot"><span class="annottext">s :: SendMessageBatchResponse
-</span><a href="#local-6989586621679177170"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SQS.SendMessageBatch.html#SendMessageBatchResponse%27"><span class="hs-identifier hs-type">SendMessageBatchResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177169"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679177169"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendMessageBatchResponse
-</span><a href="#local-6989586621679177170"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:SendMessageBatchResponse' :: Int
+</span><a href="#local-6989586621679177316"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679177316"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177315"><span class="annot"><span class="annottext">s :: SendMessageBatchResponse
+</span><a href="#local-6989586621679177315"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SQS.SendMessageBatch.html#SendMessageBatchResponse%27"><span class="hs-identifier hs-type">SendMessageBatchResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177314"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679177314"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendMessageBatchResponse
+</span><a href="#local-6989586621679177315"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:SendMessageBatchResponse' :: Int
 </span><a href="Network.AWS.SQS.SendMessageBatch.html#%24sel%3AhttpStatus%3ASendMessageBatchResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679177169"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SQS.SendMessageBatch.html#SendMessageBatchResponse"><span class="hs-identifier hs-type">SendMessageBatchResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679177314"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SQS.SendMessageBatch.html#SendMessageBatchResponse"><span class="hs-identifier hs-type">SendMessageBatchResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-212"></span><span>
 </span><span id="line-213"></span><span class="hs-comment">-- | A list of @ SendMessageBatchResultEntry @ items.</span><span>
 </span><span id="line-214"></span><span class="annot"><a href="Network.AWS.SQS.SendMessageBatch.html#sendMessageBatchResponse_successful"><span class="hs-identifier hs-type">sendMessageBatchResponse_successful</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SQS.SendMessageBatch.html#SendMessageBatchResponse"><span class="hs-identifier hs-type">SendMessageBatchResponse</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SQS.Types.SendMessageBatchResultEntry.html#SendMessageBatchResultEntry"><span class="hs-identifier hs-type">SendMessageBatchResultEntry</span></a></span><span class="hs-special">]</span><span>
@@ -537,16 +537,16 @@ $sel:httpStatus:SendMessageBatchResponse' :: SendMessageBatchResponse -&gt; Int
      [SendMessageBatchResultEntry]
      [SendMessageBatchResultEntry]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SQS.SendMessageBatch.html#SendMessageBatchResponse%27"><span class="hs-identifier hs-type">SendMessageBatchResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177168"><span class="annot"><span class="annottext">[SendMessageBatchResultEntry]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SQS.SendMessageBatch.html#SendMessageBatchResponse%27"><span class="hs-identifier hs-type">SendMessageBatchResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177313"><span class="annot"><span class="annottext">[SendMessageBatchResultEntry]
 successful :: [SendMessageBatchResultEntry]
 $sel:successful:SendMessageBatchResponse' :: SendMessageBatchResponse -&gt; [SendMessageBatchResultEntry]
-</span><a href="#local-6989586621679177168"><span class="hs-identifier hs-var hs-var">successful</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[SendMessageBatchResultEntry]
-</span><a href="#local-6989586621679177168"><span class="hs-identifier hs-var">successful</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177167"><span class="annot"><span class="annottext">s :: SendMessageBatchResponse
-</span><a href="#local-6989586621679177167"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SQS.SendMessageBatch.html#SendMessageBatchResponse%27"><span class="hs-identifier hs-type">SendMessageBatchResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177166"><span class="annot"><span class="annottext">[SendMessageBatchResultEntry]
-</span><a href="#local-6989586621679177166"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendMessageBatchResponse
-</span><a href="#local-6989586621679177167"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:successful:SendMessageBatchResponse' :: [SendMessageBatchResultEntry]
+</span><a href="#local-6989586621679177313"><span class="hs-identifier hs-var hs-var">successful</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[SendMessageBatchResultEntry]
+</span><a href="#local-6989586621679177313"><span class="hs-identifier hs-var">successful</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177312"><span class="annot"><span class="annottext">s :: SendMessageBatchResponse
+</span><a href="#local-6989586621679177312"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SQS.SendMessageBatch.html#SendMessageBatchResponse%27"><span class="hs-identifier hs-type">SendMessageBatchResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177311"><span class="annot"><span class="annottext">[SendMessageBatchResultEntry]
+</span><a href="#local-6989586621679177311"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendMessageBatchResponse
+</span><a href="#local-6989586621679177312"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:successful:SendMessageBatchResponse' :: [SendMessageBatchResultEntry]
 </span><a href="Network.AWS.SQS.SendMessageBatch.html#%24sel%3Asuccessful%3ASendMessageBatchResponse%27"><span class="hs-identifier hs-var">successful</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[SendMessageBatchResultEntry]
-</span><a href="#local-6989586621679177166"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SQS.SendMessageBatch.html#SendMessageBatchResponse"><span class="hs-identifier hs-type">SendMessageBatchResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([SendMessageBatchResultEntry] -&gt; f [SendMessageBatchResultEntry])
+</span><a href="#local-6989586621679177311"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SQS.SendMessageBatch.html#SendMessageBatchResponse"><span class="hs-identifier hs-type">SendMessageBatchResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([SendMessageBatchResultEntry] -&gt; f [SendMessageBatchResultEntry])
  -&gt; SendMessageBatchResponse -&gt; f SendMessageBatchResponse)
 -&gt; (([SendMessageBatchResultEntry]
      -&gt; f [SendMessageBatchResultEntry])
@@ -559,8 +559,8 @@ $sel:successful:SendMessageBatchResponse' :: SendMessageBatchResponse -&gt; [Sen
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([SendMessageBatchResultEntry] -&gt; f [SendMessageBatchResultEntry])
 -&gt; [SendMessageBatchResultEntry] -&gt; f [SendMessageBatchResultEntry]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-216"></span><span>
 </span><span id="line-217"></span><span class="hs-comment">-- | A list of @ BatchResultErrorEntry @ items with error details about each</span><span>
 </span><span id="line-218"></span><span class="hs-comment">-- message that can\'t be enqueued.</span><span>
@@ -576,16 +576,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      [BatchResultErrorEntry]
      [BatchResultErrorEntry]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SQS.SendMessageBatch.html#SendMessageBatchResponse%27"><span class="hs-identifier hs-type">SendMessageBatchResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177165"><span class="annot"><span class="annottext">[BatchResultErrorEntry]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SQS.SendMessageBatch.html#SendMessageBatchResponse%27"><span class="hs-identifier hs-type">SendMessageBatchResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177310"><span class="annot"><span class="annottext">[BatchResultErrorEntry]
 failed :: [BatchResultErrorEntry]
 $sel:failed:SendMessageBatchResponse' :: SendMessageBatchResponse -&gt; [BatchResultErrorEntry]
-</span><a href="#local-6989586621679177165"><span class="hs-identifier hs-var hs-var">failed</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[BatchResultErrorEntry]
-</span><a href="#local-6989586621679177165"><span class="hs-identifier hs-var">failed</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177164"><span class="annot"><span class="annottext">s :: SendMessageBatchResponse
-</span><a href="#local-6989586621679177164"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SQS.SendMessageBatch.html#SendMessageBatchResponse%27"><span class="hs-identifier hs-type">SendMessageBatchResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177163"><span class="annot"><span class="annottext">[BatchResultErrorEntry]
-</span><a href="#local-6989586621679177163"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendMessageBatchResponse
-</span><a href="#local-6989586621679177164"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failed:SendMessageBatchResponse' :: [BatchResultErrorEntry]
+</span><a href="#local-6989586621679177310"><span class="hs-identifier hs-var hs-var">failed</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[BatchResultErrorEntry]
+</span><a href="#local-6989586621679177310"><span class="hs-identifier hs-var">failed</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177309"><span class="annot"><span class="annottext">s :: SendMessageBatchResponse
+</span><a href="#local-6989586621679177309"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SQS.SendMessageBatch.html#SendMessageBatchResponse%27"><span class="hs-identifier hs-type">SendMessageBatchResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177308"><span class="annot"><span class="annottext">[BatchResultErrorEntry]
+</span><a href="#local-6989586621679177308"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendMessageBatchResponse
+</span><a href="#local-6989586621679177309"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failed:SendMessageBatchResponse' :: [BatchResultErrorEntry]
 </span><a href="Network.AWS.SQS.SendMessageBatch.html#%24sel%3Afailed%3ASendMessageBatchResponse%27"><span class="hs-identifier hs-var">failed</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[BatchResultErrorEntry]
-</span><a href="#local-6989586621679177163"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SQS.SendMessageBatch.html#SendMessageBatchResponse"><span class="hs-identifier hs-type">SendMessageBatchResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([BatchResultErrorEntry] -&gt; f [BatchResultErrorEntry])
+</span><a href="#local-6989586621679177308"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SQS.SendMessageBatch.html#SendMessageBatchResponse"><span class="hs-identifier hs-type">SendMessageBatchResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([BatchResultErrorEntry] -&gt; f [BatchResultErrorEntry])
  -&gt; SendMessageBatchResponse -&gt; f SendMessageBatchResponse)
 -&gt; (([BatchResultErrorEntry] -&gt; f [BatchResultErrorEntry])
     -&gt; [BatchResultErrorEntry] -&gt; f [BatchResultErrorEntry])
@@ -595,8 +595,8 @@ $sel:failed:SendMessageBatchResponse' :: SendMessageBatchResponse -&gt; [BatchRe
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([BatchResultErrorEntry] -&gt; f [BatchResultErrorEntry])
 -&gt; [BatchResultErrorEntry] -&gt; f [BatchResultErrorEntry]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-221"></span><span>
-</span><span id="line-222"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177161"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SQS.SendMessageBatch.html#SendMessageBatchResponse"><span class="hs-identifier hs-type">SendMessageBatchResponse</span></a></span></span><span>
+</span><span id="line-222"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177306"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SQS.SendMessageBatch.html#SendMessageBatchResponse"><span class="hs-identifier hs-type">SendMessageBatchResponse</span></a></span></span><span>
 </span><span id="line-223"></span></pre></body></html>

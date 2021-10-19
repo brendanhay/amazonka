@@ -46,12 +46,12 @@
 </span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.html"><span class="hs-identifier">Network.AWS.StepFunctions.Types</span></a></span><span>
 </span><span id="line-47"></span><span>
 </span><span id="line-48"></span><span class="hs-comment">-- | /See:/ 'newDeleteActivity' smart constructor.</span><span>
-</span><span id="line-49"></span><span id="local-6989586621679233799"><span id="local-6989586621679233800"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteActivity"><span class="annot"><a href="Network.AWS.StepFunctions.DeleteActivity.html#DeleteActivity"><span class="hs-identifier hs-var">DeleteActivity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteActivity%27"><span class="annot"><a href="Network.AWS.StepFunctions.DeleteActivity.html#DeleteActivity%27"><span class="hs-identifier hs-var">DeleteActivity'</span></a></span></span><span>
+</span><span id="line-49"></span><span id="local-6989586621679233855"><span id="local-6989586621679233856"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteActivity"><span class="annot"><a href="Network.AWS.StepFunctions.DeleteActivity.html#DeleteActivity"><span class="hs-identifier hs-var">DeleteActivity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteActivity%27"><span class="annot"><a href="Network.AWS.StepFunctions.DeleteActivity.html#DeleteActivity%27"><span class="hs-identifier hs-var">DeleteActivity'</span></a></span></span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the activity to delete.</span><span>
 </span><span id="line-51"></span><span>    </span><span id="%24sel%3AactivityArn%3ADeleteActivity%27"><span class="annot"><span class="annottext">DeleteActivity -&gt; Text
 </span><a href="Network.AWS.StepFunctions.DeleteActivity.html#%24sel%3AactivityArn%3ADeleteActivity%27"><span class="hs-identifier hs-var hs-var">activityArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679233793"><span id="local-6989586621679233795"><span class="annot"><span class="annottext">DeleteActivity -&gt; DeleteActivity -&gt; Bool
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679233849"><span id="local-6989586621679233851"><span class="annot"><span class="annottext">DeleteActivity -&gt; DeleteActivity -&gt; Bool
 (DeleteActivity -&gt; DeleteActivity -&gt; Bool)
 -&gt; (DeleteActivity -&gt; DeleteActivity -&gt; Bool) -&gt; Eq DeleteActivity
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -59,7 +59,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteActivity -&gt; DeleteActivity -&gt; Bool
 == :: DeleteActivity -&gt; DeleteActivity -&gt; Bool
 $c== :: DeleteActivity -&gt; DeleteActivity -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679233784"><span id="local-6989586621679233786"><span id="local-6989586621679233788"><span id="local-6989586621679233790"><span class="annot"><span class="annottext">ReadPrec [DeleteActivity]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679233840"><span id="local-6989586621679233842"><span id="local-6989586621679233844"><span id="local-6989586621679233846"><span class="annot"><span class="annottext">ReadPrec [DeleteActivity]
 ReadPrec DeleteActivity
 Int -&gt; ReadS DeleteActivity
 ReadS [DeleteActivity]
@@ -79,7 +79,7 @@ readList :: ReadS [DeleteActivity]
 $creadList :: ReadS [DeleteActivity]
 readsPrec :: Int -&gt; ReadS DeleteActivity
 $creadsPrec :: Int -&gt; ReadS DeleteActivity
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679233777"><span id="local-6989586621679233779"><span id="local-6989586621679233781"><span class="annot"><span class="annottext">Int -&gt; DeleteActivity -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679233833"><span id="local-6989586621679233835"><span id="local-6989586621679233837"><span class="annot"><span class="annottext">Int -&gt; DeleteActivity -&gt; ShowS
 [DeleteActivity] -&gt; ShowS
 DeleteActivity -&gt; String
 (Int -&gt; DeleteActivity -&gt; ShowS)
@@ -119,12 +119,12 @@ $cfrom :: forall x. DeleteActivity -&gt; Rep DeleteActivity x
 </span><span id="line-66"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.StepFunctions.DeleteActivity.html#DeleteActivity"><span class="hs-identifier hs-type">DeleteActivity</span></a></span><span>
 </span><span id="line-68"></span><span id="newDeleteActivity"><span class="annot"><span class="annottext">newDeleteActivity :: Text -&gt; DeleteActivity
-</span><a href="Network.AWS.StepFunctions.DeleteActivity.html#newDeleteActivity"><span class="hs-identifier hs-var hs-var">newDeleteActivity</span></a></span></span><span> </span><span id="local-6989586621679233772"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679233772"><span class="hs-identifier hs-var">pActivityArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.StepFunctions.DeleteActivity.html#newDeleteActivity"><span class="hs-identifier hs-var hs-var">newDeleteActivity</span></a></span></span><span> </span><span id="local-6989586621679233828"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679233828"><span class="hs-identifier hs-var">pActivityArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-69"></span><span>  </span><span class="annot"><span class="annottext">DeleteActivity' :: Text -&gt; DeleteActivity
 </span><a href="Network.AWS.StepFunctions.DeleteActivity.html#DeleteActivity%27"><span class="hs-identifier hs-type">DeleteActivity'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:activityArn:DeleteActivity' :: Text
 </span><a href="Network.AWS.StepFunctions.DeleteActivity.html#%24sel%3AactivityArn%3ADeleteActivity%27"><span class="hs-identifier hs-var">activityArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679233772"><span class="hs-identifier hs-var">pActivityArn_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679233828"><span class="hs-identifier hs-var">pActivityArn_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-70"></span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the activity to delete.</span><span>
 </span><span id="line-72"></span><span class="annot"><a href="Network.AWS.StepFunctions.DeleteActivity.html#deleteActivity_activityArn"><span class="hs-identifier hs-type">deleteActivity_activityArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.DeleteActivity.html#DeleteActivity"><span class="hs-identifier hs-type">DeleteActivity</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -133,27 +133,27 @@ $cfrom :: forall x. DeleteActivity -&gt; Rep DeleteActivity x
 -&gt; (DeleteActivity -&gt; Text -&gt; DeleteActivity)
 -&gt; Lens DeleteActivity DeleteActivity Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.DeleteActivity.html#DeleteActivity%27"><span class="hs-identifier hs-type">DeleteActivity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679233769"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.DeleteActivity.html#DeleteActivity%27"><span class="hs-identifier hs-type">DeleteActivity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679233825"><span class="annot"><span class="annottext">Text
 activityArn :: Text
 $sel:activityArn:DeleteActivity' :: DeleteActivity -&gt; Text
-</span><a href="#local-6989586621679233769"><span class="hs-identifier hs-var hs-var">activityArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679233769"><span class="hs-identifier hs-var">activityArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679233768"><span class="annot"><span class="annottext">s :: DeleteActivity
-</span><a href="#local-6989586621679233768"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.DeleteActivity.html#DeleteActivity%27"><span class="hs-identifier hs-type">DeleteActivity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679233767"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679233767"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteActivity
-</span><a href="#local-6989586621679233768"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:activityArn:DeleteActivity' :: Text
+</span><a href="#local-6989586621679233825"><span class="hs-identifier hs-var hs-var">activityArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679233825"><span class="hs-identifier hs-var">activityArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679233824"><span class="annot"><span class="annottext">s :: DeleteActivity
+</span><a href="#local-6989586621679233824"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.DeleteActivity.html#DeleteActivity%27"><span class="hs-identifier hs-type">DeleteActivity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679233823"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679233823"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteActivity
+</span><a href="#local-6989586621679233824"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:activityArn:DeleteActivity' :: Text
 </span><a href="Network.AWS.StepFunctions.DeleteActivity.html#%24sel%3AactivityArn%3ADeleteActivity%27"><span class="hs-identifier hs-var">activityArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679233767"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.DeleteActivity.html#DeleteActivity"><span class="hs-identifier hs-type">DeleteActivity</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679233823"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.DeleteActivity.html#DeleteActivity"><span class="hs-identifier hs-type">DeleteActivity</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.DeleteActivity.html#DeleteActivity"><span class="hs-identifier hs-type">DeleteActivity</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-76"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-77"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.DeleteActivity.html#DeleteActivity"><span class="hs-identifier hs-type">DeleteActivity</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>      </span><span class="annot"><a href="Network.AWS.StepFunctions.DeleteActivity.html#DeleteActivityResponse"><span class="hs-identifier hs-type">DeleteActivityResponse</span></a></span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679233763"><span class="annot"><span class="annottext">request :: DeleteActivity -&gt; Request DeleteActivity
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679233819"><span class="annot"><span class="annottext">request :: DeleteActivity -&gt; Request DeleteActivity
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteActivity -&gt; Request DeleteActivity
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.StepFunctions.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679233759"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679233815"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteActivity
 -&gt; ClientResponse ClientBody
@@ -177,10 +177,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679233756"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679233756"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679233755"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679233755"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679233754"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679233754"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679233812"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679233812"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679233811"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679233811"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679233810"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679233810"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-83"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteActivityResponse
 </span><a href="Network.AWS.StepFunctions.DeleteActivity.html#DeleteActivityResponse%27"><span class="hs-identifier hs-var">DeleteActivityResponse'</span></a></span><span>
 </span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteActivityResponse)
@@ -191,15 +191,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679233756"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679233812"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679233747"><span id="local-6989586621679233749"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.DeleteActivity.html#DeleteActivity"><span class="hs-identifier hs-type">DeleteActivity</span></a></span></span></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679233803"><span id="local-6989586621679233805"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.DeleteActivity.html#DeleteActivity"><span class="hs-identifier hs-type">DeleteActivity</span></a></span></span></span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679233744"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.DeleteActivity.html#DeleteActivity"><span class="hs-identifier hs-type">DeleteActivity</span></a></span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679233800"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.DeleteActivity.html#DeleteActivity"><span class="hs-identifier hs-type">DeleteActivity</span></a></span></span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.DeleteActivity.html#DeleteActivity"><span class="hs-identifier hs-type">DeleteActivity</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679233740"><span class="annot"><span class="annottext">toHeaders :: DeleteActivity -&gt; ResponseHeaders
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679233796"><span class="annot"><span class="annottext">toHeaders :: DeleteActivity -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteActivity -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -226,12 +226,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-103"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679233730"><span id="local-6989586621679233732"><span id="local-6989586621679233734"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.DeleteActivity.html#DeleteActivity"><span class="hs-identifier hs-type">DeleteActivity</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679233728"><span class="annot"><span class="annottext">toJSON :: DeleteActivity -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.DeleteActivity.html#DeleteActivity%27"><span class="hs-identifier hs-type">DeleteActivity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679233726"><span class="annot"><span class="annottext">Text
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679233786"><span id="local-6989586621679233788"><span id="local-6989586621679233790"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.DeleteActivity.html#DeleteActivity"><span class="hs-identifier hs-type">DeleteActivity</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679233784"><span class="annot"><span class="annottext">toJSON :: DeleteActivity -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.DeleteActivity.html#DeleteActivity%27"><span class="hs-identifier hs-type">DeleteActivity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679233782"><span class="annot"><span class="annottext">Text
 activityArn :: Text
 $sel:activityArn:DeleteActivity' :: DeleteActivity -&gt; Text
-</span><a href="#local-6989586621679233726"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679233782"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -243,18 +243,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;activityArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679233726"><span class="hs-identifier hs-var">activityArn</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679233782"><span class="hs-identifier hs-var">activityArn</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.DeleteActivity.html#DeleteActivity"><span class="hs-identifier hs-type">DeleteActivity</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679233720"><span class="annot"><span class="annottext">toPath :: DeleteActivity -&gt; ByteString
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679233776"><span class="annot"><span class="annottext">toPath :: DeleteActivity -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteActivity -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.DeleteActivity.html#DeleteActivity"><span class="hs-identifier hs-type">DeleteActivity</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679233716"><span class="annot"><span class="annottext">toQuery :: DeleteActivity -&gt; QueryString
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679233772"><span class="annot"><span class="annottext">toQuery :: DeleteActivity -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteActivity -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -262,12 +262,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- | /See:/ 'newDeleteActivityResponse' smart constructor.</span><span>
-</span><span id="line-120"></span><span id="local-6989586621679233713"><span id="local-6989586621679233714"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteActivityResponse"><span class="annot"><a href="Network.AWS.StepFunctions.DeleteActivity.html#DeleteActivityResponse"><span class="hs-identifier hs-var">DeleteActivityResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteActivityResponse%27"><span class="annot"><a href="Network.AWS.StepFunctions.DeleteActivity.html#DeleteActivityResponse%27"><span class="hs-identifier hs-var">DeleteActivityResponse'</span></a></span></span><span>
+</span><span id="line-120"></span><span id="local-6989586621679233769"><span id="local-6989586621679233770"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteActivityResponse"><span class="annot"><a href="Network.AWS.StepFunctions.DeleteActivity.html#DeleteActivityResponse"><span class="hs-identifier hs-var">DeleteActivityResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteActivityResponse%27"><span class="annot"><a href="Network.AWS.StepFunctions.DeleteActivity.html#DeleteActivityResponse%27"><span class="hs-identifier hs-var">DeleteActivityResponse'</span></a></span></span><span>
 </span><span id="line-121"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-122"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteActivityResponse%27"><span class="annot"><span class="annottext">DeleteActivityResponse -&gt; Int
 </span><a href="Network.AWS.StepFunctions.DeleteActivity.html#%24sel%3AhttpStatus%3ADeleteActivityResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-123"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-124"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679233708"><span id="local-6989586621679233710"><span class="annot"><span class="annottext">DeleteActivityResponse -&gt; DeleteActivityResponse -&gt; Bool
+</span><span id="line-124"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679233764"><span id="local-6989586621679233766"><span class="annot"><span class="annottext">DeleteActivityResponse -&gt; DeleteActivityResponse -&gt; Bool
 (DeleteActivityResponse -&gt; DeleteActivityResponse -&gt; Bool)
 -&gt; (DeleteActivityResponse -&gt; DeleteActivityResponse -&gt; Bool)
 -&gt; Eq DeleteActivityResponse
@@ -276,7 +276,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteActivityResponse -&gt; DeleteActivityResponse -&gt; Bool
 == :: DeleteActivityResponse -&gt; DeleteActivityResponse -&gt; Bool
 $c== :: DeleteActivityResponse -&gt; DeleteActivityResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679233700"><span id="local-6989586621679233702"><span id="local-6989586621679233704"><span id="local-6989586621679233706"><span class="annot"><span class="annottext">ReadPrec [DeleteActivityResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679233756"><span id="local-6989586621679233758"><span id="local-6989586621679233760"><span id="local-6989586621679233762"><span class="annot"><span class="annottext">ReadPrec [DeleteActivityResponse]
 ReadPrec DeleteActivityResponse
 Int -&gt; ReadS DeleteActivityResponse
 ReadS [DeleteActivityResponse]
@@ -296,7 +296,7 @@ readList :: ReadS [DeleteActivityResponse]
 $creadList :: ReadS [DeleteActivityResponse]
 readsPrec :: Int -&gt; ReadS DeleteActivityResponse
 $creadsPrec :: Int -&gt; ReadS DeleteActivityResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679233694"><span id="local-6989586621679233696"><span id="local-6989586621679233698"><span class="annot"><span class="annottext">Int -&gt; DeleteActivityResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679233750"><span id="local-6989586621679233752"><span id="local-6989586621679233754"><span class="annot"><span class="annottext">Int -&gt; DeleteActivityResponse -&gt; ShowS
 [DeleteActivityResponse] -&gt; ShowS
 DeleteActivityResponse -&gt; String
 (Int -&gt; DeleteActivityResponse -&gt; ShowS)
@@ -337,12 +337,12 @@ $cfrom :: forall x. DeleteActivityResponse -&gt; Rep DeleteActivityResponse x
 </span><span id="line-137"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-138"></span><span>  </span><span class="annot"><a href="Network.AWS.StepFunctions.DeleteActivity.html#DeleteActivityResponse"><span class="hs-identifier hs-type">DeleteActivityResponse</span></a></span><span>
 </span><span id="line-139"></span><span id="newDeleteActivityResponse"><span class="annot"><span class="annottext">newDeleteActivityResponse :: Int -&gt; DeleteActivityResponse
-</span><a href="Network.AWS.StepFunctions.DeleteActivity.html#newDeleteActivityResponse"><span class="hs-identifier hs-var hs-var">newDeleteActivityResponse</span></a></span></span><span> </span><span id="local-6989586621679233691"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679233691"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.StepFunctions.DeleteActivity.html#newDeleteActivityResponse"><span class="hs-identifier hs-var hs-var">newDeleteActivityResponse</span></a></span></span><span> </span><span id="local-6989586621679233747"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679233747"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-140"></span><span>  </span><span class="annot"><span class="annottext">DeleteActivityResponse' :: Int -&gt; DeleteActivityResponse
 </span><a href="Network.AWS.StepFunctions.DeleteActivity.html#DeleteActivityResponse%27"><span class="hs-identifier hs-type">DeleteActivityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteActivityResponse' :: Int
 </span><a href="Network.AWS.StepFunctions.DeleteActivity.html#%24sel%3AhttpStatus%3ADeleteActivityResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679233691"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679233747"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-143"></span><span class="annot"><a href="Network.AWS.StepFunctions.DeleteActivity.html#deleteActivityResponse_httpStatus"><span class="hs-identifier hs-type">deleteActivityResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.DeleteActivity.html#DeleteActivityResponse"><span class="hs-identifier hs-type">DeleteActivityResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -352,16 +352,16 @@ $cfrom :: forall x. DeleteActivityResponse -&gt; Rep DeleteActivityResponse x
 -&gt; (DeleteActivityResponse -&gt; Int -&gt; DeleteActivityResponse)
 -&gt; Lens DeleteActivityResponse DeleteActivityResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.DeleteActivity.html#DeleteActivityResponse%27"><span class="hs-identifier hs-type">DeleteActivityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679233690"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.DeleteActivity.html#DeleteActivityResponse%27"><span class="hs-identifier hs-type">DeleteActivityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679233746"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteActivityResponse' :: DeleteActivityResponse -&gt; Int
-</span><a href="#local-6989586621679233690"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679233690"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679233689"><span class="annot"><span class="annottext">s :: DeleteActivityResponse
-</span><a href="#local-6989586621679233689"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.DeleteActivity.html#DeleteActivityResponse%27"><span class="hs-identifier hs-type">DeleteActivityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679233688"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679233688"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteActivityResponse
-</span><a href="#local-6989586621679233689"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteActivityResponse' :: Int
+</span><a href="#local-6989586621679233746"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679233746"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679233745"><span class="annot"><span class="annottext">s :: DeleteActivityResponse
+</span><a href="#local-6989586621679233745"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.DeleteActivity.html#DeleteActivityResponse%27"><span class="hs-identifier hs-type">DeleteActivityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679233744"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679233744"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteActivityResponse
+</span><a href="#local-6989586621679233745"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteActivityResponse' :: Int
 </span><a href="Network.AWS.StepFunctions.DeleteActivity.html#%24sel%3AhttpStatus%3ADeleteActivityResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679233688"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.DeleteActivity.html#DeleteActivityResponse"><span class="hs-identifier hs-type">DeleteActivityResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679233744"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.DeleteActivity.html#DeleteActivityResponse"><span class="hs-identifier hs-type">DeleteActivityResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>
-</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679233686"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.DeleteActivity.html#DeleteActivityResponse"><span class="hs-identifier hs-type">DeleteActivityResponse</span></a></span></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679233742"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.DeleteActivity.html#DeleteActivityResponse"><span class="hs-identifier hs-type">DeleteActivityResponse</span></a></span></span><span>
 </span><span id="line-147"></span></pre></body></html>

@@ -28,15 +28,15 @@
 </span><span id="line-28"></span><span class="hs-comment">-- field appears.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newLogGroupField' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679221255"><span id="local-6989586621679221256"></span></span><span class="hs-keyword">data</span><span> </span><span id="LogGroupField"><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.LogGroupField.html#LogGroupField"><span class="hs-identifier hs-var">LogGroupField</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LogGroupField%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.LogGroupField.html#LogGroupField%27"><span class="hs-identifier hs-var">LogGroupField'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of a log field.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3Aname%3ALogGroupField%27"><span class="annot"><span class="annottext">LogGroupField -&gt; Maybe Text
-</span><a href="Network.AWS.CloudWatchLogs.Types.LogGroupField.html#%24sel%3Aname%3ALogGroupField%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The percentage of log events queried that contained the field.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3Apercent%3ALogGroupField%27"><span class="annot"><span class="annottext">LogGroupField -&gt; Maybe Natural
-</span><a href="Network.AWS.CloudWatchLogs.Types.LogGroupField.html#%24sel%3Apercent%3ALogGroupField%27"><span class="hs-identifier hs-var hs-var">percent</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679221392"><span id="local-6989586621679221393"></span></span><span class="hs-keyword">data</span><span> </span><span id="LogGroupField"><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.LogGroupField.html#LogGroupField"><span class="hs-identifier hs-var">LogGroupField</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LogGroupField%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.LogGroupField.html#LogGroupField%27"><span class="hs-identifier hs-var">LogGroupField'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The percentage of log events queried that contained the field.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Apercent%3ALogGroupField%27"><span class="annot"><span class="annottext">LogGroupField -&gt; Maybe Natural
+</span><a href="Network.AWS.CloudWatchLogs.Types.LogGroupField.html#%24sel%3Apercent%3ALogGroupField%27"><span class="hs-identifier hs-var hs-var">percent</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The name of a log field.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Aname%3ALogGroupField%27"><span class="annot"><span class="annottext">LogGroupField -&gt; Maybe Text
+</span><a href="Network.AWS.CloudWatchLogs.Types.LogGroupField.html#%24sel%3Aname%3ALogGroupField%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679221248"><span id="local-6989586621679221250"><span class="annot"><span class="annottext">LogGroupField -&gt; LogGroupField -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679221385"><span id="local-6989586621679221387"><span class="annot"><span class="annottext">LogGroupField -&gt; LogGroupField -&gt; Bool
 (LogGroupField -&gt; LogGroupField -&gt; Bool)
 -&gt; (LogGroupField -&gt; LogGroupField -&gt; Bool) -&gt; Eq LogGroupField
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: LogGroupField -&gt; LogGroupField -&gt; Bool
 == :: LogGroupField -&gt; LogGroupField -&gt; Bool
 $c== :: LogGroupField -&gt; LogGroupField -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679221239"><span id="local-6989586621679221241"><span id="local-6989586621679221243"><span id="local-6989586621679221245"><span class="annot"><span class="annottext">ReadPrec [LogGroupField]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679221376"><span id="local-6989586621679221378"><span id="local-6989586621679221380"><span id="local-6989586621679221382"><span class="annot"><span class="annottext">ReadPrec [LogGroupField]
 ReadPrec LogGroupField
 Int -&gt; ReadS LogGroupField
 ReadS [LogGroupField]
@@ -64,7 +64,7 @@ readList :: ReadS [LogGroupField]
 $creadList :: ReadS [LogGroupField]
 readsPrec :: Int -&gt; ReadS LogGroupField
 $creadsPrec :: Int -&gt; ReadS LogGroupField
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679221232"><span id="local-6989586621679221234"><span id="local-6989586621679221236"><span class="annot"><span class="annottext">Int -&gt; LogGroupField -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679221369"><span id="local-6989586621679221371"><span id="local-6989586621679221373"><span class="annot"><span class="annottext">Int -&gt; LogGroupField -&gt; ShowS
 [LogGroupField] -&gt; ShowS
 LogGroupField -&gt; String
 (Int -&gt; LogGroupField -&gt; ShowS)
@@ -98,64 +98,64 @@ $cfrom :: forall x. LogGroupField -&gt; Rep LogGroupField x
 </span><span id="line-44"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-45"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-46"></span><span class="hs-comment">--</span><span>
-</span><span id="line-47"></span><span class="hs-comment">-- 'name', 'logGroupField_name' - The name of a log field.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'percent', 'logGroupField_percent' - The percentage of log events queried that contained the field.</span><span>
 </span><span id="line-48"></span><span class="hs-comment">--</span><span>
-</span><span id="line-49"></span><span class="hs-comment">-- 'percent', 'logGroupField_percent' - The percentage of log events queried that contained the field.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'name', 'logGroupField_name' - The name of a log field.</span><span>
 </span><span id="line-50"></span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.LogGroupField.html#newLogGroupField"><span class="hs-identifier hs-type">newLogGroupField</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-51"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.LogGroupField.html#LogGroupField"><span class="hs-identifier hs-type">LogGroupField</span></a></span><span>
 </span><span id="line-52"></span><span id="newLogGroupField"><span class="annot"><span class="annottext">newLogGroupField :: LogGroupField
 </span><a href="Network.AWS.CloudWatchLogs.Types.LogGroupField.html#newLogGroupField"><span class="hs-identifier hs-var hs-var">newLogGroupField</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-53"></span><span>  </span><span class="annot"><span class="annottext">LogGroupField' :: Maybe Text -&gt; Maybe Natural -&gt; LogGroupField
+</span><span id="line-53"></span><span>  </span><span class="annot"><span class="annottext">LogGroupField' :: Maybe Natural -&gt; Maybe Text -&gt; LogGroupField
 </span><a href="Network.AWS.CloudWatchLogs.Types.LogGroupField.html#LogGroupField%27"><span class="hs-identifier hs-type">LogGroupField'</span></a></span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:name:LogGroupField' :: Maybe Text
-</span><a href="Network.AWS.CloudWatchLogs.Types.LogGroupField.html#%24sel%3Aname%3ALogGroupField%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-54"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:percent:LogGroupField' :: Maybe Natural
+</span><a href="Network.AWS.CloudWatchLogs.Types.LogGroupField.html#%24sel%3Apercent%3ALogGroupField%27"><span class="hs-identifier hs-var">percent</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span class="annot"><span class="annottext">$sel:percent:LogGroupField' :: Maybe Natural
-</span><a href="Network.AWS.CloudWatchLogs.Types.LogGroupField.html#%24sel%3Apercent%3ALogGroupField%27"><span class="hs-identifier hs-var">percent</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-55"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:LogGroupField' :: Maybe Text
+</span><a href="Network.AWS.CloudWatchLogs.Types.LogGroupField.html#%24sel%3Aname%3ALogGroupField%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-57"></span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- | The name of a log field.</span><span>
-</span><span id="line-59"></span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.LogGroupField.html#logGroupField_name"><span class="hs-identifier hs-type">logGroupField_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.LogGroupField.html#LogGroupField"><span class="hs-identifier hs-type">LogGroupField</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-60"></span><span id="logGroupField_name"><span class="annot"><span class="annottext">logGroupField_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; LogGroupField -&gt; f LogGroupField
-</span><a href="Network.AWS.CloudWatchLogs.Types.LogGroupField.html#logGroupField_name"><span class="hs-identifier hs-var hs-var">logGroupField_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LogGroupField -&gt; Maybe Text)
--&gt; (LogGroupField -&gt; Maybe Text -&gt; LogGroupField)
--&gt; Lens LogGroupField LogGroupField (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.LogGroupField.html#LogGroupField%27"><span class="hs-identifier hs-type">LogGroupField'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221223"><span class="annot"><span class="annottext">Maybe Text
-name :: Maybe Text
-$sel:name:LogGroupField' :: LogGroupField -&gt; Maybe Text
-</span><a href="#local-6989586621679221223"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679221223"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221222"><span class="annot"><span class="annottext">s :: LogGroupField
-</span><a href="#local-6989586621679221222"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.LogGroupField.html#LogGroupField%27"><span class="hs-identifier hs-type">LogGroupField'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221221"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679221221"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogGroupField
-</span><a href="#local-6989586621679221222"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:LogGroupField' :: Maybe Text
-</span><a href="Network.AWS.CloudWatchLogs.Types.LogGroupField.html#%24sel%3Aname%3ALogGroupField%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679221221"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.LogGroupField.html#LogGroupField"><span class="hs-identifier hs-type">LogGroupField</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- | The percentage of log events queried that contained the field.</span><span>
-</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.LogGroupField.html#logGroupField_percent"><span class="hs-identifier hs-type">logGroupField_percent</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.LogGroupField.html#LogGroupField"><span class="hs-identifier hs-type">LogGroupField</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-64"></span><span id="logGroupField_percent"><span class="annot"><span class="annottext">logGroupField_percent :: (Maybe Natural -&gt; f (Maybe Natural))
+</span><span id="line-58"></span><span class="hs-comment">-- | The percentage of log events queried that contained the field.</span><span>
+</span><span id="line-59"></span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.LogGroupField.html#logGroupField_percent"><span class="hs-identifier hs-type">logGroupField_percent</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.LogGroupField.html#LogGroupField"><span class="hs-identifier hs-type">LogGroupField</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span id="logGroupField_percent"><span class="annot"><span class="annottext">logGroupField_percent :: (Maybe Natural -&gt; f (Maybe Natural))
 -&gt; LogGroupField -&gt; f LogGroupField
 </span><a href="Network.AWS.CloudWatchLogs.Types.LogGroupField.html#logGroupField_percent"><span class="hs-identifier hs-var hs-var">logGroupField_percent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LogGroupField -&gt; Maybe Natural)
 -&gt; (LogGroupField -&gt; Maybe Natural -&gt; LogGroupField)
 -&gt; Lens LogGroupField LogGroupField (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.LogGroupField.html#LogGroupField%27"><span class="hs-identifier hs-type">LogGroupField'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221219"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.LogGroupField.html#LogGroupField%27"><span class="hs-identifier hs-type">LogGroupField'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221360"><span class="annot"><span class="annottext">Maybe Natural
 percent :: Maybe Natural
 $sel:percent:LogGroupField' :: LogGroupField -&gt; Maybe Natural
-</span><a href="#local-6989586621679221219"><span class="hs-identifier hs-var hs-var">percent</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679221219"><span class="hs-identifier hs-var">percent</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221218"><span class="annot"><span class="annottext">s :: LogGroupField
-</span><a href="#local-6989586621679221218"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.LogGroupField.html#LogGroupField%27"><span class="hs-identifier hs-type">LogGroupField'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221217"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679221217"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogGroupField
-</span><a href="#local-6989586621679221218"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:percent:LogGroupField' :: Maybe Natural
+</span><a href="#local-6989586621679221360"><span class="hs-identifier hs-var hs-var">percent</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679221360"><span class="hs-identifier hs-var">percent</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221359"><span class="annot"><span class="annottext">s :: LogGroupField
+</span><a href="#local-6989586621679221359"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.LogGroupField.html#LogGroupField%27"><span class="hs-identifier hs-type">LogGroupField'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221358"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679221358"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogGroupField
+</span><a href="#local-6989586621679221359"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:percent:LogGroupField' :: Maybe Natural
 </span><a href="Network.AWS.CloudWatchLogs.Types.LogGroupField.html#%24sel%3Apercent%3ALogGroupField%27"><span class="hs-identifier hs-var">percent</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679221217"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.LogGroupField.html#LogGroupField"><span class="hs-identifier hs-type">LogGroupField</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679221358"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.LogGroupField.html#LogGroupField"><span class="hs-identifier hs-type">LogGroupField</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | The name of a log field.</span><span>
+</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.LogGroupField.html#logGroupField_name"><span class="hs-identifier hs-type">logGroupField_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.LogGroupField.html#LogGroupField"><span class="hs-identifier hs-type">LogGroupField</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span id="logGroupField_name"><span class="annot"><span class="annottext">logGroupField_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; LogGroupField -&gt; f LogGroupField
+</span><a href="Network.AWS.CloudWatchLogs.Types.LogGroupField.html#logGroupField_name"><span class="hs-identifier hs-var hs-var">logGroupField_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LogGroupField -&gt; Maybe Text)
+-&gt; (LogGroupField -&gt; Maybe Text -&gt; LogGroupField)
+-&gt; Lens LogGroupField LogGroupField (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.LogGroupField.html#LogGroupField%27"><span class="hs-identifier hs-type">LogGroupField'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221356"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:LogGroupField' :: LogGroupField -&gt; Maybe Text
+</span><a href="#local-6989586621679221356"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221356"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221355"><span class="annot"><span class="annottext">s :: LogGroupField
+</span><a href="#local-6989586621679221355"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.LogGroupField.html#LogGroupField%27"><span class="hs-identifier hs-type">LogGroupField'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221354"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221354"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogGroupField
+</span><a href="#local-6989586621679221355"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:LogGroupField' :: Maybe Text
+</span><a href="Network.AWS.CloudWatchLogs.Types.LogGroupField.html#%24sel%3Aname%3ALogGroupField%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221354"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.LogGroupField.html#LogGroupField"><span class="hs-identifier hs-type">LogGroupField</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679221214"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.LogGroupField.html#LogGroupField"><span class="hs-identifier hs-type">LogGroupField</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-67"></span><span>  </span><span id="local-6989586621679221212"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LogGroupField
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679221351"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.LogGroupField.html#LogGroupField"><span class="hs-identifier hs-type">LogGroupField</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679221349"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LogGroupField
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser LogGroupField)
@@ -165,29 +165,29 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;LogGroupField&quot;</span></span><span>
-</span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679221209"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679221209"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-71"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Natural -&gt; LogGroupField
+</span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679221346"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679221346"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-71"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural -&gt; Maybe Text -&gt; LogGroupField
 </span><a href="Network.AWS.CloudWatchLogs.Types.LogGroupField.html#LogGroupField%27"><span class="hs-identifier hs-var">LogGroupField'</span></a></span><span>
-</span><span id="line-72"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Natural -&gt; LogGroupField)
--&gt; Parser (Maybe Text) -&gt; Parser (Maybe Natural -&gt; LogGroupField)
+</span><span id="line-72"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Natural -&gt; Maybe Text -&gt; LogGroupField)
+-&gt; Parser (Maybe Natural) -&gt; Parser (Maybe Text -&gt; LogGroupField)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679221209"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-73"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Natural -&gt; LogGroupField)
--&gt; Parser (Maybe Natural) -&gt; Parser LogGroupField
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679221209"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679221346"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;percent&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; LogGroupField)
+-&gt; Parser (Maybe Text) -&gt; Parser LogGroupField
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679221346"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679221203"><span id="local-6989586621679221205"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.LogGroupField.html#LogGroupField"><span class="hs-identifier hs-type">LogGroupField</span></a></span></span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679221340"><span id="local-6989586621679221342"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.LogGroupField.html#LogGroupField"><span class="hs-identifier hs-type">LogGroupField</span></a></span></span></span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679221200"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.LogGroupField.html#LogGroupField"><span class="hs-identifier hs-type">LogGroupField</span></a></span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679221337"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.LogGroupField.html#LogGroupField"><span class="hs-identifier hs-type">LogGroupField</span></a></span></span><span>
 </span><span id="line-79"></span></pre></body></html>

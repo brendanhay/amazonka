@@ -43,9 +43,9 @@
 </span><span id="line-43"></span><span>
 </span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DetachVolume.html#detachVolume_instanceId"><span class="hs-identifier">detachVolume_instanceId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DetachVolume.html#detachVolume_dryRun"><span class="hs-identifier">detachVolume_dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DetachVolume.html#detachVolume_force"><span class="hs-identifier">detachVolume_force</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DetachVolume.html#detachVolume_device"><span class="hs-identifier">detachVolume_device</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DetachVolume.html#detachVolume_force"><span class="hs-identifier">detachVolume_force</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DetachVolume.html#detachVolume_dryRun"><span class="hs-identifier">detachVolume_dryRun</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DetachVolume.html#detachVolume_volumeId"><span class="hs-identifier">detachVolume_volumeId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
@@ -54,11 +54,11 @@
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
 </span><span id="line-56"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeAttachment.html#volumeAttachment_instanceId"><span class="hs-identifier">volumeAttachment_instanceId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeAttachment.html#volumeAttachment_attachTime"><span class="hs-identifier">volumeAttachment_attachTime</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeAttachment.html#volumeAttachment_device"><span class="hs-identifier">volumeAttachment_device</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeAttachment.html#volumeAttachment_volumeId"><span class="hs-identifier">volumeAttachment_volumeId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeAttachment.html#volumeAttachment_state"><span class="hs-identifier">volumeAttachment_state</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeAttachment.html#volumeAttachment_deleteOnTermination"><span class="hs-identifier">volumeAttachment_deleteOnTermination</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeAttachment.html#volumeAttachment_deleteOnTermination"><span class="hs-identifier">volumeAttachment_deleteOnTermination</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeAttachment.html#volumeAttachment_state"><span class="hs-identifier">volumeAttachment_state</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeAttachment.html#volumeAttachment_device"><span class="hs-identifier">volumeAttachment_device</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeAttachment.html#volumeAttachment_volumeId"><span class="hs-identifier">volumeAttachment_volumeId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeAttachment.html#volumeAttachment_attachTime"><span class="hs-identifier">volumeAttachment_attachTime</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span class="hs-keyword">where</span><span>
 </span><span id="line-64"></span><span>
@@ -70,34 +70,34 @@
 </span><span id="line-70"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- | /See:/ 'newDetachVolume' smart constructor.</span><span>
-</span><span id="line-73"></span><span id="local-6989586621681202252"><span id="local-6989586621681202253"></span></span><span class="hs-keyword">data</span><span> </span><span id="DetachVolume"><span class="annot"><a href="Network.AWS.EC2.DetachVolume.html#DetachVolume"><span class="hs-identifier hs-var">DetachVolume</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DetachVolume%27"><span class="annot"><a href="Network.AWS.EC2.DetachVolume.html#DetachVolume%27"><span class="hs-identifier hs-var">DetachVolume'</span></a></span></span><span>
+</span><span id="line-73"></span><span id="local-6989586621681237912"><span id="local-6989586621681237913"></span></span><span class="hs-keyword">data</span><span> </span><span id="DetachVolume"><span class="annot"><a href="Network.AWS.EC2.DetachVolume.html#DetachVolume"><span class="hs-identifier hs-var">DetachVolume</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DetachVolume%27"><span class="annot"><a href="Network.AWS.EC2.DetachVolume.html#DetachVolume%27"><span class="hs-identifier hs-var">DetachVolume'</span></a></span></span><span>
 </span><span id="line-74"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the instance. If you are detaching a Multi-Attach enabled</span><span>
 </span><span id="line-75"></span><span>    </span><span class="hs-comment">-- volume, you must specify an instance ID.</span><span>
 </span><span id="line-76"></span><span>    </span><span id="%24sel%3AinstanceId%3ADetachVolume%27"><span class="annot"><span class="annottext">DetachVolume -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.DetachVolume.html#%24sel%3AinstanceId%3ADetachVolume%27"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
-</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
-</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
-</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
-</span><span id="line-81"></span><span>    </span><span id="%24sel%3AdryRun%3ADetachVolume%27"><span class="annot"><span class="annottext">DetachVolume -&gt; Maybe Bool
-</span><a href="Network.AWS.EC2.DetachVolume.html#%24sel%3AdryRun%3ADetachVolume%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- | The device name.</span><span>
-</span><span id="line-83"></span><span>    </span><span id="%24sel%3Adevice%3ADetachVolume%27"><span class="annot"><span class="annottext">DetachVolume -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.DetachVolume.html#%24sel%3Adevice%3ADetachVolume%27"><span class="hs-identifier hs-var hs-var">device</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- | Forces detachment if the previous detachment attempt did not occur</span><span>
-</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- cleanly (for example, logging into an instance, unmounting the volume,</span><span>
-</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- and detaching normally). This option can lead to data loss or a</span><span>
-</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- corrupted file system. Use this option only as a last resort to detach a</span><span>
-</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- volume from a failed instance. The instance won\'t have an opportunity</span><span>
-</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- to flush file system caches or file system metadata. If you use this</span><span>
-</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- option, you must perform file system check and repair procedures.</span><span>
-</span><span id="line-91"></span><span>    </span><span id="%24sel%3Aforce%3ADetachVolume%27"><span class="annot"><span class="annottext">DetachVolume -&gt; Maybe Bool
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | Forces detachment if the previous detachment attempt did not occur</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- cleanly (for example, logging into an instance, unmounting the volume,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- and detaching normally). This option can lead to data loss or a</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- corrupted file system. Use this option only as a last resort to detach a</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- volume from a failed instance. The instance won\'t have an opportunity</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- to flush file system caches or file system metadata. If you use this</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- option, you must perform file system check and repair procedures.</span><span>
+</span><span id="line-84"></span><span>    </span><span id="%24sel%3Aforce%3ADetachVolume%27"><span class="annot"><span class="annottext">DetachVolume -&gt; Maybe Bool
 </span><a href="Network.AWS.EC2.DetachVolume.html#%24sel%3Aforce%3ADetachVolume%27"><span class="hs-identifier hs-var hs-var">force</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- | The device name.</span><span>
+</span><span id="line-86"></span><span>    </span><span id="%24sel%3Adevice%3ADetachVolume%27"><span class="annot"><span class="annottext">DetachVolume -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.DetachVolume.html#%24sel%3Adevice%3ADetachVolume%27"><span class="hs-identifier hs-var hs-var">device</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-91"></span><span>    </span><span id="%24sel%3AdryRun%3ADetachVolume%27"><span class="annot"><span class="annottext">DetachVolume -&gt; Maybe Bool
+</span><a href="Network.AWS.EC2.DetachVolume.html#%24sel%3AdryRun%3ADetachVolume%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
 </span><span id="line-92"></span><span>    </span><span class="hs-comment">-- | The ID of the volume.</span><span>
 </span><span id="line-93"></span><span>    </span><span id="%24sel%3AvolumeId%3ADetachVolume%27"><span class="annot"><span class="annottext">DetachVolume -&gt; Text
 </span><a href="Network.AWS.EC2.DetachVolume.html#%24sel%3AvolumeId%3ADetachVolume%27"><span class="hs-identifier hs-var hs-var">volumeId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-94"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-95"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681202242"><span id="local-6989586621681202244"><span class="annot"><span class="annottext">DetachVolume -&gt; DetachVolume -&gt; Bool
+</span><span id="line-95"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681237902"><span id="local-6989586621681237904"><span class="annot"><span class="annottext">DetachVolume -&gt; DetachVolume -&gt; Bool
 (DetachVolume -&gt; DetachVolume -&gt; Bool)
 -&gt; (DetachVolume -&gt; DetachVolume -&gt; Bool) -&gt; Eq DetachVolume
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -105,7 +105,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DetachVolume -&gt; DetachVolume -&gt; Bool
 == :: DetachVolume -&gt; DetachVolume -&gt; Bool
 $c== :: DetachVolume -&gt; DetachVolume -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681202233"><span id="local-6989586621681202235"><span id="local-6989586621681202237"><span id="local-6989586621681202239"><span class="annot"><span class="annottext">ReadPrec [DetachVolume]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681237893"><span id="local-6989586621681237895"><span id="local-6989586621681237897"><span id="local-6989586621681237899"><span class="annot"><span class="annottext">ReadPrec [DetachVolume]
 ReadPrec DetachVolume
 Int -&gt; ReadS DetachVolume
 ReadS [DetachVolume]
@@ -125,7 +125,7 @@ readList :: ReadS [DetachVolume]
 $creadList :: ReadS [DetachVolume]
 readsPrec :: Int -&gt; ReadS DetachVolume
 $creadsPrec :: Int -&gt; ReadS DetachVolume
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681202226"><span id="local-6989586621681202228"><span id="local-6989586621681202230"><span class="annot"><span class="annottext">Int -&gt; DetachVolume -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681237886"><span id="local-6989586621681237888"><span id="local-6989586621681237890"><span class="annot"><span class="annottext">Int -&gt; DetachVolume -&gt; ShowS
 [DetachVolume] -&gt; ShowS
 DetachVolume -&gt; String
 (Int -&gt; DetachVolume -&gt; ShowS)
@@ -162,20 +162,20 @@ $cfrom :: forall x. DetachVolume -&gt; Rep DetachVolume x
 </span><span id="line-105"></span><span class="hs-comment">-- 'instanceId', 'detachVolume_instanceId' - The ID of the instance. If you are detaching a Multi-Attach enabled</span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- volume, you must specify an instance ID.</span><span>
 </span><span id="line-107"></span><span class="hs-comment">--</span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- 'dryRun', 'detachVolume_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
-</span><span id="line-112"></span><span class="hs-comment">--</span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- 'device', 'detachVolume_device' - The device name.</span><span>
-</span><span id="line-114"></span><span class="hs-comment">--</span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- 'force', 'detachVolume_force' - Forces detachment if the previous detachment attempt did not occur</span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- cleanly (for example, logging into an instance, unmounting the volume,</span><span>
-</span><span id="line-117"></span><span class="hs-comment">-- and detaching normally). This option can lead to data loss or a</span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- corrupted file system. Use this option only as a last resort to detach a</span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- volume from a failed instance. The instance won\'t have an opportunity</span><span>
-</span><span id="line-120"></span><span class="hs-comment">-- to flush file system caches or file system metadata. If you use this</span><span>
-</span><span id="line-121"></span><span class="hs-comment">-- option, you must perform file system check and repair procedures.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'force', 'detachVolume_force' - Forces detachment if the previous detachment attempt did not occur</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- cleanly (for example, logging into an instance, unmounting the volume,</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- and detaching normally). This option can lead to data loss or a</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- corrupted file system. Use this option only as a last resort to detach a</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- volume from a failed instance. The instance won\'t have an opportunity</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- to flush file system caches or file system metadata. If you use this</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- option, you must perform file system check and repair procedures.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- 'device', 'detachVolume_device' - The device name.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- 'dryRun', 'detachVolume_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
 </span><span id="line-122"></span><span class="hs-comment">--</span><span>
 </span><span id="line-123"></span><span class="hs-comment">-- 'volumeId', 'detachVolume_volumeId' - The ID of the volume.</span><span>
 </span><span id="line-124"></span><span class="annot"><a href="Network.AWS.EC2.DetachVolume.html#newDetachVolume"><span class="hs-identifier hs-type">newDetachVolume</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -183,8 +183,8 @@ $cfrom :: forall x. DetachVolume -&gt; Rep DetachVolume x
 </span><span id="line-126"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-127"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.DetachVolume.html#DetachVolume"><span class="hs-identifier hs-type">DetachVolume</span></a></span><span>
 </span><span id="line-128"></span><span id="newDetachVolume"><span class="annot"><span class="annottext">newDetachVolume :: Text -&gt; DetachVolume
-</span><a href="Network.AWS.EC2.DetachVolume.html#newDetachVolume"><span class="hs-identifier hs-var hs-var">newDetachVolume</span></a></span></span><span> </span><span id="local-6989586621681202221"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681202221"><span class="hs-identifier hs-var">pVolumeId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EC2.DetachVolume.html#newDetachVolume"><span class="hs-identifier hs-var hs-var">newDetachVolume</span></a></span></span><span> </span><span id="local-6989586621681237881"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681237881"><span class="hs-identifier hs-var">pVolumeId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-129"></span><span>  </span><span class="annot"><span class="annottext">DetachVolume' :: Maybe Text
 -&gt; Maybe Bool -&gt; Maybe Text -&gt; Maybe Bool -&gt; Text -&gt; DetachVolume
 </span><a href="Network.AWS.EC2.DetachVolume.html#DetachVolume%27"><span class="hs-identifier hs-type">DetachVolume'</span></a></span><span>
@@ -192,21 +192,21 @@ $cfrom :: forall x. DetachVolume -&gt; Rep DetachVolume x
 </span><a href="Network.AWS.EC2.DetachVolume.html#%24sel%3AinstanceId%3ADetachVolume%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">$sel:dryRun:DetachVolume' :: Maybe Bool
-</span><a href="Network.AWS.EC2.DetachVolume.html#%24sel%3AdryRun%3ADetachVolume%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">$sel:force:DetachVolume' :: Maybe Bool
+</span><a href="Network.AWS.EC2.DetachVolume.html#%24sel%3Aforce%3ADetachVolume%27"><span class="hs-identifier hs-var">force</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">$sel:device:DetachVolume' :: Maybe Text
 </span><a href="Network.AWS.EC2.DetachVolume.html#%24sel%3Adevice%3ADetachVolume%27"><span class="hs-identifier hs-var">device</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-133"></span><span>      </span><span class="annot"><span class="annottext">$sel:force:DetachVolume' :: Maybe Bool
-</span><a href="Network.AWS.EC2.DetachVolume.html#%24sel%3Aforce%3ADetachVolume%27"><span class="hs-identifier hs-var">force</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-133"></span><span>      </span><span class="annot"><span class="annottext">$sel:dryRun:DetachVolume' :: Maybe Bool
+</span><a href="Network.AWS.EC2.DetachVolume.html#%24sel%3AdryRun%3ADetachVolume%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-134"></span><span>      </span><span class="annot"><span class="annottext">$sel:volumeId:DetachVolume' :: Text
 </span><a href="Network.AWS.EC2.DetachVolume.html#%24sel%3AvolumeId%3ADetachVolume%27"><span class="hs-identifier hs-var">volumeId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681202221"><span class="hs-identifier hs-var">pVolumeId_</span></a></span><span>
+</span><a href="#local-6989586621681237881"><span class="hs-identifier hs-var">pVolumeId_</span></a></span><span>
 </span><span id="line-135"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-comment">-- | The ID of the instance. If you are detaching a Multi-Attach enabled</span><span>
@@ -217,79 +217,79 @@ forall a. Maybe a
 -&gt; (DetachVolume -&gt; Maybe Text -&gt; DetachVolume)
 -&gt; Lens DetachVolume DetachVolume (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DetachVolume.html#DetachVolume%27"><span class="hs-identifier hs-type">DetachVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681202218"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DetachVolume.html#DetachVolume%27"><span class="hs-identifier hs-type">DetachVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681237878"><span class="annot"><span class="annottext">Maybe Text
 instanceId :: Maybe Text
 $sel:instanceId:DetachVolume' :: DetachVolume -&gt; Maybe Text
-</span><a href="#local-6989586621681202218"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681202218"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681202217"><span class="annot"><span class="annottext">s :: DetachVolume
-</span><a href="#local-6989586621681202217"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DetachVolume.html#DetachVolume%27"><span class="hs-identifier hs-type">DetachVolume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681202216"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681202216"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetachVolume
-</span><a href="#local-6989586621681202217"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:DetachVolume' :: Maybe Text
+</span><a href="#local-6989586621681237878"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681237878"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681237877"><span class="annot"><span class="annottext">s :: DetachVolume
+</span><a href="#local-6989586621681237877"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DetachVolume.html#DetachVolume%27"><span class="hs-identifier hs-type">DetachVolume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681237876"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681237876"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetachVolume
+</span><a href="#local-6989586621681237877"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:DetachVolume' :: Maybe Text
 </span><a href="Network.AWS.EC2.DetachVolume.html#%24sel%3AinstanceId%3ADetachVolume%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681202216"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DetachVolume.html#DetachVolume"><span class="hs-identifier hs-type">DetachVolume</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681237876"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DetachVolume.html#DetachVolume"><span class="hs-identifier hs-type">DetachVolume</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
-</span><span id="line-143"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
-</span><span id="line-144"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
-</span><span id="line-145"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
-</span><span id="line-146"></span><span class="annot"><a href="Network.AWS.EC2.DetachVolume.html#detachVolume_dryRun"><span class="hs-identifier hs-type">detachVolume_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DetachVolume.html#DetachVolume"><span class="hs-identifier hs-type">DetachVolume</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-147"></span><span id="detachVolume_dryRun"><span class="annot"><span class="annottext">detachVolume_dryRun :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; DetachVolume -&gt; f DetachVolume
-</span><a href="Network.AWS.EC2.DetachVolume.html#detachVolume_dryRun"><span class="hs-identifier hs-var hs-var">detachVolume_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DetachVolume -&gt; Maybe Bool)
--&gt; (DetachVolume -&gt; Maybe Bool -&gt; DetachVolume)
--&gt; Lens DetachVolume DetachVolume (Maybe Bool) (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DetachVolume.html#DetachVolume%27"><span class="hs-identifier hs-type">DetachVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681202215"><span class="annot"><span class="annottext">Maybe Bool
-dryRun :: Maybe Bool
-$sel:dryRun:DetachVolume' :: DetachVolume -&gt; Maybe Bool
-</span><a href="#local-6989586621681202215"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681202215"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681202214"><span class="annot"><span class="annottext">s :: DetachVolume
-</span><a href="#local-6989586621681202214"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DetachVolume.html#DetachVolume%27"><span class="hs-identifier hs-type">DetachVolume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681202213"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681202213"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetachVolume
-</span><a href="#local-6989586621681202214"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:DetachVolume' :: Maybe Bool
-</span><a href="Network.AWS.EC2.DetachVolume.html#%24sel%3AdryRun%3ADetachVolume%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681202213"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DetachVolume.html#DetachVolume"><span class="hs-identifier hs-type">DetachVolume</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-148"></span><span>
-</span><span id="line-149"></span><span class="hs-comment">-- | The device name.</span><span>
-</span><span id="line-150"></span><span class="annot"><a href="Network.AWS.EC2.DetachVolume.html#detachVolume_device"><span class="hs-identifier hs-type">detachVolume_device</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DetachVolume.html#DetachVolume"><span class="hs-identifier hs-type">DetachVolume</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-151"></span><span id="detachVolume_device"><span class="annot"><span class="annottext">detachVolume_device :: (Maybe Text -&gt; f (Maybe Text)) -&gt; DetachVolume -&gt; f DetachVolume
-</span><a href="Network.AWS.EC2.DetachVolume.html#detachVolume_device"><span class="hs-identifier hs-var hs-var">detachVolume_device</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DetachVolume -&gt; Maybe Text)
--&gt; (DetachVolume -&gt; Maybe Text -&gt; DetachVolume)
--&gt; Lens DetachVolume DetachVolume (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DetachVolume.html#DetachVolume%27"><span class="hs-identifier hs-type">DetachVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681202212"><span class="annot"><span class="annottext">Maybe Text
-device :: Maybe Text
-$sel:device:DetachVolume' :: DetachVolume -&gt; Maybe Text
-</span><a href="#local-6989586621681202212"><span class="hs-identifier hs-var hs-var">device</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681202212"><span class="hs-identifier hs-var">device</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681202211"><span class="annot"><span class="annottext">s :: DetachVolume
-</span><a href="#local-6989586621681202211"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DetachVolume.html#DetachVolume%27"><span class="hs-identifier hs-type">DetachVolume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681202210"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681202210"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetachVolume
-</span><a href="#local-6989586621681202211"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:device:DetachVolume' :: Maybe Text
-</span><a href="Network.AWS.EC2.DetachVolume.html#%24sel%3Adevice%3ADetachVolume%27"><span class="hs-identifier hs-var">device</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681202210"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DetachVolume.html#DetachVolume"><span class="hs-identifier hs-type">DetachVolume</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-152"></span><span>
-</span><span id="line-153"></span><span class="hs-comment">-- | Forces detachment if the previous detachment attempt did not occur</span><span>
-</span><span id="line-154"></span><span class="hs-comment">-- cleanly (for example, logging into an instance, unmounting the volume,</span><span>
-</span><span id="line-155"></span><span class="hs-comment">-- and detaching normally). This option can lead to data loss or a</span><span>
-</span><span id="line-156"></span><span class="hs-comment">-- corrupted file system. Use this option only as a last resort to detach a</span><span>
-</span><span id="line-157"></span><span class="hs-comment">-- volume from a failed instance. The instance won\'t have an opportunity</span><span>
-</span><span id="line-158"></span><span class="hs-comment">-- to flush file system caches or file system metadata. If you use this</span><span>
-</span><span id="line-159"></span><span class="hs-comment">-- option, you must perform file system check and repair procedures.</span><span>
-</span><span id="line-160"></span><span class="annot"><a href="Network.AWS.EC2.DetachVolume.html#detachVolume_force"><span class="hs-identifier hs-type">detachVolume_force</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DetachVolume.html#DetachVolume"><span class="hs-identifier hs-type">DetachVolume</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-161"></span><span id="detachVolume_force"><span class="annot"><span class="annottext">detachVolume_force :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; DetachVolume -&gt; f DetachVolume
+</span><span id="line-142"></span><span class="hs-comment">-- | Forces detachment if the previous detachment attempt did not occur</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- cleanly (for example, logging into an instance, unmounting the volume,</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- and detaching normally). This option can lead to data loss or a</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- corrupted file system. Use this option only as a last resort to detach a</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- volume from a failed instance. The instance won\'t have an opportunity</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- to flush file system caches or file system metadata. If you use this</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- option, you must perform file system check and repair procedures.</span><span>
+</span><span id="line-149"></span><span class="annot"><a href="Network.AWS.EC2.DetachVolume.html#detachVolume_force"><span class="hs-identifier hs-type">detachVolume_force</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DetachVolume.html#DetachVolume"><span class="hs-identifier hs-type">DetachVolume</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span id="detachVolume_force"><span class="annot"><span class="annottext">detachVolume_force :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; DetachVolume -&gt; f DetachVolume
 </span><a href="Network.AWS.EC2.DetachVolume.html#detachVolume_force"><span class="hs-identifier hs-var hs-var">detachVolume_force</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DetachVolume -&gt; Maybe Bool)
 -&gt; (DetachVolume -&gt; Maybe Bool -&gt; DetachVolume)
 -&gt; Lens DetachVolume DetachVolume (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DetachVolume.html#DetachVolume%27"><span class="hs-identifier hs-type">DetachVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681202209"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DetachVolume.html#DetachVolume%27"><span class="hs-identifier hs-type">DetachVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681237875"><span class="annot"><span class="annottext">Maybe Bool
 force :: Maybe Bool
 $sel:force:DetachVolume' :: DetachVolume -&gt; Maybe Bool
-</span><a href="#local-6989586621681202209"><span class="hs-identifier hs-var hs-var">force</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681202209"><span class="hs-identifier hs-var">force</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681202208"><span class="annot"><span class="annottext">s :: DetachVolume
-</span><a href="#local-6989586621681202208"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DetachVolume.html#DetachVolume%27"><span class="hs-identifier hs-type">DetachVolume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681202207"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681202207"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetachVolume
-</span><a href="#local-6989586621681202208"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:force:DetachVolume' :: Maybe Bool
+</span><a href="#local-6989586621681237875"><span class="hs-identifier hs-var hs-var">force</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681237875"><span class="hs-identifier hs-var">force</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681237874"><span class="annot"><span class="annottext">s :: DetachVolume
+</span><a href="#local-6989586621681237874"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DetachVolume.html#DetachVolume%27"><span class="hs-identifier hs-type">DetachVolume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681237873"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681237873"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetachVolume
+</span><a href="#local-6989586621681237874"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:force:DetachVolume' :: Maybe Bool
 </span><a href="Network.AWS.EC2.DetachVolume.html#%24sel%3Aforce%3ADetachVolume%27"><span class="hs-identifier hs-var">force</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681202207"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DetachVolume.html#DetachVolume"><span class="hs-identifier hs-type">DetachVolume</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681237873"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DetachVolume.html#DetachVolume"><span class="hs-identifier hs-type">DetachVolume</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- | The device name.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Network.AWS.EC2.DetachVolume.html#detachVolume_device"><span class="hs-identifier hs-type">detachVolume_device</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DetachVolume.html#DetachVolume"><span class="hs-identifier hs-type">DetachVolume</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span id="detachVolume_device"><span class="annot"><span class="annottext">detachVolume_device :: (Maybe Text -&gt; f (Maybe Text)) -&gt; DetachVolume -&gt; f DetachVolume
+</span><a href="Network.AWS.EC2.DetachVolume.html#detachVolume_device"><span class="hs-identifier hs-var hs-var">detachVolume_device</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DetachVolume -&gt; Maybe Text)
+-&gt; (DetachVolume -&gt; Maybe Text -&gt; DetachVolume)
+-&gt; Lens DetachVolume DetachVolume (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DetachVolume.html#DetachVolume%27"><span class="hs-identifier hs-type">DetachVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681237872"><span class="annot"><span class="annottext">Maybe Text
+device :: Maybe Text
+$sel:device:DetachVolume' :: DetachVolume -&gt; Maybe Text
+</span><a href="#local-6989586621681237872"><span class="hs-identifier hs-var hs-var">device</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681237872"><span class="hs-identifier hs-var">device</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681237871"><span class="annot"><span class="annottext">s :: DetachVolume
+</span><a href="#local-6989586621681237871"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DetachVolume.html#DetachVolume%27"><span class="hs-identifier hs-type">DetachVolume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681237870"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681237870"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetachVolume
+</span><a href="#local-6989586621681237871"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:device:DetachVolume' :: Maybe Text
+</span><a href="Network.AWS.EC2.DetachVolume.html#%24sel%3Adevice%3ADetachVolume%27"><span class="hs-identifier hs-var">device</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681237870"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DetachVolume.html#DetachVolume"><span class="hs-identifier hs-type">DetachVolume</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Network.AWS.EC2.DetachVolume.html#detachVolume_dryRun"><span class="hs-identifier hs-type">detachVolume_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DetachVolume.html#DetachVolume"><span class="hs-identifier hs-type">DetachVolume</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span id="detachVolume_dryRun"><span class="annot"><span class="annottext">detachVolume_dryRun :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; DetachVolume -&gt; f DetachVolume
+</span><a href="Network.AWS.EC2.DetachVolume.html#detachVolume_dryRun"><span class="hs-identifier hs-var hs-var">detachVolume_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DetachVolume -&gt; Maybe Bool)
+-&gt; (DetachVolume -&gt; Maybe Bool -&gt; DetachVolume)
+-&gt; Lens DetachVolume DetachVolume (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DetachVolume.html#DetachVolume%27"><span class="hs-identifier hs-type">DetachVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681237869"><span class="annot"><span class="annottext">Maybe Bool
+dryRun :: Maybe Bool
+$sel:dryRun:DetachVolume' :: DetachVolume -&gt; Maybe Bool
+</span><a href="#local-6989586621681237869"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681237869"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681237868"><span class="annot"><span class="annottext">s :: DetachVolume
+</span><a href="#local-6989586621681237868"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DetachVolume.html#DetachVolume%27"><span class="hs-identifier hs-type">DetachVolume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681237867"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681237867"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetachVolume
+</span><a href="#local-6989586621681237868"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:DetachVolume' :: Maybe Bool
+</span><a href="Network.AWS.EC2.DetachVolume.html#%24sel%3AdryRun%3ADetachVolume%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681237867"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DetachVolume.html#DetachVolume"><span class="hs-identifier hs-type">DetachVolume</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-162"></span><span>
 </span><span id="line-163"></span><span class="hs-comment">-- | The ID of the volume.</span><span>
 </span><span id="line-164"></span><span class="annot"><a href="Network.AWS.EC2.DetachVolume.html#detachVolume_volumeId"><span class="hs-identifier hs-type">detachVolume_volumeId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DetachVolume.html#DetachVolume"><span class="hs-identifier hs-type">DetachVolume</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -298,25 +298,25 @@ $sel:force:DetachVolume' :: DetachVolume -&gt; Maybe Bool
 -&gt; (DetachVolume -&gt; Text -&gt; DetachVolume)
 -&gt; Lens DetachVolume DetachVolume Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DetachVolume.html#DetachVolume%27"><span class="hs-identifier hs-type">DetachVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681202206"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DetachVolume.html#DetachVolume%27"><span class="hs-identifier hs-type">DetachVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681237866"><span class="annot"><span class="annottext">Text
 volumeId :: Text
 $sel:volumeId:DetachVolume' :: DetachVolume -&gt; Text
-</span><a href="#local-6989586621681202206"><span class="hs-identifier hs-var hs-var">volumeId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681202206"><span class="hs-identifier hs-var">volumeId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681202205"><span class="annot"><span class="annottext">s :: DetachVolume
-</span><a href="#local-6989586621681202205"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DetachVolume.html#DetachVolume%27"><span class="hs-identifier hs-type">DetachVolume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681202204"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681202204"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetachVolume
-</span><a href="#local-6989586621681202205"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:volumeId:DetachVolume' :: Text
+</span><a href="#local-6989586621681237866"><span class="hs-identifier hs-var hs-var">volumeId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681237866"><span class="hs-identifier hs-var">volumeId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681237865"><span class="annot"><span class="annottext">s :: DetachVolume
+</span><a href="#local-6989586621681237865"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DetachVolume.html#DetachVolume%27"><span class="hs-identifier hs-type">DetachVolume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681237864"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681237864"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetachVolume
+</span><a href="#local-6989586621681237865"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:volumeId:DetachVolume' :: Text
 </span><a href="Network.AWS.EC2.DetachVolume.html#%24sel%3AvolumeId%3ADetachVolume%27"><span class="hs-identifier hs-var">volumeId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681202204"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DetachVolume.html#DetachVolume"><span class="hs-identifier hs-type">DetachVolume</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681237864"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DetachVolume.html#DetachVolume"><span class="hs-identifier hs-type">DetachVolume</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-166"></span><span>
 </span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DetachVolume.html#DetachVolume"><span class="hs-identifier hs-type">DetachVolume</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-168"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DetachVolume.html#DetachVolume"><span class="hs-identifier hs-type">DetachVolume</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeAttachment.html#VolumeAttachment"><span class="hs-identifier hs-type">VolumeAttachment</span></a></span><span>
-</span><span id="line-169"></span><span>  </span><span id="local-6989586621681202200"><span class="annot"><span class="annottext">request :: DetachVolume -&gt; Request DetachVolume
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621681237860"><span class="annot"><span class="annottext">request :: DetachVolume -&gt; Request DetachVolume
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DetachVolume -&gt; Request DetachVolume
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-170"></span><span>  </span><span id="local-6989586621681202196"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621681237856"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DetachVolume
 -&gt; ClientResponse ClientBody
@@ -339,20 +339,20 @@ MonadResource m =&gt;
 -&gt; Proxy a
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
-</span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681202193"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681202193"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681202192"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621681202192"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681202191"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681202191"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Either String VolumeAttachment
+</span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681237853"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681237853"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681237852"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681237852"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681237851"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681237851"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Either String VolumeAttachment
 forall a. FromXML a =&gt; [Node] -&gt; Either String a
 </span><span class="hs-identifier hs-var">Core.parseXML</span></span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681202191"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681237851"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-172"></span><span>
-</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681202186"><span id="local-6989586621681202188"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DetachVolume.html#DetachVolume"><span class="hs-identifier hs-type">DetachVolume</span></a></span></span></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681237846"><span id="local-6989586621681237848"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DetachVolume.html#DetachVolume"><span class="hs-identifier hs-type">DetachVolume</span></a></span></span></span><span>
 </span><span id="line-174"></span><span>
-</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681202183"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DetachVolume.html#DetachVolume"><span class="hs-identifier hs-type">DetachVolume</span></a></span></span><span>
+</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681237843"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DetachVolume.html#DetachVolume"><span class="hs-identifier hs-type">DetachVolume</span></a></span></span><span>
 </span><span id="line-176"></span><span>
 </span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DetachVolume.html#DetachVolume"><span class="hs-identifier hs-type">DetachVolume</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-178"></span><span>  </span><span id="local-6989586621681202179"><span class="annot"><span class="annottext">toHeaders :: DetachVolume -&gt; ResponseHeaders
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621681237839"><span class="annot"><span class="annottext">toHeaders :: DetachVolume -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DetachVolume -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -360,28 +360,28 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DetachVolume.html#DetachVolume"><span class="hs-identifier hs-type">DetachVolume</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-181"></span><span>  </span><span id="local-6989586621681202174"><span class="annot"><span class="annottext">toPath :: DetachVolume -&gt; ByteString
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621681237834"><span class="annot"><span class="annottext">toPath :: DetachVolume -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DetachVolume -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-182"></span><span>
 </span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DetachVolume.html#DetachVolume"><span class="hs-identifier hs-type">DetachVolume</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-184"></span><span>  </span><span id="local-6989586621681202170"><span class="annot"><span class="annottext">toQuery :: DetachVolume -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DetachVolume.html#DetachVolume%27"><span class="hs-identifier hs-type">DetachVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681202164"><span id="local-6989586621681202165"><span id="local-6989586621681202166"><span id="local-6989586621681202167"><span id="local-6989586621681202168"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621681237830"><span class="annot"><span class="annottext">toQuery :: DetachVolume -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DetachVolume.html#DetachVolume%27"><span class="hs-identifier hs-type">DetachVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681237824"><span id="local-6989586621681237825"><span id="local-6989586621681237826"><span id="local-6989586621681237827"><span id="local-6989586621681237828"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Text
 Text
 volumeId :: Text
-force :: Maybe Bool
-device :: Maybe Text
 dryRun :: Maybe Bool
+device :: Maybe Text
+force :: Maybe Bool
 instanceId :: Maybe Text
 $sel:volumeId:DetachVolume' :: DetachVolume -&gt; Text
-$sel:force:DetachVolume' :: DetachVolume -&gt; Maybe Bool
-$sel:device:DetachVolume' :: DetachVolume -&gt; Maybe Text
 $sel:dryRun:DetachVolume' :: DetachVolume -&gt; Maybe Bool
+$sel:device:DetachVolume' :: DetachVolume -&gt; Maybe Text
+$sel:force:DetachVolume' :: DetachVolume -&gt; Maybe Bool
 $sel:instanceId:DetachVolume' :: DetachVolume -&gt; Maybe Text
-</span><a href="#local-6989586621681202164"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621681237824"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-185"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -401,26 +401,26 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;InstanceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681202168"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681237828"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-191"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+</span><span class="hs-string">&quot;Force&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681202167"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681237827"><span class="hs-identifier hs-var">force</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-192"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Device&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681202166"><span class="hs-identifier hs-var">device</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681237826"><span class="hs-identifier hs-var">device</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-193"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;Force&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681202165"><span class="hs-identifier hs-var">force</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681237825"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-194"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;VolumeId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681202164"><span class="hs-identifier hs-var">volumeId</span></a></span><span>
+</span><a href="#local-6989586621681237824"><span class="hs-identifier hs-var">volumeId</span></a></span><span>
 </span><span id="line-195"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-196"></span></pre></body></html>

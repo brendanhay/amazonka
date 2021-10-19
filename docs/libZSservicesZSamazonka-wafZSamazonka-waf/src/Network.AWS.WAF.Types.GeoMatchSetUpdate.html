@@ -38,7 +38,7 @@
 </span><span id="line-38"></span><span class="hs-comment">-- UpdateGeoMatchSet.</span><span>
 </span><span id="line-39"></span><span class="hs-comment">--</span><span>
 </span><span id="line-40"></span><span class="hs-comment">-- /See:/ 'newGeoMatchSetUpdate' smart constructor.</span><span>
-</span><span id="line-41"></span><span id="local-6989586621679300934"><span id="local-6989586621679300935"></span></span><span class="hs-keyword">data</span><span> </span><span id="GeoMatchSetUpdate"><span class="annot"><a href="Network.AWS.WAF.Types.GeoMatchSetUpdate.html#GeoMatchSetUpdate"><span class="hs-identifier hs-var">GeoMatchSetUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GeoMatchSetUpdate%27"><span class="annot"><a href="Network.AWS.WAF.Types.GeoMatchSetUpdate.html#GeoMatchSetUpdate%27"><span class="hs-identifier hs-var">GeoMatchSetUpdate'</span></a></span></span><span>
+</span><span id="line-41"></span><span id="local-6989586621679301164"><span id="local-6989586621679301165"></span></span><span class="hs-keyword">data</span><span> </span><span id="GeoMatchSetUpdate"><span class="annot"><a href="Network.AWS.WAF.Types.GeoMatchSetUpdate.html#GeoMatchSetUpdate"><span class="hs-identifier hs-var">GeoMatchSetUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GeoMatchSetUpdate%27"><span class="annot"><a href="Network.AWS.WAF.Types.GeoMatchSetUpdate.html#GeoMatchSetUpdate%27"><span class="hs-identifier hs-var">GeoMatchSetUpdate'</span></a></span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies whether to insert or delete a country with UpdateGeoMatchSet.</span><span>
 </span><span id="line-43"></span><span>    </span><span id="%24sel%3Aaction%3AGeoMatchSetUpdate%27"><span class="annot"><span class="annottext">GeoMatchSetUpdate -&gt; ChangeAction
 </span><a href="Network.AWS.WAF.Types.GeoMatchSetUpdate.html#%24sel%3Aaction%3AGeoMatchSetUpdate%27"><span class="hs-identifier hs-var hs-var">action</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.ChangeAction.html#ChangeAction"><span class="hs-identifier hs-type">ChangeAction</span></a></span><span class="hs-special">,</span><span>
@@ -47,7 +47,7 @@
 </span><span id="line-46"></span><span>    </span><span id="%24sel%3AgeoMatchConstraint%3AGeoMatchSetUpdate%27"><span class="annot"><span class="annottext">GeoMatchSetUpdate -&gt; GeoMatchConstraint
 </span><a href="Network.AWS.WAF.Types.GeoMatchSetUpdate.html#%24sel%3AgeoMatchConstraint%3AGeoMatchSetUpdate%27"><span class="hs-identifier hs-var hs-var">geoMatchConstraint</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.GeoMatchConstraint.html#GeoMatchConstraint"><span class="hs-identifier hs-type">GeoMatchConstraint</span></a></span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679300927"><span id="local-6989586621679300929"><span class="annot"><span class="annottext">GeoMatchSetUpdate -&gt; GeoMatchSetUpdate -&gt; Bool
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679301157"><span id="local-6989586621679301159"><span class="annot"><span class="annottext">GeoMatchSetUpdate -&gt; GeoMatchSetUpdate -&gt; Bool
 (GeoMatchSetUpdate -&gt; GeoMatchSetUpdate -&gt; Bool)
 -&gt; (GeoMatchSetUpdate -&gt; GeoMatchSetUpdate -&gt; Bool)
 -&gt; Eq GeoMatchSetUpdate
@@ -56,7 +56,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GeoMatchSetUpdate -&gt; GeoMatchSetUpdate -&gt; Bool
 == :: GeoMatchSetUpdate -&gt; GeoMatchSetUpdate -&gt; Bool
 $c== :: GeoMatchSetUpdate -&gt; GeoMatchSetUpdate -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679300918"><span id="local-6989586621679300920"><span id="local-6989586621679300922"><span id="local-6989586621679300924"><span class="annot"><span class="annottext">ReadPrec [GeoMatchSetUpdate]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679301148"><span id="local-6989586621679301150"><span id="local-6989586621679301152"><span id="local-6989586621679301154"><span class="annot"><span class="annottext">ReadPrec [GeoMatchSetUpdate]
 ReadPrec GeoMatchSetUpdate
 Int -&gt; ReadS GeoMatchSetUpdate
 ReadS [GeoMatchSetUpdate]
@@ -76,7 +76,7 @@ readList :: ReadS [GeoMatchSetUpdate]
 $creadList :: ReadS [GeoMatchSetUpdate]
 readsPrec :: Int -&gt; ReadS GeoMatchSetUpdate
 $creadsPrec :: Int -&gt; ReadS GeoMatchSetUpdate
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679300911"><span id="local-6989586621679300913"><span id="local-6989586621679300915"><span class="annot"><span class="annottext">Int -&gt; GeoMatchSetUpdate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679301141"><span id="local-6989586621679301143"><span id="local-6989586621679301145"><span class="annot"><span class="annottext">Int -&gt; GeoMatchSetUpdate -&gt; ShowS
 [GeoMatchSetUpdate] -&gt; ShowS
 GeoMatchSetUpdate -&gt; String
 (Int -&gt; GeoMatchSetUpdate -&gt; ShowS)
@@ -121,17 +121,17 @@ $cfrom :: forall x. GeoMatchSetUpdate -&gt; Rep GeoMatchSetUpdate x
 </span><span id="line-66"></span><span>  </span><span class="annot"><a href="Network.AWS.WAF.Types.GeoMatchConstraint.html#GeoMatchConstraint"><span class="hs-identifier hs-type">GeoMatchConstraint</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.WAF.Types.GeoMatchSetUpdate.html#GeoMatchSetUpdate"><span class="hs-identifier hs-type">GeoMatchSetUpdate</span></a></span><span>
 </span><span id="line-68"></span><span id="newGeoMatchSetUpdate"><span class="annot"><span class="annottext">newGeoMatchSetUpdate :: ChangeAction -&gt; GeoMatchConstraint -&gt; GeoMatchSetUpdate
-</span><a href="Network.AWS.WAF.Types.GeoMatchSetUpdate.html#newGeoMatchSetUpdate"><span class="hs-identifier hs-var hs-var">newGeoMatchSetUpdate</span></a></span></span><span> </span><span id="local-6989586621679300905"><span class="annot"><span class="annottext">ChangeAction
-</span><a href="#local-6989586621679300905"><span class="hs-identifier hs-var">pAction_</span></a></span></span><span> </span><span id="local-6989586621679300904"><span class="annot"><span class="annottext">GeoMatchConstraint
-</span><a href="#local-6989586621679300904"><span class="hs-identifier hs-var">pGeoMatchConstraint_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.WAF.Types.GeoMatchSetUpdate.html#newGeoMatchSetUpdate"><span class="hs-identifier hs-var hs-var">newGeoMatchSetUpdate</span></a></span></span><span> </span><span id="local-6989586621679301135"><span class="annot"><span class="annottext">ChangeAction
+</span><a href="#local-6989586621679301135"><span class="hs-identifier hs-var">pAction_</span></a></span></span><span> </span><span id="local-6989586621679301134"><span class="annot"><span class="annottext">GeoMatchConstraint
+</span><a href="#local-6989586621679301134"><span class="hs-identifier hs-var">pGeoMatchConstraint_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-69"></span><span>  </span><span class="annot"><span class="annottext">GeoMatchSetUpdate' :: ChangeAction -&gt; GeoMatchConstraint -&gt; GeoMatchSetUpdate
 </span><a href="Network.AWS.WAF.Types.GeoMatchSetUpdate.html#GeoMatchSetUpdate%27"><span class="hs-identifier hs-type">GeoMatchSetUpdate'</span></a></span><span>
 </span><span id="line-70"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:action:GeoMatchSetUpdate' :: ChangeAction
 </span><a href="Network.AWS.WAF.Types.GeoMatchSetUpdate.html#%24sel%3Aaction%3AGeoMatchSetUpdate%27"><span class="hs-identifier hs-var">action</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ChangeAction
-</span><a href="#local-6989586621679300905"><span class="hs-identifier hs-var">pAction_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679301135"><span class="hs-identifier hs-var">pAction_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:geoMatchConstraint:GeoMatchSetUpdate' :: GeoMatchConstraint
 </span><a href="Network.AWS.WAF.Types.GeoMatchSetUpdate.html#%24sel%3AgeoMatchConstraint%3AGeoMatchSetUpdate%27"><span class="hs-identifier hs-var">geoMatchConstraint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">GeoMatchConstraint
-</span><a href="#local-6989586621679300904"><span class="hs-identifier hs-var">pGeoMatchConstraint_</span></a></span><span>
+</span><a href="#local-6989586621679301134"><span class="hs-identifier hs-var">pGeoMatchConstraint_</span></a></span><span>
 </span><span id="line-72"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- | Specifies whether to insert or delete a country with UpdateGeoMatchSet.</span><span>
@@ -143,16 +143,16 @@ $cfrom :: forall x. GeoMatchSetUpdate -&gt; Rep GeoMatchSetUpdate x
 -&gt; Lens
      GeoMatchSetUpdate GeoMatchSetUpdate ChangeAction ChangeAction
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.Types.GeoMatchSetUpdate.html#GeoMatchSetUpdate%27"><span class="hs-identifier hs-type">GeoMatchSetUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300900"><span class="annot"><span class="annottext">ChangeAction
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.Types.GeoMatchSetUpdate.html#GeoMatchSetUpdate%27"><span class="hs-identifier hs-type">GeoMatchSetUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301130"><span class="annot"><span class="annottext">ChangeAction
 action :: ChangeAction
 $sel:action:GeoMatchSetUpdate' :: GeoMatchSetUpdate -&gt; ChangeAction
-</span><a href="#local-6989586621679300900"><span class="hs-identifier hs-var hs-var">action</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChangeAction
-</span><a href="#local-6989586621679300900"><span class="hs-identifier hs-var">action</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300899"><span class="annot"><span class="annottext">s :: GeoMatchSetUpdate
-</span><a href="#local-6989586621679300899"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.Types.GeoMatchSetUpdate.html#GeoMatchSetUpdate%27"><span class="hs-identifier hs-type">GeoMatchSetUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300898"><span class="annot"><span class="annottext">ChangeAction
-</span><a href="#local-6989586621679300898"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GeoMatchSetUpdate
-</span><a href="#local-6989586621679300899"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:action:GeoMatchSetUpdate' :: ChangeAction
+</span><a href="#local-6989586621679301130"><span class="hs-identifier hs-var hs-var">action</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChangeAction
+</span><a href="#local-6989586621679301130"><span class="hs-identifier hs-var">action</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679301129"><span class="annot"><span class="annottext">s :: GeoMatchSetUpdate
+</span><a href="#local-6989586621679301129"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.Types.GeoMatchSetUpdate.html#GeoMatchSetUpdate%27"><span class="hs-identifier hs-type">GeoMatchSetUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679301128"><span class="annot"><span class="annottext">ChangeAction
+</span><a href="#local-6989586621679301128"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GeoMatchSetUpdate
+</span><a href="#local-6989586621679301129"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:action:GeoMatchSetUpdate' :: ChangeAction
 </span><a href="Network.AWS.WAF.Types.GeoMatchSetUpdate.html#%24sel%3Aaction%3AGeoMatchSetUpdate%27"><span class="hs-identifier hs-var">action</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ChangeAction
-</span><a href="#local-6989586621679300898"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.GeoMatchSetUpdate.html#GeoMatchSetUpdate"><span class="hs-identifier hs-type">GeoMatchSetUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679301128"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.GeoMatchSetUpdate.html#GeoMatchSetUpdate"><span class="hs-identifier hs-type">GeoMatchSetUpdate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- | The country from which web requests originate that you want AWS WAF to</span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- search for.</span><span>
@@ -167,30 +167,30 @@ $sel:action:GeoMatchSetUpdate' :: GeoMatchSetUpdate -&gt; ChangeAction
      GeoMatchConstraint
      GeoMatchConstraint
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.Types.GeoMatchSetUpdate.html#GeoMatchSetUpdate%27"><span class="hs-identifier hs-type">GeoMatchSetUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300896"><span class="annot"><span class="annottext">GeoMatchConstraint
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.Types.GeoMatchSetUpdate.html#GeoMatchSetUpdate%27"><span class="hs-identifier hs-type">GeoMatchSetUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301126"><span class="annot"><span class="annottext">GeoMatchConstraint
 geoMatchConstraint :: GeoMatchConstraint
 $sel:geoMatchConstraint:GeoMatchSetUpdate' :: GeoMatchSetUpdate -&gt; GeoMatchConstraint
-</span><a href="#local-6989586621679300896"><span class="hs-identifier hs-var hs-var">geoMatchConstraint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GeoMatchConstraint
-</span><a href="#local-6989586621679300896"><span class="hs-identifier hs-var">geoMatchConstraint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300895"><span class="annot"><span class="annottext">s :: GeoMatchSetUpdate
-</span><a href="#local-6989586621679300895"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.Types.GeoMatchSetUpdate.html#GeoMatchSetUpdate%27"><span class="hs-identifier hs-type">GeoMatchSetUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300894"><span class="annot"><span class="annottext">GeoMatchConstraint
-</span><a href="#local-6989586621679300894"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GeoMatchSetUpdate
-</span><a href="#local-6989586621679300895"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:geoMatchConstraint:GeoMatchSetUpdate' :: GeoMatchConstraint
+</span><a href="#local-6989586621679301126"><span class="hs-identifier hs-var hs-var">geoMatchConstraint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GeoMatchConstraint
+</span><a href="#local-6989586621679301126"><span class="hs-identifier hs-var">geoMatchConstraint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679301125"><span class="annot"><span class="annottext">s :: GeoMatchSetUpdate
+</span><a href="#local-6989586621679301125"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.Types.GeoMatchSetUpdate.html#GeoMatchSetUpdate%27"><span class="hs-identifier hs-type">GeoMatchSetUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679301124"><span class="annot"><span class="annottext">GeoMatchConstraint
+</span><a href="#local-6989586621679301124"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GeoMatchSetUpdate
+</span><a href="#local-6989586621679301125"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:geoMatchConstraint:GeoMatchSetUpdate' :: GeoMatchConstraint
 </span><a href="Network.AWS.WAF.Types.GeoMatchSetUpdate.html#%24sel%3AgeoMatchConstraint%3AGeoMatchSetUpdate%27"><span class="hs-identifier hs-var">geoMatchConstraint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">GeoMatchConstraint
-</span><a href="#local-6989586621679300894"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.GeoMatchSetUpdate.html#GeoMatchSetUpdate"><span class="hs-identifier hs-type">GeoMatchSetUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679301124"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.GeoMatchSetUpdate.html#GeoMatchSetUpdate"><span class="hs-identifier hs-type">GeoMatchSetUpdate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300890"><span id="local-6989586621679300892"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.GeoMatchSetUpdate.html#GeoMatchSetUpdate"><span class="hs-identifier hs-type">GeoMatchSetUpdate</span></a></span></span></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679301120"><span id="local-6989586621679301122"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.GeoMatchSetUpdate.html#GeoMatchSetUpdate"><span class="hs-identifier hs-type">GeoMatchSetUpdate</span></a></span></span></span><span>
 </span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300887"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.GeoMatchSetUpdate.html#GeoMatchSetUpdate"><span class="hs-identifier hs-type">GeoMatchSetUpdate</span></a></span></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679301117"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.GeoMatchSetUpdate.html#GeoMatchSetUpdate"><span class="hs-identifier hs-type">GeoMatchSetUpdate</span></a></span></span><span>
 </span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300879"><span id="local-6989586621679300881"><span id="local-6989586621679300883"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.GeoMatchSetUpdate.html#GeoMatchSetUpdate"><span class="hs-identifier hs-type">GeoMatchSetUpdate</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679300877"><span class="annot"><span class="annottext">toJSON :: GeoMatchSetUpdate -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.GeoMatchSetUpdate.html#GeoMatchSetUpdate%27"><span class="hs-identifier hs-type">GeoMatchSetUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300874"><span id="local-6989586621679300875"><span class="annot"><span class="annottext">ChangeAction
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679301109"><span id="local-6989586621679301111"><span id="local-6989586621679301113"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.GeoMatchSetUpdate.html#GeoMatchSetUpdate"><span class="hs-identifier hs-type">GeoMatchSetUpdate</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679301107"><span class="annot"><span class="annottext">toJSON :: GeoMatchSetUpdate -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.GeoMatchSetUpdate.html#GeoMatchSetUpdate%27"><span class="hs-identifier hs-type">GeoMatchSetUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301104"><span id="local-6989586621679301105"><span class="annot"><span class="annottext">ChangeAction
 GeoMatchConstraint
 geoMatchConstraint :: GeoMatchConstraint
 action :: ChangeAction
 $sel:geoMatchConstraint:GeoMatchSetUpdate' :: GeoMatchSetUpdate -&gt; GeoMatchConstraint
 $sel:action:GeoMatchSetUpdate' :: GeoMatchSetUpdate -&gt; ChangeAction
-</span><a href="#local-6989586621679300874"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679301104"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-89"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -202,7 +202,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Action&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ChangeAction -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ChangeAction
-</span><a href="#local-6989586621679300875"><span class="hs-identifier hs-var">action</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679301105"><span class="hs-identifier hs-var">action</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -210,7 +210,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;GeoMatchConstraint&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; GeoMatchConstraint -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">GeoMatchConstraint
-</span><a href="#local-6989586621679300874"><span class="hs-identifier hs-var">geoMatchConstraint</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679301104"><span class="hs-identifier hs-var">geoMatchConstraint</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-95"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span></pre></body></html>

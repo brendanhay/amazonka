@@ -56,12 +56,12 @@
 </span><span id="line-56"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#newPutOrganizationConformancePack"><span class="hs-identifier">newPutOrganizationConformancePack</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-57"></span><span>
 </span><span id="line-58"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#putOrganizationConformancePack_templateS3Uri"><span class="hs-identifier">putOrganizationConformancePack_templateS3Uri</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#putOrganizationConformancePack_deliveryS3Bucket"><span class="hs-identifier">putOrganizationConformancePack_deliveryS3Bucket</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#putOrganizationConformancePack_deliveryS3KeyPrefix"><span class="hs-identifier">putOrganizationConformancePack_deliveryS3KeyPrefix</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#putOrganizationConformancePack_templateBody"><span class="hs-identifier">putOrganizationConformancePack_templateBody</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#putOrganizationConformancePack_conformancePackInputParameters"><span class="hs-identifier">putOrganizationConformancePack_conformancePackInputParameters</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#putOrganizationConformancePack_excludedAccounts"><span class="hs-identifier">putOrganizationConformancePack_excludedAccounts</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#putOrganizationConformancePack_deliveryS3Bucket"><span class="hs-identifier">putOrganizationConformancePack_deliveryS3Bucket</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#putOrganizationConformancePack_deliveryS3KeyPrefix"><span class="hs-identifier">putOrganizationConformancePack_deliveryS3KeyPrefix</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#putOrganizationConformancePack_templateS3Uri"><span class="hs-identifier">putOrganizationConformancePack_templateS3Uri</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#putOrganizationConformancePack_conformancePackInputParameters"><span class="hs-identifier">putOrganizationConformancePack_conformancePackInputParameters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#putOrganizationConformancePack_excludedAccounts"><span class="hs-identifier">putOrganizationConformancePack_excludedAccounts</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#putOrganizationConformancePack_templateBody"><span class="hs-identifier">putOrganizationConformancePack_templateBody</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-65"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#putOrganizationConformancePack_organizationConformancePackName"><span class="hs-identifier">putOrganizationConformancePack_organizationConformancePackName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
@@ -82,43 +82,43 @@
 </span><span id="line-82"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- | /See:/ 'newPutOrganizationConformancePack' smart constructor.</span><span>
-</span><span id="line-85"></span><span id="local-6989586621679414453"><span id="local-6989586621679414454"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutOrganizationConformancePack"><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePack"><span class="hs-identifier hs-var">PutOrganizationConformancePack</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutOrganizationConformancePack%27"><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePack%27"><span class="hs-identifier hs-var">PutOrganizationConformancePack'</span></a></span></span><span>
-</span><span id="line-86"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Location of file containing the template body. The uri must point to the</span><span>
-</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- conformance pack template (max size: 300 KB).</span><span>
+</span><span id="line-85"></span><span id="local-6989586621679415076"><span id="local-6989586621679415077"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutOrganizationConformancePack"><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePack"><span class="hs-identifier hs-var">PutOrganizationConformancePack</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutOrganizationConformancePack%27"><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePack%27"><span class="hs-identifier hs-var">PutOrganizationConformancePack'</span></a></span></span><span>
+</span><span id="line-86"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the Amazon S3 bucket where Config stores conformance pack</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- templates.</span><span>
 </span><span id="line-88"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- You must have access to read Amazon S3 bucket.</span><span>
-</span><span id="line-90"></span><span>    </span><span id="%24sel%3AtemplateS3Uri%3APutOrganizationConformancePack%27"><span class="annot"><span class="annottext">PutOrganizationConformancePack -&gt; Maybe Text
-</span><a href="Network.AWS.Config.PutOrganizationConformancePack.html#%24sel%3AtemplateS3Uri%3APutOrganizationConformancePack%27"><span class="hs-identifier hs-var hs-var">templateS3Uri</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- | The name of the Amazon S3 bucket where Config stores conformance pack</span><span>
-</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- templates.</span><span>
-</span><span id="line-93"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- This field is optional. If used, it must be prefixed with</span><span>
-</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- @awsconfigconforms@.</span><span>
-</span><span id="line-96"></span><span>    </span><span id="%24sel%3AdeliveryS3Bucket%3APutOrganizationConformancePack%27"><span class="annot"><span class="annottext">PutOrganizationConformancePack -&gt; Maybe Text
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- This field is optional. If used, it must be prefixed with</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- @awsconfigconforms@.</span><span>
+</span><span id="line-91"></span><span>    </span><span id="%24sel%3AdeliveryS3Bucket%3APutOrganizationConformancePack%27"><span class="annot"><span class="annottext">PutOrganizationConformancePack -&gt; Maybe Text
 </span><a href="Network.AWS.Config.PutOrganizationConformancePack.html#%24sel%3AdeliveryS3Bucket%3APutOrganizationConformancePack%27"><span class="hs-identifier hs-var hs-var">deliveryS3Bucket</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- | The prefix for the Amazon S3 bucket.</span><span>
-</span><span id="line-98"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- This field is optional.</span><span>
-</span><span id="line-100"></span><span>    </span><span id="%24sel%3AdeliveryS3KeyPrefix%3APutOrganizationConformancePack%27"><span class="annot"><span class="annottext">PutOrganizationConformancePack -&gt; Maybe Text
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- | The prefix for the Amazon S3 bucket.</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- This field is optional.</span><span>
+</span><span id="line-95"></span><span>    </span><span id="%24sel%3AdeliveryS3KeyPrefix%3APutOrganizationConformancePack%27"><span class="annot"><span class="annottext">PutOrganizationConformancePack -&gt; Maybe Text
 </span><a href="Network.AWS.Config.PutOrganizationConformancePack.html#%24sel%3AdeliveryS3KeyPrefix%3APutOrganizationConformancePack%27"><span class="hs-identifier hs-var hs-var">deliveryS3KeyPrefix</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- | A string containing full conformance pack template body. Structure</span><span>
-</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- containing the template body with a minimum length of 1 byte and a</span><span>
-</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- maximum length of 51,200 bytes.</span><span>
-</span><span id="line-104"></span><span>    </span><span id="%24sel%3AtemplateBody%3APutOrganizationConformancePack%27"><span class="annot"><span class="annottext">PutOrganizationConformancePack -&gt; Maybe Text
-</span><a href="Network.AWS.Config.PutOrganizationConformancePack.html#%24sel%3AtemplateBody%3APutOrganizationConformancePack%27"><span class="hs-identifier hs-var hs-var">templateBody</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- | A list of @ConformancePackInputParameter@ objects.</span><span>
-</span><span id="line-106"></span><span>    </span><span id="%24sel%3AconformancePackInputParameters%3APutOrganizationConformancePack%27"><span class="annot"><span class="annottext">PutOrganizationConformancePack
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- | Location of file containing the template body. The uri must point to the</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- conformance pack template (max size: 300 KB).</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- You must have access to read Amazon S3 bucket.</span><span>
+</span><span id="line-100"></span><span>    </span><span id="%24sel%3AtemplateS3Uri%3APutOrganizationConformancePack%27"><span class="annot"><span class="annottext">PutOrganizationConformancePack -&gt; Maybe Text
+</span><a href="Network.AWS.Config.PutOrganizationConformancePack.html#%24sel%3AtemplateS3Uri%3APutOrganizationConformancePack%27"><span class="hs-identifier hs-var hs-var">templateS3Uri</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- | A list of @ConformancePackInputParameter@ objects.</span><span>
+</span><span id="line-102"></span><span>    </span><span id="%24sel%3AconformancePackInputParameters%3APutOrganizationConformancePack%27"><span class="annot"><span class="annottext">PutOrganizationConformancePack
 -&gt; Maybe [ConformancePackInputParameter]
 </span><a href="Network.AWS.Config.PutOrganizationConformancePack.html#%24sel%3AconformancePackInputParameters%3APutOrganizationConformancePack%27"><span class="hs-identifier hs-var hs-var">conformancePackInputParameters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Config.Types.ConformancePackInputParameter.html#ConformancePackInputParameter"><span class="hs-identifier hs-type">ConformancePackInputParameter</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- | A list of Amazon Web Services accounts to be excluded from an</span><span>
-</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- organization conformance pack while deploying a conformance pack.</span><span>
-</span><span id="line-109"></span><span>    </span><span id="%24sel%3AexcludedAccounts%3APutOrganizationConformancePack%27"><span class="annot"><span class="annottext">PutOrganizationConformancePack -&gt; Maybe [Text]
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- | A list of Amazon Web Services accounts to be excluded from an</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- organization conformance pack while deploying a conformance pack.</span><span>
+</span><span id="line-105"></span><span>    </span><span id="%24sel%3AexcludedAccounts%3APutOrganizationConformancePack%27"><span class="annot"><span class="annottext">PutOrganizationConformancePack -&gt; Maybe [Text]
 </span><a href="Network.AWS.Config.PutOrganizationConformancePack.html#%24sel%3AexcludedAccounts%3APutOrganizationConformancePack%27"><span class="hs-identifier hs-var hs-var">excludedAccounts</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- | A string containing full conformance pack template body. Structure</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- containing the template body with a minimum length of 1 byte and a</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- maximum length of 51,200 bytes.</span><span>
+</span><span id="line-109"></span><span>    </span><span id="%24sel%3AtemplateBody%3APutOrganizationConformancePack%27"><span class="annot"><span class="annottext">PutOrganizationConformancePack -&gt; Maybe Text
+</span><a href="Network.AWS.Config.PutOrganizationConformancePack.html#%24sel%3AtemplateBody%3APutOrganizationConformancePack%27"><span class="hs-identifier hs-var hs-var">templateBody</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-110"></span><span>    </span><span class="hs-comment">-- | Name of the organization conformance pack you want to create.</span><span>
 </span><span id="line-111"></span><span>    </span><span id="%24sel%3AorganizationConformancePackName%3APutOrganizationConformancePack%27"><span class="annot"><span class="annottext">PutOrganizationConformancePack -&gt; Text
 </span><a href="Network.AWS.Config.PutOrganizationConformancePack.html#%24sel%3AorganizationConformancePackName%3APutOrganizationConformancePack%27"><span class="hs-identifier hs-var hs-var">organizationConformancePackName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-112"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-113"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679414441"><span id="local-6989586621679414443"><span class="annot"><span class="annottext">PutOrganizationConformancePack
+</span><span id="line-113"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679415064"><span id="local-6989586621679415066"><span class="annot"><span class="annottext">PutOrganizationConformancePack
 -&gt; PutOrganizationConformancePack -&gt; Bool
 (PutOrganizationConformancePack
  -&gt; PutOrganizationConformancePack -&gt; Bool)
@@ -134,7 +134,7 @@ $c/= :: PutOrganizationConformancePack
 -&gt; PutOrganizationConformancePack -&gt; Bool
 $c== :: PutOrganizationConformancePack
 -&gt; PutOrganizationConformancePack -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679414432"><span id="local-6989586621679414434"><span id="local-6989586621679414436"><span id="local-6989586621679414438"><span class="annot"><span class="annottext">ReadPrec [PutOrganizationConformancePack]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679415055"><span id="local-6989586621679415057"><span id="local-6989586621679415059"><span id="local-6989586621679415061"><span class="annot"><span class="annottext">ReadPrec [PutOrganizationConformancePack]
 ReadPrec PutOrganizationConformancePack
 Int -&gt; ReadS PutOrganizationConformancePack
 ReadS [PutOrganizationConformancePack]
@@ -154,7 +154,7 @@ readList :: ReadS [PutOrganizationConformancePack]
 $creadList :: ReadS [PutOrganizationConformancePack]
 readsPrec :: Int -&gt; ReadS PutOrganizationConformancePack
 $creadsPrec :: Int -&gt; ReadS PutOrganizationConformancePack
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679414425"><span id="local-6989586621679414427"><span id="local-6989586621679414429"><span class="annot"><span class="annottext">Int -&gt; PutOrganizationConformancePack -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679415048"><span id="local-6989586621679415050"><span id="local-6989586621679415052"><span class="annot"><span class="annottext">Int -&gt; PutOrganizationConformancePack -&gt; ShowS
 [PutOrganizationConformancePack] -&gt; ShowS
 PutOrganizationConformancePack -&gt; String
 (Int -&gt; PutOrganizationConformancePack -&gt; ShowS)
@@ -200,29 +200,29 @@ PutOrganizationConformancePack
 </span><span id="line-120"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-121"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-122"></span><span class="hs-comment">--</span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- 'templateS3Uri', 'putOrganizationConformancePack_templateS3Uri' - Location of file containing the template body. The uri must point to the</span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- conformance pack template (max size: 300 KB).</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- 'deliveryS3Bucket', 'putOrganizationConformancePack_deliveryS3Bucket' - The name of the Amazon S3 bucket where Config stores conformance pack</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- templates.</span><span>
 </span><span id="line-125"></span><span class="hs-comment">--</span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- You must have access to read Amazon S3 bucket.</span><span>
-</span><span id="line-127"></span><span class="hs-comment">--</span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- 'deliveryS3Bucket', 'putOrganizationConformancePack_deliveryS3Bucket' - The name of the Amazon S3 bucket where Config stores conformance pack</span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- templates.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- This field is optional. If used, it must be prefixed with</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- @awsconfigconforms@.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- 'deliveryS3KeyPrefix', 'putOrganizationConformancePack_deliveryS3KeyPrefix' - The prefix for the Amazon S3 bucket.</span><span>
 </span><span id="line-130"></span><span class="hs-comment">--</span><span>
-</span><span id="line-131"></span><span class="hs-comment">-- This field is optional. If used, it must be prefixed with</span><span>
-</span><span id="line-132"></span><span class="hs-comment">-- @awsconfigconforms@.</span><span>
-</span><span id="line-133"></span><span class="hs-comment">--</span><span>
-</span><span id="line-134"></span><span class="hs-comment">-- 'deliveryS3KeyPrefix', 'putOrganizationConformancePack_deliveryS3KeyPrefix' - The prefix for the Amazon S3 bucket.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- This field is optional.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- 'templateS3Uri', 'putOrganizationConformancePack_templateS3Uri' - Location of file containing the template body. The uri must point to the</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- conformance pack template (max size: 300 KB).</span><span>
 </span><span id="line-135"></span><span class="hs-comment">--</span><span>
-</span><span id="line-136"></span><span class="hs-comment">-- This field is optional.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- You must have access to read Amazon S3 bucket.</span><span>
 </span><span id="line-137"></span><span class="hs-comment">--</span><span>
-</span><span id="line-138"></span><span class="hs-comment">-- 'templateBody', 'putOrganizationConformancePack_templateBody' - A string containing full conformance pack template body. Structure</span><span>
-</span><span id="line-139"></span><span class="hs-comment">-- containing the template body with a minimum length of 1 byte and a</span><span>
-</span><span id="line-140"></span><span class="hs-comment">-- maximum length of 51,200 bytes.</span><span>
-</span><span id="line-141"></span><span class="hs-comment">--</span><span>
-</span><span id="line-142"></span><span class="hs-comment">-- 'conformancePackInputParameters', 'putOrganizationConformancePack_conformancePackInputParameters' - A list of @ConformancePackInputParameter@ objects.</span><span>
-</span><span id="line-143"></span><span class="hs-comment">--</span><span>
-</span><span id="line-144"></span><span class="hs-comment">-- 'excludedAccounts', 'putOrganizationConformancePack_excludedAccounts' - A list of Amazon Web Services accounts to be excluded from an</span><span>
-</span><span id="line-145"></span><span class="hs-comment">-- organization conformance pack while deploying a conformance pack.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- 'conformancePackInputParameters', 'putOrganizationConformancePack_conformancePackInputParameters' - A list of @ConformancePackInputParameter@ objects.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- 'excludedAccounts', 'putOrganizationConformancePack_excludedAccounts' - A list of Amazon Web Services accounts to be excluded from an</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- organization conformance pack while deploying a conformance pack.</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- 'templateBody', 'putOrganizationConformancePack_templateBody' - A string containing full conformance pack template body. Structure</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- containing the template body with a minimum length of 1 byte and a</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- maximum length of 51,200 bytes.</span><span>
 </span><span id="line-146"></span><span class="hs-comment">--</span><span>
 </span><span id="line-147"></span><span class="hs-comment">-- 'organizationConformancePackName', 'putOrganizationConformancePack_organizationConformancePackName' - Name of the organization conformance pack you want to create.</span><span>
 </span><span id="line-148"></span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#newPutOrganizationConformancePack"><span class="hs-identifier hs-type">newPutOrganizationConformancePack</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -231,84 +231,56 @@ PutOrganizationConformancePack
 </span><span id="line-151"></span><span>  </span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePack"><span class="hs-identifier hs-type">PutOrganizationConformancePack</span></a></span><span>
 </span><span id="line-152"></span><span id="newPutOrganizationConformancePack"><span class="annot"><span class="annottext">newPutOrganizationConformancePack :: Text -&gt; PutOrganizationConformancePack
 </span><a href="Network.AWS.Config.PutOrganizationConformancePack.html#newPutOrganizationConformancePack"><span class="hs-identifier hs-var hs-var">newPutOrganizationConformancePack</span></a></span></span><span>
-</span><span id="line-153"></span><span>  </span><span id="local-6989586621679414420"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679414420"><span class="hs-identifier hs-var">pOrganizationConformancePackName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679415043"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679415043"><span class="hs-identifier hs-var">pOrganizationConformancePackName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-154"></span><span>    </span><span class="annot"><span class="annottext">PutOrganizationConformancePack' :: Maybe Text
--&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe [ConformancePackInputParameter]
 -&gt; Maybe [Text]
+-&gt; Maybe Text
 -&gt; Text
 -&gt; PutOrganizationConformancePack
 </span><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePack%27"><span class="hs-identifier hs-type">PutOrganizationConformancePack'</span></a></span><span>
-</span><span id="line-155"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:templateS3Uri:PutOrganizationConformancePack' :: Maybe Text
-</span><a href="Network.AWS.Config.PutOrganizationConformancePack.html#%24sel%3AtemplateS3Uri%3APutOrganizationConformancePack%27"><span class="hs-identifier hs-var">templateS3Uri</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-155"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:deliveryS3Bucket:PutOrganizationConformancePack' :: Maybe Text
+</span><a href="Network.AWS.Config.PutOrganizationConformancePack.html#%24sel%3AdeliveryS3Bucket%3APutOrganizationConformancePack%27"><span class="hs-identifier hs-var">deliveryS3Bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-156"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-157"></span><span>        </span><span class="annot"><span class="annottext">$sel:deliveryS3Bucket:PutOrganizationConformancePack' :: Maybe Text
-</span><a href="Network.AWS.Config.PutOrganizationConformancePack.html#%24sel%3AdeliveryS3Bucket%3APutOrganizationConformancePack%27"><span class="hs-identifier hs-var">deliveryS3Bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-158"></span><span>        </span><span class="annot"><span class="annottext">$sel:deliveryS3KeyPrefix:PutOrganizationConformancePack' :: Maybe Text
+</span><span id="line-157"></span><span>        </span><span class="annot"><span class="annottext">$sel:deliveryS3KeyPrefix:PutOrganizationConformancePack' :: Maybe Text
 </span><a href="Network.AWS.Config.PutOrganizationConformancePack.html#%24sel%3AdeliveryS3KeyPrefix%3APutOrganizationConformancePack%27"><span class="hs-identifier hs-var">deliveryS3KeyPrefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-159"></span><span>        </span><span class="annot"><span class="annottext">$sel:templateBody:PutOrganizationConformancePack' :: Maybe Text
-</span><a href="Network.AWS.Config.PutOrganizationConformancePack.html#%24sel%3AtemplateBody%3APutOrganizationConformancePack%27"><span class="hs-identifier hs-var">templateBody</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-158"></span><span>        </span><span class="annot"><span class="annottext">$sel:templateS3Uri:PutOrganizationConformancePack' :: Maybe Text
+</span><a href="Network.AWS.Config.PutOrganizationConformancePack.html#%24sel%3AtemplateS3Uri%3APutOrganizationConformancePack%27"><span class="hs-identifier hs-var">templateS3Uri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-160"></span><span>        </span><span class="annot"><span class="annottext">$sel:conformancePackInputParameters:PutOrganizationConformancePack' :: Maybe [ConformancePackInputParameter]
+</span><span id="line-159"></span><span>        </span><span class="annot"><span class="annottext">$sel:conformancePackInputParameters:PutOrganizationConformancePack' :: Maybe [ConformancePackInputParameter]
 </span><a href="Network.AWS.Config.PutOrganizationConformancePack.html#%24sel%3AconformancePackInputParameters%3APutOrganizationConformancePack%27"><span class="hs-identifier hs-var">conformancePackInputParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-161"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ConformancePackInputParameter]
+</span><span id="line-160"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ConformancePackInputParameter]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-162"></span><span>        </span><span class="annot"><span class="annottext">$sel:excludedAccounts:PutOrganizationConformancePack' :: Maybe [Text]
+</span><span id="line-161"></span><span>        </span><span class="annot"><span class="annottext">$sel:excludedAccounts:PutOrganizationConformancePack' :: Maybe [Text]
 </span><a href="Network.AWS.Config.PutOrganizationConformancePack.html#%24sel%3AexcludedAccounts%3APutOrganizationConformancePack%27"><span class="hs-identifier hs-var">excludedAccounts</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>        </span><span class="annot"><span class="annottext">$sel:templateBody:PutOrganizationConformancePack' :: Maybe Text
+</span><a href="Network.AWS.Config.PutOrganizationConformancePack.html#%24sel%3AtemplateBody%3APutOrganizationConformancePack%27"><span class="hs-identifier hs-var">templateBody</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-163"></span><span>        </span><span class="annot"><span class="annottext">$sel:organizationConformancePackName:PutOrganizationConformancePack' :: Text
 </span><a href="Network.AWS.Config.PutOrganizationConformancePack.html#%24sel%3AorganizationConformancePackName%3APutOrganizationConformancePack%27"><span class="hs-identifier hs-var">organizationConformancePackName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-164"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679414420"><span class="hs-identifier hs-var">pOrganizationConformancePackName_</span></a></span><span>
+</span><a href="#local-6989586621679415043"><span class="hs-identifier hs-var">pOrganizationConformancePackName_</span></a></span><span>
 </span><span id="line-165"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-166"></span><span>
-</span><span id="line-167"></span><span class="hs-comment">-- | Location of file containing the template body. The uri must point to the</span><span>
-</span><span id="line-168"></span><span class="hs-comment">-- conformance pack template (max size: 300 KB).</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- | The name of the Amazon S3 bucket where Config stores conformance pack</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- templates.</span><span>
 </span><span id="line-169"></span><span class="hs-comment">--</span><span>
-</span><span id="line-170"></span><span class="hs-comment">-- You must have access to read Amazon S3 bucket.</span><span>
-</span><span id="line-171"></span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#putOrganizationConformancePack_templateS3Uri"><span class="hs-identifier hs-type">putOrganizationConformancePack_templateS3Uri</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePack"><span class="hs-identifier hs-type">PutOrganizationConformancePack</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-172"></span><span id="putOrganizationConformancePack_templateS3Uri"><span class="annot"><span class="annottext">putOrganizationConformancePack_templateS3Uri :: (Maybe Text -&gt; f (Maybe Text))
--&gt; PutOrganizationConformancePack
--&gt; f PutOrganizationConformancePack
-</span><a href="Network.AWS.Config.PutOrganizationConformancePack.html#putOrganizationConformancePack_templateS3Uri"><span class="hs-identifier hs-var hs-var">putOrganizationConformancePack_templateS3Uri</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutOrganizationConformancePack -&gt; Maybe Text)
--&gt; (PutOrganizationConformancePack
-    -&gt; Maybe Text -&gt; PutOrganizationConformancePack)
--&gt; Lens
-     PutOrganizationConformancePack
-     PutOrganizationConformancePack
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePack%27"><span class="hs-identifier hs-type">PutOrganizationConformancePack'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414417"><span class="annot"><span class="annottext">Maybe Text
-templateS3Uri :: Maybe Text
-$sel:templateS3Uri:PutOrganizationConformancePack' :: PutOrganizationConformancePack -&gt; Maybe Text
-</span><a href="#local-6989586621679414417"><span class="hs-identifier hs-var hs-var">templateS3Uri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679414417"><span class="hs-identifier hs-var">templateS3Uri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679414416"><span class="annot"><span class="annottext">s :: PutOrganizationConformancePack
-</span><a href="#local-6989586621679414416"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePack%27"><span class="hs-identifier hs-type">PutOrganizationConformancePack'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679414415"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679414415"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutOrganizationConformancePack
-</span><a href="#local-6989586621679414416"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:templateS3Uri:PutOrganizationConformancePack' :: Maybe Text
-</span><a href="Network.AWS.Config.PutOrganizationConformancePack.html#%24sel%3AtemplateS3Uri%3APutOrganizationConformancePack%27"><span class="hs-identifier hs-var">templateS3Uri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679414415"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePack"><span class="hs-identifier hs-type">PutOrganizationConformancePack</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-173"></span><span>
-</span><span id="line-174"></span><span class="hs-comment">-- | The name of the Amazon S3 bucket where Config stores conformance pack</span><span>
-</span><span id="line-175"></span><span class="hs-comment">-- templates.</span><span>
-</span><span id="line-176"></span><span class="hs-comment">--</span><span>
-</span><span id="line-177"></span><span class="hs-comment">-- This field is optional. If used, it must be prefixed with</span><span>
-</span><span id="line-178"></span><span class="hs-comment">-- @awsconfigconforms@.</span><span>
-</span><span id="line-179"></span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#putOrganizationConformancePack_deliveryS3Bucket"><span class="hs-identifier hs-type">putOrganizationConformancePack_deliveryS3Bucket</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePack"><span class="hs-identifier hs-type">PutOrganizationConformancePack</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-180"></span><span id="putOrganizationConformancePack_deliveryS3Bucket"><span class="annot"><span class="annottext">putOrganizationConformancePack_deliveryS3Bucket :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-170"></span><span class="hs-comment">-- This field is optional. If used, it must be prefixed with</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- @awsconfigconforms@.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#putOrganizationConformancePack_deliveryS3Bucket"><span class="hs-identifier hs-type">putOrganizationConformancePack_deliveryS3Bucket</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePack"><span class="hs-identifier hs-type">PutOrganizationConformancePack</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span id="putOrganizationConformancePack_deliveryS3Bucket"><span class="annot"><span class="annottext">putOrganizationConformancePack_deliveryS3Bucket :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; PutOrganizationConformancePack
 -&gt; f PutOrganizationConformancePack
 </span><a href="Network.AWS.Config.PutOrganizationConformancePack.html#putOrganizationConformancePack_deliveryS3Bucket"><span class="hs-identifier hs-var hs-var">putOrganizationConformancePack_deliveryS3Bucket</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutOrganizationConformancePack -&gt; Maybe Text)
@@ -320,22 +292,22 @@ $sel:templateS3Uri:PutOrganizationConformancePack' :: PutOrganizationConformance
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePack%27"><span class="hs-identifier hs-type">PutOrganizationConformancePack'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414414"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePack%27"><span class="hs-identifier hs-type">PutOrganizationConformancePack'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679415040"><span class="annot"><span class="annottext">Maybe Text
 deliveryS3Bucket :: Maybe Text
 $sel:deliveryS3Bucket:PutOrganizationConformancePack' :: PutOrganizationConformancePack -&gt; Maybe Text
-</span><a href="#local-6989586621679414414"><span class="hs-identifier hs-var hs-var">deliveryS3Bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679414414"><span class="hs-identifier hs-var">deliveryS3Bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679414413"><span class="annot"><span class="annottext">s :: PutOrganizationConformancePack
-</span><a href="#local-6989586621679414413"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePack%27"><span class="hs-identifier hs-type">PutOrganizationConformancePack'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679414412"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679414412"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutOrganizationConformancePack
-</span><a href="#local-6989586621679414413"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deliveryS3Bucket:PutOrganizationConformancePack' :: Maybe Text
+</span><a href="#local-6989586621679415040"><span class="hs-identifier hs-var hs-var">deliveryS3Bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679415040"><span class="hs-identifier hs-var">deliveryS3Bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679415039"><span class="annot"><span class="annottext">s :: PutOrganizationConformancePack
+</span><a href="#local-6989586621679415039"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePack%27"><span class="hs-identifier hs-type">PutOrganizationConformancePack'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679415038"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679415038"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutOrganizationConformancePack
+</span><a href="#local-6989586621679415039"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deliveryS3Bucket:PutOrganizationConformancePack' :: Maybe Text
 </span><a href="Network.AWS.Config.PutOrganizationConformancePack.html#%24sel%3AdeliveryS3Bucket%3APutOrganizationConformancePack%27"><span class="hs-identifier hs-var">deliveryS3Bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679414412"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePack"><span class="hs-identifier hs-type">PutOrganizationConformancePack</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-181"></span><span>
-</span><span id="line-182"></span><span class="hs-comment">-- | The prefix for the Amazon S3 bucket.</span><span>
-</span><span id="line-183"></span><span class="hs-comment">--</span><span>
-</span><span id="line-184"></span><span class="hs-comment">-- This field is optional.</span><span>
-</span><span id="line-185"></span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#putOrganizationConformancePack_deliveryS3KeyPrefix"><span class="hs-identifier hs-type">putOrganizationConformancePack_deliveryS3KeyPrefix</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePack"><span class="hs-identifier hs-type">PutOrganizationConformancePack</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-186"></span><span id="putOrganizationConformancePack_deliveryS3KeyPrefix"><span class="annot"><span class="annottext">putOrganizationConformancePack_deliveryS3KeyPrefix :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621679415038"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePack"><span class="hs-identifier hs-type">PutOrganizationConformancePack</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- | The prefix for the Amazon S3 bucket.</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- This field is optional.</span><span>
+</span><span id="line-178"></span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#putOrganizationConformancePack_deliveryS3KeyPrefix"><span class="hs-identifier hs-type">putOrganizationConformancePack_deliveryS3KeyPrefix</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePack"><span class="hs-identifier hs-type">PutOrganizationConformancePack</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span id="putOrganizationConformancePack_deliveryS3KeyPrefix"><span class="annot"><span class="annottext">putOrganizationConformancePack_deliveryS3KeyPrefix :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; PutOrganizationConformancePack
 -&gt; f PutOrganizationConformancePack
 </span><a href="Network.AWS.Config.PutOrganizationConformancePack.html#putOrganizationConformancePack_deliveryS3KeyPrefix"><span class="hs-identifier hs-var hs-var">putOrganizationConformancePack_deliveryS3KeyPrefix</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutOrganizationConformancePack -&gt; Maybe Text)
@@ -347,25 +319,26 @@ $sel:deliveryS3Bucket:PutOrganizationConformancePack' :: PutOrganizationConforma
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePack%27"><span class="hs-identifier hs-type">PutOrganizationConformancePack'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414411"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePack%27"><span class="hs-identifier hs-type">PutOrganizationConformancePack'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679415037"><span class="annot"><span class="annottext">Maybe Text
 deliveryS3KeyPrefix :: Maybe Text
 $sel:deliveryS3KeyPrefix:PutOrganizationConformancePack' :: PutOrganizationConformancePack -&gt; Maybe Text
-</span><a href="#local-6989586621679414411"><span class="hs-identifier hs-var hs-var">deliveryS3KeyPrefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679414411"><span class="hs-identifier hs-var">deliveryS3KeyPrefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679414410"><span class="annot"><span class="annottext">s :: PutOrganizationConformancePack
-</span><a href="#local-6989586621679414410"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePack%27"><span class="hs-identifier hs-type">PutOrganizationConformancePack'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679414409"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679414409"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutOrganizationConformancePack
-</span><a href="#local-6989586621679414410"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deliveryS3KeyPrefix:PutOrganizationConformancePack' :: Maybe Text
+</span><a href="#local-6989586621679415037"><span class="hs-identifier hs-var hs-var">deliveryS3KeyPrefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679415037"><span class="hs-identifier hs-var">deliveryS3KeyPrefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679415036"><span class="annot"><span class="annottext">s :: PutOrganizationConformancePack
+</span><a href="#local-6989586621679415036"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePack%27"><span class="hs-identifier hs-type">PutOrganizationConformancePack'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679415035"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679415035"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutOrganizationConformancePack
+</span><a href="#local-6989586621679415036"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deliveryS3KeyPrefix:PutOrganizationConformancePack' :: Maybe Text
 </span><a href="Network.AWS.Config.PutOrganizationConformancePack.html#%24sel%3AdeliveryS3KeyPrefix%3APutOrganizationConformancePack%27"><span class="hs-identifier hs-var">deliveryS3KeyPrefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679414409"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePack"><span class="hs-identifier hs-type">PutOrganizationConformancePack</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-187"></span><span>
-</span><span id="line-188"></span><span class="hs-comment">-- | A string containing full conformance pack template body. Structure</span><span>
-</span><span id="line-189"></span><span class="hs-comment">-- containing the template body with a minimum length of 1 byte and a</span><span>
-</span><span id="line-190"></span><span class="hs-comment">-- maximum length of 51,200 bytes.</span><span>
-</span><span id="line-191"></span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#putOrganizationConformancePack_templateBody"><span class="hs-identifier hs-type">putOrganizationConformancePack_templateBody</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePack"><span class="hs-identifier hs-type">PutOrganizationConformancePack</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-192"></span><span id="putOrganizationConformancePack_templateBody"><span class="annot"><span class="annottext">putOrganizationConformancePack_templateBody :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621679415035"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePack"><span class="hs-identifier hs-type">PutOrganizationConformancePack</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- | Location of file containing the template body. The uri must point to the</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- conformance pack template (max size: 300 KB).</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- You must have access to read Amazon S3 bucket.</span><span>
+</span><span id="line-185"></span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#putOrganizationConformancePack_templateS3Uri"><span class="hs-identifier hs-type">putOrganizationConformancePack_templateS3Uri</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePack"><span class="hs-identifier hs-type">PutOrganizationConformancePack</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span id="putOrganizationConformancePack_templateS3Uri"><span class="annot"><span class="annottext">putOrganizationConformancePack_templateS3Uri :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; PutOrganizationConformancePack
 -&gt; f PutOrganizationConformancePack
-</span><a href="Network.AWS.Config.PutOrganizationConformancePack.html#putOrganizationConformancePack_templateBody"><span class="hs-identifier hs-var hs-var">putOrganizationConformancePack_templateBody</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutOrganizationConformancePack -&gt; Maybe Text)
+</span><a href="Network.AWS.Config.PutOrganizationConformancePack.html#putOrganizationConformancePack_templateS3Uri"><span class="hs-identifier hs-var hs-var">putOrganizationConformancePack_templateS3Uri</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutOrganizationConformancePack -&gt; Maybe Text)
 -&gt; (PutOrganizationConformancePack
     -&gt; Maybe Text -&gt; PutOrganizationConformancePack)
 -&gt; Lens
@@ -374,20 +347,20 @@ $sel:deliveryS3KeyPrefix:PutOrganizationConformancePack' :: PutOrganizationConfo
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePack%27"><span class="hs-identifier hs-type">PutOrganizationConformancePack'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414408"><span class="annot"><span class="annottext">Maybe Text
-templateBody :: Maybe Text
-$sel:templateBody:PutOrganizationConformancePack' :: PutOrganizationConformancePack -&gt; Maybe Text
-</span><a href="#local-6989586621679414408"><span class="hs-identifier hs-var hs-var">templateBody</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679414408"><span class="hs-identifier hs-var">templateBody</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679414407"><span class="annot"><span class="annottext">s :: PutOrganizationConformancePack
-</span><a href="#local-6989586621679414407"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePack%27"><span class="hs-identifier hs-type">PutOrganizationConformancePack'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679414406"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679414406"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutOrganizationConformancePack
-</span><a href="#local-6989586621679414407"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:templateBody:PutOrganizationConformancePack' :: Maybe Text
-</span><a href="Network.AWS.Config.PutOrganizationConformancePack.html#%24sel%3AtemplateBody%3APutOrganizationConformancePack%27"><span class="hs-identifier hs-var">templateBody</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679414406"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePack"><span class="hs-identifier hs-type">PutOrganizationConformancePack</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-193"></span><span>
-</span><span id="line-194"></span><span class="hs-comment">-- | A list of @ConformancePackInputParameter@ objects.</span><span>
-</span><span id="line-195"></span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#putOrganizationConformancePack_conformancePackInputParameters"><span class="hs-identifier hs-type">putOrganizationConformancePack_conformancePackInputParameters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePack"><span class="hs-identifier hs-type">PutOrganizationConformancePack</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Config.Types.ConformancePackInputParameter.html#ConformancePackInputParameter"><span class="hs-identifier hs-type">ConformancePackInputParameter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-196"></span><span id="putOrganizationConformancePack_conformancePackInputParameters"><span class="annot"><span class="annottext">putOrganizationConformancePack_conformancePackInputParameters :: (Maybe [ConformancePackInputParameter]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePack%27"><span class="hs-identifier hs-type">PutOrganizationConformancePack'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679415034"><span class="annot"><span class="annottext">Maybe Text
+templateS3Uri :: Maybe Text
+$sel:templateS3Uri:PutOrganizationConformancePack' :: PutOrganizationConformancePack -&gt; Maybe Text
+</span><a href="#local-6989586621679415034"><span class="hs-identifier hs-var hs-var">templateS3Uri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679415034"><span class="hs-identifier hs-var">templateS3Uri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679415033"><span class="annot"><span class="annottext">s :: PutOrganizationConformancePack
+</span><a href="#local-6989586621679415033"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePack%27"><span class="hs-identifier hs-type">PutOrganizationConformancePack'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679415032"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679415032"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutOrganizationConformancePack
+</span><a href="#local-6989586621679415033"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:templateS3Uri:PutOrganizationConformancePack' :: Maybe Text
+</span><a href="Network.AWS.Config.PutOrganizationConformancePack.html#%24sel%3AtemplateS3Uri%3APutOrganizationConformancePack%27"><span class="hs-identifier hs-var">templateS3Uri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679415032"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePack"><span class="hs-identifier hs-type">PutOrganizationConformancePack</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- | A list of @ConformancePackInputParameter@ objects.</span><span>
+</span><span id="line-189"></span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#putOrganizationConformancePack_conformancePackInputParameters"><span class="hs-identifier hs-type">putOrganizationConformancePack_conformancePackInputParameters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePack"><span class="hs-identifier hs-type">PutOrganizationConformancePack</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Config.Types.ConformancePackInputParameter.html#ConformancePackInputParameter"><span class="hs-identifier hs-type">ConformancePackInputParameter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span id="putOrganizationConformancePack_conformancePackInputParameters"><span class="annot"><span class="annottext">putOrganizationConformancePack_conformancePackInputParameters :: (Maybe [ConformancePackInputParameter]
  -&gt; f (Maybe [ConformancePackInputParameter]))
 -&gt; PutOrganizationConformancePack
 -&gt; f PutOrganizationConformancePack
@@ -402,17 +375,17 @@ $sel:templateBody:PutOrganizationConformancePack' :: PutOrganizationConformanceP
      (Maybe [ConformancePackInputParameter])
      (Maybe [ConformancePackInputParameter])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePack%27"><span class="hs-identifier hs-type">PutOrganizationConformancePack'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414405"><span class="annot"><span class="annottext">Maybe [ConformancePackInputParameter]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePack%27"><span class="hs-identifier hs-type">PutOrganizationConformancePack'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679415031"><span class="annot"><span class="annottext">Maybe [ConformancePackInputParameter]
 conformancePackInputParameters :: Maybe [ConformancePackInputParameter]
 $sel:conformancePackInputParameters:PutOrganizationConformancePack' :: PutOrganizationConformancePack
 -&gt; Maybe [ConformancePackInputParameter]
-</span><a href="#local-6989586621679414405"><span class="hs-identifier hs-var hs-var">conformancePackInputParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ConformancePackInputParameter]
-</span><a href="#local-6989586621679414405"><span class="hs-identifier hs-var">conformancePackInputParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679414404"><span class="annot"><span class="annottext">s :: PutOrganizationConformancePack
-</span><a href="#local-6989586621679414404"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePack%27"><span class="hs-identifier hs-type">PutOrganizationConformancePack'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679414403"><span class="annot"><span class="annottext">Maybe [ConformancePackInputParameter]
-</span><a href="#local-6989586621679414403"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutOrganizationConformancePack
-</span><a href="#local-6989586621679414404"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:conformancePackInputParameters:PutOrganizationConformancePack' :: Maybe [ConformancePackInputParameter]
+</span><a href="#local-6989586621679415031"><span class="hs-identifier hs-var hs-var">conformancePackInputParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ConformancePackInputParameter]
+</span><a href="#local-6989586621679415031"><span class="hs-identifier hs-var">conformancePackInputParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679415030"><span class="annot"><span class="annottext">s :: PutOrganizationConformancePack
+</span><a href="#local-6989586621679415030"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePack%27"><span class="hs-identifier hs-type">PutOrganizationConformancePack'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679415029"><span class="annot"><span class="annottext">Maybe [ConformancePackInputParameter]
+</span><a href="#local-6989586621679415029"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutOrganizationConformancePack
+</span><a href="#local-6989586621679415030"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:conformancePackInputParameters:PutOrganizationConformancePack' :: Maybe [ConformancePackInputParameter]
 </span><a href="Network.AWS.Config.PutOrganizationConformancePack.html#%24sel%3AconformancePackInputParameters%3APutOrganizationConformancePack%27"><span class="hs-identifier hs-var">conformancePackInputParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ConformancePackInputParameter]
-</span><a href="#local-6989586621679414403"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePack"><span class="hs-identifier hs-type">PutOrganizationConformancePack</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ConformancePackInputParameter]
+</span><a href="#local-6989586621679415029"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePack"><span class="hs-identifier hs-type">PutOrganizationConformancePack</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ConformancePackInputParameter]
   -&gt; f (Maybe [ConformancePackInputParameter]))
  -&gt; PutOrganizationConformancePack
  -&gt; f PutOrganizationConformancePack)
@@ -443,13 +416,13 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [ConformancePackInputParameter]
   [ConformancePackInputParameter]
   [ConformancePackInputParameter]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-197"></span><span>
-</span><span id="line-198"></span><span class="hs-comment">-- | A list of Amazon Web Services accounts to be excluded from an</span><span>
-</span><span id="line-199"></span><span class="hs-comment">-- organization conformance pack while deploying a conformance pack.</span><span>
-</span><span id="line-200"></span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#putOrganizationConformancePack_excludedAccounts"><span class="hs-identifier hs-type">putOrganizationConformancePack_excludedAccounts</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePack"><span class="hs-identifier hs-type">PutOrganizationConformancePack</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-201"></span><span id="putOrganizationConformancePack_excludedAccounts"><span class="annot"><span class="annottext">putOrganizationConformancePack_excludedAccounts :: (Maybe [Text] -&gt; f (Maybe [Text]))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- | A list of Amazon Web Services accounts to be excluded from an</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- organization conformance pack while deploying a conformance pack.</span><span>
+</span><span id="line-194"></span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#putOrganizationConformancePack_excludedAccounts"><span class="hs-identifier hs-type">putOrganizationConformancePack_excludedAccounts</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePack"><span class="hs-identifier hs-type">PutOrganizationConformancePack</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span id="putOrganizationConformancePack_excludedAccounts"><span class="annot"><span class="annottext">putOrganizationConformancePack_excludedAccounts :: (Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; PutOrganizationConformancePack
 -&gt; f PutOrganizationConformancePack
 </span><a href="Network.AWS.Config.PutOrganizationConformancePack.html#putOrganizationConformancePack_excludedAccounts"><span class="hs-identifier hs-var hs-var">putOrganizationConformancePack_excludedAccounts</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutOrganizationConformancePack -&gt; Maybe [Text])
@@ -461,16 +434,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePack%27"><span class="hs-identifier hs-type">PutOrganizationConformancePack'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414399"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePack%27"><span class="hs-identifier hs-type">PutOrganizationConformancePack'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679415025"><span class="annot"><span class="annottext">Maybe [Text]
 excludedAccounts :: Maybe [Text]
 $sel:excludedAccounts:PutOrganizationConformancePack' :: PutOrganizationConformancePack -&gt; Maybe [Text]
-</span><a href="#local-6989586621679414399"><span class="hs-identifier hs-var hs-var">excludedAccounts</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679414399"><span class="hs-identifier hs-var">excludedAccounts</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679414398"><span class="annot"><span class="annottext">s :: PutOrganizationConformancePack
-</span><a href="#local-6989586621679414398"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePack%27"><span class="hs-identifier hs-type">PutOrganizationConformancePack'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679414397"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679414397"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutOrganizationConformancePack
-</span><a href="#local-6989586621679414398"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:excludedAccounts:PutOrganizationConformancePack' :: Maybe [Text]
+</span><a href="#local-6989586621679415025"><span class="hs-identifier hs-var hs-var">excludedAccounts</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679415025"><span class="hs-identifier hs-var">excludedAccounts</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679415024"><span class="annot"><span class="annottext">s :: PutOrganizationConformancePack
+</span><a href="#local-6989586621679415024"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePack%27"><span class="hs-identifier hs-type">PutOrganizationConformancePack'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679415023"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679415023"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutOrganizationConformancePack
+</span><a href="#local-6989586621679415024"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:excludedAccounts:PutOrganizationConformancePack' :: Maybe [Text]
 </span><a href="Network.AWS.Config.PutOrganizationConformancePack.html#%24sel%3AexcludedAccounts%3APutOrganizationConformancePack%27"><span class="hs-identifier hs-var">excludedAccounts</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679414397"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePack"><span class="hs-identifier hs-type">PutOrganizationConformancePack</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679415023"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePack"><span class="hs-identifier hs-type">PutOrganizationConformancePack</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; PutOrganizationConformancePack
  -&gt; f PutOrganizationConformancePack)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
@@ -485,8 +458,35 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- | A string containing full conformance pack template body. Structure</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- containing the template body with a minimum length of 1 byte and a</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- maximum length of 51,200 bytes.</span><span>
+</span><span id="line-200"></span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#putOrganizationConformancePack_templateBody"><span class="hs-identifier hs-type">putOrganizationConformancePack_templateBody</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePack"><span class="hs-identifier hs-type">PutOrganizationConformancePack</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span id="putOrganizationConformancePack_templateBody"><span class="annot"><span class="annottext">putOrganizationConformancePack_templateBody :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PutOrganizationConformancePack
+-&gt; f PutOrganizationConformancePack
+</span><a href="Network.AWS.Config.PutOrganizationConformancePack.html#putOrganizationConformancePack_templateBody"><span class="hs-identifier hs-var hs-var">putOrganizationConformancePack_templateBody</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutOrganizationConformancePack -&gt; Maybe Text)
+-&gt; (PutOrganizationConformancePack
+    -&gt; Maybe Text -&gt; PutOrganizationConformancePack)
+-&gt; Lens
+     PutOrganizationConformancePack
+     PutOrganizationConformancePack
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePack%27"><span class="hs-identifier hs-type">PutOrganizationConformancePack'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679415022"><span class="annot"><span class="annottext">Maybe Text
+templateBody :: Maybe Text
+$sel:templateBody:PutOrganizationConformancePack' :: PutOrganizationConformancePack -&gt; Maybe Text
+</span><a href="#local-6989586621679415022"><span class="hs-identifier hs-var hs-var">templateBody</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679415022"><span class="hs-identifier hs-var">templateBody</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679415021"><span class="annot"><span class="annottext">s :: PutOrganizationConformancePack
+</span><a href="#local-6989586621679415021"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePack%27"><span class="hs-identifier hs-type">PutOrganizationConformancePack'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679415020"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679415020"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutOrganizationConformancePack
+</span><a href="#local-6989586621679415021"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:templateBody:PutOrganizationConformancePack' :: Maybe Text
+</span><a href="Network.AWS.Config.PutOrganizationConformancePack.html#%24sel%3AtemplateBody%3APutOrganizationConformancePack%27"><span class="hs-identifier hs-var">templateBody</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679415020"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePack"><span class="hs-identifier hs-type">PutOrganizationConformancePack</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-202"></span><span>
 </span><span id="line-203"></span><span class="hs-comment">-- | Name of the organization conformance pack you want to create.</span><span>
 </span><span id="line-204"></span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#putOrganizationConformancePack_organizationConformancePackName"><span class="hs-identifier hs-type">putOrganizationConformancePack_organizationConformancePackName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePack"><span class="hs-identifier hs-type">PutOrganizationConformancePack</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -502,16 +502,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePack%27"><span class="hs-identifier hs-type">PutOrganizationConformancePack'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414396"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePack%27"><span class="hs-identifier hs-type">PutOrganizationConformancePack'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679415019"><span class="annot"><span class="annottext">Text
 organizationConformancePackName :: Text
 $sel:organizationConformancePackName:PutOrganizationConformancePack' :: PutOrganizationConformancePack -&gt; Text
-</span><a href="#local-6989586621679414396"><span class="hs-identifier hs-var hs-var">organizationConformancePackName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679414396"><span class="hs-identifier hs-var">organizationConformancePackName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679414395"><span class="annot"><span class="annottext">s :: PutOrganizationConformancePack
-</span><a href="#local-6989586621679414395"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePack%27"><span class="hs-identifier hs-type">PutOrganizationConformancePack'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679414394"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679414394"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutOrganizationConformancePack
-</span><a href="#local-6989586621679414395"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:organizationConformancePackName:PutOrganizationConformancePack' :: Text
+</span><a href="#local-6989586621679415019"><span class="hs-identifier hs-var hs-var">organizationConformancePackName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679415019"><span class="hs-identifier hs-var">organizationConformancePackName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679415018"><span class="annot"><span class="annottext">s :: PutOrganizationConformancePack
+</span><a href="#local-6989586621679415018"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePack%27"><span class="hs-identifier hs-type">PutOrganizationConformancePack'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679415017"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679415017"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutOrganizationConformancePack
+</span><a href="#local-6989586621679415018"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:organizationConformancePackName:PutOrganizationConformancePack' :: Text
 </span><a href="Network.AWS.Config.PutOrganizationConformancePack.html#%24sel%3AorganizationConformancePackName%3APutOrganizationConformancePack%27"><span class="hs-identifier hs-var">organizationConformancePackName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679414394"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePack"><span class="hs-identifier hs-type">PutOrganizationConformancePack</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679415017"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePack"><span class="hs-identifier hs-type">PutOrganizationConformancePack</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-206"></span><span>
 </span><span id="line-207"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-208"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
@@ -520,7 +520,7 @@ $sel:organizationConformancePackName:PutOrganizationConformancePack' :: PutOrgan
 </span><span id="line-211"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-212"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePack"><span class="hs-identifier hs-type">PutOrganizationConformancePack</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-213"></span><span>      </span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePackResponse"><span class="hs-identifier hs-type">PutOrganizationConformancePackResponse</span></a></span><span>
-</span><span id="line-214"></span><span>  </span><span id="local-6989586621679414390"><span class="annot"><span class="annottext">request :: PutOrganizationConformancePack
+</span><span id="line-214"></span><span>  </span><span id="local-6989586621679415013"><span class="annot"><span class="annottext">request :: PutOrganizationConformancePack
 -&gt; Request PutOrganizationConformancePack
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; PutOrganizationConformancePack
@@ -528,7 +528,7 @@ $sel:organizationConformancePackName:PutOrganizationConformancePack' :: PutOrgan
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Config.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-215"></span><span>  </span><span id="local-6989586621679414386"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-215"></span><span>  </span><span id="local-6989586621679415009"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy PutOrganizationConformancePack
 -&gt; ClientResponse ClientBody
@@ -556,10 +556,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-217"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679414383"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679414383"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679414382"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679414382"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679414381"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679414381"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-217"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679415006"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679415006"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679415005"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679415005"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679415004"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679415004"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-218"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; PutOrganizationConformancePackResponse
 </span><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePackResponse%27"><span class="hs-identifier hs-var">PutOrganizationConformancePackResponse'</span></a></span><span>
 </span><span id="line-219"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; PutOrganizationConformancePackResponse)
@@ -567,7 +567,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; PutOrganizationConformancePackResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679414381"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679415004"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;OrganizationConformancePackArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -580,22 +580,22 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679414383"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679415006"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-221"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-222"></span><span>
 </span><span id="line-223"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-224"></span><span>  </span><span id="local-6989586621679414373"><span id="local-6989586621679414375"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-224"></span><span>  </span><span id="local-6989586621679414996"><span id="local-6989586621679414998"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-225"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePack"><span class="hs-identifier hs-type">PutOrganizationConformancePack</span></a></span></span></span><span>
 </span><span id="line-226"></span><span>
 </span><span id="line-227"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-228"></span><span>  </span><span id="local-6989586621679414370"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-228"></span><span>  </span><span id="local-6989586621679414993"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-229"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePack"><span class="hs-identifier hs-type">PutOrganizationConformancePack</span></a></span></span><span>
 </span><span id="line-230"></span><span>
 </span><span id="line-231"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-232"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
 </span><span id="line-233"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePack"><span class="hs-identifier hs-type">PutOrganizationConformancePack</span></a></span><span>
 </span><span id="line-234"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-235"></span><span>  </span><span id="local-6989586621679414366"><span class="annot"><span class="annottext">toHeaders :: PutOrganizationConformancePack -&gt; ResponseHeaders
+</span><span id="line-235"></span><span>  </span><span id="local-6989586621679414989"><span class="annot"><span class="annottext">toHeaders :: PutOrganizationConformancePack -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-236"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
 -&gt; PutOrganizationConformancePack -&gt; ResponseHeaders
@@ -623,80 +623,80 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-246"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-247"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-248"></span><span>
-</span><span id="line-249"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679414356"><span id="local-6989586621679414358"><span id="local-6989586621679414360"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePack"><span class="hs-identifier hs-type">PutOrganizationConformancePack</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-250"></span><span>  </span><span id="local-6989586621679414354"><span class="annot"><span class="annottext">toJSON :: PutOrganizationConformancePack -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePack%27"><span class="hs-identifier hs-type">PutOrganizationConformancePack'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414346"><span id="local-6989586621679414347"><span id="local-6989586621679414348"><span id="local-6989586621679414349"><span id="local-6989586621679414350"><span id="local-6989586621679414351"><span id="local-6989586621679414352"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-249"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679414979"><span id="local-6989586621679414981"><span id="local-6989586621679414983"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePack"><span class="hs-identifier hs-type">PutOrganizationConformancePack</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-250"></span><span>  </span><span id="local-6989586621679414977"><span class="annot"><span class="annottext">toJSON :: PutOrganizationConformancePack -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePack%27"><span class="hs-identifier hs-type">PutOrganizationConformancePack'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414969"><span id="local-6989586621679414970"><span id="local-6989586621679414971"><span id="local-6989586621679414972"><span id="local-6989586621679414973"><span id="local-6989586621679414974"><span id="local-6989586621679414975"><span class="annot"><span class="annottext">Maybe [Text]
 Maybe [ConformancePackInputParameter]
 Maybe Text
 Text
 organizationConformancePackName :: Text
+templateBody :: Maybe Text
 excludedAccounts :: Maybe [Text]
 conformancePackInputParameters :: Maybe [ConformancePackInputParameter]
-templateBody :: Maybe Text
+templateS3Uri :: Maybe Text
 deliveryS3KeyPrefix :: Maybe Text
 deliveryS3Bucket :: Maybe Text
-templateS3Uri :: Maybe Text
 $sel:organizationConformancePackName:PutOrganizationConformancePack' :: PutOrganizationConformancePack -&gt; Text
+$sel:templateBody:PutOrganizationConformancePack' :: PutOrganizationConformancePack -&gt; Maybe Text
 $sel:excludedAccounts:PutOrganizationConformancePack' :: PutOrganizationConformancePack -&gt; Maybe [Text]
 $sel:conformancePackInputParameters:PutOrganizationConformancePack' :: PutOrganizationConformancePack
 -&gt; Maybe [ConformancePackInputParameter]
-$sel:templateBody:PutOrganizationConformancePack' :: PutOrganizationConformancePack -&gt; Maybe Text
+$sel:templateS3Uri:PutOrganizationConformancePack' :: PutOrganizationConformancePack -&gt; Maybe Text
 $sel:deliveryS3KeyPrefix:PutOrganizationConformancePack' :: PutOrganizationConformancePack -&gt; Maybe Text
 $sel:deliveryS3Bucket:PutOrganizationConformancePack' :: PutOrganizationConformancePack -&gt; Maybe Text
-$sel:templateS3Uri:PutOrganizationConformancePack' :: PutOrganizationConformancePack -&gt; Maybe Text
-</span><a href="#local-6989586621679414346"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679414969"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-251"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-252"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-253"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeliveryS3Bucket&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-254"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679414975"><span class="hs-identifier hs-var">deliveryS3Bucket</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-255"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeliveryS3KeyPrefix&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-256"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679414974"><span class="hs-identifier hs-var">deliveryS3KeyPrefix</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-257"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TemplateS3Uri&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679414352"><span class="hs-identifier hs-var">templateS3Uri</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-254"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;DeliveryS3Bucket&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-255"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679414351"><span class="hs-identifier hs-var">deliveryS3Bucket</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-256"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;DeliveryS3KeyPrefix&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-257"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679414350"><span class="hs-identifier hs-var">deliveryS3KeyPrefix</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679414973"><span class="hs-identifier hs-var">templateS3Uri</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-258"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ConformancePackInputParameters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [ConformancePackInputParameter] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-259"></span><span>              </span><span class="annot"><span class="annottext">([ConformancePackInputParameter] -&gt; Pair)
+-&gt; Maybe [ConformancePackInputParameter] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ConformancePackInputParameter]
+</span><a href="#local-6989586621679414972"><span class="hs-identifier hs-var">conformancePackInputParameters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-260"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ExcludedAccounts&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-261"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679414971"><span class="hs-identifier hs-var">excludedAccounts</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-262"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TemplateBody&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679414349"><span class="hs-identifier hs-var">templateBody</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-259"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ConformancePackInputParameters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [ConformancePackInputParameter] -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-260"></span><span>              </span><span class="annot"><span class="annottext">([ConformancePackInputParameter] -&gt; Pair)
--&gt; Maybe [ConformancePackInputParameter] -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ConformancePackInputParameter]
-</span><a href="#local-6989586621679414348"><span class="hs-identifier hs-var">conformancePackInputParameters</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-261"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ExcludedAccounts&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-262"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679414347"><span class="hs-identifier hs-var">excludedAccounts</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679414970"><span class="hs-identifier hs-var">templateBody</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-263"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -705,20 +705,20 @@ forall a. a -&gt; Maybe a
 </span><span id="line-265"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679414346"><span class="hs-identifier hs-var">organizationConformancePackName</span></a></span><span>
+</span><a href="#local-6989586621679414969"><span class="hs-identifier hs-var">organizationConformancePackName</span></a></span><span>
 </span><span id="line-266"></span><span>              </span><span class="hs-special">)</span><span>
 </span><span id="line-267"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-268"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-269"></span><span>
 </span><span id="line-270"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePack"><span class="hs-identifier hs-type">PutOrganizationConformancePack</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-271"></span><span>  </span><span id="local-6989586621679414340"><span class="annot"><span class="annottext">toPath :: PutOrganizationConformancePack -&gt; ByteString
+</span><span id="line-271"></span><span>  </span><span id="local-6989586621679414963"><span class="annot"><span class="annottext">toPath :: PutOrganizationConformancePack -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; PutOrganizationConformancePack -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-272"></span><span>
 </span><span id="line-273"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePack"><span class="hs-identifier hs-type">PutOrganizationConformancePack</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-274"></span><span>  </span><span id="local-6989586621679414336"><span class="annot"><span class="annottext">toQuery :: PutOrganizationConformancePack -&gt; QueryString
+</span><span id="line-274"></span><span>  </span><span id="local-6989586621679414959"><span class="annot"><span class="annottext">toQuery :: PutOrganizationConformancePack -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; PutOrganizationConformancePack -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -726,7 +726,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-275"></span><span>
 </span><span id="line-276"></span><span class="hs-comment">-- | /See:/ 'newPutOrganizationConformancePackResponse' smart constructor.</span><span>
-</span><span id="line-277"></span><span id="local-6989586621679414333"><span id="local-6989586621679414334"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutOrganizationConformancePackResponse"><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePackResponse"><span class="hs-identifier hs-var">PutOrganizationConformancePackResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutOrganizationConformancePackResponse%27"><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePackResponse%27"><span class="hs-identifier hs-var">PutOrganizationConformancePackResponse'</span></a></span></span><span>
+</span><span id="line-277"></span><span id="local-6989586621679414956"><span id="local-6989586621679414957"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutOrganizationConformancePackResponse"><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePackResponse"><span class="hs-identifier hs-var">PutOrganizationConformancePackResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutOrganizationConformancePackResponse%27"><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePackResponse%27"><span class="hs-identifier hs-var">PutOrganizationConformancePackResponse'</span></a></span></span><span>
 </span><span id="line-278"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | ARN of the organization conformance pack.</span><span>
 </span><span id="line-279"></span><span>    </span><span id="%24sel%3AorganizationConformancePackArn%3APutOrganizationConformancePackResponse%27"><span class="annot"><span class="annottext">PutOrganizationConformancePackResponse -&gt; Maybe Text
 </span><a href="Network.AWS.Config.PutOrganizationConformancePack.html#%24sel%3AorganizationConformancePackArn%3APutOrganizationConformancePackResponse%27"><span class="hs-identifier hs-var hs-var">organizationConformancePackArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -734,7 +734,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-281"></span><span>    </span><span id="%24sel%3AhttpStatus%3APutOrganizationConformancePackResponse%27"><span class="annot"><span class="annottext">PutOrganizationConformancePackResponse -&gt; Int
 </span><a href="Network.AWS.Config.PutOrganizationConformancePack.html#%24sel%3AhttpStatus%3APutOrganizationConformancePackResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-282"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-283"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679414327"><span id="local-6989586621679414329"><span class="annot"><span class="annottext">PutOrganizationConformancePackResponse
+</span><span id="line-283"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679414950"><span id="local-6989586621679414952"><span class="annot"><span class="annottext">PutOrganizationConformancePackResponse
 -&gt; PutOrganizationConformancePackResponse -&gt; Bool
 (PutOrganizationConformancePackResponse
  -&gt; PutOrganizationConformancePackResponse -&gt; Bool)
@@ -750,7 +750,7 @@ $c/= :: PutOrganizationConformancePackResponse
 -&gt; PutOrganizationConformancePackResponse -&gt; Bool
 $c== :: PutOrganizationConformancePackResponse
 -&gt; PutOrganizationConformancePackResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679414319"><span id="local-6989586621679414321"><span id="local-6989586621679414323"><span id="local-6989586621679414325"><span class="annot"><span class="annottext">ReadPrec [PutOrganizationConformancePackResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679414942"><span id="local-6989586621679414944"><span id="local-6989586621679414946"><span id="local-6989586621679414948"><span class="annot"><span class="annottext">ReadPrec [PutOrganizationConformancePackResponse]
 ReadPrec PutOrganizationConformancePackResponse
 Int -&gt; ReadS PutOrganizationConformancePackResponse
 ReadS [PutOrganizationConformancePackResponse]
@@ -770,7 +770,7 @@ readList :: ReadS [PutOrganizationConformancePackResponse]
 $creadList :: ReadS [PutOrganizationConformancePackResponse]
 readsPrec :: Int -&gt; ReadS PutOrganizationConformancePackResponse
 $creadsPrec :: Int -&gt; ReadS PutOrganizationConformancePackResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679414313"><span id="local-6989586621679414315"><span id="local-6989586621679414317"><span class="annot"><span class="annottext">Int -&gt; PutOrganizationConformancePackResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679414936"><span id="local-6989586621679414938"><span id="local-6989586621679414940"><span class="annot"><span class="annottext">Int -&gt; PutOrganizationConformancePackResponse -&gt; ShowS
 [PutOrganizationConformancePackResponse] -&gt; ShowS
 PutOrganizationConformancePackResponse -&gt; String
 (Int -&gt; PutOrganizationConformancePackResponse -&gt; ShowS)
@@ -825,8 +825,8 @@ PutOrganizationConformancePackResponse
 </span><span id="line-299"></span><span>  </span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePackResponse"><span class="hs-identifier hs-type">PutOrganizationConformancePackResponse</span></a></span><span>
 </span><span id="line-300"></span><span id="newPutOrganizationConformancePackResponse"><span class="annot"><span class="annottext">newPutOrganizationConformancePackResponse :: Int -&gt; PutOrganizationConformancePackResponse
 </span><a href="Network.AWS.Config.PutOrganizationConformancePack.html#newPutOrganizationConformancePackResponse"><span class="hs-identifier hs-var hs-var">newPutOrganizationConformancePackResponse</span></a></span></span><span>
-</span><span id="line-301"></span><span>  </span><span id="local-6989586621679414310"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679414310"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-301"></span><span>  </span><span id="local-6989586621679414933"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679414933"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-302"></span><span>    </span><span class="annot"><span class="annottext">PutOrganizationConformancePackResponse' :: Maybe Text -&gt; Int -&gt; PutOrganizationConformancePackResponse
 </span><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePackResponse%27"><span class="hs-identifier hs-type">PutOrganizationConformancePackResponse'</span></a></span><span>
 </span><span id="line-303"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:organizationConformancePackArn:PutOrganizationConformancePackResponse' :: Maybe Text
@@ -836,7 +836,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-305"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:PutOrganizationConformancePackResponse' :: Int
 </span><a href="Network.AWS.Config.PutOrganizationConformancePack.html#%24sel%3AhttpStatus%3APutOrganizationConformancePackResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679414310"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679414933"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-306"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-307"></span><span>
 </span><span id="line-308"></span><span class="hs-comment">-- | ARN of the organization conformance pack.</span><span>
@@ -853,16 +853,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePackResponse%27"><span class="hs-identifier hs-type">PutOrganizationConformancePackResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414309"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePackResponse%27"><span class="hs-identifier hs-type">PutOrganizationConformancePackResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414932"><span class="annot"><span class="annottext">Maybe Text
 organizationConformancePackArn :: Maybe Text
 $sel:organizationConformancePackArn:PutOrganizationConformancePackResponse' :: PutOrganizationConformancePackResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679414309"><span class="hs-identifier hs-var hs-var">organizationConformancePackArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679414309"><span class="hs-identifier hs-var">organizationConformancePackArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679414308"><span class="annot"><span class="annottext">s :: PutOrganizationConformancePackResponse
-</span><a href="#local-6989586621679414308"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePackResponse%27"><span class="hs-identifier hs-type">PutOrganizationConformancePackResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679414307"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679414307"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutOrganizationConformancePackResponse
-</span><a href="#local-6989586621679414308"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:organizationConformancePackArn:PutOrganizationConformancePackResponse' :: Maybe Text
+</span><a href="#local-6989586621679414932"><span class="hs-identifier hs-var hs-var">organizationConformancePackArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679414932"><span class="hs-identifier hs-var">organizationConformancePackArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679414931"><span class="annot"><span class="annottext">s :: PutOrganizationConformancePackResponse
+</span><a href="#local-6989586621679414931"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePackResponse%27"><span class="hs-identifier hs-type">PutOrganizationConformancePackResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679414930"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679414930"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutOrganizationConformancePackResponse
+</span><a href="#local-6989586621679414931"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:organizationConformancePackArn:PutOrganizationConformancePackResponse' :: Maybe Text
 </span><a href="Network.AWS.Config.PutOrganizationConformancePack.html#%24sel%3AorganizationConformancePackArn%3APutOrganizationConformancePackResponse%27"><span class="hs-identifier hs-var">organizationConformancePackArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679414307"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePackResponse"><span class="hs-identifier hs-type">PutOrganizationConformancePackResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679414930"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePackResponse"><span class="hs-identifier hs-type">PutOrganizationConformancePackResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-311"></span><span>
 </span><span id="line-312"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-313"></span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#putOrganizationConformancePackResponse_httpStatus"><span class="hs-identifier hs-type">putOrganizationConformancePackResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePackResponse"><span class="hs-identifier hs-type">PutOrganizationConformancePackResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -878,18 +878,18 @@ $sel:organizationConformancePackArn:PutOrganizationConformancePackResponse' :: P
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePackResponse%27"><span class="hs-identifier hs-type">PutOrganizationConformancePackResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414306"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePackResponse%27"><span class="hs-identifier hs-type">PutOrganizationConformancePackResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414929"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:PutOrganizationConformancePackResponse' :: PutOrganizationConformancePackResponse -&gt; Int
-</span><a href="#local-6989586621679414306"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679414306"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679414305"><span class="annot"><span class="annottext">s :: PutOrganizationConformancePackResponse
-</span><a href="#local-6989586621679414305"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePackResponse%27"><span class="hs-identifier hs-type">PutOrganizationConformancePackResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679414304"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679414304"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutOrganizationConformancePackResponse
-</span><a href="#local-6989586621679414305"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutOrganizationConformancePackResponse' :: Int
+</span><a href="#local-6989586621679414929"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679414929"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679414928"><span class="annot"><span class="annottext">s :: PutOrganizationConformancePackResponse
+</span><a href="#local-6989586621679414928"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePackResponse%27"><span class="hs-identifier hs-type">PutOrganizationConformancePackResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679414927"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679414927"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutOrganizationConformancePackResponse
+</span><a href="#local-6989586621679414928"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutOrganizationConformancePackResponse' :: Int
 </span><a href="Network.AWS.Config.PutOrganizationConformancePack.html#%24sel%3AhttpStatus%3APutOrganizationConformancePackResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679414304"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePackResponse"><span class="hs-identifier hs-type">PutOrganizationConformancePackResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679414927"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePackResponse"><span class="hs-identifier hs-type">PutOrganizationConformancePackResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-315"></span><span>
 </span><span id="line-316"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-317"></span><span>  </span><span id="local-6989586621679414302"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-317"></span><span>  </span><span id="local-6989586621679414925"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-318"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.PutOrganizationConformancePack.html#PutOrganizationConformancePackResponse"><span class="hs-identifier hs-type">PutOrganizationConformancePackResponse</span></a></span></span><span>
 </span><span id="line-319"></span></pre></body></html>

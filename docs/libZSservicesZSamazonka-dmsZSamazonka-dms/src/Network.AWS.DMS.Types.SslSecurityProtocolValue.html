@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679439051"><span id="local-6989586621679439052"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SslSecurityProtocolValue"><span class="annot"><a href="Network.AWS.DMS.Types.SslSecurityProtocolValue.html#SslSecurityProtocolValue"><span class="hs-identifier hs-var">SslSecurityProtocolValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SslSecurityProtocolValue%27"><span class="annot"><a href="Network.AWS.DMS.Types.SslSecurityProtocolValue.html#SslSecurityProtocolValue%27"><span class="hs-identifier hs-var">SslSecurityProtocolValue'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679439333"><span id="local-6989586621679439334"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SslSecurityProtocolValue"><span class="annot"><a href="Network.AWS.DMS.Types.SslSecurityProtocolValue.html#SslSecurityProtocolValue"><span class="hs-identifier hs-var">SslSecurityProtocolValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SslSecurityProtocolValue%27"><span class="annot"><a href="Network.AWS.DMS.Types.SslSecurityProtocolValue.html#SslSecurityProtocolValue%27"><span class="hs-identifier hs-var">SslSecurityProtocolValue'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSslSecurityProtocolValue"><span class="annot"><span class="annottext">SslSecurityProtocolValue -&gt; Text
 </span><a href="Network.AWS.DMS.Types.SslSecurityProtocolValue.html#fromSslSecurityProtocolValue"><span class="hs-identifier hs-var hs-var">fromSslSecurityProtocolValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679439043"><span id="local-6989586621679439045"><span id="local-6989586621679439047"><span class="annot"><span class="annottext">Int -&gt; SslSecurityProtocolValue -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679439325"><span id="local-6989586621679439327"><span id="local-6989586621679439329"><span class="annot"><span class="annottext">Int -&gt; SslSecurityProtocolValue -&gt; ShowS
 [SslSecurityProtocolValue] -&gt; ShowS
 SslSecurityProtocolValue -&gt; String
 (Int -&gt; SslSecurityProtocolValue -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: SslSecurityProtocolValue -&gt; String
 showsPrec :: Int -&gt; SslSecurityProtocolValue -&gt; ShowS
 $cshowsPrec :: Int -&gt; SslSecurityProtocolValue -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679439034"><span id="local-6989586621679439036"><span id="local-6989586621679439038"><span id="local-6989586621679439040"><span class="annot"><span class="annottext">ReadPrec [SslSecurityProtocolValue]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679439316"><span id="local-6989586621679439318"><span id="local-6989586621679439320"><span id="local-6989586621679439322"><span class="annot"><span class="annottext">ReadPrec [SslSecurityProtocolValue]
 ReadPrec SslSecurityProtocolValue
 Int -&gt; ReadS SslSecurityProtocolValue
 ReadS [SslSecurityProtocolValue]
@@ -72,7 +72,7 @@ $creadList :: ReadS [SslSecurityProtocolValue]
 readsPrec :: Int -&gt; ReadS SslSecurityProtocolValue
 $creadsPrec :: Int -&gt; ReadS SslSecurityProtocolValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679439029"><span id="local-6989586621679439031"><span class="annot"><span class="annottext">SslSecurityProtocolValue -&gt; SslSecurityProtocolValue -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679439311"><span id="local-6989586621679439313"><span class="annot"><span class="annottext">SslSecurityProtocolValue -&gt; SslSecurityProtocolValue -&gt; Bool
 (SslSecurityProtocolValue -&gt; SslSecurityProtocolValue -&gt; Bool)
 -&gt; (SslSecurityProtocolValue -&gt; SslSecurityProtocolValue -&gt; Bool)
 -&gt; Eq SslSecurityProtocolValue
@@ -82,7 +82,7 @@ $c/= :: SslSecurityProtocolValue -&gt; SslSecurityProtocolValue -&gt; Bool
 == :: SslSecurityProtocolValue -&gt; SslSecurityProtocolValue -&gt; Bool
 $c== :: SslSecurityProtocolValue -&gt; SslSecurityProtocolValue -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679439013"><span id="local-6989586621679439015"><span id="local-6989586621679439017"><span id="local-6989586621679439019"><span id="local-6989586621679439021"><span id="local-6989586621679439023"><span id="local-6989586621679439025"><span class="annot"><span class="annottext">Eq SslSecurityProtocolValue
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679439295"><span id="local-6989586621679439297"><span id="local-6989586621679439299"><span id="local-6989586621679439301"><span id="local-6989586621679439303"><span id="local-6989586621679439305"><span id="local-6989586621679439307"><span class="annot"><span class="annottext">Eq SslSecurityProtocolValue
 Eq SslSecurityProtocolValue
 -&gt; (SslSecurityProtocolValue
     -&gt; SslSecurityProtocolValue -&gt; Ordering)
@@ -147,7 +147,7 @@ SslSecurityProtocolValue -&gt; Rep SslSecurityProtocolValue x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679439005"><span id="local-6989586621679439007"><span class="annot"><span class="annottext">Int -&gt; SslSecurityProtocolValue -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679439287"><span id="local-6989586621679439289"><span class="annot"><span class="annottext">Int -&gt; SslSecurityProtocolValue -&gt; Int
 SslSecurityProtocolValue -&gt; Int
 (Int -&gt; SslSecurityProtocolValue -&gt; Int)
 -&gt; (SslSecurityProtocolValue -&gt; Int)
@@ -158,55 +158,55 @@ $chash :: SslSecurityProtocolValue -&gt; Int
 hashWithSalt :: Int -&gt; SslSecurityProtocolValue -&gt; Int
 $chashWithSalt :: Int -&gt; SslSecurityProtocolValue -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679439002"><span class="annot"><span class="annottext">SslSecurityProtocolValue -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679439284"><span class="annot"><span class="annottext">SslSecurityProtocolValue -&gt; ()
 (SslSecurityProtocolValue -&gt; ()) -&gt; NFData SslSecurityProtocolValue
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: SslSecurityProtocolValue -&gt; ()
 $crnf :: SslSecurityProtocolValue -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679438999"><span class="annot"><span class="annottext">Text -&gt; Either String SslSecurityProtocolValue
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679439281"><span class="annot"><span class="annottext">Text -&gt; Either String SslSecurityProtocolValue
 (Text -&gt; Either String SslSecurityProtocolValue)
 -&gt; FromText SslSecurityProtocolValue
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String SslSecurityProtocolValue
 $cfromText :: Text -&gt; Either String SslSecurityProtocolValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679438996"><span class="annot"><span class="annottext">SslSecurityProtocolValue -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679439278"><span class="annot"><span class="annottext">SslSecurityProtocolValue -&gt; Text
 (SslSecurityProtocolValue -&gt; Text)
 -&gt; ToText SslSecurityProtocolValue
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: SslSecurityProtocolValue -&gt; Text
 $ctoText :: SslSecurityProtocolValue -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679438993"><span class="annot"><span class="annottext">SslSecurityProtocolValue -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679439275"><span class="annot"><span class="annottext">SslSecurityProtocolValue -&gt; ByteString
 (SslSecurityProtocolValue -&gt; ByteString)
 -&gt; ToByteString SslSecurityProtocolValue
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: SslSecurityProtocolValue -&gt; ByteString
 $ctoBS :: SslSecurityProtocolValue -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679438990"><span class="annot"><span class="annottext">SslSecurityProtocolValue -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679439272"><span class="annot"><span class="annottext">SslSecurityProtocolValue -&gt; ByteStringBuilder
 (SslSecurityProtocolValue -&gt; ByteStringBuilder)
 -&gt; ToLog SslSecurityProtocolValue
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: SslSecurityProtocolValue -&gt; ByteStringBuilder
 $cbuild :: SslSecurityProtocolValue -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679438987"><span class="annot"><span class="annottext">HeaderName -&gt; SslSecurityProtocolValue -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679439269"><span class="annot"><span class="annottext">HeaderName -&gt; SslSecurityProtocolValue -&gt; [Header]
 (HeaderName -&gt; SslSecurityProtocolValue -&gt; [Header])
 -&gt; ToHeader SslSecurityProtocolValue
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; SslSecurityProtocolValue -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; SslSecurityProtocolValue -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679438984"><span class="annot"><span class="annottext">SslSecurityProtocolValue -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679439266"><span class="annot"><span class="annottext">SslSecurityProtocolValue -&gt; QueryString
 (SslSecurityProtocolValue -&gt; QueryString)
 -&gt; ToQuery SslSecurityProtocolValue
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: SslSecurityProtocolValue -&gt; QueryString
 $ctoQuery :: SslSecurityProtocolValue -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679438979"><span id="local-6989586621679438981"><span class="annot"><span class="annottext">Value -&gt; Parser [SslSecurityProtocolValue]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679439261"><span id="local-6989586621679439263"><span class="annot"><span class="annottext">Value -&gt; Parser [SslSecurityProtocolValue]
 Value -&gt; Parser SslSecurityProtocolValue
 (Value -&gt; Parser SslSecurityProtocolValue)
 -&gt; (Value -&gt; Parser [SslSecurityProtocolValue])
@@ -218,7 +218,7 @@ $cparseJSONList :: Value -&gt; Parser [SslSecurityProtocolValue]
 parseJSON :: Value -&gt; Parser SslSecurityProtocolValue
 $cparseJSON :: Value -&gt; Parser SslSecurityProtocolValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679438974"><span id="local-6989586621679438976"><span class="annot"><span class="annottext">FromJSONKeyFunction [SslSecurityProtocolValue]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679439256"><span id="local-6989586621679439258"><span class="annot"><span class="annottext">FromJSONKeyFunction [SslSecurityProtocolValue]
 FromJSONKeyFunction SslSecurityProtocolValue
 FromJSONKeyFunction SslSecurityProtocolValue
 -&gt; FromJSONKeyFunction [SslSecurityProtocolValue]
@@ -230,7 +230,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [SslSecurityProtocolValue]
 fromJSONKey :: FromJSONKeyFunction SslSecurityProtocolValue
 $cfromJSONKey :: FromJSONKeyFunction SslSecurityProtocolValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679438965"><span id="local-6989586621679438967"><span id="local-6989586621679438969"><span id="local-6989586621679438971"><span class="annot"><span class="annottext">[SslSecurityProtocolValue] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679439247"><span id="local-6989586621679439249"><span id="local-6989586621679439251"><span id="local-6989586621679439253"><span class="annot"><span class="annottext">[SslSecurityProtocolValue] -&gt; Encoding
 [SslSecurityProtocolValue] -&gt; Value
 SslSecurityProtocolValue -&gt; Encoding
 SslSecurityProtocolValue -&gt; Value
@@ -254,7 +254,7 @@ $ctoEncoding :: SslSecurityProtocolValue -&gt; Encoding
 toJSON :: SslSecurityProtocolValue -&gt; Value
 $ctoJSON :: SslSecurityProtocolValue -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679438960"><span id="local-6989586621679438962"><span class="annot"><span class="annottext">ToJSONKeyFunction [SslSecurityProtocolValue]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679439242"><span id="local-6989586621679439244"><span class="annot"><span class="annottext">ToJSONKeyFunction [SslSecurityProtocolValue]
 ToJSONKeyFunction SslSecurityProtocolValue
 ToJSONKeyFunction SslSecurityProtocolValue
 -&gt; ToJSONKeyFunction [SslSecurityProtocolValue]
@@ -266,14 +266,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [SslSecurityProtocolValue]
 toJSONKey :: ToJSONKeyFunction SslSecurityProtocolValue
 $ctoJSONKey :: ToJSONKeyFunction SslSecurityProtocolValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679438957"><span class="annot"><span class="annottext">[Node] -&gt; Either String SslSecurityProtocolValue
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679439239"><span class="annot"><span class="annottext">[Node] -&gt; Either String SslSecurityProtocolValue
 ([Node] -&gt; Either String SslSecurityProtocolValue)
 -&gt; FromXML SslSecurityProtocolValue
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String SslSecurityProtocolValue
 $cparseXML :: [Node] -&gt; Either String SslSecurityProtocolValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679438954"><span class="annot"><span class="annottext">SslSecurityProtocolValue -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679439236"><span class="annot"><span class="annottext">SslSecurityProtocolValue -&gt; XML
 (SslSecurityProtocolValue -&gt; XML) -&gt; ToXML SslSecurityProtocolValue
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: SslSecurityProtocolValue -&gt; XML

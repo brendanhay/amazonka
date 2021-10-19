@@ -32,8 +32,8 @@
 </span><span id="line-32"></span><span>
 </span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
 </span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#createHITType_autoApprovalDelayInSeconds"><span class="hs-identifier">createHITType_autoApprovalDelayInSeconds</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#createHITType_qualificationRequirements"><span class="hs-identifier">createHITType_qualificationRequirements</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#createHITType_keywords"><span class="hs-identifier">createHITType_keywords</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#createHITType_keywords"><span class="hs-identifier">createHITType_keywords</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#createHITType_qualificationRequirements"><span class="hs-identifier">createHITType_qualificationRequirements</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#createHITType_assignmentDurationInSeconds"><span class="hs-identifier">createHITType_assignmentDurationInSeconds</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#createHITType_reward"><span class="hs-identifier">createHITType_reward</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#createHITType_title"><span class="hs-identifier">createHITType_title</span></a></span><span class="hs-special">,</span><span>
@@ -57,23 +57,23 @@
 </span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-58"></span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- | /See:/ 'newCreateHITType' smart constructor.</span><span>
-</span><span id="line-60"></span><span id="local-6989586621679254008"><span id="local-6989586621679254009"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateHITType"><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITType"><span class="hs-identifier hs-var">CreateHITType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateHITType%27"><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITType%27"><span class="hs-identifier hs-var">CreateHITType'</span></a></span></span><span>
+</span><span id="line-60"></span><span id="local-6989586621679254142"><span id="local-6989586621679254143"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateHITType"><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITType"><span class="hs-identifier hs-var">CreateHITType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateHITType%27"><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITType%27"><span class="hs-identifier hs-var">CreateHITType'</span></a></span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of seconds after an assignment for the HIT has been</span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-comment">-- submitted, after which the assignment is considered Approved</span><span>
 </span><span id="line-63"></span><span>    </span><span class="hs-comment">-- automatically unless the Requester explicitly rejects it.</span><span>
 </span><span id="line-64"></span><span>    </span><span id="%24sel%3AautoApprovalDelayInSeconds%3ACreateHITType%27"><span class="annot"><span class="annottext">CreateHITType -&gt; Maybe Integer
 </span><a href="Network.AWS.MechanicalTurk.CreateHITType.html#%24sel%3AautoApprovalDelayInSeconds%3ACreateHITType%27"><span class="hs-identifier hs-var hs-var">autoApprovalDelayInSeconds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | Conditions that a Worker\'s Qualifications must meet in order to accept</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- the HIT. A HIT can have between zero and ten Qualification requirements.</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- All requirements must be met in order for a Worker to accept the HIT.</span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- Additionally, other actions can be restricted using the @ActionsGuarded@</span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- field on each @QualificationRequirement@ structure.</span><span>
-</span><span id="line-70"></span><span>    </span><span id="%24sel%3AqualificationRequirements%3ACreateHITType%27"><span class="annot"><span class="annottext">CreateHITType -&gt; Maybe [QualificationRequirement]
-</span><a href="Network.AWS.MechanicalTurk.CreateHITType.html#%24sel%3AqualificationRequirements%3ACreateHITType%27"><span class="hs-identifier hs-var hs-var">qualificationRequirements</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.QualificationRequirement.html#QualificationRequirement"><span class="hs-identifier hs-type">QualificationRequirement</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | One or more words or phrases that describe the HIT, separated by commas.</span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- These words are used in searches to find HITs.</span><span>
-</span><span id="line-73"></span><span>    </span><span id="%24sel%3Akeywords%3ACreateHITType%27"><span class="annot"><span class="annottext">CreateHITType -&gt; Maybe Text
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | One or more words or phrases that describe the HIT, separated by commas.</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- These words are used in searches to find HITs.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3Akeywords%3ACreateHITType%27"><span class="annot"><span class="annottext">CreateHITType -&gt; Maybe Text
 </span><a href="Network.AWS.MechanicalTurk.CreateHITType.html#%24sel%3Akeywords%3ACreateHITType%27"><span class="hs-identifier hs-var hs-var">keywords</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | Conditions that a Worker\'s Qualifications must meet in order to accept</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- the HIT. A HIT can have between zero and ten Qualification requirements.</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- All requirements must be met in order for a Worker to accept the HIT.</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- Additionally, other actions can be restricted using the @ActionsGuarded@</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- field on each @QualificationRequirement@ structure.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3AqualificationRequirements%3ACreateHITType%27"><span class="annot"><span class="annottext">CreateHITType -&gt; Maybe [QualificationRequirement]
+</span><a href="Network.AWS.MechanicalTurk.CreateHITType.html#%24sel%3AqualificationRequirements%3ACreateHITType%27"><span class="hs-identifier hs-var hs-var">qualificationRequirements</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.QualificationRequirement.html#QualificationRequirement"><span class="hs-identifier hs-type">QualificationRequirement</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
 </span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | The amount of time, in seconds, that a Worker has to complete the HIT</span><span>
 </span><span id="line-75"></span><span>    </span><span class="hs-comment">-- after accepting it. If a Worker does not complete the assignment within</span><span>
 </span><span id="line-76"></span><span>    </span><span class="hs-comment">-- the specified duration, the assignment is considered abandoned. If the</span><span>
@@ -100,7 +100,7 @@
 </span><span id="line-94"></span><span>    </span><span id="%24sel%3Adescription%3ACreateHITType%27"><span class="annot"><span class="annottext">CreateHITType -&gt; Text
 </span><a href="Network.AWS.MechanicalTurk.CreateHITType.html#%24sel%3Adescription%3ACreateHITType%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-95"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-96"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679253996"><span id="local-6989586621679253998"><span class="annot"><span class="annottext">CreateHITType -&gt; CreateHITType -&gt; Bool
+</span><span id="line-96"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679254130"><span id="local-6989586621679254132"><span class="annot"><span class="annottext">CreateHITType -&gt; CreateHITType -&gt; Bool
 (CreateHITType -&gt; CreateHITType -&gt; Bool)
 -&gt; (CreateHITType -&gt; CreateHITType -&gt; Bool) -&gt; Eq CreateHITType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -108,7 +108,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateHITType -&gt; CreateHITType -&gt; Bool
 == :: CreateHITType -&gt; CreateHITType -&gt; Bool
 $c== :: CreateHITType -&gt; CreateHITType -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679253987"><span id="local-6989586621679253989"><span id="local-6989586621679253991"><span id="local-6989586621679253993"><span class="annot"><span class="annottext">ReadPrec [CreateHITType]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679254121"><span id="local-6989586621679254123"><span id="local-6989586621679254125"><span id="local-6989586621679254127"><span class="annot"><span class="annottext">ReadPrec [CreateHITType]
 ReadPrec CreateHITType
 Int -&gt; ReadS CreateHITType
 ReadS [CreateHITType]
@@ -128,7 +128,7 @@ readList :: ReadS [CreateHITType]
 $creadList :: ReadS [CreateHITType]
 readsPrec :: Int -&gt; ReadS CreateHITType
 $creadsPrec :: Int -&gt; ReadS CreateHITType
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679253980"><span id="local-6989586621679253982"><span id="local-6989586621679253984"><span class="annot"><span class="annottext">Int -&gt; CreateHITType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679254114"><span id="local-6989586621679254116"><span id="local-6989586621679254118"><span class="annot"><span class="annottext">Int -&gt; CreateHITType -&gt; ShowS
 [CreateHITType] -&gt; ShowS
 CreateHITType -&gt; String
 (Int -&gt; CreateHITType -&gt; ShowS)
@@ -166,14 +166,14 @@ $cfrom :: forall x. CreateHITType -&gt; Rep CreateHITType x
 </span><span id="line-107"></span><span class="hs-comment">-- submitted, after which the assignment is considered Approved</span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- automatically unless the Requester explicitly rejects it.</span><span>
 </span><span id="line-109"></span><span class="hs-comment">--</span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- 'qualificationRequirements', 'createHITType_qualificationRequirements' - Conditions that a Worker\'s Qualifications must meet in order to accept</span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- the HIT. A HIT can have between zero and ten Qualification requirements.</span><span>
-</span><span id="line-112"></span><span class="hs-comment">-- All requirements must be met in order for a Worker to accept the HIT.</span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- Additionally, other actions can be restricted using the @ActionsGuarded@</span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- field on each @QualificationRequirement@ structure.</span><span>
-</span><span id="line-115"></span><span class="hs-comment">--</span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- 'keywords', 'createHITType_keywords' - One or more words or phrases that describe the HIT, separated by commas.</span><span>
-</span><span id="line-117"></span><span class="hs-comment">-- These words are used in searches to find HITs.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- 'keywords', 'createHITType_keywords' - One or more words or phrases that describe the HIT, separated by commas.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- These words are used in searches to find HITs.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- 'qualificationRequirements', 'createHITType_qualificationRequirements' - Conditions that a Worker\'s Qualifications must meet in order to accept</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- the HIT. A HIT can have between zero and ten Qualification requirements.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- All requirements must be met in order for a Worker to accept the HIT.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- Additionally, other actions can be restricted using the @ActionsGuarded@</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- field on each @QualificationRequirement@ structure.</span><span>
 </span><span id="line-118"></span><span class="hs-comment">--</span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- 'assignmentDurationInSeconds', 'createHITType_assignmentDurationInSeconds' - The amount of time, in seconds, that a Worker has to complete the HIT</span><span>
 </span><span id="line-120"></span><span class="hs-comment">-- after accepting it. If a Worker does not complete the assignment within</span><span>
@@ -207,17 +207,17 @@ $cfrom :: forall x. CreateHITType -&gt; Rep CreateHITType x
 </span><span id="line-148"></span><span>  </span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITType"><span class="hs-identifier hs-type">CreateHITType</span></a></span><span>
 </span><span id="line-149"></span><span id="newCreateHITType"><span class="annot"><span class="annottext">newCreateHITType :: Integer -&gt; Text -&gt; Text -&gt; Text -&gt; CreateHITType
 </span><a href="Network.AWS.MechanicalTurk.CreateHITType.html#newCreateHITType"><span class="hs-identifier hs-var hs-var">newCreateHITType</span></a></span></span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679253975"><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679253975"><span class="hs-identifier hs-var">pAssignmentDurationInSeconds_</span></a></span></span><span>
-</span><span id="line-151"></span><span>  </span><span id="local-6989586621679253974"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679253974"><span class="hs-identifier hs-var">pReward_</span></a></span></span><span>
-</span><span id="line-152"></span><span>  </span><span id="local-6989586621679253973"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679253973"><span class="hs-identifier hs-var">pTitle_</span></a></span></span><span>
-</span><span id="line-153"></span><span>  </span><span id="local-6989586621679253972"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679253972"><span class="hs-identifier hs-var">pDescription_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679254109"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679254109"><span class="hs-identifier hs-var">pAssignmentDurationInSeconds_</span></a></span></span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679254108"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679254108"><span class="hs-identifier hs-var">pReward_</span></a></span></span><span>
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679254107"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679254107"><span class="hs-identifier hs-var">pTitle_</span></a></span></span><span>
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679254106"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679254106"><span class="hs-identifier hs-var">pDescription_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-154"></span><span>    </span><span class="annot"><span class="annottext">CreateHITType' :: Maybe Integer
--&gt; Maybe [QualificationRequirement]
 -&gt; Maybe Text
+-&gt; Maybe [QualificationRequirement]
 -&gt; Integer
 -&gt; Text
 -&gt; Text
@@ -229,27 +229,27 @@ $cfrom :: forall x. CreateHITType -&gt; Rep CreateHITType x
 </span><span id="line-156"></span><span>          </span><span class="annot"><span class="annottext">Maybe Integer
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-157"></span><span>        </span><span class="annot"><span class="annottext">$sel:qualificationRequirements:CreateHITType' :: Maybe [QualificationRequirement]
-</span><a href="Network.AWS.MechanicalTurk.CreateHITType.html#%24sel%3AqualificationRequirements%3ACreateHITType%27"><span class="hs-identifier hs-var">qualificationRequirements</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [QualificationRequirement]
+</span><span id="line-157"></span><span>        </span><span class="annot"><span class="annottext">$sel:keywords:CreateHITType' :: Maybe Text
+</span><a href="Network.AWS.MechanicalTurk.CreateHITType.html#%24sel%3Akeywords%3ACreateHITType%27"><span class="hs-identifier hs-var">keywords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-158"></span><span>        </span><span class="annot"><span class="annottext">$sel:keywords:CreateHITType' :: Maybe Text
-</span><a href="Network.AWS.MechanicalTurk.CreateHITType.html#%24sel%3Akeywords%3ACreateHITType%27"><span class="hs-identifier hs-var">keywords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-158"></span><span>        </span><span class="annot"><span class="annottext">$sel:qualificationRequirements:CreateHITType' :: Maybe [QualificationRequirement]
+</span><a href="Network.AWS.MechanicalTurk.CreateHITType.html#%24sel%3AqualificationRequirements%3ACreateHITType%27"><span class="hs-identifier hs-var">qualificationRequirements</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [QualificationRequirement]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-159"></span><span>        </span><span class="annot"><span class="annottext">$sel:assignmentDurationInSeconds:CreateHITType' :: Integer
 </span><a href="Network.AWS.MechanicalTurk.CreateHITType.html#%24sel%3AassignmentDurationInSeconds%3ACreateHITType%27"><span class="hs-identifier hs-var">assignmentDurationInSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-160"></span><span>          </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679253975"><span class="hs-identifier hs-var">pAssignmentDurationInSeconds_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679254109"><span class="hs-identifier hs-var">pAssignmentDurationInSeconds_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-161"></span><span>        </span><span class="annot"><span class="annottext">$sel:reward:CreateHITType' :: Text
 </span><a href="Network.AWS.MechanicalTurk.CreateHITType.html#%24sel%3Areward%3ACreateHITType%27"><span class="hs-identifier hs-var">reward</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679253974"><span class="hs-identifier hs-var">pReward_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679254108"><span class="hs-identifier hs-var">pReward_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-162"></span><span>        </span><span class="annot"><span class="annottext">$sel:title:CreateHITType' :: Text
 </span><a href="Network.AWS.MechanicalTurk.CreateHITType.html#%24sel%3Atitle%3ACreateHITType%27"><span class="hs-identifier hs-var">title</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679253973"><span class="hs-identifier hs-var">pTitle_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679254107"><span class="hs-identifier hs-var">pTitle_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-163"></span><span>        </span><span class="annot"><span class="annottext">$sel:description:CreateHITType' :: Text
 </span><a href="Network.AWS.MechanicalTurk.CreateHITType.html#%24sel%3Adescription%3ACreateHITType%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679253972"><span class="hs-identifier hs-var">pDescription_</span></a></span><span>
+</span><a href="#local-6989586621679254106"><span class="hs-identifier hs-var">pDescription_</span></a></span><span>
 </span><span id="line-164"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-165"></span><span>
 </span><span id="line-166"></span><span class="hs-comment">-- | The number of seconds after an assignment for the HIT has been</span><span>
@@ -262,24 +262,43 @@ forall a. Maybe a
 -&gt; (CreateHITType -&gt; Maybe Integer -&gt; CreateHITType)
 -&gt; Lens CreateHITType CreateHITType (Maybe Integer) (Maybe Integer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITType%27"><span class="hs-identifier hs-type">CreateHITType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253969"><span class="annot"><span class="annottext">Maybe Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITType%27"><span class="hs-identifier hs-type">CreateHITType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254103"><span class="annot"><span class="annottext">Maybe Integer
 autoApprovalDelayInSeconds :: Maybe Integer
 $sel:autoApprovalDelayInSeconds:CreateHITType' :: CreateHITType -&gt; Maybe Integer
-</span><a href="#local-6989586621679253969"><span class="hs-identifier hs-var hs-var">autoApprovalDelayInSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679253969"><span class="hs-identifier hs-var">autoApprovalDelayInSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253968"><span class="annot"><span class="annottext">s :: CreateHITType
-</span><a href="#local-6989586621679253968"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITType%27"><span class="hs-identifier hs-type">CreateHITType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253967"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679253967"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateHITType
-</span><a href="#local-6989586621679253968"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoApprovalDelayInSeconds:CreateHITType' :: Maybe Integer
+</span><a href="#local-6989586621679254103"><span class="hs-identifier hs-var hs-var">autoApprovalDelayInSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679254103"><span class="hs-identifier hs-var">autoApprovalDelayInSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254102"><span class="annot"><span class="annottext">s :: CreateHITType
+</span><a href="#local-6989586621679254102"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITType%27"><span class="hs-identifier hs-type">CreateHITType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254101"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679254101"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateHITType
+</span><a href="#local-6989586621679254102"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoApprovalDelayInSeconds:CreateHITType' :: Maybe Integer
 </span><a href="Network.AWS.MechanicalTurk.CreateHITType.html#%24sel%3AautoApprovalDelayInSeconds%3ACreateHITType%27"><span class="hs-identifier hs-var">autoApprovalDelayInSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679253967"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITType"><span class="hs-identifier hs-type">CreateHITType</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679254101"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITType"><span class="hs-identifier hs-type">CreateHITType</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-171"></span><span>
-</span><span id="line-172"></span><span class="hs-comment">-- | Conditions that a Worker\'s Qualifications must meet in order to accept</span><span>
-</span><span id="line-173"></span><span class="hs-comment">-- the HIT. A HIT can have between zero and ten Qualification requirements.</span><span>
-</span><span id="line-174"></span><span class="hs-comment">-- All requirements must be met in order for a Worker to accept the HIT.</span><span>
-</span><span id="line-175"></span><span class="hs-comment">-- Additionally, other actions can be restricted using the @ActionsGuarded@</span><span>
-</span><span id="line-176"></span><span class="hs-comment">-- field on each @QualificationRequirement@ structure.</span><span>
-</span><span id="line-177"></span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#createHITType_qualificationRequirements"><span class="hs-identifier hs-type">createHITType_qualificationRequirements</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITType"><span class="hs-identifier hs-type">CreateHITType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.QualificationRequirement.html#QualificationRequirement"><span class="hs-identifier hs-type">QualificationRequirement</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-178"></span><span id="createHITType_qualificationRequirements"><span class="annot"><span class="annottext">createHITType_qualificationRequirements :: (Maybe [QualificationRequirement]
+</span><span id="line-172"></span><span class="hs-comment">-- | One or more words or phrases that describe the HIT, separated by commas.</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- These words are used in searches to find HITs.</span><span>
+</span><span id="line-174"></span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#createHITType_keywords"><span class="hs-identifier hs-type">createHITType_keywords</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITType"><span class="hs-identifier hs-type">CreateHITType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span id="createHITType_keywords"><span class="annot"><span class="annottext">createHITType_keywords :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateHITType -&gt; f CreateHITType
+</span><a href="Network.AWS.MechanicalTurk.CreateHITType.html#createHITType_keywords"><span class="hs-identifier hs-var hs-var">createHITType_keywords</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateHITType -&gt; Maybe Text)
+-&gt; (CreateHITType -&gt; Maybe Text -&gt; CreateHITType)
+-&gt; Lens CreateHITType CreateHITType (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITType%27"><span class="hs-identifier hs-type">CreateHITType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254100"><span class="annot"><span class="annottext">Maybe Text
+keywords :: Maybe Text
+$sel:keywords:CreateHITType' :: CreateHITType -&gt; Maybe Text
+</span><a href="#local-6989586621679254100"><span class="hs-identifier hs-var hs-var">keywords</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679254100"><span class="hs-identifier hs-var">keywords</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254099"><span class="annot"><span class="annottext">s :: CreateHITType
+</span><a href="#local-6989586621679254099"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITType%27"><span class="hs-identifier hs-type">CreateHITType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254098"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679254098"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateHITType
+</span><a href="#local-6989586621679254099"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keywords:CreateHITType' :: Maybe Text
+</span><a href="Network.AWS.MechanicalTurk.CreateHITType.html#%24sel%3Akeywords%3ACreateHITType%27"><span class="hs-identifier hs-var">keywords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679254098"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITType"><span class="hs-identifier hs-type">CreateHITType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- | Conditions that a Worker\'s Qualifications must meet in order to accept</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- the HIT. A HIT can have between zero and ten Qualification requirements.</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- All requirements must be met in order for a Worker to accept the HIT.</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- Additionally, other actions can be restricted using the @ActionsGuarded@</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- field on each @QualificationRequirement@ structure.</span><span>
+</span><span id="line-182"></span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#createHITType_qualificationRequirements"><span class="hs-identifier hs-type">createHITType_qualificationRequirements</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITType"><span class="hs-identifier hs-type">CreateHITType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.QualificationRequirement.html#QualificationRequirement"><span class="hs-identifier hs-type">QualificationRequirement</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span id="createHITType_qualificationRequirements"><span class="annot"><span class="annottext">createHITType_qualificationRequirements :: (Maybe [QualificationRequirement]
  -&gt; f (Maybe [QualificationRequirement]))
 -&gt; CreateHITType -&gt; f CreateHITType
 </span><a href="Network.AWS.MechanicalTurk.CreateHITType.html#createHITType_qualificationRequirements"><span class="hs-identifier hs-var hs-var">createHITType_qualificationRequirements</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateHITType -&gt; Maybe [QualificationRequirement])
@@ -291,16 +310,16 @@ $sel:autoApprovalDelayInSeconds:CreateHITType' :: CreateHITType -&gt; Maybe Inte
      (Maybe [QualificationRequirement])
      (Maybe [QualificationRequirement])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITType%27"><span class="hs-identifier hs-type">CreateHITType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253966"><span class="annot"><span class="annottext">Maybe [QualificationRequirement]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITType%27"><span class="hs-identifier hs-type">CreateHITType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254097"><span class="annot"><span class="annottext">Maybe [QualificationRequirement]
 qualificationRequirements :: Maybe [QualificationRequirement]
 $sel:qualificationRequirements:CreateHITType' :: CreateHITType -&gt; Maybe [QualificationRequirement]
-</span><a href="#local-6989586621679253966"><span class="hs-identifier hs-var hs-var">qualificationRequirements</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [QualificationRequirement]
-</span><a href="#local-6989586621679253966"><span class="hs-identifier hs-var">qualificationRequirements</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253965"><span class="annot"><span class="annottext">s :: CreateHITType
-</span><a href="#local-6989586621679253965"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITType%27"><span class="hs-identifier hs-type">CreateHITType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253964"><span class="annot"><span class="annottext">Maybe [QualificationRequirement]
-</span><a href="#local-6989586621679253964"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateHITType
-</span><a href="#local-6989586621679253965"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:qualificationRequirements:CreateHITType' :: Maybe [QualificationRequirement]
+</span><a href="#local-6989586621679254097"><span class="hs-identifier hs-var hs-var">qualificationRequirements</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [QualificationRequirement]
+</span><a href="#local-6989586621679254097"><span class="hs-identifier hs-var">qualificationRequirements</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254096"><span class="annot"><span class="annottext">s :: CreateHITType
+</span><a href="#local-6989586621679254096"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITType%27"><span class="hs-identifier hs-type">CreateHITType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254095"><span class="annot"><span class="annottext">Maybe [QualificationRequirement]
+</span><a href="#local-6989586621679254095"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateHITType
+</span><a href="#local-6989586621679254096"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:qualificationRequirements:CreateHITType' :: Maybe [QualificationRequirement]
 </span><a href="Network.AWS.MechanicalTurk.CreateHITType.html#%24sel%3AqualificationRequirements%3ACreateHITType%27"><span class="hs-identifier hs-var">qualificationRequirements</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [QualificationRequirement]
-</span><a href="#local-6989586621679253964"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITType"><span class="hs-identifier hs-type">CreateHITType</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [QualificationRequirement]
+</span><a href="#local-6989586621679254095"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITType"><span class="hs-identifier hs-type">CreateHITType</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [QualificationRequirement]
   -&gt; f (Maybe [QualificationRequirement]))
  -&gt; CreateHITType -&gt; f CreateHITType)
 -&gt; ((Maybe [QualificationRequirement]
@@ -330,27 +349,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [QualificationRequirement]
   [QualificationRequirement]
   [QualificationRequirement]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-179"></span><span>
-</span><span id="line-180"></span><span class="hs-comment">-- | One or more words or phrases that describe the HIT, separated by commas.</span><span>
-</span><span id="line-181"></span><span class="hs-comment">-- These words are used in searches to find HITs.</span><span>
-</span><span id="line-182"></span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#createHITType_keywords"><span class="hs-identifier hs-type">createHITType_keywords</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITType"><span class="hs-identifier hs-type">CreateHITType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-183"></span><span id="createHITType_keywords"><span class="annot"><span class="annottext">createHITType_keywords :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateHITType -&gt; f CreateHITType
-</span><a href="Network.AWS.MechanicalTurk.CreateHITType.html#createHITType_keywords"><span class="hs-identifier hs-var hs-var">createHITType_keywords</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateHITType -&gt; Maybe Text)
--&gt; (CreateHITType -&gt; Maybe Text -&gt; CreateHITType)
--&gt; Lens CreateHITType CreateHITType (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITType%27"><span class="hs-identifier hs-type">CreateHITType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253960"><span class="annot"><span class="annottext">Maybe Text
-keywords :: Maybe Text
-$sel:keywords:CreateHITType' :: CreateHITType -&gt; Maybe Text
-</span><a href="#local-6989586621679253960"><span class="hs-identifier hs-var hs-var">keywords</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679253960"><span class="hs-identifier hs-var">keywords</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253959"><span class="annot"><span class="annottext">s :: CreateHITType
-</span><a href="#local-6989586621679253959"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITType%27"><span class="hs-identifier hs-type">CreateHITType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253958"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679253958"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateHITType
-</span><a href="#local-6989586621679253959"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keywords:CreateHITType' :: Maybe Text
-</span><a href="Network.AWS.MechanicalTurk.CreateHITType.html#%24sel%3Akeywords%3ACreateHITType%27"><span class="hs-identifier hs-var">keywords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679253958"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITType"><span class="hs-identifier hs-type">CreateHITType</span></a></span><span class="hs-special">)</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-184"></span><span>
 </span><span id="line-185"></span><span class="hs-comment">-- | The amount of time, in seconds, that a Worker has to complete the HIT</span><span>
 </span><span id="line-186"></span><span class="hs-comment">-- after accepting it. If a Worker does not complete the assignment within</span><span>
@@ -363,16 +363,16 @@ $sel:keywords:CreateHITType' :: CreateHITType -&gt; Maybe Text
 -&gt; (CreateHITType -&gt; Integer -&gt; CreateHITType)
 -&gt; Lens CreateHITType CreateHITType Integer Integer
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITType%27"><span class="hs-identifier hs-type">CreateHITType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253957"><span class="annot"><span class="annottext">Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITType%27"><span class="hs-identifier hs-type">CreateHITType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254091"><span class="annot"><span class="annottext">Integer
 assignmentDurationInSeconds :: Integer
 $sel:assignmentDurationInSeconds:CreateHITType' :: CreateHITType -&gt; Integer
-</span><a href="#local-6989586621679253957"><span class="hs-identifier hs-var hs-var">assignmentDurationInSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679253957"><span class="hs-identifier hs-var">assignmentDurationInSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253956"><span class="annot"><span class="annottext">s :: CreateHITType
-</span><a href="#local-6989586621679253956"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITType%27"><span class="hs-identifier hs-type">CreateHITType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253955"><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679253955"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateHITType
-</span><a href="#local-6989586621679253956"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assignmentDurationInSeconds:CreateHITType' :: Integer
+</span><a href="#local-6989586621679254091"><span class="hs-identifier hs-var hs-var">assignmentDurationInSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679254091"><span class="hs-identifier hs-var">assignmentDurationInSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254090"><span class="annot"><span class="annottext">s :: CreateHITType
+</span><a href="#local-6989586621679254090"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITType%27"><span class="hs-identifier hs-type">CreateHITType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254089"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679254089"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateHITType
+</span><a href="#local-6989586621679254090"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assignmentDurationInSeconds:CreateHITType' :: Integer
 </span><a href="Network.AWS.MechanicalTurk.CreateHITType.html#%24sel%3AassignmentDurationInSeconds%3ACreateHITType%27"><span class="hs-identifier hs-var">assignmentDurationInSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679253955"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITType"><span class="hs-identifier hs-type">CreateHITType</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679254089"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITType"><span class="hs-identifier hs-type">CreateHITType</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-192"></span><span>
 </span><span id="line-193"></span><span class="hs-comment">-- | The amount of money the Requester will pay a Worker for successfully</span><span>
 </span><span id="line-194"></span><span class="hs-comment">-- completing the HIT.</span><span>
@@ -382,16 +382,16 @@ $sel:assignmentDurationInSeconds:CreateHITType' :: CreateHITType -&gt; Integer
 -&gt; (CreateHITType -&gt; Text -&gt; CreateHITType)
 -&gt; Lens CreateHITType CreateHITType Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITType%27"><span class="hs-identifier hs-type">CreateHITType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253954"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITType%27"><span class="hs-identifier hs-type">CreateHITType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254088"><span class="annot"><span class="annottext">Text
 reward :: Text
 $sel:reward:CreateHITType' :: CreateHITType -&gt; Text
-</span><a href="#local-6989586621679253954"><span class="hs-identifier hs-var hs-var">reward</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679253954"><span class="hs-identifier hs-var">reward</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253953"><span class="annot"><span class="annottext">s :: CreateHITType
-</span><a href="#local-6989586621679253953"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITType%27"><span class="hs-identifier hs-type">CreateHITType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253952"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679253952"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateHITType
-</span><a href="#local-6989586621679253953"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reward:CreateHITType' :: Text
+</span><a href="#local-6989586621679254088"><span class="hs-identifier hs-var hs-var">reward</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679254088"><span class="hs-identifier hs-var">reward</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254087"><span class="annot"><span class="annottext">s :: CreateHITType
+</span><a href="#local-6989586621679254087"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITType%27"><span class="hs-identifier hs-type">CreateHITType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254086"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679254086"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateHITType
+</span><a href="#local-6989586621679254087"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reward:CreateHITType' :: Text
 </span><a href="Network.AWS.MechanicalTurk.CreateHITType.html#%24sel%3Areward%3ACreateHITType%27"><span class="hs-identifier hs-var">reward</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679253952"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITType"><span class="hs-identifier hs-type">CreateHITType</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679254086"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITType"><span class="hs-identifier hs-type">CreateHITType</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-197"></span><span>
 </span><span id="line-198"></span><span class="hs-comment">-- | The title of the HIT. A title should be short and descriptive about the</span><span>
 </span><span id="line-199"></span><span class="hs-comment">-- kind of task the HIT contains. On the Amazon Mechanical Turk web site,</span><span>
@@ -403,16 +403,16 @@ $sel:reward:CreateHITType' :: CreateHITType -&gt; Text
 -&gt; (CreateHITType -&gt; Text -&gt; CreateHITType)
 -&gt; Lens CreateHITType CreateHITType Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITType%27"><span class="hs-identifier hs-type">CreateHITType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253951"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITType%27"><span class="hs-identifier hs-type">CreateHITType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254085"><span class="annot"><span class="annottext">Text
 title :: Text
 $sel:title:CreateHITType' :: CreateHITType -&gt; Text
-</span><a href="#local-6989586621679253951"><span class="hs-identifier hs-var hs-var">title</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679253951"><span class="hs-identifier hs-var">title</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253950"><span class="annot"><span class="annottext">s :: CreateHITType
-</span><a href="#local-6989586621679253950"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITType%27"><span class="hs-identifier hs-type">CreateHITType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253949"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679253949"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateHITType
-</span><a href="#local-6989586621679253950"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:title:CreateHITType' :: Text
+</span><a href="#local-6989586621679254085"><span class="hs-identifier hs-var hs-var">title</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679254085"><span class="hs-identifier hs-var">title</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254084"><span class="annot"><span class="annottext">s :: CreateHITType
+</span><a href="#local-6989586621679254084"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITType%27"><span class="hs-identifier hs-type">CreateHITType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254083"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679254083"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateHITType
+</span><a href="#local-6989586621679254084"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:title:CreateHITType' :: Text
 </span><a href="Network.AWS.MechanicalTurk.CreateHITType.html#%24sel%3Atitle%3ACreateHITType%27"><span class="hs-identifier hs-var">title</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679253949"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITType"><span class="hs-identifier hs-type">CreateHITType</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679254083"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITType"><span class="hs-identifier hs-type">CreateHITType</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-204"></span><span>
 </span><span id="line-205"></span><span class="hs-comment">-- | A general description of the HIT. A description includes detailed</span><span>
 </span><span id="line-206"></span><span class="hs-comment">-- information about the kind of task the HIT contains. On the Amazon</span><span>
@@ -426,27 +426,27 @@ $sel:title:CreateHITType' :: CreateHITType -&gt; Text
 -&gt; (CreateHITType -&gt; Text -&gt; CreateHITType)
 -&gt; Lens CreateHITType CreateHITType Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITType%27"><span class="hs-identifier hs-type">CreateHITType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253948"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITType%27"><span class="hs-identifier hs-type">CreateHITType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254082"><span class="annot"><span class="annottext">Text
 description :: Text
 $sel:description:CreateHITType' :: CreateHITType -&gt; Text
-</span><a href="#local-6989586621679253948"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679253948"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253947"><span class="annot"><span class="annottext">s :: CreateHITType
-</span><a href="#local-6989586621679253947"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITType%27"><span class="hs-identifier hs-type">CreateHITType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253946"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679253946"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateHITType
-</span><a href="#local-6989586621679253947"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CreateHITType' :: Text
+</span><a href="#local-6989586621679254082"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679254082"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254081"><span class="annot"><span class="annottext">s :: CreateHITType
+</span><a href="#local-6989586621679254081"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITType%27"><span class="hs-identifier hs-type">CreateHITType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254080"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679254080"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateHITType
+</span><a href="#local-6989586621679254081"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CreateHITType' :: Text
 </span><a href="Network.AWS.MechanicalTurk.CreateHITType.html#%24sel%3Adescription%3ACreateHITType%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679253946"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITType"><span class="hs-identifier hs-type">CreateHITType</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679254080"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITType"><span class="hs-identifier hs-type">CreateHITType</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-213"></span><span>
 </span><span id="line-214"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITType"><span class="hs-identifier hs-type">CreateHITType</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-215"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-216"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITType"><span class="hs-identifier hs-type">CreateHITType</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-217"></span><span>      </span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITTypeResponse"><span class="hs-identifier hs-type">CreateHITTypeResponse</span></a></span><span>
-</span><span id="line-218"></span><span>  </span><span id="local-6989586621679253942"><span class="annot"><span class="annottext">request :: CreateHITType -&gt; Request CreateHITType
+</span><span id="line-218"></span><span>  </span><span id="local-6989586621679254076"><span class="annot"><span class="annottext">request :: CreateHITType -&gt; Request CreateHITType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateHITType -&gt; Request CreateHITType
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.MechanicalTurk.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-219"></span><span>  </span><span id="local-6989586621679253938"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-219"></span><span>  </span><span id="local-6989586621679254072"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateHITType
 -&gt; ClientResponse ClientBody
@@ -470,10 +470,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-221"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679253935"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679253935"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679253934"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679253934"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679253933"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679253933"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-221"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679254069"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679254069"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679254068"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679254068"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679254067"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679254067"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-222"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; CreateHITTypeResponse
 </span><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITTypeResponse%27"><span class="hs-identifier hs-var">CreateHITTypeResponse'</span></a></span><span>
 </span><span id="line-223"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; CreateHITTypeResponse)
@@ -481,7 +481,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; CreateHITTypeResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679253933"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679254067"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;HITTypeId&quot;</span></span><span class="hs-special">)</span><span>
@@ -493,15 +493,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679253935"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679254069"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-225"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-226"></span><span>
-</span><span id="line-227"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253925"><span id="local-6989586621679253927"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITType"><span class="hs-identifier hs-type">CreateHITType</span></a></span></span></span><span>
+</span><span id="line-227"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254059"><span id="local-6989586621679254061"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITType"><span class="hs-identifier hs-type">CreateHITType</span></a></span></span></span><span>
 </span><span id="line-228"></span><span>
-</span><span id="line-229"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253922"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITType"><span class="hs-identifier hs-type">CreateHITType</span></a></span></span><span>
+</span><span id="line-229"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254056"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITType"><span class="hs-identifier hs-type">CreateHITType</span></a></span></span><span>
 </span><span id="line-230"></span><span>
 </span><span id="line-231"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITType"><span class="hs-identifier hs-type">CreateHITType</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-232"></span><span>  </span><span id="local-6989586621679253918"><span class="annot"><span class="annottext">toHeaders :: CreateHITType -&gt; ResponseHeaders
+</span><span id="line-232"></span><span>  </span><span id="local-6989586621679254052"><span class="annot"><span class="annottext">toHeaders :: CreateHITType -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-233"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateHITType -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -528,9 +528,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-243"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-244"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-245"></span><span>
-</span><span id="line-246"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253908"><span id="local-6989586621679253910"><span id="local-6989586621679253912"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITType"><span class="hs-identifier hs-type">CreateHITType</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-247"></span><span>  </span><span id="local-6989586621679253906"><span class="annot"><span class="annottext">toJSON :: CreateHITType -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITType%27"><span class="hs-identifier hs-type">CreateHITType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253898"><span id="local-6989586621679253899"><span id="local-6989586621679253900"><span id="local-6989586621679253901"><span id="local-6989586621679253902"><span id="local-6989586621679253903"><span id="local-6989586621679253904"><span class="annot"><span class="annottext">Integer
+</span><span id="line-246"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254042"><span id="local-6989586621679254044"><span id="local-6989586621679254046"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITType"><span class="hs-identifier hs-type">CreateHITType</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-247"></span><span>  </span><span id="local-6989586621679254040"><span class="annot"><span class="annottext">toJSON :: CreateHITType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITType%27"><span class="hs-identifier hs-type">CreateHITType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254032"><span id="local-6989586621679254033"><span id="local-6989586621679254034"><span id="local-6989586621679254035"><span id="local-6989586621679254036"><span id="local-6989586621679254037"><span id="local-6989586621679254038"><span class="annot"><span class="annottext">Integer
 Maybe Integer
 Maybe [QualificationRequirement]
 Maybe Text
@@ -539,17 +539,17 @@ description :: Text
 title :: Text
 reward :: Text
 assignmentDurationInSeconds :: Integer
-keywords :: Maybe Text
 qualificationRequirements :: Maybe [QualificationRequirement]
+keywords :: Maybe Text
 autoApprovalDelayInSeconds :: Maybe Integer
 $sel:description:CreateHITType' :: CreateHITType -&gt; Text
 $sel:title:CreateHITType' :: CreateHITType -&gt; Text
 $sel:reward:CreateHITType' :: CreateHITType -&gt; Text
 $sel:assignmentDurationInSeconds:CreateHITType' :: CreateHITType -&gt; Integer
-$sel:keywords:CreateHITType' :: CreateHITType -&gt; Maybe Text
 $sel:qualificationRequirements:CreateHITType' :: CreateHITType -&gt; Maybe [QualificationRequirement]
+$sel:keywords:CreateHITType' :: CreateHITType -&gt; Maybe Text
 $sel:autoApprovalDelayInSeconds:CreateHITType' :: CreateHITType -&gt; Maybe Integer
-</span><a href="#local-6989586621679253898"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679254032"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-248"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-249"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -562,23 +562,23 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-251"></span><span>              </span><span class="annot"><span class="annottext">(Integer -&gt; Pair) -&gt; Maybe Integer -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679253904"><span class="hs-identifier hs-var">autoApprovalDelayInSeconds</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679254038"><span class="hs-identifier hs-var">autoApprovalDelayInSeconds</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-252"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;QualificationRequirements&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [QualificationRequirement] -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-253"></span><span>              </span><span class="annot"><span class="annottext">([QualificationRequirement] -&gt; Pair)
--&gt; Maybe [QualificationRequirement] -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [QualificationRequirement]
-</span><a href="#local-6989586621679253903"><span class="hs-identifier hs-var">qualificationRequirements</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-254"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Keywords&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679253902"><span class="hs-identifier hs-var">keywords</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679254037"><span class="hs-identifier hs-var">keywords</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-253"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;QualificationRequirements&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [QualificationRequirement] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-254"></span><span>              </span><span class="annot"><span class="annottext">([QualificationRequirement] -&gt; Pair)
+-&gt; Maybe [QualificationRequirement] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [QualificationRequirement]
+</span><a href="#local-6989586621679254036"><span class="hs-identifier hs-var">qualificationRequirements</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-255"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -587,7 +587,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-257"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Integer -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679253901"><span class="hs-identifier hs-var">assignmentDurationInSeconds</span></a></span><span>
+</span><a href="#local-6989586621679254035"><span class="hs-identifier hs-var">assignmentDurationInSeconds</span></a></span><span>
 </span><span id="line-258"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-259"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
@@ -595,33 +595,33 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Reward&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679253900"><span class="hs-identifier hs-var">reward</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679254034"><span class="hs-identifier hs-var">reward</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-260"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Title&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679253899"><span class="hs-identifier hs-var">title</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679254033"><span class="hs-identifier hs-var">title</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-261"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679253898"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679254032"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-262"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-263"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-264"></span><span>
 </span><span id="line-265"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITType"><span class="hs-identifier hs-type">CreateHITType</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-266"></span><span>  </span><span id="local-6989586621679253892"><span class="annot"><span class="annottext">toPath :: CreateHITType -&gt; ByteString
+</span><span id="line-266"></span><span>  </span><span id="local-6989586621679254026"><span class="annot"><span class="annottext">toPath :: CreateHITType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateHITType -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-267"></span><span>
 </span><span id="line-268"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITType"><span class="hs-identifier hs-type">CreateHITType</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-269"></span><span>  </span><span id="local-6989586621679253888"><span class="annot"><span class="annottext">toQuery :: CreateHITType -&gt; QueryString
+</span><span id="line-269"></span><span>  </span><span id="local-6989586621679254022"><span class="annot"><span class="annottext">toQuery :: CreateHITType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateHITType -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -629,7 +629,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-270"></span><span>
 </span><span id="line-271"></span><span class="hs-comment">-- | /See:/ 'newCreateHITTypeResponse' smart constructor.</span><span>
-</span><span id="line-272"></span><span id="local-6989586621679253885"><span id="local-6989586621679253886"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateHITTypeResponse"><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITTypeResponse"><span class="hs-identifier hs-var">CreateHITTypeResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateHITTypeResponse%27"><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITTypeResponse%27"><span class="hs-identifier hs-var">CreateHITTypeResponse'</span></a></span></span><span>
+</span><span id="line-272"></span><span id="local-6989586621679254019"><span id="local-6989586621679254020"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateHITTypeResponse"><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITTypeResponse"><span class="hs-identifier hs-var">CreateHITTypeResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateHITTypeResponse%27"><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITTypeResponse%27"><span class="hs-identifier hs-var">CreateHITTypeResponse'</span></a></span></span><span>
 </span><span id="line-273"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the newly registered HIT type.</span><span>
 </span><span id="line-274"></span><span>    </span><span id="%24sel%3AhITTypeId%3ACreateHITTypeResponse%27"><span class="annot"><span class="annottext">CreateHITTypeResponse -&gt; Maybe Text
 </span><a href="Network.AWS.MechanicalTurk.CreateHITType.html#%24sel%3AhITTypeId%3ACreateHITTypeResponse%27"><span class="hs-identifier hs-var hs-var">hITTypeId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -637,7 +637,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-276"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateHITTypeResponse%27"><span class="annot"><span class="annottext">CreateHITTypeResponse -&gt; Int
 </span><a href="Network.AWS.MechanicalTurk.CreateHITType.html#%24sel%3AhttpStatus%3ACreateHITTypeResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-277"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-278"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679253879"><span id="local-6989586621679253881"><span class="annot"><span class="annottext">CreateHITTypeResponse -&gt; CreateHITTypeResponse -&gt; Bool
+</span><span id="line-278"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679254013"><span id="local-6989586621679254015"><span class="annot"><span class="annottext">CreateHITTypeResponse -&gt; CreateHITTypeResponse -&gt; Bool
 (CreateHITTypeResponse -&gt; CreateHITTypeResponse -&gt; Bool)
 -&gt; (CreateHITTypeResponse -&gt; CreateHITTypeResponse -&gt; Bool)
 -&gt; Eq CreateHITTypeResponse
@@ -646,7 +646,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateHITTypeResponse -&gt; CreateHITTypeResponse -&gt; Bool
 == :: CreateHITTypeResponse -&gt; CreateHITTypeResponse -&gt; Bool
 $c== :: CreateHITTypeResponse -&gt; CreateHITTypeResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679253871"><span id="local-6989586621679253873"><span id="local-6989586621679253875"><span id="local-6989586621679253877"><span class="annot"><span class="annottext">ReadPrec [CreateHITTypeResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679254005"><span id="local-6989586621679254007"><span id="local-6989586621679254009"><span id="local-6989586621679254011"><span class="annot"><span class="annottext">ReadPrec [CreateHITTypeResponse]
 ReadPrec CreateHITTypeResponse
 Int -&gt; ReadS CreateHITTypeResponse
 ReadS [CreateHITTypeResponse]
@@ -666,7 +666,7 @@ readList :: ReadS [CreateHITTypeResponse]
 $creadList :: ReadS [CreateHITTypeResponse]
 readsPrec :: Int -&gt; ReadS CreateHITTypeResponse
 $creadsPrec :: Int -&gt; ReadS CreateHITTypeResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679253865"><span id="local-6989586621679253867"><span id="local-6989586621679253869"><span class="annot"><span class="annottext">Int -&gt; CreateHITTypeResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679253999"><span id="local-6989586621679254001"><span id="local-6989586621679254003"><span class="annot"><span class="annottext">Int -&gt; CreateHITTypeResponse -&gt; ShowS
 [CreateHITTypeResponse] -&gt; ShowS
 CreateHITTypeResponse -&gt; String
 (Int -&gt; CreateHITTypeResponse -&gt; ShowS)
@@ -708,8 +708,8 @@ $cfrom :: forall x. CreateHITTypeResponse -&gt; Rep CreateHITTypeResponse x
 </span><span id="line-293"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-294"></span><span>  </span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITTypeResponse"><span class="hs-identifier hs-type">CreateHITTypeResponse</span></a></span><span>
 </span><span id="line-295"></span><span id="newCreateHITTypeResponse"><span class="annot"><span class="annottext">newCreateHITTypeResponse :: Int -&gt; CreateHITTypeResponse
-</span><a href="Network.AWS.MechanicalTurk.CreateHITType.html#newCreateHITTypeResponse"><span class="hs-identifier hs-var hs-var">newCreateHITTypeResponse</span></a></span></span><span> </span><span id="local-6989586621679253862"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679253862"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MechanicalTurk.CreateHITType.html#newCreateHITTypeResponse"><span class="hs-identifier hs-var hs-var">newCreateHITTypeResponse</span></a></span></span><span> </span><span id="local-6989586621679253996"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679253996"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-296"></span><span>  </span><span class="annot"><span class="annottext">CreateHITTypeResponse' :: Maybe Text -&gt; Int -&gt; CreateHITTypeResponse
 </span><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITTypeResponse%27"><span class="hs-identifier hs-type">CreateHITTypeResponse'</span></a></span><span>
 </span><span id="line-297"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:hITTypeId:CreateHITTypeResponse' :: Maybe Text
@@ -718,7 +718,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-298"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateHITTypeResponse' :: Int
 </span><a href="Network.AWS.MechanicalTurk.CreateHITType.html#%24sel%3AhttpStatus%3ACreateHITTypeResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679253862"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679253996"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-299"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-300"></span><span>
 </span><span id="line-301"></span><span class="hs-comment">-- | The ID of the newly registered HIT type.</span><span>
@@ -733,16 +733,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITTypeResponse%27"><span class="hs-identifier hs-type">CreateHITTypeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253861"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITTypeResponse%27"><span class="hs-identifier hs-type">CreateHITTypeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253995"><span class="annot"><span class="annottext">Maybe Text
 hITTypeId :: Maybe Text
 $sel:hITTypeId:CreateHITTypeResponse' :: CreateHITTypeResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679253861"><span class="hs-identifier hs-var hs-var">hITTypeId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679253861"><span class="hs-identifier hs-var">hITTypeId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253860"><span class="annot"><span class="annottext">s :: CreateHITTypeResponse
-</span><a href="#local-6989586621679253860"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITTypeResponse%27"><span class="hs-identifier hs-type">CreateHITTypeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253859"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679253859"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateHITTypeResponse
-</span><a href="#local-6989586621679253860"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hITTypeId:CreateHITTypeResponse' :: Maybe Text
+</span><a href="#local-6989586621679253995"><span class="hs-identifier hs-var hs-var">hITTypeId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253995"><span class="hs-identifier hs-var">hITTypeId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253994"><span class="annot"><span class="annottext">s :: CreateHITTypeResponse
+</span><a href="#local-6989586621679253994"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITTypeResponse%27"><span class="hs-identifier hs-type">CreateHITTypeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253993"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253993"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateHITTypeResponse
+</span><a href="#local-6989586621679253994"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hITTypeId:CreateHITTypeResponse' :: Maybe Text
 </span><a href="Network.AWS.MechanicalTurk.CreateHITType.html#%24sel%3AhITTypeId%3ACreateHITTypeResponse%27"><span class="hs-identifier hs-var">hITTypeId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679253859"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITTypeResponse"><span class="hs-identifier hs-type">CreateHITTypeResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679253993"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITTypeResponse"><span class="hs-identifier hs-type">CreateHITTypeResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-304"></span><span>
 </span><span id="line-305"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-306"></span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#createHITTypeResponse_httpStatus"><span class="hs-identifier hs-type">createHITTypeResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITTypeResponse"><span class="hs-identifier hs-type">CreateHITTypeResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -751,16 +751,16 @@ $sel:hITTypeId:CreateHITTypeResponse' :: CreateHITTypeResponse -&gt; Maybe Text
 -&gt; (CreateHITTypeResponse -&gt; Int -&gt; CreateHITTypeResponse)
 -&gt; Lens CreateHITTypeResponse CreateHITTypeResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITTypeResponse%27"><span class="hs-identifier hs-type">CreateHITTypeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253858"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITTypeResponse%27"><span class="hs-identifier hs-type">CreateHITTypeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253992"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateHITTypeResponse' :: CreateHITTypeResponse -&gt; Int
-</span><a href="#local-6989586621679253858"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679253858"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253857"><span class="annot"><span class="annottext">s :: CreateHITTypeResponse
-</span><a href="#local-6989586621679253857"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITTypeResponse%27"><span class="hs-identifier hs-type">CreateHITTypeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253856"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679253856"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateHITTypeResponse
-</span><a href="#local-6989586621679253857"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateHITTypeResponse' :: Int
+</span><a href="#local-6989586621679253992"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679253992"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253991"><span class="annot"><span class="annottext">s :: CreateHITTypeResponse
+</span><a href="#local-6989586621679253991"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITTypeResponse%27"><span class="hs-identifier hs-type">CreateHITTypeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253990"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679253990"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateHITTypeResponse
+</span><a href="#local-6989586621679253991"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateHITTypeResponse' :: Int
 </span><a href="Network.AWS.MechanicalTurk.CreateHITType.html#%24sel%3AhttpStatus%3ACreateHITTypeResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679253856"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITTypeResponse"><span class="hs-identifier hs-type">CreateHITTypeResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679253990"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITTypeResponse"><span class="hs-identifier hs-type">CreateHITTypeResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-308"></span><span>
-</span><span id="line-309"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253854"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITTypeResponse"><span class="hs-identifier hs-type">CreateHITTypeResponse</span></a></span></span><span>
+</span><span id="line-309"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253988"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.CreateHITType.html#CreateHITTypeResponse"><span class="hs-identifier hs-type">CreateHITTypeResponse</span></a></span></span><span>
 </span><span id="line-310"></span></pre></body></html>

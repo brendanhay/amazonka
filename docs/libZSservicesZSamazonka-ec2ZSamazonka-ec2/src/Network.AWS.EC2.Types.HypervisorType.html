@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621681077864"><span id="local-6989586621681077865"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HypervisorType"><span class="annot"><a href="Network.AWS.EC2.Types.HypervisorType.html#HypervisorType"><span class="hs-identifier hs-var">HypervisorType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HypervisorType%27"><span class="annot"><a href="Network.AWS.EC2.Types.HypervisorType.html#HypervisorType%27"><span class="hs-identifier hs-var">HypervisorType'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621681112214"><span id="local-6989586621681112215"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HypervisorType"><span class="annot"><a href="Network.AWS.EC2.Types.HypervisorType.html#HypervisorType"><span class="hs-identifier hs-var">HypervisorType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HypervisorType%27"><span class="annot"><a href="Network.AWS.EC2.Types.HypervisorType.html#HypervisorType%27"><span class="hs-identifier hs-var">HypervisorType'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromHypervisorType"><span class="annot"><span class="annottext">HypervisorType -&gt; Text
 </span><a href="Network.AWS.EC2.Types.HypervisorType.html#fromHypervisorType"><span class="hs-identifier hs-var hs-var">fromHypervisorType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681077856"><span id="local-6989586621681077858"><span id="local-6989586621681077860"><span class="annot"><span class="annottext">Int -&gt; HypervisorType -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681112206"><span id="local-6989586621681112208"><span id="local-6989586621681112210"><span class="annot"><span class="annottext">Int -&gt; HypervisorType -&gt; ShowS
 [HypervisorType] -&gt; ShowS
 HypervisorType -&gt; String
 (Int -&gt; HypervisorType -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: HypervisorType -&gt; String
 showsPrec :: Int -&gt; HypervisorType -&gt; ShowS
 $cshowsPrec :: Int -&gt; HypervisorType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621681077847"><span id="local-6989586621681077849"><span id="local-6989586621681077851"><span id="local-6989586621681077853"><span class="annot"><span class="annottext">ReadPrec [HypervisorType]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621681112197"><span id="local-6989586621681112199"><span id="local-6989586621681112201"><span id="local-6989586621681112203"><span class="annot"><span class="annottext">ReadPrec [HypervisorType]
 ReadPrec HypervisorType
 Int -&gt; ReadS HypervisorType
 ReadS [HypervisorType]
@@ -73,7 +73,7 @@ $creadList :: ReadS [HypervisorType]
 readsPrec :: Int -&gt; ReadS HypervisorType
 $creadsPrec :: Int -&gt; ReadS HypervisorType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621681077842"><span id="local-6989586621681077844"><span class="annot"><span class="annottext">HypervisorType -&gt; HypervisorType -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621681112192"><span id="local-6989586621681112194"><span class="annot"><span class="annottext">HypervisorType -&gt; HypervisorType -&gt; Bool
 (HypervisorType -&gt; HypervisorType -&gt; Bool)
 -&gt; (HypervisorType -&gt; HypervisorType -&gt; Bool) -&gt; Eq HypervisorType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ $c/= :: HypervisorType -&gt; HypervisorType -&gt; Bool
 == :: HypervisorType -&gt; HypervisorType -&gt; Bool
 $c== :: HypervisorType -&gt; HypervisorType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621681077826"><span id="local-6989586621681077828"><span id="local-6989586621681077830"><span id="local-6989586621681077832"><span id="local-6989586621681077834"><span id="local-6989586621681077836"><span id="local-6989586621681077838"><span class="annot"><span class="annottext">Eq HypervisorType
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681112176"><span id="local-6989586621681112178"><span id="local-6989586621681112180"><span id="local-6989586621681112182"><span id="local-6989586621681112184"><span id="local-6989586621681112186"><span id="local-6989586621681112188"><span class="annot"><span class="annottext">Eq HypervisorType
 Eq HypervisorType
 -&gt; (HypervisorType -&gt; HypervisorType -&gt; Ordering)
 -&gt; (HypervisorType -&gt; HypervisorType -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. HypervisorType -&gt; Rep HypervisorType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681077818"><span id="local-6989586621681077820"><span class="annot"><span class="annottext">Int -&gt; HypervisorType -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681112168"><span id="local-6989586621681112170"><span class="annot"><span class="annottext">Int -&gt; HypervisorType -&gt; Int
 HypervisorType -&gt; Int
 (Int -&gt; HypervisorType -&gt; Int)
 -&gt; (HypervisorType -&gt; Int) -&gt; Hashable HypervisorType
@@ -143,50 +143,50 @@ $chash :: HypervisorType -&gt; Int
 hashWithSalt :: Int -&gt; HypervisorType -&gt; Int
 $chashWithSalt :: Int -&gt; HypervisorType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621681077815"><span class="annot"><span class="annottext">HypervisorType -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621681112165"><span class="annot"><span class="annottext">HypervisorType -&gt; ()
 (HypervisorType -&gt; ()) -&gt; NFData HypervisorType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: HypervisorType -&gt; ()
 $crnf :: HypervisorType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621681077812"><span class="annot"><span class="annottext">Text -&gt; Either String HypervisorType
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681112162"><span class="annot"><span class="annottext">Text -&gt; Either String HypervisorType
 (Text -&gt; Either String HypervisorType) -&gt; FromText HypervisorType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String HypervisorType
 $cfromText :: Text -&gt; Either String HypervisorType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621681077809"><span class="annot"><span class="annottext">HypervisorType -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681112159"><span class="annot"><span class="annottext">HypervisorType -&gt; Text
 (HypervisorType -&gt; Text) -&gt; ToText HypervisorType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: HypervisorType -&gt; Text
 $ctoText :: HypervisorType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681077806"><span class="annot"><span class="annottext">HypervisorType -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681112156"><span class="annot"><span class="annottext">HypervisorType -&gt; ByteString
 (HypervisorType -&gt; ByteString) -&gt; ToByteString HypervisorType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: HypervisorType -&gt; ByteString
 $ctoBS :: HypervisorType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681077803"><span class="annot"><span class="annottext">HypervisorType -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681112153"><span class="annot"><span class="annottext">HypervisorType -&gt; ByteStringBuilder
 (HypervisorType -&gt; ByteStringBuilder) -&gt; ToLog HypervisorType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: HypervisorType -&gt; ByteStringBuilder
 $cbuild :: HypervisorType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681077800"><span class="annot"><span class="annottext">HeaderName -&gt; HypervisorType -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681112150"><span class="annot"><span class="annottext">HeaderName -&gt; HypervisorType -&gt; [Header]
 (HeaderName -&gt; HypervisorType -&gt; [Header])
 -&gt; ToHeader HypervisorType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; HypervisorType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; HypervisorType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681077797"><span class="annot"><span class="annottext">HypervisorType -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681112147"><span class="annot"><span class="annottext">HypervisorType -&gt; QueryString
 (HypervisorType -&gt; QueryString) -&gt; ToQuery HypervisorType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: HypervisorType -&gt; QueryString
 $ctoQuery :: HypervisorType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681077792"><span id="local-6989586621681077794"><span class="annot"><span class="annottext">Value -&gt; Parser [HypervisorType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681112142"><span id="local-6989586621681112144"><span class="annot"><span class="annottext">Value -&gt; Parser [HypervisorType]
 Value -&gt; Parser HypervisorType
 (Value -&gt; Parser HypervisorType)
 -&gt; (Value -&gt; Parser [HypervisorType]) -&gt; FromJSON HypervisorType
@@ -197,7 +197,7 @@ $cparseJSONList :: Value -&gt; Parser [HypervisorType]
 parseJSON :: Value -&gt; Parser HypervisorType
 $cparseJSON :: Value -&gt; Parser HypervisorType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681077787"><span id="local-6989586621681077789"><span class="annot"><span class="annottext">FromJSONKeyFunction [HypervisorType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681112137"><span id="local-6989586621681112139"><span class="annot"><span class="annottext">FromJSONKeyFunction [HypervisorType]
 FromJSONKeyFunction HypervisorType
 FromJSONKeyFunction HypervisorType
 -&gt; FromJSONKeyFunction [HypervisorType]
@@ -209,7 +209,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [HypervisorType]
 fromJSONKey :: FromJSONKeyFunction HypervisorType
 $cfromJSONKey :: FromJSONKeyFunction HypervisorType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681077778"><span id="local-6989586621681077780"><span id="local-6989586621681077782"><span id="local-6989586621681077784"><span class="annot"><span class="annottext">[HypervisorType] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681112128"><span id="local-6989586621681112130"><span id="local-6989586621681112132"><span id="local-6989586621681112134"><span class="annot"><span class="annottext">[HypervisorType] -&gt; Encoding
 [HypervisorType] -&gt; Value
 HypervisorType -&gt; Encoding
 HypervisorType -&gt; Value
@@ -233,7 +233,7 @@ $ctoEncoding :: HypervisorType -&gt; Encoding
 toJSON :: HypervisorType -&gt; Value
 $ctoJSON :: HypervisorType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681077773"><span id="local-6989586621681077775"><span class="annot"><span class="annottext">ToJSONKeyFunction [HypervisorType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681112123"><span id="local-6989586621681112125"><span class="annot"><span class="annottext">ToJSONKeyFunction [HypervisorType]
 ToJSONKeyFunction HypervisorType
 ToJSONKeyFunction HypervisorType
 -&gt; ToJSONKeyFunction [HypervisorType] -&gt; ToJSONKey HypervisorType
@@ -244,13 +244,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [HypervisorType]
 toJSONKey :: ToJSONKeyFunction HypervisorType
 $ctoJSONKey :: ToJSONKeyFunction HypervisorType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681077770"><span class="annot"><span class="annottext">[Node] -&gt; Either String HypervisorType
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681112120"><span class="annot"><span class="annottext">[Node] -&gt; Either String HypervisorType
 ([Node] -&gt; Either String HypervisorType) -&gt; FromXML HypervisorType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String HypervisorType
 $cparseXML :: [Node] -&gt; Either String HypervisorType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621681077767"><span class="annot"><span class="annottext">HypervisorType -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681112117"><span class="annot"><span class="annottext">HypervisorType -&gt; XML
 (HypervisorType -&gt; XML) -&gt; ToXML HypervisorType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: HypervisorType -&gt; XML

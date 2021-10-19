@@ -29,38 +29,38 @@
 </span><span id="line-29"></span><span class="hs-comment">-- | Option details.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newOption' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679768685"><span id="local-6989586621679768686"></span></span><span class="hs-keyword">data</span><span> </span><span id="Option"><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#Option"><span class="hs-identifier hs-var">Option</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Option%27"><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#Option%27"><span class="hs-identifier hs-var">Option'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679769762"><span id="local-6989586621679769763"></span></span><span class="hs-keyword">data</span><span> </span><span id="Option"><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#Option"><span class="hs-identifier hs-var">Option</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Option%27"><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#Option%27"><span class="hs-identifier hs-var">Option'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the option.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AoptionName%3AOption%27"><span class="annot"><span class="annottext">Option -&gt; Maybe Text
 </span><a href="Network.AWS.RDS.Types.Option.html#%24sel%3AoptionName%3AOption%27"><span class="hs-identifier hs-var hs-var">optionName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The version of the option.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AoptionVersion%3AOption%27"><span class="annot"><span class="annottext">Option -&gt; Maybe Text
-</span><a href="Network.AWS.RDS.Types.Option.html#%24sel%3AoptionVersion%3AOption%27"><span class="hs-identifier hs-var hs-var">optionVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | If the option requires access to a port, then this DB security group</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- allows access to the port.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3AdbSecurityGroupMemberships%3AOption%27"><span class="annot"><span class="annottext">Option -&gt; Maybe [DBSecurityGroupMembership]
-</span><a href="Network.AWS.RDS.Types.Option.html#%24sel%3AdbSecurityGroupMemberships%3AOption%27"><span class="hs-identifier hs-var hs-var">dbSecurityGroupMemberships</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroupMembership.html#DBSecurityGroupMembership"><span class="hs-identifier hs-type">DBSecurityGroupMembership</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The description of the option.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3AoptionDescription%3AOption%27"><span class="annot"><span class="annottext">Option -&gt; Maybe Text
-</span><a href="Network.AWS.RDS.Types.Option.html#%24sel%3AoptionDescription%3AOption%27"><span class="hs-identifier hs-var hs-var">optionDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | If required, the port configured for this option to use.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3Aport%3AOption%27"><span class="annot"><span class="annottext">Option -&gt; Maybe Int
-</span><a href="Network.AWS.RDS.Types.Option.html#%24sel%3Aport%3AOption%27"><span class="hs-identifier hs-var hs-var">port</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The option settings for this option.</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3AoptionSettings%3AOption%27"><span class="annot"><span class="annottext">Option -&gt; Maybe [OptionSetting]
-</span><a href="Network.AWS.RDS.Types.Option.html#%24sel%3AoptionSettings%3AOption%27"><span class="hs-identifier hs-var hs-var">optionSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.RDS.Types.OptionSetting.html#OptionSetting"><span class="hs-identifier hs-type">OptionSetting</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | Indicate if this option is persistent.</span><span>
-</span><span id="line-47"></span><span>    </span><span id="%24sel%3Apersistent%3AOption%27"><span class="annot"><span class="annottext">Option -&gt; Maybe Bool
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Indicate if this option is permanent.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Apermanent%3AOption%27"><span class="annot"><span class="annottext">Option -&gt; Maybe Bool
+</span><a href="Network.AWS.RDS.Types.Option.html#%24sel%3Apermanent%3AOption%27"><span class="hs-identifier hs-var hs-var">permanent</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | Indicate if this option is persistent.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Apersistent%3AOption%27"><span class="annot"><span class="annottext">Option -&gt; Maybe Bool
 </span><a href="Network.AWS.RDS.Types.Option.html#%24sel%3Apersistent%3AOption%27"><span class="hs-identifier hs-var hs-var">persistent</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | If the option requires access to a port, then this VPC security group</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- allows access to the port.</span><span>
-</span><span id="line-50"></span><span>    </span><span id="%24sel%3AvpcSecurityGroupMemberships%3AOption%27"><span class="annot"><span class="annottext">Option -&gt; Maybe [VpcSecurityGroupMembership]
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The description of the option.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AoptionDescription%3AOption%27"><span class="annot"><span class="annottext">Option -&gt; Maybe Text
+</span><a href="Network.AWS.RDS.Types.Option.html#%24sel%3AoptionDescription%3AOption%27"><span class="hs-identifier hs-var hs-var">optionDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The option settings for this option.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AoptionSettings%3AOption%27"><span class="annot"><span class="annottext">Option -&gt; Maybe [OptionSetting]
+</span><a href="Network.AWS.RDS.Types.Option.html#%24sel%3AoptionSettings%3AOption%27"><span class="hs-identifier hs-var hs-var">optionSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.RDS.Types.OptionSetting.html#OptionSetting"><span class="hs-identifier hs-type">OptionSetting</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | If the option requires access to a port, then this VPC security group</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- allows access to the port.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AvpcSecurityGroupMemberships%3AOption%27"><span class="annot"><span class="annottext">Option -&gt; Maybe [VpcSecurityGroupMembership]
 </span><a href="Network.AWS.RDS.Types.Option.html#%24sel%3AvpcSecurityGroupMemberships%3AOption%27"><span class="hs-identifier hs-var hs-var">vpcSecurityGroupMemberships</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.RDS.Types.VpcSecurityGroupMembership.html#VpcSecurityGroupMembership"><span class="hs-identifier hs-type">VpcSecurityGroupMembership</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | Indicate if this option is permanent.</span><span>
-</span><span id="line-52"></span><span>    </span><span id="%24sel%3Apermanent%3AOption%27"><span class="annot"><span class="annottext">Option -&gt; Maybe Bool
-</span><a href="Network.AWS.RDS.Types.Option.html#%24sel%3Apermanent%3AOption%27"><span class="hs-identifier hs-var hs-var">permanent</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | If the option requires access to a port, then this DB security group</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- allows access to the port.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AdbSecurityGroupMemberships%3AOption%27"><span class="annot"><span class="annottext">Option -&gt; Maybe [DBSecurityGroupMembership]
+</span><a href="Network.AWS.RDS.Types.Option.html#%24sel%3AdbSecurityGroupMemberships%3AOption%27"><span class="hs-identifier hs-var hs-var">dbSecurityGroupMemberships</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroupMembership.html#DBSecurityGroupMembership"><span class="hs-identifier hs-type">DBSecurityGroupMembership</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The version of the option.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AoptionVersion%3AOption%27"><span class="annot"><span class="annottext">Option -&gt; Maybe Text
+</span><a href="Network.AWS.RDS.Types.Option.html#%24sel%3AoptionVersion%3AOption%27"><span class="hs-identifier hs-var hs-var">optionVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | If required, the port configured for this option to use.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3Aport%3AOption%27"><span class="annot"><span class="annottext">Option -&gt; Maybe Int
+</span><a href="Network.AWS.RDS.Types.Option.html#%24sel%3Aport%3AOption%27"><span class="hs-identifier hs-var hs-var">port</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679768671"><span id="local-6989586621679768673"><span class="annot"><span class="annottext">Option -&gt; Option -&gt; Bool
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679769748"><span id="local-6989586621679769750"><span class="annot"><span class="annottext">Option -&gt; Option -&gt; Bool
 (Option -&gt; Option -&gt; Bool)
 -&gt; (Option -&gt; Option -&gt; Bool) -&gt; Eq Option
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -68,7 +68,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Option -&gt; Option -&gt; Bool
 == :: Option -&gt; Option -&gt; Bool
 $c== :: Option -&gt; Option -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679768662"><span id="local-6989586621679768664"><span id="local-6989586621679768666"><span id="local-6989586621679768668"><span class="annot"><span class="annottext">ReadPrec [Option]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679769739"><span id="local-6989586621679769741"><span id="local-6989586621679769743"><span id="local-6989586621679769745"><span class="annot"><span class="annottext">ReadPrec [Option]
 ReadPrec Option
 Int -&gt; ReadS Option
 ReadS [Option]
@@ -88,7 +88,7 @@ readList :: ReadS [Option]
 $creadList :: ReadS [Option]
 readsPrec :: Int -&gt; ReadS Option
 $creadsPrec :: Int -&gt; ReadS Option
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679768655"><span id="local-6989586621679768657"><span id="local-6989586621679768659"><span class="annot"><span class="annottext">Int -&gt; Option -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679769732"><span id="local-6989586621679769734"><span id="local-6989586621679769736"><span class="annot"><span class="annottext">Int -&gt; Option -&gt; ShowS
 [Option] -&gt; ShowS
 Option -&gt; String
 (Int -&gt; Option -&gt; ShowS)
@@ -121,72 +121,72 @@ $cfrom :: forall x. Option -&gt; Rep Option x
 </span><span id="line-63"></span><span class="hs-comment">--</span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- 'optionName', 'option_optionName' - The name of the option.</span><span>
 </span><span id="line-65"></span><span class="hs-comment">--</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- 'optionVersion', 'option_optionVersion' - The version of the option.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'permanent', 'option_permanent' - Indicate if this option is permanent.</span><span>
 </span><span id="line-67"></span><span class="hs-comment">--</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- 'dbSecurityGroupMemberships', 'option_dbSecurityGroupMemberships' - If the option requires access to a port, then this DB security group</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- allows access to the port.</span><span>
-</span><span id="line-70"></span><span class="hs-comment">--</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- 'optionDescription', 'option_optionDescription' - The description of the option.</span><span>
-</span><span id="line-72"></span><span class="hs-comment">--</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- 'port', 'option_port' - If required, the port configured for this option to use.</span><span>
-</span><span id="line-74"></span><span class="hs-comment">--</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- 'optionSettings', 'option_optionSettings' - The option settings for this option.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'persistent', 'option_persistent' - Indicate if this option is persistent.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'optionDescription', 'option_optionDescription' - The description of the option.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'optionSettings', 'option_optionSettings' - The option settings for this option.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'vpcSecurityGroupMemberships', 'option_vpcSecurityGroupMemberships' - If the option requires access to a port, then this VPC security group</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- allows access to the port.</span><span>
 </span><span id="line-76"></span><span class="hs-comment">--</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- 'persistent', 'option_persistent' - Indicate if this option is persistent.</span><span>
-</span><span id="line-78"></span><span class="hs-comment">--</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- 'vpcSecurityGroupMemberships', 'option_vpcSecurityGroupMemberships' - If the option requires access to a port, then this VPC security group</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- allows access to the port.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'dbSecurityGroupMemberships', 'option_dbSecurityGroupMemberships' - If the option requires access to a port, then this DB security group</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- allows access to the port.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'optionVersion', 'option_optionVersion' - The version of the option.</span><span>
 </span><span id="line-81"></span><span class="hs-comment">--</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- 'permanent', 'option_permanent' - Indicate if this option is permanent.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'port', 'option_port' - If required, the port configured for this option to use.</span><span>
 </span><span id="line-83"></span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#newOption"><span class="hs-identifier hs-type">newOption</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-84"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#Option"><span class="hs-identifier hs-type">Option</span></a></span><span>
 </span><span id="line-85"></span><span id="newOption"><span class="annot"><span class="annottext">newOption :: Option
 </span><a href="Network.AWS.RDS.Types.Option.html#newOption"><span class="hs-identifier hs-var hs-var">newOption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>  </span><span class="annot"><span class="annottext">Option' :: Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Bool
 -&gt; Maybe Text
+-&gt; Maybe [OptionSetting]
+-&gt; Maybe [VpcSecurityGroupMembership]
 -&gt; Maybe [DBSecurityGroupMembership]
 -&gt; Maybe Text
 -&gt; Maybe Int
--&gt; Maybe [OptionSetting]
--&gt; Maybe Bool
--&gt; Maybe [VpcSecurityGroupMembership]
--&gt; Maybe Bool
 -&gt; Option
 </span><a href="Network.AWS.RDS.Types.Option.html#Option%27"><span class="hs-identifier hs-type">Option'</span></a></span><span>
 </span><span id="line-87"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:optionName:Option' :: Maybe Text
 </span><a href="Network.AWS.RDS.Types.Option.html#%24sel%3AoptionName%3AOption%27"><span class="hs-identifier hs-var">optionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:optionVersion:Option' :: Maybe Text
-</span><a href="Network.AWS.RDS.Types.Option.html#%24sel%3AoptionVersion%3AOption%27"><span class="hs-identifier hs-var">optionVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:permanent:Option' :: Maybe Bool
+</span><a href="Network.AWS.RDS.Types.Option.html#%24sel%3Apermanent%3AOption%27"><span class="hs-identifier hs-var">permanent</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:dbSecurityGroupMemberships:Option' :: Maybe [DBSecurityGroupMembership]
-</span><a href="Network.AWS.RDS.Types.Option.html#%24sel%3AdbSecurityGroupMemberships%3AOption%27"><span class="hs-identifier hs-var">dbSecurityGroupMemberships</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DBSecurityGroupMembership]
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:persistent:Option' :: Maybe Bool
+</span><a href="Network.AWS.RDS.Types.Option.html#%24sel%3Apersistent%3AOption%27"><span class="hs-identifier hs-var">persistent</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:optionDescription:Option' :: Maybe Text
 </span><a href="Network.AWS.RDS.Types.Option.html#%24sel%3AoptionDescription%3AOption%27"><span class="hs-identifier hs-var">optionDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:port:Option' :: Maybe Int
-</span><a href="Network.AWS.RDS.Types.Option.html#%24sel%3Aport%3AOption%27"><span class="hs-identifier hs-var">port</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:optionSettings:Option' :: Maybe [OptionSetting]
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:optionSettings:Option' :: Maybe [OptionSetting]
 </span><a href="Network.AWS.RDS.Types.Option.html#%24sel%3AoptionSettings%3AOption%27"><span class="hs-identifier hs-var">optionSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [OptionSetting]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:persistent:Option' :: Maybe Bool
-</span><a href="Network.AWS.RDS.Types.Option.html#%24sel%3Apersistent%3AOption%27"><span class="hs-identifier hs-var">persistent</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:vpcSecurityGroupMemberships:Option' :: Maybe [VpcSecurityGroupMembership]
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:vpcSecurityGroupMemberships:Option' :: Maybe [VpcSecurityGroupMembership]
 </span><a href="Network.AWS.RDS.Types.Option.html#%24sel%3AvpcSecurityGroupMemberships%3AOption%27"><span class="hs-identifier hs-var">vpcSecurityGroupMemberships</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [VpcSecurityGroupMembership]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:permanent:Option' :: Maybe Bool
-</span><a href="Network.AWS.RDS.Types.Option.html#%24sel%3Apermanent%3AOption%27"><span class="hs-identifier hs-var">permanent</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:dbSecurityGroupMemberships:Option' :: Maybe [DBSecurityGroupMembership]
+</span><a href="Network.AWS.RDS.Types.Option.html#%24sel%3AdbSecurityGroupMemberships%3AOption%27"><span class="hs-identifier hs-var">dbSecurityGroupMemberships</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DBSecurityGroupMembership]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:optionVersion:Option' :: Maybe Text
+</span><a href="Network.AWS.RDS.Types.Option.html#%24sel%3AoptionVersion%3AOption%27"><span class="hs-identifier hs-var">optionVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:port:Option' :: Maybe Int
+</span><a href="Network.AWS.RDS.Types.Option.html#%24sel%3Aport%3AOption%27"><span class="hs-identifier hs-var">port</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-96"></span><span>    </span><span class="hs-special">}</span><span>
@@ -198,146 +198,90 @@ forall a. Maybe a
 -&gt; (Option -&gt; Maybe Text -&gt; Option)
 -&gt; Lens Option Option (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#Option%27"><span class="hs-identifier hs-type">Option'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679768646"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#Option%27"><span class="hs-identifier hs-type">Option'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679769723"><span class="annot"><span class="annottext">Maybe Text
 optionName :: Maybe Text
 $sel:optionName:Option' :: Option -&gt; Maybe Text
-</span><a href="#local-6989586621679768646"><span class="hs-identifier hs-var hs-var">optionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679768646"><span class="hs-identifier hs-var">optionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679768645"><span class="annot"><span class="annottext">s :: Option
-</span><a href="#local-6989586621679768645"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#Option%27"><span class="hs-identifier hs-type">Option'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679768644"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679768644"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Option
-</span><a href="#local-6989586621679768645"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:optionName:Option' :: Maybe Text
+</span><a href="#local-6989586621679769723"><span class="hs-identifier hs-var hs-var">optionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679769723"><span class="hs-identifier hs-var">optionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679769722"><span class="annot"><span class="annottext">s :: Option
+</span><a href="#local-6989586621679769722"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#Option%27"><span class="hs-identifier hs-type">Option'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679769721"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679769721"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Option
+</span><a href="#local-6989586621679769722"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:optionName:Option' :: Maybe Text
 </span><a href="Network.AWS.RDS.Types.Option.html#%24sel%3AoptionName%3AOption%27"><span class="hs-identifier hs-var">optionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679768644"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#Option"><span class="hs-identifier hs-type">Option</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679769721"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#Option"><span class="hs-identifier hs-type">Option</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- | The version of the option.</span><span>
-</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#option_optionVersion"><span class="hs-identifier hs-type">option_optionVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#Option"><span class="hs-identifier hs-type">Option</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-104"></span><span id="option_optionVersion"><span class="annot"><span class="annottext">option_optionVersion :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Option -&gt; f Option
-</span><a href="Network.AWS.RDS.Types.Option.html#option_optionVersion"><span class="hs-identifier hs-var hs-var">option_optionVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Option -&gt; Maybe Text)
--&gt; (Option -&gt; Maybe Text -&gt; Option)
--&gt; Lens Option Option (Maybe Text) (Maybe Text)
+</span><span id="line-102"></span><span class="hs-comment">-- | Indicate if this option is permanent.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#option_permanent"><span class="hs-identifier hs-type">option_permanent</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#Option"><span class="hs-identifier hs-type">Option</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="option_permanent"><span class="annot"><span class="annottext">option_permanent :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; Option -&gt; f Option
+</span><a href="Network.AWS.RDS.Types.Option.html#option_permanent"><span class="hs-identifier hs-var hs-var">option_permanent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Option -&gt; Maybe Bool)
+-&gt; (Option -&gt; Maybe Bool -&gt; Option)
+-&gt; Lens Option Option (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#Option%27"><span class="hs-identifier hs-type">Option'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679768642"><span class="annot"><span class="annottext">Maybe Text
-optionVersion :: Maybe Text
-$sel:optionVersion:Option' :: Option -&gt; Maybe Text
-</span><a href="#local-6989586621679768642"><span class="hs-identifier hs-var hs-var">optionVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679768642"><span class="hs-identifier hs-var">optionVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679768641"><span class="annot"><span class="annottext">s :: Option
-</span><a href="#local-6989586621679768641"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#Option%27"><span class="hs-identifier hs-type">Option'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679768640"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679768640"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Option
-</span><a href="#local-6989586621679768641"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:optionVersion:Option' :: Maybe Text
-</span><a href="Network.AWS.RDS.Types.Option.html#%24sel%3AoptionVersion%3AOption%27"><span class="hs-identifier hs-var">optionVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679768640"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#Option"><span class="hs-identifier hs-type">Option</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#Option%27"><span class="hs-identifier hs-type">Option'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679769719"><span class="annot"><span class="annottext">Maybe Bool
+permanent :: Maybe Bool
+$sel:permanent:Option' :: Option -&gt; Maybe Bool
+</span><a href="#local-6989586621679769719"><span class="hs-identifier hs-var hs-var">permanent</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679769719"><span class="hs-identifier hs-var">permanent</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679769718"><span class="annot"><span class="annottext">s :: Option
+</span><a href="#local-6989586621679769718"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#Option%27"><span class="hs-identifier hs-type">Option'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679769717"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679769717"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Option
+</span><a href="#local-6989586621679769718"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:permanent:Option' :: Maybe Bool
+</span><a href="Network.AWS.RDS.Types.Option.html#%24sel%3Apermanent%3AOption%27"><span class="hs-identifier hs-var">permanent</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679769717"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#Option"><span class="hs-identifier hs-type">Option</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- | If the option requires access to a port, then this DB security group</span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- allows access to the port.</span><span>
-</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#option_dbSecurityGroupMemberships"><span class="hs-identifier hs-type">option_dbSecurityGroupMemberships</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#Option"><span class="hs-identifier hs-type">Option</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroupMembership.html#DBSecurityGroupMembership"><span class="hs-identifier hs-type">DBSecurityGroupMembership</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-109"></span><span id="option_dbSecurityGroupMemberships"><span class="annot"><span class="annottext">option_dbSecurityGroupMemberships :: (Maybe [DBSecurityGroupMembership]
- -&gt; f (Maybe [DBSecurityGroupMembership]))
--&gt; Option -&gt; f Option
-</span><a href="Network.AWS.RDS.Types.Option.html#option_dbSecurityGroupMemberships"><span class="hs-identifier hs-var hs-var">option_dbSecurityGroupMemberships</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Option -&gt; Maybe [DBSecurityGroupMembership])
--&gt; (Option -&gt; Maybe [DBSecurityGroupMembership] -&gt; Option)
--&gt; Lens
-     Option
-     Option
-     (Maybe [DBSecurityGroupMembership])
-     (Maybe [DBSecurityGroupMembership])
+</span><span id="line-106"></span><span class="hs-comment">-- | Indicate if this option is persistent.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#option_persistent"><span class="hs-identifier hs-type">option_persistent</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#Option"><span class="hs-identifier hs-type">Option</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span id="option_persistent"><span class="annot"><span class="annottext">option_persistent :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; Option -&gt; f Option
+</span><a href="Network.AWS.RDS.Types.Option.html#option_persistent"><span class="hs-identifier hs-var hs-var">option_persistent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Option -&gt; Maybe Bool)
+-&gt; (Option -&gt; Maybe Bool -&gt; Option)
+-&gt; Lens Option Option (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#Option%27"><span class="hs-identifier hs-type">Option'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679768638"><span class="annot"><span class="annottext">Maybe [DBSecurityGroupMembership]
-dbSecurityGroupMemberships :: Maybe [DBSecurityGroupMembership]
-$sel:dbSecurityGroupMemberships:Option' :: Option -&gt; Maybe [DBSecurityGroupMembership]
-</span><a href="#local-6989586621679768638"><span class="hs-identifier hs-var hs-var">dbSecurityGroupMemberships</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DBSecurityGroupMembership]
-</span><a href="#local-6989586621679768638"><span class="hs-identifier hs-var">dbSecurityGroupMemberships</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679768637"><span class="annot"><span class="annottext">s :: Option
-</span><a href="#local-6989586621679768637"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#Option%27"><span class="hs-identifier hs-type">Option'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679768636"><span class="annot"><span class="annottext">Maybe [DBSecurityGroupMembership]
-</span><a href="#local-6989586621679768636"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Option
-</span><a href="#local-6989586621679768637"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbSecurityGroupMemberships:Option' :: Maybe [DBSecurityGroupMembership]
-</span><a href="Network.AWS.RDS.Types.Option.html#%24sel%3AdbSecurityGroupMemberships%3AOption%27"><span class="hs-identifier hs-var">dbSecurityGroupMemberships</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DBSecurityGroupMembership]
-</span><a href="#local-6989586621679768636"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#Option"><span class="hs-identifier hs-type">Option</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DBSecurityGroupMembership]
-  -&gt; f (Maybe [DBSecurityGroupMembership]))
- -&gt; Option -&gt; f Option)
--&gt; ((Maybe [DBSecurityGroupMembership]
-     -&gt; f (Maybe [DBSecurityGroupMembership]))
-    -&gt; Maybe [DBSecurityGroupMembership]
-    -&gt; f (Maybe [DBSecurityGroupMembership]))
--&gt; (Maybe [DBSecurityGroupMembership]
-    -&gt; f (Maybe [DBSecurityGroupMembership]))
--&gt; Option
--&gt; f Option
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
-  [DBSecurityGroupMembership]
-  [DBSecurityGroupMembership]
-  [DBSecurityGroupMembership]
-  [DBSecurityGroupMembership]
--&gt; Iso
-     (Maybe [DBSecurityGroupMembership])
-     (Maybe [DBSecurityGroupMembership])
-     (Maybe [DBSecurityGroupMembership])
-     (Maybe [DBSecurityGroupMembership])
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
-  [DBSecurityGroupMembership]
-  [DBSecurityGroupMembership]
-  [DBSecurityGroupMembership]
-  [DBSecurityGroupMembership]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- | The description of the option.</span><span>
-</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#option_optionDescription"><span class="hs-identifier hs-type">option_optionDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#Option"><span class="hs-identifier hs-type">Option</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-113"></span><span id="option_optionDescription"><span class="annot"><span class="annottext">option_optionDescription :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Option -&gt; f Option
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#Option%27"><span class="hs-identifier hs-type">Option'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679769715"><span class="annot"><span class="annottext">Maybe Bool
+persistent :: Maybe Bool
+$sel:persistent:Option' :: Option -&gt; Maybe Bool
+</span><a href="#local-6989586621679769715"><span class="hs-identifier hs-var hs-var">persistent</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679769715"><span class="hs-identifier hs-var">persistent</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679769714"><span class="annot"><span class="annottext">s :: Option
+</span><a href="#local-6989586621679769714"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#Option%27"><span class="hs-identifier hs-type">Option'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679769713"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679769713"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Option
+</span><a href="#local-6989586621679769714"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:persistent:Option' :: Maybe Bool
+</span><a href="Network.AWS.RDS.Types.Option.html#%24sel%3Apersistent%3AOption%27"><span class="hs-identifier hs-var">persistent</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679769713"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#Option"><span class="hs-identifier hs-type">Option</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | The description of the option.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#option_optionDescription"><span class="hs-identifier hs-type">option_optionDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#Option"><span class="hs-identifier hs-type">Option</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="option_optionDescription"><span class="annot"><span class="annottext">option_optionDescription :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Option -&gt; f Option
 </span><a href="Network.AWS.RDS.Types.Option.html#option_optionDescription"><span class="hs-identifier hs-var hs-var">option_optionDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Option -&gt; Maybe Text)
 -&gt; (Option -&gt; Maybe Text -&gt; Option)
 -&gt; Lens Option Option (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#Option%27"><span class="hs-identifier hs-type">Option'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679768631"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#Option%27"><span class="hs-identifier hs-type">Option'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679769711"><span class="annot"><span class="annottext">Maybe Text
 optionDescription :: Maybe Text
 $sel:optionDescription:Option' :: Option -&gt; Maybe Text
-</span><a href="#local-6989586621679768631"><span class="hs-identifier hs-var hs-var">optionDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679768631"><span class="hs-identifier hs-var">optionDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679768630"><span class="annot"><span class="annottext">s :: Option
-</span><a href="#local-6989586621679768630"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#Option%27"><span class="hs-identifier hs-type">Option'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679768629"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679768629"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Option
-</span><a href="#local-6989586621679768630"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:optionDescription:Option' :: Maybe Text
+</span><a href="#local-6989586621679769711"><span class="hs-identifier hs-var hs-var">optionDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679769711"><span class="hs-identifier hs-var">optionDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679769710"><span class="annot"><span class="annottext">s :: Option
+</span><a href="#local-6989586621679769710"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#Option%27"><span class="hs-identifier hs-type">Option'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679769709"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679769709"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Option
+</span><a href="#local-6989586621679769710"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:optionDescription:Option' :: Maybe Text
 </span><a href="Network.AWS.RDS.Types.Option.html#%24sel%3AoptionDescription%3AOption%27"><span class="hs-identifier hs-var">optionDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679768629"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#Option"><span class="hs-identifier hs-type">Option</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- | If required, the port configured for this option to use.</span><span>
-</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#option_port"><span class="hs-identifier hs-type">option_port</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#Option"><span class="hs-identifier hs-type">Option</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-117"></span><span id="option_port"><span class="annot"><span class="annottext">option_port :: (Maybe Int -&gt; f (Maybe Int)) -&gt; Option -&gt; f Option
-</span><a href="Network.AWS.RDS.Types.Option.html#option_port"><span class="hs-identifier hs-var hs-var">option_port</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Option -&gt; Maybe Int)
--&gt; (Option -&gt; Maybe Int -&gt; Option)
--&gt; Lens Option Option (Maybe Int) (Maybe Int)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#Option%27"><span class="hs-identifier hs-type">Option'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679768627"><span class="annot"><span class="annottext">Maybe Int
-port :: Maybe Int
-$sel:port:Option' :: Option -&gt; Maybe Int
-</span><a href="#local-6989586621679768627"><span class="hs-identifier hs-var hs-var">port</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679768627"><span class="hs-identifier hs-var">port</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679768626"><span class="annot"><span class="annottext">s :: Option
-</span><a href="#local-6989586621679768626"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#Option%27"><span class="hs-identifier hs-type">Option'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679768625"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679768625"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Option
-</span><a href="#local-6989586621679768626"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:port:Option' :: Maybe Int
-</span><a href="Network.AWS.RDS.Types.Option.html#%24sel%3Aport%3AOption%27"><span class="hs-identifier hs-var">port</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679768625"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#Option"><span class="hs-identifier hs-type">Option</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- | The option settings for this option.</span><span>
-</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#option_optionSettings"><span class="hs-identifier hs-type">option_optionSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#Option"><span class="hs-identifier hs-type">Option</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.RDS.Types.OptionSetting.html#OptionSetting"><span class="hs-identifier hs-type">OptionSetting</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-121"></span><span id="option_optionSettings"><span class="annot"><span class="annottext">option_optionSettings :: (Maybe [OptionSetting] -&gt; f (Maybe [OptionSetting]))
+</span><a href="#local-6989586621679769709"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#Option"><span class="hs-identifier hs-type">Option</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | The option settings for this option.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#option_optionSettings"><span class="hs-identifier hs-type">option_optionSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#Option"><span class="hs-identifier hs-type">Option</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.RDS.Types.OptionSetting.html#OptionSetting"><span class="hs-identifier hs-type">OptionSetting</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span id="option_optionSettings"><span class="annot"><span class="annottext">option_optionSettings :: (Maybe [OptionSetting] -&gt; f (Maybe [OptionSetting]))
 -&gt; Option -&gt; f Option
 </span><a href="Network.AWS.RDS.Types.Option.html#option_optionSettings"><span class="hs-identifier hs-var hs-var">option_optionSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Option -&gt; Maybe [OptionSetting])
 -&gt; (Option -&gt; Maybe [OptionSetting] -&gt; Option)
 -&gt; Lens
      Option Option (Maybe [OptionSetting]) (Maybe [OptionSetting])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#Option%27"><span class="hs-identifier hs-type">Option'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679768623"><span class="annot"><span class="annottext">Maybe [OptionSetting]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#Option%27"><span class="hs-identifier hs-type">Option'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679769707"><span class="annot"><span class="annottext">Maybe [OptionSetting]
 optionSettings :: Maybe [OptionSetting]
 $sel:optionSettings:Option' :: Option -&gt; Maybe [OptionSetting]
-</span><a href="#local-6989586621679768623"><span class="hs-identifier hs-var hs-var">optionSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [OptionSetting]
-</span><a href="#local-6989586621679768623"><span class="hs-identifier hs-var">optionSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679768622"><span class="annot"><span class="annottext">s :: Option
-</span><a href="#local-6989586621679768622"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#Option%27"><span class="hs-identifier hs-type">Option'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679768621"><span class="annot"><span class="annottext">Maybe [OptionSetting]
-</span><a href="#local-6989586621679768621"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Option
-</span><a href="#local-6989586621679768622"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:optionSettings:Option' :: Maybe [OptionSetting]
+</span><a href="#local-6989586621679769707"><span class="hs-identifier hs-var hs-var">optionSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [OptionSetting]
+</span><a href="#local-6989586621679769707"><span class="hs-identifier hs-var">optionSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679769706"><span class="annot"><span class="annottext">s :: Option
+</span><a href="#local-6989586621679769706"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#Option%27"><span class="hs-identifier hs-type">Option'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679769705"><span class="annot"><span class="annottext">Maybe [OptionSetting]
+</span><a href="#local-6989586621679769705"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Option
+</span><a href="#local-6989586621679769706"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:optionSettings:Option' :: Maybe [OptionSetting]
 </span><a href="Network.AWS.RDS.Types.Option.html#%24sel%3AoptionSettings%3AOption%27"><span class="hs-identifier hs-var">optionSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [OptionSetting]
-</span><a href="#local-6989586621679768621"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#Option"><span class="hs-identifier hs-type">Option</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [OptionSetting] -&gt; f (Maybe [OptionSetting]))
+</span><a href="#local-6989586621679769705"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#Option"><span class="hs-identifier hs-type">Option</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [OptionSetting] -&gt; f (Maybe [OptionSetting]))
  -&gt; Option -&gt; f Option)
 -&gt; ((Maybe [OptionSetting] -&gt; f (Maybe [OptionSetting]))
     -&gt; Maybe [OptionSetting] -&gt; f (Maybe [OptionSetting]))
@@ -357,31 +301,13 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
   [OptionSetting] [OptionSetting] [OptionSetting] [OptionSetting]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- | Indicate if this option is persistent.</span><span>
-</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#option_persistent"><span class="hs-identifier hs-type">option_persistent</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#Option"><span class="hs-identifier hs-type">Option</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-125"></span><span id="option_persistent"><span class="annot"><span class="annottext">option_persistent :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; Option -&gt; f Option
-</span><a href="Network.AWS.RDS.Types.Option.html#option_persistent"><span class="hs-identifier hs-var hs-var">option_persistent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Option -&gt; Maybe Bool)
--&gt; (Option -&gt; Maybe Bool -&gt; Option)
--&gt; Lens Option Option (Maybe Bool) (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#Option%27"><span class="hs-identifier hs-type">Option'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679768619"><span class="annot"><span class="annottext">Maybe Bool
-persistent :: Maybe Bool
-$sel:persistent:Option' :: Option -&gt; Maybe Bool
-</span><a href="#local-6989586621679768619"><span class="hs-identifier hs-var hs-var">persistent</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679768619"><span class="hs-identifier hs-var">persistent</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679768618"><span class="annot"><span class="annottext">s :: Option
-</span><a href="#local-6989586621679768618"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#Option%27"><span class="hs-identifier hs-type">Option'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679768617"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679768617"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Option
-</span><a href="#local-6989586621679768618"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:persistent:Option' :: Maybe Bool
-</span><a href="Network.AWS.RDS.Types.Option.html#%24sel%3Apersistent%3AOption%27"><span class="hs-identifier hs-var">persistent</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679768617"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#Option"><span class="hs-identifier hs-type">Option</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-comment">-- | If the option requires access to a port, then this VPC security group</span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- allows access to the port.</span><span>
-</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#option_vpcSecurityGroupMemberships"><span class="hs-identifier hs-type">option_vpcSecurityGroupMemberships</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#Option"><span class="hs-identifier hs-type">Option</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.RDS.Types.VpcSecurityGroupMembership.html#VpcSecurityGroupMembership"><span class="hs-identifier hs-type">VpcSecurityGroupMembership</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-130"></span><span id="option_vpcSecurityGroupMemberships"><span class="annot"><span class="annottext">option_vpcSecurityGroupMemberships :: (Maybe [VpcSecurityGroupMembership]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | If the option requires access to a port, then this VPC security group</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- allows access to the port.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#option_vpcSecurityGroupMemberships"><span class="hs-identifier hs-type">option_vpcSecurityGroupMemberships</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#Option"><span class="hs-identifier hs-type">Option</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.RDS.Types.VpcSecurityGroupMembership.html#VpcSecurityGroupMembership"><span class="hs-identifier hs-type">VpcSecurityGroupMembership</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="option_vpcSecurityGroupMemberships"><span class="annot"><span class="annottext">option_vpcSecurityGroupMemberships :: (Maybe [VpcSecurityGroupMembership]
  -&gt; f (Maybe [VpcSecurityGroupMembership]))
 -&gt; Option -&gt; f Option
 </span><a href="Network.AWS.RDS.Types.Option.html#option_vpcSecurityGroupMemberships"><span class="hs-identifier hs-var hs-var">option_vpcSecurityGroupMemberships</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Option -&gt; Maybe [VpcSecurityGroupMembership])
@@ -392,16 +318,16 @@ $sel:persistent:Option' :: Option -&gt; Maybe Bool
      (Maybe [VpcSecurityGroupMembership])
      (Maybe [VpcSecurityGroupMembership])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#Option%27"><span class="hs-identifier hs-type">Option'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679768615"><span class="annot"><span class="annottext">Maybe [VpcSecurityGroupMembership]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#Option%27"><span class="hs-identifier hs-type">Option'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679769700"><span class="annot"><span class="annottext">Maybe [VpcSecurityGroupMembership]
 vpcSecurityGroupMemberships :: Maybe [VpcSecurityGroupMembership]
 $sel:vpcSecurityGroupMemberships:Option' :: Option -&gt; Maybe [VpcSecurityGroupMembership]
-</span><a href="#local-6989586621679768615"><span class="hs-identifier hs-var hs-var">vpcSecurityGroupMemberships</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [VpcSecurityGroupMembership]
-</span><a href="#local-6989586621679768615"><span class="hs-identifier hs-var">vpcSecurityGroupMemberships</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679768614"><span class="annot"><span class="annottext">s :: Option
-</span><a href="#local-6989586621679768614"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#Option%27"><span class="hs-identifier hs-type">Option'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679768613"><span class="annot"><span class="annottext">Maybe [VpcSecurityGroupMembership]
-</span><a href="#local-6989586621679768613"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Option
-</span><a href="#local-6989586621679768614"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcSecurityGroupMemberships:Option' :: Maybe [VpcSecurityGroupMembership]
+</span><a href="#local-6989586621679769700"><span class="hs-identifier hs-var hs-var">vpcSecurityGroupMemberships</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [VpcSecurityGroupMembership]
+</span><a href="#local-6989586621679769700"><span class="hs-identifier hs-var">vpcSecurityGroupMemberships</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679769699"><span class="annot"><span class="annottext">s :: Option
+</span><a href="#local-6989586621679769699"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#Option%27"><span class="hs-identifier hs-type">Option'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679769698"><span class="annot"><span class="annottext">Maybe [VpcSecurityGroupMembership]
+</span><a href="#local-6989586621679769698"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Option
+</span><a href="#local-6989586621679769699"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcSecurityGroupMemberships:Option' :: Maybe [VpcSecurityGroupMembership]
 </span><a href="Network.AWS.RDS.Types.Option.html#%24sel%3AvpcSecurityGroupMemberships%3AOption%27"><span class="hs-identifier hs-var">vpcSecurityGroupMemberships</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [VpcSecurityGroupMembership]
-</span><a href="#local-6989586621679768613"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#Option"><span class="hs-identifier hs-type">Option</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [VpcSecurityGroupMembership]
+</span><a href="#local-6989586621679769698"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#Option"><span class="hs-identifier hs-type">Option</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [VpcSecurityGroupMembership]
   -&gt; f (Maybe [VpcSecurityGroupMembership]))
  -&gt; Option -&gt; f Option)
 -&gt; ((Maybe [VpcSecurityGroupMembership]
@@ -431,204 +357,241 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [VpcSecurityGroupMembership]
   [VpcSecurityGroupMembership]
   [VpcSecurityGroupMembership]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-131"></span><span>
-</span><span id="line-132"></span><span class="hs-comment">-- | Indicate if this option is permanent.</span><span>
-</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#option_permanent"><span class="hs-identifier hs-type">option_permanent</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#Option"><span class="hs-identifier hs-type">Option</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-134"></span><span id="option_permanent"><span class="annot"><span class="annottext">option_permanent :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; Option -&gt; f Option
-</span><a href="Network.AWS.RDS.Types.Option.html#option_permanent"><span class="hs-identifier hs-var hs-var">option_permanent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Option -&gt; Maybe Bool)
--&gt; (Option -&gt; Maybe Bool -&gt; Option)
--&gt; Lens Option Option (Maybe Bool) (Maybe Bool)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | If the option requires access to a port, then this DB security group</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- allows access to the port.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#option_dbSecurityGroupMemberships"><span class="hs-identifier hs-type">option_dbSecurityGroupMemberships</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#Option"><span class="hs-identifier hs-type">Option</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroupMembership.html#DBSecurityGroupMembership"><span class="hs-identifier hs-type">DBSecurityGroupMembership</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="option_dbSecurityGroupMemberships"><span class="annot"><span class="annottext">option_dbSecurityGroupMemberships :: (Maybe [DBSecurityGroupMembership]
+ -&gt; f (Maybe [DBSecurityGroupMembership]))
+-&gt; Option -&gt; f Option
+</span><a href="Network.AWS.RDS.Types.Option.html#option_dbSecurityGroupMemberships"><span class="hs-identifier hs-var hs-var">option_dbSecurityGroupMemberships</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Option -&gt; Maybe [DBSecurityGroupMembership])
+-&gt; (Option -&gt; Maybe [DBSecurityGroupMembership] -&gt; Option)
+-&gt; Lens
+     Option
+     Option
+     (Maybe [DBSecurityGroupMembership])
+     (Maybe [DBSecurityGroupMembership])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#Option%27"><span class="hs-identifier hs-type">Option'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679768611"><span class="annot"><span class="annottext">Maybe Bool
-permanent :: Maybe Bool
-$sel:permanent:Option' :: Option -&gt; Maybe Bool
-</span><a href="#local-6989586621679768611"><span class="hs-identifier hs-var hs-var">permanent</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679768611"><span class="hs-identifier hs-var">permanent</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679768610"><span class="annot"><span class="annottext">s :: Option
-</span><a href="#local-6989586621679768610"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#Option%27"><span class="hs-identifier hs-type">Option'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679768609"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679768609"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Option
-</span><a href="#local-6989586621679768610"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:permanent:Option' :: Maybe Bool
-</span><a href="Network.AWS.RDS.Types.Option.html#%24sel%3Apermanent%3AOption%27"><span class="hs-identifier hs-var">permanent</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679768609"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#Option"><span class="hs-identifier hs-type">Option</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#Option%27"><span class="hs-identifier hs-type">Option'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679769696"><span class="annot"><span class="annottext">Maybe [DBSecurityGroupMembership]
+dbSecurityGroupMemberships :: Maybe [DBSecurityGroupMembership]
+$sel:dbSecurityGroupMemberships:Option' :: Option -&gt; Maybe [DBSecurityGroupMembership]
+</span><a href="#local-6989586621679769696"><span class="hs-identifier hs-var hs-var">dbSecurityGroupMemberships</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DBSecurityGroupMembership]
+</span><a href="#local-6989586621679769696"><span class="hs-identifier hs-var">dbSecurityGroupMemberships</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679769695"><span class="annot"><span class="annottext">s :: Option
+</span><a href="#local-6989586621679769695"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#Option%27"><span class="hs-identifier hs-type">Option'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679769694"><span class="annot"><span class="annottext">Maybe [DBSecurityGroupMembership]
+</span><a href="#local-6989586621679769694"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Option
+</span><a href="#local-6989586621679769695"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbSecurityGroupMemberships:Option' :: Maybe [DBSecurityGroupMembership]
+</span><a href="Network.AWS.RDS.Types.Option.html#%24sel%3AdbSecurityGroupMemberships%3AOption%27"><span class="hs-identifier hs-var">dbSecurityGroupMemberships</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DBSecurityGroupMembership]
+</span><a href="#local-6989586621679769694"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#Option"><span class="hs-identifier hs-type">Option</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DBSecurityGroupMembership]
+  -&gt; f (Maybe [DBSecurityGroupMembership]))
+ -&gt; Option -&gt; f Option)
+-&gt; ((Maybe [DBSecurityGroupMembership]
+     -&gt; f (Maybe [DBSecurityGroupMembership]))
+    -&gt; Maybe [DBSecurityGroupMembership]
+    -&gt; f (Maybe [DBSecurityGroupMembership]))
+-&gt; (Maybe [DBSecurityGroupMembership]
+    -&gt; f (Maybe [DBSecurityGroupMembership]))
+-&gt; Option
+-&gt; f Option
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [DBSecurityGroupMembership]
+  [DBSecurityGroupMembership]
+  [DBSecurityGroupMembership]
+  [DBSecurityGroupMembership]
+-&gt; Iso
+     (Maybe [DBSecurityGroupMembership])
+     (Maybe [DBSecurityGroupMembership])
+     (Maybe [DBSecurityGroupMembership])
+     (Maybe [DBSecurityGroupMembership])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [DBSecurityGroupMembership]
+  [DBSecurityGroupMembership]
+  [DBSecurityGroupMembership]
+  [DBSecurityGroupMembership]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | The version of the option.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#option_optionVersion"><span class="hs-identifier hs-type">option_optionVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#Option"><span class="hs-identifier hs-type">Option</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="option_optionVersion"><span class="annot"><span class="annottext">option_optionVersion :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Option -&gt; f Option
+</span><a href="Network.AWS.RDS.Types.Option.html#option_optionVersion"><span class="hs-identifier hs-var hs-var">option_optionVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Option -&gt; Maybe Text)
+-&gt; (Option -&gt; Maybe Text -&gt; Option)
+-&gt; Lens Option Option (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#Option%27"><span class="hs-identifier hs-type">Option'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679769692"><span class="annot"><span class="annottext">Maybe Text
+optionVersion :: Maybe Text
+$sel:optionVersion:Option' :: Option -&gt; Maybe Text
+</span><a href="#local-6989586621679769692"><span class="hs-identifier hs-var hs-var">optionVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679769692"><span class="hs-identifier hs-var">optionVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679769691"><span class="annot"><span class="annottext">s :: Option
+</span><a href="#local-6989586621679769691"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#Option%27"><span class="hs-identifier hs-type">Option'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679769690"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679769690"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Option
+</span><a href="#local-6989586621679769691"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:optionVersion:Option' :: Maybe Text
+</span><a href="Network.AWS.RDS.Types.Option.html#%24sel%3AoptionVersion%3AOption%27"><span class="hs-identifier hs-var">optionVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679769690"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#Option"><span class="hs-identifier hs-type">Option</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | If required, the port configured for this option to use.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#option_port"><span class="hs-identifier hs-type">option_port</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#Option"><span class="hs-identifier hs-type">Option</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span id="option_port"><span class="annot"><span class="annottext">option_port :: (Maybe Int -&gt; f (Maybe Int)) -&gt; Option -&gt; f Option
+</span><a href="Network.AWS.RDS.Types.Option.html#option_port"><span class="hs-identifier hs-var hs-var">option_port</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Option -&gt; Maybe Int)
+-&gt; (Option -&gt; Maybe Int -&gt; Option)
+-&gt; Lens Option Option (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#Option%27"><span class="hs-identifier hs-type">Option'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679769688"><span class="annot"><span class="annottext">Maybe Int
+port :: Maybe Int
+$sel:port:Option' :: Option -&gt; Maybe Int
+</span><a href="#local-6989586621679769688"><span class="hs-identifier hs-var hs-var">port</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679769688"><span class="hs-identifier hs-var">port</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679769687"><span class="annot"><span class="annottext">s :: Option
+</span><a href="#local-6989586621679769687"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#Option%27"><span class="hs-identifier hs-type">Option'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679769686"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679769686"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Option
+</span><a href="#local-6989586621679769687"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:port:Option' :: Maybe Int
+</span><a href="Network.AWS.RDS.Types.Option.html#%24sel%3Aport%3AOption%27"><span class="hs-identifier hs-var">port</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679769686"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#Option"><span class="hs-identifier hs-type">Option</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#Option"><span class="hs-identifier hs-type">Option</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679768606"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Option
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679768604"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679768604"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679769683"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Option
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679769681"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679769681"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-138"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Bool
 -&gt; Maybe Text
+-&gt; Maybe [OptionSetting]
+-&gt; Maybe [VpcSecurityGroupMembership]
 -&gt; Maybe [DBSecurityGroupMembership]
 -&gt; Maybe Text
 -&gt; Maybe Int
--&gt; Maybe [OptionSetting]
--&gt; Maybe Bool
--&gt; Maybe [VpcSecurityGroupMembership]
--&gt; Maybe Bool
 -&gt; Option
 </span><a href="Network.AWS.RDS.Types.Option.html#Option%27"><span class="hs-identifier hs-var">Option'</span></a></span><span>
 </span><span id="line-139"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Bool
+ -&gt; Maybe Bool
  -&gt; Maybe Text
+ -&gt; Maybe [OptionSetting]
+ -&gt; Maybe [VpcSecurityGroupMembership]
  -&gt; Maybe [DBSecurityGroupMembership]
  -&gt; Maybe Text
  -&gt; Maybe Int
- -&gt; Maybe [OptionSetting]
- -&gt; Maybe Bool
- -&gt; Maybe [VpcSecurityGroupMembership]
- -&gt; Maybe Bool
  -&gt; Option)
 -&gt; Either String (Maybe Text)
 -&gt; Either
      String
-     (Maybe Text
+     (Maybe Bool
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe [OptionSetting]
+      -&gt; Maybe [VpcSecurityGroupMembership]
       -&gt; Maybe [DBSecurityGroupMembership]
       -&gt; Maybe Text
       -&gt; Maybe Int
-      -&gt; Maybe [OptionSetting]
-      -&gt; Maybe Bool
-      -&gt; Maybe [VpcSecurityGroupMembership]
-      -&gt; Maybe Bool
       -&gt; Option)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679768604"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679769681"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;OptionName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe Text
+  (Maybe Bool
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe [OptionSetting]
+   -&gt; Maybe [VpcSecurityGroupMembership]
    -&gt; Maybe [DBSecurityGroupMembership]
    -&gt; Maybe Text
    -&gt; Maybe Int
-   -&gt; Maybe [OptionSetting]
-   -&gt; Maybe Bool
-   -&gt; Maybe [VpcSecurityGroupMembership]
-   -&gt; Maybe Bool
    -&gt; Option)
--&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Bool)
 -&gt; Either
      String
-     (Maybe [DBSecurityGroupMembership]
+     (Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe [OptionSetting]
+      -&gt; Maybe [VpcSecurityGroupMembership]
+      -&gt; Maybe [DBSecurityGroupMembership]
       -&gt; Maybe Text
       -&gt; Maybe Int
-      -&gt; Maybe [OptionSetting]
-      -&gt; Maybe Bool
-      -&gt; Maybe [VpcSecurityGroupMembership]
-      -&gt; Maybe Bool
       -&gt; Option)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679768604"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679769681"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;OptionVersion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;Permanent&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe [DBSecurityGroupMembership]
+  (Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe [OptionSetting]
+   -&gt; Maybe [VpcSecurityGroupMembership]
+   -&gt; Maybe [DBSecurityGroupMembership]
    -&gt; Maybe Text
    -&gt; Maybe Int
-   -&gt; Maybe [OptionSetting]
-   -&gt; Maybe Bool
-   -&gt; Maybe [VpcSecurityGroupMembership]
-   -&gt; Maybe Bool
    -&gt; Option)
--&gt; Either String (Maybe [DBSecurityGroupMembership])
+-&gt; Either String (Maybe Bool)
 -&gt; Either
      String
      (Maybe Text
-      -&gt; Maybe Int
       -&gt; Maybe [OptionSetting]
-      -&gt; Maybe Bool
       -&gt; Maybe [VpcSecurityGroupMembership]
-      -&gt; Maybe Bool
+      -&gt; Maybe [DBSecurityGroupMembership]
+      -&gt; Maybe Text
+      -&gt; Maybe Int
       -&gt; Option)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679768604"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679769681"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;DBSecurityGroupMemberships&quot;</span></span><span>
-</span><span id="line-142"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
-forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
-</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
-forall a. Monoid a =&gt; a
-</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-143"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
--&gt; ([Node] -&gt; Either String (Maybe [DBSecurityGroupMembership]))
--&gt; Either String (Maybe [DBSecurityGroupMembership])
-forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
-</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [DBSecurityGroupMembership])
--&gt; [Node] -&gt; Either String (Maybe [DBSecurityGroupMembership])
-forall (f :: * -&gt; *) a b.
-Applicative f =&gt;
-([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
-</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [DBSecurityGroupMembership]
-forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
-</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;DBSecurityGroup&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-144"></span><span>                  </span><span class="hs-special">)</span><span>
-</span><span id="line-145"></span><span>      </span><span class="annot"><span class="annottext">Either
+</span><span class="hs-string">&quot;Persistent&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
   (Maybe Text
-   -&gt; Maybe Int
    -&gt; Maybe [OptionSetting]
-   -&gt; Maybe Bool
    -&gt; Maybe [VpcSecurityGroupMembership]
-   -&gt; Maybe Bool
+   -&gt; Maybe [DBSecurityGroupMembership]
+   -&gt; Maybe Text
+   -&gt; Maybe Int
    -&gt; Option)
 -&gt; Either String (Maybe Text)
 -&gt; Either
      String
-     (Maybe Int
-      -&gt; Maybe [OptionSetting]
-      -&gt; Maybe Bool
+     (Maybe [OptionSetting]
       -&gt; Maybe [VpcSecurityGroupMembership]
-      -&gt; Maybe Bool
+      -&gt; Maybe [DBSecurityGroupMembership]
+      -&gt; Maybe Text
+      -&gt; Maybe Int
       -&gt; Option)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679768604"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679769681"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;OptionDescription&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-146"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe Int
-   -&gt; Maybe [OptionSetting]
-   -&gt; Maybe Bool
-   -&gt; Maybe [VpcSecurityGroupMembership]
-   -&gt; Maybe Bool
-   -&gt; Option)
--&gt; Either String (Maybe Int)
--&gt; Either
-     String
-     (Maybe [OptionSetting]
-      -&gt; Maybe Bool
-      -&gt; Maybe [VpcSecurityGroupMembership]
-      -&gt; Maybe Bool
-      -&gt; Option)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679768604"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Port&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-147"></span><span>      </span><span class="annot"><span class="annottext">Either
+</span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
   (Maybe [OptionSetting]
-   -&gt; Maybe Bool
    -&gt; Maybe [VpcSecurityGroupMembership]
-   -&gt; Maybe Bool
+   -&gt; Maybe [DBSecurityGroupMembership]
+   -&gt; Maybe Text
+   -&gt; Maybe Int
    -&gt; Option)
 -&gt; Either String (Maybe [OptionSetting])
 -&gt; Either
      String
-     (Maybe Bool
-      -&gt; Maybe [VpcSecurityGroupMembership] -&gt; Maybe Bool -&gt; Option)
+     (Maybe [VpcSecurityGroupMembership]
+      -&gt; Maybe [DBSecurityGroupMembership]
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Option)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679768604"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679769681"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;OptionSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -636,7 +599,7 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-148"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+</span><span id="line-144"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
 -&gt; ([Node] -&gt; Either String (Maybe [OptionSetting]))
 -&gt; Either String (Maybe [OptionSetting])
 forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
@@ -649,36 +612,31 @@ Applicative f =&gt;
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;OptionSetting&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-149"></span><span>                  </span><span class="hs-special">)</span><span>
-</span><span id="line-150"></span><span>      </span><span class="annot"><span class="annottext">Either
+</span><span id="line-145"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe Bool
-   -&gt; Maybe [VpcSecurityGroupMembership] -&gt; Maybe Bool -&gt; Option)
--&gt; Either String (Maybe Bool)
--&gt; Either
-     String (Maybe [VpcSecurityGroupMembership] -&gt; Maybe Bool -&gt; Option)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679768604"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Persistent&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-151"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String (Maybe [VpcSecurityGroupMembership] -&gt; Maybe Bool -&gt; Option)
+  (Maybe [VpcSecurityGroupMembership]
+   -&gt; Maybe [DBSecurityGroupMembership]
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Option)
 -&gt; Either String (Maybe [VpcSecurityGroupMembership])
--&gt; Either String (Maybe Bool -&gt; Option)
+-&gt; Either
+     String
+     (Maybe [DBSecurityGroupMembership]
+      -&gt; Maybe Text -&gt; Maybe Int -&gt; Option)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679768604"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679769681"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;VpcSecurityGroupMemberships&quot;</span></span><span>
-</span><span id="line-152"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+</span><span id="line-147"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
 forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-153"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+</span><span id="line-148"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
 -&gt; ([Node] -&gt; Either String (Maybe [VpcSecurityGroupMembership]))
 -&gt; Either String (Maybe [VpcSecurityGroupMembership])
 forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
@@ -688,21 +646,61 @@ forall (f :: * -&gt; *) a b.
 Applicative f =&gt;
 ([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
 </span><span class="hs-identifier hs-var">Core.may</span></span><span>
-</span><span id="line-154"></span><span>                        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [VpcSecurityGroupMembership]
+</span><span id="line-149"></span><span>                        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [VpcSecurityGroupMembership]
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;VpcSecurityGroupMembership&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-155"></span><span>                  </span><span class="hs-special">)</span><span>
-</span><span id="line-156"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Bool -&gt; Option)
--&gt; Either String (Maybe Bool) -&gt; Either String Option
+</span><span id="line-150"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [DBSecurityGroupMembership]
+   -&gt; Maybe Text -&gt; Maybe Int -&gt; Option)
+-&gt; Either String (Maybe [DBSecurityGroupMembership])
+-&gt; Either String (Maybe Text -&gt; Maybe Int -&gt; Option)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679768604"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679769681"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Permanent&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;DBSecurityGroupMemberships&quot;</span></span><span>
+</span><span id="line-152"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-153"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [DBSecurityGroupMembership]))
+-&gt; Either String (Maybe [DBSecurityGroupMembership])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [DBSecurityGroupMembership])
+-&gt; [Node] -&gt; Either String (Maybe [DBSecurityGroupMembership])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [DBSecurityGroupMembership]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DBSecurityGroup&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Maybe Int -&gt; Option)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Int -&gt; Option)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679769681"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OptionVersion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Int -&gt; Option)
+-&gt; Either String (Maybe Int) -&gt; Either String Option
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679769681"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Port&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span><span>
-</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679768595"><span id="local-6989586621679768597"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#Option"><span class="hs-identifier hs-type">Option</span></a></span></span></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679769672"><span id="local-6989586621679769674"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#Option"><span class="hs-identifier hs-type">Option</span></a></span></span></span><span>
 </span><span id="line-159"></span><span>
-</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679768592"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#Option"><span class="hs-identifier hs-type">Option</span></a></span></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679769669"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.Option.html#Option"><span class="hs-identifier hs-type">Option</span></a></span></span><span>
 </span><span id="line-161"></span></pre></body></html>

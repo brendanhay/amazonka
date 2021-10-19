@@ -27,13 +27,13 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Contains information about the criteria used for querying findings.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newFindingCriteria' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679295850"><span id="local-6989586621679295851"></span></span><span class="hs-keyword">data</span><span> </span><span id="FindingCriteria"><span class="annot"><a href="Network.AWS.GuardDuty.Types.FindingCriteria.html#FindingCriteria"><span class="hs-identifier hs-var">FindingCriteria</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FindingCriteria%27"><span class="annot"><a href="Network.AWS.GuardDuty.Types.FindingCriteria.html#FindingCriteria%27"><span class="hs-identifier hs-var">FindingCriteria'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679296133"><span id="local-6989586621679296134"></span></span><span class="hs-keyword">data</span><span> </span><span id="FindingCriteria"><span class="annot"><a href="Network.AWS.GuardDuty.Types.FindingCriteria.html#FindingCriteria"><span class="hs-identifier hs-var">FindingCriteria</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FindingCriteria%27"><span class="annot"><a href="Network.AWS.GuardDuty.Types.FindingCriteria.html#FindingCriteria%27"><span class="hs-identifier hs-var">FindingCriteria'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Represents a map of finding properties that match specified conditions</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- and values when querying findings.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Acriterion%3AFindingCriteria%27"><span class="annot"><span class="annottext">FindingCriteria -&gt; Maybe (HashMap Text Condition)
 </span><a href="Network.AWS.GuardDuty.Types.FindingCriteria.html#%24sel%3Acriterion%3AFindingCriteria%27"><span class="hs-identifier hs-var hs-var">criterion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679295844"><span id="local-6989586621679295846"><span class="annot"><span class="annottext">FindingCriteria -&gt; FindingCriteria -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679296127"><span id="local-6989586621679296129"><span class="annot"><span class="annottext">FindingCriteria -&gt; FindingCriteria -&gt; Bool
 (FindingCriteria -&gt; FindingCriteria -&gt; Bool)
 -&gt; (FindingCriteria -&gt; FindingCriteria -&gt; Bool)
 -&gt; Eq FindingCriteria
@@ -42,7 +42,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: FindingCriteria -&gt; FindingCriteria -&gt; Bool
 == :: FindingCriteria -&gt; FindingCriteria -&gt; Bool
 $c== :: FindingCriteria -&gt; FindingCriteria -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679295835"><span id="local-6989586621679295837"><span id="local-6989586621679295839"><span id="local-6989586621679295841"><span class="annot"><span class="annottext">ReadPrec [FindingCriteria]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679296118"><span id="local-6989586621679296120"><span id="local-6989586621679296122"><span id="local-6989586621679296124"><span class="annot"><span class="annottext">ReadPrec [FindingCriteria]
 ReadPrec FindingCriteria
 Int -&gt; ReadS FindingCriteria
 ReadS [FindingCriteria]
@@ -62,7 +62,7 @@ readList :: ReadS [FindingCriteria]
 $creadList :: ReadS [FindingCriteria]
 readsPrec :: Int -&gt; ReadS FindingCriteria
 $creadsPrec :: Int -&gt; ReadS FindingCriteria
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679295828"><span id="local-6989586621679295830"><span id="local-6989586621679295832"><span class="annot"><span class="annottext">Int -&gt; FindingCriteria -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679296111"><span id="local-6989586621679296113"><span id="local-6989586621679296115"><span class="annot"><span class="annottext">Int -&gt; FindingCriteria -&gt; ShowS
 [FindingCriteria] -&gt; ShowS
 FindingCriteria -&gt; String
 (Int -&gt; FindingCriteria -&gt; ShowS)
@@ -123,16 +123,16 @@ forall a. Maybe a
      (Maybe (HashMap Text Condition))
      (Maybe (HashMap Text Condition))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.FindingCriteria.html#FindingCriteria%27"><span class="hs-identifier hs-type">FindingCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295819"><span class="annot"><span class="annottext">Maybe (HashMap Text Condition)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.FindingCriteria.html#FindingCriteria%27"><span class="hs-identifier hs-type">FindingCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679296102"><span class="annot"><span class="annottext">Maybe (HashMap Text Condition)
 criterion :: Maybe (HashMap Text Condition)
 $sel:criterion:FindingCriteria' :: FindingCriteria -&gt; Maybe (HashMap Text Condition)
-</span><a href="#local-6989586621679295819"><span class="hs-identifier hs-var hs-var">criterion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Condition)
-</span><a href="#local-6989586621679295819"><span class="hs-identifier hs-var">criterion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295818"><span class="annot"><span class="annottext">s :: FindingCriteria
-</span><a href="#local-6989586621679295818"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.FindingCriteria.html#FindingCriteria%27"><span class="hs-identifier hs-type">FindingCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295817"><span class="annot"><span class="annottext">Maybe (HashMap Text Condition)
-</span><a href="#local-6989586621679295817"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FindingCriteria
-</span><a href="#local-6989586621679295818"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:criterion:FindingCriteria' :: Maybe (HashMap Text Condition)
+</span><a href="#local-6989586621679296102"><span class="hs-identifier hs-var hs-var">criterion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Condition)
+</span><a href="#local-6989586621679296102"><span class="hs-identifier hs-var">criterion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679296101"><span class="annot"><span class="annottext">s :: FindingCriteria
+</span><a href="#local-6989586621679296101"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.FindingCriteria.html#FindingCriteria%27"><span class="hs-identifier hs-type">FindingCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679296100"><span class="annot"><span class="annottext">Maybe (HashMap Text Condition)
+</span><a href="#local-6989586621679296100"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FindingCriteria
+</span><a href="#local-6989586621679296101"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:criterion:FindingCriteria' :: Maybe (HashMap Text Condition)
 </span><a href="Network.AWS.GuardDuty.Types.FindingCriteria.html#%24sel%3Acriterion%3AFindingCriteria%27"><span class="hs-identifier hs-var">criterion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Condition)
-</span><a href="#local-6989586621679295817"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.FindingCriteria.html#FindingCriteria"><span class="hs-identifier hs-type">FindingCriteria</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Condition)
+</span><a href="#local-6989586621679296100"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.FindingCriteria.html#FindingCriteria"><span class="hs-identifier hs-type">FindingCriteria</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Condition)
   -&gt; f (Maybe (HashMap Text Condition)))
  -&gt; FindingCriteria -&gt; f FindingCriteria)
 -&gt; ((Maybe (HashMap Text Condition)
@@ -162,11 +162,11 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (HashMap Text Condition)
   (HashMap Text Condition)
   (HashMap Text Condition)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-56"></span><span>
-</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295811"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.FindingCriteria.html#FindingCriteria"><span class="hs-identifier hs-type">FindingCriteria</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-58"></span><span>  </span><span id="local-6989586621679295809"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser FindingCriteria
+</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679296094"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.FindingCriteria.html#FindingCriteria"><span class="hs-identifier hs-type">FindingCriteria</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-58"></span><span>  </span><span id="local-6989586621679296092"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser FindingCriteria
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-59"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser FindingCriteria)
@@ -176,8 +176,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;FindingCriteria&quot;</span></span><span>
-</span><span id="line-61"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679295806"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679295806"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-61"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679296089"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679296089"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-62"></span><span>          </span><span class="annot"><span class="annottext">Maybe (HashMap Text Condition) -&gt; FindingCriteria
 </span><a href="Network.AWS.GuardDuty.Types.FindingCriteria.html#FindingCriteria%27"><span class="hs-identifier hs-var">FindingCriteria'</span></a></span><span>
 </span><span id="line-63"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (HashMap Text Condition) -&gt; FindingCriteria)
@@ -185,7 +185,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser FindingCriteria
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679295806"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Condition)))
+</span><a href="#local-6989586621679296089"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Condition)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;criterion&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Condition)))
@@ -197,16 +197,16 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295799"><span id="local-6989586621679295801"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.FindingCriteria.html#FindingCriteria"><span class="hs-identifier hs-type">FindingCriteria</span></a></span></span></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679296082"><span id="local-6989586621679296084"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.FindingCriteria.html#FindingCriteria"><span class="hs-identifier hs-type">FindingCriteria</span></a></span></span></span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295796"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.FindingCriteria.html#FindingCriteria"><span class="hs-identifier hs-type">FindingCriteria</span></a></span></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679296079"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.FindingCriteria.html#FindingCriteria"><span class="hs-identifier hs-type">FindingCriteria</span></a></span></span><span>
 </span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295788"><span id="local-6989586621679295790"><span id="local-6989586621679295792"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.FindingCriteria.html#FindingCriteria"><span class="hs-identifier hs-type">FindingCriteria</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-71"></span><span>  </span><span id="local-6989586621679295786"><span class="annot"><span class="annottext">toJSON :: FindingCriteria -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.FindingCriteria.html#FindingCriteria%27"><span class="hs-identifier hs-type">FindingCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295784"><span class="annot"><span class="annottext">Maybe (HashMap Text Condition)
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679296071"><span id="local-6989586621679296073"><span id="local-6989586621679296075"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.FindingCriteria.html#FindingCriteria"><span class="hs-identifier hs-type">FindingCriteria</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621679296069"><span class="annot"><span class="annottext">toJSON :: FindingCriteria -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.FindingCriteria.html#FindingCriteria%27"><span class="hs-identifier hs-type">FindingCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679296067"><span class="annot"><span class="annottext">Maybe (HashMap Text Condition)
 criterion :: Maybe (HashMap Text Condition)
 $sel:criterion:FindingCriteria' :: FindingCriteria -&gt; Maybe (HashMap Text Condition)
-</span><a href="#local-6989586621679295784"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679296067"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -219,6 +219,6 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text Condition) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Condition)
-</span><a href="#local-6989586621679295784"><span class="hs-identifier hs-var">criterion</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679296067"><span class="hs-identifier hs-var">criterion</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-75"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span></pre></body></html>

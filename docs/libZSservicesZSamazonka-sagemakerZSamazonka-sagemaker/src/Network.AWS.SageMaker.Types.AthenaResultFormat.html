@@ -33,13 +33,13 @@
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-34"></span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- | The data storage format for Athena query results.</span><span>
-</span><span id="line-36"></span><span id="local-6989586621680290817"><span id="local-6989586621680290818"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AthenaResultFormat"><span class="annot"><a href="Network.AWS.SageMaker.Types.AthenaResultFormat.html#AthenaResultFormat"><span class="hs-identifier hs-var">AthenaResultFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AthenaResultFormat%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.AthenaResultFormat.html#AthenaResultFormat%27"><span class="hs-identifier hs-var">AthenaResultFormat'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621680292175"><span id="local-6989586621680292176"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AthenaResultFormat"><span class="annot"><a href="Network.AWS.SageMaker.Types.AthenaResultFormat.html#AthenaResultFormat"><span class="hs-identifier hs-var">AthenaResultFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AthenaResultFormat%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.AthenaResultFormat.html#AthenaResultFormat%27"><span class="hs-identifier hs-var">AthenaResultFormat'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAthenaResultFormat"><span class="annot"><span class="annottext">AthenaResultFormat -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.AthenaResultFormat.html#fromAthenaResultFormat"><span class="hs-identifier hs-var hs-var">fromAthenaResultFormat</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680290809"><span id="local-6989586621680290811"><span id="local-6989586621680290813"><span class="annot"><span class="annottext">Int -&gt; AthenaResultFormat -&gt; ShowS
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680292167"><span id="local-6989586621680292169"><span id="local-6989586621680292171"><span class="annot"><span class="annottext">Int -&gt; AthenaResultFormat -&gt; ShowS
 [AthenaResultFormat] -&gt; ShowS
 AthenaResultFormat -&gt; String
 (Int -&gt; AthenaResultFormat -&gt; ShowS)
@@ -55,7 +55,7 @@ $cshow :: AthenaResultFormat -&gt; String
 showsPrec :: Int -&gt; AthenaResultFormat -&gt; ShowS
 $cshowsPrec :: Int -&gt; AthenaResultFormat -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621680290800"><span id="local-6989586621680290802"><span id="local-6989586621680290804"><span id="local-6989586621680290806"><span class="annot"><span class="annottext">ReadPrec [AthenaResultFormat]
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621680292158"><span id="local-6989586621680292160"><span id="local-6989586621680292162"><span id="local-6989586621680292164"><span class="annot"><span class="annottext">ReadPrec [AthenaResultFormat]
 ReadPrec AthenaResultFormat
 Int -&gt; ReadS AthenaResultFormat
 ReadS [AthenaResultFormat]
@@ -76,7 +76,7 @@ $creadList :: ReadS [AthenaResultFormat]
 readsPrec :: Int -&gt; ReadS AthenaResultFormat
 $creadsPrec :: Int -&gt; ReadS AthenaResultFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621680290795"><span id="local-6989586621680290797"><span class="annot"><span class="annottext">AthenaResultFormat -&gt; AthenaResultFormat -&gt; Bool
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621680292153"><span id="local-6989586621680292155"><span class="annot"><span class="annottext">AthenaResultFormat -&gt; AthenaResultFormat -&gt; Bool
 (AthenaResultFormat -&gt; AthenaResultFormat -&gt; Bool)
 -&gt; (AthenaResultFormat -&gt; AthenaResultFormat -&gt; Bool)
 -&gt; Eq AthenaResultFormat
@@ -86,7 +86,7 @@ $c/= :: AthenaResultFormat -&gt; AthenaResultFormat -&gt; Bool
 == :: AthenaResultFormat -&gt; AthenaResultFormat -&gt; Bool
 $c== :: AthenaResultFormat -&gt; AthenaResultFormat -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621680290779"><span id="local-6989586621680290781"><span id="local-6989586621680290783"><span id="local-6989586621680290785"><span id="local-6989586621680290787"><span id="local-6989586621680290789"><span id="local-6989586621680290791"><span class="annot"><span class="annottext">Eq AthenaResultFormat
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621680292137"><span id="local-6989586621680292139"><span id="local-6989586621680292141"><span id="local-6989586621680292143"><span id="local-6989586621680292145"><span id="local-6989586621680292147"><span id="local-6989586621680292149"><span class="annot"><span class="annottext">Eq AthenaResultFormat
 Eq AthenaResultFormat
 -&gt; (AthenaResultFormat -&gt; AthenaResultFormat -&gt; Ordering)
 -&gt; (AthenaResultFormat -&gt; AthenaResultFormat -&gt; Bool)
@@ -137,7 +137,7 @@ $cfrom :: forall x. AthenaResultFormat -&gt; Rep AthenaResultFormat x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680290771"><span id="local-6989586621680290773"><span class="annot"><span class="annottext">Int -&gt; AthenaResultFormat -&gt; Int
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680292129"><span id="local-6989586621680292131"><span class="annot"><span class="annottext">Int -&gt; AthenaResultFormat -&gt; Int
 AthenaResultFormat -&gt; Int
 (Int -&gt; AthenaResultFormat -&gt; Int)
 -&gt; (AthenaResultFormat -&gt; Int) -&gt; Hashable AthenaResultFormat
@@ -147,53 +147,53 @@ $chash :: AthenaResultFormat -&gt; Int
 hashWithSalt :: Int -&gt; AthenaResultFormat -&gt; Int
 $chashWithSalt :: Int -&gt; AthenaResultFormat -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621680290768"><span class="annot"><span class="annottext">AthenaResultFormat -&gt; ()
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680292126"><span class="annot"><span class="annottext">AthenaResultFormat -&gt; ()
 (AthenaResultFormat -&gt; ()) -&gt; NFData AthenaResultFormat
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AthenaResultFormat -&gt; ()
 $crnf :: AthenaResultFormat -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621680290765"><span class="annot"><span class="annottext">Text -&gt; Either String AthenaResultFormat
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680292123"><span class="annot"><span class="annottext">Text -&gt; Either String AthenaResultFormat
 (Text -&gt; Either String AthenaResultFormat)
 -&gt; FromText AthenaResultFormat
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AthenaResultFormat
 $cfromText :: Text -&gt; Either String AthenaResultFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621680290762"><span class="annot"><span class="annottext">AthenaResultFormat -&gt; Text
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680292120"><span class="annot"><span class="annottext">AthenaResultFormat -&gt; Text
 (AthenaResultFormat -&gt; Text) -&gt; ToText AthenaResultFormat
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AthenaResultFormat -&gt; Text
 $ctoText :: AthenaResultFormat -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621680290759"><span class="annot"><span class="annottext">AthenaResultFormat -&gt; ByteString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680292117"><span class="annot"><span class="annottext">AthenaResultFormat -&gt; ByteString
 (AthenaResultFormat -&gt; ByteString)
 -&gt; ToByteString AthenaResultFormat
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AthenaResultFormat -&gt; ByteString
 $ctoBS :: AthenaResultFormat -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621680290756"><span class="annot"><span class="annottext">AthenaResultFormat -&gt; ByteStringBuilder
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680292114"><span class="annot"><span class="annottext">AthenaResultFormat -&gt; ByteStringBuilder
 (AthenaResultFormat -&gt; ByteStringBuilder)
 -&gt; ToLog AthenaResultFormat
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AthenaResultFormat -&gt; ByteStringBuilder
 $cbuild :: AthenaResultFormat -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621680290753"><span class="annot"><span class="annottext">HeaderName -&gt; AthenaResultFormat -&gt; [Header]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680292111"><span class="annot"><span class="annottext">HeaderName -&gt; AthenaResultFormat -&gt; [Header]
 (HeaderName -&gt; AthenaResultFormat -&gt; [Header])
 -&gt; ToHeader AthenaResultFormat
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AthenaResultFormat -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AthenaResultFormat -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621680290750"><span class="annot"><span class="annottext">AthenaResultFormat -&gt; QueryString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680292108"><span class="annot"><span class="annottext">AthenaResultFormat -&gt; QueryString
 (AthenaResultFormat -&gt; QueryString) -&gt; ToQuery AthenaResultFormat
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AthenaResultFormat -&gt; QueryString
 $ctoQuery :: AthenaResultFormat -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680290745"><span id="local-6989586621680290747"><span class="annot"><span class="annottext">Value -&gt; Parser [AthenaResultFormat]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680292103"><span id="local-6989586621680292105"><span class="annot"><span class="annottext">Value -&gt; Parser [AthenaResultFormat]
 Value -&gt; Parser AthenaResultFormat
 (Value -&gt; Parser AthenaResultFormat)
 -&gt; (Value -&gt; Parser [AthenaResultFormat])
@@ -205,7 +205,7 @@ $cparseJSONList :: Value -&gt; Parser [AthenaResultFormat]
 parseJSON :: Value -&gt; Parser AthenaResultFormat
 $cparseJSON :: Value -&gt; Parser AthenaResultFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621680290740"><span id="local-6989586621680290742"><span class="annot"><span class="annottext">FromJSONKeyFunction [AthenaResultFormat]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680292098"><span id="local-6989586621680292100"><span class="annot"><span class="annottext">FromJSONKeyFunction [AthenaResultFormat]
 FromJSONKeyFunction AthenaResultFormat
 FromJSONKeyFunction AthenaResultFormat
 -&gt; FromJSONKeyFunction [AthenaResultFormat]
@@ -217,7 +217,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AthenaResultFormat]
 fromJSONKey :: FromJSONKeyFunction AthenaResultFormat
 $cfromJSONKey :: FromJSONKeyFunction AthenaResultFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621680290731"><span id="local-6989586621680290733"><span id="local-6989586621680290735"><span id="local-6989586621680290737"><span class="annot"><span class="annottext">[AthenaResultFormat] -&gt; Encoding
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680292089"><span id="local-6989586621680292091"><span id="local-6989586621680292093"><span id="local-6989586621680292095"><span class="annot"><span class="annottext">[AthenaResultFormat] -&gt; Encoding
 [AthenaResultFormat] -&gt; Value
 AthenaResultFormat -&gt; Encoding
 AthenaResultFormat -&gt; Value
@@ -241,7 +241,7 @@ $ctoEncoding :: AthenaResultFormat -&gt; Encoding
 toJSON :: AthenaResultFormat -&gt; Value
 $ctoJSON :: AthenaResultFormat -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621680290726"><span id="local-6989586621680290728"><span class="annot"><span class="annottext">ToJSONKeyFunction [AthenaResultFormat]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621680292084"><span id="local-6989586621680292086"><span class="annot"><span class="annottext">ToJSONKeyFunction [AthenaResultFormat]
 ToJSONKeyFunction AthenaResultFormat
 ToJSONKeyFunction AthenaResultFormat
 -&gt; ToJSONKeyFunction [AthenaResultFormat]
@@ -253,14 +253,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AthenaResultFormat]
 toJSONKey :: ToJSONKeyFunction AthenaResultFormat
 $ctoJSONKey :: ToJSONKeyFunction AthenaResultFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621680290723"><span class="annot"><span class="annottext">[Node] -&gt; Either String AthenaResultFormat
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621680292081"><span class="annot"><span class="annottext">[Node] -&gt; Either String AthenaResultFormat
 ([Node] -&gt; Either String AthenaResultFormat)
 -&gt; FromXML AthenaResultFormat
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AthenaResultFormat
 $cparseXML :: [Node] -&gt; Either String AthenaResultFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621680290720"><span class="annot"><span class="annottext">AthenaResultFormat -&gt; XML
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621680292078"><span class="annot"><span class="annottext">AthenaResultFormat -&gt; XML
 (AthenaResultFormat -&gt; XML) -&gt; ToXML AthenaResultFormat
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: AthenaResultFormat -&gt; XML

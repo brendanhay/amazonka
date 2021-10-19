@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- | The architecture of the cores which are the targets of an update.</span><span>
-</span><span id="line-35"></span><span id="local-6989586621679347905"><span id="local-6989586621679347906"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="UpdateTargetsArchitecture"><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateTargetsArchitecture.html#UpdateTargetsArchitecture"><span class="hs-identifier hs-var">UpdateTargetsArchitecture</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateTargetsArchitecture%27"><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateTargetsArchitecture.html#UpdateTargetsArchitecture%27"><span class="hs-identifier hs-var">UpdateTargetsArchitecture'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679348166"><span id="local-6989586621679348167"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="UpdateTargetsArchitecture"><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateTargetsArchitecture.html#UpdateTargetsArchitecture"><span class="hs-identifier hs-var">UpdateTargetsArchitecture</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateTargetsArchitecture%27"><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateTargetsArchitecture.html#UpdateTargetsArchitecture%27"><span class="hs-identifier hs-var">UpdateTargetsArchitecture'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromUpdateTargetsArchitecture"><span class="annot"><span class="annottext">UpdateTargetsArchitecture -&gt; Text
 </span><a href="Network.AWS.Greengrass.Types.UpdateTargetsArchitecture.html#fromUpdateTargetsArchitecture"><span class="hs-identifier hs-var hs-var">fromUpdateTargetsArchitecture</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679347897"><span id="local-6989586621679347899"><span id="local-6989586621679347901"><span class="annot"><span class="annottext">Int -&gt; UpdateTargetsArchitecture -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679348158"><span id="local-6989586621679348160"><span id="local-6989586621679348162"><span class="annot"><span class="annottext">Int -&gt; UpdateTargetsArchitecture -&gt; ShowS
 [UpdateTargetsArchitecture] -&gt; ShowS
 UpdateTargetsArchitecture -&gt; String
 (Int -&gt; UpdateTargetsArchitecture -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: UpdateTargetsArchitecture -&gt; String
 showsPrec :: Int -&gt; UpdateTargetsArchitecture -&gt; ShowS
 $cshowsPrec :: Int -&gt; UpdateTargetsArchitecture -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679347888"><span id="local-6989586621679347890"><span id="local-6989586621679347892"><span id="local-6989586621679347894"><span class="annot"><span class="annottext">ReadPrec [UpdateTargetsArchitecture]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679348149"><span id="local-6989586621679348151"><span id="local-6989586621679348153"><span id="local-6989586621679348155"><span class="annot"><span class="annottext">ReadPrec [UpdateTargetsArchitecture]
 ReadPrec UpdateTargetsArchitecture
 Int -&gt; ReadS UpdateTargetsArchitecture
 ReadS [UpdateTargetsArchitecture]
@@ -75,7 +75,7 @@ $creadList :: ReadS [UpdateTargetsArchitecture]
 readsPrec :: Int -&gt; ReadS UpdateTargetsArchitecture
 $creadsPrec :: Int -&gt; ReadS UpdateTargetsArchitecture
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679347883"><span id="local-6989586621679347885"><span class="annot"><span class="annottext">UpdateTargetsArchitecture -&gt; UpdateTargetsArchitecture -&gt; Bool
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679348144"><span id="local-6989586621679348146"><span class="annot"><span class="annottext">UpdateTargetsArchitecture -&gt; UpdateTargetsArchitecture -&gt; Bool
 (UpdateTargetsArchitecture -&gt; UpdateTargetsArchitecture -&gt; Bool)
 -&gt; (UpdateTargetsArchitecture -&gt; UpdateTargetsArchitecture -&gt; Bool)
 -&gt; Eq UpdateTargetsArchitecture
@@ -85,7 +85,7 @@ $c/= :: UpdateTargetsArchitecture -&gt; UpdateTargetsArchitecture -&gt; Bool
 == :: UpdateTargetsArchitecture -&gt; UpdateTargetsArchitecture -&gt; Bool
 $c== :: UpdateTargetsArchitecture -&gt; UpdateTargetsArchitecture -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679347867"><span id="local-6989586621679347869"><span id="local-6989586621679347871"><span id="local-6989586621679347873"><span id="local-6989586621679347875"><span id="local-6989586621679347877"><span id="local-6989586621679347879"><span class="annot"><span class="annottext">Eq UpdateTargetsArchitecture
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679348128"><span id="local-6989586621679348130"><span id="local-6989586621679348132"><span id="local-6989586621679348134"><span id="local-6989586621679348136"><span id="local-6989586621679348138"><span id="local-6989586621679348140"><span class="annot"><span class="annottext">Eq UpdateTargetsArchitecture
 Eq UpdateTargetsArchitecture
 -&gt; (UpdateTargetsArchitecture
     -&gt; UpdateTargetsArchitecture -&gt; Ordering)
@@ -150,7 +150,7 @@ UpdateTargetsArchitecture -&gt; Rep UpdateTargetsArchitecture x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679347859"><span id="local-6989586621679347861"><span class="annot"><span class="annottext">Int -&gt; UpdateTargetsArchitecture -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679348120"><span id="local-6989586621679348122"><span class="annot"><span class="annottext">Int -&gt; UpdateTargetsArchitecture -&gt; Int
 UpdateTargetsArchitecture -&gt; Int
 (Int -&gt; UpdateTargetsArchitecture -&gt; Int)
 -&gt; (UpdateTargetsArchitecture -&gt; Int)
@@ -161,56 +161,56 @@ $chash :: UpdateTargetsArchitecture -&gt; Int
 hashWithSalt :: Int -&gt; UpdateTargetsArchitecture -&gt; Int
 $chashWithSalt :: Int -&gt; UpdateTargetsArchitecture -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679347856"><span class="annot"><span class="annottext">UpdateTargetsArchitecture -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679348117"><span class="annot"><span class="annottext">UpdateTargetsArchitecture -&gt; ()
 (UpdateTargetsArchitecture -&gt; ())
 -&gt; NFData UpdateTargetsArchitecture
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: UpdateTargetsArchitecture -&gt; ()
 $crnf :: UpdateTargetsArchitecture -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679347853"><span class="annot"><span class="annottext">Text -&gt; Either String UpdateTargetsArchitecture
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679348114"><span class="annot"><span class="annottext">Text -&gt; Either String UpdateTargetsArchitecture
 (Text -&gt; Either String UpdateTargetsArchitecture)
 -&gt; FromText UpdateTargetsArchitecture
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String UpdateTargetsArchitecture
 $cfromText :: Text -&gt; Either String UpdateTargetsArchitecture
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679347850"><span class="annot"><span class="annottext">UpdateTargetsArchitecture -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679348111"><span class="annot"><span class="annottext">UpdateTargetsArchitecture -&gt; Text
 (UpdateTargetsArchitecture -&gt; Text)
 -&gt; ToText UpdateTargetsArchitecture
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: UpdateTargetsArchitecture -&gt; Text
 $ctoText :: UpdateTargetsArchitecture -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679347847"><span class="annot"><span class="annottext">UpdateTargetsArchitecture -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679348108"><span class="annot"><span class="annottext">UpdateTargetsArchitecture -&gt; ByteString
 (UpdateTargetsArchitecture -&gt; ByteString)
 -&gt; ToByteString UpdateTargetsArchitecture
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: UpdateTargetsArchitecture -&gt; ByteString
 $ctoBS :: UpdateTargetsArchitecture -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679347844"><span class="annot"><span class="annottext">UpdateTargetsArchitecture -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679348105"><span class="annot"><span class="annottext">UpdateTargetsArchitecture -&gt; ByteStringBuilder
 (UpdateTargetsArchitecture -&gt; ByteStringBuilder)
 -&gt; ToLog UpdateTargetsArchitecture
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: UpdateTargetsArchitecture -&gt; ByteStringBuilder
 $cbuild :: UpdateTargetsArchitecture -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679347841"><span class="annot"><span class="annottext">HeaderName -&gt; UpdateTargetsArchitecture -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679348102"><span class="annot"><span class="annottext">HeaderName -&gt; UpdateTargetsArchitecture -&gt; [Header]
 (HeaderName -&gt; UpdateTargetsArchitecture -&gt; [Header])
 -&gt; ToHeader UpdateTargetsArchitecture
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; UpdateTargetsArchitecture -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; UpdateTargetsArchitecture -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679347838"><span class="annot"><span class="annottext">UpdateTargetsArchitecture -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679348099"><span class="annot"><span class="annottext">UpdateTargetsArchitecture -&gt; QueryString
 (UpdateTargetsArchitecture -&gt; QueryString)
 -&gt; ToQuery UpdateTargetsArchitecture
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: UpdateTargetsArchitecture -&gt; QueryString
 $ctoQuery :: UpdateTargetsArchitecture -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679347833"><span id="local-6989586621679347835"><span class="annot"><span class="annottext">Value -&gt; Parser [UpdateTargetsArchitecture]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679348094"><span id="local-6989586621679348096"><span class="annot"><span class="annottext">Value -&gt; Parser [UpdateTargetsArchitecture]
 Value -&gt; Parser UpdateTargetsArchitecture
 (Value -&gt; Parser UpdateTargetsArchitecture)
 -&gt; (Value -&gt; Parser [UpdateTargetsArchitecture])
@@ -222,7 +222,7 @@ $cparseJSONList :: Value -&gt; Parser [UpdateTargetsArchitecture]
 parseJSON :: Value -&gt; Parser UpdateTargetsArchitecture
 $cparseJSON :: Value -&gt; Parser UpdateTargetsArchitecture
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679347828"><span id="local-6989586621679347830"><span class="annot"><span class="annottext">FromJSONKeyFunction [UpdateTargetsArchitecture]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679348089"><span id="local-6989586621679348091"><span class="annot"><span class="annottext">FromJSONKeyFunction [UpdateTargetsArchitecture]
 FromJSONKeyFunction UpdateTargetsArchitecture
 FromJSONKeyFunction UpdateTargetsArchitecture
 -&gt; FromJSONKeyFunction [UpdateTargetsArchitecture]
@@ -234,7 +234,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [UpdateTargetsArchitecture]
 fromJSONKey :: FromJSONKeyFunction UpdateTargetsArchitecture
 $cfromJSONKey :: FromJSONKeyFunction UpdateTargetsArchitecture
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679347819"><span id="local-6989586621679347821"><span id="local-6989586621679347823"><span id="local-6989586621679347825"><span class="annot"><span class="annottext">[UpdateTargetsArchitecture] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679348080"><span id="local-6989586621679348082"><span id="local-6989586621679348084"><span id="local-6989586621679348086"><span class="annot"><span class="annottext">[UpdateTargetsArchitecture] -&gt; Encoding
 [UpdateTargetsArchitecture] -&gt; Value
 UpdateTargetsArchitecture -&gt; Encoding
 UpdateTargetsArchitecture -&gt; Value
@@ -258,7 +258,7 @@ $ctoEncoding :: UpdateTargetsArchitecture -&gt; Encoding
 toJSON :: UpdateTargetsArchitecture -&gt; Value
 $ctoJSON :: UpdateTargetsArchitecture -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679347814"><span id="local-6989586621679347816"><span class="annot"><span class="annottext">ToJSONKeyFunction [UpdateTargetsArchitecture]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679348075"><span id="local-6989586621679348077"><span class="annot"><span class="annottext">ToJSONKeyFunction [UpdateTargetsArchitecture]
 ToJSONKeyFunction UpdateTargetsArchitecture
 ToJSONKeyFunction UpdateTargetsArchitecture
 -&gt; ToJSONKeyFunction [UpdateTargetsArchitecture]
@@ -270,14 +270,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [UpdateTargetsArchitecture]
 toJSONKey :: ToJSONKeyFunction UpdateTargetsArchitecture
 $ctoJSONKey :: ToJSONKeyFunction UpdateTargetsArchitecture
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679347811"><span class="annot"><span class="annottext">[Node] -&gt; Either String UpdateTargetsArchitecture
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679348072"><span class="annot"><span class="annottext">[Node] -&gt; Either String UpdateTargetsArchitecture
 ([Node] -&gt; Either String UpdateTargetsArchitecture)
 -&gt; FromXML UpdateTargetsArchitecture
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String UpdateTargetsArchitecture
 $cparseXML :: [Node] -&gt; Either String UpdateTargetsArchitecture
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679347808"><span class="annot"><span class="annottext">UpdateTargetsArchitecture -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679348069"><span class="annot"><span class="annottext">UpdateTargetsArchitecture -&gt; XML
 (UpdateTargetsArchitecture -&gt; XML)
 -&gt; ToXML UpdateTargetsArchitecture
 forall a. (a -&gt; XML) -&gt; ToXML a

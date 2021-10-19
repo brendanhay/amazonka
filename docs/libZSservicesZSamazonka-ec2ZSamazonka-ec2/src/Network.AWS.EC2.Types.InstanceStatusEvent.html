@@ -28,31 +28,31 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Describes a scheduled event for an instance.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newInstanceStatusEvent' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621681084080"><span id="local-6989586621681084081"></span></span><span class="hs-keyword">data</span><span> </span><span id="InstanceStatusEvent"><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#InstanceStatusEvent"><span class="hs-identifier hs-var">InstanceStatusEvent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceStatusEvent%27"><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#InstanceStatusEvent%27"><span class="hs-identifier hs-var">InstanceStatusEvent'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621681118432"><span id="local-6989586621681118433"></span></span><span class="hs-keyword">data</span><span> </span><span id="InstanceStatusEvent"><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#InstanceStatusEvent"><span class="hs-identifier hs-var">InstanceStatusEvent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceStatusEvent%27"><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#InstanceStatusEvent%27"><span class="hs-identifier hs-var">InstanceStatusEvent'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The earliest scheduled start time for the event.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AnotBefore%3AInstanceStatusEvent%27"><span class="annot"><span class="annottext">InstanceStatusEvent -&gt; Maybe ISO8601
 </span><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#%24sel%3AnotBefore%3AInstanceStatusEvent%27"><span class="hs-identifier hs-var hs-var">notBefore</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The ID of the event.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AinstanceEventId%3AInstanceStatusEvent%27"><span class="annot"><span class="annottext">InstanceStatusEvent -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#%24sel%3AinstanceEventId%3AInstanceStatusEvent%27"><span class="hs-identifier hs-var hs-var">instanceEventId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The event code.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3Acode%3AInstanceStatusEvent%27"><span class="annot"><span class="annottext">InstanceStatusEvent -&gt; Maybe EventCode
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The event code.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Acode%3AInstanceStatusEvent%27"><span class="annot"><span class="annottext">InstanceStatusEvent -&gt; Maybe EventCode
 </span><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#%24sel%3Acode%3AInstanceStatusEvent%27"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EventCode.html#EventCode"><span class="hs-identifier hs-type">EventCode</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The latest scheduled end time for the event.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3AnotAfter%3AInstanceStatusEvent%27"><span class="annot"><span class="annottext">InstanceStatusEvent -&gt; Maybe ISO8601
-</span><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#%24sel%3AnotAfter%3AInstanceStatusEvent%27"><span class="hs-identifier hs-var hs-var">notAfter</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The deadline for starting the event.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3AnotBeforeDeadline%3AInstanceStatusEvent%27"><span class="annot"><span class="annottext">InstanceStatusEvent -&gt; Maybe ISO8601
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The ID of the event.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AinstanceEventId%3AInstanceStatusEvent%27"><span class="annot"><span class="annottext">InstanceStatusEvent -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#%24sel%3AinstanceEventId%3AInstanceStatusEvent%27"><span class="hs-identifier hs-var hs-var">instanceEventId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | A description of the event.</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- After a scheduled event is completed, it can still be described for up</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- to a week. If the event has been completed, this description starts with</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- the following text: [Completed].</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Adescription%3AInstanceStatusEvent%27"><span class="annot"><span class="annottext">InstanceStatusEvent -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#%24sel%3Adescription%3AInstanceStatusEvent%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The deadline for starting the event.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AnotBeforeDeadline%3AInstanceStatusEvent%27"><span class="annot"><span class="annottext">InstanceStatusEvent -&gt; Maybe ISO8601
 </span><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#%24sel%3AnotBeforeDeadline%3AInstanceStatusEvent%27"><span class="hs-identifier hs-var hs-var">notBeforeDeadline</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | A description of the event.</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- After a scheduled event is completed, it can still be described for up</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- to a week. If the event has been completed, this description starts with</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- the following text: [Completed].</span><span>
-</span><span id="line-47"></span><span>    </span><span id="%24sel%3Adescription%3AInstanceStatusEvent%27"><span class="annot"><span class="annottext">InstanceStatusEvent -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#%24sel%3Adescription%3AInstanceStatusEvent%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The latest scheduled end time for the event.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AnotAfter%3AInstanceStatusEvent%27"><span class="annot"><span class="annottext">InstanceStatusEvent -&gt; Maybe ISO8601
+</span><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#%24sel%3AnotAfter%3AInstanceStatusEvent%27"><span class="hs-identifier hs-var hs-var">notAfter</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681084069"><span id="local-6989586621681084071"><span class="annot"><span class="annottext">InstanceStatusEvent -&gt; InstanceStatusEvent -&gt; Bool
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681118421"><span id="local-6989586621681118423"><span class="annot"><span class="annottext">InstanceStatusEvent -&gt; InstanceStatusEvent -&gt; Bool
 (InstanceStatusEvent -&gt; InstanceStatusEvent -&gt; Bool)
 -&gt; (InstanceStatusEvent -&gt; InstanceStatusEvent -&gt; Bool)
 -&gt; Eq InstanceStatusEvent
@@ -61,7 +61,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: InstanceStatusEvent -&gt; InstanceStatusEvent -&gt; Bool
 == :: InstanceStatusEvent -&gt; InstanceStatusEvent -&gt; Bool
 $c== :: InstanceStatusEvent -&gt; InstanceStatusEvent -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681084060"><span id="local-6989586621681084062"><span id="local-6989586621681084064"><span id="local-6989586621681084066"><span class="annot"><span class="annottext">ReadPrec [InstanceStatusEvent]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681118412"><span id="local-6989586621681118414"><span id="local-6989586621681118416"><span id="local-6989586621681118418"><span class="annot"><span class="annottext">ReadPrec [InstanceStatusEvent]
 ReadPrec InstanceStatusEvent
 Int -&gt; ReadS InstanceStatusEvent
 ReadS [InstanceStatusEvent]
@@ -81,7 +81,7 @@ readList :: ReadS [InstanceStatusEvent]
 $creadList :: ReadS [InstanceStatusEvent]
 readsPrec :: Int -&gt; ReadS InstanceStatusEvent
 $creadsPrec :: Int -&gt; ReadS InstanceStatusEvent
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681084053"><span id="local-6989586621681084055"><span id="local-6989586621681084057"><span class="annot"><span class="annottext">Int -&gt; InstanceStatusEvent -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681118405"><span id="local-6989586621681118407"><span id="local-6989586621681118409"><span class="annot"><span class="annottext">Int -&gt; InstanceStatusEvent -&gt; ShowS
 [InstanceStatusEvent] -&gt; ShowS
 InstanceStatusEvent -&gt; String
 (Int -&gt; InstanceStatusEvent -&gt; ShowS)
@@ -117,53 +117,53 @@ $cfrom :: forall x. InstanceStatusEvent -&gt; Rep InstanceStatusEvent x
 </span><span id="line-58"></span><span class="hs-comment">--</span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- 'notBefore', 'instanceStatusEvent_notBefore' - The earliest scheduled start time for the event.</span><span>
 </span><span id="line-60"></span><span class="hs-comment">--</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- 'instanceEventId', 'instanceStatusEvent_instanceEventId' - The ID of the event.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'code', 'instanceStatusEvent_code' - The event code.</span><span>
 </span><span id="line-62"></span><span class="hs-comment">--</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- 'code', 'instanceStatusEvent_code' - The event code.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'instanceEventId', 'instanceStatusEvent_instanceEventId' - The ID of the event.</span><span>
 </span><span id="line-64"></span><span class="hs-comment">--</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- 'notAfter', 'instanceStatusEvent_notAfter' - The latest scheduled end time for the event.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'description', 'instanceStatusEvent_description' - A description of the event.</span><span>
 </span><span id="line-66"></span><span class="hs-comment">--</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- 'notBeforeDeadline', 'instanceStatusEvent_notBeforeDeadline' - The deadline for starting the event.</span><span>
-</span><span id="line-68"></span><span class="hs-comment">--</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- 'description', 'instanceStatusEvent_description' - A description of the event.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- After a scheduled event is completed, it can still be described for up</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- to a week. If the event has been completed, this description starts with</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- the following text: [Completed].</span><span>
 </span><span id="line-70"></span><span class="hs-comment">--</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- After a scheduled event is completed, it can still be described for up</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- to a week. If the event has been completed, this description starts with</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- the following text: [Completed].</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'notBeforeDeadline', 'instanceStatusEvent_notBeforeDeadline' - The deadline for starting the event.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'notAfter', 'instanceStatusEvent_notAfter' - The latest scheduled end time for the event.</span><span>
 </span><span id="line-74"></span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#newInstanceStatusEvent"><span class="hs-identifier hs-type">newInstanceStatusEvent</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#InstanceStatusEvent"><span class="hs-identifier hs-type">InstanceStatusEvent</span></a></span><span>
 </span><span id="line-76"></span><span id="newInstanceStatusEvent"><span class="annot"><span class="annottext">newInstanceStatusEvent :: InstanceStatusEvent
 </span><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#newInstanceStatusEvent"><span class="hs-identifier hs-var hs-var">newInstanceStatusEvent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>  </span><span class="annot"><span class="annottext">InstanceStatusEvent' :: Maybe ISO8601
--&gt; Maybe Text
 -&gt; Maybe EventCode
--&gt; Maybe ISO8601
--&gt; Maybe ISO8601
 -&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ISO8601
+-&gt; Maybe ISO8601
 -&gt; InstanceStatusEvent
 </span><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#InstanceStatusEvent%27"><span class="hs-identifier hs-type">InstanceStatusEvent'</span></a></span><span>
 </span><span id="line-78"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:notBefore:InstanceStatusEvent' :: Maybe ISO8601
 </span><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#%24sel%3AnotBefore%3AInstanceStatusEvent%27"><span class="hs-identifier hs-var">notBefore</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceEventId:InstanceStatusEvent' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#%24sel%3AinstanceEventId%3AInstanceStatusEvent%27"><span class="hs-identifier hs-var">instanceEventId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:code:InstanceStatusEvent' :: Maybe EventCode
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:code:InstanceStatusEvent' :: Maybe EventCode
 </span><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#%24sel%3Acode%3AInstanceStatusEvent%27"><span class="hs-identifier hs-var">code</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EventCode
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:notAfter:InstanceStatusEvent' :: Maybe ISO8601
-</span><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#%24sel%3AnotAfter%3AInstanceStatusEvent%27"><span class="hs-identifier hs-var">notAfter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceEventId:InstanceStatusEvent' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#%24sel%3AinstanceEventId%3AInstanceStatusEvent%27"><span class="hs-identifier hs-var">instanceEventId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:InstanceStatusEvent' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#%24sel%3Adescription%3AInstanceStatusEvent%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:notBeforeDeadline:InstanceStatusEvent' :: Maybe ISO8601
 </span><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#%24sel%3AnotBeforeDeadline%3AInstanceStatusEvent%27"><span class="hs-identifier hs-var">notBeforeDeadline</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:InstanceStatusEvent' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#%24sel%3Adescription%3AInstanceStatusEvent%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:notAfter:InstanceStatusEvent' :: Maybe ISO8601
+</span><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#%24sel%3AnotAfter%3AInstanceStatusEvent%27"><span class="hs-identifier hs-var">notAfter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-84"></span><span>    </span><span class="hs-special">}</span><span>
@@ -180,16 +180,16 @@ forall a. Maybe a
      (Maybe ISO8601)
      (Maybe ISO8601)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#InstanceStatusEvent%27"><span class="hs-identifier hs-type">InstanceStatusEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681084044"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#InstanceStatusEvent%27"><span class="hs-identifier hs-type">InstanceStatusEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681118396"><span class="annot"><span class="annottext">Maybe ISO8601
 notBefore :: Maybe ISO8601
 $sel:notBefore:InstanceStatusEvent' :: InstanceStatusEvent -&gt; Maybe ISO8601
-</span><a href="#local-6989586621681084044"><span class="hs-identifier hs-var hs-var">notBefore</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621681084044"><span class="hs-identifier hs-var">notBefore</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681084043"><span class="annot"><span class="annottext">s :: InstanceStatusEvent
-</span><a href="#local-6989586621681084043"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#InstanceStatusEvent%27"><span class="hs-identifier hs-type">InstanceStatusEvent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681084042"><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621681084042"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceStatusEvent
-</span><a href="#local-6989586621681084043"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notBefore:InstanceStatusEvent' :: Maybe ISO8601
+</span><a href="#local-6989586621681118396"><span class="hs-identifier hs-var hs-var">notBefore</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621681118396"><span class="hs-identifier hs-var">notBefore</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681118395"><span class="annot"><span class="annottext">s :: InstanceStatusEvent
+</span><a href="#local-6989586621681118395"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#InstanceStatusEvent%27"><span class="hs-identifier hs-type">InstanceStatusEvent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681118394"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621681118394"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceStatusEvent
+</span><a href="#local-6989586621681118395"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notBefore:InstanceStatusEvent' :: Maybe ISO8601
 </span><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#%24sel%3AnotBefore%3AInstanceStatusEvent%27"><span class="hs-identifier hs-var">notBefore</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621681084042"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#InstanceStatusEvent"><span class="hs-identifier hs-type">InstanceStatusEvent</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+</span><a href="#local-6989586621681118394"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#InstanceStatusEvent"><span class="hs-identifier hs-type">InstanceStatusEvent</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
  -&gt; InstanceStatusEvent -&gt; f InstanceStatusEvent)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
@@ -207,29 +207,9 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- | The ID of the event.</span><span>
-</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#instanceStatusEvent_instanceEventId"><span class="hs-identifier hs-type">instanceStatusEvent_instanceEventId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#InstanceStatusEvent"><span class="hs-identifier hs-type">InstanceStatusEvent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-92"></span><span id="instanceStatusEvent_instanceEventId"><span class="annot"><span class="annottext">instanceStatusEvent_instanceEventId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; InstanceStatusEvent -&gt; f InstanceStatusEvent
-</span><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#instanceStatusEvent_instanceEventId"><span class="hs-identifier hs-var hs-var">instanceStatusEvent_instanceEventId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceStatusEvent -&gt; Maybe Text)
--&gt; (InstanceStatusEvent -&gt; Maybe Text -&gt; InstanceStatusEvent)
--&gt; Lens
-     InstanceStatusEvent InstanceStatusEvent (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#InstanceStatusEvent%27"><span class="hs-identifier hs-type">InstanceStatusEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681084037"><span class="annot"><span class="annottext">Maybe Text
-instanceEventId :: Maybe Text
-$sel:instanceEventId:InstanceStatusEvent' :: InstanceStatusEvent -&gt; Maybe Text
-</span><a href="#local-6989586621681084037"><span class="hs-identifier hs-var hs-var">instanceEventId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681084037"><span class="hs-identifier hs-var">instanceEventId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681084036"><span class="annot"><span class="annottext">s :: InstanceStatusEvent
-</span><a href="#local-6989586621681084036"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#InstanceStatusEvent%27"><span class="hs-identifier hs-type">InstanceStatusEvent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681084035"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681084035"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceStatusEvent
-</span><a href="#local-6989586621681084036"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceEventId:InstanceStatusEvent' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#%24sel%3AinstanceEventId%3AInstanceStatusEvent%27"><span class="hs-identifier hs-var">instanceEventId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681084035"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#InstanceStatusEvent"><span class="hs-identifier hs-type">InstanceStatusEvent</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- | The event code.</span><span>
-</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#instanceStatusEvent_code"><span class="hs-identifier hs-type">instanceStatusEvent_code</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#InstanceStatusEvent"><span class="hs-identifier hs-type">InstanceStatusEvent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EventCode.html#EventCode"><span class="hs-identifier hs-type">EventCode</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-96"></span><span id="instanceStatusEvent_code"><span class="annot"><span class="annottext">instanceStatusEvent_code :: (Maybe EventCode -&gt; f (Maybe EventCode))
+</span><span id="line-90"></span><span class="hs-comment">-- | The event code.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#instanceStatusEvent_code"><span class="hs-identifier hs-type">instanceStatusEvent_code</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#InstanceStatusEvent"><span class="hs-identifier hs-type">InstanceStatusEvent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EventCode.html#EventCode"><span class="hs-identifier hs-type">EventCode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="instanceStatusEvent_code"><span class="annot"><span class="annottext">instanceStatusEvent_code :: (Maybe EventCode -&gt; f (Maybe EventCode))
 -&gt; InstanceStatusEvent -&gt; f InstanceStatusEvent
 </span><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#instanceStatusEvent_code"><span class="hs-identifier hs-var hs-var">instanceStatusEvent_code</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceStatusEvent -&gt; Maybe EventCode)
 -&gt; (InstanceStatusEvent -&gt; Maybe EventCode -&gt; InstanceStatusEvent)
@@ -239,59 +219,64 @@ $sel:instanceEventId:InstanceStatusEvent' :: InstanceStatusEvent -&gt; Maybe Tex
      (Maybe EventCode)
      (Maybe EventCode)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#InstanceStatusEvent%27"><span class="hs-identifier hs-type">InstanceStatusEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681084033"><span class="annot"><span class="annottext">Maybe EventCode
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#InstanceStatusEvent%27"><span class="hs-identifier hs-type">InstanceStatusEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681118389"><span class="annot"><span class="annottext">Maybe EventCode
 code :: Maybe EventCode
 $sel:code:InstanceStatusEvent' :: InstanceStatusEvent -&gt; Maybe EventCode
-</span><a href="#local-6989586621681084033"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EventCode
-</span><a href="#local-6989586621681084033"><span class="hs-identifier hs-var">code</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681084032"><span class="annot"><span class="annottext">s :: InstanceStatusEvent
-</span><a href="#local-6989586621681084032"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#InstanceStatusEvent%27"><span class="hs-identifier hs-type">InstanceStatusEvent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681084031"><span class="annot"><span class="annottext">Maybe EventCode
-</span><a href="#local-6989586621681084031"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceStatusEvent
-</span><a href="#local-6989586621681084032"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:code:InstanceStatusEvent' :: Maybe EventCode
+</span><a href="#local-6989586621681118389"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EventCode
+</span><a href="#local-6989586621681118389"><span class="hs-identifier hs-var">code</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681118388"><span class="annot"><span class="annottext">s :: InstanceStatusEvent
+</span><a href="#local-6989586621681118388"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#InstanceStatusEvent%27"><span class="hs-identifier hs-type">InstanceStatusEvent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681118387"><span class="annot"><span class="annottext">Maybe EventCode
+</span><a href="#local-6989586621681118387"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceStatusEvent
+</span><a href="#local-6989586621681118388"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:code:InstanceStatusEvent' :: Maybe EventCode
 </span><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#%24sel%3Acode%3AInstanceStatusEvent%27"><span class="hs-identifier hs-var">code</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EventCode
-</span><a href="#local-6989586621681084031"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#InstanceStatusEvent"><span class="hs-identifier hs-type">InstanceStatusEvent</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- | The latest scheduled end time for the event.</span><span>
-</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#instanceStatusEvent_notAfter"><span class="hs-identifier hs-type">instanceStatusEvent_notAfter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#InstanceStatusEvent"><span class="hs-identifier hs-type">InstanceStatusEvent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-100"></span><span id="instanceStatusEvent_notAfter"><span class="annot"><span class="annottext">instanceStatusEvent_notAfter :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><a href="#local-6989586621681118387"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#InstanceStatusEvent"><span class="hs-identifier hs-type">InstanceStatusEvent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | The ID of the event.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#instanceStatusEvent_instanceEventId"><span class="hs-identifier hs-type">instanceStatusEvent_instanceEventId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#InstanceStatusEvent"><span class="hs-identifier hs-type">InstanceStatusEvent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="instanceStatusEvent_instanceEventId"><span class="annot"><span class="annottext">instanceStatusEvent_instanceEventId :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; InstanceStatusEvent -&gt; f InstanceStatusEvent
-</span><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#instanceStatusEvent_notAfter"><span class="hs-identifier hs-var hs-var">instanceStatusEvent_notAfter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceStatusEvent -&gt; Maybe ISO8601)
--&gt; (InstanceStatusEvent -&gt; Maybe ISO8601 -&gt; InstanceStatusEvent)
+</span><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#instanceStatusEvent_instanceEventId"><span class="hs-identifier hs-var hs-var">instanceStatusEvent_instanceEventId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceStatusEvent -&gt; Maybe Text)
+-&gt; (InstanceStatusEvent -&gt; Maybe Text -&gt; InstanceStatusEvent)
 -&gt; Lens
-     InstanceStatusEvent
-     InstanceStatusEvent
-     (Maybe ISO8601)
-     (Maybe ISO8601)
+     InstanceStatusEvent InstanceStatusEvent (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#InstanceStatusEvent%27"><span class="hs-identifier hs-type">InstanceStatusEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681084029"><span class="annot"><span class="annottext">Maybe ISO8601
-notAfter :: Maybe ISO8601
-$sel:notAfter:InstanceStatusEvent' :: InstanceStatusEvent -&gt; Maybe ISO8601
-</span><a href="#local-6989586621681084029"><span class="hs-identifier hs-var hs-var">notAfter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621681084029"><span class="hs-identifier hs-var">notAfter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681084028"><span class="annot"><span class="annottext">s :: InstanceStatusEvent
-</span><a href="#local-6989586621681084028"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#InstanceStatusEvent%27"><span class="hs-identifier hs-type">InstanceStatusEvent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681084027"><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621681084027"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceStatusEvent
-</span><a href="#local-6989586621681084028"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notAfter:InstanceStatusEvent' :: Maybe ISO8601
-</span><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#%24sel%3AnotAfter%3AInstanceStatusEvent%27"><span class="hs-identifier hs-var">notAfter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621681084027"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#InstanceStatusEvent"><span class="hs-identifier hs-type">InstanceStatusEvent</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
- -&gt; InstanceStatusEvent -&gt; f InstanceStatusEvent)
--&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
-    -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
--&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; InstanceStatusEvent
--&gt; f InstanceStatusEvent
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
--&gt; Iso
-     (Maybe ISO8601) (Maybe ISO8601) (Maybe UTCTime) (Maybe UTCTime)
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
-forall (a :: Format). Iso' (Time a) UTCTime
-</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- | The deadline for starting the event.</span><span>
-</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#instanceStatusEvent_notBeforeDeadline"><span class="hs-identifier hs-type">instanceStatusEvent_notBeforeDeadline</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#InstanceStatusEvent"><span class="hs-identifier hs-type">InstanceStatusEvent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-104"></span><span id="instanceStatusEvent_notBeforeDeadline"><span class="annot"><span class="annottext">instanceStatusEvent_notBeforeDeadline :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#InstanceStatusEvent%27"><span class="hs-identifier hs-type">InstanceStatusEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681118385"><span class="annot"><span class="annottext">Maybe Text
+instanceEventId :: Maybe Text
+$sel:instanceEventId:InstanceStatusEvent' :: InstanceStatusEvent -&gt; Maybe Text
+</span><a href="#local-6989586621681118385"><span class="hs-identifier hs-var hs-var">instanceEventId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681118385"><span class="hs-identifier hs-var">instanceEventId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681118384"><span class="annot"><span class="annottext">s :: InstanceStatusEvent
+</span><a href="#local-6989586621681118384"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#InstanceStatusEvent%27"><span class="hs-identifier hs-type">InstanceStatusEvent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681118383"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681118383"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceStatusEvent
+</span><a href="#local-6989586621681118384"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceEventId:InstanceStatusEvent' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#%24sel%3AinstanceEventId%3AInstanceStatusEvent%27"><span class="hs-identifier hs-var">instanceEventId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681118383"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#InstanceStatusEvent"><span class="hs-identifier hs-type">InstanceStatusEvent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | A description of the event.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- After a scheduled event is completed, it can still be described for up</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- to a week. If the event has been completed, this description starts with</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- the following text: [Completed].</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#instanceStatusEvent_description"><span class="hs-identifier hs-type">instanceStatusEvent_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#InstanceStatusEvent"><span class="hs-identifier hs-type">InstanceStatusEvent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="instanceStatusEvent_description"><span class="annot"><span class="annottext">instanceStatusEvent_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InstanceStatusEvent -&gt; f InstanceStatusEvent
+</span><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#instanceStatusEvent_description"><span class="hs-identifier hs-var hs-var">instanceStatusEvent_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceStatusEvent -&gt; Maybe Text)
+-&gt; (InstanceStatusEvent -&gt; Maybe Text -&gt; InstanceStatusEvent)
+-&gt; Lens
+     InstanceStatusEvent InstanceStatusEvent (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#InstanceStatusEvent%27"><span class="hs-identifier hs-type">InstanceStatusEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681118381"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:InstanceStatusEvent' :: InstanceStatusEvent -&gt; Maybe Text
+</span><a href="#local-6989586621681118381"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681118381"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681118380"><span class="annot"><span class="annottext">s :: InstanceStatusEvent
+</span><a href="#local-6989586621681118380"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#InstanceStatusEvent%27"><span class="hs-identifier hs-type">InstanceStatusEvent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681118379"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681118379"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceStatusEvent
+</span><a href="#local-6989586621681118380"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:InstanceStatusEvent' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#%24sel%3Adescription%3AInstanceStatusEvent%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681118379"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#InstanceStatusEvent"><span class="hs-identifier hs-type">InstanceStatusEvent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | The deadline for starting the event.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#instanceStatusEvent_notBeforeDeadline"><span class="hs-identifier hs-type">instanceStatusEvent_notBeforeDeadline</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#InstanceStatusEvent"><span class="hs-identifier hs-type">InstanceStatusEvent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span id="instanceStatusEvent_notBeforeDeadline"><span class="annot"><span class="annottext">instanceStatusEvent_notBeforeDeadline :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; InstanceStatusEvent -&gt; f InstanceStatusEvent
 </span><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#instanceStatusEvent_notBeforeDeadline"><span class="hs-identifier hs-var hs-var">instanceStatusEvent_notBeforeDeadline</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceStatusEvent -&gt; Maybe ISO8601)
 -&gt; (InstanceStatusEvent -&gt; Maybe ISO8601 -&gt; InstanceStatusEvent)
@@ -301,16 +286,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
      (Maybe ISO8601)
      (Maybe ISO8601)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#InstanceStatusEvent%27"><span class="hs-identifier hs-type">InstanceStatusEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681084025"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#InstanceStatusEvent%27"><span class="hs-identifier hs-type">InstanceStatusEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681118377"><span class="annot"><span class="annottext">Maybe ISO8601
 notBeforeDeadline :: Maybe ISO8601
 $sel:notBeforeDeadline:InstanceStatusEvent' :: InstanceStatusEvent -&gt; Maybe ISO8601
-</span><a href="#local-6989586621681084025"><span class="hs-identifier hs-var hs-var">notBeforeDeadline</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621681084025"><span class="hs-identifier hs-var">notBeforeDeadline</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681084024"><span class="annot"><span class="annottext">s :: InstanceStatusEvent
-</span><a href="#local-6989586621681084024"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#InstanceStatusEvent%27"><span class="hs-identifier hs-type">InstanceStatusEvent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681084023"><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621681084023"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceStatusEvent
-</span><a href="#local-6989586621681084024"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notBeforeDeadline:InstanceStatusEvent' :: Maybe ISO8601
+</span><a href="#local-6989586621681118377"><span class="hs-identifier hs-var hs-var">notBeforeDeadline</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621681118377"><span class="hs-identifier hs-var">notBeforeDeadline</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681118376"><span class="annot"><span class="annottext">s :: InstanceStatusEvent
+</span><a href="#local-6989586621681118376"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#InstanceStatusEvent%27"><span class="hs-identifier hs-type">InstanceStatusEvent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681118375"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621681118375"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceStatusEvent
+</span><a href="#local-6989586621681118376"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notBeforeDeadline:InstanceStatusEvent' :: Maybe ISO8601
 </span><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#%24sel%3AnotBeforeDeadline%3AInstanceStatusEvent%27"><span class="hs-identifier hs-var">notBeforeDeadline</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621681084023"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#InstanceStatusEvent"><span class="hs-identifier hs-type">InstanceStatusEvent</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+</span><a href="#local-6989586621681118375"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#InstanceStatusEvent"><span class="hs-identifier hs-type">InstanceStatusEvent</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
  -&gt; InstanceStatusEvent -&gt; f InstanceStatusEvent)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
@@ -327,137 +312,154 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- | A description of the event.</span><span>
-</span><span id="line-107"></span><span class="hs-comment">--</span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- After a scheduled event is completed, it can still be described for up</span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- to a week. If the event has been completed, this description starts with</span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- the following text: [Completed].</span><span>
-</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#instanceStatusEvent_description"><span class="hs-identifier hs-type">instanceStatusEvent_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#InstanceStatusEvent"><span class="hs-identifier hs-type">InstanceStatusEvent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-112"></span><span id="instanceStatusEvent_description"><span class="annot"><span class="annottext">instanceStatusEvent_description :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | The latest scheduled end time for the event.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#instanceStatusEvent_notAfter"><span class="hs-identifier hs-type">instanceStatusEvent_notAfter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#InstanceStatusEvent"><span class="hs-identifier hs-type">InstanceStatusEvent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="instanceStatusEvent_notAfter"><span class="annot"><span class="annottext">instanceStatusEvent_notAfter :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; InstanceStatusEvent -&gt; f InstanceStatusEvent
-</span><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#instanceStatusEvent_description"><span class="hs-identifier hs-var hs-var">instanceStatusEvent_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceStatusEvent -&gt; Maybe Text)
--&gt; (InstanceStatusEvent -&gt; Maybe Text -&gt; InstanceStatusEvent)
+</span><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#instanceStatusEvent_notAfter"><span class="hs-identifier hs-var hs-var">instanceStatusEvent_notAfter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceStatusEvent -&gt; Maybe ISO8601)
+-&gt; (InstanceStatusEvent -&gt; Maybe ISO8601 -&gt; InstanceStatusEvent)
 -&gt; Lens
-     InstanceStatusEvent InstanceStatusEvent (Maybe Text) (Maybe Text)
+     InstanceStatusEvent
+     InstanceStatusEvent
+     (Maybe ISO8601)
+     (Maybe ISO8601)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#InstanceStatusEvent%27"><span class="hs-identifier hs-type">InstanceStatusEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681084021"><span class="annot"><span class="annottext">Maybe Text
-description :: Maybe Text
-$sel:description:InstanceStatusEvent' :: InstanceStatusEvent -&gt; Maybe Text
-</span><a href="#local-6989586621681084021"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681084021"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681084020"><span class="annot"><span class="annottext">s :: InstanceStatusEvent
-</span><a href="#local-6989586621681084020"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#InstanceStatusEvent%27"><span class="hs-identifier hs-type">InstanceStatusEvent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681084019"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681084019"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceStatusEvent
-</span><a href="#local-6989586621681084020"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:InstanceStatusEvent' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#%24sel%3Adescription%3AInstanceStatusEvent%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681084019"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#InstanceStatusEvent"><span class="hs-identifier hs-type">InstanceStatusEvent</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#InstanceStatusEvent%27"><span class="hs-identifier hs-type">InstanceStatusEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681118373"><span class="annot"><span class="annottext">Maybe ISO8601
+notAfter :: Maybe ISO8601
+$sel:notAfter:InstanceStatusEvent' :: InstanceStatusEvent -&gt; Maybe ISO8601
+</span><a href="#local-6989586621681118373"><span class="hs-identifier hs-var hs-var">notAfter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621681118373"><span class="hs-identifier hs-var">notAfter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681118372"><span class="annot"><span class="annottext">s :: InstanceStatusEvent
+</span><a href="#local-6989586621681118372"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#InstanceStatusEvent%27"><span class="hs-identifier hs-type">InstanceStatusEvent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681118371"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621681118371"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceStatusEvent
+</span><a href="#local-6989586621681118372"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notAfter:InstanceStatusEvent' :: Maybe ISO8601
+</span><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#%24sel%3AnotAfter%3AInstanceStatusEvent%27"><span class="hs-identifier hs-var">notAfter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621681118371"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#InstanceStatusEvent"><span class="hs-identifier hs-type">InstanceStatusEvent</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+ -&gt; InstanceStatusEvent -&gt; f InstanceStatusEvent)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; InstanceStatusEvent
+-&gt; f InstanceStatusEvent
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+-&gt; Iso
+     (Maybe ISO8601) (Maybe ISO8601) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#InstanceStatusEvent"><span class="hs-identifier hs-type">InstanceStatusEvent</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621681084016"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String InstanceStatusEvent
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681084014"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681084014"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621681118368"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String InstanceStatusEvent
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681118366"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681118366"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">Maybe ISO8601
--&gt; Maybe Text
 -&gt; Maybe EventCode
--&gt; Maybe ISO8601
--&gt; Maybe ISO8601
 -&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ISO8601
+-&gt; Maybe ISO8601
 -&gt; InstanceStatusEvent
 </span><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#InstanceStatusEvent%27"><span class="hs-identifier hs-var">InstanceStatusEvent'</span></a></span><span>
 </span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">(Maybe ISO8601
- -&gt; Maybe Text
  -&gt; Maybe EventCode
- -&gt; Maybe ISO8601
- -&gt; Maybe ISO8601
  -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe ISO8601
+ -&gt; Maybe ISO8601
  -&gt; InstanceStatusEvent)
 -&gt; Either String (Maybe ISO8601)
 -&gt; Either
      String
-     (Maybe Text
-      -&gt; Maybe EventCode
-      -&gt; Maybe ISO8601
-      -&gt; Maybe ISO8601
+     (Maybe EventCode
       -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ISO8601
+      -&gt; Maybe ISO8601
       -&gt; InstanceStatusEvent)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681084014"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+</span><a href="#local-6989586621681118366"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;notBefore&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe Text
-   -&gt; Maybe EventCode
-   -&gt; Maybe ISO8601
-   -&gt; Maybe ISO8601
-   -&gt; Maybe Text
-   -&gt; InstanceStatusEvent)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String
-     (Maybe EventCode
-      -&gt; Maybe ISO8601
-      -&gt; Maybe ISO8601
-      -&gt; Maybe Text
-      -&gt; InstanceStatusEvent)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681084014"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;instanceEventId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
   (Maybe EventCode
-   -&gt; Maybe ISO8601
-   -&gt; Maybe ISO8601
    -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ISO8601
+   -&gt; Maybe ISO8601
    -&gt; InstanceStatusEvent)
 -&gt; Either String (Maybe EventCode)
 -&gt; Either
      String
-     (Maybe ISO8601
-      -&gt; Maybe ISO8601 -&gt; Maybe Text -&gt; InstanceStatusEvent)
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ISO8601
+      -&gt; Maybe ISO8601
+      -&gt; InstanceStatusEvent)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681084014"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe EventCode)
+</span><a href="#local-6989586621681118366"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe EventCode)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;code&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ISO8601
+   -&gt; Maybe ISO8601
+   -&gt; InstanceStatusEvent)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe ISO8601 -&gt; Maybe ISO8601 -&gt; InstanceStatusEvent)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681118366"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;instanceEventId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe ISO8601
-   -&gt; Maybe ISO8601 -&gt; Maybe Text -&gt; InstanceStatusEvent)
--&gt; Either String (Maybe ISO8601)
+  (Maybe Text
+   -&gt; Maybe ISO8601 -&gt; Maybe ISO8601 -&gt; InstanceStatusEvent)
+-&gt; Either String (Maybe Text)
 -&gt; Either
-     String (Maybe ISO8601 -&gt; Maybe Text -&gt; InstanceStatusEvent)
+     String (Maybe ISO8601 -&gt; Maybe ISO8601 -&gt; InstanceStatusEvent)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681084014"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;notAfter&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe ISO8601 -&gt; Maybe Text -&gt; InstanceStatusEvent)
--&gt; Either String (Maybe ISO8601)
--&gt; Either String (Maybe Text -&gt; InstanceStatusEvent)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681084014"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;notBeforeDeadline&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; InstanceStatusEvent)
--&gt; Either String (Maybe Text) -&gt; Either String InstanceStatusEvent
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681084014"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681118366"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String (Maybe ISO8601 -&gt; Maybe ISO8601 -&gt; InstanceStatusEvent)
+-&gt; Either String (Maybe ISO8601)
+-&gt; Either String (Maybe ISO8601 -&gt; InstanceStatusEvent)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681118366"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;notBeforeDeadline&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe ISO8601 -&gt; InstanceStatusEvent)
+-&gt; Either String (Maybe ISO8601)
+-&gt; Either String InstanceStatusEvent
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681118366"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;notAfter&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681084008"><span id="local-6989586621681084010"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#InstanceStatusEvent"><span class="hs-identifier hs-type">InstanceStatusEvent</span></a></span></span></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681118360"><span id="local-6989586621681118362"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#InstanceStatusEvent"><span class="hs-identifier hs-type">InstanceStatusEvent</span></a></span></span></span><span>
 </span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681084005"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#InstanceStatusEvent"><span class="hs-identifier hs-type">InstanceStatusEvent</span></a></span></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681118357"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusEvent.html#InstanceStatusEvent"><span class="hs-identifier hs-type">InstanceStatusEvent</span></a></span></span><span>
 </span><span id="line-127"></span></pre></body></html>

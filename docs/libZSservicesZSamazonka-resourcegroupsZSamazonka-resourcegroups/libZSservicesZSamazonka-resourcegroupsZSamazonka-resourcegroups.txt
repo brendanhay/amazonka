@@ -2,7 +2,7 @@
 -- See Hoogle, http://www.haskell.org/hoogle/
 
 @package libZSservicesZSamazonka-resourcegroupsZSamazonka-resourcegroups
-@version 1.6.1
+@version 2.0
 
 
 module Network.AWS.ResourceGroups.Types.FailedResource
@@ -16,11 +16,11 @@ FailedResource' :: Maybe Text -> Maybe Text -> Maybe Text -> FailedResource
 -- | The ARN of the resource that failed to be added or removed.
 [$sel:resourceArn:FailedResource'] :: FailedResource -> Maybe Text
 
--- | The error message text associated with the failure.
-[$sel:errorMessage:FailedResource'] :: FailedResource -> Maybe Text
-
 -- | The error code associated with the failure.
 [$sel:errorCode:FailedResource'] :: FailedResource -> Maybe Text
+
+-- | The error message text associated with the failure.
+[$sel:errorMessage:FailedResource'] :: FailedResource -> Maybe Text
 
 -- | Create a value of <a>FailedResource</a> with all optional fields
 --   omitted.
@@ -35,22 +35,22 @@ FailedResource' :: Maybe Text -> Maybe Text -> Maybe Text -> FailedResource
 --   <a>failedResource_resourceArn</a> - The ARN of the resource that
 --   failed to be added or removed.
 --   
+--   <a>$sel:errorCode:FailedResource'</a>, <a>failedResource_errorCode</a>
+--   - The error code associated with the failure.
+--   
 --   <a>$sel:errorMessage:FailedResource'</a>,
 --   <a>failedResource_errorMessage</a> - The error message text associated
 --   with the failure.
---   
---   <a>$sel:errorCode:FailedResource'</a>, <a>failedResource_errorCode</a>
---   - The error code associated with the failure.
 newFailedResource :: FailedResource
 
 -- | The ARN of the resource that failed to be added or removed.
 failedResource_resourceArn :: Lens' FailedResource (Maybe Text)
 
--- | The error message text associated with the failure.
-failedResource_errorMessage :: Lens' FailedResource (Maybe Text)
-
 -- | The error code associated with the failure.
 failedResource_errorCode :: Lens' FailedResource (Maybe Text)
+
+-- | The error message text associated with the failure.
+failedResource_errorMessage :: Lens' FailedResource (Maybe Text)
 instance GHC.Generics.Generic Network.AWS.ResourceGroups.Types.FailedResource.FailedResource
 instance GHC.Show.Show Network.AWS.ResourceGroups.Types.FailedResource.FailedResource
 instance GHC.Read.Read Network.AWS.ResourceGroups.Types.FailedResource.FailedResource
@@ -291,13 +291,10 @@ module Network.AWS.ResourceGroups.Types.GroupConfiguration
 --   
 --   <i>See:</i> <a>newGroupConfiguration</a> smart constructor.
 data GroupConfiguration
-GroupConfiguration' :: Maybe GroupConfigurationStatus -> Maybe [GroupConfigurationItem] -> Maybe Text -> Maybe [GroupConfigurationItem] -> GroupConfiguration
+GroupConfiguration' :: Maybe GroupConfigurationStatus -> Maybe Text -> Maybe [GroupConfigurationItem] -> Maybe [GroupConfigurationItem] -> GroupConfiguration
 
 -- | The current status of an attempt to update the group configuration.
 [$sel:status:GroupConfiguration'] :: GroupConfiguration -> Maybe GroupConfigurationStatus
-
--- | The configuration currently associated with the group and in effect.
-[$sel:configuration:GroupConfiguration'] :: GroupConfiguration -> Maybe [GroupConfigurationItem]
 
 -- | If present, the reason why a request to update the group configuration
 --   failed.
@@ -306,6 +303,9 @@ GroupConfiguration' :: Maybe GroupConfigurationStatus -> Maybe [GroupConfigurati
 -- | If present, the new configuration that is in the process of being
 --   applied to the group.
 [$sel:proposedConfiguration:GroupConfiguration'] :: GroupConfiguration -> Maybe [GroupConfigurationItem]
+
+-- | The configuration currently associated with the group and in effect.
+[$sel:configuration:GroupConfiguration'] :: GroupConfiguration -> Maybe [GroupConfigurationItem]
 
 -- | Create a value of <a>GroupConfiguration</a> with all optional fields
 --   omitted.
@@ -320,10 +320,6 @@ GroupConfiguration' :: Maybe GroupConfigurationStatus -> Maybe [GroupConfigurati
 --   <a>groupConfiguration_status</a> - The current status of an attempt to
 --   update the group configuration.
 --   
---   <a>$sel:configuration:GroupConfiguration'</a>,
---   <a>groupConfiguration_configuration</a> - The configuration currently
---   associated with the group and in effect.
---   
 --   <a>$sel:failureReason:GroupConfiguration'</a>,
 --   <a>groupConfiguration_failureReason</a> - If present, the reason why a
 --   request to update the group configuration failed.
@@ -331,13 +327,14 @@ GroupConfiguration' :: Maybe GroupConfigurationStatus -> Maybe [GroupConfigurati
 --   <a>$sel:proposedConfiguration:GroupConfiguration'</a>,
 --   <a>groupConfiguration_proposedConfiguration</a> - If present, the new
 --   configuration that is in the process of being applied to the group.
+--   
+--   <a>$sel:configuration:GroupConfiguration'</a>,
+--   <a>groupConfiguration_configuration</a> - The configuration currently
+--   associated with the group and in effect.
 newGroupConfiguration :: GroupConfiguration
 
 -- | The current status of an attempt to update the group configuration.
 groupConfiguration_status :: Lens' GroupConfiguration (Maybe GroupConfigurationStatus)
-
--- | The configuration currently associated with the group and in effect.
-groupConfiguration_configuration :: Lens' GroupConfiguration (Maybe [GroupConfigurationItem])
 
 -- | If present, the reason why a request to update the group configuration
 --   failed.
@@ -346,6 +343,9 @@ groupConfiguration_failureReason :: Lens' GroupConfiguration (Maybe Text)
 -- | If present, the new configuration that is in the process of being
 --   applied to the group.
 groupConfiguration_proposedConfiguration :: Lens' GroupConfiguration (Maybe [GroupConfigurationItem])
+
+-- | The configuration currently associated with the group and in effect.
+groupConfiguration_configuration :: Lens' GroupConfiguration (Maybe [GroupConfigurationItem])
 instance GHC.Generics.Generic Network.AWS.ResourceGroups.Types.GroupConfiguration.GroupConfiguration
 instance GHC.Show.Show Network.AWS.ResourceGroups.Types.GroupConfiguration.GroupConfiguration
 instance GHC.Read.Read Network.AWS.ResourceGroups.Types.GroupConfiguration.GroupConfiguration
@@ -437,11 +437,11 @@ module Network.AWS.ResourceGroups.Types.GroupIdentifier
 data GroupIdentifier
 GroupIdentifier' :: Maybe Text -> Maybe Text -> GroupIdentifier
 
--- | The name of the resource group.
-[$sel:groupName:GroupIdentifier'] :: GroupIdentifier -> Maybe Text
-
 -- | The ARN of the resource group.
 [$sel:groupArn:GroupIdentifier'] :: GroupIdentifier -> Maybe Text
+
+-- | The name of the resource group.
+[$sel:groupName:GroupIdentifier'] :: GroupIdentifier -> Maybe Text
 
 -- | Create a value of <a>GroupIdentifier</a> with all optional fields
 --   omitted.
@@ -452,18 +452,18 @@ GroupIdentifier' :: Maybe Text -> Maybe Text -> GroupIdentifier
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:groupName:GroupIdentifier'</a>,
---   <a>groupIdentifier_groupName</a> - The name of the resource group.
---   
 --   <a>$sel:groupArn:GroupIdentifier'</a>, <a>groupIdentifier_groupArn</a>
 --   - The ARN of the resource group.
+--   
+--   <a>$sel:groupName:GroupIdentifier'</a>,
+--   <a>groupIdentifier_groupName</a> - The name of the resource group.
 newGroupIdentifier :: GroupIdentifier
-
--- | The name of the resource group.
-groupIdentifier_groupName :: Lens' GroupIdentifier (Maybe Text)
 
 -- | The ARN of the resource group.
 groupIdentifier_groupArn :: Lens' GroupIdentifier (Maybe Text)
+
+-- | The name of the resource group.
+groupIdentifier_groupName :: Lens' GroupIdentifier (Maybe Text)
 instance GHC.Generics.Generic Network.AWS.ResourceGroups.Types.GroupIdentifier.GroupIdentifier
 instance GHC.Show.Show Network.AWS.ResourceGroups.Types.GroupIdentifier.GroupIdentifier
 instance GHC.Read.Read Network.AWS.ResourceGroups.Types.GroupIdentifier.GroupIdentifier
@@ -554,7 +554,11 @@ module Network.AWS.ResourceGroups.Types.QueryError
 --   
 --   <i>See:</i> <a>newQueryError</a> smart constructor.
 data QueryError
-QueryError' :: Maybe Text -> Maybe QueryErrorCode -> QueryError
+QueryError' :: Maybe QueryErrorCode -> Maybe Text -> QueryError
+
+-- | Possible values are <tt>CLOUDFORMATION_STACK_INACTIVE</tt> and
+--   <tt>CLOUDFORMATION_STACK_NOT_EXISTING</tt>.
+[$sel:errorCode:QueryError'] :: QueryError -> Maybe QueryErrorCode
 
 -- | A message that explains the <tt>ErrorCode</tt> value. Messages might
 --   state that the specified CloudFormation stack does not exist (or no
@@ -562,10 +566,6 @@ QueryError' :: Maybe Text -> Maybe QueryErrorCode -> QueryError
 --   message typically states that the CloudFormation stack has a status
 --   that is not (or no longer) active, such as <tt>CREATE_FAILED</tt>.
 [$sel:message:QueryError'] :: QueryError -> Maybe Text
-
--- | Possible values are <tt>CLOUDFORMATION_STACK_INACTIVE</tt> and
---   <tt>CLOUDFORMATION_STACK_NOT_EXISTING</tt>.
-[$sel:errorCode:QueryError'] :: QueryError -> Maybe QueryErrorCode
 
 -- | Create a value of <a>QueryError</a> with all optional fields omitted.
 --   
@@ -575,17 +575,21 @@ QueryError' :: Maybe Text -> Maybe QueryErrorCode -> QueryError
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
+--   <a>$sel:errorCode:QueryError'</a>, <a>queryError_errorCode</a> -
+--   Possible values are <tt>CLOUDFORMATION_STACK_INACTIVE</tt> and
+--   <tt>CLOUDFORMATION_STACK_NOT_EXISTING</tt>.
+--   
 --   <a>$sel:message:QueryError'</a>, <a>queryError_message</a> - A message
 --   that explains the <tt>ErrorCode</tt> value. Messages might state that
 --   the specified CloudFormation stack does not exist (or no longer
 --   exists). For <tt>CLOUDFORMATION_STACK_INACTIVE</tt>, the message
 --   typically states that the CloudFormation stack has a status that is
 --   not (or no longer) active, such as <tt>CREATE_FAILED</tt>.
---   
---   <a>$sel:errorCode:QueryError'</a>, <a>queryError_errorCode</a> -
---   Possible values are <tt>CLOUDFORMATION_STACK_INACTIVE</tt> and
---   <tt>CLOUDFORMATION_STACK_NOT_EXISTING</tt>.
 newQueryError :: QueryError
+
+-- | Possible values are <tt>CLOUDFORMATION_STACK_INACTIVE</tt> and
+--   <tt>CLOUDFORMATION_STACK_NOT_EXISTING</tt>.
+queryError_errorCode :: Lens' QueryError (Maybe QueryErrorCode)
 
 -- | A message that explains the <tt>ErrorCode</tt> value. Messages might
 --   state that the specified CloudFormation stack does not exist (or no
@@ -593,10 +597,6 @@ newQueryError :: QueryError
 --   message typically states that the CloudFormation stack has a status
 --   that is not (or no longer) active, such as <tt>CREATE_FAILED</tt>.
 queryError_message :: Lens' QueryError (Maybe Text)
-
--- | Possible values are <tt>CLOUDFORMATION_STACK_INACTIVE</tt> and
---   <tt>CLOUDFORMATION_STACK_NOT_EXISTING</tt>.
-queryError_errorCode :: Lens' QueryError (Maybe QueryErrorCode)
 instance GHC.Generics.Generic Network.AWS.ResourceGroups.Types.QueryError.QueryError
 instance GHC.Show.Show Network.AWS.ResourceGroups.Types.QueryError.QueryError
 instance GHC.Read.Read Network.AWS.ResourceGroups.Types.QueryError.QueryError
@@ -715,11 +715,11 @@ module Network.AWS.ResourceGroups.Types.ResourceIdentifier
 data ResourceIdentifier
 ResourceIdentifier' :: Maybe Text -> Maybe Text -> ResourceIdentifier
 
--- | The ARN of a resource.
-[$sel:resourceArn:ResourceIdentifier'] :: ResourceIdentifier -> Maybe Text
-
 -- | The resource type of a resource, such as <tt>AWS::EC2::Instance</tt>.
 [$sel:resourceType:ResourceIdentifier'] :: ResourceIdentifier -> Maybe Text
+
+-- | The ARN of a resource.
+[$sel:resourceArn:ResourceIdentifier'] :: ResourceIdentifier -> Maybe Text
 
 -- | Create a value of <a>ResourceIdentifier</a> with all optional fields
 --   omitted.
@@ -730,19 +730,19 @@ ResourceIdentifier' :: Maybe Text -> Maybe Text -> ResourceIdentifier
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:resourceArn:ResourceIdentifier'</a>,
---   <a>resourceIdentifier_resourceArn</a> - The ARN of a resource.
---   
 --   <a>$sel:resourceType:ResourceIdentifier'</a>,
 --   <a>resourceIdentifier_resourceType</a> - The resource type of a
 --   resource, such as <tt>AWS::EC2::Instance</tt>.
+--   
+--   <a>$sel:resourceArn:ResourceIdentifier'</a>,
+--   <a>resourceIdentifier_resourceArn</a> - The ARN of a resource.
 newResourceIdentifier :: ResourceIdentifier
-
--- | The ARN of a resource.
-resourceIdentifier_resourceArn :: Lens' ResourceIdentifier (Maybe Text)
 
 -- | The resource type of a resource, such as <tt>AWS::EC2::Instance</tt>.
 resourceIdentifier_resourceType :: Lens' ResourceIdentifier (Maybe Text)
+
+-- | The ARN of a resource.
+resourceIdentifier_resourceArn :: Lens' ResourceIdentifier (Maybe Text)
 instance GHC.Generics.Generic Network.AWS.ResourceGroups.Types.ResourceIdentifier.ResourceIdentifier
 instance GHC.Show.Show Network.AWS.ResourceGroups.Types.ResourceIdentifier.ResourceIdentifier
 instance GHC.Read.Read Network.AWS.ResourceGroups.Types.ResourceIdentifier.ResourceIdentifier
@@ -1127,31 +1127,31 @@ module Network.AWS.ResourceGroups.Types
 --   configuration.
 defaultService :: Service
 
+-- | The caller isn't authorized to make the request. Check permissions.
+_ForbiddenException :: AsError a => Getting (First ServiceError) a ServiceError
+
 -- | One or more of the specified resources don't exist.
 _NotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | The request includes one or more parameters that violate validation
---   rules.
-_BadRequestException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | The request was rejected because it doesn't have valid credentials for
---   the target resource.
-_UnauthorizedException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | You've exceeded throttling limits by making too many requests in a
+--   period of time.
+_TooManyRequestsException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | An internal error occurred while processing the request. Try again
 --   later.
 _InternalServerErrorException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | The caller isn't authorized to make the request. Check permissions.
-_ForbiddenException :: AsError a => Getting (First ServiceError) a ServiceError
-
 -- | The request uses an HTTP method that isn't allowed for the specified
 --   resource.
 _MethodNotAllowedException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | You've exceeded throttling limits by making too many requests in a
---   period of time.
-_TooManyRequestsException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | The request was rejected because it doesn't have valid credentials for
+--   the target resource.
+_UnauthorizedException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | The request includes one or more parameters that violate validation
+--   rules.
+_BadRequestException :: AsError a => Getting (First ServiceError) a ServiceError
 newtype GroupConfigurationStatus
 GroupConfigurationStatus' :: Text -> GroupConfigurationStatus
 [fromGroupConfigurationStatus] :: GroupConfigurationStatus -> Text
@@ -1191,11 +1191,11 @@ FailedResource' :: Maybe Text -> Maybe Text -> Maybe Text -> FailedResource
 -- | The ARN of the resource that failed to be added or removed.
 [$sel:resourceArn:FailedResource'] :: FailedResource -> Maybe Text
 
--- | The error message text associated with the failure.
-[$sel:errorMessage:FailedResource'] :: FailedResource -> Maybe Text
-
 -- | The error code associated with the failure.
 [$sel:errorCode:FailedResource'] :: FailedResource -> Maybe Text
+
+-- | The error message text associated with the failure.
+[$sel:errorMessage:FailedResource'] :: FailedResource -> Maybe Text
 
 -- | Create a value of <a>FailedResource</a> with all optional fields
 --   omitted.
@@ -1210,22 +1210,22 @@ FailedResource' :: Maybe Text -> Maybe Text -> Maybe Text -> FailedResource
 --   <a>failedResource_resourceArn</a> - The ARN of the resource that
 --   failed to be added or removed.
 --   
+--   <a>$sel:errorCode:FailedResource'</a>, <a>failedResource_errorCode</a>
+--   - The error code associated with the failure.
+--   
 --   <a>$sel:errorMessage:FailedResource'</a>,
 --   <a>failedResource_errorMessage</a> - The error message text associated
 --   with the failure.
---   
---   <a>$sel:errorCode:FailedResource'</a>, <a>failedResource_errorCode</a>
---   - The error code associated with the failure.
 newFailedResource :: FailedResource
 
 -- | The ARN of the resource that failed to be added or removed.
 failedResource_resourceArn :: Lens' FailedResource (Maybe Text)
 
--- | The error message text associated with the failure.
-failedResource_errorMessage :: Lens' FailedResource (Maybe Text)
-
 -- | The error code associated with the failure.
 failedResource_errorCode :: Lens' FailedResource (Maybe Text)
+
+-- | The error message text associated with the failure.
+failedResource_errorMessage :: Lens' FailedResource (Maybe Text)
 
 -- | A resource group that contains AWS resources. You can assign resources
 --   to the group by associating either of the following elements with the
@@ -1293,13 +1293,10 @@ group_name :: Lens' Group Text
 --   
 --   <i>See:</i> <a>newGroupConfiguration</a> smart constructor.
 data GroupConfiguration
-GroupConfiguration' :: Maybe GroupConfigurationStatus -> Maybe [GroupConfigurationItem] -> Maybe Text -> Maybe [GroupConfigurationItem] -> GroupConfiguration
+GroupConfiguration' :: Maybe GroupConfigurationStatus -> Maybe Text -> Maybe [GroupConfigurationItem] -> Maybe [GroupConfigurationItem] -> GroupConfiguration
 
 -- | The current status of an attempt to update the group configuration.
 [$sel:status:GroupConfiguration'] :: GroupConfiguration -> Maybe GroupConfigurationStatus
-
--- | The configuration currently associated with the group and in effect.
-[$sel:configuration:GroupConfiguration'] :: GroupConfiguration -> Maybe [GroupConfigurationItem]
 
 -- | If present, the reason why a request to update the group configuration
 --   failed.
@@ -1308,6 +1305,9 @@ GroupConfiguration' :: Maybe GroupConfigurationStatus -> Maybe [GroupConfigurati
 -- | If present, the new configuration that is in the process of being
 --   applied to the group.
 [$sel:proposedConfiguration:GroupConfiguration'] :: GroupConfiguration -> Maybe [GroupConfigurationItem]
+
+-- | The configuration currently associated with the group and in effect.
+[$sel:configuration:GroupConfiguration'] :: GroupConfiguration -> Maybe [GroupConfigurationItem]
 
 -- | Create a value of <a>GroupConfiguration</a> with all optional fields
 --   omitted.
@@ -1322,10 +1322,6 @@ GroupConfiguration' :: Maybe GroupConfigurationStatus -> Maybe [GroupConfigurati
 --   <a>groupConfiguration_status</a> - The current status of an attempt to
 --   update the group configuration.
 --   
---   <a>$sel:configuration:GroupConfiguration'</a>,
---   <a>groupConfiguration_configuration</a> - The configuration currently
---   associated with the group and in effect.
---   
 --   <a>$sel:failureReason:GroupConfiguration'</a>,
 --   <a>groupConfiguration_failureReason</a> - If present, the reason why a
 --   request to update the group configuration failed.
@@ -1333,13 +1329,14 @@ GroupConfiguration' :: Maybe GroupConfigurationStatus -> Maybe [GroupConfigurati
 --   <a>$sel:proposedConfiguration:GroupConfiguration'</a>,
 --   <a>groupConfiguration_proposedConfiguration</a> - If present, the new
 --   configuration that is in the process of being applied to the group.
+--   
+--   <a>$sel:configuration:GroupConfiguration'</a>,
+--   <a>groupConfiguration_configuration</a> - The configuration currently
+--   associated with the group and in effect.
 newGroupConfiguration :: GroupConfiguration
 
 -- | The current status of an attempt to update the group configuration.
 groupConfiguration_status :: Lens' GroupConfiguration (Maybe GroupConfigurationStatus)
-
--- | The configuration currently associated with the group and in effect.
-groupConfiguration_configuration :: Lens' GroupConfiguration (Maybe [GroupConfigurationItem])
 
 -- | If present, the reason why a request to update the group configuration
 --   failed.
@@ -1348,6 +1345,9 @@ groupConfiguration_failureReason :: Lens' GroupConfiguration (Maybe Text)
 -- | If present, the new configuration that is in the process of being
 --   applied to the group.
 groupConfiguration_proposedConfiguration :: Lens' GroupConfiguration (Maybe [GroupConfigurationItem])
+
+-- | The configuration currently associated with the group and in effect.
+groupConfiguration_configuration :: Lens' GroupConfiguration (Maybe [GroupConfigurationItem])
 
 -- | An item in a group configuration. A group service configuration can
 --   have one or more items. For details about group service configuration
@@ -1495,11 +1495,11 @@ groupFilter_values :: Lens' GroupFilter (NonEmpty Text)
 data GroupIdentifier
 GroupIdentifier' :: Maybe Text -> Maybe Text -> GroupIdentifier
 
--- | The name of the resource group.
-[$sel:groupName:GroupIdentifier'] :: GroupIdentifier -> Maybe Text
-
 -- | The ARN of the resource group.
 [$sel:groupArn:GroupIdentifier'] :: GroupIdentifier -> Maybe Text
+
+-- | The name of the resource group.
+[$sel:groupName:GroupIdentifier'] :: GroupIdentifier -> Maybe Text
 
 -- | Create a value of <a>GroupIdentifier</a> with all optional fields
 --   omitted.
@@ -1510,18 +1510,18 @@ GroupIdentifier' :: Maybe Text -> Maybe Text -> GroupIdentifier
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:groupName:GroupIdentifier'</a>,
---   <a>groupIdentifier_groupName</a> - The name of the resource group.
---   
 --   <a>$sel:groupArn:GroupIdentifier'</a>, <a>groupIdentifier_groupArn</a>
 --   - The ARN of the resource group.
+--   
+--   <a>$sel:groupName:GroupIdentifier'</a>,
+--   <a>groupIdentifier_groupName</a> - The name of the resource group.
 newGroupIdentifier :: GroupIdentifier
-
--- | The name of the resource group.
-groupIdentifier_groupName :: Lens' GroupIdentifier (Maybe Text)
 
 -- | The ARN of the resource group.
 groupIdentifier_groupArn :: Lens' GroupIdentifier (Maybe Text)
+
+-- | The name of the resource group.
+groupIdentifier_groupName :: Lens' GroupIdentifier (Maybe Text)
 
 -- | A mapping of a query attached to a resource group that determines the
 --   AWS resources that are members of the group.
@@ -1651,7 +1651,11 @@ pendingResource_resourceArn :: Lens' PendingResource (Maybe Text)
 --   
 --   <i>See:</i> <a>newQueryError</a> smart constructor.
 data QueryError
-QueryError' :: Maybe Text -> Maybe QueryErrorCode -> QueryError
+QueryError' :: Maybe QueryErrorCode -> Maybe Text -> QueryError
+
+-- | Possible values are <tt>CLOUDFORMATION_STACK_INACTIVE</tt> and
+--   <tt>CLOUDFORMATION_STACK_NOT_EXISTING</tt>.
+[$sel:errorCode:QueryError'] :: QueryError -> Maybe QueryErrorCode
 
 -- | A message that explains the <tt>ErrorCode</tt> value. Messages might
 --   state that the specified CloudFormation stack does not exist (or no
@@ -1659,10 +1663,6 @@ QueryError' :: Maybe Text -> Maybe QueryErrorCode -> QueryError
 --   message typically states that the CloudFormation stack has a status
 --   that is not (or no longer) active, such as <tt>CREATE_FAILED</tt>.
 [$sel:message:QueryError'] :: QueryError -> Maybe Text
-
--- | Possible values are <tt>CLOUDFORMATION_STACK_INACTIVE</tt> and
---   <tt>CLOUDFORMATION_STACK_NOT_EXISTING</tt>.
-[$sel:errorCode:QueryError'] :: QueryError -> Maybe QueryErrorCode
 
 -- | Create a value of <a>QueryError</a> with all optional fields omitted.
 --   
@@ -1672,17 +1672,21 @@ QueryError' :: Maybe Text -> Maybe QueryErrorCode -> QueryError
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
+--   <a>$sel:errorCode:QueryError'</a>, <a>queryError_errorCode</a> -
+--   Possible values are <tt>CLOUDFORMATION_STACK_INACTIVE</tt> and
+--   <tt>CLOUDFORMATION_STACK_NOT_EXISTING</tt>.
+--   
 --   <a>$sel:message:QueryError'</a>, <a>queryError_message</a> - A message
 --   that explains the <tt>ErrorCode</tt> value. Messages might state that
 --   the specified CloudFormation stack does not exist (or no longer
 --   exists). For <tt>CLOUDFORMATION_STACK_INACTIVE</tt>, the message
 --   typically states that the CloudFormation stack has a status that is
 --   not (or no longer) active, such as <tt>CREATE_FAILED</tt>.
---   
---   <a>$sel:errorCode:QueryError'</a>, <a>queryError_errorCode</a> -
---   Possible values are <tt>CLOUDFORMATION_STACK_INACTIVE</tt> and
---   <tt>CLOUDFORMATION_STACK_NOT_EXISTING</tt>.
 newQueryError :: QueryError
+
+-- | Possible values are <tt>CLOUDFORMATION_STACK_INACTIVE</tt> and
+--   <tt>CLOUDFORMATION_STACK_NOT_EXISTING</tt>.
+queryError_errorCode :: Lens' QueryError (Maybe QueryErrorCode)
 
 -- | A message that explains the <tt>ErrorCode</tt> value. Messages might
 --   state that the specified CloudFormation stack does not exist (or no
@@ -1690,10 +1694,6 @@ newQueryError :: QueryError
 --   message typically states that the CloudFormation stack has a status
 --   that is not (or no longer) active, such as <tt>CREATE_FAILED</tt>.
 queryError_message :: Lens' QueryError (Maybe Text)
-
--- | Possible values are <tt>CLOUDFORMATION_STACK_INACTIVE</tt> and
---   <tt>CLOUDFORMATION_STACK_NOT_EXISTING</tt>.
-queryError_errorCode :: Lens' QueryError (Maybe QueryErrorCode)
 
 -- | A filter name and value pair that is used to obtain more specific
 --   results from a list of resources.
@@ -1739,11 +1739,11 @@ resourceFilter_values :: Lens' ResourceFilter (NonEmpty Text)
 data ResourceIdentifier
 ResourceIdentifier' :: Maybe Text -> Maybe Text -> ResourceIdentifier
 
--- | The ARN of a resource.
-[$sel:resourceArn:ResourceIdentifier'] :: ResourceIdentifier -> Maybe Text
-
 -- | The resource type of a resource, such as <tt>AWS::EC2::Instance</tt>.
 [$sel:resourceType:ResourceIdentifier'] :: ResourceIdentifier -> Maybe Text
+
+-- | The ARN of a resource.
+[$sel:resourceArn:ResourceIdentifier'] :: ResourceIdentifier -> Maybe Text
 
 -- | Create a value of <a>ResourceIdentifier</a> with all optional fields
 --   omitted.
@@ -1754,19 +1754,19 @@ ResourceIdentifier' :: Maybe Text -> Maybe Text -> ResourceIdentifier
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:resourceArn:ResourceIdentifier'</a>,
---   <a>resourceIdentifier_resourceArn</a> - The ARN of a resource.
---   
 --   <a>$sel:resourceType:ResourceIdentifier'</a>,
 --   <a>resourceIdentifier_resourceType</a> - The resource type of a
 --   resource, such as <tt>AWS::EC2::Instance</tt>.
+--   
+--   <a>$sel:resourceArn:ResourceIdentifier'</a>,
+--   <a>resourceIdentifier_resourceArn</a> - The ARN of a resource.
 newResourceIdentifier :: ResourceIdentifier
-
--- | The ARN of a resource.
-resourceIdentifier_resourceArn :: Lens' ResourceIdentifier (Maybe Text)
 
 -- | The resource type of a resource, such as <tt>AWS::EC2::Instance</tt>.
 resourceIdentifier_resourceType :: Lens' ResourceIdentifier (Maybe Text)
+
+-- | The ARN of a resource.
+resourceIdentifier_resourceArn :: Lens' ResourceIdentifier (Maybe Text)
 
 -- | The query that is used to define a resource group or a search for
 --   resources. A query specifies both a query type and a query string as a
@@ -2202,7 +2202,14 @@ searchResources_resourceQuery :: Lens' SearchResources ResourceQuery
 
 -- | <i>See:</i> <a>newSearchResourcesResponse</a> smart constructor.
 data SearchResourcesResponse
-SearchResourcesResponse' :: Maybe Text -> Maybe [ResourceIdentifier] -> Maybe [QueryError] -> Int -> SearchResourcesResponse
+SearchResourcesResponse' :: Maybe [QueryError] -> Maybe Text -> Maybe [ResourceIdentifier] -> Int -> SearchResourcesResponse
+
+-- | A list of <tt>QueryError</tt> objects. Each error is an object that
+--   contains <tt>ErrorCode</tt> and <tt>Message</tt> structures. Possible
+--   values for <tt>ErrorCode</tt> are
+--   <tt>CLOUDFORMATION_STACK_INACTIVE</tt> and
+--   <tt>CLOUDFORMATION_STACK_NOT_EXISTING</tt>.
+[$sel:queryErrors:SearchResourcesResponse'] :: SearchResourcesResponse -> Maybe [QueryError]
 
 -- | If present, indicates that more output is available than is included
 --   in the current response. Use this value in the <tt>NextToken</tt>
@@ -2215,13 +2222,6 @@ SearchResourcesResponse' :: Maybe Text -> Maybe [ResourceIdentifier] -> Maybe [Q
 --   that you specified.
 [$sel:resourceIdentifiers:SearchResourcesResponse'] :: SearchResourcesResponse -> Maybe [ResourceIdentifier]
 
--- | A list of <tt>QueryError</tt> objects. Each error is an object that
---   contains <tt>ErrorCode</tt> and <tt>Message</tt> structures. Possible
---   values for <tt>ErrorCode</tt> are
---   <tt>CLOUDFORMATION_STACK_INACTIVE</tt> and
---   <tt>CLOUDFORMATION_STACK_NOT_EXISTING</tt>.
-[$sel:queryErrors:SearchResourcesResponse'] :: SearchResourcesResponse -> Maybe [QueryError]
-
 -- | The response's http status code.
 [$sel:httpStatus:SearchResourcesResponse'] :: SearchResourcesResponse -> Int
 
@@ -2233,6 +2233,13 @@ SearchResourcesResponse' :: Maybe Text -> Maybe [ResourceIdentifier] -> Maybe [Q
 --   
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:queryErrors:SearchResourcesResponse'</a>,
+--   <a>searchResourcesResponse_queryErrors</a> - A list of
+--   <tt>QueryError</tt> objects. Each error is an object that contains
+--   <tt>ErrorCode</tt> and <tt>Message</tt> structures. Possible values
+--   for <tt>ErrorCode</tt> are <tt>CLOUDFORMATION_STACK_INACTIVE</tt> and
+--   <tt>CLOUDFORMATION_STACK_NOT_EXISTING</tt>.
 --   
 --   <a>$sel:nextToken:SearchResources'</a>,
 --   <a>searchResourcesResponse_nextToken</a> - If present, indicates that
@@ -2247,17 +2254,17 @@ SearchResourcesResponse' :: Maybe Text -> Maybe [ResourceIdentifier] -> Maybe [Q
 --   resource types of resources that are members of the group that you
 --   specified.
 --   
---   <a>$sel:queryErrors:SearchResourcesResponse'</a>,
---   <a>searchResourcesResponse_queryErrors</a> - A list of
---   <tt>QueryError</tt> objects. Each error is an object that contains
---   <tt>ErrorCode</tt> and <tt>Message</tt> structures. Possible values
---   for <tt>ErrorCode</tt> are <tt>CLOUDFORMATION_STACK_INACTIVE</tt> and
---   <tt>CLOUDFORMATION_STACK_NOT_EXISTING</tt>.
---   
 --   <a>$sel:httpStatus:SearchResourcesResponse'</a>,
 --   <a>searchResourcesResponse_httpStatus</a> - The response's http status
 --   code.
 newSearchResourcesResponse :: Int -> SearchResourcesResponse
+
+-- | A list of <tt>QueryError</tt> objects. Each error is an object that
+--   contains <tt>ErrorCode</tt> and <tt>Message</tt> structures. Possible
+--   values for <tt>ErrorCode</tt> are
+--   <tt>CLOUDFORMATION_STACK_INACTIVE</tt> and
+--   <tt>CLOUDFORMATION_STACK_NOT_EXISTING</tt>.
+searchResourcesResponse_queryErrors :: Lens' SearchResourcesResponse (Maybe [QueryError])
 
 -- | If present, indicates that more output is available than is included
 --   in the current response. Use this value in the <tt>NextToken</tt>
@@ -2269,13 +2276,6 @@ searchResourcesResponse_nextToken :: Lens' SearchResourcesResponse (Maybe Text)
 -- | The ARNs and resource types of resources that are members of the group
 --   that you specified.
 searchResourcesResponse_resourceIdentifiers :: Lens' SearchResourcesResponse (Maybe [ResourceIdentifier])
-
--- | A list of <tt>QueryError</tt> objects. Each error is an object that
---   contains <tt>ErrorCode</tt> and <tt>Message</tt> structures. Possible
---   values for <tt>ErrorCode</tt> are
---   <tt>CLOUDFORMATION_STACK_INACTIVE</tt> and
---   <tt>CLOUDFORMATION_STACK_NOT_EXISTING</tt>.
-searchResourcesResponse_queryErrors :: Lens' SearchResourcesResponse (Maybe [QueryError])
 
 -- | The response's http status code.
 searchResourcesResponse_httpStatus :: Lens' SearchResourcesResponse Int
@@ -2313,7 +2313,11 @@ module Network.AWS.ResourceGroups.PutGroupConfiguration
 
 -- | <i>See:</i> <a>newPutGroupConfiguration</a> smart constructor.
 data PutGroupConfiguration
-PutGroupConfiguration' :: Maybe [GroupConfigurationItem] -> Maybe Text -> PutGroupConfiguration
+PutGroupConfiguration' :: Maybe Text -> Maybe [GroupConfigurationItem] -> PutGroupConfiguration
+
+-- | The name or ARN of the resource group with the configuration that you
+--   want to update.
+[$sel:group':PutGroupConfiguration'] :: PutGroupConfiguration -> Maybe Text
 
 -- | The new configuration to associate with the specified group. A
 --   configuration associates the resource group with an AWS service and
@@ -2327,10 +2331,6 @@ PutGroupConfiguration' :: Maybe [GroupConfigurationItem] -> Maybe Text -> PutGro
 --   <tt>ResourceQuery</tt>, but not both.
 [$sel:configuration:PutGroupConfiguration'] :: PutGroupConfiguration -> Maybe [GroupConfigurationItem]
 
--- | The name or ARN of the resource group with the configuration that you
---   want to update.
-[$sel:group':PutGroupConfiguration'] :: PutGroupConfiguration -> Maybe Text
-
 -- | Create a value of <a>PutGroupConfiguration</a> with all optional
 --   fields omitted.
 --   
@@ -2339,6 +2339,10 @@ PutGroupConfiguration' :: Maybe [GroupConfigurationItem] -> Maybe Text -> PutGro
 --   
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:group':PutGroupConfiguration'</a>,
+--   <a>putGroupConfiguration_group</a> - The name or ARN of the resource
+--   group with the configuration that you want to update.
 --   
 --   <a>$sel:configuration:PutGroupConfiguration'</a>,
 --   <a>putGroupConfiguration_configuration</a> - The new configuration to
@@ -2352,11 +2356,11 @@ PutGroupConfiguration' :: Maybe [GroupConfigurationItem] -> Maybe Text -> PutGro
 --   
 --   A resource group can contain either a <tt>Configuration</tt> or a
 --   <tt>ResourceQuery</tt>, but not both.
---   
---   <a>$sel:group':PutGroupConfiguration'</a>,
---   <a>putGroupConfiguration_group</a> - The name or ARN of the resource
---   group with the configuration that you want to update.
 newPutGroupConfiguration :: PutGroupConfiguration
+
+-- | The name or ARN of the resource group with the configuration that you
+--   want to update.
+putGroupConfiguration_group :: Lens' PutGroupConfiguration (Maybe Text)
 
 -- | The new configuration to associate with the specified group. A
 --   configuration associates the resource group with an AWS service and
@@ -2369,10 +2373,6 @@ newPutGroupConfiguration :: PutGroupConfiguration
 --   A resource group can contain either a <tt>Configuration</tt> or a
 --   <tt>ResourceQuery</tt>, but not both.
 putGroupConfiguration_configuration :: Lens' PutGroupConfiguration (Maybe [GroupConfigurationItem])
-
--- | The name or ARN of the resource group with the configuration that you
---   want to update.
-putGroupConfiguration_group :: Lens' PutGroupConfiguration (Maybe Text)
 
 -- | <i>See:</i> <a>newPutGroupConfigurationResponse</a> smart constructor.
 data PutGroupConfigurationResponse
@@ -2430,7 +2430,22 @@ module Network.AWS.ResourceGroups.ListGroups
 
 -- | <i>See:</i> <a>newListGroups</a> smart constructor.
 data ListGroups
-ListGroups' :: Maybe Text -> Maybe Natural -> Maybe [GroupFilter] -> ListGroups
+ListGroups' :: Maybe [GroupFilter] -> Maybe Text -> Maybe Natural -> ListGroups
+
+-- | Filters, formatted as GroupFilter objects, that you want to apply to a
+--   <tt>ListGroups</tt> operation.
+--   
+--   <ul>
+--   <li><tt>resource-type</tt> - Filter the results to include only those
+--   of the specified resource types. Specify up to five resource types in
+--   the format <tt>AWS::ServiceCode::ResourceType </tt>. For example,
+--   <tt>AWS::EC2::Instance</tt>, or <tt>AWS::S3::Bucket</tt>.</li>
+--   <li><tt>configuration-type</tt> - Filter the results to include only
+--   those groups that have the specified configuration types attached. The
+--   current supported values
+--   are:<ul><li><pre>AWS:EC2::CapacityReservationPool</pre></li><li><pre>AWS:EC2::HostManagement</pre></li></ul></li>
+--   </ul>
+[$sel:filters:ListGroups'] :: ListGroups -> Maybe [GroupFilter]
 
 -- | The parameter for receiving additional results if you receive a
 --   <tt>NextToken</tt> response in a previous request. A
@@ -2452,7 +2467,16 @@ ListGroups' :: Maybe Text -> Maybe Natural -> Maybe [GroupFilter] -> ListGroups
 --   to ensure that you receive all of the results.
 [$sel:maxResults:ListGroups'] :: ListGroups -> Maybe Natural
 
--- | Filters, formatted as GroupFilter objects, that you want to apply to a
+-- | Create a value of <a>ListGroups</a> with all optional fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:filters:ListGroups'</a>, <a>listGroups_filters</a> - Filters,
+--   formatted as GroupFilter objects, that you want to apply to a
 --   <tt>ListGroups</tt> operation.
 --   
 --   <ul>
@@ -2465,15 +2489,6 @@ ListGroups' :: Maybe Text -> Maybe Natural -> Maybe [GroupFilter] -> ListGroups
 --   current supported values
 --   are:<ul><li><pre>AWS:EC2::CapacityReservationPool</pre></li><li><pre>AWS:EC2::HostManagement</pre></li></ul></li>
 --   </ul>
-[$sel:filters:ListGroups'] :: ListGroups -> Maybe [GroupFilter]
-
--- | Create a value of <a>ListGroups</a> with all optional fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
 --   
 --   <a>$sel:nextToken:ListGroups'</a>, <a>listGroups_nextToken</a> - The
 --   parameter for receiving additional results if you receive a
@@ -2494,9 +2509,9 @@ ListGroups' :: Maybe Text -> Maybe Natural -> Maybe [GroupFilter] -> ListGroups
 --   return fewer results than the maximum even when there are more results
 --   available. You should check <tt>NextToken</tt> after every operation
 --   to ensure that you receive all of the results.
---   
---   <a>$sel:filters:ListGroups'</a>, <a>listGroups_filters</a> - Filters,
---   formatted as GroupFilter objects, that you want to apply to a
+newListGroups :: ListGroups
+
+-- | Filters, formatted as GroupFilter objects, that you want to apply to a
 --   <tt>ListGroups</tt> operation.
 --   
 --   <ul>
@@ -2509,7 +2524,7 @@ ListGroups' :: Maybe Text -> Maybe Natural -> Maybe [GroupFilter] -> ListGroups
 --   current supported values
 --   are:<ul><li><pre>AWS:EC2::CapacityReservationPool</pre></li><li><pre>AWS:EC2::HostManagement</pre></li></ul></li>
 --   </ul>
-newListGroups :: ListGroups
+listGroups_filters :: Lens' ListGroups (Maybe [GroupFilter])
 
 -- | The parameter for receiving additional results if you receive a
 --   <tt>NextToken</tt> response in a previous request. A
@@ -2530,21 +2545,6 @@ listGroups_nextToken :: Lens' ListGroups (Maybe Text)
 --   available. You should check <tt>NextToken</tt> after every operation
 --   to ensure that you receive all of the results.
 listGroups_maxResults :: Lens' ListGroups (Maybe Natural)
-
--- | Filters, formatted as GroupFilter objects, that you want to apply to a
---   <tt>ListGroups</tt> operation.
---   
---   <ul>
---   <li><tt>resource-type</tt> - Filter the results to include only those
---   of the specified resource types. Specify up to five resource types in
---   the format <tt>AWS::ServiceCode::ResourceType </tt>. For example,
---   <tt>AWS::EC2::Instance</tt>, or <tt>AWS::S3::Bucket</tt>.</li>
---   <li><tt>configuration-type</tt> - Filter the results to include only
---   those groups that have the specified configuration types attached. The
---   current supported values
---   are:<ul><li><pre>AWS:EC2::CapacityReservationPool</pre></li><li><pre>AWS:EC2::HostManagement</pre></li></ul></li>
---   </ul>
-listGroups_filters :: Lens' ListGroups (Maybe [GroupFilter])
 
 -- | <i>See:</i> <a>newListGroupsResponse</a> smart constructor.
 data ListGroupsResponse
@@ -2653,31 +2653,7 @@ module Network.AWS.ResourceGroups.ListGroupResources
 
 -- | <i>See:</i> <a>newListGroupResources</a> smart constructor.
 data ListGroupResources
-ListGroupResources' :: Maybe Text -> Maybe Natural -> Maybe Text -> Maybe Text -> Maybe [ResourceFilter] -> ListGroupResources
-
--- | The parameter for receiving additional results if you receive a
---   <tt>NextToken</tt> response in a previous request. A
---   <tt>NextToken</tt> response indicates that more output is available.
---   Set this parameter to the value provided by a previous call's
---   <tt>NextToken</tt> response to indicate where the output should
---   continue from.
-[$sel:nextToken:ListGroupResources'] :: ListGroupResources -> Maybe Text
-
--- | The total number of results that you want included on each page of the
---   response. If you do not include this parameter, it defaults to a value
---   that is specific to the operation. If additional items exist beyond
---   the maximum you specify, the <tt>NextToken</tt> response element is
---   present and has a value (is not null). Include that value as the
---   <tt>NextToken</tt> request parameter in the next call to the operation
---   to get the next part of the results. Note that the service might
---   return fewer results than the maximum even when there are more results
---   available. You should check <tt>NextToken</tt> after every operation
---   to ensure that you receive all of the results.
-[$sel:maxResults:ListGroupResources'] :: ListGroupResources -> Maybe Natural
-
--- | /__Deprecated - don't use this parameter. Use the <tt>Group</tt>
---   request field instead.__/
-[$sel:groupName:ListGroupResources'] :: ListGroupResources -> Maybe Text
+ListGroupResources' :: Maybe Text -> Maybe [ResourceFilter] -> Maybe Text -> Maybe Text -> Maybe Natural -> ListGroupResources
 
 -- | The name or the ARN of the resource group
 [$sel:group':ListGroupResources'] :: ListGroupResources -> Maybe Text
@@ -2716,6 +2692,30 @@ ListGroupResources' :: Maybe Text -> Maybe Natural -> Maybe Text -> Maybe Text -
 --   (tag-based or AWS CloudFormation stack-based queries).
 [$sel:filters:ListGroupResources'] :: ListGroupResources -> Maybe [ResourceFilter]
 
+-- | The parameter for receiving additional results if you receive a
+--   <tt>NextToken</tt> response in a previous request. A
+--   <tt>NextToken</tt> response indicates that more output is available.
+--   Set this parameter to the value provided by a previous call's
+--   <tt>NextToken</tt> response to indicate where the output should
+--   continue from.
+[$sel:nextToken:ListGroupResources'] :: ListGroupResources -> Maybe Text
+
+-- | /__Deprecated - don't use this parameter. Use the <tt>Group</tt>
+--   request field instead.__/
+[$sel:groupName:ListGroupResources'] :: ListGroupResources -> Maybe Text
+
+-- | The total number of results that you want included on each page of the
+--   response. If you do not include this parameter, it defaults to a value
+--   that is specific to the operation. If additional items exist beyond
+--   the maximum you specify, the <tt>NextToken</tt> response element is
+--   present and has a value (is not null). Include that value as the
+--   <tt>NextToken</tt> request parameter in the next call to the operation
+--   to get the next part of the results. Note that the service might
+--   return fewer results than the maximum even when there are more results
+--   available. You should check <tt>NextToken</tt> after every operation
+--   to ensure that you receive all of the results.
+[$sel:maxResults:ListGroupResources'] :: ListGroupResources -> Maybe Natural
+
 -- | Create a value of <a>ListGroupResources</a> with all optional fields
 --   omitted.
 --   
@@ -2724,31 +2724,6 @@ ListGroupResources' :: Maybe Text -> Maybe Natural -> Maybe Text -> Maybe Text -
 --   
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
---   
---   <a>$sel:nextToken:ListGroupResources'</a>,
---   <a>listGroupResources_nextToken</a> - The parameter for receiving
---   additional results if you receive a <tt>NextToken</tt> response in a
---   previous request. A <tt>NextToken</tt> response indicates that more
---   output is available. Set this parameter to the value provided by a
---   previous call's <tt>NextToken</tt> response to indicate where the
---   output should continue from.
---   
---   <a>$sel:maxResults:ListGroupResources'</a>,
---   <a>listGroupResources_maxResults</a> - The total number of results
---   that you want included on each page of the response. If you do not
---   include this parameter, it defaults to a value that is specific to the
---   operation. If additional items exist beyond the maximum you specify,
---   the <tt>NextToken</tt> response element is present and has a value (is
---   not null). Include that value as the <tt>NextToken</tt> request
---   parameter in the next call to the operation to get the next part of
---   the results. Note that the service might return fewer results than the
---   maximum even when there are more results available. You should check
---   <tt>NextToken</tt> after every operation to ensure that you receive
---   all of the results.
---   
---   <a>$sel:groupName:ListGroupResources'</a>,
---   <a>listGroupResources_groupName</a> - /__Deprecated - don't use this
---   parameter. Use the <tt>Group</tt> request field instead.__/
 --   
 --   <a>$sel:group':ListGroupResources'</a>,
 --   <a>listGroupResources_group</a> - The name or the ARN of the resource
@@ -2788,31 +2763,32 @@ ListGroupResources' :: Maybe Text -> Maybe Natural -> Maybe Text -> Maybe Text -
 --   <tt>AWS::AllSupported</tt>, because a group based on such a query can
 --   contain any of the allowed resource types for the query type
 --   (tag-based or AWS CloudFormation stack-based queries).
+--   
+--   <a>$sel:nextToken:ListGroupResources'</a>,
+--   <a>listGroupResources_nextToken</a> - The parameter for receiving
+--   additional results if you receive a <tt>NextToken</tt> response in a
+--   previous request. A <tt>NextToken</tt> response indicates that more
+--   output is available. Set this parameter to the value provided by a
+--   previous call's <tt>NextToken</tt> response to indicate where the
+--   output should continue from.
+--   
+--   <a>$sel:groupName:ListGroupResources'</a>,
+--   <a>listGroupResources_groupName</a> - /__Deprecated - don't use this
+--   parameter. Use the <tt>Group</tt> request field instead.__/
+--   
+--   <a>$sel:maxResults:ListGroupResources'</a>,
+--   <a>listGroupResources_maxResults</a> - The total number of results
+--   that you want included on each page of the response. If you do not
+--   include this parameter, it defaults to a value that is specific to the
+--   operation. If additional items exist beyond the maximum you specify,
+--   the <tt>NextToken</tt> response element is present and has a value (is
+--   not null). Include that value as the <tt>NextToken</tt> request
+--   parameter in the next call to the operation to get the next part of
+--   the results. Note that the service might return fewer results than the
+--   maximum even when there are more results available. You should check
+--   <tt>NextToken</tt> after every operation to ensure that you receive
+--   all of the results.
 newListGroupResources :: ListGroupResources
-
--- | The parameter for receiving additional results if you receive a
---   <tt>NextToken</tt> response in a previous request. A
---   <tt>NextToken</tt> response indicates that more output is available.
---   Set this parameter to the value provided by a previous call's
---   <tt>NextToken</tt> response to indicate where the output should
---   continue from.
-listGroupResources_nextToken :: Lens' ListGroupResources (Maybe Text)
-
--- | The total number of results that you want included on each page of the
---   response. If you do not include this parameter, it defaults to a value
---   that is specific to the operation. If additional items exist beyond
---   the maximum you specify, the <tt>NextToken</tt> response element is
---   present and has a value (is not null). Include that value as the
---   <tt>NextToken</tt> request parameter in the next call to the operation
---   to get the next part of the results. Note that the service might
---   return fewer results than the maximum even when there are more results
---   available. You should check <tt>NextToken</tt> after every operation
---   to ensure that you receive all of the results.
-listGroupResources_maxResults :: Lens' ListGroupResources (Maybe Natural)
-
--- | /__Deprecated - don't use this parameter. Use the <tt>Group</tt>
---   request field instead.__/
-listGroupResources_groupName :: Lens' ListGroupResources (Maybe Text)
 
 -- | The name or the ARN of the resource group
 listGroupResources_group :: Lens' ListGroupResources (Maybe Text)
@@ -2851,9 +2827,44 @@ listGroupResources_group :: Lens' ListGroupResources (Maybe Text)
 --   (tag-based or AWS CloudFormation stack-based queries).
 listGroupResources_filters :: Lens' ListGroupResources (Maybe [ResourceFilter])
 
+-- | The parameter for receiving additional results if you receive a
+--   <tt>NextToken</tt> response in a previous request. A
+--   <tt>NextToken</tt> response indicates that more output is available.
+--   Set this parameter to the value provided by a previous call's
+--   <tt>NextToken</tt> response to indicate where the output should
+--   continue from.
+listGroupResources_nextToken :: Lens' ListGroupResources (Maybe Text)
+
+-- | /__Deprecated - don't use this parameter. Use the <tt>Group</tt>
+--   request field instead.__/
+listGroupResources_groupName :: Lens' ListGroupResources (Maybe Text)
+
+-- | The total number of results that you want included on each page of the
+--   response. If you do not include this parameter, it defaults to a value
+--   that is specific to the operation. If additional items exist beyond
+--   the maximum you specify, the <tt>NextToken</tt> response element is
+--   present and has a value (is not null). Include that value as the
+--   <tt>NextToken</tt> request parameter in the next call to the operation
+--   to get the next part of the results. Note that the service might
+--   return fewer results than the maximum even when there are more results
+--   available. You should check <tt>NextToken</tt> after every operation
+--   to ensure that you receive all of the results.
+listGroupResources_maxResults :: Lens' ListGroupResources (Maybe Natural)
+
 -- | <i>See:</i> <a>newListGroupResourcesResponse</a> smart constructor.
 data ListGroupResourcesResponse
-ListGroupResourcesResponse' :: Maybe Text -> Maybe [ResourceIdentifier] -> Maybe [QueryError] -> Maybe [ListGroupResourcesItem] -> Int -> ListGroupResourcesResponse
+ListGroupResourcesResponse' :: Maybe [ListGroupResourcesItem] -> Maybe [QueryError] -> Maybe Text -> Maybe [ResourceIdentifier] -> Int -> ListGroupResourcesResponse
+
+-- | An array of resources from which you can determine each resource's
+--   identity, type, and group membership status.
+[$sel:resources:ListGroupResourcesResponse'] :: ListGroupResourcesResponse -> Maybe [ListGroupResourcesItem]
+
+-- | A list of <tt>QueryError</tt> objects. Each error is an object that
+--   contains <tt>ErrorCode</tt> and <tt>Message</tt> structures. Possible
+--   values for <tt>ErrorCode</tt> are
+--   <tt>CLOUDFORMATION_STACK_INACTIVE</tt> and
+--   <tt>CLOUDFORMATION_STACK_NOT_EXISTING</tt>.
+[$sel:queryErrors:ListGroupResourcesResponse'] :: ListGroupResourcesResponse -> Maybe [QueryError]
 
 -- | If present, indicates that more output is available than is included
 --   in the current response. Use this value in the <tt>NextToken</tt>
@@ -2866,17 +2877,6 @@ ListGroupResourcesResponse' :: Maybe Text -> Maybe [ResourceIdentifier] -> Maybe
 --   response field instead./__
 [$sel:resourceIdentifiers:ListGroupResourcesResponse'] :: ListGroupResourcesResponse -> Maybe [ResourceIdentifier]
 
--- | A list of <tt>QueryError</tt> objects. Each error is an object that
---   contains <tt>ErrorCode</tt> and <tt>Message</tt> structures. Possible
---   values for <tt>ErrorCode</tt> are
---   <tt>CLOUDFORMATION_STACK_INACTIVE</tt> and
---   <tt>CLOUDFORMATION_STACK_NOT_EXISTING</tt>.
-[$sel:queryErrors:ListGroupResourcesResponse'] :: ListGroupResourcesResponse -> Maybe [QueryError]
-
--- | An array of resources from which you can determine each resource's
---   identity, type, and group membership status.
-[$sel:resources:ListGroupResourcesResponse'] :: ListGroupResourcesResponse -> Maybe [ListGroupResourcesItem]
-
 -- | The response's http status code.
 [$sel:httpStatus:ListGroupResourcesResponse'] :: ListGroupResourcesResponse -> Int
 
@@ -2888,6 +2888,18 @@ ListGroupResourcesResponse' :: Maybe Text -> Maybe [ResourceIdentifier] -> Maybe
 --   
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:resources:ListGroupResourcesResponse'</a>,
+--   <a>listGroupResourcesResponse_resources</a> - An array of resources
+--   from which you can determine each resource's identity, type, and group
+--   membership status.
+--   
+--   <a>$sel:queryErrors:ListGroupResourcesResponse'</a>,
+--   <a>listGroupResourcesResponse_queryErrors</a> - A list of
+--   <tt>QueryError</tt> objects. Each error is an object that contains
+--   <tt>ErrorCode</tt> and <tt>Message</tt> structures. Possible values
+--   for <tt>ErrorCode</tt> are <tt>CLOUDFORMATION_STACK_INACTIVE</tt> and
+--   <tt>CLOUDFORMATION_STACK_NOT_EXISTING</tt>.
 --   
 --   <a>$sel:nextToken:ListGroupResources'</a>,
 --   <a>listGroupResourcesResponse_nextToken</a> - If present, indicates
@@ -2902,22 +2914,21 @@ ListGroupResourcesResponse' :: Maybe Text -> Maybe [ResourceIdentifier] -> Maybe
 --   - don't use this parameter. Use the <tt>Resources</tt> response field
 --   instead./__
 --   
---   <a>$sel:queryErrors:ListGroupResourcesResponse'</a>,
---   <a>listGroupResourcesResponse_queryErrors</a> - A list of
---   <tt>QueryError</tt> objects. Each error is an object that contains
---   <tt>ErrorCode</tt> and <tt>Message</tt> structures. Possible values
---   for <tt>ErrorCode</tt> are <tt>CLOUDFORMATION_STACK_INACTIVE</tt> and
---   <tt>CLOUDFORMATION_STACK_NOT_EXISTING</tt>.
---   
---   <a>$sel:resources:ListGroupResourcesResponse'</a>,
---   <a>listGroupResourcesResponse_resources</a> - An array of resources
---   from which you can determine each resource's identity, type, and group
---   membership status.
---   
 --   <a>$sel:httpStatus:ListGroupResourcesResponse'</a>,
 --   <a>listGroupResourcesResponse_httpStatus</a> - The response's http
 --   status code.
 newListGroupResourcesResponse :: Int -> ListGroupResourcesResponse
+
+-- | An array of resources from which you can determine each resource's
+--   identity, type, and group membership status.
+listGroupResourcesResponse_resources :: Lens' ListGroupResourcesResponse (Maybe [ListGroupResourcesItem])
+
+-- | A list of <tt>QueryError</tt> objects. Each error is an object that
+--   contains <tt>ErrorCode</tt> and <tt>Message</tt> structures. Possible
+--   values for <tt>ErrorCode</tt> are
+--   <tt>CLOUDFORMATION_STACK_INACTIVE</tt> and
+--   <tt>CLOUDFORMATION_STACK_NOT_EXISTING</tt>.
+listGroupResourcesResponse_queryErrors :: Lens' ListGroupResourcesResponse (Maybe [QueryError])
 
 -- | If present, indicates that more output is available than is included
 --   in the current response. Use this value in the <tt>NextToken</tt>
@@ -2929,17 +2940,6 @@ listGroupResourcesResponse_nextToken :: Lens' ListGroupResourcesResponse (Maybe 
 -- | __/Deprecated - don't use this parameter. Use the <tt>Resources</tt>
 --   response field instead./__
 listGroupResourcesResponse_resourceIdentifiers :: Lens' ListGroupResourcesResponse (Maybe [ResourceIdentifier])
-
--- | A list of <tt>QueryError</tt> objects. Each error is an object that
---   contains <tt>ErrorCode</tt> and <tt>Message</tt> structures. Possible
---   values for <tt>ErrorCode</tt> are
---   <tt>CLOUDFORMATION_STACK_INACTIVE</tt> and
---   <tt>CLOUDFORMATION_STACK_NOT_EXISTING</tt>.
-listGroupResourcesResponse_queryErrors :: Lens' ListGroupResourcesResponse (Maybe [QueryError])
-
--- | An array of resources from which you can determine each resource's
---   identity, type, and group membership status.
-listGroupResourcesResponse_resources :: Lens' ListGroupResourcesResponse (Maybe [ListGroupResourcesItem])
 
 -- | The response's http status code.
 listGroupResourcesResponse_httpStatus :: Lens' ListGroupResourcesResponse Int
@@ -3008,11 +3008,7 @@ groupResources_resourceArns :: Lens' GroupResources (NonEmpty Text)
 
 -- | <i>See:</i> <a>newGroupResourcesResponse</a> smart constructor.
 data GroupResourcesResponse
-GroupResourcesResponse' :: Maybe (NonEmpty Text) -> Maybe [PendingResource] -> Maybe [FailedResource] -> Int -> GroupResourcesResponse
-
--- | A list of ARNs of resources that were successfully added to the group
---   by this operation.
-[$sel:succeeded:GroupResourcesResponse'] :: GroupResourcesResponse -> Maybe (NonEmpty Text)
+GroupResourcesResponse' :: Maybe [PendingResource] -> Maybe (NonEmpty Text) -> Maybe [FailedResource] -> Int -> GroupResourcesResponse
 
 -- | A list of ARNs of any resources that are still in the process of being
 --   added to the group by this operation. These pending additions continue
@@ -3021,6 +3017,10 @@ GroupResourcesResponse' :: Maybe (NonEmpty Text) -> Maybe [PendingResource] -> M
 --   <tt>Resources</tt> array in the response and the <tt>Status</tt> field
 --   of each object in that array.
 [$sel:pending:GroupResourcesResponse'] :: GroupResourcesResponse -> Maybe [PendingResource]
+
+-- | A list of ARNs of resources that were successfully added to the group
+--   by this operation.
+[$sel:succeeded:GroupResourcesResponse'] :: GroupResourcesResponse -> Maybe (NonEmpty Text)
 
 -- | A list of ARNs of any resources that failed to be added to the group
 --   by this operation.
@@ -3038,10 +3038,6 @@ GroupResourcesResponse' :: Maybe (NonEmpty Text) -> Maybe [PendingResource] -> M
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:succeeded:GroupResourcesResponse'</a>,
---   <a>groupResourcesResponse_succeeded</a> - A list of ARNs of resources
---   that were successfully added to the group by this operation.
---   
 --   <a>$sel:pending:GroupResourcesResponse'</a>,
 --   <a>groupResourcesResponse_pending</a> - A list of ARNs of any
 --   resources that are still in the process of being added to the group by
@@ -3050,6 +3046,10 @@ GroupResourcesResponse' :: Maybe (NonEmpty Text) -> Maybe [PendingResource] -> M
 --   ListGroupResources </tt> operation, and checking the
 --   <tt>Resources</tt> array in the response and the <tt>Status</tt> field
 --   of each object in that array.
+--   
+--   <a>$sel:succeeded:GroupResourcesResponse'</a>,
+--   <a>groupResourcesResponse_succeeded</a> - A list of ARNs of resources
+--   that were successfully added to the group by this operation.
 --   
 --   <a>$sel:failed:GroupResourcesResponse'</a>,
 --   <a>groupResourcesResponse_failed</a> - A list of ARNs of any resources
@@ -3060,10 +3060,6 @@ GroupResourcesResponse' :: Maybe (NonEmpty Text) -> Maybe [PendingResource] -> M
 --   code.
 newGroupResourcesResponse :: Int -> GroupResourcesResponse
 
--- | A list of ARNs of resources that were successfully added to the group
---   by this operation.
-groupResourcesResponse_succeeded :: Lens' GroupResourcesResponse (Maybe (NonEmpty Text))
-
 -- | A list of ARNs of any resources that are still in the process of being
 --   added to the group by this operation. These pending additions continue
 --   asynchronously. You can check the status of pending additions by using
@@ -3071,6 +3067,10 @@ groupResourcesResponse_succeeded :: Lens' GroupResourcesResponse (Maybe (NonEmpt
 --   <tt>Resources</tt> array in the response and the <tt>Status</tt> field
 --   of each object in that array.
 groupResourcesResponse_pending :: Lens' GroupResourcesResponse (Maybe [PendingResource])
+
+-- | A list of ARNs of resources that were successfully added to the group
+--   by this operation.
+groupResourcesResponse_succeeded :: Lens' GroupResourcesResponse (Maybe (NonEmpty Text))
 
 -- | A list of ARNs of any resources that failed to be added to the group
 --   by this operation.
@@ -3204,11 +3204,11 @@ module Network.AWS.ResourceGroups.GetGroupQuery
 data GetGroupQuery
 GetGroupQuery' :: Maybe Text -> Maybe Text -> GetGroupQuery
 
--- | Don't use this parameter. Use <tt>Group</tt> instead.
-[$sel:groupName:GetGroupQuery'] :: GetGroupQuery -> Maybe Text
-
 -- | The name or the ARN of the resource group to query.
 [$sel:group':GetGroupQuery'] :: GetGroupQuery -> Maybe Text
+
+-- | Don't use this parameter. Use <tt>Group</tt> instead.
+[$sel:groupName:GetGroupQuery'] :: GetGroupQuery -> Maybe Text
 
 -- | Create a value of <a>GetGroupQuery</a> with all optional fields
 --   omitted.
@@ -3219,18 +3219,18 @@ GetGroupQuery' :: Maybe Text -> Maybe Text -> GetGroupQuery
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:groupName:GetGroupQuery'</a>, <a>getGroupQuery_groupName</a> -
---   Don't use this parameter. Use <tt>Group</tt> instead.
---   
 --   <a>$sel:group':GetGroupQuery'</a>, <a>getGroupQuery_group</a> - The
 --   name or the ARN of the resource group to query.
+--   
+--   <a>$sel:groupName:GetGroupQuery'</a>, <a>getGroupQuery_groupName</a> -
+--   Don't use this parameter. Use <tt>Group</tt> instead.
 newGetGroupQuery :: GetGroupQuery
-
--- | Don't use this parameter. Use <tt>Group</tt> instead.
-getGroupQuery_groupName :: Lens' GetGroupQuery (Maybe Text)
 
 -- | The name or the ARN of the resource group to query.
 getGroupQuery_group :: Lens' GetGroupQuery (Maybe Text)
+
+-- | Don't use this parameter. Use <tt>Group</tt> instead.
+getGroupQuery_groupName :: Lens' GetGroupQuery (Maybe Text)
 
 -- | <i>See:</i> <a>newGetGroupQueryResponse</a> smart constructor.
 data GetGroupQueryResponse
@@ -3398,11 +3398,11 @@ module Network.AWS.ResourceGroups.GetGroup
 data GetGroup
 GetGroup' :: Maybe Text -> Maybe Text -> GetGroup
 
--- | Deprecated - don't use this parameter. Use <tt>Group</tt> instead.
-[$sel:groupName:GetGroup'] :: GetGroup -> Maybe Text
-
 -- | The name or the ARN of the resource group to retrieve.
 [$sel:group':GetGroup'] :: GetGroup -> Maybe Text
+
+-- | Deprecated - don't use this parameter. Use <tt>Group</tt> instead.
+[$sel:groupName:GetGroup'] :: GetGroup -> Maybe Text
 
 -- | Create a value of <a>GetGroup</a> with all optional fields omitted.
 --   
@@ -3412,18 +3412,18 @@ GetGroup' :: Maybe Text -> Maybe Text -> GetGroup
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:groupName:GetGroup'</a>, <a>getGroup_groupName</a> -
---   Deprecated - don't use this parameter. Use <tt>Group</tt> instead.
---   
 --   <a>$sel:group':GetGroup'</a>, <a>getGroup_group</a> - The name or the
 --   ARN of the resource group to retrieve.
+--   
+--   <a>$sel:groupName:GetGroup'</a>, <a>getGroup_groupName</a> -
+--   Deprecated - don't use this parameter. Use <tt>Group</tt> instead.
 newGetGroup :: GetGroup
-
--- | Deprecated - don't use this parameter. Use <tt>Group</tt> instead.
-getGroup_groupName :: Lens' GetGroup (Maybe Text)
 
 -- | The name or the ARN of the resource group to retrieve.
 getGroup_group :: Lens' GetGroup (Maybe Text)
+
+-- | Deprecated - don't use this parameter. Use <tt>Group</tt> instead.
+getGroup_groupName :: Lens' GetGroup (Maybe Text)
 
 -- | <i>See:</i> <a>newGetGroupResponse</a> smart constructor.
 data GetGroupResponse
@@ -3491,11 +3491,11 @@ module Network.AWS.ResourceGroups.DeleteGroup
 data DeleteGroup
 DeleteGroup' :: Maybe Text -> Maybe Text -> DeleteGroup
 
--- | Deprecated - don't use this parameter. Use <tt>Group</tt> instead.
-[$sel:groupName:DeleteGroup'] :: DeleteGroup -> Maybe Text
-
 -- | The name or the ARN of the resource group to delete.
 [$sel:group':DeleteGroup'] :: DeleteGroup -> Maybe Text
+
+-- | Deprecated - don't use this parameter. Use <tt>Group</tt> instead.
+[$sel:groupName:DeleteGroup'] :: DeleteGroup -> Maybe Text
 
 -- | Create a value of <a>DeleteGroup</a> with all optional fields omitted.
 --   
@@ -3505,18 +3505,18 @@ DeleteGroup' :: Maybe Text -> Maybe Text -> DeleteGroup
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:groupName:DeleteGroup'</a>, <a>deleteGroup_groupName</a> -
---   Deprecated - don't use this parameter. Use <tt>Group</tt> instead.
---   
 --   <a>$sel:group':DeleteGroup'</a>, <a>deleteGroup_group</a> - The name
 --   or the ARN of the resource group to delete.
+--   
+--   <a>$sel:groupName:DeleteGroup'</a>, <a>deleteGroup_groupName</a> -
+--   Deprecated - don't use this parameter. Use <tt>Group</tt> instead.
 newDeleteGroup :: DeleteGroup
-
--- | Deprecated - don't use this parameter. Use <tt>Group</tt> instead.
-deleteGroup_groupName :: Lens' DeleteGroup (Maybe Text)
 
 -- | The name or the ARN of the resource group to delete.
 deleteGroup_group :: Lens' DeleteGroup (Maybe Text)
+
+-- | Deprecated - don't use this parameter. Use <tt>Group</tt> instead.
+deleteGroup_groupName :: Lens' DeleteGroup (Maybe Text)
 
 -- | <i>See:</i> <a>newDeleteGroupResponse</a> smart constructor.
 data DeleteGroupResponse
@@ -3586,7 +3586,15 @@ module Network.AWS.ResourceGroups.CreateGroup
 
 -- | <i>See:</i> <a>newCreateGroup</a> smart constructor.
 data CreateGroup
-CreateGroup' :: Maybe [GroupConfigurationItem] -> Maybe (HashMap Text Text) -> Maybe Text -> Maybe ResourceQuery -> Text -> CreateGroup
+CreateGroup' :: Maybe ResourceQuery -> Maybe [GroupConfigurationItem] -> Maybe Text -> Maybe (HashMap Text Text) -> Text -> CreateGroup
+
+-- | The resource query that determines which AWS resources are members of
+--   this group. For more information about resource queries, see <a>Create
+--   a tag-based group in Resource Groups</a>.
+--   
+--   A resource group can contain either a <tt>ResourceQuery</tt> or a
+--   <tt>Configuration</tt>, but not both.
+[$sel:resourceQuery:CreateGroup'] :: CreateGroup -> Maybe ResourceQuery
 
 -- | A configuration associates the resource group with an AWS service and
 --   specifies how the service can interact with the resources in the
@@ -3598,20 +3606,12 @@ CreateGroup' :: Maybe [GroupConfigurationItem] -> Maybe (HashMap Text Text) -> M
 --   <tt>ResourceQuery</tt>, but not both.
 [$sel:configuration:CreateGroup'] :: CreateGroup -> Maybe [GroupConfigurationItem]
 
--- | The tags to add to the group. A tag is key-value pair string.
-[$sel:tags:CreateGroup'] :: CreateGroup -> Maybe (HashMap Text Text)
-
 -- | The description of the resource group. Descriptions can consist of
 --   letters, numbers, hyphens, underscores, periods, and spaces.
 [$sel:description:CreateGroup'] :: CreateGroup -> Maybe Text
 
--- | The resource query that determines which AWS resources are members of
---   this group. For more information about resource queries, see <a>Create
---   a tag-based group in Resource Groups</a>.
---   
---   A resource group can contain either a <tt>ResourceQuery</tt> or a
---   <tt>Configuration</tt>, but not both.
-[$sel:resourceQuery:CreateGroup'] :: CreateGroup -> Maybe ResourceQuery
+-- | The tags to add to the group. A tag is key-value pair string.
+[$sel:tags:CreateGroup'] :: CreateGroup -> Maybe (HashMap Text Text)
 
 -- | The name of the group, which is the identifier of the group in other
 --   operations. You can't change the name of a resource group after you
@@ -3629,6 +3629,15 @@ CreateGroup' :: Maybe [GroupConfigurationItem] -> Maybe (HashMap Text Text) -> M
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
+--   <a>$sel:resourceQuery:CreateGroup'</a>,
+--   <a>createGroup_resourceQuery</a> - The resource query that determines
+--   which AWS resources are members of this group. For more information
+--   about resource queries, see <a>Create a tag-based group in Resource
+--   Groups</a>.
+--   
+--   A resource group can contain either a <tt>ResourceQuery</tt> or a
+--   <tt>Configuration</tt>, but not both.
+--   
 --   <a>$sel:configuration:CreateGroup'</a>,
 --   <a>createGroup_configuration</a> - A configuration associates the
 --   resource group with an AWS service and specifies how the service can
@@ -3640,21 +3649,12 @@ CreateGroup' :: Maybe [GroupConfigurationItem] -> Maybe (HashMap Text Text) -> M
 --   A resource group can contain either a <tt>Configuration</tt> or a
 --   <tt>ResourceQuery</tt>, but not both.
 --   
---   <a>$sel:tags:CreateGroup'</a>, <a>createGroup_tags</a> - The tags to
---   add to the group. A tag is key-value pair string.
---   
 --   <a>$sel:description:CreateGroup'</a>, <a>createGroup_description</a> -
 --   The description of the resource group. Descriptions can consist of
 --   letters, numbers, hyphens, underscores, periods, and spaces.
 --   
---   <a>$sel:resourceQuery:CreateGroup'</a>,
---   <a>createGroup_resourceQuery</a> - The resource query that determines
---   which AWS resources are members of this group. For more information
---   about resource queries, see <a>Create a tag-based group in Resource
---   Groups</a>.
---   
---   A resource group can contain either a <tt>ResourceQuery</tt> or a
---   <tt>Configuration</tt>, but not both.
+--   <a>$sel:tags:CreateGroup'</a>, <a>createGroup_tags</a> - The tags to
+--   add to the group. A tag is key-value pair string.
 --   
 --   <a>$sel:name:CreateGroup'</a>, <a>createGroup_name</a> - The name of
 --   the group, which is the identifier of the group in other operations.
@@ -3664,6 +3664,14 @@ CreateGroup' :: Maybe [GroupConfigurationItem] -> Maybe (HashMap Text Text) -> M
 --   <tt>aws</tt>; these are reserved. A resource group name must be unique
 --   within each AWS Region in your AWS account.
 newCreateGroup :: Text -> CreateGroup
+
+-- | The resource query that determines which AWS resources are members of
+--   this group. For more information about resource queries, see <a>Create
+--   a tag-based group in Resource Groups</a>.
+--   
+--   A resource group can contain either a <tt>ResourceQuery</tt> or a
+--   <tt>Configuration</tt>, but not both.
+createGroup_resourceQuery :: Lens' CreateGroup (Maybe ResourceQuery)
 
 -- | A configuration associates the resource group with an AWS service and
 --   specifies how the service can interact with the resources in the
@@ -3675,20 +3683,12 @@ newCreateGroup :: Text -> CreateGroup
 --   <tt>ResourceQuery</tt>, but not both.
 createGroup_configuration :: Lens' CreateGroup (Maybe [GroupConfigurationItem])
 
--- | The tags to add to the group. A tag is key-value pair string.
-createGroup_tags :: Lens' CreateGroup (Maybe (HashMap Text Text))
-
 -- | The description of the resource group. Descriptions can consist of
 --   letters, numbers, hyphens, underscores, periods, and spaces.
 createGroup_description :: Lens' CreateGroup (Maybe Text)
 
--- | The resource query that determines which AWS resources are members of
---   this group. For more information about resource queries, see <a>Create
---   a tag-based group in Resource Groups</a>.
---   
---   A resource group can contain either a <tt>ResourceQuery</tt> or a
---   <tt>Configuration</tt>, but not both.
-createGroup_resourceQuery :: Lens' CreateGroup (Maybe ResourceQuery)
+-- | The tags to add to the group. A tag is key-value pair string.
+createGroup_tags :: Lens' CreateGroup (Maybe (HashMap Text Text))
 
 -- | The name of the group, which is the identifier of the group in other
 --   operations. You can't change the name of a resource group after you
@@ -3700,23 +3700,23 @@ createGroup_name :: Lens' CreateGroup Text
 
 -- | <i>See:</i> <a>newCreateGroupResponse</a> smart constructor.
 data CreateGroupResponse
-CreateGroupResponse' :: Maybe GroupConfiguration -> Maybe Group -> Maybe (HashMap Text Text) -> Maybe ResourceQuery -> Int -> CreateGroupResponse
+CreateGroupResponse' :: Maybe Group -> Maybe GroupConfiguration -> Maybe ResourceQuery -> Maybe (HashMap Text Text) -> Int -> CreateGroupResponse
+
+-- | The description of the resource group.
+[$sel:group':CreateGroupResponse'] :: CreateGroupResponse -> Maybe Group
 
 -- | The service configuration associated with the resource group. For
 --   details about the syntax of a service configuration, see <a>Service
 --   configurations for resource groups</a>.
 [$sel:groupConfiguration:CreateGroupResponse'] :: CreateGroupResponse -> Maybe GroupConfiguration
 
--- | The description of the resource group.
-[$sel:group':CreateGroupResponse'] :: CreateGroupResponse -> Maybe Group
-
--- | The tags associated with the group.
-[$sel:tags:CreateGroupResponse'] :: CreateGroupResponse -> Maybe (HashMap Text Text)
-
 -- | The resource query associated with the group. For more information
 --   about resource queries, see <a>Create a tag-based group in Resource
 --   Groups</a>.
 [$sel:resourceQuery:CreateGroupResponse'] :: CreateGroupResponse -> Maybe ResourceQuery
+
+-- | The tags associated with the group.
+[$sel:tags:CreateGroupResponse'] :: CreateGroupResponse -> Maybe (HashMap Text Text)
 
 -- | The response's http status code.
 [$sel:httpStatus:CreateGroupResponse'] :: CreateGroupResponse -> Int
@@ -3730,44 +3730,44 @@ CreateGroupResponse' :: Maybe GroupConfiguration -> Maybe Group -> Maybe (HashMa
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
+--   <a>$sel:group':CreateGroupResponse'</a>,
+--   <a>createGroupResponse_group</a> - The description of the resource
+--   group.
+--   
 --   <a>$sel:groupConfiguration:CreateGroupResponse'</a>,
 --   <a>createGroupResponse_groupConfiguration</a> - The service
 --   configuration associated with the resource group. For details about
 --   the syntax of a service configuration, see <a>Service configurations
 --   for resource groups</a>.
 --   
---   <a>$sel:group':CreateGroupResponse'</a>,
---   <a>createGroupResponse_group</a> - The description of the resource
---   group.
---   
---   <a>$sel:tags:CreateGroup'</a>, <a>createGroupResponse_tags</a> - The
---   tags associated with the group.
---   
 --   <a>$sel:resourceQuery:CreateGroup'</a>,
 --   <a>createGroupResponse_resourceQuery</a> - The resource query
 --   associated with the group. For more information about resource
 --   queries, see <a>Create a tag-based group in Resource Groups</a>.
+--   
+--   <a>$sel:tags:CreateGroup'</a>, <a>createGroupResponse_tags</a> - The
+--   tags associated with the group.
 --   
 --   <a>$sel:httpStatus:CreateGroupResponse'</a>,
 --   <a>createGroupResponse_httpStatus</a> - The response's http status
 --   code.
 newCreateGroupResponse :: Int -> CreateGroupResponse
 
+-- | The description of the resource group.
+createGroupResponse_group :: Lens' CreateGroupResponse (Maybe Group)
+
 -- | The service configuration associated with the resource group. For
 --   details about the syntax of a service configuration, see <a>Service
 --   configurations for resource groups</a>.
 createGroupResponse_groupConfiguration :: Lens' CreateGroupResponse (Maybe GroupConfiguration)
 
--- | The description of the resource group.
-createGroupResponse_group :: Lens' CreateGroupResponse (Maybe Group)
-
--- | The tags associated with the group.
-createGroupResponse_tags :: Lens' CreateGroupResponse (Maybe (HashMap Text Text))
-
 -- | The resource query associated with the group. For more information
 --   about resource queries, see <a>Create a tag-based group in Resource
 --   Groups</a>.
 createGroupResponse_resourceQuery :: Lens' CreateGroupResponse (Maybe ResourceQuery)
+
+-- | The tags associated with the group.
+createGroupResponse_tags :: Lens' CreateGroupResponse (Maybe (HashMap Text Text))
 
 -- | The response's http status code.
 createGroupResponse_httpStatus :: Lens' CreateGroupResponse Int
@@ -3838,11 +3838,7 @@ ungroupResources_resourceArns :: Lens' UngroupResources (NonEmpty Text)
 
 -- | <i>See:</i> <a>newUngroupResourcesResponse</a> smart constructor.
 data UngroupResourcesResponse
-UngroupResourcesResponse' :: Maybe (NonEmpty Text) -> Maybe [PendingResource] -> Maybe [FailedResource] -> Int -> UngroupResourcesResponse
-
--- | A list of resources that were successfully removed from the group by
---   this operation.
-[$sel:succeeded:UngroupResourcesResponse'] :: UngroupResourcesResponse -> Maybe (NonEmpty Text)
+UngroupResourcesResponse' :: Maybe [PendingResource] -> Maybe (NonEmpty Text) -> Maybe [FailedResource] -> Int -> UngroupResourcesResponse
 
 -- | A list of any resources that are still in the process of being removed
 --   from the group by this operation. These pending removals continue
@@ -3850,6 +3846,10 @@ UngroupResourcesResponse' :: Maybe (NonEmpty Text) -> Maybe [PendingResource] ->
 --   the <tt> ListGroupResources </tt> operation. After the resource is
 --   successfully removed, it no longer appears in the response.
 [$sel:pending:UngroupResourcesResponse'] :: UngroupResourcesResponse -> Maybe [PendingResource]
+
+-- | A list of resources that were successfully removed from the group by
+--   this operation.
+[$sel:succeeded:UngroupResourcesResponse'] :: UngroupResourcesResponse -> Maybe (NonEmpty Text)
 
 -- | A list of any resources that failed to be removed from the group by
 --   this operation.
@@ -3867,10 +3867,6 @@ UngroupResourcesResponse' :: Maybe (NonEmpty Text) -> Maybe [PendingResource] ->
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:succeeded:UngroupResourcesResponse'</a>,
---   <a>ungroupResourcesResponse_succeeded</a> - A list of resources that
---   were successfully removed from the group by this operation.
---   
 --   <a>$sel:pending:UngroupResourcesResponse'</a>,
 --   <a>ungroupResourcesResponse_pending</a> - A list of any resources that
 --   are still in the process of being removed from the group by this
@@ -3878,6 +3874,10 @@ UngroupResourcesResponse' :: Maybe (NonEmpty Text) -> Maybe [PendingResource] ->
 --   check the status of pending removals by using the <tt>
 --   ListGroupResources </tt> operation. After the resource is successfully
 --   removed, it no longer appears in the response.
+--   
+--   <a>$sel:succeeded:UngroupResourcesResponse'</a>,
+--   <a>ungroupResourcesResponse_succeeded</a> - A list of resources that
+--   were successfully removed from the group by this operation.
 --   
 --   <a>$sel:failed:UngroupResourcesResponse'</a>,
 --   <a>ungroupResourcesResponse_failed</a> - A list of any resources that
@@ -3888,16 +3888,16 @@ UngroupResourcesResponse' :: Maybe (NonEmpty Text) -> Maybe [PendingResource] ->
 --   status code.
 newUngroupResourcesResponse :: Int -> UngroupResourcesResponse
 
--- | A list of resources that were successfully removed from the group by
---   this operation.
-ungroupResourcesResponse_succeeded :: Lens' UngroupResourcesResponse (Maybe (NonEmpty Text))
-
 -- | A list of any resources that are still in the process of being removed
 --   from the group by this operation. These pending removals continue
 --   asynchronously. You can check the status of pending removals by using
 --   the <tt> ListGroupResources </tt> operation. After the resource is
 --   successfully removed, it no longer appears in the response.
 ungroupResourcesResponse_pending :: Lens' UngroupResourcesResponse (Maybe [PendingResource])
+
+-- | A list of resources that were successfully removed from the group by
+--   this operation.
+ungroupResourcesResponse_succeeded :: Lens' UngroupResourcesResponse (Maybe (NonEmpty Text))
 
 -- | A list of any resources that failed to be removed from the group by
 --   this operation.
@@ -4044,11 +4044,11 @@ module Network.AWS.ResourceGroups.UpdateGroup
 data UpdateGroup
 UpdateGroup' :: Maybe Text -> Maybe Text -> Maybe Text -> UpdateGroup
 
--- | Don't use this parameter. Use <tt>Group</tt> instead.
-[$sel:groupName:UpdateGroup'] :: UpdateGroup -> Maybe Text
-
 -- | The name or the ARN of the resource group to modify.
 [$sel:group':UpdateGroup'] :: UpdateGroup -> Maybe Text
+
+-- | Don't use this parameter. Use <tt>Group</tt> instead.
+[$sel:groupName:UpdateGroup'] :: UpdateGroup -> Maybe Text
 
 -- | The new description that you want to update the resource group with.
 --   Descriptions can contain letters, numbers, hyphens, underscores,
@@ -4063,11 +4063,11 @@ UpdateGroup' :: Maybe Text -> Maybe Text -> Maybe Text -> UpdateGroup
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:groupName:UpdateGroup'</a>, <a>updateGroup_groupName</a> -
---   Don't use this parameter. Use <tt>Group</tt> instead.
---   
 --   <a>$sel:group':UpdateGroup'</a>, <a>updateGroup_group</a> - The name
 --   or the ARN of the resource group to modify.
+--   
+--   <a>$sel:groupName:UpdateGroup'</a>, <a>updateGroup_groupName</a> -
+--   Don't use this parameter. Use <tt>Group</tt> instead.
 --   
 --   <a>$sel:description:UpdateGroup'</a>, <a>updateGroup_description</a> -
 --   The new description that you want to update the resource group with.
@@ -4075,11 +4075,11 @@ UpdateGroup' :: Maybe Text -> Maybe Text -> Maybe Text -> UpdateGroup
 --   periods, and spaces.
 newUpdateGroup :: UpdateGroup
 
--- | Don't use this parameter. Use <tt>Group</tt> instead.
-updateGroup_groupName :: Lens' UpdateGroup (Maybe Text)
-
 -- | The name or the ARN of the resource group to modify.
 updateGroup_group :: Lens' UpdateGroup (Maybe Text)
+
+-- | Don't use this parameter. Use <tt>Group</tt> instead.
+updateGroup_groupName :: Lens' UpdateGroup (Maybe Text)
 
 -- | The new description that you want to update the resource group with.
 --   Descriptions can contain letters, numbers, hyphens, underscores,
@@ -4153,11 +4153,11 @@ module Network.AWS.ResourceGroups.UpdateGroupQuery
 data UpdateGroupQuery
 UpdateGroupQuery' :: Maybe Text -> Maybe Text -> ResourceQuery -> UpdateGroupQuery
 
--- | Don't use this parameter. Use <tt>Group</tt> instead.
-[$sel:groupName:UpdateGroupQuery'] :: UpdateGroupQuery -> Maybe Text
-
 -- | The name or the ARN of the resource group to query.
 [$sel:group':UpdateGroupQuery'] :: UpdateGroupQuery -> Maybe Text
+
+-- | Don't use this parameter. Use <tt>Group</tt> instead.
+[$sel:groupName:UpdateGroupQuery'] :: UpdateGroupQuery -> Maybe Text
 
 -- | The resource query to determine which AWS resources are members of
 --   this resource group.
@@ -4175,12 +4175,12 @@ UpdateGroupQuery' :: Maybe Text -> Maybe Text -> ResourceQuery -> UpdateGroupQue
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
+--   <a>$sel:group':UpdateGroupQuery'</a>, <a>updateGroupQuery_group</a> -
+--   The name or the ARN of the resource group to query.
+--   
 --   <a>$sel:groupName:UpdateGroupQuery'</a>,
 --   <a>updateGroupQuery_groupName</a> - Don't use this parameter. Use
 --   <tt>Group</tt> instead.
---   
---   <a>$sel:group':UpdateGroupQuery'</a>, <a>updateGroupQuery_group</a> -
---   The name or the ARN of the resource group to query.
 --   
 --   <a>$sel:resourceQuery:UpdateGroupQuery'</a>,
 --   <a>updateGroupQuery_resourceQuery</a> - The resource query to
@@ -4190,11 +4190,11 @@ UpdateGroupQuery' :: Maybe Text -> Maybe Text -> ResourceQuery -> UpdateGroupQue
 --   <tt>ResourceQuery</tt>, but not both.
 newUpdateGroupQuery :: ResourceQuery -> UpdateGroupQuery
 
--- | Don't use this parameter. Use <tt>Group</tt> instead.
-updateGroupQuery_groupName :: Lens' UpdateGroupQuery (Maybe Text)
-
 -- | The name or the ARN of the resource group to query.
 updateGroupQuery_group :: Lens' UpdateGroupQuery (Maybe Text)
+
+-- | Don't use this parameter. Use <tt>Group</tt> instead.
+updateGroupQuery_groupName :: Lens' UpdateGroupQuery (Maybe Text)
 
 -- | The resource query to determine which AWS resources are members of
 --   this resource group.
@@ -4258,155 +4258,6 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.ResourceGroups.UpdateGroupQu
 
 module Network.AWS.ResourceGroups.Lens
 
--- | The name or the ARN of the resource group.
-getGroupConfiguration_group :: Lens' GetGroupConfiguration (Maybe Text)
-
--- | The service configuration associated with the specified group. For
---   details about the service configuration syntax, see <a>Service
---   configurations for resource groups</a>.
-getGroupConfigurationResponse_groupConfiguration :: Lens' GetGroupConfigurationResponse (Maybe GroupConfiguration)
-
--- | The response's http status code.
-getGroupConfigurationResponse_httpStatus :: Lens' GetGroupConfigurationResponse Int
-
--- | The new configuration to associate with the specified group. A
---   configuration associates the resource group with an AWS service and
---   specifies how the service can interact with the resources in the
---   group. A configuration is an array of GroupConfigurationItem elements.
---   
---   For information about the syntax of a service configuration, see
---   <a>Service configurations for resource groups</a>.
---   
---   A resource group can contain either a <tt>Configuration</tt> or a
---   <tt>ResourceQuery</tt>, but not both.
-putGroupConfiguration_configuration :: Lens' PutGroupConfiguration (Maybe [GroupConfigurationItem])
-
--- | The name or ARN of the resource group with the configuration that you
---   want to update.
-putGroupConfiguration_group :: Lens' PutGroupConfiguration (Maybe Text)
-
--- | The response's http status code.
-putGroupConfigurationResponse_httpStatus :: Lens' PutGroupConfigurationResponse Int
-
--- | The parameter for receiving additional results if you receive a
---   <tt>NextToken</tt> response in a previous request. A
---   <tt>NextToken</tt> response indicates that more output is available.
---   Set this parameter to the value provided by a previous call's
---   <tt>NextToken</tt> response to indicate where the output should
---   continue from.
-listGroups_nextToken :: Lens' ListGroups (Maybe Text)
-
--- | The total number of results that you want included on each page of the
---   response. If you do not include this parameter, it defaults to a value
---   that is specific to the operation. If additional items exist beyond
---   the maximum you specify, the <tt>NextToken</tt> response element is
---   present and has a value (is not null). Include that value as the
---   <tt>NextToken</tt> request parameter in the next call to the operation
---   to get the next part of the results. Note that the service might
---   return fewer results than the maximum even when there are more results
---   available. You should check <tt>NextToken</tt> after every operation
---   to ensure that you receive all of the results.
-listGroups_maxResults :: Lens' ListGroups (Maybe Natural)
-
--- | Filters, formatted as GroupFilter objects, that you want to apply to a
---   <tt>ListGroups</tt> operation.
---   
---   <ul>
---   <li><tt>resource-type</tt> - Filter the results to include only those
---   of the specified resource types. Specify up to five resource types in
---   the format <tt>AWS::ServiceCode::ResourceType </tt>. For example,
---   <tt>AWS::EC2::Instance</tt>, or <tt>AWS::S3::Bucket</tt>.</li>
---   <li><tt>configuration-type</tt> - Filter the results to include only
---   those groups that have the specified configuration types attached. The
---   current supported values
---   are:<ul><li><pre>AWS:EC2::CapacityReservationPool</pre></li><li><pre>AWS:EC2::HostManagement</pre></li></ul></li>
---   </ul>
-listGroups_filters :: Lens' ListGroups (Maybe [GroupFilter])
-
--- | /__Deprecated - don't use this field. Use the
---   <tt>GroupIdentifiers</tt> response field instead.__/
-listGroupsResponse_groups :: Lens' ListGroupsResponse (Maybe [Group])
-
--- | If present, indicates that more output is available than is included
---   in the current response. Use this value in the <tt>NextToken</tt>
---   request parameter in a subsequent call to the operation to get the
---   next part of the output. You should repeat this until the
---   <tt>NextToken</tt> response element comes back as <tt>null</tt>.
-listGroupsResponse_nextToken :: Lens' ListGroupsResponse (Maybe Text)
-
--- | A list of GroupIdentifier objects. Each identifier is an object that
---   contains both the <tt>Name</tt> and the <tt>GroupArn</tt>.
-listGroupsResponse_groupIdentifiers :: Lens' ListGroupsResponse (Maybe [GroupIdentifier])
-
--- | The response's http status code.
-listGroupsResponse_httpStatus :: Lens' ListGroupsResponse Int
-
--- | A configuration associates the resource group with an AWS service and
---   specifies how the service can interact with the resources in the
---   group. A configuration is an array of GroupConfigurationItem elements.
---   For details about the syntax of service configurations, see <a>Service
---   configurations for resource groups</a>.
---   
---   A resource group can contain either a <tt>Configuration</tt> or a
---   <tt>ResourceQuery</tt>, but not both.
-createGroup_configuration :: Lens' CreateGroup (Maybe [GroupConfigurationItem])
-
--- | The tags to add to the group. A tag is key-value pair string.
-createGroup_tags :: Lens' CreateGroup (Maybe (HashMap Text Text))
-
--- | The description of the resource group. Descriptions can consist of
---   letters, numbers, hyphens, underscores, periods, and spaces.
-createGroup_description :: Lens' CreateGroup (Maybe Text)
-
--- | The resource query that determines which AWS resources are members of
---   this group. For more information about resource queries, see <a>Create
---   a tag-based group in Resource Groups</a>.
---   
---   A resource group can contain either a <tt>ResourceQuery</tt> or a
---   <tt>Configuration</tt>, but not both.
-createGroup_resourceQuery :: Lens' CreateGroup (Maybe ResourceQuery)
-
--- | The name of the group, which is the identifier of the group in other
---   operations. You can't change the name of a resource group after you
---   create it. A resource group name can consist of letters, numbers,
---   hyphens, periods, and underscores. The name cannot start with
---   <tt>AWS</tt> or <tt>aws</tt>; these are reserved. A resource group
---   name must be unique within each AWS Region in your AWS account.
-createGroup_name :: Lens' CreateGroup Text
-
--- | The service configuration associated with the resource group. For
---   details about the syntax of a service configuration, see <a>Service
---   configurations for resource groups</a>.
-createGroupResponse_groupConfiguration :: Lens' CreateGroupResponse (Maybe GroupConfiguration)
-
--- | The description of the resource group.
-createGroupResponse_group :: Lens' CreateGroupResponse (Maybe Group)
-
--- | The tags associated with the group.
-createGroupResponse_tags :: Lens' CreateGroupResponse (Maybe (HashMap Text Text))
-
--- | The resource query associated with the group. For more information
---   about resource queries, see <a>Create a tag-based group in Resource
---   Groups</a>.
-createGroupResponse_resourceQuery :: Lens' CreateGroupResponse (Maybe ResourceQuery)
-
--- | The response's http status code.
-createGroupResponse_httpStatus :: Lens' CreateGroupResponse Int
-
--- | Don't use this parameter. Use <tt>Group</tt> instead.
-getGroupQuery_groupName :: Lens' GetGroupQuery (Maybe Text)
-
--- | The name or the ARN of the resource group to query.
-getGroupQuery_group :: Lens' GetGroupQuery (Maybe Text)
-
--- | The resource query associated with the specified group. For more
---   information about resource queries, see <a>Create a tag-based group in
---   Resource Groups</a>.
-getGroupQueryResponse_groupQuery :: Lens' GetGroupQueryResponse (Maybe GroupQuery)
-
--- | The response's http status code.
-getGroupQueryResponse_httpStatus :: Lens' GetGroupQueryResponse Int
-
 -- | The parameter for receiving additional results if you receive a
 --   <tt>NextToken</tt> response in a previous request. A
 --   <tt>NextToken</tt> response indicates that more output is available.
@@ -4431,6 +4282,13 @@ searchResources_maxResults :: Lens' SearchResources (Maybe Natural)
 --   resource group definition. For more information, see CreateGroup.
 searchResources_resourceQuery :: Lens' SearchResources ResourceQuery
 
+-- | A list of <tt>QueryError</tt> objects. Each error is an object that
+--   contains <tt>ErrorCode</tt> and <tt>Message</tt> structures. Possible
+--   values for <tt>ErrorCode</tt> are
+--   <tt>CLOUDFORMATION_STACK_INACTIVE</tt> and
+--   <tt>CLOUDFORMATION_STACK_NOT_EXISTING</tt>.
+searchResourcesResponse_queryErrors :: Lens' SearchResourcesResponse (Maybe [QueryError])
+
 -- | If present, indicates that more output is available than is included
 --   in the current response. Use this value in the <tt>NextToken</tt>
 --   request parameter in a subsequent call to the operation to get the
@@ -4441,13 +4299,6 @@ searchResourcesResponse_nextToken :: Lens' SearchResourcesResponse (Maybe Text)
 -- | The ARNs and resource types of resources that are members of the group
 --   that you specified.
 searchResourcesResponse_resourceIdentifiers :: Lens' SearchResourcesResponse (Maybe [ResourceIdentifier])
-
--- | A list of <tt>QueryError</tt> objects. Each error is an object that
---   contains <tt>ErrorCode</tt> and <tt>Message</tt> structures. Possible
---   values for <tt>ErrorCode</tt> are
---   <tt>CLOUDFORMATION_STACK_INACTIVE</tt> and
---   <tt>CLOUDFORMATION_STACK_NOT_EXISTING</tt>.
-searchResourcesResponse_queryErrors :: Lens' SearchResourcesResponse (Maybe [QueryError])
 
 -- | The response's http status code.
 searchResourcesResponse_httpStatus :: Lens' SearchResourcesResponse Int
@@ -4464,11 +4315,113 @@ getTagsResponse_tags :: Lens' GetTagsResponse (Maybe (HashMap Text Text))
 -- | The response's http status code.
 getTagsResponse_httpStatus :: Lens' GetTagsResponse Int
 
--- | Don't use this parameter. Use <tt>Group</tt> instead.
-updateGroupQuery_groupName :: Lens' UpdateGroupQuery (Maybe Text)
+-- | The ARN of the resource group to which to add tags.
+tag_arn :: Lens' Tag Text
+
+-- | The tags to add to the specified resource group. A tag is a
+--   string-to-string map of key-value pairs.
+tag_tags :: Lens' Tag (HashMap Text Text)
+
+-- | The ARN of the tagged resource.
+tagResponse_arn :: Lens' TagResponse (Maybe Text)
+
+-- | The tags that have been added to the specified resource group.
+tagResponse_tags :: Lens' TagResponse (Maybe (HashMap Text Text))
+
+-- | The response's http status code.
+tagResponse_httpStatus :: Lens' TagResponse Int
+
+-- | The name or the ARN of the resource group from which to remove the
+--   resources.
+ungroupResources_group :: Lens' UngroupResources Text
+
+-- | The ARNs of the resources to be removed from the group.
+ungroupResources_resourceArns :: Lens' UngroupResources (NonEmpty Text)
+
+-- | A list of any resources that are still in the process of being removed
+--   from the group by this operation. These pending removals continue
+--   asynchronously. You can check the status of pending removals by using
+--   the <tt> ListGroupResources </tt> operation. After the resource is
+--   successfully removed, it no longer appears in the response.
+ungroupResourcesResponse_pending :: Lens' UngroupResourcesResponse (Maybe [PendingResource])
+
+-- | A list of resources that were successfully removed from the group by
+--   this operation.
+ungroupResourcesResponse_succeeded :: Lens' UngroupResourcesResponse (Maybe (NonEmpty Text))
+
+-- | A list of any resources that failed to be removed from the group by
+--   this operation.
+ungroupResourcesResponse_failed :: Lens' UngroupResourcesResponse (Maybe [FailedResource])
+
+-- | The response's http status code.
+ungroupResourcesResponse_httpStatus :: Lens' UngroupResourcesResponse Int
+
+-- | The name or the ARN of the resource group to add resources to.
+groupResources_group :: Lens' GroupResources Text
+
+-- | The list of ARNs for resources to be added to the group.
+groupResources_resourceArns :: Lens' GroupResources (NonEmpty Text)
+
+-- | A list of ARNs of any resources that are still in the process of being
+--   added to the group by this operation. These pending additions continue
+--   asynchronously. You can check the status of pending additions by using
+--   the <tt> ListGroupResources </tt> operation, and checking the
+--   <tt>Resources</tt> array in the response and the <tt>Status</tt> field
+--   of each object in that array.
+groupResourcesResponse_pending :: Lens' GroupResourcesResponse (Maybe [PendingResource])
+
+-- | A list of ARNs of resources that were successfully added to the group
+--   by this operation.
+groupResourcesResponse_succeeded :: Lens' GroupResourcesResponse (Maybe (NonEmpty Text))
+
+-- | A list of ARNs of any resources that failed to be added to the group
+--   by this operation.
+groupResourcesResponse_failed :: Lens' GroupResourcesResponse (Maybe [FailedResource])
+
+-- | The response's http status code.
+groupResourcesResponse_httpStatus :: Lens' GroupResourcesResponse Int
+
+-- | The name or ARN of the resource group with the configuration that you
+--   want to update.
+putGroupConfiguration_group :: Lens' PutGroupConfiguration (Maybe Text)
+
+-- | The new configuration to associate with the specified group. A
+--   configuration associates the resource group with an AWS service and
+--   specifies how the service can interact with the resources in the
+--   group. A configuration is an array of GroupConfigurationItem elements.
+--   
+--   For information about the syntax of a service configuration, see
+--   <a>Service configurations for resource groups</a>.
+--   
+--   A resource group can contain either a <tt>Configuration</tt> or a
+--   <tt>ResourceQuery</tt>, but not both.
+putGroupConfiguration_configuration :: Lens' PutGroupConfiguration (Maybe [GroupConfigurationItem])
+
+-- | The response's http status code.
+putGroupConfigurationResponse_httpStatus :: Lens' PutGroupConfigurationResponse Int
+
+-- | The ARN of the resource group from which to remove tags. The command
+--   removed both the specified keys and any values associated with those
+--   keys.
+untag_arn :: Lens' Untag Text
+
+-- | The keys of the tags to be removed.
+untag_keys :: Lens' Untag [Text]
+
+-- | The ARN of the resource group from which tags have been removed.
+untagResponse_arn :: Lens' UntagResponse (Maybe Text)
+
+-- | The keys of the tags that were removed.
+untagResponse_keys :: Lens' UntagResponse (Maybe [Text])
+
+-- | The response's http status code.
+untagResponse_httpStatus :: Lens' UntagResponse Int
 
 -- | The name or the ARN of the resource group to query.
 updateGroupQuery_group :: Lens' UpdateGroupQuery (Maybe Text)
+
+-- | Don't use this parameter. Use <tt>Group</tt> instead.
+updateGroupQuery_groupName :: Lens' UpdateGroupQuery (Maybe Text)
 
 -- | The resource query to determine which AWS resources are members of
 --   this resource group.
@@ -4483,30 +4436,6 @@ updateGroupQueryResponse_groupQuery :: Lens' UpdateGroupQueryResponse (Maybe Gro
 
 -- | The response's http status code.
 updateGroupQueryResponse_httpStatus :: Lens' UpdateGroupQueryResponse Int
-
--- | The parameter for receiving additional results if you receive a
---   <tt>NextToken</tt> response in a previous request. A
---   <tt>NextToken</tt> response indicates that more output is available.
---   Set this parameter to the value provided by a previous call's
---   <tt>NextToken</tt> response to indicate where the output should
---   continue from.
-listGroupResources_nextToken :: Lens' ListGroupResources (Maybe Text)
-
--- | The total number of results that you want included on each page of the
---   response. If you do not include this parameter, it defaults to a value
---   that is specific to the operation. If additional items exist beyond
---   the maximum you specify, the <tt>NextToken</tt> response element is
---   present and has a value (is not null). Include that value as the
---   <tt>NextToken</tt> request parameter in the next call to the operation
---   to get the next part of the results. Note that the service might
---   return fewer results than the maximum even when there are more results
---   available. You should check <tt>NextToken</tt> after every operation
---   to ensure that you receive all of the results.
-listGroupResources_maxResults :: Lens' ListGroupResources (Maybe Natural)
-
--- | /__Deprecated - don't use this parameter. Use the <tt>Group</tt>
---   request field instead.__/
-listGroupResources_groupName :: Lens' ListGroupResources (Maybe Text)
 
 -- | The name or the ARN of the resource group
 listGroupResources_group :: Lens' ListGroupResources (Maybe Text)
@@ -4545,6 +4474,41 @@ listGroupResources_group :: Lens' ListGroupResources (Maybe Text)
 --   (tag-based or AWS CloudFormation stack-based queries).
 listGroupResources_filters :: Lens' ListGroupResources (Maybe [ResourceFilter])
 
+-- | The parameter for receiving additional results if you receive a
+--   <tt>NextToken</tt> response in a previous request. A
+--   <tt>NextToken</tt> response indicates that more output is available.
+--   Set this parameter to the value provided by a previous call's
+--   <tt>NextToken</tt> response to indicate where the output should
+--   continue from.
+listGroupResources_nextToken :: Lens' ListGroupResources (Maybe Text)
+
+-- | /__Deprecated - don't use this parameter. Use the <tt>Group</tt>
+--   request field instead.__/
+listGroupResources_groupName :: Lens' ListGroupResources (Maybe Text)
+
+-- | The total number of results that you want included on each page of the
+--   response. If you do not include this parameter, it defaults to a value
+--   that is specific to the operation. If additional items exist beyond
+--   the maximum you specify, the <tt>NextToken</tt> response element is
+--   present and has a value (is not null). Include that value as the
+--   <tt>NextToken</tt> request parameter in the next call to the operation
+--   to get the next part of the results. Note that the service might
+--   return fewer results than the maximum even when there are more results
+--   available. You should check <tt>NextToken</tt> after every operation
+--   to ensure that you receive all of the results.
+listGroupResources_maxResults :: Lens' ListGroupResources (Maybe Natural)
+
+-- | An array of resources from which you can determine each resource's
+--   identity, type, and group membership status.
+listGroupResourcesResponse_resources :: Lens' ListGroupResourcesResponse (Maybe [ListGroupResourcesItem])
+
+-- | A list of <tt>QueryError</tt> objects. Each error is an object that
+--   contains <tt>ErrorCode</tt> and <tt>Message</tt> structures. Possible
+--   values for <tt>ErrorCode</tt> are
+--   <tt>CLOUDFORMATION_STACK_INACTIVE</tt> and
+--   <tt>CLOUDFORMATION_STACK_NOT_EXISTING</tt>.
+listGroupResourcesResponse_queryErrors :: Lens' ListGroupResourcesResponse (Maybe [QueryError])
+
 -- | If present, indicates that more output is available than is included
 --   in the current response. Use this value in the <tt>NextToken</tt>
 --   request parameter in a subsequent call to the operation to get the
@@ -4556,54 +4520,80 @@ listGroupResourcesResponse_nextToken :: Lens' ListGroupResourcesResponse (Maybe 
 --   response field instead./__
 listGroupResourcesResponse_resourceIdentifiers :: Lens' ListGroupResourcesResponse (Maybe [ResourceIdentifier])
 
--- | A list of <tt>QueryError</tt> objects. Each error is an object that
---   contains <tt>ErrorCode</tt> and <tt>Message</tt> structures. Possible
---   values for <tt>ErrorCode</tt> are
---   <tt>CLOUDFORMATION_STACK_INACTIVE</tt> and
---   <tt>CLOUDFORMATION_STACK_NOT_EXISTING</tt>.
-listGroupResourcesResponse_queryErrors :: Lens' ListGroupResourcesResponse (Maybe [QueryError])
-
--- | An array of resources from which you can determine each resource's
---   identity, type, and group membership status.
-listGroupResourcesResponse_resources :: Lens' ListGroupResourcesResponse (Maybe [ListGroupResourcesItem])
-
 -- | The response's http status code.
 listGroupResourcesResponse_httpStatus :: Lens' ListGroupResourcesResponse Int
 
--- | The ARN of the resource group from which to remove tags. The command
---   removed both the specified keys and any values associated with those
---   keys.
-untag_arn :: Lens' Untag Text
+-- | The name or the ARN of the resource group to query.
+getGroupQuery_group :: Lens' GetGroupQuery (Maybe Text)
 
--- | The keys of the tags to be removed.
-untag_keys :: Lens' Untag [Text]
+-- | Don't use this parameter. Use <tt>Group</tt> instead.
+getGroupQuery_groupName :: Lens' GetGroupQuery (Maybe Text)
 
--- | The ARN of the resource group from which tags have been removed.
-untagResponse_arn :: Lens' UntagResponse (Maybe Text)
-
--- | The keys of the tags that were removed.
-untagResponse_keys :: Lens' UntagResponse (Maybe [Text])
+-- | The resource query associated with the specified group. For more
+--   information about resource queries, see <a>Create a tag-based group in
+--   Resource Groups</a>.
+getGroupQueryResponse_groupQuery :: Lens' GetGroupQueryResponse (Maybe GroupQuery)
 
 -- | The response's http status code.
-untagResponse_httpStatus :: Lens' UntagResponse Int
+getGroupQueryResponse_httpStatus :: Lens' GetGroupQueryResponse Int
 
--- | Deprecated - don't use this parameter. Use <tt>Group</tt> instead.
-getGroup_groupName :: Lens' GetGroup (Maybe Text)
+-- | The resource query that determines which AWS resources are members of
+--   this group. For more information about resource queries, see <a>Create
+--   a tag-based group in Resource Groups</a>.
+--   
+--   A resource group can contain either a <tt>ResourceQuery</tt> or a
+--   <tt>Configuration</tt>, but not both.
+createGroup_resourceQuery :: Lens' CreateGroup (Maybe ResourceQuery)
 
--- | The name or the ARN of the resource group to retrieve.
-getGroup_group :: Lens' GetGroup (Maybe Text)
+-- | A configuration associates the resource group with an AWS service and
+--   specifies how the service can interact with the resources in the
+--   group. A configuration is an array of GroupConfigurationItem elements.
+--   For details about the syntax of service configurations, see <a>Service
+--   configurations for resource groups</a>.
+--   
+--   A resource group can contain either a <tt>Configuration</tt> or a
+--   <tt>ResourceQuery</tt>, but not both.
+createGroup_configuration :: Lens' CreateGroup (Maybe [GroupConfigurationItem])
 
--- | A full description of the resource group.
-getGroupResponse_group :: Lens' GetGroupResponse (Maybe Group)
+-- | The description of the resource group. Descriptions can consist of
+--   letters, numbers, hyphens, underscores, periods, and spaces.
+createGroup_description :: Lens' CreateGroup (Maybe Text)
+
+-- | The tags to add to the group. A tag is key-value pair string.
+createGroup_tags :: Lens' CreateGroup (Maybe (HashMap Text Text))
+
+-- | The name of the group, which is the identifier of the group in other
+--   operations. You can't change the name of a resource group after you
+--   create it. A resource group name can consist of letters, numbers,
+--   hyphens, periods, and underscores. The name cannot start with
+--   <tt>AWS</tt> or <tt>aws</tt>; these are reserved. A resource group
+--   name must be unique within each AWS Region in your AWS account.
+createGroup_name :: Lens' CreateGroup Text
+
+-- | The description of the resource group.
+createGroupResponse_group :: Lens' CreateGroupResponse (Maybe Group)
+
+-- | The service configuration associated with the resource group. For
+--   details about the syntax of a service configuration, see <a>Service
+--   configurations for resource groups</a>.
+createGroupResponse_groupConfiguration :: Lens' CreateGroupResponse (Maybe GroupConfiguration)
+
+-- | The resource query associated with the group. For more information
+--   about resource queries, see <a>Create a tag-based group in Resource
+--   Groups</a>.
+createGroupResponse_resourceQuery :: Lens' CreateGroupResponse (Maybe ResourceQuery)
+
+-- | The tags associated with the group.
+createGroupResponse_tags :: Lens' CreateGroupResponse (Maybe (HashMap Text Text))
 
 -- | The response's http status code.
-getGroupResponse_httpStatus :: Lens' GetGroupResponse Int
-
--- | Deprecated - don't use this parameter. Use <tt>Group</tt> instead.
-deleteGroup_groupName :: Lens' DeleteGroup (Maybe Text)
+createGroupResponse_httpStatus :: Lens' CreateGroupResponse Int
 
 -- | The name or the ARN of the resource group to delete.
 deleteGroup_group :: Lens' DeleteGroup (Maybe Text)
+
+-- | Deprecated - don't use this parameter. Use <tt>Group</tt> instead.
+deleteGroup_groupName :: Lens' DeleteGroup (Maybe Text)
 
 -- | A full description of the deleted resource group.
 deleteGroupResponse_group :: Lens' DeleteGroupResponse (Maybe Group)
@@ -4611,36 +4601,11 @@ deleteGroupResponse_group :: Lens' DeleteGroupResponse (Maybe Group)
 -- | The response's http status code.
 deleteGroupResponse_httpStatus :: Lens' DeleteGroupResponse Int
 
--- | The name or the ARN of the resource group to add resources to.
-groupResources_group :: Lens' GroupResources Text
-
--- | The list of ARNs for resources to be added to the group.
-groupResources_resourceArns :: Lens' GroupResources (NonEmpty Text)
-
--- | A list of ARNs of resources that were successfully added to the group
---   by this operation.
-groupResourcesResponse_succeeded :: Lens' GroupResourcesResponse (Maybe (NonEmpty Text))
-
--- | A list of ARNs of any resources that are still in the process of being
---   added to the group by this operation. These pending additions continue
---   asynchronously. You can check the status of pending additions by using
---   the <tt> ListGroupResources </tt> operation, and checking the
---   <tt>Resources</tt> array in the response and the <tt>Status</tt> field
---   of each object in that array.
-groupResourcesResponse_pending :: Lens' GroupResourcesResponse (Maybe [PendingResource])
-
--- | A list of ARNs of any resources that failed to be added to the group
---   by this operation.
-groupResourcesResponse_failed :: Lens' GroupResourcesResponse (Maybe [FailedResource])
-
--- | The response's http status code.
-groupResourcesResponse_httpStatus :: Lens' GroupResourcesResponse Int
+-- | The name or the ARN of the resource group to modify.
+updateGroup_group :: Lens' UpdateGroup (Maybe Text)
 
 -- | Don't use this parameter. Use <tt>Group</tt> instead.
 updateGroup_groupName :: Lens' UpdateGroup (Maybe Text)
-
--- | The name or the ARN of the resource group to modify.
-updateGroup_group :: Lens' UpdateGroup (Maybe Text)
 
 -- | The new description that you want to update the resource group with.
 --   Descriptions can contain letters, numbers, hyphens, underscores,
@@ -4653,55 +4618,90 @@ updateGroupResponse_group :: Lens' UpdateGroupResponse (Maybe Group)
 -- | The response's http status code.
 updateGroupResponse_httpStatus :: Lens' UpdateGroupResponse Int
 
--- | The name or the ARN of the resource group from which to remove the
---   resources.
-ungroupResources_group :: Lens' UngroupResources Text
+-- | Filters, formatted as GroupFilter objects, that you want to apply to a
+--   <tt>ListGroups</tt> operation.
+--   
+--   <ul>
+--   <li><tt>resource-type</tt> - Filter the results to include only those
+--   of the specified resource types. Specify up to five resource types in
+--   the format <tt>AWS::ServiceCode::ResourceType </tt>. For example,
+--   <tt>AWS::EC2::Instance</tt>, or <tt>AWS::S3::Bucket</tt>.</li>
+--   <li><tt>configuration-type</tt> - Filter the results to include only
+--   those groups that have the specified configuration types attached. The
+--   current supported values
+--   are:<ul><li><pre>AWS:EC2::CapacityReservationPool</pre></li><li><pre>AWS:EC2::HostManagement</pre></li></ul></li>
+--   </ul>
+listGroups_filters :: Lens' ListGroups (Maybe [GroupFilter])
 
--- | The ARNs of the resources to be removed from the group.
-ungroupResources_resourceArns :: Lens' UngroupResources (NonEmpty Text)
+-- | The parameter for receiving additional results if you receive a
+--   <tt>NextToken</tt> response in a previous request. A
+--   <tt>NextToken</tt> response indicates that more output is available.
+--   Set this parameter to the value provided by a previous call's
+--   <tt>NextToken</tt> response to indicate where the output should
+--   continue from.
+listGroups_nextToken :: Lens' ListGroups (Maybe Text)
 
--- | A list of resources that were successfully removed from the group by
---   this operation.
-ungroupResourcesResponse_succeeded :: Lens' UngroupResourcesResponse (Maybe (NonEmpty Text))
+-- | The total number of results that you want included on each page of the
+--   response. If you do not include this parameter, it defaults to a value
+--   that is specific to the operation. If additional items exist beyond
+--   the maximum you specify, the <tt>NextToken</tt> response element is
+--   present and has a value (is not null). Include that value as the
+--   <tt>NextToken</tt> request parameter in the next call to the operation
+--   to get the next part of the results. Note that the service might
+--   return fewer results than the maximum even when there are more results
+--   available. You should check <tt>NextToken</tt> after every operation
+--   to ensure that you receive all of the results.
+listGroups_maxResults :: Lens' ListGroups (Maybe Natural)
 
--- | A list of any resources that are still in the process of being removed
---   from the group by this operation. These pending removals continue
---   asynchronously. You can check the status of pending removals by using
---   the <tt> ListGroupResources </tt> operation. After the resource is
---   successfully removed, it no longer appears in the response.
-ungroupResourcesResponse_pending :: Lens' UngroupResourcesResponse (Maybe [PendingResource])
+-- | /__Deprecated - don't use this field. Use the
+--   <tt>GroupIdentifiers</tt> response field instead.__/
+listGroupsResponse_groups :: Lens' ListGroupsResponse (Maybe [Group])
 
--- | A list of any resources that failed to be removed from the group by
---   this operation.
-ungroupResourcesResponse_failed :: Lens' UngroupResourcesResponse (Maybe [FailedResource])
+-- | If present, indicates that more output is available than is included
+--   in the current response. Use this value in the <tt>NextToken</tt>
+--   request parameter in a subsequent call to the operation to get the
+--   next part of the output. You should repeat this until the
+--   <tt>NextToken</tt> response element comes back as <tt>null</tt>.
+listGroupsResponse_nextToken :: Lens' ListGroupsResponse (Maybe Text)
+
+-- | A list of GroupIdentifier objects. Each identifier is an object that
+--   contains both the <tt>Name</tt> and the <tt>GroupArn</tt>.
+listGroupsResponse_groupIdentifiers :: Lens' ListGroupsResponse (Maybe [GroupIdentifier])
 
 -- | The response's http status code.
-ungroupResourcesResponse_httpStatus :: Lens' UngroupResourcesResponse Int
+listGroupsResponse_httpStatus :: Lens' ListGroupsResponse Int
 
--- | The ARN of the resource group to which to add tags.
-tag_arn :: Lens' Tag Text
+-- | The name or the ARN of the resource group to retrieve.
+getGroup_group :: Lens' GetGroup (Maybe Text)
 
--- | The tags to add to the specified resource group. A tag is a
---   string-to-string map of key-value pairs.
-tag_tags :: Lens' Tag (HashMap Text Text)
+-- | Deprecated - don't use this parameter. Use <tt>Group</tt> instead.
+getGroup_groupName :: Lens' GetGroup (Maybe Text)
 
--- | The ARN of the tagged resource.
-tagResponse_arn :: Lens' TagResponse (Maybe Text)
-
--- | The tags that have been added to the specified resource group.
-tagResponse_tags :: Lens' TagResponse (Maybe (HashMap Text Text))
+-- | A full description of the resource group.
+getGroupResponse_group :: Lens' GetGroupResponse (Maybe Group)
 
 -- | The response's http status code.
-tagResponse_httpStatus :: Lens' TagResponse Int
+getGroupResponse_httpStatus :: Lens' GetGroupResponse Int
+
+-- | The name or the ARN of the resource group.
+getGroupConfiguration_group :: Lens' GetGroupConfiguration (Maybe Text)
+
+-- | The service configuration associated with the specified group. For
+--   details about the service configuration syntax, see <a>Service
+--   configurations for resource groups</a>.
+getGroupConfigurationResponse_groupConfiguration :: Lens' GetGroupConfigurationResponse (Maybe GroupConfiguration)
+
+-- | The response's http status code.
+getGroupConfigurationResponse_httpStatus :: Lens' GetGroupConfigurationResponse Int
 
 -- | The ARN of the resource that failed to be added or removed.
 failedResource_resourceArn :: Lens' FailedResource (Maybe Text)
 
--- | The error message text associated with the failure.
-failedResource_errorMessage :: Lens' FailedResource (Maybe Text)
-
 -- | The error code associated with the failure.
 failedResource_errorCode :: Lens' FailedResource (Maybe Text)
+
+-- | The error message text associated with the failure.
+failedResource_errorMessage :: Lens' FailedResource (Maybe Text)
 
 -- | The description of the resource group.
 group_description :: Lens' Group (Maybe Text)
@@ -4715,9 +4715,6 @@ group_name :: Lens' Group Text
 -- | The current status of an attempt to update the group configuration.
 groupConfiguration_status :: Lens' GroupConfiguration (Maybe GroupConfigurationStatus)
 
--- | The configuration currently associated with the group and in effect.
-groupConfiguration_configuration :: Lens' GroupConfiguration (Maybe [GroupConfigurationItem])
-
 -- | If present, the reason why a request to update the group configuration
 --   failed.
 groupConfiguration_failureReason :: Lens' GroupConfiguration (Maybe Text)
@@ -4725,6 +4722,9 @@ groupConfiguration_failureReason :: Lens' GroupConfiguration (Maybe Text)
 -- | If present, the new configuration that is in the process of being
 --   applied to the group.
 groupConfiguration_proposedConfiguration :: Lens' GroupConfiguration (Maybe [GroupConfigurationItem])
+
+-- | The configuration currently associated with the group and in effect.
+groupConfiguration_configuration :: Lens' GroupConfiguration (Maybe [GroupConfigurationItem])
 
 -- | A collection of parameters for this group configuration item. For the
 --   list of parameters that you can use with each configuration item type,
@@ -4754,11 +4754,11 @@ groupFilter_name :: Lens' GroupFilter GroupFilterName
 --   name, and are case-sensitive.
 groupFilter_values :: Lens' GroupFilter (NonEmpty Text)
 
--- | The name of the resource group.
-groupIdentifier_groupName :: Lens' GroupIdentifier (Maybe Text)
-
 -- | The ARN of the resource group.
 groupIdentifier_groupArn :: Lens' GroupIdentifier (Maybe Text)
+
+-- | The name of the resource group.
+groupIdentifier_groupName :: Lens' GroupIdentifier (Maybe Text)
 
 -- | The name of the resource group that is associated with the specified
 --   resource query.
@@ -4782,16 +4782,16 @@ listGroupResourcesItem_identifier :: Lens' ListGroupResourcesItem (Maybe Resourc
 --   state.
 pendingResource_resourceArn :: Lens' PendingResource (Maybe Text)
 
+-- | Possible values are <tt>CLOUDFORMATION_STACK_INACTIVE</tt> and
+--   <tt>CLOUDFORMATION_STACK_NOT_EXISTING</tt>.
+queryError_errorCode :: Lens' QueryError (Maybe QueryErrorCode)
+
 -- | A message that explains the <tt>ErrorCode</tt> value. Messages might
 --   state that the specified CloudFormation stack does not exist (or no
 --   longer exists). For <tt>CLOUDFORMATION_STACK_INACTIVE</tt>, the
 --   message typically states that the CloudFormation stack has a status
 --   that is not (or no longer) active, such as <tt>CREATE_FAILED</tt>.
 queryError_message :: Lens' QueryError (Maybe Text)
-
--- | Possible values are <tt>CLOUDFORMATION_STACK_INACTIVE</tt> and
---   <tt>CLOUDFORMATION_STACK_NOT_EXISTING</tt>.
-queryError_errorCode :: Lens' QueryError (Maybe QueryErrorCode)
 
 -- | The name of the filter. Filter names are case-sensitive.
 resourceFilter_name :: Lens' ResourceFilter ResourceFilterName
@@ -4800,11 +4800,11 @@ resourceFilter_name :: Lens' ResourceFilter ResourceFilterName
 --   filter name, and are case-sensitive.
 resourceFilter_values :: Lens' ResourceFilter (NonEmpty Text)
 
--- | The ARN of a resource.
-resourceIdentifier_resourceArn :: Lens' ResourceIdentifier (Maybe Text)
-
 -- | The resource type of a resource, such as <tt>AWS::EC2::Instance</tt>.
 resourceIdentifier_resourceType :: Lens' ResourceIdentifier (Maybe Text)
+
+-- | The ARN of a resource.
+resourceIdentifier_resourceArn :: Lens' ResourceIdentifier (Maybe Text)
 
 -- | The type of the query. You can use the following values:
 --   
@@ -4894,332 +4894,31 @@ module Network.AWS.ResourceGroups
 --   configuration.
 defaultService :: Service
 
--- | One or more of the specified resources don't exist.
-_NotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | The request includes one or more parameters that violate validation
---   rules.
-_BadRequestException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | The request was rejected because it doesn't have valid credentials for
---   the target resource.
-_UnauthorizedException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | An internal error occurred while processing the request. Try again
---   later.
-_InternalServerErrorException :: AsError a => Getting (First ServiceError) a ServiceError
-
 -- | The caller isn't authorized to make the request. Check permissions.
 _ForbiddenException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | The request uses an HTTP method that isn't allowed for the specified
---   resource.
-_MethodNotAllowedException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | One or more of the specified resources don't exist.
+_NotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | You've exceeded throttling limits by making too many requests in a
 --   period of time.
 _TooManyRequestsException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | <i>See:</i> <a>newGetGroupConfiguration</a> smart constructor.
-data GetGroupConfiguration
-GetGroupConfiguration' :: Maybe Text -> GetGroupConfiguration
+-- | An internal error occurred while processing the request. Try again
+--   later.
+_InternalServerErrorException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | Create a value of <a>GetGroupConfiguration</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:group':GetGroupConfiguration'</a>,
---   <a>getGroupConfiguration_group</a> - The name or the ARN of the
---   resource group.
-newGetGroupConfiguration :: GetGroupConfiguration
+-- | The request uses an HTTP method that isn't allowed for the specified
+--   resource.
+_MethodNotAllowedException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | <i>See:</i> <a>newGetGroupConfigurationResponse</a> smart constructor.
-data GetGroupConfigurationResponse
-GetGroupConfigurationResponse' :: Maybe GroupConfiguration -> Int -> GetGroupConfigurationResponse
+-- | The request was rejected because it doesn't have valid credentials for
+--   the target resource.
+_UnauthorizedException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | Create a value of <a>GetGroupConfigurationResponse</a> with all
---   optional fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:groupConfiguration:GetGroupConfigurationResponse'</a>,
---   <a>getGroupConfigurationResponse_groupConfiguration</a> - The service
---   configuration associated with the specified group. For details about
---   the service configuration syntax, see <a>Service configurations for
---   resource groups</a>.
---   
---   <a>$sel:httpStatus:GetGroupConfigurationResponse'</a>,
---   <a>getGroupConfigurationResponse_httpStatus</a> - The response's http
---   status code.
-newGetGroupConfigurationResponse :: Int -> GetGroupConfigurationResponse
-
--- | <i>See:</i> <a>newPutGroupConfiguration</a> smart constructor.
-data PutGroupConfiguration
-PutGroupConfiguration' :: Maybe [GroupConfigurationItem] -> Maybe Text -> PutGroupConfiguration
-
--- | Create a value of <a>PutGroupConfiguration</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:configuration:PutGroupConfiguration'</a>,
---   <a>putGroupConfiguration_configuration</a> - The new configuration to
---   associate with the specified group. A configuration associates the
---   resource group with an AWS service and specifies how the service can
---   interact with the resources in the group. A configuration is an array
---   of GroupConfigurationItem elements.
---   
---   For information about the syntax of a service configuration, see
---   <a>Service configurations for resource groups</a>.
---   
---   A resource group can contain either a <tt>Configuration</tt> or a
---   <tt>ResourceQuery</tt>, but not both.
---   
---   <a>$sel:group':PutGroupConfiguration'</a>,
---   <a>putGroupConfiguration_group</a> - The name or ARN of the resource
---   group with the configuration that you want to update.
-newPutGroupConfiguration :: PutGroupConfiguration
-
--- | <i>See:</i> <a>newPutGroupConfigurationResponse</a> smart constructor.
-data PutGroupConfigurationResponse
-PutGroupConfigurationResponse' :: Int -> PutGroupConfigurationResponse
-
--- | Create a value of <a>PutGroupConfigurationResponse</a> with all
---   optional fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:httpStatus:PutGroupConfigurationResponse'</a>,
---   <a>putGroupConfigurationResponse_httpStatus</a> - The response's http
---   status code.
-newPutGroupConfigurationResponse :: Int -> PutGroupConfigurationResponse
-
--- | <i>See:</i> <a>newListGroups</a> smart constructor.
-data ListGroups
-ListGroups' :: Maybe Text -> Maybe Natural -> Maybe [GroupFilter] -> ListGroups
-
--- | Create a value of <a>ListGroups</a> with all optional fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:nextToken:ListGroups'</a>, <a>listGroups_nextToken</a> - The
---   parameter for receiving additional results if you receive a
---   <tt>NextToken</tt> response in a previous request. A
---   <tt>NextToken</tt> response indicates that more output is available.
---   Set this parameter to the value provided by a previous call's
---   <tt>NextToken</tt> response to indicate where the output should
---   continue from.
---   
---   <a>$sel:maxResults:ListGroups'</a>, <a>listGroups_maxResults</a> - The
---   total number of results that you want included on each page of the
---   response. If you do not include this parameter, it defaults to a value
---   that is specific to the operation. If additional items exist beyond
---   the maximum you specify, the <tt>NextToken</tt> response element is
---   present and has a value (is not null). Include that value as the
---   <tt>NextToken</tt> request parameter in the next call to the operation
---   to get the next part of the results. Note that the service might
---   return fewer results than the maximum even when there are more results
---   available. You should check <tt>NextToken</tt> after every operation
---   to ensure that you receive all of the results.
---   
---   <a>$sel:filters:ListGroups'</a>, <a>listGroups_filters</a> - Filters,
---   formatted as GroupFilter objects, that you want to apply to a
---   <tt>ListGroups</tt> operation.
---   
---   <ul>
---   <li><tt>resource-type</tt> - Filter the results to include only those
---   of the specified resource types. Specify up to five resource types in
---   the format <tt>AWS::ServiceCode::ResourceType </tt>. For example,
---   <tt>AWS::EC2::Instance</tt>, or <tt>AWS::S3::Bucket</tt>.</li>
---   <li><tt>configuration-type</tt> - Filter the results to include only
---   those groups that have the specified configuration types attached. The
---   current supported values
---   are:<ul><li><pre>AWS:EC2::CapacityReservationPool</pre></li><li><pre>AWS:EC2::HostManagement</pre></li></ul></li>
---   </ul>
-newListGroups :: ListGroups
-
--- | <i>See:</i> <a>newListGroupsResponse</a> smart constructor.
-data ListGroupsResponse
-ListGroupsResponse' :: Maybe [Group] -> Maybe Text -> Maybe [GroupIdentifier] -> Int -> ListGroupsResponse
-
--- | Create a value of <a>ListGroupsResponse</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:groups:ListGroupsResponse'</a>,
---   <a>listGroupsResponse_groups</a> - /__Deprecated - don't use this
---   field. Use the <tt>GroupIdentifiers</tt> response field instead.__/
---   
---   <a>$sel:nextToken:ListGroups'</a>, <a>listGroupsResponse_nextToken</a>
---   - If present, indicates that more output is available than is included
---   in the current response. Use this value in the <tt>NextToken</tt>
---   request parameter in a subsequent call to the operation to get the
---   next part of the output. You should repeat this until the
---   <tt>NextToken</tt> response element comes back as <tt>null</tt>.
---   
---   <a>$sel:groupIdentifiers:ListGroupsResponse'</a>,
---   <a>listGroupsResponse_groupIdentifiers</a> - A list of GroupIdentifier
---   objects. Each identifier is an object that contains both the
---   <tt>Name</tt> and the <tt>GroupArn</tt>.
---   
---   <a>$sel:httpStatus:ListGroupsResponse'</a>,
---   <a>listGroupsResponse_httpStatus</a> - The response's http status
---   code.
-newListGroupsResponse :: Int -> ListGroupsResponse
-
--- | <i>See:</i> <a>newCreateGroup</a> smart constructor.
-data CreateGroup
-CreateGroup' :: Maybe [GroupConfigurationItem] -> Maybe (HashMap Text Text) -> Maybe Text -> Maybe ResourceQuery -> Text -> CreateGroup
-
--- | Create a value of <a>CreateGroup</a> with all optional fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:configuration:CreateGroup'</a>,
---   <a>createGroup_configuration</a> - A configuration associates the
---   resource group with an AWS service and specifies how the service can
---   interact with the resources in the group. A configuration is an array
---   of GroupConfigurationItem elements. For details about the syntax of
---   service configurations, see <a>Service configurations for resource
---   groups</a>.
---   
---   A resource group can contain either a <tt>Configuration</tt> or a
---   <tt>ResourceQuery</tt>, but not both.
---   
---   <a>$sel:tags:CreateGroup'</a>, <a>createGroup_tags</a> - The tags to
---   add to the group. A tag is key-value pair string.
---   
---   <a>$sel:description:CreateGroup'</a>, <a>createGroup_description</a> -
---   The description of the resource group. Descriptions can consist of
---   letters, numbers, hyphens, underscores, periods, and spaces.
---   
---   <a>$sel:resourceQuery:CreateGroup'</a>,
---   <a>createGroup_resourceQuery</a> - The resource query that determines
---   which AWS resources are members of this group. For more information
---   about resource queries, see <a>Create a tag-based group in Resource
---   Groups</a>.
---   
---   A resource group can contain either a <tt>ResourceQuery</tt> or a
---   <tt>Configuration</tt>, but not both.
---   
---   <a>$sel:name:CreateGroup'</a>, <a>createGroup_name</a> - The name of
---   the group, which is the identifier of the group in other operations.
---   You can't change the name of a resource group after you create it. A
---   resource group name can consist of letters, numbers, hyphens, periods,
---   and underscores. The name cannot start with <tt>AWS</tt> or
---   <tt>aws</tt>; these are reserved. A resource group name must be unique
---   within each AWS Region in your AWS account.
-newCreateGroup :: Text -> CreateGroup
-
--- | <i>See:</i> <a>newCreateGroupResponse</a> smart constructor.
-data CreateGroupResponse
-CreateGroupResponse' :: Maybe GroupConfiguration -> Maybe Group -> Maybe (HashMap Text Text) -> Maybe ResourceQuery -> Int -> CreateGroupResponse
-
--- | Create a value of <a>CreateGroupResponse</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:groupConfiguration:CreateGroupResponse'</a>,
---   <a>createGroupResponse_groupConfiguration</a> - The service
---   configuration associated with the resource group. For details about
---   the syntax of a service configuration, see <a>Service configurations
---   for resource groups</a>.
---   
---   <a>$sel:group':CreateGroupResponse'</a>,
---   <a>createGroupResponse_group</a> - The description of the resource
---   group.
---   
---   <a>$sel:tags:CreateGroup'</a>, <a>createGroupResponse_tags</a> - The
---   tags associated with the group.
---   
---   <a>$sel:resourceQuery:CreateGroup'</a>,
---   <a>createGroupResponse_resourceQuery</a> - The resource query
---   associated with the group. For more information about resource
---   queries, see <a>Create a tag-based group in Resource Groups</a>.
---   
---   <a>$sel:httpStatus:CreateGroupResponse'</a>,
---   <a>createGroupResponse_httpStatus</a> - The response's http status
---   code.
-newCreateGroupResponse :: Int -> CreateGroupResponse
-
--- | <i>See:</i> <a>newGetGroupQuery</a> smart constructor.
-data GetGroupQuery
-GetGroupQuery' :: Maybe Text -> Maybe Text -> GetGroupQuery
-
--- | Create a value of <a>GetGroupQuery</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:groupName:GetGroupQuery'</a>, <a>getGroupQuery_groupName</a> -
---   Don't use this parameter. Use <tt>Group</tt> instead.
---   
---   <a>$sel:group':GetGroupQuery'</a>, <a>getGroupQuery_group</a> - The
---   name or the ARN of the resource group to query.
-newGetGroupQuery :: GetGroupQuery
-
--- | <i>See:</i> <a>newGetGroupQueryResponse</a> smart constructor.
-data GetGroupQueryResponse
-GetGroupQueryResponse' :: Maybe GroupQuery -> Int -> GetGroupQueryResponse
-
--- | Create a value of <a>GetGroupQueryResponse</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:groupQuery:GetGroupQueryResponse'</a>,
---   <a>getGroupQueryResponse_groupQuery</a> - The resource query
---   associated with the specified group. For more information about
---   resource queries, see <a>Create a tag-based group in Resource
---   Groups</a>.
---   
---   <a>$sel:httpStatus:GetGroupQueryResponse'</a>,
---   <a>getGroupQueryResponse_httpStatus</a> - The response's http status
---   code.
-newGetGroupQueryResponse :: Int -> GetGroupQueryResponse
+-- | The request includes one or more parameters that violate validation
+--   rules.
+_BadRequestException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | <i>See:</i> <a>newSearchResources</a> smart constructor.
 data SearchResources
@@ -5263,7 +4962,7 @@ newSearchResources :: ResourceQuery -> SearchResources
 
 -- | <i>See:</i> <a>newSearchResourcesResponse</a> smart constructor.
 data SearchResourcesResponse
-SearchResourcesResponse' :: Maybe Text -> Maybe [ResourceIdentifier] -> Maybe [QueryError] -> Int -> SearchResourcesResponse
+SearchResourcesResponse' :: Maybe [QueryError] -> Maybe Text -> Maybe [ResourceIdentifier] -> Int -> SearchResourcesResponse
 
 -- | Create a value of <a>SearchResourcesResponse</a> with all optional
 --   fields omitted.
@@ -5273,6 +4972,13 @@ SearchResourcesResponse' :: Maybe Text -> Maybe [ResourceIdentifier] -> Maybe [Q
 --   
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:queryErrors:SearchResourcesResponse'</a>,
+--   <a>searchResourcesResponse_queryErrors</a> - A list of
+--   <tt>QueryError</tt> objects. Each error is an object that contains
+--   <tt>ErrorCode</tt> and <tt>Message</tt> structures. Possible values
+--   for <tt>ErrorCode</tt> are <tt>CLOUDFORMATION_STACK_INACTIVE</tt> and
+--   <tt>CLOUDFORMATION_STACK_NOT_EXISTING</tt>.
 --   
 --   <a>$sel:nextToken:SearchResources'</a>,
 --   <a>searchResourcesResponse_nextToken</a> - If present, indicates that
@@ -5286,13 +4992,6 @@ SearchResourcesResponse' :: Maybe Text -> Maybe [ResourceIdentifier] -> Maybe [Q
 --   <a>searchResourcesResponse_resourceIdentifiers</a> - The ARNs and
 --   resource types of resources that are members of the group that you
 --   specified.
---   
---   <a>$sel:queryErrors:SearchResourcesResponse'</a>,
---   <a>searchResourcesResponse_queryErrors</a> - A list of
---   <tt>QueryError</tt> objects. Each error is an object that contains
---   <tt>ErrorCode</tt> and <tt>Message</tt> structures. Possible values
---   for <tt>ErrorCode</tt> are <tt>CLOUDFORMATION_STACK_INACTIVE</tt> and
---   <tt>CLOUDFORMATION_STACK_NOT_EXISTING</tt>.
 --   
 --   <a>$sel:httpStatus:SearchResourcesResponse'</a>,
 --   <a>searchResourcesResponse_httpStatus</a> - The response's http status
@@ -5338,11 +5037,53 @@ GetTagsResponse' :: Maybe Text -> Maybe (HashMap Text Text) -> Int -> GetTagsRes
 --   <a>getTagsResponse_httpStatus</a> - The response's http status code.
 newGetTagsResponse :: Int -> GetTagsResponse
 
--- | <i>See:</i> <a>newUpdateGroupQuery</a> smart constructor.
-data UpdateGroupQuery
-UpdateGroupQuery' :: Maybe Text -> Maybe Text -> ResourceQuery -> UpdateGroupQuery
+-- | <i>See:</i> <a>newTag</a> smart constructor.
+data Tag
+Tag' :: Text -> HashMap Text Text -> Tag
 
--- | Create a value of <a>UpdateGroupQuery</a> with all optional fields
+-- | Create a value of <a>Tag</a> with all optional fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:arn:Tag'</a>, <a>tag_arn</a> - The ARN of the resource group
+--   to which to add tags.
+--   
+--   <a>$sel:tags:Tag'</a>, <a>tag_tags</a> - The tags to add to the
+--   specified resource group. A tag is a string-to-string map of key-value
+--   pairs.
+newTag :: Text -> Tag
+
+-- | <i>See:</i> <a>newTagResponse</a> smart constructor.
+data TagResponse
+TagResponse' :: Maybe Text -> Maybe (HashMap Text Text) -> Int -> TagResponse
+
+-- | Create a value of <a>TagResponse</a> with all optional fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:arn:Tag'</a>, <a>tagResponse_arn</a> - The ARN of the tagged
+--   resource.
+--   
+--   <a>$sel:tags:Tag'</a>, <a>tagResponse_tags</a> - The tags that have
+--   been added to the specified resource group.
+--   
+--   <a>$sel:httpStatus:TagResponse'</a>, <a>tagResponse_httpStatus</a> -
+--   The response's http status code.
+newTagResponse :: Int -> TagResponse
+
+-- | <i>See:</i> <a>newUngroupResources</a> smart constructor.
+data UngroupResources
+UngroupResources' :: Text -> NonEmpty Text -> UngroupResources
+
+-- | Create a value of <a>UngroupResources</a> with all optional fields
 --   omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
@@ -5351,27 +5092,142 @@ UpdateGroupQuery' :: Maybe Text -> Maybe Text -> ResourceQuery -> UpdateGroupQue
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:groupName:UpdateGroupQuery'</a>,
---   <a>updateGroupQuery_groupName</a> - Don't use this parameter. Use
---   <tt>Group</tt> instead.
+--   <a>$sel:group':UngroupResources'</a>, <a>ungroupResources_group</a> -
+--   The name or the ARN of the resource group from which to remove the
+--   resources.
 --   
---   <a>$sel:group':UpdateGroupQuery'</a>, <a>updateGroupQuery_group</a> -
---   The name or the ARN of the resource group to query.
+--   <a>$sel:resourceArns:UngroupResources'</a>,
+--   <a>ungroupResources_resourceArns</a> - The ARNs of the resources to be
+--   removed from the group.
+newUngroupResources :: Text -> NonEmpty Text -> UngroupResources
+
+-- | <i>See:</i> <a>newUngroupResourcesResponse</a> smart constructor.
+data UngroupResourcesResponse
+UngroupResourcesResponse' :: Maybe [PendingResource] -> Maybe (NonEmpty Text) -> Maybe [FailedResource] -> Int -> UngroupResourcesResponse
+
+-- | Create a value of <a>UngroupResourcesResponse</a> with all optional
+--   fields omitted.
 --   
---   <a>$sel:resourceQuery:UpdateGroupQuery'</a>,
---   <a>updateGroupQuery_resourceQuery</a> - The resource query to
---   determine which AWS resources are members of this resource group.
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:pending:UngroupResourcesResponse'</a>,
+--   <a>ungroupResourcesResponse_pending</a> - A list of any resources that
+--   are still in the process of being removed from the group by this
+--   operation. These pending removals continue asynchronously. You can
+--   check the status of pending removals by using the <tt>
+--   ListGroupResources </tt> operation. After the resource is successfully
+--   removed, it no longer appears in the response.
+--   
+--   <a>$sel:succeeded:UngroupResourcesResponse'</a>,
+--   <a>ungroupResourcesResponse_succeeded</a> - A list of resources that
+--   were successfully removed from the group by this operation.
+--   
+--   <a>$sel:failed:UngroupResourcesResponse'</a>,
+--   <a>ungroupResourcesResponse_failed</a> - A list of any resources that
+--   failed to be removed from the group by this operation.
+--   
+--   <a>$sel:httpStatus:UngroupResourcesResponse'</a>,
+--   <a>ungroupResourcesResponse_httpStatus</a> - The response's http
+--   status code.
+newUngroupResourcesResponse :: Int -> UngroupResourcesResponse
+
+-- | <i>See:</i> <a>newGroupResources</a> smart constructor.
+data GroupResources
+GroupResources' :: Text -> NonEmpty Text -> GroupResources
+
+-- | Create a value of <a>GroupResources</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:group':GroupResources'</a>, <a>groupResources_group</a> - The
+--   name or the ARN of the resource group to add resources to.
+--   
+--   <a>$sel:resourceArns:GroupResources'</a>,
+--   <a>groupResources_resourceArns</a> - The list of ARNs for resources to
+--   be added to the group.
+newGroupResources :: Text -> NonEmpty Text -> GroupResources
+
+-- | <i>See:</i> <a>newGroupResourcesResponse</a> smart constructor.
+data GroupResourcesResponse
+GroupResourcesResponse' :: Maybe [PendingResource] -> Maybe (NonEmpty Text) -> Maybe [FailedResource] -> Int -> GroupResourcesResponse
+
+-- | Create a value of <a>GroupResourcesResponse</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:pending:GroupResourcesResponse'</a>,
+--   <a>groupResourcesResponse_pending</a> - A list of ARNs of any
+--   resources that are still in the process of being added to the group by
+--   this operation. These pending additions continue asynchronously. You
+--   can check the status of pending additions by using the <tt>
+--   ListGroupResources </tt> operation, and checking the
+--   <tt>Resources</tt> array in the response and the <tt>Status</tt> field
+--   of each object in that array.
+--   
+--   <a>$sel:succeeded:GroupResourcesResponse'</a>,
+--   <a>groupResourcesResponse_succeeded</a> - A list of ARNs of resources
+--   that were successfully added to the group by this operation.
+--   
+--   <a>$sel:failed:GroupResourcesResponse'</a>,
+--   <a>groupResourcesResponse_failed</a> - A list of ARNs of any resources
+--   that failed to be added to the group by this operation.
+--   
+--   <a>$sel:httpStatus:GroupResourcesResponse'</a>,
+--   <a>groupResourcesResponse_httpStatus</a> - The response's http status
+--   code.
+newGroupResourcesResponse :: Int -> GroupResourcesResponse
+
+-- | <i>See:</i> <a>newPutGroupConfiguration</a> smart constructor.
+data PutGroupConfiguration
+PutGroupConfiguration' :: Maybe Text -> Maybe [GroupConfigurationItem] -> PutGroupConfiguration
+
+-- | Create a value of <a>PutGroupConfiguration</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:group':PutGroupConfiguration'</a>,
+--   <a>putGroupConfiguration_group</a> - The name or ARN of the resource
+--   group with the configuration that you want to update.
+--   
+--   <a>$sel:configuration:PutGroupConfiguration'</a>,
+--   <a>putGroupConfiguration_configuration</a> - The new configuration to
+--   associate with the specified group. A configuration associates the
+--   resource group with an AWS service and specifies how the service can
+--   interact with the resources in the group. A configuration is an array
+--   of GroupConfigurationItem elements.
+--   
+--   For information about the syntax of a service configuration, see
+--   <a>Service configurations for resource groups</a>.
 --   
 --   A resource group can contain either a <tt>Configuration</tt> or a
 --   <tt>ResourceQuery</tt>, but not both.
-newUpdateGroupQuery :: ResourceQuery -> UpdateGroupQuery
+newPutGroupConfiguration :: PutGroupConfiguration
 
--- | <i>See:</i> <a>newUpdateGroupQueryResponse</a> smart constructor.
-data UpdateGroupQueryResponse
-UpdateGroupQueryResponse' :: Maybe GroupQuery -> Int -> UpdateGroupQueryResponse
+-- | <i>See:</i> <a>newPutGroupConfigurationResponse</a> smart constructor.
+data PutGroupConfigurationResponse
+PutGroupConfigurationResponse' :: Int -> PutGroupConfigurationResponse
 
--- | Create a value of <a>UpdateGroupQueryResponse</a> with all optional
---   fields omitted.
+-- | Create a value of <a>PutGroupConfigurationResponse</a> with all
+--   optional fields omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
@@ -5379,135 +5235,10 @@ UpdateGroupQueryResponse' :: Maybe GroupQuery -> Int -> UpdateGroupQueryResponse
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:groupQuery:UpdateGroupQueryResponse'</a>,
---   <a>updateGroupQueryResponse_groupQuery</a> - The updated resource
---   query associated with the resource group after the update.
---   
---   <a>$sel:httpStatus:UpdateGroupQueryResponse'</a>,
---   <a>updateGroupQueryResponse_httpStatus</a> - The response's http
+--   <a>$sel:httpStatus:PutGroupConfigurationResponse'</a>,
+--   <a>putGroupConfigurationResponse_httpStatus</a> - The response's http
 --   status code.
-newUpdateGroupQueryResponse :: Int -> UpdateGroupQueryResponse
-
--- | <i>See:</i> <a>newListGroupResources</a> smart constructor.
-data ListGroupResources
-ListGroupResources' :: Maybe Text -> Maybe Natural -> Maybe Text -> Maybe Text -> Maybe [ResourceFilter] -> ListGroupResources
-
--- | Create a value of <a>ListGroupResources</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:nextToken:ListGroupResources'</a>,
---   <a>listGroupResources_nextToken</a> - The parameter for receiving
---   additional results if you receive a <tt>NextToken</tt> response in a
---   previous request. A <tt>NextToken</tt> response indicates that more
---   output is available. Set this parameter to the value provided by a
---   previous call's <tt>NextToken</tt> response to indicate where the
---   output should continue from.
---   
---   <a>$sel:maxResults:ListGroupResources'</a>,
---   <a>listGroupResources_maxResults</a> - The total number of results
---   that you want included on each page of the response. If you do not
---   include this parameter, it defaults to a value that is specific to the
---   operation. If additional items exist beyond the maximum you specify,
---   the <tt>NextToken</tt> response element is present and has a value (is
---   not null). Include that value as the <tt>NextToken</tt> request
---   parameter in the next call to the operation to get the next part of
---   the results. Note that the service might return fewer results than the
---   maximum even when there are more results available. You should check
---   <tt>NextToken</tt> after every operation to ensure that you receive
---   all of the results.
---   
---   <a>$sel:groupName:ListGroupResources'</a>,
---   <a>listGroupResources_groupName</a> - /__Deprecated - don't use this
---   parameter. Use the <tt>Group</tt> request field instead.__/
---   
---   <a>$sel:group':ListGroupResources'</a>,
---   <a>listGroupResources_group</a> - The name or the ARN of the resource
---   group
---   
---   <a>$sel:filters:ListGroupResources'</a>,
---   <a>listGroupResources_filters</a> - Filters, formatted as
---   ResourceFilter objects, that you want to apply to a
---   <tt>ListGroupResources</tt> operation. Filters the results to include
---   only those of the specified resource types.
---   
---   <ul>
---   <li><tt>resource-type</tt> - Filter resources by their type. Specify
---   up to five resource types in the format
---   <tt>AWS::ServiceCode::ResourceType</tt>. For example,
---   <tt>AWS::EC2::Instance</tt>, or <tt>AWS::S3::Bucket</tt>.</li>
---   </ul>
---   
---   When you specify a <tt>resource-type</tt> filter for
---   <tt>ListGroupResources</tt>, AWS Resource Groups validates your filter
---   resource types against the types that are defined in the query
---   associated with the group. For example, if a group contains only S3
---   buckets because its query specifies only that resource type, but your
---   <tt>resource-type</tt> filter includes EC2 instances, AWS Resource
---   Groups does not filter for EC2 instances. In this case, a
---   <tt>ListGroupResources</tt> request returns a
---   <tt>BadRequestException</tt> error with a message similar to the
---   following:
---   
---   <pre>
---   The resource types specified as filters in the request are not valid.
---   </pre>
---   
---   The error includes a list of resource types that failed the validation
---   because they are not part of the query associated with the group. This
---   validation doesn't occur when the group query specifies
---   <tt>AWS::AllSupported</tt>, because a group based on such a query can
---   contain any of the allowed resource types for the query type
---   (tag-based or AWS CloudFormation stack-based queries).
-newListGroupResources :: ListGroupResources
-
--- | <i>See:</i> <a>newListGroupResourcesResponse</a> smart constructor.
-data ListGroupResourcesResponse
-ListGroupResourcesResponse' :: Maybe Text -> Maybe [ResourceIdentifier] -> Maybe [QueryError] -> Maybe [ListGroupResourcesItem] -> Int -> ListGroupResourcesResponse
-
--- | Create a value of <a>ListGroupResourcesResponse</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:nextToken:ListGroupResources'</a>,
---   <a>listGroupResourcesResponse_nextToken</a> - If present, indicates
---   that more output is available than is included in the current
---   response. Use this value in the <tt>NextToken</tt> request parameter
---   in a subsequent call to the operation to get the next part of the
---   output. You should repeat this until the <tt>NextToken</tt> response
---   element comes back as <tt>null</tt>.
---   
---   <a>$sel:resourceIdentifiers:ListGroupResourcesResponse'</a>,
---   <a>listGroupResourcesResponse_resourceIdentifiers</a> - __/Deprecated
---   - don't use this parameter. Use the <tt>Resources</tt> response field
---   instead./__
---   
---   <a>$sel:queryErrors:ListGroupResourcesResponse'</a>,
---   <a>listGroupResourcesResponse_queryErrors</a> - A list of
---   <tt>QueryError</tt> objects. Each error is an object that contains
---   <tt>ErrorCode</tt> and <tt>Message</tt> structures. Possible values
---   for <tt>ErrorCode</tt> are <tt>CLOUDFORMATION_STACK_INACTIVE</tt> and
---   <tt>CLOUDFORMATION_STACK_NOT_EXISTING</tt>.
---   
---   <a>$sel:resources:ListGroupResourcesResponse'</a>,
---   <a>listGroupResourcesResponse_resources</a> - An array of resources
---   from which you can determine each resource's identity, type, and group
---   membership status.
---   
---   <a>$sel:httpStatus:ListGroupResourcesResponse'</a>,
---   <a>listGroupResourcesResponse_httpStatus</a> - The response's http
---   status code.
-newListGroupResourcesResponse :: Int -> ListGroupResourcesResponse
+newPutGroupConfigurationResponse :: Int -> PutGroupConfigurationResponse
 
 -- | <i>See:</i> <a>newUntag</a> smart constructor.
 data Untag
@@ -5552,30 +5283,11 @@ UntagResponse' :: Maybe Text -> Maybe [Text] -> Int -> UntagResponse
 --   - The response's http status code.
 newUntagResponse :: Int -> UntagResponse
 
--- | <i>See:</i> <a>newGetGroup</a> smart constructor.
-data GetGroup
-GetGroup' :: Maybe Text -> Maybe Text -> GetGroup
+-- | <i>See:</i> <a>newUpdateGroupQuery</a> smart constructor.
+data UpdateGroupQuery
+UpdateGroupQuery' :: Maybe Text -> Maybe Text -> ResourceQuery -> UpdateGroupQuery
 
--- | Create a value of <a>GetGroup</a> with all optional fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:groupName:GetGroup'</a>, <a>getGroup_groupName</a> -
---   Deprecated - don't use this parameter. Use <tt>Group</tt> instead.
---   
---   <a>$sel:group':GetGroup'</a>, <a>getGroup_group</a> - The name or the
---   ARN of the resource group to retrieve.
-newGetGroup :: GetGroup
-
--- | <i>See:</i> <a>newGetGroupResponse</a> smart constructor.
-data GetGroupResponse
-GetGroupResponse' :: Maybe Group -> Int -> GetGroupResponse
-
--- | Create a value of <a>GetGroupResponse</a> with all optional fields
+-- | Create a value of <a>UpdateGroupQuery</a> with all optional fields
 --   omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
@@ -5584,12 +5296,291 @@ GetGroupResponse' :: Maybe Group -> Int -> GetGroupResponse
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:group':GetGroup'</a>, <a>getGroupResponse_group</a> - A full
---   description of the resource group.
+--   <a>$sel:group':UpdateGroupQuery'</a>, <a>updateGroupQuery_group</a> -
+--   The name or the ARN of the resource group to query.
 --   
---   <a>$sel:httpStatus:GetGroupResponse'</a>,
---   <a>getGroupResponse_httpStatus</a> - The response's http status code.
-newGetGroupResponse :: Int -> GetGroupResponse
+--   <a>$sel:groupName:UpdateGroupQuery'</a>,
+--   <a>updateGroupQuery_groupName</a> - Don't use this parameter. Use
+--   <tt>Group</tt> instead.
+--   
+--   <a>$sel:resourceQuery:UpdateGroupQuery'</a>,
+--   <a>updateGroupQuery_resourceQuery</a> - The resource query to
+--   determine which AWS resources are members of this resource group.
+--   
+--   A resource group can contain either a <tt>Configuration</tt> or a
+--   <tt>ResourceQuery</tt>, but not both.
+newUpdateGroupQuery :: ResourceQuery -> UpdateGroupQuery
+
+-- | <i>See:</i> <a>newUpdateGroupQueryResponse</a> smart constructor.
+data UpdateGroupQueryResponse
+UpdateGroupQueryResponse' :: Maybe GroupQuery -> Int -> UpdateGroupQueryResponse
+
+-- | Create a value of <a>UpdateGroupQueryResponse</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:groupQuery:UpdateGroupQueryResponse'</a>,
+--   <a>updateGroupQueryResponse_groupQuery</a> - The updated resource
+--   query associated with the resource group after the update.
+--   
+--   <a>$sel:httpStatus:UpdateGroupQueryResponse'</a>,
+--   <a>updateGroupQueryResponse_httpStatus</a> - The response's http
+--   status code.
+newUpdateGroupQueryResponse :: Int -> UpdateGroupQueryResponse
+
+-- | <i>See:</i> <a>newListGroupResources</a> smart constructor.
+data ListGroupResources
+ListGroupResources' :: Maybe Text -> Maybe [ResourceFilter] -> Maybe Text -> Maybe Text -> Maybe Natural -> ListGroupResources
+
+-- | Create a value of <a>ListGroupResources</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:group':ListGroupResources'</a>,
+--   <a>listGroupResources_group</a> - The name or the ARN of the resource
+--   group
+--   
+--   <a>$sel:filters:ListGroupResources'</a>,
+--   <a>listGroupResources_filters</a> - Filters, formatted as
+--   ResourceFilter objects, that you want to apply to a
+--   <tt>ListGroupResources</tt> operation. Filters the results to include
+--   only those of the specified resource types.
+--   
+--   <ul>
+--   <li><tt>resource-type</tt> - Filter resources by their type. Specify
+--   up to five resource types in the format
+--   <tt>AWS::ServiceCode::ResourceType</tt>. For example,
+--   <tt>AWS::EC2::Instance</tt>, or <tt>AWS::S3::Bucket</tt>.</li>
+--   </ul>
+--   
+--   When you specify a <tt>resource-type</tt> filter for
+--   <tt>ListGroupResources</tt>, AWS Resource Groups validates your filter
+--   resource types against the types that are defined in the query
+--   associated with the group. For example, if a group contains only S3
+--   buckets because its query specifies only that resource type, but your
+--   <tt>resource-type</tt> filter includes EC2 instances, AWS Resource
+--   Groups does not filter for EC2 instances. In this case, a
+--   <tt>ListGroupResources</tt> request returns a
+--   <tt>BadRequestException</tt> error with a message similar to the
+--   following:
+--   
+--   <pre>
+--   The resource types specified as filters in the request are not valid.
+--   </pre>
+--   
+--   The error includes a list of resource types that failed the validation
+--   because they are not part of the query associated with the group. This
+--   validation doesn't occur when the group query specifies
+--   <tt>AWS::AllSupported</tt>, because a group based on such a query can
+--   contain any of the allowed resource types for the query type
+--   (tag-based or AWS CloudFormation stack-based queries).
+--   
+--   <a>$sel:nextToken:ListGroupResources'</a>,
+--   <a>listGroupResources_nextToken</a> - The parameter for receiving
+--   additional results if you receive a <tt>NextToken</tt> response in a
+--   previous request. A <tt>NextToken</tt> response indicates that more
+--   output is available. Set this parameter to the value provided by a
+--   previous call's <tt>NextToken</tt> response to indicate where the
+--   output should continue from.
+--   
+--   <a>$sel:groupName:ListGroupResources'</a>,
+--   <a>listGroupResources_groupName</a> - /__Deprecated - don't use this
+--   parameter. Use the <tt>Group</tt> request field instead.__/
+--   
+--   <a>$sel:maxResults:ListGroupResources'</a>,
+--   <a>listGroupResources_maxResults</a> - The total number of results
+--   that you want included on each page of the response. If you do not
+--   include this parameter, it defaults to a value that is specific to the
+--   operation. If additional items exist beyond the maximum you specify,
+--   the <tt>NextToken</tt> response element is present and has a value (is
+--   not null). Include that value as the <tt>NextToken</tt> request
+--   parameter in the next call to the operation to get the next part of
+--   the results. Note that the service might return fewer results than the
+--   maximum even when there are more results available. You should check
+--   <tt>NextToken</tt> after every operation to ensure that you receive
+--   all of the results.
+newListGroupResources :: ListGroupResources
+
+-- | <i>See:</i> <a>newListGroupResourcesResponse</a> smart constructor.
+data ListGroupResourcesResponse
+ListGroupResourcesResponse' :: Maybe [ListGroupResourcesItem] -> Maybe [QueryError] -> Maybe Text -> Maybe [ResourceIdentifier] -> Int -> ListGroupResourcesResponse
+
+-- | Create a value of <a>ListGroupResourcesResponse</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:resources:ListGroupResourcesResponse'</a>,
+--   <a>listGroupResourcesResponse_resources</a> - An array of resources
+--   from which you can determine each resource's identity, type, and group
+--   membership status.
+--   
+--   <a>$sel:queryErrors:ListGroupResourcesResponse'</a>,
+--   <a>listGroupResourcesResponse_queryErrors</a> - A list of
+--   <tt>QueryError</tt> objects. Each error is an object that contains
+--   <tt>ErrorCode</tt> and <tt>Message</tt> structures. Possible values
+--   for <tt>ErrorCode</tt> are <tt>CLOUDFORMATION_STACK_INACTIVE</tt> and
+--   <tt>CLOUDFORMATION_STACK_NOT_EXISTING</tt>.
+--   
+--   <a>$sel:nextToken:ListGroupResources'</a>,
+--   <a>listGroupResourcesResponse_nextToken</a> - If present, indicates
+--   that more output is available than is included in the current
+--   response. Use this value in the <tt>NextToken</tt> request parameter
+--   in a subsequent call to the operation to get the next part of the
+--   output. You should repeat this until the <tt>NextToken</tt> response
+--   element comes back as <tt>null</tt>.
+--   
+--   <a>$sel:resourceIdentifiers:ListGroupResourcesResponse'</a>,
+--   <a>listGroupResourcesResponse_resourceIdentifiers</a> - __/Deprecated
+--   - don't use this parameter. Use the <tt>Resources</tt> response field
+--   instead./__
+--   
+--   <a>$sel:httpStatus:ListGroupResourcesResponse'</a>,
+--   <a>listGroupResourcesResponse_httpStatus</a> - The response's http
+--   status code.
+newListGroupResourcesResponse :: Int -> ListGroupResourcesResponse
+
+-- | <i>See:</i> <a>newGetGroupQuery</a> smart constructor.
+data GetGroupQuery
+GetGroupQuery' :: Maybe Text -> Maybe Text -> GetGroupQuery
+
+-- | Create a value of <a>GetGroupQuery</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:group':GetGroupQuery'</a>, <a>getGroupQuery_group</a> - The
+--   name or the ARN of the resource group to query.
+--   
+--   <a>$sel:groupName:GetGroupQuery'</a>, <a>getGroupQuery_groupName</a> -
+--   Don't use this parameter. Use <tt>Group</tt> instead.
+newGetGroupQuery :: GetGroupQuery
+
+-- | <i>See:</i> <a>newGetGroupQueryResponse</a> smart constructor.
+data GetGroupQueryResponse
+GetGroupQueryResponse' :: Maybe GroupQuery -> Int -> GetGroupQueryResponse
+
+-- | Create a value of <a>GetGroupQueryResponse</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:groupQuery:GetGroupQueryResponse'</a>,
+--   <a>getGroupQueryResponse_groupQuery</a> - The resource query
+--   associated with the specified group. For more information about
+--   resource queries, see <a>Create a tag-based group in Resource
+--   Groups</a>.
+--   
+--   <a>$sel:httpStatus:GetGroupQueryResponse'</a>,
+--   <a>getGroupQueryResponse_httpStatus</a> - The response's http status
+--   code.
+newGetGroupQueryResponse :: Int -> GetGroupQueryResponse
+
+-- | <i>See:</i> <a>newCreateGroup</a> smart constructor.
+data CreateGroup
+CreateGroup' :: Maybe ResourceQuery -> Maybe [GroupConfigurationItem] -> Maybe Text -> Maybe (HashMap Text Text) -> Text -> CreateGroup
+
+-- | Create a value of <a>CreateGroup</a> with all optional fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:resourceQuery:CreateGroup'</a>,
+--   <a>createGroup_resourceQuery</a> - The resource query that determines
+--   which AWS resources are members of this group. For more information
+--   about resource queries, see <a>Create a tag-based group in Resource
+--   Groups</a>.
+--   
+--   A resource group can contain either a <tt>ResourceQuery</tt> or a
+--   <tt>Configuration</tt>, but not both.
+--   
+--   <a>$sel:configuration:CreateGroup'</a>,
+--   <a>createGroup_configuration</a> - A configuration associates the
+--   resource group with an AWS service and specifies how the service can
+--   interact with the resources in the group. A configuration is an array
+--   of GroupConfigurationItem elements. For details about the syntax of
+--   service configurations, see <a>Service configurations for resource
+--   groups</a>.
+--   
+--   A resource group can contain either a <tt>Configuration</tt> or a
+--   <tt>ResourceQuery</tt>, but not both.
+--   
+--   <a>$sel:description:CreateGroup'</a>, <a>createGroup_description</a> -
+--   The description of the resource group. Descriptions can consist of
+--   letters, numbers, hyphens, underscores, periods, and spaces.
+--   
+--   <a>$sel:tags:CreateGroup'</a>, <a>createGroup_tags</a> - The tags to
+--   add to the group. A tag is key-value pair string.
+--   
+--   <a>$sel:name:CreateGroup'</a>, <a>createGroup_name</a> - The name of
+--   the group, which is the identifier of the group in other operations.
+--   You can't change the name of a resource group after you create it. A
+--   resource group name can consist of letters, numbers, hyphens, periods,
+--   and underscores. The name cannot start with <tt>AWS</tt> or
+--   <tt>aws</tt>; these are reserved. A resource group name must be unique
+--   within each AWS Region in your AWS account.
+newCreateGroup :: Text -> CreateGroup
+
+-- | <i>See:</i> <a>newCreateGroupResponse</a> smart constructor.
+data CreateGroupResponse
+CreateGroupResponse' :: Maybe Group -> Maybe GroupConfiguration -> Maybe ResourceQuery -> Maybe (HashMap Text Text) -> Int -> CreateGroupResponse
+
+-- | Create a value of <a>CreateGroupResponse</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:group':CreateGroupResponse'</a>,
+--   <a>createGroupResponse_group</a> - The description of the resource
+--   group.
+--   
+--   <a>$sel:groupConfiguration:CreateGroupResponse'</a>,
+--   <a>createGroupResponse_groupConfiguration</a> - The service
+--   configuration associated with the resource group. For details about
+--   the syntax of a service configuration, see <a>Service configurations
+--   for resource groups</a>.
+--   
+--   <a>$sel:resourceQuery:CreateGroup'</a>,
+--   <a>createGroupResponse_resourceQuery</a> - The resource query
+--   associated with the group. For more information about resource
+--   queries, see <a>Create a tag-based group in Resource Groups</a>.
+--   
+--   <a>$sel:tags:CreateGroup'</a>, <a>createGroupResponse_tags</a> - The
+--   tags associated with the group.
+--   
+--   <a>$sel:httpStatus:CreateGroupResponse'</a>,
+--   <a>createGroupResponse_httpStatus</a> - The response's http status
+--   code.
+newCreateGroupResponse :: Int -> CreateGroupResponse
 
 -- | <i>See:</i> <a>newDeleteGroup</a> smart constructor.
 data DeleteGroup
@@ -5603,11 +5594,11 @@ DeleteGroup' :: Maybe Text -> Maybe Text -> DeleteGroup
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:groupName:DeleteGroup'</a>, <a>deleteGroup_groupName</a> -
---   Deprecated - don't use this parameter. Use <tt>Group</tt> instead.
---   
 --   <a>$sel:group':DeleteGroup'</a>, <a>deleteGroup_group</a> - The name
 --   or the ARN of the resource group to delete.
+--   
+--   <a>$sel:groupName:DeleteGroup'</a>, <a>deleteGroup_groupName</a> -
+--   Deprecated - don't use this parameter. Use <tt>Group</tt> instead.
 newDeleteGroup :: DeleteGroup
 
 -- | <i>See:</i> <a>newDeleteGroupResponse</a> smart constructor.
@@ -5631,62 +5622,6 @@ DeleteGroupResponse' :: Maybe Group -> Int -> DeleteGroupResponse
 --   code.
 newDeleteGroupResponse :: Int -> DeleteGroupResponse
 
--- | <i>See:</i> <a>newGroupResources</a> smart constructor.
-data GroupResources
-GroupResources' :: Text -> NonEmpty Text -> GroupResources
-
--- | Create a value of <a>GroupResources</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:group':GroupResources'</a>, <a>groupResources_group</a> - The
---   name or the ARN of the resource group to add resources to.
---   
---   <a>$sel:resourceArns:GroupResources'</a>,
---   <a>groupResources_resourceArns</a> - The list of ARNs for resources to
---   be added to the group.
-newGroupResources :: Text -> NonEmpty Text -> GroupResources
-
--- | <i>See:</i> <a>newGroupResourcesResponse</a> smart constructor.
-data GroupResourcesResponse
-GroupResourcesResponse' :: Maybe (NonEmpty Text) -> Maybe [PendingResource] -> Maybe [FailedResource] -> Int -> GroupResourcesResponse
-
--- | Create a value of <a>GroupResourcesResponse</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:succeeded:GroupResourcesResponse'</a>,
---   <a>groupResourcesResponse_succeeded</a> - A list of ARNs of resources
---   that were successfully added to the group by this operation.
---   
---   <a>$sel:pending:GroupResourcesResponse'</a>,
---   <a>groupResourcesResponse_pending</a> - A list of ARNs of any
---   resources that are still in the process of being added to the group by
---   this operation. These pending additions continue asynchronously. You
---   can check the status of pending additions by using the <tt>
---   ListGroupResources </tt> operation, and checking the
---   <tt>Resources</tt> array in the response and the <tt>Status</tt> field
---   of each object in that array.
---   
---   <a>$sel:failed:GroupResourcesResponse'</a>,
---   <a>groupResourcesResponse_failed</a> - A list of ARNs of any resources
---   that failed to be added to the group by this operation.
---   
---   <a>$sel:httpStatus:GroupResourcesResponse'</a>,
---   <a>groupResourcesResponse_httpStatus</a> - The response's http status
---   code.
-newGroupResourcesResponse :: Int -> GroupResourcesResponse
-
 -- | <i>See:</i> <a>newUpdateGroup</a> smart constructor.
 data UpdateGroup
 UpdateGroup' :: Maybe Text -> Maybe Text -> Maybe Text -> UpdateGroup
@@ -5699,11 +5634,11 @@ UpdateGroup' :: Maybe Text -> Maybe Text -> Maybe Text -> UpdateGroup
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:groupName:UpdateGroup'</a>, <a>updateGroup_groupName</a> -
---   Don't use this parameter. Use <tt>Group</tt> instead.
---   
 --   <a>$sel:group':UpdateGroup'</a>, <a>updateGroup_group</a> - The name
 --   or the ARN of the resource group to modify.
+--   
+--   <a>$sel:groupName:UpdateGroup'</a>, <a>updateGroup_groupName</a> -
+--   Don't use this parameter. Use <tt>Group</tt> instead.
 --   
 --   <a>$sel:description:UpdateGroup'</a>, <a>updateGroup_description</a> -
 --   The new description that you want to update the resource group with.
@@ -5732,11 +5667,59 @@ UpdateGroupResponse' :: Maybe Group -> Int -> UpdateGroupResponse
 --   code.
 newUpdateGroupResponse :: Int -> UpdateGroupResponse
 
--- | <i>See:</i> <a>newUngroupResources</a> smart constructor.
-data UngroupResources
-UngroupResources' :: Text -> NonEmpty Text -> UngroupResources
+-- | <i>See:</i> <a>newListGroups</a> smart constructor.
+data ListGroups
+ListGroups' :: Maybe [GroupFilter] -> Maybe Text -> Maybe Natural -> ListGroups
 
--- | Create a value of <a>UngroupResources</a> with all optional fields
+-- | Create a value of <a>ListGroups</a> with all optional fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:filters:ListGroups'</a>, <a>listGroups_filters</a> - Filters,
+--   formatted as GroupFilter objects, that you want to apply to a
+--   <tt>ListGroups</tt> operation.
+--   
+--   <ul>
+--   <li><tt>resource-type</tt> - Filter the results to include only those
+--   of the specified resource types. Specify up to five resource types in
+--   the format <tt>AWS::ServiceCode::ResourceType </tt>. For example,
+--   <tt>AWS::EC2::Instance</tt>, or <tt>AWS::S3::Bucket</tt>.</li>
+--   <li><tt>configuration-type</tt> - Filter the results to include only
+--   those groups that have the specified configuration types attached. The
+--   current supported values
+--   are:<ul><li><pre>AWS:EC2::CapacityReservationPool</pre></li><li><pre>AWS:EC2::HostManagement</pre></li></ul></li>
+--   </ul>
+--   
+--   <a>$sel:nextToken:ListGroups'</a>, <a>listGroups_nextToken</a> - The
+--   parameter for receiving additional results if you receive a
+--   <tt>NextToken</tt> response in a previous request. A
+--   <tt>NextToken</tt> response indicates that more output is available.
+--   Set this parameter to the value provided by a previous call's
+--   <tt>NextToken</tt> response to indicate where the output should
+--   continue from.
+--   
+--   <a>$sel:maxResults:ListGroups'</a>, <a>listGroups_maxResults</a> - The
+--   total number of results that you want included on each page of the
+--   response. If you do not include this parameter, it defaults to a value
+--   that is specific to the operation. If additional items exist beyond
+--   the maximum you specify, the <tt>NextToken</tt> response element is
+--   present and has a value (is not null). Include that value as the
+--   <tt>NextToken</tt> request parameter in the next call to the operation
+--   to get the next part of the results. Note that the service might
+--   return fewer results than the maximum even when there are more results
+--   available. You should check <tt>NextToken</tt> after every operation
+--   to ensure that you receive all of the results.
+newListGroups :: ListGroups
+
+-- | <i>See:</i> <a>newListGroupsResponse</a> smart constructor.
+data ListGroupsResponse
+ListGroupsResponse' :: Maybe [Group] -> Maybe Text -> Maybe [GroupIdentifier] -> Int -> ListGroupsResponse
+
+-- | Create a value of <a>ListGroupsResponse</a> with all optional fields
 --   omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
@@ -5745,20 +5728,71 @@ UngroupResources' :: Text -> NonEmpty Text -> UngroupResources
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:group':UngroupResources'</a>, <a>ungroupResources_group</a> -
---   The name or the ARN of the resource group from which to remove the
---   resources.
+--   <a>$sel:groups:ListGroupsResponse'</a>,
+--   <a>listGroupsResponse_groups</a> - /__Deprecated - don't use this
+--   field. Use the <tt>GroupIdentifiers</tt> response field instead.__/
 --   
---   <a>$sel:resourceArns:UngroupResources'</a>,
---   <a>ungroupResources_resourceArns</a> - The ARNs of the resources to be
---   removed from the group.
-newUngroupResources :: Text -> NonEmpty Text -> UngroupResources
+--   <a>$sel:nextToken:ListGroups'</a>, <a>listGroupsResponse_nextToken</a>
+--   - If present, indicates that more output is available than is included
+--   in the current response. Use this value in the <tt>NextToken</tt>
+--   request parameter in a subsequent call to the operation to get the
+--   next part of the output. You should repeat this until the
+--   <tt>NextToken</tt> response element comes back as <tt>null</tt>.
+--   
+--   <a>$sel:groupIdentifiers:ListGroupsResponse'</a>,
+--   <a>listGroupsResponse_groupIdentifiers</a> - A list of GroupIdentifier
+--   objects. Each identifier is an object that contains both the
+--   <tt>Name</tt> and the <tt>GroupArn</tt>.
+--   
+--   <a>$sel:httpStatus:ListGroupsResponse'</a>,
+--   <a>listGroupsResponse_httpStatus</a> - The response's http status
+--   code.
+newListGroupsResponse :: Int -> ListGroupsResponse
 
--- | <i>See:</i> <a>newUngroupResourcesResponse</a> smart constructor.
-data UngroupResourcesResponse
-UngroupResourcesResponse' :: Maybe (NonEmpty Text) -> Maybe [PendingResource] -> Maybe [FailedResource] -> Int -> UngroupResourcesResponse
+-- | <i>See:</i> <a>newGetGroup</a> smart constructor.
+data GetGroup
+GetGroup' :: Maybe Text -> Maybe Text -> GetGroup
 
--- | Create a value of <a>UngroupResourcesResponse</a> with all optional
+-- | Create a value of <a>GetGroup</a> with all optional fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:group':GetGroup'</a>, <a>getGroup_group</a> - The name or the
+--   ARN of the resource group to retrieve.
+--   
+--   <a>$sel:groupName:GetGroup'</a>, <a>getGroup_groupName</a> -
+--   Deprecated - don't use this parameter. Use <tt>Group</tt> instead.
+newGetGroup :: GetGroup
+
+-- | <i>See:</i> <a>newGetGroupResponse</a> smart constructor.
+data GetGroupResponse
+GetGroupResponse' :: Maybe Group -> Int -> GetGroupResponse
+
+-- | Create a value of <a>GetGroupResponse</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:group':GetGroup'</a>, <a>getGroupResponse_group</a> - A full
+--   description of the resource group.
+--   
+--   <a>$sel:httpStatus:GetGroupResponse'</a>,
+--   <a>getGroupResponse_httpStatus</a> - The response's http status code.
+newGetGroupResponse :: Int -> GetGroupResponse
+
+-- | <i>See:</i> <a>newGetGroupConfiguration</a> smart constructor.
+data GetGroupConfiguration
+GetGroupConfiguration' :: Maybe Text -> GetGroupConfiguration
+
+-- | Create a value of <a>GetGroupConfiguration</a> with all optional
 --   fields omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
@@ -5767,68 +5801,34 @@ UngroupResourcesResponse' :: Maybe (NonEmpty Text) -> Maybe [PendingResource] ->
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:succeeded:UngroupResourcesResponse'</a>,
---   <a>ungroupResourcesResponse_succeeded</a> - A list of resources that
---   were successfully removed from the group by this operation.
+--   <a>$sel:group':GetGroupConfiguration'</a>,
+--   <a>getGroupConfiguration_group</a> - The name or the ARN of the
+--   resource group.
+newGetGroupConfiguration :: GetGroupConfiguration
+
+-- | <i>See:</i> <a>newGetGroupConfigurationResponse</a> smart constructor.
+data GetGroupConfigurationResponse
+GetGroupConfigurationResponse' :: Maybe GroupConfiguration -> Int -> GetGroupConfigurationResponse
+
+-- | Create a value of <a>GetGroupConfigurationResponse</a> with all
+--   optional fields omitted.
 --   
---   <a>$sel:pending:UngroupResourcesResponse'</a>,
---   <a>ungroupResourcesResponse_pending</a> - A list of any resources that
---   are still in the process of being removed from the group by this
---   operation. These pending removals continue asynchronously. You can
---   check the status of pending removals by using the <tt>
---   ListGroupResources </tt> operation. After the resource is successfully
---   removed, it no longer appears in the response.
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
 --   
---   <a>$sel:failed:UngroupResourcesResponse'</a>,
---   <a>ungroupResourcesResponse_failed</a> - A list of any resources that
---   failed to be removed from the group by this operation.
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
 --   
---   <a>$sel:httpStatus:UngroupResourcesResponse'</a>,
---   <a>ungroupResourcesResponse_httpStatus</a> - The response's http
+--   <a>$sel:groupConfiguration:GetGroupConfigurationResponse'</a>,
+--   <a>getGroupConfigurationResponse_groupConfiguration</a> - The service
+--   configuration associated with the specified group. For details about
+--   the service configuration syntax, see <a>Service configurations for
+--   resource groups</a>.
+--   
+--   <a>$sel:httpStatus:GetGroupConfigurationResponse'</a>,
+--   <a>getGroupConfigurationResponse_httpStatus</a> - The response's http
 --   status code.
-newUngroupResourcesResponse :: Int -> UngroupResourcesResponse
-
--- | <i>See:</i> <a>newTag</a> smart constructor.
-data Tag
-Tag' :: Text -> HashMap Text Text -> Tag
-
--- | Create a value of <a>Tag</a> with all optional fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:arn:Tag'</a>, <a>tag_arn</a> - The ARN of the resource group
---   to which to add tags.
---   
---   <a>$sel:tags:Tag'</a>, <a>tag_tags</a> - The tags to add to the
---   specified resource group. A tag is a string-to-string map of key-value
---   pairs.
-newTag :: Text -> Tag
-
--- | <i>See:</i> <a>newTagResponse</a> smart constructor.
-data TagResponse
-TagResponse' :: Maybe Text -> Maybe (HashMap Text Text) -> Int -> TagResponse
-
--- | Create a value of <a>TagResponse</a> with all optional fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:arn:Tag'</a>, <a>tagResponse_arn</a> - The ARN of the tagged
---   resource.
---   
---   <a>$sel:tags:Tag'</a>, <a>tagResponse_tags</a> - The tags that have
---   been added to the specified resource group.
---   
---   <a>$sel:httpStatus:TagResponse'</a>, <a>tagResponse_httpStatus</a> -
---   The response's http status code.
-newTagResponse :: Int -> TagResponse
+newGetGroupConfigurationResponse :: Int -> GetGroupConfigurationResponse
 newtype GroupConfigurationStatus
 GroupConfigurationStatus' :: Text -> GroupConfigurationStatus
 [fromGroupConfigurationStatus] :: GroupConfigurationStatus -> Text
@@ -5878,12 +5878,12 @@ FailedResource' :: Maybe Text -> Maybe Text -> Maybe Text -> FailedResource
 --   <a>failedResource_resourceArn</a> - The ARN of the resource that
 --   failed to be added or removed.
 --   
+--   <a>$sel:errorCode:FailedResource'</a>, <a>failedResource_errorCode</a>
+--   - The error code associated with the failure.
+--   
 --   <a>$sel:errorMessage:FailedResource'</a>,
 --   <a>failedResource_errorMessage</a> - The error message text associated
 --   with the failure.
---   
---   <a>$sel:errorCode:FailedResource'</a>, <a>failedResource_errorCode</a>
---   - The error code associated with the failure.
 newFailedResource :: FailedResource
 
 -- | A resource group that contains AWS resources. You can assign resources
@@ -5934,7 +5934,7 @@ newGroup :: Text -> Text -> Group
 --   
 --   <i>See:</i> <a>newGroupConfiguration</a> smart constructor.
 data GroupConfiguration
-GroupConfiguration' :: Maybe GroupConfigurationStatus -> Maybe [GroupConfigurationItem] -> Maybe Text -> Maybe [GroupConfigurationItem] -> GroupConfiguration
+GroupConfiguration' :: Maybe GroupConfigurationStatus -> Maybe Text -> Maybe [GroupConfigurationItem] -> Maybe [GroupConfigurationItem] -> GroupConfiguration
 
 -- | Create a value of <a>GroupConfiguration</a> with all optional fields
 --   omitted.
@@ -5949,10 +5949,6 @@ GroupConfiguration' :: Maybe GroupConfigurationStatus -> Maybe [GroupConfigurati
 --   <a>groupConfiguration_status</a> - The current status of an attempt to
 --   update the group configuration.
 --   
---   <a>$sel:configuration:GroupConfiguration'</a>,
---   <a>groupConfiguration_configuration</a> - The configuration currently
---   associated with the group and in effect.
---   
 --   <a>$sel:failureReason:GroupConfiguration'</a>,
 --   <a>groupConfiguration_failureReason</a> - If present, the reason why a
 --   request to update the group configuration failed.
@@ -5960,6 +5956,10 @@ GroupConfiguration' :: Maybe GroupConfigurationStatus -> Maybe [GroupConfigurati
 --   <a>$sel:proposedConfiguration:GroupConfiguration'</a>,
 --   <a>groupConfiguration_proposedConfiguration</a> - If present, the new
 --   configuration that is in the process of being applied to the group.
+--   
+--   <a>$sel:configuration:GroupConfiguration'</a>,
+--   <a>groupConfiguration_configuration</a> - The configuration currently
+--   associated with the group and in effect.
 newGroupConfiguration :: GroupConfiguration
 
 -- | An item in a group configuration. A group service configuration can
@@ -6061,11 +6061,11 @@ GroupIdentifier' :: Maybe Text -> Maybe Text -> GroupIdentifier
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:groupName:GroupIdentifier'</a>,
---   <a>groupIdentifier_groupName</a> - The name of the resource group.
---   
 --   <a>$sel:groupArn:GroupIdentifier'</a>, <a>groupIdentifier_groupArn</a>
 --   - The ARN of the resource group.
+--   
+--   <a>$sel:groupName:GroupIdentifier'</a>,
+--   <a>groupIdentifier_groupName</a> - The name of the resource group.
 newGroupIdentifier :: GroupIdentifier
 
 -- | A mapping of a query attached to a resource group that determines the
@@ -6154,7 +6154,7 @@ newPendingResource :: PendingResource
 --   
 --   <i>See:</i> <a>newQueryError</a> smart constructor.
 data QueryError
-QueryError' :: Maybe Text -> Maybe QueryErrorCode -> QueryError
+QueryError' :: Maybe QueryErrorCode -> Maybe Text -> QueryError
 
 -- | Create a value of <a>QueryError</a> with all optional fields omitted.
 --   
@@ -6164,16 +6164,16 @@ QueryError' :: Maybe Text -> Maybe QueryErrorCode -> QueryError
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
+--   <a>$sel:errorCode:QueryError'</a>, <a>queryError_errorCode</a> -
+--   Possible values are <tt>CLOUDFORMATION_STACK_INACTIVE</tt> and
+--   <tt>CLOUDFORMATION_STACK_NOT_EXISTING</tt>.
+--   
 --   <a>$sel:message:QueryError'</a>, <a>queryError_message</a> - A message
 --   that explains the <tt>ErrorCode</tt> value. Messages might state that
 --   the specified CloudFormation stack does not exist (or no longer
 --   exists). For <tt>CLOUDFORMATION_STACK_INACTIVE</tt>, the message
 --   typically states that the CloudFormation stack has a status that is
 --   not (or no longer) active, such as <tt>CREATE_FAILED</tt>.
---   
---   <a>$sel:errorCode:QueryError'</a>, <a>queryError_errorCode</a> -
---   Possible values are <tt>CLOUDFORMATION_STACK_INACTIVE</tt> and
---   <tt>CLOUDFORMATION_STACK_NOT_EXISTING</tt>.
 newQueryError :: QueryError
 
 -- | A filter name and value pair that is used to obtain more specific
@@ -6215,12 +6215,12 @@ ResourceIdentifier' :: Maybe Text -> Maybe Text -> ResourceIdentifier
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:resourceArn:ResourceIdentifier'</a>,
---   <a>resourceIdentifier_resourceArn</a> - The ARN of a resource.
---   
 --   <a>$sel:resourceType:ResourceIdentifier'</a>,
 --   <a>resourceIdentifier_resourceType</a> - The resource type of a
 --   resource, such as <tt>AWS::EC2::Instance</tt>.
+--   
+--   <a>$sel:resourceArn:ResourceIdentifier'</a>,
+--   <a>resourceIdentifier_resourceArn</a> - The ARN of a resource.
 newResourceIdentifier :: ResourceIdentifier
 
 -- | The query that is used to define a resource group or a search for

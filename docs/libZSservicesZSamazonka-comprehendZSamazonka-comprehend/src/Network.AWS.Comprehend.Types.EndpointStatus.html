@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-34"></span><span>
-</span><span id="line-35"></span><span id="local-6989586621679341599"><span id="local-6989586621679341600"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="EndpointStatus"><span class="annot"><a href="Network.AWS.Comprehend.Types.EndpointStatus.html#EndpointStatus"><span class="hs-identifier hs-var">EndpointStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EndpointStatus%27"><span class="annot"><a href="Network.AWS.Comprehend.Types.EndpointStatus.html#EndpointStatus%27"><span class="hs-identifier hs-var">EndpointStatus'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679341863"><span id="local-6989586621679341864"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="EndpointStatus"><span class="annot"><a href="Network.AWS.Comprehend.Types.EndpointStatus.html#EndpointStatus"><span class="hs-identifier hs-var">EndpointStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EndpointStatus%27"><span class="annot"><a href="Network.AWS.Comprehend.Types.EndpointStatus.html#EndpointStatus%27"><span class="hs-identifier hs-var">EndpointStatus'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromEndpointStatus"><span class="annot"><span class="annottext">EndpointStatus -&gt; Text
 </span><a href="Network.AWS.Comprehend.Types.EndpointStatus.html#fromEndpointStatus"><span class="hs-identifier hs-var hs-var">fromEndpointStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679341591"><span id="local-6989586621679341593"><span id="local-6989586621679341595"><span class="annot"><span class="annottext">Int -&gt; EndpointStatus -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679341855"><span id="local-6989586621679341857"><span id="local-6989586621679341859"><span class="annot"><span class="annottext">Int -&gt; EndpointStatus -&gt; ShowS
 [EndpointStatus] -&gt; ShowS
 EndpointStatus -&gt; String
 (Int -&gt; EndpointStatus -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: EndpointStatus -&gt; String
 showsPrec :: Int -&gt; EndpointStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; EndpointStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679341582"><span id="local-6989586621679341584"><span id="local-6989586621679341586"><span id="local-6989586621679341588"><span class="annot"><span class="annottext">ReadPrec [EndpointStatus]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679341846"><span id="local-6989586621679341848"><span id="local-6989586621679341850"><span id="local-6989586621679341852"><span class="annot"><span class="annottext">ReadPrec [EndpointStatus]
 ReadPrec EndpointStatus
 Int -&gt; ReadS EndpointStatus
 ReadS [EndpointStatus]
@@ -75,7 +75,7 @@ $creadList :: ReadS [EndpointStatus]
 readsPrec :: Int -&gt; ReadS EndpointStatus
 $creadsPrec :: Int -&gt; ReadS EndpointStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679341577"><span id="local-6989586621679341579"><span class="annot"><span class="annottext">EndpointStatus -&gt; EndpointStatus -&gt; Bool
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679341841"><span id="local-6989586621679341843"><span class="annot"><span class="annottext">EndpointStatus -&gt; EndpointStatus -&gt; Bool
 (EndpointStatus -&gt; EndpointStatus -&gt; Bool)
 -&gt; (EndpointStatus -&gt; EndpointStatus -&gt; Bool) -&gt; Eq EndpointStatus
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -84,7 +84,7 @@ $c/= :: EndpointStatus -&gt; EndpointStatus -&gt; Bool
 == :: EndpointStatus -&gt; EndpointStatus -&gt; Bool
 $c== :: EndpointStatus -&gt; EndpointStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679341561"><span id="local-6989586621679341563"><span id="local-6989586621679341565"><span id="local-6989586621679341567"><span id="local-6989586621679341569"><span id="local-6989586621679341571"><span id="local-6989586621679341573"><span class="annot"><span class="annottext">Eq EndpointStatus
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679341825"><span id="local-6989586621679341827"><span id="local-6989586621679341829"><span id="local-6989586621679341831"><span id="local-6989586621679341833"><span id="local-6989586621679341835"><span id="local-6989586621679341837"><span class="annot"><span class="annottext">Eq EndpointStatus
 Eq EndpointStatus
 -&gt; (EndpointStatus -&gt; EndpointStatus -&gt; Ordering)
 -&gt; (EndpointStatus -&gt; EndpointStatus -&gt; Bool)
@@ -135,7 +135,7 @@ $cfrom :: forall x. EndpointStatus -&gt; Rep EndpointStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679341553"><span id="local-6989586621679341555"><span class="annot"><span class="annottext">Int -&gt; EndpointStatus -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679341817"><span id="local-6989586621679341819"><span class="annot"><span class="annottext">Int -&gt; EndpointStatus -&gt; Int
 EndpointStatus -&gt; Int
 (Int -&gt; EndpointStatus -&gt; Int)
 -&gt; (EndpointStatus -&gt; Int) -&gt; Hashable EndpointStatus
@@ -145,50 +145,50 @@ $chash :: EndpointStatus -&gt; Int
 hashWithSalt :: Int -&gt; EndpointStatus -&gt; Int
 $chashWithSalt :: Int -&gt; EndpointStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679341550"><span class="annot"><span class="annottext">EndpointStatus -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679341814"><span class="annot"><span class="annottext">EndpointStatus -&gt; ()
 (EndpointStatus -&gt; ()) -&gt; NFData EndpointStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: EndpointStatus -&gt; ()
 $crnf :: EndpointStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679341547"><span class="annot"><span class="annottext">Text -&gt; Either String EndpointStatus
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679341811"><span class="annot"><span class="annottext">Text -&gt; Either String EndpointStatus
 (Text -&gt; Either String EndpointStatus) -&gt; FromText EndpointStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String EndpointStatus
 $cfromText :: Text -&gt; Either String EndpointStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679341544"><span class="annot"><span class="annottext">EndpointStatus -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679341808"><span class="annot"><span class="annottext">EndpointStatus -&gt; Text
 (EndpointStatus -&gt; Text) -&gt; ToText EndpointStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: EndpointStatus -&gt; Text
 $ctoText :: EndpointStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679341541"><span class="annot"><span class="annottext">EndpointStatus -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679341805"><span class="annot"><span class="annottext">EndpointStatus -&gt; ByteString
 (EndpointStatus -&gt; ByteString) -&gt; ToByteString EndpointStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: EndpointStatus -&gt; ByteString
 $ctoBS :: EndpointStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679341538"><span class="annot"><span class="annottext">EndpointStatus -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679341802"><span class="annot"><span class="annottext">EndpointStatus -&gt; ByteStringBuilder
 (EndpointStatus -&gt; ByteStringBuilder) -&gt; ToLog EndpointStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: EndpointStatus -&gt; ByteStringBuilder
 $cbuild :: EndpointStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679341535"><span class="annot"><span class="annottext">HeaderName -&gt; EndpointStatus -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679341799"><span class="annot"><span class="annottext">HeaderName -&gt; EndpointStatus -&gt; [Header]
 (HeaderName -&gt; EndpointStatus -&gt; [Header])
 -&gt; ToHeader EndpointStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; EndpointStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; EndpointStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679341532"><span class="annot"><span class="annottext">EndpointStatus -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679341796"><span class="annot"><span class="annottext">EndpointStatus -&gt; QueryString
 (EndpointStatus -&gt; QueryString) -&gt; ToQuery EndpointStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: EndpointStatus -&gt; QueryString
 $ctoQuery :: EndpointStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679341527"><span id="local-6989586621679341529"><span class="annot"><span class="annottext">Value -&gt; Parser [EndpointStatus]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679341791"><span id="local-6989586621679341793"><span class="annot"><span class="annottext">Value -&gt; Parser [EndpointStatus]
 Value -&gt; Parser EndpointStatus
 (Value -&gt; Parser EndpointStatus)
 -&gt; (Value -&gt; Parser [EndpointStatus]) -&gt; FromJSON EndpointStatus
@@ -199,7 +199,7 @@ $cparseJSONList :: Value -&gt; Parser [EndpointStatus]
 parseJSON :: Value -&gt; Parser EndpointStatus
 $cparseJSON :: Value -&gt; Parser EndpointStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679341522"><span id="local-6989586621679341524"><span class="annot"><span class="annottext">FromJSONKeyFunction [EndpointStatus]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679341786"><span id="local-6989586621679341788"><span class="annot"><span class="annottext">FromJSONKeyFunction [EndpointStatus]
 FromJSONKeyFunction EndpointStatus
 FromJSONKeyFunction EndpointStatus
 -&gt; FromJSONKeyFunction [EndpointStatus]
@@ -211,7 +211,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [EndpointStatus]
 fromJSONKey :: FromJSONKeyFunction EndpointStatus
 $cfromJSONKey :: FromJSONKeyFunction EndpointStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679341513"><span id="local-6989586621679341515"><span id="local-6989586621679341517"><span id="local-6989586621679341519"><span class="annot"><span class="annottext">[EndpointStatus] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679341777"><span id="local-6989586621679341779"><span id="local-6989586621679341781"><span id="local-6989586621679341783"><span class="annot"><span class="annottext">[EndpointStatus] -&gt; Encoding
 [EndpointStatus] -&gt; Value
 EndpointStatus -&gt; Encoding
 EndpointStatus -&gt; Value
@@ -235,7 +235,7 @@ $ctoEncoding :: EndpointStatus -&gt; Encoding
 toJSON :: EndpointStatus -&gt; Value
 $ctoJSON :: EndpointStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679341508"><span id="local-6989586621679341510"><span class="annot"><span class="annottext">ToJSONKeyFunction [EndpointStatus]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679341772"><span id="local-6989586621679341774"><span class="annot"><span class="annottext">ToJSONKeyFunction [EndpointStatus]
 ToJSONKeyFunction EndpointStatus
 ToJSONKeyFunction EndpointStatus
 -&gt; ToJSONKeyFunction [EndpointStatus] -&gt; ToJSONKey EndpointStatus
@@ -246,13 +246,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [EndpointStatus]
 toJSONKey :: ToJSONKeyFunction EndpointStatus
 $ctoJSONKey :: ToJSONKeyFunction EndpointStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679341505"><span class="annot"><span class="annottext">[Node] -&gt; Either String EndpointStatus
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679341769"><span class="annot"><span class="annottext">[Node] -&gt; Either String EndpointStatus
 ([Node] -&gt; Either String EndpointStatus) -&gt; FromXML EndpointStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String EndpointStatus
 $cparseXML :: [Node] -&gt; Either String EndpointStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679341502"><span class="annot"><span class="annottext">EndpointStatus -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679341766"><span class="annot"><span class="annottext">EndpointStatus -&gt; XML
 (EndpointStatus -&gt; XML) -&gt; ToXML EndpointStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: EndpointStatus -&gt; XML

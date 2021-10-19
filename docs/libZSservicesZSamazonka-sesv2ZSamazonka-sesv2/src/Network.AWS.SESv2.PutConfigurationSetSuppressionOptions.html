@@ -51,7 +51,7 @@
 </span><span id="line-51"></span><span class="hs-comment">-- specific configuration set.</span><span>
 </span><span id="line-52"></span><span class="hs-comment">--</span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- /See:/ 'newPutConfigurationSetSuppressionOptions' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679337552"><span id="local-6989586621679337553"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutConfigurationSetSuppressionOptions"><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetSuppressionOptions.html#PutConfigurationSetSuppressionOptions"><span class="hs-identifier hs-var">PutConfigurationSetSuppressionOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutConfigurationSetSuppressionOptions%27"><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetSuppressionOptions.html#PutConfigurationSetSuppressionOptions%27"><span class="hs-identifier hs-var">PutConfigurationSetSuppressionOptions'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679340092"><span id="local-6989586621679340093"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutConfigurationSetSuppressionOptions"><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetSuppressionOptions.html#PutConfigurationSetSuppressionOptions"><span class="hs-identifier hs-var">PutConfigurationSetSuppressionOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutConfigurationSetSuppressionOptions%27"><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetSuppressionOptions.html#PutConfigurationSetSuppressionOptions%27"><span class="hs-identifier hs-var">PutConfigurationSetSuppressionOptions'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list that contains the reasons that email addresses are automatically</span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-comment">-- added to the suppression list for your account. This list can contain</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">-- any or all of the following:</span><span>
@@ -66,12 +66,12 @@
 </span><span id="line-66"></span><span>    </span><span id="%24sel%3AsuppressedReasons%3APutConfigurationSetSuppressionOptions%27"><span class="annot"><span class="annottext">PutConfigurationSetSuppressionOptions
 -&gt; Maybe [SuppressionListReason]
 </span><a href="Network.AWS.SESv2.PutConfigurationSetSuppressionOptions.html#%24sel%3AsuppressedReasons%3APutConfigurationSetSuppressionOptions%27"><span class="hs-identifier hs-var hs-var">suppressedReasons</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SESv2.Types.SuppressionListReason.html#SuppressionListReason"><span class="hs-identifier hs-type">SuppressionListReason</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The name of the configuration set that you want to change the</span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- suppression list preferences for.</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The name of the configuration set to change the suppression list</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- preferences for.</span><span>
 </span><span id="line-69"></span><span>    </span><span id="%24sel%3AconfigurationSetName%3APutConfigurationSetSuppressionOptions%27"><span class="annot"><span class="annottext">PutConfigurationSetSuppressionOptions -&gt; Text
 </span><a href="Network.AWS.SESv2.PutConfigurationSetSuppressionOptions.html#%24sel%3AconfigurationSetName%3APutConfigurationSetSuppressionOptions%27"><span class="hs-identifier hs-var hs-var">configurationSetName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-70"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679337545"><span id="local-6989586621679337547"><span class="annot"><span class="annottext">PutConfigurationSetSuppressionOptions
+</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679340085"><span id="local-6989586621679340087"><span class="annot"><span class="annottext">PutConfigurationSetSuppressionOptions
 -&gt; PutConfigurationSetSuppressionOptions -&gt; Bool
 (PutConfigurationSetSuppressionOptions
  -&gt; PutConfigurationSetSuppressionOptions -&gt; Bool)
@@ -87,7 +87,7 @@ $c/= :: PutConfigurationSetSuppressionOptions
 -&gt; PutConfigurationSetSuppressionOptions -&gt; Bool
 $c== :: PutConfigurationSetSuppressionOptions
 -&gt; PutConfigurationSetSuppressionOptions -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679337536"><span id="local-6989586621679337538"><span id="local-6989586621679337540"><span id="local-6989586621679337542"><span class="annot"><span class="annottext">ReadPrec [PutConfigurationSetSuppressionOptions]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679340076"><span id="local-6989586621679340078"><span id="local-6989586621679340080"><span id="local-6989586621679340082"><span class="annot"><span class="annottext">ReadPrec [PutConfigurationSetSuppressionOptions]
 ReadPrec PutConfigurationSetSuppressionOptions
 Int -&gt; ReadS PutConfigurationSetSuppressionOptions
 ReadS [PutConfigurationSetSuppressionOptions]
@@ -107,7 +107,7 @@ readList :: ReadS [PutConfigurationSetSuppressionOptions]
 $creadList :: ReadS [PutConfigurationSetSuppressionOptions]
 readsPrec :: Int -&gt; ReadS PutConfigurationSetSuppressionOptions
 $creadsPrec :: Int -&gt; ReadS PutConfigurationSetSuppressionOptions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679337529"><span id="local-6989586621679337531"><span id="local-6989586621679337533"><span class="annot"><span class="annottext">Int -&gt; PutConfigurationSetSuppressionOptions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679340069"><span id="local-6989586621679340071"><span id="local-6989586621679340073"><span class="annot"><span class="annottext">Int -&gt; PutConfigurationSetSuppressionOptions -&gt; ShowS
 [PutConfigurationSetSuppressionOptions] -&gt; ShowS
 PutConfigurationSetSuppressionOptions -&gt; String
 (Int -&gt; PutConfigurationSetSuppressionOptions -&gt; ShowS)
@@ -165,16 +165,16 @@ PutConfigurationSetSuppressionOptions
 </span><span id="line-90"></span><span class="hs-comment">--     for your account when a message sent to that address results in a</span><span>
 </span><span id="line-91"></span><span class="hs-comment">--     hard bounce.</span><span>
 </span><span id="line-92"></span><span class="hs-comment">--</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- 'configurationSetName', 'putConfigurationSetSuppressionOptions_configurationSetName' - The name of the configuration set that you want to change the</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- suppression list preferences for.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'configurationSetName', 'putConfigurationSetSuppressionOptions_configurationSetName' - The name of the configuration set to change the suppression list</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- preferences for.</span><span>
 </span><span id="line-95"></span><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetSuppressionOptions.html#newPutConfigurationSetSuppressionOptions"><span class="hs-identifier hs-type">newPutConfigurationSetSuppressionOptions</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-96"></span><span>  </span><span class="hs-comment">-- | 'configurationSetName'</span><span>
 </span><span id="line-97"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-98"></span><span>  </span><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetSuppressionOptions.html#PutConfigurationSetSuppressionOptions"><span class="hs-identifier hs-type">PutConfigurationSetSuppressionOptions</span></a></span><span>
 </span><span id="line-99"></span><span id="newPutConfigurationSetSuppressionOptions"><span class="annot"><span class="annottext">newPutConfigurationSetSuppressionOptions :: Text -&gt; PutConfigurationSetSuppressionOptions
 </span><a href="Network.AWS.SESv2.PutConfigurationSetSuppressionOptions.html#newPutConfigurationSetSuppressionOptions"><span class="hs-identifier hs-var hs-var">newPutConfigurationSetSuppressionOptions</span></a></span></span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679337524"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679337524"><span class="hs-identifier hs-var">pConfigurationSetName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679340064"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679340064"><span class="hs-identifier hs-var">pConfigurationSetName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">PutConfigurationSetSuppressionOptions' :: Maybe [SuppressionListReason]
 -&gt; Text -&gt; PutConfigurationSetSuppressionOptions
 </span><a href="Network.AWS.SESv2.PutConfigurationSetSuppressionOptions.html#PutConfigurationSetSuppressionOptions%27"><span class="hs-identifier hs-type">PutConfigurationSetSuppressionOptions'</span></a></span><span>
@@ -186,7 +186,7 @@ forall a. Maybe a
 </span><span id="line-104"></span><span>        </span><span class="annot"><span class="annottext">$sel:configurationSetName:PutConfigurationSetSuppressionOptions' :: Text
 </span><a href="Network.AWS.SESv2.PutConfigurationSetSuppressionOptions.html#%24sel%3AconfigurationSetName%3APutConfigurationSetSuppressionOptions%27"><span class="hs-identifier hs-var">configurationSetName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-105"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679337524"><span class="hs-identifier hs-var">pConfigurationSetName_</span></a></span><span>
+</span><a href="#local-6989586621679340064"><span class="hs-identifier hs-var">pConfigurationSetName_</span></a></span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- | A list that contains the reasons that email addresses are automatically</span><span>
@@ -216,17 +216,17 @@ forall a. Maybe a
      (Maybe [SuppressionListReason])
      (Maybe [SuppressionListReason])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetSuppressionOptions.html#PutConfigurationSetSuppressionOptions%27"><span class="hs-identifier hs-type">PutConfigurationSetSuppressionOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679337521"><span class="annot"><span class="annottext">Maybe [SuppressionListReason]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetSuppressionOptions.html#PutConfigurationSetSuppressionOptions%27"><span class="hs-identifier hs-type">PutConfigurationSetSuppressionOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679340061"><span class="annot"><span class="annottext">Maybe [SuppressionListReason]
 suppressedReasons :: Maybe [SuppressionListReason]
 $sel:suppressedReasons:PutConfigurationSetSuppressionOptions' :: PutConfigurationSetSuppressionOptions
 -&gt; Maybe [SuppressionListReason]
-</span><a href="#local-6989586621679337521"><span class="hs-identifier hs-var hs-var">suppressedReasons</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [SuppressionListReason]
-</span><a href="#local-6989586621679337521"><span class="hs-identifier hs-var">suppressedReasons</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679337520"><span class="annot"><span class="annottext">s :: PutConfigurationSetSuppressionOptions
-</span><a href="#local-6989586621679337520"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetSuppressionOptions.html#PutConfigurationSetSuppressionOptions%27"><span class="hs-identifier hs-type">PutConfigurationSetSuppressionOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679337519"><span class="annot"><span class="annottext">Maybe [SuppressionListReason]
-</span><a href="#local-6989586621679337519"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutConfigurationSetSuppressionOptions
-</span><a href="#local-6989586621679337520"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:suppressedReasons:PutConfigurationSetSuppressionOptions' :: Maybe [SuppressionListReason]
+</span><a href="#local-6989586621679340061"><span class="hs-identifier hs-var hs-var">suppressedReasons</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [SuppressionListReason]
+</span><a href="#local-6989586621679340061"><span class="hs-identifier hs-var">suppressedReasons</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679340060"><span class="annot"><span class="annottext">s :: PutConfigurationSetSuppressionOptions
+</span><a href="#local-6989586621679340060"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetSuppressionOptions.html#PutConfigurationSetSuppressionOptions%27"><span class="hs-identifier hs-type">PutConfigurationSetSuppressionOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679340059"><span class="annot"><span class="annottext">Maybe [SuppressionListReason]
+</span><a href="#local-6989586621679340059"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutConfigurationSetSuppressionOptions
+</span><a href="#local-6989586621679340060"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:suppressedReasons:PutConfigurationSetSuppressionOptions' :: Maybe [SuppressionListReason]
 </span><a href="Network.AWS.SESv2.PutConfigurationSetSuppressionOptions.html#%24sel%3AsuppressedReasons%3APutConfigurationSetSuppressionOptions%27"><span class="hs-identifier hs-var">suppressedReasons</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SuppressionListReason]
-</span><a href="#local-6989586621679337519"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetSuppressionOptions.html#PutConfigurationSetSuppressionOptions"><span class="hs-identifier hs-type">PutConfigurationSetSuppressionOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [SuppressionListReason]
+</span><a href="#local-6989586621679340059"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetSuppressionOptions.html#PutConfigurationSetSuppressionOptions"><span class="hs-identifier hs-type">PutConfigurationSetSuppressionOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [SuppressionListReason]
   -&gt; f (Maybe [SuppressionListReason]))
  -&gt; PutConfigurationSetSuppressionOptions
  -&gt; f PutConfigurationSetSuppressionOptions)
@@ -257,11 +257,11 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [SuppressionListReason]
   [SuppressionListReason]
   [SuppressionListReason]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- | The name of the configuration set that you want to change the</span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- suppression list preferences for.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | The name of the configuration set to change the suppression list</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- preferences for.</span><span>
 </span><span id="line-124"></span><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetSuppressionOptions.html#putConfigurationSetSuppressionOptions_configurationSetName"><span class="hs-identifier hs-type">putConfigurationSetSuppressionOptions_configurationSetName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetSuppressionOptions.html#PutConfigurationSetSuppressionOptions"><span class="hs-identifier hs-type">PutConfigurationSetSuppressionOptions</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-125"></span><span id="putConfigurationSetSuppressionOptions_configurationSetName"><span class="annot"><span class="annottext">putConfigurationSetSuppressionOptions_configurationSetName :: (Text -&gt; f Text)
 -&gt; PutConfigurationSetSuppressionOptions
@@ -275,16 +275,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetSuppressionOptions.html#PutConfigurationSetSuppressionOptions%27"><span class="hs-identifier hs-type">PutConfigurationSetSuppressionOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679337515"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetSuppressionOptions.html#PutConfigurationSetSuppressionOptions%27"><span class="hs-identifier hs-type">PutConfigurationSetSuppressionOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679340055"><span class="annot"><span class="annottext">Text
 configurationSetName :: Text
 $sel:configurationSetName:PutConfigurationSetSuppressionOptions' :: PutConfigurationSetSuppressionOptions -&gt; Text
-</span><a href="#local-6989586621679337515"><span class="hs-identifier hs-var hs-var">configurationSetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679337515"><span class="hs-identifier hs-var">configurationSetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679337514"><span class="annot"><span class="annottext">s :: PutConfigurationSetSuppressionOptions
-</span><a href="#local-6989586621679337514"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetSuppressionOptions.html#PutConfigurationSetSuppressionOptions%27"><span class="hs-identifier hs-type">PutConfigurationSetSuppressionOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679337513"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679337513"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutConfigurationSetSuppressionOptions
-</span><a href="#local-6989586621679337514"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configurationSetName:PutConfigurationSetSuppressionOptions' :: Text
+</span><a href="#local-6989586621679340055"><span class="hs-identifier hs-var hs-var">configurationSetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679340055"><span class="hs-identifier hs-var">configurationSetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679340054"><span class="annot"><span class="annottext">s :: PutConfigurationSetSuppressionOptions
+</span><a href="#local-6989586621679340054"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetSuppressionOptions.html#PutConfigurationSetSuppressionOptions%27"><span class="hs-identifier hs-type">PutConfigurationSetSuppressionOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679340053"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679340053"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutConfigurationSetSuppressionOptions
+</span><a href="#local-6989586621679340054"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configurationSetName:PutConfigurationSetSuppressionOptions' :: Text
 </span><a href="Network.AWS.SESv2.PutConfigurationSetSuppressionOptions.html#%24sel%3AconfigurationSetName%3APutConfigurationSetSuppressionOptions%27"><span class="hs-identifier hs-var">configurationSetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679337513"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetSuppressionOptions.html#PutConfigurationSetSuppressionOptions"><span class="hs-identifier hs-type">PutConfigurationSetSuppressionOptions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679340053"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetSuppressionOptions.html#PutConfigurationSetSuppressionOptions"><span class="hs-identifier hs-type">PutConfigurationSetSuppressionOptions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-128"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
@@ -294,7 +294,7 @@ $sel:configurationSetName:PutConfigurationSetSuppressionOptions' :: PutConfigura
 </span><span id="line-132"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span>
 </span><span id="line-133"></span><span>      </span><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetSuppressionOptions.html#PutConfigurationSetSuppressionOptions"><span class="hs-identifier hs-type">PutConfigurationSetSuppressionOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-134"></span><span>      </span><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetSuppressionOptions.html#PutConfigurationSetSuppressionOptionsResponse"><span class="hs-identifier hs-type">PutConfigurationSetSuppressionOptionsResponse</span></a></span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679337509"><span class="annot"><span class="annottext">request :: PutConfigurationSetSuppressionOptions
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679340049"><span class="annot"><span class="annottext">request :: PutConfigurationSetSuppressionOptions
 -&gt; Request PutConfigurationSetSuppressionOptions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; PutConfigurationSetSuppressionOptions
@@ -302,7 +302,7 @@ $sel:configurationSetName:PutConfigurationSetSuppressionOptions' :: PutConfigura
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SESv2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679337505"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679340045"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy PutConfigurationSetSuppressionOptions
 -&gt; ClientResponse ClientBody
@@ -333,10 +333,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-138"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679337502"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679337502"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679337501"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679337501"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679337500"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679337500"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-138"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679340042"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679340042"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679340041"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679340041"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679340040"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679340040"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-139"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; PutConfigurationSetSuppressionOptionsResponse
 </span><a href="Network.AWS.SESv2.PutConfigurationSetSuppressionOptions.html#PutConfigurationSetSuppressionOptionsResponse%27"><span class="hs-identifier hs-var">PutConfigurationSetSuppressionOptionsResponse'</span></a></span><span>
 </span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; PutConfigurationSetSuppressionOptionsResponse)
@@ -348,22 +348,22 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679337502"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679340042"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-144"></span><span>  </span><span id="local-6989586621679337493"><span id="local-6989586621679337495"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679340033"><span id="local-6989586621679340035"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-145"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetSuppressionOptions.html#PutConfigurationSetSuppressionOptions"><span class="hs-identifier hs-type">PutConfigurationSetSuppressionOptions</span></a></span></span></span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-148"></span><span>  </span><span id="local-6989586621679337490"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679340030"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-149"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetSuppressionOptions.html#PutConfigurationSetSuppressionOptions"><span class="hs-identifier hs-type">PutConfigurationSetSuppressionOptions</span></a></span></span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-152"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
 </span><span id="line-153"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetSuppressionOptions.html#PutConfigurationSetSuppressionOptions"><span class="hs-identifier hs-type">PutConfigurationSetSuppressionOptions</span></a></span><span>
 </span><span id="line-154"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-155"></span><span>  </span><span id="local-6989586621679337486"><span class="annot"><span class="annottext">toHeaders :: PutConfigurationSetSuppressionOptions -&gt; ResponseHeaders
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679340026"><span class="annot"><span class="annottext">toHeaders :: PutConfigurationSetSuppressionOptions -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-156"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
 -&gt; PutConfigurationSetSuppressionOptions -&gt; ResponseHeaders
@@ -384,18 +384,18 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-163"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-164"></span><span>
 </span><span id="line-165"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-166"></span><span>  </span><span id="local-6989586621679337476"><span id="local-6989586621679337478"><span id="local-6989586621679337480"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679340016"><span id="local-6989586621679340018"><span id="local-6989586621679340020"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
 </span><span id="line-167"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetSuppressionOptions.html#PutConfigurationSetSuppressionOptions"><span class="hs-identifier hs-type">PutConfigurationSetSuppressionOptions</span></a></span></span></span></span><span>
 </span><span id="line-168"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-169"></span><span>  </span><span id="local-6989586621679337474"><span class="annot"><span class="annottext">toJSON :: PutConfigurationSetSuppressionOptions -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetSuppressionOptions.html#PutConfigurationSetSuppressionOptions%27"><span class="hs-identifier hs-type">PutConfigurationSetSuppressionOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679337471"><span id="local-6989586621679337472"><span class="annot"><span class="annottext">Maybe [SuppressionListReason]
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679340014"><span class="annot"><span class="annottext">toJSON :: PutConfigurationSetSuppressionOptions -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetSuppressionOptions.html#PutConfigurationSetSuppressionOptions%27"><span class="hs-identifier hs-type">PutConfigurationSetSuppressionOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679340011"><span id="local-6989586621679340012"><span class="annot"><span class="annottext">Maybe [SuppressionListReason]
 Text
 configurationSetName :: Text
 suppressedReasons :: Maybe [SuppressionListReason]
 $sel:configurationSetName:PutConfigurationSetSuppressionOptions' :: PutConfigurationSetSuppressionOptions -&gt; Text
 $sel:suppressedReasons:PutConfigurationSetSuppressionOptions' :: PutConfigurationSetSuppressionOptions
 -&gt; Maybe [SuppressionListReason]
-</span><a href="#local-6989586621679337471"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679340011"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-170"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-171"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -409,7 +409,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe [SuppressionListReason] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [SuppressionListReason]
-</span><a href="#local-6989586621679337472"><span class="hs-identifier hs-var">suppressedReasons</span></a></span><span>
+</span><a href="#local-6989586621679340012"><span class="hs-identifier hs-var">suppressedReasons</span></a></span><span>
 </span><span id="line-174"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-175"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>
@@ -417,15 +417,15 @@ forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span id="line-178"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
 </span><span id="line-179"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetSuppressionOptions.html#PutConfigurationSetSuppressionOptions"><span class="hs-identifier hs-type">PutConfigurationSetSuppressionOptions</span></a></span><span>
 </span><span id="line-180"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-181"></span><span>  </span><span id="local-6989586621679337465"><span class="annot"><span class="annottext">toPath :: PutConfigurationSetSuppressionOptions -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetSuppressionOptions.html#PutConfigurationSetSuppressionOptions%27"><span class="hs-identifier hs-type">PutConfigurationSetSuppressionOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679337462"><span id="local-6989586621679337463"><span class="annot"><span class="annottext">Maybe [SuppressionListReason]
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679340005"><span class="annot"><span class="annottext">toPath :: PutConfigurationSetSuppressionOptions -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetSuppressionOptions.html#PutConfigurationSetSuppressionOptions%27"><span class="hs-identifier hs-type">PutConfigurationSetSuppressionOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679340002"><span id="local-6989586621679340003"><span class="annot"><span class="annottext">Maybe [SuppressionListReason]
 Text
 configurationSetName :: Text
 suppressedReasons :: Maybe [SuppressionListReason]
 $sel:configurationSetName:PutConfigurationSetSuppressionOptions' :: PutConfigurationSetSuppressionOptions -&gt; Text
 $sel:suppressedReasons:PutConfigurationSetSuppressionOptions' :: PutConfigurationSetSuppressionOptions
 -&gt; Maybe [SuppressionListReason]
-</span><a href="#local-6989586621679337462"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679340002"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-182"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -434,7 +434,7 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-184"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679337462"><span class="hs-identifier hs-var">configurationSetName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679340002"><span class="hs-identifier hs-var">configurationSetName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-185"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/suppression-options&quot;</span></span><span>
 </span><span id="line-186"></span><span>      </span><span class="hs-special">]</span><span>
@@ -443,7 +443,7 @@ forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span id="line-189"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
 </span><span id="line-190"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetSuppressionOptions.html#PutConfigurationSetSuppressionOptions"><span class="hs-identifier hs-type">PutConfigurationSetSuppressionOptions</span></a></span><span>
 </span><span id="line-191"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-192"></span><span>  </span><span id="local-6989586621679337458"><span class="annot"><span class="annottext">toQuery :: PutConfigurationSetSuppressionOptions -&gt; QueryString
+</span><span id="line-192"></span><span>  </span><span id="local-6989586621679339998"><span class="annot"><span class="annottext">toQuery :: PutConfigurationSetSuppressionOptions -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; PutConfigurationSetSuppressionOptions -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -454,12 +454,12 @@ forall a. Monoid a =&gt; a
 </span><span id="line-195"></span><span class="hs-comment">-- request fails.</span><span>
 </span><span id="line-196"></span><span class="hs-comment">--</span><span>
 </span><span id="line-197"></span><span class="hs-comment">-- /See:/ 'newPutConfigurationSetSuppressionOptionsResponse' smart constructor.</span><span>
-</span><span id="line-198"></span><span id="local-6989586621679337455"><span id="local-6989586621679337456"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutConfigurationSetSuppressionOptionsResponse"><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetSuppressionOptions.html#PutConfigurationSetSuppressionOptionsResponse"><span class="hs-identifier hs-var">PutConfigurationSetSuppressionOptionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutConfigurationSetSuppressionOptionsResponse%27"><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetSuppressionOptions.html#PutConfigurationSetSuppressionOptionsResponse%27"><span class="hs-identifier hs-var">PutConfigurationSetSuppressionOptionsResponse'</span></a></span></span><span>
+</span><span id="line-198"></span><span id="local-6989586621679339995"><span id="local-6989586621679339996"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutConfigurationSetSuppressionOptionsResponse"><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetSuppressionOptions.html#PutConfigurationSetSuppressionOptionsResponse"><span class="hs-identifier hs-var">PutConfigurationSetSuppressionOptionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutConfigurationSetSuppressionOptionsResponse%27"><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetSuppressionOptions.html#PutConfigurationSetSuppressionOptionsResponse%27"><span class="hs-identifier hs-var">PutConfigurationSetSuppressionOptionsResponse'</span></a></span></span><span>
 </span><span id="line-199"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-200"></span><span>    </span><span id="%24sel%3AhttpStatus%3APutConfigurationSetSuppressionOptionsResponse%27"><span class="annot"><span class="annottext">PutConfigurationSetSuppressionOptionsResponse -&gt; Int
 </span><a href="Network.AWS.SESv2.PutConfigurationSetSuppressionOptions.html#%24sel%3AhttpStatus%3APutConfigurationSetSuppressionOptionsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-201"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-202"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679337450"><span id="local-6989586621679337452"><span class="annot"><span class="annottext">PutConfigurationSetSuppressionOptionsResponse
+</span><span id="line-202"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679339990"><span id="local-6989586621679339992"><span class="annot"><span class="annottext">PutConfigurationSetSuppressionOptionsResponse
 -&gt; PutConfigurationSetSuppressionOptionsResponse -&gt; Bool
 (PutConfigurationSetSuppressionOptionsResponse
  -&gt; PutConfigurationSetSuppressionOptionsResponse -&gt; Bool)
@@ -475,7 +475,7 @@ $c/= :: PutConfigurationSetSuppressionOptionsResponse
 -&gt; PutConfigurationSetSuppressionOptionsResponse -&gt; Bool
 $c== :: PutConfigurationSetSuppressionOptionsResponse
 -&gt; PutConfigurationSetSuppressionOptionsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679337442"><span id="local-6989586621679337444"><span id="local-6989586621679337446"><span id="local-6989586621679337448"><span class="annot"><span class="annottext">ReadPrec [PutConfigurationSetSuppressionOptionsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679339982"><span id="local-6989586621679339984"><span id="local-6989586621679339986"><span id="local-6989586621679339988"><span class="annot"><span class="annottext">ReadPrec [PutConfigurationSetSuppressionOptionsResponse]
 ReadPrec PutConfigurationSetSuppressionOptionsResponse
 Int -&gt; ReadS PutConfigurationSetSuppressionOptionsResponse
 ReadS [PutConfigurationSetSuppressionOptionsResponse]
@@ -495,7 +495,7 @@ readList :: ReadS [PutConfigurationSetSuppressionOptionsResponse]
 $creadList :: ReadS [PutConfigurationSetSuppressionOptionsResponse]
 readsPrec :: Int -&gt; ReadS PutConfigurationSetSuppressionOptionsResponse
 $creadsPrec :: Int -&gt; ReadS PutConfigurationSetSuppressionOptionsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679337436"><span id="local-6989586621679337438"><span id="local-6989586621679337440"><span class="annot"><span class="annottext">Int -&gt; PutConfigurationSetSuppressionOptionsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679339976"><span id="local-6989586621679339978"><span id="local-6989586621679339980"><span class="annot"><span class="annottext">Int -&gt; PutConfigurationSetSuppressionOptionsResponse -&gt; ShowS
 [PutConfigurationSetSuppressionOptionsResponse] -&gt; ShowS
 PutConfigurationSetSuppressionOptionsResponse -&gt; String
 (Int -&gt; PutConfigurationSetSuppressionOptionsResponse -&gt; ShowS)
@@ -548,14 +548,14 @@ PutConfigurationSetSuppressionOptionsResponse
 </span><span id="line-216"></span><span>  </span><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetSuppressionOptions.html#PutConfigurationSetSuppressionOptionsResponse"><span class="hs-identifier hs-type">PutConfigurationSetSuppressionOptionsResponse</span></a></span><span>
 </span><span id="line-217"></span><span id="newPutConfigurationSetSuppressionOptionsResponse"><span class="annot"><span class="annottext">newPutConfigurationSetSuppressionOptionsResponse :: Int -&gt; PutConfigurationSetSuppressionOptionsResponse
 </span><a href="Network.AWS.SESv2.PutConfigurationSetSuppressionOptions.html#newPutConfigurationSetSuppressionOptionsResponse"><span class="hs-identifier hs-var hs-var">newPutConfigurationSetSuppressionOptionsResponse</span></a></span></span><span>
-</span><span id="line-218"></span><span>  </span><span id="local-6989586621679337433"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679337433"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-218"></span><span>  </span><span id="local-6989586621679339973"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679339973"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-219"></span><span>    </span><span class="annot"><span class="annottext">PutConfigurationSetSuppressionOptionsResponse' :: Int -&gt; PutConfigurationSetSuppressionOptionsResponse
 </span><a href="Network.AWS.SESv2.PutConfigurationSetSuppressionOptions.html#PutConfigurationSetSuppressionOptionsResponse%27"><span class="hs-identifier hs-type">PutConfigurationSetSuppressionOptionsResponse'</span></a></span><span>
 </span><span id="line-220"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:PutConfigurationSetSuppressionOptionsResponse' :: Int
 </span><a href="Network.AWS.SESv2.PutConfigurationSetSuppressionOptions.html#%24sel%3AhttpStatus%3APutConfigurationSetSuppressionOptionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-221"></span><span>          </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679337433"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679339973"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-222"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-223"></span><span>
 </span><span id="line-224"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -572,18 +572,18 @@ PutConfigurationSetSuppressionOptionsResponse
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetSuppressionOptions.html#PutConfigurationSetSuppressionOptionsResponse%27"><span class="hs-identifier hs-type">PutConfigurationSetSuppressionOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679337432"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetSuppressionOptions.html#PutConfigurationSetSuppressionOptionsResponse%27"><span class="hs-identifier hs-type">PutConfigurationSetSuppressionOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339972"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:PutConfigurationSetSuppressionOptionsResponse' :: PutConfigurationSetSuppressionOptionsResponse -&gt; Int
-</span><a href="#local-6989586621679337432"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679337432"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679337431"><span class="annot"><span class="annottext">s :: PutConfigurationSetSuppressionOptionsResponse
-</span><a href="#local-6989586621679337431"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetSuppressionOptions.html#PutConfigurationSetSuppressionOptionsResponse%27"><span class="hs-identifier hs-type">PutConfigurationSetSuppressionOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679337430"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679337430"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutConfigurationSetSuppressionOptionsResponse
-</span><a href="#local-6989586621679337431"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutConfigurationSetSuppressionOptionsResponse' :: Int
+</span><a href="#local-6989586621679339972"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679339972"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679339971"><span class="annot"><span class="annottext">s :: PutConfigurationSetSuppressionOptionsResponse
+</span><a href="#local-6989586621679339971"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetSuppressionOptions.html#PutConfigurationSetSuppressionOptionsResponse%27"><span class="hs-identifier hs-type">PutConfigurationSetSuppressionOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679339970"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679339970"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutConfigurationSetSuppressionOptionsResponse
+</span><a href="#local-6989586621679339971"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutConfigurationSetSuppressionOptionsResponse' :: Int
 </span><a href="Network.AWS.SESv2.PutConfigurationSetSuppressionOptions.html#%24sel%3AhttpStatus%3APutConfigurationSetSuppressionOptionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679337430"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetSuppressionOptions.html#PutConfigurationSetSuppressionOptionsResponse"><span class="hs-identifier hs-type">PutConfigurationSetSuppressionOptionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679339970"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetSuppressionOptions.html#PutConfigurationSetSuppressionOptionsResponse"><span class="hs-identifier hs-type">PutConfigurationSetSuppressionOptionsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-227"></span><span>
 </span><span id="line-228"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-229"></span><span>  </span><span id="local-6989586621679337428"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-229"></span><span>  </span><span id="local-6989586621679339968"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-230"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetSuppressionOptions.html#PutConfigurationSetSuppressionOptionsResponse"><span class="hs-identifier hs-type">PutConfigurationSetSuppressionOptionsResponse</span></a></span></span><span>
 </span><span id="line-231"></span></pre></body></html>

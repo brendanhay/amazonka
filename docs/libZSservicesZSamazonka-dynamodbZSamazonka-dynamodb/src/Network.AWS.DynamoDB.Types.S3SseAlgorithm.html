@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679379729"><span id="local-6989586621679379730"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="S3SseAlgorithm"><span class="annot"><a href="Network.AWS.DynamoDB.Types.S3SseAlgorithm.html#S3SseAlgorithm"><span class="hs-identifier hs-var">S3SseAlgorithm</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="S3SseAlgorithm%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.S3SseAlgorithm.html#S3SseAlgorithm%27"><span class="hs-identifier hs-var">S3SseAlgorithm'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679380426"><span id="local-6989586621679380427"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="S3SseAlgorithm"><span class="annot"><a href="Network.AWS.DynamoDB.Types.S3SseAlgorithm.html#S3SseAlgorithm"><span class="hs-identifier hs-var">S3SseAlgorithm</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="S3SseAlgorithm%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.S3SseAlgorithm.html#S3SseAlgorithm%27"><span class="hs-identifier hs-var">S3SseAlgorithm'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromS3SseAlgorithm"><span class="annot"><span class="annottext">S3SseAlgorithm -&gt; Text
 </span><a href="Network.AWS.DynamoDB.Types.S3SseAlgorithm.html#fromS3SseAlgorithm"><span class="hs-identifier hs-var hs-var">fromS3SseAlgorithm</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679379721"><span id="local-6989586621679379723"><span id="local-6989586621679379725"><span class="annot"><span class="annottext">Int -&gt; S3SseAlgorithm -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679380418"><span id="local-6989586621679380420"><span id="local-6989586621679380422"><span class="annot"><span class="annottext">Int -&gt; S3SseAlgorithm -&gt; ShowS
 [S3SseAlgorithm] -&gt; ShowS
 S3SseAlgorithm -&gt; String
 (Int -&gt; S3SseAlgorithm -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: S3SseAlgorithm -&gt; String
 showsPrec :: Int -&gt; S3SseAlgorithm -&gt; ShowS
 $cshowsPrec :: Int -&gt; S3SseAlgorithm -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679379712"><span id="local-6989586621679379714"><span id="local-6989586621679379716"><span id="local-6989586621679379718"><span class="annot"><span class="annottext">ReadPrec [S3SseAlgorithm]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679380409"><span id="local-6989586621679380411"><span id="local-6989586621679380413"><span id="local-6989586621679380415"><span class="annot"><span class="annottext">ReadPrec [S3SseAlgorithm]
 ReadPrec S3SseAlgorithm
 Int -&gt; ReadS S3SseAlgorithm
 ReadS [S3SseAlgorithm]
@@ -72,7 +72,7 @@ $creadList :: ReadS [S3SseAlgorithm]
 readsPrec :: Int -&gt; ReadS S3SseAlgorithm
 $creadsPrec :: Int -&gt; ReadS S3SseAlgorithm
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679379707"><span id="local-6989586621679379709"><span class="annot"><span class="annottext">S3SseAlgorithm -&gt; S3SseAlgorithm -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679380404"><span id="local-6989586621679380406"><span class="annot"><span class="annottext">S3SseAlgorithm -&gt; S3SseAlgorithm -&gt; Bool
 (S3SseAlgorithm -&gt; S3SseAlgorithm -&gt; Bool)
 -&gt; (S3SseAlgorithm -&gt; S3SseAlgorithm -&gt; Bool) -&gt; Eq S3SseAlgorithm
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: S3SseAlgorithm -&gt; S3SseAlgorithm -&gt; Bool
 == :: S3SseAlgorithm -&gt; S3SseAlgorithm -&gt; Bool
 $c== :: S3SseAlgorithm -&gt; S3SseAlgorithm -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679379691"><span id="local-6989586621679379693"><span id="local-6989586621679379695"><span id="local-6989586621679379697"><span id="local-6989586621679379699"><span id="local-6989586621679379701"><span id="local-6989586621679379703"><span class="annot"><span class="annottext">Eq S3SseAlgorithm
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679380388"><span id="local-6989586621679380390"><span id="local-6989586621679380392"><span id="local-6989586621679380394"><span id="local-6989586621679380396"><span id="local-6989586621679380398"><span id="local-6989586621679380400"><span class="annot"><span class="annottext">Eq S3SseAlgorithm
 Eq S3SseAlgorithm
 -&gt; (S3SseAlgorithm -&gt; S3SseAlgorithm -&gt; Ordering)
 -&gt; (S3SseAlgorithm -&gt; S3SseAlgorithm -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. S3SseAlgorithm -&gt; Rep S3SseAlgorithm x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679379683"><span id="local-6989586621679379685"><span class="annot"><span class="annottext">Int -&gt; S3SseAlgorithm -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679380380"><span id="local-6989586621679380382"><span class="annot"><span class="annottext">Int -&gt; S3SseAlgorithm -&gt; Int
 S3SseAlgorithm -&gt; Int
 (Int -&gt; S3SseAlgorithm -&gt; Int)
 -&gt; (S3SseAlgorithm -&gt; Int) -&gt; Hashable S3SseAlgorithm
@@ -142,50 +142,50 @@ $chash :: S3SseAlgorithm -&gt; Int
 hashWithSalt :: Int -&gt; S3SseAlgorithm -&gt; Int
 $chashWithSalt :: Int -&gt; S3SseAlgorithm -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679379680"><span class="annot"><span class="annottext">S3SseAlgorithm -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679380377"><span class="annot"><span class="annottext">S3SseAlgorithm -&gt; ()
 (S3SseAlgorithm -&gt; ()) -&gt; NFData S3SseAlgorithm
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: S3SseAlgorithm -&gt; ()
 $crnf :: S3SseAlgorithm -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679379677"><span class="annot"><span class="annottext">Text -&gt; Either String S3SseAlgorithm
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679380374"><span class="annot"><span class="annottext">Text -&gt; Either String S3SseAlgorithm
 (Text -&gt; Either String S3SseAlgorithm) -&gt; FromText S3SseAlgorithm
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String S3SseAlgorithm
 $cfromText :: Text -&gt; Either String S3SseAlgorithm
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679379674"><span class="annot"><span class="annottext">S3SseAlgorithm -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679380371"><span class="annot"><span class="annottext">S3SseAlgorithm -&gt; Text
 (S3SseAlgorithm -&gt; Text) -&gt; ToText S3SseAlgorithm
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: S3SseAlgorithm -&gt; Text
 $ctoText :: S3SseAlgorithm -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679379671"><span class="annot"><span class="annottext">S3SseAlgorithm -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679380368"><span class="annot"><span class="annottext">S3SseAlgorithm -&gt; ByteString
 (S3SseAlgorithm -&gt; ByteString) -&gt; ToByteString S3SseAlgorithm
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: S3SseAlgorithm -&gt; ByteString
 $ctoBS :: S3SseAlgorithm -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679379668"><span class="annot"><span class="annottext">S3SseAlgorithm -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679380365"><span class="annot"><span class="annottext">S3SseAlgorithm -&gt; ByteStringBuilder
 (S3SseAlgorithm -&gt; ByteStringBuilder) -&gt; ToLog S3SseAlgorithm
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: S3SseAlgorithm -&gt; ByteStringBuilder
 $cbuild :: S3SseAlgorithm -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679379665"><span class="annot"><span class="annottext">HeaderName -&gt; S3SseAlgorithm -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679380362"><span class="annot"><span class="annottext">HeaderName -&gt; S3SseAlgorithm -&gt; [Header]
 (HeaderName -&gt; S3SseAlgorithm -&gt; [Header])
 -&gt; ToHeader S3SseAlgorithm
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; S3SseAlgorithm -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; S3SseAlgorithm -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679379662"><span class="annot"><span class="annottext">S3SseAlgorithm -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679380359"><span class="annot"><span class="annottext">S3SseAlgorithm -&gt; QueryString
 (S3SseAlgorithm -&gt; QueryString) -&gt; ToQuery S3SseAlgorithm
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: S3SseAlgorithm -&gt; QueryString
 $ctoQuery :: S3SseAlgorithm -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679379657"><span id="local-6989586621679379659"><span class="annot"><span class="annottext">Value -&gt; Parser [S3SseAlgorithm]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679380354"><span id="local-6989586621679380356"><span class="annot"><span class="annottext">Value -&gt; Parser [S3SseAlgorithm]
 Value -&gt; Parser S3SseAlgorithm
 (Value -&gt; Parser S3SseAlgorithm)
 -&gt; (Value -&gt; Parser [S3SseAlgorithm]) -&gt; FromJSON S3SseAlgorithm
@@ -196,7 +196,7 @@ $cparseJSONList :: Value -&gt; Parser [S3SseAlgorithm]
 parseJSON :: Value -&gt; Parser S3SseAlgorithm
 $cparseJSON :: Value -&gt; Parser S3SseAlgorithm
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679379652"><span id="local-6989586621679379654"><span class="annot"><span class="annottext">FromJSONKeyFunction [S3SseAlgorithm]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679380349"><span id="local-6989586621679380351"><span class="annot"><span class="annottext">FromJSONKeyFunction [S3SseAlgorithm]
 FromJSONKeyFunction S3SseAlgorithm
 FromJSONKeyFunction S3SseAlgorithm
 -&gt; FromJSONKeyFunction [S3SseAlgorithm]
@@ -208,7 +208,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [S3SseAlgorithm]
 fromJSONKey :: FromJSONKeyFunction S3SseAlgorithm
 $cfromJSONKey :: FromJSONKeyFunction S3SseAlgorithm
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679379643"><span id="local-6989586621679379645"><span id="local-6989586621679379647"><span id="local-6989586621679379649"><span class="annot"><span class="annottext">[S3SseAlgorithm] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679380340"><span id="local-6989586621679380342"><span id="local-6989586621679380344"><span id="local-6989586621679380346"><span class="annot"><span class="annottext">[S3SseAlgorithm] -&gt; Encoding
 [S3SseAlgorithm] -&gt; Value
 S3SseAlgorithm -&gt; Encoding
 S3SseAlgorithm -&gt; Value
@@ -232,7 +232,7 @@ $ctoEncoding :: S3SseAlgorithm -&gt; Encoding
 toJSON :: S3SseAlgorithm -&gt; Value
 $ctoJSON :: S3SseAlgorithm -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679379638"><span id="local-6989586621679379640"><span class="annot"><span class="annottext">ToJSONKeyFunction [S3SseAlgorithm]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679380335"><span id="local-6989586621679380337"><span class="annot"><span class="annottext">ToJSONKeyFunction [S3SseAlgorithm]
 ToJSONKeyFunction S3SseAlgorithm
 ToJSONKeyFunction S3SseAlgorithm
 -&gt; ToJSONKeyFunction [S3SseAlgorithm] -&gt; ToJSONKey S3SseAlgorithm
@@ -243,13 +243,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [S3SseAlgorithm]
 toJSONKey :: ToJSONKeyFunction S3SseAlgorithm
 $ctoJSONKey :: ToJSONKeyFunction S3SseAlgorithm
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679379635"><span class="annot"><span class="annottext">[Node] -&gt; Either String S3SseAlgorithm
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679380332"><span class="annot"><span class="annottext">[Node] -&gt; Either String S3SseAlgorithm
 ([Node] -&gt; Either String S3SseAlgorithm) -&gt; FromXML S3SseAlgorithm
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String S3SseAlgorithm
 $cparseXML :: [Node] -&gt; Either String S3SseAlgorithm
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679379632"><span class="annot"><span class="annottext">S3SseAlgorithm -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679380329"><span class="annot"><span class="annottext">S3SseAlgorithm -&gt; XML
 (S3SseAlgorithm -&gt; XML) -&gt; ToXML S3SseAlgorithm
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: S3SseAlgorithm -&gt; XML

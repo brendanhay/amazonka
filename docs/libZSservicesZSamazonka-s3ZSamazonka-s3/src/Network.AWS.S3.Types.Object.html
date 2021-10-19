@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- | An object consists of data and its descriptive metadata.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newObject' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679546545"><span id="local-6989586621679546546"></span></span><span class="hs-keyword">data</span><span> </span><span id="Object"><span class="annot"><a href="Network.AWS.S3.Types.Object.html#Object"><span class="hs-identifier hs-var">Object</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Object%27"><span class="annot"><a href="Network.AWS.S3.Types.Object.html#Object%27"><span class="hs-identifier hs-var">Object'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679547176"><span id="local-6989586621679547177"></span></span><span class="hs-keyword">data</span><span> </span><span id="Object"><span class="annot"><a href="Network.AWS.S3.Types.Object.html#Object"><span class="hs-identifier hs-var">Object</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Object%27"><span class="annot"><a href="Network.AWS.S3.Types.Object.html#Object%27"><span class="hs-identifier hs-var">Object'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The owner of the object</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Aowner%3AObject%27"><span class="annot"><span class="annottext">Object -&gt; Maybe Owner
 </span><a href="Network.AWS.S3.Types.Object.html#%24sel%3Aowner%3AObject%27"><span class="hs-identifier hs-var hs-var">owner</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Owner.html#Owner"><span class="hs-identifier hs-type">Owner</span></a></span><span class="hs-special">,</span><span>
@@ -67,7 +67,7 @@
 </span><span id="line-62"></span><span>    </span><span id="%24sel%3AlastModified%3AObject%27"><span class="annot"><span class="annottext">Object -&gt; ISO8601
 </span><a href="Network.AWS.S3.Types.Object.html#%24sel%3AlastModified%3AObject%27"><span class="hs-identifier hs-var hs-var">lastModified</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679546534"><span id="local-6989586621679546536"><span class="annot"><span class="annottext">Object -&gt; Object -&gt; Bool
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679547165"><span id="local-6989586621679547167"><span class="annot"><span class="annottext">Object -&gt; Object -&gt; Bool
 (Object -&gt; Object -&gt; Bool)
 -&gt; (Object -&gt; Object -&gt; Bool) -&gt; Eq Object
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -75,7 +75,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Object -&gt; Object -&gt; Bool
 == :: Object -&gt; Object -&gt; Bool
 $c== :: Object -&gt; Object -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679546525"><span id="local-6989586621679546527"><span id="local-6989586621679546529"><span id="local-6989586621679546531"><span class="annot"><span class="annottext">ReadPrec [Object]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679547156"><span id="local-6989586621679547158"><span id="local-6989586621679547160"><span id="local-6989586621679547162"><span class="annot"><span class="annottext">ReadPrec [Object]
 ReadPrec Object
 Int -&gt; ReadS Object
 ReadS [Object]
@@ -95,7 +95,7 @@ readList :: ReadS [Object]
 $creadList :: ReadS [Object]
 readsPrec :: Int -&gt; ReadS Object
 $creadsPrec :: Int -&gt; ReadS Object
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679546518"><span id="local-6989586621679546520"><span id="local-6989586621679546522"><span class="annot"><span class="annottext">Int -&gt; Object -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679547149"><span id="local-6989586621679547151"><span id="local-6989586621679547153"><span class="annot"><span class="annottext">Int -&gt; Object -&gt; ShowS
 [Object] -&gt; ShowS
 Object -&gt; String
 (Int -&gt; Object -&gt; ShowS)
@@ -170,16 +170,16 @@ $cfrom :: forall x. Object -&gt; Rep Object x
 </span><span id="line-115"></span><span id="newObject"><span class="annot"><span class="annottext">newObject :: ETag
 -&gt; Integer -&gt; ObjectKey -&gt; ObjectStorageClass -&gt; UTCTime -&gt; Object
 </span><a href="Network.AWS.S3.Types.Object.html#newObject"><span class="hs-identifier hs-var hs-var">newObject</span></a></span></span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679546512"><span class="annot"><span class="annottext">ETag
-</span><a href="#local-6989586621679546512"><span class="hs-identifier hs-var">pETag_</span></a></span></span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679546511"><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679546511"><span class="hs-identifier hs-var">pSize_</span></a></span></span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679546510"><span class="annot"><span class="annottext">ObjectKey
-</span><a href="#local-6989586621679546510"><span class="hs-identifier hs-var">pKey_</span></a></span></span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679546509"><span class="annot"><span class="annottext">ObjectStorageClass
-</span><a href="#local-6989586621679546509"><span class="hs-identifier hs-var">pStorageClass_</span></a></span></span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679546508"><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679546508"><span class="hs-identifier hs-var">pLastModified_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679547143"><span class="annot"><span class="annottext">ETag
+</span><a href="#local-6989586621679547143"><span class="hs-identifier hs-var">pETag_</span></a></span></span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679547142"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679547142"><span class="hs-identifier hs-var">pSize_</span></a></span></span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679547141"><span class="annot"><span class="annottext">ObjectKey
+</span><a href="#local-6989586621679547141"><span class="hs-identifier hs-var">pKey_</span></a></span></span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679547140"><span class="annot"><span class="annottext">ObjectStorageClass
+</span><a href="#local-6989586621679547140"><span class="hs-identifier hs-var">pStorageClass_</span></a></span></span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679547139"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679547139"><span class="hs-identifier hs-var">pLastModified_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">Object' :: Maybe Owner
 -&gt; ETag
 -&gt; Integer
@@ -194,16 +194,16 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-123"></span><span>        </span><span class="annot"><span class="annottext">$sel:eTag:Object' :: ETag
 </span><a href="Network.AWS.S3.Types.Object.html#%24sel%3AeTag%3AObject%27"><span class="hs-identifier hs-var">eTag</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ETag
-</span><a href="#local-6989586621679546512"><span class="hs-identifier hs-var">pETag_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679547143"><span class="hs-identifier hs-var">pETag_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-124"></span><span>        </span><span class="annot"><span class="annottext">$sel:size:Object' :: Integer
 </span><a href="Network.AWS.S3.Types.Object.html#%24sel%3Asize%3AObject%27"><span class="hs-identifier hs-var">size</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679546511"><span class="hs-identifier hs-var">pSize_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679547142"><span class="hs-identifier hs-var">pSize_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-125"></span><span>        </span><span class="annot"><span class="annottext">$sel:key:Object' :: ObjectKey
 </span><a href="Network.AWS.S3.Types.Object.html#%24sel%3Akey%3AObject%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ObjectKey
-</span><a href="#local-6989586621679546510"><span class="hs-identifier hs-var">pKey_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679547141"><span class="hs-identifier hs-var">pKey_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-126"></span><span>        </span><span class="annot"><span class="annottext">$sel:storageClass:Object' :: ObjectStorageClass
 </span><a href="Network.AWS.S3.Types.Object.html#%24sel%3AstorageClass%3AObject%27"><span class="hs-identifier hs-var">storageClass</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ObjectStorageClass
-</span><a href="#local-6989586621679546509"><span class="hs-identifier hs-var">pStorageClass_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679547140"><span class="hs-identifier hs-var">pStorageClass_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-127"></span><span>        </span><span class="annot"><span class="annottext">$sel:lastModified:Object' :: ISO8601
 </span><a href="Network.AWS.S3.Types.Object.html#%24sel%3AlastModified%3AObject%27"><span class="hs-identifier hs-var">lastModified</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime)
 -&gt; Tagged ISO8601 (Identity ISO8601)
@@ -213,7 +213,7 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; UTCTime -&gt; ISO8601
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679546508"><span class="hs-identifier hs-var">pLastModified_</span></a></span><span>
+</span><a href="#local-6989586621679547139"><span class="hs-identifier hs-var">pLastModified_</span></a></span><span>
 </span><span id="line-128"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-comment">-- | The owner of the object</span><span>
@@ -223,16 +223,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; (Object -&gt; Maybe Owner -&gt; Object)
 -&gt; Lens Object Object (Maybe Owner) (Maybe Owner)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.Object.html#Object%27"><span class="hs-identifier hs-type">Object'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679546502"><span class="annot"><span class="annottext">Maybe Owner
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.Object.html#Object%27"><span class="hs-identifier hs-type">Object'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679547133"><span class="annot"><span class="annottext">Maybe Owner
 owner :: Maybe Owner
 $sel:owner:Object' :: Object -&gt; Maybe Owner
-</span><a href="#local-6989586621679546502"><span class="hs-identifier hs-var hs-var">owner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Owner
-</span><a href="#local-6989586621679546502"><span class="hs-identifier hs-var">owner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679546501"><span class="annot"><span class="annottext">s :: Object
-</span><a href="#local-6989586621679546501"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.Object.html#Object%27"><span class="hs-identifier hs-type">Object'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679546500"><span class="annot"><span class="annottext">Maybe Owner
-</span><a href="#local-6989586621679546500"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679546501"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:owner:Object' :: Maybe Owner
+</span><a href="#local-6989586621679547133"><span class="hs-identifier hs-var hs-var">owner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Owner
+</span><a href="#local-6989586621679547133"><span class="hs-identifier hs-var">owner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679547132"><span class="annot"><span class="annottext">s :: Object
+</span><a href="#local-6989586621679547132"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.Object.html#Object%27"><span class="hs-identifier hs-type">Object'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679547131"><span class="annot"><span class="annottext">Maybe Owner
+</span><a href="#local-6989586621679547131"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679547132"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:owner:Object' :: Maybe Owner
 </span><a href="Network.AWS.S3.Types.Object.html#%24sel%3Aowner%3AObject%27"><span class="hs-identifier hs-var">owner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Owner
-</span><a href="#local-6989586621679546500"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Object.html#Object"><span class="hs-identifier hs-type">Object</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679547131"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Object.html#Object"><span class="hs-identifier hs-type">Object</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-comment">-- | The entity tag is a hash of the object. The ETag reflects changes only</span><span>
 </span><span id="line-135"></span><span class="hs-comment">-- to the contents of an object, not its metadata. The ETag may or may not</span><span>
@@ -257,16 +257,16 @@ $sel:owner:Object' :: Object -&gt; Maybe Owner
 </span><a href="Network.AWS.S3.Types.Object.html#object_eTag"><span class="hs-identifier hs-var hs-var">object_eTag</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Object -&gt; ETag)
 -&gt; (Object -&gt; ETag -&gt; Object) -&gt; Lens Object Object ETag ETag
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.Object.html#Object%27"><span class="hs-identifier hs-type">Object'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679546498"><span class="annot"><span class="annottext">ETag
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.Object.html#Object%27"><span class="hs-identifier hs-type">Object'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679547129"><span class="annot"><span class="annottext">ETag
 eTag :: ETag
 $sel:eTag:Object' :: Object -&gt; ETag
-</span><a href="#local-6989586621679546498"><span class="hs-identifier hs-var hs-var">eTag</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ETag
-</span><a href="#local-6989586621679546498"><span class="hs-identifier hs-var">eTag</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679546497"><span class="annot"><span class="annottext">s :: Object
-</span><a href="#local-6989586621679546497"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.Object.html#Object%27"><span class="hs-identifier hs-type">Object'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679546496"><span class="annot"><span class="annottext">ETag
-</span><a href="#local-6989586621679546496"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679546497"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eTag:Object' :: ETag
+</span><a href="#local-6989586621679547129"><span class="hs-identifier hs-var hs-var">eTag</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ETag
+</span><a href="#local-6989586621679547129"><span class="hs-identifier hs-var">eTag</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679547128"><span class="annot"><span class="annottext">s :: Object
+</span><a href="#local-6989586621679547128"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.Object.html#Object%27"><span class="hs-identifier hs-type">Object'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679547127"><span class="annot"><span class="annottext">ETag
+</span><a href="#local-6989586621679547127"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679547128"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eTag:Object' :: ETag
 </span><a href="Network.AWS.S3.Types.Object.html#%24sel%3AeTag%3AObject%27"><span class="hs-identifier hs-var">eTag</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ETag
-</span><a href="#local-6989586621679546496"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Object.html#Object"><span class="hs-identifier hs-type">Object</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679547127"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Object.html#Object"><span class="hs-identifier hs-type">Object</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-comment">-- | Size in bytes of the object</span><span>
 </span><span id="line-156"></span><span class="annot"><a href="Network.AWS.S3.Types.Object.html#object_size"><span class="hs-identifier hs-type">object_size</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Object.html#Object"><span class="hs-identifier hs-type">Object</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
@@ -275,16 +275,16 @@ $sel:eTag:Object' :: Object -&gt; ETag
 -&gt; (Object -&gt; Integer -&gt; Object)
 -&gt; Lens Object Object Integer Integer
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.Object.html#Object%27"><span class="hs-identifier hs-type">Object'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679546494"><span class="annot"><span class="annottext">Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.Object.html#Object%27"><span class="hs-identifier hs-type">Object'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679547125"><span class="annot"><span class="annottext">Integer
 size :: Integer
 $sel:size:Object' :: Object -&gt; Integer
-</span><a href="#local-6989586621679546494"><span class="hs-identifier hs-var hs-var">size</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679546494"><span class="hs-identifier hs-var">size</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679546493"><span class="annot"><span class="annottext">s :: Object
-</span><a href="#local-6989586621679546493"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.Object.html#Object%27"><span class="hs-identifier hs-type">Object'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679546492"><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679546492"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679546493"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:size:Object' :: Integer
+</span><a href="#local-6989586621679547125"><span class="hs-identifier hs-var hs-var">size</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679547125"><span class="hs-identifier hs-var">size</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679547124"><span class="annot"><span class="annottext">s :: Object
+</span><a href="#local-6989586621679547124"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.Object.html#Object%27"><span class="hs-identifier hs-type">Object'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679547123"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679547123"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679547124"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:size:Object' :: Integer
 </span><a href="Network.AWS.S3.Types.Object.html#%24sel%3Asize%3AObject%27"><span class="hs-identifier hs-var">size</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679546492"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Object.html#Object"><span class="hs-identifier hs-type">Object</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679547123"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Object.html#Object"><span class="hs-identifier hs-type">Object</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>
 </span><span id="line-159"></span><span class="hs-comment">-- | The name that you assign to an object. You use the object key to</span><span>
 </span><span id="line-160"></span><span class="hs-comment">-- retrieve the object.</span><span>
@@ -294,16 +294,16 @@ $sel:size:Object' :: Object -&gt; Integer
 -&gt; (Object -&gt; ObjectKey -&gt; Object)
 -&gt; Lens Object Object ObjectKey ObjectKey
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.Object.html#Object%27"><span class="hs-identifier hs-type">Object'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679546490"><span class="annot"><span class="annottext">ObjectKey
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.Object.html#Object%27"><span class="hs-identifier hs-type">Object'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679547121"><span class="annot"><span class="annottext">ObjectKey
 key :: ObjectKey
 $sel:key:Object' :: Object -&gt; ObjectKey
-</span><a href="#local-6989586621679546490"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ObjectKey
-</span><a href="#local-6989586621679546490"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679546489"><span class="annot"><span class="annottext">s :: Object
-</span><a href="#local-6989586621679546489"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.Object.html#Object%27"><span class="hs-identifier hs-type">Object'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679546488"><span class="annot"><span class="annottext">ObjectKey
-</span><a href="#local-6989586621679546488"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679546489"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:Object' :: ObjectKey
+</span><a href="#local-6989586621679547121"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ObjectKey
+</span><a href="#local-6989586621679547121"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679547120"><span class="annot"><span class="annottext">s :: Object
+</span><a href="#local-6989586621679547120"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.Object.html#Object%27"><span class="hs-identifier hs-type">Object'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679547119"><span class="annot"><span class="annottext">ObjectKey
+</span><a href="#local-6989586621679547119"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679547120"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:Object' :: ObjectKey
 </span><a href="Network.AWS.S3.Types.Object.html#%24sel%3Akey%3AObject%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ObjectKey
-</span><a href="#local-6989586621679546488"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Object.html#Object"><span class="hs-identifier hs-type">Object</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679547119"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Object.html#Object"><span class="hs-identifier hs-type">Object</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>
 </span><span id="line-164"></span><span class="hs-comment">-- | The class of storage used to store the object.</span><span>
 </span><span id="line-165"></span><span class="annot"><a href="Network.AWS.S3.Types.Object.html#object_storageClass"><span class="hs-identifier hs-type">object_storageClass</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Object.html#Object"><span class="hs-identifier hs-type">Object</span></a></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ObjectStorageClass.html#ObjectStorageClass"><span class="hs-identifier hs-type">ObjectStorageClass</span></a></span><span>
@@ -312,16 +312,16 @@ $sel:key:Object' :: Object -&gt; ObjectKey
 -&gt; (Object -&gt; ObjectStorageClass -&gt; Object)
 -&gt; Lens Object Object ObjectStorageClass ObjectStorageClass
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.Object.html#Object%27"><span class="hs-identifier hs-type">Object'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679546486"><span class="annot"><span class="annottext">ObjectStorageClass
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.Object.html#Object%27"><span class="hs-identifier hs-type">Object'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679547117"><span class="annot"><span class="annottext">ObjectStorageClass
 storageClass :: ObjectStorageClass
 $sel:storageClass:Object' :: Object -&gt; ObjectStorageClass
-</span><a href="#local-6989586621679546486"><span class="hs-identifier hs-var hs-var">storageClass</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ObjectStorageClass
-</span><a href="#local-6989586621679546486"><span class="hs-identifier hs-var">storageClass</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679546485"><span class="annot"><span class="annottext">s :: Object
-</span><a href="#local-6989586621679546485"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.Object.html#Object%27"><span class="hs-identifier hs-type">Object'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679546484"><span class="annot"><span class="annottext">ObjectStorageClass
-</span><a href="#local-6989586621679546484"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679546485"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:storageClass:Object' :: ObjectStorageClass
+</span><a href="#local-6989586621679547117"><span class="hs-identifier hs-var hs-var">storageClass</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ObjectStorageClass
+</span><a href="#local-6989586621679547117"><span class="hs-identifier hs-var">storageClass</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679547116"><span class="annot"><span class="annottext">s :: Object
+</span><a href="#local-6989586621679547116"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.Object.html#Object%27"><span class="hs-identifier hs-type">Object'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679547115"><span class="annot"><span class="annottext">ObjectStorageClass
+</span><a href="#local-6989586621679547115"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679547116"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:storageClass:Object' :: ObjectStorageClass
 </span><a href="Network.AWS.S3.Types.Object.html#%24sel%3AstorageClass%3AObject%27"><span class="hs-identifier hs-var">storageClass</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ObjectStorageClass
-</span><a href="#local-6989586621679546484"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Object.html#Object"><span class="hs-identifier hs-type">Object</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679547115"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Object.html#Object"><span class="hs-identifier hs-type">Object</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-167"></span><span>
 </span><span id="line-168"></span><span class="hs-comment">-- | Creation date of the object.</span><span>
 </span><span id="line-169"></span><span class="annot"><a href="Network.AWS.S3.Types.Object.html#object_lastModified"><span class="hs-identifier hs-type">object_lastModified</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Object.html#Object"><span class="hs-identifier hs-type">Object</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
@@ -330,16 +330,16 @@ $sel:storageClass:Object' :: Object -&gt; ObjectStorageClass
 -&gt; (Object -&gt; ISO8601 -&gt; Object)
 -&gt; Lens Object Object ISO8601 ISO8601
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.Object.html#Object%27"><span class="hs-identifier hs-type">Object'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679546482"><span class="annot"><span class="annottext">ISO8601
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.Object.html#Object%27"><span class="hs-identifier hs-type">Object'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679547113"><span class="annot"><span class="annottext">ISO8601
 lastModified :: ISO8601
 $sel:lastModified:Object' :: Object -&gt; ISO8601
-</span><a href="#local-6989586621679546482"><span class="hs-identifier hs-var hs-var">lastModified</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ISO8601
-</span><a href="#local-6989586621679546482"><span class="hs-identifier hs-var">lastModified</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679546481"><span class="annot"><span class="annottext">s :: Object
-</span><a href="#local-6989586621679546481"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.Object.html#Object%27"><span class="hs-identifier hs-type">Object'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679546480"><span class="annot"><span class="annottext">ISO8601
-</span><a href="#local-6989586621679546480"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679546481"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModified:Object' :: ISO8601
+</span><a href="#local-6989586621679547113"><span class="hs-identifier hs-var hs-var">lastModified</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ISO8601
+</span><a href="#local-6989586621679547113"><span class="hs-identifier hs-var">lastModified</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679547112"><span class="annot"><span class="annottext">s :: Object
+</span><a href="#local-6989586621679547112"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.Object.html#Object%27"><span class="hs-identifier hs-type">Object'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679547111"><span class="annot"><span class="annottext">ISO8601
+</span><a href="#local-6989586621679547111"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679547112"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModified:Object' :: ISO8601
 </span><a href="Network.AWS.S3.Types.Object.html#%24sel%3AlastModified%3AObject%27"><span class="hs-identifier hs-var">lastModified</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ISO8601
-</span><a href="#local-6989586621679546480"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Object.html#Object"><span class="hs-identifier hs-type">Object</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((ISO8601 -&gt; f ISO8601) -&gt; Object -&gt; f Object)
+</span><a href="#local-6989586621679547111"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Object.html#Object"><span class="hs-identifier hs-type">Object</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((ISO8601 -&gt; f ISO8601) -&gt; Object -&gt; f Object)
 -&gt; ((UTCTime -&gt; f UTCTime) -&gt; ISO8601 -&gt; f ISO8601)
 -&gt; (UTCTime -&gt; f UTCTime)
 -&gt; Object
@@ -350,9 +350,9 @@ forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-171"></span><span>
 </span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Object.html#Object"><span class="hs-identifier hs-type">Object</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-173"></span><span>  </span><span id="local-6989586621679546476"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Object
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679546474"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679546474"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679547107"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Object
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679547105"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679547105"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-174"></span><span>    </span><span class="annot"><span class="annottext">Maybe Owner
 -&gt; ETag
 -&gt; Integer
@@ -375,7 +375,7 @@ forall (a :: Format). Iso' (Time a) UTCTime
       -&gt; Integer -&gt; ObjectKey -&gt; ObjectStorageClass -&gt; ISO8601 -&gt; Object)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679546474"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Owner)
+</span><a href="#local-6989586621679547105"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Owner)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Owner&quot;</span></span><span class="hs-special">)</span><span>
@@ -389,7 +389,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
      (Integer -&gt; ObjectKey -&gt; ObjectStorageClass -&gt; ISO8601 -&gt; Object)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679546474"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String ETag
+</span><a href="#local-6989586621679547105"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String ETag
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ETag&quot;</span></span><span class="hs-special">)</span><span>
@@ -401,7 +401,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
      String (ObjectKey -&gt; ObjectStorageClass -&gt; ISO8601 -&gt; Object)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679546474"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Integer
+</span><a href="#local-6989586621679547105"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Integer
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Size&quot;</span></span><span class="hs-special">)</span><span>
@@ -411,7 +411,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String (ObjectStorageClass -&gt; ISO8601 -&gt; Object)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679546474"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String ObjectKey
+</span><a href="#local-6989586621679547105"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String ObjectKey
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Key&quot;</span></span><span class="hs-special">)</span><span>
@@ -420,7 +420,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String (ISO8601 -&gt; Object)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679546474"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String ObjectStorageClass
+</span><a href="#local-6989586621679547105"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String ObjectStorageClass
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StorageClass&quot;</span></span><span class="hs-special">)</span><span>
@@ -428,12 +428,12 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String ISO8601 -&gt; Either String Object
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679546474"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String ISO8601
+</span><a href="#local-6989586621679547105"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String ISO8601
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LastModified&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-181"></span><span>
-</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679546467"><span id="local-6989586621679546469"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Object.html#Object"><span class="hs-identifier hs-type">Object</span></a></span></span></span><span>
+</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679547098"><span id="local-6989586621679547100"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Object.html#Object"><span class="hs-identifier hs-type">Object</span></a></span></span></span><span>
 </span><span id="line-183"></span><span>
-</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679546464"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Object.html#Object"><span class="hs-identifier hs-type">Object</span></a></span></span><span>
+</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679547095"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Object.html#Object"><span class="hs-identifier hs-type">Object</span></a></span></span><span>
 </span><span id="line-185"></span></pre></body></html>

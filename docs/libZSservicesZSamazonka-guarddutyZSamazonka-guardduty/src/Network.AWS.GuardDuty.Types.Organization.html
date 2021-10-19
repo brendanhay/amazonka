@@ -27,22 +27,22 @@
 </span><span id="line-27"></span><span class="hs-comment">-- address.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newOrganization' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679297750"><span id="local-6989586621679297751"></span></span><span class="hs-keyword">data</span><span> </span><span id="Organization"><span class="annot"><a href="Network.AWS.GuardDuty.Types.Organization.html#Organization"><span class="hs-identifier hs-var">Organization</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Organization%27"><span class="annot"><a href="Network.AWS.GuardDuty.Types.Organization.html#Organization%27"><span class="hs-identifier hs-var">Organization'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Autonomous System Number (ASN) of the internet provider of the</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- remote IP address.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3Aasn%3AOrganization%27"><span class="annot"><span class="annottext">Organization -&gt; Maybe Text
-</span><a href="Network.AWS.GuardDuty.Types.Organization.html#%24sel%3Aasn%3AOrganization%27"><span class="hs-identifier hs-var hs-var">asn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The ISP information for the internet provider.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3Aisp%3AOrganization%27"><span class="annot"><span class="annottext">Organization -&gt; Maybe Text
-</span><a href="Network.AWS.GuardDuty.Types.Organization.html#%24sel%3Aisp%3AOrganization%27"><span class="hs-identifier hs-var hs-var">isp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The organization that registered this ASN.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AasnOrg%3AOrganization%27"><span class="annot"><span class="annottext">Organization -&gt; Maybe Text
+</span><span id="line-30"></span><span id="local-6989586621679298035"><span id="local-6989586621679298036"></span></span><span class="hs-keyword">data</span><span> </span><span id="Organization"><span class="annot"><a href="Network.AWS.GuardDuty.Types.Organization.html#Organization"><span class="hs-identifier hs-var">Organization</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Organization%27"><span class="annot"><a href="Network.AWS.GuardDuty.Types.Organization.html#Organization%27"><span class="hs-identifier hs-var">Organization'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the internet provider.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3Aorg%3AOrganization%27"><span class="annot"><span class="annottext">Organization -&gt; Maybe Text
+</span><a href="Network.AWS.GuardDuty.Types.Organization.html#%24sel%3Aorg%3AOrganization%27"><span class="hs-identifier hs-var hs-var">org</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The organization that registered this ASN.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AasnOrg%3AOrganization%27"><span class="annot"><span class="annottext">Organization -&gt; Maybe Text
 </span><a href="Network.AWS.GuardDuty.Types.Organization.html#%24sel%3AasnOrg%3AOrganization%27"><span class="hs-identifier hs-var hs-var">asnOrg</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The name of the internet provider.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3Aorg%3AOrganization%27"><span class="annot"><span class="annottext">Organization -&gt; Maybe Text
-</span><a href="Network.AWS.GuardDuty.Types.Organization.html#%24sel%3Aorg%3AOrganization%27"><span class="hs-identifier hs-var hs-var">org</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The Autonomous System Number (ASN) of the internet provider of the</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- remote IP address.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Aasn%3AOrganization%27"><span class="annot"><span class="annottext">Organization -&gt; Maybe Text
+</span><a href="Network.AWS.GuardDuty.Types.Organization.html#%24sel%3Aasn%3AOrganization%27"><span class="hs-identifier hs-var hs-var">asn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The ISP information for the internet provider.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3Aisp%3AOrganization%27"><span class="annot"><span class="annottext">Organization -&gt; Maybe Text
+</span><a href="Network.AWS.GuardDuty.Types.Organization.html#%24sel%3Aisp%3AOrganization%27"><span class="hs-identifier hs-var hs-var">isp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679297741"><span id="local-6989586621679297743"><span class="annot"><span class="annottext">Organization -&gt; Organization -&gt; Bool
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679298026"><span id="local-6989586621679298028"><span class="annot"><span class="annottext">Organization -&gt; Organization -&gt; Bool
 (Organization -&gt; Organization -&gt; Bool)
 -&gt; (Organization -&gt; Organization -&gt; Bool) -&gt; Eq Organization
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -50,7 +50,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Organization -&gt; Organization -&gt; Bool
 == :: Organization -&gt; Organization -&gt; Bool
 $c== :: Organization -&gt; Organization -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297732"><span id="local-6989586621679297734"><span id="local-6989586621679297736"><span id="local-6989586621679297738"><span class="annot"><span class="annottext">ReadPrec [Organization]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679298017"><span id="local-6989586621679298019"><span id="local-6989586621679298021"><span id="local-6989586621679298023"><span class="annot"><span class="annottext">ReadPrec [Organization]
 ReadPrec Organization
 Int -&gt; ReadS Organization
 ReadS [Organization]
@@ -70,7 +70,7 @@ readList :: ReadS [Organization]
 $creadList :: ReadS [Organization]
 readsPrec :: Int -&gt; ReadS Organization
 $creadsPrec :: Int -&gt; ReadS Organization
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297725"><span id="local-6989586621679297727"><span id="local-6989586621679297729"><span class="annot"><span class="annottext">Int -&gt; Organization -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679298010"><span id="local-6989586621679298012"><span id="local-6989586621679298014"><span class="annot"><span class="annottext">Int -&gt; Organization -&gt; ShowS
 [Organization] -&gt; ShowS
 Organization -&gt; String
 (Int -&gt; Organization -&gt; ShowS)
@@ -104,14 +104,14 @@ $cfrom :: forall x. Organization -&gt; Rep Organization x
 </span><span id="line-48"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
-</span><span id="line-51"></span><span class="hs-comment">-- 'asn', 'organization_asn' - The Autonomous System Number (ASN) of the internet provider of the</span><span>
-</span><span id="line-52"></span><span class="hs-comment">-- remote IP address.</span><span>
-</span><span id="line-53"></span><span class="hs-comment">--</span><span>
-</span><span id="line-54"></span><span class="hs-comment">-- 'isp', 'organization_isp' - The ISP information for the internet provider.</span><span>
-</span><span id="line-55"></span><span class="hs-comment">--</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- 'asnOrg', 'organization_asnOrg' - The organization that registered this ASN.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'org', 'organization_org' - The name of the internet provider.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'asnOrg', 'organization_asnOrg' - The organization that registered this ASN.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'asn', 'organization_asn' - The Autonomous System Number (ASN) of the internet provider of the</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- remote IP address.</span><span>
 </span><span id="line-57"></span><span class="hs-comment">--</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- 'org', 'organization_org' - The name of the internet provider.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'isp', 'organization_isp' - The ISP information for the internet provider.</span><span>
 </span><span id="line-59"></span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Organization.html#newOrganization"><span class="hs-identifier hs-type">newOrganization</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-60"></span><span>  </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Organization.html#Organization"><span class="hs-identifier hs-type">Organization</span></a></span><span>
 </span><span id="line-61"></span><span id="newOrganization"><span class="annot"><span class="annottext">newOrganization :: Organization
@@ -119,99 +119,99 @@ $cfrom :: forall x. Organization -&gt; Rep Organization x
 </span><span id="line-62"></span><span>  </span><span class="annot"><span class="annottext">Organization' :: Maybe Text
 -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Organization
 </span><a href="Network.AWS.GuardDuty.Types.Organization.html#Organization%27"><span class="hs-identifier hs-type">Organization'</span></a></span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:asn:Organization' :: Maybe Text
-</span><a href="Network.AWS.GuardDuty.Types.Organization.html#%24sel%3Aasn%3AOrganization%27"><span class="hs-identifier hs-var">asn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-63"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:org:Organization' :: Maybe Text
+</span><a href="Network.AWS.GuardDuty.Types.Organization.html#%24sel%3Aorg%3AOrganization%27"><span class="hs-identifier hs-var">org</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:isp:Organization' :: Maybe Text
-</span><a href="Network.AWS.GuardDuty.Types.Organization.html#%24sel%3Aisp%3AOrganization%27"><span class="hs-identifier hs-var">isp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:asnOrg:Organization' :: Maybe Text
+</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:asnOrg:Organization' :: Maybe Text
 </span><a href="Network.AWS.GuardDuty.Types.Organization.html#%24sel%3AasnOrg%3AOrganization%27"><span class="hs-identifier hs-var">asnOrg</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">$sel:org:Organization' :: Maybe Text
-</span><a href="Network.AWS.GuardDuty.Types.Organization.html#%24sel%3Aorg%3AOrganization%27"><span class="hs-identifier hs-var">org</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:asn:Organization' :: Maybe Text
+</span><a href="Network.AWS.GuardDuty.Types.Organization.html#%24sel%3Aasn%3AOrganization%27"><span class="hs-identifier hs-var">asn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">$sel:isp:Organization' :: Maybe Text
+</span><a href="Network.AWS.GuardDuty.Types.Organization.html#%24sel%3Aisp%3AOrganization%27"><span class="hs-identifier hs-var">isp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-67"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- | The Autonomous System Number (ASN) of the internet provider of the</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- remote IP address.</span><span>
-</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Organization.html#organization_asn"><span class="hs-identifier hs-type">organization_asn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Organization.html#Organization"><span class="hs-identifier hs-type">Organization</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-72"></span><span id="organization_asn"><span class="annot"><span class="annottext">organization_asn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Organization -&gt; f Organization
-</span><a href="Network.AWS.GuardDuty.Types.Organization.html#organization_asn"><span class="hs-identifier hs-var hs-var">organization_asn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Organization -&gt; Maybe Text)
--&gt; (Organization -&gt; Maybe Text -&gt; Organization)
--&gt; Lens Organization Organization (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Organization.html#Organization%27"><span class="hs-identifier hs-type">Organization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297716"><span class="annot"><span class="annottext">Maybe Text
-asn :: Maybe Text
-$sel:asn:Organization' :: Organization -&gt; Maybe Text
-</span><a href="#local-6989586621679297716"><span class="hs-identifier hs-var hs-var">asn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679297716"><span class="hs-identifier hs-var">asn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297715"><span class="annot"><span class="annottext">s :: Organization
-</span><a href="#local-6989586621679297715"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Organization.html#Organization%27"><span class="hs-identifier hs-type">Organization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297714"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679297714"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Organization
-</span><a href="#local-6989586621679297715"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:asn:Organization' :: Maybe Text
-</span><a href="Network.AWS.GuardDuty.Types.Organization.html#%24sel%3Aasn%3AOrganization%27"><span class="hs-identifier hs-var">asn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679297714"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Organization.html#Organization"><span class="hs-identifier hs-type">Organization</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- | The ISP information for the internet provider.</span><span>
-</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Organization.html#organization_isp"><span class="hs-identifier hs-type">organization_isp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Organization.html#Organization"><span class="hs-identifier hs-type">Organization</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-76"></span><span id="organization_isp"><span class="annot"><span class="annottext">organization_isp :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Organization -&gt; f Organization
-</span><a href="Network.AWS.GuardDuty.Types.Organization.html#organization_isp"><span class="hs-identifier hs-var hs-var">organization_isp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Organization -&gt; Maybe Text)
--&gt; (Organization -&gt; Maybe Text -&gt; Organization)
--&gt; Lens Organization Organization (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Organization.html#Organization%27"><span class="hs-identifier hs-type">Organization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297712"><span class="annot"><span class="annottext">Maybe Text
-isp :: Maybe Text
-$sel:isp:Organization' :: Organization -&gt; Maybe Text
-</span><a href="#local-6989586621679297712"><span class="hs-identifier hs-var hs-var">isp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679297712"><span class="hs-identifier hs-var">isp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297711"><span class="annot"><span class="annottext">s :: Organization
-</span><a href="#local-6989586621679297711"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Organization.html#Organization%27"><span class="hs-identifier hs-type">Organization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297710"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679297710"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Organization
-</span><a href="#local-6989586621679297711"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isp:Organization' :: Maybe Text
-</span><a href="Network.AWS.GuardDuty.Types.Organization.html#%24sel%3Aisp%3AOrganization%27"><span class="hs-identifier hs-var">isp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679297710"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Organization.html#Organization"><span class="hs-identifier hs-type">Organization</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- | The organization that registered this ASN.</span><span>
-</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Organization.html#organization_asnOrg"><span class="hs-identifier hs-type">organization_asnOrg</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Organization.html#Organization"><span class="hs-identifier hs-type">Organization</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-80"></span><span id="organization_asnOrg"><span class="annot"><span class="annottext">organization_asnOrg :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Organization -&gt; f Organization
-</span><a href="Network.AWS.GuardDuty.Types.Organization.html#organization_asnOrg"><span class="hs-identifier hs-var hs-var">organization_asnOrg</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Organization -&gt; Maybe Text)
--&gt; (Organization -&gt; Maybe Text -&gt; Organization)
--&gt; Lens Organization Organization (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Organization.html#Organization%27"><span class="hs-identifier hs-type">Organization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297708"><span class="annot"><span class="annottext">Maybe Text
-asnOrg :: Maybe Text
-$sel:asnOrg:Organization' :: Organization -&gt; Maybe Text
-</span><a href="#local-6989586621679297708"><span class="hs-identifier hs-var hs-var">asnOrg</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679297708"><span class="hs-identifier hs-var">asnOrg</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297707"><span class="annot"><span class="annottext">s :: Organization
-</span><a href="#local-6989586621679297707"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Organization.html#Organization%27"><span class="hs-identifier hs-type">Organization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297706"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679297706"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Organization
-</span><a href="#local-6989586621679297707"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:asnOrg:Organization' :: Maybe Text
-</span><a href="Network.AWS.GuardDuty.Types.Organization.html#%24sel%3AasnOrg%3AOrganization%27"><span class="hs-identifier hs-var">asnOrg</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679297706"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Organization.html#Organization"><span class="hs-identifier hs-type">Organization</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- | The name of the internet provider.</span><span>
-</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Organization.html#organization_org"><span class="hs-identifier hs-type">organization_org</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Organization.html#Organization"><span class="hs-identifier hs-type">Organization</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-84"></span><span id="organization_org"><span class="annot"><span class="annottext">organization_org :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Organization -&gt; f Organization
+</span><span id="line-69"></span><span class="hs-comment">-- | The name of the internet provider.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Organization.html#organization_org"><span class="hs-identifier hs-type">organization_org</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Organization.html#Organization"><span class="hs-identifier hs-type">Organization</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span id="organization_org"><span class="annot"><span class="annottext">organization_org :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Organization -&gt; f Organization
 </span><a href="Network.AWS.GuardDuty.Types.Organization.html#organization_org"><span class="hs-identifier hs-var hs-var">organization_org</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Organization -&gt; Maybe Text)
 -&gt; (Organization -&gt; Maybe Text -&gt; Organization)
 -&gt; Lens Organization Organization (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Organization.html#Organization%27"><span class="hs-identifier hs-type">Organization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297704"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Organization.html#Organization%27"><span class="hs-identifier hs-type">Organization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298001"><span class="annot"><span class="annottext">Maybe Text
 org :: Maybe Text
 $sel:org:Organization' :: Organization -&gt; Maybe Text
-</span><a href="#local-6989586621679297704"><span class="hs-identifier hs-var hs-var">org</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679297704"><span class="hs-identifier hs-var">org</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297703"><span class="annot"><span class="annottext">s :: Organization
-</span><a href="#local-6989586621679297703"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Organization.html#Organization%27"><span class="hs-identifier hs-type">Organization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297702"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679297702"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Organization
-</span><a href="#local-6989586621679297703"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:org:Organization' :: Maybe Text
+</span><a href="#local-6989586621679298001"><span class="hs-identifier hs-var hs-var">org</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298001"><span class="hs-identifier hs-var">org</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298000"><span class="annot"><span class="annottext">s :: Organization
+</span><a href="#local-6989586621679298000"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Organization.html#Organization%27"><span class="hs-identifier hs-type">Organization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297999"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679297999"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Organization
+</span><a href="#local-6989586621679298000"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:org:Organization' :: Maybe Text
 </span><a href="Network.AWS.GuardDuty.Types.Organization.html#%24sel%3Aorg%3AOrganization%27"><span class="hs-identifier hs-var">org</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679297702"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Organization.html#Organization"><span class="hs-identifier hs-type">Organization</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679297999"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Organization.html#Organization"><span class="hs-identifier hs-type">Organization</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- | The organization that registered this ASN.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Organization.html#organization_asnOrg"><span class="hs-identifier hs-type">organization_asnOrg</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Organization.html#Organization"><span class="hs-identifier hs-type">Organization</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span id="organization_asnOrg"><span class="annot"><span class="annottext">organization_asnOrg :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Organization -&gt; f Organization
+</span><a href="Network.AWS.GuardDuty.Types.Organization.html#organization_asnOrg"><span class="hs-identifier hs-var hs-var">organization_asnOrg</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Organization -&gt; Maybe Text)
+-&gt; (Organization -&gt; Maybe Text -&gt; Organization)
+-&gt; Lens Organization Organization (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Organization.html#Organization%27"><span class="hs-identifier hs-type">Organization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297997"><span class="annot"><span class="annottext">Maybe Text
+asnOrg :: Maybe Text
+$sel:asnOrg:Organization' :: Organization -&gt; Maybe Text
+</span><a href="#local-6989586621679297997"><span class="hs-identifier hs-var hs-var">asnOrg</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679297997"><span class="hs-identifier hs-var">asnOrg</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297996"><span class="annot"><span class="annottext">s :: Organization
+</span><a href="#local-6989586621679297996"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Organization.html#Organization%27"><span class="hs-identifier hs-type">Organization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297995"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679297995"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Organization
+</span><a href="#local-6989586621679297996"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:asnOrg:Organization' :: Maybe Text
+</span><a href="Network.AWS.GuardDuty.Types.Organization.html#%24sel%3AasnOrg%3AOrganization%27"><span class="hs-identifier hs-var">asnOrg</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679297995"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Organization.html#Organization"><span class="hs-identifier hs-type">Organization</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | The Autonomous System Number (ASN) of the internet provider of the</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- remote IP address.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Organization.html#organization_asn"><span class="hs-identifier hs-type">organization_asn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Organization.html#Organization"><span class="hs-identifier hs-type">Organization</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span id="organization_asn"><span class="annot"><span class="annottext">organization_asn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Organization -&gt; f Organization
+</span><a href="Network.AWS.GuardDuty.Types.Organization.html#organization_asn"><span class="hs-identifier hs-var hs-var">organization_asn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Organization -&gt; Maybe Text)
+-&gt; (Organization -&gt; Maybe Text -&gt; Organization)
+-&gt; Lens Organization Organization (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Organization.html#Organization%27"><span class="hs-identifier hs-type">Organization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297993"><span class="annot"><span class="annottext">Maybe Text
+asn :: Maybe Text
+$sel:asn:Organization' :: Organization -&gt; Maybe Text
+</span><a href="#local-6989586621679297993"><span class="hs-identifier hs-var hs-var">asn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679297993"><span class="hs-identifier hs-var">asn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297992"><span class="annot"><span class="annottext">s :: Organization
+</span><a href="#local-6989586621679297992"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Organization.html#Organization%27"><span class="hs-identifier hs-type">Organization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297991"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679297991"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Organization
+</span><a href="#local-6989586621679297992"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:asn:Organization' :: Maybe Text
+</span><a href="Network.AWS.GuardDuty.Types.Organization.html#%24sel%3Aasn%3AOrganization%27"><span class="hs-identifier hs-var">asn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679297991"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Organization.html#Organization"><span class="hs-identifier hs-type">Organization</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | The ISP information for the internet provider.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Organization.html#organization_isp"><span class="hs-identifier hs-type">organization_isp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Organization.html#Organization"><span class="hs-identifier hs-type">Organization</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span id="organization_isp"><span class="annot"><span class="annottext">organization_isp :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Organization -&gt; f Organization
+</span><a href="Network.AWS.GuardDuty.Types.Organization.html#organization_isp"><span class="hs-identifier hs-var hs-var">organization_isp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Organization -&gt; Maybe Text)
+-&gt; (Organization -&gt; Maybe Text -&gt; Organization)
+-&gt; Lens Organization Organization (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Organization.html#Organization%27"><span class="hs-identifier hs-type">Organization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297989"><span class="annot"><span class="annottext">Maybe Text
+isp :: Maybe Text
+$sel:isp:Organization' :: Organization -&gt; Maybe Text
+</span><a href="#local-6989586621679297989"><span class="hs-identifier hs-var hs-var">isp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679297989"><span class="hs-identifier hs-var">isp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297988"><span class="annot"><span class="annottext">s :: Organization
+</span><a href="#local-6989586621679297988"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Organization.html#Organization%27"><span class="hs-identifier hs-type">Organization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297987"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679297987"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Organization
+</span><a href="#local-6989586621679297988"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isp:Organization' :: Maybe Text
+</span><a href="Network.AWS.GuardDuty.Types.Organization.html#%24sel%3Aisp%3AOrganization%27"><span class="hs-identifier hs-var">isp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679297987"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Organization.html#Organization"><span class="hs-identifier hs-type">Organization</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297699"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Organization.html#Organization"><span class="hs-identifier hs-type">Organization</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679297697"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Organization
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297984"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Organization.html#Organization"><span class="hs-identifier hs-type">Organization</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679297982"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Organization
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser Organization) -&gt; Value -&gt; Parser Organization
@@ -219,8 +219,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Organization&quot;</span></span><span>
-</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679297694"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679297694"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679297979"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679297979"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Organization
 </span><a href="Network.AWS.GuardDuty.Types.Organization.html#Organization%27"><span class="hs-identifier hs-var">Organization'</span></a></span><span>
@@ -230,38 +230,38 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Organization)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679297694"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679297979"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;asn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;org&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Organization)
 -&gt; Parser (Maybe Text)
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Organization)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679297694"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679297979"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;isp&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;asnOrg&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Organization)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; Organization)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679297694"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679297979"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;asnOrg&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;asn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Organization)
 -&gt; Parser (Maybe Text) -&gt; Parser Organization
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679297694"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679297979"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;org&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;isp&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297688"><span id="local-6989586621679297690"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Organization.html#Organization"><span class="hs-identifier hs-type">Organization</span></a></span></span></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297973"><span id="local-6989586621679297975"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Organization.html#Organization"><span class="hs-identifier hs-type">Organization</span></a></span></span></span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297685"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Organization.html#Organization"><span class="hs-identifier hs-type">Organization</span></a></span></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297970"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Organization.html#Organization"><span class="hs-identifier hs-type">Organization</span></a></span></span><span>
 </span><span id="line-101"></span></pre></body></html>

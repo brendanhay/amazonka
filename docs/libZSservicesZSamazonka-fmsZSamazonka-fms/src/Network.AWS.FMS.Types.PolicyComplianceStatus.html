@@ -31,33 +31,33 @@
 </span><span id="line-31"></span><span class="hs-comment">-- are noncompliant with the policy, for security group policies.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newPolicyComplianceStatus' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679247036"><span id="local-6989586621679247037"></span></span><span class="hs-keyword">data</span><span> </span><span id="PolicyComplianceStatus"><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#PolicyComplianceStatus"><span class="hs-identifier hs-var">PolicyComplianceStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PolicyComplianceStatus%27"><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#PolicyComplianceStatus%27"><span class="hs-identifier hs-var">PolicyComplianceStatus'</span></a></span></span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the Firewall Manager policy.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3ApolicyName%3APolicyComplianceStatus%27"><span class="annot"><span class="annottext">PolicyComplianceStatus -&gt; Maybe Text
-</span><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#%24sel%3ApolicyName%3APolicyComplianceStatus%27"><span class="hs-identifier hs-var hs-var">policyName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The Amazon Web Services account that created the Firewall Manager</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- policy.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3ApolicyOwner%3APolicyComplianceStatus%27"><span class="annot"><span class="annottext">PolicyComplianceStatus -&gt; Maybe Text
-</span><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#%24sel%3ApolicyOwner%3APolicyComplianceStatus%27"><span class="hs-identifier hs-var hs-var">policyOwner</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The member account ID.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3AmemberAccount%3APolicyComplianceStatus%27"><span class="annot"><span class="annottext">PolicyComplianceStatus -&gt; Maybe Text
-</span><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#%24sel%3AmemberAccount%3APolicyComplianceStatus%27"><span class="hs-identifier hs-var hs-var">memberAccount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | Timestamp of the last update to the @EvaluationResult@ objects.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3AlastUpdated%3APolicyComplianceStatus%27"><span class="annot"><span class="annottext">PolicyComplianceStatus -&gt; Maybe POSIX
-</span><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#%24sel%3AlastUpdated%3APolicyComplianceStatus%27"><span class="hs-identifier hs-var hs-var">lastUpdated</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | An array of @EvaluationResult@ objects.</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3AevaluationResults%3APolicyComplianceStatus%27"><span class="annot"><span class="annottext">PolicyComplianceStatus -&gt; Maybe [EvaluationResult]
+</span><span id="line-34"></span><span id="local-6989586621679247270"><span id="local-6989586621679247271"></span></span><span class="hs-keyword">data</span><span> </span><span id="PolicyComplianceStatus"><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#PolicyComplianceStatus"><span class="hs-identifier hs-var">PolicyComplianceStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PolicyComplianceStatus%27"><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#PolicyComplianceStatus%27"><span class="hs-identifier hs-var">PolicyComplianceStatus'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of @EvaluationResult@ objects.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AevaluationResults%3APolicyComplianceStatus%27"><span class="annot"><span class="annottext">PolicyComplianceStatus -&gt; Maybe [EvaluationResult]
 </span><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#%24sel%3AevaluationResults%3APolicyComplianceStatus%27"><span class="hs-identifier hs-var hs-var">evaluationResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.FMS.Types.EvaluationResult.html#EvaluationResult"><span class="hs-identifier hs-type">EvaluationResult</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | Details about problems with dependent services, such as WAF or Config,</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- and the error message received that indicates the problem with the</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- service.</span><span>
-</span><span id="line-49"></span><span>    </span><span id="%24sel%3AissueInfoMap%3APolicyComplianceStatus%27"><span class="annot"><span class="annottext">PolicyComplianceStatus -&gt; Maybe (HashMap DependentServiceName Text)
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | Timestamp of the last update to the @EvaluationResult@ objects.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AlastUpdated%3APolicyComplianceStatus%27"><span class="annot"><span class="annottext">PolicyComplianceStatus -&gt; Maybe POSIX
+</span><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#%24sel%3AlastUpdated%3APolicyComplianceStatus%27"><span class="hs-identifier hs-var hs-var">lastUpdated</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The name of the Firewall Manager policy.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3ApolicyName%3APolicyComplianceStatus%27"><span class="annot"><span class="annottext">PolicyComplianceStatus -&gt; Maybe Text
+</span><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#%24sel%3ApolicyName%3APolicyComplianceStatus%27"><span class="hs-identifier hs-var hs-var">policyName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The ID of the Firewall Manager policy.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3ApolicyId%3APolicyComplianceStatus%27"><span class="annot"><span class="annottext">PolicyComplianceStatus -&gt; Maybe Text
+</span><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#%24sel%3ApolicyId%3APolicyComplianceStatus%27"><span class="hs-identifier hs-var hs-var">policyId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | Details about problems with dependent services, such as WAF or Config,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- and the error message received that indicates the problem with the</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- service.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AissueInfoMap%3APolicyComplianceStatus%27"><span class="annot"><span class="annottext">PolicyComplianceStatus -&gt; Maybe (HashMap DependentServiceName Text)
 </span><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#%24sel%3AissueInfoMap%3APolicyComplianceStatus%27"><span class="hs-identifier hs-var hs-var">issueInfoMap</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.DependentServiceName.html#DependentServiceName"><span class="hs-identifier hs-type">DependentServiceName</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The ID of the Firewall Manager policy.</span><span>
-</span><span id="line-51"></span><span>    </span><span id="%24sel%3ApolicyId%3APolicyComplianceStatus%27"><span class="annot"><span class="annottext">PolicyComplianceStatus -&gt; Maybe Text
-</span><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#%24sel%3ApolicyId%3APolicyComplianceStatus%27"><span class="hs-identifier hs-var hs-var">policyId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The Amazon Web Services account that created the Firewall Manager</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- policy.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3ApolicyOwner%3APolicyComplianceStatus%27"><span class="annot"><span class="annottext">PolicyComplianceStatus -&gt; Maybe Text
+</span><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#%24sel%3ApolicyOwner%3APolicyComplianceStatus%27"><span class="hs-identifier hs-var hs-var">policyOwner</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The member account ID.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AmemberAccount%3APolicyComplianceStatus%27"><span class="annot"><span class="annottext">PolicyComplianceStatus -&gt; Maybe Text
+</span><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#%24sel%3AmemberAccount%3APolicyComplianceStatus%27"><span class="hs-identifier hs-var hs-var">memberAccount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679247024"><span id="local-6989586621679247026"><span class="annot"><span class="annottext">PolicyComplianceStatus -&gt; PolicyComplianceStatus -&gt; Bool
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679247258"><span id="local-6989586621679247260"><span class="annot"><span class="annottext">PolicyComplianceStatus -&gt; PolicyComplianceStatus -&gt; Bool
 (PolicyComplianceStatus -&gt; PolicyComplianceStatus -&gt; Bool)
 -&gt; (PolicyComplianceStatus -&gt; PolicyComplianceStatus -&gt; Bool)
 -&gt; Eq PolicyComplianceStatus
@@ -66,7 +66,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PolicyComplianceStatus -&gt; PolicyComplianceStatus -&gt; Bool
 == :: PolicyComplianceStatus -&gt; PolicyComplianceStatus -&gt; Bool
 $c== :: PolicyComplianceStatus -&gt; PolicyComplianceStatus -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247015"><span id="local-6989586621679247017"><span id="local-6989586621679247019"><span id="local-6989586621679247021"><span class="annot"><span class="annottext">ReadPrec [PolicyComplianceStatus]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247249"><span id="local-6989586621679247251"><span id="local-6989586621679247253"><span id="local-6989586621679247255"><span class="annot"><span class="annottext">ReadPrec [PolicyComplianceStatus]
 ReadPrec PolicyComplianceStatus
 Int -&gt; ReadS PolicyComplianceStatus
 ReadS [PolicyComplianceStatus]
@@ -86,7 +86,7 @@ readList :: ReadS [PolicyComplianceStatus]
 $creadList :: ReadS [PolicyComplianceStatus]
 readsPrec :: Int -&gt; ReadS PolicyComplianceStatus
 $creadsPrec :: Int -&gt; ReadS PolicyComplianceStatus
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247008"><span id="local-6989586621679247010"><span id="local-6989586621679247012"><span class="annot"><span class="annottext">Int -&gt; PolicyComplianceStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247242"><span id="local-6989586621679247244"><span id="local-6989586621679247246"><span class="annot"><span class="annottext">Int -&gt; PolicyComplianceStatus -&gt; ShowS
 [PolicyComplianceStatus] -&gt; ShowS
 PolicyComplianceStatus -&gt; String
 (Int -&gt; PolicyComplianceStatus -&gt; ShowS)
@@ -121,178 +121,69 @@ $cfrom :: forall x. PolicyComplianceStatus -&gt; Rep PolicyComplianceStatus x
 </span><span id="line-60"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-62"></span><span class="hs-comment">--</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- 'policyName', 'policyComplianceStatus_policyName' - The name of the Firewall Manager policy.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'evaluationResults', 'policyComplianceStatus_evaluationResults' - An array of @EvaluationResult@ objects.</span><span>
 </span><span id="line-64"></span><span class="hs-comment">--</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- 'policyOwner', 'policyComplianceStatus_policyOwner' - The Amazon Web Services account that created the Firewall Manager</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- policy.</span><span>
-</span><span id="line-67"></span><span class="hs-comment">--</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- 'memberAccount', 'policyComplianceStatus_memberAccount' - The member account ID.</span><span>
-</span><span id="line-69"></span><span class="hs-comment">--</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- 'lastUpdated', 'policyComplianceStatus_lastUpdated' - Timestamp of the last update to the @EvaluationResult@ objects.</span><span>
-</span><span id="line-71"></span><span class="hs-comment">--</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- 'evaluationResults', 'policyComplianceStatus_evaluationResults' - An array of @EvaluationResult@ objects.</span><span>
-</span><span id="line-73"></span><span class="hs-comment">--</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- 'issueInfoMap', 'policyComplianceStatus_issueInfoMap' - Details about problems with dependent services, such as WAF or Config,</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- and the error message received that indicates the problem with the</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- service.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'lastUpdated', 'policyComplianceStatus_lastUpdated' - Timestamp of the last update to the @EvaluationResult@ objects.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'policyName', 'policyComplianceStatus_policyName' - The name of the Firewall Manager policy.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'policyId', 'policyComplianceStatus_policyId' - The ID of the Firewall Manager policy.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'issueInfoMap', 'policyComplianceStatus_issueInfoMap' - Details about problems with dependent services, such as WAF or Config,</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- and the error message received that indicates the problem with the</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- service.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'policyOwner', 'policyComplianceStatus_policyOwner' - The Amazon Web Services account that created the Firewall Manager</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- policy.</span><span>
 </span><span id="line-77"></span><span class="hs-comment">--</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- 'policyId', 'policyComplianceStatus_policyId' - The ID of the Firewall Manager policy.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'memberAccount', 'policyComplianceStatus_memberAccount' - The member account ID.</span><span>
 </span><span id="line-79"></span><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#newPolicyComplianceStatus"><span class="hs-identifier hs-type">newPolicyComplianceStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#PolicyComplianceStatus"><span class="hs-identifier hs-type">PolicyComplianceStatus</span></a></span><span>
 </span><span id="line-81"></span><span id="newPolicyComplianceStatus"><span class="annot"><span class="annottext">newPolicyComplianceStatus :: PolicyComplianceStatus
 </span><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#newPolicyComplianceStatus"><span class="hs-identifier hs-var hs-var">newPolicyComplianceStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-82"></span><span>  </span><span class="annot"><span class="annottext">PolicyComplianceStatus' :: Maybe Text
--&gt; Maybe Text
--&gt; Maybe Text
+</span><span id="line-82"></span><span>  </span><span class="annot"><span class="annottext">PolicyComplianceStatus' :: Maybe [EvaluationResult]
 -&gt; Maybe POSIX
--&gt; Maybe [EvaluationResult]
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe (HashMap DependentServiceName Text)
+-&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; PolicyComplianceStatus
 </span><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#PolicyComplianceStatus%27"><span class="hs-identifier hs-type">PolicyComplianceStatus'</span></a></span><span>
-</span><span id="line-83"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:policyName:PolicyComplianceStatus' :: Maybe Text
-</span><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#%24sel%3ApolicyName%3APolicyComplianceStatus%27"><span class="hs-identifier hs-var">policyName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-84"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-83"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:evaluationResults:PolicyComplianceStatus' :: Maybe [EvaluationResult]
+</span><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#%24sel%3AevaluationResults%3APolicyComplianceStatus%27"><span class="hs-identifier hs-var">evaluationResults</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>        </span><span class="annot"><span class="annottext">Maybe [EvaluationResult]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:policyOwner:PolicyComplianceStatus' :: Maybe Text
-</span><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#%24sel%3ApolicyOwner%3APolicyComplianceStatus%27"><span class="hs-identifier hs-var">policyOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:memberAccount:PolicyComplianceStatus' :: Maybe Text
-</span><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#%24sel%3AmemberAccount%3APolicyComplianceStatus%27"><span class="hs-identifier hs-var">memberAccount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastUpdated:PolicyComplianceStatus' :: Maybe POSIX
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastUpdated:PolicyComplianceStatus' :: Maybe POSIX
 </span><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#%24sel%3AlastUpdated%3APolicyComplianceStatus%27"><span class="hs-identifier hs-var">lastUpdated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:evaluationResults:PolicyComplianceStatus' :: Maybe [EvaluationResult]
-</span><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#%24sel%3AevaluationResults%3APolicyComplianceStatus%27"><span class="hs-identifier hs-var">evaluationResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [EvaluationResult]
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:policyName:PolicyComplianceStatus' :: Maybe Text
+</span><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#%24sel%3ApolicyName%3APolicyComplianceStatus%27"><span class="hs-identifier hs-var">policyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:issueInfoMap:PolicyComplianceStatus' :: Maybe (HashMap DependentServiceName Text)
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:policyId:PolicyComplianceStatus' :: Maybe Text
+</span><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#%24sel%3ApolicyId%3APolicyComplianceStatus%27"><span class="hs-identifier hs-var">policyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:issueInfoMap:PolicyComplianceStatus' :: Maybe (HashMap DependentServiceName Text)
 </span><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#%24sel%3AissueInfoMap%3APolicyComplianceStatus%27"><span class="hs-identifier hs-var">issueInfoMap</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap DependentServiceName Text)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:policyId:PolicyComplianceStatus' :: Maybe Text
-</span><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#%24sel%3ApolicyId%3APolicyComplianceStatus%27"><span class="hs-identifier hs-var">policyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:policyOwner:PolicyComplianceStatus' :: Maybe Text
+</span><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#%24sel%3ApolicyOwner%3APolicyComplianceStatus%27"><span class="hs-identifier hs-var">policyOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:memberAccount:PolicyComplianceStatus' :: Maybe Text
+</span><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#%24sel%3AmemberAccount%3APolicyComplianceStatus%27"><span class="hs-identifier hs-var">memberAccount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-91"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- | The name of the Firewall Manager policy.</span><span>
-</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#policyComplianceStatus_policyName"><span class="hs-identifier hs-type">policyComplianceStatus_policyName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#PolicyComplianceStatus"><span class="hs-identifier hs-type">PolicyComplianceStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-95"></span><span id="policyComplianceStatus_policyName"><span class="annot"><span class="annottext">policyComplianceStatus_policyName :: (Maybe Text -&gt; f (Maybe Text))
--&gt; PolicyComplianceStatus -&gt; f PolicyComplianceStatus
-</span><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#policyComplianceStatus_policyName"><span class="hs-identifier hs-var hs-var">policyComplianceStatus_policyName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PolicyComplianceStatus -&gt; Maybe Text)
--&gt; (PolicyComplianceStatus -&gt; Maybe Text -&gt; PolicyComplianceStatus)
--&gt; Lens
-     PolicyComplianceStatus
-     PolicyComplianceStatus
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#PolicyComplianceStatus%27"><span class="hs-identifier hs-type">PolicyComplianceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679246999"><span class="annot"><span class="annottext">Maybe Text
-policyName :: Maybe Text
-$sel:policyName:PolicyComplianceStatus' :: PolicyComplianceStatus -&gt; Maybe Text
-</span><a href="#local-6989586621679246999"><span class="hs-identifier hs-var hs-var">policyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679246999"><span class="hs-identifier hs-var">policyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679246998"><span class="annot"><span class="annottext">s :: PolicyComplianceStatus
-</span><a href="#local-6989586621679246998"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#PolicyComplianceStatus%27"><span class="hs-identifier hs-type">PolicyComplianceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679246997"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679246997"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PolicyComplianceStatus
-</span><a href="#local-6989586621679246998"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyName:PolicyComplianceStatus' :: Maybe Text
-</span><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#%24sel%3ApolicyName%3APolicyComplianceStatus%27"><span class="hs-identifier hs-var">policyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679246997"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#PolicyComplianceStatus"><span class="hs-identifier hs-type">PolicyComplianceStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- | The Amazon Web Services account that created the Firewall Manager</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- policy.</span><span>
-</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#policyComplianceStatus_policyOwner"><span class="hs-identifier hs-type">policyComplianceStatus_policyOwner</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#PolicyComplianceStatus"><span class="hs-identifier hs-type">PolicyComplianceStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-100"></span><span id="policyComplianceStatus_policyOwner"><span class="annot"><span class="annottext">policyComplianceStatus_policyOwner :: (Maybe Text -&gt; f (Maybe Text))
--&gt; PolicyComplianceStatus -&gt; f PolicyComplianceStatus
-</span><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#policyComplianceStatus_policyOwner"><span class="hs-identifier hs-var hs-var">policyComplianceStatus_policyOwner</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PolicyComplianceStatus -&gt; Maybe Text)
--&gt; (PolicyComplianceStatus -&gt; Maybe Text -&gt; PolicyComplianceStatus)
--&gt; Lens
-     PolicyComplianceStatus
-     PolicyComplianceStatus
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#PolicyComplianceStatus%27"><span class="hs-identifier hs-type">PolicyComplianceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679246995"><span class="annot"><span class="annottext">Maybe Text
-policyOwner :: Maybe Text
-$sel:policyOwner:PolicyComplianceStatus' :: PolicyComplianceStatus -&gt; Maybe Text
-</span><a href="#local-6989586621679246995"><span class="hs-identifier hs-var hs-var">policyOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679246995"><span class="hs-identifier hs-var">policyOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679246994"><span class="annot"><span class="annottext">s :: PolicyComplianceStatus
-</span><a href="#local-6989586621679246994"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#PolicyComplianceStatus%27"><span class="hs-identifier hs-type">PolicyComplianceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679246993"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679246993"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PolicyComplianceStatus
-</span><a href="#local-6989586621679246994"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyOwner:PolicyComplianceStatus' :: Maybe Text
-</span><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#%24sel%3ApolicyOwner%3APolicyComplianceStatus%27"><span class="hs-identifier hs-var">policyOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679246993"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#PolicyComplianceStatus"><span class="hs-identifier hs-type">PolicyComplianceStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- | The member account ID.</span><span>
-</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#policyComplianceStatus_memberAccount"><span class="hs-identifier hs-type">policyComplianceStatus_memberAccount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#PolicyComplianceStatus"><span class="hs-identifier hs-type">PolicyComplianceStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-104"></span><span id="policyComplianceStatus_memberAccount"><span class="annot"><span class="annottext">policyComplianceStatus_memberAccount :: (Maybe Text -&gt; f (Maybe Text))
--&gt; PolicyComplianceStatus -&gt; f PolicyComplianceStatus
-</span><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#policyComplianceStatus_memberAccount"><span class="hs-identifier hs-var hs-var">policyComplianceStatus_memberAccount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PolicyComplianceStatus -&gt; Maybe Text)
--&gt; (PolicyComplianceStatus -&gt; Maybe Text -&gt; PolicyComplianceStatus)
--&gt; Lens
-     PolicyComplianceStatus
-     PolicyComplianceStatus
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#PolicyComplianceStatus%27"><span class="hs-identifier hs-type">PolicyComplianceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679246991"><span class="annot"><span class="annottext">Maybe Text
-memberAccount :: Maybe Text
-$sel:memberAccount:PolicyComplianceStatus' :: PolicyComplianceStatus -&gt; Maybe Text
-</span><a href="#local-6989586621679246991"><span class="hs-identifier hs-var hs-var">memberAccount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679246991"><span class="hs-identifier hs-var">memberAccount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679246990"><span class="annot"><span class="annottext">s :: PolicyComplianceStatus
-</span><a href="#local-6989586621679246990"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#PolicyComplianceStatus%27"><span class="hs-identifier hs-type">PolicyComplianceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679246989"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679246989"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PolicyComplianceStatus
-</span><a href="#local-6989586621679246990"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:memberAccount:PolicyComplianceStatus' :: Maybe Text
-</span><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#%24sel%3AmemberAccount%3APolicyComplianceStatus%27"><span class="hs-identifier hs-var">memberAccount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679246989"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#PolicyComplianceStatus"><span class="hs-identifier hs-type">PolicyComplianceStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- | Timestamp of the last update to the @EvaluationResult@ objects.</span><span>
-</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#policyComplianceStatus_lastUpdated"><span class="hs-identifier hs-type">policyComplianceStatus_lastUpdated</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#PolicyComplianceStatus"><span class="hs-identifier hs-type">PolicyComplianceStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-108"></span><span id="policyComplianceStatus_lastUpdated"><span class="annot"><span class="annottext">policyComplianceStatus_lastUpdated :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; PolicyComplianceStatus -&gt; f PolicyComplianceStatus
-</span><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#policyComplianceStatus_lastUpdated"><span class="hs-identifier hs-var hs-var">policyComplianceStatus_lastUpdated</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PolicyComplianceStatus -&gt; Maybe POSIX)
--&gt; (PolicyComplianceStatus
-    -&gt; Maybe POSIX -&gt; PolicyComplianceStatus)
--&gt; Lens
-     PolicyComplianceStatus
-     PolicyComplianceStatus
-     (Maybe POSIX)
-     (Maybe POSIX)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#PolicyComplianceStatus%27"><span class="hs-identifier hs-type">PolicyComplianceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679246987"><span class="annot"><span class="annottext">Maybe POSIX
-lastUpdated :: Maybe POSIX
-$sel:lastUpdated:PolicyComplianceStatus' :: PolicyComplianceStatus -&gt; Maybe POSIX
-</span><a href="#local-6989586621679246987"><span class="hs-identifier hs-var hs-var">lastUpdated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679246987"><span class="hs-identifier hs-var">lastUpdated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679246986"><span class="annot"><span class="annottext">s :: PolicyComplianceStatus
-</span><a href="#local-6989586621679246986"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#PolicyComplianceStatus%27"><span class="hs-identifier hs-type">PolicyComplianceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679246985"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679246985"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PolicyComplianceStatus
-</span><a href="#local-6989586621679246986"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdated:PolicyComplianceStatus' :: Maybe POSIX
-</span><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#%24sel%3AlastUpdated%3APolicyComplianceStatus%27"><span class="hs-identifier hs-var">lastUpdated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679246985"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#PolicyComplianceStatus"><span class="hs-identifier hs-type">PolicyComplianceStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
- -&gt; PolicyComplianceStatus -&gt; f PolicyComplianceStatus)
--&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
-    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
--&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; PolicyComplianceStatus
--&gt; f PolicyComplianceStatus
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
--&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
-forall (a :: Format). Iso' (Time a) UTCTime
-</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- | An array of @EvaluationResult@ objects.</span><span>
-</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#policyComplianceStatus_evaluationResults"><span class="hs-identifier hs-type">policyComplianceStatus_evaluationResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#PolicyComplianceStatus"><span class="hs-identifier hs-type">PolicyComplianceStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.FMS.Types.EvaluationResult.html#EvaluationResult"><span class="hs-identifier hs-type">EvaluationResult</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-112"></span><span id="policyComplianceStatus_evaluationResults"><span class="annot"><span class="annottext">policyComplianceStatus_evaluationResults :: (Maybe [EvaluationResult] -&gt; f (Maybe [EvaluationResult]))
+</span><span id="line-93"></span><span class="hs-comment">-- | An array of @EvaluationResult@ objects.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#policyComplianceStatus_evaluationResults"><span class="hs-identifier hs-type">policyComplianceStatus_evaluationResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#PolicyComplianceStatus"><span class="hs-identifier hs-type">PolicyComplianceStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.FMS.Types.EvaluationResult.html#EvaluationResult"><span class="hs-identifier hs-type">EvaluationResult</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="policyComplianceStatus_evaluationResults"><span class="annot"><span class="annottext">policyComplianceStatus_evaluationResults :: (Maybe [EvaluationResult] -&gt; f (Maybe [EvaluationResult]))
 -&gt; PolicyComplianceStatus -&gt; f PolicyComplianceStatus
 </span><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#policyComplianceStatus_evaluationResults"><span class="hs-identifier hs-var hs-var">policyComplianceStatus_evaluationResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PolicyComplianceStatus -&gt; Maybe [EvaluationResult])
 -&gt; (PolicyComplianceStatus
@@ -303,16 +194,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
      (Maybe [EvaluationResult])
      (Maybe [EvaluationResult])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#PolicyComplianceStatus%27"><span class="hs-identifier hs-type">PolicyComplianceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679246980"><span class="annot"><span class="annottext">Maybe [EvaluationResult]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#PolicyComplianceStatus%27"><span class="hs-identifier hs-type">PolicyComplianceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247233"><span class="annot"><span class="annottext">Maybe [EvaluationResult]
 evaluationResults :: Maybe [EvaluationResult]
 $sel:evaluationResults:PolicyComplianceStatus' :: PolicyComplianceStatus -&gt; Maybe [EvaluationResult]
-</span><a href="#local-6989586621679246980"><span class="hs-identifier hs-var hs-var">evaluationResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [EvaluationResult]
-</span><a href="#local-6989586621679246980"><span class="hs-identifier hs-var">evaluationResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679246979"><span class="annot"><span class="annottext">s :: PolicyComplianceStatus
-</span><a href="#local-6989586621679246979"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#PolicyComplianceStatus%27"><span class="hs-identifier hs-type">PolicyComplianceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679246978"><span class="annot"><span class="annottext">Maybe [EvaluationResult]
-</span><a href="#local-6989586621679246978"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PolicyComplianceStatus
-</span><a href="#local-6989586621679246979"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:evaluationResults:PolicyComplianceStatus' :: Maybe [EvaluationResult]
+</span><a href="#local-6989586621679247233"><span class="hs-identifier hs-var hs-var">evaluationResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [EvaluationResult]
+</span><a href="#local-6989586621679247233"><span class="hs-identifier hs-var">evaluationResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247232"><span class="annot"><span class="annottext">s :: PolicyComplianceStatus
+</span><a href="#local-6989586621679247232"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#PolicyComplianceStatus%27"><span class="hs-identifier hs-type">PolicyComplianceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247231"><span class="annot"><span class="annottext">Maybe [EvaluationResult]
+</span><a href="#local-6989586621679247231"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PolicyComplianceStatus
+</span><a href="#local-6989586621679247232"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:evaluationResults:PolicyComplianceStatus' :: Maybe [EvaluationResult]
 </span><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#%24sel%3AevaluationResults%3APolicyComplianceStatus%27"><span class="hs-identifier hs-var">evaluationResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [EvaluationResult]
-</span><a href="#local-6989586621679246978"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#PolicyComplianceStatus"><span class="hs-identifier hs-type">PolicyComplianceStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [EvaluationResult] -&gt; f (Maybe [EvaluationResult]))
+</span><a href="#local-6989586621679247231"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#PolicyComplianceStatus"><span class="hs-identifier hs-type">PolicyComplianceStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [EvaluationResult] -&gt; f (Maybe [EvaluationResult]))
  -&gt; PolicyComplianceStatus -&gt; f PolicyComplianceStatus)
 -&gt; ((Maybe [EvaluationResult] -&gt; f (Maybe [EvaluationResult]))
     -&gt; Maybe [EvaluationResult] -&gt; f (Maybe [EvaluationResult]))
@@ -338,14 +229,99 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [EvaluationResult]
   [EvaluationResult]
   [EvaluationResult]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- | Details about problems with dependent services, such as WAF or Config,</span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- and the error message received that indicates the problem with the</span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- service.</span><span>
-</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#policyComplianceStatus_issueInfoMap"><span class="hs-identifier hs-type">policyComplianceStatus_issueInfoMap</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#PolicyComplianceStatus"><span class="hs-identifier hs-type">PolicyComplianceStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.DependentServiceName.html#DependentServiceName"><span class="hs-identifier hs-type">DependentServiceName</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-118"></span><span id="policyComplianceStatus_issueInfoMap"><span class="annot"><span class="annottext">policyComplianceStatus_issueInfoMap :: (Maybe (HashMap DependentServiceName Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | Timestamp of the last update to the @EvaluationResult@ objects.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#policyComplianceStatus_lastUpdated"><span class="hs-identifier hs-type">policyComplianceStatus_lastUpdated</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#PolicyComplianceStatus"><span class="hs-identifier hs-type">PolicyComplianceStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="policyComplianceStatus_lastUpdated"><span class="annot"><span class="annottext">policyComplianceStatus_lastUpdated :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; PolicyComplianceStatus -&gt; f PolicyComplianceStatus
+</span><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#policyComplianceStatus_lastUpdated"><span class="hs-identifier hs-var hs-var">policyComplianceStatus_lastUpdated</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PolicyComplianceStatus -&gt; Maybe POSIX)
+-&gt; (PolicyComplianceStatus
+    -&gt; Maybe POSIX -&gt; PolicyComplianceStatus)
+-&gt; Lens
+     PolicyComplianceStatus
+     PolicyComplianceStatus
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#PolicyComplianceStatus%27"><span class="hs-identifier hs-type">PolicyComplianceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247226"><span class="annot"><span class="annottext">Maybe POSIX
+lastUpdated :: Maybe POSIX
+$sel:lastUpdated:PolicyComplianceStatus' :: PolicyComplianceStatus -&gt; Maybe POSIX
+</span><a href="#local-6989586621679247226"><span class="hs-identifier hs-var hs-var">lastUpdated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679247226"><span class="hs-identifier hs-var">lastUpdated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247225"><span class="annot"><span class="annottext">s :: PolicyComplianceStatus
+</span><a href="#local-6989586621679247225"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#PolicyComplianceStatus%27"><span class="hs-identifier hs-type">PolicyComplianceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247224"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679247224"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PolicyComplianceStatus
+</span><a href="#local-6989586621679247225"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdated:PolicyComplianceStatus' :: Maybe POSIX
+</span><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#%24sel%3AlastUpdated%3APolicyComplianceStatus%27"><span class="hs-identifier hs-var">lastUpdated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679247224"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#PolicyComplianceStatus"><span class="hs-identifier hs-type">PolicyComplianceStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; PolicyComplianceStatus -&gt; f PolicyComplianceStatus)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; PolicyComplianceStatus
+-&gt; f PolicyComplianceStatus
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | The name of the Firewall Manager policy.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#policyComplianceStatus_policyName"><span class="hs-identifier hs-type">policyComplianceStatus_policyName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#PolicyComplianceStatus"><span class="hs-identifier hs-type">PolicyComplianceStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="policyComplianceStatus_policyName"><span class="annot"><span class="annottext">policyComplianceStatus_policyName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PolicyComplianceStatus -&gt; f PolicyComplianceStatus
+</span><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#policyComplianceStatus_policyName"><span class="hs-identifier hs-var hs-var">policyComplianceStatus_policyName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PolicyComplianceStatus -&gt; Maybe Text)
+-&gt; (PolicyComplianceStatus -&gt; Maybe Text -&gt; PolicyComplianceStatus)
+-&gt; Lens
+     PolicyComplianceStatus
+     PolicyComplianceStatus
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#PolicyComplianceStatus%27"><span class="hs-identifier hs-type">PolicyComplianceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247221"><span class="annot"><span class="annottext">Maybe Text
+policyName :: Maybe Text
+$sel:policyName:PolicyComplianceStatus' :: PolicyComplianceStatus -&gt; Maybe Text
+</span><a href="#local-6989586621679247221"><span class="hs-identifier hs-var hs-var">policyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679247221"><span class="hs-identifier hs-var">policyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247220"><span class="annot"><span class="annottext">s :: PolicyComplianceStatus
+</span><a href="#local-6989586621679247220"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#PolicyComplianceStatus%27"><span class="hs-identifier hs-type">PolicyComplianceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247219"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679247219"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PolicyComplianceStatus
+</span><a href="#local-6989586621679247220"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyName:PolicyComplianceStatus' :: Maybe Text
+</span><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#%24sel%3ApolicyName%3APolicyComplianceStatus%27"><span class="hs-identifier hs-var">policyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679247219"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#PolicyComplianceStatus"><span class="hs-identifier hs-type">PolicyComplianceStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | The ID of the Firewall Manager policy.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#policyComplianceStatus_policyId"><span class="hs-identifier hs-type">policyComplianceStatus_policyId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#PolicyComplianceStatus"><span class="hs-identifier hs-type">PolicyComplianceStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span id="policyComplianceStatus_policyId"><span class="annot"><span class="annottext">policyComplianceStatus_policyId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PolicyComplianceStatus -&gt; f PolicyComplianceStatus
+</span><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#policyComplianceStatus_policyId"><span class="hs-identifier hs-var hs-var">policyComplianceStatus_policyId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PolicyComplianceStatus -&gt; Maybe Text)
+-&gt; (PolicyComplianceStatus -&gt; Maybe Text -&gt; PolicyComplianceStatus)
+-&gt; Lens
+     PolicyComplianceStatus
+     PolicyComplianceStatus
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#PolicyComplianceStatus%27"><span class="hs-identifier hs-type">PolicyComplianceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247217"><span class="annot"><span class="annottext">Maybe Text
+policyId :: Maybe Text
+$sel:policyId:PolicyComplianceStatus' :: PolicyComplianceStatus -&gt; Maybe Text
+</span><a href="#local-6989586621679247217"><span class="hs-identifier hs-var hs-var">policyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679247217"><span class="hs-identifier hs-var">policyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247216"><span class="annot"><span class="annottext">s :: PolicyComplianceStatus
+</span><a href="#local-6989586621679247216"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#PolicyComplianceStatus%27"><span class="hs-identifier hs-type">PolicyComplianceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247215"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679247215"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PolicyComplianceStatus
+</span><a href="#local-6989586621679247216"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyId:PolicyComplianceStatus' :: Maybe Text
+</span><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#%24sel%3ApolicyId%3APolicyComplianceStatus%27"><span class="hs-identifier hs-var">policyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679247215"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#PolicyComplianceStatus"><span class="hs-identifier hs-type">PolicyComplianceStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | Details about problems with dependent services, such as WAF or Config,</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- and the error message received that indicates the problem with the</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- service.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#policyComplianceStatus_issueInfoMap"><span class="hs-identifier hs-type">policyComplianceStatus_issueInfoMap</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#PolicyComplianceStatus"><span class="hs-identifier hs-type">PolicyComplianceStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.DependentServiceName.html#DependentServiceName"><span class="hs-identifier hs-type">DependentServiceName</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="policyComplianceStatus_issueInfoMap"><span class="annot"><span class="annottext">policyComplianceStatus_issueInfoMap :: (Maybe (HashMap DependentServiceName Text)
  -&gt; f (Maybe (HashMap DependentServiceName Text)))
 -&gt; PolicyComplianceStatus -&gt; f PolicyComplianceStatus
 </span><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#policyComplianceStatus_issueInfoMap"><span class="hs-identifier hs-var hs-var">policyComplianceStatus_issueInfoMap</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PolicyComplianceStatus
@@ -359,16 +335,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe (HashMap DependentServiceName Text))
      (Maybe (HashMap DependentServiceName Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#PolicyComplianceStatus%27"><span class="hs-identifier hs-type">PolicyComplianceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679246975"><span class="annot"><span class="annottext">Maybe (HashMap DependentServiceName Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#PolicyComplianceStatus%27"><span class="hs-identifier hs-type">PolicyComplianceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247213"><span class="annot"><span class="annottext">Maybe (HashMap DependentServiceName Text)
 issueInfoMap :: Maybe (HashMap DependentServiceName Text)
 $sel:issueInfoMap:PolicyComplianceStatus' :: PolicyComplianceStatus -&gt; Maybe (HashMap DependentServiceName Text)
-</span><a href="#local-6989586621679246975"><span class="hs-identifier hs-var hs-var">issueInfoMap</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap DependentServiceName Text)
-</span><a href="#local-6989586621679246975"><span class="hs-identifier hs-var">issueInfoMap</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679246974"><span class="annot"><span class="annottext">s :: PolicyComplianceStatus
-</span><a href="#local-6989586621679246974"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#PolicyComplianceStatus%27"><span class="hs-identifier hs-type">PolicyComplianceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679246973"><span class="annot"><span class="annottext">Maybe (HashMap DependentServiceName Text)
-</span><a href="#local-6989586621679246973"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PolicyComplianceStatus
-</span><a href="#local-6989586621679246974"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:issueInfoMap:PolicyComplianceStatus' :: Maybe (HashMap DependentServiceName Text)
+</span><a href="#local-6989586621679247213"><span class="hs-identifier hs-var hs-var">issueInfoMap</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap DependentServiceName Text)
+</span><a href="#local-6989586621679247213"><span class="hs-identifier hs-var">issueInfoMap</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247212"><span class="annot"><span class="annottext">s :: PolicyComplianceStatus
+</span><a href="#local-6989586621679247212"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#PolicyComplianceStatus%27"><span class="hs-identifier hs-type">PolicyComplianceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247211"><span class="annot"><span class="annottext">Maybe (HashMap DependentServiceName Text)
+</span><a href="#local-6989586621679247211"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PolicyComplianceStatus
+</span><a href="#local-6989586621679247212"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:issueInfoMap:PolicyComplianceStatus' :: Maybe (HashMap DependentServiceName Text)
 </span><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#%24sel%3AissueInfoMap%3APolicyComplianceStatus%27"><span class="hs-identifier hs-var">issueInfoMap</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap DependentServiceName Text)
-</span><a href="#local-6989586621679246973"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#PolicyComplianceStatus"><span class="hs-identifier hs-type">PolicyComplianceStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap DependentServiceName Text)
+</span><a href="#local-6989586621679247211"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#PolicyComplianceStatus"><span class="hs-identifier hs-type">PolicyComplianceStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap DependentServiceName Text)
   -&gt; f (Maybe (HashMap DependentServiceName Text)))
  -&gt; PolicyComplianceStatus -&gt; f PolicyComplianceStatus)
 -&gt; ((Maybe (HashMap DependentServiceName Text)
@@ -398,14 +374,15 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (HashMap DependentServiceName Text)
   (HashMap DependentServiceName Text)
   (HashMap DependentServiceName Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-comment">-- | The ID of the Firewall Manager policy.</span><span>
-</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#policyComplianceStatus_policyId"><span class="hs-identifier hs-type">policyComplianceStatus_policyId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#PolicyComplianceStatus"><span class="hs-identifier hs-type">PolicyComplianceStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-122"></span><span id="policyComplianceStatus_policyId"><span class="annot"><span class="annottext">policyComplianceStatus_policyId :: (Maybe Text -&gt; f (Maybe Text))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | The Amazon Web Services account that created the Firewall Manager</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- policy.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#policyComplianceStatus_policyOwner"><span class="hs-identifier hs-type">policyComplianceStatus_policyOwner</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#PolicyComplianceStatus"><span class="hs-identifier hs-type">PolicyComplianceStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="policyComplianceStatus_policyOwner"><span class="annot"><span class="annottext">policyComplianceStatus_policyOwner :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; PolicyComplianceStatus -&gt; f PolicyComplianceStatus
-</span><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#policyComplianceStatus_policyId"><span class="hs-identifier hs-var hs-var">policyComplianceStatus_policyId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PolicyComplianceStatus -&gt; Maybe Text)
+</span><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#policyComplianceStatus_policyOwner"><span class="hs-identifier hs-var hs-var">policyComplianceStatus_policyOwner</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PolicyComplianceStatus -&gt; Maybe Text)
 -&gt; (PolicyComplianceStatus -&gt; Maybe Text -&gt; PolicyComplianceStatus)
 -&gt; Lens
      PolicyComplianceStatus
@@ -413,19 +390,42 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#PolicyComplianceStatus%27"><span class="hs-identifier hs-type">PolicyComplianceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679246971"><span class="annot"><span class="annottext">Maybe Text
-policyId :: Maybe Text
-$sel:policyId:PolicyComplianceStatus' :: PolicyComplianceStatus -&gt; Maybe Text
-</span><a href="#local-6989586621679246971"><span class="hs-identifier hs-var hs-var">policyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679246971"><span class="hs-identifier hs-var">policyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679246970"><span class="annot"><span class="annottext">s :: PolicyComplianceStatus
-</span><a href="#local-6989586621679246970"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#PolicyComplianceStatus%27"><span class="hs-identifier hs-type">PolicyComplianceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679246969"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679246969"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PolicyComplianceStatus
-</span><a href="#local-6989586621679246970"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyId:PolicyComplianceStatus' :: Maybe Text
-</span><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#%24sel%3ApolicyId%3APolicyComplianceStatus%27"><span class="hs-identifier hs-var">policyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679246969"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#PolicyComplianceStatus"><span class="hs-identifier hs-type">PolicyComplianceStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#PolicyComplianceStatus%27"><span class="hs-identifier hs-type">PolicyComplianceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247209"><span class="annot"><span class="annottext">Maybe Text
+policyOwner :: Maybe Text
+$sel:policyOwner:PolicyComplianceStatus' :: PolicyComplianceStatus -&gt; Maybe Text
+</span><a href="#local-6989586621679247209"><span class="hs-identifier hs-var hs-var">policyOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679247209"><span class="hs-identifier hs-var">policyOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247208"><span class="annot"><span class="annottext">s :: PolicyComplianceStatus
+</span><a href="#local-6989586621679247208"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#PolicyComplianceStatus%27"><span class="hs-identifier hs-type">PolicyComplianceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247207"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679247207"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PolicyComplianceStatus
+</span><a href="#local-6989586621679247208"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyOwner:PolicyComplianceStatus' :: Maybe Text
+</span><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#%24sel%3ApolicyOwner%3APolicyComplianceStatus%27"><span class="hs-identifier hs-var">policyOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679247207"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#PolicyComplianceStatus"><span class="hs-identifier hs-type">PolicyComplianceStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | The member account ID.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#policyComplianceStatus_memberAccount"><span class="hs-identifier hs-type">policyComplianceStatus_memberAccount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#PolicyComplianceStatus"><span class="hs-identifier hs-type">PolicyComplianceStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span id="policyComplianceStatus_memberAccount"><span class="annot"><span class="annottext">policyComplianceStatus_memberAccount :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PolicyComplianceStatus -&gt; f PolicyComplianceStatus
+</span><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#policyComplianceStatus_memberAccount"><span class="hs-identifier hs-var hs-var">policyComplianceStatus_memberAccount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PolicyComplianceStatus -&gt; Maybe Text)
+-&gt; (PolicyComplianceStatus -&gt; Maybe Text -&gt; PolicyComplianceStatus)
+-&gt; Lens
+     PolicyComplianceStatus
+     PolicyComplianceStatus
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#PolicyComplianceStatus%27"><span class="hs-identifier hs-type">PolicyComplianceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247205"><span class="annot"><span class="annottext">Maybe Text
+memberAccount :: Maybe Text
+$sel:memberAccount:PolicyComplianceStatus' :: PolicyComplianceStatus -&gt; Maybe Text
+</span><a href="#local-6989586621679247205"><span class="hs-identifier hs-var hs-var">memberAccount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679247205"><span class="hs-identifier hs-var">memberAccount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247204"><span class="annot"><span class="annottext">s :: PolicyComplianceStatus
+</span><a href="#local-6989586621679247204"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#PolicyComplianceStatus%27"><span class="hs-identifier hs-type">PolicyComplianceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247203"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679247203"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PolicyComplianceStatus
+</span><a href="#local-6989586621679247204"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:memberAccount:PolicyComplianceStatus' :: Maybe Text
+</span><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#%24sel%3AmemberAccount%3APolicyComplianceStatus%27"><span class="hs-identifier hs-var">memberAccount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679247203"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#PolicyComplianceStatus"><span class="hs-identifier hs-type">PolicyComplianceStatus</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679246966"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#PolicyComplianceStatus"><span class="hs-identifier hs-type">PolicyComplianceStatus</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679246964"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PolicyComplianceStatus
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247200"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#PolicyComplianceStatus"><span class="hs-identifier hs-type">PolicyComplianceStatus</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679247198"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PolicyComplianceStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-126"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser PolicyComplianceStatus)
@@ -435,130 +435,113 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;PolicyComplianceStatus&quot;</span></span><span>
-</span><span id="line-128"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679246961"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679246961"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-129"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe Text
--&gt; Maybe Text
+</span><span id="line-128"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679247195"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679247195"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-129"></span><span>          </span><span class="annot"><span class="annottext">Maybe [EvaluationResult]
 -&gt; Maybe POSIX
--&gt; Maybe [EvaluationResult]
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe (HashMap DependentServiceName Text)
+-&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; PolicyComplianceStatus
 </span><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#PolicyComplianceStatus%27"><span class="hs-identifier hs-var">PolicyComplianceStatus'</span></a></span><span>
-</span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe Text
- -&gt; Maybe Text
+</span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [EvaluationResult]
  -&gt; Maybe POSIX
- -&gt; Maybe [EvaluationResult]
+ -&gt; Maybe Text
+ -&gt; Maybe Text
  -&gt; Maybe (HashMap DependentServiceName Text)
  -&gt; Maybe Text
+ -&gt; Maybe Text
  -&gt; PolicyComplianceStatus)
--&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe [EvaluationResult])
 -&gt; Parser
-     (Maybe Text
+     (Maybe POSIX
       -&gt; Maybe Text
-      -&gt; Maybe POSIX
-      -&gt; Maybe [EvaluationResult]
+      -&gt; Maybe Text
       -&gt; Maybe (HashMap DependentServiceName Text)
+      -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; PolicyComplianceStatus)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679246961"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;PolicyName&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe POSIX
-   -&gt; Maybe [EvaluationResult]
-   -&gt; Maybe (HashMap DependentServiceName Text)
-   -&gt; Maybe Text
-   -&gt; PolicyComplianceStatus)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe POSIX
-      -&gt; Maybe [EvaluationResult]
-      -&gt; Maybe (HashMap DependentServiceName Text)
-      -&gt; Maybe Text
-      -&gt; PolicyComplianceStatus)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679246961"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;PolicyOwner&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe POSIX
-   -&gt; Maybe [EvaluationResult]
-   -&gt; Maybe (HashMap DependentServiceName Text)
-   -&gt; Maybe Text
-   -&gt; PolicyComplianceStatus)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe POSIX
-      -&gt; Maybe [EvaluationResult]
-      -&gt; Maybe (HashMap DependentServiceName Text)
-      -&gt; Maybe Text
-      -&gt; PolicyComplianceStatus)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679246961"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;MemberAccount&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe POSIX
-   -&gt; Maybe [EvaluationResult]
-   -&gt; Maybe (HashMap DependentServiceName Text)
-   -&gt; Maybe Text
-   -&gt; PolicyComplianceStatus)
--&gt; Parser (Maybe POSIX)
--&gt; Parser
-     (Maybe [EvaluationResult]
-      -&gt; Maybe (HashMap DependentServiceName Text)
-      -&gt; Maybe Text
-      -&gt; PolicyComplianceStatus)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679246961"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;LastUpdated&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe [EvaluationResult]
-   -&gt; Maybe (HashMap DependentServiceName Text)
-   -&gt; Maybe Text
-   -&gt; PolicyComplianceStatus)
--&gt; Parser (Maybe [EvaluationResult])
--&gt; Parser
-     (Maybe (HashMap DependentServiceName Text)
-      -&gt; Maybe Text -&gt; PolicyComplianceStatus)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679246961"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [EvaluationResult]))
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679247195"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [EvaluationResult]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EvaluationResults&quot;</span></span><span>
-</span><span id="line-135"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [EvaluationResult]))
+</span><span id="line-131"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [EvaluationResult]))
 -&gt; Maybe [EvaluationResult] -&gt; Parser (Maybe [EvaluationResult])
 forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [EvaluationResult]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-136"></span><span>                        </span><span class="hs-special">)</span><span>
-</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe (HashMap DependentServiceName Text)
-   -&gt; Maybe Text -&gt; PolicyComplianceStatus)
--&gt; Parser (Maybe (HashMap DependentServiceName Text))
--&gt; Parser (Maybe Text -&gt; PolicyComplianceStatus)
+</span><span id="line-132"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap DependentServiceName Text)
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; PolicyComplianceStatus)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap DependentServiceName Text)
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; PolicyComplianceStatus)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679246961"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679247195"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastUpdated&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap DependentServiceName Text)
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; PolicyComplianceStatus)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe (HashMap DependentServiceName Text)
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; PolicyComplianceStatus)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679247195"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PolicyName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe (HashMap DependentServiceName Text)
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; PolicyComplianceStatus)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe (HashMap DependentServiceName Text)
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; PolicyComplianceStatus)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679247195"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PolicyId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (HashMap DependentServiceName Text)
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; PolicyComplianceStatus)
+-&gt; Parser (Maybe (HashMap DependentServiceName Text))
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; PolicyComplianceStatus)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679247195"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text
 -&gt; Parser (Maybe (Maybe (HashMap DependentServiceName Text)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
@@ -570,17 +553,26 @@ forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap DependentServiceName Text)
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; PolicyComplianceStatus)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; PolicyComplianceStatus)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679247195"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PolicyOwner&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; PolicyComplianceStatus)
 -&gt; Parser (Maybe Text) -&gt; Parser PolicyComplianceStatus
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679246961"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679247195"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;PolicyId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;MemberAccount&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>
-</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679246954"><span id="local-6989586621679246956"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#PolicyComplianceStatus"><span class="hs-identifier hs-type">PolicyComplianceStatus</span></a></span></span></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247188"><span id="local-6989586621679247190"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#PolicyComplianceStatus"><span class="hs-identifier hs-type">PolicyComplianceStatus</span></a></span></span></span><span>
 </span><span id="line-142"></span><span>
-</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679246951"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#PolicyComplianceStatus"><span class="hs-identifier hs-type">PolicyComplianceStatus</span></a></span></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247185"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatus.html#PolicyComplianceStatus"><span class="hs-identifier hs-type">PolicyComplianceStatus</span></a></span></span><span>
 </span><span id="line-144"></span></pre></body></html>

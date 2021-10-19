@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679427845"><span id="local-6989586621679427846"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BackfillMode"><span class="annot"><a href="Network.AWS.GameLift.Types.BackfillMode.html#BackfillMode"><span class="hs-identifier hs-var">BackfillMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BackfillMode%27"><span class="annot"><a href="Network.AWS.GameLift.Types.BackfillMode.html#BackfillMode%27"><span class="hs-identifier hs-var">BackfillMode'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679428289"><span id="local-6989586621679428290"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BackfillMode"><span class="annot"><a href="Network.AWS.GameLift.Types.BackfillMode.html#BackfillMode"><span class="hs-identifier hs-var">BackfillMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BackfillMode%27"><span class="annot"><a href="Network.AWS.GameLift.Types.BackfillMode.html#BackfillMode%27"><span class="hs-identifier hs-var">BackfillMode'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromBackfillMode"><span class="annot"><span class="annottext">BackfillMode -&gt; Text
 </span><a href="Network.AWS.GameLift.Types.BackfillMode.html#fromBackfillMode"><span class="hs-identifier hs-var hs-var">fromBackfillMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679427837"><span id="local-6989586621679427839"><span id="local-6989586621679427841"><span class="annot"><span class="annottext">Int -&gt; BackfillMode -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679428281"><span id="local-6989586621679428283"><span id="local-6989586621679428285"><span class="annot"><span class="annottext">Int -&gt; BackfillMode -&gt; ShowS
 [BackfillMode] -&gt; ShowS
 BackfillMode -&gt; String
 (Int -&gt; BackfillMode -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: BackfillMode -&gt; String
 showsPrec :: Int -&gt; BackfillMode -&gt; ShowS
 $cshowsPrec :: Int -&gt; BackfillMode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679427828"><span id="local-6989586621679427830"><span id="local-6989586621679427832"><span id="local-6989586621679427834"><span class="annot"><span class="annottext">ReadPrec [BackfillMode]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679428272"><span id="local-6989586621679428274"><span id="local-6989586621679428276"><span id="local-6989586621679428278"><span class="annot"><span class="annottext">ReadPrec [BackfillMode]
 ReadPrec BackfillMode
 Int -&gt; ReadS BackfillMode
 ReadS [BackfillMode]
@@ -72,7 +72,7 @@ $creadList :: ReadS [BackfillMode]
 readsPrec :: Int -&gt; ReadS BackfillMode
 $creadsPrec :: Int -&gt; ReadS BackfillMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679427823"><span id="local-6989586621679427825"><span class="annot"><span class="annottext">BackfillMode -&gt; BackfillMode -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679428267"><span id="local-6989586621679428269"><span class="annot"><span class="annottext">BackfillMode -&gt; BackfillMode -&gt; Bool
 (BackfillMode -&gt; BackfillMode -&gt; Bool)
 -&gt; (BackfillMode -&gt; BackfillMode -&gt; Bool) -&gt; Eq BackfillMode
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: BackfillMode -&gt; BackfillMode -&gt; Bool
 == :: BackfillMode -&gt; BackfillMode -&gt; Bool
 $c== :: BackfillMode -&gt; BackfillMode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679427807"><span id="local-6989586621679427809"><span id="local-6989586621679427811"><span id="local-6989586621679427813"><span id="local-6989586621679427815"><span id="local-6989586621679427817"><span id="local-6989586621679427819"><span class="annot"><span class="annottext">Eq BackfillMode
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679428251"><span id="local-6989586621679428253"><span id="local-6989586621679428255"><span id="local-6989586621679428257"><span id="local-6989586621679428259"><span id="local-6989586621679428261"><span id="local-6989586621679428263"><span class="annot"><span class="annottext">Eq BackfillMode
 Eq BackfillMode
 -&gt; (BackfillMode -&gt; BackfillMode -&gt; Ordering)
 -&gt; (BackfillMode -&gt; BackfillMode -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. BackfillMode -&gt; Rep BackfillMode x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679427799"><span id="local-6989586621679427801"><span class="annot"><span class="annottext">Int -&gt; BackfillMode -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679428243"><span id="local-6989586621679428245"><span class="annot"><span class="annottext">Int -&gt; BackfillMode -&gt; Int
 BackfillMode -&gt; Int
 (Int -&gt; BackfillMode -&gt; Int)
 -&gt; (BackfillMode -&gt; Int) -&gt; Hashable BackfillMode
@@ -142,49 +142,49 @@ $chash :: BackfillMode -&gt; Int
 hashWithSalt :: Int -&gt; BackfillMode -&gt; Int
 $chashWithSalt :: Int -&gt; BackfillMode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679427796"><span class="annot"><span class="annottext">BackfillMode -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679428240"><span class="annot"><span class="annottext">BackfillMode -&gt; ()
 (BackfillMode -&gt; ()) -&gt; NFData BackfillMode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: BackfillMode -&gt; ()
 $crnf :: BackfillMode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679427793"><span class="annot"><span class="annottext">Text -&gt; Either String BackfillMode
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679428237"><span class="annot"><span class="annottext">Text -&gt; Either String BackfillMode
 (Text -&gt; Either String BackfillMode) -&gt; FromText BackfillMode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String BackfillMode
 $cfromText :: Text -&gt; Either String BackfillMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679427790"><span class="annot"><span class="annottext">BackfillMode -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679428234"><span class="annot"><span class="annottext">BackfillMode -&gt; Text
 (BackfillMode -&gt; Text) -&gt; ToText BackfillMode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: BackfillMode -&gt; Text
 $ctoText :: BackfillMode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679427787"><span class="annot"><span class="annottext">BackfillMode -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679428231"><span class="annot"><span class="annottext">BackfillMode -&gt; ByteString
 (BackfillMode -&gt; ByteString) -&gt; ToByteString BackfillMode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: BackfillMode -&gt; ByteString
 $ctoBS :: BackfillMode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679427784"><span class="annot"><span class="annottext">BackfillMode -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679428228"><span class="annot"><span class="annottext">BackfillMode -&gt; ByteStringBuilder
 (BackfillMode -&gt; ByteStringBuilder) -&gt; ToLog BackfillMode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: BackfillMode -&gt; ByteStringBuilder
 $cbuild :: BackfillMode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679427781"><span class="annot"><span class="annottext">HeaderName -&gt; BackfillMode -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679428225"><span class="annot"><span class="annottext">HeaderName -&gt; BackfillMode -&gt; [Header]
 (HeaderName -&gt; BackfillMode -&gt; [Header]) -&gt; ToHeader BackfillMode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; BackfillMode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; BackfillMode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679427778"><span class="annot"><span class="annottext">BackfillMode -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679428222"><span class="annot"><span class="annottext">BackfillMode -&gt; QueryString
 (BackfillMode -&gt; QueryString) -&gt; ToQuery BackfillMode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: BackfillMode -&gt; QueryString
 $ctoQuery :: BackfillMode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679427773"><span id="local-6989586621679427775"><span class="annot"><span class="annottext">Value -&gt; Parser [BackfillMode]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679428217"><span id="local-6989586621679428219"><span class="annot"><span class="annottext">Value -&gt; Parser [BackfillMode]
 Value -&gt; Parser BackfillMode
 (Value -&gt; Parser BackfillMode)
 -&gt; (Value -&gt; Parser [BackfillMode]) -&gt; FromJSON BackfillMode
@@ -195,7 +195,7 @@ $cparseJSONList :: Value -&gt; Parser [BackfillMode]
 parseJSON :: Value -&gt; Parser BackfillMode
 $cparseJSON :: Value -&gt; Parser BackfillMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679427768"><span id="local-6989586621679427770"><span class="annot"><span class="annottext">FromJSONKeyFunction [BackfillMode]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679428212"><span id="local-6989586621679428214"><span class="annot"><span class="annottext">FromJSONKeyFunction [BackfillMode]
 FromJSONKeyFunction BackfillMode
 FromJSONKeyFunction BackfillMode
 -&gt; FromJSONKeyFunction [BackfillMode] -&gt; FromJSONKey BackfillMode
@@ -206,7 +206,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [BackfillMode]
 fromJSONKey :: FromJSONKeyFunction BackfillMode
 $cfromJSONKey :: FromJSONKeyFunction BackfillMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679427759"><span id="local-6989586621679427761"><span id="local-6989586621679427763"><span id="local-6989586621679427765"><span class="annot"><span class="annottext">[BackfillMode] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679428203"><span id="local-6989586621679428205"><span id="local-6989586621679428207"><span id="local-6989586621679428209"><span class="annot"><span class="annottext">[BackfillMode] -&gt; Encoding
 [BackfillMode] -&gt; Value
 BackfillMode -&gt; Encoding
 BackfillMode -&gt; Value
@@ -230,7 +230,7 @@ $ctoEncoding :: BackfillMode -&gt; Encoding
 toJSON :: BackfillMode -&gt; Value
 $ctoJSON :: BackfillMode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679427754"><span id="local-6989586621679427756"><span class="annot"><span class="annottext">ToJSONKeyFunction [BackfillMode]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679428198"><span id="local-6989586621679428200"><span class="annot"><span class="annottext">ToJSONKeyFunction [BackfillMode]
 ToJSONKeyFunction BackfillMode
 ToJSONKeyFunction BackfillMode
 -&gt; ToJSONKeyFunction [BackfillMode] -&gt; ToJSONKey BackfillMode
@@ -241,13 +241,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [BackfillMode]
 toJSONKey :: ToJSONKeyFunction BackfillMode
 $ctoJSONKey :: ToJSONKeyFunction BackfillMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679427751"><span class="annot"><span class="annottext">[Node] -&gt; Either String BackfillMode
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679428195"><span class="annot"><span class="annottext">[Node] -&gt; Either String BackfillMode
 ([Node] -&gt; Either String BackfillMode) -&gt; FromXML BackfillMode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String BackfillMode
 $cparseXML :: [Node] -&gt; Either String BackfillMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679427748"><span class="annot"><span class="annottext">BackfillMode -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679428192"><span class="annot"><span class="annottext">BackfillMode -&gt; XML
 (BackfillMode -&gt; XML) -&gt; ToXML BackfillMode
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: BackfillMode -&gt; XML

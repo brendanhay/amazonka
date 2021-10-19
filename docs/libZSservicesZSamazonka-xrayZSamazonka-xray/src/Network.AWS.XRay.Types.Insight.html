@@ -32,48 +32,48 @@
 </span><span id="line-32"></span><span class="hs-comment">-- insight. Insights tracks emergent issues within your applications.</span><span>
 </span><span id="line-33"></span><span class="hs-comment">--</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newInsight' smart constructor.</span><span>
-</span><span id="line-35"></span><span id="local-6989586621679255983"><span id="local-6989586621679255984"></span></span><span class="hs-keyword">data</span><span> </span><span id="Insight"><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight"><span class="hs-identifier hs-var">Insight</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Insight%27"><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight%27"><span class="hs-identifier hs-var">Insight'</span></a></span></span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The impact statistics of the client side service. This includes the</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- number of requests to the client service and whether the requests were</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- faults or okay.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3AclientRequestImpactStatistics%3AInsight%27"><span class="annot"><span class="annottext">Insight -&gt; Maybe RequestImpactStatistics
-</span><a href="Network.AWS.XRay.Types.Insight.html#%24sel%3AclientRequestImpactStatistics%3AInsight%27"><span class="hs-identifier hs-var hs-var">clientRequestImpactStatistics</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.RequestImpactStatistics.html#RequestImpactStatistics"><span class="hs-identifier hs-type">RequestImpactStatistics</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The impact statistics of the root cause service. This includes the</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- number of requests to the client service and whether the requests were</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- faults or okay.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3ArootCauseServiceRequestImpactStatistics%3AInsight%27"><span class="annot"><span class="annottext">Insight -&gt; Maybe RequestImpactStatistics
-</span><a href="Network.AWS.XRay.Types.Insight.html#%24sel%3ArootCauseServiceRequestImpactStatistics%3AInsight%27"><span class="hs-identifier hs-var hs-var">rootCauseServiceRequestImpactStatistics</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.RequestImpactStatistics.html#RequestImpactStatistics"><span class="hs-identifier hs-type">RequestImpactStatistics</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The name of the group that the insight belongs to.</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3AgroupName%3AInsight%27"><span class="annot"><span class="annottext">Insight -&gt; Maybe Text
-</span><a href="Network.AWS.XRay.Types.Insight.html#%24sel%3AgroupName%3AInsight%27"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The time, in Unix seconds, at which the insight began.</span><span>
-</span><span id="line-47"></span><span>    </span><span id="%24sel%3AstartTime%3AInsight%27"><span class="annot"><span class="annottext">Insight -&gt; Maybe POSIX
-</span><a href="Network.AWS.XRay.Types.Insight.html#%24sel%3AstartTime%3AInsight%27"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The time, in Unix seconds, at which the insight ended.</span><span>
-</span><span id="line-49"></span><span>    </span><span id="%24sel%3AendTime%3AInsight%27"><span class="annot"><span class="annottext">Insight -&gt; Maybe POSIX
-</span><a href="Network.AWS.XRay.Types.Insight.html#%24sel%3AendTime%3AInsight%27"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>    </span><span id="%24sel%3ArootCauseServiceId%3AInsight%27"><span class="annot"><span class="annottext">Insight -&gt; Maybe ServiceId
-</span><a href="Network.AWS.XRay.Types.Insight.html#%24sel%3ArootCauseServiceId%3AInsight%27"><span class="hs-identifier hs-var hs-var">rootCauseServiceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ServiceId.html#ServiceId"><span class="hs-identifier hs-type">ServiceId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The current state of the insight.</span><span>
-</span><span id="line-52"></span><span>    </span><span id="%24sel%3Astate%3AInsight%27"><span class="annot"><span class="annottext">Insight -&gt; Maybe InsightState
-</span><a href="Network.AWS.XRay.Types.Insight.html#%24sel%3Astate%3AInsight%27"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.InsightState.html#InsightState"><span class="hs-identifier hs-type">InsightState</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | A brief description of the insight.</span><span>
-</span><span id="line-54"></span><span>    </span><span id="%24sel%3Asummary%3AInsight%27"><span class="annot"><span class="annottext">Insight -&gt; Maybe Text
+</span><span id="line-35"></span><span id="local-6989586621679256270"><span id="local-6989586621679256271"></span></span><span class="hs-keyword">data</span><span> </span><span id="Insight"><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight"><span class="hs-identifier hs-var">Insight</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Insight%27"><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight%27"><span class="hs-identifier hs-var">Insight'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A brief description of the insight.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Asummary%3AInsight%27"><span class="annot"><span class="annottext">Insight -&gt; Maybe Text
 </span><a href="Network.AWS.XRay.Types.Insight.html#%24sel%3Asummary%3AInsight%27"><span class="hs-identifier hs-var hs-var">summary</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The service within the insight that is most impacted by the incident.</span><span>
-</span><span id="line-56"></span><span>    </span><span id="%24sel%3AtopAnomalousServices%3AInsight%27"><span class="annot"><span class="annottext">Insight -&gt; Maybe [AnomalousService]
-</span><a href="Network.AWS.XRay.Types.Insight.html#%24sel%3AtopAnomalousServices%3AInsight%27"><span class="hs-identifier hs-var hs-var">topAnomalousServices</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.XRay.Types.AnomalousService.html#AnomalousService"><span class="hs-identifier hs-type">AnomalousService</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The categories that label and describe the type of insight.</span><span>
-</span><span id="line-58"></span><span>    </span><span id="%24sel%3Acategories%3AInsight%27"><span class="annot"><span class="annottext">Insight -&gt; Maybe [InsightCategory]
-</span><a href="Network.AWS.XRay.Types.Insight.html#%24sel%3Acategories%3AInsight%27"><span class="hs-identifier hs-var hs-var">categories</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.XRay.Types.InsightCategory.html#InsightCategory"><span class="hs-identifier hs-type">InsightCategory</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The insights unique identifier.</span><span>
-</span><span id="line-60"></span><span>    </span><span id="%24sel%3AinsightId%3AInsight%27"><span class="annot"><span class="annottext">Insight -&gt; Maybe Text
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The current state of the insight.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3Astate%3AInsight%27"><span class="annot"><span class="annottext">Insight -&gt; Maybe InsightState
+</span><a href="Network.AWS.XRay.Types.Insight.html#%24sel%3Astate%3AInsight%27"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.InsightState.html#InsightState"><span class="hs-identifier hs-type">InsightState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The time, in Unix seconds, at which the insight began.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AstartTime%3AInsight%27"><span class="annot"><span class="annottext">Insight -&gt; Maybe POSIX
+</span><a href="Network.AWS.XRay.Types.Insight.html#%24sel%3AstartTime%3AInsight%27"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The insights unique identifier.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AinsightId%3AInsight%27"><span class="annot"><span class="annottext">Insight -&gt; Maybe Text
 </span><a href="Network.AWS.XRay.Types.Insight.html#%24sel%3AinsightId%3AInsight%27"><span class="hs-identifier hs-var hs-var">insightId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the group that the insight belongs to.</span><span>
-</span><span id="line-62"></span><span>    </span><span id="%24sel%3AgroupARN%3AInsight%27"><span class="annot"><span class="annottext">Insight -&gt; Maybe Text
-</span><a href="Network.AWS.XRay.Types.Insight.html#%24sel%3AgroupARN%3AInsight%27"><span class="hs-identifier hs-var hs-var">groupARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The categories that label and describe the type of insight.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3Acategories%3AInsight%27"><span class="annot"><span class="annottext">Insight -&gt; Maybe [InsightCategory]
+</span><a href="Network.AWS.XRay.Types.Insight.html#%24sel%3Acategories%3AInsight%27"><span class="hs-identifier hs-var hs-var">categories</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.XRay.Types.InsightCategory.html#InsightCategory"><span class="hs-identifier hs-type">InsightCategory</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The impact statistics of the root cause service. This includes the</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- number of requests to the client service and whether the requests were</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- faults or okay.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3ArootCauseServiceRequestImpactStatistics%3AInsight%27"><span class="annot"><span class="annottext">Insight -&gt; Maybe RequestImpactStatistics
+</span><a href="Network.AWS.XRay.Types.Insight.html#%24sel%3ArootCauseServiceRequestImpactStatistics%3AInsight%27"><span class="hs-identifier hs-var hs-var">rootCauseServiceRequestImpactStatistics</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.RequestImpactStatistics.html#RequestImpactStatistics"><span class="hs-identifier hs-type">RequestImpactStatistics</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The service within the insight that is most impacted by the incident.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AtopAnomalousServices%3AInsight%27"><span class="annot"><span class="annottext">Insight -&gt; Maybe [AnomalousService]
+</span><a href="Network.AWS.XRay.Types.Insight.html#%24sel%3AtopAnomalousServices%3AInsight%27"><span class="hs-identifier hs-var hs-var">topAnomalousServices</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.XRay.Types.AnomalousService.html#AnomalousService"><span class="hs-identifier hs-type">AnomalousService</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3ArootCauseServiceId%3AInsight%27"><span class="annot"><span class="annottext">Insight -&gt; Maybe ServiceId
+</span><a href="Network.AWS.XRay.Types.Insight.html#%24sel%3ArootCauseServiceId%3AInsight%27"><span class="hs-identifier hs-var hs-var">rootCauseServiceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ServiceId.html#ServiceId"><span class="hs-identifier hs-type">ServiceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The impact statistics of the client side service. This includes the</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- number of requests to the client service and whether the requests were</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- faults or okay.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AclientRequestImpactStatistics%3AInsight%27"><span class="annot"><span class="annottext">Insight -&gt; Maybe RequestImpactStatistics
+</span><a href="Network.AWS.XRay.Types.Insight.html#%24sel%3AclientRequestImpactStatistics%3AInsight%27"><span class="hs-identifier hs-var hs-var">clientRequestImpactStatistics</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.RequestImpactStatistics.html#RequestImpactStatistics"><span class="hs-identifier hs-type">RequestImpactStatistics</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The time, in Unix seconds, at which the insight ended.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AendTime%3AInsight%27"><span class="annot"><span class="annottext">Insight -&gt; Maybe POSIX
+</span><a href="Network.AWS.XRay.Types.Insight.html#%24sel%3AendTime%3AInsight%27"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the group that the insight belongs to.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AgroupARN%3AInsight%27"><span class="annot"><span class="annottext">Insight -&gt; Maybe Text
+</span><a href="Network.AWS.XRay.Types.Insight.html#%24sel%3AgroupARN%3AInsight%27"><span class="hs-identifier hs-var hs-var">groupARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The name of the group that the insight belongs to.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AgroupName%3AInsight%27"><span class="annot"><span class="annottext">Insight -&gt; Maybe Text
+</span><a href="Network.AWS.XRay.Types.Insight.html#%24sel%3AgroupName%3AInsight%27"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679255966"><span id="local-6989586621679255968"><span class="annot"><span class="annottext">Insight -&gt; Insight -&gt; Bool
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679256253"><span id="local-6989586621679256255"><span class="annot"><span class="annottext">Insight -&gt; Insight -&gt; Bool
 (Insight -&gt; Insight -&gt; Bool)
 -&gt; (Insight -&gt; Insight -&gt; Bool) -&gt; Eq Insight
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Insight -&gt; Insight -&gt; Bool
 == :: Insight -&gt; Insight -&gt; Bool
 $c== :: Insight -&gt; Insight -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255957"><span id="local-6989586621679255959"><span id="local-6989586621679255961"><span id="local-6989586621679255963"><span class="annot"><span class="annottext">ReadPrec [Insight]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256244"><span id="local-6989586621679256246"><span id="local-6989586621679256248"><span id="local-6989586621679256250"><span class="annot"><span class="annottext">ReadPrec [Insight]
 ReadPrec Insight
 Int -&gt; ReadS Insight
 ReadS [Insight]
@@ -101,7 +101,7 @@ readList :: ReadS [Insight]
 $creadList :: ReadS [Insight]
 readsPrec :: Int -&gt; ReadS Insight
 $creadsPrec :: Int -&gt; ReadS Insight
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255950"><span id="local-6989586621679255952"><span id="local-6989586621679255954"><span class="annot"><span class="annottext">Int -&gt; Insight -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256237"><span id="local-6989586621679256239"><span id="local-6989586621679256241"><span class="annot"><span class="annottext">Int -&gt; Insight -&gt; ShowS
 [Insight] -&gt; ShowS
 Insight -&gt; String
 (Int -&gt; Insight -&gt; ShowS)
@@ -132,361 +132,208 @@ $cfrom :: forall x. Insight -&gt; Rep Insight x
 </span><span id="line-71"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-73"></span><span class="hs-comment">--</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- 'clientRequestImpactStatistics', 'insight_clientRequestImpactStatistics' - The impact statistics of the client side service. This includes the</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- number of requests to the client service and whether the requests were</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- faults or okay.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'summary', 'insight_summary' - A brief description of the insight.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'state', 'insight_state' - The current state of the insight.</span><span>
 </span><span id="line-77"></span><span class="hs-comment">--</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- 'rootCauseServiceRequestImpactStatistics', 'insight_rootCauseServiceRequestImpactStatistics' - The impact statistics of the root cause service. This includes the</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- number of requests to the client service and whether the requests were</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- faults or okay.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'startTime', 'insight_startTime' - The time, in Unix seconds, at which the insight began.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'insightId', 'insight_insightId' - The insights unique identifier.</span><span>
 </span><span id="line-81"></span><span class="hs-comment">--</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- 'groupName', 'insight_groupName' - The name of the group that the insight belongs to.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'categories', 'insight_categories' - The categories that label and describe the type of insight.</span><span>
 </span><span id="line-83"></span><span class="hs-comment">--</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- 'startTime', 'insight_startTime' - The time, in Unix seconds, at which the insight began.</span><span>
-</span><span id="line-85"></span><span class="hs-comment">--</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- 'endTime', 'insight_endTime' - The time, in Unix seconds, at which the insight ended.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'rootCauseServiceRequestImpactStatistics', 'insight_rootCauseServiceRequestImpactStatistics' - The impact statistics of the root cause service. This includes the</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- number of requests to the client service and whether the requests were</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- faults or okay.</span><span>
 </span><span id="line-87"></span><span class="hs-comment">--</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- 'rootCauseServiceId', 'insight_rootCauseServiceId' - Undocumented member.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'topAnomalousServices', 'insight_topAnomalousServices' - The service within the insight that is most impacted by the incident.</span><span>
 </span><span id="line-89"></span><span class="hs-comment">--</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- 'state', 'insight_state' - The current state of the insight.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'rootCauseServiceId', 'insight_rootCauseServiceId' - Undocumented member.</span><span>
 </span><span id="line-91"></span><span class="hs-comment">--</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- 'summary', 'insight_summary' - A brief description of the insight.</span><span>
-</span><span id="line-93"></span><span class="hs-comment">--</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- 'topAnomalousServices', 'insight_topAnomalousServices' - The service within the insight that is most impacted by the incident.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'clientRequestImpactStatistics', 'insight_clientRequestImpactStatistics' - The impact statistics of the client side service. This includes the</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- number of requests to the client service and whether the requests were</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- faults or okay.</span><span>
 </span><span id="line-95"></span><span class="hs-comment">--</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- 'categories', 'insight_categories' - The categories that label and describe the type of insight.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'endTime', 'insight_endTime' - The time, in Unix seconds, at which the insight ended.</span><span>
 </span><span id="line-97"></span><span class="hs-comment">--</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- 'insightId', 'insight_insightId' - The insights unique identifier.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'groupARN', 'insight_groupARN' - The Amazon Resource Name (ARN) of the group that the insight belongs to.</span><span>
 </span><span id="line-99"></span><span class="hs-comment">--</span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- 'groupARN', 'insight_groupARN' - The Amazon Resource Name (ARN) of the group that the insight belongs to.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'groupName', 'insight_groupName' - The name of the group that the insight belongs to.</span><span>
 </span><span id="line-101"></span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#newInsight"><span class="hs-identifier hs-type">newInsight</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-102"></span><span>  </span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight"><span class="hs-identifier hs-type">Insight</span></a></span><span>
 </span><span id="line-103"></span><span id="newInsight"><span class="annot"><span class="annottext">newInsight :: Insight
 </span><a href="Network.AWS.XRay.Types.Insight.html#newInsight"><span class="hs-identifier hs-var hs-var">newInsight</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-104"></span><span>  </span><span class="annot"><span class="annottext">Insight' :: Maybe RequestImpactStatistics
--&gt; Maybe RequestImpactStatistics
--&gt; Maybe Text
--&gt; Maybe POSIX
--&gt; Maybe POSIX
--&gt; Maybe ServiceId
+</span><span id="line-104"></span><span>  </span><span class="annot"><span class="annottext">Insight' :: Maybe Text
 -&gt; Maybe InsightState
+-&gt; Maybe POSIX
 -&gt; Maybe Text
--&gt; Maybe [AnomalousService]
 -&gt; Maybe [InsightCategory]
+-&gt; Maybe RequestImpactStatistics
+-&gt; Maybe [AnomalousService]
+-&gt; Maybe ServiceId
+-&gt; Maybe RequestImpactStatistics
+-&gt; Maybe POSIX
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Insight
 </span><a href="Network.AWS.XRay.Types.Insight.html#Insight%27"><span class="hs-identifier hs-type">Insight'</span></a></span><span>
-</span><span id="line-105"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:clientRequestImpactStatistics:Insight' :: Maybe RequestImpactStatistics
-</span><a href="Network.AWS.XRay.Types.Insight.html#%24sel%3AclientRequestImpactStatistics%3AInsight%27"><span class="hs-identifier hs-var">clientRequestImpactStatistics</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-106"></span><span>        </span><span class="annot"><span class="annottext">Maybe RequestImpactStatistics
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:rootCauseServiceRequestImpactStatistics:Insight' :: Maybe RequestImpactStatistics
-</span><a href="Network.AWS.XRay.Types.Insight.html#%24sel%3ArootCauseServiceRequestImpactStatistics%3AInsight%27"><span class="hs-identifier hs-var">rootCauseServiceRequestImpactStatistics</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-108"></span><span>        </span><span class="annot"><span class="annottext">Maybe RequestImpactStatistics
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:groupName:Insight' :: Maybe Text
-</span><a href="Network.AWS.XRay.Types.Insight.html#%24sel%3AgroupName%3AInsight%27"><span class="hs-identifier hs-var">groupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:startTime:Insight' :: Maybe POSIX
-</span><a href="Network.AWS.XRay.Types.Insight.html#%24sel%3AstartTime%3AInsight%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:endTime:Insight' :: Maybe POSIX
-</span><a href="Network.AWS.XRay.Types.Insight.html#%24sel%3AendTime%3AInsight%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:rootCauseServiceId:Insight' :: Maybe ServiceId
-</span><a href="Network.AWS.XRay.Types.Insight.html#%24sel%3ArootCauseServiceId%3AInsight%27"><span class="hs-identifier hs-var">rootCauseServiceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceId
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:state:Insight' :: Maybe InsightState
-</span><a href="Network.AWS.XRay.Types.Insight.html#%24sel%3Astate%3AInsight%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InsightState
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:summary:Insight' :: Maybe Text
+</span><span id="line-105"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:summary:Insight' :: Maybe Text
 </span><a href="Network.AWS.XRay.Types.Insight.html#%24sel%3Asummary%3AInsight%27"><span class="hs-identifier hs-var">summary</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:topAnomalousServices:Insight' :: Maybe [AnomalousService]
-</span><a href="Network.AWS.XRay.Types.Insight.html#%24sel%3AtopAnomalousServices%3AInsight%27"><span class="hs-identifier hs-var">topAnomalousServices</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AnomalousService]
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:state:Insight' :: Maybe InsightState
+</span><a href="Network.AWS.XRay.Types.Insight.html#%24sel%3Astate%3AInsight%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InsightState
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:categories:Insight' :: Maybe [InsightCategory]
-</span><a href="Network.AWS.XRay.Types.Insight.html#%24sel%3Acategories%3AInsight%27"><span class="hs-identifier hs-var">categories</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [InsightCategory]
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:startTime:Insight' :: Maybe POSIX
+</span><a href="Network.AWS.XRay.Types.Insight.html#%24sel%3AstartTime%3AInsight%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:insightId:Insight' :: Maybe Text
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:insightId:Insight' :: Maybe Text
 </span><a href="Network.AWS.XRay.Types.Insight.html#%24sel%3AinsightId%3AInsight%27"><span class="hs-identifier hs-var">insightId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:groupARN:Insight' :: Maybe Text
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:categories:Insight' :: Maybe [InsightCategory]
+</span><a href="Network.AWS.XRay.Types.Insight.html#%24sel%3Acategories%3AInsight%27"><span class="hs-identifier hs-var">categories</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [InsightCategory]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:rootCauseServiceRequestImpactStatistics:Insight' :: Maybe RequestImpactStatistics
+</span><a href="Network.AWS.XRay.Types.Insight.html#%24sel%3ArootCauseServiceRequestImpactStatistics%3AInsight%27"><span class="hs-identifier hs-var">rootCauseServiceRequestImpactStatistics</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>        </span><span class="annot"><span class="annottext">Maybe RequestImpactStatistics
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:topAnomalousServices:Insight' :: Maybe [AnomalousService]
+</span><a href="Network.AWS.XRay.Types.Insight.html#%24sel%3AtopAnomalousServices%3AInsight%27"><span class="hs-identifier hs-var">topAnomalousServices</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AnomalousService]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:rootCauseServiceId:Insight' :: Maybe ServiceId
+</span><a href="Network.AWS.XRay.Types.Insight.html#%24sel%3ArootCauseServiceId%3AInsight%27"><span class="hs-identifier hs-var">rootCauseServiceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceId
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:clientRequestImpactStatistics:Insight' :: Maybe RequestImpactStatistics
+</span><a href="Network.AWS.XRay.Types.Insight.html#%24sel%3AclientRequestImpactStatistics%3AInsight%27"><span class="hs-identifier hs-var">clientRequestImpactStatistics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RequestImpactStatistics
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:endTime:Insight' :: Maybe POSIX
+</span><a href="Network.AWS.XRay.Types.Insight.html#%24sel%3AendTime%3AInsight%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:groupARN:Insight' :: Maybe Text
 </span><a href="Network.AWS.XRay.Types.Insight.html#%24sel%3AgroupARN%3AInsight%27"><span class="hs-identifier hs-var">groupARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:groupName:Insight' :: Maybe Text
+</span><a href="Network.AWS.XRay.Types.Insight.html#%24sel%3AgroupName%3AInsight%27"><span class="hs-identifier hs-var">groupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-119"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-comment">-- | The impact statistics of the client side service. This includes the</span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- number of requests to the client service and whether the requests were</span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- faults or okay.</span><span>
-</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#insight_clientRequestImpactStatistics"><span class="hs-identifier hs-type">insight_clientRequestImpactStatistics</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight"><span class="hs-identifier hs-type">Insight</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.RequestImpactStatistics.html#RequestImpactStatistics"><span class="hs-identifier hs-type">RequestImpactStatistics</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-125"></span><span id="insight_clientRequestImpactStatistics"><span class="annot"><span class="annottext">insight_clientRequestImpactStatistics :: (Maybe RequestImpactStatistics
- -&gt; f (Maybe RequestImpactStatistics))
--&gt; Insight -&gt; f Insight
-</span><a href="Network.AWS.XRay.Types.Insight.html#insight_clientRequestImpactStatistics"><span class="hs-identifier hs-var hs-var">insight_clientRequestImpactStatistics</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Insight -&gt; Maybe RequestImpactStatistics)
--&gt; (Insight -&gt; Maybe RequestImpactStatistics -&gt; Insight)
--&gt; Lens
-     Insight
-     Insight
-     (Maybe RequestImpactStatistics)
-     (Maybe RequestImpactStatistics)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight%27"><span class="hs-identifier hs-type">Insight'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255941"><span class="annot"><span class="annottext">Maybe RequestImpactStatistics
-clientRequestImpactStatistics :: Maybe RequestImpactStatistics
-$sel:clientRequestImpactStatistics:Insight' :: Insight -&gt; Maybe RequestImpactStatistics
-</span><a href="#local-6989586621679255941"><span class="hs-identifier hs-var hs-var">clientRequestImpactStatistics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RequestImpactStatistics
-</span><a href="#local-6989586621679255941"><span class="hs-identifier hs-var">clientRequestImpactStatistics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255940"><span class="annot"><span class="annottext">s :: Insight
-</span><a href="#local-6989586621679255940"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight%27"><span class="hs-identifier hs-type">Insight'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255939"><span class="annot"><span class="annottext">Maybe RequestImpactStatistics
-</span><a href="#local-6989586621679255939"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Insight
-</span><a href="#local-6989586621679255940"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientRequestImpactStatistics:Insight' :: Maybe RequestImpactStatistics
-</span><a href="Network.AWS.XRay.Types.Insight.html#%24sel%3AclientRequestImpactStatistics%3AInsight%27"><span class="hs-identifier hs-var">clientRequestImpactStatistics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RequestImpactStatistics
-</span><a href="#local-6989586621679255939"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight"><span class="hs-identifier hs-type">Insight</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-comment">-- | The impact statistics of the root cause service. This includes the</span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- number of requests to the client service and whether the requests were</span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- faults or okay.</span><span>
-</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#insight_rootCauseServiceRequestImpactStatistics"><span class="hs-identifier hs-type">insight_rootCauseServiceRequestImpactStatistics</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight"><span class="hs-identifier hs-type">Insight</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.RequestImpactStatistics.html#RequestImpactStatistics"><span class="hs-identifier hs-type">RequestImpactStatistics</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-131"></span><span id="insight_rootCauseServiceRequestImpactStatistics"><span class="annot"><span class="annottext">insight_rootCauseServiceRequestImpactStatistics :: (Maybe RequestImpactStatistics
- -&gt; f (Maybe RequestImpactStatistics))
--&gt; Insight -&gt; f Insight
-</span><a href="Network.AWS.XRay.Types.Insight.html#insight_rootCauseServiceRequestImpactStatistics"><span class="hs-identifier hs-var hs-var">insight_rootCauseServiceRequestImpactStatistics</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Insight -&gt; Maybe RequestImpactStatistics)
--&gt; (Insight -&gt; Maybe RequestImpactStatistics -&gt; Insight)
--&gt; Lens
-     Insight
-     Insight
-     (Maybe RequestImpactStatistics)
-     (Maybe RequestImpactStatistics)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight%27"><span class="hs-identifier hs-type">Insight'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255937"><span class="annot"><span class="annottext">Maybe RequestImpactStatistics
-rootCauseServiceRequestImpactStatistics :: Maybe RequestImpactStatistics
-$sel:rootCauseServiceRequestImpactStatistics:Insight' :: Insight -&gt; Maybe RequestImpactStatistics
-</span><a href="#local-6989586621679255937"><span class="hs-identifier hs-var hs-var">rootCauseServiceRequestImpactStatistics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RequestImpactStatistics
-</span><a href="#local-6989586621679255937"><span class="hs-identifier hs-var">rootCauseServiceRequestImpactStatistics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255936"><span class="annot"><span class="annottext">s :: Insight
-</span><a href="#local-6989586621679255936"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight%27"><span class="hs-identifier hs-type">Insight'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255935"><span class="annot"><span class="annottext">Maybe RequestImpactStatistics
-</span><a href="#local-6989586621679255935"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Insight
-</span><a href="#local-6989586621679255936"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rootCauseServiceRequestImpactStatistics:Insight' :: Maybe RequestImpactStatistics
-</span><a href="Network.AWS.XRay.Types.Insight.html#%24sel%3ArootCauseServiceRequestImpactStatistics%3AInsight%27"><span class="hs-identifier hs-var">rootCauseServiceRequestImpactStatistics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RequestImpactStatistics
-</span><a href="#local-6989586621679255935"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight"><span class="hs-identifier hs-type">Insight</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-132"></span><span>
-</span><span id="line-133"></span><span class="hs-comment">-- | The name of the group that the insight belongs to.</span><span>
-</span><span id="line-134"></span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#insight_groupName"><span class="hs-identifier hs-type">insight_groupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight"><span class="hs-identifier hs-type">Insight</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-135"></span><span id="insight_groupName"><span class="annot"><span class="annottext">insight_groupName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Insight -&gt; f Insight
-</span><a href="Network.AWS.XRay.Types.Insight.html#insight_groupName"><span class="hs-identifier hs-var hs-var">insight_groupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Insight -&gt; Maybe Text)
+</span><span id="line-118"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | A brief description of the insight.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#insight_summary"><span class="hs-identifier hs-type">insight_summary</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight"><span class="hs-identifier hs-type">Insight</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span id="insight_summary"><span class="annot"><span class="annottext">insight_summary :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Insight -&gt; f Insight
+</span><a href="Network.AWS.XRay.Types.Insight.html#insight_summary"><span class="hs-identifier hs-var hs-var">insight_summary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Insight -&gt; Maybe Text)
 -&gt; (Insight -&gt; Maybe Text -&gt; Insight)
 -&gt; Lens Insight Insight (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight%27"><span class="hs-identifier hs-type">Insight'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255933"><span class="annot"><span class="annottext">Maybe Text
-groupName :: Maybe Text
-$sel:groupName:Insight' :: Insight -&gt; Maybe Text
-</span><a href="#local-6989586621679255933"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679255933"><span class="hs-identifier hs-var">groupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255932"><span class="annot"><span class="annottext">s :: Insight
-</span><a href="#local-6989586621679255932"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight%27"><span class="hs-identifier hs-type">Insight'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255931"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679255931"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Insight
-</span><a href="#local-6989586621679255932"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupName:Insight' :: Maybe Text
-</span><a href="Network.AWS.XRay.Types.Insight.html#%24sel%3AgroupName%3AInsight%27"><span class="hs-identifier hs-var">groupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679255931"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight"><span class="hs-identifier hs-type">Insight</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-136"></span><span>
-</span><span id="line-137"></span><span class="hs-comment">-- | The time, in Unix seconds, at which the insight began.</span><span>
-</span><span id="line-138"></span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#insight_startTime"><span class="hs-identifier hs-type">insight_startTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight"><span class="hs-identifier hs-type">Insight</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-139"></span><span id="insight_startTime"><span class="annot"><span class="annottext">insight_startTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Insight -&gt; f Insight
-</span><a href="Network.AWS.XRay.Types.Insight.html#insight_startTime"><span class="hs-identifier hs-var hs-var">insight_startTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Insight -&gt; Maybe POSIX)
--&gt; (Insight -&gt; Maybe POSIX -&gt; Insight)
--&gt; Lens Insight Insight (Maybe POSIX) (Maybe POSIX)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight%27"><span class="hs-identifier hs-type">Insight'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255929"><span class="annot"><span class="annottext">Maybe POSIX
-startTime :: Maybe POSIX
-$sel:startTime:Insight' :: Insight -&gt; Maybe POSIX
-</span><a href="#local-6989586621679255929"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679255929"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255928"><span class="annot"><span class="annottext">s :: Insight
-</span><a href="#local-6989586621679255928"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight%27"><span class="hs-identifier hs-type">Insight'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255927"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679255927"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Insight
-</span><a href="#local-6989586621679255928"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:Insight' :: Maybe POSIX
-</span><a href="Network.AWS.XRay.Types.Insight.html#%24sel%3AstartTime%3AInsight%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679255927"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight"><span class="hs-identifier hs-type">Insight</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Insight -&gt; f Insight)
--&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
-    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
--&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; Insight
--&gt; f Insight
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
--&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
-forall (a :: Format). Iso' (Time a) UTCTime
-</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-140"></span><span>
-</span><span id="line-141"></span><span class="hs-comment">-- | The time, in Unix seconds, at which the insight ended.</span><span>
-</span><span id="line-142"></span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#insight_endTime"><span class="hs-identifier hs-type">insight_endTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight"><span class="hs-identifier hs-type">Insight</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-143"></span><span id="insight_endTime"><span class="annot"><span class="annottext">insight_endTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Insight -&gt; f Insight
-</span><a href="Network.AWS.XRay.Types.Insight.html#insight_endTime"><span class="hs-identifier hs-var hs-var">insight_endTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Insight -&gt; Maybe POSIX)
--&gt; (Insight -&gt; Maybe POSIX -&gt; Insight)
--&gt; Lens Insight Insight (Maybe POSIX) (Maybe POSIX)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight%27"><span class="hs-identifier hs-type">Insight'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255922"><span class="annot"><span class="annottext">Maybe POSIX
-endTime :: Maybe POSIX
-$sel:endTime:Insight' :: Insight -&gt; Maybe POSIX
-</span><a href="#local-6989586621679255922"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679255922"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255921"><span class="annot"><span class="annottext">s :: Insight
-</span><a href="#local-6989586621679255921"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight%27"><span class="hs-identifier hs-type">Insight'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255920"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679255920"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Insight
-</span><a href="#local-6989586621679255921"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endTime:Insight' :: Maybe POSIX
-</span><a href="Network.AWS.XRay.Types.Insight.html#%24sel%3AendTime%3AInsight%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679255920"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight"><span class="hs-identifier hs-type">Insight</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Insight -&gt; f Insight)
--&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
-    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
--&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; Insight
--&gt; f Insight
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
--&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
-forall (a :: Format). Iso' (Time a) UTCTime
-</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-144"></span><span>
-</span><span id="line-145"></span><span class="hs-comment">-- | Undocumented member.</span><span>
-</span><span id="line-146"></span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#insight_rootCauseServiceId"><span class="hs-identifier hs-type">insight_rootCauseServiceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight"><span class="hs-identifier hs-type">Insight</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ServiceId.html#ServiceId"><span class="hs-identifier hs-type">ServiceId</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-147"></span><span id="insight_rootCauseServiceId"><span class="annot"><span class="annottext">insight_rootCauseServiceId :: (Maybe ServiceId -&gt; f (Maybe ServiceId)) -&gt; Insight -&gt; f Insight
-</span><a href="Network.AWS.XRay.Types.Insight.html#insight_rootCauseServiceId"><span class="hs-identifier hs-var hs-var">insight_rootCauseServiceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Insight -&gt; Maybe ServiceId)
--&gt; (Insight -&gt; Maybe ServiceId -&gt; Insight)
--&gt; Lens Insight Insight (Maybe ServiceId) (Maybe ServiceId)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight%27"><span class="hs-identifier hs-type">Insight'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255918"><span class="annot"><span class="annottext">Maybe ServiceId
-rootCauseServiceId :: Maybe ServiceId
-$sel:rootCauseServiceId:Insight' :: Insight -&gt; Maybe ServiceId
-</span><a href="#local-6989586621679255918"><span class="hs-identifier hs-var hs-var">rootCauseServiceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceId
-</span><a href="#local-6989586621679255918"><span class="hs-identifier hs-var">rootCauseServiceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255917"><span class="annot"><span class="annottext">s :: Insight
-</span><a href="#local-6989586621679255917"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight%27"><span class="hs-identifier hs-type">Insight'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255916"><span class="annot"><span class="annottext">Maybe ServiceId
-</span><a href="#local-6989586621679255916"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Insight
-</span><a href="#local-6989586621679255917"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rootCauseServiceId:Insight' :: Maybe ServiceId
-</span><a href="Network.AWS.XRay.Types.Insight.html#%24sel%3ArootCauseServiceId%3AInsight%27"><span class="hs-identifier hs-var">rootCauseServiceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceId
-</span><a href="#local-6989586621679255916"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight"><span class="hs-identifier hs-type">Insight</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-148"></span><span>
-</span><span id="line-149"></span><span class="hs-comment">-- | The current state of the insight.</span><span>
-</span><span id="line-150"></span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#insight_state"><span class="hs-identifier hs-type">insight_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight"><span class="hs-identifier hs-type">Insight</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.InsightState.html#InsightState"><span class="hs-identifier hs-type">InsightState</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-151"></span><span id="insight_state"><span class="annot"><span class="annottext">insight_state :: (Maybe InsightState -&gt; f (Maybe InsightState))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight%27"><span class="hs-identifier hs-type">Insight'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256228"><span class="annot"><span class="annottext">Maybe Text
+summary :: Maybe Text
+$sel:summary:Insight' :: Insight -&gt; Maybe Text
+</span><a href="#local-6989586621679256228"><span class="hs-identifier hs-var hs-var">summary</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679256228"><span class="hs-identifier hs-var">summary</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256227"><span class="annot"><span class="annottext">s :: Insight
+</span><a href="#local-6989586621679256227"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight%27"><span class="hs-identifier hs-type">Insight'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256226"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679256226"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Insight
+</span><a href="#local-6989586621679256227"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:summary:Insight' :: Maybe Text
+</span><a href="Network.AWS.XRay.Types.Insight.html#%24sel%3Asummary%3AInsight%27"><span class="hs-identifier hs-var">summary</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679256226"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight"><span class="hs-identifier hs-type">Insight</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | The current state of the insight.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#insight_state"><span class="hs-identifier hs-type">insight_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight"><span class="hs-identifier hs-type">Insight</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.InsightState.html#InsightState"><span class="hs-identifier hs-type">InsightState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="insight_state"><span class="annot"><span class="annottext">insight_state :: (Maybe InsightState -&gt; f (Maybe InsightState))
 -&gt; Insight -&gt; f Insight
 </span><a href="Network.AWS.XRay.Types.Insight.html#insight_state"><span class="hs-identifier hs-var hs-var">insight_state</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Insight -&gt; Maybe InsightState)
 -&gt; (Insight -&gt; Maybe InsightState -&gt; Insight)
 -&gt; Lens Insight Insight (Maybe InsightState) (Maybe InsightState)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight%27"><span class="hs-identifier hs-type">Insight'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255914"><span class="annot"><span class="annottext">Maybe InsightState
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight%27"><span class="hs-identifier hs-type">Insight'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256224"><span class="annot"><span class="annottext">Maybe InsightState
 state :: Maybe InsightState
 $sel:state:Insight' :: Insight -&gt; Maybe InsightState
-</span><a href="#local-6989586621679255914"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InsightState
-</span><a href="#local-6989586621679255914"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255913"><span class="annot"><span class="annottext">s :: Insight
-</span><a href="#local-6989586621679255913"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight%27"><span class="hs-identifier hs-type">Insight'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255912"><span class="annot"><span class="annottext">Maybe InsightState
-</span><a href="#local-6989586621679255912"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Insight
-</span><a href="#local-6989586621679255913"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:Insight' :: Maybe InsightState
+</span><a href="#local-6989586621679256224"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InsightState
+</span><a href="#local-6989586621679256224"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256223"><span class="annot"><span class="annottext">s :: Insight
+</span><a href="#local-6989586621679256223"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight%27"><span class="hs-identifier hs-type">Insight'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256222"><span class="annot"><span class="annottext">Maybe InsightState
+</span><a href="#local-6989586621679256222"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Insight
+</span><a href="#local-6989586621679256223"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:Insight' :: Maybe InsightState
 </span><a href="Network.AWS.XRay.Types.Insight.html#%24sel%3Astate%3AInsight%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InsightState
-</span><a href="#local-6989586621679255912"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight"><span class="hs-identifier hs-type">Insight</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-152"></span><span>
-</span><span id="line-153"></span><span class="hs-comment">-- | A brief description of the insight.</span><span>
-</span><span id="line-154"></span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#insight_summary"><span class="hs-identifier hs-type">insight_summary</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight"><span class="hs-identifier hs-type">Insight</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-155"></span><span id="insight_summary"><span class="annot"><span class="annottext">insight_summary :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Insight -&gt; f Insight
-</span><a href="Network.AWS.XRay.Types.Insight.html#insight_summary"><span class="hs-identifier hs-var hs-var">insight_summary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Insight -&gt; Maybe Text)
--&gt; (Insight -&gt; Maybe Text -&gt; Insight)
--&gt; Lens Insight Insight (Maybe Text) (Maybe Text)
+</span><a href="#local-6989586621679256222"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight"><span class="hs-identifier hs-type">Insight</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | The time, in Unix seconds, at which the insight began.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#insight_startTime"><span class="hs-identifier hs-type">insight_startTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight"><span class="hs-identifier hs-type">Insight</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="insight_startTime"><span class="annot"><span class="annottext">insight_startTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Insight -&gt; f Insight
+</span><a href="Network.AWS.XRay.Types.Insight.html#insight_startTime"><span class="hs-identifier hs-var hs-var">insight_startTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Insight -&gt; Maybe POSIX)
+-&gt; (Insight -&gt; Maybe POSIX -&gt; Insight)
+-&gt; Lens Insight Insight (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight%27"><span class="hs-identifier hs-type">Insight'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255910"><span class="annot"><span class="annottext">Maybe Text
-summary :: Maybe Text
-$sel:summary:Insight' :: Insight -&gt; Maybe Text
-</span><a href="#local-6989586621679255910"><span class="hs-identifier hs-var hs-var">summary</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679255910"><span class="hs-identifier hs-var">summary</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255909"><span class="annot"><span class="annottext">s :: Insight
-</span><a href="#local-6989586621679255909"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight%27"><span class="hs-identifier hs-type">Insight'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255908"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679255908"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Insight
-</span><a href="#local-6989586621679255909"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:summary:Insight' :: Maybe Text
-</span><a href="Network.AWS.XRay.Types.Insight.html#%24sel%3Asummary%3AInsight%27"><span class="hs-identifier hs-var">summary</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679255908"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight"><span class="hs-identifier hs-type">Insight</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-156"></span><span>
-</span><span id="line-157"></span><span class="hs-comment">-- | The service within the insight that is most impacted by the incident.</span><span>
-</span><span id="line-158"></span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#insight_topAnomalousServices"><span class="hs-identifier hs-type">insight_topAnomalousServices</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight"><span class="hs-identifier hs-type">Insight</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.XRay.Types.AnomalousService.html#AnomalousService"><span class="hs-identifier hs-type">AnomalousService</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-159"></span><span id="insight_topAnomalousServices"><span class="annot"><span class="annottext">insight_topAnomalousServices :: (Maybe [AnomalousService] -&gt; f (Maybe [AnomalousService]))
--&gt; Insight -&gt; f Insight
-</span><a href="Network.AWS.XRay.Types.Insight.html#insight_topAnomalousServices"><span class="hs-identifier hs-var hs-var">insight_topAnomalousServices</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Insight -&gt; Maybe [AnomalousService])
--&gt; (Insight -&gt; Maybe [AnomalousService] -&gt; Insight)
--&gt; Lens
-     Insight
-     Insight
-     (Maybe [AnomalousService])
-     (Maybe [AnomalousService])
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight%27"><span class="hs-identifier hs-type">Insight'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255906"><span class="annot"><span class="annottext">Maybe [AnomalousService]
-topAnomalousServices :: Maybe [AnomalousService]
-$sel:topAnomalousServices:Insight' :: Insight -&gt; Maybe [AnomalousService]
-</span><a href="#local-6989586621679255906"><span class="hs-identifier hs-var hs-var">topAnomalousServices</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AnomalousService]
-</span><a href="#local-6989586621679255906"><span class="hs-identifier hs-var">topAnomalousServices</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255905"><span class="annot"><span class="annottext">s :: Insight
-</span><a href="#local-6989586621679255905"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight%27"><span class="hs-identifier hs-type">Insight'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255904"><span class="annot"><span class="annottext">Maybe [AnomalousService]
-</span><a href="#local-6989586621679255904"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Insight
-</span><a href="#local-6989586621679255905"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:topAnomalousServices:Insight' :: Maybe [AnomalousService]
-</span><a href="Network.AWS.XRay.Types.Insight.html#%24sel%3AtopAnomalousServices%3AInsight%27"><span class="hs-identifier hs-var">topAnomalousServices</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AnomalousService]
-</span><a href="#local-6989586621679255904"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight"><span class="hs-identifier hs-type">Insight</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AnomalousService] -&gt; f (Maybe [AnomalousService]))
- -&gt; Insight -&gt; f Insight)
--&gt; ((Maybe [AnomalousService] -&gt; f (Maybe [AnomalousService]))
-    -&gt; Maybe [AnomalousService] -&gt; f (Maybe [AnomalousService]))
--&gt; (Maybe [AnomalousService] -&gt; f (Maybe [AnomalousService]))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight%27"><span class="hs-identifier hs-type">Insight'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256220"><span class="annot"><span class="annottext">Maybe POSIX
+startTime :: Maybe POSIX
+$sel:startTime:Insight' :: Insight -&gt; Maybe POSIX
+</span><a href="#local-6989586621679256220"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679256220"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256219"><span class="annot"><span class="annottext">s :: Insight
+</span><a href="#local-6989586621679256219"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight%27"><span class="hs-identifier hs-type">Insight'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256218"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679256218"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Insight
+</span><a href="#local-6989586621679256219"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:Insight' :: Maybe POSIX
+</span><a href="Network.AWS.XRay.Types.Insight.html#%24sel%3AstartTime%3AInsight%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679256218"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight"><span class="hs-identifier hs-type">Insight</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Insight -&gt; f Insight)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; Insight
 -&gt; f Insight
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
-  [AnomalousService]
-  [AnomalousService]
-  [AnomalousService]
-  [AnomalousService]
--&gt; Iso
-     (Maybe [AnomalousService])
-     (Maybe [AnomalousService])
-     (Maybe [AnomalousService])
-     (Maybe [AnomalousService])
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
 forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
-  [AnomalousService]
-  [AnomalousService]
-  [AnomalousService]
-  [AnomalousService]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-160"></span><span>
-</span><span id="line-161"></span><span class="hs-comment">-- | The categories that label and describe the type of insight.</span><span>
-</span><span id="line-162"></span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#insight_categories"><span class="hs-identifier hs-type">insight_categories</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight"><span class="hs-identifier hs-type">Insight</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.XRay.Types.InsightCategory.html#InsightCategory"><span class="hs-identifier hs-type">InsightCategory</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-163"></span><span id="insight_categories"><span class="annot"><span class="annottext">insight_categories :: (Maybe [InsightCategory] -&gt; f (Maybe [InsightCategory]))
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | The insights unique identifier.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#insight_insightId"><span class="hs-identifier hs-type">insight_insightId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight"><span class="hs-identifier hs-type">Insight</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span id="insight_insightId"><span class="annot"><span class="annottext">insight_insightId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Insight -&gt; f Insight
+</span><a href="Network.AWS.XRay.Types.Insight.html#insight_insightId"><span class="hs-identifier hs-var hs-var">insight_insightId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Insight -&gt; Maybe Text)
+-&gt; (Insight -&gt; Maybe Text -&gt; Insight)
+-&gt; Lens Insight Insight (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight%27"><span class="hs-identifier hs-type">Insight'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256213"><span class="annot"><span class="annottext">Maybe Text
+insightId :: Maybe Text
+$sel:insightId:Insight' :: Insight -&gt; Maybe Text
+</span><a href="#local-6989586621679256213"><span class="hs-identifier hs-var hs-var">insightId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679256213"><span class="hs-identifier hs-var">insightId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256212"><span class="annot"><span class="annottext">s :: Insight
+</span><a href="#local-6989586621679256212"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight%27"><span class="hs-identifier hs-type">Insight'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256211"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679256211"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Insight
+</span><a href="#local-6989586621679256212"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:insightId:Insight' :: Maybe Text
+</span><a href="Network.AWS.XRay.Types.Insight.html#%24sel%3AinsightId%3AInsight%27"><span class="hs-identifier hs-var">insightId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679256211"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight"><span class="hs-identifier hs-type">Insight</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | The categories that label and describe the type of insight.</span><span>
+</span><span id="line-137"></span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#insight_categories"><span class="hs-identifier hs-type">insight_categories</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight"><span class="hs-identifier hs-type">Insight</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.XRay.Types.InsightCategory.html#InsightCategory"><span class="hs-identifier hs-type">InsightCategory</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span id="insight_categories"><span class="annot"><span class="annottext">insight_categories :: (Maybe [InsightCategory] -&gt; f (Maybe [InsightCategory]))
 -&gt; Insight -&gt; f Insight
 </span><a href="Network.AWS.XRay.Types.Insight.html#insight_categories"><span class="hs-identifier hs-var hs-var">insight_categories</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Insight -&gt; Maybe [InsightCategory])
 -&gt; (Insight -&gt; Maybe [InsightCategory] -&gt; Insight)
 -&gt; Lens
      Insight Insight (Maybe [InsightCategory]) (Maybe [InsightCategory])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight%27"><span class="hs-identifier hs-type">Insight'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255901"><span class="annot"><span class="annottext">Maybe [InsightCategory]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight%27"><span class="hs-identifier hs-type">Insight'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256209"><span class="annot"><span class="annottext">Maybe [InsightCategory]
 categories :: Maybe [InsightCategory]
 $sel:categories:Insight' :: Insight -&gt; Maybe [InsightCategory]
-</span><a href="#local-6989586621679255901"><span class="hs-identifier hs-var hs-var">categories</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [InsightCategory]
-</span><a href="#local-6989586621679255901"><span class="hs-identifier hs-var">categories</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255900"><span class="annot"><span class="annottext">s :: Insight
-</span><a href="#local-6989586621679255900"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight%27"><span class="hs-identifier hs-type">Insight'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255899"><span class="annot"><span class="annottext">Maybe [InsightCategory]
-</span><a href="#local-6989586621679255899"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Insight
-</span><a href="#local-6989586621679255900"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:categories:Insight' :: Maybe [InsightCategory]
+</span><a href="#local-6989586621679256209"><span class="hs-identifier hs-var hs-var">categories</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [InsightCategory]
+</span><a href="#local-6989586621679256209"><span class="hs-identifier hs-var">categories</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256208"><span class="annot"><span class="annottext">s :: Insight
+</span><a href="#local-6989586621679256208"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight%27"><span class="hs-identifier hs-type">Insight'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256207"><span class="annot"><span class="annottext">Maybe [InsightCategory]
+</span><a href="#local-6989586621679256207"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Insight
+</span><a href="#local-6989586621679256208"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:categories:Insight' :: Maybe [InsightCategory]
 </span><a href="Network.AWS.XRay.Types.Insight.html#%24sel%3Acategories%3AInsight%27"><span class="hs-identifier hs-var">categories</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [InsightCategory]
-</span><a href="#local-6989586621679255899"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight"><span class="hs-identifier hs-type">Insight</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [InsightCategory] -&gt; f (Maybe [InsightCategory]))
+</span><a href="#local-6989586621679256207"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight"><span class="hs-identifier hs-type">Insight</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [InsightCategory] -&gt; f (Maybe [InsightCategory]))
  -&gt; Insight -&gt; f Insight)
 -&gt; ((Maybe [InsightCategory] -&gt; f (Maybe [InsightCategory]))
     -&gt; Maybe [InsightCategory] -&gt; f (Maybe [InsightCategory]))
@@ -512,309 +359,367 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [InsightCategory]
   [InsightCategory]
   [InsightCategory]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-164"></span><span>
-</span><span id="line-165"></span><span class="hs-comment">-- | The insights unique identifier.</span><span>
-</span><span id="line-166"></span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#insight_insightId"><span class="hs-identifier hs-type">insight_insightId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight"><span class="hs-identifier hs-type">Insight</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-167"></span><span id="insight_insightId"><span class="annot"><span class="annottext">insight_insightId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Insight -&gt; f Insight
-</span><a href="Network.AWS.XRay.Types.Insight.html#insight_insightId"><span class="hs-identifier hs-var hs-var">insight_insightId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Insight -&gt; Maybe Text)
--&gt; (Insight -&gt; Maybe Text -&gt; Insight)
--&gt; Lens Insight Insight (Maybe Text) (Maybe Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- | The impact statistics of the root cause service. This includes the</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- number of requests to the client service and whether the requests were</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- faults or okay.</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#insight_rootCauseServiceRequestImpactStatistics"><span class="hs-identifier hs-type">insight_rootCauseServiceRequestImpactStatistics</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight"><span class="hs-identifier hs-type">Insight</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.RequestImpactStatistics.html#RequestImpactStatistics"><span class="hs-identifier hs-type">RequestImpactStatistics</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span id="insight_rootCauseServiceRequestImpactStatistics"><span class="annot"><span class="annottext">insight_rootCauseServiceRequestImpactStatistics :: (Maybe RequestImpactStatistics
+ -&gt; f (Maybe RequestImpactStatistics))
+-&gt; Insight -&gt; f Insight
+</span><a href="Network.AWS.XRay.Types.Insight.html#insight_rootCauseServiceRequestImpactStatistics"><span class="hs-identifier hs-var hs-var">insight_rootCauseServiceRequestImpactStatistics</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Insight -&gt; Maybe RequestImpactStatistics)
+-&gt; (Insight -&gt; Maybe RequestImpactStatistics -&gt; Insight)
+-&gt; Lens
+     Insight
+     Insight
+     (Maybe RequestImpactStatistics)
+     (Maybe RequestImpactStatistics)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight%27"><span class="hs-identifier hs-type">Insight'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255897"><span class="annot"><span class="annottext">Maybe Text
-insightId :: Maybe Text
-$sel:insightId:Insight' :: Insight -&gt; Maybe Text
-</span><a href="#local-6989586621679255897"><span class="hs-identifier hs-var hs-var">insightId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679255897"><span class="hs-identifier hs-var">insightId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255896"><span class="annot"><span class="annottext">s :: Insight
-</span><a href="#local-6989586621679255896"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight%27"><span class="hs-identifier hs-type">Insight'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255895"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679255895"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Insight
-</span><a href="#local-6989586621679255896"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:insightId:Insight' :: Maybe Text
-</span><a href="Network.AWS.XRay.Types.Insight.html#%24sel%3AinsightId%3AInsight%27"><span class="hs-identifier hs-var">insightId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679255895"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight"><span class="hs-identifier hs-type">Insight</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-168"></span><span>
-</span><span id="line-169"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the group that the insight belongs to.</span><span>
-</span><span id="line-170"></span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#insight_groupARN"><span class="hs-identifier hs-type">insight_groupARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight"><span class="hs-identifier hs-type">Insight</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-171"></span><span id="insight_groupARN"><span class="annot"><span class="annottext">insight_groupARN :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Insight -&gt; f Insight
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight%27"><span class="hs-identifier hs-type">Insight'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256204"><span class="annot"><span class="annottext">Maybe RequestImpactStatistics
+rootCauseServiceRequestImpactStatistics :: Maybe RequestImpactStatistics
+$sel:rootCauseServiceRequestImpactStatistics:Insight' :: Insight -&gt; Maybe RequestImpactStatistics
+</span><a href="#local-6989586621679256204"><span class="hs-identifier hs-var hs-var">rootCauseServiceRequestImpactStatistics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RequestImpactStatistics
+</span><a href="#local-6989586621679256204"><span class="hs-identifier hs-var">rootCauseServiceRequestImpactStatistics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256203"><span class="annot"><span class="annottext">s :: Insight
+</span><a href="#local-6989586621679256203"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight%27"><span class="hs-identifier hs-type">Insight'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256202"><span class="annot"><span class="annottext">Maybe RequestImpactStatistics
+</span><a href="#local-6989586621679256202"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Insight
+</span><a href="#local-6989586621679256203"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rootCauseServiceRequestImpactStatistics:Insight' :: Maybe RequestImpactStatistics
+</span><a href="Network.AWS.XRay.Types.Insight.html#%24sel%3ArootCauseServiceRequestImpactStatistics%3AInsight%27"><span class="hs-identifier hs-var">rootCauseServiceRequestImpactStatistics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RequestImpactStatistics
+</span><a href="#local-6989586621679256202"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight"><span class="hs-identifier hs-type">Insight</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- | The service within the insight that is most impacted by the incident.</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#insight_topAnomalousServices"><span class="hs-identifier hs-type">insight_topAnomalousServices</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight"><span class="hs-identifier hs-type">Insight</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.XRay.Types.AnomalousService.html#AnomalousService"><span class="hs-identifier hs-type">AnomalousService</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span id="insight_topAnomalousServices"><span class="annot"><span class="annottext">insight_topAnomalousServices :: (Maybe [AnomalousService] -&gt; f (Maybe [AnomalousService]))
+-&gt; Insight -&gt; f Insight
+</span><a href="Network.AWS.XRay.Types.Insight.html#insight_topAnomalousServices"><span class="hs-identifier hs-var hs-var">insight_topAnomalousServices</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Insight -&gt; Maybe [AnomalousService])
+-&gt; (Insight -&gt; Maybe [AnomalousService] -&gt; Insight)
+-&gt; Lens
+     Insight
+     Insight
+     (Maybe [AnomalousService])
+     (Maybe [AnomalousService])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight%27"><span class="hs-identifier hs-type">Insight'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256200"><span class="annot"><span class="annottext">Maybe [AnomalousService]
+topAnomalousServices :: Maybe [AnomalousService]
+$sel:topAnomalousServices:Insight' :: Insight -&gt; Maybe [AnomalousService]
+</span><a href="#local-6989586621679256200"><span class="hs-identifier hs-var hs-var">topAnomalousServices</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AnomalousService]
+</span><a href="#local-6989586621679256200"><span class="hs-identifier hs-var">topAnomalousServices</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256199"><span class="annot"><span class="annottext">s :: Insight
+</span><a href="#local-6989586621679256199"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight%27"><span class="hs-identifier hs-type">Insight'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256198"><span class="annot"><span class="annottext">Maybe [AnomalousService]
+</span><a href="#local-6989586621679256198"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Insight
+</span><a href="#local-6989586621679256199"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:topAnomalousServices:Insight' :: Maybe [AnomalousService]
+</span><a href="Network.AWS.XRay.Types.Insight.html#%24sel%3AtopAnomalousServices%3AInsight%27"><span class="hs-identifier hs-var">topAnomalousServices</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AnomalousService]
+</span><a href="#local-6989586621679256198"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight"><span class="hs-identifier hs-type">Insight</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AnomalousService] -&gt; f (Maybe [AnomalousService]))
+ -&gt; Insight -&gt; f Insight)
+-&gt; ((Maybe [AnomalousService] -&gt; f (Maybe [AnomalousService]))
+    -&gt; Maybe [AnomalousService] -&gt; f (Maybe [AnomalousService]))
+-&gt; (Maybe [AnomalousService] -&gt; f (Maybe [AnomalousService]))
+-&gt; Insight
+-&gt; f Insight
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AnomalousService]
+  [AnomalousService]
+  [AnomalousService]
+  [AnomalousService]
+-&gt; Iso
+     (Maybe [AnomalousService])
+     (Maybe [AnomalousService])
+     (Maybe [AnomalousService])
+     (Maybe [AnomalousService])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AnomalousService]
+  [AnomalousService]
+  [AnomalousService]
+  [AnomalousService]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-151"></span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#insight_rootCauseServiceId"><span class="hs-identifier hs-type">insight_rootCauseServiceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight"><span class="hs-identifier hs-type">Insight</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ServiceId.html#ServiceId"><span class="hs-identifier hs-type">ServiceId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span id="insight_rootCauseServiceId"><span class="annot"><span class="annottext">insight_rootCauseServiceId :: (Maybe ServiceId -&gt; f (Maybe ServiceId)) -&gt; Insight -&gt; f Insight
+</span><a href="Network.AWS.XRay.Types.Insight.html#insight_rootCauseServiceId"><span class="hs-identifier hs-var hs-var">insight_rootCauseServiceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Insight -&gt; Maybe ServiceId)
+-&gt; (Insight -&gt; Maybe ServiceId -&gt; Insight)
+-&gt; Lens Insight Insight (Maybe ServiceId) (Maybe ServiceId)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight%27"><span class="hs-identifier hs-type">Insight'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256196"><span class="annot"><span class="annottext">Maybe ServiceId
+rootCauseServiceId :: Maybe ServiceId
+$sel:rootCauseServiceId:Insight' :: Insight -&gt; Maybe ServiceId
+</span><a href="#local-6989586621679256196"><span class="hs-identifier hs-var hs-var">rootCauseServiceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceId
+</span><a href="#local-6989586621679256196"><span class="hs-identifier hs-var">rootCauseServiceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256195"><span class="annot"><span class="annottext">s :: Insight
+</span><a href="#local-6989586621679256195"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight%27"><span class="hs-identifier hs-type">Insight'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256194"><span class="annot"><span class="annottext">Maybe ServiceId
+</span><a href="#local-6989586621679256194"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Insight
+</span><a href="#local-6989586621679256195"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rootCauseServiceId:Insight' :: Maybe ServiceId
+</span><a href="Network.AWS.XRay.Types.Insight.html#%24sel%3ArootCauseServiceId%3AInsight%27"><span class="hs-identifier hs-var">rootCauseServiceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceId
+</span><a href="#local-6989586621679256194"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight"><span class="hs-identifier hs-type">Insight</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- | The impact statistics of the client side service. This includes the</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- number of requests to the client service and whether the requests were</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- faults or okay.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#insight_clientRequestImpactStatistics"><span class="hs-identifier hs-type">insight_clientRequestImpactStatistics</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight"><span class="hs-identifier hs-type">Insight</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.RequestImpactStatistics.html#RequestImpactStatistics"><span class="hs-identifier hs-type">RequestImpactStatistics</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span id="insight_clientRequestImpactStatistics"><span class="annot"><span class="annottext">insight_clientRequestImpactStatistics :: (Maybe RequestImpactStatistics
+ -&gt; f (Maybe RequestImpactStatistics))
+-&gt; Insight -&gt; f Insight
+</span><a href="Network.AWS.XRay.Types.Insight.html#insight_clientRequestImpactStatistics"><span class="hs-identifier hs-var hs-var">insight_clientRequestImpactStatistics</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Insight -&gt; Maybe RequestImpactStatistics)
+-&gt; (Insight -&gt; Maybe RequestImpactStatistics -&gt; Insight)
+-&gt; Lens
+     Insight
+     Insight
+     (Maybe RequestImpactStatistics)
+     (Maybe RequestImpactStatistics)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight%27"><span class="hs-identifier hs-type">Insight'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256192"><span class="annot"><span class="annottext">Maybe RequestImpactStatistics
+clientRequestImpactStatistics :: Maybe RequestImpactStatistics
+$sel:clientRequestImpactStatistics:Insight' :: Insight -&gt; Maybe RequestImpactStatistics
+</span><a href="#local-6989586621679256192"><span class="hs-identifier hs-var hs-var">clientRequestImpactStatistics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RequestImpactStatistics
+</span><a href="#local-6989586621679256192"><span class="hs-identifier hs-var">clientRequestImpactStatistics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256191"><span class="annot"><span class="annottext">s :: Insight
+</span><a href="#local-6989586621679256191"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight%27"><span class="hs-identifier hs-type">Insight'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256190"><span class="annot"><span class="annottext">Maybe RequestImpactStatistics
+</span><a href="#local-6989586621679256190"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Insight
+</span><a href="#local-6989586621679256191"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientRequestImpactStatistics:Insight' :: Maybe RequestImpactStatistics
+</span><a href="Network.AWS.XRay.Types.Insight.html#%24sel%3AclientRequestImpactStatistics%3AInsight%27"><span class="hs-identifier hs-var">clientRequestImpactStatistics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RequestImpactStatistics
+</span><a href="#local-6989586621679256190"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight"><span class="hs-identifier hs-type">Insight</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- | The time, in Unix seconds, at which the insight ended.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#insight_endTime"><span class="hs-identifier hs-type">insight_endTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight"><span class="hs-identifier hs-type">Insight</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span id="insight_endTime"><span class="annot"><span class="annottext">insight_endTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Insight -&gt; f Insight
+</span><a href="Network.AWS.XRay.Types.Insight.html#insight_endTime"><span class="hs-identifier hs-var hs-var">insight_endTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Insight -&gt; Maybe POSIX)
+-&gt; (Insight -&gt; Maybe POSIX -&gt; Insight)
+-&gt; Lens Insight Insight (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight%27"><span class="hs-identifier hs-type">Insight'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256188"><span class="annot"><span class="annottext">Maybe POSIX
+endTime :: Maybe POSIX
+$sel:endTime:Insight' :: Insight -&gt; Maybe POSIX
+</span><a href="#local-6989586621679256188"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679256188"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256187"><span class="annot"><span class="annottext">s :: Insight
+</span><a href="#local-6989586621679256187"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight%27"><span class="hs-identifier hs-type">Insight'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256186"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679256186"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Insight
+</span><a href="#local-6989586621679256187"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endTime:Insight' :: Maybe POSIX
+</span><a href="Network.AWS.XRay.Types.Insight.html#%24sel%3AendTime%3AInsight%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679256186"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight"><span class="hs-identifier hs-type">Insight</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Insight -&gt; f Insight)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; Insight
+-&gt; f Insight
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the group that the insight belongs to.</span><span>
+</span><span id="line-165"></span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#insight_groupARN"><span class="hs-identifier hs-type">insight_groupARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight"><span class="hs-identifier hs-type">Insight</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span id="insight_groupARN"><span class="annot"><span class="annottext">insight_groupARN :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Insight -&gt; f Insight
 </span><a href="Network.AWS.XRay.Types.Insight.html#insight_groupARN"><span class="hs-identifier hs-var hs-var">insight_groupARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Insight -&gt; Maybe Text)
 -&gt; (Insight -&gt; Maybe Text -&gt; Insight)
 -&gt; Lens Insight Insight (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight%27"><span class="hs-identifier hs-type">Insight'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255893"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight%27"><span class="hs-identifier hs-type">Insight'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256184"><span class="annot"><span class="annottext">Maybe Text
 groupARN :: Maybe Text
 $sel:groupARN:Insight' :: Insight -&gt; Maybe Text
-</span><a href="#local-6989586621679255893"><span class="hs-identifier hs-var hs-var">groupARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679255893"><span class="hs-identifier hs-var">groupARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255892"><span class="annot"><span class="annottext">s :: Insight
-</span><a href="#local-6989586621679255892"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight%27"><span class="hs-identifier hs-type">Insight'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255891"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679255891"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Insight
-</span><a href="#local-6989586621679255892"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupARN:Insight' :: Maybe Text
+</span><a href="#local-6989586621679256184"><span class="hs-identifier hs-var hs-var">groupARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679256184"><span class="hs-identifier hs-var">groupARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256183"><span class="annot"><span class="annottext">s :: Insight
+</span><a href="#local-6989586621679256183"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight%27"><span class="hs-identifier hs-type">Insight'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256182"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679256182"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Insight
+</span><a href="#local-6989586621679256183"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupARN:Insight' :: Maybe Text
 </span><a href="Network.AWS.XRay.Types.Insight.html#%24sel%3AgroupARN%3AInsight%27"><span class="hs-identifier hs-var">groupARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679255891"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight"><span class="hs-identifier hs-type">Insight</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-172"></span><span>
-</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255888"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight"><span class="hs-identifier hs-type">Insight</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-174"></span><span>  </span><span id="local-6989586621679255886"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Insight
+</span><a href="#local-6989586621679256182"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight"><span class="hs-identifier hs-type">Insight</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- | The name of the group that the insight belongs to.</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#insight_groupName"><span class="hs-identifier hs-type">insight_groupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight"><span class="hs-identifier hs-type">Insight</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span id="insight_groupName"><span class="annot"><span class="annottext">insight_groupName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Insight -&gt; f Insight
+</span><a href="Network.AWS.XRay.Types.Insight.html#insight_groupName"><span class="hs-identifier hs-var hs-var">insight_groupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Insight -&gt; Maybe Text)
+-&gt; (Insight -&gt; Maybe Text -&gt; Insight)
+-&gt; Lens Insight Insight (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight%27"><span class="hs-identifier hs-type">Insight'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256180"><span class="annot"><span class="annottext">Maybe Text
+groupName :: Maybe Text
+$sel:groupName:Insight' :: Insight -&gt; Maybe Text
+</span><a href="#local-6989586621679256180"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679256180"><span class="hs-identifier hs-var">groupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256179"><span class="annot"><span class="annottext">s :: Insight
+</span><a href="#local-6989586621679256179"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight%27"><span class="hs-identifier hs-type">Insight'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256178"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679256178"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Insight
+</span><a href="#local-6989586621679256179"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupName:Insight' :: Maybe Text
+</span><a href="Network.AWS.XRay.Types.Insight.html#%24sel%3AgroupName%3AInsight%27"><span class="hs-identifier hs-var">groupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679256178"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight"><span class="hs-identifier hs-type">Insight</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256175"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight"><span class="hs-identifier hs-type">Insight</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679256173"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Insight
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-175"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Insight) -&gt; Value -&gt; Parser Insight
+</span><span id="line-174"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Insight) -&gt; Value -&gt; Parser Insight
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
-</span><span id="line-176"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span id="line-175"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Insight&quot;</span></span><span>
-</span><span id="line-177"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679255883"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679255883"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-178"></span><span>          </span><span class="annot"><span class="annottext">Maybe RequestImpactStatistics
--&gt; Maybe RequestImpactStatistics
--&gt; Maybe Text
--&gt; Maybe POSIX
--&gt; Maybe POSIX
--&gt; Maybe ServiceId
+</span><span id="line-176"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679256170"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679256170"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-177"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe InsightState
+-&gt; Maybe POSIX
 -&gt; Maybe Text
--&gt; Maybe [AnomalousService]
 -&gt; Maybe [InsightCategory]
+-&gt; Maybe RequestImpactStatistics
+-&gt; Maybe [AnomalousService]
+-&gt; Maybe ServiceId
+-&gt; Maybe RequestImpactStatistics
+-&gt; Maybe POSIX
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Insight
 </span><a href="Network.AWS.XRay.Types.Insight.html#Insight%27"><span class="hs-identifier hs-var">Insight'</span></a></span><span>
-</span><span id="line-179"></span><span>            </span><span class="annot"><span class="annottext">(Maybe RequestImpactStatistics
- -&gt; Maybe RequestImpactStatistics
- -&gt; Maybe Text
- -&gt; Maybe POSIX
- -&gt; Maybe POSIX
- -&gt; Maybe ServiceId
+</span><span id="line-178"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
  -&gt; Maybe InsightState
+ -&gt; Maybe POSIX
  -&gt; Maybe Text
- -&gt; Maybe [AnomalousService]
  -&gt; Maybe [InsightCategory]
+ -&gt; Maybe RequestImpactStatistics
+ -&gt; Maybe [AnomalousService]
+ -&gt; Maybe ServiceId
+ -&gt; Maybe RequestImpactStatistics
+ -&gt; Maybe POSIX
  -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Insight)
--&gt; Parser (Maybe RequestImpactStatistics)
+-&gt; Parser (Maybe Text)
 -&gt; Parser
-     (Maybe RequestImpactStatistics
-      -&gt; Maybe Text
+     (Maybe InsightState
       -&gt; Maybe POSIX
-      -&gt; Maybe POSIX
-      -&gt; Maybe ServiceId
-      -&gt; Maybe InsightState
       -&gt; Maybe Text
-      -&gt; Maybe [AnomalousService]
       -&gt; Maybe [InsightCategory]
+      -&gt; Maybe RequestImpactStatistics
+      -&gt; Maybe [AnomalousService]
+      -&gt; Maybe ServiceId
+      -&gt; Maybe RequestImpactStatistics
+      -&gt; Maybe POSIX
       -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Insight)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679255883"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RequestImpactStatistics)
+</span><a href="#local-6989586621679256170"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ClientRequestImpactStatistics&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-180"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe RequestImpactStatistics
-   -&gt; Maybe Text
-   -&gt; Maybe POSIX
-   -&gt; Maybe POSIX
-   -&gt; Maybe ServiceId
-   -&gt; Maybe InsightState
-   -&gt; Maybe Text
-   -&gt; Maybe [AnomalousService]
-   -&gt; Maybe [InsightCategory]
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Insight)
--&gt; Parser (Maybe RequestImpactStatistics)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe POSIX
-      -&gt; Maybe POSIX
-      -&gt; Maybe ServiceId
-      -&gt; Maybe InsightState
-      -&gt; Maybe Text
-      -&gt; Maybe [AnomalousService]
-      -&gt; Maybe [InsightCategory]
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Insight)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679255883"><span class="hs-identifier hs-var">x</span></a></span><span>
-</span><span id="line-181"></span><span>                            </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RequestImpactStatistics)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;RootCauseServiceRequestImpactStatistics&quot;</span></span><span>
-</span><span id="line-182"></span><span>                        </span><span class="hs-special">)</span><span>
-</span><span id="line-183"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe POSIX
-   -&gt; Maybe POSIX
-   -&gt; Maybe ServiceId
-   -&gt; Maybe InsightState
-   -&gt; Maybe Text
-   -&gt; Maybe [AnomalousService]
-   -&gt; Maybe [InsightCategory]
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Insight)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe POSIX
-      -&gt; Maybe POSIX
-      -&gt; Maybe ServiceId
-      -&gt; Maybe InsightState
-      -&gt; Maybe Text
-      -&gt; Maybe [AnomalousService]
-      -&gt; Maybe [InsightCategory]
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Insight)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679255883"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;GroupName&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-184"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe POSIX
-   -&gt; Maybe POSIX
-   -&gt; Maybe ServiceId
-   -&gt; Maybe InsightState
-   -&gt; Maybe Text
-   -&gt; Maybe [AnomalousService]
-   -&gt; Maybe [InsightCategory]
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Insight)
--&gt; Parser (Maybe POSIX)
--&gt; Parser
-     (Maybe POSIX
-      -&gt; Maybe ServiceId
-      -&gt; Maybe InsightState
-      -&gt; Maybe Text
-      -&gt; Maybe [AnomalousService]
-      -&gt; Maybe [InsightCategory]
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Insight)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679255883"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;StartTime&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-185"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe POSIX
-   -&gt; Maybe ServiceId
-   -&gt; Maybe InsightState
-   -&gt; Maybe Text
-   -&gt; Maybe [AnomalousService]
-   -&gt; Maybe [InsightCategory]
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Insight)
--&gt; Parser (Maybe POSIX)
--&gt; Parser
-     (Maybe ServiceId
-      -&gt; Maybe InsightState
-      -&gt; Maybe Text
-      -&gt; Maybe [AnomalousService]
-      -&gt; Maybe [InsightCategory]
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Insight)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679255883"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;EndTime&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-186"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe ServiceId
-   -&gt; Maybe InsightState
-   -&gt; Maybe Text
-   -&gt; Maybe [AnomalousService]
-   -&gt; Maybe [InsightCategory]
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Insight)
--&gt; Parser (Maybe ServiceId)
--&gt; Parser
-     (Maybe InsightState
-      -&gt; Maybe Text
-      -&gt; Maybe [AnomalousService]
-      -&gt; Maybe [InsightCategory]
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Insight)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679255883"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ServiceId)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;RootCauseServiceId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-187"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span class="hs-string">&quot;Summary&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe InsightState
+   -&gt; Maybe POSIX
    -&gt; Maybe Text
-   -&gt; Maybe [AnomalousService]
    -&gt; Maybe [InsightCategory]
+   -&gt; Maybe RequestImpactStatistics
+   -&gt; Maybe [AnomalousService]
+   -&gt; Maybe ServiceId
+   -&gt; Maybe RequestImpactStatistics
+   -&gt; Maybe POSIX
    -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Insight)
 -&gt; Parser (Maybe InsightState)
 -&gt; Parser
-     (Maybe Text
-      -&gt; Maybe [AnomalousService]
+     (Maybe POSIX
+      -&gt; Maybe Text
       -&gt; Maybe [InsightCategory]
+      -&gt; Maybe RequestImpactStatistics
+      -&gt; Maybe [AnomalousService]
+      -&gt; Maybe ServiceId
+      -&gt; Maybe RequestImpactStatistics
+      -&gt; Maybe POSIX
       -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Insight)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679255883"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InsightState)
+</span><a href="#local-6989586621679256170"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InsightState)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;State&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-188"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe [AnomalousService]
+</span><span id="line-180"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text
    -&gt; Maybe [InsightCategory]
+   -&gt; Maybe RequestImpactStatistics
+   -&gt; Maybe [AnomalousService]
+   -&gt; Maybe ServiceId
+   -&gt; Maybe RequestImpactStatistics
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Insight)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe [InsightCategory]
+      -&gt; Maybe RequestImpactStatistics
+      -&gt; Maybe [AnomalousService]
+      -&gt; Maybe ServiceId
+      -&gt; Maybe RequestImpactStatistics
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Insight)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679256170"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StartTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe [InsightCategory]
+   -&gt; Maybe RequestImpactStatistics
+   -&gt; Maybe [AnomalousService]
+   -&gt; Maybe ServiceId
+   -&gt; Maybe RequestImpactStatistics
+   -&gt; Maybe POSIX
    -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Insight)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
-     (Maybe [AnomalousService]
-      -&gt; Maybe [InsightCategory] -&gt; Maybe Text -&gt; Maybe Text -&gt; Insight)
+     (Maybe [InsightCategory]
+      -&gt; Maybe RequestImpactStatistics
+      -&gt; Maybe [AnomalousService]
+      -&gt; Maybe ServiceId
+      -&gt; Maybe RequestImpactStatistics
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Insight)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679255883"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679256170"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Summary&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-189"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe [AnomalousService]
-   -&gt; Maybe [InsightCategory] -&gt; Maybe Text -&gt; Maybe Text -&gt; Insight)
--&gt; Parser (Maybe [AnomalousService])
--&gt; Parser
-     (Maybe [InsightCategory] -&gt; Maybe Text -&gt; Maybe Text -&gt; Insight)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679255883"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [AnomalousService]))
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;TopAnomalousServices&quot;</span></span><span>
-</span><span id="line-190"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [AnomalousService]))
--&gt; Maybe [AnomalousService] -&gt; Parser (Maybe [AnomalousService])
-forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
-</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AnomalousService]
-forall a. Monoid a =&gt; a
-</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-191"></span><span>                        </span><span class="hs-special">)</span><span>
-</span><span id="line-192"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe [InsightCategory] -&gt; Maybe Text -&gt; Maybe Text -&gt; Insight)
+</span><span class="hs-string">&quot;InsightId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [InsightCategory]
+   -&gt; Maybe RequestImpactStatistics
+   -&gt; Maybe [AnomalousService]
+   -&gt; Maybe ServiceId
+   -&gt; Maybe RequestImpactStatistics
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Insight)
 -&gt; Parser (Maybe [InsightCategory])
--&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Insight)
+-&gt; Parser
+     (Maybe RequestImpactStatistics
+      -&gt; Maybe [AnomalousService]
+      -&gt; Maybe ServiceId
+      -&gt; Maybe RequestImpactStatistics
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Insight)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679255883"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [InsightCategory]))
+</span><a href="#local-6989586621679256170"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [InsightCategory]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Categories&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [InsightCategory]))
@@ -823,25 +728,117 @@ forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [InsightCategory]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-193"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Insight)
+</span><span id="line-183"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe RequestImpactStatistics
+   -&gt; Maybe [AnomalousService]
+   -&gt; Maybe ServiceId
+   -&gt; Maybe RequestImpactStatistics
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Insight)
+-&gt; Parser (Maybe RequestImpactStatistics)
+-&gt; Parser
+     (Maybe [AnomalousService]
+      -&gt; Maybe ServiceId
+      -&gt; Maybe RequestImpactStatistics
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Insight)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679256170"><span class="hs-identifier hs-var">x</span></a></span><span>
+</span><span id="line-184"></span><span>                            </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RequestImpactStatistics)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RootCauseServiceRequestImpactStatistics&quot;</span></span><span>
+</span><span id="line-185"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [AnomalousService]
+   -&gt; Maybe ServiceId
+   -&gt; Maybe RequestImpactStatistics
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Insight)
+-&gt; Parser (Maybe [AnomalousService])
+-&gt; Parser
+     (Maybe ServiceId
+      -&gt; Maybe RequestImpactStatistics
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Insight)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679256170"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [AnomalousService]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TopAnomalousServices&quot;</span></span><span>
+</span><span id="line-187"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [AnomalousService]))
+-&gt; Maybe [AnomalousService] -&gt; Parser (Maybe [AnomalousService])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AnomalousService]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-188"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ServiceId
+   -&gt; Maybe RequestImpactStatistics
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Insight)
+-&gt; Parser (Maybe ServiceId)
+-&gt; Parser
+     (Maybe RequestImpactStatistics
+      -&gt; Maybe POSIX -&gt; Maybe Text -&gt; Maybe Text -&gt; Insight)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679256170"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ServiceId)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RootCauseServiceId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe RequestImpactStatistics
+   -&gt; Maybe POSIX -&gt; Maybe Text -&gt; Maybe Text -&gt; Insight)
+-&gt; Parser (Maybe RequestImpactStatistics)
+-&gt; Parser (Maybe POSIX -&gt; Maybe Text -&gt; Maybe Text -&gt; Insight)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679256170"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RequestImpactStatistics)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ClientRequestImpactStatistics&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; Maybe Text -&gt; Maybe Text -&gt; Insight)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Insight)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679256170"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EndTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Insight)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; Insight)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679255883"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;InsightId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-194"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Insight)
--&gt; Parser (Maybe Text) -&gt; Parser Insight
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679255883"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679256170"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;GroupARN&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-195"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-196"></span><span>
-</span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255876"><span id="local-6989586621679255878"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight"><span class="hs-identifier hs-type">Insight</span></a></span></span></span><span>
-</span><span id="line-198"></span><span>
-</span><span id="line-199"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255873"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight"><span class="hs-identifier hs-type">Insight</span></a></span></span><span>
-</span><span id="line-200"></span></pre></body></html>
+</span><span id="line-193"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Insight)
+-&gt; Parser (Maybe Text) -&gt; Parser Insight
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679256170"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GroupName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256163"><span id="local-6989586621679256165"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight"><span class="hs-identifier hs-type">Insight</span></a></span></span></span><span>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256160"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight"><span class="hs-identifier hs-type">Insight</span></a></span></span><span>
+</span><span id="line-199"></span></pre></body></html>

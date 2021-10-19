@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-comment">-- | If INSERT, Nielsen inaudible tones for media tracking will be detected</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- in the input audio and an equivalent ID3 tag will be inserted in the</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- output.</span><span>
-</span><span id="line-35"></span><span id="local-6989586621679981814"><span id="local-6989586621679981815"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="M3u8NielsenId3"><span class="annot"><a href="Network.AWS.MediaConvert.Types.M3u8NielsenId3.html#M3u8NielsenId3"><span class="hs-identifier hs-var">M3u8NielsenId3</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="M3u8NielsenId3%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.M3u8NielsenId3.html#M3u8NielsenId3%27"><span class="hs-identifier hs-var">M3u8NielsenId3'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679986604"><span id="local-6989586621679986605"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="M3u8NielsenId3"><span class="annot"><a href="Network.AWS.MediaConvert.Types.M3u8NielsenId3.html#M3u8NielsenId3"><span class="hs-identifier hs-var">M3u8NielsenId3</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="M3u8NielsenId3%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.M3u8NielsenId3.html#M3u8NielsenId3%27"><span class="hs-identifier hs-var">M3u8NielsenId3'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromM3u8NielsenId3"><span class="annot"><span class="annottext">M3u8NielsenId3 -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.M3u8NielsenId3.html#fromM3u8NielsenId3"><span class="hs-identifier hs-var hs-var">fromM3u8NielsenId3</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679981806"><span id="local-6989586621679981808"><span id="local-6989586621679981810"><span class="annot"><span class="annottext">Int -&gt; M3u8NielsenId3 -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679986596"><span id="local-6989586621679986598"><span id="local-6989586621679986600"><span class="annot"><span class="annottext">Int -&gt; M3u8NielsenId3 -&gt; ShowS
 [M3u8NielsenId3] -&gt; ShowS
 M3u8NielsenId3 -&gt; String
 (Int -&gt; M3u8NielsenId3 -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: M3u8NielsenId3 -&gt; String
 showsPrec :: Int -&gt; M3u8NielsenId3 -&gt; ShowS
 $cshowsPrec :: Int -&gt; M3u8NielsenId3 -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679981797"><span id="local-6989586621679981799"><span id="local-6989586621679981801"><span id="local-6989586621679981803"><span class="annot"><span class="annottext">ReadPrec [M3u8NielsenId3]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679986587"><span id="local-6989586621679986589"><span id="local-6989586621679986591"><span id="local-6989586621679986593"><span class="annot"><span class="annottext">ReadPrec [M3u8NielsenId3]
 ReadPrec M3u8NielsenId3
 Int -&gt; ReadS M3u8NielsenId3
 ReadS [M3u8NielsenId3]
@@ -75,7 +75,7 @@ $creadList :: ReadS [M3u8NielsenId3]
 readsPrec :: Int -&gt; ReadS M3u8NielsenId3
 $creadsPrec :: Int -&gt; ReadS M3u8NielsenId3
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679981792"><span id="local-6989586621679981794"><span class="annot"><span class="annottext">M3u8NielsenId3 -&gt; M3u8NielsenId3 -&gt; Bool
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679986582"><span id="local-6989586621679986584"><span class="annot"><span class="annottext">M3u8NielsenId3 -&gt; M3u8NielsenId3 -&gt; Bool
 (M3u8NielsenId3 -&gt; M3u8NielsenId3 -&gt; Bool)
 -&gt; (M3u8NielsenId3 -&gt; M3u8NielsenId3 -&gt; Bool) -&gt; Eq M3u8NielsenId3
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -84,7 +84,7 @@ $c/= :: M3u8NielsenId3 -&gt; M3u8NielsenId3 -&gt; Bool
 == :: M3u8NielsenId3 -&gt; M3u8NielsenId3 -&gt; Bool
 $c== :: M3u8NielsenId3 -&gt; M3u8NielsenId3 -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679981776"><span id="local-6989586621679981778"><span id="local-6989586621679981780"><span id="local-6989586621679981782"><span id="local-6989586621679981784"><span id="local-6989586621679981786"><span id="local-6989586621679981788"><span class="annot"><span class="annottext">Eq M3u8NielsenId3
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679986566"><span id="local-6989586621679986568"><span id="local-6989586621679986570"><span id="local-6989586621679986572"><span id="local-6989586621679986574"><span id="local-6989586621679986576"><span id="local-6989586621679986578"><span class="annot"><span class="annottext">Eq M3u8NielsenId3
 Eq M3u8NielsenId3
 -&gt; (M3u8NielsenId3 -&gt; M3u8NielsenId3 -&gt; Ordering)
 -&gt; (M3u8NielsenId3 -&gt; M3u8NielsenId3 -&gt; Bool)
@@ -135,7 +135,7 @@ $cfrom :: forall x. M3u8NielsenId3 -&gt; Rep M3u8NielsenId3 x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679981768"><span id="local-6989586621679981770"><span class="annot"><span class="annottext">Int -&gt; M3u8NielsenId3 -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679986558"><span id="local-6989586621679986560"><span class="annot"><span class="annottext">Int -&gt; M3u8NielsenId3 -&gt; Int
 M3u8NielsenId3 -&gt; Int
 (Int -&gt; M3u8NielsenId3 -&gt; Int)
 -&gt; (M3u8NielsenId3 -&gt; Int) -&gt; Hashable M3u8NielsenId3
@@ -145,50 +145,50 @@ $chash :: M3u8NielsenId3 -&gt; Int
 hashWithSalt :: Int -&gt; M3u8NielsenId3 -&gt; Int
 $chashWithSalt :: Int -&gt; M3u8NielsenId3 -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679981765"><span class="annot"><span class="annottext">M3u8NielsenId3 -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679986555"><span class="annot"><span class="annottext">M3u8NielsenId3 -&gt; ()
 (M3u8NielsenId3 -&gt; ()) -&gt; NFData M3u8NielsenId3
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: M3u8NielsenId3 -&gt; ()
 $crnf :: M3u8NielsenId3 -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679981762"><span class="annot"><span class="annottext">Text -&gt; Either String M3u8NielsenId3
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679986552"><span class="annot"><span class="annottext">Text -&gt; Either String M3u8NielsenId3
 (Text -&gt; Either String M3u8NielsenId3) -&gt; FromText M3u8NielsenId3
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String M3u8NielsenId3
 $cfromText :: Text -&gt; Either String M3u8NielsenId3
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679981759"><span class="annot"><span class="annottext">M3u8NielsenId3 -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679986549"><span class="annot"><span class="annottext">M3u8NielsenId3 -&gt; Text
 (M3u8NielsenId3 -&gt; Text) -&gt; ToText M3u8NielsenId3
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: M3u8NielsenId3 -&gt; Text
 $ctoText :: M3u8NielsenId3 -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679981756"><span class="annot"><span class="annottext">M3u8NielsenId3 -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679986546"><span class="annot"><span class="annottext">M3u8NielsenId3 -&gt; ByteString
 (M3u8NielsenId3 -&gt; ByteString) -&gt; ToByteString M3u8NielsenId3
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: M3u8NielsenId3 -&gt; ByteString
 $ctoBS :: M3u8NielsenId3 -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679981753"><span class="annot"><span class="annottext">M3u8NielsenId3 -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679986543"><span class="annot"><span class="annottext">M3u8NielsenId3 -&gt; ByteStringBuilder
 (M3u8NielsenId3 -&gt; ByteStringBuilder) -&gt; ToLog M3u8NielsenId3
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: M3u8NielsenId3 -&gt; ByteStringBuilder
 $cbuild :: M3u8NielsenId3 -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679981750"><span class="annot"><span class="annottext">HeaderName -&gt; M3u8NielsenId3 -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679986540"><span class="annot"><span class="annottext">HeaderName -&gt; M3u8NielsenId3 -&gt; [Header]
 (HeaderName -&gt; M3u8NielsenId3 -&gt; [Header])
 -&gt; ToHeader M3u8NielsenId3
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; M3u8NielsenId3 -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; M3u8NielsenId3 -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679981747"><span class="annot"><span class="annottext">M3u8NielsenId3 -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679986537"><span class="annot"><span class="annottext">M3u8NielsenId3 -&gt; QueryString
 (M3u8NielsenId3 -&gt; QueryString) -&gt; ToQuery M3u8NielsenId3
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: M3u8NielsenId3 -&gt; QueryString
 $ctoQuery :: M3u8NielsenId3 -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679981742"><span id="local-6989586621679981744"><span class="annot"><span class="annottext">Value -&gt; Parser [M3u8NielsenId3]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679986532"><span id="local-6989586621679986534"><span class="annot"><span class="annottext">Value -&gt; Parser [M3u8NielsenId3]
 Value -&gt; Parser M3u8NielsenId3
 (Value -&gt; Parser M3u8NielsenId3)
 -&gt; (Value -&gt; Parser [M3u8NielsenId3]) -&gt; FromJSON M3u8NielsenId3
@@ -199,7 +199,7 @@ $cparseJSONList :: Value -&gt; Parser [M3u8NielsenId3]
 parseJSON :: Value -&gt; Parser M3u8NielsenId3
 $cparseJSON :: Value -&gt; Parser M3u8NielsenId3
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679981737"><span id="local-6989586621679981739"><span class="annot"><span class="annottext">FromJSONKeyFunction [M3u8NielsenId3]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679986527"><span id="local-6989586621679986529"><span class="annot"><span class="annottext">FromJSONKeyFunction [M3u8NielsenId3]
 FromJSONKeyFunction M3u8NielsenId3
 FromJSONKeyFunction M3u8NielsenId3
 -&gt; FromJSONKeyFunction [M3u8NielsenId3]
@@ -211,7 +211,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [M3u8NielsenId3]
 fromJSONKey :: FromJSONKeyFunction M3u8NielsenId3
 $cfromJSONKey :: FromJSONKeyFunction M3u8NielsenId3
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679981728"><span id="local-6989586621679981730"><span id="local-6989586621679981732"><span id="local-6989586621679981734"><span class="annot"><span class="annottext">[M3u8NielsenId3] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679986518"><span id="local-6989586621679986520"><span id="local-6989586621679986522"><span id="local-6989586621679986524"><span class="annot"><span class="annottext">[M3u8NielsenId3] -&gt; Encoding
 [M3u8NielsenId3] -&gt; Value
 M3u8NielsenId3 -&gt; Encoding
 M3u8NielsenId3 -&gt; Value
@@ -235,7 +235,7 @@ $ctoEncoding :: M3u8NielsenId3 -&gt; Encoding
 toJSON :: M3u8NielsenId3 -&gt; Value
 $ctoJSON :: M3u8NielsenId3 -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679981723"><span id="local-6989586621679981725"><span class="annot"><span class="annottext">ToJSONKeyFunction [M3u8NielsenId3]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679986513"><span id="local-6989586621679986515"><span class="annot"><span class="annottext">ToJSONKeyFunction [M3u8NielsenId3]
 ToJSONKeyFunction M3u8NielsenId3
 ToJSONKeyFunction M3u8NielsenId3
 -&gt; ToJSONKeyFunction [M3u8NielsenId3] -&gt; ToJSONKey M3u8NielsenId3
@@ -246,13 +246,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [M3u8NielsenId3]
 toJSONKey :: ToJSONKeyFunction M3u8NielsenId3
 $ctoJSONKey :: ToJSONKeyFunction M3u8NielsenId3
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679981720"><span class="annot"><span class="annottext">[Node] -&gt; Either String M3u8NielsenId3
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679986510"><span class="annot"><span class="annottext">[Node] -&gt; Either String M3u8NielsenId3
 ([Node] -&gt; Either String M3u8NielsenId3) -&gt; FromXML M3u8NielsenId3
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String M3u8NielsenId3
 $cparseXML :: [Node] -&gt; Either String M3u8NielsenId3
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679981717"><span class="annot"><span class="annottext">M3u8NielsenId3 -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679986507"><span class="annot"><span class="annottext">M3u8NielsenId3 -&gt; XML
 (M3u8NielsenId3 -&gt; XML) -&gt; ToXML M3u8NielsenId3
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: M3u8NielsenId3 -&gt; XML

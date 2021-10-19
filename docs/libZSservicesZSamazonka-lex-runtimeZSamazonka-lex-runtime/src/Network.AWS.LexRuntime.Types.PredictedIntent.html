@@ -29,20 +29,20 @@
 </span><span id="line-29"></span><span class="hs-comment">-- the user\'s intent is satisfied, and the slots defined for the intent.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newPredictedIntent' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679174116"><span id="local-6989586621679174117"></span></span><span class="hs-keyword">data</span><span> </span><span id="PredictedIntent"><span class="annot"><a href="Network.AWS.LexRuntime.Types.PredictedIntent.html#PredictedIntent"><span class="hs-identifier hs-var">PredictedIntent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PredictedIntent%27"><span class="annot"><a href="Network.AWS.LexRuntime.Types.PredictedIntent.html#PredictedIntent%27"><span class="hs-identifier hs-var">PredictedIntent'</span></a></span></span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the intent that Amazon Lex suggests satisfies the user\'s</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- intent.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AintentName%3APredictedIntent%27"><span class="annot"><span class="annottext">PredictedIntent -&gt; Maybe Text
-</span><a href="Network.AWS.LexRuntime.Types.PredictedIntent.html#%24sel%3AintentName%3APredictedIntent%27"><span class="hs-identifier hs-var hs-var">intentName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679174190"><span id="local-6989586621679174191"></span></span><span class="hs-keyword">data</span><span> </span><span id="PredictedIntent"><span class="annot"><a href="Network.AWS.LexRuntime.Types.PredictedIntent.html#PredictedIntent"><span class="hs-identifier hs-var">PredictedIntent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PredictedIntent%27"><span class="annot"><a href="Network.AWS.LexRuntime.Types.PredictedIntent.html#PredictedIntent%27"><span class="hs-identifier hs-var">PredictedIntent'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Indicates how confident Amazon Lex is that an intent satisfies the</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- user\'s intent.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AnluIntentConfidence%3APredictedIntent%27"><span class="annot"><span class="annottext">PredictedIntent -&gt; Maybe IntentConfidence
+</span><a href="Network.AWS.LexRuntime.Types.PredictedIntent.html#%24sel%3AnluIntentConfidence%3APredictedIntent%27"><span class="hs-identifier hs-var hs-var">nluIntentConfidence</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentConfidence.html#IntentConfidence"><span class="hs-identifier hs-type">IntentConfidence</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The slot and slot values associated with the predicted intent.</span><span>
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3Aslots%3APredictedIntent%27"><span class="annot"><span class="annottext">PredictedIntent -&gt; Maybe (Sensitive (HashMap Text Text))
 </span><a href="Network.AWS.LexRuntime.Types.PredictedIntent.html#%24sel%3Aslots%3APredictedIntent%27"><span class="hs-identifier hs-var hs-var">slots</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | Indicates how confident Amazon Lex is that an intent satisfies the</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- user\'s intent.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3AnluIntentConfidence%3APredictedIntent%27"><span class="annot"><span class="annottext">PredictedIntent -&gt; Maybe IntentConfidence
-</span><a href="Network.AWS.LexRuntime.Types.PredictedIntent.html#%24sel%3AnluIntentConfidence%3APredictedIntent%27"><span class="hs-identifier hs-var hs-var">nluIntentConfidence</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentConfidence.html#IntentConfidence"><span class="hs-identifier hs-type">IntentConfidence</span></a></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The name of the intent that Amazon Lex suggests satisfies the user\'s</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- intent.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AintentName%3APredictedIntent%27"><span class="annot"><span class="annottext">PredictedIntent -&gt; Maybe Text
+</span><a href="Network.AWS.LexRuntime.Types.PredictedIntent.html#%24sel%3AintentName%3APredictedIntent%27"><span class="hs-identifier hs-var hs-var">intentName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679174108"><span id="local-6989586621679174110"><span class="annot"><span class="annottext">PredictedIntent -&gt; PredictedIntent -&gt; Bool
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679174182"><span id="local-6989586621679174184"><span class="annot"><span class="annottext">PredictedIntent -&gt; PredictedIntent -&gt; Bool
 (PredictedIntent -&gt; PredictedIntent -&gt; Bool)
 -&gt; (PredictedIntent -&gt; PredictedIntent -&gt; Bool)
 -&gt; Eq PredictedIntent
@@ -51,7 +51,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PredictedIntent -&gt; PredictedIntent -&gt; Bool
 == :: PredictedIntent -&gt; PredictedIntent -&gt; Bool
 $c== :: PredictedIntent -&gt; PredictedIntent -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679174101"><span id="local-6989586621679174103"><span id="local-6989586621679174105"><span class="annot"><span class="annottext">Int -&gt; PredictedIntent -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679174175"><span id="local-6989586621679174177"><span id="local-6989586621679174179"><span class="annot"><span class="annottext">Int -&gt; PredictedIntent -&gt; ShowS
 [PredictedIntent] -&gt; ShowS
 PredictedIntent -&gt; String
 (Int -&gt; PredictedIntent -&gt; ShowS)
@@ -85,59 +85,64 @@ $cfrom :: forall x. PredictedIntent -&gt; Rep PredictedIntent x
 </span><span id="line-49"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-51"></span><span class="hs-comment">--</span><span>
-</span><span id="line-52"></span><span class="hs-comment">-- 'intentName', 'predictedIntent_intentName' - The name of the intent that Amazon Lex suggests satisfies the user\'s</span><span>
-</span><span id="line-53"></span><span class="hs-comment">-- intent.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'nluIntentConfidence', 'predictedIntent_nluIntentConfidence' - Indicates how confident Amazon Lex is that an intent satisfies the</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- user\'s intent.</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- 'slots', 'predictedIntent_slots' - The slot and slot values associated with the predicted intent.</span><span>
 </span><span id="line-56"></span><span class="hs-comment">--</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- 'nluIntentConfidence', 'predictedIntent_nluIntentConfidence' - Indicates how confident Amazon Lex is that an intent satisfies the</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- user\'s intent.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'intentName', 'predictedIntent_intentName' - The name of the intent that Amazon Lex suggests satisfies the user\'s</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- intent.</span><span>
 </span><span id="line-59"></span><span class="annot"><a href="Network.AWS.LexRuntime.Types.PredictedIntent.html#newPredictedIntent"><span class="hs-identifier hs-type">newPredictedIntent</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-60"></span><span>  </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.PredictedIntent.html#PredictedIntent"><span class="hs-identifier hs-type">PredictedIntent</span></a></span><span>
 </span><span id="line-61"></span><span id="newPredictedIntent"><span class="annot"><span class="annottext">newPredictedIntent :: PredictedIntent
 </span><a href="Network.AWS.LexRuntime.Types.PredictedIntent.html#newPredictedIntent"><span class="hs-identifier hs-var hs-var">newPredictedIntent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-62"></span><span>  </span><span class="annot"><span class="annottext">PredictedIntent' :: Maybe Text
+</span><span id="line-62"></span><span>  </span><span class="annot"><span class="annottext">PredictedIntent' :: Maybe IntentConfidence
 -&gt; Maybe (Sensitive (HashMap Text Text))
--&gt; Maybe IntentConfidence
+-&gt; Maybe Text
 -&gt; PredictedIntent
 </span><a href="Network.AWS.LexRuntime.Types.PredictedIntent.html#PredictedIntent%27"><span class="hs-identifier hs-type">PredictedIntent'</span></a></span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:intentName:PredictedIntent' :: Maybe Text
-</span><a href="Network.AWS.LexRuntime.Types.PredictedIntent.html#%24sel%3AintentName%3APredictedIntent%27"><span class="hs-identifier hs-var">intentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-63"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nluIntentConfidence:PredictedIntent' :: Maybe IntentConfidence
+</span><a href="Network.AWS.LexRuntime.Types.PredictedIntent.html#%24sel%3AnluIntentConfidence%3APredictedIntent%27"><span class="hs-identifier hs-var">nluIntentConfidence</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-64"></span><span>        </span><span class="annot"><span class="annottext">Maybe IntentConfidence
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:slots:PredictedIntent' :: Maybe (Sensitive (HashMap Text Text))
+</span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:slots:PredictedIntent' :: Maybe (Sensitive (HashMap Text Text))
 </span><a href="Network.AWS.LexRuntime.Types.PredictedIntent.html#%24sel%3Aslots%3APredictedIntent%27"><span class="hs-identifier hs-var">slots</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive (HashMap Text Text))
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:nluIntentConfidence:PredictedIntent' :: Maybe IntentConfidence
-</span><a href="Network.AWS.LexRuntime.Types.PredictedIntent.html#%24sel%3AnluIntentConfidence%3APredictedIntent%27"><span class="hs-identifier hs-var">nluIntentConfidence</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IntentConfidence
+</span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">$sel:intentName:PredictedIntent' :: Maybe Text
+</span><a href="Network.AWS.LexRuntime.Types.PredictedIntent.html#%24sel%3AintentName%3APredictedIntent%27"><span class="hs-identifier hs-var">intentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- | The name of the intent that Amazon Lex suggests satisfies the user\'s</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- intent.</span><span>
-</span><span id="line-70"></span><span class="annot"><a href="Network.AWS.LexRuntime.Types.PredictedIntent.html#predictedIntent_intentName"><span class="hs-identifier hs-type">predictedIntent_intentName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.PredictedIntent.html#PredictedIntent"><span class="hs-identifier hs-type">PredictedIntent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-71"></span><span id="predictedIntent_intentName"><span class="annot"><span class="annottext">predictedIntent_intentName :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-67"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- | Indicates how confident Amazon Lex is that an intent satisfies the</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- user\'s intent.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.LexRuntime.Types.PredictedIntent.html#predictedIntent_nluIntentConfidence"><span class="hs-identifier hs-type">predictedIntent_nluIntentConfidence</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.PredictedIntent.html#PredictedIntent"><span class="hs-identifier hs-type">PredictedIntent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentConfidence.html#IntentConfidence"><span class="hs-identifier hs-type">IntentConfidence</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span id="predictedIntent_nluIntentConfidence"><span class="annot"><span class="annottext">predictedIntent_nluIntentConfidence :: (Maybe IntentConfidence -&gt; f (Maybe IntentConfidence))
 -&gt; PredictedIntent -&gt; f PredictedIntent
-</span><a href="Network.AWS.LexRuntime.Types.PredictedIntent.html#predictedIntent_intentName"><span class="hs-identifier hs-var hs-var">predictedIntent_intentName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PredictedIntent -&gt; Maybe Text)
--&gt; (PredictedIntent -&gt; Maybe Text -&gt; PredictedIntent)
--&gt; Lens PredictedIntent PredictedIntent (Maybe Text) (Maybe Text)
+</span><a href="Network.AWS.LexRuntime.Types.PredictedIntent.html#predictedIntent_nluIntentConfidence"><span class="hs-identifier hs-var hs-var">predictedIntent_nluIntentConfidence</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PredictedIntent -&gt; Maybe IntentConfidence)
+-&gt; (PredictedIntent -&gt; Maybe IntentConfidence -&gt; PredictedIntent)
+-&gt; Lens
+     PredictedIntent
+     PredictedIntent
+     (Maybe IntentConfidence)
+     (Maybe IntentConfidence)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.PredictedIntent.html#PredictedIntent%27"><span class="hs-identifier hs-type">PredictedIntent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174092"><span class="annot"><span class="annottext">Maybe Text
-intentName :: Maybe Text
-$sel:intentName:PredictedIntent' :: PredictedIntent -&gt; Maybe Text
-</span><a href="#local-6989586621679174092"><span class="hs-identifier hs-var hs-var">intentName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679174092"><span class="hs-identifier hs-var">intentName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174091"><span class="annot"><span class="annottext">s :: PredictedIntent
-</span><a href="#local-6989586621679174091"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.PredictedIntent.html#PredictedIntent%27"><span class="hs-identifier hs-type">PredictedIntent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174090"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679174090"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PredictedIntent
-</span><a href="#local-6989586621679174091"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:intentName:PredictedIntent' :: Maybe Text
-</span><a href="Network.AWS.LexRuntime.Types.PredictedIntent.html#%24sel%3AintentName%3APredictedIntent%27"><span class="hs-identifier hs-var">intentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679174090"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.PredictedIntent.html#PredictedIntent"><span class="hs-identifier hs-type">PredictedIntent</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- | The slot and slot values associated with the predicted intent.</span><span>
-</span><span id="line-74"></span><span class="annot"><a href="Network.AWS.LexRuntime.Types.PredictedIntent.html#predictedIntent_slots"><span class="hs-identifier hs-type">predictedIntent_slots</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.PredictedIntent.html#PredictedIntent"><span class="hs-identifier hs-type">PredictedIntent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-75"></span><span id="predictedIntent_slots"><span class="annot"><span class="annottext">predictedIntent_slots :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.PredictedIntent.html#PredictedIntent%27"><span class="hs-identifier hs-type">PredictedIntent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174166"><span class="annot"><span class="annottext">Maybe IntentConfidence
+nluIntentConfidence :: Maybe IntentConfidence
+$sel:nluIntentConfidence:PredictedIntent' :: PredictedIntent -&gt; Maybe IntentConfidence
+</span><a href="#local-6989586621679174166"><span class="hs-identifier hs-var hs-var">nluIntentConfidence</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe IntentConfidence
+</span><a href="#local-6989586621679174166"><span class="hs-identifier hs-var">nluIntentConfidence</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174165"><span class="annot"><span class="annottext">s :: PredictedIntent
+</span><a href="#local-6989586621679174165"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.PredictedIntent.html#PredictedIntent%27"><span class="hs-identifier hs-type">PredictedIntent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174164"><span class="annot"><span class="annottext">Maybe IntentConfidence
+</span><a href="#local-6989586621679174164"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PredictedIntent
+</span><a href="#local-6989586621679174165"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nluIntentConfidence:PredictedIntent' :: Maybe IntentConfidence
+</span><a href="Network.AWS.LexRuntime.Types.PredictedIntent.html#%24sel%3AnluIntentConfidence%3APredictedIntent%27"><span class="hs-identifier hs-var">nluIntentConfidence</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IntentConfidence
+</span><a href="#local-6989586621679174164"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.PredictedIntent.html#PredictedIntent"><span class="hs-identifier hs-type">PredictedIntent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- | The slot and slot values associated with the predicted intent.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.LexRuntime.Types.PredictedIntent.html#predictedIntent_slots"><span class="hs-identifier hs-type">predictedIntent_slots</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.PredictedIntent.html#PredictedIntent"><span class="hs-identifier hs-type">PredictedIntent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span id="predictedIntent_slots"><span class="annot"><span class="annottext">predictedIntent_slots :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
 -&gt; PredictedIntent -&gt; f PredictedIntent
 </span><a href="Network.AWS.LexRuntime.Types.PredictedIntent.html#predictedIntent_slots"><span class="hs-identifier hs-var hs-var">predictedIntent_slots</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PredictedIntent -&gt; Maybe (Sensitive (HashMap Text Text)))
 -&gt; (PredictedIntent
@@ -148,16 +153,16 @@ $sel:intentName:PredictedIntent' :: PredictedIntent -&gt; Maybe Text
      (Maybe (Sensitive (HashMap Text Text)))
      (Maybe (Sensitive (HashMap Text Text)))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.PredictedIntent.html#PredictedIntent%27"><span class="hs-identifier hs-type">PredictedIntent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174088"><span class="annot"><span class="annottext">Maybe (Sensitive (HashMap Text Text))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.PredictedIntent.html#PredictedIntent%27"><span class="hs-identifier hs-type">PredictedIntent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174162"><span class="annot"><span class="annottext">Maybe (Sensitive (HashMap Text Text))
 slots :: Maybe (Sensitive (HashMap Text Text))
 $sel:slots:PredictedIntent' :: PredictedIntent -&gt; Maybe (Sensitive (HashMap Text Text))
-</span><a href="#local-6989586621679174088"><span class="hs-identifier hs-var hs-var">slots</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive (HashMap Text Text))
-</span><a href="#local-6989586621679174088"><span class="hs-identifier hs-var">slots</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174087"><span class="annot"><span class="annottext">s :: PredictedIntent
-</span><a href="#local-6989586621679174087"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.PredictedIntent.html#PredictedIntent%27"><span class="hs-identifier hs-type">PredictedIntent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174086"><span class="annot"><span class="annottext">Maybe (Sensitive (HashMap Text Text))
-</span><a href="#local-6989586621679174086"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PredictedIntent
-</span><a href="#local-6989586621679174087"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:slots:PredictedIntent' :: Maybe (Sensitive (HashMap Text Text))
+</span><a href="#local-6989586621679174162"><span class="hs-identifier hs-var hs-var">slots</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive (HashMap Text Text))
+</span><a href="#local-6989586621679174162"><span class="hs-identifier hs-var">slots</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174161"><span class="annot"><span class="annottext">s :: PredictedIntent
+</span><a href="#local-6989586621679174161"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.PredictedIntent.html#PredictedIntent%27"><span class="hs-identifier hs-type">PredictedIntent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174160"><span class="annot"><span class="annottext">Maybe (Sensitive (HashMap Text Text))
+</span><a href="#local-6989586621679174160"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PredictedIntent
+</span><a href="#local-6989586621679174161"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:slots:PredictedIntent' :: Maybe (Sensitive (HashMap Text Text))
 </span><a href="Network.AWS.LexRuntime.Types.PredictedIntent.html#%24sel%3Aslots%3APredictedIntent%27"><span class="hs-identifier hs-var">slots</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive (HashMap Text Text))
-</span><a href="#local-6989586621679174086"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.PredictedIntent.html#PredictedIntent"><span class="hs-identifier hs-type">PredictedIntent</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive (HashMap Text Text))
+</span><a href="#local-6989586621679174160"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.PredictedIntent.html#PredictedIntent"><span class="hs-identifier hs-type">PredictedIntent</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive (HashMap Text Text))
   -&gt; f (Maybe (Sensitive (HashMap Text Text))))
  -&gt; PredictedIntent -&gt; f PredictedIntent)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -217,73 +222,69 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
      (HashMap Text Text)
      (HashMap Text Text)
      (Identity (HashMap Text Text))
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span class="hs-special">)</span><span>
-</span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- | Indicates how confident Amazon Lex is that an intent satisfies the</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- user\'s intent.</span><span>
-</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.LexRuntime.Types.PredictedIntent.html#predictedIntent_nluIntentConfidence"><span class="hs-identifier hs-type">predictedIntent_nluIntentConfidence</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.PredictedIntent.html#PredictedIntent"><span class="hs-identifier hs-type">PredictedIntent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.IntentConfidence.html#IntentConfidence"><span class="hs-identifier hs-type">IntentConfidence</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-80"></span><span id="predictedIntent_nluIntentConfidence"><span class="annot"><span class="annottext">predictedIntent_nluIntentConfidence :: (Maybe IntentConfidence -&gt; f (Maybe IntentConfidence))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | The name of the intent that Amazon Lex suggests satisfies the user\'s</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- intent.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.LexRuntime.Types.PredictedIntent.html#predictedIntent_intentName"><span class="hs-identifier hs-type">predictedIntent_intentName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.PredictedIntent.html#PredictedIntent"><span class="hs-identifier hs-type">PredictedIntent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span id="predictedIntent_intentName"><span class="annot"><span class="annottext">predictedIntent_intentName :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; PredictedIntent -&gt; f PredictedIntent
-</span><a href="Network.AWS.LexRuntime.Types.PredictedIntent.html#predictedIntent_nluIntentConfidence"><span class="hs-identifier hs-var hs-var">predictedIntent_nluIntentConfidence</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PredictedIntent -&gt; Maybe IntentConfidence)
--&gt; (PredictedIntent -&gt; Maybe IntentConfidence -&gt; PredictedIntent)
--&gt; Lens
-     PredictedIntent
-     PredictedIntent
-     (Maybe IntentConfidence)
-     (Maybe IntentConfidence)
+</span><a href="Network.AWS.LexRuntime.Types.PredictedIntent.html#predictedIntent_intentName"><span class="hs-identifier hs-var hs-var">predictedIntent_intentName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PredictedIntent -&gt; Maybe Text)
+-&gt; (PredictedIntent -&gt; Maybe Text -&gt; PredictedIntent)
+-&gt; Lens PredictedIntent PredictedIntent (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.PredictedIntent.html#PredictedIntent%27"><span class="hs-identifier hs-type">PredictedIntent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174080"><span class="annot"><span class="annottext">Maybe IntentConfidence
-nluIntentConfidence :: Maybe IntentConfidence
-$sel:nluIntentConfidence:PredictedIntent' :: PredictedIntent -&gt; Maybe IntentConfidence
-</span><a href="#local-6989586621679174080"><span class="hs-identifier hs-var hs-var">nluIntentConfidence</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe IntentConfidence
-</span><a href="#local-6989586621679174080"><span class="hs-identifier hs-var">nluIntentConfidence</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174079"><span class="annot"><span class="annottext">s :: PredictedIntent
-</span><a href="#local-6989586621679174079"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.PredictedIntent.html#PredictedIntent%27"><span class="hs-identifier hs-type">PredictedIntent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174078"><span class="annot"><span class="annottext">Maybe IntentConfidence
-</span><a href="#local-6989586621679174078"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PredictedIntent
-</span><a href="#local-6989586621679174079"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nluIntentConfidence:PredictedIntent' :: Maybe IntentConfidence
-</span><a href="Network.AWS.LexRuntime.Types.PredictedIntent.html#%24sel%3AnluIntentConfidence%3APredictedIntent%27"><span class="hs-identifier hs-var">nluIntentConfidence</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IntentConfidence
-</span><a href="#local-6989586621679174078"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.PredictedIntent.html#PredictedIntent"><span class="hs-identifier hs-type">PredictedIntent</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174075"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.PredictedIntent.html#PredictedIntent"><span class="hs-identifier hs-type">PredictedIntent</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679174073"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PredictedIntent
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.PredictedIntent.html#PredictedIntent%27"><span class="hs-identifier hs-type">PredictedIntent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174154"><span class="annot"><span class="annottext">Maybe Text
+intentName :: Maybe Text
+$sel:intentName:PredictedIntent' :: PredictedIntent -&gt; Maybe Text
+</span><a href="#local-6989586621679174154"><span class="hs-identifier hs-var hs-var">intentName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679174154"><span class="hs-identifier hs-var">intentName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174153"><span class="annot"><span class="annottext">s :: PredictedIntent
+</span><a href="#local-6989586621679174153"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.PredictedIntent.html#PredictedIntent%27"><span class="hs-identifier hs-type">PredictedIntent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174152"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679174152"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PredictedIntent
+</span><a href="#local-6989586621679174153"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:intentName:PredictedIntent' :: Maybe Text
+</span><a href="Network.AWS.LexRuntime.Types.PredictedIntent.html#%24sel%3AintentName%3APredictedIntent%27"><span class="hs-identifier hs-var">intentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679174152"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.PredictedIntent.html#PredictedIntent"><span class="hs-identifier hs-type">PredictedIntent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174149"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.PredictedIntent.html#PredictedIntent"><span class="hs-identifier hs-type">PredictedIntent</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679174147"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PredictedIntent
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">String
+</span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser PredictedIntent)
 -&gt; Value
 -&gt; Parser PredictedIntent
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
-</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;PredictedIntent&quot;</span></span><span>
-</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679174070"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679174070"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-87"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679174144"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679174144"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>          </span><span class="annot"><span class="annottext">Maybe IntentConfidence
 -&gt; Maybe (Sensitive (HashMap Text Text))
--&gt; Maybe IntentConfidence
+-&gt; Maybe Text
 -&gt; PredictedIntent
 </span><a href="Network.AWS.LexRuntime.Types.PredictedIntent.html#PredictedIntent%27"><span class="hs-identifier hs-var">PredictedIntent'</span></a></span><span>
-</span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+</span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">(Maybe IntentConfidence
  -&gt; Maybe (Sensitive (HashMap Text Text))
- -&gt; Maybe IntentConfidence
+ -&gt; Maybe Text
  -&gt; PredictedIntent)
--&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe IntentConfidence)
 -&gt; Parser
      (Maybe (Sensitive (HashMap Text Text))
-      -&gt; Maybe IntentConfidence -&gt; PredictedIntent)
+      -&gt; Maybe Text -&gt; PredictedIntent)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679174070"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679174144"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe IntentConfidence)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;intentName&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span class="hs-string">&quot;nluIntentConfidence&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe (Sensitive (HashMap Text Text))
-   -&gt; Maybe IntentConfidence -&gt; PredictedIntent)
+   -&gt; Maybe Text -&gt; PredictedIntent)
 -&gt; Parser (Maybe (Sensitive (HashMap Text Text)))
--&gt; Parser (Maybe IntentConfidence -&gt; PredictedIntent)
+-&gt; Parser (Maybe Text -&gt; PredictedIntent)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679174070"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679174144"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Parser (Maybe (Maybe (Sensitive (HashMap Text Text))))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -294,17 +295,17 @@ forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive (HashMap Text Text))
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe IntentConfidence -&gt; PredictedIntent)
--&gt; Parser (Maybe IntentConfidence) -&gt; Parser PredictedIntent
+</span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; PredictedIntent)
+-&gt; Parser (Maybe Text) -&gt; Parser PredictedIntent
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679174070"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe IntentConfidence)
+</span><a href="#local-6989586621679174144"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;nluIntentConfidence&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-91"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174063"><span id="local-6989586621679174065"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.PredictedIntent.html#PredictedIntent"><span class="hs-identifier hs-type">PredictedIntent</span></a></span></span></span><span>
-</span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174060"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.PredictedIntent.html#PredictedIntent"><span class="hs-identifier hs-type">PredictedIntent</span></a></span></span><span>
-</span><span id="line-96"></span></pre></body></html>
+</span><span class="hs-string">&quot;intentName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174137"><span id="local-6989586621679174139"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.PredictedIntent.html#PredictedIntent"><span class="hs-identifier hs-type">PredictedIntent</span></a></span></span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174134"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.PredictedIntent.html#PredictedIntent"><span class="hs-identifier hs-type">PredictedIntent</span></a></span></span><span>
+</span><span id="line-97"></span></pre></body></html>

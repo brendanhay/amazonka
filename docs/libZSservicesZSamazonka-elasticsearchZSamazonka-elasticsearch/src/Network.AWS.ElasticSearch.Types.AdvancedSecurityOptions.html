@@ -28,18 +28,18 @@
 </span><span id="line-28"></span><span class="hs-comment">-- is enabled, whether the internal database option is enabled.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newAdvancedSecurityOptions' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679300633"><span id="local-6989586621679300634"></span></span><span class="hs-keyword">data</span><span> </span><span id="AdvancedSecurityOptions"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdvancedSecurityOptions.html#AdvancedSecurityOptions"><span class="hs-identifier hs-var">AdvancedSecurityOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AdvancedSecurityOptions%27"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdvancedSecurityOptions.html#AdvancedSecurityOptions%27"><span class="hs-identifier hs-var">AdvancedSecurityOptions'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | True if the internal user database is enabled.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AinternalUserDatabaseEnabled%3AAdvancedSecurityOptions%27"><span class="annot"><span class="annottext">AdvancedSecurityOptions -&gt; Maybe Bool
+</span><span id="line-31"></span><span id="local-6989586621679300842"><span id="local-6989586621679300843"></span></span><span class="hs-keyword">data</span><span> </span><span id="AdvancedSecurityOptions"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdvancedSecurityOptions.html#AdvancedSecurityOptions"><span class="hs-identifier hs-var">AdvancedSecurityOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AdvancedSecurityOptions%27"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdvancedSecurityOptions.html#AdvancedSecurityOptions%27"><span class="hs-identifier hs-var">AdvancedSecurityOptions'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | True if advanced security is enabled.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Aenabled%3AAdvancedSecurityOptions%27"><span class="annot"><span class="annottext">AdvancedSecurityOptions -&gt; Maybe Bool
+</span><a href="Network.AWS.ElasticSearch.Types.AdvancedSecurityOptions.html#%24sel%3Aenabled%3AAdvancedSecurityOptions%27"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | True if the internal user database is enabled.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AinternalUserDatabaseEnabled%3AAdvancedSecurityOptions%27"><span class="annot"><span class="annottext">AdvancedSecurityOptions -&gt; Maybe Bool
 </span><a href="Network.AWS.ElasticSearch.Types.AdvancedSecurityOptions.html#%24sel%3AinternalUserDatabaseEnabled%3AAdvancedSecurityOptions%27"><span class="hs-identifier hs-var hs-var">internalUserDatabaseEnabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | Describes the SAML application configured for a domain.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AsAMLOptions%3AAdvancedSecurityOptions%27"><span class="annot"><span class="annottext">AdvancedSecurityOptions -&gt; Maybe SAMLOptionsOutput
-</span><a href="Network.AWS.ElasticSearch.Types.AdvancedSecurityOptions.html#%24sel%3AsAMLOptions%3AAdvancedSecurityOptions%27"><span class="hs-identifier hs-var hs-var">sAMLOptions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SAMLOptionsOutput.html#SAMLOptionsOutput"><span class="hs-identifier hs-type">SAMLOptionsOutput</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | True if advanced security is enabled.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3Aenabled%3AAdvancedSecurityOptions%27"><span class="annot"><span class="annottext">AdvancedSecurityOptions -&gt; Maybe Bool
-</span><a href="Network.AWS.ElasticSearch.Types.AdvancedSecurityOptions.html#%24sel%3Aenabled%3AAdvancedSecurityOptions%27"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Describes the SAML application configured for a domain.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AsAMLOptions%3AAdvancedSecurityOptions%27"><span class="annot"><span class="annottext">AdvancedSecurityOptions -&gt; Maybe SAMLOptionsOutput
+</span><a href="Network.AWS.ElasticSearch.Types.AdvancedSecurityOptions.html#%24sel%3AsAMLOptions%3AAdvancedSecurityOptions%27"><span class="hs-identifier hs-var hs-var">sAMLOptions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SAMLOptionsOutput.html#SAMLOptionsOutput"><span class="hs-identifier hs-type">SAMLOptionsOutput</span></a></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679300625"><span id="local-6989586621679300627"><span class="annot"><span class="annottext">AdvancedSecurityOptions -&gt; AdvancedSecurityOptions -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679300834"><span id="local-6989586621679300836"><span class="annot"><span class="annottext">AdvancedSecurityOptions -&gt; AdvancedSecurityOptions -&gt; Bool
 (AdvancedSecurityOptions -&gt; AdvancedSecurityOptions -&gt; Bool)
 -&gt; (AdvancedSecurityOptions -&gt; AdvancedSecurityOptions -&gt; Bool)
 -&gt; Eq AdvancedSecurityOptions
@@ -48,7 +48,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AdvancedSecurityOptions -&gt; AdvancedSecurityOptions -&gt; Bool
 == :: AdvancedSecurityOptions -&gt; AdvancedSecurityOptions -&gt; Bool
 $c== :: AdvancedSecurityOptions -&gt; AdvancedSecurityOptions -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679300616"><span id="local-6989586621679300618"><span id="local-6989586621679300620"><span id="local-6989586621679300622"><span class="annot"><span class="annottext">ReadPrec [AdvancedSecurityOptions]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679300825"><span id="local-6989586621679300827"><span id="local-6989586621679300829"><span id="local-6989586621679300831"><span class="annot"><span class="annottext">ReadPrec [AdvancedSecurityOptions]
 ReadPrec AdvancedSecurityOptions
 Int -&gt; ReadS AdvancedSecurityOptions
 ReadS [AdvancedSecurityOptions]
@@ -68,7 +68,7 @@ readList :: ReadS [AdvancedSecurityOptions]
 $creadList :: ReadS [AdvancedSecurityOptions]
 readsPrec :: Int -&gt; ReadS AdvancedSecurityOptions
 $creadsPrec :: Int -&gt; ReadS AdvancedSecurityOptions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679300609"><span id="local-6989586621679300611"><span id="local-6989586621679300613"><span class="annot"><span class="annottext">Int -&gt; AdvancedSecurityOptions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679300818"><span id="local-6989586621679300820"><span id="local-6989586621679300822"><span class="annot"><span class="annottext">Int -&gt; AdvancedSecurityOptions -&gt; ShowS
 [AdvancedSecurityOptions] -&gt; ShowS
 AdvancedSecurityOptions -&gt; String
 (Int -&gt; AdvancedSecurityOptions -&gt; ShowS)
@@ -104,84 +104,35 @@ $cfrom :: forall x. AdvancedSecurityOptions -&gt; Rep AdvancedSecurityOptions x
 </span><span id="line-46"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-47"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-48"></span><span class="hs-comment">--</span><span>
-</span><span id="line-49"></span><span class="hs-comment">-- 'internalUserDatabaseEnabled', 'advancedSecurityOptions_internalUserDatabaseEnabled' - True if the internal user database is enabled.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'enabled', 'advancedSecurityOptions_enabled' - True if advanced security is enabled.</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
-</span><span id="line-51"></span><span class="hs-comment">-- 'sAMLOptions', 'advancedSecurityOptions_sAMLOptions' - Describes the SAML application configured for a domain.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'internalUserDatabaseEnabled', 'advancedSecurityOptions_internalUserDatabaseEnabled' - True if the internal user database is enabled.</span><span>
 </span><span id="line-52"></span><span class="hs-comment">--</span><span>
-</span><span id="line-53"></span><span class="hs-comment">-- 'enabled', 'advancedSecurityOptions_enabled' - True if advanced security is enabled.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'sAMLOptions', 'advancedSecurityOptions_sAMLOptions' - Describes the SAML application configured for a domain.</span><span>
 </span><span id="line-54"></span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdvancedSecurityOptions.html#newAdvancedSecurityOptions"><span class="hs-identifier hs-type">newAdvancedSecurityOptions</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-55"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdvancedSecurityOptions.html#AdvancedSecurityOptions"><span class="hs-identifier hs-type">AdvancedSecurityOptions</span></a></span><span>
 </span><span id="line-56"></span><span id="newAdvancedSecurityOptions"><span class="annot"><span class="annottext">newAdvancedSecurityOptions :: AdvancedSecurityOptions
 </span><a href="Network.AWS.ElasticSearch.Types.AdvancedSecurityOptions.html#newAdvancedSecurityOptions"><span class="hs-identifier hs-var hs-var">newAdvancedSecurityOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-57"></span><span>  </span><span class="annot"><span class="annottext">AdvancedSecurityOptions' :: Maybe Bool
--&gt; Maybe SAMLOptionsOutput -&gt; Maybe Bool -&gt; AdvancedSecurityOptions
+-&gt; Maybe Bool -&gt; Maybe SAMLOptionsOutput -&gt; AdvancedSecurityOptions
 </span><a href="Network.AWS.ElasticSearch.Types.AdvancedSecurityOptions.html#AdvancedSecurityOptions%27"><span class="hs-identifier hs-type">AdvancedSecurityOptions'</span></a></span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:internalUserDatabaseEnabled:AdvancedSecurityOptions' :: Maybe Bool
-</span><a href="Network.AWS.ElasticSearch.Types.AdvancedSecurityOptions.html#%24sel%3AinternalUserDatabaseEnabled%3AAdvancedSecurityOptions%27"><span class="hs-identifier hs-var">internalUserDatabaseEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-59"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-58"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:enabled:AdvancedSecurityOptions' :: Maybe Bool
+</span><a href="Network.AWS.ElasticSearch.Types.AdvancedSecurityOptions.html#%24sel%3Aenabled%3AAdvancedSecurityOptions%27"><span class="hs-identifier hs-var">enabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:internalUserDatabaseEnabled:AdvancedSecurityOptions' :: Maybe Bool
+</span><a href="Network.AWS.ElasticSearch.Types.AdvancedSecurityOptions.html#%24sel%3AinternalUserDatabaseEnabled%3AAdvancedSecurityOptions%27"><span class="hs-identifier hs-var">internalUserDatabaseEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:sAMLOptions:AdvancedSecurityOptions' :: Maybe SAMLOptionsOutput
 </span><a href="Network.AWS.ElasticSearch.Types.AdvancedSecurityOptions.html#%24sel%3AsAMLOptions%3AAdvancedSecurityOptions%27"><span class="hs-identifier hs-var">sAMLOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SAMLOptionsOutput
 forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:enabled:AdvancedSecurityOptions' :: Maybe Bool
-</span><a href="Network.AWS.ElasticSearch.Types.AdvancedSecurityOptions.html#%24sel%3Aenabled%3AAdvancedSecurityOptions%27"><span class="hs-identifier hs-var">enabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- | True if the internal user database is enabled.</span><span>
-</span><span id="line-65"></span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdvancedSecurityOptions.html#advancedSecurityOptions_internalUserDatabaseEnabled"><span class="hs-identifier hs-type">advancedSecurityOptions_internalUserDatabaseEnabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdvancedSecurityOptions.html#AdvancedSecurityOptions"><span class="hs-identifier hs-type">AdvancedSecurityOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-66"></span><span id="advancedSecurityOptions_internalUserDatabaseEnabled"><span class="annot"><span class="annottext">advancedSecurityOptions_internalUserDatabaseEnabled :: (Maybe Bool -&gt; f (Maybe Bool))
--&gt; AdvancedSecurityOptions -&gt; f AdvancedSecurityOptions
-</span><a href="Network.AWS.ElasticSearch.Types.AdvancedSecurityOptions.html#advancedSecurityOptions_internalUserDatabaseEnabled"><span class="hs-identifier hs-var hs-var">advancedSecurityOptions_internalUserDatabaseEnabled</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AdvancedSecurityOptions -&gt; Maybe Bool)
--&gt; (AdvancedSecurityOptions
-    -&gt; Maybe Bool -&gt; AdvancedSecurityOptions)
--&gt; Lens
-     AdvancedSecurityOptions
-     AdvancedSecurityOptions
-     (Maybe Bool)
-     (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdvancedSecurityOptions.html#AdvancedSecurityOptions%27"><span class="hs-identifier hs-type">AdvancedSecurityOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300600"><span class="annot"><span class="annottext">Maybe Bool
-internalUserDatabaseEnabled :: Maybe Bool
-$sel:internalUserDatabaseEnabled:AdvancedSecurityOptions' :: AdvancedSecurityOptions -&gt; Maybe Bool
-</span><a href="#local-6989586621679300600"><span class="hs-identifier hs-var hs-var">internalUserDatabaseEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679300600"><span class="hs-identifier hs-var">internalUserDatabaseEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300599"><span class="annot"><span class="annottext">s :: AdvancedSecurityOptions
-</span><a href="#local-6989586621679300599"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdvancedSecurityOptions.html#AdvancedSecurityOptions%27"><span class="hs-identifier hs-type">AdvancedSecurityOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300598"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679300598"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdvancedSecurityOptions
-</span><a href="#local-6989586621679300599"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:internalUserDatabaseEnabled:AdvancedSecurityOptions' :: Maybe Bool
-</span><a href="Network.AWS.ElasticSearch.Types.AdvancedSecurityOptions.html#%24sel%3AinternalUserDatabaseEnabled%3AAdvancedSecurityOptions%27"><span class="hs-identifier hs-var">internalUserDatabaseEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679300598"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdvancedSecurityOptions.html#AdvancedSecurityOptions"><span class="hs-identifier hs-type">AdvancedSecurityOptions</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- | Describes the SAML application configured for a domain.</span><span>
-</span><span id="line-69"></span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdvancedSecurityOptions.html#advancedSecurityOptions_sAMLOptions"><span class="hs-identifier hs-type">advancedSecurityOptions_sAMLOptions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdvancedSecurityOptions.html#AdvancedSecurityOptions"><span class="hs-identifier hs-type">AdvancedSecurityOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SAMLOptionsOutput.html#SAMLOptionsOutput"><span class="hs-identifier hs-type">SAMLOptionsOutput</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-70"></span><span id="advancedSecurityOptions_sAMLOptions"><span class="annot"><span class="annottext">advancedSecurityOptions_sAMLOptions :: (Maybe SAMLOptionsOutput -&gt; f (Maybe SAMLOptionsOutput))
--&gt; AdvancedSecurityOptions -&gt; f AdvancedSecurityOptions
-</span><a href="Network.AWS.ElasticSearch.Types.AdvancedSecurityOptions.html#advancedSecurityOptions_sAMLOptions"><span class="hs-identifier hs-var hs-var">advancedSecurityOptions_sAMLOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AdvancedSecurityOptions -&gt; Maybe SAMLOptionsOutput)
--&gt; (AdvancedSecurityOptions
-    -&gt; Maybe SAMLOptionsOutput -&gt; AdvancedSecurityOptions)
--&gt; Lens
-     AdvancedSecurityOptions
-     AdvancedSecurityOptions
-     (Maybe SAMLOptionsOutput)
-     (Maybe SAMLOptionsOutput)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdvancedSecurityOptions.html#AdvancedSecurityOptions%27"><span class="hs-identifier hs-type">AdvancedSecurityOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300596"><span class="annot"><span class="annottext">Maybe SAMLOptionsOutput
-sAMLOptions :: Maybe SAMLOptionsOutput
-$sel:sAMLOptions:AdvancedSecurityOptions' :: AdvancedSecurityOptions -&gt; Maybe SAMLOptionsOutput
-</span><a href="#local-6989586621679300596"><span class="hs-identifier hs-var hs-var">sAMLOptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SAMLOptionsOutput
-</span><a href="#local-6989586621679300596"><span class="hs-identifier hs-var">sAMLOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300595"><span class="annot"><span class="annottext">s :: AdvancedSecurityOptions
-</span><a href="#local-6989586621679300595"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdvancedSecurityOptions.html#AdvancedSecurityOptions%27"><span class="hs-identifier hs-type">AdvancedSecurityOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300594"><span class="annot"><span class="annottext">Maybe SAMLOptionsOutput
-</span><a href="#local-6989586621679300594"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdvancedSecurityOptions
-</span><a href="#local-6989586621679300595"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sAMLOptions:AdvancedSecurityOptions' :: Maybe SAMLOptionsOutput
-</span><a href="Network.AWS.ElasticSearch.Types.AdvancedSecurityOptions.html#%24sel%3AsAMLOptions%3AAdvancedSecurityOptions%27"><span class="hs-identifier hs-var">sAMLOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SAMLOptionsOutput
-</span><a href="#local-6989586621679300594"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdvancedSecurityOptions.html#AdvancedSecurityOptions"><span class="hs-identifier hs-type">AdvancedSecurityOptions</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- | True if advanced security is enabled.</span><span>
-</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdvancedSecurityOptions.html#advancedSecurityOptions_enabled"><span class="hs-identifier hs-type">advancedSecurityOptions_enabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdvancedSecurityOptions.html#AdvancedSecurityOptions"><span class="hs-identifier hs-type">AdvancedSecurityOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-74"></span><span id="advancedSecurityOptions_enabled"><span class="annot"><span class="annottext">advancedSecurityOptions_enabled :: (Maybe Bool -&gt; f (Maybe Bool))
+</span><span id="line-61"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- | True if advanced security is enabled.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdvancedSecurityOptions.html#advancedSecurityOptions_enabled"><span class="hs-identifier hs-type">advancedSecurityOptions_enabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdvancedSecurityOptions.html#AdvancedSecurityOptions"><span class="hs-identifier hs-type">AdvancedSecurityOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span id="advancedSecurityOptions_enabled"><span class="annot"><span class="annottext">advancedSecurityOptions_enabled :: (Maybe Bool -&gt; f (Maybe Bool))
 -&gt; AdvancedSecurityOptions -&gt; f AdvancedSecurityOptions
 </span><a href="Network.AWS.ElasticSearch.Types.AdvancedSecurityOptions.html#advancedSecurityOptions_enabled"><span class="hs-identifier hs-var hs-var">advancedSecurityOptions_enabled</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AdvancedSecurityOptions -&gt; Maybe Bool)
 -&gt; (AdvancedSecurityOptions
@@ -192,67 +143,116 @@ $sel:sAMLOptions:AdvancedSecurityOptions' :: AdvancedSecurityOptions -&gt; Maybe
      (Maybe Bool)
      (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdvancedSecurityOptions.html#AdvancedSecurityOptions%27"><span class="hs-identifier hs-type">AdvancedSecurityOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300592"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdvancedSecurityOptions.html#AdvancedSecurityOptions%27"><span class="hs-identifier hs-type">AdvancedSecurityOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300809"><span class="annot"><span class="annottext">Maybe Bool
 enabled :: Maybe Bool
 $sel:enabled:AdvancedSecurityOptions' :: AdvancedSecurityOptions -&gt; Maybe Bool
-</span><a href="#local-6989586621679300592"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679300592"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300591"><span class="annot"><span class="annottext">s :: AdvancedSecurityOptions
-</span><a href="#local-6989586621679300591"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdvancedSecurityOptions.html#AdvancedSecurityOptions%27"><span class="hs-identifier hs-type">AdvancedSecurityOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300590"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679300590"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdvancedSecurityOptions
-</span><a href="#local-6989586621679300591"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enabled:AdvancedSecurityOptions' :: Maybe Bool
+</span><a href="#local-6989586621679300809"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679300809"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300808"><span class="annot"><span class="annottext">s :: AdvancedSecurityOptions
+</span><a href="#local-6989586621679300808"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdvancedSecurityOptions.html#AdvancedSecurityOptions%27"><span class="hs-identifier hs-type">AdvancedSecurityOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300807"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679300807"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdvancedSecurityOptions
+</span><a href="#local-6989586621679300808"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enabled:AdvancedSecurityOptions' :: Maybe Bool
 </span><a href="Network.AWS.ElasticSearch.Types.AdvancedSecurityOptions.html#%24sel%3Aenabled%3AAdvancedSecurityOptions%27"><span class="hs-identifier hs-var">enabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679300590"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdvancedSecurityOptions.html#AdvancedSecurityOptions"><span class="hs-identifier hs-type">AdvancedSecurityOptions</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300587"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdvancedSecurityOptions.html#AdvancedSecurityOptions"><span class="hs-identifier hs-type">AdvancedSecurityOptions</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621679300585"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AdvancedSecurityOptions
+</span><a href="#local-6989586621679300807"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdvancedSecurityOptions.html#AdvancedSecurityOptions"><span class="hs-identifier hs-type">AdvancedSecurityOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- | True if the internal user database is enabled.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdvancedSecurityOptions.html#advancedSecurityOptions_internalUserDatabaseEnabled"><span class="hs-identifier hs-type">advancedSecurityOptions_internalUserDatabaseEnabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdvancedSecurityOptions.html#AdvancedSecurityOptions"><span class="hs-identifier hs-type">AdvancedSecurityOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span id="advancedSecurityOptions_internalUserDatabaseEnabled"><span class="annot"><span class="annottext">advancedSecurityOptions_internalUserDatabaseEnabled :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; AdvancedSecurityOptions -&gt; f AdvancedSecurityOptions
+</span><a href="Network.AWS.ElasticSearch.Types.AdvancedSecurityOptions.html#advancedSecurityOptions_internalUserDatabaseEnabled"><span class="hs-identifier hs-var hs-var">advancedSecurityOptions_internalUserDatabaseEnabled</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AdvancedSecurityOptions -&gt; Maybe Bool)
+-&gt; (AdvancedSecurityOptions
+    -&gt; Maybe Bool -&gt; AdvancedSecurityOptions)
+-&gt; Lens
+     AdvancedSecurityOptions
+     AdvancedSecurityOptions
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdvancedSecurityOptions.html#AdvancedSecurityOptions%27"><span class="hs-identifier hs-type">AdvancedSecurityOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300805"><span class="annot"><span class="annottext">Maybe Bool
+internalUserDatabaseEnabled :: Maybe Bool
+$sel:internalUserDatabaseEnabled:AdvancedSecurityOptions' :: AdvancedSecurityOptions -&gt; Maybe Bool
+</span><a href="#local-6989586621679300805"><span class="hs-identifier hs-var hs-var">internalUserDatabaseEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679300805"><span class="hs-identifier hs-var">internalUserDatabaseEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300804"><span class="annot"><span class="annottext">s :: AdvancedSecurityOptions
+</span><a href="#local-6989586621679300804"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdvancedSecurityOptions.html#AdvancedSecurityOptions%27"><span class="hs-identifier hs-type">AdvancedSecurityOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300803"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679300803"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdvancedSecurityOptions
+</span><a href="#local-6989586621679300804"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:internalUserDatabaseEnabled:AdvancedSecurityOptions' :: Maybe Bool
+</span><a href="Network.AWS.ElasticSearch.Types.AdvancedSecurityOptions.html#%24sel%3AinternalUserDatabaseEnabled%3AAdvancedSecurityOptions%27"><span class="hs-identifier hs-var">internalUserDatabaseEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679300803"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdvancedSecurityOptions.html#AdvancedSecurityOptions"><span class="hs-identifier hs-type">AdvancedSecurityOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | Describes the SAML application configured for a domain.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdvancedSecurityOptions.html#advancedSecurityOptions_sAMLOptions"><span class="hs-identifier hs-type">advancedSecurityOptions_sAMLOptions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdvancedSecurityOptions.html#AdvancedSecurityOptions"><span class="hs-identifier hs-type">AdvancedSecurityOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.SAMLOptionsOutput.html#SAMLOptionsOutput"><span class="hs-identifier hs-type">SAMLOptionsOutput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span id="advancedSecurityOptions_sAMLOptions"><span class="annot"><span class="annottext">advancedSecurityOptions_sAMLOptions :: (Maybe SAMLOptionsOutput -&gt; f (Maybe SAMLOptionsOutput))
+-&gt; AdvancedSecurityOptions -&gt; f AdvancedSecurityOptions
+</span><a href="Network.AWS.ElasticSearch.Types.AdvancedSecurityOptions.html#advancedSecurityOptions_sAMLOptions"><span class="hs-identifier hs-var hs-var">advancedSecurityOptions_sAMLOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AdvancedSecurityOptions -&gt; Maybe SAMLOptionsOutput)
+-&gt; (AdvancedSecurityOptions
+    -&gt; Maybe SAMLOptionsOutput -&gt; AdvancedSecurityOptions)
+-&gt; Lens
+     AdvancedSecurityOptions
+     AdvancedSecurityOptions
+     (Maybe SAMLOptionsOutput)
+     (Maybe SAMLOptionsOutput)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdvancedSecurityOptions.html#AdvancedSecurityOptions%27"><span class="hs-identifier hs-type">AdvancedSecurityOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300801"><span class="annot"><span class="annottext">Maybe SAMLOptionsOutput
+sAMLOptions :: Maybe SAMLOptionsOutput
+$sel:sAMLOptions:AdvancedSecurityOptions' :: AdvancedSecurityOptions -&gt; Maybe SAMLOptionsOutput
+</span><a href="#local-6989586621679300801"><span class="hs-identifier hs-var hs-var">sAMLOptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SAMLOptionsOutput
+</span><a href="#local-6989586621679300801"><span class="hs-identifier hs-var">sAMLOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300800"><span class="annot"><span class="annottext">s :: AdvancedSecurityOptions
+</span><a href="#local-6989586621679300800"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdvancedSecurityOptions.html#AdvancedSecurityOptions%27"><span class="hs-identifier hs-type">AdvancedSecurityOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300799"><span class="annot"><span class="annottext">Maybe SAMLOptionsOutput
+</span><a href="#local-6989586621679300799"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdvancedSecurityOptions
+</span><a href="#local-6989586621679300800"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sAMLOptions:AdvancedSecurityOptions' :: Maybe SAMLOptionsOutput
+</span><a href="Network.AWS.ElasticSearch.Types.AdvancedSecurityOptions.html#%24sel%3AsAMLOptions%3AAdvancedSecurityOptions%27"><span class="hs-identifier hs-var">sAMLOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SAMLOptionsOutput
+</span><a href="#local-6989586621679300799"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdvancedSecurityOptions.html#AdvancedSecurityOptions"><span class="hs-identifier hs-type">AdvancedSecurityOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300796"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdvancedSecurityOptions.html#AdvancedSecurityOptions"><span class="hs-identifier hs-type">AdvancedSecurityOptions</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679300794"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AdvancedSecurityOptions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-78"></span><span>    </span><span class="annot"><span class="annottext">String
+</span><span id="line-77"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AdvancedSecurityOptions)
 -&gt; Value
 -&gt; Parser AdvancedSecurityOptions
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
-</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AdvancedSecurityOptions&quot;</span></span><span>
-</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679300582"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679300582"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-81"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool
--&gt; Maybe SAMLOptionsOutput -&gt; Maybe Bool -&gt; AdvancedSecurityOptions
+</span><span id="line-79"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679300791"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300791"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-80"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool
+-&gt; Maybe Bool -&gt; Maybe SAMLOptionsOutput -&gt; AdvancedSecurityOptions
 </span><a href="Network.AWS.ElasticSearch.Types.AdvancedSecurityOptions.html#AdvancedSecurityOptions%27"><span class="hs-identifier hs-var">AdvancedSecurityOptions'</span></a></span><span>
-</span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Bool
- -&gt; Maybe SAMLOptionsOutput
+</span><span id="line-81"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Bool
  -&gt; Maybe Bool
+ -&gt; Maybe SAMLOptionsOutput
  -&gt; AdvancedSecurityOptions)
 -&gt; Parser (Maybe Bool)
 -&gt; Parser
-     (Maybe SAMLOptionsOutput -&gt; Maybe Bool -&gt; AdvancedSecurityOptions)
+     (Maybe Bool -&gt; Maybe SAMLOptionsOutput -&gt; AdvancedSecurityOptions)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679300582"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;InternalUserDatabaseEnabled&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe SAMLOptionsOutput -&gt; Maybe Bool -&gt; AdvancedSecurityOptions)
--&gt; Parser (Maybe SAMLOptionsOutput)
--&gt; Parser (Maybe Bool -&gt; AdvancedSecurityOptions)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679300582"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SAMLOptionsOutput)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;SAMLOptions&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Bool -&gt; AdvancedSecurityOptions)
--&gt; Parser (Maybe Bool) -&gt; Parser AdvancedSecurityOptions
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679300582"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679300791"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Enabled&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-85"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300576"><span id="local-6989586621679300578"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdvancedSecurityOptions.html#AdvancedSecurityOptions"><span class="hs-identifier hs-type">AdvancedSecurityOptions</span></a></span></span></span><span>
-</span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300573"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdvancedSecurityOptions.html#AdvancedSecurityOptions"><span class="hs-identifier hs-type">AdvancedSecurityOptions</span></a></span></span><span>
-</span><span id="line-90"></span></pre></body></html>
+</span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool -&gt; Maybe SAMLOptionsOutput -&gt; AdvancedSecurityOptions)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser (Maybe SAMLOptionsOutput -&gt; AdvancedSecurityOptions)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300791"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InternalUserDatabaseEnabled&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe SAMLOptionsOutput -&gt; AdvancedSecurityOptions)
+-&gt; Parser (Maybe SAMLOptionsOutput)
+-&gt; Parser AdvancedSecurityOptions
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300791"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SAMLOptionsOutput)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SAMLOptions&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300785"><span id="local-6989586621679300787"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdvancedSecurityOptions.html#AdvancedSecurityOptions"><span class="hs-identifier hs-type">AdvancedSecurityOptions</span></a></span></span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300782"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AdvancedSecurityOptions.html#AdvancedSecurityOptions"><span class="hs-identifier hs-type">AdvancedSecurityOptions</span></a></span></span><span>
+</span><span id="line-89"></span></pre></body></html>

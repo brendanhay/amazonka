@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621679603646"><span id="local-6989586621679603647"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AutoSnapshotStatus"><span class="annot"><a href="Network.AWS.Lightsail.Types.AutoSnapshotStatus.html#AutoSnapshotStatus"><span class="hs-identifier hs-var">AutoSnapshotStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AutoSnapshotStatus%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.AutoSnapshotStatus.html#AutoSnapshotStatus%27"><span class="hs-identifier hs-var">AutoSnapshotStatus'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679604531"><span id="local-6989586621679604532"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AutoSnapshotStatus"><span class="annot"><a href="Network.AWS.Lightsail.Types.AutoSnapshotStatus.html#AutoSnapshotStatus"><span class="hs-identifier hs-var">AutoSnapshotStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AutoSnapshotStatus%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.AutoSnapshotStatus.html#AutoSnapshotStatus%27"><span class="hs-identifier hs-var">AutoSnapshotStatus'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAutoSnapshotStatus"><span class="annot"><span class="annottext">AutoSnapshotStatus -&gt; Text
 </span><a href="Network.AWS.Lightsail.Types.AutoSnapshotStatus.html#fromAutoSnapshotStatus"><span class="hs-identifier hs-var hs-var">fromAutoSnapshotStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679603638"><span id="local-6989586621679603640"><span id="local-6989586621679603642"><span class="annot"><span class="annottext">Int -&gt; AutoSnapshotStatus -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679604523"><span id="local-6989586621679604525"><span id="local-6989586621679604527"><span class="annot"><span class="annottext">Int -&gt; AutoSnapshotStatus -&gt; ShowS
 [AutoSnapshotStatus] -&gt; ShowS
 AutoSnapshotStatus -&gt; String
 (Int -&gt; AutoSnapshotStatus -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: AutoSnapshotStatus -&gt; String
 showsPrec :: Int -&gt; AutoSnapshotStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; AutoSnapshotStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679603629"><span id="local-6989586621679603631"><span id="local-6989586621679603633"><span id="local-6989586621679603635"><span class="annot"><span class="annottext">ReadPrec [AutoSnapshotStatus]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679604514"><span id="local-6989586621679604516"><span id="local-6989586621679604518"><span id="local-6989586621679604520"><span class="annot"><span class="annottext">ReadPrec [AutoSnapshotStatus]
 ReadPrec AutoSnapshotStatus
 Int -&gt; ReadS AutoSnapshotStatus
 ReadS [AutoSnapshotStatus]
@@ -74,7 +74,7 @@ $creadList :: ReadS [AutoSnapshotStatus]
 readsPrec :: Int -&gt; ReadS AutoSnapshotStatus
 $creadsPrec :: Int -&gt; ReadS AutoSnapshotStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679603624"><span id="local-6989586621679603626"><span class="annot"><span class="annottext">AutoSnapshotStatus -&gt; AutoSnapshotStatus -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679604509"><span id="local-6989586621679604511"><span class="annot"><span class="annottext">AutoSnapshotStatus -&gt; AutoSnapshotStatus -&gt; Bool
 (AutoSnapshotStatus -&gt; AutoSnapshotStatus -&gt; Bool)
 -&gt; (AutoSnapshotStatus -&gt; AutoSnapshotStatus -&gt; Bool)
 -&gt; Eq AutoSnapshotStatus
@@ -84,7 +84,7 @@ $c/= :: AutoSnapshotStatus -&gt; AutoSnapshotStatus -&gt; Bool
 == :: AutoSnapshotStatus -&gt; AutoSnapshotStatus -&gt; Bool
 $c== :: AutoSnapshotStatus -&gt; AutoSnapshotStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679603608"><span id="local-6989586621679603610"><span id="local-6989586621679603612"><span id="local-6989586621679603614"><span id="local-6989586621679603616"><span id="local-6989586621679603618"><span id="local-6989586621679603620"><span class="annot"><span class="annottext">Eq AutoSnapshotStatus
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679604493"><span id="local-6989586621679604495"><span id="local-6989586621679604497"><span id="local-6989586621679604499"><span id="local-6989586621679604501"><span id="local-6989586621679604503"><span id="local-6989586621679604505"><span class="annot"><span class="annottext">Eq AutoSnapshotStatus
 Eq AutoSnapshotStatus
 -&gt; (AutoSnapshotStatus -&gt; AutoSnapshotStatus -&gt; Ordering)
 -&gt; (AutoSnapshotStatus -&gt; AutoSnapshotStatus -&gt; Bool)
@@ -135,7 +135,7 @@ $cfrom :: forall x. AutoSnapshotStatus -&gt; Rep AutoSnapshotStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679603600"><span id="local-6989586621679603602"><span class="annot"><span class="annottext">Int -&gt; AutoSnapshotStatus -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679604485"><span id="local-6989586621679604487"><span class="annot"><span class="annottext">Int -&gt; AutoSnapshotStatus -&gt; Int
 AutoSnapshotStatus -&gt; Int
 (Int -&gt; AutoSnapshotStatus -&gt; Int)
 -&gt; (AutoSnapshotStatus -&gt; Int) -&gt; Hashable AutoSnapshotStatus
@@ -145,53 +145,53 @@ $chash :: AutoSnapshotStatus -&gt; Int
 hashWithSalt :: Int -&gt; AutoSnapshotStatus -&gt; Int
 $chashWithSalt :: Int -&gt; AutoSnapshotStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679603597"><span class="annot"><span class="annottext">AutoSnapshotStatus -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679604482"><span class="annot"><span class="annottext">AutoSnapshotStatus -&gt; ()
 (AutoSnapshotStatus -&gt; ()) -&gt; NFData AutoSnapshotStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AutoSnapshotStatus -&gt; ()
 $crnf :: AutoSnapshotStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679603594"><span class="annot"><span class="annottext">Text -&gt; Either String AutoSnapshotStatus
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679604479"><span class="annot"><span class="annottext">Text -&gt; Either String AutoSnapshotStatus
 (Text -&gt; Either String AutoSnapshotStatus)
 -&gt; FromText AutoSnapshotStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AutoSnapshotStatus
 $cfromText :: Text -&gt; Either String AutoSnapshotStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679603591"><span class="annot"><span class="annottext">AutoSnapshotStatus -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679604476"><span class="annot"><span class="annottext">AutoSnapshotStatus -&gt; Text
 (AutoSnapshotStatus -&gt; Text) -&gt; ToText AutoSnapshotStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AutoSnapshotStatus -&gt; Text
 $ctoText :: AutoSnapshotStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679603588"><span class="annot"><span class="annottext">AutoSnapshotStatus -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679604473"><span class="annot"><span class="annottext">AutoSnapshotStatus -&gt; ByteString
 (AutoSnapshotStatus -&gt; ByteString)
 -&gt; ToByteString AutoSnapshotStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AutoSnapshotStatus -&gt; ByteString
 $ctoBS :: AutoSnapshotStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679603585"><span class="annot"><span class="annottext">AutoSnapshotStatus -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679604470"><span class="annot"><span class="annottext">AutoSnapshotStatus -&gt; ByteStringBuilder
 (AutoSnapshotStatus -&gt; ByteStringBuilder)
 -&gt; ToLog AutoSnapshotStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AutoSnapshotStatus -&gt; ByteStringBuilder
 $cbuild :: AutoSnapshotStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679603582"><span class="annot"><span class="annottext">HeaderName -&gt; AutoSnapshotStatus -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679604467"><span class="annot"><span class="annottext">HeaderName -&gt; AutoSnapshotStatus -&gt; [Header]
 (HeaderName -&gt; AutoSnapshotStatus -&gt; [Header])
 -&gt; ToHeader AutoSnapshotStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AutoSnapshotStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AutoSnapshotStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679603579"><span class="annot"><span class="annottext">AutoSnapshotStatus -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679604464"><span class="annot"><span class="annottext">AutoSnapshotStatus -&gt; QueryString
 (AutoSnapshotStatus -&gt; QueryString) -&gt; ToQuery AutoSnapshotStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AutoSnapshotStatus -&gt; QueryString
 $ctoQuery :: AutoSnapshotStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679603574"><span id="local-6989586621679603576"><span class="annot"><span class="annottext">Value -&gt; Parser [AutoSnapshotStatus]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679604459"><span id="local-6989586621679604461"><span class="annot"><span class="annottext">Value -&gt; Parser [AutoSnapshotStatus]
 Value -&gt; Parser AutoSnapshotStatus
 (Value -&gt; Parser AutoSnapshotStatus)
 -&gt; (Value -&gt; Parser [AutoSnapshotStatus])
@@ -203,7 +203,7 @@ $cparseJSONList :: Value -&gt; Parser [AutoSnapshotStatus]
 parseJSON :: Value -&gt; Parser AutoSnapshotStatus
 $cparseJSON :: Value -&gt; Parser AutoSnapshotStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679603569"><span id="local-6989586621679603571"><span class="annot"><span class="annottext">FromJSONKeyFunction [AutoSnapshotStatus]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679604454"><span id="local-6989586621679604456"><span class="annot"><span class="annottext">FromJSONKeyFunction [AutoSnapshotStatus]
 FromJSONKeyFunction AutoSnapshotStatus
 FromJSONKeyFunction AutoSnapshotStatus
 -&gt; FromJSONKeyFunction [AutoSnapshotStatus]
@@ -215,7 +215,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AutoSnapshotStatus]
 fromJSONKey :: FromJSONKeyFunction AutoSnapshotStatus
 $cfromJSONKey :: FromJSONKeyFunction AutoSnapshotStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679603560"><span id="local-6989586621679603562"><span id="local-6989586621679603564"><span id="local-6989586621679603566"><span class="annot"><span class="annottext">[AutoSnapshotStatus] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679604445"><span id="local-6989586621679604447"><span id="local-6989586621679604449"><span id="local-6989586621679604451"><span class="annot"><span class="annottext">[AutoSnapshotStatus] -&gt; Encoding
 [AutoSnapshotStatus] -&gt; Value
 AutoSnapshotStatus -&gt; Encoding
 AutoSnapshotStatus -&gt; Value
@@ -239,7 +239,7 @@ $ctoEncoding :: AutoSnapshotStatus -&gt; Encoding
 toJSON :: AutoSnapshotStatus -&gt; Value
 $ctoJSON :: AutoSnapshotStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679603555"><span id="local-6989586621679603557"><span class="annot"><span class="annottext">ToJSONKeyFunction [AutoSnapshotStatus]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679604440"><span id="local-6989586621679604442"><span class="annot"><span class="annottext">ToJSONKeyFunction [AutoSnapshotStatus]
 ToJSONKeyFunction AutoSnapshotStatus
 ToJSONKeyFunction AutoSnapshotStatus
 -&gt; ToJSONKeyFunction [AutoSnapshotStatus]
@@ -251,14 +251,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AutoSnapshotStatus]
 toJSONKey :: ToJSONKeyFunction AutoSnapshotStatus
 $ctoJSONKey :: ToJSONKeyFunction AutoSnapshotStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679603552"><span class="annot"><span class="annottext">[Node] -&gt; Either String AutoSnapshotStatus
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679604437"><span class="annot"><span class="annottext">[Node] -&gt; Either String AutoSnapshotStatus
 ([Node] -&gt; Either String AutoSnapshotStatus)
 -&gt; FromXML AutoSnapshotStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AutoSnapshotStatus
 $cparseXML :: [Node] -&gt; Either String AutoSnapshotStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679603549"><span class="annot"><span class="annottext">AutoSnapshotStatus -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679604434"><span class="annot"><span class="annottext">AutoSnapshotStatus -&gt; XML
 (AutoSnapshotStatus -&gt; XML) -&gt; ToXML AutoSnapshotStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: AutoSnapshotStatus -&gt; XML

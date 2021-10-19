@@ -28,18 +28,18 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Describes a resource.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newPrincipal' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679263317"><span id="local-6989586621679263318"></span></span><span class="hs-keyword">data</span><span> </span><span id="Principal"><span class="annot"><a href="Network.AWS.WorkDocs.Types.Principal.html#Principal"><span class="hs-identifier hs-var">Principal</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Principal%27"><span class="annot"><a href="Network.AWS.WorkDocs.Types.Principal.html#Principal%27"><span class="hs-identifier hs-var">Principal'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the resource.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3Aid%3APrincipal%27"><span class="annot"><span class="annottext">Principal -&gt; Maybe Text
-</span><a href="Network.AWS.WorkDocs.Types.Principal.html#%24sel%3Aid%3APrincipal%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The permission information for the resource.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3Aroles%3APrincipal%27"><span class="annot"><span class="annottext">Principal -&gt; Maybe [PermissionInfo]
+</span><span id="line-31"></span><span id="local-6989586621679263442"><span id="local-6989586621679263443"></span></span><span class="hs-keyword">data</span><span> </span><span id="Principal"><span class="annot"><a href="Network.AWS.WorkDocs.Types.Principal.html#Principal"><span class="hs-identifier hs-var">Principal</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Principal%27"><span class="annot"><a href="Network.AWS.WorkDocs.Types.Principal.html#Principal%27"><span class="hs-identifier hs-var">Principal'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The permission information for the resource.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Aroles%3APrincipal%27"><span class="annot"><span class="annottext">Principal -&gt; Maybe [PermissionInfo]
 </span><a href="Network.AWS.WorkDocs.Types.Principal.html#%24sel%3Aroles%3APrincipal%27"><span class="hs-identifier hs-var hs-var">roles</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.PermissionInfo.html#PermissionInfo"><span class="hs-identifier hs-type">PermissionInfo</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The ID of the resource.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Aid%3APrincipal%27"><span class="annot"><span class="annottext">Principal -&gt; Maybe Text
+</span><a href="Network.AWS.WorkDocs.Types.Principal.html#%24sel%3Aid%3APrincipal%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The type of resource.</span><span>
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3Atype%27%3APrincipal%27"><span class="annot"><span class="annottext">Principal -&gt; Maybe PrincipalType
 </span><a href="Network.AWS.WorkDocs.Types.Principal.html#%24sel%3Atype%27%3APrincipal%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.PrincipalType.html#PrincipalType"><span class="hs-identifier hs-type">PrincipalType</span></a></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679263309"><span id="local-6989586621679263311"><span class="annot"><span class="annottext">Principal -&gt; Principal -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679263434"><span id="local-6989586621679263436"><span class="annot"><span class="annottext">Principal -&gt; Principal -&gt; Bool
 (Principal -&gt; Principal -&gt; Bool)
 -&gt; (Principal -&gt; Principal -&gt; Bool) -&gt; Eq Principal
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -47,7 +47,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Principal -&gt; Principal -&gt; Bool
 == :: Principal -&gt; Principal -&gt; Bool
 $c== :: Principal -&gt; Principal -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679263300"><span id="local-6989586621679263302"><span id="local-6989586621679263304"><span id="local-6989586621679263306"><span class="annot"><span class="annottext">ReadPrec [Principal]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679263425"><span id="local-6989586621679263427"><span id="local-6989586621679263429"><span id="local-6989586621679263431"><span class="annot"><span class="annottext">ReadPrec [Principal]
 ReadPrec Principal
 Int -&gt; ReadS Principal
 ReadS [Principal]
@@ -67,7 +67,7 @@ readList :: ReadS [Principal]
 $creadList :: ReadS [Principal]
 readsPrec :: Int -&gt; ReadS Principal
 $creadsPrec :: Int -&gt; ReadS Principal
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679263293"><span id="local-6989586621679263295"><span id="local-6989586621679263297"><span class="annot"><span class="annottext">Int -&gt; Principal -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679263418"><span id="local-6989586621679263420"><span id="local-6989586621679263422"><span class="annot"><span class="annottext">Int -&gt; Principal -&gt; ShowS
 [Principal] -&gt; ShowS
 Principal -&gt; String
 (Int -&gt; Principal -&gt; ShowS)
@@ -100,24 +100,24 @@ $cfrom :: forall x. Principal -&gt; Rep Principal x
 </span><span id="line-46"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-47"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-48"></span><span class="hs-comment">--</span><span>
-</span><span id="line-49"></span><span class="hs-comment">-- 'id', 'principal_id' - The ID of the resource.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'roles', 'principal_roles' - The permission information for the resource.</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
-</span><span id="line-51"></span><span class="hs-comment">-- 'roles', 'principal_roles' - The permission information for the resource.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'id', 'principal_id' - The ID of the resource.</span><span>
 </span><span id="line-52"></span><span class="hs-comment">--</span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- 'type'', 'principal_type' - The type of resource.</span><span>
 </span><span id="line-54"></span><span class="annot"><a href="Network.AWS.WorkDocs.Types.Principal.html#newPrincipal"><span class="hs-identifier hs-type">newPrincipal</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-55"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.Principal.html#Principal"><span class="hs-identifier hs-type">Principal</span></a></span><span>
 </span><span id="line-56"></span><span id="newPrincipal"><span class="annot"><span class="annottext">newPrincipal :: Principal
 </span><a href="Network.AWS.WorkDocs.Types.Principal.html#newPrincipal"><span class="hs-identifier hs-var hs-var">newPrincipal</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-57"></span><span>  </span><span class="annot"><span class="annottext">Principal' :: Maybe Text
--&gt; Maybe [PermissionInfo] -&gt; Maybe PrincipalType -&gt; Principal
+</span><span id="line-57"></span><span>  </span><span class="annot"><span class="annottext">Principal' :: Maybe [PermissionInfo]
+-&gt; Maybe Text -&gt; Maybe PrincipalType -&gt; Principal
 </span><a href="Network.AWS.WorkDocs.Types.Principal.html#Principal%27"><span class="hs-identifier hs-type">Principal'</span></a></span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:id:Principal' :: Maybe Text
-</span><a href="Network.AWS.WorkDocs.Types.Principal.html#%24sel%3Aid%3APrincipal%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-58"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:roles:Principal' :: Maybe [PermissionInfo]
+</span><a href="Network.AWS.WorkDocs.Types.Principal.html#%24sel%3Aroles%3APrincipal%27"><span class="hs-identifier hs-var">roles</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PermissionInfo]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:roles:Principal' :: Maybe [PermissionInfo]
-</span><a href="Network.AWS.WorkDocs.Types.Principal.html#%24sel%3Aroles%3APrincipal%27"><span class="hs-identifier hs-var">roles</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PermissionInfo]
+</span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:Principal' :: Maybe Text
+</span><a href="Network.AWS.WorkDocs.Types.Principal.html#%24sel%3Aid%3APrincipal%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':Principal' :: Maybe PrincipalType
@@ -126,27 +126,9 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- | The ID of the resource.</span><span>
-</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.WorkDocs.Types.Principal.html#principal_id"><span class="hs-identifier hs-type">principal_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.Principal.html#Principal"><span class="hs-identifier hs-type">Principal</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-65"></span><span id="principal_id"><span class="annot"><span class="annottext">principal_id :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Principal -&gt; f Principal
-</span><a href="Network.AWS.WorkDocs.Types.Principal.html#principal_id"><span class="hs-identifier hs-var hs-var">principal_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Principal -&gt; Maybe Text)
--&gt; (Principal -&gt; Maybe Text -&gt; Principal)
--&gt; Lens Principal Principal (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.Principal.html#Principal%27"><span class="hs-identifier hs-type">Principal'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263284"><span class="annot"><span class="annottext">Maybe Text
-id :: Maybe Text
-$sel:id:Principal' :: Principal -&gt; Maybe Text
-</span><a href="#local-6989586621679263284"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679263284"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263283"><span class="annot"><span class="annottext">s :: Principal
-</span><a href="#local-6989586621679263283"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.Principal.html#Principal%27"><span class="hs-identifier hs-type">Principal'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263282"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679263282"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Principal
-</span><a href="#local-6989586621679263283"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:Principal' :: Maybe Text
-</span><a href="Network.AWS.WorkDocs.Types.Principal.html#%24sel%3Aid%3APrincipal%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679263282"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.Principal.html#Principal"><span class="hs-identifier hs-type">Principal</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- | The permission information for the resource.</span><span>
-</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.WorkDocs.Types.Principal.html#principal_roles"><span class="hs-identifier hs-type">principal_roles</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.Principal.html#Principal"><span class="hs-identifier hs-type">Principal</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.PermissionInfo.html#PermissionInfo"><span class="hs-identifier hs-type">PermissionInfo</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-69"></span><span id="principal_roles"><span class="annot"><span class="annottext">principal_roles :: (Maybe [PermissionInfo] -&gt; f (Maybe [PermissionInfo]))
+</span><span id="line-63"></span><span class="hs-comment">-- | The permission information for the resource.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.WorkDocs.Types.Principal.html#principal_roles"><span class="hs-identifier hs-type">principal_roles</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.Principal.html#Principal"><span class="hs-identifier hs-type">Principal</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.PermissionInfo.html#PermissionInfo"><span class="hs-identifier hs-type">PermissionInfo</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span id="principal_roles"><span class="annot"><span class="annottext">principal_roles :: (Maybe [PermissionInfo] -&gt; f (Maybe [PermissionInfo]))
 -&gt; Principal -&gt; f Principal
 </span><a href="Network.AWS.WorkDocs.Types.Principal.html#principal_roles"><span class="hs-identifier hs-var hs-var">principal_roles</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Principal -&gt; Maybe [PermissionInfo])
 -&gt; (Principal -&gt; Maybe [PermissionInfo] -&gt; Principal)
@@ -156,16 +138,16 @@ $sel:id:Principal' :: Principal -&gt; Maybe Text
      (Maybe [PermissionInfo])
      (Maybe [PermissionInfo])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.Principal.html#Principal%27"><span class="hs-identifier hs-type">Principal'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263280"><span class="annot"><span class="annottext">Maybe [PermissionInfo]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.Principal.html#Principal%27"><span class="hs-identifier hs-type">Principal'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263409"><span class="annot"><span class="annottext">Maybe [PermissionInfo]
 roles :: Maybe [PermissionInfo]
 $sel:roles:Principal' :: Principal -&gt; Maybe [PermissionInfo]
-</span><a href="#local-6989586621679263280"><span class="hs-identifier hs-var hs-var">roles</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PermissionInfo]
-</span><a href="#local-6989586621679263280"><span class="hs-identifier hs-var">roles</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263279"><span class="annot"><span class="annottext">s :: Principal
-</span><a href="#local-6989586621679263279"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.Principal.html#Principal%27"><span class="hs-identifier hs-type">Principal'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263278"><span class="annot"><span class="annottext">Maybe [PermissionInfo]
-</span><a href="#local-6989586621679263278"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Principal
-</span><a href="#local-6989586621679263279"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roles:Principal' :: Maybe [PermissionInfo]
+</span><a href="#local-6989586621679263409"><span class="hs-identifier hs-var hs-var">roles</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PermissionInfo]
+</span><a href="#local-6989586621679263409"><span class="hs-identifier hs-var">roles</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263408"><span class="annot"><span class="annottext">s :: Principal
+</span><a href="#local-6989586621679263408"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.Principal.html#Principal%27"><span class="hs-identifier hs-type">Principal'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263407"><span class="annot"><span class="annottext">Maybe [PermissionInfo]
+</span><a href="#local-6989586621679263407"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Principal
+</span><a href="#local-6989586621679263408"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roles:Principal' :: Maybe [PermissionInfo]
 </span><a href="Network.AWS.WorkDocs.Types.Principal.html#%24sel%3Aroles%3APrincipal%27"><span class="hs-identifier hs-var">roles</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PermissionInfo]
-</span><a href="#local-6989586621679263278"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.Principal.html#Principal"><span class="hs-identifier hs-type">Principal</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PermissionInfo] -&gt; f (Maybe [PermissionInfo]))
+</span><a href="#local-6989586621679263407"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.Principal.html#Principal"><span class="hs-identifier hs-type">Principal</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PermissionInfo] -&gt; f (Maybe [PermissionInfo]))
  -&gt; Principal -&gt; f Principal)
 -&gt; ((Maybe [PermissionInfo] -&gt; f (Maybe [PermissionInfo]))
     -&gt; Maybe [PermissionInfo] -&gt; f (Maybe [PermissionInfo]))
@@ -185,8 +167,26 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
   [PermissionInfo] [PermissionInfo] [PermissionInfo] [PermissionInfo]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- | The ID of the resource.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.WorkDocs.Types.Principal.html#principal_id"><span class="hs-identifier hs-type">principal_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.Principal.html#Principal"><span class="hs-identifier hs-type">Principal</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span id="principal_id"><span class="annot"><span class="annottext">principal_id :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Principal -&gt; f Principal
+</span><a href="Network.AWS.WorkDocs.Types.Principal.html#principal_id"><span class="hs-identifier hs-var hs-var">principal_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Principal -&gt; Maybe Text)
+-&gt; (Principal -&gt; Maybe Text -&gt; Principal)
+-&gt; Lens Principal Principal (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.Principal.html#Principal%27"><span class="hs-identifier hs-type">Principal'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263402"><span class="annot"><span class="annottext">Maybe Text
+id :: Maybe Text
+$sel:id:Principal' :: Principal -&gt; Maybe Text
+</span><a href="#local-6989586621679263402"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263402"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263401"><span class="annot"><span class="annottext">s :: Principal
+</span><a href="#local-6989586621679263401"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.Principal.html#Principal%27"><span class="hs-identifier hs-type">Principal'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263400"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263400"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Principal
+</span><a href="#local-6989586621679263401"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:Principal' :: Maybe Text
+</span><a href="Network.AWS.WorkDocs.Types.Principal.html#%24sel%3Aid%3APrincipal%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263400"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.Principal.html#Principal"><span class="hs-identifier hs-type">Principal</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-70"></span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- | The type of resource.</span><span>
 </span><span id="line-72"></span><span class="annot"><a href="Network.AWS.WorkDocs.Types.Principal.html#principal_type"><span class="hs-identifier hs-type">principal_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.Principal.html#Principal"><span class="hs-identifier hs-type">Principal</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.PrincipalType.html#PrincipalType"><span class="hs-identifier hs-type">PrincipalType</span></a></span><span class="hs-special">)</span><span>
@@ -197,47 +197,37 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; Lens
      Principal Principal (Maybe PrincipalType) (Maybe PrincipalType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.Principal.html#Principal%27"><span class="hs-identifier hs-type">Principal'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263273"><span class="annot"><span class="annottext">Maybe PrincipalType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.Principal.html#Principal%27"><span class="hs-identifier hs-type">Principal'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263398"><span class="annot"><span class="annottext">Maybe PrincipalType
 type' :: Maybe PrincipalType
 $sel:type':Principal' :: Principal -&gt; Maybe PrincipalType
-</span><a href="#local-6989586621679263273"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PrincipalType
-</span><a href="#local-6989586621679263273"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263272"><span class="annot"><span class="annottext">s :: Principal
-</span><a href="#local-6989586621679263272"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.Principal.html#Principal%27"><span class="hs-identifier hs-type">Principal'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263271"><span class="annot"><span class="annottext">Maybe PrincipalType
-</span><a href="#local-6989586621679263271"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Principal
-</span><a href="#local-6989586621679263272"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':Principal' :: Maybe PrincipalType
+</span><a href="#local-6989586621679263398"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PrincipalType
+</span><a href="#local-6989586621679263398"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263397"><span class="annot"><span class="annottext">s :: Principal
+</span><a href="#local-6989586621679263397"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.Principal.html#Principal%27"><span class="hs-identifier hs-type">Principal'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263396"><span class="annot"><span class="annottext">Maybe PrincipalType
+</span><a href="#local-6989586621679263396"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Principal
+</span><a href="#local-6989586621679263397"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':Principal' :: Maybe PrincipalType
 </span><a href="Network.AWS.WorkDocs.Types.Principal.html#%24sel%3Atype%27%3APrincipal%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PrincipalType
-</span><a href="#local-6989586621679263271"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.Principal.html#Principal"><span class="hs-identifier hs-type">Principal</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679263396"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.Principal.html#Principal"><span class="hs-identifier hs-type">Principal</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679263268"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.Principal.html#Principal"><span class="hs-identifier hs-type">Principal</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-76"></span><span>  </span><span id="local-6989586621679263266"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Principal
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679263393"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.Principal.html#Principal"><span class="hs-identifier hs-type">Principal</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679263391"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Principal
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Principal) -&gt; Value -&gt; Parser Principal
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Principal&quot;</span></span><span>
-</span><span id="line-79"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679263263"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679263263"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-80"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe [PermissionInfo] -&gt; Maybe PrincipalType -&gt; Principal
+</span><span id="line-79"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679263388"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679263388"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-80"></span><span>          </span><span class="annot"><span class="annottext">Maybe [PermissionInfo]
+-&gt; Maybe Text -&gt; Maybe PrincipalType -&gt; Principal
 </span><a href="Network.AWS.WorkDocs.Types.Principal.html#Principal%27"><span class="hs-identifier hs-var">Principal'</span></a></span><span>
-</span><span id="line-81"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe [PermissionInfo] -&gt; Maybe PrincipalType -&gt; Principal)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe [PermissionInfo] -&gt; Maybe PrincipalType -&gt; Principal)
+</span><span id="line-81"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [PermissionInfo]
+ -&gt; Maybe Text -&gt; Maybe PrincipalType -&gt; Principal)
+-&gt; Parser (Maybe [PermissionInfo])
+-&gt; Parser (Maybe Text -&gt; Maybe PrincipalType -&gt; Principal)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679263263"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [PermissionInfo] -&gt; Maybe PrincipalType -&gt; Principal)
--&gt; Parser (Maybe [PermissionInfo])
--&gt; Parser (Maybe PrincipalType -&gt; Principal)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679263263"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [PermissionInfo]))
+</span><a href="#local-6989586621679263388"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [PermissionInfo]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Roles&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [PermissionInfo]))
@@ -246,17 +236,25 @@ forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [PermissionInfo]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe PrincipalType -&gt; Principal)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe PrincipalType -&gt; Principal)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679263388"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe PrincipalType -&gt; Principal)
 -&gt; Parser (Maybe PrincipalType) -&gt; Parser Principal
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679263263"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe PrincipalType)
+</span><a href="#local-6989586621679263388"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe PrincipalType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679263256"><span id="local-6989586621679263258"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.Principal.html#Principal"><span class="hs-identifier hs-type">Principal</span></a></span></span></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679263381"><span id="local-6989586621679263383"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.Principal.html#Principal"><span class="hs-identifier hs-type">Principal</span></a></span></span></span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679263253"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.Principal.html#Principal"><span class="hs-identifier hs-type">Principal</span></a></span></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679263378"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.Principal.html#Principal"><span class="hs-identifier hs-type">Principal</span></a></span></span><span>
 </span><span id="line-89"></span></pre></body></html>

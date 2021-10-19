@@ -35,7 +35,7 @@
 </span><span id="line-35"></span><span class="hs-comment">-- resources.</span><span>
 </span><span id="line-36"></span><span class="hs-comment">--</span><span>
 </span><span id="line-37"></span><span class="hs-comment">-- /See:/ 'newEc2Configuration' smart constructor.</span><span>
-</span><span id="line-38"></span><span id="local-6989586621679260030"><span id="local-6989586621679260031"></span></span><span class="hs-keyword">data</span><span> </span><span id="Ec2Configuration"><span class="annot"><a href="Network.AWS.Batch.Types.Ec2Configuration.html#Ec2Configuration"><span class="hs-identifier hs-var">Ec2Configuration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Ec2Configuration%27"><span class="annot"><a href="Network.AWS.Batch.Types.Ec2Configuration.html#Ec2Configuration%27"><span class="hs-identifier hs-var">Ec2Configuration'</span></a></span></span><span>
+</span><span id="line-38"></span><span id="local-6989586621679260311"><span id="local-6989586621679260312"></span></span><span class="hs-keyword">data</span><span> </span><span id="Ec2Configuration"><span class="annot"><a href="Network.AWS.Batch.Types.Ec2Configuration.html#Ec2Configuration"><span class="hs-identifier hs-var">Ec2Configuration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Ec2Configuration%27"><span class="annot"><a href="Network.AWS.Batch.Types.Ec2Configuration.html#Ec2Configuration%27"><span class="hs-identifier hs-var">Ec2Configuration'</span></a></span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The AMI ID used for instances launched in the compute environment that</span><span>
 </span><span id="line-40"></span><span>    </span><span class="hs-comment">-- match the image type. This setting overrides the @imageId@ set in the</span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-comment">-- @computeResource@ object.</span><span>
@@ -68,7 +68,7 @@
 </span><span id="line-67"></span><span>    </span><span id="%24sel%3AimageType%3AEc2Configuration%27"><span class="annot"><span class="annottext">Ec2Configuration -&gt; Text
 </span><a href="Network.AWS.Batch.Types.Ec2Configuration.html#%24sel%3AimageType%3AEc2Configuration%27"><span class="hs-identifier hs-var hs-var">imageType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-68"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679260023"><span id="local-6989586621679260025"><span class="annot"><span class="annottext">Ec2Configuration -&gt; Ec2Configuration -&gt; Bool
+</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679260304"><span id="local-6989586621679260306"><span class="annot"><span class="annottext">Ec2Configuration -&gt; Ec2Configuration -&gt; Bool
 (Ec2Configuration -&gt; Ec2Configuration -&gt; Bool)
 -&gt; (Ec2Configuration -&gt; Ec2Configuration -&gt; Bool)
 -&gt; Eq Ec2Configuration
@@ -77,7 +77,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Ec2Configuration -&gt; Ec2Configuration -&gt; Bool
 == :: Ec2Configuration -&gt; Ec2Configuration -&gt; Bool
 $c== :: Ec2Configuration -&gt; Ec2Configuration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679260014"><span id="local-6989586621679260016"><span id="local-6989586621679260018"><span id="local-6989586621679260020"><span class="annot"><span class="annottext">ReadPrec [Ec2Configuration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679260295"><span id="local-6989586621679260297"><span id="local-6989586621679260299"><span id="local-6989586621679260301"><span class="annot"><span class="annottext">ReadPrec [Ec2Configuration]
 ReadPrec Ec2Configuration
 Int -&gt; ReadS Ec2Configuration
 ReadS [Ec2Configuration]
@@ -97,7 +97,7 @@ readList :: ReadS [Ec2Configuration]
 $creadList :: ReadS [Ec2Configuration]
 readsPrec :: Int -&gt; ReadS Ec2Configuration
 $creadsPrec :: Int -&gt; ReadS Ec2Configuration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679260007"><span id="local-6989586621679260009"><span id="local-6989586621679260011"><span class="annot"><span class="annottext">Int -&gt; Ec2Configuration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679260288"><span id="local-6989586621679260290"><span id="local-6989586621679260292"><span class="annot"><span class="annottext">Int -&gt; Ec2Configuration -&gt; ShowS
 [Ec2Configuration] -&gt; ShowS
 Ec2Configuration -&gt; String
 (Int -&gt; Ec2Configuration -&gt; ShowS)
@@ -164,8 +164,8 @@ $cfrom :: forall x. Ec2Configuration -&gt; Rep Ec2Configuration x
 </span><span id="line-109"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-110"></span><span>  </span><span class="annot"><a href="Network.AWS.Batch.Types.Ec2Configuration.html#Ec2Configuration"><span class="hs-identifier hs-type">Ec2Configuration</span></a></span><span>
 </span><span id="line-111"></span><span id="newEc2Configuration"><span class="annot"><span class="annottext">newEc2Configuration :: Text -&gt; Ec2Configuration
-</span><a href="Network.AWS.Batch.Types.Ec2Configuration.html#newEc2Configuration"><span class="hs-identifier hs-var hs-var">newEc2Configuration</span></a></span></span><span> </span><span id="local-6989586621679260001"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679260001"><span class="hs-identifier hs-var">pImageType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Batch.Types.Ec2Configuration.html#newEc2Configuration"><span class="hs-identifier hs-var hs-var">newEc2Configuration</span></a></span></span><span> </span><span id="local-6989586621679260282"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679260282"><span class="hs-identifier hs-var">pImageType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-112"></span><span>  </span><span class="annot"><span class="annottext">Ec2Configuration' :: Maybe Text -&gt; Text -&gt; Ec2Configuration
 </span><a href="Network.AWS.Batch.Types.Ec2Configuration.html#Ec2Configuration%27"><span class="hs-identifier hs-type">Ec2Configuration'</span></a></span><span>
 </span><span id="line-113"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:imageIdOverride:Ec2Configuration' :: Maybe Text
@@ -175,7 +175,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:imageType:Ec2Configuration' :: Text
 </span><a href="Network.AWS.Batch.Types.Ec2Configuration.html#%24sel%3AimageType%3AEc2Configuration%27"><span class="hs-identifier hs-var">imageType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679260001"><span class="hs-identifier hs-var">pImageType_</span></a></span><span>
+</span><a href="#local-6989586621679260282"><span class="hs-identifier hs-var">pImageType_</span></a></span><span>
 </span><span id="line-116"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-comment">-- | The AMI ID used for instances launched in the compute environment that</span><span>
@@ -188,16 +188,16 @@ forall a. Maybe a
 -&gt; (Ec2Configuration -&gt; Maybe Text -&gt; Ec2Configuration)
 -&gt; Lens Ec2Configuration Ec2Configuration (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.Ec2Configuration.html#Ec2Configuration%27"><span class="hs-identifier hs-type">Ec2Configuration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259997"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.Ec2Configuration.html#Ec2Configuration%27"><span class="hs-identifier hs-type">Ec2Configuration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260278"><span class="annot"><span class="annottext">Maybe Text
 imageIdOverride :: Maybe Text
 $sel:imageIdOverride:Ec2Configuration' :: Ec2Configuration -&gt; Maybe Text
-</span><a href="#local-6989586621679259997"><span class="hs-identifier hs-var hs-var">imageIdOverride</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259997"><span class="hs-identifier hs-var">imageIdOverride</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259996"><span class="annot"><span class="annottext">s :: Ec2Configuration
-</span><a href="#local-6989586621679259996"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.Ec2Configuration.html#Ec2Configuration%27"><span class="hs-identifier hs-type">Ec2Configuration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259995"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259995"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Ec2Configuration
-</span><a href="#local-6989586621679259996"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageIdOverride:Ec2Configuration' :: Maybe Text
+</span><a href="#local-6989586621679260278"><span class="hs-identifier hs-var hs-var">imageIdOverride</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679260278"><span class="hs-identifier hs-var">imageIdOverride</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260277"><span class="annot"><span class="annottext">s :: Ec2Configuration
+</span><a href="#local-6989586621679260277"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.Ec2Configuration.html#Ec2Configuration%27"><span class="hs-identifier hs-type">Ec2Configuration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260276"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679260276"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Ec2Configuration
+</span><a href="#local-6989586621679260277"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageIdOverride:Ec2Configuration' :: Maybe Text
 </span><a href="Network.AWS.Batch.Types.Ec2Configuration.html#%24sel%3AimageIdOverride%3AEc2Configuration%27"><span class="hs-identifier hs-var">imageIdOverride</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259995"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.Ec2Configuration.html#Ec2Configuration"><span class="hs-identifier hs-type">Ec2Configuration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679260276"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.Ec2Configuration.html#Ec2Configuration"><span class="hs-identifier hs-type">Ec2Configuration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-comment">-- | The image type to match with the instance type to select an AMI. If the</span><span>
 </span><span id="line-125"></span><span class="hs-comment">-- @imageIdOverride@ parameter isn\'t specified, then a recent</span><span>
@@ -229,19 +229,19 @@ $sel:imageIdOverride:Ec2Configuration' :: Ec2Configuration -&gt; Maybe Text
 -&gt; (Ec2Configuration -&gt; Text -&gt; Ec2Configuration)
 -&gt; Lens Ec2Configuration Ec2Configuration Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.Ec2Configuration.html#Ec2Configuration%27"><span class="hs-identifier hs-type">Ec2Configuration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259993"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.Ec2Configuration.html#Ec2Configuration%27"><span class="hs-identifier hs-type">Ec2Configuration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260274"><span class="annot"><span class="annottext">Text
 imageType :: Text
 $sel:imageType:Ec2Configuration' :: Ec2Configuration -&gt; Text
-</span><a href="#local-6989586621679259993"><span class="hs-identifier hs-var hs-var">imageType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679259993"><span class="hs-identifier hs-var">imageType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259992"><span class="annot"><span class="annottext">s :: Ec2Configuration
-</span><a href="#local-6989586621679259992"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.Ec2Configuration.html#Ec2Configuration%27"><span class="hs-identifier hs-type">Ec2Configuration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259991"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679259991"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Ec2Configuration
-</span><a href="#local-6989586621679259992"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageType:Ec2Configuration' :: Text
+</span><a href="#local-6989586621679260274"><span class="hs-identifier hs-var hs-var">imageType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679260274"><span class="hs-identifier hs-var">imageType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260273"><span class="annot"><span class="annottext">s :: Ec2Configuration
+</span><a href="#local-6989586621679260273"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.Ec2Configuration.html#Ec2Configuration%27"><span class="hs-identifier hs-type">Ec2Configuration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260272"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679260272"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Ec2Configuration
+</span><a href="#local-6989586621679260273"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageType:Ec2Configuration' :: Text
 </span><a href="Network.AWS.Batch.Types.Ec2Configuration.html#%24sel%3AimageType%3AEc2Configuration%27"><span class="hs-identifier hs-var">imageType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679259991"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.Ec2Configuration.html#Ec2Configuration"><span class="hs-identifier hs-type">Ec2Configuration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679260272"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.Ec2Configuration.html#Ec2Configuration"><span class="hs-identifier hs-type">Ec2Configuration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>
-</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259988"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.Ec2Configuration.html#Ec2Configuration"><span class="hs-identifier hs-type">Ec2Configuration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-152"></span><span>  </span><span id="local-6989586621679259986"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Ec2Configuration
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679260269"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.Ec2Configuration.html#Ec2Configuration"><span class="hs-identifier hs-type">Ec2Configuration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679260267"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Ec2Configuration
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-153"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser Ec2Configuration)
@@ -251,15 +251,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-154"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Ec2Configuration&quot;</span></span><span>
-</span><span id="line-155"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679259983"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679259983"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-155"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679260264"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679260264"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-156"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Text -&gt; Ec2Configuration
 </span><a href="Network.AWS.Batch.Types.Ec2Configuration.html#Ec2Configuration%27"><span class="hs-identifier hs-var">Ec2Configuration'</span></a></span><span>
 </span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Text -&gt; Ec2Configuration)
 -&gt; Parser (Maybe Text) -&gt; Parser (Text -&gt; Ec2Configuration)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679259983"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679260264"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;imageIdOverride&quot;</span></span><span class="hs-special">)</span><span>
@@ -267,25 +267,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Text -&gt; Parser Ec2Configuration
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679259983"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679260264"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;imageType&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-160"></span><span>
-</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259976"><span id="local-6989586621679259978"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.Ec2Configuration.html#Ec2Configuration"><span class="hs-identifier hs-type">Ec2Configuration</span></a></span></span></span><span>
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679260257"><span id="local-6989586621679260259"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.Ec2Configuration.html#Ec2Configuration"><span class="hs-identifier hs-type">Ec2Configuration</span></a></span></span></span><span>
 </span><span id="line-162"></span><span>
-</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259973"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.Ec2Configuration.html#Ec2Configuration"><span class="hs-identifier hs-type">Ec2Configuration</span></a></span></span><span>
+</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679260254"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.Ec2Configuration.html#Ec2Configuration"><span class="hs-identifier hs-type">Ec2Configuration</span></a></span></span><span>
 </span><span id="line-164"></span><span>
-</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259965"><span id="local-6989586621679259967"><span id="local-6989586621679259969"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.Ec2Configuration.html#Ec2Configuration"><span class="hs-identifier hs-type">Ec2Configuration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-166"></span><span>  </span><span id="local-6989586621679259963"><span class="annot"><span class="annottext">toJSON :: Ec2Configuration -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.Ec2Configuration.html#Ec2Configuration%27"><span class="hs-identifier hs-type">Ec2Configuration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259960"><span id="local-6989586621679259961"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679260246"><span id="local-6989586621679260248"><span id="local-6989586621679260250"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.Ec2Configuration.html#Ec2Configuration"><span class="hs-identifier hs-type">Ec2Configuration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679260244"><span class="annot"><span class="annottext">toJSON :: Ec2Configuration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.Ec2Configuration.html#Ec2Configuration%27"><span class="hs-identifier hs-type">Ec2Configuration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260241"><span id="local-6989586621679260242"><span class="annot"><span class="annottext">Maybe Text
 Text
 imageType :: Text
 imageIdOverride :: Maybe Text
 $sel:imageType:Ec2Configuration' :: Ec2Configuration -&gt; Text
 $sel:imageIdOverride:Ec2Configuration' :: Ec2Configuration -&gt; Maybe Text
-</span><a href="#local-6989586621679259960"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679260241"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-167"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-168"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -298,14 +298,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-170"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259961"><span class="hs-identifier hs-var">imageIdOverride</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679260242"><span class="hs-identifier hs-var">imageIdOverride</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-171"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;imageType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679259960"><span class="hs-identifier hs-var">imageType</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679260241"><span class="hs-identifier hs-var">imageType</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-172"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-173"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span></pre></body></html>

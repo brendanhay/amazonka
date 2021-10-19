@@ -26,15 +26,15 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Details about the error.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newErrorDetail' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679342577"><span id="local-6989586621679342578"></span></span><span class="hs-keyword">data</span><span> </span><span id="ErrorDetail"><span class="annot"><a href="Network.AWS.Greengrass.Types.ErrorDetail.html#ErrorDetail"><span class="hs-identifier hs-var">ErrorDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ErrorDetail%27"><span class="annot"><a href="Network.AWS.Greengrass.Types.ErrorDetail.html#ErrorDetail%27"><span class="hs-identifier hs-var">ErrorDetail'</span></a></span></span><span>
-</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A detailed error message.</span><span>
-</span><span id="line-31"></span><span>    </span><span id="%24sel%3AdetailedErrorMessage%3AErrorDetail%27"><span class="annot"><span class="annottext">ErrorDetail -&gt; Maybe Text
-</span><a href="Network.AWS.Greengrass.Types.ErrorDetail.html#%24sel%3AdetailedErrorMessage%3AErrorDetail%27"><span class="hs-identifier hs-var hs-var">detailedErrorMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | A detailed error code.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AdetailedErrorCode%3AErrorDetail%27"><span class="annot"><span class="annottext">ErrorDetail -&gt; Maybe Text
-</span><a href="Network.AWS.Greengrass.Types.ErrorDetail.html#%24sel%3AdetailedErrorCode%3AErrorDetail%27"><span class="hs-identifier hs-var hs-var">detailedErrorCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679342831"><span id="local-6989586621679342832"></span></span><span class="hs-keyword">data</span><span> </span><span id="ErrorDetail"><span class="annot"><a href="Network.AWS.Greengrass.Types.ErrorDetail.html#ErrorDetail"><span class="hs-identifier hs-var">ErrorDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ErrorDetail%27"><span class="annot"><a href="Network.AWS.Greengrass.Types.ErrorDetail.html#ErrorDetail%27"><span class="hs-identifier hs-var">ErrorDetail'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A detailed error code.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3AdetailedErrorCode%3AErrorDetail%27"><span class="annot"><span class="annottext">ErrorDetail -&gt; Maybe Text
+</span><a href="Network.AWS.Greengrass.Types.ErrorDetail.html#%24sel%3AdetailedErrorCode%3AErrorDetail%27"><span class="hs-identifier hs-var hs-var">detailedErrorCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | A detailed error message.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AdetailedErrorMessage%3AErrorDetail%27"><span class="annot"><span class="annottext">ErrorDetail -&gt; Maybe Text
+</span><a href="Network.AWS.Greengrass.Types.ErrorDetail.html#%24sel%3AdetailedErrorMessage%3AErrorDetail%27"><span class="hs-identifier hs-var hs-var">detailedErrorMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679342570"><span id="local-6989586621679342572"><span class="annot"><span class="annottext">ErrorDetail -&gt; ErrorDetail -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679342824"><span id="local-6989586621679342826"><span class="annot"><span class="annottext">ErrorDetail -&gt; ErrorDetail -&gt; Bool
 (ErrorDetail -&gt; ErrorDetail -&gt; Bool)
 -&gt; (ErrorDetail -&gt; ErrorDetail -&gt; Bool) -&gt; Eq ErrorDetail
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -42,7 +42,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ErrorDetail -&gt; ErrorDetail -&gt; Bool
 == :: ErrorDetail -&gt; ErrorDetail -&gt; Bool
 $c== :: ErrorDetail -&gt; ErrorDetail -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679342561"><span id="local-6989586621679342563"><span id="local-6989586621679342565"><span id="local-6989586621679342567"><span class="annot"><span class="annottext">ReadPrec [ErrorDetail]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679342815"><span id="local-6989586621679342817"><span id="local-6989586621679342819"><span id="local-6989586621679342821"><span class="annot"><span class="annottext">ReadPrec [ErrorDetail]
 ReadPrec ErrorDetail
 Int -&gt; ReadS ErrorDetail
 ReadS [ErrorDetail]
@@ -62,7 +62,7 @@ readList :: ReadS [ErrorDetail]
 $creadList :: ReadS [ErrorDetail]
 readsPrec :: Int -&gt; ReadS ErrorDetail
 $creadsPrec :: Int -&gt; ReadS ErrorDetail
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679342554"><span id="local-6989586621679342556"><span id="local-6989586621679342558"><span class="annot"><span class="annottext">Int -&gt; ErrorDetail -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679342808"><span id="local-6989586621679342810"><span id="local-6989586621679342812"><span class="annot"><span class="annottext">Int -&gt; ErrorDetail -&gt; ShowS
 [ErrorDetail] -&gt; ShowS
 ErrorDetail -&gt; String
 (Int -&gt; ErrorDetail -&gt; ShowS)
@@ -96,94 +96,93 @@ $cfrom :: forall x. ErrorDetail -&gt; Rep ErrorDetail x
 </span><span id="line-42"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-43"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-44"></span><span class="hs-comment">--</span><span>
-</span><span id="line-45"></span><span class="hs-comment">-- 'detailedErrorMessage', 'errorDetail_detailedErrorMessage' - A detailed error message.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- 'detailedErrorCode', 'errorDetail_detailedErrorCode' - A detailed error code.</span><span>
 </span><span id="line-46"></span><span class="hs-comment">--</span><span>
-</span><span id="line-47"></span><span class="hs-comment">-- 'detailedErrorCode', 'errorDetail_detailedErrorCode' - A detailed error code.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'detailedErrorMessage', 'errorDetail_detailedErrorMessage' - A detailed error message.</span><span>
 </span><span id="line-48"></span><span class="annot"><a href="Network.AWS.Greengrass.Types.ErrorDetail.html#newErrorDetail"><span class="hs-identifier hs-type">newErrorDetail</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-49"></span><span>  </span><span class="annot"><a href="Network.AWS.Greengrass.Types.ErrorDetail.html#ErrorDetail"><span class="hs-identifier hs-type">ErrorDetail</span></a></span><span>
 </span><span id="line-50"></span><span id="newErrorDetail"><span class="annot"><span class="annottext">newErrorDetail :: ErrorDetail
 </span><a href="Network.AWS.Greengrass.Types.ErrorDetail.html#newErrorDetail"><span class="hs-identifier hs-var hs-var">newErrorDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-51"></span><span>  </span><span class="annot"><span class="annottext">ErrorDetail' :: Maybe Text -&gt; Maybe Text -&gt; ErrorDetail
 </span><a href="Network.AWS.Greengrass.Types.ErrorDetail.html#ErrorDetail%27"><span class="hs-identifier hs-type">ErrorDetail'</span></a></span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:detailedErrorMessage:ErrorDetail' :: Maybe Text
-</span><a href="Network.AWS.Greengrass.Types.ErrorDetail.html#%24sel%3AdetailedErrorMessage%3AErrorDetail%27"><span class="hs-identifier hs-var">detailedErrorMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-53"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span class="annot"><span class="annottext">$sel:detailedErrorCode:ErrorDetail' :: Maybe Text
+</span><span id="line-52"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:detailedErrorCode:ErrorDetail' :: Maybe Text
 </span><a href="Network.AWS.Greengrass.Types.ErrorDetail.html#%24sel%3AdetailedErrorCode%3AErrorDetail%27"><span class="hs-identifier hs-var">detailedErrorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-56"></span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- | A detailed error message.</span><span>
-</span><span id="line-58"></span><span class="annot"><a href="Network.AWS.Greengrass.Types.ErrorDetail.html#errorDetail_detailedErrorMessage"><span class="hs-identifier hs-type">errorDetail_detailedErrorMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.ErrorDetail.html#ErrorDetail"><span class="hs-identifier hs-type">ErrorDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-59"></span><span id="errorDetail_detailedErrorMessage"><span class="annot"><span class="annottext">errorDetail_detailedErrorMessage :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ErrorDetail -&gt; f ErrorDetail
-</span><a href="Network.AWS.Greengrass.Types.ErrorDetail.html#errorDetail_detailedErrorMessage"><span class="hs-identifier hs-var hs-var">errorDetail_detailedErrorMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ErrorDetail -&gt; Maybe Text)
--&gt; (ErrorDetail -&gt; Maybe Text -&gt; ErrorDetail)
--&gt; Lens ErrorDetail ErrorDetail (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.Types.ErrorDetail.html#ErrorDetail%27"><span class="hs-identifier hs-type">ErrorDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342545"><span class="annot"><span class="annottext">Maybe Text
-detailedErrorMessage :: Maybe Text
-$sel:detailedErrorMessage:ErrorDetail' :: ErrorDetail -&gt; Maybe Text
-</span><a href="#local-6989586621679342545"><span class="hs-identifier hs-var hs-var">detailedErrorMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679342545"><span class="hs-identifier hs-var">detailedErrorMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342544"><span class="annot"><span class="annottext">s :: ErrorDetail
-</span><a href="#local-6989586621679342544"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.Types.ErrorDetail.html#ErrorDetail%27"><span class="hs-identifier hs-type">ErrorDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342543"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679342543"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ErrorDetail
-</span><a href="#local-6989586621679342544"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:detailedErrorMessage:ErrorDetail' :: Maybe Text
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span class="annot"><span class="annottext">$sel:detailedErrorMessage:ErrorDetail' :: Maybe Text
 </span><a href="Network.AWS.Greengrass.Types.ErrorDetail.html#%24sel%3AdetailedErrorMessage%3AErrorDetail%27"><span class="hs-identifier hs-var">detailedErrorMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679342543"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.ErrorDetail.html#ErrorDetail"><span class="hs-identifier hs-type">ErrorDetail</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- | A detailed error code.</span><span>
-</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.Greengrass.Types.ErrorDetail.html#errorDetail_detailedErrorCode"><span class="hs-identifier hs-type">errorDetail_detailedErrorCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.ErrorDetail.html#ErrorDetail"><span class="hs-identifier hs-type">ErrorDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-63"></span><span id="errorDetail_detailedErrorCode"><span class="annot"><span class="annottext">errorDetail_detailedErrorCode :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ErrorDetail -&gt; f ErrorDetail
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- | A detailed error code.</span><span>
+</span><span id="line-57"></span><span class="annot"><a href="Network.AWS.Greengrass.Types.ErrorDetail.html#errorDetail_detailedErrorCode"><span class="hs-identifier hs-type">errorDetail_detailedErrorCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.ErrorDetail.html#ErrorDetail"><span class="hs-identifier hs-type">ErrorDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span id="errorDetail_detailedErrorCode"><span class="annot"><span class="annottext">errorDetail_detailedErrorCode :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ErrorDetail -&gt; f ErrorDetail
 </span><a href="Network.AWS.Greengrass.Types.ErrorDetail.html#errorDetail_detailedErrorCode"><span class="hs-identifier hs-var hs-var">errorDetail_detailedErrorCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ErrorDetail -&gt; Maybe Text)
 -&gt; (ErrorDetail -&gt; Maybe Text -&gt; ErrorDetail)
 -&gt; Lens ErrorDetail ErrorDetail (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.Types.ErrorDetail.html#ErrorDetail%27"><span class="hs-identifier hs-type">ErrorDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342541"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.Types.ErrorDetail.html#ErrorDetail%27"><span class="hs-identifier hs-type">ErrorDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342799"><span class="annot"><span class="annottext">Maybe Text
 detailedErrorCode :: Maybe Text
 $sel:detailedErrorCode:ErrorDetail' :: ErrorDetail -&gt; Maybe Text
-</span><a href="#local-6989586621679342541"><span class="hs-identifier hs-var hs-var">detailedErrorCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679342541"><span class="hs-identifier hs-var">detailedErrorCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342540"><span class="annot"><span class="annottext">s :: ErrorDetail
-</span><a href="#local-6989586621679342540"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.Types.ErrorDetail.html#ErrorDetail%27"><span class="hs-identifier hs-type">ErrorDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342539"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679342539"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ErrorDetail
-</span><a href="#local-6989586621679342540"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:detailedErrorCode:ErrorDetail' :: Maybe Text
+</span><a href="#local-6989586621679342799"><span class="hs-identifier hs-var hs-var">detailedErrorCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679342799"><span class="hs-identifier hs-var">detailedErrorCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342798"><span class="annot"><span class="annottext">s :: ErrorDetail
+</span><a href="#local-6989586621679342798"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.Types.ErrorDetail.html#ErrorDetail%27"><span class="hs-identifier hs-type">ErrorDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342797"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679342797"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ErrorDetail
+</span><a href="#local-6989586621679342798"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:detailedErrorCode:ErrorDetail' :: Maybe Text
 </span><a href="Network.AWS.Greengrass.Types.ErrorDetail.html#%24sel%3AdetailedErrorCode%3AErrorDetail%27"><span class="hs-identifier hs-var">detailedErrorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679342539"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.ErrorDetail.html#ErrorDetail"><span class="hs-identifier hs-type">ErrorDetail</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679342536"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.ErrorDetail.html#ErrorDetail"><span class="hs-identifier hs-type">ErrorDetail</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-66"></span><span>  </span><span id="local-6989586621679342534"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ErrorDetail
+</span><a href="#local-6989586621679342797"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.ErrorDetail.html#ErrorDetail"><span class="hs-identifier hs-type">ErrorDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- | A detailed error message.</span><span>
+</span><span id="line-61"></span><span class="annot"><a href="Network.AWS.Greengrass.Types.ErrorDetail.html#errorDetail_detailedErrorMessage"><span class="hs-identifier hs-type">errorDetail_detailedErrorMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.ErrorDetail.html#ErrorDetail"><span class="hs-identifier hs-type">ErrorDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span id="errorDetail_detailedErrorMessage"><span class="annot"><span class="annottext">errorDetail_detailedErrorMessage :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ErrorDetail -&gt; f ErrorDetail
+</span><a href="Network.AWS.Greengrass.Types.ErrorDetail.html#errorDetail_detailedErrorMessage"><span class="hs-identifier hs-var hs-var">errorDetail_detailedErrorMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ErrorDetail -&gt; Maybe Text)
+-&gt; (ErrorDetail -&gt; Maybe Text -&gt; ErrorDetail)
+-&gt; Lens ErrorDetail ErrorDetail (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.Types.ErrorDetail.html#ErrorDetail%27"><span class="hs-identifier hs-type">ErrorDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342795"><span class="annot"><span class="annottext">Maybe Text
+detailedErrorMessage :: Maybe Text
+$sel:detailedErrorMessage:ErrorDetail' :: ErrorDetail -&gt; Maybe Text
+</span><a href="#local-6989586621679342795"><span class="hs-identifier hs-var hs-var">detailedErrorMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679342795"><span class="hs-identifier hs-var">detailedErrorMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342794"><span class="annot"><span class="annottext">s :: ErrorDetail
+</span><a href="#local-6989586621679342794"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.Types.ErrorDetail.html#ErrorDetail%27"><span class="hs-identifier hs-type">ErrorDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342793"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679342793"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ErrorDetail
+</span><a href="#local-6989586621679342794"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:detailedErrorMessage:ErrorDetail' :: Maybe Text
+</span><a href="Network.AWS.Greengrass.Types.ErrorDetail.html#%24sel%3AdetailedErrorMessage%3AErrorDetail%27"><span class="hs-identifier hs-var">detailedErrorMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679342793"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.ErrorDetail.html#ErrorDetail"><span class="hs-identifier hs-type">ErrorDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679342790"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.ErrorDetail.html#ErrorDetail"><span class="hs-identifier hs-type">ErrorDetail</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-65"></span><span>  </span><span id="local-6989586621679342788"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ErrorDetail
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">String
+</span><span id="line-66"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ErrorDetail) -&gt; Value -&gt; Parser ErrorDetail
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
-</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ErrorDetail&quot;</span></span><span>
-</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679342531"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679342531"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-70"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; ErrorDetail
+</span><span id="line-68"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679342785"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679342785"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; ErrorDetail
 </span><a href="Network.AWS.Greengrass.Types.ErrorDetail.html#ErrorDetail%27"><span class="hs-identifier hs-var">ErrorDetail'</span></a></span><span>
-</span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; ErrorDetail)
+</span><span id="line-70"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; ErrorDetail)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; ErrorDetail)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679342531"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;DetailedErrorMessage&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-72"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; ErrorDetail)
--&gt; Parser (Maybe Text) -&gt; Parser ErrorDetail
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679342531"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679342785"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DetailedErrorCode&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-73"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679342525"><span id="local-6989586621679342527"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.ErrorDetail.html#ErrorDetail"><span class="hs-identifier hs-type">ErrorDetail</span></a></span></span></span><span>
-</span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679342522"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.ErrorDetail.html#ErrorDetail"><span class="hs-identifier hs-type">ErrorDetail</span></a></span></span><span>
-</span><span id="line-78"></span></pre></body></html>
+</span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; ErrorDetail)
+-&gt; Parser (Maybe Text) -&gt; Parser ErrorDetail
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679342785"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DetailedErrorMessage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679342779"><span id="local-6989586621679342781"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.ErrorDetail.html#ErrorDetail"><span class="hs-identifier hs-type">ErrorDetail</span></a></span></span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679342776"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.ErrorDetail.html#ErrorDetail"><span class="hs-identifier hs-type">ErrorDetail</span></a></span></span><span>
+</span><span id="line-77"></span></pre></body></html>

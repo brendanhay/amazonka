@@ -28,23 +28,23 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Describes a warm pool configuration.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newWarmPoolConfiguration' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679333473"><span id="local-6989586621679333474"></span></span><span class="hs-keyword">data</span><span> </span><span id="WarmPoolConfiguration"><span class="annot"><a href="Network.AWS.AutoScaling.Types.WarmPoolConfiguration.html#WarmPoolConfiguration"><span class="hs-identifier hs-var">WarmPoolConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WarmPoolConfiguration%27"><span class="annot"><a href="Network.AWS.AutoScaling.Types.WarmPoolConfiguration.html#WarmPoolConfiguration%27"><span class="hs-identifier hs-var">WarmPoolConfiguration'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The minimum number of instances to maintain in the warm pool.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AminSize%3AWarmPoolConfiguration%27"><span class="annot"><span class="annottext">WarmPoolConfiguration -&gt; Maybe Natural
-</span><a href="Network.AWS.AutoScaling.Types.WarmPoolConfiguration.html#%24sel%3AminSize%3AWarmPoolConfiguration%27"><span class="hs-identifier hs-var hs-var">minSize</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The status of a warm pool that is marked for deletion.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3Astatus%3AWarmPoolConfiguration%27"><span class="annot"><span class="annottext">WarmPoolConfiguration -&gt; Maybe WarmPoolStatus
+</span><span id="line-31"></span><span id="local-6989586621679334137"><span id="local-6989586621679334138"></span></span><span class="hs-keyword">data</span><span> </span><span id="WarmPoolConfiguration"><span class="annot"><a href="Network.AWS.AutoScaling.Types.WarmPoolConfiguration.html#WarmPoolConfiguration"><span class="hs-identifier hs-var">WarmPoolConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WarmPoolConfiguration%27"><span class="annot"><a href="Network.AWS.AutoScaling.Types.WarmPoolConfiguration.html#WarmPoolConfiguration%27"><span class="hs-identifier hs-var">WarmPoolConfiguration'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of a warm pool that is marked for deletion.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Astatus%3AWarmPoolConfiguration%27"><span class="annot"><span class="annottext">WarmPoolConfiguration -&gt; Maybe WarmPoolStatus
 </span><a href="Network.AWS.AutoScaling.Types.WarmPoolConfiguration.html#%24sel%3Astatus%3AWarmPoolConfiguration%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.WarmPoolStatus.html#WarmPoolStatus"><span class="hs-identifier hs-type">WarmPoolStatus</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The instance state to transition to after the lifecycle actions are</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- complete.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3ApoolState%3AWarmPoolConfiguration%27"><span class="annot"><span class="annottext">WarmPoolConfiguration -&gt; Maybe WarmPoolState
-</span><a href="Network.AWS.AutoScaling.Types.WarmPoolConfiguration.html#%24sel%3ApoolState%3AWarmPoolConfiguration%27"><span class="hs-identifier hs-var hs-var">poolState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.WarmPoolState.html#WarmPoolState"><span class="hs-identifier hs-type">WarmPoolState</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The maximum number of instances that are allowed to be in the warm pool</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- or in any state except @Terminated@ for the Auto Scaling group.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3AmaxGroupPreparedCapacity%3AWarmPoolConfiguration%27"><span class="annot"><span class="annottext">WarmPoolConfiguration -&gt; Maybe Int
-</span><a href="Network.AWS.AutoScaling.Types.WarmPoolConfiguration.html#%24sel%3AmaxGroupPreparedCapacity%3AWarmPoolConfiguration%27"><span class="hs-identifier hs-var hs-var">maxGroupPreparedCapacity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The minimum number of instances to maintain in the warm pool.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AminSize%3AWarmPoolConfiguration%27"><span class="annot"><span class="annottext">WarmPoolConfiguration -&gt; Maybe Natural
+</span><a href="Network.AWS.AutoScaling.Types.WarmPoolConfiguration.html#%24sel%3AminSize%3AWarmPoolConfiguration%27"><span class="hs-identifier hs-var hs-var">minSize</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The maximum number of instances that are allowed to be in the warm pool</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- or in any state except @Terminated@ for the Auto Scaling group.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AmaxGroupPreparedCapacity%3AWarmPoolConfiguration%27"><span class="annot"><span class="annottext">WarmPoolConfiguration -&gt; Maybe Int
+</span><a href="Network.AWS.AutoScaling.Types.WarmPoolConfiguration.html#%24sel%3AmaxGroupPreparedCapacity%3AWarmPoolConfiguration%27"><span class="hs-identifier hs-var hs-var">maxGroupPreparedCapacity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The instance state to transition to after the lifecycle actions are</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- complete.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3ApoolState%3AWarmPoolConfiguration%27"><span class="annot"><span class="annottext">WarmPoolConfiguration -&gt; Maybe WarmPoolState
+</span><a href="Network.AWS.AutoScaling.Types.WarmPoolConfiguration.html#%24sel%3ApoolState%3AWarmPoolConfiguration%27"><span class="hs-identifier hs-var hs-var">poolState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.WarmPoolState.html#WarmPoolState"><span class="hs-identifier hs-type">WarmPoolState</span></a></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679333464"><span id="local-6989586621679333466"><span class="annot"><span class="annottext">WarmPoolConfiguration -&gt; WarmPoolConfiguration -&gt; Bool
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679334128"><span id="local-6989586621679334130"><span class="annot"><span class="annottext">WarmPoolConfiguration -&gt; WarmPoolConfiguration -&gt; Bool
 (WarmPoolConfiguration -&gt; WarmPoolConfiguration -&gt; Bool)
 -&gt; (WarmPoolConfiguration -&gt; WarmPoolConfiguration -&gt; Bool)
 -&gt; Eq WarmPoolConfiguration
@@ -53,7 +53,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: WarmPoolConfiguration -&gt; WarmPoolConfiguration -&gt; Bool
 == :: WarmPoolConfiguration -&gt; WarmPoolConfiguration -&gt; Bool
 $c== :: WarmPoolConfiguration -&gt; WarmPoolConfiguration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679333455"><span id="local-6989586621679333457"><span id="local-6989586621679333459"><span id="local-6989586621679333461"><span class="annot"><span class="annottext">ReadPrec [WarmPoolConfiguration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679334119"><span id="local-6989586621679334121"><span id="local-6989586621679334123"><span id="local-6989586621679334125"><span class="annot"><span class="annottext">ReadPrec [WarmPoolConfiguration]
 ReadPrec WarmPoolConfiguration
 Int -&gt; ReadS WarmPoolConfiguration
 ReadS [WarmPoolConfiguration]
@@ -73,7 +73,7 @@ readList :: ReadS [WarmPoolConfiguration]
 $creadList :: ReadS [WarmPoolConfiguration]
 readsPrec :: Int -&gt; ReadS WarmPoolConfiguration
 $creadsPrec :: Int -&gt; ReadS WarmPoolConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679333448"><span id="local-6989586621679333450"><span id="local-6989586621679333452"><span class="annot"><span class="annottext">Int -&gt; WarmPoolConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679334112"><span id="local-6989586621679334114"><span id="local-6989586621679334116"><span class="annot"><span class="annottext">Int -&gt; WarmPoolConfiguration -&gt; ShowS
 [WarmPoolConfiguration] -&gt; ShowS
 WarmPoolConfiguration -&gt; String
 (Int -&gt; WarmPoolConfiguration -&gt; ShowS)
@@ -107,70 +107,46 @@ $cfrom :: forall x. WarmPoolConfiguration -&gt; Rep WarmPoolConfiguration x
 </span><span id="line-50"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-52"></span><span class="hs-comment">--</span><span>
-</span><span id="line-53"></span><span class="hs-comment">-- 'minSize', 'warmPoolConfiguration_minSize' - The minimum number of instances to maintain in the warm pool.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'status', 'warmPoolConfiguration_status' - The status of a warm pool that is marked for deletion.</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- 'status', 'warmPoolConfiguration_status' - The status of a warm pool that is marked for deletion.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'minSize', 'warmPoolConfiguration_minSize' - The minimum number of instances to maintain in the warm pool.</span><span>
 </span><span id="line-56"></span><span class="hs-comment">--</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- 'poolState', 'warmPoolConfiguration_poolState' - The instance state to transition to after the lifecycle actions are</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- complete.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'maxGroupPreparedCapacity', 'warmPoolConfiguration_maxGroupPreparedCapacity' - The maximum number of instances that are allowed to be in the warm pool</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- or in any state except @Terminated@ for the Auto Scaling group.</span><span>
 </span><span id="line-59"></span><span class="hs-comment">--</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- 'maxGroupPreparedCapacity', 'warmPoolConfiguration_maxGroupPreparedCapacity' - The maximum number of instances that are allowed to be in the warm pool</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- or in any state except @Terminated@ for the Auto Scaling group.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'poolState', 'warmPoolConfiguration_poolState' - The instance state to transition to after the lifecycle actions are</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- complete.</span><span>
 </span><span id="line-62"></span><span class="annot"><a href="Network.AWS.AutoScaling.Types.WarmPoolConfiguration.html#newWarmPoolConfiguration"><span class="hs-identifier hs-type">newWarmPoolConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-63"></span><span>  </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.WarmPoolConfiguration.html#WarmPoolConfiguration"><span class="hs-identifier hs-type">WarmPoolConfiguration</span></a></span><span>
 </span><span id="line-64"></span><span id="newWarmPoolConfiguration"><span class="annot"><span class="annottext">newWarmPoolConfiguration :: WarmPoolConfiguration
 </span><a href="Network.AWS.AutoScaling.Types.WarmPoolConfiguration.html#newWarmPoolConfiguration"><span class="hs-identifier hs-var hs-var">newWarmPoolConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-65"></span><span>  </span><span class="annot"><span class="annottext">WarmPoolConfiguration' :: Maybe Natural
--&gt; Maybe WarmPoolStatus
--&gt; Maybe WarmPoolState
+</span><span id="line-65"></span><span>  </span><span class="annot"><span class="annottext">WarmPoolConfiguration' :: Maybe WarmPoolStatus
+-&gt; Maybe Natural
 -&gt; Maybe Int
+-&gt; Maybe WarmPoolState
 -&gt; WarmPoolConfiguration
 </span><a href="Network.AWS.AutoScaling.Types.WarmPoolConfiguration.html#WarmPoolConfiguration%27"><span class="hs-identifier hs-type">WarmPoolConfiguration'</span></a></span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:minSize:WarmPoolConfiguration' :: Maybe Natural
-</span><a href="Network.AWS.AutoScaling.Types.WarmPoolConfiguration.html#%24sel%3AminSize%3AWarmPoolConfiguration%27"><span class="hs-identifier hs-var">minSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:WarmPoolConfiguration' :: Maybe WarmPoolStatus
+</span><span id="line-66"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:WarmPoolConfiguration' :: Maybe WarmPoolStatus
 </span><a href="Network.AWS.AutoScaling.Types.WarmPoolConfiguration.html#%24sel%3Astatus%3AWarmPoolConfiguration%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe WarmPoolStatus
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:poolState:WarmPoolConfiguration' :: Maybe WarmPoolState
-</span><a href="Network.AWS.AutoScaling.Types.WarmPoolConfiguration.html#%24sel%3ApoolState%3AWarmPoolConfiguration%27"><span class="hs-identifier hs-var">poolState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe WarmPoolState
+</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:minSize:WarmPoolConfiguration' :: Maybe Natural
+</span><a href="Network.AWS.AutoScaling.Types.WarmPoolConfiguration.html#%24sel%3AminSize%3AWarmPoolConfiguration%27"><span class="hs-identifier hs-var">minSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxGroupPreparedCapacity:WarmPoolConfiguration' :: Maybe Int
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxGroupPreparedCapacity:WarmPoolConfiguration' :: Maybe Int
 </span><a href="Network.AWS.AutoScaling.Types.WarmPoolConfiguration.html#%24sel%3AmaxGroupPreparedCapacity%3AWarmPoolConfiguration%27"><span class="hs-identifier hs-var">maxGroupPreparedCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:poolState:WarmPoolConfiguration' :: Maybe WarmPoolState
+</span><a href="Network.AWS.AutoScaling.Types.WarmPoolConfiguration.html#%24sel%3ApoolState%3AWarmPoolConfiguration%27"><span class="hs-identifier hs-var">poolState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe WarmPoolState
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-70"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- | The minimum number of instances to maintain in the warm pool.</span><span>
-</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.AutoScaling.Types.WarmPoolConfiguration.html#warmPoolConfiguration_minSize"><span class="hs-identifier hs-type">warmPoolConfiguration_minSize</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.WarmPoolConfiguration.html#WarmPoolConfiguration"><span class="hs-identifier hs-type">WarmPoolConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-74"></span><span id="warmPoolConfiguration_minSize"><span class="annot"><span class="annottext">warmPoolConfiguration_minSize :: (Maybe Natural -&gt; f (Maybe Natural))
--&gt; WarmPoolConfiguration -&gt; f WarmPoolConfiguration
-</span><a href="Network.AWS.AutoScaling.Types.WarmPoolConfiguration.html#warmPoolConfiguration_minSize"><span class="hs-identifier hs-var hs-var">warmPoolConfiguration_minSize</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WarmPoolConfiguration -&gt; Maybe Natural)
--&gt; (WarmPoolConfiguration
-    -&gt; Maybe Natural -&gt; WarmPoolConfiguration)
--&gt; Lens
-     WarmPoolConfiguration
-     WarmPoolConfiguration
-     (Maybe Natural)
-     (Maybe Natural)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.WarmPoolConfiguration.html#WarmPoolConfiguration%27"><span class="hs-identifier hs-type">WarmPoolConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679333439"><span class="annot"><span class="annottext">Maybe Natural
-minSize :: Maybe Natural
-$sel:minSize:WarmPoolConfiguration' :: WarmPoolConfiguration -&gt; Maybe Natural
-</span><a href="#local-6989586621679333439"><span class="hs-identifier hs-var hs-var">minSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679333439"><span class="hs-identifier hs-var">minSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679333438"><span class="annot"><span class="annottext">s :: WarmPoolConfiguration
-</span><a href="#local-6989586621679333438"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.WarmPoolConfiguration.html#WarmPoolConfiguration%27"><span class="hs-identifier hs-type">WarmPoolConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679333437"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679333437"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WarmPoolConfiguration
-</span><a href="#local-6989586621679333438"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minSize:WarmPoolConfiguration' :: Maybe Natural
-</span><a href="Network.AWS.AutoScaling.Types.WarmPoolConfiguration.html#%24sel%3AminSize%3AWarmPoolConfiguration%27"><span class="hs-identifier hs-var">minSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679333437"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.WarmPoolConfiguration.html#WarmPoolConfiguration"><span class="hs-identifier hs-type">WarmPoolConfiguration</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- | The status of a warm pool that is marked for deletion.</span><span>
-</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.AutoScaling.Types.WarmPoolConfiguration.html#warmPoolConfiguration_status"><span class="hs-identifier hs-type">warmPoolConfiguration_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.WarmPoolConfiguration.html#WarmPoolConfiguration"><span class="hs-identifier hs-type">WarmPoolConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.WarmPoolStatus.html#WarmPoolStatus"><span class="hs-identifier hs-type">WarmPoolStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-78"></span><span id="warmPoolConfiguration_status"><span class="annot"><span class="annottext">warmPoolConfiguration_status :: (Maybe WarmPoolStatus -&gt; f (Maybe WarmPoolStatus))
+</span><span id="line-72"></span><span class="hs-comment">-- | The status of a warm pool that is marked for deletion.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.AutoScaling.Types.WarmPoolConfiguration.html#warmPoolConfiguration_status"><span class="hs-identifier hs-type">warmPoolConfiguration_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.WarmPoolConfiguration.html#WarmPoolConfiguration"><span class="hs-identifier hs-type">WarmPoolConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.WarmPoolStatus.html#WarmPoolStatus"><span class="hs-identifier hs-type">WarmPoolStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span id="warmPoolConfiguration_status"><span class="annot"><span class="annottext">warmPoolConfiguration_status :: (Maybe WarmPoolStatus -&gt; f (Maybe WarmPoolStatus))
 -&gt; WarmPoolConfiguration -&gt; f WarmPoolConfiguration
 </span><a href="Network.AWS.AutoScaling.Types.WarmPoolConfiguration.html#warmPoolConfiguration_status"><span class="hs-identifier hs-var hs-var">warmPoolConfiguration_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WarmPoolConfiguration -&gt; Maybe WarmPoolStatus)
 -&gt; (WarmPoolConfiguration
@@ -181,21 +157,66 @@ $sel:minSize:WarmPoolConfiguration' :: WarmPoolConfiguration -&gt; Maybe Natural
      (Maybe WarmPoolStatus)
      (Maybe WarmPoolStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.WarmPoolConfiguration.html#WarmPoolConfiguration%27"><span class="hs-identifier hs-type">WarmPoolConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679333435"><span class="annot"><span class="annottext">Maybe WarmPoolStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.WarmPoolConfiguration.html#WarmPoolConfiguration%27"><span class="hs-identifier hs-type">WarmPoolConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679334103"><span class="annot"><span class="annottext">Maybe WarmPoolStatus
 status :: Maybe WarmPoolStatus
 $sel:status:WarmPoolConfiguration' :: WarmPoolConfiguration -&gt; Maybe WarmPoolStatus
-</span><a href="#local-6989586621679333435"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe WarmPoolStatus
-</span><a href="#local-6989586621679333435"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679333434"><span class="annot"><span class="annottext">s :: WarmPoolConfiguration
-</span><a href="#local-6989586621679333434"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.WarmPoolConfiguration.html#WarmPoolConfiguration%27"><span class="hs-identifier hs-type">WarmPoolConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679333433"><span class="annot"><span class="annottext">Maybe WarmPoolStatus
-</span><a href="#local-6989586621679333433"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WarmPoolConfiguration
-</span><a href="#local-6989586621679333434"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:WarmPoolConfiguration' :: Maybe WarmPoolStatus
+</span><a href="#local-6989586621679334103"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe WarmPoolStatus
+</span><a href="#local-6989586621679334103"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679334102"><span class="annot"><span class="annottext">s :: WarmPoolConfiguration
+</span><a href="#local-6989586621679334102"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.WarmPoolConfiguration.html#WarmPoolConfiguration%27"><span class="hs-identifier hs-type">WarmPoolConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679334101"><span class="annot"><span class="annottext">Maybe WarmPoolStatus
+</span><a href="#local-6989586621679334101"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WarmPoolConfiguration
+</span><a href="#local-6989586621679334102"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:WarmPoolConfiguration' :: Maybe WarmPoolStatus
 </span><a href="Network.AWS.AutoScaling.Types.WarmPoolConfiguration.html#%24sel%3Astatus%3AWarmPoolConfiguration%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe WarmPoolStatus
-</span><a href="#local-6989586621679333433"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.WarmPoolConfiguration.html#WarmPoolConfiguration"><span class="hs-identifier hs-type">WarmPoolConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679334101"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.WarmPoolConfiguration.html#WarmPoolConfiguration"><span class="hs-identifier hs-type">WarmPoolConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | The minimum number of instances to maintain in the warm pool.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.AutoScaling.Types.WarmPoolConfiguration.html#warmPoolConfiguration_minSize"><span class="hs-identifier hs-type">warmPoolConfiguration_minSize</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.WarmPoolConfiguration.html#WarmPoolConfiguration"><span class="hs-identifier hs-type">WarmPoolConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span id="warmPoolConfiguration_minSize"><span class="annot"><span class="annottext">warmPoolConfiguration_minSize :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; WarmPoolConfiguration -&gt; f WarmPoolConfiguration
+</span><a href="Network.AWS.AutoScaling.Types.WarmPoolConfiguration.html#warmPoolConfiguration_minSize"><span class="hs-identifier hs-var hs-var">warmPoolConfiguration_minSize</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WarmPoolConfiguration -&gt; Maybe Natural)
+-&gt; (WarmPoolConfiguration
+    -&gt; Maybe Natural -&gt; WarmPoolConfiguration)
+-&gt; Lens
+     WarmPoolConfiguration
+     WarmPoolConfiguration
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.WarmPoolConfiguration.html#WarmPoolConfiguration%27"><span class="hs-identifier hs-type">WarmPoolConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679334099"><span class="annot"><span class="annottext">Maybe Natural
+minSize :: Maybe Natural
+$sel:minSize:WarmPoolConfiguration' :: WarmPoolConfiguration -&gt; Maybe Natural
+</span><a href="#local-6989586621679334099"><span class="hs-identifier hs-var hs-var">minSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679334099"><span class="hs-identifier hs-var">minSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679334098"><span class="annot"><span class="annottext">s :: WarmPoolConfiguration
+</span><a href="#local-6989586621679334098"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.WarmPoolConfiguration.html#WarmPoolConfiguration%27"><span class="hs-identifier hs-type">WarmPoolConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679334097"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679334097"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WarmPoolConfiguration
+</span><a href="#local-6989586621679334098"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minSize:WarmPoolConfiguration' :: Maybe Natural
+</span><a href="Network.AWS.AutoScaling.Types.WarmPoolConfiguration.html#%24sel%3AminSize%3AWarmPoolConfiguration%27"><span class="hs-identifier hs-var">minSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679334097"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.WarmPoolConfiguration.html#WarmPoolConfiguration"><span class="hs-identifier hs-type">WarmPoolConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- | The instance state to transition to after the lifecycle actions are</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- complete.</span><span>
-</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.AutoScaling.Types.WarmPoolConfiguration.html#warmPoolConfiguration_poolState"><span class="hs-identifier hs-type">warmPoolConfiguration_poolState</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.WarmPoolConfiguration.html#WarmPoolConfiguration"><span class="hs-identifier hs-type">WarmPoolConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.WarmPoolState.html#WarmPoolState"><span class="hs-identifier hs-type">WarmPoolState</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-83"></span><span id="warmPoolConfiguration_poolState"><span class="annot"><span class="annottext">warmPoolConfiguration_poolState :: (Maybe WarmPoolState -&gt; f (Maybe WarmPoolState))
+</span><span id="line-80"></span><span class="hs-comment">-- | The maximum number of instances that are allowed to be in the warm pool</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- or in any state except @Terminated@ for the Auto Scaling group.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.AutoScaling.Types.WarmPoolConfiguration.html#warmPoolConfiguration_maxGroupPreparedCapacity"><span class="hs-identifier hs-type">warmPoolConfiguration_maxGroupPreparedCapacity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.WarmPoolConfiguration.html#WarmPoolConfiguration"><span class="hs-identifier hs-type">WarmPoolConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="warmPoolConfiguration_maxGroupPreparedCapacity"><span class="annot"><span class="annottext">warmPoolConfiguration_maxGroupPreparedCapacity :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; WarmPoolConfiguration -&gt; f WarmPoolConfiguration
+</span><a href="Network.AWS.AutoScaling.Types.WarmPoolConfiguration.html#warmPoolConfiguration_maxGroupPreparedCapacity"><span class="hs-identifier hs-var hs-var">warmPoolConfiguration_maxGroupPreparedCapacity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WarmPoolConfiguration -&gt; Maybe Int)
+-&gt; (WarmPoolConfiguration -&gt; Maybe Int -&gt; WarmPoolConfiguration)
+-&gt; Lens
+     WarmPoolConfiguration WarmPoolConfiguration (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.WarmPoolConfiguration.html#WarmPoolConfiguration%27"><span class="hs-identifier hs-type">WarmPoolConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679334095"><span class="annot"><span class="annottext">Maybe Int
+maxGroupPreparedCapacity :: Maybe Int
+$sel:maxGroupPreparedCapacity:WarmPoolConfiguration' :: WarmPoolConfiguration -&gt; Maybe Int
+</span><a href="#local-6989586621679334095"><span class="hs-identifier hs-var hs-var">maxGroupPreparedCapacity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679334095"><span class="hs-identifier hs-var">maxGroupPreparedCapacity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679334094"><span class="annot"><span class="annottext">s :: WarmPoolConfiguration
+</span><a href="#local-6989586621679334094"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.WarmPoolConfiguration.html#WarmPoolConfiguration%27"><span class="hs-identifier hs-type">WarmPoolConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679334093"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679334093"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WarmPoolConfiguration
+</span><a href="#local-6989586621679334094"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxGroupPreparedCapacity:WarmPoolConfiguration' :: Maybe Int
+</span><a href="Network.AWS.AutoScaling.Types.WarmPoolConfiguration.html#%24sel%3AmaxGroupPreparedCapacity%3AWarmPoolConfiguration%27"><span class="hs-identifier hs-var">maxGroupPreparedCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679334093"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.WarmPoolConfiguration.html#WarmPoolConfiguration"><span class="hs-identifier hs-type">WarmPoolConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The instance state to transition to after the lifecycle actions are</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- complete.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.AutoScaling.Types.WarmPoolConfiguration.html#warmPoolConfiguration_poolState"><span class="hs-identifier hs-type">warmPoolConfiguration_poolState</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.WarmPoolConfiguration.html#WarmPoolConfiguration"><span class="hs-identifier hs-type">WarmPoolConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.WarmPoolState.html#WarmPoolState"><span class="hs-identifier hs-type">WarmPoolState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="warmPoolConfiguration_poolState"><span class="annot"><span class="annottext">warmPoolConfiguration_poolState :: (Maybe WarmPoolState -&gt; f (Maybe WarmPoolState))
 -&gt; WarmPoolConfiguration -&gt; f WarmPoolConfiguration
 </span><a href="Network.AWS.AutoScaling.Types.WarmPoolConfiguration.html#warmPoolConfiguration_poolState"><span class="hs-identifier hs-var hs-var">warmPoolConfiguration_poolState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WarmPoolConfiguration -&gt; Maybe WarmPoolState)
 -&gt; (WarmPoolConfiguration
@@ -206,97 +227,77 @@ $sel:status:WarmPoolConfiguration' :: WarmPoolConfiguration -&gt; Maybe WarmPool
      (Maybe WarmPoolState)
      (Maybe WarmPoolState)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.WarmPoolConfiguration.html#WarmPoolConfiguration%27"><span class="hs-identifier hs-type">WarmPoolConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679333431"><span class="annot"><span class="annottext">Maybe WarmPoolState
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.WarmPoolConfiguration.html#WarmPoolConfiguration%27"><span class="hs-identifier hs-type">WarmPoolConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679334091"><span class="annot"><span class="annottext">Maybe WarmPoolState
 poolState :: Maybe WarmPoolState
 $sel:poolState:WarmPoolConfiguration' :: WarmPoolConfiguration -&gt; Maybe WarmPoolState
-</span><a href="#local-6989586621679333431"><span class="hs-identifier hs-var hs-var">poolState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe WarmPoolState
-</span><a href="#local-6989586621679333431"><span class="hs-identifier hs-var">poolState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679333430"><span class="annot"><span class="annottext">s :: WarmPoolConfiguration
-</span><a href="#local-6989586621679333430"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.WarmPoolConfiguration.html#WarmPoolConfiguration%27"><span class="hs-identifier hs-type">WarmPoolConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679333429"><span class="annot"><span class="annottext">Maybe WarmPoolState
-</span><a href="#local-6989586621679333429"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WarmPoolConfiguration
-</span><a href="#local-6989586621679333430"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:poolState:WarmPoolConfiguration' :: Maybe WarmPoolState
+</span><a href="#local-6989586621679334091"><span class="hs-identifier hs-var hs-var">poolState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe WarmPoolState
+</span><a href="#local-6989586621679334091"><span class="hs-identifier hs-var">poolState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679334090"><span class="annot"><span class="annottext">s :: WarmPoolConfiguration
+</span><a href="#local-6989586621679334090"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.WarmPoolConfiguration.html#WarmPoolConfiguration%27"><span class="hs-identifier hs-type">WarmPoolConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679334089"><span class="annot"><span class="annottext">Maybe WarmPoolState
+</span><a href="#local-6989586621679334089"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WarmPoolConfiguration
+</span><a href="#local-6989586621679334090"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:poolState:WarmPoolConfiguration' :: Maybe WarmPoolState
 </span><a href="Network.AWS.AutoScaling.Types.WarmPoolConfiguration.html#%24sel%3ApoolState%3AWarmPoolConfiguration%27"><span class="hs-identifier hs-var">poolState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe WarmPoolState
-</span><a href="#local-6989586621679333429"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.WarmPoolConfiguration.html#WarmPoolConfiguration"><span class="hs-identifier hs-type">WarmPoolConfiguration</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- | The maximum number of instances that are allowed to be in the warm pool</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- or in any state except @Terminated@ for the Auto Scaling group.</span><span>
-</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.AutoScaling.Types.WarmPoolConfiguration.html#warmPoolConfiguration_maxGroupPreparedCapacity"><span class="hs-identifier hs-type">warmPoolConfiguration_maxGroupPreparedCapacity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.WarmPoolConfiguration.html#WarmPoolConfiguration"><span class="hs-identifier hs-type">WarmPoolConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-88"></span><span id="warmPoolConfiguration_maxGroupPreparedCapacity"><span class="annot"><span class="annottext">warmPoolConfiguration_maxGroupPreparedCapacity :: (Maybe Int -&gt; f (Maybe Int))
--&gt; WarmPoolConfiguration -&gt; f WarmPoolConfiguration
-</span><a href="Network.AWS.AutoScaling.Types.WarmPoolConfiguration.html#warmPoolConfiguration_maxGroupPreparedCapacity"><span class="hs-identifier hs-var hs-var">warmPoolConfiguration_maxGroupPreparedCapacity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WarmPoolConfiguration -&gt; Maybe Int)
--&gt; (WarmPoolConfiguration -&gt; Maybe Int -&gt; WarmPoolConfiguration)
--&gt; Lens
-     WarmPoolConfiguration WarmPoolConfiguration (Maybe Int) (Maybe Int)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.WarmPoolConfiguration.html#WarmPoolConfiguration%27"><span class="hs-identifier hs-type">WarmPoolConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679333427"><span class="annot"><span class="annottext">Maybe Int
-maxGroupPreparedCapacity :: Maybe Int
-$sel:maxGroupPreparedCapacity:WarmPoolConfiguration' :: WarmPoolConfiguration -&gt; Maybe Int
-</span><a href="#local-6989586621679333427"><span class="hs-identifier hs-var hs-var">maxGroupPreparedCapacity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679333427"><span class="hs-identifier hs-var">maxGroupPreparedCapacity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679333426"><span class="annot"><span class="annottext">s :: WarmPoolConfiguration
-</span><a href="#local-6989586621679333426"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.WarmPoolConfiguration.html#WarmPoolConfiguration%27"><span class="hs-identifier hs-type">WarmPoolConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679333425"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679333425"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WarmPoolConfiguration
-</span><a href="#local-6989586621679333426"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxGroupPreparedCapacity:WarmPoolConfiguration' :: Maybe Int
-</span><a href="Network.AWS.AutoScaling.Types.WarmPoolConfiguration.html#%24sel%3AmaxGroupPreparedCapacity%3AWarmPoolConfiguration%27"><span class="hs-identifier hs-var">maxGroupPreparedCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679333425"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.WarmPoolConfiguration.html#WarmPoolConfiguration"><span class="hs-identifier hs-type">WarmPoolConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679334089"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.WarmPoolConfiguration.html#WarmPoolConfiguration"><span class="hs-identifier hs-type">WarmPoolConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.WarmPoolConfiguration.html#WarmPoolConfiguration"><span class="hs-identifier hs-type">WarmPoolConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679333422"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String WarmPoolConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679333420"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679333420"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">Maybe Natural
--&gt; Maybe WarmPoolStatus
--&gt; Maybe WarmPoolState
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679334086"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String WarmPoolConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679334084"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679334084"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">Maybe WarmPoolStatus
+-&gt; Maybe Natural
 -&gt; Maybe Int
+-&gt; Maybe WarmPoolState
 -&gt; WarmPoolConfiguration
 </span><a href="Network.AWS.AutoScaling.Types.WarmPoolConfiguration.html#WarmPoolConfiguration%27"><span class="hs-identifier hs-var">WarmPoolConfiguration'</span></a></span><span>
-</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Natural
- -&gt; Maybe WarmPoolStatus
- -&gt; Maybe WarmPoolState
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">(Maybe WarmPoolStatus
+ -&gt; Maybe Natural
  -&gt; Maybe Int
+ -&gt; Maybe WarmPoolState
  -&gt; WarmPoolConfiguration)
--&gt; Either String (Maybe Natural)
--&gt; Either
-     String
-     (Maybe WarmPoolStatus
-      -&gt; Maybe WarmPoolState -&gt; Maybe Int -&gt; WarmPoolConfiguration)
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679333420"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Natural)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;MinSize&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe WarmPoolStatus
-   -&gt; Maybe WarmPoolState -&gt; Maybe Int -&gt; WarmPoolConfiguration)
 -&gt; Either String (Maybe WarmPoolStatus)
 -&gt; Either
-     String (Maybe WarmPoolState -&gt; Maybe Int -&gt; WarmPoolConfiguration)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679333420"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe WarmPoolStatus)
+     String
+     (Maybe Natural
+      -&gt; Maybe Int -&gt; Maybe WarmPoolState -&gt; WarmPoolConfiguration)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679334084"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe WarmPoolStatus)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String (Maybe WarmPoolState -&gt; Maybe Int -&gt; WarmPoolConfiguration)
--&gt; Either String (Maybe WarmPoolState)
--&gt; Either String (Maybe Int -&gt; WarmPoolConfiguration)
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Natural
+   -&gt; Maybe Int -&gt; Maybe WarmPoolState -&gt; WarmPoolConfiguration)
+-&gt; Either String (Maybe Natural)
+-&gt; Either
+     String (Maybe Int -&gt; Maybe WarmPoolState -&gt; WarmPoolConfiguration)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679333420"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe WarmPoolState)
+</span><a href="#local-6989586621679334084"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Natural)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;PoolState&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Int -&gt; WarmPoolConfiguration)
--&gt; Either String (Maybe Int) -&gt; Either String WarmPoolConfiguration
+</span><span class="hs-string">&quot;MinSize&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String (Maybe Int -&gt; Maybe WarmPoolState -&gt; WarmPoolConfiguration)
+-&gt; Either String (Maybe Int)
+-&gt; Either String (Maybe WarmPoolState -&gt; WarmPoolConfiguration)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679333420"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+</span><a href="#local-6989586621679334084"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxGroupPreparedCapacity&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe WarmPoolState -&gt; WarmPoolConfiguration)
+-&gt; Either String (Maybe WarmPoolState)
+-&gt; Either String WarmPoolConfiguration
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679334084"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe WarmPoolState)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PoolState&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679333414"><span id="local-6989586621679333416"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.WarmPoolConfiguration.html#WarmPoolConfiguration"><span class="hs-identifier hs-type">WarmPoolConfiguration</span></a></span></span></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679334078"><span id="local-6989586621679334080"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.WarmPoolConfiguration.html#WarmPoolConfiguration"><span class="hs-identifier hs-type">WarmPoolConfiguration</span></a></span></span></span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679333411"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.WarmPoolConfiguration.html#WarmPoolConfiguration"><span class="hs-identifier hs-type">WarmPoolConfiguration</span></a></span></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679334075"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.WarmPoolConfiguration.html#WarmPoolConfiguration"><span class="hs-identifier hs-type">WarmPoolConfiguration</span></a></span></span><span>
 </span><span id="line-101"></span></pre></body></html>

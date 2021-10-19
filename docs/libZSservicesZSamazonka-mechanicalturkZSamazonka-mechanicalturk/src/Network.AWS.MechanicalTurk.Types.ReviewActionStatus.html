@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621679245577"><span id="local-6989586621679245578"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ReviewActionStatus"><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewActionStatus.html#ReviewActionStatus"><span class="hs-identifier hs-var">ReviewActionStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReviewActionStatus%27"><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewActionStatus.html#ReviewActionStatus%27"><span class="hs-identifier hs-var">ReviewActionStatus'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679245697"><span id="local-6989586621679245698"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ReviewActionStatus"><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewActionStatus.html#ReviewActionStatus"><span class="hs-identifier hs-var">ReviewActionStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReviewActionStatus%27"><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewActionStatus.html#ReviewActionStatus%27"><span class="hs-identifier hs-var">ReviewActionStatus'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromReviewActionStatus"><span class="annot"><span class="annottext">ReviewActionStatus -&gt; Text
 </span><a href="Network.AWS.MechanicalTurk.Types.ReviewActionStatus.html#fromReviewActionStatus"><span class="hs-identifier hs-var hs-var">fromReviewActionStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679245569"><span id="local-6989586621679245571"><span id="local-6989586621679245573"><span class="annot"><span class="annottext">Int -&gt; ReviewActionStatus -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679245689"><span id="local-6989586621679245691"><span id="local-6989586621679245693"><span class="annot"><span class="annottext">Int -&gt; ReviewActionStatus -&gt; ShowS
 [ReviewActionStatus] -&gt; ShowS
 ReviewActionStatus -&gt; String
 (Int -&gt; ReviewActionStatus -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: ReviewActionStatus -&gt; String
 showsPrec :: Int -&gt; ReviewActionStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; ReviewActionStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679245560"><span id="local-6989586621679245562"><span id="local-6989586621679245564"><span id="local-6989586621679245566"><span class="annot"><span class="annottext">ReadPrec [ReviewActionStatus]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679245680"><span id="local-6989586621679245682"><span id="local-6989586621679245684"><span id="local-6989586621679245686"><span class="annot"><span class="annottext">ReadPrec [ReviewActionStatus]
 ReadPrec ReviewActionStatus
 Int -&gt; ReadS ReviewActionStatus
 ReadS [ReviewActionStatus]
@@ -74,7 +74,7 @@ $creadList :: ReadS [ReviewActionStatus]
 readsPrec :: Int -&gt; ReadS ReviewActionStatus
 $creadsPrec :: Int -&gt; ReadS ReviewActionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679245555"><span id="local-6989586621679245557"><span class="annot"><span class="annottext">ReviewActionStatus -&gt; ReviewActionStatus -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679245675"><span id="local-6989586621679245677"><span class="annot"><span class="annottext">ReviewActionStatus -&gt; ReviewActionStatus -&gt; Bool
 (ReviewActionStatus -&gt; ReviewActionStatus -&gt; Bool)
 -&gt; (ReviewActionStatus -&gt; ReviewActionStatus -&gt; Bool)
 -&gt; Eq ReviewActionStatus
@@ -84,7 +84,7 @@ $c/= :: ReviewActionStatus -&gt; ReviewActionStatus -&gt; Bool
 == :: ReviewActionStatus -&gt; ReviewActionStatus -&gt; Bool
 $c== :: ReviewActionStatus -&gt; ReviewActionStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679245539"><span id="local-6989586621679245541"><span id="local-6989586621679245543"><span id="local-6989586621679245545"><span id="local-6989586621679245547"><span id="local-6989586621679245549"><span id="local-6989586621679245551"><span class="annot"><span class="annottext">Eq ReviewActionStatus
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679245659"><span id="local-6989586621679245661"><span id="local-6989586621679245663"><span id="local-6989586621679245665"><span id="local-6989586621679245667"><span id="local-6989586621679245669"><span id="local-6989586621679245671"><span class="annot"><span class="annottext">Eq ReviewActionStatus
 Eq ReviewActionStatus
 -&gt; (ReviewActionStatus -&gt; ReviewActionStatus -&gt; Ordering)
 -&gt; (ReviewActionStatus -&gt; ReviewActionStatus -&gt; Bool)
@@ -135,7 +135,7 @@ $cfrom :: forall x. ReviewActionStatus -&gt; Rep ReviewActionStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679245531"><span id="local-6989586621679245533"><span class="annot"><span class="annottext">Int -&gt; ReviewActionStatus -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679245651"><span id="local-6989586621679245653"><span class="annot"><span class="annottext">Int -&gt; ReviewActionStatus -&gt; Int
 ReviewActionStatus -&gt; Int
 (Int -&gt; ReviewActionStatus -&gt; Int)
 -&gt; (ReviewActionStatus -&gt; Int) -&gt; Hashable ReviewActionStatus
@@ -145,53 +145,53 @@ $chash :: ReviewActionStatus -&gt; Int
 hashWithSalt :: Int -&gt; ReviewActionStatus -&gt; Int
 $chashWithSalt :: Int -&gt; ReviewActionStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679245528"><span class="annot"><span class="annottext">ReviewActionStatus -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679245648"><span class="annot"><span class="annottext">ReviewActionStatus -&gt; ()
 (ReviewActionStatus -&gt; ()) -&gt; NFData ReviewActionStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ReviewActionStatus -&gt; ()
 $crnf :: ReviewActionStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679245525"><span class="annot"><span class="annottext">Text -&gt; Either String ReviewActionStatus
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679245645"><span class="annot"><span class="annottext">Text -&gt; Either String ReviewActionStatus
 (Text -&gt; Either String ReviewActionStatus)
 -&gt; FromText ReviewActionStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ReviewActionStatus
 $cfromText :: Text -&gt; Either String ReviewActionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679245522"><span class="annot"><span class="annottext">ReviewActionStatus -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679245642"><span class="annot"><span class="annottext">ReviewActionStatus -&gt; Text
 (ReviewActionStatus -&gt; Text) -&gt; ToText ReviewActionStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ReviewActionStatus -&gt; Text
 $ctoText :: ReviewActionStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679245519"><span class="annot"><span class="annottext">ReviewActionStatus -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679245639"><span class="annot"><span class="annottext">ReviewActionStatus -&gt; ByteString
 (ReviewActionStatus -&gt; ByteString)
 -&gt; ToByteString ReviewActionStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ReviewActionStatus -&gt; ByteString
 $ctoBS :: ReviewActionStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679245516"><span class="annot"><span class="annottext">ReviewActionStatus -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679245636"><span class="annot"><span class="annottext">ReviewActionStatus -&gt; ByteStringBuilder
 (ReviewActionStatus -&gt; ByteStringBuilder)
 -&gt; ToLog ReviewActionStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ReviewActionStatus -&gt; ByteStringBuilder
 $cbuild :: ReviewActionStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679245513"><span class="annot"><span class="annottext">HeaderName -&gt; ReviewActionStatus -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679245633"><span class="annot"><span class="annottext">HeaderName -&gt; ReviewActionStatus -&gt; [Header]
 (HeaderName -&gt; ReviewActionStatus -&gt; [Header])
 -&gt; ToHeader ReviewActionStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ReviewActionStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ReviewActionStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679245510"><span class="annot"><span class="annottext">ReviewActionStatus -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679245630"><span class="annot"><span class="annottext">ReviewActionStatus -&gt; QueryString
 (ReviewActionStatus -&gt; QueryString) -&gt; ToQuery ReviewActionStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ReviewActionStatus -&gt; QueryString
 $ctoQuery :: ReviewActionStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679245505"><span id="local-6989586621679245507"><span class="annot"><span class="annottext">Value -&gt; Parser [ReviewActionStatus]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679245625"><span id="local-6989586621679245627"><span class="annot"><span class="annottext">Value -&gt; Parser [ReviewActionStatus]
 Value -&gt; Parser ReviewActionStatus
 (Value -&gt; Parser ReviewActionStatus)
 -&gt; (Value -&gt; Parser [ReviewActionStatus])
@@ -203,7 +203,7 @@ $cparseJSONList :: Value -&gt; Parser [ReviewActionStatus]
 parseJSON :: Value -&gt; Parser ReviewActionStatus
 $cparseJSON :: Value -&gt; Parser ReviewActionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679245500"><span id="local-6989586621679245502"><span class="annot"><span class="annottext">FromJSONKeyFunction [ReviewActionStatus]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679245620"><span id="local-6989586621679245622"><span class="annot"><span class="annottext">FromJSONKeyFunction [ReviewActionStatus]
 FromJSONKeyFunction ReviewActionStatus
 FromJSONKeyFunction ReviewActionStatus
 -&gt; FromJSONKeyFunction [ReviewActionStatus]
@@ -215,7 +215,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ReviewActionStatus]
 fromJSONKey :: FromJSONKeyFunction ReviewActionStatus
 $cfromJSONKey :: FromJSONKeyFunction ReviewActionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679245491"><span id="local-6989586621679245493"><span id="local-6989586621679245495"><span id="local-6989586621679245497"><span class="annot"><span class="annottext">[ReviewActionStatus] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679245611"><span id="local-6989586621679245613"><span id="local-6989586621679245615"><span id="local-6989586621679245617"><span class="annot"><span class="annottext">[ReviewActionStatus] -&gt; Encoding
 [ReviewActionStatus] -&gt; Value
 ReviewActionStatus -&gt; Encoding
 ReviewActionStatus -&gt; Value
@@ -239,7 +239,7 @@ $ctoEncoding :: ReviewActionStatus -&gt; Encoding
 toJSON :: ReviewActionStatus -&gt; Value
 $ctoJSON :: ReviewActionStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679245486"><span id="local-6989586621679245488"><span class="annot"><span class="annottext">ToJSONKeyFunction [ReviewActionStatus]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679245606"><span id="local-6989586621679245608"><span class="annot"><span class="annottext">ToJSONKeyFunction [ReviewActionStatus]
 ToJSONKeyFunction ReviewActionStatus
 ToJSONKeyFunction ReviewActionStatus
 -&gt; ToJSONKeyFunction [ReviewActionStatus]
@@ -251,14 +251,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ReviewActionStatus]
 toJSONKey :: ToJSONKeyFunction ReviewActionStatus
 $ctoJSONKey :: ToJSONKeyFunction ReviewActionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679245483"><span class="annot"><span class="annottext">[Node] -&gt; Either String ReviewActionStatus
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679245603"><span class="annot"><span class="annottext">[Node] -&gt; Either String ReviewActionStatus
 ([Node] -&gt; Either String ReviewActionStatus)
 -&gt; FromXML ReviewActionStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ReviewActionStatus
 $cparseXML :: [Node] -&gt; Either String ReviewActionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679245480"><span class="annot"><span class="annottext">ReviewActionStatus -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679245600"><span class="annot"><span class="annottext">ReviewActionStatus -&gt; XML
 (ReviewActionStatus -&gt; XML) -&gt; ToXML ReviewActionStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ReviewActionStatus -&gt; XML

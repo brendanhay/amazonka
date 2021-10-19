@@ -36,81 +36,81 @@
 </span><span id="line-36"></span><span class="hs-comment">-- versions 4.8.0 and later, excluding 5.0.x versions.</span><span>
 </span><span id="line-37"></span><span class="hs-comment">--</span><span>
 </span><span id="line-38"></span><span class="hs-comment">-- /See:/ 'newInstanceFleet' smart constructor.</span><span>
-</span><span id="line-39"></span><span id="local-6989586621679381180"><span id="local-6989586621679381181"></span></span><span class="hs-keyword">data</span><span> </span><span id="InstanceFleet"><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet"><span class="hs-identifier hs-var">InstanceFleet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceFleet%27"><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet%27"><span class="hs-identifier hs-var">InstanceFleet'</span></a></span></span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The node type that the instance fleet hosts. Valid values are MASTER,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- CORE, or TASK.</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3AinstanceFleetType%3AInstanceFleet%27"><span class="annot"><span class="annottext">InstanceFleet -&gt; Maybe InstanceFleetType
-</span><a href="Network.AWS.EMR.Types.InstanceFleet.html#%24sel%3AinstanceFleetType%3AInstanceFleet%27"><span class="hs-identifier hs-var hs-var">instanceFleetType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetType.html#InstanceFleetType"><span class="hs-identifier hs-type">InstanceFleetType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The current status of the instance fleet.</span><span>
-</span><span id="line-44"></span><span>    </span><span id="%24sel%3Astatus%3AInstanceFleet%27"><span class="annot"><span class="annottext">InstanceFleet -&gt; Maybe InstanceFleetStatus
-</span><a href="Network.AWS.EMR.Types.InstanceFleet.html#%24sel%3Astatus%3AInstanceFleet%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetStatus.html#InstanceFleetStatus"><span class="hs-identifier hs-type">InstanceFleetStatus</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The target capacity of On-Demand units for the instance fleet, which</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- determines how many On-Demand Instances to provision. When the instance</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- fleet launches, Amazon EMR tries to provision On-Demand Instances as</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- specified by InstanceTypeConfig. Each instance configuration has a</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- specified @WeightedCapacity@. When an On-Demand Instance is provisioned,</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- the @WeightedCapacity@ units count toward the target capacity. Amazon</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- EMR provisions instances until the target capacity is totally fulfilled,</span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- even if this results in an overage. For example, if there are 2 units</span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- remaining to fulfill capacity, and Amazon EMR can only provision an</span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- instance with a @WeightedCapacity@ of 5 units, the instance is</span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- provisioned, and the target capacity is exceeded by 3 units. You can use</span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- InstanceFleet$ProvisionedOnDemandCapacity to determine the Spot capacity</span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- units that have been provisioned for the instance fleet.</span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- If not specified or set to 0, only Spot Instances are provisioned for</span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- the instance fleet using @TargetSpotCapacity@. At least one of</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- @TargetSpotCapacity@ and @TargetOnDemandCapacity@ should be greater than</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- 0. For a master instance fleet, only one of @TargetSpotCapacity@ and</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- @TargetOnDemandCapacity@ can be specified, and its value must be 1.</span><span>
-</span><span id="line-64"></span><span>    </span><span id="%24sel%3AtargetOnDemandCapacity%3AInstanceFleet%27"><span class="annot"><span class="annottext">InstanceFleet -&gt; Maybe Natural
-</span><a href="Network.AWS.EMR.Types.InstanceFleet.html#%24sel%3AtargetOnDemandCapacity%3AInstanceFleet%27"><span class="hs-identifier hs-var hs-var">targetOnDemandCapacity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The target capacity of Spot units for the instance fleet, which</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- determines how many Spot Instances to provision. When the instance fleet</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- launches, Amazon EMR tries to provision Spot Instances as specified by</span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- InstanceTypeConfig. Each instance configuration has a specified</span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- @WeightedCapacity@. When a Spot instance is provisioned, the</span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- @WeightedCapacity@ units count toward the target capacity. Amazon EMR</span><span>
-</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- provisions instances until the target capacity is totally fulfilled,</span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- even if this results in an overage. For example, if there are 2 units</span><span>
-</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- remaining to fulfill capacity, and Amazon EMR can only provision an</span><span>
-</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- instance with a @WeightedCapacity@ of 5 units, the instance is</span><span>
-</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- provisioned, and the target capacity is exceeded by 3 units. You can use</span><span>
-</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- InstanceFleet$ProvisionedSpotCapacity to determine the Spot capacity</span><span>
-</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- units that have been provisioned for the instance fleet.</span><span>
-</span><span id="line-78"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- If not specified or set to 0, only On-Demand Instances are provisioned</span><span>
-</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- for the instance fleet. At least one of @TargetSpotCapacity@ and</span><span>
-</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- @TargetOnDemandCapacity@ should be greater than 0. For a master instance</span><span>
-</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- fleet, only one of @TargetSpotCapacity@ and @TargetOnDemandCapacity@ can</span><span>
-</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- be specified, and its value must be 1.</span><span>
-</span><span id="line-84"></span><span>    </span><span id="%24sel%3AtargetSpotCapacity%3AInstanceFleet%27"><span class="annot"><span class="annottext">InstanceFleet -&gt; Maybe Natural
-</span><a href="Network.AWS.EMR.Types.InstanceFleet.html#%24sel%3AtargetSpotCapacity%3AInstanceFleet%27"><span class="hs-identifier hs-var hs-var">targetSpotCapacity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- | The unique identifier of the instance fleet.</span><span>
-</span><span id="line-86"></span><span>    </span><span id="%24sel%3Aid%3AInstanceFleet%27"><span class="annot"><span class="annottext">InstanceFleet -&gt; Maybe Text
-</span><a href="Network.AWS.EMR.Types.InstanceFleet.html#%24sel%3Aid%3AInstanceFleet%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- | The number of On-Demand units that have been provisioned for the</span><span>
-</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- instance fleet to fulfill @TargetOnDemandCapacity@. This provisioned</span><span>
-</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- capacity might be less than or greater than @TargetOnDemandCapacity@.</span><span>
-</span><span id="line-90"></span><span>    </span><span id="%24sel%3AprovisionedOnDemandCapacity%3AInstanceFleet%27"><span class="annot"><span class="annottext">InstanceFleet -&gt; Maybe Natural
-</span><a href="Network.AWS.EMR.Types.InstanceFleet.html#%24sel%3AprovisionedOnDemandCapacity%3AInstanceFleet%27"><span class="hs-identifier hs-var hs-var">provisionedOnDemandCapacity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- | A friendly name for the instance fleet.</span><span>
-</span><span id="line-92"></span><span>    </span><span id="%24sel%3Aname%3AInstanceFleet%27"><span class="annot"><span class="annottext">InstanceFleet -&gt; Maybe Text
-</span><a href="Network.AWS.EMR.Types.InstanceFleet.html#%24sel%3Aname%3AInstanceFleet%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- | An array of specifications for the instance types that comprise an</span><span>
-</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- instance fleet.</span><span>
-</span><span id="line-95"></span><span>    </span><span id="%24sel%3AinstanceTypeSpecifications%3AInstanceFleet%27"><span class="annot"><span class="annottext">InstanceFleet -&gt; Maybe [InstanceTypeSpecification]
-</span><a href="Network.AWS.EMR.Types.InstanceFleet.html#%24sel%3AinstanceTypeSpecifications%3AInstanceFleet%27"><span class="hs-identifier hs-var hs-var">instanceTypeSpecifications</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTypeSpecification.html#InstanceTypeSpecification"><span class="hs-identifier hs-type">InstanceTypeSpecification</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- | The number of Spot units that have been provisioned for this instance</span><span>
-</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- fleet to fulfill @TargetSpotCapacity@. This provisioned capacity might</span><span>
-</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- be less than or greater than @TargetSpotCapacity@.</span><span>
-</span><span id="line-99"></span><span>    </span><span id="%24sel%3AprovisionedSpotCapacity%3AInstanceFleet%27"><span class="annot"><span class="annottext">InstanceFleet -&gt; Maybe Natural
+</span><span id="line-39"></span><span id="local-6989586621679381552"><span id="local-6989586621679381553"></span></span><span class="hs-keyword">data</span><span> </span><span id="InstanceFleet"><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet"><span class="hs-identifier hs-var">InstanceFleet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceFleet%27"><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet%27"><span class="hs-identifier hs-var">InstanceFleet'</span></a></span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of Spot units that have been provisioned for this instance</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- fleet to fulfill @TargetSpotCapacity@. This provisioned capacity might</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- be less than or greater than @TargetSpotCapacity@.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AprovisionedSpotCapacity%3AInstanceFleet%27"><span class="annot"><span class="annottext">InstanceFleet -&gt; Maybe Natural
 </span><a href="Network.AWS.EMR.Types.InstanceFleet.html#%24sel%3AprovisionedSpotCapacity%3AInstanceFleet%27"><span class="hs-identifier hs-var hs-var">provisionedSpotCapacity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The current status of the instance fleet.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3Astatus%3AInstanceFleet%27"><span class="annot"><span class="annottext">InstanceFleet -&gt; Maybe InstanceFleetStatus
+</span><a href="Network.AWS.EMR.Types.InstanceFleet.html#%24sel%3Astatus%3AInstanceFleet%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetStatus.html#InstanceFleetStatus"><span class="hs-identifier hs-type">InstanceFleetStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The target capacity of On-Demand units for the instance fleet, which</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- determines how many On-Demand Instances to provision. When the instance</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- fleet launches, Amazon EMR tries to provision On-Demand Instances as</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- specified by InstanceTypeConfig. Each instance configuration has a</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- specified @WeightedCapacity@. When an On-Demand Instance is provisioned,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- the @WeightedCapacity@ units count toward the target capacity. Amazon</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- EMR provisions instances until the target capacity is totally fulfilled,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- even if this results in an overage. For example, if there are 2 units</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- remaining to fulfill capacity, and Amazon EMR can only provision an</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- instance with a @WeightedCapacity@ of 5 units, the instance is</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- provisioned, and the target capacity is exceeded by 3 units. You can use</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- InstanceFleet$ProvisionedOnDemandCapacity to determine the Spot capacity</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- units that have been provisioned for the instance fleet.</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- If not specified or set to 0, only Spot Instances are provisioned for</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- the instance fleet using @TargetSpotCapacity@. At least one of</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- @TargetSpotCapacity@ and @TargetOnDemandCapacity@ should be greater than</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- 0. For a master instance fleet, only one of @TargetSpotCapacity@ and</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- @TargetOnDemandCapacity@ can be specified, and its value must be 1.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AtargetOnDemandCapacity%3AInstanceFleet%27"><span class="annot"><span class="annottext">InstanceFleet -&gt; Maybe Natural
+</span><a href="Network.AWS.EMR.Types.InstanceFleet.html#%24sel%3AtargetOnDemandCapacity%3AInstanceFleet%27"><span class="hs-identifier hs-var hs-var">targetOnDemandCapacity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The node type that the instance fleet hosts. Valid values are MASTER,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- CORE, or TASK.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AinstanceFleetType%3AInstanceFleet%27"><span class="annot"><span class="annottext">InstanceFleet -&gt; Maybe InstanceFleetType
+</span><a href="Network.AWS.EMR.Types.InstanceFleet.html#%24sel%3AinstanceFleetType%3AInstanceFleet%27"><span class="hs-identifier hs-var hs-var">instanceFleetType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetType.html#InstanceFleetType"><span class="hs-identifier hs-type">InstanceFleetType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | An array of specifications for the instance types that comprise an</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- instance fleet.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AinstanceTypeSpecifications%3AInstanceFleet%27"><span class="annot"><span class="annottext">InstanceFleet -&gt; Maybe [InstanceTypeSpecification]
+</span><a href="Network.AWS.EMR.Types.InstanceFleet.html#%24sel%3AinstanceTypeSpecifications%3AInstanceFleet%27"><span class="hs-identifier hs-var hs-var">instanceTypeSpecifications</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTypeSpecification.html#InstanceTypeSpecification"><span class="hs-identifier hs-type">InstanceTypeSpecification</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | A friendly name for the instance fleet.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3Aname%3AInstanceFleet%27"><span class="annot"><span class="annottext">InstanceFleet -&gt; Maybe Text
+</span><a href="Network.AWS.EMR.Types.InstanceFleet.html#%24sel%3Aname%3AInstanceFleet%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | The number of On-Demand units that have been provisioned for the</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- instance fleet to fulfill @TargetOnDemandCapacity@. This provisioned</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- capacity might be less than or greater than @TargetOnDemandCapacity@.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3AprovisionedOnDemandCapacity%3AInstanceFleet%27"><span class="annot"><span class="annottext">InstanceFleet -&gt; Maybe Natural
+</span><a href="Network.AWS.EMR.Types.InstanceFleet.html#%24sel%3AprovisionedOnDemandCapacity%3AInstanceFleet%27"><span class="hs-identifier hs-var hs-var">provisionedOnDemandCapacity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | The target capacity of Spot units for the instance fleet, which</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- determines how many Spot Instances to provision. When the instance fleet</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- launches, Amazon EMR tries to provision Spot Instances as specified by</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- InstanceTypeConfig. Each instance configuration has a specified</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- @WeightedCapacity@. When a Spot instance is provisioned, the</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- @WeightedCapacity@ units count toward the target capacity. Amazon EMR</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- provisions instances until the target capacity is totally fulfilled,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- even if this results in an overage. For example, if there are 2 units</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- remaining to fulfill capacity, and Amazon EMR can only provision an</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- instance with a @WeightedCapacity@ of 5 units, the instance is</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- provisioned, and the target capacity is exceeded by 3 units. You can use</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- InstanceFleet$ProvisionedSpotCapacity to determine the Spot capacity</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- units that have been provisioned for the instance fleet.</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- If not specified or set to 0, only On-Demand Instances are provisioned</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- for the instance fleet. At least one of @TargetSpotCapacity@ and</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- @TargetOnDemandCapacity@ should be greater than 0. For a master instance</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- fleet, only one of @TargetSpotCapacity@ and @TargetOnDemandCapacity@ can</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- be specified, and its value must be 1.</span><span>
+</span><span id="line-97"></span><span>    </span><span id="%24sel%3AtargetSpotCapacity%3AInstanceFleet%27"><span class="annot"><span class="annottext">InstanceFleet -&gt; Maybe Natural
+</span><a href="Network.AWS.EMR.Types.InstanceFleet.html#%24sel%3AtargetSpotCapacity%3AInstanceFleet%27"><span class="hs-identifier hs-var hs-var">targetSpotCapacity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- | The unique identifier of the instance fleet.</span><span>
+</span><span id="line-99"></span><span>    </span><span id="%24sel%3Aid%3AInstanceFleet%27"><span class="annot"><span class="annottext">InstanceFleet -&gt; Maybe Text
+</span><a href="Network.AWS.EMR.Types.InstanceFleet.html#%24sel%3Aid%3AInstanceFleet%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-100"></span><span>    </span><span class="hs-comment">-- | Describes the launch specification for an instance fleet.</span><span>
 </span><span id="line-101"></span><span>    </span><span id="%24sel%3AlaunchSpecifications%3AInstanceFleet%27"><span class="annot"><span class="annottext">InstanceFleet -&gt; Maybe InstanceFleetProvisioningSpecifications
 </span><a href="Network.AWS.EMR.Types.InstanceFleet.html#%24sel%3AlaunchSpecifications%3AInstanceFleet%27"><span class="hs-identifier hs-var hs-var">launchSpecifications</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetProvisioningSpecifications.html#InstanceFleetProvisioningSpecifications"><span class="hs-identifier hs-type">InstanceFleetProvisioningSpecifications</span></a></span><span>
 </span><span id="line-102"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-103"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679381165"><span id="local-6989586621679381167"><span class="annot"><span class="annottext">InstanceFleet -&gt; InstanceFleet -&gt; Bool
+</span><span id="line-103"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679381537"><span id="local-6989586621679381539"><span class="annot"><span class="annottext">InstanceFleet -&gt; InstanceFleet -&gt; Bool
 (InstanceFleet -&gt; InstanceFleet -&gt; Bool)
 -&gt; (InstanceFleet -&gt; InstanceFleet -&gt; Bool) -&gt; Eq InstanceFleet
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -118,7 +118,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: InstanceFleet -&gt; InstanceFleet -&gt; Bool
 == :: InstanceFleet -&gt; InstanceFleet -&gt; Bool
 $c== :: InstanceFleet -&gt; InstanceFleet -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679381156"><span id="local-6989586621679381158"><span id="local-6989586621679381160"><span id="local-6989586621679381162"><span class="annot"><span class="annottext">ReadPrec [InstanceFleet]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679381528"><span id="local-6989586621679381530"><span id="local-6989586621679381532"><span id="local-6989586621679381534"><span class="annot"><span class="annottext">ReadPrec [InstanceFleet]
 ReadPrec InstanceFleet
 Int -&gt; ReadS InstanceFleet
 ReadS [InstanceFleet]
@@ -138,7 +138,7 @@ readList :: ReadS [InstanceFleet]
 $creadList :: ReadS [InstanceFleet]
 readsPrec :: Int -&gt; ReadS InstanceFleet
 $creadsPrec :: Int -&gt; ReadS InstanceFleet
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679381149"><span id="local-6989586621679381151"><span id="local-6989586621679381153"><span class="annot"><span class="annottext">Int -&gt; InstanceFleet -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679381521"><span id="local-6989586621679381523"><span id="local-6989586621679381525"><span class="annot"><span class="annottext">Int -&gt; InstanceFleet -&gt; ShowS
 [InstanceFleet] -&gt; ShowS
 InstanceFleet -&gt; String
 (Int -&gt; InstanceFleet -&gt; ShowS)
@@ -172,152 +172,150 @@ $cfrom :: forall x. InstanceFleet -&gt; Rep InstanceFleet x
 </span><span id="line-110"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-112"></span><span class="hs-comment">--</span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- 'instanceFleetType', 'instanceFleet_instanceFleetType' - The node type that the instance fleet hosts. Valid values are MASTER,</span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- CORE, or TASK.</span><span>
-</span><span id="line-115"></span><span class="hs-comment">--</span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- 'status', 'instanceFleet_status' - The current status of the instance fleet.</span><span>
-</span><span id="line-117"></span><span class="hs-comment">--</span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- 'targetOnDemandCapacity', 'instanceFleet_targetOnDemandCapacity' - The target capacity of On-Demand units for the instance fleet, which</span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- determines how many On-Demand Instances to provision. When the instance</span><span>
-</span><span id="line-120"></span><span class="hs-comment">-- fleet launches, Amazon EMR tries to provision On-Demand Instances as</span><span>
-</span><span id="line-121"></span><span class="hs-comment">-- specified by InstanceTypeConfig. Each instance configuration has a</span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- specified @WeightedCapacity@. When an On-Demand Instance is provisioned,</span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- the @WeightedCapacity@ units count toward the target capacity. Amazon</span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- EMR provisions instances until the target capacity is totally fulfilled,</span><span>
-</span><span id="line-125"></span><span class="hs-comment">-- even if this results in an overage. For example, if there are 2 units</span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- remaining to fulfill capacity, and Amazon EMR can only provision an</span><span>
-</span><span id="line-127"></span><span class="hs-comment">-- instance with a @WeightedCapacity@ of 5 units, the instance is</span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- provisioned, and the target capacity is exceeded by 3 units. You can use</span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- InstanceFleet$ProvisionedOnDemandCapacity to determine the Spot capacity</span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- units that have been provisioned for the instance fleet.</span><span>
-</span><span id="line-131"></span><span class="hs-comment">--</span><span>
-</span><span id="line-132"></span><span class="hs-comment">-- If not specified or set to 0, only Spot Instances are provisioned for</span><span>
-</span><span id="line-133"></span><span class="hs-comment">-- the instance fleet using @TargetSpotCapacity@. At least one of</span><span>
-</span><span id="line-134"></span><span class="hs-comment">-- @TargetSpotCapacity@ and @TargetOnDemandCapacity@ should be greater than</span><span>
-</span><span id="line-135"></span><span class="hs-comment">-- 0. For a master instance fleet, only one of @TargetSpotCapacity@ and</span><span>
-</span><span id="line-136"></span><span class="hs-comment">-- @TargetOnDemandCapacity@ can be specified, and its value must be 1.</span><span>
-</span><span id="line-137"></span><span class="hs-comment">--</span><span>
-</span><span id="line-138"></span><span class="hs-comment">-- 'targetSpotCapacity', 'instanceFleet_targetSpotCapacity' - The target capacity of Spot units for the instance fleet, which</span><span>
-</span><span id="line-139"></span><span class="hs-comment">-- determines how many Spot Instances to provision. When the instance fleet</span><span>
-</span><span id="line-140"></span><span class="hs-comment">-- launches, Amazon EMR tries to provision Spot Instances as specified by</span><span>
-</span><span id="line-141"></span><span class="hs-comment">-- InstanceTypeConfig. Each instance configuration has a specified</span><span>
-</span><span id="line-142"></span><span class="hs-comment">-- @WeightedCapacity@. When a Spot instance is provisioned, the</span><span>
-</span><span id="line-143"></span><span class="hs-comment">-- @WeightedCapacity@ units count toward the target capacity. Amazon EMR</span><span>
-</span><span id="line-144"></span><span class="hs-comment">-- provisions instances until the target capacity is totally fulfilled,</span><span>
-</span><span id="line-145"></span><span class="hs-comment">-- even if this results in an overage. For example, if there are 2 units</span><span>
-</span><span id="line-146"></span><span class="hs-comment">-- remaining to fulfill capacity, and Amazon EMR can only provision an</span><span>
-</span><span id="line-147"></span><span class="hs-comment">-- instance with a @WeightedCapacity@ of 5 units, the instance is</span><span>
-</span><span id="line-148"></span><span class="hs-comment">-- provisioned, and the target capacity is exceeded by 3 units. You can use</span><span>
-</span><span id="line-149"></span><span class="hs-comment">-- InstanceFleet$ProvisionedSpotCapacity to determine the Spot capacity</span><span>
-</span><span id="line-150"></span><span class="hs-comment">-- units that have been provisioned for the instance fleet.</span><span>
-</span><span id="line-151"></span><span class="hs-comment">--</span><span>
-</span><span id="line-152"></span><span class="hs-comment">-- If not specified or set to 0, only On-Demand Instances are provisioned</span><span>
-</span><span id="line-153"></span><span class="hs-comment">-- for the instance fleet. At least one of @TargetSpotCapacity@ and</span><span>
-</span><span id="line-154"></span><span class="hs-comment">-- @TargetOnDemandCapacity@ should be greater than 0. For a master instance</span><span>
-</span><span id="line-155"></span><span class="hs-comment">-- fleet, only one of @TargetSpotCapacity@ and @TargetOnDemandCapacity@ can</span><span>
-</span><span id="line-156"></span><span class="hs-comment">-- be specified, and its value must be 1.</span><span>
-</span><span id="line-157"></span><span class="hs-comment">--</span><span>
-</span><span id="line-158"></span><span class="hs-comment">-- 'id', 'instanceFleet_id' - The unique identifier of the instance fleet.</span><span>
-</span><span id="line-159"></span><span class="hs-comment">--</span><span>
-</span><span id="line-160"></span><span class="hs-comment">-- 'provisionedOnDemandCapacity', 'instanceFleet_provisionedOnDemandCapacity' - The number of On-Demand units that have been provisioned for the</span><span>
-</span><span id="line-161"></span><span class="hs-comment">-- instance fleet to fulfill @TargetOnDemandCapacity@. This provisioned</span><span>
-</span><span id="line-162"></span><span class="hs-comment">-- capacity might be less than or greater than @TargetOnDemandCapacity@.</span><span>
-</span><span id="line-163"></span><span class="hs-comment">--</span><span>
-</span><span id="line-164"></span><span class="hs-comment">-- 'name', 'instanceFleet_name' - A friendly name for the instance fleet.</span><span>
-</span><span id="line-165"></span><span class="hs-comment">--</span><span>
-</span><span id="line-166"></span><span class="hs-comment">-- 'instanceTypeSpecifications', 'instanceFleet_instanceTypeSpecifications' - An array of specifications for the instance types that comprise an</span><span>
-</span><span id="line-167"></span><span class="hs-comment">-- instance fleet.</span><span>
-</span><span id="line-168"></span><span class="hs-comment">--</span><span>
-</span><span id="line-169"></span><span class="hs-comment">-- 'provisionedSpotCapacity', 'instanceFleet_provisionedSpotCapacity' - The number of Spot units that have been provisioned for this instance</span><span>
-</span><span id="line-170"></span><span class="hs-comment">-- fleet to fulfill @TargetSpotCapacity@. This provisioned capacity might</span><span>
-</span><span id="line-171"></span><span class="hs-comment">-- be less than or greater than @TargetSpotCapacity@.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- 'provisionedSpotCapacity', 'instanceFleet_provisionedSpotCapacity' - The number of Spot units that have been provisioned for this instance</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- fleet to fulfill @TargetSpotCapacity@. This provisioned capacity might</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- be less than or greater than @TargetSpotCapacity@.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- 'status', 'instanceFleet_status' - The current status of the instance fleet.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- 'targetOnDemandCapacity', 'instanceFleet_targetOnDemandCapacity' - The target capacity of On-Demand units for the instance fleet, which</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- determines how many On-Demand Instances to provision. When the instance</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- fleet launches, Amazon EMR tries to provision On-Demand Instances as</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- specified by InstanceTypeConfig. Each instance configuration has a</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- specified @WeightedCapacity@. When an On-Demand Instance is provisioned,</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- the @WeightedCapacity@ units count toward the target capacity. Amazon</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- EMR provisions instances until the target capacity is totally fulfilled,</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- even if this results in an overage. For example, if there are 2 units</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- remaining to fulfill capacity, and Amazon EMR can only provision an</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- instance with a @WeightedCapacity@ of 5 units, the instance is</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- provisioned, and the target capacity is exceeded by 3 units. You can use</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- InstanceFleet$ProvisionedOnDemandCapacity to determine the Spot capacity</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- units that have been provisioned for the instance fleet.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- If not specified or set to 0, only Spot Instances are provisioned for</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- the instance fleet using @TargetSpotCapacity@. At least one of</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- @TargetSpotCapacity@ and @TargetOnDemandCapacity@ should be greater than</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- 0. For a master instance fleet, only one of @TargetSpotCapacity@ and</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- @TargetOnDemandCapacity@ can be specified, and its value must be 1.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- 'instanceFleetType', 'instanceFleet_instanceFleetType' - The node type that the instance fleet hosts. Valid values are MASTER,</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- CORE, or TASK.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- 'instanceTypeSpecifications', 'instanceFleet_instanceTypeSpecifications' - An array of specifications for the instance types that comprise an</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- instance fleet.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- 'name', 'instanceFleet_name' - A friendly name for the instance fleet.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- 'provisionedOnDemandCapacity', 'instanceFleet_provisionedOnDemandCapacity' - The number of On-Demand units that have been provisioned for the</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- instance fleet to fulfill @TargetOnDemandCapacity@. This provisioned</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- capacity might be less than or greater than @TargetOnDemandCapacity@.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- 'targetSpotCapacity', 'instanceFleet_targetSpotCapacity' - The target capacity of Spot units for the instance fleet, which</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- determines how many Spot Instances to provision. When the instance fleet</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- launches, Amazon EMR tries to provision Spot Instances as specified by</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- InstanceTypeConfig. Each instance configuration has a specified</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- @WeightedCapacity@. When a Spot instance is provisioned, the</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- @WeightedCapacity@ units count toward the target capacity. Amazon EMR</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- provisions instances until the target capacity is totally fulfilled,</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- even if this results in an overage. For example, if there are 2 units</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- remaining to fulfill capacity, and Amazon EMR can only provision an</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- instance with a @WeightedCapacity@ of 5 units, the instance is</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- provisioned, and the target capacity is exceeded by 3 units. You can use</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- InstanceFleet$ProvisionedSpotCapacity to determine the Spot capacity</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- units that have been provisioned for the instance fleet.</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- If not specified or set to 0, only On-Demand Instances are provisioned</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- for the instance fleet. At least one of @TargetSpotCapacity@ and</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- @TargetOnDemandCapacity@ should be greater than 0. For a master instance</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- fleet, only one of @TargetSpotCapacity@ and @TargetOnDemandCapacity@ can</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- be specified, and its value must be 1.</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- 'id', 'instanceFleet_id' - The unique identifier of the instance fleet.</span><span>
 </span><span id="line-172"></span><span class="hs-comment">--</span><span>
 </span><span id="line-173"></span><span class="hs-comment">-- 'launchSpecifications', 'instanceFleet_launchSpecifications' - Describes the launch specification for an instance fleet.</span><span>
 </span><span id="line-174"></span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#newInstanceFleet"><span class="hs-identifier hs-type">newInstanceFleet</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-175"></span><span>  </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet"><span class="hs-identifier hs-type">InstanceFleet</span></a></span><span>
 </span><span id="line-176"></span><span id="newInstanceFleet"><span class="annot"><span class="annottext">newInstanceFleet :: InstanceFleet
 </span><a href="Network.AWS.EMR.Types.InstanceFleet.html#newInstanceFleet"><span class="hs-identifier hs-var hs-var">newInstanceFleet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-177"></span><span>  </span><span class="annot"><span class="annottext">InstanceFleet' :: Maybe InstanceFleetType
+</span><span id="line-177"></span><span>  </span><span class="annot"><span class="annottext">InstanceFleet' :: Maybe Natural
 -&gt; Maybe InstanceFleetStatus
 -&gt; Maybe Natural
--&gt; Maybe Natural
--&gt; Maybe Text
--&gt; Maybe Natural
--&gt; Maybe Text
+-&gt; Maybe InstanceFleetType
 -&gt; Maybe [InstanceTypeSpecification]
+-&gt; Maybe Text
 -&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; Maybe Text
 -&gt; Maybe InstanceFleetProvisioningSpecifications
 -&gt; InstanceFleet
 </span><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet%27"><span class="hs-identifier hs-type">InstanceFleet'</span></a></span><span>
-</span><span id="line-178"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:instanceFleetType:InstanceFleet' :: Maybe InstanceFleetType
-</span><a href="Network.AWS.EMR.Types.InstanceFleet.html#%24sel%3AinstanceFleetType%3AInstanceFleet%27"><span class="hs-identifier hs-var">instanceFleetType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceFleetType
+</span><span id="line-178"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:provisionedSpotCapacity:InstanceFleet' :: Maybe Natural
+</span><a href="Network.AWS.EMR.Types.InstanceFleet.html#%24sel%3AprovisionedSpotCapacity%3AInstanceFleet%27"><span class="hs-identifier hs-var">provisionedSpotCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-179"></span><span>        </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-179"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:InstanceFleet' :: Maybe InstanceFleetStatus
+</span><span id="line-180"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:InstanceFleet' :: Maybe InstanceFleetStatus
 </span><a href="Network.AWS.EMR.Types.InstanceFleet.html#%24sel%3Astatus%3AInstanceFleet%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceFleetStatus
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-180"></span><span>      </span><span class="annot"><span class="annottext">$sel:targetOnDemandCapacity:InstanceFleet' :: Maybe Natural
+</span><span id="line-181"></span><span>      </span><span class="annot"><span class="annottext">$sel:targetOnDemandCapacity:InstanceFleet' :: Maybe Natural
 </span><a href="Network.AWS.EMR.Types.InstanceFleet.html#%24sel%3AtargetOnDemandCapacity%3AInstanceFleet%27"><span class="hs-identifier hs-var">targetOnDemandCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-181"></span><span>      </span><span class="annot"><span class="annottext">$sel:targetSpotCapacity:InstanceFleet' :: Maybe Natural
-</span><a href="Network.AWS.EMR.Types.InstanceFleet.html#%24sel%3AtargetSpotCapacity%3AInstanceFleet%27"><span class="hs-identifier hs-var">targetSpotCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-182"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceFleetType:InstanceFleet' :: Maybe InstanceFleetType
+</span><a href="Network.AWS.EMR.Types.InstanceFleet.html#%24sel%3AinstanceFleetType%3AInstanceFleet%27"><span class="hs-identifier hs-var">instanceFleetType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceFleetType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-182"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:InstanceFleet' :: Maybe Text
-</span><a href="Network.AWS.EMR.Types.InstanceFleet.html#%24sel%3Aid%3AInstanceFleet%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-183"></span><span>      </span><span class="annot"><span class="annottext">$sel:provisionedOnDemandCapacity:InstanceFleet' :: Maybe Natural
-</span><a href="Network.AWS.EMR.Types.InstanceFleet.html#%24sel%3AprovisionedOnDemandCapacity%3AInstanceFleet%27"><span class="hs-identifier hs-var">provisionedOnDemandCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-183"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceTypeSpecifications:InstanceFleet' :: Maybe [InstanceTypeSpecification]
+</span><a href="Network.AWS.EMR.Types.InstanceFleet.html#%24sel%3AinstanceTypeSpecifications%3AInstanceFleet%27"><span class="hs-identifier hs-var">instanceTypeSpecifications</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [InstanceTypeSpecification]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-184"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:InstanceFleet' :: Maybe Text
 </span><a href="Network.AWS.EMR.Types.InstanceFleet.html#%24sel%3Aname%3AInstanceFleet%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-185"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceTypeSpecifications:InstanceFleet' :: Maybe [InstanceTypeSpecification]
-</span><a href="Network.AWS.EMR.Types.InstanceFleet.html#%24sel%3AinstanceTypeSpecifications%3AInstanceFleet%27"><span class="hs-identifier hs-var">instanceTypeSpecifications</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [InstanceTypeSpecification]
+</span><span id="line-185"></span><span>      </span><span class="annot"><span class="annottext">$sel:provisionedOnDemandCapacity:InstanceFleet' :: Maybe Natural
+</span><a href="Network.AWS.EMR.Types.InstanceFleet.html#%24sel%3AprovisionedOnDemandCapacity%3AInstanceFleet%27"><span class="hs-identifier hs-var">provisionedOnDemandCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-186"></span><span>      </span><span class="annot"><span class="annottext">$sel:provisionedSpotCapacity:InstanceFleet' :: Maybe Natural
-</span><a href="Network.AWS.EMR.Types.InstanceFleet.html#%24sel%3AprovisionedSpotCapacity%3AInstanceFleet%27"><span class="hs-identifier hs-var">provisionedSpotCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-186"></span><span>      </span><span class="annot"><span class="annottext">$sel:targetSpotCapacity:InstanceFleet' :: Maybe Natural
+</span><a href="Network.AWS.EMR.Types.InstanceFleet.html#%24sel%3AtargetSpotCapacity%3AInstanceFleet%27"><span class="hs-identifier hs-var">targetSpotCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-187"></span><span>      </span><span class="annot"><span class="annottext">$sel:launchSpecifications:InstanceFleet' :: Maybe InstanceFleetProvisioningSpecifications
+</span><span id="line-187"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:InstanceFleet' :: Maybe Text
+</span><a href="Network.AWS.EMR.Types.InstanceFleet.html#%24sel%3Aid%3AInstanceFleet%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>      </span><span class="annot"><span class="annottext">$sel:launchSpecifications:InstanceFleet' :: Maybe InstanceFleetProvisioningSpecifications
 </span><a href="Network.AWS.EMR.Types.InstanceFleet.html#%24sel%3AlaunchSpecifications%3AInstanceFleet%27"><span class="hs-identifier hs-var">launchSpecifications</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceFleetProvisioningSpecifications
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-188"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-189"></span><span>
-</span><span id="line-190"></span><span class="hs-comment">-- | The node type that the instance fleet hosts. Valid values are MASTER,</span><span>
-</span><span id="line-191"></span><span class="hs-comment">-- CORE, or TASK.</span><span>
-</span><span id="line-192"></span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#instanceFleet_instanceFleetType"><span class="hs-identifier hs-type">instanceFleet_instanceFleetType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet"><span class="hs-identifier hs-type">InstanceFleet</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetType.html#InstanceFleetType"><span class="hs-identifier hs-type">InstanceFleetType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-193"></span><span id="instanceFleet_instanceFleetType"><span class="annot"><span class="annottext">instanceFleet_instanceFleetType :: (Maybe InstanceFleetType -&gt; f (Maybe InstanceFleetType))
+</span><span id="line-189"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- | The number of Spot units that have been provisioned for this instance</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- fleet to fulfill @TargetSpotCapacity@. This provisioned capacity might</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- be less than or greater than @TargetSpotCapacity@.</span><span>
+</span><span id="line-194"></span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#instanceFleet_provisionedSpotCapacity"><span class="hs-identifier hs-type">instanceFleet_provisionedSpotCapacity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet"><span class="hs-identifier hs-type">InstanceFleet</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span id="instanceFleet_provisionedSpotCapacity"><span class="annot"><span class="annottext">instanceFleet_provisionedSpotCapacity :: (Maybe Natural -&gt; f (Maybe Natural))
 -&gt; InstanceFleet -&gt; f InstanceFleet
-</span><a href="Network.AWS.EMR.Types.InstanceFleet.html#instanceFleet_instanceFleetType"><span class="hs-identifier hs-var hs-var">instanceFleet_instanceFleetType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceFleet -&gt; Maybe InstanceFleetType)
--&gt; (InstanceFleet -&gt; Maybe InstanceFleetType -&gt; InstanceFleet)
--&gt; Lens
-     InstanceFleet
-     InstanceFleet
-     (Maybe InstanceFleetType)
-     (Maybe InstanceFleetType)
+</span><a href="Network.AWS.EMR.Types.InstanceFleet.html#instanceFleet_provisionedSpotCapacity"><span class="hs-identifier hs-var hs-var">instanceFleet_provisionedSpotCapacity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceFleet -&gt; Maybe Natural)
+-&gt; (InstanceFleet -&gt; Maybe Natural -&gt; InstanceFleet)
+-&gt; Lens InstanceFleet InstanceFleet (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet%27"><span class="hs-identifier hs-type">InstanceFleet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381140"><span class="annot"><span class="annottext">Maybe InstanceFleetType
-instanceFleetType :: Maybe InstanceFleetType
-$sel:instanceFleetType:InstanceFleet' :: InstanceFleet -&gt; Maybe InstanceFleetType
-</span><a href="#local-6989586621679381140"><span class="hs-identifier hs-var hs-var">instanceFleetType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceFleetType
-</span><a href="#local-6989586621679381140"><span class="hs-identifier hs-var">instanceFleetType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381139"><span class="annot"><span class="annottext">s :: InstanceFleet
-</span><a href="#local-6989586621679381139"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet%27"><span class="hs-identifier hs-type">InstanceFleet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381138"><span class="annot"><span class="annottext">Maybe InstanceFleetType
-</span><a href="#local-6989586621679381138"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceFleet
-</span><a href="#local-6989586621679381139"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceFleetType:InstanceFleet' :: Maybe InstanceFleetType
-</span><a href="Network.AWS.EMR.Types.InstanceFleet.html#%24sel%3AinstanceFleetType%3AInstanceFleet%27"><span class="hs-identifier hs-var">instanceFleetType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceFleetType
-</span><a href="#local-6989586621679381138"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet"><span class="hs-identifier hs-type">InstanceFleet</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-194"></span><span>
-</span><span id="line-195"></span><span class="hs-comment">-- | The current status of the instance fleet.</span><span>
-</span><span id="line-196"></span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#instanceFleet_status"><span class="hs-identifier hs-type">instanceFleet_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet"><span class="hs-identifier hs-type">InstanceFleet</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetStatus.html#InstanceFleetStatus"><span class="hs-identifier hs-type">InstanceFleetStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-197"></span><span id="instanceFleet_status"><span class="annot"><span class="annottext">instanceFleet_status :: (Maybe InstanceFleetStatus -&gt; f (Maybe InstanceFleetStatus))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet%27"><span class="hs-identifier hs-type">InstanceFleet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381512"><span class="annot"><span class="annottext">Maybe Natural
+provisionedSpotCapacity :: Maybe Natural
+$sel:provisionedSpotCapacity:InstanceFleet' :: InstanceFleet -&gt; Maybe Natural
+</span><a href="#local-6989586621679381512"><span class="hs-identifier hs-var hs-var">provisionedSpotCapacity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679381512"><span class="hs-identifier hs-var">provisionedSpotCapacity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381511"><span class="annot"><span class="annottext">s :: InstanceFleet
+</span><a href="#local-6989586621679381511"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet%27"><span class="hs-identifier hs-type">InstanceFleet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381510"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679381510"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceFleet
+</span><a href="#local-6989586621679381511"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:provisionedSpotCapacity:InstanceFleet' :: Maybe Natural
+</span><a href="Network.AWS.EMR.Types.InstanceFleet.html#%24sel%3AprovisionedSpotCapacity%3AInstanceFleet%27"><span class="hs-identifier hs-var">provisionedSpotCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679381510"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet"><span class="hs-identifier hs-type">InstanceFleet</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- | The current status of the instance fleet.</span><span>
+</span><span id="line-198"></span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#instanceFleet_status"><span class="hs-identifier hs-type">instanceFleet_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet"><span class="hs-identifier hs-type">InstanceFleet</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetStatus.html#InstanceFleetStatus"><span class="hs-identifier hs-type">InstanceFleetStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span id="instanceFleet_status"><span class="annot"><span class="annottext">instanceFleet_status :: (Maybe InstanceFleetStatus -&gt; f (Maybe InstanceFleetStatus))
 -&gt; InstanceFleet -&gt; f InstanceFleet
 </span><a href="Network.AWS.EMR.Types.InstanceFleet.html#instanceFleet_status"><span class="hs-identifier hs-var hs-var">instanceFleet_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceFleet -&gt; Maybe InstanceFleetStatus)
 -&gt; (InstanceFleet -&gt; Maybe InstanceFleetStatus -&gt; InstanceFleet)
@@ -327,152 +325,82 @@ $sel:instanceFleetType:InstanceFleet' :: InstanceFleet -&gt; Maybe InstanceFleet
      (Maybe InstanceFleetStatus)
      (Maybe InstanceFleetStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet%27"><span class="hs-identifier hs-type">InstanceFleet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381136"><span class="annot"><span class="annottext">Maybe InstanceFleetStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet%27"><span class="hs-identifier hs-type">InstanceFleet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381508"><span class="annot"><span class="annottext">Maybe InstanceFleetStatus
 status :: Maybe InstanceFleetStatus
 $sel:status:InstanceFleet' :: InstanceFleet -&gt; Maybe InstanceFleetStatus
-</span><a href="#local-6989586621679381136"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceFleetStatus
-</span><a href="#local-6989586621679381136"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381135"><span class="annot"><span class="annottext">s :: InstanceFleet
-</span><a href="#local-6989586621679381135"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet%27"><span class="hs-identifier hs-type">InstanceFleet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381134"><span class="annot"><span class="annottext">Maybe InstanceFleetStatus
-</span><a href="#local-6989586621679381134"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceFleet
-</span><a href="#local-6989586621679381135"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:InstanceFleet' :: Maybe InstanceFleetStatus
+</span><a href="#local-6989586621679381508"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceFleetStatus
+</span><a href="#local-6989586621679381508"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381507"><span class="annot"><span class="annottext">s :: InstanceFleet
+</span><a href="#local-6989586621679381507"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet%27"><span class="hs-identifier hs-type">InstanceFleet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381506"><span class="annot"><span class="annottext">Maybe InstanceFleetStatus
+</span><a href="#local-6989586621679381506"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceFleet
+</span><a href="#local-6989586621679381507"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:InstanceFleet' :: Maybe InstanceFleetStatus
 </span><a href="Network.AWS.EMR.Types.InstanceFleet.html#%24sel%3Astatus%3AInstanceFleet%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceFleetStatus
-</span><a href="#local-6989586621679381134"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet"><span class="hs-identifier hs-type">InstanceFleet</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-198"></span><span>
-</span><span id="line-199"></span><span class="hs-comment">-- | The target capacity of On-Demand units for the instance fleet, which</span><span>
-</span><span id="line-200"></span><span class="hs-comment">-- determines how many On-Demand Instances to provision. When the instance</span><span>
-</span><span id="line-201"></span><span class="hs-comment">-- fleet launches, Amazon EMR tries to provision On-Demand Instances as</span><span>
-</span><span id="line-202"></span><span class="hs-comment">-- specified by InstanceTypeConfig. Each instance configuration has a</span><span>
-</span><span id="line-203"></span><span class="hs-comment">-- specified @WeightedCapacity@. When an On-Demand Instance is provisioned,</span><span>
-</span><span id="line-204"></span><span class="hs-comment">-- the @WeightedCapacity@ units count toward the target capacity. Amazon</span><span>
-</span><span id="line-205"></span><span class="hs-comment">-- EMR provisions instances until the target capacity is totally fulfilled,</span><span>
-</span><span id="line-206"></span><span class="hs-comment">-- even if this results in an overage. For example, if there are 2 units</span><span>
-</span><span id="line-207"></span><span class="hs-comment">-- remaining to fulfill capacity, and Amazon EMR can only provision an</span><span>
-</span><span id="line-208"></span><span class="hs-comment">-- instance with a @WeightedCapacity@ of 5 units, the instance is</span><span>
-</span><span id="line-209"></span><span class="hs-comment">-- provisioned, and the target capacity is exceeded by 3 units. You can use</span><span>
-</span><span id="line-210"></span><span class="hs-comment">-- InstanceFleet$ProvisionedOnDemandCapacity to determine the Spot capacity</span><span>
-</span><span id="line-211"></span><span class="hs-comment">-- units that have been provisioned for the instance fleet.</span><span>
-</span><span id="line-212"></span><span class="hs-comment">--</span><span>
-</span><span id="line-213"></span><span class="hs-comment">-- If not specified or set to 0, only Spot Instances are provisioned for</span><span>
-</span><span id="line-214"></span><span class="hs-comment">-- the instance fleet using @TargetSpotCapacity@. At least one of</span><span>
-</span><span id="line-215"></span><span class="hs-comment">-- @TargetSpotCapacity@ and @TargetOnDemandCapacity@ should be greater than</span><span>
-</span><span id="line-216"></span><span class="hs-comment">-- 0. For a master instance fleet, only one of @TargetSpotCapacity@ and</span><span>
-</span><span id="line-217"></span><span class="hs-comment">-- @TargetOnDemandCapacity@ can be specified, and its value must be 1.</span><span>
-</span><span id="line-218"></span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#instanceFleet_targetOnDemandCapacity"><span class="hs-identifier hs-type">instanceFleet_targetOnDemandCapacity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet"><span class="hs-identifier hs-type">InstanceFleet</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-219"></span><span id="instanceFleet_targetOnDemandCapacity"><span class="annot"><span class="annottext">instanceFleet_targetOnDemandCapacity :: (Maybe Natural -&gt; f (Maybe Natural))
+</span><a href="#local-6989586621679381506"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet"><span class="hs-identifier hs-type">InstanceFleet</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- | The target capacity of On-Demand units for the instance fleet, which</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- determines how many On-Demand Instances to provision. When the instance</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- fleet launches, Amazon EMR tries to provision On-Demand Instances as</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- specified by InstanceTypeConfig. Each instance configuration has a</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- specified @WeightedCapacity@. When an On-Demand Instance is provisioned,</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- the @WeightedCapacity@ units count toward the target capacity. Amazon</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- EMR provisions instances until the target capacity is totally fulfilled,</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- even if this results in an overage. For example, if there are 2 units</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- remaining to fulfill capacity, and Amazon EMR can only provision an</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- instance with a @WeightedCapacity@ of 5 units, the instance is</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- provisioned, and the target capacity is exceeded by 3 units. You can use</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- InstanceFleet$ProvisionedOnDemandCapacity to determine the Spot capacity</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- units that have been provisioned for the instance fleet.</span><span>
+</span><span id="line-214"></span><span class="hs-comment">--</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- If not specified or set to 0, only Spot Instances are provisioned for</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- the instance fleet using @TargetSpotCapacity@. At least one of</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- @TargetSpotCapacity@ and @TargetOnDemandCapacity@ should be greater than</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- 0. For a master instance fleet, only one of @TargetSpotCapacity@ and</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- @TargetOnDemandCapacity@ can be specified, and its value must be 1.</span><span>
+</span><span id="line-220"></span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#instanceFleet_targetOnDemandCapacity"><span class="hs-identifier hs-type">instanceFleet_targetOnDemandCapacity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet"><span class="hs-identifier hs-type">InstanceFleet</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span id="instanceFleet_targetOnDemandCapacity"><span class="annot"><span class="annottext">instanceFleet_targetOnDemandCapacity :: (Maybe Natural -&gt; f (Maybe Natural))
 -&gt; InstanceFleet -&gt; f InstanceFleet
 </span><a href="Network.AWS.EMR.Types.InstanceFleet.html#instanceFleet_targetOnDemandCapacity"><span class="hs-identifier hs-var hs-var">instanceFleet_targetOnDemandCapacity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceFleet -&gt; Maybe Natural)
 -&gt; (InstanceFleet -&gt; Maybe Natural -&gt; InstanceFleet)
 -&gt; Lens InstanceFleet InstanceFleet (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet%27"><span class="hs-identifier hs-type">InstanceFleet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381132"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet%27"><span class="hs-identifier hs-type">InstanceFleet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381504"><span class="annot"><span class="annottext">Maybe Natural
 targetOnDemandCapacity :: Maybe Natural
 $sel:targetOnDemandCapacity:InstanceFleet' :: InstanceFleet -&gt; Maybe Natural
-</span><a href="#local-6989586621679381132"><span class="hs-identifier hs-var hs-var">targetOnDemandCapacity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679381132"><span class="hs-identifier hs-var">targetOnDemandCapacity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381131"><span class="annot"><span class="annottext">s :: InstanceFleet
-</span><a href="#local-6989586621679381131"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet%27"><span class="hs-identifier hs-type">InstanceFleet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381130"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679381130"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceFleet
-</span><a href="#local-6989586621679381131"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetOnDemandCapacity:InstanceFleet' :: Maybe Natural
+</span><a href="#local-6989586621679381504"><span class="hs-identifier hs-var hs-var">targetOnDemandCapacity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679381504"><span class="hs-identifier hs-var">targetOnDemandCapacity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381503"><span class="annot"><span class="annottext">s :: InstanceFleet
+</span><a href="#local-6989586621679381503"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet%27"><span class="hs-identifier hs-type">InstanceFleet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381502"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679381502"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceFleet
+</span><a href="#local-6989586621679381503"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetOnDemandCapacity:InstanceFleet' :: Maybe Natural
 </span><a href="Network.AWS.EMR.Types.InstanceFleet.html#%24sel%3AtargetOnDemandCapacity%3AInstanceFleet%27"><span class="hs-identifier hs-var">targetOnDemandCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679381130"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet"><span class="hs-identifier hs-type">InstanceFleet</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-220"></span><span>
-</span><span id="line-221"></span><span class="hs-comment">-- | The target capacity of Spot units for the instance fleet, which</span><span>
-</span><span id="line-222"></span><span class="hs-comment">-- determines how many Spot Instances to provision. When the instance fleet</span><span>
-</span><span id="line-223"></span><span class="hs-comment">-- launches, Amazon EMR tries to provision Spot Instances as specified by</span><span>
-</span><span id="line-224"></span><span class="hs-comment">-- InstanceTypeConfig. Each instance configuration has a specified</span><span>
-</span><span id="line-225"></span><span class="hs-comment">-- @WeightedCapacity@. When a Spot instance is provisioned, the</span><span>
-</span><span id="line-226"></span><span class="hs-comment">-- @WeightedCapacity@ units count toward the target capacity. Amazon EMR</span><span>
-</span><span id="line-227"></span><span class="hs-comment">-- provisions instances until the target capacity is totally fulfilled,</span><span>
-</span><span id="line-228"></span><span class="hs-comment">-- even if this results in an overage. For example, if there are 2 units</span><span>
-</span><span id="line-229"></span><span class="hs-comment">-- remaining to fulfill capacity, and Amazon EMR can only provision an</span><span>
-</span><span id="line-230"></span><span class="hs-comment">-- instance with a @WeightedCapacity@ of 5 units, the instance is</span><span>
-</span><span id="line-231"></span><span class="hs-comment">-- provisioned, and the target capacity is exceeded by 3 units. You can use</span><span>
-</span><span id="line-232"></span><span class="hs-comment">-- InstanceFleet$ProvisionedSpotCapacity to determine the Spot capacity</span><span>
-</span><span id="line-233"></span><span class="hs-comment">-- units that have been provisioned for the instance fleet.</span><span>
-</span><span id="line-234"></span><span class="hs-comment">--</span><span>
-</span><span id="line-235"></span><span class="hs-comment">-- If not specified or set to 0, only On-Demand Instances are provisioned</span><span>
-</span><span id="line-236"></span><span class="hs-comment">-- for the instance fleet. At least one of @TargetSpotCapacity@ and</span><span>
-</span><span id="line-237"></span><span class="hs-comment">-- @TargetOnDemandCapacity@ should be greater than 0. For a master instance</span><span>
-</span><span id="line-238"></span><span class="hs-comment">-- fleet, only one of @TargetSpotCapacity@ and @TargetOnDemandCapacity@ can</span><span>
-</span><span id="line-239"></span><span class="hs-comment">-- be specified, and its value must be 1.</span><span>
-</span><span id="line-240"></span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#instanceFleet_targetSpotCapacity"><span class="hs-identifier hs-type">instanceFleet_targetSpotCapacity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet"><span class="hs-identifier hs-type">InstanceFleet</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-241"></span><span id="instanceFleet_targetSpotCapacity"><span class="annot"><span class="annottext">instanceFleet_targetSpotCapacity :: (Maybe Natural -&gt; f (Maybe Natural))
+</span><a href="#local-6989586621679381502"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet"><span class="hs-identifier hs-type">InstanceFleet</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- | The node type that the instance fleet hosts. Valid values are MASTER,</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- CORE, or TASK.</span><span>
+</span><span id="line-225"></span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#instanceFleet_instanceFleetType"><span class="hs-identifier hs-type">instanceFleet_instanceFleetType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet"><span class="hs-identifier hs-type">InstanceFleet</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetType.html#InstanceFleetType"><span class="hs-identifier hs-type">InstanceFleetType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span id="instanceFleet_instanceFleetType"><span class="annot"><span class="annottext">instanceFleet_instanceFleetType :: (Maybe InstanceFleetType -&gt; f (Maybe InstanceFleetType))
 -&gt; InstanceFleet -&gt; f InstanceFleet
-</span><a href="Network.AWS.EMR.Types.InstanceFleet.html#instanceFleet_targetSpotCapacity"><span class="hs-identifier hs-var hs-var">instanceFleet_targetSpotCapacity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceFleet -&gt; Maybe Natural)
--&gt; (InstanceFleet -&gt; Maybe Natural -&gt; InstanceFleet)
--&gt; Lens InstanceFleet InstanceFleet (Maybe Natural) (Maybe Natural)
+</span><a href="Network.AWS.EMR.Types.InstanceFleet.html#instanceFleet_instanceFleetType"><span class="hs-identifier hs-var hs-var">instanceFleet_instanceFleetType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceFleet -&gt; Maybe InstanceFleetType)
+-&gt; (InstanceFleet -&gt; Maybe InstanceFleetType -&gt; InstanceFleet)
+-&gt; Lens
+     InstanceFleet
+     InstanceFleet
+     (Maybe InstanceFleetType)
+     (Maybe InstanceFleetType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet%27"><span class="hs-identifier hs-type">InstanceFleet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381128"><span class="annot"><span class="annottext">Maybe Natural
-targetSpotCapacity :: Maybe Natural
-$sel:targetSpotCapacity:InstanceFleet' :: InstanceFleet -&gt; Maybe Natural
-</span><a href="#local-6989586621679381128"><span class="hs-identifier hs-var hs-var">targetSpotCapacity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679381128"><span class="hs-identifier hs-var">targetSpotCapacity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381127"><span class="annot"><span class="annottext">s :: InstanceFleet
-</span><a href="#local-6989586621679381127"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet%27"><span class="hs-identifier hs-type">InstanceFleet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381126"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679381126"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceFleet
-</span><a href="#local-6989586621679381127"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetSpotCapacity:InstanceFleet' :: Maybe Natural
-</span><a href="Network.AWS.EMR.Types.InstanceFleet.html#%24sel%3AtargetSpotCapacity%3AInstanceFleet%27"><span class="hs-identifier hs-var">targetSpotCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679381126"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet"><span class="hs-identifier hs-type">InstanceFleet</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-242"></span><span>
-</span><span id="line-243"></span><span class="hs-comment">-- | The unique identifier of the instance fleet.</span><span>
-</span><span id="line-244"></span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#instanceFleet_id"><span class="hs-identifier hs-type">instanceFleet_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet"><span class="hs-identifier hs-type">InstanceFleet</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-245"></span><span id="instanceFleet_id"><span class="annot"><span class="annottext">instanceFleet_id :: (Maybe Text -&gt; f (Maybe Text)) -&gt; InstanceFleet -&gt; f InstanceFleet
-</span><a href="Network.AWS.EMR.Types.InstanceFleet.html#instanceFleet_id"><span class="hs-identifier hs-var hs-var">instanceFleet_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceFleet -&gt; Maybe Text)
--&gt; (InstanceFleet -&gt; Maybe Text -&gt; InstanceFleet)
--&gt; Lens InstanceFleet InstanceFleet (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet%27"><span class="hs-identifier hs-type">InstanceFleet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381124"><span class="annot"><span class="annottext">Maybe Text
-id :: Maybe Text
-$sel:id:InstanceFleet' :: InstanceFleet -&gt; Maybe Text
-</span><a href="#local-6989586621679381124"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679381124"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381123"><span class="annot"><span class="annottext">s :: InstanceFleet
-</span><a href="#local-6989586621679381123"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet%27"><span class="hs-identifier hs-type">InstanceFleet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381122"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679381122"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceFleet
-</span><a href="#local-6989586621679381123"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:InstanceFleet' :: Maybe Text
-</span><a href="Network.AWS.EMR.Types.InstanceFleet.html#%24sel%3Aid%3AInstanceFleet%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679381122"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet"><span class="hs-identifier hs-type">InstanceFleet</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-246"></span><span>
-</span><span id="line-247"></span><span class="hs-comment">-- | The number of On-Demand units that have been provisioned for the</span><span>
-</span><span id="line-248"></span><span class="hs-comment">-- instance fleet to fulfill @TargetOnDemandCapacity@. This provisioned</span><span>
-</span><span id="line-249"></span><span class="hs-comment">-- capacity might be less than or greater than @TargetOnDemandCapacity@.</span><span>
-</span><span id="line-250"></span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#instanceFleet_provisionedOnDemandCapacity"><span class="hs-identifier hs-type">instanceFleet_provisionedOnDemandCapacity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet"><span class="hs-identifier hs-type">InstanceFleet</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-251"></span><span id="instanceFleet_provisionedOnDemandCapacity"><span class="annot"><span class="annottext">instanceFleet_provisionedOnDemandCapacity :: (Maybe Natural -&gt; f (Maybe Natural))
--&gt; InstanceFleet -&gt; f InstanceFleet
-</span><a href="Network.AWS.EMR.Types.InstanceFleet.html#instanceFleet_provisionedOnDemandCapacity"><span class="hs-identifier hs-var hs-var">instanceFleet_provisionedOnDemandCapacity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceFleet -&gt; Maybe Natural)
--&gt; (InstanceFleet -&gt; Maybe Natural -&gt; InstanceFleet)
--&gt; Lens InstanceFleet InstanceFleet (Maybe Natural) (Maybe Natural)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet%27"><span class="hs-identifier hs-type">InstanceFleet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381120"><span class="annot"><span class="annottext">Maybe Natural
-provisionedOnDemandCapacity :: Maybe Natural
-$sel:provisionedOnDemandCapacity:InstanceFleet' :: InstanceFleet -&gt; Maybe Natural
-</span><a href="#local-6989586621679381120"><span class="hs-identifier hs-var hs-var">provisionedOnDemandCapacity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679381120"><span class="hs-identifier hs-var">provisionedOnDemandCapacity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381119"><span class="annot"><span class="annottext">s :: InstanceFleet
-</span><a href="#local-6989586621679381119"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet%27"><span class="hs-identifier hs-type">InstanceFleet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381118"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679381118"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceFleet
-</span><a href="#local-6989586621679381119"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:provisionedOnDemandCapacity:InstanceFleet' :: Maybe Natural
-</span><a href="Network.AWS.EMR.Types.InstanceFleet.html#%24sel%3AprovisionedOnDemandCapacity%3AInstanceFleet%27"><span class="hs-identifier hs-var">provisionedOnDemandCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679381118"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet"><span class="hs-identifier hs-type">InstanceFleet</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-252"></span><span>
-</span><span id="line-253"></span><span class="hs-comment">-- | A friendly name for the instance fleet.</span><span>
-</span><span id="line-254"></span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#instanceFleet_name"><span class="hs-identifier hs-type">instanceFleet_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet"><span class="hs-identifier hs-type">InstanceFleet</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-255"></span><span id="instanceFleet_name"><span class="annot"><span class="annottext">instanceFleet_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; InstanceFleet -&gt; f InstanceFleet
-</span><a href="Network.AWS.EMR.Types.InstanceFleet.html#instanceFleet_name"><span class="hs-identifier hs-var hs-var">instanceFleet_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceFleet -&gt; Maybe Text)
--&gt; (InstanceFleet -&gt; Maybe Text -&gt; InstanceFleet)
--&gt; Lens InstanceFleet InstanceFleet (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet%27"><span class="hs-identifier hs-type">InstanceFleet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381116"><span class="annot"><span class="annottext">Maybe Text
-name :: Maybe Text
-$sel:name:InstanceFleet' :: InstanceFleet -&gt; Maybe Text
-</span><a href="#local-6989586621679381116"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679381116"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381115"><span class="annot"><span class="annottext">s :: InstanceFleet
-</span><a href="#local-6989586621679381115"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet%27"><span class="hs-identifier hs-type">InstanceFleet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381114"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679381114"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceFleet
-</span><a href="#local-6989586621679381115"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:InstanceFleet' :: Maybe Text
-</span><a href="Network.AWS.EMR.Types.InstanceFleet.html#%24sel%3Aname%3AInstanceFleet%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679381114"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet"><span class="hs-identifier hs-type">InstanceFleet</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-256"></span><span>
-</span><span id="line-257"></span><span class="hs-comment">-- | An array of specifications for the instance types that comprise an</span><span>
-</span><span id="line-258"></span><span class="hs-comment">-- instance fleet.</span><span>
-</span><span id="line-259"></span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#instanceFleet_instanceTypeSpecifications"><span class="hs-identifier hs-type">instanceFleet_instanceTypeSpecifications</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet"><span class="hs-identifier hs-type">InstanceFleet</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTypeSpecification.html#InstanceTypeSpecification"><span class="hs-identifier hs-type">InstanceTypeSpecification</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-260"></span><span id="instanceFleet_instanceTypeSpecifications"><span class="annot"><span class="annottext">instanceFleet_instanceTypeSpecifications :: (Maybe [InstanceTypeSpecification]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet%27"><span class="hs-identifier hs-type">InstanceFleet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381500"><span class="annot"><span class="annottext">Maybe InstanceFleetType
+instanceFleetType :: Maybe InstanceFleetType
+$sel:instanceFleetType:InstanceFleet' :: InstanceFleet -&gt; Maybe InstanceFleetType
+</span><a href="#local-6989586621679381500"><span class="hs-identifier hs-var hs-var">instanceFleetType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceFleetType
+</span><a href="#local-6989586621679381500"><span class="hs-identifier hs-var">instanceFleetType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381499"><span class="annot"><span class="annottext">s :: InstanceFleet
+</span><a href="#local-6989586621679381499"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet%27"><span class="hs-identifier hs-type">InstanceFleet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381498"><span class="annot"><span class="annottext">Maybe InstanceFleetType
+</span><a href="#local-6989586621679381498"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceFleet
+</span><a href="#local-6989586621679381499"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceFleetType:InstanceFleet' :: Maybe InstanceFleetType
+</span><a href="Network.AWS.EMR.Types.InstanceFleet.html#%24sel%3AinstanceFleetType%3AInstanceFleet%27"><span class="hs-identifier hs-var">instanceFleetType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceFleetType
+</span><a href="#local-6989586621679381498"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet"><span class="hs-identifier hs-type">InstanceFleet</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- | An array of specifications for the instance types that comprise an</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- instance fleet.</span><span>
+</span><span id="line-230"></span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#instanceFleet_instanceTypeSpecifications"><span class="hs-identifier hs-type">instanceFleet_instanceTypeSpecifications</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet"><span class="hs-identifier hs-type">InstanceFleet</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTypeSpecification.html#InstanceTypeSpecification"><span class="hs-identifier hs-type">InstanceTypeSpecification</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span id="instanceFleet_instanceTypeSpecifications"><span class="annot"><span class="annottext">instanceFleet_instanceTypeSpecifications :: (Maybe [InstanceTypeSpecification]
  -&gt; f (Maybe [InstanceTypeSpecification]))
 -&gt; InstanceFleet -&gt; f InstanceFleet
 </span><a href="Network.AWS.EMR.Types.InstanceFleet.html#instanceFleet_instanceTypeSpecifications"><span class="hs-identifier hs-var hs-var">instanceFleet_instanceTypeSpecifications</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceFleet -&gt; Maybe [InstanceTypeSpecification])
@@ -484,16 +412,16 @@ $sel:name:InstanceFleet' :: InstanceFleet -&gt; Maybe Text
      (Maybe [InstanceTypeSpecification])
      (Maybe [InstanceTypeSpecification])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet%27"><span class="hs-identifier hs-type">InstanceFleet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381112"><span class="annot"><span class="annottext">Maybe [InstanceTypeSpecification]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet%27"><span class="hs-identifier hs-type">InstanceFleet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381496"><span class="annot"><span class="annottext">Maybe [InstanceTypeSpecification]
 instanceTypeSpecifications :: Maybe [InstanceTypeSpecification]
 $sel:instanceTypeSpecifications:InstanceFleet' :: InstanceFleet -&gt; Maybe [InstanceTypeSpecification]
-</span><a href="#local-6989586621679381112"><span class="hs-identifier hs-var hs-var">instanceTypeSpecifications</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [InstanceTypeSpecification]
-</span><a href="#local-6989586621679381112"><span class="hs-identifier hs-var">instanceTypeSpecifications</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381111"><span class="annot"><span class="annottext">s :: InstanceFleet
-</span><a href="#local-6989586621679381111"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet%27"><span class="hs-identifier hs-type">InstanceFleet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381110"><span class="annot"><span class="annottext">Maybe [InstanceTypeSpecification]
-</span><a href="#local-6989586621679381110"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceFleet
-</span><a href="#local-6989586621679381111"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceTypeSpecifications:InstanceFleet' :: Maybe [InstanceTypeSpecification]
+</span><a href="#local-6989586621679381496"><span class="hs-identifier hs-var hs-var">instanceTypeSpecifications</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [InstanceTypeSpecification]
+</span><a href="#local-6989586621679381496"><span class="hs-identifier hs-var">instanceTypeSpecifications</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381495"><span class="annot"><span class="annottext">s :: InstanceFleet
+</span><a href="#local-6989586621679381495"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet%27"><span class="hs-identifier hs-type">InstanceFleet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381494"><span class="annot"><span class="annottext">Maybe [InstanceTypeSpecification]
+</span><a href="#local-6989586621679381494"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceFleet
+</span><a href="#local-6989586621679381495"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceTypeSpecifications:InstanceFleet' :: Maybe [InstanceTypeSpecification]
 </span><a href="Network.AWS.EMR.Types.InstanceFleet.html#%24sel%3AinstanceTypeSpecifications%3AInstanceFleet%27"><span class="hs-identifier hs-var">instanceTypeSpecifications</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [InstanceTypeSpecification]
-</span><a href="#local-6989586621679381110"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet"><span class="hs-identifier hs-type">InstanceFleet</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [InstanceTypeSpecification]
+</span><a href="#local-6989586621679381494"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet"><span class="hs-identifier hs-type">InstanceFleet</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [InstanceTypeSpecification]
   -&gt; f (Maybe [InstanceTypeSpecification]))
  -&gt; InstanceFleet -&gt; f InstanceFleet)
 -&gt; ((Maybe [InstanceTypeSpecification]
@@ -523,33 +451,106 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [InstanceTypeSpecification]
   [InstanceTypeSpecification]
   [InstanceTypeSpecification]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-261"></span><span>
-</span><span id="line-262"></span><span class="hs-comment">-- | The number of Spot units that have been provisioned for this instance</span><span>
-</span><span id="line-263"></span><span class="hs-comment">-- fleet to fulfill @TargetSpotCapacity@. This provisioned capacity might</span><span>
-</span><span id="line-264"></span><span class="hs-comment">-- be less than or greater than @TargetSpotCapacity@.</span><span>
-</span><span id="line-265"></span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#instanceFleet_provisionedSpotCapacity"><span class="hs-identifier hs-type">instanceFleet_provisionedSpotCapacity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet"><span class="hs-identifier hs-type">InstanceFleet</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-266"></span><span id="instanceFleet_provisionedSpotCapacity"><span class="annot"><span class="annottext">instanceFleet_provisionedSpotCapacity :: (Maybe Natural -&gt; f (Maybe Natural))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-232"></span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- | A friendly name for the instance fleet.</span><span>
+</span><span id="line-234"></span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#instanceFleet_name"><span class="hs-identifier hs-type">instanceFleet_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet"><span class="hs-identifier hs-type">InstanceFleet</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span id="instanceFleet_name"><span class="annot"><span class="annottext">instanceFleet_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; InstanceFleet -&gt; f InstanceFleet
+</span><a href="Network.AWS.EMR.Types.InstanceFleet.html#instanceFleet_name"><span class="hs-identifier hs-var hs-var">instanceFleet_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceFleet -&gt; Maybe Text)
+-&gt; (InstanceFleet -&gt; Maybe Text -&gt; InstanceFleet)
+-&gt; Lens InstanceFleet InstanceFleet (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet%27"><span class="hs-identifier hs-type">InstanceFleet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381489"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:InstanceFleet' :: InstanceFleet -&gt; Maybe Text
+</span><a href="#local-6989586621679381489"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679381489"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381488"><span class="annot"><span class="annottext">s :: InstanceFleet
+</span><a href="#local-6989586621679381488"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet%27"><span class="hs-identifier hs-type">InstanceFleet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381487"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679381487"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceFleet
+</span><a href="#local-6989586621679381488"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:InstanceFleet' :: Maybe Text
+</span><a href="Network.AWS.EMR.Types.InstanceFleet.html#%24sel%3Aname%3AInstanceFleet%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679381487"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet"><span class="hs-identifier hs-type">InstanceFleet</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- | The number of On-Demand units that have been provisioned for the</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- instance fleet to fulfill @TargetOnDemandCapacity@. This provisioned</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- capacity might be less than or greater than @TargetOnDemandCapacity@.</span><span>
+</span><span id="line-240"></span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#instanceFleet_provisionedOnDemandCapacity"><span class="hs-identifier hs-type">instanceFleet_provisionedOnDemandCapacity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet"><span class="hs-identifier hs-type">InstanceFleet</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span id="instanceFleet_provisionedOnDemandCapacity"><span class="annot"><span class="annottext">instanceFleet_provisionedOnDemandCapacity :: (Maybe Natural -&gt; f (Maybe Natural))
 -&gt; InstanceFleet -&gt; f InstanceFleet
-</span><a href="Network.AWS.EMR.Types.InstanceFleet.html#instanceFleet_provisionedSpotCapacity"><span class="hs-identifier hs-var hs-var">instanceFleet_provisionedSpotCapacity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceFleet -&gt; Maybe Natural)
+</span><a href="Network.AWS.EMR.Types.InstanceFleet.html#instanceFleet_provisionedOnDemandCapacity"><span class="hs-identifier hs-var hs-var">instanceFleet_provisionedOnDemandCapacity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceFleet -&gt; Maybe Natural)
 -&gt; (InstanceFleet -&gt; Maybe Natural -&gt; InstanceFleet)
 -&gt; Lens InstanceFleet InstanceFleet (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet%27"><span class="hs-identifier hs-type">InstanceFleet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381105"><span class="annot"><span class="annottext">Maybe Natural
-provisionedSpotCapacity :: Maybe Natural
-$sel:provisionedSpotCapacity:InstanceFleet' :: InstanceFleet -&gt; Maybe Natural
-</span><a href="#local-6989586621679381105"><span class="hs-identifier hs-var hs-var">provisionedSpotCapacity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679381105"><span class="hs-identifier hs-var">provisionedSpotCapacity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381104"><span class="annot"><span class="annottext">s :: InstanceFleet
-</span><a href="#local-6989586621679381104"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet%27"><span class="hs-identifier hs-type">InstanceFleet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381103"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679381103"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceFleet
-</span><a href="#local-6989586621679381104"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:provisionedSpotCapacity:InstanceFleet' :: Maybe Natural
-</span><a href="Network.AWS.EMR.Types.InstanceFleet.html#%24sel%3AprovisionedSpotCapacity%3AInstanceFleet%27"><span class="hs-identifier hs-var">provisionedSpotCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679381103"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet"><span class="hs-identifier hs-type">InstanceFleet</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-267"></span><span>
-</span><span id="line-268"></span><span class="hs-comment">-- | Describes the launch specification for an instance fleet.</span><span>
-</span><span id="line-269"></span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#instanceFleet_launchSpecifications"><span class="hs-identifier hs-type">instanceFleet_launchSpecifications</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet"><span class="hs-identifier hs-type">InstanceFleet</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetProvisioningSpecifications.html#InstanceFleetProvisioningSpecifications"><span class="hs-identifier hs-type">InstanceFleetProvisioningSpecifications</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-270"></span><span id="instanceFleet_launchSpecifications"><span class="annot"><span class="annottext">instanceFleet_launchSpecifications :: (Maybe InstanceFleetProvisioningSpecifications
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet%27"><span class="hs-identifier hs-type">InstanceFleet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381485"><span class="annot"><span class="annottext">Maybe Natural
+provisionedOnDemandCapacity :: Maybe Natural
+$sel:provisionedOnDemandCapacity:InstanceFleet' :: InstanceFleet -&gt; Maybe Natural
+</span><a href="#local-6989586621679381485"><span class="hs-identifier hs-var hs-var">provisionedOnDemandCapacity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679381485"><span class="hs-identifier hs-var">provisionedOnDemandCapacity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381484"><span class="annot"><span class="annottext">s :: InstanceFleet
+</span><a href="#local-6989586621679381484"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet%27"><span class="hs-identifier hs-type">InstanceFleet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381483"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679381483"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceFleet
+</span><a href="#local-6989586621679381484"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:provisionedOnDemandCapacity:InstanceFleet' :: Maybe Natural
+</span><a href="Network.AWS.EMR.Types.InstanceFleet.html#%24sel%3AprovisionedOnDemandCapacity%3AInstanceFleet%27"><span class="hs-identifier hs-var">provisionedOnDemandCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679381483"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet"><span class="hs-identifier hs-type">InstanceFleet</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-242"></span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- | The target capacity of Spot units for the instance fleet, which</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- determines how many Spot Instances to provision. When the instance fleet</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- launches, Amazon EMR tries to provision Spot Instances as specified by</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- InstanceTypeConfig. Each instance configuration has a specified</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- @WeightedCapacity@. When a Spot instance is provisioned, the</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- @WeightedCapacity@ units count toward the target capacity. Amazon EMR</span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- provisions instances until the target capacity is totally fulfilled,</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- even if this results in an overage. For example, if there are 2 units</span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- remaining to fulfill capacity, and Amazon EMR can only provision an</span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- instance with a @WeightedCapacity@ of 5 units, the instance is</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- provisioned, and the target capacity is exceeded by 3 units. You can use</span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- InstanceFleet$ProvisionedSpotCapacity to determine the Spot capacity</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- units that have been provisioned for the instance fleet.</span><span>
+</span><span id="line-256"></span><span class="hs-comment">--</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- If not specified or set to 0, only On-Demand Instances are provisioned</span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- for the instance fleet. At least one of @TargetSpotCapacity@ and</span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- @TargetOnDemandCapacity@ should be greater than 0. For a master instance</span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- fleet, only one of @TargetSpotCapacity@ and @TargetOnDemandCapacity@ can</span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- be specified, and its value must be 1.</span><span>
+</span><span id="line-262"></span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#instanceFleet_targetSpotCapacity"><span class="hs-identifier hs-type">instanceFleet_targetSpotCapacity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet"><span class="hs-identifier hs-type">InstanceFleet</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-263"></span><span id="instanceFleet_targetSpotCapacity"><span class="annot"><span class="annottext">instanceFleet_targetSpotCapacity :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; InstanceFleet -&gt; f InstanceFleet
+</span><a href="Network.AWS.EMR.Types.InstanceFleet.html#instanceFleet_targetSpotCapacity"><span class="hs-identifier hs-var hs-var">instanceFleet_targetSpotCapacity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceFleet -&gt; Maybe Natural)
+-&gt; (InstanceFleet -&gt; Maybe Natural -&gt; InstanceFleet)
+-&gt; Lens InstanceFleet InstanceFleet (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet%27"><span class="hs-identifier hs-type">InstanceFleet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381481"><span class="annot"><span class="annottext">Maybe Natural
+targetSpotCapacity :: Maybe Natural
+$sel:targetSpotCapacity:InstanceFleet' :: InstanceFleet -&gt; Maybe Natural
+</span><a href="#local-6989586621679381481"><span class="hs-identifier hs-var hs-var">targetSpotCapacity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679381481"><span class="hs-identifier hs-var">targetSpotCapacity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381480"><span class="annot"><span class="annottext">s :: InstanceFleet
+</span><a href="#local-6989586621679381480"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet%27"><span class="hs-identifier hs-type">InstanceFleet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381479"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679381479"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceFleet
+</span><a href="#local-6989586621679381480"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetSpotCapacity:InstanceFleet' :: Maybe Natural
+</span><a href="Network.AWS.EMR.Types.InstanceFleet.html#%24sel%3AtargetSpotCapacity%3AInstanceFleet%27"><span class="hs-identifier hs-var">targetSpotCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679381479"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet"><span class="hs-identifier hs-type">InstanceFleet</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-264"></span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- | The unique identifier of the instance fleet.</span><span>
+</span><span id="line-266"></span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#instanceFleet_id"><span class="hs-identifier hs-type">instanceFleet_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet"><span class="hs-identifier hs-type">InstanceFleet</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-267"></span><span id="instanceFleet_id"><span class="annot"><span class="annottext">instanceFleet_id :: (Maybe Text -&gt; f (Maybe Text)) -&gt; InstanceFleet -&gt; f InstanceFleet
+</span><a href="Network.AWS.EMR.Types.InstanceFleet.html#instanceFleet_id"><span class="hs-identifier hs-var hs-var">instanceFleet_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceFleet -&gt; Maybe Text)
+-&gt; (InstanceFleet -&gt; Maybe Text -&gt; InstanceFleet)
+-&gt; Lens InstanceFleet InstanceFleet (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet%27"><span class="hs-identifier hs-type">InstanceFleet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381477"><span class="annot"><span class="annottext">Maybe Text
+id :: Maybe Text
+$sel:id:InstanceFleet' :: InstanceFleet -&gt; Maybe Text
+</span><a href="#local-6989586621679381477"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679381477"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381476"><span class="annot"><span class="annottext">s :: InstanceFleet
+</span><a href="#local-6989586621679381476"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet%27"><span class="hs-identifier hs-type">InstanceFleet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381475"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679381475"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceFleet
+</span><a href="#local-6989586621679381476"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:InstanceFleet' :: Maybe Text
+</span><a href="Network.AWS.EMR.Types.InstanceFleet.html#%24sel%3Aid%3AInstanceFleet%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679381475"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet"><span class="hs-identifier hs-type">InstanceFleet</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-268"></span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- | Describes the launch specification for an instance fleet.</span><span>
+</span><span id="line-270"></span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#instanceFleet_launchSpecifications"><span class="hs-identifier hs-type">instanceFleet_launchSpecifications</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet"><span class="hs-identifier hs-type">InstanceFleet</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleetProvisioningSpecifications.html#InstanceFleetProvisioningSpecifications"><span class="hs-identifier hs-type">InstanceFleetProvisioningSpecifications</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-271"></span><span id="instanceFleet_launchSpecifications"><span class="annot"><span class="annottext">instanceFleet_launchSpecifications :: (Maybe InstanceFleetProvisioningSpecifications
  -&gt; f (Maybe InstanceFleetProvisioningSpecifications))
 -&gt; InstanceFleet -&gt; f InstanceFleet
 </span><a href="Network.AWS.EMR.Types.InstanceFleet.html#instanceFleet_launchSpecifications"><span class="hs-identifier hs-var hs-var">instanceFleet_launchSpecifications</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceFleet -&gt; Maybe InstanceFleetProvisioningSpecifications)
@@ -561,259 +562,259 @@ $sel:provisionedSpotCapacity:InstanceFleet' :: InstanceFleet -&gt; Maybe Natural
      (Maybe InstanceFleetProvisioningSpecifications)
      (Maybe InstanceFleetProvisioningSpecifications)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet%27"><span class="hs-identifier hs-type">InstanceFleet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381101"><span class="annot"><span class="annottext">Maybe InstanceFleetProvisioningSpecifications
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet%27"><span class="hs-identifier hs-type">InstanceFleet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381473"><span class="annot"><span class="annottext">Maybe InstanceFleetProvisioningSpecifications
 launchSpecifications :: Maybe InstanceFleetProvisioningSpecifications
 $sel:launchSpecifications:InstanceFleet' :: InstanceFleet -&gt; Maybe InstanceFleetProvisioningSpecifications
-</span><a href="#local-6989586621679381101"><span class="hs-identifier hs-var hs-var">launchSpecifications</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceFleetProvisioningSpecifications
-</span><a href="#local-6989586621679381101"><span class="hs-identifier hs-var">launchSpecifications</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381100"><span class="annot"><span class="annottext">s :: InstanceFleet
-</span><a href="#local-6989586621679381100"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet%27"><span class="hs-identifier hs-type">InstanceFleet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381099"><span class="annot"><span class="annottext">Maybe InstanceFleetProvisioningSpecifications
-</span><a href="#local-6989586621679381099"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceFleet
-</span><a href="#local-6989586621679381100"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:launchSpecifications:InstanceFleet' :: Maybe InstanceFleetProvisioningSpecifications
+</span><a href="#local-6989586621679381473"><span class="hs-identifier hs-var hs-var">launchSpecifications</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceFleetProvisioningSpecifications
+</span><a href="#local-6989586621679381473"><span class="hs-identifier hs-var">launchSpecifications</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381472"><span class="annot"><span class="annottext">s :: InstanceFleet
+</span><a href="#local-6989586621679381472"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet%27"><span class="hs-identifier hs-type">InstanceFleet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381471"><span class="annot"><span class="annottext">Maybe InstanceFleetProvisioningSpecifications
+</span><a href="#local-6989586621679381471"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceFleet
+</span><a href="#local-6989586621679381472"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:launchSpecifications:InstanceFleet' :: Maybe InstanceFleetProvisioningSpecifications
 </span><a href="Network.AWS.EMR.Types.InstanceFleet.html#%24sel%3AlaunchSpecifications%3AInstanceFleet%27"><span class="hs-identifier hs-var">launchSpecifications</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceFleetProvisioningSpecifications
-</span><a href="#local-6989586621679381099"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet"><span class="hs-identifier hs-type">InstanceFleet</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-271"></span><span>
-</span><span id="line-272"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679381096"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet"><span class="hs-identifier hs-type">InstanceFleet</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-273"></span><span>  </span><span id="local-6989586621679381094"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InstanceFleet
+</span><a href="#local-6989586621679381471"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet"><span class="hs-identifier hs-type">InstanceFleet</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-272"></span><span>
+</span><span id="line-273"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679381468"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet"><span class="hs-identifier hs-type">InstanceFleet</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-274"></span><span>  </span><span id="local-6989586621679381466"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InstanceFleet
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-274"></span><span>    </span><span class="annot"><span class="annottext">String
+</span><span id="line-275"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser InstanceFleet)
 -&gt; Value
 -&gt; Parser InstanceFleet
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
-</span><span id="line-275"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span id="line-276"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;InstanceFleet&quot;</span></span><span>
-</span><span id="line-276"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679381091"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679381091"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-277"></span><span>          </span><span class="annot"><span class="annottext">Maybe InstanceFleetType
+</span><span id="line-277"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679381463"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679381463"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-278"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural
 -&gt; Maybe InstanceFleetStatus
 -&gt; Maybe Natural
--&gt; Maybe Natural
--&gt; Maybe Text
--&gt; Maybe Natural
--&gt; Maybe Text
+-&gt; Maybe InstanceFleetType
 -&gt; Maybe [InstanceTypeSpecification]
+-&gt; Maybe Text
 -&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; Maybe Text
 -&gt; Maybe InstanceFleetProvisioningSpecifications
 -&gt; InstanceFleet
 </span><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet%27"><span class="hs-identifier hs-var">InstanceFleet'</span></a></span><span>
-</span><span id="line-278"></span><span>            </span><span class="annot"><span class="annottext">(Maybe InstanceFleetType
+</span><span id="line-279"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Natural
  -&gt; Maybe InstanceFleetStatus
  -&gt; Maybe Natural
- -&gt; Maybe Natural
- -&gt; Maybe Text
- -&gt; Maybe Natural
- -&gt; Maybe Text
+ -&gt; Maybe InstanceFleetType
  -&gt; Maybe [InstanceTypeSpecification]
+ -&gt; Maybe Text
  -&gt; Maybe Natural
+ -&gt; Maybe Natural
+ -&gt; Maybe Text
  -&gt; Maybe InstanceFleetProvisioningSpecifications
  -&gt; InstanceFleet)
--&gt; Parser (Maybe InstanceFleetType)
+-&gt; Parser (Maybe Natural)
 -&gt; Parser
      (Maybe InstanceFleetStatus
       -&gt; Maybe Natural
-      -&gt; Maybe Natural
-      -&gt; Maybe Text
-      -&gt; Maybe Natural
-      -&gt; Maybe Text
+      -&gt; Maybe InstanceFleetType
       -&gt; Maybe [InstanceTypeSpecification]
+      -&gt; Maybe Text
       -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Text
       -&gt; Maybe InstanceFleetProvisioningSpecifications
       -&gt; InstanceFleet)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679381091"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InstanceFleetType)
+</span><a href="#local-6989586621679381463"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;InstanceFleetType&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-279"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span class="hs-string">&quot;ProvisionedSpotCapacity&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-280"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe InstanceFleetStatus
    -&gt; Maybe Natural
-   -&gt; Maybe Natural
-   -&gt; Maybe Text
-   -&gt; Maybe Natural
-   -&gt; Maybe Text
+   -&gt; Maybe InstanceFleetType
    -&gt; Maybe [InstanceTypeSpecification]
+   -&gt; Maybe Text
    -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Text
    -&gt; Maybe InstanceFleetProvisioningSpecifications
    -&gt; InstanceFleet)
 -&gt; Parser (Maybe InstanceFleetStatus)
 -&gt; Parser
      (Maybe Natural
-      -&gt; Maybe Natural
-      -&gt; Maybe Text
-      -&gt; Maybe Natural
-      -&gt; Maybe Text
+      -&gt; Maybe InstanceFleetType
       -&gt; Maybe [InstanceTypeSpecification]
+      -&gt; Maybe Text
       -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Text
       -&gt; Maybe InstanceFleetProvisioningSpecifications
       -&gt; InstanceFleet)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679381091"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InstanceFleetStatus)
+</span><a href="#local-6989586621679381463"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InstanceFleetStatus)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-280"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span id="line-281"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Natural
-   -&gt; Maybe Natural
-   -&gt; Maybe Text
-   -&gt; Maybe Natural
-   -&gt; Maybe Text
+   -&gt; Maybe InstanceFleetType
    -&gt; Maybe [InstanceTypeSpecification]
+   -&gt; Maybe Text
    -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Text
    -&gt; Maybe InstanceFleetProvisioningSpecifications
    -&gt; InstanceFleet)
 -&gt; Parser (Maybe Natural)
 -&gt; Parser
-     (Maybe Natural
-      -&gt; Maybe Text
-      -&gt; Maybe Natural
-      -&gt; Maybe Text
+     (Maybe InstanceFleetType
       -&gt; Maybe [InstanceTypeSpecification]
+      -&gt; Maybe Text
       -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Text
       -&gt; Maybe InstanceFleetProvisioningSpecifications
       -&gt; InstanceFleet)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679381091"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679381463"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TargetOnDemandCapacity&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-281"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Natural
-   -&gt; Maybe Text
-   -&gt; Maybe Natural
-   -&gt; Maybe Text
-   -&gt; Maybe [InstanceTypeSpecification]
-   -&gt; Maybe Natural
-   -&gt; Maybe InstanceFleetProvisioningSpecifications
-   -&gt; InstanceFleet)
--&gt; Parser (Maybe Natural)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe Natural
-      -&gt; Maybe Text
-      -&gt; Maybe [InstanceTypeSpecification]
-      -&gt; Maybe Natural
-      -&gt; Maybe InstanceFleetProvisioningSpecifications
-      -&gt; InstanceFleet)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679381091"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;TargetSpotCapacity&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-282"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
+  (Maybe InstanceFleetType
+   -&gt; Maybe [InstanceTypeSpecification]
+   -&gt; Maybe Text
+   -&gt; Maybe Natural
    -&gt; Maybe Natural
    -&gt; Maybe Text
-   -&gt; Maybe [InstanceTypeSpecification]
-   -&gt; Maybe Natural
    -&gt; Maybe InstanceFleetProvisioningSpecifications
    -&gt; InstanceFleet)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe Natural
-      -&gt; Maybe Text
-      -&gt; Maybe [InstanceTypeSpecification]
-      -&gt; Maybe Natural
-      -&gt; Maybe InstanceFleetProvisioningSpecifications
-      -&gt; InstanceFleet)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679381091"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-283"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Natural
-   -&gt; Maybe Text
-   -&gt; Maybe [InstanceTypeSpecification]
-   -&gt; Maybe Natural
-   -&gt; Maybe InstanceFleetProvisioningSpecifications
-   -&gt; InstanceFleet)
--&gt; Parser (Maybe Natural)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe [InstanceTypeSpecification]
-      -&gt; Maybe Natural
-      -&gt; Maybe InstanceFleetProvisioningSpecifications
-      -&gt; InstanceFleet)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679381091"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ProvisionedOnDemandCapacity&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-284"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe [InstanceTypeSpecification]
-   -&gt; Maybe Natural
-   -&gt; Maybe InstanceFleetProvisioningSpecifications
-   -&gt; InstanceFleet)
--&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe InstanceFleetType)
 -&gt; Parser
      (Maybe [InstanceTypeSpecification]
+      -&gt; Maybe Text
       -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Text
       -&gt; Maybe InstanceFleetProvisioningSpecifications
       -&gt; InstanceFleet)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679381091"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679381463"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InstanceFleetType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-285"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span class="hs-string">&quot;InstanceFleetType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-283"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe [InstanceTypeSpecification]
+   -&gt; Maybe Text
    -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Text
    -&gt; Maybe InstanceFleetProvisioningSpecifications
    -&gt; InstanceFleet)
 -&gt; Parser (Maybe [InstanceTypeSpecification])
 -&gt; Parser
-     (Maybe Natural
-      -&gt; Maybe InstanceFleetProvisioningSpecifications -&gt; InstanceFleet)
+     (Maybe Text
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Text
+      -&gt; Maybe InstanceFleetProvisioningSpecifications
+      -&gt; InstanceFleet)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679381091"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679381463"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Parser (Maybe (Maybe [InstanceTypeSpecification]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;InstanceTypeSpecifications&quot;</span></span><span>
-</span><span id="line-286"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [InstanceTypeSpecification]))
+</span><span id="line-284"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [InstanceTypeSpecification]))
 -&gt; Maybe [InstanceTypeSpecification]
 -&gt; Parser (Maybe [InstanceTypeSpecification])
 forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [InstanceTypeSpecification]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-287"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-285"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-286"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Text
+   -&gt; Maybe InstanceFleetProvisioningSpecifications
+   -&gt; InstanceFleet)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Text
+      -&gt; Maybe InstanceFleetProvisioningSpecifications
+      -&gt; InstanceFleet)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679381463"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-287"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Text
+   -&gt; Maybe InstanceFleetProvisioningSpecifications
+   -&gt; InstanceFleet)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Maybe Natural
+      -&gt; Maybe Text
+      -&gt; Maybe InstanceFleetProvisioningSpecifications
+      -&gt; InstanceFleet)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679381463"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProvisionedOnDemandCapacity&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-288"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Natural
-   -&gt; Maybe InstanceFleetProvisioningSpecifications -&gt; InstanceFleet)
+   -&gt; Maybe Text
+   -&gt; Maybe InstanceFleetProvisioningSpecifications
+   -&gt; InstanceFleet)
 -&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe InstanceFleetProvisioningSpecifications -&gt; InstanceFleet)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679381463"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TargetSpotCapacity&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-289"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe InstanceFleetProvisioningSpecifications -&gt; InstanceFleet)
+-&gt; Parser (Maybe Text)
 -&gt; Parser
      (Maybe InstanceFleetProvisioningSpecifications -&gt; InstanceFleet)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679381091"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679381463"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ProvisionedSpotCapacity&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-289"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-290"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe InstanceFleetProvisioningSpecifications -&gt; InstanceFleet)
 -&gt; Parser (Maybe InstanceFleetProvisioningSpecifications)
 -&gt; Parser InstanceFleet
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679381091"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679381463"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Parser (Maybe InstanceFleetProvisioningSpecifications)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LaunchSpecifications&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-290"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-291"></span><span>
-</span><span id="line-292"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679381084"><span id="local-6989586621679381086"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet"><span class="hs-identifier hs-type">InstanceFleet</span></a></span></span></span><span>
-</span><span id="line-293"></span><span>
-</span><span id="line-294"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679381081"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet"><span class="hs-identifier hs-type">InstanceFleet</span></a></span></span><span>
-</span><span id="line-295"></span></pre></body></html>
+</span><span id="line-291"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-292"></span><span>
+</span><span id="line-293"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679381456"><span id="local-6989586621679381458"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet"><span class="hs-identifier hs-type">InstanceFleet</span></a></span></span></span><span>
+</span><span id="line-294"></span><span>
+</span><span id="line-295"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679381453"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceFleet.html#InstanceFleet"><span class="hs-identifier hs-type">InstanceFleet</span></a></span></span><span>
+</span><span id="line-296"></span></pre></body></html>

@@ -31,32 +31,32 @@
 </span><span id="line-31"></span><span class="hs-comment">-- | Describes a Spot Fleet request.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newSpotFleetRequestConfig' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621681150272"><span id="local-6989586621681150273"></span></span><span class="hs-keyword">data</span><span> </span><span id="SpotFleetRequestConfig"><span class="annot"><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#SpotFleetRequestConfig"><span class="hs-identifier hs-var">SpotFleetRequestConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SpotFleetRequestConfig%27"><span class="annot"><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#SpotFleetRequestConfig%27"><span class="hs-identifier hs-var">SpotFleetRequestConfig'</span></a></span></span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The state of the Spot Fleet request.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AspotFleetRequestState%3ASpotFleetRequestConfig%27"><span class="annot"><span class="annottext">SpotFleetRequestConfig -&gt; Maybe BatchState
-</span><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#%24sel%3AspotFleetRequestState%3ASpotFleetRequestConfig%27"><span class="hs-identifier hs-var hs-var">spotFleetRequestState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.BatchState.html#BatchState"><span class="hs-identifier hs-type">BatchState</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The creation date and time of the request.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AcreateTime%3ASpotFleetRequestConfig%27"><span class="annot"><span class="annottext">SpotFleetRequestConfig -&gt; Maybe ISO8601
-</span><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#%24sel%3AcreateTime%3ASpotFleetRequestConfig%27"><span class="hs-identifier hs-var hs-var">createTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The tags for a Spot Fleet resource.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3Atags%3ASpotFleetRequestConfig%27"><span class="annot"><span class="annottext">SpotFleetRequestConfig -&gt; Maybe [Tag]
-</span><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#%24sel%3Atags%3ASpotFleetRequestConfig%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The progress of the Spot Fleet request. If there is an error, the status</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- is @error@. After all requests are placed, the status is</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- @pending_fulfillment@. If the size of the fleet is equal to or greater</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- than its target capacity, the status is @fulfilled@. If the size of the</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- fleet is decreased, the status is @pending_termination@ while Spot</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- Instances are terminating.</span><span>
-</span><span id="line-47"></span><span>    </span><span id="%24sel%3AactivityStatus%3ASpotFleetRequestConfig%27"><span class="annot"><span class="annottext">SpotFleetRequestConfig -&gt; Maybe ActivityStatus
-</span><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#%24sel%3AactivityStatus%3ASpotFleetRequestConfig%27"><span class="hs-identifier hs-var hs-var">activityStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ActivityStatus.html#ActivityStatus"><span class="hs-identifier hs-type">ActivityStatus</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The configuration of the Spot Fleet request.</span><span>
-</span><span id="line-49"></span><span>    </span><span id="%24sel%3AspotFleetRequestConfig%3ASpotFleetRequestConfig%27"><span class="annot"><span class="annottext">SpotFleetRequestConfig -&gt; Maybe SpotFleetRequestConfigData
+</span><span id="line-34"></span><span id="local-6989586621681185447"><span id="local-6989586621681185448"></span></span><span class="hs-keyword">data</span><span> </span><span id="SpotFleetRequestConfig"><span class="annot"><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#SpotFleetRequestConfig"><span class="hs-identifier hs-var">SpotFleetRequestConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SpotFleetRequestConfig%27"><span class="annot"><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#SpotFleetRequestConfig%27"><span class="hs-identifier hs-var">SpotFleetRequestConfig'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The configuration of the Spot Fleet request.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AspotFleetRequestConfig%3ASpotFleetRequestConfig%27"><span class="annot"><span class="annottext">SpotFleetRequestConfig -&gt; Maybe SpotFleetRequestConfigData
 </span><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#%24sel%3AspotFleetRequestConfig%3ASpotFleetRequestConfig%27"><span class="hs-identifier hs-var hs-var">spotFleetRequestConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SpotFleetRequestConfigData.html#SpotFleetRequestConfigData"><span class="hs-identifier hs-type">SpotFleetRequestConfigData</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The ID of the Spot Fleet request.</span><span>
-</span><span id="line-51"></span><span>    </span><span id="%24sel%3AspotFleetRequestId%3ASpotFleetRequestConfig%27"><span class="annot"><span class="annottext">SpotFleetRequestConfig -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#%24sel%3AspotFleetRequestId%3ASpotFleetRequestConfig%27"><span class="hs-identifier hs-var hs-var">spotFleetRequestId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The ID of the Spot Fleet request.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AspotFleetRequestId%3ASpotFleetRequestConfig%27"><span class="annot"><span class="annottext">SpotFleetRequestConfig -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#%24sel%3AspotFleetRequestId%3ASpotFleetRequestConfig%27"><span class="hs-identifier hs-var hs-var">spotFleetRequestId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The state of the Spot Fleet request.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AspotFleetRequestState%3ASpotFleetRequestConfig%27"><span class="annot"><span class="annottext">SpotFleetRequestConfig -&gt; Maybe BatchState
+</span><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#%24sel%3AspotFleetRequestState%3ASpotFleetRequestConfig%27"><span class="hs-identifier hs-var hs-var">spotFleetRequestState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.BatchState.html#BatchState"><span class="hs-identifier hs-type">BatchState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The creation date and time of the request.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AcreateTime%3ASpotFleetRequestConfig%27"><span class="annot"><span class="annottext">SpotFleetRequestConfig -&gt; Maybe ISO8601
+</span><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#%24sel%3AcreateTime%3ASpotFleetRequestConfig%27"><span class="hs-identifier hs-var hs-var">createTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The tags for a Spot Fleet resource.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3Atags%3ASpotFleetRequestConfig%27"><span class="annot"><span class="annottext">SpotFleetRequestConfig -&gt; Maybe [Tag]
+</span><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#%24sel%3Atags%3ASpotFleetRequestConfig%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The progress of the Spot Fleet request. If there is an error, the status</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- is @error@. After all requests are placed, the status is</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- @pending_fulfillment@. If the size of the fleet is equal to or greater</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- than its target capacity, the status is @fulfilled@. If the size of the</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- fleet is decreased, the status is @pending_termination@ while Spot</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- Instances are terminating.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AactivityStatus%3ASpotFleetRequestConfig%27"><span class="annot"><span class="annottext">SpotFleetRequestConfig -&gt; Maybe ActivityStatus
+</span><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#%24sel%3AactivityStatus%3ASpotFleetRequestConfig%27"><span class="hs-identifier hs-var hs-var">activityStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ActivityStatus.html#ActivityStatus"><span class="hs-identifier hs-type">ActivityStatus</span></a></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681150261"><span id="local-6989586621681150263"><span class="annot"><span class="annottext">SpotFleetRequestConfig -&gt; SpotFleetRequestConfig -&gt; Bool
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681185436"><span id="local-6989586621681185438"><span class="annot"><span class="annottext">SpotFleetRequestConfig -&gt; SpotFleetRequestConfig -&gt; Bool
 (SpotFleetRequestConfig -&gt; SpotFleetRequestConfig -&gt; Bool)
 -&gt; (SpotFleetRequestConfig -&gt; SpotFleetRequestConfig -&gt; Bool)
 -&gt; Eq SpotFleetRequestConfig
@@ -65,7 +65,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SpotFleetRequestConfig -&gt; SpotFleetRequestConfig -&gt; Bool
 == :: SpotFleetRequestConfig -&gt; SpotFleetRequestConfig -&gt; Bool
 $c== :: SpotFleetRequestConfig -&gt; SpotFleetRequestConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681150252"><span id="local-6989586621681150254"><span id="local-6989586621681150256"><span id="local-6989586621681150258"><span class="annot"><span class="annottext">ReadPrec [SpotFleetRequestConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681185427"><span id="local-6989586621681185429"><span id="local-6989586621681185431"><span id="local-6989586621681185433"><span class="annot"><span class="annottext">ReadPrec [SpotFleetRequestConfig]
 ReadPrec SpotFleetRequestConfig
 Int -&gt; ReadS SpotFleetRequestConfig
 ReadS [SpotFleetRequestConfig]
@@ -85,7 +85,7 @@ readList :: ReadS [SpotFleetRequestConfig]
 $creadList :: ReadS [SpotFleetRequestConfig]
 readsPrec :: Int -&gt; ReadS SpotFleetRequestConfig
 $creadsPrec :: Int -&gt; ReadS SpotFleetRequestConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681150245"><span id="local-6989586621681150247"><span id="local-6989586621681150249"><span class="annot"><span class="annottext">Int -&gt; SpotFleetRequestConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681185420"><span id="local-6989586621681185422"><span id="local-6989586621681185424"><span class="annot"><span class="annottext">Int -&gt; SpotFleetRequestConfig -&gt; ShowS
 [SpotFleetRequestConfig] -&gt; ShowS
 SpotFleetRequestConfig -&gt; String
 (Int -&gt; SpotFleetRequestConfig -&gt; ShowS)
@@ -120,64 +120,112 @@ $cfrom :: forall x. SpotFleetRequestConfig -&gt; Rep SpotFleetRequestConfig x
 </span><span id="line-60"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-62"></span><span class="hs-comment">--</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- 'spotFleetRequestState', 'spotFleetRequestConfig_spotFleetRequestState' - The state of the Spot Fleet request.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'spotFleetRequestConfig', 'spotFleetRequestConfig_spotFleetRequestConfig' - The configuration of the Spot Fleet request.</span><span>
 </span><span id="line-64"></span><span class="hs-comment">--</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- 'createTime', 'spotFleetRequestConfig_createTime' - The creation date and time of the request.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'spotFleetRequestId', 'spotFleetRequestConfig_spotFleetRequestId' - The ID of the Spot Fleet request.</span><span>
 </span><span id="line-66"></span><span class="hs-comment">--</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- 'tags', 'spotFleetRequestConfig_tags' - The tags for a Spot Fleet resource.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'spotFleetRequestState', 'spotFleetRequestConfig_spotFleetRequestState' - The state of the Spot Fleet request.</span><span>
 </span><span id="line-68"></span><span class="hs-comment">--</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- 'activityStatus', 'spotFleetRequestConfig_activityStatus' - The progress of the Spot Fleet request. If there is an error, the status</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- is @error@. After all requests are placed, the status is</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- @pending_fulfillment@. If the size of the fleet is equal to or greater</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- than its target capacity, the status is @fulfilled@. If the size of the</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- fleet is decreased, the status is @pending_termination@ while Spot</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- Instances are terminating.</span><span>
-</span><span id="line-75"></span><span class="hs-comment">--</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- 'spotFleetRequestConfig', 'spotFleetRequestConfig_spotFleetRequestConfig' - The configuration of the Spot Fleet request.</span><span>
-</span><span id="line-77"></span><span class="hs-comment">--</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- 'spotFleetRequestId', 'spotFleetRequestConfig_spotFleetRequestId' - The ID of the Spot Fleet request.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'createTime', 'spotFleetRequestConfig_createTime' - The creation date and time of the request.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'tags', 'spotFleetRequestConfig_tags' - The tags for a Spot Fleet resource.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'activityStatus', 'spotFleetRequestConfig_activityStatus' - The progress of the Spot Fleet request. If there is an error, the status</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- is @error@. After all requests are placed, the status is</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- @pending_fulfillment@. If the size of the fleet is equal to or greater</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- than its target capacity, the status is @fulfilled@. If the size of the</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- fleet is decreased, the status is @pending_termination@ while Spot</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- Instances are terminating.</span><span>
 </span><span id="line-79"></span><span class="annot"><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#newSpotFleetRequestConfig"><span class="hs-identifier hs-type">newSpotFleetRequestConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#SpotFleetRequestConfig"><span class="hs-identifier hs-type">SpotFleetRequestConfig</span></a></span><span>
 </span><span id="line-81"></span><span id="newSpotFleetRequestConfig"><span class="annot"><span class="annottext">newSpotFleetRequestConfig :: SpotFleetRequestConfig
 </span><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#newSpotFleetRequestConfig"><span class="hs-identifier hs-var hs-var">newSpotFleetRequestConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-82"></span><span>  </span><span class="annot"><span class="annottext">SpotFleetRequestConfig' :: Maybe BatchState
+</span><span id="line-82"></span><span>  </span><span class="annot"><span class="annottext">SpotFleetRequestConfig' :: Maybe SpotFleetRequestConfigData
+-&gt; Maybe Text
+-&gt; Maybe BatchState
 -&gt; Maybe ISO8601
 -&gt; Maybe [Tag]
 -&gt; Maybe ActivityStatus
--&gt; Maybe SpotFleetRequestConfigData
--&gt; Maybe Text
 -&gt; SpotFleetRequestConfig
 </span><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#SpotFleetRequestConfig%27"><span class="hs-identifier hs-type">SpotFleetRequestConfig'</span></a></span><span>
-</span><span id="line-83"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:spotFleetRequestState:SpotFleetRequestConfig' :: Maybe BatchState
-</span><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#%24sel%3AspotFleetRequestState%3ASpotFleetRequestConfig%27"><span class="hs-identifier hs-var">spotFleetRequestState</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-84"></span><span>        </span><span class="annot"><span class="annottext">Maybe BatchState
+</span><span id="line-83"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:spotFleetRequestConfig:SpotFleetRequestConfig' :: Maybe SpotFleetRequestConfigData
+</span><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#%24sel%3AspotFleetRequestConfig%3ASpotFleetRequestConfig%27"><span class="hs-identifier hs-var">spotFleetRequestConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>        </span><span class="annot"><span class="annottext">Maybe SpotFleetRequestConfigData
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:createTime:SpotFleetRequestConfig' :: Maybe ISO8601
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:spotFleetRequestId:SpotFleetRequestConfig' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#%24sel%3AspotFleetRequestId%3ASpotFleetRequestConfig%27"><span class="hs-identifier hs-var">spotFleetRequestId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:spotFleetRequestState:SpotFleetRequestConfig' :: Maybe BatchState
+</span><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#%24sel%3AspotFleetRequestState%3ASpotFleetRequestConfig%27"><span class="hs-identifier hs-var">spotFleetRequestState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BatchState
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:createTime:SpotFleetRequestConfig' :: Maybe ISO8601
 </span><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#%24sel%3AcreateTime%3ASpotFleetRequestConfig%27"><span class="hs-identifier hs-var">createTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:SpotFleetRequestConfig' :: Maybe [Tag]
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:SpotFleetRequestConfig' :: Maybe [Tag]
 </span><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#%24sel%3Atags%3ASpotFleetRequestConfig%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:activityStatus:SpotFleetRequestConfig' :: Maybe ActivityStatus
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:activityStatus:SpotFleetRequestConfig' :: Maybe ActivityStatus
 </span><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#%24sel%3AactivityStatus%3ASpotFleetRequestConfig%27"><span class="hs-identifier hs-var">activityStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ActivityStatus
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:spotFleetRequestConfig:SpotFleetRequestConfig' :: Maybe SpotFleetRequestConfigData
-</span><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#%24sel%3AspotFleetRequestConfig%3ASpotFleetRequestConfig%27"><span class="hs-identifier hs-var">spotFleetRequestConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SpotFleetRequestConfigData
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:spotFleetRequestId:SpotFleetRequestConfig' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#%24sel%3AspotFleetRequestId%3ASpotFleetRequestConfig%27"><span class="hs-identifier hs-var">spotFleetRequestId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-90"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- | The state of the Spot Fleet request.</span><span>
-</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#spotFleetRequestConfig_spotFleetRequestState"><span class="hs-identifier hs-type">spotFleetRequestConfig_spotFleetRequestState</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#SpotFleetRequestConfig"><span class="hs-identifier hs-type">SpotFleetRequestConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.BatchState.html#BatchState"><span class="hs-identifier hs-type">BatchState</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-94"></span><span id="spotFleetRequestConfig_spotFleetRequestState"><span class="annot"><span class="annottext">spotFleetRequestConfig_spotFleetRequestState :: (Maybe BatchState -&gt; f (Maybe BatchState))
+</span><span id="line-92"></span><span class="hs-comment">-- | The configuration of the Spot Fleet request.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#spotFleetRequestConfig_spotFleetRequestConfig"><span class="hs-identifier hs-type">spotFleetRequestConfig_spotFleetRequestConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#SpotFleetRequestConfig"><span class="hs-identifier hs-type">SpotFleetRequestConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SpotFleetRequestConfigData.html#SpotFleetRequestConfigData"><span class="hs-identifier hs-type">SpotFleetRequestConfigData</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span id="spotFleetRequestConfig_spotFleetRequestConfig"><span class="annot"><span class="annottext">spotFleetRequestConfig_spotFleetRequestConfig :: (Maybe SpotFleetRequestConfigData
+ -&gt; f (Maybe SpotFleetRequestConfigData))
+-&gt; SpotFleetRequestConfig -&gt; f SpotFleetRequestConfig
+</span><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#spotFleetRequestConfig_spotFleetRequestConfig"><span class="hs-identifier hs-var hs-var">spotFleetRequestConfig_spotFleetRequestConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SpotFleetRequestConfig -&gt; Maybe SpotFleetRequestConfigData)
+-&gt; (SpotFleetRequestConfig
+    -&gt; Maybe SpotFleetRequestConfigData -&gt; SpotFleetRequestConfig)
+-&gt; Lens
+     SpotFleetRequestConfig
+     SpotFleetRequestConfig
+     (Maybe SpotFleetRequestConfigData)
+     (Maybe SpotFleetRequestConfigData)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#SpotFleetRequestConfig%27"><span class="hs-identifier hs-type">SpotFleetRequestConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681185411"><span class="annot"><span class="annottext">Maybe SpotFleetRequestConfigData
+spotFleetRequestConfig :: Maybe SpotFleetRequestConfigData
+$sel:spotFleetRequestConfig:SpotFleetRequestConfig' :: SpotFleetRequestConfig -&gt; Maybe SpotFleetRequestConfigData
+</span><a href="#local-6989586621681185411"><span class="hs-identifier hs-var hs-var">spotFleetRequestConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SpotFleetRequestConfigData
+</span><a href="#local-6989586621681185411"><span class="hs-identifier hs-var">spotFleetRequestConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681185410"><span class="annot"><span class="annottext">s :: SpotFleetRequestConfig
+</span><a href="#local-6989586621681185410"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#SpotFleetRequestConfig%27"><span class="hs-identifier hs-type">SpotFleetRequestConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681185409"><span class="annot"><span class="annottext">Maybe SpotFleetRequestConfigData
+</span><a href="#local-6989586621681185409"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SpotFleetRequestConfig
+</span><a href="#local-6989586621681185410"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:spotFleetRequestConfig:SpotFleetRequestConfig' :: Maybe SpotFleetRequestConfigData
+</span><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#%24sel%3AspotFleetRequestConfig%3ASpotFleetRequestConfig%27"><span class="hs-identifier hs-var">spotFleetRequestConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SpotFleetRequestConfigData
+</span><a href="#local-6989586621681185409"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#SpotFleetRequestConfig"><span class="hs-identifier hs-type">SpotFleetRequestConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | The ID of the Spot Fleet request.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#spotFleetRequestConfig_spotFleetRequestId"><span class="hs-identifier hs-type">spotFleetRequestConfig_spotFleetRequestId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#SpotFleetRequestConfig"><span class="hs-identifier hs-type">SpotFleetRequestConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="spotFleetRequestConfig_spotFleetRequestId"><span class="annot"><span class="annottext">spotFleetRequestConfig_spotFleetRequestId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SpotFleetRequestConfig -&gt; f SpotFleetRequestConfig
+</span><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#spotFleetRequestConfig_spotFleetRequestId"><span class="hs-identifier hs-var hs-var">spotFleetRequestConfig_spotFleetRequestId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SpotFleetRequestConfig -&gt; Maybe Text)
+-&gt; (SpotFleetRequestConfig -&gt; Maybe Text -&gt; SpotFleetRequestConfig)
+-&gt; Lens
+     SpotFleetRequestConfig
+     SpotFleetRequestConfig
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#SpotFleetRequestConfig%27"><span class="hs-identifier hs-type">SpotFleetRequestConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681185407"><span class="annot"><span class="annottext">Maybe Text
+spotFleetRequestId :: Maybe Text
+$sel:spotFleetRequestId:SpotFleetRequestConfig' :: SpotFleetRequestConfig -&gt; Maybe Text
+</span><a href="#local-6989586621681185407"><span class="hs-identifier hs-var hs-var">spotFleetRequestId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681185407"><span class="hs-identifier hs-var">spotFleetRequestId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681185406"><span class="annot"><span class="annottext">s :: SpotFleetRequestConfig
+</span><a href="#local-6989586621681185406"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#SpotFleetRequestConfig%27"><span class="hs-identifier hs-type">SpotFleetRequestConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681185405"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681185405"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SpotFleetRequestConfig
+</span><a href="#local-6989586621681185406"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:spotFleetRequestId:SpotFleetRequestConfig' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#%24sel%3AspotFleetRequestId%3ASpotFleetRequestConfig%27"><span class="hs-identifier hs-var">spotFleetRequestId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681185405"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#SpotFleetRequestConfig"><span class="hs-identifier hs-type">SpotFleetRequestConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | The state of the Spot Fleet request.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#spotFleetRequestConfig_spotFleetRequestState"><span class="hs-identifier hs-type">spotFleetRequestConfig_spotFleetRequestState</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#SpotFleetRequestConfig"><span class="hs-identifier hs-type">SpotFleetRequestConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.BatchState.html#BatchState"><span class="hs-identifier hs-type">BatchState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span id="spotFleetRequestConfig_spotFleetRequestState"><span class="annot"><span class="annottext">spotFleetRequestConfig_spotFleetRequestState :: (Maybe BatchState -&gt; f (Maybe BatchState))
 -&gt; SpotFleetRequestConfig -&gt; f SpotFleetRequestConfig
 </span><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#spotFleetRequestConfig_spotFleetRequestState"><span class="hs-identifier hs-var hs-var">spotFleetRequestConfig_spotFleetRequestState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SpotFleetRequestConfig -&gt; Maybe BatchState)
 -&gt; (SpotFleetRequestConfig
@@ -188,20 +236,20 @@ forall a. Maybe a
      (Maybe BatchState)
      (Maybe BatchState)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#SpotFleetRequestConfig%27"><span class="hs-identifier hs-type">SpotFleetRequestConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681150236"><span class="annot"><span class="annottext">Maybe BatchState
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#SpotFleetRequestConfig%27"><span class="hs-identifier hs-type">SpotFleetRequestConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681185403"><span class="annot"><span class="annottext">Maybe BatchState
 spotFleetRequestState :: Maybe BatchState
 $sel:spotFleetRequestState:SpotFleetRequestConfig' :: SpotFleetRequestConfig -&gt; Maybe BatchState
-</span><a href="#local-6989586621681150236"><span class="hs-identifier hs-var hs-var">spotFleetRequestState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BatchState
-</span><a href="#local-6989586621681150236"><span class="hs-identifier hs-var">spotFleetRequestState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681150235"><span class="annot"><span class="annottext">s :: SpotFleetRequestConfig
-</span><a href="#local-6989586621681150235"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#SpotFleetRequestConfig%27"><span class="hs-identifier hs-type">SpotFleetRequestConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681150234"><span class="annot"><span class="annottext">Maybe BatchState
-</span><a href="#local-6989586621681150234"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SpotFleetRequestConfig
-</span><a href="#local-6989586621681150235"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:spotFleetRequestState:SpotFleetRequestConfig' :: Maybe BatchState
+</span><a href="#local-6989586621681185403"><span class="hs-identifier hs-var hs-var">spotFleetRequestState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BatchState
+</span><a href="#local-6989586621681185403"><span class="hs-identifier hs-var">spotFleetRequestState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681185402"><span class="annot"><span class="annottext">s :: SpotFleetRequestConfig
+</span><a href="#local-6989586621681185402"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#SpotFleetRequestConfig%27"><span class="hs-identifier hs-type">SpotFleetRequestConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681185401"><span class="annot"><span class="annottext">Maybe BatchState
+</span><a href="#local-6989586621681185401"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SpotFleetRequestConfig
+</span><a href="#local-6989586621681185402"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:spotFleetRequestState:SpotFleetRequestConfig' :: Maybe BatchState
 </span><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#%24sel%3AspotFleetRequestState%3ASpotFleetRequestConfig%27"><span class="hs-identifier hs-var">spotFleetRequestState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BatchState
-</span><a href="#local-6989586621681150234"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#SpotFleetRequestConfig"><span class="hs-identifier hs-type">SpotFleetRequestConfig</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- | The creation date and time of the request.</span><span>
-</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#spotFleetRequestConfig_createTime"><span class="hs-identifier hs-type">spotFleetRequestConfig_createTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#SpotFleetRequestConfig"><span class="hs-identifier hs-type">SpotFleetRequestConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-98"></span><span id="spotFleetRequestConfig_createTime"><span class="annot"><span class="annottext">spotFleetRequestConfig_createTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><a href="#local-6989586621681185401"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#SpotFleetRequestConfig"><span class="hs-identifier hs-type">SpotFleetRequestConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | The creation date and time of the request.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#spotFleetRequestConfig_createTime"><span class="hs-identifier hs-type">spotFleetRequestConfig_createTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#SpotFleetRequestConfig"><span class="hs-identifier hs-type">SpotFleetRequestConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span id="spotFleetRequestConfig_createTime"><span class="annot"><span class="annottext">spotFleetRequestConfig_createTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; SpotFleetRequestConfig -&gt; f SpotFleetRequestConfig
 </span><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#spotFleetRequestConfig_createTime"><span class="hs-identifier hs-var hs-var">spotFleetRequestConfig_createTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SpotFleetRequestConfig -&gt; Maybe ISO8601)
 -&gt; (SpotFleetRequestConfig
@@ -212,16 +260,16 @@ $sel:spotFleetRequestState:SpotFleetRequestConfig' :: SpotFleetRequestConfig -&g
      (Maybe ISO8601)
      (Maybe ISO8601)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#SpotFleetRequestConfig%27"><span class="hs-identifier hs-type">SpotFleetRequestConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681150232"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#SpotFleetRequestConfig%27"><span class="hs-identifier hs-type">SpotFleetRequestConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681185399"><span class="annot"><span class="annottext">Maybe ISO8601
 createTime :: Maybe ISO8601
 $sel:createTime:SpotFleetRequestConfig' :: SpotFleetRequestConfig -&gt; Maybe ISO8601
-</span><a href="#local-6989586621681150232"><span class="hs-identifier hs-var hs-var">createTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621681150232"><span class="hs-identifier hs-var">createTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681150231"><span class="annot"><span class="annottext">s :: SpotFleetRequestConfig
-</span><a href="#local-6989586621681150231"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#SpotFleetRequestConfig%27"><span class="hs-identifier hs-type">SpotFleetRequestConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681150230"><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621681150230"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SpotFleetRequestConfig
-</span><a href="#local-6989586621681150231"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createTime:SpotFleetRequestConfig' :: Maybe ISO8601
+</span><a href="#local-6989586621681185399"><span class="hs-identifier hs-var hs-var">createTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621681185399"><span class="hs-identifier hs-var">createTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681185398"><span class="annot"><span class="annottext">s :: SpotFleetRequestConfig
+</span><a href="#local-6989586621681185398"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#SpotFleetRequestConfig%27"><span class="hs-identifier hs-type">SpotFleetRequestConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681185397"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621681185397"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SpotFleetRequestConfig
+</span><a href="#local-6989586621681185398"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createTime:SpotFleetRequestConfig' :: Maybe ISO8601
 </span><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#%24sel%3AcreateTime%3ASpotFleetRequestConfig%27"><span class="hs-identifier hs-var">createTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621681150230"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#SpotFleetRequestConfig"><span class="hs-identifier hs-type">SpotFleetRequestConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+</span><a href="#local-6989586621681185397"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#SpotFleetRequestConfig"><span class="hs-identifier hs-type">SpotFleetRequestConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
  -&gt; SpotFleetRequestConfig -&gt; f SpotFleetRequestConfig)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
@@ -238,10 +286,10 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- | The tags for a Spot Fleet resource.</span><span>
-</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#spotFleetRequestConfig_tags"><span class="hs-identifier hs-type">spotFleetRequestConfig_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#SpotFleetRequestConfig"><span class="hs-identifier hs-type">SpotFleetRequestConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-102"></span><span id="spotFleetRequestConfig_tags"><span class="annot"><span class="annottext">spotFleetRequestConfig_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | The tags for a Spot Fleet resource.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#spotFleetRequestConfig_tags"><span class="hs-identifier hs-type">spotFleetRequestConfig_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#SpotFleetRequestConfig"><span class="hs-identifier hs-type">SpotFleetRequestConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="spotFleetRequestConfig_tags"><span class="annot"><span class="annottext">spotFleetRequestConfig_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
 -&gt; SpotFleetRequestConfig -&gt; f SpotFleetRequestConfig
 </span><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#spotFleetRequestConfig_tags"><span class="hs-identifier hs-var hs-var">spotFleetRequestConfig_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SpotFleetRequestConfig -&gt; Maybe [Tag])
 -&gt; (SpotFleetRequestConfig
@@ -252,16 +300,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
      (Maybe [Tag])
      (Maybe [Tag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#SpotFleetRequestConfig%27"><span class="hs-identifier hs-type">SpotFleetRequestConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681150225"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#SpotFleetRequestConfig%27"><span class="hs-identifier hs-type">SpotFleetRequestConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681185392"><span class="annot"><span class="annottext">Maybe [Tag]
 tags :: Maybe [Tag]
 $sel:tags:SpotFleetRequestConfig' :: SpotFleetRequestConfig -&gt; Maybe [Tag]
-</span><a href="#local-6989586621681150225"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621681150225"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681150224"><span class="annot"><span class="annottext">s :: SpotFleetRequestConfig
-</span><a href="#local-6989586621681150224"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#SpotFleetRequestConfig%27"><span class="hs-identifier hs-type">SpotFleetRequestConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681150223"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621681150223"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SpotFleetRequestConfig
-</span><a href="#local-6989586621681150224"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:SpotFleetRequestConfig' :: Maybe [Tag]
+</span><a href="#local-6989586621681185392"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621681185392"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681185391"><span class="annot"><span class="annottext">s :: SpotFleetRequestConfig
+</span><a href="#local-6989586621681185391"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#SpotFleetRequestConfig%27"><span class="hs-identifier hs-type">SpotFleetRequestConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681185390"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621681185390"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SpotFleetRequestConfig
+</span><a href="#local-6989586621681185391"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:SpotFleetRequestConfig' :: Maybe [Tag]
 </span><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#%24sel%3Atags%3ASpotFleetRequestConfig%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621681150223"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#SpotFleetRequestConfig"><span class="hs-identifier hs-type">SpotFleetRequestConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+</span><a href="#local-6989586621681185390"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#SpotFleetRequestConfig"><span class="hs-identifier hs-type">SpotFleetRequestConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
  -&gt; SpotFleetRequestConfig -&gt; f SpotFleetRequestConfig)
 -&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
     -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
@@ -275,17 +323,17 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- | The progress of the Spot Fleet request. If there is an error, the status</span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- is @error@. After all requests are placed, the status is</span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- @pending_fulfillment@. If the size of the fleet is equal to or greater</span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- than its target capacity, the status is @fulfilled@. If the size of the</span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- fleet is decreased, the status is @pending_termination@ while Spot</span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- Instances are terminating.</span><span>
-</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#spotFleetRequestConfig_activityStatus"><span class="hs-identifier hs-type">spotFleetRequestConfig_activityStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#SpotFleetRequestConfig"><span class="hs-identifier hs-type">SpotFleetRequestConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ActivityStatus.html#ActivityStatus"><span class="hs-identifier hs-type">ActivityStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-111"></span><span id="spotFleetRequestConfig_activityStatus"><span class="annot"><span class="annottext">spotFleetRequestConfig_activityStatus :: (Maybe ActivityStatus -&gt; f (Maybe ActivityStatus))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | The progress of the Spot Fleet request. If there is an error, the status</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- is @error@. After all requests are placed, the status is</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- @pending_fulfillment@. If the size of the fleet is equal to or greater</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- than its target capacity, the status is @fulfilled@. If the size of the</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- fleet is decreased, the status is @pending_termination@ while Spot</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- Instances are terminating.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#spotFleetRequestConfig_activityStatus"><span class="hs-identifier hs-type">spotFleetRequestConfig_activityStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#SpotFleetRequestConfig"><span class="hs-identifier hs-type">SpotFleetRequestConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ActivityStatus.html#ActivityStatus"><span class="hs-identifier hs-type">ActivityStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span id="spotFleetRequestConfig_activityStatus"><span class="annot"><span class="annottext">spotFleetRequestConfig_activityStatus :: (Maybe ActivityStatus -&gt; f (Maybe ActivityStatus))
 -&gt; SpotFleetRequestConfig -&gt; f SpotFleetRequestConfig
 </span><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#spotFleetRequestConfig_activityStatus"><span class="hs-identifier hs-var hs-var">spotFleetRequestConfig_activityStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SpotFleetRequestConfig -&gt; Maybe ActivityStatus)
 -&gt; (SpotFleetRequestConfig
@@ -296,138 +344,113 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe ActivityStatus)
      (Maybe ActivityStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#SpotFleetRequestConfig%27"><span class="hs-identifier hs-type">SpotFleetRequestConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681150220"><span class="annot"><span class="annottext">Maybe ActivityStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#SpotFleetRequestConfig%27"><span class="hs-identifier hs-type">SpotFleetRequestConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681185387"><span class="annot"><span class="annottext">Maybe ActivityStatus
 activityStatus :: Maybe ActivityStatus
 $sel:activityStatus:SpotFleetRequestConfig' :: SpotFleetRequestConfig -&gt; Maybe ActivityStatus
-</span><a href="#local-6989586621681150220"><span class="hs-identifier hs-var hs-var">activityStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ActivityStatus
-</span><a href="#local-6989586621681150220"><span class="hs-identifier hs-var">activityStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681150219"><span class="annot"><span class="annottext">s :: SpotFleetRequestConfig
-</span><a href="#local-6989586621681150219"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#SpotFleetRequestConfig%27"><span class="hs-identifier hs-type">SpotFleetRequestConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681150218"><span class="annot"><span class="annottext">Maybe ActivityStatus
-</span><a href="#local-6989586621681150218"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SpotFleetRequestConfig
-</span><a href="#local-6989586621681150219"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:activityStatus:SpotFleetRequestConfig' :: Maybe ActivityStatus
+</span><a href="#local-6989586621681185387"><span class="hs-identifier hs-var hs-var">activityStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ActivityStatus
+</span><a href="#local-6989586621681185387"><span class="hs-identifier hs-var">activityStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681185386"><span class="annot"><span class="annottext">s :: SpotFleetRequestConfig
+</span><a href="#local-6989586621681185386"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#SpotFleetRequestConfig%27"><span class="hs-identifier hs-type">SpotFleetRequestConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681185385"><span class="annot"><span class="annottext">Maybe ActivityStatus
+</span><a href="#local-6989586621681185385"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SpotFleetRequestConfig
+</span><a href="#local-6989586621681185386"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:activityStatus:SpotFleetRequestConfig' :: Maybe ActivityStatus
 </span><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#%24sel%3AactivityStatus%3ASpotFleetRequestConfig%27"><span class="hs-identifier hs-var">activityStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ActivityStatus
-</span><a href="#local-6989586621681150218"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#SpotFleetRequestConfig"><span class="hs-identifier hs-type">SpotFleetRequestConfig</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- | The configuration of the Spot Fleet request.</span><span>
-</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#spotFleetRequestConfig_spotFleetRequestConfig"><span class="hs-identifier hs-type">spotFleetRequestConfig_spotFleetRequestConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#SpotFleetRequestConfig"><span class="hs-identifier hs-type">SpotFleetRequestConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SpotFleetRequestConfigData.html#SpotFleetRequestConfigData"><span class="hs-identifier hs-type">SpotFleetRequestConfigData</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-115"></span><span id="spotFleetRequestConfig_spotFleetRequestConfig"><span class="annot"><span class="annottext">spotFleetRequestConfig_spotFleetRequestConfig :: (Maybe SpotFleetRequestConfigData
- -&gt; f (Maybe SpotFleetRequestConfigData))
--&gt; SpotFleetRequestConfig -&gt; f SpotFleetRequestConfig
-</span><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#spotFleetRequestConfig_spotFleetRequestConfig"><span class="hs-identifier hs-var hs-var">spotFleetRequestConfig_spotFleetRequestConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SpotFleetRequestConfig -&gt; Maybe SpotFleetRequestConfigData)
--&gt; (SpotFleetRequestConfig
-    -&gt; Maybe SpotFleetRequestConfigData -&gt; SpotFleetRequestConfig)
--&gt; Lens
-     SpotFleetRequestConfig
-     SpotFleetRequestConfig
-     (Maybe SpotFleetRequestConfigData)
-     (Maybe SpotFleetRequestConfigData)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#SpotFleetRequestConfig%27"><span class="hs-identifier hs-type">SpotFleetRequestConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681150216"><span class="annot"><span class="annottext">Maybe SpotFleetRequestConfigData
-spotFleetRequestConfig :: Maybe SpotFleetRequestConfigData
-$sel:spotFleetRequestConfig:SpotFleetRequestConfig' :: SpotFleetRequestConfig -&gt; Maybe SpotFleetRequestConfigData
-</span><a href="#local-6989586621681150216"><span class="hs-identifier hs-var hs-var">spotFleetRequestConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SpotFleetRequestConfigData
-</span><a href="#local-6989586621681150216"><span class="hs-identifier hs-var">spotFleetRequestConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681150215"><span class="annot"><span class="annottext">s :: SpotFleetRequestConfig
-</span><a href="#local-6989586621681150215"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#SpotFleetRequestConfig%27"><span class="hs-identifier hs-type">SpotFleetRequestConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681150214"><span class="annot"><span class="annottext">Maybe SpotFleetRequestConfigData
-</span><a href="#local-6989586621681150214"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SpotFleetRequestConfig
-</span><a href="#local-6989586621681150215"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:spotFleetRequestConfig:SpotFleetRequestConfig' :: Maybe SpotFleetRequestConfigData
-</span><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#%24sel%3AspotFleetRequestConfig%3ASpotFleetRequestConfig%27"><span class="hs-identifier hs-var">spotFleetRequestConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SpotFleetRequestConfigData
-</span><a href="#local-6989586621681150214"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#SpotFleetRequestConfig"><span class="hs-identifier hs-type">SpotFleetRequestConfig</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-comment">-- | The ID of the Spot Fleet request.</span><span>
-</span><span id="line-118"></span><span class="annot"><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#spotFleetRequestConfig_spotFleetRequestId"><span class="hs-identifier hs-type">spotFleetRequestConfig_spotFleetRequestId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#SpotFleetRequestConfig"><span class="hs-identifier hs-type">SpotFleetRequestConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-119"></span><span id="spotFleetRequestConfig_spotFleetRequestId"><span class="annot"><span class="annottext">spotFleetRequestConfig_spotFleetRequestId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; SpotFleetRequestConfig -&gt; f SpotFleetRequestConfig
-</span><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#spotFleetRequestConfig_spotFleetRequestId"><span class="hs-identifier hs-var hs-var">spotFleetRequestConfig_spotFleetRequestId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SpotFleetRequestConfig -&gt; Maybe Text)
--&gt; (SpotFleetRequestConfig -&gt; Maybe Text -&gt; SpotFleetRequestConfig)
--&gt; Lens
-     SpotFleetRequestConfig
-     SpotFleetRequestConfig
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#SpotFleetRequestConfig%27"><span class="hs-identifier hs-type">SpotFleetRequestConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681150212"><span class="annot"><span class="annottext">Maybe Text
-spotFleetRequestId :: Maybe Text
-$sel:spotFleetRequestId:SpotFleetRequestConfig' :: SpotFleetRequestConfig -&gt; Maybe Text
-</span><a href="#local-6989586621681150212"><span class="hs-identifier hs-var hs-var">spotFleetRequestId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681150212"><span class="hs-identifier hs-var">spotFleetRequestId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681150211"><span class="annot"><span class="annottext">s :: SpotFleetRequestConfig
-</span><a href="#local-6989586621681150211"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#SpotFleetRequestConfig%27"><span class="hs-identifier hs-type">SpotFleetRequestConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681150210"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681150210"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SpotFleetRequestConfig
-</span><a href="#local-6989586621681150211"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:spotFleetRequestId:SpotFleetRequestConfig' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#%24sel%3AspotFleetRequestId%3ASpotFleetRequestConfig%27"><span class="hs-identifier hs-var">spotFleetRequestId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681150210"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#SpotFleetRequestConfig"><span class="hs-identifier hs-type">SpotFleetRequestConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681185385"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#SpotFleetRequestConfig"><span class="hs-identifier hs-type">SpotFleetRequestConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#SpotFleetRequestConfig"><span class="hs-identifier hs-type">SpotFleetRequestConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621681150207"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String SpotFleetRequestConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681150205"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681150205"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">Maybe BatchState
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621681185382"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String SpotFleetRequestConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681185380"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681185380"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">Maybe SpotFleetRequestConfigData
+-&gt; Maybe Text
+-&gt; Maybe BatchState
 -&gt; Maybe ISO8601
 -&gt; Maybe [Tag]
 -&gt; Maybe ActivityStatus
--&gt; Maybe SpotFleetRequestConfigData
--&gt; Maybe Text
 -&gt; SpotFleetRequestConfig
 </span><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#SpotFleetRequestConfig%27"><span class="hs-identifier hs-var">SpotFleetRequestConfig'</span></a></span><span>
-</span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">(Maybe BatchState
+</span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">(Maybe SpotFleetRequestConfigData
+ -&gt; Maybe Text
+ -&gt; Maybe BatchState
  -&gt; Maybe ISO8601
  -&gt; Maybe [Tag]
  -&gt; Maybe ActivityStatus
- -&gt; Maybe SpotFleetRequestConfigData
- -&gt; Maybe Text
  -&gt; SpotFleetRequestConfig)
+-&gt; Either String (Maybe SpotFleetRequestConfigData)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe BatchState
+      -&gt; Maybe ISO8601
+      -&gt; Maybe [Tag]
+      -&gt; Maybe ActivityStatus
+      -&gt; SpotFleetRequestConfig)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681185380"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe SpotFleetRequestConfigData)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;spotFleetRequestConfig&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe BatchState
+   -&gt; Maybe ISO8601
+   -&gt; Maybe [Tag]
+   -&gt; Maybe ActivityStatus
+   -&gt; SpotFleetRequestConfig)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe BatchState
+      -&gt; Maybe ISO8601
+      -&gt; Maybe [Tag]
+      -&gt; Maybe ActivityStatus
+      -&gt; SpotFleetRequestConfig)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681185380"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;spotFleetRequestId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe BatchState
+   -&gt; Maybe ISO8601
+   -&gt; Maybe [Tag]
+   -&gt; Maybe ActivityStatus
+   -&gt; SpotFleetRequestConfig)
 -&gt; Either String (Maybe BatchState)
 -&gt; Either
      String
      (Maybe ISO8601
-      -&gt; Maybe [Tag]
-      -&gt; Maybe ActivityStatus
-      -&gt; Maybe SpotFleetRequestConfigData
-      -&gt; Maybe Text
-      -&gt; SpotFleetRequestConfig)
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681150205"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe BatchState)
+      -&gt; Maybe [Tag] -&gt; Maybe ActivityStatus -&gt; SpotFleetRequestConfig)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681185380"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe BatchState)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;spotFleetRequestState&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">Either
+</span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
   (Maybe ISO8601
-   -&gt; Maybe [Tag]
-   -&gt; Maybe ActivityStatus
-   -&gt; Maybe SpotFleetRequestConfigData
-   -&gt; Maybe Text
-   -&gt; SpotFleetRequestConfig)
+   -&gt; Maybe [Tag] -&gt; Maybe ActivityStatus -&gt; SpotFleetRequestConfig)
 -&gt; Either String (Maybe ISO8601)
 -&gt; Either
      String
-     (Maybe [Tag]
-      -&gt; Maybe ActivityStatus
-      -&gt; Maybe SpotFleetRequestConfigData
-      -&gt; Maybe Text
-      -&gt; SpotFleetRequestConfig)
+     (Maybe [Tag] -&gt; Maybe ActivityStatus -&gt; SpotFleetRequestConfig)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681150205"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+</span><a href="#local-6989586621681185380"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;createTime&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">Either
+</span><span id="line-128"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe [Tag]
-   -&gt; Maybe ActivityStatus
-   -&gt; Maybe SpotFleetRequestConfigData
-   -&gt; Maybe Text
-   -&gt; SpotFleetRequestConfig)
+  (Maybe [Tag] -&gt; Maybe ActivityStatus -&gt; SpotFleetRequestConfig)
 -&gt; Either String (Maybe [Tag])
--&gt; Either
-     String
-     (Maybe ActivityStatus
-      -&gt; Maybe SpotFleetRequestConfigData
-      -&gt; Maybe Text
-      -&gt; SpotFleetRequestConfig)
+-&gt; Either String (Maybe ActivityStatus -&gt; SpotFleetRequestConfig)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681150205"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621681185380"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;tagSet&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -435,7 +458,7 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-127"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+</span><span id="line-129"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
 -&gt; ([Node] -&gt; Either String (Maybe [Tag]))
 -&gt; Either String (Maybe [Tag])
 forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
@@ -448,47 +471,18 @@ Applicative f =&gt;
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;item&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-128"></span><span>                  </span><span class="hs-special">)</span><span>
-</span><span id="line-129"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe ActivityStatus
-   -&gt; Maybe SpotFleetRequestConfigData
-   -&gt; Maybe Text
-   -&gt; SpotFleetRequestConfig)
+</span><span id="line-130"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe ActivityStatus -&gt; SpotFleetRequestConfig)
 -&gt; Either String (Maybe ActivityStatus)
--&gt; Either
-     String
-     (Maybe SpotFleetRequestConfigData
-      -&gt; Maybe Text -&gt; SpotFleetRequestConfig)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681150205"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ActivityStatus)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;activityStatus&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe SpotFleetRequestConfigData
-   -&gt; Maybe Text -&gt; SpotFleetRequestConfig)
--&gt; Either String (Maybe SpotFleetRequestConfigData)
--&gt; Either String (Maybe Text -&gt; SpotFleetRequestConfig)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681150205"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe SpotFleetRequestConfigData)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;spotFleetRequestConfig&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; SpotFleetRequestConfig)
--&gt; Either String (Maybe Text)
 -&gt; Either String SpotFleetRequestConfig
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681150205"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681185380"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ActivityStatus)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;spotFleetRequestId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;activityStatus&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
-</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681150196"><span id="local-6989586621681150198"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#SpotFleetRequestConfig"><span class="hs-identifier hs-type">SpotFleetRequestConfig</span></a></span></span></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681185371"><span id="local-6989586621681185373"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#SpotFleetRequestConfig"><span class="hs-identifier hs-type">SpotFleetRequestConfig</span></a></span></span></span><span>
 </span><span id="line-134"></span><span>
-</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681150193"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#SpotFleetRequestConfig"><span class="hs-identifier hs-type">SpotFleetRequestConfig</span></a></span></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681185368"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SpotFleetRequestConfig.html#SpotFleetRequestConfig"><span class="hs-identifier hs-type">SpotFleetRequestConfig</span></a></span></span><span>
 </span><span id="line-136"></span></pre></body></html>

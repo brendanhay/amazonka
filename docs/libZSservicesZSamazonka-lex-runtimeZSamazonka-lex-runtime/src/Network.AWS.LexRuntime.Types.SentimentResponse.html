@@ -30,7 +30,7 @@
 </span><span id="line-30"></span><span class="hs-comment">-- analysis.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newSentimentResponse' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679174358"><span id="local-6989586621679174359"></span></span><span class="hs-keyword">data</span><span> </span><span id="SentimentResponse"><span class="annot"><a href="Network.AWS.LexRuntime.Types.SentimentResponse.html#SentimentResponse"><span class="hs-identifier hs-var">SentimentResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SentimentResponse%27"><span class="annot"><a href="Network.AWS.LexRuntime.Types.SentimentResponse.html#SentimentResponse%27"><span class="hs-identifier hs-var">SentimentResponse'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679174435"><span id="local-6989586621679174436"></span></span><span class="hs-keyword">data</span><span> </span><span id="SentimentResponse"><span class="annot"><a href="Network.AWS.LexRuntime.Types.SentimentResponse.html#SentimentResponse"><span class="hs-identifier hs-var">SentimentResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SentimentResponse%27"><span class="annot"><a href="Network.AWS.LexRuntime.Types.SentimentResponse.html#SentimentResponse%27"><span class="hs-identifier hs-var">SentimentResponse'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The likelihood that the sentiment was correctly inferred.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AsentimentScore%3ASentimentResponse%27"><span class="annot"><span class="annottext">SentimentResponse -&gt; Maybe Text
 </span><a href="Network.AWS.LexRuntime.Types.SentimentResponse.html#%24sel%3AsentimentScore%3ASentimentResponse%27"><span class="hs-identifier hs-var hs-var">sentimentScore</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -39,7 +39,7 @@
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3AsentimentLabel%3ASentimentResponse%27"><span class="annot"><span class="annottext">SentimentResponse -&gt; Maybe Text
 </span><a href="Network.AWS.LexRuntime.Types.SentimentResponse.html#%24sel%3AsentimentLabel%3ASentimentResponse%27"><span class="hs-identifier hs-var hs-var">sentimentLabel</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679174351"><span id="local-6989586621679174353"><span class="annot"><span class="annottext">SentimentResponse -&gt; SentimentResponse -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679174428"><span id="local-6989586621679174430"><span class="annot"><span class="annottext">SentimentResponse -&gt; SentimentResponse -&gt; Bool
 (SentimentResponse -&gt; SentimentResponse -&gt; Bool)
 -&gt; (SentimentResponse -&gt; SentimentResponse -&gt; Bool)
 -&gt; Eq SentimentResponse
@@ -48,7 +48,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SentimentResponse -&gt; SentimentResponse -&gt; Bool
 == :: SentimentResponse -&gt; SentimentResponse -&gt; Bool
 $c== :: SentimentResponse -&gt; SentimentResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679174342"><span id="local-6989586621679174344"><span id="local-6989586621679174346"><span id="local-6989586621679174348"><span class="annot"><span class="annottext">ReadPrec [SentimentResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679174419"><span id="local-6989586621679174421"><span id="local-6989586621679174423"><span id="local-6989586621679174425"><span class="annot"><span class="annottext">ReadPrec [SentimentResponse]
 ReadPrec SentimentResponse
 Int -&gt; ReadS SentimentResponse
 ReadS [SentimentResponse]
@@ -68,7 +68,7 @@ readList :: ReadS [SentimentResponse]
 $creadList :: ReadS [SentimentResponse]
 readsPrec :: Int -&gt; ReadS SentimentResponse
 $creadsPrec :: Int -&gt; ReadS SentimentResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679174335"><span id="local-6989586621679174337"><span id="local-6989586621679174339"><span class="annot"><span class="annottext">Int -&gt; SentimentResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679174412"><span id="local-6989586621679174414"><span id="local-6989586621679174416"><span class="annot"><span class="annottext">Int -&gt; SentimentResponse -&gt; ShowS
 [SentimentResponse] -&gt; ShowS
 SentimentResponse -&gt; String
 (Int -&gt; SentimentResponse -&gt; ShowS)
@@ -132,16 +132,16 @@ forall a. Maybe a
 -&gt; Lens
      SentimentResponse SentimentResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.SentimentResponse.html#SentimentResponse%27"><span class="hs-identifier hs-type">SentimentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174326"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.SentimentResponse.html#SentimentResponse%27"><span class="hs-identifier hs-type">SentimentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174403"><span class="annot"><span class="annottext">Maybe Text
 sentimentScore :: Maybe Text
 $sel:sentimentScore:SentimentResponse' :: SentimentResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679174326"><span class="hs-identifier hs-var hs-var">sentimentScore</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679174326"><span class="hs-identifier hs-var">sentimentScore</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174325"><span class="annot"><span class="annottext">s :: SentimentResponse
-</span><a href="#local-6989586621679174325"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.SentimentResponse.html#SentimentResponse%27"><span class="hs-identifier hs-type">SentimentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174324"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679174324"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SentimentResponse
-</span><a href="#local-6989586621679174325"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sentimentScore:SentimentResponse' :: Maybe Text
+</span><a href="#local-6989586621679174403"><span class="hs-identifier hs-var hs-var">sentimentScore</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679174403"><span class="hs-identifier hs-var">sentimentScore</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174402"><span class="annot"><span class="annottext">s :: SentimentResponse
+</span><a href="#local-6989586621679174402"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.SentimentResponse.html#SentimentResponse%27"><span class="hs-identifier hs-type">SentimentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174401"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679174401"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SentimentResponse
+</span><a href="#local-6989586621679174402"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sentimentScore:SentimentResponse' :: Maybe Text
 </span><a href="Network.AWS.LexRuntime.Types.SentimentResponse.html#%24sel%3AsentimentScore%3ASentimentResponse%27"><span class="hs-identifier hs-var">sentimentScore</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679174324"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.SentimentResponse.html#SentimentResponse"><span class="hs-identifier hs-type">SentimentResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679174401"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.SentimentResponse.html#SentimentResponse"><span class="hs-identifier hs-type">SentimentResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- | The inferred sentiment that Amazon Comprehend has the highest confidence</span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- in.</span><span>
@@ -153,19 +153,19 @@ $sel:sentimentScore:SentimentResponse' :: SentimentResponse -&gt; Maybe Text
 -&gt; Lens
      SentimentResponse SentimentResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.SentimentResponse.html#SentimentResponse%27"><span class="hs-identifier hs-type">SentimentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174322"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.SentimentResponse.html#SentimentResponse%27"><span class="hs-identifier hs-type">SentimentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174399"><span class="annot"><span class="annottext">Maybe Text
 sentimentLabel :: Maybe Text
 $sel:sentimentLabel:SentimentResponse' :: SentimentResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679174322"><span class="hs-identifier hs-var hs-var">sentimentLabel</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679174322"><span class="hs-identifier hs-var">sentimentLabel</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174321"><span class="annot"><span class="annottext">s :: SentimentResponse
-</span><a href="#local-6989586621679174321"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.SentimentResponse.html#SentimentResponse%27"><span class="hs-identifier hs-type">SentimentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174320"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679174320"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SentimentResponse
-</span><a href="#local-6989586621679174321"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sentimentLabel:SentimentResponse' :: Maybe Text
+</span><a href="#local-6989586621679174399"><span class="hs-identifier hs-var hs-var">sentimentLabel</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679174399"><span class="hs-identifier hs-var">sentimentLabel</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174398"><span class="annot"><span class="annottext">s :: SentimentResponse
+</span><a href="#local-6989586621679174398"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.SentimentResponse.html#SentimentResponse%27"><span class="hs-identifier hs-type">SentimentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174397"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679174397"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SentimentResponse
+</span><a href="#local-6989586621679174398"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sentimentLabel:SentimentResponse' :: Maybe Text
 </span><a href="Network.AWS.LexRuntime.Types.SentimentResponse.html#%24sel%3AsentimentLabel%3ASentimentResponse%27"><span class="hs-identifier hs-var">sentimentLabel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679174320"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.SentimentResponse.html#SentimentResponse"><span class="hs-identifier hs-type">SentimentResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679174397"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.SentimentResponse.html#SentimentResponse"><span class="hs-identifier hs-type">SentimentResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174317"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.SentimentResponse.html#SentimentResponse"><span class="hs-identifier hs-type">SentimentResponse</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-73"></span><span>  </span><span id="local-6989586621679174315"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SentimentResponse
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174394"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.SentimentResponse.html#SentimentResponse"><span class="hs-identifier hs-type">SentimentResponse</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-73"></span><span>  </span><span id="local-6989586621679174392"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SentimentResponse
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser SentimentResponse)
@@ -175,15 +175,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;SentimentResponse&quot;</span></span><span>
-</span><span id="line-76"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679174312"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679174312"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679174389"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679174389"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-77"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; SentimentResponse
 </span><a href="Network.AWS.LexRuntime.Types.SentimentResponse.html#SentimentResponse%27"><span class="hs-identifier hs-var">SentimentResponse'</span></a></span><span>
 </span><span id="line-78"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; SentimentResponse)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; SentimentResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679174312"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679174389"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;sentimentScore&quot;</span></span><span class="hs-special">)</span><span>
@@ -191,13 +191,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser SentimentResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679174312"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679174389"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;sentimentLabel&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174306"><span id="local-6989586621679174308"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.SentimentResponse.html#SentimentResponse"><span class="hs-identifier hs-type">SentimentResponse</span></a></span></span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174383"><span id="local-6989586621679174385"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.SentimentResponse.html#SentimentResponse"><span class="hs-identifier hs-type">SentimentResponse</span></a></span></span></span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174303"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.SentimentResponse.html#SentimentResponse"><span class="hs-identifier hs-type">SentimentResponse</span></a></span></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174380"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.SentimentResponse.html#SentimentResponse"><span class="hs-identifier hs-type">SentimentResponse</span></a></span></span><span>
 </span><span id="line-85"></span></pre></body></html>

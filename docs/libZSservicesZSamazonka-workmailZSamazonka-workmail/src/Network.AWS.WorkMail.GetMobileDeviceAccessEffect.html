@@ -30,10 +30,10 @@
 </span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#newGetMobileDeviceAccessEffect"><span class="hs-identifier">newGetMobileDeviceAccessEffect</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-31"></span><span>
 </span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#getMobileDeviceAccessEffect_deviceModel"><span class="hs-identifier">getMobileDeviceAccessEffect_deviceModel</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#getMobileDeviceAccessEffect_deviceUserAgent"><span class="hs-identifier">getMobileDeviceAccessEffect_deviceUserAgent</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#getMobileDeviceAccessEffect_deviceOperatingSystem"><span class="hs-identifier">getMobileDeviceAccessEffect_deviceOperatingSystem</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#getMobileDeviceAccessEffect_deviceType"><span class="hs-identifier">getMobileDeviceAccessEffect_deviceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#getMobileDeviceAccessEffect_deviceOperatingSystem"><span class="hs-identifier">getMobileDeviceAccessEffect_deviceOperatingSystem</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#getMobileDeviceAccessEffect_deviceModel"><span class="hs-identifier">getMobileDeviceAccessEffect_deviceModel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#getMobileDeviceAccessEffect_deviceType"><span class="hs-identifier">getMobileDeviceAccessEffect_deviceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#getMobileDeviceAccessEffect_deviceUserAgent"><span class="hs-identifier">getMobileDeviceAccessEffect_deviceUserAgent</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#getMobileDeviceAccessEffect_organizationId"><span class="hs-identifier">getMobileDeviceAccessEffect_organizationId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-38"></span><span>
 </span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
@@ -41,8 +41,8 @@
 </span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#newGetMobileDeviceAccessEffectResponse"><span class="hs-identifier">newGetMobileDeviceAccessEffectResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-42"></span><span>
 </span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#getMobileDeviceAccessEffectResponse_matchedRules"><span class="hs-identifier">getMobileDeviceAccessEffectResponse_matchedRules</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#getMobileDeviceAccessEffectResponse_effect"><span class="hs-identifier">getMobileDeviceAccessEffectResponse_effect</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#getMobileDeviceAccessEffectResponse_effect"><span class="hs-identifier">getMobileDeviceAccessEffectResponse_effect</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#getMobileDeviceAccessEffectResponse_matchedRules"><span class="hs-identifier">getMobileDeviceAccessEffectResponse_matchedRules</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#getMobileDeviceAccessEffectResponse_httpStatus"><span class="hs-identifier">getMobileDeviceAccessEffectResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-48"></span><span class="hs-keyword">where</span><span>
@@ -55,24 +55,24 @@
 </span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.html"><span class="hs-identifier">Network.AWS.WorkMail.Types</span></a></span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newGetMobileDeviceAccessEffect' smart constructor.</span><span>
-</span><span id="line-58"></span><span id="local-6989586621679267167"><span id="local-6989586621679267168"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetMobileDeviceAccessEffect"><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffect"><span class="hs-identifier hs-var">GetMobileDeviceAccessEffect</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetMobileDeviceAccessEffect%27"><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffect%27"><span class="hs-identifier hs-var">GetMobileDeviceAccessEffect'</span></a></span></span><span>
-</span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Device model the simulated user will report.</span><span>
-</span><span id="line-60"></span><span>    </span><span id="%24sel%3AdeviceModel%3AGetMobileDeviceAccessEffect%27"><span class="annot"><span class="annottext">GetMobileDeviceAccessEffect -&gt; Maybe Text
-</span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#%24sel%3AdeviceModel%3AGetMobileDeviceAccessEffect%27"><span class="hs-identifier hs-var hs-var">deviceModel</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | Device user agent the simulated user will report.</span><span>
-</span><span id="line-62"></span><span>    </span><span id="%24sel%3AdeviceUserAgent%3AGetMobileDeviceAccessEffect%27"><span class="annot"><span class="annottext">GetMobileDeviceAccessEffect -&gt; Maybe Text
-</span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#%24sel%3AdeviceUserAgent%3AGetMobileDeviceAccessEffect%27"><span class="hs-identifier hs-var hs-var">deviceUserAgent</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | Device operating system the simulated user will report.</span><span>
-</span><span id="line-64"></span><span>    </span><span id="%24sel%3AdeviceOperatingSystem%3AGetMobileDeviceAccessEffect%27"><span class="annot"><span class="annottext">GetMobileDeviceAccessEffect -&gt; Maybe Text
+</span><span id="line-58"></span><span id="local-6989586621679289382"><span id="local-6989586621679289383"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetMobileDeviceAccessEffect"><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffect"><span class="hs-identifier hs-var">GetMobileDeviceAccessEffect</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetMobileDeviceAccessEffect%27"><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffect%27"><span class="hs-identifier hs-var">GetMobileDeviceAccessEffect'</span></a></span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Device operating system the simulated user will report.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AdeviceOperatingSystem%3AGetMobileDeviceAccessEffect%27"><span class="annot"><span class="annottext">GetMobileDeviceAccessEffect -&gt; Maybe Text
 </span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#%24sel%3AdeviceOperatingSystem%3AGetMobileDeviceAccessEffect%27"><span class="hs-identifier hs-var hs-var">deviceOperatingSystem</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | Device type the simulated user will report.</span><span>
-</span><span id="line-66"></span><span>    </span><span id="%24sel%3AdeviceType%3AGetMobileDeviceAccessEffect%27"><span class="annot"><span class="annottext">GetMobileDeviceAccessEffect -&gt; Maybe Text
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | Device model the simulated user will report.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AdeviceModel%3AGetMobileDeviceAccessEffect%27"><span class="annot"><span class="annottext">GetMobileDeviceAccessEffect -&gt; Maybe Text
+</span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#%24sel%3AdeviceModel%3AGetMobileDeviceAccessEffect%27"><span class="hs-identifier hs-var hs-var">deviceModel</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | Device type the simulated user will report.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AdeviceType%3AGetMobileDeviceAccessEffect%27"><span class="annot"><span class="annottext">GetMobileDeviceAccessEffect -&gt; Maybe Text
 </span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#%24sel%3AdeviceType%3AGetMobileDeviceAccessEffect%27"><span class="hs-identifier hs-var hs-var">deviceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | Device user agent the simulated user will report.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AdeviceUserAgent%3AGetMobileDeviceAccessEffect%27"><span class="annot"><span class="annottext">GetMobileDeviceAccessEffect -&gt; Maybe Text
+</span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#%24sel%3AdeviceUserAgent%3AGetMobileDeviceAccessEffect%27"><span class="hs-identifier hs-var hs-var">deviceUserAgent</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The Amazon WorkMail organization to simulate the access effect for.</span><span>
 </span><span id="line-68"></span><span>    </span><span id="%24sel%3AorganizationId%3AGetMobileDeviceAccessEffect%27"><span class="annot"><span class="annottext">GetMobileDeviceAccessEffect -&gt; Text
 </span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#%24sel%3AorganizationId%3AGetMobileDeviceAccessEffect%27"><span class="hs-identifier hs-var hs-var">organizationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-69"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679267157"><span id="local-6989586621679267159"><span class="annot"><span class="annottext">GetMobileDeviceAccessEffect -&gt; GetMobileDeviceAccessEffect -&gt; Bool
+</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679289372"><span id="local-6989586621679289374"><span class="annot"><span class="annottext">GetMobileDeviceAccessEffect -&gt; GetMobileDeviceAccessEffect -&gt; Bool
 (GetMobileDeviceAccessEffect
  -&gt; GetMobileDeviceAccessEffect -&gt; Bool)
 -&gt; (GetMobileDeviceAccessEffect
@@ -83,7 +83,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetMobileDeviceAccessEffect -&gt; GetMobileDeviceAccessEffect -&gt; Bool
 == :: GetMobileDeviceAccessEffect -&gt; GetMobileDeviceAccessEffect -&gt; Bool
 $c== :: GetMobileDeviceAccessEffect -&gt; GetMobileDeviceAccessEffect -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679267148"><span id="local-6989586621679267150"><span id="local-6989586621679267152"><span id="local-6989586621679267154"><span class="annot"><span class="annottext">ReadPrec [GetMobileDeviceAccessEffect]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679289363"><span id="local-6989586621679289365"><span id="local-6989586621679289367"><span id="local-6989586621679289369"><span class="annot"><span class="annottext">ReadPrec [GetMobileDeviceAccessEffect]
 ReadPrec GetMobileDeviceAccessEffect
 Int -&gt; ReadS GetMobileDeviceAccessEffect
 ReadS [GetMobileDeviceAccessEffect]
@@ -103,7 +103,7 @@ readList :: ReadS [GetMobileDeviceAccessEffect]
 $creadList :: ReadS [GetMobileDeviceAccessEffect]
 readsPrec :: Int -&gt; ReadS GetMobileDeviceAccessEffect
 $creadsPrec :: Int -&gt; ReadS GetMobileDeviceAccessEffect
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679267141"><span id="local-6989586621679267143"><span id="local-6989586621679267145"><span class="annot"><span class="annottext">Int -&gt; GetMobileDeviceAccessEffect -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679289356"><span id="local-6989586621679289358"><span id="local-6989586621679289360"><span class="annot"><span class="annottext">Int -&gt; GetMobileDeviceAccessEffect -&gt; ShowS
 [GetMobileDeviceAccessEffect] -&gt; ShowS
 GetMobileDeviceAccessEffect -&gt; String
 (Int -&gt; GetMobileDeviceAccessEffect -&gt; ShowS)
@@ -143,13 +143,13 @@ GetMobileDeviceAccessEffect -&gt; Rep GetMobileDeviceAccessEffect x
 </span><span id="line-77"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-79"></span><span class="hs-comment">--</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- 'deviceModel', 'getMobileDeviceAccessEffect_deviceModel' - Device model the simulated user will report.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'deviceOperatingSystem', 'getMobileDeviceAccessEffect_deviceOperatingSystem' - Device operating system the simulated user will report.</span><span>
 </span><span id="line-81"></span><span class="hs-comment">--</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- 'deviceUserAgent', 'getMobileDeviceAccessEffect_deviceUserAgent' - Device user agent the simulated user will report.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'deviceModel', 'getMobileDeviceAccessEffect_deviceModel' - Device model the simulated user will report.</span><span>
 </span><span id="line-83"></span><span class="hs-comment">--</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- 'deviceOperatingSystem', 'getMobileDeviceAccessEffect_deviceOperatingSystem' - Device operating system the simulated user will report.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'deviceType', 'getMobileDeviceAccessEffect_deviceType' - Device type the simulated user will report.</span><span>
 </span><span id="line-85"></span><span class="hs-comment">--</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- 'deviceType', 'getMobileDeviceAccessEffect_deviceType' - Device type the simulated user will report.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'deviceUserAgent', 'getMobileDeviceAccessEffect_deviceUserAgent' - Device user agent the simulated user will report.</span><span>
 </span><span id="line-87"></span><span class="hs-comment">--</span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- 'organizationId', 'getMobileDeviceAccessEffect_organizationId' - The Amazon WorkMail organization to simulate the access effect for.</span><span>
 </span><span id="line-89"></span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#newGetMobileDeviceAccessEffect"><span class="hs-identifier hs-type">newGetMobileDeviceAccessEffect</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -157,8 +157,8 @@ GetMobileDeviceAccessEffect -&gt; Rep GetMobileDeviceAccessEffect x
 </span><span id="line-91"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-92"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffect"><span class="hs-identifier hs-type">GetMobileDeviceAccessEffect</span></a></span><span>
 </span><span id="line-93"></span><span id="newGetMobileDeviceAccessEffect"><span class="annot"><span class="annottext">newGetMobileDeviceAccessEffect :: Text -&gt; GetMobileDeviceAccessEffect
-</span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#newGetMobileDeviceAccessEffect"><span class="hs-identifier hs-var hs-var">newGetMobileDeviceAccessEffect</span></a></span></span><span> </span><span id="local-6989586621679267136"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679267136"><span class="hs-identifier hs-var">pOrganizationId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#newGetMobileDeviceAccessEffect"><span class="hs-identifier hs-var hs-var">newGetMobileDeviceAccessEffect</span></a></span></span><span> </span><span id="local-6989586621679289351"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679289351"><span class="hs-identifier hs-var">pOrganizationId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-94"></span><span>  </span><span class="annot"><span class="annottext">GetMobileDeviceAccessEffect' :: Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -166,79 +166,31 @@ GetMobileDeviceAccessEffect -&gt; Rep GetMobileDeviceAccessEffect x
 -&gt; Text
 -&gt; GetMobileDeviceAccessEffect
 </span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffect%27"><span class="hs-identifier hs-type">GetMobileDeviceAccessEffect'</span></a></span><span>
-</span><span id="line-95"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:deviceModel:GetMobileDeviceAccessEffect' :: Maybe Text
-</span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#%24sel%3AdeviceModel%3AGetMobileDeviceAccessEffect%27"><span class="hs-identifier hs-var">deviceModel</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:deviceOperatingSystem:GetMobileDeviceAccessEffect' :: Maybe Text
+</span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#%24sel%3AdeviceOperatingSystem%3AGetMobileDeviceAccessEffect%27"><span class="hs-identifier hs-var">deviceOperatingSystem</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:deviceUserAgent:GetMobileDeviceAccessEffect' :: Maybe Text
-</span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#%24sel%3AdeviceUserAgent%3AGetMobileDeviceAccessEffect%27"><span class="hs-identifier hs-var">deviceUserAgent</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:deviceModel:GetMobileDeviceAccessEffect' :: Maybe Text
+</span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#%24sel%3AdeviceModel%3AGetMobileDeviceAccessEffect%27"><span class="hs-identifier hs-var">deviceModel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:deviceOperatingSystem:GetMobileDeviceAccessEffect' :: Maybe Text
-</span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#%24sel%3AdeviceOperatingSystem%3AGetMobileDeviceAccessEffect%27"><span class="hs-identifier hs-var">deviceOperatingSystem</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:deviceType:GetMobileDeviceAccessEffect' :: Maybe Text
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:deviceType:GetMobileDeviceAccessEffect' :: Maybe Text
 </span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#%24sel%3AdeviceType%3AGetMobileDeviceAccessEffect%27"><span class="hs-identifier hs-var">deviceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:deviceUserAgent:GetMobileDeviceAccessEffect' :: Maybe Text
+</span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#%24sel%3AdeviceUserAgent%3AGetMobileDeviceAccessEffect%27"><span class="hs-identifier hs-var">deviceUserAgent</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:organizationId:GetMobileDeviceAccessEffect' :: Text
 </span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#%24sel%3AorganizationId%3AGetMobileDeviceAccessEffect%27"><span class="hs-identifier hs-var">organizationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679267136"><span class="hs-identifier hs-var">pOrganizationId_</span></a></span><span>
+</span><a href="#local-6989586621679289351"><span class="hs-identifier hs-var">pOrganizationId_</span></a></span><span>
 </span><span id="line-101"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- | Device model the simulated user will report.</span><span>
-</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#getMobileDeviceAccessEffect_deviceModel"><span class="hs-identifier hs-type">getMobileDeviceAccessEffect_deviceModel</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffect"><span class="hs-identifier hs-type">GetMobileDeviceAccessEffect</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-105"></span><span id="getMobileDeviceAccessEffect_deviceModel"><span class="annot"><span class="annottext">getMobileDeviceAccessEffect_deviceModel :: (Maybe Text -&gt; f (Maybe Text))
--&gt; GetMobileDeviceAccessEffect -&gt; f GetMobileDeviceAccessEffect
-</span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#getMobileDeviceAccessEffect_deviceModel"><span class="hs-identifier hs-var hs-var">getMobileDeviceAccessEffect_deviceModel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetMobileDeviceAccessEffect -&gt; Maybe Text)
--&gt; (GetMobileDeviceAccessEffect
-    -&gt; Maybe Text -&gt; GetMobileDeviceAccessEffect)
--&gt; Lens
-     GetMobileDeviceAccessEffect
-     GetMobileDeviceAccessEffect
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffect%27"><span class="hs-identifier hs-type">GetMobileDeviceAccessEffect'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267133"><span class="annot"><span class="annottext">Maybe Text
-deviceModel :: Maybe Text
-$sel:deviceModel:GetMobileDeviceAccessEffect' :: GetMobileDeviceAccessEffect -&gt; Maybe Text
-</span><a href="#local-6989586621679267133"><span class="hs-identifier hs-var hs-var">deviceModel</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679267133"><span class="hs-identifier hs-var">deviceModel</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679267132"><span class="annot"><span class="annottext">s :: GetMobileDeviceAccessEffect
-</span><a href="#local-6989586621679267132"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffect%27"><span class="hs-identifier hs-type">GetMobileDeviceAccessEffect'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679267131"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679267131"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMobileDeviceAccessEffect
-</span><a href="#local-6989586621679267132"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceModel:GetMobileDeviceAccessEffect' :: Maybe Text
-</span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#%24sel%3AdeviceModel%3AGetMobileDeviceAccessEffect%27"><span class="hs-identifier hs-var">deviceModel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679267131"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffect"><span class="hs-identifier hs-type">GetMobileDeviceAccessEffect</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- | Device user agent the simulated user will report.</span><span>
-</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#getMobileDeviceAccessEffect_deviceUserAgent"><span class="hs-identifier hs-type">getMobileDeviceAccessEffect_deviceUserAgent</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffect"><span class="hs-identifier hs-type">GetMobileDeviceAccessEffect</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-109"></span><span id="getMobileDeviceAccessEffect_deviceUserAgent"><span class="annot"><span class="annottext">getMobileDeviceAccessEffect_deviceUserAgent :: (Maybe Text -&gt; f (Maybe Text))
--&gt; GetMobileDeviceAccessEffect -&gt; f GetMobileDeviceAccessEffect
-</span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#getMobileDeviceAccessEffect_deviceUserAgent"><span class="hs-identifier hs-var hs-var">getMobileDeviceAccessEffect_deviceUserAgent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetMobileDeviceAccessEffect -&gt; Maybe Text)
--&gt; (GetMobileDeviceAccessEffect
-    -&gt; Maybe Text -&gt; GetMobileDeviceAccessEffect)
--&gt; Lens
-     GetMobileDeviceAccessEffect
-     GetMobileDeviceAccessEffect
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffect%27"><span class="hs-identifier hs-type">GetMobileDeviceAccessEffect'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267130"><span class="annot"><span class="annottext">Maybe Text
-deviceUserAgent :: Maybe Text
-$sel:deviceUserAgent:GetMobileDeviceAccessEffect' :: GetMobileDeviceAccessEffect -&gt; Maybe Text
-</span><a href="#local-6989586621679267130"><span class="hs-identifier hs-var hs-var">deviceUserAgent</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679267130"><span class="hs-identifier hs-var">deviceUserAgent</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679267129"><span class="annot"><span class="annottext">s :: GetMobileDeviceAccessEffect
-</span><a href="#local-6989586621679267129"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffect%27"><span class="hs-identifier hs-type">GetMobileDeviceAccessEffect'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679267128"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679267128"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMobileDeviceAccessEffect
-</span><a href="#local-6989586621679267129"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceUserAgent:GetMobileDeviceAccessEffect' :: Maybe Text
-</span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#%24sel%3AdeviceUserAgent%3AGetMobileDeviceAccessEffect%27"><span class="hs-identifier hs-var">deviceUserAgent</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679267128"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffect"><span class="hs-identifier hs-type">GetMobileDeviceAccessEffect</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- | Device operating system the simulated user will report.</span><span>
-</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#getMobileDeviceAccessEffect_deviceOperatingSystem"><span class="hs-identifier hs-type">getMobileDeviceAccessEffect_deviceOperatingSystem</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffect"><span class="hs-identifier hs-type">GetMobileDeviceAccessEffect</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-113"></span><span id="getMobileDeviceAccessEffect_deviceOperatingSystem"><span class="annot"><span class="annottext">getMobileDeviceAccessEffect_deviceOperatingSystem :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-103"></span><span class="hs-comment">-- | Device operating system the simulated user will report.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#getMobileDeviceAccessEffect_deviceOperatingSystem"><span class="hs-identifier hs-type">getMobileDeviceAccessEffect_deviceOperatingSystem</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffect"><span class="hs-identifier hs-type">GetMobileDeviceAccessEffect</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="getMobileDeviceAccessEffect_deviceOperatingSystem"><span class="annot"><span class="annottext">getMobileDeviceAccessEffect_deviceOperatingSystem :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; GetMobileDeviceAccessEffect -&gt; f GetMobileDeviceAccessEffect
 </span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#getMobileDeviceAccessEffect_deviceOperatingSystem"><span class="hs-identifier hs-var hs-var">getMobileDeviceAccessEffect_deviceOperatingSystem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetMobileDeviceAccessEffect -&gt; Maybe Text)
 -&gt; (GetMobileDeviceAccessEffect
@@ -249,20 +201,44 @@ $sel:deviceUserAgent:GetMobileDeviceAccessEffect' :: GetMobileDeviceAccessEffect
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffect%27"><span class="hs-identifier hs-type">GetMobileDeviceAccessEffect'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267127"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffect%27"><span class="hs-identifier hs-type">GetMobileDeviceAccessEffect'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289348"><span class="annot"><span class="annottext">Maybe Text
 deviceOperatingSystem :: Maybe Text
 $sel:deviceOperatingSystem:GetMobileDeviceAccessEffect' :: GetMobileDeviceAccessEffect -&gt; Maybe Text
-</span><a href="#local-6989586621679267127"><span class="hs-identifier hs-var hs-var">deviceOperatingSystem</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679267127"><span class="hs-identifier hs-var">deviceOperatingSystem</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679267126"><span class="annot"><span class="annottext">s :: GetMobileDeviceAccessEffect
-</span><a href="#local-6989586621679267126"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffect%27"><span class="hs-identifier hs-type">GetMobileDeviceAccessEffect'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679267125"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679267125"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMobileDeviceAccessEffect
-</span><a href="#local-6989586621679267126"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceOperatingSystem:GetMobileDeviceAccessEffect' :: Maybe Text
+</span><a href="#local-6989586621679289348"><span class="hs-identifier hs-var hs-var">deviceOperatingSystem</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679289348"><span class="hs-identifier hs-var">deviceOperatingSystem</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289347"><span class="annot"><span class="annottext">s :: GetMobileDeviceAccessEffect
+</span><a href="#local-6989586621679289347"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffect%27"><span class="hs-identifier hs-type">GetMobileDeviceAccessEffect'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289346"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679289346"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMobileDeviceAccessEffect
+</span><a href="#local-6989586621679289347"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceOperatingSystem:GetMobileDeviceAccessEffect' :: Maybe Text
 </span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#%24sel%3AdeviceOperatingSystem%3AGetMobileDeviceAccessEffect%27"><span class="hs-identifier hs-var">deviceOperatingSystem</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679267125"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffect"><span class="hs-identifier hs-type">GetMobileDeviceAccessEffect</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- | Device type the simulated user will report.</span><span>
-</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#getMobileDeviceAccessEffect_deviceType"><span class="hs-identifier hs-type">getMobileDeviceAccessEffect_deviceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffect"><span class="hs-identifier hs-type">GetMobileDeviceAccessEffect</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-117"></span><span id="getMobileDeviceAccessEffect_deviceType"><span class="annot"><span class="annottext">getMobileDeviceAccessEffect_deviceType :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621679289346"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffect"><span class="hs-identifier hs-type">GetMobileDeviceAccessEffect</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | Device model the simulated user will report.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#getMobileDeviceAccessEffect_deviceModel"><span class="hs-identifier hs-type">getMobileDeviceAccessEffect_deviceModel</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffect"><span class="hs-identifier hs-type">GetMobileDeviceAccessEffect</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span id="getMobileDeviceAccessEffect_deviceModel"><span class="annot"><span class="annottext">getMobileDeviceAccessEffect_deviceModel :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetMobileDeviceAccessEffect -&gt; f GetMobileDeviceAccessEffect
+</span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#getMobileDeviceAccessEffect_deviceModel"><span class="hs-identifier hs-var hs-var">getMobileDeviceAccessEffect_deviceModel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetMobileDeviceAccessEffect -&gt; Maybe Text)
+-&gt; (GetMobileDeviceAccessEffect
+    -&gt; Maybe Text -&gt; GetMobileDeviceAccessEffect)
+-&gt; Lens
+     GetMobileDeviceAccessEffect
+     GetMobileDeviceAccessEffect
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffect%27"><span class="hs-identifier hs-type">GetMobileDeviceAccessEffect'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289345"><span class="annot"><span class="annottext">Maybe Text
+deviceModel :: Maybe Text
+$sel:deviceModel:GetMobileDeviceAccessEffect' :: GetMobileDeviceAccessEffect -&gt; Maybe Text
+</span><a href="#local-6989586621679289345"><span class="hs-identifier hs-var hs-var">deviceModel</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679289345"><span class="hs-identifier hs-var">deviceModel</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289344"><span class="annot"><span class="annottext">s :: GetMobileDeviceAccessEffect
+</span><a href="#local-6989586621679289344"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffect%27"><span class="hs-identifier hs-type">GetMobileDeviceAccessEffect'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289343"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679289343"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMobileDeviceAccessEffect
+</span><a href="#local-6989586621679289344"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceModel:GetMobileDeviceAccessEffect' :: Maybe Text
+</span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#%24sel%3AdeviceModel%3AGetMobileDeviceAccessEffect%27"><span class="hs-identifier hs-var">deviceModel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679289343"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffect"><span class="hs-identifier hs-type">GetMobileDeviceAccessEffect</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | Device type the simulated user will report.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#getMobileDeviceAccessEffect_deviceType"><span class="hs-identifier hs-type">getMobileDeviceAccessEffect_deviceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffect"><span class="hs-identifier hs-type">GetMobileDeviceAccessEffect</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="getMobileDeviceAccessEffect_deviceType"><span class="annot"><span class="annottext">getMobileDeviceAccessEffect_deviceType :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; GetMobileDeviceAccessEffect -&gt; f GetMobileDeviceAccessEffect
 </span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#getMobileDeviceAccessEffect_deviceType"><span class="hs-identifier hs-var hs-var">getMobileDeviceAccessEffect_deviceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetMobileDeviceAccessEffect -&gt; Maybe Text)
 -&gt; (GetMobileDeviceAccessEffect
@@ -273,16 +249,40 @@ $sel:deviceOperatingSystem:GetMobileDeviceAccessEffect' :: GetMobileDeviceAccess
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffect%27"><span class="hs-identifier hs-type">GetMobileDeviceAccessEffect'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267124"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffect%27"><span class="hs-identifier hs-type">GetMobileDeviceAccessEffect'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289342"><span class="annot"><span class="annottext">Maybe Text
 deviceType :: Maybe Text
 $sel:deviceType:GetMobileDeviceAccessEffect' :: GetMobileDeviceAccessEffect -&gt; Maybe Text
-</span><a href="#local-6989586621679267124"><span class="hs-identifier hs-var hs-var">deviceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679267124"><span class="hs-identifier hs-var">deviceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679267123"><span class="annot"><span class="annottext">s :: GetMobileDeviceAccessEffect
-</span><a href="#local-6989586621679267123"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffect%27"><span class="hs-identifier hs-type">GetMobileDeviceAccessEffect'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679267122"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679267122"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMobileDeviceAccessEffect
-</span><a href="#local-6989586621679267123"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceType:GetMobileDeviceAccessEffect' :: Maybe Text
+</span><a href="#local-6989586621679289342"><span class="hs-identifier hs-var hs-var">deviceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679289342"><span class="hs-identifier hs-var">deviceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289341"><span class="annot"><span class="annottext">s :: GetMobileDeviceAccessEffect
+</span><a href="#local-6989586621679289341"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffect%27"><span class="hs-identifier hs-type">GetMobileDeviceAccessEffect'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289340"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679289340"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMobileDeviceAccessEffect
+</span><a href="#local-6989586621679289341"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceType:GetMobileDeviceAccessEffect' :: Maybe Text
 </span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#%24sel%3AdeviceType%3AGetMobileDeviceAccessEffect%27"><span class="hs-identifier hs-var">deviceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679267122"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffect"><span class="hs-identifier hs-type">GetMobileDeviceAccessEffect</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679289340"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffect"><span class="hs-identifier hs-type">GetMobileDeviceAccessEffect</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | Device user agent the simulated user will report.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#getMobileDeviceAccessEffect_deviceUserAgent"><span class="hs-identifier hs-type">getMobileDeviceAccessEffect_deviceUserAgent</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffect"><span class="hs-identifier hs-type">GetMobileDeviceAccessEffect</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span id="getMobileDeviceAccessEffect_deviceUserAgent"><span class="annot"><span class="annottext">getMobileDeviceAccessEffect_deviceUserAgent :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetMobileDeviceAccessEffect -&gt; f GetMobileDeviceAccessEffect
+</span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#getMobileDeviceAccessEffect_deviceUserAgent"><span class="hs-identifier hs-var hs-var">getMobileDeviceAccessEffect_deviceUserAgent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetMobileDeviceAccessEffect -&gt; Maybe Text)
+-&gt; (GetMobileDeviceAccessEffect
+    -&gt; Maybe Text -&gt; GetMobileDeviceAccessEffect)
+-&gt; Lens
+     GetMobileDeviceAccessEffect
+     GetMobileDeviceAccessEffect
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffect%27"><span class="hs-identifier hs-type">GetMobileDeviceAccessEffect'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289339"><span class="annot"><span class="annottext">Maybe Text
+deviceUserAgent :: Maybe Text
+$sel:deviceUserAgent:GetMobileDeviceAccessEffect' :: GetMobileDeviceAccessEffect -&gt; Maybe Text
+</span><a href="#local-6989586621679289339"><span class="hs-identifier hs-var hs-var">deviceUserAgent</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679289339"><span class="hs-identifier hs-var">deviceUserAgent</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289338"><span class="annot"><span class="annottext">s :: GetMobileDeviceAccessEffect
+</span><a href="#local-6989586621679289338"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffect%27"><span class="hs-identifier hs-type">GetMobileDeviceAccessEffect'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289337"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679289337"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMobileDeviceAccessEffect
+</span><a href="#local-6989586621679289338"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceUserAgent:GetMobileDeviceAccessEffect' :: Maybe Text
+</span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#%24sel%3AdeviceUserAgent%3AGetMobileDeviceAccessEffect%27"><span class="hs-identifier hs-var">deviceUserAgent</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679289337"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffect"><span class="hs-identifier hs-type">GetMobileDeviceAccessEffect</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- | The Amazon WorkMail organization to simulate the access effect for.</span><span>
 </span><span id="line-120"></span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#getMobileDeviceAccessEffect_organizationId"><span class="hs-identifier hs-type">getMobileDeviceAccessEffect_organizationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffect"><span class="hs-identifier hs-type">GetMobileDeviceAccessEffect</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -294,29 +294,29 @@ $sel:deviceType:GetMobileDeviceAccessEffect' :: GetMobileDeviceAccessEffect -&gt
 -&gt; Lens
      GetMobileDeviceAccessEffect GetMobileDeviceAccessEffect Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffect%27"><span class="hs-identifier hs-type">GetMobileDeviceAccessEffect'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267121"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffect%27"><span class="hs-identifier hs-type">GetMobileDeviceAccessEffect'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289336"><span class="annot"><span class="annottext">Text
 organizationId :: Text
 $sel:organizationId:GetMobileDeviceAccessEffect' :: GetMobileDeviceAccessEffect -&gt; Text
-</span><a href="#local-6989586621679267121"><span class="hs-identifier hs-var hs-var">organizationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679267121"><span class="hs-identifier hs-var">organizationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679267120"><span class="annot"><span class="annottext">s :: GetMobileDeviceAccessEffect
-</span><a href="#local-6989586621679267120"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffect%27"><span class="hs-identifier hs-type">GetMobileDeviceAccessEffect'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679267119"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679267119"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMobileDeviceAccessEffect
-</span><a href="#local-6989586621679267120"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:organizationId:GetMobileDeviceAccessEffect' :: Text
+</span><a href="#local-6989586621679289336"><span class="hs-identifier hs-var hs-var">organizationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679289336"><span class="hs-identifier hs-var">organizationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289335"><span class="annot"><span class="annottext">s :: GetMobileDeviceAccessEffect
+</span><a href="#local-6989586621679289335"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffect%27"><span class="hs-identifier hs-type">GetMobileDeviceAccessEffect'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289334"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679289334"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMobileDeviceAccessEffect
+</span><a href="#local-6989586621679289335"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:organizationId:GetMobileDeviceAccessEffect' :: Text
 </span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#%24sel%3AorganizationId%3AGetMobileDeviceAccessEffect%27"><span class="hs-identifier hs-var">organizationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679267119"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffect"><span class="hs-identifier hs-type">GetMobileDeviceAccessEffect</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679289334"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffect"><span class="hs-identifier hs-type">GetMobileDeviceAccessEffect</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffect"><span class="hs-identifier hs-type">GetMobileDeviceAccessEffect</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-124"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-125"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffect"><span class="hs-identifier hs-type">GetMobileDeviceAccessEffect</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-126"></span><span>      </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffectResponse"><span class="hs-identifier hs-type">GetMobileDeviceAccessEffectResponse</span></a></span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679267115"><span class="annot"><span class="annottext">request :: GetMobileDeviceAccessEffect -&gt; Request GetMobileDeviceAccessEffect
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679289330"><span class="annot"><span class="annottext">request :: GetMobileDeviceAccessEffect -&gt; Request GetMobileDeviceAccessEffect
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; GetMobileDeviceAccessEffect
 -&gt; Request GetMobileDeviceAccessEffect
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.WorkMail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679267111"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679289326"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetMobileDeviceAccessEffect
 -&gt; ClientResponse ClientBody
@@ -342,27 +342,40 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679267108"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679267108"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679267107"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679267107"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679267106"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679267106"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-131"></span><span>          </span><span class="annot"><span class="annottext">Maybe [MobileDeviceAccessMatchedRule]
--&gt; Maybe MobileDeviceAccessRuleEffect
+</span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679289323"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679289323"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679289322"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679289322"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679289321"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679289321"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-131"></span><span>          </span><span class="annot"><span class="annottext">Maybe MobileDeviceAccessRuleEffect
+-&gt; Maybe [MobileDeviceAccessMatchedRule]
 -&gt; Int
 -&gt; GetMobileDeviceAccessEffectResponse
 </span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffectResponse%27"><span class="hs-identifier hs-var">GetMobileDeviceAccessEffectResponse'</span></a></span><span>
-</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [MobileDeviceAccessMatchedRule]
- -&gt; Maybe MobileDeviceAccessRuleEffect
+</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">(Maybe MobileDeviceAccessRuleEffect
+ -&gt; Maybe [MobileDeviceAccessMatchedRule]
  -&gt; Int
  -&gt; GetMobileDeviceAccessEffectResponse)
--&gt; Either String (Maybe [MobileDeviceAccessMatchedRule])
+-&gt; Either String (Maybe MobileDeviceAccessRuleEffect)
 -&gt; Either
      String
-     (Maybe MobileDeviceAccessRuleEffect
+     (Maybe [MobileDeviceAccessMatchedRule]
       -&gt; Int -&gt; GetMobileDeviceAccessEffectResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679267106"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679289321"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Either String (Maybe MobileDeviceAccessRuleEffect)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Effect&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [MobileDeviceAccessMatchedRule]
+   -&gt; Int -&gt; GetMobileDeviceAccessEffectResponse)
+-&gt; Either String (Maybe [MobileDeviceAccessMatchedRule])
+-&gt; Either String (Int -&gt; GetMobileDeviceAccessEffectResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679289321"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text
 -&gt; Either String (Maybe (Maybe [MobileDeviceAccessMatchedRule]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
@@ -374,19 +387,6 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [MobileDeviceAccessMatchedRule]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe MobileDeviceAccessRuleEffect
-   -&gt; Int -&gt; GetMobileDeviceAccessEffectResponse)
--&gt; Either String (Maybe MobileDeviceAccessRuleEffect)
--&gt; Either String (Int -&gt; GetMobileDeviceAccessEffectResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679267106"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
--&gt; Text -&gt; Either String (Maybe MobileDeviceAccessRuleEffect)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Effect&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetMobileDeviceAccessEffectResponse)
 -&gt; Either String Int
 -&gt; Either String GetMobileDeviceAccessEffectResponse
@@ -396,15 +396,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679267108"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679289323"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>
-</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679267097"><span id="local-6989586621679267099"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffect"><span class="hs-identifier hs-type">GetMobileDeviceAccessEffect</span></a></span></span></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679289312"><span id="local-6989586621679289314"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffect"><span class="hs-identifier hs-type">GetMobileDeviceAccessEffect</span></a></span></span></span><span>
 </span><span id="line-138"></span><span>
-</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679267094"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffect"><span class="hs-identifier hs-type">GetMobileDeviceAccessEffect</span></a></span></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679289309"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffect"><span class="hs-identifier hs-type">GetMobileDeviceAccessEffect</span></a></span></span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffect"><span class="hs-identifier hs-type">GetMobileDeviceAccessEffect</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679267090"><span class="annot"><span class="annottext">toHeaders :: GetMobileDeviceAccessEffect -&gt; ResponseHeaders
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679289305"><span class="annot"><span class="annottext">toHeaders :: GetMobileDeviceAccessEffect -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-143"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetMobileDeviceAccessEffect -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -431,56 +431,56 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-153"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-154"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>
-</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679267080"><span id="local-6989586621679267082"><span id="local-6989586621679267084"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffect"><span class="hs-identifier hs-type">GetMobileDeviceAccessEffect</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-157"></span><span>  </span><span id="local-6989586621679267078"><span class="annot"><span class="annottext">toJSON :: GetMobileDeviceAccessEffect -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffect%27"><span class="hs-identifier hs-type">GetMobileDeviceAccessEffect'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267072"><span id="local-6989586621679267073"><span id="local-6989586621679267074"><span id="local-6989586621679267075"><span id="local-6989586621679267076"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679289295"><span id="local-6989586621679289297"><span id="local-6989586621679289299"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffect"><span class="hs-identifier hs-type">GetMobileDeviceAccessEffect</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679289293"><span class="annot"><span class="annottext">toJSON :: GetMobileDeviceAccessEffect -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffect%27"><span class="hs-identifier hs-type">GetMobileDeviceAccessEffect'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289287"><span id="local-6989586621679289288"><span id="local-6989586621679289289"><span id="local-6989586621679289290"><span id="local-6989586621679289291"><span class="annot"><span class="annottext">Maybe Text
 Text
 organizationId :: Text
-deviceType :: Maybe Text
-deviceOperatingSystem :: Maybe Text
 deviceUserAgent :: Maybe Text
+deviceType :: Maybe Text
 deviceModel :: Maybe Text
+deviceOperatingSystem :: Maybe Text
 $sel:organizationId:GetMobileDeviceAccessEffect' :: GetMobileDeviceAccessEffect -&gt; Text
-$sel:deviceType:GetMobileDeviceAccessEffect' :: GetMobileDeviceAccessEffect -&gt; Maybe Text
-$sel:deviceOperatingSystem:GetMobileDeviceAccessEffect' :: GetMobileDeviceAccessEffect -&gt; Maybe Text
 $sel:deviceUserAgent:GetMobileDeviceAccessEffect' :: GetMobileDeviceAccessEffect -&gt; Maybe Text
+$sel:deviceType:GetMobileDeviceAccessEffect' :: GetMobileDeviceAccessEffect -&gt; Maybe Text
 $sel:deviceModel:GetMobileDeviceAccessEffect' :: GetMobileDeviceAccessEffect -&gt; Maybe Text
-</span><a href="#local-6989586621679267072"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:deviceOperatingSystem:GetMobileDeviceAccessEffect' :: GetMobileDeviceAccessEffect -&gt; Maybe Text
+</span><a href="#local-6989586621679289287"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-158"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-159"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-160"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeviceOperatingSystem&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679289291"><span class="hs-identifier hs-var">deviceOperatingSystem</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DeviceModel&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679267076"><span class="hs-identifier hs-var">deviceModel</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-161"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;DeviceUserAgent&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-162"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679267075"><span class="hs-identifier hs-var">deviceUserAgent</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679289290"><span class="hs-identifier hs-var">deviceModel</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-163"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;DeviceOperatingSystem&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-164"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679267074"><span class="hs-identifier hs-var">deviceOperatingSystem</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-165"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DeviceType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679267073"><span class="hs-identifier hs-var">deviceType</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679289289"><span class="hs-identifier hs-var">deviceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeviceUserAgent&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679289288"><span class="hs-identifier hs-var">deviceUserAgent</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-166"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -488,19 +488,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;OrganizationId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679267072"><span class="hs-identifier hs-var">organizationId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679289287"><span class="hs-identifier hs-var">organizationId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-169"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>
 </span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffect"><span class="hs-identifier hs-type">GetMobileDeviceAccessEffect</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-172"></span><span>  </span><span id="local-6989586621679267066"><span class="annot"><span class="annottext">toPath :: GetMobileDeviceAccessEffect -&gt; ByteString
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679289281"><span class="annot"><span class="annottext">toPath :: GetMobileDeviceAccessEffect -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetMobileDeviceAccessEffect -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-173"></span><span>
 </span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffect"><span class="hs-identifier hs-type">GetMobileDeviceAccessEffect</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-175"></span><span>  </span><span id="local-6989586621679267062"><span class="annot"><span class="annottext">toQuery :: GetMobileDeviceAccessEffect -&gt; QueryString
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621679289277"><span class="annot"><span class="annottext">toQuery :: GetMobileDeviceAccessEffect -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetMobileDeviceAccessEffect -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -508,23 +508,23 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-176"></span><span>
 </span><span id="line-177"></span><span class="hs-comment">-- | /See:/ 'newGetMobileDeviceAccessEffectResponse' smart constructor.</span><span>
-</span><span id="line-178"></span><span id="local-6989586621679267059"><span id="local-6989586621679267060"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetMobileDeviceAccessEffectResponse"><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffectResponse"><span class="hs-identifier hs-var">GetMobileDeviceAccessEffectResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetMobileDeviceAccessEffectResponse%27"><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffectResponse%27"><span class="hs-identifier hs-var">GetMobileDeviceAccessEffectResponse'</span></a></span></span><span>
-</span><span id="line-179"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of the rules which matched the simulated user input and produced</span><span>
-</span><span id="line-180"></span><span>    </span><span class="hs-comment">-- the effect.</span><span>
-</span><span id="line-181"></span><span>    </span><span id="%24sel%3AmatchedRules%3AGetMobileDeviceAccessEffectResponse%27"><span class="annot"><span class="annottext">GetMobileDeviceAccessEffectResponse
--&gt; Maybe [MobileDeviceAccessMatchedRule]
-</span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#%24sel%3AmatchedRules%3AGetMobileDeviceAccessEffectResponse%27"><span class="hs-identifier hs-var hs-var">matchedRules</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.WorkMail.Types.MobileDeviceAccessMatchedRule.html#MobileDeviceAccessMatchedRule"><span class="hs-identifier hs-type">MobileDeviceAccessMatchedRule</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-182"></span><span>    </span><span class="hs-comment">-- | The effect of the simulated access, @ALLOW@ or @DENY@, after evaluating</span><span>
-</span><span id="line-183"></span><span>    </span><span class="hs-comment">-- mobile device access rules in the Amazon WorkMail organization for the</span><span>
-</span><span id="line-184"></span><span>    </span><span class="hs-comment">-- simulated user parameters.</span><span>
-</span><span id="line-185"></span><span>    </span><span id="%24sel%3Aeffect%3AGetMobileDeviceAccessEffectResponse%27"><span class="annot"><span class="annottext">GetMobileDeviceAccessEffectResponse
+</span><span id="line-178"></span><span id="local-6989586621679289274"><span id="local-6989586621679289275"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetMobileDeviceAccessEffectResponse"><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffectResponse"><span class="hs-identifier hs-var">GetMobileDeviceAccessEffectResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetMobileDeviceAccessEffectResponse%27"><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffectResponse%27"><span class="hs-identifier hs-var">GetMobileDeviceAccessEffectResponse'</span></a></span></span><span>
+</span><span id="line-179"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The effect of the simulated access, @ALLOW@ or @DENY@, after evaluating</span><span>
+</span><span id="line-180"></span><span>    </span><span class="hs-comment">-- mobile device access rules in the Amazon WorkMail organization for the</span><span>
+</span><span id="line-181"></span><span>    </span><span class="hs-comment">-- simulated user parameters.</span><span>
+</span><span id="line-182"></span><span>    </span><span id="%24sel%3Aeffect%3AGetMobileDeviceAccessEffectResponse%27"><span class="annot"><span class="annottext">GetMobileDeviceAccessEffectResponse
 -&gt; Maybe MobileDeviceAccessRuleEffect
 </span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#%24sel%3Aeffect%3AGetMobileDeviceAccessEffectResponse%27"><span class="hs-identifier hs-var hs-var">effect</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.MobileDeviceAccessRuleEffect.html#MobileDeviceAccessRuleEffect"><span class="hs-identifier hs-type">MobileDeviceAccessRuleEffect</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>    </span><span class="hs-comment">-- | A list of the rules which matched the simulated user input and produced</span><span>
+</span><span id="line-184"></span><span>    </span><span class="hs-comment">-- the effect.</span><span>
+</span><span id="line-185"></span><span>    </span><span id="%24sel%3AmatchedRules%3AGetMobileDeviceAccessEffectResponse%27"><span class="annot"><span class="annottext">GetMobileDeviceAccessEffectResponse
+-&gt; Maybe [MobileDeviceAccessMatchedRule]
+</span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#%24sel%3AmatchedRules%3AGetMobileDeviceAccessEffectResponse%27"><span class="hs-identifier hs-var hs-var">matchedRules</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.WorkMail.Types.MobileDeviceAccessMatchedRule.html#MobileDeviceAccessMatchedRule"><span class="hs-identifier hs-type">MobileDeviceAccessMatchedRule</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
 </span><span id="line-186"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-187"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetMobileDeviceAccessEffectResponse%27"><span class="annot"><span class="annottext">GetMobileDeviceAccessEffectResponse -&gt; Int
 </span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#%24sel%3AhttpStatus%3AGetMobileDeviceAccessEffectResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-188"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-189"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679267052"><span id="local-6989586621679267054"><span class="annot"><span class="annottext">GetMobileDeviceAccessEffectResponse
+</span><span id="line-189"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679289267"><span id="local-6989586621679289269"><span class="annot"><span class="annottext">GetMobileDeviceAccessEffectResponse
 -&gt; GetMobileDeviceAccessEffectResponse -&gt; Bool
 (GetMobileDeviceAccessEffectResponse
  -&gt; GetMobileDeviceAccessEffectResponse -&gt; Bool)
@@ -540,7 +540,7 @@ $c/= :: GetMobileDeviceAccessEffectResponse
 -&gt; GetMobileDeviceAccessEffectResponse -&gt; Bool
 $c== :: GetMobileDeviceAccessEffectResponse
 -&gt; GetMobileDeviceAccessEffectResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679267044"><span id="local-6989586621679267046"><span id="local-6989586621679267048"><span id="local-6989586621679267050"><span class="annot"><span class="annottext">ReadPrec [GetMobileDeviceAccessEffectResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679289259"><span id="local-6989586621679289261"><span id="local-6989586621679289263"><span id="local-6989586621679289265"><span class="annot"><span class="annottext">ReadPrec [GetMobileDeviceAccessEffectResponse]
 ReadPrec GetMobileDeviceAccessEffectResponse
 Int -&gt; ReadS GetMobileDeviceAccessEffectResponse
 ReadS [GetMobileDeviceAccessEffectResponse]
@@ -560,7 +560,7 @@ readList :: ReadS [GetMobileDeviceAccessEffectResponse]
 $creadList :: ReadS [GetMobileDeviceAccessEffectResponse]
 readsPrec :: Int -&gt; ReadS GetMobileDeviceAccessEffectResponse
 $creadsPrec :: Int -&gt; ReadS GetMobileDeviceAccessEffectResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679267038"><span id="local-6989586621679267040"><span id="local-6989586621679267042"><span class="annot"><span class="annottext">Int -&gt; GetMobileDeviceAccessEffectResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679289253"><span id="local-6989586621679289255"><span id="local-6989586621679289257"><span class="annot"><span class="annottext">Int -&gt; GetMobileDeviceAccessEffectResponse -&gt; ShowS
 [GetMobileDeviceAccessEffectResponse] -&gt; ShowS
 GetMobileDeviceAccessEffectResponse -&gt; String
 (Int -&gt; GetMobileDeviceAccessEffectResponse -&gt; ShowS)
@@ -606,12 +606,12 @@ GetMobileDeviceAccessEffectResponse
 </span><span id="line-196"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-197"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-198"></span><span class="hs-comment">--</span><span>
-</span><span id="line-199"></span><span class="hs-comment">-- 'matchedRules', 'getMobileDeviceAccessEffectResponse_matchedRules' - A list of the rules which matched the simulated user input and produced</span><span>
-</span><span id="line-200"></span><span class="hs-comment">-- the effect.</span><span>
-</span><span id="line-201"></span><span class="hs-comment">--</span><span>
-</span><span id="line-202"></span><span class="hs-comment">-- 'effect', 'getMobileDeviceAccessEffectResponse_effect' - The effect of the simulated access, @ALLOW@ or @DENY@, after evaluating</span><span>
-</span><span id="line-203"></span><span class="hs-comment">-- mobile device access rules in the Amazon WorkMail organization for the</span><span>
-</span><span id="line-204"></span><span class="hs-comment">-- simulated user parameters.</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- 'effect', 'getMobileDeviceAccessEffectResponse_effect' - The effect of the simulated access, @ALLOW@ or @DENY@, after evaluating</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- mobile device access rules in the Amazon WorkMail organization for the</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- simulated user parameters.</span><span>
+</span><span id="line-202"></span><span class="hs-comment">--</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- 'matchedRules', 'getMobileDeviceAccessEffectResponse_matchedRules' - A list of the rules which matched the simulated user input and produced</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- the effect.</span><span>
 </span><span id="line-205"></span><span class="hs-comment">--</span><span>
 </span><span id="line-206"></span><span class="hs-comment">-- 'httpStatus', 'getMobileDeviceAccessEffectResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-207"></span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#newGetMobileDeviceAccessEffectResponse"><span class="hs-identifier hs-type">newGetMobileDeviceAccessEffectResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -619,31 +619,62 @@ GetMobileDeviceAccessEffectResponse
 </span><span id="line-209"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-210"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffectResponse"><span class="hs-identifier hs-type">GetMobileDeviceAccessEffectResponse</span></a></span><span>
 </span><span id="line-211"></span><span id="newGetMobileDeviceAccessEffectResponse"><span class="annot"><span class="annottext">newGetMobileDeviceAccessEffectResponse :: Int -&gt; GetMobileDeviceAccessEffectResponse
-</span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#newGetMobileDeviceAccessEffectResponse"><span class="hs-identifier hs-var hs-var">newGetMobileDeviceAccessEffectResponse</span></a></span></span><span> </span><span id="local-6989586621679267035"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679267035"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-212"></span><span>  </span><span class="annot"><span class="annottext">GetMobileDeviceAccessEffectResponse' :: Maybe [MobileDeviceAccessMatchedRule]
--&gt; Maybe MobileDeviceAccessRuleEffect
+</span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#newGetMobileDeviceAccessEffectResponse"><span class="hs-identifier hs-var hs-var">newGetMobileDeviceAccessEffectResponse</span></a></span></span><span> </span><span id="local-6989586621679289250"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679289250"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-212"></span><span>  </span><span class="annot"><span class="annottext">GetMobileDeviceAccessEffectResponse' :: Maybe MobileDeviceAccessRuleEffect
+-&gt; Maybe [MobileDeviceAccessMatchedRule]
 -&gt; Int
 -&gt; GetMobileDeviceAccessEffectResponse
 </span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffectResponse%27"><span class="hs-identifier hs-type">GetMobileDeviceAccessEffectResponse'</span></a></span><span>
-</span><span id="line-213"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:matchedRules:GetMobileDeviceAccessEffectResponse' :: Maybe [MobileDeviceAccessMatchedRule]
-</span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#%24sel%3AmatchedRules%3AGetMobileDeviceAccessEffectResponse%27"><span class="hs-identifier hs-var">matchedRules</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-214"></span><span>        </span><span class="annot"><span class="annottext">Maybe [MobileDeviceAccessMatchedRule]
+</span><span id="line-213"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:effect:GetMobileDeviceAccessEffectResponse' :: Maybe MobileDeviceAccessRuleEffect
+</span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#%24sel%3Aeffect%3AGetMobileDeviceAccessEffectResponse%27"><span class="hs-identifier hs-var">effect</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-214"></span><span>        </span><span class="annot"><span class="annottext">Maybe MobileDeviceAccessRuleEffect
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-215"></span><span>      </span><span class="annot"><span class="annottext">$sel:effect:GetMobileDeviceAccessEffectResponse' :: Maybe MobileDeviceAccessRuleEffect
-</span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#%24sel%3Aeffect%3AGetMobileDeviceAccessEffectResponse%27"><span class="hs-identifier hs-var">effect</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MobileDeviceAccessRuleEffect
+</span><span id="line-215"></span><span>      </span><span class="annot"><span class="annottext">$sel:matchedRules:GetMobileDeviceAccessEffectResponse' :: Maybe [MobileDeviceAccessMatchedRule]
+</span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#%24sel%3AmatchedRules%3AGetMobileDeviceAccessEffectResponse%27"><span class="hs-identifier hs-var">matchedRules</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [MobileDeviceAccessMatchedRule]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-216"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetMobileDeviceAccessEffectResponse' :: Int
 </span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#%24sel%3AhttpStatus%3AGetMobileDeviceAccessEffectResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679267035"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679289250"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-217"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-218"></span><span>
-</span><span id="line-219"></span><span class="hs-comment">-- | A list of the rules which matched the simulated user input and produced</span><span>
-</span><span id="line-220"></span><span class="hs-comment">-- the effect.</span><span>
-</span><span id="line-221"></span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#getMobileDeviceAccessEffectResponse_matchedRules"><span class="hs-identifier hs-type">getMobileDeviceAccessEffectResponse_matchedRules</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffectResponse"><span class="hs-identifier hs-type">GetMobileDeviceAccessEffectResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.WorkMail.Types.MobileDeviceAccessMatchedRule.html#MobileDeviceAccessMatchedRule"><span class="hs-identifier hs-type">MobileDeviceAccessMatchedRule</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-222"></span><span id="getMobileDeviceAccessEffectResponse_matchedRules"><span class="annot"><span class="annottext">getMobileDeviceAccessEffectResponse_matchedRules :: (Maybe [MobileDeviceAccessMatchedRule]
+</span><span id="line-219"></span><span class="hs-comment">-- | The effect of the simulated access, @ALLOW@ or @DENY@, after evaluating</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- mobile device access rules in the Amazon WorkMail organization for the</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- simulated user parameters.</span><span>
+</span><span id="line-222"></span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#getMobileDeviceAccessEffectResponse_effect"><span class="hs-identifier hs-type">getMobileDeviceAccessEffectResponse_effect</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffectResponse"><span class="hs-identifier hs-type">GetMobileDeviceAccessEffectResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.MobileDeviceAccessRuleEffect.html#MobileDeviceAccessRuleEffect"><span class="hs-identifier hs-type">MobileDeviceAccessRuleEffect</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span id="getMobileDeviceAccessEffectResponse_effect"><span class="annot"><span class="annottext">getMobileDeviceAccessEffectResponse_effect :: (Maybe MobileDeviceAccessRuleEffect
+ -&gt; f (Maybe MobileDeviceAccessRuleEffect))
+-&gt; GetMobileDeviceAccessEffectResponse
+-&gt; f GetMobileDeviceAccessEffectResponse
+</span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#getMobileDeviceAccessEffectResponse_effect"><span class="hs-identifier hs-var hs-var">getMobileDeviceAccessEffectResponse_effect</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetMobileDeviceAccessEffectResponse
+ -&gt; Maybe MobileDeviceAccessRuleEffect)
+-&gt; (GetMobileDeviceAccessEffectResponse
+    -&gt; Maybe MobileDeviceAccessRuleEffect
+    -&gt; GetMobileDeviceAccessEffectResponse)
+-&gt; Lens
+     GetMobileDeviceAccessEffectResponse
+     GetMobileDeviceAccessEffectResponse
+     (Maybe MobileDeviceAccessRuleEffect)
+     (Maybe MobileDeviceAccessRuleEffect)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffectResponse%27"><span class="hs-identifier hs-type">GetMobileDeviceAccessEffectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289249"><span class="annot"><span class="annottext">Maybe MobileDeviceAccessRuleEffect
+effect :: Maybe MobileDeviceAccessRuleEffect
+$sel:effect:GetMobileDeviceAccessEffectResponse' :: GetMobileDeviceAccessEffectResponse
+-&gt; Maybe MobileDeviceAccessRuleEffect
+</span><a href="#local-6989586621679289249"><span class="hs-identifier hs-var hs-var">effect</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MobileDeviceAccessRuleEffect
+</span><a href="#local-6989586621679289249"><span class="hs-identifier hs-var">effect</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289248"><span class="annot"><span class="annottext">s :: GetMobileDeviceAccessEffectResponse
+</span><a href="#local-6989586621679289248"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffectResponse%27"><span class="hs-identifier hs-type">GetMobileDeviceAccessEffectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289247"><span class="annot"><span class="annottext">Maybe MobileDeviceAccessRuleEffect
+</span><a href="#local-6989586621679289247"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMobileDeviceAccessEffectResponse
+</span><a href="#local-6989586621679289248"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:effect:GetMobileDeviceAccessEffectResponse' :: Maybe MobileDeviceAccessRuleEffect
+</span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#%24sel%3Aeffect%3AGetMobileDeviceAccessEffectResponse%27"><span class="hs-identifier hs-var">effect</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MobileDeviceAccessRuleEffect
+</span><a href="#local-6989586621679289247"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffectResponse"><span class="hs-identifier hs-type">GetMobileDeviceAccessEffectResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- | A list of the rules which matched the simulated user input and produced</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- the effect.</span><span>
+</span><span id="line-227"></span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#getMobileDeviceAccessEffectResponse_matchedRules"><span class="hs-identifier hs-type">getMobileDeviceAccessEffectResponse_matchedRules</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffectResponse"><span class="hs-identifier hs-type">GetMobileDeviceAccessEffectResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.WorkMail.Types.MobileDeviceAccessMatchedRule.html#MobileDeviceAccessMatchedRule"><span class="hs-identifier hs-type">MobileDeviceAccessMatchedRule</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span id="getMobileDeviceAccessEffectResponse_matchedRules"><span class="annot"><span class="annottext">getMobileDeviceAccessEffectResponse_matchedRules :: (Maybe [MobileDeviceAccessMatchedRule]
  -&gt; f (Maybe [MobileDeviceAccessMatchedRule]))
 -&gt; GetMobileDeviceAccessEffectResponse
 -&gt; f GetMobileDeviceAccessEffectResponse
@@ -658,17 +689,17 @@ forall a. Maybe a
      (Maybe [MobileDeviceAccessMatchedRule])
      (Maybe [MobileDeviceAccessMatchedRule])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffectResponse%27"><span class="hs-identifier hs-type">GetMobileDeviceAccessEffectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267034"><span class="annot"><span class="annottext">Maybe [MobileDeviceAccessMatchedRule]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffectResponse%27"><span class="hs-identifier hs-type">GetMobileDeviceAccessEffectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289246"><span class="annot"><span class="annottext">Maybe [MobileDeviceAccessMatchedRule]
 matchedRules :: Maybe [MobileDeviceAccessMatchedRule]
 $sel:matchedRules:GetMobileDeviceAccessEffectResponse' :: GetMobileDeviceAccessEffectResponse
 -&gt; Maybe [MobileDeviceAccessMatchedRule]
-</span><a href="#local-6989586621679267034"><span class="hs-identifier hs-var hs-var">matchedRules</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [MobileDeviceAccessMatchedRule]
-</span><a href="#local-6989586621679267034"><span class="hs-identifier hs-var">matchedRules</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679267033"><span class="annot"><span class="annottext">s :: GetMobileDeviceAccessEffectResponse
-</span><a href="#local-6989586621679267033"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffectResponse%27"><span class="hs-identifier hs-type">GetMobileDeviceAccessEffectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679267032"><span class="annot"><span class="annottext">Maybe [MobileDeviceAccessMatchedRule]
-</span><a href="#local-6989586621679267032"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMobileDeviceAccessEffectResponse
-</span><a href="#local-6989586621679267033"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:matchedRules:GetMobileDeviceAccessEffectResponse' :: Maybe [MobileDeviceAccessMatchedRule]
+</span><a href="#local-6989586621679289246"><span class="hs-identifier hs-var hs-var">matchedRules</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [MobileDeviceAccessMatchedRule]
+</span><a href="#local-6989586621679289246"><span class="hs-identifier hs-var">matchedRules</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289245"><span class="annot"><span class="annottext">s :: GetMobileDeviceAccessEffectResponse
+</span><a href="#local-6989586621679289245"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffectResponse%27"><span class="hs-identifier hs-type">GetMobileDeviceAccessEffectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289244"><span class="annot"><span class="annottext">Maybe [MobileDeviceAccessMatchedRule]
+</span><a href="#local-6989586621679289244"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMobileDeviceAccessEffectResponse
+</span><a href="#local-6989586621679289245"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:matchedRules:GetMobileDeviceAccessEffectResponse' :: Maybe [MobileDeviceAccessMatchedRule]
 </span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#%24sel%3AmatchedRules%3AGetMobileDeviceAccessEffectResponse%27"><span class="hs-identifier hs-var">matchedRules</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [MobileDeviceAccessMatchedRule]
-</span><a href="#local-6989586621679267032"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffectResponse"><span class="hs-identifier hs-type">GetMobileDeviceAccessEffectResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [MobileDeviceAccessMatchedRule]
+</span><a href="#local-6989586621679289244"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffectResponse"><span class="hs-identifier hs-type">GetMobileDeviceAccessEffectResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [MobileDeviceAccessMatchedRule]
   -&gt; f (Maybe [MobileDeviceAccessMatchedRule]))
  -&gt; GetMobileDeviceAccessEffectResponse
  -&gt; f GetMobileDeviceAccessEffectResponse)
@@ -699,39 +730,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [MobileDeviceAccessMatchedRule]
   [MobileDeviceAccessMatchedRule]
   [MobileDeviceAccessMatchedRule]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-223"></span><span>
-</span><span id="line-224"></span><span class="hs-comment">-- | The effect of the simulated access, @ALLOW@ or @DENY@, after evaluating</span><span>
-</span><span id="line-225"></span><span class="hs-comment">-- mobile device access rules in the Amazon WorkMail organization for the</span><span>
-</span><span id="line-226"></span><span class="hs-comment">-- simulated user parameters.</span><span>
-</span><span id="line-227"></span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#getMobileDeviceAccessEffectResponse_effect"><span class="hs-identifier hs-type">getMobileDeviceAccessEffectResponse_effect</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffectResponse"><span class="hs-identifier hs-type">GetMobileDeviceAccessEffectResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.MobileDeviceAccessRuleEffect.html#MobileDeviceAccessRuleEffect"><span class="hs-identifier hs-type">MobileDeviceAccessRuleEffect</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-228"></span><span id="getMobileDeviceAccessEffectResponse_effect"><span class="annot"><span class="annottext">getMobileDeviceAccessEffectResponse_effect :: (Maybe MobileDeviceAccessRuleEffect
- -&gt; f (Maybe MobileDeviceAccessRuleEffect))
--&gt; GetMobileDeviceAccessEffectResponse
--&gt; f GetMobileDeviceAccessEffectResponse
-</span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#getMobileDeviceAccessEffectResponse_effect"><span class="hs-identifier hs-var hs-var">getMobileDeviceAccessEffectResponse_effect</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetMobileDeviceAccessEffectResponse
- -&gt; Maybe MobileDeviceAccessRuleEffect)
--&gt; (GetMobileDeviceAccessEffectResponse
-    -&gt; Maybe MobileDeviceAccessRuleEffect
-    -&gt; GetMobileDeviceAccessEffectResponse)
--&gt; Lens
-     GetMobileDeviceAccessEffectResponse
-     GetMobileDeviceAccessEffectResponse
-     (Maybe MobileDeviceAccessRuleEffect)
-     (Maybe MobileDeviceAccessRuleEffect)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffectResponse%27"><span class="hs-identifier hs-type">GetMobileDeviceAccessEffectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267028"><span class="annot"><span class="annottext">Maybe MobileDeviceAccessRuleEffect
-effect :: Maybe MobileDeviceAccessRuleEffect
-$sel:effect:GetMobileDeviceAccessEffectResponse' :: GetMobileDeviceAccessEffectResponse
--&gt; Maybe MobileDeviceAccessRuleEffect
-</span><a href="#local-6989586621679267028"><span class="hs-identifier hs-var hs-var">effect</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MobileDeviceAccessRuleEffect
-</span><a href="#local-6989586621679267028"><span class="hs-identifier hs-var">effect</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679267027"><span class="annot"><span class="annottext">s :: GetMobileDeviceAccessEffectResponse
-</span><a href="#local-6989586621679267027"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffectResponse%27"><span class="hs-identifier hs-type">GetMobileDeviceAccessEffectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679267026"><span class="annot"><span class="annottext">Maybe MobileDeviceAccessRuleEffect
-</span><a href="#local-6989586621679267026"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMobileDeviceAccessEffectResponse
-</span><a href="#local-6989586621679267027"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:effect:GetMobileDeviceAccessEffectResponse' :: Maybe MobileDeviceAccessRuleEffect
-</span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#%24sel%3Aeffect%3AGetMobileDeviceAccessEffectResponse%27"><span class="hs-identifier hs-var">effect</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MobileDeviceAccessRuleEffect
-</span><a href="#local-6989586621679267026"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffectResponse"><span class="hs-identifier hs-type">GetMobileDeviceAccessEffectResponse</span></a></span><span class="hs-special">)</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-229"></span><span>
 </span><span id="line-230"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-231"></span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#getMobileDeviceAccessEffectResponse_httpStatus"><span class="hs-identifier hs-type">getMobileDeviceAccessEffectResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffectResponse"><span class="hs-identifier hs-type">GetMobileDeviceAccessEffectResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -747,18 +747,18 @@ $sel:effect:GetMobileDeviceAccessEffectResponse' :: GetMobileDeviceAccessEffectR
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffectResponse%27"><span class="hs-identifier hs-type">GetMobileDeviceAccessEffectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267025"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffectResponse%27"><span class="hs-identifier hs-type">GetMobileDeviceAccessEffectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289240"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetMobileDeviceAccessEffectResponse' :: GetMobileDeviceAccessEffectResponse -&gt; Int
-</span><a href="#local-6989586621679267025"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679267025"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679267024"><span class="annot"><span class="annottext">s :: GetMobileDeviceAccessEffectResponse
-</span><a href="#local-6989586621679267024"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffectResponse%27"><span class="hs-identifier hs-type">GetMobileDeviceAccessEffectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679267023"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679267023"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMobileDeviceAccessEffectResponse
-</span><a href="#local-6989586621679267024"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetMobileDeviceAccessEffectResponse' :: Int
+</span><a href="#local-6989586621679289240"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679289240"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289239"><span class="annot"><span class="annottext">s :: GetMobileDeviceAccessEffectResponse
+</span><a href="#local-6989586621679289239"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffectResponse%27"><span class="hs-identifier hs-type">GetMobileDeviceAccessEffectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289238"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679289238"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMobileDeviceAccessEffectResponse
+</span><a href="#local-6989586621679289239"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetMobileDeviceAccessEffectResponse' :: Int
 </span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#%24sel%3AhttpStatus%3AGetMobileDeviceAccessEffectResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679267023"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffectResponse"><span class="hs-identifier hs-type">GetMobileDeviceAccessEffectResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679289238"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffectResponse"><span class="hs-identifier hs-type">GetMobileDeviceAccessEffectResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-233"></span><span>
 </span><span id="line-234"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-235"></span><span>  </span><span id="local-6989586621679267021"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-235"></span><span>  </span><span id="local-6989586621679289236"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-236"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessEffect.html#GetMobileDeviceAccessEffectResponse"><span class="hs-identifier hs-type">GetMobileDeviceAccessEffectResponse</span></a></span></span><span>
 </span><span id="line-237"></span></pre></body></html>

@@ -42,13 +42,13 @@
 </span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-44"></span><span>
-</span><span id="line-45"></span><span id="local-6989586621679247105"><span id="local-6989586621679247106"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ApiCacheType"><span class="annot"><a href="Network.AWS.AppSync.Types.ApiCacheType.html#ApiCacheType"><span class="hs-identifier hs-var">ApiCacheType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ApiCacheType%27"><span class="annot"><a href="Network.AWS.AppSync.Types.ApiCacheType.html#ApiCacheType%27"><span class="hs-identifier hs-var">ApiCacheType'</span></a></span></span><span>
+</span><span id="line-45"></span><span id="local-6989586621679247180"><span id="local-6989586621679247181"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ApiCacheType"><span class="annot"><a href="Network.AWS.AppSync.Types.ApiCacheType.html#ApiCacheType"><span class="hs-identifier hs-var">ApiCacheType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ApiCacheType%27"><span class="annot"><a href="Network.AWS.AppSync.Types.ApiCacheType.html#ApiCacheType%27"><span class="hs-identifier hs-var">ApiCacheType'</span></a></span></span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromApiCacheType"><span class="annot"><span class="annottext">ApiCacheType -&gt; Text
 </span><a href="Network.AWS.AppSync.Types.ApiCacheType.html#fromApiCacheType"><span class="hs-identifier hs-var hs-var">fromApiCacheType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-47"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679247097"><span id="local-6989586621679247099"><span id="local-6989586621679247101"><span class="annot"><span class="annottext">Int -&gt; ApiCacheType -&gt; ShowS
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679247172"><span id="local-6989586621679247174"><span id="local-6989586621679247176"><span class="annot"><span class="annottext">Int -&gt; ApiCacheType -&gt; ShowS
 [ApiCacheType] -&gt; ShowS
 ApiCacheType -&gt; String
 (Int -&gt; ApiCacheType -&gt; ShowS)
@@ -64,7 +64,7 @@ $cshow :: ApiCacheType -&gt; String
 showsPrec :: Int -&gt; ApiCacheType -&gt; ShowS
 $cshowsPrec :: Int -&gt; ApiCacheType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679247088"><span id="local-6989586621679247090"><span id="local-6989586621679247092"><span id="local-6989586621679247094"><span class="annot"><span class="annottext">ReadPrec [ApiCacheType]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679247163"><span id="local-6989586621679247165"><span id="local-6989586621679247167"><span id="local-6989586621679247169"><span class="annot"><span class="annottext">ReadPrec [ApiCacheType]
 ReadPrec ApiCacheType
 Int -&gt; ReadS ApiCacheType
 ReadS [ApiCacheType]
@@ -85,7 +85,7 @@ $creadList :: ReadS [ApiCacheType]
 readsPrec :: Int -&gt; ReadS ApiCacheType
 $creadsPrec :: Int -&gt; ReadS ApiCacheType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679247083"><span id="local-6989586621679247085"><span class="annot"><span class="annottext">ApiCacheType -&gt; ApiCacheType -&gt; Bool
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679247158"><span id="local-6989586621679247160"><span class="annot"><span class="annottext">ApiCacheType -&gt; ApiCacheType -&gt; Bool
 (ApiCacheType -&gt; ApiCacheType -&gt; Bool)
 -&gt; (ApiCacheType -&gt; ApiCacheType -&gt; Bool) -&gt; Eq ApiCacheType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -94,7 +94,7 @@ $c/= :: ApiCacheType -&gt; ApiCacheType -&gt; Bool
 == :: ApiCacheType -&gt; ApiCacheType -&gt; Bool
 $c== :: ApiCacheType -&gt; ApiCacheType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679247067"><span id="local-6989586621679247069"><span id="local-6989586621679247071"><span id="local-6989586621679247073"><span id="local-6989586621679247075"><span id="local-6989586621679247077"><span id="local-6989586621679247079"><span class="annot"><span class="annottext">Eq ApiCacheType
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679247142"><span id="local-6989586621679247144"><span id="local-6989586621679247146"><span id="local-6989586621679247148"><span id="local-6989586621679247150"><span id="local-6989586621679247152"><span id="local-6989586621679247154"><span class="annot"><span class="annottext">Eq ApiCacheType
 Eq ApiCacheType
 -&gt; (ApiCacheType -&gt; ApiCacheType -&gt; Ordering)
 -&gt; (ApiCacheType -&gt; ApiCacheType -&gt; Bool)
@@ -145,7 +145,7 @@ $cfrom :: forall x. ApiCacheType -&gt; Rep ApiCacheType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679247059"><span id="local-6989586621679247061"><span class="annot"><span class="annottext">Int -&gt; ApiCacheType -&gt; Int
+</span><span id="line-57"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679247134"><span id="local-6989586621679247136"><span class="annot"><span class="annottext">Int -&gt; ApiCacheType -&gt; Int
 ApiCacheType -&gt; Int
 (Int -&gt; ApiCacheType -&gt; Int)
 -&gt; (ApiCacheType -&gt; Int) -&gt; Hashable ApiCacheType
@@ -155,49 +155,49 @@ $chash :: ApiCacheType -&gt; Int
 hashWithSalt :: Int -&gt; ApiCacheType -&gt; Int
 $chashWithSalt :: Int -&gt; ApiCacheType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679247056"><span class="annot"><span class="annottext">ApiCacheType -&gt; ()
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679247131"><span class="annot"><span class="annottext">ApiCacheType -&gt; ()
 (ApiCacheType -&gt; ()) -&gt; NFData ApiCacheType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ApiCacheType -&gt; ()
 $crnf :: ApiCacheType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679247053"><span class="annot"><span class="annottext">Text -&gt; Either String ApiCacheType
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679247128"><span class="annot"><span class="annottext">Text -&gt; Either String ApiCacheType
 (Text -&gt; Either String ApiCacheType) -&gt; FromText ApiCacheType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ApiCacheType
 $cfromText :: Text -&gt; Either String ApiCacheType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679247050"><span class="annot"><span class="annottext">ApiCacheType -&gt; Text
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679247125"><span class="annot"><span class="annottext">ApiCacheType -&gt; Text
 (ApiCacheType -&gt; Text) -&gt; ToText ApiCacheType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ApiCacheType -&gt; Text
 $ctoText :: ApiCacheType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679247047"><span class="annot"><span class="annottext">ApiCacheType -&gt; ByteString
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679247122"><span class="annot"><span class="annottext">ApiCacheType -&gt; ByteString
 (ApiCacheType -&gt; ByteString) -&gt; ToByteString ApiCacheType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ApiCacheType -&gt; ByteString
 $ctoBS :: ApiCacheType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679247044"><span class="annot"><span class="annottext">ApiCacheType -&gt; ByteStringBuilder
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679247119"><span class="annot"><span class="annottext">ApiCacheType -&gt; ByteStringBuilder
 (ApiCacheType -&gt; ByteStringBuilder) -&gt; ToLog ApiCacheType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ApiCacheType -&gt; ByteStringBuilder
 $cbuild :: ApiCacheType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679247041"><span class="annot"><span class="annottext">HeaderName -&gt; ApiCacheType -&gt; [Header]
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679247116"><span class="annot"><span class="annottext">HeaderName -&gt; ApiCacheType -&gt; [Header]
 (HeaderName -&gt; ApiCacheType -&gt; [Header]) -&gt; ToHeader ApiCacheType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ApiCacheType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ApiCacheType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679247038"><span class="annot"><span class="annottext">ApiCacheType -&gt; QueryString
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679247113"><span class="annot"><span class="annottext">ApiCacheType -&gt; QueryString
 (ApiCacheType -&gt; QueryString) -&gt; ToQuery ApiCacheType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ApiCacheType -&gt; QueryString
 $ctoQuery :: ApiCacheType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679247033"><span id="local-6989586621679247035"><span class="annot"><span class="annottext">Value -&gt; Parser [ApiCacheType]
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679247108"><span id="local-6989586621679247110"><span class="annot"><span class="annottext">Value -&gt; Parser [ApiCacheType]
 Value -&gt; Parser ApiCacheType
 (Value -&gt; Parser ApiCacheType)
 -&gt; (Value -&gt; Parser [ApiCacheType]) -&gt; FromJSON ApiCacheType
@@ -208,7 +208,7 @@ $cparseJSONList :: Value -&gt; Parser [ApiCacheType]
 parseJSON :: Value -&gt; Parser ApiCacheType
 $cparseJSON :: Value -&gt; Parser ApiCacheType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679247028"><span id="local-6989586621679247030"><span class="annot"><span class="annottext">FromJSONKeyFunction [ApiCacheType]
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679247103"><span id="local-6989586621679247105"><span class="annot"><span class="annottext">FromJSONKeyFunction [ApiCacheType]
 FromJSONKeyFunction ApiCacheType
 FromJSONKeyFunction ApiCacheType
 -&gt; FromJSONKeyFunction [ApiCacheType] -&gt; FromJSONKey ApiCacheType
@@ -219,7 +219,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ApiCacheType]
 fromJSONKey :: FromJSONKeyFunction ApiCacheType
 $cfromJSONKey :: FromJSONKeyFunction ApiCacheType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621679247019"><span id="local-6989586621679247021"><span id="local-6989586621679247023"><span id="local-6989586621679247025"><span class="annot"><span class="annottext">[ApiCacheType] -&gt; Encoding
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679247094"><span id="local-6989586621679247096"><span id="local-6989586621679247098"><span id="local-6989586621679247100"><span class="annot"><span class="annottext">[ApiCacheType] -&gt; Encoding
 [ApiCacheType] -&gt; Value
 ApiCacheType -&gt; Encoding
 ApiCacheType -&gt; Value
@@ -243,7 +243,7 @@ $ctoEncoding :: ApiCacheType -&gt; Encoding
 toJSON :: ApiCacheType -&gt; Value
 $ctoJSON :: ApiCacheType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span id="local-6989586621679247014"><span id="local-6989586621679247016"><span class="annot"><span class="annottext">ToJSONKeyFunction [ApiCacheType]
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679247089"><span id="local-6989586621679247091"><span class="annot"><span class="annottext">ToJSONKeyFunction [ApiCacheType]
 ToJSONKeyFunction ApiCacheType
 ToJSONKeyFunction ApiCacheType
 -&gt; ToJSONKeyFunction [ApiCacheType] -&gt; ToJSONKey ApiCacheType
@@ -254,13 +254,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ApiCacheType]
 toJSONKey :: ToJSONKeyFunction ApiCacheType
 $ctoJSONKey :: ToJSONKeyFunction ApiCacheType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span id="local-6989586621679247011"><span class="annot"><span class="annottext">[Node] -&gt; Either String ApiCacheType
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679247086"><span class="annot"><span class="annottext">[Node] -&gt; Either String ApiCacheType
 ([Node] -&gt; Either String ApiCacheType) -&gt; FromXML ApiCacheType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ApiCacheType
 $cparseXML :: [Node] -&gt; Either String ApiCacheType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span id="local-6989586621679247008"><span class="annot"><span class="annottext">ApiCacheType -&gt; XML
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679247083"><span class="annot"><span class="annottext">ApiCacheType -&gt; XML
 (ApiCacheType -&gt; XML) -&gt; ToXML ApiCacheType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ApiCacheType -&gt; XML

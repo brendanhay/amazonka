@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679255383"><span id="local-6989586621679255384"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FileFormatType"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.FileFormatType.html#FileFormatType"><span class="hs-identifier hs-var">FileFormatType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FileFormatType%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.FileFormatType.html#FileFormatType%27"><span class="hs-identifier hs-var">FileFormatType'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679255585"><span id="local-6989586621679255586"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FileFormatType"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.FileFormatType.html#FileFormatType"><span class="hs-identifier hs-var">FileFormatType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FileFormatType%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.FileFormatType.html#FileFormatType%27"><span class="hs-identifier hs-var">FileFormatType'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromFileFormatType"><span class="annot"><span class="annottext">FileFormatType -&gt; Text
 </span><a href="Network.AWS.IoTAnalytics.Types.FileFormatType.html#fromFileFormatType"><span class="hs-identifier hs-var hs-var">fromFileFormatType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679255375"><span id="local-6989586621679255377"><span id="local-6989586621679255379"><span class="annot"><span class="annottext">Int -&gt; FileFormatType -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679255577"><span id="local-6989586621679255579"><span id="local-6989586621679255581"><span class="annot"><span class="annottext">Int -&gt; FileFormatType -&gt; ShowS
 [FileFormatType] -&gt; ShowS
 FileFormatType -&gt; String
 (Int -&gt; FileFormatType -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: FileFormatType -&gt; String
 showsPrec :: Int -&gt; FileFormatType -&gt; ShowS
 $cshowsPrec :: Int -&gt; FileFormatType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679255366"><span id="local-6989586621679255368"><span id="local-6989586621679255370"><span id="local-6989586621679255372"><span class="annot"><span class="annottext">ReadPrec [FileFormatType]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679255568"><span id="local-6989586621679255570"><span id="local-6989586621679255572"><span id="local-6989586621679255574"><span class="annot"><span class="annottext">ReadPrec [FileFormatType]
 ReadPrec FileFormatType
 Int -&gt; ReadS FileFormatType
 ReadS [FileFormatType]
@@ -72,7 +72,7 @@ $creadList :: ReadS [FileFormatType]
 readsPrec :: Int -&gt; ReadS FileFormatType
 $creadsPrec :: Int -&gt; ReadS FileFormatType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679255361"><span id="local-6989586621679255363"><span class="annot"><span class="annottext">FileFormatType -&gt; FileFormatType -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679255563"><span id="local-6989586621679255565"><span class="annot"><span class="annottext">FileFormatType -&gt; FileFormatType -&gt; Bool
 (FileFormatType -&gt; FileFormatType -&gt; Bool)
 -&gt; (FileFormatType -&gt; FileFormatType -&gt; Bool) -&gt; Eq FileFormatType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: FileFormatType -&gt; FileFormatType -&gt; Bool
 == :: FileFormatType -&gt; FileFormatType -&gt; Bool
 $c== :: FileFormatType -&gt; FileFormatType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679255345"><span id="local-6989586621679255347"><span id="local-6989586621679255349"><span id="local-6989586621679255351"><span id="local-6989586621679255353"><span id="local-6989586621679255355"><span id="local-6989586621679255357"><span class="annot"><span class="annottext">Eq FileFormatType
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679255547"><span id="local-6989586621679255549"><span id="local-6989586621679255551"><span id="local-6989586621679255553"><span id="local-6989586621679255555"><span id="local-6989586621679255557"><span id="local-6989586621679255559"><span class="annot"><span class="annottext">Eq FileFormatType
 Eq FileFormatType
 -&gt; (FileFormatType -&gt; FileFormatType -&gt; Ordering)
 -&gt; (FileFormatType -&gt; FileFormatType -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. FileFormatType -&gt; Rep FileFormatType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679255337"><span id="local-6989586621679255339"><span class="annot"><span class="annottext">Int -&gt; FileFormatType -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679255539"><span id="local-6989586621679255541"><span class="annot"><span class="annottext">Int -&gt; FileFormatType -&gt; Int
 FileFormatType -&gt; Int
 (Int -&gt; FileFormatType -&gt; Int)
 -&gt; (FileFormatType -&gt; Int) -&gt; Hashable FileFormatType
@@ -142,50 +142,50 @@ $chash :: FileFormatType -&gt; Int
 hashWithSalt :: Int -&gt; FileFormatType -&gt; Int
 $chashWithSalt :: Int -&gt; FileFormatType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679255334"><span class="annot"><span class="annottext">FileFormatType -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679255536"><span class="annot"><span class="annottext">FileFormatType -&gt; ()
 (FileFormatType -&gt; ()) -&gt; NFData FileFormatType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: FileFormatType -&gt; ()
 $crnf :: FileFormatType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679255331"><span class="annot"><span class="annottext">Text -&gt; Either String FileFormatType
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679255533"><span class="annot"><span class="annottext">Text -&gt; Either String FileFormatType
 (Text -&gt; Either String FileFormatType) -&gt; FromText FileFormatType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String FileFormatType
 $cfromText :: Text -&gt; Either String FileFormatType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679255328"><span class="annot"><span class="annottext">FileFormatType -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679255530"><span class="annot"><span class="annottext">FileFormatType -&gt; Text
 (FileFormatType -&gt; Text) -&gt; ToText FileFormatType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: FileFormatType -&gt; Text
 $ctoText :: FileFormatType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679255325"><span class="annot"><span class="annottext">FileFormatType -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679255527"><span class="annot"><span class="annottext">FileFormatType -&gt; ByteString
 (FileFormatType -&gt; ByteString) -&gt; ToByteString FileFormatType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: FileFormatType -&gt; ByteString
 $ctoBS :: FileFormatType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679255322"><span class="annot"><span class="annottext">FileFormatType -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679255524"><span class="annot"><span class="annottext">FileFormatType -&gt; ByteStringBuilder
 (FileFormatType -&gt; ByteStringBuilder) -&gt; ToLog FileFormatType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: FileFormatType -&gt; ByteStringBuilder
 $cbuild :: FileFormatType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679255319"><span class="annot"><span class="annottext">HeaderName -&gt; FileFormatType -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679255521"><span class="annot"><span class="annottext">HeaderName -&gt; FileFormatType -&gt; [Header]
 (HeaderName -&gt; FileFormatType -&gt; [Header])
 -&gt; ToHeader FileFormatType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; FileFormatType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; FileFormatType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679255316"><span class="annot"><span class="annottext">FileFormatType -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679255518"><span class="annot"><span class="annottext">FileFormatType -&gt; QueryString
 (FileFormatType -&gt; QueryString) -&gt; ToQuery FileFormatType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: FileFormatType -&gt; QueryString
 $ctoQuery :: FileFormatType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679255311"><span id="local-6989586621679255313"><span class="annot"><span class="annottext">Value -&gt; Parser [FileFormatType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679255513"><span id="local-6989586621679255515"><span class="annot"><span class="annottext">Value -&gt; Parser [FileFormatType]
 Value -&gt; Parser FileFormatType
 (Value -&gt; Parser FileFormatType)
 -&gt; (Value -&gt; Parser [FileFormatType]) -&gt; FromJSON FileFormatType
@@ -196,7 +196,7 @@ $cparseJSONList :: Value -&gt; Parser [FileFormatType]
 parseJSON :: Value -&gt; Parser FileFormatType
 $cparseJSON :: Value -&gt; Parser FileFormatType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679255306"><span id="local-6989586621679255308"><span class="annot"><span class="annottext">FromJSONKeyFunction [FileFormatType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679255508"><span id="local-6989586621679255510"><span class="annot"><span class="annottext">FromJSONKeyFunction [FileFormatType]
 FromJSONKeyFunction FileFormatType
 FromJSONKeyFunction FileFormatType
 -&gt; FromJSONKeyFunction [FileFormatType]
@@ -208,7 +208,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [FileFormatType]
 fromJSONKey :: FromJSONKeyFunction FileFormatType
 $cfromJSONKey :: FromJSONKeyFunction FileFormatType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679255297"><span id="local-6989586621679255299"><span id="local-6989586621679255301"><span id="local-6989586621679255303"><span class="annot"><span class="annottext">[FileFormatType] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679255499"><span id="local-6989586621679255501"><span id="local-6989586621679255503"><span id="local-6989586621679255505"><span class="annot"><span class="annottext">[FileFormatType] -&gt; Encoding
 [FileFormatType] -&gt; Value
 FileFormatType -&gt; Encoding
 FileFormatType -&gt; Value
@@ -232,7 +232,7 @@ $ctoEncoding :: FileFormatType -&gt; Encoding
 toJSON :: FileFormatType -&gt; Value
 $ctoJSON :: FileFormatType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679255292"><span id="local-6989586621679255294"><span class="annot"><span class="annottext">ToJSONKeyFunction [FileFormatType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679255494"><span id="local-6989586621679255496"><span class="annot"><span class="annottext">ToJSONKeyFunction [FileFormatType]
 ToJSONKeyFunction FileFormatType
 ToJSONKeyFunction FileFormatType
 -&gt; ToJSONKeyFunction [FileFormatType] -&gt; ToJSONKey FileFormatType
@@ -243,13 +243,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [FileFormatType]
 toJSONKey :: ToJSONKeyFunction FileFormatType
 $ctoJSONKey :: ToJSONKeyFunction FileFormatType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679255289"><span class="annot"><span class="annottext">[Node] -&gt; Either String FileFormatType
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679255491"><span class="annot"><span class="annottext">[Node] -&gt; Either String FileFormatType
 ([Node] -&gt; Either String FileFormatType) -&gt; FromXML FileFormatType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String FileFormatType
 $cparseXML :: [Node] -&gt; Either String FileFormatType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679255286"><span class="annot"><span class="annottext">FileFormatType -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679255488"><span class="annot"><span class="annottext">FileFormatType -&gt; XML
 (FileFormatType -&gt; XML) -&gt; ToXML FileFormatType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: FileFormatType -&gt; XML

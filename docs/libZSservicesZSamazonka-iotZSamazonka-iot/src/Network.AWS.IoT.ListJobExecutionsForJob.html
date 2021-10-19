@@ -33,8 +33,8 @@
 </span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#newListJobExecutionsForJob"><span class="hs-identifier">newListJobExecutionsForJob</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-34"></span><span>
 </span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#listJobExecutionsForJob_nextToken"><span class="hs-identifier">listJobExecutionsForJob_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#listJobExecutionsForJob_status"><span class="hs-identifier">listJobExecutionsForJob_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#listJobExecutionsForJob_status"><span class="hs-identifier">listJobExecutionsForJob_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#listJobExecutionsForJob_nextToken"><span class="hs-identifier">listJobExecutionsForJob_nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#listJobExecutionsForJob_maxResults"><span class="hs-identifier">listJobExecutionsForJob_maxResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#listJobExecutionsForJob_jobId"><span class="hs-identifier">listJobExecutionsForJob_jobId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-40"></span><span>
@@ -43,8 +43,8 @@
 </span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#newListJobExecutionsForJobResponse"><span class="hs-identifier">newListJobExecutionsForJobResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-44"></span><span>
 </span><span id="line-45"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#listJobExecutionsForJobResponse_nextToken"><span class="hs-identifier">listJobExecutionsForJobResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#listJobExecutionsForJobResponse_executionSummaries"><span class="hs-identifier">listJobExecutionsForJobResponse_executionSummaries</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#listJobExecutionsForJobResponse_executionSummaries"><span class="hs-identifier">listJobExecutionsForJobResponse_executionSummaries</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#listJobExecutionsForJobResponse_nextToken"><span class="hs-identifier">listJobExecutionsForJobResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#listJobExecutionsForJobResponse_httpStatus"><span class="hs-identifier">listJobExecutionsForJobResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-50"></span><span class="hs-keyword">where</span><span>
@@ -57,13 +57,13 @@
 </span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-58"></span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- | /See:/ 'newListJobExecutionsForJob' smart constructor.</span><span>
-</span><span id="line-60"></span><span id="local-6989586621679823730"><span id="local-6989586621679823731"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListJobExecutionsForJob"><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJob"><span class="hs-identifier hs-var">ListJobExecutionsForJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListJobExecutionsForJob%27"><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJob%27"><span class="hs-identifier hs-var">ListJobExecutionsForJob'</span></a></span></span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token to retrieve the next set of results.</span><span>
-</span><span id="line-62"></span><span>    </span><span id="%24sel%3AnextToken%3AListJobExecutionsForJob%27"><span class="annot"><span class="annottext">ListJobExecutionsForJob -&gt; Maybe Text
-</span><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#%24sel%3AnextToken%3AListJobExecutionsForJob%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The status of the job.</span><span>
-</span><span id="line-64"></span><span>    </span><span id="%24sel%3Astatus%3AListJobExecutionsForJob%27"><span class="annot"><span class="annottext">ListJobExecutionsForJob -&gt; Maybe JobExecutionStatus
+</span><span id="line-60"></span><span id="local-6989586621679824674"><span id="local-6989586621679824675"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListJobExecutionsForJob"><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJob"><span class="hs-identifier hs-var">ListJobExecutionsForJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListJobExecutionsForJob%27"><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJob%27"><span class="hs-identifier hs-var">ListJobExecutionsForJob'</span></a></span></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of the job.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3Astatus%3AListJobExecutionsForJob%27"><span class="annot"><span class="annottext">ListJobExecutionsForJob -&gt; Maybe JobExecutionStatus
 </span><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#%24sel%3Astatus%3AListJobExecutionsForJob%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionStatus.html#JobExecutionStatus"><span class="hs-identifier hs-type">JobExecutionStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The token to retrieve the next set of results.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AnextToken%3AListJobExecutionsForJob%27"><span class="annot"><span class="annottext">ListJobExecutionsForJob -&gt; Maybe Text
+</span><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#%24sel%3AnextToken%3AListJobExecutionsForJob%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The maximum number of results to be returned per request.</span><span>
 </span><span id="line-66"></span><span>    </span><span id="%24sel%3AmaxResults%3AListJobExecutionsForJob%27"><span class="annot"><span class="annottext">ListJobExecutionsForJob -&gt; Maybe Natural
 </span><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#%24sel%3AmaxResults%3AListJobExecutionsForJob%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
@@ -71,7 +71,7 @@
 </span><span id="line-68"></span><span>    </span><span id="%24sel%3AjobId%3AListJobExecutionsForJob%27"><span class="annot"><span class="annottext">ListJobExecutionsForJob -&gt; Text
 </span><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#%24sel%3AjobId%3AListJobExecutionsForJob%27"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-69"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679823721"><span id="local-6989586621679823723"><span class="annot"><span class="annottext">ListJobExecutionsForJob -&gt; ListJobExecutionsForJob -&gt; Bool
+</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679824665"><span id="local-6989586621679824667"><span class="annot"><span class="annottext">ListJobExecutionsForJob -&gt; ListJobExecutionsForJob -&gt; Bool
 (ListJobExecutionsForJob -&gt; ListJobExecutionsForJob -&gt; Bool)
 -&gt; (ListJobExecutionsForJob -&gt; ListJobExecutionsForJob -&gt; Bool)
 -&gt; Eq ListJobExecutionsForJob
@@ -80,7 +80,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListJobExecutionsForJob -&gt; ListJobExecutionsForJob -&gt; Bool
 == :: ListJobExecutionsForJob -&gt; ListJobExecutionsForJob -&gt; Bool
 $c== :: ListJobExecutionsForJob -&gt; ListJobExecutionsForJob -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679823712"><span id="local-6989586621679823714"><span id="local-6989586621679823716"><span id="local-6989586621679823718"><span class="annot"><span class="annottext">ReadPrec [ListJobExecutionsForJob]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679824656"><span id="local-6989586621679824658"><span id="local-6989586621679824660"><span id="local-6989586621679824662"><span class="annot"><span class="annottext">ReadPrec [ListJobExecutionsForJob]
 ReadPrec ListJobExecutionsForJob
 Int -&gt; ReadS ListJobExecutionsForJob
 ReadS [ListJobExecutionsForJob]
@@ -100,7 +100,7 @@ readList :: ReadS [ListJobExecutionsForJob]
 $creadList :: ReadS [ListJobExecutionsForJob]
 readsPrec :: Int -&gt; ReadS ListJobExecutionsForJob
 $creadsPrec :: Int -&gt; ReadS ListJobExecutionsForJob
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679823705"><span id="local-6989586621679823707"><span id="local-6989586621679823709"><span class="annot"><span class="annottext">Int -&gt; ListJobExecutionsForJob -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679824649"><span id="local-6989586621679824651"><span id="local-6989586621679824653"><span class="annot"><span class="annottext">Int -&gt; ListJobExecutionsForJob -&gt; ShowS
 [ListJobExecutionsForJob] -&gt; ShowS
 ListJobExecutionsForJob -&gt; String
 (Int -&gt; ListJobExecutionsForJob -&gt; ShowS)
@@ -136,9 +136,9 @@ $cfrom :: forall x. ListJobExecutionsForJob -&gt; Rep ListJobExecutionsForJob x
 </span><span id="line-77"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-79"></span><span class="hs-comment">--</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- 'nextToken', 'listJobExecutionsForJob_nextToken' - The token to retrieve the next set of results.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'status', 'listJobExecutionsForJob_status' - The status of the job.</span><span>
 </span><span id="line-81"></span><span class="hs-comment">--</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- 'status', 'listJobExecutionsForJob_status' - The status of the job.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'nextToken', 'listJobExecutionsForJob_nextToken' - The token to retrieve the next set of results.</span><span>
 </span><span id="line-83"></span><span class="hs-comment">--</span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- 'maxResults', 'listJobExecutionsForJob_maxResults' - The maximum number of results to be returned per request.</span><span>
 </span><span id="line-85"></span><span class="hs-comment">--</span><span>
@@ -148,59 +148,31 @@ $cfrom :: forall x. ListJobExecutionsForJob -&gt; Rep ListJobExecutionsForJob x
 </span><span id="line-89"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-90"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJob"><span class="hs-identifier hs-type">ListJobExecutionsForJob</span></a></span><span>
 </span><span id="line-91"></span><span id="newListJobExecutionsForJob"><span class="annot"><span class="annottext">newListJobExecutionsForJob :: Text -&gt; ListJobExecutionsForJob
-</span><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#newListJobExecutionsForJob"><span class="hs-identifier hs-var hs-var">newListJobExecutionsForJob</span></a></span></span><span> </span><span id="local-6989586621679823700"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679823700"><span class="hs-identifier hs-var">pJobId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-92"></span><span>  </span><span class="annot"><span class="annottext">ListJobExecutionsForJob' :: Maybe Text
--&gt; Maybe JobExecutionStatus
--&gt; Maybe Natural
--&gt; Text
--&gt; ListJobExecutionsForJob
+</span><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#newListJobExecutionsForJob"><span class="hs-identifier hs-var hs-var">newListJobExecutionsForJob</span></a></span></span><span> </span><span id="local-6989586621679824644"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679824644"><span class="hs-identifier hs-var">pJobId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><span class="annottext">ListJobExecutionsForJob' :: Maybe JobExecutionStatus
+-&gt; Maybe Text -&gt; Maybe Natural -&gt; Text -&gt; ListJobExecutionsForJob
 </span><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJob%27"><span class="hs-identifier hs-type">ListJobExecutionsForJob'</span></a></span><span>
-</span><span id="line-93"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListJobExecutionsForJob' :: Maybe Text
-</span><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#%24sel%3AnextToken%3AListJobExecutionsForJob%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-94"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:ListJobExecutionsForJob' :: Maybe JobExecutionStatus
+</span><span id="line-93"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:ListJobExecutionsForJob' :: Maybe JobExecutionStatus
 </span><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#%24sel%3Astatus%3AListJobExecutionsForJob%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JobExecutionStatus
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListJobExecutionsForJob' :: Maybe Natural
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListJobExecutionsForJob' :: Maybe Text
+</span><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#%24sel%3AnextToken%3AListJobExecutionsForJob%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListJobExecutionsForJob' :: Maybe Natural
 </span><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#%24sel%3AmaxResults%3AListJobExecutionsForJob%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobId:ListJobExecutionsForJob' :: Text
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobId:ListJobExecutionsForJob' :: Text
 </span><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#%24sel%3AjobId%3AListJobExecutionsForJob%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679823700"><span class="hs-identifier hs-var">pJobId_</span></a></span><span>
-</span><span id="line-98"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- | The token to retrieve the next set of results.</span><span>
-</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#listJobExecutionsForJob_nextToken"><span class="hs-identifier hs-type">listJobExecutionsForJob_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJob"><span class="hs-identifier hs-type">ListJobExecutionsForJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-102"></span><span id="listJobExecutionsForJob_nextToken"><span class="annot"><span class="annottext">listJobExecutionsForJob_nextToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ListJobExecutionsForJob -&gt; f ListJobExecutionsForJob
-</span><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#listJobExecutionsForJob_nextToken"><span class="hs-identifier hs-var hs-var">listJobExecutionsForJob_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListJobExecutionsForJob -&gt; Maybe Text)
--&gt; (ListJobExecutionsForJob
-    -&gt; Maybe Text -&gt; ListJobExecutionsForJob)
--&gt; Lens
-     ListJobExecutionsForJob
-     ListJobExecutionsForJob
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJob%27"><span class="hs-identifier hs-type">ListJobExecutionsForJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679823698"><span class="annot"><span class="annottext">Maybe Text
-nextToken :: Maybe Text
-$sel:nextToken:ListJobExecutionsForJob' :: ListJobExecutionsForJob -&gt; Maybe Text
-</span><a href="#local-6989586621679823698"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679823698"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679823697"><span class="annot"><span class="annottext">s :: ListJobExecutionsForJob
-</span><a href="#local-6989586621679823697"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJob%27"><span class="hs-identifier hs-type">ListJobExecutionsForJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679823696"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679823696"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobExecutionsForJob
-</span><a href="#local-6989586621679823697"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListJobExecutionsForJob' :: Maybe Text
-</span><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#%24sel%3AnextToken%3AListJobExecutionsForJob%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679823696"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJob"><span class="hs-identifier hs-type">ListJobExecutionsForJob</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- | The status of the job.</span><span>
-</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#listJobExecutionsForJob_status"><span class="hs-identifier hs-type">listJobExecutionsForJob_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJob"><span class="hs-identifier hs-type">ListJobExecutionsForJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionStatus.html#JobExecutionStatus"><span class="hs-identifier hs-type">JobExecutionStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-106"></span><span id="listJobExecutionsForJob_status"><span class="annot"><span class="annottext">listJobExecutionsForJob_status :: (Maybe JobExecutionStatus -&gt; f (Maybe JobExecutionStatus))
+</span><a href="#local-6989586621679824644"><span class="hs-identifier hs-var">pJobId_</span></a></span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | The status of the job.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#listJobExecutionsForJob_status"><span class="hs-identifier hs-type">listJobExecutionsForJob_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJob"><span class="hs-identifier hs-type">ListJobExecutionsForJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionStatus.html#JobExecutionStatus"><span class="hs-identifier hs-type">JobExecutionStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="listJobExecutionsForJob_status"><span class="annot"><span class="annottext">listJobExecutionsForJob_status :: (Maybe JobExecutionStatus -&gt; f (Maybe JobExecutionStatus))
 -&gt; ListJobExecutionsForJob -&gt; f ListJobExecutionsForJob
 </span><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#listJobExecutionsForJob_status"><span class="hs-identifier hs-var hs-var">listJobExecutionsForJob_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListJobExecutionsForJob -&gt; Maybe JobExecutionStatus)
 -&gt; (ListJobExecutionsForJob
@@ -211,20 +183,44 @@ $sel:nextToken:ListJobExecutionsForJob' :: ListJobExecutionsForJob -&gt; Maybe T
      (Maybe JobExecutionStatus)
      (Maybe JobExecutionStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJob%27"><span class="hs-identifier hs-type">ListJobExecutionsForJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679823695"><span class="annot"><span class="annottext">Maybe JobExecutionStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJob%27"><span class="hs-identifier hs-type">ListJobExecutionsForJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679824642"><span class="annot"><span class="annottext">Maybe JobExecutionStatus
 status :: Maybe JobExecutionStatus
 $sel:status:ListJobExecutionsForJob' :: ListJobExecutionsForJob -&gt; Maybe JobExecutionStatus
-</span><a href="#local-6989586621679823695"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe JobExecutionStatus
-</span><a href="#local-6989586621679823695"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679823694"><span class="annot"><span class="annottext">s :: ListJobExecutionsForJob
-</span><a href="#local-6989586621679823694"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJob%27"><span class="hs-identifier hs-type">ListJobExecutionsForJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679823693"><span class="annot"><span class="annottext">Maybe JobExecutionStatus
-</span><a href="#local-6989586621679823693"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobExecutionsForJob
-</span><a href="#local-6989586621679823694"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ListJobExecutionsForJob' :: Maybe JobExecutionStatus
+</span><a href="#local-6989586621679824642"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe JobExecutionStatus
+</span><a href="#local-6989586621679824642"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679824641"><span class="annot"><span class="annottext">s :: ListJobExecutionsForJob
+</span><a href="#local-6989586621679824641"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJob%27"><span class="hs-identifier hs-type">ListJobExecutionsForJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679824640"><span class="annot"><span class="annottext">Maybe JobExecutionStatus
+</span><a href="#local-6989586621679824640"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobExecutionsForJob
+</span><a href="#local-6989586621679824641"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ListJobExecutionsForJob' :: Maybe JobExecutionStatus
 </span><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#%24sel%3Astatus%3AListJobExecutionsForJob%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JobExecutionStatus
-</span><a href="#local-6989586621679823693"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJob"><span class="hs-identifier hs-type">ListJobExecutionsForJob</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- | The maximum number of results to be returned per request.</span><span>
-</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#listJobExecutionsForJob_maxResults"><span class="hs-identifier hs-type">listJobExecutionsForJob_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJob"><span class="hs-identifier hs-type">ListJobExecutionsForJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-110"></span><span id="listJobExecutionsForJob_maxResults"><span class="annot"><span class="annottext">listJobExecutionsForJob_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+</span><a href="#local-6989586621679824640"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJob"><span class="hs-identifier hs-type">ListJobExecutionsForJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | The token to retrieve the next set of results.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#listJobExecutionsForJob_nextToken"><span class="hs-identifier hs-type">listJobExecutionsForJob_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJob"><span class="hs-identifier hs-type">ListJobExecutionsForJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="listJobExecutionsForJob_nextToken"><span class="annot"><span class="annottext">listJobExecutionsForJob_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListJobExecutionsForJob -&gt; f ListJobExecutionsForJob
+</span><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#listJobExecutionsForJob_nextToken"><span class="hs-identifier hs-var hs-var">listJobExecutionsForJob_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListJobExecutionsForJob -&gt; Maybe Text)
+-&gt; (ListJobExecutionsForJob
+    -&gt; Maybe Text -&gt; ListJobExecutionsForJob)
+-&gt; Lens
+     ListJobExecutionsForJob
+     ListJobExecutionsForJob
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJob%27"><span class="hs-identifier hs-type">ListJobExecutionsForJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679824639"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListJobExecutionsForJob' :: ListJobExecutionsForJob -&gt; Maybe Text
+</span><a href="#local-6989586621679824639"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679824639"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679824638"><span class="annot"><span class="annottext">s :: ListJobExecutionsForJob
+</span><a href="#local-6989586621679824638"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJob%27"><span class="hs-identifier hs-type">ListJobExecutionsForJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679824637"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679824637"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobExecutionsForJob
+</span><a href="#local-6989586621679824638"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListJobExecutionsForJob' :: Maybe Text
+</span><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#%24sel%3AnextToken%3AListJobExecutionsForJob%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679824637"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJob"><span class="hs-identifier hs-type">ListJobExecutionsForJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | The maximum number of results to be returned per request.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#listJobExecutionsForJob_maxResults"><span class="hs-identifier hs-type">listJobExecutionsForJob_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJob"><span class="hs-identifier hs-type">ListJobExecutionsForJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span id="listJobExecutionsForJob_maxResults"><span class="annot"><span class="annottext">listJobExecutionsForJob_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
 -&gt; ListJobExecutionsForJob -&gt; f ListJobExecutionsForJob
 </span><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#listJobExecutionsForJob_maxResults"><span class="hs-identifier hs-var hs-var">listJobExecutionsForJob_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListJobExecutionsForJob -&gt; Maybe Natural)
 -&gt; (ListJobExecutionsForJob
@@ -235,50 +231,50 @@ $sel:status:ListJobExecutionsForJob' :: ListJobExecutionsForJob -&gt; Maybe JobE
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJob%27"><span class="hs-identifier hs-type">ListJobExecutionsForJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679823692"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJob%27"><span class="hs-identifier hs-type">ListJobExecutionsForJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679824636"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:ListJobExecutionsForJob' :: ListJobExecutionsForJob -&gt; Maybe Natural
-</span><a href="#local-6989586621679823692"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679823692"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679823691"><span class="annot"><span class="annottext">s :: ListJobExecutionsForJob
-</span><a href="#local-6989586621679823691"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJob%27"><span class="hs-identifier hs-type">ListJobExecutionsForJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679823690"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679823690"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobExecutionsForJob
-</span><a href="#local-6989586621679823691"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListJobExecutionsForJob' :: Maybe Natural
+</span><a href="#local-6989586621679824636"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679824636"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679824635"><span class="annot"><span class="annottext">s :: ListJobExecutionsForJob
+</span><a href="#local-6989586621679824635"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJob%27"><span class="hs-identifier hs-type">ListJobExecutionsForJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679824634"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679824634"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobExecutionsForJob
+</span><a href="#local-6989586621679824635"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListJobExecutionsForJob' :: Maybe Natural
 </span><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#%24sel%3AmaxResults%3AListJobExecutionsForJob%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679823690"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJob"><span class="hs-identifier hs-type">ListJobExecutionsForJob</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-comment">-- | The unique identifier you assigned to this job when it was created.</span><span>
-</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#listJobExecutionsForJob_jobId"><span class="hs-identifier hs-type">listJobExecutionsForJob_jobId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJob"><span class="hs-identifier hs-type">ListJobExecutionsForJob</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
-</span><span id="line-114"></span><span id="listJobExecutionsForJob_jobId"><span class="annot"><span class="annottext">listJobExecutionsForJob_jobId :: (Text -&gt; f Text)
+</span><a href="#local-6989586621679824634"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJob"><span class="hs-identifier hs-type">ListJobExecutionsForJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | The unique identifier you assigned to this job when it was created.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#listJobExecutionsForJob_jobId"><span class="hs-identifier hs-type">listJobExecutionsForJob_jobId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJob"><span class="hs-identifier hs-type">ListJobExecutionsForJob</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-113"></span><span id="listJobExecutionsForJob_jobId"><span class="annot"><span class="annottext">listJobExecutionsForJob_jobId :: (Text -&gt; f Text)
 -&gt; ListJobExecutionsForJob -&gt; f ListJobExecutionsForJob
 </span><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#listJobExecutionsForJob_jobId"><span class="hs-identifier hs-var hs-var">listJobExecutionsForJob_jobId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListJobExecutionsForJob -&gt; Text)
 -&gt; (ListJobExecutionsForJob -&gt; Text -&gt; ListJobExecutionsForJob)
 -&gt; Lens ListJobExecutionsForJob ListJobExecutionsForJob Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJob%27"><span class="hs-identifier hs-type">ListJobExecutionsForJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679823689"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJob%27"><span class="hs-identifier hs-type">ListJobExecutionsForJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679824633"><span class="annot"><span class="annottext">Text
 jobId :: Text
 $sel:jobId:ListJobExecutionsForJob' :: ListJobExecutionsForJob -&gt; Text
-</span><a href="#local-6989586621679823689"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679823689"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679823688"><span class="annot"><span class="annottext">s :: ListJobExecutionsForJob
-</span><a href="#local-6989586621679823688"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJob%27"><span class="hs-identifier hs-type">ListJobExecutionsForJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679823687"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679823687"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobExecutionsForJob
-</span><a href="#local-6989586621679823688"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:ListJobExecutionsForJob' :: Text
+</span><a href="#local-6989586621679824633"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679824633"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679824632"><span class="annot"><span class="annottext">s :: ListJobExecutionsForJob
+</span><a href="#local-6989586621679824632"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJob%27"><span class="hs-identifier hs-type">ListJobExecutionsForJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679824631"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679824631"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobExecutionsForJob
+</span><a href="#local-6989586621679824632"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:ListJobExecutionsForJob' :: Text
 </span><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#%24sel%3AjobId%3AListJobExecutionsForJob%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679823687"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJob"><span class="hs-identifier hs-type">ListJobExecutionsForJob</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJob"><span class="hs-identifier hs-type">ListJobExecutionsForJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679823683"><span class="annot"><span class="annottext">page :: ListJobExecutionsForJob
+</span><a href="#local-6989586621679824631"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJob"><span class="hs-identifier hs-type">ListJobExecutionsForJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJob"><span class="hs-identifier hs-type">ListJobExecutionsForJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679824627"><span class="annot"><span class="annottext">page :: ListJobExecutionsForJob
 -&gt; AWSResponse ListJobExecutionsForJob
 -&gt; Maybe ListJobExecutionsForJob
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679823681"><span class="annot"><span class="annottext">ListJobExecutionsForJob
-</span><a href="#local-6989586621679823681"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679823680"><span class="annot"><span class="annottext">AWSResponse ListJobExecutionsForJob
-</span><a href="#local-6989586621679823680"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
-</span><span id="line-118"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679824625"><span class="annot"><span class="annottext">ListJobExecutionsForJob
+</span><a href="#local-6989586621679824625"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679824624"><span class="annot"><span class="annottext">AWSResponse ListJobExecutionsForJob
+</span><a href="#local-6989586621679824624"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
-</span><span id="line-119"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListJobExecutionsForJob
+</span><span id="line-118"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListJobExecutionsForJob
 ListJobExecutionsForJobResponse
-</span><a href="#local-6989586621679823680"><span class="hs-identifier hs-var">rs</span></a></span><span>
-</span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">ListJobExecutionsForJobResponse
+</span><a href="#local-6989586621679824624"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">ListJobExecutionsForJobResponse
 -&gt; Getting (First Text) ListJobExecutionsForJobResponse Text
 -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -287,7 +283,7 @@ forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
 -&gt; Const (First Text) ListJobExecutionsForJobResponse
 Lens' ListJobExecutionsForJobResponse (Maybe Text)
 </span><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#listJobExecutionsForJobResponse_nextToken"><span class="hs-identifier hs-var">listJobExecutionsForJobResponse_nextToken</span></a></span><span>
-</span><span id="line-121"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+</span><span id="line-120"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
  -&gt; ListJobExecutionsForJobResponse
  -&gt; Const (First Text) ListJobExecutionsForJobResponse)
 -&gt; ((Text -&gt; Const (First Text) Text)
@@ -298,17 +294,17 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
 forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
-</span><span id="line-122"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListJobExecutionsForJob
+</span><span id="line-121"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListJobExecutionsForJob
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-124"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [JobExecutionSummaryForJob] -&gt; Bool
+</span><span id="line-123"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [JobExecutionSummaryForJob] -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
-</span><span id="line-125"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListJobExecutionsForJob
+</span><span id="line-124"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListJobExecutionsForJob
 ListJobExecutionsForJobResponse
-</span><a href="#local-6989586621679823680"><span class="hs-identifier hs-var">rs</span></a></span><span>
-</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">ListJobExecutionsForJobResponse
+</span><a href="#local-6989586621679824624"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">ListJobExecutionsForJobResponse
 -&gt; Getting
      (First [JobExecutionSummaryForJob])
      ListJobExecutionsForJobResponse
@@ -325,7 +321,7 @@ forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
 Lens'
   ListJobExecutionsForJobResponse (Maybe [JobExecutionSummaryForJob])
 </span><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#listJobExecutionsForJobResponse_executionSummaries"><span class="hs-identifier hs-var">listJobExecutionsForJobResponse_executionSummaries</span></a></span><span>
-</span><span id="line-127"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [JobExecutionSummaryForJob]
+</span><span id="line-126"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [JobExecutionSummaryForJob]
   -&gt; Const
        (First [JobExecutionSummaryForJob])
        (Maybe [JobExecutionSummaryForJob]))
@@ -354,21 +350,21 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
      (Maybe [JobExecutionSummaryForJob])
 forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
-</span><span id="line-128"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-129"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListJobExecutionsForJob
+</span><span id="line-127"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-128"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListJobExecutionsForJob
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-130"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span id="line-129"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
 </span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">ListJobExecutionsForJob -&gt; Maybe ListJobExecutionsForJob
+</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">ListJobExecutionsForJob -&gt; Maybe ListJobExecutionsForJob
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(ListJobExecutionsForJob -&gt; Maybe ListJobExecutionsForJob)
 -&gt; ListJobExecutionsForJob -&gt; Maybe ListJobExecutionsForJob
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
-</span><span id="line-132"></span><span>        </span><span class="annot"><span class="annottext">ListJobExecutionsForJob
-</span><a href="#local-6989586621679823681"><span class="hs-identifier hs-var">rq</span></a></span><span>
-</span><span id="line-133"></span><span>          </span><span class="annot"><span class="annottext">ListJobExecutionsForJob
+</span><span id="line-131"></span><span>        </span><span class="annot"><span class="annottext">ListJobExecutionsForJob
+</span><a href="#local-6989586621679824625"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-132"></span><span>          </span><span class="annot"><span class="annottext">ListJobExecutionsForJob
 -&gt; (ListJobExecutionsForJob -&gt; ListJobExecutionsForJob)
 -&gt; ListJobExecutionsForJob
 forall a b. a -&gt; (a -&gt; b) -&gt; b
@@ -380,14 +376,14 @@ Lens
   (Maybe Text)
   (Maybe Text)
 </span><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#listJobExecutionsForJob_nextToken"><span class="hs-identifier hs-var">listJobExecutionsForJob_nextToken</span></a></span><span>
-</span><span id="line-134"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+</span><span id="line-133"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
  -&gt; ListJobExecutionsForJob -&gt; Identity ListJobExecutionsForJob)
 -&gt; Maybe Text -&gt; ListJobExecutionsForJob -&gt; ListJobExecutionsForJob
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListJobExecutionsForJob
 ListJobExecutionsForJobResponse
-</span><a href="#local-6989586621679823680"><span class="hs-identifier hs-var">rs</span></a></span><span>
-</span><span id="line-135"></span><span>          </span><span class="annot"><span class="annottext">ListJobExecutionsForJobResponse
+</span><a href="#local-6989586621679824624"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-134"></span><span>          </span><span class="annot"><span class="annottext">ListJobExecutionsForJobResponse
 -&gt; Getting (First Text) ListJobExecutionsForJobResponse Text
 -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -396,7 +392,7 @@ forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
 -&gt; Const (First Text) ListJobExecutionsForJobResponse
 Lens' ListJobExecutionsForJobResponse (Maybe Text)
 </span><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#listJobExecutionsForJobResponse_nextToken"><span class="hs-identifier hs-var">listJobExecutionsForJobResponse_nextToken</span></a></span><span>
-</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
  -&gt; ListJobExecutionsForJobResponse
  -&gt; Const (First Text) ListJobExecutionsForJobResponse)
 -&gt; ((Text -&gt; Const (First Text) Text)
@@ -407,25 +403,25 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
 forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
-</span><span id="line-137"></span><span>
-</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJob"><span class="hs-identifier hs-type">ListJobExecutionsForJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-139"></span><span>  </span><span class="hs-keyword">type</span><span>
-</span><span id="line-140"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJob"><span class="hs-identifier hs-type">ListJobExecutionsForJob</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-141"></span><span>      </span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJobResponse"><span class="hs-identifier hs-type">ListJobExecutionsForJobResponse</span></a></span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679823670"><span class="annot"><span class="annottext">request :: ListJobExecutionsForJob -&gt; Request ListJobExecutionsForJob
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJob"><span class="hs-identifier hs-type">ListJobExecutionsForJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-138"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-139"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJob"><span class="hs-identifier hs-type">ListJobExecutionsForJob</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>      </span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJobResponse"><span class="hs-identifier hs-type">ListJobExecutionsForJobResponse</span></a></span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679824614"><span class="annot"><span class="annottext">request :: ListJobExecutionsForJob -&gt; Request ListJobExecutionsForJob
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; ListJobExecutionsForJob -&gt; Request ListJobExecutionsForJob
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IoT.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679823666"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679824610"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListJobExecutionsForJob
 -&gt; ClientResponse ClientBody
 -&gt; m (Either
         Error (ClientResponse (AWSResponse ListJobExecutionsForJob)))
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-144"></span><span>    </span><span class="annot"><span class="annottext">(Int
+</span><span id="line-143"></span><span>    </span><span class="annot"><span class="annottext">(Int
  -&gt; ResponseHeaders
  -&gt; Object
  -&gt; Either String (AWSResponse ListJobExecutionsForJob))
@@ -444,53 +440,45 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-145"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679823663"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679823663"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679823662"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679823662"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679823661"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679823661"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-146"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe [JobExecutionSummaryForJob]
--&gt; Int
--&gt; ListJobExecutionsForJobResponse
+</span><span id="line-144"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679824607"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679824607"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679824606"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679824606"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679824605"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679824605"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-145"></span><span>          </span><span class="annot"><span class="annottext">Maybe [JobExecutionSummaryForJob]
+-&gt; Maybe Text -&gt; Int -&gt; ListJobExecutionsForJobResponse
 </span><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJobResponse%27"><span class="hs-identifier hs-var">ListJobExecutionsForJobResponse'</span></a></span><span>
-</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe [JobExecutionSummaryForJob]
- -&gt; Int
- -&gt; ListJobExecutionsForJobResponse)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String
-     (Maybe [JobExecutionSummaryForJob]
-      -&gt; Int -&gt; ListJobExecutionsForJobResponse)
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679823661"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe [JobExecutionSummaryForJob]
-   -&gt; Int -&gt; ListJobExecutionsForJobResponse)
+</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [JobExecutionSummaryForJob]
+ -&gt; Maybe Text -&gt; Int -&gt; ListJobExecutionsForJobResponse)
 -&gt; Either String (Maybe [JobExecutionSummaryForJob])
--&gt; Either String (Int -&gt; ListJobExecutionsForJobResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679823661"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Either
+     String (Maybe Text -&gt; Int -&gt; ListJobExecutionsForJobResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679824605"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text
 -&gt; Either String (Maybe (Maybe [JobExecutionSummaryForJob]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;executionSummaries&quot;</span></span><span>
-</span><span id="line-149"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [JobExecutionSummaryForJob]))
+</span><span id="line-147"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [JobExecutionSummaryForJob]))
 -&gt; Maybe [JobExecutionSummaryForJob]
 -&gt; Either String (Maybe [JobExecutionSummaryForJob])
 forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [JobExecutionSummaryForJob]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-150"></span><span>                        </span><span class="hs-special">)</span><span>
-</span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListJobExecutionsForJobResponse)
+</span><span id="line-148"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Int -&gt; ListJobExecutionsForJobResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; ListJobExecutionsForJobResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679824605"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListJobExecutionsForJobResponse)
 -&gt; Either String Int
 -&gt; Either String ListJobExecutionsForJobResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -499,96 +487,96 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679823663"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-152"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-153"></span><span>
-</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679823652"><span id="local-6989586621679823654"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJob"><span class="hs-identifier hs-type">ListJobExecutionsForJob</span></a></span></span></span><span>
-</span><span id="line-155"></span><span>
-</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679823649"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJob"><span class="hs-identifier hs-type">ListJobExecutionsForJob</span></a></span></span><span>
-</span><span id="line-157"></span><span>
-</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJob"><span class="hs-identifier hs-type">ListJobExecutionsForJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-159"></span><span>  </span><span id="local-6989586621679823645"><span class="annot"><span class="annottext">toHeaders :: ListJobExecutionsForJob -&gt; ResponseHeaders
+</span><a href="#local-6989586621679824607"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679824596"><span id="local-6989586621679824598"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJob"><span class="hs-identifier hs-type">ListJobExecutionsForJob</span></a></span></span></span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679824593"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJob"><span class="hs-identifier hs-type">ListJobExecutionsForJob</span></a></span></span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJob"><span class="hs-identifier hs-type">ListJobExecutionsForJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679824589"><span class="annot"><span class="annottext">toHeaders :: ListJobExecutionsForJob -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListJobExecutionsForJob -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-160"></span><span>
-</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJob"><span class="hs-identifier hs-type">ListJobExecutionsForJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-162"></span><span>  </span><span id="local-6989586621679823640"><span class="annot"><span class="annottext">toPath :: ListJobExecutionsForJob -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJob%27"><span class="hs-identifier hs-type">ListJobExecutionsForJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679823635"><span id="local-6989586621679823636"><span id="local-6989586621679823637"><span id="local-6989586621679823638"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJob"><span class="hs-identifier hs-type">ListJobExecutionsForJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679824584"><span class="annot"><span class="annottext">toPath :: ListJobExecutionsForJob -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJob%27"><span class="hs-identifier hs-type">ListJobExecutionsForJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679824579"><span id="local-6989586621679824580"><span id="local-6989586621679824581"><span id="local-6989586621679824582"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Maybe JobExecutionStatus
 Text
 jobId :: Text
 maxResults :: Maybe Natural
-status :: Maybe JobExecutionStatus
 nextToken :: Maybe Text
+status :: Maybe JobExecutionStatus
 $sel:jobId:ListJobExecutionsForJob' :: ListJobExecutionsForJob -&gt; Text
 $sel:maxResults:ListJobExecutionsForJob' :: ListJobExecutionsForJob -&gt; Maybe Natural
-$sel:status:ListJobExecutionsForJob' :: ListJobExecutionsForJob -&gt; Maybe JobExecutionStatus
 $sel:nextToken:ListJobExecutionsForJob' :: ListJobExecutionsForJob -&gt; Maybe Text
-</span><a href="#local-6989586621679823635"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-163"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+$sel:status:ListJobExecutionsForJob' :: ListJobExecutionsForJob -&gt; Maybe JobExecutionStatus
+</span><a href="#local-6989586621679824579"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-162"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
-</span><span id="line-164"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span id="line-163"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/jobs/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679823635"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679824579"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/things&quot;</span></span><span class="hs-special">]</span><span>
-</span><span id="line-165"></span><span>
-</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJob"><span class="hs-identifier hs-type">ListJobExecutionsForJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-167"></span><span>  </span><span id="local-6989586621679823631"><span class="annot"><span class="annottext">toQuery :: ListJobExecutionsForJob -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJob%27"><span class="hs-identifier hs-type">ListJobExecutionsForJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679823626"><span id="local-6989586621679823627"><span id="local-6989586621679823628"><span id="local-6989586621679823629"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJob"><span class="hs-identifier hs-type">ListJobExecutionsForJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679824575"><span class="annot"><span class="annottext">toQuery :: ListJobExecutionsForJob -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJob%27"><span class="hs-identifier hs-type">ListJobExecutionsForJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679824570"><span id="local-6989586621679824571"><span id="local-6989586621679824572"><span id="local-6989586621679824573"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Maybe JobExecutionStatus
 Text
 jobId :: Text
 maxResults :: Maybe Natural
-status :: Maybe JobExecutionStatus
 nextToken :: Maybe Text
+status :: Maybe JobExecutionStatus
 $sel:jobId:ListJobExecutionsForJob' :: ListJobExecutionsForJob -&gt; Text
 $sel:maxResults:ListJobExecutionsForJob' :: ListJobExecutionsForJob -&gt; Maybe Natural
-$sel:status:ListJobExecutionsForJob' :: ListJobExecutionsForJob -&gt; Maybe JobExecutionStatus
 $sel:nextToken:ListJobExecutionsForJob' :: ListJobExecutionsForJob -&gt; Maybe Text
-</span><a href="#local-6989586621679823626"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-168"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+$sel:status:ListJobExecutionsForJob' :: ListJobExecutionsForJob -&gt; Maybe JobExecutionStatus
+</span><a href="#local-6989586621679824570"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-167"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
-</span><span id="line-169"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679823629"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-170"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span id="line-168"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;status&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe JobExecutionStatus -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe JobExecutionStatus
-</span><a href="#local-6989586621679823628"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-171"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679824573"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679824572"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679823627"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
-</span><span id="line-172"></span><span>      </span><span class="hs-special">]</span><span>
-</span><span id="line-173"></span><span>
-</span><span id="line-174"></span><span class="hs-comment">-- | /See:/ 'newListJobExecutionsForJobResponse' smart constructor.</span><span>
-</span><span id="line-175"></span><span id="local-6989586621679823623"><span id="local-6989586621679823624"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListJobExecutionsForJobResponse"><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJobResponse"><span class="hs-identifier hs-var">ListJobExecutionsForJobResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListJobExecutionsForJobResponse%27"><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJobResponse%27"><span class="hs-identifier hs-var">ListJobExecutionsForJobResponse'</span></a></span></span><span>
-</span><span id="line-176"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token for the next set of results, or __null__ if there are no</span><span>
-</span><span id="line-177"></span><span>    </span><span class="hs-comment">-- additional results.</span><span>
-</span><span id="line-178"></span><span>    </span><span id="%24sel%3AnextToken%3AListJobExecutionsForJobResponse%27"><span class="annot"><span class="annottext">ListJobExecutionsForJobResponse -&gt; Maybe Text
-</span><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#%24sel%3AnextToken%3AListJobExecutionsForJobResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-179"></span><span>    </span><span class="hs-comment">-- | A list of job execution summaries.</span><span>
-</span><span id="line-180"></span><span>    </span><span id="%24sel%3AexecutionSummaries%3AListJobExecutionsForJobResponse%27"><span class="annot"><span class="annottext">ListJobExecutionsForJobResponse
+</span><a href="#local-6989586621679824571"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-171"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- | /See:/ 'newListJobExecutionsForJobResponse' smart constructor.</span><span>
+</span><span id="line-174"></span><span id="local-6989586621679824567"><span id="local-6989586621679824568"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListJobExecutionsForJobResponse"><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJobResponse"><span class="hs-identifier hs-var">ListJobExecutionsForJobResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListJobExecutionsForJobResponse%27"><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJobResponse%27"><span class="hs-identifier hs-var">ListJobExecutionsForJobResponse'</span></a></span></span><span>
+</span><span id="line-175"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of job execution summaries.</span><span>
+</span><span id="line-176"></span><span>    </span><span id="%24sel%3AexecutionSummaries%3AListJobExecutionsForJobResponse%27"><span class="annot"><span class="annottext">ListJobExecutionsForJobResponse
 -&gt; Maybe [JobExecutionSummaryForJob]
 </span><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#%24sel%3AexecutionSummaries%3AListJobExecutionsForJobResponse%27"><span class="hs-identifier hs-var hs-var">executionSummaries</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionSummaryForJob.html#JobExecutionSummaryForJob"><span class="hs-identifier hs-type">JobExecutionSummaryForJob</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-181"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
-</span><span id="line-182"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListJobExecutionsForJobResponse%27"><span class="annot"><span class="annottext">ListJobExecutionsForJobResponse -&gt; Int
+</span><span id="line-177"></span><span>    </span><span class="hs-comment">-- | The token for the next set of results, or __null__ if there are no</span><span>
+</span><span id="line-178"></span><span>    </span><span class="hs-comment">-- additional results.</span><span>
+</span><span id="line-179"></span><span>    </span><span id="%24sel%3AnextToken%3AListJobExecutionsForJobResponse%27"><span class="annot"><span class="annottext">ListJobExecutionsForJobResponse -&gt; Maybe Text
+</span><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#%24sel%3AnextToken%3AListJobExecutionsForJobResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-181"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListJobExecutionsForJobResponse%27"><span class="annot"><span class="annottext">ListJobExecutionsForJobResponse -&gt; Int
 </span><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#%24sel%3AhttpStatus%3AListJobExecutionsForJobResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
-</span><span id="line-183"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-184"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679823616"><span id="local-6989586621679823618"><span class="annot"><span class="annottext">ListJobExecutionsForJobResponse
+</span><span id="line-182"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-183"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679824560"><span id="local-6989586621679824562"><span class="annot"><span class="annottext">ListJobExecutionsForJobResponse
 -&gt; ListJobExecutionsForJobResponse -&gt; Bool
 (ListJobExecutionsForJobResponse
  -&gt; ListJobExecutionsForJobResponse -&gt; Bool)
@@ -604,7 +592,7 @@ $c/= :: ListJobExecutionsForJobResponse
 -&gt; ListJobExecutionsForJobResponse -&gt; Bool
 $c== :: ListJobExecutionsForJobResponse
 -&gt; ListJobExecutionsForJobResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679823608"><span id="local-6989586621679823610"><span id="local-6989586621679823612"><span id="local-6989586621679823614"><span class="annot"><span class="annottext">ReadPrec [ListJobExecutionsForJobResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679824552"><span id="local-6989586621679824554"><span id="local-6989586621679824556"><span id="local-6989586621679824558"><span class="annot"><span class="annottext">ReadPrec [ListJobExecutionsForJobResponse]
 ReadPrec ListJobExecutionsForJobResponse
 Int -&gt; ReadS ListJobExecutionsForJobResponse
 ReadS [ListJobExecutionsForJobResponse]
@@ -624,7 +612,7 @@ readList :: ReadS [ListJobExecutionsForJobResponse]
 $creadList :: ReadS [ListJobExecutionsForJobResponse]
 readsPrec :: Int -&gt; ReadS ListJobExecutionsForJobResponse
 $creadsPrec :: Int -&gt; ReadS ListJobExecutionsForJobResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679823602"><span id="local-6989586621679823604"><span id="local-6989586621679823606"><span class="annot"><span class="annottext">Int -&gt; ListJobExecutionsForJobResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679824546"><span id="local-6989586621679824548"><span id="local-6989586621679824550"><span class="annot"><span class="annottext">Int -&gt; ListJobExecutionsForJobResponse -&gt; ShowS
 [ListJobExecutionsForJobResponse] -&gt; ShowS
 ListJobExecutionsForJobResponse -&gt; String
 (Int -&gt; ListJobExecutionsForJobResponse -&gt; ShowS)
@@ -661,72 +649,48 @@ $cfrom :: forall x.
 ListJobExecutionsForJobResponse
 -&gt; Rep ListJobExecutionsForJobResponse x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
-</span><span id="line-185"></span><span>
-</span><span id="line-186"></span><span class="hs-comment">-- |</span><span>
-</span><span id="line-187"></span><span class="hs-comment">-- Create a value of 'ListJobExecutionsForJobResponse' with all optional fields omitted.</span><span>
-</span><span id="line-188"></span><span class="hs-comment">--</span><span>
-</span><span id="line-189"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
-</span><span id="line-190"></span><span class="hs-comment">--</span><span>
-</span><span id="line-191"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
-</span><span id="line-192"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
-</span><span id="line-193"></span><span class="hs-comment">--</span><span>
-</span><span id="line-194"></span><span class="hs-comment">-- 'nextToken', 'listJobExecutionsForJobResponse_nextToken' - The token for the next set of results, or __null__ if there are no</span><span>
-</span><span id="line-195"></span><span class="hs-comment">-- additional results.</span><span>
-</span><span id="line-196"></span><span class="hs-comment">--</span><span>
-</span><span id="line-197"></span><span class="hs-comment">-- 'executionSummaries', 'listJobExecutionsForJobResponse_executionSummaries' - A list of job execution summaries.</span><span>
-</span><span id="line-198"></span><span class="hs-comment">--</span><span>
-</span><span id="line-199"></span><span class="hs-comment">-- 'httpStatus', 'listJobExecutionsForJobResponse_httpStatus' - The response's http status code.</span><span>
-</span><span id="line-200"></span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#newListJobExecutionsForJobResponse"><span class="hs-identifier hs-type">newListJobExecutionsForJobResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
-</span><span id="line-201"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
-</span><span id="line-202"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-203"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJobResponse"><span class="hs-identifier hs-type">ListJobExecutionsForJobResponse</span></a></span><span>
-</span><span id="line-204"></span><span id="newListJobExecutionsForJobResponse"><span class="annot"><span class="annottext">newListJobExecutionsForJobResponse :: Int -&gt; ListJobExecutionsForJobResponse
-</span><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#newListJobExecutionsForJobResponse"><span class="hs-identifier hs-var hs-var">newListJobExecutionsForJobResponse</span></a></span></span><span> </span><span id="local-6989586621679823599"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679823599"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-205"></span><span>  </span><span class="annot"><span class="annottext">ListJobExecutionsForJobResponse' :: Maybe Text
--&gt; Maybe [JobExecutionSummaryForJob]
--&gt; Int
--&gt; ListJobExecutionsForJobResponse
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- Create a value of 'ListJobExecutionsForJobResponse' with all optional fields omitted.</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- 'executionSummaries', 'listJobExecutionsForJobResponse_executionSummaries' - A list of job execution summaries.</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- 'nextToken', 'listJobExecutionsForJobResponse_nextToken' - The token for the next set of results, or __null__ if there are no</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- additional results.</span><span>
+</span><span id="line-197"></span><span class="hs-comment">--</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- 'httpStatus', 'listJobExecutionsForJobResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-199"></span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#newListJobExecutionsForJobResponse"><span class="hs-identifier hs-type">newListJobExecutionsForJobResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-200"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-201"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-202"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJobResponse"><span class="hs-identifier hs-type">ListJobExecutionsForJobResponse</span></a></span><span>
+</span><span id="line-203"></span><span id="newListJobExecutionsForJobResponse"><span class="annot"><span class="annottext">newListJobExecutionsForJobResponse :: Int -&gt; ListJobExecutionsForJobResponse
+</span><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#newListJobExecutionsForJobResponse"><span class="hs-identifier hs-var hs-var">newListJobExecutionsForJobResponse</span></a></span></span><span> </span><span id="local-6989586621679824543"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679824543"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-204"></span><span>  </span><span class="annot"><span class="annottext">ListJobExecutionsForJobResponse' :: Maybe [JobExecutionSummaryForJob]
+-&gt; Maybe Text -&gt; Int -&gt; ListJobExecutionsForJobResponse
 </span><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJobResponse%27"><span class="hs-identifier hs-type">ListJobExecutionsForJobResponse'</span></a></span><span>
-</span><span id="line-206"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListJobExecutionsForJobResponse' :: Maybe Text
-</span><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#%24sel%3AnextToken%3AListJobExecutionsForJobResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-207"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-205"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:executionSummaries:ListJobExecutionsForJobResponse' :: Maybe [JobExecutionSummaryForJob]
+</span><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#%24sel%3AexecutionSummaries%3AListJobExecutionsForJobResponse%27"><span class="hs-identifier hs-var">executionSummaries</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-206"></span><span>        </span><span class="annot"><span class="annottext">Maybe [JobExecutionSummaryForJob]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-208"></span><span>      </span><span class="annot"><span class="annottext">$sel:executionSummaries:ListJobExecutionsForJobResponse' :: Maybe [JobExecutionSummaryForJob]
-</span><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#%24sel%3AexecutionSummaries%3AListJobExecutionsForJobResponse%27"><span class="hs-identifier hs-var">executionSummaries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [JobExecutionSummaryForJob]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-209"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListJobExecutionsForJobResponse' :: Int
-</span><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#%24sel%3AhttpStatus%3AListJobExecutionsForJobResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679823599"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
-</span><span id="line-210"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-211"></span><span>
-</span><span id="line-212"></span><span class="hs-comment">-- | The token for the next set of results, or __null__ if there are no</span><span>
-</span><span id="line-213"></span><span class="hs-comment">-- additional results.</span><span>
-</span><span id="line-214"></span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#listJobExecutionsForJobResponse_nextToken"><span class="hs-identifier hs-type">listJobExecutionsForJobResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJobResponse"><span class="hs-identifier hs-type">ListJobExecutionsForJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-215"></span><span id="listJobExecutionsForJobResponse_nextToken"><span class="annot"><span class="annottext">listJobExecutionsForJobResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ListJobExecutionsForJobResponse
--&gt; f ListJobExecutionsForJobResponse
-</span><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#listJobExecutionsForJobResponse_nextToken"><span class="hs-identifier hs-var hs-var">listJobExecutionsForJobResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListJobExecutionsForJobResponse -&gt; Maybe Text)
--&gt; (ListJobExecutionsForJobResponse
-    -&gt; Maybe Text -&gt; ListJobExecutionsForJobResponse)
--&gt; Lens' ListJobExecutionsForJobResponse (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJobResponse%27"><span class="hs-identifier hs-type">ListJobExecutionsForJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679823598"><span class="annot"><span class="annottext">Maybe Text
-nextToken :: Maybe Text
-$sel:nextToken:ListJobExecutionsForJobResponse' :: ListJobExecutionsForJobResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679823598"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679823598"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679823597"><span class="annot"><span class="annottext">s :: ListJobExecutionsForJobResponse
-</span><a href="#local-6989586621679823597"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJobResponse%27"><span class="hs-identifier hs-type">ListJobExecutionsForJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679823596"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679823596"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobExecutionsForJobResponse
-</span><a href="#local-6989586621679823597"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListJobExecutionsForJobResponse' :: Maybe Text
+</span><span id="line-207"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListJobExecutionsForJobResponse' :: Maybe Text
 </span><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#%24sel%3AnextToken%3AListJobExecutionsForJobResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679823596"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJobResponse"><span class="hs-identifier hs-type">ListJobExecutionsForJobResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-216"></span><span>
-</span><span id="line-217"></span><span class="hs-comment">-- | A list of job execution summaries.</span><span>
-</span><span id="line-218"></span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#listJobExecutionsForJobResponse_executionSummaries"><span class="hs-identifier hs-type">listJobExecutionsForJobResponse_executionSummaries</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJobResponse"><span class="hs-identifier hs-type">ListJobExecutionsForJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionSummaryForJob.html#JobExecutionSummaryForJob"><span class="hs-identifier hs-type">JobExecutionSummaryForJob</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-219"></span><span id="listJobExecutionsForJobResponse_executionSummaries"><span class="annot"><span class="annottext">listJobExecutionsForJobResponse_executionSummaries :: (Maybe [JobExecutionSummaryForJob]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListJobExecutionsForJobResponse' :: Int
+</span><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#%24sel%3AhttpStatus%3AListJobExecutionsForJobResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679824543"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-209"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- | A list of job execution summaries.</span><span>
+</span><span id="line-212"></span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#listJobExecutionsForJobResponse_executionSummaries"><span class="hs-identifier hs-type">listJobExecutionsForJobResponse_executionSummaries</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJobResponse"><span class="hs-identifier hs-type">ListJobExecutionsForJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionSummaryForJob.html#JobExecutionSummaryForJob"><span class="hs-identifier hs-type">JobExecutionSummaryForJob</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span id="listJobExecutionsForJobResponse_executionSummaries"><span class="annot"><span class="annottext">listJobExecutionsForJobResponse_executionSummaries :: (Maybe [JobExecutionSummaryForJob]
  -&gt; f (Maybe [JobExecutionSummaryForJob]))
 -&gt; ListJobExecutionsForJobResponse
 -&gt; f ListJobExecutionsForJobResponse
@@ -738,17 +702,17 @@ $sel:nextToken:ListJobExecutionsForJobResponse' :: ListJobExecutionsForJobRespon
 -&gt; Lens'
      ListJobExecutionsForJobResponse (Maybe [JobExecutionSummaryForJob])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJobResponse%27"><span class="hs-identifier hs-type">ListJobExecutionsForJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679823595"><span class="annot"><span class="annottext">Maybe [JobExecutionSummaryForJob]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJobResponse%27"><span class="hs-identifier hs-type">ListJobExecutionsForJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679824542"><span class="annot"><span class="annottext">Maybe [JobExecutionSummaryForJob]
 executionSummaries :: Maybe [JobExecutionSummaryForJob]
 $sel:executionSummaries:ListJobExecutionsForJobResponse' :: ListJobExecutionsForJobResponse
 -&gt; Maybe [JobExecutionSummaryForJob]
-</span><a href="#local-6989586621679823595"><span class="hs-identifier hs-var hs-var">executionSummaries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [JobExecutionSummaryForJob]
-</span><a href="#local-6989586621679823595"><span class="hs-identifier hs-var">executionSummaries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679823594"><span class="annot"><span class="annottext">s :: ListJobExecutionsForJobResponse
-</span><a href="#local-6989586621679823594"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJobResponse%27"><span class="hs-identifier hs-type">ListJobExecutionsForJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679823593"><span class="annot"><span class="annottext">Maybe [JobExecutionSummaryForJob]
-</span><a href="#local-6989586621679823593"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobExecutionsForJobResponse
-</span><a href="#local-6989586621679823594"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:executionSummaries:ListJobExecutionsForJobResponse' :: Maybe [JobExecutionSummaryForJob]
+</span><a href="#local-6989586621679824542"><span class="hs-identifier hs-var hs-var">executionSummaries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [JobExecutionSummaryForJob]
+</span><a href="#local-6989586621679824542"><span class="hs-identifier hs-var">executionSummaries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679824541"><span class="annot"><span class="annottext">s :: ListJobExecutionsForJobResponse
+</span><a href="#local-6989586621679824541"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJobResponse%27"><span class="hs-identifier hs-type">ListJobExecutionsForJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679824540"><span class="annot"><span class="annottext">Maybe [JobExecutionSummaryForJob]
+</span><a href="#local-6989586621679824540"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobExecutionsForJobResponse
+</span><a href="#local-6989586621679824541"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:executionSummaries:ListJobExecutionsForJobResponse' :: Maybe [JobExecutionSummaryForJob]
 </span><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#%24sel%3AexecutionSummaries%3AListJobExecutionsForJobResponse%27"><span class="hs-identifier hs-var">executionSummaries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [JobExecutionSummaryForJob]
-</span><a href="#local-6989586621679823593"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJobResponse"><span class="hs-identifier hs-type">ListJobExecutionsForJobResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [JobExecutionSummaryForJob]
+</span><a href="#local-6989586621679824540"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJobResponse"><span class="hs-identifier hs-type">ListJobExecutionsForJobResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [JobExecutionSummaryForJob]
   -&gt; f (Maybe [JobExecutionSummaryForJob]))
  -&gt; ListJobExecutionsForJobResponse
  -&gt; f ListJobExecutionsForJobResponse)
@@ -779,12 +743,34 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [JobExecutionSummaryForJob]
   [JobExecutionSummaryForJob]
   [JobExecutionSummaryForJob]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-220"></span><span>
-</span><span id="line-221"></span><span class="hs-comment">-- | The response's http status code.</span><span>
-</span><span id="line-222"></span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#listJobExecutionsForJobResponse_httpStatus"><span class="hs-identifier hs-type">listJobExecutionsForJobResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJobResponse"><span class="hs-identifier hs-type">ListJobExecutionsForJobResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
-</span><span id="line-223"></span><span id="listJobExecutionsForJobResponse_httpStatus"><span class="annot"><span class="annottext">listJobExecutionsForJobResponse_httpStatus :: (Int -&gt; f Int)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-214"></span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- | The token for the next set of results, or __null__ if there are no</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- additional results.</span><span>
+</span><span id="line-217"></span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#listJobExecutionsForJobResponse_nextToken"><span class="hs-identifier hs-type">listJobExecutionsForJobResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJobResponse"><span class="hs-identifier hs-type">ListJobExecutionsForJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span id="listJobExecutionsForJobResponse_nextToken"><span class="annot"><span class="annottext">listJobExecutionsForJobResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListJobExecutionsForJobResponse
+-&gt; f ListJobExecutionsForJobResponse
+</span><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#listJobExecutionsForJobResponse_nextToken"><span class="hs-identifier hs-var hs-var">listJobExecutionsForJobResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListJobExecutionsForJobResponse -&gt; Maybe Text)
+-&gt; (ListJobExecutionsForJobResponse
+    -&gt; Maybe Text -&gt; ListJobExecutionsForJobResponse)
+-&gt; Lens' ListJobExecutionsForJobResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJobResponse%27"><span class="hs-identifier hs-type">ListJobExecutionsForJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679824537"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListJobExecutionsForJobResponse' :: ListJobExecutionsForJobResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679824537"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679824537"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679824536"><span class="annot"><span class="annottext">s :: ListJobExecutionsForJobResponse
+</span><a href="#local-6989586621679824536"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJobResponse%27"><span class="hs-identifier hs-type">ListJobExecutionsForJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679824535"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679824535"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobExecutionsForJobResponse
+</span><a href="#local-6989586621679824536"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListJobExecutionsForJobResponse' :: Maybe Text
+</span><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#%24sel%3AnextToken%3AListJobExecutionsForJobResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679824535"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJobResponse"><span class="hs-identifier hs-type">ListJobExecutionsForJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-221"></span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#listJobExecutionsForJobResponse_httpStatus"><span class="hs-identifier hs-type">listJobExecutionsForJobResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJobResponse"><span class="hs-identifier hs-type">ListJobExecutionsForJobResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-222"></span><span id="listJobExecutionsForJobResponse_httpStatus"><span class="annot"><span class="annottext">listJobExecutionsForJobResponse_httpStatus :: (Int -&gt; f Int)
 -&gt; ListJobExecutionsForJobResponse
 -&gt; f ListJobExecutionsForJobResponse
 </span><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#listJobExecutionsForJobResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listJobExecutionsForJobResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListJobExecutionsForJobResponse -&gt; Int)
@@ -796,18 +782,18 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJobResponse%27"><span class="hs-identifier hs-type">ListJobExecutionsForJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679823590"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJobResponse%27"><span class="hs-identifier hs-type">ListJobExecutionsForJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679824534"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListJobExecutionsForJobResponse' :: ListJobExecutionsForJobResponse -&gt; Int
-</span><a href="#local-6989586621679823590"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679823590"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679823589"><span class="annot"><span class="annottext">s :: ListJobExecutionsForJobResponse
-</span><a href="#local-6989586621679823589"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJobResponse%27"><span class="hs-identifier hs-type">ListJobExecutionsForJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679823588"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679823588"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobExecutionsForJobResponse
-</span><a href="#local-6989586621679823589"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListJobExecutionsForJobResponse' :: Int
+</span><a href="#local-6989586621679824534"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679824534"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679824533"><span class="annot"><span class="annottext">s :: ListJobExecutionsForJobResponse
+</span><a href="#local-6989586621679824533"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJobResponse%27"><span class="hs-identifier hs-type">ListJobExecutionsForJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679824532"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679824532"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobExecutionsForJobResponse
+</span><a href="#local-6989586621679824533"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListJobExecutionsForJobResponse' :: Int
 </span><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#%24sel%3AhttpStatus%3AListJobExecutionsForJobResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679823588"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJobResponse"><span class="hs-identifier hs-type">ListJobExecutionsForJobResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-224"></span><span>
-</span><span id="line-225"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-226"></span><span>  </span><span id="local-6989586621679823586"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
-</span><span id="line-227"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJobResponse"><span class="hs-identifier hs-type">ListJobExecutionsForJobResponse</span></a></span></span><span>
-</span><span id="line-228"></span></pre></body></html>
+</span><a href="#local-6989586621679824532"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJobResponse"><span class="hs-identifier hs-type">ListJobExecutionsForJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-225"></span><span>  </span><span id="local-6989586621679824530"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-226"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.ListJobExecutionsForJob.html#ListJobExecutionsForJobResponse"><span class="hs-identifier hs-type">ListJobExecutionsForJobResponse</span></a></span></span><span>
+</span><span id="line-227"></span></pre></body></html>

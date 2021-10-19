@@ -28,19 +28,19 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | A Microsoft Smooth Streaming (MSS) packaging configuration.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newMssPackage' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679238956"><span id="local-6989586621679238957"></span></span><span class="hs-keyword">data</span><span> </span><span id="MssPackage"><span class="annot"><a href="Network.AWS.MediaPackage.Types.MssPackage.html#MssPackage"><span class="hs-identifier hs-var">MssPackage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MssPackage%27"><span class="annot"><a href="Network.AWS.MediaPackage.Types.MssPackage.html#MssPackage%27"><span class="hs-identifier hs-var">MssPackage'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AstreamSelection%3AMssPackage%27"><span class="annot"><span class="annottext">MssPackage -&gt; Maybe StreamSelection
+</span><span id="line-31"></span><span id="local-6989586621679239085"><span id="local-6989586621679239086"></span></span><span class="hs-keyword">data</span><span> </span><span id="MssPackage"><span class="annot"><a href="Network.AWS.MediaPackage.Types.MssPackage.html#MssPackage"><span class="hs-identifier hs-var">MssPackage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MssPackage%27"><span class="annot"><a href="Network.AWS.MediaPackage.Types.MssPackage.html#MssPackage%27"><span class="hs-identifier hs-var">MssPackage'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The duration (in seconds) of each segment.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AsegmentDurationSeconds%3AMssPackage%27"><span class="annot"><span class="annottext">MssPackage -&gt; Maybe Int
+</span><a href="Network.AWS.MediaPackage.Types.MssPackage.html#%24sel%3AsegmentDurationSeconds%3AMssPackage%27"><span class="hs-identifier hs-var hs-var">segmentDurationSeconds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AstreamSelection%3AMssPackage%27"><span class="annot"><span class="annottext">MssPackage -&gt; Maybe StreamSelection
 </span><a href="Network.AWS.MediaPackage.Types.MssPackage.html#%24sel%3AstreamSelection%3AMssPackage%27"><span class="hs-identifier hs-var hs-var">streamSelection</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.StreamSelection.html#StreamSelection"><span class="hs-identifier hs-type">StreamSelection</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The time window (in seconds) contained in each manifest.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AmanifestWindowSeconds%3AMssPackage%27"><span class="annot"><span class="annottext">MssPackage -&gt; Maybe Int
-</span><a href="Network.AWS.MediaPackage.Types.MssPackage.html#%24sel%3AmanifestWindowSeconds%3AMssPackage%27"><span class="hs-identifier hs-var hs-var">manifestWindowSeconds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3Aencryption%3AMssPackage%27"><span class="annot"><span class="annottext">MssPackage -&gt; Maybe MssEncryption
 </span><a href="Network.AWS.MediaPackage.Types.MssPackage.html#%24sel%3Aencryption%3AMssPackage%27"><span class="hs-identifier hs-var hs-var">encryption</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.MssEncryption.html#MssEncryption"><span class="hs-identifier hs-type">MssEncryption</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The duration (in seconds) of each segment.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AsegmentDurationSeconds%3AMssPackage%27"><span class="annot"><span class="annottext">MssPackage -&gt; Maybe Int
-</span><a href="Network.AWS.MediaPackage.Types.MssPackage.html#%24sel%3AsegmentDurationSeconds%3AMssPackage%27"><span class="hs-identifier hs-var hs-var">segmentDurationSeconds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The time window (in seconds) contained in each manifest.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AmanifestWindowSeconds%3AMssPackage%27"><span class="annot"><span class="annottext">MssPackage -&gt; Maybe Int
+</span><a href="Network.AWS.MediaPackage.Types.MssPackage.html#%24sel%3AmanifestWindowSeconds%3AMssPackage%27"><span class="hs-identifier hs-var hs-var">manifestWindowSeconds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679238947"><span id="local-6989586621679238949"><span class="annot"><span class="annottext">MssPackage -&gt; MssPackage -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679239076"><span id="local-6989586621679239078"><span class="annot"><span class="annottext">MssPackage -&gt; MssPackage -&gt; Bool
 (MssPackage -&gt; MssPackage -&gt; Bool)
 -&gt; (MssPackage -&gt; MssPackage -&gt; Bool) -&gt; Eq MssPackage
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -48,7 +48,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: MssPackage -&gt; MssPackage -&gt; Bool
 == :: MssPackage -&gt; MssPackage -&gt; Bool
 $c== :: MssPackage -&gt; MssPackage -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679238938"><span id="local-6989586621679238940"><span id="local-6989586621679238942"><span id="local-6989586621679238944"><span class="annot"><span class="annottext">ReadPrec [MssPackage]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679239067"><span id="local-6989586621679239069"><span id="local-6989586621679239071"><span id="local-6989586621679239073"><span class="annot"><span class="annottext">ReadPrec [MssPackage]
 ReadPrec MssPackage
 Int -&gt; ReadS MssPackage
 ReadS [MssPackage]
@@ -68,7 +68,7 @@ readList :: ReadS [MssPackage]
 $creadList :: ReadS [MssPackage]
 readsPrec :: Int -&gt; ReadS MssPackage
 $creadsPrec :: Int -&gt; ReadS MssPackage
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679238931"><span id="local-6989586621679238933"><span id="local-6989586621679238935"><span class="annot"><span class="annottext">Int -&gt; MssPackage -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679239060"><span id="local-6989586621679239062"><span id="local-6989586621679239064"><span class="annot"><span class="annottext">Int -&gt; MssPackage -&gt; ShowS
 [MssPackage] -&gt; ShowS
 MssPackage -&gt; String
 (Int -&gt; MssPackage -&gt; ShowS)
@@ -101,41 +101,63 @@ $cfrom :: forall x. MssPackage -&gt; Rep MssPackage x
 </span><span id="line-46"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-47"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-48"></span><span class="hs-comment">--</span><span>
-</span><span id="line-49"></span><span class="hs-comment">-- 'streamSelection', 'mssPackage_streamSelection' - Undocumented member.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'segmentDurationSeconds', 'mssPackage_segmentDurationSeconds' - The duration (in seconds) of each segment.</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
-</span><span id="line-51"></span><span class="hs-comment">-- 'manifestWindowSeconds', 'mssPackage_manifestWindowSeconds' - The time window (in seconds) contained in each manifest.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'streamSelection', 'mssPackage_streamSelection' - Undocumented member.</span><span>
 </span><span id="line-52"></span><span class="hs-comment">--</span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- 'encryption', 'mssPackage_encryption' - Undocumented member.</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- 'segmentDurationSeconds', 'mssPackage_segmentDurationSeconds' - The duration (in seconds) of each segment.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'manifestWindowSeconds', 'mssPackage_manifestWindowSeconds' - The time window (in seconds) contained in each manifest.</span><span>
 </span><span id="line-56"></span><span class="annot"><a href="Network.AWS.MediaPackage.Types.MssPackage.html#newMssPackage"><span class="hs-identifier hs-type">newMssPackage</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-57"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.MssPackage.html#MssPackage"><span class="hs-identifier hs-type">MssPackage</span></a></span><span>
 </span><span id="line-58"></span><span id="newMssPackage"><span class="annot"><span class="annottext">newMssPackage :: MssPackage
 </span><a href="Network.AWS.MediaPackage.Types.MssPackage.html#newMssPackage"><span class="hs-identifier hs-var hs-var">newMssPackage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-59"></span><span>  </span><span class="annot"><span class="annottext">MssPackage' :: Maybe StreamSelection
--&gt; Maybe Int -&gt; Maybe MssEncryption -&gt; Maybe Int -&gt; MssPackage
+</span><span id="line-59"></span><span>  </span><span class="annot"><span class="annottext">MssPackage' :: Maybe Int
+-&gt; Maybe StreamSelection
+-&gt; Maybe MssEncryption
+-&gt; Maybe Int
+-&gt; MssPackage
 </span><a href="Network.AWS.MediaPackage.Types.MssPackage.html#MssPackage%27"><span class="hs-identifier hs-type">MssPackage'</span></a></span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:streamSelection:MssPackage' :: Maybe StreamSelection
+</span><span id="line-60"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:segmentDurationSeconds:MssPackage' :: Maybe Int
+</span><a href="Network.AWS.MediaPackage.Types.MssPackage.html#%24sel%3AsegmentDurationSeconds%3AMssPackage%27"><span class="hs-identifier hs-var">segmentDurationSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-61"></span><span>        </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:streamSelection:MssPackage' :: Maybe StreamSelection
 </span><a href="Network.AWS.MediaPackage.Types.MssPackage.html#%24sel%3AstreamSelection%3AMssPackage%27"><span class="hs-identifier hs-var">streamSelection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StreamSelection
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:manifestWindowSeconds:MssPackage' :: Maybe Int
-</span><a href="Network.AWS.MediaPackage.Types.MssPackage.html#%24sel%3AmanifestWindowSeconds%3AMssPackage%27"><span class="hs-identifier hs-var">manifestWindowSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:encryption:MssPackage' :: Maybe MssEncryption
+</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:encryption:MssPackage' :: Maybe MssEncryption
 </span><a href="Network.AWS.MediaPackage.Types.MssPackage.html#%24sel%3Aencryption%3AMssPackage%27"><span class="hs-identifier hs-var">encryption</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MssEncryption
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:segmentDurationSeconds:MssPackage' :: Maybe Int
-</span><a href="Network.AWS.MediaPackage.Types.MssPackage.html#%24sel%3AsegmentDurationSeconds%3AMssPackage%27"><span class="hs-identifier hs-var">segmentDurationSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:manifestWindowSeconds:MssPackage' :: Maybe Int
+</span><a href="Network.AWS.MediaPackage.Types.MssPackage.html#%24sel%3AmanifestWindowSeconds%3AMssPackage%27"><span class="hs-identifier hs-var">manifestWindowSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- | Undocumented member.</span><span>
-</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.MediaPackage.Types.MssPackage.html#mssPackage_streamSelection"><span class="hs-identifier hs-type">mssPackage_streamSelection</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.MssPackage.html#MssPackage"><span class="hs-identifier hs-type">MssPackage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.StreamSelection.html#StreamSelection"><span class="hs-identifier hs-type">StreamSelection</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-68"></span><span id="mssPackage_streamSelection"><span class="annot"><span class="annottext">mssPackage_streamSelection :: (Maybe StreamSelection -&gt; f (Maybe StreamSelection))
+</span><span id="line-65"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- | The duration (in seconds) of each segment.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.MediaPackage.Types.MssPackage.html#mssPackage_segmentDurationSeconds"><span class="hs-identifier hs-type">mssPackage_segmentDurationSeconds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.MssPackage.html#MssPackage"><span class="hs-identifier hs-type">MssPackage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span id="mssPackage_segmentDurationSeconds"><span class="annot"><span class="annottext">mssPackage_segmentDurationSeconds :: (Maybe Int -&gt; f (Maybe Int)) -&gt; MssPackage -&gt; f MssPackage
+</span><a href="Network.AWS.MediaPackage.Types.MssPackage.html#mssPackage_segmentDurationSeconds"><span class="hs-identifier hs-var hs-var">mssPackage_segmentDurationSeconds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MssPackage -&gt; Maybe Int)
+-&gt; (MssPackage -&gt; Maybe Int -&gt; MssPackage)
+-&gt; Lens MssPackage MssPackage (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.MssPackage.html#MssPackage%27"><span class="hs-identifier hs-type">MssPackage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239051"><span class="annot"><span class="annottext">Maybe Int
+segmentDurationSeconds :: Maybe Int
+$sel:segmentDurationSeconds:MssPackage' :: MssPackage -&gt; Maybe Int
+</span><a href="#local-6989586621679239051"><span class="hs-identifier hs-var hs-var">segmentDurationSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679239051"><span class="hs-identifier hs-var">segmentDurationSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239050"><span class="annot"><span class="annottext">s :: MssPackage
+</span><a href="#local-6989586621679239050"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.MssPackage.html#MssPackage%27"><span class="hs-identifier hs-type">MssPackage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239049"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679239049"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MssPackage
+</span><a href="#local-6989586621679239050"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:segmentDurationSeconds:MssPackage' :: Maybe Int
+</span><a href="Network.AWS.MediaPackage.Types.MssPackage.html#%24sel%3AsegmentDurationSeconds%3AMssPackage%27"><span class="hs-identifier hs-var">segmentDurationSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679239049"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.MssPackage.html#MssPackage"><span class="hs-identifier hs-type">MssPackage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.MediaPackage.Types.MssPackage.html#mssPackage_streamSelection"><span class="hs-identifier hs-type">mssPackage_streamSelection</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.MssPackage.html#MssPackage"><span class="hs-identifier hs-type">MssPackage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.StreamSelection.html#StreamSelection"><span class="hs-identifier hs-type">StreamSelection</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span id="mssPackage_streamSelection"><span class="annot"><span class="annottext">mssPackage_streamSelection :: (Maybe StreamSelection -&gt; f (Maybe StreamSelection))
 -&gt; MssPackage -&gt; f MssPackage
 </span><a href="Network.AWS.MediaPackage.Types.MssPackage.html#mssPackage_streamSelection"><span class="hs-identifier hs-var hs-var">mssPackage_streamSelection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MssPackage -&gt; Maybe StreamSelection)
 -&gt; (MssPackage -&gt; Maybe StreamSelection -&gt; MssPackage)
@@ -145,180 +167,170 @@ forall a. Maybe a
      (Maybe StreamSelection)
      (Maybe StreamSelection)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.MssPackage.html#MssPackage%27"><span class="hs-identifier hs-type">MssPackage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679238922"><span class="annot"><span class="annottext">Maybe StreamSelection
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.MssPackage.html#MssPackage%27"><span class="hs-identifier hs-type">MssPackage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239047"><span class="annot"><span class="annottext">Maybe StreamSelection
 streamSelection :: Maybe StreamSelection
 $sel:streamSelection:MssPackage' :: MssPackage -&gt; Maybe StreamSelection
-</span><a href="#local-6989586621679238922"><span class="hs-identifier hs-var hs-var">streamSelection</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StreamSelection
-</span><a href="#local-6989586621679238922"><span class="hs-identifier hs-var">streamSelection</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679238921"><span class="annot"><span class="annottext">s :: MssPackage
-</span><a href="#local-6989586621679238921"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.MssPackage.html#MssPackage%27"><span class="hs-identifier hs-type">MssPackage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679238920"><span class="annot"><span class="annottext">Maybe StreamSelection
-</span><a href="#local-6989586621679238920"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MssPackage
-</span><a href="#local-6989586621679238921"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamSelection:MssPackage' :: Maybe StreamSelection
+</span><a href="#local-6989586621679239047"><span class="hs-identifier hs-var hs-var">streamSelection</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StreamSelection
+</span><a href="#local-6989586621679239047"><span class="hs-identifier hs-var">streamSelection</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239046"><span class="annot"><span class="annottext">s :: MssPackage
+</span><a href="#local-6989586621679239046"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.MssPackage.html#MssPackage%27"><span class="hs-identifier hs-type">MssPackage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239045"><span class="annot"><span class="annottext">Maybe StreamSelection
+</span><a href="#local-6989586621679239045"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MssPackage
+</span><a href="#local-6989586621679239046"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamSelection:MssPackage' :: Maybe StreamSelection
 </span><a href="Network.AWS.MediaPackage.Types.MssPackage.html#%24sel%3AstreamSelection%3AMssPackage%27"><span class="hs-identifier hs-var">streamSelection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StreamSelection
-</span><a href="#local-6989586621679238920"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.MssPackage.html#MssPackage"><span class="hs-identifier hs-type">MssPackage</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- | The time window (in seconds) contained in each manifest.</span><span>
-</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.MediaPackage.Types.MssPackage.html#mssPackage_manifestWindowSeconds"><span class="hs-identifier hs-type">mssPackage_manifestWindowSeconds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.MssPackage.html#MssPackage"><span class="hs-identifier hs-type">MssPackage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-72"></span><span id="mssPackage_manifestWindowSeconds"><span class="annot"><span class="annottext">mssPackage_manifestWindowSeconds :: (Maybe Int -&gt; f (Maybe Int)) -&gt; MssPackage -&gt; f MssPackage
-</span><a href="Network.AWS.MediaPackage.Types.MssPackage.html#mssPackage_manifestWindowSeconds"><span class="hs-identifier hs-var hs-var">mssPackage_manifestWindowSeconds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MssPackage -&gt; Maybe Int)
--&gt; (MssPackage -&gt; Maybe Int -&gt; MssPackage)
--&gt; Lens MssPackage MssPackage (Maybe Int) (Maybe Int)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.MssPackage.html#MssPackage%27"><span class="hs-identifier hs-type">MssPackage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679238918"><span class="annot"><span class="annottext">Maybe Int
-manifestWindowSeconds :: Maybe Int
-$sel:manifestWindowSeconds:MssPackage' :: MssPackage -&gt; Maybe Int
-</span><a href="#local-6989586621679238918"><span class="hs-identifier hs-var hs-var">manifestWindowSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679238918"><span class="hs-identifier hs-var">manifestWindowSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679238917"><span class="annot"><span class="annottext">s :: MssPackage
-</span><a href="#local-6989586621679238917"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.MssPackage.html#MssPackage%27"><span class="hs-identifier hs-type">MssPackage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679238916"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679238916"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MssPackage
-</span><a href="#local-6989586621679238917"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:manifestWindowSeconds:MssPackage' :: Maybe Int
-</span><a href="Network.AWS.MediaPackage.Types.MssPackage.html#%24sel%3AmanifestWindowSeconds%3AMssPackage%27"><span class="hs-identifier hs-var">manifestWindowSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679238916"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.MssPackage.html#MssPackage"><span class="hs-identifier hs-type">MssPackage</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- | Undocumented member.</span><span>
-</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.MediaPackage.Types.MssPackage.html#mssPackage_encryption"><span class="hs-identifier hs-type">mssPackage_encryption</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.MssPackage.html#MssPackage"><span class="hs-identifier hs-type">MssPackage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.MssEncryption.html#MssEncryption"><span class="hs-identifier hs-type">MssEncryption</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-76"></span><span id="mssPackage_encryption"><span class="annot"><span class="annottext">mssPackage_encryption :: (Maybe MssEncryption -&gt; f (Maybe MssEncryption))
+</span><a href="#local-6989586621679239045"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.MssPackage.html#MssPackage"><span class="hs-identifier hs-type">MssPackage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.MediaPackage.Types.MssPackage.html#mssPackage_encryption"><span class="hs-identifier hs-type">mssPackage_encryption</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.MssPackage.html#MssPackage"><span class="hs-identifier hs-type">MssPackage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.MssEncryption.html#MssEncryption"><span class="hs-identifier hs-type">MssEncryption</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span id="mssPackage_encryption"><span class="annot"><span class="annottext">mssPackage_encryption :: (Maybe MssEncryption -&gt; f (Maybe MssEncryption))
 -&gt; MssPackage -&gt; f MssPackage
 </span><a href="Network.AWS.MediaPackage.Types.MssPackage.html#mssPackage_encryption"><span class="hs-identifier hs-var hs-var">mssPackage_encryption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MssPackage -&gt; Maybe MssEncryption)
 -&gt; (MssPackage -&gt; Maybe MssEncryption -&gt; MssPackage)
 -&gt; Lens
      MssPackage MssPackage (Maybe MssEncryption) (Maybe MssEncryption)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.MssPackage.html#MssPackage%27"><span class="hs-identifier hs-type">MssPackage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679238914"><span class="annot"><span class="annottext">Maybe MssEncryption
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.MssPackage.html#MssPackage%27"><span class="hs-identifier hs-type">MssPackage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239043"><span class="annot"><span class="annottext">Maybe MssEncryption
 encryption :: Maybe MssEncryption
 $sel:encryption:MssPackage' :: MssPackage -&gt; Maybe MssEncryption
-</span><a href="#local-6989586621679238914"><span class="hs-identifier hs-var hs-var">encryption</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MssEncryption
-</span><a href="#local-6989586621679238914"><span class="hs-identifier hs-var">encryption</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679238913"><span class="annot"><span class="annottext">s :: MssPackage
-</span><a href="#local-6989586621679238913"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.MssPackage.html#MssPackage%27"><span class="hs-identifier hs-type">MssPackage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679238912"><span class="annot"><span class="annottext">Maybe MssEncryption
-</span><a href="#local-6989586621679238912"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MssPackage
-</span><a href="#local-6989586621679238913"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryption:MssPackage' :: Maybe MssEncryption
+</span><a href="#local-6989586621679239043"><span class="hs-identifier hs-var hs-var">encryption</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MssEncryption
+</span><a href="#local-6989586621679239043"><span class="hs-identifier hs-var">encryption</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239042"><span class="annot"><span class="annottext">s :: MssPackage
+</span><a href="#local-6989586621679239042"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.MssPackage.html#MssPackage%27"><span class="hs-identifier hs-type">MssPackage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239041"><span class="annot"><span class="annottext">Maybe MssEncryption
+</span><a href="#local-6989586621679239041"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MssPackage
+</span><a href="#local-6989586621679239042"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryption:MssPackage' :: Maybe MssEncryption
 </span><a href="Network.AWS.MediaPackage.Types.MssPackage.html#%24sel%3Aencryption%3AMssPackage%27"><span class="hs-identifier hs-var">encryption</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MssEncryption
-</span><a href="#local-6989586621679238912"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.MssPackage.html#MssPackage"><span class="hs-identifier hs-type">MssPackage</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- | The duration (in seconds) of each segment.</span><span>
-</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.MediaPackage.Types.MssPackage.html#mssPackage_segmentDurationSeconds"><span class="hs-identifier hs-type">mssPackage_segmentDurationSeconds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.MssPackage.html#MssPackage"><span class="hs-identifier hs-type">MssPackage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-80"></span><span id="mssPackage_segmentDurationSeconds"><span class="annot"><span class="annottext">mssPackage_segmentDurationSeconds :: (Maybe Int -&gt; f (Maybe Int)) -&gt; MssPackage -&gt; f MssPackage
-</span><a href="Network.AWS.MediaPackage.Types.MssPackage.html#mssPackage_segmentDurationSeconds"><span class="hs-identifier hs-var hs-var">mssPackage_segmentDurationSeconds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MssPackage -&gt; Maybe Int)
+</span><a href="#local-6989586621679239041"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.MssPackage.html#MssPackage"><span class="hs-identifier hs-type">MssPackage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | The time window (in seconds) contained in each manifest.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.MediaPackage.Types.MssPackage.html#mssPackage_manifestWindowSeconds"><span class="hs-identifier hs-type">mssPackage_manifestWindowSeconds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.MssPackage.html#MssPackage"><span class="hs-identifier hs-type">MssPackage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span id="mssPackage_manifestWindowSeconds"><span class="annot"><span class="annottext">mssPackage_manifestWindowSeconds :: (Maybe Int -&gt; f (Maybe Int)) -&gt; MssPackage -&gt; f MssPackage
+</span><a href="Network.AWS.MediaPackage.Types.MssPackage.html#mssPackage_manifestWindowSeconds"><span class="hs-identifier hs-var hs-var">mssPackage_manifestWindowSeconds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MssPackage -&gt; Maybe Int)
 -&gt; (MssPackage -&gt; Maybe Int -&gt; MssPackage)
 -&gt; Lens MssPackage MssPackage (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.MssPackage.html#MssPackage%27"><span class="hs-identifier hs-type">MssPackage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679238910"><span class="annot"><span class="annottext">Maybe Int
-segmentDurationSeconds :: Maybe Int
-$sel:segmentDurationSeconds:MssPackage' :: MssPackage -&gt; Maybe Int
-</span><a href="#local-6989586621679238910"><span class="hs-identifier hs-var hs-var">segmentDurationSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679238910"><span class="hs-identifier hs-var">segmentDurationSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679238909"><span class="annot"><span class="annottext">s :: MssPackage
-</span><a href="#local-6989586621679238909"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.MssPackage.html#MssPackage%27"><span class="hs-identifier hs-type">MssPackage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679238908"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679238908"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MssPackage
-</span><a href="#local-6989586621679238909"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:segmentDurationSeconds:MssPackage' :: Maybe Int
-</span><a href="Network.AWS.MediaPackage.Types.MssPackage.html#%24sel%3AsegmentDurationSeconds%3AMssPackage%27"><span class="hs-identifier hs-var">segmentDurationSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679238908"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.MssPackage.html#MssPackage"><span class="hs-identifier hs-type">MssPackage</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679238905"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.MssPackage.html#MssPackage"><span class="hs-identifier hs-type">MssPackage</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679238903"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MssPackage
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.MssPackage.html#MssPackage%27"><span class="hs-identifier hs-type">MssPackage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239039"><span class="annot"><span class="annottext">Maybe Int
+manifestWindowSeconds :: Maybe Int
+$sel:manifestWindowSeconds:MssPackage' :: MssPackage -&gt; Maybe Int
+</span><a href="#local-6989586621679239039"><span class="hs-identifier hs-var hs-var">manifestWindowSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679239039"><span class="hs-identifier hs-var">manifestWindowSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239038"><span class="annot"><span class="annottext">s :: MssPackage
+</span><a href="#local-6989586621679239038"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.MssPackage.html#MssPackage%27"><span class="hs-identifier hs-type">MssPackage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239037"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679239037"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MssPackage
+</span><a href="#local-6989586621679239038"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:manifestWindowSeconds:MssPackage' :: Maybe Int
+</span><a href="Network.AWS.MediaPackage.Types.MssPackage.html#%24sel%3AmanifestWindowSeconds%3AMssPackage%27"><span class="hs-identifier hs-var">manifestWindowSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679239037"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.MssPackage.html#MssPackage"><span class="hs-identifier hs-type">MssPackage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679239034"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.MssPackage.html#MssPackage"><span class="hs-identifier hs-type">MssPackage</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679239032"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MssPackage
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">String
+</span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser MssPackage) -&gt; Value -&gt; Parser MssPackage
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
-</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;MssPackage&quot;</span></span><span>
-</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679238900"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679238900"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-87"></span><span>          </span><span class="annot"><span class="annottext">Maybe StreamSelection
--&gt; Maybe Int -&gt; Maybe MssEncryption -&gt; Maybe Int -&gt; MssPackage
+</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679239029"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679239029"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int
+-&gt; Maybe StreamSelection
+-&gt; Maybe MssEncryption
+-&gt; Maybe Int
+-&gt; MssPackage
 </span><a href="Network.AWS.MediaPackage.Types.MssPackage.html#MssPackage%27"><span class="hs-identifier hs-var">MssPackage'</span></a></span><span>
-</span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">(Maybe StreamSelection
- -&gt; Maybe Int -&gt; Maybe MssEncryption -&gt; Maybe Int -&gt; MssPackage)
--&gt; Parser (Maybe StreamSelection)
+</span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Int
+ -&gt; Maybe StreamSelection
+ -&gt; Maybe MssEncryption
+ -&gt; Maybe Int
+ -&gt; MssPackage)
+-&gt; Parser (Maybe Int)
 -&gt; Parser
-     (Maybe Int -&gt; Maybe MssEncryption -&gt; Maybe Int -&gt; MssPackage)
+     (Maybe StreamSelection
+      -&gt; Maybe MssEncryption -&gt; Maybe Int -&gt; MssPackage)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679238900"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe StreamSelection)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;streamSelection&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Int -&gt; Maybe MssEncryption -&gt; Maybe Int -&gt; MssPackage)
--&gt; Parser (Maybe Int)
--&gt; Parser (Maybe MssEncryption -&gt; Maybe Int -&gt; MssPackage)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679238900"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;manifestWindowSeconds&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe MssEncryption -&gt; Maybe Int -&gt; MssPackage)
--&gt; Parser (Maybe MssEncryption) -&gt; Parser (Maybe Int -&gt; MssPackage)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679238900"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MssEncryption)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;encryption&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Int -&gt; MssPackage)
--&gt; Parser (Maybe Int) -&gt; Parser MssPackage
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679238900"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679239029"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;segmentDurationSeconds&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-92"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679238894"><span id="local-6989586621679238896"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.MssPackage.html#MssPackage"><span class="hs-identifier hs-type">MssPackage</span></a></span></span></span><span>
-</span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679238891"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.MssPackage.html#MssPackage"><span class="hs-identifier hs-type">MssPackage</span></a></span></span><span>
-</span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679238883"><span id="local-6989586621679238885"><span id="local-6989586621679238887"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.MssPackage.html#MssPackage"><span class="hs-identifier hs-type">MssPackage</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679238881"><span class="annot"><span class="annottext">toJSON :: MssPackage -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.MssPackage.html#MssPackage%27"><span class="hs-identifier hs-type">MssPackage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679238876"><span id="local-6989586621679238877"><span id="local-6989586621679238878"><span id="local-6989586621679238879"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe StreamSelection
+   -&gt; Maybe MssEncryption -&gt; Maybe Int -&gt; MssPackage)
+-&gt; Parser (Maybe StreamSelection)
+-&gt; Parser (Maybe MssEncryption -&gt; Maybe Int -&gt; MssPackage)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679239029"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe StreamSelection)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;streamSelection&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe MssEncryption -&gt; Maybe Int -&gt; MssPackage)
+-&gt; Parser (Maybe MssEncryption) -&gt; Parser (Maybe Int -&gt; MssPackage)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679239029"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MssEncryption)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;encryption&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Int -&gt; MssPackage)
+-&gt; Parser (Maybe Int) -&gt; Parser MssPackage
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679239029"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;manifestWindowSeconds&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679239023"><span id="local-6989586621679239025"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.MssPackage.html#MssPackage"><span class="hs-identifier hs-type">MssPackage</span></a></span></span></span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679239020"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.MssPackage.html#MssPackage"><span class="hs-identifier hs-type">MssPackage</span></a></span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679239012"><span id="local-6989586621679239014"><span id="local-6989586621679239016"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.MssPackage.html#MssPackage"><span class="hs-identifier hs-type">MssPackage</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679239010"><span class="annot"><span class="annottext">toJSON :: MssPackage -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.Types.MssPackage.html#MssPackage%27"><span class="hs-identifier hs-type">MssPackage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239005"><span id="local-6989586621679239006"><span id="local-6989586621679239007"><span id="local-6989586621679239008"><span class="annot"><span class="annottext">Maybe Int
 Maybe MssEncryption
 Maybe StreamSelection
-segmentDurationSeconds :: Maybe Int
-encryption :: Maybe MssEncryption
 manifestWindowSeconds :: Maybe Int
+encryption :: Maybe MssEncryption
 streamSelection :: Maybe StreamSelection
-$sel:segmentDurationSeconds:MssPackage' :: MssPackage -&gt; Maybe Int
-$sel:encryption:MssPackage' :: MssPackage -&gt; Maybe MssEncryption
+segmentDurationSeconds :: Maybe Int
 $sel:manifestWindowSeconds:MssPackage' :: MssPackage -&gt; Maybe Int
+$sel:encryption:MssPackage' :: MssPackage -&gt; Maybe MssEncryption
 $sel:streamSelection:MssPackage' :: MssPackage -&gt; Maybe StreamSelection
-</span><a href="#local-6989586621679238876"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+$sel:segmentDurationSeconds:MssPackage' :: MssPackage -&gt; Maybe Int
+</span><a href="#local-6989586621679239005"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
-</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
-</span><span id="line-102"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span id="line-103"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;segmentDurationSeconds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>              </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679239008"><span class="hs-identifier hs-var">segmentDurationSeconds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;streamSelection&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; StreamSelection -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-103"></span><span>              </span><span class="annot"><span class="annottext">(StreamSelection -&gt; Pair) -&gt; Maybe StreamSelection -&gt; Maybe Pair
+</span><span id="line-106"></span><span>              </span><span class="annot"><span class="annottext">(StreamSelection -&gt; Pair) -&gt; Maybe StreamSelection -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe StreamSelection
-</span><a href="#local-6989586621679238879"><span class="hs-identifier hs-var">streamSelection</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-104"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;manifestWindowSeconds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-105"></span><span>              </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679238878"><span class="hs-identifier hs-var">manifestWindowSeconds</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-106"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679239007"><span class="hs-identifier hs-var">streamSelection</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;encryption&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MssEncryption -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(MssEncryption -&gt; Pair) -&gt; Maybe MssEncryption -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MssEncryption
-</span><a href="#local-6989586621679238877"><span class="hs-identifier hs-var">encryption</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-107"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;segmentDurationSeconds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+</span><a href="#local-6989586621679239006"><span class="hs-identifier hs-var">encryption</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;manifestWindowSeconds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-108"></span><span>              </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+</span><span id="line-109"></span><span>              </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679238876"><span class="hs-identifier hs-var">segmentDurationSeconds</span></a></span><span>
-</span><span id="line-109"></span><span>          </span><span class="hs-special">]</span><span>
-</span><span id="line-110"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-111"></span></pre></body></html>
+</span><a href="#local-6989586621679239005"><span class="hs-identifier hs-var">manifestWindowSeconds</span></a></span><span>
+</span><span id="line-110"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span></pre></body></html>

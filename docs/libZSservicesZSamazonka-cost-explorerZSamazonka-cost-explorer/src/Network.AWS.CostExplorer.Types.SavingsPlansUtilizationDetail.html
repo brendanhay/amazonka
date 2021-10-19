@@ -32,29 +32,29 @@
 </span><span id="line-32"></span><span class="hs-comment">-- possible dimension values.</span><span>
 </span><span id="line-33"></span><span class="hs-comment">--</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newSavingsPlansUtilizationDetail' smart constructor.</span><span>
-</span><span id="line-35"></span><span id="local-6989586621679336918"><span id="local-6989586621679336919"></span></span><span class="hs-keyword">data</span><span> </span><span id="SavingsPlansUtilizationDetail"><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#SavingsPlansUtilizationDetail"><span class="hs-identifier hs-var">SavingsPlansUtilizationDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SavingsPlansUtilizationDetail%27"><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#SavingsPlansUtilizationDetail%27"><span class="hs-identifier hs-var">SavingsPlansUtilizationDetail'</span></a></span></span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The amount saved by using existing Savings Plans. Savings returns both</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- net savings from savings plans as well as the @onDemandCostEquivalent@</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- of the Savings Plans when considering the utilization rate.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3Asavings%3ASavingsPlansUtilizationDetail%27"><span class="annot"><span class="annottext">SavingsPlansUtilizationDetail -&gt; Maybe SavingsPlansSavings
+</span><span id="line-35"></span><span id="local-6989586621679337257"><span id="local-6989586621679337258"></span></span><span class="hs-keyword">data</span><span> </span><span id="SavingsPlansUtilizationDetail"><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#SavingsPlansUtilizationDetail"><span class="hs-identifier hs-var">SavingsPlansUtilizationDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SavingsPlansUtilizationDetail%27"><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#SavingsPlansUtilizationDetail%27"><span class="hs-identifier hs-var">SavingsPlansUtilizationDetail'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The total amortized commitment for a Savings Plans. Includes the sum of</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- the upfront and recurring Savings Plans fees.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AamortizedCommitment%3ASavingsPlansUtilizationDetail%27"><span class="annot"><span class="annottext">SavingsPlansUtilizationDetail
+-&gt; Maybe SavingsPlansAmortizedCommitment
+</span><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#%24sel%3AamortizedCommitment%3ASavingsPlansUtilizationDetail%27"><span class="hs-identifier hs-var hs-var">amortizedCommitment</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansAmortizedCommitment.html#SavingsPlansAmortizedCommitment"><span class="hs-identifier hs-type">SavingsPlansAmortizedCommitment</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The amount saved by using existing Savings Plans. Savings returns both</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- net savings from savings plans as well as the @onDemandCostEquivalent@</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- of the Savings Plans when considering the utilization rate.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3Asavings%3ASavingsPlansUtilizationDetail%27"><span class="annot"><span class="annottext">SavingsPlansUtilizationDetail -&gt; Maybe SavingsPlansSavings
 </span><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#%24sel%3Asavings%3ASavingsPlansUtilizationDetail%27"><span class="hs-identifier hs-var hs-var">savings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansSavings.html#SavingsPlansSavings"><span class="hs-identifier hs-type">SavingsPlansSavings</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | A ratio of your effectiveness of using existing Savings Plans to apply</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- to workloads that are Savings Plans eligible.</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3Autilization%3ASavingsPlansUtilizationDetail%27"><span class="annot"><span class="annottext">SavingsPlansUtilizationDetail -&gt; Maybe SavingsPlansUtilization
-</span><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#%24sel%3Autilization%3ASavingsPlansUtilizationDetail%27"><span class="hs-identifier hs-var hs-var">utilization</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilization.html#SavingsPlansUtilization"><span class="hs-identifier hs-type">SavingsPlansUtilization</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The attribute that applies to a specific @Dimension@.</span><span>
 </span><span id="line-44"></span><span>    </span><span id="%24sel%3Aattributes%3ASavingsPlansUtilizationDetail%27"><span class="annot"><span class="annottext">SavingsPlansUtilizationDetail -&gt; Maybe (HashMap Text Text)
 </span><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#%24sel%3Aattributes%3ASavingsPlansUtilizationDetail%27"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The total amortized commitment for a Savings Plans. Includes the sum of</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- the upfront and recurring Savings Plans fees.</span><span>
-</span><span id="line-47"></span><span>    </span><span id="%24sel%3AamortizedCommitment%3ASavingsPlansUtilizationDetail%27"><span class="annot"><span class="annottext">SavingsPlansUtilizationDetail
--&gt; Maybe SavingsPlansAmortizedCommitment
-</span><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#%24sel%3AamortizedCommitment%3ASavingsPlansUtilizationDetail%27"><span class="hs-identifier hs-var hs-var">amortizedCommitment</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansAmortizedCommitment.html#SavingsPlansAmortizedCommitment"><span class="hs-identifier hs-type">SavingsPlansAmortizedCommitment</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | A ratio of your effectiveness of using existing Savings Plans to apply</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- to workloads that are Savings Plans eligible.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3Autilization%3ASavingsPlansUtilizationDetail%27"><span class="annot"><span class="annottext">SavingsPlansUtilizationDetail -&gt; Maybe SavingsPlansUtilization
+</span><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#%24sel%3Autilization%3ASavingsPlansUtilizationDetail%27"><span class="hs-identifier hs-var hs-var">utilization</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilization.html#SavingsPlansUtilization"><span class="hs-identifier hs-type">SavingsPlansUtilization</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The unique Amazon Resource Name (ARN) for a particular Savings Plan.</span><span>
 </span><span id="line-49"></span><span>    </span><span id="%24sel%3AsavingsPlanArn%3ASavingsPlansUtilizationDetail%27"><span class="annot"><span class="annottext">SavingsPlansUtilizationDetail -&gt; Maybe Text
 </span><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#%24sel%3AsavingsPlanArn%3ASavingsPlansUtilizationDetail%27"><span class="hs-identifier hs-var hs-var">savingsPlanArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679336908"><span id="local-6989586621679336910"><span class="annot"><span class="annottext">SavingsPlansUtilizationDetail
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679337247"><span id="local-6989586621679337249"><span class="annot"><span class="annottext">SavingsPlansUtilizationDetail
 -&gt; SavingsPlansUtilizationDetail -&gt; Bool
 (SavingsPlansUtilizationDetail
  -&gt; SavingsPlansUtilizationDetail -&gt; Bool)
@@ -70,7 +70,7 @@ $c/= :: SavingsPlansUtilizationDetail
 -&gt; SavingsPlansUtilizationDetail -&gt; Bool
 $c== :: SavingsPlansUtilizationDetail
 -&gt; SavingsPlansUtilizationDetail -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679336899"><span id="local-6989586621679336901"><span id="local-6989586621679336903"><span id="local-6989586621679336905"><span class="annot"><span class="annottext">ReadPrec [SavingsPlansUtilizationDetail]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679337238"><span id="local-6989586621679337240"><span id="local-6989586621679337242"><span id="local-6989586621679337244"><span class="annot"><span class="annottext">ReadPrec [SavingsPlansUtilizationDetail]
 ReadPrec SavingsPlansUtilizationDetail
 Int -&gt; ReadS SavingsPlansUtilizationDetail
 ReadS [SavingsPlansUtilizationDetail]
@@ -90,7 +90,7 @@ readList :: ReadS [SavingsPlansUtilizationDetail]
 $creadList :: ReadS [SavingsPlansUtilizationDetail]
 readsPrec :: Int -&gt; ReadS SavingsPlansUtilizationDetail
 $creadsPrec :: Int -&gt; ReadS SavingsPlansUtilizationDetail
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679336892"><span id="local-6989586621679336894"><span id="local-6989586621679336896"><span class="annot"><span class="annottext">Int -&gt; SavingsPlansUtilizationDetail -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679337231"><span id="local-6989586621679337233"><span id="local-6989586621679337235"><span class="annot"><span class="annottext">Int -&gt; SavingsPlansUtilizationDetail -&gt; ShowS
 [SavingsPlansUtilizationDetail] -&gt; ShowS
 SavingsPlansUtilizationDetail -&gt; String
 (Int -&gt; SavingsPlansUtilizationDetail -&gt; ShowS)
@@ -136,45 +136,45 @@ SavingsPlansUtilizationDetail
 </span><span id="line-58"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-60"></span><span class="hs-comment">--</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- 'savings', 'savingsPlansUtilizationDetail_savings' - The amount saved by using existing Savings Plans. Savings returns both</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- net savings from savings plans as well as the @onDemandCostEquivalent@</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- of the Savings Plans when considering the utilization rate.</span><span>
-</span><span id="line-64"></span><span class="hs-comment">--</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- 'utilization', 'savingsPlansUtilizationDetail_utilization' - A ratio of your effectiveness of using existing Savings Plans to apply</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- to workloads that are Savings Plans eligible.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'amortizedCommitment', 'savingsPlansUtilizationDetail_amortizedCommitment' - The total amortized commitment for a Savings Plans. Includes the sum of</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- the upfront and recurring Savings Plans fees.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'savings', 'savingsPlansUtilizationDetail_savings' - The amount saved by using existing Savings Plans. Savings returns both</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- net savings from savings plans as well as the @onDemandCostEquivalent@</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- of the Savings Plans when considering the utilization rate.</span><span>
 </span><span id="line-67"></span><span class="hs-comment">--</span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- 'attributes', 'savingsPlansUtilizationDetail_attributes' - The attribute that applies to a specific @Dimension@.</span><span>
 </span><span id="line-69"></span><span class="hs-comment">--</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- 'amortizedCommitment', 'savingsPlansUtilizationDetail_amortizedCommitment' - The total amortized commitment for a Savings Plans. Includes the sum of</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- the upfront and recurring Savings Plans fees.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'utilization', 'savingsPlansUtilizationDetail_utilization' - A ratio of your effectiveness of using existing Savings Plans to apply</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- to workloads that are Savings Plans eligible.</span><span>
 </span><span id="line-72"></span><span class="hs-comment">--</span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- 'savingsPlanArn', 'savingsPlansUtilizationDetail_savingsPlanArn' - The unique Amazon Resource Name (ARN) for a particular Savings Plan.</span><span>
 </span><span id="line-74"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#newSavingsPlansUtilizationDetail"><span class="hs-identifier hs-type">newSavingsPlansUtilizationDetail</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#SavingsPlansUtilizationDetail"><span class="hs-identifier hs-type">SavingsPlansUtilizationDetail</span></a></span><span>
 </span><span id="line-76"></span><span id="newSavingsPlansUtilizationDetail"><span class="annot"><span class="annottext">newSavingsPlansUtilizationDetail :: SavingsPlansUtilizationDetail
 </span><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#newSavingsPlansUtilizationDetail"><span class="hs-identifier hs-var hs-var">newSavingsPlansUtilizationDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-77"></span><span>  </span><span class="annot"><span class="annottext">SavingsPlansUtilizationDetail' :: Maybe SavingsPlansSavings
--&gt; Maybe SavingsPlansUtilization
+</span><span id="line-77"></span><span>  </span><span class="annot"><span class="annottext">SavingsPlansUtilizationDetail' :: Maybe SavingsPlansAmortizedCommitment
+-&gt; Maybe SavingsPlansSavings
 -&gt; Maybe (HashMap Text Text)
--&gt; Maybe SavingsPlansAmortizedCommitment
+-&gt; Maybe SavingsPlansUtilization
 -&gt; Maybe Text
 -&gt; SavingsPlansUtilizationDetail
 </span><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#SavingsPlansUtilizationDetail%27"><span class="hs-identifier hs-type">SavingsPlansUtilizationDetail'</span></a></span><span>
-</span><span id="line-78"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:savings:SavingsPlansUtilizationDetail' :: Maybe SavingsPlansSavings
-</span><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#%24sel%3Asavings%3ASavingsPlansUtilizationDetail%27"><span class="hs-identifier hs-var">savings</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-79"></span><span>        </span><span class="annot"><span class="annottext">Maybe SavingsPlansSavings
+</span><span id="line-78"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:amortizedCommitment:SavingsPlansUtilizationDetail' :: Maybe SavingsPlansAmortizedCommitment
+</span><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#%24sel%3AamortizedCommitment%3ASavingsPlansUtilizationDetail%27"><span class="hs-identifier hs-var">amortizedCommitment</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>        </span><span class="annot"><span class="annottext">Maybe SavingsPlansAmortizedCommitment
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:utilization:SavingsPlansUtilizationDetail' :: Maybe SavingsPlansUtilization
-</span><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#%24sel%3Autilization%3ASavingsPlansUtilizationDetail%27"><span class="hs-identifier hs-var">utilization</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SavingsPlansUtilization
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:savings:SavingsPlansUtilizationDetail' :: Maybe SavingsPlansSavings
+</span><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#%24sel%3Asavings%3ASavingsPlansUtilizationDetail%27"><span class="hs-identifier hs-var">savings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SavingsPlansSavings
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:attributes:SavingsPlansUtilizationDetail' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#%24sel%3Aattributes%3ASavingsPlansUtilizationDetail%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:amortizedCommitment:SavingsPlansUtilizationDetail' :: Maybe SavingsPlansAmortizedCommitment
-</span><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#%24sel%3AamortizedCommitment%3ASavingsPlansUtilizationDetail%27"><span class="hs-identifier hs-var">amortizedCommitment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SavingsPlansAmortizedCommitment
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:utilization:SavingsPlansUtilizationDetail' :: Maybe SavingsPlansUtilization
+</span><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#%24sel%3Autilization%3ASavingsPlansUtilizationDetail%27"><span class="hs-identifier hs-var">utilization</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SavingsPlansUtilization
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:savingsPlanArn:SavingsPlansUtilizationDetail' :: Maybe Text
@@ -183,11 +183,40 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-84"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- | The amount saved by using existing Savings Plans. Savings returns both</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- net savings from savings plans as well as the @onDemandCostEquivalent@</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- of the Savings Plans when considering the utilization rate.</span><span>
-</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#savingsPlansUtilizationDetail_savings"><span class="hs-identifier hs-type">savingsPlansUtilizationDetail_savings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#SavingsPlansUtilizationDetail"><span class="hs-identifier hs-type">SavingsPlansUtilizationDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansSavings.html#SavingsPlansSavings"><span class="hs-identifier hs-type">SavingsPlansSavings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-90"></span><span id="savingsPlansUtilizationDetail_savings"><span class="annot"><span class="annottext">savingsPlansUtilizationDetail_savings :: (Maybe SavingsPlansSavings -&gt; f (Maybe SavingsPlansSavings))
+</span><span id="line-86"></span><span class="hs-comment">-- | The total amortized commitment for a Savings Plans. Includes the sum of</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- the upfront and recurring Savings Plans fees.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#savingsPlansUtilizationDetail_amortizedCommitment"><span class="hs-identifier hs-type">savingsPlansUtilizationDetail_amortizedCommitment</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#SavingsPlansUtilizationDetail"><span class="hs-identifier hs-type">SavingsPlansUtilizationDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansAmortizedCommitment.html#SavingsPlansAmortizedCommitment"><span class="hs-identifier hs-type">SavingsPlansAmortizedCommitment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span id="savingsPlansUtilizationDetail_amortizedCommitment"><span class="annot"><span class="annottext">savingsPlansUtilizationDetail_amortizedCommitment :: (Maybe SavingsPlansAmortizedCommitment
+ -&gt; f (Maybe SavingsPlansAmortizedCommitment))
+-&gt; SavingsPlansUtilizationDetail -&gt; f SavingsPlansUtilizationDetail
+</span><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#savingsPlansUtilizationDetail_amortizedCommitment"><span class="hs-identifier hs-var hs-var">savingsPlansUtilizationDetail_amortizedCommitment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SavingsPlansUtilizationDetail
+ -&gt; Maybe SavingsPlansAmortizedCommitment)
+-&gt; (SavingsPlansUtilizationDetail
+    -&gt; Maybe SavingsPlansAmortizedCommitment
+    -&gt; SavingsPlansUtilizationDetail)
+-&gt; Lens
+     SavingsPlansUtilizationDetail
+     SavingsPlansUtilizationDetail
+     (Maybe SavingsPlansAmortizedCommitment)
+     (Maybe SavingsPlansAmortizedCommitment)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#SavingsPlansUtilizationDetail%27"><span class="hs-identifier hs-type">SavingsPlansUtilizationDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679337222"><span class="annot"><span class="annottext">Maybe SavingsPlansAmortizedCommitment
+amortizedCommitment :: Maybe SavingsPlansAmortizedCommitment
+$sel:amortizedCommitment:SavingsPlansUtilizationDetail' :: SavingsPlansUtilizationDetail
+-&gt; Maybe SavingsPlansAmortizedCommitment
+</span><a href="#local-6989586621679337222"><span class="hs-identifier hs-var hs-var">amortizedCommitment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SavingsPlansAmortizedCommitment
+</span><a href="#local-6989586621679337222"><span class="hs-identifier hs-var">amortizedCommitment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679337221"><span class="annot"><span class="annottext">s :: SavingsPlansUtilizationDetail
+</span><a href="#local-6989586621679337221"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#SavingsPlansUtilizationDetail%27"><span class="hs-identifier hs-type">SavingsPlansUtilizationDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679337220"><span class="annot"><span class="annottext">Maybe SavingsPlansAmortizedCommitment
+</span><a href="#local-6989586621679337220"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SavingsPlansUtilizationDetail
+</span><a href="#local-6989586621679337221"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:amortizedCommitment:SavingsPlansUtilizationDetail' :: Maybe SavingsPlansAmortizedCommitment
+</span><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#%24sel%3AamortizedCommitment%3ASavingsPlansUtilizationDetail%27"><span class="hs-identifier hs-var">amortizedCommitment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SavingsPlansAmortizedCommitment
+</span><a href="#local-6989586621679337220"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#SavingsPlansUtilizationDetail"><span class="hs-identifier hs-type">SavingsPlansUtilizationDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | The amount saved by using existing Savings Plans. Savings returns both</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- net savings from savings plans as well as the @onDemandCostEquivalent@</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- of the Savings Plans when considering the utilization rate.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#savingsPlansUtilizationDetail_savings"><span class="hs-identifier hs-type">savingsPlansUtilizationDetail_savings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#SavingsPlansUtilizationDetail"><span class="hs-identifier hs-type">SavingsPlansUtilizationDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansSavings.html#SavingsPlansSavings"><span class="hs-identifier hs-type">SavingsPlansSavings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="savingsPlansUtilizationDetail_savings"><span class="annot"><span class="annottext">savingsPlansUtilizationDetail_savings :: (Maybe SavingsPlansSavings -&gt; f (Maybe SavingsPlansSavings))
 -&gt; SavingsPlansUtilizationDetail -&gt; f SavingsPlansUtilizationDetail
 </span><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#savingsPlansUtilizationDetail_savings"><span class="hs-identifier hs-var hs-var">savingsPlansUtilizationDetail_savings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SavingsPlansUtilizationDetail -&gt; Maybe SavingsPlansSavings)
 -&gt; (SavingsPlansUtilizationDetail
@@ -198,42 +227,16 @@ forall a. Maybe a
      (Maybe SavingsPlansSavings)
      (Maybe SavingsPlansSavings)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#SavingsPlansUtilizationDetail%27"><span class="hs-identifier hs-type">SavingsPlansUtilizationDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679336883"><span class="annot"><span class="annottext">Maybe SavingsPlansSavings
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#SavingsPlansUtilizationDetail%27"><span class="hs-identifier hs-type">SavingsPlansUtilizationDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679337218"><span class="annot"><span class="annottext">Maybe SavingsPlansSavings
 savings :: Maybe SavingsPlansSavings
 $sel:savings:SavingsPlansUtilizationDetail' :: SavingsPlansUtilizationDetail -&gt; Maybe SavingsPlansSavings
-</span><a href="#local-6989586621679336883"><span class="hs-identifier hs-var hs-var">savings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SavingsPlansSavings
-</span><a href="#local-6989586621679336883"><span class="hs-identifier hs-var">savings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679336882"><span class="annot"><span class="annottext">s :: SavingsPlansUtilizationDetail
-</span><a href="#local-6989586621679336882"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#SavingsPlansUtilizationDetail%27"><span class="hs-identifier hs-type">SavingsPlansUtilizationDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679336881"><span class="annot"><span class="annottext">Maybe SavingsPlansSavings
-</span><a href="#local-6989586621679336881"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SavingsPlansUtilizationDetail
-</span><a href="#local-6989586621679336882"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:savings:SavingsPlansUtilizationDetail' :: Maybe SavingsPlansSavings
+</span><a href="#local-6989586621679337218"><span class="hs-identifier hs-var hs-var">savings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SavingsPlansSavings
+</span><a href="#local-6989586621679337218"><span class="hs-identifier hs-var">savings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679337217"><span class="annot"><span class="annottext">s :: SavingsPlansUtilizationDetail
+</span><a href="#local-6989586621679337217"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#SavingsPlansUtilizationDetail%27"><span class="hs-identifier hs-type">SavingsPlansUtilizationDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679337216"><span class="annot"><span class="annottext">Maybe SavingsPlansSavings
+</span><a href="#local-6989586621679337216"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SavingsPlansUtilizationDetail
+</span><a href="#local-6989586621679337217"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:savings:SavingsPlansUtilizationDetail' :: Maybe SavingsPlansSavings
 </span><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#%24sel%3Asavings%3ASavingsPlansUtilizationDetail%27"><span class="hs-identifier hs-var">savings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SavingsPlansSavings
-</span><a href="#local-6989586621679336881"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#SavingsPlansUtilizationDetail"><span class="hs-identifier hs-type">SavingsPlansUtilizationDetail</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- | A ratio of your effectiveness of using existing Savings Plans to apply</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- to workloads that are Savings Plans eligible.</span><span>
-</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#savingsPlansUtilizationDetail_utilization"><span class="hs-identifier hs-type">savingsPlansUtilizationDetail_utilization</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#SavingsPlansUtilizationDetail"><span class="hs-identifier hs-type">SavingsPlansUtilizationDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilization.html#SavingsPlansUtilization"><span class="hs-identifier hs-type">SavingsPlansUtilization</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-95"></span><span id="savingsPlansUtilizationDetail_utilization"><span class="annot"><span class="annottext">savingsPlansUtilizationDetail_utilization :: (Maybe SavingsPlansUtilization
- -&gt; f (Maybe SavingsPlansUtilization))
--&gt; SavingsPlansUtilizationDetail -&gt; f SavingsPlansUtilizationDetail
-</span><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#savingsPlansUtilizationDetail_utilization"><span class="hs-identifier hs-var hs-var">savingsPlansUtilizationDetail_utilization</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SavingsPlansUtilizationDetail -&gt; Maybe SavingsPlansUtilization)
--&gt; (SavingsPlansUtilizationDetail
-    -&gt; Maybe SavingsPlansUtilization -&gt; SavingsPlansUtilizationDetail)
--&gt; Lens
-     SavingsPlansUtilizationDetail
-     SavingsPlansUtilizationDetail
-     (Maybe SavingsPlansUtilization)
-     (Maybe SavingsPlansUtilization)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#SavingsPlansUtilizationDetail%27"><span class="hs-identifier hs-type">SavingsPlansUtilizationDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679336879"><span class="annot"><span class="annottext">Maybe SavingsPlansUtilization
-utilization :: Maybe SavingsPlansUtilization
-$sel:utilization:SavingsPlansUtilizationDetail' :: SavingsPlansUtilizationDetail -&gt; Maybe SavingsPlansUtilization
-</span><a href="#local-6989586621679336879"><span class="hs-identifier hs-var hs-var">utilization</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SavingsPlansUtilization
-</span><a href="#local-6989586621679336879"><span class="hs-identifier hs-var">utilization</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679336878"><span class="annot"><span class="annottext">s :: SavingsPlansUtilizationDetail
-</span><a href="#local-6989586621679336878"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#SavingsPlansUtilizationDetail%27"><span class="hs-identifier hs-type">SavingsPlansUtilizationDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679336877"><span class="annot"><span class="annottext">Maybe SavingsPlansUtilization
-</span><a href="#local-6989586621679336877"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SavingsPlansUtilizationDetail
-</span><a href="#local-6989586621679336878"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:utilization:SavingsPlansUtilizationDetail' :: Maybe SavingsPlansUtilization
-</span><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#%24sel%3Autilization%3ASavingsPlansUtilizationDetail%27"><span class="hs-identifier hs-var">utilization</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SavingsPlansUtilization
-</span><a href="#local-6989586621679336877"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#SavingsPlansUtilizationDetail"><span class="hs-identifier hs-type">SavingsPlansUtilizationDetail</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679337216"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#SavingsPlansUtilizationDetail"><span class="hs-identifier hs-type">SavingsPlansUtilizationDetail</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- | The attribute that applies to a specific @Dimension@.</span><span>
 </span><span id="line-98"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#savingsPlansUtilizationDetail_attributes"><span class="hs-identifier hs-type">savingsPlansUtilizationDetail_attributes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#SavingsPlansUtilizationDetail"><span class="hs-identifier hs-type">SavingsPlansUtilizationDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
@@ -248,16 +251,16 @@ $sel:utilization:SavingsPlansUtilizationDetail' :: SavingsPlansUtilizationDetail
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#SavingsPlansUtilizationDetail%27"><span class="hs-identifier hs-type">SavingsPlansUtilizationDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679336875"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#SavingsPlansUtilizationDetail%27"><span class="hs-identifier hs-type">SavingsPlansUtilizationDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679337214"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 attributes :: Maybe (HashMap Text Text)
 $sel:attributes:SavingsPlansUtilizationDetail' :: SavingsPlansUtilizationDetail -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679336875"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679336875"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679336874"><span class="annot"><span class="annottext">s :: SavingsPlansUtilizationDetail
-</span><a href="#local-6989586621679336874"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#SavingsPlansUtilizationDetail%27"><span class="hs-identifier hs-type">SavingsPlansUtilizationDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679336873"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679336873"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SavingsPlansUtilizationDetail
-</span><a href="#local-6989586621679336874"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:SavingsPlansUtilizationDetail' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679337214"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679337214"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679337213"><span class="annot"><span class="annottext">s :: SavingsPlansUtilizationDetail
+</span><a href="#local-6989586621679337213"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#SavingsPlansUtilizationDetail%27"><span class="hs-identifier hs-type">SavingsPlansUtilizationDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679337212"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679337212"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SavingsPlansUtilizationDetail
+</span><a href="#local-6989586621679337213"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:SavingsPlansUtilizationDetail' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#%24sel%3Aattributes%3ASavingsPlansUtilizationDetail%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679336873"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#SavingsPlansUtilizationDetail"><span class="hs-identifier hs-type">SavingsPlansUtilizationDetail</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679337212"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#SavingsPlansUtilizationDetail"><span class="hs-identifier hs-type">SavingsPlansUtilizationDetail</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; SavingsPlansUtilizationDetail
  -&gt; f SavingsPlansUtilizationDetail)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -284,37 +287,34 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (HashMap Text Text)
   (HashMap Text Text)
   (HashMap Text Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- | The total amortized commitment for a Savings Plans. Includes the sum of</span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- the upfront and recurring Savings Plans fees.</span><span>
-</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#savingsPlansUtilizationDetail_amortizedCommitment"><span class="hs-identifier hs-type">savingsPlansUtilizationDetail_amortizedCommitment</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#SavingsPlansUtilizationDetail"><span class="hs-identifier hs-type">SavingsPlansUtilizationDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansAmortizedCommitment.html#SavingsPlansAmortizedCommitment"><span class="hs-identifier hs-type">SavingsPlansAmortizedCommitment</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-104"></span><span id="savingsPlansUtilizationDetail_amortizedCommitment"><span class="annot"><span class="annottext">savingsPlansUtilizationDetail_amortizedCommitment :: (Maybe SavingsPlansAmortizedCommitment
- -&gt; f (Maybe SavingsPlansAmortizedCommitment))
+</span><span id="line-101"></span><span class="hs-comment">-- | A ratio of your effectiveness of using existing Savings Plans to apply</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- to workloads that are Savings Plans eligible.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#savingsPlansUtilizationDetail_utilization"><span class="hs-identifier hs-type">savingsPlansUtilizationDetail_utilization</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#SavingsPlansUtilizationDetail"><span class="hs-identifier hs-type">SavingsPlansUtilizationDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilization.html#SavingsPlansUtilization"><span class="hs-identifier hs-type">SavingsPlansUtilization</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="savingsPlansUtilizationDetail_utilization"><span class="annot"><span class="annottext">savingsPlansUtilizationDetail_utilization :: (Maybe SavingsPlansUtilization
+ -&gt; f (Maybe SavingsPlansUtilization))
 -&gt; SavingsPlansUtilizationDetail -&gt; f SavingsPlansUtilizationDetail
-</span><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#savingsPlansUtilizationDetail_amortizedCommitment"><span class="hs-identifier hs-var hs-var">savingsPlansUtilizationDetail_amortizedCommitment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SavingsPlansUtilizationDetail
- -&gt; Maybe SavingsPlansAmortizedCommitment)
+</span><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#savingsPlansUtilizationDetail_utilization"><span class="hs-identifier hs-var hs-var">savingsPlansUtilizationDetail_utilization</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SavingsPlansUtilizationDetail -&gt; Maybe SavingsPlansUtilization)
 -&gt; (SavingsPlansUtilizationDetail
-    -&gt; Maybe SavingsPlansAmortizedCommitment
-    -&gt; SavingsPlansUtilizationDetail)
+    -&gt; Maybe SavingsPlansUtilization -&gt; SavingsPlansUtilizationDetail)
 -&gt; Lens
      SavingsPlansUtilizationDetail
      SavingsPlansUtilizationDetail
-     (Maybe SavingsPlansAmortizedCommitment)
-     (Maybe SavingsPlansAmortizedCommitment)
+     (Maybe SavingsPlansUtilization)
+     (Maybe SavingsPlansUtilization)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#SavingsPlansUtilizationDetail%27"><span class="hs-identifier hs-type">SavingsPlansUtilizationDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679336868"><span class="annot"><span class="annottext">Maybe SavingsPlansAmortizedCommitment
-amortizedCommitment :: Maybe SavingsPlansAmortizedCommitment
-$sel:amortizedCommitment:SavingsPlansUtilizationDetail' :: SavingsPlansUtilizationDetail
--&gt; Maybe SavingsPlansAmortizedCommitment
-</span><a href="#local-6989586621679336868"><span class="hs-identifier hs-var hs-var">amortizedCommitment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SavingsPlansAmortizedCommitment
-</span><a href="#local-6989586621679336868"><span class="hs-identifier hs-var">amortizedCommitment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679336867"><span class="annot"><span class="annottext">s :: SavingsPlansUtilizationDetail
-</span><a href="#local-6989586621679336867"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#SavingsPlansUtilizationDetail%27"><span class="hs-identifier hs-type">SavingsPlansUtilizationDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679336866"><span class="annot"><span class="annottext">Maybe SavingsPlansAmortizedCommitment
-</span><a href="#local-6989586621679336866"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SavingsPlansUtilizationDetail
-</span><a href="#local-6989586621679336867"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:amortizedCommitment:SavingsPlansUtilizationDetail' :: Maybe SavingsPlansAmortizedCommitment
-</span><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#%24sel%3AamortizedCommitment%3ASavingsPlansUtilizationDetail%27"><span class="hs-identifier hs-var">amortizedCommitment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SavingsPlansAmortizedCommitment
-</span><a href="#local-6989586621679336866"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#SavingsPlansUtilizationDetail"><span class="hs-identifier hs-type">SavingsPlansUtilizationDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#SavingsPlansUtilizationDetail%27"><span class="hs-identifier hs-type">SavingsPlansUtilizationDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679337207"><span class="annot"><span class="annottext">Maybe SavingsPlansUtilization
+utilization :: Maybe SavingsPlansUtilization
+$sel:utilization:SavingsPlansUtilizationDetail' :: SavingsPlansUtilizationDetail -&gt; Maybe SavingsPlansUtilization
+</span><a href="#local-6989586621679337207"><span class="hs-identifier hs-var hs-var">utilization</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SavingsPlansUtilization
+</span><a href="#local-6989586621679337207"><span class="hs-identifier hs-var">utilization</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679337206"><span class="annot"><span class="annottext">s :: SavingsPlansUtilizationDetail
+</span><a href="#local-6989586621679337206"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#SavingsPlansUtilizationDetail%27"><span class="hs-identifier hs-type">SavingsPlansUtilizationDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679337205"><span class="annot"><span class="annottext">Maybe SavingsPlansUtilization
+</span><a href="#local-6989586621679337205"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SavingsPlansUtilizationDetail
+</span><a href="#local-6989586621679337206"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:utilization:SavingsPlansUtilizationDetail' :: Maybe SavingsPlansUtilization
+</span><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#%24sel%3Autilization%3ASavingsPlansUtilizationDetail%27"><span class="hs-identifier hs-var">utilization</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SavingsPlansUtilization
+</span><a href="#local-6989586621679337205"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#SavingsPlansUtilizationDetail"><span class="hs-identifier hs-type">SavingsPlansUtilizationDetail</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- | The unique Amazon Resource Name (ARN) for a particular Savings Plan.</span><span>
 </span><span id="line-107"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#savingsPlansUtilizationDetail_savingsPlanArn"><span class="hs-identifier hs-type">savingsPlansUtilizationDetail_savingsPlanArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#SavingsPlansUtilizationDetail"><span class="hs-identifier hs-type">SavingsPlansUtilizationDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -329,19 +329,19 @@ $sel:amortizedCommitment:SavingsPlansUtilizationDetail' :: SavingsPlansUtilizati
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#SavingsPlansUtilizationDetail%27"><span class="hs-identifier hs-type">SavingsPlansUtilizationDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679336864"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#SavingsPlansUtilizationDetail%27"><span class="hs-identifier hs-type">SavingsPlansUtilizationDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679337203"><span class="annot"><span class="annottext">Maybe Text
 savingsPlanArn :: Maybe Text
 $sel:savingsPlanArn:SavingsPlansUtilizationDetail' :: SavingsPlansUtilizationDetail -&gt; Maybe Text
-</span><a href="#local-6989586621679336864"><span class="hs-identifier hs-var hs-var">savingsPlanArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679336864"><span class="hs-identifier hs-var">savingsPlanArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679336863"><span class="annot"><span class="annottext">s :: SavingsPlansUtilizationDetail
-</span><a href="#local-6989586621679336863"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#SavingsPlansUtilizationDetail%27"><span class="hs-identifier hs-type">SavingsPlansUtilizationDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679336862"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679336862"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SavingsPlansUtilizationDetail
-</span><a href="#local-6989586621679336863"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:savingsPlanArn:SavingsPlansUtilizationDetail' :: Maybe Text
+</span><a href="#local-6989586621679337203"><span class="hs-identifier hs-var hs-var">savingsPlanArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679337203"><span class="hs-identifier hs-var">savingsPlanArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679337202"><span class="annot"><span class="annottext">s :: SavingsPlansUtilizationDetail
+</span><a href="#local-6989586621679337202"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#SavingsPlansUtilizationDetail%27"><span class="hs-identifier hs-type">SavingsPlansUtilizationDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679337201"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679337201"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SavingsPlansUtilizationDetail
+</span><a href="#local-6989586621679337202"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:savingsPlanArn:SavingsPlansUtilizationDetail' :: Maybe Text
 </span><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#%24sel%3AsavingsPlanArn%3ASavingsPlansUtilizationDetail%27"><span class="hs-identifier hs-var">savingsPlanArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679336862"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#SavingsPlansUtilizationDetail"><span class="hs-identifier hs-type">SavingsPlansUtilizationDetail</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679337201"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#SavingsPlansUtilizationDetail"><span class="hs-identifier hs-type">SavingsPlansUtilizationDetail</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679336859"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#SavingsPlansUtilizationDetail"><span class="hs-identifier hs-type">SavingsPlansUtilizationDetail</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679336857"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SavingsPlansUtilizationDetail
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679337198"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#SavingsPlansUtilizationDetail"><span class="hs-identifier hs-type">SavingsPlansUtilizationDetail</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679337196"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SavingsPlansUtilizationDetail
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser SavingsPlansUtilizationDetail)
@@ -351,64 +351,64 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;SavingsPlansUtilizationDetail&quot;</span></span><span>
-</span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679336854"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679336854"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-115"></span><span>          </span><span class="annot"><span class="annottext">Maybe SavingsPlansSavings
--&gt; Maybe SavingsPlansUtilization
+</span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679337193"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679337193"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-115"></span><span>          </span><span class="annot"><span class="annottext">Maybe SavingsPlansAmortizedCommitment
+-&gt; Maybe SavingsPlansSavings
 -&gt; Maybe (HashMap Text Text)
--&gt; Maybe SavingsPlansAmortizedCommitment
+-&gt; Maybe SavingsPlansUtilization
 -&gt; Maybe Text
 -&gt; SavingsPlansUtilizationDetail
 </span><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#SavingsPlansUtilizationDetail%27"><span class="hs-identifier hs-var">SavingsPlansUtilizationDetail'</span></a></span><span>
-</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">(Maybe SavingsPlansSavings
- -&gt; Maybe SavingsPlansUtilization
+</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">(Maybe SavingsPlansAmortizedCommitment
+ -&gt; Maybe SavingsPlansSavings
  -&gt; Maybe (HashMap Text Text)
- -&gt; Maybe SavingsPlansAmortizedCommitment
+ -&gt; Maybe SavingsPlansUtilization
  -&gt; Maybe Text
  -&gt; SavingsPlansUtilizationDetail)
--&gt; Parser (Maybe SavingsPlansSavings)
+-&gt; Parser (Maybe SavingsPlansAmortizedCommitment)
 -&gt; Parser
-     (Maybe SavingsPlansUtilization
+     (Maybe SavingsPlansSavings
       -&gt; Maybe (HashMap Text Text)
-      -&gt; Maybe SavingsPlansAmortizedCommitment
+      -&gt; Maybe SavingsPlansUtilization
       -&gt; Maybe Text
       -&gt; SavingsPlansUtilizationDetail)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679336854"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SavingsPlansSavings)
+</span><a href="#local-6989586621679337193"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SavingsPlansAmortizedCommitment)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Savings&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;AmortizedCommitment&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe SavingsPlansUtilization
+  (Maybe SavingsPlansSavings
    -&gt; Maybe (HashMap Text Text)
-   -&gt; Maybe SavingsPlansAmortizedCommitment
+   -&gt; Maybe SavingsPlansUtilization
    -&gt; Maybe Text
    -&gt; SavingsPlansUtilizationDetail)
--&gt; Parser (Maybe SavingsPlansUtilization)
+-&gt; Parser (Maybe SavingsPlansSavings)
 -&gt; Parser
      (Maybe (HashMap Text Text)
-      -&gt; Maybe SavingsPlansAmortizedCommitment
+      -&gt; Maybe SavingsPlansUtilization
       -&gt; Maybe Text
       -&gt; SavingsPlansUtilizationDetail)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679336854"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SavingsPlansUtilization)
+</span><a href="#local-6989586621679337193"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SavingsPlansSavings)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Utilization&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;Savings&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe (HashMap Text Text)
-   -&gt; Maybe SavingsPlansAmortizedCommitment
+   -&gt; Maybe SavingsPlansUtilization
    -&gt; Maybe Text
    -&gt; SavingsPlansUtilizationDetail)
 -&gt; Parser (Maybe (HashMap Text Text))
 -&gt; Parser
-     (Maybe SavingsPlansAmortizedCommitment
+     (Maybe SavingsPlansUtilization
       -&gt; Maybe Text -&gt; SavingsPlansUtilizationDetail)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679336854"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679337193"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Attributes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
@@ -418,29 +418,29 @@ forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe SavingsPlansAmortizedCommitment
+  (Maybe SavingsPlansUtilization
    -&gt; Maybe Text -&gt; SavingsPlansUtilizationDetail)
--&gt; Parser (Maybe SavingsPlansAmortizedCommitment)
+-&gt; Parser (Maybe SavingsPlansUtilization)
 -&gt; Parser (Maybe Text -&gt; SavingsPlansUtilizationDetail)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679336854"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SavingsPlansAmortizedCommitment)
+</span><a href="#local-6989586621679337193"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SavingsPlansUtilization)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;AmortizedCommitment&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;Utilization&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; SavingsPlansUtilizationDetail)
 -&gt; Parser (Maybe Text) -&gt; Parser SavingsPlansUtilizationDetail
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679336854"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679337193"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SavingsPlanArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679336847"><span id="local-6989586621679336849"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679337186"><span id="local-6989586621679337188"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-125"></span><span>    </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#SavingsPlansUtilizationDetail"><span class="hs-identifier hs-type">SavingsPlansUtilizationDetail</span></a></span></span></span><span>
 </span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679336844"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#SavingsPlansUtilizationDetail"><span class="hs-identifier hs-type">SavingsPlansUtilizationDetail</span></a></span></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679337183"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail.html#SavingsPlansUtilizationDetail"><span class="hs-identifier hs-type">SavingsPlansUtilizationDetail</span></a></span></span><span>
 </span><span id="line-128"></span></pre></body></html>

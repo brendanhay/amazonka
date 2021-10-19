@@ -58,7 +58,7 @@
 </span><span id="line-58"></span><span class="hs-comment">-- | Contains the parameters for AddTags.</span><span>
 </span><span id="line-59"></span><span class="hs-comment">--</span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- /See:/ 'newAddTags' smart constructor.</span><span>
-</span><span id="line-61"></span><span id="local-6989586621679204291"><span id="local-6989586621679204292"></span></span><span class="hs-keyword">data</span><span> </span><span id="AddTags"><span class="annot"><a href="Network.AWS.ELB.AddTags.html#AddTags"><span class="hs-identifier hs-var">AddTags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddTags%27"><span class="annot"><a href="Network.AWS.ELB.AddTags.html#AddTags%27"><span class="hs-identifier hs-var">AddTags'</span></a></span></span><span>
+</span><span id="line-61"></span><span id="local-6989586621679204548"><span id="local-6989586621679204549"></span></span><span class="hs-keyword">data</span><span> </span><span id="AddTags"><span class="annot"><a href="Network.AWS.ELB.AddTags.html#AddTags"><span class="hs-identifier hs-var">AddTags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddTags%27"><span class="annot"><a href="Network.AWS.ELB.AddTags.html#AddTags%27"><span class="hs-identifier hs-var">AddTags'</span></a></span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the load balancer. You can specify one load balancer only.</span><span>
 </span><span id="line-63"></span><span>    </span><span id="%24sel%3AloadBalancerNames%3AAddTags%27"><span class="annot"><span class="annottext">AddTags -&gt; [Text]
 </span><a href="Network.AWS.ELB.AddTags.html#%24sel%3AloadBalancerNames%3AAddTags%27"><span class="hs-identifier hs-var hs-var">loadBalancerNames</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -66,7 +66,7 @@
 </span><span id="line-65"></span><span>    </span><span id="%24sel%3Atags%3AAddTags%27"><span class="annot"><span class="annottext">AddTags -&gt; NonEmpty Tag
 </span><a href="Network.AWS.ELB.AddTags.html#%24sel%3Atags%3AAddTags%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679204284"><span id="local-6989586621679204286"><span class="annot"><span class="annottext">AddTags -&gt; AddTags -&gt; Bool
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679204541"><span id="local-6989586621679204543"><span class="annot"><span class="annottext">AddTags -&gt; AddTags -&gt; Bool
 (AddTags -&gt; AddTags -&gt; Bool)
 -&gt; (AddTags -&gt; AddTags -&gt; Bool) -&gt; Eq AddTags
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -74,7 +74,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AddTags -&gt; AddTags -&gt; Bool
 == :: AddTags -&gt; AddTags -&gt; Bool
 $c== :: AddTags -&gt; AddTags -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679204275"><span id="local-6989586621679204277"><span id="local-6989586621679204279"><span id="local-6989586621679204281"><span class="annot"><span class="annottext">ReadPrec [AddTags]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679204532"><span id="local-6989586621679204534"><span id="local-6989586621679204536"><span id="local-6989586621679204538"><span class="annot"><span class="annottext">ReadPrec [AddTags]
 ReadPrec AddTags
 Int -&gt; ReadS AddTags
 ReadS [AddTags]
@@ -94,7 +94,7 @@ readList :: ReadS [AddTags]
 $creadList :: ReadS [AddTags]
 readsPrec :: Int -&gt; ReadS AddTags
 $creadsPrec :: Int -&gt; ReadS AddTags
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679204268"><span id="local-6989586621679204270"><span id="local-6989586621679204272"><span class="annot"><span class="annottext">Int -&gt; AddTags -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679204525"><span id="local-6989586621679204527"><span id="local-6989586621679204529"><span class="annot"><span class="annottext">Int -&gt; AddTags -&gt; ShowS
 [AddTags] -&gt; ShowS
 AddTags -&gt; String
 (Int -&gt; AddTags -&gt; ShowS)
@@ -133,8 +133,8 @@ $cfrom :: forall x. AddTags -&gt; Rep AddTags x
 </span><span id="line-82"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.ELB.AddTags.html#AddTags"><span class="hs-identifier hs-type">AddTags</span></a></span><span>
 </span><span id="line-84"></span><span id="newAddTags"><span class="annot"><span class="annottext">newAddTags :: NonEmpty Tag -&gt; AddTags
-</span><a href="Network.AWS.ELB.AddTags.html#newAddTags"><span class="hs-identifier hs-var hs-var">newAddTags</span></a></span></span><span> </span><span id="local-6989586621679204263"><span class="annot"><span class="annottext">NonEmpty Tag
-</span><a href="#local-6989586621679204263"><span class="hs-identifier hs-var">pTags_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ELB.AddTags.html#newAddTags"><span class="hs-identifier hs-var hs-var">newAddTags</span></a></span></span><span> </span><span id="local-6989586621679204520"><span class="annot"><span class="annottext">NonEmpty Tag
+</span><a href="#local-6989586621679204520"><span class="hs-identifier hs-var">pTags_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>  </span><span class="annot"><span class="annottext">AddTags' :: [Text] -&gt; NonEmpty Tag -&gt; AddTags
 </span><a href="Network.AWS.ELB.AddTags.html#AddTags%27"><span class="hs-identifier hs-type">AddTags'</span></a></span><span>
 </span><span id="line-86"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:loadBalancerNames:AddTags' :: [Text]
@@ -144,13 +144,13 @@ forall a. Monoid a =&gt; a
 </span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:AddTags' :: NonEmpty Tag
 </span><a href="Network.AWS.ELB.AddTags.html#%24sel%3Atags%3AAddTags%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged (NonEmpty Tag) (Identity (NonEmpty Tag))
 -&gt; Tagged (NonEmpty Tag) (Identity (NonEmpty Tag))
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Tag) (Identity (NonEmpty Tag))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Tag) (Identity (NonEmpty Tag))
  -&gt; Tagged (NonEmpty Tag) (Identity (NonEmpty Tag)))
 -&gt; NonEmpty Tag -&gt; NonEmpty Tag
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Tag
-</span><a href="#local-6989586621679204263"><span class="hs-identifier hs-var">pTags_</span></a></span><span>
+</span><a href="#local-6989586621679204520"><span class="hs-identifier hs-var">pTags_</span></a></span><span>
 </span><span id="line-88"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- | The name of the load balancer. You can specify one load balancer only.</span><span>
@@ -160,24 +160,24 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; (AddTags -&gt; [Text] -&gt; AddTags)
 -&gt; Lens AddTags AddTags [Text] [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELB.AddTags.html#AddTags%27"><span class="hs-identifier hs-type">AddTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204258"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELB.AddTags.html#AddTags%27"><span class="hs-identifier hs-type">AddTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204515"><span class="annot"><span class="annottext">[Text]
 loadBalancerNames :: [Text]
 $sel:loadBalancerNames:AddTags' :: AddTags -&gt; [Text]
-</span><a href="#local-6989586621679204258"><span class="hs-identifier hs-var hs-var">loadBalancerNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679204258"><span class="hs-identifier hs-var">loadBalancerNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679204257"><span class="annot"><span class="annottext">s :: AddTags
-</span><a href="#local-6989586621679204257"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELB.AddTags.html#AddTags%27"><span class="hs-identifier hs-type">AddTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679204256"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679204256"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddTags
-</span><a href="#local-6989586621679204257"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:loadBalancerNames:AddTags' :: [Text]
+</span><a href="#local-6989586621679204515"><span class="hs-identifier hs-var hs-var">loadBalancerNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679204515"><span class="hs-identifier hs-var">loadBalancerNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679204514"><span class="annot"><span class="annottext">s :: AddTags
+</span><a href="#local-6989586621679204514"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELB.AddTags.html#AddTags%27"><span class="hs-identifier hs-type">AddTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679204513"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679204513"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddTags
+</span><a href="#local-6989586621679204514"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:loadBalancerNames:AddTags' :: [Text]
 </span><a href="Network.AWS.ELB.AddTags.html#%24sel%3AloadBalancerNames%3AAddTags%27"><span class="hs-identifier hs-var">loadBalancerNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679204256"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELB.AddTags.html#AddTags"><span class="hs-identifier hs-type">AddTags</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; AddTags -&gt; f AddTags)
+</span><a href="#local-6989586621679204513"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELB.AddTags.html#AddTags"><span class="hs-identifier hs-type">AddTags</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; AddTags -&gt; f AddTags)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
 -&gt; AddTags
 -&gt; f AddTags
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- | The tags.</span><span>
 </span><span id="line-95"></span><span class="annot"><a href="Network.AWS.ELB.AddTags.html#addTags_tags"><span class="hs-identifier hs-type">addTags_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.AddTags.html#AddTags"><span class="hs-identifier hs-type">AddTags</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">)</span><span>
@@ -186,16 +186,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (AddTags -&gt; NonEmpty Tag -&gt; AddTags)
 -&gt; Lens AddTags AddTags (NonEmpty Tag) (NonEmpty Tag)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELB.AddTags.html#AddTags%27"><span class="hs-identifier hs-type">AddTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204254"><span class="annot"><span class="annottext">NonEmpty Tag
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELB.AddTags.html#AddTags%27"><span class="hs-identifier hs-type">AddTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204511"><span class="annot"><span class="annottext">NonEmpty Tag
 tags :: NonEmpty Tag
 $sel:tags:AddTags' :: AddTags -&gt; NonEmpty Tag
-</span><a href="#local-6989586621679204254"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Tag
-</span><a href="#local-6989586621679204254"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679204253"><span class="annot"><span class="annottext">s :: AddTags
-</span><a href="#local-6989586621679204253"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELB.AddTags.html#AddTags%27"><span class="hs-identifier hs-type">AddTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679204252"><span class="annot"><span class="annottext">NonEmpty Tag
-</span><a href="#local-6989586621679204252"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddTags
-</span><a href="#local-6989586621679204253"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:AddTags' :: NonEmpty Tag
+</span><a href="#local-6989586621679204511"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Tag
+</span><a href="#local-6989586621679204511"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679204510"><span class="annot"><span class="annottext">s :: AddTags
+</span><a href="#local-6989586621679204510"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELB.AddTags.html#AddTags%27"><span class="hs-identifier hs-type">AddTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679204509"><span class="annot"><span class="annottext">NonEmpty Tag
+</span><a href="#local-6989586621679204509"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddTags
+</span><a href="#local-6989586621679204510"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:AddTags' :: NonEmpty Tag
 </span><a href="Network.AWS.ELB.AddTags.html#%24sel%3Atags%3AAddTags%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty Tag
-</span><a href="#local-6989586621679204252"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELB.AddTags.html#AddTags"><span class="hs-identifier hs-type">AddTags</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Tag -&gt; f (NonEmpty Tag)) -&gt; AddTags -&gt; f AddTags)
+</span><a href="#local-6989586621679204509"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELB.AddTags.html#AddTags"><span class="hs-identifier hs-type">AddTags</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Tag -&gt; f (NonEmpty Tag)) -&gt; AddTags -&gt; f AddTags)
 -&gt; ((NonEmpty Tag -&gt; f (NonEmpty Tag))
     -&gt; NonEmpty Tag -&gt; f (NonEmpty Tag))
 -&gt; (NonEmpty Tag -&gt; f (NonEmpty Tag))
@@ -204,17 +204,17 @@ $sel:tags:AddTags' :: AddTags -&gt; NonEmpty Tag
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty Tag -&gt; f (NonEmpty Tag))
 -&gt; NonEmpty Tag -&gt; f (NonEmpty Tag)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.AddTags.html#AddTags"><span class="hs-identifier hs-type">AddTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-99"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.AddTags.html#AddTags"><span class="hs-identifier hs-type">AddTags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ELB.AddTags.html#AddTagsResponse"><span class="hs-identifier hs-type">AddTagsResponse</span></a></span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679204248"><span class="annot"><span class="annottext">request :: AddTags -&gt; Request AddTags
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679204505"><span class="annot"><span class="annottext">request :: AddTags -&gt; Request AddTags
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; AddTags -&gt; Request AddTags
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.ELB.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679204244"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679204501"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy AddTags
 -&gt; ClientResponse ClientBody
@@ -243,10 +243,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AddTagsResult&quot;</span></span><span>
-</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679204241"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679204241"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679204240"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679204240"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679204239"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679204239"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679204498"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679204498"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679204497"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679204497"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679204496"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679204496"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-105"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; AddTagsResponse
 </span><a href="Network.AWS.ELB.AddTags.html#AddTagsResponse%27"><span class="hs-identifier hs-var">AddTagsResponse'</span></a></span><span>
 </span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; AddTagsResponse)
@@ -257,15 +257,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679204241"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679204498"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679204232"><span id="local-6989586621679204234"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.AddTags.html#AddTags"><span class="hs-identifier hs-type">AddTags</span></a></span></span></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679204489"><span id="local-6989586621679204491"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.AddTags.html#AddTags"><span class="hs-identifier hs-type">AddTags</span></a></span></span></span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679204229"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.AddTags.html#AddTags"><span class="hs-identifier hs-type">AddTags</span></a></span></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679204486"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.AddTags.html#AddTags"><span class="hs-identifier hs-type">AddTags</span></a></span></span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.AddTags.html#AddTags"><span class="hs-identifier hs-type">AddTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679204225"><span class="annot"><span class="annottext">toHeaders :: AddTags -&gt; ResponseHeaders
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679204482"><span class="annot"><span class="annottext">toHeaders :: AddTags -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; AddTags -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -273,21 +273,21 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.AddTags.html#AddTags"><span class="hs-identifier hs-type">AddTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679204220"><span class="annot"><span class="annottext">toPath :: AddTags -&gt; ByteString
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679204477"><span class="annot"><span class="annottext">toPath :: AddTags -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; AddTags -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.AddTags.html#AddTags"><span class="hs-identifier hs-type">AddTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679204216"><span class="annot"><span class="annottext">toQuery :: AddTags -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.AddTags.html#AddTags%27"><span class="hs-identifier hs-type">AddTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204213"><span id="local-6989586621679204214"><span class="annot"><span class="annottext">[Text]
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679204473"><span class="annot"><span class="annottext">toQuery :: AddTags -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.AddTags.html#AddTags%27"><span class="hs-identifier hs-type">AddTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204470"><span id="local-6989586621679204471"><span class="annot"><span class="annottext">[Text]
 NonEmpty Tag
 tags :: NonEmpty Tag
 loadBalancerNames :: [Text]
 $sel:tags:AddTags' :: AddTags -&gt; NonEmpty Tag
 $sel:loadBalancerNames:AddTags' :: AddTags -&gt; [Text]
-</span><a href="#local-6989586621679204213"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679204470"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -312,7 +312,7 @@ forall a.
 ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679204214"><span class="hs-identifier hs-var">loadBalancerNames</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679204471"><span class="hs-identifier hs-var">loadBalancerNames</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-127"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
@@ -322,18 +322,18 @@ forall a.
 ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Tag
-</span><a href="#local-6989586621679204213"><span class="hs-identifier hs-var">tags</span></a></span><span>
+</span><a href="#local-6989586621679204470"><span class="hs-identifier hs-var">tags</span></a></span><span>
 </span><span id="line-128"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-comment">-- | Contains the output of AddTags.</span><span>
 </span><span id="line-131"></span><span class="hs-comment">--</span><span>
 </span><span id="line-132"></span><span class="hs-comment">-- /See:/ 'newAddTagsResponse' smart constructor.</span><span>
-</span><span id="line-133"></span><span id="local-6989586621679204209"><span id="local-6989586621679204210"></span></span><span class="hs-keyword">data</span><span> </span><span id="AddTagsResponse"><span class="annot"><a href="Network.AWS.ELB.AddTags.html#AddTagsResponse"><span class="hs-identifier hs-var">AddTagsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddTagsResponse%27"><span class="annot"><a href="Network.AWS.ELB.AddTags.html#AddTagsResponse%27"><span class="hs-identifier hs-var">AddTagsResponse'</span></a></span></span><span>
+</span><span id="line-133"></span><span id="local-6989586621679204466"><span id="local-6989586621679204467"></span></span><span class="hs-keyword">data</span><span> </span><span id="AddTagsResponse"><span class="annot"><a href="Network.AWS.ELB.AddTags.html#AddTagsResponse"><span class="hs-identifier hs-var">AddTagsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddTagsResponse%27"><span class="annot"><a href="Network.AWS.ELB.AddTags.html#AddTagsResponse%27"><span class="hs-identifier hs-var">AddTagsResponse'</span></a></span></span><span>
 </span><span id="line-134"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-135"></span><span>    </span><span id="%24sel%3AhttpStatus%3AAddTagsResponse%27"><span class="annot"><span class="annottext">AddTagsResponse -&gt; Int
 </span><a href="Network.AWS.ELB.AddTags.html#%24sel%3AhttpStatus%3AAddTagsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-136"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-137"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679204204"><span id="local-6989586621679204206"><span class="annot"><span class="annottext">AddTagsResponse -&gt; AddTagsResponse -&gt; Bool
+</span><span id="line-137"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679204461"><span id="local-6989586621679204463"><span class="annot"><span class="annottext">AddTagsResponse -&gt; AddTagsResponse -&gt; Bool
 (AddTagsResponse -&gt; AddTagsResponse -&gt; Bool)
 -&gt; (AddTagsResponse -&gt; AddTagsResponse -&gt; Bool)
 -&gt; Eq AddTagsResponse
@@ -342,7 +342,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AddTagsResponse -&gt; AddTagsResponse -&gt; Bool
 == :: AddTagsResponse -&gt; AddTagsResponse -&gt; Bool
 $c== :: AddTagsResponse -&gt; AddTagsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679204196"><span id="local-6989586621679204198"><span id="local-6989586621679204200"><span id="local-6989586621679204202"><span class="annot"><span class="annottext">ReadPrec [AddTagsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679204453"><span id="local-6989586621679204455"><span id="local-6989586621679204457"><span id="local-6989586621679204459"><span class="annot"><span class="annottext">ReadPrec [AddTagsResponse]
 ReadPrec AddTagsResponse
 Int -&gt; ReadS AddTagsResponse
 ReadS [AddTagsResponse]
@@ -362,7 +362,7 @@ readList :: ReadS [AddTagsResponse]
 $creadList :: ReadS [AddTagsResponse]
 readsPrec :: Int -&gt; ReadS AddTagsResponse
 $creadsPrec :: Int -&gt; ReadS AddTagsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679204190"><span id="local-6989586621679204192"><span id="local-6989586621679204194"><span class="annot"><span class="annottext">Int -&gt; AddTagsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679204447"><span id="local-6989586621679204449"><span id="local-6989586621679204451"><span class="annot"><span class="annottext">Int -&gt; AddTagsResponse -&gt; ShowS
 [AddTagsResponse] -&gt; ShowS
 AddTagsResponse -&gt; String
 (Int -&gt; AddTagsResponse -&gt; ShowS)
@@ -402,12 +402,12 @@ $cfrom :: forall x. AddTagsResponse -&gt; Rep AddTagsResponse x
 </span><span id="line-150"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-151"></span><span>  </span><span class="annot"><a href="Network.AWS.ELB.AddTags.html#AddTagsResponse"><span class="hs-identifier hs-type">AddTagsResponse</span></a></span><span>
 </span><span id="line-152"></span><span id="newAddTagsResponse"><span class="annot"><span class="annottext">newAddTagsResponse :: Int -&gt; AddTagsResponse
-</span><a href="Network.AWS.ELB.AddTags.html#newAddTagsResponse"><span class="hs-identifier hs-var hs-var">newAddTagsResponse</span></a></span></span><span> </span><span id="local-6989586621679204187"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679204187"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ELB.AddTags.html#newAddTagsResponse"><span class="hs-identifier hs-var hs-var">newAddTagsResponse</span></a></span></span><span> </span><span id="local-6989586621679204444"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679204444"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-153"></span><span>  </span><span class="annot"><span class="annottext">AddTagsResponse' :: Int -&gt; AddTagsResponse
 </span><a href="Network.AWS.ELB.AddTags.html#AddTagsResponse%27"><span class="hs-identifier hs-type">AddTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AddTagsResponse' :: Int
 </span><a href="Network.AWS.ELB.AddTags.html#%24sel%3AhttpStatus%3AAddTagsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679204187"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679204444"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-156"></span><span class="annot"><a href="Network.AWS.ELB.AddTags.html#addTagsResponse_httpStatus"><span class="hs-identifier hs-type">addTagsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.AddTags.html#AddTagsResponse"><span class="hs-identifier hs-type">AddTagsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -416,16 +416,16 @@ $cfrom :: forall x. AddTagsResponse -&gt; Rep AddTagsResponse x
 -&gt; (AddTagsResponse -&gt; Int -&gt; AddTagsResponse)
 -&gt; Lens AddTagsResponse AddTagsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELB.AddTags.html#AddTagsResponse%27"><span class="hs-identifier hs-type">AddTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204186"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELB.AddTags.html#AddTagsResponse%27"><span class="hs-identifier hs-type">AddTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204443"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:AddTagsResponse' :: AddTagsResponse -&gt; Int
-</span><a href="#local-6989586621679204186"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679204186"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679204185"><span class="annot"><span class="annottext">s :: AddTagsResponse
-</span><a href="#local-6989586621679204185"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELB.AddTags.html#AddTagsResponse%27"><span class="hs-identifier hs-type">AddTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679204184"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679204184"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddTagsResponse
-</span><a href="#local-6989586621679204185"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AddTagsResponse' :: Int
+</span><a href="#local-6989586621679204443"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679204443"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679204442"><span class="annot"><span class="annottext">s :: AddTagsResponse
+</span><a href="#local-6989586621679204442"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELB.AddTags.html#AddTagsResponse%27"><span class="hs-identifier hs-type">AddTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679204441"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679204441"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddTagsResponse
+</span><a href="#local-6989586621679204442"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AddTagsResponse' :: Int
 </span><a href="Network.AWS.ELB.AddTags.html#%24sel%3AhttpStatus%3AAddTagsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679204184"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELB.AddTags.html#AddTagsResponse"><span class="hs-identifier hs-type">AddTagsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679204441"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELB.AddTags.html#AddTagsResponse"><span class="hs-identifier hs-type">AddTagsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>
-</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679204182"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.AddTags.html#AddTagsResponse"><span class="hs-identifier hs-type">AddTagsResponse</span></a></span></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679204439"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.AddTags.html#AddTagsResponse"><span class="hs-identifier hs-type">AddTagsResponse</span></a></span></span><span>
 </span><span id="line-160"></span></pre></body></html>

@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621681081614"><span id="local-6989586621681081615"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InstanceInterruptionBehavior"><span class="annot"><a href="Network.AWS.EC2.Types.InstanceInterruptionBehavior.html#InstanceInterruptionBehavior"><span class="hs-identifier hs-var">InstanceInterruptionBehavior</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceInterruptionBehavior%27"><span class="annot"><a href="Network.AWS.EC2.Types.InstanceInterruptionBehavior.html#InstanceInterruptionBehavior%27"><span class="hs-identifier hs-var">InstanceInterruptionBehavior'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621681115966"><span id="local-6989586621681115967"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InstanceInterruptionBehavior"><span class="annot"><a href="Network.AWS.EC2.Types.InstanceInterruptionBehavior.html#InstanceInterruptionBehavior"><span class="hs-identifier hs-var">InstanceInterruptionBehavior</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceInterruptionBehavior%27"><span class="annot"><a href="Network.AWS.EC2.Types.InstanceInterruptionBehavior.html#InstanceInterruptionBehavior%27"><span class="hs-identifier hs-var">InstanceInterruptionBehavior'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromInstanceInterruptionBehavior"><span class="annot"><span class="annottext">InstanceInterruptionBehavior -&gt; Text
 </span><a href="Network.AWS.EC2.Types.InstanceInterruptionBehavior.html#fromInstanceInterruptionBehavior"><span class="hs-identifier hs-var hs-var">fromInstanceInterruptionBehavior</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681081606"><span id="local-6989586621681081608"><span id="local-6989586621681081610"><span class="annot"><span class="annottext">Int -&gt; InstanceInterruptionBehavior -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681115958"><span id="local-6989586621681115960"><span id="local-6989586621681115962"><span class="annot"><span class="annottext">Int -&gt; InstanceInterruptionBehavior -&gt; ShowS
 [InstanceInterruptionBehavior] -&gt; ShowS
 InstanceInterruptionBehavior -&gt; String
 (Int -&gt; InstanceInterruptionBehavior -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: InstanceInterruptionBehavior -&gt; String
 showsPrec :: Int -&gt; InstanceInterruptionBehavior -&gt; ShowS
 $cshowsPrec :: Int -&gt; InstanceInterruptionBehavior -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621681081597"><span id="local-6989586621681081599"><span id="local-6989586621681081601"><span id="local-6989586621681081603"><span class="annot"><span class="annottext">ReadPrec [InstanceInterruptionBehavior]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621681115949"><span id="local-6989586621681115951"><span id="local-6989586621681115953"><span id="local-6989586621681115955"><span class="annot"><span class="annottext">ReadPrec [InstanceInterruptionBehavior]
 ReadPrec InstanceInterruptionBehavior
 Int -&gt; ReadS InstanceInterruptionBehavior
 ReadS [InstanceInterruptionBehavior]
@@ -74,7 +74,7 @@ $creadList :: ReadS [InstanceInterruptionBehavior]
 readsPrec :: Int -&gt; ReadS InstanceInterruptionBehavior
 $creadsPrec :: Int -&gt; ReadS InstanceInterruptionBehavior
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621681081592"><span id="local-6989586621681081594"><span class="annot"><span class="annottext">InstanceInterruptionBehavior
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681115944"><span id="local-6989586621681115946"><span class="annot"><span class="annottext">InstanceInterruptionBehavior
 -&gt; InstanceInterruptionBehavior -&gt; Bool
 (InstanceInterruptionBehavior
  -&gt; InstanceInterruptionBehavior -&gt; Bool)
@@ -91,7 +91,7 @@ $c/= :: InstanceInterruptionBehavior
 $c== :: InstanceInterruptionBehavior
 -&gt; InstanceInterruptionBehavior -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621681081576"><span id="local-6989586621681081578"><span id="local-6989586621681081580"><span id="local-6989586621681081582"><span id="local-6989586621681081584"><span id="local-6989586621681081586"><span id="local-6989586621681081588"><span class="annot"><span class="annottext">Eq InstanceInterruptionBehavior
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621681115928"><span id="local-6989586621681115930"><span id="local-6989586621681115932"><span id="local-6989586621681115934"><span id="local-6989586621681115936"><span id="local-6989586621681115938"><span id="local-6989586621681115940"><span class="annot"><span class="annottext">Eq InstanceInterruptionBehavior
 Eq InstanceInterruptionBehavior
 -&gt; (InstanceInterruptionBehavior
     -&gt; InstanceInterruptionBehavior -&gt; Ordering)
@@ -172,7 +172,7 @@ InstanceInterruptionBehavior -&gt; Rep InstanceInterruptionBehavior x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681081568"><span id="local-6989586621681081570"><span class="annot"><span class="annottext">Int -&gt; InstanceInterruptionBehavior -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681115920"><span id="local-6989586621681115922"><span class="annot"><span class="annottext">Int -&gt; InstanceInterruptionBehavior -&gt; Int
 InstanceInterruptionBehavior -&gt; Int
 (Int -&gt; InstanceInterruptionBehavior -&gt; Int)
 -&gt; (InstanceInterruptionBehavior -&gt; Int)
@@ -183,56 +183,56 @@ $chash :: InstanceInterruptionBehavior -&gt; Int
 hashWithSalt :: Int -&gt; InstanceInterruptionBehavior -&gt; Int
 $chashWithSalt :: Int -&gt; InstanceInterruptionBehavior -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621681081565"><span class="annot"><span class="annottext">InstanceInterruptionBehavior -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681115917"><span class="annot"><span class="annottext">InstanceInterruptionBehavior -&gt; ()
 (InstanceInterruptionBehavior -&gt; ())
 -&gt; NFData InstanceInterruptionBehavior
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: InstanceInterruptionBehavior -&gt; ()
 $crnf :: InstanceInterruptionBehavior -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621681081562"><span class="annot"><span class="annottext">Text -&gt; Either String InstanceInterruptionBehavior
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681115914"><span class="annot"><span class="annottext">Text -&gt; Either String InstanceInterruptionBehavior
 (Text -&gt; Either String InstanceInterruptionBehavior)
 -&gt; FromText InstanceInterruptionBehavior
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String InstanceInterruptionBehavior
 $cfromText :: Text -&gt; Either String InstanceInterruptionBehavior
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681081559"><span class="annot"><span class="annottext">InstanceInterruptionBehavior -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681115911"><span class="annot"><span class="annottext">InstanceInterruptionBehavior -&gt; Text
 (InstanceInterruptionBehavior -&gt; Text)
 -&gt; ToText InstanceInterruptionBehavior
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: InstanceInterruptionBehavior -&gt; Text
 $ctoText :: InstanceInterruptionBehavior -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681081556"><span class="annot"><span class="annottext">InstanceInterruptionBehavior -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681115908"><span class="annot"><span class="annottext">InstanceInterruptionBehavior -&gt; ByteString
 (InstanceInterruptionBehavior -&gt; ByteString)
 -&gt; ToByteString InstanceInterruptionBehavior
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: InstanceInterruptionBehavior -&gt; ByteString
 $ctoBS :: InstanceInterruptionBehavior -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681081553"><span class="annot"><span class="annottext">InstanceInterruptionBehavior -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681115905"><span class="annot"><span class="annottext">InstanceInterruptionBehavior -&gt; ByteStringBuilder
 (InstanceInterruptionBehavior -&gt; ByteStringBuilder)
 -&gt; ToLog InstanceInterruptionBehavior
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: InstanceInterruptionBehavior -&gt; ByteStringBuilder
 $cbuild :: InstanceInterruptionBehavior -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681081550"><span class="annot"><span class="annottext">HeaderName -&gt; InstanceInterruptionBehavior -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681115902"><span class="annot"><span class="annottext">HeaderName -&gt; InstanceInterruptionBehavior -&gt; [Header]
 (HeaderName -&gt; InstanceInterruptionBehavior -&gt; [Header])
 -&gt; ToHeader InstanceInterruptionBehavior
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; InstanceInterruptionBehavior -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; InstanceInterruptionBehavior -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681081547"><span class="annot"><span class="annottext">InstanceInterruptionBehavior -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681115899"><span class="annot"><span class="annottext">InstanceInterruptionBehavior -&gt; QueryString
 (InstanceInterruptionBehavior -&gt; QueryString)
 -&gt; ToQuery InstanceInterruptionBehavior
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: InstanceInterruptionBehavior -&gt; QueryString
 $ctoQuery :: InstanceInterruptionBehavior -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681081542"><span id="local-6989586621681081544"><span class="annot"><span class="annottext">Value -&gt; Parser [InstanceInterruptionBehavior]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681115894"><span id="local-6989586621681115896"><span class="annot"><span class="annottext">Value -&gt; Parser [InstanceInterruptionBehavior]
 Value -&gt; Parser InstanceInterruptionBehavior
 (Value -&gt; Parser InstanceInterruptionBehavior)
 -&gt; (Value -&gt; Parser [InstanceInterruptionBehavior])
@@ -244,7 +244,7 @@ $cparseJSONList :: Value -&gt; Parser [InstanceInterruptionBehavior]
 parseJSON :: Value -&gt; Parser InstanceInterruptionBehavior
 $cparseJSON :: Value -&gt; Parser InstanceInterruptionBehavior
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681081537"><span id="local-6989586621681081539"><span class="annot"><span class="annottext">FromJSONKeyFunction [InstanceInterruptionBehavior]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681115889"><span id="local-6989586621681115891"><span class="annot"><span class="annottext">FromJSONKeyFunction [InstanceInterruptionBehavior]
 FromJSONKeyFunction InstanceInterruptionBehavior
 FromJSONKeyFunction InstanceInterruptionBehavior
 -&gt; FromJSONKeyFunction [InstanceInterruptionBehavior]
@@ -256,7 +256,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [InstanceInterruptionBehavior]
 fromJSONKey :: FromJSONKeyFunction InstanceInterruptionBehavior
 $cfromJSONKey :: FromJSONKeyFunction InstanceInterruptionBehavior
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681081528"><span id="local-6989586621681081530"><span id="local-6989586621681081532"><span id="local-6989586621681081534"><span class="annot"><span class="annottext">[InstanceInterruptionBehavior] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681115880"><span id="local-6989586621681115882"><span id="local-6989586621681115884"><span id="local-6989586621681115886"><span class="annot"><span class="annottext">[InstanceInterruptionBehavior] -&gt; Encoding
 [InstanceInterruptionBehavior] -&gt; Value
 InstanceInterruptionBehavior -&gt; Encoding
 InstanceInterruptionBehavior -&gt; Value
@@ -280,7 +280,7 @@ $ctoEncoding :: InstanceInterruptionBehavior -&gt; Encoding
 toJSON :: InstanceInterruptionBehavior -&gt; Value
 $ctoJSON :: InstanceInterruptionBehavior -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681081523"><span id="local-6989586621681081525"><span class="annot"><span class="annottext">ToJSONKeyFunction [InstanceInterruptionBehavior]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681115875"><span id="local-6989586621681115877"><span class="annot"><span class="annottext">ToJSONKeyFunction [InstanceInterruptionBehavior]
 ToJSONKeyFunction InstanceInterruptionBehavior
 ToJSONKeyFunction InstanceInterruptionBehavior
 -&gt; ToJSONKeyFunction [InstanceInterruptionBehavior]
@@ -292,14 +292,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [InstanceInterruptionBehavior]
 toJSONKey :: ToJSONKeyFunction InstanceInterruptionBehavior
 $ctoJSONKey :: ToJSONKeyFunction InstanceInterruptionBehavior
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621681081520"><span class="annot"><span class="annottext">[Node] -&gt; Either String InstanceInterruptionBehavior
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681115872"><span class="annot"><span class="annottext">[Node] -&gt; Either String InstanceInterruptionBehavior
 ([Node] -&gt; Either String InstanceInterruptionBehavior)
 -&gt; FromXML InstanceInterruptionBehavior
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String InstanceInterruptionBehavior
 $cparseXML :: [Node] -&gt; Either String InstanceInterruptionBehavior
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621681081517"><span class="annot"><span class="annottext">InstanceInterruptionBehavior -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621681115869"><span class="annot"><span class="annottext">InstanceInterruptionBehavior -&gt; XML
 (InstanceInterruptionBehavior -&gt; XML)
 -&gt; ToXML InstanceInterruptionBehavior
 forall a. (a -&gt; XML) -&gt; ToXML a

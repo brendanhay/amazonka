@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | The term being translated by the custom terminology.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newTerm' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679183866"><span id="local-6989586621679183867"></span></span><span class="hs-keyword">data</span><span> </span><span id="Term"><span class="annot"><a href="Network.AWS.Translate.Types.Term.html#Term"><span class="hs-identifier hs-var">Term</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Term%27"><span class="annot"><a href="Network.AWS.Translate.Types.Term.html#Term%27"><span class="hs-identifier hs-var">Term'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679183925"><span id="local-6989586621679183926"></span></span><span class="hs-keyword">data</span><span> </span><span id="Term"><span class="annot"><a href="Network.AWS.Translate.Types.Term.html#Term"><span class="hs-identifier hs-var">Term</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Term%27"><span class="annot"><a href="Network.AWS.Translate.Types.Term.html#Term%27"><span class="hs-identifier hs-var">Term'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The target text of the term being translated by the custom terminology.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AtargetText%3ATerm%27"><span class="annot"><span class="annottext">Term -&gt; Maybe Text
 </span><a href="Network.AWS.Translate.Types.Term.html#%24sel%3AtargetText%3ATerm%27"><span class="hs-identifier hs-var hs-var">targetText</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -34,14 +34,14 @@
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AsourceText%3ATerm%27"><span class="annot"><span class="annottext">Term -&gt; Maybe Text
 </span><a href="Network.AWS.Translate.Types.Term.html#%24sel%3AsourceText%3ATerm%27"><span class="hs-identifier hs-var hs-var">sourceText</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679183859"><span id="local-6989586621679183861"><span class="annot"><span class="annottext">Term -&gt; Term -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679183918"><span id="local-6989586621679183920"><span class="annot"><span class="annottext">Term -&gt; Term -&gt; Bool
 (Term -&gt; Term -&gt; Bool) -&gt; (Term -&gt; Term -&gt; Bool) -&gt; Eq Term
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: Term -&gt; Term -&gt; Bool
 $c/= :: Term -&gt; Term -&gt; Bool
 == :: Term -&gt; Term -&gt; Bool
 $c== :: Term -&gt; Term -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679183850"><span id="local-6989586621679183852"><span id="local-6989586621679183854"><span id="local-6989586621679183856"><span class="annot"><span class="annottext">ReadPrec [Term]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679183909"><span id="local-6989586621679183911"><span id="local-6989586621679183913"><span id="local-6989586621679183915"><span class="annot"><span class="annottext">ReadPrec [Term]
 ReadPrec Term
 Int -&gt; ReadS Term
 ReadS [Term]
@@ -58,7 +58,7 @@ readList :: ReadS [Term]
 $creadList :: ReadS [Term]
 readsPrec :: Int -&gt; ReadS Term
 $creadsPrec :: Int -&gt; ReadS Term
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679183843"><span id="local-6989586621679183845"><span id="local-6989586621679183847"><span class="annot"><span class="annottext">Int -&gt; Term -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679183902"><span id="local-6989586621679183904"><span id="local-6989586621679183906"><span class="annot"><span class="annottext">Int -&gt; Term -&gt; ShowS
 [Term] -&gt; ShowS
 Term -&gt; String
 (Int -&gt; Term -&gt; ShowS)
@@ -115,16 +115,16 @@ forall a. Maybe a
 -&gt; (Term -&gt; Maybe Text -&gt; Term)
 -&gt; Lens Term Term (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Translate.Types.Term.html#Term%27"><span class="hs-identifier hs-type">Term'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679183834"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Translate.Types.Term.html#Term%27"><span class="hs-identifier hs-type">Term'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679183893"><span class="annot"><span class="annottext">Maybe Text
 targetText :: Maybe Text
 $sel:targetText:Term' :: Term -&gt; Maybe Text
-</span><a href="#local-6989586621679183834"><span class="hs-identifier hs-var hs-var">targetText</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679183834"><span class="hs-identifier hs-var">targetText</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679183833"><span class="annot"><span class="annottext">s :: Term
-</span><a href="#local-6989586621679183833"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Translate.Types.Term.html#Term%27"><span class="hs-identifier hs-type">Term'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679183832"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679183832"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Term
-</span><a href="#local-6989586621679183833"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetText:Term' :: Maybe Text
+</span><a href="#local-6989586621679183893"><span class="hs-identifier hs-var hs-var">targetText</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679183893"><span class="hs-identifier hs-var">targetText</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679183892"><span class="annot"><span class="annottext">s :: Term
+</span><a href="#local-6989586621679183892"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Translate.Types.Term.html#Term%27"><span class="hs-identifier hs-type">Term'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679183891"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679183891"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Term
+</span><a href="#local-6989586621679183892"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetText:Term' :: Maybe Text
 </span><a href="Network.AWS.Translate.Types.Term.html#%24sel%3AtargetText%3ATerm%27"><span class="hs-identifier hs-var">targetText</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679183832"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Translate.Types.Term.html#Term"><span class="hs-identifier hs-type">Term</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679183891"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Translate.Types.Term.html#Term"><span class="hs-identifier hs-type">Term</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- | The source text of the term being translated by the custom terminology.</span><span>
 </span><span id="line-61"></span><span class="annot"><a href="Network.AWS.Translate.Types.Term.html#term_sourceText"><span class="hs-identifier hs-type">term_sourceText</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Translate.Types.Term.html#Term"><span class="hs-identifier hs-type">Term</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -133,47 +133,47 @@ $sel:targetText:Term' :: Term -&gt; Maybe Text
 -&gt; (Term -&gt; Maybe Text -&gt; Term)
 -&gt; Lens Term Term (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Translate.Types.Term.html#Term%27"><span class="hs-identifier hs-type">Term'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679183830"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Translate.Types.Term.html#Term%27"><span class="hs-identifier hs-type">Term'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679183889"><span class="annot"><span class="annottext">Maybe Text
 sourceText :: Maybe Text
 $sel:sourceText:Term' :: Term -&gt; Maybe Text
-</span><a href="#local-6989586621679183830"><span class="hs-identifier hs-var hs-var">sourceText</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679183830"><span class="hs-identifier hs-var">sourceText</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679183829"><span class="annot"><span class="annottext">s :: Term
-</span><a href="#local-6989586621679183829"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Translate.Types.Term.html#Term%27"><span class="hs-identifier hs-type">Term'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679183828"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679183828"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Term
-</span><a href="#local-6989586621679183829"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceText:Term' :: Maybe Text
+</span><a href="#local-6989586621679183889"><span class="hs-identifier hs-var hs-var">sourceText</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679183889"><span class="hs-identifier hs-var">sourceText</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679183888"><span class="annot"><span class="annottext">s :: Term
+</span><a href="#local-6989586621679183888"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Translate.Types.Term.html#Term%27"><span class="hs-identifier hs-type">Term'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679183887"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679183887"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Term
+</span><a href="#local-6989586621679183888"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceText:Term' :: Maybe Text
 </span><a href="Network.AWS.Translate.Types.Term.html#%24sel%3AsourceText%3ATerm%27"><span class="hs-identifier hs-var">sourceText</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679183828"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Translate.Types.Term.html#Term"><span class="hs-identifier hs-type">Term</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679183887"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Translate.Types.Term.html#Term"><span class="hs-identifier hs-type">Term</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679183825"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Translate.Types.Term.html#Term"><span class="hs-identifier hs-type">Term</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-65"></span><span>  </span><span id="local-6989586621679183823"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Term
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679183884"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Translate.Types.Term.html#Term"><span class="hs-identifier hs-type">Term</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-65"></span><span>  </span><span id="local-6989586621679183882"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Term
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-66"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Term) -&gt; Value -&gt; Parser Term
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Term&quot;</span></span><span>
-</span><span id="line-68"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679183820"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679183820"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-68"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679183879"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679183879"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-69"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Term
 </span><a href="Network.AWS.Translate.Types.Term.html#Term%27"><span class="hs-identifier hs-var">Term'</span></a></span><span>
 </span><span id="line-70"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Term)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; Term)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679183820"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679183879"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TargetText&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Term) -&gt; Parser (Maybe Text) -&gt; Parser Term
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679183820"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679183879"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SourceText&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679183814"><span id="local-6989586621679183816"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Translate.Types.Term.html#Term"><span class="hs-identifier hs-type">Term</span></a></span></span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679183873"><span id="local-6989586621679183875"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Translate.Types.Term.html#Term"><span class="hs-identifier hs-type">Term</span></a></span></span></span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679183811"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Translate.Types.Term.html#Term"><span class="hs-identifier hs-type">Term</span></a></span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679183870"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Translate.Types.Term.html#Term"><span class="hs-identifier hs-type">Term</span></a></span></span><span>
 </span><span id="line-77"></span></pre></body></html>

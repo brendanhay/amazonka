@@ -26,35 +26,35 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Describes the parameters of a database.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newRelationalDatabaseParameter' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679620127"><span id="local-6989586621679620128"></span></span><span class="hs-keyword">data</span><span> </span><span id="RelationalDatabaseParameter"><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#RelationalDatabaseParameter"><span class="hs-identifier hs-var">RelationalDatabaseParameter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RelationalDatabaseParameter%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#RelationalDatabaseParameter%27"><span class="hs-identifier hs-var">RelationalDatabaseParameter'</span></a></span></span><span>
-</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies the valid range of values for the parameter.</span><span>
-</span><span id="line-31"></span><span>    </span><span id="%24sel%3AallowedValues%3ARelationalDatabaseParameter%27"><span class="annot"><span class="annottext">RelationalDatabaseParameter -&gt; Maybe Text
-</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#%24sel%3AallowedValues%3ARelationalDatabaseParameter%27"><span class="hs-identifier hs-var hs-var">allowedValues</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679621034"><span id="local-6989586621679621035"></span></span><span class="hs-keyword">data</span><span> </span><span id="RelationalDatabaseParameter"><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#RelationalDatabaseParameter"><span class="hs-identifier hs-var">RelationalDatabaseParameter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RelationalDatabaseParameter%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#RelationalDatabaseParameter%27"><span class="hs-identifier hs-var">RelationalDatabaseParameter'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies the engine-specific parameter type.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3AapplyType%3ARelationalDatabaseParameter%27"><span class="annot"><span class="annottext">RelationalDatabaseParameter -&gt; Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#%24sel%3AapplyType%3ARelationalDatabaseParameter%27"><span class="hs-identifier hs-var hs-var">applyType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | Specifies the value of the parameter.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AparameterValue%3ARelationalDatabaseParameter%27"><span class="annot"><span class="annottext">RelationalDatabaseParameter -&gt; Maybe Text
 </span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#%24sel%3AparameterValue%3ARelationalDatabaseParameter%27"><span class="hs-identifier hs-var hs-var">parameterValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | Specifies the engine-specific parameter type.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AapplyType%3ARelationalDatabaseParameter%27"><span class="annot"><span class="annottext">RelationalDatabaseParameter -&gt; Maybe Text
-</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#%24sel%3AapplyType%3ARelationalDatabaseParameter%27"><span class="hs-identifier hs-var hs-var">applyType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Specifies the name of the parameter.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AparameterName%3ARelationalDatabaseParameter%27"><span class="annot"><span class="annottext">RelationalDatabaseParameter -&gt; Maybe Text
-</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#%24sel%3AparameterName%3ARelationalDatabaseParameter%27"><span class="hs-identifier hs-var hs-var">parameterName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | Provides a description of the parameter.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3Adescription%3ARelationalDatabaseParameter%27"><span class="annot"><span class="annottext">RelationalDatabaseParameter -&gt; Maybe Text
-</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#%24sel%3Adescription%3ARelationalDatabaseParameter%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | Indicates when parameter updates are applied.</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- Can be @immediate@ or @pending-reboot@.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3AapplyMethod%3ARelationalDatabaseParameter%27"><span class="annot"><span class="annottext">RelationalDatabaseParameter -&gt; Maybe Text
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | Indicates when parameter updates are applied.</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- Can be @immediate@ or @pending-reboot@.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AapplyMethod%3ARelationalDatabaseParameter%27"><span class="annot"><span class="annottext">RelationalDatabaseParameter -&gt; Maybe Text
 </span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#%24sel%3AapplyMethod%3ARelationalDatabaseParameter%27"><span class="hs-identifier hs-var hs-var">applyMethod</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | A Boolean value indicating whether the parameter can be modified.</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3AisModifiable%3ARelationalDatabaseParameter%27"><span class="annot"><span class="annottext">RelationalDatabaseParameter -&gt; Maybe Bool
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | Specifies the valid data type for the parameter.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AdataType%3ARelationalDatabaseParameter%27"><span class="annot"><span class="annottext">RelationalDatabaseParameter -&gt; Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#%24sel%3AdataType%3ARelationalDatabaseParameter%27"><span class="hs-identifier hs-var hs-var">dataType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | A Boolean value indicating whether the parameter can be modified.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AisModifiable%3ARelationalDatabaseParameter%27"><span class="annot"><span class="annottext">RelationalDatabaseParameter -&gt; Maybe Bool
 </span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#%24sel%3AisModifiable%3ARelationalDatabaseParameter%27"><span class="hs-identifier hs-var hs-var">isModifiable</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | Specifies the valid data type for the parameter.</span><span>
-</span><span id="line-47"></span><span>    </span><span id="%24sel%3AdataType%3ARelationalDatabaseParameter%27"><span class="annot"><span class="annottext">RelationalDatabaseParameter -&gt; Maybe Text
-</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#%24sel%3AdataType%3ARelationalDatabaseParameter%27"><span class="hs-identifier hs-var hs-var">dataType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | Specifies the valid range of values for the parameter.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AallowedValues%3ARelationalDatabaseParameter%27"><span class="annot"><span class="annottext">RelationalDatabaseParameter -&gt; Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#%24sel%3AallowedValues%3ARelationalDatabaseParameter%27"><span class="hs-identifier hs-var hs-var">allowedValues</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | Specifies the name of the parameter.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AparameterName%3ARelationalDatabaseParameter%27"><span class="annot"><span class="annottext">RelationalDatabaseParameter -&gt; Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#%24sel%3AparameterName%3ARelationalDatabaseParameter%27"><span class="hs-identifier hs-var hs-var">parameterName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | Provides a description of the parameter.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3Adescription%3ARelationalDatabaseParameter%27"><span class="annot"><span class="annottext">RelationalDatabaseParameter -&gt; Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#%24sel%3Adescription%3ARelationalDatabaseParameter%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679620114"><span id="local-6989586621679620116"><span class="annot"><span class="annottext">RelationalDatabaseParameter -&gt; RelationalDatabaseParameter -&gt; Bool
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679621021"><span id="local-6989586621679621023"><span class="annot"><span class="annottext">RelationalDatabaseParameter -&gt; RelationalDatabaseParameter -&gt; Bool
 (RelationalDatabaseParameter
  -&gt; RelationalDatabaseParameter -&gt; Bool)
 -&gt; (RelationalDatabaseParameter
@@ -65,7 +65,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RelationalDatabaseParameter -&gt; RelationalDatabaseParameter -&gt; Bool
 == :: RelationalDatabaseParameter -&gt; RelationalDatabaseParameter -&gt; Bool
 $c== :: RelationalDatabaseParameter -&gt; RelationalDatabaseParameter -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679620105"><span id="local-6989586621679620107"><span id="local-6989586621679620109"><span id="local-6989586621679620111"><span class="annot"><span class="annottext">ReadPrec [RelationalDatabaseParameter]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679621012"><span id="local-6989586621679621014"><span id="local-6989586621679621016"><span id="local-6989586621679621018"><span class="annot"><span class="annottext">ReadPrec [RelationalDatabaseParameter]
 ReadPrec RelationalDatabaseParameter
 Int -&gt; ReadS RelationalDatabaseParameter
 ReadS [RelationalDatabaseParameter]
@@ -85,7 +85,7 @@ readList :: ReadS [RelationalDatabaseParameter]
 $creadList :: ReadS [RelationalDatabaseParameter]
 readsPrec :: Int -&gt; ReadS RelationalDatabaseParameter
 $creadsPrec :: Int -&gt; ReadS RelationalDatabaseParameter
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679620098"><span id="local-6989586621679620100"><span id="local-6989586621679620102"><span class="annot"><span class="annottext">Int -&gt; RelationalDatabaseParameter -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679621005"><span id="local-6989586621679621007"><span id="local-6989586621679621009"><span class="annot"><span class="annottext">Int -&gt; RelationalDatabaseParameter -&gt; ShowS
 [RelationalDatabaseParameter] -&gt; ShowS
 RelationalDatabaseParameter -&gt; String
 (Int -&gt; RelationalDatabaseParameter -&gt; ShowS)
@@ -125,23 +125,23 @@ RelationalDatabaseParameter -&gt; Rep RelationalDatabaseParameter x
 </span><span id="line-56"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-58"></span><span class="hs-comment">--</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- 'allowedValues', 'relationalDatabaseParameter_allowedValues' - Specifies the valid range of values for the parameter.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'applyType', 'relationalDatabaseParameter_applyType' - Specifies the engine-specific parameter type.</span><span>
 </span><span id="line-60"></span><span class="hs-comment">--</span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- 'parameterValue', 'relationalDatabaseParameter_parameterValue' - Specifies the value of the parameter.</span><span>
 </span><span id="line-62"></span><span class="hs-comment">--</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- 'applyType', 'relationalDatabaseParameter_applyType' - Specifies the engine-specific parameter type.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'applyMethod', 'relationalDatabaseParameter_applyMethod' - Indicates when parameter updates are applied.</span><span>
 </span><span id="line-64"></span><span class="hs-comment">--</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- 'parameterName', 'relationalDatabaseParameter_parameterName' - Specifies the name of the parameter.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Can be @immediate@ or @pending-reboot@.</span><span>
 </span><span id="line-66"></span><span class="hs-comment">--</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- 'description', 'relationalDatabaseParameter_description' - Provides a description of the parameter.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'dataType', 'relationalDatabaseParameter_dataType' - Specifies the valid data type for the parameter.</span><span>
 </span><span id="line-68"></span><span class="hs-comment">--</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- 'applyMethod', 'relationalDatabaseParameter_applyMethod' - Indicates when parameter updates are applied.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'isModifiable', 'relationalDatabaseParameter_isModifiable' - A Boolean value indicating whether the parameter can be modified.</span><span>
 </span><span id="line-70"></span><span class="hs-comment">--</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- Can be @immediate@ or @pending-reboot@.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'allowedValues', 'relationalDatabaseParameter_allowedValues' - Specifies the valid range of values for the parameter.</span><span>
 </span><span id="line-72"></span><span class="hs-comment">--</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- 'isModifiable', 'relationalDatabaseParameter_isModifiable' - A Boolean value indicating whether the parameter can be modified.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'parameterName', 'relationalDatabaseParameter_parameterName' - Specifies the name of the parameter.</span><span>
 </span><span id="line-74"></span><span class="hs-comment">--</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- 'dataType', 'relationalDatabaseParameter_dataType' - Specifies the valid data type for the parameter.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'description', 'relationalDatabaseParameter_description' - Provides a description of the parameter.</span><span>
 </span><span id="line-76"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#newRelationalDatabaseParameter"><span class="hs-identifier hs-type">newRelationalDatabaseParameter</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#RelationalDatabaseParameter"><span class="hs-identifier hs-type">RelationalDatabaseParameter</span></a></span><span>
 </span><span id="line-78"></span><span id="newRelationalDatabaseParameter"><span class="annot"><span class="annottext">newRelationalDatabaseParameter :: RelationalDatabaseParameter
@@ -150,14 +150,14 @@ RelationalDatabaseParameter -&gt; Rep RelationalDatabaseParameter x
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; RelationalDatabaseParameter
 </span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#RelationalDatabaseParameter%27"><span class="hs-identifier hs-type">RelationalDatabaseParameter'</span></a></span><span>
-</span><span id="line-80"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:allowedValues:RelationalDatabaseParameter' :: Maybe Text
-</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#%24sel%3AallowedValues%3ARelationalDatabaseParameter%27"><span class="hs-identifier hs-var">allowedValues</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:applyType:RelationalDatabaseParameter' :: Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#%24sel%3AapplyType%3ARelationalDatabaseParameter%27"><span class="hs-identifier hs-var">applyType</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
@@ -165,37 +165,37 @@ forall a. Maybe a
 </span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#%24sel%3AparameterValue%3ARelationalDatabaseParameter%27"><span class="hs-identifier hs-var">parameterValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:applyType:RelationalDatabaseParameter' :: Maybe Text
-</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#%24sel%3AapplyType%3ARelationalDatabaseParameter%27"><span class="hs-identifier hs-var">applyType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:parameterName:RelationalDatabaseParameter' :: Maybe Text
-</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#%24sel%3AparameterName%3ARelationalDatabaseParameter%27"><span class="hs-identifier hs-var">parameterName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:RelationalDatabaseParameter' :: Maybe Text
-</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#%24sel%3Adescription%3ARelationalDatabaseParameter%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:applyMethod:RelationalDatabaseParameter' :: Maybe Text
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:applyMethod:RelationalDatabaseParameter' :: Maybe Text
 </span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#%24sel%3AapplyMethod%3ARelationalDatabaseParameter%27"><span class="hs-identifier hs-var">applyMethod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:isModifiable:RelationalDatabaseParameter' :: Maybe Bool
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:dataType:RelationalDatabaseParameter' :: Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#%24sel%3AdataType%3ARelationalDatabaseParameter%27"><span class="hs-identifier hs-var">dataType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:isModifiable:RelationalDatabaseParameter' :: Maybe Bool
 </span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#%24sel%3AisModifiable%3ARelationalDatabaseParameter%27"><span class="hs-identifier hs-var">isModifiable</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:dataType:RelationalDatabaseParameter' :: Maybe Text
-</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#%24sel%3AdataType%3ARelationalDatabaseParameter%27"><span class="hs-identifier hs-var">dataType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:allowedValues:RelationalDatabaseParameter' :: Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#%24sel%3AallowedValues%3ARelationalDatabaseParameter%27"><span class="hs-identifier hs-var">allowedValues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:parameterName:RelationalDatabaseParameter' :: Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#%24sel%3AparameterName%3ARelationalDatabaseParameter%27"><span class="hs-identifier hs-var">parameterName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:RelationalDatabaseParameter' :: Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#%24sel%3Adescription%3ARelationalDatabaseParameter%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-89"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- | Specifies the valid range of values for the parameter.</span><span>
-</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#relationalDatabaseParameter_allowedValues"><span class="hs-identifier hs-type">relationalDatabaseParameter_allowedValues</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#RelationalDatabaseParameter"><span class="hs-identifier hs-type">RelationalDatabaseParameter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-93"></span><span id="relationalDatabaseParameter_allowedValues"><span class="annot"><span class="annottext">relationalDatabaseParameter_allowedValues :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-91"></span><span class="hs-comment">-- | Specifies the engine-specific parameter type.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#relationalDatabaseParameter_applyType"><span class="hs-identifier hs-type">relationalDatabaseParameter_applyType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#RelationalDatabaseParameter"><span class="hs-identifier hs-type">RelationalDatabaseParameter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span id="relationalDatabaseParameter_applyType"><span class="annot"><span class="annottext">relationalDatabaseParameter_applyType :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; RelationalDatabaseParameter -&gt; f RelationalDatabaseParameter
-</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#relationalDatabaseParameter_allowedValues"><span class="hs-identifier hs-var hs-var">relationalDatabaseParameter_allowedValues</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RelationalDatabaseParameter -&gt; Maybe Text)
+</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#relationalDatabaseParameter_applyType"><span class="hs-identifier hs-var hs-var">relationalDatabaseParameter_applyType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RelationalDatabaseParameter -&gt; Maybe Text)
 -&gt; (RelationalDatabaseParameter
     -&gt; Maybe Text -&gt; RelationalDatabaseParameter)
 -&gt; Lens
@@ -204,16 +204,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#RelationalDatabaseParameter%27"><span class="hs-identifier hs-type">RelationalDatabaseParameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679620089"><span class="annot"><span class="annottext">Maybe Text
-allowedValues :: Maybe Text
-$sel:allowedValues:RelationalDatabaseParameter' :: RelationalDatabaseParameter -&gt; Maybe Text
-</span><a href="#local-6989586621679620089"><span class="hs-identifier hs-var hs-var">allowedValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679620089"><span class="hs-identifier hs-var">allowedValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679620088"><span class="annot"><span class="annottext">s :: RelationalDatabaseParameter
-</span><a href="#local-6989586621679620088"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#RelationalDatabaseParameter%27"><span class="hs-identifier hs-type">RelationalDatabaseParameter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679620087"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679620087"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RelationalDatabaseParameter
-</span><a href="#local-6989586621679620088"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allowedValues:RelationalDatabaseParameter' :: Maybe Text
-</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#%24sel%3AallowedValues%3ARelationalDatabaseParameter%27"><span class="hs-identifier hs-var">allowedValues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679620087"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#RelationalDatabaseParameter"><span class="hs-identifier hs-type">RelationalDatabaseParameter</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#RelationalDatabaseParameter%27"><span class="hs-identifier hs-type">RelationalDatabaseParameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679620996"><span class="annot"><span class="annottext">Maybe Text
+applyType :: Maybe Text
+$sel:applyType:RelationalDatabaseParameter' :: RelationalDatabaseParameter -&gt; Maybe Text
+</span><a href="#local-6989586621679620996"><span class="hs-identifier hs-var hs-var">applyType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679620996"><span class="hs-identifier hs-var">applyType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679620995"><span class="annot"><span class="annottext">s :: RelationalDatabaseParameter
+</span><a href="#local-6989586621679620995"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#RelationalDatabaseParameter%27"><span class="hs-identifier hs-type">RelationalDatabaseParameter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679620994"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679620994"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RelationalDatabaseParameter
+</span><a href="#local-6989586621679620995"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applyType:RelationalDatabaseParameter' :: Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#%24sel%3AapplyType%3ARelationalDatabaseParameter%27"><span class="hs-identifier hs-var">applyType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679620994"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#RelationalDatabaseParameter"><span class="hs-identifier hs-type">RelationalDatabaseParameter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- | Specifies the value of the parameter.</span><span>
 </span><span id="line-96"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#relationalDatabaseParameter_parameterValue"><span class="hs-identifier hs-type">relationalDatabaseParameter_parameterValue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#RelationalDatabaseParameter"><span class="hs-identifier hs-type">RelationalDatabaseParameter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -228,94 +228,22 @@ $sel:allowedValues:RelationalDatabaseParameter' :: RelationalDatabaseParameter -
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#RelationalDatabaseParameter%27"><span class="hs-identifier hs-type">RelationalDatabaseParameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679620085"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#RelationalDatabaseParameter%27"><span class="hs-identifier hs-type">RelationalDatabaseParameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679620992"><span class="annot"><span class="annottext">Maybe Text
 parameterValue :: Maybe Text
 $sel:parameterValue:RelationalDatabaseParameter' :: RelationalDatabaseParameter -&gt; Maybe Text
-</span><a href="#local-6989586621679620085"><span class="hs-identifier hs-var hs-var">parameterValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679620085"><span class="hs-identifier hs-var">parameterValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679620084"><span class="annot"><span class="annottext">s :: RelationalDatabaseParameter
-</span><a href="#local-6989586621679620084"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#RelationalDatabaseParameter%27"><span class="hs-identifier hs-type">RelationalDatabaseParameter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679620083"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679620083"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RelationalDatabaseParameter
-</span><a href="#local-6989586621679620084"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameterValue:RelationalDatabaseParameter' :: Maybe Text
+</span><a href="#local-6989586621679620992"><span class="hs-identifier hs-var hs-var">parameterValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679620992"><span class="hs-identifier hs-var">parameterValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679620991"><span class="annot"><span class="annottext">s :: RelationalDatabaseParameter
+</span><a href="#local-6989586621679620991"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#RelationalDatabaseParameter%27"><span class="hs-identifier hs-type">RelationalDatabaseParameter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679620990"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679620990"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RelationalDatabaseParameter
+</span><a href="#local-6989586621679620991"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameterValue:RelationalDatabaseParameter' :: Maybe Text
 </span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#%24sel%3AparameterValue%3ARelationalDatabaseParameter%27"><span class="hs-identifier hs-var">parameterValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679620083"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#RelationalDatabaseParameter"><span class="hs-identifier hs-type">RelationalDatabaseParameter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679620990"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#RelationalDatabaseParameter"><span class="hs-identifier hs-type">RelationalDatabaseParameter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- | Specifies the engine-specific parameter type.</span><span>
-</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#relationalDatabaseParameter_applyType"><span class="hs-identifier hs-type">relationalDatabaseParameter_applyType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#RelationalDatabaseParameter"><span class="hs-identifier hs-type">RelationalDatabaseParameter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-101"></span><span id="relationalDatabaseParameter_applyType"><span class="annot"><span class="annottext">relationalDatabaseParameter_applyType :: (Maybe Text -&gt; f (Maybe Text))
--&gt; RelationalDatabaseParameter -&gt; f RelationalDatabaseParameter
-</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#relationalDatabaseParameter_applyType"><span class="hs-identifier hs-var hs-var">relationalDatabaseParameter_applyType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RelationalDatabaseParameter -&gt; Maybe Text)
--&gt; (RelationalDatabaseParameter
-    -&gt; Maybe Text -&gt; RelationalDatabaseParameter)
--&gt; Lens
-     RelationalDatabaseParameter
-     RelationalDatabaseParameter
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#RelationalDatabaseParameter%27"><span class="hs-identifier hs-type">RelationalDatabaseParameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679620081"><span class="annot"><span class="annottext">Maybe Text
-applyType :: Maybe Text
-$sel:applyType:RelationalDatabaseParameter' :: RelationalDatabaseParameter -&gt; Maybe Text
-</span><a href="#local-6989586621679620081"><span class="hs-identifier hs-var hs-var">applyType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679620081"><span class="hs-identifier hs-var">applyType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679620080"><span class="annot"><span class="annottext">s :: RelationalDatabaseParameter
-</span><a href="#local-6989586621679620080"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#RelationalDatabaseParameter%27"><span class="hs-identifier hs-type">RelationalDatabaseParameter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679620079"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679620079"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RelationalDatabaseParameter
-</span><a href="#local-6989586621679620080"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applyType:RelationalDatabaseParameter' :: Maybe Text
-</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#%24sel%3AapplyType%3ARelationalDatabaseParameter%27"><span class="hs-identifier hs-var">applyType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679620079"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#RelationalDatabaseParameter"><span class="hs-identifier hs-type">RelationalDatabaseParameter</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- | Specifies the name of the parameter.</span><span>
-</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#relationalDatabaseParameter_parameterName"><span class="hs-identifier hs-type">relationalDatabaseParameter_parameterName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#RelationalDatabaseParameter"><span class="hs-identifier hs-type">RelationalDatabaseParameter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-105"></span><span id="relationalDatabaseParameter_parameterName"><span class="annot"><span class="annottext">relationalDatabaseParameter_parameterName :: (Maybe Text -&gt; f (Maybe Text))
--&gt; RelationalDatabaseParameter -&gt; f RelationalDatabaseParameter
-</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#relationalDatabaseParameter_parameterName"><span class="hs-identifier hs-var hs-var">relationalDatabaseParameter_parameterName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RelationalDatabaseParameter -&gt; Maybe Text)
--&gt; (RelationalDatabaseParameter
-    -&gt; Maybe Text -&gt; RelationalDatabaseParameter)
--&gt; Lens
-     RelationalDatabaseParameter
-     RelationalDatabaseParameter
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#RelationalDatabaseParameter%27"><span class="hs-identifier hs-type">RelationalDatabaseParameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679620077"><span class="annot"><span class="annottext">Maybe Text
-parameterName :: Maybe Text
-$sel:parameterName:RelationalDatabaseParameter' :: RelationalDatabaseParameter -&gt; Maybe Text
-</span><a href="#local-6989586621679620077"><span class="hs-identifier hs-var hs-var">parameterName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679620077"><span class="hs-identifier hs-var">parameterName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679620076"><span class="annot"><span class="annottext">s :: RelationalDatabaseParameter
-</span><a href="#local-6989586621679620076"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#RelationalDatabaseParameter%27"><span class="hs-identifier hs-type">RelationalDatabaseParameter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679620075"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679620075"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RelationalDatabaseParameter
-</span><a href="#local-6989586621679620076"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameterName:RelationalDatabaseParameter' :: Maybe Text
-</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#%24sel%3AparameterName%3ARelationalDatabaseParameter%27"><span class="hs-identifier hs-var">parameterName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679620075"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#RelationalDatabaseParameter"><span class="hs-identifier hs-type">RelationalDatabaseParameter</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- | Provides a description of the parameter.</span><span>
-</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#relationalDatabaseParameter_description"><span class="hs-identifier hs-type">relationalDatabaseParameter_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#RelationalDatabaseParameter"><span class="hs-identifier hs-type">RelationalDatabaseParameter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-109"></span><span id="relationalDatabaseParameter_description"><span class="annot"><span class="annottext">relationalDatabaseParameter_description :: (Maybe Text -&gt; f (Maybe Text))
--&gt; RelationalDatabaseParameter -&gt; f RelationalDatabaseParameter
-</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#relationalDatabaseParameter_description"><span class="hs-identifier hs-var hs-var">relationalDatabaseParameter_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RelationalDatabaseParameter -&gt; Maybe Text)
--&gt; (RelationalDatabaseParameter
-    -&gt; Maybe Text -&gt; RelationalDatabaseParameter)
--&gt; Lens
-     RelationalDatabaseParameter
-     RelationalDatabaseParameter
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#RelationalDatabaseParameter%27"><span class="hs-identifier hs-type">RelationalDatabaseParameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679620073"><span class="annot"><span class="annottext">Maybe Text
-description :: Maybe Text
-$sel:description:RelationalDatabaseParameter' :: RelationalDatabaseParameter -&gt; Maybe Text
-</span><a href="#local-6989586621679620073"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679620073"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679620072"><span class="annot"><span class="annottext">s :: RelationalDatabaseParameter
-</span><a href="#local-6989586621679620072"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#RelationalDatabaseParameter%27"><span class="hs-identifier hs-type">RelationalDatabaseParameter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679620071"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679620071"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RelationalDatabaseParameter
-</span><a href="#local-6989586621679620072"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:RelationalDatabaseParameter' :: Maybe Text
-</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#%24sel%3Adescription%3ARelationalDatabaseParameter%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679620071"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#RelationalDatabaseParameter"><span class="hs-identifier hs-type">RelationalDatabaseParameter</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- | Indicates when parameter updates are applied.</span><span>
-</span><span id="line-112"></span><span class="hs-comment">--</span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- Can be @immediate@ or @pending-reboot@.</span><span>
-</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#relationalDatabaseParameter_applyMethod"><span class="hs-identifier hs-type">relationalDatabaseParameter_applyMethod</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#RelationalDatabaseParameter"><span class="hs-identifier hs-type">RelationalDatabaseParameter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-115"></span><span id="relationalDatabaseParameter_applyMethod"><span class="annot"><span class="annottext">relationalDatabaseParameter_applyMethod :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-99"></span><span class="hs-comment">-- | Indicates when parameter updates are applied.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- Can be @immediate@ or @pending-reboot@.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#relationalDatabaseParameter_applyMethod"><span class="hs-identifier hs-type">relationalDatabaseParameter_applyMethod</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#RelationalDatabaseParameter"><span class="hs-identifier hs-type">RelationalDatabaseParameter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="relationalDatabaseParameter_applyMethod"><span class="annot"><span class="annottext">relationalDatabaseParameter_applyMethod :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; RelationalDatabaseParameter -&gt; f RelationalDatabaseParameter
 </span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#relationalDatabaseParameter_applyMethod"><span class="hs-identifier hs-var hs-var">relationalDatabaseParameter_applyMethod</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RelationalDatabaseParameter -&gt; Maybe Text)
 -&gt; (RelationalDatabaseParameter
@@ -326,44 +254,20 @@ $sel:description:RelationalDatabaseParameter' :: RelationalDatabaseParameter -&g
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#RelationalDatabaseParameter%27"><span class="hs-identifier hs-type">RelationalDatabaseParameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679620069"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#RelationalDatabaseParameter%27"><span class="hs-identifier hs-type">RelationalDatabaseParameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679620988"><span class="annot"><span class="annottext">Maybe Text
 applyMethod :: Maybe Text
 $sel:applyMethod:RelationalDatabaseParameter' :: RelationalDatabaseParameter -&gt; Maybe Text
-</span><a href="#local-6989586621679620069"><span class="hs-identifier hs-var hs-var">applyMethod</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679620069"><span class="hs-identifier hs-var">applyMethod</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679620068"><span class="annot"><span class="annottext">s :: RelationalDatabaseParameter
-</span><a href="#local-6989586621679620068"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#RelationalDatabaseParameter%27"><span class="hs-identifier hs-type">RelationalDatabaseParameter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679620067"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679620067"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RelationalDatabaseParameter
-</span><a href="#local-6989586621679620068"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applyMethod:RelationalDatabaseParameter' :: Maybe Text
+</span><a href="#local-6989586621679620988"><span class="hs-identifier hs-var hs-var">applyMethod</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679620988"><span class="hs-identifier hs-var">applyMethod</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679620987"><span class="annot"><span class="annottext">s :: RelationalDatabaseParameter
+</span><a href="#local-6989586621679620987"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#RelationalDatabaseParameter%27"><span class="hs-identifier hs-type">RelationalDatabaseParameter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679620986"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679620986"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RelationalDatabaseParameter
+</span><a href="#local-6989586621679620987"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applyMethod:RelationalDatabaseParameter' :: Maybe Text
 </span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#%24sel%3AapplyMethod%3ARelationalDatabaseParameter%27"><span class="hs-identifier hs-var">applyMethod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679620067"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#RelationalDatabaseParameter"><span class="hs-identifier hs-type">RelationalDatabaseParameter</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-comment">-- | A Boolean value indicating whether the parameter can be modified.</span><span>
-</span><span id="line-118"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#relationalDatabaseParameter_isModifiable"><span class="hs-identifier hs-type">relationalDatabaseParameter_isModifiable</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#RelationalDatabaseParameter"><span class="hs-identifier hs-type">RelationalDatabaseParameter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-119"></span><span id="relationalDatabaseParameter_isModifiable"><span class="annot"><span class="annottext">relationalDatabaseParameter_isModifiable :: (Maybe Bool -&gt; f (Maybe Bool))
--&gt; RelationalDatabaseParameter -&gt; f RelationalDatabaseParameter
-</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#relationalDatabaseParameter_isModifiable"><span class="hs-identifier hs-var hs-var">relationalDatabaseParameter_isModifiable</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RelationalDatabaseParameter -&gt; Maybe Bool)
--&gt; (RelationalDatabaseParameter
-    -&gt; Maybe Bool -&gt; RelationalDatabaseParameter)
--&gt; Lens
-     RelationalDatabaseParameter
-     RelationalDatabaseParameter
-     (Maybe Bool)
-     (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#RelationalDatabaseParameter%27"><span class="hs-identifier hs-type">RelationalDatabaseParameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679620065"><span class="annot"><span class="annottext">Maybe Bool
-isModifiable :: Maybe Bool
-$sel:isModifiable:RelationalDatabaseParameter' :: RelationalDatabaseParameter -&gt; Maybe Bool
-</span><a href="#local-6989586621679620065"><span class="hs-identifier hs-var hs-var">isModifiable</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679620065"><span class="hs-identifier hs-var">isModifiable</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679620064"><span class="annot"><span class="annottext">s :: RelationalDatabaseParameter
-</span><a href="#local-6989586621679620064"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#RelationalDatabaseParameter%27"><span class="hs-identifier hs-type">RelationalDatabaseParameter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679620063"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679620063"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RelationalDatabaseParameter
-</span><a href="#local-6989586621679620064"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isModifiable:RelationalDatabaseParameter' :: Maybe Bool
-</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#%24sel%3AisModifiable%3ARelationalDatabaseParameter%27"><span class="hs-identifier hs-var">isModifiable</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679620063"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#RelationalDatabaseParameter"><span class="hs-identifier hs-type">RelationalDatabaseParameter</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-comment">-- | Specifies the valid data type for the parameter.</span><span>
-</span><span id="line-122"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#relationalDatabaseParameter_dataType"><span class="hs-identifier hs-type">relationalDatabaseParameter_dataType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#RelationalDatabaseParameter"><span class="hs-identifier hs-type">RelationalDatabaseParameter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-123"></span><span id="relationalDatabaseParameter_dataType"><span class="annot"><span class="annottext">relationalDatabaseParameter_dataType :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621679620986"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#RelationalDatabaseParameter"><span class="hs-identifier hs-type">RelationalDatabaseParameter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | Specifies the valid data type for the parameter.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#relationalDatabaseParameter_dataType"><span class="hs-identifier hs-type">relationalDatabaseParameter_dataType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#RelationalDatabaseParameter"><span class="hs-identifier hs-type">RelationalDatabaseParameter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span id="relationalDatabaseParameter_dataType"><span class="annot"><span class="annottext">relationalDatabaseParameter_dataType :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; RelationalDatabaseParameter -&gt; f RelationalDatabaseParameter
 </span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#relationalDatabaseParameter_dataType"><span class="hs-identifier hs-var hs-var">relationalDatabaseParameter_dataType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RelationalDatabaseParameter -&gt; Maybe Text)
 -&gt; (RelationalDatabaseParameter
@@ -374,19 +278,115 @@ $sel:isModifiable:RelationalDatabaseParameter' :: RelationalDatabaseParameter -&
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#RelationalDatabaseParameter%27"><span class="hs-identifier hs-type">RelationalDatabaseParameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679620061"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#RelationalDatabaseParameter%27"><span class="hs-identifier hs-type">RelationalDatabaseParameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679620984"><span class="annot"><span class="annottext">Maybe Text
 dataType :: Maybe Text
 $sel:dataType:RelationalDatabaseParameter' :: RelationalDatabaseParameter -&gt; Maybe Text
-</span><a href="#local-6989586621679620061"><span class="hs-identifier hs-var hs-var">dataType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679620061"><span class="hs-identifier hs-var">dataType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679620060"><span class="annot"><span class="annottext">s :: RelationalDatabaseParameter
-</span><a href="#local-6989586621679620060"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#RelationalDatabaseParameter%27"><span class="hs-identifier hs-type">RelationalDatabaseParameter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679620059"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679620059"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RelationalDatabaseParameter
-</span><a href="#local-6989586621679620060"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataType:RelationalDatabaseParameter' :: Maybe Text
+</span><a href="#local-6989586621679620984"><span class="hs-identifier hs-var hs-var">dataType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679620984"><span class="hs-identifier hs-var">dataType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679620983"><span class="annot"><span class="annottext">s :: RelationalDatabaseParameter
+</span><a href="#local-6989586621679620983"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#RelationalDatabaseParameter%27"><span class="hs-identifier hs-type">RelationalDatabaseParameter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679620982"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679620982"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RelationalDatabaseParameter
+</span><a href="#local-6989586621679620983"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataType:RelationalDatabaseParameter' :: Maybe Text
 </span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#%24sel%3AdataType%3ARelationalDatabaseParameter%27"><span class="hs-identifier hs-var">dataType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679620059"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#RelationalDatabaseParameter"><span class="hs-identifier hs-type">RelationalDatabaseParameter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679620982"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#RelationalDatabaseParameter"><span class="hs-identifier hs-type">RelationalDatabaseParameter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | A Boolean value indicating whether the parameter can be modified.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#relationalDatabaseParameter_isModifiable"><span class="hs-identifier hs-type">relationalDatabaseParameter_isModifiable</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#RelationalDatabaseParameter"><span class="hs-identifier hs-type">RelationalDatabaseParameter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span id="relationalDatabaseParameter_isModifiable"><span class="annot"><span class="annottext">relationalDatabaseParameter_isModifiable :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; RelationalDatabaseParameter -&gt; f RelationalDatabaseParameter
+</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#relationalDatabaseParameter_isModifiable"><span class="hs-identifier hs-var hs-var">relationalDatabaseParameter_isModifiable</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RelationalDatabaseParameter -&gt; Maybe Bool)
+-&gt; (RelationalDatabaseParameter
+    -&gt; Maybe Bool -&gt; RelationalDatabaseParameter)
+-&gt; Lens
+     RelationalDatabaseParameter
+     RelationalDatabaseParameter
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#RelationalDatabaseParameter%27"><span class="hs-identifier hs-type">RelationalDatabaseParameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679620980"><span class="annot"><span class="annottext">Maybe Bool
+isModifiable :: Maybe Bool
+$sel:isModifiable:RelationalDatabaseParameter' :: RelationalDatabaseParameter -&gt; Maybe Bool
+</span><a href="#local-6989586621679620980"><span class="hs-identifier hs-var hs-var">isModifiable</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679620980"><span class="hs-identifier hs-var">isModifiable</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679620979"><span class="annot"><span class="annottext">s :: RelationalDatabaseParameter
+</span><a href="#local-6989586621679620979"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#RelationalDatabaseParameter%27"><span class="hs-identifier hs-type">RelationalDatabaseParameter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679620978"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679620978"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RelationalDatabaseParameter
+</span><a href="#local-6989586621679620979"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isModifiable:RelationalDatabaseParameter' :: Maybe Bool
+</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#%24sel%3AisModifiable%3ARelationalDatabaseParameter%27"><span class="hs-identifier hs-var">isModifiable</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679620978"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#RelationalDatabaseParameter"><span class="hs-identifier hs-type">RelationalDatabaseParameter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | Specifies the valid range of values for the parameter.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#relationalDatabaseParameter_allowedValues"><span class="hs-identifier hs-type">relationalDatabaseParameter_allowedValues</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#RelationalDatabaseParameter"><span class="hs-identifier hs-type">RelationalDatabaseParameter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span id="relationalDatabaseParameter_allowedValues"><span class="annot"><span class="annottext">relationalDatabaseParameter_allowedValues :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RelationalDatabaseParameter -&gt; f RelationalDatabaseParameter
+</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#relationalDatabaseParameter_allowedValues"><span class="hs-identifier hs-var hs-var">relationalDatabaseParameter_allowedValues</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RelationalDatabaseParameter -&gt; Maybe Text)
+-&gt; (RelationalDatabaseParameter
+    -&gt; Maybe Text -&gt; RelationalDatabaseParameter)
+-&gt; Lens
+     RelationalDatabaseParameter
+     RelationalDatabaseParameter
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#RelationalDatabaseParameter%27"><span class="hs-identifier hs-type">RelationalDatabaseParameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679620976"><span class="annot"><span class="annottext">Maybe Text
+allowedValues :: Maybe Text
+$sel:allowedValues:RelationalDatabaseParameter' :: RelationalDatabaseParameter -&gt; Maybe Text
+</span><a href="#local-6989586621679620976"><span class="hs-identifier hs-var hs-var">allowedValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679620976"><span class="hs-identifier hs-var">allowedValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679620975"><span class="annot"><span class="annottext">s :: RelationalDatabaseParameter
+</span><a href="#local-6989586621679620975"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#RelationalDatabaseParameter%27"><span class="hs-identifier hs-type">RelationalDatabaseParameter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679620974"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679620974"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RelationalDatabaseParameter
+</span><a href="#local-6989586621679620975"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allowedValues:RelationalDatabaseParameter' :: Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#%24sel%3AallowedValues%3ARelationalDatabaseParameter%27"><span class="hs-identifier hs-var">allowedValues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679620974"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#RelationalDatabaseParameter"><span class="hs-identifier hs-type">RelationalDatabaseParameter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | Specifies the name of the parameter.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#relationalDatabaseParameter_parameterName"><span class="hs-identifier hs-type">relationalDatabaseParameter_parameterName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#RelationalDatabaseParameter"><span class="hs-identifier hs-type">RelationalDatabaseParameter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span id="relationalDatabaseParameter_parameterName"><span class="annot"><span class="annottext">relationalDatabaseParameter_parameterName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RelationalDatabaseParameter -&gt; f RelationalDatabaseParameter
+</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#relationalDatabaseParameter_parameterName"><span class="hs-identifier hs-var hs-var">relationalDatabaseParameter_parameterName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RelationalDatabaseParameter -&gt; Maybe Text)
+-&gt; (RelationalDatabaseParameter
+    -&gt; Maybe Text -&gt; RelationalDatabaseParameter)
+-&gt; Lens
+     RelationalDatabaseParameter
+     RelationalDatabaseParameter
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#RelationalDatabaseParameter%27"><span class="hs-identifier hs-type">RelationalDatabaseParameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679620972"><span class="annot"><span class="annottext">Maybe Text
+parameterName :: Maybe Text
+$sel:parameterName:RelationalDatabaseParameter' :: RelationalDatabaseParameter -&gt; Maybe Text
+</span><a href="#local-6989586621679620972"><span class="hs-identifier hs-var hs-var">parameterName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679620972"><span class="hs-identifier hs-var">parameterName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679620971"><span class="annot"><span class="annottext">s :: RelationalDatabaseParameter
+</span><a href="#local-6989586621679620971"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#RelationalDatabaseParameter%27"><span class="hs-identifier hs-type">RelationalDatabaseParameter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679620970"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679620970"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RelationalDatabaseParameter
+</span><a href="#local-6989586621679620971"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameterName:RelationalDatabaseParameter' :: Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#%24sel%3AparameterName%3ARelationalDatabaseParameter%27"><span class="hs-identifier hs-var">parameterName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679620970"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#RelationalDatabaseParameter"><span class="hs-identifier hs-type">RelationalDatabaseParameter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | Provides a description of the parameter.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#relationalDatabaseParameter_description"><span class="hs-identifier hs-type">relationalDatabaseParameter_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#RelationalDatabaseParameter"><span class="hs-identifier hs-type">RelationalDatabaseParameter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span id="relationalDatabaseParameter_description"><span class="annot"><span class="annottext">relationalDatabaseParameter_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RelationalDatabaseParameter -&gt; f RelationalDatabaseParameter
+</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#relationalDatabaseParameter_description"><span class="hs-identifier hs-var hs-var">relationalDatabaseParameter_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RelationalDatabaseParameter -&gt; Maybe Text)
+-&gt; (RelationalDatabaseParameter
+    -&gt; Maybe Text -&gt; RelationalDatabaseParameter)
+-&gt; Lens
+     RelationalDatabaseParameter
+     RelationalDatabaseParameter
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#RelationalDatabaseParameter%27"><span class="hs-identifier hs-type">RelationalDatabaseParameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679620968"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:RelationalDatabaseParameter' :: RelationalDatabaseParameter -&gt; Maybe Text
+</span><a href="#local-6989586621679620968"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679620968"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679620967"><span class="annot"><span class="annottext">s :: RelationalDatabaseParameter
+</span><a href="#local-6989586621679620967"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#RelationalDatabaseParameter%27"><span class="hs-identifier hs-type">RelationalDatabaseParameter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679620966"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679620966"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RelationalDatabaseParameter
+</span><a href="#local-6989586621679620967"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:RelationalDatabaseParameter' :: Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#%24sel%3Adescription%3ARelationalDatabaseParameter%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679620966"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#RelationalDatabaseParameter"><span class="hs-identifier hs-type">RelationalDatabaseParameter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679620056"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#RelationalDatabaseParameter"><span class="hs-identifier hs-type">RelationalDatabaseParameter</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679620054"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RelationalDatabaseParameter
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679620963"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#RelationalDatabaseParameter"><span class="hs-identifier hs-type">RelationalDatabaseParameter</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679620961"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RelationalDatabaseParameter
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-127"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser RelationalDatabaseParameter)
@@ -396,15 +396,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-128"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;RelationalDatabaseParameter&quot;</span></span><span>
-</span><span id="line-129"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679620051"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679620051"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679620958"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679620958"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-130"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; RelationalDatabaseParameter
 </span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#RelationalDatabaseParameter%27"><span class="hs-identifier hs-var">RelationalDatabaseParameter'</span></a></span><span>
@@ -412,9 +412,9 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
  -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe Text
- -&gt; Maybe Text
- -&gt; Maybe Text
  -&gt; Maybe Bool
+ -&gt; Maybe Text
+ -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; RelationalDatabaseParameter)
 -&gt; Parser (Maybe Text)
@@ -422,166 +422,166 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
      (Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
       -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; RelationalDatabaseParameter)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679620051"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679620958"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;allowedValues&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;applyType&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
    -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; RelationalDatabaseParameter)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
      (Maybe Text
       -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
       -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; RelationalDatabaseParameter)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679620051"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679620958"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;parameterValue&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
    -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
    -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; RelationalDatabaseParameter)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
      (Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
       -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; RelationalDatabaseParameter)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679620051"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;applyType&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Bool
-   -&gt; Maybe Text
-   -&gt; RelationalDatabaseParameter)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Bool
-      -&gt; Maybe Text
-      -&gt; RelationalDatabaseParameter)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679620051"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;parameterName&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Bool
-   -&gt; Maybe Text
-   -&gt; RelationalDatabaseParameter)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe Bool -&gt; Maybe Text -&gt; RelationalDatabaseParameter)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679620051"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;description&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe Bool -&gt; Maybe Text -&gt; RelationalDatabaseParameter)
--&gt; Parser (Maybe Text)
--&gt; Parser (Maybe Bool -&gt; Maybe Text -&gt; RelationalDatabaseParameter)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679620051"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679620958"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;applyMethod&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Bool -&gt; Maybe Text -&gt; RelationalDatabaseParameter)
--&gt; Parser (Maybe Bool)
--&gt; Parser (Maybe Text -&gt; RelationalDatabaseParameter)
+</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; RelationalDatabaseParameter)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; RelationalDatabaseParameter)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679620051"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679620958"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;dataType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; RelationalDatabaseParameter)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; RelationalDatabaseParameter)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679620958"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;isModifiable&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; RelationalDatabaseParameter)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; RelationalDatabaseParameter)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679620958"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;allowedValues&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; RelationalDatabaseParameter)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; RelationalDatabaseParameter)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679620958"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;parameterName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; RelationalDatabaseParameter)
 -&gt; Parser (Maybe Text) -&gt; Parser RelationalDatabaseParameter
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679620051"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679620958"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;dataType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;description&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>
-</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679620045"><span id="local-6989586621679620047"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#RelationalDatabaseParameter"><span class="hs-identifier hs-type">RelationalDatabaseParameter</span></a></span></span></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679620952"><span id="local-6989586621679620954"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#RelationalDatabaseParameter"><span class="hs-identifier hs-type">RelationalDatabaseParameter</span></a></span></span></span><span>
 </span><span id="line-142"></span><span>
-</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679620042"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#RelationalDatabaseParameter"><span class="hs-identifier hs-type">RelationalDatabaseParameter</span></a></span></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679620949"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#RelationalDatabaseParameter"><span class="hs-identifier hs-type">RelationalDatabaseParameter</span></a></span></span><span>
 </span><span id="line-144"></span><span>
-</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679620034"><span id="local-6989586621679620036"><span id="local-6989586621679620038"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#RelationalDatabaseParameter"><span class="hs-identifier hs-type">RelationalDatabaseParameter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-146"></span><span>  </span><span id="local-6989586621679620032"><span class="annot"><span class="annottext">toJSON :: RelationalDatabaseParameter -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#RelationalDatabaseParameter%27"><span class="hs-identifier hs-type">RelationalDatabaseParameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679620023"><span id="local-6989586621679620024"><span id="local-6989586621679620025"><span id="local-6989586621679620026"><span id="local-6989586621679620027"><span id="local-6989586621679620028"><span id="local-6989586621679620029"><span id="local-6989586621679620030"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679620941"><span id="local-6989586621679620943"><span id="local-6989586621679620945"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#RelationalDatabaseParameter"><span class="hs-identifier hs-type">RelationalDatabaseParameter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679620939"><span class="annot"><span class="annottext">toJSON :: RelationalDatabaseParameter -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseParameter.html#RelationalDatabaseParameter%27"><span class="hs-identifier hs-type">RelationalDatabaseParameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679620930"><span id="local-6989586621679620931"><span id="local-6989586621679620932"><span id="local-6989586621679620933"><span id="local-6989586621679620934"><span id="local-6989586621679620935"><span id="local-6989586621679620936"><span id="local-6989586621679620937"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Text
-dataType :: Maybe Text
-isModifiable :: Maybe Bool
-applyMethod :: Maybe Text
 description :: Maybe Text
 parameterName :: Maybe Text
-applyType :: Maybe Text
-parameterValue :: Maybe Text
 allowedValues :: Maybe Text
-$sel:dataType:RelationalDatabaseParameter' :: RelationalDatabaseParameter -&gt; Maybe Text
-$sel:isModifiable:RelationalDatabaseParameter' :: RelationalDatabaseParameter -&gt; Maybe Bool
-$sel:applyMethod:RelationalDatabaseParameter' :: RelationalDatabaseParameter -&gt; Maybe Text
+isModifiable :: Maybe Bool
+dataType :: Maybe Text
+applyMethod :: Maybe Text
+parameterValue :: Maybe Text
+applyType :: Maybe Text
 $sel:description:RelationalDatabaseParameter' :: RelationalDatabaseParameter -&gt; Maybe Text
 $sel:parameterName:RelationalDatabaseParameter' :: RelationalDatabaseParameter -&gt; Maybe Text
-$sel:applyType:RelationalDatabaseParameter' :: RelationalDatabaseParameter -&gt; Maybe Text
-$sel:parameterValue:RelationalDatabaseParameter' :: RelationalDatabaseParameter -&gt; Maybe Text
 $sel:allowedValues:RelationalDatabaseParameter' :: RelationalDatabaseParameter -&gt; Maybe Text
-</span><a href="#local-6989586621679620023"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:isModifiable:RelationalDatabaseParameter' :: RelationalDatabaseParameter -&gt; Maybe Bool
+$sel:dataType:RelationalDatabaseParameter' :: RelationalDatabaseParameter -&gt; Maybe Text
+$sel:applyMethod:RelationalDatabaseParameter' :: RelationalDatabaseParameter -&gt; Maybe Text
+$sel:parameterValue:RelationalDatabaseParameter' :: RelationalDatabaseParameter -&gt; Maybe Text
+$sel:applyType:RelationalDatabaseParameter' :: RelationalDatabaseParameter -&gt; Maybe Text
+</span><a href="#local-6989586621679620930"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-147"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-148"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-149"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;allowedValues&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+</span><span class="hs-string">&quot;applyType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679620030"><span class="hs-identifier hs-var">allowedValues</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679620937"><span class="hs-identifier hs-var">applyType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-150"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;parameterValue&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -589,49 +589,49 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-151"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679620029"><span class="hs-identifier hs-var">parameterValue</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679620936"><span class="hs-identifier hs-var">parameterValue</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-152"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;applyType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679620028"><span class="hs-identifier hs-var">applyType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-153"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;parameterName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679620027"><span class="hs-identifier hs-var">parameterName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-154"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679620026"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-155"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;applyMethod&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679620025"><span class="hs-identifier hs-var">applyMethod</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-156"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;isModifiable&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679620024"><span class="hs-identifier hs-var">isModifiable</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-157"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679620935"><span class="hs-identifier hs-var">applyMethod</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;dataType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679620023"><span class="hs-identifier hs-var">dataType</span></a></span><span>
+</span><a href="#local-6989586621679620934"><span class="hs-identifier hs-var">dataType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;isModifiable&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679620933"><span class="hs-identifier hs-var">isModifiable</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;allowedValues&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679620932"><span class="hs-identifier hs-var">allowedValues</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;parameterName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679620931"><span class="hs-identifier hs-var">parameterName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679620930"><span class="hs-identifier hs-var">description</span></a></span><span>
 </span><span id="line-158"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-159"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-160"></span></pre></body></html>

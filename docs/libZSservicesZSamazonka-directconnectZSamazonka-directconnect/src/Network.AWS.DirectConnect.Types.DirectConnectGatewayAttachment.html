@@ -29,10 +29,10 @@
 </span><span id="line-29"></span><span class="hs-comment">-- virtual interface.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newDirectConnectGatewayAttachment' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679279086"><span id="local-6989586621679279087"></span></span><span class="hs-keyword">data</span><span> </span><span id="DirectConnectGatewayAttachment"><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#DirectConnectGatewayAttachment"><span class="hs-identifier hs-var">DirectConnectGatewayAttachment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DirectConnectGatewayAttachment%27"><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#DirectConnectGatewayAttachment%27"><span class="hs-identifier hs-var">DirectConnectGatewayAttachment'</span></a></span></span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The error message if the state of an object failed to advance.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AstateChangeError%3ADirectConnectGatewayAttachment%27"><span class="annot"><span class="annottext">DirectConnectGatewayAttachment -&gt; Maybe Text
-</span><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#%24sel%3AstateChangeError%3ADirectConnectGatewayAttachment%27"><span class="hs-identifier hs-var hs-var">stateChangeError</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679279309"><span id="local-6989586621679279310"></span></span><span class="hs-keyword">data</span><span> </span><span id="DirectConnectGatewayAttachment"><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#DirectConnectGatewayAttachment"><span class="hs-identifier hs-var">DirectConnectGatewayAttachment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DirectConnectGatewayAttachment%27"><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#DirectConnectGatewayAttachment%27"><span class="hs-identifier hs-var">DirectConnectGatewayAttachment'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the Direct Connect gateway.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AdirectConnectGatewayId%3ADirectConnectGatewayAttachment%27"><span class="annot"><span class="annottext">DirectConnectGatewayAttachment -&gt; Maybe Text
+</span><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#%24sel%3AdirectConnectGatewayId%3ADirectConnectGatewayAttachment%27"><span class="hs-identifier hs-var hs-var">directConnectGatewayId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The state of the attachment. The following are the possible values:</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">-- -   @attaching@: The initial state after a virtual interface is created</span><span>
@@ -49,24 +49,24 @@
 </span><span id="line-48"></span><span>    </span><span id="%24sel%3AattachmentState%3ADirectConnectGatewayAttachment%27"><span class="annot"><span class="annottext">DirectConnectGatewayAttachment
 -&gt; Maybe DirectConnectGatewayAttachmentState
 </span><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#%24sel%3AattachmentState%3ADirectConnectGatewayAttachment%27"><span class="hs-identifier hs-var hs-var">attachmentState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachmentState.html#DirectConnectGatewayAttachmentState"><span class="hs-identifier hs-type">DirectConnectGatewayAttachmentState</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The ID of the account that owns the virtual interface.</span><span>
-</span><span id="line-50"></span><span>    </span><span id="%24sel%3AvirtualInterfaceOwnerAccount%3ADirectConnectGatewayAttachment%27"><span class="annot"><span class="annottext">DirectConnectGatewayAttachment -&gt; Maybe Text
-</span><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#%24sel%3AvirtualInterfaceOwnerAccount%3ADirectConnectGatewayAttachment%27"><span class="hs-identifier hs-var hs-var">virtualInterfaceOwnerAccount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The error message if the state of an object failed to advance.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AstateChangeError%3ADirectConnectGatewayAttachment%27"><span class="annot"><span class="annottext">DirectConnectGatewayAttachment -&gt; Maybe Text
+</span><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#%24sel%3AstateChangeError%3ADirectConnectGatewayAttachment%27"><span class="hs-identifier hs-var hs-var">stateChangeError</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The Region where the virtual interface is located.</span><span>
 </span><span id="line-52"></span><span>    </span><span id="%24sel%3AvirtualInterfaceRegion%3ADirectConnectGatewayAttachment%27"><span class="annot"><span class="annottext">DirectConnectGatewayAttachment -&gt; Maybe Text
 </span><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#%24sel%3AvirtualInterfaceRegion%3ADirectConnectGatewayAttachment%27"><span class="hs-identifier hs-var hs-var">virtualInterfaceRegion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The type of attachment.</span><span>
-</span><span id="line-54"></span><span>    </span><span id="%24sel%3AattachmentType%3ADirectConnectGatewayAttachment%27"><span class="annot"><span class="annottext">DirectConnectGatewayAttachment
--&gt; Maybe DirectConnectGatewayAttachmentType
-</span><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#%24sel%3AattachmentType%3ADirectConnectGatewayAttachment%27"><span class="hs-identifier hs-var hs-var">attachmentType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachmentType.html#DirectConnectGatewayAttachmentType"><span class="hs-identifier hs-type">DirectConnectGatewayAttachmentType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The ID of the account that owns the virtual interface.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AvirtualInterfaceOwnerAccount%3ADirectConnectGatewayAttachment%27"><span class="annot"><span class="annottext">DirectConnectGatewayAttachment -&gt; Maybe Text
+</span><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#%24sel%3AvirtualInterfaceOwnerAccount%3ADirectConnectGatewayAttachment%27"><span class="hs-identifier hs-var hs-var">virtualInterfaceOwnerAccount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The ID of the virtual interface.</span><span>
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3AvirtualInterfaceId%3ADirectConnectGatewayAttachment%27"><span class="annot"><span class="annottext">DirectConnectGatewayAttachment -&gt; Maybe Text
 </span><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#%24sel%3AvirtualInterfaceId%3ADirectConnectGatewayAttachment%27"><span class="hs-identifier hs-var hs-var">virtualInterfaceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The ID of the Direct Connect gateway.</span><span>
-</span><span id="line-58"></span><span>    </span><span id="%24sel%3AdirectConnectGatewayId%3ADirectConnectGatewayAttachment%27"><span class="annot"><span class="annottext">DirectConnectGatewayAttachment -&gt; Maybe Text
-</span><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#%24sel%3AdirectConnectGatewayId%3ADirectConnectGatewayAttachment%27"><span class="hs-identifier hs-var hs-var">directConnectGatewayId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The type of attachment.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AattachmentType%3ADirectConnectGatewayAttachment%27"><span class="annot"><span class="annottext">DirectConnectGatewayAttachment
+-&gt; Maybe DirectConnectGatewayAttachmentType
+</span><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#%24sel%3AattachmentType%3ADirectConnectGatewayAttachment%27"><span class="hs-identifier hs-var hs-var">attachmentType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachmentType.html#DirectConnectGatewayAttachmentType"><span class="hs-identifier hs-type">DirectConnectGatewayAttachmentType</span></a></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679279074"><span id="local-6989586621679279076"><span class="annot"><span class="annottext">DirectConnectGatewayAttachment
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679279297"><span id="local-6989586621679279299"><span class="annot"><span class="annottext">DirectConnectGatewayAttachment
 -&gt; DirectConnectGatewayAttachment -&gt; Bool
 (DirectConnectGatewayAttachment
  -&gt; DirectConnectGatewayAttachment -&gt; Bool)
@@ -82,7 +82,7 @@ $c/= :: DirectConnectGatewayAttachment
 -&gt; DirectConnectGatewayAttachment -&gt; Bool
 $c== :: DirectConnectGatewayAttachment
 -&gt; DirectConnectGatewayAttachment -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279065"><span id="local-6989586621679279067"><span id="local-6989586621679279069"><span id="local-6989586621679279071"><span class="annot"><span class="annottext">ReadPrec [DirectConnectGatewayAttachment]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279288"><span id="local-6989586621679279290"><span id="local-6989586621679279292"><span id="local-6989586621679279294"><span class="annot"><span class="annottext">ReadPrec [DirectConnectGatewayAttachment]
 ReadPrec DirectConnectGatewayAttachment
 Int -&gt; ReadS DirectConnectGatewayAttachment
 ReadS [DirectConnectGatewayAttachment]
@@ -102,7 +102,7 @@ readList :: ReadS [DirectConnectGatewayAttachment]
 $creadList :: ReadS [DirectConnectGatewayAttachment]
 readsPrec :: Int -&gt; ReadS DirectConnectGatewayAttachment
 $creadsPrec :: Int -&gt; ReadS DirectConnectGatewayAttachment
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279058"><span id="local-6989586621679279060"><span id="local-6989586621679279062"><span class="annot"><span class="annottext">Int -&gt; DirectConnectGatewayAttachment -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279281"><span id="local-6989586621679279283"><span id="local-6989586621679279285"><span class="annot"><span class="annottext">Int -&gt; DirectConnectGatewayAttachment -&gt; ShowS
 [DirectConnectGatewayAttachment] -&gt; ShowS
 DirectConnectGatewayAttachment -&gt; String
 (Int -&gt; DirectConnectGatewayAttachment -&gt; ShowS)
@@ -148,7 +148,7 @@ DirectConnectGatewayAttachment
 </span><span id="line-67"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-69"></span><span class="hs-comment">--</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- 'stateChangeError', 'directConnectGatewayAttachment_stateChangeError' - The error message if the state of an object failed to advance.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'directConnectGatewayId', 'directConnectGatewayAttachment_directConnectGatewayId' - The ID of the Direct Connect gateway.</span><span>
 </span><span id="line-71"></span><span class="hs-comment">--</span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- 'attachmentState', 'directConnectGatewayAttachment_attachmentState' - The state of the attachment. The following are the possible values:</span><span>
 </span><span id="line-73"></span><span class="hs-comment">--</span><span>
@@ -164,15 +164,15 @@ DirectConnectGatewayAttachment
 </span><span id="line-83"></span><span class="hs-comment">--     Connect gateway. Traffic flow between the Direct Connect gateway and</span><span>
 </span><span id="line-84"></span><span class="hs-comment">--     virtual interface is stopped.</span><span>
 </span><span id="line-85"></span><span class="hs-comment">--</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- 'virtualInterfaceOwnerAccount', 'directConnectGatewayAttachment_virtualInterfaceOwnerAccount' - The ID of the account that owns the virtual interface.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'stateChangeError', 'directConnectGatewayAttachment_stateChangeError' - The error message if the state of an object failed to advance.</span><span>
 </span><span id="line-87"></span><span class="hs-comment">--</span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- 'virtualInterfaceRegion', 'directConnectGatewayAttachment_virtualInterfaceRegion' - The Region where the virtual interface is located.</span><span>
 </span><span id="line-89"></span><span class="hs-comment">--</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- 'attachmentType', 'directConnectGatewayAttachment_attachmentType' - The type of attachment.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'virtualInterfaceOwnerAccount', 'directConnectGatewayAttachment_virtualInterfaceOwnerAccount' - The ID of the account that owns the virtual interface.</span><span>
 </span><span id="line-91"></span><span class="hs-comment">--</span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- 'virtualInterfaceId', 'directConnectGatewayAttachment_virtualInterfaceId' - The ID of the virtual interface.</span><span>
 </span><span id="line-93"></span><span class="hs-comment">--</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- 'directConnectGatewayId', 'directConnectGatewayAttachment_directConnectGatewayId' - The ID of the Direct Connect gateway.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'attachmentType', 'directConnectGatewayAttachment_attachmentType' - The type of attachment.</span><span>
 </span><span id="line-95"></span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#newDirectConnectGatewayAttachment"><span class="hs-identifier hs-type">newDirectConnectGatewayAttachment</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-96"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#DirectConnectGatewayAttachment"><span class="hs-identifier hs-type">DirectConnectGatewayAttachment</span></a></span><span>
 </span><span id="line-97"></span><span id="newDirectConnectGatewayAttachment"><span class="annot"><span class="annottext">newDirectConnectGatewayAttachment :: DirectConnectGatewayAttachment
@@ -181,13 +181,13 @@ DirectConnectGatewayAttachment
 -&gt; Maybe DirectConnectGatewayAttachmentState
 -&gt; Maybe Text
 -&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe DirectConnectGatewayAttachmentType
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; DirectConnectGatewayAttachment
 </span><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#DirectConnectGatewayAttachment%27"><span class="hs-identifier hs-type">DirectConnectGatewayAttachment'</span></a></span><span>
-</span><span id="line-99"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:stateChangeError:DirectConnectGatewayAttachment' :: Maybe Text
-</span><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#%24sel%3AstateChangeError%3ADirectConnectGatewayAttachment%27"><span class="hs-identifier hs-var">stateChangeError</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:directConnectGatewayId:DirectConnectGatewayAttachment' :: Maybe Text
+</span><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#%24sel%3AdirectConnectGatewayId%3ADirectConnectGatewayAttachment%27"><span class="hs-identifier hs-var">directConnectGatewayId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-100"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
@@ -195,35 +195,35 @@ forall a. Maybe a
 </span><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#%24sel%3AattachmentState%3ADirectConnectGatewayAttachment%27"><span class="hs-identifier hs-var">attachmentState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DirectConnectGatewayAttachmentState
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:virtualInterfaceOwnerAccount:DirectConnectGatewayAttachment' :: Maybe Text
-</span><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#%24sel%3AvirtualInterfaceOwnerAccount%3ADirectConnectGatewayAttachment%27"><span class="hs-identifier hs-var">virtualInterfaceOwnerAccount</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-103"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:stateChangeError:DirectConnectGatewayAttachment' :: Maybe Text
+</span><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#%24sel%3AstateChangeError%3ADirectConnectGatewayAttachment%27"><span class="hs-identifier hs-var">stateChangeError</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:virtualInterfaceRegion:DirectConnectGatewayAttachment' :: Maybe Text
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:virtualInterfaceRegion:DirectConnectGatewayAttachment' :: Maybe Text
 </span><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#%24sel%3AvirtualInterfaceRegion%3ADirectConnectGatewayAttachment%27"><span class="hs-identifier hs-var">virtualInterfaceRegion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:attachmentType:DirectConnectGatewayAttachment' :: Maybe DirectConnectGatewayAttachmentType
-</span><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#%24sel%3AattachmentType%3ADirectConnectGatewayAttachment%27"><span class="hs-identifier hs-var">attachmentType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DirectConnectGatewayAttachmentType
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:virtualInterfaceOwnerAccount:DirectConnectGatewayAttachment' :: Maybe Text
+</span><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#%24sel%3AvirtualInterfaceOwnerAccount%3ADirectConnectGatewayAttachment%27"><span class="hs-identifier hs-var">virtualInterfaceOwnerAccount</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:virtualInterfaceId:DirectConnectGatewayAttachment' :: Maybe Text
 </span><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#%24sel%3AvirtualInterfaceId%3ADirectConnectGatewayAttachment%27"><span class="hs-identifier hs-var">virtualInterfaceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:directConnectGatewayId:DirectConnectGatewayAttachment' :: Maybe Text
-</span><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#%24sel%3AdirectConnectGatewayId%3ADirectConnectGatewayAttachment%27"><span class="hs-identifier hs-var">directConnectGatewayId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:attachmentType:DirectConnectGatewayAttachment' :: Maybe DirectConnectGatewayAttachmentType
+</span><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#%24sel%3AattachmentType%3ADirectConnectGatewayAttachment%27"><span class="hs-identifier hs-var">attachmentType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DirectConnectGatewayAttachmentType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-108"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- | The error message if the state of an object failed to advance.</span><span>
-</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#directConnectGatewayAttachment_stateChangeError"><span class="hs-identifier hs-type">directConnectGatewayAttachment_stateChangeError</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#DirectConnectGatewayAttachment"><span class="hs-identifier hs-type">DirectConnectGatewayAttachment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-112"></span><span id="directConnectGatewayAttachment_stateChangeError"><span class="annot"><span class="annottext">directConnectGatewayAttachment_stateChangeError :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-110"></span><span class="hs-comment">-- | The ID of the Direct Connect gateway.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#directConnectGatewayAttachment_directConnectGatewayId"><span class="hs-identifier hs-type">directConnectGatewayAttachment_directConnectGatewayId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#DirectConnectGatewayAttachment"><span class="hs-identifier hs-type">DirectConnectGatewayAttachment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="directConnectGatewayAttachment_directConnectGatewayId"><span class="annot"><span class="annottext">directConnectGatewayAttachment_directConnectGatewayId :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; DirectConnectGatewayAttachment
 -&gt; f DirectConnectGatewayAttachment
-</span><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#directConnectGatewayAttachment_stateChangeError"><span class="hs-identifier hs-var hs-var">directConnectGatewayAttachment_stateChangeError</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DirectConnectGatewayAttachment -&gt; Maybe Text)
+</span><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#directConnectGatewayAttachment_directConnectGatewayId"><span class="hs-identifier hs-var hs-var">directConnectGatewayAttachment_directConnectGatewayId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DirectConnectGatewayAttachment -&gt; Maybe Text)
 -&gt; (DirectConnectGatewayAttachment
     -&gt; Maybe Text -&gt; DirectConnectGatewayAttachment)
 -&gt; Lens
@@ -232,16 +232,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#DirectConnectGatewayAttachment%27"><span class="hs-identifier hs-type">DirectConnectGatewayAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279049"><span class="annot"><span class="annottext">Maybe Text
-stateChangeError :: Maybe Text
-$sel:stateChangeError:DirectConnectGatewayAttachment' :: DirectConnectGatewayAttachment -&gt; Maybe Text
-</span><a href="#local-6989586621679279049"><span class="hs-identifier hs-var hs-var">stateChangeError</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679279049"><span class="hs-identifier hs-var">stateChangeError</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279048"><span class="annot"><span class="annottext">s :: DirectConnectGatewayAttachment
-</span><a href="#local-6989586621679279048"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#DirectConnectGatewayAttachment%27"><span class="hs-identifier hs-type">DirectConnectGatewayAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279047"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679279047"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DirectConnectGatewayAttachment
-</span><a href="#local-6989586621679279048"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stateChangeError:DirectConnectGatewayAttachment' :: Maybe Text
-</span><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#%24sel%3AstateChangeError%3ADirectConnectGatewayAttachment%27"><span class="hs-identifier hs-var">stateChangeError</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679279047"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#DirectConnectGatewayAttachment"><span class="hs-identifier hs-type">DirectConnectGatewayAttachment</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#DirectConnectGatewayAttachment%27"><span class="hs-identifier hs-type">DirectConnectGatewayAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279272"><span class="annot"><span class="annottext">Maybe Text
+directConnectGatewayId :: Maybe Text
+$sel:directConnectGatewayId:DirectConnectGatewayAttachment' :: DirectConnectGatewayAttachment -&gt; Maybe Text
+</span><a href="#local-6989586621679279272"><span class="hs-identifier hs-var hs-var">directConnectGatewayId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279272"><span class="hs-identifier hs-var">directConnectGatewayId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279271"><span class="annot"><span class="annottext">s :: DirectConnectGatewayAttachment
+</span><a href="#local-6989586621679279271"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#DirectConnectGatewayAttachment%27"><span class="hs-identifier hs-type">DirectConnectGatewayAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279270"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279270"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DirectConnectGatewayAttachment
+</span><a href="#local-6989586621679279271"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directConnectGatewayId:DirectConnectGatewayAttachment' :: Maybe Text
+</span><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#%24sel%3AdirectConnectGatewayId%3ADirectConnectGatewayAttachment%27"><span class="hs-identifier hs-var">directConnectGatewayId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279270"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#DirectConnectGatewayAttachment"><span class="hs-identifier hs-type">DirectConnectGatewayAttachment</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-comment">-- | The state of the attachment. The following are the possible values:</span><span>
 </span><span id="line-115"></span><span class="hs-comment">--</span><span>
@@ -272,24 +272,24 @@ $sel:stateChangeError:DirectConnectGatewayAttachment' :: DirectConnectGatewayAtt
      (Maybe DirectConnectGatewayAttachmentState)
      (Maybe DirectConnectGatewayAttachmentState)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#DirectConnectGatewayAttachment%27"><span class="hs-identifier hs-type">DirectConnectGatewayAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279045"><span class="annot"><span class="annottext">Maybe DirectConnectGatewayAttachmentState
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#DirectConnectGatewayAttachment%27"><span class="hs-identifier hs-type">DirectConnectGatewayAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279268"><span class="annot"><span class="annottext">Maybe DirectConnectGatewayAttachmentState
 attachmentState :: Maybe DirectConnectGatewayAttachmentState
 $sel:attachmentState:DirectConnectGatewayAttachment' :: DirectConnectGatewayAttachment
 -&gt; Maybe DirectConnectGatewayAttachmentState
-</span><a href="#local-6989586621679279045"><span class="hs-identifier hs-var hs-var">attachmentState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DirectConnectGatewayAttachmentState
-</span><a href="#local-6989586621679279045"><span class="hs-identifier hs-var">attachmentState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279044"><span class="annot"><span class="annottext">s :: DirectConnectGatewayAttachment
-</span><a href="#local-6989586621679279044"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#DirectConnectGatewayAttachment%27"><span class="hs-identifier hs-type">DirectConnectGatewayAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279043"><span class="annot"><span class="annottext">Maybe DirectConnectGatewayAttachmentState
-</span><a href="#local-6989586621679279043"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DirectConnectGatewayAttachment
-</span><a href="#local-6989586621679279044"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attachmentState:DirectConnectGatewayAttachment' :: Maybe DirectConnectGatewayAttachmentState
+</span><a href="#local-6989586621679279268"><span class="hs-identifier hs-var hs-var">attachmentState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DirectConnectGatewayAttachmentState
+</span><a href="#local-6989586621679279268"><span class="hs-identifier hs-var">attachmentState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279267"><span class="annot"><span class="annottext">s :: DirectConnectGatewayAttachment
+</span><a href="#local-6989586621679279267"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#DirectConnectGatewayAttachment%27"><span class="hs-identifier hs-type">DirectConnectGatewayAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279266"><span class="annot"><span class="annottext">Maybe DirectConnectGatewayAttachmentState
+</span><a href="#local-6989586621679279266"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DirectConnectGatewayAttachment
+</span><a href="#local-6989586621679279267"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attachmentState:DirectConnectGatewayAttachment' :: Maybe DirectConnectGatewayAttachmentState
 </span><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#%24sel%3AattachmentState%3ADirectConnectGatewayAttachment%27"><span class="hs-identifier hs-var">attachmentState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DirectConnectGatewayAttachmentState
-</span><a href="#local-6989586621679279043"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#DirectConnectGatewayAttachment"><span class="hs-identifier hs-type">DirectConnectGatewayAttachment</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679279266"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#DirectConnectGatewayAttachment"><span class="hs-identifier hs-type">DirectConnectGatewayAttachment</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- | The ID of the account that owns the virtual interface.</span><span>
-</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#directConnectGatewayAttachment_virtualInterfaceOwnerAccount"><span class="hs-identifier hs-type">directConnectGatewayAttachment_virtualInterfaceOwnerAccount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#DirectConnectGatewayAttachment"><span class="hs-identifier hs-type">DirectConnectGatewayAttachment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-132"></span><span id="directConnectGatewayAttachment_virtualInterfaceOwnerAccount"><span class="annot"><span class="annottext">directConnectGatewayAttachment_virtualInterfaceOwnerAccount :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-130"></span><span class="hs-comment">-- | The error message if the state of an object failed to advance.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#directConnectGatewayAttachment_stateChangeError"><span class="hs-identifier hs-type">directConnectGatewayAttachment_stateChangeError</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#DirectConnectGatewayAttachment"><span class="hs-identifier hs-type">DirectConnectGatewayAttachment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span id="directConnectGatewayAttachment_stateChangeError"><span class="annot"><span class="annottext">directConnectGatewayAttachment_stateChangeError :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; DirectConnectGatewayAttachment
 -&gt; f DirectConnectGatewayAttachment
-</span><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#directConnectGatewayAttachment_virtualInterfaceOwnerAccount"><span class="hs-identifier hs-var hs-var">directConnectGatewayAttachment_virtualInterfaceOwnerAccount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DirectConnectGatewayAttachment -&gt; Maybe Text)
+</span><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#directConnectGatewayAttachment_stateChangeError"><span class="hs-identifier hs-var hs-var">directConnectGatewayAttachment_stateChangeError</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DirectConnectGatewayAttachment -&gt; Maybe Text)
 -&gt; (DirectConnectGatewayAttachment
     -&gt; Maybe Text -&gt; DirectConnectGatewayAttachment)
 -&gt; Lens
@@ -298,16 +298,16 @@ $sel:attachmentState:DirectConnectGatewayAttachment' :: DirectConnectGatewayAtta
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#DirectConnectGatewayAttachment%27"><span class="hs-identifier hs-type">DirectConnectGatewayAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279041"><span class="annot"><span class="annottext">Maybe Text
-virtualInterfaceOwnerAccount :: Maybe Text
-$sel:virtualInterfaceOwnerAccount:DirectConnectGatewayAttachment' :: DirectConnectGatewayAttachment -&gt; Maybe Text
-</span><a href="#local-6989586621679279041"><span class="hs-identifier hs-var hs-var">virtualInterfaceOwnerAccount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679279041"><span class="hs-identifier hs-var">virtualInterfaceOwnerAccount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279040"><span class="annot"><span class="annottext">s :: DirectConnectGatewayAttachment
-</span><a href="#local-6989586621679279040"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#DirectConnectGatewayAttachment%27"><span class="hs-identifier hs-type">DirectConnectGatewayAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279039"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679279039"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DirectConnectGatewayAttachment
-</span><a href="#local-6989586621679279040"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:virtualInterfaceOwnerAccount:DirectConnectGatewayAttachment' :: Maybe Text
-</span><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#%24sel%3AvirtualInterfaceOwnerAccount%3ADirectConnectGatewayAttachment%27"><span class="hs-identifier hs-var">virtualInterfaceOwnerAccount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679279039"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#DirectConnectGatewayAttachment"><span class="hs-identifier hs-type">DirectConnectGatewayAttachment</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#DirectConnectGatewayAttachment%27"><span class="hs-identifier hs-type">DirectConnectGatewayAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279264"><span class="annot"><span class="annottext">Maybe Text
+stateChangeError :: Maybe Text
+$sel:stateChangeError:DirectConnectGatewayAttachment' :: DirectConnectGatewayAttachment -&gt; Maybe Text
+</span><a href="#local-6989586621679279264"><span class="hs-identifier hs-var hs-var">stateChangeError</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279264"><span class="hs-identifier hs-var">stateChangeError</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279263"><span class="annot"><span class="annottext">s :: DirectConnectGatewayAttachment
+</span><a href="#local-6989586621679279263"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#DirectConnectGatewayAttachment%27"><span class="hs-identifier hs-type">DirectConnectGatewayAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279262"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279262"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DirectConnectGatewayAttachment
+</span><a href="#local-6989586621679279263"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stateChangeError:DirectConnectGatewayAttachment' :: Maybe Text
+</span><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#%24sel%3AstateChangeError%3ADirectConnectGatewayAttachment%27"><span class="hs-identifier hs-var">stateChangeError</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279262"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#DirectConnectGatewayAttachment"><span class="hs-identifier hs-type">DirectConnectGatewayAttachment</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-comment">-- | The Region where the virtual interface is located.</span><span>
 </span><span id="line-135"></span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#directConnectGatewayAttachment_virtualInterfaceRegion"><span class="hs-identifier hs-type">directConnectGatewayAttachment_virtualInterfaceRegion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#DirectConnectGatewayAttachment"><span class="hs-identifier hs-type">DirectConnectGatewayAttachment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -323,45 +323,41 @@ $sel:virtualInterfaceOwnerAccount:DirectConnectGatewayAttachment' :: DirectConne
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#DirectConnectGatewayAttachment%27"><span class="hs-identifier hs-type">DirectConnectGatewayAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279037"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#DirectConnectGatewayAttachment%27"><span class="hs-identifier hs-type">DirectConnectGatewayAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279260"><span class="annot"><span class="annottext">Maybe Text
 virtualInterfaceRegion :: Maybe Text
 $sel:virtualInterfaceRegion:DirectConnectGatewayAttachment' :: DirectConnectGatewayAttachment -&gt; Maybe Text
-</span><a href="#local-6989586621679279037"><span class="hs-identifier hs-var hs-var">virtualInterfaceRegion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679279037"><span class="hs-identifier hs-var">virtualInterfaceRegion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279036"><span class="annot"><span class="annottext">s :: DirectConnectGatewayAttachment
-</span><a href="#local-6989586621679279036"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#DirectConnectGatewayAttachment%27"><span class="hs-identifier hs-type">DirectConnectGatewayAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279035"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679279035"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DirectConnectGatewayAttachment
-</span><a href="#local-6989586621679279036"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:virtualInterfaceRegion:DirectConnectGatewayAttachment' :: Maybe Text
+</span><a href="#local-6989586621679279260"><span class="hs-identifier hs-var hs-var">virtualInterfaceRegion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279260"><span class="hs-identifier hs-var">virtualInterfaceRegion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279259"><span class="annot"><span class="annottext">s :: DirectConnectGatewayAttachment
+</span><a href="#local-6989586621679279259"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#DirectConnectGatewayAttachment%27"><span class="hs-identifier hs-type">DirectConnectGatewayAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279258"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279258"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DirectConnectGatewayAttachment
+</span><a href="#local-6989586621679279259"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:virtualInterfaceRegion:DirectConnectGatewayAttachment' :: Maybe Text
 </span><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#%24sel%3AvirtualInterfaceRegion%3ADirectConnectGatewayAttachment%27"><span class="hs-identifier hs-var">virtualInterfaceRegion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679279035"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#DirectConnectGatewayAttachment"><span class="hs-identifier hs-type">DirectConnectGatewayAttachment</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679279258"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#DirectConnectGatewayAttachment"><span class="hs-identifier hs-type">DirectConnectGatewayAttachment</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
-</span><span id="line-138"></span><span class="hs-comment">-- | The type of attachment.</span><span>
-</span><span id="line-139"></span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#directConnectGatewayAttachment_attachmentType"><span class="hs-identifier hs-type">directConnectGatewayAttachment_attachmentType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#DirectConnectGatewayAttachment"><span class="hs-identifier hs-type">DirectConnectGatewayAttachment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachmentType.html#DirectConnectGatewayAttachmentType"><span class="hs-identifier hs-type">DirectConnectGatewayAttachmentType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-140"></span><span id="directConnectGatewayAttachment_attachmentType"><span class="annot"><span class="annottext">directConnectGatewayAttachment_attachmentType :: (Maybe DirectConnectGatewayAttachmentType
- -&gt; f (Maybe DirectConnectGatewayAttachmentType))
+</span><span id="line-138"></span><span class="hs-comment">-- | The ID of the account that owns the virtual interface.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#directConnectGatewayAttachment_virtualInterfaceOwnerAccount"><span class="hs-identifier hs-type">directConnectGatewayAttachment_virtualInterfaceOwnerAccount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#DirectConnectGatewayAttachment"><span class="hs-identifier hs-type">DirectConnectGatewayAttachment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span id="directConnectGatewayAttachment_virtualInterfaceOwnerAccount"><span class="annot"><span class="annottext">directConnectGatewayAttachment_virtualInterfaceOwnerAccount :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; DirectConnectGatewayAttachment
 -&gt; f DirectConnectGatewayAttachment
-</span><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#directConnectGatewayAttachment_attachmentType"><span class="hs-identifier hs-var hs-var">directConnectGatewayAttachment_attachmentType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DirectConnectGatewayAttachment
- -&gt; Maybe DirectConnectGatewayAttachmentType)
+</span><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#directConnectGatewayAttachment_virtualInterfaceOwnerAccount"><span class="hs-identifier hs-var hs-var">directConnectGatewayAttachment_virtualInterfaceOwnerAccount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DirectConnectGatewayAttachment -&gt; Maybe Text)
 -&gt; (DirectConnectGatewayAttachment
-    -&gt; Maybe DirectConnectGatewayAttachmentType
-    -&gt; DirectConnectGatewayAttachment)
+    -&gt; Maybe Text -&gt; DirectConnectGatewayAttachment)
 -&gt; Lens
      DirectConnectGatewayAttachment
      DirectConnectGatewayAttachment
-     (Maybe DirectConnectGatewayAttachmentType)
-     (Maybe DirectConnectGatewayAttachmentType)
+     (Maybe Text)
+     (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#DirectConnectGatewayAttachment%27"><span class="hs-identifier hs-type">DirectConnectGatewayAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279033"><span class="annot"><span class="annottext">Maybe DirectConnectGatewayAttachmentType
-attachmentType :: Maybe DirectConnectGatewayAttachmentType
-$sel:attachmentType:DirectConnectGatewayAttachment' :: DirectConnectGatewayAttachment
--&gt; Maybe DirectConnectGatewayAttachmentType
-</span><a href="#local-6989586621679279033"><span class="hs-identifier hs-var hs-var">attachmentType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DirectConnectGatewayAttachmentType
-</span><a href="#local-6989586621679279033"><span class="hs-identifier hs-var">attachmentType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279032"><span class="annot"><span class="annottext">s :: DirectConnectGatewayAttachment
-</span><a href="#local-6989586621679279032"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#DirectConnectGatewayAttachment%27"><span class="hs-identifier hs-type">DirectConnectGatewayAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279031"><span class="annot"><span class="annottext">Maybe DirectConnectGatewayAttachmentType
-</span><a href="#local-6989586621679279031"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DirectConnectGatewayAttachment
-</span><a href="#local-6989586621679279032"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attachmentType:DirectConnectGatewayAttachment' :: Maybe DirectConnectGatewayAttachmentType
-</span><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#%24sel%3AattachmentType%3ADirectConnectGatewayAttachment%27"><span class="hs-identifier hs-var">attachmentType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DirectConnectGatewayAttachmentType
-</span><a href="#local-6989586621679279031"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#DirectConnectGatewayAttachment"><span class="hs-identifier hs-type">DirectConnectGatewayAttachment</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#DirectConnectGatewayAttachment%27"><span class="hs-identifier hs-type">DirectConnectGatewayAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279256"><span class="annot"><span class="annottext">Maybe Text
+virtualInterfaceOwnerAccount :: Maybe Text
+$sel:virtualInterfaceOwnerAccount:DirectConnectGatewayAttachment' :: DirectConnectGatewayAttachment -&gt; Maybe Text
+</span><a href="#local-6989586621679279256"><span class="hs-identifier hs-var hs-var">virtualInterfaceOwnerAccount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279256"><span class="hs-identifier hs-var">virtualInterfaceOwnerAccount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279255"><span class="annot"><span class="annottext">s :: DirectConnectGatewayAttachment
+</span><a href="#local-6989586621679279255"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#DirectConnectGatewayAttachment%27"><span class="hs-identifier hs-type">DirectConnectGatewayAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279254"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279254"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DirectConnectGatewayAttachment
+</span><a href="#local-6989586621679279255"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:virtualInterfaceOwnerAccount:DirectConnectGatewayAttachment' :: Maybe Text
+</span><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#%24sel%3AvirtualInterfaceOwnerAccount%3ADirectConnectGatewayAttachment%27"><span class="hs-identifier hs-var">virtualInterfaceOwnerAccount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279254"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#DirectConnectGatewayAttachment"><span class="hs-identifier hs-type">DirectConnectGatewayAttachment</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- | The ID of the virtual interface.</span><span>
 </span><span id="line-143"></span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#directConnectGatewayAttachment_virtualInterfaceId"><span class="hs-identifier hs-type">directConnectGatewayAttachment_virtualInterfaceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#DirectConnectGatewayAttachment"><span class="hs-identifier hs-type">DirectConnectGatewayAttachment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -377,44 +373,48 @@ $sel:attachmentType:DirectConnectGatewayAttachment' :: DirectConnectGatewayAttac
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#DirectConnectGatewayAttachment%27"><span class="hs-identifier hs-type">DirectConnectGatewayAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279029"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#DirectConnectGatewayAttachment%27"><span class="hs-identifier hs-type">DirectConnectGatewayAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279252"><span class="annot"><span class="annottext">Maybe Text
 virtualInterfaceId :: Maybe Text
 $sel:virtualInterfaceId:DirectConnectGatewayAttachment' :: DirectConnectGatewayAttachment -&gt; Maybe Text
-</span><a href="#local-6989586621679279029"><span class="hs-identifier hs-var hs-var">virtualInterfaceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679279029"><span class="hs-identifier hs-var">virtualInterfaceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279028"><span class="annot"><span class="annottext">s :: DirectConnectGatewayAttachment
-</span><a href="#local-6989586621679279028"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#DirectConnectGatewayAttachment%27"><span class="hs-identifier hs-type">DirectConnectGatewayAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279027"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679279027"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DirectConnectGatewayAttachment
-</span><a href="#local-6989586621679279028"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:virtualInterfaceId:DirectConnectGatewayAttachment' :: Maybe Text
+</span><a href="#local-6989586621679279252"><span class="hs-identifier hs-var hs-var">virtualInterfaceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279252"><span class="hs-identifier hs-var">virtualInterfaceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279251"><span class="annot"><span class="annottext">s :: DirectConnectGatewayAttachment
+</span><a href="#local-6989586621679279251"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#DirectConnectGatewayAttachment%27"><span class="hs-identifier hs-type">DirectConnectGatewayAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279250"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279250"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DirectConnectGatewayAttachment
+</span><a href="#local-6989586621679279251"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:virtualInterfaceId:DirectConnectGatewayAttachment' :: Maybe Text
 </span><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#%24sel%3AvirtualInterfaceId%3ADirectConnectGatewayAttachment%27"><span class="hs-identifier hs-var">virtualInterfaceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679279027"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#DirectConnectGatewayAttachment"><span class="hs-identifier hs-type">DirectConnectGatewayAttachment</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679279250"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#DirectConnectGatewayAttachment"><span class="hs-identifier hs-type">DirectConnectGatewayAttachment</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>
-</span><span id="line-146"></span><span class="hs-comment">-- | The ID of the Direct Connect gateway.</span><span>
-</span><span id="line-147"></span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#directConnectGatewayAttachment_directConnectGatewayId"><span class="hs-identifier hs-type">directConnectGatewayAttachment_directConnectGatewayId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#DirectConnectGatewayAttachment"><span class="hs-identifier hs-type">DirectConnectGatewayAttachment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-148"></span><span id="directConnectGatewayAttachment_directConnectGatewayId"><span class="annot"><span class="annottext">directConnectGatewayAttachment_directConnectGatewayId :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-146"></span><span class="hs-comment">-- | The type of attachment.</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#directConnectGatewayAttachment_attachmentType"><span class="hs-identifier hs-type">directConnectGatewayAttachment_attachmentType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#DirectConnectGatewayAttachment"><span class="hs-identifier hs-type">DirectConnectGatewayAttachment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachmentType.html#DirectConnectGatewayAttachmentType"><span class="hs-identifier hs-type">DirectConnectGatewayAttachmentType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span id="directConnectGatewayAttachment_attachmentType"><span class="annot"><span class="annottext">directConnectGatewayAttachment_attachmentType :: (Maybe DirectConnectGatewayAttachmentType
+ -&gt; f (Maybe DirectConnectGatewayAttachmentType))
 -&gt; DirectConnectGatewayAttachment
 -&gt; f DirectConnectGatewayAttachment
-</span><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#directConnectGatewayAttachment_directConnectGatewayId"><span class="hs-identifier hs-var hs-var">directConnectGatewayAttachment_directConnectGatewayId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DirectConnectGatewayAttachment -&gt; Maybe Text)
+</span><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#directConnectGatewayAttachment_attachmentType"><span class="hs-identifier hs-var hs-var">directConnectGatewayAttachment_attachmentType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DirectConnectGatewayAttachment
+ -&gt; Maybe DirectConnectGatewayAttachmentType)
 -&gt; (DirectConnectGatewayAttachment
-    -&gt; Maybe Text -&gt; DirectConnectGatewayAttachment)
+    -&gt; Maybe DirectConnectGatewayAttachmentType
+    -&gt; DirectConnectGatewayAttachment)
 -&gt; Lens
      DirectConnectGatewayAttachment
      DirectConnectGatewayAttachment
-     (Maybe Text)
-     (Maybe Text)
+     (Maybe DirectConnectGatewayAttachmentType)
+     (Maybe DirectConnectGatewayAttachmentType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#DirectConnectGatewayAttachment%27"><span class="hs-identifier hs-type">DirectConnectGatewayAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279025"><span class="annot"><span class="annottext">Maybe Text
-directConnectGatewayId :: Maybe Text
-$sel:directConnectGatewayId:DirectConnectGatewayAttachment' :: DirectConnectGatewayAttachment -&gt; Maybe Text
-</span><a href="#local-6989586621679279025"><span class="hs-identifier hs-var hs-var">directConnectGatewayId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679279025"><span class="hs-identifier hs-var">directConnectGatewayId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279024"><span class="annot"><span class="annottext">s :: DirectConnectGatewayAttachment
-</span><a href="#local-6989586621679279024"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#DirectConnectGatewayAttachment%27"><span class="hs-identifier hs-type">DirectConnectGatewayAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279023"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679279023"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DirectConnectGatewayAttachment
-</span><a href="#local-6989586621679279024"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directConnectGatewayId:DirectConnectGatewayAttachment' :: Maybe Text
-</span><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#%24sel%3AdirectConnectGatewayId%3ADirectConnectGatewayAttachment%27"><span class="hs-identifier hs-var">directConnectGatewayId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679279023"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#DirectConnectGatewayAttachment"><span class="hs-identifier hs-type">DirectConnectGatewayAttachment</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#DirectConnectGatewayAttachment%27"><span class="hs-identifier hs-type">DirectConnectGatewayAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279248"><span class="annot"><span class="annottext">Maybe DirectConnectGatewayAttachmentType
+attachmentType :: Maybe DirectConnectGatewayAttachmentType
+$sel:attachmentType:DirectConnectGatewayAttachment' :: DirectConnectGatewayAttachment
+-&gt; Maybe DirectConnectGatewayAttachmentType
+</span><a href="#local-6989586621679279248"><span class="hs-identifier hs-var hs-var">attachmentType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DirectConnectGatewayAttachmentType
+</span><a href="#local-6989586621679279248"><span class="hs-identifier hs-var">attachmentType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279247"><span class="annot"><span class="annottext">s :: DirectConnectGatewayAttachment
+</span><a href="#local-6989586621679279247"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#DirectConnectGatewayAttachment%27"><span class="hs-identifier hs-type">DirectConnectGatewayAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279246"><span class="annot"><span class="annottext">Maybe DirectConnectGatewayAttachmentType
+</span><a href="#local-6989586621679279246"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DirectConnectGatewayAttachment
+</span><a href="#local-6989586621679279247"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attachmentType:DirectConnectGatewayAttachment' :: Maybe DirectConnectGatewayAttachmentType
+</span><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#%24sel%3AattachmentType%3ADirectConnectGatewayAttachment%27"><span class="hs-identifier hs-var">attachmentType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DirectConnectGatewayAttachmentType
+</span><a href="#local-6989586621679279246"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#DirectConnectGatewayAttachment"><span class="hs-identifier hs-type">DirectConnectGatewayAttachment</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>
-</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279020"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#DirectConnectGatewayAttachment"><span class="hs-identifier hs-type">DirectConnectGatewayAttachment</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-151"></span><span>  </span><span id="local-6989586621679279018"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DirectConnectGatewayAttachment
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279243"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#DirectConnectGatewayAttachment"><span class="hs-identifier hs-type">DirectConnectGatewayAttachment</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679279241"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DirectConnectGatewayAttachment
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-152"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser DirectConnectGatewayAttachment)
@@ -424,59 +424,59 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-153"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;DirectConnectGatewayAttachment&quot;</span></span><span>
-</span><span id="line-154"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679279015"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679279015"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-154"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679279238"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679279238"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-155"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe DirectConnectGatewayAttachmentState
 -&gt; Maybe Text
 -&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe DirectConnectGatewayAttachmentType
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; DirectConnectGatewayAttachment
 </span><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#DirectConnectGatewayAttachment%27"><span class="hs-identifier hs-var">DirectConnectGatewayAttachment'</span></a></span><span>
 </span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
  -&gt; Maybe DirectConnectGatewayAttachmentState
  -&gt; Maybe Text
  -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
  -&gt; Maybe DirectConnectGatewayAttachmentType
- -&gt; Maybe Text
- -&gt; Maybe Text
  -&gt; DirectConnectGatewayAttachment)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
      (Maybe DirectConnectGatewayAttachmentState
       -&gt; Maybe Text
       -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
       -&gt; Maybe DirectConnectGatewayAttachmentType
-      -&gt; Maybe Text
-      -&gt; Maybe Text
       -&gt; DirectConnectGatewayAttachment)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679279015"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679279238"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;stateChangeError&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;directConnectGatewayId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe DirectConnectGatewayAttachmentState
    -&gt; Maybe Text
    -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
    -&gt; Maybe DirectConnectGatewayAttachmentType
-   -&gt; Maybe Text
-   -&gt; Maybe Text
    -&gt; DirectConnectGatewayAttachment)
 -&gt; Parser (Maybe DirectConnectGatewayAttachmentState)
 -&gt; Parser
      (Maybe Text
       -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
       -&gt; Maybe DirectConnectGatewayAttachmentType
-      -&gt; Maybe Text
-      -&gt; Maybe Text
       -&gt; DirectConnectGatewayAttachment)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679279015"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679279238"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Parser (Maybe DirectConnectGatewayAttachmentState)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -484,75 +484,89 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
    -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
    -&gt; Maybe DirectConnectGatewayAttachmentType
+   -&gt; DirectConnectGatewayAttachment)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe DirectConnectGatewayAttachmentType
+      -&gt; DirectConnectGatewayAttachment)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679279238"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;stateChangeError&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe Text
+   -&gt; Maybe DirectConnectGatewayAttachmentType
+   -&gt; DirectConnectGatewayAttachment)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe DirectConnectGatewayAttachmentType
+      -&gt; DirectConnectGatewayAttachment)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679279238"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;virtualInterfaceRegion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe DirectConnectGatewayAttachmentType
    -&gt; DirectConnectGatewayAttachment)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
      (Maybe Text
       -&gt; Maybe DirectConnectGatewayAttachmentType
-      -&gt; Maybe Text
-      -&gt; Maybe Text
       -&gt; DirectConnectGatewayAttachment)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679279015"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679279238"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;virtualInterfaceOwnerAccount&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
    -&gt; Maybe DirectConnectGatewayAttachmentType
-   -&gt; Maybe Text
-   -&gt; Maybe Text
    -&gt; DirectConnectGatewayAttachment)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
      (Maybe DirectConnectGatewayAttachmentType
-      -&gt; Maybe Text -&gt; Maybe Text -&gt; DirectConnectGatewayAttachment)
+      -&gt; DirectConnectGatewayAttachment)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679279015"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;virtualInterfaceRegion&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe DirectConnectGatewayAttachmentType
-   -&gt; Maybe Text -&gt; Maybe Text -&gt; DirectConnectGatewayAttachment)
--&gt; Parser (Maybe DirectConnectGatewayAttachmentType)
--&gt; Parser
-     (Maybe Text -&gt; Maybe Text -&gt; DirectConnectGatewayAttachment)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679279015"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DirectConnectGatewayAttachmentType)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;attachmentType&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; DirectConnectGatewayAttachment)
--&gt; Parser (Maybe Text)
--&gt; Parser (Maybe Text -&gt; DirectConnectGatewayAttachment)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679279015"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679279238"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;virtualInterfaceId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; DirectConnectGatewayAttachment)
--&gt; Parser (Maybe Text) -&gt; Parser DirectConnectGatewayAttachment
+</span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe DirectConnectGatewayAttachmentType
+   -&gt; DirectConnectGatewayAttachment)
+-&gt; Parser (Maybe DirectConnectGatewayAttachmentType)
+-&gt; Parser DirectConnectGatewayAttachment
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679279015"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679279238"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DirectConnectGatewayAttachmentType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;directConnectGatewayId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;attachmentType&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-164"></span><span>
 </span><span id="line-165"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-166"></span><span>  </span><span id="local-6989586621679279009"><span id="local-6989586621679279011"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679279232"><span id="local-6989586621679279234"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-167"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#DirectConnectGatewayAttachment"><span class="hs-identifier hs-type">DirectConnectGatewayAttachment</span></a></span></span></span><span>
 </span><span id="line-168"></span><span>
 </span><span id="line-169"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-170"></span><span>  </span><span id="local-6989586621679279006"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679279229"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-171"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment.html#DirectConnectGatewayAttachment"><span class="hs-identifier hs-type">DirectConnectGatewayAttachment</span></a></span></span><span>
 </span><span id="line-172"></span></pre></body></html>

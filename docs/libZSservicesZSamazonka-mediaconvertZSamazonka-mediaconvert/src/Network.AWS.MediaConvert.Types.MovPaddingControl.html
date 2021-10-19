@@ -34,13 +34,13 @@
 </span><span id="line-34"></span><span class="hs-comment">-- When you keep the default value, OMNEON, MediaConvert increases the</span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- length of the edit list atom. This might cause file rejections when a</span><span>
 </span><span id="line-36"></span><span class="hs-comment">-- recipient of the output file doesn\'t expct this extra padding.</span><span>
-</span><span id="line-37"></span><span id="local-6989586621679983510"><span id="local-6989586621679983511"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MovPaddingControl"><span class="annot"><a href="Network.AWS.MediaConvert.Types.MovPaddingControl.html#MovPaddingControl"><span class="hs-identifier hs-var">MovPaddingControl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MovPaddingControl%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.MovPaddingControl.html#MovPaddingControl%27"><span class="hs-identifier hs-var">MovPaddingControl'</span></a></span></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679988300"><span id="local-6989586621679988301"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MovPaddingControl"><span class="annot"><a href="Network.AWS.MediaConvert.Types.MovPaddingControl.html#MovPaddingControl"><span class="hs-identifier hs-var">MovPaddingControl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MovPaddingControl%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.MovPaddingControl.html#MovPaddingControl%27"><span class="hs-identifier hs-var">MovPaddingControl'</span></a></span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMovPaddingControl"><span class="annot"><span class="annottext">MovPaddingControl -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.MovPaddingControl.html#fromMovPaddingControl"><span class="hs-identifier hs-var hs-var">fromMovPaddingControl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679983502"><span id="local-6989586621679983504"><span id="local-6989586621679983506"><span class="annot"><span class="annottext">Int -&gt; MovPaddingControl -&gt; ShowS
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679988292"><span id="local-6989586621679988294"><span id="local-6989586621679988296"><span class="annot"><span class="annottext">Int -&gt; MovPaddingControl -&gt; ShowS
 [MovPaddingControl] -&gt; ShowS
 MovPaddingControl -&gt; String
 (Int -&gt; MovPaddingControl -&gt; ShowS)
@@ -56,7 +56,7 @@ $cshow :: MovPaddingControl -&gt; String
 showsPrec :: Int -&gt; MovPaddingControl -&gt; ShowS
 $cshowsPrec :: Int -&gt; MovPaddingControl -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679983493"><span id="local-6989586621679983495"><span id="local-6989586621679983497"><span id="local-6989586621679983499"><span class="annot"><span class="annottext">ReadPrec [MovPaddingControl]
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679988283"><span id="local-6989586621679988285"><span id="local-6989586621679988287"><span id="local-6989586621679988289"><span class="annot"><span class="annottext">ReadPrec [MovPaddingControl]
 ReadPrec MovPaddingControl
 Int -&gt; ReadS MovPaddingControl
 ReadS [MovPaddingControl]
@@ -77,7 +77,7 @@ $creadList :: ReadS [MovPaddingControl]
 readsPrec :: Int -&gt; ReadS MovPaddingControl
 $creadsPrec :: Int -&gt; ReadS MovPaddingControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679983488"><span id="local-6989586621679983490"><span class="annot"><span class="annottext">MovPaddingControl -&gt; MovPaddingControl -&gt; Bool
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679988278"><span id="local-6989586621679988280"><span class="annot"><span class="annottext">MovPaddingControl -&gt; MovPaddingControl -&gt; Bool
 (MovPaddingControl -&gt; MovPaddingControl -&gt; Bool)
 -&gt; (MovPaddingControl -&gt; MovPaddingControl -&gt; Bool)
 -&gt; Eq MovPaddingControl
@@ -87,7 +87,7 @@ $c/= :: MovPaddingControl -&gt; MovPaddingControl -&gt; Bool
 == :: MovPaddingControl -&gt; MovPaddingControl -&gt; Bool
 $c== :: MovPaddingControl -&gt; MovPaddingControl -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679983472"><span id="local-6989586621679983474"><span id="local-6989586621679983476"><span id="local-6989586621679983478"><span id="local-6989586621679983480"><span id="local-6989586621679983482"><span id="local-6989586621679983484"><span class="annot"><span class="annottext">Eq MovPaddingControl
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679988262"><span id="local-6989586621679988264"><span id="local-6989586621679988266"><span id="local-6989586621679988268"><span id="local-6989586621679988270"><span id="local-6989586621679988272"><span id="local-6989586621679988274"><span class="annot"><span class="annottext">Eq MovPaddingControl
 Eq MovPaddingControl
 -&gt; (MovPaddingControl -&gt; MovPaddingControl -&gt; Ordering)
 -&gt; (MovPaddingControl -&gt; MovPaddingControl -&gt; Bool)
@@ -138,7 +138,7 @@ $cfrom :: forall x. MovPaddingControl -&gt; Rep MovPaddingControl x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679983464"><span id="local-6989586621679983466"><span class="annot"><span class="annottext">Int -&gt; MovPaddingControl -&gt; Int
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679988254"><span id="local-6989586621679988256"><span class="annot"><span class="annottext">Int -&gt; MovPaddingControl -&gt; Int
 MovPaddingControl -&gt; Int
 (Int -&gt; MovPaddingControl -&gt; Int)
 -&gt; (MovPaddingControl -&gt; Int) -&gt; Hashable MovPaddingControl
@@ -148,51 +148,51 @@ $chash :: MovPaddingControl -&gt; Int
 hashWithSalt :: Int -&gt; MovPaddingControl -&gt; Int
 $chashWithSalt :: Int -&gt; MovPaddingControl -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679983461"><span class="annot"><span class="annottext">MovPaddingControl -&gt; ()
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679988251"><span class="annot"><span class="annottext">MovPaddingControl -&gt; ()
 (MovPaddingControl -&gt; ()) -&gt; NFData MovPaddingControl
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: MovPaddingControl -&gt; ()
 $crnf :: MovPaddingControl -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679983458"><span class="annot"><span class="annottext">Text -&gt; Either String MovPaddingControl
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679988248"><span class="annot"><span class="annottext">Text -&gt; Either String MovPaddingControl
 (Text -&gt; Either String MovPaddingControl)
 -&gt; FromText MovPaddingControl
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String MovPaddingControl
 $cfromText :: Text -&gt; Either String MovPaddingControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679983455"><span class="annot"><span class="annottext">MovPaddingControl -&gt; Text
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679988245"><span class="annot"><span class="annottext">MovPaddingControl -&gt; Text
 (MovPaddingControl -&gt; Text) -&gt; ToText MovPaddingControl
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: MovPaddingControl -&gt; Text
 $ctoText :: MovPaddingControl -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679983452"><span class="annot"><span class="annottext">MovPaddingControl -&gt; ByteString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679988242"><span class="annot"><span class="annottext">MovPaddingControl -&gt; ByteString
 (MovPaddingControl -&gt; ByteString) -&gt; ToByteString MovPaddingControl
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: MovPaddingControl -&gt; ByteString
 $ctoBS :: MovPaddingControl -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679983449"><span class="annot"><span class="annottext">MovPaddingControl -&gt; ByteStringBuilder
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679988239"><span class="annot"><span class="annottext">MovPaddingControl -&gt; ByteStringBuilder
 (MovPaddingControl -&gt; ByteStringBuilder) -&gt; ToLog MovPaddingControl
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: MovPaddingControl -&gt; ByteStringBuilder
 $cbuild :: MovPaddingControl -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679983446"><span class="annot"><span class="annottext">HeaderName -&gt; MovPaddingControl -&gt; [Header]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679988236"><span class="annot"><span class="annottext">HeaderName -&gt; MovPaddingControl -&gt; [Header]
 (HeaderName -&gt; MovPaddingControl -&gt; [Header])
 -&gt; ToHeader MovPaddingControl
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; MovPaddingControl -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; MovPaddingControl -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679983443"><span class="annot"><span class="annottext">MovPaddingControl -&gt; QueryString
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679988233"><span class="annot"><span class="annottext">MovPaddingControl -&gt; QueryString
 (MovPaddingControl -&gt; QueryString) -&gt; ToQuery MovPaddingControl
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: MovPaddingControl -&gt; QueryString
 $ctoQuery :: MovPaddingControl -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679983438"><span id="local-6989586621679983440"><span class="annot"><span class="annottext">Value -&gt; Parser [MovPaddingControl]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679988228"><span id="local-6989586621679988230"><span class="annot"><span class="annottext">Value -&gt; Parser [MovPaddingControl]
 Value -&gt; Parser MovPaddingControl
 (Value -&gt; Parser MovPaddingControl)
 -&gt; (Value -&gt; Parser [MovPaddingControl])
@@ -204,7 +204,7 @@ $cparseJSONList :: Value -&gt; Parser [MovPaddingControl]
 parseJSON :: Value -&gt; Parser MovPaddingControl
 $cparseJSON :: Value -&gt; Parser MovPaddingControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679983433"><span id="local-6989586621679983435"><span class="annot"><span class="annottext">FromJSONKeyFunction [MovPaddingControl]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679988223"><span id="local-6989586621679988225"><span class="annot"><span class="annottext">FromJSONKeyFunction [MovPaddingControl]
 FromJSONKeyFunction MovPaddingControl
 FromJSONKeyFunction MovPaddingControl
 -&gt; FromJSONKeyFunction [MovPaddingControl]
@@ -216,7 +216,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [MovPaddingControl]
 fromJSONKey :: FromJSONKeyFunction MovPaddingControl
 $cfromJSONKey :: FromJSONKeyFunction MovPaddingControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679983424"><span id="local-6989586621679983426"><span id="local-6989586621679983428"><span id="local-6989586621679983430"><span class="annot"><span class="annottext">[MovPaddingControl] -&gt; Encoding
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679988214"><span id="local-6989586621679988216"><span id="local-6989586621679988218"><span id="local-6989586621679988220"><span class="annot"><span class="annottext">[MovPaddingControl] -&gt; Encoding
 [MovPaddingControl] -&gt; Value
 MovPaddingControl -&gt; Encoding
 MovPaddingControl -&gt; Value
@@ -240,7 +240,7 @@ $ctoEncoding :: MovPaddingControl -&gt; Encoding
 toJSON :: MovPaddingControl -&gt; Value
 $ctoJSON :: MovPaddingControl -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679983419"><span id="local-6989586621679983421"><span class="annot"><span class="annottext">ToJSONKeyFunction [MovPaddingControl]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679988209"><span id="local-6989586621679988211"><span class="annot"><span class="annottext">ToJSONKeyFunction [MovPaddingControl]
 ToJSONKeyFunction MovPaddingControl
 ToJSONKeyFunction MovPaddingControl
 -&gt; ToJSONKeyFunction [MovPaddingControl]
@@ -252,14 +252,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [MovPaddingControl]
 toJSONKey :: ToJSONKeyFunction MovPaddingControl
 $ctoJSONKey :: ToJSONKeyFunction MovPaddingControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679983416"><span class="annot"><span class="annottext">[Node] -&gt; Either String MovPaddingControl
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679988206"><span class="annot"><span class="annottext">[Node] -&gt; Either String MovPaddingControl
 ([Node] -&gt; Either String MovPaddingControl)
 -&gt; FromXML MovPaddingControl
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String MovPaddingControl
 $cparseXML :: [Node] -&gt; Either String MovPaddingControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679983413"><span class="annot"><span class="annottext">MovPaddingControl -&gt; XML
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679988203"><span class="annot"><span class="annottext">MovPaddingControl -&gt; XML
 (MovPaddingControl -&gt; XML) -&gt; ToXML MovPaddingControl
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: MovPaddingControl -&gt; XML

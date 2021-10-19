@@ -27,13 +27,13 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Information about an Availability Zone.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newAvailabilityZone' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679247822"><span id="local-6989586621679247823"></span></span><span class="hs-keyword">data</span><span> </span><span id="AvailabilityZone"><span class="annot"><a href="Network.AWS.ELBv2.Types.AvailabilityZone.html#AvailabilityZone"><span class="hs-identifier hs-var">AvailabilityZone</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AvailabilityZone%27"><span class="annot"><a href="Network.AWS.ELBv2.Types.AvailabilityZone.html#AvailabilityZone%27"><span class="hs-identifier hs-var">AvailabilityZone'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the Availability Zone.</span><span>
-</span><span id="line-32"></span><span>    </span><span id="%24sel%3AzoneName%3AAvailabilityZone%27"><span class="annot"><span class="annottext">AvailabilityZone -&gt; Maybe Text
+</span><span id="line-30"></span><span id="local-6989586621679250522"><span id="local-6989586621679250523"></span></span><span class="hs-keyword">data</span><span> </span><span id="AvailabilityZone"><span class="annot"><a href="Network.AWS.ELBv2.Types.AvailabilityZone.html#AvailabilityZone"><span class="hs-identifier hs-var">AvailabilityZone</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AvailabilityZone%27"><span class="annot"><a href="Network.AWS.ELBv2.Types.AvailabilityZone.html#AvailabilityZone%27"><span class="hs-identifier hs-var">AvailabilityZone'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the subnet. You can specify one subnet per Availability Zone.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AsubnetId%3AAvailabilityZone%27"><span class="annot"><span class="annottext">AvailabilityZone -&gt; Maybe Text
+</span><a href="Network.AWS.ELBv2.Types.AvailabilityZone.html#%24sel%3AsubnetId%3AAvailabilityZone%27"><span class="hs-identifier hs-var hs-var">subnetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The name of the Availability Zone.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AzoneName%3AAvailabilityZone%27"><span class="annot"><span class="annottext">AvailabilityZone -&gt; Maybe Text
 </span><a href="Network.AWS.ELBv2.Types.AvailabilityZone.html#%24sel%3AzoneName%3AAvailabilityZone%27"><span class="hs-identifier hs-var hs-var">zoneName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | [Application Load Balancers on Outposts] The ID of the Outpost.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AoutpostId%3AAvailabilityZone%27"><span class="annot"><span class="annottext">AvailabilityZone -&gt; Maybe Text
-</span><a href="Network.AWS.ELBv2.Types.AvailabilityZone.html#%24sel%3AoutpostId%3AAvailabilityZone%27"><span class="hs-identifier hs-var hs-var">outpostId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | [Network Load Balancers] If you need static IP addresses for your load</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- balancer, you can specify one Elastic IP address per Availability Zone</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">-- when you create an internal-facing load balancer. For internal load</span><span>
@@ -41,11 +41,11 @@
 </span><span id="line-39"></span><span>    </span><span class="hs-comment">-- the subnet.</span><span>
 </span><span id="line-40"></span><span>    </span><span id="%24sel%3AloadBalancerAddresses%3AAvailabilityZone%27"><span class="annot"><span class="annottext">AvailabilityZone -&gt; Maybe [LoadBalancerAddress]
 </span><a href="Network.AWS.ELBv2.Types.AvailabilityZone.html#%24sel%3AloadBalancerAddresses%3AAvailabilityZone%27"><span class="hs-identifier hs-var hs-var">loadBalancerAddresses</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ELBv2.Types.LoadBalancerAddress.html#LoadBalancerAddress"><span class="hs-identifier hs-type">LoadBalancerAddress</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The ID of the subnet. You can specify one subnet per Availability Zone.</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3AsubnetId%3AAvailabilityZone%27"><span class="annot"><span class="annottext">AvailabilityZone -&gt; Maybe Text
-</span><a href="Network.AWS.ELBv2.Types.AvailabilityZone.html#%24sel%3AsubnetId%3AAvailabilityZone%27"><span class="hs-identifier hs-var hs-var">subnetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | [Application Load Balancers on Outposts] The ID of the Outpost.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AoutpostId%3AAvailabilityZone%27"><span class="annot"><span class="annottext">AvailabilityZone -&gt; Maybe Text
+</span><a href="Network.AWS.ELBv2.Types.AvailabilityZone.html#%24sel%3AoutpostId%3AAvailabilityZone%27"><span class="hs-identifier hs-var hs-var">outpostId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679247813"><span id="local-6989586621679247815"><span class="annot"><span class="annottext">AvailabilityZone -&gt; AvailabilityZone -&gt; Bool
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679250513"><span id="local-6989586621679250515"><span class="annot"><span class="annottext">AvailabilityZone -&gt; AvailabilityZone -&gt; Bool
 (AvailabilityZone -&gt; AvailabilityZone -&gt; Bool)
 -&gt; (AvailabilityZone -&gt; AvailabilityZone -&gt; Bool)
 -&gt; Eq AvailabilityZone
@@ -54,7 +54,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AvailabilityZone -&gt; AvailabilityZone -&gt; Bool
 == :: AvailabilityZone -&gt; AvailabilityZone -&gt; Bool
 $c== :: AvailabilityZone -&gt; AvailabilityZone -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247804"><span id="local-6989586621679247806"><span id="local-6989586621679247808"><span id="local-6989586621679247810"><span class="annot"><span class="annottext">ReadPrec [AvailabilityZone]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250504"><span id="local-6989586621679250506"><span id="local-6989586621679250508"><span id="local-6989586621679250510"><span class="annot"><span class="annottext">ReadPrec [AvailabilityZone]
 ReadPrec AvailabilityZone
 Int -&gt; ReadS AvailabilityZone
 ReadS [AvailabilityZone]
@@ -74,7 +74,7 @@ readList :: ReadS [AvailabilityZone]
 $creadList :: ReadS [AvailabilityZone]
 readsPrec :: Int -&gt; ReadS AvailabilityZone
 $creadsPrec :: Int -&gt; ReadS AvailabilityZone
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247797"><span id="local-6989586621679247799"><span id="local-6989586621679247801"><span class="annot"><span class="annottext">Int -&gt; AvailabilityZone -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250497"><span id="local-6989586621679250499"><span id="local-6989586621679250501"><span class="annot"><span class="annottext">Int -&gt; AvailabilityZone -&gt; ShowS
 [AvailabilityZone] -&gt; ShowS
 AvailabilityZone -&gt; String
 (Int -&gt; AvailabilityZone -&gt; ShowS)
@@ -108,9 +108,9 @@ $cfrom :: forall x. AvailabilityZone -&gt; Rep AvailabilityZone x
 </span><span id="line-51"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-53"></span><span class="hs-comment">--</span><span>
-</span><span id="line-54"></span><span class="hs-comment">-- 'zoneName', 'availabilityZone_zoneName' - The name of the Availability Zone.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'subnetId', 'availabilityZone_subnetId' - The ID of the subnet. You can specify one subnet per Availability Zone.</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- 'outpostId', 'availabilityZone_outpostId' - [Application Load Balancers on Outposts] The ID of the Outpost.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'zoneName', 'availabilityZone_zoneName' - The name of the Availability Zone.</span><span>
 </span><span id="line-57"></span><span class="hs-comment">--</span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- 'loadBalancerAddresses', 'availabilityZone_loadBalancerAddresses' - [Network Load Balancers] If you need static IP addresses for your load</span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- balancer, you can specify one Elastic IP address per Availability Zone</span><span>
@@ -118,7 +118,7 @@ $cfrom :: forall x. AvailabilityZone -&gt; Rep AvailabilityZone x
 </span><span id="line-61"></span><span class="hs-comment">-- balancers, you can specify a private IP address from the IPv4 range of</span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- the subnet.</span><span>
 </span><span id="line-63"></span><span class="hs-comment">--</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- 'subnetId', 'availabilityZone_subnetId' - The ID of the subnet. You can specify one subnet per Availability Zone.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'outpostId', 'availabilityZone_outpostId' - [Application Load Balancers on Outposts] The ID of the Outpost.</span><span>
 </span><span id="line-65"></span><span class="annot"><a href="Network.AWS.ELBv2.Types.AvailabilityZone.html#newAvailabilityZone"><span class="hs-identifier hs-type">newAvailabilityZone</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-66"></span><span>  </span><span class="annot"><a href="Network.AWS.ELBv2.Types.AvailabilityZone.html#AvailabilityZone"><span class="hs-identifier hs-type">AvailabilityZone</span></a></span><span>
 </span><span id="line-67"></span><span id="newAvailabilityZone"><span class="annot"><span class="annottext">newAvailabilityZone :: AvailabilityZone
@@ -129,61 +129,61 @@ $cfrom :: forall x. AvailabilityZone -&gt; Rep AvailabilityZone x
 -&gt; Maybe Text
 -&gt; AvailabilityZone
 </span><a href="Network.AWS.ELBv2.Types.AvailabilityZone.html#AvailabilityZone%27"><span class="hs-identifier hs-type">AvailabilityZone'</span></a></span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:zoneName:AvailabilityZone' :: Maybe Text
-</span><a href="Network.AWS.ELBv2.Types.AvailabilityZone.html#%24sel%3AzoneName%3AAvailabilityZone%27"><span class="hs-identifier hs-var">zoneName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-69"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:subnetId:AvailabilityZone' :: Maybe Text
+</span><a href="Network.AWS.ELBv2.Types.AvailabilityZone.html#%24sel%3AsubnetId%3AAvailabilityZone%27"><span class="hs-identifier hs-var">subnetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:outpostId:AvailabilityZone' :: Maybe Text
-</span><a href="Network.AWS.ELBv2.Types.AvailabilityZone.html#%24sel%3AoutpostId%3AAvailabilityZone%27"><span class="hs-identifier hs-var">outpostId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:zoneName:AvailabilityZone' :: Maybe Text
+</span><a href="Network.AWS.ELBv2.Types.AvailabilityZone.html#%24sel%3AzoneName%3AAvailabilityZone%27"><span class="hs-identifier hs-var">zoneName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:loadBalancerAddresses:AvailabilityZone' :: Maybe [LoadBalancerAddress]
 </span><a href="Network.AWS.ELBv2.Types.AvailabilityZone.html#%24sel%3AloadBalancerAddresses%3AAvailabilityZone%27"><span class="hs-identifier hs-var">loadBalancerAddresses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [LoadBalancerAddress]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:subnetId:AvailabilityZone' :: Maybe Text
-</span><a href="Network.AWS.ELBv2.Types.AvailabilityZone.html#%24sel%3AsubnetId%3AAvailabilityZone%27"><span class="hs-identifier hs-var">subnetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:outpostId:AvailabilityZone' :: Maybe Text
+</span><a href="Network.AWS.ELBv2.Types.AvailabilityZone.html#%24sel%3AoutpostId%3AAvailabilityZone%27"><span class="hs-identifier hs-var">outpostId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-73"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- | The name of the Availability Zone.</span><span>
-</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.ELBv2.Types.AvailabilityZone.html#availabilityZone_zoneName"><span class="hs-identifier hs-type">availabilityZone_zoneName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.AvailabilityZone.html#AvailabilityZone"><span class="hs-identifier hs-type">AvailabilityZone</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-77"></span><span id="availabilityZone_zoneName"><span class="annot"><span class="annottext">availabilityZone_zoneName :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-75"></span><span class="hs-comment">-- | The ID of the subnet. You can specify one subnet per Availability Zone.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.ELBv2.Types.AvailabilityZone.html#availabilityZone_subnetId"><span class="hs-identifier hs-type">availabilityZone_subnetId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.AvailabilityZone.html#AvailabilityZone"><span class="hs-identifier hs-type">AvailabilityZone</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span id="availabilityZone_subnetId"><span class="annot"><span class="annottext">availabilityZone_subnetId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AvailabilityZone -&gt; f AvailabilityZone
+</span><a href="Network.AWS.ELBv2.Types.AvailabilityZone.html#availabilityZone_subnetId"><span class="hs-identifier hs-var hs-var">availabilityZone_subnetId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AvailabilityZone -&gt; Maybe Text)
+-&gt; (AvailabilityZone -&gt; Maybe Text -&gt; AvailabilityZone)
+-&gt; Lens AvailabilityZone AvailabilityZone (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBv2.Types.AvailabilityZone.html#AvailabilityZone%27"><span class="hs-identifier hs-type">AvailabilityZone'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250488"><span class="annot"><span class="annottext">Maybe Text
+subnetId :: Maybe Text
+$sel:subnetId:AvailabilityZone' :: AvailabilityZone -&gt; Maybe Text
+</span><a href="#local-6989586621679250488"><span class="hs-identifier hs-var hs-var">subnetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679250488"><span class="hs-identifier hs-var">subnetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250487"><span class="annot"><span class="annottext">s :: AvailabilityZone
+</span><a href="#local-6989586621679250487"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBv2.Types.AvailabilityZone.html#AvailabilityZone%27"><span class="hs-identifier hs-type">AvailabilityZone'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250486"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679250486"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AvailabilityZone
+</span><a href="#local-6989586621679250487"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnetId:AvailabilityZone' :: Maybe Text
+</span><a href="Network.AWS.ELBv2.Types.AvailabilityZone.html#%24sel%3AsubnetId%3AAvailabilityZone%27"><span class="hs-identifier hs-var">subnetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679250486"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.AvailabilityZone.html#AvailabilityZone"><span class="hs-identifier hs-type">AvailabilityZone</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | The name of the Availability Zone.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.ELBv2.Types.AvailabilityZone.html#availabilityZone_zoneName"><span class="hs-identifier hs-type">availabilityZone_zoneName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.AvailabilityZone.html#AvailabilityZone"><span class="hs-identifier hs-type">AvailabilityZone</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span id="availabilityZone_zoneName"><span class="annot"><span class="annottext">availabilityZone_zoneName :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; AvailabilityZone -&gt; f AvailabilityZone
 </span><a href="Network.AWS.ELBv2.Types.AvailabilityZone.html#availabilityZone_zoneName"><span class="hs-identifier hs-var hs-var">availabilityZone_zoneName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AvailabilityZone -&gt; Maybe Text)
 -&gt; (AvailabilityZone -&gt; Maybe Text -&gt; AvailabilityZone)
 -&gt; Lens AvailabilityZone AvailabilityZone (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBv2.Types.AvailabilityZone.html#AvailabilityZone%27"><span class="hs-identifier hs-type">AvailabilityZone'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247788"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBv2.Types.AvailabilityZone.html#AvailabilityZone%27"><span class="hs-identifier hs-type">AvailabilityZone'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250484"><span class="annot"><span class="annottext">Maybe Text
 zoneName :: Maybe Text
 $sel:zoneName:AvailabilityZone' :: AvailabilityZone -&gt; Maybe Text
-</span><a href="#local-6989586621679247788"><span class="hs-identifier hs-var hs-var">zoneName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679247788"><span class="hs-identifier hs-var">zoneName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247787"><span class="annot"><span class="annottext">s :: AvailabilityZone
-</span><a href="#local-6989586621679247787"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBv2.Types.AvailabilityZone.html#AvailabilityZone%27"><span class="hs-identifier hs-type">AvailabilityZone'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247786"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679247786"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AvailabilityZone
-</span><a href="#local-6989586621679247787"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:zoneName:AvailabilityZone' :: Maybe Text
+</span><a href="#local-6989586621679250484"><span class="hs-identifier hs-var hs-var">zoneName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679250484"><span class="hs-identifier hs-var">zoneName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250483"><span class="annot"><span class="annottext">s :: AvailabilityZone
+</span><a href="#local-6989586621679250483"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBv2.Types.AvailabilityZone.html#AvailabilityZone%27"><span class="hs-identifier hs-type">AvailabilityZone'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250482"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679250482"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AvailabilityZone
+</span><a href="#local-6989586621679250483"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:zoneName:AvailabilityZone' :: Maybe Text
 </span><a href="Network.AWS.ELBv2.Types.AvailabilityZone.html#%24sel%3AzoneName%3AAvailabilityZone%27"><span class="hs-identifier hs-var">zoneName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679247786"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.AvailabilityZone.html#AvailabilityZone"><span class="hs-identifier hs-type">AvailabilityZone</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- | [Application Load Balancers on Outposts] The ID of the Outpost.</span><span>
-</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.ELBv2.Types.AvailabilityZone.html#availabilityZone_outpostId"><span class="hs-identifier hs-type">availabilityZone_outpostId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.AvailabilityZone.html#AvailabilityZone"><span class="hs-identifier hs-type">AvailabilityZone</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-81"></span><span id="availabilityZone_outpostId"><span class="annot"><span class="annottext">availabilityZone_outpostId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; AvailabilityZone -&gt; f AvailabilityZone
-</span><a href="Network.AWS.ELBv2.Types.AvailabilityZone.html#availabilityZone_outpostId"><span class="hs-identifier hs-var hs-var">availabilityZone_outpostId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AvailabilityZone -&gt; Maybe Text)
--&gt; (AvailabilityZone -&gt; Maybe Text -&gt; AvailabilityZone)
--&gt; Lens AvailabilityZone AvailabilityZone (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBv2.Types.AvailabilityZone.html#AvailabilityZone%27"><span class="hs-identifier hs-type">AvailabilityZone'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247784"><span class="annot"><span class="annottext">Maybe Text
-outpostId :: Maybe Text
-$sel:outpostId:AvailabilityZone' :: AvailabilityZone -&gt; Maybe Text
-</span><a href="#local-6989586621679247784"><span class="hs-identifier hs-var hs-var">outpostId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679247784"><span class="hs-identifier hs-var">outpostId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247783"><span class="annot"><span class="annottext">s :: AvailabilityZone
-</span><a href="#local-6989586621679247783"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBv2.Types.AvailabilityZone.html#AvailabilityZone%27"><span class="hs-identifier hs-type">AvailabilityZone'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247782"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679247782"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AvailabilityZone
-</span><a href="#local-6989586621679247783"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outpostId:AvailabilityZone' :: Maybe Text
-</span><a href="Network.AWS.ELBv2.Types.AvailabilityZone.html#%24sel%3AoutpostId%3AAvailabilityZone%27"><span class="hs-identifier hs-var">outpostId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679247782"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.AvailabilityZone.html#AvailabilityZone"><span class="hs-identifier hs-type">AvailabilityZone</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679250482"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.AvailabilityZone.html#AvailabilityZone"><span class="hs-identifier hs-type">AvailabilityZone</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- | [Network Load Balancers] If you need static IP addresses for your load</span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- balancer, you can specify one Elastic IP address per Availability Zone</span><span>
@@ -202,16 +202,16 @@ $sel:outpostId:AvailabilityZone' :: AvailabilityZone -&gt; Maybe Text
      (Maybe [LoadBalancerAddress])
      (Maybe [LoadBalancerAddress])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBv2.Types.AvailabilityZone.html#AvailabilityZone%27"><span class="hs-identifier hs-type">AvailabilityZone'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247780"><span class="annot"><span class="annottext">Maybe [LoadBalancerAddress]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBv2.Types.AvailabilityZone.html#AvailabilityZone%27"><span class="hs-identifier hs-type">AvailabilityZone'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250480"><span class="annot"><span class="annottext">Maybe [LoadBalancerAddress]
 loadBalancerAddresses :: Maybe [LoadBalancerAddress]
 $sel:loadBalancerAddresses:AvailabilityZone' :: AvailabilityZone -&gt; Maybe [LoadBalancerAddress]
-</span><a href="#local-6989586621679247780"><span class="hs-identifier hs-var hs-var">loadBalancerAddresses</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [LoadBalancerAddress]
-</span><a href="#local-6989586621679247780"><span class="hs-identifier hs-var">loadBalancerAddresses</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247779"><span class="annot"><span class="annottext">s :: AvailabilityZone
-</span><a href="#local-6989586621679247779"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBv2.Types.AvailabilityZone.html#AvailabilityZone%27"><span class="hs-identifier hs-type">AvailabilityZone'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247778"><span class="annot"><span class="annottext">Maybe [LoadBalancerAddress]
-</span><a href="#local-6989586621679247778"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AvailabilityZone
-</span><a href="#local-6989586621679247779"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:loadBalancerAddresses:AvailabilityZone' :: Maybe [LoadBalancerAddress]
+</span><a href="#local-6989586621679250480"><span class="hs-identifier hs-var hs-var">loadBalancerAddresses</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [LoadBalancerAddress]
+</span><a href="#local-6989586621679250480"><span class="hs-identifier hs-var">loadBalancerAddresses</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250479"><span class="annot"><span class="annottext">s :: AvailabilityZone
+</span><a href="#local-6989586621679250479"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBv2.Types.AvailabilityZone.html#AvailabilityZone%27"><span class="hs-identifier hs-type">AvailabilityZone'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250478"><span class="annot"><span class="annottext">Maybe [LoadBalancerAddress]
+</span><a href="#local-6989586621679250478"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AvailabilityZone
+</span><a href="#local-6989586621679250479"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:loadBalancerAddresses:AvailabilityZone' :: Maybe [LoadBalancerAddress]
 </span><a href="Network.AWS.ELBv2.Types.AvailabilityZone.html#%24sel%3AloadBalancerAddresses%3AAvailabilityZone%27"><span class="hs-identifier hs-var">loadBalancerAddresses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [LoadBalancerAddress]
-</span><a href="#local-6989586621679247778"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.AvailabilityZone.html#AvailabilityZone"><span class="hs-identifier hs-type">AvailabilityZone</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [LoadBalancerAddress] -&gt; f (Maybe [LoadBalancerAddress]))
+</span><a href="#local-6989586621679250478"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.AvailabilityZone.html#AvailabilityZone"><span class="hs-identifier hs-type">AvailabilityZone</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [LoadBalancerAddress] -&gt; f (Maybe [LoadBalancerAddress]))
  -&gt; AvailabilityZone -&gt; f AvailabilityZone)
 -&gt; ((Maybe [LoadBalancerAddress]
      -&gt; f (Maybe [LoadBalancerAddress]))
@@ -238,32 +238,32 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [LoadBalancerAddress]
   [LoadBalancerAddress]
   [LoadBalancerAddress]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- | The ID of the subnet. You can specify one subnet per Availability Zone.</span><span>
-</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.ELBv2.Types.AvailabilityZone.html#availabilityZone_subnetId"><span class="hs-identifier hs-type">availabilityZone_subnetId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.AvailabilityZone.html#AvailabilityZone"><span class="hs-identifier hs-type">AvailabilityZone</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-93"></span><span id="availabilityZone_subnetId"><span class="annot"><span class="annottext">availabilityZone_subnetId :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-91"></span><span class="hs-comment">-- | [Application Load Balancers on Outposts] The ID of the Outpost.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.ELBv2.Types.AvailabilityZone.html#availabilityZone_outpostId"><span class="hs-identifier hs-type">availabilityZone_outpostId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.AvailabilityZone.html#AvailabilityZone"><span class="hs-identifier hs-type">AvailabilityZone</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span id="availabilityZone_outpostId"><span class="annot"><span class="annottext">availabilityZone_outpostId :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; AvailabilityZone -&gt; f AvailabilityZone
-</span><a href="Network.AWS.ELBv2.Types.AvailabilityZone.html#availabilityZone_subnetId"><span class="hs-identifier hs-var hs-var">availabilityZone_subnetId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AvailabilityZone -&gt; Maybe Text)
+</span><a href="Network.AWS.ELBv2.Types.AvailabilityZone.html#availabilityZone_outpostId"><span class="hs-identifier hs-var hs-var">availabilityZone_outpostId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AvailabilityZone -&gt; Maybe Text)
 -&gt; (AvailabilityZone -&gt; Maybe Text -&gt; AvailabilityZone)
 -&gt; Lens AvailabilityZone AvailabilityZone (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBv2.Types.AvailabilityZone.html#AvailabilityZone%27"><span class="hs-identifier hs-type">AvailabilityZone'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247773"><span class="annot"><span class="annottext">Maybe Text
-subnetId :: Maybe Text
-$sel:subnetId:AvailabilityZone' :: AvailabilityZone -&gt; Maybe Text
-</span><a href="#local-6989586621679247773"><span class="hs-identifier hs-var hs-var">subnetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679247773"><span class="hs-identifier hs-var">subnetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247772"><span class="annot"><span class="annottext">s :: AvailabilityZone
-</span><a href="#local-6989586621679247772"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBv2.Types.AvailabilityZone.html#AvailabilityZone%27"><span class="hs-identifier hs-type">AvailabilityZone'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247771"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679247771"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AvailabilityZone
-</span><a href="#local-6989586621679247772"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnetId:AvailabilityZone' :: Maybe Text
-</span><a href="Network.AWS.ELBv2.Types.AvailabilityZone.html#%24sel%3AsubnetId%3AAvailabilityZone%27"><span class="hs-identifier hs-var">subnetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679247771"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.AvailabilityZone.html#AvailabilityZone"><span class="hs-identifier hs-type">AvailabilityZone</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBv2.Types.AvailabilityZone.html#AvailabilityZone%27"><span class="hs-identifier hs-type">AvailabilityZone'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250473"><span class="annot"><span class="annottext">Maybe Text
+outpostId :: Maybe Text
+$sel:outpostId:AvailabilityZone' :: AvailabilityZone -&gt; Maybe Text
+</span><a href="#local-6989586621679250473"><span class="hs-identifier hs-var hs-var">outpostId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679250473"><span class="hs-identifier hs-var">outpostId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250472"><span class="annot"><span class="annottext">s :: AvailabilityZone
+</span><a href="#local-6989586621679250472"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBv2.Types.AvailabilityZone.html#AvailabilityZone%27"><span class="hs-identifier hs-type">AvailabilityZone'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250471"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679250471"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AvailabilityZone
+</span><a href="#local-6989586621679250472"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outpostId:AvailabilityZone' :: Maybe Text
+</span><a href="Network.AWS.ELBv2.Types.AvailabilityZone.html#%24sel%3AoutpostId%3AAvailabilityZone%27"><span class="hs-identifier hs-var">outpostId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679250471"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.AvailabilityZone.html#AvailabilityZone"><span class="hs-identifier hs-type">AvailabilityZone</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.AvailabilityZone.html#AvailabilityZone"><span class="hs-identifier hs-type">AvailabilityZone</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679247768"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String AvailabilityZone
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679247766"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679247766"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679250468"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String AvailabilityZone
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679250466"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679250466"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe [LoadBalancerAddress]
@@ -282,10 +282,10 @@ $sel:subnetId:AvailabilityZone' :: AvailabilityZone -&gt; Maybe Text
       -&gt; Maybe [LoadBalancerAddress] -&gt; Maybe Text -&gt; AvailabilityZone)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679247766"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679250466"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ZoneName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;SubnetId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
   (Maybe Text
@@ -296,10 +296,10 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
      (Maybe [LoadBalancerAddress] -&gt; Maybe Text -&gt; AvailabilityZone)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679247766"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679250466"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;OutpostId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;ZoneName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
   (Maybe [LoadBalancerAddress] -&gt; Maybe Text -&gt; AvailabilityZone)
@@ -307,7 +307,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Text -&gt; AvailabilityZone)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679247766"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679250466"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LoadBalancerAddresses&quot;</span></span><span>
@@ -334,12 +334,12 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 -&gt; Either String (Maybe Text) -&gt; Either String AvailabilityZone
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679247766"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679250466"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;SubnetId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;OutpostId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247757"><span id="local-6989586621679247759"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.AvailabilityZone.html#AvailabilityZone"><span class="hs-identifier hs-type">AvailabilityZone</span></a></span></span></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250457"><span id="local-6989586621679250459"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.AvailabilityZone.html#AvailabilityZone"><span class="hs-identifier hs-type">AvailabilityZone</span></a></span></span></span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247754"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.AvailabilityZone.html#AvailabilityZone"><span class="hs-identifier hs-type">AvailabilityZone</span></a></span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250454"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.AvailabilityZone.html#AvailabilityZone"><span class="hs-identifier hs-type">AvailabilityZone</span></a></span></span><span>
 </span><span id="line-109"></span></pre></body></html>

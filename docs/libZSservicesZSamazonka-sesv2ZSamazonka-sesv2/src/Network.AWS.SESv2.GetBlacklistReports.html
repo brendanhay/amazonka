@@ -51,14 +51,14 @@
 </span><span id="line-51"></span><span class="hs-comment">-- addresses appear on.</span><span>
 </span><span id="line-52"></span><span class="hs-comment">--</span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- /See:/ 'newGetBlacklistReports' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679345566"><span id="local-6989586621679345567"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetBlacklistReports"><span class="annot"><a href="Network.AWS.SESv2.GetBlacklistReports.html#GetBlacklistReports"><span class="hs-identifier hs-var">GetBlacklistReports</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetBlacklistReports%27"><span class="annot"><a href="Network.AWS.SESv2.GetBlacklistReports.html#GetBlacklistReports%27"><span class="hs-identifier hs-var">GetBlacklistReports'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679348142"><span id="local-6989586621679348143"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetBlacklistReports"><span class="annot"><a href="Network.AWS.SESv2.GetBlacklistReports.html#GetBlacklistReports"><span class="hs-identifier hs-var">GetBlacklistReports</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetBlacklistReports%27"><span class="annot"><a href="Network.AWS.SESv2.GetBlacklistReports.html#GetBlacklistReports%27"><span class="hs-identifier hs-var">GetBlacklistReports'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of IP addresses that you want to retrieve blacklist information</span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-comment">-- about. You can only specify the dedicated IP addresses that you use to</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">-- send email using Amazon SES or Amazon Pinpoint.</span><span>
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AblacklistItemNames%3AGetBlacklistReports%27"><span class="annot"><span class="annottext">GetBlacklistReports -&gt; [Text]
 </span><a href="Network.AWS.SESv2.GetBlacklistReports.html#%24sel%3AblacklistItemNames%3AGetBlacklistReports%27"><span class="hs-identifier hs-var hs-var">blacklistItemNames</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679345560"><span id="local-6989586621679345562"><span class="annot"><span class="annottext">GetBlacklistReports -&gt; GetBlacklistReports -&gt; Bool
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679348136"><span id="local-6989586621679348138"><span class="annot"><span class="annottext">GetBlacklistReports -&gt; GetBlacklistReports -&gt; Bool
 (GetBlacklistReports -&gt; GetBlacklistReports -&gt; Bool)
 -&gt; (GetBlacklistReports -&gt; GetBlacklistReports -&gt; Bool)
 -&gt; Eq GetBlacklistReports
@@ -67,7 +67,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetBlacklistReports -&gt; GetBlacklistReports -&gt; Bool
 == :: GetBlacklistReports -&gt; GetBlacklistReports -&gt; Bool
 $c== :: GetBlacklistReports -&gt; GetBlacklistReports -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679345551"><span id="local-6989586621679345553"><span id="local-6989586621679345555"><span id="local-6989586621679345557"><span class="annot"><span class="annottext">ReadPrec [GetBlacklistReports]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679348127"><span id="local-6989586621679348129"><span id="local-6989586621679348131"><span id="local-6989586621679348133"><span class="annot"><span class="annottext">ReadPrec [GetBlacklistReports]
 ReadPrec GetBlacklistReports
 Int -&gt; ReadS GetBlacklistReports
 ReadS [GetBlacklistReports]
@@ -87,7 +87,7 @@ readList :: ReadS [GetBlacklistReports]
 $creadList :: ReadS [GetBlacklistReports]
 readsPrec :: Int -&gt; ReadS GetBlacklistReports
 $creadsPrec :: Int -&gt; ReadS GetBlacklistReports
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679345544"><span id="local-6989586621679345546"><span id="local-6989586621679345548"><span class="annot"><span class="annottext">Int -&gt; GetBlacklistReports -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679348120"><span id="local-6989586621679348122"><span id="local-6989586621679348124"><span class="annot"><span class="annottext">Int -&gt; GetBlacklistReports -&gt; ShowS
 [GetBlacklistReports] -&gt; ShowS
 GetBlacklistReports -&gt; String
 (Int -&gt; GetBlacklistReports -&gt; ShowS)
@@ -147,16 +147,16 @@ forall a. Monoid a =&gt; a
 -&gt; (GetBlacklistReports -&gt; [Text] -&gt; GetBlacklistReports)
 -&gt; Lens GetBlacklistReports GetBlacklistReports [Text] [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.GetBlacklistReports.html#GetBlacklistReports%27"><span class="hs-identifier hs-type">GetBlacklistReports'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679345537"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.GetBlacklistReports.html#GetBlacklistReports%27"><span class="hs-identifier hs-type">GetBlacklistReports'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348113"><span class="annot"><span class="annottext">[Text]
 blacklistItemNames :: [Text]
 $sel:blacklistItemNames:GetBlacklistReports' :: GetBlacklistReports -&gt; [Text]
-</span><a href="#local-6989586621679345537"><span class="hs-identifier hs-var hs-var">blacklistItemNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679345537"><span class="hs-identifier hs-var">blacklistItemNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679345536"><span class="annot"><span class="annottext">s :: GetBlacklistReports
-</span><a href="#local-6989586621679345536"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.GetBlacklistReports.html#GetBlacklistReports%27"><span class="hs-identifier hs-type">GetBlacklistReports'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679345535"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679345535"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBlacklistReports
-</span><a href="#local-6989586621679345536"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:blacklistItemNames:GetBlacklistReports' :: [Text]
+</span><a href="#local-6989586621679348113"><span class="hs-identifier hs-var hs-var">blacklistItemNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679348113"><span class="hs-identifier hs-var">blacklistItemNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348112"><span class="annot"><span class="annottext">s :: GetBlacklistReports
+</span><a href="#local-6989586621679348112"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.GetBlacklistReports.html#GetBlacklistReports%27"><span class="hs-identifier hs-type">GetBlacklistReports'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348111"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679348111"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBlacklistReports
+</span><a href="#local-6989586621679348112"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:blacklistItemNames:GetBlacklistReports' :: [Text]
 </span><a href="Network.AWS.SESv2.GetBlacklistReports.html#%24sel%3AblacklistItemNames%3AGetBlacklistReports%27"><span class="hs-identifier hs-var">blacklistItemNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679345535"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.GetBlacklistReports.html#GetBlacklistReports"><span class="hs-identifier hs-type">GetBlacklistReports</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+</span><a href="#local-6989586621679348111"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.GetBlacklistReports.html#GetBlacklistReports"><span class="hs-identifier hs-type">GetBlacklistReports</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
  -&gt; GetBlacklistReports -&gt; f GetBlacklistReports)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
@@ -164,19 +164,19 @@ $sel:blacklistItemNames:GetBlacklistReports' :: GetBlacklistReports -&gt; [Text]
 -&gt; f GetBlacklistReports
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.GetBlacklistReports.html#GetBlacklistReports"><span class="hs-identifier hs-type">GetBlacklistReports</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-88"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-89"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.GetBlacklistReports.html#GetBlacklistReports"><span class="hs-identifier hs-type">GetBlacklistReports</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-90"></span><span>      </span><span class="annot"><a href="Network.AWS.SESv2.GetBlacklistReports.html#GetBlacklistReportsResponse"><span class="hs-identifier hs-type">GetBlacklistReportsResponse</span></a></span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679345529"><span class="annot"><span class="annottext">request :: GetBlacklistReports -&gt; Request GetBlacklistReports
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679348105"><span class="annot"><span class="annottext">request :: GetBlacklistReports -&gt; Request GetBlacklistReports
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetBlacklistReports -&gt; Request GetBlacklistReports
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SESv2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679345525"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679348101"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetBlacklistReports
 -&gt; ClientResponse ClientBody
@@ -202,10 +202,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679345522"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679345522"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679345521"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679345521"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679345520"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679345520"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679348098"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679348098"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679348097"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679348097"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679348096"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679348096"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-95"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; HashMap Text [BlacklistEntry] -&gt; GetBlacklistReportsResponse
 </span><a href="Network.AWS.SESv2.GetBlacklistReports.html#GetBlacklistReportsResponse%27"><span class="hs-identifier hs-var">GetBlacklistReportsResponse'</span></a></span><span>
 </span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">(Int
@@ -220,7 +220,7 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679345522"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679348098"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
   (HashMap Text [BlacklistEntry] -&gt; GetBlacklistReportsResponse)
@@ -228,7 +228,7 @@ forall a. Enum a =&gt; a -&gt; Int
 -&gt; Either String GetBlacklistReportsResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679345520"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679348096"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Either String (Maybe (HashMap Text [BlacklistEntry]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -243,12 +243,12 @@ forall a. Monoid a =&gt; a
 </span><span id="line-99"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679345511"><span id="local-6989586621679345513"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.GetBlacklistReports.html#GetBlacklistReports"><span class="hs-identifier hs-type">GetBlacklistReports</span></a></span></span></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679348087"><span id="local-6989586621679348089"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.GetBlacklistReports.html#GetBlacklistReports"><span class="hs-identifier hs-type">GetBlacklistReports</span></a></span></span></span><span>
 </span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679345508"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.GetBlacklistReports.html#GetBlacklistReports"><span class="hs-identifier hs-type">GetBlacklistReports</span></a></span></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679348084"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.GetBlacklistReports.html#GetBlacklistReports"><span class="hs-identifier hs-type">GetBlacklistReports</span></a></span></span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.GetBlacklistReports.html#GetBlacklistReports"><span class="hs-identifier hs-type">GetBlacklistReports</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679345504"><span class="annot"><span class="annottext">toHeaders :: GetBlacklistReports -&gt; ResponseHeaders
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679348080"><span class="annot"><span class="annottext">toHeaders :: GetBlacklistReports -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetBlacklistReports -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -268,7 +268,7 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-115"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.GetBlacklistReports.html#GetBlacklistReports"><span class="hs-identifier hs-type">GetBlacklistReports</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679345498"><span class="annot"><span class="annottext">toPath :: GetBlacklistReports -&gt; ByteString
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679348074"><span class="annot"><span class="annottext">toPath :: GetBlacklistReports -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">ByteString -&gt; GetBlacklistReports -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
@@ -277,11 +277,11 @@ forall a b. a -&gt; b -&gt; a
 </span><span class="hs-string">&quot;/v2/email/deliverability-dashboard/blacklist-report&quot;</span></span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.GetBlacklistReports.html#GetBlacklistReports"><span class="hs-identifier hs-type">GetBlacklistReports</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679345494"><span class="annot"><span class="annottext">toQuery :: GetBlacklistReports -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.GetBlacklistReports.html#GetBlacklistReports%27"><span class="hs-identifier hs-type">GetBlacklistReports'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679345492"><span class="annot"><span class="annottext">[Text]
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679348070"><span class="annot"><span class="annottext">toQuery :: GetBlacklistReports -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.GetBlacklistReports.html#GetBlacklistReports%27"><span class="hs-identifier hs-type">GetBlacklistReports'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348068"><span class="annot"><span class="annottext">[Text]
 blacklistItemNames :: [Text]
 $sel:blacklistItemNames:GetBlacklistReports' :: GetBlacklistReports -&gt; [Text]
-</span><a href="#local-6989586621679345492"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679348068"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -295,13 +295,13 @@ forall a.
 ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679345492"><span class="hs-identifier hs-var">blacklistItemNames</span></a></span><span>
+</span><a href="#local-6989586621679348068"><span class="hs-identifier hs-var">blacklistItemNames</span></a></span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-comment">-- | An object that contains information about blacklist events.</span><span>
 </span><span id="line-130"></span><span class="hs-comment">--</span><span>
 </span><span id="line-131"></span><span class="hs-comment">-- /See:/ 'newGetBlacklistReportsResponse' smart constructor.</span><span>
-</span><span id="line-132"></span><span id="local-6989586621679345488"><span id="local-6989586621679345489"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetBlacklistReportsResponse"><span class="annot"><a href="Network.AWS.SESv2.GetBlacklistReports.html#GetBlacklistReportsResponse"><span class="hs-identifier hs-var">GetBlacklistReportsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetBlacklistReportsResponse%27"><span class="annot"><a href="Network.AWS.SESv2.GetBlacklistReports.html#GetBlacklistReportsResponse%27"><span class="hs-identifier hs-var">GetBlacklistReportsResponse'</span></a></span></span><span>
+</span><span id="line-132"></span><span id="local-6989586621679348064"><span id="local-6989586621679348065"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetBlacklistReportsResponse"><span class="annot"><a href="Network.AWS.SESv2.GetBlacklistReports.html#GetBlacklistReportsResponse"><span class="hs-identifier hs-var">GetBlacklistReportsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetBlacklistReportsResponse%27"><span class="annot"><a href="Network.AWS.SESv2.GetBlacklistReports.html#GetBlacklistReportsResponse%27"><span class="hs-identifier hs-var">GetBlacklistReportsResponse'</span></a></span></span><span>
 </span><span id="line-133"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-134"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetBlacklistReportsResponse%27"><span class="annot"><span class="annottext">GetBlacklistReportsResponse -&gt; Int
 </span><a href="Network.AWS.SESv2.GetBlacklistReports.html#%24sel%3AhttpStatus%3AGetBlacklistReportsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -310,7 +310,7 @@ ByteString -&gt; a -&gt; QueryString
 </span><span id="line-137"></span><span>    </span><span id="%24sel%3AblacklistReport%3AGetBlacklistReportsResponse%27"><span class="annot"><span class="annottext">GetBlacklistReportsResponse -&gt; HashMap Text [BlacklistEntry]
 </span><a href="Network.AWS.SESv2.GetBlacklistReports.html#%24sel%3AblacklistReport%3AGetBlacklistReportsResponse%27"><span class="hs-identifier hs-var hs-var">blacklistReport</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SESv2.Types.BlacklistEntry.html#BlacklistEntry"><span class="hs-identifier hs-type">BlacklistEntry</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-138"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-139"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679345482"><span id="local-6989586621679345484"><span class="annot"><span class="annottext">GetBlacklistReportsResponse -&gt; GetBlacklistReportsResponse -&gt; Bool
+</span><span id="line-139"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679348058"><span id="local-6989586621679348060"><span class="annot"><span class="annottext">GetBlacklistReportsResponse -&gt; GetBlacklistReportsResponse -&gt; Bool
 (GetBlacklistReportsResponse
  -&gt; GetBlacklistReportsResponse -&gt; Bool)
 -&gt; (GetBlacklistReportsResponse
@@ -321,7 +321,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetBlacklistReportsResponse -&gt; GetBlacklistReportsResponse -&gt; Bool
 == :: GetBlacklistReportsResponse -&gt; GetBlacklistReportsResponse -&gt; Bool
 $c== :: GetBlacklistReportsResponse -&gt; GetBlacklistReportsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679345474"><span id="local-6989586621679345476"><span id="local-6989586621679345478"><span id="local-6989586621679345480"><span class="annot"><span class="annottext">ReadPrec [GetBlacklistReportsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679348050"><span id="local-6989586621679348052"><span id="local-6989586621679348054"><span id="local-6989586621679348056"><span class="annot"><span class="annottext">ReadPrec [GetBlacklistReportsResponse]
 ReadPrec GetBlacklistReportsResponse
 Int -&gt; ReadS GetBlacklistReportsResponse
 ReadS [GetBlacklistReportsResponse]
@@ -341,7 +341,7 @@ readList :: ReadS [GetBlacklistReportsResponse]
 $creadList :: ReadS [GetBlacklistReportsResponse]
 readsPrec :: Int -&gt; ReadS GetBlacklistReportsResponse
 $creadsPrec :: Int -&gt; ReadS GetBlacklistReportsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679345468"><span id="local-6989586621679345470"><span id="local-6989586621679345472"><span class="annot"><span class="annottext">Int -&gt; GetBlacklistReportsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679348044"><span id="local-6989586621679348046"><span id="local-6989586621679348048"><span class="annot"><span class="annottext">Int -&gt; GetBlacklistReportsResponse -&gt; ShowS
 [GetBlacklistReportsResponse] -&gt; ShowS
 GetBlacklistReportsResponse -&gt; String
 (Int -&gt; GetBlacklistReportsResponse -&gt; ShowS)
@@ -390,14 +390,14 @@ GetBlacklistReportsResponse -&gt; Rep GetBlacklistReportsResponse x
 </span><span id="line-155"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-156"></span><span>  </span><span class="annot"><a href="Network.AWS.SESv2.GetBlacklistReports.html#GetBlacklistReportsResponse"><span class="hs-identifier hs-type">GetBlacklistReportsResponse</span></a></span><span>
 </span><span id="line-157"></span><span id="newGetBlacklistReportsResponse"><span class="annot"><span class="annottext">newGetBlacklistReportsResponse :: Int -&gt; GetBlacklistReportsResponse
-</span><a href="Network.AWS.SESv2.GetBlacklistReports.html#newGetBlacklistReportsResponse"><span class="hs-identifier hs-var hs-var">newGetBlacklistReportsResponse</span></a></span></span><span> </span><span id="local-6989586621679345465"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679345465"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SESv2.GetBlacklistReports.html#newGetBlacklistReportsResponse"><span class="hs-identifier hs-var hs-var">newGetBlacklistReportsResponse</span></a></span></span><span> </span><span id="local-6989586621679348041"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679348041"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-158"></span><span>  </span><span class="annot"><span class="annottext">GetBlacklistReportsResponse' :: Int -&gt; HashMap Text [BlacklistEntry] -&gt; GetBlacklistReportsResponse
 </span><a href="Network.AWS.SESv2.GetBlacklistReports.html#GetBlacklistReportsResponse%27"><span class="hs-identifier hs-type">GetBlacklistReportsResponse'</span></a></span><span>
 </span><span id="line-159"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:GetBlacklistReportsResponse' :: Int
 </span><a href="Network.AWS.SESv2.GetBlacklistReports.html#%24sel%3AhttpStatus%3AGetBlacklistReportsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-160"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679345465"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679348041"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-161"></span><span>      </span><span class="annot"><span class="annottext">$sel:blacklistReport:GetBlacklistReportsResponse' :: HashMap Text [BlacklistEntry]
 </span><a href="Network.AWS.SESv2.GetBlacklistReports.html#%24sel%3AblacklistReport%3AGetBlacklistReportsResponse%27"><span class="hs-identifier hs-var">blacklistReport</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text [BlacklistEntry]
 forall a. Monoid a =&gt; a
@@ -414,16 +414,16 @@ forall a. Monoid a =&gt; a
 -&gt; Lens
      GetBlacklistReportsResponse GetBlacklistReportsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.GetBlacklistReports.html#GetBlacklistReportsResponse%27"><span class="hs-identifier hs-type">GetBlacklistReportsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679345464"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.GetBlacklistReports.html#GetBlacklistReportsResponse%27"><span class="hs-identifier hs-type">GetBlacklistReportsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348040"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetBlacklistReportsResponse' :: GetBlacklistReportsResponse -&gt; Int
-</span><a href="#local-6989586621679345464"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679345464"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679345463"><span class="annot"><span class="annottext">s :: GetBlacklistReportsResponse
-</span><a href="#local-6989586621679345463"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.GetBlacklistReports.html#GetBlacklistReportsResponse%27"><span class="hs-identifier hs-type">GetBlacklistReportsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679345462"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679345462"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBlacklistReportsResponse
-</span><a href="#local-6989586621679345463"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetBlacklistReportsResponse' :: Int
+</span><a href="#local-6989586621679348040"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679348040"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348039"><span class="annot"><span class="annottext">s :: GetBlacklistReportsResponse
+</span><a href="#local-6989586621679348039"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.GetBlacklistReports.html#GetBlacklistReportsResponse%27"><span class="hs-identifier hs-type">GetBlacklistReportsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348038"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679348038"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBlacklistReportsResponse
+</span><a href="#local-6989586621679348039"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetBlacklistReportsResponse' :: Int
 </span><a href="Network.AWS.SESv2.GetBlacklistReports.html#%24sel%3AhttpStatus%3AGetBlacklistReportsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679345462"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.GetBlacklistReports.html#GetBlacklistReportsResponse"><span class="hs-identifier hs-type">GetBlacklistReportsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679348038"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.GetBlacklistReports.html#GetBlacklistReportsResponse"><span class="hs-identifier hs-type">GetBlacklistReportsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-167"></span><span>
 </span><span id="line-168"></span><span class="hs-comment">-- | An object that contains information about a blacklist that one of your</span><span>
 </span><span id="line-169"></span><span class="hs-comment">-- dedicated IP addresses appears on.</span><span>
@@ -440,16 +440,16 @@ $sel:httpStatus:GetBlacklistReportsResponse' :: GetBlacklistReportsResponse -&gt
      (HashMap Text [BlacklistEntry])
      (HashMap Text [BlacklistEntry])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.GetBlacklistReports.html#GetBlacklistReportsResponse%27"><span class="hs-identifier hs-type">GetBlacklistReportsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679345461"><span class="annot"><span class="annottext">HashMap Text [BlacklistEntry]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.GetBlacklistReports.html#GetBlacklistReportsResponse%27"><span class="hs-identifier hs-type">GetBlacklistReportsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348037"><span class="annot"><span class="annottext">HashMap Text [BlacklistEntry]
 blacklistReport :: HashMap Text [BlacklistEntry]
 $sel:blacklistReport:GetBlacklistReportsResponse' :: GetBlacklistReportsResponse -&gt; HashMap Text [BlacklistEntry]
-</span><a href="#local-6989586621679345461"><span class="hs-identifier hs-var hs-var">blacklistReport</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashMap Text [BlacklistEntry]
-</span><a href="#local-6989586621679345461"><span class="hs-identifier hs-var">blacklistReport</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679345460"><span class="annot"><span class="annottext">s :: GetBlacklistReportsResponse
-</span><a href="#local-6989586621679345460"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.GetBlacklistReports.html#GetBlacklistReportsResponse%27"><span class="hs-identifier hs-type">GetBlacklistReportsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679345459"><span class="annot"><span class="annottext">HashMap Text [BlacklistEntry]
-</span><a href="#local-6989586621679345459"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBlacklistReportsResponse
-</span><a href="#local-6989586621679345460"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:blacklistReport:GetBlacklistReportsResponse' :: HashMap Text [BlacklistEntry]
+</span><a href="#local-6989586621679348037"><span class="hs-identifier hs-var hs-var">blacklistReport</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashMap Text [BlacklistEntry]
+</span><a href="#local-6989586621679348037"><span class="hs-identifier hs-var">blacklistReport</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348036"><span class="annot"><span class="annottext">s :: GetBlacklistReportsResponse
+</span><a href="#local-6989586621679348036"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.GetBlacklistReports.html#GetBlacklistReportsResponse%27"><span class="hs-identifier hs-type">GetBlacklistReportsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348035"><span class="annot"><span class="annottext">HashMap Text [BlacklistEntry]
+</span><a href="#local-6989586621679348035"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBlacklistReportsResponse
+</span><a href="#local-6989586621679348036"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:blacklistReport:GetBlacklistReportsResponse' :: HashMap Text [BlacklistEntry]
 </span><a href="Network.AWS.SESv2.GetBlacklistReports.html#%24sel%3AblacklistReport%3AGetBlacklistReportsResponse%27"><span class="hs-identifier hs-var">blacklistReport</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text [BlacklistEntry]
-</span><a href="#local-6989586621679345459"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.GetBlacklistReports.html#GetBlacklistReportsResponse"><span class="hs-identifier hs-type">GetBlacklistReportsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((HashMap Text [BlacklistEntry]
+</span><a href="#local-6989586621679348035"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.GetBlacklistReports.html#GetBlacklistReportsResponse"><span class="hs-identifier hs-type">GetBlacklistReportsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((HashMap Text [BlacklistEntry]
   -&gt; f (HashMap Text [BlacklistEntry]))
  -&gt; GetBlacklistReportsResponse -&gt; f GetBlacklistReportsResponse)
 -&gt; ((HashMap Text [BlacklistEntry]
@@ -465,8 +465,8 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
  -&gt; f (HashMap Text [BlacklistEntry]))
 -&gt; HashMap Text [BlacklistEntry]
 -&gt; f (HashMap Text [BlacklistEntry])
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-172"></span><span>
-</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679345457"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.GetBlacklistReports.html#GetBlacklistReportsResponse"><span class="hs-identifier hs-type">GetBlacklistReportsResponse</span></a></span></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679348033"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.GetBlacklistReports.html#GetBlacklistReportsResponse"><span class="hs-identifier hs-type">GetBlacklistReportsResponse</span></a></span></span><span>
 </span><span id="line-174"></span></pre></body></html>

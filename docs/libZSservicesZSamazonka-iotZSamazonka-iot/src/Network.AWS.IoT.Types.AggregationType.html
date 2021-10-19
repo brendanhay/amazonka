@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | The type of aggregation queries.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newAggregationType' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679772846"><span id="local-6989586621679772847"></span></span><span class="hs-keyword">data</span><span> </span><span id="AggregationType"><span class="annot"><a href="Network.AWS.IoT.Types.AggregationType.html#AggregationType"><span class="hs-identifier hs-var">AggregationType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AggregationType%27"><span class="annot"><a href="Network.AWS.IoT.Types.AggregationType.html#AggregationType%27"><span class="hs-identifier hs-var">AggregationType'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679773687"><span id="local-6989586621679773688"></span></span><span class="hs-keyword">data</span><span> </span><span id="AggregationType"><span class="annot"><a href="Network.AWS.IoT.Types.AggregationType.html#AggregationType"><span class="hs-identifier hs-var">AggregationType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AggregationType%27"><span class="annot"><a href="Network.AWS.IoT.Types.AggregationType.html#AggregationType%27"><span class="hs-identifier hs-var">AggregationType'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of the values of aggregation types.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Avalues%3AAggregationType%27"><span class="annot"><span class="annottext">AggregationType -&gt; Maybe [Text]
 </span><a href="Network.AWS.IoT.Types.AggregationType.html#%24sel%3Avalues%3AAggregationType%27"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -35,7 +35,7 @@
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Aname%3AAggregationType%27"><span class="annot"><span class="annottext">AggregationType -&gt; AggregationTypeName
 </span><a href="Network.AWS.IoT.Types.AggregationType.html#%24sel%3Aname%3AAggregationType%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AggregationTypeName.html#AggregationTypeName"><span class="hs-identifier hs-type">AggregationTypeName</span></a></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679772839"><span id="local-6989586621679772841"><span class="annot"><span class="annottext">AggregationType -&gt; AggregationType -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679773680"><span id="local-6989586621679773682"><span class="annot"><span class="annottext">AggregationType -&gt; AggregationType -&gt; Bool
 (AggregationType -&gt; AggregationType -&gt; Bool)
 -&gt; (AggregationType -&gt; AggregationType -&gt; Bool)
 -&gt; Eq AggregationType
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AggregationType -&gt; AggregationType -&gt; Bool
 == :: AggregationType -&gt; AggregationType -&gt; Bool
 $c== :: AggregationType -&gt; AggregationType -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679772830"><span id="local-6989586621679772832"><span id="local-6989586621679772834"><span id="local-6989586621679772836"><span class="annot"><span class="annottext">ReadPrec [AggregationType]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679773671"><span id="local-6989586621679773673"><span id="local-6989586621679773675"><span id="local-6989586621679773677"><span class="annot"><span class="annottext">ReadPrec [AggregationType]
 ReadPrec AggregationType
 Int -&gt; ReadS AggregationType
 ReadS [AggregationType]
@@ -64,7 +64,7 @@ readList :: ReadS [AggregationType]
 $creadList :: ReadS [AggregationType]
 readsPrec :: Int -&gt; ReadS AggregationType
 $creadsPrec :: Int -&gt; ReadS AggregationType
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679772823"><span id="local-6989586621679772825"><span id="local-6989586621679772827"><span class="annot"><span class="annottext">Int -&gt; AggregationType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679773664"><span id="local-6989586621679773666"><span id="local-6989586621679773668"><span class="annot"><span class="annottext">Int -&gt; AggregationType -&gt; ShowS
 [AggregationType] -&gt; ShowS
 AggregationType -&gt; String
 (Int -&gt; AggregationType -&gt; ShowS)
@@ -106,8 +106,8 @@ $cfrom :: forall x. AggregationType -&gt; Rep AggregationType x
 </span><span id="line-51"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.Types.AggregationTypeName.html#AggregationTypeName"><span class="hs-identifier hs-type">AggregationTypeName</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-52"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.Types.AggregationType.html#AggregationType"><span class="hs-identifier hs-type">AggregationType</span></a></span><span>
 </span><span id="line-53"></span><span id="newAggregationType"><span class="annot"><span class="annottext">newAggregationType :: AggregationTypeName -&gt; AggregationType
-</span><a href="Network.AWS.IoT.Types.AggregationType.html#newAggregationType"><span class="hs-identifier hs-var hs-var">newAggregationType</span></a></span></span><span> </span><span id="local-6989586621679772817"><span class="annot"><span class="annottext">AggregationTypeName
-</span><a href="#local-6989586621679772817"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.Types.AggregationType.html#newAggregationType"><span class="hs-identifier hs-var hs-var">newAggregationType</span></a></span></span><span> </span><span id="local-6989586621679773658"><span class="annot"><span class="annottext">AggregationTypeName
+</span><a href="#local-6989586621679773658"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-54"></span><span>  </span><span class="annot"><span class="annottext">AggregationType' :: Maybe [Text] -&gt; AggregationTypeName -&gt; AggregationType
 </span><a href="Network.AWS.IoT.Types.AggregationType.html#AggregationType%27"><span class="hs-identifier hs-type">AggregationType'</span></a></span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:values:AggregationType' :: Maybe [Text]
@@ -116,7 +116,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:AggregationType' :: AggregationTypeName
 </span><a href="Network.AWS.IoT.Types.AggregationType.html#%24sel%3Aname%3AAggregationType%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AggregationTypeName
-</span><a href="#local-6989586621679772817"><span class="hs-identifier hs-var">pName_</span></a></span><span>
+</span><a href="#local-6989586621679773658"><span class="hs-identifier hs-var">pName_</span></a></span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-58"></span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- | A list of the values of aggregation types.</span><span>
@@ -128,16 +128,16 @@ forall a. Maybe a
 -&gt; Lens
      AggregationType AggregationType (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.AggregationType.html#AggregationType%27"><span class="hs-identifier hs-type">AggregationType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679772813"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.AggregationType.html#AggregationType%27"><span class="hs-identifier hs-type">AggregationType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679773654"><span class="annot"><span class="annottext">Maybe [Text]
 values :: Maybe [Text]
 $sel:values:AggregationType' :: AggregationType -&gt; Maybe [Text]
-</span><a href="#local-6989586621679772813"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679772813"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679772812"><span class="annot"><span class="annottext">s :: AggregationType
-</span><a href="#local-6989586621679772812"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.AggregationType.html#AggregationType%27"><span class="hs-identifier hs-type">AggregationType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679772811"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679772811"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AggregationType
-</span><a href="#local-6989586621679772812"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:values:AggregationType' :: Maybe [Text]
+</span><a href="#local-6989586621679773654"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679773654"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679773653"><span class="annot"><span class="annottext">s :: AggregationType
+</span><a href="#local-6989586621679773653"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.AggregationType.html#AggregationType%27"><span class="hs-identifier hs-type">AggregationType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679773652"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679773652"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AggregationType
+</span><a href="#local-6989586621679773653"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:values:AggregationType' :: Maybe [Text]
 </span><a href="Network.AWS.IoT.Types.AggregationType.html#%24sel%3Avalues%3AAggregationType%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679772811"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AggregationType.html#AggregationType"><span class="hs-identifier hs-type">AggregationType</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679773652"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AggregationType.html#AggregationType"><span class="hs-identifier hs-type">AggregationType</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; AggregationType -&gt; f AggregationType)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -151,8 +151,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-62"></span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- | The name of the aggregation type.</span><span>
 </span><span id="line-64"></span><span class="annot"><a href="Network.AWS.IoT.Types.AggregationType.html#aggregationType_name"><span class="hs-identifier hs-type">aggregationType_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AggregationType.html#AggregationType"><span class="hs-identifier hs-type">AggregationType</span></a></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AggregationTypeName.html#AggregationTypeName"><span class="hs-identifier hs-type">AggregationTypeName</span></a></span><span>
@@ -166,19 +166,19 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      AggregationTypeName
      AggregationTypeName
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.AggregationType.html#AggregationType%27"><span class="hs-identifier hs-type">AggregationType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679772806"><span class="annot"><span class="annottext">AggregationTypeName
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.AggregationType.html#AggregationType%27"><span class="hs-identifier hs-type">AggregationType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679773647"><span class="annot"><span class="annottext">AggregationTypeName
 name :: AggregationTypeName
 $sel:name:AggregationType' :: AggregationType -&gt; AggregationTypeName
-</span><a href="#local-6989586621679772806"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AggregationTypeName
-</span><a href="#local-6989586621679772806"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679772805"><span class="annot"><span class="annottext">s :: AggregationType
-</span><a href="#local-6989586621679772805"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.AggregationType.html#AggregationType%27"><span class="hs-identifier hs-type">AggregationType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679772804"><span class="annot"><span class="annottext">AggregationTypeName
-</span><a href="#local-6989586621679772804"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AggregationType
-</span><a href="#local-6989586621679772805"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:AggregationType' :: AggregationTypeName
+</span><a href="#local-6989586621679773647"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AggregationTypeName
+</span><a href="#local-6989586621679773647"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679773646"><span class="annot"><span class="annottext">s :: AggregationType
+</span><a href="#local-6989586621679773646"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.AggregationType.html#AggregationType%27"><span class="hs-identifier hs-type">AggregationType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679773645"><span class="annot"><span class="annottext">AggregationTypeName
+</span><a href="#local-6989586621679773645"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AggregationType
+</span><a href="#local-6989586621679773646"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:AggregationType' :: AggregationTypeName
 </span><a href="Network.AWS.IoT.Types.AggregationType.html#%24sel%3Aname%3AAggregationType%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AggregationTypeName
-</span><a href="#local-6989586621679772804"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AggregationType.html#AggregationType"><span class="hs-identifier hs-type">AggregationType</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679773645"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AggregationType.html#AggregationType"><span class="hs-identifier hs-type">AggregationType</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679772801"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AggregationType.html#AggregationType"><span class="hs-identifier hs-type">AggregationType</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-68"></span><span>  </span><span id="local-6989586621679772799"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AggregationType
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679773642"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AggregationType.html#AggregationType"><span class="hs-identifier hs-type">AggregationType</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621679773640"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AggregationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-69"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AggregationType)
@@ -188,8 +188,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AggregationType&quot;</span></span><span>
-</span><span id="line-71"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679772796"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679772796"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-71"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679773637"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679773637"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-72"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; AggregationTypeName -&gt; AggregationType
 </span><a href="Network.AWS.IoT.Types.AggregationType.html#AggregationType%27"><span class="hs-identifier hs-var">AggregationType'</span></a></span><span>
 </span><span id="line-73"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; AggregationTypeName -&gt; AggregationType)
@@ -197,7 +197,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (AggregationTypeName -&gt; AggregationType)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679772796"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679773637"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;values&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
@@ -210,25 +210,25 @@ forall a. Monoid a =&gt; a
 -&gt; Parser AggregationTypeName -&gt; Parser AggregationType
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679772796"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser AggregationTypeName
+</span><a href="#local-6989586621679773637"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser AggregationTypeName
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679772788"><span id="local-6989586621679772790"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AggregationType.html#AggregationType"><span class="hs-identifier hs-type">AggregationType</span></a></span></span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679773629"><span id="local-6989586621679773631"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AggregationType.html#AggregationType"><span class="hs-identifier hs-type">AggregationType</span></a></span></span></span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679772785"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AggregationType.html#AggregationType"><span class="hs-identifier hs-type">AggregationType</span></a></span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679773626"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AggregationType.html#AggregationType"><span class="hs-identifier hs-type">AggregationType</span></a></span></span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679772777"><span id="local-6989586621679772779"><span id="local-6989586621679772781"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AggregationType.html#AggregationType"><span class="hs-identifier hs-type">AggregationType</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679772775"><span class="annot"><span class="annottext">toJSON :: AggregationType -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AggregationType.html#AggregationType%27"><span class="hs-identifier hs-type">AggregationType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679772772"><span id="local-6989586621679772773"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679773618"><span id="local-6989586621679773620"><span id="local-6989586621679773622"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AggregationType.html#AggregationType"><span class="hs-identifier hs-type">AggregationType</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679773616"><span class="annot"><span class="annottext">toJSON :: AggregationType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AggregationType.html#AggregationType%27"><span class="hs-identifier hs-type">AggregationType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679773613"><span id="local-6989586621679773614"><span class="annot"><span class="annottext">Maybe [Text]
 AggregationTypeName
 name :: AggregationTypeName
 values :: Maybe [Text]
 $sel:name:AggregationType' :: AggregationType -&gt; AggregationTypeName
 $sel:values:AggregationType' :: AggregationType -&gt; Maybe [Text]
-</span><a href="#local-6989586621679772772"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679773613"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -240,14 +240,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679772773"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679773614"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AggregationTypeName -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">AggregationTypeName
-</span><a href="#local-6989586621679772772"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679773613"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-88"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span></pre></body></html>

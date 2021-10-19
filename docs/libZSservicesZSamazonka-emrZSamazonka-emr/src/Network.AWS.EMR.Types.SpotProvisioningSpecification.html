@@ -34,7 +34,7 @@
 </span><span id="line-34"></span><span class="hs-comment">-- allocation strategy is available in Amazon EMR version 5.12.1 and later.</span><span>
 </span><span id="line-35"></span><span class="hs-comment">--</span><span>
 </span><span id="line-36"></span><span class="hs-comment">-- /See:/ 'newSpotProvisioningSpecification' smart constructor.</span><span>
-</span><span id="line-37"></span><span id="local-6989586621679376202"><span id="local-6989586621679376203"></span></span><span class="hs-keyword">data</span><span> </span><span id="SpotProvisioningSpecification"><span class="annot"><a href="Network.AWS.EMR.Types.SpotProvisioningSpecification.html#SpotProvisioningSpecification"><span class="hs-identifier hs-var">SpotProvisioningSpecification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SpotProvisioningSpecification%27"><span class="annot"><a href="Network.AWS.EMR.Types.SpotProvisioningSpecification.html#SpotProvisioningSpecification%27"><span class="hs-identifier hs-var">SpotProvisioningSpecification'</span></a></span></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679376558"><span id="local-6989586621679376559"></span></span><span class="hs-keyword">data</span><span> </span><span id="SpotProvisioningSpecification"><span class="annot"><a href="Network.AWS.EMR.Types.SpotProvisioningSpecification.html#SpotProvisioningSpecification"><span class="hs-identifier hs-var">SpotProvisioningSpecification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SpotProvisioningSpecification%27"><span class="annot"><a href="Network.AWS.EMR.Types.SpotProvisioningSpecification.html#SpotProvisioningSpecification%27"><span class="hs-identifier hs-var">SpotProvisioningSpecification'</span></a></span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The defined duration for Spot Instances (also known as Spot blocks) in</span><span>
 </span><span id="line-39"></span><span>    </span><span class="hs-comment">-- minutes. When specified, the Spot Instance does not terminate before the</span><span>
 </span><span id="line-40"></span><span>    </span><span class="hs-comment">-- defined duration expires, and defined duration pricing for Spot</span><span>
@@ -68,7 +68,7 @@
 </span><span id="line-64"></span><span>    </span><span id="%24sel%3AtimeoutAction%3ASpotProvisioningSpecification%27"><span class="annot"><span class="annottext">SpotProvisioningSpecification -&gt; SpotProvisioningTimeoutAction
 </span><a href="Network.AWS.EMR.Types.SpotProvisioningSpecification.html#%24sel%3AtimeoutAction%3ASpotProvisioningSpecification%27"><span class="hs-identifier hs-var hs-var">timeoutAction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.SpotProvisioningTimeoutAction.html#SpotProvisioningTimeoutAction"><span class="hs-identifier hs-type">SpotProvisioningTimeoutAction</span></a></span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679376193"><span id="local-6989586621679376195"><span class="annot"><span class="annottext">SpotProvisioningSpecification
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679376549"><span id="local-6989586621679376551"><span class="annot"><span class="annottext">SpotProvisioningSpecification
 -&gt; SpotProvisioningSpecification -&gt; Bool
 (SpotProvisioningSpecification
  -&gt; SpotProvisioningSpecification -&gt; Bool)
@@ -84,7 +84,7 @@ $c/= :: SpotProvisioningSpecification
 -&gt; SpotProvisioningSpecification -&gt; Bool
 $c== :: SpotProvisioningSpecification
 -&gt; SpotProvisioningSpecification -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679376184"><span id="local-6989586621679376186"><span id="local-6989586621679376188"><span id="local-6989586621679376190"><span class="annot"><span class="annottext">ReadPrec [SpotProvisioningSpecification]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679376540"><span id="local-6989586621679376542"><span id="local-6989586621679376544"><span id="local-6989586621679376546"><span class="annot"><span class="annottext">ReadPrec [SpotProvisioningSpecification]
 ReadPrec SpotProvisioningSpecification
 Int -&gt; ReadS SpotProvisioningSpecification
 ReadS [SpotProvisioningSpecification]
@@ -104,7 +104,7 @@ readList :: ReadS [SpotProvisioningSpecification]
 $creadList :: ReadS [SpotProvisioningSpecification]
 readsPrec :: Int -&gt; ReadS SpotProvisioningSpecification
 $creadsPrec :: Int -&gt; ReadS SpotProvisioningSpecification
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679376177"><span id="local-6989586621679376179"><span id="local-6989586621679376181"><span class="annot"><span class="annottext">Int -&gt; SpotProvisioningSpecification -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679376533"><span id="local-6989586621679376535"><span id="local-6989586621679376537"><span class="annot"><span class="annottext">Int -&gt; SpotProvisioningSpecification -&gt; ShowS
 [SpotProvisioningSpecification] -&gt; ShowS
 SpotProvisioningSpecification -&gt; String
 (Int -&gt; SpotProvisioningSpecification -&gt; ShowS)
@@ -185,10 +185,10 @@ SpotProvisioningSpecification
 </span><span id="line-108"></span><span id="newSpotProvisioningSpecification"><span class="annot"><span class="annottext">newSpotProvisioningSpecification :: Natural
 -&gt; SpotProvisioningTimeoutAction -&gt; SpotProvisioningSpecification
 </span><a href="Network.AWS.EMR.Types.SpotProvisioningSpecification.html#newSpotProvisioningSpecification"><span class="hs-identifier hs-var hs-var">newSpotProvisioningSpecification</span></a></span></span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679376171"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679376171"><span class="hs-identifier hs-var">pTimeoutDurationMinutes_</span></a></span></span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679376170"><span class="annot"><span class="annottext">SpotProvisioningTimeoutAction
-</span><a href="#local-6989586621679376170"><span class="hs-identifier hs-var">pTimeoutAction_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679376527"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679376527"><span class="hs-identifier hs-var">pTimeoutDurationMinutes_</span></a></span></span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679376526"><span class="annot"><span class="annottext">SpotProvisioningTimeoutAction
+</span><a href="#local-6989586621679376526"><span class="hs-identifier hs-var">pTimeoutAction_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">SpotProvisioningSpecification' :: Maybe Natural
 -&gt; Maybe SpotProvisioningAllocationStrategy
 -&gt; Natural
@@ -207,10 +207,10 @@ forall a. Maybe a
 </span><span id="line-115"></span><span>        </span><span class="annot"><span class="annottext">$sel:timeoutDurationMinutes:SpotProvisioningSpecification' :: Natural
 </span><a href="Network.AWS.EMR.Types.SpotProvisioningSpecification.html#%24sel%3AtimeoutDurationMinutes%3ASpotProvisioningSpecification%27"><span class="hs-identifier hs-var">timeoutDurationMinutes</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-116"></span><span>          </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679376171"><span class="hs-identifier hs-var">pTimeoutDurationMinutes_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679376527"><span class="hs-identifier hs-var">pTimeoutDurationMinutes_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-117"></span><span>        </span><span class="annot"><span class="annottext">$sel:timeoutAction:SpotProvisioningSpecification' :: SpotProvisioningTimeoutAction
 </span><a href="Network.AWS.EMR.Types.SpotProvisioningSpecification.html#%24sel%3AtimeoutAction%3ASpotProvisioningSpecification%27"><span class="hs-identifier hs-var">timeoutAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SpotProvisioningTimeoutAction
-</span><a href="#local-6989586621679376170"><span class="hs-identifier hs-var">pTimeoutAction_</span></a></span><span>
+</span><a href="#local-6989586621679376526"><span class="hs-identifier hs-var">pTimeoutAction_</span></a></span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-comment">-- | The defined duration for Spot Instances (also known as Spot blocks) in</span><span>
@@ -233,16 +233,16 @@ forall a. Maybe a
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.SpotProvisioningSpecification.html#SpotProvisioningSpecification%27"><span class="hs-identifier hs-type">SpotProvisioningSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376166"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.SpotProvisioningSpecification.html#SpotProvisioningSpecification%27"><span class="hs-identifier hs-type">SpotProvisioningSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376522"><span class="annot"><span class="annottext">Maybe Natural
 blockDurationMinutes :: Maybe Natural
 $sel:blockDurationMinutes:SpotProvisioningSpecification' :: SpotProvisioningSpecification -&gt; Maybe Natural
-</span><a href="#local-6989586621679376166"><span class="hs-identifier hs-var hs-var">blockDurationMinutes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679376166"><span class="hs-identifier hs-var">blockDurationMinutes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376165"><span class="annot"><span class="annottext">s :: SpotProvisioningSpecification
-</span><a href="#local-6989586621679376165"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.SpotProvisioningSpecification.html#SpotProvisioningSpecification%27"><span class="hs-identifier hs-type">SpotProvisioningSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376164"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679376164"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SpotProvisioningSpecification
-</span><a href="#local-6989586621679376165"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:blockDurationMinutes:SpotProvisioningSpecification' :: Maybe Natural
+</span><a href="#local-6989586621679376522"><span class="hs-identifier hs-var hs-var">blockDurationMinutes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679376522"><span class="hs-identifier hs-var">blockDurationMinutes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376521"><span class="annot"><span class="annottext">s :: SpotProvisioningSpecification
+</span><a href="#local-6989586621679376521"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.SpotProvisioningSpecification.html#SpotProvisioningSpecification%27"><span class="hs-identifier hs-type">SpotProvisioningSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376520"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679376520"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SpotProvisioningSpecification
+</span><a href="#local-6989586621679376521"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:blockDurationMinutes:SpotProvisioningSpecification' :: Maybe Natural
 </span><a href="Network.AWS.EMR.Types.SpotProvisioningSpecification.html#%24sel%3AblockDurationMinutes%3ASpotProvisioningSpecification%27"><span class="hs-identifier hs-var">blockDurationMinutes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679376164"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.SpotProvisioningSpecification.html#SpotProvisioningSpecification"><span class="hs-identifier hs-type">SpotProvisioningSpecification</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679376520"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.SpotProvisioningSpecification.html#SpotProvisioningSpecification"><span class="hs-identifier hs-type">SpotProvisioningSpecification</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>
 </span><span id="line-131"></span><span class="hs-comment">-- | Specifies the strategy to use in launching Spot Instance fleets.</span><span>
 </span><span id="line-132"></span><span class="hs-comment">-- Currently, the only option is capacity-optimized (the default), which</span><span>
@@ -263,17 +263,17 @@ $sel:blockDurationMinutes:SpotProvisioningSpecification' :: SpotProvisioningSpec
      (Maybe SpotProvisioningAllocationStrategy)
      (Maybe SpotProvisioningAllocationStrategy)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.SpotProvisioningSpecification.html#SpotProvisioningSpecification%27"><span class="hs-identifier hs-type">SpotProvisioningSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376162"><span class="annot"><span class="annottext">Maybe SpotProvisioningAllocationStrategy
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.SpotProvisioningSpecification.html#SpotProvisioningSpecification%27"><span class="hs-identifier hs-type">SpotProvisioningSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376518"><span class="annot"><span class="annottext">Maybe SpotProvisioningAllocationStrategy
 allocationStrategy :: Maybe SpotProvisioningAllocationStrategy
 $sel:allocationStrategy:SpotProvisioningSpecification' :: SpotProvisioningSpecification
 -&gt; Maybe SpotProvisioningAllocationStrategy
-</span><a href="#local-6989586621679376162"><span class="hs-identifier hs-var hs-var">allocationStrategy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SpotProvisioningAllocationStrategy
-</span><a href="#local-6989586621679376162"><span class="hs-identifier hs-var">allocationStrategy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376161"><span class="annot"><span class="annottext">s :: SpotProvisioningSpecification
-</span><a href="#local-6989586621679376161"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.SpotProvisioningSpecification.html#SpotProvisioningSpecification%27"><span class="hs-identifier hs-type">SpotProvisioningSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376160"><span class="annot"><span class="annottext">Maybe SpotProvisioningAllocationStrategy
-</span><a href="#local-6989586621679376160"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SpotProvisioningSpecification
-</span><a href="#local-6989586621679376161"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allocationStrategy:SpotProvisioningSpecification' :: Maybe SpotProvisioningAllocationStrategy
+</span><a href="#local-6989586621679376518"><span class="hs-identifier hs-var hs-var">allocationStrategy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SpotProvisioningAllocationStrategy
+</span><a href="#local-6989586621679376518"><span class="hs-identifier hs-var">allocationStrategy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376517"><span class="annot"><span class="annottext">s :: SpotProvisioningSpecification
+</span><a href="#local-6989586621679376517"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.SpotProvisioningSpecification.html#SpotProvisioningSpecification%27"><span class="hs-identifier hs-type">SpotProvisioningSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376516"><span class="annot"><span class="annottext">Maybe SpotProvisioningAllocationStrategy
+</span><a href="#local-6989586621679376516"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SpotProvisioningSpecification
+</span><a href="#local-6989586621679376517"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allocationStrategy:SpotProvisioningSpecification' :: Maybe SpotProvisioningAllocationStrategy
 </span><a href="Network.AWS.EMR.Types.SpotProvisioningSpecification.html#%24sel%3AallocationStrategy%3ASpotProvisioningSpecification%27"><span class="hs-identifier hs-var">allocationStrategy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SpotProvisioningAllocationStrategy
-</span><a href="#local-6989586621679376160"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.SpotProvisioningSpecification.html#SpotProvisioningSpecification"><span class="hs-identifier hs-type">SpotProvisioningSpecification</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679376516"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.SpotProvisioningSpecification.html#SpotProvisioningSpecification"><span class="hs-identifier hs-type">SpotProvisioningSpecification</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-comment">-- | The spot provisioning timeout period in minutes. If Spot Instances are</span><span>
 </span><span id="line-139"></span><span class="hs-comment">-- not provisioned within this time period, the @TimeOutAction@ is taken.</span><span>
@@ -291,16 +291,16 @@ $sel:allocationStrategy:SpotProvisioningSpecification' :: SpotProvisioningSpecif
      Natural
      Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.SpotProvisioningSpecification.html#SpotProvisioningSpecification%27"><span class="hs-identifier hs-type">SpotProvisioningSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376158"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.SpotProvisioningSpecification.html#SpotProvisioningSpecification%27"><span class="hs-identifier hs-type">SpotProvisioningSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376514"><span class="annot"><span class="annottext">Natural
 timeoutDurationMinutes :: Natural
 $sel:timeoutDurationMinutes:SpotProvisioningSpecification' :: SpotProvisioningSpecification -&gt; Natural
-</span><a href="#local-6989586621679376158"><span class="hs-identifier hs-var hs-var">timeoutDurationMinutes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679376158"><span class="hs-identifier hs-var">timeoutDurationMinutes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376157"><span class="annot"><span class="annottext">s :: SpotProvisioningSpecification
-</span><a href="#local-6989586621679376157"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.SpotProvisioningSpecification.html#SpotProvisioningSpecification%27"><span class="hs-identifier hs-type">SpotProvisioningSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376156"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679376156"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SpotProvisioningSpecification
-</span><a href="#local-6989586621679376157"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timeoutDurationMinutes:SpotProvisioningSpecification' :: Natural
+</span><a href="#local-6989586621679376514"><span class="hs-identifier hs-var hs-var">timeoutDurationMinutes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679376514"><span class="hs-identifier hs-var">timeoutDurationMinutes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376513"><span class="annot"><span class="annottext">s :: SpotProvisioningSpecification
+</span><a href="#local-6989586621679376513"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.SpotProvisioningSpecification.html#SpotProvisioningSpecification%27"><span class="hs-identifier hs-type">SpotProvisioningSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376512"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679376512"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SpotProvisioningSpecification
+</span><a href="#local-6989586621679376513"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timeoutDurationMinutes:SpotProvisioningSpecification' :: Natural
 </span><a href="Network.AWS.EMR.Types.SpotProvisioningSpecification.html#%24sel%3AtimeoutDurationMinutes%3ASpotProvisioningSpecification%27"><span class="hs-identifier hs-var">timeoutDurationMinutes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679376156"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.SpotProvisioningSpecification.html#SpotProvisioningSpecification"><span class="hs-identifier hs-type">SpotProvisioningSpecification</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679376512"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.SpotProvisioningSpecification.html#SpotProvisioningSpecification"><span class="hs-identifier hs-type">SpotProvisioningSpecification</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-comment">-- | The action to take when @TargetSpotCapacity@ has not been fulfilled when</span><span>
 </span><span id="line-146"></span><span class="hs-comment">-- the @TimeoutDurationMinutes@ has expired; that is, when all Spot</span><span>
@@ -321,19 +321,19 @@ $sel:timeoutDurationMinutes:SpotProvisioningSpecification' :: SpotProvisioningSp
      SpotProvisioningTimeoutAction
      SpotProvisioningTimeoutAction
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.SpotProvisioningSpecification.html#SpotProvisioningSpecification%27"><span class="hs-identifier hs-type">SpotProvisioningSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376154"><span class="annot"><span class="annottext">SpotProvisioningTimeoutAction
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.SpotProvisioningSpecification.html#SpotProvisioningSpecification%27"><span class="hs-identifier hs-type">SpotProvisioningSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376510"><span class="annot"><span class="annottext">SpotProvisioningTimeoutAction
 timeoutAction :: SpotProvisioningTimeoutAction
 $sel:timeoutAction:SpotProvisioningSpecification' :: SpotProvisioningSpecification -&gt; SpotProvisioningTimeoutAction
-</span><a href="#local-6989586621679376154"><span class="hs-identifier hs-var hs-var">timeoutAction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SpotProvisioningTimeoutAction
-</span><a href="#local-6989586621679376154"><span class="hs-identifier hs-var">timeoutAction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376153"><span class="annot"><span class="annottext">s :: SpotProvisioningSpecification
-</span><a href="#local-6989586621679376153"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.SpotProvisioningSpecification.html#SpotProvisioningSpecification%27"><span class="hs-identifier hs-type">SpotProvisioningSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376152"><span class="annot"><span class="annottext">SpotProvisioningTimeoutAction
-</span><a href="#local-6989586621679376152"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SpotProvisioningSpecification
-</span><a href="#local-6989586621679376153"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timeoutAction:SpotProvisioningSpecification' :: SpotProvisioningTimeoutAction
+</span><a href="#local-6989586621679376510"><span class="hs-identifier hs-var hs-var">timeoutAction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SpotProvisioningTimeoutAction
+</span><a href="#local-6989586621679376510"><span class="hs-identifier hs-var">timeoutAction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376509"><span class="annot"><span class="annottext">s :: SpotProvisioningSpecification
+</span><a href="#local-6989586621679376509"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.SpotProvisioningSpecification.html#SpotProvisioningSpecification%27"><span class="hs-identifier hs-type">SpotProvisioningSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376508"><span class="annot"><span class="annottext">SpotProvisioningTimeoutAction
+</span><a href="#local-6989586621679376508"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SpotProvisioningSpecification
+</span><a href="#local-6989586621679376509"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timeoutAction:SpotProvisioningSpecification' :: SpotProvisioningTimeoutAction
 </span><a href="Network.AWS.EMR.Types.SpotProvisioningSpecification.html#%24sel%3AtimeoutAction%3ASpotProvisioningSpecification%27"><span class="hs-identifier hs-var">timeoutAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SpotProvisioningTimeoutAction
-</span><a href="#local-6989586621679376152"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.SpotProvisioningSpecification.html#SpotProvisioningSpecification"><span class="hs-identifier hs-type">SpotProvisioningSpecification</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679376508"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.SpotProvisioningSpecification.html#SpotProvisioningSpecification"><span class="hs-identifier hs-type">SpotProvisioningSpecification</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>
-</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679376149"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.SpotProvisioningSpecification.html#SpotProvisioningSpecification"><span class="hs-identifier hs-type">SpotProvisioningSpecification</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-156"></span><span>  </span><span id="local-6989586621679376147"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SpotProvisioningSpecification
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679376505"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.SpotProvisioningSpecification.html#SpotProvisioningSpecification"><span class="hs-identifier hs-type">SpotProvisioningSpecification</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679376503"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SpotProvisioningSpecification
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-157"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser SpotProvisioningSpecification)
@@ -343,8 +343,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-158"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;SpotProvisioningSpecification&quot;</span></span><span>
-</span><span id="line-159"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679376144"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679376144"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-159"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679376500"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679376500"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-160"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural
 -&gt; Maybe SpotProvisioningAllocationStrategy
 -&gt; Natural
@@ -364,7 +364,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; SpotProvisioningSpecification)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679376144"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679376500"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BlockDurationMinutes&quot;</span></span><span class="hs-special">)</span><span>
@@ -379,7 +379,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; SpotProvisioningTimeoutAction -&gt; SpotProvisioningSpecification)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679376144"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SpotProvisioningAllocationStrategy)
+</span><a href="#local-6989586621679376500"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SpotProvisioningAllocationStrategy)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AllocationStrategy&quot;</span></span><span class="hs-special">)</span><span>
@@ -391,7 +391,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (SpotProvisioningTimeoutAction -&gt; SpotProvisioningSpecification)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679376144"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
+</span><a href="#local-6989586621679376500"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TimeoutDurationMinutes&quot;</span></span><span class="hs-special">)</span><span>
@@ -401,21 +401,21 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser SpotProvisioningSpecification
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679376144"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser SpotProvisioningTimeoutAction
+</span><a href="#local-6989586621679376500"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser SpotProvisioningTimeoutAction
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TimeoutAction&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-165"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-166"></span><span>
 </span><span id="line-167"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-168"></span><span>  </span><span id="local-6989586621679376137"><span id="local-6989586621679376139"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621679376493"><span id="local-6989586621679376495"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-169"></span><span>    </span><span class="annot"><a href="Network.AWS.EMR.Types.SpotProvisioningSpecification.html#SpotProvisioningSpecification"><span class="hs-identifier hs-type">SpotProvisioningSpecification</span></a></span></span></span><span>
 </span><span id="line-170"></span><span>
-</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679376134"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.SpotProvisioningSpecification.html#SpotProvisioningSpecification"><span class="hs-identifier hs-type">SpotProvisioningSpecification</span></a></span></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679376490"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.SpotProvisioningSpecification.html#SpotProvisioningSpecification"><span class="hs-identifier hs-type">SpotProvisioningSpecification</span></a></span></span><span>
 </span><span id="line-172"></span><span>
-</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679376126"><span id="local-6989586621679376128"><span id="local-6989586621679376130"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.SpotProvisioningSpecification.html#SpotProvisioningSpecification"><span class="hs-identifier hs-type">SpotProvisioningSpecification</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-174"></span><span>  </span><span id="local-6989586621679376124"><span class="annot"><span class="annottext">toJSON :: SpotProvisioningSpecification -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.SpotProvisioningSpecification.html#SpotProvisioningSpecification%27"><span class="hs-identifier hs-type">SpotProvisioningSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376119"><span id="local-6989586621679376120"><span id="local-6989586621679376121"><span id="local-6989586621679376122"><span class="annot"><span class="annottext">Natural
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679376482"><span id="local-6989586621679376484"><span id="local-6989586621679376486"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.SpotProvisioningSpecification.html#SpotProvisioningSpecification"><span class="hs-identifier hs-type">SpotProvisioningSpecification</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-174"></span><span>  </span><span id="local-6989586621679376480"><span class="annot"><span class="annottext">toJSON :: SpotProvisioningSpecification -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.SpotProvisioningSpecification.html#SpotProvisioningSpecification%27"><span class="hs-identifier hs-type">SpotProvisioningSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376475"><span id="local-6989586621679376476"><span id="local-6989586621679376477"><span id="local-6989586621679376478"><span class="annot"><span class="annottext">Natural
 Maybe Natural
 Maybe SpotProvisioningAllocationStrategy
 SpotProvisioningTimeoutAction
@@ -428,7 +428,7 @@ $sel:timeoutDurationMinutes:SpotProvisioningSpecification' :: SpotProvisioningSp
 $sel:allocationStrategy:SpotProvisioningSpecification' :: SpotProvisioningSpecification
 -&gt; Maybe SpotProvisioningAllocationStrategy
 $sel:blockDurationMinutes:SpotProvisioningSpecification' :: SpotProvisioningSpecification -&gt; Maybe Natural
-</span><a href="#local-6989586621679376119"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679376475"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-175"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-176"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -441,7 +441,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-178"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679376122"><span class="hs-identifier hs-var">blockDurationMinutes</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679376478"><span class="hs-identifier hs-var">blockDurationMinutes</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-179"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AllocationStrategy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SpotProvisioningAllocationStrategy -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -450,7 +450,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe SpotProvisioningAllocationStrategy -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SpotProvisioningAllocationStrategy
-</span><a href="#local-6989586621679376121"><span class="hs-identifier hs-var">allocationStrategy</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679376477"><span class="hs-identifier hs-var">allocationStrategy</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-181"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -459,7 +459,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-183"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679376120"><span class="hs-identifier hs-var">timeoutDurationMinutes</span></a></span><span>
+</span><a href="#local-6989586621679376476"><span class="hs-identifier hs-var">timeoutDurationMinutes</span></a></span><span>
 </span><span id="line-184"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-185"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
@@ -468,7 +468,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;TimeoutAction&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SpotProvisioningTimeoutAction -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">SpotProvisioningTimeoutAction
-</span><a href="#local-6989586621679376119"><span class="hs-identifier hs-var">timeoutAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679376475"><span class="hs-identifier hs-var">timeoutAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-187"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-188"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-189"></span></pre></body></html>

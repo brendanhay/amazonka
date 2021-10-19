@@ -24,13 +24,13 @@
 </span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-25"></span><span>
 </span><span id="line-26"></span><span class="hs-comment">-- | /See:/ 'newLimits' smart constructor.</span><span>
-</span><span id="line-27"></span><span id="local-6989586621679208053"><span id="local-6989586621679208054"></span></span><span class="hs-keyword">data</span><span> </span><span id="Limits"><span class="annot"><a href="Network.AWS.CloudSearch.Types.Limits.html#Limits"><span class="hs-identifier hs-var">Limits</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Limits%27"><span class="annot"><a href="Network.AWS.CloudSearch.Types.Limits.html#Limits%27"><span class="hs-identifier hs-var">Limits'</span></a></span></span><span>
+</span><span id="line-27"></span><span id="local-6989586621679208106"><span id="local-6989586621679208107"></span></span><span class="hs-keyword">data</span><span> </span><span id="Limits"><span class="annot"><a href="Network.AWS.CloudSearch.Types.Limits.html#Limits"><span class="hs-identifier hs-var">Limits</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Limits%27"><span class="annot"><a href="Network.AWS.CloudSearch.Types.Limits.html#Limits%27"><span class="hs-identifier hs-var">Limits'</span></a></span></span><span>
 </span><span id="line-28"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AmaximumReplicationCount%3ALimits%27"><span class="annot"><span class="annottext">Limits -&gt; Natural
 </span><a href="Network.AWS.CloudSearch.Types.Limits.html#%24sel%3AmaximumReplicationCount%3ALimits%27"><span class="hs-identifier hs-var hs-var">maximumReplicationCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
 </span><span id="line-29"></span><span>    </span><span id="%24sel%3AmaximumPartitionCount%3ALimits%27"><span class="annot"><span class="annottext">Limits -&gt; Natural
 </span><a href="Network.AWS.CloudSearch.Types.Limits.html#%24sel%3AmaximumPartitionCount%3ALimits%27"><span class="hs-identifier hs-var hs-var">maximumPartitionCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679208046"><span id="local-6989586621679208048"><span class="annot"><span class="annottext">Limits -&gt; Limits -&gt; Bool
+</span><span id="line-31"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679208099"><span id="local-6989586621679208101"><span class="annot"><span class="annottext">Limits -&gt; Limits -&gt; Bool
 (Limits -&gt; Limits -&gt; Bool)
 -&gt; (Limits -&gt; Limits -&gt; Bool) -&gt; Eq Limits
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -38,7 +38,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Limits -&gt; Limits -&gt; Bool
 == :: Limits -&gt; Limits -&gt; Bool
 $c== :: Limits -&gt; Limits -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679208037"><span id="local-6989586621679208039"><span id="local-6989586621679208041"><span id="local-6989586621679208043"><span class="annot"><span class="annottext">ReadPrec [Limits]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679208090"><span id="local-6989586621679208092"><span id="local-6989586621679208094"><span id="local-6989586621679208096"><span class="annot"><span class="annottext">ReadPrec [Limits]
 ReadPrec Limits
 Int -&gt; ReadS Limits
 ReadS [Limits]
@@ -58,7 +58,7 @@ readList :: ReadS [Limits]
 $creadList :: ReadS [Limits]
 readsPrec :: Int -&gt; ReadS Limits
 $creadsPrec :: Int -&gt; ReadS Limits
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679208030"><span id="local-6989586621679208032"><span id="local-6989586621679208034"><span class="annot"><span class="annottext">Int -&gt; Limits -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679208083"><span id="local-6989586621679208085"><span id="local-6989586621679208087"><span class="annot"><span class="annottext">Int -&gt; Limits -&gt; ShowS
 [Limits] -&gt; ShowS
 Limits -&gt; String
 (Int -&gt; Limits -&gt; ShowS)
@@ -100,19 +100,19 @@ $cfrom :: forall x. Limits -&gt; Rep Limits x
 </span><span id="line-49"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.Limits.html#Limits"><span class="hs-identifier hs-type">Limits</span></a></span><span>
 </span><span id="line-50"></span><span id="newLimits"><span class="annot"><span class="annottext">newLimits :: Natural -&gt; Natural -&gt; Limits
 </span><a href="Network.AWS.CloudSearch.Types.Limits.html#newLimits"><span class="hs-identifier hs-var hs-var">newLimits</span></a></span></span><span>
-</span><span id="line-51"></span><span>  </span><span id="local-6989586621679208024"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679208024"><span class="hs-identifier hs-var">pMaximumReplicationCount_</span></a></span></span><span>
-</span><span id="line-52"></span><span>  </span><span id="local-6989586621679208023"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679208023"><span class="hs-identifier hs-var">pMaximumPartitionCount_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-51"></span><span>  </span><span id="local-6989586621679208077"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679208077"><span class="hs-identifier hs-var">pMaximumReplicationCount_</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span id="local-6989586621679208076"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679208076"><span class="hs-identifier hs-var">pMaximumPartitionCount_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-53"></span><span>    </span><span class="annot"><span class="annottext">Limits' :: Natural -&gt; Natural -&gt; Limits
 </span><a href="Network.AWS.CloudSearch.Types.Limits.html#Limits%27"><span class="hs-identifier hs-type">Limits'</span></a></span><span>
 </span><span id="line-54"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:maximumReplicationCount:Limits' :: Natural
 </span><a href="Network.AWS.CloudSearch.Types.Limits.html#%24sel%3AmaximumReplicationCount%3ALimits%27"><span class="hs-identifier hs-var">maximumReplicationCount</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>          </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679208024"><span class="hs-identifier hs-var">pMaximumReplicationCount_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679208077"><span class="hs-identifier hs-var">pMaximumReplicationCount_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-56"></span><span>        </span><span class="annot"><span class="annottext">$sel:maximumPartitionCount:Limits' :: Natural
 </span><a href="Network.AWS.CloudSearch.Types.Limits.html#%24sel%3AmaximumPartitionCount%3ALimits%27"><span class="hs-identifier hs-var">maximumPartitionCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679208023"><span class="hs-identifier hs-var">pMaximumPartitionCount_</span></a></span><span>
+</span><a href="#local-6989586621679208076"><span class="hs-identifier hs-var">pMaximumPartitionCount_</span></a></span><span>
 </span><span id="line-57"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-58"></span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- | Undocumented member.</span><span>
@@ -122,16 +122,16 @@ $cfrom :: forall x. Limits -&gt; Rep Limits x
 -&gt; (Limits -&gt; Natural -&gt; Limits)
 -&gt; Lens Limits Limits Natural Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.Limits.html#Limits%27"><span class="hs-identifier hs-type">Limits'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208019"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.Limits.html#Limits%27"><span class="hs-identifier hs-type">Limits'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208072"><span class="annot"><span class="annottext">Natural
 maximumReplicationCount :: Natural
 $sel:maximumReplicationCount:Limits' :: Limits -&gt; Natural
-</span><a href="#local-6989586621679208019"><span class="hs-identifier hs-var hs-var">maximumReplicationCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679208019"><span class="hs-identifier hs-var">maximumReplicationCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679208018"><span class="annot"><span class="annottext">s :: Limits
-</span><a href="#local-6989586621679208018"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.Limits.html#Limits%27"><span class="hs-identifier hs-type">Limits'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679208017"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679208017"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Limits
-</span><a href="#local-6989586621679208018"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maximumReplicationCount:Limits' :: Natural
+</span><a href="#local-6989586621679208072"><span class="hs-identifier hs-var hs-var">maximumReplicationCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679208072"><span class="hs-identifier hs-var">maximumReplicationCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679208071"><span class="annot"><span class="annottext">s :: Limits
+</span><a href="#local-6989586621679208071"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.Limits.html#Limits%27"><span class="hs-identifier hs-type">Limits'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679208070"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679208070"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Limits
+</span><a href="#local-6989586621679208071"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maximumReplicationCount:Limits' :: Natural
 </span><a href="Network.AWS.CloudSearch.Types.Limits.html#%24sel%3AmaximumReplicationCount%3ALimits%27"><span class="hs-identifier hs-var">maximumReplicationCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679208017"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.Limits.html#Limits"><span class="hs-identifier hs-type">Limits</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679208070"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.Limits.html#Limits"><span class="hs-identifier hs-type">Limits</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-62"></span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- | Undocumented member.</span><span>
 </span><span id="line-64"></span><span class="annot"><a href="Network.AWS.CloudSearch.Types.Limits.html#limits_maximumPartitionCount"><span class="hs-identifier hs-type">limits_maximumPartitionCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.Limits.html#Limits"><span class="hs-identifier hs-type">Limits</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
@@ -140,28 +140,28 @@ $sel:maximumReplicationCount:Limits' :: Limits -&gt; Natural
 -&gt; (Limits -&gt; Natural -&gt; Limits)
 -&gt; Lens Limits Limits Natural Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.Limits.html#Limits%27"><span class="hs-identifier hs-type">Limits'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208015"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.Limits.html#Limits%27"><span class="hs-identifier hs-type">Limits'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208068"><span class="annot"><span class="annottext">Natural
 maximumPartitionCount :: Natural
 $sel:maximumPartitionCount:Limits' :: Limits -&gt; Natural
-</span><a href="#local-6989586621679208015"><span class="hs-identifier hs-var hs-var">maximumPartitionCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679208015"><span class="hs-identifier hs-var">maximumPartitionCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679208014"><span class="annot"><span class="annottext">s :: Limits
-</span><a href="#local-6989586621679208014"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.Limits.html#Limits%27"><span class="hs-identifier hs-type">Limits'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679208013"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679208013"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Limits
-</span><a href="#local-6989586621679208014"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maximumPartitionCount:Limits' :: Natural
+</span><a href="#local-6989586621679208068"><span class="hs-identifier hs-var hs-var">maximumPartitionCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679208068"><span class="hs-identifier hs-var">maximumPartitionCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679208067"><span class="annot"><span class="annottext">s :: Limits
+</span><a href="#local-6989586621679208067"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.Limits.html#Limits%27"><span class="hs-identifier hs-type">Limits'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679208066"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679208066"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Limits
+</span><a href="#local-6989586621679208067"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maximumPartitionCount:Limits' :: Natural
 </span><a href="Network.AWS.CloudSearch.Types.Limits.html#%24sel%3AmaximumPartitionCount%3ALimits%27"><span class="hs-identifier hs-var">maximumPartitionCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679208013"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.Limits.html#Limits"><span class="hs-identifier hs-type">Limits</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679208066"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.Limits.html#Limits"><span class="hs-identifier hs-type">Limits</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.Limits.html#Limits"><span class="hs-identifier hs-type">Limits</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-68"></span><span>  </span><span id="local-6989586621679208010"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Limits
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679208008"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679208008"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621679208063"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Limits
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679208061"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679208061"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-69"></span><span>    </span><span class="annot"><span class="annottext">Natural -&gt; Natural -&gt; Limits
 </span><a href="Network.AWS.CloudSearch.Types.Limits.html#Limits%27"><span class="hs-identifier hs-var">Limits'</span></a></span><span>
 </span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">(Natural -&gt; Natural -&gt; Limits)
 -&gt; Either String Natural -&gt; Either String (Natural -&gt; Limits)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679208008"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Natural
+</span><a href="#local-6989586621679208061"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Natural
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaximumReplicationCount&quot;</span></span><span class="hs-special">)</span><span>
@@ -169,12 +169,12 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String Natural -&gt; Either String Limits
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679208008"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Natural
+</span><a href="#local-6989586621679208061"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Natural
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaximumPartitionCount&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679208002"><span id="local-6989586621679208004"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.Limits.html#Limits"><span class="hs-identifier hs-type">Limits</span></a></span></span></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679208055"><span id="local-6989586621679208057"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.Limits.html#Limits"><span class="hs-identifier hs-type">Limits</span></a></span></span></span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679207999"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.Limits.html#Limits"><span class="hs-identifier hs-type">Limits</span></a></span></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679208052"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.Limits.html#Limits"><span class="hs-identifier hs-type">Limits</span></a></span></span><span>
 </span><span id="line-76"></span></pre></body></html>

@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621679248692"><span id="local-6989586621679248693"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ConflictHandlerType"><span class="annot"><a href="Network.AWS.AppSync.Types.ConflictHandlerType.html#ConflictHandlerType"><span class="hs-identifier hs-var">ConflictHandlerType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConflictHandlerType%27"><span class="annot"><a href="Network.AWS.AppSync.Types.ConflictHandlerType.html#ConflictHandlerType%27"><span class="hs-identifier hs-var">ConflictHandlerType'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679248768"><span id="local-6989586621679248769"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ConflictHandlerType"><span class="annot"><a href="Network.AWS.AppSync.Types.ConflictHandlerType.html#ConflictHandlerType"><span class="hs-identifier hs-var">ConflictHandlerType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConflictHandlerType%27"><span class="annot"><a href="Network.AWS.AppSync.Types.ConflictHandlerType.html#ConflictHandlerType%27"><span class="hs-identifier hs-var">ConflictHandlerType'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromConflictHandlerType"><span class="annot"><span class="annottext">ConflictHandlerType -&gt; Text
 </span><a href="Network.AWS.AppSync.Types.ConflictHandlerType.html#fromConflictHandlerType"><span class="hs-identifier hs-var hs-var">fromConflictHandlerType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679248684"><span id="local-6989586621679248686"><span id="local-6989586621679248688"><span class="annot"><span class="annottext">Int -&gt; ConflictHandlerType -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679248760"><span id="local-6989586621679248762"><span id="local-6989586621679248764"><span class="annot"><span class="annottext">Int -&gt; ConflictHandlerType -&gt; ShowS
 [ConflictHandlerType] -&gt; ShowS
 ConflictHandlerType -&gt; String
 (Int -&gt; ConflictHandlerType -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: ConflictHandlerType -&gt; String
 showsPrec :: Int -&gt; ConflictHandlerType -&gt; ShowS
 $cshowsPrec :: Int -&gt; ConflictHandlerType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679248675"><span id="local-6989586621679248677"><span id="local-6989586621679248679"><span id="local-6989586621679248681"><span class="annot"><span class="annottext">ReadPrec [ConflictHandlerType]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679248751"><span id="local-6989586621679248753"><span id="local-6989586621679248755"><span id="local-6989586621679248757"><span class="annot"><span class="annottext">ReadPrec [ConflictHandlerType]
 ReadPrec ConflictHandlerType
 Int -&gt; ReadS ConflictHandlerType
 ReadS [ConflictHandlerType]
@@ -74,7 +74,7 @@ $creadList :: ReadS [ConflictHandlerType]
 readsPrec :: Int -&gt; ReadS ConflictHandlerType
 $creadsPrec :: Int -&gt; ReadS ConflictHandlerType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679248670"><span id="local-6989586621679248672"><span class="annot"><span class="annottext">ConflictHandlerType -&gt; ConflictHandlerType -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679248746"><span id="local-6989586621679248748"><span class="annot"><span class="annottext">ConflictHandlerType -&gt; ConflictHandlerType -&gt; Bool
 (ConflictHandlerType -&gt; ConflictHandlerType -&gt; Bool)
 -&gt; (ConflictHandlerType -&gt; ConflictHandlerType -&gt; Bool)
 -&gt; Eq ConflictHandlerType
@@ -84,7 +84,7 @@ $c/= :: ConflictHandlerType -&gt; ConflictHandlerType -&gt; Bool
 == :: ConflictHandlerType -&gt; ConflictHandlerType -&gt; Bool
 $c== :: ConflictHandlerType -&gt; ConflictHandlerType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679248654"><span id="local-6989586621679248656"><span id="local-6989586621679248658"><span id="local-6989586621679248660"><span id="local-6989586621679248662"><span id="local-6989586621679248664"><span id="local-6989586621679248666"><span class="annot"><span class="annottext">Eq ConflictHandlerType
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679248730"><span id="local-6989586621679248732"><span id="local-6989586621679248734"><span id="local-6989586621679248736"><span id="local-6989586621679248738"><span id="local-6989586621679248740"><span id="local-6989586621679248742"><span class="annot"><span class="annottext">Eq ConflictHandlerType
 Eq ConflictHandlerType
 -&gt; (ConflictHandlerType -&gt; ConflictHandlerType -&gt; Ordering)
 -&gt; (ConflictHandlerType -&gt; ConflictHandlerType -&gt; Bool)
@@ -137,7 +137,7 @@ $cfrom :: forall x. ConflictHandlerType -&gt; Rep ConflictHandlerType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679248646"><span id="local-6989586621679248648"><span class="annot"><span class="annottext">Int -&gt; ConflictHandlerType -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679248722"><span id="local-6989586621679248724"><span class="annot"><span class="annottext">Int -&gt; ConflictHandlerType -&gt; Int
 ConflictHandlerType -&gt; Int
 (Int -&gt; ConflictHandlerType -&gt; Int)
 -&gt; (ConflictHandlerType -&gt; Int) -&gt; Hashable ConflictHandlerType
@@ -147,53 +147,53 @@ $chash :: ConflictHandlerType -&gt; Int
 hashWithSalt :: Int -&gt; ConflictHandlerType -&gt; Int
 $chashWithSalt :: Int -&gt; ConflictHandlerType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679248643"><span class="annot"><span class="annottext">ConflictHandlerType -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679248719"><span class="annot"><span class="annottext">ConflictHandlerType -&gt; ()
 (ConflictHandlerType -&gt; ()) -&gt; NFData ConflictHandlerType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ConflictHandlerType -&gt; ()
 $crnf :: ConflictHandlerType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679248640"><span class="annot"><span class="annottext">Text -&gt; Either String ConflictHandlerType
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679248716"><span class="annot"><span class="annottext">Text -&gt; Either String ConflictHandlerType
 (Text -&gt; Either String ConflictHandlerType)
 -&gt; FromText ConflictHandlerType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ConflictHandlerType
 $cfromText :: Text -&gt; Either String ConflictHandlerType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679248637"><span class="annot"><span class="annottext">ConflictHandlerType -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679248713"><span class="annot"><span class="annottext">ConflictHandlerType -&gt; Text
 (ConflictHandlerType -&gt; Text) -&gt; ToText ConflictHandlerType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ConflictHandlerType -&gt; Text
 $ctoText :: ConflictHandlerType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679248634"><span class="annot"><span class="annottext">ConflictHandlerType -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679248710"><span class="annot"><span class="annottext">ConflictHandlerType -&gt; ByteString
 (ConflictHandlerType -&gt; ByteString)
 -&gt; ToByteString ConflictHandlerType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ConflictHandlerType -&gt; ByteString
 $ctoBS :: ConflictHandlerType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679248631"><span class="annot"><span class="annottext">ConflictHandlerType -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679248707"><span class="annot"><span class="annottext">ConflictHandlerType -&gt; ByteStringBuilder
 (ConflictHandlerType -&gt; ByteStringBuilder)
 -&gt; ToLog ConflictHandlerType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ConflictHandlerType -&gt; ByteStringBuilder
 $cbuild :: ConflictHandlerType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679248628"><span class="annot"><span class="annottext">HeaderName -&gt; ConflictHandlerType -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679248704"><span class="annot"><span class="annottext">HeaderName -&gt; ConflictHandlerType -&gt; [Header]
 (HeaderName -&gt; ConflictHandlerType -&gt; [Header])
 -&gt; ToHeader ConflictHandlerType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ConflictHandlerType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ConflictHandlerType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679248625"><span class="annot"><span class="annottext">ConflictHandlerType -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679248701"><span class="annot"><span class="annottext">ConflictHandlerType -&gt; QueryString
 (ConflictHandlerType -&gt; QueryString) -&gt; ToQuery ConflictHandlerType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ConflictHandlerType -&gt; QueryString
 $ctoQuery :: ConflictHandlerType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679248620"><span id="local-6989586621679248622"><span class="annot"><span class="annottext">Value -&gt; Parser [ConflictHandlerType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679248696"><span id="local-6989586621679248698"><span class="annot"><span class="annottext">Value -&gt; Parser [ConflictHandlerType]
 Value -&gt; Parser ConflictHandlerType
 (Value -&gt; Parser ConflictHandlerType)
 -&gt; (Value -&gt; Parser [ConflictHandlerType])
@@ -205,7 +205,7 @@ $cparseJSONList :: Value -&gt; Parser [ConflictHandlerType]
 parseJSON :: Value -&gt; Parser ConflictHandlerType
 $cparseJSON :: Value -&gt; Parser ConflictHandlerType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679248615"><span id="local-6989586621679248617"><span class="annot"><span class="annottext">FromJSONKeyFunction [ConflictHandlerType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679248691"><span id="local-6989586621679248693"><span class="annot"><span class="annottext">FromJSONKeyFunction [ConflictHandlerType]
 FromJSONKeyFunction ConflictHandlerType
 FromJSONKeyFunction ConflictHandlerType
 -&gt; FromJSONKeyFunction [ConflictHandlerType]
@@ -217,7 +217,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ConflictHandlerType]
 fromJSONKey :: FromJSONKeyFunction ConflictHandlerType
 $cfromJSONKey :: FromJSONKeyFunction ConflictHandlerType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679248606"><span id="local-6989586621679248608"><span id="local-6989586621679248610"><span id="local-6989586621679248612"><span class="annot"><span class="annottext">[ConflictHandlerType] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679248682"><span id="local-6989586621679248684"><span id="local-6989586621679248686"><span id="local-6989586621679248688"><span class="annot"><span class="annottext">[ConflictHandlerType] -&gt; Encoding
 [ConflictHandlerType] -&gt; Value
 ConflictHandlerType -&gt; Encoding
 ConflictHandlerType -&gt; Value
@@ -241,7 +241,7 @@ $ctoEncoding :: ConflictHandlerType -&gt; Encoding
 toJSON :: ConflictHandlerType -&gt; Value
 $ctoJSON :: ConflictHandlerType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679248601"><span id="local-6989586621679248603"><span class="annot"><span class="annottext">ToJSONKeyFunction [ConflictHandlerType]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679248677"><span id="local-6989586621679248679"><span class="annot"><span class="annottext">ToJSONKeyFunction [ConflictHandlerType]
 ToJSONKeyFunction ConflictHandlerType
 ToJSONKeyFunction ConflictHandlerType
 -&gt; ToJSONKeyFunction [ConflictHandlerType]
@@ -253,14 +253,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ConflictHandlerType]
 toJSONKey :: ToJSONKeyFunction ConflictHandlerType
 $ctoJSONKey :: ToJSONKeyFunction ConflictHandlerType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679248598"><span class="annot"><span class="annottext">[Node] -&gt; Either String ConflictHandlerType
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679248674"><span class="annot"><span class="annottext">[Node] -&gt; Either String ConflictHandlerType
 ([Node] -&gt; Either String ConflictHandlerType)
 -&gt; FromXML ConflictHandlerType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ConflictHandlerType
 $cparseXML :: [Node] -&gt; Either String ConflictHandlerType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679248595"><span class="annot"><span class="annottext">ConflictHandlerType -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679248671"><span class="annot"><span class="annottext">ConflictHandlerType -&gt; XML
 (ConflictHandlerType -&gt; XML) -&gt; ToXML ConflictHandlerType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ConflictHandlerType -&gt; XML

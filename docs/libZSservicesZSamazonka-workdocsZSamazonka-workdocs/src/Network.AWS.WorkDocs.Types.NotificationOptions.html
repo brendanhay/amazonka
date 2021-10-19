@@ -26,16 +26,16 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Set of options which defines notification preferences of given action.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newNotificationOptions' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679261247"><span id="local-6989586621679261248"></span></span><span class="hs-keyword">data</span><span> </span><span id="NotificationOptions"><span class="annot"><a href="Network.AWS.WorkDocs.Types.NotificationOptions.html#NotificationOptions"><span class="hs-identifier hs-var">NotificationOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NotificationOptions%27"><span class="annot"><a href="Network.AWS.WorkDocs.Types.NotificationOptions.html#NotificationOptions%27"><span class="hs-identifier hs-var">NotificationOptions'</span></a></span></span><span>
-</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Boolean value to indicate an email notification should be sent to the</span><span>
-</span><span id="line-31"></span><span>    </span><span class="hs-comment">-- receipients.</span><span>
-</span><span id="line-32"></span><span>    </span><span id="%24sel%3AsendEmail%3ANotificationOptions%27"><span class="annot"><span class="annottext">NotificationOptions -&gt; Maybe Bool
-</span><a href="Network.AWS.WorkDocs.Types.NotificationOptions.html#%24sel%3AsendEmail%3ANotificationOptions%27"><span class="hs-identifier hs-var hs-var">sendEmail</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | Text value to be included in the email body.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AemailMessage%3ANotificationOptions%27"><span class="annot"><span class="annottext">NotificationOptions -&gt; Maybe (Sensitive Text)
-</span><a href="Network.AWS.WorkDocs.Types.NotificationOptions.html#%24sel%3AemailMessage%3ANotificationOptions%27"><span class="hs-identifier hs-var hs-var">emailMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679261367"><span id="local-6989586621679261368"></span></span><span class="hs-keyword">data</span><span> </span><span id="NotificationOptions"><span class="annot"><a href="Network.AWS.WorkDocs.Types.NotificationOptions.html#NotificationOptions"><span class="hs-identifier hs-var">NotificationOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NotificationOptions%27"><span class="annot"><a href="Network.AWS.WorkDocs.Types.NotificationOptions.html#NotificationOptions%27"><span class="hs-identifier hs-var">NotificationOptions'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Text value to be included in the email body.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3AemailMessage%3ANotificationOptions%27"><span class="annot"><span class="annottext">NotificationOptions -&gt; Maybe (Sensitive Text)
+</span><a href="Network.AWS.WorkDocs.Types.NotificationOptions.html#%24sel%3AemailMessage%3ANotificationOptions%27"><span class="hs-identifier hs-var hs-var">emailMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | Boolean value to indicate an email notification should be sent to the</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- receipients.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AsendEmail%3ANotificationOptions%27"><span class="annot"><span class="annottext">NotificationOptions -&gt; Maybe Bool
+</span><a href="Network.AWS.WorkDocs.Types.NotificationOptions.html#%24sel%3AsendEmail%3ANotificationOptions%27"><span class="hs-identifier hs-var hs-var">sendEmail</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679261240"><span id="local-6989586621679261242"><span class="annot"><span class="annottext">NotificationOptions -&gt; NotificationOptions -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679261360"><span id="local-6989586621679261362"><span class="annot"><span class="annottext">NotificationOptions -&gt; NotificationOptions -&gt; Bool
 (NotificationOptions -&gt; NotificationOptions -&gt; Bool)
 -&gt; (NotificationOptions -&gt; NotificationOptions -&gt; Bool)
 -&gt; Eq NotificationOptions
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: NotificationOptions -&gt; NotificationOptions -&gt; Bool
 == :: NotificationOptions -&gt; NotificationOptions -&gt; Bool
 $c== :: NotificationOptions -&gt; NotificationOptions -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261233"><span id="local-6989586621679261235"><span id="local-6989586621679261237"><span class="annot"><span class="annottext">Int -&gt; NotificationOptions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261353"><span id="local-6989586621679261355"><span id="local-6989586621679261357"><span class="annot"><span class="annottext">Int -&gt; NotificationOptions -&gt; ShowS
 [NotificationOptions] -&gt; ShowS
 NotificationOptions -&gt; String
 (Int -&gt; NotificationOptions -&gt; ShowS)
@@ -78,50 +78,30 @@ $cfrom :: forall x. NotificationOptions -&gt; Rep NotificationOptions x
 </span><span id="line-43"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-44"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-45"></span><span class="hs-comment">--</span><span>
-</span><span id="line-46"></span><span class="hs-comment">-- 'sendEmail', 'notificationOptions_sendEmail' - Boolean value to indicate an email notification should be sent to the</span><span>
-</span><span id="line-47"></span><span class="hs-comment">-- receipients.</span><span>
-</span><span id="line-48"></span><span class="hs-comment">--</span><span>
-</span><span id="line-49"></span><span class="hs-comment">-- 'emailMessage', 'notificationOptions_emailMessage' - Text value to be included in the email body.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- 'emailMessage', 'notificationOptions_emailMessage' - Text value to be included in the email body.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'sendEmail', 'notificationOptions_sendEmail' - Boolean value to indicate an email notification should be sent to the</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- receipients.</span><span>
 </span><span id="line-50"></span><span class="annot"><a href="Network.AWS.WorkDocs.Types.NotificationOptions.html#newNotificationOptions"><span class="hs-identifier hs-type">newNotificationOptions</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-51"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.NotificationOptions.html#NotificationOptions"><span class="hs-identifier hs-type">NotificationOptions</span></a></span><span>
 </span><span id="line-52"></span><span id="newNotificationOptions"><span class="annot"><span class="annottext">newNotificationOptions :: NotificationOptions
 </span><a href="Network.AWS.WorkDocs.Types.NotificationOptions.html#newNotificationOptions"><span class="hs-identifier hs-var hs-var">newNotificationOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-53"></span><span>  </span><span class="annot"><span class="annottext">NotificationOptions' :: Maybe Bool -&gt; Maybe (Sensitive Text) -&gt; NotificationOptions
+</span><span id="line-53"></span><span>  </span><span class="annot"><span class="annottext">NotificationOptions' :: Maybe (Sensitive Text) -&gt; Maybe Bool -&gt; NotificationOptions
 </span><a href="Network.AWS.WorkDocs.Types.NotificationOptions.html#NotificationOptions%27"><span class="hs-identifier hs-type">NotificationOptions'</span></a></span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sendEmail:NotificationOptions' :: Maybe Bool
-</span><a href="Network.AWS.WorkDocs.Types.NotificationOptions.html#%24sel%3AsendEmail%3ANotificationOptions%27"><span class="hs-identifier hs-var">sendEmail</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-54"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:emailMessage:NotificationOptions' :: Maybe (Sensitive Text)
+</span><a href="Network.AWS.WorkDocs.Types.NotificationOptions.html#%24sel%3AemailMessage%3ANotificationOptions%27"><span class="hs-identifier hs-var">emailMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-55"></span><span>        </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span class="annot"><span class="annottext">$sel:emailMessage:NotificationOptions' :: Maybe (Sensitive Text)
-</span><a href="Network.AWS.WorkDocs.Types.NotificationOptions.html#%24sel%3AemailMessage%3ANotificationOptions%27"><span class="hs-identifier hs-var">emailMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">$sel:sendEmail:NotificationOptions' :: Maybe Bool
+</span><a href="Network.AWS.WorkDocs.Types.NotificationOptions.html#%24sel%3AsendEmail%3ANotificationOptions%27"><span class="hs-identifier hs-var">sendEmail</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- | Boolean value to indicate an email notification should be sent to the</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- receipients.</span><span>
-</span><span id="line-60"></span><span class="annot"><a href="Network.AWS.WorkDocs.Types.NotificationOptions.html#notificationOptions_sendEmail"><span class="hs-identifier hs-type">notificationOptions_sendEmail</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.NotificationOptions.html#NotificationOptions"><span class="hs-identifier hs-type">NotificationOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-61"></span><span id="notificationOptions_sendEmail"><span class="annot"><span class="annottext">notificationOptions_sendEmail :: (Maybe Bool -&gt; f (Maybe Bool))
--&gt; NotificationOptions -&gt; f NotificationOptions
-</span><a href="Network.AWS.WorkDocs.Types.NotificationOptions.html#notificationOptions_sendEmail"><span class="hs-identifier hs-var hs-var">notificationOptions_sendEmail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NotificationOptions -&gt; Maybe Bool)
--&gt; (NotificationOptions -&gt; Maybe Bool -&gt; NotificationOptions)
--&gt; Lens
-     NotificationOptions NotificationOptions (Maybe Bool) (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.NotificationOptions.html#NotificationOptions%27"><span class="hs-identifier hs-type">NotificationOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261224"><span class="annot"><span class="annottext">Maybe Bool
-sendEmail :: Maybe Bool
-$sel:sendEmail:NotificationOptions' :: NotificationOptions -&gt; Maybe Bool
-</span><a href="#local-6989586621679261224"><span class="hs-identifier hs-var hs-var">sendEmail</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679261224"><span class="hs-identifier hs-var">sendEmail</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261223"><span class="annot"><span class="annottext">s :: NotificationOptions
-</span><a href="#local-6989586621679261223"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.NotificationOptions.html#NotificationOptions%27"><span class="hs-identifier hs-type">NotificationOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261222"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679261222"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NotificationOptions
-</span><a href="#local-6989586621679261223"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sendEmail:NotificationOptions' :: Maybe Bool
-</span><a href="Network.AWS.WorkDocs.Types.NotificationOptions.html#%24sel%3AsendEmail%3ANotificationOptions%27"><span class="hs-identifier hs-var">sendEmail</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679261222"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.NotificationOptions.html#NotificationOptions"><span class="hs-identifier hs-type">NotificationOptions</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- | Text value to be included in the email body.</span><span>
-</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.WorkDocs.Types.NotificationOptions.html#notificationOptions_emailMessage"><span class="hs-identifier hs-type">notificationOptions_emailMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.NotificationOptions.html#NotificationOptions"><span class="hs-identifier hs-type">NotificationOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-65"></span><span id="notificationOptions_emailMessage"><span class="annot"><span class="annottext">notificationOptions_emailMessage :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-57"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- | Text value to be included in the email body.</span><span>
+</span><span id="line-60"></span><span class="annot"><a href="Network.AWS.WorkDocs.Types.NotificationOptions.html#notificationOptions_emailMessage"><span class="hs-identifier hs-type">notificationOptions_emailMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.NotificationOptions.html#NotificationOptions"><span class="hs-identifier hs-type">NotificationOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span id="notificationOptions_emailMessage"><span class="annot"><span class="annottext">notificationOptions_emailMessage :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; NotificationOptions -&gt; f NotificationOptions
 </span><a href="Network.AWS.WorkDocs.Types.NotificationOptions.html#notificationOptions_emailMessage"><span class="hs-identifier hs-var hs-var">notificationOptions_emailMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NotificationOptions -&gt; Maybe (Sensitive Text))
 -&gt; (NotificationOptions
@@ -132,16 +112,16 @@ $sel:sendEmail:NotificationOptions' :: NotificationOptions -&gt; Maybe Bool
      (Maybe (Sensitive Text))
      (Maybe (Sensitive Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.NotificationOptions.html#NotificationOptions%27"><span class="hs-identifier hs-type">NotificationOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261220"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.NotificationOptions.html#NotificationOptions%27"><span class="hs-identifier hs-type">NotificationOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261344"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 emailMessage :: Maybe (Sensitive Text)
 $sel:emailMessage:NotificationOptions' :: NotificationOptions -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679261220"><span class="hs-identifier hs-var hs-var">emailMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679261220"><span class="hs-identifier hs-var">emailMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261219"><span class="annot"><span class="annottext">s :: NotificationOptions
-</span><a href="#local-6989586621679261219"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.NotificationOptions.html#NotificationOptions%27"><span class="hs-identifier hs-type">NotificationOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261218"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679261218"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NotificationOptions
-</span><a href="#local-6989586621679261219"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:emailMessage:NotificationOptions' :: Maybe (Sensitive Text)
+</span><a href="#local-6989586621679261344"><span class="hs-identifier hs-var hs-var">emailMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679261344"><span class="hs-identifier hs-var">emailMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261343"><span class="annot"><span class="annottext">s :: NotificationOptions
+</span><a href="#local-6989586621679261343"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.NotificationOptions.html#NotificationOptions%27"><span class="hs-identifier hs-type">NotificationOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261342"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679261342"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NotificationOptions
+</span><a href="#local-6989586621679261343"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:emailMessage:NotificationOptions' :: Maybe (Sensitive Text)
 </span><a href="Network.AWS.WorkDocs.Types.NotificationOptions.html#%24sel%3AemailMessage%3ANotificationOptions%27"><span class="hs-identifier hs-var">emailMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679261218"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.NotificationOptions.html#NotificationOptions"><span class="hs-identifier hs-type">NotificationOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+</span><a href="#local-6989586621679261342"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.NotificationOptions.html#NotificationOptions"><span class="hs-identifier hs-type">NotificationOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
  -&gt; NotificationOptions -&gt; f NotificationOptions)
 -&gt; ((Maybe Text -&gt; f (Maybe Text))
     -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
@@ -161,39 +141,60 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
 forall a. Iso' (Sensitive a) a
 </span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
-</span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261211"><span id="local-6989586621679261213"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.NotificationOptions.html#NotificationOptions"><span class="hs-identifier hs-type">NotificationOptions</span></a></span></span></span><span>
-</span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261208"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.NotificationOptions.html#NotificationOptions"><span class="hs-identifier hs-type">NotificationOptions</span></a></span></span><span>
-</span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261200"><span id="local-6989586621679261202"><span id="local-6989586621679261204"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.NotificationOptions.html#NotificationOptions"><span class="hs-identifier hs-type">NotificationOptions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-72"></span><span>  </span><span id="local-6989586621679261198"><span class="annot"><span class="annottext">toJSON :: NotificationOptions -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.NotificationOptions.html#NotificationOptions%27"><span class="hs-identifier hs-type">NotificationOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261195"><span id="local-6989586621679261196"><span class="annot"><span class="annottext">Maybe Bool
-Maybe (Sensitive Text)
-emailMessage :: Maybe (Sensitive Text)
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- | Boolean value to indicate an email notification should be sent to the</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- receipients.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Network.AWS.WorkDocs.Types.NotificationOptions.html#notificationOptions_sendEmail"><span class="hs-identifier hs-type">notificationOptions_sendEmail</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.NotificationOptions.html#NotificationOptions"><span class="hs-identifier hs-type">NotificationOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span id="notificationOptions_sendEmail"><span class="annot"><span class="annottext">notificationOptions_sendEmail :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; NotificationOptions -&gt; f NotificationOptions
+</span><a href="Network.AWS.WorkDocs.Types.NotificationOptions.html#notificationOptions_sendEmail"><span class="hs-identifier hs-var hs-var">notificationOptions_sendEmail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NotificationOptions -&gt; Maybe Bool)
+-&gt; (NotificationOptions -&gt; Maybe Bool -&gt; NotificationOptions)
+-&gt; Lens
+     NotificationOptions NotificationOptions (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.NotificationOptions.html#NotificationOptions%27"><span class="hs-identifier hs-type">NotificationOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261337"><span class="annot"><span class="annottext">Maybe Bool
 sendEmail :: Maybe Bool
-$sel:emailMessage:NotificationOptions' :: NotificationOptions -&gt; Maybe (Sensitive Text)
 $sel:sendEmail:NotificationOptions' :: NotificationOptions -&gt; Maybe Bool
-</span><a href="#local-6989586621679261195"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-73"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><a href="#local-6989586621679261337"><span class="hs-identifier hs-var hs-var">sendEmail</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679261337"><span class="hs-identifier hs-var">sendEmail</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261336"><span class="annot"><span class="annottext">s :: NotificationOptions
+</span><a href="#local-6989586621679261336"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.NotificationOptions.html#NotificationOptions%27"><span class="hs-identifier hs-type">NotificationOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261335"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679261335"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NotificationOptions
+</span><a href="#local-6989586621679261336"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sendEmail:NotificationOptions' :: Maybe Bool
+</span><a href="Network.AWS.WorkDocs.Types.NotificationOptions.html#%24sel%3AsendEmail%3ANotificationOptions%27"><span class="hs-identifier hs-var">sendEmail</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679261335"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.NotificationOptions.html#NotificationOptions"><span class="hs-identifier hs-type">NotificationOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261331"><span id="local-6989586621679261333"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.NotificationOptions.html#NotificationOptions"><span class="hs-identifier hs-type">NotificationOptions</span></a></span></span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261328"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.NotificationOptions.html#NotificationOptions"><span class="hs-identifier hs-type">NotificationOptions</span></a></span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261320"><span id="local-6989586621679261322"><span id="local-6989586621679261324"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.NotificationOptions.html#NotificationOptions"><span class="hs-identifier hs-type">NotificationOptions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-73"></span><span>  </span><span id="local-6989586621679261318"><span class="annot"><span class="annottext">toJSON :: NotificationOptions -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.NotificationOptions.html#NotificationOptions%27"><span class="hs-identifier hs-type">NotificationOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261315"><span id="local-6989586621679261316"><span class="annot"><span class="annottext">Maybe Bool
+Maybe (Sensitive Text)
+sendEmail :: Maybe Bool
+emailMessage :: Maybe (Sensitive Text)
+$sel:sendEmail:NotificationOptions' :: NotificationOptions -&gt; Maybe Bool
+$sel:emailMessage:NotificationOptions' :: NotificationOptions -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679261315"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-74"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
-</span><span id="line-74"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+</span><span id="line-75"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
-</span><span id="line-75"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;SendEmail&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679261196"><span class="hs-identifier hs-var">sendEmail</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-76"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span id="line-76"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EmailMessage&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Sensitive Text -&gt; Pair) -&gt; Maybe (Sensitive Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679261195"><span class="hs-identifier hs-var">emailMessage</span></a></span><span>
-</span><span id="line-77"></span><span>          </span><span class="hs-special">]</span><span>
-</span><span id="line-78"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-79"></span></pre></body></html>
+</span><a href="#local-6989586621679261316"><span class="hs-identifier hs-var">emailMessage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SendEmail&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679261315"><span class="hs-identifier hs-var">sendEmail</span></a></span><span>
+</span><span id="line-78"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-79"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span></pre></body></html>

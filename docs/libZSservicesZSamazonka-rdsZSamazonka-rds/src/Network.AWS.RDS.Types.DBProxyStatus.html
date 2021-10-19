@@ -36,13 +36,13 @@
 </span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-37"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-38"></span><span>
-</span><span id="line-39"></span><span id="local-6989586621679758675"><span id="local-6989586621679758676"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DBProxyStatus"><span class="annot"><a href="Network.AWS.RDS.Types.DBProxyStatus.html#DBProxyStatus"><span class="hs-identifier hs-var">DBProxyStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DBProxyStatus%27"><span class="annot"><a href="Network.AWS.RDS.Types.DBProxyStatus.html#DBProxyStatus%27"><span class="hs-identifier hs-var">DBProxyStatus'</span></a></span></span><span>
+</span><span id="line-39"></span><span id="local-6989586621679759716"><span id="local-6989586621679759717"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DBProxyStatus"><span class="annot"><a href="Network.AWS.RDS.Types.DBProxyStatus.html#DBProxyStatus"><span class="hs-identifier hs-var">DBProxyStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DBProxyStatus%27"><span class="annot"><a href="Network.AWS.RDS.Types.DBProxyStatus.html#DBProxyStatus%27"><span class="hs-identifier hs-var">DBProxyStatus'</span></a></span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDBProxyStatus"><span class="annot"><span class="annottext">DBProxyStatus -&gt; Text
 </span><a href="Network.AWS.RDS.Types.DBProxyStatus.html#fromDBProxyStatus"><span class="hs-identifier hs-var hs-var">fromDBProxyStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-41"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679758667"><span id="local-6989586621679758669"><span id="local-6989586621679758671"><span class="annot"><span class="annottext">Int -&gt; DBProxyStatus -&gt; ShowS
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679759708"><span id="local-6989586621679759710"><span id="local-6989586621679759712"><span class="annot"><span class="annottext">Int -&gt; DBProxyStatus -&gt; ShowS
 [DBProxyStatus] -&gt; ShowS
 DBProxyStatus -&gt; String
 (Int -&gt; DBProxyStatus -&gt; ShowS)
@@ -58,7 +58,7 @@ $cshow :: DBProxyStatus -&gt; String
 showsPrec :: Int -&gt; DBProxyStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; DBProxyStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679758658"><span id="local-6989586621679758660"><span id="local-6989586621679758662"><span id="local-6989586621679758664"><span class="annot"><span class="annottext">ReadPrec [DBProxyStatus]
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679759699"><span id="local-6989586621679759701"><span id="local-6989586621679759703"><span id="local-6989586621679759705"><span class="annot"><span class="annottext">ReadPrec [DBProxyStatus]
 ReadPrec DBProxyStatus
 Int -&gt; ReadS DBProxyStatus
 ReadS [DBProxyStatus]
@@ -79,7 +79,7 @@ $creadList :: ReadS [DBProxyStatus]
 readsPrec :: Int -&gt; ReadS DBProxyStatus
 $creadsPrec :: Int -&gt; ReadS DBProxyStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679758653"><span id="local-6989586621679758655"><span class="annot"><span class="annottext">DBProxyStatus -&gt; DBProxyStatus -&gt; Bool
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679759694"><span id="local-6989586621679759696"><span class="annot"><span class="annottext">DBProxyStatus -&gt; DBProxyStatus -&gt; Bool
 (DBProxyStatus -&gt; DBProxyStatus -&gt; Bool)
 -&gt; (DBProxyStatus -&gt; DBProxyStatus -&gt; Bool) -&gt; Eq DBProxyStatus
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -88,7 +88,7 @@ $c/= :: DBProxyStatus -&gt; DBProxyStatus -&gt; Bool
 == :: DBProxyStatus -&gt; DBProxyStatus -&gt; Bool
 $c== :: DBProxyStatus -&gt; DBProxyStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679758637"><span id="local-6989586621679758639"><span id="local-6989586621679758641"><span id="local-6989586621679758643"><span id="local-6989586621679758645"><span id="local-6989586621679758647"><span id="local-6989586621679758649"><span class="annot"><span class="annottext">Eq DBProxyStatus
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679759678"><span id="local-6989586621679759680"><span id="local-6989586621679759682"><span id="local-6989586621679759684"><span id="local-6989586621679759686"><span id="local-6989586621679759688"><span id="local-6989586621679759690"><span class="annot"><span class="annottext">Eq DBProxyStatus
 Eq DBProxyStatus
 -&gt; (DBProxyStatus -&gt; DBProxyStatus -&gt; Ordering)
 -&gt; (DBProxyStatus -&gt; DBProxyStatus -&gt; Bool)
@@ -139,7 +139,7 @@ $cfrom :: forall x. DBProxyStatus -&gt; Rep DBProxyStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-49"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679758629"><span id="local-6989586621679758631"><span class="annot"><span class="annottext">Int -&gt; DBProxyStatus -&gt; Int
+</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679759670"><span id="local-6989586621679759672"><span class="annot"><span class="annottext">Int -&gt; DBProxyStatus -&gt; Int
 DBProxyStatus -&gt; Int
 (Int -&gt; DBProxyStatus -&gt; Int)
 -&gt; (DBProxyStatus -&gt; Int) -&gt; Hashable DBProxyStatus
@@ -149,49 +149,49 @@ $chash :: DBProxyStatus -&gt; Int
 hashWithSalt :: Int -&gt; DBProxyStatus -&gt; Int
 $chashWithSalt :: Int -&gt; DBProxyStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679758626"><span class="annot"><span class="annottext">DBProxyStatus -&gt; ()
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679759667"><span class="annot"><span class="annottext">DBProxyStatus -&gt; ()
 (DBProxyStatus -&gt; ()) -&gt; NFData DBProxyStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: DBProxyStatus -&gt; ()
 $crnf :: DBProxyStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679758623"><span class="annot"><span class="annottext">Text -&gt; Either String DBProxyStatus
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679759664"><span class="annot"><span class="annottext">Text -&gt; Either String DBProxyStatus
 (Text -&gt; Either String DBProxyStatus) -&gt; FromText DBProxyStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String DBProxyStatus
 $cfromText :: Text -&gt; Either String DBProxyStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679758620"><span class="annot"><span class="annottext">DBProxyStatus -&gt; Text
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679759661"><span class="annot"><span class="annottext">DBProxyStatus -&gt; Text
 (DBProxyStatus -&gt; Text) -&gt; ToText DBProxyStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: DBProxyStatus -&gt; Text
 $ctoText :: DBProxyStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679758617"><span class="annot"><span class="annottext">DBProxyStatus -&gt; ByteString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679759658"><span class="annot"><span class="annottext">DBProxyStatus -&gt; ByteString
 (DBProxyStatus -&gt; ByteString) -&gt; ToByteString DBProxyStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: DBProxyStatus -&gt; ByteString
 $ctoBS :: DBProxyStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679758614"><span class="annot"><span class="annottext">DBProxyStatus -&gt; ByteStringBuilder
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679759655"><span class="annot"><span class="annottext">DBProxyStatus -&gt; ByteStringBuilder
 (DBProxyStatus -&gt; ByteStringBuilder) -&gt; ToLog DBProxyStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: DBProxyStatus -&gt; ByteStringBuilder
 $cbuild :: DBProxyStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679758611"><span class="annot"><span class="annottext">HeaderName -&gt; DBProxyStatus -&gt; [Header]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679759652"><span class="annot"><span class="annottext">HeaderName -&gt; DBProxyStatus -&gt; [Header]
 (HeaderName -&gt; DBProxyStatus -&gt; [Header]) -&gt; ToHeader DBProxyStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; DBProxyStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; DBProxyStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679758608"><span class="annot"><span class="annottext">DBProxyStatus -&gt; QueryString
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679759649"><span class="annot"><span class="annottext">DBProxyStatus -&gt; QueryString
 (DBProxyStatus -&gt; QueryString) -&gt; ToQuery DBProxyStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: DBProxyStatus -&gt; QueryString
 $ctoQuery :: DBProxyStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679758603"><span id="local-6989586621679758605"><span class="annot"><span class="annottext">Value -&gt; Parser [DBProxyStatus]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679759644"><span id="local-6989586621679759646"><span class="annot"><span class="annottext">Value -&gt; Parser [DBProxyStatus]
 Value -&gt; Parser DBProxyStatus
 (Value -&gt; Parser DBProxyStatus)
 -&gt; (Value -&gt; Parser [DBProxyStatus]) -&gt; FromJSON DBProxyStatus
@@ -202,7 +202,7 @@ $cparseJSONList :: Value -&gt; Parser [DBProxyStatus]
 parseJSON :: Value -&gt; Parser DBProxyStatus
 $cparseJSON :: Value -&gt; Parser DBProxyStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679758598"><span id="local-6989586621679758600"><span class="annot"><span class="annottext">FromJSONKeyFunction [DBProxyStatus]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679759639"><span id="local-6989586621679759641"><span class="annot"><span class="annottext">FromJSONKeyFunction [DBProxyStatus]
 FromJSONKeyFunction DBProxyStatus
 FromJSONKeyFunction DBProxyStatus
 -&gt; FromJSONKeyFunction [DBProxyStatus] -&gt; FromJSONKey DBProxyStatus
@@ -213,7 +213,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [DBProxyStatus]
 fromJSONKey :: FromJSONKeyFunction DBProxyStatus
 $cfromJSONKey :: FromJSONKeyFunction DBProxyStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679758589"><span id="local-6989586621679758591"><span id="local-6989586621679758593"><span id="local-6989586621679758595"><span class="annot"><span class="annottext">[DBProxyStatus] -&gt; Encoding
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679759630"><span id="local-6989586621679759632"><span id="local-6989586621679759634"><span id="local-6989586621679759636"><span class="annot"><span class="annottext">[DBProxyStatus] -&gt; Encoding
 [DBProxyStatus] -&gt; Value
 DBProxyStatus -&gt; Encoding
 DBProxyStatus -&gt; Value
@@ -237,7 +237,7 @@ $ctoEncoding :: DBProxyStatus -&gt; Encoding
 toJSON :: DBProxyStatus -&gt; Value
 $ctoJSON :: DBProxyStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679758584"><span id="local-6989586621679758586"><span class="annot"><span class="annottext">ToJSONKeyFunction [DBProxyStatus]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679759625"><span id="local-6989586621679759627"><span class="annot"><span class="annottext">ToJSONKeyFunction [DBProxyStatus]
 ToJSONKeyFunction DBProxyStatus
 ToJSONKeyFunction DBProxyStatus
 -&gt; ToJSONKeyFunction [DBProxyStatus] -&gt; ToJSONKey DBProxyStatus
@@ -248,13 +248,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [DBProxyStatus]
 toJSONKey :: ToJSONKeyFunction DBProxyStatus
 $ctoJSONKey :: ToJSONKeyFunction DBProxyStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679758581"><span class="annot"><span class="annottext">[Node] -&gt; Either String DBProxyStatus
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679759622"><span class="annot"><span class="annottext">[Node] -&gt; Either String DBProxyStatus
 ([Node] -&gt; Either String DBProxyStatus) -&gt; FromXML DBProxyStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String DBProxyStatus
 $cparseXML :: [Node] -&gt; Either String DBProxyStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679758578"><span class="annot"><span class="annottext">DBProxyStatus -&gt; XML
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679759619"><span class="annot"><span class="annottext">DBProxyStatus -&gt; XML
 (DBProxyStatus -&gt; XML) -&gt; ToXML DBProxyStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: DBProxyStatus -&gt; XML

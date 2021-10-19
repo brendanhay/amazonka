@@ -26,18 +26,18 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Settings for for a PULL type input.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newInputSourceRequest' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679890470"><span id="local-6989586621679890471"></span></span><span class="hs-keyword">data</span><span> </span><span id="InputSourceRequest"><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSourceRequest.html#InputSourceRequest"><span class="hs-identifier hs-var">InputSourceRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InputSourceRequest%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSourceRequest.html#InputSourceRequest%27"><span class="hs-identifier hs-var">InputSourceRequest'</span></a></span></span><span>
-</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The key used to extract the password from EC2 Parameter store.</span><span>
-</span><span id="line-31"></span><span>    </span><span id="%24sel%3ApasswordParam%3AInputSourceRequest%27"><span class="annot"><span class="annottext">InputSourceRequest -&gt; Maybe Text
-</span><a href="Network.AWS.MediaLive.Types.InputSourceRequest.html#%24sel%3ApasswordParam%3AInputSourceRequest%27"><span class="hs-identifier hs-var hs-var">passwordParam</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679897134"><span id="local-6989586621679897135"></span></span><span class="hs-keyword">data</span><span> </span><span id="InputSourceRequest"><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSourceRequest.html#InputSourceRequest"><span class="hs-identifier hs-var">InputSourceRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InputSourceRequest%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSourceRequest.html#InputSourceRequest%27"><span class="hs-identifier hs-var">InputSourceRequest'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | This represents the customer\'s source URL where stream is pulled from.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3Aurl%3AInputSourceRequest%27"><span class="annot"><span class="annottext">InputSourceRequest -&gt; Maybe Text
+</span><a href="Network.AWS.MediaLive.Types.InputSourceRequest.html#%24sel%3Aurl%3AInputSourceRequest%27"><span class="hs-identifier hs-var hs-var">url</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The username for the input source.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Ausername%3AInputSourceRequest%27"><span class="annot"><span class="annottext">InputSourceRequest -&gt; Maybe Text
 </span><a href="Network.AWS.MediaLive.Types.InputSourceRequest.html#%24sel%3Ausername%3AInputSourceRequest%27"><span class="hs-identifier hs-var hs-var">username</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | This represents the customer\'s source URL where stream is pulled from.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3Aurl%3AInputSourceRequest%27"><span class="annot"><span class="annottext">InputSourceRequest -&gt; Maybe Text
-</span><a href="Network.AWS.MediaLive.Types.InputSourceRequest.html#%24sel%3Aurl%3AInputSourceRequest%27"><span class="hs-identifier hs-var hs-var">url</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The key used to extract the password from EC2 Parameter store.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3ApasswordParam%3AInputSourceRequest%27"><span class="annot"><span class="annottext">InputSourceRequest -&gt; Maybe Text
+</span><a href="Network.AWS.MediaLive.Types.InputSourceRequest.html#%24sel%3ApasswordParam%3AInputSourceRequest%27"><span class="hs-identifier hs-var hs-var">passwordParam</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679890462"><span id="local-6989586621679890464"><span class="annot"><span class="annottext">InputSourceRequest -&gt; InputSourceRequest -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679897126"><span id="local-6989586621679897128"><span class="annot"><span class="annottext">InputSourceRequest -&gt; InputSourceRequest -&gt; Bool
 (InputSourceRequest -&gt; InputSourceRequest -&gt; Bool)
 -&gt; (InputSourceRequest -&gt; InputSourceRequest -&gt; Bool)
 -&gt; Eq InputSourceRequest
@@ -46,7 +46,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: InputSourceRequest -&gt; InputSourceRequest -&gt; Bool
 == :: InputSourceRequest -&gt; InputSourceRequest -&gt; Bool
 $c== :: InputSourceRequest -&gt; InputSourceRequest -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679890453"><span id="local-6989586621679890455"><span id="local-6989586621679890457"><span id="local-6989586621679890459"><span class="annot"><span class="annottext">ReadPrec [InputSourceRequest]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679897117"><span id="local-6989586621679897119"><span id="local-6989586621679897121"><span id="local-6989586621679897123"><span class="annot"><span class="annottext">ReadPrec [InputSourceRequest]
 ReadPrec InputSourceRequest
 Int -&gt; ReadS InputSourceRequest
 ReadS [InputSourceRequest]
@@ -66,7 +66,7 @@ readList :: ReadS [InputSourceRequest]
 $creadList :: ReadS [InputSourceRequest]
 readsPrec :: Int -&gt; ReadS InputSourceRequest
 $creadsPrec :: Int -&gt; ReadS InputSourceRequest
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679890446"><span id="local-6989586621679890448"><span id="local-6989586621679890450"><span class="annot"><span class="annottext">Int -&gt; InputSourceRequest -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679897110"><span id="local-6989586621679897112"><span id="local-6989586621679897114"><span class="annot"><span class="annottext">Int -&gt; InputSourceRequest -&gt; ShowS
 [InputSourceRequest] -&gt; ShowS
 InputSourceRequest -&gt; String
 (Int -&gt; InputSourceRequest -&gt; ShowS)
@@ -100,132 +100,131 @@ $cfrom :: forall x. InputSourceRequest -&gt; Rep InputSourceRequest x
 </span><span id="line-44"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-45"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-46"></span><span class="hs-comment">--</span><span>
-</span><span id="line-47"></span><span class="hs-comment">-- 'passwordParam', 'inputSourceRequest_passwordParam' - The key used to extract the password from EC2 Parameter store.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'url', 'inputSourceRequest_url' - This represents the customer\'s source URL where stream is pulled from.</span><span>
 </span><span id="line-48"></span><span class="hs-comment">--</span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- 'username', 'inputSourceRequest_username' - The username for the input source.</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
-</span><span id="line-51"></span><span class="hs-comment">-- 'url', 'inputSourceRequest_url' - This represents the customer\'s source URL where stream is pulled from.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'passwordParam', 'inputSourceRequest_passwordParam' - The key used to extract the password from EC2 Parameter store.</span><span>
 </span><span id="line-52"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSourceRequest.html#newInputSourceRequest"><span class="hs-identifier hs-type">newInputSourceRequest</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-53"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSourceRequest.html#InputSourceRequest"><span class="hs-identifier hs-type">InputSourceRequest</span></a></span><span>
 </span><span id="line-54"></span><span id="newInputSourceRequest"><span class="annot"><span class="annottext">newInputSourceRequest :: InputSourceRequest
 </span><a href="Network.AWS.MediaLive.Types.InputSourceRequest.html#newInputSourceRequest"><span class="hs-identifier hs-var hs-var">newInputSourceRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">InputSourceRequest' :: Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; InputSourceRequest
 </span><a href="Network.AWS.MediaLive.Types.InputSourceRequest.html#InputSourceRequest%27"><span class="hs-identifier hs-type">InputSourceRequest'</span></a></span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:passwordParam:InputSourceRequest' :: Maybe Text
-</span><a href="Network.AWS.MediaLive.Types.InputSourceRequest.html#%24sel%3ApasswordParam%3AInputSourceRequest%27"><span class="hs-identifier hs-var">passwordParam</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-57"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:username:InputSourceRequest' :: Maybe Text
-</span><a href="Network.AWS.MediaLive.Types.InputSourceRequest.html#%24sel%3Ausername%3AInputSourceRequest%27"><span class="hs-identifier hs-var">username</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:url:InputSourceRequest' :: Maybe Text
+</span><span id="line-56"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:url:InputSourceRequest' :: Maybe Text
 </span><a href="Network.AWS.MediaLive.Types.InputSourceRequest.html#%24sel%3Aurl%3AInputSourceRequest%27"><span class="hs-identifier hs-var">url</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- | The key used to extract the password from EC2 Parameter store.</span><span>
-</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSourceRequest.html#inputSourceRequest_passwordParam"><span class="hs-identifier hs-type">inputSourceRequest_passwordParam</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSourceRequest.html#InputSourceRequest"><span class="hs-identifier hs-type">InputSourceRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-64"></span><span id="inputSourceRequest_passwordParam"><span class="annot"><span class="annottext">inputSourceRequest_passwordParam :: (Maybe Text -&gt; f (Maybe Text))
--&gt; InputSourceRequest -&gt; f InputSourceRequest
-</span><a href="Network.AWS.MediaLive.Types.InputSourceRequest.html#inputSourceRequest_passwordParam"><span class="hs-identifier hs-var hs-var">inputSourceRequest_passwordParam</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InputSourceRequest -&gt; Maybe Text)
--&gt; (InputSourceRequest -&gt; Maybe Text -&gt; InputSourceRequest)
--&gt; Lens
-     InputSourceRequest InputSourceRequest (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSourceRequest.html#InputSourceRequest%27"><span class="hs-identifier hs-type">InputSourceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679890437"><span class="annot"><span class="annottext">Maybe Text
-passwordParam :: Maybe Text
-$sel:passwordParam:InputSourceRequest' :: InputSourceRequest -&gt; Maybe Text
-</span><a href="#local-6989586621679890437"><span class="hs-identifier hs-var hs-var">passwordParam</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679890437"><span class="hs-identifier hs-var">passwordParam</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679890436"><span class="annot"><span class="annottext">s :: InputSourceRequest
-</span><a href="#local-6989586621679890436"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSourceRequest.html#InputSourceRequest%27"><span class="hs-identifier hs-type">InputSourceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679890435"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679890435"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputSourceRequest
-</span><a href="#local-6989586621679890436"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:passwordParam:InputSourceRequest' :: Maybe Text
-</span><a href="Network.AWS.MediaLive.Types.InputSourceRequest.html#%24sel%3ApasswordParam%3AInputSourceRequest%27"><span class="hs-identifier hs-var">passwordParam</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679890435"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSourceRequest.html#InputSourceRequest"><span class="hs-identifier hs-type">InputSourceRequest</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- | The username for the input source.</span><span>
-</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSourceRequest.html#inputSourceRequest_username"><span class="hs-identifier hs-type">inputSourceRequest_username</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSourceRequest.html#InputSourceRequest"><span class="hs-identifier hs-type">InputSourceRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-68"></span><span id="inputSourceRequest_username"><span class="annot"><span class="annottext">inputSourceRequest_username :: (Maybe Text -&gt; f (Maybe Text))
--&gt; InputSourceRequest -&gt; f InputSourceRequest
-</span><a href="Network.AWS.MediaLive.Types.InputSourceRequest.html#inputSourceRequest_username"><span class="hs-identifier hs-var hs-var">inputSourceRequest_username</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InputSourceRequest -&gt; Maybe Text)
--&gt; (InputSourceRequest -&gt; Maybe Text -&gt; InputSourceRequest)
--&gt; Lens
-     InputSourceRequest InputSourceRequest (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSourceRequest.html#InputSourceRequest%27"><span class="hs-identifier hs-type">InputSourceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679890433"><span class="annot"><span class="annottext">Maybe Text
-username :: Maybe Text
-$sel:username:InputSourceRequest' :: InputSourceRequest -&gt; Maybe Text
-</span><a href="#local-6989586621679890433"><span class="hs-identifier hs-var hs-var">username</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679890433"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679890432"><span class="annot"><span class="annottext">s :: InputSourceRequest
-</span><a href="#local-6989586621679890432"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSourceRequest.html#InputSourceRequest%27"><span class="hs-identifier hs-type">InputSourceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679890431"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679890431"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputSourceRequest
-</span><a href="#local-6989586621679890432"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:username:InputSourceRequest' :: Maybe Text
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">$sel:username:InputSourceRequest' :: Maybe Text
 </span><a href="Network.AWS.MediaLive.Types.InputSourceRequest.html#%24sel%3Ausername%3AInputSourceRequest%27"><span class="hs-identifier hs-var">username</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679890431"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSourceRequest.html#InputSourceRequest"><span class="hs-identifier hs-type">InputSourceRequest</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- | This represents the customer\'s source URL where stream is pulled from.</span><span>
-</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSourceRequest.html#inputSourceRequest_url"><span class="hs-identifier hs-type">inputSourceRequest_url</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSourceRequest.html#InputSourceRequest"><span class="hs-identifier hs-type">InputSourceRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-72"></span><span id="inputSourceRequest_url"><span class="annot"><span class="annottext">inputSourceRequest_url :: (Maybe Text -&gt; f (Maybe Text))
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:passwordParam:InputSourceRequest' :: Maybe Text
+</span><a href="Network.AWS.MediaLive.Types.InputSourceRequest.html#%24sel%3ApasswordParam%3AInputSourceRequest%27"><span class="hs-identifier hs-var">passwordParam</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | This represents the customer\'s source URL where stream is pulled from.</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSourceRequest.html#inputSourceRequest_url"><span class="hs-identifier hs-type">inputSourceRequest_url</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSourceRequest.html#InputSourceRequest"><span class="hs-identifier hs-type">InputSourceRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span id="inputSourceRequest_url"><span class="annot"><span class="annottext">inputSourceRequest_url :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; InputSourceRequest -&gt; f InputSourceRequest
 </span><a href="Network.AWS.MediaLive.Types.InputSourceRequest.html#inputSourceRequest_url"><span class="hs-identifier hs-var hs-var">inputSourceRequest_url</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InputSourceRequest -&gt; Maybe Text)
 -&gt; (InputSourceRequest -&gt; Maybe Text -&gt; InputSourceRequest)
 -&gt; Lens
      InputSourceRequest InputSourceRequest (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSourceRequest.html#InputSourceRequest%27"><span class="hs-identifier hs-type">InputSourceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679890429"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSourceRequest.html#InputSourceRequest%27"><span class="hs-identifier hs-type">InputSourceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679897101"><span class="annot"><span class="annottext">Maybe Text
 url :: Maybe Text
 $sel:url:InputSourceRequest' :: InputSourceRequest -&gt; Maybe Text
-</span><a href="#local-6989586621679890429"><span class="hs-identifier hs-var hs-var">url</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679890429"><span class="hs-identifier hs-var">url</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679890428"><span class="annot"><span class="annottext">s :: InputSourceRequest
-</span><a href="#local-6989586621679890428"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSourceRequest.html#InputSourceRequest%27"><span class="hs-identifier hs-type">InputSourceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679890427"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679890427"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputSourceRequest
-</span><a href="#local-6989586621679890428"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:url:InputSourceRequest' :: Maybe Text
+</span><a href="#local-6989586621679897101"><span class="hs-identifier hs-var hs-var">url</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679897101"><span class="hs-identifier hs-var">url</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679897100"><span class="annot"><span class="annottext">s :: InputSourceRequest
+</span><a href="#local-6989586621679897100"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSourceRequest.html#InputSourceRequest%27"><span class="hs-identifier hs-type">InputSourceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679897099"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679897099"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputSourceRequest
+</span><a href="#local-6989586621679897100"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:url:InputSourceRequest' :: Maybe Text
 </span><a href="Network.AWS.MediaLive.Types.InputSourceRequest.html#%24sel%3Aurl%3AInputSourceRequest%27"><span class="hs-identifier hs-var">url</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679890427"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSourceRequest.html#InputSourceRequest"><span class="hs-identifier hs-type">InputSourceRequest</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679890423"><span id="local-6989586621679890425"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSourceRequest.html#InputSourceRequest"><span class="hs-identifier hs-type">InputSourceRequest</span></a></span></span></span><span>
-</span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679890420"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSourceRequest.html#InputSourceRequest"><span class="hs-identifier hs-type">InputSourceRequest</span></a></span></span><span>
-</span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679890412"><span id="local-6989586621679890414"><span id="local-6989586621679890416"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSourceRequest.html#InputSourceRequest"><span class="hs-identifier hs-type">InputSourceRequest</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679890410"><span class="annot"><span class="annottext">toJSON :: InputSourceRequest -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSourceRequest.html#InputSourceRequest%27"><span class="hs-identifier hs-type">InputSourceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679890406"><span id="local-6989586621679890407"><span id="local-6989586621679890408"><span class="annot"><span class="annottext">Maybe Text
-url :: Maybe Text
+</span><a href="#local-6989586621679897099"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSourceRequest.html#InputSourceRequest"><span class="hs-identifier hs-type">InputSourceRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- | The username for the input source.</span><span>
+</span><span id="line-66"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSourceRequest.html#inputSourceRequest_username"><span class="hs-identifier hs-type">inputSourceRequest_username</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSourceRequest.html#InputSourceRequest"><span class="hs-identifier hs-type">InputSourceRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span id="inputSourceRequest_username"><span class="annot"><span class="annottext">inputSourceRequest_username :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InputSourceRequest -&gt; f InputSourceRequest
+</span><a href="Network.AWS.MediaLive.Types.InputSourceRequest.html#inputSourceRequest_username"><span class="hs-identifier hs-var hs-var">inputSourceRequest_username</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InputSourceRequest -&gt; Maybe Text)
+-&gt; (InputSourceRequest -&gt; Maybe Text -&gt; InputSourceRequest)
+-&gt; Lens
+     InputSourceRequest InputSourceRequest (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSourceRequest.html#InputSourceRequest%27"><span class="hs-identifier hs-type">InputSourceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679897097"><span class="annot"><span class="annottext">Maybe Text
 username :: Maybe Text
-passwordParam :: Maybe Text
-$sel:url:InputSourceRequest' :: InputSourceRequest -&gt; Maybe Text
 $sel:username:InputSourceRequest' :: InputSourceRequest -&gt; Maybe Text
+</span><a href="#local-6989586621679897097"><span class="hs-identifier hs-var hs-var">username</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679897097"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679897096"><span class="annot"><span class="annottext">s :: InputSourceRequest
+</span><a href="#local-6989586621679897096"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSourceRequest.html#InputSourceRequest%27"><span class="hs-identifier hs-type">InputSourceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679897095"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679897095"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputSourceRequest
+</span><a href="#local-6989586621679897096"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:username:InputSourceRequest' :: Maybe Text
+</span><a href="Network.AWS.MediaLive.Types.InputSourceRequest.html#%24sel%3Ausername%3AInputSourceRequest%27"><span class="hs-identifier hs-var">username</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679897095"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSourceRequest.html#InputSourceRequest"><span class="hs-identifier hs-type">InputSourceRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- | The key used to extract the password from EC2 Parameter store.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSourceRequest.html#inputSourceRequest_passwordParam"><span class="hs-identifier hs-type">inputSourceRequest_passwordParam</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSourceRequest.html#InputSourceRequest"><span class="hs-identifier hs-type">InputSourceRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span id="inputSourceRequest_passwordParam"><span class="annot"><span class="annottext">inputSourceRequest_passwordParam :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InputSourceRequest -&gt; f InputSourceRequest
+</span><a href="Network.AWS.MediaLive.Types.InputSourceRequest.html#inputSourceRequest_passwordParam"><span class="hs-identifier hs-var hs-var">inputSourceRequest_passwordParam</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InputSourceRequest -&gt; Maybe Text)
+-&gt; (InputSourceRequest -&gt; Maybe Text -&gt; InputSourceRequest)
+-&gt; Lens
+     InputSourceRequest InputSourceRequest (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSourceRequest.html#InputSourceRequest%27"><span class="hs-identifier hs-type">InputSourceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679897093"><span class="annot"><span class="annottext">Maybe Text
+passwordParam :: Maybe Text
 $sel:passwordParam:InputSourceRequest' :: InputSourceRequest -&gt; Maybe Text
-</span><a href="#local-6989586621679890406"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-80"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><a href="#local-6989586621679897093"><span class="hs-identifier hs-var hs-var">passwordParam</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679897093"><span class="hs-identifier hs-var">passwordParam</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679897092"><span class="annot"><span class="annottext">s :: InputSourceRequest
+</span><a href="#local-6989586621679897092"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSourceRequest.html#InputSourceRequest%27"><span class="hs-identifier hs-type">InputSourceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679897091"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679897091"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputSourceRequest
+</span><a href="#local-6989586621679897092"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:passwordParam:InputSourceRequest' :: Maybe Text
+</span><a href="Network.AWS.MediaLive.Types.InputSourceRequest.html#%24sel%3ApasswordParam%3AInputSourceRequest%27"><span class="hs-identifier hs-var">passwordParam</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679897091"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSourceRequest.html#InputSourceRequest"><span class="hs-identifier hs-type">InputSourceRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679897087"><span id="local-6989586621679897089"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSourceRequest.html#InputSourceRequest"><span class="hs-identifier hs-type">InputSourceRequest</span></a></span></span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679897084"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSourceRequest.html#InputSourceRequest"><span class="hs-identifier hs-type">InputSourceRequest</span></a></span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679897076"><span id="local-6989586621679897078"><span id="local-6989586621679897080"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSourceRequest.html#InputSourceRequest"><span class="hs-identifier hs-type">InputSourceRequest</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679897074"><span class="annot"><span class="annottext">toJSON :: InputSourceRequest -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSourceRequest.html#InputSourceRequest%27"><span class="hs-identifier hs-type">InputSourceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679897070"><span id="local-6989586621679897071"><span id="local-6989586621679897072"><span class="annot"><span class="annottext">Maybe Text
+passwordParam :: Maybe Text
+username :: Maybe Text
+url :: Maybe Text
+$sel:passwordParam:InputSourceRequest' :: InputSourceRequest -&gt; Maybe Text
+$sel:username:InputSourceRequest' :: InputSourceRequest -&gt; Maybe Text
+$sel:url:InputSourceRequest' :: InputSourceRequest -&gt; Maybe Text
+</span><a href="#local-6989586621679897070"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
-</span><span id="line-81"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
-</span><span id="line-82"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;passwordParam&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679890408"><span class="hs-identifier hs-var">passwordParam</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-83"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;username&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679890407"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-84"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span id="line-81"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;url&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679890406"><span class="hs-identifier hs-var">url</span></a></span><span>
-</span><span id="line-85"></span><span>          </span><span class="hs-special">]</span><span>
-</span><span id="line-86"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-87"></span></pre></body></html>
+</span><a href="#local-6989586621679897072"><span class="hs-identifier hs-var">url</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;username&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679897071"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;passwordParam&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679897070"><span class="hs-identifier hs-var">passwordParam</span></a></span><span>
+</span><span id="line-84"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span></pre></body></html>
